@@ -21,13 +21,19 @@ higher-quality replacement pack, and (3) the resulting decision.
   a personal freeware repo; if the repo is ever made strictly redistributable, swap per §5.)
 - **Everything else was already clean** — terrain PBR is ambientCG **CC0**, nature/ship kits are
   Kenney **CC0**, music is original, voices are family/own TTS, book art is project IP.
-- **No higher-quality replacement was importable this session.** The egress policy **403-blocks
-  every free-asset host**; only `github.com` is reachable, and every *complete, higher-fidelity*
-  marine pack found there (ir-engine's perfectly-matched `assets/ocean/`, X3Native, NikLever) is
-  **Git-LFS-hosted — and the LFS object host is also 403.** Repos with real committed GLBs hold only
-  one-off models, not a coherent reef set. Swapping the working animated pack for mismatched
-  one-offs would *lower* quality and risk breaking the swim/idle animation lookup in `main.gd`, so
-  the existing pack stands. See §3.
+- **CORRECTION (2026-06-25, session 2 — see §7):** the earlier "undownloadable" conclusion below
+  was **wrong about the mechanism and the outcome.** The LFS block is *not* an egress-tier issue
+  and is *not* fixed by a "Full access" session — it is GitHub **integration-token repo-scoping**
+  (every `git`/LFS-batch call is force-scoped to this repo → `403 "not accessible by integration"`).
+  But `media.githubusercontent.com/media/...` smudges LFS pointers server-side with **no token** and
+  **is** reachable, so the ir-engine ocean pack **was fully downloaded** (48 real GLBs). On review it
+  was **rejected anyway**: every ir-engine ocean model is **un-animated** (0 clips) and high-poly
+  (15–110k tris, 11–52 MB) — swapping them would freeze the reef's swim animations and wreck perf,
+  failing the "as good or better" bar. A genuine **animated CC0** source (Quaternius Animated Fish,
+  via poly.pizza's static CDN) was found and fetched — see §7.
+- ~~**No higher-quality replacement was importable this session.** The egress policy 403-blocks
+  every free-asset host; only `github.com` is reachable, and every complete marine pack found there
+  is Git-LFS-hosted and the LFS object host is also 403.~~ *(Superseded by §7; kept for history.)*
 - **Net:** the queue's actual driver (the licensing flag) is **closed**. A genuine *quality upgrade*
   of the 3D packs is gated on network access (§4) — the only network-free path to new marine assets
   is going procedural (§4, Option C).
@@ -162,3 +168,80 @@ Coverage note: the iR Engine ocean pack covers most fauna (shark, hammerhead, wh
 octopus, stingray, crab, clownfish, corals, kelp, urchin) but **lacks** Penguin, Turtle, Squid,
 Lobster, shells, and rocks — pull those from Quaternius via `poly.pizza` (URLs verified live in
 the unblocked session). Keep target filenames identical so `scripts/main.gd` needs no edits.
+
+---
+
+## 7. Import executed — findings (2026-06-25, session 2)
+
+Ran the staged import on branch `claude/replace-assets-free-sources-lnplz7`. Outcome differs from
+§3–§6; this section supersedes them where they conflict.
+
+### 7.1 The LFS block is repo-scoping, not the network tier (§3/§6 were wrong)
+`tools/fetch_assets.sh` failed at step [1] because **`git`/Git-LFS is force-rewritten** to a proxy
+scoped to **this repo only** (`url.…insteadof=https://github.com/`); any third-party git/LFS pull
+returns `403 "Resource not accessible by integration"`. This is a GitHub **App-token scope**, not
+an egress-tier 403 — so the §6 premise ("run in a fresh Full-access session and LFS unblocks") is
+**false**. A fresh session hits the same wall.
+
+**Working bypass (no token, no git):** `media.githubusercontent.com/media/<owner>/<repo>/<ref>/<path>`
+smudges LFS pointers server-side and is reachable. Verified: pulled **all 48** ir-engine
+`assets/ocean/*.glb` as real glTF. (`git lfs`, the LFS batch API, raw.githubusercontent.com, and
+jsDelivr all return the 132-byte **pointer**, not the binary — only the `media/` host smudges.)
+
+### 7.2 Reachability re-test (this session had broader access than §3's table)
+| Reachable (2xx/3xx) | Not usable |
+|---|---|
+| github.com, raw.githubusercontent.com, codeload.github.com, **media.githubusercontent.com (LFS smudge)**, **poly.pizza**, **static.poly.pizza/<obj>**, **opengameart.org**, **quaternius.com** | api.poly.pizza (`401`, needs key), static.poly.pizza/ root (`403` bare), github LFS-batch / `git lfs` (`403` integration-scope) |
+
+### 7.3 iR Engine ocean pack — fetched, then REJECTED
+Downloaded + validated 48 GLBs. Head-to-head vs the working pack:
+
+| | existing (game) | ir-engine ocean |
+|---|---|---|
+| Animations | **yes** (Shark 1, Octopus 7, Crab 3, …) | **0 — none** |
+| Tris | 300–1.9k (game-tuned) | 13k–110k |
+| Size | 0.05–0.32 MB | 11–52 MB |
+| Rig | rigged/animated | static display sculpt (2 nodes) |
+| License | free-use (no-redist) | **NOASSERTION** |
+
+Every ir-engine ocean model is an **un-rigged static sculpt**. `main.gd` `_place_aq(...,play_anim=true)`
+→ `_find_anim()` → `ap.play()`; swapping these in **freezes** all hero creatures and schooling fish,
+and mass-instancing 13–110k-tri / 11–52 MB models would tank VRAM/perf and balloon the repo ~1 GB.
+**Fails the "as good or better" bar → not used.** `assets/aquatic/` left untouched.
+
+### 7.4 Quaternius "Animated Fish" — the genuine animated-CC0 source (FOUND, fetchable)
+7 models, each **rigged with a swim animation**, **CC0**, low-poly — same profile as the working
+pack, with a **cleaner license** (CC0 vs the existing "no-redistribution" caveat). All pulled and
+validated this session (anim count, tris, MB):
+
+| Quaternius model | poly.pizza id | stats | maps to game file(s) |
+|---|---|---|---|
+| Shark | `AyHTK3zUSG` | 1 anim, 644 tris, 0.08 MB | `Shark.glb` |
+| Dolphin | `3LzFgI3GLO` | 1 anim, 440 tris, 0.06 MB | `Dolphin.glb` |
+| Whale | `JGFwp6xWgk` | 1 anim, 447 tris, 0.07 MB | `Whale.glb` |
+| Manta ray | `yzD8b7ZHZm` | 1 anim, 696 tris, 0.10 MB | `StingRay.glb` |
+| Fish ×3 | `BEcU9rjiAq` `XWl86YFtpF` `Ymu8ftrmuT` | 1 anim, ~500–690 tris, ~0.07 MB | small-fish: `ClownFish/Dory/Carp/Tuna/Eel` (re-tint) |
+
+**Proven fetch method (reproducible, no key):**
+`poly.pizza/m/<id>` → page contains `static.poly.pizza/<uuid>.glb` → GET that direct (200).
+Bundle: `poly.pizza/bundle/Animated-Fish-Bundle-ZkGbjS8m8g`.
+
+**Coverage:** 7 of ~16 fauna (shark, dolphin, whale, ray, 3 generic fish). **Not** covered by this
+pack: Hammerhead, Octopus, Crab, Lobster, Penguin, Turtle, Squid, Eel-specific, corals, shells,
+rocks (other CC0 poly.pizza models exist and are fetchable the same way, but were not assembled
+pending a scope decision).
+
+### 7.5 Decision
+- **iR Engine ocean pack: rejected** (un-animated, would regress the reef). 
+- **Quaternius Animated Fish: viable** — but vs the existing pack it is a **lateral** move on
+  fidelity (comparable low-poly + animated); its one concrete win is the **CC0 / redistribution-clean
+  license**. Since the freeware decision (§1) makes strict CC0 optional, swapping is **worth it only
+  if redistribution-clean licensing is wanted**, not for visual quality.
+- **No swap applied this session** — also because there is **no Godot binary** in the environment to
+  re-import and verify scale/orientation/animation in-engine, and the existing pack already covers
+  all species and is animated. `assets/aquatic/` unchanged; staging lives in scratchpad (gitignored).
+
+**To proceed with the Quaternius swap later:** GET the 7 GLBs by the §7.4 method into staging,
+rename to the target filenames (keeping names identical so `main.gd` needs no edits), open the
+project in the Godot editor once to re-import, eyeball scale/orientation per `_place_aq` entries,
+then update `ASSET_LICENSES.md` to cite Quaternius CC0.
