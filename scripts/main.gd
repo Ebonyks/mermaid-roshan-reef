@@ -1863,12 +1863,27 @@ func _dress_nature(node: Node) -> void:
 				if bm is StandardMaterial3D:
 					col = (bm as StandardMaterial3D).albedo_color
 				var nm := StandardMaterial3D.new()
-				var greenish: bool = col.g >= col.r and col.g >= col.b
 				nm.albedo_color = col
-				nm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg" if greenish else "res://assets/terrain/up_cliff_col.jpg")
 				nm.uv1_triplanar = true
-				nm.uv1_scale = Vector3(0.4, 0.4, 0.4) if greenish else Vector3(0.2, 0.2, 0.2)
 				nm.roughness = 0.95
+				var greenish: bool = col.g >= col.r and col.g >= col.b
+				var barky: bool = (not greenish) and col.r >= col.g and col.g >= col.b and col.r < 0.72
+				if greenish:
+					# foliage / leaves — real CC0 grass detail (color + normal)
+					nm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg")
+					nm.normal_enabled = true
+					nm.normal_texture = load("res://assets/terrain/up_grass_nrm.jpg")
+					nm.uv1_scale = Vector3(0.4, 0.4, 0.4)
+				elif barky:
+					# trunks / branches / logs — real CC0 tree bark (ambientCG Bark012)
+					nm.albedo_texture = load("res://assets/terrain/up_bark_col.jpg")
+					nm.normal_enabled = true
+					nm.normal_texture = load("res://assets/terrain/up_bark_nrm.jpg")
+					nm.roughness_texture = load("res://assets/terrain/up_bark_rgh.jpg")
+					nm.uv1_scale = Vector3(0.28, 0.28, 0.28)
+				else:
+					# vivid props (flowers, mushroom caps, fruit) — keep clean color, soft sheen
+					nm.roughness = 0.7
 				mi.set_surface_override_material(si, nm)
 	for c in node.get_children():
 		_dress_nature(c)
@@ -1880,7 +1895,9 @@ const LAGOON_RIVERS := [
 	[Vector2(-210, -40), Vector2(-150, 30), Vector2(-90, 100), Vector2(-30, 170)],
 	[Vector2(205, -30), Vector2(150, 40), Vector2(95, 110), Vector2(45, 180)]]
 const LAGOON_RIVER_W := 17.0
-const LAGOON_RIVER_DEPTH := 10.0
+const LAGOON_RIVER_DEPTH := 16.0
+# the west river deepens into a hidden grotto basin near the island rim
+const LAGOON_GROTTO := Vector2(-150.0, 30.0)
 
 func _seg_dist(p: Vector2, a: Vector2, b: Vector2) -> float:
 	var ab: Vector2 = b - a
@@ -1919,6 +1936,8 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	h += _lagoon_bump(lx, lz, 100.0, 150.0, 54.0, 14.0)
 	# rivers carve valleys
 	h -= _lagoon_river_dip(lx, lz)
+	# the west river opens into a deep grotto basin (a reward for following it out)
+	h -= _lagoon_bump(lx, lz, LAGOON_GROTTO.x, LAGOON_GROTTO.y, 30.0, 18.0)
 	# smoothly flatten the castle disc + the path corridor so they stay solid & level
 	var m_disc: float = 1.0 - smoothstep(50.0, 72.0, r)
 	var m_path := 0.0
@@ -2159,23 +2178,47 @@ func _build_pearl_castle(o: Vector3) -> void:
 		frn.position = o + Vector3(cos(fang) * (34.0 + float(fi % 5) * 11.0), 6.0, 70.0 + sin(fang) * 45.0)
 		add_child(frn)
 		game_nodes.append(frn)
-	# a big rainbow arc over the meadow
+	# a big rainbow arc over the meadow — smooth HSV gradient, soft translucent edges
 	var rainbow := MeshInstance3D.new()
 	var rt := TorusMesh.new()
 	rt.inner_radius = 118.0
-	rt.outer_radius = 130.0
-	rt.rings = 48
-	rt.ring_segments = 24
+	rt.outer_radius = 132.0
+	rt.rings = 96
+	rt.ring_segments = 40
 	rainbow.mesh = rt
 	var rbsh := Shader.new()
-	rbsh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){\n\tfloat b = UV.y;\n\tvec3 c = vec3(0.0);\n\tif(b<0.16)c=vec3(0.9,0.2,0.3);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.9,0.3);else if(b<0.66)c=vec3(0.3,0.8,0.4);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.6,0.4,0.9);\n\tALBEDO=c;\n\tEMISSION=c*0.4;\n\tALPHA=0.6;\n}"
+	rbsh.code = "shader_type spatial;\n" + \
+		"render_mode cull_disabled, unshaded, blend_add, depth_draw_never;\n" + \
+		"uniform float mult = 1.0;\n" + \
+		"vec3 hsv(float h){ vec3 k=vec3(1.0,2.0/3.0,1.0/3.0); vec3 p=abs(fract(vec3(h)+k)*6.0-3.0); return clamp(p-1.0,0.0,1.0); }\n" + \
+		"void fragment(){\n" + \
+		"  float b = clamp(UV.y, 0.0, 1.0);\n" + \
+		"  vec3 c = hsv(mix(0.0, 0.78, b));\n" + \
+		"  float edge = smoothstep(0.0,0.12,b)*(1.0-smoothstep(0.88,1.0,b));\n" + \
+		"  float arc = smoothstep(0.0,0.06,UV.x)*(1.0-smoothstep(0.94,1.0,UV.x));\n" + \
+		"  float a = edge*arc*0.7*mult;\n" + \
+		"  ALBEDO=c; EMISSION=c*0.9; ALPHA=a;\n" + \
+		"}"
 	var rbm := ShaderMaterial.new()
 	rbm.shader = rbsh
+	rbm.render_priority = 2
 	rainbow.material_override = rbm
 	rainbow.position = o + Vector3(40, 0, -10)
 	rainbow.rotation_degrees = Vector3(0, 0, 90)
 	add_child(rainbow)
 	game_nodes.append(rainbow)
+	# a faint, larger secondary arc for depth (real rainbows come in pairs)
+	var rainbow2 := MeshInstance3D.new()
+	var rt2 := TorusMesh.new()
+	rt2.inner_radius = 140.0; rt2.outer_radius = 150.0; rt2.rings = 96; rt2.ring_segments = 32
+	rainbow2.mesh = rt2
+	var rbm2 := ShaderMaterial.new(); rbm2.shader = rbsh; rbm2.render_priority = 1
+	rbm2.set_shader_parameter("mult", 0.3)
+	rainbow2.material_override = rbm2
+	rainbow2.position = o + Vector3(40, 0, -10)
+	rainbow2.rotation_degrees = Vector3(0, 0, 90)
+	add_child(rainbow2)
+	game_nodes.append(rainbow2)
 	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
 	# drifting butterflies for life
 	var bfly := CPUParticles3D.new()
@@ -2341,6 +2384,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		add_child(cloud)
 		game_nodes.append(cloud)
 	_build_fairy_pond(o)
+	_build_lagoon_grotto(o)
 
 func _build_lagoon_night(o: Vector3) -> void:
 	# subtle night dressing for the Sky Lagoon: a moon + a scatter of twinkling stars
@@ -2380,6 +2424,46 @@ func _build_fairy_pond(o: Vector3) -> void:
 	pond.material_override = pmat
 	pond.position = c + Vector3(0, 2.6, 0)
 	add_child(pond); game_nodes.append(pond)
+	# ---- a tiered carved-stone fountain rising from the pool ----
+	var fstone := _up_mat("marble", 0.05, Color(0.96, 0.97, 1.0))
+	var rim := MeshInstance3D.new()
+	var rimt := TorusMesh.new(); rimt.inner_radius = 16.0; rimt.outer_radius = 18.4
+	rim.mesh = rimt; rim.material_override = fstone
+	rim.position = c + Vector3(0, 3.0, 0); rim.rotation_degrees = Vector3(90, 0, 0)
+	add_child(rim); game_nodes.append(rim)
+	var ped := MeshInstance3D.new()
+	var pedm := CylinderMesh.new(); pedm.top_radius = 2.2; pedm.bottom_radius = 3.4; pedm.height = 6.0
+	ped.mesh = pedm; ped.material_override = fstone
+	ped.position = c + Vector3(0, 6.0, 0)
+	add_child(ped); game_nodes.append(ped)
+	var bowl := MeshInstance3D.new()
+	var bowlm := CylinderMesh.new(); bowlm.top_radius = 5.2; bowlm.bottom_radius = 2.2; bowlm.height = 1.8
+	bowl.mesh = bowlm; bowl.material_override = fstone
+	bowl.position = c + Vector3(0, 9.5, 0)
+	add_child(bowl); game_nodes.append(bowl)
+	var topw := MeshInstance3D.new()
+	var topwm := CylinderMesh.new(); topwm.top_radius = 4.7; topwm.bottom_radius = 4.7; topwm.height = 0.3
+	topw.mesh = topwm; topw.material_override = pmat
+	topw.position = c + Vector3(0, 10.3, 0)
+	add_child(topw); game_nodes.append(topw)
+	# water jet spray (kept light for low-end phones)
+	var jet := GPUParticles3D.new()
+	jet.amount = 36; jet.lifetime = 1.8
+	jet.position = c + Vector3(0, 10.5, 0)
+	var jpm := ParticleProcessMaterial.new()
+	jpm.direction = Vector3(0, 1, 0); jpm.spread = 16.0
+	jpm.initial_velocity_min = 7.0; jpm.initial_velocity_max = 10.0
+	jpm.gravity = Vector3(0, -16, 0)
+	jpm.scale_min = 0.25; jpm.scale_max = 0.5
+	jpm.color = Color(0.72, 0.86, 1.0, 0.9)
+	jet.process_material = jpm
+	var jq := SphereMesh.new(); jq.radius = 0.18; jq.height = 0.36
+	var jmat := StandardMaterial3D.new()
+	jmat.albedo_color = Color(0.8, 0.9, 1.0); jmat.emission_enabled = true
+	jmat.emission = Color(0.6, 0.8, 1.0); jmat.emission_energy_multiplier = 0.8
+	jq.material = jmat
+	jet.draw_pass_1 = jq
+	add_child(jet); game_nodes.append(jet)
 	# a ring of glowing fairy flowers around it
 	for k in range(10):
 		var a: float = float(k) / 10.0 * TAU
@@ -2393,10 +2477,58 @@ func _build_fairy_pond(o: Vector3) -> void:
 	l.light_color = Color(0.7, 0.72, 1.0); l.light_energy = 2.6; l.omni_range = 32.0
 	l.position = c + Vector3(0, 9, 0); add_child(l); game_nodes.append(l)
 	var lab := Label3D.new()
-	lab.text = "🧚 Fairy Pond — fly!"
+	lab.text = "🧚 Fairy Fountain — fly!"
 	lab.font_size = 64; lab.pixel_size = 0.05; lab.outline_size = 14
 	lab.modulate = Color(0.88, 0.82, 1.0); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.position = c + Vector3(0, 13, 0); add_child(lab); game_nodes.append(lab)
+
+func _build_lagoon_grotto(o: Vector3) -> void:
+	# the west river deepens into this basin and opens into a hidden treasure grotto —
+	# a reward for the curious who follow the water out instead of going straight to the castle
+	var gx: float = LAGOON_GROTTO.x
+	var gz: float = LAGOON_GROTTO.y
+	var fy: float = o.y + _lagoon_local(gx, gz)        # deep basin floor
+	var cw := Vector3(o.x + gx, fy, o.z + gz)
+	var rockmat := _up_mat("cliff", 0.18, Color(0.62, 0.64, 0.68))
+	# a rocky recess (back wall + overhang + flanking walls) carved into the rim side
+	var back := _l2_box(cw + Vector3(-14, 7, 0), Vector3(10, 20, 24), Color(0.5, 0.52, 0.56))
+	back.material_override = rockmat
+	var roof := _l2_box(cw + Vector3(-6, 14, 0), Vector3(26, 4, 26), Color(0.5, 0.52, 0.56))
+	roof.material_override = rockmat
+	for sgn in [-1.0, 1.0]:
+		var side := _l2_box(cw + Vector3(-4, 6, sgn * 13.0), Vector3(22, 16, 4), Color(0.5, 0.52, 0.56))
+		side.material_override = rockmat
+	# natural boulders framing the mouth
+	_nature("rock_largeA", cw + Vector3(7, 0, -11), 7.0, 0.6)
+	_nature("rock_largeA", cw + Vector3(9, 0, 10), 6.0, 2.1)
+	# the treasure: a chest, a warm discovery glow, rainbow crystals, floating bonus pearls
+	var chest := _spawn("chest", cw + Vector3(-8, 1.6, 0), 3.0, 0.0)
+	if chest != null:
+		game_nodes.append(chest)
+	var light := OmniLight3D.new()
+	light.light_color = Color(1.0, 0.85, 0.6); light.light_energy = 3.4; light.omni_range = 32.0
+	light.position = cw + Vector3(-6, 9, 0); add_child(light); game_nodes.append(light)
+	for k in range(6):
+		var ca: float = float(k) / 6.0 * TAU
+		var cr := MeshInstance3D.new()
+		var prm := PrismMesh.new(); prm.size = Vector3(1.6, 5.0 + randf() * 3.0, 1.6)
+		cr.mesh = prm
+		cr.material_override = _soft_mat(Color.from_hsv(float(k) / 6.0, 0.55, 1.0), 1.8)
+		cr.position = cw + Vector3(-8 + cos(ca) * 6.0, 2.5, sin(ca) * 6.0)
+		cr.rotation_degrees = Vector3(randf() * 18 - 9, randf() * 360, randf() * 18 - 9)
+		add_child(cr); game_nodes.append(cr)
+	for _p in range(7):
+		var pr := MeshInstance3D.new()
+		var sm := SphereMesh.new(); sm.radius = 0.8; sm.height = 1.6
+		pr.mesh = sm; pr.material_override = _rainbow_mat()
+		pr.position = cw + Vector3(-6 + randf() * 10 - 5, 4.0 + randf() * 4.0, randf() * 12 - 6)
+		add_child(pr); game_nodes.append(pr)
+	# a sparkly hint that glows up out of the basin so it's spotted from the river
+	var lab := Label3D.new()
+	lab.text = "✨ Secret Grotto ✨"
+	lab.font_size = 60; lab.pixel_size = 0.05; lab.outline_size = 14
+	lab.modulate = Color(1.0, 0.95, 0.7); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.position = cw + Vector3(-6, 17, 0); add_child(lab); game_nodes.append(lab)
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if mg_kind != "":

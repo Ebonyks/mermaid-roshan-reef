@@ -16,6 +16,7 @@ PBR sets (color + normal + roughness), CC0 1.0 Public Domain.
 | up_wood_*, up_castle_*, up_cobble_*, up_flagstone_*, up_marble_*, up_roof_* | ships/props, castle interior | Poly Haven | CC0 1.0 |
 | **up_reefrock_*** | **Level 1 reef — wet rock formations (overworld cliff/rock models)** | **ambientCG "Rock030"** | **CC0 1.0** |
 | **up_seastone_*** | **Level 1 reef — submerged boulders, grove rocks, treasure cavern** | **ambientCG "Rock035"** | **CC0 1.0** |
+| **up_bark_*** | **Level 2 Sky Lagoon — tree trunks / branches / logs (`_dress_nature`)** | **ambientCG "Bark012"** | **CC0 1.0** |
 
 The `up_reefrock_*` (Rock030, a wet coastal rock) and `up_seastone_*` (Rock035, a
 layered sea stone) sets were added in the Level 1 reef texture audit so the
