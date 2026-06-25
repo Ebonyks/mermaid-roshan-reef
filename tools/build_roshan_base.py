@@ -48,7 +48,10 @@ HAIR_PREFIX = "hair_"
 
 def parse_args(argv):
     a = {"rig": "assets/characters/roshan.glb", "mesh": "", "hair": "12",
-         "segs": "3", "out": "/tmp/roshan_new.glb"}
+         "segs": "3", "out": "/tmp/roshan_new.glb",
+         "weights": "auto",   # auto = Blender automatic weights (best for a different AI mesh);
+                              # transfer = copy weights from the old mesh (best if shapes match)
+         "hairgeo": "1"}      # 1 = generate procedural rainbow hair cards (no sculpting)
     if "--" in argv:
         rest = argv[argv.index("--") + 1:]
         i = 0
@@ -80,6 +83,52 @@ def hair_layout(n, segs):
             out.append((name, parent, head))
             parent = name
     return out
+
+
+def generate_hair_cards(bpy, Vector, arm, n, segs, width=0.045):
+    """Build the rainbow hair AS GEOMETRY (no sculpting): one tapered ribbon 'card'
+    per strand, following its hair_<SS>_<J> bone chain, weighted to that chain, with
+    the strand index baked into vertex-colour RED for hair_rainbow.gdshader."""
+    me = bpy.data.meshes.new("roshan_hair")
+    obj = bpy.data.objects.new("roshan_hair", me)
+    bpy.context.collection.objects.link(obj)
+    bones = arm.data.bones
+    verts, faces, vbone, vidx = [], [], [], []
+    for s in range(n):
+        chain = ["hair_%02d_%d" % (s, j) for j in range(segs)]
+        pts, bnames = [], []
+        for bn in chain:
+            if bn in bones:
+                pts.append(arm.matrix_world @ bones[bn].head_local); bnames.append(bn)
+        if chain[-1] in bones:
+            pts.append(arm.matrix_world @ bones[chain[-1]].tail_local); bnames.append(chain[-1])
+        if len(pts) < 2:
+            continue
+        base = len(verts)
+        for k, p in enumerate(pts):
+            d = (pts[k + 1] - p) if k < len(pts) - 1 else (p - pts[k - 1])
+            d.normalize()
+            side = d.cross(Vector((0, 0, 1)))
+            side = side.normalized() if side.length > 1e-4 else Vector((1, 0, 0))
+            w = width * (1.0 - 0.6 * k / (len(pts) - 1))   # taper to the tip
+            verts.append(p + side * w); verts.append(p - side * w)
+            bn = bnames[min(k, len(bnames) - 1)]
+            vbone += [bn, bn]; vidx += [s, s]
+        for k in range(len(pts) - 1):
+            a0, a1 = base + k * 2, base + k * 2 + 1
+            b0, b1 = base + (k + 1) * 2, base + (k + 1) * 2 + 1
+            faces.append((a0, a1, b1, b0))
+    me.from_pydata(verts, [], faces); me.update()
+    for bn in set(vbone):
+        obj.vertex_groups.new(name=bn)
+    for vi, bn in enumerate(vbone):
+        obj.vertex_groups[bn].add([vi], 1.0, "REPLACE")
+    col = me.color_attributes.new(name="Color", type="FLOAT_COLOR", domain="POINT")
+    for vi, si in enumerate(vidx):
+        col.data[vi].color = (si / max(1, n - 1), 0.0, 0.0, 1.0)
+    obj.parent = arm
+    obj.modifiers.new("Armature", "ARMATURE").object = arm
+    return len(verts)
 
 
 def main():
@@ -116,24 +165,31 @@ def main():
         added = [o for o in bpy.data.objects if o not in before and o.type == "MESH"]
         new_mesh = added[0] if added else None
 
-    # 3. transfer skin weights old -> new (Blender 'Data Transfer' of vertex groups)
+    # 3. bind the new mesh to the EXISTING 26-bone rig. Done BEFORE socket/hair
+    #    bones are added, so the body only weights to the real deform bones.
     if new_mesh is not None:
-        print("[i] transferring skin weights old -> new mesh")
-        # ensure new mesh has the armature's vertex groups + modifier
-        for vg in old_mesh.vertex_groups:
-            if vg.name not in new_mesh.vertex_groups:
-                new_mesh.vertex_groups.new(name=vg.name)
-        dt = new_mesh.modifiers.new("WeightTransfer", "DATA_TRANSFER")
-        dt.object = old_mesh
-        dt.use_vert_data = True
-        dt.data_types_verts = {"VGROUP_WEIGHTS"}
-        dt.vert_mapping = "POLYINTERP_NEAREST"
-        bpy.context.view_layer.objects.active = new_mesh
-        bpy.ops.object.datalayout_transfer(modifier=dt.name)
-        bpy.ops.object.modifier_apply(modifier=dt.name)
-        am = new_mesh.modifiers.new("Armature", "ARMATURE")
-        am.object = arm
-        print("[ok] weights transferred (review tail/face weight-paint by hand)")
+        if args["weights"] == "auto":
+            print("[i] binding new mesh with AUTOMATIC weights (best for a fresh AI mesh)")
+            bpy.ops.object.select_all(action="DESELECT")
+            new_mesh.select_set(True); arm.select_set(True)
+            bpy.context.view_layer.objects.active = arm
+            bpy.ops.object.parent_set(type="ARMATURE_AUTO")
+            print("[ok] auto-weighted. Test-pose tail1..tail8 / fins; touch up only if pinching.")
+        else:
+            print("[i] transferring skin weights old -> new mesh (shapes should match)")
+            for vg in old_mesh.vertex_groups:
+                if vg.name not in new_mesh.vertex_groups:
+                    new_mesh.vertex_groups.new(name=vg.name)
+            dt = new_mesh.modifiers.new("WeightTransfer", "DATA_TRANSFER")
+            dt.object = old_mesh
+            dt.use_vert_data = True
+            dt.data_types_verts = {"VGROUP_WEIGHTS"}
+            dt.vert_mapping = "POLYINTERP_NEAREST"
+            bpy.context.view_layer.objects.active = new_mesh
+            bpy.ops.object.datalayout_transfer(modifier=dt.name)
+            bpy.ops.object.modifier_apply(modifier=dt.name)
+            new_mesh.modifiers.new("Armature", "ARMATURE").object = arm
+            print("[ok] weights transferred (review tail/face by hand)")
         old_mesh.hide_set(True); old_mesh.name = "roshan_OLD_reference"
 
     # 4 + 5. add socket + hair bones to the armature
@@ -159,6 +215,15 @@ def main():
         add_bone(name, parent, head)
 
     bpy.ops.object.mode_set(mode="OBJECT")
+
+    # 6. generate the rainbow hair as geometry (no sculpting needed)
+    if args["hairgeo"] == "1":
+        try:
+            nv = generate_hair_cards(bpy, Vector, arm, n_hair, segs)
+            print("[ok] generated procedural rainbow hair: %d strands, %d verts" % (n_hair, nv))
+        except Exception as e:
+            print("[!] hair-card generation needs a tweak: %s" % e)
+
     out = os.path.abspath(args["out"])
     bpy.ops.export_scene.gltf(filepath=out, export_format="GLB")
     print(f"[ok] wrote {out}")

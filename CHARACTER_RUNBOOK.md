@@ -43,42 +43,47 @@ Companion files: `tools/build_roshan_base.py`, `tools/build_roshan_rig.py`,
 
 ---
 
-## Phase 2 — transfer the rig (Route A only)
-Reuse Roshan's proven 26-bone rig + procedural swim; add sockets + hair bones:
+## Phase 2 — rig + hair, automatically (Route A only)
+One command reuses Roshan's proven 26-bone rig and does the heavy lifting:
 
 ```
 blender --background --python tools/build_roshan_base.py -- \
     --rig assets/characters/roshan.glb \
     --mesh ~/roshan_ai.glb \
-    --hair 12 --segs 3 \
-    --out ~/roshan_rigged.blend.glb
+    --hair 12 --segs 3 --weights auto \
+    --out ~/roshan_rigged.glb
 ```
-This transfers skin weights old→new, keeps the armature, and adds the 7 sockets +
-12×3 hair-strand bones. Open the result in Blender to continue.
+This **automatically**: binds the new mesh to the rig (`--weights auto` =
+Blender automatic weights, best for a fresh AI mesh), adds the 7 sockets + 12×3
+hair-strand bones, and **generates the rainbow hair as geometry** (tapered ribbon
+per strand, weighted to its chain, strand index baked to vertex-colour red). No
+sculpting or weight-painting of hair.
 
-- **Gate:** `python3 tools/glb_check.py ~/roshan_rigged.blend.glb` →
-  `26 ROSHAN bones present`, socket bones listed, **hair strands ≥ 10**.
+- **Gate:** `python3 tools/glb_check.py ~/roshan_rigged.glb` →
+  `26 ROSHAN bones present`, sockets listed, **hair strands ≥ 10**.
 
 ---
 
-## Phase 3 — the manual art (the part no tool does)
-In Blender, on the rigged mesh:
-1. **Likeness + cleanup:** match the sprite — face, rainbow hair, proportions; retopo
-   if the AI mesh is dense. Keep overall size (player.gd scales ×1.55, offsets y −1.6).
-2. **Weight touch-ups:** test-pose `tail1..tail8`, `finTop/finBot`, arms; fix the
-   tail/face transfer artifacts. The swim is the truth test.
-3. **Hair → strands (the rainbow contract):**
-   - Split the hair mass into **10–15 strands**; weight each strand to its
-     `hair_<SS>_<J>` chain (strand SS, segment J).
-   - Bake each strand's **index into vertex-colour RED** = `SS / (N-1)` (0..1). This
-     is what `hair_rainbow.gdshader` reads to spread the rainbow.
-   - Assign the hair surface a material (the rainbow shader is applied engine-side;
-     just give hair its own material slot so it's selectable).
-4. **Sockets (optional now):** leave the 7 socket bones as-is; cosmetics attach to
-   them later. Add cosmetic part meshes to `assets/characters/cosmetics/parts/` when ready.
+## Phase 3 — review & touch-up (mostly automated now)
+Phase 2 already bound the body and generated the hair. What's left is **review,
+not authoring** — and most of it is *your taste call*, not artist skill:
+1. **Likeness (your call):** does it read as Roshan? If not, **regenerate** in
+   Phase 1 (try another seed / a clearer sprite crop) — iterate the AI, don't sculpt.
+   Auto-retopo if the mesh is dense: **QuadRemesher** (paid) or free **Instant Meshes**.
+2. **Weight check (usually fine):** test-pose `tail1..tail8`, `finTop/finBot`. Auto
+   weights are typically good on a stylized body; only touch up if the tail/fin
+   *pinches*. This is the one spot that might want a few minutes of weight-paint —
+   or a one-off favour from anyone who knows Blender.
+3. **Hair tuning (optional):** the strands are generated; tweak `--hair N` (10–15) or
+   the ribbon `width` in `generate_hair_cards` and re-run if you want more/fuller hair.
+4. **Sockets:** nothing to do — cosmetics attach later; drop part meshes into
+   `assets/characters/cosmetics/parts/` when you make them.
 
-- **Gate:** posing any tail/hair bone deforms the mesh cleanly; hair strands move
-  independently when posed; vertex-colour R varies 0→1 across strands.
+- **Gate:** posing a tail/hair bone deforms cleanly; hair ribbons exist with a
+  rainbow (vertex-colour R varies across strands — `glb_check` confirms strand count).
+
+> What no tool replaces is the **"does this look like her" judgment** — but that's
+> looking and approving, which you can do. Sculpting/weighting/hair are handled.
 
 ---
 
