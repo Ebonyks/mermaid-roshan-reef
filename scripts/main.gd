@@ -730,11 +730,12 @@ var wood_overlay: StandardMaterial3D
 
 func _texture_mats() -> void:
 	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
+	# Wet coastal reef rock (CC0 ambientCG Rock030) — reads as submerged stone, not dry cliff
+	rock_pbr.albedo_texture = load("res://assets/terrain/up_reefrock_col.jpg")
 	rock_pbr.albedo_color = Color(0.6, 0.66, 0.72)
 	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
+	rock_pbr.normal_texture = load("res://assets/terrain/up_reefrock_nrm.jpg")
+	rock_pbr.roughness_texture = load("res://assets/terrain/up_reefrock_rgh.jpg")
 	rock_pbr.uv1_triplanar = true
 	rock_pbr.uv1_scale = Vector3(1.6, 1.6, 1.6)
 	wood_overlay = StandardMaterial3D.new()
@@ -958,12 +959,12 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.uv1_triplanar = true
 	if key == "Rock":
-		# true stone — upgraded CC0 rock face (shared with grove boulders & cavern)
-		m.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
+		# submerged sea stone — CC0 ambientCG Rock035 (shared with grove boulders & cavern)
+		m.albedo_texture = load("res://assets/terrain/up_seastone_col.jpg")
 		m.albedo_color = Color(0.66, 0.7, 0.74)
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-		m.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
+		m.normal_texture = load("res://assets/terrain/up_seastone_nrm.jpg")
+		m.roughness_texture = load("res://assets/terrain/up_seastone_rgh.jpg")
 		m.uv1_scale = Vector3(1.4, 1.4, 1.4)
 	elif key.begins_with("SeaWeed"):
 		# leafy — same treatment as the seagrass that reads well
