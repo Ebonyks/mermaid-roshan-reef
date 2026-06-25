@@ -18,17 +18,23 @@ the "fairy tale" reads through bioluminescence and hero spirit-lights, not land 
 | Seabed | splat sand w/ ripples | **Ground054, ambientCG** | **CC0** |
 | Caustics + plankton + god rays | shader/particles | procedural | original (project) |
 
-Pending import (download currently blocked — see blockers): **7 coral variations + 3 seaweeds,
-11 rocks, shells** from *Aquatic Animal Models* (Riley / rkuhlf-assets.itch.io) — license:
-free, personal & commercial use permitted, no redistribution. These will replace/augment
-the procedural fans and add true coral forms.
+> ⚠️ **LICENSING ACTION REQUIRED (2026-06-25).** The corals/seaweed/shells/rocks below — and the
+> rigged fauna in the next table — are the Riley *Aquatic Animal Models* pack (rkuhlf-assets.itch.io),
+> licensed **"free use, NO redistribution."** Shipping them in a public repo *is* redistribution, so
+> they must be swapped for CC0 equivalents. The swap is currently **network-blocked** (every free-asset
+> CDN returns egress-policy 403; only github.com is reachable). Full audit, blocker evidence, and a
+> ready-to-run replacement manifest: see **`ASSET_AUDIT.md`**.
+
+Pending **replacement** (download blocked — see `ASSET_AUDIT.md` §3): **7 coral variations + 3 seaweeds,
+11 rocks, shells** from *Aquatic Animal Models* (Riley / rkuhlf-assets.itch.io). To be replaced with
+Quaternius CC0 equivalents once the egress allow-list opens.
 
 ## Fauna roster
 
 | Element | Source | License |
 |---|---|---|
 | 6 glowing fish schools, 3 mantas, 1 whale, 2 turtles | procedural meshes + shaders | original (project) |
-| Shark, hammerhead, squid, octopus, eel, stingray, turtle, seal, crab + 4 fish (rigged/animated) | *Aquatic Animal Models* (itch.io) — **pending download unblock** | free use, no redistribution |
+| Shark, hammerhead, squid, octopus, eel, stingray, turtle, seal, crab + 4 fish (rigged/animated) | *Aquatic Animal Models* (itch.io) — ⚠️ **NO-REDISTRIBUTION; replace with CC0, see `ASSET_AUDIT.md`** | free use, no redistribution |
 
 ## Characters & hero set pieces (preserved)
 
