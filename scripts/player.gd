@@ -107,6 +107,9 @@ func _upgrade_texture(node: Node) -> void:
 				if m is BaseMaterial3D:
 					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
 					m2.albedo_texture = load("res://assets/characters/roshan_tex_2k.webp")
+					m2.rim_enabled = true          # cheap fresnel sheen on Roshan's edges
+					m2.rim = 0.35
+					m2.rim_tint = 0.4
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_upgrade_texture(c)

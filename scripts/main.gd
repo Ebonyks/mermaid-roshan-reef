@@ -94,6 +94,7 @@ var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
+var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
 var plankton_node: GPUParticles3D
 var pause_layer: CanvasLayer
 var pause_panel: Control
@@ -424,6 +425,12 @@ func _apply_time_of_day() -> void:
 			sun_light.light_color = Color(0.55, 0.80, 0.98)
 			sun_light.light_energy = 0.55
 
+func _grade(env: Environment) -> void:
+	# cheap cinematic grade — ACES filmic tonemapping (works on the mobile renderer, ~free)
+	env.tonemap_mode = Environment.TONE_MAPPER_ACES
+	env.tonemap_exposure = 1.15
+	env.tonemap_white = 1.2
+
 func _build_environment() -> void:
 	var env := Environment.new()
 	# gradient 'underwater sky' — light filtering from the surface above, deep blue below
@@ -456,6 +463,7 @@ func _build_environment() -> void:
 	env.adjustment_saturation = 1.12
 	env.adjustment_contrast = 1.07
 	env.adjustment_brightness = 1.02
+	_grade(env)
 	world_env = env
 	we_node = WorldEnvironment.new()
 	we_node.environment = env
@@ -473,6 +481,32 @@ func _build_environment() -> void:
 	sun_light = sun
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	_build_god_rays()
+	_build_caustics()
+
+func _build_caustics() -> void:
+	# animated underwater light dapples that follow Roshan along the reef floor (cheap, additive)
+	var sh := Shader.new()
+	sh.code = "shader_type spatial;\n" + \
+		"render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;\n" + \
+		"void fragment(){\n" + \
+		"  vec2 uv = UV * 7.0;\n" + \
+		"  float t = TIME * 0.4;\n" + \
+		"  vec2 a = uv + vec2(sin(t + uv.y*2.0), cos(t*0.9 + uv.x*2.0)) * 0.22;\n" + \
+		"  float c1 = sin(a.x*3.0 + t) * sin(a.y*3.0 - t*0.7);\n" + \
+		"  float c2 = sin(a.x*4.7 - t*1.1) * sin(a.y*5.3 + t*0.5);\n" + \
+		"  float c = pow(max(c1,0.0), 6.0) + pow(max(c2,0.0), 8.0);\n" + \
+		"  ALBEDO = vec3(0.45, 0.8, 1.0) * c * 1.3;\n" + \
+		"}"
+	var pm := PlaneMesh.new()
+	pm.size = Vector2(130.0, 130.0)
+	var mi := MeshInstance3D.new()
+	mi.mesh = pm
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	mi.material_override = mat
+	mi.visible = false
+	add_child(mi)
+	caustics_plane = mi
 
 func _build_bubble_columns() -> void:
 	for i in range(7):
@@ -696,18 +730,18 @@ var wood_overlay: StandardMaterial3D
 
 func _texture_mats() -> void:
 	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
-	rock_pbr.albedo_color = Color(0.55, 0.62, 0.68)
+	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
+	rock_pbr.albedo_color = Color(0.6, 0.66, 0.72)
 	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 	rock_pbr.uv1_triplanar = true
 	rock_pbr.uv1_scale = Vector3(1.6, 1.6, 1.6)
 	wood_overlay = StandardMaterial3D.new()
-	wood_overlay.albedo_texture = load("res://assets/terrain/Planks023B_1K-JPG_Color.jpg")
+	wood_overlay.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
 	wood_overlay.albedo_color = Color(1.35, 1.3, 1.25)      # lift so MUL keeps base colors
 	wood_overlay.normal_enabled = true
-	wood_overlay.normal_texture = load("res://assets/terrain/Planks023B_1K-JPG_NormalGL.jpg")
+	wood_overlay.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
 	wood_overlay.uv1_triplanar = true
 	wood_overlay.uv1_scale = Vector3(0.9, 0.9, 0.9)
 	wood_overlay.blend_mode = BaseMaterial3D.BLEND_MODE_MUL
@@ -924,12 +958,12 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.uv1_triplanar = true
 	if key == "Rock":
-		# true stone — same 2K PBR as the grove boulders
-		m.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
-		m.albedo_color = Color(0.62, 0.66, 0.70)
+		# true stone — upgraded CC0 rock face (shared with grove boulders & cavern)
+		m.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
+		m.albedo_color = Color(0.66, 0.7, 0.74)
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-		m.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+		m.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+		m.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 		m.uv1_scale = Vector3(1.4, 1.4, 1.4)
 	elif key.begins_with("SeaWeed"):
 		# leafy — same treatment as the seagrass that reads well
@@ -1681,6 +1715,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env.glow_enabled = true
 	arena_env.glow_intensity = 0.5
 	arena_env.glow_bloom = 0.1
+	_grade(arena_env)
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -1828,7 +1863,7 @@ func _dress_nature(node: Node) -> void:
 				var nm := StandardMaterial3D.new()
 				var greenish: bool = col.g >= col.r and col.g >= col.b
 				nm.albedo_color = col
-				nm.albedo_texture = load("res://assets/terrain/grass.jpg" if greenish else "res://assets/terrain/Rock061_2K_Color.jpg")
+				nm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg" if greenish else "res://assets/terrain/up_cliff_col.jpg")
 				nm.uv1_triplanar = true
 				nm.uv1_scale = Vector3(0.4, 0.4, 0.4) if greenish else Vector3(0.2, 0.2, 0.2)
 				nm.roughness = 0.95
@@ -2178,7 +2213,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 			_l2_box(c + Vector3(bsgn * 6.2, 4.2, 12.0 + float(bp) * 9.0), Vector3(1.0, 3.0, 1.0), Color(0.45, 0.32, 0.2))
 	# keep + battlements
 	# keep — a STONE shell with a real doorway opening, so the open door reveals a warm interior (not a white void)
-	var _stone := load(GTA + "Rock061_2K_Color.jpg")
+	var _stone := load("res://assets/terrain/up_castle_col.jpg")
 	var _keep_parts := [
 		_l2_box(c + Vector3(-18, 26, 12), Vector3(20, 52, 1.5), Color(0.88, 0.86, 0.92)),
 		_l2_box(c + Vector3(18, 26, 12), Vector3(20, 52, 1.5), Color(0.88, 0.86, 0.92)),
@@ -2223,13 +2258,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for cz2 in [12.0, -28.0]:
 		for cmx in range(-4, 5):
 			var mr := _l2_box(c + Vector3(float(cmx) * 6.4, 53.5, cz2), Vector3(3.2, 5.0, 2.0), Color(0.9, 0.88, 0.95))
-			mr.material_override.albedo_texture = load(GTA + "Rock061_2K_Color.jpg")
-			mr.material_override.uv1_triplanar = true; mr.material_override.uv1_scale = Vector3(0.1, 0.1, 0.1)
+			mr.material_override = _up_mat("castle", 0.1, Color(0.98, 0.95, 1.0))
 	for cmx2 in range(-3, 4):
 		for csx in [-28.0, 28.0]:
 			var mr2 := _l2_box(c + Vector3(csx, 53.5, -8.0 + float(cmx2) * 6.4), Vector3(2.0, 5.0, 3.2), Color(0.9, 0.88, 0.95))
-			mr2.material_override.albedo_texture = load(GTA + "Rock061_2K_Color.jpg")
-			mr2.material_override.uv1_triplanar = true; mr2.material_override.uv1_scale = Vector3(0.1, 0.1, 0.1)
+			mr2.material_override = _up_mat("castle", 0.1, Color(0.98, 0.95, 1.0))
 	# ---- royal banners flanking the door ----
 	for bxs in [-1.0, 1.0]:
 		var ban := MeshInstance3D.new()
@@ -2922,6 +2955,7 @@ func _enter_castle_interior() -> void:
 	ie.fog_light_color = Color(0.5, 0.42, 0.45)
 	ie.fog_density = 0.006
 	arena_env = ie
+	_grade(ie)
 	we_node.environment = ie
 	_build_castle_hall(CASTLE_POS)
 	player.cam_back = 6.5   # pull the chase camera in so it does not clip the hall / back-room walls
@@ -4563,12 +4597,13 @@ func _plank_box(pos: Vector3, size: Vector3, alpha: float = 1.0) -> void:
 	bm.size = size
 	b.mesh = bm
 	var m := StandardMaterial3D.new()
-	m.albedo_texture = load(GTA + "Planks023B_1K-JPG_Color.jpg")
+	m.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
 	m.albedo_color = Color(0.85, 0.72, 0.55, alpha)
 	m.normal_enabled = true
-	m.normal_texture = load(GTA + "Planks023B_1K-JPG_NormalGL.jpg")
+	m.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
+	m.roughness_texture = load("res://assets/terrain/up_wood_rgh.jpg")
 	m.uv1_triplanar = true
-	m.uv1_scale = Vector3(0.35, 0.35, 0.35)
+	m.uv1_scale = Vector3(0.18, 0.18, 0.18)
 	m.roughness = 0.9
 	if alpha < 1.0:
 		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -4999,8 +5034,10 @@ func _start_game(fr: Dictionary) -> void:
 		game_nodes.append(snowfall)
 		# ---- explorable detail: snowy boulders, a wooden dock, a cleared shore path ----
 		var rockmat := StandardMaterial3D.new()
-		rockmat.albedo_texture = load(GTA + "Rock061_2K_Color.jpg")
-		rockmat.albedo_color = Color(0.72, 0.74, 0.8)
+		rockmat.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
+		rockmat.albedo_color = Color(0.78, 0.8, 0.86)
+		rockmat.normal_enabled = true
+		rockmat.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
 		rockmat.uv1_triplanar = true
 		rockmat.uv1_scale = Vector3(0.12, 0.12, 0.12)
 		rockmat.roughness = 0.95
@@ -5024,8 +5061,10 @@ func _start_game(fr: Dictionary) -> void:
 			add_child(rcap); game_nodes.append(rcap)
 		# a wooden dock reaching out over the ice (somewhere to explore)
 		var dmat := StandardMaterial3D.new()
-		dmat.albedo_texture = load(GTA + "Planks023B_1K-JPG_Color.jpg")
-		dmat.uv1_triplanar = true; dmat.uv1_scale = Vector3(0.1, 0.1, 0.1); dmat.roughness = 0.9
+		dmat.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
+		dmat.normal_enabled = true
+		dmat.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
+		dmat.uv1_triplanar = true; dmat.uv1_scale = Vector3(0.08, 0.08, 0.08); dmat.roughness = 0.9
 		var dock := _course_box(origin + Vector3(17.0, 1.1, 0.0), Vector3(30.0, 0.5, 6.0), Color(0.6, 0.44, 0.28))
 		dock.material_override = dmat
 		for dp in range(6):
@@ -5075,7 +5114,7 @@ func _start_game(fr: Dictionary) -> void:
 			bush.mesh = bm3
 			var bmat3 := StandardMaterial3D.new()
 			bmat3.albedo_color = BTN_COLS[i] * 0.55 + Color(0.25, 0.45, 0.25)
-			bmat3.albedo_texture = load(GTA + "grass.jpg")
+			bmat3.albedo_texture = load("res://assets/terrain/up_grass_col.jpg")
 			bmat3.uv1_triplanar = true
 			bmat3.uv1_scale = Vector3(3.0, 3.0, 3.0)
 			bmat3.normal_enabled = true
@@ -5872,10 +5911,12 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 	hs.height = 120.0
 	hill.mesh = hs
 	var hm := StandardMaterial3D.new()
-	hm.albedo_texture = load(GTA + "grass.jpg")   # same neutral grass as the Sky Lagoon (was leaf.png = green arrows on black)
+	hm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg")
 	hm.albedo_color = Color(0.92, 1.0, 0.9)
+	hm.normal_enabled = true
+	hm.normal_texture = load("res://assets/terrain/up_grass_nrm.jpg")
 	hm.uv1_triplanar = true
-	hm.uv1_scale = Vector3(0.07, 0.07, 0.07)
+	hm.uv1_scale = Vector3(0.05, 0.05, 0.05)
 	hm.roughness = 1.0
 	hill.material_override = hm
 	hill.position = origin + Vector3(0, -56.0, 0)
@@ -6247,6 +6288,12 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	if caustics_plane != null:
+		if game == "" and not intro_active:
+			caustics_plane.visible = true
+			caustics_plane.position = Vector3(ppos.x, seabed_y(ppos.x, ppos.z) + 1.2, ppos.z)
+		elif caustics_plane.visible:
+			caustics_plane.visible = false
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)
@@ -6813,34 +6860,34 @@ func _enter_arena(kind: String) -> void:
 		arena_env.background_color = Color(0.75, 0.88, 1.0)
 		arena_env.ambient_light_color = Color(1, 1, 1)
 		arena_env.ambient_light_energy = 1.2
-		_arena_floor(Color(1.35, 1.38, 1.45), GTA + "Ground054_2K_Color.jpg", GTA + "Ground054_2K_NormalGL.jpg", 0.05)
+		_arena_floor(Color(1.0, 1.02, 1.08), GTA + "up_snow_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)
 	elif kind == "dolls":        # starry dream nursery
 		arena_env.background_color = Color(0.10, 0.06, 0.22)
 		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.7
-		_arena_floor(Color(0.62, 0.55, 0.95), GTA + "Planks023B_1K-JPG_Color.jpg", GTA + "Planks023B_1K-JPG_NormalGL.jpg", 0.08)
+		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		arena_env.background_color = Color(0.55, 0.85, 1.0)
 		arena_env.ambient_light_color = Color(1, 1, 0.95)
 		arena_env.ambient_light_energy = 1.2
-		_arena_floor(Color(0.9, 1.0, 0.85), GTA + "grass.jpg", "", 0.07)   # same neutral grass as the mound (was leaf.png = green arrows on black)
+		_arena_floor(Color(0.95, 1.0, 0.92), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
 		arena_env.background_color = Color(1.0, 0.62, 0.38)
 		arena_env.ambient_light_color = Color(1.0, 0.8, 0.65)
 		arena_env.ambient_light_energy = 1.1
-		_arena_floor(Color(1.15, 0.72, 0.5), GTA + "Ground054_2K_Color.jpg", GTA + "Ground054_2K_NormalGL.jpg", 0.05)
+		_arena_floor(Color(1.05, 0.82, 0.62), GTA + "up_dirt_col.jpg", GTA + "up_dirt_nrm.jpg", 0.05)
 	elif kind == "shop":         # warm wooden ship cabin
 		arena_env.background_color = Color(0.06, 0.045, 0.025)
 		arena_env.ambient_light_color = Color(1.0, 0.85, 0.6)
 		arena_env.ambient_light_energy = 0.9
 		arena_env.glow_intensity = 0.8
-		_arena_floor(Color(0.9, 0.8, 0.65), GTA + "Planks023B_1K-JPG_Color.jpg", GTA + "Planks023B_1K-JPG_NormalGL.jpg", 0.09)
+		_arena_floor(Color(0.9, 0.8, 0.65), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "treasure":     # deep dark cavern
 		arena_env.background_color = Color(0.012, 0.035, 0.06)
 		arena_env.ambient_light_color = Color(0.35, 0.55, 0.75)
 		arena_env.ambient_light_energy = 0.55
 		arena_env.glow_intensity = 1.15
-		_arena_floor(Color(0.45, 0.42, 0.45), GTA + "Ground054_2K_Color.jpg", GTA + "Ground054_2K_NormalGL.jpg", 0.05)
+		_arena_floor(Color(0.55, 0.52, 0.56), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.05)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
 		arena_env.background_color = Color(0.62, 0.82, 1.0)
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
@@ -6856,7 +6903,8 @@ func _enter_arena(kind: String) -> void:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
-		_arena_floor(Color(0.42, 0.24, 0.66), GTA + "Planks023B_1K-JPG_Color.jpg", GTA + "Planks023B_1K-JPG_NormalGL.jpg", 0.07)
+		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	_grade(arena_env)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO
