@@ -1,0 +1,1 @@
+chuck_bark.ogg / chuck.ogg — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay (Pixabay Content License, royalty-free, no attribution required). Source: pixabay.com, file dragon-studio-free-dog-bark-419014.mp3. Trimmed + normalized.
