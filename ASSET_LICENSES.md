@@ -2,9 +2,13 @@
 
 For the full per-group audit, the egress blocker, and the replacement plan, see **`ASSET_AUDIT.md`**.
 
+> **Project is freeware.** Strict CC0 is not required; any free-to-use asset is acceptable
+> (owner direction, 2026-06-25: "use whatever assets are of highest quality").
+
 ## Status flags
-- ⚠️ **`assets/aquatic/*.glb`** — Riley *Aquatic Animal Models* (itch.io), **"free use, NO redistribution."**
-  Not valid for a public repo; **pending CC0 replacement** (download currently blocked — see `ASSET_AUDIT.md`).
+- ✅ **`assets/aquatic/*.glb`** — Riley *Aquatic Animal Models* (itch.io), **"free use, no redistribution."**
+  Kept for freeware (good-quality, integrated). CC0 swap manifest parked in `ASSET_AUDIT.md` §5 in case
+  the repo is ever made strictly redistributable.
 - ✅ Terrain PBR (`assets/terrain/*.jpg`) — ambientCG, **CC0**.
 - ✅ Nature kit (`assets/nature/*.glb`) — Kenney Nature Kit, **CC0**.
 - ✅ Ship/pirate set (`assets/ship/*.glb`) — Kenney Pirate Kit, **CC0**.

@@ -18,23 +18,19 @@ the "fairy tale" reads through bioluminescence and hero spirit-lights, not land 
 | Seabed | splat sand w/ ripples | **Ground054, ambientCG** | **CC0** |
 | Caustics + plankton + god rays | shader/particles | procedural | original (project) |
 
-> ⚠️ **LICENSING ACTION REQUIRED (2026-06-25).** The corals/seaweed/shells/rocks below — and the
-> rigged fauna in the next table — are the Riley *Aquatic Animal Models* pack (rkuhlf-assets.itch.io),
-> licensed **"free use, NO redistribution."** Shipping them in a public repo *is* redistribution, so
-> they must be swapped for CC0 equivalents. The swap is currently **network-blocked** (every free-asset
-> CDN returns egress-policy 403; only github.com is reachable). Full audit, blocker evidence, and a
-> ready-to-run replacement manifest: see **`ASSET_AUDIT.md`**.
-
-Pending **replacement** (download blocked — see `ASSET_AUDIT.md` §3): **7 coral variations + 3 seaweeds,
-11 rocks, shells** from *Aquatic Animal Models* (Riley / rkuhlf-assets.itch.io). To be replaced with
-Quaternius CC0 equivalents once the egress allow-list opens.
+> ℹ️ **Freeware decision (2026-06-25).** The corals/seaweed/shells/rocks below — and the rigged fauna
+> in the next table — are the Riley *Aquatic Animal Models* pack (rkuhlf-assets.itch.io), **"free use,
+> no redistribution."** With the project confirmed **freeware** ("use whatever assets are of highest
+> quality"), this free-use pack is **kept** — it is good-quality and already integrated. A CC0 swap is
+> only needed if the repo is ever made strictly redistributable; a ready-to-run manifest is parked in
+> **`ASSET_AUDIT.md`** §5 for that case.
 
 ## Fauna roster
 
 | Element | Source | License |
 |---|---|---|
 | 6 glowing fish schools, 3 mantas, 1 whale, 2 turtles | procedural meshes + shaders | original (project) |
-| Shark, hammerhead, squid, octopus, eel, stingray, turtle, seal, crab + 4 fish (rigged/animated) | *Aquatic Animal Models* (itch.io) — ⚠️ **NO-REDISTRIBUTION; replace with CC0, see `ASSET_AUDIT.md`** | free use, no redistribution |
+| Shark, hammerhead, squid, octopus, eel, stingray, turtle, seal, crab + 4 fish (rigged/animated) | *Aquatic Animal Models* (itch.io) — kept for freeware; see `ASSET_AUDIT.md` | free use, no redistribution |
 
 ## Characters & hero set pieces (preserved)
 

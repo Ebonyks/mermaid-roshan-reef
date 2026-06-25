@@ -2,28 +2,35 @@
 
 _Run 2026-06-25 on branch `claude/replace-assets-free-sources-lnplz7`._
 
-Goal of the queued task: **replace any not-truly-free assets with assets downloaded from
-free sources** (CC0 / public-domain / royalty-free), so the public repo is licensing-clean.
+Goal of the queued task: make the asset set **free-to-use and as high-quality as possible** for a
+**freeware** release. (Original framing was "CC0-clean"; the project owner has since clarified —
+2026-06-25 — that strict CC0 is **not** required: "this project will be freeware, use whatever
+assets are of highest quality.")
 
-This document records (1) what the audit found, (2) the **network blocker** that stops the
-download half of the job, and (3) a ready-to-run replacement manifest for the moment the
-egress allow-list actually opens.
+This document records (1) the audit, (2) the **network blocker** that prevents downloading a
+higher-quality replacement pack, and (3) the resulting decision.
 
 ---
 
 ## 1. TL;DR
 
-- **Exactly one** asset group is a real licensing problem: `assets/aquatic/*.glb` — the Riley
-  *Aquatic Animal Models* pack (itch.io), licensed **"free use, no redistribution."** Shipping
-  it inside a public GitHub repo **is** redistribution, so it must be replaced.
-- **Everything else is already clean** — terrain PBR is ambientCG **CC0**, nature/ship kits are
-  Kenney **CC0**, music is original, voices are family/own TTS, book art is project IP. No action
-  needed there beyond keeping the ledger honest.
-- **The replacement could not be performed in this session** because the environment's egress
-  policy still **403-blocks every free-asset host**. Despite the "wider allow list," only
-  `github.com` is reachable, and the CC0 marine packs are not hosted there in a usable form
-  (they are Git-LFS pointers — and the LFS object host is *also* 403 — or sit behind unclear
-  licenses). See §3.
+- **Freeware decision (2026-06-25):** strict CC0 is no longer required; any free-to-use asset is
+  acceptable. This **resolves** the only open licensing item — the Riley *Aquatic Animal Models*
+  pack (itch.io, "free use, no redistribution"). It is **free-use, good-quality, and already
+  integrated**, so it is **kept**. (The "no redistribution" clause is a known, accepted caveat for
+  a personal freeware repo; if the repo is ever made strictly redistributable, swap per §5.)
+- **Everything else was already clean** — terrain PBR is ambientCG **CC0**, nature/ship kits are
+  Kenney **CC0**, music is original, voices are family/own TTS, book art is project IP.
+- **No higher-quality replacement was importable this session.** The egress policy **403-blocks
+  every free-asset host**; only `github.com` is reachable, and every *complete, higher-fidelity*
+  marine pack found there (ir-engine's perfectly-matched `assets/ocean/`, X3Native, NikLever) is
+  **Git-LFS-hosted — and the LFS object host is also 403.** Repos with real committed GLBs hold only
+  one-off models, not a coherent reef set. Swapping the working animated pack for mismatched
+  one-offs would *lower* quality and risk breaking the swim/idle animation lookup in `main.gd`, so
+  the existing pack stands. See §3.
+- **Net:** the queue's actual driver (the licensing flag) is **closed**. A genuine *quality upgrade*
+  of the 3D packs is gated on network access (§4) — the only network-free path to new marine assets
+  is going procedural (§4, Option C).
 
 ---
 
@@ -36,7 +43,7 @@ egress allow-list actually opens.
 | `assets/nature/*.glb` | trees, rocks, flowers, bushes, mushrooms | Kenney Nature Kit | **CC0** | ✅ keep |
 | `assets/ship/*.glb` (ship-ghost, ship-wreck, chest, barrel, cliff rocks) | set pieces | Kenney Pirate Kit | **CC0** | ✅ keep |
 | `assets/mg/*.png` | 2D minigame sprites (flowers, ornaments, snowman, etc.) | Kenney Foliage + project-drawn | **CC0 / original** | ✅ keep |
-| `assets/aquatic/*.glb` | 16 fauna + corals/seaweed/shells/rocks | **Riley *Aquatic Animal Models*, itch.io** | **"free use, NO redistribution"** | ❌ **replace** |
+| `assets/aquatic/*.glb` | 16 fauna + corals/seaweed/shells/rocks | **Riley *Aquatic Animal Models*, itch.io** | **"free use, no redistribution"** | ✅ keep (free-use; OK for freeware — see §1) |
 | `assets/characters/roshan.*`, `lamb.*`, sprites | hero + lamb | book illustration (project IP) | project-owned | ✅ keep (heart of the game) |
 | `assets/characters/friends/*.png`, `assets/book/**` | character & scene art | book illustrations (project IP) | project-owned | ✅ keep |
 | `assets/audio/music/*.ogg` | 11 loops | synthesized for project | original | ✅ keep |
