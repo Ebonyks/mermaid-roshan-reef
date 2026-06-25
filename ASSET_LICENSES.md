@@ -23,3 +23,20 @@ underwater rocks read as submerged stone rather than the dry-land cliff texture
 previously reused there. Both originate from ambientCG.com (Lennart Demes),
 released under CC0 1.0 — free for any use, no attribution required. They were
 obtained from public GitHub-hosted CC0 mirrors of the ambientCG library.
+
+## Reef coral & sea-plant textures (`assets/terrain/up_coral_*`, `up_algae_*`)
+Original, procedurally-authored seamless PBR sets (color + normal + roughness,
+1024px) created for this project — released as CC0 1.0 (own work). Generator:
+`tools/gen_reef_textures.py` (numpy/Pillow). No third-party source.
+
+| Texture set | Used for |
+|---|---|
+| up_coral_* | living coral colonies + shells/starfish (`_aq_mat`, tinted per species) |
+| up_algae_* | swaying seaweed / sea plants (`_aq_mat` SeaWeed) |
+
+These replace the older low-res `polyp.png` / `leaf.png` detail maps on the reef
+flora so coral and sea plants gain real surface relief (normal map) at higher
+resolution. CC0 coral/sea-plant PBR sets were not obtainable from the reachable
+asset sources (the dedicated CC0 CDNs are blocked by network policy and the
+GitHub matches were git-LFS pointers or non-CC0 asset-store packs), so these were
+authored from scratch instead.
