@@ -967,28 +967,27 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 		m.roughness_texture = load("res://assets/terrain/up_seastone_rgh.jpg")
 		m.uv1_scale = Vector3(1.4, 1.4, 1.4)
 	elif key.begins_with("SeaWeed"):
-		# leafy sea plant — CC0 algae-blade detail (color + normal + roughness)
-		m.albedo_texture = load("res://assets/terrain/up_algae_col.jpg")
+		# leafy sea plant — real CC0 foliage detail (ambientCG Grass001: color+normal+roughness)
+		m.albedo_texture = load("res://assets/terrain/up_seagrass_col.jpg")
 		m.albedo_color = col * 1.2
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/up_algae_nrm.jpg")
+		m.normal_texture = load("res://assets/terrain/up_seagrass_nrm.jpg")
 		m.normal_scale = 0.85
-		m.roughness_texture = load("res://assets/terrain/up_algae_rgh.jpg")
+		m.roughness_texture = load("res://assets/terrain/up_seagrass_rgh.jpg")
 		m.uv1_scale = Vector3(1.4, 2.4, 1.4)
 		m.roughness = 0.95
 		m.emission_enabled = true
 		m.emission = col * 0.25
 		m.emission_energy_multiplier = 0.6
 	elif key.begins_with("Coral") or key in ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar", "StarFish"]:
-		# living coral — CC0 polyp-colony detail (color + normal + roughness)
+		# living coral — real CC0 coral surface (Poly Haven coral_fort_wall_01), tinted per species
 		m.albedo_texture = load("res://assets/terrain/up_coral_col.jpg")
 		m.albedo_color = col
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/up_coral_nrm.jpg")
-		m.normal_scale = 1.4
-		m.roughness_texture = load("res://assets/terrain/up_coral_rgh.jpg")
-		m.uv1_scale = Vector3(2.2, 2.2, 2.2)
-		m.roughness = 0.85
+		m.normal_texture = load("res://assets/terrain/polyp_normal.png")  # subtle existing bump for relief
+		m.normal_scale = 0.6
+		m.uv1_scale = Vector3(1.6, 1.6, 1.6)
+		m.roughness = 0.8
 		m.emission_enabled = true
 		m.emission = col * 0.22
 		m.emission_energy_multiplier = 0.6

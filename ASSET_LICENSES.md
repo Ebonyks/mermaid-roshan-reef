@@ -24,19 +24,20 @@ previously reused there. Both originate from ambientCG.com (Lennart Demes),
 released under CC0 1.0 — free for any use, no attribution required. They were
 obtained from public GitHub-hosted CC0 mirrors of the ambientCG library.
 
-## Reef coral & sea-plant textures (`assets/terrain/up_coral_*`, `up_algae_*`)
-Original, procedurally-authored seamless PBR sets (color + normal + roughness,
-1024px) created for this project — released as CC0 1.0 (own work). Generator:
-`tools/gen_reef_textures.py` (numpy/Pillow). No third-party source.
+## Reef coral & sea-plant textures
+Real third-party CC0 photoscan textures, 1024px.
 
-| Texture set | Used for |
-|---|---|
-| up_coral_* | living coral colonies + shells/starfish (`_aq_mat`, tinted per species) |
-| up_algae_* | swaying seaweed / sea plants (`_aq_mat` SeaWeed) |
+| Texture | Used for | Source | License |
+|---|---|---|---|
+| **up_coral_col.jpg** | living coral colonies + shells/starfish (`_aq_mat`, tinted per species) | **Poly Haven "coral_fort_wall_01"** (Dimitrios Savva / Rob Tuytel) | CC0 1.0 |
+| **up_seagrass_*** (col/nrm/rgh) | swaying seaweed / sea plants (`_aq_mat` SeaWeed) | **ambientCG "Grass001"** (Lennart Demes) | CC0 1.0 |
 
 These replace the older low-res `polyp.png` / `leaf.png` detail maps on the reef
-flora so coral and sea plants gain real surface relief (normal map) at higher
-resolution. CC0 coral/sea-plant PBR sets were not obtainable from the reachable
-asset sources (the dedicated CC0 CDNs are blocked by network policy and the
-GitHub matches were git-LFS pointers or non-CC0 asset-store packs), so these were
-authored from scratch instead.
+coral and seaweed. `up_coral_col` is Poly Haven's CC0 `coral_fort_wall_01`
+(coral-studded limestone) — diffuse only (Poly Haven's normal/rough maps for it
+are not mirrored on the reachable hosts), so the coral material reuses the
+project's existing `polyp_normal.png` as a subtle bump. `up_seagrass_*` is the
+full ambientCG `Grass001` PBR set (color + normal + roughness), tinted green for
+the sea plants. Both are CC0 1.0 — free for any use, no attribution required —
+obtained from public GitHub-hosted mirrors of the Poly Haven / ambientCG
+libraries (the dedicated CC0 CDNs themselves are blocked by network policy).
