@@ -172,6 +172,58 @@ old billboard `set_skin` can stay as a fallback until the 3D cosmetics are autho
 **Build order from here:** author the base improvements + socket bones (Blender) →
 drop part GLBs into `parts/` → the catalog/loadouts light up with no further code.
 
+## 9. Automating "author the base" — engine evaluation
+
+Goal: automate step 1 (base mesh + rig + sockets). Honest split — **geometry
+automates well; rigging does not, for this character.**
+
+| Tool | Automates | Verdict for Roshan |
+|---|---|---|
+| **Tripo 3D** | sprite → mesh, clean quad topology, fast | ✅ **geometry source** |
+| **Hunyuan3D** | sprite → mesh, free + **self-hostable** | ✅ geometry source (offline) |
+| **Meshy / Rodin** | sprite → mesh (+ Meshy auto-rig) | ✅ mesh; ❌ its auto-rig (humanoid) |
+| **Meshy / Tripo / AccuRig auto-rig** | one-click humanoid skeleton + retarget | ❌ humanoid-only, **wrong skeleton + bone names** |
+| **Auto-Rig Pro (Blender)** | modular rig **with tail chains**, creatures | ⚠️ only real creature auto-rig, still its own skeleton |
+| **Unreal MetaHuman creatures** | humanoid + hand-animated tail | ❌ overkill for a Godot kids' game |
+
+**Why one-click fails here:** web auto-riggers assume a **biped with a standard,
+canonically-named skeleton** (that's what makes retarget work). Roshan has a
+**tail** and an animator that drives bones **by exact name** (`tail1..tail8`, …).
+AI rigs bring their own skeleton → won't animate without re-rigging.
+
+**The automatable path = reuse the rig, don't regenerate it.** AI makes the mesh;
+`tools/build_roshan_base.py` then **transfers the existing rig's skin weights** onto
+it (Blender Data-Transfer), keeps the proven 26-bone armature + procedural swim, and
+auto-adds the **socket** and **hair-strand** bones. Manual work shrinks to
+fidelity/likeness cleanup + tail/face weight touch-ups.
+
+Pipeline: **Tripo/Hunyuan3D (mesh) → `build_roshan_base.py` (weights + sockets +
+hair) → `glb_check.py` (validate)**.
+
+## 10. Rainbow physics hair (10-15+ independent streaks)
+
+Implemented as a rig + runtime + shader combo, scaffolded and guarded (no-op until
+the strand-rigged model exists):
+
+- **Rig:** `build_roshan_base.py` fans **12 strands × 3 segments** (configurable
+  10-15+ via `--hair`) off the `head` bone, named `hair_<SS>_<J>`. The hair geometry
+  is weighted to these chains, with each strand's index baked into **vertex-colour
+  red** (0..1).
+- **Physics — `scripts/hair.gd` (`HairSim`):** a per-segment **damped spring** drives
+  each strand independently — own phase + stiffness jitter, plus a velocity **trail**
+  so the whole mane lags when she accelerates. Same primitive as the procedural swim
+  (`set_bone_pose_rotation` vs rest), so no engine-node dependency. (Godot's built-in
+  `SpringBoneSimulator3D` is the alternative; the custom solver is used for
+  deterministic, tunable behaviour.)
+- **Colour — `assets/characters/hair_rainbow.gdshader`:** maps each strand's
+  vertex-colour index to a hue (full rainbow across the fan) and slowly cycles it via
+  `TIME`; adds a caustic shimmer + rim so the hair sits in the reef light. Motion and
+  colour are deliberately decoupled (physics = `hair.gd`, colour = shader).
+
+**Wire-in (after the strand-rigged model lands):** `var hs := HairSim.new();
+player.add_child(hs); hs.setup(player)` and drop the `hair1/2/3` lines from
+`player.gd`'s swim. `glb_check.py` reports the strand count (targets 10-15+).
+
 ## Sources
 - Meshy — image-to-3D + auto-rig: https://www.meshy.ai/blog/best-ai-tools-for-3d-game-assets
 - Tripo (fast, quad topo, no native rig): https://www.tripo3d.ai/content/en/guide/the-best-character-creator-auto-rig-tools

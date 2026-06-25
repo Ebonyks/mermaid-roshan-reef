@@ -73,6 +73,12 @@ def main():
         if expect is ROSHAN_BONES:
             sockets = [b for b in SOCKET_BONES if b in joints]
             print(f"[i] cosmetic socket bones present: {sockets if sockets else 'none yet (optional)'}")
+            strands = set()
+            for b in joints:
+                if b.startswith("hair_"):
+                    strands.add(b.split("_")[1])   # the SS index
+            print(f"[i] physics hair strands present: {len(strands)} "
+                  f"({'good — 10-15+ target met' if len(strands) >= 10 else 'none/few yet (optional)'})")
 
 
 if __name__ == "__main__":
