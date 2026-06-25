@@ -24,6 +24,8 @@ NPC_BONES = [
     "armUL", "armFL", "handL", "armUR", "armFR", "handR",
     "legUL", "legLL", "footL", "legUR", "legLR", "footR",
 ]
+# Optional cosmetic socket bones (additive to Roshan's 26; see CHARACTER_CUSTOMIZATION.md §8)
+SOCKET_BONES = ["headTop", "backL", "backR", "earL", "earR", "tailTip", "handHold"]
 
 
 def load_json_chunk(p):
@@ -68,6 +70,9 @@ def main():
             print(f"[!] {label} rig MISSING bones: {missing}")
             sys.exit(4)
         print(f"[ok] all {len(expect)} {label} bones present.")
+        if expect is ROSHAN_BONES:
+            sockets = [b for b in SOCKET_BONES if b in joints]
+            print(f"[i] cosmetic socket bones present: {sockets if sockets else 'none yet (optional)'}")
 
 
 if __name__ == "__main__":

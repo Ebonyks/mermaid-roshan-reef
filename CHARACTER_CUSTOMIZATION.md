@@ -141,6 +141,37 @@ free option, now by preference rather than necessity.
 > All artifacts above are specs/scaffolding — the sculpting itself is Blender artist
 > work (no Blender in this session), and runtime changes need a Godot open to verify.
 
+## 8. Scaffold delivered (2026-06-25)
+
+The cosmetic "engine" backbone is in the repo — **data-driven, fully guarded, and
+NOT yet wired into the live game** (zero behaviour change until you opt in). It
+degrades to a no-op whenever an asset / socket bone / morph / surface is absent, so
+it is safe to merge before any cosmetic art exists.
+
+| File | Role |
+|---|---|
+| `assets/characters/cosmetics/catalog.json` | the data: cosmetics (socket/material/morph), layers, loadouts. **Fairy = a loadout** here, not a model. |
+| `scripts/cosmetics.gd` (`CosmeticManager`) | runtime: `apply_loadout(id)` composes cosmetics on the shared rig; re-applying reverts the previous one cleanly. |
+| `tools/build_roshan_cosmetics.py` | Blender assembler: validates socket bones, checks parts, can pre-bake a loadout preview GLB. Reads the same catalog. |
+| `assets/characters/cosmetics/parts/` | the part-GLB library (empty; `README.md` documents the contract). |
+| `tools/glb_check.py` | now also reports cosmetic **socket bones** on Roshan. |
+
+**Socket bones** (additive to the core 26 — add when re-rigging, keep all originals):
+`headTop, backL, backR, earL, earR, tailTip, handHold`.
+
+**Wire-in (one place, when you're ready — needs a Godot open to verify):**
+replace the `player.set_skin(...)` call (`main.gd:1645`) with:
+```gdscript
+if cosmetics == null:
+    cosmetics = CosmeticManager.new(); add_child(cosmetics); cosmetics.setup(player)
+cosmetics.apply_loadout(skin_id)   # "classic" = clean no-op
+```
+and have the wardrobe UI list `cosmetics.list_loadouts()` instead of `SKINS`. The
+old billboard `set_skin` can stay as a fallback until the 3D cosmetics are authored.
+
+**Build order from here:** author the base improvements + socket bones (Blender) →
+drop part GLBs into `parts/` → the catalog/loadouts light up with no further code.
+
 ## Sources
 - Meshy — image-to-3D + auto-rig: https://www.meshy.ai/blog/best-ai-tools-for-3d-game-assets
 - Tripo (fast, quad topo, no native rig): https://www.tripo3d.ai/content/en/guide/the-best-character-creator-auto-rig-tools

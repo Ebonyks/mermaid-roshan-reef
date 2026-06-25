@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "_doc": "Cosmetic catalog for Roshan. Driven by scripts/cosmetics.gd. A 'cosmetic' is one of three types; a 'loadout' is an ordered list of cosmetic ids. Within a 'layer' only the last-applied cosmetic wins (mutual exclusion per slot). Everything degrades to a no-op if an asset / bone / morph is missing, so this file is safe to extend before the art exists.",
+
+  "layers": ["back", "head", "ears", "face", "hair_color", "tail_skin", "hand"],
+
+  "cosmetics": {
+    "wings_fairy": {
+      "type": "socket",
+      "layer": "back",
+      "socket": "backL",
+      "mirror_socket": "backR",
+      "asset": "res://assets/characters/cosmetics/parts/wings_fairy.glb",
+      "offset": {"pos": [0, 0, 0], "scale": 1.0},
+      "unlock": "always"
+    },
+    "crown_pearl": {
+      "type": "socket",
+      "layer": "head",
+      "socket": "headTop",
+      "asset": "res://assets/characters/cosmetics/parts/crown_pearl.glb",
+      "unlock": "pearls>=20"
+    },
+    "ears_fairy": {
+      "type": "morph",
+      "layer": "ears",
+      "morph": "fairy_ears",
+      "value": 1.0,
+      "unlock": "always"
+    },
+    "hair_rainbow": {
+      "type": "material",
+      "layer": "hair_color",
+      "surface_match": "hair",
+      "params": {"albedo_color": [1.0, 0.45, 0.75, 1.0], "emission_energy": 0.4},
+      "unlock": "always"
+    },
+    "tail_sparkle": {
+      "type": "material",
+      "layer": "tail_skin",
+      "surface_match": "tail",
+      "shader": "res://assets/characters/cosmetics/sparkle_tail.gdshader",
+      "unlock": "stars>=10"
+    }
+  },
+
+  "loadouts": {
+    "classic": [],
+    "fairy": ["wings_fairy", "ears_fairy", "tail_sparkle"],
+    "rainbow_princess": ["crown_pearl", "hair_rainbow"]
+  }
+}
