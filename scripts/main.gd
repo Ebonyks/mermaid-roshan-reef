@@ -1930,10 +1930,12 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	var r: float = sqrt(lx * lx + lz * lz)
 	var h := 0.0
 	# rolling hills (away from the central castle + path so gameplay stays clear)
-	h += _lagoon_bump(lx, lz, -130.0, 20.0, 62.0, 20.0)
-	h += _lagoon_bump(lx, lz, 128.0, -20.0, 64.0, 18.0)
-	h += _lagoon_bump(lx, lz, -60.0, 168.0, 54.0, 15.0)
-	h += _lagoon_bump(lx, lz, 100.0, 150.0, 54.0, 14.0)
+	h += _lagoon_bump(lx, lz, -130.0, 20.0, 66.0, 30.0)
+	h += _lagoon_bump(lx, lz, 128.0, -20.0, 68.0, 27.0)
+	h += _lagoon_bump(lx, lz, -60.0, 168.0, 56.0, 22.0)
+	h += _lagoon_bump(lx, lz, 100.0, 150.0, 56.0, 21.0)
+	h += _lagoon_bump(lx, lz, 170.0, 70.0, 52.0, 24.0)     # extra ridge, east
+	h += _lagoon_bump(lx, lz, -175.0, -90.0, 50.0, 22.0)   # extra ridge, southwest
 	# rivers carve valleys
 	h -= _lagoon_river_dip(lx, lz)
 	# the west river opens into a deep grotto basin (a reward for following it out)
