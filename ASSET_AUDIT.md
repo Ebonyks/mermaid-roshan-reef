@@ -144,3 +144,21 @@ free CC0 equivalent below. Filenames stay identical so `scripts/main.gd` is unto
 All Quaternius assets are **CC0-1.0** (no attribution required) and license-compatible with this
 non-commercial project. The ledger (`REEF_FLORA.md`, `ASSET_LICENSES.md`) must be updated to cite
 them once imported.
+
+---
+
+## 6. Runbook — finishing in a fresh session
+
+Network access is set **Full** at the environment level (2026-06-25), but a policy change only
+applies to sessions started **after** the change; a running session keeps the egress policy it
+booted with (verified: this session still gets live 403s from the gateway). **So the import must
+run in a fresh web session** on branch `claude/replace-assets-free-sources-lnplz7`.
+
+Staged helper: **`tools/fetch_assets.sh`** — gates on connectivity, pulls the iR Engine ocean
+pack via Git-LFS, validates real glTF magic (rejects LFS pointers / HTML), and reports coverage
+into `assets/_staging/` **without** overwriting the working pack. Review, map per §5, then swap.
+
+Coverage note: the iR Engine ocean pack covers most fauna (shark, hammerhead, whale, dolphin,
+octopus, stingray, crab, clownfish, corals, kelp, urchin) but **lacks** Penguin, Turtle, Squid,
+Lobster, shells, and rocks — pull those from Quaternius via `poly.pizza` (URLs verified live in
+the unblocked session). Keep target filenames identical so `scripts/main.gd` needs no edits.
