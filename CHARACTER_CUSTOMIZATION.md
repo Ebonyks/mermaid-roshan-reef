@@ -108,21 +108,24 @@ Reframe it as a **modular assembler**, not an ML sprite→3D pipeline:
 AI image→3D can *feed the parts library* (generate candidate wing/crown shapes from
 concept art) but it is an **input**, not the engine.
 
-## 6. Privacy — matters specifically for THIS game ⚠️
+## 6. Privacy — considered and dismissed by the owner
 
-Roshan is a **real child** and the cast are **real family members** (bespoke
-portraits + family-recorded voices). Cloud AI 3D generators require **uploading that
-likeness** to a third-party SaaS, with training/retention terms you don't control.
-For a personal family game that is a real consideration. If AI gen is used at all,
-strongly prefer **offline Blender + self-hosted Hunyuan3D** over any cloud service.
+Raised and **closed (2026-06-25):** the owner considers Roshan a **stylized avatar
+/ character IP, not a likeness of the actual child**, so uploading the sprite to a
+cloud 3D generator is acceptable. Cloud tools (Meshy, Tripo, Rodin) are therefore
+on the table as a **geometry source**. This does **not** change the verdict in §3:
+AI stays a **blockout accelerator**, for the *rig* reason (mermaid tail + the named
+26-bone procedural animator), not for privacy. Self-hosted Hunyuan3D remains a fine
+free option, now by preference rather than necessity.
 
 ## 7. Recommendation
 
 1. **Keep ONE rigged base Roshan**, improved per `CHARACTER_PIPELINE.md §1`.
 2. **Variants = modular cosmetics** (sockets + materials + morphs), data-driven and
    composable. Fairy = a loadout, not a model. Retire the billboard-skin swap.
-3. **Author geometry in Blender** onto the existing rig (+ new socket bones); AI only
-   as an optional **self-hosted** blockout — never the rig, never the "engine."
+3. **Author geometry in Blender** onto the existing rig (+ new socket bones); AI
+   (cloud or self-hosted — privacy is not a constraint, see §6) only as an optional
+   **blockout** accelerator — never the rig, never the "engine."
 4. **Build the modular assembler + Godot cosmetic catalog** — that's the real
    "custom engine," and it's fully scaffold-able from here (schema, assembler
    skeleton, loader design, socket-bone spec) without Blender/Godot present.
