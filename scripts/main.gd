@@ -1878,7 +1878,13 @@ const LAGOON_RIVERS := [
 	[Vector2(-210, -40), Vector2(-150, 30), Vector2(-90, 100), Vector2(-30, 170)],
 	[Vector2(205, -30), Vector2(150, 40), Vector2(95, 110), Vector2(45, 180)]]
 const LAGOON_RIVER_W := 17.0
-const LAGOON_RIVER_DEPTH := 10.0
+const LAGOON_RIVER_DEPTH := 18.0
+# Castle moat: a ring channel carved around the keep, with a hidden door at its floor.
+const MOAT_CX := 0.0
+const MOAT_CZ := -120.0      # local (relative to LEVEL2_POS); matches the castle base
+const MOAT_INNER := 46.0     # clears the keep + the four corner towers
+const MOAT_OUTER := 64.0
+const MOAT_DEPTH := 16.0
 
 func _seg_dist(p: Vector2, a: Vector2, b: Vector2) -> float:
 	var ab: Vector2 = b - a
@@ -1898,6 +1904,16 @@ func _lagoon_river_dip(lx: float, lz: float) -> float:
 		return 0.0
 	var t: float = best / LAGOON_RIVER_W
 	return LAGOON_RIVER_DEPTH * (1.0 - t * t)   # parabolic channel, deepest at the centre
+
+func _lagoon_moat_dip(lx: float, lz: float) -> float:
+	# annular channel around the castle; flat-ish floor so the hidden door sits low
+	var d: float = sqrt((lx - MOAT_CX) * (lx - MOAT_CX) + (lz - MOAT_CZ) * (lz - MOAT_CZ))
+	if d <= MOAT_INNER or d >= MOAT_OUTER:
+		return 0.0
+	var mid: float = (MOAT_INNER + MOAT_OUTER) * 0.5
+	var half: float = (MOAT_OUTER - MOAT_INNER) * 0.5
+	var t: float = absf(d - mid) / half
+	return MOAT_DEPTH * (1.0 - t * t)
 
 func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: float) -> float:
 	var d2: float = (lx - cx) * (lx - cx) + (lz - cz) * (lz - cz)
@@ -1923,6 +1939,8 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	if lz > -95.0 and lz < 172.0:
 		m_path = 1.0 - smoothstep(16.0, 28.0, absf(lx))
 	h = lerpf(h, 0.0, maxf(m_disc, m_path))
+	# castle moat — carved LAST so it digs even through the flattened path/disc
+	h -= _lagoon_moat_dip(lx, lz)
 	# island rim falls away at the edge
 	if r > 205.0:
 		h -= (r - 205.0) * 1.2
@@ -2017,6 +2035,18 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
+	# ---- castle moat water: one calm pool; land above its surface stays dry, only the
+	#      carved ring (and the back-door hatch) read as water ----
+	var moat_w := MeshInstance3D.new()
+	var mq := PlaneMesh.new()
+	mq.size = Vector2(MOAT_OUTER * 2.5, MOAT_OUTER * 2.5)
+	mq.subdivide_width = 24; mq.subdivide_depth = 24
+	moat_w.mesh = mq
+	var mwmat := ShaderMaterial.new(); mwmat.shader = wsh
+	mwmat.set_shader_parameter("ripple", ripple_tex)
+	moat_w.material_override = mwmat
+	moat_w.position = o + Vector3(MOAT_CX, -6.0, MOAT_CZ)   # 6 below island top -> fills the ~16-deep ring
+	add_child(moat_w); game_nodes.append(moat_w)
 
 func _build_pearl_castle(o: Vector3) -> void:
 	wall_pics = []
@@ -2202,7 +2232,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	game_nodes.append(bfly)
 	# ---------- the castle (back of the island) ----------
 	var c := o + Vector3(0, 0, -120.0)
-	# (the moat was removed — rivers run through the meadow instead)
+	# the moat is carved into the lagoon terrain (see _lagoon_moat_dip); the bridge crosses it
 	# a long wooden bridge from the courtyard, ACROSS the moat, right up to the door
 	var bridge := _l2_box(c + Vector3(0, 2.6, 40.0), Vector3(13.0, 0.8, 60.0), Color(0.62, 0.45, 0.28))
 	bridge.material_override.roughness = 1.0
@@ -2290,6 +2320,19 @@ func _build_pearl_castle(o: Vector3) -> void:
 	var arch := _l2_box(c + Vector3(0, 12.0, 12.0), Vector3(17.0, 25.0, 0.4), Color(0.55, 0.9, 1.0), 0.0)
 	arch.visible = false
 	g["arch"] = arch
+	# ---------- HIDDEN BACK DOOR: a secret hatch on the moat floor behind the keep ----------
+	# A curious explorer who dives into the moat and swims around the back finds a way in
+	# that bypasses the 3 Dream Stars. Sits at the bottom of the carved ring (y ~ -14).
+	var back_pos: Vector3 = c + Vector3(0, -14.0, -30.0)   # on the moat floor, just behind the back wall
+	var recess := _l2_box(c + Vector3(0, -9.0, -28.6), Vector3(11.0, 13.0, 1.0), Color(0.04, 0.06, 0.08))
+	recess.material_override.roughness = 1.0                 # a dark recessed opening in the wall base
+	var hatch := _l2_box(back_pos, Vector3(9.0, 1.0, 7.0), Color(0.2, 0.22, 0.28))
+	hatch.material_override = _up_mat("castle", 0.08, Color(0.7, 0.72, 0.8))   # stone hatch on the floor
+	var bglow := OmniLight3D.new()                          # dim glow: findable, but still 'hidden'
+	bglow.light_color = Color(0.5, 0.85, 1.0); bglow.light_energy = 1.3; bglow.omni_range = 13.0
+	bglow.position = back_pos + Vector3(0, 2.2, 0)
+	add_child(bglow); game_nodes.append(bglow)
+	g["back_entry"] = back_pos
 	var dl := Label3D.new()
 	dl.text = "Princess Huluu\u2019s Castle"
 	dl.font_size = 90
@@ -2473,6 +2516,12 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				else:
 					_mg2d_open(String(PIC_GAME[String(wp["art"])]))
 				return
+	# hidden back door: a secret underwater entrance that works even before the stars
+	if g.has("back_entry"):
+		var bpos: Vector3 = g["back_entry"]
+		if bpos.distance_to(ppos) < 9.0:
+			_enter_castle_interior()
+			return
 	if not l2_open:
 		hud_game.text = "Dream Stars: %d / 3  -  follow the arrow!  (or touch a picture to play!)" % got
 	else:
