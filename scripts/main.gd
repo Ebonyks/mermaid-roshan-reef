@@ -1198,80 +1198,6 @@ func _respawn_pearls() -> void:
 	if grew:
 		show_msg("", "New rainbow pearls are shimmering in the reef!")
 
-# --- TRIAL (2026-06-25): underwater integration for the 2D friend billboards ---
-# Goal: stop the painterly sprites reading as flat stickers pasted on the 3D reef,
-# WITHOUT converting them to 3D (their hand-painted likeness is the charm). We keep
-# the Sprite3D (so all `as Sprite3D` / `.texture` call sites stay valid) and only
-# swap its material for a shader that: billboards, feathers the cut-out edge, takes
-# the scene's depth fog, and catches the caustic light + a rim — plus a soft contact
-# shadow on the seabed so the friend sits *in* the water instead of floating on top.
-# Fully reversible: delete _friend_underwater_fx + its call in _build_friends.
-var _uw_sprite_shader: Shader = null
-var _shadow_shader: Shader = null
-
-func _friend_underwater_fx(spr: Sprite3D, ground_y: float) -> void:
-	if _uw_sprite_shader == null:
-		_uw_sprite_shader = Shader.new()
-		_uw_sprite_shader.code = """shader_type spatial;
-render_mode blend_mix, cull_disabled, depth_draw_opaque, shadows_disabled, specular_disabled;
-uniform sampler2D tex : source_color, filter_linear_mipmap;
-uniform sampler2D caustic : source_color;
-uniform float glow = 0.8;          // self-illumination so the 'glowing friends' stay readable
-uniform float caustic_amt = 0.5;   // strength of the reef-floor light dapples on the sprite
-uniform float soft = 0.12;         // edge feather width (alpha units) -> kills the hard matte
-void vertex() {
-	// full billboard: face the camera, keeping the quad's built-in pixel size
-	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
-		INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
-}
-void fragment() {
-	vec4 t = texture(tex, UV);
-	float a = smoothstep(0.0, soft, t.a);   // soft feathered silhouette
-	if (a < 0.01) { discard; }
-	ALBEDO = t.rgb;
-	ALPHA = a;
-	EMISSION = t.rgb * glow;                 // keep brightness; scene fog still tints by depth
-	// caustic dapples projected by world XZ (same look as the reef floor), masked to the body
-	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	vec2 cuv = wp.xz * 0.020 + vec2(TIME * 0.010, -TIME * 0.007);
-	vec2 cuv2 = wp.xz * 0.014 - vec2(TIME * 0.006, TIME * 0.009);
-	float c = texture(caustic, cuv).r * 0.55 + texture(caustic, cuv2).r * 0.45;
-	c = smoothstep(0.4, 0.95, c);
-	EMISSION += c * vec3(0.55, 0.78, 0.82) * caustic_amt;
-	RIM = 0.7;          // soft rim so the edge catches the key light, not a sticker outline
-	RIM_TINT = 0.3;
-	ROUGHNESS = 0.9;
-}"""
-	var mat := ShaderMaterial.new()
-	mat.shader = _uw_sprite_shader
-	mat.set_shader_parameter("tex", spr.texture)
-	mat.set_shader_parameter("caustic", load("res://assets/terrain/caustics.png"))
-	spr.material_override = mat
-
-	# soft contact shadow on the seabed beneath the friend
-	if _shadow_shader == null:
-		_shadow_shader = Shader.new()
-		_shadow_shader.code = """shader_type spatial;
-render_mode blend_mix, unshaded, cull_disabled, depth_draw_never, shadows_disabled;
-uniform float strength = 0.34;
-void fragment() {
-	float r = length(UV - vec2(0.5)) * 2.0;     // 0 at centre -> 1 at edge
-	ALBEDO = vec3(0.02, 0.05, 0.06);
-	ALPHA = smoothstep(1.0, 0.0, r) * strength; // soft radial falloff
-}"""
-	var w: float = 5.0
-	if spr.texture != null:
-		w = float(spr.texture.get_size().x) * spr.pixel_size
-	var shadow := MeshInstance3D.new()
-	var pm := PlaneMesh.new()
-	pm.size = Vector2(w * 1.15, w * 1.15)
-	shadow.mesh = pm
-	var smat := ShaderMaterial.new()
-	smat.shader = _shadow_shader
-	shadow.material_override = smat
-	shadow.position = Vector3(spr.position.x, ground_y + 0.12, spr.position.z)
-	add_child(shadow)
-
 func _build_friends() -> void:
 	for i in range(FRIEND_DEFS.size()):
 		var fd: Dictionary = FRIEND_DEFS[i]
@@ -1281,11 +1207,10 @@ func _build_friends() -> void:
 		var z: float = sin(a) * r
 		var spr := Sprite3D.new()
 		spr.texture = load("res://assets/characters/friends/" + String(fd["tex"]) + ".png")
-		spr.billboard = BaseMaterial3D.BILLBOARD_DISABLED   # billboard handled in the underwater shader
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		spr.pixel_size = 0.016
 		spr.position = Vector3(x, seabed_y(x, z) + 6.5, z)
 		add_child(spr)
-		_friend_underwater_fx(spr, seabed_y(x, z))   # TRIAL: light + ground the sprite into the 3D reef
 		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
