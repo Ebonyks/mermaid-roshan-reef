@@ -151,8 +151,8 @@ func _pos_at(s: float) -> Vector3:
 	return _lut[i].lerp(_lut[i + 1], t)
 
 func _tangent_at(s: float) -> Vector3:
-	var a := _pos_at(s)
-	var b := _pos_at(s + 2.0)
+	var a := _pos_at(s - 3.0)
+	var b := _pos_at(s + 3.0)   # wider baseline -> smoother heading (less bobbing)
 	var dir := b - a
 	if dir.length() < 0.001:
 		return Vector3.FORWARD
@@ -165,9 +165,9 @@ func _width_at(s: float) -> float:
 
 func _bank_at(s: float) -> float:
 	# roll the road into turns, proportional to how fast the heading turns
-	var t0 := _tangent_at(s)
-	var t1 := _tangent_at(s + 6.0)
-	return clampf(t0.cross(t1).y * 7.0, -0.45, 0.45)
+	var t0 := _tangent_at(s - 10.0)
+	var t1 := _tangent_at(s + 10.0)   # wide baseline -> smooth bank, no twitch
+	return clampf(t0.cross(t1).y * 4.0, -0.4, 0.4)
 
 func _frame_at(s: float, lat: float) -> Array:
 	var fwd := _tangent_at(s)
@@ -536,7 +536,7 @@ func _build_karts() -> void:
 		var k := {
 			"node": node, "name": String(r["name"]), "is_player": is_p,
 			"s": start_s, "lat": lane, "speed": 0.0, "boost": 0.0,
-			"ai_skill": 0.92 + 0.10 * (float(idx) / float(n)),   # spread of AI pace (rubber-banded too)
+			"ai_skill": 0.98 + 0.08 * (float(idx) / float(n)),   # some AI out-cruise the player (rubber-banded too)
 			"ai_phase": float(idx) * 1.3,
 		}
 		_karts.append(k)
@@ -572,7 +572,7 @@ func _build_hud() -> void:
 	_lbl_big.position = Vector2(-220, -120); _lbl_big.size = Vector2(440, 240)
 	var hint := _mk_label(root, Vector2(24, 0), 26, Color(0.9, 0.9, 1.0))
 	hint.anchor_top = 1.0; hint.position = Vector2(24, -56)
-	hint.text = "Hold UP / A to GO   •   DOWN to brake   •   LEFT/RIGHT to steer"
+	hint.text = "LEFT / RIGHT to steer   •   it drives itself!   •   DOWN to slow down"
 
 # ---------------------------------------------------------------- input
 func _steer_accel() -> Array:
@@ -643,21 +643,18 @@ func _process(delta: float) -> void:
 		_finish()
 
 func _update_player(k: Dictionary, accel: float, steer: float, delta: float) -> void:
+	# AUTO-SCROLLER: the kart always cruises forward; the child only steers.
+	# (Holding DOWN is an optional brake; you never have to hold the accelerator.)
 	k["boost"] = maxf(0.0, float(k["boost"]) - delta)
 	var bf: float = 1.0 + (BOOST_MUL if float(k["boost"]) > 0.0 else 0.0)
-	var target: float = (_vmax * 1.06 * bf) if accel > 0.0 else (0.0 if accel < 0.0 else _vmax * 0.25)
-	if accel < 0.0:
-		target = -_vmax * 0.12   # brake/reverse a touch
-	elif float(k["boost"]) > 0.0:
-		target = _vmax * 1.1 * bf   # the boost carries you even off the gas
-	var rate: float = 22.0 if accel >= 0.0 else 40.0
+	var target: float = _vmax * bf
 	if float(k["boost"]) > 0.0:
-		rate = 60.0   # snap up to boost speed fast
-	k["speed"] = move_toward(float(k["speed"]), target, rate * delta)
+		target = _vmax * 1.1 * bf
+	if accel < 0.0:
+		target = _vmax * 0.45   # optional brake — eases off, never stops
+	k["speed"] = move_toward(float(k["speed"]), target, 50.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
-	# steering scales a bit with speed so it feels grippy
-	var grip: float = clampf(absf(float(k["speed"])) / _vmax, 0.15, 1.0)
-	_apply_lat(k, float(k["lat"]) + steer * 16.0 * grip * delta)
+	_apply_lat(k, float(k["lat"]) + steer * 16.0 * delta)
 
 func _update_ai(k: Dictionary, delta: float) -> void:
 	# constant-ish pace with gentle rubber-banding toward the player + lane wander
@@ -666,12 +663,12 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	var base: float = _vmax * float(k["ai_skill"]) * bf
 	if _pl != null:
 		var gap: float = float(_pl["s"]) - float(k["s"])
-		base += clampf(gap * 0.045, -_vmax * 0.13, _vmax * 0.24)   # stronger catch-up / hold-back (tight pack)
-	base += sin(_race_t * 0.8 + float(k["ai_phase"])) * _vmax * 0.04
-	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 18.0 * delta)
+		base += clampf(gap * 0.06, -_vmax * 0.2, _vmax * 0.5)   # strong catch-up -> a real pack, never lapped
+	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
-	var want: float = sin(_race_t * 0.5 + float(k["ai_phase"])) * ROAD_HALF * 0.4
-	_apply_lat(k, move_toward(float(k["lat"]), want, 6.0 * delta))
+	# gentle, slow lane drift so the AI reads as alive but drives a smooth line (no bobbing)
+	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * ROAD_HALF * 0.16
+	_apply_lat(k, move_toward(float(k["lat"]), want, 3.0 * delta))
 
 func _apply_lat(k: Dictionary, new_lat: float) -> void:
 	# bouncy walls: if you'd cross the rail, clamp + rebound inward and lose a little speed
