@@ -19,8 +19,9 @@ class_name KartGame
 # ============================================================================
 
 const LAPS := 2
-const LAP_TARGET_SEC := 28.0      # tunes total race into the ~45-60s window (incl. countdown)
+const LAP_TARGET_SEC := 30.0      # tunes total race into the ~45-60s window (more zips = more boost)
 const ROAD_HALF := 11.0           # half-width of the rainbow ribbon
+const COLLIDE_R := 4.5            # kart-vs-kart bump radius
 const SAMPLES := 260              # spline samples for the arc-length table
 const ORIGIN := Vector3(0.0, 4000.0, 0.0)   # far above the reef so nothing else is in frame
 
@@ -42,9 +43,13 @@ const SHELL_BOOST := 1.1        # mermaid spiral-shell pickup
 const STAR_BOOST := 1.7         # star pickup (bigger, longer)
 # zoom strips: u-fraction along the loop, lateral offset, arc length, half-width
 const STRIPS := [
-	{"u": 0.12, "lat": 0.0, "len": 16.0, "hw": 7.0},
+	{"u": 0.08, "lat": 0.0, "len": 16.0, "hw": 7.0},
+	{"u": 0.20, "lat": 5.0, "len": 14.0, "hw": 7.0},
+	{"u": 0.34, "lat": -5.0, "len": 14.0, "hw": 7.0},
+	{"u": 0.50, "lat": 0.0, "len": 16.0, "hw": 7.0},
 	{"u": 0.62, "lat": -4.0, "len": 16.0, "hw": 7.0},
-	{"u": 0.85, "lat": 4.0, "len": 16.0, "hw": 7.0},
+	{"u": 0.78, "lat": 4.0, "len": 14.0, "hw": 7.0},
+	{"u": 0.92, "lat": 0.0, "len": 16.0, "hw": 7.0},
 ]
 # pickups: u-fraction, lateral offset, kind ("shell" | "star")
 const PICKUPS := [
@@ -281,16 +286,70 @@ void fragment(){
 		rail.material_override = em
 		rail.position = ORIGIN
 		add_child(rail)
-	# start/finish banner
+	# ---- big START/FINISH line with a rainbow dome over it (so the end is obvious) ----
 	var sf := _frame_at(0.0, 0.0)
-	var arch := MeshInstance3D.new()
-	var bm := BoxMesh.new(); bm.size = Vector3(ROAD_HALF * 2.4, 1.2, 1.0)
-	arch.mesh = bm
-	var bmat := StandardMaterial3D.new(); bmat.albedo_color = Color(0.1, 0.1, 0.1)
-	bmat.emission_enabled = true; bmat.emission = Color(1, 1, 1); bmat.emission_energy_multiplier = 0.5
-	arch.material_override = bmat
-	arch.position = (sf[0] as Vector3) + Vector3(0, 7.0, 0)
-	add_child(arch)
+	var c0: Vector3 = sf[0]
+	var ffwd: Vector3 = sf[1]
+	var fright: Vector3 = sf[2]
+	# checkered line across the road
+	var line := MeshInstance3D.new()
+	var lpm := PlaneMesh.new(); lpm.size = Vector2(ROAD_HALF * 2.0, 4.0)
+	line.mesh = lpm
+	var lsh := Shader.new()
+	lsh.code = """shader_type spatial;
+render_mode unshaded, cull_disabled;
+void fragment(){
+	vec2 g = floor(UV * vec2(10.0, 2.0));
+	float chk = mod(g.x + g.y, 2.0);
+	ALBEDO = vec3(chk);
+	EMISSION = vec3(chk) * 0.3;
+}"""
+	var lmat := ShaderMaterial.new(); lmat.shader = lsh
+	line.material_override = lmat
+	line.transform = Transform3D(Basis(fright, Vector3.UP, ffwd).orthonormalized(), c0 + Vector3(0, 0.2, 0))
+	add_child(line)
+	# tall posts at the road edges
+	for psgn: float in [1.0, -1.0]:
+		var post := MeshInstance3D.new()
+		var pbm := BoxMesh.new(); pbm.size = Vector3(1.4, 15.0, 1.4)
+		post.mesh = pbm
+		var pmat := StandardMaterial3D.new()
+		pmat.albedo_color = Color(1, 1, 1); pmat.emission_enabled = true
+		pmat.emission = Color(1, 1, 1); pmat.emission_energy_multiplier = 0.3
+		post.material_override = pmat
+		post.position = c0 + fright * (ROAD_HALF * psgn) + Vector3(0, 7.5, 0)
+		add_child(post)
+	# rainbow dome arching over the line (you drive through it)
+	var dome := MeshInstance3D.new()
+	var dtm := TorusMesh.new()
+	dtm.inner_radius = ROAD_HALF + 1.0; dtm.outer_radius = ROAD_HALF + 4.0
+	dtm.rings = 40; dtm.ring_segments = 18
+	dome.mesh = dtm
+	var dsh := Shader.new()
+	dsh.code = """shader_type spatial;
+render_mode unshaded, cull_disabled;
+void fragment(){
+	float b = fract(UV.y);
+	vec3 c;
+	if(b<0.16) c=vec3(0.95,0.2,0.35);
+	else if(b<0.33) c=vec3(1.0,0.6,0.2);
+	else if(b<0.5) c=vec3(1.0,0.92,0.3);
+	else if(b<0.66) c=vec3(0.3,0.85,0.45);
+	else if(b<0.83) c=vec3(0.3,0.6,1.0);
+	else c=vec3(0.65,0.4,0.95);
+	ALBEDO=c; EMISSION=c*0.6;
+}"""
+	var dmat := ShaderMaterial.new(); dmat.shader = dsh
+	dome.material_override = dmat
+	dome.transform = Transform3D(Basis(fright, ffwd, Vector3.UP).orthonormalized(), c0 + Vector3(0, 1.0, 0))
+	add_child(dome)
+	# FINISH banner text
+	var flab := Label3D.new()
+	flab.text = "★ FINISH ★"; flab.font_size = 120; flab.outline_size = 22
+	flab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	flab.modulate = Color(1.0, 0.95, 0.4)
+	flab.position = c0 + Vector3(0, ROAD_HALF + 8.0, 0)
+	add_child(flab)
 	# the hidden shortcut gate (a glowing ring, set off the racing line on the inside)
 	var gate_fr := _frame_at(SHORTCUT_FROM_U * _len, 0.0)
 	# placed near the inside edge (reachable: karts steer to ~0.86*ROAD_HALF) so it's
@@ -528,6 +587,7 @@ func _process(delta: float) -> void:
 	_check_strips()
 	_check_pickups(delta)
 	_check_shortcut()
+	_resolve_collisions()
 	_update_camera(delta)
 	_update_hud()
 
@@ -559,12 +619,34 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	var base: float = _vmax * float(k["ai_skill"]) * bf
 	if _pl != null:
 		var gap: float = float(_pl["s"]) - float(k["s"])
-		base += clampf(gap * 0.02, -_vmax * 0.06, _vmax * 0.10)   # mild catch-up / hold-back
+		base += clampf(gap * 0.045, -_vmax * 0.13, _vmax * 0.24)   # stronger catch-up / hold-back (tight pack)
 	base += sin(_race_t * 0.8 + float(k["ai_phase"])) * _vmax * 0.04
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 18.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.5 + float(k["ai_phase"])) * ROAD_HALF * 0.4
 	k["lat"] = move_toward(float(k["lat"]), want, 6.0 * delta)
+
+func _resolve_collisions() -> void:
+	# gentle kart-vs-kart bumping: push apart laterally + bleed a little speed
+	for i in range(_karts.size()):
+		for j in range(i + 1, _karts.size()):
+			var a: Dictionary = _karts[i]
+			var b: Dictionary = _karts[j]
+			var an: Node3D = a["node"]
+			var bn: Node3D = b["node"]
+			var d: float = an.position.distance_to(bn.position)
+			if d < COLLIDE_R and d > 0.01:
+				var sep: float = (COLLIDE_R - d) * 0.5
+				var dir: float = 1.0 if float(a["lat"]) >= float(b["lat"]) else -1.0
+				a["lat"] = clampf(float(a["lat"]) + dir * sep, -ROAD_HALF * 0.92, ROAD_HALF * 0.92)
+				b["lat"] = clampf(float(b["lat"]) - dir * sep, -ROAD_HALF * 0.92, ROAD_HALF * 0.92)
+				a["speed"] = float(a["speed"]) * 0.93
+				b["speed"] = float(b["speed"]) * 0.93
+				# nudge the kart that's ahead in s back a touch so they don't interpenetrate
+				if float(a["s"]) > float(b["s"]):
+					a["s"] = float(a["s"]) - sep * 0.25
+				else:
+					b["s"] = float(b["s"]) - sep * 0.25
 
 func _place_kart(k: Dictionary) -> void:
 	var fr := _kart_frame(float(k["s"]), float(k["lat"]))
