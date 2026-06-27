@@ -35,6 +35,26 @@ const CTRL := [
 const SHORTCUT_FROM_U := 0.34
 const SHORTCUT_TO_U := 0.50
 
+# boosts: zoom strips on the road + collectible items (kept mild so the race stays ~45-60s)
+const BOOST_MUL := 0.5          # +50% top speed while boosting
+const STRIP_BOOST := 0.7        # seconds of boost from a zoom strip
+const SHELL_BOOST := 1.1        # mermaid spiral-shell pickup
+const STAR_BOOST := 1.7         # star pickup (bigger, longer)
+# zoom strips: u-fraction along the loop, lateral offset, arc length, half-width
+const STRIPS := [
+	{"u": 0.12, "lat": 0.0, "len": 16.0, "hw": 7.0},
+	{"u": 0.62, "lat": -4.0, "len": 16.0, "hw": 7.0},
+	{"u": 0.85, "lat": 4.0, "len": 16.0, "hw": 7.0},
+]
+# pickups: u-fraction, lateral offset, kind ("shell" | "star")
+const PICKUPS := [
+	{"u": 0.22, "lat": -5.0, "kind": "shell"},
+	{"u": 0.45, "lat": 5.0, "kind": "star"},
+	{"u": 0.72, "lat": 0.0, "kind": "shell"},
+	{"u": 0.93, "lat": -3.0, "kind": "star"},
+]
+const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
+
 # racer roster: name, kart colour, driver sprite (falls back to a coloured head)
 const RACERS := [
 	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
@@ -62,8 +82,10 @@ var _cum: PackedFloat32Array = []   # cumulative arc length at each sample
 var _len := 0.0                     # total loop length
 var _vmax := 40.0
 
-var _karts: Array = []              # each: {node, name, is_player, s, lat, speed, ai, sprite}
+var _karts: Array = []              # each: {node, name, is_player, s, lat, speed, ai, boost}
 var _pl = null                      # the player's kart dict
+var _strip_data: Array = []         # {s, lat, len, hw}
+var _pickups_live: Array = []       # {node, s, lat, kind, cool}
 var _state := "countdown"           # countdown -> race -> done
 var _clock := 0.0
 var _race_t := 0.0
@@ -135,6 +157,8 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_lut()
 	_build_sky()
 	_build_track()
+	_build_strips()
+	_build_pickups()
 	_build_karts()
 	_build_camera()
 	_build_hud()
@@ -268,6 +292,57 @@ void fragment(){
 	add_child(ring)
 	set_meta("gate_pos", gate_pos)
 
+func _build_strips() -> void:
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode unshaded, cull_disabled;
+void fragment(){
+	float band = fract(UV.y * 5.0 - TIME * 2.5 + abs(UV.x - 0.5));
+	float chev = smoothstep(0.78, 1.0, band);
+	vec3 c = vec3(0.3, 0.9, 1.0);
+	ALBEDO = c;
+	EMISSION = c * (0.4 + chev * 1.6);
+	ALPHA = 0.9;
+}"""
+	for sd in STRIPS:
+		var s0: float = float(sd["u"]) * _len
+		var fr := _frame_at(s0 + float(sd["len"]) * 0.5, float(sd["lat"]))
+		var pos: Vector3 = fr[0]
+		var fwd: Vector3 = fr[1]
+		var pm := PlaneMesh.new(); pm.size = Vector2(float(sd["hw"]) * 2.0, float(sd["len"]))
+		var mi := MeshInstance3D.new(); mi.mesh = pm
+		var mat := ShaderMaterial.new(); mat.shader = sh
+		mi.material_override = mat
+		mi.position = pos + Vector3(0, 0.18, 0)
+		mi.rotation = Vector3(0, atan2(fwd.x, fwd.z), 0)
+		add_child(mi)
+		_strip_data.append({"s": s0, "lat": float(sd["lat"]), "len": float(sd["len"]), "hw": float(sd["hw"])})
+
+func _build_pickups() -> void:
+	for pd in PICKUPS:
+		var s0: float = float(pd["u"]) * _len
+		var fr := _frame_at(s0, float(pd["lat"]))
+		var pos: Vector3 = fr[0]
+		var holder := Node3D.new()
+		holder.position = pos + Vector3(0, 2.6, 0)
+		if String(pd["kind"]) == "shell" and ResourceLoader.exists(SHELL_GLB):
+			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
+			sm.scale = Vector3.ONE * 2.4
+			holder.add_child(sm)
+			var gl := OmniLight3D.new(); gl.light_color = Color(1.0, 0.7, 0.95); gl.light_energy = 2.0; gl.omni_range = 9.0
+			holder.add_child(gl)
+		else:
+			var lab := Label3D.new()
+			lab.text = ("🐚" if String(pd["kind"]) == "shell" else "★")
+			lab.font_size = 180; lab.pixel_size = 0.03
+			lab.modulate = (Color(1.0, 0.7, 0.95) if String(pd["kind"]) == "shell" else Color(1.0, 0.9, 0.3))
+			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			holder.add_child(lab)
+			var gl2 := OmniLight3D.new(); gl2.light_color = lab.modulate; gl2.light_energy = 2.4; gl2.omni_range = 10.0
+			holder.add_child(gl2)
+		add_child(holder)
+		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": String(pd["kind"]), "cool": 0.0})
+
 func _kart_body(col: Color, sprite_path: String, racer_name: String) -> Node3D:
 	var root := Node3D.new()
 	# chassis
@@ -336,7 +411,7 @@ func _build_karts() -> void:
 		var is_p: bool = bool(r.get("player", false))
 		var k := {
 			"node": node, "name": String(r["name"]), "is_player": is_p,
-			"s": start_s, "lat": lane, "speed": 0.0,
+			"s": start_s, "lat": lane, "speed": 0.0, "boost": 0.0,
 			"ai_skill": 0.92 + 0.10 * (float(idx) / float(n)),   # spread of AI pace (rubber-banded too)
 			"ai_phase": float(idx) * 1.3,
 		}
@@ -432,6 +507,8 @@ func _process(delta: float) -> void:
 			_update_ai(k, delta)
 		_place_kart(k)
 
+	_check_strips()
+	_check_pickups(delta)
 	_check_shortcut()
 	_update_camera(delta)
 	_update_hud()
@@ -441,10 +518,16 @@ func _process(delta: float) -> void:
 		_finish()
 
 func _update_player(k: Dictionary, accel: float, steer: float, delta: float) -> void:
-	var target: float = (_vmax * 1.06) if accel > 0.0 else (0.0 if accel < 0.0 else _vmax * 0.25)
+	k["boost"] = maxf(0.0, float(k["boost"]) - delta)
+	var bf: float = 1.0 + (BOOST_MUL if float(k["boost"]) > 0.0 else 0.0)
+	var target: float = (_vmax * 1.06 * bf) if accel > 0.0 else (0.0 if accel < 0.0 else _vmax * 0.25)
 	if accel < 0.0:
 		target = -_vmax * 0.12   # brake/reverse a touch
+	elif float(k["boost"]) > 0.0:
+		target = _vmax * 1.1 * bf   # the boost carries you even off the gas
 	var rate: float = 22.0 if accel >= 0.0 else 40.0
+	if float(k["boost"]) > 0.0:
+		rate = 60.0   # snap up to boost speed fast
 	k["speed"] = move_toward(float(k["speed"]), target, rate * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	# steering scales a bit with speed so it feels grippy
@@ -453,7 +536,9 @@ func _update_player(k: Dictionary, accel: float, steer: float, delta: float) -> 
 
 func _update_ai(k: Dictionary, delta: float) -> void:
 	# constant-ish pace with gentle rubber-banding toward the player + lane wander
-	var base: float = _vmax * float(k["ai_skill"])
+	k["boost"] = maxf(0.0, float(k["boost"]) - delta)
+	var bf: float = 1.0 + (BOOST_MUL if float(k["boost"]) > 0.0 else 0.0)
+	var base: float = _vmax * float(k["ai_skill"]) * bf
 	if _pl != null:
 		var gap: float = float(_pl["s"]) - float(k["s"])
 		base += clampf(gap * 0.02, -_vmax * 0.06, _vmax * 0.10)   # mild catch-up / hold-back
@@ -471,6 +556,41 @@ func _place_kart(k: Dictionary) -> void:
 	node.position = pos + Vector3(0, 1.2, 0)
 	if fwd.length() > 0.001:
 		node.look_at(pos + fwd + Vector3(0, 1.2, 0), Vector3.UP)
+
+func _check_strips() -> void:
+	# any kart driving over a zoom strip gets a boost
+	for k in _karts:
+		var ks: float = fposmod(float(k["s"]), _len)
+		for sd in _strip_data:
+			var s0: float = sd["s"]
+			if ks >= s0 and ks <= s0 + float(sd["len"]) and absf(float(k["lat"]) - float(sd["lat"])) < float(sd["hw"]):
+				if float(k["boost"]) < STRIP_BOOST:
+					k["boost"] = STRIP_BOOST
+
+func _check_pickups(delta: float) -> void:
+	# only the player collects items (the player's advantage, like the shortcut)
+	if _pl == null:
+		return
+	var pn: Node3D = _pl["node"]
+	var t: float = Time.get_ticks_msec() / 1000.0
+	for pu in _pickups_live:
+		var node: Node3D = pu["node"]
+		# spin + bob the live ones
+		node.rotation.y = t * 1.6
+		node.position.y = (_frame_at(float(pu["s"]), float(pu["lat"]))[0] as Vector3).y + 2.6 + sin(t * 2.0 + float(pu["s"])) * 0.5
+		if float(pu["cool"]) > 0.0:
+			pu["cool"] = float(pu["cool"]) - delta
+			if float(pu["cool"]) <= 0.0:
+				node.visible = true
+			continue
+		if node.position.distance_to(pn.position) < 6.5:
+			var amt: float = STAR_BOOST if String(pu["kind"]) == "star" else SHELL_BOOST
+			_pl["boost"] = maxf(float(_pl["boost"]), amt)
+			node.visible = false
+			pu["cool"] = 6.0
+			if _main != null and _main.has_method("_sparkle_burst"):
+				var col := Color(1.0, 0.9, 0.3) if String(pu["kind"]) == "star" else Color(1.0, 0.7, 0.95)
+				_main._sparkle_burst(pn.position, col)
 
 func _check_shortcut() -> void:
 	if _pl == null or not has_meta("gate_pos"):
