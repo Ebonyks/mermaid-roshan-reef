@@ -90,6 +90,7 @@ var _state := "countdown"           # countdown -> race -> done
 var _clock := 0.0
 var _race_t := 0.0
 var _shortcut_used_lap := -1
+var _rev := false                   # reversed track (entered via the rainbow's other half)
 
 # ---------------------------------------------------------------- spline maths
 func _catmull(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, t: float) -> Vector3:
@@ -148,10 +149,26 @@ func _frame_at(s: float, lat: float) -> Array:
 	var pos := _pos_at(s) + right * lat
 	return [pos, fwd, right]
 
+func _eff(s: float) -> float:
+	# map a kart's ever-increasing distance to a sampling point; mirror it when reversed
+	var m := fposmod(s, _len)
+	return (_len - m) if _rev else m
+
+func _kart_frame(s: float, lat: float) -> Array:
+	# kart placement/facing — honours reversed travel (track mesh itself is built forward)
+	var es := _eff(s)
+	var fwd := _tangent_at(es)
+	if _rev:
+		fwd = -fwd
+	var right := fwd.cross(Vector3.UP).normalized()
+	var pos := _pos_at(es) + right * lat
+	return [pos, fwd, right]
+
 # ---------------------------------------------------------------- build
-func start(main: Node, finish_cb: Callable) -> void:
+func start(main: Node, finish_cb: Callable, reversed: bool = false) -> void:
 	_main = main
 	_finish_cb = finish_cb
+	_rev = reversed
 	if "player" in main and main.player != null:
 		_player_node = main.player
 	_build_lut()
@@ -289,6 +306,7 @@ void fragment(){
 	ring.material_override = gmat
 	ring.position = gate_pos + Vector3(0, 3.0, 0)
 	ring.rotation = Vector3(deg_to_rad(90), 0, 0)
+	ring.visible = not _rev   # shortcut only exists on the forward course
 	add_child(ring)
 	set_meta("gate_pos", gate_pos)
 
@@ -316,7 +334,7 @@ void fragment(){
 		mi.position = pos + Vector3(0, 0.18, 0)
 		mi.rotation = Vector3(0, atan2(fwd.x, fwd.z), 0)
 		add_child(mi)
-		_strip_data.append({"s": s0, "lat": float(sd["lat"]), "len": float(sd["len"]), "hw": float(sd["hw"])})
+		_strip_data.append({"pos": pos + Vector3(0, 1.0, 0), "len": float(sd["len"])})
 
 func _build_pickups() -> void:
 	for pd in PICKUPS:
@@ -549,7 +567,7 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	k["lat"] = move_toward(float(k["lat"]), want, 6.0 * delta)
 
 func _place_kart(k: Dictionary) -> void:
-	var fr := _frame_at(float(k["s"]), float(k["lat"]))
+	var fr := _kart_frame(float(k["s"]), float(k["lat"]))
 	var pos: Vector3 = fr[0]
 	var fwd: Vector3 = fr[1]
 	var node: Node3D = k["node"]
@@ -558,12 +576,11 @@ func _place_kart(k: Dictionary) -> void:
 		node.look_at(pos + fwd + Vector3(0, 1.2, 0), Vector3.UP)
 
 func _check_strips() -> void:
-	# any kart driving over a zoom strip gets a boost
+	# any kart driving over a zoom strip gets a boost (proximity -> works either direction)
 	for k in _karts:
-		var ks: float = fposmod(float(k["s"]), _len)
+		var kn: Node3D = k["node"]
 		for sd in _strip_data:
-			var s0: float = sd["s"]
-			if ks >= s0 and ks <= s0 + float(sd["len"]) and absf(float(k["lat"]) - float(sd["lat"])) < float(sd["hw"]):
+			if kn.position.distance_to(sd["pos"]) < float(sd["len"]) * 0.6 + 3.0:
 				if float(k["boost"]) < STRIP_BOOST:
 					k["boost"] = STRIP_BOOST
 
@@ -593,7 +610,7 @@ func _check_pickups(delta: float) -> void:
 				_main._sparkle_burst(pn.position, col)
 
 func _check_shortcut() -> void:
-	if _pl == null or not has_meta("gate_pos"):
+	if _rev or _pl == null or not has_meta("gate_pos"):
 		return
 	var lap: int = int(float(_pl["s"]) / _len)
 	if lap == _shortcut_used_lap:
@@ -613,7 +630,7 @@ func _update_camera(delta: float) -> void:
 	if _cam == null or _pl == null:
 		return
 	var pn: Node3D = _pl["node"]
-	var fr := _frame_at(float(_pl["s"]), float(_pl["lat"]))
+	var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]))
 	var fwd: Vector3 = fr[1]
 	var want: Vector3 = pn.position - fwd * 16.0 + Vector3(0, 8.0, 0)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
@@ -632,7 +649,7 @@ func _update_hud() -> void:
 	if _pl == null:
 		return
 	var lap: int = clampi(int(float(_pl["s"]) / _len) + 1, 1, LAPS)
-	_lbl_lap.text = "Lap %d / %d" % [lap, LAPS]
+	_lbl_lap.text = ("Lap %d / %d  ↺ REVERSE" % [lap, LAPS]) if _rev else ("Lap %d / %d" % [lap, LAPS])
 	var place := _placement()
 	var suffix := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
 	_lbl_place.text = "%d%s" % [place, suffix]

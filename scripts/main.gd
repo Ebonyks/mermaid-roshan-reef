@@ -84,6 +84,9 @@ var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
 var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
+var kart_legA := Vector3.ZERO   # rainbow leg in world 2 -> forward race
+var kart_legB := Vector3.ZERO   # rainbow leg in world 2 -> reversed race
+var kart_from := ""             # which world launched the race ("" reef / "level2")
 var mg := {}
 var _nat_cache := {}
 
@@ -213,7 +216,6 @@ func _ready() -> void:
 	_build_events()
 	_build_pearls()
 	_build_friends()
-	_build_kart_portal()
 	_build_player()
 	_build_hud()
 	_apply_cel_shading()
@@ -1287,20 +1289,52 @@ func _build_kart_portal() -> void:
 	var tw := ring.create_tween().set_loops()
 	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
-func _start_kart_game() -> void:
+func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
+	# a clear, glowing race portal at a rainbow leg
+	var ring := MeshInstance3D.new()
+	var tm := TorusMesh.new()
+	tm.inner_radius = 5.0; tm.outer_radius = 6.5; tm.rings = 24; tm.ring_segments = 12
+	ring.mesh = tm
+	var sh := Shader.new()
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
+	var m := ShaderMaterial.new(); m.shader = sh
+	ring.material_override = m
+	ring.position = pos
+	add_child(ring); game_nodes.append(ring)
+	var lab := Label3D.new()
+	lab.text = label; lab.font_size = 64; lab.outline_size = 14
+	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.modulate = col
+	lab.position = pos + Vector3(0, 8.0, 0)
+	add_child(lab); game_nodes.append(lab)
+	var gl := OmniLight3D.new()
+	gl.light_color = col; gl.light_energy = 3.0; gl.omni_range = 22.0
+	gl.position = pos
+	add_child(gl); game_nodes.append(gl)
+	var tw := ring.create_tween().set_loops()
+	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
+
+func _start_kart_game(reversed: bool = false) -> void:
+	kart_from = game
 	game = "kart"
 	hud_game.text = ""
 	kart_game = KartGame.new()
 	add_child(kart_game)
-	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"))
+	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"), reversed)
 
 func _end_kart_game(place: int) -> void:
-	game = ""
 	kart_game = null
 	kart_cool = 6.0
 	var suf := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
-	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s! Swim back in to race again!" % [place, suf]
+	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
 	show_msg("Rainbow Road", msg)
+	if kart_from == "level2":
+		kart_from = ""
+		game = ""
+		call_deferred("_enter_level2", true)   # rebuild the courtyard cleanly
+		return
+	kart_from = ""
+	game = ""
 	_update_hud()
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
@@ -2313,6 +2347,14 @@ func _build_pearl_castle(o: Vector3) -> void:
 	rainbow.rotation_degrees = Vector3(0, 0, 90)
 	add_child(rainbow)
 	game_nodes.append(rainbow)
+	# the two legs of the rainbow are the Rainbow Road race gateways (right leg = reversed lap)
+	var rb_center := o + Vector3(40, 0, -10)
+	var legaz: float = rb_center.z + 124.0
+	var legbz: float = rb_center.z - 124.0
+	kart_legA = Vector3(rb_center.x, lagoon_h(rb_center.x, legaz) + 6.0, legaz)
+	kart_legB = Vector3(rb_center.x, lagoon_h(rb_center.x, legbz) + 6.0, legbz)
+	_kart_gateway(kart_legA, "Rainbow Race!", Color(0.4, 0.85, 1.0))
+	_kart_gateway(kart_legB, "Rainbow Race!\n(reverse lap)", Color(1.0, 0.6, 0.95))
 	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
 	# drifting butterflies for life
 	var bfly := CPUParticles3D.new()
@@ -2558,6 +2600,15 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(g.get("phase", "court")) == "hall":
 		_tick_castle_hall(delta, ppos)
 		return
+	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
+	kart_cool = maxf(0.0, kart_cool - delta)
+	if kart_cool <= 0.0:
+		if kart_legA != Vector3.ZERO and kart_legA.distance_to(ppos) < 11.0:
+			_start_kart_game(false)
+			return
+		if kart_legB != Vector3.ZERO and kart_legB.distance_to(ppos) < 11.0:
+			_start_kart_game(true)
+			return
 	for fd in g.get("l2_fish", []):
 		var fn2: Node3D = fd["node"]
 		if not is_instance_valid(fn2):
@@ -6538,8 +6589,6 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 12.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
-		if kart_cool <= 0.0 and kart_portal_pos != Vector3.ZERO and kart_portal_pos.distance_to(ppos) < 10.0:
-			_start_kart_game()
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:
