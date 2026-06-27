@@ -2602,13 +2602,23 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		return
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
 	kart_cool = maxf(0.0, kart_cool - delta)
-	if kart_cool <= 0.0:
-		if kart_legA != Vector3.ZERO and kart_legA.distance_to(ppos) < 11.0:
-			_start_kart_game(false)
-			return
-		if kart_legB != Vector3.ZERO and kart_legB.distance_to(ppos) < 11.0:
-			_start_kart_game(true)
-			return
+	if kart_legA != Vector3.ZERO:
+		# horizontal distance + generous height tolerance (same forgiving test as the fairy pond)
+		var dA: float = Vector2(kart_legA.x - ppos.x, kart_legA.z - ppos.z).length()
+		var dB: float = Vector2(kart_legB.x - ppos.x, kart_legB.z - ppos.z).length()
+		# explicit one-time introduction when you first reach the rainbow
+		if not bool(g.get("kart_intro", false)) and minf(dA, dB) < 48.0:
+			g["kart_intro"] = true
+			show_msg("Rainbow Road", "A rainbow race track! Swim into either side of the rainbow to race your go-kart — each side goes a different way around!")
+		if minf(dA, dB) < 48.0:
+			hud_game.text = "Swim INTO the rainbow to race your go-kart!"
+		if kart_cool <= 0.0:
+			if dA < 14.0 and absf(kart_legA.y - ppos.y) < 18.0:
+				_start_kart_game(false)
+				return
+			if dB < 14.0 and absf(kart_legB.y - ppos.y) < 18.0:
+				_start_kart_game(true)
+				return
 	for fd in g.get("l2_fish", []):
 		var fn2: Node3D = fd["node"]
 		if not is_instance_valid(fn2):
@@ -3621,7 +3631,7 @@ func _build_castle_music_room(o: Vector3) -> void:
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellcols := [Color(1, 0.3, 0.3), Color(1, 0.6, 0.2), Color(1, 0.9, 0.3), Color(0.3, 0.85, 0.4), Color(0.3, 0.6, 1.0), Color(0.5, 0.4, 0.9), Color(0.95, 0.4, 0.8)]
-	var bellpitch := [0.8, 0.9, 1.0, 1.2, 1.35, 1.5, 1.8]
+	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
 	g["bells"] = []
 	for bi in range(7):
 		var bell := MeshInstance3D.new()
@@ -3642,7 +3652,7 @@ func _build_castle_music_room(o: Vector3) -> void:
 		var bp := AudioStreamPlayer.new()
 		bp.stream = load("res://assets/audio/chime.ogg")
 		bp.pitch_scale = bellpitch[bi]
-		bp.volume_db = -1.0
+		bp.volume_db = -13.0   # much softer bells
 		bell.add_child(bp)   # parent to the bell so it frees with the room (game_nodes is Array[Node3D])
 		(g["bells"] as Array).append({"node": bell, "player": bp, "cool": 0.0, "base_y": bell.position.y, "tw": null})
 	# two warm fill lights down the length
@@ -4472,6 +4482,8 @@ func _fail_line() -> String:
 		_:            return "So close! Swim back and try again!"
 
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
+	if chime != null:
+		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
 	if win and not fr["won"]:
 		fr["won"] = true
@@ -5785,6 +5797,8 @@ const FS_FLOWER := "flower_purpleA"  # ONE flower for the whole boss (grows, the
 
 func _build_fairyshoot(origin: Vector3) -> void:
 	# Roshan wears her fairy form for this game only
+	if chime != null:
+		chime.volume_db = -13.0   # the fairy game fires a lot — keep its chime soft (restored in _end_game)
 	player.set_skin("fairy", FAIRY_SKIN_PATH)
 	g["fz"] = 0.0; g["ox"] = 0.0; g["oy"] = 0.0
 	g["hits"] = 0; g["fire_cd"] = 0.0
@@ -5974,7 +5988,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		add_child(bolt); game_nodes.append(bolt)
 		(g["bolts"] as Array).append({"node": bolt})
 		if chime != null:
-			chime.pitch_scale = 1.8; chime.play()
+			chime.pitch_scale = 0.95; chime.play()
 	# ---- advance bolts, check hits ----
 	var bolts: Array = g["bolts"]
 	for bi in range(bolts.size() - 1, -1, -1):
@@ -5994,7 +6008,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				_sparkle_burst((tn as Node3D).position, Color(1.0, 0.5, 0.7))
 				if is_instance_valid(tn): tn.queue_free()
 				if chime != null:
-					chime.pitch_scale = 1.2; chime.play()
+					chime.pitch_scale = 0.85; chime.play()
 				dead = true
 				break
 		# boss: leaf shield
@@ -6007,7 +6021,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 					_sparkle_burst((lf["node"] as Node3D).position, Color(0.5, 1.0, 0.5))
 					if int(lf["hp"]) <= 0:
 						(lf["node"] as Node3D).queue_free()
-						if chime != null: chime.pitch_scale = 1.4; chime.play()
+						if chime != null: chime.pitch_scale = 0.9; chime.play()
 					dead = true
 					break
 		# boss: flower bud
@@ -6015,7 +6029,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if bn.position.distance_to((g["bud"] as Node3D).position) < FS_BOSS_HIT_R + 1.0:
 				g["bud_hp"] = int(g["bud_hp"]) - 1
 				_sparkle_burst((g["bud"] as Node3D).position + Vector3(randf() * 4 - 2, randf() * 4 - 2, 0), Color(1.0, 0.7, 0.85))
-				if chime != null: chime.pitch_scale = 1.1 + 0.02 * float(FS_BUD_HP - int(g["bud_hp"])); chime.play()
+				if chime != null: chime.pitch_scale = 0.8 + 0.015 * float(FS_BUD_HP - int(g["bud_hp"])); chime.play()
 				dead = true
 		if dead:
 			bn.queue_free(); bolts.remove_at(bi)
