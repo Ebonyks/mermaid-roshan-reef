@@ -259,14 +259,14 @@ void fragment(){
 	road.position = ORIGIN
 	add_child(road)
 	# glowing edge rails
-	for sgn in [1.0, -1.0]:
+	for sgn: float in [1.0, -1.0]:
 		var rail := MeshInstance3D.new()
 		var rst := SurfaceTool.new(); rst.begin(Mesh.PRIMITIVE_TRIANGLES)
 		for i in range(SAMPLES + 1):
 			var s: float = (_cum[i] if i < _cum.size() else _len)
 			var fr := _frame_at(s, 0.0)
 			var right: Vector3 = fr[2]
-			var edge := _pos_at(s) - ORIGIN + right * (ROAD_HALF * sgn)
+			var edge: Vector3 = _pos_at(s) - ORIGIN + right * (ROAD_HALF * sgn)
 			rst.add_vertex(edge); rst.add_vertex(edge + Vector3(0, 1.6, 0))
 		for i in range(SAMPLES):
 			var a := i * 2
@@ -374,8 +374,8 @@ func _kart_body(col: Color, sprite_path: String, racer_name: String) -> Node3D:
 	chassis.position = Vector3(0, 1.0, 0)
 	root.add_child(chassis)
 	# wheels
-	for wx in [-1.7, 1.7]:
-		for wz in [-1.6, 1.6]:
+	for wx: float in [-1.7, 1.7]:
+		for wz: float in [-1.6, 1.6]:
 			var w := MeshInstance3D.new()
 			var wm := CylinderMesh.new(); wm.top_radius = 0.8; wm.bottom_radius = 0.8; wm.height = 0.6
 			w.mesh = wm
