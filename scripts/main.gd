@@ -2178,18 +2178,8 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
-	# ---- castle moat water: one calm pool; land above its surface stays dry, only the
-	#      carved ring (and the back-door hatch) read as water ----
-	var moat_w := MeshInstance3D.new()
-	var mq := PlaneMesh.new()
-	mq.size = Vector2(MOAT_OUTER * 2.5, MOAT_OUTER * 2.5)
-	mq.subdivide_width = 24; mq.subdivide_depth = 24
-	moat_w.mesh = mq
-	var mwmat := ShaderMaterial.new(); mwmat.shader = wsh
-	mwmat.set_shader_parameter("ripple", ripple_tex)
-	moat_w.material_override = mwmat
-	moat_w.position = o + Vector3(MOAT_CX, -6.0, MOAT_CZ)   # 6 below island top -> fills the ~16-deep ring
-	add_child(moat_w); game_nodes.append(moat_w)
+	# (no moat water surface — it was an opaque plane that hid the carved moat; the moat
+	#  is now an open trench you can dive into to reach the hidden back-door hatch)
 
 func _build_pearl_castle(o: Vector3) -> void:
 	wall_pics = []
@@ -2386,7 +2376,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# the moat is carved into the lagoon terrain (see _lagoon_moat_dip); the bridge crosses it
 	# a long wooden bridge from the courtyard, ACROSS the moat, right up to the door
 	var bridge := _l2_box(c + Vector3(0, 2.6, 40.0), Vector3(13.0, 0.8, 60.0), Color(0.62, 0.45, 0.28))
-	bridge.material_override.roughness = 1.0
+	bridge.material_override = _up_mat("wood", 0.12, Color(0.82, 0.6, 0.42))   # real wood-plank PBR (was a flat tan slab)
 	# bridge railings + posts
 	for bsgn in [-1.0, 1.0]:
 		_l2_box(c + Vector3(bsgn * 6.2, 4.0, 40.0), Vector3(0.6, 2.2, 60.0), Color(0.5, 0.36, 0.22))
