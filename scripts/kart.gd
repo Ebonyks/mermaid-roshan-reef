@@ -651,7 +651,7 @@ func _update_hud() -> void:
 	var lap: int = clampi(int(float(_pl["s"]) / _len) + 1, 1, LAPS)
 	_lbl_lap.text = ("Lap %d / %d  ↺ REVERSE" % [lap, LAPS]) if _rev else ("Lap %d / %d" % [lap, LAPS])
 	var place := _placement()
-	var suffix := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
+	var suffix: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
 	_lbl_place.text = "%d%s" % [place, suffix]
 
 func _finish() -> void:

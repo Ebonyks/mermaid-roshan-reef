@@ -1325,7 +1325,7 @@ func _start_kart_game(reversed: bool = false) -> void:
 func _end_kart_game(place: int) -> void:
 	kart_game = null
 	kart_cool = 6.0
-	var suf := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
+	var suf: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
 	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
 	show_msg("Rainbow Road", msg)
 	if kart_from == "level2":
