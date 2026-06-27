@@ -1302,7 +1302,7 @@ func _end_kart_game(place: int) -> void:
 	show_msg("Rainbow Road", msg)
 	_update_hud()
 
-const CEL_SHADING := true   # Wind Waker cel-shaded look — flip to false to revert instantly
+const CEL_SHADING := false   # cel-shading OFF — game renders normally (was darkening things)
 
 func _apply_cel_shading() -> void:
 	# Iteration 1 (safe): flat vibrant toon lighting everywhere + full cel on the hero
