@@ -215,6 +215,7 @@ func _ready() -> void:
 	_build_kart_portal()
 	_build_player()
 	_build_hud()
+	_apply_cel_shading()
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
 	add_child(voice)
@@ -1300,6 +1301,68 @@ func _end_kart_game(place: int) -> void:
 	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s! Swim back in to race again!" % [place, suf]
 	show_msg("Rainbow Road", msg)
 	_update_hud()
+
+const CEL_SHADING := true   # Wind Waker cel-shaded look — flip to false to revert instantly
+
+func _apply_cel_shading() -> void:
+	# Iteration 1 (safe): flat vibrant toon lighting everywhere + full cel on the hero
+	# (Roshan) + ink outlines on the swimming creatures. Materials that gameplay code
+	# casts as StandardMaterial3D at runtime (friend pillars, etc.) are NEVER replaced —
+	# outlines use next_pass, which keeps a material's type intact.
+	if not CEL_SHADING:
+		return
+	if world_env != null:
+		world_env.ssao_enabled = false
+		world_env.ambient_light_energy = maxf(world_env.ambient_light_energy, 1.05)
+		world_env.tonemap_mode = Environment.TONE_MAPPER_LINEAR   # flatter, more saturated
+	var outline := ShaderMaterial.new()
+	outline.shader = load("res://assets/shaders/outline.gdshader")
+	outline.set_shader_parameter("width", 0.03)
+	outline.set_shader_parameter("line_color", Color(0.03, 0.04, 0.06, 1.0))
+	if player != null:
+		_cel_replace(player, outline)            # hero: toon bands + outline
+	for mv in aquatic_movers:                     # swimming creatures: ink outline only
+		if mv.has("node") and is_instance_valid(mv["node"]):
+			_cel_outline(mv["node"], outline)
+
+func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
+	for mi in _all_meshes(root):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var m: Material = mi.get_active_material(si)
+			if m is BaseMaterial3D:
+				var bm := m as BaseMaterial3D
+				var cm := ShaderMaterial.new()
+				cm.shader = load("res://assets/shaders/cel.gdshader")
+				if bm.albedo_texture != null:
+					cm.set_shader_parameter("albedo_tex", bm.albedo_texture)
+				cm.set_shader_parameter("tint", bm.albedo_color)
+				cm.next_pass = outline
+				mi.set_surface_override_material(si, cm)
+
+func _cel_outline(root: Node, outline: ShaderMaterial) -> void:
+	# additive ink outline only — never changes a material's type (cast-safe)
+	for mi in _all_meshes(root):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var m: Material = mi.get_active_material(si)
+			if m is BaseMaterial3D and m.next_pass == null:
+				m.next_pass = outline
+
+func _all_meshes(root: Node) -> Array:
+	var out: Array = []
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		if n is MeshInstance3D:
+			out.append(n)
+		for c in n.get_children():
+			stack.append(c)
+	return out
 
 func _build_player() -> void:
 	player = preload("res://scripts/player.gd").new()
