@@ -79,6 +79,10 @@ var mg2d_layer: CanvasLayer
 var mg2d_root: Control
 var mg2d_stage: Control
 var mg_kind := ""
+# Rainbow Road kart racer (scripts/kart.gd)
+var kart_portal_pos := Vector3.ZERO
+var kart_cool := 0.0
+var kart_game: Node = null
 var mg := {}
 var _nat_cache := {}
 
@@ -208,6 +212,7 @@ func _ready() -> void:
 	_build_events()
 	_build_pearls()
 	_build_friends()
+	_build_kart_portal()
 	_build_player()
 	_build_hud()
 	voice = AudioStreamPlayer.new()
@@ -1252,6 +1257,49 @@ func _build_friends() -> void:
 		friends.append({"node": spr, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
+
+func _build_kart_portal() -> void:
+	# a floating rainbow ring in the reef; swim in to start the Rainbow Road kart race
+	var pos := Vector3(80.0, 30.0, 70.0)
+	kart_portal_pos = pos
+	var ring := MeshInstance3D.new()
+	var tm := TorusMesh.new()
+	tm.inner_radius = 7.0; tm.outer_radius = 9.0; tm.rings = 32; tm.ring_segments = 16
+	ring.mesh = tm
+	var sh := Shader.new()
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
+	var m := ShaderMaterial.new(); m.shader = sh
+	ring.material_override = m
+	ring.position = pos
+	add_child(ring)
+	var lab := Label3D.new()
+	lab.text = "Rainbow Road!\nSwim in to RACE!"
+	lab.font_size = 80; lab.outline_size = 16
+	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.position = pos + Vector3(0, 11.0, 0)
+	add_child(lab)
+	var gl := OmniLight3D.new()
+	gl.light_color = Color(1.0, 0.7, 1.0); gl.light_energy = 3.0; gl.omni_range = 30.0
+	gl.position = pos
+	add_child(gl)
+	var tw := ring.create_tween().set_loops()
+	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
+
+func _start_kart_game() -> void:
+	game = "kart"
+	hud_game.text = ""
+	kart_game = KartGame.new()
+	add_child(kart_game)
+	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"))
+
+func _end_kart_game(place: int) -> void:
+	game = ""
+	kart_game = null
+	kart_cool = 6.0
+	var suf := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
+	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s! Swim back in to race again!" % [place, suf]
+	show_msg("Rainbow Road", msg)
+	_update_hud()
 
 func _build_player() -> void:
 	player = preload("res://scripts/player.gd").new()
@@ -6399,6 +6447,8 @@ func _process(delta: float) -> void:
 	if game == "level2":
 		g["t"] = float(g["t"]) + delta
 		_tick_level2(delta, ppos)
+	elif game == "kart":
+		pass   # the KartGame node ticks itself
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -6415,6 +6465,7 @@ func _process(delta: float) -> void:
 	shop_cool = maxf(0.0, shop_cool - delta)
 	treasure_cool = maxf(0.0, treasure_cool - delta)
 	slide_cool = maxf(0.0, slide_cool - delta)
+	kart_cool = maxf(0.0, kart_cool - delta)
 	if game == "" and finale_t < 0.0:
 		if manta != null and shop_cool <= 0.0:
 			if manta.position.distance_to(ppos) < 17.0:
@@ -6426,6 +6477,8 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 12.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
+		if kart_cool <= 0.0 and kart_portal_pos != Vector3.ZERO and kart_portal_pos.distance_to(ppos) < 10.0:
+			_start_kart_game()
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:

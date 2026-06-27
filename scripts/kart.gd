@@ -1,0 +1,535 @@
+extends Node3D
+class_name KartGame
+# ============================================================================
+# Rainbow Road kart racer (N64-Rainbow-Road inspired) — Mermaid Roshan's rainbow
+# go-kart vs. Faron, Harper, Fiona, Gabby, Kareem, Lamb-a' and Chuck.
+#
+# Self-contained: builds its own neon rainbow track high in the sky, its own
+# karts, camera, starfield environment and HUD, runs its own physics/AI in
+# _process, and calls a finish callback back into main.gd. Nothing here touches
+# the reef, so it can't break the overworld.
+#
+# Karts drive on an ARC-LENGTH spline: each kart has a distance `s` along the
+# loop + a lateral offset `lat`. Steering moves `lat`, accelerator/brake move
+# `s`. This is robust (no physics collisions to misbehave) and gives a proper
+# Mario-Kart feel with constant-speed AI and a hidden shortcut.
+#
+# Launch:   var k := KartGame.new(); main.add_child(k); k.start(main, on_finish)
+# Finish:   calls on_finish.call(placement:int)  (1 = first place)
+# ============================================================================
+
+const LAPS := 2
+const LAP_TARGET_SEC := 28.0      # tunes total race into the ~45-60s window (incl. countdown)
+const ROAD_HALF := 11.0           # half-width of the rainbow ribbon
+const SAMPLES := 260              # spline samples for the arc-length table
+const ORIGIN := Vector3(0.0, 4000.0, 0.0)   # far above the reef so nothing else is in frame
+
+# control points of the looping rainbow road (relative to ORIGIN); gentle ups/downs
+const CTRL := [
+	Vector3(0, 0, 150), Vector3(64, 0, 128), Vector3(116, 10, 64), Vector3(138, 0, -8),
+	Vector3(100, 0, -86), Vector3(44, 14, -128), Vector3(-22, 0, -138), Vector3(-86, 0, -116),
+	Vector3(-128, 8, -52), Vector3(-118, 0, 22), Vector3(-74, 0, 86), Vector3(-32, 12, 128),
+]
+# the slightly-hidden shortcut: a side gate on the inside of the far bend that
+# warps the player across the long loop (only the player can take it).
+const SHORTCUT_FROM_U := 0.34
+const SHORTCUT_TO_U := 0.50
+
+# racer roster: name, kart colour, driver sprite (falls back to a coloured head)
+const RACERS := [
+	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
+	{"name": "Faron", "col": Color(0.45, 0.85, 1.0), "sprite": "res://assets/characters/friends/mama_baby.png"},
+	{"name": "Harper", "col": Color(1.0, 0.55, 0.3), "sprite": "res://assets/characters/friends/two_friends.png"},
+	{"name": "Fiona", "col": Color(1.0, 0.8, 0.35), "sprite": "res://assets/characters/friends/two_friends.png"},
+	{"name": "Gabby", "col": Color(0.6, 0.4, 1.0), "sprite": "res://assets/characters/friends/gabby.png"},
+	{"name": "Kareem", "col": Color(0.35, 0.9, 0.5), "sprite": "res://assets/characters/friends/kareem.png"},
+	{"name": "Lamb-a'", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/characters/friends/pearl_friend.png"},
+	{"name": "Chuck", "col": Color(0.5, 0.55, 0.6), "sprite": "res://assets/characters/friends/wacky_chuck.png"},
+]
+
+var _main: Node = null
+var _player_node: Node3D = null
+var _finish_cb: Callable
+var _cam: Camera3D = null
+var _prev_env: Environment = null
+var _hud: CanvasLayer = null
+var _lbl_place: Label = null
+var _lbl_lap: Label = null
+var _lbl_big: Label = null
+
+var _lut: PackedVector3Array = []   # sampled centreline points (world)
+var _cum: PackedFloat32Array = []   # cumulative arc length at each sample
+var _len := 0.0                     # total loop length
+var _vmax := 40.0
+
+var _karts: Array = []              # each: {node, name, is_player, s, lat, speed, ai, sprite}
+var _pl = null                      # the player's kart dict
+var _state := "countdown"           # countdown -> race -> done
+var _clock := 0.0
+var _race_t := 0.0
+var _shortcut_used_lap := -1
+
+# ---------------------------------------------------------------- spline maths
+func _catmull(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, t: float) -> Vector3:
+	var t2 := t * t
+	var t3 := t2 * t
+	return 0.5 * ((2.0 * p1) + (-p0 + p2) * t + (2.0 * p0 - 5.0 * p1 + 4.0 * p2 - p3) * t2 + (-p0 + 3.0 * p1 - 3.0 * p2 + p3) * t3)
+
+func _spline_u(u: float) -> Vector3:
+	var n := CTRL.size()
+	var f: float = fposmod(u, 1.0) * float(n)
+	var i: int = int(floor(f))
+	var t: float = f - float(i)
+	var p0: Vector3 = CTRL[(i - 1 + n) % n]
+	var p1: Vector3 = CTRL[i % n]
+	var p2: Vector3 = CTRL[(i + 1) % n]
+	var p3: Vector3 = CTRL[(i + 2) % n]
+	return ORIGIN + _catmull(p0, p1, p2, p3, t)
+
+func _build_lut() -> void:
+	_lut = PackedVector3Array()
+	_cum = PackedFloat32Array()
+	var prev := _spline_u(0.0)
+	var d := 0.0
+	for i in range(SAMPLES + 1):
+		var u := float(i) / float(SAMPLES)
+		var p := _spline_u(u)
+		if i > 0:
+			d += prev.distance_to(p)
+		_lut.append(p)
+		_cum.append(d)
+		prev = p
+	_len = d
+	_vmax = _len / LAP_TARGET_SEC
+
+func _pos_at(s: float) -> Vector3:
+	var ss := fposmod(s, _len)
+	# linear search the cumulative table (SAMPLES small; fine per-frame for 8 karts)
+	var i := 0
+	while i < SAMPLES and _cum[i + 1] < ss:
+		i += 1
+	var seg: float = _cum[i + 1] - _cum[i]
+	var t: float = 0.0 if seg <= 0.0001 else (ss - _cum[i]) / seg
+	return _lut[i].lerp(_lut[i + 1], t)
+
+func _tangent_at(s: float) -> Vector3:
+	var a := _pos_at(s)
+	var b := _pos_at(s + 2.0)
+	var dir := b - a
+	if dir.length() < 0.001:
+		return Vector3.FORWARD
+	return dir.normalized()
+
+func _frame_at(s: float, lat: float) -> Array:
+	var fwd := _tangent_at(s)
+	var right := fwd.cross(Vector3.UP).normalized()
+	var pos := _pos_at(s) + right * lat
+	return [pos, fwd, right]
+
+# ---------------------------------------------------------------- build
+func start(main: Node, finish_cb: Callable) -> void:
+	_main = main
+	_finish_cb = finish_cb
+	if "player" in main and main.player != null:
+		_player_node = main.player
+	_build_lut()
+	_build_sky()
+	_build_track()
+	_build_karts()
+	_build_camera()
+	_build_hud()
+	_state = "countdown"
+	_clock = 3.999
+
+func _build_sky() -> void:
+	# swap the world environment to a starry Rainbow-Road void; restore on exit
+	if "we_node" in _main and _main.we_node != null:
+		_prev_env = _main.we_node.environment
+		var e := Environment.new()
+		e.background_mode = Environment.BG_COLOR
+		e.background_color = Color(0.02, 0.01, 0.06)
+		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+		e.ambient_light_color = Color(0.5, 0.5, 0.7)
+		e.ambient_light_energy = 0.9
+		e.glow_enabled = true
+		e.glow_intensity = 0.5
+		_main.we_node.environment = e
+	# starfield: a big inverted sphere with a procedural star shader
+	var sky := MeshInstance3D.new()
+	var sm := SphereMesh.new(); sm.radius = 900.0; sm.height = 1800.0; sm.flip_faces = true
+	sky.mesh = sm
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode unshaded, cull_front;
+float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+void fragment(){
+	vec2 uv = UV * vec2(220.0, 120.0);
+	vec2 c = floor(uv); vec2 f = fract(uv);
+	float r = h(c);
+	float star = step(0.992, r) * smoothstep(0.18, 0.0, length(f - 0.5));
+	vec3 sky = mix(vec3(0.02,0.01,0.08), vec3(0.10,0.04,0.20), UV.y);
+	ALBEDO = sky + vec3(star);
+	EMISSION = vec3(star) * 1.5;
+}"""
+	var smat := ShaderMaterial.new(); smat.shader = sh
+	sky.material_override = smat
+	sky.position = ORIGIN
+	add_child(sky)
+
+func _build_track() -> void:
+	# rainbow ribbon
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for i in range(SAMPLES + 1):
+		var s: float = (_cum[i] if i < _cum.size() else _len)
+		var fr := _frame_at(s, 0.0)
+		var right: Vector3 = fr[2]
+		var c := _pos_at(s)
+		var l := c + right * ROAD_HALF
+		var r := c - right * ROAD_HALF
+		var v: float = float(i) / float(SAMPLES)
+		st.set_uv(Vector2(0.0, v)); st.add_vertex(l - ORIGIN)
+		st.set_uv(Vector2(1.0, v)); st.add_vertex(r - ORIGIN)
+	for i in range(SAMPLES):
+		var a := i * 2
+		st.add_index(a); st.add_index(a + 1); st.add_index(a + 3)
+		st.add_index(a); st.add_index(a + 3); st.add_index(a + 2)
+	var mesh := st.commit()
+	var road := MeshInstance3D.new()
+	road.mesh = mesh
+	var rsh := Shader.new()
+	rsh.code = """shader_type spatial;
+render_mode cull_disabled;
+void fragment(){
+	float b = fract(UV.y * 7.0);
+	vec3 c;
+	if(b<0.16) c=vec3(0.95,0.2,0.35);
+	else if(b<0.33) c=vec3(1.0,0.6,0.2);
+	else if(b<0.5) c=vec3(1.0,0.92,0.3);
+	else if(b<0.66) c=vec3(0.3,0.85,0.45);
+	else if(b<0.83) c=vec3(0.3,0.6,1.0);
+	else c=vec3(0.65,0.4,0.95);
+	ALBEDO = c;
+	EMISSION = c * (0.5 + 0.4*sin(TIME*2.0 + UV.y*40.0));
+	ROUGHNESS = 0.4;
+}"""
+	var rmat := ShaderMaterial.new(); rmat.shader = rsh
+	road.material_override = rmat
+	road.position = ORIGIN
+	add_child(road)
+	# glowing edge rails
+	for sgn in [1.0, -1.0]:
+		var rail := MeshInstance3D.new()
+		var rst := SurfaceTool.new(); rst.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for i in range(SAMPLES + 1):
+			var s: float = (_cum[i] if i < _cum.size() else _len)
+			var fr := _frame_at(s, 0.0)
+			var right: Vector3 = fr[2]
+			var edge := _pos_at(s) - ORIGIN + right * (ROAD_HALF * sgn)
+			rst.add_vertex(edge); rst.add_vertex(edge + Vector3(0, 1.6, 0))
+		for i in range(SAMPLES):
+			var a := i * 2
+			rst.add_index(a); rst.add_index(a + 1); rst.add_index(a + 3)
+			rst.add_index(a); rst.add_index(a + 3); rst.add_index(a + 2)
+		rail.mesh = rst.commit()
+		var em := StandardMaterial3D.new()
+		em.albedo_color = Color(1.0, 1.0, 1.0)
+		em.emission_enabled = true; em.emission = Color(0.7, 0.9, 1.0); em.emission_energy_multiplier = 2.0
+		em.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		em.cull_mode = BaseMaterial3D.CULL_DISABLED
+		rail.material_override = em
+		rail.position = ORIGIN
+		add_child(rail)
+	# start/finish banner
+	var sf := _frame_at(0.0, 0.0)
+	var arch := MeshInstance3D.new()
+	var bm := BoxMesh.new(); bm.size = Vector3(ROAD_HALF * 2.4, 1.2, 1.0)
+	arch.mesh = bm
+	var bmat := StandardMaterial3D.new(); bmat.albedo_color = Color(0.1, 0.1, 0.1)
+	bmat.emission_enabled = true; bmat.emission = Color(1, 1, 1); bmat.emission_energy_multiplier = 0.5
+	arch.material_override = bmat
+	arch.position = (sf[0] as Vector3) + Vector3(0, 7.0, 0)
+	add_child(arch)
+	# the hidden shortcut gate (a glowing ring, set off the racing line on the inside)
+	var gate_fr := _frame_at(SHORTCUT_FROM_U * _len, 0.0)
+	# placed near the inside edge (reachable: karts steer to ~0.86*ROAD_HALF) so it's
+	# slightly hidden off the racing line but you CAN tuck into it
+	var gate_pos: Vector3 = (gate_fr[0] as Vector3) + (gate_fr[2] as Vector3) * (ROAD_HALF * 0.78)
+	var ring := MeshInstance3D.new()
+	var tm := TorusMesh.new(); tm.inner_radius = 3.5; tm.outer_radius = 5.0
+	ring.mesh = tm
+	var gmat := StandardMaterial3D.new()
+	gmat.albedo_color = Color(0.7, 1.0, 0.9); gmat.emission_enabled = true
+	gmat.emission = Color(0.4, 1.0, 0.7); gmat.emission_energy_multiplier = 1.6
+	gmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	ring.material_override = gmat
+	ring.position = gate_pos + Vector3(0, 3.0, 0)
+	ring.rotation = Vector3(deg_to_rad(90), 0, 0)
+	add_child(ring)
+	set_meta("gate_pos", gate_pos)
+
+func _kart_body(col: Color, sprite_path: String, racer_name: String) -> Node3D:
+	var root := Node3D.new()
+	# chassis
+	var chassis := MeshInstance3D.new()
+	var cm := BoxMesh.new(); cm.size = Vector3(3.0, 1.0, 4.4)
+	chassis.mesh = cm
+	var mat := StandardMaterial3D.new(); mat.albedo_color = col
+	mat.metallic = 0.2; mat.roughness = 0.5
+	mat.emission_enabled = true; mat.emission = col; mat.emission_energy_multiplier = 0.25
+	chassis.material_override = mat
+	chassis.position = Vector3(0, 1.0, 0)
+	root.add_child(chassis)
+	# wheels
+	for wx in [-1.7, 1.7]:
+		for wz in [-1.6, 1.6]:
+			var w := MeshInstance3D.new()
+			var wm := CylinderMesh.new(); wm.top_radius = 0.8; wm.bottom_radius = 0.8; wm.height = 0.6
+			w.mesh = wm
+			var wmt := StandardMaterial3D.new(); wmt.albedo_color = Color(0.08, 0.08, 0.1); wmt.roughness = 0.9
+			w.material_override = wmt
+			w.rotation = Vector3(0, 0, deg_to_rad(90))
+			w.position = Vector3(wx, 0.6, wz)
+			root.add_child(w)
+	# driver: sprite billboard if available, else a coloured head
+	var driver: Node3D
+	if sprite_path != "" and ResourceLoader.exists(sprite_path):
+		var spr := Sprite3D.new()
+		spr.texture = load(sprite_path)
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		spr.pixel_size = 0.0075
+		spr.position = Vector3(0, 4.0, 0)
+		driver = spr
+	else:
+		var head := MeshInstance3D.new()
+		var hm := SphereMesh.new(); hm.radius = 1.2; hm.height = 2.4
+		head.mesh = hm
+		var hmt := StandardMaterial3D.new(); hmt.albedo_color = col.lightened(0.3)
+		head.material_override = hmt
+		head.position = Vector3(0, 3.2, 0)
+		driver = head
+	root.add_child(driver)
+	# nameplate
+	var nl := Label3D.new()
+	nl.text = racer_name; nl.font_size = 70; nl.outline_size = 14
+	nl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	nl.modulate = col.lightened(0.4)
+	nl.position = Vector3(0, 6.2, 0)
+	root.add_child(nl)
+	# rainbow trail accent for Roshan
+	if racer_name == "Roshan":
+		var trail := OmniLight3D.new()
+		trail.light_color = Color(1.0, 0.5, 0.9); trail.light_energy = 2.5; trail.omni_range = 14.0
+		trail.position = Vector3(0, 2.0, 2.5)
+		root.add_child(trail)
+	return root
+
+func _build_karts() -> void:
+	var n := RACERS.size()
+	for idx in range(n):
+		var r: Dictionary = RACERS[idx]
+		var node := _kart_body(r["col"], String(r.get("sprite", "")), String(r["name"]))
+		add_child(node)
+		# stagger the grid: spread back from the line, alternating lanes
+		var start_s := -6.0 - float(idx) * 5.0
+		var lane := (-1.0 if idx % 2 == 0 else 1.0) * ROAD_HALF * 0.45
+		var is_p: bool = bool(r.get("player", false))
+		var k := {
+			"node": node, "name": String(r["name"]), "is_player": is_p,
+			"s": start_s, "lat": lane, "speed": 0.0,
+			"ai_skill": 0.92 + 0.10 * (float(idx) / float(n)),   # spread of AI pace (rubber-banded too)
+			"ai_phase": float(idx) * 1.3,
+		}
+		_karts.append(k)
+		if is_p:
+			_pl = k
+
+func _build_camera() -> void:
+	_cam = Camera3D.new()
+	_cam.fov = 68.0
+	add_child(_cam)
+	_cam.make_current()
+
+func _mk_label(parent: Control, pos: Vector2, size: int, col: Color = Color.WHITE) -> Label:
+	var l := Label.new()
+	l.position = pos
+	l.add_theme_font_size_override("font_size", size)
+	l.add_theme_color_override("font_color", col)
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	l.add_theme_constant_override("outline_size", 8)
+	parent.add_child(l)
+	return l
+
+func _build_hud() -> void:
+	_hud = CanvasLayer.new(); _hud.layer = 18
+	add_child(_hud)
+	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_hud.add_child(root)
+	_lbl_lap = _mk_label(root, Vector2(24, 18), 38, Color(1, 0.95, 0.6))
+	_lbl_place = _mk_label(root, Vector2(24, 66), 48, Color(0.7, 1.0, 1.0))
+	_lbl_big = _mk_label(root, Vector2(0, 0), 130, Color(1, 1, 1))
+	_lbl_big.set_anchors_preset(Control.PRESET_CENTER)
+	_lbl_big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_lbl_big.position = Vector2(-220, -120); _lbl_big.size = Vector2(440, 240)
+	var hint := _mk_label(root, Vector2(24, 0), 26, Color(0.9, 0.9, 1.0))
+	hint.anchor_top = 1.0; hint.position = Vector2(24, -56)
+	hint.text = "Hold UP / A to GO   •   DOWN to brake   •   LEFT/RIGHT to steer"
+
+# ---------------------------------------------------------------- input
+func _steer_accel() -> Array:
+	var accel := 0.0
+	var steer := 0.0
+	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_SPACE):
+		accel += 1.0
+	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
+		accel -= 1.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		steer -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		steer += 1.0
+	if Input.is_joy_button_pressed(0, JOY_BUTTON_A):
+		accel += 1.0
+	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	if absf(jx) > 0.2:
+		steer += jx
+	# touch: virtual stick (y = accel/brake, x = steer) + action = accel
+	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
+		var tv: Vector2 = _main.touch_ui.stick_vec
+		if tv.y < -0.15:
+			accel += -tv.y
+		elif tv.y > 0.15:
+			accel -= tv.y
+		if absf(tv.x) > 0.15:
+			steer += tv.x
+		if _main.touch_ui.action_down:
+			accel += 1.0
+	return [clampf(accel, -1.0, 1.0), clampf(steer, -1.0, 1.0)]
+
+# ---------------------------------------------------------------- per-frame
+func _process(delta: float) -> void:
+	if _state == "done":
+		return
+	_clock -= delta
+	if _state == "countdown":
+		var n := int(ceil(_clock))
+		_lbl_big.text = ("GO!" if n <= 0 else str(n))
+		if _clock <= 0.0:
+			_state = "race"
+			_lbl_big.text = ""
+			_clock = 0.0
+		_update_camera(delta)
+		return
+
+	_race_t += delta
+	var ic := _steer_accel()
+	var accel: float = ic[0]
+	var steer: float = ic[1]
+
+	for k in _karts:
+		if k["is_player"]:
+			_update_player(k, accel, steer, delta)
+		else:
+			_update_ai(k, delta)
+		_place_kart(k)
+
+	_check_shortcut()
+	_update_camera(delta)
+	_update_hud()
+
+	# player finished all laps (or a long safety timeout so it can never soft-lock)?
+	if _pl != null and (float(_pl["s"]) >= _len * float(LAPS) or _race_t > 150.0):
+		_finish()
+
+func _update_player(k: Dictionary, accel: float, steer: float, delta: float) -> void:
+	var target: float = (_vmax * 1.06) if accel > 0.0 else (0.0 if accel < 0.0 else _vmax * 0.25)
+	if accel < 0.0:
+		target = -_vmax * 0.12   # brake/reverse a touch
+	var rate: float = 22.0 if accel >= 0.0 else 40.0
+	k["speed"] = move_toward(float(k["speed"]), target, rate * delta)
+	k["s"] = float(k["s"]) + float(k["speed"]) * delta
+	# steering scales a bit with speed so it feels grippy
+	var grip: float = clampf(absf(float(k["speed"])) / _vmax, 0.15, 1.0)
+	k["lat"] = clampf(float(k["lat"]) + steer * 16.0 * grip * delta, -ROAD_HALF * 0.86, ROAD_HALF * 0.86)
+
+func _update_ai(k: Dictionary, delta: float) -> void:
+	# constant-ish pace with gentle rubber-banding toward the player + lane wander
+	var base: float = _vmax * float(k["ai_skill"])
+	if _pl != null:
+		var gap: float = float(_pl["s"]) - float(k["s"])
+		base += clampf(gap * 0.02, -_vmax * 0.06, _vmax * 0.10)   # mild catch-up / hold-back
+	base += sin(_race_t * 0.8 + float(k["ai_phase"])) * _vmax * 0.04
+	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 18.0 * delta)
+	k["s"] = float(k["s"]) + float(k["speed"]) * delta
+	var want: float = sin(_race_t * 0.5 + float(k["ai_phase"])) * ROAD_HALF * 0.4
+	k["lat"] = move_toward(float(k["lat"]), want, 6.0 * delta)
+
+func _place_kart(k: Dictionary) -> void:
+	var fr := _frame_at(float(k["s"]), float(k["lat"]))
+	var pos: Vector3 = fr[0]
+	var fwd: Vector3 = fr[1]
+	var node: Node3D = k["node"]
+	node.position = pos + Vector3(0, 1.2, 0)
+	if fwd.length() > 0.001:
+		node.look_at(pos + fwd + Vector3(0, 1.2, 0), Vector3.UP)
+
+func _check_shortcut() -> void:
+	if _pl == null or not has_meta("gate_pos"):
+		return
+	var lap: int = int(float(_pl["s"]) / _len)
+	if lap == _shortcut_used_lap:
+		return
+	var gate: Vector3 = get_meta("gate_pos")
+	var pn: Node3D = _pl["node"]
+	if pn.position.distance_to(gate + Vector3(0, 1.2, 0)) < 7.0:
+		_shortcut_used_lap = lap
+		# warp across the loop (stay within this lap's distance band)
+		var base: float = float(lap) * _len
+		_pl["s"] = base + SHORTCUT_TO_U * _len
+		_pl["speed"] = _vmax * 1.15      # little boost out of the warp
+		if _main != null and _main.has_method("_sparkle_burst"):
+			_main._sparkle_burst(pn.position, Color(0.5, 1.0, 0.8))
+
+func _update_camera(delta: float) -> void:
+	if _cam == null or _pl == null:
+		return
+	var pn: Node3D = _pl["node"]
+	var fr := _frame_at(float(_pl["s"]), float(_pl["lat"]))
+	var fwd: Vector3 = fr[1]
+	var want: Vector3 = pn.position - fwd * 16.0 + Vector3(0, 8.0, 0)
+	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
+	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)
+
+func _placement() -> int:
+	if _pl == null:
+		return 1
+	var ahead := 1
+	for k in _karts:
+		if not k["is_player"] and float(k["s"]) > float(_pl["s"]):
+			ahead += 1
+	return ahead
+
+func _update_hud() -> void:
+	if _pl == null:
+		return
+	var lap: int = clampi(int(float(_pl["s"]) / _len) + 1, 1, LAPS)
+	_lbl_lap.text = "Lap %d / %d" % [lap, LAPS]
+	var place := _placement()
+	var suffix := ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
+	_lbl_place.text = "%d%s" % [place, suffix]
+
+func _finish() -> void:
+	_state = "done"
+	var place := _placement()
+	_lbl_big.text = ("YOU WIN!" if place == 1 else "%d%s!" % [place, ["st","nd","rd","th","th","th","th","th"][clampi(place-1,0,7)]])
+	# brief celebration, then hand back to main
+	var tw := create_tween()
+	tw.tween_interval(2.4)
+	tw.tween_callback(func():
+		if _prev_env != null and "we_node" in _main and _main.we_node != null:
+			_main.we_node.environment = _prev_env
+		if _player_node != null and "cam" in _player_node and _player_node.cam != null:
+			(_player_node.cam as Camera3D).make_current()
+		if _finish_cb.is_valid():
+			_finish_cb.call(place)
+		queue_free()
+	)
