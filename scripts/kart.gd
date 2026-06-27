@@ -27,9 +27,18 @@ const ORIGIN := Vector3(0.0, 4000.0, 0.0)   # far above the reef so nothing else
 
 # control points of the looping rainbow road (relative to ORIGIN); gentle ups/downs
 const CTRL := [
-	Vector3(0, 0, 150), Vector3(64, 0, 128), Vector3(116, 10, 64), Vector3(138, 0, -8),
-	Vector3(100, 0, -86), Vector3(44, 14, -128), Vector3(-22, 0, -138), Vector3(-86, 0, -116),
-	Vector3(-128, 8, -52), Vector3(-118, 0, 22), Vector3(-74, 0, 86), Vector3(-32, 12, 128),
+	Vector3(0, 0, 150),
+	Vector3(70, 6, 132),
+	Vector3(122, 18, 72),      # climb to a crest
+	Vector3(142, 16, -8),
+	Vector3(112, 4, -78),      # swoop down
+	Vector3(64, -8, -120),     # dip into a valley
+	Vector3(-8, -6, -150),
+	Vector3(-84, 8, -118),
+	Vector3(-138, 22, -48),    # the big hill
+	Vector3(-122, 14, 26),
+	Vector3(-70, 0, 92),
+	Vector3(-30, 12, 132),     # rolling rise back to the line
 ]
 # the slightly-hidden shortcut: a side gate on the inside of the far bend that
 # warps the player across the long loop (only the player can take it).
@@ -368,6 +377,23 @@ void fragment(){
 	ring.visible = not _rev   # shortcut only exists on the forward course
 	add_child(ring)
 	set_meta("gate_pos", gate_pos)
+	# ---- floating scenery for variety (rainbow crystals beside the track) ----
+	for si2 in range(7):
+		var su: float = float(si2) / 7.0
+		var pf := _frame_at(su * _len, 0.0)
+		var sp: Vector3 = pf[0]
+		var rgt: Vector3 = pf[2]
+		var side: float = 1.0 if si2 % 2 == 0 else -1.0
+		var deco := MeshInstance3D.new()
+		var dmsh := BoxMesh.new(); dmsh.size = Vector3(7, 7, 7)
+		deco.mesh = dmsh
+		var dcm := StandardMaterial3D.new()
+		dcm.albedo_color = Color.from_hsv(su, 0.55, 1.0)
+		dcm.emission_enabled = true; dcm.emission = dcm.albedo_color; dcm.emission_energy_multiplier = 0.6
+		deco.material_override = dcm
+		deco.position = sp + rgt * ((ROAD_HALF + 16.0) * side) + Vector3(0, 4.0 + sin(su * TAU) * 8.0, 0)
+		deco.rotation = Vector3(su * 6.0, su * 4.0, su * 2.0)
+		add_child(deco)
 
 func _build_strips() -> void:
 	var sh := Shader.new()
