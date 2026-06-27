@@ -1313,8 +1313,9 @@ func _apply_cel_shading() -> void:
 		return
 	if world_env != null:
 		world_env.ssao_enabled = false
-		world_env.ambient_light_energy = maxf(world_env.ambient_light_energy, 1.05)
-		world_env.tonemap_mode = Environment.TONE_MAPPER_LINEAR   # flatter, more saturated
+		# brighten ambient for a flatter, sunnier toon look (keep ACES tonemap — LINEAR
+		# darkened the midtones of the whole world)
+		world_env.ambient_light_energy = maxf(world_env.ambient_light_energy, 1.25)
 	var outline := ShaderMaterial.new()
 	outline.shader = load("res://assets/shaders/outline.gdshader")
 	outline.set_shader_parameter("width", 0.03)
