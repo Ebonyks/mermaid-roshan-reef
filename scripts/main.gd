@@ -83,6 +83,7 @@ var mg_kind := ""
 var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
+var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
 var mg := {}
 var _nat_cache := {}
 
@@ -1302,29 +1303,25 @@ func _end_kart_game(place: int) -> void:
 	show_msg("Rainbow Road", msg)
 	_update_hud()
 
-const CEL_SHADING := false   # cel-shading OFF — game renders normally (was darkening things)
+const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
 func _apply_cel_shading() -> void:
-	# Iteration 1 (safe): flat vibrant toon lighting everywhere + full cel on the hero
-	# (Roshan) + ink outlines on the swimming creatures. Materials that gameplay code
-	# casts as StandardMaterial3D at runtime (friend pillars, etc.) are NEVER replaced —
-	# outlines use next_pass, which keeps a material's type intact.
+	# Forward+ screen-space cel: one fullscreen quad posterizes the frame into flat
+	# toon bands + draws depth-edge ink lines. Brightness-preserving (it rounds colours,
+	# it does NOT darken) — the proper fix vs the earlier per-object/lighting approach.
 	if not CEL_SHADING:
 		return
-	if world_env != null:
-		world_env.ssao_enabled = false
-		# brighten ambient for a flatter, sunnier toon look (keep ACES tonemap — LINEAR
-		# darkened the midtones of the whole world)
-		world_env.ambient_light_energy = maxf(world_env.ambient_light_energy, 1.25)
-	var outline := ShaderMaterial.new()
-	outline.shader = load("res://assets/shaders/outline.gdshader")
-	outline.set_shader_parameter("width", 0.03)
-	outline.set_shader_parameter("line_color", Color(0.03, 0.04, 0.06, 1.0))
-	if player != null:
-		_cel_replace(player, outline)            # hero: toon bands + outline
-	for mv in aquatic_movers:                     # swimming creatures: ink outline only
-		if mv.has("node") and is_instance_valid(mv["node"]):
-			_cel_outline(mv["node"], outline)
+	var quad := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = Vector2(1, 1)
+	quad.mesh = qm
+	var mat := ShaderMaterial.new()
+	mat.shader = load("res://assets/shaders/cel_post.gdshader")
+	mat.render_priority = 120          # draw after the scene so it post-processes the frame
+	quad.material_override = mat
+	quad.extra_cull_margin = 16384.0   # never frustum-cull the fullscreen quad
+	add_child(quad)
+	cel_post = quad
 
 func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
 	for mi in _all_meshes(root):
