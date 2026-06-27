@@ -22,6 +22,7 @@ const LAPS := 2
 const LAP_TARGET_SEC := 30.0      # tunes total race into the ~45-60s window (more zips = more boost)
 const ROAD_HALF := 11.0           # half-width of the rainbow ribbon
 const COLLIDE_R := 4.5            # kart-vs-kart bump radius
+const WALL_SLOW := 0.82           # speed kept when you scrape a wall (bouncy + slows you)
 const SAMPLES := 260              # spline samples for the arc-length table
 const ORIGIN := Vector3(0.0, 4000.0, 0.0)   # far above the reef so nothing else is in frame
 
@@ -157,11 +158,25 @@ func _tangent_at(s: float) -> Vector3:
 		return Vector3.FORWARD
 	return dir.normalized()
 
+func _width_at(s: float) -> float:
+	# road half-width varies along the loop -> narrow & wide sections
+	var u := fposmod(s, _len) / _len
+	return ROAD_HALF * (1.0 + 0.32 * sin(u * TAU * 2.0))
+
+func _bank_at(s: float) -> float:
+	# roll the road into turns, proportional to how fast the heading turns
+	var t0 := _tangent_at(s)
+	var t1 := _tangent_at(s + 6.0)
+	return clampf(t0.cross(t1).y * 7.0, -0.45, 0.45)
+
 func _frame_at(s: float, lat: float) -> Array:
 	var fwd := _tangent_at(s)
-	var right := fwd.cross(Vector3.UP).normalized()
+	var flat_right := fwd.cross(Vector3.UP).normalized()
+	var bank := _bank_at(s)
+	var right := flat_right.rotated(fwd, bank)
+	var up := Vector3.UP.rotated(fwd, bank)
 	var pos := _pos_at(s) + right * lat
-	return [pos, fwd, right]
+	return [pos, fwd, right, up]
 
 func _eff(s: float) -> float:
 	# map a kart's ever-increasing distance to a sampling point; mirror it when reversed
@@ -172,11 +187,15 @@ func _kart_frame(s: float, lat: float) -> Array:
 	# kart placement/facing — honours reversed travel (track mesh itself is built forward)
 	var es := _eff(s)
 	var fwd := _tangent_at(es)
+	var bank := _bank_at(es)
 	if _rev:
 		fwd = -fwd
-	var right := fwd.cross(Vector3.UP).normalized()
+		bank = -bank
+	var flat_right := fwd.cross(Vector3.UP).normalized()
+	var right := flat_right.rotated(fwd, bank)
+	var up := Vector3.UP.rotated(fwd, bank)
 	var pos := _pos_at(es) + right * lat
-	return [pos, fwd, right]
+	return [pos, fwd, right, up]
 
 # ---------------------------------------------------------------- build
 func start(main: Node, finish_cb: Callable, reversed: bool = false) -> void:
@@ -240,8 +259,9 @@ func _build_track() -> void:
 		var fr := _frame_at(s, 0.0)
 		var right: Vector3 = fr[2]
 		var c := _pos_at(s)
-		var l := c + right * ROAD_HALF
-		var r := c - right * ROAD_HALF
+		var hw: float = _width_at(s)
+		var l := c + right * hw
+		var r := c - right * hw
 		var v: float = float(i) / float(SAMPLES)
 		st.set_uv(Vector2(0.0, v)); st.add_vertex(l - ORIGIN)
 		st.set_uv(Vector2(1.0, v)); st.add_vertex(r - ORIGIN)
@@ -280,8 +300,9 @@ void fragment(){
 			var s: float = (_cum[i] if i < _cum.size() else _len)
 			var fr := _frame_at(s, 0.0)
 			var right: Vector3 = fr[2]
-			var edge: Vector3 = _pos_at(s) - ORIGIN + right * (ROAD_HALF * sgn)
-			rst.add_vertex(edge); rst.add_vertex(edge + Vector3(0, 1.6, 0))
+			var rup: Vector3 = fr[3]
+			var edge: Vector3 = _pos_at(s) - ORIGIN + right * (_width_at(s) * sgn)
+			rst.add_vertex(edge); rst.add_vertex(edge + rup * 1.8)
 		for i in range(SAMPLES):
 			var a := i * 2
 			rst.add_index(a); rst.add_index(a + 1); rst.add_index(a + 3)
@@ -636,7 +657,7 @@ func _update_player(k: Dictionary, accel: float, steer: float, delta: float) -> 
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	# steering scales a bit with speed so it feels grippy
 	var grip: float = clampf(absf(float(k["speed"])) / _vmax, 0.15, 1.0)
-	k["lat"] = clampf(float(k["lat"]) + steer * 16.0 * grip * delta, -ROAD_HALF * 0.86, ROAD_HALF * 0.86)
+	_apply_lat(k, float(k["lat"]) + steer * 16.0 * grip * delta)
 
 func _update_ai(k: Dictionary, delta: float) -> void:
 	# constant-ish pace with gentle rubber-banding toward the player + lane wander
@@ -650,7 +671,15 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 18.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.5 + float(k["ai_phase"])) * ROAD_HALF * 0.4
-	k["lat"] = move_toward(float(k["lat"]), want, 6.0 * delta)
+	_apply_lat(k, move_toward(float(k["lat"]), want, 6.0 * delta))
+
+func _apply_lat(k: Dictionary, new_lat: float) -> void:
+	# bouncy walls: if you'd cross the rail, clamp + rebound inward and lose a little speed
+	var wall: float = _width_at(_eff(float(k["s"]))) - 1.6
+	if absf(new_lat) > wall:
+		new_lat = clampf(new_lat, -wall, wall) * 0.8   # bounce back off the wall
+		k["speed"] = float(k["speed"]) * WALL_SLOW       # and scrub speed (balance)
+	k["lat"] = new_lat
 
 func _resolve_collisions() -> void:
 	# gentle kart-vs-kart bumping: push apart laterally + bleed a little speed
@@ -664,8 +693,10 @@ func _resolve_collisions() -> void:
 			if d < COLLIDE_R and d > 0.01:
 				var sep: float = (COLLIDE_R - d) * 0.5
 				var dir: float = 1.0 if float(a["lat"]) >= float(b["lat"]) else -1.0
-				a["lat"] = clampf(float(a["lat"]) + dir * sep, -ROAD_HALF * 0.92, ROAD_HALF * 0.92)
-				b["lat"] = clampf(float(b["lat"]) - dir * sep, -ROAD_HALF * 0.92, ROAD_HALF * 0.92)
+				var wa: float = _width_at(_eff(float(a["s"]))) - 1.4
+				var wb: float = _width_at(_eff(float(b["s"]))) - 1.4
+				a["lat"] = clampf(float(a["lat"]) + dir * sep, -wa, wa)
+				b["lat"] = clampf(float(b["lat"]) - dir * sep, -wb, wb)
 				a["speed"] = float(a["speed"]) * 0.93
 				b["speed"] = float(b["speed"]) * 0.93
 				# nudge the kart that's ahead in s back a touch so they don't interpenetrate
@@ -678,10 +709,11 @@ func _place_kart(k: Dictionary) -> void:
 	var fr := _kart_frame(float(k["s"]), float(k["lat"]))
 	var pos: Vector3 = fr[0]
 	var fwd: Vector3 = fr[1]
+	var up: Vector3 = fr[3]
 	var node: Node3D = k["node"]
-	node.position = pos + Vector3(0, 1.2, 0)
+	node.position = pos + up * 1.2
 	if fwd.length() > 0.001:
-		node.look_at(pos + fwd + Vector3(0, 1.2, 0), Vector3.UP)
+		node.look_at(pos + fwd + up * 1.2, up)
 
 func _check_strips() -> void:
 	# any kart driving over a zoom strip gets a boost (proximity -> works either direction)
