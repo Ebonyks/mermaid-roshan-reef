@@ -1345,6 +1345,8 @@ func _apply_cel_shading() -> void:
 	# it does NOT darken) — the proper fix vs the earlier per-object/lighting approach.
 	if not CEL_SHADING:
 		return
+	if OS.has_feature("mobile"):
+		return   # cel post-process needs the Forward+ depth buffer; Android runs the Mobile renderer
 	var quad := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(1, 1)
