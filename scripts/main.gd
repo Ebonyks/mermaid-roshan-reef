@@ -59,6 +59,9 @@ var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
 var craft_fishbox: Control = null
 var craft_kind := "fish"
+var craft_unlocks := {}            # one-time pearl unlocks for craft creatures ("cat", "bird")
+var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
+var craft_pearl_lbl: Label = null
 var custom_friends: Array = []
 const CREATURE_LAYERS := {"fish": ["fish_fins", "fish_body", "fish_line"], "cat": ["cat_body", "cat_body", "cat_line"], "bird": ["bird_body", "bird_body", "bird_line"]}
 var l2_open := false
@@ -113,7 +116,6 @@ var music_btn: Button
 var guide_fish: Sprite3D
 var finale_done := false
 var finale_t := -1.0
-var finale_nodes: Array = []
 var hint_idx := 0
 var hint_t := 0.0
 var anim_cull: Array = []
@@ -1179,8 +1181,8 @@ func _build_pearls() -> void:
 func _spawn_pearl(slot: int) -> void:
 	var mi := MeshInstance3D.new()
 	var sph := SphereMesh.new()
-	sph.radius = 2.3
-	sph.height = 4.6
+	sph.radius = 1.3
+	sph.height = 2.6
 	mi.mesh = sph
 	mi.material_override = pearl_mat
 	mi.position = pearl_slots[slot]
@@ -1189,13 +1191,13 @@ func _spawn_pearl(slot: int) -> void:
 	var l := OmniLight3D.new()
 	l.light_color = Color(1.0, 0.8, 1.0)
 	l.light_energy = 0.9
-	l.omni_range = 10.0
+	l.omni_range = 7.0
 	l.visible = (quality != "speedy") or (slot % 2 == 0)
 	l.position = mi.position
 	add_child(l)
 	pearl_lights.append(l)
 	mi.set_meta("light", l)
-	mi.set_meta("halo", _halo(mi.position, Color(1.0, 0.75, 0.95), 10.0))
+	mi.set_meta("halo", _halo(mi.position, Color(1.0, 0.75, 0.95), 6.5))
 	pearls.append(mi)
 
 func _respawn_pearls() -> void:
@@ -1613,6 +1615,7 @@ func _load_save() -> void:
 	pearl_count = int(save_data.get("pearls", 0))
 	custom_fish = save_data.get("custom_fish", [])
 	custom_friends = save_data.get("custom_friends", [])
+	craft_unlocks = save_data.get("crafts", {})
 	skin_id = String(save_data.get("skin", "classic"))
 	_apply_skin()
 	var won_d: Dictionary = save_data.get("won", {})
@@ -1636,7 +1639,7 @@ func _write_save() -> void:
 	for f2 in friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends}
+	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks}
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
@@ -1766,7 +1769,7 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 		if swirl != null:
 			swirl.rotation.z += delta * 2.2
 			swirl.scale = Vector3.ONE * (1.0 + sin(portal_t * 3.0) * 0.06)
-		portal_node.position.y = (WATER_TOP - 9.0) + sin(portal_t * 1.2) * 0.6
+		portal_node.position.y = seabed_y(portal_node.position.x, portal_node.position.z) + 4.0 + sin(portal_t * 1.2) * 0.6
 		portal_ready = true
 		portal_cool = maxf(0.0, portal_cool - delta)
 		var pdist: float = portal_node.position.distance_to(ppos)
@@ -1816,49 +1819,42 @@ func _raise_portal() -> void:
 	pl.position.y = 5.0
 	hub.add_child(pl)
 	var lbl := Label3D.new()
-	lbl.text = "A magic river to the sky!\nSwim UP into it!"
+	lbl.text = "A RAINBOW PORTAL!\nSwim in!"
 	lbl.font_size = 80
 	lbl.outline_size = 18
 	lbl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lbl.position.y = 9.0
 	hub.add_child(lbl)
-	# a glowing river streams across the top of the stage and pours into the conch
-	var river := MeshInstance3D.new()
-	river.name = "River"
-	var rp := PlaneMesh.new()
-	rp.size = Vector2(40.0, 220.0)
-	rp.subdivide_depth = 40
-	river.mesh = rp
-	var rsh := Shader.new()
-	rsh.code = """shader_type spatial;
-render_mode cull_disabled;
-void vertex(){
-	vec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;
-	VERTEX.y += sin(TIME*1.6 + wp.z*0.20)*0.5 + cos(TIME*1.1 + wp.x*0.15)*0.35;
-}
+	# a rainbow light beam rises from the portal to the surface — the landmark that
+	# calls the player DOWN to the ocean floor from anywhere in the reef
+	var beam := MeshInstance3D.new()
+	beam.name = "Beam"
+	var bc := CylinderMesh.new()
+	bc.top_radius = 2.2
+	bc.bottom_radius = 4.5
+	bc.height = WATER_TOP + 20.0
+	bc.radial_segments = 12
+	beam.mesh = bc
+	var bsh := Shader.new()
+	bsh.code = """shader_type spatial;
+render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
 void fragment(){
-	float flow = fract(UV.y*6.0 - TIME*0.35);
-	float band = smoothstep(0.0,0.5,flow)*smoothstep(1.0,0.5,flow);
-	vec3 base = vec3(0.25,0.62,0.85);
-	ALBEDO = base + band*vec3(0.35,0.45,0.4);
-	EMISSION = (base*0.4 + band*vec3(0.4,0.7,0.85))*0.8;
-	ALPHA = 0.6;
+	float hue = fract(UV.x + TIME * 0.08);
+	vec3 c = clamp(abs(fract(hue + vec3(0.0, 0.666, 0.333)) * 6.0 - 3.0) - 1.0, 0.0, 1.0);
+	float fade = smoothstep(0.0, 0.25, UV.y) * smoothstep(1.0, 0.6, UV.y);
+	ALBEDO = c * fade * 0.35;
+	ALPHA = fade * 0.30;
 }"""
-	var rmat := ShaderMaterial.new()
-	rmat.shader = rsh
-	rmat.render_priority = 1
-	var rmm := rmat
-	river.material_override = rmm
-	(river.material_override as ShaderMaterial).shader = rsh
-	var rtrans := StandardMaterial3D.new()
-	# river is translucent
-	river.position = Vector3(0, 2.0, -90.0)
-	river.rotation_degrees = Vector3(8, 0, 0)
-	hub.add_child(river)
-	hub.position = Vector3(0, WATER_TOP - 9.0, 0)
+	var bmat2 := ShaderMaterial.new()
+	bmat2.shader = bsh
+	beam.material_override = bmat2
+	beam.position.y = (WATER_TOP + 20.0) * 0.5
+	hub.add_child(beam)
+	# the portal opens ON THE OCEAN FLOOR — the doorway to the Sky Lagoon
+	hub.position = Vector3(0, seabed_y(0.0, 0.0) + 4.0, 0)
 	add_child(hub)
 	portal_node = hub
-	show_msg("Roshan", "Wow! A magic river to the sky is opening up high above the reef!")
+	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
 
 func _enter_level2(from_castle: bool = false) -> void:
 	game = "level2"
@@ -4110,16 +4106,41 @@ func _open_craft_studio() -> void:
 	title.add_theme_font_size_override("font_size", 52)
 	title.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); title.add_theme_constant_override("outline_size", 10)
 	title.position = Vector2(60, 16); stage.add_child(title)
-	# creature-type buttons
-	var kinds := [["fish", "Fishy"], ["cat", "Kitty"], ["bird", "Birdie"]]
+	# creature-type buttons — Kitty and Birdie are one-time rainbow-pearl unlocks
+	var kinds := [["fish", "Fishy", 0], ["cat", "Kitty", 5], ["bird", "Birdie", 8]]
 	for ki in range(kinds.size()):
-		var kb := Button.new(); kb.text = String(kinds[ki][1]); kb.add_theme_font_size_override("font_size", 36)
-		kb.position = Vector2(760.0 + float(ki) * 165.0, 14.0); kb.custom_minimum_size = Vector2(155, 64)
-		var ksb := StyleBoxFlat.new(); ksb.bg_color = Color(0.4, 0.45, 0.7); ksb.set_corner_radius_all(18)
-		kb.add_theme_stylebox_override("normal", ksb); kb.add_theme_stylebox_override("hover", ksb); kb.add_theme_stylebox_override("pressed", ksb)
 		var kk: String = String(kinds[ki][0])
-		kb.pressed.connect(func(): craft_kind = kk; _craft_build_preview())
+		var knm: String = String(kinds[ki][1])
+		var kpr: int = int(kinds[ki][2])
+		var locked: bool = kpr > 0 and not bool(craft_unlocks.get(kk, false))
+		var kb := Button.new(); kb.text = knm; kb.add_theme_font_size_override("font_size", 36)
+		kb.position = Vector2(760.0 + float(ki) * 165.0, 14.0); kb.custom_minimum_size = Vector2(155, 64)
+		var ksb := StyleBoxFlat.new(); ksb.bg_color = Color(0.32, 0.34, 0.48) if locked else Color(0.4, 0.45, 0.7); ksb.set_corner_radius_all(18)
+		kb.add_theme_stylebox_override("normal", ksb); kb.add_theme_stylebox_override("hover", ksb); kb.add_theme_stylebox_override("pressed", ksb)
+		kb.set_meta("style", ksb)
+		if locked:
+			kb.modulate = Color(0.78, 0.78, 0.85)
+			var tag := Label.new(); tag.text = "%d pearls" % kpr
+			tag.add_theme_font_size_override("font_size", 24)
+			tag.add_theme_color_override("font_color", Color(1.0, 0.82, 1.0))
+			tag.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); tag.add_theme_constant_override("outline_size", 6)
+			tag.position = Vector2(kb.position.x + 28.0, 80.0)
+			stage.add_child(tag)
+			kb.set_meta("price_tag", tag)
+		kb.pressed.connect(func(): _craft_pick_kind(kk, knm, kpr, kb))
 		stage.add_child(kb)
+	# pearl purse + feedback line (the normal HUD sits behind this overlay)
+	craft_pearl_lbl = Label.new(); craft_pearl_lbl.text = "Rainbow pearls: %d" % pearl_count
+	craft_pearl_lbl.add_theme_font_size_override("font_size", 28)
+	craft_pearl_lbl.add_theme_color_override("font_color", Color(1.0, 0.85, 1.0))
+	craft_pearl_lbl.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); craft_pearl_lbl.add_theme_constant_override("outline_size", 8)
+	craft_pearl_lbl.position = Vector2(64, 86); stage.add_child(craft_pearl_lbl)
+	craft_status = Label.new()
+	craft_status.add_theme_font_size_override("font_size", 30)
+	craft_status.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); craft_status.add_theme_constant_override("outline_size", 8)
+	craft_status.position = Vector2(40, 240); craft_status.custom_minimum_size = Vector2(370, 200)
+	craft_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	stage.add_child(craft_status)
 	craft_fishbox = Control.new(); craft_fishbox.size = Vector2(400, 400); craft_fishbox.position = Vector2(440, 72); stage.add_child(craft_fishbox)
 	_craft_build_preview()
 	var pal := [Color(0.92, 0.26, 0.3), Color(1, 0.6, 0.2), Color(1, 0.85, 0.25), Color(0.35, 0.8, 0.4), Color(0.3, 0.8, 0.9), Color(0.3, 0.55, 1.0), Color(0.6, 0.4, 0.9), Color(0.95, 0.5, 0.8)]
@@ -4138,6 +4159,36 @@ func _open_craft_studio() -> void:
 	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.4); dsb.set_corner_radius_all(30)
 	done.add_theme_stylebox_override("normal", dsb); done.add_theme_stylebox_override("hover", dsb); done.add_theme_stylebox_override("pressed", dsb)
 	done.pressed.connect(_craft_done); stage.add_child(done)
+
+func _craft_pick_kind(kk: String, knm: String, price: int, kb: Button) -> void:
+	if price > 0 and not bool(craft_unlocks.get(kk, false)):
+		if pearl_count < price:
+			if craft_status != null and is_instance_valid(craft_status):
+				craft_status.text = "%s costs %d rainbow pearls. You have %d - the reef is full of them!" % [knm, price, pearl_count]
+			if chime != null:
+				chime.pitch_scale = 0.7
+				chime.play()
+			return
+		pearl_count -= price
+		craft_unlocks[kk] = true
+		_write_save()
+		_update_hud()
+		if chime != null:
+			chime.pitch_scale = 1.5
+			chime.play()
+		kb.modulate = Color(1, 1, 1)
+		var sb: StyleBoxFlat = kb.get_meta("style", null)
+		if sb != null:
+			sb.bg_color = Color(0.4, 0.45, 0.7)
+		var tag: Label = kb.get_meta("price_tag", null)
+		if tag != null and is_instance_valid(tag):
+			tag.queue_free()
+		if craft_pearl_lbl != null and is_instance_valid(craft_pearl_lbl):
+			craft_pearl_lbl.text = "Rainbow pearls: %d" % pearl_count
+		if craft_status != null and is_instance_valid(craft_status):
+			craft_status.text = "%s unlocked forever! Yay!" % knm
+	craft_kind = kk
+	_craft_build_preview()
 
 func _craft_set(part: String, col: Color) -> void:
 	if part == "body": craft_body = col
@@ -4184,6 +4235,8 @@ func _craft_done() -> void:
 func _close_craft() -> void:
 	if craft_layer != null and is_instance_valid(craft_layer):
 		craft_layer.queue_free()
+	craft_status = null
+	craft_pearl_lbl = null
 	craft_layer = null
 	craft_fishbox = null
 	mg_cool = 10.0
@@ -4452,39 +4505,24 @@ func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	tw.tween_callback(cp.queue_free)
 
 func _begin_finale() -> void:
+	# (the old friends-circling-Roshan swarm is gone — the celebration now points
+	# the player at the rainbow portal opening on the ocean floor)
 	finale_done = true
 	finale_t = 0.0
 	_write_save()
 	_play_music("finale")
-	show_msg("Everyone", "Roshan did it! ALL the friends cheer! Hooray!")
-	for i in range(friends.size()):
-		var src: Sprite3D = friends[i]["node"]
-		var cl3 := Sprite3D.new()
-		cl3.texture = src.texture
-		cl3.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		cl3.pixel_size = 0.016
-		cl3.position = player.position
-		add_child(cl3)
-		finale_nodes.append(cl3)
+	show_msg("Everyone", "Roshan did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
 
 func _tick_finale(delta: float) -> void:
 	if finale_t < 0.0:
 		return
 	finale_t += delta
-	for i in range(finale_nodes.size()):
-		var n3: Sprite3D = finale_nodes[i]
-		if not is_instance_valid(n3):
-			continue
-		var aa: float = finale_t * 0.55 + float(i) / 5.0 * TAU
-		var goal: Vector3 = player.position + Vector3(cos(aa) * 7.0, 1.6 + sin(finale_t * 2.0 + float(i)) * 1.1, sin(aa) * 7.0)
-		n3.position = n3.position.lerp(goal, 1.0 - pow(0.02, delta))
-	if fmod(finale_t, 1.4) < delta:
+	# fireworks of sparkles around Roshan, and at the portal once it exists
+	if fmod(finale_t, 0.9) < delta:
 		_sparkle_burst(player.position + Vector3(randf() * 8.0 - 4.0, 4.0, randf() * 8.0 - 4.0), Color.from_hsv(randf(), 0.6, 1.0))
-	if finale_t > 28.0:
-		for n4 in finale_nodes:
-			if is_instance_valid(n4):
-				n4.queue_free()
-		finale_nodes.clear()
+		if portal_node != null and is_instance_valid(portal_node):
+			_sparkle_burst(portal_node.position + Vector3(randf() * 6.0 - 3.0, 5.0, randf() * 6.0 - 3.0), Color.from_hsv(randf(), 0.5, 1.0))
+	if finale_t > 10.0:
 		finale_t = -1.0
 		_play_music("world")
 
