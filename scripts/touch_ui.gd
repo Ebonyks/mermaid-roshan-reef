@@ -16,6 +16,7 @@ var _base: Panel
 var _knob: Panel
 var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
 var _touch_idx := -1      # the finger that owns the stick
+var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
 var _origin := Vector2.ZERO
 var _moved := false
 var _press_ms := 0
@@ -44,7 +45,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _pulse > 0.0:
 		_pulse -= delta
-		if _pulse <= 0.0:
+		if _pulse <= 0.0 and _jump_fingers.is_empty():
 			action_down = false
 
 func _circle(col: Color, rad: float) -> Panel:
@@ -61,6 +62,15 @@ func _jump_pulse() -> void:
 	action_down = true
 	action_just = true
 	_pulse = 0.18
+
+func _flash(pos: Vector2) -> void:
+	# quick fading ring where a jump finger lands — visible confirmation for little hands
+	var f := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
+	f.position = pos - f.size * 0.5
+	_root.add_child(f)
+	var tw := f.create_tween()
+	tw.tween_property(f, "modulate:a", 0.0, 0.35)
+	tw.tween_callback(f.queue_free)
 
 func _press(pos: Vector2, idx: int) -> void:
 	_touch_idx = idx
@@ -100,9 +110,18 @@ func _unhandled_input(ev: InputEvent) -> void:
 			if _touch_idx == -1:
 				_press(t.position, t.index)          # first finger: stick (or tap-to-jump)
 			elif t.index != _touch_idx:
-				_jump_pulse()                        # second finger while steering: JUMP now
-		elif t.index == _touch_idx:
-			_release_stick()
+				# extra finger while steering: HELD jump — swim up for as long as it's down
+				_jump_fingers[t.index] = true
+				action_down = true
+				action_just = true
+				_flash(t.position)
+		else:
+			if t.index == _touch_idx:
+				_release_stick()
+			elif _jump_fingers.has(t.index):
+				_jump_fingers.erase(t.index)
+				if _jump_fingers.is_empty() and _pulse <= 0.0:
+					action_down = false
 	elif ev is InputEventScreenDrag:
 		var d := ev as InputEventScreenDrag
 		if d.index == _touch_idx:
