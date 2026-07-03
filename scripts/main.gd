@@ -411,19 +411,22 @@ func _apply_time_of_day() -> void:
 		return
 	var sky := world_env.sky.sky_material as ProceduralSkyMaterial
 	if is_night:
+		# night is MYSTICAL, not murky: strong blue moonlight so everything still
+		# reads clearly, plus the bioluminescent dressing from _build_night_ocean
 		if sky != null:
-			sky.sky_top_color = Color(0.05, 0.13, 0.24)
-			sky.sky_horizon_color = Color(0.02, 0.06, 0.13)
-			sky.ground_bottom_color = Color(0.01, 0.02, 0.06)
-			sky.ground_horizon_color = Color(0.02, 0.05, 0.10)
-			sky.energy_multiplier = 0.4
-		world_env.ambient_light_color = Color(0.22, 0.36, 0.5)
-		world_env.ambient_light_energy = 0.62
-		world_env.fog_light_color = Color(0.04, 0.13, 0.22)
-		world_env.glow_intensity = 0.95   # bioluminescence reads stronger in the dark
+			sky.sky_top_color = Color(0.07, 0.17, 0.32)
+			sky.sky_horizon_color = Color(0.03, 0.09, 0.19)
+			sky.ground_bottom_color = Color(0.02, 0.04, 0.10)
+			sky.ground_horizon_color = Color(0.03, 0.08, 0.15)
+			sky.energy_multiplier = 0.52
+		world_env.ambient_light_color = Color(0.30, 0.46, 0.64)
+		world_env.ambient_light_energy = 0.85
+		world_env.fog_light_color = Color(0.06, 0.16, 0.27)
+		world_env.glow_intensity = 1.0   # bioluminescence reads stronger in the dark
 		if sun_light != null:
-			sun_light.light_color = Color(0.42, 0.56, 0.86)
-			sun_light.light_energy = 0.3
+			sun_light.light_color = Color(0.5, 0.66, 0.95)
+			sun_light.light_energy = 0.46
+		_build_night_ocean()
 	else:
 		if sky != null:
 			sky.sky_top_color = Color(0.16, 0.42, 0.55)
@@ -438,6 +441,109 @@ func _apply_time_of_day() -> void:
 		if sun_light != null:
 			sun_light.light_color = Color(0.55, 0.80, 0.98)
 			sun_light.light_energy = 0.55
+
+var night_built := false
+
+func _build_night_ocean() -> void:
+	# mystical bioluminescent night dressing: a moon seen through the water,
+	# shimmering moonbeam shafts, glowing drift-jellyfish, brighter plankton.
+	# (time of day is fixed per launch, so this builds once and never tears down)
+	if night_built:
+		return
+	night_built = true
+	# ---- the moon, far overhead beyond the water surface ----
+	var moon := MeshInstance3D.new()
+	var msp := SphereMesh.new()
+	msp.radius = 11.0
+	msp.height = 22.0
+	moon.mesh = msp
+	var mm := StandardMaterial3D.new()
+	mm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mm.albedo_color = Color(0.92, 0.96, 1.0)
+	mm.emission_enabled = true
+	mm.emission = Color(0.85, 0.92, 1.0)
+	mm.emission_energy_multiplier = 2.2
+	moon.material_override = mm
+	moon.position = Vector3(110, 145, -150)
+	add_child(moon)
+	_halo(moon.position, Color(0.75, 0.88, 1.0), 46.0)
+	# ---- shimmering moonbeams reaching down to the reef floor ----
+	var bsh := Shader.new()
+	bsh.code = """shader_type spatial;
+render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
+void fragment(){
+	float sway = sin(TIME * 0.5 + UV.x * 12.0) * 0.5 + 0.5;
+	float fade = smoothstep(0.0, 0.3, UV.y) * smoothstep(1.0, 0.55, UV.y);
+	vec3 c = vec3(0.45, 0.75, 1.0);
+	ALBEDO = c * fade * (0.10 + sway * 0.08);
+	ALPHA = fade * 0.16;
+}"""
+	var bmat := ShaderMaterial.new()
+	bmat.shader = bsh
+	for bp: Vector3 in [Vector3(70, 0, -50), Vector3(-95, 0, 60), Vector3(25, 0, 115)]:
+		var beam := MeshInstance3D.new()
+		var bc := CylinderMesh.new()
+		bc.top_radius = 4.5
+		bc.bottom_radius = 8.5
+		bc.height = WATER_TOP + 14.0
+		bc.radial_segments = 10
+		beam.mesh = bc
+		beam.material_override = bmat
+		beam.position = Vector3(bp.x, (WATER_TOP + 14.0) * 0.5 - 7.0, bp.z)
+		add_child(beam)
+	# ---- glowing drift-jellyfish, each casting soft bioluminescent light ----
+	# read the SAVED quality directly: _apply_time_of_day runs a moment before
+	# _apply_quality, so the `quality` var still holds its default here
+	var q: String = String(save_data.get("quality", "speedy" if OS.has_feature("mobile") else "sparkly"))
+	var jcols := [Color(0.5, 0.95, 1.0), Color(1.0, 0.6, 0.9), Color(0.7, 0.6, 1.0), Color(0.5, 1.0, 0.8)]
+	for i in range(8):
+		var jc: Color = jcols[i % jcols.size()]
+		var jelly := Node3D.new()
+		var bell := MeshInstance3D.new()
+		var bsp := SphereMesh.new()
+		bsp.radius = 1.7
+		bsp.height = 2.6
+		bell.mesh = bsp
+		var jm := StandardMaterial3D.new()
+		jm.albedo_color = Color(jc.r, jc.g, jc.b, 0.65)
+		jm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		jm.emission_enabled = true
+		jm.emission = jc
+		jm.emission_energy_multiplier = 1.5
+		jm.cull_mode = BaseMaterial3D.CULL_DISABLED
+		bell.material_override = jm
+		jelly.add_child(bell)
+		for tn in range(4):
+			var tent := MeshInstance3D.new()
+			var tc := CylinderMesh.new()
+			tc.top_radius = 0.09
+			tc.bottom_radius = 0.03
+			tc.height = 3.4
+			tc.radial_segments = 5
+			tent.mesh = tc
+			var tmat := StandardMaterial3D.new()
+			tmat.albedo_color = Color(jc.r, jc.g, jc.b, 0.5)
+			tmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			tmat.emission_enabled = true
+			tmat.emission = jc
+			tmat.emission_energy_multiplier = 0.8
+			tent.material_override = tmat
+			var ta: float = float(tn) / 4.0 * TAU
+			tent.position = Vector3(cos(ta) * 0.8, -2.1, sin(ta) * 0.8)
+			jelly.add_child(tent)
+		var jl := OmniLight3D.new()
+		jl.light_color = jc
+		jl.light_energy = 1.1
+		jl.omni_range = 15.0
+		jl.visible = (q != "speedy") or (i % 2 == 0)
+		jelly.add_child(jl)
+		add_child(jelly)
+		aquatic_movers.append({"node": jelly, "rad": 40.0 + randf() * 140.0, "spd": 0.05 + randf() * 0.06, "y": 16.0 + randf() * 26.0, "ph": randf() * TAU})
+	# ---- the plankton field glows brighter on mystical nights ----
+	if plankton_node != null:
+		var pq := plankton_node.draw_pass_1 as QuadMesh
+		if pq != null and pq.material is StandardMaterial3D:
+			(pq.material as StandardMaterial3D).albedo_color = Color(0.62, 1.0, 0.95, 0.8)
 
 func _grade(env: Environment) -> void:
 	# cheap cinematic grade — ACES filmic tonemapping (works on the mobile renderer, ~free)
