@@ -958,22 +958,20 @@ func _build_camera() -> void:
 	_cam.make_current()
 
 # ------------------------------------------------------------ selection screen
-func _build_select() -> void:
-	var base: Vector3
+func _select_slot_pos(i: int) -> Vector3:
 	if _ground_mode() == "terrain":
-		# podiums stand on the REAL seabed beside the start line — no strange void
-		var sf := _frame_at(0.0, 0.0)
-		base = (sf[0] as Vector3) + (sf[2] as Vector3) * (_width_at(0.0) + 20.0)
-		base.y = _terrain_y(base.x, base.z) + 0.8
-	else:
-		base = _origin() + Vector3(0, -60.0, 0)
+		# stage the podiums ON the start straight — the road is always flat, wide
+		# and clear, so the choice reads no matter what the seabed does around it
+		var fr := _frame_at(16.0 + float(i) * 15.0, 0.0)
+		return (fr[0] as Vector3) + Vector3(0, 0.3, 0)
+	return _origin() + Vector3(0, -60.0, 0) + Vector3((float(i) - 1.0) * 16.0, 0, 0)
+
+func _build_select() -> void:
 	for i in range(VEHICLE_ORDER.size()):
 		var vkey: String = VEHICLE_ORDER[i]
 		var vd: Dictionary = _vehicles_table()[vkey]
 		var slot := Node3D.new()
-		slot.position = base + Vector3((float(i) - 1.0) * 16.0, 0, 0)
-		if _ground_mode() == "terrain":
-			slot.position.y = _terrain_y(slot.position.x, slot.position.z) + 0.8
+		slot.position = _select_slot_pos(i)
 		add_child(slot)
 		var pod := MeshInstance3D.new()
 		var pcm := CylinderMesh.new()
@@ -1008,8 +1006,15 @@ func _build_select() -> void:
 	_lbl_big.text = "Pick your ride!"
 	_lbl_hint.text = "LEFT/RIGHT to choose  •  TAP or SPACE to GO!"
 	if _cam != null:
-		_cam.position = base + Vector3(0, 7.0, 26.0)
-		_cam.look_at(base + Vector3(0, 3.0, 0), Vector3.UP)
+		var mid := _select_slot_pos(1)
+		if _ground_mode() == "terrain":
+			# hover over the road axis looking down the start straight at the podiums
+			var fr := _frame_at(31.0, 0.0)
+			var fwd: Vector3 = fr[1]
+			_cam.position = mid - fwd * 30.0 + Vector3(0, 11.0, 0)
+		else:
+			_cam.position = mid + Vector3(0, 7.0, 26.0)
+		_cam.look_at(mid + Vector3(0, 3.0, 0), Vector3.UP)
 
 func _sel_move() -> int:
 	var mv := 0
@@ -1101,6 +1106,7 @@ func _tick_select(delta: float) -> void:
 		_clock = 3.999
 		_lbl_big.text = ""
 		_lbl_hint.text = "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!"
+		_meter_bg.visible = true
 
 # ------------------------------------------------------------ input helpers
 func _fire_just() -> bool:
@@ -1398,6 +1404,7 @@ func _build_hud() -> void:
 	_meter_bg.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	_meter_bg.position = Vector2(-180, -96)
 	_meter_bg.size = Vector2(360, 30)
+	_meter_bg.visible = false   # shown when the race starts
 	root.add_child(_meter_bg)
 	_meter_fill = ColorRect.new()
 	_meter_fill.color = Color(0.3, 0.95, 1.0)
