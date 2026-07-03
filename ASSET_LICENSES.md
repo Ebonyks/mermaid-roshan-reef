@@ -26,3 +26,7 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - `assets/vehicles/motorcycle.glb` — "Cartoony Purple Motorcycle" by AliceCassie (poly.pizza/m/j20srJUjpB), **Public Domain (CC0)**.
 - `assets/vehicles/gokart.glb` — "Go kart" by Poly by Google (poly.pizza/m/3hkutVs0AAV), **CC-BY 3.0** — attribution: model by Google (Poly), via poly.pizza.
 - `assets/vehicles/monstertruck.glb` — "Rover" by Quaternius (poly.pizza/m/WRd1piJOfh), **Public Domain (CC0)** — used as the game's Monster Truck.
+
+## Galaxy level (Level 3) — added 2026-07-03
+- `assets/galaxy/crystal1.glb`, `crystal2.glb`, `crystal3.glb` — "Crystal" by iPoly3D
+  (poly.pizza/m/3saqXqoOti, /m/7iHQpCXTb7, /m/8Tt6H5IwAC), **Public Domain (CC0)**.

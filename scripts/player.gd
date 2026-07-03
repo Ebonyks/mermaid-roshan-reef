@@ -148,8 +148,8 @@ func _process(delta: float) -> void:
 		return
 	if "wardrobe_layer" in _m0 and _m0.wardrobe_layer != null:
 		return   # frozen while the dress-up screen is open
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart"):
-		return   # the slide / fairy-shooter / kart minigames drive the player + camera themselves
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy"):
+		return   # the slide / fairy-shooter / kart / galaxy modes drive the player + camera themselves
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))

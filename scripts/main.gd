@@ -83,6 +83,8 @@ var mg_kind := ""
 var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
+var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
+var galaxy_game: Node = null    # Level 3 — Roshan Galaxy (scripts/galaxy.gd)
 var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
 var kart_legA := Vector3.ZERO   # rainbow leg in world 2 -> forward race
 var kart_legB := Vector3.ZERO   # rainbow leg in world 2 -> reversed race
@@ -1318,6 +1320,7 @@ func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
 
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
 	kart_from = game
+	kart_ground = ground
 	game = "kart"
 	hud_game.text = ""
 	kart_game = KartGame.new()
@@ -1331,8 +1334,13 @@ func _end_kart_game(place: int) -> void:
 	kart_game = null
 	kart_cool = 6.0
 	var suf: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
-	var msg := "Rainbow Road champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
-	show_msg("Rainbow Road", msg)
+	if kart_ground == "float":
+		# LEVEL 3: the rainbow road doesn't end — it soars on into Roshan Galaxy
+		show_msg("Rainbow Road", "The rainbow road soars on and on... to ROSHAN GALAXY!")
+		call_deferred("_start_galaxy")
+		return
+	var msg := "Ocean Race champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
+	show_msg("Ocean Race", msg)
 	if kart_from == "level2":
 		kart_from = ""
 		game = ""
@@ -1341,6 +1349,27 @@ func _end_kart_game(place: int) -> void:
 	kart_from = ""
 	game = ""
 	_update_hud()
+
+func _start_galaxy() -> void:
+	game = "galaxy"
+	hud_game.text = ""
+	galaxy_game = GalaxyLevel.new()
+	add_child(galaxy_game)
+	(galaxy_game as GalaxyLevel).start(self, Callable(self, "_end_galaxy"))
+
+func _end_galaxy(completed: bool) -> void:
+	galaxy_game = null
+	game = ""
+	if completed:
+		show_msg("Roshan Galaxy", "You saved Roshan Galaxy! The stars will always remember you! ⭐")
+	else:
+		show_msg("Roshan Galaxy", "Home again! The galaxy will wait for your return...")
+	_update_hud()
+	if kart_from == "level2":
+		kart_from = ""
+		call_deferred("_enter_level2", true)
+		return
+	kart_from = ""
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -2606,7 +2635,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		# explicit one-time introduction when you first reach the rainbow
 		if not bool(g.get("kart_intro", false)) and minf(dA, dB) < 48.0:
 			g["kart_intro"] = true
-			show_msg("Rainbow Road", "A rainbow race track! Swim into either side of the rainbow to race your go-kart — each side goes a different way around!")
+			show_msg("Rainbow Road", "The rainbow road to ROSHAN GALAXY! Race the rainbow to reach the stars — each side goes a different way around!")
 		if minf(dA, dB) < 48.0:
 			hud_game.text = "Swim INTO the rainbow to race your go-kart!"
 		if kart_cool <= 0.0:
@@ -6572,6 +6601,8 @@ func _process(delta: float) -> void:
 		_tick_level2(delta, ppos)
 	elif game == "kart":
 		pass   # the KartGame node ticks itself
+	elif game == "galaxy":
+		pass   # the GalaxyLevel node ticks itself
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
