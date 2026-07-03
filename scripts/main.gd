@@ -2187,22 +2187,44 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	wsh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D ripple;\nvoid vertex(){ VERTEX.y += sin(TIME*1.4 + VERTEX.x*0.3)*0.25; }\nvoid fragment(){ float f = fract(UV.y*8.0 - TIME*0.3); float band = smoothstep(0.0,0.5,f)*smoothstep(1.0,0.5,f); vec3 base=vec3(0.2,0.55,0.8); ALBEDO=base+band*vec3(0.3,0.4,0.4); EMISSION=base*0.3+band*vec3(0.3,0.5,0.6)*0.6; vec2 ruv=UV*4.0+vec2(TIME*0.04,TIME*0.07); NORMAL_MAP=mix(texture(ripple,ruv).rgb, texture(ripple,ruv*1.7-TIME*0.03).rgb, 0.5); NORMAL_MAP_DEPTH=0.6; ROUGHNESS=0.08; METALLIC=0.4; ALPHA=0.82; }"
 	var ripple_tex := load("res://assets/terrain/up_water_nrm.jpg")
 	for rv in LAGOON_RIVERS:
+		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
+		# flat planes got buried wherever the river path crossed a hill (rock on top,
+		# water hidden inside the terrain)
+		var pts: Array = []
 		for i in range(rv.size() - 1):
 			var a2: Vector2 = rv[i]
 			var b2: Vector2 = rv[i + 1]
-			var mid: Vector2 = (a2 + b2) * 0.5
-			var leng: float = a2.distance_to(b2)
-			var ryaw: float = atan2((b2 - a2).x, (b2 - a2).y)
-			var water := MeshInstance3D.new()
-			var rq := PlaneMesh.new(); rq.size = Vector2(LAGOON_RIVER_W * 2.0, leng); rq.subdivide_depth = 20
-			water.mesh = rq
-			var rmat := ShaderMaterial.new(); rmat.shader = wsh
-			rmat.set_shader_parameter("ripple", ripple_tex)
-			water.material_override = rmat
-			# surface sits partway up the valley so the depth reads
-			water.position = o + Vector3(mid.x, _lagoon_local(mid.x, mid.y) + LAGOON_RIVER_DEPTH * 0.55, mid.y)
-			water.rotation = Vector3(0, ryaw, 0)
-			add_child(water); game_nodes.append(water)
+			var seg_len: float = a2.distance_to(b2)
+			var steps: int = maxi(2, int(seg_len / 4.0))
+			for si in range(steps):
+				pts.append(a2.lerp(b2, float(si) / float(steps)))
+		pts.append(rv[rv.size() - 1])
+		var st2 := SurfaceTool.new()
+		st2.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for i in range(pts.size()):
+			var p2: Vector2 = pts[i]
+			var pn: Vector2 = pts[mini(i + 1, pts.size() - 1)]
+			var pp: Vector2 = pts[maxi(i - 1, 0)]
+			var d2: Vector2 = (pn - pp)
+			d2 = d2.normalized() if d2.length() > 0.001 else Vector2(0, 1)
+			var perp := Vector2(-d2.y, d2.x) * 11.0
+			var wy: float = _lagoon_local(p2.x, p2.y) + 3.2   # float a fixed height above the carved floor
+			var v: float = float(i) / float(pts.size())
+			st2.set_uv(Vector2(0.0, v * 6.0))
+			st2.add_vertex(Vector3(p2.x + perp.x, wy, p2.y + perp.y))
+			st2.set_uv(Vector2(1.0, v * 6.0))
+			st2.add_vertex(Vector3(p2.x - perp.x, wy, p2.y - perp.y))
+		for i in range(pts.size() - 1):
+			var a3 := i * 2
+			st2.add_index(a3); st2.add_index(a3 + 1); st2.add_index(a3 + 3)
+			st2.add_index(a3); st2.add_index(a3 + 3); st2.add_index(a3 + 2)
+		var water := MeshInstance3D.new()
+		water.mesh = st2.commit()
+		var rmat := ShaderMaterial.new(); rmat.shader = wsh
+		rmat.set_shader_parameter("ripple", ripple_tex)
+		water.material_override = rmat
+		water.position = o
+		add_child(water); game_nodes.append(water)
 		# fish swimming down the channel
 		var ra: Vector2 = rv[0]
 		var rb: Vector2 = rv[rv.size() - 1]
@@ -2652,7 +2674,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		fd["off"] = fmod(float(fd["off"]) + float(fd["spd"]) * delta, float(fd["len"]))
 		var base: Vector3 = (fd["a"] as Vector3) + (fd["dir"] as Vector3) * float(fd["off"])
 		var side: Vector3 = (fd["dir"] as Vector3).cross(Vector3.UP).normalized()
-		var fp: Vector3 = base + side * float(fd["lane"]) + Vector3(0, 3.2 + sin(float(g.get("t", 0.0)) * 3.0 + float(fd["off"])) * 0.4, 0)
+		var fp: Vector3 = base + side * float(fd["lane"])
+		# swim a fixed height above the LOCAL carved floor (hills cross the rivers)
+		fp.y = lagoon_h(fp.x, fp.z) + 2.4 + sin(float(g.get("t", 0.0)) * 3.0 + float(fd["off"])) * 0.4
 		fn2.position = fp
 		fn2.look_at(fp + (fd["dir"] as Vector3) * 2.0, Vector3.UP)
 	var got := 0
@@ -4308,7 +4332,7 @@ func _do_finish_level2() -> void:
 	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
 
 func _beans_go() -> void:
-	beans_t = 12.0
+	beans_t = 40.0   # long enough to swim from the Pearl Shop to the Penguin Slide
 	speed_mult = 2.0
 	fart_t = 0.7
 	prev_track = cur_track if cur_track != "banjo" else "world"
@@ -4504,7 +4528,7 @@ func _fail_line() -> String:
 		"treasure":   return "Aww, the treasure slipped back into the dark!"
 		"shop":       return "Come back when you've found more pearls!"
 		"fairyshoot": return "Oh no, the shadow bugs got away!"
-		"slide":      return "Aww, the baby penguin slid away! Race again?" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
+		"slide":      return "He's too speedy without magic beans! Toot toot!" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
 		_:            return "So close! Swim back and try again!"
 
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
@@ -5504,7 +5528,10 @@ func _start_game(fr: Dictionary) -> void:
 			arena_env.ambient_light_color = Color(1.0, 0.97, 1.0)
 			arena_env.ambient_light_energy = 1.35
 		if mode == "chase":
-			show_msg(fr["fname"], "Race the baby penguin! Catch him before the bottom of the slide!")
+			if beans_t >= 0.0:
+				show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")
+			else:
+				show_msg(fr["fname"], "Race the baby penguin! Careful — he's SO speedy!")
 		else:
 			show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")
 	elif game == "fairyshoot":
@@ -5727,13 +5754,18 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		player.cam.position = player.cam.position.lerp(cam_target, 1.0 - pow(0.0008, delta))
 		player.cam.look_at(pos + tangent * 6.0 + Vector3(0, 1.0, 0))
 	if String(g.get("mode", "fish")) == "chase":
-		# ===== RACE THE BABY PENGUIN =====
-		# He leads far ahead, then "tires" so he's catchable for the final ~5 seconds.
+		# ===== RACE THE BABY PENGUIN — the BEAN PUZZLE =====
+		# Without magic beans he is simply too fast: his lead never shrinks into catch
+		# range and he crosses the finish first. EAT BEANS (Pearl Shop) and Roshan gets
+		# the super-speed to reel him in — that's the puzzle.
 		var p: float = s / total
-		# the baby penguin keeps a head start that shrinks STEADILY the whole way down,
-		# so Roshan is always gaining on him (no stall) — he comes into catch range for
-		# roughly the last 5 seconds, where you must corner him to win.
-		var gap: float = SLIDE_LEAD * (1.0 - p)
+		var beany: bool = beans_t >= 0.0 or bool(g.get("beany", false))
+		g["beany"] = beany   # latch: beans active at any point during the ride count
+		var gap: float
+		if beany:
+			gap = maxf(0.0, SLIDE_LEAD * (1.0 - p * 1.45))   # bean power: reel him in!
+		else:
+			gap = SLIDE_LEAD * (1.0 - p * 0.5)               # too fast: gap never < 11
 		var peng_s: float = minf(s + gap, total)
 		# he FLEES sideways away from Roshan (slower than she can steer), pinned by the
 		# chute walls — so a passive player never catches him; you must corner him.
@@ -5760,9 +5792,12 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				chime.pitch_scale = 1.5; chime.play()
 			_end_game(true, fr, "You caught the baby penguin! Hee hee, great race!")
 			return
-		hud_game.text = "Catch the baby penguin!" if p < 0.58 else "NOW!  Catch him!   ← →"
+		if beany:
+			hud_game.text = "BEAN POWER! Catch him!   ← →" if p > 0.3 else "Beans! Toot toot! GO GO GO!"
+		else:
+			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
-			_end_game(false, fr, "Aww, the baby penguin slid away! Race again?", "fail")
+			_end_game(false, fr, "He crossed the finish first — he's just too speedy! Hmm... maybe magic BEANS from the Pearl Shop would give me a super boost! Toot toot!", "fail")
 			return
 	else:
 		# ===== COLLECT THE FISH =====
