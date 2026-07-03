@@ -188,7 +188,35 @@ const FRIEND_DEFS := [
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
 
-static func joy_axis(axis: int) -> float:
+# ---- gamepad input that works even for pads Godot has no SDL mapping for ----
+# SDL mappings for the 8BitDo Lite family (Windows D-input, Linux, macOS,
+# Android Bluetooth) — these pads otherwise show up unmapped and go dead.
+const EXTRA_JOY_MAPPINGS := [
+	"03000000c82d00001251000000000000,8BitDo Lite 2,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a3,righty:a4,start:b11,x:b4,y:b3,platform:Windows,",
+	"03000000c82d00001251000011010000,8BitDo Lite 2,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:a5,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:a4,rightx:a2,righty:a3,start:b11,x:b4,y:b3,platform:Linux,",
+	"05000000c82d00001251000000010000,8BitDo Lite 2,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:a5,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:a4,rightx:a2,righty:a3,start:b11,x:b4,y:b3,platform:Linux,",
+	"03000000c82d00001251000000010000,8BitDo Lite 2,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:a5,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:a4,rightx:a2,righty:a3,start:b11,x:b4,y:b3,platform:Mac OS X,",
+	"30643332373663313263316637356631,8BitDo Lite 2,a:b1,b:b0,back:b15,dpdown:b12,dpleft:b13,dpright:b14,dpup:b11,guide:b5,leftshoulder:b9,leftstick:b7,lefttrigger:b17,leftx:a0,lefty:a1,rightshoulder:b10,rightstick:b8,righttrigger:b18,rightx:a2,righty:a3,start:b6,x:b3,y:b2,platform:Android,",
+	"38426974446f204c6974652032000000,8BitDo Lite 2,a:b1,b:b0,back:b15,dpdown:b12,dpleft:b13,dpright:b14,dpup:b11,guide:b5,leftshoulder:b9,leftstick:b7,lefttrigger:b17,leftx:a0,lefty:a1,rightshoulder:b10,rightstick:b8,righttrigger:b18,rightx:a2,righty:a3,start:b6,x:b3,y:b2,platform:Android,",
+	"62656331626461363634633735353032,8BitDo Lite 2,a:b1,b:b0,back:b15,dpdown:b12,dpleft:b13,dpright:b14,dpup:b11,guide:b5,leftshoulder:b9,leftstick:b7,lefttrigger:b17,leftx:a0,lefty:a1,rightshoulder:b10,rightstick:b8,righttrigger:b18,rightx:a2,righty:a3,start:b6,x:b3,y:b2,platform:Android,",
+	"38426974446f2038426974446f204c69,8BitDo Lite,a:b1,b:b0,back:b15,dpdown:b12,dpleft:b13,dpright:b14,dpup:b11,guide:b5,leftshoulder:b9,leftstick:b7,lefttrigger:b17,leftx:a0,lefty:a1,rightshoulder:b10,rightstick:b8,righttrigger:b18,rightx:a2,righty:a3,start:b6,x:b3,y:b2,platform:Android,",
+	"03000000c82d00001151000000000000,8BitDo Lite SE,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a3,righty:a4,start:b11,x:b4,y:b3,platform:Windows,",
+]
+
+var joy_ev_axis := {}   # raw axis index -> latest value (event-driven fallback)
+var joy_ev_btn := {}    # raw button index -> pressed
+
+func _input(ev: InputEvent) -> void:
+	# record raw joypad events: unmapped pads never show up through the polled
+	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
+	if ev is InputEventJoypadMotion:
+		var jm := ev as InputEventJoypadMotion
+		joy_ev_axis[int(jm.axis)] = jm.axis_value
+	elif ev is InputEventJoypadButton:
+		var jb := ev as InputEventJoypadButton
+		joy_ev_btn[int(jb.button_index)] = jb.pressed
+
+func joy_axis(axis: int) -> float:
 	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
 	# dongles don't always enumerate as the first joypad
 	var v := 0.0
@@ -196,12 +224,25 @@ static func joy_axis(axis: int) -> float:
 		var a: float = Input.get_joy_axis(dev, axis)
 		if absf(a) > absf(v):
 			v = a
+	# raw-event fallback for unmapped pads: axes 0/1 are the left stick and
+	# 2/3 the right stick on nearly every controller
+	var raw: float = float(joy_ev_axis.get(int(axis), 0.0))
+	if absf(raw) > absf(v):
+		v = raw
 	return v
 
-static func joy_pressed(btn: int) -> bool:
+func joy_pressed(btn: int) -> bool:
 	for dev: int in Input.get_connected_joypads():
 		if Input.is_joy_button_pressed(dev, btn):
 			return true
+	if bool(joy_ev_btn.get(int(btn), false)):
+		return true
+	# unmapped-pad fallback: ANY face button (raw 0..3) counts as jump/action,
+	# so the important button always works no matter the layout
+	if btn == JOY_BUTTON_A or btn == JOY_BUTTON_B:
+		for bi in range(4):
+			if bool(joy_ev_btn.get(bi, false)):
+				return true
 	return false
 
 static func hash2(x: float, y: float) -> float:
@@ -233,6 +274,8 @@ static func seabed_y(x: float, z: float) -> float:
 	return h
 
 func _ready() -> void:
+	for jmap in EXTRA_JOY_MAPPINGS:
+		Input.add_joy_mapping(String(jmap), true)
 	_build_environment()
 	_build_terrain()
 	_build_water()

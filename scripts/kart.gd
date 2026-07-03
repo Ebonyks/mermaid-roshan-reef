@@ -187,21 +187,19 @@ var _paint_prev := -1
 
 # ------------------------------------------------------------ config access
 
-static func joy_axis(axis: int) -> float:
-	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
-	# dongles don't always enumerate as the first joypad
-	var v := 0.0
-	for dev: int in Input.get_connected_joypads():
-		var a: float = Input.get_joy_axis(dev, axis)
-		if absf(a) > absf(v):
-			v = a
-	return v
+func joy_axis(axis: int) -> float:
+	# delegate to main's gamepad layer (multi-device + raw fallback for pads
+	# Godot has no SDL mapping for, like the 8BitDo Lite family)
+	var m: Node = _main
+	if m != null and m.has_method("joy_axis"):
+		return m.joy_axis(axis)
+	return Input.get_joy_axis(0, axis)
 
-static func joy_pressed(btn: int) -> bool:
-	for dev: int in Input.get_connected_joypads():
-		if Input.is_joy_button_pressed(dev, btn):
-			return true
-	return false
+func joy_pressed(btn: int) -> bool:
+	var m: Node = _main
+	if m != null and m.has_method("joy_pressed"):
+		return m.joy_pressed(btn)
+	return Input.is_joy_button_pressed(0, btn)
 
 func configure(overrides: Dictionary) -> void:
 	cfg = overrides
@@ -1093,6 +1091,10 @@ func _sel_move() -> int:
 	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
 	if absf(jx) > 0.4:
 		mv = (1 if jx > 0.0 else -1)
+	if joy_pressed(JOY_BUTTON_DPAD_LEFT):
+		mv = -1
+	elif joy_pressed(JOY_BUTTON_DPAD_RIGHT):
+		mv = 1
 	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
 		var tv: Vector2 = _main.touch_ui.stick_vec
 		if absf(tv.x) > 0.4:
@@ -1195,6 +1197,10 @@ func _steer_input() -> float:
 	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
 	if absf(jx) > 0.2:
 		steer += jx
+	if joy_pressed(JOY_BUTTON_DPAD_LEFT):
+		steer -= 1.0
+	if joy_pressed(JOY_BUTTON_DPAD_RIGHT):
+		steer += 1.0
 	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
 		var tv: Vector2 = _main.touch_ui.stick_vec
 		if absf(tv.x) > 0.15:

@@ -4,21 +4,19 @@ extends Node3D
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
-static func joy_axis(axis: int) -> float:
-	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
-	# dongles don't always enumerate as the first joypad
-	var v := 0.0
-	for dev: int in Input.get_connected_joypads():
-		var a: float = Input.get_joy_axis(dev, axis)
-		if absf(a) > absf(v):
-			v = a
-	return v
+func joy_axis(axis: int) -> float:
+	# delegate to main's gamepad layer (multi-device + raw fallback for pads
+	# Godot has no SDL mapping for, like the 8BitDo Lite family)
+	var m: Node = get_parent()
+	if m != null and m.has_method("joy_axis"):
+		return m.joy_axis(axis)
+	return Input.get_joy_axis(0, axis)
 
-static func joy_pressed(btn: int) -> bool:
-	for dev: int in Input.get_connected_joypads():
-		if Input.is_joy_button_pressed(dev, btn):
-			return true
-	return false
+func joy_pressed(btn: int) -> bool:
+	var m: Node = get_parent()
+	if m != null and m.has_method("joy_pressed"):
+		return m.joy_pressed(btn)
+	return Input.is_joy_button_pressed(0, btn)
 
 var yaw := 0.0
 var vel := Vector3.ZERO
@@ -28,6 +26,8 @@ var idle_t := 0.0
 var cam: Camera3D
 var cam_back := 16.0   # chase distance (reduced indoors so the camera does not clip walls)
 var cam_high := 6.5    # chase height
+var cam_orbit := 0.0        # right-stick look-around: yaw offset, drifts back behind Roshan
+var cam_pitch_off := 0.0    # right-stick look-around: height offset
 var skel: Skeleton3D
 var bone_idx := {}
 var rest := {}
@@ -188,6 +188,15 @@ func _process(delta: float) -> void:
 		turn -= jx
 	if absf(jy) > 0.2:
 		fwd -= jy
+	# D-pad swims too (nice on small pads like the 8BitDo Lite)
+	if joy_pressed(JOY_BUTTON_DPAD_UP):
+		fwd += 1.0
+	if joy_pressed(JOY_BUTTON_DPAD_DOWN):
+		fwd -= 0.6
+	if joy_pressed(JOY_BUTTON_DPAD_LEFT):
+		turn += 1.0
+	if joy_pressed(JOY_BUTTON_DPAD_RIGHT):
+		turn -= 1.0
 	var m0: Node = get_parent()
 	if "touch_ui" in m0 and m0.touch_ui != null:
 		var tv: Vector2 = m0.touch_ui.stick_vec
@@ -345,7 +354,20 @@ func _process(delta: float) -> void:
 		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
 		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
+	# right-stick camera: peek around / up / down, then drift back behind her
+	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
+	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
+	if absf(rx) > 0.25:
+		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
+	else:
+		cam_orbit = lerpf(cam_orbit, 0.0, 1.0 - pow(0.35, delta))
+	if absf(ry) > 0.25:
+		cam_pitch_off = clampf(cam_pitch_off + ry * 9.0 * delta, -4.5, 8.0)
+	else:
+		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
+
 	if cam != null and cam.is_inside_tree():
-		var target := position + Vector3(-sin(yaw) * cam_back, cam_high, -cos(yaw) * cam_back)
+		var cyaw: float = yaw + cam_orbit
+		var target := position + Vector3(-sin(cyaw) * cam_back, cam_high + cam_pitch_off, -cos(cyaw) * cam_back)
 		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
 		cam.look_at(position + Vector3(0, 1.5, 0))
