@@ -24,11 +24,21 @@ FOV kicks + pull-back sell the speed.
 AI racers are assigned vehicles round-robin. A missing GLB falls back to a box
 kart, so the engine never breaks on assets.
 
-## configure() keys (all optional; defaults = Rainbow Road)
-`name, laps, lap_target_sec, road_half, ctrl (Array[Vector3] loop points),
-origin, racers (name/col/sprite/player), vehicles (see VEHICLES for shape),
-strips / pickups / pearl_rows (u-fraction placement tables), shortcut:bool,
-sky_colors:[lo,hi], pearl_payout:bool`
+## Themes & paint jobs
+- `theme: "ocean"` (default) — a **seabed race**: sandy caustic-lit track, kelp-glow
+  rails, deep-water gradient + fog, rising bubbles, and the game's own corals /
+  seaweed / rocks / shells on sand mounds beside the course, plus animated fish
+  cruising alongside. `theme: "rainbow"` restores the starfield rainbow road.
+- **Paint jobs**: after picking a ride, a second select step offers 8 paints
+  (Stock, Cherry, Sky, Bubblegum, Lime, Grape, Gold, and **RAINBOW!** — a
+  hue-cycling shader). Live preview on the podium; originals cached so repainting
+  never compounds. Override the list with `paints` in configure().
+
+## configure() keys (all optional; defaults = ocean course)
+`name, theme ("ocean"|"rainbow"), laps, lap_target_sec, road_half,
+ctrl (Array[Vector3] loop points), origin, racers (name/col/sprite/player),
+vehicles (see VEHICLES for shape), strips / pickups / pearl_rows (u-fraction
+placement tables), shortcut:bool, sky_colors:[lo,hi], pearl_payout:bool`
 
 Example — a one-lap lava sprint, no shortcut, same cast:
 ```gdscript

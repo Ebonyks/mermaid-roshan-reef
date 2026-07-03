@@ -117,6 +117,18 @@ const VEHICLES := {
 }
 const VEHICLE_ORDER := ["moto", "kart", "truck"]
 
+# paint jobs (second step of the select screen). "rainbow" uses a hue-cycling shader.
+const PAINTS := [
+	{"label": "Stock", "col": null},
+	{"label": "Cherry", "col": Color(0.9, 0.15, 0.2)},
+	{"label": "Sky", "col": Color(0.35, 0.65, 1.0)},
+	{"label": "Bubblegum", "col": Color(1.0, 0.5, 0.8)},
+	{"label": "Lime", "col": Color(0.45, 0.9, 0.35)},
+	{"label": "Grape", "col": Color(0.6, 0.35, 0.95)},
+	{"label": "Gold", "col": Color(1.0, 0.8, 0.25)},
+	{"label": "RAINBOW!", "col": null, "rainbow": true},
+]
+
 const RACERS := [
 	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
 	{"name": "Faron", "col": Color(0.45, 0.85, 1.0), "sprite": "res://assets/characters/friends/mama_baby.png"},
@@ -164,6 +176,11 @@ var _sel_idx := 1                  # start highlight on the kart
 var _sel_nodes: Array = []
 var _sel_t := 0.0
 var _sel_move_prev := 0
+var _sel_phase := "ride"           # ride -> paint
+var _paint_idx := 0
+var _paint_orbs: Array = []
+var _paint_prev := -1
+var _rainbow_mat_cache: ShaderMaterial = null
 
 # ------------------------------------------------------------ config access
 func configure(overrides: Dictionary) -> void:
@@ -174,6 +191,9 @@ func _cv(key: String, dflt):
 
 func _laps() -> int:
 	return int(_cv("laps", LAPS))
+
+func _theme() -> String:
+	return String(_cv("theme", "ocean"))   # "ocean" (seabed race) or "rainbow" (starfield)
 
 func _rhalf() -> float:
 	return float(_cv("road_half", ROAD_HALF))
@@ -289,18 +309,27 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_state = "select"
 	_sel_t = 0.0
 
+func _sky_defaults() -> Array:
+	if _theme() == "ocean":
+		return [Color(0.01, 0.08, 0.14), Color(0.06, 0.30, 0.42)]
+	return [Color(0.02, 0.01, 0.06), Color(0.10, 0.04, 0.20)]
+
 func _build_sky() -> void:
 	if "we_node" in _main and _main.we_node != null:
 		_prev_env = _main.we_node.environment
 		var e := Environment.new()
 		e.background_mode = Environment.BG_COLOR
-		var sky_cols: Array = _cv("sky_colors", [Color(0.02, 0.01, 0.06), Color(0.10, 0.04, 0.20)])
+		var sky_cols: Array = _cv("sky_colors", _sky_defaults())
 		e.background_color = sky_cols[0]
 		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-		e.ambient_light_color = Color(0.5, 0.5, 0.7)
-		e.ambient_light_energy = 0.9
+		e.ambient_light_color = (Color(0.45, 0.65, 0.75) if _theme() == "ocean" else Color(0.5, 0.5, 0.7))
+		e.ambient_light_energy = 1.0
 		e.glow_enabled = true
 		e.glow_intensity = 0.5
+		if _theme() == "ocean":
+			e.fog_enabled = true
+			e.fog_light_color = Color(0.08, 0.28, 0.38)
+			e.fog_density = 0.004
 		_main.we_node.environment = e
 	var sky := MeshInstance3D.new()
 	var sm := SphereMesh.new()
@@ -325,12 +354,36 @@ void fragment(){
 }"""
 	var smat := ShaderMaterial.new()
 	smat.shader = sh
-	var sky_cols2: Array = _cv("sky_colors", [Color(0.02, 0.01, 0.08), Color(0.10, 0.04, 0.20)])
+	var sky_cols2: Array = _cv("sky_colors", _sky_defaults())
 	smat.set_shader_parameter("col_lo", Vector3(sky_cols2[0].r, sky_cols2[0].g, sky_cols2[0].b))
 	smat.set_shader_parameter("col_hi", Vector3(sky_cols2[1].r, sky_cols2[1].g, sky_cols2[1].b))
 	sky.material_override = smat
 	sky.position = _origin()
 	add_child(sky)
+	# ocean: slow bubble columns drifting up through the course
+	if _theme() == "ocean":
+		var bub := CPUParticles3D.new()
+		bub.amount = 70
+		bub.lifetime = 9.0
+		bub.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+		bub.emission_box_extents = Vector3(170, 10, 170)
+		bub.direction = Vector3(0, 1, 0)
+		bub.gravity = Vector3(0, 1.4, 0)
+		bub.initial_velocity_min = 1.0
+		bub.initial_velocity_max = 3.0
+		bub.scale_amount_min = 0.15
+		bub.scale_amount_max = 0.6
+		var bm := SphereMesh.new()
+		bm.radius = 0.5
+		bm.height = 1.0
+		bub.mesh = bm
+		var bmat := StandardMaterial3D.new()
+		bmat.albedo_color = Color(0.75, 0.92, 1.0, 0.5)
+		bmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		bmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		bub.mesh.material = bmat
+		bub.position = _origin() + Vector3(0, 0, 0)
+		add_child(bub)
 
 func _build_track() -> void:
 	var st := SurfaceTool.new()
@@ -355,7 +408,25 @@ func _build_track() -> void:
 	var road := MeshInstance3D.new()
 	road.mesh = st.commit()
 	var rsh := Shader.new()
-	rsh.code = """shader_type spatial;
+	if _theme() == "ocean":
+		# sandy seabed track with drifting caustic light dapples + lane shimmer
+		rsh.code = """shader_type spatial;
+render_mode cull_disabled;
+float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+void fragment(){
+	vec2 g = UV * vec2(9.0, 220.0);
+	float grain = h(floor(g)) * 0.10;
+	vec3 sand = vec3(0.86, 0.76, 0.52) - grain;
+	float c1 = sin(UV.y * 90.0 + TIME * 1.3 + sin(UV.x * 12.0));
+	float c2 = sin(UV.y * 55.0 - TIME * 0.9 + UV.x * 20.0);
+	float caus = smoothstep(0.75, 1.0, c1 * c2);
+	float edge = smoothstep(0.0, 0.12, UV.x) * smoothstep(1.0, 0.88, UV.x);
+	ALBEDO = mix(vec3(0.35, 0.6, 0.65), sand, edge);
+	EMISSION = vec3(0.5, 0.8, 0.85) * caus * 0.35;
+	ROUGHNESS = 0.9;
+}"""
+	else:
+		rsh.code = """shader_type spatial;
 render_mode cull_disabled;
 void fragment(){
 	float b = fract(UV.y * 7.0);
@@ -396,7 +467,7 @@ void fragment(){
 		var em := StandardMaterial3D.new()
 		em.albedo_color = Color(1.0, 1.0, 1.0)
 		em.emission_enabled = true
-		em.emission = Color(0.7, 0.9, 1.0)
+		em.emission = (Color(0.35, 0.95, 0.6) if _theme() == "ocean" else Color(0.7, 0.9, 1.0))   # kelp-glow rails underwater
 		em.emission_energy_multiplier = 2.0
 		em.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		em.cull_mode = BaseMaterial3D.CULL_DISABLED
@@ -406,26 +477,100 @@ void fragment(){
 	_build_finish()
 	if bool(_cv("shortcut", true)):
 		_build_shortcut()
-	# floating crystals
-	for si2 in range(7):
-		var su: float = float(si2) / 7.0
+	if _theme() == "ocean":
+		_build_ocean_props()
+	else:
+		# floating crystals (rainbow theme)
+		for si2 in range(7):
+			var su: float = float(si2) / 7.0
+			var pf := _frame_at(su * _len, 0.0)
+			var sp: Vector3 = pf[0]
+			var rgt: Vector3 = pf[2]
+			var side: float = 1.0 if si2 % 2 == 0 else -1.0
+			var deco := MeshInstance3D.new()
+			var dmsh := BoxMesh.new()
+			dmsh.size = Vector3(7, 7, 7)
+			deco.mesh = dmsh
+			var dcm := StandardMaterial3D.new()
+			dcm.albedo_color = Color.from_hsv(su, 0.55, 1.0)
+			dcm.emission_enabled = true
+			dcm.emission = dcm.albedo_color
+			dcm.emission_energy_multiplier = 0.6
+			deco.material_override = dcm
+			deco.position = sp + rgt * ((_rhalf() + 16.0) * side) + Vector3(0, 4.0 + sin(su * TAU) * 8.0, 0)
+			deco.rotation = Vector3(su * 6.0, su * 4.0, su * 2.0)
+			add_child(deco)
+
+const OCEAN_PROPS := [
+	"Coral", "SeaWeed", "Coral1", "Rock3", "Coral2", "SeaWeed1", "FanShell",
+	"Coral3", "Rock7", "Coral4", "SeaWeed2", "SpiralShell", "Coral5", "Rock9",
+	"Coral6", "SandDollar",
+]
+const OCEAN_FISH := ["ClownFish", "Dory", "Tuna", "Carp"]
+var _deco_fish: Array = []
+
+func _play_first_anim(root: Node) -> void:
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		if n is AnimationPlayer:
+			var ap := n as AnimationPlayer
+			var clips := ap.get_animation_list()
+			if clips.size() > 0:
+				var cname: String = clips[0]
+				var anim := ap.get_animation(cname)
+				if anim != null:
+					anim.loop_mode = Animation.LOOP_LINEAR
+				ap.play(cname)
+			return
+		for c in n.get_children():
+			stack.append(c)
+
+func _build_ocean_props() -> void:
+	# seabed dressing: the game's own corals / seaweed / rocks / shells on little
+	# sand mounds along both sides of the track
+	for i in range(OCEAN_PROPS.size()):
+		var path := "res://assets/aquatic/%s.glb" % OCEAN_PROPS[i]
+		if not ResourceLoader.exists(path):
+			continue
+		var su: float = float(i) / float(OCEAN_PROPS.size())
 		var pf := _frame_at(su * _len, 0.0)
 		var sp: Vector3 = pf[0]
 		var rgt: Vector3 = pf[2]
-		var side: float = 1.0 if si2 % 2 == 0 else -1.0
-		var deco := MeshInstance3D.new()
-		var dmsh := BoxMesh.new()
-		dmsh.size = Vector3(7, 7, 7)
-		deco.mesh = dmsh
-		var dcm := StandardMaterial3D.new()
-		dcm.albedo_color = Color.from_hsv(su, 0.55, 1.0)
-		dcm.emission_enabled = true
-		dcm.emission = dcm.albedo_color
-		dcm.emission_energy_multiplier = 0.6
-		deco.material_override = dcm
-		deco.position = sp + rgt * ((_rhalf() + 16.0) * side) + Vector3(0, 4.0 + sin(su * TAU) * 8.0, 0)
-		deco.rotation = Vector3(su * 6.0, su * 4.0, su * 2.0)
-		add_child(deco)
+		var side: float = 1.0 if i % 2 == 0 else -1.0
+		var base: Vector3 = sp + rgt * ((_width_at(su * _len) + 10.0 + fposmod(float(i) * 3.7, 8.0)) * side)
+		var mound := MeshInstance3D.new()
+		var mm := CylinderMesh.new()
+		mm.top_radius = 4.0
+		mm.bottom_radius = 5.5
+		mm.height = 1.2
+		mound.mesh = mm
+		var smat := StandardMaterial3D.new()
+		smat.albedo_color = Color(0.82, 0.72, 0.5)
+		smat.roughness = 1.0
+		mound.material_override = smat
+		mound.position = base + Vector3(0, -0.6, 0)
+		add_child(mound)
+		var prop: Node3D = (load(path) as PackedScene).instantiate()
+		prop.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 1.9, 3.0))
+		prop.position = base
+		prop.rotation = Vector3(0, float(i) * 2.4, 0)
+		add_child(prop)
+	# a few animated fish cruising beside the course
+	for i in range(OCEAN_FISH.size()):
+		var path2 := "res://assets/aquatic/%s.glb" % OCEAN_FISH[i]
+		if not ResourceLoader.exists(path2):
+			continue
+		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH.size())
+		var pf2 := _frame_at(su2 * _len, 0.0)
+		var side2: float = 1.0 if i % 2 == 0 else -1.0
+		var fish: Node3D = (load(path2) as PackedScene).instantiate()
+		fish.scale = Vector3.ONE * 2.2
+		var fbase: Vector3 = (pf2[0] as Vector3) + (pf2[2] as Vector3) * ((_rhalf() + 14.0) * side2) + Vector3(0, 6.0, 0)
+		fish.position = fbase
+		add_child(fish)
+		_play_first_anim(fish)
+		_deco_fish.append({"node": fish, "base": fbase, "ph": float(i) * 1.7})
 
 func _build_finish() -> void:
 	var sf := _frame_at(0.0, 0.0)
@@ -606,8 +751,61 @@ func _build_pearls() -> void:
 			add_child(p)
 			_pearls_live.append({"node": p, "got": false})
 
+# ------------------------------------------------------------ paint jobs
+func _rainbow_mat() -> ShaderMaterial:
+	if _rainbow_mat_cache != null:
+		return _rainbow_mat_cache
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+void fragment(){
+	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	float hue = fract(TIME * 0.15 + wp.y * 0.06 + wp.x * 0.02);
+	vec3 c = clamp(abs(fract(hue + vec3(0.0, 0.666, 0.333)) * 6.0 - 3.0) - 1.0, 0.0, 1.0);
+	ALBEDO = c;
+	EMISSION = c * 0.35;
+	ROUGHNESS = 0.4;
+	METALLIC = 0.2;
+}"""
+	_rainbow_mat_cache = ShaderMaterial.new()
+	_rainbow_mat_cache.shader = sh
+	return _rainbow_mat_cache
+
+func _apply_paint(root: Node, paint: Dictionary) -> void:
+	# repaint every mesh surface; originals cached on the node so repainting the
+	# live preview never compounds tints
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		for c in n.get_children():
+			stack.append(c)
+		if not (n is MeshInstance3D):
+			continue
+		var mi := n as MeshInstance3D
+		if mi.mesh == null:
+			continue
+		if not mi.has_meta("orig_mats"):
+			var orig: Array = []
+			for si in range(mi.mesh.get_surface_count()):
+				orig.append(mi.get_active_material(si))
+			mi.set_meta("orig_mats", orig)
+		var origs: Array = mi.get_meta("orig_mats")
+		for si in range(mi.mesh.get_surface_count()):
+			if bool(paint.get("rainbow", false)):
+				mi.set_surface_override_material(si, _rainbow_mat())
+			elif paint.get("col") == null:
+				mi.set_surface_override_material(si, null)   # Stock: restore original
+			else:
+				var col: Color = paint["col"]
+				var src: Material = origs[si] if si < origs.size() else null
+				var m: BaseMaterial3D = (src.duplicate() if src is BaseMaterial3D else StandardMaterial3D.new())
+				m.albedo_color = m.albedo_color.lerp(col, 0.62)
+				m.emission_enabled = true
+				m.emission = col
+				m.emission_energy_multiplier = 0.12
+				mi.set_surface_override_material(si, m)
+
 # ------------------------------------------------------------ vehicles & karts
-func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: String) -> Node3D:
+func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: String, paint: Dictionary = {}) -> Node3D:
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
 	var model: Node3D = null
@@ -621,6 +819,8 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		model.position = Vector3(0, float(vd["y_off"]), 0)
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)
+		if not paint.is_empty():
+			_apply_paint(model, paint)
 	else:
 		# fallback: simple coloured box kart (never leaves a racer invisible)
 		var chassis := MeshInstance3D.new()
@@ -663,7 +863,7 @@ func _vehicles_table() -> Dictionary:
 func _veh(k: Dictionary) -> Dictionary:
 	return _vehicles_table()[String(k["veh"])]
 
-func _build_karts(player_vehicle: String) -> void:
+func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 	var roster: Array = _cv("racers", RACERS)
 	var n := roster.size()
 	for idx in range(n):
@@ -672,7 +872,7 @@ func _build_karts(player_vehicle: String) -> void:
 		var vkey := player_vehicle
 		if not is_p:
 			vkey = VEHICLE_ORDER[idx % VEHICLE_ORDER.size()]
-		var node := _vehicle_body(vkey, r["col"], String(r.get("sprite", "")), String(r["name"]))
+		var node := _vehicle_body(vkey, r["col"], String(r.get("sprite", "")), String(r["name"]), paint if is_p else {})
 		add_child(node)
 		var start_s := -6.0 - float(idx) * 5.0
 		var lane := (-1.0 if idx % 2 == 0 else 1.0) * _rhalf() * 0.45
@@ -690,6 +890,7 @@ func _build_karts(player_vehicle: String) -> void:
 func _build_camera() -> void:
 	_cam = Camera3D.new()
 	_cam.fov = 68.0
+	_cam.far = 1500.0   # the course is a floating pocket; never render the distant real world
 	add_child(_cam)
 	_cam.make_current()
 
@@ -738,17 +939,7 @@ func _build_select() -> void:
 		_cam.position = base + Vector3(0, 7.0, 26.0)
 		_cam.look_at(base + Vector3(0, 3.0, 0), Vector3.UP)
 
-func _tick_select(delta: float) -> void:
-	_sel_t += delta
-	# spin the vehicles slowly; highlight the chosen one
-	for i in range(_sel_nodes.size()):
-		var sn: Dictionary = _sel_nodes[i]
-		(sn["body"] as Node3D).rotation.y += delta * (1.6 if i == _sel_idx else 0.5)
-		var want_e: float = 3.0 if i == _sel_idx else 0.0
-		var halo: OmniLight3D = sn["halo"]
-		halo.light_energy = lerpf(halo.light_energy, want_e, delta * 8.0)
-		(sn["slot"] as Node3D).scale = (sn["slot"] as Node3D).scale.lerp(Vector3.ONE * (1.15 if i == _sel_idx else 1.0), delta * 8.0)
-	# input: move highlight
+func _sel_move() -> int:
 	var mv := 0
 	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
 		mv = -1
@@ -761,19 +952,79 @@ func _tick_select(delta: float) -> void:
 		var tv: Vector2 = _main.touch_ui.stick_vec
 		if absf(tv.x) > 0.4:
 			mv = (1 if tv.x > 0.0 else -1)
-	if mv != 0 and _sel_move_prev == 0:
-		_sel_idx = clampi(_sel_idx + mv, 0, VEHICLE_ORDER.size() - 1)
+	var edge := mv if (mv != 0 and _sel_move_prev == 0) else 0
 	_sel_move_prev = mv
-	# confirm (ignore the first 0.6s so the portal-entry tap can't insta-pick)
+	return edge
+
+func _build_paint_row() -> void:
+	# swatch orbs floating above the chosen vehicle's podium
+	var slot: Node3D = (_sel_nodes[_sel_idx] as Dictionary)["slot"]
+	for i in range(PAINTS.size()):
+		var pd: Dictionary = PAINTS[i]
+		var orb := MeshInstance3D.new()
+		var sm := SphereMesh.new()
+		sm.radius = 1.1
+		sm.height = 2.2
+		orb.mesh = sm
+		if bool(pd.get("rainbow", false)):
+			orb.material_override = _rainbow_mat()
+		else:
+			var m := StandardMaterial3D.new()
+			var oc: Color = pd["col"] if pd.get("col") != null else Color(0.75, 0.75, 0.8)
+			m.albedo_color = oc
+			m.emission_enabled = true
+			m.emission = oc
+			m.emission_energy_multiplier = 0.4
+			orb.material_override = m
+		orb.position = Vector3((float(i) - float(PAINTS.size() - 1) * 0.5) * 3.2, 11.5, 0)
+		slot.add_child(orb)
+		_paint_orbs.append(orb)
+
+func _tick_select(delta: float) -> void:
+	_sel_t += delta
+	for i in range(_sel_nodes.size()):
+		var sn: Dictionary = _sel_nodes[i]
+		var chosen: bool = (i == _sel_idx)
+		(sn["body"] as Node3D).rotation.y += delta * (1.6 if chosen else 0.5)
+		var want_e: float = 3.0 if chosen else 0.0
+		var halo: OmniLight3D = sn["halo"]
+		halo.light_energy = lerpf(halo.light_energy, want_e, delta * 8.0)
+		var want_s: float = 1.15 if chosen else (0.6 if _sel_phase == "paint" else 1.0)
+		(sn["slot"] as Node3D).scale = (sn["slot"] as Node3D).scale.lerp(Vector3.ONE * want_s, delta * 8.0)
+	var edge := _sel_move()
 	var confirm := _fire_just()
 	if _sel_t < 0.6:
 		confirm = false
+	if _sel_phase == "ride":
+		if edge != 0:
+			_sel_idx = clampi(_sel_idx + edge, 0, VEHICLE_ORDER.size() - 1)
+		if confirm or _sel_t > SELECT_TIMEOUT:
+			_sel_phase = "paint"
+			_sel_t = 0.0
+			_paint_prev = -1
+			_build_paint_row()
+			_lbl_big.text = "Pick your paint!"
+		return
+	# ---- paint phase ----
+	var np := PAINTS.size()
+	if edge != 0:
+		_paint_idx = (_paint_idx + edge + np) % np
+	for i in range(_paint_orbs.size()):
+		var orb: Node3D = _paint_orbs[i]
+		orb.scale = orb.scale.lerp(Vector3.ONE * (1.7 if i == _paint_idx else 1.0), delta * 10.0)
+		orb.rotation.y += delta * 2.0
+	if _paint_idx != _paint_prev:
+		_paint_prev = _paint_idx
+		_apply_paint((_sel_nodes[_sel_idx] as Dictionary)["body"], PAINTS[_paint_idx])
+		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  TAP to GO!"
 	if confirm or _sel_t > SELECT_TIMEOUT:
 		var vkey: String = VEHICLE_ORDER[_sel_idx]
+		var paint: Dictionary = PAINTS[_paint_idx]
 		for sn2 in _sel_nodes:
 			(sn2["slot"] as Node3D).queue_free()
 		_sel_nodes.clear()
-		_build_karts(vkey)
+		_paint_orbs.clear()
+		_build_karts(vkey, paint)
 		_state = "countdown"
 		_clock = 3.999
 		_lbl_big.text = ""
@@ -816,6 +1067,13 @@ func _brake_input() -> bool:
 func _process(delta: float) -> void:
 	if _state == "done":
 		return
+	# ambient fish cruise gently beside the course (ocean theme)
+	var tt: float = Time.get_ticks_msec() / 1000.0
+	for fd in _deco_fish:
+		var fn: Node3D = fd["node"]
+		if is_instance_valid(fn):
+			fn.position = (fd["base"] as Vector3) + Vector3(sin(tt * 0.8 + float(fd["ph"])) * 4.0, sin(tt * 1.3 + float(fd["ph"])) * 1.5, cos(tt * 0.6 + float(fd["ph"])) * 4.0)
+			fn.rotation.y = tt * 0.5 + float(fd["ph"])
 	if _state == "select":
 		_tick_select(delta)
 		return
