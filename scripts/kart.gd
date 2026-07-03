@@ -129,15 +129,19 @@ const PAINTS := [
 	{"label": "RAINBOW!", "col": null, "rainbow": true},
 ]
 
+# Racer roster: deliberately AVOIDS the reef friends (Faron, Harper & Fiona,
+# Gabby, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
+# standing in the ocean broke the fiction. These characters live in the toy
+# nursery / story world instead, so they never appear twice at once.
 const RACERS := [
 	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
-	{"name": "Faron", "col": Color(0.45, 0.85, 1.0), "sprite": "res://assets/characters/friends/mama_baby.png"},
-	{"name": "Harper", "col": Color(1.0, 0.55, 0.3), "sprite": "res://assets/characters/friends/two_friends.png"},
-	{"name": "Fiona", "col": Color(1.0, 0.8, 0.35), "sprite": "res://assets/characters/friends/two_friends.png"},
-	{"name": "Gabby", "col": Color(0.6, 0.4, 1.0), "sprite": "res://assets/characters/friends/gabby.png"},
-	{"name": "Kareem", "col": Color(0.35, 0.9, 0.5), "sprite": "res://assets/characters/friends/kareem.png"},
-	{"name": "Lamb-a'", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/characters/friends/pearl_friend.png"},
-	{"name": "Chuck", "col": Color(0.5, 0.55, 0.6), "sprite": "res://assets/characters/friends/wacky_chuck.png"},
+	{"name": "Sparkle", "col": Color(1.0, 0.85, 0.35), "sprite": "res://assets/book/baby_eagle.png"},
+	{"name": "Princess Huluu", "col": Color(0.75, 0.55, 1.0), "sprite": "res://assets/characters/friends/huluu.png"},
+	{"name": "Bunny", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/book/doll_bunny.png"},
+	{"name": "Kitty", "col": Color(1.0, 0.6, 0.4), "sprite": "res://assets/book/doll_cat.png"},
+	{"name": "Baby Doll", "col": Color(0.45, 0.85, 1.0), "sprite": "res://assets/book/baby_doll.png"},
+	{"name": "Dolly", "col": Color(0.6, 1.0, 0.7), "sprite": "res://assets/book/baby_doll2.png"},
+	{"name": "Sleepy", "col": Color(0.8, 0.7, 1.0), "sprite": "res://assets/book/baby_doll3.png"},
 ]
 
 # ------------------------------------------------------------ state
