@@ -216,6 +216,7 @@ func _ready() -> void:
 	_build_events()
 	_build_pearls()
 	_build_friends()
+	_build_kart_portal()
 	_build_player()
 	_build_hud()
 	_apply_cel_shading()
@@ -1263,8 +1264,9 @@ func _build_friends() -> void:
 			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
 
 func _build_kart_portal() -> void:
-	# a floating rainbow ring in the reef; swim in to start the Rainbow Road kart race
-	var pos := Vector3(80.0, 30.0, 70.0)
+	# the Ocean Race gate: a rainbow ring standing just above the REAL seabed near
+	# spawn — the race track is built over this world's actual ocean floor
+	var pos := Vector3(40.0, seabed_y(40.0, 30.0) + 9.0, 30.0)
 	kart_portal_pos = pos
 	var ring := MeshInstance3D.new()
 	var tm := TorusMesh.new()
@@ -1277,7 +1279,7 @@ func _build_kart_portal() -> void:
 	ring.position = pos
 	add_child(ring)
 	var lab := Label3D.new()
-	lab.text = "Rainbow Road!\nSwim in to RACE!"
+	lab.text = "Ocean Race!\nSwim in to RACE!"
 	lab.font_size = 80; lab.outline_size = 16
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.position = pos + Vector3(0, 11.0, 0)
@@ -1314,12 +1316,15 @@ func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
 	var tw := ring.create_tween().set_loops()
 	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
-func _start_kart_game(reversed: bool = false) -> void:
+func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
 	kart_from = game
 	game = "kart"
 	hud_game.text = ""
 	kart_game = KartGame.new()
 	add_child(kart_game)
+	if ground == "float":
+		# Level-2 rainbow legs run the classic floating Rainbow Road version
+		(kart_game as KartGame).configure({"theme": "rainbow", "ground": "float"})
 	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"), reversed)
 
 func _end_kart_game(place: int) -> void:
@@ -2606,10 +2611,10 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			hud_game.text = "Swim INTO the rainbow to race your go-kart!"
 		if kart_cool <= 0.0:
 			if dA < 14.0 and absf(kart_legA.y - ppos.y) < 18.0:
-				_start_kart_game(false)
+				_start_kart_game(false, "float")
 				return
 			if dB < 14.0 and absf(kart_legB.y - ppos.y) < 18.0:
-				_start_kart_game(true)
+				_start_kart_game(true, "float")
 				return
 	for fd in g.get("l2_fish", []):
 		var fn2: Node3D = fd["node"]
@@ -6595,6 +6600,10 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 12.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
+		if kart_cool <= 0.0 and kart_portal_pos != Vector3.ZERO:
+			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
+			if kd < 12.0 and absf(kart_portal_pos.y - ppos.y) < 14.0:
+				_start_kart_game(false, "terrain")
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:

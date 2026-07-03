@@ -40,7 +40,7 @@ const SAMPLES := 260
 const ORIGIN := Vector3(0.0, 4000.0, 0.0)
 const BOOST_MUL := 0.5             # speed bonus while turbo is burning
 const TURBO_TIME := 1.4            # seconds of turbo per full fire
-const SELECT_TIMEOUT := 14.0       # auto-pick so a young player never stalls
+const SELECT_TIMEOUT := 8.0        # auto-pick quickly so pre-race wait stays short
 
 const CTRL := [
 	Vector3(0, 0, 150),
@@ -97,21 +97,21 @@ const VEHICLES := {
 		"label": "Zoom Cycle", "blurb": "FASTEST! but slippery",
 		"glb": "res://assets/vehicles/motorcycle.glb",
 		"vmax": 1.10, "steer": 21.0, "wall": 0.70, "mass": 0.7,
-		"turbo": 1.25, "slip": 0.55, "scale": 3.2, "y_off": 0.4, "yaw_fix": 0.0,
+		"turbo": 1.25, "slip": 0.55, "size": 5.0, "yaw_fix": 0.0,
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "steady and true!",
 		"glb": "res://assets/vehicles/gokart.glb",
 		"vmax": 1.0, "steer": 16.0, "wall": 0.82, "mass": 1.0,
-		"turbo": 1.0, "slip": 0.15, "scale": 3.0, "y_off": 0.2, "yaw_fix": 0.0,
+		"turbo": 1.0, "slip": 0.15, "size": 6.0, "yaw_fix": 0.0,
 		"lean": 0.15,
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "MIGHTY! shoves everyone",
 		"glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.93, "steer": 11.0, "wall": 0.95, "mass": 2.0,
-		"turbo": 0.9, "slip": 0.0, "scale": 2.6, "y_off": 0.3, "yaw_fix": 0.0,
+		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": 0.0,
 		"lean": 0.05,
 	},
 }
@@ -195,6 +195,16 @@ func _laps() -> int:
 func _theme() -> String:
 	return String(_cv("theme", "ocean"))   # "ocean" (seabed race) or "rainbow" (starfield)
 
+func _ground_mode() -> String:
+	# "terrain": the track conforms to the REAL reef seabed in world 1 (default).
+	# "float":   the classic floating course in its own pocket (Level-2 rainbow).
+	return String(_cv("ground", "terrain"))
+
+func _terrain_y(x: float, z: float) -> float:
+	if _main != null and _main.has_method("seabed_y"):
+		return float(_main.seabed_y(x, z))
+	return 0.0
+
 func _rhalf() -> float:
 	return float(_cv("road_half", ROAD_HALF))
 
@@ -208,6 +218,8 @@ func _ctrl_pts() -> Array:
 	return _cv("ctrl", CTRL)
 
 func _origin() -> Vector3:
+	if _ground_mode() == "terrain":
+		return _cv("origin", Vector3.ZERO)   # world coordinates: the loop rings the real reef
 	return _cv("origin", ORIGIN)
 
 func _spline_u(u: float) -> Vector3:
@@ -220,21 +232,34 @@ func _spline_u(u: float) -> Vector3:
 	var p1: Vector3 = pts[i % n]
 	var p2: Vector3 = pts[(i + 1) % n]
 	var p3: Vector3 = pts[(i + 2) % n]
-	return _origin() + _catmull(p0, p1, p2, p3, t)
+	var p := _origin() + _catmull(p0, p1, p2, p3, t)
+	if _ground_mode() == "terrain":
+		p.y = _terrain_y(p.x, p.z) + 1.4   # hug the ACTUAL sea floor
+	return p
 
 func _build_lut() -> void:
 	_lut = PackedVector3Array()
+	var raw: Array = []
+	for i in range(SAMPLES + 1):
+		raw.append(_spline_u(float(i) / float(SAMPLES)))
+	if _ground_mode() == "terrain":
+		# smooth the terrain-sampled heights (±4 samples ≈ ±14u) so bumps become
+		# rollers, not cliffs — karts and the ribbon both use this smoothed line
+		var sm: Array = []
+		for i in range(SAMPLES + 1):
+			var acc := 0.0
+			for w in range(-4, 5):
+				acc += (raw[(i + w + SAMPLES) % SAMPLES] as Vector3).y
+			var p: Vector3 = raw[i]
+			sm.append(Vector3(p.x, acc / 9.0, p.z))
+		raw = sm
 	_cum = PackedFloat32Array()
-	var prev := _spline_u(0.0)
 	var d := 0.0
 	for i in range(SAMPLES + 1):
-		var u := float(i) / float(SAMPLES)
-		var p := _spline_u(u)
 		if i > 0:
-			d += prev.distance_to(p)
-		_lut.append(p)
+			d += (raw[i - 1] as Vector3).distance_to(raw[i])
+		_lut.append(raw[i])
 		_cum.append(d)
-		prev = p
 	_len = d
 	_vmax = _len / float(_cv("lap_target_sec", LAP_TARGET_SEC))
 
@@ -315,6 +340,8 @@ func _sky_defaults() -> Array:
 	return [Color(0.02, 0.01, 0.06), Color(0.10, 0.04, 0.20)]
 
 func _build_sky() -> void:
+	if _ground_mode() == "terrain":
+		return   # the race runs inside the real reef — its water, light and fog stay
 	if "we_node" in _main and _main.we_node != null:
 		_prev_env = _main.we_node.environment
 		var e := Environment.new()
@@ -331,11 +358,19 @@ func _build_sky() -> void:
 			e.fog_light_color = Color(0.08, 0.28, 0.38)
 			e.fog_density = 0.004
 		_main.we_node.environment = e
+	# sun so the vehicle models are actually lit (the pocket had no light source)
+	var sun := DirectionalLight3D.new()
+	sun.light_energy = 1.3
+	sun.light_color = (Color(0.85, 0.95, 1.0) if _theme() == "ocean" else Color(1.0, 0.95, 0.9))
+	sun.rotation_degrees = Vector3(-52, 30, 0)
+	add_child(sun)
 	var sky := MeshInstance3D.new()
 	var sm := SphereMesh.new()
 	sm.radius = 900.0
 	sm.height = 1800.0
-	sm.flip_faces = true
+	# NOTE: no flip_faces — the shader's cull_front already renders the inside.
+	# (flip_faces + cull_front double-negated and made the dome invisible, letting
+	# the real world's sky bleed through behind the course.)
 	sky.mesh = sm
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
@@ -539,6 +574,8 @@ func _build_ocean_props() -> void:
 		var rgt: Vector3 = pf[2]
 		var side: float = 1.0 if i % 2 == 0 else -1.0
 		var base: Vector3 = sp + rgt * ((_width_at(su * _len) + 10.0 + fposmod(float(i) * 3.7, 8.0)) * side)
+		if _ground_mode() == "terrain":
+			base.y = _terrain_y(base.x, base.z)   # props stand on the real floor beside the track
 		var mound := MeshInstance3D.new()
 		var mm := CylinderMesh.new()
 		mm.top_radius = 4.0
@@ -805,6 +842,31 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 				mi.set_surface_override_material(si, m)
 
 # ------------------------------------------------------------ vehicles & karts
+func _gather_aabbs(n: Node, xf: Transform3D, acc: Array) -> void:
+	if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+		acc.append(xf * (n as MeshInstance3D).get_aabb())
+	for c in n.get_children():
+		if c is Node3D:
+			_gather_aabbs(c, xf * (c as Node3D).transform, acc)
+		else:
+			_gather_aabbs(c, xf, acc)
+
+func _fit_model(model: Node3D, target_len: float) -> float:
+	# measure the model's real bounds, scale so its footprint length == target_len,
+	# and sit it on the ground. Returns the scaled top height (for sprite placement).
+	var acc: Array = []
+	_gather_aabbs(model, Transform3D.IDENTITY, acc)
+	if acc.is_empty():
+		return 2.5
+	var bb: AABB = acc[0]
+	for i in range(1, acc.size()):
+		bb = bb.merge(acc[i])
+	var longest: float = maxf(maxf(bb.size.x, bb.size.z), 0.001)
+	var sc: float = target_len / longest
+	model.scale = Vector3.ONE * sc
+	model.position = Vector3(0, -bb.position.y * sc, 0)
+	return (bb.position.y + bb.size.y) * sc
+
 func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: String, paint: Dictionary = {}) -> Node3D:
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
@@ -814,9 +876,9 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		var ps: PackedScene = load(glb_path)
 		if ps != null:
 			model = ps.instantiate()
+	var top_h := 2.5
 	if model != null:
-		model.scale = Vector3.ONE * float(vd["scale"])
-		model.position = Vector3(0, float(vd["y_off"]), 0)
+		top_h = _fit_model(model, float(vd["size"]))
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)
 		if not paint.is_empty():
@@ -832,13 +894,14 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		chassis.material_override = mat
 		chassis.position = Vector3(0, 1.0, 0)
 		root.add_child(chassis)
-	# driver sprite above the vehicle
+	# driver sprite above the vehicle — normalised so every driver is ~3.2 units tall
 	if sprite_path != "" and ResourceLoader.exists(sprite_path):
 		var spr := Sprite3D.new()
-		spr.texture = load(sprite_path)
+		var tex: Texture2D = load(sprite_path)
+		spr.texture = tex
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		spr.pixel_size = 0.0075
-		spr.position = Vector3(0, 4.6, 0)
+		spr.pixel_size = 3.2 / maxf(float(tex.get_height()), 1.0)
+		spr.position = Vector3(0, top_h + 1.8, 0)
 		root.add_child(spr)
 	var nl := Label3D.new()
 	nl.text = racer_name
@@ -846,7 +909,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	nl.outline_size = 14
 	nl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	nl.modulate = col.lightened(0.4)
-	nl.position = Vector3(0, 6.8, 0)
+	nl.position = Vector3(0, top_h + 4.2, 0)
 	root.add_child(nl)
 	if racer_name == "Roshan":
 		var trail := OmniLight3D.new()
@@ -896,12 +959,21 @@ func _build_camera() -> void:
 
 # ------------------------------------------------------------ selection screen
 func _build_select() -> void:
-	var base := _origin() + Vector3(0, -60.0, 0)
+	var base: Vector3
+	if _ground_mode() == "terrain":
+		# podiums stand on the REAL seabed beside the start line — no strange void
+		var sf := _frame_at(0.0, 0.0)
+		base = (sf[0] as Vector3) + (sf[2] as Vector3) * (_width_at(0.0) + 20.0)
+		base.y = _terrain_y(base.x, base.z) + 0.8
+	else:
+		base = _origin() + Vector3(0, -60.0, 0)
 	for i in range(VEHICLE_ORDER.size()):
 		var vkey: String = VEHICLE_ORDER[i]
 		var vd: Dictionary = _vehicles_table()[vkey]
 		var slot := Node3D.new()
 		slot.position = base + Vector3((float(i) - 1.0) * 16.0, 0, 0)
+		if _ground_mode() == "terrain":
+			slot.position.y = _terrain_y(slot.position.x, slot.position.z) + 0.8
 		add_child(slot)
 		var pod := MeshInstance3D.new()
 		var pcm := CylinderMesh.new()
