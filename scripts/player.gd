@@ -4,6 +4,22 @@ extends Node3D
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
+static func joy_axis(axis: int) -> float:
+	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
+	# dongles don't always enumerate as the first joypad
+	var v := 0.0
+	for dev: int in Input.get_connected_joypads():
+		var a: float = Input.get_joy_axis(dev, axis)
+		if absf(a) > absf(v):
+			v = a
+	return v
+
+static func joy_pressed(btn: int) -> bool:
+	for dev: int in Input.get_connected_joypads():
+		if Input.is_joy_button_pressed(dev, btn):
+			return true
+	return false
+
 var yaw := 0.0
 var vel := Vector3.ZERO
 var swim_phase := 0.0
@@ -148,6 +164,8 @@ func _process(delta: float) -> void:
 		return
 	if "wardrobe_layer" in _m0 and _m0.wardrobe_layer != null:
 		return   # frozen while the dress-up screen is open
+	if "sleep_t" in _m0 and float(_m0.sleep_t) >= 0.0:
+		return   # tucked into bed — the sleep cutscene drives her
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy"):
 		return   # the slide / fairy-shooter / kart / galaxy modes drive the player + camera themselves
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
@@ -164,8 +182,8 @@ func _process(delta: float) -> void:
 		turn += 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		turn -= 1.0
-	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
-	var jy: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
 		turn -= jx
 	if absf(jy) > 0.2:
@@ -177,7 +195,7 @@ func _process(delta: float) -> void:
 			turn -= tv.x
 		if absf(tv.y) > 0.15:
 			fwd -= tv.y
-	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
+	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
 

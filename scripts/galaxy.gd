@@ -60,6 +60,23 @@ var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
 # ---------------------------------------------------------------- lifecycle
+
+static func joy_axis(axis: int) -> float:
+	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
+	# dongles don't always enumerate as the first joypad
+	var v := 0.0
+	for dev: int in Input.get_connected_joypads():
+		var a: float = Input.get_joy_axis(dev, axis)
+		if absf(a) > absf(v):
+			v = a
+	return v
+
+static func joy_pressed(btn: int) -> bool:
+	for dev: int in Input.get_connected_joypads():
+		if Input.is_joy_button_pressed(dev, btn):
+			return true
+	return false
+
 func start(main: Node, finish_cb: Callable) -> void:
 	_main = main
 	_finish_cb = finish_cb
@@ -526,8 +543,8 @@ func _move_input() -> Vector2:
 		v.x -= 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		v.x += 1.0
-	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
-	var jy: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
 		v.x += jx
 	if absf(jy) > 0.2:
@@ -543,7 +560,7 @@ func _move_input() -> Vector2:
 	return v
 
 func _jump_pressed() -> bool:
-	var now := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
+	var now := Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	var just := now and not _fire_prev
 	_fire_prev = now
 	if not just and _main != null and "touch_ui" in _main and _main.touch_ui != null:

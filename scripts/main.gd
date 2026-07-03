@@ -112,6 +112,13 @@ var plankton_node: GPUParticles3D
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_resume_btn: Button = null
+# bedtime: swim onto the castle bed -> tuck-in cutscene that flips day <-> night
+var sleep_t := -1.0
+var sleep_cool := 0.0
+var sleep_layer: CanvasLayer = null
+var sleep_overlay: ColorRect = null
+var sleep_flip_done := false
+var night_nodes: Array = []   # moon/beams/jellies — toggled when time flips at runtime
 var quality_btn: Button
 var music_btn: Button
 var guide_fish: Sprite3D
@@ -180,6 +187,22 @@ const FRIEND_DEFS := [
 	{"tex": "gabby",         "fname": "Gabby",                 "msg": "Gabby! Come catch the rainbow on stage!", "game": "melody"},
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
+
+static func joy_axis(axis: int) -> float:
+	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
+	# dongles don't always enumerate as the first joypad
+	var v := 0.0
+	for dev: int in Input.get_connected_joypads():
+		var a: float = Input.get_joy_axis(dev, axis)
+		if absf(a) > absf(v):
+			v = a
+	return v
+
+static func joy_pressed(btn: int) -> bool:
+	for dev: int in Input.get_connected_joypads():
+		if Input.is_joy_button_pressed(dev, btn):
+			return true
+	return false
 
 static func hash2(x: float, y: float) -> float:
 	var n: float = sin(x * 127.1 + y * 311.7) * 43758.5453
@@ -460,10 +483,23 @@ func _apply_time_of_day() -> void:
 
 var night_built := false
 
+func _set_night(n: bool) -> void:
+	# runtime day/night flip (used by the castle bed). The reef env + sun update
+	# immediately; the night dressing is built once and shown/hidden after that.
+	is_night = n
+	_apply_time_of_day()   # builds the night dressing on first nightfall
+	for nn in night_nodes:
+		if is_instance_valid(nn):
+			(nn as Node3D).visible = n
+	if plankton_node != null:
+		var pq := plankton_node.draw_pass_1 as QuadMesh
+		if pq != null and pq.material is StandardMaterial3D:
+			(pq.material as StandardMaterial3D).albedo_color = Color(0.62, 1.0, 0.95, 0.8) if n else Color(0.85, 0.97, 1.0, 0.5)
+
 func _build_night_ocean() -> void:
 	# mystical bioluminescent night dressing: a moon seen through the water,
 	# shimmering moonbeam shafts, glowing drift-jellyfish, brighter plankton.
-	# (time of day is fixed per launch, so this builds once and never tears down)
+	# built once; _set_night() shows/hides it when the castle bed flips time
 	if night_built:
 		return
 	night_built = true
@@ -482,7 +518,8 @@ func _build_night_ocean() -> void:
 	moon.material_override = mm
 	moon.position = Vector3(110, 145, -150)
 	add_child(moon)
-	_halo(moon.position, Color(0.75, 0.88, 1.0), 46.0)
+	night_nodes.append(moon)
+	night_nodes.append(_halo(moon.position, Color(0.75, 0.88, 1.0), 46.0))
 	# ---- shimmering moonbeams reaching down to the reef floor ----
 	var bsh := Shader.new()
 	bsh.code = """shader_type spatial;
@@ -507,6 +544,7 @@ void fragment(){
 		beam.material_override = bmat
 		beam.position = Vector3(bp.x, (WATER_TOP + 14.0) * 0.5 - 7.0, bp.z)
 		add_child(beam)
+		night_nodes.append(beam)
 	# ---- glowing drift-jellyfish, each casting soft bioluminescent light ----
 	# read the SAVED quality directly: _apply_time_of_day runs a moment before
 	# _apply_quality, so the `quality` var still holds its default here
@@ -554,6 +592,7 @@ void fragment(){
 		jl.visible = (q != "speedy") or (i % 2 == 0)
 		jelly.add_child(jl)
 		add_child(jelly)
+		night_nodes.append(jelly)
 		aquatic_movers.append({"node": jelly, "rad": 40.0 + randf() * 140.0, "spd": 0.05 + randf() * 0.06, "y": 16.0 + randf() * 26.0, "ph": randf() * TAU})
 	# ---- the plankton field glows brighter on mystical nights ----
 	if plankton_node != null:
@@ -3916,6 +3955,17 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	headboard.material_override.roughness = 0.7
 	# bed collider: low (player can swim over it) but blocks at floor level
 	_wall_solid(Vector3(bcx, o.y + 2.0, bo.z), Vector3(6, 2.5, 10))
+	g["bed_pos"] = Vector3(bcx, o.y + 4.3, bo.z)   # mattress top — the go-to-sleep trigger
+	var bedsign := Label3D.new()
+	bedsign.text = "zZz  snuggle in!"
+	bedsign.font_size = 40
+	bedsign.pixel_size = 0.02
+	bedsign.outline_size = 10
+	bedsign.modulate = Color(0.8, 0.85, 1.0)
+	bedsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	bedsign.position = Vector3(bcx, o.y + 9.0, bo.z)
+	add_child(bedsign)
+	game_nodes.append(bedsign)
 	# ---------- bedside table + glowing lamp ----------
 	var table := _l2_box(Vector3(bo.x - 4.5, o.y + 1.8, bo.z - 5.5), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
 	table.material_override.roughness = 0.8
@@ -4025,6 +4075,16 @@ func _tick_wall_fade(delta: float) -> void:
 func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	if wardrobe_layer != null:
 		return   # dressing up — pause all hall triggers
+	if sleep_t >= 0.0:
+		_tick_sleep(delta)
+		return
+	# bedtime: snuggle onto the bed to sleep the day away (or the night!)
+	sleep_cool = maxf(0.0, sleep_cool - delta)
+	if g.has("bed_pos") and sleep_cool <= 0.0 and mg_kind == "" and craft_layer == null:
+		var bpv: Vector3 = g["bed_pos"]
+		if Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 4.0 and absf(bpv.y - ppos.y) < 5.0:
+			_begin_sleep()
+			return
 	hud_game.text = "Swim up the stairs to Princess Huluu and the Crown Star!"
 	# leave the castle from the entrance
 	if g.has("hall_exit") and float(g["t"]) > 2.5:
@@ -4097,6 +4157,85 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 		player.vel.y = maxf(player.vel.y, 0.0)
 	if d < 5.0:
 		_finish_level2()
+
+func _begin_sleep() -> void:
+	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
+	# fades, day flips to night (or night to day), and she wakes refreshed
+	sleep_t = 0.0
+	sleep_flip_done = false
+	var bp: Vector3 = g["bed_pos"]
+	player.position = bp + Vector3(0, 1.0, 0.4)
+	player.vel = Vector3.ZERO
+	player.rotation_degrees = Vector3(-64, 180, 0)   # reclined on the pillow
+	if chime != null:
+		chime.pitch_scale = 0.9
+		chime.play()
+	hud_game.text = ""
+	show_msg("Roshan", "Time for a cosy little sleep... zZz")
+
+func _sleep_z() -> void:
+	var z := Label3D.new()
+	z.text = "z"
+	z.font_size = 90 + randi() % 60
+	z.outline_size = 14
+	z.modulate = Color(0.75, 0.85, 1.0)
+	z.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	var bp: Vector3 = g["bed_pos"]
+	z.position = bp + Vector3(randf() * 2.0 - 1.0, 2.5, randf() * 2.0 - 1.0)
+	add_child(z)
+	var tw := z.create_tween()
+	tw.tween_property(z, "position:y", z.position.y + 5.0, 1.6)
+	tw.parallel().tween_property(z, "modulate:a", 0.0, 1.6)
+	tw.tween_callback(z.queue_free)
+
+func _tick_sleep(delta: float) -> void:
+	sleep_t += delta
+	# slow breathing bob while she drifts off
+	if player != null and g.has("bed_pos"):
+		player.position.y = float((g["bed_pos"] as Vector3).y) + 1.0 + sin(sleep_t * 1.5) * 0.12
+	if fmod(sleep_t, 0.8) < delta and sleep_t < 3.2:
+		_sleep_z()
+		if chime != null and sleep_t > 0.5:
+			chime.pitch_scale = 0.85 - sleep_t * 0.06   # descending lullaby notes
+			chime.play()
+	if sleep_t >= 2.4 and sleep_layer == null:
+		# dream-fade to deep sleepy indigo
+		sleep_layer = CanvasLayer.new()
+		sleep_layer.layer = 24
+		add_child(sleep_layer)
+		sleep_overlay = ColorRect.new()
+		sleep_overlay.color = Color(0.03, 0.02, 0.10, 0.0)
+		sleep_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+		sleep_layer.add_child(sleep_overlay)
+		var tw := sleep_overlay.create_tween()
+		tw.tween_property(sleep_overlay, "color:a", 1.0, 0.9)
+	if sleep_t >= 3.6 and not sleep_flip_done:
+		sleep_flip_done = true
+		_set_night(not is_night)   # the whole ocean changes while she dreams
+	if sleep_t >= 4.6 and sleep_overlay != null and sleep_overlay.color.a >= 0.99:
+		var tw2 := sleep_overlay.create_tween()
+		tw2.tween_property(sleep_overlay, "color:a", 0.0, 1.0)
+		sleep_overlay.color.a = 0.98   # nudge below the gate so this runs once
+	if sleep_t >= 6.0:
+		_end_sleep()
+
+func _end_sleep() -> void:
+	sleep_t = -1.0
+	sleep_cool = 18.0
+	if sleep_layer != null and is_instance_valid(sleep_layer):
+		sleep_layer.queue_free()
+	sleep_layer = null
+	sleep_overlay = null
+	if player != null:
+		player.rotation_degrees = Vector3.ZERO
+		if g.has("bed_pos"):
+			player.position = (g["bed_pos"] as Vector3) + Vector3(-5.0, 1.0, 3.0)
+		player.vel = Vector3.ZERO
+	_sparkle_burst(player.position + Vector3(0, 2, 0), Color(0.8, 0.9, 1.0))
+	if is_night:
+		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
+	else:
+		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
 
 func _l2_start_slide() -> void:
 	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
@@ -5928,7 +6067,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		steer -= 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		steer += 1.0
-	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
 	if absf(jx) > 0.2:
 		steer += jx
 	if touch_ui != null and absf(touch_ui.stick_vec.x) > 0.15:
@@ -6228,8 +6367,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		iny += 1.0
 	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
 		iny -= 1.0
-	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
-	var jy: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2: inx += jx
 	if absf(jy) > 0.2: iny -= jy
 	if touch_ui != null:
@@ -6571,7 +6710,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var wet: bool = landing.x - ARENA_POS.x > 8.2
 		(arrow.material_override as StandardMaterial3D).albedo_color = Color(1.0, 0.3, 0.3) if wet else Color(0.4, 1.0, 0.5)
 		(arrow.material_override as StandardMaterial3D).emission = (Color(1.0, 0.25, 0.25) if wet else Color(0.3, 1.0, 0.45)) * 0.9
-		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
+		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
 		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
 			g["press_cool"] = 1.0
 			g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)
@@ -6681,7 +6820,7 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		mx -= 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		mx += 1.0
-	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
 	if absf(jx) > 0.2:
 		mx += jx
 	if touch_ui != null and absf((touch_ui.stick_vec as Vector2).x) > 0.15:
@@ -7424,7 +7563,7 @@ func _btn_pressed() -> int:
 	# returns 0..3 for A/B/X/Y edge press, else -1
 	var btns := [JOY_BUTTON_A, JOY_BUTTON_B, JOY_BUTTON_X, JOY_BUTTON_Y]
 	for i in range(4):
-		var down: bool = Input.is_joy_button_pressed(0, btns[i])
+		var down: bool = joy_pressed(int(btns[i]))
 		var key: String = "btn%d" % i
 		if down and not bool(g.get(key, false)):
 			g[key] = true
