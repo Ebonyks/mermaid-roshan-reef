@@ -1161,7 +1161,7 @@ func _tick_select(delta: float) -> void:
 
 # ------------------------------------------------------------ input helpers
 func _fire_just() -> bool:
-	var now := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_physical_key_pressed(KEY_ENTER)
+	var now := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B) or Input.is_physical_key_pressed(KEY_ENTER)
 	var just := now and not _fire_prev
 	_fire_prev = now
 	if not just and _main != null and "touch_ui" in _main and _main.touch_ui != null:

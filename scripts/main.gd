@@ -111,6 +111,7 @@ var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef
 var plankton_node: GPUParticles3D
 var pause_layer: CanvasLayer
 var pause_panel: Control
+var pause_resume_btn: Button = null
 var quality_btn: Button
 var music_btn: Button
 var guide_fish: Sprite3D
@@ -371,6 +372,21 @@ func _skip_intro() -> void:
 	if intro_layer != null and is_instance_valid(intro_layer):
 		intro_layer.queue_free()
 	intro_layer = null
+
+func _unhandled_input(ev: InputEvent) -> void:
+	# gamepad/keyboard advance for the storybook intro (taps and clicks land on
+	# the invisible full-screen button; this covers A/B/Start, Space and Enter)
+	if not intro_active:
+		return
+	var advance := false
+	if ev is InputEventJoypadButton and (ev as InputEventJoypadButton).pressed:
+		var bi: int = (ev as InputEventJoypadButton).button_index
+		advance = bi == JOY_BUTTON_A or bi == JOY_BUTTON_B or bi == JOY_BUTTON_START
+	elif ev is InputEventKey and (ev as InputEventKey).pressed and not (ev as InputEventKey).echo:
+		var kc: int = (ev as InputEventKey).physical_keycode
+		advance = kc == KEY_SPACE or kc == KEY_ENTER
+	if advance:
+		_intro_next()
 
 func _tick_roshan_reactions(delta: float, ppos: Vector3) -> void:
 	if game != "" or finale_t >= 0.0 or intro_active:
@@ -1805,6 +1821,7 @@ func _build_pause() -> void:
 	pause_panel.add_child(vb)
 	var resume := _pause_btn(vb, "Keep Swimming!")
 	resume.pressed.connect(toggle_pause)
+	pause_resume_btn = resume
 	quality_btn = _pause_btn(vb, "Graphics: Sparkly")
 	quality_btn.pressed.connect(func():
 		_apply_quality("speedy" if quality == "sparkly" else "sparkly")
@@ -1828,6 +1845,13 @@ func toggle_pause() -> void:
 	var p: bool = not get_tree().paused
 	get_tree().paused = p
 	pause_panel.visible = p
+	# gamepad menu navigation: focus the first button so D-pad + A work
+	if p and pause_resume_btn != null:
+		pause_resume_btn.grab_focus()
+	elif not p:
+		var fo := get_viewport().gui_get_focus_owner()
+		if fo != null:
+			fo.release_focus()
 
 func _shop_buy(id: String) -> void:
 	for it in SHOP_ITEMS:
@@ -6547,7 +6571,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var wet: bool = landing.x - ARENA_POS.x > 8.2
 		(arrow.material_override as StandardMaterial3D).albedo_color = Color(1.0, 0.3, 0.3) if wet else Color(0.4, 1.0, 0.5)
 		(arrow.material_override as StandardMaterial3D).emission = (Color(1.0, 0.25, 0.25) if wet else Color(0.3, 1.0, 0.45)) * 0.9
-		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
+		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
 		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
 			g["press_cool"] = 1.0
 			g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)

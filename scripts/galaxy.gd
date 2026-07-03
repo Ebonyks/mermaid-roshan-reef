@@ -543,7 +543,7 @@ func _move_input() -> Vector2:
 	return v
 
 func _jump_pressed() -> bool:
-	var now := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
+	var now := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
 	var just := now and not _fire_prev
 	_fire_prev = now
 	if not just and _main != null and "touch_ui" in _main and _main.touch_ui != null:

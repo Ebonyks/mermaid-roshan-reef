@@ -177,7 +177,7 @@ func _process(delta: float) -> void:
 			turn -= tv.x
 		if absf(tv.y) > 0.15:
 			fwd -= tv.y
-	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
+	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
 
