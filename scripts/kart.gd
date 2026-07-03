@@ -70,9 +70,18 @@ const STRIPS := [
 	{"u": 0.92, "lat": 0.0, "len": 16.0, "hw": 7.0},
 ]
 const PICKUPS := [
+	# shell = turbo charge, star = BIG charge, bubble = instant zip!,
+	# rainbow = full meter + sparkles. Spread so something happens every few seconds.
+	{"u": 0.10, "lat": 4.0, "kind": "bubble"},
 	{"u": 0.22, "lat": -5.0, "kind": "shell"},
+	{"u": 0.30, "lat": 0.0, "kind": "bubble"},
+	{"u": 0.38, "lat": -4.0, "kind": "rainbow"},
 	{"u": 0.45, "lat": 5.0, "kind": "star"},
+	{"u": 0.55, "lat": -3.0, "kind": "bubble"},
+	{"u": 0.64, "lat": 3.0, "kind": "shell"},
 	{"u": 0.72, "lat": 0.0, "kind": "shell"},
+	{"u": 0.80, "lat": 5.0, "kind": "bubble"},
+	{"u": 0.87, "lat": -5.0, "kind": "rainbow"},
 	{"u": 0.93, "lat": -3.0, "kind": "star"},
 ]
 # rows of collectible pearls: u start, lat, count (spaced along s)
@@ -97,21 +106,21 @@ const VEHICLES := {
 		"label": "Zoom Cycle", "blurb": "FASTEST! but slippery",
 		"glb": "res://assets/vehicles/motorcycle.glb",
 		"vmax": 1.10, "steer": 27.0, "wall": 0.70, "mass": 0.7,
-		"turbo": 1.25, "slip": 0.55, "size": 5.0, "yaw_fix": 0.0,
+		"turbo": 1.25, "slip": 0.55, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "steady and true!",
 		"glb": "res://assets/vehicles/gokart.glb",
 		"vmax": 1.0, "steer": 21.0, "wall": 0.82, "mass": 1.0,
-		"turbo": 1.0, "slip": 0.15, "size": 6.0, "yaw_fix": 0.0,
+		"turbo": 1.0, "slip": 0.15, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
 		"lean": 0.15,
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "MIGHTY! shoves everyone",
 		"glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.93, "steer": 15.0, "wall": 0.95, "mass": 2.0,
-		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": 0.0,
+		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
 	},
 }
@@ -803,7 +812,9 @@ func _build_pickups() -> void:
 		var pos: Vector3 = fr[0]
 		var holder := Node3D.new()
 		holder.position = pos + Vector3(0, 2.6, 0)
-		if String(pd["kind"]) == "shell" and ResourceLoader.exists(SHELL_GLB):
+		var kind := String(pd["kind"])
+		var rlab: Label3D = null
+		if kind == "shell" and ResourceLoader.exists(SHELL_GLB):
 			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
 			sm.scale = Vector3.ONE * 2.4
 			holder.add_child(sm)
@@ -812,21 +823,43 @@ func _build_pickups() -> void:
 			gl.light_energy = 2.0
 			gl.omni_range = 9.0
 			holder.add_child(gl)
+		elif kind == "bubble":
+			# zoom bubble: translucent glowing sphere — drive through, POP, instant zip
+			var bub := MeshInstance3D.new()
+			var bs := SphereMesh.new()
+			bs.radius = 2.0
+			bs.height = 4.0
+			bub.mesh = bs
+			var bm := StandardMaterial3D.new()
+			bm.albedo_color = Color(0.5, 0.95, 1.0, 0.4)
+			bm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			bm.emission_enabled = true
+			bm.emission = Color(0.4, 0.9, 1.0)
+			bm.emission_energy_multiplier = 1.2
+			bub.material_override = bm
+			holder.add_child(bub)
+			var gl3 := OmniLight3D.new()
+			gl3.light_color = Color(0.5, 0.95, 1.0)
+			gl3.light_energy = 2.0
+			gl3.omni_range = 9.0
+			holder.add_child(gl3)
 		else:
 			var lab := Label3D.new()
-			lab.text = ("🐚" if String(pd["kind"]) == "shell" else "★")
-			lab.font_size = 180
+			lab.text = "★"
+			lab.font_size = 180 if kind == "star" else 220
 			lab.pixel_size = 0.03
-			lab.modulate = (Color(1.0, 0.7, 0.95) if String(pd["kind"]) == "shell" else Color(1.0, 0.9, 0.3))
+			lab.modulate = Color(1.0, 0.9, 0.3)
 			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 			holder.add_child(lab)
+			if kind == "rainbow":
+				rlab = lab   # hue-cycled every frame — the jackpot pickup
 			var gl2 := OmniLight3D.new()
 			gl2.light_color = lab.modulate
 			gl2.light_energy = 2.4
 			gl2.omni_range = 10.0
 			holder.add_child(gl2)
 		add_child(holder)
-		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": String(pd["kind"]), "cool": 0.0})
+		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": kind, "cool": 0.0, "rlab": rlab})
 
 func _build_pearls() -> void:
 	var rows: Array = _cv("pearl_rows", PEARL_ROWS)
@@ -1007,7 +1040,7 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 			"node": node, "name": String(r["name"]), "is_player": is_p, "veh": vkey,
 			"s": start_s, "lat": lane, "latv": 0.0, "speed": 0.0,
 			"boost_t": 0.0, "meter": 0.0,
-			"ai_skill": 0.98 + 0.08 * (float(idx) / float(n)),
+			"ai_skill": 0.88 + 0.07 * (float(idx) / float(n)),
 			"ai_phase": float(idx) * 1.3,
 		}
 		_karts.append(k)
@@ -1300,14 +1333,19 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	k["boost_t"] = maxf(0.0, float(k["boost_t"]) - delta)
 	# AI charge meter slowly and fire when full-ish
 	k["meter"] = minf(1.0, float(k["meter"]) + delta * 0.06)
-	if float(k["meter"]) >= 0.9 and float(k["boost_t"]) <= 0.0 and randf() < delta * 0.5:
-		k["boost_t"] = TURBO_TIME * float(vd["turbo"]) * 0.8
+	if float(k["meter"]) >= 0.9 and float(k["boost_t"]) <= 0.0 and randf() < delta * 0.35:
+		k["boost_t"] = TURBO_TIME * float(vd["turbo"]) * 0.7
 		k["meter"] = 0.2
 	var bf: float = 1.0 + (BOOST_MUL if float(k["boost_t"]) > 0.0 else 0.0)
-	var base: float = _vmax * float(k["ai_skill"]) * float(vd["vmax"]) * bf
+	# AI only gets a softened share of its vehicle's top-speed edge — the player
+	# on ANY ride can out-drive the pack with clean lines + turbo timing
+	var vveh: float = 1.0 + (float(vd["vmax"]) - 1.0) * 0.4
+	var base: float = _vmax * float(k["ai_skill"]) * vveh * bf
 	if _pl != null:
+		# rubber band, kid-friendly asymmetric: leaders ease off a LOT, stragglers
+		# catch up gently — losing stays close, winning stays possible
 		var gap: float = float(_pl["s"]) - float(k["s"])
-		base += clampf(gap * 0.06, -_vmax * 0.2, _vmax * 0.5)
+		base += clampf(gap * 0.07, -_vmax * 0.45, _vmax * 0.32)
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
@@ -1321,9 +1359,10 @@ func _apply_lat(k: Dictionary, new_lat: float) -> void:
 	var wall: float = _width_at(_eff(float(k["s"]))) - 1.6
 	if absf(new_lat) > wall:
 		new_lat = clampf(new_lat, -wall, wall) * 0.8
-		k["latv"] = -float(k["latv"]) * 0.55     # bouncier rebound off the rail
+		k["latv"] = -float(k["latv"]) * 0.85     # bumper-car rebound off the rail
 		k["speed"] = float(k["speed"]) * float(vd["wall"])
 		k["squash"] = 0.3
+		k["hop"] = 0.22
 		if bool(k["is_player"]):
 			_shake = maxf(_shake, 0.35)
 			if _thunk_cool <= 0.0:
@@ -1337,10 +1376,15 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	var fwd: Vector3 = fr[1]
 	var up: Vector3 = fr[3]
 	var node: Node3D = k["node"]
-	# bouncy speed bob (each kart phased by its own track position)
-	var spd_n: float = clampf(absf(float(k["speed"])) / maxf(_vmax, 1.0), 0.0, 1.3)
-	var bob: float = absf(sin(float(k["s"]) * 0.30)) * 0.28 * spd_n
-	node.position = pos + up * (1.2 + bob)
+	# smooth ride; the bounce lives in IMPACTS (bumper-car hop), not a constant
+	# gallop — the old speed bob read as a horse race
+	var hop_t: float = float(k.get("hop", 0.0))
+	var hop_h := 0.0
+	if hop_t > 0.0:
+		hop_t = maxf(0.0, hop_t - delta)
+		k["hop"] = hop_t
+		hop_h = sin((1.0 - hop_t / 0.25) * PI) * 0.9
+	node.position = pos + up * (1.2 + hop_h)
 	if fwd.length() > 0.001:
 		node.look_at(pos + fwd + up * 1.2, up)
 		# point the nose INTO the turn (the visual feedback that makes steering feel real)
@@ -1384,19 +1428,39 @@ func _check_pickups(delta: float) -> void:
 		var node: Node3D = pu["node"]
 		node.rotation.y = t * 1.6
 		node.position.y = (_frame_at(float(pu["s"]), float(pu["lat"]))[0] as Vector3).y + 2.6 + sin(t * 2.0 + float(pu["s"])) * 0.5
+		if pu.get("rlab") != null:
+			(pu["rlab"] as Label3D).modulate = Color.from_hsv(fposmod(t * 0.5, 1.0), 0.65, 1.0)
 		if float(pu["cool"]) > 0.0:
 			pu["cool"] = float(pu["cool"]) - delta
 			if float(pu["cool"]) <= 0.0:
 				node.visible = true
 			continue
 		if node.position.distance_to(pn.position) < 6.5:
-			var amt: float = 0.7 if String(pu["kind"]) == "star" else 0.4
-			_charge(_pl, amt)
+			var kind := String(pu["kind"])
+			var col := Color(1.0, 0.7, 0.95)
+			match kind:
+				"star":
+					_charge(_pl, 0.7)
+					col = Color(1.0, 0.9, 0.3)
+					_chime(0.9)
+				"shell":
+					_charge(_pl, 0.4)
+					_chime(0.9)
+				"bubble":
+					# POP! instant zip, no meter needed — keeps the race lively
+					_pl["boost_t"] = maxf(float(_pl["boost_t"]), 0.8)
+					_pl["squash"] = 0.3
+					col = Color(0.5, 0.95, 1.0)
+					_chime(1.1)
+				"rainbow":
+					# jackpot: full turbo meter
+					_pl["meter"] = 1.0
+					col = Color.from_hsv(fposmod(t, 1.0), 0.7, 1.0)
+					_chime(1.3)
+					_shake = maxf(_shake, 0.15)
 			node.visible = false
 			pu["cool"] = 6.0
-			_chime(0.9)
 			if _main != null and _main.has_method("_sparkle_burst"):
-				var col := Color(1.0, 0.9, 0.3) if String(pu["kind"]) == "star" else Color(1.0, 0.7, 0.95)
 				_main._sparkle_burst(pn.position, col)
 
 func _check_pearls() -> void:
@@ -1448,19 +1512,31 @@ func _resolve_collisions() -> void:
 				var dir: float = 1.0 if float(a["lat"]) >= float(b["lat"]) else -1.0
 				var wa: float = _width_at(_eff(float(a["s"]))) - 1.4
 				var wb: float = _width_at(_eff(float(b["s"]))) - 1.4
-				# mass-weighted shove: the light one moves more
+				# BUMPER CARS: mass-weighted positional shove PLUS a real lateral
+				# impulse both ways, a little hop, and a momentum trade — the one
+				# in front gets punted forward, the one behind loses pace
 				a["lat"] = clampf(float(a["lat"]) + dir * sep * (mb / tot), -wa, wa)
 				b["lat"] = clampf(float(b["lat"]) - dir * sep * (ma / tot), -wb, wb)
-				a["speed"] = float(a["speed"]) * (1.0 - 0.07 * (mb / tot))
-				b["speed"] = float(b["speed"]) * (1.0 - 0.07 * (ma / tot))
+				a["latv"] = float(a["latv"]) + dir * 26.0 * (mb / tot)
+				b["latv"] = float(b["latv"]) - dir * 26.0 * (ma / tot)
+				var fastest: float = maxf(float(a["speed"]), float(b["speed"]))
+				if float(a["s"]) > float(b["s"]):
+					a["speed"] = maxf(float(a["speed"]), fastest * 1.06)
+					b["speed"] = float(b["speed"]) * 0.86
+					b["s"] = float(b["s"]) - sep * 0.2
+				else:
+					b["speed"] = maxf(float(b["speed"]), fastest * 1.06)
+					a["speed"] = float(a["speed"]) * 0.86
+					a["s"] = float(a["s"]) - sep * 0.2
 				a["squash"] = 0.3
 				b["squash"] = 0.3
+				a["hop"] = 0.25
+				b["hop"] = 0.25
 				if bool(a["is_player"]) or bool(b["is_player"]):
-					_shake = maxf(_shake, 0.25)
-				if float(a["s"]) > float(b["s"]):
-					a["s"] = float(a["s"]) - sep * 0.2
-				else:
-					b["s"] = float(b["s"]) - sep * 0.2
+					_shake = maxf(_shake, 0.3)
+					if _thunk_cool <= 0.0:
+						_chime(0.45)   # deep bumper thunk
+						_thunk_cool = 0.3
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:
@@ -1556,7 +1632,7 @@ func _update_hud() -> void:
 	_meter_fill.size = Vector2(354.0 * m, 24)
 	var ready: bool = m >= 0.35 and float(_pl["boost_t"]) <= 0.0
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if ready else Color(0.3, 0.95, 1.0))
-	_lbl_hint.text = "TAP for TURBO!!" if ready else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "grab pearls, shells & stars to charge turbo")
+	_lbl_hint.text = "TAP for TURBO!!" if ready else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
 
 # ------------------------------------------------------------ finish + podium
 func _finish() -> void:

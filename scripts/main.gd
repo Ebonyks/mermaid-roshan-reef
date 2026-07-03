@@ -203,15 +203,24 @@ const EXTRA_JOY_MAPPINGS := [
 	"03000000c82d00001151000000000000,8BitDo Lite SE,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a3,righty:a4,start:b11,x:b4,y:b3,platform:Windows,",
 ]
 
-var joy_ev_axis := {}   # raw axis index -> latest value (event-driven fallback)
-var joy_ev_btn := {}    # raw button index -> pressed
+var joy_ev_axis := {}      # raw axis index -> latest value (event-driven fallback)
+var joy_ev_btn := {}       # raw button index -> pressed
+var joy_has_unmapped := false   # any connected pad Godot has NO mapping for?
+
+func _refresh_joy_mapped() -> void:
+	joy_has_unmapped = false
+	for dev: int in Input.get_connected_joypads():
+		if not Input.is_joy_known(dev):
+			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
 	if ev is InputEventJoypadMotion:
 		var jm := ev as InputEventJoypadMotion
-		joy_ev_axis[int(jm.axis)] = jm.axis_value
+		# hard deadzone on write: sticks only send events on CHANGE, so a small
+		# resting drift value would otherwise stick around forever
+		joy_ev_axis[int(jm.axis)] = jm.axis_value if absf(jm.axis_value) > 0.18 else 0.0
 	elif ev is InputEventJoypadButton:
 		var jb := ev as InputEventJoypadButton
 		joy_ev_btn[int(jb.button_index)] = jb.pressed
@@ -224,25 +233,27 @@ func joy_axis(axis: int) -> float:
 		var a: float = Input.get_joy_axis(dev, axis)
 		if absf(a) > absf(v):
 			v = a
-	# raw-event fallback for unmapped pads: axes 0/1 are the left stick and
-	# 2/3 the right stick on nearly every controller
-	var raw: float = float(joy_ev_axis.get(int(axis), 0.0))
-	if absf(raw) > absf(v):
-		v = raw
+	# raw-event fallback ONLY while an unmapped pad is connected (axes 0/1 left
+	# stick, 2/3 right stick on nearly every controller). For mapped pads the
+	# polled API is authoritative — mixing in raw events risks stale values.
+	if joy_has_unmapped:
+		var raw: float = float(joy_ev_axis.get(int(axis), 0.0))
+		if absf(raw) > absf(v):
+			v = raw
 	return v
 
 func joy_pressed(btn: int) -> bool:
 	for dev: int in Input.get_connected_joypads():
 		if Input.is_joy_button_pressed(dev, btn):
 			return true
-	if bool(joy_ev_btn.get(int(btn), false)):
-		return true
-	# unmapped-pad fallback: ANY face button (raw 0..3) counts as jump/action,
-	# so the important button always works no matter the layout
-	if btn == JOY_BUTTON_A or btn == JOY_BUTTON_B:
-		for bi in range(4):
-			if bool(joy_ev_btn.get(bi, false)):
-				return true
+	if joy_has_unmapped:
+		if bool(joy_ev_btn.get(int(btn), false)):
+			return true
+		# unmapped-pad fallback: ANY face button (raw 0..3) counts as jump/action
+		if btn == JOY_BUTTON_A or btn == JOY_BUTTON_B:
+			for bi in range(4):
+				if bool(joy_ev_btn.get(bi, false)):
+					return true
 	return false
 
 static func hash2(x: float, y: float) -> float:
@@ -276,6 +287,11 @@ static func seabed_y(x: float, z: float) -> float:
 func _ready() -> void:
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
+	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
+		joy_ev_axis.clear()   # never let a departed pad leave phantom input behind
+		joy_ev_btn.clear()
+		_refresh_joy_mapped())
+	_refresh_joy_mapped()
 	_build_environment()
 	_build_terrain()
 	_build_water()
