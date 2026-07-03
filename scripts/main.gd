@@ -3187,37 +3187,78 @@ func _mg2d_close() -> void:
 	mg = {}
 	mg_cool = 8.0
 
-# ---- SNOWMAN: tap 3 snow piles to stack the snowman, then place the face ----
+# ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
+# ---- watch each ball grow, then stack it and place the face ----
+const SNOW_ROLL_C := Vector2(420, 500)   # where the growing snowball sits
+
 func _mg_build_snowman() -> void:
 	mg["phase"] = "roll"
 	mg["balls"] = 0
 	mg["face"] = 0
-	mg["pile_taps"] = [0, 0, 0]
-	(mg["hud"] as Label).text = "Tap the snow piles to build a snowman!"
+	(mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
 	# ground
 	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
-	for i in range(3):
-		var pile := _mg_roundbtn(Vector2(230 + float(i) * 250, 600), 95.0, Color(0.96, 0.98, 1.0))
-		var idx := i
-		pile.pressed.connect(func(): _mg_snow_tap(idx))
-	mg["body"] = []   # stacked balls (centre)
+	mg["body"] = []   # stacked balls (centre-right)
+	# the big flashing call-to-action
+	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 64, Vector2(255, 92))
+	fl.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
+	fl.pivot_offset = Vector2(385, 40)
+	mg["flash"] = fl
+	# orbiting hint arrow showing the circular motion
+	var ar := _mg_label("↻", 84, Vector2(0, 0))
+	ar.add_theme_color_override("font_color", Color(0.5, 0.75, 1.0))
+	mg["hint_arrow"] = ar
+	_mg_snow_new_ball()
 
-func _mg_snow_tap(i: int) -> void:
-	if mg_kind != "snowman" or String(mg["phase"]) != "roll":
-		return
-	var taps: Array = mg["pile_taps"]
-	taps[i] = int(taps[i]) + 1
-	if int(taps[i]) >= 1:
-		(mg["btns"] as Array)[i].visible = false
-		var b := int(mg["balls"]) + 1
-		mg["balls"] = b
-		var r := 150.0 - float(b) * 26.0
-		var bc := Vector2(980, 560 - float(b - 1) * 175.0)
-		var ball := _mg_circle(bc, r, Color(0.97, 0.99, 1.0))
-		(mg["body"] as Array).append(ball)
-		if b >= 3:
-			mg["head_pos"] = bc
-			_mg_snow_face_phase()
+func _mg_snow_new_ball() -> void:
+	var done: int = int(mg["balls"])                      # balls finished so far
+	var ball := _mg_circle(SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
+	mg["roll_ball"] = ball
+	mg["final_r"] = 150.0 - float(done + 1) * 26.0        # 124, 98, 72
+	mg["rot_need"] = (3.0 - float(done) * 0.5) * TAU      # 3 / 2.5 / 2 full circles
+	mg["rot_acc"] = 0.0
+	mg["rot_prev"] = 0.0
+	mg["prev_ang"] = null
+
+func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
+	ball.size = Vector2(r * 2.0, r * 2.0)
+	ball.position = center - Vector2(r, r)
+	var sb := ball.get_theme_stylebox("panel") as StyleBoxFlat
+	if sb != null:
+		sb.set_corner_radius_all(int(r))
+		sb.set_border_width_all(maxi(2, int(r * 0.05)))
+	if ball.get_child_count() > 0:
+		var hl := ball.get_child(0) as Panel
+		if hl != null:
+			hl.size = Vector2(r * 0.85, r * 0.6)
+			hl.position = Vector2(r * 0.32, r * 0.22)
+			var hsb := hl.get_theme_stylebox("panel") as StyleBoxFlat
+			if hsb != null:
+				hsb.set_corner_radius_all(int(r * 0.5))
+
+func _mg_snow_ball_done() -> void:
+	var b: int = int(mg["balls"]) + 1
+	mg["balls"] = b
+	var ball: Panel = mg["roll_ball"]
+	mg.erase("roll_ball")
+	var r: float = float(mg["final_r"])
+	var bc := Vector2(980, 560.0 - float(b - 1) * 175.0)
+	var tw := create_tween()
+	tw.tween_property(ball, "position", bc - Vector2(r, r), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	(mg["body"] as Array).append(ball)
+	if chime != null:
+		chime.pitch_scale = 1.0 + float(b) * 0.15
+		chime.play()
+	_sparkle_burst(player.position + Vector3(0, 1, 0), Color(0.8, 0.92, 1.0))
+	if b >= 3:
+		mg["head_pos"] = bc
+		if mg.has("flash") and is_instance_valid(mg["flash"]):
+			(mg["flash"] as Label).visible = false
+		if mg.has("hint_arrow") and is_instance_valid(mg["hint_arrow"]):
+			(mg["hint_arrow"] as Label).visible = false
+		_mg_snow_face_phase()
+	else:
+		_mg_snow_new_ball()
 
 func _mg_snow_face_phase() -> void:
 	mg["phase"] = "face"
@@ -3400,6 +3441,52 @@ func _tick_mg2d(delta: float) -> void:
 	if mg_kind == "":
 		return
 	mg["t"] = float(mg["t"]) + delta
+	if mg_kind == "snowman" and String(mg.get("phase", "")) == "roll" and mg.has("roll_ball"):
+		var t2: float = float(mg["t"])
+		# flashing banner: pulse alpha + a little breathe
+		var fl: Label = mg.get("flash")
+		if fl != null and is_instance_valid(fl):
+			fl.modulate = Color(1, 1, 1, 0.5 + 0.5 * (0.5 + 0.5 * sin(t2 * 7.0)))
+			fl.scale = Vector2.ONE * (1.0 + 0.05 * sin(t2 * 7.0))
+		# read a rotation angle: analog stick spun in circles, or a finger/mouse
+		# drawing circles around the snowball
+		var ang_ok := false
+		var ang := 0.0
+		var jv := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
+		if jv.length() > 0.45:
+			ang = jv.angle()
+			ang_ok = true
+		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
+			var mp: Vector2 = mg2d_stage.get_local_mouse_position()
+			var off: Vector2 = mp - SNOW_ROLL_C
+			if off.length() > 30.0 and off.length() < 460.0:
+				ang = off.angle()
+				ang_ok = true
+		if ang_ok:
+			if mg.get("prev_ang") != null:
+				var dphi: float = wrapf(ang - float(mg["prev_ang"]), -PI, PI)
+				dphi = clampf(dphi, -0.32, 0.32)   # ignore teleport-y jumps
+				mg["rot_acc"] = float(mg["rot_acc"]) + absf(dphi)
+			mg["prev_ang"] = ang
+		else:
+			mg["prev_ang"] = null
+		# grow the snowball with the accumulated rotation
+		var prog: float = clampf(float(mg["rot_acc"]) / float(mg["rot_need"]), 0.0, 1.0)
+		var r: float = lerpf(26.0, float(mg["final_r"]), prog)
+		_mg_snow_ball_size(mg["roll_ball"], r, SNOW_ROLL_C)
+		# crunchy tick every half circle so the rolling feels alive
+		if int(float(mg["rot_acc"]) / PI) > int(float(mg["rot_prev"]) / PI) and chime != null:
+			chime.pitch_scale = 0.8 + prog * 0.35
+			chime.play()
+		mg["rot_prev"] = mg["rot_acc"]
+		# hint arrow orbits the growing ball
+		var ar: Label = mg.get("hint_arrow")
+		if ar != null and is_instance_valid(ar):
+			var oa: float = t2 * 2.6
+			ar.position = SNOW_ROLL_C + Vector2(cos(oa), sin(oa)) * (r + 58.0) - Vector2(28, 46)
+			ar.rotation = oa + PI * 0.5
+		if prog >= 1.0:
+			_mg_snow_ball_done()
 	if mg_kind == "garden" and mg2d_stage != null:
 		for c in mg2d_stage.get_children():
 			if c is TextureRect and (c as TextureRect).has_meta("bf"):

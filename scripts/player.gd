@@ -166,6 +166,8 @@ func _process(delta: float) -> void:
 		return   # frozen while the dress-up screen is open
 	if "sleep_t" in _m0 and float(_m0.sleep_t) >= 0.0:
 		return   # tucked into bed — the sleep cutscene drives her
+	if "mg_kind" in _m0 and String(_m0.mg_kind) != "":
+		return   # a 2D minigame overlay is up — stick input belongs to IT (snowball rolling!)
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy"):
 		return   # the slide / fairy-shooter / kart / galaxy modes drive the player + camera themselves
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
