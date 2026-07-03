@@ -96,21 +96,21 @@ const VEHICLES := {
 	"moto": {
 		"label": "Zoom Cycle", "blurb": "FASTEST! but slippery",
 		"glb": "res://assets/vehicles/motorcycle.glb",
-		"vmax": 1.10, "steer": 21.0, "wall": 0.70, "mass": 0.7,
+		"vmax": 1.10, "steer": 27.0, "wall": 0.70, "mass": 0.7,
 		"turbo": 1.25, "slip": 0.55, "size": 5.0, "yaw_fix": 0.0,
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "steady and true!",
 		"glb": "res://assets/vehicles/gokart.glb",
-		"vmax": 1.0, "steer": 16.0, "wall": 0.82, "mass": 1.0,
+		"vmax": 1.0, "steer": 21.0, "wall": 0.82, "mass": 1.0,
 		"turbo": 1.0, "slip": 0.15, "size": 6.0, "yaw_fix": 0.0,
 		"lean": 0.15,
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "MIGHTY! shoves everyone",
 		"glb": "res://assets/vehicles/monstertruck.glb",
-		"vmax": 0.93, "steer": 11.0, "wall": 0.95, "mass": 2.0,
+		"vmax": 0.93, "steer": 15.0, "wall": 0.95, "mass": 2.0,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": 0.0,
 		"lean": 0.05,
 	},
@@ -342,8 +342,14 @@ func _clear_corridor() -> void:
 	if _ground_mode() != "terrain" or _main == null:
 		return
 	var pts: Array = []
-	for i in range(0, SAMPLES, 3):
+	var centre := Vector2.ZERO
+	for i in range(0, SAMPLES, 6):
 		pts.append(_lut[i])
+		centre += Vector2((_lut[i] as Vector3).x, (_lut[i] as Vector3).z)
+	centre /= float(pts.size())
+	var track_r := 0.0
+	for q in pts:
+		track_r = maxf(track_r, centre.distance_to(Vector2((q as Vector3).x, (q as Vector3).z)))
 	for c in _main.get_children():
 		if not (c is Node3D):
 			continue
@@ -352,6 +358,10 @@ func _clear_corridor() -> void:
 		if c is Camera3D or c is WorldEnvironment or c is DirectionalLight3D or c is CPUParticles3D:
 			continue
 		var n3 := c as Node3D
+		var p := n3.global_position
+		# cheap prefilter: skip anything far outside the track's bounding circle
+		if centre.distance_to(Vector2(p.x, p.z)) > track_r + 25.0:
+			continue
 		var acc: Array = []
 		_gather_aabbs(n3, Transform3D.IDENTITY, acc)
 		if acc.size() > 0:
@@ -360,13 +370,12 @@ func _clear_corridor() -> void:
 				bb = bb.merge(acc[k])
 			if maxf(bb.size.x, bb.size.z) > 70.0:
 				continue   # terrain / water / other huge meshes stay
-		var p := n3.global_position
-		var best := 999999.0
+		var hit := false
 		for q in pts:
-			var d := Vector2(p.x - (q as Vector3).x, p.z - (q as Vector3).z).length()
-			if d < best:
-				best = d
-		if best < 21.0 and n3.visible:
+			if Vector2(p.x - (q as Vector3).x, p.z - (q as Vector3).z).length() < 21.0:
+				hit = true
+				break
+		if hit and n3.visible:
 			n3.visible = false
 			_hidden_props.append(n3)
 
@@ -1241,6 +1250,9 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	if fired and float(k["meter"]) >= 0.35 and float(k["boost_t"]) <= 0.0:
 		k["boost_t"] = TURBO_TIME * float(vd["turbo"])
 		k["meter"] = maxf(0.0, float(k["meter"]) - 0.35)
+		k["squash"] = 0.3       # launch squat
+		_shake = maxf(_shake, 0.2)
+		_chime(0.7)
 		if _main != null and _main.has_method("_sparkle_burst"):
 			_main._sparkle_burst((k["node"] as Node3D).position, Color(0.5, 1.0, 1.0))
 	var boosting: bool = float(k["boost_t"]) > 0.0
@@ -1250,10 +1262,10 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 		target = _vmax * 0.45
 	k["speed"] = move_toward(float(k["speed"]), target, (60.0 if boosting else 40.0) * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
-	# steering with per-vehicle rate + slip (moto drifts, truck plants)
+	# steering with per-vehicle rate + slip (moto drifts, truck plants) — snappy response
 	var slip: float = float(vd["slip"])
 	var want_v: float = steer * float(vd["steer"])
-	k["latv"] = lerpf(float(k["latv"]), want_v, (1.0 - slip) * 14.0 * delta + (1.0 - slip) * 0.08)
+	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip) * 22.0 * delta + 0.10))
 	_apply_lat(k, float(k["lat"]) + float(k["latv"]) * delta)
 
 func _update_ai(k: Dictionary, delta: float) -> void:
@@ -1274,13 +1286,22 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
 	_apply_lat(k, move_toward(float(k["lat"]), want, 3.0 * delta))
 
+var _shake := 0.0
+var _thunk_cool := 0.0
+
 func _apply_lat(k: Dictionary, new_lat: float) -> void:
 	var vd := _veh(k)
 	var wall: float = _width_at(_eff(float(k["s"]))) - 1.6
 	if absf(new_lat) > wall:
 		new_lat = clampf(new_lat, -wall, wall) * 0.8
-		k["latv"] = -float(k["latv"]) * 0.4      # bounce the steering velocity too
+		k["latv"] = -float(k["latv"]) * 0.55     # bouncier rebound off the rail
 		k["speed"] = float(k["speed"]) * float(vd["wall"])
+		k["squash"] = 0.3
+		if bool(k["is_player"]):
+			_shake = maxf(_shake, 0.35)
+			if _thunk_cool <= 0.0:
+				_chime(0.5)                       # low thunk, not a pling
+				_thunk_cool = 0.35
 	k["lat"] = new_lat
 
 func _place_kart(k: Dictionary, delta: float) -> void:
@@ -1289,14 +1310,29 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	var fwd: Vector3 = fr[1]
 	var up: Vector3 = fr[3]
 	var node: Node3D = k["node"]
-	node.position = pos + up * 1.2
+	# bouncy speed bob (each kart phased by its own track position)
+	var spd_n: float = clampf(absf(float(k["speed"])) / maxf(_vmax, 1.0), 0.0, 1.3)
+	var bob: float = absf(sin(float(k["s"]) * 0.30)) * 0.28 * spd_n
+	node.position = pos + up * (1.2 + bob)
 	if fwd.length() > 0.001:
 		node.look_at(pos + fwd + up * 1.2, up)
-		# motorcycle lean into steering
+		# point the nose INTO the turn (the visual feedback that makes steering feel real)
+		var vyaw: float = clampf(-float(k["latv"]) * 0.030, -0.55, 0.55)
+		node.rotate_object_local(Vector3(0, 1, 0), vyaw)
+		# lean/roll into steering (moto most, truck least)
 		var vd := _veh(k)
 		var lean: float = float(vd["lean"])
 		if lean > 0.01:
-			node.rotate_object_local(Vector3(0, 0, 1), -float(k["latv"]) * 0.02 * lean * 60.0 * delta * 0.5)
+			node.rotate_object_local(Vector3(0, 0, 1), clampf(float(k["latv"]) * 0.022 * lean, -0.4, 0.4))
+	# squash & stretch pulse on impacts (bouncy!)
+	var sq: float = float(k.get("squash", 0.0))
+	if sq > 0.0:
+		sq = maxf(0.0, sq - delta)
+		k["squash"] = sq
+		var pulse: float = sin((0.3 - sq) / 0.3 * PI) * (sq / 0.3 + 0.4)
+		node.scale = Vector3(1.0 + 0.14 * pulse, 1.0 - 0.18 * pulse, 1.0 + 0.14 * pulse)
+	elif node.scale != Vector3.ONE:
+		node.scale = node.scale.lerp(Vector3.ONE, minf(1.0, delta * 12.0))
 
 # ------------------------------------------------------------ track interactions
 func _charge(k: Dictionary, amt: float) -> void:
@@ -1390,6 +1426,10 @@ func _resolve_collisions() -> void:
 				b["lat"] = clampf(float(b["lat"]) - dir * sep * (ma / tot), -wb, wb)
 				a["speed"] = float(a["speed"]) * (1.0 - 0.07 * (mb / tot))
 				b["speed"] = float(b["speed"]) * (1.0 - 0.07 * (ma / tot))
+				a["squash"] = 0.3
+				b["squash"] = 0.3
+				if bool(a["is_player"]) or bool(b["is_player"]):
+					_shake = maxf(_shake, 0.25)
 				if float(a["s"]) > float(b["s"]):
 					a["s"] = float(a["s"]) - sep * 0.2
 				else:
@@ -1405,16 +1445,23 @@ func _update_camera(delta: float) -> void:
 	if _cam == null or _pl == null:
 		return
 	var pn: Node3D = _pl["node"]
-	var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]))
+	# follow a partially-centred line so the kart visibly SLIDES across the screen
+	# when steering (full-lat tracking pinned it dead-centre = steering felt dead)
+	var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]) * 0.35)
 	var fwd: Vector3 = fr[1]
+	var right: Vector3 = fr[2]
 	var boosting: bool = float(_pl["boost_t"]) > 0.0
 	var terrain: bool = _ground_mode() == "terrain"
 	var dist: float = (15.5 if boosting else 13.5) if terrain else (18.5 if boosting else 16.0)
-	var want: Vector3 = pn.position - fwd * dist + Vector3(0, 8.5 if terrain else 8.0, 0)
+	var want: Vector3 = (fr[0] as Vector3) - fwd * dist + Vector3(0, 8.5 if terrain else 8.0, 0)
 	if terrain:
 		# never sink the camera into a dune or ridge behind the kart
 		want.y = maxf(want.y, _terrain_y(want.x, want.z) + 5.0)
 		want.y = maxf(want.y, pn.position.y + 4.5)
+	if _shake > 0.0:
+		_shake = maxf(0.0, _shake - delta)
+		want += right * sin(Time.get_ticks_msec() * 0.045) * _shake * 1.6
+	_thunk_cool = maxf(0.0, _thunk_cool - delta)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
 	_cam.fov = lerpf(_cam.fov, (76.0 if boosting else 68.0), delta * 5.0)
 	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)

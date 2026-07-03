@@ -21,7 +21,7 @@ var _origin := Vector2.ZERO
 var _moved := false
 var _press_ms := 0
 var _pulse := 0.0         # keeps action_down true briefly after a tap so per-frame readers never miss it
-const R := 95.0
+const R := 78.0   # smaller thumb travel for full deflection — livelier steering on tablets
 const TAP_SLOP := 22.0    # finger drift allowed for a "tap" (px)
 const TAP_MS := 300       # max press time for a tap
 
