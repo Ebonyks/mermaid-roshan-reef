@@ -180,7 +180,6 @@ var _sel_phase := "ride"           # ride -> paint
 var _paint_idx := 0
 var _paint_orbs: Array = []
 var _paint_prev := -1
-var _rainbow_mat_cache: ShaderMaterial = null
 
 # ------------------------------------------------------------ config access
 func configure(overrides: Dictionary) -> void:
@@ -331,8 +330,45 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_camera()
 	_build_hud()
 	_build_select()
+	_clear_corridor()
 	_state = "select"
 	_sel_t = 0.0
+
+var _hidden_props: Array = []
+
+func _clear_corridor() -> void:
+	# hide world props (rocks, kelp, corals, sprites) that sit ON the racing line;
+	# restored at teardown. Big-footprint nodes (terrain, water, caustics) are kept.
+	if _ground_mode() != "terrain" or _main == null:
+		return
+	var pts: Array = []
+	for i in range(0, SAMPLES, 3):
+		pts.append(_lut[i])
+	for c in _main.get_children():
+		if not (c is Node3D):
+			continue
+		if c == self or c == _player_node:
+			continue
+		if c is Camera3D or c is WorldEnvironment or c is DirectionalLight3D or c is CPUParticles3D:
+			continue
+		var n3 := c as Node3D
+		var acc: Array = []
+		_gather_aabbs(n3, Transform3D.IDENTITY, acc)
+		if acc.size() > 0:
+			var bb: AABB = acc[0]
+			for k in range(1, acc.size()):
+				bb = bb.merge(acc[k])
+			if maxf(bb.size.x, bb.size.z) > 70.0:
+				continue   # terrain / water / other huge meshes stay
+		var p := n3.global_position
+		var best := 999999.0
+		for q in pts:
+			var d := Vector2(p.x - (q as Vector3).x, p.z - (q as Vector3).z).length()
+			if d < best:
+				best = d
+		if best < 21.0 and n3.visible:
+			n3.visible = false
+			_hidden_props.append(n3)
 
 func _sky_defaults() -> Array:
 	if _theme() == "ocean":
@@ -451,14 +487,14 @@ float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
 void fragment(){
 	vec2 g = UV * vec2(9.0, 220.0);
 	float grain = h(floor(g)) * 0.10;
-	vec3 sand = vec3(0.86, 0.76, 0.52) - grain;
+	vec3 sand = vec3(0.68, 0.58, 0.38) - grain;   // deeper sand tone — no white blow-out
 	float c1 = sin(UV.y * 90.0 + TIME * 1.3 + sin(UV.x * 12.0));
 	float c2 = sin(UV.y * 55.0 - TIME * 0.9 + UV.x * 20.0);
 	float caus = smoothstep(0.75, 1.0, c1 * c2);
 	float edge = smoothstep(0.0, 0.12, UV.x) * smoothstep(1.0, 0.88, UV.x);
-	ALBEDO = mix(vec3(0.35, 0.6, 0.65), sand, edge);
-	EMISSION = vec3(0.5, 0.8, 0.85) * caus * 0.35;
-	ROUGHNESS = 0.9;
+	ALBEDO = mix(vec3(0.28, 0.48, 0.52), sand, edge);
+	EMISSION = vec3(0.45, 0.7, 0.75) * caus * 0.12;
+	ROUGHNESS = 0.95;
 }"""
 	else:
 		rsh.code = """shader_type spatial;
@@ -503,7 +539,7 @@ void fragment(){
 		em.albedo_color = Color(1.0, 1.0, 1.0)
 		em.emission_enabled = true
 		em.emission = (Color(0.35, 0.95, 0.6) if _theme() == "ocean" else Color(0.7, 0.9, 1.0))   # kelp-glow rails underwater
-		em.emission_energy_multiplier = 2.0
+		em.emission_energy_multiplier = (0.7 if _theme() == "ocean" else 2.0)   # soft underwater, bright in space
 		em.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		em.cull_mode = BaseMaterial3D.CULL_DISABLED
 		rail.material_override = em
@@ -789,23 +825,17 @@ func _build_pearls() -> void:
 			_pearls_live.append({"node": p, "got": false})
 
 # ------------------------------------------------------------ paint jobs
-func _rainbow_mat() -> ShaderMaterial:
-	if _rainbow_mat_cache != null:
-		return _rainbow_mat_cache
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-void fragment(){
-	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	float hue = fract(TIME * 0.15 + wp.y * 0.06 + wp.x * 0.02);
-	vec3 c = clamp(abs(fract(hue + vec3(0.0, 0.666, 0.333)) * 6.0 - 3.0) - 1.0, 0.0, 1.0);
-	ALBEDO = c;
-	EMISSION = c * 0.35;
-	ROUGHNESS = 0.4;
-	METALLIC = 0.2;
-}"""
-	_rainbow_mat_cache = ShaderMaterial.new()
-	_rainbow_mat_cache.shader = sh
-	return _rainbow_mat_cache
+var _rainbow_mats: Array = []   # hue-cycled from _process — renderer-proof rainbow paint
+
+func _rainbow_orb_mat() -> StandardMaterial3D:
+	# swatch orb for the RAINBOW option (animated with the same list)
+	var m := StandardMaterial3D.new()
+	m.albedo_color = Color(1.0, 0.4, 0.4)
+	m.emission_enabled = true
+	m.emission = m.albedo_color
+	m.emission_energy_multiplier = 0.5
+	_rainbow_mats.append(m)
+	return m
 
 func _apply_paint(root: Node, paint: Dictionary) -> void:
 	# repaint every mesh surface; originals cached on the node so repainting the
@@ -828,7 +858,13 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 		var origs: Array = mi.get_meta("orig_mats")
 		for si in range(mi.mesh.get_surface_count()):
 			if bool(paint.get("rainbow", false)):
-				mi.set_surface_override_material(si, _rainbow_mat())
+				# rainbow = plain StandardMaterial3D hue-cycled from _process — no custom
+				# shader, so it can never fail/vanish on the Mobile renderer
+				var src0: Material = origs[si] if si < origs.size() else null
+				var rm: BaseMaterial3D = (src0.duplicate() if src0 is BaseMaterial3D else StandardMaterial3D.new())
+				rm.emission_enabled = true
+				_rainbow_mats.append(rm)
+				mi.set_surface_override_material(si, rm)
 			elif paint.get("col") == null:
 				mi.set_surface_override_material(si, null)   # Stock: restore original
 			else:
@@ -900,16 +936,16 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		var tex: Texture2D = load(sprite_path)
 		spr.texture = tex
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		spr.pixel_size = 3.2 / maxf(float(tex.get_height()), 1.0)
-		spr.position = Vector3(0, top_h + 1.8, 0)
+		spr.pixel_size = 2.5 / maxf(float(tex.get_height()), 1.0)
+		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
 	var nl := Label3D.new()
 	nl.text = racer_name
-	nl.font_size = 70
-	nl.outline_size = 14
+	nl.font_size = 54
+	nl.outline_size = 12
 	nl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	nl.modulate = col.lightened(0.4)
-	nl.position = Vector3(0, top_h + 4.2, 0)
+	nl.position = Vector3(0, top_h + 3.4, 0)
 	root.add_child(nl)
 	if racer_name == "Roshan":
 		var trail := OmniLight3D.new()
@@ -937,8 +973,8 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 			vkey = VEHICLE_ORDER[idx % VEHICLE_ORDER.size()]
 		var node := _vehicle_body(vkey, r["col"], String(r.get("sprite", "")), String(r["name"]), paint if is_p else {})
 		add_child(node)
-		var start_s := -6.0 - float(idx) * 5.0
-		var lane := (-1.0 if idx % 2 == 0 else 1.0) * _rhalf() * 0.45
+		var start_s := -10.0 - float(idx) * 7.0   # longer grid so the pack doesn't pile into a totem
+		var lane: float = [-0.3, 0.3, -0.6, 0.6][idx % 4] * _rhalf()
 		var k := {
 			"node": node, "name": String(r["name"]), "is_player": is_p, "veh": vkey,
 			"s": start_s, "lat": lane, "latv": 0.0, "speed": 0.0,
@@ -1008,10 +1044,12 @@ func _build_select() -> void:
 	if _cam != null:
 		var mid := _select_slot_pos(1)
 		if _ground_mode() == "terrain":
-			# hover over the road axis looking down the start straight at the podiums
+			# view the podium row SIDE-ON (looking across the road) so all three
+			# rides sit left-to-right instead of stacking behind each other
 			var fr := _frame_at(31.0, 0.0)
-			var fwd: Vector3 = fr[1]
-			_cam.position = mid - fwd * 30.0 + Vector3(0, 11.0, 0)
+			var right: Vector3 = fr[2]
+			_cam.position = mid + right * 27.0 + Vector3(0, 8.5, 0)
+			_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
 		else:
 			_cam.position = mid + Vector3(0, 7.0, 26.0)
 		_cam.look_at(mid + Vector3(0, 3.0, 0), Vector3.UP)
@@ -1044,7 +1082,7 @@ func _build_paint_row() -> void:
 		sm.height = 2.2
 		orb.mesh = sm
 		if bool(pd.get("rainbow", false)):
-			orb.material_override = _rainbow_mat()
+			orb.material_override = _rainbow_orb_mat()
 		else:
 			var m := StandardMaterial3D.new()
 			var oc: Color = pd["col"] if pd.get("col") != null else Color(0.75, 0.75, 0.8)
@@ -1145,8 +1183,14 @@ func _brake_input() -> bool:
 func _process(delta: float) -> void:
 	if _state == "done":
 		return
-	# ambient fish cruise gently beside the course (ocean theme)
+	# rainbow paint: cycle hue on plain materials (renderer-proof)
 	var tt: float = Time.get_ticks_msec() / 1000.0
+	if _rainbow_mats.size() > 0:
+		var rc := Color.from_hsv(fmod(tt * 0.25, 1.0), 0.75, 1.0)
+		for rm in _rainbow_mats:
+			(rm as BaseMaterial3D).albedo_color = rc
+			(rm as BaseMaterial3D).emission = rc * 0.5
+	# ambient fish cruise gently beside the course (ocean theme)
 	for fd in _deco_fish:
 		var fn: Node3D = fd["node"]
 		if is_instance_valid(fn):
@@ -1364,8 +1408,13 @@ func _update_camera(delta: float) -> void:
 	var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]))
 	var fwd: Vector3 = fr[1]
 	var boosting: bool = float(_pl["boost_t"]) > 0.0
-	var dist: float = 18.5 if boosting else 16.0   # camera pulls back on turbo = speed feel
-	var want: Vector3 = pn.position - fwd * dist + Vector3(0, 8.0, 0)
+	var terrain: bool = _ground_mode() == "terrain"
+	var dist: float = (15.5 if boosting else 13.5) if terrain else (18.5 if boosting else 16.0)
+	var want: Vector3 = pn.position - fwd * dist + Vector3(0, 8.5 if terrain else 8.0, 0)
+	if terrain:
+		# never sink the camera into a dune or ridge behind the kart
+		want.y = maxf(want.y, _terrain_y(want.x, want.z) + 5.0)
+		want.y = maxf(want.y, pn.position.y + 4.5)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
 	_cam.fov = lerpf(_cam.fov, (76.0 if boosting else 68.0), delta * 5.0)
 	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)
@@ -1390,11 +1439,10 @@ func _build_hud() -> void:
 	_lbl_lap = _mk_label(root, Vector2(24, 18), 38, Color(1, 0.95, 0.6))
 	_lbl_place = _mk_label(root, Vector2(24, 66), 48, Color(0.7, 1.0, 1.0))
 	_lbl_pearls = _mk_label(root, Vector2(24, 124), 30, Color(1.0, 0.85, 1.0))
-	_lbl_big = _mk_label(root, Vector2(0, 0), 110, Color(1, 1, 1))
-	_lbl_big.set_anchors_preset(Control.PRESET_CENTER)
+	_lbl_big = _mk_label(root, Vector2(0, 0), 88, Color(1, 1, 1))
+	_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)   # centred by alignment — can't overflow
 	_lbl_big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_lbl_big.position = Vector2(-300, -140)
-	_lbl_big.size = Vector2(600, 280)
+	_lbl_big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_lbl_hint = _mk_label(root, Vector2(24, 0), 26, Color(0.9, 0.9, 1.0))
 	_lbl_hint.anchor_top = 1.0
 	_lbl_hint.position = Vector2(24, -56)
@@ -1456,7 +1504,8 @@ func _finish() -> void:
 			_main._write_save()
 		if _main.has_method("_update_hud"):
 			_main._update_hud()
-	_lbl_big.text = ("YOU WIN!" if place == 1 else "%d%s!" % [place, suffix]) + "\n+%d pearls!" % payout
+	_lbl_big.text = ("YOU WIN!" if place == 1 else "%d%s!" % [place, suffix])
+	_lbl_hint.text = "+%d pearls for your treasure!" % payout
 	# podium: top 3 by distance
 	var order := _karts.duplicate()
 	order.sort_custom(func(a, b): return float(a["s"]) > float(b["s"]))
@@ -1482,16 +1531,23 @@ func _finish() -> void:
 		kn.position = blk.position + Vector3(0, heights[i] * 0.5 + 1.2, 0)
 		if _main != null and _main.has_method("_sparkle_burst"):
 			_main._sparkle_burst(kn.position + Vector3(0, 3, 0), Color.from_hsv(randf(), 0.5, 1.0))
-	# camera on the podium
+	# camera on the podium: back along the track axis so the three blocks read left-to-right
 	if _cam != null:
-		_cam.position = c0 + Vector3(0, 10.0, 30.0)
-		_cam.look_at(c0 + Vector3(0, 5.0, 0), Vector3.UP)
+		var pfwd: Vector3 = sf[1]
+		_cam.position = c0 - pfwd * 28.0 + Vector3(0, 12.0, 0)
+		if _ground_mode() == "terrain":
+			_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
+		_cam.look_at(c0 + Vector3(0, 4.0, 0), Vector3.UP)
 	var tw := create_tween()
 	tw.tween_interval(3.6)
 	tw.tween_callback(_teardown.bind(place))
 
 func _teardown(place: int) -> void:
 	_state = "done"
+	for n in _hidden_props:
+		if is_instance_valid(n):
+			(n as Node3D).visible = true
+	_hidden_props.clear()
 	if _prev_env != null and "we_node" in _main and _main.we_node != null:
 		_main.we_node.environment = _prev_env
 	if _player_node != null and "cam" in _player_node and _player_node.cam != null:
