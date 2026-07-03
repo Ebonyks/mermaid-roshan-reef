@@ -204,8 +204,9 @@ func _process(delta: float) -> void:
 		var ceil_h: float = m.arena_ceil
 		var floor_a: float = ap.y + 2.5
 		if "lagoon_floor" in m and m.lagoon_floor:
-			# Sky Lagoon: rest on the rolling-hill terrain; dip down into the river valleys
-			floor_a = m.lagoon_h(position.x, position.z) + 2.0
+			# Sky Lagoon: rest on the rolling-hill terrain (plus the bridge deck /
+			# star platforms); dip down into the river valleys and the castle moat
+			floor_a = m.lagoon_walk_h(position.x, position.z) + 2.0
 		if position.y < floor_a:
 			position.y = floor_a
 			vel.y = maxf(0.0, vel.y)

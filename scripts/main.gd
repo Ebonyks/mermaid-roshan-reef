@@ -1097,13 +1097,17 @@ func _build_aquatic_flora() -> void:
 			var sx := c.x + cos(sa) * (2.0 + randf() * 6.0)
 			var sz := c.z + sin(sa) * (2.0 + randf() * 6.0)
 			_place_aq(shells[randi() % shells.size()], Vector3(sx, seabed_y(sx, sz) + 0.3, sz), 1.2 + randf() * 1.5, false)
-	# scattered boulders across the open seabed
+	# scattered boulders across the open seabed — the bigger ones are SOLID like
+	# the grove rocks (they used to be swim-through, which read as a glitch)
 	for i in range(70):
 		var a := randf() * TAU
 		var r := 25.0 + randf() * (WORLD_R * 0.85 - 25.0)
 		var x := cos(a) * r
 		var z := sin(a) * r
-		_place_aq(rocks[randi() % rocks.size()], Vector3(x, seabed_y(x, z), z), 2.0 + randf() * 4.0, false)
+		var bscl: float = 2.0 + randf() * 4.0
+		var brock := _place_aq(rocks[randi() % rocks.size()], Vector3(x, seabed_y(x, z), z), bscl, false)
+		if bscl >= 3.0:
+			_register_solid(brock)
 
 func _build_aquatic_creatures() -> void:
 	# hero animated creatures patrolling on circular paths
@@ -1904,6 +1908,8 @@ func _enter_level2(from_castle: bool = false) -> void:
 			if is_instance_valid(sn):
 				sn.visible = false
 		l2_open = true
+		if g.has("door_solid"):
+			arena_solids.erase(g["door_solid"])   # the door is open — no invisible barrier
 		if l2_door != null and is_instance_valid(l2_door):
 			l2_door.position.y = float(g.get("door_closed_y", l2_door.position.y)) + 30.0
 		if g.has("arch") and is_instance_valid(g["arch"]):
@@ -2060,6 +2066,8 @@ const MOAT_CZ := -120.0      # local (relative to LEVEL2_POS); matches the castl
 const MOAT_INNER := 46.0     # clears the keep + the four corner towers
 const MOAT_OUTER := 64.0
 const MOAT_DEPTH := 16.0
+# Dream-Star platform spots (local to LEVEL2_POS) — shared by the builder and lagoon_walk_h
+const L2_STAR_SPOTS: Array = [Vector3(-22, 5, 95), Vector3(24, 5, 20), Vector3(-20, 5, -55)]
 
 func _seg_dist(p: Vector2, a: Vector2, b: Vector2) -> float:
 	var ab: Vector2 = b - a
@@ -2123,6 +2131,21 @@ func _lagoon_local(lx: float, lz: float) -> float:
 
 func lagoon_h(x: float, z: float) -> float:
 	return LEVEL2_POS.y + _lagoon_local(x - LEVEL2_POS.x, z - LEVEL2_POS.z)
+
+func lagoon_walk_h(x: float, z: float) -> float:
+	# The surface the PLAYER stands on in the Sky Lagoon: the terrain, plus the
+	# wooden bridge deck and the Dream-Star platforms, so Roshan crosses the moat
+	# on the bridge instead of sinking through it. Off the bridge the moat is
+	# still an open, divable trench (that's how you find the secret hatch).
+	var lx: float = x - LEVEL2_POS.x
+	var lz: float = z - LEVEL2_POS.z
+	var h: float = _lagoon_local(lx, lz)
+	if absf(lx) <= 6.5 and lz >= -110.0 and lz <= -50.0:
+		h = maxf(h, 3.0)   # bridge deck top: c+(0,2.6,40), 0.8 thick, 13 wide, 60 long
+	for sp: Vector3 in L2_STAR_SPOTS:
+		if absf(lx - sp.x) <= 6.0 and absf(lz - sp.z) <= 6.0:
+			h = maxf(h, 2.2)   # star platform top (12 x 1.4 x 12 box at spot - 3.5)
+	return LEVEL2_POS.y + h
 
 func _terr_v(st: SurfaceTool, lx: float, lz: float) -> void:
 	st.set_uv(Vector2(lx, lz))
@@ -2449,6 +2472,14 @@ func _build_pearl_castle(o: Vector3) -> void:
 		_l2_box(c + Vector3(0, 52, -8), Vector3(56, 1.5, 40), Color(0.82, 0.80, 0.87))]
 	for _kp in _keep_parts:
 		_kp.material_override = _up_mat("castle", 0.035, Color(0.98, 0.95, 1.0))   # dressed medieval stone
+	# --- collision: the keep shell is SOLID. The doorway (and the secret moat
+	# hatch) are the only ways in — without these the star-gated door was cosmetic.
+	_wall_solid(c + Vector3(-18, 26, 12), Vector3(20, 52, 1.5))   # front wall, left of the door
+	_wall_solid(c + Vector3(18, 26, 12), Vector3(20, 52, 1.5))    # front wall, right of the door
+	_wall_solid(c + Vector3(0, 38, 12), Vector3(16, 28, 1.5))     # lintel above the doorway
+	_wall_solid(c + Vector3(0, 26, -28), Vector3(56, 52, 1.5))    # back wall
+	_wall_solid(c + Vector3(-28, 26, -8), Vector3(1.5, 52, 40))   # side walls
+	_wall_solid(c + Vector3(28, 26, -8), Vector3(1.5, 52, 40))
 	# ---- warm interior foyer, visible through the doorway ----
 	var _foyback := _l2_box(c + Vector3(0, 12, -2), Vector3(22, 24, 1.0), Color(0.9, 0.66, 0.45))
 	_foyback.material_override.albedo_texture = _stone
@@ -2467,11 +2498,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 	_hang_portrait(c + Vector3(0, 13, -1.3), Vector3(0, 0, 0), "p_seattle")             # a glimpse of 'inside'''
 	for bx in range(-4, 5):
 		_l2_box(c + Vector3(float(bx) * 6.0, 53.0, -8.0), Vector3(3.5, 6.0, 40.0), Color(0.9, 0.88, 0.95))
-	# four big towers
-	_l2_tower(c + Vector3(-32.0, 2.0, 10.0), 1.9)
-	_l2_tower(c + Vector3(32.0, 2.0, 10.0), 1.9)
-	_l2_tower(c + Vector3(-32.0, 2.0, -28.0), 1.9)
-	_l2_tower(c + Vector3(32.0, 2.0, -28.0), 1.9)
+	# four big towers (solid shafts — Roshan slides around them)
+	for tw_off: Vector3 in [Vector3(-32.0, 2.0, 10.0), Vector3(32.0, 2.0, 10.0), Vector3(-32.0, 2.0, -28.0), Vector3(32.0, 2.0, -28.0)]:
+		_l2_tower(c + tw_off, 1.9)
+		_cyl_solid(c + tw_off + Vector3(0, 24.7, 0), 5.6, 24.7)
 	# ---- the Mermaid Roshan stained glass — the grand centrepiece on the FRONT facade ----
 	_glass_window(c + Vector3(0, 38.0, 12.3), Vector3(0, 0, 0), 30.0)
 	# gold frame around the rose window
@@ -2511,16 +2541,21 @@ func _build_pearl_castle(o: Vector3) -> void:
 	l2_door = door
 	g["door_closed_y"] = door.position.y
 	g["entry"] = door.position
+	# the closed door is solid; _open_castle_door removes this entry when it slides up
+	_wall_solid(door.position, Vector3(16.0, 24.0, 1.2))
+	g["door_solid"] = arena_solids.back()
 	# glowing archway frame (revealed when the door opens)
 	var arch := _l2_box(c + Vector3(0, 12.0, 12.0), Vector3(17.0, 25.0, 0.4), Color(0.55, 0.9, 1.0), 0.0)
 	arch.visible = false
 	g["arch"] = arch
 	# ---------- HIDDEN BACK DOOR: a secret hatch on the moat floor behind the keep ----------
 	# A curious explorer who dives into the moat and swims around the back finds a way in
-	# that bypasses the 3 Dream Stars. Sits at the bottom of the carved ring (y ~ -14).
-	var back_pos: Vector3 = c + Vector3(0, -14.0, -30.0)   # on the moat floor, just behind the back wall
-	var recess := _l2_box(c + Vector3(0, -9.0, -28.6), Vector3(11.0, 13.0, 1.0), Color(0.04, 0.06, 0.08))
-	recess.material_override.roughness = 1.0                 # a dark recessed opening in the wall base
+	# that bypasses the 3 Dream Stars. It sits at the DEEPEST point of the carved ring
+	# behind the castle (the trench runs at ring-distance 46..64 from the keep, so the
+	# hatch lives at the trench midline, ~y -15 — NOT against the wall, which is dry land).
+	var back_pos: Vector3 = c + Vector3(0, -14.5, -55.0)   # moat-trench floor, directly behind the keep
+	var recess := _l2_box(c + Vector3(0, -10.0, -49.0), Vector3(11.0, 10.0, 1.0), Color(0.04, 0.06, 0.08))
+	recess.material_override.roughness = 1.0                 # a dark opening in the trench's inner bank
 	var hatch := _l2_box(back_pos, Vector3(9.0, 1.0, 7.0), Color(0.2, 0.22, 0.28))
 	hatch.material_override = _up_mat("castle", 0.08, Color(0.7, 0.72, 0.8))   # stone hatch on the floor
 	var bglow := OmniLight3D.new()                          # dim glow: findable, but still 'hidden'
@@ -2537,7 +2572,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	add_child(dl)
 	game_nodes.append(dl)
 	# ---------- 3 Dream Stars: low + along the path, easy for a 4yo ----------
-	var spots := [Vector3(-22, 5, 95), Vector3(24, 5, 20), Vector3(-20, 5, -55)]
+	var spots: Array = L2_STAR_SPOTS
 	for idx in range(spots.size()):
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
@@ -3161,6 +3196,8 @@ func _open_castle_door() -> void:
 	prev_track = cur_track
 	_play_music("castle_open")
 	show_msg("Princess Huluu", "You found all three stars! Behold... my castle opens!", "greet")
+	if g.has("door_solid"):
+		arena_solids.erase(g["door_solid"])   # the open doorway is passable again
 	var arch: Node3D = g.get("arch")
 	if arch != null and is_instance_valid(arch):
 		arch.visible = true
@@ -4341,7 +4378,9 @@ func _exit_level2() -> void:
 	portal_cool = 8.0
 	portal_armed = false
 	if portal_node != null and is_instance_valid(portal_node):
-		player.position = portal_node.position + Vector3(22, -6, 22)
+		# beside the seabed portal, resting on the ocean floor (never below it)
+		player.position = portal_node.position + Vector3(22, 0, 22)
+		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
 	else:
 		player.position = return_pos
 	player.vel = Vector3.ZERO
@@ -4375,9 +4414,10 @@ func _do_finish_level2() -> void:
 	arena_ceil = 42.0
 	portal_cool = 6.0
 	portal_armed = false
-	# surface near the portal but clearly off it, facing away
+	# beside the portal but clearly off it, resting on the ocean floor
 	if portal_node != null and is_instance_valid(portal_node):
-		player.position = portal_node.position + Vector3(22, -4, 22)
+		player.position = portal_node.position + Vector3(22, 0, 22)
+		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
 	else:
 		player.position = return_pos
 	player.vel = Vector3.ZERO
@@ -4594,7 +4634,10 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	_clear_game()
 	_write_save()
 	if String(fr.get("fname", "")) == "Rainbow Slide" or String(fr.get("fname", "")) == "Fairy Pond":
-		call_deferred("_enter_level2", true)   # return to the castle courtyard
+		# return to the courtyard; only restore the OPEN castle if it was already
+		# open — the slide is playable before the stars, and used to force the
+		# door open (skipping the whole Dream-Star quest)
+		call_deferred("_enter_level2", l2_open)
 		return
 	if trophies >= 5 and not finale_done:
 		call_deferred("_begin_finale")

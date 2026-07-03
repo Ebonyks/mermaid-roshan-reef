@@ -55,6 +55,7 @@ var _grand: Node3D = null
 var _grand_active := false
 var _home_pos := Vector3.ZERO
 var _moons: Array = []
+var _blockers: Array = []         # crystal footprints: {dir: Vector3, r: float} (surface metres)
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -254,6 +255,7 @@ func _build_decor() -> void:
 		var pc: Color = pastels[i % pastels.size()]
 		_tint_meshes(cr, pc, 0.35)
 		_place_on_planet(holder, dir)
+		_blockers.append({"dir": dir, "r": 2.0 + cr.scale.x * 0.4})   # solid: Roshan walks around, not through
 		var gl := OmniLight3D.new()
 		gl.light_color = pc
 		gl.light_energy = 1.4
@@ -587,6 +589,18 @@ func _process(delta: float) -> void:
 		var new_dir := (_dir.rotated(_fwd.cross(_dir).normalized(), -step)).normalized()
 		_dir = new_dir
 		_project_fwd()
+	# soft collision with the crystal gardens: push Roshan back to a crystal's
+	# rim along the same great circle (jumping high enough clears them)
+	if _h < 4.0:
+		for b in _blockers:
+			var bdir: Vector3 = b["dir"]
+			var min_ang: float = float(b["r"]) / PLANET_R
+			var bang: float = _dir.angle_to(bdir)
+			if bang < min_ang and bang > 0.0005:
+				var pax: Vector3 = bdir.cross(_dir)
+				if pax.length() > 0.0005:
+					_dir = bdir.rotated(pax.normalized(), min_ang).normalized()
+					_project_fwd()
 	# jump / gravity (radial)
 	if _jump_pressed() and _h <= 0.05:
 		_vy = JUMP_V
