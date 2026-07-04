@@ -46,3 +46,9 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - `assets/galaxy/tray.glb` — "Plate Oval" by MilkAndBanana (poly.pizza/m/06WhCScuAF) — CC0
 - `assets/galaxy/beetle.glb` — "Beetle" by Poly by Google (poly.pizza/m/4yufxgZ1QQ2) — CC-BY 3.0
 - `assets/galaxy/ladybug.glb` — "Ladybug" by Poly by Google (poly.pizza/m/4K7V5f9ntfu) — CC-BY 3.0
+- `assets/galaxy/crystal_castle.glb` — "Castle" by CreativeTrio (poly.pizza/m/4360GdbxRe) — CC0
+- `assets/galaxy/trop_palm1.glb` — "Palm tree" by jeremy (poly.pizza/m/bjGeBbKhAVN) — CC-BY 3.0
+- `assets/galaxy/trop_palm2.glb` — "Coconut palm tree" by Poly by Google (poly.pizza/m/bXUTyfiwqBb) — CC-BY 3.0
+- `assets/galaxy/trop_fern.glb` — "Fern" by Quaternius (poly.pizza/m/jqcanvH7D6) — CC0
+- `assets/galaxy/trop_monstera.glb` — "Large Monstera Plant" by Isa Lousberg (poly.pizza/m/kZQ2WmnJFI) — CC0
+- `assets/galaxy/trop_bigleaf.glb` — "Big Leaf Plant" by reyshapes (poly.pizza/m/aKIm5k6l5F) — CC0

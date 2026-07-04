@@ -30,7 +30,14 @@ const TURN_SPD := 2.4
 const SHARDS := 7
 const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
-const GREENERY := ["tree_fat", "tree_default_fall", "tree_pineRoundF", "plant_bush", "plant_bushLargeTriangle", "grass_leafsLarge"]
+# tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
+# is a greenhouse full of tropical plants, not a pine forest
+const TROPICAL := [
+	"res://assets/galaxy/trop_palm1.glb", "res://assets/galaxy/trop_palm2.glb",
+	"res://assets/galaxy/trop_monstera.glb", "res://assets/galaxy/trop_bigleaf.glb",
+	"res://assets/galaxy/trop_fern.glb",
+	"res://assets/nature/plant_bush.glb", "res://assets/nature/grass_leafsLarge.glb"]
+const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
 const TRAY_GLB := "res://assets/galaxy/tray.glb"
@@ -70,6 +77,8 @@ var _flyers: Array = []           # ambient butterflies: {node, axis, dir0, alt,
 var _trays: Array = []            # fruit feeding trays: {dir: Vector3, cool: float, node}
 var _idle_t := 0.0                # stand still and a butterfly comes to visit
 var _bugs: Array = []             # crawling beetles/ladybugs: {node, axis, dir0, spd, ph, cool}
+var _rosalina: Sprite3D = null
+var _rosa_cool := 0.0
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -316,26 +325,25 @@ func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
 # ---------------------------------------------------------------- decor
 func _build_decor() -> void:
 	var pastels := [Color(0.85, 0.6, 1.0), Color(0.55, 0.9, 1.0), Color(1.0, 0.6, 0.85), Color(0.6, 1.0, 0.75), Color(1.0, 0.9, 0.5)]
-	# ---- LUSH GARDEN: trees, bushes and flower beds all around the little planet
-	# (the greenery + landscaping from the butterfly-house photo) ----
-	for i in range(10):
-		var gpath := "res://assets/nature/%s.glb" % GREENERY[i % GREENERY.size()]
+	# ---- LUSH TROPICAL GARDEN, 3-4x dense: palms, monstera, big leaves, ferns
+	# all around the little planet (natural colours — no candy tint) ----
+	for i in range(32):
+		var gpath: String = TROPICAL[i % TROPICAL.size()]
 		if not ResourceLoader.exists(gpath):
 			continue
 		var gr: Node3D = (load(gpath) as PackedScene).instantiate()
-		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.9), sin(float(i) * 0.9) * 0.8, cos(float(i) * 2.4) * cos(float(i) * 0.9)).normalized()
+		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
 		var holder := Node3D.new()
 		add_child(holder)
-		gr.scale = Vector3.ONE * (5.5 + fposmod(float(i) * 1.7, 3.0))
 		holder.add_child(gr)
-		_tint_meshes(gr, Color(0.75, 1.0, 0.7).lerp(pastels[i % pastels.size()], 0.18), 0.08)
-		var r2 := randf()
+		var tall: bool = i % TROPICAL.size() < 2   # the two palm species
+		_fit_small(gr, (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4)))
 		_place_on_planet(holder, dir)
-		holder.rotate(dir, r2 * TAU)
-		if i % GREENERY.size() < 3:   # only the TREES are solid; bushes are soft
-			_blockers.append({"dir": dir, "r": 1.6 + gr.scale.x * 0.22, "cool": 0.0})
-	# flower beds (bright, chest-high) between the trees
-	for i in range(10):
+		holder.rotate(dir, randf() * TAU)
+		if tall and i % 3 == 0:   # a handful of solid palm trunks; the rest is soft
+			_blockers.append({"dir": dir, "r": 1.8, "cool": 0.0})
+	# flower beds (bright, chest-high) between the palms
+	for i in range(28):
 		var fpath := "res://assets/nature/%s.glb" % FLORA[i % FLORA.size()]
 		if not ResourceLoader.exists(fpath):
 			continue
@@ -402,26 +410,51 @@ func _build_decor() -> void:
 		_place_on_planet(th, tdir)
 		_trays.append({"dir": tdir, "cool": 0.0, "node": th})
 	# ---- AMBIENT BUTTERFLIES: a living cloud of colour around the whole garden ----
-	for i in range(14):
+	for i in range(20):
 		var wc: Color = WING_COLS[i % WING_COLS.size()]
 		var bfly := _make_butterfly(wc, 1.6 + randf() * 1.2)
 		add_child(bfly)
 		var d0 := Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()
 		var ax := d0.cross(Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()).normalized()
 		_flyers.append({"node": bfly, "axis": ax, "dir0": d0, "alt": 2.2 + randf() * 4.0, "spd": 0.10 + randf() * 0.14, "ph": randf() * TAU, "flap": 12.0 + randf() * 8.0})
-	# crystal castle at the north pole (Princess Huluu's star palace)
+	# CRYSTAL CASTLE at the north pole (real CC0 castle model, crystal-tinted),
+	# flanked by two of the old crystals — Mermaid Rosalina watches over it
 	var castle := Node3D.new()
 	add_child(castle)
-	for i in range(5):
+	if ResourceLoader.exists(CASTLE_GLB):
+		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
+		castle.add_child(ck)
+		_fit_small(ck, 24.0)
+		_tint_meshes(ck, Color(0.72, 0.68, 1.0), 0.45)   # amethyst-glass glow
+	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
 		if not ResourceLoader.exists(path3):
 			continue
 		var spire: Node3D = (load(path3) as PackedScene).instantiate()
-		spire.scale = Vector3.ONE * (7.0 - float(i))
-		spire.position = Vector3(sin(float(i) * TAU / 5.0) * 4.0, 0, cos(float(i) * TAU / 5.0) * 4.0)
+		spire.scale = Vector3.ONE * 4.0
+		spire.position = Vector3([-13.0, 13.0][i], 0, 6.0)
 		castle.add_child(spire)
 		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
 	_place_on_planet(castle, Vector3.UP)
+	# Mermaid Rosalina, keeper of the crystal castle
+	var rosa := Sprite3D.new()
+	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
+		var rtex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+		rosa.texture = rtex
+		rosa.pixel_size = 7.0 / maxf(float(rtex.get_height()), 1.0)
+	rosa.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	rosa.position = _surf(Vector3(0.16, 1.0, 0.13).normalized(), 4.0)
+	add_child(rosa)
+	_rosalina = rosa
+	var rl := Label3D.new()
+	rl.text = "Mermaid Rosalina"
+	rl.font_size = 52
+	rl.pixel_size = 0.03
+	rl.outline_size = 12
+	rl.modulate = Color(0.8, 0.9, 1.0)
+	rl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	rl.position = rosa.position + Vector3(0, 5.0, 0)
+	add_child(rl)
 	var claby := Label3D.new()
 	claby.text = "Butterfly Palace"
 	claby.font_size = 72
@@ -537,7 +570,7 @@ void fragment(){
 		lp.add_child(ll)
 		_place_on_planet(lp, ldir)
 	# ---- corals nestled among the plants (the book's underwater-garden mashup) ----
-	for i in range(8):
+	for i in range(18):
 		var cpath: String = CORALS[i % CORALS.size()]
 		if not ResourceLoader.exists(cpath):
 			continue
@@ -550,7 +583,7 @@ void fragment(){
 		var cdir := Vector3(sin(float(i) * 1.9 + 1.0), cos(float(i) * 1.3 + 0.5) * 0.9, sin(float(i) * 0.8 - 2.0)).normalized()
 		_place_on_planet(ch, cdir)
 	# ---- friendly beetles + ladybugs crawl the paths (the museum beetle drawer!) ----
-	for i in range(5):
+	for i in range(8):
 		var bpath: String = BUG_GLBS[i % BUG_GLBS.size()]
 		if not ResourceLoader.exists(bpath):
 			continue
@@ -869,6 +902,15 @@ func _process(delta: float) -> void:
 	if _idle_t > 2.5 and not _flyers.is_empty():
 		var visitor: Node3D = (_flyers[0] as Dictionary)["node"]
 		visitor.position = visitor.position.lerp(_surf(_dir, 3.0 + sin(tt * 2.0) * 0.3), minf(1.0, delta * 2.5))
+	# Mermaid Rosalina floats gently and greets Roshan
+	if _rosalina != null and is_instance_valid(_rosalina):
+		_rosalina.position = _surf(Vector3(0.16, 1.0, 0.13).normalized(), 4.0 + sin(tt * 1.4) * 0.5)
+		_rosa_cool = maxf(0.0, _rosa_cool - delta)
+		if _rosa_cool <= 0.0 and _rosalina.position.distance_to(_surf(_dir, _h)) < 8.0:
+			_rosa_cool = 16.0
+			_chime(1.15)
+			if _main != null and _main.has_method("show_msg"):
+				_main.show_msg("Mermaid Rosalina", "Welcome to my crystal castle, little star! Bring my baby butterflies home!", "greet")
 	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
 	for td in _trays:
 		td["cool"] = maxf(0.0, float(td["cool"]) - delta)
@@ -980,6 +1022,16 @@ func _process(delta: float) -> void:
 			_chime(0.7 + 0.06 * float(_shards_got))
 			if _main != null and _main.has_method("_sparkle_burst"):
 				_main._sparkle_burst(feet + up * 2.0, Color(1.0, 0.95, 0.5))
+			if _shards_got == SHARDS - 1:
+				# one left: super-size its beacon so it dominates the horizon
+				for sd2 in _shard_nodes:
+					if not bool(sd2["got"]) and sd2.get("beam") != null and is_instance_valid(sd2["beam"]):
+						(sd2["beam"] as Node3D).scale = Vector3(3.2, 2.2, 3.2)
+						var bmm: StandardMaterial3D = (sd2["beam"] as MeshInstance3D).material_override
+						if bmm != null:
+							bmm.albedo_color.a = 0.55
+				if _lbl_hint != null:
+					_lbl_hint.text = "ONE butterfly left — follow the GIANT beacon!"
 			if _shards_got >= SHARDS and not _grand_active:
 				_spawn_grand_star()
 	if _grand_active and _grand != null and _grand.position.distance_to(feet) < 7.0:
