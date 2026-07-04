@@ -20,15 +20,21 @@ class_name GalaxyLevel
 # tap / second finger / SPACE / gamepad-A = JUMP (radial, floaty).
 # ============================================================================
 
-const PLANET_R := 55.0            # ~half-scale world vs the reef/lagoon stages
+const PLANET_R := 42.0            # tightened from 55 — the round-world physics read better small
 const ORIGIN := Vector3(0.0, 9000.0, 0.0)
 const GRAV := 26.0
 const JUMP_V := 17.0
-const RUN_SPD := 15.0
-const TURN_SPD := 2.2
+const RUN_SPD := 13.5
+const TURN_SPD := 2.4
 const SHARDS := 7
 const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
+const GREENERY := ["tree_fat", "tree_default_fall", "tree_pineRoundF", "plant_bush", "plant_bushLargeTriangle", "grass_leafsLarge"]
+const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
+const TRAY_GLB := "res://assets/galaxy/tray.glb"
+# butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
+const WING_COLS := [Color(1.0, 0.55, 0.25), Color(0.4, 0.65, 1.0), Color(1.0, 0.85, 0.3), Color(0.95, 0.45, 0.75), Color(0.55, 0.9, 0.5), Color(0.75, 0.55, 1.0), Color(0.3, 0.9, 0.95)]
 
 var _main: Node = null
 var _player_node: Node3D = null
@@ -56,7 +62,10 @@ var _grand_active := false
 var _home_pos := Vector3.ZERO
 var _moons: Array = []
 var _blockers: Array = []         # crystal footprints: {dir, r, cool} (surface metres)
-var _pads: Array = []             # star bounce pads: {dir: Vector3, cool: float}
+var _pads: Array = []             # flower bounce pads: {dir: Vector3, cool: float}
+var _flyers: Array = []           # ambient butterflies: {node, axis, dir0, alt, spd, ph, flap}
+var _trays: Array = []            # fruit feeding trays: {dir: Vector3, cool: float, node}
+var _idle_t := 0.0                # stand still and a butterfly comes to visit
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -89,8 +98,8 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_avatar()
 	_build_camera()
 	_build_hud()
-	_lbl_big.text = "✨ Roshan Galaxy ✨"
-	_lbl_hint.text = "Collect the 7 star shards — follow the light beacons!  •  bounce pads fling you HIGH"
+	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
+	_lbl_hint.text = "Find the 7 lost butterflies — follow their beacons!  •  fruit trays call the swarm!"
 	var tw := create_tween()
 	tw.tween_interval(3.0)
 	tw.tween_callback(func():
@@ -187,18 +196,27 @@ func _build_planet() -> void:
 	sh.code = """shader_type spatial;
 float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
 void fragment(){
-	// pastel princess-planet: soft candy bands + sparkle dust
-	float band = sin(UV.y * 18.0) * 0.5 + 0.5;
-	vec3 a = vec3(0.78, 0.62, 0.92);   // lavender
-	vec3 b = vec3(0.95, 0.72, 0.86);   // rose
-	vec3 c = vec3(0.62, 0.88, 0.90);   // mint ice
-	vec3 col = mix(mix(a, b, band), c, smoothstep(0.82, 1.0, abs(UV.y - 0.5) * 2.0));
+	// flowering-meadow planet (the butterfly-house garden): soft grass with
+	// sandy landscaped paths and thousands of tiny flower dots
+	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
+	vec3 a = vec3(0.45, 0.76, 0.42);   // meadow green
+	vec3 b = vec3(0.58, 0.86, 0.48);   // sunlit grass
+	vec3 col = mix(a, b, band);
+	// two winding garden paths circling the planet
+	float wob = sin(UV.x * 12.566) * 0.03;
+	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
+	col = mix(col, vec3(0.90, 0.83, 0.62), clamp(pathm, 0.0, 1.0) * 0.85);
+	// confetti of tiny flowers
 	vec2 g = UV * vec2(220.0, 120.0);
-	float sparkle = step(0.995, h21(floor(g))) * (0.5 + 0.5 * sin(TIME * 3.0 + h21(floor(g)) * 50.0));
-	col += vec3(sparkle) * 0.8;
+	float fh = h21(floor(g));
+	float dot2 = step(0.986, fh) * smoothstep(0.3, 0.05, length(fract(g) - 0.5));
+	vec3 fcol = 0.55 + 0.45 * cos(6.28 * (fh * 7.0 + vec3(0.0, 0.33, 0.67)));
+	col = mix(col, fcol, dot2 * (1.0 - clamp(pathm, 0.0, 1.0)));
+	// firefly sparkle at "night" side
+	float sparkle = step(0.996, h21(floor(g) + 31.0)) * (0.5 + 0.5 * sin(TIME * 3.0 + fh * 50.0));
 	ALBEDO = col;
-	EMISSION = col * 0.10 + vec3(sparkle) * 0.5;
-	ROUGHNESS = 0.75;
+	EMISSION = col * 0.08 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
+	ROUGHNESS = 0.85;
 }"""
 	var mat := ShaderMaterial.new()
 	mat.shader = sh
@@ -254,43 +272,121 @@ func _place_on_planet(node: Node3D, dir: Vector3, h: float = 0.0) -> void:
 	var t := any.cross(up).normalized()
 	node.transform.basis = Basis(t, up, t.cross(up).normalized() * -1.0).orthonormalized()
 
+func _fit_small(model: Node3D, target_long: float) -> float:
+	# normalise a GLB to a footprint (assets range from 0.14 to 98 units raw)
+	var acc: Array = []
+	_gather_aabbs(model, Transform3D.IDENTITY, acc)
+	if acc.is_empty():
+		return 0.0
+	var bb: AABB = acc[0]
+	for i in range(1, acc.size()):
+		bb = bb.merge(acc[i])
+	var longest: float = maxf(maxf(bb.size.x, bb.size.z), maxf(bb.size.y, 0.001))
+	var sc: float = target_long / longest
+	model.scale = Vector3.ONE * sc
+	var c: Vector3 = bb.position + bb.size * 0.5
+	model.position = Vector3(-c.x * sc, -bb.position.y * sc, -c.z * sc)
+	return bb.size.y * sc
+
+func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
+	# a tinted butterfly from the CC set (two body styles x seven wing colours)
+	var holder := Node3D.new()
+	var path: String = BUTTERFLY_GLBS[randi() % BUTTERFLY_GLBS.size()]
+	if ResourceLoader.exists(path):
+		var bf: Node3D = (load(path) as PackedScene).instantiate()
+		holder.add_child(bf)
+		_fit_small(bf, wingspan)
+		_tint_meshes(bf, tint, 0.25)
+	else:
+		var q := MeshInstance3D.new()
+		var qm := QuadMesh.new()
+		qm.size = Vector2(wingspan, wingspan * 0.7)
+		q.mesh = qm
+		var m := StandardMaterial3D.new()
+		m.albedo_color = tint
+		m.cull_mode = BaseMaterial3D.CULL_DISABLED
+		q.material_override = m
+		holder.add_child(q)
+	return holder
+
 # ---------------------------------------------------------------- decor
 func _build_decor() -> void:
 	var pastels := [Color(0.85, 0.6, 1.0), Color(0.55, 0.9, 1.0), Color(1.0, 0.6, 0.85), Color(0.6, 1.0, 0.75), Color(1.0, 0.9, 0.5)]
-	# crystal gardens (CC0 crystals, candy-tinted)
-	for i in range(14):
-		var path: String = CRYSTALS[i % CRYSTALS.size()]
-		if not ResourceLoader.exists(path):
+	# ---- LUSH GARDEN: trees, bushes and flower beds all around the little planet
+	# (the greenery + landscaping from the butterfly-house photo) ----
+	for i in range(10):
+		var gpath := "res://assets/nature/%s.glb" % GREENERY[i % GREENERY.size()]
+		if not ResourceLoader.exists(gpath):
 			continue
-		var cr: Node3D = (load(path) as PackedScene).instantiate()
+		var gr: Node3D = (load(gpath) as PackedScene).instantiate()
 		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.9), sin(float(i) * 0.9) * 0.8, cos(float(i) * 2.4) * cos(float(i) * 0.9)).normalized()
 		var holder := Node3D.new()
 		add_child(holder)
-		cr.scale = Vector3.ONE * (3.0 + fposmod(float(i) * 1.7, 3.5))
-		holder.add_child(cr)
-		var pc: Color = pastels[i % pastels.size()]
-		_tint_meshes(cr, pc, 0.35)
+		gr.scale = Vector3.ONE * (5.5 + fposmod(float(i) * 1.7, 3.0))
+		holder.add_child(gr)
+		_tint_meshes(gr, Color(0.75, 1.0, 0.7).lerp(pastels[i % pastels.size()], 0.18), 0.08)
+		var r2 := randf()
 		_place_on_planet(holder, dir)
-		_blockers.append({"dir": dir, "r": 2.0 + cr.scale.x * 0.4, "cool": 0.0})   # solid + chimes when bumped
-		var gl := OmniLight3D.new()
-		gl.light_color = pc
-		gl.light_energy = 1.4
-		gl.omni_range = 12.0
-		gl.position = Vector3(0, 3.0, 0)
-		holder.add_child(gl)
-	# alien star-flora (the game's own Kenney kit, tinted unearthly pastels)
-	for i in range(12):
+		holder.rotate(dir, r2 * TAU)
+		if i % GREENERY.size() < 3:   # only the TREES are solid; bushes are soft
+			_blockers.append({"dir": dir, "r": 1.6 + gr.scale.x * 0.22, "cool": 0.0})
+	# flower beds (bright, chest-high) between the trees
+	for i in range(10):
 		var fpath := "res://assets/nature/%s.glb" % FLORA[i % FLORA.size()]
 		if not ResourceLoader.exists(fpath):
 			continue
 		var fl: Node3D = (load(fpath) as PackedScene).instantiate()
 		var holder2 := Node3D.new()
 		add_child(holder2)
-		fl.scale = Vector3.ONE * (5.0 + fposmod(float(i) * 2.3, 4.0))
+		fl.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 2.3, 3.0))
 		holder2.add_child(fl)
-		_tint_meshes(fl, pastels[(i + 2) % pastels.size()], 0.22)
+		_tint_meshes(fl, pastels[(i + 2) % pastels.size()], 0.20)
 		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
 		_place_on_planet(holder2, dir2)
+	# ---- FRUIT FEEDING TRAYS: walk up and the butterflies swarm in to feast ----
+	var tray_dirs := [Vector3(0.8, 0.15, -0.6), Vector3(-0.75, 0.4, 0.5), Vector3(0.1, -0.55, 0.83), Vector3(-0.4, -0.75, -0.55)]
+	for ti in range(tray_dirs.size()):
+		var tdir: Vector3 = (tray_dirs[ti] as Vector3).normalized()
+		var th := Node3D.new()
+		add_child(th)
+		if ResourceLoader.exists(TRAY_GLB):
+			var tr: Node3D = (load(TRAY_GLB) as PackedScene).instantiate()
+			th.add_child(tr)
+			_fit_small(tr, 4.2)
+		else:
+			var cyl := MeshInstance3D.new()
+			var cm := CylinderMesh.new()
+			cm.top_radius = 2.1
+			cm.bottom_radius = 2.1
+			cm.height = 0.5
+			cyl.mesh = cm
+			th.add_child(cyl)
+		for fi in range(3):
+			var fpath2: String = FRUIT_GLBS[(ti + fi) % FRUIT_GLBS.size()]
+			if not ResourceLoader.exists(fpath2):
+				continue
+			var fr: Node3D = (load(fpath2) as PackedScene).instantiate()
+			var fh := Node3D.new()
+			th.add_child(fh)
+			fh.add_child(fr)
+			_fit_small(fr, 1.5)
+			fh.position = Vector3(cos(float(fi) * TAU / 3.0) * 1.1, 0.5, sin(float(fi) * TAU / 3.0) * 1.1)
+		var tl := OmniLight3D.new()
+		tl.light_color = Color(1.0, 0.9, 0.6)
+		tl.light_energy = 1.2
+		tl.omni_range = 9.0
+		tl.position = Vector3(0, 2.4, 0)
+		th.add_child(tl)
+		_place_on_planet(th, tdir)
+		_trays.append({"dir": tdir, "cool": 0.0, "node": th})
+	# ---- AMBIENT BUTTERFLIES: a living cloud of colour around the whole garden ----
+	for i in range(14):
+		var wc: Color = WING_COLS[i % WING_COLS.size()]
+		var bfly := _make_butterfly(wc, 1.6 + randf() * 1.2)
+		add_child(bfly)
+		var d0 := Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()
+		var ax := d0.cross(Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()).normalized()
+		_flyers.append({"node": bfly, "axis": ax, "dir0": d0, "alt": 2.2 + randf() * 4.0, "spd": 0.10 + randf() * 0.14, "ph": randf() * TAU, "flap": 12.0 + randf() * 8.0})
 	# crystal castle at the north pole (Princess Huluu's star palace)
 	var castle := Node3D.new()
 	add_child(castle)
@@ -305,7 +401,7 @@ func _build_decor() -> void:
 		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
 	_place_on_planet(castle, Vector3.UP)
 	var claby := Label3D.new()
-	claby.text = "Star Palace"
+	claby.text = "Butterfly Palace"
 	claby.font_size = 72
 	claby.outline_size = 16
 	claby.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -318,7 +414,7 @@ func _build_decor() -> void:
 	cl.omni_range = 30.0
 	cl.position = _surf(Vector3.UP, 8.0)
 	add_child(cl)
-	# ---- STAR BOUNCE PADS: glowing rings that fling Roshan sky-high ----
+	# ---- FLOWER BOUNCE PADS: glowing blossom rings that fling Roshan sky-high ----
 	for pdir_raw in [Vector3(1.0, 0.35, 0.5), Vector3(-0.55, -0.45, 0.75), Vector3(0.25, -0.85, -0.55)]:
 		var pdir: Vector3 = (pdir_raw as Vector3).normalized()
 		var pad := MeshInstance3D.new()
@@ -327,9 +423,9 @@ func _build_decor() -> void:
 		ptm.outer_radius = 3.2
 		pad.mesh = ptm
 		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(1.0, 0.85, 0.4)
+		pmat.albedo_color = Color(1.0, 0.6, 0.8)
 		pmat.emission_enabled = true
-		pmat.emission = Color(1.0, 0.8, 0.3)
+		pmat.emission = Color(1.0, 0.55, 0.75)
 		pmat.emission_energy_multiplier = 1.6
 		pad.material_override = pmat
 		var holder3 := Node3D.new()
@@ -352,7 +448,7 @@ func _build_decor() -> void:
 		mm.height = mm.radius * 2.0
 		moon.mesh = mm
 		var mmat := StandardMaterial3D.new()
-		mmat.albedo_color = [Color(1.0, 0.8, 0.9), Color(0.75, 0.9, 1.0)][i]
+		mmat.albedo_color = [Color(1.0, 0.62, 0.2), Color(0.45, 0.8, 0.35)][i]   # orange + melon moons
 		mmat.emission_enabled = true
 		mmat.emission = mmat.albedo_color
 		mmat.emission_energy_multiplier = 0.35
@@ -389,17 +485,14 @@ func _build_shards() -> void:
 	for i in range(SHARDS):
 		var a: float = float(i) / float(SHARDS) * TAU
 		var dir := Vector3(cos(a) * 0.9, sin(a * 3.0) * 0.75 - 0.1, sin(a) * 0.9).normalized()
-		var star := Label3D.new()
-		star.text = "★"
-		star.font_size = 220
-		star.pixel_size = 0.03
-		star.outline_size = 28
-		star.modulate = Color.from_hsv(float(i) / float(SHARDS), 0.45, 1.0)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		# a LOST BABY BUTTERFLY, one of each wing colour (the objective, re-themed
+		# from star shards to match the butterfly-house book page)
+		var wing: Color = WING_COLS[i % WING_COLS.size()]
+		var star := _make_butterfly(wing, 2.6)
 		star.position = _surf(dir, 2.6)
 		add_child(star)
 		var gl := OmniLight3D.new()
-		gl.light_color = star.modulate
+		gl.light_color = wing
 		gl.light_energy = 1.6
 		gl.omni_range = 14.0
 		star.add_child(gl)
@@ -415,7 +508,7 @@ func _build_shards() -> void:
 		bmt.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		bmt.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		bmt.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		bmt.albedo_color = Color(star.modulate.r, star.modulate.g, star.modulate.b, 0.30)
+		bmt.albedo_color = Color(wing.r, wing.g, wing.b, 0.30)
 		beam.material_override = bmt
 		beam.position = _surf(dir, 19.0)
 		var bup := dir
@@ -454,13 +547,7 @@ func _spawn_grand_star() -> void:
 	_grand_active = true
 	_grand = Node3D.new()
 	add_child(_grand)
-	var star := Label3D.new()
-	star.text = "★"
-	star.font_size = 600
-	star.pixel_size = 0.035
-	star.outline_size = 40
-	star.modulate = Color(1.0, 0.9, 0.35)
-	star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	var star := _make_butterfly(Color(1.0, 0.85, 0.4), 7.5)   # the GREAT golden butterfly
 	_grand.add_child(star)
 	var gl := OmniLight3D.new()
 	gl.light_color = Color(1.0, 0.9, 0.4)
@@ -468,7 +555,7 @@ func _spawn_grand_star() -> void:
 	gl.omni_range = 50.0
 	_grand.add_child(gl)
 	_grand.position = _surf(Vector3.UP, 9.0)
-	_lbl_big.text = "The GRAND STAR!\nRace to the Star Palace!"
+	_lbl_big.text = "The GREAT RAINBOW BUTTERFLY!\nRace to the Butterfly Palace!"
 	var tw := create_tween()
 	tw.tween_interval(2.6)
 	tw.tween_callback(func():
@@ -575,7 +662,7 @@ func _build_hud() -> void:
 	_update_shard_hud()
 
 func _update_shard_hud() -> void:
-	_lbl_shards.text = "★ %d / %d" % [_shards_got, SHARDS]
+	_lbl_shards.text = "🦋 %d / %d" % [_shards_got, SHARDS]
 
 # ---------------------------------------------------------------- input
 func _move_input() -> Vector2:
@@ -633,6 +720,48 @@ func _process(delta: float) -> void:
 		var ph: float = tt * float(md["spd"]) + float(md["ph"])
 		var tilt: float = float(md["tilt"])
 		(md["node"] as Node3D).position = ORIGIN + Vector3(cos(ph) * float(md["r"]), sin(ph * 0.7) * float(md["r"]) * tilt * 0.4, sin(ph) * float(md["r"]))
+	# ---- ambient butterflies flutter around the garden (feast when called) ----
+	for fd in _flyers:
+		var bn: Node3D = fd["node"]
+		var ang2: float = tt * float(fd["spd"]) + float(fd["ph"])
+		var pdir: Vector3 = ((fd["dir0"] as Vector3).rotated(fd["axis"], ang2)).normalized()
+		var alt: float = float(fd["alt"]) + sin(tt * 1.3 + float(fd["ph"])) * 0.8
+		var ft: float = float(fd.get("feast_t", 0.0))
+		if ft > 0.0:
+			fd["feast_t"] = ft - delta
+			var fdir: Vector3 = fd["feast_dir"]
+			var swirl: Vector3 = (fdir.cross(Vector3.UP) if absf(fdir.dot(Vector3.UP)) < 0.95 else fdir.cross(Vector3.RIGHT)).normalized()
+			pdir = (fdir + swirl.rotated(fdir, ang2 * 6.0) * 0.09).normalized()
+			alt = 1.4 + sin(tt * 5.0 + float(fd["ph"])) * 0.5
+		var newp: Vector3 = _surf(pdir, alt)
+		var vel2: Vector3 = newp - bn.position
+		bn.position = newp
+		if vel2.length() > 0.01:
+			bn.look_at(newp + vel2, pdir)
+		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+	# stand still a moment and a butterfly comes to say hello
+	if _idle_t > 2.5 and not _flyers.is_empty():
+		var visitor: Node3D = (_flyers[0] as Dictionary)["node"]
+		visitor.position = visitor.position.lerp(_surf(_dir, 3.0 + sin(tt * 2.0) * 0.3), minf(1.0, delta * 2.5))
+	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
+	for td in _trays:
+		td["cool"] = maxf(0.0, float(td["cool"]) - delta)
+		if float(td["cool"]) <= 0.0 and _h < 2.0 and _state == "play":
+			var tang: float = _dir.angle_to(td["dir"]) * PLANET_R
+			if tang < 4.5:
+				td["cool"] = 9.0
+				_chime(1.2)
+				for fd2 in _flyers:
+					fd2["feast_t"] = 3.0
+					fd2["feast_dir"] = td["dir"]
+				if _main != null and _main.has_method("_sparkle_burst"):
+					_main._sparkle_burst(_surf(td["dir"], 2.5), Color(1.0, 0.9, 0.5))
+				if _main != null and "pearl_count" in _main:
+					_main.pearl_count += 1
+					if _main.has_method("_update_hud"):
+						_main._update_hud()
+				if _lbl_hint != null:
+					_lbl_hint.text = "The butterflies LOVE the fruit!  +1 pearl"
 	for sd in _shard_nodes:
 		if bool(sd["got"]):
 			continue
@@ -690,6 +819,11 @@ func _process(delta: float) -> void:
 				_chime(1.4)
 				if _main != null and _main.has_method("_sparkle_burst"):
 					_main._sparkle_burst(_surf(_dir, 2.0), Color(1.0, 0.9, 0.4))
+	# idle timer (a butterfly visits Roshan when she stands still)
+	if absf(mv.x) < 0.05 and absf(mv.y) < 0.05 and _h <= 0.05:
+		_idle_t += delta
+	else:
+		_idle_t = 0.0
 	# jump / gravity (radial)
 	if _jump_pressed() and _h <= 0.05:
 		_vy = JUMP_V

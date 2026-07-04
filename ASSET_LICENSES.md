@@ -35,3 +35,12 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - `assets/castle/bed.glb` — "Bed Single" by Kenney (poly.pizza/m/sn8az3odMR) — CC0
 - `assets/castle/throne.glb` — "Throne" by Poly by Google (poly.pizza/m/bpFCWQSs-aT) — CC-BY 3.0 (attribution: Poly by Google)
 - `assets/terrain/up_fabric_*.jpg` — Fabric030 from ambientCG.com — CC0
+
+## Butterfly World (Level 3 re-theme)
+- `assets/galaxy/butterfly1.glb` — "Butterfly" by Poly by Google (poly.pizza/m/e9NAQQrCbLu) — CC-BY 3.0
+- `assets/galaxy/butterfly2.glb` — "Butterfly" by Poly by Google (poly.pizza/m/2ZwYwkTVnfG) — CC-BY 3.0
+- `assets/galaxy/fruit_apple.glb` — "Apple" by jeremy (poly.pizza/m/4tOmpD9-xsV) — CC-BY 3.0
+- `assets/galaxy/fruit_banana.glb` — "Banana" by Poly by Google (poly.pizza/m/ahOO6wz8sV0) — CC-BY 3.0
+- `assets/galaxy/fruit_melon.glb` — "Watermelon Half" by S. Paul Michael (poly.pizza/m/1exBmBVJHjj) — CC-BY 3.0
+- `assets/galaxy/fruit_orange.glb` — "An Orange" by Ivan Kraft (poly.pizza/m/abyCKYOa770) — CC-BY 3.0
+- `assets/galaxy/tray.glb` — "Plate Oval" by MilkAndBanana (poly.pizza/m/06WhCScuAF) — CC0

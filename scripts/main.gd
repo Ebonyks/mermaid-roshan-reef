@@ -1618,9 +1618,9 @@ func _end_galaxy(completed: bool) -> void:
 	galaxy_game = null
 	game = ""
 	if completed:
-		show_msg("Roshan Galaxy", "You saved Roshan Galaxy! The stars will always remember you! ⭐")
+		show_msg("Butterfly World", "You saved the Butterfly World! All the baby butterflies are home! 🦋")
 	else:
-		show_msg("Roshan Galaxy", "Home again! The galaxy will wait for your return...")
+		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
 	_update_hud()
 	if kart_from == "level2":
 		kart_from = ""
