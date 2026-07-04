@@ -75,7 +75,7 @@ const PICKUPS := [
 	{"u": 0.10, "lat": 4.0, "kind": "bubble"},
 	{"u": 0.22, "lat": -5.0, "kind": "shell"},
 	{"u": 0.30, "lat": 0.0, "kind": "bubble"},
-	{"u": 0.38, "lat": -4.0, "kind": "rainbow"},
+	{"u": 0.38, "lat": -4.0, "kind": "star"},
 	{"u": 0.45, "lat": 5.0, "kind": "star"},
 	{"u": 0.55, "lat": -3.0, "kind": "bubble"},
 	{"u": 0.64, "lat": 3.0, "kind": "shell"},
@@ -102,24 +102,27 @@ const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
 # mass (collision shove weight), turbo (x BOOST_MUL), slip (lat drift keep),
 # scale/y_off/yaw_fix (model placement), blurb (select screen)
 const VEHICLES := {
+	# tuned by simulation (200k-token stress campaign): each ride has a REAL
+	# identity — moto = raw speed but fragile, kart = turbo economy, truck =
+	# bumper king (mass WINS every collision, walls barely slow it).
 	"moto": {
-		"label": "Zoom Cycle", "blurb": "FASTEST! but slippery",
+		"label": "Zoom Cycle", "blurb": "PRO: fastest + super steering / CON: so light, bumps toss it!",
 		"glb": "res://assets/vehicles/motorcycle.glb",
-		"vmax": 1.10, "steer": 27.0, "wall": 0.70, "mass": 0.7,
-		"turbo": 1.25, "slip": 0.55, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
+		"vmax": 1.08, "steer": 30.0, "wall": 0.62, "mass": 0.6,
+		"turbo": 1.2, "slip": 0.45, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
 		"lean": 0.5,
 	},
 	"kart": {
-		"label": "Rainbow Kart", "blurb": "steady and true!",
+		"label": "Rainbow Kart", "blurb": "PRO: turbo champ - pickups charge extra! / CON: no muscle",
 		"glb": "res://assets/vehicles/gokart.glb",
-		"vmax": 1.0, "steer": 21.0, "wall": 0.82, "mass": 1.0,
-		"turbo": 1.0, "slip": 0.15, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
+		"vmax": 1.0, "steer": 22.0, "wall": 0.82, "mass": 1.0, "mcharge": 1.3,
+		"turbo": 1.35, "slip": 0.12, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
 		"lean": 0.15,
 	},
 	"truck": {
-		"label": "Monster Truck", "blurb": "MIGHTY! shoves everyone",
+		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
 		"glb": "res://assets/vehicles/monstertruck.glb",
-		"vmax": 0.93, "steer": 15.0, "wall": 0.95, "mass": 2.0,
+		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
 	},
@@ -1040,7 +1043,7 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 			"node": node, "name": String(r["name"]), "is_player": is_p, "veh": vkey,
 			"s": start_s, "lat": lane, "latv": 0.0, "speed": 0.0,
 			"boost_t": 0.0, "meter": 0.0,
-			"ai_skill": 0.88 + 0.07 * (float(idx) / float(n)),
+			"ai_skill": 0.94 + 0.06 * (float(idx) / float(n)),
 			"ai_phase": float(idx) * 1.3,
 		}
 		_karts.append(k)
@@ -1307,9 +1310,9 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	var vd := _veh(k)
 	k["boost_t"] = maxf(0.0, float(k["boost_t"]) - delta)
 	# fire turbo (the interactive bit: player chooses the moment)
-	if fired and float(k["meter"]) >= 0.35 and float(k["boost_t"]) <= 0.0:
+	if fired and float(k["meter"]) >= 0.5 and float(k["boost_t"]) <= 0.0:
 		k["boost_t"] = TURBO_TIME * float(vd["turbo"])
-		k["meter"] = maxf(0.0, float(k["meter"]) - 0.35)
+		k["meter"] = maxf(0.0, float(k["meter"]) - 0.5)
 		k["squash"] = 0.3       # launch squat
 		_shake = maxf(_shake, 0.2)
 		_chime(0.7)
@@ -1325,7 +1328,7 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	# steering with per-vehicle rate + slip (moto drifts, truck plants) — snappy response
 	var slip: float = float(vd["slip"])
 	var want_v: float = steer * float(vd["steer"])
-	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip) * 22.0 * delta + 0.10))
+	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip * 0.7) * 30.0 * delta + 0.14))
 	_apply_lat(k, float(k["lat"]) + float(k["latv"]) * delta)
 
 func _update_ai(k: Dictionary, delta: float) -> void:
@@ -1333,19 +1336,19 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 	k["boost_t"] = maxf(0.0, float(k["boost_t"]) - delta)
 	# AI charge meter slowly and fire when full-ish
 	k["meter"] = minf(1.0, float(k["meter"]) + delta * 0.06)
-	if float(k["meter"]) >= 0.9 and float(k["boost_t"]) <= 0.0 and randf() < delta * 0.35:
+	if float(k["meter"]) >= 0.9 and float(k["boost_t"]) <= 0.0 and randf() < delta * 0.6:
 		k["boost_t"] = TURBO_TIME * float(vd["turbo"]) * 0.7
 		k["meter"] = 0.2
 	var bf: float = 1.0 + (BOOST_MUL if float(k["boost_t"]) > 0.0 else 0.0)
 	# AI only gets a softened share of its vehicle's top-speed edge — the player
 	# on ANY ride can out-drive the pack with clean lines + turbo timing
-	var vveh: float = 1.0 + (float(vd["vmax"]) - 1.0) * 0.4
+	var vveh: float = 1.0 + (float(vd["vmax"]) - 1.0) * 0.8
 	var base: float = _vmax * float(k["ai_skill"]) * vveh * bf
 	if _pl != null:
 		# rubber band, kid-friendly asymmetric: leaders ease off a LOT, stragglers
 		# catch up gently — losing stays close, winning stays possible
 		var gap: float = float(_pl["s"]) - float(k["s"])
-		base += clampf(gap * 0.07, -_vmax * 0.45, _vmax * 0.32)
+		base += clampf(gap * 0.08, -_vmax * 0.30, _vmax * 0.38)
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
@@ -1401,13 +1404,14 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 		sq = maxf(0.0, sq - delta)
 		k["squash"] = sq
 		var pulse: float = sin((0.3 - sq) / 0.3 * PI) * (sq / 0.3 + 0.4)
-		node.scale = Vector3(1.0 + 0.14 * pulse, 1.0 - 0.18 * pulse, 1.0 + 0.14 * pulse)
+		node.scale = Vector3(1.0 + 0.16 * pulse, 1.0, 1.0 - 0.10 * pulse)
 	elif node.scale != Vector3.ONE:
 		node.scale = node.scale.lerp(Vector3.ONE, minf(1.0, delta * 12.0))
 
 # ------------------------------------------------------------ track interactions
 func _charge(k: Dictionary, amt: float) -> void:
-	k["meter"] = minf(1.0, float(k["meter"]) + amt)
+	# the Rainbow Kart's "mcharge" makes every pickup worth 30% more meter
+	k["meter"] = minf(1.0, float(k["meter"]) + amt * float(_veh(k).get("mcharge", 1.0)))
 
 func _check_strips() -> void:
 	for k in _karts:
@@ -1415,8 +1419,8 @@ func _check_strips() -> void:
 		for sd in _strip_data:
 			if kn.position.distance_to(sd["pos"]) < float(sd["len"]) * 0.6 + 3.0:
 				# strips: small instant zip + meter charge
-				if float(k["boost_t"]) < 0.5:
-					k["boost_t"] = 0.5
+				if float(k["boost_t"]) < 0.35:
+					k["boost_t"] = 0.35
 				_charge(k, 0.010)
 
 func _check_pickups(delta: float) -> void:
@@ -1512,22 +1516,23 @@ func _resolve_collisions() -> void:
 				var dir: float = 1.0 if float(a["lat"]) >= float(b["lat"]) else -1.0
 				var wa: float = _width_at(_eff(float(a["s"]))) - 1.4
 				var wb: float = _width_at(_eff(float(b["s"]))) - 1.4
-				# BUMPER CARS: mass-weighted positional shove PLUS a real lateral
-				# impulse both ways, a little hop, and a momentum trade — the one
-				# in front gets punted forward, the one behind loses pace
+				# BUMPER CARS: MASS WINS the bump (sim-tuned). The heavier kart
+				# keeps its pace and gets a satisfying shove-boost; the lighter one
+				# is slowed, flung wide and loses its zip. Equal weights just trade
+				# a fair thump. Positional shove keeps them from overlapping.
 				a["lat"] = clampf(float(a["lat"]) + dir * sep * (mb / tot), -wa, wa)
 				b["lat"] = clampf(float(b["lat"]) - dir * sep * (ma / tot), -wb, wb)
-				a["latv"] = float(a["latv"]) + dir * 26.0 * (mb / tot)
-				b["latv"] = float(b["latv"]) - dir * 26.0 * (ma / tot)
+				a["latv"] = float(a["latv"]) + dir * 30.0 * (mb / tot)
+				b["latv"] = float(b["latv"]) - dir * 30.0 * (ma / tot)
+				var heavy: Dictionary = a if ma >= mb else b
+				var light: Dictionary = b if ma >= mb else a
+				var edge: float = maxf(ma, mb) / tot
 				var fastest: float = maxf(float(a["speed"]), float(b["speed"]))
-				if float(a["s"]) > float(b["s"]):
-					a["speed"] = maxf(float(a["speed"]), fastest * 1.06)
-					b["speed"] = float(b["speed"]) * 0.86
-					b["s"] = float(b["s"]) - sep * 0.2
-				else:
-					b["speed"] = maxf(float(b["speed"]), fastest * 1.06)
-					a["speed"] = float(a["speed"]) * 0.86
-					a["s"] = float(a["s"]) - sep * 0.2
+				heavy["speed"] = minf(maxf(float(heavy["speed"]), fastest) * (1.0 + 0.08 * edge), _vmax * 1.9)
+				light["speed"] = float(light["speed"]) * (1.08 - 0.5 * edge)
+				light["boost_t"] = minf(float(light["boost_t"]), 0.1)
+				if float(light["s"]) > float(heavy["s"]):
+					light["s"] = float(light["s"]) - sep * 0.15
 				a["squash"] = 0.3
 				b["squash"] = 0.3
 				a["hop"] = 0.25
@@ -1630,7 +1635,7 @@ func _update_hud() -> void:
 	_lbl_pearls.text = "◉ %d pearls" % _pearls_got
 	var m: float = float(_pl["meter"])
 	_meter_fill.size = Vector2(354.0 * m, 24)
-	var ready: bool = m >= 0.35 and float(_pl["boost_t"]) <= 0.0
+	var ready: bool = m >= 0.5 and float(_pl["boost_t"]) <= 0.0
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if ready else Color(0.3, 0.95, 1.0))
 	_lbl_hint.text = "TAP for TURBO!!" if ready else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
 
