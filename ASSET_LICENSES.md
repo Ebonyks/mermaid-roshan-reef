@@ -44,3 +44,5 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - `assets/galaxy/fruit_melon.glb` — "Watermelon Half" by S. Paul Michael (poly.pizza/m/1exBmBVJHjj) — CC-BY 3.0
 - `assets/galaxy/fruit_orange.glb` — "An Orange" by Ivan Kraft (poly.pizza/m/abyCKYOa770) — CC-BY 3.0
 - `assets/galaxy/tray.glb` — "Plate Oval" by MilkAndBanana (poly.pizza/m/06WhCScuAF) — CC0
+- `assets/galaxy/beetle.glb` — "Beetle" by Poly by Google (poly.pizza/m/4yufxgZ1QQ2) — CC-BY 3.0
+- `assets/galaxy/ladybug.glb` — "Ladybug" by Poly by Google (poly.pizza/m/4K7V5f9ntfu) — CC-BY 3.0
