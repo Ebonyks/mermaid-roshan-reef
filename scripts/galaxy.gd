@@ -55,7 +55,8 @@ var _grand: Node3D = null
 var _grand_active := false
 var _home_pos := Vector3.ZERO
 var _moons: Array = []
-var _blockers: Array = []         # crystal footprints: {dir: Vector3, r: float} (surface metres)
+var _blockers: Array = []         # crystal footprints: {dir, r, cool} (surface metres)
+var _pads: Array = []             # star bounce pads: {dir: Vector3, cool: float}
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -89,7 +90,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	_lbl_big.text = "✨ Roshan Galaxy ✨"
-	_lbl_hint.text = "Collect the 7 star shards!  •  stick to run, TAP to jump"
+	_lbl_hint.text = "Collect the 7 star shards — follow the light beacons!  •  bounce pads fling you HIGH"
 	var tw := create_tween()
 	tw.tween_interval(3.0)
 	tw.tween_callback(func():
@@ -270,7 +271,7 @@ func _build_decor() -> void:
 		var pc: Color = pastels[i % pastels.size()]
 		_tint_meshes(cr, pc, 0.35)
 		_place_on_planet(holder, dir)
-		_blockers.append({"dir": dir, "r": 2.0 + cr.scale.x * 0.4})   # solid: Roshan walks around, not through
+		_blockers.append({"dir": dir, "r": 2.0 + cr.scale.x * 0.4, "cool": 0.0})   # solid + chimes when bumped
 		var gl := OmniLight3D.new()
 		gl.light_color = pc
 		gl.light_energy = 1.4
@@ -317,6 +318,32 @@ func _build_decor() -> void:
 	cl.omni_range = 30.0
 	cl.position = _surf(Vector3.UP, 8.0)
 	add_child(cl)
+	# ---- STAR BOUNCE PADS: glowing rings that fling Roshan sky-high ----
+	for pdir_raw in [Vector3(1.0, 0.35, 0.5), Vector3(-0.55, -0.45, 0.75), Vector3(0.25, -0.85, -0.55)]:
+		var pdir: Vector3 = (pdir_raw as Vector3).normalized()
+		var pad := MeshInstance3D.new()
+		var ptm := TorusMesh.new()
+		ptm.inner_radius = 2.0
+		ptm.outer_radius = 3.2
+		pad.mesh = ptm
+		var pmat := StandardMaterial3D.new()
+		pmat.albedo_color = Color(1.0, 0.85, 0.4)
+		pmat.emission_enabled = true
+		pmat.emission = Color(1.0, 0.8, 0.3)
+		pmat.emission_energy_multiplier = 1.6
+		pad.material_override = pmat
+		var holder3 := Node3D.new()
+		add_child(holder3)
+		holder3.add_child(pad)
+		pad.position = Vector3(0, 0.6, 0)
+		_place_on_planet(holder3, pdir)
+		var pl := OmniLight3D.new()
+		pl.light_color = Color(1.0, 0.85, 0.4)
+		pl.light_energy = 1.4
+		pl.omni_range = 10.0
+		pl.position = Vector3(0, 2.0, 0)
+		holder3.add_child(pl)
+		_pads.append({"dir": pdir, "cool": 0.0})
 	# two candy moons that orbit the planet
 	for i in range(2):
 		var moon := MeshInstance3D.new()
@@ -376,7 +403,28 @@ func _build_shards() -> void:
 		gl.light_energy = 1.6
 		gl.omni_range = 14.0
 		star.add_child(gl)
-		_shard_nodes.append({"node": star, "dir": dir, "got": false, "ph": float(i) * 1.3})
+		# BEACON: a tall additive light pillar so far-away shards show over the horizon
+		var beam := MeshInstance3D.new()
+		var bc := CylinderMesh.new()
+		bc.top_radius = 0.4
+		bc.bottom_radius = 1.5
+		bc.height = 34.0
+		bc.radial_segments = 8
+		beam.mesh = bc
+		var bmt := StandardMaterial3D.new()
+		bmt.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		bmt.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		bmt.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+		bmt.albedo_color = Color(star.modulate.r, star.modulate.g, star.modulate.b, 0.30)
+		beam.material_override = bmt
+		beam.position = _surf(dir, 19.0)
+		var bup := dir
+		var bany := Vector3.UP if absf(bup.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT
+		var bt := bany.cross(bup).normalized()
+		beam.transform.basis = Basis(bt, bup, bt.cross(bup).normalized() * -1.0).orthonormalized()
+		beam.position = _surf(dir, 19.0)
+		add_child(beam)
+		_shard_nodes.append({"node": star, "dir": dir, "got": false, "ph": float(i) * 1.3, "beam": beam})
 
 func _build_home_ring() -> void:
 	_home_pos = _surf(Vector3.DOWN, 4.0)
@@ -624,6 +672,24 @@ func _process(delta: float) -> void:
 				if pax.length() > 0.0005:
 					_dir = bdir.rotated(pax.normalized(), min_ang).normalized()
 					_project_fwd()
+					b["cool"] = float(b.get("cool", 0.0)) - delta
+					if float(b["cool"]) <= 0.0:
+						b["cool"] = 0.6
+						_chime(0.9 + fposmod(bdir.x * 7.0, 0.5))   # each crystal sings its own note
+						if _main != null and _main.has_method("_sparkle_burst"):
+							_main._sparkle_burst(_surf(bdir, 3.0), Color(0.8, 0.7, 1.0))
+	# star bounce pads: step on one and WHEEE
+	for pd in _pads:
+		pd["cool"] = maxf(0.0, float(pd["cool"]) - delta)
+		if _h < 0.6 and float(pd["cool"]) <= 0.0:
+			var pang: float = _dir.angle_to(pd["dir"]) * PLANET_R
+			if pang < 3.4:
+				pd["cool"] = 1.0
+				_vy = JUMP_V * 1.9
+				_h = maxf(_h, 0.06)
+				_chime(1.4)
+				if _main != null and _main.has_method("_sparkle_burst"):
+					_main._sparkle_burst(_surf(_dir, 2.0), Color(1.0, 0.9, 0.4))
 	# jump / gravity (radial)
 	if _jump_pressed() and _h <= 0.05:
 		_vy = JUMP_V
@@ -647,6 +713,8 @@ func _process(delta: float) -> void:
 		if ((sd["node"] as Node3D).position).distance_to(feet) < 5.0:
 			sd["got"] = true
 			(sd["node"] as Node3D).visible = false
+			if sd.get("beam") != null and is_instance_valid(sd["beam"]):
+				(sd["beam"] as Node3D).visible = false
 			_shards_got += 1
 			_update_shard_hud()
 			_chime(0.7 + 0.06 * float(_shards_got))

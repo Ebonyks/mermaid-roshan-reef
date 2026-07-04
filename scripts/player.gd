@@ -100,7 +100,11 @@ func set_skin(id: String, tex_path: String) -> void:
 	var on_skin: bool = not (id == "classic" or tex_path == "")
 	if on_skin:
 		if skin_sprite != null:
-			skin_sprite.texture = load(tex_path)
+			var tex: Texture2D = load(tex_path)
+			skin_sprite.texture = tex
+			# normalise so EVERY skin stands ~7 units tall regardless of art size
+			# (a fixed pixel_size made differently-sized art render giant or tiny)
+			skin_sprite.pixel_size = 7.0 / maxf(float(tex.get_height()), 1.0)
 			skin_sprite.visible = true
 			skin_sprite.scale = Vector3.ONE
 		if model_root != null:

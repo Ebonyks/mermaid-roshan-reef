@@ -30,3 +30,8 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 ## Galaxy level (Level 3) — added 2026-07-03
 - `assets/galaxy/crystal1.glb`, `crystal2.glb`, `crystal3.glb` — "Crystal" by iPoly3D
   (poly.pizza/m/3saqXqoOti, /m/7iHQpCXTb7, /m/8Tt6H5IwAC), **Public Domain (CC0)**.
+
+## Castle furniture (added for the interior upgrade)
+- `assets/castle/bed.glb` — "Bed Single" by Kenney (poly.pizza/m/sn8az3odMR) — CC0
+- `assets/castle/throne.glb` — "Throne" by Poly by Google (poly.pizza/m/bpFCWQSs-aT) — CC-BY 3.0 (attribution: Poly by Google)
+- `assets/terrain/up_fabric_*.jpg` — Fabric030 from ambientCG.com — CC0
