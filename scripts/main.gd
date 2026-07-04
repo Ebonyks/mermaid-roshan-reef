@@ -87,7 +87,10 @@ var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
 var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
-var galaxy_game: Node = null    # Level 3 — Roshan Galaxy (scripts/galaxy.gd)
+var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd)
+var galaxy_unlocked := false    # set the first time the rainbow race soars into Level 3
+var bw_portal_pos := Vector3.ZERO   # direct Butterfly World portal in the courtyard
+var bw_cool := 0.0
 var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
 var kart_legA := Vector3.ZERO   # rainbow leg in world 2 -> forward race
 var kart_legB := Vector3.ZERO   # rainbow leg in world 2 -> reversed race
@@ -1616,6 +1619,9 @@ func _end_kart_game(place: int) -> void:
 	_update_hud()
 
 func _start_galaxy() -> void:
+	if not galaxy_unlocked:
+		galaxy_unlocked = true
+		_write_save()
 	game = "galaxy"
 	hud_game.text = ""
 	galaxy_game = GalaxyLevel.new()
@@ -1879,6 +1885,7 @@ func _load_save() -> void:
 	custom_fish = save_data.get("custom_fish", [])
 	custom_friends = save_data.get("custom_friends", [])
 	craft_unlocks = save_data.get("crafts", {})
+	galaxy_unlocked = bool(save_data.get("galaxy", false))
 	skin_id = String(save_data.get("skin", "classic"))
 	_apply_skin()
 	var won_d: Dictionary = save_data.get("won", {})
@@ -1902,7 +1909,7 @@ func _write_save() -> void:
 	for f2 in friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks}
+	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked}
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
@@ -2719,6 +2726,23 @@ func _build_pearl_castle(o: Vector3) -> void:
 	kart_legB = Vector3(rb_center.x, lagoon_h(rb_center.x, legbz) + 6.0, legbz)
 	_kart_gateway(kart_legA, "Rainbow Race!", Color(0.4, 0.85, 1.0))
 	_kart_gateway(kart_legB, "Rainbow Race!\n(reverse lap)", Color(1.0, 0.6, 0.95))
+	# the door to LEVEL 3 sits between the two race legs. Locked until the
+	# rainbow race has carried Roshan there once; a direct portal afterwards.
+	var bwz: float = (legaz + legbz) * 0.5
+	bw_portal_pos = Vector3(rb_center.x, lagoon_h(rb_center.x, bwz) + 14.0, bwz)
+	if galaxy_unlocked:
+		_kart_gateway(bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3))
+	else:
+		var lockl := Label3D.new()
+		lockl.text = "🦋 Butterfly World\nwin the Rainbow Race to soar there!"
+		lockl.font_size = 54
+		lockl.pixel_size = 0.03
+		lockl.outline_size = 12
+		lockl.modulate = Color(1.0, 0.9, 0.6)
+		lockl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		lockl.position = bw_portal_pos + Vector3(0, 4.0, 0)
+		add_child(lockl)
+		game_nodes.append(lockl)
 	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
 	# drifting butterflies for life
 	var bfly := CPUParticles3D.new()
@@ -2978,6 +3002,13 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		return
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
 	kart_cool = maxf(0.0, kart_cool - delta)
+	bw_cool = maxf(0.0, bw_cool - delta)
+	if galaxy_unlocked and bw_portal_pos != Vector3.ZERO and bw_cool <= 0.0 and kart_cool <= 0.0:
+		if Vector2(bw_portal_pos.x - ppos.x, bw_portal_pos.z - ppos.z).length() < 9.0 and absf(bw_portal_pos.y - ppos.y) < 10.0:
+			bw_cool = 10.0
+			show_msg("Roshan", "To the Butterfly World! Wheee!")
+			_start_galaxy()
+			return
 	if kart_legA != Vector3.ZERO:
 		# horizontal distance + generous height tolerance (same forgiving test as the fairy pond)
 		var dA: float = Vector2(kart_legA.x - ppos.x, kart_legA.z - ppos.z).length()

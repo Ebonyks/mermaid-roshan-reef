@@ -1003,6 +1003,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		spr.pixel_size = 2.5 / maxf(float(tex.get_height()), 1.0)
 		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
+		root.set_meta("driver_spr", spr)
 	var nl := Label3D.new()
 	nl.text = racer_name
 	nl.font_size = 54
@@ -1011,6 +1012,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	nl.modulate = col.lightened(0.4)
 	nl.position = Vector3(0, top_h + 3.4, 0)
 	root.add_child(nl)
+	root.set_meta("name_lbl", nl)
 	if racer_name == "Roshan":
 		var trail := OmniLight3D.new()
 		trail.light_color = Color(1.0, 0.5, 0.9)
@@ -1349,10 +1351,23 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 		# catch up gently — losing stays close, winning stays possible
 		var gap: float = float(_pl["s"]) - float(k["s"])
 		base += clampf(gap * 0.08, -_vmax * 0.30, _vmax * 0.38)
+	if float(k.get("stun_t", 0.0)) > 0.0:
+		k["stun_t"] = float(k["stun_t"]) - delta
+		base *= 0.78   # just bounced off someone heavier — drop back and regroup
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
-	_apply_lat(k, move_toward(float(k["lat"]), want, 3.0 * delta))
+	# OVERTAKING LINE: if someone is right ahead in my lane, swing wide around
+	# them instead of ploughing into their bumper (the old jam-behind-the-truck)
+	for o in _karts:
+		if o == k:
+			continue
+		var ds: float = float(o["s"]) - float(k["s"])
+		if ds > -1.0 and ds < 10.0 and absf(float(o["lat"]) - float(k["lat"])) < 4.5:
+			var side: float = 1.0 if float(k["lat"]) >= float(o["lat"]) else -1.0
+			want = clampf(float(o["lat"]) + side * 6.0, -_rhalf() + 2.0, _rhalf() - 2.0)
+			break
+	_apply_lat(k, move_toward(float(k["lat"]), want, 7.0 * delta))
 
 var _shake := 0.0
 var _thunk_cool := 0.0
@@ -1398,6 +1413,17 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 		var lean: float = float(vd["lean"])
 		if lean > 0.01:
 			node.rotate_object_local(Vector3(0, 0, 1), clampf(float(k["latv"]) * 0.022 * lean, -0.4, 0.4))
+	# rival billboards fade out as they close on the camera — a giant driver
+	# face used to fill the screen whenever the pack pressed in behind you
+	if _cam != null and not bool(k["is_player"]):
+		var camd: float = node.position.distance_to(_cam.position)
+		var fade: float = clampf((camd - 5.0) / 6.0, 0.10, 1.0)
+		var dspr: Sprite3D = k["node"].get_meta("driver_spr", null)
+		if dspr != null and is_instance_valid(dspr):
+			dspr.modulate.a = fade
+		var nlbl: Label3D = k["node"].get_meta("name_lbl", null)
+		if nlbl != null and is_instance_valid(nlbl):
+			nlbl.modulate.a = fade
 	# squash & stretch pulse on impacts (bouncy!)
 	var sq: float = float(k.get("squash", 0.0))
 	if sq > 0.0:
@@ -1531,6 +1557,7 @@ func _resolve_collisions() -> void:
 				heavy["speed"] = minf(maxf(float(heavy["speed"]), fastest) * (1.0 + 0.08 * edge), _vmax * 1.9)
 				light["speed"] = float(light["speed"]) * (1.08 - 0.5 * edge)
 				light["boost_t"] = minf(float(light["boost_t"]), 0.1)
+				light["stun_t"] = 0.45   # drop back instead of grinding inside the winner
 				if float(light["s"]) > float(heavy["s"]):
 					light["s"] = float(light["s"]) - sep * 0.15
 				a["squash"] = 0.3
