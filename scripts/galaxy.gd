@@ -38,6 +38,8 @@ const TROPICAL := [
 	"res://assets/galaxy/trop_fern.glb",
 	"res://assets/nature/plant_bush.glb", "res://assets/nature/grass_leafsLarge.glb"]
 const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
+const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gate on the planet
+const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
 const TRAY_GLB := "res://assets/galaxy/tray.glb"
@@ -79,6 +81,18 @@ var _idle_t := 0.0                # stand still and a butterfly comes to visit
 var _bugs: Array = []             # crawling beetles/ladybugs: {node, axis, dir0, spd, ph, cool}
 var _rosalina: Sprite3D = null
 var _rosa_cool := 0.0
+# ---- Star Hall (castle interior) state ----
+var _mode := "planet"             # "planet" | "hall"
+var _hall_built := false
+var _hall_root: Node3D = null
+var _cpos := Vector3.ZERO         # local position on the hall floor
+var _cyaw := 0.0
+var _ch := 0.0
+var _cvy := 0.0
+var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
+var _bells: Array = []            # star bells: {node, pos, cool}
+var _fount_cool := 0.0
+var _gate_cool := 0.0
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -424,8 +438,9 @@ func _build_decor() -> void:
 	if ResourceLoader.exists(CASTLE_GLB):
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
-		_fit_small(ck, 24.0)
+		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
 		_tint_meshes(ck, Color(0.72, 0.68, 1.0), 0.45)   # amethyst-glass glow
+	_blockers.append({"dir": Vector3.UP, "r": 8.0, "cool": 0.0})   # castle core is solid; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
 		if not ResourceLoader.exists(path3):
@@ -436,6 +451,33 @@ func _build_decor() -> void:
 		castle.add_child(spire)
 		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
 	_place_on_planet(castle, Vector3.UP)
+	# the glowing GATE — walk into it to step inside the crystal castle
+	var gatel := Label3D.new()
+	gatel.text = "✨ Crystal Castle ✨\ncome in!"
+	gatel.font_size = 50
+	gatel.pixel_size = 0.03
+	gatel.outline_size = 12
+	gatel.modulate = Color(0.85, 0.8, 1.0)
+	gatel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	gatel.position = _surf(GATE_DIR, 6.5)
+	add_child(gatel)
+	var gatehalo := MeshInstance3D.new()
+	var ghm := TorusMesh.new()
+	ghm.inner_radius = 2.4
+	ghm.outer_radius = 3.2
+	gatehalo.mesh = ghm
+	var ghmat := StandardMaterial3D.new()
+	ghmat.albedo_color = Color(0.8, 0.7, 1.0)
+	ghmat.emission_enabled = true
+	ghmat.emission = Color(0.75, 0.65, 1.0)
+	ghmat.emission_energy_multiplier = 1.6
+	gatehalo.material_override = ghmat
+	var gh_holder := Node3D.new()
+	add_child(gh_holder)
+	gh_holder.add_child(gatehalo)
+	gatehalo.position = Vector3(0, 2.6, 0)
+	gatehalo.rotation_degrees = Vector3(90, 0, 0)
+	_place_on_planet(gh_holder, GATE_DIR)
 	# Mermaid Rosalina, keeper of the crystal castle
 	var rosa := Sprite3D.new()
 	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
@@ -893,7 +935,7 @@ func _process(delta: float) -> void:
 		bn2.position = newbp
 		if bvel.length() > 0.001:
 			bn2.look_at(newbp + bvel, bdir2)
-		if float(bd2["cool"]) <= 0.0 and _h < 1.5 and newbp.distance_to(_surf(_dir, _h)) < 3.2:
+		if float(bd2["cool"]) <= 0.0 and _h < 1.5 and _mode == "planet" and newbp.distance_to(_surf(_dir, _h)) < 3.2:
 			bd2["cool"] = 3.0
 			_chime(1.05 + randf() * 0.2)
 			if _main != null and _main.has_method("_sparkle_burst"):
@@ -906,7 +948,7 @@ func _process(delta: float) -> void:
 	if _rosalina != null and is_instance_valid(_rosalina):
 		_rosalina.position = _surf(Vector3(0.16, 1.0, 0.13).normalized(), 4.0 + sin(tt * 1.4) * 0.5)
 		_rosa_cool = maxf(0.0, _rosa_cool - delta)
-		if _rosa_cool <= 0.0 and _rosalina.position.distance_to(_surf(_dir, _h)) < 8.0:
+		if _rosa_cool <= 0.0 and _mode == "planet" and _rosalina.position.distance_to(_surf(_dir, _h)) < 8.0:
 			_rosa_cool = 16.0
 			_chime(1.15)
 			if _main != null and _main.has_method("show_msg"):
@@ -914,7 +956,7 @@ func _process(delta: float) -> void:
 	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
 	for td in _trays:
 		td["cool"] = maxf(0.0, float(td["cool"]) - delta)
-		if float(td["cool"]) <= 0.0 and _h < 2.0 and _state == "play":
+		if float(td["cool"]) <= 0.0 and _h < 2.0 and _state == "play" and _mode == "planet":
 			var tang: float = _dir.angle_to(td["dir"]) * PLANET_R
 			if tang < 4.5:
 				td["cool"] = 9.0
@@ -944,6 +986,9 @@ func _process(delta: float) -> void:
 			_main._sparkle_burst(_surf(_dir, 4.0 + randf() * 6.0), Color.from_hsv(randf(), 0.5, 1.0))
 		if _won_t <= 0.0:
 			_teardown(true)
+		return
+	if _mode == "hall":
+		_tick_hall(delta)
 		return
 	# ---- movement on the sphere ----
 	var mv := _move_input()
@@ -987,6 +1032,11 @@ func _process(delta: float) -> void:
 				_chime(1.4)
 				if _main != null and _main.has_method("_sparkle_burst"):
 					_main._sparkle_burst(_surf(_dir, 2.0), Color(1.0, 0.9, 0.4))
+	# the castle gate: step into the glowing ring to enter the Star Hall
+	_gate_cool = maxf(0.0, _gate_cool - delta)
+	if _gate_cool <= 0.0 and _h < 1.5 and _dir.angle_to(GATE_DIR.normalized()) * PLANET_R < 4.5:
+		_enter_hall()
+		return
 	# idle timer (a butterfly visits Roshan when she stands still)
 	if absf(mv.x) < 0.05 and absf(mv.y) < 0.05 and _h <= 0.05:
 		_idle_t += delta
@@ -1040,6 +1090,262 @@ func _process(delta: float) -> void:
 		_win()
 	if _home_pos.distance_to(feet) < 5.5:
 		_teardown(false)
+
+# ---------------------------------------------------------------- Star Hall
+func _build_hall() -> void:
+	# the castle interior: a round amethyst-glass hall floating high above the
+	# planet. Same IDEA as the Pearl Castle's grand hall, different soul —
+	# crystal + starlight instead of stone + red carpet, and the galaxy glitters
+	# straight through the translucent floor.
+	_hall_built = true
+	_hall_root = Node3D.new()
+	_hall_root.position = HALL_C
+	add_child(_hall_root)
+	var floor := MeshInstance3D.new()
+	var fcm := CylinderMesh.new()
+	fcm.top_radius = 26.0
+	fcm.bottom_radius = 26.0
+	fcm.height = 1.0
+	floor.mesh = fcm
+	var fmat := StandardMaterial3D.new()
+	fmat.albedo_color = Color(0.72, 0.66, 0.95, 0.6)
+	fmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	fmat.emission_enabled = true
+	fmat.emission = Color(0.5, 0.45, 0.85)
+	fmat.emission_energy_multiplier = 0.25
+	fmat.roughness = 0.12
+	fmat.metallic = 0.3
+	floor.material_override = fmat
+	_hall_root.add_child(floor)
+	# star rug in the middle
+	var rug := MeshInstance3D.new()
+	var rcm := CylinderMesh.new()
+	rcm.top_radius = 8.0
+	rcm.bottom_radius = 8.0
+	rcm.height = 0.2
+	rug.mesh = rcm
+	var rmat := StandardMaterial3D.new()
+	rmat.albedo_color = Color(0.30, 0.22, 0.55)
+	rmat.emission_enabled = true
+	rmat.emission = Color(0.6, 0.5, 1.0)
+	rmat.emission_energy_multiplier = 0.2
+	rug.material_override = rmat
+	rug.position = Vector3(0, 0.6, 0)
+	_hall_root.add_child(rug)
+	# amethyst-glass wall panels (door gap at +z)
+	for i in range(12):
+		if i == 0:
+			continue   # the doorway
+		var pa: float = (float(i) + 0.5) / 12.0 * TAU
+		var wp := MeshInstance3D.new()
+		var wbm := BoxMesh.new()
+		wbm.size = Vector3(13.0, 13.0, 1.0)
+		wp.mesh = wbm
+		var wmat := StandardMaterial3D.new()
+		wmat.albedo_color = Color(0.68, 0.62, 0.95, 0.35)
+		wmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		wmat.emission_enabled = true
+		wmat.emission = Color(0.55, 0.5, 0.9)
+		wmat.emission_energy_multiplier = 0.3
+		wp.material_override = wmat
+		wp.position = Vector3(sin(pa) * 25.0, 6.5, cos(pa) * 25.0)
+		wp.rotation.y = pa
+		_hall_root.add_child(wp)
+	# crystal columns
+	for i in range(6):
+		var cpath: String = CRYSTALS[i % CRYSTALS.size()]
+		if not ResourceLoader.exists(cpath):
+			continue
+		var col: Node3D = (load(cpath) as PackedScene).instantiate()
+		var chh := Node3D.new()
+		_hall_root.add_child(chh)
+		chh.add_child(col)
+		_fit_small(col, 3.4)
+		var ca: float = float(i) / 6.0 * TAU + 0.26
+		chh.position = Vector3(sin(ca) * 18.0, 0.5, cos(ca) * 18.0)
+		_tint_meshes(col, Color(0.8, 0.7, 1.0), 0.5)
+	# star chandeliers
+	for i in range(3):
+		var star := Label3D.new()
+		star.text = "★"
+		star.font_size = 240
+		star.pixel_size = 0.03
+		star.outline_size = 22
+		star.modulate = Color(1.0, 0.92, 0.55)
+		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		star.position = Vector3(sin(float(i) * TAU / 3.0) * 9.0, 10.0, cos(float(i) * TAU / 3.0) * 9.0)
+		_hall_root.add_child(star)
+		var sl := OmniLight3D.new()
+		sl.light_color = Color(1.0, 0.9, 0.6)
+		sl.light_energy = 1.6
+		sl.omni_range = 20.0
+		sl.position = star.position
+		_hall_root.add_child(sl)
+	# the Moon Throne at the back, Rosalina's indoor seat
+	var seat := MeshInstance3D.new()
+	var scm := SphereMesh.new()
+	scm.radius = 2.6
+	scm.height = 2.6
+	seat.mesh = scm
+	var smat := StandardMaterial3D.new()
+	smat.albedo_color = Color(0.95, 0.93, 1.0)
+	smat.emission_enabled = true
+	smat.emission = Color(0.85, 0.85, 1.0)
+	smat.emission_energy_multiplier = 0.5
+	seat.material_override = smat
+	seat.position = Vector3(0, 1.6, -20.0)
+	_hall_root.add_child(seat)
+	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
+		var rosa2 := Sprite3D.new()
+		var rtex2: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+		rosa2.texture = rtex2
+		rosa2.pixel_size = 6.5 / maxf(float(rtex2.get_height()), 1.0)
+		rosa2.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		rosa2.position = Vector3(0, 5.6, -20.0)
+		_hall_root.add_child(rosa2)
+	# three star bells (play a note when touched)
+	for i in range(3):
+		var bell := Label3D.new()
+		bell.text = "★"
+		bell.font_size = 170
+		bell.pixel_size = 0.03
+		bell.outline_size = 18
+		bell.modulate = [Color(1.0, 0.5, 0.6), Color(0.5, 0.9, 1.0), Color(0.7, 1.0, 0.6)][i]
+		bell.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var bpos := Vector3(14.0, 2.2, -6.0 + float(i) * 6.0)
+		bell.position = bpos
+		_hall_root.add_child(bell)
+		_bells.append({"node": bell, "pos": HALL_C + bpos, "cool": 0.0, "pitch": 0.7 + float(i) * 0.18})
+	# the wish fountain (+2 pearls, slow cooldown)
+	var fring := MeshInstance3D.new()
+	var ftm := TorusMesh.new()
+	ftm.inner_radius = 1.8
+	ftm.outer_radius = 2.6
+	fring.mesh = ftm
+	var fmat2 := StandardMaterial3D.new()
+	fmat2.albedo_color = Color(0.5, 0.85, 1.0)
+	fmat2.emission_enabled = true
+	fmat2.emission = Color(0.4, 0.8, 1.0)
+	fmat2.emission_energy_multiplier = 1.2
+	fring.material_override = fmat2
+	fring.position = Vector3(-14.0, 1.0, -2.0)
+	_hall_root.add_child(fring)
+	var flab := Label3D.new()
+	flab.text = "wish fountain"
+	flab.font_size = 40
+	flab.pixel_size = 0.025
+	flab.outline_size = 10
+	flab.modulate = Color(0.7, 0.9, 1.0)
+	flab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	flab.position = Vector3(-14.0, 4.4, -2.0)
+	_hall_root.add_child(flab)
+	# doorway arch + label
+	var arch := MeshInstance3D.new()
+	var atm := TorusMesh.new()
+	atm.inner_radius = 3.2
+	atm.outer_radius = 4.0
+	arch.mesh = atm
+	arch.material_override = fmat2
+	arch.position = Vector3(0, 3.4, 24.6)
+	_hall_root.add_child(arch)
+	var dlab := Label3D.new()
+	dlab.text = "back to the garden"
+	dlab.font_size = 44
+	dlab.pixel_size = 0.025
+	dlab.outline_size = 10
+	dlab.modulate = Color(0.8, 1.0, 0.85)
+	dlab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	dlab.position = Vector3(0, 8.0, 24.6)
+	_hall_root.add_child(dlab)
+	# indoor butterflies circling the chandeliers
+	for i in range(4):
+		var bf := _make_butterfly(WING_COLS[(i * 2) % WING_COLS.size()], 1.8)
+		_hall_root.add_child(bf)
+		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4})
+
+func _enter_hall() -> void:
+	if not _hall_built:
+		_build_hall()
+	_mode = "hall"
+	_cpos = Vector3(0, 0, 21.0)
+	_cyaw = PI
+	_ch = 0.0
+	_cvy = 0.0
+	_chime(1.2)
+	if _lbl_hint != null:
+		_lbl_hint.text = "The STAR HALL!  •  ring the star bells — make a wish at the fountain!"
+	if _main != null and _main.has_method("show_msg"):
+		_main.show_msg("Mermaid Rosalina", "Come in, come in! This is my Star Hall — the whole galaxy shines under the floor!", "greet")
+
+func _exit_hall() -> void:
+	_mode = "planet"
+	_gate_cool = 2.0
+	_dir = Vector3(0.55, 1.0, 0.0).normalized()
+	_project_fwd()
+	_h = 0.0
+	_vy = 0.0
+	if _lbl_hint != null:
+		_lbl_hint.text = "Find the 7 lost butterflies — follow their beacons!  •  fruit trays call the swarm!"
+
+func _tick_hall(delta: float) -> void:
+	var mv := _move_input()
+	if absf(mv.x) > 0.01:
+		_cyaw -= mv.x * TURN_SPD * delta
+	var fwd := Vector3(sin(_cyaw), 0.0, cos(_cyaw))
+	if absf(mv.y) > 0.01:
+		_cpos += fwd * mv.y * RUN_SPD * delta
+	var rr: float = Vector2(_cpos.x, _cpos.z).length()
+	if rr > 23.5:
+		_cpos.x *= 23.5 / rr
+		_cpos.z *= 23.5 / rr
+	if _jump_pressed() and _ch <= 0.05:
+		_cvy = JUMP_V * 0.85
+	_cvy -= GRAV * delta
+	_ch = maxf(0.0, _ch + _cvy * delta)
+	if _ch <= 0.0:
+		_cvy = 0.0
+	if _avatar != null:
+		_avatar.position = HALL_C + _cpos + Vector3(0, 0.5 + _ch + sin(_bob_t * 3.0) * 0.1, 0)
+		_avatar.transform.basis = Basis(fwd.cross(Vector3.UP).normalized(), Vector3.UP, -fwd).orthonormalized()
+	if _cam != null:
+		var want: Vector3 = HALL_C + _cpos + Vector3(0, _ch + 6.5, 0) - fwd * 11.5
+		_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
+		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + fwd * 3.0, Vector3.UP)
+	var tt: float = Time.get_ticks_msec() / 1000.0
+	for hf in _hall_flies:
+		var n3: Node3D = hf["node"]
+		var ha: float = tt * float(hf["spd"]) + float(hf["ph"])
+		var hp := Vector3(cos(ha) * float(hf["r"]), float(hf["h"]) + sin(tt * 1.8 + float(hf["ph"])) * 0.6, sin(ha) * float(hf["r"]))
+		var hv: Vector3 = (HALL_C + hp) - n3.position
+		n3.position = HALL_C + hp
+		if hv.length() > 0.01:
+			n3.look_at(n3.position + hv, Vector3.UP)
+		n3.scale = Vector3(1.0 + 0.28 * sin(tt * 14.0), 1.0, 1.0)
+	var feet: Vector3 = HALL_C + _cpos + Vector3(0, 0.5, 0)
+	for b in _bells:
+		b["cool"] = maxf(0.0, float(b["cool"]) - delta)
+		if float(b["cool"]) <= 0.0 and (b["pos"] as Vector3).distance_to(feet) < 3.4:
+			b["cool"] = 0.5
+			_chime(float(b["pitch"]))
+			var bn: Label3D = b["node"]
+			var tw2 := bn.create_tween()
+			tw2.tween_property(bn, "scale", Vector3.ONE * 1.5, 0.08)
+			tw2.tween_property(bn, "scale", Vector3.ONE, 0.2)
+	_fount_cool = maxf(0.0, _fount_cool - delta)
+	if _fount_cool <= 0.0 and feet.distance_to(HALL_C + Vector3(-14.0, 1.0, -2.0)) < 3.6:
+		_fount_cool = 20.0
+		_chime(1.35)
+		if _main != null and _main.has_method("_sparkle_burst"):
+			_main._sparkle_burst(HALL_C + Vector3(-14.0, 3.0, -2.0), Color(0.6, 0.9, 1.0))
+		if _main != null and "pearl_count" in _main:
+			_main.pearl_count += 2
+			if _main.has_method("_update_hud"):
+				_main._update_hud()
+		if _main != null and _main.has_method("show_msg"):
+			_main.show_msg("Mermaid Rosalina", "Your wish sparkles true! +2 pearls!", "win")
+	# the doorway back out
+	if _cpos.z > 21.5 and absf(_cpos.x) < 7.0:
+		_exit_hall()
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:
