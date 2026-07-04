@@ -167,6 +167,7 @@ var flora_nodes: Array = []
 var first_session := true
 var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
+var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
 var whale_node: Node3D
 var voice_pool: Array = []
 var voice_i := 0
@@ -318,6 +319,13 @@ func _ready() -> void:
 	add_child(chime)
 	buy_sound = AudioStreamPlayer.new()
 	buy_sound.stream = load("res://assets/audio/buy.ogg")
+	beans_sfx = AudioStreamPlayer.new()
+	var banjo_st: AudioStream = load("res://assets/audio/music/banjo.ogg")
+	if banjo_st is AudioStreamOggVorbis:
+		(banjo_st as AudioStreamOggVorbis).loop = true
+	beans_sfx.stream = banjo_st
+	beans_sfx.volume_db = -7.0
+	add_child(beans_sfx)
 	add_child(buy_sound)
 	for vp in range(4):
 		var ap := AudioStreamPlayer.new()
@@ -2318,7 +2326,7 @@ const LAGOON_RIVERS := [
 	[Vector2(-210, -40), Vector2(-150, 30), Vector2(-90, 100), Vector2(-30, 170)],
 	[Vector2(205, -30), Vector2(150, 40), Vector2(95, 110), Vector2(45, 180)]]
 const LAGOON_RIVER_W := 17.0
-const LAGOON_RIVER_DEPTH := 18.0
+const LAGOON_RIVER_DEPTH := 12.0   # was 18: that carved bare-walled canyons that no water sheet could ever look right in
 # Castle moat: a ring channel carved around the keep, with a hidden door at its floor.
 const MOAT_CX := 0.0
 const MOAT_CZ := -120.0      # local (relative to LEVEL2_POS); matches the castle base
@@ -2462,7 +2470,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	g["l2_fish"] = []
 	var fishkinds := ["ClownFish", "Dory", "Carp", "Tuna", "Eel"]
 	var wsh := Shader.new()
-	wsh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D ripple;\nvoid vertex(){ VERTEX.y += sin(TIME*1.4 + VERTEX.x*0.3)*0.25; }\nvoid fragment(){ float f = fract(UV.y*8.0 - TIME*0.3); float band = smoothstep(0.0,0.5,f)*smoothstep(1.0,0.5,f); vec3 base=vec3(0.2,0.55,0.8); ALBEDO=base+band*vec3(0.3,0.4,0.4); EMISSION=base*0.3+band*vec3(0.3,0.5,0.6)*0.6; vec2 ruv=UV*4.0+vec2(TIME*0.04,TIME*0.07); NORMAL_MAP=mix(texture(ripple,ruv).rgb, texture(ripple,ruv*1.7-TIME*0.03).rgb, 0.5); NORMAL_MAP_DEPTH=0.6; ROUGHNESS=0.08; METALLIC=0.4; ALPHA=0.82; }"
+	wsh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D ripple;\nvoid vertex(){ VERTEX.y += sin(TIME*1.4 + VERTEX.x*0.3)*0.25; }\nvoid fragment(){ float f = fract(UV.y*8.0 - TIME*0.3); float band = smoothstep(0.0,0.5,f)*smoothstep(1.0,0.5,f); vec3 base=vec3(0.2,0.55,0.8); ALBEDO=base+band*vec3(0.10,0.14,0.14); EMISSION=base*0.18+band*vec3(0.3,0.5,0.6)*0.15; vec2 ruv=UV*4.0+vec2(TIME*0.04,TIME*0.07); NORMAL_MAP=mix(texture(ripple,ruv).rgb, texture(ripple,ruv*1.7-TIME*0.03).rgb, 0.5); NORMAL_MAP_DEPTH=0.6; ROUGHNESS=0.08; METALLIC=0.4; ALPHA=0.82; }"
 	var ripple_tex := load("res://assets/terrain/up_water_nrm.jpg")
 	for rv in LAGOON_RIVERS:
 		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
@@ -2485,13 +2493,13 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var pp: Vector2 = pts[maxi(i - 1, 0)]
 			var d2: Vector2 = (pn - pp)
 			d2 = d2.normalized() if d2.length() > 0.001 else Vector2(0, 1)
-			var perp := Vector2(-d2.y, d2.x) * 15.0
-			# DEEP water: the surface rides just under the bank rim (terrain height
-			# WITHOUT the river dip), not at the trench bottom — the old floor+3.2
-			# surface left ~15 units of bare stone bank looming over shallow water
+			var perp := Vector2(-d2.y, d2.x) * 16.3
+			# the water FILLS the channel: surface 1.5 under the bank rim, and the
+			# ribbon is slightly wider than the waterline so its edges bury into
+			# the banks (no gap, no floating-band look). Depth ~10.5 = deep swims.
 			var floor_h: float = _lagoon_local(p2.x, p2.y)
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
-			var wy: float = maxf(floor_h + 1.2, (floor_h + dip_h) - 3.0)
+			var wy: float = maxf(floor_h + 0.8, (floor_h + dip_h) - 1.5)
 			var v: float = float(i) / float(pts.size())
 			st2.set_uv(Vector2(0.0, v * 6.0))
 			st2.add_vertex(Vector3(p2.x + perp.x, wy, p2.y + perp.y))
@@ -2519,8 +2527,33 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
-	# (no moat water surface — it was an opaque plane that hid the carved moat; the moat
-	#  is now an open trench you can dive into to reach the hidden back-door hatch)
+	# ---- moat water: translucent ring surface at y -6 (the dry brown trench
+	# read as a glitch). ~10 units deep; the hatch glow shines up through it. ----
+	var mst := SurfaceTool.new()
+	mst.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var mseg := 72
+	for i in range(mseg + 1):
+		var ma2: float = float(i) / float(mseg) * TAU
+		var ca2: float = cos(ma2)
+		var sa2: float = sin(ma2)
+		var v2: float = float(i) / float(mseg)
+		mst.set_uv(Vector2(0.0, v2 * 14.0))
+		mst.add_vertex(Vector3(MOAT_CX + ca2 * (MOAT_INNER - 1.5), -6.0, MOAT_CZ + sa2 * (MOAT_INNER - 1.5)))
+		mst.set_uv(Vector2(1.0, v2 * 14.0))
+		mst.add_vertex(Vector3(MOAT_CX + ca2 * (MOAT_OUTER + 1.5), -6.0, MOAT_CZ + sa2 * (MOAT_OUTER + 1.5)))
+	for i in range(mseg):
+		var a4 := i * 2
+		mst.add_index(a4); mst.add_index(a4 + 1); mst.add_index(a4 + 3)
+		mst.add_index(a4); mst.add_index(a4 + 3); mst.add_index(a4 + 2)
+	var moatw := MeshInstance3D.new()
+	moatw.mesh = mst.commit()
+	var mwmat := ShaderMaterial.new()
+	mwmat.shader = wsh
+	mwmat.set_shader_parameter("ripple", ripple_tex)
+	moatw.material_override = mwmat
+	moatw.position = o
+	add_child(moatw)
+	game_nodes.append(moatw)
 
 func _build_pearl_castle(o: Vector3) -> void:
 	wall_pics = []
@@ -4955,8 +4988,8 @@ func _beans_go() -> void:
 	beans_t = 40.0   # long enough to swim from the Pearl Shop to the Penguin Slide
 	speed_mult = 2.0
 	fart_t = 0.7
-	prev_track = cur_track if cur_track != "banjo" else "world"
-	_play_music("banjo")
+	if beans_sfx != null and not beans_sfx.playing:
+		beans_sfx.play()
 	_say("roshan", "beans")
 	show_msg("Roshan", "Yummy, beans! ...toot!")
 	_beans_bubbles()
@@ -4996,9 +5029,6 @@ var g_beans_bubbles: CPUParticles3D
 func _tick_beans(delta: float) -> void:
 	if beans_t < 0.0:
 		return
-	# keep banjo playing through any arena transition while beans are active
-	if cur_track != "banjo":
-		_play_music("banjo")
 	beans_t -= delta
 	if beans_t <= 0.0:
 		beans_t = -1.0
@@ -5007,8 +5037,8 @@ func _tick_beans(delta: float) -> void:
 		if g_beans_bubbles != null and is_instance_valid(g_beans_bubbles):
 			g_beans_bubbles.queue_free()
 		g_beans_bubbles = null
-		if cur_track == "banjo":
-			_play_music(prev_track if prev_track != "" else "world")
+		if beans_sfx != null:
+			beans_sfx.stop()
 
 func _build_guide() -> void:
 	# no guide character; wayfinding = beacon pillars + a silent helping current
