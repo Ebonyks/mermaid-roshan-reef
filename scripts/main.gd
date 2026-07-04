@@ -3059,6 +3059,21 @@ func _mg2d_open(kind: String) -> void:
 	mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
 	mg2d_root.add_child(mg2d_stage)
 	mg["hud"] = _mg_label("", 40, Vector2(40, 26))
+	# a friendly ✕ so ANY config can leave without finishing (controller: B)
+	var xb := Button.new()
+	xb.text = "✕"
+	xb.add_theme_font_size_override("font_size", 42)
+	xb.custom_minimum_size = Vector2(76, 76)
+	xb.position = Vector2(1186, 14)
+	var xsb := StyleBoxFlat.new()
+	xsb.bg_color = Color(0.1, 0.12, 0.25, 0.55)
+	xsb.set_corner_radius_all(38)
+	xb.add_theme_stylebox_override("normal", xsb)
+	xb.add_theme_stylebox_override("hover", xsb)
+	xb.add_theme_stylebox_override("pressed", xsb)
+	xb.pressed.connect(_mg2d_close)
+	mg2d_stage.add_child(xb)
+	mg["xbtn"] = xb
 	if kind == "snowman": _mg_build_snowman()
 	elif kind == "garden": _mg_build_garden()
 	elif kind == "trampoline": _mg_build_trampoline()
@@ -3162,6 +3177,8 @@ func _mg2d_win(msg: String) -> void:
 		if is_instance_valid(b):
 			b.disabled = true
 			b.visible = false
+	if mg.get("xbtn") != null and is_instance_valid(mg["xbtn"]):
+		(mg["xbtn"] as Button).visible = false
 	if mg2d_stage != null and is_instance_valid(mg2d_stage):
 		var banner := _mg_label("\u2b50  Yay! You did it!  \u2b50", 76, Vector2(330, 26))
 		banner.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
@@ -3441,6 +3458,21 @@ func _tick_mg2d(delta: float) -> void:
 	if mg_kind == "":
 		return
 	mg["t"] = float(mg["t"]) + delta
+	# ---- controller support for the tap overlays: A presses the next available
+	# ---- button, B closes the game — pad-only setups are never stuck
+	if not bool(mg.get("won", false)):
+		var apress: bool = joy_pressed(JOY_BUTTON_A)
+		if apress and not bool(mg.get("joyA", false)):
+			for b in (mg.get("btns", []) as Array):
+				if b is Button and is_instance_valid(b) and (b as Button).visible and not (b as Button).disabled:
+					(b as Button).pressed.emit()
+					break
+		mg["joyA"] = apress
+		var bpress: bool = joy_pressed(JOY_BUTTON_B)
+		if bpress and not bool(mg.get("joyB", false)) and float(mg["t"]) > 0.6:
+			_mg2d_close()
+			return
+		mg["joyB"] = bpress
 	if mg_kind == "snowman" and String(mg.get("phase", "")) == "roll" and mg.has("roll_ball"):
 		var t2: float = float(mg["t"])
 		# flashing banner: pulse alpha + a little breathe
@@ -4655,8 +4687,9 @@ func _craft_set(part: String, col: Color) -> void:
 					(c as TextureRect).modulate = Color(col.r, col.g, col.b, aa)
 
 func _craft_done() -> void:
-	if craft_layer == null:
-		return
+	if craft_layer == null or bool(get_meta("craft_closing", false)):
+		return   # reentry guard: double-click / double-A must not craft twice
+	set_meta("craft_closing", true)
 	var fishy: bool = craft_kind == "fish"
 	var msgtxt: String
 	if fishy:
@@ -4685,6 +4718,7 @@ func _craft_done() -> void:
 	get_tree().create_timer(2.6).timeout.connect(_close_craft)
 
 func _close_craft() -> void:
+	set_meta("craft_closing", false)
 	if craft_layer != null and is_instance_valid(craft_layer):
 		craft_layer.queue_free()
 	craft_status = null
@@ -7054,11 +7088,38 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			if caught >= 7:
 				_end_game(true, fr, "You caught the WHOLE rainbow! Gabby and her friends cheer!")
 				return
+var _pad_prev_a := false
+var _pad_prev_b := false
+var _overlay_age := 0.0
+
+func _tick_overlay_pads(delta: float) -> void:
+	# gamepad shortcuts for the pointer-driven overlays: A = Done, B = close.
+	# Without these a controller-only setup could open the craft studio or the
+	# wardrobe and never leave (no pointer, no exit).
+	var a: bool = joy_pressed(JOY_BUTTON_A)
+	var b: bool = joy_pressed(JOY_BUTTON_B)
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null
+	_overlay_age = _overlay_age + delta if overlay_open else 0.0
+	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
+		if craft_layer != null:
+			if a and not _pad_prev_a:
+				_craft_done()
+			elif b and not _pad_prev_b:
+				_close_craft()
+		elif wardrobe_layer != null:
+			if a and not _pad_prev_a:
+				_wardrobe_done()
+			elif b and not _pad_prev_b:
+				_close_wardrobe()
+	_pad_prev_a = a
+	_pad_prev_b = b
+
 func _process(delta: float) -> void:
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
+	_tick_overlay_pads(delta)
 	if speech_t > 0.0:
 		speech_t -= delta
 		if speech_t <= 0.0 and speech_layer != null:
