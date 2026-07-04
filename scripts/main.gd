@@ -3462,7 +3462,9 @@ func _tick_mg2d(delta: float) -> void:
 	# ---- button, B closes the game — pad-only setups are never stuck
 	if not bool(mg.get("won", false)):
 		var apress: bool = joy_pressed(JOY_BUTTON_A)
-		if apress and not bool(mg.get("joyA", false)):
+		if apress and not bool(mg.get("joyA", false)) and not pad_cursor_active:
+			# blind quick-press (first available button) only while the star
+			# cursor is asleep — once it wakes, A clicks AT the cursor instead
 			for b in (mg.get("btns", []) as Array):
 				if b is Button and is_instance_valid(b) and (b as Button).visible and not (b as Button).disabled:
 					(b as Button).pressed.emit()
@@ -3588,7 +3590,7 @@ func _enter_castle_interior() -> void:
 	lagoon_floor = false   # the castle hall is flat indoor ground
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 60.0
+	arena_dome = 66.0   # covers the enlarged 22x22 bedroom (corners r<65)
 	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
 	# warm indoor castle light
 	var ie := Environment.new()
@@ -4106,34 +4108,35 @@ func _build_castle_music_room(o: Vector3) -> void:
 	il.position = o + Vector3(-34, 7, -16); add_child(il); game_nodes.append(il)
 
 func _build_castle_bedroom(o: Vector3) -> void:
-	# Cosy single-bed room reached through the right-wall doorway (x=35, z=-16).
-	# Footprint x:35..52.75, z:-24.75..-7.25 — entirely inside the dome (r<60).
-	var bo: Vector3 = o + Vector3(44, 0, -16)            # room centre
+	# Roomy royal bedroom off the right-wall doorway (x=35, z=-16).
+	# Footprint x:35..57, z:-28..-6 (22x22) — corners r<65, inside the dome (66).
+	var bo: Vector3 = o + Vector3(46, 0, -17)            # room centre
 	var wall := Color(0.96, 0.9, 0.86)                   # warm rosy plaster
 	# floor + ceiling (no colliders — handled by the floor clamp / arena_ceil)
-	var bfloor := _l2_box(bo + Vector3(0, 0.4, 0), Vector3(18, 1.0, 18), Color(0.78, 0.6, 0.5))
+	var bfloor := _l2_box(bo + Vector3(0, 0.4, 0), Vector3(22, 1.0, 22), Color(0.78, 0.6, 0.5))
 	bfloor.material_override.roughness = 0.9
-	_l2_box(bo + Vector3(0, 33.0, 0), Vector3(18, 1.5, 18), Color(0.9, 0.84, 0.82))
+	_l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.9, 0.84, 0.82))
 	# enclosing walls (the left/hall side is the segmented hall wall already built)
-	_iwall(bo + Vector3(8.75, 16, 0), Vector3(1.5, 34, 18), wall)        # far wall (x=52.75)
-	_iwall(bo + Vector3(0, 16, -8.75), Vector3(18, 34, 1.5), wall)       # back wall (z=-24.75)
-	_iwall(bo + Vector3(0, 16, 8.75), Vector3(18, 34, 1.5), wall)        # front wall (z=-7.25)
+	_iwall(bo + Vector3(11, 16, 0), Vector3(1.5, 34, 22), wall)          # far wall (x=57)
+	_iwall(bo + Vector3(0, 16, -11), Vector3(22, 34, 1.5), wall)         # back wall (z=-28)
+	_iwall(bo + Vector3(0, 16, 11), Vector3(22, 34, 1.5), wall)          # front wall (z=-6)
 	# gold doorway frame around the opening in the hall wall
 	for dz in [-21.0, -11.0]:
 		_l2_box(o + Vector3(35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
-	# ---------- the single bed (head against the back wall) ----------
-	var bx := 4.0      # bed centre offset toward the far wall
-	var bcx: float = bo.x + bx
-	var frame := _l2_box(Vector3(bcx, o.y + 2.0, bo.z), Vector3(6, 2.5, 10), Color(0.5, 0.32, 0.2))   # wooden frame
+	# ---------- the royal bed (head against the back wall, room to walk all around) ----------
+	var bcx: float = bo.x + 4.0
+	var bcz: float = bo.z - 2.0
+	var frame := _l2_box(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), Color(0.5, 0.32, 0.2))   # wooden frame
 	frame.material_override.roughness = 0.8
-	_l2_box(Vector3(bcx, o.y + 3.7, bo.z), Vector3(5, 1.2, 9), Color(0.98, 0.97, 1.0))                # mattress
-	_l2_box(Vector3(bcx, o.y + 4.4, bo.z + 1.5), Vector3(5.2, 0.5, 5.5), Color(0.45, 0.62, 0.92))     # folded blanket
-	_l2_box(Vector3(bcx, o.y + 4.6, bo.z - 3.4), Vector3(4.2, 0.9, 2.2), Color(1.0, 1.0, 1.0))        # pillow
-	var headboard := _l2_box(Vector3(bcx, o.y + 5.5, bo.z - 4.7), Vector3(6, 6, 0.9), Color(0.45, 0.28, 0.17))
+	_l2_box(Vector3(bcx, o.y + 3.7, bcz), Vector3(6, 1.2, 11), Color(0.98, 0.97, 1.0))               # mattress
+	_l2_box(Vector3(bcx, o.y + 4.4, bcz + 2.0), Vector3(6.2, 0.5, 6.5), Color(0.45, 0.62, 0.92))     # folded blanket
+	_l2_box(Vector3(bcx, o.y + 4.6, bcz - 4.2), Vector3(5.0, 0.9, 2.4), Color(1.0, 1.0, 1.0))        # pillow
+	var headboard := _l2_box(Vector3(bcx, o.y + 5.8, bcz - 5.8), Vector3(7, 6.5, 0.9), Color(0.45, 0.28, 0.17))
 	headboard.material_override.roughness = 0.7
-	# bed collider: low (player can swim over it) but blocks at floor level
-	_wall_solid(Vector3(bcx, o.y + 2.0, bo.z), Vector3(6, 2.5, 10))
-	g["bed_pos"] = Vector3(bcx, o.y + 4.3, bo.z)   # mattress top — the go-to-sleep trigger
+	# bed collider: SLIM pad — the old 1.6 pad ejected Roshan outside the sleep
+	# trigger radius, so climbing into bed could never fire the cutscene
+	_wall_solid(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), 0.5)
+	g["bed_pos"] = Vector3(bcx, o.y + 4.3, bcz)   # mattress top — the go-to-sleep trigger
 	var bedsign := Label3D.new()
 	bedsign.text = "zZz  snuggle in!"
 	bedsign.font_size = 40
@@ -4141,11 +4144,11 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	bedsign.outline_size = 10
 	bedsign.modulate = Color(0.8, 0.85, 1.0)
 	bedsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	bedsign.position = Vector3(bcx, o.y + 9.0, bo.z)
+	bedsign.position = Vector3(bcx, o.y + 10.0, bcz)
 	add_child(bedsign)
 	game_nodes.append(bedsign)
-	# ---------- bedside table + glowing lamp ----------
-	var table := _l2_box(Vector3(bo.x - 4.5, o.y + 1.8, bo.z - 5.5), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
+	# ---------- bedside table + glowing lamp (at the bed's head) ----------
+	var table := _l2_box(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
 	table.material_override.roughness = 0.8
 	var lampbulb := MeshInstance3D.new()
 	var ls := SphereMesh.new(); ls.radius = 0.7; ls.height = 1.4
@@ -4153,16 +4156,20 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	var lmat := StandardMaterial3D.new()
 	lmat.emission_enabled = true; lmat.emission = Color(1.0, 0.82, 0.5); lmat.emission_energy_multiplier = 3.0
 	lampbulb.material_override = lmat
-	lampbulb.position = Vector3(bo.x - 4.5, o.y + 4.6, bo.z - 5.5)
+	lampbulb.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0)
 	add_child(lampbulb); game_nodes.append(lampbulb)
 	var lamp := OmniLight3D.new()
 	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 2.0; lamp.omni_range = 18.0
 	lamp.position = lampbulb.position; add_child(lamp); game_nodes.append(lamp)
-	# soft rug by the doorway
-	var rug := _l2_box(bo + Vector3(-4.0, 0.95, 2.0), Vector3(8, 0.1, 7), Color(0.7, 0.3, 0.4))
+	# big soft rug in the middle of the room
+	var rug := _l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
 	rug.material_override.roughness = 1.0
+	# toy chest by the far wall (decor)
+	var chest := _l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
+	chest.material_override.roughness = 0.85
+	_l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
-	var vpos: Vector3 = bo + Vector3(-3.5, 0, 7.0)        # against the front wall, facing the room
+	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
 	var wardrobe := _l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
 	wardrobe.material_override.roughness = 0.8
 	var mirror := _l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.7, 0.92, 1.0), 0.6)  # glowing mirror glass
@@ -4183,11 +4190,13 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	g["wardrobe"] = vpos + Vector3(0, 6, -2)
 	# fill light so the room reads warm
 	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 1.8; bl.omni_range = 30.0
+	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 2.0; bl.omni_range = 36.0
 	bl.position = bo + Vector3(0, 22, 0); add_child(bl); game_nodes.append(bl)
-	# little glowing window on the far wall for ambiance
-	var win := _l2_box(bo + Vector3(8.1, 20, 0), Vector3(0.4, 7, 6), Color(0.6, 0.85, 1.0), 0.8)
+	# glowing windows on the far and back walls for ambiance
+	var win := _l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.6, 0.85, 1.0), 0.8)
 	win.material_override.emission_energy_multiplier = 1.2
+	var win2 := _l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.6, 0.85, 1.0), 0.8)
+	win2.material_override.emission_energy_multiplier = 1.2
 	# label over the doorway
 	var blab := Label3D.new()
 	blab.text = "\U0001f6cf️ Bedroom"
@@ -4260,7 +4269,9 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	sleep_cool = maxf(0.0, sleep_cool - delta)
 	if g.has("bed_pos") and sleep_cool <= 0.0 and mg_kind == "" and craft_layer == null:
 		var bpv: Vector3 = g["bed_pos"]
-		if Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 4.0 and absf(bpv.y - ppos.y) < 5.0:
+		# generous: fires the moment Roshan touches the bed from ANY side (the old
+		# 4.0 radius sat entirely inside the collider's eject distance — unreachable)
+		if Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 7.0 and absf(bpv.y - ppos.y) < 8.0:
 			_begin_sleep()
 			return
 	hud_game.text = "Swim up the stairs to Princess Huluu and the Crown Star!"
@@ -7092,6 +7103,76 @@ var _pad_prev_a := false
 var _pad_prev_b := false
 var _overlay_age := 0.0
 
+# ---- PAD CURSOR: a golden star pointer, so a controller can click ANY button
+# ---- in the pointer-driven overlays (craft swatches, wardrobe outfits, 2D
+# ---- minigames). Wakes on the first stick push while an overlay is open.
+var pad_cursor_layer: CanvasLayer = null
+var pad_cursor_node: Label = null
+var pad_cursor_pos := Vector2(640, 360)
+var pad_cursor_active := false
+var _pc_prev_a := false
+
+func _overlay_root_for_cursor() -> Node:
+	if craft_layer != null and is_instance_valid(craft_layer):
+		return craft_layer
+	if wardrobe_layer != null and is_instance_valid(wardrobe_layer):
+		return wardrobe_layer
+	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
+		return mg2d_layer
+	return null
+
+func _tick_pad_cursor(delta: float) -> void:
+	var root: Node = _overlay_root_for_cursor()
+	var a: bool = joy_pressed(JOY_BUTTON_A)
+	if root == null:
+		pad_cursor_active = false
+		if pad_cursor_layer != null:
+			pad_cursor_layer.visible = false
+		_pc_prev_a = a
+		return
+	var v := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
+	v += Vector2(joy_axis(JOY_AXIS_RIGHT_X), joy_axis(JOY_AXIS_RIGHT_Y))
+	if v.length() < 0.2:
+		v = Vector2.ZERO
+	if not pad_cursor_active:
+		if v == Vector2.ZERO:
+			_pc_prev_a = a
+			return
+		pad_cursor_active = true
+		pad_cursor_pos = get_viewport().get_visible_rect().size * 0.5
+		if pad_cursor_layer == null:
+			pad_cursor_layer = CanvasLayer.new()
+			pad_cursor_layer.layer = 30
+			add_child(pad_cursor_layer)
+			pad_cursor_node = Label.new()
+			pad_cursor_node.text = "✦"
+			pad_cursor_node.add_theme_font_size_override("font_size", 58)
+			pad_cursor_node.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+			pad_cursor_node.add_theme_color_override("font_outline_color", Color(0.1, 0.05, 0.2))
+			pad_cursor_node.add_theme_constant_override("outline_size", 12)
+			pad_cursor_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			pad_cursor_layer.add_child(pad_cursor_node)
+	pad_cursor_layer.visible = true
+	var vr: Vector2 = get_viewport().get_visible_rect().size
+	pad_cursor_pos = (pad_cursor_pos + v * 950.0 * delta).clamp(Vector2.ZERO, vr)
+	pad_cursor_node.position = pad_cursor_pos - Vector2(20, 36)
+	pad_cursor_node.scale = pad_cursor_node.scale.lerp(Vector2.ONE, minf(1.0, delta * 10.0))
+	if a and not _pc_prev_a:
+		# click whatever Button sits under the star (last hit in tree order = topmost)
+		var hit: Button = null
+		var stack: Array = [root]
+		while not stack.is_empty():
+			var n: Node = stack.pop_back()
+			for c in n.get_children():
+				stack.append(c)
+			if n is Button and (n as Button).is_visible_in_tree() and not (n as Button).disabled:
+				if (n as Button).get_global_rect().has_point(pad_cursor_pos):
+					hit = n
+		if hit != null:
+			pad_cursor_node.scale = Vector2(1.5, 1.5)   # satisfying click pop
+			hit.pressed.emit()
+	_pc_prev_a = a
+
 func _tick_overlay_pads(delta: float) -> void:
 	# gamepad shortcuts for the pointer-driven overlays: A = Done, B = close.
 	# Without these a controller-only setup could open the craft studio or the
@@ -7102,12 +7183,12 @@ func _tick_overlay_pads(delta: float) -> void:
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
-			if a and not _pad_prev_a:
-				_craft_done()
+			if a and not _pad_prev_a and not pad_cursor_active:
+				_craft_done()   # quick-finish only while the star cursor is asleep
 			elif b and not _pad_prev_b:
 				_close_craft()
 		elif wardrobe_layer != null:
-			if a and not _pad_prev_a:
+			if a and not _pad_prev_a and not pad_cursor_active:
 				_wardrobe_done()
 			elif b and not _pad_prev_b:
 				_close_wardrobe()
@@ -7120,6 +7201,7 @@ func _process(delta: float) -> void:
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
 	_tick_overlay_pads(delta)
+	_tick_pad_cursor(delta)
 	if speech_t > 0.0:
 		speech_t -= delta
 		if speech_t <= 0.0 and speech_layer != null:
