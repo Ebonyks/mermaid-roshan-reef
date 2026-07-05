@@ -115,6 +115,7 @@ var plankton_node: GPUParticles3D
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_resume_btn: Button = null
+var fps_lbl: Label = null
 # bedtime: swim onto the castle bed -> tuck-in cutscene that flips day <-> night
 var sleep_t := -1.0
 var sleep_cool := 0.0
@@ -724,6 +725,8 @@ func _build_environment() -> void:
 	sun.light_color = Color(0.55, 0.80, 0.98)
 	sun.light_energy = 0.55
 	sun.shadow_enabled = true
+	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	sun.directional_shadow_max_distance = 90.0
 	add_child(sun)
 	sun_light = sun
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -753,6 +756,7 @@ func _build_caustics() -> void:
 	mi.material_override = mat
 	mi.visible = false
 	add_child(mi)
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	caustics_plane = mi
 
 func _build_bubble_columns() -> void:
@@ -852,7 +856,7 @@ void fragment(){
 	add_child(mi)
 func _add_plankton() -> void:
 	var parts := GPUParticles3D.new()
-	parts.amount = 600
+	parts.amount = 320
 	parts.lifetime = 12.0
 	parts.preprocess = 12.0
 	var pm := ParticleProcessMaterial.new()
@@ -871,6 +875,7 @@ func _add_plankton() -> void:
 	qm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	quad.material = qm
 	parts.draw_pass_1 = quad
+	parts.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	parts.position = Vector3(0, WATER_TOP * 0.5, 0)
 	add_child(parts)
 	plankton_node = parts
@@ -903,6 +908,7 @@ func _build_water() -> void:
 	mat.shader = sh
 	mat.set_shader_parameter("caus", load("res://assets/terrain/caustics.png"))
 	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(mi)
 	water_node = mi
 	# experimental: real FFT ocean surface on top (GPU compute) — only on a real
@@ -1046,6 +1052,7 @@ func _halo(pos: Vector3, col: Color, size: float) -> MeshInstance3D:
 	quad.material = m
 	var mi := MeshInstance3D.new()
 	mi.mesh = quad
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mi.position = pos
 	add_child(mi)
 	return mi
@@ -1055,7 +1062,7 @@ func _fairy_light(pos: Vector3, col: Color, hero: bool = false) -> void:
 		var l := OmniLight3D.new()
 		l.light_color = col
 		l.light_energy = 1.8
-		l.omni_range = 22.0
+		l.omni_range = 14.0
 		l.position = pos
 		add_child(l)
 		pulse_lights.append({"light": l, "base": 1.8, "phase": randf() * TAU})
@@ -1846,6 +1853,9 @@ func _apply_quality(q: String) -> void:
 			l.visible = (not speedy) or (i % 2 == 0)
 	if plankton_node != null:
 		plankton_node.amount_ratio = 0.45 if speedy else 1.0
+	for gr in god_rays:
+		if is_instance_valid(gr.get("node")):
+			(gr["node"] as Node3D).visible = not speedy
 	var vp := get_viewport()
 	if vp != null:
 		vp.scaling_3d_scale = 0.8 if speedy else 1.0
@@ -1963,6 +1973,11 @@ func _build_pause() -> void:
 	vb.offset_bottom = -30
 	vb.add_theme_constant_override("separation", 22)
 	pause_panel.add_child(vb)
+	fps_lbl = Label.new()
+	fps_lbl.add_theme_font_size_override("font_size", 20)
+	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
+	fps_lbl.position = Vector2(16, 388)
+	pause_panel.add_child(fps_lbl)
 	var resume := _pause_btn(vb, "Keep Swimming!")
 	resume.pressed.connect(toggle_pause)
 	pause_resume_btn = resume
@@ -2570,6 +2585,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 	sun2.light_color = Color(0.6, 0.68, 0.95) if is_night else Color(1.0, 0.96, 0.86)
 	sun2.light_energy = 0.5 if is_night else 1.15
 	sun2.shadow_enabled = (quality != "speedy")
+	sun2.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	sun2.directional_shadow_max_distance = 110.0
 	sun2.light_specular = 0.3
 	add_child(sun2)
 	game_nodes.append(sun2)
@@ -5353,6 +5370,7 @@ func _build_playplace(origin: Vector3, fr: Dictionary) -> void:
 	add_child(wall)
 	game_nodes.append(wall)
 	var mmi := MultiMeshInstance3D.new()
+	mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var mm := MultiMesh.new()
 	mm.transform_format = MultiMesh.TRANSFORM_3D
 	mm.use_colors = true
@@ -7330,6 +7348,8 @@ func _process(delta: float) -> void:
 			hud_msg.text = ""
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
+	if fps_lbl != null and pause_panel != null and pause_panel.visible:
+		fps_lbl.text = "FPS: %d   (%s)" % [Engine.get_frames_per_second(), quality]
 	if speech_t > 0.0:
 		speech_t -= delta
 		if speech_t <= 0.0 and speech_layer != null:
@@ -7533,6 +7553,7 @@ func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_col
 		if use_color:
 			mm.set_instance_color(i, cols[randi() % cols.size()])
 	var mmi := MultiMeshInstance3D.new()
+	mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mmi.multimesh = mm
 	mmi.material_override = mat
 	add_child(mmi)
@@ -7576,6 +7597,7 @@ func _build_fish() -> void:
 		for i in range(14):
 			mm.set_instance_color(i, col)
 		var mmi := MultiMeshInstance3D.new()
+		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		mmi.multimesh = mm
 		mmi.material_override = fmat
 		add_child(mmi)
@@ -7845,10 +7867,13 @@ func _build_god_rays() -> void:
 		mi.material_override = m
 		mi.position = Vector3(cos(a) * r, (WATER_TOP + 30.0) * 0.45, sin(a) * r)
 		mi.rotation_degrees = Vector3(0, randf() * 180.0, 6.0 + randf() * 8.0)
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(mi)
 		god_rays.append({"node": mi, "base": mi.rotation.z, "ph": randf() * TAU})
 
 func _tick_god_rays(delta: float) -> void:
+	if Engine.get_process_frames() % 2 == 1:
+		return   # cosmetic sway — half rate is invisible, half the cost
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	for gr in god_rays:
 		var n: MeshInstance3D = gr["node"]

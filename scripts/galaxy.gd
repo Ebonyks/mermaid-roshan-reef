@@ -567,12 +567,16 @@ render_mode unshaded, cull_front;
 void fragment(){
 	vec2 grid = abs(fract(UV * vec2(26.0, 13.0)) - 0.5);
 	float line = smoothstep(0.035, 0.012, min(grid.x, grid.y));
+	if (line < 0.04) {
+		discard;   // skip the fullscreen glass haze — only the mullion grid draws
+	}
 	ALBEDO = mix(vec3(0.75, 0.9, 0.95), vec3(0.93, 0.97, 1.0), line);
 	ALPHA = mix(0.05, 0.45, line);
 }"""
 	var dmat := ShaderMaterial.new()
 	dmat.shader = dsh
 	dome.material_override = dmat
+	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	dome.position = ORIGIN
 	add_child(dome)
 	# ---- hanging-lantern posts along the garden paths (page-two paper lantern) ----
@@ -694,6 +698,7 @@ func _build_shards() -> void:
 		bmt.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
 		bmt.albedo_color = Color(wing.r, wing.g, wing.b, 0.30)
 		beam.material_override = bmt
+		beam.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		beam.position = _surf(dir, 19.0)
 		var bup := dir
 		var bany := Vector3.UP if absf(bup.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT

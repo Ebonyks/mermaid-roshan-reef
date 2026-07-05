@@ -821,11 +821,7 @@ func _build_pickups() -> void:
 			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
 			sm.scale = Vector3.ONE * 2.4
 			holder.add_child(sm)
-			var gl := OmniLight3D.new()
-			gl.light_color = Color(1.0, 0.7, 0.95)
-			gl.light_energy = 2.0
-			gl.omni_range = 9.0
-			holder.add_child(gl)
+			pass   # shell pickups glow via emission; no per-pickup realtime light
 		elif kind == "bubble":
 			# zoom bubble: translucent glowing sphere — drive through, POP, instant zip
 			var bub := MeshInstance3D.new()
@@ -856,11 +852,12 @@ func _build_pickups() -> void:
 			holder.add_child(lab)
 			if kind == "rainbow":
 				rlab = lab   # hue-cycled every frame — the jackpot pickup
-			var gl2 := OmniLight3D.new()
-			gl2.light_color = lab.modulate
-			gl2.light_energy = 2.4
-			gl2.omni_range = 10.0
-			holder.add_child(gl2)
+			if kind == "star" or kind == "rainbow":   # shells/bubbles glow via emission only (light diet)
+				var gl2 := OmniLight3D.new()
+				gl2.light_color = lab.modulate
+				gl2.light_energy = 2.4
+				gl2.omni_range = 10.0
+				holder.add_child(gl2)
 		add_child(holder)
 		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": kind, "cool": 0.0, "rlab": rlab})
 
