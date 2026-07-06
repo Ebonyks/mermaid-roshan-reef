@@ -33,6 +33,9 @@ var bone_idx := {}
 var rest := {}
 var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
+var huluu_model: Node3D = null    # rigged plushie Huluu (same bone names -> same swim code)
+var _roshan_skel: Skeleton3D = null
+var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
@@ -49,15 +52,9 @@ func _ready() -> void:
 		model_root = inst
 		_upgrade_texture(inst)
 		skel = _find_skeleton(inst)
-		if skel != null:
-			for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-					"hairL1", "hairL2", "armU", "armF", "hand", "armU2", "armF2", "hand2",
-					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
-					"finTop", "finBot"]:
-				var bi: int = skel.find_bone(n)
-				bone_idx[n] = bi
-				if bi >= 0:
-					rest[n] = skel.get_bone_pose(bi)
+		_map_bones()
+		_roshan_skel = skel
+		_roshan_maps = [bone_idx.duplicate(), rest.duplicate()]
 	# billboard sprite used when an alternative full skin is worn (hidden by default)
 	# pixel_size sized so the 707px-tall art ≈ the 7-unit classic model
 	skin_sprite = Sprite3D.new()
@@ -94,9 +91,50 @@ func _ready() -> void:
 	cam.fov = 60.0
 	get_parent().add_child.call_deferred(cam)
 
+func _map_bones() -> void:
+	bone_idx = {}
+	rest = {}
+	if skel == null:
+		return
+	for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
+			"hairL1", "hairL2", "armU", "armF", "hand", "armU2", "armF2", "hand2",
+			"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
+			"finTop", "finBot"]:
+		var bi: int = skel.find_bone(n)
+		bone_idx[n] = bi
+		if bi >= 0:
+			rest[n] = skel.get_bone_pose(bi)
+
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
+	if id == "huluu":
+		# Huluu gets the full Roshan treatment: a rigged double-sided plushie
+		# with the SAME bone names, so the procedural swim drives her directly
+		if huluu_model == null and ResourceLoader.exists("res://assets/characters/huluu.glb"):
+			var hglb: PackedScene = load("res://assets/characters/huluu.glb")
+			huluu_model = hglb.instantiate()
+			huluu_model.scale = Vector3.ONE * 3.9
+			huluu_model.position.y = -3.4
+			add_child(huluu_model)
+		if huluu_model != null:
+			huluu_model.visible = true
+			skel = _find_skeleton(huluu_model)
+			_map_bones()
+			if model_root != null:
+				model_root.visible = false
+			if skin_sprite != null:
+				skin_sprite.visible = false
+			if skin_sparkles != null:
+				skin_sparkles.emitting = true
+			return
+	# any non-huluu skin: restore Roshan's skeleton for the swim code
+	if huluu_model != null:
+		huluu_model.visible = false
+	if _roshan_skel != null and skel != _roshan_skel:
+		skel = _roshan_skel
+		bone_idx = _roshan_maps[0]
+		rest = _roshan_maps[1]
 	var on_skin: bool = not (id == "classic" or tex_path == "")
 	if on_skin:
 		if skin_sprite != null:

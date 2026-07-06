@@ -11,6 +11,7 @@ var pearls: Array[Node3D] = []
 var friends: Array = []
 var pearl_count := 0
 var trophies := 0
+var hud_layer: CanvasLayer = null
 var hud_pearls: Label
 var hud_stars: Label
 var hud_msg: Label
@@ -1594,6 +1595,8 @@ func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
 	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
+	if hud_layer != null:
+		hud_layer.visible = false   # the race draws its own HUD — no overlap
 	kart_from = game
 	kart_ground = ground
 	game = "kart"
@@ -1606,6 +1609,8 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"), reversed)
 
 func _end_kart_game(place: int) -> void:
+	if hud_layer != null:
+		hud_layer.visible = true
 	kart_game = null
 	kart_cool = 6.0
 	var suf: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
@@ -1626,6 +1631,8 @@ func _end_kart_game(place: int) -> void:
 	_update_hud()
 
 func _start_galaxy() -> void:
+	if hud_layer != null:
+		hud_layer.visible = false   # the galaxy draws its own HUD — no overlap
 	if not galaxy_unlocked:
 		galaxy_unlocked = true
 		_write_save()
@@ -1636,6 +1643,8 @@ func _start_galaxy() -> void:
 	(galaxy_game as GalaxyLevel).start(self, Callable(self, "_end_galaxy"))
 
 func _end_galaxy(completed: bool) -> void:
+	if hud_layer != null:
+		hud_layer.visible = true
 	galaxy_game = null
 	game = ""
 	if completed:
@@ -1717,6 +1726,7 @@ func _build_player() -> void:
 func _build_hud() -> void:
 	var cl := CanvasLayer.new()
 	add_child(cl)
+	hud_layer = cl
 	hud_pearls = _mk_label(cl, Vector2(20, 14), 28)
 	hud_stars = _mk_label(cl, Vector2(20, 52), 24)
 	hud_game = _mk_label(cl, Vector2(20, 90), 24)
@@ -1976,7 +1986,7 @@ func _build_pause() -> void:
 	fps_lbl = Label.new()
 	fps_lbl.add_theme_font_size_override("font_size", 20)
 	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	fps_lbl.position = Vector2(16, 388)
+	fps_lbl.position = Vector2(16, 396)
 	pause_panel.add_child(fps_lbl)
 	var resume := _pause_btn(vb, "Keep Swimming!")
 	resume.pressed.connect(toggle_pause)
@@ -3917,14 +3927,26 @@ func _build_castle_hall(o: Vector3) -> void:
 	else:
 		var throne := _l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
-	# Princess Huluu, ruler of the Pearl Castle, waiting on her throne
-	var huluu := Sprite3D.new()
-	huluu.texture = load("res://assets/characters/friends/huluu.png")
-	huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	huluu.pixel_size = 0.011
-	huluu.position = o + Vector3(0, 21.0, -27.0)
-	add_child(huluu)
-	game_nodes.append(huluu)
+	# Princess Huluu on her throne — the full plushie treatment (rigged model,
+	# tail swaying), no more flat quivering billboard
+	if ResourceLoader.exists("res://assets/characters/huluu.glb"):
+		var hn: Node3D = (load("res://assets/characters/huluu.glb") as PackedScene).instantiate()
+		hn.scale = Vector3.ONE * 3.6
+		hn.position = o + Vector3(0, 16.2, -27.0)
+		hn.rotation.y = PI
+		add_child(hn)
+		game_nodes.append(hn)
+		var hskel := _find_skel(hn)
+		if hskel != null:
+			g["huluu_skel"] = hskel
+	else:
+		var huluu := Sprite3D.new()
+		huluu.texture = load("res://assets/characters/friends/huluu.png")
+		huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		huluu.pixel_size = 0.011
+		huluu.position = o + Vector3(0, 21.0, -27.0)
+		add_child(huluu)
+		game_nodes.append(huluu)
 	var hl := OmniLight3D.new()
 	hl.light_color = Color(1.0, 0.9, 0.95)
 	hl.light_energy = 1.4
@@ -4407,7 +4429,28 @@ func _tick_wall_fade(delta: float) -> void:
 			mat.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
 			mat.albedo_color.a = base_a
 
+func _find_skel(n: Node) -> Skeleton3D:
+	if n is Skeleton3D:
+		return n
+	for c in n.get_children():
+		var r := _find_skel(c)
+		if r != null:
+			return r
+	return null
+
 func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
+	# Princess Huluu's tail sways gently on the throne (rigged plushie idle)
+	if g.has("huluu_skel"):
+		var hs: Skeleton3D = g["huluu_skel"]
+		if is_instance_valid(hs):
+			var ht: float = float(g.get("t", 0.0))
+			for hb in range(8):
+				var hbi: int = hs.find_bone("tail%d" % (hb + 1))
+				if hbi >= 0:
+					hs.set_bone_pose_rotation(hbi, Quaternion(Vector3.RIGHT, sin(ht * 1.6 - float(hb) * 0.5) * 0.06 * (0.3 + float(hb) / 8.0)))
+			var hdi: int = hs.find_bone("head")
+			if hdi >= 0:
+				hs.set_bone_pose_rotation(hdi, Quaternion(Vector3.BACK, sin(ht * 0.8) * 0.05))
 	if wardrobe_layer != null:
 		return   # dressing up — pause all hall triggers
 	if sleep_t >= 0.0:
