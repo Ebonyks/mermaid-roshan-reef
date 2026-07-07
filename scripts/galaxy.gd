@@ -451,6 +451,9 @@ func _build_decor() -> void:
 		castle.add_child(spire)
 		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
 	_place_on_planet(castle, Vector3.UP)
+	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
+	# plane, or its corners hover visibly above the curving horizon
+	castle.position = _surf(Vector3.UP, -5.0)
 	# the glowing GATE — walk into it to step inside the crystal castle
 	var gatel := Label3D.new()
 	gatel.text = "✨ Crystal Castle ✨\ncome in!"

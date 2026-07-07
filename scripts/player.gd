@@ -33,7 +33,10 @@ var bone_idx := {}
 var rest := {}
 var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
-var huluu_model: Node3D = null    # rigged plushie Huluu (same bone names -> same swim code)
+# model-backed skins: rigged plushies sharing Roshan's bone names, so the
+# procedural swim drives every one of them (billboards never made sense)
+const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb"}
+var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
@@ -108,29 +111,29 @@ func _map_bones() -> void:
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
-	if id == "huluu":
-		# Huluu gets the full Roshan treatment: a rigged double-sided plushie
-		# with the SAME bone names, so the procedural swim drives her directly
-		if huluu_model == null and ResourceLoader.exists("res://assets/characters/huluu.glb"):
-			var hglb: PackedScene = load("res://assets/characters/huluu.glb")
-			huluu_model = hglb.instantiate()
-			huluu_model.scale = Vector3.ONE * 3.9
-			huluu_model.position.y = -3.4
-			add_child(huluu_model)
-		if huluu_model != null:
-			huluu_model.visible = true
-			skel = _find_skeleton(huluu_model)
-			_map_bones()
-			if model_root != null:
-				model_root.visible = false
-			if skin_sprite != null:
-				skin_sprite.visible = false
-			if skin_sparkles != null:
-				skin_sparkles.emitting = true
-			return
-	# any non-huluu skin: restore Roshan's skeleton for the swim code
-	if huluu_model != null:
-		huluu_model.visible = false
+	if SKIN_MODELS.has(id) and ResourceLoader.exists(String(SKIN_MODELS[id])):
+		# the full Roshan treatment: a rigged double-sided plushie with the SAME
+		# bone names, so the procedural swim drives her directly
+		if not skin_models.has(id):
+			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
+			mdl.scale = Vector3.ONE * 3.9
+			mdl.position.y = -3.4
+			add_child(mdl)
+			skin_models[id] = mdl
+		for k in skin_models:
+			(skin_models[k] as Node3D).visible = (k == id)
+		skel = _find_skeleton(skin_models[id])
+		_map_bones()
+		if model_root != null:
+			model_root.visible = false
+		if skin_sprite != null:
+			skin_sprite.visible = false
+		if skin_sparkles != null:
+			skin_sparkles.emitting = true   # every plushie skin gets the sparkle trail
+		return
+	# non-model skin: restore Roshan's skeleton for the swim code
+	for k in skin_models:
+		(skin_models[k] as Node3D).visible = false
 	if _roshan_skel != null and skel != _roshan_skel:
 		skel = _roshan_skel
 		bone_idx = _roshan_maps[0]

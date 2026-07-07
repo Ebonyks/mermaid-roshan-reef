@@ -8,11 +8,19 @@ so player.gd's procedural swim drives her with zero new animation code.
 
     blender --background --python tools/build_huluu.py
 """
-import bpy, os
+import bpy, os, sys
 from mathutils import Vector
 
-SRC = os.path.abspath("assets/characters/friends/huluu.png")
-OUT = os.path.abspath("assets/characters/huluu.glb")
+def _arg(flag, default):
+    argv = sys.argv
+    if "--" in argv:
+        rest = argv[argv.index("--") + 1:]
+        if flag in rest and rest.index(flag) + 1 < len(rest):
+            return rest[rest.index(flag) + 1]
+    return default
+
+SRC = os.path.abspath(_arg("--src", "assets/characters/friends/huluu.png"))
+OUT = os.path.abspath(_arg("--out", "assets/characters/huluu.glb"))
 GRID = 96                 # silhouette sampling resolution
 THICK = 0.16              # plushie puff (metres, model is ~1.8 tall pre-scale)
 
