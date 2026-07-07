@@ -1044,6 +1044,7 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 			"boost_t": 0.0, "meter": 0.0,
 			"ai_skill": 0.94 + 0.06 * (float(idx) / float(n)),
 			"ai_phase": float(idx) * 1.3,
+			"bumper": (idx % 2 == 1),   # half the pack trades paint with Roshan
 		}
 		_karts.append(k)
 		if is_p:
@@ -1238,6 +1239,8 @@ func _steer_input() -> float:
 		steer += 1.0
 	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
 		var tv: Vector2 = _main.touch_ui.stick_vec
+		if tv.length() > 0.1:
+			_touch_t = 3.0    # touch is the live input → co-pilot + pickup magnet on
 		if absf(tv.x) > 0.15:
 			steer += tv.x
 	return clampf(steer, -1.0, 1.0)
@@ -1327,6 +1330,19 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	# steering with per-vehicle rate + slip (moto drifts, truck plants) — snappy response
 	var slip: float = float(vd["slip"])
 	var want_v: float = steer * float(vd["steer"])
+	# TOUCH CO-PILOT — 225-race platform sim: phone thumbs react ~4x slower
+	# than pads and scraped the rails 2-3x as often (truck-touch: 35/race).
+	# When the touch stick is the live input, a gentle assist eases the kart
+	# off the wall BEFORE the scrape — unless the thumb is deliberately
+	# pressed at the wall (bouncing off rails on purpose is part of the fun).
+	_touch_t = maxf(0.0, _touch_t - delta)
+	if _touch_t > 0.0:
+		var rail: float = _width_at(_eff(float(k["s"]))) - 1.6
+		var room: float = rail - absf(float(k["lat"]))
+		var toward_wall: bool = float(k["lat"]) * steer > 0.3
+		if room < 3.5 and not toward_wall:
+			var aid: float = clampf((3.5 - room) / 3.5, 0.0, 1.0) * 0.7
+			want_v = lerpf(want_v, -signf(float(k["lat"])) * float(vd["steer"]) * 0.6, aid)
 	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip * 0.7) * 30.0 * delta + 0.14))
 	_apply_lat(k, float(k["lat"]) + float(k["latv"]) * delta)
 
@@ -1348,26 +1364,47 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 		# catch up gently — losing stays close, winning stays possible
 		var gap: float = float(_pl["s"]) - float(k["s"])
 		base += clampf(gap * 0.08, -_vmax * 0.30, _vmax * 0.38)
+		# PACK PRESENCE — 225-race sim: the band above settles rivals ~100u
+		# behind, so the kid raced ALONE and bumper contact was literally zero.
+		# Rivals within 25u keep real racing pace (bumpers more than the polite
+		# half), so the pack stays on screen and trades paint. The ease-off
+		# when they get ahead still hands the lead back — the win stays hers.
+		if gap > 0.0:
+			base += _vmax * (0.30 if bool(k.get("bumper", false)) else 0.18) * clampf(1.0 - gap / 25.0, 0.0, 1.0)
 	if float(k.get("stun_t", 0.0)) > 0.0:
 		k["stun_t"] = float(k["stun_t"]) - delta
 		base *= 0.78   # just bounced off someone heavier — drop back and regroup
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
 	k["s"] = float(k["s"]) + float(k["speed"]) * delta
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
-	# OVERTAKING LINE: if someone is right ahead in my lane, swing wide around
-	# them instead of ploughing into their bumper (the old jam-behind-the-truck)
+	# OVERTAKING LINE: swing wide around traffic instead of ploughing into
+	# bumpers (the old jam-behind-the-truck). Sim finding: when EVERY rival
+	# dodged the player too, player contact hit exactly 0.0 in 225 races and
+	# the bumper-car game (the truck's whole identity) never happened. So the
+	# pack splits personalities: half stay polite but cut a tighter line past
+	# Roshan, half are BUMPERS who drift toward her lane and trade paint.
 	for o in _karts:
 		if o == k:
 			continue
 		var ds: float = float(o["s"]) - float(k["s"])
-		if ds > -1.0 and ds < 10.0 and absf(float(o["lat"]) - float(k["lat"])) < 4.5:
+		if ds <= -1.0 or ds >= 10.0:
+			continue
+		if bool(o["is_player"]) and bool(k.get("bumper", false)):
+			if ds < 6.0 and absf(float(o["lat"]) - float(k["lat"])) < 5.0:
+				want = lerpf(float(k["lat"]), float(o["lat"]), 0.6)
+				break
+			continue
+		var gap_w: float = 2.2 if bool(o["is_player"]) else 4.5
+		var swing: float = 3.6 if bool(o["is_player"]) else 6.0
+		if absf(float(o["lat"]) - float(k["lat"])) < gap_w:
 			var side: float = 1.0 if float(k["lat"]) >= float(o["lat"]) else -1.0
-			want = clampf(float(o["lat"]) + side * 6.0, -_rhalf() + 2.0, _rhalf() - 2.0)
+			want = clampf(float(o["lat"]) + side * swing, -_rhalf() + 2.0, _rhalf() - 2.0)
 			break
 	_apply_lat(k, move_toward(float(k["lat"]), want, 7.0 * delta))
 
 var _shake := 0.0
 var _thunk_cool := 0.0
+var _touch_t := 0.0   # >0 while the phone stick is the live input (sim: touch assists)
 
 func _apply_lat(k: Dictionary, new_lat: float) -> void:
 	var vd := _veh(k)
@@ -1462,7 +1499,9 @@ func _check_pickups(delta: float) -> void:
 			if float(pu["cool"]) <= 0.0:
 				node.visible = true
 			continue
-		if node.position.distance_to(pn.position) < 6.5:
+		# touch magnet: sim showed phone thumbs miss pickups (boost uptime ~10
+		# points under pad) — widen the grab so the fun stays platform-fair
+		if node.position.distance_to(pn.position) < (8.5 if _touch_t > 0.0 else 6.5):
 			var kind := String(pu["kind"])
 			var col := Color(1.0, 0.7, 0.95)
 			match kind:
@@ -1498,7 +1537,7 @@ func _check_pearls() -> void:
 		if bool(pd["got"]):
 			continue
 		var node: Node3D = pd["node"]
-		if node.position.distance_to(pn.position) < 4.5:
+		if node.position.distance_to(pn.position) < (6.0 if _touch_t > 0.0 else 4.5):
 			pd["got"] = true
 			node.visible = false
 			_pearls_got += 1
