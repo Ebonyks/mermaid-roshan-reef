@@ -39,6 +39,7 @@ const TROPICAL := [
 	"res://assets/nature/plant_bush.glb", "res://assets/nature/grass_leafsLarge.glb"]
 const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gate on the planet
+const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
@@ -93,6 +94,7 @@ var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
 var _bells: Array = []            # star bells: {node, pos, cool}
 var _fount_cool := 0.0
 var _gate_cool := 0.0
+var _fairyf_cool := 0.0
 var _orrery_planets: Array = []   # her own tiny galaxy: {node, r, spd, ph, tilt}
 var _hall_rug_mat: StandardMaterial3D = null
 var _dance_t := 0.0
@@ -547,6 +549,64 @@ func _build_decor() -> void:
 		pl.position = Vector3(0, 2.0, 0)
 		holder3.add_child(pl)
 		_pads.append({"dir": pdir, "cool": 0.0})
+	# ---- the FAIRY FOUNTAIN: touch it to fly the fairy flight (moved here from
+	# the courtyard — a fairy fountain belongs in the magic world) ----
+	var ff := Node3D.new()
+	add_child(ff)
+	var fbase := MeshInstance3D.new()
+	var fbc := CylinderMesh.new()
+	fbc.top_radius = 3.2
+	fbc.bottom_radius = 3.8
+	fbc.height = 1.0
+	fbase.mesh = fbc
+	var fmarble := StandardMaterial3D.new()
+	fmarble.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
+	fmarble.albedo_color = Color(0.95, 0.92, 1.0)
+	fmarble.uv1_triplanar = true
+	fmarble.uv1_scale = Vector3(0.2, 0.2, 0.2)
+	fbase.material_override = fmarble
+	fbase.position = Vector3(0, 0.5, 0)
+	ff.add_child(fbase)
+	var fped := MeshInstance3D.new()
+	var fpc := CylinderMesh.new()
+	fpc.top_radius = 1.5
+	fpc.bottom_radius = 1.9
+	fpc.height = 2.2
+	fped.mesh = fpc
+	fped.material_override = fmarble
+	fped.position = Vector3(0, 2.0, 0)
+	ff.add_child(fped)
+	var fwater := MeshInstance3D.new()
+	var fwc := CylinderMesh.new()
+	fwc.top_radius = 2.6
+	fwc.bottom_radius = 2.6
+	fwc.height = 0.35
+	fwater.mesh = fwc
+	var fwm := StandardMaterial3D.new()
+	fwm.albedo_color = Color(0.5, 0.9, 1.0, 0.75)
+	fwm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	fwm.emission_enabled = true
+	fwm.emission = Color(0.45, 0.85, 1.0)
+	fwm.emission_energy_multiplier = 1.1
+	fwater.material_override = fwm
+	fwater.position = Vector3(0, 3.3, 0)
+	ff.add_child(fwater)
+	var ffl := OmniLight3D.new()
+	ffl.light_color = Color(0.6, 0.95, 1.0)
+	ffl.light_energy = 1.6
+	ffl.omni_range = 13.0
+	ffl.position = Vector3(0, 4.2, 0)
+	ff.add_child(ffl)
+	var fflab := Label3D.new()
+	fflab.text = "✨ Fairy Fountain ✨\nfly with the fairies!"
+	fflab.font_size = 48
+	fflab.pixel_size = 0.028
+	fflab.outline_size = 12
+	fflab.modulate = Color(0.75, 0.95, 1.0)
+	fflab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	fflab.position = Vector3(0, 6.8, 0)
+	ff.add_child(fflab)
+	_place_on_planet(ff, FOUNTAIN_DIR.normalized())
 	# two candy moons that orbit the planet
 	for i in range(2):
 		var moon := MeshInstance3D.new()
@@ -1047,6 +1107,14 @@ func _process(delta: float) -> void:
 				_chime(1.4)
 				if _main != null and _main.has_method("_sparkle_burst"):
 					_main._sparkle_burst(_surf(_dir, 2.0), Color(1.0, 0.9, 0.4))
+	# the Fairy Fountain: touch it and soar into the fairy flight
+	_fairyf_cool = maxf(0.0, _fairyf_cool - delta)
+	if _fairyf_cool <= 0.0 and _h < 2.0 and _dir.angle_to(FOUNTAIN_DIR.normalized()) * PLANET_R < 4.5:
+		_fairyf_cool = 8.0
+		if _main != null and "fairy_pending" in _main:
+			_main.fairy_pending = true
+			_teardown(false)
+			return
 	# the castle gate: step into the glowing ring to enter the Star Hall
 	_gate_cool = maxf(0.0, _gate_cool - delta)
 	if _gate_cool <= 0.0 and _h < 1.5 and _dir.angle_to(GATE_DIR.normalized()) * PLANET_R < 4.5:

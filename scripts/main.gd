@@ -156,6 +156,8 @@ var slide_portal_penguin: Node3D = null
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
+var fairy_pending := false      # a galaxy fountain touch queues the fairy flight
+var fairy_from_galaxy := false  # so the fairy game returns to the Butterfly World
 var shop_msg_cool := 0.0
 var pearl_slots: Array = []
 var pearl_mat: ShaderMaterial
@@ -1647,6 +1649,11 @@ func _end_galaxy(completed: bool) -> void:
 		hud_layer.visible = true
 	galaxy_game = null
 	game = ""
+	if fairy_pending:
+		fairy_pending = false
+		fairy_from_galaxy = true
+		call_deferred("_start_game", fairy_fr)   # straight into the fairy flight
+		return
 	if completed:
 		show_msg("Butterfly World", "You saved the Butterfly World! All the baby butterflies are home! 🦋")
 	else:
@@ -3105,12 +3112,8 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			var hue: float = fmod(float(g["t"]) * 0.4 + float(stn.get_meta("rainbow")), 1.0)
 			stn.modulate = Color.from_hsv(hue, 0.55, 1.0)
 	# fairy pond — fly the on-rails shooter (active once the castle is open)
-	fairy_cool = maxf(0.0, fairy_cool - delta)
-	if l2_open and fairy_cool <= 0.0 and fairy_pond_pos != Vector3.ZERO:
-		if Vector2(fairy_pond_pos.x - ppos.x, fairy_pond_pos.z - ppos.z).length() < 13.0 and absf(fairy_pond_pos.y - ppos.y) < 16.0:
-			fairy_cool = 12.0
-			_start_game(fairy_fr)
-			return
+	# (the fairy flight now launches from the Fairy Fountain in the Butterfly
+	# World — the courtyard pond stays as scenery)
 	# the rainbow gateway always takes you back to the ocean
 	mg_cool = maxf(0.0, mg_cool - delta)
 	if mg_cool <= 0.0 and mg_kind == "":
@@ -5281,6 +5284,10 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	_update_hud()
 	_clear_game()
 	_write_save()
+	if String(fr.get("fname", "")) == "Fairy Pond" and fairy_from_galaxy:
+		fairy_from_galaxy = false
+		call_deferred("_start_galaxy")   # back to the Butterfly World
+		return
 	if String(fr.get("fname", "")) == "Rainbow Slide" or String(fr.get("fname", "")) == "Fairy Pond":
 		# return to the courtyard; only restore the OPEN castle if it was already
 		# open — the slide is playable before the stars, and used to force the
@@ -6573,17 +6580,18 @@ const FS_HIT_R := 7.0          # big, forgiving bolt-vs-bug radius
 const FS_BUG_R := 3.2          # bigger shadow bugs (easier to see + hit)
 const FS_NBUGS := 12
 # ---- final boss: the Fairy Flower (auto-shooter, gentle difficulty) ----
-const FS_BOSS_Z := FS_LEN + 34.0   # boss sits just past the end of the run
-const FS_BOSS_HIT_R := 8.5         # generous hitboxes
+const FS_BOSS_Z := FS_LEN + 64.0   # the GIANT boss needs distance to fit in view
+const FS_BOSS_HIT_R := 16.0        # giant boss, giant hitboxes
 const FS_LEAVES := 6               # outer leaf shield
 const FS_LEAF_HP := 1              # one blast per leaf
 const FS_LEAF_T := 18.0            # seconds to blast the leaves away
-const FS_LEAF_RING := 7.5          # leaf ring radius (just beyond bolt reach -> light aiming)
+const FS_LEAF_RING_X := 26.0       # the leaf wreath is a wide ellipse now (giant boss)
+const FS_LEAF_RING_Y := 13.0       # ...but stays vertically reachable by the bolt aim
 const FS_BUD_HP := 10
 const FS_BUD_T := 18.0             # seconds to bloom the flower open
-const FS_BLOOM_T := 3.0
-const FS_LEAF_SCALE := 6.5         # real Kenney bush models (CC0)
-const FS_BUD_SCALE := 9.0
+const FS_BLOOM_T := 6.5            # savour the giant bloom — the old 3s ending was blink-and-confusing
+const FS_LEAF_SCALE := 17.0        # real Kenney bush models (CC0), giant
+const FS_BUD_SCALE := 55.0         # the flower TOWERS (was 9 — it read as a shrub)
 const FS_FLOWER := "flower_purpleA"  # ONE flower for the whole boss (grows, then blooms)
 
 func _build_fairyshoot(origin: Vector3) -> void:
@@ -6677,8 +6685,8 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	g["phase"] = "boss_leaves"
 	g["phase_t"] = FS_LEAF_T
 	# leafy stalk base (a big bush model)
-	if _nature("plant_bushLargeTriangle", center + Vector3(0, -15.0, 1.0), 11.0, 0.0) == null:
-		var stalk := _course_box(center + Vector3(0, -15.0, 0), Vector3(4, 26, 4), Color(0.3, 0.65, 0.35))
+	if _nature("plant_bushLargeTriangle", center + Vector3(0, -52.0, 1.0), 34.0, 0.0) == null:
+		var stalk := _course_box(center + Vector3(0, -40.0, 0), Vector3(10, 70, 10), Color(0.3, 0.65, 0.35))
 		_mg_noop_ref(stalk)
 	# the flower at the core — ONE flower (FS_FLOWER), small/tight until the leaves fall,
 	# then it grows bigger with every hit before blooming
@@ -6697,7 +6705,7 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	var leafkinds := ["plant_bushLargeTriangle", "grass_leafsLarge", "plant_bush"]
 	for k in range(FS_LEAVES):
 		var a: float = float(k) / float(FS_LEAVES) * TAU
-		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING, sin(a) * FS_LEAF_RING, -1.0)
+		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING_X, sin(a) * FS_LEAF_RING_Y, -1.0)
 		var leaf := _nature(leafkinds[k % leafkinds.size()], lp, FS_LEAF_SCALE, randf() * TAU)
 		if leaf == null:
 			var lm := MeshInstance3D.new()
@@ -6706,10 +6714,10 @@ func _fairy_start_boss(origin: Vector3) -> void:
 			lm.position = lp; add_child(lm); game_nodes.append(lm); leaf = lm
 		(g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a, "base": lp})
 	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 2.6; bl.omni_range = 44.0
+	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 4.0; bl.omni_range = 130.0
 	bl.position = center; add_child(bl); game_nodes.append(bl)
 	g["boss_light"] = bl
-	show_msg(fr_name_safe(), "The Fairy Flower! Blast the leaves out of the way!")
+	show_msg(fr_name_safe(), "THE GIANT FAIRY FLOWER fills the sky! Blast the leaves out of the way!")
 
 func fr_name_safe() -> String:
 	return String((g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
@@ -6886,13 +6894,17 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		for pd in g.get("petals", []):
 			if is_instance_valid(pd["node"]):
 				var a: float = pd["ang"]
-				var r: float = 3.0 + f * 9.0
+				var r: float = 14.0 + f * 55.0
 				(pd["node"] as Node3D).position = center + Vector3(cos(a) * r, sin(a) * r, 0)
-				(pd["node"] as Node3D).scale = Vector3.ONE * (1.0 + f * 6.0)
-		if fmod(tt, 0.18) < delta:
-			_sparkle_burst(center + Vector3(randf() * 16 - 8, randf() * 16 - 8, 0), Color.from_hsv(randf(), 0.4, 1.0))
+				(pd["node"] as Node3D).scale = Vector3.ONE * (3.0 + f * 24.0)
+		hud_game.text = "IT'S BLOOMING!!"
+		if fmod(tt, 0.12) < delta:
+			_sparkle_burst(center + Vector3(randf() * 70 - 35, randf() * 60 - 30, randf() * 8 - 4), Color.from_hsv(randf(), 0.4, 1.0))
+			if chime != null:
+				chime.pitch_scale = 1.0 + f * 0.5
+				chime.play()
 		if float(g["bloom_t"]) <= 0.0:
-			_end_game(true, fr, "The Fairy Flower blossomed! You did it!")
+			_end_game(true, fr, "The GIANT Fairy Flower blossomed across the whole sky! You did it!")
 		return
 
 func _build_slide_portal() -> void:
