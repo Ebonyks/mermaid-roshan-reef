@@ -827,7 +827,14 @@ func _spawn_grand_star() -> void:
 func _build_avatar() -> void:
 	_avatar = Node3D.new()
 	add_child(_avatar)
+	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
 	var glb := "res://assets/characters/roshan.glb"
+	if _main != null and "skin_id" in _main:
+		var sid := String(_main.skin_id)
+		if sid == "huluu" and ResourceLoader.exists("res://assets/characters/huluu.glb"):
+			glb = "res://assets/characters/huluu.glb"
+		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy.glb"):
+			glb = "res://assets/characters/fairy.glb"
 	if ResourceLoader.exists(glb):
 		var inst: Node3D = (load(glb) as PackedScene).instantiate()
 		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
@@ -841,6 +848,16 @@ func _build_avatar() -> void:
 			inst.scale = Vector3.ONE * sc
 			inst.position = Vector3(0, -bb.position.y * sc, 0)
 		_avatar.add_child(inst)
+		# capture the skeleton so the mermaid actually SWIMS through the air
+		# here instead of standing frozen (audit: bob-only, no animation)
+		_av_skel = _find_av_skel(inst)
+		_av_bones.clear()
+		if _av_skel != null:
+			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
+					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
+				var bi := _av_skel.find_bone(bn)
+				if bi >= 0:
+					_av_bones[bn] = bi
 	var trail := OmniLight3D.new()
 	trail.light_color = Color(1.0, 0.6, 0.9)
 	trail.light_energy = 1.6
@@ -851,6 +868,65 @@ func _build_avatar() -> void:
 	_fwd = Vector3(1, 0, 0)
 	_project_fwd()
 	_update_avatar_transform()
+
+var _av_skel: Skeleton3D = null
+var _av_bones := {}
+var _av_run := 0.0
+var _last_move := 0.0
+var _pets: Array = []   # rescued baby butterflies flying home WITH Roshan
+
+func _find_av_skel(n: Node) -> Skeleton3D:
+	if n is Skeleton3D:
+		return n
+	for c in n.get_children():
+		var r := _find_av_skel(c)
+		if r != null:
+			return r
+	return null
+
+func _animate_avatar(delta: float, moving: float) -> void:
+	# the same procedural mermaid swim the ocean uses: tail wave + hair sway +
+	# gentle head/spine roll, amplitude scaling with movement
+	if _av_skel == null:
+		return
+	_av_run += delta * (2.4 + moving * 4.2)
+	var amp: float = 0.10 + moving * 0.17
+	for i in range(8):
+		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))
+		if bi >= 0:
+			_av_skel.set_bone_pose_rotation(bi, Quaternion(Vector3(1, 0, 0), sin(_av_run - float(i) * 0.55) * amp * (0.55 + float(i) * 0.11)))
+	for hi in range(3):
+		var hb: int = int(_av_bones.get("hair%d" % (hi + 1), -1))
+		if hb >= 0:
+			_av_skel.set_bone_pose_rotation(hb, Quaternion(Vector3(0, 0, 1), sin(_av_run * 0.8 - float(hi) * 0.7) * 0.12))
+	var head: int = int(_av_bones.get("head", -1))
+	if head >= 0:
+		_av_skel.set_bone_pose_rotation(head, Quaternion(Vector3(1, 0, 0), sin(_av_run * 0.5) * 0.06))
+	var chest: int = int(_av_bones.get("chest", -1))
+	if chest >= 0:
+		_av_skel.set_bone_pose_rotation(chest, Quaternion(Vector3(0, 1, 0), sin(_av_run * 0.7) * 0.05 * (0.4 + moving)))
+
+func _tick_pets(delta: float) -> void:
+	# rescued babies orbit Roshan in a sparkling train — the world fills with
+	# friends as she saves them instead of the butterflies just vanishing
+	if _pets.is_empty() or _avatar == null:
+		return
+	var up: Vector3 = _avatar.transform.basis.y
+	var fw: Vector3 = -_avatar.transform.basis.z
+	var side: Vector3 = fw.cross(up).normalized()
+	var tt: float = _bob_t * (2.6 if _state == "won" else 1.4)
+	for i in range(_pets.size()):
+		var pet: Node3D = _pets[i]
+		if not is_instance_valid(pet):
+			continue
+		var a: float = tt + TAU * float(i) / float(_pets.size())
+		var r: float = 2.3 + 0.3 * sin(tt * 1.7 + float(i))
+		var want: Vector3 = _avatar.position + up * (2.6 + sin(tt * 2.0 + float(i) * 1.3) * 0.5) + side * cos(a) * r + fw * sin(a) * r
+		var vel: Vector3 = want - pet.position
+		pet.position = pet.position.lerp(want, minf(1.0, delta * 6.0))
+		if vel.cross(up).length() > 0.02:
+			pet.look_at(pet.position + vel, up)
+		pet.scale = Vector3(1.0 + 0.3 * sin(tt * 9.0 + float(i) * 2.0), 1.0, 1.0) * 0.8
 
 func _gather_aabbs(n: Node, xf: Transform3D, acc: Array) -> void:
 	if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
@@ -1055,6 +1131,8 @@ func _process(delta: float) -> void:
 	if _grand != null and _grand_active:
 		_grand.position = _surf(Vector3.UP, 9.0 + sin(tt * 1.5) * 1.0)
 		_grand.rotate_y(delta * 1.2)
+	_tick_pets(delta)
+	_animate_avatar(delta, _last_move)
 	if _state == "won":
 		_won_t -= delta
 		if fmod(_won_t, 0.3) < delta and _main != null and _main.has_method("_sparkle_burst"):
@@ -1121,6 +1199,7 @@ func _process(delta: float) -> void:
 		_enter_hall()
 		return
 	# idle timer (a butterfly visits Roshan when she stands still)
+	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
 	if absf(mv.x) < 0.05 and absf(mv.y) < 0.05 and _h <= 0.05:
 		_idle_t += delta
 	else:
@@ -1147,7 +1226,8 @@ func _process(delta: float) -> void:
 			continue
 		if ((sd["node"] as Node3D).position).distance_to(feet) < 5.0:
 			sd["got"] = true
-			(sd["node"] as Node3D).visible = false
+			# the rescued baby doesn't vanish — it joins Roshan's butterfly train!
+			_pets.append(sd["node"])
 			if sd.get("beam") != null and is_instance_valid(sd["beam"]):
 				(sd["beam"] as Node3D).visible = false
 			_shards_got += 1
@@ -1458,6 +1538,7 @@ func _exit_hall() -> void:
 
 func _tick_hall(delta: float) -> void:
 	var mv := _move_input()
+	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
 	if absf(mv.x) > 0.01:
 		_cyaw -= mv.x * TURN_SPD * delta
 	var fwd := Vector3(sin(_cyaw), 0.0, cos(_cyaw))

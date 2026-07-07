@@ -1034,7 +1034,12 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 		var vkey := player_vehicle
 		if not is_p:
 			vkey = VEHICLE_ORDER[idx % VEHICLE_ORDER.size()]
-		var node := _vehicle_body(vkey, r["col"], String(r.get("sprite", "")), String(r["name"]), paint if is_p else {})
+		# the driver on the player's kart wears the wardrobe skin (audit: it
+		# was hardcoded classic Roshan no matter what she had dressed up as)
+		var spath := String(r.get("sprite", ""))
+		if is_p and _main != null and _main.has_method("skin_sprite_path"):
+			spath = String(_main.skin_sprite_path())
+		var node := _vehicle_body(vkey, r["col"], spath, String(r["name"]), paint if is_p else {})
 		add_child(node)
 		var start_s := -10.0 - float(idx) * 7.0   # longer grid so the pack doesn't pile into a totem
 		var lane: float = [-0.3, 0.3, -0.6, 0.6][idx % 4] * _rhalf()

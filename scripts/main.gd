@@ -1608,9 +1608,11 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 	if ground == "float":
 		# Level-2 rainbow legs run the classic floating Rainbow Road version
 		(kart_game as KartGame).configure({"theme": "rainbow", "ground": "float"})
+	player.visible = false   # audit: the real mermaid mesh was left frozen in-frame
 	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"), reversed)
 
 func _end_kart_game(place: int) -> void:
+	player.visible = true
 	if hud_layer != null:
 		hud_layer.visible = true
 	kart_game = null
@@ -1640,11 +1642,13 @@ func _start_galaxy() -> void:
 		_write_save()
 	game = "galaxy"
 	hud_game.text = ""
+	player.visible = false   # the galaxy has its own avatar
 	galaxy_game = GalaxyLevel.new()
 	add_child(galaxy_game)
 	(galaxy_game as GalaxyLevel).start(self, Callable(self, "_end_galaxy"))
 
 func _end_galaxy(completed: bool) -> void:
+	player.visible = true
 	if hud_layer != null:
 		hud_layer.visible = true
 	galaxy_game = null
@@ -1789,13 +1793,14 @@ func _flash_speaker_icon(who: String) -> void:
 		sb.border_color = Color(1.0, 0.85, 0.5)
 		sb.set_border_width_all(3)
 		panel.add_theme_stylebox_override("panel", sb)
-		panel.position = Vector2(24, 470)
+		# sits ABOVE the hud_msg dialogue line (y630+) — audit: they overlapped
+		panel.position = Vector2(24, 370)
 		panel.size = Vector2(190, 230)
 		speech_layer.add_child(panel)
 		speech_portrait = TextureRect.new()
 		speech_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		speech_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-		speech_portrait.position = Vector2(34, 478)
+		speech_portrait.position = Vector2(34, 378)
 		speech_portrait.size = Vector2(170, 214)
 		speech_layer.add_child(speech_portrait)
 		panel.name = "bubble"
@@ -3454,7 +3459,7 @@ func _mg_build_garden() -> void:
 		var idx := i
 		sp.pressed.connect(func(): _mg_garden_tap(idx, sp))
 	# Roshan watering, watching over the garden
-	_mg_sprite("res://assets/characters/roshan_sprite.png", Vector2(1140, 360), Vector2(180, 230))
+	_mg_sprite(skin_sprite_path(), Vector2(1140, 360), Vector2(180, 230))
 	_mg_sprite("res://assets/mg/wateringcan.png", Vector2(1010, 430), Vector2(150, 130))
 	# a couple of drifting butterflies
 	for bi in range(3):
@@ -3503,7 +3508,7 @@ func _mg_build_trampoline() -> void:
 	tramp.size.y = 56.0
 	tramp.position = Vector2(640 - 200, 492)
 	mg["rest_y"] = 430.0
-	mg["roshan"] = _mg_sprite("res://assets/characters/roshan_sprite.png", Vector2(640, 430), Vector2(150, 190))
+	mg["roshan"] = _mg_sprite(skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))
 	var b := _mg_roundbtn(Vector2(640, 648), 66.0, Color(0.3, 0.6, 1.0), "JUMP")
 	b.pressed.connect(_mg_tramp_tap)
 
@@ -3540,7 +3545,7 @@ func _mg_build_slide() -> void:
 		band.position = Vector2(-100, 150 + float(i) * 58.0)
 		band.rotation = 0.5
 		mg2d_stage.add_child(band)
-	mg["roshan"] = _mg_sprite("res://assets/characters/roshan_sprite.png", Vector2(160, 150), Vector2(140, 180))
+	mg["roshan"] = _mg_sprite(skin_sprite_path(), Vector2(160, 150), Vector2(140, 180))
 	var b := _mg_roundbtn(Vector2(640, 650), 80.0, Color(1.0, 0.5, 0.7), "GO!")
 	b.pressed.connect(_mg_slide_go)
 
@@ -4699,7 +4704,7 @@ func _play_hug_cutscene() -> void:
 	root.add_child(daddy)
 	# Roshan slides in from the right
 	var rosh := TextureRect.new()
-	rosh.texture = load("res://assets/characters/roshan_sprite.png")
+	rosh.texture = load(skin_sprite_path())
 	rosh.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rosh.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	rosh.size = Vector2(vp.y * 0.5, vp.y * 0.7)
@@ -4795,6 +4800,7 @@ func _open_craft_studio() -> void:
 	title.add_theme_font_size_override("font_size", 52)
 	title.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); title.add_theme_constant_override("outline_size", 10)
 	title.position = Vector2(60, 16); stage.add_child(title)
+	title.add_to_group("craft_top")   # hidden when the farewell banner appears
 	# creature-type buttons — Kitty and Birdie are one-time rainbow-pearl unlocks
 	var kinds := [["fish", "Fishy", 0], ["cat", "Kitty", 5], ["bird", "Birdie", 8]]
 	for ki in range(kinds.size()):
@@ -4815,9 +4821,11 @@ func _open_craft_studio() -> void:
 			tag.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15)); tag.add_theme_constant_override("outline_size", 6)
 			tag.position = Vector2(kb.position.x + 28.0, 80.0)
 			stage.add_child(tag)
+			tag.add_to_group("craft_top")
 			kb.set_meta("price_tag", tag)
 		kb.pressed.connect(func(): _craft_pick_kind(kk, knm, kpr, kb))
 		stage.add_child(kb)
+		kb.add_to_group("craft_top")
 	# pearl purse + feedback line (the normal HUD sits behind this overlay)
 	craft_pearl_lbl = Label.new(); craft_pearl_lbl.text = "Rainbow pearls: %d" % pearl_count
 	craft_pearl_lbl.add_theme_font_size_override("font_size", 28)
@@ -4909,6 +4917,9 @@ func _craft_done() -> void:
 	_write_save()
 	if chime != null:
 		chime.pitch_scale = 1.3; chime.play()
+	for tn in get_tree().get_nodes_in_group("craft_top"):
+		if tn is CanvasItem:
+			(tn as CanvasItem).visible = false   # audit: banner overlapped title/buttons
 	if craft_fishbox != null:
 		var box := craft_fishbox
 		var msg := Label.new(); msg.text = msgtxt
@@ -4999,6 +5010,9 @@ func _wardrobe_pick(id: String) -> void:
 	_wardrobe_refresh()
 	if chime != null:
 		chime.pitch_scale = 1.3; chime.play()
+	# magic-moment: trying on a look showers Roshan in a sparkle swirl
+	_sparkle_burst(player.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
+	_sparkle_burst(player.position + Vector3(0, 0.5, 0), Color(0.7, 0.95, 1.0))
 
 func _wardrobe_done() -> void:
 	_write_save()
@@ -6502,7 +6516,11 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		if beany:
 			gap = maxf(0.0, SLIDE_LEAD * (1.0 - p * 1.45))   # bean power: reel him in!
 		else:
-			gap = SLIDE_LEAD * (1.0 - p * 0.5)               # too fast: gap never < 11
+			# he TIRES near the bottom — sim: pure "beans or nothing" meant a
+			# guaranteed first-run fail behind a text hint a 4yo can't read.
+			# Unbeaned he's still catchable in the last stretch (p>~0.83);
+			# beans catch him WAY earlier and stay the fun way to win.
+			gap = SLIDE_LEAD * maxf(0.02, 1.0 - p * 0.5 - maxf(0.0, p - 0.7) * 1.4)
 		var peng_s: float = minf(s + gap, total)
 		# he FLEES sideways away from Roshan (slower than she can steer), pinned by the
 		# chute walls — so a passive player never catches him; you must corner him.
@@ -6531,6 +6549,8 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			return
 		if beany:
 			hud_game.text = "BEAN POWER! Catch him!   ← →" if p > 0.3 else "Beans! Toot toot! GO GO GO!"
+		elif p > 0.72:
+			hud_game.text = "He's getting TIRED! Catch him! ← →"
 		else:
 			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
@@ -6585,6 +6605,7 @@ const FS_BOSS_HIT_R := 16.0        # giant boss, giant hitboxes
 const FS_LEAVES := 6               # outer leaf shield
 const FS_LEAF_HP := 1              # one blast per leaf
 const FS_LEAF_T := 18.0            # seconds to blast the leaves away
+var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
 const FS_LEAF_RING_X := 26.0       # the leaf wreath is a wide ellipse now (giant boss)
 const FS_LEAF_RING_Y := 13.0       # ...but stays vertically reachable by the bolt aim
 const FS_BUD_HP := 10
@@ -6683,7 +6704,9 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	var center: Vector3 = origin + Vector3(0, FS_BASE_Y, FS_BOSS_Z)
 	g["boss_center"] = center
 	g["phase"] = "boss_leaves"
-	g["phase_t"] = FS_LEAF_T
+	# retry kindness: each earlier fail stretches both boss timers by 6s (max
+	# +12) so a determined kid always blooms the flower on attempt 2-3
+	g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(fs_fails, 2))
 	# leafy stalk base (a big bush model)
 	if _nature("plant_bushLargeTriangle", center + Vector3(0, -52.0, 1.0), 34.0, 0.0) == null:
 		var stalk := _course_box(center + Vector3(0, -40.0, 0), Vector3(10, 70, 10), Color(0.3, 0.65, 0.35))
@@ -6863,11 +6886,12 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		hud_game.text = "Blast the leaves away!   leaves left: %d   ⏱ %d" % [left, int(ceil(pt))]
 		if left <= 0:
 			g["phase"] = "boss_bud"
-			g["phase_t"] = FS_BUD_T
+			g["phase_t"] = FS_BUD_T + 6.0 * float(mini(fs_fails, 2))
 			if g.get("bud") != null and is_instance_valid(g["bud"]):
 				(g["bud"] as Node3D).scale = Vector3.ONE * (FS_BUD_SCALE * 0.5)
 			show_msg(fr_name_safe(), "The flower! Keep blasting to make it grow and bloom!")
 		elif pt <= 0.0:
+			fs_fails += 1
 			_end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
 		return
 	if phase == "boss_bud":
@@ -6880,9 +6904,11 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			bud.scale = Vector3.ONE * (FS_BUD_SCALE * grown * pulse)
 		hud_game.text = "Open the flower!   %d hits left   ⏱ %d" % [maxi(0, hp), int(ceil(pt))]
 		if hp <= 0:
+			fs_fails = 0
 			_fairy_bloom_start()
 			show_msg(fr_name_safe(), "It's blooming! 🌸")
 		elif pt <= 0.0:
+			fs_fails += 1
 			_end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
 		return
 	if phase == "boss_bloom":
@@ -7059,6 +7085,9 @@ func _tick_game(delta: float) -> void:
 		melody_pressed = -1
 		if hit:
 			g["found"] = int(g["found"]) + 1
+			# 50-run sim: 4 finds on one 20s clock passed only 6% on touch —
+			# each find gifts +6s so a slow little seeker still wins the game
+			g["timer"] = float(g["timer"]) + 6.0
 			var lamb2: Node3D = g["lamb"]
 			lamb2.position = bush.position + Vector3(0, 4.8, 0)
 			var twl := create_tween()
@@ -7086,12 +7115,15 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var ball: MeshInstance3D = g["ball"]
 	var chuck: Sprite3D = g["chuck"]
 	if String(g["phase"]) == "aim":
-		hud_game.text = "Throw %d / 2   (oops: %d / 2)" % [int(g["round"]) + 1, int(g["miss"])]
+		hud_game.text = "Throw %d / 2   (oops: %d / 3)" % [int(g["round"]) + 1, int(g["miss"])]
 		# Roshan HOLDS the ball
 		var fdir := Vector3(sin(player.yaw + PI), 0, cos(player.yaw + PI))
 		ball.position = ppos + fdir * 1.3 + Vector3(0, -0.2, 0)
-		# sweeping aim
-		var sw: float = sin(float(g["t"]) * 1.5) * 1.25
+		# sweeping aim — sim: the old 1.5 rad/s sweep outran a 4yo's ~1s reaction
+		# (only ~1 in 4 finished). Slower sweep, and it slows FURTHER after each
+		# splash so a struggling kid always gets there (skill still shows: fewer
+		# splashes = faster win)
+		var sw: float = sin(float(g["t"]) * 0.9 * pow(0.72, float(g["miss"]))) * 1.25
 		var dirv := Vector3(sin(sw), 0, -cos(sw))
 		g["aim_dir"] = dirv
 		var arrow: MeshInstance3D = g["arrow"]
@@ -7129,10 +7161,10 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				add_child(bz)
 				bz.play()
 				bz.finished.connect(bz.queue_free)
-				if int(g["miss"]) >= 2:
+				if int(g["miss"]) >= 3:
 					_end_game(false, fr, "Aww... now Chuck is all wet!", "fail")
 					return
-				show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! One more try...")
+				show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!")
 				g["phase"] = "aim"
 				(g["arrow"] as MeshInstance3D).visible = true
 			else:
@@ -7161,6 +7193,17 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 var dolls_layer: CanvasLayer
 var dolls_root: Control
 var dolls_catcher: TextureRect
+var dolls_score_lbl: Label
+
+func skin_sprite_path() -> String:
+	# the flat art matching the wardrobe skin — used by the kart driver,
+	# the 2D minigame mermaid and the dolls catcher so the chosen look
+	# follows Roshan into every game, not just the ocean
+	if skin_id == "huluu":
+		return "res://assets/characters/friends/huluu.png"
+	if skin_id == "fairy":
+		return "res://assets/characters/skins/fairy_mermaid.png"
+	return "res://assets/characters/roshan_sprite.png"
 
 func _dolls2d_open(fr: Dictionary) -> void:
 	if dolls_layer == null:
@@ -7188,8 +7231,14 @@ func _dolls2d_open(fr: Dictionary) -> void:
 	faron.size = Vector2(170, 200)
 	faron.position = Vector2(40, 60)
 	dolls_root.add_child(faron)
+	dolls_score_lbl = Label.new()
+	dolls_score_lbl.add_theme_font_size_override("font_size", 34)
+	dolls_score_lbl.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15))
+	dolls_score_lbl.add_theme_constant_override("outline_size", 10)
+	dolls_score_lbl.position = Vector2(230, 24)
+	dolls_root.add_child(dolls_score_lbl)
 	dolls_catcher = TextureRect.new()
-	dolls_catcher.texture = load("res://assets/characters/roshan_sprite.png")
+	dolls_catcher.texture = load(skin_sprite_path())
 	dolls_catcher.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	dolls_catcher.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 	dolls_catcher.custom_minimum_size = Vector2(130, 165)
@@ -7202,6 +7251,7 @@ func _dolls2d_close() -> void:
 		dolls_root.queue_free()
 	dolls_root = null
 	dolls_catcher = null
+	dolls_score_lbl = null
 
 func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	if dolls_root == null:
@@ -7256,7 +7306,10 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			g["resolved"] = int(g["resolved"]) + 1
 			doll.queue_free()
 			dolls.remove_at(i)
-	hud_game.text = "Sleepy dolls caught: %d (catch 3 to win!)" % int(g["caught"])
+	# audit: hud_game sits BEHIND the opaque nursery overlay — write the score
+	# onto the dolls layer itself so it is actually visible
+	if dolls_score_lbl != null:
+		dolls_score_lbl.text = "Sleepy dolls caught: %d  (catch 3 to win!)" % int(g["caught"])
 	if int(g["resolved"]) >= 5 and dolls.is_empty():
 		_dolls2d_close()
 		if int(g["caught"]) >= 3:
