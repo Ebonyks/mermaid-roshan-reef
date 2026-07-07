@@ -93,6 +93,13 @@ var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
 var _bells: Array = []            # star bells: {node, pos, cool}
 var _fount_cool := 0.0
 var _gate_cool := 0.0
+var _orrery_planets: Array = []   # her own tiny galaxy: {node, r, spd, ph, tilt}
+var _hall_rug_mat: StandardMaterial3D = null
+var _dance_t := 0.0
+var _dance_note := 0
+var _dance_cool := 0.0
+var _throne_cool := 0.0
+const PENT := [0, 2, 4, 7, 9]
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
 
@@ -1140,6 +1147,7 @@ func _build_hall() -> void:
 	rug.material_override = rmat
 	rug.position = Vector3(0, 0.6, 0)
 	_hall_root.add_child(rug)
+	_hall_rug_mat = rmat   # the DANCE FLOOR: hue-cycles, and pulses when Roshan dances on it
 	# amethyst-glass wall panels (door gap at +z)
 	for i in range(12):
 		if i == 0:
@@ -1265,11 +1273,96 @@ func _build_hall() -> void:
 	dlab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	dlab.position = Vector3(0, 8.0, 24.6)
 	_hall_root.add_child(dlab)
+	# ---- HER OWN TINY GALAXY: a golden mini-star with five pastel planets on
+	# tilted orbits, floating in the middle of the hall ----
+	var msun := MeshInstance3D.new()
+	var msm := SphereMesh.new()
+	msm.radius = 1.0
+	msm.height = 2.0
+	msun.mesh = msm
+	var msunm := StandardMaterial3D.new()
+	msunm.albedo_color = Color(1.0, 0.9, 0.5)
+	msunm.emission_enabled = true
+	msunm.emission = Color(1.0, 0.85, 0.4)
+	msunm.emission_energy_multiplier = 2.2
+	msun.material_override = msunm
+	msun.position = Vector3(0, 9.0, 0)
+	_hall_root.add_child(msun)
+	var msl := OmniLight3D.new()
+	msl.light_color = Color(1.0, 0.9, 0.55)
+	msl.light_energy = 1.4
+	msl.omni_range = 16.0
+	msl.position = msun.position
+	_hall_root.add_child(msl)
+	var pcolors := [Color(0.95, 0.5, 0.6), Color(0.5, 0.7, 1.0), Color(0.6, 0.95, 0.7), Color(0.85, 0.6, 1.0), Color(1.0, 0.75, 0.45)]
+	for i in range(5):
+		var pl2 := MeshInstance3D.new()
+		var psm := SphereMesh.new()
+		psm.radius = 0.28 + 0.07 * float(i % 3)
+		psm.height = psm.radius * 2.0
+		pl2.mesh = psm
+		var plm := StandardMaterial3D.new()
+		plm.albedo_color = pcolors[i]
+		plm.emission_enabled = true
+		plm.emission = pcolors[i]
+		plm.emission_energy_multiplier = 0.9
+		pl2.material_override = plm
+		_hall_root.add_child(pl2)
+		_orrery_planets.append({"node": pl2, "r": 1.9 + float(i) * 0.75, "spd": 0.9 - float(i) * 0.12, "ph": float(i) * 1.3, "tilt": 0.15 + 0.1 * float(i)})
+	# ---- aurora ribbons flowing across the ceiling ----
+	var ash := Shader.new()
+	ash.code = """shader_type spatial;
+render_mode unshaded, blend_add, cull_disabled, depth_draw_never;
+void fragment(){
+	float wave = sin(UV.x * 9.0 + TIME * 0.7) * 0.5 + 0.5;
+	float edge = smoothstep(0.0, 0.30, UV.y) * smoothstep(1.0, 0.70, UV.y);
+	vec3 c = mix(vec3(0.2, 1.0, 0.6), vec3(0.6, 0.4, 1.0), wave);
+	c = mix(c, vec3(1.0, 0.5, 0.8), sin(UV.x * 4.0 - TIME * 0.4) * 0.5 + 0.5);
+	ALBEDO = c * edge * 0.55;
+	ALPHA = edge * 0.4;
+}"""
+	var amat := ShaderMaterial.new()
+	amat.shader = ash
+	for i in range(2):
+		var rib := MeshInstance3D.new()
+		var rq := QuadMesh.new()
+		rq.size = Vector2(42.0, 7.0)
+		rib.mesh = rq
+		rib.material_override = amat
+		rib.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		rib.position = Vector3(0, 12.5 + float(i) * 1.4, -4.0 + float(i) * 8.0)
+		rib.rotation_degrees = Vector3(90, 22.0 - 44.0 * float(i), 0)
+		_hall_root.add_child(rib)
+	# ---- stardust drifting down from each chandelier ----
+	for i in range(3):
+		var dust := CPUParticles3D.new()
+		dust.amount = 14
+		dust.lifetime = 5.0
+		dust.preprocess = 5.0
+		dust.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+		dust.emission_sphere_radius = 0.8
+		dust.gravity = Vector3(0, -0.7, 0)
+		dust.initial_velocity_min = 0.05
+		dust.initial_velocity_max = 0.3
+		dust.scale_amount_min = 0.05
+		dust.scale_amount_max = 0.14
+		var dm := BoxMesh.new()
+		dm.size = Vector3(0.1, 0.1, 0.1)
+		dust.mesh = dm
+		var dmat2 := StandardMaterial3D.new()
+		dmat2.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		dmat2.albedo_color = Color(1.0, 0.93, 0.6)
+		dmat2.emission_enabled = true
+		dmat2.emission = Color(1.0, 0.9, 0.5)
+		dmat2.emission_energy_multiplier = 1.4
+		dust.material_override = dmat2
+		dust.position = Vector3(sin(float(i) * TAU / 3.0) * 9.0, 9.6, cos(float(i) * TAU / 3.0) * 9.0)
+		_hall_root.add_child(dust)
 	# indoor butterflies circling the chandeliers
 	for i in range(4):
 		var bf := _make_butterfly(WING_COLS[(i * 2) % WING_COLS.size()], 1.8)
 		_hall_root.add_child(bf)
-		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4})
+		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4, "visit_t": 0.0})
 
 func _enter_hall() -> void:
 	if not _hall_built:
@@ -1281,7 +1374,7 @@ func _enter_hall() -> void:
 	_cvy = 0.0
 	_chime(1.2)
 	if _lbl_hint != null:
-		_lbl_hint.text = "The STAR HALL!  •  ring the star bells — make a wish at the fountain!"
+		_lbl_hint.text = "The STAR HALL!  •  dance on the star rug • ring the bells • wish at the fountain • sit on the throne!"
 	if _main != null and _main.has_method("show_msg"):
 		_main.show_msg("Mermaid Rosalina", "Come in, come in! This is my Star Hall — the whole galaxy shines under the floor!", "greet")
 
@@ -1320,12 +1413,55 @@ func _tick_hall(delta: float) -> void:
 		_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
 		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + fwd * 3.0, Vector3.UP)
 	var tt: float = Time.get_ticks_msec() / 1000.0
+	# her tiny galaxy spins
+	for od in _orrery_planets:
+		var oa: float = tt * float(od["spd"]) + float(od["ph"])
+		(od["node"] as Node3D).position = Vector3(0, 9.0, 0) + Vector3(cos(oa) * float(od["r"]), sin(oa) * float(od["r"]) * float(od["tilt"]), sin(oa) * float(od["r"]))
+	# the star rug is a DANCE FLOOR: it hue-cycles, and dancing on it starts a
+	# party — rising chime melody, sparkle bursts, butterflies swooping down
+	if _hall_rug_mat != null:
+		_hall_rug_mat.emission = Color.from_hsv(fposmod(tt * 0.10, 1.0), 0.55, 1.0) * (0.35 + minf(_dance_t, 2.0) * 0.25)
+	var on_rug: bool = _ch < 0.5 and Vector2(_cpos.x, _cpos.z).length() < 8.0
+	if on_rug:
+		_dance_t += delta
+		_dance_cool -= delta
+		if _dance_cool <= 0.0:
+			_dance_cool = 0.45
+			_chime(0.8 * pow(2.0, float(PENT[_dance_note % PENT.size()] + 12 * (_dance_note / PENT.size() % 2)) / 12.0))
+			_dance_note += 1
+			if _main != null and _main.has_method("_sparkle_burst"):
+				_main._sparkle_burst(HALL_C + Vector3(randf() * 10.0 - 5.0, 1.5, randf() * 10.0 - 5.0), Color.from_hsv(randf(), 0.6, 1.0))
+			for hf0 in _hall_flies:
+				hf0["visit_t"] = 1.2
+	else:
+		_dance_t = 0.0
+		_dance_note = 0
+	# the Moon Throne crowns her: STAR PRINCESS moment
+	_throne_cool = maxf(0.0, _throne_cool - delta)
+	if _throne_cool <= 0.0 and Vector2(_cpos.x, _cpos.z - (-20.0)).length() < 4.5:
+		_throne_cool = 18.0
+		_chime(1.5)
+		for hf1 in _hall_flies:
+			hf1["visit_t"] = 6.0
+		if _main != null and _main.has_method("_sparkle_burst"):
+			for si in range(6):
+				_main._sparkle_burst(HALL_C + _cpos + Vector3(randf() * 4.0 - 2.0, 2.0 + randf() * 3.0, randf() * 4.0 - 2.0), Color(1.0, 0.9, 0.4))
+		if _main != null and _main.has_method("show_msg"):
+			_main.show_msg("Mermaid Rosalina", "A crown of butterflies for the STAR PRINCESS of the Butterfly World!", "win")
 	for hf in _hall_flies:
 		var n3: Node3D = hf["node"]
-		var ha: float = tt * float(hf["spd"]) + float(hf["ph"])
-		var hp := Vector3(cos(ha) * float(hf["r"]), float(hf["h"]) + sin(tt * 1.8 + float(hf["ph"])) * 0.6, sin(ha) * float(hf["r"]))
+		var vt: float = float(hf.get("visit_t", 0.0))
+		var hp: Vector3
+		if vt > 0.0:
+			hf["visit_t"] = vt - delta
+			# swoop down and circle Roshan like a living crown
+			var va: float = tt * 2.6 + float(hf["ph"])
+			hp = _cpos + Vector3(cos(va) * 2.4, 2.6 + _ch + sin(tt * 3.0 + float(hf["ph"])) * 0.4, sin(va) * 2.4)
+		else:
+			var ha: float = tt * float(hf["spd"]) + float(hf["ph"])
+			hp = Vector3(cos(ha) * float(hf["r"]), float(hf["h"]) + sin(tt * 1.8 + float(hf["ph"])) * 0.6, sin(ha) * float(hf["r"]))
 		var hv: Vector3 = (HALL_C + hp) - n3.position
-		n3.position = HALL_C + hp
+		n3.position = n3.position.lerp(HALL_C + hp, minf(1.0, delta * 6.0))
 		if hv.length() > 0.01:
 			n3.look_at(n3.position + hv, Vector3.UP)
 		n3.scale = Vector3(1.0 + 0.28 * sin(tt * 14.0), 1.0, 1.0)

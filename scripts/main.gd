@@ -2263,7 +2263,7 @@ func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	cm.height = 26.0 * sc
 	cm.radial_segments = 16
 	shaft.mesh = cm
-	shaft.material_override = _up_mat("castle", 0.06, Color(0.98, 0.95, 1.0))
+	shaft.material_override = _up_mat("marble", 0.06, Color(0.99, 0.97, 1.0))
 	shaft.position = pos + Vector3(0, 13.0 * sc, 0)
 	add_child(shaft)
 	game_nodes.append(shaft)
@@ -2819,7 +2819,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		_l2_box(c + Vector3(28, 26, -8), Vector3(1.5, 52, 40), Color(0.84, 0.82, 0.89)),
 		_l2_box(c + Vector3(0, 52, -8), Vector3(56, 1.5, 40), Color(0.82, 0.80, 0.87))]
 	for _kp in _keep_parts:
-		_kp.material_override = _up_mat("castle", 0.035, Color(0.98, 0.95, 1.0))   # dressed medieval stone
+		_kp.material_override = _up_mat("marble", 0.035, Color(0.99, 0.97, 1.0))   # royal white marble (red brick read wrong)
 	# --- collision: the keep shell is SOLID. The doorway (and the secret moat
 	# hatch) are the only ways in — without these the star-gated door was cosmetic.
 	_wall_solid(c + Vector3(-18, 26, 12), Vector3(20, 52, 1.5))   # front wall, left of the door
@@ -2861,11 +2861,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for cz2 in [12.0, -28.0]:
 		for cmx in range(-4, 5):
 			var mr := _l2_box(c + Vector3(float(cmx) * 6.4, 53.5, cz2), Vector3(3.2, 5.0, 2.0), Color(0.9, 0.88, 0.95))
-			mr.material_override = _up_mat("castle", 0.1, Color(0.98, 0.95, 1.0))
+			mr.material_override = _up_mat("marble", 0.1, Color(0.99, 0.97, 1.0))
 	for cmx2 in range(-3, 4):
 		for csx in [-28.0, 28.0]:
 			var mr2 := _l2_box(c + Vector3(csx, 53.5, -8.0 + float(cmx2) * 6.4), Vector3(2.0, 5.0, 3.2), Color(0.9, 0.88, 0.95))
-			mr2.material_override = _up_mat("castle", 0.1, Color(0.98, 0.95, 1.0))
+			mr2.material_override = _up_mat("marble", 0.1, Color(0.99, 0.97, 1.0))
 	# ---- royal banners flanking the door ----
 	for bxs in [-1.0, 1.0]:
 		var ban := MeshInstance3D.new()
@@ -3893,19 +3893,19 @@ func _build_castle_hall(o: Vector3) -> void:
 	var wcol := Color(0.95, 0.92, 0.97)
 	var scol := Color(0.93, 0.9, 0.95)
 	# back wall, SEGMENTED to leave two real doorway openings at x=+-22 (the side archways)
-	_iwall(o + Vector3(0, 18, -34), Vector3(35.0, 36, 1.5), wcol, "castle")      # center (behind throne/glass)
-	_iwall(o + Vector3(-30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "castle")  # left edge
-	_iwall(o + Vector3(30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "castle")   # right edge
-	_iwall(o + Vector3(-22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "castle")   # lintel over left arch
-	_iwall(o + Vector3(22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "castle")    # lintel over right arch
+	_iwall(o + Vector3(0, 18, -34), Vector3(35.0, 36, 1.5), wcol, "marble")      # center (behind throne/glass)
+	_iwall(o + Vector3(-30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "marble")  # left edge
+	_iwall(o + Vector3(30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "marble")   # right edge
+	_iwall(o + Vector3(-22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "marble")   # lintel over left arch
+	_iwall(o + Vector3(22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "marble")    # lintel over right arch
 	# left side wall, SEGMENTED to leave a doorway at z=-16 into the new MUSIC ROOM
-	_iwall(o + Vector3(-35, 18, 17.5), Vector3(1.5, 36, 57), scol, "castle")  # front segment (z +46..-11)
-	_iwall(o + Vector3(-35, 18, -27.5), Vector3(1.5, 36, 13), scol, "castle") # back segment (z -21..-34)
-	_iwall(o + Vector3(-35, 27, -16), Vector3(1.5, 18, 10), scol, "castle")   # lintel over the music-room door
+	_iwall(o + Vector3(-35, 18, 17.5), Vector3(1.5, 36, 57), scol, "marble")  # front segment (z +46..-11)
+	_iwall(o + Vector3(-35, 18, -27.5), Vector3(1.5, 36, 13), scol, "marble") # back segment (z -21..-34)
+	_iwall(o + Vector3(-35, 27, -16), Vector3(1.5, 18, 10), scol, "marble")   # lintel over the music-room door
 	# right side wall, SEGMENTED to leave a doorway at z=-16 into the new BEDROOM
-	_iwall(o + Vector3(35, 18, 17.5), Vector3(1.5, 36, 57), scol, "castle")  # front segment (z +46..-11)
-	_iwall(o + Vector3(35, 18, -27.5), Vector3(1.5, 36, 13), scol, "castle") # back segment (z -21..-34)
-	_iwall(o + Vector3(35, 27, -16), Vector3(1.5, 18, 10), scol, "castle")   # lintel over the bedroom door
+	_iwall(o + Vector3(35, 18, 17.5), Vector3(1.5, 36, 57), scol, "marble")  # front segment (z +46..-11)
+	_iwall(o + Vector3(35, 18, -27.5), Vector3(1.5, 36, 13), scol, "marble") # back segment (z -21..-34)
+	_iwall(o + Vector3(35, 27, -16), Vector3(1.5, 18, 10), scol, "marble")   # lintel over the bedroom door
 	_l2_box(o + Vector3(0, 35, 6), Vector3(70, 1.5, 80), Color(0.85, 0.82, 0.9))      # ceiling (no collider; arena_ceil caps height)
 	# regal stained-glass panels behind the throne (the Mermaid Roshan glass now lives
 	# on the castle's FRONT exterior — this is a plain coloured rose window for Huluu)
@@ -4066,9 +4066,9 @@ func _build_castle_hall(o: Vector3) -> void:
 	var br := o + Vector3(0, 0, -46.0)   # back-room center
 	_l2_box(br + Vector3(0, 0.4, 0), Vector3(52, 1.0, 22), Color(0.86, 0.82, 0.92))            # floor
 	_l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.82, 0.79, 0.88))           # ceiling
-	_iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.93, 0.9, 0.95), "castle")          # back wall
-	_iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "castle")          # left wall
-	_iwall(br + Vector3(25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "castle")           # right wall
+	_iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.93, 0.9, 0.95), "marble")          # back wall
+	_iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")          # left wall
+	_iwall(br + Vector3(25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")           # right wall
 	# warm light + a soft red runner inside
 	var brl := OmniLight3D.new(); brl.light_color = Color(1.0, 0.85, 0.6); brl.light_energy = 2.0; brl.omni_range = 34.0
 	brl.position = br + Vector3(0, 20, 0); add_child(brl); game_nodes.append(brl)
@@ -4209,9 +4209,9 @@ func _build_castle_music_room(o: Vector3) -> void:
 	mfloor.material_override.roughness = 0.9
 	_l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.8, 0.82, 0.92))
 	# enclosing walls (the right/hall side is the segmented hall wall already built)
-	_iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall, "castle")       # far wall (x=-52.75)
-	_iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall, "castle")      # back wall (z=-24.75)
-	_iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall, "castle")       # front wall (z=+14.75)
+	_iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall, "marble")       # far wall (x=-52.75)
+	_iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall, "marble")      # back wall (z=-24.75)
+	_iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall, "marble")       # front wall (z=+14.75)
 	# gold doorway frame around the opening in the hall wall
 	for dz in [-21.0, -11.0]:
 		_l2_box(o + Vector3(-35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
@@ -4275,9 +4275,9 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	bfloor.material_override.roughness = 0.9
 	_l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.9, 0.84, 0.82))
 	# enclosing walls (the left/hall side is the segmented hall wall already built)
-	_iwall(bo + Vector3(11, 16, 0), Vector3(1.5, 34, 22), wall, "castle")          # far wall (x=57)
-	_iwall(bo + Vector3(0, 16, -11), Vector3(22, 34, 1.5), wall, "castle")         # back wall (z=-28)
-	_iwall(bo + Vector3(0, 16, 11), Vector3(22, 34, 1.5), wall, "castle")          # front wall (z=-6)
+	_iwall(bo + Vector3(11, 16, 0), Vector3(1.5, 34, 22), wall, "marble")          # far wall (x=57)
+	_iwall(bo + Vector3(0, 16, -11), Vector3(22, 34, 1.5), wall, "marble")         # back wall (z=-28)
+	_iwall(bo + Vector3(0, 16, 11), Vector3(22, 34, 1.5), wall, "marble")          # front wall (z=-6)
 	# gold doorway frame around the opening in the hall wall
 	for dz in [-21.0, -11.0]:
 		_l2_box(o + Vector3(35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
