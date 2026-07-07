@@ -3647,7 +3647,7 @@ func _tick_mg2d(delta: float) -> void:
 		var ang_ok := false
 		var ang := 0.0
 		var jv := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
-		if jv.length() > 0.45:
+		if jv.length() > 0.35:   # little thumbs: was 0.45, half-pushed circles count too
 			ang = jv.angle()
 			ang_ok = true
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
@@ -3668,6 +3668,20 @@ func _tick_mg2d(delta: float) -> void:
 		var prog: float = clampf(float(mg["rot_acc"]) / float(mg["rot_need"]), 0.0, 1.0)
 		var r: float = lerpf(26.0, float(mg["final_r"]), prog)
 		_mg_snow_ball_size(mg["roll_ball"], r, SNOW_ROLL_C)
+		# struggle helper: the circle gesture is the one real motor skill in the
+		# 2D games — if no progress for 8s, the spin arrow doubles in size and
+		# Roshan chirps encouragement so a stuck kid gets a nudge, not a wall
+		var stall: float = float(mg.get("stall", 0.0))
+		if float(mg["rot_acc"]) > float(mg.get("stall_acc", 0.0)) + 0.3:
+			mg["stall_acc"] = mg["rot_acc"]
+			stall = 0.0
+		else:
+			stall += delta
+		var assist: bool = stall > 8.0
+		if assist and stall - delta <= 8.0 and voice != null:
+			voice.pitch_scale = 1.3
+			voice.play()
+		mg["stall"] = stall
 		# crunchy tick every half circle so the rolling feels alive
 		if int(float(mg["rot_acc"]) / PI) > int(float(mg["rot_prev"]) / PI) and chime != null:
 			chime.pitch_scale = 0.8 + prog * 0.35
@@ -3679,6 +3693,7 @@ func _tick_mg2d(delta: float) -> void:
 			var oa: float = t2 * 2.6
 			ar.position = SNOW_ROLL_C + Vector2(cos(oa), sin(oa)) * (r + 58.0) - Vector2(28, 46)
 			ar.rotation = oa + PI * 0.5
+			ar.scale = ar.scale.lerp(Vector2.ONE * (2.0 if assist else 1.0), delta * 5.0)
 		if prog >= 1.0:
 			_mg_snow_ball_done()
 	if mg_kind == "garden" and mg2d_stage != null:
@@ -5314,6 +5329,23 @@ func _tick_guide(delta: float) -> void:
 				best = d2
 				target = p.position
 				have = true
+	# NON-READER WAYFINDING (audit: every "where do I go?" cue was text-only).
+	# The friend pillars now narrate progress: finished friends dim right down,
+	# waiting friends stay soft, and the NEAREST quest friend pulses bright.
+	var tt2: float = Time.get_ticks_msec() / 1000.0
+	for f in friends:
+		var pil: MeshInstance3D = f.get("pillar")
+		if pil == null or not is_instance_valid(pil):
+			continue
+		var pmat2 := pil.material_override as StandardMaterial3D
+		if pmat2 == null:
+			continue
+		if bool(f["won"]):
+			pmat2.albedo_color.a = 0.03
+		elif have and (f["node"] as Sprite3D).position == target:
+			pmat2.albedo_color.a = 0.22 + 0.12 * (0.5 + 0.5 * sin(tt2 * 2.4))
+		else:
+			pmat2.albedo_color.a = 0.10
 	if not have or best <= 16.0:
 		return
 	var dir2: Vector3 = (target - player.position).normalized()
@@ -5321,6 +5353,14 @@ func _tick_guide(delta: float) -> void:
 	var pv: Vector3 = player.vel
 	if best > 25.0 and pv.length() > 4.0 and pv.normalized().dot(dir2) > 0.45:
 		player.position += dir2 * 5.5 * delta
+	# breadcrumb sparkles: when the goal is far, a short trail of gold twinkles
+	# points the way every couple of seconds — follow the sparkles!
+	var gt: float = float(get_meta("guide_t", 0.0)) - delta
+	if best > 35.0 and gt <= 0.0:
+		gt = 2.2
+		for k: float in [8.0, 16.0]:
+			_sparkle_burst(player.position + dir2 * k + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
+	set_meta("guide_t", gt)
 
 func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	var cp := CPUParticles3D.new()
@@ -5520,7 +5560,9 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	elif String(fr["fname"]) == "Pearl Shop":
 		shop_cool = 16.0
 	elif String(fr["fname"]) == "Fairy Pond":
-		fairy_cool = 12.0
+		# quick retry after a boss fail — a 12s wait outside the pond was pure
+		# friction for a kid who wants straight back in
+		fairy_cool = 12.0 if win else 5.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
 	_respawn_pearls()
 	show_msg(fr["fname"], txt, "win" if win else vo)
@@ -7253,9 +7295,16 @@ func _seek_hide() -> void:
 	var bush: MeshInstance3D = (g["bushes"] as Array)[int(g["which"])]
 	(g["lamb"] as Node3D).position = bush.position + Vector3(0, 0.5, -2.2)
 	(g["lamb"] as Node3D).rotation.y = 0.0
-	var tw := create_tween().set_loops(8)
+	# audit: the wiggle used to stop after ~2.5s (8 loops) and every bush went
+	# still — a slow seeker lost the only signal. It wiggles until found now.
+	if g.get("wiggle_tw") != null and (g["wiggle_tw"] as Tween).is_valid():
+		(g["wiggle_tw"] as Tween).kill()
+	var tw := create_tween().set_loops()
 	tw.tween_property(bush, "scale", Vector3(1.35, 0.75, 1.35), 0.16)
 	tw.tween_property(bush, "scale", Vector3.ONE, 0.16)
+	tw.tween_interval(0.9)
+	g["wiggle_tw"] = tw
+	g["gig_t"] = 2.2   # Lamb-a' giggles from her hiding spot (audio beacon)
 
 func _tick_game(delta: float) -> void:
 	var fr: Dictionary = g["fr"]
@@ -7272,6 +7321,13 @@ func _tick_game(delta: float) -> void:
 		_tick_dolls(delta, fr, ppos)
 	elif game == "seek":
 		hud_game.text = "Find Lamb-a'! %d / 4   %ds" % [int(g["found"]), int(g["timer"])]
+		# giggle beacon: she can be HEARD from the wiggly bush, not just seen
+		g["gig_t"] = float(g.get("gig_t", 2.0)) - delta
+		if float(g["gig_t"]) <= 0.0:
+			g["gig_t"] = 2.8
+			if voice != null:
+				voice.pitch_scale = 1.45 + randf() * 0.15
+				voice.play()
 		var which: int = int(g.get("which", 0))
 		var bush: MeshInstance3D = (g["bushes"] as Array)[which]
 		var hit: bool = _btn_pressed() == which or bush.position.distance_to(ppos) < 4.0
@@ -7326,6 +7382,13 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var wet: bool = landing.x - ARENA_POS.x > 8.2
 		(arrow.material_override as StandardMaterial3D).albedo_color = Color(1.0, 0.3, 0.3) if wet else Color(0.4, 1.0, 0.5)
 		(arrow.material_override as StandardMaterial3D).emission = (Color(1.0, 0.25, 0.25) if wet else Color(0.3, 1.0, 0.45)) * 0.9
+		# non-reader timing cue: the arrow SWELLS while green and a soft tick
+		# plays the moment it turns green — timing by ear, not just by color
+		arrow.scale = Vector3.ONE if wet else Vector3.ONE * (1.22 + 0.10 * sin(float(g["t"]) * 9.0))
+		if not wet and bool(g.get("was_wet", true)) and chime != null:
+			chime.pitch_scale = 1.5
+			chime.play()
+		g["was_wet"] = wet
 		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
 		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
 			g["press_cool"] = 1.0
