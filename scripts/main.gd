@@ -1423,7 +1423,7 @@ func _build_aquatic_creatures() -> void:
 		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]))
 		add_child(cfn)
 		flora_nodes.append(cfn)
-		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU})
+		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
 
 func _tick_aquatic(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
@@ -1434,6 +1434,12 @@ func _tick_aquatic(delta: float) -> void:
 		var pos := Vector3(cos(ang) * rad, float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0, sin(ang) * rad)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
+		# a fish SHE made recognises her: heart puff + chirp when she swims by
+		if bool(mv.get("crafted", false)) and game == "":
+			mv["greet_cool"] = maxf(0.0, float(mv.get("greet_cool", 0.0)) - delta)
+			if float(mv["greet_cool"]) <= 0.0 and node.position.distance_to(player.position) < 6.0:
+				mv["greet_cool"] = 9.0
+				_greet_heart(node.position + Vector3(0, 2.2, 0))
 
 func _build_pearls() -> void:
 	pearl_mat = _rainbow_mat()
@@ -2731,6 +2737,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		_nature("grass_leafsLarge", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.3, cpz), 5.5, randf() * TAU)
 	# (rivers + fish are built as real carved valleys in _build_lagoon_terrain above)
 	# player-crafted FRIENDS from the Crafting Studio hang around the courtyard
+	g["crafted"] = []
 	for fi in range(custom_friends.size()):
 		var cf2: Array = custom_friends[fi]
 		if cf2.size() < 7:
@@ -2740,6 +2747,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		frn.position = o + Vector3(cos(fang) * (34.0 + float(fi % 5) * 11.0), 6.0, 70.0 + sin(fang) * 45.0)
 		add_child(frn)
 		game_nodes.append(frn)
+		(g["crafted"] as Array).append({"node": frn, "cool": 0.0})
 	# a big rainbow arc over the meadow
 	var rainbow := MeshInstance3D.new()
 	var rt := TorusMesh.new()
@@ -3039,6 +3047,23 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(g.get("phase", "court")) == "hall":
 		_tick_castle_hall(delta, ppos)
 		return
+	# crafted friends WAVE back: heart puff + happy chirp when Roshan visits
+	for cd in g.get("crafted", []):
+		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
+		var cn: Node3D = cd["node"]
+		if is_instance_valid(cn) and float(cd["cool"]) <= 0.0 and cn.position.distance_to(ppos) < 6.5:
+			cd["cool"] = 9.0
+			_greet_heart(cn.position + Vector3(0, 3.0, 0))
+			var hop_y: float = cn.position.y
+			var hop := cn.create_tween()
+			hop.tween_property(cn, "position:y", hop_y + 1.2, 0.18)
+			hop.tween_property(cn, "position:y", hop_y, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	# night magic: shooting stars streak over the lagoon after bedtime
+	if is_night:
+		night_star_t -= delta
+		if night_star_t <= 0.0:
+			night_star_t = 5.0 + randf() * 7.0
+			_spawn_shooting_star(ppos)
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
 	kart_cool = maxf(0.0, kart_cool - delta)
 	bw_cool = maxf(0.0, bw_cool - delta)
@@ -4253,6 +4278,28 @@ func _build_castle_music_room(o: Vector3) -> void:
 		bp.volume_db = -13.0   # much softer bells
 		bell.add_child(bp)   # parent to the bell so it frees with the room (game_nodes is Array[Node3D])
 		(g["bells"] as Array).append({"node": bell, "player": bp, "cool": 0.0, "base_y": bell.position.y, "tw": null})
+	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
+	# Simon-says for little ears. Wrong notes just replay the song (no fail);
+	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
+	var song_star := Label3D.new()
+	song_star.text = "♪"
+	song_star.font_size = 220
+	song_star.pixel_size = 0.02
+	song_star.outline_size = 18
+	song_star.modulate = Color(1.0, 0.85, 0.3)
+	song_star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	song_star.position = mo + Vector3(0, 6.5, -18.5)
+	add_child(song_star)
+	game_nodes.append(song_star)
+	var ssl := OmniLight3D.new()
+	ssl.light_color = Color(1.0, 0.9, 0.4)
+	ssl.light_energy = 1.6
+	ssl.omni_range = 9.0
+	ssl.position = song_star.position
+	add_child(ssl)
+	game_nodes.append(ssl)
+	g["song_star"] = song_star.position
+	g["bellgame"] = {"state": "idle", "seq": [], "i": 0, "t": 0.0, "round": 0, "cool": 0.0}
 	# two warm fill lights down the length
 	for lz in [-12.0, 10.0]:
 		var ml := OmniLight3D.new()
@@ -4497,23 +4544,30 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	# music room: swim near a bell to play its note. Short cooldown so rapid
 	# passes re-trigger almost instantly; the prior bob tween is killed and the
 	# bell reset to base each strike so overlapping hits stay snappy, not jittery.
-	for bd in g.get("bells", []):
+	var bg2: Dictionary = g.get("bellgame", {})
+	var bells2: Array = g.get("bells", [])
+	for bi2 in range(bells2.size()):
+		var bd: Dictionary = bells2[bi2]
 		bd["cool"] = maxf(0.0, float(bd["cool"]) - delta)
 		var bn: Node3D = bd["node"]
 		if not is_instance_valid(bn):
 			continue
-		if bn.position.distance_to(ppos) < 5.0 and float(bd["cool"]) <= 0.0:
+		var near_b: bool = bn.position.distance_to(ppos) < 5.0
+		var was_near: bool = bool(bd.get("near", false))
+		bd["near"] = near_b
+		if String(bg2.get("state", "")) == "play":
+			continue   # the song-star is singing — listen first!
+		if String(bg2.get("state", "")) == "echo":
+			# during the echo, a ring fires once per visit (edge-triggered) so
+			# lingering next to a bell can't spam wrong notes
+			if near_b and not was_near:
+				bd["cool"] = 0.12
+				_ring_bell(bd)
+				_bellgame_echo(bg2, bi2)
+		elif near_b and float(bd["cool"]) <= 0.0:
 			bd["cool"] = 0.12
-			(bd["player"] as AudioStreamPlayer).play()
-			var base_y: float = float(bd.get("base_y", 5.0))
-			if bd.get("tw") != null and (bd["tw"] as Tween).is_valid():
-				(bd["tw"] as Tween).kill()
-			bn.position.y = base_y
-			var bbtw: Tween = bn.create_tween()
-			bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
-			bbtw.tween_property(bn, "position:y", base_y, 0.16)
-			bd["tw"] = bbtw
-			_sparkle_burst(bn.position + Vector3(0, 4, 0), (bn.material_override as StandardMaterial3D).albedo_color)
+			_ring_bell(bd)
+	_tick_bellgame(bg2, delta, ppos)
 	# secret easter-egg chest behind the throne -> ONE consistent bonus game.
 	# Fires once when you reach it; will not fire again until you swim away and come back
 	# (so it never spins randomly through games while you linger nearby).
@@ -4545,6 +4599,92 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 		player.vel.y = maxf(player.vel.y, 0.0)
 	if d < 5.0:
 		_finish_level2()
+
+func _ring_bell(bd: Dictionary) -> void:
+	(bd["player"] as AudioStreamPlayer).play()
+	var bn: Node3D = bd["node"]
+	var base_y: float = float(bd.get("base_y", 5.0))
+	if bd.get("tw") != null and (bd["tw"] as Tween).is_valid():
+		(bd["tw"] as Tween).kill()
+	bn.position.y = base_y
+	var bbtw: Tween = bn.create_tween()
+	bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
+	bbtw.tween_property(bn, "position:y", base_y, 0.16)
+	bd["tw"] = bbtw
+	_sparkle_burst(bn.position + Vector3(0, 4, 0), (bn.material_override as StandardMaterial3D).albedo_color)
+
+func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
+	if bg2.is_empty():
+		return
+	bg2["cool"] = maxf(0.0, float(bg2["cool"]) - delta)
+	var st := String(bg2["state"])
+	if st == "idle":
+		if float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
+			bg2["round"] = 0
+			show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
+			_bellgame_new_round(bg2)
+	elif st == "play":
+		bg2["t"] = float(bg2["t"]) - delta
+		if float(bg2["t"]) <= 0.0:
+			var seq: Array = bg2["seq"]
+			var i: int = int(bg2["i"])
+			if i < seq.size():
+				_ring_bell((g["bells"] as Array)[int(seq[i])])
+				bg2["i"] = i + 1
+				bg2["t"] = 0.75
+			else:
+				bg2["state"] = "echo"
+				bg2["i"] = 0
+				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
+
+func _bellgame_new_round(bg2: Dictionary) -> void:
+	bg2["round"] = int(bg2["round"]) + 1
+	var seq: Array = []
+	var prev := -1
+	for i in range(int(bg2["round"]) + 1):
+		# no note twice in a row — the echo is edge-triggered (leave + re-enter
+		# the same bell would stump a little player)
+		var pick := randi() % 7
+		while pick == prev:
+			pick = randi() % 7
+		seq.append(pick)
+		prev = pick
+	bg2["seq"] = seq
+	bg2["state"] = "play"
+	bg2["i"] = 0
+	bg2["t"] = 1.1
+
+func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
+	var seq: Array = bg2["seq"]
+	var i: int = int(bg2["i"])
+	if i >= seq.size():
+		return
+	if bell_idx == int(seq[i]):
+		bg2["i"] = i + 1
+		if int(bg2["i"]) >= seq.size():
+			if int(bg2["round"]) >= 3:
+				bg2["state"] = "idle"
+				bg2["cool"] = 30.0
+				pearl_count += 2
+				_write_save()
+				_update_hud()
+				_fanfare()
+				_celebrate_pose()
+				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
+			else:
+				if chime != null:
+					chime.pitch_scale = 1.4
+					chime.play()
+				show_msg("Music Room", "Beautiful! Now a longer one — listen!")
+				_bellgame_new_round(bg2)
+	else:
+		if chime != null:
+			chime.pitch_scale = 0.5
+			chime.play()
+		show_msg("Music Room", "Almost! Listen to the song one more time...")
+		bg2["state"] = "play"
+		bg2["i"] = 0
+		bg2["t"] = 1.2
 
 func _begin_sleep() -> void:
 	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
@@ -4909,7 +5049,7 @@ func _craft_done() -> void:
 		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
 		var newfish := _make_creature_node("fish", craft_body, craft_fins)
 		add_child(newfish); flora_nodes.append(newfish)
-		aquatic_movers.append({"node": newfish, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU})
+		aquatic_movers.append({"node": newfish, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
 		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
@@ -5246,8 +5386,6 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
-	if melody_ui != null:
-		melody_ui.visible = false
 	_dolls2d_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5274,6 +5412,98 @@ func _fail_line() -> String:
 		"slide":      return "He's too speedy without magic beans! Toot toot!" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
 		_:            return "So close! Swim back and try again!"
 
+var pose_t := -1.0        # >=0: trophy curtain-call — player holds a happy pose
+var night_star_t := 4.0   # countdown to the next shooting star over the night lagoon
+
+func _fanfare() -> void:
+	# ta-da! three rising chimes. (Speaker voice lines are tried first via
+	# show_msg's "win" event — drop recordings into
+	# assets/audio/voices/<speaker>_win.ogg and they play automatically.)
+	if chime == null:
+		return
+	chime.pitch_scale = 0.9
+	chime.play()
+	get_tree().create_timer(0.16).timeout.connect(func():
+		if chime != null:
+			chime.pitch_scale = 1.12
+			chime.play())
+	get_tree().create_timer(0.34).timeout.connect(func():
+		if chime != null:
+			chime.pitch_scale = 1.35
+			chime.play())
+
+func _celebrate_pose() -> void:
+	# the curtain call: 2 seconds of confetti + a trophy stamp + a sparkle ring
+	# while Roshan holds her pose — every first-time trophy earns one
+	pose_t = 2.2
+	var cl3 := CanvasLayer.new()
+	cl3.layer = 22
+	add_child(cl3)
+	var big := Label.new()
+	big.text = "🏆 ⭐ 🏆"
+	big.add_theme_font_size_override("font_size", 110)
+	big.add_theme_constant_override("outline_size", 16)
+	big.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.3))
+	big.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	big.offset_top = 50.0
+	cl3.add_child(big)
+	for ci in range(36):
+		var conf := ColorRect.new()
+		conf.color = Color.from_hsv(randf(), 0.7, 1.0)
+		conf.size = Vector2(16, 16)
+		conf.position = Vector2(randf() * 1280.0, -30.0 - randf() * 200.0)
+		conf.rotation = randf() * TAU
+		cl3.add_child(conf)
+		var ct := conf.create_tween()
+		ct.tween_property(conf, "position:y", 780.0, 1.6 + randf() * 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	for si in range(8):
+		var sa: float = TAU * float(si) / 8.0
+		_sparkle_burst(player.position + Vector3(cos(sa) * 2.5, 1.0 + float(si % 3), sin(sa) * 2.5), Color.from_hsv(float(si) / 8.0, 0.5, 1.0))
+	get_tree().create_timer(2.4).timeout.connect(cl3.queue_free)
+
+func _greet_heart(pos: Vector3) -> void:
+	# a crafted friend says hello: floating heart + sparkle + happy chirp
+	var h := Label3D.new()
+	h.text = "❤"
+	h.font_size = 140
+	h.pixel_size = 0.02
+	h.outline_size = 14
+	h.modulate = Color(1.0, 0.45, 0.65)
+	h.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	h.position = pos
+	add_child(h)
+	var tw := h.create_tween()
+	tw.tween_property(h, "position:y", pos.y + 3.5, 1.1)
+	tw.parallel().tween_property(h, "modulate:a", 0.0, 1.1)
+	tw.tween_callback(h.queue_free)
+	_sparkle_burst(pos, Color(1.0, 0.6, 0.8))
+	if voice != null:
+		voice.pitch_scale = 1.3 + randf() * 0.2
+		voice.play()
+
+func _spawn_shooting_star(ppos: Vector3) -> void:
+	# night magic over the lagoon: a bright streak arcs across the sky
+	var star := MeshInstance3D.new()
+	var bm := BoxMesh.new()
+	bm.size = Vector3(0.4, 0.4, 9.0)
+	star.mesh = bm
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	m.albedo_color = Color(0.9, 0.95, 1.0, 0.9)
+	star.material_override = m
+	var start: Vector3 = ppos + Vector3(randf_range(-130.0, 130.0), 75.0 + randf() * 45.0, randf_range(-130.0, 130.0))
+	var dirv := Vector3(randf_range(-1.0, 1.0), -0.35, randf_range(-1.0, 1.0)).normalized()
+	add_child(star)
+	star.position = start
+	star.look_at(start + dirv, Vector3.UP)
+	var tw := star.create_tween()
+	tw.tween_property(star, "position", start + dirv * 130.0, 1.3)
+	tw.parallel().tween_property(m, "albedo_color:a", 0.0, 1.3)
+	tw.tween_callback(star.queue_free)
+
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
@@ -5282,9 +5512,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		fr["won"] = true
 		trophies += 1
 		_add_won_star(fr)
-		if voice != null:
-			voice.pitch_scale = 1.1
-			voice.play()
+		_fanfare()
+		_celebrate_pose()
 	fr["cool"] = 5.0
 	if String(fr["fname"]) == "Secret Cave":
 		treasure_cool = 14.0
@@ -5294,7 +5523,7 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		fairy_cool = 12.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
 	_respawn_pearls()
-	show_msg(fr["fname"], txt, vo)
+	show_msg(fr["fname"], txt, "win" if win else vo)
 	_update_hud()
 	_clear_game()
 	_write_save()
@@ -6163,7 +6392,6 @@ func _start_game(fr: Dictionary) -> void:
 		g["lamb"] = lamb
 		_decorate_lamb_meadow(origin)
 		_seek_hide()
-		_melody_buttons_show(false)
 		show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 	elif game == "race":
 		g["timer"] = 999.0
@@ -7029,41 +7257,6 @@ func _seek_hide() -> void:
 	tw.tween_property(bush, "scale", Vector3(1.35, 0.75, 1.35), 0.16)
 	tw.tween_property(bush, "scale", Vector3.ONE, 0.16)
 
-var melody_ui: Control
-var melody_btns: Array = []
-var melody_pressed := -1
-
-func _melody_buttons_show(on: bool) -> void:
-	if melody_ui == null:
-		melody_ui = Control.new()
-		melody_ui.set_anchors_preset(Control.PRESET_FULL_RECT)
-		var cl2 := CanvasLayer.new()
-		cl2.layer = 5
-		add_child(cl2)
-		cl2.add_child(melody_ui)
-		var center := Vector2(1100, 540)
-		var offs := [Vector2(0, 105), Vector2(105, 0), Vector2(-105, 0), Vector2(0, -105)]   # A B X Y diamond
-		var labels := ["A", "B", "X", "Y"]
-		for i in range(4):
-			var b := Button.new()
-			b.text = labels[i]
-			b.custom_minimum_size = Vector2(110, 110)
-			b.position = center + offs[i] - Vector2(55, 55)
-			b.add_theme_font_size_override("font_size", 40)
-			var sb := StyleBoxFlat.new()
-			sb.bg_color = BTN_COLS[i] * 0.8
-			sb.corner_radius_top_left = 55
-			sb.corner_radius_top_right = 55
-			sb.corner_radius_bottom_left = 55
-			sb.corner_radius_bottom_right = 55
-			b.add_theme_stylebox_override("normal", sb)
-			var idx := i
-			b.pressed.connect(func(): melody_pressed = idx)
-			melody_ui.add_child(b)
-			melody_btns.append(b)
-	melody_ui.visible = on
-	melody_pressed = -1
-
 func _tick_game(delta: float) -> void:
 	var fr: Dictionary = g["fr"]
 	g["t"] = float(g["t"]) + delta
@@ -7081,8 +7274,7 @@ func _tick_game(delta: float) -> void:
 		hud_game.text = "Find Lamb-a'! %d / 4   %ds" % [int(g["found"]), int(g["timer"])]
 		var which: int = int(g.get("which", 0))
 		var bush: MeshInstance3D = (g["bushes"] as Array)[which]
-		var hit: bool = _btn_pressed() == which or melody_pressed == which or bush.position.distance_to(ppos) < 4.0
-		melody_pressed = -1
+		var hit: bool = _btn_pressed() == which or bush.position.distance_to(ppos) < 4.0
 		if hit:
 			g["found"] = int(g["found"]) + 1
 			# 50-run sim: 4 finds on one 20s clock passed only 6% on touch —
@@ -7454,6 +7646,8 @@ func _process(delta: float) -> void:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
+	if pose_t >= 0.0:
+		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
 	if fps_lbl != null and pause_panel != null and pause_panel.visible:
