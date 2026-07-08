@@ -1,31 +1,44 @@
-# Voice clips needed (drop CC0 .ogg files here with these exact names)
+# Character voices
 
-The game plays `assets/audio/voices/<name>.ogg` when it exists, else falls back to the
-recorded "yay" clip pitched per character. Short, expressive clips are best for a 4-year-old
-(cheers, "wow", giggles, "yay", "uh-oh") — words don't need to match exactly EXCEPT Roshan,
-whose voice must stay one consistent **4-6 year old girl** across all her clips.
+The game plays `assets/audio/voices/<name>.ogg` when it exists (per-line override
+like `gabby_win.ogg` first, then `gabby.ogg`), else falls back to the recorded
+"yay" clip pitched per character.
 
-## ROSHAN (one consistent 4-6 yo girl voice — cohesion critical) — 6-10 clips
-- roshan_talk.ogg      generic happy line (used for most prompts)
-- roshan_intro1.ogg    wonder ("a princess in the sky!")
-- roshan_intro2.ogg    "oh no!" (the storm)
-- roshan_intro3.ogg    brave promise ("I'll help you!")
-- roshan_intro4.ogg    excited ("let's go!")
-- roshan_whale.ogg     amazed gasp at the giant whale
-- roshan_ship.ogg      curious ("what's inside?") at the floating ship
-- roshan_wreck.ogg     intrigued ("treasure!") at the sunken ship
-- roshan_pearl.ogg     little cheer on a pearl (optional; else uses yay)
-- roshan_win.ogg       big celebration
+## How these were made (and how to remake them)
 
-## FRIENDS (any close-enough expressive clip; distinct voice each) — 2-3 each
-- huluu.ogg    gentle princess voice (greeting / thank you)
-- evie.ogg     little kid + lamb giggle
-- harper.ogg   two-sisters cheer
-- faron.ogg    soft caregiver voice
-- gabby.ogg    bubbly sing-song
-- wacky.ogg    grandpa chuckle (+ a dog "woof" works for Chuck)
-- shop.ogg     friendly shopkeeper "welcome!"
-- sparkle.ogg  tiny chirp (Baby Eagle)
-- everyone.ogg group "hooray!"
+All scripted lines are generated with **Kokoro-82M** — a free, Apache-2.0 neural
+TTS that runs on CPU — via `tools/make_voices.py`. Each character has a fixed
+voice + pitch so they stay recognisable, and Roshan keeps ONE consistent
+little-girl voice across every clip. Output is silence-trimmed and normalised to
+the project standard (-16 LUFS, -1.5 dBTP).
 
-Per-line override also works, e.g. huluu_talk.ogg, gabby_win.ogg.
+To change a line or add a new one: edit the `LINES` table in
+`tools/make_voices.py` and re-run it (setup instructions in the script header).
+New `<speaker>_<event>.ogg` names are picked up by the game automatically —
+no code changes needed. Events used by the game: `talk`, `win`, `fail`,
+plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
+
+## Character voice map
+
+| character | Kokoro voice | pitch | feel |
+|---|---|---|---|
+| Roshan  | af_heart  | 1.24 | 4-6yo girl (consistency critical) |
+| Huluu   | bf_emma   | 1.10 | gentle British princess |
+| Evie    | af_bella  | 1.30 | little kid |
+| Harper  | af_sarah  | 1.18 | big-sister cheer |
+| Faron   | af_nicole | 1.05 | soft, hushed caregiver |
+| Gabby   | af_sky    | 1.22 | bubbly sing-song |
+| Wacky   | am_santa  | 0.98 | grandpa chuckle |
+| Shop    | bm_george | 1.02 | friendly shopkeeper |
+| Sparkle | af_bella  | 1.55 | tiny baby-eagle chirp |
+| everyone | 3-voice mix | — | group "Hooray!" |
+
+## SACRED — never regenerate these (real family recordings)
+
+- `daddy1.ogg`, `daddy2.ogg`, `daddy3.ogg`
+- `chuck.ogg`, `chuck_bark.ogg`
+- `../voice_yay.mp3`
+
+To improve a real recording instead of replacing it, run it through a free
+speech enhancer (Adobe Podcast Enhance web tool, or locally: resemble-enhance /
+DeepFilterNet), then loudness-match with the same -16 LUFS pipeline.
