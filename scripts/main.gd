@@ -90,7 +90,113 @@ var kart_game: Node = null
 var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
 var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd)
 var galaxy_unlocked := false
-var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look    # set the first time the rainbow race soars into Level 3
+var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
+
+# ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
+# ---- just a book of shiny stickers). Deliberately rewards the side content
+# ---- that gates nothing: the penguin, the beans, the hug, the secret cave...
+const STICKER_DEFS := [
+	{"id": "penguin", "emoji": "🐧", "label": "Penguin Pal", "hint": "Catch the baby penguin on the big slide!"},
+	{"id": "beans", "emoji": "💨", "label": "Toot Toot!", "hint": "Eat the magic beans from the Pearl Shop!"},
+	{"id": "sleepy", "emoji": "💤", "label": "Sleepyhead", "hint": "Take a nap in the castle bed!"},
+	{"id": "hug", "emoji": "❤", "label": "Biggest Hug", "hint": "Find Daddy's secret hug in the castle!"},
+	{"id": "artist", "emoji": "🎨", "label": "Little Artist", "hint": "Craft a fishy, a kitty AND a birdie!"},
+	{"id": "bells", "emoji": "🔔", "label": "Bell Singer", "hint": "Sing the whole bell song!"},
+	{"id": "treasure", "emoji": "💎", "label": "Treasure Hunter", "hint": "Find the Secret Cave treasure!"},
+	{"id": "snowman", "emoji": "⛄", "label": "Snow Roller", "hint": "Roll up a whole snowman!"},
+	{"id": "racer", "emoji": "🏁", "label": "Rainbow Racer", "hint": "Win the race in 1st place!"},
+	{"id": "throne", "emoji": "👑", "label": "Star Princess", "hint": "Sit on the Moon Throne!"},
+	{"id": "fruit", "emoji": "🍎", "label": "Butterfly Feast", "hint": "Call the swarm to a fruit tray!"},
+	{"id": "butterfly", "emoji": "🦋", "label": "Butterfly Hero", "hint": "Save the Butterfly World!"},
+	{"id": "flower", "emoji": "🌸", "label": "Flower Bloomer", "hint": "Bloom the giant flower!"},
+	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
+]
+var stickers := {}                 # id -> true (plus hidden "_" progress keys)
+var stickers_layer: CanvasLayer = null
+
+func _sticker_def(id: String) -> Dictionary:
+	for d in STICKER_DEFS:
+		if String(d["id"]) == id:
+			return d
+	return STICKER_DEFS[0]
+
+func award_sticker(id: String) -> void:
+	if bool(stickers.get(id, false)):
+		return
+	stickers[id] = true
+	_write_save()
+	var d := _sticker_def(id)
+	_sticker_toast("%s  New sticker:  %s!" % [String(d["emoji"]), String(d["label"])])
+	_fanfare()
+	if player != null:
+		_sparkle_burst(player.position + Vector3(0, 2.5, 0), Color(1.0, 0.9, 0.4))
+	_check_superstar()
+
+func _sticker_toast(txt: String) -> void:
+	var cl4 := CanvasLayer.new()
+	cl4.layer = 23
+	add_child(cl4)
+	var t := Label.new()
+	t.text = txt
+	t.add_theme_font_size_override("font_size", 44)
+	t.add_theme_color_override("font_color", Color(1.0, 0.93, 0.55))
+	t.add_theme_color_override("font_outline_color", Color(0.15, 0.08, 0.25))
+	t.add_theme_constant_override("outline_size", 12)
+	t.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	t.offset_top = -70.0
+	cl4.add_child(t)
+	var tw := t.create_tween()
+	tw.tween_property(t, "offset_top", 120.0, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_interval(2.6)
+	tw.tween_property(t, "offset_top", -70.0, 0.4).set_ease(Tween.EASE_IN)
+	tw.tween_callback(cl4.queue_free)
+
+func _check_superstar() -> void:
+	if bool(stickers.get("superstar", false)):
+		return
+	for d in STICKER_DEFS:
+		var sid := String(d["id"])
+		if sid != "superstar" and not bool(stickers.get(sid, false)):
+			return
+	if trophies < 5 or not level2_done_once or not fairy_skin_unlocked:
+		return
+	stickers["superstar"] = true
+	_write_save()
+	_begin_100_celebration()
+
+func _begin_100_celebration() -> void:
+	# 100%! The whole reef celebrates — fireworks, confetti, everyone cheering
+	pose_t = 5.0
+	_say("everyone", "")
+	_fanfare()
+	var cl5 := CanvasLayer.new()
+	cl5.layer = 23
+	add_child(cl5)
+	var big := Label.new()
+	big.text = "⭐ 100%! ⭐\nSUPER STAR ROSHAN!"
+	big.add_theme_font_size_override("font_size", 96)
+	big.add_theme_color_override("font_color", Color(1.0, 0.95, 0.6))
+	big.add_theme_color_override("font_outline_color", Color(0.2, 0.08, 0.3))
+	big.add_theme_constant_override("outline_size", 18)
+	big.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	big.offset_top = 90.0
+	cl5.add_child(big)
+	for ci in range(70):
+		var conf := ColorRect.new()
+		conf.color = Color.from_hsv(randf(), 0.75, 1.0)
+		conf.size = Vector2(18, 18)
+		conf.position = Vector2(randf() * 1280.0, -40.0 - randf() * 500.0)
+		conf.rotation = randf() * TAU
+		cl5.add_child(conf)
+		var ct := conf.create_tween()
+		ct.tween_property(conf, "position:y", 800.0, 2.2 + randf() * 1.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	for fi in range(10):
+		get_tree().create_timer(0.2 + 0.42 * float(fi)).timeout.connect(func():
+			if player != null:
+				_sparkle_burst(player.position + Vector3(randf_range(-8.0, 8.0), 3.0 + randf() * 7.0, randf_range(-8.0, 8.0)), Color.from_hsv(randf(), 0.6, 1.0)))
+	get_tree().create_timer(5.4).timeout.connect(cl5.queue_free)    # set the first time the rainbow race soars into Level 3
 var bw_portal_pos := Vector3.ZERO   # direct Butterfly World portal in the courtyard
 var bw_cool := 0.0
 var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
@@ -1622,6 +1728,8 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 
 func _end_kart_game(place: int) -> void:
 	player.visible = true
+	if place == 1:
+		award_sticker("racer")
 	if hud_layer != null:
 		hud_layer.visible = true
 	kart_game = null
@@ -1668,6 +1776,7 @@ func _end_galaxy(completed: bool) -> void:
 		call_deferred("_start_game", fairy_fr)   # straight into the fairy flight
 		return
 	if completed:
+		award_sticker("butterfly")
 		show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
 	else:
 		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
@@ -1928,6 +2037,7 @@ func _load_save() -> void:
 	custom_fish = save_data.get("custom_fish", [])
 	custom_friends = save_data.get("custom_friends", [])
 	craft_unlocks = save_data.get("crafts", {})
+	stickers = save_data.get("stickers", {})
 	galaxy_unlocked = bool(save_data.get("galaxy", false))
 	skin_id = String(save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
@@ -1954,7 +2064,7 @@ func _write_save() -> void:
 	for f2 in friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked}
+	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked, "stickers": stickers}
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
@@ -1996,8 +2106,8 @@ func _build_pause() -> void:
 	pause_panel.add_theme_stylebox_override("panel", psb)
 	pause_panel.custom_minimum_size = Vector2(460, 420)
 	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
-	pause_panel.position = Vector2(-230, -210)
-	pause_panel.size = Vector2(460, 420)
+	pause_panel.position = Vector2(-230, -270)
+	pause_panel.size = Vector2(460, 540)   # tall enough for the Sticker Book row
 	pause_panel.visible = false
 	pause_layer.add_child(pause_panel)
 	var vb := VBoxContainer.new()
@@ -2011,9 +2121,13 @@ func _build_pause() -> void:
 	fps_lbl = Label.new()
 	fps_lbl.add_theme_font_size_override("font_size", 20)
 	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	fps_lbl.position = Vector2(16, 396)
+	fps_lbl.position = Vector2(16, 516)
 	pause_panel.add_child(fps_lbl)
 	var resume := _pause_btn(vb, "Keep Swimming!")
+	var stick_btn := _pause_btn(vb, "⭐ Sticker Book")
+	stick_btn.pressed.connect(func():
+		toggle_pause()
+		_open_stickers())
 	resume.pressed.connect(toggle_pause)
 	pause_resume_btn = resume
 	quality_btn = _pause_btn(vb, "Graphics: Sparkly")
@@ -3330,6 +3444,8 @@ func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Butto
 	return b
 
 func _mg2d_win(msg: String) -> void:
+	if mg_kind == "snowman":
+		award_sticker("snowman")
 	if bool(mg.get("won", false)):
 		return
 	mg["won"] = true
@@ -4607,7 +4723,11 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	var hpos: Vector3 = CASTLE_POS + Vector3(0, 21.0, -27.0)
 	if not bool(g.get("huluu_greeted", false)) and hpos.distance_to(ppos) < 26.0:
 		g["huluu_greeted"] = true
-		show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
+		if fairy_skin_unlocked:
+			# the story loops back: Huluu acknowledges the Butterfly World rescue
+			show_msg("Princess Huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!", "hero")
+		else:
+			show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
 	var crown: Label3D = l2_stars[0]["node"]
 	crown.rotate_y(delta * 1.4)
 	crown.position.y += sin(float(g["t"]) * 2.0) * 0.02
@@ -4692,6 +4812,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 				_update_hud()
 				_fanfare()
 				_celebrate_pose()
+				award_sticker("bells")
 				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
 			else:
 				if chime != null:
@@ -4711,6 +4832,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 func _begin_sleep() -> void:
 	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
 	# fades, day flips to night (or night to day), and she wakes refreshed
+	award_sticker("sleepy")
 	sleep_t = 0.0
 	sleep_flip_done = false
 	var bp: Vector3 = g["bed_pos"]
@@ -4843,6 +4965,7 @@ func _return_to_courtyard() -> void:
 	_enter_level2(true)
 
 func _play_hug_cutscene() -> void:
+	award_sticker("hug")
 	var cl := CanvasLayer.new()
 	cl.layer = 20
 	add_child(cl)
@@ -5065,6 +5188,9 @@ func _craft_done() -> void:
 	if craft_layer == null or bool(get_meta("craft_closing", false)):
 		return   # reentry guard: double-click / double-A must not craft twice
 	set_meta("craft_closing", true)
+	stickers["_c_" + craft_kind] = true   # hidden progress toward Little Artist
+	if bool(stickers.get("_c_fish", false)) and bool(stickers.get("_c_cat", false)) and bool(stickers.get("_c_bird", false)):
+		award_sticker("artist")
 	var fishy: bool = craft_kind == "fish"
 	var msgtxt: String
 	if fishy:
@@ -5187,6 +5313,69 @@ func _wardrobe_pick(id: String) -> void:
 	_sparkle_burst(player.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
 	_sparkle_burst(player.position + Vector3(0, 0.5, 0), Color(0.7, 0.95, 1.0))
 
+func _open_stickers() -> void:
+	if stickers_layer != null:
+		return
+	stickers_layer = CanvasLayer.new(); stickers_layer.layer = 18; add_child(stickers_layer)
+	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); stickers_layer.add_child(root)
+	var vp: Vector2 = get_viewport().get_visible_rect().size
+	var bg := ColorRect.new(); bg.color = Color(0.10, 0.07, 0.17, 0.96); bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
+	var stage := Control.new(); stage.size = Vector2(1280, 720)
+	var sc: float = minf(vp.x / 1280.0, vp.y / 720.0)
+	stage.scale = Vector2(sc, sc); stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
+	root.add_child(stage)
+	var got := 0
+	for d in STICKER_DEFS:
+		if bool(stickers.get(String(d["id"]), false)):
+			got += 1
+	var title := Label.new(); title.text = "⭐ My Sticker Book!   %d / %d" % [got, STICKER_DEFS.size()]
+	title.add_theme_font_size_override("font_size", 52)
+	title.add_theme_color_override("font_color", Color(1.0, 0.93, 0.6))
+	title.add_theme_color_override("font_outline_color", Color(0.08, 0.05, 0.15)); title.add_theme_constant_override("outline_size", 10)
+	title.position = Vector2(60, 16); stage.add_child(title)
+	for si in range(STICKER_DEFS.size()):
+		var d2: Dictionary = STICKER_DEFS[si]
+		var earned: bool = bool(stickers.get(String(d2["id"]), false))
+		var cell := Panel.new()
+		cell.position = Vector2(56.0 + float(si % 5) * 238.0, 104.0 + float(si / 5) * 198.0)
+		cell.size = Vector2(218, 178)
+		var csb := StyleBoxFlat.new()
+		csb.bg_color = Color(0.32, 0.28, 0.5, 0.95) if earned else Color(0.2, 0.19, 0.28, 0.9)
+		csb.set_corner_radius_all(22)
+		csb.set_border_width_all(4)
+		csb.border_color = Color(1.0, 0.85, 0.4) if earned else Color(0.35, 0.35, 0.45)
+		cell.add_theme_stylebox_override("panel", csb)
+		stage.add_child(cell)
+		var em := Label.new()
+		em.text = String(d2["emoji"]) if earned else "?"
+		em.add_theme_font_size_override("font_size", 74)
+		em.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+		em.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		em.offset_top = 8.0
+		em.modulate = Color.WHITE if earned else Color(0.55, 0.55, 0.65)
+		cell.add_child(em)
+		var nm := Label.new()
+		nm.text = String(d2["label"]) if earned else String(d2["hint"])
+		nm.add_theme_font_size_override("font_size", 22 if earned else 17)
+		nm.add_theme_color_override("font_color", Color(1.0, 0.95, 0.8) if earned else Color(0.7, 0.7, 0.78))
+		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		nm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		nm.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+		nm.offset_top = -72.0
+		nm.offset_left = 8.0
+		nm.offset_right = -8.0
+		cell.add_child(nm)
+	var xb := Button.new(); xb.text = "✕"
+	xb.add_theme_font_size_override("font_size", 42)
+	xb.position = Vector2(1186, 14); xb.custom_minimum_size = Vector2(76, 76)
+	xb.pressed.connect(_close_stickers)
+	stage.add_child(xb)
+
+func _close_stickers() -> void:
+	if stickers_layer != null and is_instance_valid(stickers_layer):
+		stickers_layer.queue_free()
+	stickers_layer = null
+
 func _wardrobe_toast(txt: String) -> void:
 	if not wd.has("stage"):
 		return
@@ -5282,6 +5471,7 @@ func _do_finish_level2() -> void:
 	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
 
 func _beans_go() -> void:
+	award_sticker("beans")
 	beans_t = 40.0   # long enough to swim from the Pearl Shop to the Penguin Slide
 	speed_mult = 2.0
 	fart_t = 0.7
@@ -6235,6 +6425,7 @@ func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			_update_hud()
 			_write_save()
 			_sparkle_burst(node.position, Color(1.0, 0.85, 0.3))
+			award_sticker("treasure")
 			_end_game(true, fr, "TREASURE! +3 rainbow pearls for the Pearl Shop!")
 		else:
 			node.visible = false
@@ -6846,6 +7037,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		# catch when you've cornered him during the window
 		if not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
+			award_sticker("penguin")
 			_sparkle_burst(pbpos + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.4))
 			if chime != null:
 				chime.pitch_scale = 1.5; chime.play()
@@ -7050,6 +7242,7 @@ func fr_name_safe() -> String:
 	return String((g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
 
 func _fairy_bloom_start() -> void:
+	award_sticker("flower")
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
 	var center: Vector3 = g["boss_center"]
@@ -7660,6 +7853,8 @@ func _overlay_root_for_cursor() -> Node:
 		return craft_layer
 	if wardrobe_layer != null and is_instance_valid(wardrobe_layer):
 		return wardrobe_layer
+	if stickers_layer != null and is_instance_valid(stickers_layer):
+		return stickers_layer
 	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
 		return mg2d_layer
 	return null
@@ -7722,7 +7917,7 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
@@ -7735,6 +7930,9 @@ func _tick_overlay_pads(delta: float) -> void:
 				_wardrobe_done()
 			elif b and not _pad_prev_b:
 				_close_wardrobe()
+		elif stickers_layer != null:
+			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
+				_close_stickers()
 	_pad_prev_a = a
 	_pad_prev_b = b
 

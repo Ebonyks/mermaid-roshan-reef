@@ -1123,6 +1123,8 @@ func _process(delta: float) -> void:
 					fd2["feast_dir"] = td["dir"]
 				if _main != null and _main.has_method("_sparkle_burst"):
 					_main._sparkle_burst(_surf(td["dir"], 2.5), Color(1.0, 0.9, 0.5))
+				if _main != null and _main.has_method("award_sticker"):
+					_main.award_sticker("fruit")
 				if _main != null and "pearl_count" in _main:
 					_main.pearl_count += 1
 					if _main.has_method("_update_hud"):
@@ -1618,6 +1620,8 @@ func _tick_hall(delta: float) -> void:
 				_main._sparkle_burst(HALL_C + _cpos + Vector3(randf() * 4.0 - 2.0, 2.0 + randf() * 3.0, randf() * 4.0 - 2.0), Color(1.0, 0.9, 0.4))
 		if _main != null and _main.has_method("show_msg"):
 			_main.show_msg("Mermaid Rosalina", "A crown of butterflies for the STAR PRINCESS of the Butterfly World!", "win")
+		if _main != null and _main.has_method("award_sticker"):
+			_main.award_sticker("throne")
 	for hf in _hall_flies:
 		var n3: Node3D = hf["node"]
 		var vt: float = float(hf.get("visit_t", 0.0))

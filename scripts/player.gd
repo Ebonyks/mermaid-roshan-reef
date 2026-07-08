@@ -209,6 +209,8 @@ func _process(delta: float) -> void:
 		return
 	if "wardrobe_layer" in _m0 and _m0.wardrobe_layer != null:
 		return   # frozen while the dress-up screen is open
+	if "stickers_layer" in _m0 and _m0.stickers_layer != null:
+		return   # frozen while the sticker book is open
 	if "sleep_t" in _m0 and float(_m0.sleep_t) >= 0.0:
 		return   # tucked into bed — the sleep cutscene drives her
 	if "pose_t" in _m0 and float(_m0.pose_t) >= 0.0:

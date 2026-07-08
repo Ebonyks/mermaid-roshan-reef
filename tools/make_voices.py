@@ -68,6 +68,7 @@ LINES = {
     "huluu_talk":   ("huluu", "You are my very best friend."),
     "huluu_thanks": ("huluu", "Thank you, Mermaid Roshan! You did a great job!"),
     "huluu_win":    ("huluu", "Hooray! You did it! This is now your castle!"),
+    "huluu_hero":   ("huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!"),
     # ---- reef friends ----
     "evie":       ("evie", "Tee hee! You found us! Let's play hide and seek!"),
     "evie_win":   ("evie", "You found Lamb-a' every time! Yay!"),
