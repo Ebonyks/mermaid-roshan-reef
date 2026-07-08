@@ -1037,71 +1037,9 @@ func _build_water() -> void:
 	water_node = mi
 	# experimental: real FFT ocean surface on top (GPU compute) — only on a real
 	# device, never headless; the plane above stays as a guaranteed fallback
-	if use_fft_ocean and not OS.has_feature("headless") and RenderingServer.get_rendering_device() != null:
-		get_tree().create_timer(1.2).timeout.connect(_setup_fft_ocean)
 
 var water_node: MeshInstance3D
 var water_y0 := 0.0
-var use_fft_ocean := false  # FFT surface overflows the per-instance shader-uniform buffer (material_storage.cpp:1794 flood) and is too heavy for the 3-4yo phone target; custom animated water plane is the shipped surface. Set true only for desktop experiments.
-var fft_ocean = null
-var fft_quad: Node3D = null
-var fft_t := 0.0
-func _setup_fft_ocean() -> void:
-	if not use_fft_ocean or RenderingServer.get_rendering_device() == null:
-		return
-	var Ocean3D := load("res://addons/tessarakkt.oceanfft/components/Ocean3D.gd")
-	var QuadTree3D := load("res://addons/tessarakkt.oceanfft/components/QuadTree3D.gd")
-	var omat := load("res://addons/tessarakkt.oceanfft/Ocean.tres")
-	if Ocean3D == null or QuadTree3D == null or omat == null:
-		return
-	# domain-warp noise for the wave detail
-	var noise := FastNoiseLite.new()
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	var ntex := NoiseTexture2D.new()
-	ntex.width = 1024
-	ntex.height = 1024
-	ntex.seamless = true
-	ntex.noise = noise
-	var ocean = Ocean3D.new()
-	ocean.material = omat
-	ocean.horizontal_dimension = 512
-	ocean.time_scale = 1.1
-	ocean.domain_warp_texture = ntex
-	# keep it light for the phone target
-	ocean.simulation_frameskip = 1
-	if ocean.has_method("initialize_simulation"):
-		ocean.initialize_simulation()
-	fft_ocean = ocean
-	var qt: Node3D = QuadTree3D.new()
-	var lod_ranges: Array[float] = [250.0, 500.0, 1900.0, 3800.0, 7600.0, 15200.0, 30400.0]
-	qt.set("ranges", lod_ranges)
-	qt.set("lod_level", lod_ranges.size() - 1)
-	qt.set("quad_size", 16384.0)
-	qt.set("material", omat)
-	qt.position.y = WATER_TOP
-	add_child(qt)
-	fft_quad = qt
-	fft_t = 0.0
-
-func _tick_fft_ocean(delta: float) -> void:
-	if fft_ocean == null:
-		return
-	fft_t += delta
-	if not bool(fft_ocean.get("initialized")):
-		# give the GPU a few seconds; if it never inits, drop back to the plane
-		if fft_t > 5.0:
-			use_fft_ocean = false
-			if fft_quad != null and is_instance_valid(fft_quad):
-				fft_quad.queue_free()
-			fft_quad = null
-			fft_ocean = null
-		return
-	# FFT is live — hide the simple plane and run the wave sim
-	if water_node != null and is_instance_valid(water_node):
-		water_node.visible = false
-	if fft_ocean.has_method("simulate"):
-		fft_ocean.simulate(delta)
-
 var rock_pbr: StandardMaterial3D
 var wood_overlay: StandardMaterial3D
 
@@ -8457,7 +8395,6 @@ func _process(delta: float) -> void:
 	_tick_life(delta)
 	_tick_movers(delta)
 	_tick_aquatic(delta)
-	_tick_fft_ocean(delta)
 	_tick_god_rays(delta)
 	_tick_guide(delta)
 	_tick_finale(delta)

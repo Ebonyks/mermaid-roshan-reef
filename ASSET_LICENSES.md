@@ -52,3 +52,9 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - `assets/galaxy/trop_fern.glb` — "Fern" by Quaternius (poly.pizza/m/jqcanvH7D6) — CC0
 - `assets/galaxy/trop_monstera.glb` — "Large Monstera Plant" by Isa Lousberg (poly.pizza/m/kZQ2WmnJFI) — CC0
 - `assets/galaxy/trop_bigleaf.glb` — "Big Leaf Plant" by reyshapes (poly.pizza/m/aKIm5k6l5F) — CC0
+
+## Phase 0 note — disabled addon
+- disabled_addons/tessarakkt.oceanfft — OceanFFT addon (MIT, https://github.com/tessarakkt/godot4-oceanfft).
+  Disabled and excluded from import via .gdignore; runtime dead code removed from
+  main.gd in Phase 0 (was already flagged off — too heavy for the phone target).
+  License file remains at disabled_addons/tessarakkt.oceanfft/LICENSE.
