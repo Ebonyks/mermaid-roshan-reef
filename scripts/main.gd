@@ -64,7 +64,10 @@ var craft_unlocks := {}            # one-time pearl unlocks for craft creatures 
 var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
 var craft_pearl_lbl: Label = null
 var custom_friends: Array = []
-const CREATURE_LAYERS := {"fish": ["fish_fins", "fish_body", "fish_line"], "cat": ["cat_body", "cat_body", "cat_line"], "bird": ["bird_body", "bird_body", "bird_line"]}
+# accent layers are DISTINCT zone masks (kitty: horn + chest tuft; birdie:
+# crest + wings) painted from the body art — the old cat/bird "accent" reused
+# the whole body at 50% alpha, so the two colors just mixed into grey
+const CREATURE_LAYERS := {"fish": ["fish_fins", "fish_body", "fish_line"], "cat": ["cat_accent", "cat_body", "cat_line"], "bird": ["bird_accent", "bird_body", "bird_line"]}
 var l2_open := false
 var l2_cutscene_t := -1.0
 var wall_pics: Array = []
@@ -109,6 +112,8 @@ const STICKER_DEFS := [
 	{"id": "fruit", "emoji": "🍎", "label": "Butterfly Feast", "hint": "Call the swarm to a fruit tray!"},
 	{"id": "butterfly", "emoji": "🦋", "label": "Butterfly Hero", "hint": "Save the Butterfly World!"},
 	{"id": "flower", "emoji": "🌸", "label": "Flower Bloomer", "hint": "Bloom the giant flower!"},
+	{"id": "carrot", "emoji": "🥕", "label": "Snowman Snack", "hint": "Chase the runaway snowman... and EAT him!"},
+	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -249,7 +254,8 @@ var treasure_cool := 0.0
 const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": "res://assets/characters/skins/fairy_mermaid.png"},
-	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
+	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
+	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
 var wardrobe_layer: CanvasLayer = null
@@ -275,8 +281,15 @@ var beans_t := -1.0
 var fart_t := 0.0
 var cur_track := ""
 var prev_track := ""
+# THE PEARL SINK: with the Sticker Book driving completion, pearls become the
+# treasure-shopping currency — real things to save up for instead of a number
+# that only ever grows. Beans stay cheap; the rest are permanent treasures.
 const SHOP_ITEMS := [
-	{"id": "beans", "label": "Can of Beans", "price": 2}]
+	{"id": "beans", "label": "Can of Beans", "price": 2},
+	{"id": "tail", "label": "Rainbow Trail", "price": 60},
+	{"id": "tiara", "label": "Pearl Tiara", "price": 120},
+	{"id": "pearlskin", "label": "Pearl Princess", "price": 250}]
+var shop_owned := {}   # permanent Pearl Shop treasures (persisted)
 var flora_nodes: Array = []
 var first_session := true
 var chime: AudioStreamPlayer
@@ -2038,6 +2051,11 @@ func _load_save() -> void:
 	custom_friends = save_data.get("custom_friends", [])
 	craft_unlocks = save_data.get("crafts", {})
 	stickers = save_data.get("stickers", {})
+	shop_owned = save_data.get("owned", {})
+	if bool(shop_owned.get("tail", false)):
+		player.set_rainbow_trail(true)
+	if bool(shop_owned.get("tiara", false)):
+		player.set_tiara(true)
 	galaxy_unlocked = bool(save_data.get("galaxy", false))
 	skin_id = String(save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
@@ -2064,7 +2082,7 @@ func _write_save() -> void:
 	for f2 in friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked, "stickers": stickers}
+	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked, "stickers": stickers, "owned": shop_owned}
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
@@ -2168,13 +2186,40 @@ func _shop_buy(id: String) -> void:
 		if id == "beans":
 			if beans_t < 0.0:
 				pearl_count -= int(it["price"])
+				shop_owned["_beans_once"] = true   # counts toward Big Shopper
 				_update_hud()
 				_write_save()
 				if buy_sound != null:
 					buy_sound.play()
 				_beans_go()
 				_sparkle_burst(player.position + Vector3(0, 1, 0), Color(0.6, 1.0, 0.4))
+				_check_shopper()
 			return
+		# permanent treasures (Rainbow Trail / Pearl Tiara / Pearl Princess)
+		if bool(shop_owned.get(id, false)):
+			return
+		pearl_count -= int(it["price"])
+		shop_owned[id] = true
+		_update_hud()
+		_write_save()
+		if buy_sound != null:
+			buy_sound.play()
+		_sparkle_burst(player.position + Vector3(0, 2, 0), Color(1.0, 0.9, 1.0))
+		if id == "tail":
+			player.set_rainbow_trail(true)
+			show_msg("Pearl Shop", "A RAINBOW TRAIL! Sparkles will follow you FOREVER!", "win")
+		elif id == "tiara":
+			player.set_tiara(true)
+			show_msg("Pearl Shop", "The PEARL TIARA! Fit for a real princess!", "win")
+		elif id == "pearlskin":
+			show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
+		_check_shopper()
+		return
+
+func _check_shopper() -> void:
+	if bool(shop_owned.get("_beans_once", false)) and bool(shop_owned.get("tail", false)) \
+			and bool(shop_owned.get("tiara", false)) and bool(shop_owned.get("pearlskin", false)):
+		award_sticker("shopper")
 
 func _near_ground(obj_pos: Vector3, ppos: Vector3, r: float, htol: float = 12.0) -> bool:
 	return Vector2(obj_pos.x - ppos.x, obj_pos.z - ppos.z).length() < r and absf(obj_pos.y - ppos.y) < htol
@@ -3575,15 +3620,120 @@ func _mg_snow_face(_part: String, b: Button) -> void:
 		return
 	b.visible = false
 	var head: Vector2 = mg.get("head_pos", Vector2(980, 210))
+	var bit: TextureRect
 	if _part == "carrot":
-		_mg_sprite("res://assets/mg/carrot.png", head + Vector2(0, 14), Vector2(95, 60))
+		bit = _mg_sprite("res://assets/mg/carrot.png", head + Vector2(0, 14), Vector2(95, 60))
+		mg["carrot_bit"] = bit
 	elif _part == "coal0":
-		_mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
 	else:
-		_mg_sprite("res://assets/mg/coal.png", head + Vector2(24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(24, -18), Vector2(42, 42))
+	if not mg.has("face_bits"):
+		mg["face_bits"] = []
+	(mg["face_bits"] as Array).append(bit)
 	mg["face"] = int(mg["face"]) + 1
 	if int(mg["face"]) >= 3:
-		_mg2d_win("I built a snowman! Yay!")
+		award_sticker("snowman")
+		_mg_snow_chase_phase()
+
+func _mg_snow_chase_phase() -> void:
+	# HE'S ALIVE! The snowman makes a run for it — chase him down and EAT him,
+	# biggest snowball first, until only the carrot is left. Nom nom.
+	mg["phase"] = "chase"
+	mg["run_x"] = 980.0
+	mg["bite_cool"] = 1.0
+	mg["bites"] = 0
+	(mg["hud"] as Label).text = "He's ALIVE! Chase him and EAT him!  ← →"
+	if voice != null:
+		voice.pitch_scale = 1.4
+		voice.play()
+	var rosh := _mg_sprite(skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
+	mg["chaser"] = rosh
+	mg["chaser_x"] = 230.0
+
+func _mg_snow_runner_bits() -> Array:
+	var bits: Array = []
+	for bv in mg.get("body", []):
+		if is_instance_valid(bv):
+			bits.append(bv)
+	for fv in mg.get("face_bits", []):
+		if is_instance_valid(fv):
+			bits.append(fv)
+	return bits
+
+func _mg_tick_snow_chase(delta: float) -> void:
+	# chaser: stick / arrows / mouse-touch x (same controls as the dolls catcher)
+	var mx := 0.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		mx -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		mx += 1.0
+	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
+	if absf(jx) > 0.2:
+		mx += jx
+	if touch_ui != null and absf((touch_ui.stick_vec as Vector2).x) > 0.15:
+		mx += (touch_ui.stick_vec as Vector2).x
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
+		var tx: float = mg2d_stage.get_local_mouse_position().x
+		mx = clampf((tx - float(mg["chaser_x"])) / 120.0, -1.0, 1.0)
+	mg["chaser_x"] = clampf(float(mg["chaser_x"]) + mx * 540.0 * delta, 90.0, 1190.0)
+	var chaser: TextureRect = mg["chaser"]
+	if is_instance_valid(chaser):
+		chaser.position.x = float(mg["chaser_x"]) - 70.0
+		chaser.flip_h = mx < -0.05
+	mg["bite_cool"] = maxf(0.0, float(mg["bite_cool"]) - delta)
+	var cx: float = float(mg["chaser_x"])
+	var rx: float = float(mg["run_x"])
+	if String(mg["phase"]) == "chase":
+		# the snowman flees (faster with every bite), pinned to the stage
+		var bites: int = int(mg["bites"])
+		var flee: float = signf(rx - cx)
+		if flee == 0.0:
+			flee = 1.0
+		var spd: float = 250.0 + float(bites) * 90.0
+		var nrx: float = rx + flee * spd * delta + sin(float(mg["t"]) * 3.0) * 40.0 * delta
+		if nrx < 110.0 or nrx > 1170.0:
+			nrx = clampf(nrx, 110.0, 1170.0)
+		var dx: float = nrx - rx
+		mg["run_x"] = nrx
+		for bit in _mg_snow_runner_bits():
+			(bit as Control).position.x += dx
+			(bit as Control).rotation = sin(float(mg["t"]) * 10.0) * 0.08   # frantic waddle
+		# CHOMP: catch him and the biggest snowball disappears
+		if float(mg["bite_cool"]) <= 0.0 and absf(nrx - cx) < 95.0:
+			mg["bite_cool"] = 0.9
+			mg["bites"] = bites + 1
+			if chime != null:
+				chime.pitch_scale = 0.62 + float(bites) * 0.08
+				chime.play()
+			(mg["hud"] as Label).text = ["CHOMP!", "NOM NOM!", "CRUNCH!"][mini(bites, 2)] + "  Keep eating!"
+			var body: Array = mg.get("body", [])
+			if not body.is_empty():
+				var ball: Panel = body.pop_front()   # biggest (bottom) first
+				if is_instance_valid(ball):
+					var bt := ball.create_tween()
+					bt.tween_property(ball, "scale", Vector2(1.3, 0.2), 0.18)
+					bt.tween_callback(ball.queue_free)
+			if int(mg["bites"]) >= 3:
+				# only the carrot survives — it drops to the snow
+				mg["phase"] = "carrot"
+				(mg["hud"] as Label).text = "He's all gone... but the CARROT! Grab it!"
+				for fv in mg.get("face_bits", []):
+					if is_instance_valid(fv) and fv != mg.get("carrot_bit"):
+						(fv as Control).queue_free()
+				var car: TextureRect = mg.get("carrot_bit")
+				if is_instance_valid(car):
+					var ct := car.create_tween()
+					ct.tween_property(car, "position", Vector2(float(mg["run_x"]) - 47.0, 560.0), 0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	elif String(mg["phase"]) == "carrot":
+		var car2: TextureRect = mg.get("carrot_bit")
+		if is_instance_valid(car2) and absf((car2.position.x + 47.0) - cx) < 75.0:
+			car2.queue_free()
+			if chime != null:
+				chime.pitch_scale = 1.5
+				chime.play()
+			award_sticker("carrot")
+			_mg2d_win("CRUNCH! Best snowman snack EVER!")
 
 # ---- GARDEN: tap sprouts to grow them into flowers ----
 func _mg_build_garden() -> void:
@@ -3758,6 +3908,8 @@ func _tick_mg2d(delta: float) -> void:
 			_mg2d_close()
 			return
 		mg["joyB"] = bpress
+	if mg_kind == "snowman" and String(mg.get("phase", "")) in ["chase", "carrot"]:
+		_mg_tick_snow_chase(delta)
 	if mg_kind == "snowman" and String(mg.get("phase", "")) == "roll" and mg.has("roll_ball"):
 		var t2: float = float(mg["t"])
 		# flashing banner: pulse alpha + a little breathe
@@ -5035,7 +5187,7 @@ func _mg_noop_ref(_n: Node) -> void:
 func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
-	var acca: float = 1.0 if kind == "fish" else 0.5
+	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
 	var lb := Sprite3D.new()
 	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png"); lb.modulate = body
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
@@ -5057,7 +5209,7 @@ func _craft_build_preview() -> void:
 	for c in craft_fishbox.get_children():
 		c.queue_free()
 	var ln: Array = CREATURE_LAYERS.get(craft_kind, CREATURE_LAYERS["fish"])
-	var acca: float = 1.0 if craft_kind == "fish" else 0.5
+	var acca := 1.0
 	var order := [String(ln[1]), String(ln[0]), String(ln[2])]
 	var roles := ["body", "accent", "line"]
 	var cols := [craft_body, Color(craft_fins.r, craft_fins.g, craft_fins.b, acca), Color(1, 1, 1)]
@@ -5181,8 +5333,7 @@ func _craft_set(part: String, col: Color) -> void:
 				var role: String = (c as TextureRect).get_meta("role", "")
 				if part == "body" and role == "body": (c as TextureRect).modulate = col
 				if part == "accent" and role == "accent":
-					var aa: float = 1.0 if craft_kind == "fish" else 0.5
-					(c as TextureRect).modulate = Color(col.r, col.g, col.b, aa)
+					(c as TextureRect).modulate = Color(col.r, col.g, col.b, 1.0)
 
 func _craft_done() -> void:
 	if craft_layer == null or bool(get_meta("craft_closing", false)):
@@ -5287,13 +5438,14 @@ func _wardrobe_refresh() -> void:
 		(wd["preview"] as TextureRect).texture = load(String(_skin_def(skin_id)["preview"]))
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
-		var locked: bool = String(entry["id"]) == "fairy" and not fairy_skin_unlocked
+		var eid := String(entry["id"])
+		var locked: bool = (eid == "fairy" and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
 		var box: StyleBoxFlat = entry["box"]
 		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
 		box.border_color = Color(0.2, 1.0, 0.4)
 		var bt: Button = entry["btn"]
-		bt.text = "🔒 " + String(_skin_def(String(entry["id"]))["label"]) if locked else ("✔ " if sel else "    ") + String(_skin_def(String(entry["id"]))["label"])
+		bt.text = "🔒 " + String(_skin_def(eid)["label"]) if locked else ("✔ " if sel else "    ") + String(_skin_def(eid)["label"])
 		bt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE
 
 func _wardrobe_pick(id: String) -> void:
@@ -5303,6 +5455,12 @@ func _wardrobe_pick(id: String) -> void:
 			chime.pitch_scale = 0.5
 			chime.play()
 		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
+		return
+	if id == "pearl" and not bool(shop_owned.get("pearlskin", false)):
+		if chime != null:
+			chime.pitch_scale = 0.5
+			chime.play()
+		_wardrobe_toast("🦪 Pearl Princess is waiting at the Pearl Shop — 250 pearls!")
 		return
 	skin_id = id
 	_apply_skin()
@@ -5337,8 +5495,8 @@ func _open_stickers() -> void:
 		var d2: Dictionary = STICKER_DEFS[si]
 		var earned: bool = bool(stickers.get(String(d2["id"]), false))
 		var cell := Panel.new()
-		cell.position = Vector2(56.0 + float(si % 5) * 238.0, 104.0 + float(si / 5) * 198.0)
-		cell.size = Vector2(218, 178)
+		cell.position = Vector2(46.0 + float(si % 6) * 199.0, 104.0 + float(si / 6) * 194.0)
+		cell.size = Vector2(184, 178)
 		var csb := StyleBoxFlat.new()
 		csb.bg_color = Color(0.32, 0.28, 0.5, 0.95) if earned else Color(0.2, 0.19, 0.28, 0.9)
 		csb.set_corner_radius_all(22)
@@ -5348,7 +5506,7 @@ func _open_stickers() -> void:
 		stage.add_child(cell)
 		var em := Label.new()
 		em.text = String(d2["emoji"]) if earned else "?"
-		em.add_theme_font_size_override("font_size", 74)
+		em.add_theme_font_size_override("font_size", 64)
 		em.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 		em.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		em.offset_top = 8.0
@@ -5356,7 +5514,7 @@ func _open_stickers() -> void:
 		cell.add_child(em)
 		var nm := Label.new()
 		nm.text = String(d2["label"]) if earned else String(d2["hint"])
-		nm.add_theme_font_size_override("font_size", 22 if earned else 17)
+		nm.add_theme_font_size_override("font_size", 20 if earned else 15)
 		nm.add_theme_color_override("font_color", Color(1.0, 0.95, 0.8) if earned else Color(0.7, 0.7, 0.78))
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		nm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -6210,7 +6368,7 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	game_nodes.append(klbl)
 	# wares on the counter
 	g["items"] = []
-	var slots := [-4.0, 0.0, 4.0]
+	var slots := [-6.5, -2.2, 2.2, 6.5]
 	for ii in range(SHOP_ITEMS.size()):
 		var it: Dictionary = SHOP_ITEMS[ii]
 		var iid := String(it["id"])
@@ -6239,6 +6397,22 @@ func _build_shop_cabin(origin: Vector3) -> void:
 			orb.mesh = om2
 			orb.material_override = _rainbow_mat()
 			inode = orb
+		elif iid == "pearlskin":
+			# the grand prize: a giant shimmering pearl
+			var bigp := MeshInstance3D.new()
+			var pm3 := SphereMesh.new()
+			pm3.radius = 1.0
+			pm3.height = 2.0
+			bigp.mesh = pm3
+			var pmm := StandardMaterial3D.new()
+			pmm.albedo_color = Color(1.0, 0.96, 1.0)
+			pmm.metallic = 0.55
+			pmm.roughness = 0.15
+			pmm.emission_enabled = true
+			pmm.emission = Color(1.0, 0.85, 0.95)
+			pmm.emission_energy_multiplier = 0.9
+			bigp.material_override = pmm
+			inode = bigp
 		else:
 			# the legendary Can of Beans
 			var can := MeshInstance3D.new()
@@ -6276,6 +6450,9 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		tag.position = ipos + Vector3(0, 1.7, 0)
 		add_child(tag)
 		game_nodes.append(tag)
+		if iid != "beans" and bool(shop_owned.get(iid, false)):
+			inode.visible = false
+			tag.text = "%s\n(yours!)" % String(it["label"])
 		(g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
 	# glowing exit door
 	var door := MeshInstance3D.new()
@@ -7685,7 +7862,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"
+	return "res://assets/characters/roshan_sprite.png"   # classic + pearl (classic art)
 
 func _dolls2d_open(fr: Dictionary) -> void:
 	if dolls_layer == null:
