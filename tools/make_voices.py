@@ -61,6 +61,7 @@ LINES = {
     "roshan_idle2":  ("roshan", "I love swimming!"),
     "roshan_idle3":  ("roshan", "It's so pretty down here!"),
     "roshan_beans":  ("roshan", "Beans, beans! Toot toot! Wheee!"),
+    "roshan_hungry": ("roshan", "I sure am hungry... I bet I'd be faster after a good meal!"),
     # ---- Princess Huluu ----
     "huluu":        ("huluu", "Hello, Mermaid Roshan!"),
     "huluu_greet":  ("huluu", "Welcome to my castle, Mermaid Roshan!"),

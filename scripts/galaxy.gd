@@ -797,6 +797,15 @@ func _build_home_ring() -> void:
 	ring.material_override = m
 	ring.position = _home_pos
 	add_child(ring)
+	# the Butterfly Gate marks the way home too — same doorway everywhere
+	if ResourceLoader.exists("res://assets/portal/butterfly_gate.glb"):
+		var bg := (load("res://assets/portal/butterfly_gate.glb") as PackedScene).instantiate() as Node3D
+		var holder := Node3D.new()
+		add_child(holder)
+		holder.add_child(bg)
+		bg.position = Vector3(0, 2.4, 0)
+		bg.scale = Vector3.ONE * 2.4
+		_place_on_planet(holder, Vector3.DOWN)
 	var lab := Label3D.new()
 	lab.text = "🏠 home"
 	lab.font_size = 56

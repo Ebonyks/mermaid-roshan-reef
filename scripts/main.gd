@@ -2312,6 +2312,10 @@ func _raise_portal() -> void:
 	lbl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lbl.position.y = 9.0
 	hub.add_child(lbl)
+	# the Butterfly Gate stands over the portal — swim through the wings
+	var bgate := _butterfly_gate(3.6)
+	bgate.position = Vector3(0, 7.0, 0)
+	hub.add_child(bgate)
 	# a rainbow light beam rises from the portal to the surface — the landmark that
 	# calls the player DOWN to the ocean floor from anywhere in the reef
 	var beam := MeshInstance3D.new()
@@ -2405,6 +2409,35 @@ func _enter_level2(from_castle: bool = false) -> void:
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		show_msg("Sky Lagoon", "You found Princess Huluu's SKY LAGOON! Follow the path and catch 3 Dream Stars to open the castle!")
+
+func _butterfly_gate(scl: float) -> Node3D:
+	# the BUTTERFLY GATE (Blender-built: wing-flanked pearl ring) + a swirling
+	# rainbow film inside — the game's signature doorway between worlds
+	var root := Node3D.new()
+	if ResourceLoader.exists("res://assets/portal/butterfly_gate.glb"):
+		var gg: Node3D = (load("res://assets/portal/butterfly_gate.glb") as PackedScene).instantiate()
+		root.add_child(gg)
+	var swirl := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = Vector2(1.84, 1.84)
+	swirl.mesh = qm
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
+void fragment(){
+	vec2 c = UV - vec2(0.5);
+	float r = length(c) * 2.0;
+	float hue = fract(r * 0.7 - TIME * 0.14 + atan(c.y, c.x) / 6.2831);
+	float b6 = hue * 6.0;
+	vec3 col = clamp(vec3(abs(b6 - 3.0) - 1.0, 2.0 - abs(b6 - 2.0), 2.0 - abs(b6 - 4.0)), 0.0, 1.0);
+	ALBEDO = col * (1.0 - smoothstep(0.82, 1.0, r)) * 0.75;
+}"""
+	var sm := ShaderMaterial.new()
+	sm.shader = sh
+	swirl.material_override = sm
+	root.add_child(swirl)
+	root.scale = Vector3.ONE * scl
+	return root
 
 func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> StandardMaterial3D:
 	# upgraded CC0 PBR material (color + OpenGL normal + roughness), triplanar-tiled
@@ -2945,6 +2978,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bw_portal_pos = Vector3(rb_center.x, lagoon_h(rb_center.x, bwz) + 14.0, bwz)
 	if galaxy_unlocked:
 		_kart_gateway(bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3))
+		var bwg := _butterfly_gate(4.2)
+		bwg.position = bw_portal_pos
+		add_child(bwg)
+		game_nodes.append(bwg)
 	else:
 		var lockl := Label3D.new()
 		lockl.text = "🦋 Butterfly World\nwin the Rainbow Race to soar there!"
@@ -6955,6 +6992,10 @@ func _start_game(fr: Dictionary) -> void:
 				show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")
 			else:
 				show_msg(fr["fname"], "Race the baby penguin! Careful — he's SO speedy!")
+				# non-reader breadcrumb to the beans: Roshan thinks out loud
+				get_tree().create_timer(3.6).timeout.connect(func():
+					if game == "slide" and String(g.get("mode", "")) == "chase" and beans_t < 0.0:
+						show_msg("Roshan", "I sure am hungry... I bet I'd be faster after a good MEAL!", "hungry"))
 		else:
 			show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")
 	elif game == "fairyshoot":
@@ -8401,6 +8442,40 @@ func _build_wreck() -> void:
 	if ghost != null:
 		ghost.set_meta("ghost", true)
 		manta = ghost
+		# PEARL SHOP ATTRACTION: the ship IS the shop, but three little lamps
+		# didn't pull anyone in. A golden beacon pillar reaches down into the
+		# reef (visible from anywhere underwater) + an unmissable sign.
+		var spil := MeshInstance3D.new()
+		var spm := CylinderMesh.new()
+		spm.top_radius = 0.7
+		spm.bottom_radius = 2.6
+		spm.height = 46.0
+		spm.radial_segments = 12
+		var spmat := StandardMaterial3D.new()
+		spmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		spmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		spmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+		spmat.albedo_color = Color(1.0, 0.85, 0.4, 0.16)
+		spmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		spil.mesh = spm
+		spil.material_override = spmat
+		spil.position = ghost.position + Vector3(0, -24.0, 0)
+		add_child(spil)
+		var ssign := Label3D.new()
+		ssign.text = "🫧 Pearl Shop! 🫧\nswim up to the ship!"
+		ssign.font_size = 72
+		ssign.outline_size = 16
+		ssign.pixel_size = 0.03
+		ssign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		ssign.modulate = Color(1.0, 0.9, 0.55)
+		ssign.position = ghost.position + Vector3(0, -6.5, 0)
+		add_child(ssign)
+		var sglow := OmniLight3D.new()
+		sglow.light_color = Color(1.0, 0.82, 0.4)
+		sglow.light_energy = 3.2
+		sglow.omni_range = 42.0
+		sglow.position = ghost.position + Vector3(0, -8.0, 0)
+		add_child(sglow)
 		for li2 in range(3):
 			var lamp := OmniLight3D.new()
 			lamp.light_color = Color(1.0, 0.78, 0.42)
