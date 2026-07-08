@@ -5028,7 +5028,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 		if chime != null:
 			chime.pitch_scale = 0.5
 			chime.play()
-		show_msg("Music Room", "Almost! Listen to the song one more time...")
+		show_msg("Music Room", "Almost! Listen to the song one more time...", "oops")
 		bg2["state"] = "play"
 		bg2["i"] = 0
 		bg2["t"] = 1.2
@@ -7873,18 +7873,19 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		if ball.position.y <= ARENA_POS.y + 0.9:
 			ball.position.y = ARENA_POS.y + 0.9
 			if ball.position.x - ARENA_POS.x > 8.2:
-				# SPLASH - into the lake!
+				# SPLASH - into the lake! No mean buzzer: a cartoon puppy
+				# whimper + Wacky hamming it up ("OH NO! Chuck is all WET!")
 				g["miss"] = int(g["miss"]) + 1
 				_sparkle_burst(ball.position, Color(0.4, 0.7, 1.0))
 				var bz := AudioStreamPlayer.new()
-				bz.stream = load("res://assets/audio/buzz.ogg")
+				bz.stream = load("res://assets/audio/voices/chuck_whimper.ogg")
 				add_child(bz)
 				bz.play()
 				bz.finished.connect(bz.queue_free)
 				if int(g["miss"]) >= 3:
 					_end_game(false, fr, "Aww... now Chuck is all wet!", "fail")
 					return
-				show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!")
+				show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!", "splash")
 				g["phase"] = "aim"
 				(g["arrow"] as MeshInstance3D).visible = true
 			else:
@@ -8024,6 +8025,8 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				voice.play()
 		elif doll.position.y > 700.0:
 			g["resolved"] = int(g["resolved"]) + 1
+			# a baby got away! Faron gasps (min-gap so two misses don't overlap)
+			_say("faron", "miss", 3.0)
 			doll.queue_free()
 			dolls.remove_at(i)
 	# audit: hud_game sits BEHIND the opaque nursery overlay — write the score

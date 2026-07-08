@@ -62,6 +62,8 @@ LINES = {
     "roshan_idle3":  ("roshan", "It's so pretty down here!"),
     "roshan_beans":  ("roshan", "Beans, beans! Toot toot! Wheee!"),
     "roshan_hungry": ("roshan", "I sure am hungry... I bet I'd be faster after a good meal!"),
+    "roshan_bump":   ("roshan", "Whoooaa! Bumper cars!"),
+    "roshan_oops":   ("roshan", "Oopsie!"),
     # ---- Princess Huluu ----
     "huluu":        ("huluu", "Hello, Mermaid Roshan!"),
     "huluu_greet":  ("huluu", "Welcome to my castle, Mermaid Roshan!"),
@@ -79,12 +81,14 @@ LINES = {
     "faron":      ("faron", "Shhh... the babies are getting sleepy."),
     "faron_win":  ("faron", "All the babies are tucked in! Thank you!"),
     "faron_fail": ("faron", "Oh no, the babies! Let's try once more."),
+    "faron_miss": ("faron", "Oh NO! The baby! Catch them, catch them!"),
     "gabby":      ("gabby", "La la laaa! Come catch the rainbow with me!"),
     "gabby_win":  ("gabby", "You caught the whole rainbow! Amazing!"),
     "gabby_fail": ("gabby", "The colors got away! One more song!"),
     "wacky":      ("wacky", "Ho ho! Hello there, little mermaid!"),
     "wacky_win":  ("wacky", "Great throwing! Chuck says woof! Ho ho ho!"),
     "wacky_fail": ("wacky", "Ho ho! Chuck got all wet! Try again!"),
+    "wacky_splash": ("wacky", "OH NO! Chuck is all WET! Shake shake shake, big fella!"),
     "shop":       ("shop", "Welcome, welcome! Have a look around!"),
     "sparkle":    ("sparkle", "Cheep cheep! Cheep!"),
     # ---- Mermaid Rosalina (Butterfly World) ----

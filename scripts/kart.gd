@@ -1610,6 +1610,10 @@ func _resolve_collisions() -> void:
 					if _thunk_cool <= 0.0:
 						_chime(0.45)   # deep bumper thunk
 						_thunk_cool = 0.3
+						# Roshan whoops when SHE takes the shove ("Whoooaa!")
+						var pl_light: bool = (bool(a["is_player"]) and light == a) or (bool(b["is_player"]) and light == b)
+						if pl_light and _main != null and _main.has_method("_say"):
+							_main._say("roshan", "bump", 7.0)
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:
