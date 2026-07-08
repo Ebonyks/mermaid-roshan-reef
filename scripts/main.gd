@@ -1498,7 +1498,7 @@ func _build_aquatic_flora() -> void:
 		var z := sin(a) * r
 		var bscl: float = 2.0 + randf() * 4.0
 		var brock := _place_aq(rocks[randi() % rocks.size()], Vector3(x, seabed_y(x, z), z), bscl, false)
-		if bscl >= 3.0:
+		if bscl >= 2.2:   # audit #8: half the boulders were swim-through — inconsistent, read as a glitch
 			_register_solid(brock)
 
 func _build_aquatic_creatures() -> void:
@@ -2846,6 +2846,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var z := 150.0 - float(li) * 46.0
 		for sgn in [-1.0, 1.0]:
 			var post := _l2_box(o + Vector3(sgn * 13.0, 6.0, z), Vector3(1.0, 12.0, 1.0), Color(0.5, 0.36, 0.22))
+			_cyl_solid(o + Vector3(sgn * 13.0, 6.0, z), 0.9, 6.0, 0.5)
 			var lampbulb := MeshInstance3D.new()
 			var lb := SphereMesh.new()
 			lb.radius = 1.1
@@ -2885,7 +2886,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 			seed = (seed * 1103515245 + 12345) & 0x7fffffff
 			var ox: float = float(seed % 200) / 10.0 - 10.0
 			var oz: float = float((seed / 200) % 200) / 10.0 - 10.0
-			_nature(trees[(seed / 11) % trees.size()], o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz), 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+			var tpos := o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz)
+			_nature(trees[(seed / 11) % trees.size()], tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+			# collision audit #1: the whole forest was ghost — trunks are solid now
+			_cyl_solid(tpos + Vector3(0, 6.0, 0), 1.3, 6.0, 0.6)
 	# undergrowth: bushes, mushrooms, grass tufts, flower clumps
 	for k in range(90):
 		seed = (seed * 1103515245 + 12345) & 0x7fffffff
@@ -3028,6 +3032,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# bridge railings + posts
 	for bsgn in [-1.0, 1.0]:
 		_l2_box(c + Vector3(bsgn * 6.2, 4.0, 40.0), Vector3(0.6, 2.2, 60.0), Color(0.5, 0.36, 0.22))
+		_wall_solid(c + Vector3(bsgn * 6.2, 4.0, 40.0), Vector3(0.6, 2.2, 60.0), 0.4)   # rails keep her ON the bridge
 		for bp in range(7):
 			_l2_box(c + Vector3(bsgn * 6.2, 4.2, 12.0 + float(bp) * 9.0), Vector3(1.0, 3.0, 1.0), Color(0.45, 0.32, 0.2))
 	# keep + battlements
@@ -3045,12 +3050,15 @@ func _build_pearl_castle(o: Vector3) -> void:
 		_kp.material_override = _up_mat("marble", 0.035, Color(0.99, 0.97, 1.0))   # royal white marble (red brick read wrong)
 	# --- collision: the keep shell is SOLID. The doorway (and the secret moat
 	# hatch) are the only ways in — without these the star-gated door was cosmetic.
-	_wall_solid(c + Vector3(-18, 26, 12), Vector3(20, 52, 1.5))   # front wall, left of the door
-	_wall_solid(c + Vector3(18, 26, 12), Vector3(20, 52, 1.5))    # front wall, right of the door
-	_wall_solid(c + Vector3(0, 38, 12), Vector3(16, 28, 1.5))     # lintel above the doorway
-	_wall_solid(c + Vector3(0, 26, -28), Vector3(56, 52, 1.5))    # back wall
-	_wall_solid(c + Vector3(-28, 26, -8), Vector3(1.5, 52, 40))   # side walls
-	_wall_solid(c + Vector3(28, 26, -8), Vector3(1.5, 52, 40))
+	# collision audit #3: solids reach the courtyard CEILING (y120) — the walls
+	# are 52 tall but the mermaid could float to y54+ and drift straight over
+	# the keep, skipping the Dream-Star door entirely
+	_wall_solid(c + Vector3(-18, 60, 12), Vector3(20, 120, 1.5))   # front wall, left of the door
+	_wall_solid(c + Vector3(18, 60, 12), Vector3(20, 120, 1.5))    # front wall, right of the door
+	_wall_solid(c + Vector3(0, 72, 12), Vector3(16, 96, 1.5))      # lintel + air above the doorway
+	_wall_solid(c + Vector3(0, 60, -28), Vector3(56, 120, 1.5))    # back wall
+	_wall_solid(c + Vector3(-28, 60, -8), Vector3(1.5, 120, 40))   # side walls
+	_wall_solid(c + Vector3(28, 60, -8), Vector3(1.5, 120, 40))
 	# ---- warm interior foyer, visible through the doorway ----
 	var _foyback := _l2_box(c + Vector3(0, 12, -2), Vector3(22, 24, 1.0), Color(0.9, 0.66, 0.45))
 	_foyback.material_override.albedo_texture = _stone
@@ -3072,7 +3080,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# four big towers (solid shafts — Roshan slides around them)
 	for tw_off: Vector3 in [Vector3(-32.0, 2.0, 10.0), Vector3(32.0, 2.0, 10.0), Vector3(-32.0, 2.0, -28.0), Vector3(32.0, 2.0, -28.0)]:
 		_l2_tower(c + tw_off, 1.9)
-		_cyl_solid(c + tw_off + Vector3(0, 24.7, 0), 5.6, 24.7)
+		_cyl_solid(c + tw_off + Vector3(0, 60.0, 0), 5.6, 60.0)   # tower solids reach the sky too
 	# ---- the Mermaid Roshan stained glass — the grand centrepiece on the FRONT facade ----
 	_glass_window(c + Vector3(0, 38.0, 12.3), Vector3(0, 0, 0), 30.0)
 	# gold frame around the rose window
@@ -4275,6 +4283,10 @@ func _build_castle_hall(o: Vector3) -> void:
 		_l2_box(o + Vector3(0, 1.5 + float(st) * 2.0, -10.0 - float(st) * 2.2), Vector3(16.0 - float(st) * 0.6, 2.0, 3.0), Color(0.8, 0.25, 0.3))
 	# throne dais
 	_l2_box(o + Vector3(0, 15.0, -27.0), Vector3(14, 2.0, 6), Color(0.95, 0.85, 0.55), 0.2)
+	# collision audit #2: the throne centerpiece was ghostly — the player swam
+	# straight through the stairs/dais/throne. Solid up to y14 (dais underside);
+	# the crown updraft still lifts her over the top from the front
+	_wall_solid(o + Vector3(0, 7.0, -21.5), Vector3(15, 14, 15), 0.8)
 	if ResourceLoader.exists("res://assets/castle/throne.glb"):
 		var tmodel: Node3D = (load("res://assets/castle/throne.glb") as PackedScene).instantiate()
 		var th := Node3D.new()
@@ -4476,6 +4488,7 @@ func _build_castle_hall(o: Vector3) -> void:
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# ---------- CRAFTING STUDIO easel (color your own fish!) ----------
 	var easel := _l2_box(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
+	_wall_solid(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), 0.5)
 	var canvas := _l2_box(o + Vector3(30.4, 9.0, 2.0), Vector3(0.4, 7.0, 6.0), Color(0.97, 0.96, 0.92), 0.1)
 	_mg_noop_ref(canvas)
 	var craft_fish_icon := Sprite3D.new()
@@ -4702,6 +4715,7 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	# ---------- bedside table + glowing lamp (at the bed's head) ----------
 	var table := _l2_box(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
 	table.material_override.roughness = 0.8
+	_wall_solid(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), 0.4)
 	var lampbulb := MeshInstance3D.new()
 	var ls := SphereMesh.new(); ls.radius = 0.7; ls.height = 1.4
 	lampbulb.mesh = ls
@@ -4719,6 +4733,7 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	# toy chest by the far wall (decor)
 	var chest := _l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
 	chest.material_override.roughness = 0.85
+	_wall_solid(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), 0.4)
 	_l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
@@ -6332,6 +6347,10 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	_plank_box(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2))
 	_plank_box(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.35)
 	_plank_box(Vector3(origin.x + 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.35)
+	# collision audit #4: the cabin walls were swim-through
+	_wall_solid(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2), 0.5)
+	_wall_solid(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
+	_wall_solid(Vector3(origin.x + 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
 	# slim top beam instead of a full ceiling
 	_plank_box(Vector3(origin.x, f + 18.0, origin.z - 13.0), Vector3(34, 1.2, 4), 0.5)
 	# counter with a cloth
@@ -7702,6 +7721,7 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		var yr := float(seed % 628) / 100.0
 		if pick < 3:
 			_nature(trees[(seed / 13) % trees.size()], gp, 4.5 + float(seed % 3), yr)
+			_cyl_solid(gp + Vector3(0, 3.0, 0), 0.9, 3.0, 0.5)   # trunks solid; hide-bushes stay soft
 		elif pick < 5:
 			_nature("plant_bushLargeTriangle", gp, 4.0, yr)
 		elif pick < 6:

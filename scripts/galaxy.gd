@@ -364,8 +364,8 @@ func _build_decor() -> void:
 		_fit_small(gr, (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4)))
 		_place_on_planet(holder, dir)
 		holder.rotate(dir, randf() * TAU)
-		if tall and i % 3 == 0:   # a handful of solid palm trunks; the rest is soft
-			_blockers.append({"dir": dir, "r": 1.8, "cool": 0.0})
+		if tall:   # collision audit: ALL tall palms are solid now (soft foliage stays walk-through)
+			_blockers.append({"dir": dir, "r": 1.6, "cool": 0.0})
 	# flower beds (bright, chest-high) between the palms
 	for i in range(28):
 		var fpath := "res://assets/nature/%s.glb" % FLORA[i % FLORA.size()]
@@ -383,6 +383,7 @@ func _build_decor() -> void:
 	var tray_dirs := [Vector3(0.8, 0.15, -0.6), Vector3(-0.75, 0.4, 0.5), Vector3(0.1, -0.55, 0.83), Vector3(-0.4, -0.75, -0.55)]
 	for ti in range(tray_dirs.size()):
 		var tdir: Vector3 = (tray_dirs[ti] as Vector3).normalized()
+		_blockers.append({"dir": tdir, "r": 1.6, "cool": 0.0})   # pedestal rock is solid (feast trigger fires at 4.5)
 		var th := Node3D.new()
 		add_child(th)
 		if ResourceLoader.exists("res://assets/aquatic/Rock2.glb"):
@@ -450,7 +451,7 @@ func _build_decor() -> void:
 		castle.add_child(ck)
 		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
 		_tint_meshes(ck, Color(0.72, 0.68, 1.0), 0.45)   # amethyst-glass glow
-	_blockers.append({"dir": Vector3.UP, "r": 8.0, "cool": 0.0})   # castle core is solid; enter via the GATE
+	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
 		if not ResourceLoader.exists(path3):
@@ -655,6 +656,7 @@ void fragment(){
 	# ---- hanging-lantern posts along the garden paths (page-two paper lantern) ----
 	for ldir_raw in [Vector3(0.6, 0.55, 0.55), Vector3(-0.7, 0.5, -0.4), Vector3(0.2, 0.6, -0.75), Vector3(-0.5, -0.6, 0.6), Vector3(0.75, -0.5, -0.35)]:
 		var ldir: Vector3 = (ldir_raw as Vector3).normalized()
+		_blockers.append({"dir": ldir, "r": 1.0, "cool": 0.0})   # lantern poles are solid
 		var lp := Node3D.new()
 		add_child(lp)
 		var pole := MeshInstance3D.new()
