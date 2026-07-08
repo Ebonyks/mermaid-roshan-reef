@@ -3179,6 +3179,49 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for tw_off: Vector3 in [Vector3(-32.0, 2.0, 10.0), Vector3(32.0, 2.0, 10.0), Vector3(-32.0, 2.0, -28.0), Vector3(32.0, 2.0, -28.0)]:
 		_l2_tower(c + tw_off, 1.9)
 		_cyl_solid(c + tw_off + Vector3(0, 60.0, 0), 5.6, 60.0)   # tower solids reach the sky too
+		# STORYBOOK FORK: coral cone roofs turn the stone towers into a shell palace
+		var roof := MeshInstance3D.new()
+		var rcone := CylinderMesh.new()
+		rcone.top_radius = 0.2
+		rcone.bottom_radius = 7.4
+		rcone.height = 9.0
+		rcone.radial_segments = 14
+		roof.mesh = rcone
+		var rmat := StandardMaterial3D.new()
+		rmat.albedo_color = Color(0.96, 0.62, 0.66)
+		rmat.roughness = 1.0
+		roof.material_override = rmat
+		roof.position = c + tw_off + Vector3(0, 52.0, 0)
+		add_child(roof)
+		game_nodes.append(roof)
+	# scallop-shell crest along the front wall top + painted glowing windows
+	for si2 in range(7):
+		var shell := MeshInstance3D.new()
+		var ssm := SphereMesh.new()
+		ssm.radius = 2.6
+		ssm.height = 5.2
+		shell.mesh = ssm
+		var shm := StandardMaterial3D.new()
+		shm.albedo_color = Color(0.98, 0.80, 0.86) if si2 % 2 == 0 else Color(0.78, 0.86, 0.97)
+		shm.roughness = 1.0
+		shell.material_override = shm
+		shell.position = c + Vector3(-18.0 + float(si2) * 6.0, 52.5, 12.0)
+		add_child(shell)
+		game_nodes.append(shell)
+	for wx2: float in [-11.0, 11.0]:
+		var winq := MeshInstance3D.new()
+		var wqm := QuadMesh.new()
+		wqm.size = Vector2(4.5, 7.0)
+		winq.mesh = wqm
+		var wmm := StandardMaterial3D.new()
+		wmm.albedo_color = Color(0.82, 0.78, 0.98)
+		wmm.emission_enabled = true
+		wmm.emission = Color(1.0, 0.9, 0.7)
+		wmm.emission_energy_multiplier = 1.1
+		winq.material_override = wmm
+		winq.position = c + Vector3(wx2, 20.0, 12.85)
+		add_child(winq)
+		game_nodes.append(winq)
 	# ---- the Mermaid Roshan stained glass — the grand centrepiece on the FRONT facade ----
 	_glass_window(c + Vector3(0, 38.0, 12.3), Vector3(0, 0, 0), 30.0)
 	# gold frame around the rose window
