@@ -1,0 +1,36 @@
+name: Cleanup Actions artifacts
+
+# The account has 0.5 GB of Actions artifact storage; old APK artifacts
+# (~165MB each, 90-day retention) filled it completely. The android.yml
+# workflow no longer uploads artifacts, but the stored ones must be deleted
+# to free the quota. Runs once on push (to clear the backlog) and can be
+# re-run any time from the Actions tab.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/replace-assets-free-sources-lnplz7]
+    paths: [.github/workflows/cleanup-artifacts.yml]
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            let deleted = 0, bytes = 0;
+            for await (const res of github.paginate.iterator(
+                github.rest.actions.listArtifactsForRepo,
+                { owner: context.repo.owner, repo: context.repo.repo, per_page: 100 })) {
+              for (const a of res.data) {
+                bytes += a.size_in_bytes;
+                await github.rest.actions.deleteArtifact({
+                  owner: context.repo.owner, repo: context.repo.repo, artifact_id: a.id });
+                deleted++;
+              }
+            }
+            core.notice(`Deleted ${deleted} artifacts, freed ${(bytes/1e6).toFixed(0)} MB (quota recalculates in 6-12h)`);
