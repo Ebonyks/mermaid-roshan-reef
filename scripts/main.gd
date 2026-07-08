@@ -69,6 +69,9 @@ var custom_friends: Array = []
 # the whole body at 50% alpha, so the two colors just mixed into grey
 const CREATURE_LAYERS := {"fish": ["fish_fins", "fish_body", "fish_line"], "cat": ["cat_accent", "cat_body", "cat_line"], "bird": ["bird_accent", "bird_body", "bird_line"]}
 var l2_open := false
+# Phase 1: star progress survives slide/picture round-trips (the rebuild used
+# to wipe it); reset ONLY on a fresh entry from the ocean portal
+var l2_star_progress: Array = [false, false, false]
 var l2_cutscene_t := -1.0
 var wall_pics: Array = []
 # Soft-collision: vertical-cylinder colliders for big overworld structures
@@ -2206,6 +2209,7 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 			portal_armed = true
 		if portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
 			portal_armed = false
+			l2_star_progress = [false, false, false]   # fresh visit, fresh stars
 			_enter_level2()
 
 func _raise_portal() -> void:
@@ -3253,7 +3257,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 		sl.light_energy = 3.2
 		sl.omni_range = 34.0
 		star.add_child(sl)
-		l2_stars.append({"node": star, "got": false})
+		var pre_got: bool = idx < l2_star_progress.size() and bool(l2_star_progress[idx])
+		if pre_got:
+			star.visible = false
+		l2_stars.append({"node": star, "got": pre_got})
 	# ---------- clouds + rainbow accents ----------
 	for cz in range(14):
 		var cloud := MeshInstance3D.new()
@@ -3410,6 +3417,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			player.position = player.position.lerp(star.position, minf(0.85, delta * 1.7 * (1.0 - d / 32.0)))
 		if d < 14.0:
 			sd["got"] = true
+			var sidx: int = l2_stars.find(sd)
+			if sidx >= 0 and sidx < l2_star_progress.size():
+				l2_star_progress[sidx] = true
 			got += 1
 			_sparkle_burst(star.position, Color(1.0, 0.9, 0.4))
 			if chime != null:
@@ -3436,15 +3446,27 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# World — the courtyard pond stays as scenery)
 	# the rainbow gateway always takes you back to the ocean
 	mg_cool = maxf(0.0, mg_cool - delta)
-	if mg_cool <= 0.0 and mg_kind == "":
+	# Phase 1: pictures are OPTIONAL play — inert until the castle is open, so
+	# the natural swim line to the Dream Stars can't hijack into a minigame and
+	# wipe star progress. Tight 3.5 radius + 0.6s dwell = deliberate visits only.
+	if mg_cool <= 0.0 and mg_kind == "" and l2_open:
+		var dw: Dictionary = g.get("pic_dwell", {})
 		for wp in wall_pics:
 			var wpp: Vector3 = wp["pos"]
-			if Vector2(wpp.x - ppos.x, wpp.z - ppos.z).length() < 7.0 and absf(wpp.y - ppos.y) < 9.0:
-				if String(wp["art"]) == "p_slide":
-					_l2_start_slide()
-				else:
-					_mg2d_open(String(PIC_GAME[String(wp["art"])]))
-				return
+			var akey := String(wp["art"])
+			if Vector2(wpp.x - ppos.x, wpp.z - ppos.z).length() < 3.5 and absf(wpp.y - ppos.y) < 9.0:
+				dw[akey] = float(dw.get(akey, 0.0)) + delta
+				if float(dw[akey]) >= 0.6:
+					dw[akey] = 0.0
+					g["pic_dwell"] = dw
+					if akey == "p_slide":
+						_l2_start_slide()
+					else:
+						_mg2d_open(String(PIC_GAME[akey]))
+					return
+			else:
+				dw[akey] = 0.0
+		g["pic_dwell"] = dw
 	# hidden back door: a secret underwater entrance that works even before the stars
 	if g.has("back_entry"):
 		var bpos: Vector3 = g["back_entry"]
@@ -3452,7 +3474,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			_enter_castle_interior(true)   # secret hatch -> Daddy's treasure room
 			return
 	if not l2_open:
-		hud_game.text = "Dream Stars: %d / 3  -  follow the arrow!  (or touch a picture to play!)" % got
+		hud_game.text = "Dream Stars: %d / 3  -  follow the sparkles!" % got
 	else:
 		hud_game.text = "The castle is OPEN!  Swim to the glowing door!"
 		# magnet toward the fixed doorway (the door itself slides up out of view)
