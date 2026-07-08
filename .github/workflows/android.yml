@@ -59,11 +59,10 @@ jobs:
           godot --headless --path . --export-debug "Android" build/roshan-reef.apk
           ls -la build/
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: roshan-reef-apk
-          path: build/roshan-reef.apk
-
+      # NOTE: no actions/upload-artifact step — each run's ~165MB artifact blew
+      # the account's Actions storage quota and, worse, its failure blocked the
+      # release-publish step below (the actual download channel). Release
+      # assets do not count against the artifact quota.
       - name: Publish APK to the android-test prerelease (stable download URL)
         uses: softprops/action-gh-release@v2
         with:
