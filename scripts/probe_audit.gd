@@ -1,0 +1,224 @@
+extends SceneTree
+# AUDIT BOT — corrected version of probe_games.gd (fixes stale cosmetics/tiara/tail
+# and ColorRect casts). Prints incrementally so timeouts never lose results.
+var main: Node3D
+var player: Node3D
+
+func _init() -> void:
+	var seed_str := OS.get_environment("AUDIT_SEED")
+	if seed_str != "":
+		seed(int(seed_str))
+	Engine.time_scale = 6.0
+	var ms: PackedScene = load("res://scenes/main.tscn")
+	main = ms.instantiate()
+	get_root().add_child(main)
+	await process_frame
+	await process_frame
+	if main.has_method("_skip_intro"):
+		main._skip_intro()
+	await process_frame
+	player = main.player
+	print("AUDIT|boot OK, seed=", seed_str)
+	var t_start := Time.get_ticks_msec()
+	for fi in range(5):
+		var f: Dictionary = main.friends[fi]
+		var fname: String = f["fname"]
+		var node: Node3D = f["node"]
+		player.position = node.position + Vector3(3, 0, 0)
+		player.vel = Vector3.ZERO
+		await _frames(10)
+		var guard := 0
+		while float(f["cool"]) > 0.0 and guard < 3000:
+			guard += 1
+			await process_frame
+		for k in range(10):
+			player.position = node.position + Vector3(3, 0, 0)
+			player.vel = Vector3.ZERO
+			await process_frame
+		if main.game == "":
+			print("AUDIT|", fname, ": GAME DID NOT START")
+			continue
+		var gname: String = main.game
+		var cutaway_ok: bool = player.position.distance_to(main.ARENA_POS) <= 120.0
+		var f0 := Time.get_ticks_msec()
+		var ok := await _drive_game(gname, f)
+		var secs := float(Time.get_ticks_msec() - f0) / 1000.0
+		print("AUDIT|", fname, " [", gname, "]: ", ("WON" if ok else "FAILED/TIMEOUT"),
+			" cutaway=", cutaway_ok, " wall_s=%.1f" % secs)
+		main._clear_game()
+		await _frames(5)
+	# --- treasure cavern ---
+	main.treasure_cool = 0.0
+	player.position = main.wreck_pos + Vector3(0, 4, 2)
+	player.vel = Vector3.ZERO
+	var waited := 0
+	while main.game == "" and waited < 900:
+		waited += 1
+		player.position = main.wreck_pos + Vector3(0, 4, 2)
+		player.vel = Vector3.ZERO
+		await process_frame
+	if main.game == "treasure":
+		var p0: int = main.pearl_count
+		var ok3 := await _drive_game("treasure", main.treasure_fr)
+		print("AUDIT|Secret Cave [treasure]: ", ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
+	else:
+		print("AUDIT|Secret Cave [treasure]: DID NOT START")
+	# --- beans consumable (current shop API) ---
+	main.pearl_count = 5
+	main._shop_buy("beans")
+	# beans banjo is a SOUND EFFECT now (dedicated beans_sfx player, works with
+	# music off — explicit behaviour change requested earlier), so assert that
+	# instead of the old cur_track swap
+	var beans_on: bool = main.speed_mult == 2.0 and main.beans_t > 0.0 and main.beans_sfx != null and main.beans_sfx.playing and main.pearl_count == 3
+	main.beans_t = 0.01
+	for i5 in range(30):
+		await process_frame
+	var beans_off: bool = main.speed_mult == 1.0 and (main.beans_sfx == null or not main.beans_sfx.playing)
+	print("AUDIT|Can of Beans: ", ("OK" if beans_on and beans_off else "FAIL on=%s off=%s" % [beans_on, beans_off]))
+	# --- pearl respawn ---
+	var p1: Node3D = main.pearls[0]
+	player.position = p1.position
+	player.vel = Vector3.ZERO
+	for i6 in range(10):
+		await process_frame
+	var collected: bool = main.pearls.size() == 9
+	main._respawn_pearls()
+	print("AUDIT|Pearl respawn: ", ("OK" if collected and main.pearls.size() == 10 else "FAIL"))
+	# --- level 2 ---
+	main.pearl_count = main.PEARL_TOTAL
+	for f in main.friends:
+		f["found"] = true
+		f["won"] = true
+	main.trophies = 5
+	var pf := 0
+	while main.portal_node == null and pf < 300:
+		pf += 1
+		main._check_level2_unlock(player.position, 0.1)
+		await process_frame
+	print("AUDIT|Level 2 portal: ", ("OK" if main.portal_node != null else "FAIL"))
+	if main.portal_node != null:
+		var rf := 0
+		while main.game == "" and rf < 600:
+			rf += 1
+			if not main.portal_armed:
+				player.position = main.portal_node.position + Vector3(20, 6, 20)
+			else:
+				player.position = main.portal_node.position
+			player.vel = Vector3.ZERO
+			main._check_level2_unlock(player.position, 0.1)
+			await process_frame
+		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
+		var cf := 0
+		var interceptions := 0
+		while cf < 60 * 240:
+			cf += 1
+			if main.game == "level2" and String(main.g.get("phase","court")) == "court":
+				var tgt: Node3D = null
+				for sd in main.l2_stars:
+					if not bool(sd["got"]):
+						tgt = sd["node"]
+						break
+				if tgt == null and main.l2_door != null:
+					tgt = main.l2_door
+				if tgt != null:
+					player.position = player.position.lerp(tgt.position, 0.16)
+					player.vel = Vector3.ZERO
+			elif main.game == "level2" and String(main.g.get("phase","")) == "hall":
+				break
+			elif main.mg_kind != "":
+				interceptions += 1
+				main._mg2d_close()
+				await _frames(10)
+			elif main.game == "race" or main.game == "fairy":
+				interceptions += 1
+				var gname2: String = main.game
+				await _drive_game(gname2, {"won": true})
+				await _frames(30)
+			elif main.game == "":
+				await _frames(5)
+			await process_frame
+		print("AUDIT|Level 2 court interceptions: ", interceptions)
+		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
+		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
+			" game=", main.game, " phase=", String(main.g.get("phase","?")),
+			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+		var hf := 0
+		while main.game == "level2" and hf < 60 * 60:
+			hf += 1
+			var cr: Node3D = main.l2_stars[0]["node"]
+			player.position = player.position.lerp(cr.position, 0.16)
+			player.vel = Vector3.ZERO
+			await process_frame
+		print("AUDIT|Level 2 finish: ", ("OK" if main.game == "" and bool(main.save_data.get("level2", false)) else "FAIL"))
+	for i2 in range(60):
+		await process_frame
+	print("AUDIT|save file: ", ("OK" if FileAccess.file_exists("user://reef_save.json") else "MISSING"))
+	print("AUDIT|finale: ", ("OK" if main.finale_done else "DID NOT TRIGGER"))
+	var f3 := FileAccess.open("user://reef_save.json", FileAccess.READ)
+	if f3 != null:
+		var d3: Variant = JSON.parse_string(f3.get_as_text())
+		if d3 is Dictionary:
+			var wn: Dictionary = (d3 as Dictionary).get("won", {})
+			var cnt := 0
+			for k in wn:
+				if bool(wn[k]):
+					cnt += 1
+			print("AUDIT|persisted wins: ", cnt, "/5")
+	print("AUDIT|total wall time: %.1fs" % (float(Time.get_ticks_msec() - t_start) / 1000.0))
+	quit()
+
+func _stars_got() -> int:
+	var got := 0
+	for sd in main.l2_stars:
+		if bool(sd["got"]):
+			got += 1
+	return got
+
+func _frames(n: int):
+	for i in range(n):
+		await process_frame
+
+func _drive_game(gname: String, f: Dictionary) -> bool:
+	var deadline := 60.0 * 90.0
+	var fcount := 0
+	player.position = main.ARENA_POS + Vector3(0, 8, 18)
+	player.vel = Vector3.ZERO
+	while main.game != "" and fcount < deadline:
+		fcount += 1
+		var g: Dictionary = main.g
+		if gname == "fetch":
+			if g.has("phase") and String(g["phase"]) == "aim":
+				var ad: Vector3 = g.get("aim_dir", Vector3.ZERO)
+				main.touch_ui.action_down = ad != Vector3.ZERO and ad.x < 0.1 and fcount % 12 < 6
+			else:
+				main.touch_ui.action_down = false
+		elif gname == "dolls":
+			var dolls: Array = g.get("dolls", [])
+			if dolls.size() > 0 and main.dolls_catcher != null:
+				var lowest: Control = dolls[0]
+				for d in dolls:
+					if (d as Control).position.y > lowest.position.y:
+						lowest = d
+				main.dolls_catcher.position.x = lerpf(main.dolls_catcher.position.x, lowest.position.x - 40.0, 0.3)
+		elif gname == "seek":
+			if g.has("bushes") and g.has("which"):
+				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
+				player.position = player.position.lerp(bush.position, 0.15)
+				player.vel = Vector3.ZERO
+		elif gname == "race" or gname == "treasure":
+			if String(g.get("phase", "")) != "slide":
+				var checks: Array = g.get("checks", [])
+				for c in checks:
+					if not c["hit"]:
+						player.position = player.position.lerp((c["node"] as Node3D).position, 0.10)
+						player.vel = Vector3.ZERO
+						break
+		elif gname == "melody":
+			var orbs: Array = g.get("orbs", [])
+			for ob in orbs:
+				if not bool(ob["caught"]):
+					player.position = player.position.lerp((ob["node"] as Node3D).position, 0.14)
+					player.vel = Vector3.ZERO
+					break
+		await process_frame
+	return main.game == "" and bool(f["won"])
