@@ -11,10 +11,16 @@ render_mode unshaded, cull_disabled, fog_disabled, depth_test_disabled, depth_dr
 uniform sampler2D screen_tex : hint_screen_texture, filter_linear;
 uniform sampler2D depth_tex : hint_depth_texture, filter_nearest;
 uniform float bands : hint_range(2.0, 16.0) = 6.0;          // colour quantisation steps
-uniform float saturation : hint_range(1.0, 2.0) = 1.18;     // pop the palette
+uniform float saturation : hint_range(1.0, 2.0) = 1.12;     // pop the palette (pastel-gentle)
 uniform float edge_threshold = 0.6;                         // world-units depth delta = edge
 uniform float edge_strength : hint_range(0.0, 1.0) = 0.85;
-uniform vec3 line_color : source_color = vec3(0.02, 0.03, 0.05);
+// MermaidStorybook grade, calibrated to the book art: airy watercolor light,
+// aqua-lavender shadows, warm cream highs, soft navy-brown ink (never black)
+uniform vec3 line_color : source_color = vec3(0.13, 0.14, 0.30);
+uniform vec3 shadow_tint : source_color = vec3(0.70, 0.80, 0.94);
+uniform vec3 highlight_tint : source_color = vec3(1.05, 1.01, 0.95);
+uniform float grade_amount : hint_range(0.0, 1.0) = 0.8;
+uniform float pastel_lift : hint_range(0.0, 0.2) = 0.07;
 
 void vertex() {
 	// QuadMesh is 1x1 centred at origin -> *2 gives clip-space -1..1 (fullscreen)
@@ -36,6 +42,11 @@ void fragment() {
 	vec3 q = floor(col * bands + 0.5) / bands;
 	float l = dot(q, vec3(0.299, 0.587, 0.114));
 	q = clamp(mix(vec3(l), q, saturation), 0.0, 1.0);
+	// storybook duotone grade: shadows drift lavender-aqua, highlights warm
+	// cream, blacks lifted so nothing reads harsh for little eyes
+	vec3 graded = q * mix(shadow_tint, highlight_tint, smoothstep(0.15, 0.85, l));
+	q = mix(q, graded, grade_amount);
+	q = q * (1.0 - pastel_lift) + pastel_lift;
 	// depth-based ink outline
 	float dc = lindepth(uv);
 	float e = abs(dc - lindepth(uv + vec2(ps.x, 0.0)))

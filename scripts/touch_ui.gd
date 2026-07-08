@@ -41,12 +41,44 @@ func _ready() -> void:
 	_btn = Button.new()
 	_btn.visible = false
 	_root.add_child(_btn)
+	# STORYBOOK FORK: a big visible action bubble, bottom-right. Tapping
+	# anywhere with a second finger still works — this is the AFFORDANCE a
+	# 4yo needs (see the button, know there's a thing to press), with the
+	# current action name (JUMP / THROW / FIRE) written on it.
+	if wants_touch():
+		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.34), 74.0)
+		_act_vis.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		_act_vis.offset_left = -186.0
+		_act_vis.offset_top = -206.0
+		_act_vis.offset_right = -38.0
+		_act_vis.offset_bottom = -58.0
+		_root.add_child(_act_vis)
+		_act_lbl = Label.new()
+		_act_lbl.text = "JUMP"
+		_act_lbl.add_theme_font_size_override("font_size", 34)
+		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
+		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
+		_act_lbl.add_theme_constant_override("outline_size", 8)
+		_act_lbl.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		_act_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_act_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		_act_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_act_vis.add_child(_act_lbl)
+
+var _act_vis: Panel = null
+var _act_lbl: Label = null
+var _act_t := 0.0
 
 func _process(delta: float) -> void:
 	if _pulse > 0.0:
 		_pulse -= delta
 		if _pulse <= 0.0 and _jump_fingers.is_empty():
 			action_down = false
+	if _act_vis != null:
+		_act_t += delta
+		var pulse_s: float = 1.0 + sin(_act_t * 2.2) * 0.045
+		_act_vis.pivot_offset = _act_vis.size * 0.5
+		_act_vis.scale = Vector2(pulse_s, pulse_s) * (0.88 if action_down else 1.0)
 
 func _circle(col: Color, rad: float) -> Panel:
 	var p := Panel.new()
@@ -144,6 +176,8 @@ func _unhandled_input(ev: InputEvent) -> void:
 func set_action_label(t: String) -> void:
 	if _btn != null and _btn.text != t:
 		_btn.text = t
+	if _act_lbl != null and _act_lbl.text != t:
+		_act_lbl.text = t
 
 func consume_action_just() -> bool:
 	var j := action_just

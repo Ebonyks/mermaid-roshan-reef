@@ -311,6 +311,8 @@ func _place_on_planet(node: Node3D, dir: Vector3, h: float = 0.0) -> void:
 
 func _fit_small(model: Node3D, target_long: float) -> float:
 	# normalise a GLB to a footprint (assets range from 0.14 to 98 units raw)
+	if _main != null and _main.has_method("_toonify"):
+		_main._toonify(model)   # storybook fork: pastel toon restyle for all props
 	var acc: Array = []
 	_gather_aabbs(model, Transform3D.IDENTITY, acc)
 	if acc.is_empty():

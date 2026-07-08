@@ -437,6 +437,7 @@ func _ready() -> void:
 	_build_player()
 	_build_hud()
 	_apply_cel_shading()
+	_build_page_frame()
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
 	add_child(voice)
@@ -1026,7 +1027,7 @@ func _build_water() -> void:
 	mi.mesh = pm
 	mi.position.y = WATER_TOP
 	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D caus;\nvoid vertex(){\n\tvec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;\n\tVERTEX.y += sin(TIME*0.9 + wp.x*0.055)*0.9 + cos(TIME*1.25 + wp.z*0.047 + wp.x*0.02)*0.7;\n}\nvoid fragment(){\n\tvec2 w = (MODEL_MATRIX * vec4(VERTEX,1.0)).xz;\n\tvec3 c1 = texture(caus, w*0.012 + vec2(TIME*0.014, TIME*0.008)).rgb;\n\tvec3 c2 = texture(caus, w*0.027 - vec2(TIME*0.011, -TIME*0.016)).rgb;\n\tfloat sparkle = c1.g * c2.g;\n\tvec3 base = vec3(0.16, 0.52, 0.68);\n\tALBEDO = base + sparkle * vec3(0.5, 0.85, 0.9);\n\tEMISSION = vec3(0.10, 0.32, 0.42) + sparkle * vec3(0.65, 0.95, 1.0) * 0.9;\n\tALPHA = 0.42 + sparkle * 0.25;\n}"
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D caus;\nvoid vertex(){\n\tvec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;\n\tVERTEX.y += sin(TIME*0.9 + wp.x*0.055)*0.9 + cos(TIME*1.25 + wp.z*0.047 + wp.x*0.02)*0.7;\n}\nvoid fragment(){\n\tvec2 w = (MODEL_MATRIX * vec4(VERTEX,1.0)).xz;\n\tvec3 c1 = texture(caus, w*0.012 + vec2(TIME*0.014, TIME*0.008)).rgb;\n\tvec3 c2 = texture(caus, w*0.027 - vec2(TIME*0.011, -TIME*0.016)).rgb;\n\tfloat sparkle = c1.g * c2.g;\n\tfloat band = step(0.18, sparkle) * 0.5 + step(0.34, sparkle) * 0.5;\n\tvec3 deep = vec3(0.14, 0.46, 0.66);\n\tvec3 lite = vec3(0.42, 0.78, 0.86);\n\tvec3 base = mix(deep, lite, band);\n\tfloat dots = step(0.42, sparkle);\n\tALBEDO = base + dots * vec3(0.85, 0.95, 1.0) * 0.6;\n\tEMISSION = base * 0.55 + dots * vec3(0.9, 1.0, 1.0) * 0.8;\n\tALPHA = 0.44 + band * 0.12 + dots * 0.2;\n}"
 	var mat := ShaderMaterial.new()
 	mat.shader = sh
 	mat.set_shader_parameter("caus", load("res://assets/terrain/caustics.png"))
@@ -1145,6 +1146,7 @@ func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if ps == null:
 		return null
 	var inst: Node3D = ps.instantiate()
+	_toonify(inst)
 	inst.position = pos
 	inst.scale = Vector3.ONE * scl
 	inst.rotation.y = yrot
@@ -1225,6 +1227,7 @@ func _fit_prop(model: Node3D, target_long: float) -> float:
 	# scale a GLB prop so its longest HORIZONTAL footprint == target_long,
 	# recentre it on the origin and seat its base at y=0 (works before add_child,
 	# and survives far-off-origin models like the Poly throne). Returns height.
+	_toonify(model)
 	var acc: Array = []
 	_local_aabbs(model, Transform3D.IDENTITY, acc)
 	if acc.is_empty():
@@ -1432,6 +1435,7 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 	inst.scale = Vector3.ONE * scl
 	inst.rotation.y = randf() * TAU
 	_paint_aq(inst, _aq_mat(model))
+	_toonify(inst)
 	add_child(inst)
 	if not play_anim:
 		flora_nodes.append(inst)
@@ -2410,6 +2414,66 @@ func _enter_level2(from_castle: bool = false) -> void:
 		player.vel = Vector3.ZERO
 		show_msg("Sky Lagoon", "You found Princess Huluu's SKY LAGOON! Follow the path and catch 3 Dream Stars to open the castle!")
 
+func _build_page_frame() -> void:
+	# STORYBOOK DIORAMA FRAMING (fork): every book page has a delicate dotted
+	# border and pastel bubble clusters in the corners — the game view gets the
+	# same, so play always feels like being INSIDE a page of her book
+	var fl := CanvasLayer.new()
+	fl.layer = 2
+	add_child(fl)
+	var root := Control.new()
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fl.add_child(root)
+	var dot_col := Color(0.35, 0.48, 0.72, 0.30)
+	for i in range(46):   # dotted frame: top + bottom edges
+		var f2: float = float(i) / 46.0
+		for edge in range(2):
+			var d1 := ColorRect.new()
+			d1.color = dot_col
+			d1.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			d1.set_anchors_preset(Control.PRESET_TOP_WIDE if edge == 0 else Control.PRESET_BOTTOM_WIDE)
+			d1.anchor_left = f2
+			d1.anchor_right = f2
+			d1.offset_left = 0.0
+			d1.offset_right = 5.0
+			d1.offset_top = 10.0 if edge == 0 else -15.0
+			d1.offset_bottom = d1.offset_top + 5.0
+			root.add_child(d1)
+	for i in range(24):   # left + right edges
+		var f3: float = float(i + 1) / 25.0
+		for edge in range(2):
+			var d2 := ColorRect.new()
+			d2.color = dot_col
+			d2.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			d2.set_anchors_preset(Control.PRESET_CENTER_LEFT if edge == 0 else Control.PRESET_CENTER_RIGHT)
+			d2.anchor_top = f3
+			d2.anchor_bottom = f3
+			d2.offset_left = 10.0 if edge == 0 else -15.0
+			d2.offset_right = d2.offset_left + 5.0
+			d2.offset_top = 0.0
+			d2.offset_bottom = 5.0
+			root.add_child(d2)
+	# pastel bubble clusters in two corners (like the book's coral vignettes)
+	for ci in range(2):
+		var bottom_left: bool = ci == 0
+		for bi in range(3):
+			var bub := Panel.new()
+			var r: float = 26.0 - float(bi) * 7.0
+			var sb := StyleBoxFlat.new()
+			sb.bg_color = [Color(0.6, 0.85, 0.9, 0.16), Color(0.95, 0.7, 0.8, 0.14), Color(0.75, 0.7, 0.95, 0.15)][bi]
+			sb.set_corner_radius_all(int(r))
+			bub.add_theme_stylebox_override("panel", sb)
+			bub.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			bub.set_anchors_preset(Control.PRESET_BOTTOM_LEFT if bottom_left else Control.PRESET_TOP_RIGHT)
+			var bx: float = 20.0 + float(bi) * 40.0
+			var by: float = 34.0 + float(bi) * 26.0
+			bub.offset_left = bx if bottom_left else -bx - r * 2.0
+			bub.offset_right = bub.offset_left + r * 2.0
+			bub.offset_top = (-by - r * 2.0) if bottom_left else by
+			bub.offset_bottom = bub.offset_top + r * 2.0
+			root.add_child(bub)
+
 func _butterfly_gate(scl: float) -> Node3D:
 	# the BUTTERFLY GATE (Blender-built: wing-flanked pearl ring) + a swirling
 	# rainbow film inside — the game's signature doorway between worlds
@@ -2547,7 +2611,16 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	_dress_nature(inst)
 	return inst
 
+func _pastel(c: Color) -> Color:
+	# the book palette: colours drift toward airy pastel (lifted, softened)
+	# while keeping their hue identity — rainbow saturation stays on CHARACTERS
+	var h := c.h
+	var s: float = minf(c.s * 0.82, 0.62)
+	var v: float = clampf(c.v * 0.9 + 0.16, 0.0, 1.0)
+	return Color.from_hsv(h, s, v, c.a)
+
 func _dress_nature(node: Node) -> void:
+	# STORYBOOK FORK: flat pastel toon materials — no realistic texture detail
 	if node is MeshInstance3D:
 		var mi := node as MeshInstance3D
 		var mesh := mi.mesh
@@ -2558,15 +2631,40 @@ func _dress_nature(node: Node) -> void:
 				if bm is StandardMaterial3D:
 					col = (bm as StandardMaterial3D).albedo_color
 				var nm := StandardMaterial3D.new()
-				var greenish: bool = col.g >= col.r and col.g >= col.b
-				nm.albedo_color = col
-				nm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg" if greenish else "res://assets/terrain/up_cliff_col.jpg")
-				nm.uv1_triplanar = true
-				nm.uv1_scale = Vector3(0.4, 0.4, 0.4) if greenish else Vector3(0.2, 0.2, 0.2)
-				nm.roughness = 0.95
+				nm.albedo_color = _pastel(col)
+				nm.roughness = 1.0
+				nm.metallic_specular = 0.1
 				mi.set_surface_override_material(si, nm)
 	for c in node.get_children():
 		_dress_nature(c)
+
+func _toonify(node: Node) -> void:
+	# restyle any imported CC0 prop for the storybook look: strip realistic
+	# maps, flatten speculars, pastel-shift the albedo. Character art (Sprite3D
+	# cutouts) is untouched — cutouts stay unshaded and visually dominant.
+	if node is MeshInstance3D:
+		var mi := node as MeshInstance3D
+		if mi.material_override is StandardMaterial3D:
+			var mo := mi.material_override as StandardMaterial3D
+			mo.normal_enabled = false
+			mo.roughness = 1.0
+			mo.metallic = 0.0
+			mo.albedo_color = _pastel(mo.albedo_color)
+		elif mi.mesh != null:
+			for si in range(mi.mesh.get_surface_count()):
+				var sm0: Material = mi.get_surface_override_material(si)
+				if sm0 == null:
+					sm0 = mi.mesh.surface_get_material(si)
+				if sm0 is StandardMaterial3D:
+					var m2 := (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
+					m2.normal_enabled = false
+					m2.roughness = 1.0
+					m2.metallic = 0.0
+					m2.metallic_specular = 0.1
+					m2.albedo_color = _pastel(m2.albedo_color)
+					mi.set_surface_override_material(si, m2)
+	for c in node.get_children():
+		_toonify(c)
 
 # ===================== SKY LAGOON HEIGHTFIELD TERRAIN =====================
 # Real rolling hills (solid land Roshan rests on) + rivers carved as genuine
@@ -3534,6 +3632,7 @@ func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Butto
 	return b
 
 func _mg2d_win(msg: String) -> void:
+	_reward(false)   # RewardDirector: same chime run on every win
 	if mg_kind == "snowman":
 		award_sticker("snowman")
 	if bool(mg.get("won", false)):
@@ -5014,8 +5113,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 				pearl_count += 2
 				_write_save()
 				_update_hud()
-				_fanfare()
-				_celebrate_pose()
+				_reward()
 				award_sticker("bells")
 				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
 			else:
@@ -5889,6 +5987,53 @@ func _fail_line() -> String:
 var pose_t := -1.0        # >=0: trophy curtain-call — player holds a happy pose
 var night_star_t := 4.0   # countdown to the next shooting star over the night lagoon
 
+var _shadow_disc: MeshInstance3D = null
+
+func _tick_contact_shadow() -> void:
+	# storybook readability: a soft aqua contact blob under Roshan grounds the
+	# cutout against the diorama (book pages do the same with painted shadows)
+	if _shadow_disc == null:
+		_shadow_disc = MeshInstance3D.new()
+		var qm := QuadMesh.new()
+		qm.size = Vector2(4.4, 4.4)
+		_shadow_disc.mesh = qm
+		_shadow_disc.rotation_degrees.x = -90.0
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.albedo_color = Color(0.16, 0.28, 0.45, 0.30)
+		var g2 := Gradient.new()
+		g2.set_color(0, Color(1, 1, 1, 1))
+		g2.set_color(1, Color(1, 1, 1, 0))
+		var gt2 := GradientTexture2D.new()
+		gt2.gradient = g2
+		gt2.fill = GradientTexture2D.FILL_RADIAL
+		gt2.fill_from = Vector2(0.5, 0.5)
+		gt2.fill_to = Vector2(0.5, 0.0)
+		m.albedo_texture = gt2
+		_shadow_disc.material_override = m
+		add_child(_shadow_disc)
+	var fy: float
+	if game == "" and player != null:
+		fy = seabed_y(player.position.x, player.position.z)
+	elif game == "level2" and String(g.get("phase", "court")) != "hall" and player != null:
+		fy = lagoon_walk_h(player.position.x - LEVEL2_POS.x, player.position.z - LEVEL2_POS.z) + LEVEL2_POS.y
+	else:
+		_shadow_disc.visible = false
+		return
+	var hgt: float = maxf(0.5, player.position.y - fy)
+	_shadow_disc.visible = hgt < 26.0
+	_shadow_disc.position = Vector3(player.position.x, fy + 0.25, player.position.z)
+	_shadow_disc.scale = Vector3.ONE * clampf(1.25 - hgt * 0.028, 0.35, 1.2)
+	(_shadow_disc.material_override as StandardMaterial3D).albedo_color.a = clampf(0.34 - hgt * 0.009, 0.06, 0.34)
+
+func _reward(pose: bool = true) -> void:
+	# RewardDirector: EVERY win in the game funnels through the same pattern —
+	# rainbow sparkle, rising chimes, a short celebration pause, sticker/photo
+	_fanfare()
+	if pose:
+		_celebrate_pose()
+
 func _fanfare() -> void:
 	# ta-da! three rising chimes. (Speaker voice lines are tried first via
 	# show_msg's "win" event — drop recordings into
@@ -5986,8 +6131,7 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		fr["won"] = true
 		trophies += 1
 		_add_won_star(fr)
-		_fanfare()
-		_celebrate_pose()
+		_reward()
 	fr["cool"] = 5.0
 	if String(fr["fname"]) == "Secret Cave":
 		treasure_cool = 14.0
@@ -8184,6 +8328,7 @@ func _process(delta: float) -> void:
 			hud_msg.text = ""
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
+	_tick_contact_shadow()
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
 	if fps_lbl != null and pause_panel != null and pause_panel.visible:
