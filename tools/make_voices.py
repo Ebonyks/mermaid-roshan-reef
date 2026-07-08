@@ -38,6 +38,7 @@ CHARS = {
     "wacky":   ("am_santa",  0.98, 0.97),   # grandpa chuckle
     "shop":    ("bm_george", 1.02, 1.00),   # friendly shopkeeper
     "sparkle": ("af_bella",  1.55, 1.12),   # tiny baby-eagle chirp
+    "rosalina": ("bf_lily",  1.12, 0.97),   # dreamy keeper of the Butterfly World
 }
 
 # output name (without .ogg) -> (character, line text)
@@ -84,6 +85,12 @@ LINES = {
     "wacky_fail": ("wacky", "Ho ho! Chuck got all wet! Try again!"),
     "shop":       ("shop", "Welcome, welcome! Have a look around!"),
     "sparkle":    ("sparkle", "Cheep cheep! Cheep!"),
+    # ---- Mermaid Rosalina (Butterfly World) ----
+    "rosalina":        ("rosalina", "Welcome to the Butterfly World, little star."),
+    "rosalina_greet":  ("rosalina", "My baby butterflies all escaped! Bring all seven home, and I will open my castle for you!"),
+    "rosalina_locked": ("rosalina", "Not yet, little star! Please find all seven of my butterflies first!"),
+    "rosalina_open":   ("rosalina", "You found them ALL! My castle is open. Come in, come in!"),
+    "rosalina_win":    ("rosalina", "You saved the Butterfly World! Fairy Roshan is yours now!"),
 }
 
 # "everyone" = three friends cheering together (mixed after generation)

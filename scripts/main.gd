@@ -89,7 +89,8 @@ var kart_cool := 0.0
 var kart_game: Node = null
 var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
 var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd)
-var galaxy_unlocked := false    # set the first time the rainbow race soars into Level 3
+var galaxy_unlocked := false
+var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look    # set the first time the rainbow race soars into Level 3
 var bw_portal_pos := Vector3.ZERO   # direct Butterfly World portal in the courtyard
 var bw_cool := 0.0
 var cel_post: Node = null   # fullscreen cel post-process quad (Forward+)
@@ -1552,7 +1553,9 @@ func _build_friends() -> void:
 func _build_kart_portal() -> void:
 	# the Ocean Race gate: a rainbow ring standing just above the REAL seabed near
 	# spawn — the race track is built over this world's actual ocean floor
-	var pos := Vector3(40.0, seabed_y(40.0, 30.0) + 9.0, 30.0)
+	# open sand flat south of the reef — it used to sit 5 units from Evie's
+	# meadow, which crowded her hide-and-seek spot with a race gate
+	var pos := Vector3(-5.0, seabed_y(-5.0, -95.0) + 9.0, -95.0)
 	kart_portal_pos = pos
 	var ring := MeshInstance3D.new()
 	var tm := TorusMesh.new()
@@ -1665,7 +1668,7 @@ func _end_galaxy(completed: bool) -> void:
 		call_deferred("_start_game", fairy_fr)   # straight into the fairy flight
 		return
 	if completed:
-		show_msg("Butterfly World", "You saved the Butterfly World! All the baby butterflies are home! 🦋")
+		show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
 	else:
 		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
 	_update_hud()
@@ -1769,7 +1772,7 @@ func _update_hud() -> void:
 	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5" % [stars, trophies]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
-const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "everyone": 1.1}
+const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
 
 var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
@@ -1785,6 +1788,7 @@ const SPEAKER_PORTRAIT := {
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
 	"shop": "res://assets/characters/roshan_sprite.png",
 	"sparkle": "res://assets/book/baby_eagle.png",
+	"rosalina": "res://assets/characters/skins/fairy_mermaid.png",
 	"everyone": "res://assets/characters/roshan_sprite.png"}
 
 func _flash_speaker_icon(who: String) -> void:
@@ -1846,6 +1850,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 
 func _speaker_key(who: String) -> String:
 	var w := who.to_lower()
+	if "rosalina" in w: return "rosalina"
 	if "roshan" in w: return "roshan"
 	if "huluu" in w: return "huluu"
 	if "evie" in w or "lamb" in w: return "evie"
@@ -1925,6 +1930,8 @@ func _load_save() -> void:
 	craft_unlocks = save_data.get("crafts", {})
 	galaxy_unlocked = bool(save_data.get("galaxy", false))
 	skin_id = String(save_data.get("skin", "classic"))
+	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
+	fairy_skin_unlocked = bool(save_data.get("fairyskin", false)) or skin_id == "fairy"
 	_apply_skin()
 	var won_d: Dictionary = save_data.get("won", {})
 	var found_d: Dictionary = save_data.get("found", {})
@@ -1947,7 +1954,7 @@ func _write_save() -> void:
 	for f2 in friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked}
+	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked}
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
@@ -5110,6 +5117,7 @@ func _open_wardrobe() -> void:
 	var sc: float = minf(vp.x / 1280.0, vp.y / 720.0)
 	stage.scale = Vector2(sc, sc); stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
 	root.add_child(stage)
+	wd["stage"] = stage
 	var title := Label.new(); title.text = "Pick your look!"
 	title.add_theme_font_size_override("font_size", 56)
 	title.add_theme_color_override("font_color", Color(1.0, 0.92, 0.98))
@@ -5153,13 +5161,23 @@ func _wardrobe_refresh() -> void:
 		(wd["preview"] as TextureRect).texture = load(String(_skin_def(skin_id)["preview"]))
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
+		var locked: bool = String(entry["id"]) == "fairy" and not fairy_skin_unlocked
 		var box: StyleBoxFlat = entry["box"]
-		box.bg_color = Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6)
+		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
 		box.border_color = Color(0.2, 1.0, 0.4)
-		(entry["btn"] as Button).text = ("✔ " if sel else "    ") + String(_skin_def(String(entry["id"]))["label"])
+		var bt: Button = entry["btn"]
+		bt.text = "🔒 " + String(_skin_def(String(entry["id"]))["label"]) if locked else ("✔ " if sel else "    ") + String(_skin_def(String(entry["id"]))["label"])
+		bt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE
 
 func _wardrobe_pick(id: String) -> void:
+	if id == "fairy" and not fairy_skin_unlocked:
+		# the Butterfly World prize — tease it, don't grant it
+		if chime != null:
+			chime.pitch_scale = 0.5
+			chime.play()
+		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
+		return
 	skin_id = id
 	_apply_skin()
 	_wardrobe_refresh()
@@ -5168,6 +5186,22 @@ func _wardrobe_pick(id: String) -> void:
 	# magic-moment: trying on a look showers Roshan in a sparkle swirl
 	_sparkle_burst(player.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
 	_sparkle_burst(player.position + Vector3(0, 0.5, 0), Color(0.7, 0.95, 1.0))
+
+func _wardrobe_toast(txt: String) -> void:
+	if not wd.has("stage"):
+		return
+	var t := Label.new()
+	t.text = txt
+	t.add_theme_font_size_override("font_size", 34)
+	t.add_theme_color_override("font_color", Color(1.0, 0.85, 0.5))
+	t.add_theme_color_override("font_outline_color", Color(0.08, 0.05, 0.15))
+	t.add_theme_constant_override("outline_size", 10)
+	t.position = Vector2(110, 682)
+	(wd["stage"] as Control).add_child(t)
+	var tw := t.create_tween()
+	tw.tween_interval(2.2)
+	tw.tween_property(t, "modulate:a", 0.0, 0.6)
+	tw.tween_callback(t.queue_free)
 
 func _wardrobe_done() -> void:
 	_write_save()

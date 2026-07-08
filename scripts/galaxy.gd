@@ -94,6 +94,7 @@ var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
 var _bells: Array = []            # star bells: {node, pos, cool}
 var _fount_cool := 0.0
 var _gate_cool := 0.0
+var _gate_lbl: Label3D = null   # locked/open castle-gate sign
 var _fairyf_cool := 0.0
 var _orrery_planets: Array = []   # her own tiny galaxy: {node, r, spd, ph, tilt}
 var _hall_rug_mat: StandardMaterial3D = null
@@ -135,7 +136,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
-	_lbl_hint.text = "Find the 7 lost butterflies — follow their beacons!  •  fruit trays call the swarm!"
+	_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
 	var tw := create_tween()
 	tw.tween_interval(3.0)
 	tw.tween_callback(func():
@@ -465,14 +466,16 @@ func _build_decor() -> void:
 	castle.position = _surf(Vector3.UP, -5.0)
 	# the glowing GATE — walk into it to step inside the crystal castle
 	var gatel := Label3D.new()
-	gatel.text = "✨ Crystal Castle ✨\ncome in!"
+	# the castle is LOCKED until all 7 butterflies are home — stage 3's quest
+	gatel.text = "🔒 Rosalina's castle\nbring the 7 butterflies!"
 	gatel.font_size = 50
 	gatel.pixel_size = 0.03
 	gatel.outline_size = 12
-	gatel.modulate = Color(0.85, 0.8, 1.0)
+	gatel.modulate = Color(1.0, 0.7, 0.8)
 	gatel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	gatel.position = _surf(GATE_DIR, 6.5)
 	add_child(gatel)
+	_gate_lbl = gatel
 	var gatehalo := MeshInstance3D.new()
 	var ghm := TorusMesh.new()
 	ghm.inner_radius = 2.4
@@ -1103,7 +1106,10 @@ func _process(delta: float) -> void:
 			_rosa_cool = 16.0
 			_chime(1.15)
 			if _main != null and _main.has_method("show_msg"):
-				_main.show_msg("Mermaid Rosalina", "Welcome to my crystal castle, little star! Bring my baby butterflies home!", "greet")
+				if _shards_got < SHARDS:
+					_main.show_msg("Mermaid Rosalina", "My baby butterflies all escaped! Bring all SEVEN home and I'll open my castle for you!", "greet")
+				else:
+					_main.show_msg("Mermaid Rosalina", "My butterflies are home! Come into my castle, little star!", "open")
 	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
 	for td in _trays:
 		td["cool"] = maxf(0.0, float(td["cool"]) - delta)
@@ -1193,9 +1199,17 @@ func _process(delta: float) -> void:
 			_main.fairy_pending = true
 			_teardown(false)
 			return
-	# the castle gate: step into the glowing ring to enter the Star Hall
+	# the castle gate: LOCKED until every butterfly is home, then it opens
 	_gate_cool = maxf(0.0, _gate_cool - delta)
 	if _gate_cool <= 0.0 and _h < 1.5 and _dir.angle_to(GATE_DIR.normalized()) * PLANET_R < 4.5:
+		if _shards_got < SHARDS:
+			_gate_cool = 6.0
+			_chime(0.6)
+			if _lbl_hint != null:
+				_lbl_hint.text = "Rosalina: my butterflies escaped! Bring all 7 and I'll open the castle! (%d / %d)" % [_shards_got, SHARDS]
+			if _main != null and _main.has_method("show_msg"):
+				_main.show_msg("Mermaid Rosalina", "Not yet, little star! Please find all SEVEN of my butterflies first!", "locked")
+			return
 		_enter_hall()
 		return
 	# idle timer (a butterfly visits Roshan when she stands still)
@@ -1247,6 +1261,13 @@ func _process(delta: float) -> void:
 					_lbl_hint.text = "ONE butterfly left — follow the GIANT beacon!"
 			if _shards_got >= SHARDS and not _grand_active:
 				_spawn_grand_star()
+				# every butterfly is home — Rosalina opens her castle!
+				if _gate_lbl != null and is_instance_valid(_gate_lbl):
+					_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
+					_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
+				_chime(1.35)
+				if _main != null and _main.has_method("show_msg"):
+					_main.show_msg("Mermaid Rosalina", "You found them ALL! My castle is open — come in, come in!", "open")
 	if _grand_active and _grand != null and _grand.position.distance_to(feet) < 7.0:
 		_grand_active = false
 		_grand.visible = false
@@ -1534,7 +1555,7 @@ func _exit_hall() -> void:
 	_h = 0.0
 	_vy = 0.0
 	if _lbl_hint != null:
-		_lbl_hint.text = "Find the 7 lost butterflies — follow their beacons!  •  fruit trays call the swarm!"
+		_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
 
 func _tick_hall(delta: float) -> void:
 	var mv := _move_input()
@@ -1647,11 +1668,13 @@ func _chime(pitch: float) -> void:
 
 func _win() -> void:
 	_state = "won"
-	_won_t = 4.0
-	_lbl_big.text = "⭐ YOU SAVED\nROSHAN GALAXY! ⭐"
-	_lbl_hint.text = "+40 pearls for your treasure!"
+	_won_t = 5.0
+	_lbl_big.text = "⭐ YOU SAVED\nROSHAN GALAXY! ⭐\n🧚 FAIRY ROSHAN unlocked!"
+	_lbl_hint.text = "+40 pearls — try your new look in the castle wardrobe!"
 	if _main != null and "pearl_count" in _main:
 		_main.pearl_count += 40
+		if "fairy_skin_unlocked" in _main:
+			_main.fairy_skin_unlocked = true   # the Butterfly World prize
 		if _main.has_method("_write_save"):
 			_main._write_save()
 	_chime(1.0)
