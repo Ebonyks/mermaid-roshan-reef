@@ -21,7 +21,12 @@ def _arg(flag, default):
 
 SRC = os.path.abspath(_arg("--src", "assets/characters/friends/huluu.png"))
 OUT = os.path.abspath(_arg("--out", "assets/characters/huluu.glb"))
-GRID = 96                 # silhouette sampling resolution
+# GRID 96 gave visible stair-steps on thin details (fairy wings read as
+# pixel-art blocks in-game); 192 halves the step size twice over. COV is the
+# alpha coverage needed to keep a cell — looser than the old 0.70 so slim
+# wing/fin strips survive; the CLIP alpha still trims edges to the art.
+GRID = int(_arg("--grid", "192"))
+COV = float(_arg("--cov", "0.55"))
 THICK = 0.16              # plushie puff (metres, model is ~1.8 tall pre-scale)
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -53,7 +58,7 @@ for j in range(GRID):
         # keep the cell if the art has decent alpha coverage at its centre
         u, v = (i + 0.5) / GRID, (j + 0.5) / GRID
         cov = sum(alpha_at(u + du, v + dv) for du in (-0.4 / GRID, 0.4 / GRID) for dv in (-0.4 / GRID, 0.4 / GRID)) / 4.0
-        if cov < 0.70:   # strict: cells fully inside the art (kills dark rim steps)
+        if cov < COV:
             continue
         faces.append((vert(i, j), vert(i + 1, j), vert(i + 1, j + 1), vert(i, j + 1)))
 
