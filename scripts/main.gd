@@ -1755,6 +1755,8 @@ func _apply_cel_shading() -> void:
 		return
 	if OS.has_feature("mobile"):
 		return   # cel post-process needs the Forward+ depth buffer; Android runs the Mobile renderer
+	if DisplayServer.get_name() == "headless":
+		return   # the dummy renderer can't compile it (probe-log noise otherwise)
 	var quad := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(1, 1)

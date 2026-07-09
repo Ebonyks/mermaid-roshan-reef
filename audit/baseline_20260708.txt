@@ -1,0 +1,34 @@
+# Probe baseline — graphics fork, 2026-07-08
+# CI run 28959762008 (Phase 1 head 0e3063b) — conclusion: SUCCESS
+# import: 3m14s, probes: 1m11s, no NPOT deadlock
+
+=== probe_audit ===
+AUDIT|boot OK, seed=
+AUDIT|Evie and Lamb-a' [seek]: WON cutaway=true wall_s=0.2
+AUDIT|Harper and Fiona [slide]: WON cutaway=true wall_s=1.7
+AUDIT|Faron [dolls]: WON cutaway=true wall_s=1.3
+AUDIT|Gabby [melody]: WON cutaway=true wall_s=0.1
+AUDIT|Wacky and Chuck [fetch]: WON cutaway=true wall_s=1.6
+AUDIT|Secret Cave [treasure]: WON +pearls
+AUDIT|Can of Beans: OK
+AUDIT|Pearl respawn: OK
+AUDIT|Level 2 portal: OK
+AUDIT|Level 2 courtyard: OK
+AUDIT|L2 star persistence: OK stars=2 slide_won=false
+AUDIT|Level 2 court interceptions: 0
+AUDIT|Level 2 castle hall: OK game=level2 phase=hall mg_kind= stars_got=0 l2_open=true
+AUDIT|Level 2 finish: OK
+AUDIT|save file: OK
+AUDIT|finale: OK
+AUDIT|persisted wins: 5/5
+AUDIT|total wall time: 50.0s
+=== probe_load ===
+=== probe_mg2d ===
+=== STAGE 2 MINIGAME STRESS TEST ===
+=== probe_l2 ===
+=== LEVEL 2 CHILD-PACED STRESS TEST ===
+  star 1 at t=12.3s
+  star 2 at t=27.2s
+  star 3 at t=42.0s
+  entered castle at t=62.4s
+  RESULT: COMPLETED in 71.1s sim-time
