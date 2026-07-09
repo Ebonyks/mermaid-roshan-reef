@@ -162,7 +162,11 @@ def main():
 
     def tts(char, text, wav_path):
         vname, _pitch, speed = CHARS[char]
-        ids = tok.tokenize(tok.phonemize(text, lang="en-us" if not vname.startswith("b") else "en-gb"))
+        ph = tok.phonemize(text, lang="en-us" if not vname.startswith("b") else "en-gb")
+        # Her name is ro-SHAHN, not ROSH-in — fix at the phoneme layer so it
+        # holds for every voice and any spelling in the display text
+        ph = ph.replace("ɹˈɑːʃən", "ɹoʊʃˈɑːn").replace("ɹˈɒʃən", "ɹəʊʃˈɑːn")
+        ids = tok.tokenize(ph)
         style = voices[vname][len(ids)]
         toks = np.array([[0, *ids, 0]], dtype=np.int64)
         audio = sess.run(None, {"input_ids": toks, "style": style,
