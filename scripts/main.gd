@@ -3024,6 +3024,39 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var cpx: float = -95 + cos(cta) * 36.0
 		var cpz: float = 70 + sin(cta) * 36.0
 		_nature("grass_leafsLarge", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.3, cpz), 5.5, randf() * TAU)
+	# ---------- Phase 4b: PLAYGROUND corner + park dressing (Tiny Treats, CC0) ----------
+	# a real play-place on the east meadow: slide, swings, merry-go-round,
+	# seesaw, sandbox and a spring horse. Pure toy, no objectives — and the
+	# sandbox stays non-solid on purpose so Roshan can plop right into it.
+	# [name, local pos, footprint, y-rot, solid radius, solid half-height]
+	var pg: Array = [
+		["play/slide_A", Vector3(78.0, 0, 88.0), 14.0, 0.6, 5.0, 5.0],
+		["play/swing_A_large", Vector3(100.0, 0, 92.0), 14.0, -0.4, 6.0, 5.0],
+		["play/merry_go_round", Vector3(88.0, 0, 108.0), 10.0, 0.0, 5.5, 3.5],
+		["play/seesaw_large", Vector3(74.0, 0, 106.0), 10.0, 1.2, 4.0, 2.5],
+		["play/sandbox_round_decorated", Vector3(92.0, 0, 74.0), 12.0, 0.0, 0.0, 0.0],
+		["play/spring_horse_A", Vector3(104.0, 0, 76.0), 5.0, -1.8, 2.0, 2.5],
+	]
+	for row: Array in pg:
+		var pgx: float = (row[1] as Vector3).x
+		var pgz: float = (row[1] as Vector3).z
+		var pgy: float = _lagoon_local(pgx, pgz)
+		_kit(row[0], o + Vector3(pgx, pgy - 0.3, pgz), float(row[2]), float(row[3]))
+		if float(row[4]) > 0.0:
+			_cyl_solid(o + Vector3(pgx, pgy + float(row[5]), pgz), float(row[4]), float(row[5]), 0.6)
+	# park dressing: a fountain plaza beside the path near the spawn, benches
+	# by the pond, and soft hedges lining the grand path (low + non-solid so
+	# neither Roshan nor the audit probe can ever get pinched by decoration)
+	var fy: float = _lagoon_local(-30.0, 140.0)
+	_kit("park/fountain", o + Vector3(-30.0, fy - 0.3, 140.0), 12.0)
+	_cyl_solid(o + Vector3(-30.0, fy + 2.4, 140.0), 6.4, 2.6, 0.6)
+	for brow: Array in [[-55.0, 62.0, 2.2], [-88.0, 112.0, -0.6], [-38.0, 132.0, 2.8]]:
+		var bpy: float = _lagoon_local(float(brow[0]), float(brow[1]))
+		_kit("park/bench", o + Vector3(float(brow[0]), bpy - 0.2, float(brow[1])), 5.0, float(brow[2]))
+	for hz: float in [127.0, 81.0, 35.0]:
+		for hsgn: float in [-1.0, 1.0]:
+			var hy: float = _lagoon_local(hsgn * 17.0, hz)
+			_kit("park/hedge_straight_long", o + Vector3(hsgn * 17.0, hy - 0.3, hz), 10.0, PI * 0.5)
 	# (rivers + fish are built as real carved valleys in _build_lagoon_terrain above)
 	# player-crafted FRIENDS from the Crafting Studio hang around the courtyard
 	g["crafted"] = []
