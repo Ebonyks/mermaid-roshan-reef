@@ -9,9 +9,18 @@ recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
 ## Layout
-- scenes/main.tscn → scripts/main.gd (7k-line god object; see Refactor rules)
+- scenes/main.tscn → scripts/main.gd (~6.2k lines after Phase 7; still the
+  state owner — see Refactor rules. Target <2.5k; remaining bulk is the
+  intro, HUD, craft studio, wardrobe, galaxy/kart glue and arena builders)
+- Phase 7 satellites (RefCounted, receive `main` by reference, own logic
+  only — ALL state stays on main):
+  scripts/save_state.gd, scripts/audio_director.gd,
+  scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
+  scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
+  picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
-- scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth.
+- scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
+  probe_passive.gd is the zero-input negative test (Phase 6).
 - assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 
