@@ -31,7 +31,10 @@ GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless
    importer at 0% CPU. If import hangs >3 min, find the offender in the
    last "Importing file:" verbose line and fix its size/import mode.
-2. Full validation (must print all-OK before any commit):
+2. Full validation (must print all-OK before any commit) — one command:
+   GODOT=$GODOT scripts/ci.sh        # import + all trusted probes,
+                                     # exits nonzero on any FAIL line
+   Or probe-by-probe:
    $GODOT --headless -s scripts/probe_audit.gd     # full-game bot
    $GODOT --headless -s scripts/probe_passive.gd   # zero-input: nothing may be won
    $GODOT --headless -s scripts/probe_load.gd      # save restore
