@@ -656,7 +656,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 			return
 	m.mg_cool = maxf(0.0, m.mg_cool - delta)
 	# Princess Huluu greets Roshan as she gets near the throne
-	var hpos: Vector3 = CASTLE_POS + Vector3(0, 21.0, -27.0)
+	var hpos: Vector3 = m.CASTLE_POS + Vector3(0, 21.0, -27.0)
 	if not bool(m.g.get("huluu_greeted", false)) and hpos.distance_to(ppos) < 26.0:
 		m.g["huluu_greeted"] = true
 		if m.fairy_skin_unlocked:

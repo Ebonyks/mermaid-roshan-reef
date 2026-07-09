@@ -265,7 +265,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bq.size = Vector2(1.2, 1.2)
 	bfly.mesh = bq
 	var bmat := StandardMaterial3D.new()
-	bmat.albedo_texture = load(GTA + "flower.png")
+	bmat.albedo_texture = load(m.GTA + "flower.png")
 	bmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	bmat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	bmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -444,7 +444,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m.add_child(dl)
 	m.game_nodes.append(dl)
 	# ---------- 3 Dream Stars: low + along the path, easy for a 4yo ----------
-	var spots: Array = L2_STAR_SPOTS
+	var spots: Array = m.L2_STAR_SPOTS
 	for idx in range(spots.size()):
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
@@ -545,7 +545,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var river_mat := m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
 	river_mat.set_shader_parameter("foam_width", 2.6)
 	river_mat.set_shader_parameter("depth_fade", 7.0)
-	for rv in LAGOON_RIVERS:
+	for rv in m.LAGOON_RIVERS:
 		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
 		# flat planes got buried wherever the river path crossed a hill (rock on top,
 		# water hidden inside the terrain)
@@ -609,9 +609,9 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		var sa2: float = sin(ma2)
 		var v2: float = float(i) / float(mseg)
 		mst.set_uv(Vector2(0.0, v2 * 14.0))
-		mst.add_vertex(Vector3(MOAT_CX + ca2 * (MOAT_INNER - 1.5), -6.0, MOAT_CZ + sa2 * (MOAT_INNER - 1.5)))
+		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_INNER - 1.5), -6.0, m.MOAT_CZ + sa2 * (m.MOAT_INNER - 1.5)))
 		mst.set_uv(Vector2(1.0, v2 * 14.0))
-		mst.add_vertex(Vector3(MOAT_CX + ca2 * (MOAT_OUTER + 1.5), -6.0, MOAT_CZ + sa2 * (MOAT_OUTER + 1.5)))
+		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_OUTER + 1.5), -6.0, m.MOAT_CZ + sa2 * (m.MOAT_OUTER + 1.5)))
 	for i in range(mseg):
 		var a4 := i * 2
 		mst.add_index(a4); mst.add_index(a4 + 1); mst.add_index(a4 + 3)
@@ -813,7 +813,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 					if akey == "p_slide":
 						m._l2_start_slide()
 					else:
-						m._mg2d_open(String(PIC_GAME[akey]))
+						m._mg2d_open(String(m.PIC_GAME[akey]))
 					return
 			else:
 				dw[akey] = 0.0
@@ -911,24 +911,24 @@ func _seg_dist(p: Vector2, a: Vector2, b: Vector2) -> float:
 func _lagoon_river_dip(lx: float, lz: float) -> float:
 	var p := Vector2(lx, lz)
 	var best := 9999.0
-	for rv in LAGOON_RIVERS:
+	for rv in m.LAGOON_RIVERS:
 		for i in range(rv.size() - 1):
 			best = minf(best, _seg_dist(p, rv[i], rv[i + 1]))
-	if best >= LAGOON_RIVER_W:
+	if best >= m.LAGOON_RIVER_W:
 		return 0.0
-	var t: float = best / LAGOON_RIVER_W
-	return LAGOON_RIVER_DEPTH * (1.0 - t * t)   # parabolic channel, deepest at the centre
+	var t: float = best / m.LAGOON_RIVER_W
+	return m.LAGOON_RIVER_DEPTH * (1.0 - t * t)   # parabolic channel, deepest at the centre
 
 
 func _lagoon_moat_dip(lx: float, lz: float) -> float:
 	# annular channel around the castle; flat-ish floor so the hidden door sits low
-	var d: float = sqrt((lx - MOAT_CX) * (lx - MOAT_CX) + (lz - MOAT_CZ) * (lz - MOAT_CZ))
-	if d <= MOAT_INNER or d >= MOAT_OUTER:
+	var d: float = sqrt((lx - m.MOAT_CX) * (lx - m.MOAT_CX) + (lz - m.MOAT_CZ) * (lz - m.MOAT_CZ))
+	if d <= m.MOAT_INNER or d >= m.MOAT_OUTER:
 		return 0.0
-	var mid: float = (MOAT_INNER + MOAT_OUTER) * 0.5
-	var half: float = (MOAT_OUTER - MOAT_INNER) * 0.5
+	var mid: float = (m.MOAT_INNER + m.MOAT_OUTER) * 0.5
+	var half: float = (m.MOAT_OUTER - m.MOAT_INNER) * 0.5
 	var t: float = absf(d - mid) / half
-	return MOAT_DEPTH * (1.0 - t * t)
+	return m.MOAT_DEPTH * (1.0 - t * t)
 
 
 func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: float) -> float:
