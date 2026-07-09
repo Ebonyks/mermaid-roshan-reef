@@ -4568,6 +4568,16 @@ func _build_castle_hall(o: Vector3) -> void:
 			tap.rotation_degrees = Vector3(0, -90.0 * sgn, 0)
 			add_child(tap)
 			game_nodes.append(tap)
+	# ---------- Phase 4c: a lived-in reading nook (Quaternius furniture, CC0) ----------
+	# light touch only — the hall keeps its bespoke throne/stairs/columns. A tall
+	# bookcase against the left wall bay and a little tea table with two chairs
+	# in the right bay, all pastel-restyled by _kit() so the dark wood reads soft.
+	_kit("furniture/bookcase", o + Vector3(-31.5, 0.1, 2.0), 7.0, PI * 0.5)
+	_wall_solid(o + Vector3(-31.5, 6.0, 2.0), Vector3(2.8, 12.0, 7.4), 0.8)
+	_kit("furniture/table", o + Vector3(29.0, 0.1, 0.0), 8.0, PI * 0.5)
+	_cyl_solid(o + Vector3(29.0, 1.5, 0.0), 3.2, 1.5, 0.6)
+	_kit("furniture/chair", o + Vector3(26.0, 0.1, 3.6), 2.2, PI * 0.75)
+	_kit("furniture/chair", o + Vector3(26.0, 0.1, -3.6), 2.2, PI * 1.25)
 	# ---------- her memories framed along the hall walls ----------
 	# (Roshan wall-art portraits removed from the Grand Hall — inconsistent with how the games work here)
 	# ---------- potted plants flank the throne + entrance ----------
