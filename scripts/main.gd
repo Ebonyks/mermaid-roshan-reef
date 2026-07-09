@@ -2898,9 +2898,9 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		mst.add_index(a4); mst.add_index(a4 + 3); mst.add_index(a4 + 2)
 	var moatw := MeshInstance3D.new()
 	moatw.mesh = mst.commit()
-	var mwmat := ShaderMaterial.new()
-	mwmat.shader = wsh
-	mwmat.set_shader_parameter("ripple", ripple_tex)
+	# Phase 5: shared toon water — the moat ring is deep, so a darker fade
+	var mwmat := _toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.8, 0.2, 0.04)
+	mwmat.set_shader_parameter("foam_width", 2.4)
 	moatw.material_override = mwmat
 	moatw.position = o
 	add_child(moatw)
