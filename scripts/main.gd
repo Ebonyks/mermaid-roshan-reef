@@ -1997,64 +1997,19 @@ func _set_vis_range(n: Node, dist: float) -> void:
 	for c in n.get_children():
 		_set_vis_range(c, dist)
 
+# Phase 7.1: save/load logic lives in scripts/save_state.gd (state stays
+# here on main; SaveState receives main by reference and only owns logic)
+var _save_state: SaveState = null
+
 func _load_save() -> void:
-	if FileAccess.file_exists(SAVE_PATH):
-		var f := FileAccess.open(SAVE_PATH, FileAccess.READ)
-		if f != null:
-			var d: Variant = JSON.parse_string(f.get_as_text())
-			if d is Dictionary:
-				save_data = d
-	finale_done = bool(save_data.get("finale", false))
-	level2_done_once = bool(save_data.get("level2", false))
-	plays = int(save_data.get("plays", 0)) + 1   # each launch flips day <-> night
-	is_night = (plays % 2) == 0
-	_apply_time_of_day()
-	music_on = bool(save_data.get("music", true))
-	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
-	_apply_quality(String(save_data.get("quality", qdef)))
-	music.volume_db = -8.0 if music_on else -60.0
-	if music_btn != null:
-		music_btn.text = "Music: On" if music_on else "Music: Off"
-	pearl_count = int(save_data.get("pearls", 0))
-	custom_fish = save_data.get("custom_fish", [])
-	custom_friends = save_data.get("custom_friends", [])
-	craft_unlocks = save_data.get("crafts", {})
-	stickers = save_data.get("stickers", {})
-	shop_owned = save_data.get("owned", {})
-	if bool(shop_owned.get("tail", false)):
-		player.set_rainbow_trail(true)
-	if bool(shop_owned.get("tiara", false)):
-		player.set_tiara(true)
-	galaxy_unlocked = bool(save_data.get("galaxy", false))
-	skin_id = String(save_data.get("skin", "classic"))
-	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
-	fairy_skin_unlocked = bool(save_data.get("fairyskin", false)) or skin_id == "fairy"
-	_apply_skin()
-	var won_d: Dictionary = save_data.get("won", {})
-	var found_d: Dictionary = save_data.get("found", {})
-	for f2 in friends:
-		var nm := String(f2["fname"])
-		if bool(found_d.get(nm, false)):
-			first_session = false
-			f2["found"] = true
-			(f2["beacon"] as OmniLight3D).light_energy = 1.0
-			((f2["pillar"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color.a = 0.035
-		if bool(won_d.get(nm, false)):
-			f2["won"] = true
-			trophies += 1
-			_add_won_star(f2)
-	_update_hud()
+	if _save_state == null:
+		_save_state = SaveState.new(self)
+	_save_state.load_save()
 
 func _write_save() -> void:
-	var won_d := {}
-	var found_d := {}
-	for f2 in friends:
-		won_d[String(f2["fname"])] = bool(f2["won"])
-		found_d[String(f2["fname"])] = bool(f2["found"])
-	save_data = {"won": won_d, "found": found_d, "finale": finale_done, "music": music_on, "quality": quality, "pearls": pearl_count, "skin": skin_id, "level2": level2_done_once, "plays": plays, "custom_fish": custom_fish, "custom_friends": custom_friends, "crafts": craft_unlocks, "galaxy": galaxy_unlocked, "fairyskin": fairy_skin_unlocked, "stickers": stickers, "owned": shop_owned}
-	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if f != null:
-		f.store_string(JSON.stringify(save_data))
+	if _save_state == null:
+		_save_state = SaveState.new(self)
+	_save_state.write_save()
 
 func _add_won_star(fr: Dictionary) -> void:
 	if fr.has("star"):
