@@ -193,7 +193,7 @@ func _mg2d_win(msg: String) -> void:
 			conf.position = Vector2(randf() * 1280, -20.0 - randf() * 200.0)
 			conf.rotation = randf() * TAU
 			m.mg2d_stage.add_child(conf)
-			var tw := m.create_tween()
+			var tw = m.create_tween()
 			tw.tween_property(conf, "position:y", 760.0, 1.3 + randf() * 0.5).set_delay(randf() * 0.3)
 	m.get_tree().create_timer(1.6).timeout.connect(_mg2d_close)
 
@@ -235,7 +235,7 @@ func _mg_build_snowman() -> void:
 
 func _mg_snow_new_ball() -> void:
 	var done: int = int(m.mg["balls"])                      # balls finished so far
-	var ball := _mg_circle(m.SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
+	var ball = _mg_circle(m.SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
 	m.mg["roll_ball"] = ball
 	m.mg["final_r"] = 150.0 - float(done + 1) * 26.0        # 124, 98, 72
 	m.mg["rot_need"] = (3.0 - float(done) * 0.5) * TAU      # 3 / 2.5 / 2 full circles
@@ -247,16 +247,16 @@ func _mg_snow_new_ball() -> void:
 func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
 	ball.size = Vector2(r * 2.0, r * 2.0)
 	ball.position = center - Vector2(r, r)
-	var sb := ball.get_theme_stylebox("panel") as StyleBoxFlat
+	var sb = ball.get_theme_stylebox("panel") as StyleBoxFlat
 	if sb != null:
 		sb.set_corner_radius_all(int(r))
 		sb.set_border_width_all(maxi(2, int(r * 0.05)))
 	if ball.get_child_count() > 0:
-		var hl := ball.get_child(0) as Panel
+		var hl = ball.get_child(0) as Panel
 		if hl != null:
 			hl.size = Vector2(r * 0.85, r * 0.6)
 			hl.position = Vector2(r * 0.32, r * 0.22)
-			var hsb := hl.get_theme_stylebox("panel") as StyleBoxFlat
+			var hsb = hl.get_theme_stylebox("panel") as StyleBoxFlat
 			if hsb != null:
 				hsb.set_corner_radius_all(int(r * 0.5))
 
@@ -268,7 +268,7 @@ func _mg_snow_ball_done() -> void:
 	m.mg.erase("roll_ball")
 	var r: float = float(m.mg["final_r"])
 	var bc := Vector2(980, 560.0 - float(b - 1) * 175.0)
-	var tw := m.create_tween()
+	var tw = m.create_tween()
 	tw.tween_property(ball, "position", bc - Vector2(r, r), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	(m.mg["body"] as Array).append(ball)
 	if m.chime != null:
@@ -330,7 +330,7 @@ func _mg_snow_chase_phase() -> void:
 	if m.voice != null:
 		m.voice.pitch_scale = 1.4
 		m.voice.play()
-	var rosh := _mg_sprite(m.skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
+	var rosh = _mg_sprite(m.skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
 	m.mg["chaser"] = rosh
 	m.mg["chaser_x"] = 230.0
 
@@ -396,7 +396,7 @@ func _mg_tick_snow_chase(delta: float) -> void:
 			if not body.is_empty():
 				var ball: Panel = body.pop_front()   # biggest (bottom) first
 				if is_instance_valid(ball):
-					var bt := ball.create_tween()
+					var bt = ball.create_tween()
 					bt.tween_property(ball, "scale", Vector2(1.3, 0.2), 0.18)
 					bt.tween_callback(ball.queue_free)
 			if int(m.mg["bites"]) >= 3:
@@ -461,7 +461,7 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 	st[i] = int(st[i]) + 1
 	var x: float = b.get_meta("hx")
 	m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.4, 0.7, 1.0))
-	var tex := b.get_child(0) as TextureRect
+	var tex = b.get_child(0) as TextureRect
 	if int(st[i]) == 1:
 		# seed -> seedling (same small sprout for every plant)
 		tex.texture = load("res://assets/mg/k_sprout.png")
@@ -476,7 +476,7 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 		b.position = Vector2(x, 495) - b.size * 0.5
 		b.pivot_offset = b.size * 0.5
 		b.disabled = true
-		var tw := m.create_tween()
+		var tw = m.create_tween()
 		tw.tween_property(b, "scale", Vector2(1.2, 1.2), 0.12)
 		tw.tween_property(b, "scale", Vector2(1.0, 1.0), 0.12)
 		m.mg["grown"] = int(m.mg["grown"]) + 1
@@ -515,7 +515,7 @@ func _mg_tramp_tap() -> void:
 	if reached:
 		apex_center = star_y + 110.0   # land her right at the star
 	var rest_top: float = rest_y - 95.0
-	var tw := m.create_tween()
+	var tw = m.create_tween()
 	tw.tween_property(r, "position:y", apex_center - 95.0, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tw.tween_property(r, "position:y", rest_top, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	if reached:

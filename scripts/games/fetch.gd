@@ -156,13 +156,13 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	dmat.normal_enabled = true
 	dmat.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
 	dmat.uv1_triplanar = true; dmat.uv1_scale = Vector3(0.08, 0.08, 0.08); dmat.roughness = 0.9
-	var dock := m._course_box(origin + Vector3(17.0, 1.1, 0.0), Vector3(30.0, 0.5, 6.0), Color(0.6, 0.44, 0.28))
+	var dock = m._course_box(origin + Vector3(17.0, 1.1, 0.0), Vector3(30.0, 0.5, 6.0), Color(0.6, 0.44, 0.28))
 	dock.material_override = dmat
 	for dp in range(6):
 		m._course_box(origin + Vector3(4.0 + float(dp) * 6.0, 0.0, 3.2), Vector3(0.8, 2.2, 0.8), Color(0.4, 0.3, 0.2))
 		m._course_box(origin + Vector3(4.0 + float(dp) * 6.0, 0.0, -3.2), Vector3(0.8, 2.2, 0.8), Color(0.4, 0.3, 0.2))
 	# a cleared path along the snowy shore
-	var pth := m._course_box(origin + Vector3(-27.0, 0.56, 0.0), Vector3(9.0, 0.1, 150.0), Color(0.82, 0.86, 0.92))
+	var pth = m._course_box(origin + Vector3(-27.0, 0.56, 0.0), Vector3(9.0, 0.1, 150.0), Color(0.82, 0.86, 0.92))
 	pth.material_override.roughness = 1.0
 	# Chuck waits on the snow
 	var chuck_spr := Sprite3D.new()
@@ -191,7 +191,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	if String(m.g["phase"]) == "aim":
 		m.hud_game.text = "Throw %d / 2   (oops: %d / 3)" % [int(m.g["round"]) + 1, int(m.g["miss"])]
 		# Roshan HOLDS the ball
-		var fdir := Vector3(sin(m.player.yaw + PI), 0, cos(m.player.yaw + PI))
+		var fdir = Vector3(sin(m.player.yaw + PI), 0, cos(m.player.yaw + PI))
 		ball.position = ppos + fdir * 1.3 + Vector3(0, -0.2, 0)
 		# sweeping aim — sim: the old 1.5 rad/s sweep outran a 4yo's ~1s reaction
 		# (only ~1 in 4 finished). Slower sweep, and it slows FURTHER after each

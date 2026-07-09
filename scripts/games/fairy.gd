@@ -45,7 +45,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	m.player.position = pos
 	# ---- chase camera, locked behind ----
 	if m.player.cam != null and m.player.cam.is_inside_tree():
-		var campos := Vector3(origin.x + ox * 0.4, origin.y + m.FS_BASE_Y + 5.0 + oy * 0.3, pos.z - 16.0)
+		var campos = Vector3(origin.x + ox * 0.4, origin.y + m.FS_BASE_Y + 5.0 + oy * 0.3, pos.z - 16.0)
 		m.player.cam.position = m.player.cam.position.lerp(campos, 1.0 - pow(0.0006, delta))
 		m.player.cam.look_at(pos + Vector3(0, 0.5, 26.0))
 	# ---- reticle ahead of the player ----

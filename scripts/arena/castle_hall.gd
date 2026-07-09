@@ -15,7 +15,7 @@ func build(o: Vector3) -> void:
 	var fb := BoxMesh.new()
 	fb.size = Vector3(70, 1.0, 80)
 	floor.mesh = fb
-	var fm := m._up_mat("marble", 0.03, Color(0.95, 0.93, 0.98))   # polished marble hall floor
+	var fm = m._up_mat("marble", 0.03, Color(0.95, 0.93, 0.98))   # polished marble hall floor
 	fm.metallic = 0.25
 	fm.roughness = 0.22
 	floor.material_override = fm
@@ -27,10 +27,10 @@ func build(o: Vector3) -> void:
 		for czz in range(-3, 5):
 			if (cxx + czz) % 2 == 0:
 				continue
-			var tile := m._l2_box(o + Vector3(float(cxx) * 9.0, 0.55, 6.0 + float(czz) * 9.0), Vector3(8.6, 0.1, 8.6), Color(0.55, 0.5, 0.72))
+			var tile = m._l2_box(o + Vector3(float(cxx) * 9.0, 0.55, 6.0 + float(czz) * 9.0), Vector3(8.6, 0.1, 8.6), Color(0.55, 0.5, 0.72))
 			tile.material_override = m._up_mat("flagstone", 0.06, Color(0.7, 0.66, 0.85))
 	# plush red carpet runner from the entrance up to the stairs
-	var runner := m._l2_box(o + Vector3(0, 0.62, 14.0), Vector3(10.0, 0.15, 52.0), Color(0.72, 0.16, 0.22))
+	var runner = m._l2_box(o + Vector3(0, 0.62, 14.0), Vector3(10.0, 0.15, 52.0), Color(0.72, 0.16, 0.22))
 	runner.material_override = m._up_mat("fabric", 0.10, Color(0.8, 0.22, 0.28))   # real woven carpet
 	for trim in [-5.4, 5.4]:
 		m._l2_box(o + Vector3(trim, 0.66, 14.0), Vector3(0.7, 0.2, 52.0), Color(0.95, 0.8, 0.35), 0.15)
@@ -74,7 +74,7 @@ func build(o: Vector3) -> void:
 		m.add_child(th)
 		m.game_nodes.append(th)
 	else:
-		var throne := m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
+		var throne = m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
 	# Princess Huluu on her throne — the full plushie treatment (rigged model,
 	# tail swaying), no more flat quivering billboard
@@ -85,7 +85,7 @@ func build(o: Vector3) -> void:
 		hn.rotation.y = PI
 		m.add_child(hn)
 		m.game_nodes.append(hn)
-		var hskel := m._find_skel(hn)
+		var hskel = m._find_skel(hn)
 		if hskel != null:
 			m.g["huluu_skel"] = hskel
 	else:
@@ -233,7 +233,7 @@ func build(o: Vector3) -> void:
 	brl.position = br + Vector3(0, 20, 0); m.add_child(brl); m.game_nodes.append(brl)
 	m._l2_box(br + Vector3(0, 1.0, 2.0), Vector3(10, 0.2, 26), Color(0.72, 0.16, 0.22))          # carpet from arch to treasure
 	# a glowing royal treasure chest = the bonus trigger
-	var chest := m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.95, 0.78, 0.35), 0.6)
+	var chest = m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.95, 0.78, 0.35), 0.6)
 	chest.material_override.metallic = 0.6
 	m._l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.8, 0.62, 0.25), 0.5)   # lid rim
 	m.g["secret_door"] = chest.position
@@ -274,9 +274,9 @@ func build(o: Vector3) -> void:
 	# just TWO framed memories on the side walls (fewer pictures)
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# ---------- CRAFTING STUDIO easel (color your own fish!) ----------
-	var easel := m._l2_box(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
+	var easel = m._l2_box(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
 	m._wall_solid(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), 0.5)
-	var canvas := m._l2_box(o + Vector3(30.4, 9.0, 2.0), Vector3(0.4, 7.0, 6.0), Color(0.97, 0.96, 0.92), 0.1)
+	var canvas = m._l2_box(o + Vector3(30.4, 9.0, 2.0), Vector3(0.4, 7.0, 6.0), Color(0.97, 0.96, 0.92), 0.1)
 	m._mg_noop_ref(canvas)
 	var craft_fish_icon := Sprite3D.new()
 	craft_fish_icon.texture = load("res://assets/mg/fish_line.png")
@@ -366,7 +366,7 @@ func build_music_room(o: Vector3) -> void:
 	var mo: Vector3 = o + Vector3(-43.5, 0, -5)           # room centre
 	var wall := Color(0.86, 0.88, 0.98)                  # cool lilac plaster
 	# floor + ceiling (no colliders — floor clamp / arena_ceil handle vertical)
-	var mfloor := m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
+	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
 	mfloor.material_override.roughness = 0.9
 	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.8, 0.82, 0.92))
 	# enclosing walls (the right/hall side is the segmented hall wall already built)
@@ -377,7 +377,7 @@ func build_music_room(o: Vector3) -> void:
 	for dz in [-21.0, -11.0]:
 		m._l2_box(o + Vector3(-35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
 	# soft rug by the entrance
-	var rug := m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
+	var rug = m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
 	rug.material_override = m._up_mat("fabric", 0.14, Color(0.5, 0.45, 0.75))   # woven rug
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
@@ -435,7 +435,7 @@ func build_music_room(o: Vector3) -> void:
 		ml.position = mo + Vector3(0, 22, lz); m.add_child(ml); m.game_nodes.append(ml)
 	# glowing windows on the far wall
 	for wz in [-10.0, 10.0]:
-		var win := m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.7, 0.8, 1.0), 0.8)
+		var win = m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.7, 0.8, 1.0), 0.8)
 		win.material_override.emission_energy_multiplier = 1.2
 	# sign over the doorway
 	var msign := Label3D.new()
@@ -455,7 +455,7 @@ func build_bedroom(o: Vector3) -> void:
 	var bo: Vector3 = o + Vector3(46, 0, -17)            # room centre
 	var wall := Color(0.96, 0.9, 0.86)                   # warm rosy plaster
 	# floor + ceiling (no colliders — handled by the floor clamp / arena_ceil)
-	var bfloor := m._l2_box(bo + Vector3(0, 0.4, 0), Vector3(22, 1.0, 22), Color(0.78, 0.6, 0.5))
+	var bfloor = m._l2_box(bo + Vector3(0, 0.4, 0), Vector3(22, 1.0, 22), Color(0.78, 0.6, 0.5))
 	bfloor.material_override.roughness = 0.9
 	m._l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.9, 0.84, 0.82))
 	# enclosing walls (the left/hall side is the segmented hall wall already built)
@@ -480,12 +480,12 @@ func build_bedroom(o: Vector3) -> void:
 		m.add_child(bh)
 		m.game_nodes.append(bh)
 	else:
-		var frame := m._l2_box(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), Color(0.5, 0.32, 0.2))   # wooden frame
+		var frame = m._l2_box(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), Color(0.5, 0.32, 0.2))   # wooden frame
 		frame.material_override.roughness = 0.8
 		m._l2_box(Vector3(bcx, o.y + 3.7, bcz), Vector3(6, 1.2, 11), Color(0.98, 0.97, 1.0))               # mattress
 		m._l2_box(Vector3(bcx, o.y + 4.4, bcz + 2.0), Vector3(6.2, 0.5, 6.5), Color(0.45, 0.62, 0.92))     # folded blanket
 		m._l2_box(Vector3(bcx, o.y + 4.6, bcz - 4.2), Vector3(5.0, 0.9, 2.4), Color(1.0, 1.0, 1.0))        # pillow
-		var headboard := m._l2_box(Vector3(bcx, o.y + 5.8, bcz - 5.8), Vector3(7, 6.5, 0.9), Color(0.45, 0.28, 0.17))
+		var headboard = m._l2_box(Vector3(bcx, o.y + 5.8, bcz - 5.8), Vector3(7, 6.5, 0.9), Color(0.45, 0.28, 0.17))
 		headboard.material_override.roughness = 0.7
 	# bed collider: SLIM pad — the old 1.6 pad ejected Roshan outside the sleep
 	# trigger radius, so climbing into bed could never fire the cutscene
@@ -502,7 +502,7 @@ func build_bedroom(o: Vector3) -> void:
 	m.add_child(bedsign)
 	m.game_nodes.append(bedsign)
 	# ---------- bedside table + glowing lamp (at the bed's head) ----------
-	var table := m._l2_box(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
+	var table = m._l2_box(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
 	table.material_override.roughness = 0.8
 	m._wall_solid(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), 0.4)
 	var lampbulb := MeshInstance3D.new()
@@ -517,18 +517,18 @@ func build_bedroom(o: Vector3) -> void:
 	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 2.0; lamp.omni_range = 18.0
 	lamp.position = lampbulb.position; m.add_child(lamp); m.game_nodes.append(lamp)
 	# big soft rug in the middle of the room
-	var rug := m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
+	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
 	rug.material_override = m._up_mat("fabric", 0.14, Color(0.8, 0.4, 0.5))   # woven rug
 	# toy chest by the far wall (decor)
-	var chest := m._l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
+	var chest = m._l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
 	chest.material_override.roughness = 0.85
 	m._wall_solid(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), 0.4)
 	m._l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
-	var wardrobe := m._l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
+	var wardrobe = m._l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
 	wardrobe.material_override.roughness = 0.8
-	var mirror := m._l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.7, 0.92, 1.0), 0.6)  # glowing mirror glass
+	var mirror = m._l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.7, 0.92, 1.0), 0.6)  # glowing mirror glass
 	mirror.material_override.metallic = 0.9
 	mirror.material_override.roughness = 0.05
 	for fx in [-2.6, 2.6]:                                 # gold mirror frame posts
@@ -549,9 +549,9 @@ func build_bedroom(o: Vector3) -> void:
 	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 2.0; bl.omni_range = 36.0
 	bl.position = bo + Vector3(0, 22, 0); m.add_child(bl); m.game_nodes.append(bl)
 	# glowing windows on the far and back walls for ambiance
-	var win := m._l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.6, 0.85, 1.0), 0.8)
+	var win = m._l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.6, 0.85, 1.0), 0.8)
 	win.material_override.emission_energy_multiplier = 1.2
-	var win2 := m._l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.6, 0.85, 1.0), 0.8)
+	var win2 = m._l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.6, 0.85, 1.0), 0.8)
 	win2.material_override.emission_energy_multiplier = 1.2
 	# label over the doorway
 	var blab := Label3D.new()

@@ -51,7 +51,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for li in range(6):
 		var z := 150.0 - float(li) * 46.0
 		for sgn in [-1.0, 1.0]:
-			var post := m._l2_box(o + Vector3(sgn * 13.0, 6.0, z), Vector3(1.0, 12.0, 1.0), Color(0.5, 0.36, 0.22))
+			var post = m._l2_box(o + Vector3(sgn * 13.0, 6.0, z), Vector3(1.0, 12.0, 1.0), Color(0.5, 0.36, 0.22))
 			m._cyl_solid(o + Vector3(sgn * 13.0, 6.0, z), 0.9, 6.0, 0.5)
 			var lampbulb := MeshInstance3D.new()
 			var lb := SphereMesh.new()
@@ -144,7 +144,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	pondm.height = 0.6
 	pond.mesh = pondm
 	# Phase 5: shared toon water — the pond gets a foam ring right at its rim
-	var pmm := m._toon_water_mat(Color(0.24, 0.55, 0.78), Color(0.5, 0.82, 0.92), 0.82, 0.12, 0.06)
+	var pmm = m._toon_water_mat(Color(0.24, 0.55, 0.78), Color(0.5, 0.82, 0.92), 0.82, 0.12, 0.06)
 	pmm.set_shader_parameter("foam_width", 1.8)
 	pond.material_override = pmm
 	pond.position = o + Vector3(-95, _lagoon_local(-95, 70) + 0.6, 70)
@@ -195,7 +195,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var cf2: Array = m.custom_friends[fi]
 		if cf2.size() < 7:
 			continue
-		var frn := m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]))
+		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]))
 		var fang: float = float(fi) * 1.3
 		frn.position = o + Vector3(cos(fang) * (34.0 + float(fi % 5) * 11.0), 6.0, 70.0 + sin(fang) * 45.0)
 		m.add_child(frn)
@@ -232,7 +232,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m.bw_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, bwz) + 14.0, bwz)
 	if m.galaxy_unlocked:
 		m._kart_gateway(m.bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3))
-		var bwg := m._butterfly_gate(4.2)
+		var bwg = m._butterfly_gate(4.2)
 		bwg.position = m.bw_portal_pos
 		m.add_child(bwg)
 		m.game_nodes.append(bwg)
@@ -277,7 +277,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	var c := o + Vector3(0, 0, -120.0)
 	# the moat is carved into the lagoon terrain (see _lagoon_moat_dip); the bridge crosses it
 	# a long wooden bridge from the courtyard, ACROSS the moat, right up to the door
-	var bridge := m._l2_box(c + Vector3(0, 2.6, 40.0), Vector3(13.0, 0.8, 60.0), Color(0.62, 0.45, 0.28))
+	var bridge = m._l2_box(c + Vector3(0, 2.6, 40.0), Vector3(13.0, 0.8, 60.0), Color(0.62, 0.45, 0.28))
 	bridge.material_override = m._up_mat("wood", 0.12, Color(0.82, 0.6, 0.42))   # real wood-plank PBR (was a flat tan slab)
 	# bridge railings + posts
 	for bsgn in [-1.0, 1.0]:
@@ -310,7 +310,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m._wall_solid(c + Vector3(-28, 60, -8), Vector3(1.5, 120, 40))   # side walls
 	m._wall_solid(c + Vector3(28, 60, -8), Vector3(1.5, 120, 40))
 	# ---- warm interior foyer, visible through the doorway ----
-	var _foyback := m._l2_box(c + Vector3(0, 12, -2), Vector3(22, 24, 1.0), Color(0.9, 0.66, 0.45))
+	var _foyback = m._l2_box(c + Vector3(0, 12, -2), Vector3(22, 24, 1.0), Color(0.9, 0.66, 0.45))
 	_foyback.material_override.albedo_texture = _stone
 	_foyback.material_override.uv1_triplanar = true
 	_foyback.material_override.uv1_scale = Vector3(0.05, 0.05, 0.05)
@@ -384,11 +384,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# ---- crenellated battlements along the keep top ----
 	for cz2 in [12.0, -28.0]:
 		for cmx in range(-4, 5):
-			var mr := m._l2_box(c + Vector3(float(cmx) * 6.4, 53.5, cz2), Vector3(3.2, 5.0, 2.0), Color(0.9, 0.88, 0.95))
+			var mr = m._l2_box(c + Vector3(float(cmx) * 6.4, 53.5, cz2), Vector3(3.2, 5.0, 2.0), Color(0.9, 0.88, 0.95))
 			mr.material_override = m._up_mat("marble", 0.1, Color(0.99, 0.97, 1.0))
 	for cmx2 in range(-3, 4):
 		for csx in [-28.0, 28.0]:
-			var mr2 := m._l2_box(c + Vector3(csx, 53.5, -8.0 + float(cmx2) * 6.4), Vector3(2.0, 5.0, 3.2), Color(0.9, 0.88, 0.95))
+			var mr2 = m._l2_box(c + Vector3(csx, 53.5, -8.0 + float(cmx2) * 6.4), Vector3(2.0, 5.0, 3.2), Color(0.9, 0.88, 0.95))
 			mr2.material_override = m._up_mat("marble", 0.1, Color(0.99, 0.97, 1.0))
 	# ---- royal banners flanking the door ----
 	for bxs in [-1.0, 1.0]:
@@ -408,7 +408,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		crest.position = c + Vector3(bxs * 9.5, 19.0, 12.8)
 		m.add_child(crest); m.game_nodes.append(crest)
 	# big arched door (starts closed)
-	var door := m._l2_box(c + Vector3(0, 12.0, 12.4), Vector3(16.0, 24.0, 1.2), Color(0.62, 0.42, 0.26), 0.0)
+	var door = m._l2_box(c + Vector3(0, 12.0, 12.4), Vector3(16.0, 24.0, 1.2), Color(0.62, 0.42, 0.26), 0.0)
 	door.material_override = m._up_mat("wood", 0.06, Color(0.85, 0.6, 0.4))   # weathered timber door
 	m.l2_door = door
 	m.g["door_closed_y"] = door.position.y
@@ -417,7 +417,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m._wall_solid(door.position, Vector3(16.0, 24.0, 1.2))
 	m.g["door_solid"] = m.arena_solids.back()
 	# glowing archway frame (revealed when the door opens)
-	var arch := m._l2_box(c + Vector3(0, 12.0, 12.0), Vector3(17.0, 25.0, 0.4), Color(0.55, 0.9, 1.0), 0.0)
+	var arch = m._l2_box(c + Vector3(0, 12.0, 12.0), Vector3(17.0, 25.0, 0.4), Color(0.55, 0.9, 1.0), 0.0)
 	arch.visible = false
 	m.g["arch"] = arch
 	# ---------- HIDDEN BACK DOOR: a secret hatch on the moat floor behind the keep ----------
@@ -426,9 +426,9 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# behind the castle (the trench runs at ring-distance 46..64 from the keep, so the
 	# hatch lives at the trench midline, ~y -15 — NOT against the wall, which is dry land).
 	var back_pos: Vector3 = c + Vector3(0, -14.5, -55.0)   # moat-trench floor, directly behind the keep
-	var recess := m._l2_box(c + Vector3(0, -10.0, -49.0), Vector3(11.0, 10.0, 1.0), Color(0.04, 0.06, 0.08))
+	var recess = m._l2_box(c + Vector3(0, -10.0, -49.0), Vector3(11.0, 10.0, 1.0), Color(0.04, 0.06, 0.08))
 	recess.material_override.roughness = 1.0                 # a dark opening in the trench's inner bank
-	var hatch := m._l2_box(back_pos, Vector3(9.0, 1.0, 7.0), Color(0.2, 0.22, 0.28))
+	var hatch = m._l2_box(back_pos, Vector3(9.0, 1.0, 7.0), Color(0.2, 0.22, 0.28))
 	hatch.material_override = m._up_mat("castle", 0.08, Color(0.7, 0.72, 0.8))   # stone hatch on the floor
 	var bglow := OmniLight3D.new()                          # dim glow: findable, but still 'hidden'
 	bglow.light_color = Color(0.5, 0.85, 1.0); bglow.light_energy = 1.3; bglow.omni_range = 13.0
@@ -448,7 +448,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for idx in range(spots.size()):
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
-		var plat := m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
+		var plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
 		m._nature("flower_yellowB", sp + Vector3(-3, -2.6, -3), 4.0, 0.0)
 		m._nature("flower_redA", sp + Vector3(3, -2.6, 3), 4.0, 1.0)
 		var star := Label3D.new()
@@ -542,7 +542,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var fishkinds := ["ClownFish", "Dory", "Carp", "Tuna", "Eel"]
 	# Phase 5: shared toon water — streams get tight ripples, gentle wobble,
 	# and (on capable tiers) foam edges hugging the carved banks
-	var river_mat := m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
+	var river_mat = m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
 	river_mat.set_shader_parameter("foam_width", 2.6)
 	river_mat.set_shader_parameter("depth_fade", 7.0)
 	for rv in m.LAGOON_RIVERS:
@@ -593,7 +593,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		var rdir3: Vector3 = Vector3(rb.x - ra.x, 0, rb.y - ra.y).normalized()
 		var rlen: float = ra.distance_to(rb)
 		for fz in range(6):
-			var fishinst := m._place_aq(fishkinds[fz % fishkinds.size()], Vector3.ZERO, 1.0 + randf() * 0.6, true)
+			var fishinst = m._place_aq(fishkinds[fz % fishkinds.size()], Vector3.ZERO, 1.0 + randf() * 0.6, true)
 			if fishinst != null:
 				m.game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
@@ -619,7 +619,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var moatw := MeshInstance3D.new()
 	moatw.mesh = mst.commit()
 	# Phase 5: shared toon water — the moat ring is deep, so a darker fade
-	var mwmat := m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.8, 0.2, 0.04)
+	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.8, 0.2, 0.04)
 	mwmat.set_shader_parameter("foam_width", 2.4)
 	moatw.material_override = mwmat
 	moatw.position = o
@@ -865,7 +865,7 @@ func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	band.position = pos + Vector3(0, 24.0 * sc, 0)
 	m.add_child(band); m.game_nodes.append(band)
 	# glowing arched window facing the courtyard
-	var win := m._l2_box(pos + Vector3(0, 16.0 * sc, 3.5 * sc), Vector3(1.8 * sc, 4.2 * sc, 0.5 * sc), Color(1.0, 0.85, 0.5))
+	var win = m._l2_box(pos + Vector3(0, 16.0 * sc, 3.5 * sc), Vector3(1.8 * sc, 4.2 * sc, 0.5 * sc), Color(1.0, 0.85, 0.5))
 	win.material_override.emission_enabled = true
 	win.material_override.emission = Color(1.0, 0.8, 0.45)
 	win.material_override.emission_energy_multiplier = 1.6

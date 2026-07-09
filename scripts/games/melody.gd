@@ -27,14 +27,14 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	var stage_f: float = m.ARENA_POS.y + 0.6
 	var rcols := [Color(1.0, 0.2, 0.2), Color(1.0, 0.55, 0.15), Color(1.0, 0.9, 0.2), Color(0.25, 0.9, 0.3), Color(0.2, 0.55, 1.0), Color(0.35, 0.25, 0.9), Color(0.7, 0.3, 0.9)]
 	# raised stage platform with a glowing edge
-	var plat := m._course_box(origin + Vector3(0, stage_f + 0.8, -8.0), Vector3(40, 1.6, 26), Color(0.18, 0.12, 0.28))
+	var plat = m._course_box(origin + Vector3(0, stage_f + 0.8, -8.0), Vector3(40, 1.6, 26), Color(0.18, 0.12, 0.28))
 	plat.material_override.metallic = 0.4; plat.material_override.roughness = 0.3
-	var edge := m._course_box(origin + Vector3(0, stage_f + 1.7, -8.0), Vector3(41, 0.4, 27), Color(1.0, 0.3, 0.7))
+	var edge = m._course_box(origin + Vector3(0, stage_f + 1.7, -8.0), Vector3(41, 0.4, 27), Color(1.0, 0.3, 0.7))
 	edge.material_override = m._soft_mat(Color(1.0, 0.3, 0.7), 1.6)
 	# big speaker stacks flanking the stage
 	for sx in [-17.0, 17.0]:
 		for sy in range(3):
-			var spk := m._course_box(origin + Vector3(sx, stage_f + 3.0 + float(sy) * 5.0, -12.0), Vector3(7, 4.6, 6), Color(0.08, 0.08, 0.1))
+			var spk = m._course_box(origin + Vector3(sx, stage_f + 3.0 + float(sy) * 5.0, -12.0), Vector3(7, 4.6, 6), Color(0.08, 0.08, 0.1))
 			spk.material_override.roughness = 0.8
 			var cone := MeshInstance3D.new()
 			var cmh := CylinderMesh.new(); cmh.top_radius = 2.2; cmh.bottom_radius = 0.6; cmh.height = 0.8
@@ -44,7 +44,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 			cone.position = origin + Vector3(sx, stage_f + 3.0 + float(sy) * 5.0, -8.9)
 			m.add_child(cone); m.game_nodes.append(cone)
 	# overhead lighting truss with colored spotlights + beams
-	var truss := m._course_box(origin + Vector3(0, stage_f + 24.0, -10.0), Vector3(44, 1.0, 1.0), Color(0.2, 0.2, 0.22))
+	var truss = m._course_box(origin + Vector3(0, stage_f + 24.0, -10.0), Vector3(44, 1.0, 1.0), Color(0.2, 0.2, 0.22))
 	truss.material_override.metallic = 0.6
 	for li in range(5):
 		var lx2: float = -18.0 + float(li) * 9.0

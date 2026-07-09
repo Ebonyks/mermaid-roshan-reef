@@ -68,7 +68,7 @@ func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		m.g["timer"] = float(m.g["timer"]) + 6.0
 		var lamb2: Node3D = m.g["lamb"]
 		lamb2.position = bush.position + Vector3(0, 4.8, 0)
-		var twl := m.create_tween()
+		var twl = m.create_tween()
 		twl.tween_property(lamb2, "scale", Vector3.ONE * 3.4, 0.2)
 		twl.tween_property(lamb2, "scale", Vector3.ONE * 2.6, 0.3)
 		if m.voice != null:
@@ -88,7 +88,7 @@ func _seek_hide() -> void:
 	# still — a slow seeker lost the only signal. It wiggles until found now.
 	if m.g.get("wiggle_tw") != null and (m.g["wiggle_tw"] as Tween).is_valid():
 		(m.g["wiggle_tw"] as Tween).kill()
-	var tw := m.create_tween().set_loops()
+	var tw = m.create_tween().set_loops()
 	tw.tween_property(bush, "scale", Vector3(1.35, 0.75, 1.35), 0.16)
 	tw.tween_property(bush, "scale", Vector3.ONE, 0.16)
 	tw.tween_interval(0.9)
