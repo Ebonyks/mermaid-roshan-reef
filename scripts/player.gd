@@ -24,8 +24,12 @@ var swim_phase := 0.0
 var jump_cool := 0.0
 var idle_t := 0.0
 var cam: Camera3D
-var cam_back := 16.0   # chase distance (reduced indoors so the camera does not clip walls)
-var cam_high := 6.5    # chase height
+# STORYBOOK DIORAMA LENS: longer + narrower than a normal chase cam — the
+# compressed perspective flattens the world toward 2.5D so it reads as a
+# toy diorama instead of open 3D. Subject size on screen stays the same
+# (fov 60->38 is ~1.55x zoom; distance grew by the same factor).
+var cam_back := 25.0   # chase distance (reduced indoors so the camera does not clip walls)
+var cam_high := 9.0    # chase height
 var cam_orbit := 0.0        # right-stick look-around: yaw offset, drifts back behind Roshan
 var cam_pitch_off := 0.0    # right-stick look-around: height offset
 var skel: Skeleton3D
@@ -91,7 +95,7 @@ func _ready() -> void:
 	skin_sparkles.emitting = false
 	add_child(skin_sparkles)
 	cam = Camera3D.new()
-	cam.fov = 60.0
+	cam.fov = 38.0   # diorama lens (see cam_back note)
 	get_parent().add_child.call_deferred(cam)
 
 func _map_bones() -> void:

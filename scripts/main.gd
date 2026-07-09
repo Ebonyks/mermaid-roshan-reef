@@ -1576,6 +1576,16 @@ func _respawn_pearls() -> void:
 	if grew:
 		show_msg("", "New rainbow pearls are shimmering in the reef!")
 
+func _cutout_tex(name: String) -> Texture2D:
+	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
+	# (white vinyl rim + soft navy drop shadow, assets/characters/stickers/,
+	# generated from the sacred originals which stay untouched). UI portraits
+	# and wardrobe previews keep the clean originals.
+	var p := "res://assets/characters/stickers/" + name + ".png"
+	if ResourceLoader.exists(p):
+		return load(p)
+	return load("res://assets/characters/friends/" + name + ".png")
+
 func _build_friends() -> void:
 	for i in range(FRIEND_DEFS.size()):
 		var fd: Dictionary = FRIEND_DEFS[i]
@@ -1584,7 +1594,7 @@ func _build_friends() -> void:
 		var x: float = cos(a) * r
 		var z: float = sin(a) * r
 		var spr := Sprite3D.new()
-		spr.texture = load("res://assets/characters/friends/" + String(fd["tex"]) + ".png")
+		spr.texture = _cutout_tex(String(fd["tex"]))
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		spr.pixel_size = 0.016
 		spr.position = Vector3(x, seabed_y(x, z) + 6.5, z)
@@ -2830,7 +2840,7 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	_grade(ie)
 	we_node.environment = ie
 	_build_castle_hall(CASTLE_POS)
-	player.cam_back = 6.5   # pull the chase camera in so it does not clip the hall / back-room walls
+	player.cam_back = 10.0   # pull the chase camera in so it does not clip the hall / back-room walls (diorama lens: 6.5 * ~1.55)
 	player.cam_high = 4.2
 	if from_back:
 		# the moat hatch is a SECRET back door: surface inside the treasure room
@@ -3252,7 +3262,7 @@ func _l2_start_slide() -> void:
 
 func _return_to_courtyard() -> void:
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
-	player.cam_back = 16.0
+	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -3277,7 +3287,7 @@ func _play_hug_cutscene() -> void:
 	tb.tween_property(bg, "color", Color(0.06, 0.03, 0.14, 0.5), 0.4)
 	# Daddy slides in from the left
 	var daddy := TextureRect.new()
-	daddy.texture = load("res://assets/characters/friends/daddy.webp")
+	daddy.texture = _cutout_tex("daddy")
 	daddy.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	daddy.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	daddy.size = Vector2(vp.y * 0.62, vp.y * 0.9)
@@ -3708,7 +3718,7 @@ func _close_wardrobe() -> void:
 	mg_cool = 8.0
 
 func _exit_level2() -> void:
-	player.cam_back = 16.0
+	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
 	g = {}

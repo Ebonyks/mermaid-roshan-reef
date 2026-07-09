@@ -241,7 +241,7 @@ func build(o: Vector3) -> void:
 	sl2.position = chest.position + Vector3(0, 4, 0); m.add_child(sl2); m.game_nodes.append(sl2)
 	# Daddy mermaid lives in the secret room (his real recorded voice greets Roshan)
 	var daddy := Sprite3D.new()
-	daddy.texture = load("res://assets/characters/friends/daddy.webp")
+	daddy.texture = m._cutout_tex("daddy")
 	daddy.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	daddy.pixel_size = 0.0066
 	daddy.position = br + Vector3(10, 8, -3)
