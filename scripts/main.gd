@@ -1022,6 +1022,22 @@ static func _emit_tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, col: 
 		st.set_normal(n)
 		st.add_vertex(p)
 
+func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float, rip_scale: float) -> ShaderMaterial:
+	# Phase 5: the one storybook water material (CC0 "Toon Water" base — see
+	# ASSET_LICENSES.md). Depth-fade + shoreline foam on capable tiers; the
+	# Speedy tier (and headless CI) runs it with zero depth-texture reads.
+	var m := ShaderMaterial.new()
+	m.shader = load("res://assets/shaders/toon_water.gdshader")
+	m.set_shader_parameter("deep_color", deep)
+	m.set_shader_parameter("shallow_color", shallow)
+	m.set_shader_parameter("alpha_base", alpha)
+	m.set_shader_parameter("wobble_height", wobble_h)
+	m.set_shader_parameter("ripple_scale", rip_scale)
+	m.set_shader_parameter("ripple", load("res://assets/terrain/up_water_nrm.jpg"))
+	m.set_shader_parameter("caustics", load("res://assets/terrain/caustics.png"))
+	m.set_shader_parameter("use_depth", quality != "speedy" and DisplayServer.get_name() != "headless")
+	return m
+
 func _build_water() -> void:
 	var pm := PlaneMesh.new()
 	pm.size = Vector2(WORLD_R * 2.6, WORLD_R * 2.6)
@@ -1030,11 +1046,11 @@ func _build_water() -> void:
 	var mi := MeshInstance3D.new()
 	mi.mesh = pm
 	mi.position.y = WATER_TOP
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D caus;\nvoid vertex(){\n\tvec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;\n\tVERTEX.y += sin(TIME*0.9 + wp.x*0.055)*0.9 + cos(TIME*1.25 + wp.z*0.047 + wp.x*0.02)*0.7;\n}\nvoid fragment(){\n\tvec2 w = (MODEL_MATRIX * vec4(VERTEX,1.0)).xz;\n\tvec3 c1 = texture(caus, w*0.012 + vec2(TIME*0.014, TIME*0.008)).rgb;\n\tvec3 c2 = texture(caus, w*0.027 - vec2(TIME*0.011, -TIME*0.016)).rgb;\n\tfloat sparkle = c1.g * c2.g;\n\tfloat band = step(0.18, sparkle) * 0.5 + step(0.34, sparkle) * 0.5;\n\tvec3 deep = vec3(0.14, 0.46, 0.66);\n\tvec3 lite = vec3(0.42, 0.78, 0.86);\n\tvec3 base = mix(deep, lite, band);\n\tfloat dots = step(0.42, sparkle);\n\tALBEDO = base + dots * vec3(0.85, 0.95, 1.0) * 0.6;\n\tEMISSION = base * 0.55 + dots * vec3(0.9, 1.0, 1.0) * 0.8;\n\tALPHA = 0.44 + band * 0.12 + dots * 0.2;\n}"
-	var mat := ShaderMaterial.new()
-	mat.shader = sh
-	mat.set_shader_parameter("caus", load("res://assets/terrain/caustics.png"))
+	# Phase 5: the shared toon water (big soft ocean swell, extra sparkle —
+	# this sheet is mostly seen from below, so it keeps a higher glow)
+	var mat := _toon_water_mat(Color(0.14, 0.46, 0.66), Color(0.42, 0.78, 0.86), 0.52, 0.9, 0.012)
+	mat.set_shader_parameter("sparkle", 0.6)
+	mat.set_shader_parameter("wobble_speed", 0.9)
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(mi)
@@ -1967,6 +1983,11 @@ func _apply_quality(q: String) -> void:
 			_set_vis_range(fn, 150.0 if speedy else 0.0)
 	if quality_btn != null:
 		quality_btn.text = "Graphics: Speedy" if speedy else "Graphics: Sparkly"
+	# Phase 5: live-retune the reef water when the tier flips (arena water is
+	# rebuilt on entry and picks the tier up itself)
+	if water_node != null and water_node.material_override is ShaderMaterial:
+		var wm := water_node.material_override as ShaderMaterial
+		wm.set_shader_parameter("use_depth", (not speedy) and DisplayServer.get_name() != "headless")
 
 func _set_vis_range(n: Node, dist: float) -> void:
 	if n is GeometryInstance3D:
@@ -2799,9 +2820,11 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	# ---- river water sitting low in each carved valley, with fish ----
 	g["l2_fish"] = []
 	var fishkinds := ["ClownFish", "Dory", "Carp", "Tuna", "Eel"]
-	var wsh := Shader.new()
-	wsh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D ripple;\nvoid vertex(){ VERTEX.y += sin(TIME*1.4 + VERTEX.x*0.3)*0.25; }\nvoid fragment(){ float f = fract(UV.y*8.0 - TIME*0.3); float band = smoothstep(0.0,0.5,f)*smoothstep(1.0,0.5,f); vec3 base=vec3(0.2,0.55,0.8); ALBEDO=base+band*vec3(0.10,0.14,0.14); EMISSION=base*0.18+band*vec3(0.3,0.5,0.6)*0.15; vec2 ruv=UV*4.0+vec2(TIME*0.04,TIME*0.07); NORMAL_MAP=mix(texture(ripple,ruv).rgb, texture(ripple,ruv*1.7-TIME*0.03).rgb, 0.5); NORMAL_MAP_DEPTH=0.6; ROUGHNESS=0.08; METALLIC=0.4; ALPHA=0.82; }"
-	var ripple_tex := load("res://assets/terrain/up_water_nrm.jpg")
+	# Phase 5: shared toon water — streams get tight ripples, gentle wobble,
+	# and (on capable tiers) foam edges hugging the carved banks
+	var river_mat := _toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
+	river_mat.set_shader_parameter("foam_width", 2.6)
+	river_mat.set_shader_parameter("depth_fade", 7.0)
 	for rv in LAGOON_RIVERS:
 		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
 		# flat planes got buried wherever the river path crossed a hill (rock on top,
@@ -2841,9 +2864,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			st2.add_index(a3); st2.add_index(a3 + 3); st2.add_index(a3 + 2)
 		var water := MeshInstance3D.new()
 		water.mesh = st2.commit()
-		var rmat := ShaderMaterial.new(); rmat.shader = wsh
-		rmat.set_shader_parameter("ripple", ripple_tex)
-		water.material_override = rmat
+		water.material_override = river_mat
 		water.position = o
 		add_child(water); game_nodes.append(water)
 		# fish swimming down the channel
@@ -3018,14 +3039,9 @@ func _build_pearl_castle(o: Vector3) -> void:
 	pondm.bottom_radius = 34.0
 	pondm.height = 0.6
 	pond.mesh = pondm
-	var pmm := StandardMaterial3D.new()
-	pmm.albedo_color = Color(0.3, 0.62, 0.85, 0.82)
-	pmm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	pmm.metallic = 0.6
-	pmm.roughness = 0.08
-	pmm.emission_enabled = true
-	pmm.emission = Color(0.2, 0.45, 0.65)
-	pmm.emission_energy_multiplier = 0.18
+	# Phase 5: shared toon water — the pond gets a foam ring right at its rim
+	var pmm := _toon_water_mat(Color(0.24, 0.55, 0.78), Color(0.5, 0.82, 0.92), 0.82, 0.12, 0.06)
+	pmm.set_shader_parameter("foam_width", 1.8)
 	pond.material_override = pmm
 	pond.position = o + Vector3(-95, _lagoon_local(-95, 70) + 0.6, 70)
 	add_child(pond)

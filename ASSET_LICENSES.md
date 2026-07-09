@@ -77,3 +77,4 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 ## Phase 5 — sky panoramas
 - assets/sky/lagoon_day_2k.hdr — "Qwantani (Pure Sky)" HDRI, Poly Haven (Greg Zaal / Sergej Majboroda), CC0, https://polyhaven.com/a/qwantani_puresky — 2K, unmodified
 - assets/sky/lagoon_dusk_2k.hdr — "Qwantani Dusk 2 (Pure Sky)" HDRI, Poly Haven, CC0, https://polyhaven.com/a/qwantani_dusk_2_puresky — 2K, unmodified
+- assets/shaders/toon_water.gdshader — based on "Toon Water", godotshaders.com/shader/toon-water/ (CC0) — depth-difference shoreline technique kept; pastel banding, caustics sparkle, scrolling ripple normals and Speedy-tier depth toggle added for this project
