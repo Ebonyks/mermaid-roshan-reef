@@ -2103,47 +2103,47 @@ func toggle_pause() -> void:
 		if fo != null:
 			fo.release_focus()
 
+# Phase 7.4: one file per minigame under scripts/games/ (state stays on
+# main; each game class receives main by reference)
+var _games := {}
+
+func _game_obj(key: String, cls: Variant) -> Variant:
+	if not _games.has(key):
+		_games[key] = cls.new(self)
+	return _games[key]
+
+func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("fetch", FetchGame)._tick_fetch(delta, fr, ppos)
+
+func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
+
+func _dolls2d_open(fr: Dictionary) -> void:
+	_game_obj("dolls", DollsGame)._dolls2d_open(fr)
+
+func _dolls2d_close() -> void:
+	_game_obj("dolls", DollsGame)._dolls2d_close()
+
+func _seek_hide() -> void:
+	_game_obj("seek", SeekGame)._seek_hide()
+
+func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("race", SlideRaceGame)._tick_course(delta, fr, ppos)
+
+func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("shop", ShopGame)._tick_shop(delta, fr, ppos)
+
 func _shop_buy(id: String) -> void:
-	for it in SHOP_ITEMS:
-		if String(it["id"]) != id or pearl_count < int(it["price"]):
-			continue
-		if id == "beans":
-			if beans_t < 0.0:
-				pearl_count -= int(it["price"])
-				shop_owned["_beans_once"] = true   # counts toward Big Shopper
-				_update_hud()
-				_write_save()
-				if buy_sound != null:
-					buy_sound.play()
-				_beans_go()
-				_sparkle_burst(player.position + Vector3(0, 1, 0), Color(0.6, 1.0, 0.4))
-				_check_shopper()
-			return
-		# permanent treasures (Rainbow Trail / Pearl Tiara / Pearl Princess)
-		if bool(shop_owned.get(id, false)):
-			return
-		pearl_count -= int(it["price"])
-		shop_owned[id] = true
-		_update_hud()
-		_write_save()
-		if buy_sound != null:
-			buy_sound.play()
-		_sparkle_burst(player.position + Vector3(0, 2, 0), Color(1.0, 0.9, 1.0))
-		if id == "tail":
-			player.set_rainbow_trail(true)
-			show_msg("Pearl Shop", "A RAINBOW TRAIL! Sparkles will follow you FOREVER!", "win")
-		elif id == "tiara":
-			player.set_tiara(true)
-			show_msg("Pearl Shop", "The PEARL TIARA! Fit for a real princess!", "win")
-		elif id == "pearlskin":
-			show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
-		_check_shopper()
-		return
+	_game_obj("shop", ShopGame)._shop_buy(id)
 
 func _check_shopper() -> void:
-	if bool(shop_owned.get("_beans_once", false)) and bool(shop_owned.get("tail", false)) \
-			and bool(shop_owned.get("tiara", false)) and bool(shop_owned.get("pearlskin", false)):
-		award_sticker("shopper")
+	_game_obj("shop", ShopGame)._check_shopper()
+
+func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("melody", MelodyGame)._tick_melody(delta, fr, ppos)
+
+func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
+	_game_obj("fairyshoot", FairyGame)._tick_fairyshoot(delta, fr, _ppos)
 
 func _near_ground(obj_pos: Vector3, ppos: Vector3, r: float, htol: float = 12.0) -> bool:
 	return Vector2(obj_pos.x - ppos.x, obj_pos.z - ppos.z).length() < r and absf(obj_pos.y - ppos.y) < htol
@@ -5212,42 +5212,6 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	add_child(dl)
 	game_nodes.append(dl)
 
-func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	hud_game.text = "Pearls: %d - swim to a treasure to buy it!" % pearl_count
-	shop_msg_cool = maxf(0.0, shop_msg_cool - delta)
-	for it in g.get("items", []):
-		var inode: Node3D = it["node"]
-		if not inode.visible:
-			continue
-		inode.position.y = (it["base"] as Vector3).y + sin(float(g["t"]) * 2.0 + (it["base"] as Vector3).x) * 0.25
-		inode.rotate_y(delta * 1.2)
-		if _near_ground(it["base"], ppos, 5.0, 14.0):
-			var iid := String(it["id"])
-			var price: int = int(it["price"])
-			if iid == "beans":
-				if beans_t >= 0.0:
-					pass
-				elif pearl_count >= price:
-					_shop_buy(iid)
-					show_msg("Pearl Shop", "Beans! Hold on to your tail!")
-				elif shop_msg_cool <= 0.0:
-					shop_msg_cool = 2.5
-					show_msg("Pearl Shop", "Beans cost %d pearls - the reef is full of them!" % price)
-			elif pearl_count >= price:
-				_shop_buy(iid)
-				inode.visible = false
-				(it["tag"] as Label3D).text = String(it["tag"].text.split("\n")[0]) + "\n(yours!)"
-				show_msg("Pearl Shop", "It looks WONDERFUL on you!")
-			elif shop_msg_cool <= 0.0:
-				shop_msg_cool = 2.5
-				show_msg("Pearl Shop", "You need %d pearls for that - the reef is full of them!" % price)
-	var door: MeshInstance3D = g["exit"]
-	door.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 3.0) * 0.08)
-	# leave the shop by simply swimming OUT of the room (open front / sides)
-	var rel: Vector3 = ppos - ARENA_POS
-	if float(g["t"]) > 1.5 and (rel.z > 20.0 or rel.z < -16.0 or absf(rel.x) > 19.0):
-		_end_game(true, fr, "Bye-bye! Come back soon!")
-
 func _tick_chains(delta: float, ppos: Vector3) -> void:
 	for ch in g.get("chains", []):
 		var base: Vector3 = ch["base"]
@@ -5273,459 +5237,32 @@ func _tick_chains(delta: float, ppos: Vector3) -> void:
 			seg.position = base + dirv * (0.6 + float(k) * 0.98)
 			seg.quaternion = Quaternion(Vector3.DOWN, dirv)
 
-func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	_tick_chains(delta, ppos)
-	if g.has("mover_node"):
-		var mvn: MeshInstance3D = g["mover_node"]
-		mvn.position = (g["mover_base"] as Vector3) + Vector3(sin(float(g["t"]) * 0.9) * 6.0, 0, 0)
-	# slide ride
-	if String(g.get("phase", "")) == "slide":
-		var path: Array = g["slide_path"]
-		var st: float = float(g.get("slide_t", 0.0)) + delta * 13.0
-		g["slide_t"] = st
-		var total := 0.0
-		for i in range(path.size() - 1):
-			var seg_len: float = (path[i] as Vector3).distance_to(path[i + 1])
-			if st <= total + seg_len:
-				player.position = (path[i] as Vector3).lerp(path[i + 1], (st - total) / seg_len)
-				player.vel = Vector3.ZERO
-				hud_game.text = "WHEEEEE!"
-				return
-			total += seg_len
-		_sparkle_burst(player.position, Color(0.5, 0.85, 1.0))
-		if chime != null:
-			chime.play()
-		_end_game(true, fr, "What a SLIDE! Best play place ever!" if game == "race" else "")
-		return
-	var checks: Array = g.get("checks", [])
-	var done := 0
-	var nxt: Dictionary = {}
-	for c in checks:
-		if c["hit"]:
-			done += 1
-		elif nxt.is_empty():
-			nxt = c
-	hud_game.text = ("Climb the play place! Sparkles: %d / %d" if game == "race" else "Dive the caverns! Sparkles: %d / %d") % [done, checks.size()]
-	if nxt.is_empty():
-		return
-	var node: MeshInstance3D = nxt["node"]
-	node.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 5.0) * 0.15)
-	node.rotate_y(delta * 1.5)
-	# Phase 6: the FIRST sparkle must be earned — swim toward it to arm the
-	# course. Until armed the magnet is off and checkpoints are inert, so a
-	# player who does nothing goes nowhere; one little push starts the ride
-	# and the magnet forgiveness carries her from there. Guide sparkles
-	# point the way while she idles.
-	var cprev: Vector3 = g.get("ppos_prev", ppos)
-	var cvel: Vector3 = (ppos - cprev) / maxf(delta, 0.001)
-	g["ppos_prev"] = ppos
-	if not bool(g.get("armed", false)):
-		var to_c: Vector3 = node.position - ppos
-		if to_c.length() > 0.5 and cvel.dot(to_c.normalized()) > 2.0:
-			g["arm_t"] = float(g.get("arm_t", 0.0)) + delta
-			if float(g["arm_t"]) >= 0.2:
-				g["armed"] = true
-				_sparkle_burst(ppos, Color(1.0, 0.95, 0.6))
-		else:
-			g["arm_t"] = 0.0
-			g["guide_t"] = float(g.get("guide_t", 0.0)) - delta
-			if float(g["guide_t"]) <= 0.0:
-				g["guide_t"] = 0.8
-				_sparkle_burst(ppos.lerp(node.position, 0.35), Color(1.0, 0.9, 0.5))
-				_sparkle_burst(ppos.lerp(node.position, 0.65), Color(1.0, 0.9, 0.5))
-			g["arm_hint_t"] = float(g.get("arm_hint_t", 0.0)) + delta
-			if float(g["arm_hint_t"]) > 6.0 and not bool(g.get("arm_hinted", false)):
-				g["arm_hinted"] = true
-				show_msg(String(fr.get("fname", "Play Place")), "Swim to the twinkly sparkle to start!", "hint")
-		if not bool(g.get("armed", false)):
-			return
-	var dd2: float = node.position.distance_to(ppos)
-	# strong, far-reaching magnet carries a 4yo up the play-place automatically
-	if dd2 < 34.0:
-		player.position = player.position.lerp(node.position, minf(0.92, delta * 2.6 * (1.0 - dd2 / 34.0)))
-		player.vel.y = maxf(player.vel.y, 0.0)
-	if dd2 < 7.5:
-		nxt["hit"] = true
-		_sparkle_burst(node.position, Color(1.0, 0.9, 0.5))
-		if chime != null:
-			chime.pitch_scale = 1.0 + float(done) * 0.08
-			chime.play()
-		var kind := String(nxt["kind"])
-		if kind == "tramp":
-			player.vel.y = 26.0
-			show_msg(fr["fname"], "BOING! Up you go!")
-		elif kind == "slide":
-			g["phase"] = "slide"
-			g["slide_t"] = 0.0
-		elif kind == "chest":
-			pearl_count += 3
-			_update_hud()
-			_write_save()
-			_sparkle_burst(node.position, Color(1.0, 0.85, 0.3))
-			award_sticker("treasure")
-			_end_game(true, fr, "TREASURE! +3 rainbow pearls for the Pearl Shop!")
-		else:
-			node.visible = false
-
 func _start_game(fr: Dictionary) -> void:
 	game = String(fr["game"])
 	g = {"fr": fr, "t": 0.0, "timer": 30.0}
 	_enter_arena(game)
 	var origin: Vector3 = ARENA_POS
 	if game == "fetch":
-		g["phase"] = "aim"
-		g["round"] = 0
-		g["miss"] = 0
-		g["timer"] = -1.0
-		g["ball"] = _game_ball(Color(1.0, 0.4, 0.25), 0.8)
-		# ----- a real 3D winter Lake Michigan scene -----
-		# snowy play field (the LEFT side, where Roshan and Chuck are)
-		var snow := MeshInstance3D.new()
-		var snm := BoxMesh.new()
-		snm.size = Vector3(70.0, 1.0, 170.0)
-		snow.mesh = snm
-		var snmat := StandardMaterial3D.new()
-		snmat.albedo_color = Color(0.96, 0.98, 1.0)
-		snmat.roughness = 0.85
-		snow.material_override = snmat
-		snow.position = origin + Vector3(-27.0, 0.0, 0.0)
-		add_child(snow)
-		game_nodes.append(snow)
-		# the VAST icy lake — stretches the whole length on the right, out to the horizon
-		var lake := MeshInstance3D.new()
-		var lb := BoxMesh.new()
-		lb.size = Vector3(220.0, 0.6, 320.0)
-		lake.mesh = lb
-		var lm := StandardMaterial3D.new()
-		lm.albedo_color = Color(0.45, 0.66, 0.82)
-		lm.metallic = 0.85
-		lm.roughness = 0.06
-		lm.emission_enabled = true
-		lm.emission = Color(0.3, 0.55, 0.72)
-		lm.emission_energy_multiplier = 0.2
-		lake.material_override = lm
-		lake.position = origin + Vector3(118.0, 0.3, 0.0)
-		add_child(lake)
-		game_nodes.append(lake)
-		# snowdrift shoreline ridge along the waterline (the whole length)
-		_course_box(origin + Vector3(8.2, 0.7, 0.0), Vector3(2.0, 1.4, 170.0), Color(0.99, 1.0, 1.0))
-		# drifting ice floes far out on the lake
-		for fl in range(8):
-			var floe := MeshInstance3D.new()
-			var fm := CylinderMesh.new()
-			fm.top_radius = 2.0 + randf() * 3.0
-			fm.bottom_radius = fm.top_radius + 0.3
-			fm.height = 0.5
-			floe.mesh = fm
-			floe.material_override = _soft_mat(Color(0.95, 0.98, 1.0), 0.1)
-			floe.position = origin + Vector3(18.0 + randf() * 90.0, 0.8, -75.0 + randf() * 150.0)
-			add_child(floe)
-			game_nodes.append(floe)
-		# snowy pine forest + hills along the far shore and behind
-		for tz in range(16):
-			var tang := float(tz) / 16.0
-			var tx: float = -52.0 + randf() * 14.0
-			var tzz: float = -80.0 + tang * 160.0
-			# snowy hill
-			if tz % 3 == 0:
-				var hill := MeshInstance3D.new()
-				var hs := SphereMesh.new()
-				hs.radius = 12.0 + randf() * 8.0
-				hill.mesh = hs
-				hill.material_override = snmat
-				hill.position = origin + Vector3(tx - 8.0, -2.0, tzz)
-				hill.scale.y = 0.45
-				add_child(hill)
-				game_nodes.append(hill)
-			# snowy pine (green cone capped with snow)
-			var pine := MeshInstance3D.new()
-			var pc := CylinderMesh.new()
-			pc.top_radius = 0.0
-			pc.bottom_radius = 3.0 + randf() * 1.5
-			pc.height = 9.0 + randf() * 4.0
-			pine.mesh = pc
-			var pmat := StandardMaterial3D.new()
-			pmat.albedo_color = Color(0.25, 0.42, 0.32)
-			pine.material_override = pmat
-			pine.position = origin + Vector3(tx, pc.height * 0.5, tzz)
-			add_child(pine)
-			game_nodes.append(pine)
-			var cap := MeshInstance3D.new()
-			var cc := CylinderMesh.new()
-			cc.top_radius = 0.0
-			cc.bottom_radius = pc.bottom_radius * 0.7
-			cc.height = pc.height * 0.45
-			cap.mesh = cc
-			cap.material_override = snmat
-			cap.position = pine.position + Vector3(0, pc.height * 0.32, 0)
-			add_child(cap)
-			game_nodes.append(cap)
-		# gently falling snow over the scene
-		var snowfall := GPUParticles3D.new()
-		snowfall.amount = 120
-		snowfall.lifetime = 6.0
-		snowfall.preprocess = 4.0
-		var spm := ParticleProcessMaterial.new()
-		spm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
-		spm.emission_box_extents = Vector3(60, 1, 80)
-		spm.gravity = Vector3(1.0, -4.0, 0)
-		spm.initial_velocity_min = 0.5
-		spm.initial_velocity_max = 1.5
-		spm.scale_min = 0.1
-		spm.scale_max = 0.3
-		snowfall.process_material = spm
-		var sflake := SphereMesh.new()
-		sflake.radius = 0.5
-		sflake.height = 1.0
-		sflake.radial_segments = 5
-		sflake.rings = 3
-		var sfm := StandardMaterial3D.new()
-		sfm.albedo_color = Color(1, 1, 1)
-		sfm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		sflake.material = sfm
-		snowfall.draw_pass_1 = sflake
-		snowfall.position = origin + Vector3(-10, 30, 0)
-		add_child(snowfall)
-		game_nodes.append(snowfall)
-		# ---- explorable detail: snowy boulders, a wooden dock, a cleared shore path ----
-		var rockmat := StandardMaterial3D.new()
-		rockmat.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
-		rockmat.albedo_color = Color(0.78, 0.8, 0.86)
-		rockmat.normal_enabled = true
-		rockmat.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-		rockmat.uv1_triplanar = true
-		rockmat.uv1_scale = Vector3(0.12, 0.12, 0.12)
-		rockmat.roughness = 0.95
-		var rsd := 7
-		for ri in range(10):
-			rsd = (rsd * 1103515245 + 12345) & 0x7fffffff
-			var rx: float = -52.0 + float(rsd % 50)
-			var rz: float = -75.0 + float((rsd / 50) % 150)
-			var rsz: float = 1.4 + float(rsd % 3)
-			var rk := MeshInstance3D.new()
-			var rm := SphereMesh.new(); rm.radius = rsz; rm.height = rsz * 1.5
-			rk.mesh = rm
-			rk.material_override = rockmat
-			rk.position = origin + Vector3(rx, rsz * 0.35, rz)
-			rk.scale.y = 0.7
-			add_child(rk); game_nodes.append(rk)
-			var rcap := MeshInstance3D.new()
-			var rcm := SphereMesh.new(); rcm.radius = rsz * 0.85; rcm.height = rsz * 0.9
-			rcap.mesh = rcm; rcap.material_override = snmat
-			rcap.position = rk.position + Vector3(0, rsz * 0.32, 0); rcap.scale.y = 0.4
-			add_child(rcap); game_nodes.append(rcap)
-		# a wooden dock reaching out over the ice (somewhere to explore)
-		var dmat := StandardMaterial3D.new()
-		dmat.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
-		dmat.normal_enabled = true
-		dmat.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
-		dmat.uv1_triplanar = true; dmat.uv1_scale = Vector3(0.08, 0.08, 0.08); dmat.roughness = 0.9
-		var dock := _course_box(origin + Vector3(17.0, 1.1, 0.0), Vector3(30.0, 0.5, 6.0), Color(0.6, 0.44, 0.28))
-		dock.material_override = dmat
-		for dp in range(6):
-			_course_box(origin + Vector3(4.0 + float(dp) * 6.0, 0.0, 3.2), Vector3(0.8, 2.2, 0.8), Color(0.4, 0.3, 0.2))
-			_course_box(origin + Vector3(4.0 + float(dp) * 6.0, 0.0, -3.2), Vector3(0.8, 2.2, 0.8), Color(0.4, 0.3, 0.2))
-		# a cleared path along the snowy shore
-		var pth := _course_box(origin + Vector3(-27.0, 0.56, 0.0), Vector3(9.0, 0.1, 150.0), Color(0.82, 0.86, 0.92))
-		pth.material_override.roughness = 1.0
-		# Chuck waits on the snow
-		var chuck_spr := Sprite3D.new()
-		chuck_spr.texture = load("res://assets/book/chuck_solo.png")
-		chuck_spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		chuck_spr.pixel_size = 0.0095
-		chuck_spr.position = origin + Vector3(-8, 4.5, -4)
-		add_child(chuck_spr)
-		game_nodes.append(chuck_spr)
-		g["chuck"] = chuck_spr
-		g["home"] = chuck_spr.position
-		# aim arrow Roshan points while holding the ball
-		var arrow := MeshInstance3D.new()
-		var ab := PrismMesh.new()
-		ab.size = Vector3(1.6, 2.6, 0.5)
-		arrow.mesh = ab
-		arrow.material_override = _soft_mat(Color(0.4, 1.0, 0.5), 0.9)
-		add_child(arrow)
-		game_nodes.append(arrow)
-		g["arrow"] = arrow
-		show_msg(fr["fname"], "Throw the ball for Chuck - but NOT into the lake! Press when the arrow is GREEN!")
+		_game_obj("fetch", FetchGame).build(fr, origin)
 	elif game == "dolls":
-		g["spawned"] = 0
-		g["caught"] = 0
-		g["resolved"] = 0
-		g["next"] = 0.6
-		g["dolls"] = []
-		g["timer"] = -1.0
-		_dolls2d_open(fr)
-		show_msg(fr["fname"], "Catch 3 sleepy dolls in your arms!")
+		_game_obj("dolls", DollsGame).build(fr, origin)
 	elif game == "seek":
-		g["found"] = 0
-		g["timer"] = 20.0
-		g["bushes"] = []
-		for i in range(4):
-			var bush := MeshInstance3D.new()
-			var bm3 := SphereMesh.new()
-			bm3.radius = 2.4
-			bm3.height = 3.4
-			bush.mesh = bm3
-			var bmat3 := StandardMaterial3D.new()
-			bmat3.albedo_color = BTN_COLS[i] * 0.55 + Color(0.25, 0.45, 0.25)
-			bmat3.albedo_texture = load("res://assets/terrain/up_grass_col.jpg")
-			bmat3.uv1_triplanar = true
-			bmat3.uv1_scale = Vector3(3.0, 3.0, 3.0)
-			bmat3.normal_enabled = true
-			bmat3.normal_texture = load("res://assets/terrain/scales_normal.png")
-			bmat3.normal_scale = 1.0
-			bmat3.roughness = 1.0
-			bmat3.emission_enabled = true
-			bmat3.emission = BTN_COLS[i] * 0.3
-			bmat3.emission_energy_multiplier = 0.7
-			bush.material_override = bmat3
-			bush.position = origin + BTN_OFFS[i] + Vector3(0, 2.2, 0)
-			add_child(bush)
-			game_nodes.append(bush)
-			(g["bushes"] as Array).append(bush)
-		var lamb_ps: PackedScene = load("res://assets/characters/lamb.glb")
-		var lamb: Node3D
-		if lamb_ps != null:
-			lamb = lamb_ps.instantiate()
-			lamb.scale = Vector3.ONE * 2.6
-			add_child(lamb)
-			game_nodes.append(lamb)
-		else:
-			lamb = _game_ball(Color(1.0, 0.99, 0.95), 1.2)
-		g["lamb"] = lamb
-		_decorate_lamb_meadow(origin)
-		_seek_hide()
-		show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
+		_game_obj("seek", SeekGame).build(fr, origin)
 	elif game == "race":
-		g["timer"] = 999.0
-		g["checks"] = []
-		g["chains"] = []
-		_build_playplace(origin, fr)
-		show_msg(fr["fname"], "Welcome to the play place! Touch the sparkles all the way up to the BIG slide!")
+		_game_obj("race", SlideRaceGame).build(fr, origin)
 	elif game == "shop":
-		g["timer"] = 999.0
-		_build_shop_cabin(origin)
-		player.position = origin + Vector3(0, 4, 9)
-		player.vel = Vector3.ZERO
-		player.yaw = PI
-		show_msg("Pearl Shop", "Welcome aboard! Swim up to a treasure on the counter to buy it!")
+		_game_obj("shop", ShopGame).build(fr, origin)
 	elif game == "treasure":
-		g["timer"] = 999.0
-		g["checks"] = []
-		g["chains"] = []
-		_build_cavern(origin)
-		show_msg(fr["fname"], "Shhh... secret caverns! Follow the sparkles down to the treasure!")
+		_game_obj("treasure", TreasureGame).build(fr, origin)
 	elif game == "melody":
-		g["caught"] = 0
-		g["orbs"] = []
-		# the whole Gabby concert page is the stage backdrop
-		var bd := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = Vector2(46.0, 41.8)
-		bd.mesh = qm
-		var bdm := StandardMaterial3D.new()
-		bdm.albedo_texture = load("res://assets/book/gabby_stage.jpg")
-		bdm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		bd.material_override = bdm
-		bd.position = origin + Vector3(0, 19.0, -15.0)
-		add_child(bd)
-		game_nodes.append(bd)
-		# ---- 3D concert stage set dressing (rich, themed — like the fetch/seek worlds) ----
-		var stage_f: float = ARENA_POS.y + 0.6
-		var rcols := [Color(1.0, 0.2, 0.2), Color(1.0, 0.55, 0.15), Color(1.0, 0.9, 0.2), Color(0.25, 0.9, 0.3), Color(0.2, 0.55, 1.0), Color(0.35, 0.25, 0.9), Color(0.7, 0.3, 0.9)]
-		# raised stage platform with a glowing edge
-		var plat := _course_box(origin + Vector3(0, stage_f + 0.8, -8.0), Vector3(40, 1.6, 26), Color(0.18, 0.12, 0.28))
-		plat.material_override.metallic = 0.4; plat.material_override.roughness = 0.3
-		var edge := _course_box(origin + Vector3(0, stage_f + 1.7, -8.0), Vector3(41, 0.4, 27), Color(1.0, 0.3, 0.7))
-		edge.material_override = _soft_mat(Color(1.0, 0.3, 0.7), 1.6)
-		# big speaker stacks flanking the stage
-		for sx in [-17.0, 17.0]:
-			for sy in range(3):
-				var spk := _course_box(origin + Vector3(sx, stage_f + 3.0 + float(sy) * 5.0, -12.0), Vector3(7, 4.6, 6), Color(0.08, 0.08, 0.1))
-				spk.material_override.roughness = 0.8
-				var cone := MeshInstance3D.new()
-				var cmh := CylinderMesh.new(); cmh.top_radius = 2.2; cmh.bottom_radius = 0.6; cmh.height = 0.8
-				cone.mesh = cmh
-				cone.material_override = _soft_mat(Color(0.3, 0.3, 0.35), 0.1)
-				cone.rotation_degrees = Vector3(90, 0, 0)
-				cone.position = origin + Vector3(sx, stage_f + 3.0 + float(sy) * 5.0, -8.9)
-				add_child(cone); game_nodes.append(cone)
-		# overhead lighting truss with colored spotlights + beams
-		var truss := _course_box(origin + Vector3(0, stage_f + 24.0, -10.0), Vector3(44, 1.0, 1.0), Color(0.2, 0.2, 0.22))
-		truss.material_override.metallic = 0.6
-		for li in range(5):
-			var lx2: float = -18.0 + float(li) * 9.0
-			var lc: Color = rcols[li % rcols.size()]
-			var sl := OmniLight3D.new()
-			sl.light_color = lc; sl.light_energy = 2.6; sl.omni_range = 26.0
-			sl.position = origin + Vector3(lx2, stage_f + 22.0, -8.0)
-			add_child(sl); game_nodes.append(sl)
-			var beam := MeshInstance3D.new()
-			var bcone := CylinderMesh.new(); bcone.top_radius = 0.4; bcone.bottom_radius = 5.0; bcone.height = 22.0
-			beam.mesh = bcone
-			var bmm := StandardMaterial3D.new()
-			bmm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			bmm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-			bmm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-			bmm.albedo_color = Color(lc.r, lc.g, lc.b, 0.14)
-			beam.material_override = bmm
-			beam.position = origin + Vector3(lx2, stage_f + 12.0, -9.0)
-			add_child(beam); game_nodes.append(beam)
-		# floating music notes drifting over the crowd
-		for ni in range(10):
-			var note := Label3D.new()
-			note.text = ["♪", "♫", "♩", "♬"][ni % 4]
-			note.font_size = 120; note.modulate = rcols[ni % rcols.size()]
-			note.outline_size = 10; note.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			note.position = origin + Vector3(randf() * 36.0 - 18.0, stage_f + 6.0 + randf() * 14.0, 2.0 + randf() * 12.0)
-			add_child(note); game_nodes.append(note)
-		var rainbow := rcols
-		for i in range(7):
-			var orb := MeshInstance3D.new()
-			var sph := SphereMesh.new()
-			sph.radius = 1.25
-			sph.height = 2.5
-			orb.mesh = sph
-			var om := StandardMaterial3D.new()
-			om.albedo_color = rainbow[i]
-			om.emission_enabled = true
-			om.emission = rainbow[i]
-			om.emission_energy_multiplier = 1.5
-			orb.material_override = om
-			orb.position = origin + Vector3(-12.0 + float(i) * 4.0, 5.0 + fmod(float(i) * 2.7, 8.0), -6.0 + fmod(float(i) * 3.3, 12.0))
-			add_child(orb)
-			game_nodes.append(orb)
-			var ov := Vector3(sin(float(i) * 2.1), sin(float(i) * 1.3) * 0.6, cos(float(i) * 1.7)).normalized() * (6.0 + float(i % 3) * 2.0)
-			(g["orbs"] as Array).append({"node": orb, "vel": ov, "caught": false})
-		show_msg(fr["fname"], "Catch all 7 colors of the rainbow! Swim into the bouncing orbs!")
+		_game_obj("melody", MelodyGame).build(fr, origin)
 	elif game == "slide":
-		g["timer"] = -1.0   # no countdown — reaching the bottom ends it (~12s run)
-		var theme: String = String(fr.get("theme", "ice"))
-		var mode: String = String(fr.get("mode", "fish"))
-		g["mode"] = mode
-		_build_slide(origin, theme, mode)
-		_play_music("fetch")   # reuse the snowy track
-		if theme == "rainbow":
-			arena_env.background_color = Color(0.72, 0.86, 1.0)
-			arena_env.ambient_light_color = Color(1.0, 0.97, 1.0)
-			arena_env.ambient_light_energy = 1.35
-		if mode == "chase":
-			if beans_t >= 0.0:
-				show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")
-			else:
-				show_msg(fr["fname"], "Race the baby penguin! Careful — he's SO speedy!")
-				# non-reader breadcrumb to the beans: Roshan thinks out loud
-				get_tree().create_timer(3.6).timeout.connect(func():
-					if game == "slide" and String(g.get("mode", "")) == "chase" and beans_t < 0.0:
-						show_msg("Roshan", "I sure am hungry... I bet I'd be faster after a good MEAL!", "hungry"))
-		else:
-			show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")
+		_game_obj("race", SlideRaceGame).build_slide(fr, origin)
 	elif game == "fairyshoot":
-		g["timer"] = -1.0
-		_build_fairyshoot(origin)
-		_play_music("melody")   # dreamy track
-		show_msg(fr["fname"], "Fly the fairy! Move to dodge, hold SPACE / TAP to zap the shadow bugs!")
+		_game_obj("fairyshoot", FairyGame).build(fr, origin)
+# ===================== PENGUIN ICE SLIDE =====================
+# A short N64-style downhill chute. Roshan slides on momentum (gravity along the
+# slope); the player only steers left/right. 5 fish to grab, ~12 seconds.
 
 # ===================== PENGUIN ICE SLIDE =====================
 # A short N64-style downhill chute. Roshan slides on momentum (gravity along the
@@ -6199,178 +5736,6 @@ func _fairy_bloom_start() -> void:
 			pm.position = center; add_child(pm); game_nodes.append(pm); petal = pm
 		(g["petals"] as Array).append({"node": petal, "ang": a})
 
-func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
-	var origin: Vector3 = ARENA_POS
-	var phase: String = String(g.get("phase", "fly"))
-	if phase == "fly":
-		g["fz"] = float(g["fz"]) + FS_FWD * delta
-	var fz: float = g["fz"]
-	# ---- steering input (free 2D), x negated so 'right' reads screen-right ----
-	var inx := 0.0
-	var iny := 0.0
-	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
-		inx -= 1.0
-	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
-		inx += 1.0
-	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
-		iny += 1.0
-	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
-		iny -= 1.0
-	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
-	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
-	if absf(jx) > 0.2: inx += jx
-	if absf(jy) > 0.2: iny -= jy
-	if touch_ui != null:
-		if absf(touch_ui.stick_vec.x) > 0.15: inx += touch_ui.stick_vec.x
-		if absf(touch_ui.stick_vec.y) > 0.15: iny -= touch_ui.stick_vec.y
-	var ox: float = clampf(float(g["ox"]) - inx * FS_MOVE * delta, -FS_BX, FS_BX)
-	var oy: float = clampf(float(g["oy"]) + iny * FS_MOVE * delta, -FS_BY, FS_BY)
-	g["ox"] = ox; g["oy"] = oy
-	var pos: Vector3 = origin + Vector3(ox, FS_BASE_Y + oy, fz)
-	player.position = pos
-	# ---- chase camera, locked behind ----
-	if player.cam != null and player.cam.is_inside_tree():
-		var campos := Vector3(origin.x + ox * 0.4, origin.y + FS_BASE_Y + 5.0 + oy * 0.3, pos.z - 16.0)
-		player.cam.position = player.cam.position.lerp(campos, 1.0 - pow(0.0006, delta))
-		player.cam.look_at(pos + Vector3(0, 0.5, 26.0))
-	# ---- reticle ahead of the player ----
-	if g.has("reticle") and is_instance_valid(g["reticle"]):
-		(g["reticle"] as Node3D).position = pos + Vector3(0, 0, 34.0)
-	# ---- firing (auto-shooter: bolts fire on their own; you just aim by moving) ----
-	g["fire_cd"] = maxf(0.0, float(g["fire_cd"]) - delta)
-	if float(g["fire_cd"]) <= 0.0:
-		g["fire_cd"] = FS_FIRE_CD
-		var bolt := MeshInstance3D.new()
-		var bsm := SphereMesh.new(); bsm.radius = 0.6; bsm.height = 1.2
-		bolt.mesh = bsm
-		bolt.material_override = _soft_mat(Color(0.6, 1.0, 0.9), 3.0)
-		bolt.position = pos + Vector3(0, 0, 3.0)
-		add_child(bolt); game_nodes.append(bolt)
-		(g["bolts"] as Array).append({"node": bolt})
-		if chime != null:
-			chime.pitch_scale = 0.95; chime.play()
-	# ---- advance bolts, check hits ----
-	var bolts: Array = g["bolts"]
-	for bi in range(bolts.size() - 1, -1, -1):
-		var bd: Dictionary = bolts[bi]
-		var bn: Node3D = bd["node"]
-		if not is_instance_valid(bn):
-			bolts.remove_at(bi); continue
-		bn.position.z += FS_BOLT * delta
-		var dead := bn.position.z > pos.z + 280.0
-		for td in g["targets"]:
-			if not td["alive"]:
-				continue
-			if bn.position.distance_to(td["node"].position) < FS_HIT_R:
-				td["alive"] = false
-				g["hits"] = int(g["hits"]) + 1
-				var tn: Node = td["node"]
-				_sparkle_burst((tn as Node3D).position, Color(1.0, 0.5, 0.7))
-				if is_instance_valid(tn): tn.queue_free()
-				if chime != null:
-					chime.pitch_scale = 0.85; chime.play()
-				dead = true
-				break
-		# boss: leaf shield
-		if not dead and phase == "boss_leaves":
-			for lf in g["leaves"]:
-				if int(lf["hp"]) <= 0 or not is_instance_valid(lf["node"]):
-					continue
-				if bn.position.distance_to((lf["node"] as Node3D).position) < FS_BOSS_HIT_R:
-					lf["hp"] = int(lf["hp"]) - 1
-					_sparkle_burst((lf["node"] as Node3D).position, Color(0.5, 1.0, 0.5))
-					if int(lf["hp"]) <= 0:
-						(lf["node"] as Node3D).queue_free()
-						if chime != null: chime.pitch_scale = 0.9; chime.play()
-					dead = true
-					break
-		# boss: flower bud
-		if not dead and phase == "boss_bud" and g.get("bud") != null and is_instance_valid(g["bud"]):
-			if bn.position.distance_to((g["bud"] as Node3D).position) < FS_BOSS_HIT_R + 1.0:
-				g["bud_hp"] = int(g["bud_hp"]) - 1
-				_sparkle_burst((g["bud"] as Node3D).position + Vector3(randf() * 4 - 2, randf() * 4 - 2, 0), Color(1.0, 0.7, 0.85))
-				if chime != null: chime.pitch_scale = 0.8 + 0.015 * float(FS_BUD_HP - int(g["bud_hp"])); chime.play()
-				dead = true
-		if dead:
-			bn.queue_free(); bolts.remove_at(bi)
-	# ---- bug + firefly idle motion ----
-	var tt: float = float(g["t"])
-	for td in g["targets"]:
-		if td["alive"] and is_instance_valid(td["node"]):
-			(td["node"] as Node3D).position.y = (td["pos"] as Vector3).y + sin(tt * 2.0 + float(td["ph"])) * 0.8
-	for ff in g["fireflies"]:
-		if is_instance_valid(ff["node"]):
-			var b: Vector3 = ff["base"]
-			(ff["node"] as Node3D).position = b + Vector3(sin(tt * 1.3 + float(ff["ph"])) * 2.0, cos(tt * 1.1 + float(ff["ph"])) * 1.5, 0)
-	# ---- phase logic ----
-	if phase == "fly":
-		hud_game.text = "Fairy Pond!  Shadow bugs zapped: %d / %d" % [int(g["hits"]), FS_NBUGS]
-		if fz >= FS_LEN:
-			_fairy_start_boss(origin)
-		return
-	g["phase_t"] = float(g.get("phase_t", 0.0)) - delta
-	var pt: float = maxf(0.0, float(g["phase_t"]))
-	if phase == "boss_leaves":
-		var left := 0
-		for lf in g["leaves"]:
-			if int(lf["hp"]) > 0:
-				left += 1
-			elif is_instance_valid(lf.get("node")):
-				pass
-		# rustle surviving leaves (gentle scale pulse — keeps the GLB bushes upright)
-		for lf in g["leaves"]:
-			if int(lf["hp"]) > 0 and is_instance_valid(lf["node"]):
-				(lf["node"] as Node3D).scale = Vector3.ONE * (FS_LEAF_SCALE * (1.0 + sin(tt * 4.0 + float(lf["ang"])) * 0.06))
-		hud_game.text = "Blast the leaves away!   leaves left: %d   ⏱ %d" % [left, int(ceil(pt))]
-		if left <= 0:
-			g["phase"] = "boss_bud"
-			g["phase_t"] = FS_BUD_T + 6.0 * float(mini(fs_fails, 2))
-			if g.get("bud") != null and is_instance_valid(g["bud"]):
-				(g["bud"] as Node3D).scale = Vector3.ONE * (FS_BUD_SCALE * 0.5)
-			show_msg(fr_name_safe(), "The flower! Keep blasting to make it grow and bloom!")
-		elif pt <= 0.0:
-			fs_fails += 1
-			_end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
-		return
-	if phase == "boss_bud":
-		var hp: int = int(g["bud_hp"])
-		var bud: Node3D = g.get("bud")
-		if bud != null and is_instance_valid(bud):
-			# the flower GROWS bigger with every hit (0.5x -> 1.4x), plus a gentle pulse
-			var grown: float = lerpf(0.5, 1.4, clampf(1.0 - float(hp) / float(FS_BUD_HP), 0.0, 1.0))
-			var pulse: float = 1.0 + sin(tt * 8.0) * 0.05
-			bud.scale = Vector3.ONE * (FS_BUD_SCALE * grown * pulse)
-		hud_game.text = "Open the flower!   %d hits left   ⏱ %d" % [maxi(0, hp), int(ceil(pt))]
-		if hp <= 0:
-			fs_fails = 0
-			_fairy_bloom_start()
-			show_msg(fr_name_safe(), "It's blooming! 🌸")
-		elif pt <= 0.0:
-			fs_fails += 1
-			_end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
-		return
-	if phase == "boss_bloom":
-		g["bloom_t"] = float(g.get("bloom_t", 0.0)) - delta
-		var f: float = clampf(1.0 - float(g["bloom_t"]) / FS_BLOOM_T, 0.0, 1.0)
-		var center: Vector3 = g["boss_center"]
-		if g.get("bud") != null and is_instance_valid(g["bud"]):
-			(g["bud"] as Node3D).scale = Vector3.ONE * (FS_BUD_SCALE * (1.0 - f * 0.55))
-		for pd in g.get("petals", []):
-			if is_instance_valid(pd["node"]):
-				var a: float = pd["ang"]
-				var r: float = 14.0 + f * 55.0
-				(pd["node"] as Node3D).position = center + Vector3(cos(a) * r, sin(a) * r, 0)
-				(pd["node"] as Node3D).scale = Vector3.ONE * (3.0 + f * 24.0)
-		hud_game.text = "IT'S BLOOMING!!"
-		if fmod(tt, 0.12) < delta:
-			_sparkle_burst(center + Vector3(randf() * 70 - 35, randf() * 60 - 30, randf() * 8 - 4), Color.from_hsv(randf(), 0.4, 1.0))
-			if chime != null:
-				chime.pitch_scale = 1.0 + f * 0.5
-				chime.play()
-		if float(g["bloom_t"]) <= 0.0:
-			_end_game(true, fr, "The GIANT Fairy Flower blossomed across the whole sky! You did it!")
-		return
-
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
 	slide_portal_pos = Vector3(80.0, WATER_TOP - 20.0, -70.0)
@@ -6459,22 +5824,6 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 	add_child(sun)
 	game_nodes.append(sun)
 
-func _seek_hide() -> void:
-	g["which"] = randi() % 4
-	var bush: MeshInstance3D = (g["bushes"] as Array)[int(g["which"])]
-	(g["lamb"] as Node3D).position = bush.position + Vector3(0, 0.5, -2.2)
-	(g["lamb"] as Node3D).rotation.y = 0.0
-	# audit: the wiggle used to stop after ~2.5s (8 loops) and every bush went
-	# still — a slow seeker lost the only signal. It wiggles until found now.
-	if g.get("wiggle_tw") != null and (g["wiggle_tw"] as Tween).is_valid():
-		(g["wiggle_tw"] as Tween).kill()
-	var tw := create_tween().set_loops()
-	tw.tween_property(bush, "scale", Vector3(1.35, 0.75, 1.35), 0.16)
-	tw.tween_property(bush, "scale", Vector3.ONE, 0.16)
-	tw.tween_interval(0.9)
-	g["wiggle_tw"] = tw
-	g["gig_t"] = 2.2   # Lamb-a' giggles from her hiding spot (audio beacon)
-
 func _tick_game(delta: float) -> void:
 	var fr: Dictionary = g["fr"]
 	g["t"] = float(g["t"]) + delta
@@ -6489,34 +5838,7 @@ func _tick_game(delta: float) -> void:
 	elif game == "dolls":
 		_tick_dolls(delta, fr, ppos)
 	elif game == "seek":
-		hud_game.text = "Find Lamb-a'! %d / 4   %ds" % [int(g["found"]), int(g["timer"])]
-		# giggle beacon: she can be HEARD from the wiggly bush, not just seen
-		g["gig_t"] = float(g.get("gig_t", 2.0)) - delta
-		if float(g["gig_t"]) <= 0.0:
-			g["gig_t"] = 2.8
-			if voice != null:
-				voice.pitch_scale = 1.45 + randf() * 0.15
-				voice.play()
-		var which: int = int(g.get("which", 0))
-		var bush: MeshInstance3D = (g["bushes"] as Array)[which]
-		var hit: bool = _btn_pressed() == which or bush.position.distance_to(ppos) < 4.0
-		if hit:
-			g["found"] = int(g["found"]) + 1
-			# 50-run sim: 4 finds on one 20s clock passed only 6% on touch —
-			# each find gifts +6s so a slow little seeker still wins the game
-			g["timer"] = float(g["timer"]) + 6.0
-			var lamb2: Node3D = g["lamb"]
-			lamb2.position = bush.position + Vector3(0, 4.8, 0)
-			var twl := create_tween()
-			twl.tween_property(lamb2, "scale", Vector3.ONE * 3.4, 0.2)
-			twl.tween_property(lamb2, "scale", Vector3.ONE * 2.6, 0.3)
-			if voice != null:
-				voice.pitch_scale = 1.0 + randf() * 0.3
-				voice.play()
-			if int(g["found"]) >= 4:
-				_end_game(true, fr, "You found Lamb-a' every time! Best seeker ever!")
-				return
-			_seek_hide()
+		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
 	elif game == "race" or game == "treasure":
 		_tick_course(delta, fr, ppos)
 	elif game == "shop":
@@ -6528,93 +5850,6 @@ func _tick_game(delta: float) -> void:
 	elif game == "fairyshoot":
 		_tick_fairyshoot(delta, fr, ppos)
 
-func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	var ball: MeshInstance3D = g["ball"]
-	var chuck: Sprite3D = g["chuck"]
-	if String(g["phase"]) == "aim":
-		hud_game.text = "Throw %d / 2   (oops: %d / 3)" % [int(g["round"]) + 1, int(g["miss"])]
-		# Roshan HOLDS the ball
-		var fdir := Vector3(sin(player.yaw + PI), 0, cos(player.yaw + PI))
-		ball.position = ppos + fdir * 1.3 + Vector3(0, -0.2, 0)
-		# sweeping aim — sim: the old 1.5 rad/s sweep outran a 4yo's ~1s reaction
-		# (only ~1 in 4 finished). Slower sweep, and it slows FURTHER after each
-		# splash so a struggling kid always gets there (skill still shows: fewer
-		# splashes = faster win)
-		var sw: float = sin(float(g["t"]) * 0.9 * pow(0.72, float(g["miss"]))) * 1.25
-		var dirv := Vector3(sin(sw), 0, -cos(sw))
-		g["aim_dir"] = dirv
-		var arrow: MeshInstance3D = g["arrow"]
-		arrow.position = ppos + dirv * 3.2
-		arrow.look_at(ppos + dirv * 9.0, Vector3.UP)
-		arrow.rotation.x = -PI * 0.5
-		var landing: Vector3 = ppos + dirv * 14.0
-		var wet: bool = landing.x - ARENA_POS.x > 8.2
-		(arrow.material_override as StandardMaterial3D).albedo_color = Color(1.0, 0.3, 0.3) if wet else Color(0.4, 1.0, 0.5)
-		(arrow.material_override as StandardMaterial3D).emission = (Color(1.0, 0.25, 0.25) if wet else Color(0.3, 1.0, 0.45)) * 0.9
-		# non-reader timing cue: the arrow SWELLS while green and a soft tick
-		# plays the moment it turns green — timing by ear, not just by color
-		arrow.scale = Vector3.ONE if wet else Vector3.ONE * (1.22 + 0.10 * sin(float(g["t"]) * 9.0))
-		if not wet and bool(g.get("was_wet", true)) and chime != null:
-			chime.pitch_scale = 1.5
-			chime.play()
-		g["was_wet"] = wet
-		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
-		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
-			g["press_cool"] = 1.0
-			g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)
-			g["phase"] = "fly"
-			arrow.visible = false
-			if voice != null:
-				voice.pitch_scale = 1.1
-				voice.play()
-		g["press_cool"] = maxf(0.0, float(g.get("press_cool", 0.0)) - delta)
-	elif String(g["phase"]) == "fly":
-		hud_game.text = "Wheee!"
-		var v: Vector3 = g["vel"]
-		v.y -= 9.5 * delta
-		g["vel"] = v
-		ball.position += v * delta
-		if ball.position.y <= ARENA_POS.y + 0.9:
-			ball.position.y = ARENA_POS.y + 0.9
-			if ball.position.x - ARENA_POS.x > 8.2:
-				# SPLASH - into the lake! No mean buzzer: a cartoon puppy
-				# whimper + Wacky hamming it up ("OH NO! Chuck is all WET!")
-				g["miss"] = int(g["miss"]) + 1
-				_sparkle_burst(ball.position, Color(0.4, 0.7, 1.0))
-				var bz := AudioStreamPlayer.new()
-				bz.stream = load("res://assets/audio/voices/chuck_whimper.ogg")
-				add_child(bz)
-				bz.play()
-				bz.finished.connect(bz.queue_free)
-				if int(g["miss"]) >= 3:
-					_end_game(false, fr, "Aww... now Chuck is all wet!", "fail")
-					return
-				show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!", "splash")
-				g["phase"] = "aim"
-				(g["arrow"] as MeshInstance3D).visible = true
-			else:
-				g["phase"] = "fetch"
-	else:
-		var target: Vector3 = ball.position
-		if String(g["phase"]) == "return":
-			target = ppos
-		var d: Vector3 = target - chuck.position
-		d.y = 0.0
-		hud_game.text = "Chuck is on it!"
-		if d.length() > 2.0:
-			chuck.position += d.normalized() * minf(40.0 * delta, d.length())
-			if String(g["phase"]) == "return":
-				ball.position = chuck.position + Vector3(0, -1.5, 0)
-		elif String(g["phase"]) == "fetch":
-			g["phase"] = "return"
-		else:
-			g["round"] = int(g["round"]) + 1
-			if int(g["round"]) >= 2:
-				_say("chuck", "bark")
-				_end_game(true, fr, "Chuck loves to fetch! What a good boy!")
-			else:
-				g["phase"] = "aim"
-				(g["arrow"] as MeshInstance3D).visible = true
 var dolls_layer: CanvasLayer
 var dolls_root: Control
 var dolls_catcher: TextureRect
@@ -6630,189 +5865,6 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/skins/fairy_mermaid.png"
 	return "res://assets/characters/roshan_sprite.png"   # classic + pearl (classic art)
 
-func _dolls2d_open(fr: Dictionary) -> void:
-	if dolls_layer == null:
-		dolls_layer = CanvasLayer.new()
-		dolls_layer.layer = 6
-		add_child(dolls_layer)
-	dolls_root = Control.new()
-	dolls_root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dolls_layer.add_child(dolls_root)
-	var bg := TextureRect.new()
-	bg.texture = load("res://assets/book/nursery_bg.jpg")
-	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dolls_root.add_child(bg)
-	var tint := ColorRect.new()
-	tint.color = Color(0.08, 0.05, 0.2, 0.25)
-	tint.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dolls_root.add_child(tint)
-	var faron := TextureRect.new()
-	faron.texture = (fr["node"] as Sprite3D).texture
-	faron.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	faron.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-	faron.custom_minimum_size = Vector2(170, 200)
-	faron.size = Vector2(170, 200)
-	faron.position = Vector2(40, 60)
-	dolls_root.add_child(faron)
-	dolls_score_lbl = Label.new()
-	dolls_score_lbl.add_theme_font_size_override("font_size", 34)
-	dolls_score_lbl.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15))
-	dolls_score_lbl.add_theme_constant_override("outline_size", 10)
-	dolls_score_lbl.position = Vector2(230, 24)
-	dolls_root.add_child(dolls_score_lbl)
-	dolls_catcher = TextureRect.new()
-	dolls_catcher.texture = load(skin_sprite_path())
-	dolls_catcher.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	dolls_catcher.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-	dolls_catcher.custom_minimum_size = Vector2(130, 165)
-	dolls_catcher.size = Vector2(130, 165)
-	dolls_catcher.position = Vector2(580, 530)
-	dolls_root.add_child(dolls_catcher)
-
-func _dolls2d_close() -> void:
-	if dolls_root != null and is_instance_valid(dolls_root):
-		dolls_root.queue_free()
-	dolls_root = null
-	dolls_catcher = null
-	dolls_score_lbl = null
-
-func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	if dolls_root == null:
-		return
-	# move the 2D catcher: stick / arrows / mouse-touch x
-	var mx := 0.0
-	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
-		mx -= 1.0
-	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
-		mx += 1.0
-	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
-	if absf(jx) > 0.2:
-		mx += jx
-	if touch_ui != null and absf((touch_ui.stick_vec as Vector2).x) > 0.15:
-		mx += (touch_ui.stick_vec as Vector2).x
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		var target_x: float = dolls_root.get_global_mouse_position().x - 60.0
-		dolls_catcher.position.x = lerpf(dolls_catcher.position.x, target_x, 0.2)
-	dolls_catcher.position.x = clampf(dolls_catcher.position.x + mx * 620.0 * delta, 0.0, 1160.0)
-	# Phase 6: catching needs a live hand on the controls — any stick / key /
-	# mouse / touch inside the last 2s counts. Lucky drops onto an abandoned
-	# catcher no longer score (a passive run could fluke 3 catches before).
-	if absf(mx) > 0.05 or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		g["verb_t"] = 2.0
-	else:
-		g["verb_t"] = maxf(0.0, float(g.get("verb_t", 0.0)) - delta)
-	var hands_on: bool = float(g.get("verb_t", 0.0)) > 0.0
-	g["next"] = float(g["next"]) - delta
-	if float(g["next"]) <= 0.0 and int(g["spawned"]) < 5:
-		g["spawned"] = int(g["spawned"]) + 1
-		g["next"] = 1.2
-		var doll := ColorRect.new()
-		doll.color = Color(0, 0, 0, 0)
-		doll.size = Vector2(96, 86)
-		doll.position = Vector2(80.0 + randf() * 1100.0, -100.0)
-		var dtex := TextureRect.new()
-		dtex.texture = load(["res://assets/book/baby_doll.png", "res://assets/book/baby_doll2.png", "res://assets/book/baby_doll3.png"][int(g["spawned"]) % 3])
-		dtex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		dtex.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		dtex.set_anchors_preset(Control.PRESET_FULL_RECT)
-		doll.add_child(dtex)
-		dolls_root.add_child(doll)
-		(g["dolls"] as Array).append(doll)
-	var dolls: Array = g["dolls"]
-	for i in range(dolls.size() - 1, -1, -1):
-		var doll: ColorRect = dolls[i]
-		doll.position.y += 190.0 * delta
-		doll.position.x += sin(float(g["t"]) * 1.6 + float(i) * 2.0) * 60.0 * delta
-		doll.rotation = sin(float(g["t"]) * 2.0 + float(i)) * 0.25
-		var caught: bool = hands_on and doll.position.y > 490.0 and absf(doll.position.x + 48.0 - (dolls_catcher.position.x + 65.0)) < 115.0
-		if caught:
-			g["caught"] = int(g["caught"]) + 1
-			g["resolved"] = int(g["resolved"]) + 1
-			doll.queue_free()
-			dolls.remove_at(i)
-			if voice != null:
-				voice.pitch_scale = 1.0 + randf() * 0.25
-				voice.play()
-		elif doll.position.y > 700.0:
-			g["resolved"] = int(g["resolved"]) + 1
-			# a baby got away! Faron gasps (min-gap so two misses don't overlap)
-			_say("faron", "miss", 3.0)
-			doll.queue_free()
-			dolls.remove_at(i)
-	# audit: hud_game sits BEHIND the opaque nursery overlay — write the score
-	# onto the dolls layer itself so it is actually visible
-	if dolls_score_lbl != null:
-		dolls_score_lbl.text = "Sleepy dolls caught: %d  (catch 3 to win!)" % int(g["caught"])
-	if int(g["resolved"]) >= 5 and dolls.is_empty():
-		_dolls2d_close()
-		if int(g["caught"]) >= 3:
-			_end_game(true, fr, "You tucked in %d dolls! All cozy now." % int(g["caught"]))
-		else:
-			_end_game(false, fr, "Oh no, the babies!", "fail")
-
-func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	var caught: int = int(g["caught"])
-	hud_game.text = "Rainbow colors: %d / 7" % caught
-	# Phase 6: the one deliberate verb — orbs WAIT just out of reach until
-	# Roshan swims toward them. No timer, no fail: a held orb hovers and
-	# sparkles at the hold ring, and drifts in the moment she moves at it.
-	var mprev: Vector3 = g.get("ppos_prev", ppos)
-	var mvel: Vector3 = (ppos - mprev) / maxf(delta, 0.001)
-	g["ppos_prev"] = ppos
-	if mvel.length() < 2.0 and caught == 0:
-		g["still_t"] = float(g.get("still_t", 0.0)) + delta
-	else:
-		g["still_t"] = 0.0
-	if float(g.get("still_t", 0.0)) > 8.0 and not bool(g.get("hinted", false)):
-		g["hinted"] = true
-		show_msg("Gabby", "Swim to the colors! They are waiting for YOU!", "hint")
-	for ob in g["orbs"]:
-		if bool(ob["caught"]):
-			continue
-		var node: MeshInstance3D = ob["node"]
-		var v: Vector3 = ob["vel"]
-		node.position += v * delta
-		var rel: Vector3 = node.position - ARENA_POS
-		if absf(rel.x) > 16.0:
-			v.x = -v.x
-			node.position.x = ARENA_POS.x + clampf(rel.x, -16.0, 16.0)
-		if rel.y < 2.6 or rel.y > 17.0:
-			v.y = -v.y
-			node.position.y = ARENA_POS.y + clampf(rel.y, 2.6, 17.0)
-		if absf(rel.z) > 12.0:
-			v.z = -v.z
-			node.position.z = ARENA_POS.z + clampf(rel.z, -12.0, 12.0)
-		ob["vel"] = v
-		node.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 6.0 + node.position.x) * 0.10)
-		# hold ring AFTER the wall clamps so a wall can never shove a held orb
-		# back into the catch box; 22 clears the whole 14x7x14 box (diag ~21).
-		# The `continue` also gates the catch itself — a stationary player
-		# cannot catch, no matter where the orb bounces.
-		var to_orb: Vector3 = node.position - ppos
-		var d2p: float = maxf(to_orb.length(), 0.001)
-		if d2p < 22.0 and mvel.dot(to_orb / d2p) < 2.0:
-			node.position = ppos + (to_orb / d2p) * 22.0
-			if float(g.get("still_t", 0.0)) > 4.0 and fmod(float(g["t"]), 1.5) < delta:
-				# visual pointer while she idles: a sparkle midway to the orb
-				_sparkle_burst(ppos.lerp(node.position, 0.4), Color(1.0, 0.95, 0.7))
-			continue
-		if absf(node.position.x - ppos.x) < 14.0 and absf(node.position.y - ppos.y) < 7.0 and absf(node.position.z - ppos.z) < 14.0:
-			ob["caught"] = true
-			node.visible = false
-			caught += 1
-			g["caught"] = caught
-			_sparkle_burst(node.position, (node.material_override as StandardMaterial3D).albedo_color)
-			if chime != null:
-				chime.pitch_scale = 0.9 + float(caught) * 0.07
-				chime.play()
-			if voice != null and caught % 2 == 0:
-				voice.pitch_scale = 1.0 + randf() * 0.25
-				voice.play()
-			if caught >= 7:
-				_end_game(true, fr, "You caught the WHOLE rainbow! Gabby and her friends cheer!")
-				return
 var _pad_prev_a := false
 var _pad_prev_b := false
 var _overlay_age := 0.0
