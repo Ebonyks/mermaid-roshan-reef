@@ -2,7 +2,7 @@ name: Android APK
 
 on:
   push:
-    branches: [claude/replace-assets-free-sources-lnplz7]
+    branches: [claude/replace-assets-free-sources-lnplz7, claude/graphics-upgrade-fork]
   workflow_dispatch:
 
 permissions:
@@ -63,11 +63,22 @@ jobs:
       # the account's Actions storage quota and, worse, its failure blocked the
       # release-publish step below (the actual download channel). Release
       # assets do not count against the artifact quota.
-      - name: Publish APK to the android-test prerelease (stable download URL)
+      - name: Pick release tag by branch (graphics fork gets its own channel)
+        id: tag
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "claude/graphics-upgrade-fork" ]; then
+            echo "tag=android-graphics" >> "$GITHUB_OUTPUT"
+            echo "title=Android test build (graphics fork)" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=android-test" >> "$GITHUB_OUTPUT"
+            echo "title=Android test build" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish APK to the prerelease (stable download URL)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: android-test
-          name: "Android test build"
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.title }}
           prerelease: true
           body: |
             Debug APK of Mermaid Roshan Reef of Light (auto-built from the latest push).
