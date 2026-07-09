@@ -441,6 +441,7 @@ func _ready() -> void:
 	_build_hud()
 	_apply_cel_shading()
 	_build_page_frame()
+	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
 	add_child(voice)
@@ -2301,6 +2302,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_solids.clear()
 	fade_walls.clear()
 	lagoon_floor = true   # the courtyard floor follows the rolling-hill terrain
+	_play_music("level2")
 	return_pos = player.position
 	arena_center = LEVEL2_POS
 	arena_dome = 235.0
@@ -4179,6 +4181,7 @@ func _tick_cutscene(delta: float) -> void:
 		show_msg("Roshan", "Wow! Let's go inside!")
 
 func _enter_castle_interior(from_back: bool = false) -> void:
+	_play_music("hall")
 	g["l2_fish"] = []
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5140,6 +5143,7 @@ func _begin_sleep() -> void:
 	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
 	# fades, day flips to night (or night to day), and she wakes refreshed
 	award_sticker("sleepy")
+	_play_music("home")   # A Place I Call Home — the tuck-in lullaby
 	sleep_t = 0.0
 	sleep_flip_done = false
 	var bp: Vector3 = g["bed_pos"]
@@ -5201,6 +5205,7 @@ func _tick_sleep(delta: float) -> void:
 func _end_sleep() -> void:
 	sleep_t = -1.0
 	sleep_cool = 18.0
+	_play_music("hall")   # lullaby over — back to the castle theme
 	if sleep_layer != null and is_instance_valid(sleep_layer):
 		sleep_layer.queue_free()
 	sleep_layer = null
@@ -8334,6 +8339,7 @@ func _process(delta: float) -> void:
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
+	_tick_ambience_duck(delta)
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
 	if fps_lbl != null and pause_panel != null and pause_panel.visible:
@@ -8914,9 +8920,69 @@ func _tick_movers(delta: float) -> void:
 			node.rotation.z = sin(t * 0.5) * 0.06
 
 # ===================== CUTAWAY ARENAS =====================
+var ambience: AudioStreamPlayer = null
+var _tap_player: AudioStreamPlayer = null
+
+func _set_ambience(track: String) -> void:
+	# a quiet world bed under the music: underwater in the reef, breeze +
+	# birds in the lagoon, airy room tone in the castle. Ducks -6dB under voices.
+	if ambience == null:
+		ambience = AudioStreamPlayer.new()
+		ambience.bus = "Master"
+		add_child(ambience)
+	var amb := ""
+	match track:
+		"world", "finale":
+			amb = "res://assets/audio/ambience_reef.ogg"
+		"level2", "castle_open":
+			amb = "res://assets/audio/ambience_lagoon.ogg"
+		"hall", "home":
+			amb = "res://assets/audio/ambience_hall.ogg"
+	if amb == "" or not ResourceLoader.exists(amb):
+		ambience.stop()
+		return
+	var st2: AudioStream = load(amb)
+	if st2 is AudioStreamOggVorbis:
+		(st2 as AudioStreamOggVorbis).loop = true
+	if ambience.stream != st2 or not ambience.playing:
+		ambience.stream = st2
+		ambience.volume_db = -10.0
+		ambience.play()
+
+func _tick_ambience_duck(delta: float) -> void:
+	if ambience == null or not ambience.playing:
+		return
+	var talking := false
+	for vp in voice_pool:
+		if (vp as AudioStreamPlayer).playing:
+			talking = true
+			break
+	var want: float = -16.0 if talking else -10.0
+	ambience.volume_db = lerpf(ambience.volume_db, want, minf(1.0, delta * 6.0))
+
+func _ui_tap() -> void:
+	if _tap_player == null:
+		_tap_player = AudioStreamPlayer.new()
+		_tap_player.stream = load("res://assets/audio/ui_tap.ogg")
+		_tap_player.volume_db = -8.0
+		_tap_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		add_child(_tap_player)
+	_tap_player.play()
+
+func _hook_button_taps(n: Node) -> void:
+	# every Button anywhere in the game gets the soft bubble tap — one global
+	# hook on node_added instead of wiring hundreds of creation sites
+	if n is Button:
+		(n as Button).pressed.connect(_ui_tap)
+
 func _play_music(track: String) -> void:
 	cur_track = track
-	var mpath := "res://assets/audio/music/" + track + ".ogg"
+	# night flips the reef to its dreamier track (Prairie Nights)
+	var fname := track
+	if track == "world" and is_night and ResourceLoader.exists("res://assets/audio/music/world_night.ogg"):
+		fname = "world_night"
+	_set_ambience(track)
+	var mpath := "res://assets/audio/music/" + fname + ".ogg"
 	if not ResourceLoader.exists(mpath):
 		return   # no track for this kind (e.g. transient arena setup) — keep current music
 	var st: AudioStream = load(mpath)

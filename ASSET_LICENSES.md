@@ -58,3 +58,12 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
   Disabled and excluded from import via .gdignore; runtime dead code removed from
   main.gd in Phase 0 (was already flagged off — too heavy for the phone target).
   License file remains at disabled_addons/tessarakkt.oceanfft/LICENSE.
+
+## Phase 3 — music + ambience bed
+- assets/audio/music/world.ogg — "Tropical Island" (JRPG Music Pack #1 Exploration), Juhani Junkala, CC0, https://opengameart.org/content/jrpg-pack-1-exploration — loudness-normalised to -18 LUFS
+- assets/audio/music/world_night.ogg — "Prairie Nights" (same pack/license) — night-mode reef track, -18 LUFS
+- assets/audio/music/level2.ogg — "Sunshine Coast" (JRPG Music Pack #2 Towns), Juhani Junkala, CC0, https://opengameart.org/content/jrpg-pack-2-towns — -18 LUFS
+- assets/audio/music/hall.ogg — "Sand Castles" (JRPG Music Pack #4 Calm), Juhani Junkala, CC0, https://opengameart.org/content/jrpg-pack-4-calm — -18 LUFS
+- assets/audio/music/home.ogg — "A Place I Call Home" (same pack/license) — sleep lullaby, -18 LUFS
+- assets/audio/ambience_reef.ogg / ambience_lagoon.ogg / ambience_hall.ogg — original synthesized beds (numpy), this project, CC0-equivalent
+- assets/audio/ui_tap.ogg — original synthesized bubble tap (numpy), this project, CC0-equivalent
