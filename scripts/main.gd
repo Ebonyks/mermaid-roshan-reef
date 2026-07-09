@@ -2336,7 +2336,8 @@ func _enter_level2(from_castle: bool = false) -> void:
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
 		_build_lagoon_night(LEVEL2_POS)
-	_play_music("finale")
+	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
+	# track selected at the top of this function — the lagoon music never played)
 	if from_castle:
 		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
 		for sd in l2_stars:
