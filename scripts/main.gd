@@ -2557,6 +2557,32 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	_dress_nature(inst)
 	return inst
 
+var _kit_cache := {}
+
+func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
+	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
+	# storybook look (_fit_prop calls _toonify), fit its footprint to `target`
+	# units and seat its base at pos. Collision stays the caller's job — solids
+	# are hand-placed so gameplay clearances remain explicit.
+	var ps: PackedScene = _kit_cache.get(name, null)
+	if ps == null:
+		var path := "res://assets/kits/" + name + ".glb"
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_kit_cache[name] = ps
+	if ps == null:
+		return null
+	var wrap := Node3D.new()
+	var inst: Node3D = ps.instantiate()
+	_fit_prop(inst, target)
+	wrap.add_child(inst)
+	wrap.position = pos
+	wrap.rotation.y = yrot
+	add_child(wrap)
+	game_nodes.append(wrap)
+	return wrap
+
 func _pastel(c: Color) -> Color:
 	# the book palette: colours drift toward airy pastel (lifted, softened)
 	# while keeping their hue identity — rainbow saturation stays on CHARACTERS
@@ -2913,6 +2939,22 @@ func _build_pearl_castle(o: Vector3) -> void:
 			game_nodes.append(lo)
 		# a hanging banner of her memories on the left posts
 		_hang_portrait(o + Vector3(-13.0, 7.0, z) + Vector3(0.7, 0, 0), Vector3(0, 90, 0), banners[li])
+	# ---------- Phase 4a: courtyard GATEHOUSE (Kenney Castle Kit, CC0) ----------
+	# a chunky storybook welcome framing the path entrance near the spawn. The
+	# path itself stays fully open — towers sit flush with the path edges
+	# (x ±15, solids leave a clear |x| < 8 channel), no arch overhead, no pinch.
+	var gz := 164.0
+	for gsgn: float in [-1.0, 1.0]:
+		var tx: float = gsgn * 15.0
+		var ty: float = _lagoon_local(tx, gz)
+		_kit("castle/tower-square", o + Vector3(tx, ty - 0.4, gz), 13.0)   # 1x1x1.31 piece -> ~17 tall
+		_cyl_solid(o + Vector3(tx, ty + 8.5, gz), 6.6, 9.0, 0.8)
+		_kit("castle/flag", o + Vector3(tx, ty + 16.6, gz), 2.6)
+		# a lower bastion stub outboard of each tower
+		var wx: float = gsgn * 26.0
+		var wy: float = _lagoon_local(wx, gz)
+		_kit("castle/wall", o + Vector3(wx, wy - 0.4, gz), 11.0)
+		_wall_solid(o + Vector3(wx, wy + 6.0, gz), Vector3(11.0, 12.0, 11.0), 0.8)
 	# ---------- decorate the meadow with CC0 nature (dense, grounded, clustered) ----------
 	var trees := ["tree_palm", "tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
 	var flowers := ["flower_redA", "flower_yellowB", "flower_purpleA"]

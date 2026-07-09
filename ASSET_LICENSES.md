@@ -67,3 +67,9 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - assets/audio/music/home.ogg — "A Place I Call Home" (same pack/license) — sleep lullaby, -18 LUFS
 - assets/audio/ambience_reef.ogg / ambience_lagoon.ogg / ambience_hall.ogg — original synthesized beds (numpy), this project, CC0-equivalent
 - assets/audio/ui_tap.ogg — original synthesized bubble tap (numpy), this project, CC0-equivalent
+
+## Phase 4 — geometry kits (all CC0)
+- assets/kits/castle/*.glb — "Castle Kit" by Kenney, CC0, https://kenney.nl/assets/castle-kit (tower-square, wall, flag + spare modular pieces)
+- assets/kits/play/*.glb — "Tiny Treats: Fun Playground" by Isa Lousberg (Tiny Treats), CC0, https://tinytreats.itch.io/fun-playground — converted gltf->glb, Blender 4.x
+- assets/kits/park/*.glb — "Tiny Treats: Pretty Park" by Isa Lousberg (Tiny Treats), CC0, https://tinytreats.itch.io/pretty-park — converted gltf->glb, Blender 4.x
+- assets/kits/furniture/*.glb — "Ultimate Furniture Pack" by Quaternius, CC0, https://quaternius.com/packs/ultimatefurniture.html — converted FBX->glb, Blender 4.x
