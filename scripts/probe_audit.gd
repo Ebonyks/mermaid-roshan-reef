@@ -215,13 +215,19 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 			else:
 				main.touch_ui.action_down = false
 		elif gname == "dolls":
+			# Phase 6: perform the VERB — steer the catcher through the touch
+			# stick like a real hand (teleporting the node no longer scores;
+			# catches require live input inside the last 2s)
 			var dolls: Array = g.get("dolls", [])
 			if dolls.size() > 0 and main.dolls_catcher != null:
 				var lowest: Control = dolls[0]
 				for d in dolls:
 					if (d as Control).position.y > lowest.position.y:
 						lowest = d
-				main.dolls_catcher.position.x = lerpf(main.dolls_catcher.position.x, lowest.position.x - 40.0, 0.3)
+				var want_x: float = lowest.position.x - 17.0
+				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.dolls_catcher.position.x) / 90.0, -1.0, 1.0), 0.0)
+			else:
+				main.touch_ui.stick_vec = Vector2(0.3, 0.0)   # keep the hand 'live' between spawns
 		elif gname == "seek":
 			if g.has("bushes") and g.has("which"):
 				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
@@ -243,4 +249,5 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 					player.vel = Vector3.ZERO
 					break
 		await process_frame
+	main.touch_ui.stick_vec = Vector2.ZERO   # release the virtual hand
 	return main.game == "" and bool(f["won"])

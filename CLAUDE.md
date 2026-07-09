@@ -24,6 +24,7 @@ GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
    last "Importing file:" verbose line and fix its size/import mode.
 2. Full validation (must print all-OK before any commit):
    $GODOT --headless -s scripts/probe_audit.gd     # full-game bot
+   $GODOT --headless -s scripts/probe_passive.gd   # zero-input: nothing may be won
    $GODOT --headless -s scripts/probe_load.gd      # save restore
    $GODOT --headless -s scripts/probe_mg2d.gd      # 5 picture games
    $GODOT --headless -s scripts/probe_l2.gd        # sky lagoon

@@ -6901,6 +6901,34 @@ func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var node: MeshInstance3D = nxt["node"]
 	node.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 5.0) * 0.15)
 	node.rotate_y(delta * 1.5)
+	# Phase 6: the FIRST sparkle must be earned — swim toward it to arm the
+	# course. Until armed the magnet is off and checkpoints are inert, so a
+	# player who does nothing goes nowhere; one little push starts the ride
+	# and the magnet forgiveness carries her from there. Guide sparkles
+	# point the way while she idles.
+	var cprev: Vector3 = g.get("ppos_prev", ppos)
+	var cvel: Vector3 = (ppos - cprev) / maxf(delta, 0.001)
+	g["ppos_prev"] = ppos
+	if not bool(g.get("armed", false)):
+		var to_c: Vector3 = node.position - ppos
+		if to_c.length() > 0.5 and cvel.dot(to_c.normalized()) > 2.0:
+			g["arm_t"] = float(g.get("arm_t", 0.0)) + delta
+			if float(g["arm_t"]) >= 0.2:
+				g["armed"] = true
+				_sparkle_burst(ppos, Color(1.0, 0.95, 0.6))
+		else:
+			g["arm_t"] = 0.0
+			g["guide_t"] = float(g.get("guide_t", 0.0)) - delta
+			if float(g["guide_t"]) <= 0.0:
+				g["guide_t"] = 0.8
+				_sparkle_burst(ppos.lerp(node.position, 0.35), Color(1.0, 0.9, 0.5))
+				_sparkle_burst(ppos.lerp(node.position, 0.65), Color(1.0, 0.9, 0.5))
+			g["arm_hint_t"] = float(g.get("arm_hint_t", 0.0)) + delta
+			if float(g["arm_hint_t"]) > 6.0 and not bool(g.get("arm_hinted", false)):
+				g["arm_hinted"] = true
+				show_msg(String(fr.get("fname", "Play Place")), "Swim to the twinkly sparkle to start!", "hint")
+		if not bool(g.get("armed", false)):
+			return
 	var dd2: float = node.position.distance_to(ppos)
 	# strong, far-reaching magnet carries a 4yo up the play-place automatically
 	if dd2 < 34.0:
@@ -8258,6 +8286,14 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var target_x: float = dolls_root.get_global_mouse_position().x - 60.0
 		dolls_catcher.position.x = lerpf(dolls_catcher.position.x, target_x, 0.2)
 	dolls_catcher.position.x = clampf(dolls_catcher.position.x + mx * 620.0 * delta, 0.0, 1160.0)
+	# Phase 6: catching needs a live hand on the controls — any stick / key /
+	# mouse / touch inside the last 2s counts. Lucky drops onto an abandoned
+	# catcher no longer score (a passive run could fluke 3 catches before).
+	if absf(mx) > 0.05 or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		g["verb_t"] = 2.0
+	else:
+		g["verb_t"] = maxf(0.0, float(g.get("verb_t", 0.0)) - delta)
+	var hands_on: bool = float(g.get("verb_t", 0.0)) > 0.0
 	g["next"] = float(g["next"]) - delta
 	if float(g["next"]) <= 0.0 and int(g["spawned"]) < 5:
 		g["spawned"] = int(g["spawned"]) + 1
@@ -8280,7 +8316,7 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		doll.position.y += 190.0 * delta
 		doll.position.x += sin(float(g["t"]) * 1.6 + float(i) * 2.0) * 60.0 * delta
 		doll.rotation = sin(float(g["t"]) * 2.0 + float(i)) * 0.25
-		var caught: bool = doll.position.y > 490.0 and absf(doll.position.x + 48.0 - (dolls_catcher.position.x + 65.0)) < 115.0
+		var caught: bool = hands_on and doll.position.y > 490.0 and absf(doll.position.x + 48.0 - (dolls_catcher.position.x + 65.0)) < 115.0
 		if caught:
 			g["caught"] = int(g["caught"]) + 1
 			g["resolved"] = int(g["resolved"]) + 1
@@ -8309,6 +8345,19 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var caught: int = int(g["caught"])
 	hud_game.text = "Rainbow colors: %d / 7" % caught
+	# Phase 6: the one deliberate verb — orbs WAIT just out of reach until
+	# Roshan swims toward them. No timer, no fail: a held orb hovers and
+	# sparkles at the hold ring, and drifts in the moment she moves at it.
+	var mprev: Vector3 = g.get("ppos_prev", ppos)
+	var mvel: Vector3 = (ppos - mprev) / maxf(delta, 0.001)
+	g["ppos_prev"] = ppos
+	if mvel.length() < 2.0 and caught == 0:
+		g["still_t"] = float(g.get("still_t", 0.0)) + delta
+	else:
+		g["still_t"] = 0.0
+	if float(g.get("still_t", 0.0)) > 8.0 and not bool(g.get("hinted", false)):
+		g["hinted"] = true
+		show_msg("Gabby", "Swim to the colors! They are waiting for YOU!", "hint")
 	for ob in g["orbs"]:
 		if bool(ob["caught"]):
 			continue
@@ -8327,6 +8376,18 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			node.position.z = ARENA_POS.z + clampf(rel.z, -12.0, 12.0)
 		ob["vel"] = v
 		node.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 6.0 + node.position.x) * 0.10)
+		# hold ring AFTER the wall clamps so a wall can never shove a held orb
+		# back into the catch box; 22 clears the whole 14x7x14 box (diag ~21).
+		# The `continue` also gates the catch itself — a stationary player
+		# cannot catch, no matter where the orb bounces.
+		var to_orb: Vector3 = node.position - ppos
+		var d2p: float = maxf(to_orb.length(), 0.001)
+		if d2p < 22.0 and mvel.dot(to_orb / d2p) < 2.0:
+			node.position = ppos + (to_orb / d2p) * 22.0
+			if float(g.get("still_t", 0.0)) > 4.0 and fmod(float(g["t"]), 1.5) < delta:
+				# visual pointer while she idles: a sparkle midway to the orb
+				_sparkle_burst(ppos.lerp(node.position, 0.4), Color(1.0, 0.95, 0.7))
+			continue
 		if absf(node.position.x - ppos.x) < 14.0 and absf(node.position.y - ppos.y) < 7.0 and absf(node.position.z - ppos.z) < 14.0:
 			ob["caught"] = true
 			node.visible = false
