@@ -4558,7 +4558,7 @@ func _build_castle_hall(o: Vector3) -> void:
 	sl2.position = chest.position + Vector3(0, 4, 0); add_child(sl2); game_nodes.append(sl2)
 	# Daddy mermaid lives in the secret room (his real recorded voice greets Roshan)
 	var daddy := Sprite3D.new()
-	daddy.texture = load("res://assets/characters/friends/daddy.png")
+	daddy.texture = load("res://assets/characters/friends/daddy.webp")
 	daddy.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	daddy.pixel_size = 0.0066
 	daddy.position = br + Vector3(10, 8, -3)
@@ -5288,7 +5288,7 @@ func _play_hug_cutscene() -> void:
 	tb.tween_property(bg, "color", Color(0.06, 0.03, 0.14, 0.5), 0.4)
 	# Daddy slides in from the left
 	var daddy := TextureRect.new()
-	daddy.texture = load("res://assets/characters/friends/daddy.png")
+	daddy.texture = load("res://assets/characters/friends/daddy.webp")
 	daddy.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	daddy.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	daddy.size = Vector2(vp.y * 0.62, vp.y * 0.9)
