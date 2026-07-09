@@ -73,3 +73,7 @@ For the full per-group audit, the egress blocker, and the replacement plan, see 
 - assets/kits/play/*.glb — "Tiny Treats: Fun Playground" by Isa Lousberg (Tiny Treats), CC0, https://tinytreats.itch.io/fun-playground — converted gltf->glb, Blender 4.x
 - assets/kits/park/*.glb — "Tiny Treats: Pretty Park" by Isa Lousberg (Tiny Treats), CC0, https://tinytreats.itch.io/pretty-park — converted gltf->glb, Blender 4.x
 - assets/kits/furniture/*.glb — "Ultimate Furniture Pack" by Quaternius, CC0, https://quaternius.com/packs/ultimatefurniture.html — converted FBX->glb, Blender 4.x
+
+## Phase 5 — sky panoramas
+- assets/sky/lagoon_day_2k.hdr — "Qwantani (Pure Sky)" HDRI, Poly Haven (Greg Zaal / Sergej Majboroda), CC0, https://polyhaven.com/a/qwantani_puresky — 2K, unmodified
+- assets/sky/lagoon_dusk_2k.hdr — "Qwantani Dusk 2 (Pure Sky)" HDRI, Poly Haven, CC0, https://polyhaven.com/a/qwantani_dusk_2_puresky — 2K, unmodified

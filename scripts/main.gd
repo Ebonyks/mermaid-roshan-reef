@@ -2313,18 +2313,28 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
-	var psky := ProceduralSkyMaterial.new()
-	if is_night:
-		psky.sky_top_color = Color(0.06, 0.07, 0.22)
-		psky.sky_horizon_color = Color(0.22, 0.20, 0.42)
-		psky.ground_bottom_color = Color(0.10, 0.12, 0.26)
-		psky.ground_horizon_color = Color(0.18, 0.18, 0.36)
+	# Phase 5: a real painted-looking sky — 2K CC0 Poly Haven panoramas
+	# (Qwantani pure-sky day + its dusk sister for the bedtime flip). The
+	# procedural gradient stays as the fallback if the HDRs ever go missing.
+	var pano_path := "res://assets/sky/lagoon_dusk_2k.hdr" if is_night else "res://assets/sky/lagoon_day_2k.hdr"
+	if ResourceLoader.exists(pano_path):
+		var pano := PanoramaSkyMaterial.new()
+		pano.panorama = load(pano_path)
+		pano.energy_multiplier = 0.6 if is_night else 1.0   # night stays dim + cosy
+		sky.sky_material = pano
 	else:
-		psky.sky_top_color = Color(0.35, 0.62, 0.95)
-		psky.sky_horizon_color = Color(0.85, 0.92, 1.0)
-		psky.ground_bottom_color = Color(0.7, 0.85, 0.95)
-		psky.ground_horizon_color = Color(0.8, 0.9, 1.0)
-	sky.sky_material = psky
+		var psky := ProceduralSkyMaterial.new()
+		if is_night:
+			psky.sky_top_color = Color(0.06, 0.07, 0.22)
+			psky.sky_horizon_color = Color(0.22, 0.20, 0.42)
+			psky.ground_bottom_color = Color(0.10, 0.12, 0.26)
+			psky.ground_horizon_color = Color(0.18, 0.18, 0.36)
+		else:
+			psky.sky_top_color = Color(0.35, 0.62, 0.95)
+			psky.sky_horizon_color = Color(0.85, 0.92, 1.0)
+			psky.ground_bottom_color = Color(0.7, 0.85, 0.95)
+			psky.ground_horizon_color = Color(0.8, 0.9, 1.0)
+		sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
