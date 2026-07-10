@@ -32,13 +32,18 @@ STYLE = (
     "a 4-year-old. SINGLE SUBJECT ONLY, fully in frame, centered, 3/4 or "
     "side view suitable as a 2D game sprite. PLAIN SOLID WHITE background - "
     "no scene, no ground shadow, no vignette, no text, no watermark. Clean "
-    "sharp edges for cutout extraction."
+    "sharp edges for cutout extraction. STRICT: no bubbles, no water "
+    "droplets, no sparkles, no confetti, no flower/star decals painted on "
+    "the subject; no white sticker border; scenery objects (corals, rocks, "
+    "plants, buildings, props) must NOT have faces - faces only on actual "
+    "creatures; exactly ONE object, never a cluster or group."
 )
 TILE_STYLE = (
     "Seamlessly TILEABLE square texture, hand-painted storybook style, flat "
     "cel-shaded color with soft painterly variation, high-key pastel "
     "palette, no hard directional lighting, no text, edges must wrap "
-    "seamlessly left-right and top-bottom."
+    "seamlessly left-right and top-bottom. Uniform small-scale detail "
+    "only - no large distinct clumps or landmarks that reveal repetition."
 )
 
 SPECIAL = {

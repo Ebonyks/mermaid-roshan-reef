@@ -1,0 +1,18 @@
+{
+  "approved_by_roshan": [
+    {"pick": "aquatic_coral1/v2", "note": "prominent placement requested; baked-in bubbles look odd -> regen without bubbles or polish out"},
+    {"pick": "nature_mushroom_red/v3", "note": ""},
+    {"pick": "nature_rock_largea/v1", "note": ""},
+    {"pick": "nature_rock_largea/v3", "note": ""}
+  ],
+  "flaw_taxonomy": {
+    "F1_baked_bubbles": "bubbles/droplets/gems painted INTO sprites (corals, rocks). Bubbles belong to the game's particle systems, not the art. Fix: negative prompt.",
+    "F2_faces_on_scenery": "kawaii faces on corals/rocks/plants make scenery read as creatures and add noise. Faces stay ONLY on actual creatures. Fix: negative prompt per category.",
+    "F3_confetti_decals": "flower/star/swirl confetti sprinkled on rocks, shells, props. Fix: negative prompt 'no decorative stickers/confetti'.",
+    "F4_baked_sticker_border": "some sprites ship with a white die-cut border (turtle) - the game adds its own at load, causing double borders. Fix: negative prompt + polish crop.",
+    "F5_cluster_not_single": "corals arrive as multi-blob CLUSTERS; scatter props need ONE readable piece. Fix: 'exactly one coral branch/formation'.",
+    "F6_tile_tessellation": "terrain tiles are painterly but not seamless; visible clumps repeat. Fix: offset-blend polish pass (scripted) + regen at higher uniformity.",
+    "F7_palette_bleed": "pastel override recolors things oddly (pink palm trunks). Acceptable sometimes; constrain trunks/wood to warm browns."
+  },
+  "pipeline_next": "best-candidates cull (Roshan + analysis when quota resets) -> polish pass (tools/polish_sprite.py: alpha cutout, autocontrast, seamless-tile fix) -> targeted regen round 2 with flaw-patched prompts for roles with no usable variant"
+}
