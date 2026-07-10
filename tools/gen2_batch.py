@@ -90,6 +90,22 @@ CATEGORY_HINT = {
 }
 
 
+# ---- budget gate (post-mortem guardrail): estimate before ANY submission ----
+PRICE = {  # $/request, batch rate, conservative estimates
+    "models/gemini-3-pro-image": 0.067,
+    "models/gemini-2.5-flash-image": 0.020,
+    "models/gemini-2.5-flash": 0.0005,   # thumbnail-scoring request
+}
+BUDGET_DEFAULT = 5.0
+
+def budget_gate(n_requests, model, cap=None):
+    cap = float(os.environ.get("GEN2_BUDGET", cap or BUDGET_DEFAULT))
+    est = n_requests * PRICE.get(model, 0.10)
+    print(f"BUDGET: {n_requests} requests x {model} ~= ${est:.2f} (cap ${cap:.2f})", flush=True)
+    if est > cap:
+        raise SystemExit(f"REFUSED: estimate ${est:.2f} exceeds cap ${cap:.2f}. "
+                         f"Set GEN2_BUDGET to override deliberately.")
+
 def key():
     p = os.path.join(ROOT, ".secrets", "gemini_key")
     if os.path.exists(p):
@@ -145,6 +161,7 @@ def build_requests():
 
 def submit_all():
     reqs = build_requests()
+    budget_gate(len(reqs), MODEL)
     print(f"{len(reqs)} requests -> {((len(reqs)-1)//CHUNK)+1} batch jobs", flush=True)
     jobs = []
     for i in range(0, len(reqs), CHUNK):
@@ -284,6 +301,7 @@ def analyze_batch():
                              "\"background\":n,\"usable\":n,\"note\":\"<10 words\"}"}]}]},
             })
     print(len(reqs), "analysis requests", flush=True)
+    budget_gate(len(reqs), ANALYZE_MODEL)
     ckpt = os.path.join(OUT, "analysis_jobs.json")
     jobs = json.load(open(ckpt)) if os.path.exists(ckpt) else []
     AC = 50
