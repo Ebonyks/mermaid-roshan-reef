@@ -1,0 +1,132 @@
+{
+	"nature_grass_leafslarge": {
+		"variants": {
+			"v1": {"usable": 2, "flaws": ["F10"]},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 8, "flaws": ["F1"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 clean leaf clump; v1 is a mushroom hijack"
+	},
+	"nature_mushroom_red": {
+		"variants": {
+			"v1": {"usable": 5, "flaws": ["F3", "F8"]},
+			"v2": {"usable": 7, "flaws": ["F7"]},
+			"v3": {"usable": 9, "flaws": ["F2"]},
+			"v4": {"usable": 4, "flaws": ["F5", "F7"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 owner exemplar; subtle face tolerated"
+	},
+	"nature_mushroom_tangroup": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 5, "flaws": ["F2"]},
+			"v3": {"usable": 6, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 clean trio with tan stems; v2 big face"
+	},
+	"nature_plant_bush": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F8", "F5"]},
+			"v2": {"usable": 2, "flaws": ["F10"]},
+			"v3": {"usable": 6, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F10"]}
+		},
+		"verdict": "POLISH:v3",
+		"note": "v3 busy flower bush; v2 mushroom hijack, v4 reads tree"
+	},
+	"nature_plant_bushlargetriangle": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": []},
+			"v2": {"usable": 4, "flaws": ["F3", "F8"]},
+			"v3": {"usable": 2, "flaws": ["F10", "F7"]},
+			"v4": {"usable": 5, "flaws": ["F10"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 good triangular leafy mound; v3 mushrooms instead"
+	},
+	"nature_rock_largea": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 4, "flaws": ["F3", "F8"]},
+			"v3": {"usable": 9, "flaws": []},
+			"v4": {"usable": 3, "flaws": ["F8", "F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 and v3 owner exemplars; v4 rock-mushroom enmesh"
+	},
+	"nature_tree_default_fall": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 2, "flaws": ["F10"]},
+			"v4": {"usable": 6, "flaws": ["F8"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 lovely fall canopy; v3 mushroom hijack, v4 birdhouse"
+	},
+	"nature_tree_fat": {
+		"variants": {
+			"v1": {"usable": 2, "flaws": ["F10", "F5"]},
+			"v2": {"usable": 2, "flaws": ["F10"]},
+			"v3": {"usable": 4, "flaws": ["F2", "F10"]},
+			"v4": {"usable": 2, "flaws": ["F10"]}
+		},
+		"verdict": "REGEN",
+		"note": "Every variant hijacked: mushrooms or smiley flower bouquet, no tree"
+	},
+	"nature_tree_palm": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": []},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F5", "F8"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 cleanest silhouette with coconuts; v4 mushroom base clutter"
+	},
+	"nature_tree_pineroundf": {
+		"variants": {
+			"v1": {"usable": 2, "flaws": ["F10"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 5, "flaws": ["F2", "F3"]},
+			"v4": {"usable": 2, "flaws": ["F10", "F7"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 clean round puff tree; v1 and v4 mushrooms"
+	},
+	"nature_tree_simple_fall": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F2", "F5"]},
+			"v2": {"usable": 2, "flaws": ["F10", "F5"]},
+			"v3": {"usable": 5, "flaws": ["F8"]},
+			"v4": {"usable": 2, "flaws": ["F10"]}
+		},
+		"verdict": "POLISH:v3",
+		"note": "v3 needs odd teal egg edited out; two mushroom hijacks"
+	},
+	"ship_barrel": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F3"]},
+			"v2": {"usable": 7, "flaws": ["F3"]},
+			"v3": {"usable": 4, "flaws": ["F8"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 clean pastel barrel; v3 chest-on-barrel enmesh"
+	},
+	"ship_chest": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F2"]},
+			"v2": {"usable": 6, "flaws": ["F2"]},
+			"v3": {"usable": 7, "flaws": ["F2"]},
+			"v4": {"usable": 8, "flaws": ["F2"]}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 best; tiny starfish faces throughout set, easy edits"
+	}
+}

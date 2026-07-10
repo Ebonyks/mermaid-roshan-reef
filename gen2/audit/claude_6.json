@@ -1,0 +1,132 @@
+{
+	"kits_tower_base": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 6, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "Clean stackable round base; v2 reads as whole castle"
+	},
+	"kits_tower_square": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": []},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 9, "flaws": []},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 clean square two-tier tower; v1 is round"
+	},
+	"kits_tower_square_base": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 6, "flaws": []},
+			"v4": {"usable": 7, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 cohesive square base; v3 too house-like"
+	},
+	"kits_tower_square_mid": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 5, "flaws": ["F3"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 simplest modular cube; v3 star decals baked"
+	},
+	"kits_tower_square_top_roof_high": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 6, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 6, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 tall clean pyramid roof; v2/v4 lack roof"
+	},
+	"kits_tower_top": {
+		"variants": {
+			"v1": {"usable": 5, "flaws": ["F5"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 6, "flaws": []},
+			"v4": {"usable": 6, "flaws": []}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 single swirl-dome top; v1 shows two objects"
+	},
+	"kits_wall": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": []},
+			"v2": {"usable": 6, "flaws": ["F3"]},
+			"v3": {"usable": 3, "flaws": ["F8"]},
+			"v4": {"usable": 7, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 clean wall run; v3 jigsaw-castle enmeshing"
+	},
+	"kits_wall_narrow_gate": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 7, "flaws": ["F3"]},
+			"v4": {"usable": 6, "flaws": []}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 clean isometric gate; v4 heavy outline mismatch"
+	},
+	"nature_cliff_block_rock": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": []},
+			"v2": {"usable": 6, "flaws": ["F8"]},
+			"v3": {"usable": 6, "flaws": ["F5"]},
+			"v4": {"usable": 4, "flaws": ["F8"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 restrained mossy blocks; v4 flower-rock fusion"
+	},
+	"nature_cliff_large_rock": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F5"]},
+			"v2": {"usable": 5, "flaws": ["F8"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F7"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 matches approved rock exemplar; v2 tree fused"
+	},
+	"nature_flower_purplea": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 4, "flaws": ["F2", "F5"]},
+			"v3": {"usable": 3, "flaws": ["F8"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 elegant bellflower; v3 rock+flower reject pattern"
+	},
+	"nature_flower_reda": {
+		"variants": {
+			"v1": {"usable": 3, "flaws": ["F10"]},
+			"v2": {"usable": 4, "flaws": ["F2", "F5"]},
+			"v3": {"usable": 3, "flaws": ["F2", "F8"]},
+			"v4": {"usable": 2, "flaws": ["F2", "F8", "F10"]}
+		},
+		"verdict": "REGEN",
+		"note": "All drift to mushrooms or faced flower-creatures"
+	},
+	"nature_flower_yellowb": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 5, "flaws": ["F5", "F8"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 perfect single bloom, exemplar-grade simplicity"
+	}
+}

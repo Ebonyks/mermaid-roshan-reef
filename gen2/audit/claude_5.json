@@ -1,0 +1,132 @@
+{
+	"kits_bookcase": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F5", "F8"]},
+			"v2": {"usable": 0, "flaws": ["F9", "F5", "F8"]},
+			"v3": {"usable": 5, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 7, "flaws": ["F10"]}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 clean block-castle bookcase; v2 has mermaid figurine"
+	},
+	"kits_chair": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F10"]},
+			"v2": {"usable": 7, "flaws": ["F10"]},
+			"v3": {"usable": 4, "flaws": ["F5", "F10"]},
+			"v4": {"usable": 4, "flaws": ["F8", "F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 throne reads instantly; v3/v4 drown chair in castle"
+	},
+	"kits_flag": {
+		"variants": {
+			"v1": {"usable": 5, "flaws": ["F8"]},
+			"v2": {"usable": 3, "flaws": ["F10", "F5"]},
+			"v3": {"usable": 5, "flaws": ["F10"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 clean pennant on pole; others fused with bases"
+	},
+	"kits_fountain": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F5"]},
+			"v2": {"usable": 5, "flaws": ["F7", "F5"]},
+			"v3": {"usable": 4, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 5, "flaws": ["F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 castle fountain reads well; v2 water oddly green-yellow"
+	},
+	"kits_hedge_straight": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F10"]},
+			"v2": {"usable": 4, "flaws": ["F10"]},
+			"v3": {"usable": 5, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 5, "flaws": ["F8"]}
+		},
+		"verdict": "POLISH:v4",
+		"note": "all read as walls; v4 hedge top croppable"
+	},
+	"kits_hedge_straight_long": {
+		"variants": {
+			"v1": {"usable": 5, "flaws": ["F2", "F5", "F10"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 6, "flaws": ["F4"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 and v4 genuinely clean flowered hedges"
+	},
+	"kits_merry_go_round": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F8", "F5"]},
+			"v2": {"usable": 5, "flaws": ["F5", "F2"]},
+			"v3": {"usable": 0, "flaws": ["F9"]},
+			"v4": {"usable": 4, "flaws": ["F8"]}
+		},
+		"verdict": "POLISH:v2",
+		"note": "carousels buried in castles; v3 has mermaid riders"
+	},
+	"kits_sandbox_round_decorated": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F10"]},
+			"v2": {"usable": 4, "flaws": ["F10"]},
+			"v3": {"usable": 4, "flaws": ["F10", "F5"]},
+			"v4": {"usable": 3, "flaws": ["F10", "F2"]}
+		},
+		"verdict": "REGEN",
+		"note": "no sandbox anywhere; all four are castle towers"
+	},
+	"kits_seesaw_large": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F10", "F5"]},
+			"v2": {"usable": 4, "flaws": ["F5", "F8"]},
+			"v3": {"usable": 2, "flaws": ["F8"]},
+			"v4": {"usable": 0, "flaws": ["F9"]}
+		},
+		"verdict": "POLISH:v1",
+		"note": "v1 seesaw readable but busy; v4 mermaid"
+	},
+	"kits_slide_a": {
+		"variants": {
+			"v1": {"usable": 3, "flaws": ["F10", "F5"]},
+			"v2": {"usable": 3, "flaws": ["F10", "F5"]},
+			"v3": {"usable": 3, "flaws": ["F10", "F2"]},
+			"v4": {"usable": 3, "flaws": ["F10"]}
+		},
+		"verdict": "REGEN",
+		"note": "no slide ramp in any variant, only castles"
+	},
+	"kits_spring_horse_a": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F8", "F5"]},
+			"v2": {"usable": 7, "flaws": ["F10"]},
+			"v3": {"usable": 6, "flaws": ["F5"]},
+			"v4": {"usable": 2, "flaws": ["F10"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 charming pony spring rider on castle base"
+	},
+	"kits_swing_a_large": {
+		"variants": {
+			"v1": {"usable": 0, "flaws": ["F9", "F10"]},
+			"v2": {"usable": 0, "flaws": ["F9", "F10"]},
+			"v3": {"usable": 0, "flaws": ["F9", "F10"]},
+			"v4": {"usable": 0, "flaws": ["F9", "F10"]}
+		},
+		"verdict": "REGEN",
+		"note": "every variant is a mermaid hugging a castle"
+	},
+	"kits_table": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F10"]},
+			"v2": {"usable": 3, "flaws": ["F10"]},
+			"v3": {"usable": 3, "flaws": ["F10", "F5"]},
+			"v4": {"usable": 4, "flaws": ["F10"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 turret-leg table reads; others plain castles"
+	}
+}

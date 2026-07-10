@@ -1,0 +1,132 @@
+{
+	"ship_cliff_cave_rock": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 6, "flaws": ["F2", "F5"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "Clean cave silhouettes; v4 grows face and clutter"
+	},
+	"ship_ship_ghost": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 7, "flaws": ["F3"]},
+			"v3": {"usable": 0, "flaws": ["F9"]},
+			"v4": {"usable": 0, "flaws": ["F9"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v3/v4 invent ghost pirate crew characters"
+	},
+	"ship_ship_wreck": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 7, "flaws": ["F5"]},
+			"v3": {"usable": 7, "flaws": ["F5"]},
+			"v4": {"usable": 6, "flaws": ["F3", "F5"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 perfectly restrained wreck; others add coral clutter"
+	},
+	"terrain_up_castle_col": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F3", "F6", "F7"]},
+			"v2": {"usable": 7, "flaws": ["F6"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 5, "flaws": ["F6"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 hex carved tiles clean; v1 baked shield decals"
+	},
+	"terrain_up_cliff_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 5, "flaws": ["F5", "F6"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 4, "flaws": ["F6"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 vertical strata ideal; v4 obvious block repeats"
+	},
+	"terrain_up_cobble_col": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F6"]},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 5, "flaws": ["F6"]},
+			"v4": {"usable": 7, "flaws": ["F6"]}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 richest cobble; flower clumps repeat mildly"
+	},
+	"terrain_up_dirt_col": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F6"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 6, "flaws": ["F6"]},
+			"v4": {"usable": 4, "flaws": ["F6"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 painterly path, no visible repeats"
+	},
+	"terrain_up_fabric_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 4, "flaws": ["F8", "F6"]},
+			"v4": {"usable": 5, "flaws": ["F8"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 restrained patchwork; v3/v4 fuse fabric with terrain"
+	},
+	"terrain_up_flagstone_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v2",
+		"note": "All four solid; v2 cleanest softest stones"
+	},
+	"terrain_up_grass_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 7, "flaws": ["F6"]},
+			"v4": {"usable": 5, "flaws": ["F6", "F7"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 soft meadow; v4 odd washed swirl rosettes"
+	},
+	"terrain_up_marble_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 6, "flaws": ["F6"]},
+			"v3": {"usable": 5, "flaws": ["F6", "F7"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 elegant inlay; v3 washed muddy grid"
+	},
+	"terrain_up_roof_col": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F6"]},
+			"v2": {"usable": 4, "flaws": ["F10"]},
+			"v3": {"usable": 9, "flaws": []},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 perfect scallop shingles; v2 is ground not roof"
+	},
+	"terrain_up_sand_col": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 7, "flaws": ["F6"]},
+			"v3": {"usable": 6, "flaws": ["F6"]},
+			"v4": {"usable": 6, "flaws": ["F6"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 lovely footprints and shells, subtle"
+	}
+}

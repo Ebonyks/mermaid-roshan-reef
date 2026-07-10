@@ -1,0 +1,132 @@
+{
+	"aquatic_starfish": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 9, "flaws": []},
+			"v3": {"usable": 6, "flaws": ["F8"]},
+			"v4": {"usable": 6, "flaws": ["F1", "F7"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 clean exemplar-grade; v3 star-on-star, v4 barnacle blobs"
+	},
+	"aquatic_stingray": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 7, "flaws": ["F1"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 3, "flaws": ["F8", "F10", "F3"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 excellent; v4 coral crown fused onto head"
+	},
+	"aquatic_tuna": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 9, "flaws": []},
+			"v3": {"usable": 8, "flaws": ["F3"]},
+			"v4": {"usable": 4, "flaws": ["F4", "F3"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 cleanest silhouette; v4 sticker halo border"
+	},
+	"aquatic_turtle": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F8"]},
+			"v2": {"usable": 5, "flaws": ["F4", "F3"]},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 7, "flaws": ["F7"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "v3 charming; v1 coral growing from shell"
+	},
+	"aquatic_whale": {
+		"variants": {
+			"v1": {"usable": 4, "flaws": ["F8"]},
+			"v2": {"usable": 3, "flaws": ["F8", "F5"]},
+			"v3": {"usable": 4, "flaws": ["F1", "F3", "F10", "F7"]},
+			"v4": {"usable": 4, "flaws": ["F8"]}
+		},
+		"verdict": "REGEN",
+		"note": "every variant has reef growth fused onto whale"
+	},
+	"castle_bed": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 7, "flaws": ["F10"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 clean readable four-poster; v3 crown canopy odd"
+	},
+	"castle_throne": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 6, "flaws": ["F3", "F5"]},
+			"v3": {"usable": 6, "flaws": ["F8"]},
+			"v4": {"usable": 8, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 and v4 clean; v2 heart-pile base clutter"
+	},
+	"galaxy_beetle": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 7, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 7, "flaws": ["F3"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "all coherent; v1 simplest cutest silhouette"
+	},
+	"galaxy_butterfly1": {
+		"variants": {
+			"v1": {"usable": 9, "flaws": []},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 9, "flaws": []},
+			"v4": {"usable": 7, "flaws": ["F3"]}
+		},
+		"verdict": "KEEP:v3",
+		"note": "strong set; v3 simplest, v1 elegant side view"
+	},
+	"galaxy_butterfly2": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F2"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 2, "flaws": ["F8", "F10"]},
+			"v4": {"usable": 7, "flaws": ["F3"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v3 butterfly-mushroom hybrid; v1 smiley face baked in wing"
+	},
+	"galaxy_crystal1": {
+		"variants": {
+			"v1": {"usable": 3, "flaws": ["F8", "F10"]},
+			"v2": {"usable": 5, "flaws": ["F5", "F3"]},
+			"v3": {"usable": 3, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 3, "flaws": ["F8"]}
+		},
+		"verdict": "POLISH:v2",
+		"note": "butterflies enmesh every variant; v2 editable floaters"
+	},
+	"galaxy_crystal2": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F8"]},
+			"v2": {"usable": 4, "flaws": ["F5", "F3"]},
+			"v3": {"usable": 2, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 3, "flaws": ["F8", "F5", "F7"]}
+		},
+		"verdict": "POLISH:v1",
+		"note": "v1 clean cluster once edge butterfly wing removed"
+	},
+	"galaxy_crystal3": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F2"]},
+			"v2": {"usable": 4, "flaws": ["F8", "F5"]},
+			"v3": {"usable": 3, "flaws": ["F8", "F5"]},
+			"v4": {"usable": 3, "flaws": ["F5", "F8", "F7"]}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 single smiling gem; rest flower-butterfly enmeshed"
+	}
+}

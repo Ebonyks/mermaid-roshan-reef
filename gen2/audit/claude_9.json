@@ -1,0 +1,62 @@
+{
+	"terrain_up_snow_col": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F7"]},
+			"v2": {"usable": 5, "flaws": []},
+			"v3": {"usable": 4, "flaws": ["F6"]},
+			"v4": {"usable": 7, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 charming snow; v3 repeats obviously; v2 reads as sky"
+	},
+	"terrain_up_water_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 6, "flaws": ["F7"]},
+			"v3": {"usable": 5, "flaws": ["F6", "F7"]},
+			"v4": {"usable": 7, "flaws": []}
+		},
+		"verdict": "KEEP:v1",
+		"note": "v1 clean graphic Wind-Waker water; v3 washed, ripples repeat"
+	},
+	"terrain_up_wood_col": {
+		"variants": {
+			"v1": {"usable": 8, "flaws": []},
+			"v2": {"usable": 5, "flaws": ["F7"]},
+			"v3": {"usable": 6, "flaws": ["F3", "F7"]},
+			"v4": {"usable": 9, "flaws": []}
+		},
+		"verdict": "KEEP:v4",
+		"note": "v4 excellent storybook planks; v2 washed swirls read as hair"
+	},
+	"vehicles_gokart": {
+		"variants": {
+			"v1": {"usable": 7, "flaws": ["F1"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 7, "flaws": []},
+			"v4": {"usable": 6, "flaws": ["F1", "F2", "F3"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 clean pastel kart; v4 smiley star, candy clutter"
+	},
+	"vehicles_monstertruck": {
+		"variants": {
+			"v1": {"usable": 5, "flaws": ["F2", "F10"]},
+			"v2": {"usable": 6, "flaws": ["F2"]},
+			"v3": {"usable": 4, "flaws": ["F2", "F4"]},
+			"v4": {"usable": 6, "flaws": ["F3", "F10"]}
+		},
+		"verdict": "POLISH:v2",
+		"note": "All have grille faces; v1 baked ROSHAN text; v3 sticker halo"
+	},
+	"vehicles_motorcycle": {
+		"variants": {
+			"v1": {"usable": 6, "flaws": ["F2"]},
+			"v2": {"usable": 8, "flaws": []},
+			"v3": {"usable": 8, "flaws": []},
+			"v4": {"usable": 6, "flaws": ["F1", "F8"]}
+		},
+		"verdict": "KEEP:v2",
+		"note": "v2 shell-seat scooter fits theme; v1 headlight face; v4 cloud-fused"
+	}
+}
