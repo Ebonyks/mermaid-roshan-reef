@@ -36,7 +36,10 @@ STYLE = (
     "droplets, no sparkles, no confetti, no flower/star decals painted on "
     "the subject; no white sticker border; scenery objects (corals, rocks, "
     "plants, buildings, props) must NOT have faces - faces only on actual "
-    "creatures; exactly ONE object, never a cluster or group."
+    "creatures; exactly ONE object, never a cluster or group. IDENTITY: "
+    "depict ONLY the named subject, plain and instantly readable - do not "
+    "blend it with other concepts, and put nothing growing on, attached "
+    "to, or merged into it (a rock is just a rock)."
 )
 TILE_STYLE = (
     "Seamlessly TILEABLE square texture, hand-painted storybook style, flat "
