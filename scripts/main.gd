@@ -5211,7 +5211,7 @@ func _fairy_bloom_start() -> void:
 
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
-	slide_portal_pos = Vector3(80.0, WATER_TOP - 20.0, -70.0)
+	slide_portal_pos = Vector3(48.0, WATER_TOP - 26.0, -42.0)   # nav audit: was (80,-20,-70) = 106m swim; now ~64m on an open lane
 	var floe := MeshInstance3D.new()
 	var fm := CylinderMesh.new(); fm.top_radius = 11.0; fm.bottom_radius = 8.5; fm.height = 3.0
 	floe.mesh = fm
@@ -5439,6 +5439,43 @@ func _tick_overlay_pads(delta: float) -> void:
 	_pad_prev_a = a
 	_pad_prev_b = b
 
+var _wayfind_t := 0.0
+
+func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
+	# MOBILE NAV AUDIT: a sparkle comet-trail from Roshan toward the current
+	# best objective while she roams the open reef — the "pathfinding" a
+	# non-reader can follow. Nearest un-won friend first; with all five won,
+	# the Pearl Shop ship when she can afford something, else the penguin
+	# floe. Throttled to 3 cheap bursts every 2.2s; silent inside games,
+	# overlays, the intro and other worlds.
+	if game != "" or mg_kind != "" or intro_active:
+		return
+	if _overlay_root_for_cursor() != null:
+		return
+	_wayfind_t -= delta
+	if _wayfind_t > 0.0:
+		return
+	_wayfind_t = 2.2
+	var target := Vector3.ZERO
+	var best := 1e9
+	for f in friends:
+		if not bool(f["won"]):
+			var p: Vector3 = (f["node"] as Node3D).position
+			var d: float = p.distance_to(ppos)
+			if d < best:
+				best = d
+				target = p
+	if target == Vector3.ZERO:
+		if pearl_count >= 60 and manta != null and is_instance_valid(manta):
+			target = manta.position
+		elif slide_portal_pos != Vector3.ZERO:
+			target = slide_portal_pos
+	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
+		return
+	for k in range(3):
+		var tt: float = 0.06 + 0.07 * float(k)
+		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
+
 func _process(delta: float) -> void:
 	if msg_timer > 0.0:
 		msg_timer -= delta
@@ -5448,6 +5485,8 @@ func _process(delta: float) -> void:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if player != null:
+		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
 	if fps_lbl != null and pause_panel != null and pause_panel.visible:
@@ -5551,7 +5590,7 @@ func _process(delta: float) -> void:
 		if treasure_cool <= 0.0 and wreck_pos.distance_to(ppos) < 13.0:
 			treasure_cool = 12.0
 			_start_game(treasure_fr)
-		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 12.0:
+		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
 		if kart_cool <= 0.0 and kart_portal_pos != Vector3.ZERO:
@@ -5724,7 +5763,11 @@ func _build_wreck() -> void:
 	_fairy_light(Vector3(wx, wy + 9.0, wz), Color(0.4, 1.0, 0.8), true)
 	_fairy_light(Vector3(wx + 10.0, seabed_y(wx + 10.0, wz + 4.0) + 3.0, wz + 4.0), Color(1.0, 0.85, 0.4), true)
 	# ghost ship drifting high above — the mystery
-	var ghost := _spawn("ship-ghost", Vector3(-wx, WATER_TOP - 10.0, -wz), 7.0, 0.0)
+	# nav audit: the shop ship was the game's remotest POI (150m ring). Pull it
+	# to a 100m ring on the OPPOSITE heading from the wreck, same drift/beacon.
+	var gsx: float = -wx * (100.0 / 150.0)
+	var gsz: float = -wz * (100.0 / 150.0)
+	var ghost := _spawn("ship-ghost", Vector3(gsx, WATER_TOP - 10.0, gsz), 7.0, 0.0)
 	if ghost != null:
 		ghost.set_meta("ghost", true)
 		manta = ghost
