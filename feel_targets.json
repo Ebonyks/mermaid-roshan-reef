@@ -1,0 +1,63 @@
+{
+  "_comment": "Target bands for probe_race_feel.gd metrics. Derived from kart-racer feel heuristics (Mario Kart-class): C1-continuous heading, input-linked speed, perceived-speed cues, consequence-bearing collisions, ceremony. A tuning iteration is GREEN when every 'must' passes.",
+
+  "heading_continuity": {
+    "yaw_jerk_max_deg_per_frame": { "must_be_below": 1.0, "baseline": 6.53,
+      "why": "Instantaneous heading snaps at polyline joints read as 'broken' even when unnamed. MK tracks are spline-continuous; at 60fps, 1 deg/frame = 60 deg/s max turn onset." },
+    "yaw_snaps_over_2deg": { "must_be_below": 1, "baseline": 20 }
+  },
+
+  "speed_agency": {
+    "speed_agency_metric": { "must_be_above": 0.5, "baseline": 0.0,
+      "why": "Player input must be able to push v outside the passive [VMIN..VMAX] envelope (boost pads, tucks, wall hits). 0.0 means speed is a cutscene." },
+    "speed_range_ratio": { "must_be_above": 2.3, "baseline": 1.97,
+      "why": "Top speed (with boost) vs slowest (after a mistake) should exceed ~2.3x so speed reads as earned, not scripted." }
+  },
+
+  "perceived_speed": {
+    "fov_dynamic_range_deg": { "must_be_above": 10, "baseline": 0,
+      "why": "FOV should widen with speed (e.g. 58 at VMIN to 72 at boost). Fixed 60 kills the speed read regardless of m/s." },
+    "trackside_decor_per_100m": { "must_be_above": 25, "baseline": 5.6,
+      "note": "Non-track decor only (penguins, flags, arches, crystals) - the near-field objects streaming past create optic flow. Planks/rails excluded." },
+    "speed_particles_present": { "must_be": true, "baseline": false }
+  },
+
+  "collision_consequence": {
+    "wall_hit_speed_penalty_pct": { "must_be_above": 10, "baseline": 0 },
+    "wall_hit_feedback_channels": { "must_be_above": 2, "baseline": 0,
+      "note": "count of {sound, particle burst, camera shake, haptic} fired on bounce" }
+  },
+
+  "steering_response": {
+    "steer_latency63_s": { "must_be_below": 0.30, "baseline": 0.28,
+      "note": "Already in band - do not regress while fixing other items." },
+    "camera_responds_to_steering": { "must_be": true, "baseline": false,
+      "note": "lateral camera lead toward steer direction and/or roll; the world must rotate, not just the sprite translate" }
+  },
+
+  "ceremony": {
+    "countdown_present": { "must_be": true, "baseline": false },
+    "run_duration_s": { "target_range": [18, 30], "baseline": 10.6,
+      "why": "10s ends before flow starts. Lengthen track or add a second lap/section; keep under 30s for the attention span." },
+    "finish_celebration_hold_s": { "must_be_above": 1.5 }
+  },
+
+  "driving_system": {
+    "line_advantage_s": { "must_be_above": 1.2, "baseline": 0.0,
+      "why": "Inside vs outside cornering line must produce a real time gap. Baseline 0.00s proves lateral position is cosmetic: ds must couple to x via track curvature." },
+    "skill_time_delta_s": { "must_be_above": 2.0, "baseline": 0.0,
+      "why": "The drifter policy (steer into every bend) must beat no-input by >= 2s of the ~20s run. This is the ceiling above the autopilot floor - the floor itself stays (zero input still finishes; that is a feature for this audience, per MK8 Deluxe smart-steering philosophy)." },
+    "drift_uptime_s": { "target_range": [3, 8], "baseline": 0.0 },
+    "drift_tiers_reachable": { "must_be_above": 2, "baseline": 0,
+      "note": "silver/gold/rainbow - the drifter policy must reach at least gold" },
+    "no_spinout": { "must_be": true,
+      "why": "Drift has no failure mode. Over-drifting caps at rainbow; the only cost of sloppy drift is the R4 wall thump." }
+  },
+
+  "chase_mode_fairness": {
+    "toddler_policy_winrate": { "target_range": [0.6, 0.9], "baseline": 1.0,
+      "why": "5/5 instant wins the moment the window opens means the corner-him mechanic is decorative. Some tension is wanted - but see no_fail." },
+    "no_fail": { "must_be": true, "baseline": false,
+      "why": "Chase mode currently carries the game's ONLY fail state. Replace bottom-of-slide miss with a rescue beat: penguin trips, giggles, second shorter chance - always ends warm." }
+  }
+}

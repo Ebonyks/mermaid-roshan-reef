@@ -1,0 +1,48 @@
+name: Race feel telemetry
+
+# RACE_FEEL_WORKORDER.md protocol: after each tuning phase (R1..R7), run the
+# FEEL| harness plus the two guardrail probes. The FEEL| block in this log is
+# compared against feel_targets.json by hand/agent; audit+l2 grep-gate FAIL.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/graphics-upgrade-fork]
+    paths:
+      - scripts/probe_race_feel.gd
+      - feel_targets.json
+
+env:
+  GODOT_RELEASE: "4.4-stable"
+
+jobs:
+  feel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Godot
+        run: |
+          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          unzip -q godot.zip
+          sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
+
+      - name: Import (deadlock-guarded)
+        run: timeout 12m godot --headless --import . || (echo "IMPORT FAIL (hang or error)" && exit 1)
+
+      - name: Race feel telemetry (FEEL| block)
+        run: |
+          timeout 10m godot --headless --fixed-fps 60 -s scripts/probe_race_feel.gd 2>&1 | tee /tmp/feel.out
+          grep "FEEL|" /tmp/feel.out || (echo "NO FEEL OUTPUT" && exit 1)
+          grep -q "REBUILD FAILED" /tmp/feel.out && exit 1 || true
+
+      - name: Guardrail probes (audit + l2)
+        run: |
+          FAILED=0
+          for p in probe_audit probe_l2; do
+            echo "=== $p ==="
+            timeout 8m godot --headless -s "scripts/$p.gd" 2>&1 | tee "/tmp/$p.out" || FAILED=1
+            grep -q "FAIL" "/tmp/$p.out" && { echo "PROBE $p reported FAIL"; FAILED=1; }
+          done
+          exit $FAILED
