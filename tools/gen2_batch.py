@@ -52,6 +52,13 @@ TILE_STYLE = (
 )
 
 SPECIAL = {
+    "galaxy_fruit_apple": "a plain shiny red apple with one leaf - just the fruit, nothing else",
+    "galaxy_fruit_banana": "a plain yellow banana - just the fruit, nothing else",
+    "galaxy_fruit_melon": "a plain watermelon half showing pink flesh - just the fruit, nothing else",
+    "galaxy_fruit_orange": "a plain orange with one leaf - just the fruit, nothing else",
+    "galaxy_tray": "a plain empty oval serving plate",
+    "galaxy_butterfly1": "a single pretty butterfly with open wings, top-down view",
+    "galaxy_butterfly2": "a single pretty butterfly with open wings, side view",
     "kits_swing_a_large": "an empty children's playground swing set: A-frame posts with two hanging swings, no people",
     "kits_swing_b_large": "an empty children's playground swing set with a wide bench swing, no people",
     "kits_slide_a": "an empty children's playground slide with ladder, no people",
@@ -75,7 +82,7 @@ CATEGORY_HINT = {
     "aquatic": "an underwater reef creature or coral for a mermaid game",
     "nature": "a meadow plant, tree, rock or mushroom for a storybook island",
     "kits": "a chunky modular pastel castle building piece (storybook toy castle)",
-    "galaxy": "a whimsical butterfly-garden world object",
+    "galaxy": "a garden-world object (do NOT add wings or butterfly parts to it)",
     "ship": "a pirate-sea object for a friendly mermaid reef",
     "terrain": "TILEABLE ground texture",
     "castle": "royal castle furniture",
