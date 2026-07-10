@@ -77,6 +77,23 @@ SPECIAL = {
     "vehicles_motorcycle": "a cute chunky purple cartoon motorcycle, toy-like",
     "kits_wall_narrow_gate": "a chunky pastel castle wall piece with an arched gate opening and crenellated top",
     "terrain_up_water_nrm": None,
+    # Round-2 additions: the audit showed every aquatic_rock/coral role was
+    # hijacked by the category hint ("creature or coral") into faced
+    # creatures/clusters - same bug class as the winged apples. Explicit
+    # plain subjects bypass the hint entirely.
+    "aquatic_rock": "a plain smooth gray-lavender undersea boulder - just a rock, nothing on it",
+    "aquatic_rock1": "a plain rounded sandy-beige undersea rock - just a rock, nothing on it",
+    "aquatic_rock3": "a plain flat-topped pastel purple undersea rock - just a rock, nothing on it",
+    "aquatic_rock4": "a plain egg-shaped pale blue undersea rock - just a rock, nothing on it",
+    "aquatic_rock5": "a plain chunky seafoam-gray undersea rock - just a rock, nothing on it",
+    "aquatic_rock10": "a plain tall pastel gray undersea rock - just a rock, nothing on it",
+    "aquatic_coral": "exactly one pink branching coral, a single bare branch shape with no face",
+    "aquatic_coral4": "exactly one lavender fan coral, a single flat fan shape with no face",
+    "aquatic_coral5": "exactly one round mint-green brain coral dome with no face",
+    "aquatic_whale": "a single cute smiling whale with smooth clean blue skin - nothing growing on or attached to it",
+    "aquatic_penguin": "a single cute penguin swimming - just the penguin, no coral, no reef",
+    "nature_flower_reda": "a single plain red flower with green stem and leaves - one flower only, no face",
+    "nature_tree_fat": "a single fat storybook tree with a thick brown trunk and one big round green canopy - a tree, not a mushroom",
 }
 CATEGORY_HINT = {
     "aquatic": "an underwater reef creature or coral for a mermaid game",
@@ -138,8 +155,9 @@ def describe(role):
     return f"{words} - {CATEGORY_HINT.get(cat, 'a game object')}"
 
 
-def build_requests():
-    roles = json.load(open(os.path.join(ROOT, "gen2", "visual_roles.json")))
+def build_requests(role_list=None, tag="v"):
+    roles = role_list if role_list is not None else \
+        json.load(open(os.path.join(ROOT, "gen2", "visual_roles.json")))
     reqs = []
     for role in sorted(roles):
         tile = role.startswith("terrain_")
@@ -147,7 +165,7 @@ def build_requests():
         prompt = (TILE_STYLE if tile else STYLE) + "\n\nSubject: " + describe(role) + "."
         for v in range(1, VARIANTS + 1):
             reqs.append({
-                "metadata": {"key": f"{role}__v{v}"},
+                "metadata": {"key": f"{role}__{tag}{v}"},
                 "request": {
                     "contents": [{"parts": [{"text": prompt + f" (variation {v} of {VARIANTS}: vary the design, keep the style)"}]}],
                     "generationConfig": {
@@ -159,23 +177,42 @@ def build_requests():
     return reqs
 
 
-def submit_all():
-    reqs = build_requests()
+def submit_all(reqs=None, jobs_file="jobs.json", label="gen2-art"):
+    if reqs is None:
+        reqs = build_requests()
     budget_gate(len(reqs), MODEL)
     print(f"{len(reqs)} requests -> {((len(reqs)-1)//CHUNK)+1} batch jobs", flush=True)
     jobs = []
     for i in range(0, len(reqs), CHUNK):
         chunk = reqs[i:i + CHUNK]
         body = {"batch": {
-            "displayName": f"gen2-art-{i//CHUNK}",
+            "displayName": f"{label}-{i//CHUNK}",
             "inputConfig": {"requests": {"requests": chunk}},
         }}
         r = call("POST", f"/{MODEL}:batchGenerateContent", body)
         jobs.append(r["name"])
         print(f"  submitted {r['name']} ({len(chunk)} reqs)", flush=True)
         time.sleep(5)
-    json.dump(jobs, open(os.path.join(OUT, "jobs.json"), "w"))
+    json.dump(jobs, open(os.path.join(OUT, jobs_file), "w"))
     return jobs
+
+
+# Round-2 pilot: one role per flaw class from the audit's REGEN bucket.
+PILOT_ROLES = ["aquatic_rock", "aquatic_coral", "aquatic_whale",
+               "kits_slide_a", "nature_tree_fat"]
+
+
+def regen(pilot=False):
+    summary = json.load(open(os.path.join(ROOT, "gen2", "audit", "summary.json")))
+    roles = summary["buckets"]["REGEN"]
+    if pilot:
+        roles = [r for r in PILOT_ROLES if r in roles]
+    print(f"round-2 regen: {len(roles)} roles {'(pilot)' if pilot else ''}", flush=True)
+    reqs = build_requests(roles, tag="r2_v")
+    jobs = submit_all(reqs, jobs_file="jobs_regen.json", label="gen2-r2")
+    done = poll(jobs)
+    n = harvest(done)
+    print(f"round-2 harvested {n} images", flush=True)
 
 
 def poll(jobs):
@@ -361,4 +398,14 @@ if __name__ == "__main__":
         done = poll(jobs)
         harvest(done)
         analyze()
+        print("ALL DONE", flush=True)
+    elif mode == "regen":
+        regen(pilot=False)
+        print("ALL DONE", flush=True)
+    elif mode == "regen_pilot":
+        regen(pilot=True)
+        print("ALL DONE", flush=True)
+    elif mode == "regen_resume":
+        jobs = json.load(open(os.path.join(OUT, "jobs_regen.json")))
+        harvest(poll(jobs))
         print("ALL DONE", flush=True)
