@@ -229,6 +229,73 @@ def analyze():
     print(f"analyzed {len(results)} images, {len(byrole)} roles ranked", flush=True)
 
 
+
+
+def analyze_batch():
+    """Batch-API analysis: no interactive rate limits."""
+    import io
+    from PIL import Image
+    reqs = []
+    for role in sorted(os.listdir(OUT)):
+        d = os.path.join(OUT, role)
+        if not os.path.isdir(d):
+            continue
+        for f in sorted(os.listdir(d)):
+            if not f.endswith((".png", ".webp")):
+                continue
+            im = Image.open(os.path.join(d, f))
+            im.thumbnail((384, 384))
+            buf = io.BytesIO()
+            im.convert("RGB").save(buf, "JPEG", quality=75)
+            reqs.append({
+                "metadata": {"key": f"{role}/{f}"},
+                "request": {"contents": [{"parts": [
+                    {"inlineData": {"mimeType": "image/jpeg",
+                                    "data": base64.b64encode(buf.getvalue()).decode()}},
+                    {"text": "Score this game-sprite candidate 1-10 on: style "
+                             "(flat cel-shaded, thin black outlines, pastel), "
+                             "background purity (plain white, single subject), "
+                             "and sprite usability (clean silhouette, fully in "
+                             "frame). Reply ONLY JSON: {\"style\":n,"
+                             "\"background\":n,\"usable\":n,\"note\":\"<10 words\"}"}]}]},
+            })
+    print(len(reqs), "analysis requests", flush=True)
+    jobs = []
+    AC = 50
+    for i in range(0, len(reqs), AC):
+        body = {"batch": {"displayName": f"gen2-analysis-{i//AC}",
+                          "inputConfig": {"requests": {"requests": reqs[i:i+AC]}}}}
+        r = call("POST", f"/{ANALYZE_MODEL}:batchGenerateContent", body)
+        jobs.append(r["name"])
+        print("  submitted", r["name"], flush=True)
+        time.sleep(3)
+    done = poll(jobs)
+    results = {}
+    for name, st in done.items():
+        for item in st.get("response", {}).get("inlinedResponses", {}).get("inlinedResponses", []):
+            k = item.get("metadata", {}).get("key", "?")
+            try:
+                txt = item["response"]["candidates"][0]["content"]["parts"][0]["text"]
+                txt = txt[txt.find("{"):txt.rfind("}") + 1]
+                results[k] = json.loads(txt)
+            except Exception as e:  # noqa: BLE001
+                results[k] = {"error": str(e)[:80]}
+    json.dump(results, open(os.path.join(OUT, "analysis.json"), "w"), indent=1)
+    lines = ["# GEN2 batch analysis - best variant per role\n"]
+    byrole = {}
+    for k, v in results.items():
+        if "error" in v:
+            continue
+        role = k.split("/")[0]
+        score = v["style"] + v["background"] + v["usable"]
+        if score > byrole.get(role, (0, "", ""))[0]:
+            byrole[role] = (score, k, v.get("note", ""))
+    for role, (score, k, note) in sorted(byrole.items()):
+        lines.append(f"- **{role}**: {k} ({score}/30) - {note}")
+    open(os.path.join(OUT, "ANALYSIS.md"), "w").write("\n".join(lines) + "\n")
+    print(f"analyzed {len(results)}, ranked {len(byrole)} roles", flush=True)
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     mode = sys.argv[1] if len(sys.argv) > 1 else "run_all"
@@ -241,6 +308,9 @@ if __name__ == "__main__":
                    "wall_minutes": round((time.time() - t0) / 60, 1)},
                   open(LEDGER, "w"))
         analyze()
+        print("ALL DONE", flush=True)
+    elif mode == "analyze_batch":
+        analyze_batch()
         print("ALL DONE", flush=True)
     elif mode == "resume":
         jobs = json.load(open(os.path.join(OUT, "jobs.json")))
