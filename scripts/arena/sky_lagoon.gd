@@ -109,7 +109,16 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var ox: float = float(seed % 200) / 10.0 - 10.0
 			var oz: float = float((seed / 200) % 200) / 10.0 - 10.0
 			var tpos := o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz)
-			m._nature(trees[(seed / 11) % trees.size()], tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+			var tname: String = trees[(seed / 11) % trees.size()]
+			if tname == "tree_pineRoundF":
+				# GEN2 pilot: the round puff tree is the family-style one now
+				var gtree = m._gen2_prop("tree_pineroundf", tpos, 8.0 + float(seed % 5), float(seed % 628) / 100.0)
+				if gtree != null:
+					m.game_nodes.append(gtree)
+				else:
+					m._nature(tname, tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+			else:
+				m._nature(tname, tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
 			# collision audit #1: the whole forest was ghost — trunks are solid now
 			m._cyl_solid(tpos + Vector3(0, 6.0, 0), 1.3, 6.0, 0.6)
 	# undergrowth: bushes, mushrooms, grass tufts, flower clumps
@@ -248,7 +257,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		m.add_child(lockl)
 		m.game_nodes.append(lockl)
 	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
-	# drifting butterflies for life
+	# drifting butterflies for life — GEN2 pilot: real family-style
+	# butterfly art instead of the flower.png stand-in
 	var bfly := CPUParticles3D.new()
 	bfly.amount = 26
 	bfly.lifetime = 6.0
@@ -265,7 +275,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bq.size = Vector2(1.2, 1.2)
 	bfly.mesh = bq
 	var bmat := StandardMaterial3D.new()
-	bmat.albedo_texture = load(m.GTA + "flower.png")
+	bmat.albedo_texture = load("res://assets/props/gen2/butterfly1.png")
 	bmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	bmat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	bmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -273,6 +283,30 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bfly.position = o + Vector3(0, 14, 30)
 	m.add_child(bfly)
 	m.game_nodes.append(bfly)
+	# ...and six HERO butterflies that really flap (vertex-sine wing fold,
+	# assets/shaders/butterfly_flap.gdshader) hovering over the meadow
+	var flap_sh = load("res://assets/shaders/butterfly_flap.gdshader")
+	var wing_texs := ["res://assets/props/gen2/butterfly1.png", "res://assets/props/gen2/butterfly2.png"]
+	var hero_spots := [Vector3(60, 9, 80), Vector3(-70, 8, 60), Vector3(95, 10, -30),
+		Vector3(-95, 11, 74), Vector3(40, 8, 150), Vector3(-45, 9, -70)]
+	for hb in range(hero_spots.size()):
+		var hq := QuadMesh.new()
+		hq.size = Vector2(3.2, 2.6)
+		hq.orientation = PlaneMesh.FACE_Y
+		var hmat := ShaderMaterial.new()
+		hmat.shader = flap_sh
+		hmat.set_shader_parameter("wing_tex", load(wing_texs[hb % 2]))
+		hmat.set_shader_parameter("phase", float(hb) * 1.7)
+		hmat.set_shader_parameter("flap_speed", 8.0 + float(hb % 3))
+		var hmi := MeshInstance3D.new()
+		hmi.mesh = hq
+		hmi.material_override = hmat
+		hmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var hpos: Vector3 = hero_spots[hb]
+		hmi.position = o + Vector3(hpos.x, _lagoon_local(hpos.x, hpos.z) + hpos.y, hpos.z)
+		hmi.rotation.y = float(hb) * 1.1
+		m.add_child(hmi)
+		m.game_nodes.append(hmi)
 	# ---------- the castle (back of the island) ----------
 	var c := o + Vector3(0, 0, -120.0)
 	# the moat is carved into the lagoon terrain (see _lagoon_moat_dip); the bridge crosses it
