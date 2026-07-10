@@ -18,3 +18,6 @@ __pycache__/
 
 # local API keys — never committed
 .secrets/
+
+# Kokoro TTS model + voice packs (downloaded per make_voices.py setup docs)
+tools/kokoro/
