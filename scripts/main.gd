@@ -2553,6 +2553,32 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	game_nodes.append(wrap)
 	return wrap
 
+var _gen2_cache := {}
+
+func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
+	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
+	# family storybook style, audited, converted to 3D (Meshy) and shrunk for
+	# the phone (tools/shrink_glb.py). Same contract as _kit: fits footprint
+	# to `target`, seats base at pos; collisions and node-list registration
+	# (game_nodes/flora_nodes) stay the caller's job.
+	var ps: PackedScene = _gen2_cache.get(name, null)
+	if ps == null:
+		var path := "res://assets/props/gen2/" + name + ".glb"
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_gen2_cache[name] = ps
+	if ps == null:
+		return null
+	var wrap := Node3D.new()
+	var inst: Node3D = ps.instantiate()
+	_fit_prop(inst, target)
+	wrap.add_child(inst)
+	wrap.position = pos
+	wrap.rotation.y = yrot
+	add_child(wrap)
+	return wrap
+
 func _pastel(c: Color) -> Color:
 	# the book palette: colours drift toward airy pastel (lifted, softened)
 	# while keeping their hue identity — rainbow saturation stays on CHARACTERS
