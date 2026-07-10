@@ -86,7 +86,7 @@ def call(method, path, body=None, tries=5):
                 return json.loads(r.read())
         except Exception as e:  # noqa: BLE001 - retry on transient API errors
             print(f"  api retry {a+1}/{tries}: {e}", flush=True)
-            time.sleep(20 * (a + 1))
+            time.sleep(60 * (a + 1))
     raise RuntimeError(f"API failed after {tries} tries: {path}")
 
 
@@ -260,15 +260,17 @@ def analyze_batch():
                              "\"background\":n,\"usable\":n,\"note\":\"<10 words\"}"}]}]},
             })
     print(len(reqs), "analysis requests", flush=True)
-    jobs = []
+    ckpt = os.path.join(OUT, "analysis_jobs.json")
+    jobs = json.load(open(ckpt)) if os.path.exists(ckpt) else []
     AC = 50
-    for i in range(0, len(reqs), AC):
+    for i in range(len(jobs) * AC, len(reqs), AC):
         body = {"batch": {"displayName": f"gen2-analysis-{i//AC}",
                           "inputConfig": {"requests": {"requests": reqs[i:i+AC]}}}}
-        r = call("POST", f"/{ANALYZE_MODEL}:batchGenerateContent", body)
+        r = call("POST", f"/{ANALYZE_MODEL}:batchGenerateContent", body, tries=10)
         jobs.append(r["name"])
+        json.dump(jobs, open(ckpt, "w"))
         print("  submitted", r["name"], flush=True)
-        time.sleep(3)
+        time.sleep(60)   # the key is quota-tight after the overnight run
     done = poll(jobs)
     results = {}
     for name, st in done.items():
