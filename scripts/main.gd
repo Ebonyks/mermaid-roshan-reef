@@ -1433,7 +1433,7 @@ func _build_aquatic_flora() -> void:
 	for c in cluster_centers:
 		# GEN2 pilot: a family-style coral crowns the middle of every grove
 		# (prominent placement per the owner's curation note)
-		var gcoral := _gen2_prop("coral3", Vector3(c.x, seabed_y(c.x, c.z), c.z), 8.5, randf() * TAU)
+		var gcoral := _gen2_prop("coral3", Vector3(c.x, seabed_y(c.x, c.z), c.z), 8.5, randf() * TAU, 0.08)
 		if gcoral != null:
 			flora_nodes.append(gcoral)
 		# coral bouquet
@@ -1467,7 +1467,7 @@ func _build_aquatic_flora() -> void:
 		# GEN2 pilot: every other big boulder is the family-style rock
 		# (audit KEEP nature_rock_largea/v1, owner-approved exemplar)
 		if bscl >= 2.2 and i % 2 == 0:
-			var grock := _gen2_prop("rock_largea", Vector3(x, seabed_y(x, z), z), bscl * 1.9, randf() * TAU)
+			var grock := _gen2_prop("rock_largea", Vector3(x, seabed_y(x, z), z), bscl * 1.9, randf() * TAU, 0.25)
 			if grock != null:
 				flora_nodes.append(grock)
 				_register_solid(grock)
@@ -2568,7 +2568,7 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 
 var _gen2_cache := {}
 
-func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
+func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
 	# family storybook style, audited, converted to 3D (Meshy) and shrunk for
 	# the phone (tools/shrink_glb.py). Same contract as _kit: fits footprint
@@ -2585,9 +2585,12 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0) ->
 		return null
 	var wrap := Node3D.new()
 	var inst: Node3D = ps.instantiate()
-	_fit_prop(inst, target)
+	var h: float = _fit_prop(inst, target)
 	wrap.add_child(inst)
-	wrap.position = pos
+	# sink settles the prop into the ground by a fraction of its height —
+	# Meshy meshes have smooth rounded bases that only kiss the terrain at one
+	# tangent point and read as floating on any slope (playtest 2026-07-10)
+	wrap.position = pos - Vector3(0.0, h * sink, 0.0)
 	wrap.rotation.y = yrot
 	add_child(wrap)
 	return wrap
