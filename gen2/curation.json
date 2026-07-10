@@ -25,7 +25,9 @@
   "F5_cluster_not_single": "corals arrive as multi-blob CLUSTERS; scatter props need ONE readable piece. Fix: 'exactly one coral branch/formation'.",
   "F6_tile_tessellation": "terrain tiles are painterly but not seamless; visible clumps repeat. Fix: offset-blend polish pass (scripted) + regen at higher uniformity.",
   "F7_palette_bleed": "pastel override recolors things oddly (pink palm trunks). Acceptable sometimes; constrain trunks/wood to warm browns.",
-  "F8_concept_enmeshing": "the named subject gets blended with OTHER concepts (rock+mushroom+candy, coral+creature) until it is not a clean representation. Worst failure class per owner. Fix: identity clause in prompt - depict ONLY the named subject, plain and readable; nothing growing on/merged into it."
+  "F8_concept_enmeshing": "the named subject gets blended with OTHER concepts (rock+mushroom+candy, coral+creature) until it is not a clean representation. Worst failure class per owner. Fix: identity clause in prompt - depict ONLY the named subject, plain and readable; nothing growing on/merged into it.",
+  "F9_spontaneous_characters": "the model INVENTS new mermaid/people characters. Absolutely forbidden - characters in this game are family IP only (book art). Fix: hard no-characters clause in every background prompt.",
+  "F10_subject_hijack": "ambiguous role names + wrong category hint let the style context replace the subject entirely (swing_a_large + castle-kit hint -> mermaid hugging castle). Fix: explicit per-role subject dictionary for ambiguous roles."
  },
  "pipeline_next": "best-candidates cull (Roshan + analysis when quota resets) -> polish pass (tools/polish_sprite.py: alpha cutout, autocontrast, seamless-tile fix) -> targeted regen round 2 with flaw-patched prompts for roles with no usable variant",
  "rejected_examples": [
@@ -36,6 +38,23 @@
   {
    "pick": "nature_rock_largea/v4",
    "note": "rock wearing a mushroom colony with tentacle curls - concepts enmeshed"
+  },
+  {
+   "pick": "nature_cliff_block_rock/v4",
+   "note": "flower grows from rock with nonsensical leaves (F8)"
+  },
+  {
+   "pick": "kits_swing_a_large/v1",
+   "note": "invented mermaid hugging a castle tower - subject (swing) gone entirely (F9+F10)"
+  },
+  {
+   "pick": "kits_swing_a_large/v2",
+   "note": "same - new mermaid character"
+  },
+  {
+   "pick": "kits_swing_a_large/v4",
+   "note": "same - new mermaid character"
   }
- ]
+ ],
+ "regen_plan": "After the manual audit completes: full round-2 set with the patched prompts (identity clause, no-characters clause, fixed subject dictionary). Background items in the Mermaid Roshan STYLE only - never new characters, never enmeshed concepts."
 }

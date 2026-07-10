@@ -39,7 +39,9 @@ STYLE = (
     "creatures; exactly ONE object, never a cluster or group. IDENTITY: "
     "depict ONLY the named subject, plain and instantly readable - do not "
     "blend it with other concepts, and put nothing growing on, attached "
-    "to, or merged into it (a rock is just a rock)."
+    "to, or merged into it (a rock is just a rock). ABSOLUTELY NO "
+    "CHARACTERS: no mermaids, no people, no children, no invented mascots "
+    "anywhere in the image - the subject is an empty, unoccupied object."
 )
 TILE_STYLE = (
     "Seamlessly TILEABLE square texture, hand-painted storybook style, flat "
@@ -50,6 +52,13 @@ TILE_STYLE = (
 )
 
 SPECIAL = {
+    "kits_swing_a_large": "an empty children's playground swing set: A-frame posts with two hanging swings, no people",
+    "kits_swing_b_large": "an empty children's playground swing set with a wide bench swing, no people",
+    "kits_slide_a": "an empty children's playground slide with ladder, no people",
+    "kits_seesaw_large": "an empty children's playground seesaw, no people",
+    "kits_sandbox_round_decorated": "an empty round sandbox with sand and small sandcastles, no people",
+    "kits_merry_go_round": "an empty playground merry-go-round spinner, no people",
+    "kits_spring_horse_a": "an empty playground spring rider shaped like a pony, no people",
     "ship_ship_ghost": "a friendly rounded ghost pirate ship with softly glowing pastel sails, magical not scary",
     "ship_ship_wreck": "a charming sunken wooden shipwreck, tilted on the seabed, overgrown with pastel coral",
     "ship_cliff_cave_rock": "a large rounded undersea cliff rock with a dark friendly cave opening",
