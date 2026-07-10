@@ -100,10 +100,17 @@ def harvest():
             urllib.request.urlretrieve(url, os.path.join(d, "static.glb"))
             print(f"{role}: static.glb downloaded", flush=True)
             if t.get("rig"):
-                rr = call("POST", "/v1/rigging", {"input_task_id": t["i23d"]})
-                t["rig_task"] = rr["result"]
-                t["stage"] = "rigging"
-                print(f"{role}: rigging task {rr['result']}", flush=True)
+                try:
+                    rr = call("POST", "/v1/rigging", {"input_task_id": t["i23d"]}, tries=2)
+                    t["rig_task"] = rr["result"]
+                    t["stage"] = "rigging"
+                    print(f"{role}: rigging task {rr['result']}", flush=True)
+                except RuntimeError:
+                    # 422 = pose estimation failed (non-biped: tails, fish).
+                    # Keep the static mesh; animation stays procedural.
+                    t["stage"] = "done"
+                    t["note"] = "rigging rejected (pose estimation); static only"
+                    print(f"{role}: rigging rejected, keeping static.glb", flush=True)
             else:
                 t["stage"] = "done"
         elif t["stage"] == "rigging":
