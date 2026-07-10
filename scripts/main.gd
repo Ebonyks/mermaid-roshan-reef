@@ -4869,8 +4869,10 @@ func _slide_dir(i: int) -> Array:
 		right = Vector3.RIGHT
 	return [fwd, right.normalized()]
 
-func _slide_sample(s: float) -> Array:
-	# returns [pos, tangent, right] at arc-length s along the chute
+func _slide_pos(s: float) -> Vector3:
+	# R1: Catmull-Rom position at arc-length s. The MOTION/CAMERA path is
+	# C1-smooth; the plank visuals still sit on the raw polyline (they look
+	# fine and the rider floats SLIDE_RIDE above them).
 	var path: Array = g["path"]
 	var cum: Array = g["cum"]
 	var total: float = g["total"]
@@ -4880,9 +4882,25 @@ func _slide_sample(s: float) -> Array:
 		i += 1
 	var seg_len: float = float(cum[i + 1]) - float(cum[i])
 	var f: float = 0.0 if seg_len < 0.001 else (s - float(cum[i])) / seg_len
-	var pos: Vector3 = (path[i] as Vector3).lerp(path[i + 1], f)
-	var d: Array = _slide_dir(i)
-	return [pos, d[0], d[1]]
+	var p0: Vector3 = path[maxi(i - 1, 0)]
+	var p1: Vector3 = path[i]
+	var p2: Vector3 = path[mini(i + 1, path.size() - 1)]
+	var p3: Vector3 = path[mini(i + 2, path.size() - 1)]
+	var f2: float = f * f
+	var f3: float = f2 * f
+	return ((p1 * 2.0) + (p2 - p0) * f + (p0 * 2.0 - p1 * 5.0 + p2 * 4.0 - p3) * f2 + (p1 * 3.0 - p0 - p2 * 3.0 + p3) * f3) * 0.5
+
+func _slide_sample(s: float) -> Array:
+	# returns [pos, tangent, right] at arc-length s along the chute.
+	# R1: tangent by central difference of the spline (ds=1.5m), never from
+	# segment indices - heading is continuous, no more per-joint yaw snaps.
+	var pos := _slide_pos(s)
+	var fwd: Vector3 = _slide_pos(s + 1.5) - _slide_pos(s - 1.5)
+	var fwd_n: Vector3 = fwd.normalized() if fwd.length() > 0.001 else Vector3.FORWARD
+	var right: Vector3 = Vector3.UP.cross(fwd_n)
+	if right.length() < 0.001:
+		right = Vector3.RIGHT
+	return [pos, fwd_n, right.normalized()]
 
 func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var total: float = g["total"]
