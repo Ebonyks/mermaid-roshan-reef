@@ -1431,6 +1431,11 @@ func _build_aquatic_flora() -> void:
 	var shells := ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar"]
 	var rocks := ["Rock", "Rock1", "Rock2", "Rock3", "Rock4", "Rock5", "Rock6", "Rock7", "Rock8", "Rock9", "Rock10", "Rock11"]
 	for c in cluster_centers:
+		# GEN2 pilot: a family-style coral crowns the middle of every grove
+		# (prominent placement per the owner's curation note)
+		var gcoral := _gen2_prop("coral3", Vector3(c.x, seabed_y(c.x, c.z), c.z), 8.5, randf() * TAU)
+		if gcoral != null:
+			flora_nodes.append(gcoral)
 		# coral bouquet
 		for k in range(4 + randi() % 4):
 			var ca := randf() * TAU
@@ -1459,6 +1464,14 @@ func _build_aquatic_flora() -> void:
 		var x := cos(a) * r
 		var z := sin(a) * r
 		var bscl: float = 2.0 + randf() * 4.0
+		# GEN2 pilot: every other big boulder is the family-style rock
+		# (audit KEEP nature_rock_largea/v1, owner-approved exemplar)
+		if bscl >= 2.2 and i % 2 == 0:
+			var grock := _gen2_prop("rock_largea", Vector3(x, seabed_y(x, z), z), bscl * 1.9, randf() * TAU)
+			if grock != null:
+				flora_nodes.append(grock)
+				_register_solid(grock)
+				continue
 		var brock := _place_aq(rocks[randi() % rocks.size()], Vector3(x, seabed_y(x, z), z), bscl, false)
 		if bscl >= 2.2:   # audit #8: half the boulders were swim-through — inconsistent, read as a glitch
 			_register_solid(brock)
