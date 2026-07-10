@@ -2567,6 +2567,16 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	return wrap
 
 var _gen2_cache := {}
+const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
+var _gen2_outline: ShaderMaterial = null
+
+func _gen2_outline_mat() -> ShaderMaterial:
+	if _gen2_outline == null:
+		_gen2_outline = ShaderMaterial.new()
+		_gen2_outline.shader = load("res://assets/shaders/outline.gdshader")
+		# navy/purple ink per the art direction (not black)
+		_gen2_outline.set_shader_parameter("line_color", Color(0.16, 0.12, 0.3))
+	return _gen2_outline
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
@@ -2586,6 +2596,11 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 	var wrap := Node3D.new()
 	var inst: Node3D = ps.instantiate()
 	var h: float = _fit_prop(inst, target)
+	if GEN2_CEL:
+		# WW toon-bake 2/2: flat posterized albedo (shrink pass) + banded cel
+		# light + inverted-hull navy outline. GEN2 props only — bounded, one
+		# const to revert, per CEL_SHADING.md's incremental wiring plan.
+		_cel_replace(inst, _gen2_outline_mat())
 	wrap.add_child(inst)
 	# sink settles the prop into the ground by a fraction of its height —
 	# Meshy meshes have smooth rounded bases that only kiss the terrain at one

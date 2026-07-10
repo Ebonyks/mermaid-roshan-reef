@@ -17,7 +17,8 @@ uniform float rim_width : hint_range(0.0, 1.0) = 0.55;
 void fragment() {
 	vec4 t = texture(albedo_tex, UV);
 	ALBEDO = t.rgb * tint.rgb;
-	ALPHA = t.a * tint.a;
+	// no ALPHA write: assigning ALPHA would move every mesh into the transparent
+	// pass (z-sort artifacts on opaque props); gen2 props are solid meshes
 	ROUGHNESS = 0.9;
 	// soft rim light so silhouettes glow underwater (added in fragment, view-based)
 	float f = pow(1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0), 3.0);
