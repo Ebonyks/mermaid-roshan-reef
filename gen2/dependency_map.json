@@ -1,0 +1,2413 @@
+{
+ "summary": {
+  "KEEP": 165,
+  "DISCARD": 167,
+  "TOOLING": 4
+ },
+ "unreferenced_discards": [
+  "assets/terrain/grass.jpg"
+ ],
+ "files": {
+  "assets/aquatic/Carp.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_carp"
+  },
+  "assets/aquatic/ClownFish.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_clownfish"
+  },
+  "assets/aquatic/Coral.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_coral"
+  },
+  "assets/aquatic/Coral1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral1"
+  },
+  "assets/aquatic/Coral2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral2"
+  },
+  "assets/aquatic/Coral3.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral3"
+  },
+  "assets/aquatic/Coral4.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral4"
+  },
+  "assets/aquatic/Coral5.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral5"
+  },
+  "assets/aquatic/Coral6.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:50"
+   ],
+   "role": "aquatic_coral6"
+  },
+  "assets/aquatic/Crab.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_crab"
+  },
+  "assets/aquatic/Dolphin.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_dolphin"
+  },
+  "assets/aquatic/Dory.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_dory"
+  },
+  "assets/aquatic/Eel.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_eel"
+  },
+  "assets/aquatic/FanShell.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_fanshell"
+  },
+  "assets/aquatic/Hammerhead.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_hammerhead"
+  },
+  "assets/aquatic/Lobster.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_lobster"
+  },
+  "assets/aquatic/Octopus.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_octopus"
+  },
+  "assets/aquatic/Penguin.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_penguin"
+  },
+  "assets/aquatic/Rock.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock"
+  },
+  "assets/aquatic/Rock1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock1"
+  },
+  "assets/aquatic/Rock10.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock10"
+  },
+  "assets/aquatic/Rock11.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock11"
+  },
+  "assets/aquatic/Rock2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:391",
+    "scripts/galaxy.gd:392"
+   ],
+   "role": "aquatic_rock2"
+  },
+  "assets/aquatic/Rock3.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock3"
+  },
+  "assets/aquatic/Rock4.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock4"
+  },
+  "assets/aquatic/Rock5.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock5"
+  },
+  "assets/aquatic/Rock6.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock6"
+  },
+  "assets/aquatic/Rock7.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock7"
+  },
+  "assets/aquatic/Rock8.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock8"
+  },
+  "assets/aquatic/Rock9.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_rock9"
+  },
+  "assets/aquatic/SandDollar.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_sanddollar"
+  },
+  "assets/aquatic/SeaWeed.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_seaweed"
+  },
+  "assets/aquatic/SeaWeed1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_seaweed1"
+  },
+  "assets/aquatic/SeaWeed2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_seaweed2"
+  },
+  "assets/aquatic/Seal.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_seal"
+  },
+  "assets/aquatic/Shark.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_shark"
+  },
+  "assets/aquatic/SmallFanShell.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_smallfanshell"
+  },
+  "assets/aquatic/SpiralShell.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/kart.gd:98"
+   ],
+   "role": "aquatic_spiralshell"
+  },
+  "assets/aquatic/Squid.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_squid"
+  },
+  "assets/aquatic/StarFish.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_starfish"
+  },
+  "assets/aquatic/StingRay.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_stingray"
+  },
+  "assets/aquatic/Tuna.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_tuna"
+  },
+  "assets/aquatic/Turtle.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_turtle"
+  },
+  "assets/aquatic/Whale.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_place_aq/_spawn name lookup"
+   ],
+   "role": "aquatic_whale"
+  },
+  "assets/audio/ambience_hall.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/audio_director.gd:100"
+   ],
+   "role": null
+  },
+  "assets/audio/ambience_lagoon.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/audio_director.gd:98"
+   ],
+   "role": null
+  },
+  "assets/audio/ambience_reef.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/audio_director.gd:96"
+   ],
+   "role": null
+  },
+  "assets/audio/buy.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:453"
+   ],
+   "role": null
+  },
+  "assets/audio/buzz.ogg": {
+   "class": "KEEP",
+   "refs": [],
+   "role": null
+  },
+  "assets/audio/chime.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:449",
+    "scripts/arena/castle_hall.gd:404"
+   ],
+   "role": null
+  },
+  "assets/audio/fart.ogg": {
+   "class": "KEEP",
+   "refs": [],
+   "role": null
+  },
+  "assets/audio/music/banjo.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:455"
+   ],
+   "role": "audio_banjo"
+  },
+  "assets/audio/music/castle_open.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_castle_open"
+  },
+  "assets/audio/music/dolls.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_dolls"
+  },
+  "assets/audio/music/fetch.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_fetch"
+  },
+  "assets/audio/music/finale.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": null
+  },
+  "assets/audio/music/hall.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_hall"
+  },
+  "assets/audio/music/home.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_home"
+  },
+  "assets/audio/music/level2.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_level2"
+  },
+  "assets/audio/music/melody.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_melody"
+  },
+  "assets/audio/music/race.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_race"
+  },
+  "assets/audio/music/seek.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_seek"
+  },
+  "assets/audio/music/shop.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_shop"
+  },
+  "assets/audio/music/treasure.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_treasure"
+  },
+  "assets/audio/music/world.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_play_music()"
+   ],
+   "role": "audio_world"
+  },
+  "assets/audio/music/world_night.ogg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/audio_director.gd:146"
+   ],
+   "role": "audio_world_night"
+  },
+  "assets/audio/ui_tap.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/audio_director.gd:128"
+   ],
+   "role": null
+  },
+  "assets/audio/voice_yay.mp3": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:446"
+   ],
+   "role": "audio_voice_yay"
+  },
+  "assets/audio/voices/VOICE_MANIFEST.md": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/chuck.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/chuck_bark.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/chuck_whimper.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/fetch.gd:242"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/daddy1.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:3314"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/daddy2.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/daddy3.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/everyone.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/evie.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/evie_fail.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/evie_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/faron.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/faron_fail.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/faron_miss.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/faron_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/gabby.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/gabby_fail.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/gabby_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/harper.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/harper_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_greet.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_hero.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_intro.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_talk.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_thanks.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/huluu_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/rosalina.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/rosalina_greet.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/rosalina_locked.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/rosalina_open.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/rosalina_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_beans.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_bump.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_fail.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_hungry.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_idle1.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_idle2.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_idle3.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_intro1.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_intro2.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_intro3.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_intro4.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_oops.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_pearl.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_pearl2.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_pearl3.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_ship.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_talk.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_whale.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/roshan_wreck.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/shop.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/sparkle.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/wacky.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/wacky_fail.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/wacky_splash.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/audio/voices/wacky_win.ogg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_say()"
+   ],
+   "role": null
+  },
+  "assets/book/baby_doll.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:154",
+    "scripts/games/dolls.gd:56"
+   ],
+   "role": null
+  },
+  "assets/book/baby_doll2.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:155",
+    "scripts/games/dolls.gd:56"
+   ],
+   "role": null
+  },
+  "assets/book/baby_doll3.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:156",
+    "scripts/games/dolls.gd:56"
+   ],
+   "role": null
+  },
+  "assets/book/baby_eagle.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:150",
+    "scripts/main.gd:1886"
+   ],
+   "role": null
+  },
+  "assets/book/chuck_solo.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/fetch.gd:169"
+   ],
+   "role": null
+  },
+  "assets/book/doll_bunny.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:152"
+   ],
+   "role": null
+  },
+  "assets/book/doll_cat.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:153"
+   ],
+   "role": null
+  },
+  "assets/book/flower_girl.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/friendship_flower.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:563",
+    "scripts/games/picture_games.gd:585"
+   ],
+   "role": null
+  },
+  "assets/book/gabby_stage.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/melody.gd:20"
+   ],
+   "role": null
+  },
+  "assets/book/hall/glass_mermaid.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:2902"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_flower.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_gabby.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_garden.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_seattle.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_slide.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_snowman.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_trampoline.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/hall/p_xmas.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/kareem_shop.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/lake_winter.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:portrait/pic loaders"
+   ],
+   "role": null
+  },
+  "assets/book/nursery_bg.jpg": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/dolls.gd:104"
+   ],
+   "role": null
+  },
+  "assets/castle/bed.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/arena/castle_hall.gd:471",
+    "scripts/arena/castle_hall.gd:474"
+   ],
+   "role": "castle_bed"
+  },
+  "assets/castle/throne.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/arena/castle_hall.gd:67",
+    "scripts/arena/castle_hall.gd:68"
+   ],
+   "role": "castle_throne"
+  },
+  "assets/characters/fairy.glb": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/player.gd:42",
+    "scripts/galaxy.gd:852",
+    "scripts/galaxy.gd:853"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/daddy.webp": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:FRIEND_DEFS/_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/flower_friend.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:FRIEND_DEFS/_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/gabby.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1882"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/huluu.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:151",
+    "scripts/main.gd:260",
+    "scripts/main.gd:260",
+    "scripts/main.gd:564",
+    "scripts/main.gd:1878",
+    "scripts/main.gd:5336",
+    "scripts/arena/castle_hall.gd:93"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/kareem.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:4532"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/mama_baby.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1879",
+    "scripts/main.gd:1881"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/pearl_friend.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:FRIEND_DEFS/_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/two_friends.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1880"
+   ],
+   "role": null
+  },
+  "assets/characters/friends/wacky_chuck.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1883",
+    "scripts/main.gd:1884"
+   ],
+   "role": null
+  },
+  "assets/characters/huluu.glb": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/player.gd:42",
+    "scripts/galaxy.gd:850",
+    "scripts/galaxy.gd:851",
+    "scripts/arena/castle_hall.gd:81",
+    "scripts/arena/castle_hall.gd:82"
+   ],
+   "role": null
+  },
+  "assets/characters/lamb.glb": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/seek.gd:38"
+   ],
+   "role": null
+  },
+  "assets/characters/lamb_0.png": {
+   "class": "KEEP",
+   "refs": [],
+   "role": null
+  },
+  "assets/characters/roshan.glb": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/player.gd:53",
+    "scripts/galaxy.gd:847"
+   ],
+   "role": null
+  },
+  "assets/characters/roshan_sprite.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/kart.gd:149",
+    "scripts/main.gd:258",
+    "scripts/main.gd:261",
+    "scripts/main.gd:565",
+    "scripts/main.gd:1877",
+    "scripts/main.gd:1885",
+    "scripts/main.gd:1888",
+    "scripts/main.gd:5339"
+   ],
+   "role": null
+  },
+  "assets/characters/roshan_tex_2k.webp": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/player.gd:257"
+   ],
+   "role": null
+  },
+  "assets/characters/skins/fairy_mermaid.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/galaxy.gd:501",
+    "scripts/galaxy.gd:502",
+    "scripts/galaxy.gd:1398",
+    "scripts/galaxy.gd:1400",
+    "scripts/main.gd:259",
+    "scripts/main.gd:259",
+    "scripts/main.gd:262",
+    "scripts/main.gd:1887",
+    "scripts/main.gd:5338"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/daddy.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/flower_friend.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/gabby.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/huluu.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/kareem.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/mama_baby.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/pearl_friend.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/two_friends.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/characters/stickers/wacky_chuck.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:_cutout_tex"
+   ],
+   "role": null
+  },
+  "assets/galaxy/beetle.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:49"
+   ],
+   "role": "galaxy_beetle"
+  },
+  "assets/galaxy/butterfly1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:44"
+   ],
+   "role": "galaxy_butterfly1"
+  },
+  "assets/galaxy/butterfly2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:44"
+   ],
+   "role": "galaxy_butterfly2"
+  },
+  "assets/galaxy/crystal1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:31"
+   ],
+   "role": "galaxy_crystal1"
+  },
+  "assets/galaxy/crystal2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:31"
+   ],
+   "role": "galaxy_crystal2"
+  },
+  "assets/galaxy/crystal3.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:31"
+   ],
+   "role": "galaxy_crystal3"
+  },
+  "assets/galaxy/crystal_castle.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:40"
+   ],
+   "role": "galaxy_crystal_castle"
+  },
+  "assets/galaxy/fruit_apple.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:45"
+   ],
+   "role": "galaxy_fruit_apple"
+  },
+  "assets/galaxy/fruit_banana.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:45"
+   ],
+   "role": "galaxy_fruit_banana"
+  },
+  "assets/galaxy/fruit_melon.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:45"
+   ],
+   "role": "galaxy_fruit_melon"
+  },
+  "assets/galaxy/fruit_orange.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:45"
+   ],
+   "role": "galaxy_fruit_orange"
+  },
+  "assets/galaxy/ladybug.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:49"
+   ],
+   "role": "galaxy_ladybug"
+  },
+  "assets/galaxy/tray.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:46"
+   ],
+   "role": "galaxy_tray"
+  },
+  "assets/galaxy/trop_bigleaf.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:37"
+   ],
+   "role": "galaxy_trop_bigleaf"
+  },
+  "assets/galaxy/trop_fern.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:38"
+   ],
+   "role": "galaxy_trop_fern"
+  },
+  "assets/galaxy/trop_monstera.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:37"
+   ],
+   "role": "galaxy_trop_monstera"
+  },
+  "assets/galaxy/trop_palm1.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:36"
+   ],
+   "role": "galaxy_trop_palm1"
+  },
+  "assets/galaxy/trop_palm2.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:36"
+   ],
+   "role": "galaxy_trop_palm2"
+  },
+  "assets/icon/adaptive_bg_432.png": {
+   "class": "KEEP",
+   "refs": [
+    "export_presets.cfg:49"
+   ],
+   "role": null
+  },
+  "assets/icon/adaptive_fg_432.png": {
+   "class": "KEEP",
+   "refs": [
+    "export_presets.cfg:48"
+   ],
+   "role": null
+  },
+  "assets/icon/icon_192.png": {
+   "class": "KEEP",
+   "refs": [
+    "export_presets.cfg:47"
+   ],
+   "role": null
+  },
+  "assets/kits/castle/flag.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_flag"
+  },
+  "assets/kits/castle/tower-base.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_base"
+  },
+  "assets/kits/castle/tower-square-base.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_square_base"
+  },
+  "assets/kits/castle/tower-square-mid.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_square_mid"
+  },
+  "assets/kits/castle/tower-square-top-roof-high.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_square_top_roof_high"
+  },
+  "assets/kits/castle/tower-square.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_square"
+  },
+  "assets/kits/castle/tower-top.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_tower_top"
+  },
+  "assets/kits/castle/wall-narrow-gate.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_wall_narrow_gate"
+  },
+  "assets/kits/castle/wall.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_wall"
+  },
+  "assets/kits/furniture/bookcase.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_bookcase"
+  },
+  "assets/kits/furniture/chair.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_chair"
+  },
+  "assets/kits/furniture/table.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_table"
+  },
+  "assets/kits/park/bench.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_bench"
+  },
+  "assets/kits/park/fountain.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_fountain"
+  },
+  "assets/kits/park/hedge_straight.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_hedge_straight"
+  },
+  "assets/kits/park/hedge_straight_long.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_hedge_straight_long"
+  },
+  "assets/kits/play/merry_go_round.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_merry_go_round"
+  },
+  "assets/kits/play/sandbox_round_decorated.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_sandbox_round_decorated"
+  },
+  "assets/kits/play/seesaw_large.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_seesaw_large"
+  },
+  "assets/kits/play/slide_A.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_slide_a"
+  },
+  "assets/kits/play/spring_horse_A.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_spring_horse_a"
+  },
+  "assets/kits/play/swing_A_large.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_kit()"
+   ],
+   "role": "kits_swing_a_large"
+  },
+  "assets/mg/bird_accent.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/bird_body.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/bird_line.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/butterfly.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:451"
+   ],
+   "role": null
+  },
+  "assets/mg/carrot.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:292",
+    "scripts/games/picture_games.gd:307"
+   ],
+   "role": null
+  },
+  "assets/mg/cat_accent.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/cat_body.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/cat_line.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/coal.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:295",
+    "scripts/games/picture_games.gd:310",
+    "scripts/games/picture_games.gd:312"
+   ],
+   "role": null
+  },
+  "assets/mg/fish_body.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/fish_fins.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/fish_line.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/arena/castle_hall.gd:282"
+   ],
+   "role": null
+  },
+  "assets/mg/flower.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/flower2.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/flower3.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/flower4.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_bush.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_bush2.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_flower1.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_flower2.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_pine.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/k_sprout.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:467"
+   ],
+   "role": null
+  },
+  "assets/mg/k_xmastree.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/orn1.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/orn2.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/orn3.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/orn4.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/orn5.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/seed.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:442"
+   ],
+   "role": null
+  },
+  "assets/mg/snowman.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/sprout.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/star.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:493"
+   ],
+   "role": null
+  },
+  "assets/mg/sun.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:431"
+   ],
+   "role": null
+  },
+  "assets/mg/tree.png": {
+   "class": "KEEP",
+   "refs": [
+    "dynamic:craft/mg2d loaders"
+   ],
+   "role": null
+  },
+  "assets/mg/wateringcan.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:448"
+   ],
+   "role": null
+  },
+  "assets/mg/xtree.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/games/picture_games.gd:557"
+   ],
+   "role": null
+  },
+  "assets/nature/cliff_block_rock.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_cliff_block_rock"
+  },
+  "assets/nature/cliff_large_rock.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_cliff_large_rock"
+  },
+  "assets/nature/flower_purpleA.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_flower_purplea"
+  },
+  "assets/nature/flower_redA.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_flower_reda"
+  },
+  "assets/nature/flower_yellowB.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_flower_yellowb"
+  },
+  "assets/nature/grass_leafsLarge.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:39"
+   ],
+   "role": "nature_grass_leafslarge"
+  },
+  "assets/nature/mushroom_red.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_mushroom_red"
+  },
+  "assets/nature/mushroom_tanGroup.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_mushroom_tangroup"
+  },
+  "assets/nature/plant_bush.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:39"
+   ],
+   "role": "nature_plant_bush"
+  },
+  "assets/nature/plant_bushLargeTriangle.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_plant_bushlargetriangle"
+  },
+  "assets/nature/rock_largeA.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_rock_largea"
+  },
+  "assets/nature/tree_default_fall.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_tree_default_fall"
+  },
+  "assets/nature/tree_fat.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_tree_fat"
+  },
+  "assets/nature/tree_palm.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_tree_palm"
+  },
+  "assets/nature/tree_pineRoundF.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_tree_pineroundf"
+  },
+  "assets/nature/tree_simple_fall.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_nature()"
+   ],
+   "role": "nature_tree_simple_fall"
+  },
+  "assets/portal/butterfly_gate.glb": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/galaxy.gd:805",
+    "scripts/galaxy.gd:806",
+    "scripts/main.gd:2409",
+    "scripts/main.gd:2410"
+   ],
+   "role": null
+  },
+  "assets/shaders/cel.gdshader": {
+   "class": "TOOLING",
+   "refs": [
+    "scripts/main.gd:1809"
+   ],
+   "role": null
+  },
+  "assets/shaders/cel_post.gdshader": {
+   "class": "TOOLING",
+   "refs": [
+    "scripts/main.gd:1792"
+   ],
+   "role": null
+  },
+  "assets/shaders/outline.gdshader": {
+   "class": "TOOLING",
+   "refs": [],
+   "role": null
+  },
+  "assets/shaders/toon_water.gdshader": {
+   "class": "TOOLING",
+   "refs": [
+    "scripts/main.gd:1030"
+   ],
+   "role": null
+  },
+  "assets/ship/barrel.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_spawn()"
+   ],
+   "role": "ship_barrel"
+  },
+  "assets/ship/chest.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_spawn()"
+   ],
+   "role": "ship_chest"
+  },
+  "assets/ship/cliff_cave_rock.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_spawn()"
+   ],
+   "role": "ship_cliff_cave_rock"
+  },
+  "assets/ship/ship-ghost.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_spawn()"
+   ],
+   "role": "ship_ship_ghost"
+  },
+  "assets/ship/ship-wreck.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_spawn()"
+   ],
+   "role": "ship_ship_wreck"
+  },
+  "assets/sky/lagoon_day_2k.hdr": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:2290"
+   ],
+   "role": "sky_lagoon_day_2k"
+  },
+  "assets/sky/lagoon_dusk_2k.hdr": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:2290"
+   ],
+   "role": "sky_lagoon_dusk_2k"
+  },
+  "assets/terrain/beachball.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:4158"
+   ],
+   "role": null
+  },
+  "assets/terrain/caustics.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:979",
+    "scripts/main.gd:1037"
+   ],
+   "role": null
+  },
+  "assets/terrain/flower.png": {
+   "class": "KEEP",
+   "refs": [],
+   "role": null
+  },
+  "assets/terrain/flower2.png": {
+   "class": "KEEP",
+   "refs": [],
+   "role": null
+  },
+  "assets/terrain/grass.jpg": {
+   "class": "DISCARD",
+   "refs": [],
+   "role": "terrain_grass"
+  },
+  "assets/terrain/leaf.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1337",
+    "scripts/main.gd:5656"
+   ],
+   "role": null
+  },
+  "assets/terrain/polyp.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1349",
+    "scripts/main.gd:5908"
+   ],
+   "role": null
+  },
+  "assets/terrain/polyp_normal.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1352"
+   ],
+   "role": null
+  },
+  "assets/terrain/scales.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:5719",
+    "scripts/main.gd:5957"
+   ],
+   "role": null
+  },
+  "assets/terrain/scales_normal.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:1340",
+    "scripts/main.gd:1364",
+    "scripts/games/seek.gd:27"
+   ],
+   "role": null
+  },
+  "assets/terrain/star_detail.png": {
+   "class": "KEEP",
+   "refs": [
+    "scripts/main.gd:5709"
+   ],
+   "role": null
+  },
+  "assets/terrain/up_castle_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/arena/sky_lagoon.gd:290"
+   ],
+   "role": "terrain_up_castle_col"
+  },
+  "assets/terrain/up_castle_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_castle_nrm"
+  },
+  "assets/terrain/up_castle_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_castle_rgh"
+  },
+  "assets/terrain/up_cliff_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1068",
+    "scripts/main.gd:1329",
+    "scripts/games/fetch.gd:128"
+   ],
+   "role": "terrain_up_cliff_col"
+  },
+  "assets/terrain/up_cliff_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1071",
+    "scripts/main.gd:1332",
+    "scripts/games/fetch.gd:131"
+   ],
+   "role": "terrain_up_cliff_nrm"
+  },
+  "assets/terrain/up_cliff_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1072",
+    "scripts/main.gd:1333"
+   ],
+   "role": "terrain_up_cliff_rgh"
+  },
+  "assets/terrain/up_cobble_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_cobble_col"
+  },
+  "assets/terrain/up_cobble_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_cobble_nrm"
+  },
+  "assets/terrain/up_cobble_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_cobble_rgh"
+  },
+  "assets/terrain/up_dirt_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/arena/sky_lagoon.gd:512"
+   ],
+   "role": "terrain_up_dirt_col"
+  },
+  "assets/terrain/up_dirt_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/arena/sky_lagoon.gd:513"
+   ],
+   "role": "terrain_up_dirt_nrm"
+  },
+  "assets/terrain/up_dirt_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_dirt_rgh"
+  },
+  "assets/terrain/up_fabric_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_fabric_col"
+  },
+  "assets/terrain/up_fabric_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_fabric_nrm"
+  },
+  "assets/terrain/up_fabric_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_fabric_rgh"
+  },
+  "assets/terrain/up_flagstone_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_flagstone_col"
+  },
+  "assets/terrain/up_flagstone_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_flagstone_nrm"
+  },
+  "assets/terrain/up_flagstone_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_flagstone_rgh"
+  },
+  "assets/terrain/up_grass_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:5242",
+    "scripts/arena/sky_lagoon.gd:510",
+    "scripts/games/seek.gd:23"
+   ],
+   "role": "terrain_up_grass_col"
+  },
+  "assets/terrain/up_grass_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:5245",
+    "scripts/arena/sky_lagoon.gd:511"
+   ],
+   "role": "terrain_up_grass_nrm"
+  },
+  "assets/terrain/up_grass_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_grass_rgh"
+  },
+  "assets/terrain/up_marble_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/galaxy.gd:569"
+   ],
+   "role": "terrain_up_marble_col"
+  },
+  "assets/terrain/up_marble_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_marble_nrm"
+  },
+  "assets/terrain/up_marble_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_marble_rgh"
+  },
+  "assets/terrain/up_roof_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_roof_col"
+  },
+  "assets/terrain/up_roof_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_roof_nrm"
+  },
+  "assets/terrain/up_roof_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_roof_rgh"
+  },
+  "assets/terrain/up_sand_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:952"
+   ],
+   "role": "terrain_up_sand_col"
+  },
+  "assets/terrain/up_sand_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:954"
+   ],
+   "role": "terrain_up_sand_nrm"
+  },
+  "assets/terrain/up_sand_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:955"
+   ],
+   "role": "terrain_up_sand_rgh"
+  },
+  "assets/terrain/up_snow_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_snow_col"
+  },
+  "assets/terrain/up_snow_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_snow_nrm"
+  },
+  "assets/terrain/up_snow_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_snow_rgh"
+  },
+  "assets/terrain/up_water_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_water_col"
+  },
+  "assets/terrain/up_water_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1036"
+   ],
+   "role": "terrain_up_water_nrm"
+  },
+  "assets/terrain/up_water_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "dynamic:_up_mat(key) string-built path"
+   ],
+   "role": "terrain_up_water_rgh"
+  },
+  "assets/terrain/up_wood_col.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1076",
+    "scripts/main.gd:4458",
+    "scripts/games/fetch.gd:155"
+   ],
+   "role": "terrain_up_wood_col"
+  },
+  "assets/terrain/up_wood_nrm.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:1079",
+    "scripts/main.gd:4461",
+    "scripts/games/fetch.gd:157"
+   ],
+   "role": "terrain_up_wood_nrm"
+  },
+  "assets/terrain/up_wood_rgh.jpg": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/main.gd:4462"
+   ],
+   "role": "terrain_up_wood_rgh"
+  },
+  "assets/vehicles/gokart.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/kart.gd:117"
+   ],
+   "role": "vehicles_gokart"
+  },
+  "assets/vehicles/monstertruck.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/kart.gd:124"
+   ],
+   "role": "vehicles_monstertruck"
+  },
+  "assets/vehicles/motorcycle.glb": {
+   "class": "DISCARD",
+   "refs": [
+    "scripts/kart.gd:110"
+   ],
+   "role": "vehicles_motorcycle"
+  }
+ }
+}
