@@ -207,6 +207,11 @@ def regen(pilot=False):
     roles = summary["buckets"]["REGEN"]
     if pilot:
         roles = [r for r in PILOT_ROLES if r in roles]
+    else:
+        # skip roles the pilot already regenerated
+        roles = [r for r in roles
+                 if not os.path.exists(os.path.join(OUT, r, "r2_v1.png"))
+                 and not os.path.exists(os.path.join(OUT, r, "r2_v1.webp"))]
     print(f"round-2 regen: {len(roles)} roles {'(pilot)' if pilot else ''}", flush=True)
     reqs = build_requests(roles, tag="r2_v")
     jobs = submit_all(reqs, jobs_file="jobs_regen.json", label="gen2-r2")
