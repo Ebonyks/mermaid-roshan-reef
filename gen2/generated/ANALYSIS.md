@@ -159,3 +159,12 @@ Roles audited: **123** (492 variants). Verdicts merge 10 parallel Claude reviewe
 - `kits_swing_a_large` [-] — every variant is a mermaid hugging a castle
 - `nature_flower_reda` [-] — All drift to mushrooms or faced flower-creatures
 - `nature_tree_fat` [-] — Every variant hijacked: mushrooms or smiley flower bouquet, no tree
+
+## Round 2 (2026-07-10) — all 17 REGEN roles regenerated clean
+
+Flaw-patched prompts (explicit plain subjects; no category-hint fusion).
+68 images, $4.56 total. 64/68 clean; every role has >=2 usable variants.
+Per-role picks in gen2/audit/round2.json (files: r2_v1..4.webp).
+Remaining blemishes: rock5/v1 pebble pile, rock10/v4 penguin-shaped,
+coral4/v4 is a shell, penguin/v1 has two penguins - all avoided by the
+picked variants. REGEN bucket is now EMPTY.
