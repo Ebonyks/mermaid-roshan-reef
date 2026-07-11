@@ -45,12 +45,19 @@ kart, so the engine never breaks on assets.
 - `theme: "ocean"` (default) — a **seabed race**: sandy caustic-lit track, kelp-glow
   rails, deep-water gradient + fog, rising bubbles, and the game's own corals /
   seaweed / rocks / shells on sand mounds beside the course, plus animated fish
-  cruising alongside. `theme: "rainbow"` is the starfield rainbow road, which
-  **orbits the Butterfly World** (stage 3): the meadow planet from galaxy.gd —
-  same shader — with its fresnel atmosphere, the amethyst crystal castle at the
-  pole, two candy moons and the seven tinted butterflies circling it, all held
-  inside the loop so nothing ever touches the road, the karts or the chase
-  camera. Scenery only: emission-lit, no OmniLights, ticked from `_process`.
+  cruising alongside. `theme: "rainbow"` is the rainbow road, which **orbits
+  the Butterfly World** (stage 3) under stage 3's own galaxy-and-aurora sky:
+  the meadow planet from galaxy.gd — same shader — raised to loom over the
+  inner horizon, wearing the stage's landmarks (amethyst crystal castle at the
+  pole, tropical palms + monstera, crystal outcrops — all riding a spin
+  carrier so they turn WITH the surface), plus the fresnel atmosphere, two
+  candy moons and the seven tinted butterflies. All held inside the loop so
+  nothing ever touches the road, the karts or the chase camera; emission-lit,
+  no OmniLights, ticked from `_process`. The road wears the GEN2 painted
+  rainbow tile `assets/terrain/up_rainbowroad_col.jpg` when present
+  (generate with `tools/gen2_rainbow_road.py` — nano banana), falling back
+  to procedural stripes; both paths use gentle emission because full-strength
+  glow bloomed the near-field road to white on the Mobile renderer.
 - **Paint jobs**: after picking a ride, a second select step offers 8 paints
   (Stock, Cherry, Sky, Bubblegum, Lime, Grape, Gold, and **RAINBOW!** — a
   hue-cycling shader). Live preview on the podium; originals cached so repainting

@@ -106,6 +106,9 @@ const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
+# painted rainbow road tile (GEN2 / nano banana — tools/gen2_rainbow_road.py);
+# the shader falls back to procedural stripes while this file is absent
+const ROAD_TEX := "res://assets/terrain/up_rainbowroad_col.jpg"
 
 # ------------------------------------------------------------ vehicles
 # handling: vmax (x base), steer (lat u/s), wall (speed kept on scrape),
@@ -209,6 +212,7 @@ var _paint_orbs: Array = []
 var _paint_prev := -1
 var _bw_centre := Vector3.ZERO     # Butterfly World planet centre (rainbow theme)
 var _bw_planet: MeshInstance3D = null
+var _bw_spin: Node3D = null        # landmark carrier — turns with the planet surface
 var _bw_flyers: Array = []         # orbiting butterflies: {node, axis, dir0, alt, spd, ph, flap}
 var _bw_moons: Array = []          # candy moons: {node, r, spd, ph, tilt}
 
@@ -507,7 +511,46 @@ func _build_sky() -> void:
 	# the real world's sky bleed through behind the course.)
 	sky.mesh = sm
 	var sh := Shader.new()
-	sh.code = """shader_type spatial;
+	if _theme() == "rainbow":
+		# stage 3's own galaxy-and-aurora sky (same shader as galaxy.gd) — the
+		# rainbow road pocket IS Butterfly World space, seen from orbit
+		sh.code = """shader_type spatial;
+render_mode unshaded, cull_front;
+float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+float noise2(vec2 p){
+	vec2 i = floor(p); vec2 f = fract(p);
+	vec2 u = f * f * (3.0 - 2.0 * f);
+	return mix(mix(h21(i), h21(i + vec2(1, 0)), u.x), mix(h21(i + vec2(0, 1)), h21(i + vec2(1, 1)), u.x), u.y);
+}
+void fragment(){
+	vec2 uv = UV;
+	vec3 col = mix(vec3(0.01, 0.005, 0.04), vec3(0.05, 0.02, 0.10), uv.y);
+	vec2 g1 = uv * vec2(260.0, 140.0);
+	float s1 = step(0.994, h21(floor(g1))) * smoothstep(0.22, 0.0, length(fract(g1) - 0.5));
+	vec2 g2 = uv * vec2(120.0, 70.0);
+	float tw = 0.6 + 0.4 * sin(TIME * 2.0 + h21(floor(g2)) * 40.0);
+	float s2 = step(0.990, h21(floor(g2) + 7.0)) * smoothstep(0.3, 0.0, length(fract(g2) - 0.5)) * tw;
+	col += vec3(s1) + vec3(1.0, 0.9, 0.8) * s2;
+	vec2 gc = (uv - vec2(0.72, 0.62)) * vec2(2.0, 3.6);
+	float r = length(gc);
+	float ang = atan(gc.y, gc.x);
+	float arm = 0.5 + 0.5 * cos(ang * 2.0 - r * 9.0 + TIME * 0.02);
+	float gal = exp(-r * 3.2) * (0.35 + 0.65 * arm);
+	col += vec3(0.85, 0.7, 1.0) * gal * 0.9 + vec3(1.0, 0.9, 0.75) * exp(-r * 9.0);
+	float band = uv.y - 0.32;
+	float wob = noise2(vec2(uv.x * 6.0 + TIME * 0.05, TIME * 0.03)) * 0.14;
+	float rib1 = exp(-pow((band - wob) * 9.0, 2.0));
+	float rib2 = exp(-pow((band - wob - 0.06) * 12.0, 2.0));
+	float rib3 = exp(-pow((band - wob + 0.07) * 14.0, 2.0));
+	float flow = 0.6 + 0.4 * sin(uv.x * 24.0 + TIME * 0.4);
+	col += vec3(0.2, 1.0, 0.55) * rib1 * 0.55 * flow;
+	col += vec3(0.45, 0.35, 1.0) * rib2 * 0.4;
+	col += vec3(1.0, 0.4, 0.75) * rib3 * 0.32;
+	ALBEDO = col;
+	EMISSION = col * 0.8;
+}"""
+	else:
+		sh.code = """shader_type spatial;
 render_mode unshaded, cull_front;
 uniform vec3 col_lo = vec3(0.02, 0.01, 0.08);
 uniform vec3 col_hi = vec3(0.10, 0.04, 0.20);
@@ -523,9 +566,10 @@ void fragment(){
 }"""
 	var smat := ShaderMaterial.new()
 	smat.shader = sh
-	var sky_cols2: Array = _cv("sky_colors", _sky_defaults())
-	smat.set_shader_parameter("col_lo", Vector3(sky_cols2[0].r, sky_cols2[0].g, sky_cols2[0].b))
-	smat.set_shader_parameter("col_hi", Vector3(sky_cols2[1].r, sky_cols2[1].g, sky_cols2[1].b))
+	if _theme() != "rainbow":
+		var sky_cols2: Array = _cv("sky_colors", _sky_defaults())
+		smat.set_shader_parameter("col_lo", Vector3(sky_cols2[0].r, sky_cols2[0].g, sky_cols2[0].b))
+		smat.set_shader_parameter("col_hi", Vector3(sky_cols2[1].r, sky_cols2[1].g, sky_cols2[1].b))
 	sky.material_override = smat
 	sky.position = _origin()
 	add_child(sky)
@@ -573,6 +617,15 @@ func _bw_tint(root: Node, col: Color, glow: float) -> void:
 				m.emission_energy_multiplier = glow
 				mi.set_surface_override_material(si, m)
 
+func _bw_place(node: Node3D, dir: Vector3, sink: float = 1.5) -> void:
+	# stand a landmark on the globe (LOCAL to the spin carrier): position on
+	# the surface, local up = radially out (mirrors galaxy.gd's _place_on_planet)
+	var d := dir.normalized()
+	node.position = d * (BW_PLANET_R - sink)
+	var any := Vector3.UP if absf(d.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT
+	var t := any.cross(d).normalized()
+	node.transform.basis = Basis(t, d, t.cross(d).normalized() * -1.0).orthonormalized()
+
 func _bw_fit(model: Node3D, target_long: float) -> void:
 	# normalise a GLB to a footprint and centre it (mirrors galaxy.gd's _fit_small)
 	if _main != null and _main.has_method("_toonify"):
@@ -598,7 +651,9 @@ func _build_butterfly_world() -> void:
 	for i in range(SAMPLES):
 		centroid += _lut[i]
 	centroid /= float(SAMPLES)
-	_bw_centre = centroid + Vector3(0, -40.0, 0)
+	# raised so the orb LOOMS over the inner horizon from track level (owner
+	# feedback: it must read from every point of the loop, not just from above)
+	_bw_centre = centroid + Vector3(0, -22.0, 0)
 	# the meadow planet — same shader as galaxy.gd so it IS the stage-3 world
 	_bw_planet = MeshInstance3D.new()
 	var pm := SphereMesh.new()
@@ -657,6 +712,12 @@ void fragment(){
 	atmo.material_override = amat
 	atmo.position = _bw_centre
 	add_child(atmo)
+	# landmark carrier: everything standing ON the globe is a child of this
+	# node, which turns at the same rate as the planet mesh — so the castle
+	# and jungle ride the surface instead of hovering while it spins
+	_bw_spin = Node3D.new()
+	_bw_spin.position = _bw_centre
+	add_child(_bw_spin)
 	# the crystal castle at the north pole, amethyst-tinted like stage 3
 	var castle := Node3D.new()
 	if ResourceLoader.exists(BW_CASTLE_GLB):
@@ -674,8 +735,32 @@ void fragment(){
 		castle.add_child(spire)
 		_bw_tint(spire, Color(0.8, 0.7, 1.0), 0.5)
 	# sunk a little so its base corners don't hover above the curving horizon
-	castle.position = _bw_centre + Vector3(0, BW_PLANET_R - 6.0, 0)
-	add_child(castle)
+	castle.position = Vector3(0, BW_PLANET_R - 6.0, 0)
+	_bw_spin.add_child(castle)
+	# the rest of stage 3's landmarks, scattered around the globe: the tropical
+	# jungle and the crystal outcrops (so the orb reads as THAT world from
+	# orbit, not a generic green ball)
+	var marks := [
+		{"glb": "res://assets/galaxy/trop_palm1.glb", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0, "tint": Color()},
+		{"glb": "res://assets/galaxy/trop_palm2.glb", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0, "tint": Color()},
+		{"glb": "res://assets/galaxy/trop_monstera.glb", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0, "tint": Color()},
+		{"glb": "res://assets/galaxy/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
+		{"glb": "res://assets/galaxy/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
+		{"glb": "res://assets/galaxy/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
+	]
+	for md in marks:
+		var mpath := String(md["glb"])
+		if not ResourceLoader.exists(mpath):
+			continue
+		var holder := Node3D.new()
+		var prop: Node3D = (load(mpath) as PackedScene).instantiate()
+		holder.add_child(prop)
+		_bw_fit(prop, float(md["size"]))
+		var tc: Color = md["tint"]
+		if tc.a > 0.0 and (tc.r + tc.g + tc.b) > 0.0:
+			_bw_tint(prop, tc, 0.4)
+		_bw_place(holder, md["dir"])
+		_bw_spin.add_child(holder)
 	# the seven butterflies circle their world (they're what stage 3 is about)
 	for i in range(BW_WING_COLS.size()):
 		var holder := Node3D.new()
@@ -722,6 +807,8 @@ func _tick_butterfly_world(tt: float) -> void:
 	if _bw_planet == null:
 		return
 	_bw_planet.rotation.y = tt * 0.03   # the world turns slowly beneath the road
+	if _bw_spin != null:
+		_bw_spin.rotation.y = tt * 0.03   # castle + jungle ride the turning surface
 	for md in _bw_moons:
 		var ph: float = tt * float(md["spd"]) + float(md["ph"])
 		var tilt: float = float(md["tilt"])
@@ -778,7 +865,21 @@ void fragment(){
 	EMISSION = vec3(0.45, 0.7, 0.75) * caus * 0.12;
 	ROUGHNESS = 0.95;
 }"""
+	elif ResourceLoader.exists(ROAD_TEX):
+		# nano-banana painted rainbow tile (GEN2 pipeline — tools/gen2_rainbow_road.py).
+		# Gentle emission only: the old full-strength glow bloomed the whole
+		# near-field road to white on the Mobile renderer.
+		rsh.code = """shader_type spatial;
+render_mode cull_disabled;
+uniform sampler2D road_tex: source_color, filter_linear_mipmap, repeat_enable;
+void fragment(){
+	vec3 c = texture(road_tex, vec2(UV.x, UV.y * 40.0)).rgb;
+	ALBEDO = c;
+	EMISSION = c * (0.16 + 0.08 * sin(TIME * 2.0 + UV.y * 40.0));
+	ROUGHNESS = 0.6;
+}"""
 	else:
+		# procedural fallback until the painted tile is generated
 		rsh.code = """shader_type spatial;
 render_mode cull_disabled;
 void fragment(){
@@ -791,11 +892,13 @@ void fragment(){
 	else if(b<0.83) c=vec3(0.3,0.6,1.0);
 	else c=vec3(0.65,0.4,0.95);
 	ALBEDO = c;
-	EMISSION = c * (0.5 + 0.4*sin(TIME*2.0 + UV.y*40.0));
-	ROUGHNESS = 0.4;
+	EMISSION = c * (0.18 + 0.10*sin(TIME*2.0 + UV.y*40.0));
+	ROUGHNESS = 0.6;
 }"""
 	var rmat := ShaderMaterial.new()
 	rmat.shader = rsh
+	if _theme() != "ocean" and ResourceLoader.exists(ROAD_TEX):
+		rmat.set_shader_parameter("road_tex", load(ROAD_TEX))
 	road.material_override = rmat
 	road.position = _origin()
 	add_child(road)
@@ -821,7 +924,7 @@ void fragment(){
 		em.albedo_color = Color(1.0, 1.0, 1.0)
 		em.emission_enabled = true
 		em.emission = (Color(0.35, 0.95, 0.6) if _theme() == "ocean" else Color(0.7, 0.9, 1.0))   # kelp-glow rails underwater
-		em.emission_energy_multiplier = (0.7 if _theme() == "ocean" else 2.0)   # soft underwater, bright in space
+		em.emission_energy_multiplier = (0.7 if _theme() == "ocean" else 1.1)   # soft underwater; space rails were blooming the near road white at 2.0
 		em.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		em.cull_mode = BaseMaterial3D.CULL_DISABLED
 		rail.material_override = em
