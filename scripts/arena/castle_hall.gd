@@ -38,20 +38,26 @@ func build(o: Vector3) -> void:
 	var wcol := Color(0.95, 0.92, 0.97)
 	var scol := Color(0.93, 0.9, 0.95)
 	# back wall, SEGMENTED to leave two real doorway openings at x=+-22 (the side archways)
-	m._iwall(o + Vector3(0, 18, -34), Vector3(35.0, 36, 1.5), wcol, "marble")      # center (behind throne/glass)
-	m._iwall(o + Vector3(-30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "marble")  # left edge
-	m._iwall(o + Vector3(30.75, 18, -34), Vector3(8.5, 36, 1.5), wcol, "marble")   # right edge
-	m._iwall(o + Vector3(-22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "marble")   # lintel over left arch
-	m._iwall(o + Vector3(22, 25.5, -34), Vector3(9.0, 21, 1.5), wcol, "marble")    # lintel over right arch
+	# GRAND EXPANSION (owner 2026-07-11): the hall rises to 52 — a real great
+	# hall — and the center wall gains a GALLERY DOORWAY (x -8..8, y 33..42)
+	# from the new balcony into the top chambers.
+	m._iwall(o + Vector3(0, 16.5, -34), Vector3(35.0, 33, 1.5), wcol, "marble")    # center, below the gallery door
+	m._iwall(o + Vector3(-12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "marble")  # gallery door, left pier
+	m._iwall(o + Vector3(12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "marble")   # gallery door, right pier
+	m._iwall(o + Vector3(0, 47, -34), Vector3(16.0, 10, 1.5), wcol, "marble")        # gallery door, top strip
+	m._iwall(o + Vector3(-30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "marble")  # left edge
+	m._iwall(o + Vector3(30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "marble")   # right edge
+	m._iwall(o + Vector3(-22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "marble")   # lintel over left arch
+	m._iwall(o + Vector3(22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "marble")    # lintel over right arch
 	# left side wall, SEGMENTED to leave a doorway at z=-16 into the new MUSIC ROOM
-	m._iwall(o + Vector3(-35, 18, 17.5), Vector3(1.5, 36, 57), scol, "marble")  # front segment (z +46..-11)
-	m._iwall(o + Vector3(-35, 18, -27.5), Vector3(1.5, 36, 13), scol, "marble") # back segment (z -21..-34)
-	m._iwall(o + Vector3(-35, 27, -16), Vector3(1.5, 18, 10), scol, "marble")   # lintel over the music-room door
+	m._iwall(o + Vector3(-35, 26, 17.5), Vector3(1.5, 52, 57), scol, "marble")  # front segment (z +46..-11)
+	m._iwall(o + Vector3(-35, 26, -27.5), Vector3(1.5, 52, 13), scol, "marble") # back segment (z -21..-34)
+	m._iwall(o + Vector3(-35, 35, -16), Vector3(1.5, 34, 10), scol, "marble")   # lintel over the music-room door
 	# right side wall, SEGMENTED to leave a doorway at z=-16 into the new BEDROOM
-	m._iwall(o + Vector3(35, 18, 17.5), Vector3(1.5, 36, 57), scol, "marble")  # front segment (z +46..-11)
-	m._iwall(o + Vector3(35, 18, -27.5), Vector3(1.5, 36, 13), scol, "marble") # back segment (z -21..-34)
-	m._iwall(o + Vector3(35, 27, -16), Vector3(1.5, 18, 10), scol, "marble")   # lintel over the bedroom door
-	m._l2_box(o + Vector3(0, 35, 6), Vector3(70, 1.5, 80), Color(0.85, 0.82, 0.9))      # ceiling (no collider; arena_ceil caps height)
+	m._iwall(o + Vector3(35, 26, 17.5), Vector3(1.5, 52, 57), scol, "marble")  # front segment (z +46..-11)
+	m._iwall(o + Vector3(35, 26, -27.5), Vector3(1.5, 52, 13), scol, "marble") # back segment (z -21..-34)
+	m._iwall(o + Vector3(35, 35, -16), Vector3(1.5, 34, 10), scol, "marble")   # lintel over the bedroom door
+	m._l2_box(o + Vector3(0, 51, 6), Vector3(70, 1.5, 80), Color(0.85, 0.82, 0.9))      # ceiling (no collider; the hall zone caps height)
 	# regal stained-glass panels behind the throne (the Mermaid Roshan glass now lives
 	# on the castle's FRONT exterior — this is a plain coloured rose window for Huluu)
 	m._panel_glass(o + Vector3(0, 23, -33.0), Vector3(0, 0, 0), 17.0, 24.0)
@@ -358,6 +364,105 @@ func build(o: Vector3) -> void:
 	# ...and a music room opens off the left-hand wall (doorway at z=-16)
 	build_music_room(o)
 
+
+func build_expansion(o: Vector3) -> void:
+	# ============ THE GRAND CASTLE (owner 2026-07-11) ============
+	# A balcony off the throne, a gallery doorway into two TOP CHAMBERS above
+	# the treasure room, and an UNDERCROFT below the hall that connects to
+	# the room where Roshan meets Daddy. Stories work through y-banded player
+	# zones (m.arena_zones): a floor only exists for someone in its band, so
+	# the balcony never blocks the throne beneath it.
+	var wcol := Color(0.95, 0.92, 0.97)
+	var gold := Color(0.95, 0.8, 0.35)
+	# ---------- balcony deck along the raised back wall, above the throne
+	var deck = m._l2_box(o + Vector3(0, 32.4, -27.0), Vector3(52, 1.2, 12), wcol)
+	deck.material_override = m._up_mat("marble", 0.05, Color(0.9, 0.87, 0.96))
+	for px in range(-6, 7):
+		m._l2_box(o + Vector3(float(px) * 4.0, 34.6, -21.4), Vector3(0.5, 3.2, 0.5), gold, 0.2)
+	m._l2_box(o + Vector3(0, 36.4, -21.4), Vector3(52, 0.5, 0.6), gold, 0.25)
+	# twin marble stairs hugging the side walls up to the deck
+	for sgn in [-1.0, 1.0]:
+		for i in range(10):
+			m._l2_box(o + Vector3(sgn * 30.5, 3.0 + float(i) * 3.0, -6.0 - float(i) * 2.1), Vector3(7.0, 0.9, 3.6), Color(0.93, 0.9, 0.95))
+	# ---------- top chambers: two rooms over the treasure room (y 33..49)
+	var uf = m._l2_box(o + Vector3(0, 33.0, -49.0), Vector3(66, 1.2, 26), Color(0.9, 0.86, 0.94))
+	uf.material_override = m._up_mat("flagstone", 0.05, Color(0.85, 0.8, 0.95))
+	m._iwall(o + Vector3(0, 41, -62), Vector3(66, 16, 1.5), wcol, "castle")     # far wall
+	m._iwall(o + Vector3(-33, 41, -49), Vector3(1.5, 16, 26), wcol, "castle")   # left
+	m._iwall(o + Vector3(33, 41, -49), Vector3(1.5, 16, 26), wcol, "castle")    # right
+	m._iwall(o + Vector3(0, 41, -39.5), Vector3(1.5, 16, 7), wcol, "castle")    # divider, front seg
+	m._iwall(o + Vector3(0, 41, -57.5), Vector3(1.5, 16, 9), wcol, "castle")    # divider, back seg (door z -43..-53)
+	m._l2_box(o + Vector3(0, 49, -49), Vector3(66, 1.2, 26), Color(0.84, 0.8, 0.9))
+	# STAR CHAMBER (left): her little observatory
+	m._l2_box(o + Vector3(-17, 33.9, -49), Vector3(20, 0.3, 16), Color(0.2, 0.2, 0.42))   # midnight rug
+	var scope = m._l2_box(o + Vector3(-24, 36.2, -55), Vector3(1.6, 1.6, 7.0), gold, 0.25)
+	scope.rotation_degrees = Vector3(-30, 20, 0)
+	m._l2_box(o + Vector3(-24, 34.2, -55), Vector3(2.6, 1.4, 2.6), Color(0.5, 0.4, 0.3))
+	for st in range(14):
+		var star := Label3D.new()
+		star.text = "✦"
+		star.font_size = 64 + (st % 3) * 28
+		star.modulate = Color(1.0, 0.95, 0.6, 0.9)
+		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		star.position = o + Vector3(-30.0 + float(st % 7) * 4.3, 42.0 + float(st % 4) * 1.6, -60.5 + float(st / 7) * 2.0)
+		m.add_child(star)
+		m.game_nodes.append(star)
+	# CLOUD LOUNGE (right): pillow pile + her memory portraits
+	for ci in range(6):
+		var cc := Color(1.0, 0.75, 0.85) if ci % 2 == 0 else Color(0.75, 0.85, 1.0)
+		m._l2_box(o + Vector3(12.0 + float(ci % 3) * 6.5, 34.2 + float(ci / 3) * 1.3, -52.0 + float(ci % 2) * 4.0), Vector3(5.0, 1.6, 5.0), cc)
+	m._hang_portrait(o + Vector3(32.0, 41.0, -46.0), Vector3(0, -90, 0), "p_seattle")
+	m._hang_portrait(o + Vector3(32.0, 41.0, -54.0), Vector3(0, -90, 0), "p_garden")
+	m._l2_box(o + Vector3(17, 33.9, -49), Vector3(20, 0.3, 16), Color(0.85, 0.7, 0.9))    # lounge rug
+	# gallery lamps
+	for lx in [-14.0, 14.0]:
+		m._l2_box(o + Vector3(lx, 46.0, -49.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 3.0)
+	# ---------- the UNDERCROFT: stone basement under the front hall
+	var shaft := Vector3(-24, 0, 30)
+	for e in [Vector3(-5.5, 0, 0), Vector3(5.5, 0, 0)]:
+		m._l2_box(o + shaft + e + Vector3(0, 0.9, 0), Vector3(0.9, 0.5, 11), gold, 0.3)
+	for e2 in [Vector3(0, 0, -5.5), Vector3(0, 0, 5.5)]:
+		m._l2_box(o + shaft + e2 + Vector3(0, 0.9, 0), Vector3(11, 0.5, 0.9), gold, 0.3)
+	for i in range(8):
+		m._l2_box(o + shaft + Vector3(0, -1.5 - float(i) * 2.1, -3.5 + float(i) * 1.0), Vector3(8.0, 0.8, 2.6), Color(0.62, 0.58, 0.66))
+	var bf = m._l2_box(o + Vector3(0, -18.6, 24.0), Vector3(60, 1.2, 32), Color(0.6, 0.56, 0.64))
+	bf.material_override = m._up_mat("cobble", 0.05, Color(0.75, 0.7, 0.8))
+	m._iwall(o + Vector3(0, -9.5, 40), Vector3(60, 18, 1.5), Color(0.7, 0.66, 0.74), "castle")
+	m._iwall(o + Vector3(0, -9.5, 8), Vector3(60, 18, 1.5), Color(0.7, 0.66, 0.74), "castle")
+	m._iwall(o + Vector3(-30, -9.5, 24), Vector3(1.5, 18, 32), Color(0.7, 0.66, 0.74), "castle")
+	m._iwall(o + Vector3(30, -9.5, 24), Vector3(1.5, 18, 32), Color(0.7, 0.66, 0.74), "castle")
+	for px2 in [-15.0, 0.0, 15.0]:
+		m._l2_box(o + Vector3(px2, -9.5, 24.0), Vector3(3.0, 18, 3.0), Color(0.65, 0.6, 0.7))
+	# cosy clutter: barrels, crates, a treasure glint, warm lanterns (emissive
+	# only - the OmniLight budget stays untouched)
+	for bi in range(5):
+		m._l2_box(o + Vector3(-24.0 + float(bi) * 4.5, -16.8, 36.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+	for cr in range(3):
+		m._l2_box(o + Vector3(20.0 + float(cr) * 4.0, -17.0, 12.0 + float(cr) * 2.0), Vector3(3.4, 3.0, 3.4), Color(0.66, 0.5, 0.32))
+	for li in range(4):
+		m._l2_box(o + Vector3(-26.0 + float(li) * 17.0, -12.0, 39.2), Vector3(1.0, 1.4, 0.6), Color(1.0, 0.8, 0.45), 3.2)
+	# ---------- corridor from the undercroft to Daddy's room
+	var cfl = m._l2_box(o + Vector3(0, -18.6, -15.0), Vector3(12, 1.2, 46), Color(0.6, 0.56, 0.64))
+	cfl.material_override = m._up_mat("cobble", 0.05, Color(0.75, 0.7, 0.8))
+	m._iwall(o + Vector3(-6, -9.5, -15), Vector3(1.5, 18, 46), Color(0.7, 0.66, 0.74), "castle")
+	m._iwall(o + Vector3(6, -9.5, -15), Vector3(1.5, 18, 46), Color(0.7, 0.66, 0.74), "castle")
+	for li2 in range(4):
+		m._l2_box(o + Vector3(-5.2, -12.0, -30.0 + float(li2) * 11.0), Vector3(0.6, 1.4, 1.0), Color(1.0, 0.8, 0.45), 3.2)
+	# stair back up into Daddy's room
+	for i2 in range(8):
+		m._l2_box(o + Vector3(4, -1.5 - float(i2) * 2.1, -47.5 + float(i2) * 1.0), Vector3(8.0, 0.8, 2.6), Color(0.62, 0.58, 0.66))
+	for e3 in [Vector3(-5.5, 0, 0), Vector3(5.5, 0, 0)]:
+		m._l2_box(o + Vector3(4, 0.9, -44) + e3, Vector3(0.9, 0.5, 11), gold, 0.3)
+	# ---------- the y-banded zones that make the stories real
+	m.arena_zones = [
+		{"rect": Rect2(-35, -70, 70, 116), "band": Vector2(-0.5, 60.0), "ceil": 50.0},
+		{"rect": Rect2(-26, -33, 52, 12), "band": Vector2(30.0, 50.0), "floor": 33.4},
+		{"rect": Rect2(-33, -62, 66, 26), "band": Vector2(30.0, 50.0), "floor": 34.2},
+		{"rect": Rect2(-30, 8, 60, 32), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},
+		{"rect": Rect2(-6, -38, 12, 46), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},
+		{"rect": Rect2(-29, 25, 10, 10), "band": Vector2(-18.0, 3.5), "floor": -17.4},
+		{"rect": Rect2(-2, -50, 12, 12), "band": Vector2(-18.0, 3.5), "floor": -17.4},
+	]
 
 func build_music_room(o: Vector3) -> void:
 	# Roomy music hall off the LEFT wall (doorway x=-35, z=-16).

@@ -532,11 +532,29 @@ func _process(delta: float) -> void:
 			# Sky Lagoon: rest on the rolling-hill terrain (plus the bridge deck /
 			# star platforms); dip down into the river valleys and the castle moat
 			floor_a = m.lagoon_walk_h(position.x, position.z) + 2.0
+		var ceil_a: float = ap.y + ceil_h
+		if "arena_zones" in m:
+			# Y-BANDED level zones (castle balcony/top chambers/basement): a
+			# floor override only exists for someone inside its height band,
+			# so a balcony never blocks the throne room underneath it
+			var lx: float = position.x - ap.x
+			var lz: float = position.z - ap.z
+			var ly: float = position.y - ap.y
+			for zz in m.arena_zones:
+				if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
+					continue
+				var band: Vector2 = zz.get("band", Vector2(-1e6, 1e6))
+				if ly < band.x or ly > band.y:
+					continue
+				if zz.has("floor"):
+					floor_a = ap.y + float(zz["floor"])
+				if zz.has("ceil"):
+					ceil_a = ap.y + float(zz["ceil"])
 		if position.y < floor_a:
 			position.y = floor_a
 			vel.y = maxf(0.0, vel.y)
-		if position.y > ap.y + ceil_h:
-			position.y = ap.y + ceil_h
+		if position.y > ceil_a:
+			position.y = ceil_a
 			vel.y = minf(0.0, vel.y)
 		var da: float = Vector2(position.x - ap.x, position.z - ap.z).length()
 		if da > dome:

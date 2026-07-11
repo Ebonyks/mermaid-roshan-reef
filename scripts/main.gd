@@ -84,6 +84,7 @@ var solids: Array = []
 # entry so colliders never leak between levels. Box entries are axis-aligned
 # walls; cylinder entries are columns. Consulted by player.gd in the arena branch.
 var arena_solids: Array = []
+var arena_zones: Array = []   # y-banded floor/ceil overrides (castle stories)
 var fade_walls: Array = []   # interior walls that fade out when they block the camera
 var mg_cool := 0.0
 var mg2d_layer: CanvasLayer
@@ -2300,6 +2301,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	game = "level2"
 	g = {"t": 0.0}
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	lagoon_floor = true   # the courtyard floor follows the rolling-hill terrain
 	_play_music("level2")
@@ -2922,11 +2924,12 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 			n.queue_free()
 	game_nodes.clear()
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	lagoon_floor = false   # the castle hall is flat indoor ground
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 66.0   # covers the enlarged 22x22 bedroom (corners r<65)
+	arena_dome = 90.0   # covers the bedroom, the new top chambers and the undercroft
 	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
 	# warm indoor castle light
 	var ie := Environment.new()
@@ -3084,6 +3087,7 @@ func _hall_ref() -> CastleHall:
 
 func _build_castle_hall(o: Vector3) -> void:
 	_hall_ref().build(o)
+	_hall_ref().build_expansion(o)
 
 func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	_hall_ref().tick(delta, ppos)
@@ -3832,6 +3836,7 @@ func _exit_level2() -> void:
 			n.queue_free()
 	game_nodes.clear()
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	we_node.environment = world_env
 	arena_center = ARENA_POS
@@ -3869,6 +3874,7 @@ func _do_finish_level2() -> void:
 			n.queue_free()
 	game_nodes.clear()
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	we_node.environment = world_env
 	arena_center = ARENA_POS
@@ -4072,6 +4078,7 @@ func _clear_game() -> void:
 			n.queue_free()
 	game_nodes.clear()
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	game = ""
 	g = {}
@@ -6208,6 +6215,7 @@ func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0
 func _enter_arena(kind: String) -> void:
 	return_pos = player.position
 	arena_solids.clear()
+	arena_zones.clear()
 	fade_walls.clear()
 	lagoon_floor = false
 	arena_center = ARENA_POS
