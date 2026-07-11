@@ -140,7 +140,7 @@ var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
-const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb"}
+const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb"}
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -221,8 +221,15 @@ func set_skin(id: String, tex_path: String) -> void:
 		# bone names, so the procedural swim drives her directly
 		if not skin_models.has(id):
 			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
-			mdl.scale = Vector3.ONE * 3.9
-			mdl.position.y = -3.4
+			if id == "classic_v2":
+				# the V2 hero body is exported at roshan.glb's world size,
+				# so it takes the classic transform, not the plushie one
+				mdl.scale = Vector3.ONE * 1.55
+				mdl.position.y = -1.6
+				_upgrade_texture(mdl)
+			else:
+				mdl.scale = Vector3.ONE * 3.9
+				mdl.position.y = -3.4
 			add_child(mdl)
 			skin_models[id] = mdl
 		for k in skin_models:

@@ -48,8 +48,6 @@ def world_bounds(objs):
 
 
 omin, omax = world_bounds(old_meshes)
-for ob in old_meshes:
-    bpy.data.objects.remove(ob, do_unlink=True)
 
 # ---- 2. new sculpt in, aligned to the old body's height and floor
 before = set(bpy.context.scene.objects)
@@ -73,14 +71,36 @@ for ob in new_meshes:
     ob.location += delta
 bpy.context.view_layer.update()
 
-# ---- 3. bind: automatic weights against the KEPT armature
+# ---- 3. bind by WEIGHT TRANSFER from the old body (same armature, same
+# proportions - bone-heat auto weights fail silently on Meshy meshes)
 bpy.ops.object.select_all(action="DESELECT")
 for ob in new_meshes:
     ob.select_set(True)
-bpy.context.view_layer.objects.active = arm
-arm.select_set(True)
-bpy.ops.object.parent_set(type="ARMATURE_AUTO")
-print("[ok] bound", len(new_meshes), "mesh object(s) to", arm.name)
+bpy.context.view_layer.objects.active = new_meshes[0]
+if len(new_meshes) > 1:
+    bpy.ops.object.join()
+body = bpy.context.view_layer.objects.active
+new_meshes = [body]
+src = max(old_meshes, key=lambda o: len(o.vertex_groups))
+print("[i] weight source:", src.name, "with", len(src.vertex_groups), "groups")
+for vg in src.vertex_groups:
+    if vg.name not in body.vertex_groups:
+        body.vertex_groups.new(name=vg.name)
+bpy.ops.object.select_all(action="DESELECT")
+src.select_set(True)
+body.select_set(True)
+bpy.context.view_layer.objects.active = body
+bpy.ops.object.data_transfer(use_reverse_transfer=True,
+                             data_type="VGROUP_WEIGHTS",
+                             vert_mapping="POLYINTERP_NEAREST",
+                             layers_select_src="NAME",
+                             layers_select_dst="ALL")
+body.parent = arm
+mod = body.modifiers.new("Armature", "ARMATURE")
+mod.object = arm
+print("[ok] weight-transferred", len(body.vertex_groups), "groups onto the V2 body")
+for ob in old_meshes:
+    bpy.data.objects.remove(ob, do_unlink=True)
 
 # ---- 4. export the drop-in glb
 os.makedirs(os.path.dirname(os.path.join(ROOT, out_glb)), exist_ok=True)
@@ -124,6 +144,21 @@ for bone_name, rot in (("tail4", 35), ("tail6", 30), ("armU", 40), ("head", -15)
     pb.rotation_mode = "XYZ"
     pb.rotation_euler.x = math.radians(rot)
 bpy.ops.object.mode_set(mode="OBJECT")
+# numeric deform check: the tail tip must MOVE when the tail bends
+dg = bpy.context.evaluated_depsgraph_get()
+ev = body.evaluated_get(dg)
+tip_before = min((ev.matrix_world @ v.co).z for v in ev.data.vertices)
 sc.render.filepath = os.path.join(preview, "bent.png")
 bpy.ops.render.render(write_still=True)
+bpy.context.view_layer.objects.active = arm
+bpy.ops.object.mode_set(mode="POSE")
+for pb in arm.pose.bones:
+    pb.rotation_euler = (0, 0, 0)
+    pb.rotation_quaternion = (1, 0, 0, 0)
+bpy.ops.object.mode_set(mode="OBJECT")
+dg = bpy.context.evaluated_depsgraph_get()
+ev = body.evaluated_get(dg)
+tip_after = min((ev.matrix_world @ v.co).z for v in ev.data.vertices)
+moved = abs(tip_before - tip_after)
+print(f"[{'ok' if moved > 0.02 else '!'}] deform check: tail tip moved {moved:.3f}")
 print("[ok] previews in", preview)
