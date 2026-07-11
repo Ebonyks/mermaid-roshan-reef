@@ -17,21 +17,47 @@ var bone_idx := {}
 var rest := {}
 var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
+var model_v2 := false             # true = the rebuilt true-3D model (roshan_v2.glb)
+var hair_sim: HairSim = null      # spring physics for hair_SS_J strand chains (v2)
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
 var skin_t := 0.0
+# WW swim wake: ribbon contrail rebuilt each frame from recent tail positions,
+# plus velocity-aligned dash particles that only appear at sprint speed
+var trail_node: MeshInstance3D
+var trail_mesh: ImmediateMesh
+var trail_pts: Array = []       # front = newest; {p: Vector3, s: strength}
+var trail_sample := 0.0
+var trail_enabled := true       # cleared by main._apply_quality in speedy mode
+var speed_lines: GPUParticles3D
+var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
 	position = Vector3(0, 26, 0)
-	var glb: PackedScene = load("res://assets/characters/roshan.glb") as PackedScene
+	# Prefer the rebuilt true-3D model (multi-view Meshy + fitted rig, 2026-07-11);
+	# the old flat-card model stays on disk as an instant fallback.
+	var glb: PackedScene = null
+	if ResourceLoader.exists("res://assets/characters/roshan_v2.glb"):
+		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
+		model_v2 = glb != null
+	if glb == null:
+		glb = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
-		inst.scale = Vector3.ONE * 1.55
-		inst.position.y = -1.6
+		if model_v2:
+			# v2 is 1.9 units tall centred at origin; match the old visual size
+			inst.scale = Vector3.ONE * 3.7
+			inst.position.y = 0.89
+		else:
+			inst.scale = Vector3.ONE * 1.55
+			inst.position.y = -1.6
 		add_child(inst)
 		model_root = inst
-		_upgrade_texture(inst)
+		if model_v2:
+			_flatten_materials(inst)   # keep its own textures; kill specular/rim
+		else:
+			_upgrade_texture(inst)
 		skel = _find_skeleton(inst)
 		if skel != null:
 			for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
@@ -42,6 +68,10 @@ func _ready() -> void:
 				bone_idx[n] = bi
 				if bi >= 0:
 					rest[n] = skel.get_bone_pose(bi)
+			if model_v2:
+				hair_sim = HairSim.new()
+				add_child(hair_sim)
+				hair_sim.setup(self)   # no-op if no hair_SS_J bones
 	# billboard sprite used when an alternative full skin is worn (hidden by default)
 	# pixel_size sized so the 707px-tall art ≈ the 7-unit classic model
 	skin_sprite = Sprite3D.new()
@@ -74,6 +104,43 @@ func _ready() -> void:
 	skin_sparkles.position = Vector3(0, 1.0, 0)
 	skin_sparkles.emitting = false
 	add_child(skin_sparkles)
+	# wake ribbon (top_level so its points live in world space)
+	trail_mesh = ImmediateMesh.new()
+	trail_node = MeshInstance3D.new()
+	trail_node.mesh = trail_mesh
+	trail_node.top_level = true
+	var tm := StandardMaterial3D.new()
+	tm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	tm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	tm.vertex_color_use_as_albedo = true
+	tm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	tm.disable_receive_shadows = true
+	trail_node.material_override = tm
+	trail_node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(trail_node)
+	# speed-line dashes: thin boxes aligned to their velocity, streaming past her
+	speed_lines = GPUParticles3D.new()
+	speed_lines.amount = 36
+	speed_lines.lifetime = 0.55
+	speed_lines.local_coords = false
+	speed_lines.emitting = false
+	speed_pm = ParticleProcessMaterial.new()
+	speed_pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	speed_pm.emission_box_extents = Vector3(3.5, 2.5, 3.5)
+	speed_pm.particle_flag_align_y = true
+	speed_pm.gravity = Vector3.ZERO
+	speed_pm.spread = 8.0
+	speed_lines.process_material = speed_pm
+	var slm := BoxMesh.new()
+	slm.size = Vector3(0.05, 1.6, 0.05)
+	speed_lines.draw_pass_1 = slm
+	var smat := StandardMaterial3D.new()
+	smat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	smat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	smat.albedo_color = Color(0.75, 0.95, 1.0, 0.55)
+	speed_lines.material_override = smat
+	speed_lines.position = Vector3(0, 1.0, 0)
+	add_child(speed_lines)
 	cam = Camera3D.new()
 	cam.fov = 60.0
 	get_parent().add_child.call_deferred(cam)
@@ -97,6 +164,31 @@ func set_skin(id: String, tex_path: String) -> void:
 	if skin_sparkles != null:
 		skin_sparkles.emitting = on_skin
 
+func _flatten_materials(node: Node) -> void:
+	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
+	# same reasoning as _upgrade_texture (specular/rim streaks read as glitches
+	# on painted faces when the camera moves).
+	if node is MeshInstance3D:
+		var mi := node as MeshInstance3D
+		if mi.mesh != null:
+			for si in range(mi.mesh.get_surface_count()):
+				var m: Material = mi.mesh.surface_get_material(si)
+				if m is BaseMaterial3D:
+					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
+					m2.rim_enabled = false
+					m2.roughness = 1.0
+					m2.metallic = 0.0
+					m2.metallic_specular = 0.0
+					# self-lit fill: true-3D curvature goes murky in the dim
+					# underwater scene; the painted look wants even brightness
+					# (the old flat card was effectively camera-lit).
+					m2.emission_enabled = true
+					m2.emission_texture = m2.albedo_texture
+					m2.emission = Color(0.05, 0.05, 0.05)
+					mi.set_surface_override_material(si, m2)
+	for c in node.get_children():
+		_flatten_materials(c)
+
 func _upgrade_texture(node: Node) -> void:
 	# swap embedded 512px texture for the 2K re-bake from the source illustration
 	if node is MeshInstance3D:
@@ -107,9 +199,13 @@ func _upgrade_texture(node: Node) -> void:
 				if m is BaseMaterial3D:
 					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
 					m2.albedo_texture = load("res://assets/characters/roshan_tex_2k.webp")
-					m2.rim_enabled = true          # cheap fresnel sheen on Roshan's edges
-					m2.rim = 0.35
-					m2.rim_tint = 0.4
+					# NO rim / NO specular: on the near-flat painted face, moving cameras
+					# (cutscenes) sweep fresnel + specular streaks across the painted EYES,
+					# which reads as the eye glitch. Painted texture must light flat + evenly.
+					m2.rim_enabled = false
+					m2.roughness = 1.0
+					m2.metallic = 0.0
+					m2.metallic_specular = 0.0
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_upgrade_texture(c)
@@ -136,11 +232,17 @@ func attach_bone(n: Node3D, bone: String) -> bool:
 	return true
 
 func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
+	# Rotate a bone about a MODEL-space axis, composed after its rest rotation.
+	# The old card rig has identity rests (axis passes through unchanged); the
+	# v2 rig's bones carry Blender rest orientations, so the axis must be
+	# brought into the bone's local frame first.
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
 		return
 	var base: Transform3D = rest[bname]
-	skel.set_bone_pose_rotation(bi, base.basis.get_rotation_quaternion() * Quaternion(axis, angle))
+	var rq: Quaternion = base.basis.get_rotation_quaternion()
+	var local_axis: Vector3 = (rq.inverse() * axis).normalized()
+	skel.set_bone_pose_rotation(bi, rq * Quaternion(local_axis, angle))
 
 func _process(delta: float) -> void:
 	var _m0: Node = get_parent()
@@ -185,6 +287,8 @@ func _process(delta: float) -> void:
 	if jump_held and jump_cool <= 0.0:
 		jump_cool = 0.4
 		vel.y = 16.0
+		if m0 != null and m0.has_method("on_player_jump"):
+			m0.on_player_jump(position)   # surface splash ring near WATER_TOP
 
 	yaw += turn * 1.8 * delta
 	var dir := Vector3(sin(yaw), 0.0, cos(yaw))
@@ -290,31 +394,48 @@ func _process(delta: float) -> void:
 		idle_t += delta
 
 	var speed: float = vel.length()
+	_tick_wake(delta, speed)
 	swim_phase += delta * (2.2 + speed * 0.9)
 	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
 	var kick: float = sin(swim_phase)
 	if skel != null:
+		# Swing axis depends on the model:
+		#  * v2 true-3D model (faces -Z): dolphin-kick pitch + arm paddling are
+		#    rotations about model X (RIGHT).
+		#  * old flat-card model (geometry in the XY plane): swings must stay
+		#    in-plane, i.e. about model Z (BACK) — out-of-plane rotations shear
+		#    the card edge-on and axially twist the X-aligned tail bones.
+		var A: Vector3 = Vector3.RIGHT if model_v2 else Vector3.BACK
 		for i in range(8):
 			var ph: float = swim_phase - float(i) * 0.45
 			var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.5)
-			_rot_bone("tail%d" % (i + 1), Vector3.RIGHT, sin(ph) * amp * grow)
+			_rot_bone("tail%d" % (i + 1), A, sin(ph) * amp * grow)
 		var fin_ph: float = swim_phase - 3.6
-		_rot_bone("finTop", Vector3.RIGHT, sin(fin_ph - 0.25) * amp * 0.9)
-		_rot_bone("finBot", Vector3.RIGHT, sin(fin_ph - 0.55) * amp * 0.9)
-		_rot_bone("spine1", Vector3.RIGHT, -kick * amp * 0.16)
-		_rot_bone("chest", Vector3.RIGHT, -sin(swim_phase - 0.4) * amp * 0.12)
-		_rot_bone("neck", Vector3.RIGHT, sin(swim_phase - 0.7) * amp * 0.06)
+		_rot_bone("finTop", A, sin(fin_ph - 0.25) * amp * 0.9)
+		_rot_bone("finBot", A, sin(fin_ph - 0.55) * amp * 0.9)
+		_rot_bone("spine1", A, -kick * amp * 0.16)
+		_rot_bone("chest", A, -sin(swim_phase - 0.4) * amp * 0.12)
+		_rot_bone("neck", A, sin(swim_phase - 0.7) * amp * 0.06)
 		var idle_head: float = 0.0
 		if idle_t > 6.0:
 			idle_head = sin(Time.get_ticks_msec() / 1100.0) * 0.09
 		_rot_bone("head", Vector3.BACK, sin(swim_phase * 0.5 + 0.6) * 0.02 + idle_head)
-		_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
-		_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
-		_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
-		_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
-		_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
-		_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)
-		_rot_bone("armF2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8 - 0.6) * 0.30 + 0.22)
+		if not model_v2:
+			# card model: single-chain hair sway (v2 hair belongs to HairSim)
+			_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
+			_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
+			_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
+			_rot_bone("hairL1", Vector3.BACK, sin(swim_phase * 0.65 + 0.5) * 0.05)
+			_rot_bone("hairL2", Vector3.BACK, sin(swim_phase * 0.65 - 0.1) * 0.075)
+		# Arms: gentle paddle. Amplitude scales with speed (near-still arms when
+		# idle), no constant offset (rest = the authored pose), and the far arm
+		# trails the near arm slightly. Forearm follows with a small lag.
+		var arm_amp: float = 0.06 + minf(speed * 0.02, 0.20)
+		var arm_ph: float = swim_phase * 0.5
+		_rot_bone("armU", A, sin(arm_ph) * arm_amp)
+		_rot_bone("armF", A, sin(arm_ph - 0.5) * arm_amp * 0.7)
+		_rot_bone("armU2", A, sin(arm_ph - 0.35) * arm_amp)
+		_rot_bone("armF2", A, sin(arm_ph - 0.85) * arm_amp * 0.7)
 	elif not warned:
 		warned = true
 		push_warning("Roshan skeleton not found in roshan.glb - check import")
@@ -330,3 +451,62 @@ func _process(delta: float) -> void:
 		var target := position + Vector3(-sin(yaw) * cam_back, cam_high, -cos(yaw) * cam_back)
 		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
 		cam.look_at(position + Vector3(0, 1.5, 0))
+
+func _tick_wake(delta: float, speed: float) -> void:
+	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
+	var strength: float = clampf((speed - 7.0) / 16.0, 0.0, 1.0)
+	if speed_lines != null:
+		var sprinting: bool = trail_enabled and speed > 26.0
+		speed_lines.emitting = sprinting
+		if sprinting:
+			speed_pm.direction = -vel.normalized()
+			speed_pm.initial_velocity_min = speed * 0.5
+			speed_pm.initial_velocity_max = speed * 0.8
+	if trail_node == null:
+		return
+	if not trail_enabled:
+		if trail_pts.size() > 0:
+			trail_pts.clear()
+			trail_mesh.clear_surfaces()
+		return
+	trail_sample -= delta
+	if trail_sample <= 0.0:
+		trail_sample = 0.05
+		if strength > 0.01:
+			var tail: Vector3 = position + Vector3(-sin(yaw), 0.0, -cos(yaw)) * 1.8 + Vector3(0, -0.4, 0)
+			trail_pts.push_front({"p": tail, "s": strength})
+			if trail_pts.size() > 22:
+				trail_pts.pop_back()
+		elif trail_pts.size() > 0:
+			trail_pts.pop_back()   # ribbon dissolves from the tail when she slows
+	_rebuild_trail()
+
+func _rebuild_trail() -> void:
+	trail_mesh.clear_surfaces()
+	var n: int = trail_pts.size()
+	if n < 3:
+		return
+	var eye: Vector3 = position + Vector3(0, 10, 10)
+	if cam != null and cam.is_inside_tree():
+		eye = cam.global_position
+	trail_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
+	for i in range(n):
+		var pt: Vector3 = trail_pts[i]["p"]
+		var s: float = trail_pts[i]["s"]
+		var seg: Vector3 = (trail_pts[mini(i + 1, n - 1)]["p"] as Vector3) - (trail_pts[maxi(i - 1, 0)]["p"] as Vector3)
+		if seg.length_squared() < 0.0001:
+			seg = Vector3(sin(yaw), 0, cos(yaw))
+		# camera-facing ribbon: widen perpendicular to both the path and the view
+		var side: Vector3 = seg.normalized().cross((eye - pt).normalized())
+		if side.length_squared() < 0.0001:
+			side = Vector3.UP
+		side = side.normalized()
+		var u: float = float(i) / float(n - 1)
+		var wdt: float = s * (0.12 + 0.85 * pow(sin(PI * u), 0.7))
+		var a: float = (1.0 - u) * 0.5 * s
+		var colr := Color(0.62 * a, 0.9 * a, 1.0 * a)   # additive: fade encoded in RGB
+		trail_mesh.surface_set_color(colr)
+		trail_mesh.surface_add_vertex(pt + side * wdt)
+		trail_mesh.surface_set_color(colr)
+		trail_mesh.surface_add_vertex(pt - side * wdt)
+	trail_mesh.surface_end()
