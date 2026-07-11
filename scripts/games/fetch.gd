@@ -215,7 +215,9 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			m.chime.pitch_scale = 1.5
 			m.chime.play()
 		m.g["was_wet"] = wet
-		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (m.touch_ui != null and m.touch_ui.action_down)
+		# clicks that land on UI (pause gear, touch buttons) must not throw the ball
+		var click_free: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and m.get_viewport().gui_get_hovered_control() == null
+		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B) or click_free or (m.touch_ui != null and m.touch_ui.action_down)
 		if pressed and float(m.g.get("press_cool", 0.0)) <= 0.0:
 			m.g["press_cool"] = 1.0
 			m.g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)

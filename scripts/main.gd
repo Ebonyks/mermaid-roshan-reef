@@ -476,6 +476,8 @@ func _ready() -> void:
 	_build_slide_portal()
 	_build_pause()
 	_load_save()
+	if first_session:
+		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	dev_mode = preload("res://scripts/dev_mode.gd").new()
 	add_child(dev_mode)
@@ -4062,6 +4064,8 @@ func _finish_level2() -> void:
 
 func _do_finish_level2() -> void:
 	level2_finishing = false
+	player.cam_back = 25.0   # restore the outdoor diorama lens (tightened for the hall)
+	player.cam_high = 6.5
 	for i in range(10):
 		_sparkle_burst(player.position + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 	level2_done_once = true
