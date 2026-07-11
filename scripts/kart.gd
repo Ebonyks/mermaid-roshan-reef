@@ -316,12 +316,23 @@ func _build_lut() -> void:
 		_cum.append(d)
 	_len = d
 	_vmax = _len / float(_cv("lap_target_sec", LAP_TARGET_SEC))
+	# curvature table (forward-travel sign): central difference of tangents,
+	# Δs = 6 either side — sampled once so the per-frame lookup is O(log n)
+	_kap = PackedFloat32Array()
+	_kap.resize(SAMPLES + 1)
+	for i in range(SAMPLES + 1):
+		var t0 := _tangent_at(_cum[i] - 6.0)
+		var t1 := _tangent_at(_cum[i] + 6.0)
+		_kap[i] = signf(t0.cross(t1).y) * t0.angle_to(t1) / 12.0
+
+var _kap: PackedFloat32Array = []
 
 func _pos_at(s: float) -> Vector3:
 	var ss := fposmod(s, _len)
-	var i := 0
-	while i < SAMPLES and _cum[i + 1] < ss:
-		i += 1
+	# binary search (bsearch = first index with _cum[i] >= ss, so the segment
+	# is i-1) — this is the hottest function in the engine; the old linear walk
+	# cost O(SAMPLES) per call, dozens of times a frame on the phone
+	var i: int = clampi(_cum.bsearch(ss) - 1, 0, SAMPLES - 1)
 	var seg: float = _cum[i + 1] - _cum[i]
 	var t: float = 0.0 if seg <= 0.0001 else (ss - _cum[i]) / seg
 	return _lut[i].lerp(_lut[i + 1], t)
@@ -355,6 +366,27 @@ func _frame_at(s: float, lat: float) -> Array:
 func _eff(s: float) -> float:
 	var m := fposmod(s, _len)
 	return (_len - m) if _rev else m
+
+func _curv_at(s: float) -> float:
+	# signed curvature of the racing line in the kart's TRAVEL frame
+	# (+ = the road bends left; the inside of the bend is then the -lat side).
+	# Precomputed table (see _build_lut) — this runs for every kart every frame
+	# on a 3-4-year-old phone, so no live spline sampling here.
+	if _kap.is_empty():
+		return 0.0
+	var es := fposmod(_eff(s), _len)
+	var i: int = clampi(_cum.bsearch(es), 0, SAMPLES)
+	return (-_kap[i]) if _rev else _kap[i]
+
+func _advance(k: Dictionary, delta: float) -> void:
+	# curvature-coupled progress: the inside of a bend IS a shorter arc, so
+	# hugging it moves you further along the track per metre driven. This is
+	# what makes the racing line REAL (before this, lat was cosmetic and the
+	# lap time of any line was identical). Invisible, no reading required,
+	# physically truthful. Capped so the sharpest bend gives ~18 %.
+	var kap := _curv_at(float(k["s"]))
+	var line: float = clampf(float(k["lat"]) * kap, -0.18, 0.18)
+	k["s"] = float(k["s"]) + float(k["speed"]) * (1.0 - line) * delta
 
 func _kart_frame(s: float, lat: float) -> Array:
 	var es := _eff(s)
@@ -1265,12 +1297,38 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 		if is_p:
 			_pl = k
 
+var _streaks: CPUParticles3D = null
+
 func _build_camera() -> void:
 	_cam = Camera3D.new()
 	_cam.fov = 68.0
 	_cam.far = 1500.0   # the course is a floating pocket; never render the distant real world
 	add_child(_cam)
 	_cam.make_current()
+	# speed streaks: thin quads streaming past the camera at high speed / boost
+	# (the near-field optic flow the empty air around the track can't provide)
+	_streaks = CPUParticles3D.new()
+	_streaks.emitting = false
+	_streaks.amount = (12 if _speedy() else 26)
+	_streaks.lifetime = 0.5
+	_streaks.local_coords = false
+	_streaks.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	_streaks.emission_box_extents = Vector3(9.0, 6.0, 2.0)
+	_streaks.direction = Vector3(0, 0, 1)   # spawned ahead, streaming back past the lens
+	_streaks.spread = 2.0
+	_streaks.initial_velocity_min = 55.0
+	_streaks.initial_velocity_max = 75.0
+	_streaks.gravity = Vector3.ZERO
+	var sm := BoxMesh.new()
+	sm.size = Vector3(0.05, 0.05, 1.7)
+	_streaks.mesh = sm
+	var smat := StandardMaterial3D.new()
+	smat.albedo_color = Color(1, 1, 1, 0.4)
+	smat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	smat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	_streaks.mesh.material = smat
+	_streaks.position = Vector3(0, 0, -16.0)
+	_cam.add_child(_streaks)
 
 # ------------------------------------------------------------ selection screen
 func _select_slot_pos(i: int) -> Vector3:
@@ -1502,6 +1560,16 @@ func _process(delta: float) -> void:
 		if _clock <= 0.0:
 			_state = "race"
 			_lbl_big.text = ""
+			# ROCKET START: already on the controls the instant GO fires —
+			# teachable purely by feel, no reading required
+			var hot: bool = absf(_steer_input()) > 0.05 or Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A)
+			if _main != null and "touch_ui" in _main and _main.touch_ui != null and (_main.touch_ui.stick_vec as Vector2).length() > 0.1:
+				hot = true
+			if hot and _pl != null:
+				_pl["boost_t"] = 0.9
+				_pl["squash"] = 0.3
+				_chime(1.25)
+				_flash_big("ROCKET START!")
 		_update_camera(delta)
 		return
 
@@ -1524,6 +1592,10 @@ func _process(delta: float) -> void:
 	_resolve_collisions()
 	_update_camera(delta)
 	_update_hud()
+	if _flash_t > 0.0:
+		_flash_t -= delta
+		if _flash_t <= 0.0 and _lbl_big != null:
+			_lbl_big.text = ""
 
 	if _pl != null and (float(_pl["s"]) >= _len * float(_laps()) or _race_t > 170.0):
 		_finish()
@@ -1543,13 +1615,58 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	var boosting: bool = float(k["boost_t"]) > 0.0
 	var bf: float = 1.0 + (BOOST_MUL if boosting else 0.0)
 	var target: float = _vmax * float(vd["vmax"]) * bf
+	# SLIPSTREAM: tuck in close behind a rival and the air tows you along —
+	# rewards pack racing (which the bumper AI already creates) and slowly
+	# tops up the turbo meter while in the tow
+	if _draft_ahead(k):
+		target *= 1.08
+		_charge(k, 0.05 * delta)
 	if braking and not boosting:
 		target = _vmax * 0.45
-	k["speed"] = move_toward(float(k["speed"]), target, (60.0 if boosting else 40.0) * delta)
-	k["s"] = float(k["s"]) + float(k["speed"]) * delta
+	# launch punch: strong low-end pull that relaxes near top speed — the
+	# kart-game acceleration curve (a linear ramp reads as a slow car; a fat
+	# bottom end reads as a GO)
+	var acc: float = (60.0 if boosting else 40.0)
+	if float(k["speed"]) < target * 0.6:
+		acc *= 1.8
+	k["speed"] = move_toward(float(k["speed"]), target, acc * delta)
+	_advance(k, delta)
+	# ---- SPARKLE DRIFT (the kart-class skill ceiling, one thumb) ----
+	# hold a hard steer INTO a bend for a beat to start carving; hold the carve
+	# to charge SILVER -> GOLD -> RAINBOW; ease off and the charge releases as
+	# turbo. Zero input still finishes the race — this only raises the ceiling.
+	var kap := _curv_at(float(k["s"]))
+	var bend: bool = absf(kap) > 0.006
+	var into_bend: bool = bend and absf(steer) >= 0.6 and steer * kap < 0.0
+	k["drift_arm"] = (float(k.get("drift_arm", 0.0)) + delta) if into_bend else 0.0
+	if not bool(k.get("drift", false)) and float(k["drift_arm"]) >= 0.25:
+		k["drift"] = true
+		k["drift_t"] = 0.0
+		k["drift_dir"] = signf(steer)
+		k["hop"] = 0.22           # the entry hop — the classic drift signature
+		_chime(1.05)
+	if bool(k.get("drift", false)):
+		var keep: bool = bend and absf(steer) >= 0.25 and signf(steer) == float(k["drift_dir"]) and steer * kap < 0.0
+		if keep:
+			k["drift_t"] = float(k["drift_t"]) + delta
+			var tier := _drift_tier(float(k["drift_t"]))
+			if tier > int(k.get("drift_tier_seen", 0)):
+				k["drift_tier_seen"] = tier
+				_chime(0.95 + 0.12 * float(tier))   # rising tier chime
+			_drift_spray(k, tier)
+		else:
+			_drift_release(k)
 	# steering with per-vehicle rate + slip (moto drifts, truck plants) — snappy response
 	var slip: float = float(vd["slip"])
 	var want_v: float = steer * float(vd["steer"])
+	if bool(k.get("drift", false)):
+		# the drift holds the carve FOR you: ease onto a clean line ~60 % of
+		# the way to the inside rail (what a held drift does in kart games —
+		# it locks an arc, it doesn't feed raw inward velocity, which would
+		# grind the inside wall within half a second)
+		var room: float = _width_at(_eff(float(k["s"]))) - 1.6
+		var carve_lat: float = float(k["drift_dir"]) * room * 0.6
+		want_v = clampf((carve_lat - float(k["lat"])) * 3.0, -float(vd["steer"]) * 1.4, float(vd["steer"]) * 1.4)
 	# TOUCH CO-PILOT — 225-race platform sim: phone thumbs react ~4x slower
 	# than pads and scraped the rails 2-3x as often (truck-touch: 35/race).
 	# When the touch stick is the live input, a gentle assist eases the kart
@@ -1595,8 +1712,13 @@ func _update_ai(k: Dictionary, delta: float) -> void:
 		k["stun_t"] = float(k["stun_t"]) - delta
 		base *= 0.78   # just bounced off someone heavier — drop back and regroup
 	k["speed"] = move_toward(float(k["speed"]), maxf(base, 0.0), 30.0 * delta)
-	k["s"] = float(k["s"]) + float(k["speed"]) * delta
+	_advance(k, delta)
 	var want: float = sin(_race_t * 0.3 + float(k["ai_phase"])) * _rhalf() * 0.16
+	# rivals visibly dive for the inside of bends (same curvature-coupled
+	# physics the player rides; the rubber band keeps the race fair)
+	var kap := _curv_at(float(k["s"]))
+	if absf(kap) > 0.004:
+		want += -signf(kap) * _rhalf() * clampf(absf(kap) / 0.02, 0.0, 1.0) * 0.35
 	# OVERTAKING LINE: swing wide around traffic instead of ploughing into
 	# bumpers (the old jam-behind-the-truck). Sim finding: when EVERY rival
 	# dodged the player too, player contact hit exactly 0.0 in 225 races and
@@ -1635,6 +1757,7 @@ func _apply_lat(k: Dictionary, new_lat: float) -> void:
 		k["speed"] = float(k["speed"]) * float(vd["wall"])
 		k["squash"] = 0.3
 		k["hop"] = 0.22
+		_drift_cancel(k)                          # a scrape spills the drift charge
 		if bool(k["is_player"]):
 			_shake = maxf(_shake, 0.35)
 			if _thunk_cool <= 0.0:
@@ -1661,6 +1784,10 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 		node.look_at(pos + fwd + up * 1.2, up)
 		# point the nose INTO the turn (the visual feedback that makes steering feel real)
 		var vyaw: float = clampf(-float(k["latv"]) * 0.030, -0.55, 0.55)
+		if bool(k.get("drift", false)):
+			# drift counter-rotation: the nose swings INTO the bend beyond the
+			# travel direction — the visual signature that says "drifting"
+			vyaw += -float(k.get("drift_dir", 0.0)) * 0.30
 		node.rotate_object_local(Vector3(0, 1, 0), vyaw)
 		# lean/roll into steering (moto most, truck least)
 		var vd := _veh(k)
@@ -1692,6 +1819,97 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 func _charge(k: Dictionary, amt: float) -> void:
 	# the Rainbow Kart's "mcharge" makes every pickup worth 30% more meter
 	k["meter"] = minf(1.0, float(k["meter"]) + amt * float(_veh(k).get("mcharge", 1.0)))
+
+# ------------------------------------------------------------ sparkle drift
+const DRIFT_TIERS := [0.0, 0.8, 1.6, 2.4]          # seconds held -> tier
+const DRIFT_BOOST := [0.0, 0.55, 0.95, 1.4]        # released turbo per tier
+const DRIFT_COLS := [Color(1, 1, 1), Color(0.85, 0.9, 1.0), Color(1.0, 0.85, 0.3), Color(1.0, 0.5, 0.9)]
+var _spray: CPUParticles3D = null                  # one persistent emitter, not per-burst nodes
+var _spray_mat: StandardMaterial3D = null
+var _flash_t := 0.0                                # short center-screen celebration text
+
+func _drift_tier(t: float) -> int:
+	for i in range(DRIFT_TIERS.size() - 1, 0, -1):
+		if t >= float(DRIFT_TIERS[i]):
+			return i
+	return 0
+
+func _drift_spray(k: Dictionary, tier: int) -> void:
+	if _spray == null:
+		_spray = CPUParticles3D.new()
+		_spray.amount = (10 if _speedy() else 20)
+		_spray.lifetime = 0.5
+		_spray.direction = Vector3(0, 0.6, 1.0)
+		_spray.spread = 25.0
+		_spray.initial_velocity_min = 4.0
+		_spray.initial_velocity_max = 9.0
+		_spray.gravity = Vector3(0, -6.0, 0)
+		_spray.scale_amount_min = 0.10
+		_spray.scale_amount_max = 0.30
+		var bm := BoxMesh.new()
+		bm.size = Vector3(0.3, 0.3, 0.3)
+		_spray.mesh = bm
+		_spray_mat = StandardMaterial3D.new()
+		_spray_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		_spray_mat.vertex_color_use_as_albedo = false
+		_spray.mesh.material = _spray_mat
+		(k["node"] as Node3D).add_child(_spray)
+		_spray.position = Vector3(0, 0.4, 2.2)   # off the tail
+	_spray.emitting = true
+	var col: Color = DRIFT_COLS[tier]
+	if tier >= 3:
+		col = Color.from_hsv(fmod(Time.get_ticks_msec() / 1000.0 * 0.8, 1.0), 0.7, 1.0)   # RAINBOW tier
+	_spray_mat.albedo_color = col
+	_spray_mat.emission_enabled = true
+	_spray_mat.emission = col
+	_spray_mat.emission_energy_multiplier = 0.8
+
+func _drift_release(k: Dictionary) -> void:
+	var tier := _drift_tier(float(k.get("drift_t", 0.0)))
+	k["drift"] = false
+	k["drift_arm"] = 0.0
+	k["drift_t"] = 0.0
+	k["drift_tier_seen"] = 0
+	if _spray != null:
+		_spray.emitting = false
+	if tier <= 0:
+		return
+	k["boost_t"] = maxf(float(k["boost_t"]), float(DRIFT_BOOST[tier]))
+	k["squash"] = 0.3
+	_shake = maxf(_shake, 0.12)
+	_chime(1.0 + 0.15 * float(tier))
+	if _main != null and _main.has_method("_sparkle_burst"):
+		_main._sparkle_burst((k["node"] as Node3D).position, DRIFT_COLS[tier])
+	if tier >= 2:
+		_flash_big("SPARKLE DRIFT!" if tier == 2 else "RAINBOW DRIFT!!")
+
+func _drift_cancel(k: Dictionary) -> void:
+	# a wall scrape mid-drift spills the charge — that IS the drift lesson,
+	# and it's gentle (the thump feedback already plays)
+	if bool(k.get("drift", false)):
+		k["drift"] = false
+		k["drift_arm"] = 0.0
+		k["drift_t"] = 0.0
+		k["drift_tier_seen"] = 0
+		if _spray != null:
+			_spray.emitting = false
+
+func _flash_big(txt: String) -> void:
+	if _lbl_big != null and _state == "race":
+		_lbl_big.text = txt
+		_flash_t = 1.1
+
+func _speedy() -> bool:
+	return _main != null and "quality" in _main and String(_main.quality) == "speedy"
+
+func _draft_ahead(k: Dictionary) -> bool:
+	for o in _karts:
+		if o == k:
+			continue
+		var ds: float = float(o["s"]) - float(k["s"])
+		if ds > 2.5 and ds < 12.0 and absf(float(o["lat"]) - float(k["lat"])) < 2.6:
+			return true
+	return false
 
 func _check_strips() -> void:
 	for k in _karts:
@@ -1847,7 +2065,11 @@ func _update_camera(delta: float) -> void:
 	var right: Vector3 = fr[2]
 	var boosting: bool = float(_pl["boost_t"]) > 0.0
 	var terrain: bool = _ground_mode() == "terrain"
-	var dist: float = (15.5 if boosting else 13.5) if terrain else (18.5 if boosting else 16.0)
+	# perceived speed is a continuous channel, not a boost on/off switch: the
+	# camera pulls back and the FOV widens with actual speed, then boost kicks
+	# a little extra on top (optic flow + edge stretch = "I'm going FAST")
+	var spd_n: float = clampf(float(_pl["speed"]) / (_vmax * 1.5), 0.0, 1.0)
+	var dist: float = (12.5 + 3.5 * spd_n) if terrain else (15.0 + 4.0 * spd_n)
 	var want: Vector3 = (fr[0] as Vector3) - fwd * dist + Vector3(0, 8.5 if terrain else 8.0, 0)
 	if terrain:
 		# never sink the camera into a dune or ridge behind the kart
@@ -1858,8 +2080,12 @@ func _update_camera(delta: float) -> void:
 		want += right * sin(Time.get_ticks_msec() * 0.045) * _shake * 1.6
 	_thunk_cool = maxf(0.0, _thunk_cool - delta)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
-	_cam.fov = lerpf(_cam.fov, (76.0 if boosting else 68.0), delta * 5.0)
-	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)
+	_cam.fov = lerpf(_cam.fov, 62.0 + 14.0 * spd_n + (4.0 if boosting else 0.0), delta * 5.0)
+	# the horizon leans into the carve (tiny, but it makes steering feel physical)
+	var up_roll := Vector3.UP.rotated(fwd, clampf(-float(_pl["latv"]) * 0.010, -0.10, 0.10))
+	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), up_roll)
+	if _streaks != null:
+		_streaks.emitting = boosting or spd_n > 0.62
 
 func _mk_label(parent: Control, pos: Vector2, size: int, col: Color = Color.WHITE) -> Label:
 	var l := Label.new()
@@ -1962,6 +2188,8 @@ func _update_hud() -> void:
 
 # ------------------------------------------------------------ finish + podium
 func _finish() -> void:
+	if _pl != null:
+		_drift_cancel(_pl)   # stop the tail spray before the podium
 	_state = "podium"
 	var place := _placement()
 	var suffix: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
