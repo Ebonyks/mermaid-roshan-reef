@@ -83,6 +83,19 @@
   "src": "gen2/generated/aquatic_coral6/v2.webp",
   "stage": "done"
  },
+ "aquatic_crab_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_crab/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_crab/back.png",
+   "front": "gen2/turnarounds/aquatic_crab/front.png",
+   "side": "gen2/turnarounds/aquatic_crab/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-3844-7cc9-a891-bec9bc0716d3"
+ },
  "aquatic_dolphin_mv": {
   "ep": "multi-image-to-3d",
   "i23d": "019f4f24-00bf-738b-863c-f02730c89717",
@@ -105,12 +118,51 @@
   "stage": "done"
  },
  "aquatic_fanshell_r3": {
+  "ep": "image-to-3d",
+  "i23d": "019f5195-905f-735e-94bf-212ef83bb364",
   "note": "face-free regen (audit best variants all carried F2)",
   "rig": false,
   "src": "gen2/generated/aquatic_fanshell/r3_v1.png",
-  "stage": "done",
-  "ep": "image-to-3d",
-  "i23d": "019f5195-905f-735e-94bf-212ef83bb364"
+  "stage": "done"
+ },
+ "aquatic_hammerhead_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_hammerhead/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_hammerhead/back.png",
+   "front": "gen2/turnarounds/aquatic_hammerhead/front.png",
+   "side": "gen2/turnarounds/aquatic_hammerhead/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-3f4a-75f5-8f6c-f45450bb4464"
+ },
+ "aquatic_lobster_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_lobster/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_lobster/back.png",
+   "front": "gen2/turnarounds/aquatic_lobster/front.png",
+   "side": "gen2/turnarounds/aquatic_lobster/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-4686-7cd0-ab3a-8088d63c26d0"
+ },
+ "aquatic_octopus_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_octopus/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_octopus/back.png",
+   "front": "gen2/turnarounds/aquatic_octopus/front.png",
+   "side": "gen2/turnarounds/aquatic_octopus/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-4da6-7f34-85c5-edf0946bea5a"
  },
  "aquatic_penguin_mv": {
   "ep": "multi-image-to-3d",
@@ -124,6 +176,19 @@
    "side": "gen2/turnarounds/aquatic_penguin/side.png"
   },
   "stage": "done"
+ },
+ "aquatic_penguin_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_penguin/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_penguin/back.png",
+   "front": "gen2/turnarounds/aquatic_penguin/front.png",
+   "side": "gen2/turnarounds/aquatic_penguin/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-552d-7fd0-afc0-0e3c4a7ce8be"
  },
  "aquatic_rock": {
   "ep": "image-to-3d",
@@ -181,6 +246,19 @@
   "src": "gen2/generated/aquatic_sanddollar/v4.webp",
   "stage": "done"
  },
+ "aquatic_shark_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_shark/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_shark/back.png",
+   "front": "gen2/turnarounds/aquatic_shark/front.png",
+   "side": "gen2/turnarounds/aquatic_shark/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-5b84-7cd1-8891-00e6621c0d2d"
+ },
  "aquatic_smallfanshell": {
   "ep": "image-to-3d",
   "i23d": "019f5194-51a2-7226-a829-1bb6ce16caac",
@@ -190,12 +268,12 @@
   "stage": "done"
  },
  "aquatic_smallfanshell_r3": {
+  "ep": "image-to-3d",
+  "i23d": "019f5195-944f-7d56-a629-caa75e3d72f5",
   "note": "face-free regen (audit best variants all carried F2)",
   "rig": false,
   "src": "gen2/generated/aquatic_smallfanshell/r3_v1.png",
-  "stage": "done",
-  "ep": "image-to-3d",
-  "i23d": "019f5195-944f-7d56-a629-caa75e3d72f5"
+  "stage": "done"
  },
  "aquatic_spiralshell": {
   "ep": "image-to-3d",
@@ -206,12 +284,38 @@
   "stage": "done"
  },
  "aquatic_spiralshell_r3": {
+  "ep": "image-to-3d",
+  "i23d": "019f5195-9795-735f-b632-eb8733dc88b4",
   "note": "face-free regen (audit best variants all carried F2)",
   "rig": false,
   "src": "gen2/generated/aquatic_spiralshell/r3_v1.png",
-  "stage": "done",
-  "ep": "image-to-3d",
-  "i23d": "019f5195-9795-735f-b632-eb8733dc88b4"
+  "stage": "done"
+ },
+ "aquatic_squid_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_squid/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_squid/back.png",
+   "front": "gen2/turnarounds/aquatic_squid/front.png",
+   "side": "gen2/turnarounds/aquatic_squid/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-61af-7fd0-a817-99da6a485760"
+ },
+ "aquatic_stingray_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_stingray/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_stingray/back.png",
+   "front": "gen2/turnarounds/aquatic_stingray/front.png",
+   "side": "gen2/turnarounds/aquatic_stingray/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-6896-760a-bbf6-251204782947"
  },
  "aquatic_turtle_mv": {
   "ep": "multi-image-to-3d",
@@ -225,6 +329,19 @@
    "side": "gen2/turnarounds/aquatic_turtle/side.png"
   },
   "stage": "done"
+ },
+ "aquatic_whale_mv2": {
+  "note": "creature batch 2: multi-image i23d, sway-shader lane",
+  "rig": false,
+  "src": "gen2/turnarounds/aquatic_whale/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_whale/back.png",
+   "front": "gen2/turnarounds/aquatic_whale/front.png",
+   "side": "gen2/turnarounds/aquatic_whale/side.png"
+  },
+  "stage": "i23d",
+  "ep": "multi-image-to-3d",
+  "i23d": "019f51b4-6f98-7fd0-88ed-edd374c0b6f1"
  },
  "fairy_playable": {
   "i23d": "019f4c86-f043-7888-9972-26acb03807e3",
