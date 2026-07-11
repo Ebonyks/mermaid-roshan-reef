@@ -232,6 +232,8 @@ var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoo
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
 var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
+var caustics_enabled := true                # developer mode can switch the caustic layer off
+var dev_mode: Node = null                   # in-game developer "look lab" (scripts/dev_mode.gd)
 var plankton_node: GPUParticles3D
 var pause_layer: CanvasLayer
 var pause_panel: Control
@@ -475,6 +477,8 @@ func _ready() -> void:
 	_build_pause()
 	_load_save()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
+	dev_mode = preload("res://scripts/dev_mode.gd").new()
+	add_child(dev_mode)
 
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
@@ -2150,7 +2154,7 @@ func _build_pause() -> void:
 	psb.bg_color = Color(0.07, 0.1, 0.24, 0.93)
 	psb.set_corner_radius_all(28)
 	pause_panel.add_theme_stylebox_override("panel", psb)
-	pause_panel.custom_minimum_size = Vector2(460, 420)
+	pause_panel.custom_minimum_size = Vector2(460, 540)
 	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
 	pause_panel.position = Vector2(-230, -270)
 	pause_panel.size = Vector2(460, 540)   # tall enough for the Sticker Book row
@@ -2186,6 +2190,11 @@ func _build_pause() -> void:
 		music.volume_db = -8.0 if music_on else -60.0
 		music_btn.text = "Music: On" if music_on else "Music: Off"
 		_write_save())
+	var dev_btn := _pause_btn(vb, "Developer Mode")
+	dev_btn.pressed.connect(func():
+		toggle_pause()
+		if dev_mode != null:
+			dev_mode.toggle())
 
 func _pause_btn(vb: VBoxContainer, txt: String) -> Button:
 	var b := Button.new()
@@ -5833,7 +5842,7 @@ func _process(delta: float) -> void:
 		return
 	var ppos: Vector3 = player.position
 	if caustics_plane != null:
-		if game == "" and not intro_active:
+		if game == "" and not intro_active and caustics_enabled:
 			caustics_plane.visible = true
 			caustics_plane.position = Vector3(ppos.x, seabed_y(ppos.x, ppos.z) + 1.2, ppos.z)
 		elif caustics_plane.visible:
