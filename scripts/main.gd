@@ -3722,9 +3722,10 @@ func _wardrobe_pick(id: String) -> void:
 	_wardrobe_refresh()
 	if chime != null:
 		chime.pitch_scale = 1.3; chime.play()
-	# magic-moment: trying on a look showers Roshan in a sparkle swirl
+	# magic-moment: trying on a look showers Roshan in a sparkle swirl + twirl
 	_sparkle_burst(player.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
 	_sparkle_burst(player.position + Vector3(0, 0.5, 0), Color(0.7, 0.95, 1.0))
+	player.play_verb("twirl")   # R2-C: she shows off the new look
 
 func _open_stickers() -> void:
 	if stickers_layer != null:
@@ -4220,6 +4221,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		trophies += 1
 		_add_won_star(fr)
 		_reward()
+		if player != null:
+			player.play_verb("cheer")   # R2-C: arms up for the trophy curtain call
 	fr["cool"] = 5.0
 	if String(fr["fname"]) == "Secret Cave":
 		treasure_cool = 14.0
@@ -5621,6 +5624,8 @@ func _process(delta: float) -> void:
 			p.queue_free()
 			pearls.remove_at(i)
 			pearl_count += 1
+			if pearl_count % 25 == 0 and player != null:
+				player.play_verb("giggle")   # R2-C: every 25th pearl is a little party
 			_sparkle_burst(p.position, Color(1.0, 0.8, 1.0))
 			if chime != null:
 				var step: int = pearl_note % 21

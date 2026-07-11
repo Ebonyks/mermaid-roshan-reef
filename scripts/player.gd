@@ -23,6 +23,107 @@ var vel := Vector3.ZERO
 var swim_phase := 0.0
 var jump_cool := 0.0
 var idle_t := 0.0
+
+# ---- R2-C verb layer: authored gestures blended over the procedural swim ----
+# One writer owns every bone. A verb samples its keyframes and slerps OVER
+# whatever the swim just wrote (weight ramps in/out), so entry and exit
+# blends are free and the two systems can never fight. Angles in radians on
+# ONE axis per bone per verb — same idiom as the swim's _rot_bone calls.
+# "sig" = [signature bone, min radians] so probe_verbs.gd can SEE each verb.
+var verb := ""
+var verb_t := 0.0
+var idle_verb_cool := 0.0
+
+const VERB_LIB := {
+	"wave": {"len": 2.6, "sig": ["armU2", 1.2], "tracks": {
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.5, -1.9], [2.1, -1.9], [2.6, 0.2]]},
+		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.55], [0.9, -0.45], [1.2, 0.55], [1.5, -0.45], [1.8, 0.55], [2.2, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
+	}},
+	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.4, -2.1], [1.7, -2.1], [2.2, 0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.4, -2.1], [1.7, -2.1], [2.2, 0.2]]},
+		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.25], [1.7, -0.25], [2.2, 0.0]]},
+		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.12], [1.7, -0.12], [2.2, 0.0]]},
+	}},
+	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.35, -1.15], [1.7, -1.15], [2.0, 0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.35, -1.15], [1.7, -1.15], [2.0, 0.2]]},
+		"armF": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.5, 0.5], [0.65, 0.1], [0.8, 0.5], [0.95, 0.1], [1.1, 0.5], [1.25, 0.1], [1.4, 0.5], [1.7, 0.0]]},
+		"armF2": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.5, -0.5], [0.65, -0.1], [0.8, -0.5], [0.95, -0.1], [1.1, -0.5], [1.25, -0.1], [1.4, -0.5], [1.7, 0.0]]},
+	}},
+	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
+		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
+		"armU2": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, 1.2], [1.5, 1.2], [1.9, 0.0]]},
+		"hair1": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.9, 0.3], [1.9, 0.0]]},
+	}},
+	"look": {"len": 3.4, "sig": ["head", 0.35], "tracks": {
+		"neck": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.7, 0.5], [1.4, 0.5], [2.1, -0.5], [2.8, -0.5], [3.4, 0.0]]},
+		"head": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.7, 0.55], [1.4, 0.55], [2.1, -0.55], [2.8, -0.55], [3.4, 0.0]]},
+	}},
+	"giggle": {"len": 1.5, "sig": ["armU", 0.4], "tracks": {
+		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.2, -0.14], [0.4, 0.02], [0.6, -0.14], [0.8, 0.02], [1.0, -0.14], [1.5, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.25, 0.18], [0.55, -0.18], [0.85, 0.18], [1.15, -0.18], [1.5, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.3, -0.8], [1.2, -0.8], [1.5, 0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [0.3, -0.8], [1.2, -0.8], [1.5, 0.2]]},
+	}},
+	"sleep": {"len": 6.0, "sig": ["head", 0.3], "tracks": {
+		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, 0.5], [5.0, 0.5], [6.0, 0.0]]},
+		"neck": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, 0.32], [5.0, 0.32], [6.0, 0.0]]},
+		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, 0.26], [5.0, 0.26], [6.0, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [1.2, 0.7], [5.0, 0.7], [6.0, 0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [1.2, 0.7], [5.0, 0.7], [6.0, 0.2]]},
+		"tail3": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.22], [5.0, -0.22], [6.0, 0.0]]},
+		"tail4": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.3], [5.0, -0.3], [6.0, 0.0]]},
+		"tail5": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.38], [5.0, -0.38], [6.0, 0.0]]},
+		"tail6": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.46], [5.0, -0.46], [6.0, 0.0]]},
+		"tail7": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.52], [5.0, -0.52], [6.0, 0.0]]},
+		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.58], [5.0, -0.58], [6.0, 0.0]]},
+	}},
+}
+
+func play_verb(vname: String) -> bool:
+	if not VERB_LIB.has(vname):
+		return false
+	verb = vname
+	verb_t = 0.0
+	return true
+
+func _sample_keys(keys: Array, t: float) -> float:
+	if t <= float(keys[0][0]):
+		return float(keys[0][1])
+	for i in range(1, keys.size()):
+		if t <= float(keys[i][0]):
+			var a: Array = keys[i - 1]
+			var b: Array = keys[i]
+			var f: float = (t - float(a[0])) / maxf(float(b[0]) - float(a[0]), 0.001)
+			return lerpf(float(a[1]), float(b[1]), smoothstep(0.0, 1.0, f))
+	return float(keys[-1][1])
+
+func _apply_verb(delta: float) -> void:
+	if verb == "" or skel == null:
+		return
+	var spec: Dictionary = VERB_LIB[verb]
+	var vlen: float = spec["len"]
+	verb_t += delta
+	if verb_t >= vlen:
+		verb = ""
+		if model_root != null:
+			model_root.rotation.y = 0.0
+		return
+	var w: float = smoothstep(0.0, 0.25, verb_t) * (1.0 - smoothstep(vlen - 0.3, vlen, verb_t))
+	var tracks: Dictionary = spec["tracks"]
+	for bname in tracks:
+		var bi: int = bone_idx.get(bname, -1)
+		if bi < 0 or not rest.has(bname):
+			continue
+		var tr: Dictionary = tracks[bname]
+		var ang: float = _sample_keys(tr["keys"], verb_t)
+		var target: Quaternion = (rest[bname] as Transform3D).basis.get_rotation_quaternion() * Quaternion(tr["axis"], ang)
+		skel.set_bone_pose_rotation(bi, skel.get_bone_pose_rotation(bi).slerp(target, w))
+	if bool(spec.get("spin", false)) and model_root != null:
+		# a full pirouette that always lands facing forward again
+		model_root.rotation.y = TAU * smoothstep(0.0, 1.0, verb_t / vlen)
 var cam: Camera3D
 # STORYBOOK DIORAMA LENS: longer + narrower than a normal chase cam — the
 # compressed perspective flattens the world toward 2.5D so it reads as a
@@ -486,6 +587,19 @@ func _process(delta: float) -> void:
 	elif not warned:
 		warned = true
 		push_warning("Roshan skeleton not found in roshan.glb - check import")
+	_apply_verb(delta)
+	# idle life: after a quiet while she looks around; at night she dozes off
+	# (free swim only — verbs never interrupt a minigame)
+	idle_verb_cool = maxf(0.0, idle_verb_cool - delta)
+	if verb == "" and idle_verb_cool <= 0.0 and idle_t > 12.0:
+		var mn: Node = get_parent()
+		if "game" in mn and String(mn.game) == "":
+			if "is_night" in mn and bool(mn.is_night) and idle_t > 25.0:
+				play_verb("sleep")
+				idle_verb_cool = 22.0
+			else:
+				play_verb("look")
+				idle_verb_cool = 15.0
 
 	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
 	if skin_sprite != null and skin_sprite.visible:
