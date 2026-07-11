@@ -180,6 +180,7 @@ var _lbl_pearls: Label = null
 var _lbl_hint: Label = null
 var _meter_bg: ColorRect = null
 var _meter_fill: ColorRect = null
+var _btn_quit: Button = null
 
 var _lut: PackedVector3Array = []
 var _cum: PackedFloat32Array = []
@@ -1905,6 +1906,35 @@ func _build_hud() -> void:
 	_meter_fill.position = Vector2(3, 3)
 	_meter_fill.size = Vector2(0, 24)
 	_meter_bg.add_child(_meter_fill)
+	# ✕ close (top-right): leave the race and pop back out where you launched
+	# from. A real Button, so it gets first claim on its taps — touch_ui's
+	# stick only ever sees touches nothing else wanted.
+	_btn_quit = Button.new()
+	_btn_quit.text = "✕"
+	_btn_quit.add_theme_font_size_override("font_size", 44)
+	_btn_quit.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
+	var qsb := StyleBoxFlat.new()
+	qsb.bg_color = Color(0.2, 0.15, 0.35, 0.55)
+	qsb.set_corner_radius_all(20)
+	_btn_quit.add_theme_stylebox_override("normal", qsb)
+	_btn_quit.add_theme_stylebox_override("hover", qsb)
+	_btn_quit.add_theme_stylebox_override("pressed", qsb)
+	_btn_quit.focus_mode = Control.FOCUS_NONE
+	_btn_quit.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	_btn_quit.offset_left = -96.0
+	_btn_quit.offset_top = 16.0
+	_btn_quit.offset_right = -20.0
+	_btn_quit.offset_bottom = 92.0
+	_btn_quit.pressed.connect(_quit_race)
+	root.add_child(_btn_quit)
+
+func _quit_race() -> void:
+	# no prize, no podium — main reads place -1 as "quit" and respawns Roshan
+	# at the spot she launched the race from
+	if _state == "podium" or _state == "done":
+		return   # already finishing — let the podium payout complete instead
+	_chime(0.6)
+	_teardown(-1)
 
 func _placement() -> int:
 	if _pl == null:

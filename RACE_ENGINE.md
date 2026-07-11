@@ -15,6 +15,12 @@ AI (who also fire turbo) → podium celebration → pearl payout into the game e
 player fires it by tap / SPACE / gamepad-A at a moment of their choosing. Camera
 FOV kicks + pull-back sell the speed.
 
+A ✕ button (top-right) quits the race at any point before the podium:
+`finish_cb` receives **-1** (no payout, no podium), and main restores the
+pre-race mode — the player node never moves during a race, so she pops back
+out exactly where she entered, with `kart_cool` stopping the same portal from
+instantly re-grabbing her.
+
 ## Vehicles (assets/vehicles/, licenses in ASSET_LICENSES.md)
 | key | model | handling |
 |---|---|---|

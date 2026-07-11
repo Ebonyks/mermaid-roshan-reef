@@ -1794,6 +1794,19 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 
 func _end_kart_game(place: int) -> void:
 	player.visible = true
+	if place < 0:
+		# ✕ quit from the race HUD: no prize, no podium, no galaxy. The mermaid
+		# node never moves during a race, so restoring the pre-race mode
+		# respawns her exactly where she swam into the portal — kart_cool keeps
+		# that same portal from instantly grabbing her again.
+		if hud_layer != null:
+			hud_layer.visible = true
+		kart_game = null
+		kart_cool = 6.0
+		game = kart_from
+		kart_from = ""
+		_update_hud()
+		return
 	if place == 1:
 		award_sticker("racer")
 	if hud_layer != null:
