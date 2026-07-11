@@ -86,6 +86,7 @@ var solids: Array = []
 # walls; cylinder entries are columns. Consulted by player.gd in the arena branch.
 var arena_solids: Array = []
 var arena_zones: Array = []   # y-banded floor/ceil overrides (castle stories)
+var toy_play := {}                # active playground play-moment (drives the player)
 var fade_walls: Array = []   # interior walls that fade out when they block the camera
 var mg_cool := 0.0
 var mg2d_layer: CanvasLayer
@@ -1892,7 +1893,8 @@ func _apply_cel_shading() -> void:
 	add_child(quad)
 	cel_post = quad
 
-func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
+func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = "res://assets/shaders/cel.gdshader") -> void:
+	var ph := randf() * TAU
 	for mi in _all_meshes(root):
 		var mesh: Mesh = mi.mesh
 		if mesh == null:
@@ -1902,10 +1904,12 @@ func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
 			if m is BaseMaterial3D:
 				var bm := m as BaseMaterial3D
 				var cm := ShaderMaterial.new()
-				cm.shader = load("res://assets/shaders/cel.gdshader")
+				cm.shader = load(shader_path)
 				if bm.albedo_texture != null:
 					cm.set_shader_parameter("albedo_tex", bm.albedo_texture)
 				cm.set_shader_parameter("tint", bm.albedo_color)
+				if shader_path.contains("coral_flow"):
+					cm.set_shader_parameter("phase", ph)
 				cm.next_pass = outline
 				mi.set_surface_override_material(si, cm)
 
@@ -2605,7 +2609,26 @@ func _lagoon_local(lx: float, lz: float) -> float:
 func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
 	_lagoon_ref()._terr_v(st, lx, lz, y)
 
+# courtyard trees: pack name -> painted GEN2 sculpt (strangler-fig fallback)
+const NATURE_GEN2 := {"tree_palm": "tree_palm", "tree_default_fall": "tree_fall",
+	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat"}
+
+func _wind_sway(node: Node3D) -> void:
+	# simple living-world animation: a slow base-pinned lean, random phase
+	# per tree (gen2 wraps pivot at the base, so this reads as wind not tilt)
+	var amp: float = 0.018 + randf() * 0.014
+	var dur: float = 1.7 + randf() * 0.9
+	var tw := create_tween().set_loops()
+	tw.tween_property(node, "rotation:z", amp, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "rotation:z", -amp, dur * 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "rotation:z", 0.0, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
+	if NATURE_GEN2.has(name):
+		var g := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
+		if g != null:
+			_wind_sway(g)
+			return g
 	var ps: PackedScene = _nat_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/nature/" + name + ".glb"
@@ -2646,11 +2669,37 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 	for c in node.get_children():
 		_toon_tile(c, key, uvs, tint)
 
+# playground: kit path -> painted GEN2 sculpt + its ambient toy animation
+const KIT_GEN2 := {"play/slide_A": "play_slide", "play/swing_A_large": "play_swing",
+	"play/merry_go_round": "play_merry", "play/seesaw_large": "play_seesaw",
+	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse"}
+
+func _toy_anim(node: Node3D, name: String) -> void:
+	# simple always-alive toy motion (cosmetic; solids stay where they were)
+	if name.contains("merry"):
+		var tw := create_tween().set_loops()
+		tw.tween_property(node, "rotation:y", node.rotation.y + TAU, 11.0)
+	elif name.contains("horse"):
+		var tw2 := create_tween().set_loops()
+		tw2.tween_property(node, "rotation:x", 0.07, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw2.tween_property(node, "rotation:x", -0.05, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	elif name.contains("seesaw"):
+		var tw3 := create_tween().set_loops()
+		tw3.tween_property(node, "rotation:z", 0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw3.tween_property(node, "rotation:z", -0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	elif name.contains("swing"):
+		_wind_sway(node)
+
 func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
 	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
 	# storybook look (_fit_prop calls _toonify), fit its footprint to `target`
 	# units and seat its base at pos. Collision stays the caller's job — solids
 	# are hand-placed so gameplay clearances remain explicit.
+	if KIT_GEN2.has(name):
+		var kg := _gen2_prop(String(KIT_GEN2[name]), pos, target, yrot, 0.04)
+		if kg != null:
+			_toy_anim(kg, name)
+			return kg
 	var ps: PackedScene = _kit_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/kits/" + name + ".glb"
@@ -2667,6 +2716,8 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 		_toon_tile(inst, "castle", 0.14, Color(0.98, 0.95, 1.0))   # painted masonry
 	wrap.add_child(inst)
 	wrap.position = pos
+	if KIT_GEN2.has(name):
+		_toy_anim(wrap, name)   # the toys move whichever art they wear
 	wrap.rotation.y = yrot
 	add_child(wrap)
 	game_nodes.append(wrap)
@@ -2779,7 +2830,12 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 		# WW toon-bake 2/2: flat posterized albedo (shrink pass) + banded cel
 		# light + inverted-hull navy outline. GEN2 props only — bounded, one
 		# const to revert, per CEL_SHADING.md's incremental wiring plan.
-		_cel_replace(inst, _gen2_outline_mat())
+		# Corals get the two-layer FLOW variant: green growth sways with the
+		# ocean, rocky bodies stay rigid (greenness-gated in the shader).
+		if name.begins_with("coral"):
+			_cel_replace(inst, _gen2_outline_mat(), "res://assets/shaders/coral_flow.gdshader")
+		else:
+			_cel_replace(inst, _gen2_outline_mat())
 	wrap.add_child(inst)
 	# sink settles the prop into the ground by a fraction of its height —
 	# Meshy meshes have smooth rounded bases that only kiss the terrain at one
