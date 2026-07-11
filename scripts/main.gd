@@ -1445,13 +1445,16 @@ func _build_aquatic_flora() -> void:
 			var cx := c.x + cos(ca) * cr
 			var cz := c.z + sin(ca) * cr
 			_place_aq(corals[randi() % corals.size()], Vector3(cx, seabed_y(cx, cz), cz), 1.6 + randf() * 2.2, false)
-		# swaying seaweed
+		# swaying seaweed — GEN2 crossed-quad sprite when present (denser, cheaper,
+		# reads storybook); old GLB pack stays the strangler-fig fallback
 		for k in range(3 + randi() % 3):
 			var wa := randf() * TAU
 			var wr := 3.0 + randf() * 10.0
 			var wx := c.x + cos(wa) * wr
 			var wz := c.z + sin(wa) * wr
-			_place_aq(weeds[randi() % weeds.size()], Vector3(wx, seabed_y(wx, wz), wz), 1.8 + randf() * 2.0, true)
+			var sg := _gen2_seagrass(Vector3(wx, seabed_y(wx, wz), wz), 2.6 + randf() * 2.4)
+			if sg == null:
+				_place_aq(weeds[randi() % weeds.size()], Vector3(wx, seabed_y(wx, wz), wz), 1.8 + randf() * 2.0, true)
 		# shells nestled in
 		for k in range(2):
 			var sa := randf() * TAU
@@ -2580,6 +2583,38 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 var _gen2_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
+
+var _seagrass_mats: Array = []   # a few shared sway materials (phase variety)
+
+func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
+	# GEN2 sea grass: the family-style seaweed sprite on two crossed quads with
+	# a vertex-sine sway (assets/shaders/seagrass_sway.gdshader). Returns null
+	# if the sprite is missing so callers can fall back to the old GLB pack.
+	if not ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
+		return null
+	if _seagrass_mats.is_empty():
+		for i in range(4):
+			var sm := ShaderMaterial.new()
+			sm.shader = load("res://assets/shaders/seagrass_sway.gdshader")
+			sm.set_shader_parameter("tex", load("res://assets/props/gen2/seagrass.png"))
+			sm.set_shader_parameter("phase", float(i) * 1.7)
+			sm.set_shader_parameter("sway_amount", 0.22 + 0.07 * float(i))
+			_seagrass_mats.append(sm)
+	var wrap := Node3D.new()
+	var qm := QuadMesh.new()
+	qm.size = Vector2(size, size * 0.82)   # sprite aspect 892x735
+	for q in range(2):
+		var mi := MeshInstance3D.new()
+		mi.mesh = qm
+		mi.material_override = _seagrass_mats[randi() % _seagrass_mats.size()]
+		mi.rotation.y = PI * 0.5 * float(q) + randf() * 0.4
+		mi.position.y = size * 0.82 * 0.5 - 0.15   # seat the base just in the sand
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		wrap.add_child(mi)
+	wrap.position = pos
+	add_child(wrap)
+	flora_nodes.append(wrap)
+	return wrap
 
 func _gen2_outline_mat() -> ShaderMaterial:
 	if _gen2_outline == null:
