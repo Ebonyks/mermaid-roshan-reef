@@ -5144,6 +5144,14 @@ func _slide_plank(a: Vector3, b: Vector3, width: float, mat: StandardMaterial3D,
 
 func _aq_game(model: String, pos: Vector3, scl: float) -> Node3D:
 	# spawn an aquatic model as a GAME object (freed with the arena, no flora_nodes leak)
+	if CREATURE_GEN2.has(model):
+		# the slide's baby penguin, cheer squad and bonus fish are HER art
+		# too (owner 2026-07-11) - same family model + swim/waddle sway as
+		# the reef, registered on the game-lifetime node list instead
+		var cw := _gen2_creature(String(CREATURE_GEN2[model]), pos, scl * 2.0)
+		if cw != null:
+			game_nodes.append(cw)
+			return cw
 	var ps := _aq(model)
 	if ps == null:
 		return null
