@@ -166,5 +166,17 @@
   "rig": true,
   "src": "assets/characters/roshan_sprite.png",
   "stage": "done"
+ },
+ "roshan_v2": {
+  "note": "HERO OVERHAUL: multi-image i23d, max quality. NO meshy rig - mesh is retargeted onto the existing 26-bone armature (gen2/ROSHAN_V2_WORKORDER.md).",
+  "priority": 1,
+  "rig": false,
+  "src": "gen2/turnarounds/roshan_v2/front.png",
+  "src_views": {
+   "back": "gen2/turnarounds/roshan_v2/back.png",
+   "front": "gen2/turnarounds/roshan_v2/front.png",
+   "side": "gen2/turnarounds/roshan_v2/side.png"
+  },
+  "stage": "ready"
  }
 }
