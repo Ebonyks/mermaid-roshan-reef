@@ -2591,7 +2591,26 @@ func _lagoon_local(lx: float, lz: float) -> float:
 func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
 	_lagoon_ref()._terr_v(st, lx, lz, y)
 
+# courtyard trees: pack name -> painted GEN2 sculpt (strangler-fig fallback)
+const NATURE_GEN2 := {"tree_palm": "tree_palm", "tree_default_fall": "tree_fall",
+	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat"}
+
+func _wind_sway(node: Node3D) -> void:
+	# simple living-world animation: a slow base-pinned lean, random phase
+	# per tree (gen2 wraps pivot at the base, so this reads as wind not tilt)
+	var amp: float = 0.018 + randf() * 0.014
+	var dur: float = 1.7 + randf() * 0.9
+	var tw := create_tween().set_loops()
+	tw.tween_property(node, "rotation:z", amp, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "rotation:z", -amp, dur * 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "rotation:z", 0.0, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
+	if NATURE_GEN2.has(name):
+		var g := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
+		if g != null:
+			_wind_sway(g)
+			return g
 	var ps: PackedScene = _nat_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/nature/" + name + ".glb"
@@ -2632,11 +2651,37 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 	for c in node.get_children():
 		_toon_tile(c, key, uvs, tint)
 
+# playground: kit path -> painted GEN2 sculpt + its ambient toy animation
+const KIT_GEN2 := {"play/slide_A": "play_slide", "play/swing_A_large": "play_swing",
+	"play/merry_go_round": "play_merry", "play/seesaw_large": "play_seesaw",
+	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse"}
+
+func _toy_anim(node: Node3D, name: String) -> void:
+	# simple always-alive toy motion (cosmetic; solids stay where they were)
+	if name.contains("merry"):
+		var tw := create_tween().set_loops()
+		tw.tween_property(node, "rotation:y", node.rotation.y + TAU, 11.0)
+	elif name.contains("horse"):
+		var tw2 := create_tween().set_loops()
+		tw2.tween_property(node, "rotation:x", 0.07, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw2.tween_property(node, "rotation:x", -0.05, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	elif name.contains("seesaw"):
+		var tw3 := create_tween().set_loops()
+		tw3.tween_property(node, "rotation:z", 0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw3.tween_property(node, "rotation:z", -0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	elif name.contains("swing"):
+		_wind_sway(node)
+
 func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
 	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
 	# storybook look (_fit_prop calls _toonify), fit its footprint to `target`
 	# units and seat its base at pos. Collision stays the caller's job — solids
 	# are hand-placed so gameplay clearances remain explicit.
+	if KIT_GEN2.has(name):
+		var kg := _gen2_prop(String(KIT_GEN2[name]), pos, target, yrot, 0.04)
+		if kg != null:
+			_toy_anim(kg, name)
+			return kg
 	var ps: PackedScene = _kit_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/kits/" + name + ".glb"
