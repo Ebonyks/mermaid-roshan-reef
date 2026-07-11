@@ -5373,98 +5373,136 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
 			_end_game(true, fr, msg)
 
-# ===================== FAIRY POND — ON-RAILS SHOOTER =====================
-# A tribute to the N64 space-fox rail shooter: Roshan flies as the fairy through a
-# dreamy pond corridor, dodging with free 2D movement and zapping shadow bugs.
-const FS_LEN := 520.0          # corridor length (forward, +Z)
-const FS_FWD := 30.0           # auto-forward speed (gentler for little ones)
-const FS_MOVE := 34.0          # lateral / vertical steering speed
-const FS_BX := 20.0            # half movement bound (x)
-const FS_BY := 10.0            # half movement bound (y)
-const FS_BASE_Y := 13.0        # flight height above the pond
-const FS_BOLT := 150.0         # laser bolt speed
-const FS_FIRE_CD := 0.14
-const FS_HIT_R := 7.0          # big, forgiving bolt-vs-bug radius
-const FS_BUG_R := 3.2          # bigger shadow bugs (easier to see + hit)
-const FS_NBUGS := 12
-# ---- final boss: the Fairy Flower (auto-shooter, gentle difficulty) ----
-const FS_BOSS_Z := FS_LEN + 64.0   # the GIANT boss needs distance to fit in view
-const FS_BOSS_HIT_R := 16.0        # giant boss, giant hitboxes
+# ===================== FAIRY POND — OVERHEAD SPARKLE DODGER =====================
+# A gentle top-down "bullet hell" sized for a 4-year-old: the camera hangs straight
+# above a round fairy pond, so the whole game reads like a flat 2D map. Roshan (in
+# her fairy form) slides across the water with the stick only — no jump, no turning,
+# no depth, and she stops the moment the stick lets go. Shadow bugs drift in slow
+# circles and lob big slow shadow sparks to dodge; Roshan's wand zaps any bug she
+# flies near all by itself. SPACE / the big button pops a sparkle shield that
+# clears the sparks around her.
+const FS_R := 26.0             # pond radius — the whole playfield fits on one screen
+const FS_PLANE := 3.0          # everything gameplay lives at this height (flat = 2D)
+const FS_CAM_H := 58.0         # overhead camera height
+const FS_MOVE := 17.0          # direct move speed (no momentum)
+const FS_BOLT := 55.0          # wand bolt speed
+const FS_RANGE := 17.0         # wand reach — fly close to a bug and it zaps alone
+const FS_FIRE_CD := 0.3
+const FS_HIT_R := 3.4          # forgiving bolt-vs-bug radius
+const FS_BUG_R := 2.2
+const FS_WAVE := 4             # bugs per wave
+const FS_WAVES := 3            # 3 waves of 4 = 12 bugs, then the flower
+const FS_HEARTS := 3
+const FS_ORB_SPD := 6.5        # shadow spark speed (slow enough to see coming)
+const FS_ORB_R := 2.6          # spark-vs-Roshan touch radius
+const FS_ORB_CD_MIN := 3.0     # each bug lobs a spark every 3-5 s
+const FS_ORB_CD_MAX := 5.0
+const FS_ORB_MAX := 6          # never more sparks than this during the waves
+const FS_HURT_T := 1.6         # sparkle-blink safety time after a bump
+const FS_NOVA_CD := 3.0        # sparkle-shield cooldown
+const FS_NOVA_R := 11.0        # sparkle-shield clear radius
+# ---- final boss: the Fairy Flower, blooming in the pond's heart ----
+var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
+const FS_BOSS_HIT_R := 5.5         # generous hitboxes
+const FS_BOSS_KEEP := 6.5          # Roshan can't fly into the flower itself
 const FS_LEAVES := 6               # outer leaf shield
 const FS_LEAF_HP := 1              # one blast per leaf
-const FS_LEAF_T := 18.0            # seconds to blast the leaves away
-var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
-const FS_LEAF_RING_X := 26.0       # the leaf wreath is a wide ellipse now (giant boss)
-const FS_LEAF_RING_Y := 13.0       # ...but stays vertically reachable by the bolt aim
+const FS_LEAF_T := 20.0            # seconds to blast the leaves away
+const FS_LEAF_RING := 9.5          # leaf wreath radius (spins slowly around the bud)
 const FS_BUD_HP := 10
-const FS_BUD_T := 18.0             # seconds to bloom the flower open
-const FS_BLOOM_T := 6.5            # savour the giant bloom — the old 3s ending was blink-and-confusing
-const FS_LEAF_SCALE := 17.0        # real Kenney bush models (CC0), giant
-const FS_BUD_SCALE := 55.0         # the flower TOWERS (was 9 — it read as a shrub)
+const FS_BUD_T := 20.0             # seconds to bloom the flower open
+const FS_BLOOM_T := 3.0
+const FS_RING_CD := 4.5            # the flower puffs a slow ring of sparks
+const FS_RING_N := 6
+const FS_LEAF_SCALE := 5.0         # real Kenney bush models (CC0)
+const FS_BUD_SCALE := 7.0
 const FS_FLOWER := "flower_purpleA"  # ONE flower for the whole boss (grows, then blooms)
 
 func _build_fairyshoot(origin: Vector3) -> void:
 	# Roshan wears her fairy form for this game only
-	if chime != null:
-		chime.volume_db = -13.0   # the fairy game fires a lot — keep its chime soft (restored in _end_game)
 	player.set_skin("fairy", FAIRY_SKIN_PATH)
-	g["fz"] = 0.0; g["ox"] = 0.0; g["oy"] = 0.0
-	g["hits"] = 0; g["fire_cd"] = 0.0
-	g["targets"] = []; g["bolts"] = []; g["fireflies"] = []
+	if chime != null:
+		chime.volume_db = -13.0   # the wand fires a lot — keep its chime soft (restored in _end_game)
+	g["hits"] = 0; g["fire_cd"] = 0.0; g["wave"] = 0
+	g["hearts"] = FS_HEARTS; g["hurt_t"] = 0.0; g["nova_cd"] = 0.0
+	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
-	# ---- the dreamy pond below ----
+	# ---- the round dreamy pond, seen straight from above ----
 	var pond := MeshInstance3D.new()
-	var pm := BoxMesh.new(); pm.size = Vector3(90.0, 1.0, FS_LEN + 160.0)
+	var pm := CylinderMesh.new(); pm.top_radius = FS_R + 7.0; pm.bottom_radius = FS_R + 7.0; pm.height = 1.0
 	pond.mesh = pm
 	var pmat := StandardMaterial3D.new()
 	pmat.albedo_color = Color(0.2, 0.35, 0.55)
 	pmat.metallic = 0.7; pmat.roughness = 0.1
 	pmat.emission_enabled = true; pmat.emission = Color(0.15, 0.3, 0.5); pmat.emission_energy_multiplier = 0.25
 	pond.material_override = pmat
-	pond.position = origin + Vector3(0, 0.0, FS_LEN * 0.5)
+	pond.position = origin
 	add_child(pond); game_nodes.append(pond)
-	# ---- lily pads + glowing reeds on the banks ----
-	for i in range(18):
-		var z: float = 20.0 + randf() * FS_LEN
-		var side: float = -1.0 if i % 2 == 0 else 1.0
+	# glowing rim so the edge of the playfield reads at a glance from above
+	var rim := MeshInstance3D.new()
+	var rt2 := TorusMesh.new(); rt2.inner_radius = FS_R - 0.6; rt2.outer_radius = FS_R + 0.6; rt2.rings = 48; rt2.ring_segments = 8
+	rim.mesh = rt2
+	rim.material_override = _soft_mat(Color(0.55, 0.9, 1.0), 1.8)
+	rim.position = origin + Vector3(0, 1.0, 0)
+	add_child(rim); game_nodes.append(rim)
+	# ---- lily pads floating inside; glowing reeds ringing the bank ----
+	for i in range(14):
+		var a: float = randf() * TAU
+		var r: float = 5.0 + randf() * (FS_R - 9.0)
 		var pad := MeshInstance3D.new()
-		var cm := CylinderMesh.new(); cm.top_radius = 2.5 + randf() * 2.0; cm.bottom_radius = cm.top_radius; cm.height = 0.3
+		var cm := CylinderMesh.new(); cm.top_radius = 1.6 + randf() * 1.2; cm.bottom_radius = cm.top_radius; cm.height = 0.25
 		pad.mesh = cm
 		pad.material_override = _soft_mat(Color(0.3, 0.7, 0.4), 0.2)
-		pad.position = origin + Vector3(side * (12.0 + randf() * 26.0), 0.8, z)
+		pad.position = origin + Vector3(cos(a) * r, 0.7, sin(a) * r)
 		add_child(pad); game_nodes.append(pad)
 		if i % 3 == 0:   # a glowing flower on some pads
 			var fl := MeshInstance3D.new()
-			var fs := SphereMesh.new(); fs.radius = 1.0; fs.height = 2.0
+			var fs := SphereMesh.new(); fs.radius = 0.7; fs.height = 1.4
 			fl.mesh = fs
 			fl.material_override = _soft_mat(Color(1.0, 0.6, 0.85), 1.4)
-			fl.position = pad.position + Vector3(0, 1.0, 0)
+			fl.position = pad.position + Vector3(0, 0.7, 0)
 			add_child(fl); game_nodes.append(fl)
-	# ---- glowing fairy-ring gates to fly through (decor homage) ----
-	for k in range(6):
-		var z2: float = 70.0 + float(k) * 78.0
-		var ring := MeshInstance3D.new()
-		var tor := TorusMesh.new(); tor.inner_radius = 13.5; tor.outer_radius = 15.0; tor.rings = 24; tor.ring_segments = 12
-		ring.mesh = tor
-		var rcol := Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0)
-		ring.material_override = _soft_mat(rcol, 1.6)
-		ring.position = origin + Vector3(0, FS_BASE_Y, z2)
-		ring.rotation_degrees = Vector3(90, 0, 0)   # stand the ring up so its opening faces the player to fly through
-		add_child(ring); game_nodes.append(ring)
-	# ---- drifting fireflies ----
-	for i in range(24):
+	for k in range(12):
+		var a2: float = float(k) / 12.0 * TAU
+		var reed := MeshInstance3D.new()
+		var rm := CapsuleMesh.new(); rm.radius = 0.5; rm.height = 3.2
+		reed.mesh = rm
+		reed.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.4)
+		reed.position = origin + Vector3(cos(a2) * (FS_R + 3.5), 1.8, sin(a2) * (FS_R + 3.5))
+		add_child(reed); game_nodes.append(reed)
+	# ---- drifting fireflies, low over the water (below the flight plane) ----
+	for i in range(16):
 		var ff := MeshInstance3D.new()
 		var fm := SphereMesh.new(); fm.radius = 0.3; fm.height = 0.6
 		ff.mesh = fm
 		ff.material_override = _soft_mat(Color(1.0, 0.95, 0.6), 3.0)
-		ff.position = origin + Vector3(randf() * 60.0 - 30.0, 4.0 + randf() * 22.0, 20.0 + randf() * FS_LEN)
+		var fa: float = randf() * TAU
+		var frr: float = randf() * (FS_R - 3.0)
+		ff.position = origin + Vector3(cos(fa) * frr, 1.6, sin(fa) * frr)
 		add_child(ff); game_nodes.append(ff)
 		(g["fireflies"] as Array).append({"node": ff, "ph": randf() * TAU, "base": ff.position})
-	# ---- shadow bugs to zap ----
-	for k in range(FS_NBUGS):
-		var z3: float = 80.0 + float(k) / float(FS_NBUGS) * (FS_LEN - 120.0) + randf() * 18.0
-		var bx: float = (randf() * 2.0 - 1.0) * (FS_BX - 3.0)
-		var by: float = (randf() * 2.0 - 1.0) * (FS_BY - 2.0)
+	# ---- wand target marker (hovers over whichever bug is in reach) ----
+	var ret := MeshInstance3D.new()
+	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
+	ret.mesh = rt
+	ret.material_override = _soft_mat(Color(1.0, 0.9, 0.4), 2.5)
+	ret.visible = false
+	add_child(ret); game_nodes.append(ret)
+	g["reticle"] = ret
+	# ---- first wave of shadow bugs ----
+	_fairy_spawn_wave(origin)
+	# ---- Roshan starts near the pond's south bank; camera snaps straight overhead ----
+	player.position = origin + Vector3(0, FS_PLANE, FS_R * 0.65)
+	player.vel = Vector3.ZERO
+	if player.cam != null and player.cam.is_inside_tree():
+		player.cam.position = origin + Vector3(0, FS_CAM_H, 0)
+		player.cam.look_at(origin, Vector3(0, 0, -1))
+
+func _fairy_spawn_wave(origin: Vector3) -> void:
+	g["wave"] = int(g["wave"]) + 1
+	for k in range(FS_WAVE):
+		var a: float = randf() * TAU
+		var r: float = 9.0 + randf() * (FS_R - 13.0)
 		var bug := MeshInstance3D.new()
 		var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
 		bug.mesh = sm
@@ -5472,36 +5510,46 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		bmat.albedo_color = Color(0.22, 0.05, 0.3)
 		bmat.emission_enabled = true; bmat.emission = Color(0.85, 0.2, 0.55); bmat.emission_energy_multiplier = 1.5
 		bug.material_override = bmat
-		var bpos: Vector3 = origin + Vector3(bx, FS_BASE_Y + by, z3)
-		bug.position = bpos
+		bug.position = origin + Vector3(cos(a) * r, FS_PLANE, sin(a) * r)
 		add_child(bug); game_nodes.append(bug)
-		(g["targets"] as Array).append({"node": bug, "pos": bpos, "alive": true, "ph": randf() * TAU})
-	# ---- aiming reticle ----
-	var ret := MeshInstance3D.new()
-	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
-	ret.mesh = rt
-	ret.material_override = _soft_mat(Color(1.0, 0.9, 0.4), 2.5)
-	add_child(ret); game_nodes.append(ret)
-	g["reticle"] = ret
-	# ---- place Roshan at the corridor start ----
-	player.position = origin + Vector3(0, FS_BASE_Y, 0)
-	player.vel = Vector3.ZERO
+		var spin: float = (0.25 + randf() * 0.2) * (1.0 if k % 2 == 0 else -1.0)
+		(g["targets"] as Array).append({"node": bug, "ang": a, "rad": r, "spin": spin,
+				"alive": true, "ph": randf() * TAU, "orb_cd": 2.0 + randf() * 2.5})
+
+func _fairy_spawn_orb(from: Vector3, dirv: Vector3) -> void:
+	# a slow glowing shadow spark — the "bullet" of this bullet hell
+	var orb := MeshInstance3D.new()
+	var om := SphereMesh.new(); om.radius = 1.2; om.height = 2.4
+	orb.mesh = om
+	var omat := StandardMaterial3D.new()
+	omat.albedo_color = Color(0.2, 0.06, 0.28)
+	omat.emission_enabled = true; omat.emission = Color(0.7, 0.3, 1.0); omat.emission_energy_multiplier = 2.2
+	orb.material_override = omat
+	orb.position = from
+	add_child(orb); game_nodes.append(orb)
+	(g["orbs"] as Array).append({"node": orb, "dir": dirv})
+
+func _fairy_clear_orbs() -> void:
+	for od in g["orbs"]:
+		if is_instance_valid(od["node"]):
+			(od["node"] as Node3D).queue_free()
+	(g["orbs"] as Array).clear()
 
 func _fairy_start_boss(origin: Vector3) -> void:
 	# Built from real CC0 Kenney flora models (assets/nature) — minimal custom geometry.
-	var center: Vector3 = origin + Vector3(0, FS_BASE_Y, FS_BOSS_Z)
+	var center: Vector3 = origin + Vector3(0, FS_PLANE, 0)
 	g["boss_center"] = center
 	g["phase"] = "boss_leaves"
-	# retry kindness: each earlier fail stretches both boss timers by 6s (max
-	# +12) so a determined kid always blooms the flower on attempt 2-3
+	# retry kindness: each earlier fail stretches both boss timers by 6s (max +12)
 	g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(fs_fails, 2))
-	# leafy stalk base (a big bush model)
-	if _nature("plant_bushLargeTriangle", center + Vector3(0, -52.0, 1.0), 34.0, 0.0) == null:
-		var stalk := _course_box(center + Vector3(0, -40.0, 0), Vector3(10, 70, 10), Color(0.3, 0.65, 0.35))
-		_mg_noop_ref(stalk)
+	g["ring_cd"] = FS_RING_CD
+	_fairy_clear_orbs()   # a clean entrance for the flower
+	# leafy island base under the flower (a big bush model)
+	if _nature("plant_bushLargeTriangle", origin + Vector3(0, 0.5, 1.0), 6.0, 0.0) == null:
+		_mg_noop_ref(_course_box(origin + Vector3(0, 1.0, 0), Vector3(7, 1.5, 7), Color(0.3, 0.65, 0.35)))
 	# the flower at the core — ONE flower (FS_FLOWER), small/tight until the leaves fall,
 	# then it grows bigger with every hit before blooming
-	var bud := _nature(FS_FLOWER, center + Vector3(0, -4.0, 0), FS_BUD_SCALE * 0.4, 0.0)
+	var bud := _nature(FS_FLOWER, center + Vector3(0, -1.5, 0), FS_BUD_SCALE * 0.4, 0.0)
 	if bud == null:
 		var bm := MeshInstance3D.new()
 		var bsm := SphereMesh.new(); bsm.radius = 4.5; bsm.height = 9.0
@@ -5510,25 +5558,25 @@ func _fairy_start_boss(origin: Vector3) -> void:
 		add_child(bm); game_nodes.append(bm); bud = bm
 	g["bud"] = bud
 	g["bud_hp"] = FS_BUD_HP
-	# leaf shield: a wreath of real leafy bushes, ringed just beyond the bolt reach
-	# so a little light steering is needed
+	# leaf shield: a wreath of real leafy bushes spinning slowly around the bud —
+	# a little flying keeps the nearest leaf inside wand reach
 	g["leaves"] = []
 	var leafkinds := ["plant_bushLargeTriangle", "grass_leafsLarge", "plant_bush"]
 	for k in range(FS_LEAVES):
 		var a: float = float(k) / float(FS_LEAVES) * TAU
-		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING_X, sin(a) * FS_LEAF_RING_Y, -1.0)
+		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING, -1.0, sin(a) * FS_LEAF_RING)
 		var leaf := _nature(leafkinds[k % leafkinds.size()], lp, FS_LEAF_SCALE, randf() * TAU)
 		if leaf == null:
 			var lm := MeshInstance3D.new()
 			var pm := PrismMesh.new(); pm.size = Vector3(5.0, 9.0, 2.0)
 			lm.mesh = pm; lm.material_override = _soft_mat(Color(0.35, 0.75, 0.4), 0.4)
 			lm.position = lp; add_child(lm); game_nodes.append(lm); leaf = lm
-		(g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a, "base": lp})
+		(g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a})
 	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 4.0; bl.omni_range = 130.0
-	bl.position = center; add_child(bl); game_nodes.append(bl)
+	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 2.6; bl.omni_range = 44.0
+	bl.position = center + Vector3(0, 8.0, 0); add_child(bl); game_nodes.append(bl)
 	g["boss_light"] = bl
-	show_msg(fr_name_safe(), "THE GIANT FAIRY FLOWER fills the sky! Blast the leaves out of the way!")
+	show_msg(fr_name_safe(), "The Fairy Flower! Blast the leaves out of the way!")
 
 func fr_name_safe() -> String:
 	return String((g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
@@ -5537,6 +5585,7 @@ func _fairy_bloom_start() -> void:
 	award_sticker("flower")
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
+	_fairy_clear_orbs()   # nothing to dodge during the celebration
 	var center: Vector3 = g["boss_center"]
 	g["petals"] = []
 	# the blossom is a ring of the SAME flower opening outward (one coherent flower)
@@ -5962,7 +6011,7 @@ func _process(delta: float) -> void:
 		if game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"
 		elif game == "fairyshoot":
-			act_lbl = "FIRE"
+			act_lbl = "SPARKLE"
 		elif game == "kart" and kart_game != null and kart_game.has_method("action_label"):
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		touch_ui.set_action_label(act_lbl)
@@ -6495,7 +6544,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
 		arena_env.ambient_light_energy = 1.25
 		arena_env.glow_intensity = 0.7
-	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the corridor builds its own geometry
+	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
 		arena_env.ambient_light_energy = 0.9

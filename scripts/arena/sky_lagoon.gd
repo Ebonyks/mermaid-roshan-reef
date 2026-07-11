@@ -750,7 +750,7 @@ func _build_lagoon_night(o: Vector3) -> void:
 
 func _build_fairy_pond(o: Vector3) -> void:
 	# a glowing fairy pond off in the courtyard — swim into it (after the castle opens)
-	# to fly the fairy on-rails shooter
+	# to fly the top-down fairy sparkle dodger
 	var c: Vector3 = o + Vector3(125.0, 0.0, 35.0)
 	m.fairy_pond_pos = c + Vector3(0, 6.0, 0)
 	var pond := MeshInstance3D.new()
@@ -954,7 +954,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if is_instance_valid(stn) and stn.has_meta("rainbow"):
 			var hue: float = fmod(float(m.g["t"]) * 0.4 + float(stn.get_meta("rainbow")), 1.0)
 			stn.modulate = Color.from_hsv(hue, 0.55, 1.0)
-	# fairy pond — fly the on-rails shooter (active once the castle is open)
+	# fairy pond — fly the top-down sparkle dodger (active once the castle is open)
 	# (the fairy flight now launches from the Fairy Fountain in the Butterfly
 	# World — the courtyard pond stays as scenery)
 	# the rainbow gateway always takes you back to the ocean
