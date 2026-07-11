@@ -1404,10 +1404,10 @@ const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin":
 	"Squid": "squid", "Penguin": "penguin", "Octopus": "octopus", "Lobster": "lobster", "Crab": "crab"}
 # per-species SWIM profile: [mode, speed, amount] for creature_sway.gdshader
 # (0 tail-wave, 1 wing undulation, 2 jelly pulse, 3 waddle rock)
-const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.09], "dolphin": [0, 3.2, 0.07], "turtle": [0, 2.2, 0.05],
-	"shark": [0, 3.6, 0.08], "hammerhead": [0, 3.4, 0.08], "whale": [1, 1.6, 0.05],
-	"stingray": [1, 2.6, 0.10], "squid": [2, 2.8, 0.08], "octopus": [2, 2.2, 0.09],
-	"penguin": [3, 3.0, 0.06], "lobster": [3, 2.4, 0.04], "crab": [3, 2.6, 0.04]}
+const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], "turtle": [0, 2.2, 0.08],
+	"shark": [0, 3.6, 0.12], "hammerhead": [0, 3.4, 0.12], "whale": [1, 1.6, 0.08],
+	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
+	"penguin": [3, 3.0, 0.08], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06]}
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -2735,6 +2735,15 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	var wrap := _gen2_prop(gname, pos, target, 0.0, 0.0)
 	if wrap == null:
 		return null
+	# Meshy creatures face -Y in the Blender frame, but the mover math steers
+	# a -X face (measured against the pack turtle; playtest 2026-07-11: "ray
+	# swims sideways, so does turtle"). Quarter-turn the inner instance and
+	# swing its centering offset with it; mesh-local axes are untouched, so
+	# the sway shader's tail weighting stays valid.
+	var inner: Node3D = wrap.get_child(0)
+	inner.rotation.y = -PI * 0.5
+	var off: Vector3 = inner.position
+	inner.position = Vector3(-off.z, off.y, off.x)
 	var ph := randf() * TAU
 	var prof: Array = CREATURE_SWAY.get(gname, [0, 4.2, 0.09])
 	for mi in _all_meshes(wrap):
@@ -2745,8 +2754,17 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 			var src0: Material = mi.get_active_material(si)
 			var sm := ShaderMaterial.new()
 			sm.shader = load("res://assets/shaders/creature_sway.gdshader")
-			if src0 is BaseMaterial3D and (src0 as BaseMaterial3D).albedo_texture != null:
-				sm.set_shader_parameter("albedo_tex", (src0 as BaseMaterial3D).albedo_texture)
+			# _gen2_prop's cel pass already swapped the surface to a
+			# ShaderMaterial, so the painted albedo must be read back from
+			# either material type (BaseMaterial3D-only left every creature
+			# hint_default_white: ghost animals, playtest 2026-07-11)
+			var tex0: Texture2D = null
+			if src0 is BaseMaterial3D:
+				tex0 = (src0 as BaseMaterial3D).albedo_texture
+			elif src0 is ShaderMaterial:
+				tex0 = (src0 as ShaderMaterial).get_shader_parameter("albedo_tex")
+			if tex0 != null:
+				sm.set_shader_parameter("albedo_tex", tex0)
 			sm.set_shader_parameter("phase", ph)
 			sm.set_shader_parameter("sway_mode", int(prof[0]))
 			sm.set_shader_parameter("sway_speed", float(prof[1]))
@@ -3629,6 +3647,24 @@ func _mg_noop_ref(_n: Node) -> void:
 	pass
 
 func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
+	if kind == "fish":
+		# HER painted fish are real 3D swimmers now (owner 2026-07-11): the
+		# family clownfish mesh repainted in the craft-studio colors via the
+		# sway shader. The billboard sprite stays the strangler-fig fallback.
+		var pf := _gen2_creature("clownfish", Vector3.ZERO, 1.7)
+		if pf != null:
+			remove_child(pf)   # _gen2_prop parents to main; callers re-parent
+			for mi in _all_meshes(pf):
+				var mesh: Mesh = mi.mesh
+				if mesh == null:
+					continue
+				for si in range(mesh.get_surface_count()):
+					var sm2 := mi.get_surface_override_material(si)
+					if sm2 is ShaderMaterial:
+						(sm2 as ShaderMaterial).set_shader_parameter("paint_mix", 1.0)
+						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
+						(sm2 as ShaderMaterial).set_shader_parameter("paint_fin", accent)
+			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
 	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
