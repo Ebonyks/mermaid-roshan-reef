@@ -14,8 +14,9 @@ func _init() -> void:
 	for i in range(15):
 		await process_frame
 	var pl: Node = main.player
-	for sid in ["classic", "fairy", "huluu", "pearl"]:
-		pl.set_skin(sid, "")
+	for sk in main.SKINS:
+		var sid: String = String(sk["id"])
+		pl.set_skin(sid, String(sk["sprite"]))
 		for i in range(5):
 			await process_frame
 		if pl.skel == null:

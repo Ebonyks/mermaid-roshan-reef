@@ -140,7 +140,10 @@ var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
-const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy_v2.glb"}
+# huluu.glb shipped with NO skeleton (0 joints - probe_skins caught it): the
+# "rigged plushie" was a statue and the swim silently never applied. The
+# Huluu skin uses her illustrated cutout billboard instead (doll era: over).
+const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
 const SKIN_TIARA_Y := {"huluu": 2.5}   # V2 bodies are fuller up top; the plushie Huluu keeps the low halo
 
 func _tiara_y() -> float:
