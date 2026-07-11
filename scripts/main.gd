@@ -2431,7 +2431,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		var d: float = star.position.distance_to(ppos)
 		# gentle magnet so a 4yo who swims close gets pulled in
 		if d < 32.0:
-			player.position = player.position.lerp(star.position, minf(0.85, delta * 1.7 * (1.0 - d / 32.0)))
+			player.position = ReefPhysics.magnet(player.position, star.position, 32.0, 1.7, delta)
 		if d < 14.0:
 			sd["got"] = true
 			got += 1
@@ -2482,7 +2482,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		var dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()
 		if dd < 36.0:
 			var pull: Vector3 = entry + Vector3(0, 2, 10)
-			player.position = player.position.lerp(pull, minf(0.75, delta * 1.5 * (1.0 - dd / 36.0)))
+			player.position = ReefPhysics.magnet(player.position, pull, 36.0, 1.5, delta)
 		if dd < 20.0:
 			_enter_castle_interior()
 
@@ -2788,6 +2788,13 @@ func _mg_build_trampoline() -> void:
 	tramp.position = Vector2(640 - 200, 492)
 	mg["rest_y"] = 430.0
 	mg["roshan"] = _mg_sprite("res://assets/characters/roshan_sprite.png", Vector2(640, 430), Vector2(150, 190))
+	# real bouncing body: gravity + restitution on the mat, taps add spring energy
+	var tb := ReefPhysics.Body2D.new()
+	tb.pos = Vector2(640, 430)
+	tb.gravity = 900.0
+	tb.floor_y = 430.0
+	tb.bounce = 0.55
+	mg["body"] = tb
 	var b := _mg_roundbtn(Vector2(640, 648), 66.0, Color(0.3, 0.6, 1.0), "JUMP")
 	b.pressed.connect(_mg_tramp_tap)
 
@@ -2795,21 +2802,13 @@ func _mg_tramp_tap() -> void:
 	if mg_kind != "trampoline":
 		return
 	mg["bounces"] = int(mg["bounces"]) + 1
-	var r: TextureRect = mg["roshan"]
+	var tb: ReefPhysics.Body2D = mg["body"]
 	var rest_y: float = float(mg.get("rest_y", 430.0))
-	var star_y: float = float(mg.get("star_y", 90.0))
-	# each bounce reaches higher; Roshan only WINS when her sprite actually reaches the star
-	var apex_center: float = rest_y - float(mg["bounces"]) * 85.0
-	var sprite_top: float = apex_center - 95.0
-	var reached: bool = sprite_top <= star_y + 35.0
-	if reached:
-		apex_center = star_y + 110.0   # land her right at the star
-	var rest_top: float = rest_y - 95.0
-	var tw := create_tween()
-	tw.tween_property(r, "position:y", apex_center - 95.0, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tw.tween_property(r, "position:y", rest_top, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	if reached:
-		tw.tween_callback(func(): _mg2d_win("Boing! I touched the star!"))
+	# each tap springs the mat harder: enough energy to reach 85px higher per
+	# bounce, so persistence always wins (the physics does the rest)
+	var height: float = float(mg["bounces"]) * 85.0
+	tb.vel.y = ReefPhysics.jump_for_height(height, tb.gravity)
+	tb.pos.y = minf(tb.pos.y, rest_y)
 
 # ---- SLIDE: tap GO, ride the rainbow slide ----
 func _mg_build_slide() -> void:
@@ -2876,7 +2875,19 @@ func _tick_mg2d(delta: float) -> void:
 		for c in mg2d_stage.get_children():
 			if c is TextureRect and (c as TextureRect).has_meta("bf"):
 				var ph: float = (c as TextureRect).get_meta("bf")
-				c.position += Vector2(cos(float(mg["t"]) * 1.3 + ph) * 1.6, sin(float(mg["t"]) * 2.0 + ph) * 1.2)
+				# scaled by delta (was per-frame, so butterflies raced on 120Hz screens)
+				c.position += Vector2(cos(float(mg["t"]) * 1.3 + ph) * 96.0, sin(float(mg["t"]) * 2.0 + ph) * 72.0) * delta
+	if mg_kind == "trampoline" and mg.has("body"):
+		var tb: ReefPhysics.Body2D = mg["body"]
+		ReefPhysics.step2d(tb, Vector2.ZERO, delta)
+		var r: TextureRect = mg["roshan"]
+		r.position.y = tb.pos.y - 95.0
+		# a touch of squash-and-stretch sells the bounce
+		var stretch: float = clampf(-tb.vel.y * 0.0003, -0.12, 0.18)
+		r.scale = Vector2(1.0 - stretch * 0.6, 1.0 + stretch)
+		if tb.pos.y - 95.0 <= float(mg.get("star_y", 90.0)) + 35.0:
+			r.scale = Vector2.ONE
+			_mg2d_win("Boing! I touched the star!")
 	if mg_kind == "slide" and String(mg.get("phase", "")) == "ride":
 		var rt := float(mg["ride_t"]) + delta
 		mg["ride_t"] = rt
@@ -3661,7 +3672,7 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	var d: float = crown.position.distance_to(ppos)
 	var in_front: bool = ppos.z > crown.position.z + 3.0
 	if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
-		player.position = player.position.lerp(crown.position, minf(0.16, delta * 0.5))
+		player.position = ReefPhysics.magnet(player.position, crown.position, 16.0, 0.8, delta)
 		player.vel.y = maxf(player.vel.y, 0.0)
 	if d < 5.0:
 		_finish_level2()
@@ -4825,21 +4836,17 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 func _tick_chains(delta: float, ppos: Vector3) -> void:
 	for ch in g.get("chains", []):
 		var base: Vector3 = ch["base"]
-		var ang: Vector2 = ch["ang"]
-		var vel: Vector2 = ch["vel"]
-		vel += (-ang * 7.0 - vel * 1.8) * delta
 		# the player brushes the fingers aside
-		var mid: Vector3 = base + Vector3(ang.x, -1.0, ang.y).normalized() * 2.4
+		var ang0: Vector2 = ch["ang"]
+		var mid: Vector3 = base + Vector3(ang0.x, -1.0, ang0.y).normalized() * 2.4
 		var dd: float = mid.distance_to(ppos)
 		if dd < 2.6:
 			var push := Vector2(mid.x - ppos.x, mid.z - ppos.z)
 			if push.length() > 0.01:
-				vel += push.normalized() * (2.6 - dd) * 14.0 * delta
-		ang += vel * delta
-		if ang.length() > 1.0:
-			ang = ang.normalized()
-		ch["ang"] = ang
-		ch["vel"] = vel
+				ch["vel"] = (ch["vel"] as Vector2) + push.normalized() * (2.6 - dd) * 14.0 * delta
+		# damped angular spring back to hanging rest
+		ReefPhysics.spring2(ch, 7.0, 1.8, delta)
+		var ang: Vector2 = ch["ang"]
 		var dirv: Vector3 = Vector3(ang.x, -1.0, ang.y).normalized()
 		var segs: Array = ch["segs"]
 		for k in range(segs.size()):
@@ -4888,7 +4895,7 @@ func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var dd2: float = node.position.distance_to(ppos)
 	# strong, far-reaching magnet carries a 4yo up the play-place automatically
 	if dd2 < 34.0:
-		player.position = player.position.lerp(node.position, minf(0.92, delta * 2.6 * (1.0 - dd2 / 34.0)))
+		player.position = ReefPhysics.magnet(player.position, node.position, 34.0, 2.6, delta)
 		player.vel.y = maxf(player.vel.y, 0.0)
 	if dd2 < 7.5:
 		nxt["hit"] = true
@@ -5243,7 +5250,14 @@ func _start_game(fr: Dictionary) -> void:
 			add_child(orb)
 			game_nodes.append(orb)
 			var ov := Vector3(sin(float(i) * 2.1), sin(float(i) * 1.3) * 0.6, cos(float(i) * 1.7)).normalized() * (6.0 + float(i % 3) * 2.0)
-			(g["orbs"] as Array).append({"node": orb, "vel": ov, "caught": false})
+			# engine body: weightless, dragless, perfectly bouncy inside the stage box
+			var ob := ReefPhysics.Body.new(ReefPhysics.free_medium(0.0))
+			ob.pos = orb.position
+			ob.vel = ov
+			ob.bounce = 1.0
+			ob.box = AABB(ARENA_POS + Vector3(-16.0, 2.6, -12.0), Vector3(32.0, 14.4, 24.0))
+			ob.node = orb
+			(g["orbs"] as Array).append({"node": orb, "body": ob, "caught": false})
 		show_msg(fr["fname"], "Catch all 7 colors of the rainbow! Swim into the bouncing orbs!")
 	elif game == "slide":
 		g["timer"] = -1.0   # no countdown — reaching the bottom ends it (~12s run)
@@ -5450,18 +5464,13 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		steer += touch_ui.stick_vec.x
 	steer = clampf(steer, -1.0, 1.0)
 	# --- along-slope physics: gravity pulls down the gradient, drag caps speed ---
-	var v: float = g["v"]
-	var grade: float = -tangent.y          # >0 going downhill
-	v += (SLIDE_GRAV * grade - SLIDE_FRICT * v) * delta
-	v = clampf(v, SLIDE_VMIN, SLIDE_VMAX)
+	var v: float = ReefPhysics.track_speed(float(g["v"]), -tangent.y, SLIDE_GRAV, SLIDE_FRICT, SLIDE_VMIN, SLIDE_VMAX, delta)
 	g["v"] = v
 	g["s"] = s + v * delta
 	# --- lateral steering with damping + soft walls ---
 	# (negated: the chase-cam looks down +tangent, so the chute's "right" vector
 	#  is screen-left — flip so pressing right steers screen-right)
-	var vx: float = g["vx"]
-	vx -= steer * SLIDE_STEER * delta
-	vx *= pow(0.02, delta)
+	var vx: float = ReefPhysics.lateral(float(g["vx"]), -steer * SLIDE_STEER, 0.02, delta)
 	var x: float = float(g["x"]) + vx * delta
 	var lim: float = SLIDE_WIDTH * 0.5 - 2.0
 	if absf(x) > lim:
@@ -6079,7 +6088,10 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
 		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
 			g["press_cool"] = 1.0
-			g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)
+			var bb := ReefPhysics.Body.new(ReefPhysics.free_medium(9.5))
+			bb.pos = ball.position
+			bb.vel = dirv * 11.5 + Vector3(0, 6.5, 0)
+			g["ball_body"] = bb
 			g["phase"] = "fly"
 			arrow.visible = false
 			if voice != null:
@@ -6088,10 +6100,9 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		g["press_cool"] = maxf(0.0, float(g.get("press_cool", 0.0)) - delta)
 	elif String(g["phase"]) == "fly":
 		hud_game.text = "Wheee!"
-		var v: Vector3 = g["vel"]
-		v.y -= 9.5 * delta
-		g["vel"] = v
-		ball.position += v * delta
+		var bb: ReefPhysics.Body = g["ball_body"]
+		ReefPhysics.step(bb, null, Vector3.ZERO, delta)
+		ball.position = bb.pos
 		if ball.position.y <= ARENA_POS.y + 0.9:
 			ball.position.y = ARENA_POS.y + 0.9
 			if ball.position.x - ARENA_POS.x > 8.2:
@@ -6119,7 +6130,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		d.y = 0.0
 		hud_game.text = "Chuck is on it!"
 		if d.length() > 2.0:
-			chuck.position += d.normalized() * minf(40.0 * delta, d.length())
+			chuck.position = ReefPhysics.toward_xz(chuck.position, target, 40.0, delta)
 			if String(g["phase"]) == "return":
 				ball.position = chuck.position + Vector3(0, -1.5, 0)
 		elif String(g["phase"]) == "fetch":
@@ -6193,7 +6204,8 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		mx += (touch_ui.stick_vec as Vector2).x
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var target_x: float = dolls_root.get_global_mouse_position().x - 60.0
-		dolls_catcher.position.x = lerpf(dolls_catcher.position.x, target_x, 0.2)
+		# exponential follow (frame-rate independent; the old 0.2/frame lerp was not)
+		dolls_catcher.position.x = lerpf(dolls_catcher.position.x, target_x, ReefPhysics.smooth(0.0000015, delta))
 	dolls_catcher.position.x = clampf(dolls_catcher.position.x + mx * 620.0 * delta, 0.0, 1160.0)
 	g["next"] = float(g["next"]) - delta
 	if float(g["next"]) <= 0.0 and int(g["spawned"]) < 5:
@@ -6210,12 +6222,23 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		dtex.set_anchors_preset(Control.PRESET_FULL_RECT)
 		doll.add_child(dtex)
 		dolls_root.add_child(doll)
+		# 2D engine body: babies genuinely FALL now (soft gravity to a gentle
+		# terminal drift), instead of the old constant-speed conveyor
+		var db := ReefPhysics.Body2D.new()
+		db.pos = doll.position
+		db.vel = Vector2(0, 60.0)
+		db.gravity = 220.0
+		db.terminal = 235.0
+		doll.set_meta("body", db)
 		(g["dolls"] as Array).append(doll)
 	var dolls: Array = g["dolls"]
 	for i in range(dolls.size() - 1, -1, -1):
 		var doll: ColorRect = dolls[i]
-		doll.position.y += 190.0 * delta
-		doll.position.x += sin(float(g["t"]) * 1.6 + float(i) * 2.0) * 60.0 * delta
+		var db: ReefPhysics.Body2D = doll.get_meta("body")
+		# sideways sway is a gentle steering force, so it carries into the fall
+		var sway := Vector2(sin(float(g["t"]) * 1.6 + float(i) * 2.0) * 60.0, 0.0)
+		ReefPhysics.step2d(db, sway, delta)
+		doll.position = db.pos
 		doll.rotation = sin(float(g["t"]) * 2.0 + float(i)) * 0.25
 		var caught: bool = doll.position.y > 490.0 and absf(doll.position.x + 48.0 - (dolls_catcher.position.x + 65.0)) < 115.0
 		if caught:
@@ -6245,19 +6268,7 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		if bool(ob["caught"]):
 			continue
 		var node: MeshInstance3D = ob["node"]
-		var v: Vector3 = ob["vel"]
-		node.position += v * delta
-		var rel: Vector3 = node.position - ARENA_POS
-		if absf(rel.x) > 16.0:
-			v.x = -v.x
-			node.position.x = ARENA_POS.x + clampf(rel.x, -16.0, 16.0)
-		if rel.y < 2.6 or rel.y > 17.0:
-			v.y = -v.y
-			node.position.y = ARENA_POS.y + clampf(rel.y, 2.6, 17.0)
-		if absf(rel.z) > 12.0:
-			v.z = -v.z
-			node.position.z = ARENA_POS.z + clampf(rel.z, -12.0, 12.0)
-		ob["vel"] = v
+		ReefPhysics.step(ob["body"], null, Vector3.ZERO, delta)
 		node.scale = Vector3.ONE * (1.0 + sin(float(g["t"]) * 6.0 + node.position.x) * 0.10)
 		if absf(node.position.x - ppos.x) < 14.0 and absf(node.position.y - ppos.y) < 7.0 and absf(node.position.z - ppos.z) < 14.0:
 			ob["caught"] = true

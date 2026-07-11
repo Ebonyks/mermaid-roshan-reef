@@ -1,11 +1,23 @@
 extends Node3D
-# Roshan player: floaty swim + jump physics, procedural 26-bone swim animation.
+# Roshan player: swim / air / land movement on the ReefPhysics engine,
+# procedural 26-bone swim animation.
 
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
+const SWIM_ACCEL := 43.7      # thrust, u/s^2 (1.15x speed, x2 on beans)
+const TURN_RATE := 1.8        # rad/s
+const JUMP_WATER := 16.0      # dolphin-kick boost / surface breach impulse
+const JUMP_LAND := 12.0       # Sky-Lagoon hop
+const JUMP_COOL := 0.4
+
 var yaw := 0.0
 var vel := Vector3.ZERO
+var body: ReefPhysics.Body
+var world: ReefPhysics.World
+var med_water: ReefPhysics.Medium
+var med_air: ReefPhysics.Medium
+var med_land: ReefPhysics.Medium
 var swim_phase := 0.0
 var jump_cool := 0.0
 var idle_t := 0.0
@@ -24,6 +36,11 @@ var skin_t := 0.0
 
 func _ready() -> void:
 	position = Vector3(0, 26, 0)
+	med_water = ReefPhysics.water_medium()
+	med_air = ReefPhysics.air_medium()
+	med_land = ReefPhysics.land_medium()
+	body = ReefPhysics.Body.new(med_water, med_air)
+	world = ReefPhysics.World.new()
 	var glb: PackedScene = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
@@ -135,6 +152,45 @@ func attach_bone(n: Node3D, bone: String) -> bool:
 	ba.add_child(n)
 	return true
 
+# Point the shared physics world at wherever Roshan currently is: the open
+# reef (real water surface, seabed heightfield), the Sky Lagoon (solid land —
+# air/ground rules, terrain heightfield), or a cutaway arena (flat floor,
+# cosy dome, all-water). Field writes only; no allocations.
+func _configure_world(m: Node) -> void:
+	if String(m.game) != "":
+		var ap: Vector3 = m.arena_center
+		world.center = ap
+		world.bound_r = float(m.arena_dome)
+		world.ceil_y = ap.y + float(m.arena_ceil)
+		world.solids = m.arena_solids if "arena_solids" in m else []
+		if "lagoon_floor" in m and m.lagoon_floor:
+			# Sky Lagoon is LAND: gravity holds Roshan to the rolling hills,
+			# releasing the stick stops her, SPACE is a hop instead of a kick
+			world.floor_fn = Callable(m, "lagoon_h")
+			world.floor_y = -INF
+			world.floor_pad = 2.0
+			world.water_y = -INF
+			body.air = med_land
+			body.water = med_land
+		else:
+			world.floor_fn = Callable()
+			world.floor_y = ap.y + 2.5
+			world.floor_pad = 0.0
+			world.water_y = INF   # cutaway arenas are dream-water throughout
+			body.air = med_water
+			body.water = med_water
+	else:
+		world.center = Vector3.ZERO
+		world.bound_r = WORLD_R
+		world.ceil_y = WATER_TOP + 14.0   # safety lid well above any breach arc
+		world.solids = m.solids if "solids" in m else []
+		world.floor_fn = Callable(m, "seabed_y")
+		world.floor_y = -INF
+		world.floor_pad = 3.0
+		world.water_y = WATER_TOP         # a real surface: jumps can breach it
+		body.water = med_water
+		body.air = med_air
+
 func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
@@ -181,106 +237,29 @@ func _process(delta: float) -> void:
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
 
-	jump_cool -= delta
-	if jump_held and jump_cool <= 0.0:
-		jump_cool = 0.4
-		vel.y = 16.0
+	var m: Node = get_parent()
+	_configure_world(m)
 
-	yaw += turn * 1.8 * delta
+	jump_cool -= delta
+	if jump_held and jump_cool <= 0.0 and body.state != ReefPhysics.ST_AIR:
+		jump_cool = JUMP_COOL
+		vel.y = JUMP_WATER if body.state == ReefPhysics.ST_SWIM else JUMP_LAND
+
+	yaw += turn * TURN_RATE * delta
 	var dir := Vector3(sin(yaw), 0.0, cos(yaw))
 	var smult := 1.0
 	if "speed_mult" in m0:
 		smult = float(m0.speed_mult)
-	vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
-	vel.y -= 13.0 * delta                # 1.3x weight
-	vel *= pow(0.18, delta)
-	position += vel * delta
-
-	var m: Node = get_parent()
-	if String(m.game) != "":
-		# cutaway arena bounds: flat floor, cosy dome (configurable per arena)
-		var ap: Vector3 = m.arena_center
-		var dome: float = m.arena_dome
-		var ceil_h: float = m.arena_ceil
-		var floor_a: float = ap.y + 2.5
-		if "lagoon_floor" in m and m.lagoon_floor:
-			# Sky Lagoon: rest on the rolling-hill terrain; dip down into the river valleys
-			floor_a = m.lagoon_h(position.x, position.z) + 2.0
-		if position.y < floor_a:
-			position.y = floor_a
-			vel.y = maxf(0.0, vel.y)
-		if position.y > ap.y + ceil_h:
-			position.y = ap.y + ceil_h
-			vel.y = minf(0.0, vel.y)
-		var da: float = Vector2(position.x - ap.x, position.z - ap.z).length()
-		if da > dome:
-			position.x = ap.x + (position.x - ap.x) * dome / da
-			position.z = ap.z + (position.z - ap.z) * dome / da
-		# soft-collision against arena walls (boxes) and columns (cylinders):
-		# eject Roshan and cancel the inward velocity so he slides along the face.
-		if "arena_solids" in m:
-			for s in m.arena_solids:
-				if position.y < s.y0 or position.y > s.y1:
-					continue
-				if s.box:
-					var lx: float = position.x - s.cx
-					var lz: float = position.z - s.cz
-					if absf(lx) < s.hx and absf(lz) < s.hz:
-						# inside the footprint — eject along the shallowest horizontal axis
-						if s.hx - absf(lx) < s.hz - absf(lz):
-							var sgx: float = signf(lx) if lx != 0.0 else 1.0
-							position.x = s.cx + sgx * s.hx
-							if vel.x * sgx < 0.0:
-								vel.x = 0.0
-						else:
-							var sgz: float = signf(lz) if lz != 0.0 else 1.0
-							position.z = s.cz + sgz * s.hz
-							if vel.z * sgz < 0.0:
-								vel.z = 0.0
-				else:
-					var dx: float = position.x - s.x
-					var dz: float = position.z - s.z
-					var dd: float = sqrt(dx * dx + dz * dz)
-					if dd < s.r and dd > 0.001:
-						var nx: float = dx / dd
-						var nz: float = dz / dd
-						position.x = s.x + nx * s.r
-						position.z = s.z + nz * s.r
-						var vn: float = vel.x * nx + vel.z * nz
-						if vn < 0.0:
-							vel.x -= vn * nx
-							vel.z -= vn * nz
-	else:
-		var floor_y: float = m.seabed_y(position.x, position.z) + 3.0
-		if position.y < floor_y:
-			position.y = floor_y
-			vel.y = maxf(0.0, vel.y)
-		if position.y > WATER_TOP - 3.0:
-			position.y = WATER_TOP - 3.0
-			vel.y = minf(0.0, vel.y)
-		var d: float = Vector2(position.x, position.z).length()
-		if d > WORLD_R:
-			position.x *= WORLD_R / d
-			position.z *= WORLD_R / d
-		# soft-collision against big structures (rock outcrops, shipwreck):
-		# push Roshan out of any cylinder he enters and cancel inward velocity
-		# so he slides along the surface instead of jittering or stopping dead.
-		if "solids" in m:
-			for s in m.solids:
-				if position.y < s.y0 or position.y > s.y1:
-					continue
-				var dx: float = position.x - s.x
-				var dz: float = position.z - s.z
-				var dd: float = sqrt(dx * dx + dz * dz)
-				if dd < s.r and dd > 0.001:
-					var nx: float = dx / dd
-					var nz: float = dz / dd
-					position.x = s.x + nx * s.r
-					position.z = s.z + nz * s.r
-					var vn: float = vel.x * nx + vel.z * nz
-					if vn < 0.0:
-						vel.x -= vn * nx
-						vel.z -= vn * nz
+	# probes and cutscenes write position/vel directly, so the body syncs
+	# through the node's fields rather than owning them
+	body.pos = position
+	body.vel = vel
+	ReefPhysics.step(body, world, dir * fwd * SWIM_ACCEL * smult, delta)
+	position = body.pos
+	vel = body.vel
+	if body.splashed != 0 and m.has_method("_sparkle_burst"):
+		# breaching / re-entering the ocean surface
+		m._sparkle_burst(Vector3(position.x, WATER_TOP - 0.2, position.z), Color(0.55, 0.82, 1.0))
 
 	rotation.y = yaw + PI
 

@@ -1,4 +1,7 @@
 extends SceneTree
+# Child-paced run of the 3D play-place course ("race"), which nowadays is
+# launched as the Rainbow Slide (from a Level-2 wall picture or Harper's old
+# spot). Wandering swim toward each checkpoint, no perfect aim.
 func _init() -> void:
 	Engine.time_scale = 6.0
 	var ms: PackedScene = load("res://scenes/main.tscn")
@@ -8,12 +11,10 @@ func _init() -> void:
 	if main.has_method("_skip_intro"): main._skip_intro()
 	await process_frame
 	var player: Node3D = main.player
-	var fr: Dictionary = {}
-	for f in main.friends:
-		if String(f["game"]) == "race": fr = f
-	main._start_game(fr)
+	main._l2_start_slide()
 	await process_frame
 	var t := 0.0; var last := 0; var log := []; var wob := 0.0
+	var rode_slide := false
 	while main.game == "race" and t < 200.0:
 		t += 1.0/60.0*Engine.time_scale; wob += 1.0/60.0*Engine.time_scale
 		var checks: Array = main.g.get("checks", [])
@@ -22,7 +23,9 @@ func _init() -> void:
 			if c["hit"]: done += 1
 			elif nxt == null: nxt = c
 		if done != last: log.append("  checkpoint %d at t=%.1fs" % [done, t]); last = done
-		if String(main.g.get("phase","")) != "slide" and nxt != null:
+		if String(main.g.get("phase","")) == "slide":
+			rode_slide = true
+		elif nxt != null:
 			var tgt: Vector3 = (nxt["node"] as Node3D).position
 			var dir: Vector3 = (tgt - player.position)
 			if dir.length() > 0.5: dir = dir.normalized()
@@ -31,5 +34,7 @@ func _init() -> void:
 		await process_frame
 	print("=== HARPER PLAY-PLACE CHILD-PACED TEST ===")
 	for l in log: print(l)
-	print("  RESULT: %s at t=%.1fs" % [("WON" if fr.get("won") else "STUCK"), t])
+	# winning the rainbow slide returns to the Level-2 courtyard, not the reef
+	var won: bool = rode_slide and main.game != "race"
+	print("  RESULT: %s at t=%.1fs" % [("WON" if won else "STUCK"), t])
 	quit()

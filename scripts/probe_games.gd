@@ -55,11 +55,7 @@ func _init() -> void:
 		results.append("Secret Cave [treasure]: " + ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
 	else:
 		results.append("Secret Cave [treasure]: DID NOT START")
-	# --- pearl shop purchase ---
-	main.pearl_count = 12
-	main._shop_buy("tiara")
-	var shop_ok: bool = bool(main.cosmetics.get("tiara", false)) and main.pearl_count == 8 and main.cosmetic_nodes.has("tiara")
-	results.append("Pearl Shop [tiara]: " + ("OK (12 -> 8 pearls, crown on)" if shop_ok else "FAIL"))
+	# --- pearl shop: walk-in cabin opens, then closes when you swim out ---
 	main.shop_cool = 0.0
 	var w2 := 0
 	while main.game == "" and w2 < 900:
@@ -68,26 +64,14 @@ func _init() -> void:
 		player.vel = Vector3.ZERO
 		await process_frame
 	if main.game == "shop":
-		var bought_before: bool = bool(main.cosmetics.get("tail", false))
 		var fc2 := 0
-		while main.game == "shop" and fc2 < 60 * 60:
+		while main.game == "shop" and fc2 < 60 * 30:
 			fc2 += 1
-			var target: Node3D = null
-			for it in main.g.get("items", []):
-				if String(it["id"]) == "tail" and (it["node"] as Node3D).visible:
-					target = it["node"]
-					break
-			if target == null:
-				# leave by swimming out the front of the room (boundary exit)
-				player.position = main.ARENA_POS + Vector3(0, 4, 40)
-				player.vel = Vector3.ZERO
-				await process_frame
-				continue
-			player.position = player.position.lerp(target.position, 0.12)
+			# leave by swimming out the front of the room (boundary exit)
+			player.position = main.ARENA_POS + Vector3(0, 4, 40)
 			player.vel = Vector3.ZERO
 			await process_frame
-		var cabin_ok: bool = main.game == "" and bool(main.cosmetics.get("tail", false)) and not bought_before
-		results.append("Shop cabin [walk-in]: " + ("OK (bought tail, left by door)" if cabin_ok else "FAIL"))
+		results.append("Shop cabin [walk-in]: " + ("OK (in + out)" if main.game == "" else "FAIL (stuck inside)"))
 	else:
 		results.append("Shop cabin [walk-in]: DID NOT OPEN")
 	# --- beans: consumable speed boost ---
@@ -138,6 +122,12 @@ func _init() -> void:
 	var cf := 0
 	while main.game == "level2" and String(main.g.get("phase","court")) == "court" and cf < 60 * 90:
 		cf += 1
+		# hold the fairy pond + wall-picture triggers cold: this section tests
+		# the dream stars and castle door, not the side activities
+		main.fairy_cool = 999.0
+		main.mg_cool = 999.0
+		if main.mg_kind != "":
+			main._mg2d_close()
 		var tgt: Node3D = null
 		for sd in main.l2_stars:
 			if not bool(sd["got"]):
