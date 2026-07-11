@@ -294,6 +294,20 @@ void fragment(){
 func _surf(dir: Vector3, h: float = 0.0) -> Vector3:
 	return ORIGIN + dir.normalized() * (PLANET_R + h)
 
+func _safe_look(n: Node3D, dir: Vector3, up: Vector3) -> void:
+	# look_at() hardened for the y=9000 world offset: the engine's same-position
+	# check uses a RELATIVE epsilon (~0.09 units out here), so tiny per-frame
+	# offsets misread as "same position" and vertical motion makes the up vector
+	# colinear. Extend the target 2 units along the heading and swap the up
+	# vector when it degenerates, instead of erroring.
+	if dir.length_squared() < 0.000004:
+		return
+	var d: Vector3 = dir.normalized()
+	var u: Vector3 = up.normalized()
+	if absf(d.dot(u)) > 0.99:
+		u = Vector3.BACK if absf(d.dot(Vector3.BACK)) < 0.99 else Vector3.RIGHT
+	n.look_at(n.global_position + d * 2.0, u)
+
 func _tint_meshes(root: Node, col: Color, glow: float) -> void:
 	var stack: Array = [root]
 	while not stack.is_empty():
@@ -951,8 +965,7 @@ func _tick_pets(delta: float) -> void:
 		var want: Vector3 = _avatar.position + up * (2.6 + sin(tt * 2.0 + float(i) * 1.3) * 0.5) + side * cos(a) * r + fw * sin(a) * r
 		var vel: Vector3 = want - pet.position
 		pet.position = pet.position.lerp(want, minf(1.0, delta * 6.0))
-		if vel.cross(up).length() > 0.02:
-			pet.look_at(pet.position + vel, up)
+		_safe_look(pet, vel, up)
 		pet.scale = Vector3(1.0 + 0.3 * sin(tt * 9.0 + float(i) * 2.0), 1.0, 1.0) * 0.8
 
 func _gather_aabbs(n: Node, xf: Transform3D, acc: Array) -> void:
@@ -1101,8 +1114,7 @@ func _process(delta: float) -> void:
 		var newp: Vector3 = _surf(pdir, alt)
 		var vel2: Vector3 = newp - bn.position
 		bn.position = newp
-		if vel2.length() > 0.01:
-			bn.look_at(newp + vel2, pdir)
+		_safe_look(bn, vel2, pdir)
 		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 	# beetles + ladybugs crawl slowly along the garden (poke one — it chirps!)
 	for bd2 in _bugs:
@@ -1114,8 +1126,7 @@ func _process(delta: float) -> void:
 		var newbp: Vector3 = _surf(bdir2, 0.1)
 		var bvel: Vector3 = newbp - prevbp
 		bn2.position = newbp
-		if bvel.length() > 0.001:
-			bn2.look_at(newbp + bvel, bdir2)
+		_safe_look(bn2, bvel, bdir2)
 		if float(bd2["cool"]) <= 0.0 and _h < 1.5 and _mode == "planet" and newbp.distance_to(_surf(_dir, _h)) < 3.2:
 			bd2["cool"] = 3.0
 			_chime(1.05 + randf() * 0.2)
@@ -1663,8 +1674,7 @@ func _tick_hall(delta: float) -> void:
 			hp = Vector3(cos(ha) * float(hf["r"]), float(hf["h"]) + sin(tt * 1.8 + float(hf["ph"])) * 0.6, sin(ha) * float(hf["r"]))
 		var hv: Vector3 = (HALL_C + hp) - n3.position
 		n3.position = n3.position.lerp(HALL_C + hp, minf(1.0, delta * 6.0))
-		if hv.length() > 0.01:
-			n3.look_at(n3.position + hv, Vector3.UP)
+		_safe_look(n3, hv, Vector3.UP)
 		n3.scale = Vector3(1.0 + 0.28 * sin(tt * 14.0), 1.0, 1.0)
 	var feet: Vector3 = HALL_C + _cpos + Vector3(0, 0.5, 0)
 	for b in _bells:
