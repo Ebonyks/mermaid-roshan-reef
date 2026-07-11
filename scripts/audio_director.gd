@@ -5,9 +5,9 @@ extends RefCounted
 # the global UI tap hook and the _say/show_msg voice pipeline. All state
 # (players, pools, cur_track) stays on main; received by reference.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:

@@ -1,3 +1,4 @@
+class_name ReefMain
 extends Node3D
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.

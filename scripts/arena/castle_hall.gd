@@ -4,9 +4,9 @@ extends RefCounted
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func build(o: Vector3) -> void:

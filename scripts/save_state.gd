@@ -4,9 +4,9 @@ extends RefCounted
 # ALL state stays on main (m.*) — this class owns only the logic, so save
 # compatibility and behavior are unchanged. Received main by reference.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func load_save() -> void:
