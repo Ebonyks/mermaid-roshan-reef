@@ -1879,7 +1879,8 @@ func _apply_cel_shading() -> void:
 	add_child(quad)
 	cel_post = quad
 
-func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
+func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = "res://assets/shaders/cel.gdshader") -> void:
+	var ph := randf() * TAU
 	for mi in _all_meshes(root):
 		var mesh: Mesh = mi.mesh
 		if mesh == null:
@@ -1889,10 +1890,12 @@ func _cel_replace(root: Node, outline: ShaderMaterial) -> void:
 			if m is BaseMaterial3D:
 				var bm := m as BaseMaterial3D
 				var cm := ShaderMaterial.new()
-				cm.shader = load("res://assets/shaders/cel.gdshader")
+				cm.shader = load(shader_path)
 				if bm.albedo_texture != null:
 					cm.set_shader_parameter("albedo_tex", bm.albedo_texture)
 				cm.set_shader_parameter("tint", bm.albedo_color)
+				if shader_path.contains("coral_flow"):
+					cm.set_shader_parameter("phase", ph)
 				cm.next_pass = outline
 				mi.set_surface_override_material(si, cm)
 
@@ -2813,7 +2816,12 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 		# WW toon-bake 2/2: flat posterized albedo (shrink pass) + banded cel
 		# light + inverted-hull navy outline. GEN2 props only — bounded, one
 		# const to revert, per CEL_SHADING.md's incremental wiring plan.
-		_cel_replace(inst, _gen2_outline_mat())
+		# Corals get the two-layer FLOW variant: green growth sways with the
+		# ocean, rocky bodies stay rigid (greenness-gated in the shader).
+		if name.begins_with("coral"):
+			_cel_replace(inst, _gen2_outline_mat(), "res://assets/shaders/coral_flow.gdshader")
+		else:
+			_cel_replace(inst, _gen2_outline_mat())
 	wrap.add_child(inst)
 	# sink settles the prop into the ground by a fraction of its height —
 	# Meshy meshes have smooth rounded bases that only kiss the terrain at one
