@@ -1410,7 +1410,7 @@ const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.09], "dolphin": [0, 3.2, 0.07], 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
 	"Rock6": "rock", "Rock7": "rock1", "Rock8": "rock2", "Rock9": "rock3", "Rock10": "rock4", "Rock11": "rock5",
-	"FanShell": "fanshell", "SmallFanShell": "smallfanshell", "SpiralShell": "spiralshell", "SandDollar": "sanddollar"}
+	"FanShell": "fanshell", "SmallFanShell": "smallfanshell", "SpiralShell": "spiralshell", "SandDollar": "sanddollar", "StarFish": "starfish"}
 
 func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node3D:
 	if AQ_GEN2.has(model):
@@ -1469,7 +1469,7 @@ func _build_aquatic_flora() -> void:
 	# real corals, seaweed, shells clustered on the reef groves; rocks scattered
 	var corals := ["Coral", "Coral1", "Coral2", "Coral3", "Coral4", "Coral5", "Coral6"]
 	var weeds := ["SeaWeed", "SeaWeed1", "SeaWeed2"]
-	var shells := ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar"]
+	var shells := ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar", "StarFish", "StarFish"]
 	var rocks := ["Rock", "Rock1", "Rock2", "Rock3", "Rock4", "Rock5", "Rock6", "Rock7", "Rock8", "Rock9", "Rock10", "Rock11"]
 	for c in cluster_centers:
 		# GEN2 pilot: a family-style coral crowns the middle of every grove
@@ -1477,6 +1477,14 @@ func _build_aquatic_flora() -> void:
 		var gcoral := _gen2_prop("coral3", Vector3(c.x, seabed_y(c.x, c.z), c.z), 8.5, randf() * TAU, 0.08)
 		if gcoral != null:
 			flora_nodes.append(gcoral)
+		# a sponge or two nestles into every grove (new undersea layer)
+		for sk in range(1 + randi() % 2):
+			var spa := randf() * TAU
+			var spr := 2.5 + randf() * 8.0
+			var spx := c.x + cos(spa) * spr
+			var spz := c.z + sin(spa) * spr
+			var spn := "sponge_barrel" if randf() < 0.55 else "sponge_tubes"
+			_gen2_prop(spn, Vector3(spx, seabed_y(spx, spz), spz), 2.2 + randf() * 1.6, randf() * TAU, 0.12)
 		# coral bouquet
 		for k in range(4 + randi() % 4):
 			var ca := randf() * TAU
@@ -2654,7 +2662,9 @@ var _gen2_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
 
-var _seagrass_mats: Array = []   # a few shared sway materials (phase variety)
+# crossed-quad sea flora sprites: [name, height/width aspect, width factor]
+const SEAGRASS_SPRITES := [["seagrass", 0.82, 1.0], ["grasstuft", 0.82, 0.75], ["kelp", 2.63, 0.55]]
+var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 
 func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	# a family-style Meshy animal: loaded/fit like a prop, then every surface
@@ -2685,35 +2695,46 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	return wrap
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
-	# GEN2 sea grass: the family-style seaweed sprite on two crossed quads with
-	# a vertex-sine sway (assets/shaders/seagrass_sway.gdshader). Returns null
-	# if the sprite is missing so callers can fall back to the old GLB pack.
+	# GEN2 sea grass: a family-style sprite (seaweed cluster / thin grass tuft
+	# / tall kelp strand) on two crossed quads with a vertex-sine sway.
+	# Returns null if sprites are missing so callers can fall back to the pack.
 	if not ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
 		return null
-	if _seagrass_mats.is_empty():
+	var pick: Array = SEAGRASS_SPRITES[0]
+	var rv := randf()
+	if rv > 0.8 and ResourceLoader.exists("res://assets/props/gen2/kelp.png"):
+		pick = SEAGRASS_SPRITES[2]
+	elif rv > 0.5 and ResourceLoader.exists("res://assets/props/gen2/grasstuft.png"):
+		pick = SEAGRASS_SPRITES[1]
+	var sname: String = pick[0]
+	if not _seagrass_mats.has(sname):
+		var arr: Array = []
 		for i in range(4):
 			var sm := ShaderMaterial.new()
 			sm.shader = load("res://assets/shaders/seagrass_sway.gdshader")
-			sm.set_shader_parameter("tex", load("res://assets/props/gen2/seagrass.png"))
+			sm.set_shader_parameter("tex", load("res://assets/props/gen2/%s.png" % sname))
 			sm.set_shader_parameter("phase", float(i) * 1.7)
 			sm.set_shader_parameter("sway_amount", 0.22 + 0.07 * float(i))
-			_seagrass_mats.append(sm)
+			arr.append(sm)
+		_seagrass_mats[sname] = arr
 	var wrap := Node3D.new()
+	var qw: float = size * float(pick[2])
+	var qh: float = qw * float(pick[1])
 	var qm := QuadMesh.new()
-	qm.size = Vector2(size, size * 0.82)   # sprite aspect 892x735
+	qm.size = Vector2(qw, qh)
+	var mats: Array = _seagrass_mats[sname]
 	for q in range(2):
 		var mi := MeshInstance3D.new()
 		mi.mesh = qm
-		mi.material_override = _seagrass_mats[randi() % _seagrass_mats.size()]
+		mi.material_override = mats[randi() % mats.size()]
 		mi.rotation.y = PI * 0.5 * float(q) + randf() * 0.4
-		mi.position.y = size * 0.82 * 0.5 - 0.15   # seat the base just in the sand
+		mi.position.y = qh * 0.5 - 0.15   # seat the base just in the sand
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		wrap.add_child(mi)
 	wrap.position = pos
 	add_child(wrap)
 	flora_nodes.append(wrap)
 	return wrap
-
 func _gen2_outline_mat() -> ShaderMaterial:
 	if _gen2_outline == null:
 		_gen2_outline = ShaderMaterial.new()
