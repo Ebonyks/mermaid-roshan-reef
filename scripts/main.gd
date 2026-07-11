@@ -1388,7 +1388,21 @@ func _aq(model: String) -> PackedScene:
 		model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
 	return model_cache["aq_" + model]
 
+# MR2.0: pack name -> painted GEN2 prop. Every mapped piece spawns the
+# family-style Meshy model (footprint-fit, cel+outline, settled); the pack
+# GLB remains the strangler-fig fallback if a file is ever missing.
+const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
+	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
+	"Rock6": "rock", "Rock7": "rock1", "Rock8": "rock2", "Rock9": "rock3", "Rock10": "rock4", "Rock11": "rock5"}
+
 func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node3D:
+	if AQ_GEN2.has(model):
+		var sink: float = 0.25 if model.begins_with("Rock") else 0.1
+		var g := _gen2_prop(String(AQ_GEN2[model]), pos, scl * 2.2, randf() * TAU, sink)
+		if g != null:
+			if not play_anim:
+				flora_nodes.append(g)
+			return g
 	var ps := _aq(model)
 	if ps == null:
 		return null
@@ -1399,7 +1413,7 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 	_paint_aq(inst, _aq_mat(model))
 	_toonify(inst)
 	if model.begins_with("Rock"):
-		_toon_tile(inst, "cliff", 0.10, Color(0.92, 0.9, 1.0))   # painted reef stone
+		_toon_tile(inst, "cliff", 0.10, Color(0.92, 0.9, 1.0))   # painted reef stone (fallback path)
 	add_child(inst)
 	if not play_anim:
 		flora_nodes.append(inst)
