@@ -26,6 +26,11 @@ uniform bool use_depth = true;                            // Speedy tier flips t
 uniform sampler2D ripple : hint_normal, repeat_enable;
 uniform sampler2D caustics : repeat_enable;
 uniform sampler2D depth_texture : hint_depth_texture;
+// GEN2: painted water albedo (family-style texture) blended over the two-tone
+// gradient. albedo_mix 0 = legacy look, so every existing sheet is unchanged.
+uniform sampler2D albedo_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform float albedo_mix : hint_range(0.0, 1.0) = 0.0;
+uniform float albedo_scale = 0.02;   // world-units -> UV tiling for albedo_tex
 
 varying vec2 wxz;
 
@@ -60,6 +65,11 @@ void fragment() {
 	float sp = texture(caustics, uv1 * 2.3).g * texture(caustics, uv2 * 2.1).g;
 	float dots = step(0.34, sp) * sparkle;
 	vec3 base = mix(deep_color, shallow_color, shallow);
+	if (albedo_mix > 0.001) {
+		// drift the painted water slowly so it reads alive even on Speedy
+		vec3 paint = texture(albedo_tex, wxz * albedo_scale + vec2(TIME * scroll_speed * 0.3)).rgb;
+		base = mix(base, paint, albedo_mix);
+	}
 	base = mix(base, foam_color, clamp(shore + dots, 0.0, 1.0));
 	ALBEDO = base;
 	EMISSION = base * 0.22 + foam_color * shore * 0.18;

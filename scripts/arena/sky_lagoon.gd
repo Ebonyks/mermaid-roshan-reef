@@ -647,8 +647,12 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				m.game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(m.g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
-	# ---- moat water: translucent ring surface at y -6 (the dry brown trench
-	# read as a glitch). ~10 units deep; the hatch glow shines up through it. ----
+	# ---- moat water: the channel is FULL (surface 2.5 under the rim, like the
+	# rivers), mostly opaque, and painted with the GEN2 family-style water
+	# albedo. The old sheet sat at -6 in a 16-deep trench, so from the grounds
+	# you saw six units of bare mud wall and barely any water — the moat kept
+	# reading as a dry dirt ditch (owner report x5). Still divable: the sheet
+	# has no collision and the hidden hatch sits at the floor below. ----
 	var mst := SurfaceTool.new()
 	mst.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var mseg := 72
@@ -658,18 +662,22 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		var sa2: float = sin(ma2)
 		var v2: float = float(i) / float(mseg)
 		mst.set_uv(Vector2(0.0, v2 * 14.0))
-		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_INNER - 1.5), -6.0, m.MOAT_CZ + sa2 * (m.MOAT_INNER - 1.5)))
+		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_INNER - 1.5), -2.5, m.MOAT_CZ + sa2 * (m.MOAT_INNER - 1.5)))
 		mst.set_uv(Vector2(1.0, v2 * 14.0))
-		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_OUTER + 1.5), -6.0, m.MOAT_CZ + sa2 * (m.MOAT_OUTER + 1.5)))
+		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_OUTER + 1.5), -2.5, m.MOAT_CZ + sa2 * (m.MOAT_OUTER + 1.5)))
 	for i in range(mseg):
 		var a4 := i * 2
 		mst.add_index(a4); mst.add_index(a4 + 1); mst.add_index(a4 + 3)
 		mst.add_index(a4); mst.add_index(a4 + 3); mst.add_index(a4 + 2)
 	var moatw := MeshInstance3D.new()
 	moatw.mesh = mst.commit()
-	# Phase 5: shared toon water — the moat ring is deep, so a darker fade
-	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.8, 0.2, 0.04)
+	# Phase 5: shared toon water + GEN2 painted albedo so it reads as WATER
+	# from every angle and on every quality tier
+	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.92, 0.2, 0.04)
 	mwmat.set_shader_parameter("foam_width", 2.4)
+	mwmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
+	mwmat.set_shader_parameter("albedo_mix", 0.85)
+	mwmat.set_shader_parameter("albedo_scale", 0.035)
 	moatw.material_override = mwmat
 	moatw.position = o
 	m.add_child(moatw)
