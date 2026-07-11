@@ -1398,6 +1398,8 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 	inst.rotation.y = randf() * TAU
 	_paint_aq(inst, _aq_mat(model))
 	_toonify(inst)
+	if model.begins_with("Rock"):
+		_toon_tile(inst, "cliff", 0.10, Color(0.92, 0.9, 1.0))   # painted reef stone
 	add_child(inst)
 	if not play_anim:
 		flora_nodes.append(inst)
@@ -2560,6 +2562,26 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 
 var _kit_cache := {}
 
+func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1)) -> void:
+	# NANO-BANANA TILE WRAP (owner 2026-07-11): dress an EXISTING model in a
+	# painted GEN2 tile. Triplanar ignores the mesh's own UVs, so any object
+	# already in the game can wear the new art - no new geometry, no Meshy.
+	if node is MeshInstance3D:
+		var mi := node as MeshInstance3D
+		if mi.mesh != null:
+			var tm := StandardMaterial3D.new()
+			tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
+			tm.albedo_color = _pastel(tint)
+			tm.uv1_triplanar = true
+			tm.uv1_scale = Vector3(uvs, uvs, uvs)
+			tm.roughness = 1.0
+			tm.metallic = 0.0
+			tm.metallic_specular = 0.1
+			for si in range(mi.mesh.get_surface_count()):
+				mi.set_surface_override_material(si, tm)
+	for c in node.get_children():
+		_toon_tile(c, key, uvs, tint)
+
 func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
 	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
 	# storybook look (_fit_prop calls _toonify), fit its footprint to `target`
@@ -2577,6 +2599,8 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	var wrap := Node3D.new()
 	var inst: Node3D = ps.instantiate()
 	_fit_prop(inst, target)
+	if name.begins_with("castle/") and not name.contains("flag"):
+		_toon_tile(inst, "castle", 0.14, Color(0.98, 0.95, 1.0))   # painted masonry
 	wrap.add_child(inst)
 	wrap.position = pos
 	wrap.rotation.y = yrot
@@ -5869,6 +5893,7 @@ func _build_wreck() -> void:
 	var ship := _spawn("ship-wreck", Vector3(wx, wy - 0.5, wz), 9.0, 2.4)
 	if ship != null:
 		ship.rotation_degrees.z = 14.0
+		_toon_tile(ship, "wood", 0.08, Color(0.9, 0.78, 0.7))   # painted timber hull
 		# NOTE: no collider on the wreck — swimming within 13u of it launches the
 		# treasure-dive minigame (see _build_events / treasure trigger). A solid
 		# bubble here would either block that trigger or, given the long hull,
