@@ -55,6 +55,7 @@ var l2_door: MeshInstance3D = null
 var rainbow_slide_mode := false
 var level2_finishing := false
 var custom_fish: Array = []
+var crafted_fish_spawned := 0      # how many custom_fish entries are already swimming
 var craft_layer: CanvasLayer = null
 var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
@@ -469,6 +470,7 @@ func _ready() -> void:
 	_build_slide_portal()
 	_build_pause()
 	_load_save()
+	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
@@ -1512,8 +1514,17 @@ func _build_aquatic_creatures() -> void:
 			continue
 		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU})
 	# player-crafted fish from the Crafting Studio (persist via save)
-	for cf in custom_fish:
-		if (cf as Array).size() < 6:
+	_spawn_crafted_fish()
+
+func _spawn_crafted_fish() -> void:
+	# spawn any custom_fish entries not yet in the water. Idempotent via the
+	# counter: runs at world build, after _load_save() (the save loads AFTER
+	# the reef builds, so spawning only at build time made every crafted fish
+	# vanish on the next launch), and on each new craft.
+	while crafted_fish_spawned < custom_fish.size():
+		var cf: Variant = custom_fish[crafted_fish_spawned]
+		crafted_fish_spawned += 1
+		if not (cf is Array) or (cf as Array).size() < 6:
 			continue
 		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]))
 		add_child(cfn)
@@ -3557,9 +3568,7 @@ func _craft_done() -> void:
 	var msgtxt: String
 	if fishy:
 		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
-		var newfish := _make_creature_node("fish", craft_body, craft_fins)
-		add_child(newfish); flora_nodes.append(newfish)
-		aquatic_movers.append({"node": newfish, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
+		_spawn_crafted_fish()   # same spawn path as build/load keeps the counter honest
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
 		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])

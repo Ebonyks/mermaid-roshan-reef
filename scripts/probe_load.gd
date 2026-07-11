@@ -1,6 +1,19 @@
 extends SceneTree
-# verifies a saved session restores trophies/stars on boot
+# verifies a saved session restores trophies/stars on boot,
+# and that a crafted fish survives a relaunch (it used to vanish: the save
+# loads after the reef builds, so build-time spawning missed it)
 func _init() -> void:
+	var sd: Dictionary = {}
+	if FileAccess.file_exists("user://reef_save.json"):
+		var f := FileAccess.open("user://reef_save.json", FileAccess.READ)
+		if f != null:
+			var d: Variant = JSON.parse_string(f.get_as_text())
+			if d is Dictionary:
+				sd = d
+	sd["custom_fish"] = [[0.9, 0.3, 0.3, 1.0, 0.8, 0.2]]   # one crafted fish in the save
+	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
+	w.store_string(JSON.stringify(sd))
+	w.close()
 	var ps: PackedScene = load("res://scenes/main.tscn")
 	root.add_child(ps.instantiate())
 	await process_frame
@@ -15,4 +28,12 @@ func _init() -> void:
 		if f.has("star"):
 			stars += 1
 	print("won stars shown: ", stars, "/5")
+	var crafted := 0
+	for mv in main.aquatic_movers:
+		if bool(mv.get("crafted", false)):
+			crafted += 1
+	if crafted < 1:
+		print("FAIL: crafted fish missing after reload (custom_fish in save, none swimming)")
+	else:
+		print("crafted fish restored: ", crafted)
 	quit()
