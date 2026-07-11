@@ -1,31 +1,152 @@
 {
  "aquatic_clownfish": {
   "i23d": "019f4c82-7079-73b6-8199-00fbec0f3be5",
+  "note": "rigging 422: pose estimation failed (non-humanoid); static.glb only, swim stays procedural",
   "rig": false,
   "src": "gen2/generated/aquatic_clownfish/v1.webp",
-  "stage": "done",
-  "note": "rigging 422: pose estimation failed (non-humanoid); static.glb only, swim stays procedural"
+  "stage": "done"
  },
- "roshan_playable": {
-  "i23d": "019f4c86-ec18-7926-aa70-2915a0cba1de",
+ "aquatic_clownfish_mv": {
+  "note": "animal pilot: MULTI-IMAGE i23d + rig attempt (turnaround views)",
   "rig": true,
-  "src": "assets/characters/roshan_sprite.png",
-  "stage": "done",
-  "note": "rigging rejected (pose estimation); static only"
+  "src": "gen2/turnarounds/aquatic_clownfish/source.webp",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_clownfish/back.png",
+   "front": "gen2/turnarounds/aquatic_clownfish/front.png",
+   "side": "gen2/turnarounds/aquatic_clownfish/side.png"
+  },
+  "stage": "ready"
+ },
+ "aquatic_coral": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral/r2_v4.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral1": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral1/v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral2": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral2/v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral3": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral3/v4.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral4": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral4/r2_v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral5": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral5/r2_v4.webp",
+  "stage": "ready"
+ },
+ "aquatic_coral6": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral6/v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_dolphin_mv": {
+  "note": "animal pilot: MULTI-IMAGE i23d + rig attempt (turnaround views)",
+  "rig": true,
+  "src": "gen2/turnarounds/aquatic_dolphin/source.webp",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_dolphin/back.png",
+   "front": "gen2/turnarounds/aquatic_dolphin/front.png",
+   "side": "gen2/turnarounds/aquatic_dolphin/side.png"
+  },
+  "stage": "ready"
+ },
+ "aquatic_penguin_mv": {
+  "note": "animal pilot: MULTI-IMAGE i23d + rig attempt (turnaround views)",
+  "rig": true,
+  "src": "gen2/turnarounds/aquatic_penguin/source.webp",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_penguin/back.png",
+   "front": "gen2/turnarounds/aquatic_penguin/front.png",
+   "side": "gen2/turnarounds/aquatic_penguin/side.png"
+  },
+  "stage": "ready"
+ },
+ "aquatic_rock": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock/r2_v4.webp",
+  "stage": "ready"
+ },
+ "aquatic_rock1": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock1/r2_v3.webp",
+  "stage": "ready"
+ },
+ "aquatic_rock2": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock2/v4.webp",
+  "stage": "ready"
+ },
+ "aquatic_rock3": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock3/r2_v3.webp",
+  "stage": "ready"
+ },
+ "aquatic_rock4": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock4/r2_v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_rock5": {
+  "note": "MR2.0 soft run: ocean-floor prop, single-view i23d + shrink+posterize",
+  "rig": false,
+  "src": "gen2/generated/aquatic_rock5/r2_v2.webp",
+  "stage": "ready"
+ },
+ "aquatic_turtle_mv": {
+  "note": "animal pilot: MULTI-IMAGE i23d + rig attempt (turnaround views)",
+  "rig": true,
+  "src": "gen2/turnarounds/aquatic_turtle/source.webp",
+  "src_views": {
+   "back": "gen2/turnarounds/aquatic_turtle/back.png",
+   "front": "gen2/turnarounds/aquatic_turtle/front.png",
+   "side": "gen2/turnarounds/aquatic_turtle/side.png"
+  },
+  "stage": "ready"
  },
  "fairy_playable": {
   "i23d": "019f4c86-f043-7888-9972-26acb03807e3",
+  "note": "rigging rejected (pose estimation); static only",
   "rig": true,
   "src": "assets/characters/skins/fairy_mermaid.png",
-  "stage": "done",
-  "note": "rigging rejected (pose estimation); static only"
+  "stage": "done"
  },
  "huluu_playable": {
   "i23d": "019f4c86-f5b7-7929-ab60-f770eff7c00f",
+  "note": "rigging rejected (pose estimation); static only",
   "rig": true,
   "src": "assets/characters/friends/huluu.png",
-  "stage": "done",
-  "note": "rigging rejected (pose estimation); static only"
+  "stage": "done"
+ },
+ "prop_coral3": {
+  "i23d": "019f4d22-b7b1-7932-b0f0-75dca57935d3",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral3/v4.webp",
+  "stage": "done"
  },
  "prop_rock_largea": {
   "i23d": "019f4d22-afc1-7fce-8a4f-d542025cb748",
@@ -39,10 +160,11 @@
   "src": "gen2/generated/nature_tree_pineroundf/v2.webp",
   "stage": "done"
  },
- "prop_coral3": {
-  "i23d": "019f4d22-b7b1-7932-b0f0-75dca57935d3",
-  "rig": false,
-  "src": "gen2/generated/aquatic_coral3/v4.webp",
+ "roshan_playable": {
+  "i23d": "019f4c86-ec18-7926-aa70-2915a0cba1de",
+  "note": "rigging rejected (pose estimation); static only",
+  "rig": true,
+  "src": "assets/characters/roshan_sprite.png",
   "stage": "done"
  }
 }
