@@ -1422,9 +1422,13 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 			if not play_anim:
 				flora_nodes.append(g)
 			return g
-	if play_anim and CREATURE_GEN2.has(model):
+	if CREATURE_GEN2.has(model):
+		# NPCs too (play_anim=false, e.g. the slide penguin): the sway shader
+		# gives statics their idle, so the old pack model is never needed
 		var cw := _gen2_creature(String(CREATURE_GEN2[model]), pos, scl * 2.0)
 		if cw != null:
+			if not play_anim:
+				flora_nodes.append(cw)
 			return cw
 	var ps := _aq(model)
 	if ps == null:
@@ -1558,8 +1562,9 @@ func _build_aquatic_creatures() -> void:
 		_place_aq("Crab", Vector3(cc.x, seabed_y(cc.x, cc.z) + 0.3, cc.z + 3.0), 2.0, true)
 		var lc: Vector3 = cluster_centers[9]
 		_place_aq("Lobster", Vector3(lc.x, seabed_y(lc.x, lc.z) + 0.3, lc.z - 3.0), 2.0, true)
-	# small darting schools of the little fish
-	var smallfish := ["ClownFish", "Dory", "Carp", "Tuna", "Eel"]
+	# small darting schools — babies of HER creatures (the old Dory/Carp/Tuna/Eel
+	# pack fish were the last un-upgraded swimmers; playtest 2026-07-11)
+	var smallfish := ["ClownFish", "Turtle", "StingRay", "Squid", "ClownFish"]
 	for s in range(8):
 		var inst := _place_aq(smallfish[s % smallfish.size()], Vector3.ZERO, 1.2 + randf() * 1.0, true)
 		if inst == null:
@@ -1897,6 +1902,10 @@ func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = "re
 				cm.set_shader_parameter("tint", bm.albedo_color)
 				if shader_path.contains("coral_flow"):
 					cm.set_shader_parameter("phase", ph)
+					# height-normalize the flow gate: roots still, crowns sway
+					var bb: AABB = mesh.get_aabb()
+					cm.set_shader_parameter("aabb_y0", bb.position.y)
+					cm.set_shader_parameter("aabb_h", bb.size.y)
 				cm.next_pass = outline
 				mi.set_surface_override_material(si, cm)
 
