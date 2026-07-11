@@ -2532,8 +2532,8 @@ func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: f
 func _lagoon_local(lx: float, lz: float) -> float:
 	return _lagoon_ref()._lagoon_local(lx, lz)
 
-func _terr_v(st: SurfaceTool, lx: float, lz: float) -> void:
-	_lagoon_ref()._terr_v(st, lx, lz)
+func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
+	_lagoon_ref()._terr_v(st, lx, lz, y)
 
 func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	var ps: PackedScene = _nat_cache.get(name, null)
