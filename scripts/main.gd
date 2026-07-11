@@ -1939,8 +1939,8 @@ func _cel_outline(root: Node, outline: ShaderMaterial) -> void:
 			if m is BaseMaterial3D and m.next_pass == null:
 				m.next_pass = outline
 
-func _all_meshes(root: Node) -> Array:
-	var out: Array = []
+func _all_meshes(root: Node) -> Array[MeshInstance3D]:
+	var out: Array[MeshInstance3D] = []
 	var stack: Array = [root]
 	while not stack.is_empty():
 		var n: Node = stack.pop_back()
@@ -3683,7 +3683,7 @@ func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
 				if mesh == null:
 					continue
 				for si in range(mesh.get_surface_count()):
-					var sm2 := mi.get_surface_override_material(si)
+					var sm2: Material = mi.get_surface_override_material(si)
 					if sm2 is ShaderMaterial:
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_mix", 1.0)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
