@@ -35,6 +35,14 @@
   "src": "gen2/generated/aquatic_coral1/v2.webp",
   "stage": "done"
  },
+ "aquatic_coral1_r3": {
+  "ep": "image-to-3d",
+  "i23d": "019f5194-470d-72db-95eb-041b096dbcb8",
+  "note": "coral1 regen: face-free (F2 curation hold lift)",
+  "rig": false,
+  "src": "gen2/generated/aquatic_coral1/r3_v1.png",
+  "stage": "i23d"
+ },
  "aquatic_coral2": {
   "ep": "image-to-3d",
   "i23d": "019f4f23-ec6d-7384-a759-a15de0b925e5",
@@ -87,6 +95,22 @@
    "side": "gen2/turnarounds/aquatic_dolphin/side.png"
   },
   "stage": "done"
+ },
+ "aquatic_fanshell": {
+  "ep": "image-to-3d",
+  "i23d": "019f5194-4aa7-730d-a344-69d427a468a3",
+  "note": "shell flora: single-view i23d + toon-bake",
+  "rig": false,
+  "src": "gen2/generated/aquatic_fanshell/v1.webp",
+  "stage": "i23d"
+ },
+ "aquatic_fanshell_r3": {
+  "note": "face-free regen (audit best variants all carried F2)",
+  "rig": false,
+  "src": "gen2/generated/aquatic_fanshell/r3_v1.png",
+  "stage": "i23d",
+  "ep": "image-to-3d",
+  "i23d": "019f5195-905f-735e-94bf-212ef83bb364"
  },
  "aquatic_penguin_mv": {
   "ep": "multi-image-to-3d",
@@ -149,6 +173,46 @@
   "src": "gen2/generated/aquatic_rock5/r2_v2.webp",
   "stage": "done"
  },
+ "aquatic_sanddollar": {
+  "ep": "image-to-3d",
+  "i23d": "019f5194-4e4c-730d-93c0-f1f7e77cfa1b",
+  "note": "shell flora: single-view i23d + toon-bake",
+  "rig": false,
+  "src": "gen2/generated/aquatic_sanddollar/v4.webp",
+  "stage": "i23d"
+ },
+ "aquatic_smallfanshell": {
+  "ep": "image-to-3d",
+  "i23d": "019f5194-51a2-7226-a829-1bb6ce16caac",
+  "note": "shell flora: single-view i23d + toon-bake",
+  "rig": false,
+  "src": "gen2/generated/aquatic_smallfanshell/v2.webp",
+  "stage": "i23d"
+ },
+ "aquatic_smallfanshell_r3": {
+  "note": "face-free regen (audit best variants all carried F2)",
+  "rig": false,
+  "src": "gen2/generated/aquatic_smallfanshell/r3_v1.png",
+  "stage": "i23d",
+  "ep": "image-to-3d",
+  "i23d": "019f5195-944f-7d56-a629-caa75e3d72f5"
+ },
+ "aquatic_spiralshell": {
+  "ep": "image-to-3d",
+  "i23d": "019f5194-553f-7d27-9473-2f8e00358be2",
+  "note": "shell flora: single-view i23d + toon-bake",
+  "rig": false,
+  "src": "gen2/generated/aquatic_spiralshell/v3.webp",
+  "stage": "i23d"
+ },
+ "aquatic_spiralshell_r3": {
+  "note": "face-free regen (audit best variants all carried F2)",
+  "rig": false,
+  "src": "gen2/generated/aquatic_spiralshell/r3_v1.png",
+  "stage": "i23d",
+  "ep": "image-to-3d",
+  "i23d": "019f5195-9795-735f-b632-eb8733dc88b4"
+ },
  "aquatic_turtle_mv": {
   "ep": "multi-image-to-3d",
   "i23d": "019f4f24-2572-763a-921d-30695e1e697c",
@@ -170,6 +234,8 @@
   "stage": "done"
  },
  "fairy_v2": {
+  "ep": "multi-image-to-3d",
+  "i23d": "019f4f8d-4274-7e3c-8351-9a554db8197a",
   "note": "FAIRY HERO: multi-image i23d 15k. No meshy rig - retarget onto the 26-bone armature + auto-detected wingL/wingR bones (flap driven procedurally).",
   "priority": 1,
   "rig": false,
@@ -179,9 +245,7 @@
    "front": "gen2/turnarounds/fairy_v2/front.png",
    "side": "gen2/turnarounds/fairy_v2/side.png"
   },
-  "stage": "done",
-  "ep": "multi-image-to-3d",
-  "i23d": "019f4f8d-4274-7e3c-8351-9a554db8197a"
+  "stage": "done"
  },
  "huluu_playable": {
   "i23d": "019f4c86-f5b7-7929-ab60-f770eff7c00f",
