@@ -1397,7 +1397,15 @@ func _aq(model: String) -> PackedScene:
 # and spiralshell restored likewise. smallfanshell keeps its regen (F10).
 # swimming creatures: statics brought alive by creature_sway.gdshader
 # (tail-weighted body wave; facing measured equal to the pack: -Y, offset 0)
-const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin": "dolphin"}
+const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin": "dolphin",
+	"Shark": "shark", "Hammerhead": "hammerhead", "Whale": "whale", "StingRay": "stingray",
+	"Squid": "squid", "Penguin": "penguin", "Octopus": "octopus", "Lobster": "lobster", "Crab": "crab"}
+# per-species SWIM profile: [mode, speed, amount] for creature_sway.gdshader
+# (0 tail-wave, 1 wing undulation, 2 jelly pulse, 3 waddle rock)
+const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.09], "dolphin": [0, 3.2, 0.07], "turtle": [0, 2.2, 0.05],
+	"shark": [0, 3.6, 0.08], "hammerhead": [0, 3.4, 0.08], "whale": [1, 1.6, 0.05],
+	"stingray": [1, 2.6, 0.10], "squid": [2, 2.8, 0.08], "octopus": [2, 2.2, 0.09],
+	"penguin": [3, 3.0, 0.06], "lobster": [3, 2.4, 0.04], "crab": [3, 2.6, 0.04]}
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -1580,6 +1588,13 @@ func _tick_aquatic(delta: float) -> void:
 			if float(mv["greet_cool"]) <= 0.0 and node.position.distance_to(player.position) < 6.0:
 				mv["greet_cool"] = 9.0
 				_greet_heart(node.position + Vector3(0, 2.2, 0))
+		elif game == "":
+			# EVERY sea friend says hello now: excited wiggle + squash-bounce
+			# + sparkle when Roshan swims close (free swim only, cooled down)
+			mv["greet_cool"] = maxf(0.0, float(mv.get("greet_cool", 0.0)) - delta)
+			if float(mv["greet_cool"]) <= 0.0 and node.position.distance_to(player.position) < 7.5:
+				mv["greet_cool"] = 14.0
+				_creature_greet(node)
 
 func _build_pearls() -> void:
 	pearl_mat = _rainbow_mat()
@@ -2650,6 +2665,7 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	if wrap == null:
 		return null
 	var ph := randf() * TAU
+	var prof: Array = CREATURE_SWAY.get(gname, [0, 4.2, 0.09])
 	for mi in _all_meshes(wrap):
 		var mesh: Mesh = mi.mesh
 		if mesh == null:
@@ -2661,6 +2677,9 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 			if src0 is BaseMaterial3D and (src0 as BaseMaterial3D).albedo_texture != null:
 				sm.set_shader_parameter("albedo_tex", (src0 as BaseMaterial3D).albedo_texture)
 			sm.set_shader_parameter("phase", ph)
+			sm.set_shader_parameter("sway_mode", int(prof[0]))
+			sm.set_shader_parameter("sway_speed", float(prof[1]))
+			sm.set_shader_parameter("sway_amount", float(prof[2]))
 			sm.next_pass = _gen2_outline_mat()
 			mi.set_surface_override_material(si, sm)
 	return wrap
@@ -4253,6 +4272,31 @@ func _celebrate_pose() -> void:
 		var sa: float = TAU * float(si) / 8.0
 		_sparkle_burst(player.position + Vector3(cos(sa) * 2.5, 1.0 + float(si % 3), sin(sa) * 2.5), Color.from_hsv(float(si) / 8.0, 0.5, 1.0))
 	get_tree().create_timer(2.4).timeout.connect(cl3.queue_free)
+
+func _creature_greet(node: Node3D) -> void:
+	# the interaction beat: the creature gets EXCITED for ~1.5s - its sway
+	# shader speeds up (excite uniform), it does a squash-and-stretch bounce
+	# (movers own position, so the bounce lives in scale), plus sparkles and
+	# a happy chirp. Works on any mover; pack survivors just skip the shader.
+	for mi in _all_meshes(node):
+		if mi.mesh == null:
+			continue
+		for si in range(mi.mesh.get_surface_count()):
+			var m0: Material = mi.get_surface_override_material(si)
+			if m0 is ShaderMaterial and (m0 as ShaderMaterial).shader != null:
+				var sm := m0 as ShaderMaterial
+				var tw0 := create_tween()
+				tw0.tween_method(func(v: float): sm.set_shader_parameter("excite", v), 0.0, 1.0, 0.25)
+				tw0.tween_interval(0.9)
+				tw0.tween_method(func(v: float): sm.set_shader_parameter("excite", v), 1.0, 0.0, 0.4)
+	var base_scale: Vector3 = node.scale
+	var tw := create_tween()
+	tw.tween_property(node, "scale", base_scale * Vector3(1.08, 1.2, 1.08), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(node, "scale", base_scale, 0.55).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	_sparkle_burst(node.position + Vector3(0, 1.6, 0), Color(0.8, 0.95, 1.0))
+	if voice != null:
+		voice.pitch_scale = 1.35 + randf() * 0.3
+		voice.play()
 
 func _greet_heart(pos: Vector3) -> void:
 	# a crafted friend says hello: floating heart + sparkle + happy chirp
