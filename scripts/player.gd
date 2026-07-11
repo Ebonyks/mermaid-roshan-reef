@@ -141,7 +141,10 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
 const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb", "fairy_v2": "res://assets/characters/fairy_v2.glb"}
-const WING_FLAP_AXIS := Vector3.UP   # calibration recipe: bone-local Y, wingL sign -, wingR sign + (mirrored canonical bones)
+const SKIN_TIARA_Y := {"classic_v2": 4.0, "fairy_v2": 4.0}   # V2 sculpts fill the old halo height
+
+func _tiara_y() -> float:
+	return float(SKIN_TIARA_Y.get(skin_id, 2.5))
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -214,9 +217,44 @@ func _map_bones() -> void:
 		if bi >= 0:
 			rest[n] = skel.get_bone_pose(bi)
 
+func _attach_wing_cards(mdl: Node3D) -> void:
+	# CARD WINGS: the Meshy sculpt fused its wings into her back (relief, not
+	# separable geometry), so those stay as static painted detail and the
+	# REAL flap is two textured plates on the measured wingL/wingR hinge
+	# bones — a rigid shader rotation around the hinge, like the butterflies.
+	var sk := _find_skeleton(mdl)
+	if sk == null or not ResourceLoader.exists("res://assets/characters/skins/fairy_wing_card.png"):
+		return
+	var tex: Texture2D = load("res://assets/characters/skins/fairy_wing_card.png")
+	for wi in range(2):
+		var bname: String = "wingL" if wi == 0 else "wingR"
+		if sk.find_bone(bname) < 0:
+			continue
+		var att := BoneAttachment3D.new()
+		att.bone_name = bname
+		sk.add_child(att)
+		var mi := MeshInstance3D.new()
+		var qm := QuadMesh.new()
+		qm.size = Vector2(1.6, 2.75)   # wing art aspect 282x489
+		qm.center_offset = Vector3(0.8, 0.0, 0.0)   # hinge edge at the origin
+		mi.mesh = qm
+		# map the quad's outward X onto the bone's along-axis (Y), keep it
+		# upright: columns are the bone-local images of quad X/Y/Z
+		mi.transform.basis = Basis(Vector3(0, 1, 0), Vector3(0, 0, 1), Vector3(1, 0, 0))
+		var wm := ShaderMaterial.new()
+		wm.shader = load("res://assets/shaders/fairy_wing.gdshader")
+		wm.set_shader_parameter("wing_tex", tex)
+		wm.set_shader_parameter("phase", 0.0 if wi == 0 else 0.18)
+		wm.set_shader_parameter("flip", 0.0 if wi == 0 else 1.0)
+		mi.material_override = wm
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		att.add_child(mi)
+
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
+	if _tiara != null:
+		_tiara.position.y = _tiara_y()
 	if SKIN_MODELS.has(id) and ResourceLoader.exists(String(SKIN_MODELS[id])):
 		# the full Roshan treatment: a rigged double-sided plushie with the SAME
 		# bone names, so the procedural swim drives her directly
@@ -230,6 +268,13 @@ func set_skin(id: String, tex_path: String) -> void:
 				# (playtest: Bluey backpack painted across her chest).
 				mdl.scale = Vector3.ONE * 1.55
 				mdl.position.y = -1.6
+				var mn0: Node = get_parent()
+				if mn0 != null and mn0.has_method("_toonify"):
+					# flat toon response so world lighting reads the same on
+					# her as on everything else (playtest: she looked glossy)
+					mn0._toonify(mdl)
+				if id == "fairy_v2":
+					_attach_wing_cards(mdl)
 			else:
 				mdl.scale = Vector3.ONE * 3.9
 				mdl.position.y = -3.4
@@ -349,7 +394,7 @@ func set_tiara(on: bool) -> void:
 			var pa: float = TAU * float(pi) / 5.0
 			pearl.position = Vector3(cos(pa) * 0.61, 0.12, sin(pa) * 0.61)
 			_tiara.add_child(pearl)
-		_tiara.position = Vector3(0, 2.5, 0)   # floats just above her head in every look
+		_tiara.position = Vector3(0, _tiara_y(), 0)   # floats just above her head in every look
 		add_child(_tiara)
 		var tw := _tiara.create_tween().set_loops()
 		tw.tween_property(_tiara, "rotation:y", TAU, 6.0).from(0.0)
@@ -590,12 +635,6 @@ func _process(delta: float) -> void:
 		_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
 		_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
 		_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
-		# fairy wings (fairy_v2 skin): quick flutter, faster when she swims fast.
-		# WING_FLAP_AXIS comes from the retarget tool's calibration pass.
-		if bone_idx.get("wingL", -1) >= 0:
-			var wingf: float = 0.35 + sin(swim_phase * 3.4) * (0.55 + amp * 0.9)
-			_rot_bone("wingL", WING_FLAP_AXIS, -wingf)
-			_rot_bone("wingR", WING_FLAP_AXIS, wingf)
 		_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 		_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
 		_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)

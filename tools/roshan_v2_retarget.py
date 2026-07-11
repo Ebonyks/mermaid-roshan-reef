@@ -108,27 +108,47 @@ print("[ok] weight-transferred", len(body.vertex_groups), "groups onto the V2 bo
 
 if want_wings:
     # ---- wings: geometry with NO counterpart on the wingless source body.
-    # Distance-to-source classifies them; far verts split L/R by x sign.
+    # Seeds = far-from-source verts; regions grow along edges to the full
+    # membranes; wings are RIGID plates (playtest: falloff weights curved
+    # like rubber) hinged at their attachment seams.
     from mathutils.bvhtree import BVHTree
+    import mathutils as _mu
     dg0 = bpy.context.evaluated_depsgraph_get()
     bvh = BVHTree.FromObject(src, dg0)
     src_inv = src.matrix_world.inverted()
     h = (omax.z - omin.z)
     thresh = h * 0.055
-    wing_all = []
     z_floor = omin.z + h * 0.55   # wings live on the UPPER body: keeps the
     # coiled fairy tail (far from the straight source tail) out of the wings
-    for v in body.data.vertices:
-        w = body.matrix_world @ v.co
-        if w.z < z_floor:
-            continue
-        loc = src_inv @ w
-        hit = bvh.find_nearest(loc)
-        if hit[0] is not None and (hit[0] - loc).length > thresh:
-            wing_all.append((v.index, w.x))
-    # 2-means on x separates the wings even when the model is off-centre or
-    # the wings hold unequal vertex counts (median split skewed the pivots)
-    xs = [x for _, x in wing_all]
+    adj = {}
+    for e in body.data.edges:
+        a, b2 = e.vertices
+        adj.setdefault(a, []).append(b2)
+        adj.setdefault(b2, []).append(a)
+    dist_cache = {}
+    def body_dist(i):
+        if i not in dist_cache:
+            loc = src_inv @ (body.matrix_world @ body.data.vertices[i].co)
+            hit = bvh.find_nearest(loc)
+            dist_cache[i] = (hit[0] - loc).length if hit[0] is not None else 0.0
+        return dist_cache[i]
+    def vz(i):
+        return (body.matrix_world @ body.data.vertices[i].co).z
+    seeds = [v.index for v in body.data.vertices
+             if vz(v.index) >= z_floor and body_dist(v.index) > thresh]
+    region = set(seeds)
+    frontier = list(seeds)
+    while frontier:
+        nxt = []
+        for i in frontier:
+            for nb in adj.get(i, []):
+                if nb not in region and vz(nb) >= z_floor and body_dist(nb) > thresh * 0.35:
+                    region.add(nb)
+                    nxt.append(nb)
+        frontier = nxt
+    # 2-means on x separates the wings even when the model is off-centre
+    grown = [(i, (body.matrix_world @ body.data.vertices[i].co).x) for i in region]
+    xs = [x for _, x in grown]
     cl, cr = max(xs), min(xs)
     for _ in range(12):
         left = [x for x in xs if abs(x - cl) <= abs(x - cr)]
@@ -137,59 +157,40 @@ if want_wings:
             cl = sum(left) / len(left)
         if right:
             cr = sum(right) / len(right)
-    wingL = [i for i, x in wing_all if abs(x - cl) <= abs(x - cr)]
-    wingR = [i for i, x in wing_all if abs(x - cl) > abs(x - cr)]
-    print(f"[i] wing verts: L={len(wingL)} R={len(wingR)} (thresh {thresh:.3f})")
+    wingL = [i for i, x in grown if abs(x - cl) <= abs(x - cr)]
+    wingR = [i for i, x in grown if abs(x - cl) > abs(x - cr)]
+    print(f"[i] wing verts: L={len(wingL)} R={len(wingR)} ({len(seeds)} seeds grown to {len(region)})")
     assert len(wingL) > 50 and len(wingR) > 50, "wing detection found too little geometry"
-    import mathutils as _mu
-    wl_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingL), _mu.Vector()) / len(wingL)
-    wr_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingR), _mu.Vector()) / len(wingR)
-    # hinge each wing where it MEETS the body (its vert nearest the chest),
-    # tip at its farthest vert - an anatomical pivot, so the same flap angle
-    # sweeps the whole wing instead of pivoting around empty space
+    # bones: hinge at each wing's attachment SEAM centroid (verts bordering
+    # the body), canonical horizontal outward tails so both bones mirror
     bpy.context.view_layer.objects.active = arm
     bpy.ops.object.mode_set(mode="EDIT")
     chest = arm.data.edit_bones.get("chest")
     chest_w = arm.matrix_world @ chest.head
     inv_arm = arm.matrix_world.inverted()
     for bname, verts, sign in (("wingL", wingL, 1.0), ("wingR", wingR, -1.0)):
+        vset = set(verts)
+        seam_pts = [body.matrix_world @ body.data.vertices[i].co for i in verts
+                    if any(nb not in region for nb in adj.get(i, []))]
         pts = [body.matrix_world @ body.data.vertices[i].co for i in verts]
-        hinge = min(pts, key=lambda pt: (pt - chest_w).length)
+        hinge = (sum(seam_pts, _mu.Vector()) / len(seam_pts)) if seam_pts \
+            else min(pts, key=lambda pt: (pt - chest_w).length)
         eb = arm.data.edit_bones.new(bname)
         eb.head = inv_arm @ hinge
-        # canonical HORIZONTAL outward bone (same shape both sides, roll 0):
-        # per-wing local axes then relate by pure mirror, so one calibrated
-        # recipe drives both wings believably
         eb.tail = inv_arm @ (hinge + _mu.Vector((sign * h * 0.28, 0.0, 0.0)))
         eb.roll = 0.0
         eb.parent = chest
     bpy.ops.object.mode_set(mode="OBJECT")
-    # SOFT wing ownership: hard boundaries tore the membrane where detected
-    # outer-wing verts met body-weighted inner-wing verts (playtest: wings
-    # ripped into slabs). Seed weight 1 on detected verts, then diffuse the
-    # weight outward across mesh edges so the wing root BENDS instead.
-    adj = {}
-    for e in body.data.edges:
-        a, b2 = e.vertices
-        adj.setdefault(a, []).append(b2)
-        adj.setdefault(b2, []).append(a)
+    # rigid ownership inside, one blended ring at the seam
     for bname, verts in (("wingL", wingL), ("wingR", wingR)):
-        wmap = {i: 1.0 for i in verts}
-        for _ in range(3):
-            frontier = {}
-            for i, wv in list(wmap.items()):
-                for nb in adj.get(i, []):
-                    cand = wv * 0.55
-                    if cand > wmap.get(nb, 0.0) and cand > frontier.get(nb, 0.0):
-                        frontier[nb] = cand
-            wmap.update(frontier)
+        seam = {i for i in verts if any(nb not in region for nb in adj.get(i, []))}
         vg = body.vertex_groups.new(name=bname)
-        for i, wv in wmap.items():
-            # scale existing body weights down so wing + body still sum to 1
+        for i in verts:
+            wv = 0.55 if i in seam else 1.0
             for g in body.data.vertices[i].groups:
                 g.weight = g.weight * (1.0 - wv)
             vg.add([i], wv, "REPLACE")
-    print(f"[ok] wingL/wingR soft-weighted ({len(wingL)}/{len(wingR)} seeds + 3-ring falloff)")
+    print("[ok] rigid wings hinged at attachment seams, seam ring blended")
 
 for ob in old_meshes:
     bpy.data.objects.remove(ob, do_unlink=True)
