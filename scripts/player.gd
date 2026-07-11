@@ -451,6 +451,96 @@ func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
 	var base: Transform3D = rest[bname]
 	skel.set_bone_pose_rotation(bi, base.basis.get_rotation_quaternion() * Quaternion(axis, angle))
 
+# ---- playground choreography (Sky Lagoon toy play-moments) ----
+# While a play-moment runs, _process() returns early (the toy_play gate), so
+# the lagoon's _tick_toys is the single writer for every bone and calls this
+# once per frame. Same one-axis-per-bone idiom as the swim + the verb layer.
+func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
+	if skel == null:
+		return
+	# baseline life so she never freezes stiff: hair sway + a breath of head
+	_rot_bone("hair1", Vector3.BACK, sin(t * 2.1 + 0.8) * 0.05)
+	_rot_bone("hair2", Vector3.BACK, sin(t * 2.1 + 0.25) * 0.07)
+	_rot_bone("hair3", Vector3.BACK, sin(t * 2.1 - 0.35) * 0.09)
+	match kind:
+		"swing":
+			# both hands raised forward at shoulder height onto the chains
+			# (RIGHT is the proven forward-raise axis on this rig — diagonal
+			# axes twist unpredictably); chest, head and tail pump WITH the
+			# arc (aux = rope angle) like a kid working the swing
+			_rot_bone("armU", Vector3.RIGHT, -1.35)
+			_rot_bone("armU2", Vector3.RIGHT, -1.35)
+			_rot_bone("armF", Vector3.RIGHT, -0.5)
+			_rot_bone("armF2", Vector3.RIGHT, -0.5)
+			_rot_bone("chest", Vector3.RIGHT, -aux * 0.3)
+			_rot_bone("neck", Vector3.RIGHT, -aux * 0.15)
+			_rot_bone("head", Vector3.RIGHT, -aux * 0.25)
+			_tail_curl(0.35 - aux * 0.85)   # tail kicks out on the forward arc, tucks on the back
+		"climb":
+			# one hop up a slide step (aux = hop phase 0..1): the tail coils
+			# on the step, springs mid-hop while both arms swing up together
+			var push: float = sin(clampf(aux, 0.0, 1.0) * PI)
+			_rot_bone("armU", Vector3.RIGHT, -0.35 - push * 1.15)
+			_rot_bone("armU2", Vector3.RIGHT, -0.35 - push * 1.15)
+			_rot_bone("armF", Vector3.RIGHT, -0.25 - push * 0.45)
+			_rot_bone("armF2", Vector3.RIGHT, -0.25 - push * 0.45)
+			_rot_bone("chest", Vector3.RIGHT, 0.22 - push * 0.34)
+			_rot_bone("head", Vector3.RIGHT, -0.3)   # eyes on the top of the slide
+			_tail_curl(0.9 * (1.0 - push))
+		"ride":
+			# at the lip (aux~0) she's ducked under the hood, hands forward on
+			# the rails; as the chute drops away (aux->1) the arms fly up: wheee
+			var duck: float = 1.0 - smoothstep(0.1, 0.45, clampf(aux, 0.0, 1.0))
+			_rot_bone("armU", Vector3.RIGHT, -1.9 + duck * 1.1)
+			_rot_bone("armU2", Vector3.RIGHT, -1.9 + duck * 1.1)
+			_rot_bone("armF", Vector3.RIGHT, -0.35 - duck * 0.25)
+			_rot_bone("armF2", Vector3.RIGHT, -0.35 - duck * 0.25)
+			_rot_bone("chest", Vector3.RIGHT, 0.18 + duck * 0.35)
+			_rot_bone("head", Vector3.RIGHT, -0.22 + duck * 0.6)
+			_tail_curl(0.65)
+		"land":
+			# the arms float back down after the ride (aux = 0..1 settle)
+			var dn: float = 1.0 - clampf(aux, 0.0, 1.0)
+			_rot_bone("armU", Vector3.RIGHT, -1.9 * dn + 0.18 * (1.0 - dn))
+			_rot_bone("armU2", Vector3.RIGHT, -1.9 * dn + 0.18 * (1.0 - dn))
+			_rot_bone("armF", Vector3.RIGHT, -0.35 * dn + 0.22 * (1.0 - dn))
+			_rot_bone("armF2", Vector3.RIGHT, -0.35 * dn + 0.22 * (1.0 - dn))
+			_rot_bone("chest", Vector3.RIGHT, 0.18 * dn)
+			_tail_curl(0.5 * dn)
+		"dig":
+			# kneeling over the sand, watching her hands, arms alternating
+			# scoop strokes (aux = dig phase in radians; each half-cycle is
+			# one scoop — the tick throws a sand puff on the same beat)
+			var dl: float = maxf(sin(aux), 0.0)
+			var dr: float = maxf(-sin(aux), 0.0)
+			_rot_bone("chest", Vector3.RIGHT, 0.42)
+			_rot_bone("neck", Vector3.RIGHT, 0.18)
+			_rot_bone("head", Vector3.RIGHT, 0.3)
+			_rot_bone("armU", Vector3.RIGHT, 0.45 - dl * 1.55)
+			_rot_bone("armF", Vector3.RIGHT, -0.35 - dl * 0.55)
+			_rot_bone("armU2", Vector3.RIGHT, 0.45 - dr * 1.55)
+			_rot_bone("armF2", Vector3.RIGHT, -0.35 - dr * 0.55)
+			_tail_curl(0.85)   # plopped into the sand, tail tucked under
+		"seat":
+			# seated grip for the carousel / spring pony / seesaw: hands
+			# forward on the bar, tail hooked under the seat (aux = rock)
+			_rot_bone("armU", Vector3.RIGHT, -0.8)
+			_rot_bone("armU2", Vector3.RIGHT, -0.8)
+			_rot_bone("armF", Vector3.RIGHT, -0.6)
+			_rot_bone("armF2", Vector3.RIGHT, -0.6)
+			_rot_bone("chest", Vector3.RIGHT, 0.1 + aux * 0.18)
+			_rot_bone("head", Vector3.RIGHT, -0.06 + aux * 0.12)
+			_tail_curl(0.8)
+
+func _tail_curl(amt: float) -> void:
+	# curl the tail forward/under (positive amt grows down the chain — the
+	# mermaid "sitting" shape, same direction the sleep verb uses); negative
+	# kicks it out behind her. 0 leaves the swim rest pose.
+	for i in range(8):
+		_rot_bone("tail%d" % (i + 1), Vector3.RIGHT, -amt * (0.10 + 0.55 * float(i) / 7.0))
+	_rot_bone("finTop", Vector3.RIGHT, -amt * 0.35)
+	_rot_bone("finBot", Vector3.RIGHT, -amt * 0.35)
+
 func _process(delta: float) -> void:
 	var _m0: Node = get_parent()
 	if "intro_active" in _m0 and _m0.intro_active:

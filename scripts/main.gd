@@ -2703,10 +2703,12 @@ func _toy_anim(node: Node3D, name: String) -> void:
 		var tw2 := create_tween().set_loops()
 		tw2.tween_property(node, "rotation:x", 0.07, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tw2.tween_property(node, "rotation:x", -0.05, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		node.set_meta("toy_tw", tw2)   # paused while Roshan rides — she drives the rock herself
 	elif name.contains("seesaw"):
 		var tw3 := create_tween().set_loops()
 		tw3.tween_property(node, "rotation:z", 0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tw3.tween_property(node, "rotation:z", -0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		node.set_meta("toy_tw", tw3)   # paused while Roshan bounces the open seat
 	elif name.contains("swing"):
 		_wind_sway(node)
 
