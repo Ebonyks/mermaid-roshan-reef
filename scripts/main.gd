@@ -98,6 +98,7 @@ var kart_ground := "terrain"    # which variant the current race is ("float" = r
 var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd)
 var galaxy_unlocked := false
 var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
+var bwd_done := false              # the 7 butterflies are home FOREVER (owner: never repeat the quest)
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content

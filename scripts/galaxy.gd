@@ -137,6 +137,17 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_hud()
 	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
 	_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
+	# owner 2026-07-11: the 7-butterfly quest happens ONCE. On return visits
+	# the babies are already home and the castle stands open — a playground,
+	# not a chore. (No grand star: that prize was already won.)
+	if _main != null and "bwd_done" in _main and _main.bwd_done:
+		_shards_got = SHARDS
+		_lbl_hint.text = "Welcome back! The butterflies are safe — Rosalina's castle is open!"
+		if _lbl_shards != null:
+			_lbl_shards.text = "🦋 %d / %d" % [SHARDS, SHARDS]
+		if _gate_lbl != null and is_instance_valid(_gate_lbl):
+			_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
+			_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
 	var tw := create_tween()
 	tw.tween_interval(3.0)
 	tw.tween_callback(func():
@@ -1692,6 +1703,8 @@ func _win() -> void:
 		_main.pearl_count += 40
 		if "fairy_skin_unlocked" in _main:
 			_main.fairy_skin_unlocked = true   # the Butterfly World prize
+		if "bwd_done" in _main:
+			_main.bwd_done = true   # the butterflies stay home forever
 		if _main.has_method("_write_save"):
 			_main._write_save()
 	_chime(1.0)
