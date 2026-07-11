@@ -1391,7 +1391,9 @@ func _aq(model: String) -> PackedScene:
 # MR2.0: pack name -> painted GEN2 prop. Every mapped piece spawns the
 # family-style Meshy model (footprint-fit, cel+outline, settled); the pack
 # GLB remains the strangler-fig fallback if a file is ever missing.
-const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
+# CURATION HOLD: coral1.glb baked with a FACE (flaw F2 - faces only on
+# creatures); Coral1 maps to coral4 until the role is regenerated.
+const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral4", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
 	"Rock6": "rock", "Rock7": "rock1", "Rock8": "rock2", "Rock9": "rock3", "Rock10": "rock4", "Rock11": "rock5"}
 
