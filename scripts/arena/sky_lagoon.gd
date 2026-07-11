@@ -450,7 +450,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		m.add_child(crest); m.game_nodes.append(crest)
 	# big arched door (starts closed)
 	var door = m._l2_box(c + Vector3(0, 12.0, 12.4), Vector3(16.0, 24.0, 1.2), Color(0.62, 0.42, 0.26), 0.0)
-	door.material_override = m._up_mat("wood", 0.06, Color(0.85, 0.6, 0.4))   # weathered timber door
+	door.material_override = m._up_mat("door", 0.045, Color(1, 1, 1))   # GEN2 castle-door planks + iron strapwork (audit: wood read as the road)
 	m.l2_door = door
 	m.g["door_closed_y"] = door.position.y
 	m.g["entry"] = door.position
