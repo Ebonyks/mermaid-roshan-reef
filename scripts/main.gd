@@ -2698,6 +2698,8 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 		_toon_tile(inst, "castle", 0.14, Color(0.98, 0.95, 1.0))   # painted masonry
 	wrap.add_child(inst)
 	wrap.position = pos
+	if KIT_GEN2.has(name):
+		_toy_anim(wrap, name)   # the toys move whichever art they wear
 	wrap.rotation.y = yrot
 	add_child(wrap)
 	game_nodes.append(wrap)
