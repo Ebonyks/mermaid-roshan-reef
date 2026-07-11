@@ -193,7 +193,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var pgy: float = _lagoon_local(pgx, pgz)
 		var tgt: float = float(row[2])
 		var tyrot: float = float(row[3])
-		var tnode := m._kit(row[0], o + Vector3(pgx, pgy - 0.3, pgz), tgt, tyrot)
+		var tnode: Node3D = m._kit(row[0], o + Vector3(pgx, pgy - 0.3, pgz), tgt, tyrot)
 		if float(row[4]) > 0.0:
 			m._cyl_solid(o + Vector3(pgx, pgy + float(row[5]), pgz), float(row[4]), float(row[5]), 0.6)
 		var kind: String = String(row[6])
