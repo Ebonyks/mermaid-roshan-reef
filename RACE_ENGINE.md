@@ -13,7 +13,18 @@ AI (who also fire turbo) → podium celebration → pearl payout into the game e
 
 **The core interactive loop:** collecting things charges the TURBO METER; the
 player fires it by tap / SPACE / gamepad-A at a moment of their choosing. Camera
-FOV kicks + pull-back sell the speed.
+FOV and pull-back breathe continuously with speed (boost kicks extra), streak
+particles stream past the lens at high speed, and the horizon leans into carves.
+
+**Handling model (see KART_FEEL.md for the full audit):** progress is
+curvature-coupled — the inside of a bend is genuinely shorter (±18 % cap), so
+the racing line is real and the AI dives for apexes. **SPARKLE DRIFT** is the
+skill ceiling: hold a hard steer into a bend to lock a clean carve line
+(entry hop), charge SILVER → GOLD → RAINBOW tiers, release for turbo; a wall
+scrape spills the charge — the only penalty, no spin-out. Slipstreaming a rival
+tows you (+8 %) and trickles meter. Any input held at GO = ROCKET START. Zero
+input still finishes every race — assists shape the floor, never the ceiling.
+Feel gates run in CI via `scripts/probe_kart_feel.gd`.
 
 A ✕ button (top-right) quits the race at any point before the podium:
 `finish_cb` receives **-1** (no payout, no podium), and main restores the
