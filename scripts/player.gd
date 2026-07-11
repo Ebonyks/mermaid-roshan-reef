@@ -463,6 +463,8 @@ func _process(delta: float) -> void:
 		return   # tucked into bed — the sleep cutscene drives her
 	if "pose_t" in _m0 and float(_m0.pose_t) >= 0.0:
 		return   # trophy pose — hold still for the curtain call!
+	if "toy_play" in _m0 and not (_m0.toy_play as Dictionary).is_empty():
+		return   # she is ON a playground toy — the play moment drives her
 	if "mg_kind" in _m0 and String(_m0.mg_kind) != "":
 		return   # a 2D minigame overlay is up — stick input belongs to IT (snowball rolling!)
 	if "craft_layer" in _m0 and _m0.craft_layer != null:

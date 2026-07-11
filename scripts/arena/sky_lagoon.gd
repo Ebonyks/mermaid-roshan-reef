@@ -176,21 +176,46 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# seesaw, sandbox and a spring horse. Pure toy, no objectives — and the
 	# sandbox stays non-solid on purpose so Roshan can plop right into it.
 	# [name, local pos, footprint, y-rot, solid radius, solid half-height]
+	# owner 2026-07-11: toys sized for ROSHAN (she is ~7 units) so riding them
+	# reads true, and each records a play anchor for the play-moments below
 	var pg: Array = [
-		["play/slide_A", Vector3(78.0, 0, 88.0), 14.0, 0.6, 5.0, 5.0],
-		["play/swing_A_large", Vector3(100.0, 0, 92.0), 14.0, -0.4, 6.0, 5.0],
-		["play/merry_go_round", Vector3(88.0, 0, 108.0), 10.0, 0.0, 5.5, 3.5],
-		["play/seesaw_large", Vector3(74.0, 0, 106.0), 10.0, 1.2, 4.0, 2.5],
-		["play/sandbox_round_decorated", Vector3(92.0, 0, 74.0), 12.0, 0.0, 0.0, 0.0],
-		["play/spring_horse_A", Vector3(104.0, 0, 76.0), 5.0, -1.8, 2.0, 2.5],
+		["play/slide_A", Vector3(78.0, 0, 88.0), 18.0, 0.6, 6.5, 6.5, "slide", 3.0],
+		["play/swing_A_large", Vector3(100.0, 0, 92.0), 18.0, -0.4, 7.5, 6.5, "swing", 3.8],
+		["play/merry_go_round", Vector3(88.0, 0, 108.0), 14.0, 0.0, 7.5, 4.5, "merry", 4.6],
+		["play/seesaw_large", Vector3(74.0, 0, 106.0), 13.0, 1.2, 5.0, 3.2, "seesaw", 3.4],
+		["play/sandbox_round_decorated", Vector3(92.0, 0, 74.0), 15.0, 0.0, 0.0, 0.0, "sandbox", 3.2],
+		["play/spring_horse_A", Vector3(104.0, 0, 76.0), 9.0, -1.8, 3.5, 4.0, "horse", 3.2],
 	]
+	m.g["toys"] = []
 	for row: Array in pg:
 		var pgx: float = (row[1] as Vector3).x
 		var pgz: float = (row[1] as Vector3).z
 		var pgy: float = _lagoon_local(pgx, pgz)
-		m._kit(row[0], o + Vector3(pgx, pgy - 0.3, pgz), float(row[2]), float(row[3]))
+		var tgt: float = float(row[2])
+		var tyrot: float = float(row[3])
+		var tnode := m._kit(row[0], o + Vector3(pgx, pgy - 0.3, pgz), tgt, tyrot)
 		if float(row[4]) > 0.0:
 			m._cyl_solid(o + Vector3(pgx, pgy + float(row[5]), pgz), float(row[4]), float(row[5]), 0.6)
+		var kind: String = String(row[6])
+		var base := o + Vector3(pgx, pgy, pgz)
+		var fwd := Vector3(sin(tyrot), 0, cos(tyrot))
+		var left := Vector3(cos(tyrot), 0, -sin(tyrot))
+		var anchor: Vector3 = base
+		match kind:
+			"swing":
+				anchor = base + Vector3(0, tgt * 0.30, 0)
+			"slide":
+				anchor = base + Vector3(0, tgt * 0.55, 0) - fwd * tgt * 0.18
+			"seesaw":
+				anchor = base + left * tgt * 0.32 + Vector3(0, tgt * 0.16, 0)
+			"sandbox":
+				anchor = base + Vector3(0, 1.6, 0)
+			"merry":
+				anchor = base + Vector3(0, tgt * 0.18, 0)
+			"horse":
+				anchor = base + Vector3(0, tgt * 0.52, 0)
+		(m.g["toys"] as Array).append({"kind": kind, "anchor": anchor, "base": base,
+			"fwd": fwd, "left": left, "tgt": tgt, "node": tnode, "cool": 4.0, "dur": float(row[7])})
 	# park dressing: a fountain plaza beside the path near the spawn, benches
 	# by the pond, and soft hedges lining the grand path (low + non-solid so
 	# neither Roshan nor the audit probe can ever get pinched by decoration)
@@ -750,7 +775,73 @@ func _build_fairy_pond(o: Vector3) -> void:
 	lab.position = c + Vector3(0, 13, 0); m.add_child(lab); m.game_nodes.append(lab)
 
 
+func _tick_toys(delta: float, ppos: Vector3) -> void:
+	# HER PLAYGROUND (owner 2026-07-11): swim close to a toy in the courtyard
+	# and Roshan briefly plays on it - swings, slides, bounces the open seat
+	# of her one-sided seesaw, splashes in the sand, rides the carousel and
+	# the spring pony. Cosmetic, short, cooled down; never during a quest
+	# moment (hall phase) and never for the headless probes (determinism).
+	var tp: Dictionary = m.toy_play
+	if not tp.is_empty():
+		tp["t"] = float(tp["t"]) + delta
+		var tt: float = float(tp["t"])
+		var kind: String = String(tp["kind"])
+		var toy: Dictionary = tp["toy"]
+		var a: Vector3 = toy["anchor"]
+		var tgt: float = float(toy["tgt"])
+		var fwd: Vector3 = toy["fwd"]
+		var pl: Node3D = m.player
+		match kind:
+			"swing":
+				var th: float = 0.55 * sin(tt * 2.4)
+				var piv: Vector3 = a + Vector3(0, tgt * 0.14, 0)
+				var arm: float = tgt * 0.30
+				pl.position = piv + fwd * sin(th) * arm + Vector3(0, -cos(th) * arm, 0)
+			"slide":
+				var f: float = clampf(tt / float(tp["dur"]), 0.0, 1.0)
+				var top: Vector3 = a
+				var bot: Vector3 = Vector3(a.x, float(toy["base"].y) + 1.2, a.z) + fwd * tgt * 0.42
+				pl.position = top.lerp(bot, f * f)
+				if f > 0.85 and not bool(tp.get("cheered", false)):
+					tp["cheered"] = true
+					if pl.has_method("play_verb"):
+						pl.play_verb("cheer")
+					m._sparkle_burst(pl.position, Color(0.9, 0.95, 1.0))
+			"seesaw":
+				pl.position = a + Vector3(0, absf(sin(tt * 3.2)) * 2.2, 0)
+			"sandbox":
+				pl.position = a + Vector3(0, absf(sin(tt * 4.0)) * 1.3, 0)
+				if fmod(tt, 1.6) < delta:
+					m._sparkle_burst(pl.position - Vector3(0, 1.0, 0), Color(1.0, 0.9, 0.6))
+			"merry":
+				var node: Node3D = toy["node"]
+				var ang: float = (node.rotation.y if is_instance_valid(node) else tt) + float(tp.get("ph", 0.0))
+				pl.position = Vector3(float(toy["base"].x), a.y + tgt * 0.1, float(toy["base"].z)) + Vector3(sin(ang), 0, cos(ang)) * tgt * 0.36
+			"horse":
+				pl.position = a + Vector3(0, 0.5 * absf(sin(tt * 3.4)), 0)
+		if tt >= float(tp["dur"]):
+			toy["cool"] = 24.0
+			m.toy_play = {}
+			if "vel" in pl:
+				pl.vel = Vector3.ZERO
+		return
+	if String(m.g.get("phase", "")) != "court" or DisplayServer.get_name() == "headless":
+		return
+	for toy in (m.g.get("toys", []) as Array):
+		toy["cool"] = maxf(0.0, float(toy["cool"]) - delta)
+		if float(toy["cool"]) <= 0.0 and ppos.distance_to(toy["anchor"]) < 6.5:
+			var ph := 0.0
+			if String(toy["kind"]) == "merry" and is_instance_valid(toy["node"]):
+				var dp: Vector3 = ppos - (toy["base"] as Vector3)
+				ph = atan2(dp.x, dp.z) - (toy["node"] as Node3D).rotation.y
+			m.toy_play = {"kind": toy["kind"], "toy": toy, "t": 0.0, "dur": toy["dur"], "ph": ph}
+			if m.player != null and m.player.has_method("play_verb"):
+				m.player.play_verb("giggle")
+			m._sparkle_burst(toy["anchor"], Color(1.0, 0.9, 0.6))
+			break
+
 func _tick_level2(delta: float, ppos: Vector3) -> void:
+	_tick_toys(delta, ppos)
 	if m.mg_kind != "":
 		m._tick_mg2d(delta)
 		return

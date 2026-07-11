@@ -85,6 +85,7 @@ var solids: Array = []
 # walls; cylinder entries are columns. Consulted by player.gd in the arena branch.
 var arena_solids: Array = []
 var arena_zones: Array = []   # y-banded floor/ceil overrides (castle stories)
+var toy_play := {}                # active playground play-moment (drives the player)
 var fade_walls: Array = []   # interior walls that fade out when they block the camera
 var mg_cool := 0.0
 var mg2d_layer: CanvasLayer
