@@ -37,6 +37,19 @@ jobs:
       - name: Import (deadlock-guarded)
         run: timeout 12m godot --headless --import . || (echo "IMPORT FAIL (hang or error)" && exit 1)
 
+      - name: Compile-check every script (real analyzer, catches what parse-only cannot)
+        # probes only compile scripts the run actually loads; lazily-loaded
+        # scripts (galaxy, kart, dev_mode) could still ship inference errors.
+        # --check-only runs Godot's full analyzer per file in project context.
+        run: |
+          FAILED=0
+          while IFS= read -r f; do
+            if ! OUT=$(timeout 60 godot --headless --check-only --script "$f" 2>&1); then
+              echo "COMPILE FAIL: $f"; echo "$OUT" | head -20; FAILED=1
+            fi
+          done < <(find scripts -name '*.gd')
+          exit $FAILED
+
       - name: Run trusted probes
         run: |
           set -o pipefail
