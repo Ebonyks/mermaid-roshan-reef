@@ -25,6 +25,15 @@ jobs:
           unzip -q godot.zip
           sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
 
+      - name: Static gates (parse + Variant-inference lint)
+        # a parse error in main.gd makes every probe idle to its 8m timeout
+        # and the job dies at the 30m ceiling as an opaque 'cancelled' -
+        # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
+        run: |
+          pip install --quiet gdtoolkit==4.*
+          python3 -m gdtoolkit.parser scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
+          python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
+
       - name: Import (deadlock-guarded)
         run: timeout 12m godot --headless --import . || (echo "IMPORT FAIL (hang or error)" && exit 1)
 
@@ -42,6 +51,10 @@ jobs:
             if grep -q "FAIL" "/tmp/$p.out"; then
               echo "PROBE $p reported FAIL"
               FAILED=1
+            fi
+            if grep -qE "Parse Error|Compile Error" "/tmp/$p.out"; then
+              echo "PROBE $p hit a script compile error - aborting gate"
+              exit 1
             fi
           done
           exit $FAILED
