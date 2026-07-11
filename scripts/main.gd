@@ -257,9 +257,7 @@ var treasure_cool := 0.0
 # (The Fairy Mermaid is NOT a wardrobe skin — it is Roshan's look inside the Fairy Pond game.)
 const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
-	{"id": "classic_v2", "label": "Roshan 3D!", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
-	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": "res://assets/characters/skins/fairy_mermaid.png"},
-	{"id": "fairy_v2", "label": "Fairy 3D!", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
+	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
 	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"

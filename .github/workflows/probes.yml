@@ -32,7 +32,7 @@ jobs:
         run: |
           set -o pipefail
           FAILED=0
-          for p in probe_audit probe_passive probe_load probe_mg2d probe_l2 probe_verbs; do
+          for p in probe_audit probe_passive probe_load probe_mg2d probe_l2 probe_verbs probe_skins; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "SKIP: scripts/$p.gd not present"
               continue

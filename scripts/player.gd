@@ -140,11 +140,11 @@ var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
-const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb", "fairy_v2": "res://assets/characters/fairy_v2.glb"}
-const SKIN_TIARA_Y := {"classic_v2": 4.0, "fairy_v2": 4.0}   # V2 sculpts fill the old halo height
+const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy_v2.glb"}
+const SKIN_TIARA_Y := {"huluu": 2.5}   # V2 bodies are fuller up top; the plushie Huluu keeps the low halo
 
 func _tiara_y() -> float:
-	return float(SKIN_TIARA_Y.get(skin_id, 2.5))
+	return float(SKIN_TIARA_Y.get(skin_id, 4.0))
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -155,14 +155,18 @@ var skin_t := 0.0
 
 func _ready() -> void:
 	position = Vector3(0, 26, 0)
-	var glb: PackedScene = load("res://assets/characters/roshan.glb") as PackedScene
+	# THE 3D Roshan (owner 2026-07-11: the stuffed-animal-era model is gone
+	# from the game; roshan.glb remains on disk only as the rig donor for
+	# tools/roshan_v2_retarget.py)
+	var glb: PackedScene = load("res://assets/characters/roshan_v2.glb") as PackedScene
+	if glb == null:
+		glb = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
 		inst.scale = Vector3.ONE * 1.55
 		inst.position.y = -1.6
 		add_child(inst)
 		model_root = inst
-		_upgrade_texture(inst)
 		skel = _find_skeleton(inst)
 		_map_bones()
 		_roshan_skel = skel
@@ -260,21 +264,19 @@ func set_skin(id: String, tex_path: String) -> void:
 		# bone names, so the procedural swim drives her directly
 		if not skin_models.has(id):
 			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
-			if id == "classic_v2" or id == "fairy_v2":
-				# the V2 hero bodies are exported at roshan.glb's world size,
-				# so they take the classic transform, not the plushie one.
-				# NO _upgrade_texture here: that helper swaps in the OLD
-				# model's atlas, which is UV-gibberish on the Meshy meshes
-				# (playtest: Bluey backpack painted across her chest).
+			if id == "fairy":
+				# fairy_v2 is exported at Roshan's world size, so it takes
+				# the classic transform, not the plushie one. NO
+				# _upgrade_texture: that helper swaps in the OLD atlas,
+				# which is UV-gibberish on Meshy meshes.
 				mdl.scale = Vector3.ONE * 1.55
 				mdl.position.y = -1.6
 				var mn0: Node = get_parent()
 				if mn0 != null and mn0.has_method("_toonify"):
-					# flat toon response so world lighting reads the same on
-					# her as on everything else (playtest: she looked glossy)
+					# flat toon response = world lighting reads the same on
+					# her as on everything else
 					mn0._toonify(mdl)
-				if id == "fairy_v2":
-					_attach_wing_cards(mdl)
+				_attach_wing_cards(mdl)
 			else:
 				mdl.scale = Vector3.ONE * 3.9
 				mdl.position.y = -3.4
