@@ -141,7 +141,7 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
 const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb", "fairy_v2": "res://assets/characters/fairy_v2.glb"}
-const WING_FLAP_AXIS := Vector3.BACK   # calibration: bone-local Z sweeps the wings (retarget tool print)
+const WING_FLAP_AXIS := Vector3.UP   # calibration recipe: bone-local Y, wingL sign -, wingR sign + (mirrored canonical bones)
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -224,10 +224,12 @@ func set_skin(id: String, tex_path: String) -> void:
 			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
 			if id == "classic_v2" or id == "fairy_v2":
 				# the V2 hero bodies are exported at roshan.glb's world size,
-				# so they take the classic transform, not the plushie one
+				# so they take the classic transform, not the plushie one.
+				# NO _upgrade_texture here: that helper swaps in the OLD
+				# model's atlas, which is UV-gibberish on the Meshy meshes
+				# (playtest: Bluey backpack painted across her chest).
 				mdl.scale = Vector3.ONE * 1.55
 				mdl.position.y = -1.6
-				_upgrade_texture(mdl)
 			else:
 				mdl.scale = Vector3.ONE * 3.9
 				mdl.position.y = -3.4
@@ -591,9 +593,9 @@ func _process(delta: float) -> void:
 		# fairy wings (fairy_v2 skin): quick flutter, faster when she swims fast.
 		# WING_FLAP_AXIS comes from the retarget tool's calibration pass.
 		if bone_idx.get("wingL", -1) >= 0:
-			var wingf: float = 0.5 + sin(swim_phase * 3.4) * (0.35 + amp * 0.8)
-			_rot_bone("wingL", WING_FLAP_AXIS, wingf)
-			_rot_bone("wingR", WING_FLAP_AXIS, -wingf)
+			var wingf: float = 0.35 + sin(swim_phase * 3.4) * (0.55 + amp * 0.9)
+			_rot_bone("wingL", WING_FLAP_AXIS, -wingf)
+			_rot_bone("wingR", WING_FLAP_AXIS, wingf)
 		_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 		_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
 		_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)

@@ -126,36 +126,70 @@ if want_wings:
         hit = bvh.find_nearest(loc)
         if hit[0] is not None and (hit[0] - loc).length > thresh:
             wing_all.append((v.index, w.x))
-    # split at the wing cloud's own median: Meshy centres the WHOLE model, so
-    # the coiled tail biases x=0 away from the line between the wings
-    xs = sorted(x for _, x in wing_all)
-    mid_x = xs[len(xs) // 2]
-    wingL = [i for i, x in wing_all if x > mid_x]
-    wingR = [i for i, x in wing_all if x <= mid_x]
+    # 2-means on x separates the wings even when the model is off-centre or
+    # the wings hold unequal vertex counts (median split skewed the pivots)
+    xs = [x for _, x in wing_all]
+    cl, cr = max(xs), min(xs)
+    for _ in range(12):
+        left = [x for x in xs if abs(x - cl) <= abs(x - cr)]
+        right = [x for x in xs if abs(x - cl) > abs(x - cr)]
+        if left:
+            cl = sum(left) / len(left)
+        if right:
+            cr = sum(right) / len(right)
+    wingL = [i for i, x in wing_all if abs(x - cl) <= abs(x - cr)]
+    wingR = [i for i, x in wing_all if abs(x - cl) > abs(x - cr)]
     print(f"[i] wing verts: L={len(wingL)} R={len(wingR)} (thresh {thresh:.3f})")
     assert len(wingL) > 50 and len(wingR) > 50, "wing detection found too little geometry"
     import mathutils as _mu
     wl_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingL), _mu.Vector()) / len(wingL)
     wr_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingR), _mu.Vector()) / len(wingR)
+    # hinge each wing where it MEETS the body (its vert nearest the chest),
+    # tip at its farthest vert - an anatomical pivot, so the same flap angle
+    # sweeps the whole wing instead of pivoting around empty space
     bpy.context.view_layer.objects.active = arm
     bpy.ops.object.mode_set(mode="EDIT")
     chest = arm.data.edit_bones.get("chest")
+    chest_w = arm.matrix_world @ chest.head
     inv_arm = arm.matrix_world.inverted()
-    for bname, cen in (("wingL", wl_c), ("wingR", wr_c)):
+    for bname, verts, sign in (("wingL", wingL, 1.0), ("wingR", wingR, -1.0)):
+        pts = [body.matrix_world @ body.data.vertices[i].co for i in verts]
+        hinge = min(pts, key=lambda pt: (pt - chest_w).length)
         eb = arm.data.edit_bones.new(bname)
-        root = _mu.Vector((0.0, cen.y, cen.z)) * 0.35 + _mu.Vector((cen.x * 0.1, cen.y * 0.65, cen.z * 0.65))
-        eb.head = inv_arm @ _mu.Vector((cen.x * 0.15, cen.y, cen.z))
-        eb.tail = inv_arm @ cen
+        eb.head = inv_arm @ hinge
+        # canonical HORIZONTAL outward bone (same shape both sides, roll 0):
+        # per-wing local axes then relate by pure mirror, so one calibrated
+        # recipe drives both wings believably
+        eb.tail = inv_arm @ (hinge + _mu.Vector((sign * h * 0.28, 0.0, 0.0)))
+        eb.roll = 0.0
         eb.parent = chest
     bpy.ops.object.mode_set(mode="OBJECT")
+    # SOFT wing ownership: hard boundaries tore the membrane where detected
+    # outer-wing verts met body-weighted inner-wing verts (playtest: wings
+    # ripped into slabs). Seed weight 1 on detected verts, then diffuse the
+    # weight outward across mesh edges so the wing root BENDS instead.
+    adj = {}
+    for e in body.data.edges:
+        a, b2 = e.vertices
+        adj.setdefault(a, []).append(b2)
+        adj.setdefault(b2, []).append(a)
     for bname, verts in (("wingL", wingL), ("wingR", wingR)):
+        wmap = {i: 1.0 for i in verts}
+        for _ in range(3):
+            frontier = {}
+            for i, wv in list(wmap.items()):
+                for nb in adj.get(i, []):
+                    cand = wv * 0.55
+                    if cand > wmap.get(nb, 0.0) and cand > frontier.get(nb, 0.0):
+                        frontier[nb] = cand
+            wmap.update(frontier)
         vg = body.vertex_groups.new(name=bname)
-        # rigid wings: exclusive ownership so the flap cannot fight body weights
-        for g in body.vertex_groups:
-            if g.name != bname:
-                g.remove(verts)
-        vg.add(verts, 1.0, "REPLACE")
-    print("[ok] wingL/wingR bones added (parent: chest), wing verts exclusively weighted")
+        for i, wv in wmap.items():
+            # scale existing body weights down so wing + body still sum to 1
+            for g in body.data.vertices[i].groups:
+                g.weight = g.weight * (1.0 - wv)
+            vg.add([i], wv, "REPLACE")
+    print(f"[ok] wingL/wingR soft-weighted ({len(wingL)}/{len(wingR)} seeds + 3-ring falloff)")
 
 for ob in old_meshes:
     bpy.data.objects.remove(ob, do_unlink=True)
@@ -221,40 +255,40 @@ moved = abs(tip_before - tip_after)
 print(f"[{'ok' if moved > 0.02 else '!'}] deform check: tail tip moved {moved:.3f}")
 
 if want_wings:
-    # ---- calibrate the flap axis: which bone-local rotation sweeps the wing
-    # forward/back (world Y)? That axis goes into player.gd.
+    # ---- calibrate PER WING: which local axis+sign sweeps THAT wing toward
+    # world +Y (forward)? The recipe below is copied verbatim into player.gd.
     import mathutils as _mu
-    wing_ids = [v.index for v in body.data.vertices
-                if body.vertex_groups["wingL"].index in [g.group for g in v.groups]]
-    def wing_cen():
+    def cluster_cen(gname):
+        gi = body.vertex_groups[gname].index
+        ids = [v.index for v in body.data.vertices if gi in [g.group for g in v.groups]]
         dgx = bpy.context.evaluated_depsgraph_get()
         evx = body.evaluated_get(dgx)
-        return sum(((evx.matrix_world @ evx.data.vertices[i].co) for i in wing_ids), _mu.Vector()) / len(wing_ids)
-    base_c = wing_cen()
-    best = None
-    for axis in ("X", "Y", "Z"):
-        pb = arm.pose.bones["wingL"]
-        pb.rotation_mode = "QUATERNION"
-        pb.rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if axis=="X" else 0, 1 if axis=="Y" else 0, 1 if axis=="Z" else 0)), 0.6)
-        d = wing_cen() - base_c
-        pb.rotation_quaternion = _mu.Quaternion()
-        print(f"[i] flap axis {axis}: wing centroid moved dx={d.x:.3f} dy={d.y:.3f} dz={d.z:.3f}")
-        score = abs(d.y)
-        if best is None or score > best[1]:
-            best = (axis, score)
-    print(f"[ok] FLAP AXIS: local {best[0]} (world-Y sweep {best[1]:.3f}) — use this in player.gd")
-    pb = arm.pose.bones["wingL"]
-    pb.rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if best[0]=="X" else 0, 1 if best[0]=="Y" else 0, 1 if best[0]=="Z" else 0)), 0.7)
-    arm.pose.bones["wingR"].rotation_mode = "QUATERNION"
-    arm.pose.bones["wingR"].rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if best[0]=="X" else 0, 1 if best[0]=="Y" else 0, 1 if best[0]=="Z" else 0)), -0.7)
+        return sum(((evx.matrix_world @ evx.data.vertices[i].co) for i in ids), _mu.Vector()) / len(ids), ids
+    recipe = {}
+    for bname in ("wingL", "wingR"):
+        base_c, _ids = cluster_cen(bname)
+        best = None
+        for axis, vec in (("X", (1, 0, 0)), ("Y", (0, 1, 0)), ("Z", (0, 0, 1))):
+            for sgn in (1.0, -1.0):
+                pb = arm.pose.bones[bname]
+                pb.rotation_mode = "QUATERNION"
+                pb.rotation_quaternion = _mu.Quaternion(_mu.Vector(vec), 0.5 * sgn)
+                c2, _ = cluster_cen(bname)
+                pb.rotation_quaternion = _mu.Quaternion()
+                d = c2 - base_c
+                if best is None or d.y > best[0]:
+                    best = (d.y, axis, sgn, d)
+        recipe[bname] = best
+        print(f"[ok] {bname} RECIPE: local {best[1]} sign {best[2]:+.0f} (dy {best[0]:.3f}, dz {best[3].z:.3f})")
+    # flap preview: both wings swept BACK using the recipe
+    for bname in ("wingL", "wingR"):
+        _, axis, sgn, _ = recipe[bname]
+        vec = {"X": (1, 0, 0), "Y": (0, 1, 0), "Z": (0, 0, 1)}[axis]
+        arm.pose.bones[bname].rotation_quaternion = _mu.Quaternion(_mu.Vector(vec), -0.45 * sgn)
     sc.render.filepath = os.path.join(preview, "flap.png")
     bpy.ops.render.render(write_still=True)
-    # re-export WITH the wing bones baked into the rig
-    bpy.ops.object.mode_set(mode="POSE")
-    for pbx in arm.pose.bones:
-        pbx.rotation_quaternion = _mu.Quaternion()
-        pbx.rotation_euler = (0, 0, 0)
-    bpy.ops.object.mode_set(mode="OBJECT")
+    for bname in ("wingL", "wingR"):
+        arm.pose.bones[bname].rotation_quaternion = _mu.Quaternion()
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.export_scene.gltf(filepath=os.path.join(ROOT, out_glb),
                               export_format="GLB", export_yup=True)
