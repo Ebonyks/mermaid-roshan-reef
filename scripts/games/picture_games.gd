@@ -5,9 +5,9 @@ extends RefCounted
 # xmas, plus the shared mg2d canvas helpers and win/close flow). All
 # state stays on main (m.*); received by reference.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func _mg2d_open(kind: String) -> void:

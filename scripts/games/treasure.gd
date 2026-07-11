@@ -3,9 +3,9 @@ extends RefCounted
 # Phase 7.4: mechanical extraction from main.gd — builder + tick for the
 # treasure minigame. All state stays on main (m.*); received by reference.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func build(fr: Dictionary, origin: Vector3) -> void:

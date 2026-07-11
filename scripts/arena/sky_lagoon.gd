@@ -5,9 +5,9 @@ extends RefCounted
 # pond, courtyard tick). All state stays on main; main delegates through
 # the original entry points, so lagoon_h()/player callers are unchanged.
 
-var m
+var m: ReefMain
 
-func _init(main) -> void:
+func _init(main: ReefMain) -> void:
 	m = main
 
 func _build_pearl_castle(o: Vector3) -> void:
