@@ -61,12 +61,12 @@ func _init() -> void:
 					else:
 						main.melody_pressed = which
 			elif gname == "melody":
-				if String(g.get("stage", "show")) == "input" and react > 1.1:
-					react = 0.0
-					var seq: Array = g["seq"]
-					var idx: int = int(g["input_i"])
-					if idx < seq.size():
-						main.melody_pressed = int(seq[idx])
+				# current melody = swim into the bouncing rainbow orbs
+				for ob in g.get("orbs", []):
+					if not bool(ob["caught"]):
+						var odir: Vector3 = ((ob["node"] as Node3D).position - player.position).normalized()
+						player.vel = odir * 15.0
+						break
 			elif gname == "dolls":
 				var dolls: Array = g.get("dolls", [])
 				if dolls.size() > 0 and main.dolls_catcher != null:
@@ -75,11 +75,11 @@ func _init() -> void:
 						if (d as ColorRect).position.y > lowest.position.y:
 							lowest = d
 					main.dolls_catcher.position.x = lerpf(main.dolls_catcher.position.x, lowest.position.x - 40.0, 0.09)
-			elif gname == "race":
-				var rings: Array = g.get("rings", [])
-				for rg in rings:
-					if not rg["hit"]:
-						var dir3: Vector3 = ((rg["node"] as Node3D).position - player.position).normalized()
+			elif gname == "race" or gname == "treasure":
+				# current race/treasure = touch the sparkle checkpoints in order
+				for cd in g.get("checks", []):
+					if not bool(cd["hit"]):
+						var dir3: Vector3 = ((cd["node"] as Node3D).position - player.position).normalized()
 						player.vel = dir3 * 15.0
 						break
 		# event edge logging

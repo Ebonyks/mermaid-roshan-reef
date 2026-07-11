@@ -230,6 +230,8 @@ func _ready() -> void:
 	_build_slide_portal()
 	_build_pause()
 	_load_save()
+	if first_session:
+		_build_intro()
 
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
@@ -651,7 +653,7 @@ func _build_water() -> void:
 	mi.mesh = pm
 	mi.position.y = WATER_TOP
 	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D caus;\nvoid vertex(){\n\tvec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;\n\tVERTEX.y += sin(TIME*0.9 + wp.x*0.055)*0.9 + cos(TIME*1.25 + wp.z*0.047 + wp.x*0.02)*0.7;\n}\nvoid fragment(){\n\tvec2 w = (MODEL_MATRIX * vec4(VERTEX,1.0)).xz;\n\tvec3 c1 = texture(caus, w*0.012 + vec2(TIME*0.014, TIME*0.008)).rgb;\n\tvec3 c2 = texture(caus, w*0.027 - vec2(TIME*0.011, -TIME*0.016)).rgb;\n\tfloat sparkle = c1.g * c2.g;\n\tvec3 base = vec3(0.16, 0.52, 0.68);\n\tALBEDO = base + sparkle * vec3(0.5, 0.85, 0.9);\n\tEMISSION = vec3(0.10, 0.32, 0.42) + sparkle * vec3(0.65, 0.95, 1.0) * 0.9;\n\tALPHA = 0.42 + sparkle * 0.25;\n}"
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D caus;\nvoid vertex(){\n\tvec3 wp = (MODEL_MATRIX * vec4(VERTEX,1.0)).xyz;\n\tVERTEX.y += sin(TIME*0.9 + wp.x*0.055)*0.9 + cos(TIME*1.25 + wp.z*0.047 + wp.x*0.02)*0.7;\n}\nvoid fragment(){\n\tvec2 w = (INV_VIEW_MATRIX * vec4(VERTEX,1.0)).xz;\n\tvec3 c1 = texture(caus, w*0.012 + vec2(TIME*0.014, TIME*0.008)).rgb;\n\tvec3 c2 = texture(caus, w*0.027 - vec2(TIME*0.011, -TIME*0.016)).rgb;\n\tfloat sparkle = c1.g * c2.g;\n\tvec3 base = vec3(0.16, 0.52, 0.68);\n\tALBEDO = base + sparkle * vec3(0.5, 0.85, 0.9);\n\tEMISSION = vec3(0.10, 0.32, 0.42) + sparkle * vec3(0.65, 0.95, 1.0) * 0.9;\n\tALPHA = 0.42 + sparkle * 0.25;\n}"
 	var mat := ShaderMaterial.new()
 	mat.shader = sh
 	mat.set_shader_parameter("caus", load("res://assets/terrain/caustics.png"))
@@ -1126,14 +1128,8 @@ func _build_aquatic_creatures() -> void:
 		if inst == null:
 			continue
 		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU})
-	# player-crafted fish from the Crafting Studio (persist via save)
-	for cf in custom_fish:
-		if (cf as Array).size() < 6:
-			continue
-		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]))
-		add_child(cfn)
-		flora_nodes.append(cfn)
-		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU})
+	# (player-crafted fish spawn in _spawn_custom_fish, AFTER the save loads —
+	# this builder runs before _load_save, so custom_fish is always empty here)
 
 func _tick_aquatic(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
@@ -1434,6 +1430,7 @@ func _load_save() -> void:
 	pearl_count = int(save_data.get("pearls", 0))
 	custom_fish = save_data.get("custom_fish", [])
 	custom_friends = save_data.get("custom_friends", [])
+	_spawn_custom_fish()
 	skin_id = String(save_data.get("skin", "classic"))
 	_apply_skin()
 	var won_d: Dictionary = save_data.get("won", {})
@@ -1461,6 +1458,18 @@ func _write_save() -> void:
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(save_data))
+
+func _spawn_custom_fish() -> void:
+	# player-crafted fish from the Crafting Studio, spawned once the save is
+	# loaded (matches the vis-range treatment _apply_quality gives flora)
+	for cf in custom_fish:
+		if (cf as Array).size() < 6:
+			continue
+		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]))
+		add_child(cfn)
+		flora_nodes.append(cfn)
+		_set_vis_range(cfn, 150.0 if quality == "speedy" else 0.0)
+		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU})
 
 func _add_won_star(fr: Dictionary) -> void:
 	if fr.has("star"):
@@ -2464,15 +2473,20 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			return
 	# the rainbow gateway always takes you back to the ocean
 	mg_cool = maxf(0.0, mg_cool - delta)
-	if mg_cool <= 0.0 and mg_kind == "":
-		for wp in wall_pics:
-			var wpp: Vector3 = wp["pos"]
-			if Vector2(wpp.x - ppos.x, wpp.z - ppos.z).length() < 7.0 and absf(wpp.y - ppos.y) < 9.0:
-				if String(wp["art"]) == "p_slide":
-					_l2_start_slide()
-				else:
-					_mg2d_open(String(PIC_GAME[String(wp["art"])]))
-				return
+	for wp in wall_pics:
+		var wpp: Vector3 = wp["pos"]
+		var pdist2: float = Vector2(wpp.x - ppos.x, wpp.z - ppos.z).length()
+		if pdist2 > 10.0:
+			wp["armed"] = true   # re-arm only after the child clearly steps away (hysteresis)
+			continue
+		if pdist2 < 7.0 and absf(wpp.y - ppos.y) < 9.0 \
+				and mg_cool <= 0.0 and mg_kind == "" and bool(wp.get("armed", true)):
+			wp["armed"] = false
+			if String(wp["art"]) == "p_slide":
+				_l2_start_slide()
+			else:
+				_mg2d_open(String(PIC_GAME[String(wp["art"])]))
+			return
 	if not l2_open:
 		hud_game.text = "Dream Stars: %d / 3  -  follow the arrow!  (or touch a picture to play!)" % got
 	else:
@@ -4031,6 +4045,8 @@ func _finish_level2() -> void:
 
 func _do_finish_level2() -> void:
 	level2_finishing = false
+	player.cam_back = 16.0   # restore the outdoor chase camera (tightened for the hall)
+	player.cam_high = 6.5
 	for i in range(10):
 		_sparkle_burst(player.position + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 	level2_done_once = true
@@ -5141,7 +5157,7 @@ func _start_game(fr: Dictionary) -> void:
 		g["lamb"] = lamb
 		_decorate_lamb_meadow(origin)
 		_seek_hide()
-		_melody_buttons_show(false)
+		_melody_buttons_show(true)   # the tap-a-color diamond IS the touch/mouse input for seek
 		show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 	elif game == "race":
 		g["timer"] = 999.0
@@ -5989,7 +6005,7 @@ func _melody_buttons_show(on: bool) -> void:
 		cl2.layer = 5
 		add_child(cl2)
 		cl2.add_child(melody_ui)
-		var center := Vector2(1100, 540)
+		var center := Vector2(1080, 330)   # above the touch JUMP button (bottom-right) so they never overlap
 		var offs := [Vector2(0, 105), Vector2(105, 0), Vector2(-105, 0), Vector2(0, -105)]   # A B X Y diamond
 		var labels := ["A", "B", "X", "Y"]
 		for i in range(4):
@@ -6076,7 +6092,9 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		var wet: bool = landing.x - ARENA_POS.x > 8.2
 		(arrow.material_override as StandardMaterial3D).albedo_color = Color(1.0, 0.3, 0.3) if wet else Color(0.4, 1.0, 0.5)
 		(arrow.material_override as StandardMaterial3D).emission = (Color(1.0, 0.25, 0.25) if wet else Color(0.3, 1.0, 0.45)) * 0.9
-		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (touch_ui != null and touch_ui.action_down)
+		# clicks that land on UI (pause gear, touch buttons) must not throw the ball
+		var click_free: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and get_viewport().gui_get_hovered_control() == null
+		var pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or click_free or (touch_ui != null and touch_ui.action_down)
 		if pressed and float(g.get("press_cool", 0.0)) <= 0.0:
 			g["press_cool"] = 1.0
 			g["vel"] = dirv * 11.5 + Vector3(0, 6.5, 0)

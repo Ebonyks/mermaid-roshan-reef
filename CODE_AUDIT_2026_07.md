@@ -5,6 +5,10 @@ This is a code audit — where things are built well, where they are built poorl
 confirmed bugs with proposed fixes. It deliberately does not propose new features.
 Design/content critique lives in GAME_AUDIT_v3_49.md and AUDIT_3_0.md.*
 
+> **Status update (2026-07-11):** the P0 fixes (B1–B4) and P1 fixes (B5–B8) below
+> have been applied on this branch. Line numbers in the bug descriptions refer to
+> the pre-fix `master` revision. §4 structural items remain open.
+
 Codebase surveyed: `scripts/main.gd` (7,010 lines), `scripts/player.gd` (332),
 `scripts/touch_ui.gd` (143), 10 probe/test scripts, vendored `tessarakkt.oceanfft`
 addon (disabled at runtime), `project.godot`, 87 MB of assets.
