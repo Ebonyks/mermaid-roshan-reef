@@ -407,9 +407,9 @@ func _build_decor() -> void:
 			cube.position = Vector3(cos(float(ci) * 1.25) * 0.7, 0.75, sin(float(ci) * 1.25) * 0.7)
 			th.add_child(cube)
 		if ResourceLoader.exists(TRAY_GLB):
-			var tr: Node3D = (load(TRAY_GLB) as PackedScene).instantiate()
-			th.add_child(tr)
-			_fit_small(tr, 4.2)
+			var tray_n: Node3D = (load(TRAY_GLB) as PackedScene).instantiate()
+			th.add_child(tray_n)
+			_fit_small(tray_n, 4.2)
 		else:
 			var cyl := MeshInstance3D.new()
 			var cm := CylinderMesh.new()

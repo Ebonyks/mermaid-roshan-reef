@@ -1808,8 +1808,9 @@ func _apply_cel_shading() -> void:
 	# it does NOT darken) — the proper fix vs the earlier per-object/lighting approach.
 	if not CEL_SHADING:
 		return
-	if OS.has_feature("mobile"):
-		return   # cel post-process needs the Forward+ depth buffer; Android runs the Mobile renderer
+	var rm := String(ProjectSettings.get_setting_with_override("rendering/renderer/rendering_method"))
+	if rm != "forward_plus":
+		return   # cel post needs the Forward+ depth buffer; the unified renderer is Mobile (owner 2026-07-11)
 	if DisplayServer.get_name() == "headless":
 		return   # the dummy renderer can't compile it (probe-log noise otherwise)
 	var quad := MeshInstance3D.new()

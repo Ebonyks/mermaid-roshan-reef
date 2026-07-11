@@ -1707,9 +1707,9 @@ func _update_hud() -> void:
 	_lbl_pearls.text = "◉ %d pearls" % _pearls_got
 	var m: float = float(_pl["meter"])
 	_meter_fill.size = Vector2(354.0 * m, 24)
-	var ready: bool = m >= 0.5 and float(_pl["boost_t"]) <= 0.0
-	_meter_fill.color = (Color(1.0, 0.85, 0.2) if ready else Color(0.3, 0.95, 1.0))
-	_lbl_hint.text = "TAP for TURBO!!" if ready else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
+	var rdy: bool = m >= 0.5 and float(_pl["boost_t"]) <= 0.0
+	_meter_fill.color = (Color(1.0, 0.85, 0.2) if rdy else Color(0.3, 0.95, 1.0))
+	_lbl_hint.text = "TAP for TURBO!!" if rdy else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
 
 # ------------------------------------------------------------ finish + podium
 func _finish() -> void:

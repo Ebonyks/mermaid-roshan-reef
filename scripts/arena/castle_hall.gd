@@ -10,18 +10,18 @@ func _init(main) -> void:
 	m = main
 
 func build(o: Vector3) -> void:
-	# polished marble floor
-	var floor := MeshInstance3D.new()
+	# polished marble flr
+	var flr := MeshInstance3D.new()
 	var fb := BoxMesh.new()
 	fb.size = Vector3(70, 1.0, 80)
-	floor.mesh = fb
-	var fm = m._up_mat("marble", 0.03, Color(0.95, 0.93, 0.98))   # polished marble hall floor
+	flr.mesh = fb
+	var fm = m._up_mat("marble", 0.03, Color(0.95, 0.93, 0.98))   # polished marble hall flr
 	fm.metallic = 0.25
 	fm.roughness = 0.22
-	floor.material_override = fm
-	floor.position = o + Vector3(0, 0, 6)
-	m.add_child(floor)
-	m.game_nodes.append(floor)
+	flr.material_override = fm
+	flr.position = o + Vector3(0, 0, 6)
+	m.add_child(flr)
+	m.game_nodes.append(flr)
 	# checker accent tiles
 	for cxx in range(-3, 4):
 		for czz in range(-3, 5):
@@ -223,7 +223,7 @@ func build(o: Vector3) -> void:
 		m._l2_box(o + Vector3(dx, 15.5, -33.2), Vector3(11, 1.2, 1.2), Color(0.8, 0.7, 0.5), 0.1)
 	# ---------- REAL BACK ROOM behind the throne (entered through the two side archways) ----------
 	var br := o + Vector3(0, 0, -46.0)   # back-room center
-	m._l2_box(br + Vector3(0, 0.4, 0), Vector3(52, 1.0, 22), Color(0.86, 0.82, 0.92))            # floor
+	m._l2_box(br + Vector3(0, 0.4, 0), Vector3(52, 1.0, 22), Color(0.86, 0.82, 0.92))            # flr
 	m._l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.82, 0.79, 0.88))           # ceiling
 	m._iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.93, 0.9, 0.95), "marble")          # back wall
 	m._iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")          # left wall
@@ -274,7 +274,7 @@ func build(o: Vector3) -> void:
 	# just TWO framed memories on the side walls (fewer pictures)
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# ---------- CRAFTING STUDIO easel (color your own fish!) ----------
-	var easel = m._l2_box(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
+	var _easel = m._l2_box(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
 	m._wall_solid(o + Vector3(31.0, 7.0, 2.0), Vector3(0.6, 11.0, 8.0), 0.5)
 	var canvas = m._l2_box(o + Vector3(30.4, 9.0, 2.0), Vector3(0.4, 7.0, 6.0), Color(0.97, 0.96, 0.92), 0.1)
 	m._mg_noop_ref(canvas)
@@ -365,7 +365,7 @@ func build_music_room(o: Vector3) -> void:
 	# xylophone has space. Interior corners stay inside the dome (r<58).
 	var mo: Vector3 = o + Vector3(-43.5, 0, -5)           # room centre
 	var wall := Color(0.86, 0.88, 0.98)                  # cool lilac plaster
-	# floor + ceiling (no colliders — floor clamp / arena_ceil handle vertical)
+	# flr + ceiling (no colliders — flr clamp / arena_ceil handle vertical)
 	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
 	mfloor.material_override.roughness = 0.9
 	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.8, 0.82, 0.92))
@@ -454,7 +454,7 @@ func build_bedroom(o: Vector3) -> void:
 	# Footprint x:35..57, z:-28..-6 (22x22) — corners r<65, inside the dome (66).
 	var bo: Vector3 = o + Vector3(46, 0, -17)            # room centre
 	var wall := Color(0.96, 0.9, 0.86)                   # warm rosy plaster
-	# floor + ceiling (no colliders — handled by the floor clamp / arena_ceil)
+	# flr + ceiling (no colliders — handled by the flr clamp / arena_ceil)
 	var bfloor = m._l2_box(bo + Vector3(0, 0.4, 0), Vector3(22, 1.0, 22), Color(0.78, 0.6, 0.5))
 	bfloor.material_override.roughness = 0.9
 	m._l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.9, 0.84, 0.82))

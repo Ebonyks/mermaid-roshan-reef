@@ -50,10 +50,12 @@ import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
 ## Hard rules
-- Renderer: forward_plus on desktop, "mobile" override on Android (owner
-  decision 2026-07-09). Base 1280×720 canvas_items/expand. Every material
-  and shader must still run under the mobile renderer — desktop-only
-  effects (e.g. the cel post grade) must guard/degrade gracefully there.
+- Renderer: "mobile" on EVERY platform (owner decision 2026-07-11:
+  desktop and phone must look identical — mobile is the dominant
+  interface; supersedes the 2026-07-09 forward_plus split). Base
+  1280×720 canvas_items/expand. Anything new must run under the Mobile
+  renderer; Forward+-only effects (the cel post grade) are dormant
+  behind a rendering-method guard.
 - No new OmniLights beyond current counts without a Speedy-tier cull path.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.

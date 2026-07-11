@@ -94,45 +94,51 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# ---------- decorate the meadow with CC0 nature (dense, grounded, clustered) ----------
 	var trees := ["tree_palm", "tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
 	var flowers := ["flower_redA", "flower_yellowB", "flower_purpleA"]
-	var seed := 3
+	var sd := 3
 	# tree CLUSTERS (little groves read as a real forest edge)
 	for grove in range(14):
-		seed = (seed * 1103515245 + 12345) & 0x7fffffff
-		var ga: float = float(seed % 1000) / 1000.0 * TAU
-		var grad: float = 60.0 + float((seed / 1000) % 1000) / 1000.0 * 165.0
+		sd = (sd * 1103515245 + 12345) & 0x7fffffff
+		var ga: float = float(sd % 1000) / 1000.0 * TAU
+		@warning_ignore("integer_division")
+		var grad: float = 60.0 + float((sd / 1000) % 1000) / 1000.0 * 165.0
 		var gcx: float = cos(ga) * grad
 		var gcz: float = sin(ga) * grad
 		if absf(gcx) < 26.0 and gcz > -95.0 and gcz < 165.0:
 			continue
-		for t in range(3 + (seed / 3) % 4):
-			seed = (seed * 1103515245 + 12345) & 0x7fffffff
-			var ox: float = float(seed % 200) / 10.0 - 10.0
-			var oz: float = float((seed / 200) % 200) / 10.0 - 10.0
+		@warning_ignore("integer_division")
+		for t in range(3 + (sd / 3) % 4):
+			sd = (sd * 1103515245 + 12345) & 0x7fffffff
+			var ox: float = float(sd % 200) / 10.0 - 10.0
+			@warning_ignore("integer_division")
+			var oz: float = float((sd / 200) % 200) / 10.0 - 10.0
 			var tpos := o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz)
-			var tname: String = trees[(seed / 11) % trees.size()]
+			@warning_ignore("integer_division")
+			var tname: String = trees[(sd / 11) % trees.size()]
 			if tname == "tree_pineRoundF":
 				# GEN2 pilot: the round puff tree is the family-style one now
-				var gtree = m._gen2_prop("tree_pineroundf", tpos, 8.0 + float(seed % 5), float(seed % 628) / 100.0)
+				var gtree = m._gen2_prop("tree_pineroundf", tpos, 8.0 + float(sd % 5), float(sd % 628) / 100.0)
 				if gtree != null:
 					m.game_nodes.append(gtree)
 				else:
-					m._nature(tname, tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+					m._nature(tname, tpos, 9.0 + float(sd % 5), float(sd % 628) / 100.0)
 			else:
-				m._nature(tname, tpos, 9.0 + float(seed % 5), float(seed % 628) / 100.0)
+				m._nature(tname, tpos, 9.0 + float(sd % 5), float(sd % 628) / 100.0)
 			# collision audit #1: the whole forest was ghost — trunks are solid now
 			m._cyl_solid(tpos + Vector3(0, 6.0, 0), 1.3, 6.0, 0.6)
 	# undergrowth: bushes, mushrooms, grass tufts, flower clumps
 	for k in range(90):
-		seed = (seed * 1103515245 + 12345) & 0x7fffffff
-		var ang: float = float(seed % 1000) / 1000.0 * TAU
-		var rad: float = 26.0 + float((seed / 1000) % 1000) / 1000.0 * 200.0
+		sd = (sd * 1103515245 + 12345) & 0x7fffffff
+		var ang: float = float(sd % 1000) / 1000.0 * TAU
+		@warning_ignore("integer_division")
+		var rad: float = 26.0 + float((sd / 1000) % 1000) / 1000.0 * 200.0
 		var px: float = cos(ang) * rad
 		var pz: float = sin(ang) * rad
 		if absf(px) < 13.0 and pz > -92.0 and pz < 168.0:
 			continue
-		var pick := (seed / 7) % 10
+		@warning_ignore("integer_division")
+		var pick := (sd / 7) % 10
 		var gp := Vector3(px, _lagoon_local(px, pz) - 0.2, pz)
-		var yr := float(seed % 628) / 100.0
+		var yr := float(sd % 628) / 100.0
 		if pick < 3:
 			m._nature("plant_bushLargeTriangle", o + gp, 6.0, yr)
 		elif pick < 5:
@@ -144,7 +150,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		elif pick < 8:
 			m._nature("grass_leafsLarge", o + gp, 5.0, yr)
 		else:
-			m._nature(flowers[(seed / 17) % flowers.size()], o + gp, 6.0, yr)
+			@warning_ignore("integer_division")
+			m._nature(flowers[(sd / 17) % flowers.size()], o + gp, 6.0, yr)
 	# a calm pond off to the side, ringed with cattails
 	var pond := MeshInstance3D.new()
 	var pondm := CylinderMesh.new()
@@ -482,7 +489,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	for idx in range(spots.size()):
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
-		var plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
+		var _plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
 		m._nature("flower_yellowB", sp + Vector3(-3, -2.6, -3), 4.0, 0.0)
 		m._nature("flower_redA", sp + Vector3(3, -2.6, 3), 4.0, 1.0)
 		var star := Label3D.new()
@@ -695,14 +702,15 @@ func _build_lagoon_night(o: Vector3) -> void:
 	var ml := OmniLight3D.new()
 	ml.light_color = Color(0.7, 0.78, 1.0); ml.light_energy = 1.2; ml.omni_range = 400.0
 	ml.position = moon.position; m.add_child(ml); m.game_nodes.append(ml)
-	var seed := 91
+	var sd := 91
 	for k in range(60):
-		seed = (seed * 1103515245 + 12345) & 0x7fffffff
-		var ang: float = float(seed % 1000) / 1000.0 * TAU
-		var el: float = 0.3 + float((seed / 1000) % 1000) / 1000.0 * 0.6
+		sd = (sd * 1103515245 + 12345) & 0x7fffffff
+		var ang: float = float(sd % 1000) / 1000.0 * TAU
+		@warning_ignore("integer_division")
+		var el: float = 0.3 + float((sd / 1000) % 1000) / 1000.0 * 0.6
 		var dist := 260.0
 		var star := MeshInstance3D.new()
-		var ss := SphereMesh.new(); ss.radius = 0.7 + float(seed % 5) * 0.25; ss.height = ss.radius * 2.0
+		var ss := SphereMesh.new(); ss.radius = 0.7 + float(sd % 5) * 0.25; ss.height = ss.radius * 2.0
 		star.mesh = ss
 		star.material_override = m._soft_mat(Color(1.0, 1.0, 0.92), 3.0)
 		star.position = o + Vector3(cos(ang) * dist * cos(el), 60.0 + el * 150.0, sin(ang) * dist * cos(el))
