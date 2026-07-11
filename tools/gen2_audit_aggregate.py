@@ -13,6 +13,10 @@ AUDIT = os.path.join(ROOT, "gen2", "audit")
 OUT_MD = os.path.join(ROOT, "gen2", "generated", "ANALYSIS.md")
 OUT_JSON = os.path.join(AUDIT, "summary.json")
 
+# RUBRIC (owner, 2026-07-11 second audit): baked-in faces (F2) are NOT
+# disqualifying by themselves - Roshan picks some of them on purpose. The
+# dealbreakers are F8 (concept enmeshing), F9/F10 (invented characters /
+# subject hijack) and generation inconsistency. F1-F7 are notes, not vetoes.
 FLAW_NAMES = {
 	"F1": "baked bubbles", "F2": "face on scenery", "F3": "confetti decals",
 	"F4": "sticker border", "F5": "cluster not single", "F6": "tile repetition",

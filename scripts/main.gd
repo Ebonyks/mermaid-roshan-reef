@@ -1391,7 +1391,14 @@ func _aq(model: String) -> PackedScene:
 # MR2.0: pack name -> painted GEN2 prop. Every mapped piece spawns the
 # family-style Meshy model (footprint-fit, cel+outline, settled); the pack
 # GLB remains the strangler-fig fallback if a file is ever missing.
-# coral1 regenerated face-free 2026-07-11 (F2 hold lifted).
+# 2nd audit (owner 2026-07-11): baked-in faces are CHARM, not flaws - the
+# dealbreakers are invented characters (F9/F10), inconsistency, and concept
+# enmeshment (F8). coral1 is the face coral Roshan chose herself; fanshell
+# and spiralshell restored likewise. smallfanshell keeps its regen (F10).
+# swimming creatures: statics brought alive by creature_sway.gdshader
+# (tail-weighted body wave; facing measured equal to the pack: -Y, offset 0)
+const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin": "dolphin"}
+
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
 	"Rock6": "rock", "Rock7": "rock1", "Rock8": "rock2", "Rock9": "rock3", "Rock10": "rock4", "Rock11": "rock5",
@@ -1405,6 +1412,10 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 			if not play_anim:
 				flora_nodes.append(g)
 			return g
+	if play_anim and CREATURE_GEN2.has(model):
+		var cw := _gen2_creature(String(CREATURE_GEN2[model]), pos, scl * 2.0)
+		if cw != null:
+			return cw
 	var ps := _aq(model)
 	if ps == null:
 		return null
@@ -2629,6 +2640,30 @@ const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Fl
 var _gen2_outline: ShaderMaterial = null
 
 var _seagrass_mats: Array = []   # a few shared sway materials (phase variety)
+
+func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
+	# a family-style Meshy animal: loaded/fit like a prop, then every surface
+	# swaps to the sway shader (tail-weighted swim wave + toon response, ink
+	# outline as next_pass). Movers drive position/heading exactly as they
+	# drove the pack creatures - facing offset measured to be zero.
+	var wrap := _gen2_prop(gname, pos, target, 0.0, 0.0)
+	if wrap == null:
+		return null
+	var ph := randf() * TAU
+	for mi in _all_meshes(wrap):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var src0: Material = mi.get_active_material(si)
+			var sm := ShaderMaterial.new()
+			sm.shader = load("res://assets/shaders/creature_sway.gdshader")
+			if src0 is BaseMaterial3D and (src0 as BaseMaterial3D).albedo_texture != null:
+				sm.set_shader_parameter("albedo_tex", (src0 as BaseMaterial3D).albedo_texture)
+			sm.set_shader_parameter("phase", ph)
+			sm.next_pass = _gen2_outline_mat()
+			mi.set_surface_override_material(si, sm)
+	return wrap
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
 	# GEN2 sea grass: the family-style seaweed sprite on two crossed quads with
