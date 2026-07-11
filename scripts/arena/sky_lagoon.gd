@@ -547,9 +547,20 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	gm.set_shader_parameter("dirt_n", load("res://assets/terrain/up_dirt_nrm.jpg"))
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var N := 64
+	# 128 (was 64): at 7.7-unit quads the mesh cut corners across the path
+	# shoulder / moat rim (features ~12 units wide), so the visual floor sat
+	# up to a few units off lagoon_walk_h and Roshan read as buried (playtest
+	# 2026-07-11). Heights are cached one-per-grid-point, so this builds with
+	# FEWER _lagoon_local calls than the old 6-per-quad recompute.
+	var N := 128
 	var span := 245.0
 	var step: float = span * 2.0 / float(N)
+	var hs := PackedFloat32Array()
+	hs.resize((N + 1) * (N + 1))
+	for i in range(N + 1):
+		var hx: float = -span + float(i) * step
+		for j in range(N + 1):
+			hs[i * (N + 1) + j] = _lagoon_local(hx, -span + float(j) * step)
 	for i in range(N):
 		var x0: float = -span + float(i) * step
 		var x1: float = x0 + step
@@ -560,9 +571,13 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var cz: float = (z0 + z1) * 0.5
 			if sqrt(cx * cx + cz * cz) > 245.0:
 				continue
+			var y00: float = hs[i * (N + 1) + j]
+			var y10: float = hs[(i + 1) * (N + 1) + j]
+			var y01: float = hs[i * (N + 1) + j + 1]
+			var y11: float = hs[(i + 1) * (N + 1) + j + 1]
 			# winding gives upward-facing normals
-			_terr_v(st, x0, z0); _terr_v(st, x1, z1); _terr_v(st, x0, z1)
-			_terr_v(st, x0, z0); _terr_v(st, x1, z0); _terr_v(st, x1, z1)
+			_terr_v(st, x0, z0, y00); _terr_v(st, x1, z1, y11); _terr_v(st, x0, z1, y01)
+			_terr_v(st, x0, z0, y00); _terr_v(st, x1, z0, y10); _terr_v(st, x1, z1, y11)
 	st.generate_normals()
 	st.generate_tangents()   # needed so the terrain normal maps light correctly
 	var mi := MeshInstance3D.new()
@@ -998,7 +1013,7 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	return h
 
 
-func _terr_v(st: SurfaceTool, lx: float, lz: float) -> void:
+func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
 	st.set_uv(Vector2(lx, lz))
-	st.add_vertex(Vector3(lx, _lagoon_local(lx, lz), lz))
+	st.add_vertex(Vector3(lx, y, lz))
 
