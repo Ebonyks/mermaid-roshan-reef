@@ -7,8 +7,11 @@ Key from .secrets/meshy_key or $MESHY_API_KEY - never committed.
 
 Usage:
   python3 tools/meshy_pipeline.py submit <image> <role> [--rig]
+  python3 tools/meshy_pipeline.py launch    # submit every stage=="ready" task
   python3 tools/meshy_pipeline.py status
   python3 tools/meshy_pipeline.py harvest
+Tasks with "src_views" (turnaround sheets) use Meshy's multi-image endpoint -
+consistent front/side/back views stop it hallucinating the far side.
 """
 import base64
 import json
@@ -77,20 +80,72 @@ def submit(image_path, role, rig=False):
     print(f"submitted {role}: task {r['result']}", flush=True)
 
 
+def _data_uri(image_path):
+    from PIL import Image
+    import io
+    im = Image.open(image_path).convert("RGB")
+    im.thumbnail((1024, 1024))
+    buf = io.BytesIO()
+    im.save(buf, "PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def launch():
+    st = load_state()
+    ready = sorted((r for r, t in st.items()
+                    if isinstance(t, dict) and t.get("stage") == "ready"),
+                   key=lambda r: st[r].get("priority", 9))
+    for role in ready:
+        t = st[role]
+        poly = 15000 if t.get("priority") == 1 else TARGET_POLYCOUNT
+        if "src_views" in t:
+            urls = [_data_uri(os.path.join(ROOT, p))
+                    for p in t["src_views"].values()]
+            r = call("POST", "/v1/multi-image-to-3d", {
+                "image_urls": urls,
+                "should_remesh": True,
+                "should_texture": True,
+                "enable_pbr": False,
+                "topology": "triangle",
+                "target_polycount": poly,
+            })
+            t["ep"] = "multi-image-to-3d"
+        else:
+            r = call("POST", "/v1/image-to-3d", {
+                "image_url": _data_uri(os.path.join(ROOT, t["src"])),
+                "should_remesh": True,
+                "should_texture": True,
+                "enable_pbr": False,
+                "topology": "triangle",
+                "target_polycount": poly,
+            })
+            t["ep"] = "image-to-3d"
+        t["i23d"] = r["result"]
+        t["stage"] = "i23d"
+        save_state(st)
+        print(f"launched {role} ({t['ep']}, {poly} tris): {r['result']}", flush=True)
+
+
 def status():
     st = load_state()
     for role, t in st.items():
-        r = call("GET", f"/v1/image-to-3d/{t['i23d']}")
+        if not isinstance(t, dict) or "i23d" not in t:
+            continue
+        if t.get("stage") == "done":
+            print(f"{role}: done", flush=True)
+            continue
+        ep = t.get("ep", "image-to-3d")
+        r = call("GET", f"/v1/{ep}/{t['i23d']}")
         print(f"{role}: {t['stage']} {r['status']} {r.get('progress', '')}%", flush=True)
 
 
 def harvest():
     st = load_state()
     for role, t in st.items():
-        if t.get("stage") == "done":
+        if not isinstance(t, dict) or t.get("stage") in ("done", "ready", None):
             continue
         if t["stage"] == "i23d":
-            r = call("GET", f"/v1/image-to-3d/{t['i23d']}")
+            r = call("GET", f"/v1/{t.get('ep', 'image-to-3d')}/{t['i23d']}")
             if r["status"] != "SUCCEEDED":
                 print(f"{role}: i23d {r['status']} {r.get('progress', 0)}%", flush=True)
                 continue
@@ -133,6 +188,8 @@ if __name__ == "__main__":
     if mode == "submit":
         rig = "--rig" in sys.argv
         submit(sys.argv[2], sys.argv[3], rig)
+    elif mode == "launch":
+        launch()
     elif mode == "status":
         status()
     elif mode == "harvest":
