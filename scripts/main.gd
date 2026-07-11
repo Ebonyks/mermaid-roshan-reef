@@ -1417,11 +1417,11 @@ const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Cor
 func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node3D:
 	if AQ_GEN2.has(model):
 		var sink: float = 0.25 if model.begins_with("Rock") else 0.1
-		var g := _gen2_prop(String(AQ_GEN2[model]), pos, scl * 2.2, randf() * TAU, sink)
-		if g != null:
+		var gn := _gen2_prop(String(AQ_GEN2[model]), pos, scl * 2.2, randf() * TAU, sink)
+		if gn != null:
 			if not play_anim:
-				flora_nodes.append(g)
-			return g
+				flora_nodes.append(gn)
+			return gn
 	if CREATURE_GEN2.has(model):
 		# NPCs too (play_anim=false, e.g. the slide penguin): the sway shader
 		# gives statics their idle, so the old pack model is never needed
@@ -2621,10 +2621,10 @@ func _wind_sway(node: Node3D) -> void:
 
 func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if NATURE_GEN2.has(name):
-		var g := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
-		if g != null:
-			_wind_sway(g)
-			return g
+		var gn := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
+		if gn != null:
+			_wind_sway(gn)
+			return gn
 	var ps: PackedScene = _nat_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/nature/" + name + ".glb"
@@ -6394,6 +6394,7 @@ func _tick_movers(delta: float) -> void:
 
 # ===================== CUTAWAY ARENAS =====================
 var ambience: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
 var _tap_player: AudioStreamPlayer = null
 
 func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0.06) -> void:

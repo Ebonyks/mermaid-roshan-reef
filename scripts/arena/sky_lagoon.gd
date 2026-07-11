@@ -655,14 +655,17 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
 			var wy: float = maxf(floor_h + 0.8, (floor_h + dip_h) - 1.5)
 			var v: float = float(i) / float(pts.size())
+			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(0.0, v * 6.0))
 			st2.add_vertex(Vector3(p2.x + perp.x, wy, p2.y + perp.y))
+			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(1.0, v * 6.0))
 			st2.add_vertex(Vector3(p2.x - perp.x, wy, p2.y - perp.y))
 		for i in range(pts.size() - 1):
 			var a3 := i * 2
 			st2.add_index(a3); st2.add_index(a3 + 1); st2.add_index(a3 + 3)
 			st2.add_index(a3); st2.add_index(a3 + 3); st2.add_index(a3 + 2)
+		st2.generate_tangents()   # toon_water writes NORMAL_MAP -> mesh must carry tangents
 		var water := MeshInstance3D.new()
 		water.mesh = st2.commit()
 		water.material_override = river_mat
@@ -693,14 +696,17 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		var ca2: float = cos(ma2)
 		var sa2: float = sin(ma2)
 		var v2: float = float(i) / float(mseg)
+		mst.set_normal(Vector3.UP)
 		mst.set_uv(Vector2(0.0, v2 * 14.0))
 		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_INNER - 1.5), -2.5, m.MOAT_CZ + sa2 * (m.MOAT_INNER - 1.5)))
+		mst.set_normal(Vector3.UP)
 		mst.set_uv(Vector2(1.0, v2 * 14.0))
 		mst.add_vertex(Vector3(m.MOAT_CX + ca2 * (m.MOAT_OUTER + 1.5), -2.5, m.MOAT_CZ + sa2 * (m.MOAT_OUTER + 1.5)))
 	for i in range(mseg):
 		var a4 := i * 2
 		mst.add_index(a4); mst.add_index(a4 + 1); mst.add_index(a4 + 3)
 		mst.add_index(a4); mst.add_index(a4 + 3); mst.add_index(a4 + 2)
+	mst.generate_tangents()   # toon_water writes NORMAL_MAP -> mesh must carry tangents
 	var moatw := MeshInstance3D.new()
 	moatw.mesh = mst.commit()
 	# Phase 5: shared toon water + GEN2 painted albedo so it reads as WATER
