@@ -97,6 +97,16 @@ const PEARL_ROWS := [
 ]
 const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
 
+# Butterfly World centerpiece (rainbow theme): the Level-2 rainbow legs are the
+# road TO stage 3, so the track orbits the Butterfly World itself — the same
+# meadow planet, crystal castle and butterflies the player lands on in
+# galaxy.gd — instead of circling empty starfield.
+const BW_PLANET_R := 70.0
+const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
+const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
+const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
+
 # ------------------------------------------------------------ vehicles
 # handling: vmax (x base), steer (lat u/s), wall (speed kept on scrape),
 # mass (collision shove weight), turbo (x BOOST_MUL), slip (lat drift keep),
@@ -196,8 +206,21 @@ var _sel_phase := "ride"           # ride -> paint
 var _paint_idx := 0
 var _paint_orbs: Array = []
 var _paint_prev := -1
+var _bw_centre := Vector3.ZERO     # Butterfly World planet centre (rainbow theme)
+var _bw_planet: MeshInstance3D = null
+var _bw_flyers: Array = []         # orbiting butterflies: {node, axis, dir0, alt, spd, ph, flap}
+var _bw_moons: Array = []          # candy moons: {node, r, spd, ph, tilt}
 
 # ------------------------------------------------------------ config access
+
+const TouchUI := preload("res://scripts/touch_ui.gd")
+
+func _touch_device() -> bool:
+	return TouchUI.wants_touch()
+
+func action_label() -> String:
+	# what the touch action bubble should read right now (main polls this each frame)
+	return "GO!" if _state == "select" else "TURBO"
 
 func joy_axis(axis: int) -> float:
 	# delegate to main's gamepad layer (multi-device + raw fallback for pads
@@ -223,7 +246,7 @@ func _laps() -> int:
 	return int(_cv("laps", LAPS))
 
 func _theme() -> String:
-	return String(_cv("theme", "ocean"))   # "ocean" (seabed race) or "rainbow" (starfield)
+	return String(_cv("theme", "ocean"))   # "ocean" (seabed race) or "rainbow" (orbiting the Butterfly World)
 
 func _ground_mode() -> String:
 	# "terrain": the track conforms to the REAL reef seabed in world 1 (default).
@@ -354,6 +377,8 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 		_player_node = main.player
 	_build_lut()
 	_build_sky()
+	if _theme() == "rainbow" and _ground_mode() == "float":
+		_build_butterfly_world()
 	_build_track()
 	_build_strips()
 	_build_pickups()
@@ -495,6 +520,190 @@ void fragment(){
 		bub.mesh.material = bmat
 		bub.position = _origin() + Vector3(0, 0, 0)
 		add_child(bub)
+
+# ------------------------------------------------------------ Butterfly World (rainbow theme)
+func _bw_tint(root: Node, col: Color, glow: float) -> void:
+	# same pastel-glass tint galaxy.gd gives its props, so the world reads as ONE place
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		for ch in n.get_children():
+			stack.append(ch)
+		if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+			var mi := n as MeshInstance3D
+			for si in range(mi.mesh.get_surface_count()):
+				var src: Material = mi.get_active_material(si)
+				var m: BaseMaterial3D = (src.duplicate() if src is BaseMaterial3D else StandardMaterial3D.new())
+				m.albedo_color = m.albedo_color.lerp(col, 0.5)
+				m.emission_enabled = true
+				m.emission = col
+				m.emission_energy_multiplier = glow
+				mi.set_surface_override_material(si, m)
+
+func _bw_fit(model: Node3D, target_long: float) -> void:
+	# normalise a GLB to a footprint and centre it (mirrors galaxy.gd's _fit_small)
+	if _main != null and _main.has_method("_toonify"):
+		_main._toonify(model)
+	var acc: Array = []
+	_gather_aabbs(model, Transform3D.IDENTITY, acc)
+	if acc.is_empty():
+		return
+	var bb: AABB = acc[0]
+	for i in range(1, acc.size()):
+		bb = bb.merge(acc[i])
+	var longest: float = maxf(maxf(bb.size.x, bb.size.z), maxf(bb.size.y, 0.001))
+	var sc: float = target_long / longest
+	model.scale = Vector3.ONE * sc
+	var c: Vector3 = bb.position + bb.size * 0.5
+	model.position = Vector3(-c.x * sc, -bb.position.y * sc, -c.z * sc)
+
+func _build_butterfly_world() -> void:
+	# centre the world inside the loop: track points ring it at ~105+ units, so a
+	# 70-radius planet sunk 40 below the racing line fills the view without ever
+	# touching the road, the karts or the chase camera
+	var centroid := Vector3.ZERO
+	for i in range(SAMPLES):
+		centroid += _lut[i]
+	centroid /= float(SAMPLES)
+	_bw_centre = centroid + Vector3(0, -40.0, 0)
+	# the meadow planet — same shader as galaxy.gd so it IS the stage-3 world
+	_bw_planet = MeshInstance3D.new()
+	var pm := SphereMesh.new()
+	pm.radius = BW_PLANET_R
+	pm.height = BW_PLANET_R * 2.0
+	pm.radial_segments = 96
+	pm.rings = 48
+	_bw_planet.mesh = pm
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+void fragment(){
+	// flowering-meadow planet (the butterfly-house garden): soft grass with
+	// sandy landscaped paths and thousands of tiny flower dots
+	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
+	vec3 a = vec3(0.45, 0.76, 0.42);   // meadow green
+	vec3 b = vec3(0.58, 0.86, 0.48);   // sunlit grass
+	vec3 col = mix(a, b, band);
+	// two winding garden paths circling the planet
+	float wob = sin(UV.x * 12.566) * 0.03;
+	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
+	col = mix(col, vec3(0.90, 0.83, 0.62), clamp(pathm, 0.0, 1.0) * 0.85);
+	// confetti of tiny flowers
+	vec2 g = UV * vec2(220.0, 120.0);
+	float fh = h21(floor(g));
+	float dot2 = step(0.986, fh) * smoothstep(0.3, 0.05, length(fract(g) - 0.5));
+	vec3 fcol = 0.55 + 0.45 * cos(6.28 * (fh * 7.0 + vec3(0.0, 0.33, 0.67)));
+	col = mix(col, fcol, dot2 * (1.0 - clamp(pathm, 0.0, 1.0)));
+	// firefly sparkle at "night" side
+	float sparkle = step(0.996, h21(floor(g) + 31.0)) * (0.5 + 0.5 * sin(TIME * 3.0 + fh * 50.0));
+	ALBEDO = col;
+	EMISSION = col * 0.08 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
+	ROUGHNESS = 0.85;
+}"""
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	_bw_planet.material_override = mat
+	_bw_planet.position = _bw_centre
+	add_child(_bw_planet)
+	# atmosphere: slightly larger fresnel shell
+	var atmo := MeshInstance3D.new()
+	var am := SphereMesh.new()
+	am.radius = BW_PLANET_R * 1.06
+	am.height = BW_PLANET_R * 2.12
+	atmo.mesh = am
+	var ash := Shader.new()
+	ash.code = """shader_type spatial;
+render_mode unshaded, blend_add, cull_back;
+void fragment(){
+	float f = pow(1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0), 2.5);
+	ALBEDO = vec3(0.55, 0.5, 1.0) * f * 0.55;
+	ALPHA = f * 0.55;
+}"""
+	var amat := ShaderMaterial.new()
+	amat.shader = ash
+	atmo.material_override = amat
+	atmo.position = _bw_centre
+	add_child(atmo)
+	# the crystal castle at the north pole, amethyst-tinted like stage 3
+	var castle := Node3D.new()
+	if ResourceLoader.exists(BW_CASTLE_GLB):
+		var ck: Node3D = (load(BW_CASTLE_GLB) as PackedScene).instantiate()
+		castle.add_child(ck)
+		_bw_fit(ck, 40.0)
+		_bw_tint(ck, Color(0.72, 0.68, 1.0), 0.45)
+	for i in range(BW_CRYSTALS.size()):
+		var path: String = BW_CRYSTALS[i]
+		if not ResourceLoader.exists(path):
+			continue
+		var spire: Node3D = (load(path) as PackedScene).instantiate()
+		spire.scale = Vector3.ONE * 4.5
+		spire.position = Vector3([-15.0, 15.0][i], 0, 7.0)
+		castle.add_child(spire)
+		_bw_tint(spire, Color(0.8, 0.7, 1.0), 0.5)
+	# sunk a little so its base corners don't hover above the curving horizon
+	castle.position = _bw_centre + Vector3(0, BW_PLANET_R - 6.0, 0)
+	add_child(castle)
+	# the seven butterflies circle their world (they're what stage 3 is about)
+	for i in range(BW_WING_COLS.size()):
+		var holder := Node3D.new()
+		var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
+		if ResourceLoader.exists(bpath):
+			var bf: Node3D = (load(bpath) as PackedScene).instantiate()
+			holder.add_child(bf)
+			_bw_fit(bf, 7.0)
+			_bw_tint(bf, BW_WING_COLS[i], 0.3)
+		else:
+			var q := MeshInstance3D.new()
+			var qm := QuadMesh.new()
+			qm.size = Vector2(7.0, 4.9)
+			q.mesh = qm
+			var qmat := StandardMaterial3D.new()
+			qmat.albedo_color = BW_WING_COLS[i]
+			qmat.emission_enabled = true
+			qmat.emission = BW_WING_COLS[i]
+			qmat.emission_energy_multiplier = 0.3
+			qmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+			q.material_override = qmat
+			holder.add_child(q)
+		add_child(holder)
+		var d0 := Vector3(sin(float(i) * 2.4), cos(float(i) * 1.7), sin(float(i) * 3.1 + 1.0)).normalized()
+		var ax := d0.cross(Vector3(cos(float(i) * 1.3), sin(float(i) * 2.1), cos(float(i) * 0.7 + 2.0)).normalized()).normalized()
+		_bw_flyers.append({"node": holder, "axis": ax, "dir0": d0, "alt": 7.0 + fposmod(float(i) * 3.3, 10.0), "spd": 0.10 + fposmod(float(i) * 0.05, 0.14), "ph": float(i) * 0.9, "flap": 12.0 + fposmod(float(i) * 2.6, 8.0)})
+	# two candy moons — kept INSIDE the loop (track rings the centre at ~105+)
+	for i in range(2):
+		var moon := MeshInstance3D.new()
+		var mm := SphereMesh.new()
+		mm.radius = [3.2, 2.4][i]
+		mm.height = mm.radius * 2.0
+		moon.mesh = mm
+		var mmat := StandardMaterial3D.new()
+		mmat.albedo_color = [Color(1.0, 0.62, 0.2), Color(0.45, 0.8, 0.35)][i]   # orange + melon moons
+		mmat.emission_enabled = true
+		mmat.emission = mmat.albedo_color
+		mmat.emission_energy_multiplier = 0.5
+		moon.material_override = mmat
+		add_child(moon)
+		_bw_moons.append({"node": moon, "r": BW_PLANET_R * (1.14 + 0.12 * float(i)), "spd": 0.15 - 0.05 * float(i), "ph": float(i) * 2.4, "tilt": 0.3 + 0.2 * float(i)})
+
+func _tick_butterfly_world(tt: float) -> void:
+	if _bw_planet == null:
+		return
+	_bw_planet.rotation.y = tt * 0.03   # the world turns slowly beneath the road
+	for md in _bw_moons:
+		var ph: float = tt * float(md["spd"]) + float(md["ph"])
+		var tilt: float = float(md["tilt"])
+		(md["node"] as Node3D).position = _bw_centre + Vector3(cos(ph) * float(md["r"]), sin(ph * 0.7) * float(md["r"]) * tilt * 0.4, sin(ph) * float(md["r"]))
+	for fd in _bw_flyers:
+		var bn: Node3D = fd["node"]
+		var ang: float = tt * float(fd["spd"]) + float(fd["ph"])
+		var pdir: Vector3 = ((fd["dir0"] as Vector3).rotated(fd["axis"], ang)).normalized()
+		var alt: float = float(fd["alt"]) + sin(tt * 1.3 + float(fd["ph"])) * 0.8
+		var newp: Vector3 = _bw_centre + pdir * (BW_PLANET_R + alt)
+		var vel: Vector3 = newp - bn.position
+		bn.position = newp
+		if vel.length() > 0.01:
+			bn.look_at(newp + vel, pdir)
+		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 
 func _build_track() -> void:
 	var st := SurfaceTool.new()
@@ -1069,7 +1278,10 @@ func _select_slot_pos(i: int) -> Vector3:
 		# and clear, so the choice reads no matter what the seabed does around it
 		var fr := _frame_at(16.0 + float(i) * 15.0, 0.0)
 		return (fr[0] as Vector3) + Vector3(0, 0.3, 0)
-	return _origin() + Vector3(0, -60.0, 0) + Vector3((float(i) - 1.0) * 16.0, 0, 0)
+	# float: staged outside the loop (the old spot, 60 under the origin, is now
+	# inside the Butterfly World planet) — the camera faces the world hanging
+	# in the sky behind the podiums
+	return _origin() + Vector3(0, -60.0, 190.0) + Vector3((float(i) - 1.0) * 16.0, 0, 0)
 
 func _build_select() -> void:
 	for i in range(VEHICLE_ORDER.size()):
@@ -1109,7 +1321,7 @@ func _build_select() -> void:
 		slot.add_child(halo)
 		_sel_nodes.append({"slot": slot, "halo": halo, "body": body})
 	_lbl_big.text = "Pick your ride!"
-	_lbl_hint.text = "LEFT/RIGHT to choose  •  TAP or SPACE to GO!"
+	_lbl_hint.text = ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  TAP or SPACE to GO!")
 	if _cam != null:
 		var mid := _select_slot_pos(1)
 		if _ground_mode() == "terrain":
@@ -1216,7 +1428,7 @@ func _tick_select(delta: float) -> void:
 		_state = "countdown"
 		_clock = 3.999
 		_lbl_big.text = ""
-		_lbl_hint.text = "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!"
+		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!")
 		_meter_bg.visible = true
 
 # ------------------------------------------------------------ input helpers
@@ -1269,6 +1481,8 @@ func _process(delta: float) -> void:
 		for rm in _rainbow_mats:
 			(rm as BaseMaterial3D).albedo_color = rc
 			(rm as BaseMaterial3D).emission = rc * 0.5
+	# the Butterfly World turns below the road (rainbow theme)
+	_tick_butterfly_world(tt)
 	# ambient fish cruise gently beside the course (ocean theme)
 	for fd in _deco_fish:
 		var fn: Node3D = fd["node"]
@@ -1662,6 +1876,9 @@ func _build_hud() -> void:
 	add_child(_hud)
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	# a plain Control defaults to MOUSE_FILTER_STOP — full-rect, that swallows
+	# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hud.add_child(root)
 	_lbl_lap = _mk_label(root, Vector2(24, 18), 38, Color(1, 0.95, 0.6))
 	_lbl_place = _mk_label(root, Vector2(24, 66), 48, Color(0.7, 1.0, 1.0))
@@ -1675,6 +1892,7 @@ func _build_hud() -> void:
 	_lbl_hint.position = Vector2(24, -56)
 	# turbo meter (bottom centre)
 	_meter_bg = ColorRect.new()
+	_meter_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE   # "TAP for TURBO!!" points right at it
 	_meter_bg.color = Color(0, 0, 0, 0.45)
 	_meter_bg.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	_meter_bg.position = Vector2(-180, -96)
@@ -1682,6 +1900,7 @@ func _build_hud() -> void:
 	_meter_bg.visible = false   # shown when the race starts
 	root.add_child(_meter_bg)
 	_meter_fill = ColorRect.new()
+	_meter_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_meter_fill.color = Color(0.3, 0.95, 1.0)
 	_meter_fill.position = Vector2(3, 3)
 	_meter_fill.size = Vector2(0, 24)

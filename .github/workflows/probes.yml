@@ -6,7 +6,7 @@ name: Probe suite (graphics fork)
 
 on:
   push:
-    branches: [claude/graphics-upgrade-fork]
+    branches: [claude/graphics-upgrade-fork, claude/go-kart-mobile-rainbow-track-8gyatx]
   workflow_dispatch:
 
 env:

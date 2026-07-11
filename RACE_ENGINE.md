@@ -28,7 +28,12 @@ kart, so the engine never breaks on assets.
 - `theme: "ocean"` (default) — a **seabed race**: sandy caustic-lit track, kelp-glow
   rails, deep-water gradient + fog, rising bubbles, and the game's own corals /
   seaweed / rocks / shells on sand mounds beside the course, plus animated fish
-  cruising alongside. `theme: "rainbow"` restores the starfield rainbow road.
+  cruising alongside. `theme: "rainbow"` is the starfield rainbow road, which
+  **orbits the Butterfly World** (stage 3): the meadow planet from galaxy.gd —
+  same shader — with its fresnel atmosphere, the amethyst crystal castle at the
+  pole, two candy moons and the seven tinted butterflies circling it, all held
+  inside the loop so nothing ever touches the road, the karts or the chase
+  camera. Scenery only: emission-lit, no OmniLights, ticked from `_process`.
 - **Paint jobs**: after picking a ride, a second select step offers 8 paints
   (Stock, Cherry, Sky, Bubblegum, Lime, Grape, Gold, and **RAINBOW!** — a
   hue-cycling shader). Live preview on the podium; originals cached so repainting

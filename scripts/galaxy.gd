@@ -995,6 +995,9 @@ func _build_hud() -> void:
 	add_child(_hud)
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	# a plain Control defaults to MOUSE_FILTER_STOP — full-rect, that swallows
+	# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hud.add_child(root)
 	_lbl_shards = Label.new()
 	_lbl_shards.position = Vector2(24, 18)

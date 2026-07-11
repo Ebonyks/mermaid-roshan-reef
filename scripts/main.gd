@@ -5875,6 +5875,8 @@ func _process(delta: float) -> void:
 			act_lbl = "THROW"
 		elif game == "fairyshoot":
 			act_lbl = "FIRE"
+		elif game == "kart" and kart_game != null and kart_game.has_method("action_label"):
+			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
