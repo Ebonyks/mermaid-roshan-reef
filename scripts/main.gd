@@ -259,6 +259,7 @@ const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "classic_v2", "label": "Roshan 3D!", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": "res://assets/characters/skins/fairy_mermaid.png"},
+	{"id": "fairy_v2", "label": "Fairy 3D!", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
 	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
@@ -3696,7 +3697,7 @@ func _wardrobe_refresh() -> void:
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
 		var eid := String(entry["id"])
-		var locked: bool = (eid == "fairy" and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
+		var locked: bool = (eid.begins_with("fairy") and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
 		var box: StyleBoxFlat = entry["box"]
 		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
@@ -3706,7 +3707,7 @@ func _wardrobe_refresh() -> void:
 		bt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE
 
 func _wardrobe_pick(id: String) -> void:
-	if id == "fairy" and not fairy_skin_unlocked:
+	if id.begins_with("fairy") and not fairy_skin_unlocked:
 		# the Butterfly World prize — tease it, don't grant it
 		if chime != null:
 			chime.pitch_scale = 0.5

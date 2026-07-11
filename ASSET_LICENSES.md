@@ -42,6 +42,7 @@
 | assets/props/gen2/*.png | GEN2 pipeline sprites (Gemini, audited), alpha-cut via tools/polish_sprite.py | © Mermaid Roshan LLC — generated for this project | gen2/ | white bg → alpha, tight crop |
 | assets/props/gen2/seagrass.png | GEN2 pipeline: family-style sea grass sprite (Gemini, aquatic_seaweed2 v1, audit 9/10 clean) | © Mermaid Roshan LLC — generated for this project | gen2/generated/aquatic_seaweed2/ | polish_sprite.py alpha cutout, 892×735 |
 | assets/characters/roshan_v2.glb | ROSHAN V2: owner-spec turnarounds (Gemini) → Meshy multi-image i23d → weight transfer onto her original 26-bone rig | © Mermaid Roshan LLC — generated for this project | gen2/turnarounds/roshan_v2/, gen2/ROSHAN_V2_WORKORDER.md | shrink pass ≤1024, tools/roshan_v2_retarget.py |
+| assets/characters/fairy_v2.glb | FAIRY V2: turnarounds (Gemini) → Meshy multi-image i23d → weight transfer onto the 26-bone rig + auto-detected wingL/wingR flap bones | © Mermaid Roshan LLC — generated for this project | gen2/turnarounds/fairy_v2/ | shrink pass ≤1024, tools/roshan_v2_retarget.py (wings mode) |
 | assets/terrain/gen2_water_col.jpg | GEN2 pipeline: family-style painted water tile (Gemini, role terrain_up_water_col v1) | © Mermaid Roshan LLC — generated for this project | gen2/generated/terrain_up_water_col/ | downscaled 2048→1024 POT, JPEG q88 |
 | assets/portal/butterfly_gate.glb | modeled in Blender for this project | project original | — | — |
 | assets/castle/bed.glb | "Bed Single" by Kenney | **CC0** | poly.pizza/m/sn8az3odMR | — |

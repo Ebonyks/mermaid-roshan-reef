@@ -140,7 +140,8 @@ var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
 # procedural swim drives every one of them (billboards never made sense)
-const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb"}
+const SKIN_MODELS := {"huluu": "res://assets/characters/huluu.glb", "fairy": "res://assets/characters/fairy.glb", "classic_v2": "res://assets/characters/roshan_v2.glb", "fairy_v2": "res://assets/characters/fairy_v2.glb"}
+const WING_FLAP_AXIS := Vector3.BACK   # calibration: bone-local Z sweeps the wings (retarget tool print)
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -207,7 +208,7 @@ func _map_bones() -> void:
 	for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
 			"hairL1", "hairL2", "armU", "armF", "hand", "armU2", "armF2", "hand2",
 			"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
-			"finTop", "finBot"]:
+			"finTop", "finBot", "wingL", "wingR"]:
 		var bi: int = skel.find_bone(n)
 		bone_idx[n] = bi
 		if bi >= 0:
@@ -221,9 +222,9 @@ func set_skin(id: String, tex_path: String) -> void:
 		# bone names, so the procedural swim drives her directly
 		if not skin_models.has(id):
 			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
-			if id == "classic_v2":
-				# the V2 hero body is exported at roshan.glb's world size,
-				# so it takes the classic transform, not the plushie one
+			if id == "classic_v2" or id == "fairy_v2":
+				# the V2 hero bodies are exported at roshan.glb's world size,
+				# so they take the classic transform, not the plushie one
 				mdl.scale = Vector3.ONE * 1.55
 				mdl.position.y = -1.6
 				_upgrade_texture(mdl)
@@ -587,6 +588,12 @@ func _process(delta: float) -> void:
 		_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
 		_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
 		_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
+		# fairy wings (fairy_v2 skin): quick flutter, faster when she swims fast.
+		# WING_FLAP_AXIS comes from the retarget tool's calibration pass.
+		if bone_idx.get("wingL", -1) >= 0:
+			var wingf: float = 0.5 + sin(swim_phase * 3.4) * (0.35 + amp * 0.8)
+			_rot_bone("wingL", WING_FLAP_AXIS, wingf)
+			_rot_bone("wingR", WING_FLAP_AXIS, -wingf)
 		_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 		_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
 		_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)

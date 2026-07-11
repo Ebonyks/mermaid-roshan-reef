@@ -13,7 +13,12 @@ without opening Blender.
 
 Usage:
   blender -b -noaudio --python tools/roshan_v2_retarget.py -- \
-      gen2/meshy/roshan_v2/static.glb assets/characters/roshan_v2.glb /tmp/preview
+      gen2/meshy/roshan_v2/static.glb assets/characters/roshan_v2.glb /tmp/preview [wings]
+
+With "wings": vertices far from the (wingless) source body are detected as
+wing geometry, split L/R, weighted 100% to NEW wingL/wingR bones parented to
+chest, and a calibration pass reports which local rotation axis produces the
+flap sweep (that axis goes into player.gd's procedural flutter).
 """
 import math
 import os
@@ -24,6 +29,7 @@ import mathutils
 
 argv = sys.argv[sys.argv.index("--") + 1:]
 new_mesh_glb, out_glb, preview = argv[0], argv[1], argv[2]
+want_wings = len(argv) > 3 and argv[3] == "wings"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -99,6 +105,58 @@ body.parent = arm
 mod = body.modifiers.new("Armature", "ARMATURE")
 mod.object = arm
 print("[ok] weight-transferred", len(body.vertex_groups), "groups onto the V2 body")
+
+if want_wings:
+    # ---- wings: geometry with NO counterpart on the wingless source body.
+    # Distance-to-source classifies them; far verts split L/R by x sign.
+    from mathutils.bvhtree import BVHTree
+    dg0 = bpy.context.evaluated_depsgraph_get()
+    bvh = BVHTree.FromObject(src, dg0)
+    src_inv = src.matrix_world.inverted()
+    h = (omax.z - omin.z)
+    thresh = h * 0.055
+    wing_all = []
+    z_floor = omin.z + h * 0.55   # wings live on the UPPER body: keeps the
+    # coiled fairy tail (far from the straight source tail) out of the wings
+    for v in body.data.vertices:
+        w = body.matrix_world @ v.co
+        if w.z < z_floor:
+            continue
+        loc = src_inv @ w
+        hit = bvh.find_nearest(loc)
+        if hit[0] is not None and (hit[0] - loc).length > thresh:
+            wing_all.append((v.index, w.x))
+    # split at the wing cloud's own median: Meshy centres the WHOLE model, so
+    # the coiled tail biases x=0 away from the line between the wings
+    xs = sorted(x for _, x in wing_all)
+    mid_x = xs[len(xs) // 2]
+    wingL = [i for i, x in wing_all if x > mid_x]
+    wingR = [i for i, x in wing_all if x <= mid_x]
+    print(f"[i] wing verts: L={len(wingL)} R={len(wingR)} (thresh {thresh:.3f})")
+    assert len(wingL) > 50 and len(wingR) > 50, "wing detection found too little geometry"
+    import mathutils as _mu
+    wl_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingL), _mu.Vector()) / len(wingL)
+    wr_c = sum(( (body.matrix_world @ body.data.vertices[i].co) for i in wingR), _mu.Vector()) / len(wingR)
+    bpy.context.view_layer.objects.active = arm
+    bpy.ops.object.mode_set(mode="EDIT")
+    chest = arm.data.edit_bones.get("chest")
+    inv_arm = arm.matrix_world.inverted()
+    for bname, cen in (("wingL", wl_c), ("wingR", wr_c)):
+        eb = arm.data.edit_bones.new(bname)
+        root = _mu.Vector((0.0, cen.y, cen.z)) * 0.35 + _mu.Vector((cen.x * 0.1, cen.y * 0.65, cen.z * 0.65))
+        eb.head = inv_arm @ _mu.Vector((cen.x * 0.15, cen.y, cen.z))
+        eb.tail = inv_arm @ cen
+        eb.parent = chest
+    bpy.ops.object.mode_set(mode="OBJECT")
+    for bname, verts in (("wingL", wingL), ("wingR", wingR)):
+        vg = body.vertex_groups.new(name=bname)
+        # rigid wings: exclusive ownership so the flap cannot fight body weights
+        for g in body.vertex_groups:
+            if g.name != bname:
+                g.remove(verts)
+        vg.add(verts, 1.0, "REPLACE")
+    print("[ok] wingL/wingR bones added (parent: chest), wing verts exclusively weighted")
+
 for ob in old_meshes:
     bpy.data.objects.remove(ob, do_unlink=True)
 
@@ -161,4 +219,45 @@ ev = body.evaluated_get(dg)
 tip_after = min((ev.matrix_world @ v.co).z for v in ev.data.vertices)
 moved = abs(tip_before - tip_after)
 print(f"[{'ok' if moved > 0.02 else '!'}] deform check: tail tip moved {moved:.3f}")
+
+if want_wings:
+    # ---- calibrate the flap axis: which bone-local rotation sweeps the wing
+    # forward/back (world Y)? That axis goes into player.gd.
+    import mathutils as _mu
+    wing_ids = [v.index for v in body.data.vertices
+                if body.vertex_groups["wingL"].index in [g.group for g in v.groups]]
+    def wing_cen():
+        dgx = bpy.context.evaluated_depsgraph_get()
+        evx = body.evaluated_get(dgx)
+        return sum(((evx.matrix_world @ evx.data.vertices[i].co) for i in wing_ids), _mu.Vector()) / len(wing_ids)
+    base_c = wing_cen()
+    best = None
+    for axis in ("X", "Y", "Z"):
+        pb = arm.pose.bones["wingL"]
+        pb.rotation_mode = "QUATERNION"
+        pb.rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if axis=="X" else 0, 1 if axis=="Y" else 0, 1 if axis=="Z" else 0)), 0.6)
+        d = wing_cen() - base_c
+        pb.rotation_quaternion = _mu.Quaternion()
+        print(f"[i] flap axis {axis}: wing centroid moved dx={d.x:.3f} dy={d.y:.3f} dz={d.z:.3f}")
+        score = abs(d.y)
+        if best is None or score > best[1]:
+            best = (axis, score)
+    print(f"[ok] FLAP AXIS: local {best[0]} (world-Y sweep {best[1]:.3f}) — use this in player.gd")
+    pb = arm.pose.bones["wingL"]
+    pb.rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if best[0]=="X" else 0, 1 if best[0]=="Y" else 0, 1 if best[0]=="Z" else 0)), 0.7)
+    arm.pose.bones["wingR"].rotation_mode = "QUATERNION"
+    arm.pose.bones["wingR"].rotation_quaternion = _mu.Quaternion(_mu.Vector((1 if best[0]=="X" else 0, 1 if best[0]=="Y" else 0, 1 if best[0]=="Z" else 0)), -0.7)
+    sc.render.filepath = os.path.join(preview, "flap.png")
+    bpy.ops.render.render(write_still=True)
+    # re-export WITH the wing bones baked into the rig
+    bpy.ops.object.mode_set(mode="POSE")
+    for pbx in arm.pose.bones:
+        pbx.rotation_quaternion = _mu.Quaternion()
+        pbx.rotation_euler = (0, 0, 0)
+    bpy.ops.object.mode_set(mode="OBJECT")
+    bpy.ops.object.select_all(action="SELECT")
+    bpy.ops.export_scene.gltf(filepath=os.path.join(ROOT, out_glb),
+                              export_format="GLB", export_yup=True)
+    print("[ok] re-exported with wing bones:", out_glb)
+
 print("[ok] previews in", preview)
