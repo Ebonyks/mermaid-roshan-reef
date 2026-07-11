@@ -966,8 +966,10 @@ func _build_terrain() -> void:
 	mat.normal_texture = load("res://assets/terrain/up_sand_nrm.jpg")
 	mat.roughness_texture = load("res://assets/terrain/up_sand_rgh.jpg")
 	mat.uv1_triplanar = true
-	mat.uv1_scale = Vector3(0.12, 0.12, 0.12)
-	mat.albedo_color = Color(0.35, 0.55, 0.58)
+	# GEN2 pass 2 (owner 2026-07-11): let the painted sand READ - the old
+	# 0.12 tiling + dark teal multiply crushed the sheet into flat colour
+	mat.uv1_scale = Vector3(0.06, 0.06, 0.06)
+	mat.albedo_color = Color(0.55, 0.72, 0.74)
 	mi.material_override = mat
 	add_child(mi)
 	_add_caustics(mesh)
@@ -1446,7 +1448,9 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 	_paint_aq(inst, _aq_mat(model))
 	_toonify(inst)
 	if model.begins_with("Rock"):
-		_toon_tile(inst, "cliff", 0.10, Color(0.92, 0.9, 1.0))   # painted reef stone (fallback path)
+		# painted reef stone (fallback path) - bigger strokes, richer tint so
+		# the cliff sheet reads instead of washing white (owner 2026-07-11)
+		_toon_tile(inst, "cliff", 0.055, Color(0.82, 0.8, 0.95))
 	add_child(inst)
 	if not play_anim:
 		flora_nodes.append(inst)
@@ -5112,13 +5116,21 @@ const SLIDE_STEER := 38.0          # lateral acceleration from steering
 const SLIDE_RIDE := 2.2            # how far above the chute surface Roshan rides
 const SLIDE_LEAD := 22.0           # baby penguin's head start (shrinks to 0 at the bottom)
 
-func _ice_mat(col: Color, glow: float = 0.18) -> StandardMaterial3D:
+func _ice_mat(col: Color, glow: float = 0.18, tex: String = "") -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = col
 	m.metallic = 0.25
 	m.roughness = 0.12
 	m.emission_enabled = true
 	m.emission = col * glow
+	if tex != "":
+		# painted GEN2 sheet (nano-banana suite) over the glow base - used
+		# for the snow surfaces so they read as HER art, not flat white
+		m.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % tex)
+		m.uv1_triplanar = true
+		m.uv1_scale = Vector3(0.14, 0.14, 0.14)
+		m.metallic = 0.05
+		m.roughness = 0.7
 	return m
 
 func _slide_plank(a: Vector3, b: Vector3, width: float, mat: StandardMaterial3D, thick: float = 0.8) -> void:
@@ -5195,7 +5207,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.72, 0.9, 1.0))
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.95, 1.02, 1.08), 0.10, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -5233,7 +5245,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var ball := MeshInstance3D.new()
 		var bs := SphereMesh.new(); bs.radius = 7.0; bs.height = 14.0
 		ball.mesh = bs
-		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.97, 0.99, 1.0), 0.05)
+		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(1.0, 1.02, 1.05), 0.05, "snow")
 		add_child(ball); game_nodes.append(ball)
 		g["ball"] = ball
 	# ---- finish banner at the bottom ----
@@ -5653,7 +5665,7 @@ func _build_slide_portal() -> void:
 	var floe := MeshInstance3D.new()
 	var fm := CylinderMesh.new(); fm.top_radius = 11.0; fm.bottom_radius = 8.5; fm.height = 3.0
 	floe.mesh = fm
-	floe.material_override = _ice_mat(Color(0.86, 0.95, 1.0), 0.08)
+	floe.material_override = _ice_mat(Color(0.95, 1.0, 1.05), 0.08, "snow")
 	floe.position = slide_portal_pos + Vector3(0, -2.0, 0)
 	add_child(floe)
 	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)

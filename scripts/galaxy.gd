@@ -242,18 +242,34 @@ func _build_planet() -> void:
 	planet.mesh = pm
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
+// GEN2 pass (owner 2026-07-11): the meadow + paths now wear the painted
+// nano-banana sheets, sampled model-space triplanar so the sphere has no
+// pole pinch; the flower confetti + firefly sparkle live on top unchanged.
+uniform sampler2D grass_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform sampler2D path_tex : source_color, repeat_enable, filter_linear_mipmap;
+varying vec3 mpos;
+varying vec3 mnrm;
 float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+vec3 triplanar(sampler2D t, vec3 p, vec3 n, float s){
+	vec3 w = abs(n); w /= (w.x + w.y + w.z);
+	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y
+			+ texture(t, p.xy * s).rgb * w.z;
+}
+void vertex(){
+	mpos = VERTEX;
+	mnrm = NORMAL;
+}
 void fragment(){
-	// flowering-meadow planet (the butterfly-house garden): soft grass with
-	// sandy landscaped paths and thousands of tiny flower dots
+	// flowering-meadow planet (the butterfly-house garden): painted grass
+	// with sandy landscaped paths and thousands of tiny flower dots
 	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
-	vec3 a = vec3(0.45, 0.76, 0.42);   // meadow green
-	vec3 b = vec3(0.58, 0.86, 0.48);   // sunlit grass
-	vec3 col = mix(a, b, band);
+	vec3 grass = triplanar(grass_tex, mpos, mnrm, 0.045);
+	vec3 col = grass * mix(vec3(0.86, 0.97, 0.84), vec3(1.04, 1.10, 0.96), band);
 	// two winding garden paths circling the planet
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
-	col = mix(col, vec3(0.90, 0.83, 0.62), clamp(pathm, 0.0, 1.0) * 0.85);
+	vec3 sand = triplanar(path_tex, mpos, mnrm, 0.06) * vec3(1.06, 1.0, 0.9);
+	col = mix(col, sand, clamp(pathm, 0.0, 1.0) * 0.9);
 	// confetti of tiny flowers
 	vec2 g = UV * vec2(220.0, 120.0);
 	float fh = h21(floor(g));
@@ -268,6 +284,8 @@ void fragment(){
 }"""
 	var mat := ShaderMaterial.new()
 	mat.shader = sh
+	mat.set_shader_parameter("grass_tex", load("res://assets/terrain/up_grass_col.jpg"))
+	mat.set_shader_parameter("path_tex", load("res://assets/terrain/up_sand_col.jpg"))
 	planet.material_override = mat
 	planet.position = ORIGIN
 	add_child(planet)
@@ -665,17 +683,23 @@ func _build_decor() -> void:
 	var dsh := Shader.new()
 	dsh.code = """shader_type spatial;
 render_mode unshaded, cull_front;
+// GEN2 pass (owner 2026-07-11): the vivarium's mullion grid is painted
+// wood from the nano-banana suite - the conservatory ceiling reads as
+// warm woodwork instead of bare white lines; the panes stay open glass.
+uniform sampler2D wood_tex : source_color, repeat_enable, filter_linear_mipmap;
 void fragment(){
 	vec2 grid = abs(fract(UV * vec2(26.0, 13.0)) - 0.5);
 	float line = smoothstep(0.035, 0.012, min(grid.x, grid.y));
 	if (line < 0.04) {
 		discard;   // skip the fullscreen glass haze — only the mullion grid draws
 	}
-	ALBEDO = mix(vec3(0.75, 0.9, 0.95), vec3(0.93, 0.97, 1.0), line);
-	ALPHA = mix(0.05, 0.45, line);
+	vec3 wood = texture(wood_tex, UV * vec2(26.0, 13.0) * 0.35).rgb;
+	ALBEDO = mix(vec3(0.75, 0.9, 0.95), wood * vec3(1.08, 0.98, 0.92), line);
+	ALPHA = mix(0.05, 0.6, line);
 }"""
 	var dmat := ShaderMaterial.new()
 	dmat.shader = dsh
+	dmat.set_shader_parameter("wood_tex", load("res://assets/terrain/up_wood_col.jpg"))
 	dome.material_override = dmat
 	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	dome.position = ORIGIN
@@ -1349,7 +1373,12 @@ func _build_hall() -> void:
 	rcm.height = 0.2
 	rug.mesh = rcm
 	var rmat := StandardMaterial3D.new()
-	rmat.albedo_color = Color(0.30, 0.22, 0.55)
+	rmat.albedo_color = Color(0.52, 0.42, 0.85)
+	# GEN2: the dance rug wears the painted fabric sheet (glass floor stays
+	# glass by design - the galaxy glitters through it)
+	rmat.albedo_texture = load("res://assets/terrain/up_fabric_col.jpg")
+	rmat.uv1_triplanar = true
+	rmat.uv1_scale = Vector3(0.09, 0.09, 0.09)
 	rmat.emission_enabled = true
 	rmat.emission = Color(0.6, 0.5, 1.0)
 	rmat.emission_energy_multiplier = 0.2
