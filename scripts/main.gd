@@ -2585,12 +2585,48 @@ func _build_page_frame() -> void:
 			root.add_child(bub)
 
 func _butterfly_gate(scl: float) -> Node3D:
-	# the BUTTERFLY GATE (Blender-built: wing-flanked pearl ring) + a swirling
-	# rainbow film inside — the game's signature doorway between worlds
+	# the BUTTERFLY GATE — GEN2 rebuild (owner 2026-07-12: the old white
+	# procedural wings read as strange): a painted pearl ring with HER
+	# butterfly cards fluttering at its sides, rainbow film inside
 	var root := Node3D.new()
-	if ResourceLoader.exists("res://assets/portal/butterfly_gate.glb"):
-		var gg: Node3D = (load("res://assets/portal/butterfly_gate.glb") as PackedScene).instantiate()
-		root.add_child(gg)
+	var ring := MeshInstance3D.new()
+	var tor := TorusMesh.new()
+	tor.inner_radius = 0.82
+	tor.outer_radius = 1.0
+	ring.mesh = tor
+	ring.rotation.x = PI * 0.5   # frame the swirl (torus lies flat by default)
+	var rm := StandardMaterial3D.new()
+	rm.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
+	rm.albedo_color = Color(1.0, 0.86, 0.94)   # pearl pink
+	rm.uv1_triplanar = true
+	rm.uv1_scale = Vector3(0.5, 0.5, 0.5)
+	rm.roughness = 0.35
+	rm.emission_enabled = true
+	rm.emission = Color(1.0, 0.8, 0.95)
+	rm.emission_energy_multiplier = 0.35
+	ring.material_override = rm
+	root.add_child(ring)
+	var btex: Texture2D = load("res://assets/props/gen2/butterfly1.png")
+	for side in [-1.0, 1.0]:
+		var wing := MeshInstance3D.new()
+		var wq := QuadMesh.new()
+		wq.size = Vector2(1.05, 0.85)
+		wing.mesh = wq
+		var wmat := StandardMaterial3D.new()
+		wmat.albedo_texture = btex
+		wmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		wmat.alpha_scissor_threshold = 0.4
+		wmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		wmat.emission_enabled = true
+		wmat.emission = Color(0.4, 0.32, 0.42)
+		wmat.emission_energy_multiplier = 0.5
+		wing.material_override = wmat
+		wing.position = Vector3(side * 1.16, 0.28, 0.0)
+		wing.rotation.y = side * 0.5
+		root.add_child(wing)
+		var wt := create_tween().set_loops()
+		wt.tween_property(wing, "rotation:y", side * 0.15, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		wt.tween_property(wing, "rotation:y", side * 0.5, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	var swirl := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(1.84, 1.84)
@@ -6513,17 +6549,62 @@ func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_col
 	add_child(mmi)
 
 func _build_meadows() -> void:
-	# seagrass meadow — crossed swaying blades
-	_scatter_field(2100, _cross_blade(0.9, 3.8), _sway_grass_mat(Color(0.09, 0.30, 0.26), Color(0.40, 0.78, 0.62)), 0.0, false, [])
-	# tall kelp ribbons (muted teal, not electric)
-	_scatter_field(520, _cross_blade(1.6, 11.0), _sway_grass_mat(Color(0.08, 0.22, 0.26), Color(0.34, 0.55, 0.64)), 0.0, false, [])
-	# real sea-floor life: anemones, starfish, urchins — soft jewel tones
+	# seagrass meadow — HER painted blades (the gen2 seagrass/kelp sprites on
+	# the crossed sway quads; the old procedural needles read as teal spikes,
+	# owner 2026-07-12). Blade proportions match each sprite's aspect.
+	_scatter_field(1400, _cross_blade(3.0, 2.5), _sway_sprite_mat("res://assets/props/gen2/seagrass.png"), 0.0, false, [])
+	# tall kelp ribbons
+	_scatter_field(420, _cross_blade(1.7, 4.5), _sway_sprite_mat("res://assets/props/gen2/kelp.png"), 0.0, false, [])
+	# anemones + urchins stay procedural for now (no painted source art yet —
+	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
 	_scatter_field(360, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
 		[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)])
-	_scatter_field(240, _starfish_mesh(), _glow_tip_mat("res://assets/terrain/star_detail.png"), 0.15, true,
-		[Color(0.98, 0.66, 0.52), Color(0.95, 0.58, 0.62), Color(0.98, 0.78, 0.52), Color(0.85, 0.66, 0.92)])
+	# HER starfish: flat painted decals resting on the sand (rendered from the
+	# gen2 starfish model — the procedural white stars read as paper cutouts)
+	var sf := PlaneMesh.new()
+	sf.size = Vector2(2.1, 2.1)
+	var sfm := StandardMaterial3D.new()
+	sfm.albedo_texture = load("res://assets/props/gen2/starfish_decal.png")
+	sfm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	sfm.alpha_scissor_threshold = 0.5
+	sfm.roughness = 1.0
+	sfm.emission_enabled = true
+	sfm.emission = Color(0.45, 0.32, 0.3)
+	sfm.emission_energy_multiplier = 0.25
+	_scatter_field(240, sf, sfm, 0.12, false, [])
 	_scatter_field(200, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
 		[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)])
+
+func _sway_sprite_mat(sprite_path: String) -> ShaderMaterial:
+	# gen2 painted blade: same wind-driven sway as the old procedural grass,
+	# but the sprite's own art is the colour (alpha-cut, soft tip glow)
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode cull_disabled, depth_prepass_alpha;
+uniform sampler2D leaf : source_color, filter_linear_mipmap;
+global uniform vec3 wind_dir;
+global uniform float wind_gust;
+void vertex(){
+	float w = UV.y;
+	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	float gg = 0.4 + wind_gust * 1.2;
+	float ph = TIME * (0.9 + wind_gust * 0.7) - dot(wp.xz, wind_dir.xz) * 0.14;
+	VERTEX.x += (sin(ph + wp.x * 0.28 + wp.z * 0.22) * 0.5 * gg + wind_dir.x * wind_gust * 0.5) * w;
+	VERTEX.z += (cos(ph * 0.78 + wp.x * 0.16) * 0.36 * gg + wind_dir.z * wind_gust * 0.5) * w;
+}
+void fragment(){
+	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
+	if (lf.a < 0.5) { discard; }
+	ALBEDO = lf.rgb;
+	ROUGHNESS = 0.85;
+	SPECULAR = 0.1;
+	BACKLIGHT = lf.rgb * (0.2 + UV.y * 0.3);
+	EMISSION = lf.rgb * (0.04 + UV.y * UV.y * 0.16);
+}"""
+	var m := ShaderMaterial.new()
+	m.shader = sh
+	m.set_shader_parameter("leaf", load(sprite_path))
+	return m
 
 func _fish_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -6535,8 +6616,21 @@ func _fish_mat() -> ShaderMaterial:
 
 func _build_fish() -> void:
 	var cols := [Color(0.3, 0.95, 1.0), Color(1.0, 0.6, 0.85), Color(0.6, 1.0, 0.5), Color(1.0, 0.85, 0.4), Color(0.7, 0.55, 1.0), Color(0.4, 0.8, 1.0)]
-	var body := _fish_mesh(1.0)
-	var fmat := _fish_mat()
+	# ambient schools are HER clownfish now: painted side-view sprites on
+	# quads (rendered from the gen2 model), softly tinted per school. The
+	# quad's local X is the travel axis, so the painted head leads.
+	var body := QuadMesh.new()
+	body.size = Vector2(2.0, 1.5)
+	var fmat := StandardMaterial3D.new()
+	fmat.albedo_texture = load("res://assets/props/gen2/clownfish_side.png")
+	fmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	fmat.alpha_scissor_threshold = 0.5
+	fmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	fmat.vertex_color_use_as_albedo = true
+	fmat.roughness = 0.9
+	fmat.emission_enabled = true
+	fmat.emission = Color(0.25, 0.22, 0.2)
+	fmat.emission_energy_multiplier = 0.5
 	for s2 in range(6):
 		var col: Color = cols[s2]
 		var aa: float = randf() * TAU
@@ -6549,7 +6643,9 @@ func _build_fish() -> void:
 		mm.mesh = body
 		mm.instance_count = 14
 		for i in range(14):
-			mm.set_instance_color(i, col)
+			# soft tint only: the sprite is already painted art, a full-
+			# saturation multiply would muddy it (school identity stays on the halo)
+			mm.set_instance_color(i, Color(1, 1, 1).lerp(col, 0.35))
 		var mmi := MultiMeshInstance3D.new()
 		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		mmi.multimesh = mm

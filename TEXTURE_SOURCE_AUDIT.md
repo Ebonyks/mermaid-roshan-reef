@@ -16,6 +16,16 @@ in the generated sheets.
   embedded copy (gold stays gold, red cushion stays red).
 - **Props/creatures**: all gen2 Meshy models carry their own generated art.
 
+## Update — defaults-removal pass (2026-07-12, same day)
+The procedural/default reef layer is now HER art too: the 2,520-blade
+meadow + kelp fields wear the gen2 seagrass/kelp sprites (same wind sway),
+the 240 scatter starfish are painted decals rendered from the gen2
+starfish model (the model itself was also re-baked to lie flat - it stood
+on edge like a coin), the six ambient fish schools are painted clownfish
+side-sprites (softly tinted per school), and the Butterfly Gate portal is
+rebuilt: painted pearl ring + two fluttering gen2 butterfly cards
+replacing the white procedural wings.
+
 ## Weaknesses of source-art availability (the gaps)
 Ranked by how visible the stand-in or hold-back is in play:
 
@@ -44,10 +54,15 @@ Ranked by how visible the stand-in or hold-back is in play:
    used on fairy Roshan.
 7. **Vehicle liveries — out of this pass.** Kart/motorcycle/monstertruck
    belong to the kart workstream (nano road tiles already exist there).
-8. **Functional maps — no equivalents needed.** caustics.png, ripple
+8. **Still procedural, no source art**: anemones and urchins in the
+   scatter field (glow-tip meshes), the giant ambient silhouette fish
+   (_fish_mesh(14)), and one grass bunch in the slide arena. Candidates
+   for the next Gemini batch (anemone + urchin especially - 560
+   instances on the seabed).
+9. **Functional maps — no equivalents needed.** caustics.png, ripple
    normals, scales_normal, polyp detail, star_detail are effect/detail
    maps, not art surfaces; retained by design.
-9. **Sacred art — out of scope by rule.** assets/book/, family voices,
+10. **Sacred art — out of scope by rule.** assets/book/, family voices,
    friend cutouts are never regenerated.
 
 ## Pipeline notes for the next generation batch
