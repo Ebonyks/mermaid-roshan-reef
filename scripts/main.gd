@@ -20,6 +20,7 @@ var hud_game: Label
 var msg_timer := 0.0
 var voice: AudioStreamPlayer
 var model_cache := {}
+var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
@@ -2676,14 +2677,22 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 	if node is MeshInstance3D:
 		var mi := node as MeshInstance3D
 		if mi.mesh != null:
-			var tm := StandardMaterial3D.new()
-			tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
-			tm.albedo_color = _pastel(tint)
-			tm.uv1_triplanar = true
-			tm.uv1_scale = Vector3(uvs, uvs, uvs)
-			tm.roughness = 1.0
-			tm.metallic = 0.0
-			tm.metallic_specular = 0.1
+			# One shared material per tile config, cached on main — same
+			# teardown rationale as _toonify's cache: a node-owned material
+			# is freed before its instance and the headless dummy renderer
+			# errors on the stale RID during the dirty-instance flush.
+			var ck := "%s|%s|%s" % [key, uvs, tint]
+			var tm: StandardMaterial3D = _toon_mats.get(ck)
+			if tm == null:
+				tm = StandardMaterial3D.new()
+				tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
+				tm.albedo_color = _pastel(tint)
+				tm.uv1_triplanar = true
+				tm.uv1_scale = Vector3(uvs, uvs, uvs)
+				tm.roughness = 1.0
+				tm.metallic = 0.0
+				tm.metallic_specular = 0.1
+				_toon_mats[ck] = tm
 			for si in range(mi.mesh.get_surface_count()):
 				mi.set_surface_override_material(si, tm)
 	for c in node.get_children():
@@ -2930,12 +2939,21 @@ func _toonify(node: Node) -> void:
 				if sm0 == null:
 					sm0 = mi.mesh.surface_get_material(si)
 				if sm0 is StandardMaterial3D:
-					var m2 := (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
-					m2.normal_enabled = false
-					m2.roughness = 1.0
-					m2.metallic = 0.0
-					m2.metallic_specular = 0.1
-					m2.albedo_color = _pastel(m2.albedo_color)
+					# One shared override per source material, cached on main.
+					# A per-node duplicate's only ref is the node itself, and
+					# node teardown frees the material RID before the instance
+					# RID — the headless dummy renderer then enumerates the
+					# stale RID and spams "Parameter material is null" (probe
+					# audit). The cache keeps the override alive past the node.
+					var m2: StandardMaterial3D = _toon_mats.get(sm0)
+					if m2 == null:
+						m2 = (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
+						m2.normal_enabled = false
+						m2.roughness = 1.0
+						m2.metallic = 0.0
+						m2.metallic_specular = 0.1
+						m2.albedo_color = _pastel(m2.albedo_color)
+						_toon_mats[sm0] = m2
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_toonify(c)
