@@ -110,20 +110,32 @@ func _init() -> void:
 	_ck("descends to the undercroft", player.position.y - h.y < -14.0,
 		"y=%.1f" % (player.position.y - h.y))
 	await _shot("undercroft", br + Vector3(0, -12, 6), br + Vector3(0, -16, -2))
-	# 5) the hallway floor still holds everywhere else
+	# 5) the treasure-room floor still holds everywhere else
 	player.position = br + Vector3(-15, 4, 5)
 	player.vel = Vector3.ZERO
 	await _frames(40)
 	_ck("hallway floor intact off the opening", player.position.y - h.y > 1.5,
 		"y=%.1f" % (player.position.y - h.y))
-	# 6) the royal loo exists and toots on approach
+	# 6) the basement wing: the widened hallway and the side rooms all hold the
+	# basement floor (each point was OUTSIDE the old 12-wide corridor zone)
+	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(17, -12, -28)]:
+		player.position = h + wp
+		player.vel = Vector3.ZERO
+		await _wait_ms(900)
+		_ck("basement floor at (%d, %d)" % [int(wp.x), int(wp.z)], player.position.y - h.y < -14.0,
+			"y=%.1f" % (player.position.y - h.y))
+	await _shot("basement_hallway", h + Vector3(0, -8, 0), h + Vector3(0, -16, -30))
+	# 7) the royal loo waits at the very bottom of the basement hallway
 	_ck("toilet exists", main.g.has("toilet"))
 	if main.g.has("toilet"):
-		player.position = br + Vector3(-18, 4, 0)
+		var tpos: Vector3 = (main.g["toilet"] as Dictionary)["pos"]
+		_ck("toilet is down in the basement", tpos.y - h.y < -10.0 and tpos.z - h.z < -35.0,
+			"rel=(%.1f, %.1f, %.1f)" % [tpos.x - h.x, tpos.y - h.y, tpos.z - h.z])
+		player.position = h + Vector3(-3.0, -15.5, -41.0)
 		player.vel = Vector3.ZERO
 		await _frames(30)
 		var td: Dictionary = main.g["toilet"]
 		_ck("toilet toots on approach", not bool(td.get("armed", true)))
-		await _shot("royal_loo", br + Vector3(-13, 6, 4), br + Vector3(-21, 3, 0))
+		await _shot("royal_loo", h + Vector3(1, -13, -36), h + Vector3(-6, -16, -42))
 	print("BASEMENT|RESULT: ", ("ALL OK" if checks_failed == 0 else "%d FAIL" % checks_failed))
 	quit()
