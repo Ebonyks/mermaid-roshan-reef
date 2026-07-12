@@ -1119,14 +1119,29 @@ func tick(delta: float, ppos: Vector3) -> void:
 	var crown: Label3D = m.l2_stars[0]["node"]
 	crown.rotate_y(delta * 1.4)
 	crown.position.y += sin(float(m.g["t"]) * 2.0) * 0.02
-	# GENTLE STAIR HELPER (not a black hole): only a soft updraft when the player is in
-	# FRONT of the throne and below the crown. No far-reaching horizontal pull, so the
-	# back room behind the throne stays reachable. Finishing requires actually touching the crown.
-	var d: float = crown.position.distance_to(ppos)
-	var in_front: bool = ppos.z > crown.position.z + 3.0
-	if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
-		m.player.position = m.player.position.lerp(crown.position, minf(0.16, delta * 0.5))
-		m.player.vel.y = maxf(m.player.vel.y, 0.0)
-	if d < 5.0:
-		m._finish_level2()
+	# Touching the Crown Star CELEBRATES IN PLACE (owner 2026-07-12: it used to
+	# call _finish_level2() and eject Roshan to the ocean — touching the throne
+	# yanked her out of her own castle). The win still counts (level2_done_once
+	# + save); she keeps the castle and leaves by the front door when SHE wants.
+	if not bool(m.g.get("crown_won", false)):
+		# gentle stair helper (not a black hole): only a soft updraft when the player
+		# is in FRONT of the throne and below the crown; retired once the crown is won
+		var d: float = crown.position.distance_to(ppos)
+		var in_front: bool = ppos.z > crown.position.z + 3.0
+		if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
+			m.player.position = m.player.position.lerp(crown.position, minf(0.16, delta * 0.5))
+			m.player.vel.y = maxf(m.player.vel.y, 0.0)
+		if d < 5.0:
+			m.g["crown_won"] = true
+			m.level2_done_once = true
+			m._write_save()
+			if m.voice != null:
+				m.voice.pitch_scale = 1.15
+				m.voice.play()
+			for i in range(10):
+				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
+			var ctw: Tween = crown.create_tween()
+			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			ctw.parallel().tween_property(crown, "modulate", Color(1.0, 0.98, 0.7, 1.0), 0.8)
+			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 
