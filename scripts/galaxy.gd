@@ -896,8 +896,11 @@ func _build_avatar() -> void:
 	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
 	# plushie back every time the rainbow race chained into the galaxy)
 	var glb := "res://assets/characters/roshan.glb"
-	if ResourceLoader.exists("res://assets/characters/roshan_v3.glb"):
-		glb = "res://assets/characters/roshan_v3.glb"
+	for vpath in ["res://assets/characters/roshan_v4.glb",
+			"res://assets/characters/roshan_v3.glb"]:
+		if ResourceLoader.exists(vpath):
+			glb = vpath
+			break
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
 		if sid == "huluu" and ResourceLoader.exists("res://assets/characters/huluu.glb"):

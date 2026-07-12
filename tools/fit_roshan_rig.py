@@ -18,11 +18,15 @@ from math import pi, atan2, degrees
 
 import bpy
 import numpy as np
-from mathutils import Vector, Matrix
+from mathutils import Vector, Matrix, Quaternion as MQuaternion
 
 
 def parse_args(argv):
-    a = {"mesh": "", "out": "", "strands": "8", "segs": "3"}
+    # lower_arms: radians to rotate each shoulder down (about model Z, opposite
+    # signs per side) AFTER weighting, baked into rest pose + mesh, so winged
+    # A/T-pose generations export with a natural hang and the game's
+    # animation/verb library applies unchanged.
+    a = {"mesh": "", "out": "", "strands": "8", "segs": "3", "lower_arms": "0"}
     if "--" in argv:
         rest = argv[argv.index("--") + 1:]
         i = 0
@@ -174,10 +178,22 @@ def main():
           f"armL skin {armL_skin.sum()}  armR skin {armR_skin.sum()}")
 
     def arm_chain(m):
+        """Order the arm cluster along its own principal axis (works for
+        hanging, A-pose, and horizontal T-pose arms); the end closest to the
+        spine axis (|x| smallest) is the shoulder."""
         A = P[m]
-        top = A[np.argmax(A[:, 2])]
-        t = np.linalg.norm(A - top, axis=1)
+        c = A.mean(0)
+        cov = np.cov((A - c).T)
+        evals, evecs = np.linalg.eigh(cov)
+        axis = evecs[:, -1]
+        t = (A - c) @ axis
+        lo_end = A[t < np.percentile(t, 8)].mean(0)
+        hi_end = A[t > np.percentile(t, 92)].mean(0)
+        if abs(lo_end[0]) > abs(hi_end[0]):
+            axis = -axis
+            t = -t
         o = np.argsort(t); A, t = A[o], t[o]
+        t -= t[0]
         tmax = max(t[-1], 1e-6)
         def seg(f0, f1):
             mm = (t >= f0 * tmax) & (t <= f1 * tmax)
@@ -429,6 +445,36 @@ def main():
         print("[ok] heat weights kept + hair separation")
 
     assert mesh_obj.find_armature() is not None, "mesh not bound to armature"
+
+    # ---- optional: bake winged arms down into a natural hanging rest ---------------
+    lower = float(args["lower_arms"])
+    if lower != 0.0:
+        print(f"[i] lowering arms by {lower:.2f} rad and baking as rest pose")
+        bpy.context.view_layer.objects.active = arm
+        bpy.ops.object.mode_set(mode="POSE")
+        for nm, sgn in (("armU", -1.0), ("armU2", 1.0)):
+            pb = arm.pose.bones.get(nm)
+            if pb is None:
+                continue
+            rq = pb.bone.matrix_local.to_quaternion()
+            axis_local = (rq.inverted() @ Vector((0, 0, 1))).normalized()
+            pb.rotation_mode = "QUATERNION"
+            pb.rotation_quaternion = MQuaternion(axis_local, sgn * lower)
+        bpy.ops.object.mode_set(mode="OBJECT")
+        # bake deformed vertices onto the base mesh (evaluated capture --
+        # modifier_apply/transform_apply are unreliable in --background)
+        dg = bpy.context.evaluated_depsgraph_get()
+        me_eval = mesh_obj.evaluated_get(dg).to_mesh()
+        co = np.empty(len(me_eval.vertices) * 3)
+        me_eval.vertices.foreach_get("co", co)
+        mesh_obj.evaluated_get(dg).to_mesh_clear()
+        mesh_obj.data.vertices.foreach_set("co", co)
+        mesh_obj.data.update()
+        bpy.context.view_layer.objects.active = arm
+        bpy.ops.object.mode_set(mode="POSE")
+        bpy.ops.pose.armature_apply(selected=False)
+        bpy.ops.object.mode_set(mode="OBJECT")
+        print("[ok] arms-down rest baked")
 
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.export_scene.gltf(filepath=out, export_format="GLB",
