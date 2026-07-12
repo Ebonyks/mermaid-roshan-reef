@@ -9,7 +9,7 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4_slim.glb"
+GLB = "roshan_v4c_slim.glb"
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -128,15 +128,15 @@ VERBS = {
    "armF2":{"axis":RIGHT,"keys":[[0,0],[0.6,0.55],[0.9,-0.45],[1.2,0.55],[1.5,-0.45],[1.8,0.55],[2.2,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.7,0.16],[2.0,0.16],[2.6,0]]}}},
  "cheer": {"len":2.2,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.2],[1.7,2.2],[2.2,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.8],[1.7,2.8],[2.2,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.3],[1.7,2.3],[2.2,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
    "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.2],[1.7,0.2],[2.2,0]]},
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.12],[1.7,-0.12],[2.2,0]]}}},
  "clap": {"len":2.0,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.4],[1.7,2.4],[2.0,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.9],[1.7,2.9],[2.0,-0.2]]},
-   "armF":{"axis":(1,0,-1),"keys":[[0,0],[0.5,-1.2],[0.65,-0.3],[0.8,-1.2],[0.95,-0.3],[1.1,-1.2],[1.25,-0.3],[1.4,-1.2],[1.7,0]]},
-   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,0.6],[0.65,0.05],[0.8,0.6],[0.95,0.05],[1.1,0.6],[1.25,0.05],[1.4,0.6],[1.7,0]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
+   "armF":{"axis":(1,0,-1),"keys":[[0,0],[0.5,-1.4],[0.65,-0.4],[0.8,-1.4],[0.95,-0.4],[1.1,-1.4],[1.25,-0.4],[1.4,-1.4],[1.7,0]]},
+   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,0.4],[0.65,0.0],[0.8,0.4],[0.95,0.0],[1.1,0.4],[1.25,0.0],[1.4,0.4],[1.7,0]]}}},
  "twirl": {"len":1.9,"tracks":{
    "armU":{"axis":FWD,"keys":[[0,0],[0.4,-1.2],[1.5,-1.2],[1.9,0]]},
    "armU2":{"axis":FWD,"keys":[[0,0],[0.4,1.2],[1.5,1.2],[1.9,0]]},
@@ -189,9 +189,9 @@ def swim_deltas(phase, speed):
     arm_amp = 0.06 + min(speed*0.02, 0.20)
     ap = phase*0.5
     d["armU"] = model_axis_delta("armU", RIGHT, np.sin(ap)*arm_amp)
-    d["armF"] = model_axis_delta("armF", RIGHT, np.sin(ap-0.5)*arm_amp*0.7)
+    d["armF"] = model_axis_delta("armF", RIGHT, (np.sin(ap-0.5)+1.0)*0.5*arm_amp)
     d["armU2"] = model_axis_delta("armU2", RIGHT, np.sin(ap-0.35)*arm_amp)
-    d["armF2"] = model_axis_delta("armF2", RIGHT, np.sin(ap-0.85)*arm_amp*0.7)
+    d["armF2"] = model_axis_delta("armF2", RIGHT, (np.sin(ap-0.85)+1.0)*0.5*arm_amp)
     return d
 
 def verb_frame(vname, t, swim_d):
@@ -321,6 +321,85 @@ check("sleep arms fold forward", hL[mid, 2] < REST["hand"][2]+0.02 and hR[mid, 2
       f"hand z L {REST['hand'][2]:.2f}->{hL[mid,2]:.2f} R {REST['hand2'][2]:.2f}->{hR[mid,2]:.2f}")
 check("sleep tail curls", abs(t8[mid, 2]-REST["tail8"][2]) > 0.1,
       f"tail8 z {REST['tail8'][2]:.2f}->{t8[mid,2]:.2f}")
+
+# ---------------- elbow anatomy + hyperextension ----------------
+def gmats(deltas={}):
+    G = {}
+    for i in order:
+        q = rest_q[i]
+        nm = jname.get(i)
+        if nm in deltas:
+            q = qmul(q, deltas[nm])
+        L = np.eye(4); L[:3,:3] = quat_mat(q); L[:3,3] = rest_t[i]
+        G[i] = (G[parent[i]] @ L) if i in parent else L
+    return G
+
+ARMS = {"L": ("armU","armF","hand"), "R": ("armU2","armF2","hand2")}
+G0e = gmats()
+elbow_ref = {}
+for side, (sh, el, wr) in ARMS.items():
+    Sh, El, Wr = (G0e[name2j[b]][:3,3] for b in (sh, el, wr))
+    upper = np.linalg.norm(El-Sh); fore = np.linalg.norm(Wr-El)
+    check(f"elbow {side} proportions", 0.55 < fore/max(upper,1e-9) < 1.15,
+          f"fore/upper={fore/max(upper,1e-9):.2f}")
+    ks = [joints.index(name2j[b]) for b in (sh, el)]
+    sel = np.zeros(len(J), bool)
+    for c in range(4):
+        for k in ks:
+            sel |= (J[:,c]==k) & (W[:,c]>0.25)
+    near = P0[sel][np.linalg.norm(P0[sel]-El, axis=1) < 0.09]
+    off = np.linalg.norm(near.mean(0)-El) if len(near) > 10 else 99
+    check(f"elbow {side} centered in arm mesh", off < 0.04, f"offset={off:.3f} (radius~0.045)")
+    v1 = (Sh-El)/np.linalg.norm(Sh-El); v2 = (Wr-El)/np.linalg.norm(Wr-El)
+    interior = np.degrees(np.arccos(np.clip(np.dot(v1,v2),-1,1)))
+    check(f"elbow {side} rest bend natural", 140 <= interior <= 178, f"interior={interior:.0f} deg")
+    ext0 = (El-Sh)/np.linalg.norm(El-Sh)
+    fr0 = np.array([0,0,-1.0]) - np.dot([0,0,-1.0], ext0)*ext0
+    elbow_ref[side] = (fr0/np.linalg.norm(fr0), ext0, G0e[name2j[sh]][:3,:3])
+
+def elbow_stats(deltas):
+    G = gmats(deltas)
+    o = {}
+    for side, (sh, el, wr) in ARMS.items():
+        Sh, El, Wr = (G[name2j[b]][:3,3] for b in (sh, el, wr))
+        v2 = (Wr-El)/np.linalg.norm(Wr-El)
+        fr0, ext0, R0 = elbow_ref[side]
+        Rc = G[name2j[sh]][:3,:3] @ R0.T
+        ang = np.degrees(np.arctan2(np.dot(v2, Rc@fr0), np.dot(v2, Rc@ext0)))
+        v1 = (Sh-El)/np.linalg.norm(Sh-El)
+        interior = np.degrees(np.arccos(np.clip(np.dot(v1,v2),-1,1)))
+        o[side] = (ang, interior)
+    return o
+
+worst = {"L": 0.0, "R": 0.0}
+minfold = {"L": 180.0, "R": 180.0}
+def scan_hyper(gen):
+    for d in gen:
+        st = elbow_stats(d)
+        for s2 in ("L","R"):
+            ang, inter = st[s2]
+            if ang < 0:
+                worst[s2] = min(worst[s2], ang)
+            minfold[s2] = min(minfold[s2], inter)
+for speed in (0.0, 25.0):
+    def sg(spd=speed):
+        ph = 0.0
+        for f in range(180):
+            ph += (2.2+spd*0.9)/FPS
+            yield swim_deltas(ph, spd)
+    scan_hyper(sg())
+for vn in VERBS:
+    vlen = VERBS[vn]["len"]
+    def vg(v=vn, L=vlen):
+        ph = 0.0
+        for f in range(int(L*FPS)):
+            ph += 2.2/FPS
+            yield verb_frame(v, f/FPS, swim_deltas(ph, 0.0))
+    scan_hyper(vg())
+check("elbow L never hyperextends", worst["L"] > -6.0, f"worst={worst['L']:.1f} deg")
+check("elbow L never over-folds", minfold["L"] > 25, f"min interior={minfold['L']:.0f} deg")
+check("elbow R never hyperextends", worst["R"] > -6.0, f"worst={worst['R']:.1f} deg")
+check("elbow R never over-folds", minfold["R"] > 25, f"min interior={minfold['R']:.0f} deg")
 
 # ---------------- report ----------------
 fails = 0

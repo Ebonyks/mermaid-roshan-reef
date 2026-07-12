@@ -103,27 +103,70 @@ func _init() -> void:
 	var zd: Dictionary = main.g.get("stand_zone", {})
 	_ck("shaft zone opened", not zd.has("ceil") and (zd.get("band", Vector2.ZERO) as Vector2).y > 3.0)
 	await _shot("open_stairwell", br + Vector3(0, 10, 10), br + Vector3(0, -2, -3))
-	# 4) Roshan can now descend through the opening to the undercroft floor
+	# 4) the revealed staircase is SOLID: Roshan lands on the top steps instead
+	# of free-falling through them, then walks the flight down into the basement
 	player.position = br + Vector3(0, 4, -1)
 	player.vel = Vector3.ZERO
-	await _wait_ms(4000)   # gravity sink, by wall clock
-	_ck("descends to the undercroft", player.position.y - h.y < -14.0,
+	await _wait_ms(1500)
+	var sy: float = player.position.y - h.y
+	_ck("lands on the stairwell steps", sy < -1.0 and sy > -8.0, "y=%.1f" % sy)
+	var t1 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t1 < 3000:
+		player.vel = Vector3(0, -4.0, 9.0)   # walk down the flight (toward +z)
+		await process_frame
+	player.vel = Vector3.ZERO
+	await _wait_ms(800)
+	_ck("stairs walk down to the basement", player.position.y - h.y < -14.0,
 		"y=%.1f" % (player.position.y - h.y))
 	await _shot("undercroft", br + Vector3(0, -12, 6), br + Vector3(0, -16, -2))
-	# 5) the hallway floor still holds everywhere else
+	# 5) the treasure-room floor still holds everywhere else
 	player.position = br + Vector3(-15, 4, 5)
 	player.vel = Vector3.ZERO
 	await _frames(40)
 	_ck("hallway floor intact off the opening", player.position.y - h.y > 1.5,
 		"y=%.1f" % (player.position.y - h.y))
-	# 6) the royal loo exists and toots on approach
+	# 6) the basement wing: the widened hallway and the side rooms all hold the
+	# basement floor (each point was OUTSIDE the old 12-wide corridor zone)
+	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(17, -12, -28)]:
+		player.position = h + wp
+		player.vel = Vector3.ZERO
+		await _wait_ms(900)
+		_ck("basement floor at (%d, %d)" % [int(wp.x), int(wp.z)], player.position.y - h.y < -14.0,
+			"y=%.1f" % (player.position.y - h.y))
+	await _shot("basement_hallway", h + Vector3(0, -8, 0), h + Vector3(0, -16, -30))
+	# 7) the royal loo waits at the very bottom of the basement hallway
 	_ck("toilet exists", main.g.has("toilet"))
 	if main.g.has("toilet"):
-		player.position = br + Vector3(-18, 4, 0)
+		var tpos: Vector3 = (main.g["toilet"] as Dictionary)["pos"]
+		_ck("toilet is down in the basement", tpos.y - h.y < -10.0 and tpos.z - h.z < -35.0,
+			"rel=(%.1f, %.1f, %.1f)" % [tpos.x - h.x, tpos.y - h.y, tpos.z - h.z])
+		player.position = h + Vector3(-3.0, -15.5, -41.0)
 		player.vel = Vector3.ZERO
 		await _frames(30)
 		var td: Dictionary = main.g["toilet"]
 		_ck("toilet toots on approach", not bool(td.get("armed", true)))
-		await _shot("royal_loo", br + Vector3(-13, 6, 4), br + Vector3(-21, 3, 0))
+		await _shot("royal_loo", h + Vector3(1, -13, -36), h + Vector3(-6, -16, -42))
+	# 8) every castle staircase is solid — Roshan rests ON the steps at the
+	# ramp height for that spot instead of sinking through to the floor below
+	player.position = h + Vector3(0, 12, -16)      # royal staircase, mid-flight
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("royal staircase holds", player.position.y - h.y > 4.0 and player.position.y - h.y < 12.0,
+		"y=%.1f" % (player.position.y - h.y))
+	player.position = h + Vector3(30.5, 24, -18)   # balcony stairs (right), mid-flight
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("balcony stairs hold (right)", player.position.y - h.y > 17.0 and player.position.y - h.y < 24.0,
+		"y=%.1f" % (player.position.y - h.y))
+	player.position = h + Vector3(-30.5, 24, -18)  # balcony stairs (left), mid-flight
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("balcony stairs hold (left)", player.position.y - h.y > 17.0 and player.position.y - h.y < 24.0,
+		"y=%.1f" % (player.position.y - h.y))
+	player.position = h + Vector3(-24, 2, 28)      # front-shaft stairs down
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("front shaft stairs hold", player.position.y - h.y > -7.0 and player.position.y - h.y < -2.0,
+		"y=%.1f" % (player.position.y - h.y))
 	print("BASEMENT|RESULT: ", ("ALL OK" if checks_failed == 0 else "%d FAIL" % checks_failed))
 	quit()

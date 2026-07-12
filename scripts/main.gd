@@ -290,6 +290,7 @@ var slide_fr := {"fname": "Penguin Slide", "game": "slide", "theme": "ice", "mod
 var slide_cool := 0.0
 var slide_portal_pos := Vector3.ZERO
 var slide_portal_penguin: Node3D = null
+var peng_wave_cool := 0.0   # portal penguin's interactive cheer cooldown
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
@@ -1471,7 +1472,7 @@ const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin":
 const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], "turtle": [0, 2.2, 0.08],
 	"shark": [0, 3.6, 0.12], "hammerhead": [0, 3.4, 0.12], "whale": [1, 1.6, 0.08],
 	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
-	"penguin": [3, 3.0, 0.08], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06]}
+	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06]}   # penguin: rigged clips carry the motion now
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -1536,6 +1537,28 @@ func _find_anim(n: Node) -> AnimationPlayer:
 		if r != null:
 			return r
 	return null
+
+func _play_clip(node: Node3D, clip: String, speed: float = 1.0) -> void:
+	# rigged GEN2 clip playback — a no-op for unrigged creatures, so callers
+	# can request clips unconditionally. The AnimationPlayer is cached on the
+	# node (the slide tick calls this every frame); clips loop + cross-blend.
+	if node == null or not is_instance_valid(node):
+		return
+	if node.has_meta("no_clips"):
+		return
+	var ap: AnimationPlayer = node.get_meta("clip_ap") if node.has_meta("clip_ap") else null
+	if ap == null:
+		ap = _find_anim(node)
+		if ap == null:
+			node.set_meta("no_clips", true)
+			return
+		node.set_meta("clip_ap", ap)
+	if not is_instance_valid(ap) or not ap.has_animation(clip):
+		return
+	if ap.current_animation != clip:
+		ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+		ap.play(clip, 0.25)
+	ap.speed_scale = speed
 
 func _build_aquatic_flora() -> void:
 	# real corals, seaweed, shells clustered on the reef groves; rocks scattered
@@ -5610,6 +5633,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var peng := _aq_game("Penguin", ps[0] + ps[2] * (side * (SLIDE_WIDTH * 0.5 + 4.0)) + Vector3(0, 2.0, 0), 3.0)
 		if peng != null:
 			peng.rotation.y = atan2(-ps[1].x, -ps[1].z) + (0.4 if side > 0.0 else -0.4)
+			_play_clip(peng, "cheer", 0.85 + 0.12 * float(k))   # phase-varied crowd
 	g["fish"] = []
 	if mode == "chase":
 		# ---- the baby penguin you race + catch (positioned each frame in _tick_slide) ----
@@ -5751,11 +5775,31 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		if beany:
 			gap = maxf(0.0, SLIDE_LEAD * (1.0 - p * 1.45))   # bean power: reel him in!
 		else:
-			# he TIRES near the bottom — sim: pure "beans or nothing" meant a
-			# guaranteed first-run fail behind a text hint a 4yo can't read.
-			# Unbeaned he's still catchable in the last stretch (p>~0.83);
-			# beans catch him WAY earlier and stay the fun way to win.
-			gap = SLIDE_LEAD * maxf(0.02, 1.0 - p * 0.5 - maxf(0.0, p - 0.7) * 1.4)
+			# NO catch without beans (owner 2026-07-12, supersedes the old
+			# "he tires at the bottom" window): the gap teases shut, but the
+			# moment Roshan gets close he PANICS — a burst of speed rockets
+			# him ahead again. Repeated near-misses sell "he's too speedy";
+			# the Pearl Shop beans are the real answer.
+			var burst: float = float(g.get("burst", 0.0))
+			var base_gap: float = SLIDE_LEAD * maxf(0.18, 1.0 - p * 0.75)
+			if base_gap + burst < 10.0:
+				burst = minf(burst + 34.0 * delta, 18.0)
+				g["panic_cool"] = float(g.get("panic_cool", 5.0)) - delta
+				if float(g["panic_cool"]) <= 0.0:
+					g["panic_cool"] = 5.0
+					var pn0 = g.get("peng_node")
+					if pn0 != null and is_instance_valid(pn0):
+						_sparkle_burst((pn0 as Node3D).position + Vector3(0, 1.5, 0), Color(0.7, 0.9, 1.0))
+					if chime != null:
+						chime.pitch_scale = 1.9
+						chime.play()
+					if int(g.get("panic_n", 0)) < 2:
+						g["panic_n"] = int(g.get("panic_n", 0)) + 1
+						show_msg(fr["fname"], "WHEEE! He zoomed away! Maybe magic BEANS from the Pearl Shop would help!")
+			else:
+				burst = maxf(0.0, burst - 3.5 * delta)
+			g["burst"] = burst
+			gap = base_gap + burst
 		var peng_s: float = minf(s + gap, total)
 		# he FLEES sideways away from Roshan (slower than she can steer), pinned by the
 		# chute walls — so a passive player never catches him; you must corner him.
@@ -5774,10 +5818,16 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			(pnode as Node3D).position = pbpos
 			var wob: float = sin(float(g["t"]) * 9.0) * 0.18      # waddle
 			(pnode as Node3D).rotation = Vector3(0, atan2(psamp[1].x, psamp[1].z) + PI, wob)
-		# catch when you've cornered him during the window
-		if not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
+			# rigged clips: SPRINT while panicking or being reeled in, WADDLE otherwise
+			var sprinting: bool = float(g.get("burst", 0.0)) > 0.5 or (beany and gap < 13.0)
+			_play_clip(pnode as Node3D, "sprint" if sprinting else "waddle", 1.35 if sprinting else 1.0)
+		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
+		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
 			award_sticker("penguin")
+			var cn = g.get("peng_node")
+			if cn != null and is_instance_valid(cn):
+				_play_clip(cn as Node3D, "cheer", 1.0)
 			_sparkle_burst(pbpos + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.4))
 			if chime != null:
 				chime.pitch_scale = 1.5; chime.play()
@@ -5785,8 +5835,8 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			return
 		if beany:
 			hud_game.text = "BEAN POWER! Catch him!   ← →" if p > 0.3 else "Beans! Toot toot! GO GO GO!"
-		elif p > 0.72:
-			hud_game.text = "He's getting TIRED! Catch him! ← →"
+		elif float(g.get("burst", 0.0)) > 0.5:
+			hud_game.text = "WHEE — too speedy! Beans from the Pearl Shop! ← →"
 		else:
 			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
@@ -6057,6 +6107,8 @@ func _build_slide_portal() -> void:
 	floe.position = slide_portal_pos + Vector3(0, -2.0, 0)
 	add_child(floe)
 	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)
+	if peng != null:
+		_play_clip(peng, "idle")
 	if peng != null:
 		slide_portal_penguin = peng
 	_halo(slide_portal_pos + Vector3(0, 3, 0), Color(0.6, 0.9, 1.0), 15.0)
@@ -6431,6 +6483,20 @@ func _process(delta: float) -> void:
 		if treasure_cool <= 0.0 and wreck_pos.distance_to(ppos) < 13.0:
 			treasure_cool = 12.0
 			_start_game(treasure_fr)
+		# the portal penguin is INTERACTIVE: he cheers when Roshan swims near,
+		# before the game-start radius fires (rigged clip + chirp, cooled down)
+		if slide_portal_penguin != null and is_instance_valid(slide_portal_penguin):
+			peng_wave_cool -= delta
+			var pd: float = slide_portal_pos.distance_to(ppos)
+			if peng_wave_cool <= 0.0 and pd < 24.0 and pd > 13.0:
+				peng_wave_cool = 12.0
+				_play_clip(slide_portal_penguin, "cheer", 1.1)
+				_sparkle_burst(slide_portal_penguin.position + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
+				if chime != null:
+					chime.pitch_scale = 1.7
+					chime.play()
+			elif pd > 30.0:
+				_play_clip(slide_portal_penguin, "idle")
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
