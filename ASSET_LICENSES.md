@@ -22,11 +22,11 @@
 | assets/audio/music/* (finale + minigame stingers) | synthesized for this project | project original | — | — |
 | assets/audio/ambience_*.ogg, ui_tap.ogg | original numpy synthesis | project original (CC0-equivalent) | — | seamless loops |
 | assets/audio/buy, buzz, chime, fart (.ogg) | synthesized for this project | project original | — | — |
-| assets/aquatic/*.glb | Riley *Aquatic Animal Models* (itch.io) | **"free use, no redistribution"** — see OPEN QUESTION below | itch.io | integrated as-is |
+| assets/aquatic/*.glb | Riley *Aquatic Animal Models* (itch.io) | **"free use, no redistribution"** — see OPEN QUESTION below | itch.io | integrated as-is; Rock2 re-textured with project nano-banana sheets (tools/bake_nano_wrap.py, 2026-07-12) |
 | assets/terrain/up_*_rgh.jpg (roughness maps only) | ambientCG | **CC0** | ambientcg.com | resized ≤1K |
 | assets/terrain/up_*_col.jpg (all 13 roles) | GEN2 pipeline: family-style painted tiles (Gemini; audit picks; castle re-generated r3 as a proper wall) | © Mermaid Roshan LLC — generated for this project | gen2/generated/terrain_up_*/ | 2048→1024 POT, JPEG q88; matching _nrm.jpg flattened to neutral 64px |
 | assets/terrain/caustics.png, scales*, polyp*, flower*, leaf, beachball, star_detail (.png) | painted/generated for this project | project original | — | — |
-| assets/nature/*.glb | Kenney Nature Kit | **CC0** | kenney.nl | pastel-restyled at load (_toonify) |
+| assets/nature/*.glb | Kenney Nature Kit | **CC0** | kenney.nl | pastel-restyled at load (_toonify); plant_bush + grass_leafsLarge re-textured with project nano-banana sheets (tools/bake_nano_wrap.py, 2026-07-12) |
 | assets/ship/*.glb | Kenney Pirate Kit | **CC0** | kenney.nl | pastel-restyled at load |
 | assets/kits/castle/*.glb | Kenney Castle Kit | **CC0** | kenney.nl/assets/castle-kit | colormap embedded per piece (Blender re-export) |
 | assets/kits/play/*.glb | Tiny Treats: Fun Playground (Isa Lousberg) | **CC0** | tinytreats.itch.io/fun-playground | gltf→glb (Blender) |
@@ -47,8 +47,8 @@
 | assets/terrain/up_door_col.jpg | GEN2 pipeline: storybook castle-door tile (Gemini; audit follow-up — wood read as the road on the door) | © Mermaid Roshan LLC — generated for this project | gen2/generated/terrain_up_door_col/ | 1024 POT JPEG q88; flat _nrm |
 | assets/terrain/gen2_water_col.jpg | GEN2 pipeline: family-style painted water tile (Gemini, role terrain_up_water_col v1) | © Mermaid Roshan LLC — generated for this project | gen2/generated/terrain_up_water_col/ | downscaled 2048→1024 POT, JPEG q88 |
 | assets/portal/butterfly_gate.glb | modeled in Blender for this project | project original | — | — |
-| assets/castle/bed.glb | "Bed Single" by Kenney | **CC0** | poly.pizza/m/sn8az3odMR | — |
-| assets/castle/throne.glb | "Throne" by Poly by Google | **CC-BY 3.0** (attribution: Poly by Google) | poly.pizza/m/bpFCWQSs-aT | — |
+| assets/castle/bed.glb | "Bed Single" by Kenney | **CC0** | poly.pizza/m/sn8az3odMR | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/castle/throne.glb | "Throne" by Poly by Google | **CC-BY 3.0** (attribution: Poly by Google) | poly.pizza/m/bpFCWQSs-aT | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | assets/vehicles/motorcycle.glb | "Cartoony Purple Motorcycle" by AliceCassie | **CC0** | poly.pizza/m/j20srJUjpB | — |
 | assets/vehicles/gokart.glb | "Go kart" by Poly by Google | **CC-BY 3.0** (attribution: Google/Poly) | poly.pizza/m/3hkutVs0AAV | — |
 | assets/vehicles/monstertruck.glb | "Rover" by Quaternius | **CC0** | poly.pizza/m/WRd1piJOfh | used as Monster Truck |
@@ -58,14 +58,14 @@
 | assets/galaxy/fruit_banana.glb | "Banana" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/ahOO6wz8sV0 | — |
 | assets/galaxy/fruit_melon.glb | "Watermelon Half" by S. Paul Michael | **CC-BY 3.0** | poly.pizza/m/1exBmBVJHjj | — |
 | assets/galaxy/fruit_orange.glb | "An Orange" by Ivan Kraft | **CC-BY 3.0** | poly.pizza/m/abyCKYOa770 | — |
-| assets/galaxy/tray.glb | "Plate Oval" by MilkAndBanana | **CC0** | poly.pizza/m/06WhCScuAF | — |
+| assets/galaxy/tray.glb | "Plate Oval" by MilkAndBanana | **CC0** | poly.pizza/m/06WhCScuAF | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | assets/galaxy/beetle.glb, ladybug.glb | by Poly by Google | **CC-BY 3.0** | poly.pizza/m/4yufxgZ1QQ2, /m/4K7V5f9ntfu | — |
 | assets/galaxy/crystal_castle.glb | "Castle" by CreativeTrio | **CC0** | poly.pizza/m/4360GdbxRe | — |
-| assets/galaxy/trop_palm1.glb | "Palm tree" by jeremy | **CC-BY 3.0** | poly.pizza/m/bjGeBbKhAVN | — |
-| assets/galaxy/trop_palm2.glb | "Coconut palm tree" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/bXUTyfiwqBb | — |
-| assets/galaxy/trop_fern.glb | "Fern" by Quaternius | **CC0** | poly.pizza/m/jqcanvH7D6 | — |
-| assets/galaxy/trop_monstera.glb | "Large Monstera Plant" by Isa Lousberg | **CC0** | poly.pizza/m/kZQ2WmnJFI | — |
-| assets/galaxy/trop_bigleaf.glb | "Big Leaf Plant" by reyshapes | **CC0** | poly.pizza/m/aKIm5k6l5F | — |
+| assets/galaxy/trop_palm1.glb | "Palm tree" by jeremy | **CC-BY 3.0** | poly.pizza/m/bjGeBbKhAVN | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/galaxy/trop_palm2.glb | "Coconut palm tree" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/bXUTyfiwqBb | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/galaxy/trop_fern.glb | "Fern" by Quaternius | **CC0** | poly.pizza/m/jqcanvH7D6 | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/galaxy/trop_monstera.glb | "Large Monstera Plant" by Isa Lousberg | **CC0** | poly.pizza/m/kZQ2WmnJFI | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/galaxy/trop_bigleaf.glb | "Big Leaf Plant" by reyshapes | **CC0** | poly.pizza/m/aKIm5k6l5F | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | disabled_addons/tessarakkt.oceanfft | OceanFFT addon (disabled, .gdignore) | **MIT** | github.com/tessarakkt/godot4-oceanfft | dead code removed Phase 0 |
 
 ## Individual credits (detail)
