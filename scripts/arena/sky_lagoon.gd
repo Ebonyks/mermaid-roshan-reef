@@ -177,14 +177,19 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# sandbox stays non-solid on purpose so Roshan can plop right into it.
 	# [name, local pos, footprint, y-rot, solid radius, solid half-height]
 	# owner 2026-07-11: toys sized for ROSHAN (she is ~7 units) so riding them
-	# reads true, and each records a play anchor for the play-moments below
+	# reads true, and each records a play anchor for the play-moments below.
+	# Playground audit 2026-07-11: the east river runs (150,40)->(95,110)->
+	# (45,180) right through the old spots — the swing sat 9.9 units deep in
+	# the channel, the carousel 8.4, the pony 3.9. Everything now stays west
+	# of the river with >5 units of dry bank, and the slide is rotated so the
+	# chute empties into the open meadow instead of at the waterline.
 	var pg: Array = [
-		["play/slide_A", Vector3(78.0, 0, 88.0), 18.0, 0.6, 6.5, 6.5, "slide", 3.0],
-		["play/swing_A_large", Vector3(100.0, 0, 92.0), 18.0, -0.4, 7.5, 6.5, "swing", 3.8],
-		["play/merry_go_round", Vector3(88.0, 0, 108.0), 14.0, 0.0, 7.5, 4.5, "merry", 4.6],
-		["play/seesaw_large", Vector3(74.0, 0, 106.0), 13.0, 1.2, 5.0, 3.2, "seesaw", 3.4],
-		["play/sandbox_round_decorated", Vector3(92.0, 0, 74.0), 15.0, 0.0, 0.0, 0.0, "sandbox", 3.2],
-		["play/spring_horse_A", Vector3(104.0, 0, 76.0), 9.0, -1.8, 3.5, 4.0, "horse", 3.2],
+		["play/slide_A", Vector3(78.0, 0, 88.0), 18.0, -2.0, 6.5, 6.5, "slide", 5.6],
+		["play/swing_A_large", Vector3(58.0, 0, 92.0), 18.0, -0.4, 7.5, 6.5, "swing", 6.2],
+		["play/merry_go_round", Vector3(60.0, 0, 120.0), 14.0, 0.0, 7.5, 4.5, "merry", 4.6],
+		["play/seesaw_large", Vector3(70.0, 0, 106.0), 13.0, 1.2, 5.0, 3.2, "seesaw", 3.6],
+		["play/sandbox_round_decorated", Vector3(92.0, 0, 74.0), 15.0, 0.0, 0.0, 0.0, "sandbox", 4.6],
+		["play/spring_horse_A", Vector3(88.0, 0, 60.0), 9.0, -1.8, 3.5, 4.0, "horse", 3.4],
 	]
 	m.g["toys"] = []
 	for row: Array in pg:
@@ -203,11 +208,15 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var anchor: Vector3 = base
 		match kind:
 			"swing":
-				anchor = base + Vector3(0, tgt * 0.30, 0)
+				anchor = base + Vector3(0, tgt * 0.22, 0)   # the seat at rest, under the bar
 			"slide":
-				anchor = base + Vector3(0, tgt * 0.55, 0) - fwd * tgt * 0.18
+				# the LADDER FOOT (-fwd side): she climbs the steps herself now,
+				# so the moment starts on the ground, not teleported to the top
+				anchor = base - fwd * (tgt * 0.40) + Vector3(0, 2.0, 0)
 			"seesaw":
-				anchor = base + left * tgt * 0.32 + Vector3(0, tgt * 0.16, 0)
+				# the OPEN seat is the -left end (owner playtest 2026-07-11:
+				# the anchor sat on the painted side — the wrong side to ride)
+				anchor = base - left * tgt * 0.32 + Vector3(0, tgt * 0.24, 0)
 			"sandbox":
 				anchor = base + Vector3(0, 1.6, 0)
 			"merry":
@@ -781,12 +790,52 @@ func _build_fairy_pond(o: Vector3) -> void:
 	lab.position = c + Vector3(0, 13, 0); m.add_child(lab); m.game_nodes.append(lab)
 
 
+func _sand_puff(pos: Vector3) -> void:
+	# a soft cloud of dug-up sand (matte + falls back down — NOT sparkles)
+	var cp := CPUParticles3D.new()
+	cp.one_shot = true
+	cp.emitting = true
+	cp.amount = 34
+	cp.lifetime = 1.5
+	cp.explosiveness = 0.9
+	cp.direction = Vector3.UP
+	cp.spread = 55.0
+	cp.initial_velocity_min = 3.0
+	cp.initial_velocity_max = 7.0
+	cp.gravity = Vector3(0, -7.0, 0)
+	cp.damping_min = 1.0
+	cp.damping_max = 2.5
+	cp.scale_amount_min = 0.4
+	cp.scale_amount_max = 0.9
+	var gm := SphereMesh.new()
+	gm.radius = 0.22
+	gm.height = 0.44
+	gm.radial_segments = 6
+	gm.rings = 3
+	cp.mesh = gm
+	var pm := StandardMaterial3D.new()
+	pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	pm.albedo_color = Color(0.85, 0.7, 0.48)
+	cp.material_override = pm
+	cp.position = pos
+	m.add_child(cp)
+	var tw: Tween = m.create_tween()
+	tw.tween_interval(1.8)
+	tw.tween_callback(cp.queue_free)
+
+
 func _tick_toys(delta: float, ppos: Vector3) -> void:
-	# HER PLAYGROUND (owner 2026-07-11): swim close to a toy in the courtyard
-	# and Roshan briefly plays on it - swings, slides, bounces the open seat
-	# of her one-sided seesaw, splashes in the sand, rides the carousel and
-	# the spring pony. Cosmetic, short, cooled down; never during a quest
-	# moment (hall phase) and never for the headless probes (determinism).
+	# HER PLAYGROUND (owner 2026-07-11, animation pass 2026-07-11): swim close
+	# to a toy in the courtyard and Roshan really PLAYS it — she grips the
+	# swing chains and pumps a true pendulum arc while the frame rocks with
+	# her, hops step by step up the slide ladder and rides the chute down
+	# (along it, never through it), digs the sandbox with alternating arms in
+	# a cloud of sand, bounces the OPEN seat of her one-sided seesaw (the
+	# plank dips under her weight), and rides the carousel and spring pony
+	# glued to the moving toy. Cosmetic, short, cooled down; never during a
+	# quest moment (hall phase) and never for the headless probes.
+	# While a moment runs player._process early-returns, so this tick is the
+	# ONE writer for her position, facing, lean and every bone (toy_pose).
 	var tp: Dictionary = m.toy_play
 	if not tp.is_empty():
 		tp["t"] = float(tp["t"]) + delta
@@ -794,42 +843,145 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 		var kind: String = String(tp["kind"])
 		var toy: Dictionary = tp["toy"]
 		var a: Vector3 = toy["anchor"]
+		var base: Vector3 = toy["base"]
 		var tgt: float = float(toy["tgt"])
 		var fwd: Vector3 = toy["fwd"]
+		var left: Vector3 = toy["left"]
+		var dur: float = float(tp["dur"])
 		var pl: Node3D = m.player
+		var pos: Vector3 = a
+		var face: Vector3 = fwd
+		var lean := 0.0
 		match kind:
 			"swing":
-				var th: float = 0.55 * sin(tt * 2.4)
-				var piv: Vector3 = a + Vector3(0, tgt * 0.14, 0)
-				var arm: float = tgt * 0.30
-				pl.position = piv + fwd * sin(th) * arm + Vector3(0, -cos(th) * arm, 0)
+				# a real pendulum about the top bar: the arc pumps up, flies,
+				# then settles before she hops off; the frame rocks in sync
+				var amp: float = 0.45 * smoothstep(0.0, 1.6, tt) * (1.0 - smoothstep(dur - 1.1, dur - 0.15, tt))
+				var th: float = amp * sin(tt * 2.5)
+				# measured: the top bar sits at 0.75 of the footprint (14 units
+				# up), the painted seats hang at 0.22 — a 0.53 rope. She rides
+				# a SEAT (offset from the frame centre), not the empty middle.
+				var piv: Vector3 = base + left * (tgt * 0.185) + Vector3(0, tgt * 0.75, 0)
+				var arm: float = tgt * 0.53
+				pos = piv + fwd * (sin(th) * arm) - Vector3(0, cos(th) * arm, 0)
+				lean = th
+				var sw: Node3D = toy["node"]
+				if is_instance_valid(sw):
+					sw.rotation.x = th * 0.05
+				pl.toy_pose("swing", tt, th)
 			"slide":
-				var f: float = clampf(tt / float(tp["dur"]), 0.0, 1.0)
-				var top: Vector3 = a
-				var bot: Vector3 = Vector3(a.x, float(toy["base"].y) + 1.2, a.z) + fwd * tgt * 0.42
-				pl.position = top.lerp(bot, f * f)
-				if f > 0.85 and not bool(tp.get("cheered", false)):
-					tp["cheered"] = true
-					if pl.has_method("play_verb"):
-						pl.play_verb("cheer")
-					m._sparkle_burst(pl.position, Color(0.9, 0.95, 1.0))
+				# up the ladder hop by hop, a beat at the top, then down the
+				# chute on a curve that hugs the slope — and a proud landing
+				var climb_T := 2.2
+				var pause_T := 0.5
+				var ride_T := 1.7
+				# measured on play_slide (probe 2026-07-11): ladder foot -0.40,
+				# rung plane inclines to -0.26 at the 0.52 platform, hood over
+				# the platform (top 0.76 — she ducks under it), chute lip at
+				# +0.03 running out to +0.47. Her origin rides ~1.1 above the
+				# surface she is on (seated) / ~2.0 (upright on the ground).
+				var lfoot: Vector3 = a
+				var ltop: Vector3 = base - fwd * (tgt * 0.26) + Vector3(0, tgt * 0.59, 0)
+				var lip: Vector3 = base + fwd * (tgt * 0.03) + Vector3(0, tgt * 0.50 + 1.1, 0)
+				var mid: Vector3 = base + fwd * (tgt * 0.25) + Vector3(0, tgt * 0.26 + 0.9, 0)
+				var out: Vector3 = base + fwd * (tgt * 0.47) + Vector3(0, 2.0, 0)
+				if tt < climb_T:
+					var hops := 4
+					var hd: float = climb_T / float(hops)
+					var hk: int = mini(int(tt / hd), hops - 1)
+					var hf: float = (tt - float(hk) * hd) / hd
+					var p0: Vector3 = lfoot.lerp(ltop, float(hk) / float(hops))
+					var p1: Vector3 = lfoot.lerp(ltop, float(hk + 1) / float(hops))
+					pos = p0.lerp(p1, hf) + Vector3(0, sin(hf * PI) * 0.8, 0)
+					pl.toy_pose("climb", tt, hf)
+				elif tt < climb_T + pause_T:
+					# scooting over the platform to the lip, ducked under the hood
+					pos = ltop.lerp(lip, (tt - climb_T) / pause_T)
+					pl.toy_pose("ride", tt, 0.0)
+				elif tt < climb_T + pause_T + ride_T:
+					var rf: float = (tt - climb_T - pause_T) / ride_T
+					var u: float = pow(rf, 1.35)   # gravity: slow off the lip, quick at the bottom
+					pos = lip.lerp(mid, u).lerp(mid.lerp(out, u), u)
+					lean = -0.22
+					pl.toy_pose("ride", tt, u)
+					if not bool(tp.get("cheered", false)):
+						tp["cheered"] = true
+						m._sparkle_burst(lip, Color(0.9, 0.95, 1.0))
+				else:
+					pos = out
+					pl.toy_pose("land", tt, (tt - climb_T - pause_T - ride_T) / maxf(dur - climb_T - pause_T - ride_T, 0.01))
+					if not bool(tp.get("landed", false)):
+						tp["landed"] = true
+						m._sparkle_burst(out, Color(1.0, 0.9, 0.6))
 			"seesaw":
-				pl.position = a + Vector3(0, absf(sin(tt * 3.2)) * 2.2, 0)
+				# she bounces the open end; her weight presses the plank down
+				# on contact and the empty painted end bobs up in answer
+				var bnc: float = absf(sin(tt * 3.0))
+				var press: float = 1.0 - bnc
+				pos = a + Vector3(0, bnc * 1.3 - press * 0.42, 0)
+				face = left   # the open seat is the -left end; she faces the unicorn pivot
+				lean = press * 0.1
+				var ss: Node3D = toy["node"]
+				if is_instance_valid(ss):
+					ss.rotation.z = 0.10 * press
+				pl.toy_pose("seat", tt, bnc * 0.5)
 			"sandbox":
-				pl.position = a + Vector3(0, absf(sin(tt * 4.0)) * 1.3, 0)
-				if fmod(tt, 1.6) < delta:
-					m._sparkle_burst(pl.position - Vector3(0, 1.0, 0), Color(1.0, 0.9, 0.6))
+				# plopped in the sand, digging with alternating arms — each
+				# scoop beat throws a little cloud from that hand
+				pos = a + Vector3(0, 0.3, 0)   # nestled into the sand fill (rim is 3.3 high)
+				var dph: float = tt * 4.4
+				pl.toy_pose("dig", tt, dph)
+				var scoop: int = int(floor(dph / PI))
+				if scoop != int(tp.get("digs", 0)):
+					tp["digs"] = scoop
+					var side: float = 1.0 if scoop % 2 == 0 else -1.0
+					_sand_puff(pos + fwd * 1.4 + left * (side * 0.9) - Vector3(0, 0.9, 0))
 			"merry":
-				var node: Node3D = toy["node"]
-				var ang: float = (node.rotation.y if is_instance_valid(node) else tt) + float(tp.get("ph", 0.0))
-				pl.position = Vector3(float(toy["base"].x), a.y + tgt * 0.1, float(toy["base"].z)) + Vector3(sin(ang), 0, cos(ang)) * tgt * 0.36
+				# glued to the spinning carousel at the angle she grabbed on,
+				# facing the way it carries her
+				var mn: Node3D = toy["node"]
+				var ang: float = (mn.rotation.y if is_instance_valid(mn) else tt) + float(tp.get("ph", 0.0))
+				# seated ON the deck just inside the handle bars (base+2.1: deck
+				# top ~0.7 + her seated height; 0.36R put her IN the bars)
+				pos = Vector3(base.x, base.y + 2.0, base.z) + Vector3(sin(ang), 0, cos(ang)) * (tgt * 0.30)
+				face = Vector3(cos(ang), 0, -sin(ang))
+				pl.toy_pose("seat", tt, sin(tt * 2.0) * 0.3)
 			"horse":
-				pl.position = a + Vector3(0, 0.5 * absf(sin(tt * 3.4)), 0)
-		if tt >= float(tp["dur"]):
+				# she and the pony rock as ONE: the ambient bob is paused and
+				# this drives the toy's pitch, seating her on the moving saddle
+				var rock: float = sin(tt * 3.3) * 0.16 * smoothstep(0.0, 0.7, tt)
+				var hn: Node3D = toy["node"]
+				if is_instance_valid(hn):
+					hn.rotation.x = rock
+				var sh: float = tgt * 0.52
+				pos = base + Vector3(0, sh * cos(rock) + 0.35, 0) + fwd * (sh * sin(rock))
+				lean = rock
+				pl.toy_pose("seat", tt, rock * 3.0)
+		# glide onto the toy over the first beat instead of teleporting
+		var w: float = smoothstep(0.0, 0.4, tt)
+		pl.position = (tp["from"] as Vector3).lerp(pos, w)
+		pl.yaw = lerp_angle(float(tp["yaw0"]), atan2(face.x, face.z), w)
+		pl.rotation.y = pl.yaw + PI
+		pl.rotation.x = lean * w
+		# keep the play in frame (the player cam chase is dormant right now)
+		var cam: Camera3D = pl.cam
+		if cam != null and cam.is_inside_tree():
+			cam.position = cam.position.lerp(pl.position - face * 20.0 + Vector3(0, 8.0, 0), 1.0 - pow(0.05, delta))
+			cam.look_at(pl.position + Vector3(0, 1.5, 0))
+		if tt >= dur:
 			toy["cool"] = 24.0
 			m.toy_play = {}
+			pl.rotation.x = 0.0
+			var tn: Node3D = toy["node"]
+			if is_instance_valid(tn):
+				if kind == "swing" or kind == "horse":
+					tn.rotation.x = 0.0
+				if tn.has_meta("toy_tw"):
+					(tn.get_meta("toy_tw") as Tween).play()   # ambient toy motion resumes
 			if "vel" in pl:
 				pl.vel = Vector3.ZERO
+			if pl.has_method("play_verb"):
+				pl.play_verb("cheer" if kind == "slide" else "giggle")
 		return
 	if String(m.g.get("phase", "")) != "court" or DisplayServer.get_name() == "headless":
 		return
@@ -840,9 +992,11 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			if String(toy["kind"]) == "merry" and is_instance_valid(toy["node"]):
 				var dp: Vector3 = ppos - (toy["base"] as Vector3)
 				ph = atan2(dp.x, dp.z) - (toy["node"] as Node3D).rotation.y
-			m.toy_play = {"kind": toy["kind"], "toy": toy, "t": 0.0, "dur": toy["dur"], "ph": ph}
-			if m.player != null and m.player.has_method("play_verb"):
-				m.player.play_verb("giggle")
+			m.toy_play = {"kind": toy["kind"], "toy": toy, "t": 0.0, "dur": toy["dur"], "ph": ph,
+				"from": ppos, "yaw0": float(m.player.yaw)}
+			var tw: Node3D = toy["node"]
+			if is_instance_valid(tw) and tw.has_meta("toy_tw"):
+				(tw.get_meta("toy_tw") as Tween).pause()   # she takes the wheel
 			m._sparkle_burst(toy["anchor"], Color(1.0, 0.9, 0.6))
 			break
 
