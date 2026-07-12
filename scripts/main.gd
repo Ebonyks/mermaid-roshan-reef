@@ -62,6 +62,8 @@ var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
 var craft_fishbox: Control = null
 var craft_kind := "fish"
+var craft_body_rb := false           # rainbow-cycle toggle for the body layer (ww craft fx)
+var craft_fins_rb := false           # rainbow-cycle toggle for the accent layer
 var craft_unlocks := {}            # one-time pearl unlocks for craft creatures ("cat", "bird")
 var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
 var craft_pearl_lbl: Label = null
@@ -232,9 +234,21 @@ var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoo
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
 var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
+var caustics_mat: ShaderMaterial = null      # terrain-conforming dapple overlay (day/night tuned)
 var caustics_enabled := true                # developer mode can switch the caustic layer off
 var dev_mode: Node = null                   # in-game developer "look lab" (scripts/dev_mode.gd)
 var plankton_node: GPUParticles3D
+# ---- WW motion language: one global wind drives streaks, water lines, seagrass
+# sway and flags (via the wind_dir/wind_gust shader globals) so gusts roll
+# coherently across the whole world instead of every prop looping on its own ----
+var wind_t := 0.0
+var wind_dir_v := Vector3(0.85, 0.0, 0.53)
+var wind_gust_v := 0.6
+var wind_streaks: Array = []   # pooled curl ribbons: {node, mat, age, life}
+var streak_ctx := "none"       # "sea" | "sky" | "off" — restyled when it changes
+var surf_rings: Array = []     # pooled expanding rings on the water underside
+var ring_cool := 0.0
+var flag_sh: Shader = null
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_resume_btn: Button = null
@@ -435,6 +449,8 @@ func _ready() -> void:
 	_build_environment()
 	_build_terrain()
 	_build_water()
+	_build_wind_streaks()
+	_build_surf_rings()
 	_build_garden()
 	_build_meadows()
 	_build_aquatic_flora()
@@ -689,7 +705,10 @@ func _apply_time_of_day() -> void:
 		world_env.ambient_light_color = Color(0.46, 0.66, 0.72)
 		world_env.ambient_light_energy = 0.9
 		world_env.fog_light_color = Color(0.10, 0.26, 0.34)
-		world_env.glow_intensity = 0.75
+		world_env.glow_intensity = 0.95
+		if caustics_mat != null:          # bright sun dapples
+			caustics_mat.set_shader_parameter("strength", 0.30)
+			caustics_mat.set_shader_parameter("tint", Vector3(0.50, 0.80, 0.90))
 		if sun_light != null:
 			sun_light.light_color = Color(0.55, 0.80, 0.98)
 			sun_light.light_energy = 0.55
@@ -819,6 +838,30 @@ func _grade(env: Environment) -> void:
 	env.tonemap_exposure = 1.15
 	env.tonemap_white = 1.2
 
+func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float = 0.4, threshold: float = 0.9) -> void:
+	# Wind Waker-style bloom: drop the HDR threshold below white so sunlit surfaces
+	# (sand, sky, snow, highlights) bleed light — not just emissive materials — and
+	# blend a wide + tight glow level pair for the soft dreamy halo. glow_bloom adds
+	# the whole-frame haze that gives WW its light-soaked look.
+	# threshold: ~0.82 for bright open-sky scenes; keep >= 0.9 in the emissive-heavy
+	# underwater world or every glowing prop blows out to a white sheet.
+	env.glow_enabled = true
+	# SCREEN, not SOFTLIGHT: softlight preserves darks, so unlit props (seagrass
+	# cones, rocks) get no bloom at all. Screen composites the blurred glow buffer
+	# over the WHOLE frame — with glow_bloom feeding the unthresholded image into
+	# that buffer, every object bleeds a soft halo. That's the universal WW wrap.
+	env.glow_blend_mode = Environment.GLOW_BLEND_MODE_SCREEN
+	env.glow_hdr_threshold = threshold
+	env.glow_hdr_scale = 2.4
+	env.glow_intensity = intensity
+	env.glow_bloom = bloom
+	for i in range(7):
+		env.set_glow_level(i, 0.0)
+	env.set_glow_level(0, 0.35)   # tight sparkle right at the highlight
+	env.set_glow_level(2, 1.0)
+	env.set_glow_level(4, 1.0)    # wide dreamy halo
+	env.set_glow_level(6, 0.35)   # very wide faint wash
+
 func _build_environment() -> void:
 	var env := Environment.new()
 	# gradient 'underwater sky' — light filtering from the surface above, deep blue below
@@ -843,10 +886,7 @@ func _build_environment() -> void:
 	env.fog_density = 0.0042
 	env.fog_aerial_perspective = 0.75
 	env.fog_sky_affect = 0.5
-	env.glow_enabled = true
-	env.glow_intensity = 0.75
-	env.glow_bloom = 0.14
-	env.glow_hdr_threshold = 1.0
+	_wind_waker_bloom(env, 0.95, 0.4, 0.92)   # reef is full of emissive props — bloom only true emitters
 	env.adjustment_enabled = true
 	env.adjustment_saturation = 1.12
 	env.adjustment_contrast = 1.07
@@ -961,10 +1001,10 @@ func _build_terrain() -> void:
 	mi.mesh = mesh
 	var mat := StandardMaterial3D.new()
 	mat.vertex_color_use_as_albedo = true
-	mat.albedo_texture = load("res://assets/terrain/up_sand_col.jpg")
+	mat.albedo_texture = load("res://assets/terrain/Ground054_2K_Color.jpg")   # smooth fine sand (the old up_sand read as cracked dry dirt)
 	mat.normal_enabled = true
-	mat.normal_texture = load("res://assets/terrain/up_sand_nrm.jpg")
-	mat.roughness_texture = load("res://assets/terrain/up_sand_rgh.jpg")
+	mat.normal_texture = load("res://assets/terrain/Ground054_2K_NormalGL.jpg")
+	mat.roughness_texture = load("res://assets/terrain/Ground054_2K_Roughness.jpg")
 	mat.uv1_triplanar = true
 	# GEN2 pass 2 (owner 2026-07-11): let the painted sand READ - the old
 	# 0.12 tiling + dark teal multiply crushed the sheet into flat colour
@@ -976,21 +1016,29 @@ func _build_terrain() -> void:
 	_add_plankton()
 
 func _add_caustics(terrain_mesh: Mesh) -> void:
+	# light dapples glued to the actual seabed: the terrain mesh drawn a second
+	# time with an additive caustic pass. Peak brightness stays well under the
+	# bloom threshold so the dapples never blow out to white sheets.
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
-render_mode blend_add, unshaded, depth_draw_never;
+render_mode blend_add, unshaded, depth_draw_never, shadows_disabled;
 uniform sampler2D caustic;
+uniform float strength = 0.30;
+uniform vec3 tint = vec3(0.50, 0.80, 0.90);
 void fragment(){
 	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	vec2 uv = wp.xz * 0.022 + vec2(TIME * 0.010, -TIME * 0.007);
-	vec2 uv2 = wp.xz * 0.015 - vec2(TIME * 0.006, TIME * 0.009);
+	// two counter-scrolling layers + a slow swirl so the dapples wander like real light
+	vec2 warp = vec2(sin(TIME * 0.35 + wp.z * 0.05), cos(TIME * 0.28 + wp.x * 0.045)) * 1.6;
+	vec2 uv = (wp.xz + warp) * 0.022 + vec2(TIME * 0.010, -TIME * 0.007);
+	vec2 uv2 = (wp.xz - warp) * 0.015 - vec2(TIME * 0.006, TIME * 0.009);
 	float c = texture(caustic, uv).r * 0.55 + texture(caustic, uv2).r * 0.45;
-	c = smoothstep(0.35, 0.95, c);
-	ALBEDO = c * vec3(0.55, 0.78, 0.82) * 0.085;
+	c = smoothstep(0.30, 0.95, c);
+	ALBEDO = c * tint * strength;
 }"""
 	var m := ShaderMaterial.new()
 	m.shader = sh
 	m.set_shader_parameter("caustic", load("res://assets/terrain/caustics.png"))
+	caustics_mat = m
 	var mi := MeshInstance3D.new()
 	mi.mesh = terrain_mesh
 	mi.material_override = m
@@ -1079,13 +1127,14 @@ var wood_overlay: StandardMaterial3D
 
 func _texture_mats() -> void:
 	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
-	rock_pbr.albedo_color = Color(0.6, 0.66, 0.72)
+	rock_pbr.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+	rock_pbr.albedo_color = Color(0.62, 0.68, 0.76)
 	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
+	rock_pbr.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
+	rock_pbr.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
 	rock_pbr.uv1_triplanar = true
-	rock_pbr.uv1_scale = Vector3(1.6, 1.6, 1.6)
+	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
+	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	wood_overlay = StandardMaterial3D.new()
 	wood_overlay.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
 	wood_overlay.albedo_color = Color(1.35, 1.3, 1.25)      # lift so MUL keeps base colors
@@ -1340,12 +1389,13 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 	m.uv1_triplanar = true
 	if key == "Rock":
 		# true stone — upgraded CC0 rock face (shared with grove boulders & cavern)
-		m.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
-		m.albedo_color = Color(0.66, 0.7, 0.74)
+		m.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+		m.albedo_color = Color(0.66, 0.7, 0.76)
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-		m.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
-		m.uv1_scale = Vector3(1.4, 1.4, 1.4)
+		m.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
+		m.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+		m.uv1_world_triplanar = true   # rocks are static; creature materials below stay object-space
+		m.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	elif key.begins_with("SeaWeed"):
 		# leafy — same treatment as the seagrass that reads well
 		m.albedo_texture = load("res://assets/terrain/leaf.png")
@@ -1395,7 +1445,13 @@ func _paint_aq(node: Node, mat: StandardMaterial3D) -> void:
 
 func _aq(model: String) -> PackedScene:
 	if not model_cache.has("aq_" + model):
-		model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
+		# rigged + textured gen2 rebuilds take priority; Riley pack is the fallback
+		var p2 := "res://assets/aquatic2/" + model + ".glb"
+		if ResourceLoader.exists(p2):
+			model_cache["aq_" + model] = load(p2)
+			model_cache["aq2_" + model] = true
+		else:
+			model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
 	return model_cache["aq_" + model]
 
 # MR2.0: pack name -> painted GEN2 prop. Every mapped piece spawns the
@@ -1593,7 +1649,7 @@ func _spawn_crafted_fish() -> void:
 		crafted_fish_spawned += 1
 		if not (cf is Array) or (cf as Array).size() < 6:
 			continue
-		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]))
+		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]), (cf as Array).size() > 6 and int(cf[6]) == 1, (cf as Array).size() > 7 and int(cf[7]) == 1)
 		add_child(cfn)
 		flora_nodes.append(cfn)
 		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
@@ -2078,8 +2134,11 @@ func _apply_quality(q: String) -> void:
 	if sun_light != null:
 		sun_light.shadow_enabled = not speedy
 	if world_env != null:
-		world_env.glow_bloom = 0.0 if speedy else 0.25
-		world_env.glow_intensity = 0.7 if speedy else 0.95
+		world_env.glow_bloom = 0.12 if speedy else 0.4
+		world_env.glow_intensity = 0.75 if speedy else 0.95
+	if player != null and "trail_enabled" in player:
+		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
+	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
 	for i in range(pearl_lights.size()):
 		var l: OmniLight3D = pearl_lights[i]
 		if is_instance_valid(l):
@@ -2434,9 +2493,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
-	arena_env.glow_enabled = true
-	arena_env.glow_intensity = 0.5
-	arena_env.glow_bloom = 0.1
+	_wind_waker_bloom(arena_env, 0.85, 0.3, 1.0)   # open sky above the lagoon — bloom the sky/windows, not every sunlit wall (0.82 white-washed the whole castle)
 	_grade(arena_env)
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
@@ -3171,12 +3228,10 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	ie.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	ie.ambient_light_color = Color(0.9, 0.82, 0.7)
 	ie.ambient_light_energy = 0.8
-	ie.glow_enabled = true
-	ie.glow_intensity = 0.6
-	ie.glow_bloom = 0.12
+	_wind_waker_bloom(ie, 0.6, 0.22, 1.05)   # threshold above 1.0: only true emitters bloom — pale lit walls stay crisp instead of smearing white
 	ie.fog_enabled = true
 	ie.fog_light_color = Color(0.5, 0.42, 0.45)
-	ie.fog_density = 0.006
+	ie.fog_density = 0.002   # 0.006 pink-hazed the whole hall and mushed the floor pattern into "spliced" blotches
 	arena_env = ie
 	_grade(ie)
 	we_node.environment = ie
@@ -3223,6 +3278,7 @@ func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 			mm.emission_energy_multiplier = 0.85
 			mm.roughness = 0.4
 			q.material_override = mm
+			q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			q.position = Vector3((float(ix) - float(nx - 1) * 0.5) * w / float(nx), (float(iy) - float(ny - 1) * 0.5) * h / float(ny), 0)
 			root.add_child(q)
 	var bl := OmniLight3D.new()
@@ -3249,6 +3305,7 @@ func _glass_window(pos: Vector3, rot_deg: Vector3, height: float) -> void:
 	m.emission_energy_multiplier = 0.9
 	m.roughness = 0.5
 	pane.material_override = m
+	pane.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF   # the quad cast a huge round shadow blob onto the facade
 	pane.position = pos
 	pane.rotation_degrees = rot_deg
 	add_child(pane)
@@ -3328,8 +3385,211 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 func _build_castle_music_room(o: Vector3) -> void:
 	_hall_ref().build_music_room(o)
 
+func _build_castle_craft_room(o: Vector3) -> void:
+	# Craft room off the RIGHT hall wall, doorway at z -1..+9 (the easel keeps its old z~2 spot, just deeper).
+	# Footprint x:35..52.75, z:-4.75..12.75 — inside the dome (far corner r≈54.5 < 60).
+	var co: Vector3 = o + Vector3(44, 0, 4)              # room centre
+	var wall := Color(0.93, 0.95, 0.9)                   # soft mint plaster
+	var cfloor := _l2_box(co + Vector3(0, 0.4, 0), Vector3(18, 1.0, 18), Color(0.82, 0.74, 0.6))
+	cfloor.material_override = _up_mat("wood", 0.1, Color(0.95, 0.85, 0.68))   # honey studio boards
+	_l2_box(co + Vector3(0, 33.0, 0), Vector3(18, 1.5, 18), Color(0.88, 0.9, 0.86))
+	# enclosing walls (the left/hall side is the segmented hall wall already built)
+	_iwall(co + Vector3(8.75, 16, 0), Vector3(1.5, 34, 18), wall)        # far wall (x=52.75)
+	_iwall(co + Vector3(0, 16, -8.75), Vector3(18, 34, 1.5), wall)       # back wall (z=-4.75)
+	_iwall(co + Vector3(0, 16, 8.75), Vector3(18, 34, 1.5), wall)        # front wall (z=12.75)
+	# gold doorway frame around the opening in the hall wall
+	for dz in [-1.0, 9.0]:
+		_l2_box(o + Vector3(35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
+	# paint-splat rug by the entrance
+	var rug := _l2_box(co + Vector3(-4.0, 0.95, 0.0), Vector3(8, 0.1, 7), Color(0.95, 0.72, 0.35))
+	rug.material_override.roughness = 1.0
+	# ---------- the easel, against the far wall ----------
+	var easel := _l2_box(co + Vector3(6.5, 7.0, 0.0), Vector3(0.6, 11.0, 8.0), Color(0.55, 0.4, 0.26))
+	_mg_noop_ref(easel)
+	var canvas := _l2_box(co + Vector3(5.9, 9.0, 0.0), Vector3(0.4, 7.0, 6.0), Color(0.97, 0.96, 0.92), 0.1)
+	_mg_noop_ref(canvas)
+	var craft_fish_icon := Sprite3D.new()
+	craft_fish_icon.texture = load("res://assets/mg/fish_line.png")
+	craft_fish_icon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	craft_fish_icon.pixel_size = 0.012
+	craft_fish_icon.position = co + Vector3(5.4, 9.0, 0.0)
+	add_child(craft_fish_icon); game_nodes.append(craft_fish_icon)
+	# paint pots along the back wall for set dressing
+	var potcols := [Color(0.92, 0.3, 0.3), Color(1.0, 0.8, 0.25), Color(0.35, 0.75, 0.4), Color(0.35, 0.6, 0.95), Color(0.7, 0.4, 0.9)]
+	for pi in range(potcols.size()):
+		var pot := _l2_box(co + Vector3(-6.0 + float(pi) * 3.0, 1.6, -7.0), Vector3(1.6, 2.2, 1.6), Color(0.85, 0.82, 0.78))
+		_mg_noop_ref(pot)
+		var paint := _l2_box(co + Vector3(-6.0 + float(pi) * 3.0, 2.9, -7.0), Vector3(1.3, 0.4, 1.3), potcols[pi], 0.4)
+		_mg_noop_ref(paint)
+	# sign over the doorway (visible from the hall)
+	var csign := Label3D.new()
+	csign.text = "\U0001f3a8 Crafting Room"
+	csign.font_size = 56; csign.pixel_size = 0.028; csign.outline_size = 12
+	csign.modulate = Color(0.95, 0.9, 1.0); csign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	csign.position = o + Vector3(35, 20.0, 4)
+	add_child(csign); game_nodes.append(csign)
+	# warm invite glow at the doorway + fill light inside
+	var il := OmniLight3D.new()
+	il.light_color = Color(1.0, 0.9, 0.7); il.light_energy = 1.5; il.omni_range = 14.0
+	il.position = o + Vector3(35, 7, 4); add_child(il); game_nodes.append(il)
+	var fl := OmniLight3D.new()
+	fl.light_color = Color(1.0, 0.95, 0.85); fl.light_energy = 1.8; fl.omni_range = 26.0
+	fl.position = co + Vector3(0, 22, 0); add_child(fl); game_nodes.append(fl)
+	g["craft_easel"] = co + Vector3(4.5, 7.0, 0.0)
+
 func _build_castle_bedroom(o: Vector3) -> void:
 	_hall_ref().build_bedroom(o)
+
+func _build_castle_basement(br: Vector3) -> void:
+	# Stone cellar dug out under the back hallway, reached down the stairwell the
+	# golden stand hides (opening x -3.4..3.4, z -3.2..1.2 rel br; the stair run
+	# continues under the solid floor toward -z). Physics comes from arena_floor_h
+	# (ramp + sunken floor); geometry here is the visible shell.
+	var scol := Color(0.68, 0.64, 0.76)   # dim lavender stone
+	var bfloor := _l2_box(br + Vector3(0, -12.0, 0), Vector3(48, 1.0, 21), scol)
+	bfloor.material_override = _up_mat("marble", 0.07, Color(0.6, 0.56, 0.68))
+	_iwall(br + Vector3(-24, -5.8, 0), Vector3(1.5, 12.4, 21), scol, "marble")    # left wall
+	_iwall(br + Vector3(24, -5.8, 0), Vector3(1.5, 12.4, 21), scol, "marble")     # right wall
+	_iwall(br + Vector3(0, -5.8, -10.5), Vector3(48, 12.4, 1.5), scol, "marble")  # back wall
+	_iwall(br + Vector3(0, -5.8, 10.5), Vector3(48, 12.4, 1.5), scol, "marble")   # front wall
+	# stone steps down from the opening (visual; the floor ramp does the physics)
+	for st in range(5):
+		var sb := _l2_box(br + Vector3(0, -2.55 - 2.1 * float(st), 0.0 - 2.0 * float(st)), Vector3(6.8, 1.9, 2.2), Color(0.74, 0.7, 0.82))
+		sb.material_override = _up_mat("marble", 0.07, Color(0.72, 0.68, 0.8))
+	# cool invite glow spilling up the stairwell
+	var swl := OmniLight3D.new()
+	swl.light_color = Color(0.55, 0.9, 1.0); swl.light_energy = 1.8; swl.omni_range = 16.0
+	swl.position = br + Vector3(0, -5.0, -2.0); add_child(swl); game_nodes.append(swl)
+	# warm torch light down the room
+	for tx in [-10.0, 10.0]:
+		var tl := OmniLight3D.new()
+		tl.light_color = Color(1.0, 0.78, 0.5); tl.light_energy = 1.7; tl.omni_range = 22.0
+		tl.position = br + Vector3(tx, -4.0, 0)
+		add_child(tl); game_nodes.append(tl)
+		var flame := MeshInstance3D.new()
+		var fl := SphereMesh.new(); fl.radius = 0.5; fl.height = 1.0
+		flame.mesh = fl
+		var flm := StandardMaterial3D.new()
+		flm.emission_enabled = true
+		flm.emission = Color(1.0, 0.7, 0.35)
+		flm.emission_energy_multiplier = 4.0
+		flame.material_override = flm
+		flame.position = tl.position
+		add_child(flame); game_nodes.append(flame)
+	# set dressing: storage barrels + a glow-crystal cluster (room to grow later)
+	for bi in range(3):
+		var bar := MeshInstance3D.new()
+		var bc := CylinderMesh.new()
+		bc.top_radius = 1.4; bc.bottom_radius = 1.4; bc.height = 3.0
+		bar.mesh = bc
+		bar.material_override = _up_mat("wood", 0.1, Color(0.62, 0.45, 0.3))
+		bar.position = br + Vector3(16.0 + float(bi % 2) * 3.5, -10.0, -6.0 + float(bi) * 3.6)
+		add_child(bar); game_nodes.append(bar)
+	for ci in range(3):
+		var cr := _l2_box(br + Vector3(-17.0 + float(ci) * 1.6, -10.4 + float(ci % 2) * 0.4, -7.0), Vector3(1.0, 2.6 + float(ci) * 0.8, 1.0), Color(0.55, 0.9, 1.0), 1.4)
+		cr.rotation_degrees = Vector3(float(ci) * 8.0 - 8.0, 0, 10.0 - float(ci) * 10.0)
+	var crl := OmniLight3D.new()
+	crl.light_color = Color(0.55, 0.9, 1.0); crl.light_energy = 1.6; crl.omni_range = 18.0
+	crl.position = br + Vector3(-16, -8.5, -6); add_child(crl); game_nodes.append(crl)
+	var bsign := Label3D.new()
+	bsign.text = "✨ The Basement ✨"
+	bsign.font_size = 48; bsign.pixel_size = 0.024; bsign.outline_size = 12
+	bsign.modulate = Color(0.75, 0.9, 1.0)
+	bsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	bsign.position = br + Vector3(0, -5.5, -6.0)
+	add_child(bsign); game_nodes.append(bsign)
+
+func _build_castle_toilet(br: Vector3) -> void:
+	# a tiny royal loo at the far (left) end of the back hallway
+	var tp: Vector3 = br + Vector3(-21.0, 0, 0)
+	var porcelain := Color(0.97, 0.97, 1.0)
+	var bmat := _l2_box(tp + Vector3(0.8, 1.0, 0), Vector3(6, 0.15, 6), Color(0.62, 0.85, 0.95))   # soft bath mat
+	bmat.material_override.roughness = 1.0
+	var base := MeshInstance3D.new()
+	var bcy := CylinderMesh.new(); bcy.top_radius = 1.0; bcy.bottom_radius = 1.2; bcy.height = 1.8
+	base.mesh = bcy
+	base.material_override = _soft_mat(porcelain)
+	base.position = tp + Vector3(0, 1.8, 0)
+	add_child(base); game_nodes.append(base)
+	var bowl := MeshInstance3D.new()
+	var bw := CylinderMesh.new(); bw.top_radius = 1.6; bw.bottom_radius = 1.1; bw.height = 1.4
+	bowl.mesh = bw
+	bowl.material_override = _soft_mat(porcelain)
+	bowl.position = tp + Vector3(0, 3.2, 0)
+	add_child(bowl); game_nodes.append(bowl)
+	var wat := MeshInstance3D.new()   # glowy water in the bowl
+	var wc := CylinderMesh.new(); wc.top_radius = 0.95; wc.bottom_radius = 0.95; wc.height = 0.12
+	wat.mesh = wc
+	wat.material_override = _soft_mat(Color(0.55, 0.85, 1.0), 0.5)
+	wat.position = tp + Vector3(0, 3.72, 0)
+	add_child(wat); game_nodes.append(wat)
+	var seat := MeshInstance3D.new()   # rosy seat ring
+	var sr := TorusMesh.new(); sr.inner_radius = 1.0; sr.outer_radius = 1.7
+	seat.mesh = sr
+	seat.material_override = _soft_mat(Color(1.0, 0.8, 0.9))
+	seat.position = tp + Vector3(0, 3.95, 0)
+	add_child(seat); game_nodes.append(seat)
+	# cistern against the end wall + a gold flush handle
+	var tank := _l2_box(tp + Vector3(-1.9, 3.4, 0), Vector3(1.2, 3.2, 3.0), porcelain)
+	tank.material_override.roughness = 0.25
+	_l2_box(tp + Vector3(-1.9, 5.2, 1.0), Vector3(0.5, 0.4, 0.9), Color(0.95, 0.8, 0.4), 0.4)
+	_wall_solid(tp + Vector3(-0.5, 2.5, 0), Vector3(3.4, 5.0, 3.2), 0.4)
+	var tsign := Label3D.new()
+	tsign.text = "✨ Royal Loo ✨"
+	tsign.font_size = 40; tsign.pixel_size = 0.02; tsign.outline_size = 10
+	tsign.modulate = Color(0.8, 0.92, 1.0)
+	tsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	tsign.position = tp + Vector3(0, 7.0, 0)
+	add_child(tsign); game_nodes.append(tsign)
+	# bubbly toot when Roshan swims up to it (re-arms when she swims away)
+	var tap := AudioStreamPlayer.new()
+	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.volume_db = -4.0
+	tap.pitch_scale = 1.1
+	base.add_child(tap)   # frees with the toilet
+	g["toilet"] = {"pos": tp + Vector3(0, 3, 0), "player": tap, "armed": true}
+
+func _slide_basement_stand() -> void:
+	# The golden stand wakes: a deep stone rumble, then it slides clear of the
+	# stairwell it was hiding. The hug-chest trigger moves with it and stays
+	# gated on stand_open so the hug cannot fire mid-slide.
+	g["stand_open"] = true
+	g["secret_armed"] = false   # swim away and back to the chest's new spot for the hug
+	var chest: Node3D = g["stand_chest"]
+	var lid: Node3D = g["stand_lid"]
+	if not is_instance_valid(chest) or not is_instance_valid(lid):
+		return
+	var slide := Vector3(14.0, 0.0, -3.0)   # over to Daddy's side, clear of the opening
+	g["secret_door"] = chest.position + slide
+	var rumble := AudioStreamPlayer.new()
+	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
+	rumble.volume_db = 3.0
+	chest.add_child(rumble)   # frees with the chest
+	rumble.play()
+	var tw := chest.create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(chest, "position", chest.position + slide, 1.6)
+	tw.tween_property(lid, "position", lid.position + slide, 1.6)
+	if g.has("stand_label") and is_instance_valid(g["stand_label"]):
+		tw.tween_property(g["stand_label"], "position", (g["stand_label"] as Node3D).position + slide, 1.6)
+	_sparkle_burst(chest.position + Vector3(0, 4, 0), Color(1.0, 0.85, 0.4))
+	show_msg("Pearl Castle", "The golden stand rumbles aside... a secret staircase! Swim down to the basement!")
+
+func arena_floor_h(p: Vector3) -> float:
+	# Arena floors are flat except where the castle basement is dug out under the
+	# back hallway: an open stairwell ramp plus the sunken room. Both only exist
+	# once the golden stand has slid aside, and the room floor only applies when
+	# Roshan is already below the hallway (she gets in through the opening).
+	if String(g.get("phase", "")) == "hall" and bool(g.get("stand_open", false)):
+		var br: Vector3 = CASTLE_POS + Vector3(0, 0, -46.0)
+		var lx: float = p.x - br.x
+		var lz: float = p.z - br.z
+		if absf(lx) < 3.4 and lz > -8.5 and lz < 1.2:
+			var t: float = clampf((1.2 - lz) / 9.7, 0.0, 1.0)   # ramp along the steps
+			return arena_center.y - 12.0 * t
+		if absf(lx) < 22.0 and absf(lz) < 9.7 and p.y < arena_center.y + 1.0:
+			return arena_center.y - 12.0
+	return arena_center.y
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
@@ -3680,7 +3940,34 @@ func _play_hug_cutscene() -> void:
 func _mg_noop_ref(_n: Node) -> void:
 	pass
 
-func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
+func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> void:
+	# kill any prior fx tween on this layer
+	var old: Variant = nd.get_meta("fxtw") if nd.has_meta("fxtw") else null
+	if old is Tween and (old as Tween).is_valid():
+		(old as Tween).kill()
+	var base_a: float = 1.0
+	if role == "accent":
+		base_a = 1.0 if kind == "fish" else 0.5
+	if rb:
+		# RAINBOW: loop the layer through the hue wheel
+		var tw: Tween = (nd as Node).create_tween().set_loops()
+		for hi in range(6):
+			var hc := Color.from_hsv(float(hi) / 6.0, 0.75, 1.0, base_a)
+			tw.tween_property(nd, "modulate", hc, 0.4)
+		nd.set_meta("fxtw", tw)
+	elif role == "accent":
+		# GLITTER: Color 2 shimmers between the color and a bright sparkle of itself
+		var c0 := Color(col.r, col.g, col.b, base_a)
+		var c1 := Color(minf(col.r * 1.6 + 0.15, 1.0), minf(col.g * 1.6 + 0.15, 1.0), minf(col.b * 1.6 + 0.15, 1.0), minf(base_a + 0.18, 1.0))
+		nd.set("modulate", c0)
+		var tw2: Tween = (nd as Node).create_tween().set_loops()
+		tw2.tween_property(nd, "modulate", c1, 0.35).set_trans(Tween.TRANS_SINE)
+		tw2.tween_property(nd, "modulate", c0, 0.45).set_trans(Tween.TRANS_SINE)
+		nd.set_meta("fxtw", tw2)
+	else:
+		nd.set("modulate", Color(col.r, col.g, col.b, base_a))
+
+func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
 	if kind == "fish":
 		# HER painted fish are real 3D swimmers now (owner 2026-07-11): the
 		# family clownfish mesh repainted in the craft-studio colors via the
@@ -3706,13 +3993,14 @@ func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
 	root.add_child(anim)
 	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
 	var lb := Sprite3D.new()
-	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png"); lb.modulate = body
+	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png")
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
+	lb.set_meta("rb", body_rb)
 	anim.add_child(lb)
 	var la := Sprite3D.new()
-	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png"); la.modulate = Color(accent.r, accent.g, accent.b, acca)
+	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png")
 	la.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1
-	la.set_meta("rb", false)
+	la.set_meta("rb", acc_rb)
 	anim.add_child(la)
 	var ll := Sprite3D.new()
 	ll.texture = load("res://assets/mg/" + String(ln[2]) + ".png")
@@ -3762,11 +4050,14 @@ func _craft_build_preview() -> void:
 	var order := [String(ln[1]), String(ln[0]), String(ln[2])]
 	var roles := ["body", "accent", "line"]
 	var cols := [craft_body, Color(craft_fins.r, craft_fins.g, craft_fins.b, acca), Color(1, 1, 1)]
-	for i in range(3): 
+	var rbs := [craft_body_rb, craft_fins_rb, false]
+	for i in range(3):
 		var tr := TextureRect.new(); tr.texture = load("res://assets/mg/" + order[i] + ".png")
 		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		tr.size = craft_fishbox.size; tr.modulate = cols[i]; tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		tr.set_meta("role", roles[i]); craft_fishbox.add_child(tr)
+		if roles[i] != "line":
+			_layer_fx(tr, roles[i], cols[i], rbs[i], craft_kind)
 
 func _open_craft_studio() -> void:
 	if craft_layer != null:
@@ -3774,6 +4065,8 @@ func _open_craft_studio() -> void:
 	craft_kind = "fish"
 	craft_body = Color(0.4, 0.7, 1.0)
 	craft_fins = Color(1.0, 0.6, 0.2)
+	craft_body_rb = false
+	craft_fins_rb = false
 	craft_layer = CanvasLayer.new(); craft_layer.layer = 18; add_child(craft_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); craft_layer.add_child(root)
 	var vp: Vector2 = get_viewport().get_visible_rect().size
@@ -3837,6 +4130,18 @@ func _open_craft_studio() -> void:
 			var col: Color = pal[ci]; var pp: String = part
 			sw.pressed.connect(func(): _craft_set(pp, col))
 			stage.add_child(sw)
+		# 9th swatch: RAINBOW (the whole layer cycles through every color)
+		var rbw := Button.new(); rbw.custom_minimum_size = Vector2(90, 90); rbw.size = Vector2(90, 90)
+		rbw.position = Vector2(300.0 + float(pal.size()) * 100.0 - 1400.0 * 0.0, 492.0 + float(row) * 108.0)
+		rbw.position.x = 300.0 - 100.0   # place it BEFORE the solid colors so it fits the row
+		rbw.flat = true
+		var rimg := TextureRect.new(); rimg.texture = load("res://assets/mg/rainbow_swatch.png")
+		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_SCALE
+		rimg.set_anchors_preset(Control.PRESET_FULL_RECT); rimg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		rbw.add_child(rimg)
+		var pp2: String = part
+		rbw.pressed.connect(func(): _craft_set(pp2, Color(1, 1, 1), true))
+		stage.add_child(rbw)
 	var done := Button.new(); done.text = "  Done!  "; done.add_theme_font_size_override("font_size", 46)
 	done.position = Vector2(1050, 330); done.custom_minimum_size = Vector2(190, 130)
 	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.4); dsb.set_corner_radius_all(30)
@@ -3873,9 +4178,13 @@ func _craft_pick_kind(kk: String, knm: String, price: int, kb: Button) -> void:
 	craft_kind = kk
 	_craft_build_preview()
 
-func _craft_set(part: String, col: Color) -> void:
-	if part == "body": craft_body = col
-	else: craft_fins = col
+func _craft_set(part: String, col: Color, rb: bool = false) -> void:
+	if part == "body":
+		craft_body = col
+		craft_body_rb = rb
+	else:
+		craft_fins = col
+		craft_fins_rb = rb
 	if craft_fishbox != null:
 		for c in craft_fishbox.get_children():
 			if c is TextureRect:
@@ -3898,7 +4207,7 @@ func _craft_done() -> void:
 		_spawn_crafted_fish()   # same spawn path as build/load keeps the counter honest
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
-		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
+		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b, 1 if craft_body_rb else 0, 1 if craft_fins_rb else 0])
 		msgtxt = "Off to the courtyard! Find me when you visit!"
 	_write_save()
 	if chime != null:
@@ -4887,7 +5196,8 @@ func _plank_box(pos: Vector3, size: Vector3, alpha: float = 1.0) -> void:
 	m.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
 	m.roughness_texture = load("res://assets/terrain/up_wood_rgh.jpg")
 	m.uv1_triplanar = true
-	m.uv1_scale = Vector3(0.18, 0.18, 0.18)
+	m.uv1_world_triplanar = true
+	m.uv1_scale = Vector3(0.15, 0.15, 0.15)
 	m.roughness = 0.9
 	if alpha < 1.0:
 		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -5211,7 +5521,8 @@ func _aq_game(model: String, pos: Vector3, scl: float) -> Node3D:
 	var inst: Node3D = ps.instantiate()
 	inst.position = pos
 	inst.scale = Vector3.ONE * scl
-	_paint_aq(inst, _aq_mat(model))
+	if not model_cache.has("aq2_" + model):
+		_paint_aq(inst, _aq_mat(model))   # Riley models are untextured; gen2 aren't
 	add_child(inst)
 	game_nodes.append(inst)
 	return inst
@@ -5735,6 +6046,7 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 	hm.normal_enabled = true
 	hm.normal_texture = load("res://assets/terrain/up_grass_nrm.jpg")
 	hm.uv1_triplanar = true
+	hm.uv1_world_triplanar = true
 	hm.uv1_scale = Vector3(0.05, 0.05, 0.05)
 	hm.roughness = 1.0
 	hill.material_override = hm
@@ -6125,11 +6437,17 @@ render_mode cull_disabled, depth_prepass_alpha;
 uniform vec3 base_col;
 uniform vec3 tip_col;
 uniform sampler2D leaf;
+global uniform vec3 wind_dir;
+global uniform float wind_gust;
 void vertex(){
 	float w = UV.y;
 	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	VERTEX.x += sin(TIME * 0.9 + wp.x * 0.28 + wp.z * 0.22) * 0.5 * w;
-	VERTEX.z += cos(TIME * 0.7 + wp.x * 0.16) * 0.36 * w;
+	// gusts ROLL across the meadow: phase offset along the wind direction, and
+	// the blades lean downwind on top of their own sway
+	float gg = 0.4 + wind_gust * 1.2;
+	float ph = TIME * (0.9 + wind_gust * 0.7) - dot(wp.xz, wind_dir.xz) * 0.14;
+	VERTEX.x += (sin(ph + wp.x * 0.28 + wp.z * 0.22) * 0.5 * gg + wind_dir.x * wind_gust * 0.5) * w;
+	VERTEX.z += (cos(ph * 0.78 + wp.x * 0.16) * 0.36 * gg + wind_dir.z * wind_gust * 0.5) * w;
 }
 void fragment(){
 	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
@@ -6140,9 +6458,10 @@ void fragment(){
 	ALBEDO = col;
 	ROUGHNESS = 0.8;
 	SPECULAR = 0.15;
-	// soft translucency so blades let light through, plus a faint tip glow
+	// soft translucency so blades let light through, plus a tip glow strong
+	// enough to feed the bloom pass (dark blades otherwise never bloom)
 	BACKLIGHT = tip_col * (0.25 + t * 0.4);
-	EMISSION = tip_col * (0.02 + t * t * 0.10);
+	EMISSION = tip_col * (0.05 + t * t * 0.22);
 }"""
 	var m := ShaderMaterial.new()
 	m.shader = sh
@@ -6552,7 +6871,193 @@ func _tick_god_rays(delta: float) -> void:
 	for gr in god_rays:
 		var n: MeshInstance3D = gr["node"]
 		if is_instance_valid(n):
-			n.rotation.z = float(gr["base"]) + sin(tt * 0.25 + float(gr["ph"])) * 0.06
+			n.rotation.z = float(gr["base"]) + sin(tt * 0.25 + float(gr["ph"])) * (0.03 + 0.06 * wind_gust_v)
+
+# ===================== WW MOTION LANGUAGE: WIND / STREAKS / RINGS =====================
+func _tick_wind(delta: float) -> void:
+	wind_t += delta
+	# slowly wandering direction + two beating sines so gusts swell and die
+	var wyaw: float = 0.55 + sin(wind_t * 0.023) * 1.1 + sin(wind_t * 0.011 + 2.0) * 0.5
+	wind_dir_v = Vector3(sin(wyaw), 0.0, cos(wyaw))
+	wind_gust_v = clampf(0.55 + 0.30 * sin(wind_t * 0.34) + 0.18 * sin(wind_t * 0.9 + 1.7), 0.08, 1.0)
+	RenderingServer.global_shader_parameter_set("wind_dir", wind_dir_v)
+	RenderingServer.global_shader_parameter_set("wind_gust", wind_gust_v)
+
+func _flag_shader() -> Shader:
+	# turret flags ripple with the global gust — pinned at the pole (UV.x = 0)
+	if flag_sh == null:
+		flag_sh = Shader.new()
+		flag_sh.code = """shader_type spatial;
+render_mode cull_disabled;
+uniform vec4 col : source_color;
+uniform float amp = 0.3;
+global uniform float wind_gust;
+void vertex(){
+	float t = UV.x;
+	float gg = 0.35 + wind_gust * 0.9;
+	VERTEX.z += sin(TIME * (5.0 + wind_gust * 5.0) - t * 7.0) * amp * t * gg;
+	VERTEX.y += sin(TIME * (3.4 + wind_gust * 3.2) - t * 5.0 + 1.3) * amp * 0.35 * t * gg;
+}
+void fragment(){
+	ALBEDO = col.rgb;
+	EMISSION = col.rgb * 0.4;
+	ROUGHNESS = 0.9;
+}"""
+	return flag_sh
+
+func _streak_mesh(leng: float, curl: float, wdt: float) -> ArrayMesh:
+	# corkscrew ribbon with UV.x running along its length — the dash shader travels down it
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
+	var segs := 36
+	for i in range(segs + 1):
+		var t: float = float(i) / float(segs)
+		var th: float = t * TAU * 1.6
+		var r: float = curl * sin(PI * t)
+		var p := Vector3(t * leng, sin(th) * r, cos(th) * r * 0.6)
+		var side := Vector3(0.0, cos(th), -sin(th)).normalized() * wdt * (0.5 + 0.5 * sin(PI * t))
+		st.set_uv(Vector2(t, 0.0))
+		st.add_vertex(p + side)
+		st.set_uv(Vector2(t, 1.0))
+		st.add_vertex(p - side)
+	return st.commit()
+
+func _build_wind_streaks() -> void:
+	# pooled WW gust curls: slow cyan current lines underwater, white wind gusts
+	# in the Sky Lagoon. The pool lives forever; _tick_wind_streaks restyles it
+	# whenever the context (sea / sky / off) changes.
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;
+uniform vec4 tint : source_color;
+uniform float ph = 0.0;
+uniform float spd = 0.3;
+global uniform float wind_gust;
+void fragment(){
+	float cyc = fract(TIME * spd + ph) * 1.9 - 0.45;   // dash sweeps past both ends, then rests
+	float dash = smoothstep(cyc - 0.42, cyc - 0.03, UV.x) * (1.0 - smoothstep(cyc - 0.03, cyc + 0.02, UV.x));
+	float across = 1.0 - abs(UV.y - 0.5) * 2.0;
+	float ends = smoothstep(0.0, 0.10, UV.x) * (1.0 - smoothstep(0.90, 1.0, UV.x));
+	ALBEDO = tint.rgb;
+	ALPHA = tint.a * dash * pow(across, 1.4) * ends * (0.35 + 0.65 * wind_gust);
+}"""
+	for i in range(10):
+		var mi := MeshInstance3D.new()
+		mi.mesh = _streak_mesh(24.0 + randf() * 14.0, 2.2 + randf() * 1.6, 0.32 + randf() * 0.2)
+		var m := ShaderMaterial.new()
+		m.shader = sh
+		m.set_shader_parameter("ph", randf())
+		m.set_shader_parameter("spd", 0.22 + randf() * 0.16)
+		mi.material_override = m
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.visible = false
+		add_child(mi)
+		wind_streaks.append({"node": mi, "mat": m, "age": randf() * 8.0, "life": 7.0 + randf() * 5.0})
+
+func _tick_wind_streaks(delta: float) -> void:
+	var ctx := "off"
+	if game == "":
+		ctx = "sea"
+	elif game == "level2" and String(g.get("phase", "")) != "hall":
+		ctx = "sky"   # outdoors in the Sky Lagoon (not inside the castle hall)
+	if ctx != streak_ctx:
+		streak_ctx = ctx
+		for i in range(wind_streaks.size()):
+			var s: Dictionary = wind_streaks[i]
+			var mi: MeshInstance3D = s["node"]
+			mi.visible = ctx != "off" and (quality != "speedy" or i % 2 == 0)
+			var m: ShaderMaterial = s["mat"]
+			if ctx == "sea":
+				m.set_shader_parameter("tint", Color(0.55, 0.85, 1.0, 0.30))
+			else:
+				m.set_shader_parameter("tint", Color(1.0, 1.0, 1.0, 0.42))
+			_respawn_streak(s, true)
+	if ctx == "off":
+		return
+	var spd: float = (2.5 + wind_gust_v * 5.0) if ctx == "sea" else (7.0 + wind_gust_v * 11.0)
+	for s in wind_streaks:
+		var mi: MeshInstance3D = s["node"]
+		if not mi.visible:
+			continue
+		s["age"] = float(s["age"]) + delta
+		mi.position += wind_dir_v * spd * delta
+		if float(s["age"]) > float(s["life"]) or mi.position.distance_to(player.position) > 95.0:
+			_respawn_streak(s, false)
+
+func _respawn_streak(s: Dictionary, scatter: bool) -> void:
+	var mi: MeshInstance3D = s["node"]
+	s["age"] = 0.0
+	s["life"] = 7.0 + randf() * 5.0
+	var back: float = -55.0 + (randf() * 90.0 if scatter else randf() * 20.0)
+	var perp := Vector3(-wind_dir_v.z, 0.0, wind_dir_v.x)
+	var base: Vector3 = player.position + wind_dir_v * back + perp * (randf() * 70.0 - 35.0)
+	if streak_ctx == "sky":
+		base.y = lagoon_h(base.x, base.z) + 5.0 + randf() * 22.0
+	else:
+		base.y = clampf(8.0 + randf() * (WATER_TOP - 20.0), 6.0, WATER_TOP - 6.0)
+	mi.position = base
+	# the mesh extends along +X; yaw it so +X points down the wind
+	mi.rotation = Vector3(0.0, atan2(-wind_dir_v.z, wind_dir_v.x), randf() * 0.6 - 0.3)
+
+func _build_surf_rings() -> void:
+	# pooled expanding rings on the underside of the water ceiling (WW telegraphs
+	# every surface interaction with one of these)
+	var sh := Shader.new()
+	sh.code = """shader_type spatial;
+render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;
+uniform float prog = 1.0;
+uniform vec4 tint : source_color;
+void fragment(){
+	float r = length(UV - 0.5) * 2.0;
+	float ring = smoothstep(prog - 0.22, prog - 0.02, r) * (1.0 - smoothstep(prog - 0.02, prog + 0.03, r));
+	ALBEDO = tint.rgb;
+	ALPHA = tint.a * ring * (1.0 - prog);
+}"""
+	for i in range(6):
+		var q := QuadMesh.new()
+		q.size = Vector2(1.0, 1.0)
+		var mi := MeshInstance3D.new()
+		mi.mesh = q
+		var m := ShaderMaterial.new()
+		m.shader = sh
+		m.set_shader_parameter("tint", Color(0.85, 0.97, 1.0, 0.85))
+		m.set_shader_parameter("prog", 1.0)
+		mi.material_override = m
+		mi.rotation_degrees = Vector3(-90, 0, 0)   # lie flat on the surface
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.visible = false
+		add_child(mi)
+		surf_rings.append({"node": mi, "mat": m, "t": 1.0})
+
+func _spawn_surf_ring(pos: Vector3, size: float) -> void:
+	for s in surf_rings:
+		if float(s["t"]) >= 1.0:
+			s["t"] = 0.0
+			var mi: MeshInstance3D = s["node"]
+			mi.scale = Vector3.ONE * size
+			mi.position = pos
+			mi.visible = true
+			return
+
+func _tick_surf_rings(delta: float, ppos: Vector3) -> void:
+	ring_cool -= delta
+	if game == "" and ppos.y > WATER_TOP - 7.0 and ring_cool <= 0.0:
+		var pv: Vector3 = player.vel
+		if Vector3(pv.x, 0, pv.z).length() > 4.0 or pv.y > 6.0:
+			ring_cool = 0.38
+			_spawn_surf_ring(Vector3(ppos.x, WATER_TOP - 0.25, ppos.z), 9.0 + randf() * 4.0)
+	for s in surf_rings:
+		if float(s["t"]) < 1.0:
+			s["t"] = minf(float(s["t"]) + delta / 1.25, 1.0)
+			(s["mat"] as ShaderMaterial).set_shader_parameter("prog", float(s["t"]))
+			if float(s["t"]) >= 1.0:
+				(s["node"] as MeshInstance3D).visible = false
+
+func on_player_jump(pos: Vector3) -> void:
+	# WW-style splash telegraph: ring + sparkles when she leaps near the surface
+	if game == "" and pos.y > WATER_TOP - 12.0:
+		_spawn_surf_ring(Vector3(pos.x, WATER_TOP - 0.25, pos.z), 16.0)
+		_sparkle_burst(Vector3(pos.x, minf(pos.y + 2.0, WATER_TOP - 1.0), pos.z), Color(0.75, 0.95, 1.0))
 
 func _tick_movers(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
@@ -6583,6 +7088,7 @@ func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0
 	if tex != "":
 		m.albedo_texture = load(tex)
 		m.uv1_triplanar = true
+		m.uv1_world_triplanar = true
 		m.uv1_scale = Vector3(uvs, uvs, uvs)
 		m.roughness = 0.95
 	if nrm != "":
@@ -6606,13 +7112,13 @@ func _enter_arena(kind: String) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_COLOR
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	arena_env.glow_enabled = true
-	arena_env.glow_intensity = 0.9
+	_wind_waker_bloom(arena_env, 0.9, 0.35, 1.02)   # bloom emitters only — 0.85 white-washed bright floors (snow!)
 	if kind == "fetch":          # snowy backyard noon
 		arena_env.background_color = Color(0.75, 0.88, 1.0)
-		arena_env.ambient_light_color = Color(1, 1, 1)
-		arena_env.ambient_light_energy = 1.2
-		_arena_floor(Color(1.0, 1.02, 1.08), GTA + "up_snow_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)
+		arena_env.ambient_light_color = Color(0.94, 0.96, 1.0)
+		arena_env.ambient_light_energy = 0.65   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
+		arena_env.glow_bloom = 0.05             # near-zero whole-frame haze: on an already-white scene the WW haze clips everything
+		_arena_floor(Color(0.74, 0.77, 0.84), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
 	elif kind == "dolls":        # starry dream nursery
 		arena_env.background_color = Color(0.10, 0.06, 0.22)
 		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
@@ -6639,7 +7145,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.35, 0.55, 0.75)
 		arena_env.ambient_light_energy = 0.55
 		arena_env.glow_intensity = 1.15
-		_arena_floor(Color(0.55, 0.52, 0.56), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.05)
+		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
 		arena_env.background_color = Color(0.62, 0.82, 1.0)
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
@@ -6650,7 +7156,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
 		arena_env.ambient_light_energy = 0.9
 		arena_env.glow_intensity = 1.2
-		arena_env.glow_bloom = 0.15
+		arena_env.glow_bloom = 0.5   # extra-dreamy fairy pond
 	else:                        # concert stage night
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)

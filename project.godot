@@ -35,3 +35,14 @@ import/fbx/importer=0
 renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="mobile"
 textures/vram_compression/import_etc2_astc=true
+
+[shader_globals]
+
+wind_dir={
+"type": "vec3",
+"value": Vector3(0.85, 0, 0.53)
+}
+wind_gust={
+"type": "float",
+"value": 0.6
+}

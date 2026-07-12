@@ -155,12 +155,22 @@ func _tiara_y() -> float:
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
-var model_v3 := false             # true-3D rebuild (multi-view Meshy, head faces forward)
+var model_v3 := false
+var model_v2 := false             # true-3D v2 fallback (flat-card model needs in-plane swings)             # true-3D rebuild (multi-view Meshy, head faces forward)
 var hair_sim: HairSim = null      # spring physics for the v3 hair_SS_J strand chains
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
 var skin_t := 0.0
+# WW swim wake: ribbon contrail rebuilt each frame from recent tail positions,
+# plus velocity-aligned dash particles that only appear at sprint speed
+var trail_node: MeshInstance3D
+var trail_mesh: ImmediateMesh
+var trail_pts: Array = []       # front = newest; {p: Vector3, s: strength}
+var trail_sample := 0.0
+var trail_enabled := true       # cleared by main._apply_quality in speedy mode
+var speed_lines: GPUParticles3D
+var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
 	position = Vector3(0, 26, 0)
@@ -174,6 +184,7 @@ func _ready() -> void:
 		model_v3 = glb != null
 	if glb == null:
 		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
+		model_v2 = glb != null
 	if glb == null:
 		glb = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
@@ -231,6 +242,43 @@ func _ready() -> void:
 	skin_sparkles.position = Vector3(0, 1.0, 0)
 	skin_sparkles.emitting = false
 	add_child(skin_sparkles)
+	# wake ribbon (top_level so its points live in world space)
+	trail_mesh = ImmediateMesh.new()
+	trail_node = MeshInstance3D.new()
+	trail_node.mesh = trail_mesh
+	trail_node.top_level = true
+	var tm := StandardMaterial3D.new()
+	tm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	tm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	tm.vertex_color_use_as_albedo = true
+	tm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	tm.disable_receive_shadows = true
+	trail_node.material_override = tm
+	trail_node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(trail_node)
+	# speed-line dashes: thin boxes aligned to their velocity, streaming past her
+	speed_lines = GPUParticles3D.new()
+	speed_lines.amount = 36
+	speed_lines.lifetime = 0.55
+	speed_lines.local_coords = false
+	speed_lines.emitting = false
+	speed_pm = ParticleProcessMaterial.new()
+	speed_pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	speed_pm.emission_box_extents = Vector3(3.5, 2.5, 3.5)
+	speed_pm.particle_flag_align_y = true
+	speed_pm.gravity = Vector3.ZERO
+	speed_pm.spread = 8.0
+	speed_lines.process_material = speed_pm
+	var slm := BoxMesh.new()
+	slm.size = Vector3(0.05, 1.6, 0.05)
+	speed_lines.draw_pass_1 = slm
+	var smat := StandardMaterial3D.new()
+	smat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	smat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	smat.albedo_color = Color(0.75, 0.95, 1.0, 0.55)
+	speed_lines.material_override = smat
+	speed_lines.position = Vector3(0, 1.0, 0)
+	add_child(speed_lines)
 	cam = Camera3D.new()
 	cam.fov = 38.0   # diorama lens (see cam_back note)
 	get_parent().add_child.call_deferred(cam)
@@ -431,6 +479,31 @@ func set_tiara(on: bool) -> void:
 	if _tiara != null:
 		_tiara.visible = on
 
+func _flatten_materials(node: Node) -> void:
+	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
+	# same reasoning as _upgrade_texture (specular/rim streaks read as glitches
+	# on painted faces when the camera moves).
+	if node is MeshInstance3D:
+		var mi := node as MeshInstance3D
+		if mi.mesh != null:
+			for si in range(mi.mesh.get_surface_count()):
+				var m: Material = mi.mesh.surface_get_material(si)
+				if m is BaseMaterial3D:
+					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
+					m2.rim_enabled = false
+					m2.roughness = 1.0
+					m2.metallic = 0.0
+					m2.metallic_specular = 0.0
+					# self-lit fill: true-3D curvature goes murky in the dim
+					# underwater scene; the painted look wants even brightness
+					# (the old flat card was effectively camera-lit).
+					m2.emission_enabled = true
+					m2.emission_texture = m2.albedo_texture
+					m2.emission = Color(0.05, 0.05, 0.05)
+					mi.set_surface_override_material(si, m2)
+	for c in node.get_children():
+		_flatten_materials(c)
+
 func _upgrade_texture(node: Node) -> void:
 	# swap embedded 512px texture for the 2K re-bake from the source illustration
 	if node is MeshInstance3D:
@@ -441,9 +514,13 @@ func _upgrade_texture(node: Node) -> void:
 				if m is BaseMaterial3D:
 					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
 					m2.albedo_texture = load("res://assets/characters/roshan_tex_2k.webp")
-					m2.rim_enabled = true          # cheap fresnel sheen on Roshan's edges
-					m2.rim = 0.35
-					m2.rim_tint = 0.4
+					# NO rim / NO specular: on the near-flat painted face, moving cameras
+					# (cutscenes) sweep fresnel + specular streaks across the painted EYES,
+					# which reads as the eye glitch. Painted texture must light flat + evenly.
+					m2.rim_enabled = false
+					m2.roughness = 1.0
+					m2.metallic = 0.0
+					m2.metallic_specular = 0.0
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_upgrade_texture(c)
@@ -479,6 +556,10 @@ func _model_axis_quat(bname: String, axis: Vector3, angle: float) -> Quaternion:
 	return rq * Quaternion(local_axis, angle)
 
 func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
+	# Rotate a bone about a MODEL-space axis, composed after its rest rotation.
+	# The old card rig has identity rests (axis passes through unchanged); the
+	# v2 rig's bones carry Blender rest orientations, so the axis must be
+	# brought into the bone's local frame first.
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
 		return
@@ -638,6 +719,8 @@ func _process(delta: float) -> void:
 	if jump_held and jump_cool <= 0.0:
 		jump_cool = 0.4
 		vel.y = 16.0
+		if m0 != null and m0.has_method("on_player_jump"):
+			m0.on_player_jump(position)   # surface splash ring near WATER_TOP
 
 	yaw += turn * 1.8 * delta
 	var dir := Vector3(sin(yaw), 0.0, cos(yaw))
@@ -762,20 +845,28 @@ func _process(delta: float) -> void:
 		idle_t += delta
 
 	var speed: float = vel.length()
+	_tick_wake(delta, speed)
 	swim_phase += delta * (2.2 + speed * 0.9)
 	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
 	var kick: float = sin(swim_phase)
 	if skel != null:
+		# Swing axis depends on the model:
+		#  * v2 true-3D model (faces -Z): dolphin-kick pitch + arm paddling are
+		#    rotations about model X (RIGHT).
+		#  * old flat-card model (geometry in the XY plane): swings must stay
+		#    in-plane, i.e. about model Z (BACK) — out-of-plane rotations shear
+		#    the card edge-on and axially twist the X-aligned tail bones.
+		var A: Vector3 = Vector3.RIGHT if (model_v3 or model_v2) else Vector3.BACK
 		for i in range(8):
 			var ph: float = swim_phase - float(i) * 0.45
 			var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.5)
-			_rot_bone("tail%d" % (i + 1), Vector3.RIGHT, sin(ph) * amp * grow)
+			_rot_bone("tail%d" % (i + 1), A, sin(ph) * amp * grow)
 		var fin_ph: float = swim_phase - 3.6
-		_rot_bone("finTop", Vector3.RIGHT, sin(fin_ph - 0.25) * amp * 0.9)
-		_rot_bone("finBot", Vector3.RIGHT, sin(fin_ph - 0.55) * amp * 0.9)
-		_rot_bone("spine1", Vector3.RIGHT, -kick * amp * 0.16)
-		_rot_bone("chest", Vector3.RIGHT, -sin(swim_phase - 0.4) * amp * 0.12)
-		_rot_bone("neck", Vector3.RIGHT, sin(swim_phase - 0.7) * amp * 0.06)
+		_rot_bone("finTop", A, sin(fin_ph - 0.25) * amp * 0.9)
+		_rot_bone("finBot", A, sin(fin_ph - 0.55) * amp * 0.9)
+		_rot_bone("spine1", A, -kick * amp * 0.16)
+		_rot_bone("chest", A, -sin(swim_phase - 0.4) * amp * 0.12)
+		_rot_bone("neck", A, sin(swim_phase - 0.7) * amp * 0.06)
 		var idle_head: float = 0.0
 		if idle_t > 6.0:
 			idle_head = sin(Time.get_ticks_msec() / 1100.0) * 0.09
@@ -843,3 +934,62 @@ func _process(delta: float) -> void:
 		var target := position + Vector3(-sin(cyaw) * cam_back, cam_high + cam_pitch_off, -cos(cyaw) * cam_back)
 		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
 		cam.look_at(position + Vector3(0, 1.5, 0))
+
+func _tick_wake(delta: float, speed: float) -> void:
+	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
+	var strength: float = clampf((speed - 7.0) / 16.0, 0.0, 1.0)
+	if speed_lines != null:
+		var sprinting: bool = trail_enabled and speed > 26.0
+		speed_lines.emitting = sprinting
+		if sprinting:
+			speed_pm.direction = -vel.normalized()
+			speed_pm.initial_velocity_min = speed * 0.5
+			speed_pm.initial_velocity_max = speed * 0.8
+	if trail_node == null:
+		return
+	if not trail_enabled:
+		if trail_pts.size() > 0:
+			trail_pts.clear()
+			trail_mesh.clear_surfaces()
+		return
+	trail_sample -= delta
+	if trail_sample <= 0.0:
+		trail_sample = 0.05
+		if strength > 0.01:
+			var tail: Vector3 = position + Vector3(-sin(yaw), 0.0, -cos(yaw)) * 1.8 + Vector3(0, -0.4, 0)
+			trail_pts.push_front({"p": tail, "s": strength})
+			if trail_pts.size() > 22:
+				trail_pts.pop_back()
+		elif trail_pts.size() > 0:
+			trail_pts.pop_back()   # ribbon dissolves from the tail when she slows
+	_rebuild_trail()
+
+func _rebuild_trail() -> void:
+	trail_mesh.clear_surfaces()
+	var n: int = trail_pts.size()
+	if n < 3:
+		return
+	var eye: Vector3 = position + Vector3(0, 10, 10)
+	if cam != null and cam.is_inside_tree():
+		eye = cam.global_position
+	trail_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
+	for i in range(n):
+		var pt: Vector3 = trail_pts[i]["p"]
+		var s: float = trail_pts[i]["s"]
+		var seg: Vector3 = (trail_pts[mini(i + 1, n - 1)]["p"] as Vector3) - (trail_pts[maxi(i - 1, 0)]["p"] as Vector3)
+		if seg.length_squared() < 0.0001:
+			seg = Vector3(sin(yaw), 0, cos(yaw))
+		# camera-facing ribbon: widen perpendicular to both the path and the view
+		var side: Vector3 = seg.normalized().cross((eye - pt).normalized())
+		if side.length_squared() < 0.0001:
+			side = Vector3.UP
+		side = side.normalized()
+		var u: float = float(i) / float(n - 1)
+		var wdt: float = s * (0.12 + 0.85 * pow(sin(PI * u), 0.7))
+		var a: float = (1.0 - u) * 0.5 * s
+		var colr := Color(0.62 * a, 0.9 * a, 1.0 * a)   # additive: fade encoded in RGB
+		trail_mesh.surface_set_color(colr)
+		trail_mesh.surface_add_vertex(pt + side * wdt)
+		trail_mesh.surface_set_color(colr)
+		trail_mesh.surface_add_vertex(pt - side * wdt)
+	trail_mesh.surface_end()
