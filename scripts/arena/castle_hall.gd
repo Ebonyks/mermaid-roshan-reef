@@ -80,10 +80,12 @@ func build(o: Vector3) -> void:
 		m._l2_box(o + Vector3(0, 1.5 + float(st) * 2.0, -10.0 - float(st) * 2.2), Vector3(16.0 - float(st) * 0.6, 2.0, 3.0), Color(0.8, 0.25, 0.3))
 	# throne dais
 	m._l2_box(o + Vector3(0, 15.0, -27.0), Vector3(14, 2.0, 6), Color(0.95, 0.85, 0.55), 0.2)
-	# collision audit #2: the throne centerpiece was ghostly — the player swam
-	# straight through the stairs/dais/throne. Solid up to y14 (dais underside);
-	# the crown updraft still lifts her over the top from the front
-	m._wall_solid(o + Vector3(0, 7.0, -21.5), Vector3(15, 14, 15), 0.8)
+	# collision audit #2 (+ stairs pass 2026-07-12): the throne centerpiece was
+	# ghostly. The dais/throne block keeps a solid; the STAIRCASE itself is now
+	# a ramp-floor zone (see build_expansion) so Roshan rests on and climbs the
+	# steps instead of swimming through them. The old one-box solid covered the
+	# upper flight and would eject her off the new walkable steps.
+	m._wall_solid(o + Vector3(0, 8.0, -27.0), Vector3(14, 16, 6), 0.8)
 	if ResourceLoader.exists("res://assets/castle/throne.glb"):
 		var tmodel: Node3D = (load("res://assets/castle/throne.glb") as PackedScene).instantiate()
 		var th := Node3D.new()
@@ -415,10 +417,15 @@ func build_expansion(o: Vector3) -> void:
 	for px in range(-6, 7):
 		m._l2_box(o + Vector3(float(px) * 4.0, 34.6, -21.4), Vector3(0.5, 3.2, 0.5), gold, 0.2)
 	m._l2_box(o + Vector3(0, 36.4, -21.4), Vector3(52, 0.5, 0.6), gold, 0.25)
-	# twin marble stairs hugging the side walls up to the deck
+	# twin marble stairs hugging the side walls up to the deck. The treads are
+	# a ramp-floor zone (walkable, see the zone list); a stepped under-stair
+	# mass blocks swimming in underneath, so the flight reads fully solid.
 	for sgn in [-1.0, 1.0]:
 		for i in range(10):
 			m._l2_box(o + Vector3(sgn * 30.5, 3.0 + float(i) * 3.0, -6.0 - float(i) * 2.1), Vector3(7.0, 0.9, 3.6), Color(0.93, 0.9, 0.95))
+		m._wall_solid(o + Vector3(sgn * 30.5, 1.0, -8.1), Vector3(7, 3.0, 7.8), 0.4)
+		m._wall_solid(o + Vector3(sgn * 30.5, 5.4, -15.5), Vector3(7, 11.8, 7.0), 0.4)
+		m._wall_solid(o + Vector3(sgn * 30.5, 9.75, -22.85), Vector3(7, 21.3, 7.7), 0.4)
 	# ---------- THE UPPER STORY (owner 2026-07-12): wraps around BOTH wings.
 	# A full-width back block (z -36..-64, x -53..53) holds the enlarged Star
 	# Chamber + Cloud Lounge; two long WING GALLERIES run above the music room
@@ -565,8 +572,14 @@ func build_expansion(o: Vector3) -> void:
 		{"rect": Rect2(-8, -44, 16, 52), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},
 		{"rect": Rect2(-26, -10, 52, 16), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},
 		{"rect": Rect2(-26, -36, 52, 16), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},
-		{"rect": Rect2(-29, 25, 10, 10), "band": Vector2(-18.0, 3.5), "floor": -17.4},
-		{"rect": Rect2(-6, -50, 12, 12), "band": Vector2(-18.0, -2.0), "floor": -17.4, "ceil": -2.8},
+		{"rect": Rect2(-29, 25, 10, 10), "band": Vector2(-18.0, 3.5), "floor": -17.4, "ramp": [2, 26.5, -0.7, 33.5, -15.4]},
+		# staircase RAMP floors (stairs pass 2026-07-12) — every castle flight is
+		# walkable, not swim-through decor. Royal-stairs band stops below the
+		# balcony deck band (30..50) or it would re-floor the deck airspace.
+		{"rect": Rect2(-8, -24.7, 16, 16.2), "band": Vector2(-0.5, 29.5), "ramp": [2, -10.0, 2.9, -23.2, 14.9]},   # royal stairs to the throne
+		{"rect": Rect2(26.5, -27.0, 7.5, 23.0), "band": Vector2(-0.5, 32.0), "ramp": [2, -6.0, 3.85, -24.9, 30.85]},   # balcony stairs, right
+		{"rect": Rect2(-34.0, -27.0, 7.5, 23.0), "band": Vector2(-0.5, 32.0), "ramp": [2, -6.0, 3.85, -24.9, 30.85]},  # balcony stairs, left
+		{"rect": Rect2(-6, -50, 12, 12), "band": Vector2(-18.0, -2.0), "ramp": [2, -47.5, -3.4, -40.5, -15.4], "ceil": -2.8},
 	]
 	# The back stairwell starts SEALED under the golden stand: its band stops
 	# below the hallway floor (nobody sinks in from above or pops up from
@@ -965,6 +978,7 @@ func slide_stand() -> void:
 	if m.g.has("stand_zone"):
 		var zd: Dictionary = m.g["stand_zone"]
 		zd["band"] = Vector2(-18.0, 3.5)   # the shaft now reaches the hallway floor
+		zd["ramp"] = [2, -47.5, -0.7, -40.5, -15.4]   # stair ramp rises to the opening
 		zd.erase("ceil")
 	var rumble := AudioStreamPlayer.new()
 	rumble.stream = load("res://assets/audio/buzz.ogg")

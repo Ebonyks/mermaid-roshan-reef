@@ -765,6 +765,14 @@ func _process(delta: float) -> void:
 					continue
 				if zz.has("floor"):
 					floor_a = ap.y + float(zz["floor"])
+				if zz.has("ramp"):
+					# sloped stair floor: [axis (0=x, 2=z), p0, floor0, p1, floor1] —
+					# the floor tracks the staircase so Roshan rests ON the steps
+					# instead of swimming through them
+					var rp: Array = zz["ramp"]
+					var pv: float = lx if int(rp[0]) == 0 else lz
+					var rt: float = clampf((pv - float(rp[1])) / (float(rp[3]) - float(rp[1])), 0.0, 1.0)
+					floor_a = ap.y + lerpf(float(rp[2]), float(rp[4]), rt)
 				if zz.has("ceil"):
 					ceil_a = ap.y + float(zz["ceil"])
 		if position.y < floor_a:
