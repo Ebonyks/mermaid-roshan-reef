@@ -896,14 +896,17 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 					pos = p0.lerp(p1, hf) + Vector3(0, sin(hf * PI) * 0.8, 0)
 					pl.toy_pose("climb", tt, hf)
 				elif tt < climb_T + pause_T:
-					# scooting over the platform to the lip, ducked under the hood
+					# scooting over the platform to the lip, ducked under the
+					# hood — the duck is a whole-body lean (rotation.x), which
+					# stresses no skinning; deep chest pitch tore the ruffle
 					pos = ltop.lerp(lip, (tt - climb_T) / pause_T)
+					lean = -0.4
 					pl.toy_pose("ride", tt, 0.0)
 				elif tt < climb_T + pause_T + ride_T:
 					var rf: float = (tt - climb_T - pause_T) / ride_T
 					var u: float = pow(rf, 1.35)   # gravity: slow off the lip, quick at the bottom
 					pos = lip.lerp(mid, u).lerp(mid.lerp(out, u), u)
-					lean = -0.22
+					lean = -0.4 + smoothstep(0.1, 0.45, u) * 0.55   # duck eases into a gentle whee lean-back
 					pl.toy_pose("ride", tt, u)
 					if not bool(tp.get("cheered", false)):
 						tp["cheered"] = true
@@ -921,7 +924,7 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				var press: float = 1.0 - bnc
 				pos = a + Vector3(0, bnc * 1.3 - press * 0.42, 0)
 				face = left   # the open seat is the -left end; she faces the unicorn pivot
-				lean = press * 0.1
+				lean = -press * 0.12   # presses INTO the handle on each landing
 				var ss: Node3D = toy["node"]
 				if is_instance_valid(ss):
 					ss.rotation.z = 0.10 * press
@@ -930,13 +933,14 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				# plopped in the sand, digging with alternating arms — each
 				# scoop beat throws a little cloud from that hand
 				pos = a + Vector3(0, 0.3, 0)   # nestled into the sand fill (rim is 3.3 high)
+				lean = -0.3   # whole-body lean over the sand (kind to the waist ruffle)
 				var dph: float = tt * 4.4
 				pl.toy_pose("dig", tt, dph)
 				var scoop: int = int(floor(dph / PI))
 				if scoop != int(tp.get("digs", 0)):
 					tp["digs"] = scoop
 					var side: float = 1.0 if scoop % 2 == 0 else -1.0
-					_sand_puff(pos + fwd * 1.4 + left * (side * 0.9) - Vector3(0, 0.9, 0))
+					_sand_puff(pos + fwd * 1.5 + left * (side * 0.9) - Vector3(0, 1.2, 0))
 			"merry":
 				# glued to the spinning carousel at the angle she grabbed on,
 				# facing the way it carries her

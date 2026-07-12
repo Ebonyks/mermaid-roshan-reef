@@ -582,50 +582,45 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 	_rot_bone("hair1", Vector3.BACK, sin(t * 2.1 + 0.8) * 0.05)
 	_rot_bone("hair2", Vector3.BACK, sin(t * 2.1 + 0.25) * 0.07)
 	_rot_bone("hair3", Vector3.BACK, sin(t * 2.1 - 0.35) * 0.09)
+	# V4 RIG SIGNS (hand audit 2026-07-12, derived from the re-keyed verbs):
+	# arms about RIGHT raise with POSITIVE angles (cheer +2.2/+2.8; the old
+	# negative raises drove the arms backward THROUGH her dress — shard-burst),
+	# head/neck/chest pitch is negative-forward, tail/hair are unchanged.
+	# NOTE: chest stays within the motion-cage range (|angle| <= ~0.28, and
+	# <= ~0.15 while the tail is curled) — deeper pitches tear the waist
+	# ruffle, which is skinned across chest+tail. Big body leans belong on
+	# player.rotation.x (the choreography lean), which stresses no skinning.
 	match kind:
 		"swing":
-			# both hands raised forward at shoulder height onto the chains
-			# (RIGHT is the proven forward-raise axis on this rig — diagonal
-			# axes twist unpredictably); chest, head and tail pump WITH the
-			# arc (aux = rope angle) like a kid working the swing
-			_rot_bone("armU", Vector3.RIGHT, -1.35)
-			_rot_bone("armU2", Vector3.RIGHT, -1.35)
-			_rot_bone("armF", Vector3.RIGHT, -0.5)
-			_rot_bone("armF2", Vector3.RIGHT, -0.5)
-			_rot_bone("chest", Vector3.RIGHT, -aux * 0.3)
-			_rot_bone("neck", Vector3.RIGHT, -aux * 0.15)
-			_rot_bone("head", Vector3.RIGHT, -aux * 0.25)
+			# both hands raised forward-up onto the chains (1.3: higher and
+			# the forearm passes through her dress bow); chest, head and
+			# tail pump WITH the arc (aux = rope angle) like a kid working it
+			_arms_fwd(1.3, 0.55)
+			_rot_bone("chest", Vector3.RIGHT, aux * 0.3)
+			_rot_bone("neck", Vector3.RIGHT, aux * 0.15)
+			_rot_bone("head", Vector3.RIGHT, aux * 0.25)
 			_tail_curl(0.35 - aux * 0.85)   # tail kicks out on the forward arc, tucks on the back
 		"climb":
 			# one hop up a slide step (aux = hop phase 0..1): the tail coils
 			# on the step, springs mid-hop while both arms swing up together
 			var push: float = sin(clampf(aux, 0.0, 1.0) * PI)
-			_rot_bone("armU", Vector3.RIGHT, -0.35 - push * 1.15)
-			_rot_bone("armU2", Vector3.RIGHT, -0.35 - push * 1.15)
-			_rot_bone("armF", Vector3.RIGHT, -0.25 - push * 0.45)
-			_rot_bone("armF2", Vector3.RIGHT, -0.25 - push * 0.45)
-			_rot_bone("chest", Vector3.RIGHT, 0.22 - push * 0.34)
-			_rot_bone("head", Vector3.RIGHT, -0.3)   # eyes on the top of the slide
-			_tail_curl(0.9 * (1.0 - push))
+			_arms_fwd(0.55 + push * 1.15, 0.25 + push * 0.3)
+			_rot_bone("chest", Vector3.RIGHT, -0.1 + push * 0.25)
+			_rot_bone("head", Vector3.RIGHT, 0.3)   # eyes on the top of the slide
+			_tail_curl(0.7 * (1.0 - push))
 		"ride":
 			# at the lip (aux~0) she's ducked under the hood, hands forward on
 			# the rails; as the chute drops away (aux->1) the arms fly up: wheee
 			var duck: float = 1.0 - smoothstep(0.1, 0.45, clampf(aux, 0.0, 1.0))
-			_rot_bone("armU", Vector3.RIGHT, -1.9 + duck * 1.1)
-			_rot_bone("armU2", Vector3.RIGHT, -1.9 + duck * 1.1)
-			_rot_bone("armF", Vector3.RIGHT, -0.35 - duck * 0.25)
-			_rot_bone("armF2", Vector3.RIGHT, -0.35 - duck * 0.25)
-			_rot_bone("chest", Vector3.RIGHT, 0.18 + duck * 0.35)
-			_rot_bone("head", Vector3.RIGHT, -0.22 + duck * 0.6)
-			_tail_curl(0.65)
+			_arms_fwd(1.7 - duck * 0.8, 0.35)
+			_rot_bone("chest", Vector3.RIGHT, -0.08)
+			_rot_bone("head", Vector3.RIGHT, 0.22 - duck * 0.6)
+			_tail_curl(0.5)
 		"land":
 			# the arms float back down after the ride (aux = 0..1 settle)
 			var dn: float = 1.0 - clampf(aux, 0.0, 1.0)
-			_rot_bone("armU", Vector3.RIGHT, -1.9 * dn + 0.18 * (1.0 - dn))
-			_rot_bone("armU2", Vector3.RIGHT, -1.9 * dn + 0.18 * (1.0 - dn))
-			_rot_bone("armF", Vector3.RIGHT, -0.35 * dn + 0.22 * (1.0 - dn))
-			_rot_bone("armF2", Vector3.RIGHT, -0.35 * dn + 0.22 * (1.0 - dn))
-			_rot_bone("chest", Vector3.RIGHT, 0.18 * dn)
+			_arms_fwd(1.7 * dn, 0.35 * dn)
+			_rot_bone("chest", Vector3.RIGHT, -0.08 * dn)
 			_tail_curl(0.5 * dn)
 		"dig":
 			# kneeling over the sand, watching her hands, arms alternating
@@ -633,24 +628,34 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 			# one scoop — the tick throws a sand puff on the same beat)
 			var dl: float = maxf(sin(aux), 0.0)
 			var dr: float = maxf(-sin(aux), 0.0)
-			_rot_bone("chest", Vector3.RIGHT, 0.42)
-			_rot_bone("neck", Vector3.RIGHT, 0.18)
-			_rot_bone("head", Vector3.RIGHT, 0.3)
-			_rot_bone("armU", Vector3.RIGHT, 0.45 - dl * 1.55)
-			_rot_bone("armF", Vector3.RIGHT, -0.35 - dl * 0.55)
-			_rot_bone("armU2", Vector3.RIGHT, 0.45 - dr * 1.55)
-			_rot_bone("armF2", Vector3.RIGHT, -0.35 - dr * 0.55)
-			_tail_curl(0.85)   # plopped into the sand, tail tucked under
+			# the deep lean over the sand comes from the tick's body lean;
+			# chest stays shallow so the waist ruffle survives the tail curl
+			_rot_bone("chest", Vector3.RIGHT, -0.12)
+			_rot_bone("neck", Vector3.RIGHT, -0.18)
+			_rot_bone("head", Vector3.RIGHT, -0.3)   # watching her hands
+			# the idle arm hovers forward; the scooping arm plunges to the sand
+			_rot_bone("armU", Vector3.RIGHT, 0.55 - dl * 0.45)
+			_rot_bone("armF", Vector3.RIGHT, 0.3 + dl * 0.35)
+			_rot_bone("armU2", Vector3.RIGHT, (0.55 - dr * 0.45) * 1.25)
+			_rot_bone("armF2", Vector3.RIGHT, 0.3 + dr * 0.35)
+			_tail_curl(0.7)   # plopped into the sand, tail tucked under
 		"seat":
 			# seated grip for the carousel / spring pony / seesaw: hands
 			# forward on the bar, tail hooked under the seat (aux = rock)
-			_rot_bone("armU", Vector3.RIGHT, -0.8)
-			_rot_bone("armU2", Vector3.RIGHT, -0.8)
-			_rot_bone("armF", Vector3.RIGHT, -0.6)
-			_rot_bone("armF2", Vector3.RIGHT, -0.6)
-			_rot_bone("chest", Vector3.RIGHT, 0.1 + aux * 0.18)
-			_rot_bone("head", Vector3.RIGHT, -0.06 + aux * 0.12)
-			_tail_curl(0.8)
+			_arms_fwd(0.85, 0.5)
+			_rot_bone("chest", Vector3.RIGHT, -0.08 - aux * 0.06)
+			_rot_bone("head", Vector3.RIGHT, 0.06 - aux * 0.12)
+			_tail_curl(0.65)
+
+func _arms_fwd(amt: float, bend: float = 0.0) -> void:
+	# raise both arms forward by `amt` from the v4 rest (-0.2): POSITIVE about
+	# model RIGHT is the raise direction on this rig, and the left arm (armU2)
+	# needs ~1.25x the angle to mirror the right — both measured from the
+	# motion-cage re-keyed cheer/clap verbs (+2.2 right / +2.8 left = arms up)
+	_rot_bone("armU", Vector3.RIGHT, -0.2 + amt)
+	_rot_bone("armU2", Vector3.RIGHT, -0.2 + amt * 1.25)
+	_rot_bone("armF", Vector3.RIGHT, bend)
+	_rot_bone("armF2", Vector3.RIGHT, bend)
 
 func _tail_curl(amt: float) -> void:
 	# curl the tail forward/under (positive amt grows down the chain — the
