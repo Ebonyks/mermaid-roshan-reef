@@ -20,7 +20,9 @@ func _init() -> void:
 	var last_got := 0
 	var entered := false
 	var wob := 0.0
-	while main.game == "level2" and t < 240.0:
+	# done = the Crown Star win is recorded (crown celebrates IN PLACE since
+	# f5d7689 — the game stays in level2 by design, no ocean eject)
+	while main.game == "level2" and not bool(main.g.get("crown_won", false)) and t < 240.0:
 		t += 1.0/60.0 * Engine.time_scale
 		if main.mg_kind != "":
 			main._mg2d_close()
@@ -57,5 +59,6 @@ func _init() -> void:
 		await process_frame
 	print("=== LEVEL 2 CHILD-PACED STRESS TEST ===")
 	for l in got_log: print(l)
-	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if main.game=="" else "STUCK"), t])
+	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
+	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "STUCK"), t])
 	quit()

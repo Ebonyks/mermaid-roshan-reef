@@ -636,8 +636,8 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 			# the idle arm hovers forward; the scooping arm plunges to the sand
 			_rot_bone("armU", Vector3.RIGHT, 0.55 - dl * 0.45)
 			_rot_bone("armF", Vector3.RIGHT, 0.3 + dl * 0.35)
-			_rot_bone("armU2", Vector3.RIGHT, (0.55 - dr * 0.45) * 1.25)
-			_rot_bone("armF2", Vector3.RIGHT, 0.3 + dr * 0.35)
+			_rot_bone("armU2", Vector3.RIGHT, _mirror_u(0.55 - dr * 0.45))
+			_rot_bone("armF2", Vector3.RIGHT, _mirror_f(0.3 + dr * 0.35))
 			_tail_curl(0.7)   # plopped into the sand, tail tucked under
 		"seat":
 			# seated grip for the carousel / spring pony / seesaw: hands
@@ -649,13 +649,24 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 
 func _arms_fwd(amt: float, bend: float = 0.0) -> void:
 	# raise both arms forward by `amt` from the v4 rest (-0.2): POSITIVE about
-	# model RIGHT is the raise direction on this rig, and the left arm (armU2)
-	# needs ~1.25x the angle to mirror the right — both measured from the
-	# motion-cage re-keyed cheer/clap verbs (+2.2 right / +2.8 left = arms up)
-	_rot_bone("armU", Vector3.RIGHT, -0.2 + amt)
-	_rot_bone("armU2", Vector3.RIGHT, -0.2 + amt * 1.25)
+	# model RIGHT is the raise direction on this rig.
+	var ang: float = -0.2 + amt
+	_rot_bone("armU", Vector3.RIGHT, ang)
+	_rot_bone("armU2", Vector3.RIGHT, _mirror_u(ang))
 	_rot_bone("armF", Vector3.RIGHT, bend)
-	_rot_bone("armF2", Vector3.RIGHT, bend)
+	_rot_bone("armF2", Vector3.RIGHT, _mirror_f(bend))
+
+func _mirror_u(ang: float) -> float:
+	# The left upper arm does NOT mirror the right at the same angle: its rest
+	# orientation differs, so the mapping is affine (solved numerically by
+	# probe_arm_solve.gd — hand2 global pos vs the mirrored hand, best fit
+	# over 0.4..2.3). A same-angle key leaves the left arm hanging ~0.7 rad
+	# low at seat height, dragging the dress side panel with it (shard-burst).
+	return ang * 0.70 + 0.88
+
+func _mirror_f(bend: float) -> float:
+	# left forearm bend mirrors the right at roughly half the angle (same solve)
+	return bend * 0.5
 
 func _tail_curl(amt: float) -> void:
 	# curl the tail forward/under (positive amt grows down the chain — the
