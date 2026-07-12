@@ -151,6 +151,8 @@ func _tiara_y() -> float:
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
+var model_v3 := false             # true-3D rebuild (multi-view Meshy, head faces forward)
+var hair_sim: HairSim = null      # spring physics for the v3 hair_SS_J strand chains
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
@@ -158,22 +160,41 @@ var skin_t := 0.0
 
 func _ready() -> void:
 	position = Vector3(0, 26, 0)
-	# THE 3D Roshan (owner 2026-07-11: the stuffed-animal-era model is gone
-	# from the game; roshan.glb remains on disk only as the rig donor for
-	# tools/roshan_v2_retarget.py)
-	var glb: PackedScene = load("res://assets/characters/roshan_v2.glb") as PackedScene
+	# THE 3D Roshan. v3 (2026-07-11) is the multi-view Meshy rebuild from the
+	# three-view reference set in "Downloads/Mermaid roshan art base": head
+	# faces her swim direction (the v2/card models baked the illustration's
+	# over-the-shoulder head twist). roshan_v2/roshan.glb stay as fallbacks.
+	var glb: PackedScene = null
+	if ResourceLoader.exists("res://assets/characters/roshan_v3.glb"):
+		glb = load("res://assets/characters/roshan_v3.glb") as PackedScene
+		model_v3 = glb != null
+	if glb == null:
+		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
 	if glb == null:
 		glb = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
-		inst.scale = Vector3.ONE * 1.55
-		inst.position.y = -1.6
+		if model_v3:
+			# v3 is 1.9 units tall centred at origin; match the classic visual size
+			inst.scale = Vector3.ONE * 3.7
+			inst.position.y = 0.89
+		else:
+			inst.scale = Vector3.ONE * 1.55
+			inst.position.y = -1.6
 		add_child(inst)
 		model_root = inst
+		if model_v3:
+			var mn0: Node = get_parent()
+			if mn0 != null and mn0.has_method("_toonify"):
+				mn0._toonify(inst)   # storybook flat response, same as fairy_v2
 		skel = _find_skeleton(inst)
 		_map_bones()
 		_roshan_skel = skel
 		_roshan_maps = [bone_idx.duplicate(), rest.duplicate()]
+		if model_v3:
+			hair_sim = HairSim.new()
+			add_child(hair_sim)
+			hair_sim.setup(self)   # discovers hair_SS_J chains; no-op without them
 	# billboard sprite used when an alternative full skin is worn (hidden by default)
 	# pixel_size sized so the 707px-tall art ≈ the 7-unit classic model
 	skin_sprite = Sprite3D.new()
@@ -445,11 +466,17 @@ func attach_bone(n: Node3D, bone: String) -> bool:
 	return true
 
 func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
+	# Rotate about a MODEL-space axis, composed after the rest rotation. The
+	# card-era rigs have identity rests (axis passes through unchanged); the
+	# v3 rig carries Blender rest orientations, so the axis is brought into
+	# the bone's local frame first — same visual semantics on every model.
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
 		return
 	var base: Transform3D = rest[bname]
-	skel.set_bone_pose_rotation(bi, base.basis.get_rotation_quaternion() * Quaternion(axis, angle))
+	var rq: Quaternion = base.basis.get_rotation_quaternion()
+	var local_axis: Vector3 = (rq.inverse() * axis).normalized()
+	skel.set_bone_pose_rotation(bi, rq * Quaternion(local_axis, angle))
 
 func _process(delta: float) -> void:
 	var _m0: Node = get_parent()
@@ -657,13 +684,28 @@ func _process(delta: float) -> void:
 		if idle_t > 6.0:
 			idle_head = sin(Time.get_ticks_msec() / 1100.0) * 0.09
 		_rot_bone("head", Vector3.BACK, sin(swim_phase * 0.5 + 0.6) * 0.02 + idle_head)
-		_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
-		_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
-		_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
-		_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
-		_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
-		_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)
-		_rot_bone("armF2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8 - 0.6) * 0.30 + 0.22)
+		if not (model_v3 and skel == _roshan_skel):
+			# card-era hair sway (v3 hair belongs to HairSim's strand chains)
+			_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
+			_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
+			_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
+		if model_v3 and skel == _roshan_skel:
+			# v3 arms: gentle paddle. Speed-scaled amplitude (near-still when
+			# idle), no constant offset (rest = the authored pose), far arm
+			# trails the near arm slightly; forearms lag their upper arms.
+			# The old constant offsets + 144-degree syncopation read as
+			# uncoordinated flailing on a true-3D body.
+			var arm_amp: float = 0.06 + minf(speed * 0.02, 0.20)
+			var arm_ph: float = swim_phase * 0.5
+			_rot_bone("armU", Vector3.RIGHT, sin(arm_ph) * arm_amp)
+			_rot_bone("armF", Vector3.RIGHT, sin(arm_ph - 0.5) * arm_amp * 0.7)
+			_rot_bone("armU2", Vector3.RIGHT, sin(arm_ph - 0.35) * arm_amp)
+			_rot_bone("armF2", Vector3.RIGHT, sin(arm_ph - 0.85) * arm_amp * 0.7)
+		else:
+			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
+			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
+			_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)
+			_rot_bone("armF2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8 - 0.6) * 0.30 + 0.22)
 	elif not warned:
 		warned = true
 		push_warning("Roshan skeleton not found in roshan.glb - check import")
