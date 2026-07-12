@@ -421,7 +421,7 @@ func _apply_time_of_day() -> void:
 		world_env.ambient_light_color = Color(0.22, 0.36, 0.5)
 		world_env.ambient_light_energy = 0.62
 		world_env.fog_light_color = Color(0.04, 0.13, 0.22)
-		world_env.glow_intensity = 1.0   # bioluminescence reads stronger in the dark
+		world_env.glow_intensity = _world_glow_target()
 		if caustics_mat != null:          # thin blue moonlight dapples
 			caustics_mat.set_shader_parameter("strength", 0.15)
 			caustics_mat.set_shader_parameter("tint", Vector3(0.35, 0.55, 0.90))
@@ -438,7 +438,7 @@ func _apply_time_of_day() -> void:
 		world_env.ambient_light_color = Color(0.46, 0.66, 0.72)
 		world_env.ambient_light_energy = 0.9
 		world_env.fog_light_color = Color(0.10, 0.26, 0.34)
-		world_env.glow_intensity = 0.95
+		world_env.glow_intensity = _world_glow_target()
 		if caustics_mat != null:          # bright sun dapples
 			caustics_mat.set_shader_parameter("strength", 0.30)
 			caustics_mat.set_shader_parameter("tint", Vector3(0.50, 0.80, 0.90))
@@ -475,6 +475,22 @@ func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float =
 	env.set_glow_level(2, 1.0)
 	env.set_glow_level(4, 1.0)    # wide dreamy halo
 	env.set_glow_level(6, 0.35)   # very wide faint wash
+	_speedy_glow_clamp(env)
+
+func _speedy_glow_clamp(env: Environment) -> void:
+	# speedy quality = calmer bloom EVERYWHERE, not just the reef. Remembers the
+	# full-quality pair in meta first so _apply_quality can restore it live when
+	# the player toggles back to sparkly mid-scene.
+	env.set_meta("ww_full", Vector2(env.glow_intensity, env.glow_bloom))
+	if quality == "speedy":
+		env.glow_intensity = minf(env.glow_intensity, 0.75)
+		env.glow_bloom = minf(env.glow_bloom, 0.12)
+
+func _world_glow_target() -> float:
+	# ONE place decides the reef glow intensity so day/night and the quality
+	# toggle can't fight over it (last-writer-wins bugs)
+	var gi: float = 1.0 if is_night else 0.95   # bioluminescence reads stronger in the dark
+	return minf(gi, 0.75) if quality == "speedy" else gi
 
 func _build_environment() -> void:
 	var env := Environment.new()
@@ -1536,7 +1552,13 @@ func _apply_quality(q: String) -> void:
 		sun_light.shadow_enabled = not speedy
 	if world_env != null:
 		world_env.glow_bloom = 0.12 if speedy else 0.4
-		world_env.glow_intensity = 0.75 if speedy else 0.95
+		world_env.glow_intensity = _world_glow_target()
+	# keep the ACTIVE cutaway environment (lagoon / castle / arena) in step too —
+	# restore its remembered full-quality bloom or clamp it, live
+	if arena_env != null and we_node != null and we_node.environment == arena_env and arena_env.has_meta("ww_full"):
+		var fv: Vector2 = arena_env.get_meta("ww_full")
+		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
+		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
 	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
@@ -7635,6 +7657,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
 		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	_speedy_glow_clamp(arena_env)   # re-run after the per-theme overrides so they respect speedy too
 	_grade(arena_env)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)

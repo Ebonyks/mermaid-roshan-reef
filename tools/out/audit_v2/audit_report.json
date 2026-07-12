@@ -1,0 +1,203 @@
+{
+ "pickup": {
+  "G1": {
+   "pass": true,
+   "measured": "max pop 11.1deg"
+  },
+  "G3": {
+   "pass": false,
+   "measured": "deepest -0.282"
+  },
+  "G4": {
+   "pass": true,
+   "measured": "|x| 0.000"
+  },
+  "P1": {
+   "pass": false,
+   "measured": "nose min 0.96"
+  },
+  "P2": {
+   "pass": true,
+   "measured": "dip@f7, end gap 0deg"
+  },
+  "P3": {
+   "pass": false,
+   "measured": "hind drift 0.157"
+  }
+ },
+ "run": {
+  "G1": {
+   "pass": false,
+   "measured": "max pop 34.5deg"
+  },
+  "G2": {
+   "pass": true,
+   "measured": "loop gap 0.0deg"
+  },
+  "G3": {
+   "pass": false,
+   "measured": "deepest -0.107"
+  },
+  "G4": {
+   "pass": true,
+   "measured": "|x| 0.000"
+  },
+  "R1": {
+   "pass": false,
+   "measured": "front offset Nonef"
+  },
+  "R2": {
+   "pass": false,
+   "measured": "hind offset Nonef"
+  },
+  "R3": {
+   "pass": false,
+   "measured": "missing contact"
+  },
+  "R4": {
+   "pass": false,
+   "measured": {
+    "foot_FL": [
+     [
+      6,
+      7
+     ]
+    ],
+    "foot_FR": [],
+    "foot_BL": [],
+    "foot_BR": [
+     [
+      2,
+      1
+     ]
+    ]
+   }
+  },
+  "R5": {
+   "pass": true,
+   "measured": "airborne 9f"
+  },
+  "R6": {
+   "pass": false,
+   "measured": "bob 0.130, 2.0 cyc"
+  },
+  "R7": {
+   "pass": true,
+   "measured": "spine pitch range 8.1deg"
+  }
+ },
+ "sit_excited": {
+  "G1": {
+   "pass": true,
+   "measured": "max pop 19.3deg"
+  },
+  "G2": {
+   "pass": true,
+   "measured": "loop gap 0.0deg"
+  },
+  "G3": {
+   "pass": false,
+   "measured": "deepest -0.398"
+  },
+  "G4": {
+   "pass": true,
+   "measured": "|x| 0.000"
+  },
+  "S1": {
+   "pass": true,
+   "measured": "haunch drop 0.50"
+  },
+  "S2": {
+   "pass": true,
+   "measured": "paw drift 0.035"
+  },
+  "S3": {
+   "pass": true,
+   "measured": "tail travel 0.19"
+  },
+  "S4": {
+   "pass": true,
+   "measured": "head range 0.0deg"
+  },
+  "E1": {
+   "pass": true,
+   "measured": "FR paw range 0.192"
+  },
+  "E2": {
+   "pass": true,
+   "measured": "hop 0.035"
+  },
+  "E3": {
+   "pass": true,
+   "measured": "wag cycles 4.0"
+  }
+ },
+ "sit_idle": {
+  "G1": {
+   "pass": true,
+   "measured": "max pop 3.9deg"
+  },
+  "G2": {
+   "pass": true,
+   "measured": "loop gap 0.0deg"
+  },
+  "G3": {
+   "pass": false,
+   "measured": "deepest -0.398"
+  },
+  "G4": {
+   "pass": true,
+   "measured": "|x| 0.000"
+  },
+  "S1": {
+   "pass": true,
+   "measured": "haunch drop 0.50"
+  },
+  "S2": {
+   "pass": true,
+   "measured": "paw drift 0.000"
+  },
+  "S3": {
+   "pass": true,
+   "measured": "tail travel 0.20"
+  },
+  "S4": {
+   "pass": true,
+   "measured": "head range 6.5deg"
+  }
+ },
+ "wag": {
+  "G1": {
+   "pass": true,
+   "measured": "max pop 27.5deg"
+  },
+  "G2": {
+   "pass": true,
+   "measured": "loop gap 0.0deg"
+  },
+  "G3": {
+   "pass": true,
+   "measured": "deepest -0.010"
+  },
+  "G4": {
+   "pass": true,
+   "measured": "|x| 0.000"
+  },
+  "W1": {
+   "pass": false,
+   "measured": "3 grounded, drift 0.197"
+  },
+  "W2": {
+   "pass": true,
+   "measured": "tail sweep 0.28"
+  },
+  "W3": {
+   "pass": true,
+   "measured": "cycles 4.0"
+  },
+  "W4": {
+   "pass": true,
+   "measured": "hip yaw range 6.0deg"
+  }
+ }
+}
