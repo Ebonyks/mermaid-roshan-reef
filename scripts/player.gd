@@ -310,6 +310,9 @@ func _process(delta: float) -> void:
 		if "lagoon_floor" in m and m.lagoon_floor:
 			# Sky Lagoon: rest on the rolling-hill terrain; dip down into the river valleys
 			floor_a = m.lagoon_h(position.x, position.z) + 2.0
+		elif m.has_method("arena_floor_h"):
+			# arenas can carve local dips below the flat floor (castle basement stairwell)
+			floor_a = m.arena_floor_h(position) + 2.5
 		if position.y < floor_a:
 			position.y = floor_a
 			vel.y = maxf(0.0, vel.y)

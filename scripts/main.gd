@@ -1077,7 +1077,13 @@ func _paint_aq(node: Node, mat: StandardMaterial3D) -> void:
 
 func _aq(model: String) -> PackedScene:
 	if not model_cache.has("aq_" + model):
-		model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
+		# rigged + textured gen2 rebuilds take priority; Riley pack is the fallback
+		var p2 := "res://assets/aquatic2/" + model + ".glb"
+		if ResourceLoader.exists(p2):
+			model_cache["aq_" + model] = load(p2)
+			model_cache["aq2_" + model] = true
+		else:
+			model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
 	return model_cache["aq_" + model]
 
 func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node3D:
@@ -1088,7 +1094,8 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 	inst.position = pos
 	inst.scale = Vector3.ONE * scl
 	inst.rotation.y = randf() * TAU
-	_paint_aq(inst, _aq_mat(model))
+	if not model_cache.has("aq2_" + model):
+		_paint_aq(inst, _aq_mat(model))   # Riley models are untextured; gen2 aren't
 	add_child(inst)
 	if not play_anim:
 		flora_nodes.append(inst)
@@ -1206,7 +1213,9 @@ func _tick_aquatic(delta: float) -> void:
 		var rad: float = float(mv["rad"])
 		var pos := Vector3(cos(ang) * rad, float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0, sin(ang) * rad)
 		node.position = pos
-		node.rotation.y = -ang + PI * 0.5
+		# models face +Z at rest; -ang points that +Z along the circle tangent
+		# (the old "-ang + PI/2" left every creature swimming broadside)
+		node.rotation.y = -ang
 
 func _build_pearls() -> void:
 	pearl_mat = _rainbow_mat()
@@ -3426,8 +3435,18 @@ func _build_castle_hall(o: Vector3) -> void:
 		_l2_box(o + Vector3(dx, 15.5, -33.2), Vector3(11, 1.2, 1.2), Color(0.8, 0.7, 0.5), 0.1)
 	# ---------- REAL BACK ROOM behind the throne (entered through the two side archways) ----------
 	var br := o + Vector3(0, 0, -46.0)   # back-room center
-	var brfloor := _l2_box(br + Vector3(0, 0.4, 0), Vector3(52, 1.0, 22), Color(0.86, 0.82, 0.92))   # floor
-	brfloor.material_override = _up_mat("marble", 0.08, Color(0.9, 0.86, 0.95))   # same stone family as the hall floor
+	# floor is SEGMENTED around a hidden stairwell opening (x -3.4..3.4, z -3.2..1.2)
+	# sized to hide COMPLETELY under the golden stand — the way down to the castle
+	# basement. The segments register for camera cutaway fade during the descent.
+	var brfm := Color(0.9, 0.86, 0.95)   # same stone family as the hall floor
+	var brsegs: Array[MeshInstance3D] = []
+	brsegs.append(_l2_box(br + Vector3(-14.7, 0.4, 0), Vector3(22.6, 1.0, 22), Color(0.86, 0.82, 0.92)))   # left of opening
+	brsegs.append(_l2_box(br + Vector3(14.7, 0.4, 0), Vector3(22.6, 1.0, 22), Color(0.86, 0.82, 0.92)))    # right of opening
+	brsegs.append(_l2_box(br + Vector3(0, 0.4, -7.1), Vector3(6.8, 1.0, 7.8), Color(0.86, 0.82, 0.92)))    # back strip
+	brsegs.append(_l2_box(br + Vector3(0, 0.4, 6.1), Vector3(6.8, 1.0, 9.8), Color(0.86, 0.82, 0.92)))     # front strip
+	for fseg in brsegs:
+		fseg.material_override = _up_mat("marble", 0.08, brfm)
+		fade_walls.append({"node": fseg, "c": fseg.position, "h": (fseg.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 	_l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.82, 0.79, 0.88))           # ceiling
 	_iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.93, 0.9, 0.95), "marble")          # back wall
 	_iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")          # left wall
@@ -3435,12 +3454,20 @@ func _build_castle_hall(o: Vector3) -> void:
 	# warm light + a soft red runner inside
 	var brl := OmniLight3D.new(); brl.light_color = Color(1.0, 0.85, 0.6); brl.light_energy = 2.0; brl.omni_range = 34.0
 	brl.position = br + Vector3(0, 20, 0); add_child(brl); game_nodes.append(brl)
-	_l2_box(br + Vector3(0, 1.0, 2.0), Vector3(10, 0.2, 26), Color(0.72, 0.16, 0.22))          # carpet from arch to treasure
-	# a glowing royal treasure chest = the bonus trigger
+	_l2_box(br + Vector3(0, 1.0, 6.1), Vector3(10, 0.2, 9.8), Color(0.72, 0.16, 0.22))         # carpet from arch to the stand
+	# a glowing royal treasure chest = the bonus trigger. It doubles as the GOLDEN
+	# STAND hiding the basement stairwell: it pulses invitingly and rumbles aside
+	# when Roshan swims close (see _slide_basement_stand / _tick_castle_hall).
 	var chest := _l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.95, 0.78, 0.35), 0.6)
 	chest.material_override.metallic = 0.6
-	_l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.8, 0.62, 0.25), 0.5)   # lid rim
+	var chest_lid := _l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.8, 0.62, 0.25), 0.5)   # lid rim
 	g["secret_door"] = chest.position
+	g["stand_chest"] = chest
+	g["stand_lid"] = chest_lid
+	g["stand_open"] = false
+	var ctw := chest.create_tween().set_loops()
+	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 1.7, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.6, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	var sl2 := OmniLight3D.new(); sl2.light_color = Color(0.6, 0.95, 1.0); sl2.light_energy = 2.2; sl2.omni_range = 16.0
 	sl2.position = chest.position + Vector3(0, 4, 0); add_child(sl2); game_nodes.append(sl2)
 	# Daddy mermaid lives in the secret room (his real recorded voice greets Roshan)
@@ -3475,6 +3502,10 @@ func _build_castle_hall(o: Vector3) -> void:
 	slab.position = g["secret_door"] + Vector3(0, 7.0, 0)
 	add_child(slab)
 	game_nodes.append(slab)
+	g["stand_label"] = slab
+	# the dug-out cellar below the hallway + the little loo at its far end
+	_build_castle_basement(br)
+	_build_castle_toilet(br)
 	# just TWO framed memories on the side walls (fewer pictures)
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# (the crafting easel now lives in the dedicated CRAFT ROOM off the right wall — see _build_castle_craft_room)
@@ -3750,6 +3781,157 @@ func _build_castle_bedroom(o: Vector3) -> void:
 	il.light_color = Color(1.0, 0.8, 0.6); il.light_energy = 1.6; il.omni_range = 14.0
 	il.position = o + Vector3(34, 7, -16); add_child(il); game_nodes.append(il)
 
+func _build_castle_basement(br: Vector3) -> void:
+	# Stone cellar dug out under the back hallway, reached down the stairwell the
+	# golden stand hides (opening x -3.4..3.4, z -3.2..1.2 rel br; the stair run
+	# continues under the solid floor toward -z). Physics comes from arena_floor_h
+	# (ramp + sunken floor); geometry here is the visible shell.
+	var scol := Color(0.68, 0.64, 0.76)   # dim lavender stone
+	var bfloor := _l2_box(br + Vector3(0, -12.0, 0), Vector3(48, 1.0, 21), scol)
+	bfloor.material_override = _up_mat("marble", 0.07, Color(0.6, 0.56, 0.68))
+	_iwall(br + Vector3(-24, -5.8, 0), Vector3(1.5, 12.4, 21), scol, "marble")    # left wall
+	_iwall(br + Vector3(24, -5.8, 0), Vector3(1.5, 12.4, 21), scol, "marble")     # right wall
+	_iwall(br + Vector3(0, -5.8, -10.5), Vector3(48, 12.4, 1.5), scol, "marble")  # back wall
+	_iwall(br + Vector3(0, -5.8, 10.5), Vector3(48, 12.4, 1.5), scol, "marble")   # front wall
+	# stone steps down from the opening (visual; the floor ramp does the physics)
+	for st in range(5):
+		var sb := _l2_box(br + Vector3(0, -2.55 - 2.1 * float(st), 0.0 - 2.0 * float(st)), Vector3(6.8, 1.9, 2.2), Color(0.74, 0.7, 0.82))
+		sb.material_override = _up_mat("marble", 0.07, Color(0.72, 0.68, 0.8))
+	# cool invite glow spilling up the stairwell
+	var swl := OmniLight3D.new()
+	swl.light_color = Color(0.55, 0.9, 1.0); swl.light_energy = 1.8; swl.omni_range = 16.0
+	swl.position = br + Vector3(0, -5.0, -2.0); add_child(swl); game_nodes.append(swl)
+	# warm torch light down the room
+	for tx in [-10.0, 10.0]:
+		var tl := OmniLight3D.new()
+		tl.light_color = Color(1.0, 0.78, 0.5); tl.light_energy = 1.7; tl.omni_range = 22.0
+		tl.position = br + Vector3(tx, -4.0, 0)
+		add_child(tl); game_nodes.append(tl)
+		var flame := MeshInstance3D.new()
+		var fl := SphereMesh.new(); fl.radius = 0.5; fl.height = 1.0
+		flame.mesh = fl
+		var flm := StandardMaterial3D.new()
+		flm.emission_enabled = true
+		flm.emission = Color(1.0, 0.7, 0.35)
+		flm.emission_energy_multiplier = 4.0
+		flame.material_override = flm
+		flame.position = tl.position
+		add_child(flame); game_nodes.append(flame)
+	# set dressing: storage barrels + a glow-crystal cluster (room to grow later)
+	for bi in range(3):
+		var bar := MeshInstance3D.new()
+		var bc := CylinderMesh.new()
+		bc.top_radius = 1.4; bc.bottom_radius = 1.4; bc.height = 3.0
+		bar.mesh = bc
+		bar.material_override = _up_mat("wood", 0.1, Color(0.62, 0.45, 0.3))
+		bar.position = br + Vector3(16.0 + float(bi % 2) * 3.5, -10.0, -6.0 + float(bi) * 3.6)
+		add_child(bar); game_nodes.append(bar)
+	for ci in range(3):
+		var cr := _l2_box(br + Vector3(-17.0 + float(ci) * 1.6, -10.4 + float(ci % 2) * 0.4, -7.0), Vector3(1.0, 2.6 + float(ci) * 0.8, 1.0), Color(0.55, 0.9, 1.0), 1.4)
+		cr.rotation_degrees = Vector3(float(ci) * 8.0 - 8.0, 0, 10.0 - float(ci) * 10.0)
+	var crl := OmniLight3D.new()
+	crl.light_color = Color(0.55, 0.9, 1.0); crl.light_energy = 1.6; crl.omni_range = 18.0
+	crl.position = br + Vector3(-16, -8.5, -6); add_child(crl); game_nodes.append(crl)
+	var bsign := Label3D.new()
+	bsign.text = "✨ The Basement ✨"
+	bsign.font_size = 48; bsign.pixel_size = 0.024; bsign.outline_size = 12
+	bsign.modulate = Color(0.75, 0.9, 1.0)
+	bsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	bsign.position = br + Vector3(0, -5.5, -6.0)
+	add_child(bsign); game_nodes.append(bsign)
+
+func _build_castle_toilet(br: Vector3) -> void:
+	# a tiny royal loo at the far (left) end of the back hallway
+	var tp: Vector3 = br + Vector3(-21.0, 0, 0)
+	var porcelain := Color(0.97, 0.97, 1.0)
+	var bmat := _l2_box(tp + Vector3(0.8, 1.0, 0), Vector3(6, 0.15, 6), Color(0.62, 0.85, 0.95))   # soft bath mat
+	bmat.material_override.roughness = 1.0
+	var base := MeshInstance3D.new()
+	var bcy := CylinderMesh.new(); bcy.top_radius = 1.0; bcy.bottom_radius = 1.2; bcy.height = 1.8
+	base.mesh = bcy
+	base.material_override = _soft_mat(porcelain)
+	base.position = tp + Vector3(0, 1.8, 0)
+	add_child(base); game_nodes.append(base)
+	var bowl := MeshInstance3D.new()
+	var bw := CylinderMesh.new(); bw.top_radius = 1.6; bw.bottom_radius = 1.1; bw.height = 1.4
+	bowl.mesh = bw
+	bowl.material_override = _soft_mat(porcelain)
+	bowl.position = tp + Vector3(0, 3.2, 0)
+	add_child(bowl); game_nodes.append(bowl)
+	var wat := MeshInstance3D.new()   # glowy water in the bowl
+	var wc := CylinderMesh.new(); wc.top_radius = 0.95; wc.bottom_radius = 0.95; wc.height = 0.12
+	wat.mesh = wc
+	wat.material_override = _soft_mat(Color(0.55, 0.85, 1.0), 0.5)
+	wat.position = tp + Vector3(0, 3.72, 0)
+	add_child(wat); game_nodes.append(wat)
+	var seat := MeshInstance3D.new()   # rosy seat ring
+	var sr := TorusMesh.new(); sr.inner_radius = 1.0; sr.outer_radius = 1.7
+	seat.mesh = sr
+	seat.material_override = _soft_mat(Color(1.0, 0.8, 0.9))
+	seat.position = tp + Vector3(0, 3.95, 0)
+	add_child(seat); game_nodes.append(seat)
+	# cistern against the end wall + a gold flush handle
+	var tank := _l2_box(tp + Vector3(-1.9, 3.4, 0), Vector3(1.2, 3.2, 3.0), porcelain)
+	tank.material_override.roughness = 0.25
+	_l2_box(tp + Vector3(-1.9, 5.2, 1.0), Vector3(0.5, 0.4, 0.9), Color(0.95, 0.8, 0.4), 0.4)
+	_wall_solid(tp + Vector3(-0.5, 2.5, 0), Vector3(3.4, 5.0, 3.2), 0.4)
+	var tsign := Label3D.new()
+	tsign.text = "✨ Royal Loo ✨"
+	tsign.font_size = 40; tsign.pixel_size = 0.02; tsign.outline_size = 10
+	tsign.modulate = Color(0.8, 0.92, 1.0)
+	tsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	tsign.position = tp + Vector3(0, 7.0, 0)
+	add_child(tsign); game_nodes.append(tsign)
+	# bubbly toot when Roshan swims up to it (re-arms when she swims away)
+	var tap := AudioStreamPlayer.new()
+	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.volume_db = -4.0
+	tap.pitch_scale = 1.1
+	base.add_child(tap)   # frees with the toilet
+	g["toilet"] = {"pos": tp + Vector3(0, 3, 0), "player": tap, "armed": true}
+
+func _slide_basement_stand() -> void:
+	# The golden stand wakes: a deep stone rumble, then it slides clear of the
+	# stairwell it was hiding. The hug-chest trigger moves with it and stays
+	# gated on stand_open so the hug cannot fire mid-slide.
+	g["stand_open"] = true
+	g["secret_armed"] = false   # swim away and back to the chest's new spot for the hug
+	var chest: Node3D = g["stand_chest"]
+	var lid: Node3D = g["stand_lid"]
+	if not is_instance_valid(chest) or not is_instance_valid(lid):
+		return
+	var slide := Vector3(14.0, 0.0, -3.0)   # over to Daddy's side, clear of the opening
+	g["secret_door"] = chest.position + slide
+	var rumble := AudioStreamPlayer.new()
+	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
+	rumble.volume_db = 3.0
+	chest.add_child(rumble)   # frees with the chest
+	rumble.play()
+	var tw := chest.create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(chest, "position", chest.position + slide, 1.6)
+	tw.tween_property(lid, "position", lid.position + slide, 1.6)
+	if g.has("stand_label") and is_instance_valid(g["stand_label"]):
+		tw.tween_property(g["stand_label"], "position", (g["stand_label"] as Node3D).position + slide, 1.6)
+	_sparkle_burst(chest.position + Vector3(0, 4, 0), Color(1.0, 0.85, 0.4))
+	show_msg("Pearl Castle", "The golden stand rumbles aside... a secret staircase! Swim down to the basement!")
+
+func arena_floor_h(p: Vector3) -> float:
+	# Arena floors are flat except where the castle basement is dug out under the
+	# back hallway: an open stairwell ramp plus the sunken room. Both only exist
+	# once the golden stand has slid aside, and the room floor only applies when
+	# Roshan is already below the hallway (she gets in through the opening).
+	if String(g.get("phase", "")) == "hall" and bool(g.get("stand_open", false)):
+		var br: Vector3 = CASTLE_POS + Vector3(0, 0, -46.0)
+		var lx: float = p.x - br.x
+		var lz: float = p.z - br.z
+		if absf(lx) < 3.4 and lz > -8.5 and lz < 1.2:
+			var t: float = clampf((1.2 - lz) / 9.7, 0.0, 1.0)   # ramp along the steps
+			return arena_center.y - 12.0 * t
+		if absf(lx) < 22.0 and absf(lz) < 9.7 and p.y < arena_center.y + 1.0:
+			return arena_center.y - 12.0
+	return arena_center.y
+
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
 	var d: Vector3 = p1 - p0
@@ -3803,6 +3985,32 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	if wardrobe_layer != null:
 		return   # dressing up — pause all hall triggers
 	hud_game.text = "Swim up the stairs to Princess Huluu and the Crown Star!"
+	# --- the golden stand: glows, then rumbles aside to reveal the basement stairs ---
+	if not bool(g.get("stand_open", false)) and g.has("stand_chest"):
+		var stn: Node3D = g["stand_chest"]
+		if is_instance_valid(stn) and stn.position.distance_to(ppos) < 11.0:
+			_slide_basement_stand()
+	if bool(g.get("stand_open", false)):
+		var brc: Vector3 = CASTLE_POS + Vector3(0, 0, -46.0)
+		var blx: float = ppos.x - brc.x
+		var blz: float = ppos.z - brc.z
+		if ppos.y < CASTLE_POS.y + 1.0 and absf(blx) < 22.0 and absf(blz) < 9.7:
+			hud_game.text = "The secret basement! Explore!"
+			# keep Roshan under the hallway floor unless she is in the stairwell opening
+			var in_opening: bool = absf(blx) < 3.4 and blz > -3.2 and blz < 1.2
+			if not in_opening and player.position.y > CASTLE_POS.y - 2.2:
+				player.position.y = CASTLE_POS.y - 2.2
+				player.vel.y = minf(player.vel.y, 0.0)
+	# the little loo toots a bubbly parp when Roshan swims up to it
+	if g.has("toilet"):
+		var td: Dictionary = g["toilet"]
+		var tpp: Vector3 = td["pos"]
+		if tpp.distance_to(ppos) > 7.5:
+			td["armed"] = true
+		elif bool(td.get("armed", false)) and tpp.distance_to(ppos) < 4.5:
+			td["armed"] = false
+			(td["player"] as AudioStreamPlayer).play()
+			_sparkle_burst(tpp + Vector3(0, 2.0, 0), Color(0.6, 0.9, 1.0))
 	# leave the castle from the entrance
 	if g.has("hall_exit") and float(g["t"]) > 2.5:
 		var hx: Vector3 = g["hall_exit"]
@@ -3846,9 +4054,11 @@ func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	# secret easter-egg chest behind the throne -> ONE consistent bonus game.
 	# Fires once when you reach it; will not fire again until you swim away and come back
 	# (so it never spins randomly through games while you linger nearby).
-	if g.has("secret_door") and mg_cool <= 0.0 and mg_kind == "":
+	if g.has("secret_door") and bool(g.get("stand_open", false)) and mg_cool <= 0.0 and mg_kind == "":
 		var sd: Vector3 = g["secret_door"]
-		var near: bool = sd.distance_to(ppos) < 14.0
+		# tight radius: the slid-aside chest sits near the stairwell, so the hug
+		# must not grab Roshan while she is heading down to the basement
+		var near: bool = sd.distance_to(ppos) < 8.0
 		if not near:
 			g["secret_armed"] = true
 		elif bool(g.get("secret_armed", true)):
@@ -4027,21 +4237,59 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
+	# inner node so idle animation never fights the mover tick that owns root position
+	var anim := Node3D.new()
+	root.add_child(anim)
 	var lb := Sprite3D.new()
 	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png")
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
-	root.add_child(lb)
-	_layer_fx(lb, "body", body, body_rb, kind)
+	anim.add_child(lb)
 	var la := Sprite3D.new()
 	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png")
 	la.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1
-	root.add_child(la)
-	_layer_fx(la, "accent", accent, acc_rb, kind)
+	anim.add_child(la)
 	var ll := Sprite3D.new()
 	ll.texture = load("res://assets/mg/" + String(ln[2]) + ".png")
 	ll.billboard = BaseMaterial3D.BILLBOARD_ENABLED; ll.pixel_size = 0.02; ll.render_priority = 2
-	root.add_child(ll)
+	anim.add_child(ll)
+	# tweens (glitter/rainbow fx + idle animation) can only start inside the tree
+	root.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _creature_spawned(lb: Sprite3D, la: Sprite3D, anim: Node3D, body: Color, accent: Color, body_rb: bool, acc_rb: bool, kind: String) -> void:
+	_layer_fx(lb, "body", body, body_rb, kind)
+	_layer_fx(la, "accent", accent, acc_rb, kind)
+	_animate_creature(anim, la, kind)
+
+func _animate_creature(anim: Node3D, accent: Sprite3D, kind: String) -> void:
+	# simple idle life for the hand-drawn craft creatures. The layers are
+	# billboarded sprites, so only scale, sprite offset and height read on
+	# screen — rotations are overridden by the billboard.
+	if kind == "fish":
+		# swim kick: cartoon squash-stretch, plus the fin layer fluttering
+		var tw := anim.create_tween().set_loops()
+		tw.tween_property(anim, "scale", Vector3(0.93, 1.06, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw.tween_property(anim, "scale", Vector3(1.06, 0.95, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var tf := accent.create_tween().set_loops()
+		tf.tween_property(accent, "offset", Vector2(-10.0, 6.0), 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tf.tween_property(accent, "offset", Vector2(6.0, -4.0), 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	elif kind == "cat":
+		# soft breathing + a happy little hop every few seconds
+		var tw := anim.create_tween().set_loops()
+		tw.tween_property(anim, "scale", Vector3(1.02, 0.975, 1.0), 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw.tween_property(anim, "scale", Vector3(0.985, 1.02, 1.0), 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var th := anim.create_tween().set_loops()
+		th.tween_interval(2.2 + randf() * 2.6)
+		th.tween_property(anim, "position:y", 1.4, 0.26).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		th.tween_property(anim, "position:y", 0.0, 0.34).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	else:
+		# bird: hovering flit with a quick wing-beat bounce
+		var th := anim.create_tween().set_loops()
+		th.tween_property(anim, "position:y", 1.2, 1.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		th.tween_property(anim, "position:y", -0.2, 1.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var tf := anim.create_tween().set_loops()
+		tf.tween_property(anim, "scale:y", 0.94, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tf.tween_property(anim, "scale:y", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _craft_build_preview() -> void:
 	if craft_fishbox == null:
@@ -5579,7 +5827,8 @@ func _aq_game(model: String, pos: Vector3, scl: float) -> Node3D:
 	var inst: Node3D = ps.instantiate()
 	inst.position = pos
 	inst.scale = Vector3.ONE * scl
-	_paint_aq(inst, _aq_mat(model))
+	if not model_cache.has("aq2_" + model):
+		_paint_aq(inst, _aq_mat(model))   # Riley models are untextured; gen2 aren't
 	add_child(inst)
 	game_nodes.append(inst)
 	return inst
