@@ -2566,6 +2566,10 @@ func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> Sta
 	m.normal_scale = 1.0
 	m.roughness_texture = load("res://assets/terrain/up_%s_rgh.jpg" % key)
 	m.uv1_triplanar = true
+	# WORLD-space triplanar: adjacent boxes/panels sharing a sheet tile continuously
+	# instead of each segment restarting the pattern at its own origin (this was the
+	# castle "texture splicing"). Moving meshes (the keep door) must switch this off.
+	m.uv1_world_triplanar = true
 	m.uv1_scale = Vector3(uvs, uvs, uvs)
 	m.roughness = 1.0
 	return m
@@ -3697,21 +3701,56 @@ func _make_creature_node(kind: String, body: Color, accent: Color) -> Node3D:
 			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
+	# inner pivot so the idle animation never fights whoever owns root position
+	var anim := Node3D.new()
+	root.add_child(anim)
 	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
 	var lb := Sprite3D.new()
 	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png"); lb.modulate = body
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
-	root.add_child(lb)
+	anim.add_child(lb)
 	var la := Sprite3D.new()
 	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png"); la.modulate = Color(accent.r, accent.g, accent.b, acca)
 	la.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1
 	la.set_meta("rb", false)
-	root.add_child(la)
+	anim.add_child(la)
 	var ll := Sprite3D.new()
 	ll.texture = load("res://assets/mg/" + String(ln[2]) + ".png")
 	ll.billboard = BaseMaterial3D.BILLBOARD_ENABLED; ll.pixel_size = 0.02; ll.render_priority = 2
-	root.add_child(ll)
+	anim.add_child(ll)
+	# tweens can only start inside the tree, hence the deferred hook
+	root.tree_entered.connect(_animate_billboard_creature.bind(anim, la, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _animate_billboard_creature(anim: Node3D, accent: Sprite3D, kind: String) -> void:
+	# idle life for the billboard craft creatures (kitty + birdie in the
+	# courtyard; fish only as the strangler-fig fallback). Billboards ignore
+	# rotation, so only scale, sprite offset and height read on screen.
+	if kind == "cat":
+		# soft breathing + a happy little hop every few seconds
+		var tw: Tween = anim.create_tween().set_loops()
+		tw.tween_property(anim, "scale", Vector3(1.02, 0.975, 1.0), 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw.tween_property(anim, "scale", Vector3(0.985, 1.02, 1.0), 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var th: Tween = anim.create_tween().set_loops()
+		th.tween_interval(2.2 + randf() * 2.6)
+		th.tween_property(anim, "position:y", 1.4, 0.26).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		th.tween_property(anim, "position:y", 0.0, 0.34).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	elif kind == "bird":
+		# hovering flit with a quick wing-beat bounce
+		var th2: Tween = anim.create_tween().set_loops()
+		th2.tween_property(anim, "position:y", 1.2, 1.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		th2.tween_property(anim, "position:y", -0.2, 1.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var tf: Tween = anim.create_tween().set_loops()
+		tf.tween_property(anim, "scale:y", 0.94, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tf.tween_property(anim, "scale:y", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	else:
+		# fish fallback: swim-kick squash-stretch + fin-layer flutter
+		var tw2: Tween = anim.create_tween().set_loops()
+		tw2.tween_property(anim, "scale", Vector3(0.93, 1.06, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw2.tween_property(anim, "scale", Vector3(1.06, 0.95, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		var tf2: Tween = accent.create_tween().set_loops()
+		tf2.tween_property(accent, "offset", Vector2(-10.0, 6.0), 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tf2.tween_property(accent, "offset", Vector2(6.0, -4.0), 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _craft_build_preview() -> void:
 	if craft_fishbox == null:
