@@ -119,7 +119,11 @@ func _apply_verb(delta: float) -> void:
 			continue
 		var tr: Dictionary = tracks[bname]
 		var ang: float = _sample_keys(tr["keys"], verb_t)
-		var target: Quaternion = (rest[bname] as Transform3D).basis.get_rotation_quaternion() * Quaternion(tr["axis"], ang)
+		# model-space axis via the same rest-aware transform as _rot_bone —
+		# verbs were authored on the identity-rest card rig; without this the
+		# v3 rig's Blender rest orientations turn every gesture into a
+		# contortion (post-race cheer was the worst offender)
+		var target: Quaternion = _model_axis_quat(bname, tr["axis"], ang)
 		skel.set_bone_pose_rotation(bi, skel.get_bone_pose_rotation(bi).slerp(target, w))
 	if bool(spec.get("spin", false)) and model_root != null:
 		# a full pirouette that always lands facing forward again
@@ -465,18 +469,20 @@ func attach_bone(n: Node3D, bone: String) -> bool:
 	ba.add_child(n)
 	return true
 
-func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
-	# Rotate about a MODEL-space axis, composed after the rest rotation. The
+func _model_axis_quat(bname: String, axis: Vector3, angle: float) -> Quaternion:
+	# Rotation about a MODEL-space axis, composed after the rest rotation. The
 	# card-era rigs have identity rests (axis passes through unchanged); the
 	# v3 rig carries Blender rest orientations, so the axis is brought into
 	# the bone's local frame first — same visual semantics on every model.
+	var rq: Quaternion = (rest[bname] as Transform3D).basis.get_rotation_quaternion()
+	var local_axis: Vector3 = (rq.inverse() * axis).normalized()
+	return rq * Quaternion(local_axis, angle)
+
+func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
 		return
-	var base: Transform3D = rest[bname]
-	var rq: Quaternion = base.basis.get_rotation_quaternion()
-	var local_axis: Vector3 = (rq.inverse() * axis).normalized()
-	skel.set_bone_pose_rotation(bi, rq * Quaternion(local_axis, angle))
+	skel.set_bone_pose_rotation(bi, _model_axis_quat(bname, axis, angle))
 
 # ---- playground choreography (Sky Lagoon toy play-moments) ----
 # While a play-moment runs, _process() returns early (the toy_play gate), so

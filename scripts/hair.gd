@@ -110,8 +110,13 @@ func _process(delta: float) -> void:
 		a.x = clampf(a.x, -MAX_ANGLE, MAX_ANGLE)
 		a.y = clampf(a.y, -MAX_ANGLE, MAX_ANGLE)
 		_ang[e] = a
-		# apply relative to rest (small-angle compose, same primitive as player.gd)
-		var q := _rest[e] * Quaternion(Vector3.RIGHT, a.x) * Quaternion(Vector3.BACK, a.y)
+		# apply relative to rest, about MODEL-space axes (the v3 strand bones
+		# carry Blender rest orientations; raw local axes would sway each
+		# strand in a different arbitrary direction)
+		var rq: Quaternion = _rest[e]
+		var ax_pitch: Vector3 = (rq.inverse() * Vector3.RIGHT).normalized()
+		var ax_yaw: Vector3 = (rq.inverse() * Vector3.BACK).normalized()
+		var q := rq * Quaternion(ax_pitch, a.x) * Quaternion(ax_yaw, a.y)
 		_skel.set_bone_pose_rotation(_bone[e], q)
 
 func _find_skel(n: Node) -> Skeleton3D:

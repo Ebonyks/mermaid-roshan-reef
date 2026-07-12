@@ -893,7 +893,11 @@ func _build_avatar() -> void:
 	_avatar = Node3D.new()
 	add_child(_avatar)
 	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
+	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
+	# plushie back every time the rainbow race chained into the galaxy)
 	var glb := "res://assets/characters/roshan.glb"
+	if ResourceLoader.exists("res://assets/characters/roshan_v3.glb"):
+		glb = "res://assets/characters/roshan_v3.glb"
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
 		if sid == "huluu" and ResourceLoader.exists("res://assets/characters/huluu.glb"):
@@ -917,12 +921,14 @@ func _build_avatar() -> void:
 		# here instead of standing frozen (audit: bob-only, no animation)
 		_av_skel = _find_av_skel(inst)
 		_av_bones.clear()
+		_av_rest.clear()
 		if _av_skel != null:
 			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
 					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
 				var bi := _av_skel.find_bone(bn)
 				if bi >= 0:
 					_av_bones[bn] = bi
+					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
 	var trail := OmniLight3D.new()
 	trail.light_color = Color(1.0, 0.6, 0.9)
 	trail.light_energy = 1.6
@@ -936,7 +942,14 @@ func _build_avatar() -> void:
 
 var _av_skel: Skeleton3D = null
 var _av_bones := {}
+var _av_rest := {}   # bone idx -> rest rotation; raw Quaternion writes would erase the v3 rests
 var _av_run := 0.0
+
+func _av_rot(bi: int, axis: Vector3, ang: float) -> void:
+	# model-space axis composed after the rest rotation (same idiom as
+	# player.gd's _rot_bone); identical result on the identity-rest old rigs
+	var rq: Quaternion = _av_rest.get(bi, Quaternion.IDENTITY)
+	_av_skel.set_bone_pose_rotation(bi, rq * Quaternion((rq.inverse() * axis).normalized(), ang))
 var _last_move := 0.0
 var _pets: Array = []   # rescued baby butterflies flying home WITH Roshan
 
@@ -959,17 +972,17 @@ func _animate_avatar(delta: float, moving: float) -> void:
 	for i in range(8):
 		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))
 		if bi >= 0:
-			_av_skel.set_bone_pose_rotation(bi, Quaternion(Vector3(1, 0, 0), sin(_av_run - float(i) * 0.55) * amp * (0.55 + float(i) * 0.11)))
+			_av_rot(bi, Vector3(1, 0, 0), sin(_av_run - float(i) * 0.55) * amp * (0.55 + float(i) * 0.11))
 	for hi in range(3):
 		var hb: int = int(_av_bones.get("hair%d" % (hi + 1), -1))
 		if hb >= 0:
-			_av_skel.set_bone_pose_rotation(hb, Quaternion(Vector3(0, 0, 1), sin(_av_run * 0.8 - float(hi) * 0.7) * 0.12))
+			_av_rot(hb, Vector3(0, 0, 1), sin(_av_run * 0.8 - float(hi) * 0.7) * 0.12)
 	var head: int = int(_av_bones.get("head", -1))
 	if head >= 0:
-		_av_skel.set_bone_pose_rotation(head, Quaternion(Vector3(1, 0, 0), sin(_av_run * 0.5) * 0.06))
+		_av_rot(head, Vector3(1, 0, 0), sin(_av_run * 0.5) * 0.06)
 	var chest: int = int(_av_bones.get("chest", -1))
 	if chest >= 0:
-		_av_skel.set_bone_pose_rotation(chest, Quaternion(Vector3(0, 1, 0), sin(_av_run * 0.7) * 0.05 * (0.4 + moving)))
+		_av_rot(chest, Vector3(0, 1, 0), sin(_av_run * 0.7) * 0.05 * (0.4 + moving))
 
 func _tick_pets(delta: float) -> void:
 	# rescued babies orbit Roshan in a sparkling train — the world fills with
