@@ -164,16 +164,24 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	# a cleared path along the snowy shore
 	var pth = m._course_box(origin + Vector3(-27.0, 0.56, 0.0), Vector3(9.0, 0.1, 150.0), Color(0.82, 0.86, 0.92))
 	pth.material_override.roughness = 1.0
-	# Chuck waits on the snow
-	var chuck_spr := Sprite3D.new()
-	chuck_spr.texture = load("res://assets/book/chuck_solo.png")
-	chuck_spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	chuck_spr.pixel_size = 0.0095
-	chuck_spr.position = origin + Vector3(-8, 4.5, -4)
-	m.add_child(chuck_spr)
-	m.game_nodes.append(chuck_spr)
-	m.g["chuck"] = chuck_spr
-	m.g["home"] = chuck_spr.position
+	# Chuck waits on the snow — rigged 3D poodle (built in-house: see
+	# reef2/tools/build_chuck_rig.py + animate_chuck.py; clips sit_idle,
+	# sit_excited, run, pickup, wag; root faces glTF +Z = atan2 convention)
+	var chuck_root := Node3D.new()
+	chuck_root.position = origin + Vector3(-8, 0.5, -4)
+	m.add_child(chuck_root)
+	m.game_nodes.append(chuck_root)
+	var pood: Node3D = (load("res://assets/characters/chuck_poodle_rigged.glb") as PackedScene).instantiate()
+	pood.scale = Vector3.ONE * 1.5
+	pood.position.y = 0.95 * 1.5
+	chuck_root.add_child(pood)
+	var chuck_ap: AnimationPlayer = pood.find_child("AnimationPlayer", true, false)
+	for an in ["sit_idle", "sit_excited", "run", "wag"]:
+		if chuck_ap != null and chuck_ap.has_animation(an):
+			chuck_ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
+	m.g["chuck"] = chuck_root
+	m.g["chuck_ap"] = chuck_ap
+	m.g["home"] = chuck_root.position
 	# aim arrow Roshan points while holding the ball
 	var arrow := MeshInstance3D.new()
 	var ab := PrismMesh.new()
@@ -185,9 +193,20 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["arrow"] = arrow
 	m.show_msg(fr["fname"], "Throw the ball for Chuck - but NOT into the lake! Press when the arrow is GREEN!")
 
+func _chuck_play(anim: String, blend: float = 0.25) -> void:
+	var ap: AnimationPlayer = m.g["chuck_ap"]
+	if ap != null and ap.has_animation(anim) and ap.current_animation != anim:
+		ap.play(anim, blend)
+
 func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var ball: MeshInstance3D = m.g["ball"]
-	var chuck: Sprite3D = m.g["chuck"]
+	var chuck: Node3D = m.g["chuck"]
+	if String(m.g["phase"]) == "aim" or String(m.g["phase"]) == "fly":
+		# Chuck SITS on the snow, watching Roshan (the ball, once it flies)
+		var watch: Vector3 = (ball.position if String(m.g["phase"]) == "fly" else ppos) - chuck.position
+		if Vector2(watch.x, watch.z).length() > 0.1:
+			chuck.rotation.y = atan2(watch.x, watch.z)
+		_chuck_play("sit_excited" if String(m.g["phase"]) == "fly" else "sit_idle", 0.35)
 	if String(m.g["phase"]) == "aim":
 		m.hud_game.text = "Throw %d / 2   (oops: %d / 3)" % [int(m.g["round"]) + 1, int(m.g["miss"])]
 		# Roshan HOLDS the ball
@@ -253,6 +272,16 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				(m.g["arrow"] as MeshInstance3D).visible = true
 			else:
 				m.g["phase"] = "fetch"
+	elif String(m.g["phase"]) == "pickup":
+		# nose down to grab the ball, then turn for home
+		m.hud_game.text = "Chuck is on it!"
+		m.g["pickup_t"] = float(m.g.get("pickup_t", 0.8)) - delta
+		if float(m.g["pickup_t"]) <= 0.35:
+			var mouth := Vector3(sin(chuck.rotation.y), 0, cos(chuck.rotation.y))
+			ball.position = chuck.position + mouth * 1.4 + Vector3(0, 1.0, 0)
+		if float(m.g["pickup_t"]) <= 0.0:
+			m.g["phase"] = "return"
+			_chuck_play("run")
 	else:
 		var target: Vector3 = ball.position
 		if String(m.g["phase"]) == "return":
@@ -262,12 +291,18 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		m.hud_game.text = "Chuck is on it!"
 		if d.length() > 2.0:
 			chuck.position += d.normalized() * minf(40.0 * delta, d.length())
+			chuck.rotation.y = atan2(d.x, d.z)
+			_chuck_play("run")
 			if String(m.g["phase"]) == "return":
-				ball.position = chuck.position + Vector3(0, -1.5, 0)
+				var mouth := Vector3(sin(chuck.rotation.y), 0, cos(chuck.rotation.y))
+				ball.position = chuck.position + mouth * 1.4 + Vector3(0, 1.0, 0)
 		elif String(m.g["phase"]) == "fetch":
-			m.g["phase"] = "return"
+			m.g["phase"] = "pickup"
+			m.g["pickup_t"] = 0.8
+			_chuck_play("pickup", 0.15)
 		else:
 			m.g["round"] = int(m.g["round"]) + 1
+			_chuck_play("wag", 0.2)
 			if int(m.g["round"]) >= 2:
 				m._say("chuck", "bark")
 				m._end_game(true, fr, "Chuck loves to fetch! What a good boy!")
