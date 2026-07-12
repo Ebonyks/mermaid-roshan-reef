@@ -41,16 +41,16 @@ const VERB_LIB := {
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
 	}},
 	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.2], [1.7, 2.2], [2.2, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.8], [1.7, 2.8], [2.2, -0.2]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.3], [1.7, 2.3], [2.2, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
 		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.2], [1.7, 0.2], [2.2, 0.0]]},
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.12], [1.7, -0.12], [2.2, 0.0]]},
 	}},
 	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.4], [1.7, 2.4], [2.0, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.9], [1.7, 2.9], [2.0, -0.2]]},
-		"armF": {"axis": Vector3(1, 0, -1), "keys": [[0.0, 0.0], [0.5, -1.2], [0.65, -0.3], [0.8, -1.2], [0.95, -0.3], [1.1, -1.2], [1.25, -0.3], [1.4, -1.2], [1.7, 0.0]]},
-		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, 0.6], [0.65, 0.05], [0.8, 0.6], [0.95, 0.05], [1.1, 0.6], [1.25, 0.05], [1.4, 0.6], [1.7, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2], [1.7, 2.2], [2.0, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2], [1.7, 2.2], [2.0, -0.2]]},
+		"armF": {"axis": Vector3(1, 0, -1), "keys": [[0.0, 0.0], [0.5, -1.4], [0.65, -0.4], [0.8, -1.4], [0.95, -0.4], [1.1, -1.4], [1.25, -0.4], [1.4, -1.4], [1.7, 0.0]]},
+		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, 0.4], [0.65, 0.0], [0.8, 0.4], [0.95, 0.0], [1.1, 0.4], [1.25, 0.0], [1.4, 0.4], [1.7, 0.0]]},
 	}},
 	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
 		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
@@ -899,9 +899,9 @@ func _process(delta: float) -> void:
 			var arm_amp: float = 0.06 + minf(speed * 0.02, 0.20)
 			var arm_ph: float = swim_phase * 0.5
 			_rot_bone("armU", Vector3.RIGHT, sin(arm_ph) * arm_amp)
-			_rot_bone("armF", Vector3.RIGHT, sin(arm_ph - 0.5) * arm_amp * 0.7)
+			_rot_bone("armF", Vector3.RIGHT, (sin(arm_ph - 0.5) + 1.0) * 0.5 * arm_amp)   # flexion-only: elbows never bend past straight
 			_rot_bone("armU2", Vector3.RIGHT, sin(arm_ph - 0.35) * arm_amp)
-			_rot_bone("armF2", Vector3.RIGHT, sin(arm_ph - 0.85) * arm_amp * 0.7)
+			_rot_bone("armF2", Vector3.RIGHT, (sin(arm_ph - 0.85) + 1.0) * 0.5 * arm_amp)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
