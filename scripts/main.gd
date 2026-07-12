@@ -291,6 +291,7 @@ var slide_cool := 0.0
 var slide_portal_pos := Vector3.ZERO
 var slide_portal_penguin: Node3D = null
 var peng_wave_cool := 0.0   # portal penguin's interactive cheer cooldown
+var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
@@ -473,6 +474,10 @@ func _ready() -> void:
 	chime.stream = load("res://assets/audio/chime.ogg")
 	chime.volume_db = -4.0
 	add_child(chime)
+	peng_giggle = AudioStreamPlayer.new()
+	peng_giggle.stream = load("res://assets/audio/penguin_giggle.ogg")
+	peng_giggle.volume_db = -3.0
+	add_child(peng_giggle)
 	buy_sound = AudioStreamPlayer.new()
 	buy_sound.stream = load("res://assets/audio/buy.ogg")
 	beans_sfx = AudioStreamPlayer.new()
@@ -5790,9 +5795,9 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 					var pn0 = g.get("peng_node")
 					if pn0 != null and is_instance_valid(pn0):
 						_sparkle_burst((pn0 as Node3D).position + Vector3(0, 1.5, 0), Color(0.7, 0.9, 1.0))
-					if chime != null:
-						chime.pitch_scale = 1.9
-						chime.play()
+					if peng_giggle != null:
+						peng_giggle.pitch_scale = 1.0 + randf() * 0.15   # cheeky escape giggle
+						peng_giggle.play()
 					if int(g.get("panic_n", 0)) < 2:
 						g["panic_n"] = int(g.get("panic_n", 0)) + 1
 						show_msg(fr["fname"], "WHEEE! He zoomed away! Maybe magic BEANS from the Pearl Shop would help!")
@@ -5829,6 +5834,9 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if cn != null and is_instance_valid(cn):
 				_play_clip(cn as Node3D, "cheer", 1.0)
 			_sparkle_burst(pbpos + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.4))
+			if peng_giggle != null:
+				peng_giggle.pitch_scale = 0.95
+				peng_giggle.play()
 			if chime != null:
 				chime.pitch_scale = 1.5; chime.play()
 			_end_game(true, fr, "You caught the baby penguin! Hee hee, great race!")
@@ -6492,9 +6500,9 @@ func _process(delta: float) -> void:
 				peng_wave_cool = 12.0
 				_play_clip(slide_portal_penguin, "cheer", 1.1)
 				_sparkle_burst(slide_portal_penguin.position + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
-				if chime != null:
-					chime.pitch_scale = 1.7
-					chime.play()
+				if peng_giggle != null:
+					peng_giggle.pitch_scale = 0.9 + randf() * 0.15
+					peng_giggle.play()
 			elif pd > 30.0:
 				_play_clip(slide_portal_penguin, "idle")
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
