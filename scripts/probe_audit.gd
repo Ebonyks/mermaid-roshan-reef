@@ -165,13 +165,17 @@ func _init() -> void:
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
 			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
 		var hf := 0
-		while main.game == "level2" and hf < 60 * 60:
+		# the Crown Star celebrates IN PLACE now (owner 2026-07-12: winning
+		# must not eject Roshan from her own castle) — drive to the crown,
+		# then assert the WIN STATE (crown_won + saved level2 flag), not the
+		# old return-to-ocean that the redesign explicitly removed
+		while main.game == "level2" and not bool(main.g.get("crown_won", false)) and hf < 60 * 60:
 			hf += 1
 			var cr: Node3D = main.l2_stars[0]["node"]
 			player.position = player.position.lerp(cr.position, 0.16)
 			player.vel = Vector3.ZERO
 			await process_frame
-		print("AUDIT|Level 2 finish: ", ("OK" if main.game == "" and bool(main.save_data.get("level2", false)) else "FAIL"))
+		print("AUDIT|Level 2 finish: ", ("OK" if bool(main.g.get("crown_won", false)) and bool(main.save_data.get("level2", false)) else "FAIL"))
 	for i2 in range(60):
 		await process_frame
 	print("AUDIT|save file: ", ("OK" if FileAccess.file_exists("user://reef_save.json") else "MISSING"))
