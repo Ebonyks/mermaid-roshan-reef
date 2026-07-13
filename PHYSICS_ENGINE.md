@@ -1,17 +1,53 @@
-# ReefPhysics — the game's unified physics engine
+# The game's physics: ReefPhysics (kinematic feel) + Jolt (rigid dynamics)
+
+The project runs a two-layer physics architecture:
+
+1. **ReefPhysics** (`scripts/physics.gd`) — the kinematic game-feel layer:
+   Roshan, minigame bodies, magnets, springs. Documented below.
+2. **Jolt Physics** — Godot 4.4's built-in rigid-body engine, enabled via
+   `physics/3d/physics_engine="Jolt Physics"` in `project.godot`. It owns
+   true dynamics: props that tumble, collide, stack and come to rest.
+
+## The Jolt layer (`_build_jolt_world` in main.gd)
+
+- **Static world collision is baked once from the same analytic oracles the
+  kinematic layer uses**: a 141×141 `HeightMapShape3D` sampled from
+  `seabed_y()` (~80 KB) plus one static cylinder per entry in the `solids`
+  registry. One source of truth, two consumers.
+- **Dynamic props** (currently 4 cargo barrels spilled around the shipwreck,
+  placed outside the treasure-trigger radius) are `RigidBody3D`s tuned for
+  underwater feel: `gravity_scale 0.3`, `linear_damp 1.6` — they sink slowly,
+  scoot when shoved, and settle.
+- **Roshan couples to Jolt through impulses, not collision**: her motion
+  stays fully analytic (she never fights the solver). Each physics tick,
+  `main._physics_process` applies a flattened contact shove within 4.5 u
+  plus a swim-wake force along her velocity to any prop within 7 u. The
+  flattening matters: her analytic floor keeps her above sand-resting props,
+  and an unflattened radial push would loft them instead of scooting them.
+- Layers: 1 = static world, 2 = props.
+
+**Which layer does a new feature belong to?** If the player or a minigame
+needs authored, forgiving, tunable motion → ReefPhysics. If an object should
+tumble/stack/roll believably and nothing depends on its exact path → a Jolt
+`RigidBody3D` (add it to `jolt_props` to receive Roshan's shove/wake).
+
+# ReefPhysics — the kinematic game-feel engine
 
 `scripts/physics.gd` (`class_name ReefPhysics`) is a self-contained, static,
 allocation-free physics module. Everything in the game that moves under
 simulated forces now runs through it, replacing the nine hand-rolled
 integrators that used to be scattered across `player.gd` and `main.gd`.
 
-## Why not Godot physics (Jolt)?
+## Why isn't Roshan a Jolt body?
 
-The target device is a 3–4-year-old Android phone. The world is procedural
-(analytic heightfields, dict-based solids), so adopting engine bodies would
-mean baking collision shapes for everything and paying the physics-server
-cost per frame. ReefPhysics keeps the game's proven analytic collision model
-but gives it one correct, shared implementation.
+The target device is a 3–4-year-old Android phone and the gameplay layer is
+authored motion: magnets that pull a 4yo to goals, probes that teleport the
+player, forgiving arcade collision. Running the player and minigames through
+a rigid-body solver means fighting it with kinematic overrides every frame.
+So the game-feel layer stays analytic (ReefPhysics), while Jolt — kept
+deliberately small — handles the objects that genuinely benefit from real
+dynamics. The Jolt scene stays tiny (one heightfield, ~a dozen static
+cylinders, a handful of rigid props), which is well within the phone budget.
 
 ## Core ideas
 

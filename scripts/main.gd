@@ -210,6 +210,7 @@ func _ready() -> void:
 	_build_friends()
 	_build_player()
 	_build_hud()
+	_build_jolt_world.call_deferred()   # after every builder has registered its solids
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
 	add_child(voice)
@@ -755,6 +756,144 @@ func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
 			(node as MeshInstance3D).material_override = mat
 	for c in node.get_children():
 		_apply_mat(c, mat, overlay)
+
+# ===================== JOLT DYNAMICS LAYER =====================
+# Godot's built-in Jolt engine (enabled in project.godot) owns true rigid-body
+# dynamics: pushable props that tumble, collide and come to rest. ReefPhysics
+# remains the kinematic game-feel layer (Roshan, minigames, magnets). The two
+# meet in the middle:
+#   * static world collision baked ONCE from the same analytic oracles the
+#     kinematic layer uses (seabed_y heightmap + the solids cylinders)
+#   * a kinematic pusher sphere that follows Roshan, so her ReefPhysics
+#     motion shoves Jolt bodies around
+# Layer 1 = static world, layer 2 = dynamic props + Roshan's pusher.
+var jolt_props: Array = []
+
+func _build_jolt_world() -> void:
+	# --- static seabed: heightmap sampled from the seabed_y() oracle ---
+	var n := 141                      # 141x141 grid, 4u cells -> covers the whole reef
+	var cell := 4.0
+	var data := PackedFloat32Array()
+	data.resize(n * n)
+	var half := float(n - 1) * 0.5
+	for iz in range(n):
+		for ix in range(n):
+			data[iz * n + ix] = seabed_y((float(ix) - half) * cell, (float(iz) - half) * cell)
+	var hshape := HeightMapShape3D.new()
+	hshape.map_width = n
+	hshape.map_depth = n
+	hshape.map_data = data
+	var ground := StaticBody3D.new()
+	ground.collision_layer = 1
+	ground.collision_mask = 0
+	var gcs := CollisionShape3D.new()
+	gcs.shape = hshape
+	gcs.scale = Vector3(cell, 1.0, cell)
+	ground.add_child(gcs)
+	add_child(ground)
+	# --- static cylinders for the big structures Roshan also slides on ---
+	for s in solids:
+		if bool(s.get("box", false)):
+			continue
+		var sb := StaticBody3D.new()
+		sb.collision_layer = 1
+		sb.collision_mask = 0
+		var cyl := CylinderShape3D.new()
+		cyl.radius = float(s.r)
+		cyl.height = maxf(1.0, float(s.y1) - float(s.y0))
+		var scs := CollisionShape3D.new()
+		scs.shape = cyl
+		sb.position = Vector3(float(s.x), (float(s.y0) + float(s.y1)) * 0.5, float(s.z))
+		sb.add_child(scs)
+		add_child(sb)
+	# --- pushable cargo barrels: spilled from the wreck, but placed outside
+	# the 13u treasure-dive trigger and clear of the rock solids ---
+	var placed := 0
+	var aa := 0.7
+	while placed < 4 and aa < 0.7 + TAU * 2.0:
+		var rr: float = 18.0 + float(placed) * 2.5
+		var pos: Vector3 = wreck_pos + Vector3(cos(aa) * rr, 0, sin(aa) * rr)
+		aa += 0.9
+		if _clear_of_solids(pos, 2.5):
+			pos.y = seabed_y(pos.x, pos.z) + 3.0
+			jolt_props.append(_jolt_barrel(pos))
+			placed += 1
+
+func _clear_of_solids(pos: Vector3, pad: float) -> bool:
+	for s in solids:
+		if bool(s.get("box", false)):
+			continue
+		if Vector2(pos.x - float(s.x), pos.z - float(s.z)).length() < float(s.r) + pad:
+			return false
+	return true
+
+# Roshan -> Jolt coupling: her ReefPhysics body shoves rigid props with an
+# explicit impulse — a firm contact push plus a softer swim-wake that scales
+# with her speed. Runs at the physics tick so it is frame-rate independent.
+func _physics_process(delta: float) -> void:
+	if player == null or jolt_props.is_empty():
+		return
+	var ppos: Vector3 = player.position
+	var pvel: Vector3 = player.vel
+	for p in jolt_props:
+		var b := p as RigidBody3D
+		if b == null or not is_instance_valid(b):
+			continue
+		var d: Vector3 = b.position - ppos
+		var dist: float = d.length()
+		if dist > 7.0 or dist < 0.001:
+			continue
+		# generous contact bubble (Roshan's analytic floor keeps her a couple
+		# of units above props resting on the sand), flattened so props scoot
+		# along the sand instead of being lofted when she passes overhead
+		var flat := Vector3(d.x, d.y * 0.25, d.z)
+		if flat.length() < 0.001:
+			flat = Vector3(pvel.x, 0, pvel.z)
+		var dirf: Vector3 = flat.normalized()
+		var contact: float = maxf(0.0, 4.5 - dist) * 22.0
+		var imp: Vector3 = dirf * contact
+		# swim-wake: drags props along her direction of travel
+		imp += pvel * (maxf(0.0, 1.0 - dist / 7.0) * 0.9)
+		if imp.length_squared() > 0.0001:
+			b.apply_central_impulse(imp * delta * b.mass)
+
+func _jolt_barrel(pos: Vector3) -> RigidBody3D:
+	var prop := RigidBody3D.new()
+	prop.collision_layer = 2
+	prop.collision_mask = 1 | 2
+	prop.mass = 2.0
+	prop.gravity_scale = 0.30       # water-logged: sinks slowly, easy to shove
+	prop.linear_damp = 1.6          # water drag
+	prop.angular_damp = 1.2
+	prop.can_sleep = true
+	var shp := CollisionShape3D.new()
+	var cy := CylinderShape3D.new()
+	cy.radius = 1.0
+	cy.height = 2.4
+	shp.shape = cy
+	prop.add_child(shp)
+	if ResourceLoader.exists("res://assets/ship/barrel.glb"):
+		var vis: Node3D = (load("res://assets/ship/barrel.glb") as PackedScene).instantiate()
+		vis.scale = Vector3.ONE * 2.4
+		vis.position.y = -1.2       # kenney models sit on their origin
+		if wood_overlay == null:
+			_texture_mats()
+		_apply_mat(vis, wood_overlay, true)
+		prop.add_child(vis)
+	else:
+		var mi := MeshInstance3D.new()
+		var cm := CylinderMesh.new()
+		cm.top_radius = 1.0
+		cm.bottom_radius = 1.0
+		cm.height = 2.4
+		mi.mesh = cm
+		var wm := StandardMaterial3D.new()
+		wm.albedo_color = Color(0.45, 0.3, 0.16)
+		mi.material_override = wm
+		prop.add_child(mi)
+	prop.position = pos
+	add_child(prop)
+	return prop
 
 func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if rock_pbr == null:

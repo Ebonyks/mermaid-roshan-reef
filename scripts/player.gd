@@ -41,6 +41,9 @@ func _ready() -> void:
 	med_land = ReefPhysics.land_medium()
 	body = ReefPhysics.Body.new(med_water, med_air)
 	world = ReefPhysics.World.new()
+	# (Roshan never collides with Jolt bodies directly — her motion stays
+	# analytic; main._physics_process couples her body to the rigid props
+	# via explicit contact + swim-wake impulses.)
 	var glb: PackedScene = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
