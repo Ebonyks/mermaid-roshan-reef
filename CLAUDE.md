@@ -16,6 +16,7 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   only — ALL state stays on main):
   scripts/save_state.gd, scripts/audio_director.gd,
   scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
+  scripts/arena/courtyard_train.gd,
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
@@ -40,6 +41,7 @@ GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
    $GODOT --headless -s scripts/probe_load.gd      # save restore
    $GODOT --headless -s scripts/probe_mg2d.gd      # 5 picture games
    $GODOT --headless -s scripts/probe_l2.gd        # sky lagoon
+   $GODOT --headless -s scripts/probe_train.gd     # courtyard train: no-clip lap, ride, hide
 3. Never trust probe_games.gd / probe_trial.gd / probe_race.gd until
    Phase 1 replaces them — they reference removed APIs. (Deleted Phase 0.)
 

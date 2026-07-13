@@ -105,6 +105,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var gcz: float = sin(ga) * grad
 		if absf(gcx) < 26.0 and gcz > -95.0 and gcz < 165.0:
 			continue
+		# keep the train corridor clear: no grove may straddle the ring of
+		# track around the castle (radius 78 about (0,-120); trees scatter
+		# up to ±10 from the grove centre, hence the wide 26-unit band)
+		if absf(sqrt(gcx * gcx + (gcz + 120.0) * (gcz + 120.0)) - 78.0) < 26.0:
+			continue
 		@warning_ignore("integer_division")
 		for t in range(3 + (sd / 3) % 4):
 			sd = (sd * 1103515245 + 12345) & 0x7fffffff
@@ -134,6 +139,9 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var px: float = cos(ang) * rad
 		var pz: float = sin(ang) * rad
 		if absf(px) < 13.0 and pz > -92.0 and pz < 168.0:
+			continue
+		# undergrowth also stays off the train track band
+		if absf(sqrt(px * px + (pz + 120.0) * (pz + 120.0)) - 78.0) < 13.0:
 			continue
 		@warning_ignore("integer_division")
 		var pick := (sd / 7) % 10
@@ -562,6 +570,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 		cloud.scale = Vector3(2.2, 0.7, 1.7)
 		m.add_child(cloud)
 		m.game_nodes.append(cloud)
+	# ---------- the COURTYARD TRAIN: a ride circling the castle ----------
+	# built LAST so its clip-guard can snapshot every solid above; the ride
+	# seats join g["toys"] and play through the same play-moment system
+	m._train_ref()._build_train(o)
 	_build_fairy_pond(o)
 
 
@@ -962,6 +974,20 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				pos = base + Vector3(0, sh * cos(rock) + 0.35, 0) + fwd * (sh * sin(rock))
 				lean = rock
 				pl.toy_pose("seat", tt, rock * 3.0)
+			"train_cabin", "train_deck":
+				# seated on the moving train: glued to the car's seat point,
+				# facing the way it carries her, with a gentle carriage sway
+				var carn: Node3D = toy["node"]
+				if is_instance_valid(carn):
+					pos = carn.to_global(toy["seat"] as Vector3) + Vector3(0, sin(tt * 2.6) * 0.12, 0)
+					var tface: Vector3 = carn.global_transform.basis.z
+					tface.y = 0.0
+					if tface.length() > 0.01:
+						face = tface.normalized()
+				else:
+					pos = a
+				lean = sin(tt * 1.7) * 0.05
+				pl.toy_pose("seat", tt, sin(tt * 2.0) * 0.25)
 		# glide onto the toy over the first beat instead of teleporting
 		var w: float = smoothstep(0.0, 0.4, tt)
 		pl.position = (tp["from"] as Vector3).lerp(pos, w)
@@ -1006,6 +1032,9 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			break
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
+	# the train moves first so the ride seats' anchors are fresh when the
+	# toy tick reads them (it also hides itself whenever phase != "court")
+	m._train_ref()._tick_train(delta, ppos)
 	_tick_toys(delta, ppos)
 	if m.mg_kind != "":
 		m._tick_mg2d(delta)

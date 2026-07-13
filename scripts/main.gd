@@ -2722,6 +2722,15 @@ func _lagoon_ref() -> SkyLagoon:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
 
+# The courtyard train (Sky Lagoon ride) lives in scripts/arena/courtyard_train.gd
+# (state stays here in g["train"] / g["toys"]; the satellite receives main by reference)
+var _train_obj: CourtyardTrain = null
+
+func _train_ref() -> CourtyardTrain:
+	if _train_obj == null:
+		_train_obj = CourtyardTrain.new(self)
+	return _train_obj
+
 func _build_pearl_castle(o: Vector3) -> void:
 	_lagoon_ref()._build_pearl_castle(o)
 
