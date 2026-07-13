@@ -107,13 +107,15 @@ func _init() -> void:
 	player.rotation.x = 0.0
 	await process_frame
 	# ---- entering the castle must make the train disappear entirely ----
-	# (the hall build frees every courtyard node and clears the moving
-	# solids; the phase gate in _tick_train is the belt-and-braces hide)
+	# (the hall build frees every courtyard node; _tick_train then drops the
+	# stale g["train"] state). Grab the engine ref BEFORE the teardown —
+	# assigning an already-freed instance to a typed var is a runtime error.
+	var eng: Node3D = (cars[0] as Dictionary)["node"]
 	main._enter_castle_interior()
 	for k in range(20):
 		await process_frame
-	var eng: Node3D = (cars[0] as Dictionary)["node"]
-	var gone: bool = bool(tr["hidden"]) and (not is_instance_valid(eng) or not eng.visible)
+	var gone: bool = (not is_instance_valid(eng)) \
+		and (not main.g.has("train") or bool(tr["hidden"]))
 	print("TRAIN|disappears on castle entry (hall phase): ", ("OK" if gone else "FAIL"))
 	# ---- and a fresh train is rebuilt when she steps back out ----
 	main._enter_level2(true)

@@ -436,6 +436,14 @@ func _tick_train(delta: float, ppos: Vector3) -> void:
 	var tr: Dictionary = m.g.get("train", {})
 	if tr.is_empty() or m.game != "level2":
 		return
+	# the castle-hall teardown frees the whole courtyard (train included) —
+	# drop the stale state instead of ever touching freed nodes (assigning a
+	# freed instance to a typed var is a runtime error, CI 2026-07-13)
+	var cars_arr: Array = tr["cars"]
+	if cars_arr.is_empty() or not is_instance_valid((cars_arr[0] as Dictionary)["node"]):
+		m.g.erase("train")
+		_drop_train_ride()
+		return
 	# outside the courtyard phase (castle hall) the train hides completely —
 	# it must never be caught clipping through interior geometry
 	if String(m.g.get("phase", "court")) != "court":
@@ -471,9 +479,9 @@ func _tick_train(delta: float, ppos: Vector3) -> void:
 	var o: Vector3 = tr["o"]
 	var hidden: bool = bool(tr["hidden"])
 	for car: Dictionary in (tr["cars"] as Array):
-		var node: Node3D = car["node"]
-		if not is_instance_valid(node):
+		if not is_instance_valid(car["node"]):
 			continue
+		var node: Node3D = car["node"]
 		var sc: float = fposmod(s - float(car["off"]), L)
 		var half_wb: float = float(car["wb"]) * 0.5
 		var pf: Vector3 = _track_pt(fposmod(sc + half_wb, L) / RING_R)
@@ -510,22 +518,24 @@ func _tick_train(delta: float, ppos: Vector3) -> void:
 			sd["y1"] = node.global_position.y + CAR_SOLID_H
 	# ----- ride seats follow their cars -----
 	for seat: Dictionary in (tr["seats"] as Array):
+		if not is_instance_valid(seat["node"]):
+			continue
 		var cn: Node3D = seat["node"]
-		if is_instance_valid(cn):
-			seat["anchor"] = cn.to_global(seat["seat"] as Vector3)
-			seat["base"] = seat["anchor"]
-			var sf: Vector3 = cn.global_transform.basis.z
-			sf.y = 0.0
-			seat["fwd"] = sf.normalized() if sf.length() > 0.01 else Vector3.FORWARD
-	# smoke only while rolling
-	var eng: Node3D = (tr["cars"] as Array)[0]["node"]
-	if is_instance_valid(eng) and eng.has_meta("puff"):
-		(eng.get_meta("puff") as CPUParticles3D).emitting = (not hidden) and spd > 0.5
-	# one-time friendly introduction when she first wanders near
-	if not bool(m.g.get("train_intro", false)) and is_instance_valid(eng):
-		if Vector2(eng.global_position.x - ppos.x, eng.global_position.z - ppos.z).length() < 34.0:
-			m.g["train_intro"] = true
-			m.show_msg("Roshan", "A little castle train! Let's hop on for a ride!")
+		seat["anchor"] = cn.to_global(seat["seat"] as Vector3)
+		seat["base"] = seat["anchor"]
+		var sf: Vector3 = cn.global_transform.basis.z
+		sf.y = 0.0
+		seat["fwd"] = sf.normalized() if sf.length() > 0.01 else Vector3.FORWARD
+	if is_instance_valid((tr["cars"] as Array)[0]["node"]):
+		var eng: Node3D = (tr["cars"] as Array)[0]["node"]
+		# smoke only while rolling
+		if eng.has_meta("puff"):
+			(eng.get_meta("puff") as CPUParticles3D).emitting = (not hidden) and spd > 0.5
+		# one-time friendly introduction when she first wanders near
+		if not bool(m.g.get("train_intro", false)):
+			if Vector2(eng.global_position.x - ppos.x, eng.global_position.z - ppos.z).length() < 34.0:
+				m.g["train_intro"] = true
+				m.show_msg("Roshan", "A little castle train! Let's hop on for a ride!")
 	# ----- clip guard -----
 	tr["guard_t"] = float(tr["guard_t"]) - delta
 	if float(tr["guard_t"]) <= 0.0:
@@ -538,9 +548,9 @@ func _clip_check(tr: Dictionary) -> bool:
 	# existed before the train was built — the train hides rather than clip
 	var o: Vector3 = tr["o"]
 	for car: Dictionary in (tr["cars"] as Array):
-		var node: Node3D = car["node"]
-		if not is_instance_valid(node):
+		if not is_instance_valid(car["node"]):
 			continue
+		var node: Node3D = car["node"]
 		var base: Vector3 = node.global_position
 		var rail_y: float = base.y
 		# terrain must stay below the car floor
@@ -569,18 +579,24 @@ func _set_hidden(tr: Dictionary, hid: bool) -> void:
 		return
 	tr["hidden"] = hid
 	for car: Dictionary in (tr["cars"] as Array):
-		var node: Node3D = car["node"]
-		if is_instance_valid(node):
+		if is_instance_valid(car["node"]):
+			var node: Node3D = car["node"]
 			node.visible = not hid
 		if hid:
 			for sd: Dictionary in (car["solids"] as Array):
 				sd["y0"] = -9000.0
 				sd["y1"] = -9000.0
-	var eng: Node3D = (tr["cars"] as Array)[0]["node"]
-	if is_instance_valid(eng) and eng.has_meta("puff"):
-		(eng.get_meta("puff") as CPUParticles3D).emitting = not hid
-	# never leave Roshan riding an invisible train
-	if hid and not m.toy_play.is_empty() and String(m.toy_play.get("kind", "")).begins_with("train"):
+	if is_instance_valid((tr["cars"] as Array)[0]["node"]):
+		var eng: Node3D = (tr["cars"] as Array)[0]["node"]
+		if eng.has_meta("puff"):
+			(eng.get_meta("puff") as CPUParticles3D).emitting = not hid
+	if hid:
+		_drop_train_ride()
+
+
+func _drop_train_ride() -> void:
+	# never leave Roshan riding an invisible (or freed) train
+	if not m.toy_play.is_empty() and String(m.toy_play.get("kind", "")).begins_with("train"):
 		m.toy_play = {}
 		if m.player != null:
 			m.player.rotation.x = 0.0

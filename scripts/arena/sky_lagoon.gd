@@ -977,8 +977,10 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			"train_cabin", "train_deck":
 				# seated on the moving train: glued to the car's seat point,
 				# facing the way it carries her, with a gentle carriage sway
-				var carn: Node3D = toy["node"]
-				if is_instance_valid(carn):
+				# (validity check BEFORE the typed assign — a freed instance
+				# into a typed var is a runtime error)
+				if is_instance_valid(toy["node"]):
+					var carn: Node3D = toy["node"]
 					pos = carn.to_global(toy["seat"] as Vector3) + Vector3(0, sin(tt * 2.6) * 0.12, 0)
 					var tface: Vector3 = carn.global_transform.basis.z
 					tface.y = 0.0
