@@ -49,6 +49,14 @@ probe suite runs in CI instead — .github/workflows/probes.yml executes
 import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
+## Getting the game onto the phone
+Every push to `master` auto-builds the debug APK
+(.github/workflows/android.yml) and refreshes the stable download URL
+https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-test/roshan-reef.apk
+— bookmark that on the phone; tapping it always grabs the newest build.
+From a computer, `./pull-apk.sh` downloads it and, if a phone is on adb,
+installs it in place (save data kept).
+
 ## Hard rules
 - Renderer: "mobile" on EVERY platform (owner decision 2026-07-11:
   desktop and phone must look identical — mobile is the dominant
