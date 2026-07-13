@@ -93,9 +93,45 @@ runs use a bare track (no pickups/shortcut) so the measurement is handling:
 - integration: full-pack terrain race completes through the real glue;
   the ✕ quit restores the world
 
+## Pass 2 — mobile-racer audit (owner playtest: "still feels bad, items don't work")
+
+The right references for THIS game are the one-finger mobile racers, not
+console MK: **Mario Kart Tour** (steering is the only input; acceleration,
+items and ramp tricks are automatic or assisted) and **Beach Buggy Racing 2**
+(huge readable powerups, constant engine audio, ramps everywhere). Against
+those, the ranked gaps found in pass 2:
+
+| # | Finding | Evidence | Mobile-racer reference |
+|---|---------|----------|------------------------|
+| F8 | **Bumps stole the player's boost.** `_resolve_collisions` set the lighter kart's `boost_t` to 0.1 on every contact — the bumper AI deliberately hunts the player's lane, so nearly every earned zip died within seconds. This alone explains "items don't work". | collision block | contact never cancels an active boost; it's drama, not punishment |
+| F9 | **Half the items had no felt effect.** Shell/star only charged a meter at the bottom of the screen — an abstraction a 4-year-old never connects to the chime. Only bubbles produced a visible whoosh. A full meter could also sit unused forever if the tap never came. | `_check_pickups` | every pickup DOES something immediately; MK Tour fires stored items automatically when the player doesn't |
+| F10 | **No jumps.** Flagged not-done in pass 1; never built. Air time + landing boost is a core mobile-racer beat (auto-trick ramps are MK Tour's signature moment for one-finger players). | no ramp/air code existed | ramps launch you automatically; landing pays a boost |
+| F11 | **Total engine silence.** The race plays over music + occasional chimes; there is no continuous pitch-follows-speed layer, which is the single strongest subconscious speed cue. Blocked in pass 1 on an OGG asset — unblocked now via `AudioStreamGenerator` (procedural, no asset, no license line). | no engine audio path | constant engine loop, pitch mapped to speed |
+
+## Pass 2 — what shipped
+
+- **F8 →** a bump no longer strips the PLAYER's `boost_t` (rivals still lose
+  theirs). The mass identity is untouched — she still gets shoved and slowed.
+- **F9 →** every pickup now pays instantly: shell = 0.4 s zip + meter,
+  star = 0.7 s zip + meter, bubble unchanged, rainbow = full meter AND an
+  immediate full-length turbo ("RAINBOW POWER!"). Plus the MK-Tour assist:
+  a meter that sits full for 2.5 s fires itself ("TURBO!" flash) — agency for
+  the thumb that taps, a floor for the one that doesn't. Boost FOV kick
+  raised so firing visibly stretches the screen.
+- **F10 → JUMP RAMPS** (`ramps` in configure(), 3 per lap by default):
+  golden glowing wedges on the racing line; driving one launches kart AND
+  rivals into a 0.85 s arc (nose pitches up then down, "WHEEE!" flash for
+  the player), and every clean landing pays a 0.5 s boost — the auto-trick.
+  Steering authority halves mid-air (floaty, readable). No input required.
+- **F11 → procedural engine hum**: `AudioStreamGenerator` putt-putt (soft
+  saw + octave), pitch 58→208 Hz with speed + a boost bump, quiet (-18 dB)
+  under the music. No asset, no ledger line. Skipped on the Speedy tier
+  (per-frame buffer fill is CPU). **Verify on device** — crackle under
+  frame drops would mean lowering the mix rate or gating it off.
+
 ## Not done (candidates for a later pass)
 
-- Engine/wind audio pitch-following speed — needs a new looping OGG asset
-  (license ledger entry); the biggest remaining feel channel.
-- AI drift sparks (teach-by-demonstration), hop-jump over bumps, trick boosts.
-- Haptics: `Input.vibrate_handheld()` on bumps/drift release (Android).
+- AI drift sparks (teach-by-demonstration).
+- Haptics: `Input.vibrate_handheld()` on bumps/drift release/landings (Android).
+- A real recorded engine/wind OGG to replace the procedural hum if it
+  reads as too "toy" on device.
