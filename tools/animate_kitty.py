@@ -134,6 +134,30 @@ def build_run():
         })
     return act
 
+# curled nap: belly to the ground, head tucked toward the tail, tail wrapped
+# around the body, all four legs folded under. Slow breathing loop.
+SLEEP = {
+    "root_dz": -0.30,
+    "hips": (-12, 0, 6), "spine": (-8, 0, 8), "chest": (-4, 0, 6),
+    "neck": (-10, 0, 14), "head": (-14, 0, 18),
+    "tail1": (10, 0, 70), "tail2": (4, 0, 80),
+    "legU_BL": (52, 0, 0), "legL_BL": (-72, 0, 0), "foot_BL": (34, 0, 0),
+    "legU_BR": (52, 0, 0), "legL_BR": (-72, 0, 0), "foot_BR": (34, 0, 0),
+    "legU_FL": (42, 0, 0), "legL_FL": (-55, 0, 0), "foot_FL": (28, 0, 0),
+    "legU_FR": (42, 0, 0), "legL_FR": (-55, 0, 0), "foot_FR": (28, 0, 0),
+}
+
+def build_sleep():
+    act = new_action("sleep")
+    for f, ph in [(1, 0.0), (18, 0.5), (36, 1.0), (54, 0.5), (72, 0.0)]:
+        br = math.sin(ph * math.pi)
+        keypose(SLEEP, f, {
+            "chest": (2.5 * br, 0, 0), "spine": (2.0 * br, 0, 0),
+            "root_dz": 0.012 * br,
+            "tail2": (0, 0, 3 * math.sin(ph * math.pi)),
+        })
+    return act
+
 def build_happy():
     act = new_action("happy")
     # nuzzle: cheek rubs side to side, chest low, tail up and curling, tiny bounce
@@ -149,7 +173,8 @@ def build_happy():
     return act
 
 BUILDERS = {"idle": (build_idle, 64), "walk": (build_walk, 28),
-            "run": (build_run, 16), "happy": (build_happy, 40)}
+            "run": (build_run, 16), "happy": (build_happy, 40),
+            "sleep": (build_sleep, 72)}
 
 # ---------------- QA renders ----------------
 scene.render.engine = "BLENDER_WORKBENCH"
