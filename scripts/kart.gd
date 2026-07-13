@@ -669,17 +669,21 @@ void fragment(){
 	// flowering-meadow planet (the butterfly-house garden): soft grass with
 	// sandy landscaped paths and thousands of tiny flower dots
 	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
-	vec3 a = vec3(0.45, 0.76, 0.42);   // meadow green
-	vec3 b = vec3(0.58, 0.86, 0.48);   // sunlit grass
+	// deeper greens than the walk-on version: seen from orbit through the
+	// storybook grade + bloom, the original pale meadow flattened to a
+	// featureless cyan wall — richer bands keep the orb readable
+	vec3 a = vec3(0.30, 0.62, 0.30);   // meadow green
+	vec3 b = vec3(0.48, 0.80, 0.38);   // sunlit grass
 	vec3 col = mix(a, b, band);
 	// two winding garden paths circling the planet
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
-	col = mix(col, vec3(0.90, 0.83, 0.62), clamp(pathm, 0.0, 1.0) * 0.85);
-	// confetti of tiny flowers
+	col = mix(col, vec3(0.86, 0.76, 0.52), clamp(pathm, 0.0, 1.0) * 0.85);
+	// confetti of tiny flowers (bigger + denser than the walk-on version:
+	// they must survive being seen from the racetrack)
 	vec2 g = UV * vec2(220.0, 120.0);
 	float fh = h21(floor(g));
-	float dot2 = step(0.986, fh) * smoothstep(0.3, 0.05, length(fract(g) - 0.5));
+	float dot2 = step(0.980, fh) * smoothstep(0.36, 0.06, length(fract(g) - 0.5));
 	vec3 fcol = 0.55 + 0.45 * cos(6.28 * (fh * 7.0 + vec3(0.0, 0.33, 0.67)));
 	col = mix(col, fcol, dot2 * (1.0 - clamp(pathm, 0.0, 1.0)));
 	// firefly sparkle at "night" side
@@ -1592,6 +1596,21 @@ func _tick_select(delta: float) -> void:
 		_lbl_big.text = ""
 		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!")
 		_meter_bg.visible = true
+		# put the whole pack ON the grid right now (nodes used to sit at the
+		# world origin until the first race frame — the countdown showed an
+		# empty road) and SNAP the camera behind Roshan: the old 1s glide from
+		# the podium shot passed nose-first through the Butterfly World
+		# backdrop, so every race opened on a washed-out planet close-up
+		for k2 in _karts:
+			_place_kart(k2, 0.0)
+		if _pl != null and _cam != null:
+			var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]) * 0.35)
+			var fwd0: Vector3 = fr[1]
+			var dist0: float = 13.0 if _ground_mode() == "terrain" else 15.5
+			_cam.position = (fr[0] as Vector3) - fwd0 * dist0 + Vector3(0, 8.5, 0)
+			if _ground_mode() == "terrain":
+				_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
+			_cam.look_at((_pl["node"] as Node3D).position + fwd0 * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)
 
 # ------------------------------------------------------------ input helpers
 func _fire_just() -> bool:
@@ -1673,6 +1692,8 @@ func _process(delta: float) -> void:
 				_pl["squash"] = 0.3
 				_chime(1.25)
 				_flash_big("ROCKET START!")
+		for k0 in _karts:
+			_place_kart(k0, delta)   # pack idles ON the grid through 3-2-1
 		_update_camera(delta)
 		return
 
