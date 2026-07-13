@@ -66,6 +66,13 @@ on any FAIL line. Treat a red probes run exactly like a local red probe.
 - Save compatibility: never remove keys from reef_save.json; add with defaults.
 - GDScript: tabs, typed vars where present, match surrounding style.
 
+## Git workflow
+- Owner rule (2026-07-13): when a task is COMPLETE (probes green on CI),
+  merge the work branch into `master` and push it — master is the branch
+  the owner pulls and plays, so finished work parked only on a feature
+  branch is invisible to him. Develop on the session's designated work
+  branch as usual, and never merge unprobed or red work into master.
+
 ## Refactor rules for main.gd
 Extract, don't rewrite. Moves must be mechanical: one arena builder or one
 minigame tick per commit, preserving exact behavior, gated by the probe
