@@ -269,11 +269,14 @@ func _build_pearl_castle(o: Vector3) -> void:
 		# ground offset captured now so terrain-following works regardless of the
 		# lagoon_walk_h vs _lagoon_local coordinate convention
 		var goff: float = frn.position.y - m.lagoon_walk_h(frn.position.x, frn.position.z)
+		# rigged creatures (kitty) carry an AnimationPlayer -> play skeletal
+		# idle/walk/run/happy clips; static ones (bird) fall back to the sway shader
+		var ap: AnimationPlayer = frn.get_meta("ap") if frn.has_meta("ap") else null
 		(m.g["crafted"] as Array).append({
 			"node": frn, "cool": 0.0, "kind": String(cf2[0]),
 			"state": "idle", "t": 0.0, "next": 2.5 + randf() * 4.0,
 			"home": frn.position, "goff": goff, "tgt": frn.position,
-			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null,
+			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null, "ap": ap,
 		})
 	# a big rainbow arc over the meadow
 	var rainbow := MeshInstance3D.new()
@@ -1061,6 +1064,7 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 		match state:
 			"idle":
 				_crafted_sway(cd, 0.0)
+				_crafted_clip(cd, "idle")
 				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
 				if float(cd["t"]) >= float(cd["next"]):
 					cd["state"] = "wander"
@@ -1080,23 +1084,30 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 					cd["tgt"] = tgt
 			"wander":
 				_crafted_sway(cd, 0.35)
+				_crafted_clip(cd, "walk")
 				if _crafted_move(cd, cd["tgt"], _CR_WANDER_SPD, delta):
 					cd["state"] = "idle"
 					cd["t"] = 0.0
 					cd["next"] = 3.0 + randf() * 5.0
 			"approach":
 				_crafted_sway(cd, 1.0)
+				_crafted_clip(cd, "run")
 				var goal: Vector3 = cn.position
 				if pdist > 0.1:
-					goal = ppos - flat.normalized() * (_CR_NUZZLE * 0.7)
-				_crafted_move(cd, goal, _CR_RUN_SPD, delta)
-				if pdist < _CR_NUZZLE:
+					goal = ppos - flat.normalized() * (_CR_NUZZLE * 0.5)
+				var reached: bool = _crafted_move(cd, goal, _CR_RUN_SPD, delta)
+				if pdist > _CR_APPROACH * 1.6:
+					# she walked away — give up the greet and go back to scampering
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+				elif pdist < _CR_NUZZLE + 1.0 or reached:
 					cd["state"] = "nuzzle"
 					cd["t"] = 0.0
 					cd["purr_cd"] = 0.0
 					if String(cd["kind"]) == "cat":
 						_crafted_purr(cd, true)
 			"nuzzle":
+				_crafted_clip(cd, "happy")
 				_crafted_nuzzle(cd, ppos, delta)
 				if float(cd["t"]) >= _CR_NUZZLE_DUR or pdist > 7.0:
 					cd["state"] = "idle"
@@ -1109,6 +1120,12 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 func _crafted_sway(cd: Dictionary, energy: float) -> void:
 	for sm in cd["mats"]:
 		(sm as ShaderMaterial).set_shader_parameter("excite", energy)
+
+func _crafted_clip(cd: Dictionary, name: String) -> void:
+	# rigged creatures crossfade skeletal clips; static ones (no ap) no-op
+	var ap: AnimationPlayer = cd.get("ap")
+	if ap != null and ap.has_animation(name) and ap.current_animation != name:
+		ap.play(name, 0.2)
 
 func _crafted_move(cd: Dictionary, tgt: Vector3, spd: float, delta: float) -> bool:
 	var cn: Node3D = cd["node"]

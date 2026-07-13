@@ -3001,6 +3001,55 @@ var _gen2_outline: ShaderMaterial = null
 const SEAGRASS_SPRITES := [["seagrass", 0.82, 1.0], ["grasstuft", 0.82, 0.75], ["kelp", 2.63, 0.55]]
 var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 
+# A RIGGED family creature: same Meshy mesh as _gen2_creature but skinned to a
+# 20-bone quadruped (tools/build_chuck_rig.py + animate_kitty.py) with real
+# idle/walk/run/happy clips — legs actually cycle and paws plant, instead of a
+# static mesh sliding. Recolour still rides the sway shader (sway_amount 0 so it
+# never fights the skeleton; paint_body/fin map HER colours by luma). The
+# returned wrap carries meta "ap" = the AnimationPlayer for the behaviour FSM.
+func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color) -> Node3D:
+	var ps: PackedScene = _gen2_cache.get(gname, null)
+	if ps == null:
+		var path := "res://assets/props/gen2/" + gname + ".glb"
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_gen2_cache[gname] = ps
+	if ps == null:
+		return null
+	var wrap := Node3D.new()
+	var inst: Node3D = ps.instantiate()
+	_fit_prop(inst, target)          # fit footprint + seat base at y=0 (materials re-swapped below)
+	inst.rotation.y = -PI * 0.5      # face local -X (mover/FSM convention; memory gen2-creature-facing)
+	var swaysh: Shader = load("res://assets/shaders/creature_sway.gdshader")
+	for mi in _all_meshes(inst):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var src: Material = mi.get_active_material(si)
+			var alb: Texture2D = null
+			if src is StandardMaterial3D:
+				alb = (src as StandardMaterial3D).albedo_texture
+			var sm := ShaderMaterial.new()
+			sm.shader = swaysh
+			if alb != null:
+				sm.set_shader_parameter("albedo_tex", alb)
+			sm.set_shader_parameter("sway_amount", 0.0)   # the skeleton animates; no vertex sway
+			sm.set_shader_parameter("paint_mix", 1.0)
+			sm.set_shader_parameter("paint_body", body)
+			sm.set_shader_parameter("paint_fin", accent)
+			mi.set_surface_override_material(si, sm)
+	var ap: AnimationPlayer = inst.find_child("AnimationPlayer", true, false)
+	if ap != null:
+		for an in ap.get_animation_list():
+			ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
+		ap.play("idle")
+		wrap.set_meta("ap", ap)
+	wrap.add_child(inst)
+	wrap.set_meta("gen2", true)
+	return wrap
+
 func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	# a family-style Meshy animal: loaded/fit like a prop, then every surface
 	# swaps to the sway shader (tail-weighted swim wave + toon response, ink
@@ -4154,8 +4203,16 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 # three of HER creations are real 3D friends now, recolored in her chosen
 # colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
 const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
+# creatures with a real skeleton + gait clips take priority over the static sway
+# mesh (kitty is a quadruped -> Chuck's rig). name -> [rigged glb, footprint]
+const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2]}
 
 func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
+	if CRAFT_RIGGED.has(kind):
+		var rspec: Array = CRAFT_RIGGED[kind]
+		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent)
+		if rn != null:
+			return rn
 	if CRAFT_GEN2.has(kind):
 		var spec: Array = CRAFT_GEN2[kind]
 		var pf := _gen2_creature(String(spec[0]), Vector3.ZERO, float(spec[1]))
