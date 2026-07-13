@@ -198,18 +198,18 @@ def sleep_keys(pb, f, t):
     # roosting nap: crouched onto the ground, head tucked back toward a wing,
     # wings hugged in, legs folded under. Slow breath on the body.
     br = math.sin(t)
-    kb(pb, f, "body", rot=(0.30 + 0.03 * br, 0, 0))
-    kb(pb, f, "head", rot=(0.62, 0.40, 0.32))
-    kb(pb, f, "wingL", rot=(0.24 + 0.02 * br, 0, 0.10))
-    kb(pb, f, "wingL2", rot=(0.16, 0, 0.12))
-    kb(pb, f, "wingR", rot=(0.24 + 0.02 * br, 0, -0.10))
-    kb(pb, f, "wingR2", rot=(0.16, 0, -0.12))
+    kb(pb, f, "body", rot=(0.40 + 0.03 * br, 0, 0))
+    kb(pb, f, "head", rot=(0.95, 0.50, 0.35))
+    kb(pb, f, "wingL", rot=(0.34 + 0.02 * br, 0, 0.18))
+    kb(pb, f, "wingL2", rot=(0.24, 0, 0.20))
+    kb(pb, f, "wingR", rot=(0.34 + 0.02 * br, 0, -0.18))
+    kb(pb, f, "wingR2", rot=(0.24, 0, -0.20))
     kb(pb, f, "tailB", rot=(0.10, 0, 0))
     kb(pb, f, "legL", rot=(-0.95, 0, 0))
     kb(pb, f, "footL", rot=(0.60, 0, 0))
     kb(pb, f, "legR", rot=(-0.95, 0, 0))
     kb(pb, f, "footR", rot=(0.60, 0, 0))
-    key(pb["root"], f, loc=(0, 0, -0.42 + 0.012 * br))
+    key(pb["root"], f, loc=(0, 0, -0.48 + 0.012 * br))
 
 
 def audit(arm, meshes):

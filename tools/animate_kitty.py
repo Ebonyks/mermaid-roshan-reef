@@ -136,10 +136,13 @@ def build_run():
 
 # curled nap: belly to the ground, head tucked toward the tail, tail wrapped
 # around the body, all four legs folded under. Slow breathing loop.
+# ball curl: the spine bends SIDEWAYS (z-yaw chain) so the nose sweeps
+# around toward the wrapped tail like a real cat circle — pitching the head
+# down instead just buries the horn in the chest (first attempt).
 SLEEP = {
     "root_dz": -0.30,
-    "hips": (-12, 0, 6), "spine": (-8, 0, 8), "chest": (-4, 0, 6),
-    "neck": (-10, 0, 14), "head": (-14, 0, 18),
+    "hips": (-12, 0, 6), "spine": (-8, 0, 10), "chest": (-4, 0, 10),
+    "neck": (-16, 0, 22), "head": (-20, 0, 28),
     "tail1": (10, 0, 70), "tail2": (4, 0, 80),
     "legU_BL": (52, 0, 0), "legL_BL": (-72, 0, 0), "foot_BL": (34, 0, 0),
     "legU_BR": (52, 0, 0), "legL_BR": (-72, 0, 0), "foot_BR": (34, 0, 0),
