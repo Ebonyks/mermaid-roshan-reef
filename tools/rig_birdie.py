@@ -351,6 +351,55 @@ def main():
     make_action(arm, "happy", 1.2, happy_keys)
     make_action(arm, "sleep", 3.0, sleep_keys)
 
+    if "--audit-inline" in argv:
+        # in-session deformation audit (re-imported actions are inert in bpy
+        # 5.x, so --audit on the exported glb silently measures rest pose).
+        # micro-edges (<1% body) smear invisibly - macro ratio + absolute cap.
+        obj = meshes[0]
+        def snap():
+            bpy.context.view_layer.update()
+            dg = bpy.context.evaluated_depsgraph_get()
+            ev = obj.evaluated_get(dg)
+            mee = ev.to_mesh()
+            nn = len(mee.vertices)
+            cco = np.empty(nn * 3)
+            mee.vertices.foreach_get("co", cco)
+            cco = cco.reshape(nn, 3)
+            eed = np.empty(len(mee.edges) * 2, dtype=np.int64)
+            mee.edges.foreach_get("vertices", eed)
+            eed = eed.reshape(-1, 2)
+            ev.to_mesh_clear()
+            return cco, eed
+        for tr in arm.animation_data.nla_tracks:
+            tr.mute = True
+        for pb in arm.pose.bones:
+            pb.rotation_mode = "XYZ"
+            pb.rotation_euler = (0, 0, 0)
+            pb.location = (0, 0, 0)
+        rest_co, aedges = snap()
+        rest_len = np.linalg.norm(rest_co[aedges[:, 0]] - rest_co[aedges[:, 1]], axis=1)
+        macro = rest_len >= 0.01
+        allok = True
+        for tr in arm.animation_data.nla_tracks:
+            tr.mute = False
+            f1 = int(tr.strips[0].action_frame_end)
+            worst = 0.0
+            wabs = 0.0
+            for f in range(1, f1 + 1, max(1, f1 // 8)):
+                bpy.context.scene.frame_set(f)
+                cco, _ = snap()
+                lnn = np.linalg.norm(cco[aedges[:, 0]] - cco[aedges[:, 1]], axis=1)
+                worst = max(worst, float(np.max((lnn / np.maximum(rest_len, 1e-5))[macro])))
+                wabs = max(wabs, float(np.max(lnn - rest_len)))
+            verdict = "OK" if worst <= 2.2 and wabs <= 0.15 else "DISTORTED"
+            if verdict != "OK":
+                allok = False
+            print("AUDIT %s: macro stretch %.2fx, max elongation %.3f  %s" % (tr.name, worst, wabs, verdict))
+            tr.mute = True
+        for tr in arm.animation_data.nla_tracks:
+            tr.mute = False
+        print("AUDIT_RESULT:", "PASS" if allok else "FAIL")
+
     if "--preview" in argv:
         # render frames of each clip IN this session (actions live here for
         # sure; re-imported GLBs animate in Godot, not reliably in bpy 5.x)

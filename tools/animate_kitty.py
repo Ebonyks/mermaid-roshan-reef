@@ -91,7 +91,7 @@ def build_idle():
         sway = math.sin(ph * 2 * math.pi)
         keypose(STAND, f, {
             "chest": (2 * br, 0, 0), "spine": (1.5 * br, 0, 0),
-            "tail1": (0, 0, 10 * sway), "tail2": (0, 0, 16 * sway),
+            "tail1": (0, 0, 6 * sway), "tail2": (0, 0, 9 * sway),
             "head": (0, 0, 6 * sway), "neck": (1.5 * br, 0, 0),
         })
     return act
@@ -106,10 +106,10 @@ def build_walk():
             "root_dz": 0.03 * abs(s),
             "hips": (3 * s, 0, 0), "spine": (-3 * s, 0, 0),
             "tail1": (0, 0, 8 * s), "head": (0, 0, -4 * s),
-            "legU_FL": (-22 * s, 0, 0), "legL_FL": (18 * max(s, 0.0), 0, 0), "foot_FL": (10 * s, 0, 0),
-            "legU_FR": (22 * s, 0, 0), "legL_FR": (18 * max(-s, 0.0), 0, 0), "foot_FR": (-10 * s, 0, 0),
-            "legU_BL": (18 * s, 0, 0), "legL_BL": (-16 * max(s, 0.0), 0, 0), "foot_BL": (10 * s, 0, 0),
-            "legU_BR": (-18 * s, 0, 0), "legL_BR": (-16 * max(-s, 0.0), 0, 0), "foot_BR": (-10 * s, 0, 0),
+            "legU_FL": (-18 * s, 0, 0), "legL_FL": (14 * max(s, 0.0), 0, 0), "foot_FL": (8 * s, 0, 0),
+            "legU_FR": (18 * s, 0, 0), "legL_FR": (14 * max(-s, 0.0), 0, 0), "foot_FR": (-8 * s, 0, 0),
+            "legU_BL": (14 * s, 0, 0), "legL_BL": (-12 * max(s, 0.0), 0, 0), "foot_BL": (8 * s, 0, 0),
+            "legU_BR": (-14 * s, 0, 0), "legL_BR": (-12 * max(-s, 0.0), 0, 0), "foot_BR": (-8 * s, 0, 0),
         })
     return act
 
@@ -126,11 +126,11 @@ def build_run():
             "root_dz": 0.11 * abs(s) - 0.02,
             "hips": (8 * s, 0, 0), "spine": (-11 * s, 0, 0), "chest": (7 * s, 0, 0),
             "neck": (9 * s - 4, 0, 0), "head": (-7 * s, 0, 0),
-            "tail1": (10 + 12 * s, 0, 0), "tail2": (8 + 8 * s, 0, 0),
-            "legU_FL": (-48 * s - 6, 0, 0), "legL_FL": (40 * s + 6, 0, 0), "foot_FL": (16 * s, 0, 0),
-            "legU_FR": (-48 * s2 - 6, 0, 0), "legL_FR": (40 * s2 + 6, 0, 0), "foot_FR": (16 * s2, 0, 0),
-            "legU_BL": (44 * c + 6, 0, 0), "legL_BL": (-34 * c - 6, 0, 0), "foot_BL": (18 * c, 0, 0),
-            "legU_BR": (44 * c2 + 6, 0, 0), "legL_BR": (-34 * c2 - 6, 0, 0), "foot_BR": (18 * c2, 0, 0),
+            "tail1": (6 + 7 * s, 0, 0), "tail2": (4 + 5 * s, 0, 0),
+            "legU_FL": (-40 * s - 5, 0, 0), "legL_FL": (32 * s + 5, 0, 0), "foot_FL": (13 * s, 0, 0),
+            "legU_FR": (-40 * s2 - 5, 0, 0), "legL_FR": (32 * s2 + 5, 0, 0), "foot_FR": (13 * s2, 0, 0),
+            "legU_BL": (36 * c + 5, 0, 0), "legL_BL": (-28 * c - 5, 0, 0), "foot_BL": (14 * c, 0, 0),
+            "legU_BR": (36 * c2 + 5, 0, 0), "legL_BR": (-28 * c2 - 5, 0, 0), "foot_BR": (14 * c2, 0, 0),
         })
     return act
 
@@ -143,9 +143,9 @@ SLEEP = {
     "root_dz": -0.30,
     "hips": (-12, 0, 6), "spine": (-8, 0, 10), "chest": (-4, 0, 10),
     "neck": (-16, 0, 22), "head": (-20, 0, 28),
-    "tail1": (10, 0, 70), "tail2": (4, 0, 80),
-    "legU_BL": (52, 0, 0), "legL_BL": (-72, 0, 0), "foot_BL": (34, 0, 0),
-    "legU_BR": (52, 0, 0), "legL_BR": (-72, 0, 0), "foot_BR": (34, 0, 0),
+    "tail1": (8, 0, 32), "tail2": (4, 0, 40),
+    "legU_BL": (44, 0, 0), "legL_BL": (-58, 0, 0), "foot_BL": (28, 0, 0),
+    "legU_BR": (44, 0, 0), "legL_BR": (-58, 0, 0), "foot_BR": (28, 0, 0),
     "legU_FL": (42, 0, 0), "legL_FL": (-55, 0, 0), "foot_FL": (28, 0, 0),
     "legU_FR": (42, 0, 0), "legL_FR": (-55, 0, 0), "foot_FR": (28, 0, 0),
 }
@@ -171,7 +171,7 @@ def build_happy():
             "root_dz": 0.03 * abs(math.sin(ph * 4 * math.pi)),
             "chest": (6, 0, 0), "spine": (4, 0, 0),
             "neck": (-8, 0, 12 * r), "head": (-6, 0, 18 * r),
-            "tail1": (-20, 0, 10 * r), "tail2": (-14, 0, 16 * r),
+            "tail1": (-12, 0, 7 * r), "tail2": (-8, 0, 10 * r),
         })
     return act
 
@@ -229,6 +229,54 @@ if PREVIEW == "stand_tune":
         bpy.context.view_layer.update()
         shoot("tune_stand_e%02d_d%02d.png" % (ext, int(-dz * 100)), 90)
     print("PREVIEW done: stand_tune")
+    raise SystemExit(0)
+
+if PREVIEW == "audit":
+    # deformation report IN-SESSION (bpy 5.x re-imported actions are inert):
+    # max edge stretch vs rest pose per clip; >2x reads as crumpled/nightmare
+    import numpy as np
+    def snapshot():
+        bpy.context.view_layer.update()
+        dg = bpy.context.evaluated_depsgraph_get()
+        ev = mesh_obj.evaluated_get(dg)
+        me = ev.to_mesh()
+        n = len(me.vertices)
+        co = np.empty(n * 3)
+        me.vertices.foreach_get("co", co)
+        co = co.reshape(n, 3)
+        ed = np.empty(len(me.edges) * 2, dtype=np.int64)
+        me.edges.foreach_get("vertices", ed)
+        ed = ed.reshape(-1, 2)
+        ev.to_mesh_clear()
+        return co, ed
+    for pb in arm_obj.pose.bones:
+        pb.rotation_mode = "XYZ"
+        pb.rotation_euler = (0, 0, 0)
+        pb.location = (0, 0, 0)
+    rest_co, edges = snapshot()
+    rest_len = np.linalg.norm(rest_co[edges[:, 0]] - rest_co[edges[:, 1]], axis=1)
+    ok = True
+    for name, (build, length) in BUILDERS.items():
+        act = build()
+        worst = 0.0
+        wabs = 0.0
+        wf = 1
+        macro = rest_len >= 0.01   # micro-edges (<1% body) smear invisibly;
+        for f in range(1, length + 1, max(1, length // 8)):
+            scene.frame_set(f)
+            co, _ = snapshot()
+            ln = np.linalg.norm(co[edges[:, 0]] - co[edges[:, 1]], axis=1)
+            ratio = float(np.max((ln / np.maximum(rest_len, 1e-5))[macro]))
+            wabs = max(wabs, float(np.max(ln - rest_len)))
+            if ratio > worst:
+                worst = ratio
+                wf = f
+        verdict = "OK" if worst <= 2.2 and wabs <= 0.15 else "DISTORTED"
+        if verdict != "OK":
+            ok = False
+        print("AUDIT %s: macro stretch %.2fx at f%d, max elongation %.3f  %s" % (name, worst, wf, wabs, verdict))
+        arm_obj.animation_data.action = None
+    print("AUDIT_RESULT:", "PASS" if ok else "FAIL")
     raise SystemExit(0)
 
 if PREVIEW:
