@@ -4204,8 +4204,9 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 # colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
 const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
 # creatures with a real skeleton + gait clips take priority over the static sway
-# mesh (kitty is a quadruped -> Chuck's rig). name -> [rigged glb, footprint]
-const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2]}
+# mesh (kitty -> Chuck's quadruped cage; birdie -> its own standing-bird rig,
+# tools/rig_birdie.py). name -> [rigged glb, footprint]
+const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2], "bird": ["craft_birdie_rigged", 2.6]}
 
 func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
 	if CRAFT_RIGGED.has(kind):

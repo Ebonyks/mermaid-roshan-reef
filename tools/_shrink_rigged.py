@@ -21,7 +21,7 @@ for mat in bpy.data.materials:
         for lk in list(em.links): nt.links.remove(lk)
         em.default_value=(0,0,0,1)
 arm=next((o for o in bpy.data.objects if o.type=="ARMATURE"),None)
-mesh=next((o for o in bpy.data.objects if o.type=="MESH"),None)
+mesh=max((o for o in bpy.data.objects if o.type=="MESH"),key=lambda o:len(o.data.vertices),default=None)  # largest: skips stray env spheres
 bpy.ops.object.select_all(action="DESELECT")
 mesh.select_set(True); arm.select_set(True); bpy.context.view_layer.objects.active=arm
 bpy.ops.export_scene.gltf(filepath=os.path.abspath(dst),export_format="GLB",use_selection=True,
