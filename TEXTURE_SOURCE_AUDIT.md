@@ -26,6 +26,18 @@ side-sprites (softly tinted per school), and the Butterfly Gate portal is
 rebuilt: painted pearl ring + two fluttering gen2 butterfly cards
 replacing the white procedural wings.
 
+## Update — reef geography pass (2026-07-13)
+Owner: "very same-y... larger hills, more geography... walls have no
+details." Two NEW nano-banana generations: up_cliffwall_col (terraced
+cliff face with coral shelves) and backdrop_seamounts (layered silhouette
+panorama). The seabed gained a landmark swell (real hills + basins, capped
+under the fixed-height POIs), the rim is scalloped cliff bays crested at
+84 units, the terrain shader blends sand->cliff-wall by slope, a painted
+seamount ring surrounds the world, and the three tallest hills carry mega
+rock + kelp-grove crowns. NOTE: the flat-sand sheet remains ambientCG
+Ground054 (a deliberate readability exception - the painted sand read as
+cracked dirt).
+
 ## Weaknesses of source-art availability (the gaps)
 Ranked by how visible the stand-in or hold-back is in play:
 

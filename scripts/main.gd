@@ -433,11 +433,24 @@ static func fbm(x: float, y: float) -> float:
 	return vnoise(x, y) * 0.55 + vnoise(x * 2.3 + 5.0, y * 2.3 + 5.0) * 0.3 + vnoise(x * 5.1 + 9.0, y * 5.1 + 9.0) * 0.15
 
 static func seabed_y(x: float, z: float) -> float:
+	# GEN3 geography (owner 2026-07-13: "very same-y... larger hills, more
+	# geography"). Three scales shape the reef: the original rolling detail
+	# and sparse bumps, plus a broad LANDMARK SWELL — real hills and basins
+	# a swimmer can navigate by — faded near the spawn plaza so the castle
+	# approach stays open. Interior height is capped well under WATER_TOP
+	# (and under the fixed-height ice floe/ship); past the rim the floor
+	# climbs steep scalloped CLIFF BAYS instead of the old smooth cone.
 	var h: float = fbm(x * 0.013, z * 0.013) * 26.0 - 6.0
 	h += maxf(0.0, fbm(x * 0.05 + 30.0, z * 0.05 + 30.0) - 0.62) * 30.0
 	var d := sqrt(x * x + z * z)
+	var swell: float = (fbm(x * 0.0045 + 7.0, z * 0.0045 - 11.0) * 2.0 - 1.0) * 24.0
+	h += swell * clampf((d - 34.0) / 56.0, 0.0, 1.0)
+	h = minf(h, 24.0)
 	if d > WORLD_R * 0.82:
-		h += (d - WORLD_R * 0.82) * 0.55
+		var rim: float = d - WORLD_R * 0.82
+		# capped so the cliff ring CRESTS and the painted seamount backdrop
+		# shows above it (uncapped, the mesh corners towered over the ring)
+		h += minf(rim * 0.85 + sin(atan2(z, x) * 9.0 + rim * 0.06) * minf(rim * 0.25, 7.0), 84.0)
 	return h
 
 func _ready() -> void:
@@ -1005,21 +1018,126 @@ func _build_terrain() -> void:
 	var mesh := st.commit()
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
-	var mat := StandardMaterial3D.new()
-	mat.vertex_color_use_as_albedo = true
-	mat.albedo_texture = load("res://assets/terrain/Ground054_2K_Color.jpg")   # smooth fine sand (the old up_sand read as cracked dry dirt)
-	mat.normal_enabled = true
-	mat.normal_texture = load("res://assets/terrain/Ground054_2K_NormalGL.jpg")
-	mat.roughness_texture = load("res://assets/terrain/Ground054_2K_Roughness.jpg")
-	mat.uv1_triplanar = true
-	# GEN2 pass 2 (owner 2026-07-11): let the painted sand READ - the old
-	# 0.12 tiling + dark teal multiply crushed the sheet into flat colour
-	mat.uv1_scale = Vector3(0.06, 0.06, 0.06)
-	mat.albedo_color = Color(0.55, 0.72, 0.74)
+	# GEN3 terrain shader: triplanar SAND on the flats (Ground054 kept — the
+	# painted sheet read as cracked dirt) blending to the new painted
+	# CLIFF-WALL sheet on steep slopes, so the hills and the scalloped rim
+	# bays have real wall detail (owner 2026-07-13: "walls have no details").
+	# Vertex colours keep the storybook depth banding exactly as before.
+	var mat := ShaderMaterial.new()
+	var tsh := Shader.new()
+	tsh.code = """shader_type spatial;
+uniform sampler2D sand_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform sampler2D cliff_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform vec3 sand_tint = vec3(0.55, 0.72, 0.74);
+uniform vec3 cliff_tint = vec3(0.95, 0.98, 1.12);
+varying vec3 wpos;
+varying vec3 vcol;
+void vertex(){
+	wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	vcol = COLOR.rgb;
+}
+vec3 tri(sampler2D t, vec3 p, vec3 n, float s){
+	vec3 w = abs(n);
+	w /= (w.x + w.y + w.z);
+	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y + texture(t, p.xy * s).rgb * w.z;
+}
+void fragment(){
+	vec3 n = normalize(mat3(INV_VIEW_MATRIX) * NORMAL);
+	vec3 sand = tri(sand_tex, wpos, n, 0.06) * sand_tint * vcol;
+	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
+	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
+	ALBEDO = mix(sand, cliff, steep);
+	ROUGHNESS = 0.95;
+	SPECULAR = 0.05;
+}"""
+	mat.shader = tsh
+	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/Ground054_2K_Color.jpg"))
+	var cliff_path := "res://assets/terrain/up_cliffwall_col.jpg"
+	if not ResourceLoader.exists(cliff_path):
+		cliff_path = "res://assets/terrain/up_cliff_col.jpg"   # strangler-fig fallback
+	mat.set_shader_parameter("cliff_tex", load(cliff_path))
 	mi.material_override = mat
 	add_child(mi)
 	_add_caustics(mesh)
 	_add_plankton()
+	_build_backdrop()
+	_build_landmark_hills()
+
+func _build_backdrop() -> void:
+	# GEN3: painted seamount silhouettes ring the world beyond the rim — the
+	# empty gradient horizon finally has geography (nano-banana panorama;
+	# mirror-wrapped in the shader so the loop can never seam)
+	if not ResourceLoader.exists("res://assets/terrain/backdrop_seamounts.jpg"):
+		return
+	var ring := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = WORLD_R + 70.0
+	cyl.bottom_radius = WORLD_R + 70.0
+	cyl.height = 150.0
+	cyl.radial_segments = 48
+	cyl.rings = 1
+	cyl.cap_top = false
+	cyl.cap_bottom = false
+	ring.mesh = cyl
+	var bsh := Shader.new()
+	bsh.code = """shader_type spatial;
+render_mode unshaded, cull_front, shadows_disabled;
+uniform sampler2D pano : source_color, repeat_enable, filter_linear_mipmap;
+uniform vec3 fog_col = vec3(0.13, 0.38, 0.48);
+void fragment(){
+	float u = 1.0 - abs(fract(UV.x * 1.5) * 2.0 - 1.0);
+	vec3 col = texture(pano, vec2(u, UV.y)).rgb;
+	float fade = smoothstep(0.45, 0.02, UV.y);
+	ALBEDO = mix(col, fog_col, fade * 0.92);
+}"""
+	var bm := ShaderMaterial.new()
+	bm.shader = bsh
+	bm.set_shader_parameter("pano", load("res://assets/terrain/backdrop_seamounts.jpg"))
+	ring.material_override = bm
+	ring.position = Vector3(0, 38.0, 0)
+	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(ring)
+
+func _build_landmark_hills() -> void:
+	# GEN3: crown the three tallest swell hills so the new geography reads as
+	# PLACES — a mega family rock with a kelp-grove halo on each summit
+	var peaks: Array = []
+	for gi in range(26):
+		for gj in range(26):
+			var lx: float = (float(gi) / 25.0 - 0.5) * WORLD_R * 1.5
+			var lz: float = (float(gj) / 25.0 - 0.5) * WORLD_R * 1.5
+			var dd: float = Vector2(lx, lz).length()
+			if dd < 70.0 or dd > WORLD_R * 0.76:
+				continue
+			peaks.append([seabed_y(lx, lz), lx, lz])
+	peaks.sort()
+	peaks.reverse()
+	var placed: Array = []
+	for pk in peaks:
+		if placed.size() >= 3:
+			break
+		var px2: float = pk[1]
+		var pz2: float = pk[2]
+		var okd := true
+		for q in placed:
+			if Vector2(px2 - (q as Vector2).x, pz2 - (q as Vector2).y).length() < 110.0:
+				okd = false
+				break
+		if not okd:
+			continue
+		placed.append(Vector2(px2, pz2))
+		var base := Vector3(px2, seabed_y(px2, pz2), pz2)
+		var mega := _gen2_prop("rock_largea", base, 20.0 + randf() * 6.0, randf() * TAU, 0.22)
+		if mega != null:
+			flora_nodes.append(mega)
+			_register_solid(mega, 0.8, 2.0)
+		for k in range(6):
+			var ka := TAU * float(k) / 6.0 + randf() * 0.4
+			var kr := 9.0 + randf() * 6.0
+			var kx := px2 + cos(ka) * kr
+			var kz := pz2 + sin(ka) * kr
+			_gen2_seagrass(Vector3(kx, seabed_y(kx, kz), kz), 5.0 + randf() * 2.5)
+		_halo(base + Vector3(4.0, 16.0, 0.0), Color(0.75, 0.9, 1.0), 14.0)
 
 func _add_caustics(terrain_mesh: Mesh) -> void:
 	# light dapples glued to the actual seabed: the terrain mesh drawn a second
