@@ -18,6 +18,18 @@ func joy_pressed(btn: int) -> bool:
 		return m.joy_pressed(btn)
 	return Input.is_joy_button_pressed(0, btn)
 
+# mouse look-around: hold the RIGHT button and drag (left button belongs to
+# minigames / the touch stick). Deltas accumulate here between frames and are
+# consumed at the top of _process, so frames the player logic skips (overlays,
+# minigame modes) just discard them instead of applying one big camera jump.
+var _mlook_dx := 0.0
+var _mlook_dy := 0.0
+
+func _input(ev: InputEvent) -> void:
+	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
+		_mlook_dx += ev.relative.x
+		_mlook_dy += ev.relative.y
+
 var yaw := 0.0
 var vel := Vector3.ZERO
 var swim_phase := 0.0
@@ -678,6 +690,11 @@ func _tail_curl(amt: float) -> void:
 	_rot_bone("finBot", Vector3.RIGHT, -amt * 0.35)
 
 func _process(delta: float) -> void:
+	# consume mouse-look deltas up front: early returns below then drop them
+	var mlook_x: float = _mlook_dx
+	var mlook_y: float = _mlook_dy
+	_mlook_dx = 0.0
+	_mlook_dy = 0.0
 	var _m0: Node = get_parent()
 	if "intro_active" in _m0 and _m0.intro_active:
 		return
@@ -947,15 +964,21 @@ func _process(delta: float) -> void:
 		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
 		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
-	# right-stick camera: peek around / up / down, then drift back behind her
+	# right-stick / right-drag camera: peek around / up / down, then drift back
+	# behind her once the stick AND the mouse button are released
 	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
 	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
+	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
 	if absf(rx) > 0.25:
 		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
+	elif mlook:
+		cam_orbit = clampf(cam_orbit - mlook_x * 0.005, -PI * 0.9, PI * 0.9)
 	else:
 		cam_orbit = lerpf(cam_orbit, 0.0, 1.0 - pow(0.35, delta))
 	if absf(ry) > 0.25:
 		cam_pitch_off = clampf(cam_pitch_off + ry * 9.0 * delta, -4.5, 8.0)
+	elif mlook:
+		cam_pitch_off = clampf(cam_pitch_off + mlook_y * 0.02, -4.5, 8.0)
 	else:
 		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
 

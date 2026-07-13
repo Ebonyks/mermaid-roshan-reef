@@ -30,9 +30,9 @@ class_name HairSim
 
 const STIFFNESS := 42.0          # spring constant (toward rest)
 const DAMPING := 7.0             # velocity damping
-const TRAIL := 0.16              # how strongly hair lags the player's motion
+const TRAIL := 0.10              # damped (stress audit): whip smeared the rainbow chunk across her back              # how strongly hair lags the player's motion
 const IDLE_SWAY := 0.06          # ambient float amplitude (radians)
-const MAX_ANGLE := 0.6           # clamp so streaks never fold through the head
+const MAX_ANGLE := 0.35          # per-segment cap; 0.6 accumulated to ~100 deg of tip whip           # clamp so streaks never fold through the head
 
 var _player: Node3D = null
 var _skel: Skeleton3D = null

@@ -433,11 +433,24 @@ static func fbm(x: float, y: float) -> float:
 	return vnoise(x, y) * 0.55 + vnoise(x * 2.3 + 5.0, y * 2.3 + 5.0) * 0.3 + vnoise(x * 5.1 + 9.0, y * 5.1 + 9.0) * 0.15
 
 static func seabed_y(x: float, z: float) -> float:
+	# GEN3 geography (owner 2026-07-13: "very same-y... larger hills, more
+	# geography"). Three scales shape the reef: the original rolling detail
+	# and sparse bumps, plus a broad LANDMARK SWELL — real hills and basins
+	# a swimmer can navigate by — faded near the spawn plaza so the castle
+	# approach stays open. Interior height is capped well under WATER_TOP
+	# (and under the fixed-height ice floe/ship); past the rim the floor
+	# climbs steep scalloped CLIFF BAYS instead of the old smooth cone.
 	var h: float = fbm(x * 0.013, z * 0.013) * 26.0 - 6.0
 	h += maxf(0.0, fbm(x * 0.05 + 30.0, z * 0.05 + 30.0) - 0.62) * 30.0
 	var d := sqrt(x * x + z * z)
+	var swell: float = (fbm(x * 0.0045 + 7.0, z * 0.0045 - 11.0) * 2.0 - 1.0) * 24.0
+	h += swell * clampf((d - 34.0) / 56.0, 0.0, 1.0)
+	h = minf(h, 24.0)
 	if d > WORLD_R * 0.82:
-		h += (d - WORLD_R * 0.82) * 0.55
+		var rim: float = d - WORLD_R * 0.82
+		# capped so the cliff ring CRESTS and the painted seamount backdrop
+		# shows above it (uncapped, the mesh corners towered over the ring)
+		h += minf(rim * 0.85 + sin(atan2(z, x) * 9.0 + rim * 0.06) * minf(rim * 0.25, 7.0), 84.0)
 	return h
 
 func _ready() -> void:
@@ -1005,21 +1018,126 @@ func _build_terrain() -> void:
 	var mesh := st.commit()
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
-	var mat := StandardMaterial3D.new()
-	mat.vertex_color_use_as_albedo = true
-	mat.albedo_texture = load("res://assets/terrain/Ground054_2K_Color.jpg")   # smooth fine sand (the old up_sand read as cracked dry dirt)
-	mat.normal_enabled = true
-	mat.normal_texture = load("res://assets/terrain/Ground054_2K_NormalGL.jpg")
-	mat.roughness_texture = load("res://assets/terrain/Ground054_2K_Roughness.jpg")
-	mat.uv1_triplanar = true
-	# GEN2 pass 2 (owner 2026-07-11): let the painted sand READ - the old
-	# 0.12 tiling + dark teal multiply crushed the sheet into flat colour
-	mat.uv1_scale = Vector3(0.06, 0.06, 0.06)
-	mat.albedo_color = Color(0.55, 0.72, 0.74)
+	# GEN3 terrain shader: triplanar SAND on the flats (Ground054 kept — the
+	# painted sheet read as cracked dirt) blending to the new painted
+	# CLIFF-WALL sheet on steep slopes, so the hills and the scalloped rim
+	# bays have real wall detail (owner 2026-07-13: "walls have no details").
+	# Vertex colours keep the storybook depth banding exactly as before.
+	var mat := ShaderMaterial.new()
+	var tsh := Shader.new()
+	tsh.code = """shader_type spatial;
+uniform sampler2D sand_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform sampler2D cliff_tex : source_color, repeat_enable, filter_linear_mipmap;
+uniform vec3 sand_tint = vec3(0.55, 0.72, 0.74);
+uniform vec3 cliff_tint = vec3(0.95, 0.98, 1.12);
+varying vec3 wpos;
+varying vec3 vcol;
+void vertex(){
+	wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	vcol = COLOR.rgb;
+}
+vec3 tri(sampler2D t, vec3 p, vec3 n, float s){
+	vec3 w = abs(n);
+	w /= (w.x + w.y + w.z);
+	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y + texture(t, p.xy * s).rgb * w.z;
+}
+void fragment(){
+	vec3 n = normalize(mat3(INV_VIEW_MATRIX) * NORMAL);
+	vec3 sand = tri(sand_tex, wpos, n, 0.06) * sand_tint * vcol;
+	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
+	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
+	ALBEDO = mix(sand, cliff, steep);
+	ROUGHNESS = 0.95;
+	SPECULAR = 0.05;
+}"""
+	mat.shader = tsh
+	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/Ground054_2K_Color.jpg"))
+	var cliff_path := "res://assets/terrain/up_cliffwall_col.jpg"
+	if not ResourceLoader.exists(cliff_path):
+		cliff_path = "res://assets/terrain/up_cliff_col.jpg"   # strangler-fig fallback
+	mat.set_shader_parameter("cliff_tex", load(cliff_path))
 	mi.material_override = mat
 	add_child(mi)
 	_add_caustics(mesh)
 	_add_plankton()
+	_build_backdrop()
+	_build_landmark_hills()
+
+func _build_backdrop() -> void:
+	# GEN3: painted seamount silhouettes ring the world beyond the rim — the
+	# empty gradient horizon finally has geography (nano-banana panorama;
+	# mirror-wrapped in the shader so the loop can never seam)
+	if not ResourceLoader.exists("res://assets/terrain/backdrop_seamounts.jpg"):
+		return
+	var ring := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = WORLD_R + 70.0
+	cyl.bottom_radius = WORLD_R + 70.0
+	cyl.height = 150.0
+	cyl.radial_segments = 48
+	cyl.rings = 1
+	cyl.cap_top = false
+	cyl.cap_bottom = false
+	ring.mesh = cyl
+	var bsh := Shader.new()
+	bsh.code = """shader_type spatial;
+render_mode unshaded, cull_front, shadows_disabled;
+uniform sampler2D pano : source_color, repeat_enable, filter_linear_mipmap;
+uniform vec3 fog_col = vec3(0.13, 0.38, 0.48);
+void fragment(){
+	float u = 1.0 - abs(fract(UV.x * 1.5) * 2.0 - 1.0);
+	vec3 col = texture(pano, vec2(u, UV.y)).rgb;
+	float fade = smoothstep(0.45, 0.02, UV.y);
+	ALBEDO = mix(col, fog_col, fade * 0.92);
+}"""
+	var bm := ShaderMaterial.new()
+	bm.shader = bsh
+	bm.set_shader_parameter("pano", load("res://assets/terrain/backdrop_seamounts.jpg"))
+	ring.material_override = bm
+	ring.position = Vector3(0, 38.0, 0)
+	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(ring)
+
+func _build_landmark_hills() -> void:
+	# GEN3: crown the three tallest swell hills so the new geography reads as
+	# PLACES — a mega family rock with a kelp-grove halo on each summit
+	var peaks: Array = []
+	for gi in range(26):
+		for gj in range(26):
+			var lx: float = (float(gi) / 25.0 - 0.5) * WORLD_R * 1.5
+			var lz: float = (float(gj) / 25.0 - 0.5) * WORLD_R * 1.5
+			var dd: float = Vector2(lx, lz).length()
+			if dd < 70.0 or dd > WORLD_R * 0.76:
+				continue
+			peaks.append([seabed_y(lx, lz), lx, lz])
+	peaks.sort()
+	peaks.reverse()
+	var placed: Array = []
+	for pk in peaks:
+		if placed.size() >= 3:
+			break
+		var px2: float = pk[1]
+		var pz2: float = pk[2]
+		var okd := true
+		for q in placed:
+			if Vector2(px2 - (q as Vector2).x, pz2 - (q as Vector2).y).length() < 110.0:
+				okd = false
+				break
+		if not okd:
+			continue
+		placed.append(Vector2(px2, pz2))
+		var base := Vector3(px2, seabed_y(px2, pz2), pz2)
+		var mega := _gen2_prop("rock_largea", base, 20.0 + randf() * 6.0, randf() * TAU, 0.22)
+		if mega != null:
+			flora_nodes.append(mega)
+			_register_solid(mega, 0.8, 2.0)
+		for k in range(6):
+			var ka := TAU * float(k) / 6.0 + randf() * 0.4
+			var kr := 9.0 + randf() * 6.0
+			var kx := px2 + cos(ka) * kr
+			var kz := pz2 + sin(ka) * kr
+			_gen2_seagrass(Vector3(kx, seabed_y(kx, kz), kz), 5.0 + randf() * 2.5)
+		_halo(base + Vector3(4.0, 16.0, 0.0), Color(0.75, 0.9, 1.0), 14.0)
 
 func _add_caustics(terrain_mesh: Mesh) -> void:
 	# light dapples glued to the actual seabed: the terrain mesh drawn a second
@@ -1477,7 +1595,8 @@ const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin":
 const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], "turtle": [0, 2.2, 0.08],
 	"shark": [0, 3.6, 0.12], "hammerhead": [0, 3.4, 0.12], "whale": [1, 1.6, 0.08],
 	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
-	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06]}   # penguin: rigged clips carry the motion now
+	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06],   # penguin: rigged clips carry the motion now
+	"craft_kitty": [3, 2.0, 0.05], "craft_birdie": [3, 2.8, 0.07]}   # HER craft creatures: gentle waddle idle
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -2882,6 +3001,55 @@ var _gen2_outline: ShaderMaterial = null
 const SEAGRASS_SPRITES := [["seagrass", 0.82, 1.0], ["grasstuft", 0.82, 0.75], ["kelp", 2.63, 0.55]]
 var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 
+# A RIGGED family creature: same Meshy mesh as _gen2_creature but skinned to a
+# 20-bone quadruped (tools/build_chuck_rig.py + animate_kitty.py) with real
+# idle/walk/run/happy clips — legs actually cycle and paws plant, instead of a
+# static mesh sliding. Recolour still rides the sway shader (sway_amount 0 so it
+# never fights the skeleton; paint_body/fin map HER colours by luma). The
+# returned wrap carries meta "ap" = the AnimationPlayer for the behaviour FSM.
+func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color) -> Node3D:
+	var ps: PackedScene = _gen2_cache.get(gname, null)
+	if ps == null:
+		var path := "res://assets/props/gen2/" + gname + ".glb"
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_gen2_cache[gname] = ps
+	if ps == null:
+		return null
+	var wrap := Node3D.new()
+	var inst: Node3D = ps.instantiate()
+	_fit_prop(inst, target)          # fit footprint + seat base at y=0 (materials re-swapped below)
+	inst.rotation.y = -PI * 0.5      # face local -X (mover/FSM convention; memory gen2-creature-facing)
+	var swaysh: Shader = load("res://assets/shaders/creature_sway.gdshader")
+	for mi in _all_meshes(inst):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var src: Material = mi.get_active_material(si)
+			var alb: Texture2D = null
+			if src is StandardMaterial3D:
+				alb = (src as StandardMaterial3D).albedo_texture
+			var sm := ShaderMaterial.new()
+			sm.shader = swaysh
+			if alb != null:
+				sm.set_shader_parameter("albedo_tex", alb)
+			sm.set_shader_parameter("sway_amount", 0.0)   # the skeleton animates; no vertex sway
+			sm.set_shader_parameter("paint_mix", 1.0)
+			sm.set_shader_parameter("paint_body", body)
+			sm.set_shader_parameter("paint_fin", accent)
+			mi.set_surface_override_material(si, sm)
+	var ap: AnimationPlayer = inst.find_child("AnimationPlayer", true, false)
+	if ap != null:
+		for an in ap.get_animation_list():
+			ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
+		ap.play("idle")
+		wrap.set_meta("ap", ap)
+	wrap.add_child(inst)
+	wrap.set_meta("gen2", true)
+	return wrap
+
 func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	# a family-style Meshy animal: loaded/fit like a prop, then every surface
 	# swaps to the sway shader (tail-weighted swim wave + toon response, ink
@@ -4031,12 +4199,24 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 	else:
 		nd.set("modulate", Color(col.r, col.g, col.b, base_a))
 
+# each craft-studio creature -> its family Meshy mesh + footprint target. All
+# three of HER creations are real 3D friends now, recolored in her chosen
+# colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
+const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
+# creatures with a real skeleton + gait clips take priority over the static sway
+# mesh (kitty -> Chuck's quadruped cage; birdie -> its own standing-bird rig,
+# tools/rig_birdie.py). name -> [rigged glb, footprint]
+const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2], "bird": ["craft_birdie_rigged", 2.6]}
+
 func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
-	if kind == "fish":
-		# HER painted fish are real 3D swimmers now (owner 2026-07-11): the
-		# family clownfish mesh repainted in the craft-studio colors via the
-		# sway shader. The billboard sprite stays the strangler-fig fallback.
-		var pf := _gen2_creature("clownfish", Vector3.ZERO, 1.7)
+	if CRAFT_RIGGED.has(kind):
+		var rspec: Array = CRAFT_RIGGED[kind]
+		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent)
+		if rn != null:
+			return rn
+	if CRAFT_GEN2.has(kind):
+		var spec: Array = CRAFT_GEN2[kind]
+		var pf := _gen2_creature(String(spec[0]), Vector3.ZERO, float(spec[1]))
 		if pf != null:
 			remove_child(pf)   # _gen2_prop parents to main; callers re-parent
 			for mi in _all_meshes(pf):
@@ -4049,30 +4229,35 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_mix", 1.0)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_fin", accent)
+			pf.set_meta("gen2", true)   # base at origin (billboards are center-origin)
 			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
 	# inner pivot so the idle animation never fights whoever owns root position
 	var anim := Node3D.new()
 	root.add_child(anim)
-	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
 	var lb := Sprite3D.new()
 	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png")
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
-	lb.set_meta("rb", body_rb)
 	anim.add_child(lb)
 	var la := Sprite3D.new()
 	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png")
 	la.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1
-	la.set_meta("rb", acc_rb)
 	anim.add_child(la)
 	var ll := Sprite3D.new()
 	ll.texture = load("res://assets/mg/" + String(ln[2]) + ".png")
 	ll.billboard = BaseMaterial3D.BILLBOARD_ENABLED; ll.pixel_size = 0.02; ll.render_priority = 2
 	anim.add_child(ll)
-	# tweens can only start inside the tree, hence the deferred hook
-	root.tree_entered.connect(_animate_billboard_creature.bind(anim, la, kind), CONNECT_ONE_SHOT)
+	# colors + idle tweens can only start inside the tree, hence the deferred
+	# hook (create_tween() errors outside it; this also restores the craft
+	# tints the billboard fallback would otherwise render pure white)
+	root.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _creature_spawned(lb: Sprite3D, la: Sprite3D, anim: Node3D, body: Color, accent: Color, body_rb: bool, acc_rb: bool, kind: String) -> void:
+	_layer_fx(lb, "body", body, body_rb, kind)
+	_layer_fx(la, "accent", accent, acc_rb, kind)
+	_animate_billboard_creature(anim, la, kind)
 
 func _animate_billboard_creature(anim: Node3D, accent: Sprite3D, kind: String) -> void:
 	# idle life for the billboard craft creatures (kitty + birdie in the
@@ -5637,7 +5822,9 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var side: float = -1.0 if k % 2 == 0 else 1.0
 		var peng := _aq_game("Penguin", ps[0] + ps[2] * (side * (SLIDE_WIDTH * 0.5 + 4.0)) + Vector3(0, 2.0, 0), 3.0)
 		if peng != null:
-			peng.rotation.y = atan2(-ps[1].x, -ps[1].z) + (0.4 if side > 0.0 else -0.4)
+			# gen2 creatures face local -X (mover convention): atan2(-t.z, t.x)
+			# points the face UP-slope, at the oncoming racer
+			peng.rotation.y = atan2(-ps[1].z, ps[1].x) + (0.4 if side > 0.0 else -0.4)
 			_play_clip(peng, "cheer", 0.85 + 0.12 * float(k))   # phase-varied crowd
 	g["fish"] = []
 	if mode == "chase":
@@ -5645,6 +5832,30 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var baby := _aq_game("Penguin", _slide_sample(40.0)[0] + Vector3(0, SLIDE_RIDE, 0), 2.2)
 		g["peng_node"] = baby
 		g["peng_x"] = 0.0
+		if baby != null:
+			# continuous snow spray kicked up at his tail (+X local: face is -X)
+			# so his speed reads even when he's just a dot up the track
+			var spray := CPUParticles3D.new()
+			spray.amount = 70
+			spray.lifetime = 0.7
+			spray.direction = Vector3(1.0, 0.7, 0.0)
+			spray.spread = 28.0
+			spray.initial_velocity_min = 5.0
+			spray.initial_velocity_max = 11.0
+			spray.gravity = Vector3(0, -16.0, 0)
+			spray.scale_amount_min = 0.16
+			spray.scale_amount_max = 0.40
+			var sbm := BoxMesh.new()
+			sbm.size = Vector3(0.3, 0.3, 0.3)
+			spray.mesh = sbm
+			var spm := StandardMaterial3D.new()
+			spm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			# icy BLUE, not white — white spray vanishes into the bright snow
+			spm.albedo_color = Color(0.55, 0.8, 1.0)
+			spray.material_override = spm
+			spray.position = Vector3(1.8, 0.5, 0)
+			baby.add_child(spray)
+			g["peng_spray"] = spray
 	else:
 		# ---- 5 fish collectables, spaced along the run, alternating sides ----
 		var spots := [0.16, 0.34, 0.52, 0.70, 0.86]
@@ -5820,12 +6031,21 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		var pbpos: Vector3 = psamp[0] + psamp[2] * px + Vector3(0, SLIDE_RIDE, 0)
 		var pnode = g.get("peng_node")
 		if pnode != null and is_instance_valid(pnode):
-			(pnode as Node3D).position = pbpos
-			var wob: float = sin(float(g["t"]) * 9.0) * 0.18      # waddle
-			(pnode as Node3D).rotation = Vector3(0, atan2(psamp[1].x, psamp[1].z) + PI, wob)
-			# rigged clips: SPRINT while panicking or being reeled in, WADDLE otherwise
+			var pnd := pnode as Node3D
+			pnd.position = pbpos
 			var sprinting: bool = float(g.get("burst", 0.0)) > 0.5 or (beany and gap < 13.0)
-			_play_clip(pnode as Node3D, "sprint" if sprinting else "waddle", 1.35 if sprinting else 1.0)
+			# gen2 creatures face local -X (mover convention): atan2(t.z, -t.x)
+			# points his face DOWN-slope, the way he's racing. Euler is YXZ, so
+			# z = innermost = nose-down luge lean, x = body shimmy roll.
+			var pyaw: float = atan2(psamp[1].z, -psamp[1].x)
+			var shimmy: float = sin(float(g["t"]) * (13.0 if sprinting else 9.0)) * (0.12 if sprinting else 0.18)
+			pnd.rotation = Vector3(shimmy, pyaw, 0.30 if sprinting else 0.12)
+			# rigged clips: he's RACING the whole ride — sprint luge always,
+			# kicked faster while panicking or being reeled in
+			_play_clip(pnd, "sprint", 1.6 if sprinting else 1.1)
+			var spray = g.get("peng_spray")
+			if spray != null and is_instance_valid(spray):
+				(spray as CPUParticles3D).speed_scale = 1.7 if sprinting else 1.0
 		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
 		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
@@ -6116,6 +6336,8 @@ func _build_slide_portal() -> void:
 	add_child(floe)
 	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)
 	if peng != null:
+		# face the reef center (gen2 -X face) so Roshan meets his face, not his back
+		peng.rotation.y = atan2(-slide_portal_pos.z, slide_portal_pos.x)
 		_play_clip(peng, "idle")
 	if peng != null:
 		slide_portal_penguin = peng

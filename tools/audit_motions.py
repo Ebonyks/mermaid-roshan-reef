@@ -9,7 +9,7 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4c_slim.glb"
+GLB = "roshan_v4e_slim.glb"
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -400,6 +400,73 @@ check("elbow L never hyperextends", worst["L"] > -6.0, f"worst={worst['L']:.1f} 
 check("elbow L never over-folds", minfold["L"] > 25, f"min interior={minfold['L']:.0f} deg")
 check("elbow R never hyperextends", worst["R"] > -6.0, f"worst={worst['R']:.1f} deg")
 check("elbow R never over-folds", minfold["R"] > 25, f"min interior={minfold['R']:.0f} deg")
+
+# ---------------- skinning stress: streaks, shirt/skin capture, rear hair hue ----
+import io as _io
+from PIL import Image as _Im
+UVs = acc_np(prim["attributes"]["TEXCOORD_0"]).astype(np.float64)
+_mat = gltf["materials"][0]
+_src = gltf["textures"][_mat["pbrMetallicRoughness"]["baseColorTexture"]["index"]]["source"]
+_bv = gltf["bufferViews"][gltf["images"][_src]["bufferView"]]
+_tex = _Im.open(_io.BytesIO(bin_data[_bv.get("byteOffset",0):_bv.get("byteOffset",0)+_bv["byteLength"]])).convert("RGB")
+_T = np.asarray(_tex); _th,_tw = _T.shape[:2]
+_u = np.clip((UVs[:,0]%1.0)*(_tw-1),0,_tw-1).astype(int)
+_v = np.clip((UVs[:,1]%1.0)*(_th-1),0,_th-1).astype(int)
+CT = _T[_v,_u].astype(float)
+_r,_g,_b = CT[:,0],CT[:,1],CT[:,2]
+_mx=CT.max(1); _mn=CT.min(1); _sat=(_mx-_mn)/np.maximum(_mx,1)
+_skin = (_r>170)&(_r>_g)&(_g>_b)&(_g>110)&(_g<215)&(_b>90)&(_b<190)&((_r-_b)>25)&((_r-_b)<95)
+_pink = (_r>190)&(_b>170)&(_g>140)&(_g<_r)&(_sat<0.35)&~_skin
+strand_ks = [k for k,j in enumerate(joints) if jname[j].startswith("hair_")]
+_sw = np.zeros(len(P0))
+for c in range(4):
+    _sw += np.where(np.isin(J[:,c], strand_ks), W[:,c], 0)
+check("no shirt verts strand-driven", int(((_sw>0.3)&_pink).sum()) == 0,
+      f"{int(((_sw>0.3)&_pink).sum())} pink-top verts >30% strand weight")
+check("no skin verts strand-driven", int(((_sw>0.3)&_skin).sum()) == 0,
+      f"{int(((_sw>0.3)&_skin).sum())} skin verts >30% strand weight")
+
+def full_skin_pose(deltas):
+    M = joint_mats(deltas)
+    S = np.zeros((len(P0),3))
+    for c in range(4):
+        S += W[:,c][:,None]*np.einsum("nij,nj->ni", M[J[:,c]], Ph)[:,:3]
+    return S
+
+# worst-case: every strand at HairSim MAX_ANGLE (0.35 rad after damping), both axes,
+# on top of sprint swim + a cheer peak
+HMAX = 0.35
+stress = swim_deltas(1.3, 25.0)
+for k in strand_ks:
+    nm = jname[joints[k]]
+    q = qmul(model_axis_delta(nm, RIGHT, HMAX), model_axis_delta(nm, BACK, HMAX))
+    stress[nm] = q
+stress["armU"] = model_axis_delta("armU", RIGHT, 2.3)
+stress["armU2"] = model_axis_delta("armU2", RIGHT, 2.4)
+S1 = full_skin_pose(stress)
+disp = np.linalg.norm(S1-P0, axis=1)
+check("stress max displacement bounded", float(disp.max()) < 1.1,
+      f"max vert displacement {disp.max():.2f} (hair tips ~0.6 legit)")
+IDX = acc_np(prim["indices"]).astype(np.int64).reshape(-1,3)
+e = np.unique(np.sort(np.concatenate([IDX[:,[0,1]], IDX[:,[1,2]], IDX[:,[0,2]]]),1), axis=0)
+sel_e = e[np.random.RandomState(7).choice(len(e), 30000, replace=False)]
+l0 = np.linalg.norm(P0[sel_e[:,0]]-P0[sel_e[:,1]], axis=1)
+l1 = np.linalg.norm(S1[sel_e[:,0]]-S1[sel_e[:,1]], axis=1)
+ok_e = l0 > 1e-4
+ratio = (l1[ok_e]/l0[ok_e])
+opening = l1[ok_e] - l0[ok_e]
+check("stress no visible tearing", float(np.percentile(opening, 99.9)) < 0.05 and float(opening.max()) < 0.12,
+      f"edge opening 99.9pct {np.percentile(opening,99.9):.3f} max {opening.max():.3f} model units")
+# rear hair hue balance: blue fraction of rear-facing hair pixels, rest vs stress
+def rear_blue(S):
+    m = (S[:,2] > 0.05) & (S[:,1] > 0.1)     # back hemisphere, above waist
+    cc = CT[m]
+    blue = (cc[:,2] > cc[:,0]+20) & (cc[:,2] > 110)
+    brownish = (cc[:,0] > cc[:,2]+20)
+    return blue.sum()/max(blue.sum()+brownish.sum(),1)
+rb0, rb1 = rear_blue(P0), rear_blue(S1)
+check("rear hair keeps brown/rainbow mix", rb1 < 0.62 and rb1 < rb0*1.6 + 0.05,
+      f"rear blue fraction rest={rb0:.2f} stress={rb1:.2f}")
 
 # ---------------- report ----------------
 fails = 0
