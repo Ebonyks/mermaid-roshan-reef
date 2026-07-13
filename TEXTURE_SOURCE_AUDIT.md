@@ -38,6 +38,16 @@ rock + kelp-grove crowns. NOTE: the flat-sand sheet remains ambientCG
 Ground054 (a deliberate readability exception - the painted sand read as
 cracked dirt).
 
+## Rule added — surface textures are BLANK canvases (owner 2026-07-13)
+Rock/wall/ground sheets must contain NOTHING that also exists as a 3D
+prop: no baked corals, moss, flowers, shells or pebble clusters - the
+game dresses those surfaces with real gen2 props, and painted twins clash
+with them. up_cliffwall_col and up_cliff_col were regenerated bare (the
+first cliffwall had coral shelves; the old up_cliff had moss + flowers -
+the 'camo' look on the rock pedestals). Rock2 re-baked from the pack
+original with the bare sheet. Scenery PAINTINGS (the seamount backdrop)
+are exempt - they are backdrops, not surfaces.
+
 ## Weaknesses of source-art availability (the gaps)
 Ranked by how visible the stand-in or hold-back is in play:
 
