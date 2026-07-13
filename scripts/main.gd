@@ -316,6 +316,23 @@ const SHOP_ITEMS := [
 	{"id": "tiara", "label": "Pearl Tiara", "price": 120},
 	{"id": "pearlskin", "label": "Pearl Princess", "price": 250}]
 var shop_owned := {}   # permanent Pearl Shop treasures (persisted)
+# THE ANIMAL TANKS: these reef friends start out in glass tanks on the
+# cabin's back wall. Buying one sets it free into the reef forever - her
+# pearls turn into living neighbours, not just a bigger number. Patrol
+# rows are [radius, speed, y, scale], copied verbatim from the old
+# _build_aquatic_creatures roster so a released animal swims exactly the
+# route it always did; "babies" restores that species' school slots.
+const ANIMAL_SHOP := [
+	{"id": "stingray", "model": "StingRay", "label": "Sting Ray", "price": 20, "babies": 2,
+		"patrols": [[75.0, 0.07, 7.0, 2.4], [110.0, 0.06, 16.0, 2.4]]},
+	{"id": "turtle", "model": "Turtle", "label": "Sea Turtle", "price": 25, "babies": 2,
+		"patrols": [[55.0, 0.06, 9.0, 1.6], [90.0, 0.05, 13.0, 1.6]]},
+	{"id": "squid", "model": "Squid", "label": "Squid", "price": 30, "babies": 1,
+		"patrols": [[60.0, 0.05, 18.0, 2.0]]},
+	{"id": "dolphin", "model": "Dolphin", "label": "Dolphin", "price": 40, "babies": 0,
+		"patrols": [[140.0, 0.08, 34.0, 2.6]]}]
+var animals_owned := {}    # tank friends released into the reef (persisted)
+var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
 var chime: AudioStreamPlayer
@@ -501,6 +518,7 @@ func _ready() -> void:
 	if first_session:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
+	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
 	dev_mode = preload("res://scripts/dev_mode.gd").new()
 	add_child(dev_mode)
 
@@ -1629,17 +1647,14 @@ func _build_aquatic_flora() -> void:
 			_register_solid(brock)
 
 func _build_aquatic_creatures() -> void:
-	# hero animated creatures patrolling on circular paths
+	# hero animated creatures patrolling on circular paths. The turtles,
+	# rays, dolphin and squid moved into the Pearl Shop's wall tanks
+	# (ANIMAL_SHOP): they only join the reef once she buys them free, so
+	# their patrol rows live there now and spawn via _spawn_shop_animals().
 	var roster := [
 		["Shark", 130.0, 0.05, 22.0, 4.0],
 		["Hammerhead", 160.0, 0.045, 30.0, 4.0],
 		["Whale", 200.0, 0.02, 40.0, 9.0],
-		["Turtle", 55.0, 0.06, 9.0, 1.6],
-		["Turtle", 90.0, 0.05, 13.0, 1.6],
-		["StingRay", 75.0, 0.07, 7.0, 2.4],
-		["StingRay", 110.0, 0.06, 16.0, 2.4],
-		["Dolphin", 140.0, 0.08, 34.0, 2.6],
-		["Squid", 60.0, 0.05, 18.0, 2.0],
 	]
 	for entry in roster:
 		var inst := _place_aq(entry[0], Vector3.ZERO, entry[4], true)
@@ -1657,15 +1672,19 @@ func _build_aquatic_creatures() -> void:
 		var lc: Vector3 = cluster_centers[9]
 		_place_aq("Lobster", Vector3(lc.x, seabed_y(lc.x, lc.z) + 0.3, lc.z - 3.0), 2.0, true)
 	# small darting schools — babies of HER creatures (the old Dory/Carp/Tuna/Eel
-	# pack fish were the last un-upgraded swimmers; playtest 2026-07-11)
-	var smallfish := ["ClownFish", "Turtle", "StingRay", "Squid", "ClownFish"]
-	for s in range(8):
-		var inst := _place_aq(smallfish[s % smallfish.size()], Vector3.ZERO, 1.2 + randf() * 1.0, true)
+	# pack fish were the last un-upgraded swimmers; playtest 2026-07-11).
+	# Only the clownfish schools are free from the start: the turtle/ray/
+	# squid babies arrive with their species when a tank friend is bought
+	# (the "babies" count on ANIMAL_SHOP keeps the old totals intact).
+	for s in range(3):
+		var inst := _place_aq("ClownFish", Vector3.ZERO, 1.2 + randf() * 1.0, true)
 		if inst == null:
 			continue
 		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU})
 	# player-crafted fish from the Crafting Studio (persist via save)
 	_spawn_crafted_fish()
+	# reef friends already bought free from the shop tanks (persist via save)
+	_spawn_shop_animals()
 
 func _spawn_crafted_fish() -> void:
 	# spawn any custom_fish entries not yet in the water. Idempotent via the
@@ -1681,6 +1700,28 @@ func _spawn_crafted_fish() -> void:
 		add_child(cfn)
 		flora_nodes.append(cfn)
 		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
+
+func _spawn_shop_animals() -> void:
+	# put every OWNED tank species in the water: its old patrol rows plus its
+	# school babies. Idempotent via animals_spawned, same shape as
+	# _spawn_crafted_fish: runs at world build, after _load_save() (the save
+	# loads AFTER the reef builds), and right when a tank friend is bought so
+	# it is already swimming when she leaves the shop.
+	for it in ANIMAL_SHOP:
+		var sp := String(it["id"])
+		if not bool(animals_owned.get(sp, false)) or bool(animals_spawned.get(sp, false)):
+			continue
+		animals_spawned[sp] = true
+		for pat in (it["patrols"] as Array):
+			var inst := _place_aq(String(it["model"]), Vector3.ZERO, float(pat[3]), true)
+			if inst == null:
+				continue
+			aquatic_movers.append({"node": inst, "rad": float(pat[0]), "spd": float(pat[1]), "y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp})
+		for b in range(int(it["babies"])):
+			var binst := _place_aq(String(it["model"]), Vector3.ZERO, 1.2 + randf() * 1.0, true)
+			if binst == null:
+				continue
+			aquatic_movers.append({"node": binst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU, "shop_pet": sp})
 
 func _tick_aquatic(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
@@ -2341,6 +2382,9 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 
 func _shop_buy(id: String) -> void:
 	_game_obj("shop", ShopGame)._shop_buy(id)
+
+func _tank_buy(id: String) -> void:
+	_game_obj("shop", ShopGame)._tank_buy(id)
 
 func _check_shopper() -> void:
 	_game_obj("shop", ShopGame)._check_shopper()
@@ -5441,6 +5485,55 @@ func _build_shop_cabin(origin: Vector3) -> void:
 			inode.visible = false
 			tag.text = "%s\n(yours!)" % String(it["label"])
 		(g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
+	# ANIMAL TANKS: glass tanks mounted on the back wall, each holding a reef
+	# friend Kareem will sell. Swim up with enough pearls and it goes FREE -
+	# out of the tank and into the reef forever (ANIMAL_SHOP / _tank_buy).
+	g["tanks"] = []
+	var tank_slots := [-10.5, -3.5, 3.5, 10.5]
+	for ti in range(ANIMAL_SHOP.size()):
+		var ta: Dictionary = ANIMAL_SHOP[ti]
+		var tid := String(ta["id"])
+		var tpos := Vector3(origin.x + tank_slots[ti], f + 8.8, origin.z - 11.4)
+		# wooden shelf, then the glass box on top
+		var shelf := _course_box(tpos + Vector3(0, -2.2, 0), Vector3(6.0, 0.5, 3.2), Color(0.45, 0.3, 0.18))
+		shelf.material_override.roughness = 1.0
+		var glass := MeshInstance3D.new()
+		var gbox := BoxMesh.new()
+		gbox.size = Vector3(5.6, 3.6, 2.8)
+		glass.mesh = gbox
+		var gmat := StandardMaterial3D.new()
+		gmat.albedo_color = Color(0.55, 0.85, 1.0, 0.22)
+		gmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		gmat.metallic = 0.2
+		gmat.roughness = 0.05
+		gmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		glass.material_override = gmat
+		glass.position = tpos
+		add_child(glass)
+		game_nodes.append(glass)
+		# a strip of sand so it reads "little home", not "specimen jar"
+		var sand := _course_box(tpos + Vector3(0, -1.6, 0), Vector3(5.2, 0.35, 2.4), Color(0.93, 0.85, 0.6))
+		sand.material_override.roughness = 1.0
+		# the friend swimming inside (sway shader gives it idle life)
+		var pet: Node3D = null
+		if CREATURE_GEN2.has(String(ta["model"])):
+			pet = _gen2_creature(String(CREATURE_GEN2[String(ta["model"])]), tpos + Vector3(0, -0.3, 0), 2.2)
+		if pet != null:
+			game_nodes.append(pet)
+		var ttag := Label3D.new()
+		ttag.text = "%s\n%d pearls" % [String(ta["label"]), int(ta["price"])]
+		ttag.font_size = 64
+		ttag.modulate = Color(0.75, 1.0, 0.95)
+		ttag.outline_size = 14
+		ttag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		ttag.position = tpos + Vector3(0, 2.6, 0.6)
+		add_child(ttag)
+		game_nodes.append(ttag)
+		if bool(animals_owned.get(tid, false)):
+			if pet != null:
+				pet.visible = false
+			ttag.text = "%s\n(set free!)" % String(ta["label"])
+		(g["tanks"] as Array).append({"id": tid, "node": pet, "tag": ttag, "price": int(ta["price"]), "base": tpos, "ph": randf() * TAU})
 	# glowing exit door
 	var door := MeshInstance3D.new()
 	var dt := TorusMesh.new()

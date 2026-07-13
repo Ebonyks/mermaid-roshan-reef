@@ -75,6 +75,25 @@ func _init() -> void:
 		await process_frame
 	var beans_off: bool = main.speed_mult == 1.0 and (main.beans_sfx == null or not main.beans_sfx.playing)
 	print("AUDIT|Can of Beans: ", ("OK" if beans_on and beans_off else "FAIL on=%s off=%s" % [beans_on, beans_off]))
+	# --- animal tanks (the pearl sink: buy the turtle free, it joins the reef) ---
+	main.pearl_count = 30
+	var movers0: int = main.aquatic_movers.size()
+	main._tank_buy("turtle")
+	var pets := 0
+	for mv0 in main.aquatic_movers:
+		if String(mv0.get("shop_pet", "")) == "turtle":
+			pets += 1
+	var tank_ok: bool = main.pearl_count == 5 and bool(main.animals_owned.get("turtle", false)) \
+		and main.aquatic_movers.size() > movers0 and pets >= 1
+	main._tank_buy("turtle")   # already free: must not charge or double-spawn
+	var tank_once: bool = main.pearl_count == 5 and main.aquatic_movers.size() == movers0 + pets
+	main.pearl_count = 3
+	main._tank_buy("dolphin")  # too few pearls: must not sell
+	var tank_poor: bool = main.pearl_count == 3 and not bool(main.animals_owned.get("dolphin", false))
+	var tank_line: String = "OK swimming=%d" % pets
+	if not (tank_ok and tank_once and tank_poor):
+		tank_line = "FAIL buy=%s once=%s poor=%s pets=%d" % [tank_ok, tank_once, tank_poor, pets]
+	print("AUDIT|Animal tanks: ", tank_line)
 	# --- pearl respawn ---
 	var p1: Node3D = main.pearls[0]
 	player.position = p1.position

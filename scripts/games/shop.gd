@@ -14,10 +14,10 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.player.position = origin + Vector3(0, 4, 9)
 	m.player.vel = Vector3.ZERO
 	m.player.yaw = PI
-	m.show_msg("Pearl Shop", "Welcome aboard! Swim up to a treasure on the counter to buy it!")
+	m.show_msg("Pearl Shop", "Welcome aboard! Treasures on the counter - and new reef friends in the tanks!")
 
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Pearls: %d - swim to a treasure to buy it!" % m.pearl_count
+	m.hud_game.text = "Pearls: %d - swim to a treasure or a tank friend to buy it!" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
 	for it in m.g.get("items", []):
 		var inode: Node3D = it["node"]
@@ -45,6 +45,26 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			elif m.shop_msg_cool <= 0.0:
 				m.shop_msg_cool = 2.5
 				m.show_msg("Pearl Shop", "You need %d pearls for that - the reef is full of them!" % price)
+	for tk in m.g.get("tanks", []):
+		var tid := String(tk["id"])
+		var pet: Node3D = tk["node"]
+		if pet != null and is_instance_valid(pet) and pet.visible:
+			# little laps inside the glass so the tank reads alive: x sweeps on a
+			# sine, and the friend turns to face its swim direction (creatures
+			# face -X at rotation.y 0 - same convention the reef movers steer)
+			var swim := sin(float(m.g["t"]) * 0.9 + float(tk["ph"]))
+			pet.position.x = (tk["base"] as Vector3).x + swim * 1.1
+			var going: float = cos(float(m.g["t"]) * 0.9 + float(tk["ph"]))
+			pet.rotation.y = lerp_angle(pet.rotation.y, 0.0 if going < 0.0 else PI, delta * 4.0)
+		if bool(m.animals_owned.get(tid, false)):
+			continue
+		if m._near_ground(tk["base"], ppos, 5.5, 7.0):
+			var tprice: int = int(tk["price"])
+			if m.pearl_count >= tprice:
+				_tank_buy(tid)
+			elif m.shop_msg_cool <= 0.0:
+				m.shop_msg_cool = 2.5
+				m.show_msg("Pearl Shop", "This friend costs %d pearls - the reef is full of them!" % tprice)
 	var door: MeshInstance3D = m.g["exit"]
 	door.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 3.0) * 0.08)
 	# leave the shop by simply swimming OUT of the room (open front / sides)
@@ -87,6 +107,34 @@ func _shop_buy(id: String) -> void:
 		elif id == "pearlskin":
 			m.show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
 		_check_shopper()
+		return
+
+func _tank_buy(id: String) -> void:
+	# release a tank friend into the reef: deduct pearls, persist, spawn its
+	# patrols + babies right away so it is already swimming when she leaves.
+	# Callable outside the shop scene too (probes) - the tank visuals are only
+	# touched when the cabin is actually built.
+	for it in m.ANIMAL_SHOP:
+		if String(it["id"]) != id:
+			continue
+		if bool(m.animals_owned.get(id, false)) or m.pearl_count < int(it["price"]):
+			return
+		m.pearl_count -= int(it["price"])
+		m.animals_owned[id] = true
+		m._spawn_shop_animals()
+		m._update_hud()
+		m._write_save()
+		if m.buy_sound != null:
+			m.buy_sound.play()
+		m._sparkle_burst(m.player.position + Vector3(0, 2, 0), Color(0.5, 1.0, 0.9))
+		for tk in m.g.get("tanks", []):
+			if String(tk["id"]) != id:
+				continue
+			var pet: Node3D = tk["node"]
+			if pet != null and is_instance_valid(pet):
+				pet.visible = false
+			(tk["tag"] as Label3D).text = "%s\n(set free!)" % String(it["label"])
+		m.show_msg("Pearl Shop", "The %s is FREE! It lives in YOUR reef now - go find it!" % String(it["label"]), "win")
 		return
 
 func _check_shopper() -> void:
