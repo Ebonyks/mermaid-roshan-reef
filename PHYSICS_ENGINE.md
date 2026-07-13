@@ -62,9 +62,30 @@ you, SPACE hops), or `ST_AIR` (ballistic, no jump until landing).
 | penguin slide | `track_speed()` along-grade sled + `lateral()` steering |
 | magnets (stars, door, play-place checkpoints, crown updraft) | `magnet()` — the frame-rate-correct exponential form of the old `lerp(delta*k)` pulls |
 
+| shop hanging kelp | `spring2()` pendulums — swing when brushed, settle when left |
+
 Deliberately **not** on the engine: pure choreography — parametric creature
 orbits, the fairy-pond rail shooter's positional strafing, the 2D rainbow
 slide ride, tween bells. Those are animations, not force simulations.
+
+## Foliage: the engine feeds the GPU, it doesn't replace it
+
+The 2,600+ seagrass/kelp MultiMesh instances are animated by their vertex
+shader (`_sway_grass_mat`) — ambient sway costs zero CPU and zero memory per
+blade, which is why mass foliage must NOT become physics bodies (thousands of
+GDScript spring updates + a full MultiMesh buffer re-upload per frame would
+sink the target phone).
+
+Instead, the engine and the shader are bridged by uniforms: every frame
+`_tick_foliage_push()` writes Roshan's body position and speed into the few
+(memoized) sway materials, and the GPU bends each blade away from her —
+meadows part as she swims through, harder the faster she moves. Interaction
+lives in the physics state; per-blade motion stays on the GPU.
+
+For plants that deserve true secondary motion (recoil after a brush), use a
+`spring2()` pendulum per plant like the shop kelp — dozens are fine, meadows
+are not. Rule of thumb: **reacts to gameplay → engine; ambient mass motion →
+shader; choreography → parametric.**
 
 ## Feel changes shipped with the migration
 

@@ -4660,7 +4660,9 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		game_nodes.append(bulb)
 		var cord := _course_box(lamp.position + Vector3(0, 3.0, 0), Vector3(0.12, 6.0, 0.12), Color(0.25, 0.18, 0.1))
 		cord.material_override.emission_enabled = false
-	# hanging kelp bunches like dried herbs
+	# hanging kelp bunches like dried herbs — real spring pendulums on the
+	# physics engine: brushing past sets them swinging, then they settle
+	g["kelp"] = []
 	for hk in range(5):
 		var bunch := MeshInstance3D.new()
 		bunch.mesh = _cross_blade(0.5, 2.2)
@@ -4669,6 +4671,7 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		bunch.rotation_degrees = Vector3(180, randf() * 360.0, 0)
 		add_child(bunch)
 		game_nodes.append(bunch)
+		(g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
 	# barrels in the corners
 	var b1 := _spawn("barrel", Vector3(origin.x - 13.0, f, origin.z + 12.0), 3.2, 0.4)
 	if b1 != null:
@@ -4800,6 +4803,19 @@ func _build_shop_cabin(origin: Vector3) -> void:
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	hud_game.text = "Pearls: %d - swim to a treasure to buy it!" % pearl_count
 	shop_msg_cool = maxf(0.0, shop_msg_cool - delta)
+	# hanging kelp: damped spring pendulums — swing when Roshan brushes them
+	for kd in g.get("kelp", []):
+		var bn: MeshInstance3D = kd["node"]
+		var ang0: Vector2 = kd["ang"]
+		var tip: Vector3 = bn.position + Vector3(ang0.x, -1.0, ang0.y).normalized() * 2.0
+		var dd: float = tip.distance_to(ppos)
+		if dd < 2.4:
+			var push := Vector2(tip.x - ppos.x, tip.z - ppos.z)
+			if push.length() > 0.01:
+				kd["vel"] = (kd["vel"] as Vector2) + push.normalized() * (2.4 - dd) * 12.0 * delta
+		ReefPhysics.spring2(kd, 6.0, 1.5, delta)
+		var ang: Vector2 = kd["ang"]
+		bn.rotation = Vector3(PI - ang.y * 0.8, float(kd["yaw"]), ang.x * 0.8)
 	for it in g.get("items", []):
 		var inode: Node3D = it["node"]
 		if not inode.visible:
@@ -6364,6 +6380,7 @@ func _process(delta: float) -> void:
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
+	_tick_foliage_push(ppos)
 	_tick_life(delta)
 	_tick_movers(delta)
 	_tick_aquatic(delta)
@@ -6414,18 +6431,53 @@ func _process(delta: float) -> void:
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
+var _sway_mat_cache := {}   # one material per color pair, shared by all users
+
+# Feed Roshan's physics state to the swaying-foliage shaders: one uniform
+# write per material per frame (there are only a handful of sway materials),
+# and the GPU bends every blade near her — parting harder the faster she
+# swims. This is the bridge between ReefPhysics and the mass foliage: the
+# 2,600+ meadow instances stay CPU-free.
+func _tick_foliage_push(ppos: Vector3) -> void:
+	if player == null:
+		return
+	var amt: float = clampf(0.25 + (player.vel as Vector3).length() * 0.04, 0.25, 1.1)
+	for m in _sway_mat_cache.values():
+		(m as ShaderMaterial).set_shader_parameter("push_pos", ppos)
+		(m as ShaderMaterial).set_shader_parameter("push_amt", amt)
+
 func _sway_grass_mat(base: Color, tip: Color) -> ShaderMaterial:
+	# memoized: thousands of MultiMesh blades and every kelp bunch share these
+	# few materials, so the per-frame push_pos update below touches each one once
+	var key := "%s|%s" % [base.to_html(), tip.to_html()]
+	if _sway_mat_cache.has(key):
+		return _sway_mat_cache[key]
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
 render_mode cull_disabled, depth_prepass_alpha;
 uniform vec3 base_col;
 uniform vec3 tip_col;
 uniform sampler2D leaf;
+uniform vec3 push_pos;      // Roshan's ReefPhysics body position (world)
+uniform float push_amt = 0.0;   // bend strength, scaled by her speed
 void vertex(){
 	float w = UV.y;
 	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	VERTEX.x += sin(TIME * 0.9 + wp.x * 0.28 + wp.z * 0.22) * 0.5 * w;
 	VERTEX.z += cos(TIME * 0.7 + wp.x * 0.16) * 0.36 * w;
+	// physics-fed interaction: blades bend away from Roshan as she swims
+	// through, harder the faster she moves. All on the GPU — no per-blade
+	// CPU state, the engine just feeds one uniform per frame.
+	vec2 away = wp.xz - push_pos.xz;
+	float dist = length(away);
+	float ring = 1.0 - smoothstep(0.0, 4.5, dist);
+	float band = 1.0 - smoothstep(2.0, 8.0, abs(wp.y - push_pos.y));
+	float bend = ring * band * push_amt * w;
+	if (bend > 0.001 && dist > 0.001) {
+		vec3 off_ws = vec3(away.x / dist, -0.35, away.y / dist);
+		vec3 off_ms = normalize((vec4(off_ws, 0.0) * MODEL_MATRIX).xyz);
+		VERTEX += off_ms * bend * 1.5;
+	}
 }
 void fragment(){
 	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
@@ -6445,6 +6497,7 @@ void fragment(){
 	m.set_shader_parameter("base_col", Vector3(base.r, base.g, base.b))
 	m.set_shader_parameter("tip_col", Vector3(tip.r, tip.g, tip.b))
 	m.set_shader_parameter("leaf", load("res://assets/terrain/leaf.png"))
+	_sway_mat_cache[key] = m
 	return m
 func _glow_dot_mat() -> ShaderMaterial:
 	var sh := Shader.new()
