@@ -84,6 +84,14 @@ const PICKUPS := [
 	{"u": 0.87, "lat": -5.0, "kind": "rainbow"},
 	{"u": 0.93, "lat": -3.0, "kind": "star"},
 ]
+# jump ramps (auto-trick, MK-Tour style: no input needed — driving one is the
+# trick): u fraction along the loop + lat placement
+const RAMPS := [
+	{"u": 0.16, "lat": 0.0},
+	{"u": 0.47, "lat": -3.0},
+	{"u": 0.74, "lat": 3.0},
+]
+const AIR_DUR := 0.85              # seconds of hang time off a ramp
 # rows of collectible pearls: u start, lat, count (spaced along s)
 const PEARL_ROWS := [
 	{"u": 0.05, "lat": 3.0, "n": 4},
@@ -193,6 +201,7 @@ var _vmax := 40.0
 var _karts: Array = []
 var _pl = null
 var _strip_data: Array = []
+var _ramp_data: Array = []         # jump pads: {pos: Vector3}
 var _pickups_live: Array = []
 var _pearls_live: Array = []
 var _state := "select"             # select -> countdown -> race -> podium -> done
@@ -420,6 +429,8 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_strips()
 	_build_pickups()
 	_build_pearls()
+	_build_ramps()
+	_build_engine()
 	_build_camera()
 	_build_hud()
 	_build_select()
@@ -669,17 +680,21 @@ void fragment(){
 	// flowering-meadow planet (the butterfly-house garden): soft grass with
 	// sandy landscaped paths and thousands of tiny flower dots
 	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
-	vec3 a = vec3(0.45, 0.76, 0.42);   // meadow green
-	vec3 b = vec3(0.58, 0.86, 0.48);   // sunlit grass
+	// deeper greens than the walk-on version: seen from orbit through the
+	// storybook grade + bloom, the original pale meadow flattened to a
+	// featureless cyan wall — richer bands keep the orb readable
+	vec3 a = vec3(0.30, 0.62, 0.30);   // meadow green
+	vec3 b = vec3(0.48, 0.80, 0.38);   // sunlit grass
 	vec3 col = mix(a, b, band);
 	// two winding garden paths circling the planet
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
-	col = mix(col, vec3(0.90, 0.83, 0.62), clamp(pathm, 0.0, 1.0) * 0.85);
-	// confetti of tiny flowers
+	col = mix(col, vec3(0.86, 0.76, 0.52), clamp(pathm, 0.0, 1.0) * 0.85);
+	// confetti of tiny flowers (bigger + denser than the walk-on version:
+	// they must survive being seen from the racetrack)
 	vec2 g = UV * vec2(220.0, 120.0);
 	float fh = h21(floor(g));
-	float dot2 = step(0.986, fh) * smoothstep(0.3, 0.05, length(fract(g) - 0.5));
+	float dot2 = step(0.980, fh) * smoothstep(0.36, 0.06, length(fract(g) - 0.5));
 	vec3 fcol = 0.55 + 0.45 * cos(6.28 * (fh * 7.0 + vec3(0.0, 0.33, 0.67)));
 	col = mix(col, fcol, dot2 * (1.0 - clamp(pathm, 0.0, 1.0)));
 	// firefly sparkle at "night" side
@@ -1206,6 +1221,52 @@ func _build_pickups() -> void:
 		add_child(holder)
 		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": kind, "cool": 0.0, "rlab": rlab})
 
+func _build_ramps() -> void:
+	# golden glowing wedges on the racing line: drive one, FLY, land with a
+	# free zip — the auto-trick every one-finger mobile racer is built on
+	var table: Array = _cv("ramps", RAMPS)
+	for rd in table:
+		var s0: float = float(rd["u"]) * _len
+		var fr := _frame_at(s0, float(rd["lat"]))
+		var pos: Vector3 = fr[0]
+		var fwd: Vector3 = fr[1]
+		var wedge := MeshInstance3D.new()
+		var pm := PrismMesh.new()
+		pm.size = Vector3(9.0, 2.2, 6.0)
+		wedge.mesh = pm
+		var gm := StandardMaterial3D.new()
+		gm.albedo_color = Color(1.0, 0.85, 0.3)
+		gm.emission_enabled = true
+		gm.emission = Color(1.0, 0.8, 0.25)
+		gm.emission_energy_multiplier = 0.8
+		wedge.material_override = gm
+		wedge.position = pos + Vector3(0, 1.1, 0)
+		# tent-shaped pad with the slope aligned along the road — reads as a
+		# jump bump from BOTH directions, so reverse laps get it for free
+		wedge.rotation = Vector3(0, atan2(fwd.x, fwd.z) + PI * 0.5, 0)
+		add_child(wedge)
+		var lab := Label3D.new()
+		lab.text = "⤴"
+		lab.font_size = 140
+		lab.pixel_size = 0.03
+		lab.outline_size = 18
+		lab.modulate = Color(1.0, 0.95, 0.5)
+		lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		lab.position = pos + Vector3(0, 6.0, 0)
+		add_child(lab)
+		_ramp_data.append({"pos": pos})
+
+func _check_ramps() -> void:
+	for rd in _ramp_data:
+		for k in _karts:
+			if float(k.get("air_t", 0.0)) > 0.0:
+				continue
+			if (k["node"] as Node3D).position.distance_to(rd["pos"]) < 6.0:
+				k["air_t"] = AIR_DUR
+				if bool(k["is_player"]):
+					_chime(1.15)
+					_flash_big("WHEEE!")
+
 func _build_pearls() -> void:
 	var rows: Array = _cv("pearl_rows", PEARL_ROWS)
 	for row in rows:
@@ -1592,6 +1653,21 @@ func _tick_select(delta: float) -> void:
 		_lbl_big.text = ""
 		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!")
 		_meter_bg.visible = true
+		# put the whole pack ON the grid right now (nodes used to sit at the
+		# world origin until the first race frame — the countdown showed an
+		# empty road) and SNAP the camera behind Roshan: the old 1s glide from
+		# the podium shot passed nose-first through the Butterfly World
+		# backdrop, so every race opened on a washed-out planet close-up
+		for k2 in _karts:
+			_place_kart(k2, 0.0)
+		if _pl != null and _cam != null:
+			var fr := _kart_frame(float(_pl["s"]), float(_pl["lat"]) * 0.35)
+			var fwd0: Vector3 = fr[1]
+			var dist0: float = 13.0 if _ground_mode() == "terrain" else 15.5
+			_cam.position = (fr[0] as Vector3) - fwd0 * dist0 + Vector3(0, 8.5, 0)
+			if _ground_mode() == "terrain":
+				_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
+			_cam.look_at((_pl["node"] as Node3D).position + fwd0 * 6.0 + Vector3(0, 2.0, 0), Vector3.UP)
 
 # ------------------------------------------------------------ input helpers
 func _fire_just() -> bool:
@@ -1673,6 +1749,9 @@ func _process(delta: float) -> void:
 				_pl["squash"] = 0.3
 				_chime(1.25)
 				_flash_big("ROCKET START!")
+		for k0 in _karts:
+			_place_kart(k0, delta)   # pack idles ON the grid through 3-2-1
+		_tick_engine()   # idle rumble builds anticipation through the count
 		_update_camera(delta)
 		return
 
@@ -1689,10 +1768,12 @@ func _process(delta: float) -> void:
 		_place_kart(k, delta)
 
 	_check_strips()
+	_check_ramps()
 	_check_pickups(delta)
 	_check_pearls()
 	_check_shortcut()
 	_resolve_collisions()
+	_tick_engine()
 	_update_camera(delta)
 	_update_hud()
 	if _flash_t > 0.0:
@@ -1706,10 +1787,21 @@ func _process(delta: float) -> void:
 func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, delta: float) -> void:
 	var vd := _veh(k)
 	k["boost_t"] = maxf(0.0, float(k["boost_t"]) - delta)
+	# MK-Tour-style assist: a bar that sits FULL for a beat fires itself —
+	# agency for the thumb that taps, a floor for the one that never does
+	var want_fire := fired
+	if float(k["meter"]) >= 0.99 and float(k["boost_t"]) <= 0.0:
+		k["full_t"] = float(k.get("full_t", 0.0)) + delta
+		if float(k["full_t"]) >= 2.5:
+			want_fire = true
+			_flash_big("TURBO!")
+	else:
+		k["full_t"] = 0.0
 	# fire turbo (the interactive bit: player chooses the moment)
-	if fired and float(k["meter"]) >= 0.5 and float(k["boost_t"]) <= 0.0:
+	if want_fire and float(k["meter"]) >= 0.5 and float(k["boost_t"]) <= 0.0:
 		k["boost_t"] = TURBO_TIME * float(vd["turbo"])
 		k["meter"] = maxf(0.0, float(k["meter"]) - 0.5)
+		k["full_t"] = 0.0
 		k["squash"] = 0.3       # launch squat
 		_shake = maxf(_shake, 0.2)
 		_chime(0.7)
@@ -1783,6 +1875,8 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 		if room < 3.5 and not toward_wall:
 			var aid: float = clampf((3.5 - room) / 3.5, 0.0, 1.0) * 0.7
 			want_v = lerpf(want_v, -signf(float(k["lat"])) * float(vd["steer"]) * 0.6, aid)
+	if float(k.get("air_t", 0.0)) > 0.0:
+		want_v *= 0.5   # floaty mid-air: you can nudge the landing, not carve
 	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip * 0.7) * 30.0 * delta + 0.14))
 	_apply_lat(k, float(k["lat"]) + float(k["latv"]) * delta)
 
@@ -1882,9 +1976,29 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 		hop_t = maxf(0.0, hop_t - delta)
 		k["hop"] = hop_t
 		hop_h = sin((1.0 - hop_t / 0.25) * PI) * 0.9
-	node.position = pos + up * (1.2 + hop_h)
+	# ramp air: a real arc with hang time; the clean landing pays a free zip
+	var air_t: float = float(k.get("air_t", 0.0))
+	var air_p := 0.0
+	var air_h := 0.0
+	if air_t > 0.0:
+		air_t = maxf(0.0, air_t - delta)
+		k["air_t"] = air_t
+		air_p = 1.0 - air_t / AIR_DUR
+		air_h = sin(air_p * PI) * 5.0
+		if air_t <= 0.0:
+			k["boost_t"] = maxf(float(k["boost_t"]), 0.5)   # the auto-trick payout
+			k["squash"] = 0.3
+			if bool(k["is_player"]):
+				_chime(1.25)
+				_shake = maxf(_shake, 0.15)
+				if _main != null and _main.has_method("_sparkle_burst"):
+					_main._sparkle_burst(node.position, Color(1.0, 0.9, 0.4))
+	node.position = pos + up * (1.2 + hop_h + air_h)
 	if fwd.length() > 0.001:
 		node.look_at(pos + fwd + up * 1.2, up)
+		if air_p > 0.0:
+			# nose lifts off the ramp, dips into the landing
+			node.rotate_object_local(Vector3(1, 0, 0), -cos(air_p * PI) * 0.30)
 		# point the nose INTO the turn (the visual feedback that makes steering feel real)
 		var vyaw: float = clampf(-float(k["latv"]) * 0.030, -0.55, 0.55)
 		if bool(k.get("drift", false)):
@@ -2045,13 +2159,19 @@ func _check_pickups(delta: float) -> void:
 		if node.position.distance_to(pn.position) < (8.5 if _touch_t > 0.0 else 6.5):
 			var kind := String(pu["kind"])
 			var col := Color(1.0, 0.7, 0.95)
+			# every pickup pays out NOW (owner playtest: meter-only charges
+			# were invisible to a 4yo — the chime played and nothing happened)
 			match kind:
 				"star":
 					_charge(_pl, 0.7)
+					_pl["boost_t"] = maxf(float(_pl["boost_t"]), 0.7)
+					_pl["squash"] = 0.3
 					col = Color(1.0, 0.9, 0.3)
 					_chime(0.9)
+					_shake = maxf(_shake, 0.1)
 				"shell":
 					_charge(_pl, 0.4)
+					_pl["boost_t"] = maxf(float(_pl["boost_t"]), 0.4)
 					_chime(0.9)
 				"bubble":
 					# POP! instant zip, no meter needed — keeps the race lively
@@ -2060,8 +2180,12 @@ func _check_pickups(delta: float) -> void:
 					col = Color(0.5, 0.95, 1.0)
 					_chime(1.1)
 				"rainbow":
-					# jackpot: full turbo meter
+					# jackpot: full meter AND an immediate full-length turbo —
+					# the guaranteed WHOOSH even if the tap never comes
 					_pl["meter"] = 1.0
+					_pl["boost_t"] = maxf(float(_pl["boost_t"]), TURBO_TIME * float(_veh(_pl)["turbo"]))
+					_pl["squash"] = 0.3
+					_flash_big("RAINBOW POWER!")
 					col = Color.from_hsv(fposmod(t, 1.0), 0.7, 1.0)
 					_chime(1.3)
 					_shake = maxf(_shake, 0.15)
@@ -2133,7 +2257,11 @@ func _resolve_collisions() -> void:
 				var fastest: float = maxf(float(a["speed"]), float(b["speed"]))
 				heavy["speed"] = minf(maxf(float(heavy["speed"]), fastest) * (1.0 + 0.08 * edge), _vmax * 1.9)
 				light["speed"] = float(light["speed"]) * (1.08 - 0.5 * edge)
-				light["boost_t"] = minf(float(light["boost_t"]), 0.1)
+				# a bump strips a RIVAL's zip, never hers — the bumper AI hunts
+				# her lane, so this line was silently deleting almost every
+				# boost she earned ("the items don't work")
+				if not bool(light["is_player"]):
+					light["boost_t"] = minf(float(light["boost_t"]), 0.1)
 				light["stun_t"] = 0.45   # drop back instead of grinding inside the winner
 				if float(light["s"]) > float(heavy["s"]):
 					light["s"] = float(light["s"]) - sep * 0.15
@@ -2155,6 +2283,47 @@ func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:
 		_main.chime.pitch_scale = pitch
 		_main.chime.play()
+
+# ------------------------------------------------------------ engine hum
+# Procedural putt-putt via AudioStreamGenerator: pitch rides the speed — the
+# strongest subconscious speed cue a racer has, and the one this game had
+# none of. No OGG asset, no license line. VERIFY ON DEVICE: if frame drops
+# make it crackle, lower the mix rate or gate it off.
+var _eng: AudioStreamPlayer = null
+var _eng_pb: AudioStreamGeneratorPlayback = null
+var _eng_phase := 0.0
+
+func _build_engine() -> void:
+	if _speedy():
+		return   # per-frame buffer fill is CPU the budget tier doesn't have
+	_eng = AudioStreamPlayer.new()
+	var gen := AudioStreamGenerator.new()
+	gen.mix_rate = 22050.0
+	gen.buffer_length = 0.15
+	_eng.stream = gen
+	_eng.volume_db = -18.0   # a quiet bed UNDER the music, not a race car
+	add_child(_eng)
+	_eng.play()
+	_eng_pb = _eng.get_stream_playback()
+
+func _tick_engine() -> void:
+	if _eng_pb == null or _pl == null:
+		return
+	var spd_n: float = clampf(float(_pl["speed"]) / (_vmax * 1.5), 0.0, 1.0)
+	var freq: float = 58.0 + 150.0 * spd_n + (26.0 if float(_pl["boost_t"]) > 0.0 else 0.0)
+	var frames: int = _eng_pb.get_frames_available()
+	if frames <= 0:
+		return
+	var buf := PackedVector2Array()
+	buf.resize(frames)
+	for i in range(frames):
+		_eng_phase += freq / 22050.0
+		var p: float = fposmod(_eng_phase, 1.0)
+		# soft saw + an octave up — a friendly toy putt-putt
+		var s: float = (p * 2.0 - 1.0) * 0.55 + sin(p * TAU * 2.0) * 0.3
+		s *= 0.16 + 0.10 * spd_n
+		buf[i] = Vector2(s, s)
+	_eng_pb.push_buffer(buf)
 
 # ------------------------------------------------------------ camera + HUD
 func _update_camera(delta: float) -> void:
@@ -2183,7 +2352,7 @@ func _update_camera(delta: float) -> void:
 		want += right * sin(Time.get_ticks_msec() * 0.045) * _shake * 1.6
 	_thunk_cool = maxf(0.0, _thunk_cool - delta)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
-	_cam.fov = lerpf(_cam.fov, 62.0 + 14.0 * spd_n + (4.0 if boosting else 0.0), delta * 5.0)
+	_cam.fov = lerpf(_cam.fov, 62.0 + 14.0 * spd_n + (7.0 if boosting else 0.0), delta * 5.0)
 	# the horizon leans into the carve (tiny, but it makes steering feel physical)
 	var up_roll := Vector3.UP.rotated(fwd, clampf(-float(_pl["latv"]) * 0.010, -0.10, 0.10))
 	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), up_roll)
