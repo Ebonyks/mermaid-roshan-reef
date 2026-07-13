@@ -1716,12 +1716,160 @@ func _spawn_shop_animals() -> void:
 			var inst := _place_aq(String(it["model"]), Vector3.ZERO, float(pat[3]), true)
 			if inst == null:
 				continue
-			aquatic_movers.append({"node": inst, "rad": float(pat[0]), "spd": float(pat[1]), "y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp})
+			var mover := {"node": inst, "rad": float(pat[0]), "spd": float(pat[1]), "y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp}
+			if sp == "turtle":
+				# the freed turtle keeps its tank skeleton: flippers stroke
+				# out in the open reef too, so the purchase payoff is visible
+				var rig := _rig_turtle(inst, 3.0)
+				if not rig.is_empty():
+					mover["rig"] = rig
+					_set_sway(inst, 0.03)
+			aquatic_movers.append(mover)
 		for b in range(int(it["babies"])):
 			var binst := _place_aq(String(it["model"]), Vector3.ZERO, 1.2 + randf() * 1.0, true)
 			if binst == null:
 				continue
-			aquatic_movers.append({"node": binst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU, "shop_pet": sp})
+			var bmover := {"node": binst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU, "shop_pet": sp}
+			if sp == "turtle":
+				var brig := _rig_turtle(binst, 3.6)
+				if not brig.is_empty():
+					bmover["rig"] = brig
+					_set_sway(binst, 0.03)
+			aquatic_movers.append(bmover)
+
+var _turtle_rig_mesh: ArrayMesh = null   # cage-skinned turtle mesh, built once, shared
+var _turtle_rig_skin: Skin = null
+
+func _rig_turtle(pet: Node3D, speed: float) -> Dictionary:
+	# THE TURTLE RIG: a real Skeleton3D over the (unrigged) Meshy turtle so
+	# the flippers FLAP from the shoulder instead of shearing with the body
+	# wave. Skin weights come from a MOTION CAGE - anatomical regions measured
+	# from turtle.glb's vertex slices (mesh space, +Z = head):
+	#   head/neck tube  z > 0.42, |x| < 0.30
+	#   front flippers  blades |x| 0.55..0.93, z -0.44..+0.30, shoulder ~0.48
+	#   rear paddles    |x| 0.28..0.55, z -0.95..-0.55
+	#   shell           everything else (rigid root)
+	# Each vertex blends its limb bone with the shell root on a smoothstep
+	# falloff through the cage boundary, so joints bend without cracks. The
+	# skinned ArrayMesh + Skin are built once and shared by every instance;
+	# only the (7-bone) skeleton is per-turtle.
+	if pet == null or not is_instance_valid(pet):
+		return {}
+	var mi: MeshInstance3D = null
+	for m2 in _all_meshes(pet):
+		mi = m2
+		break
+	if mi == null or mi.mesh == null or mi.mesh.get_surface_count() != 1:
+		return {}
+	if _turtle_rig_mesh == null:
+		var arrays: Array = mi.mesh.surface_get_arrays(0)
+		var verts: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var bones := PackedInt32Array()
+		bones.resize(verts.size() * 4)
+		var wts := PackedFloat32Array()
+		wts.resize(verts.size() * 4)
+		for i in range(verts.size()):
+			var v: Vector3 = verts[i]
+			var bi: int = i * 4
+			var ax: float = absf(v.x)
+			var limb: int = 0
+			var w: float = 0.0
+			if v.z > -0.50 and v.z < 0.34 and v.y < 0.22:
+				w = smoothstep(0.45, 0.62, ax)          # through the shoulder
+				limb = 3 if v.x > 0.0 else 4
+			elif v.z <= -0.50 and v.y < 0.24:
+				w = smoothstep(0.24, 0.36, ax) * smoothstep(0.50, 0.62, -v.z)
+				limb = 5 if v.x > 0.0 else 6
+			if w > 0.0:
+				bones[bi] = limb
+				wts[bi] = w
+				bones[bi + 1] = 0
+				wts[bi + 1] = 1.0 - w
+			elif v.z > 0.36 and ax < 0.38:
+				var wn: float = smoothstep(0.36, 0.52, v.z)  # into the neck
+				var wh: float = smoothstep(0.55, 0.72, v.z)  # on to the head
+				bones[bi] = 1
+				wts[bi] = wn * (1.0 - wh)
+				bones[bi + 1] = 2
+				wts[bi + 1] = wn * wh
+				bones[bi + 2] = 0
+				wts[bi + 2] = 1.0 - wn
+			else:
+				bones[bi] = 0
+				wts[bi] = 1.0
+		arrays[Mesh.ARRAY_BONES] = bones
+		arrays[Mesh.ARRAY_WEIGHTS] = wts
+		var am := ArrayMesh.new()
+		am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		_turtle_rig_mesh = am
+	# bone rests: hinge points sit where each limb meets the body
+	var origins: Array = [Vector3.ZERO, Vector3(0.0, -0.02, 0.40), Vector3(0.0, 0.0, 0.62),
+		Vector3(0.48, -0.15, -0.05), Vector3(-0.48, -0.15, -0.05),
+		Vector3(0.30, -0.12, -0.58), Vector3(-0.30, -0.12, -0.58)]
+	var parents: Array = [-1, 0, 1, 0, 0, 0, 0]
+	var skel := Skeleton3D.new()
+	for bn in ["shell", "neck", "head", "fin_p", "fin_n", "rear_p", "rear_n"]:
+		skel.add_bone(bn)
+	for i in range(7):
+		if int(parents[i]) >= 0:
+			skel.set_bone_parent(i, int(parents[i]))
+		var local: Vector3 = origins[i]
+		if int(parents[i]) >= 0:
+			local = (origins[i] as Vector3) - (origins[int(parents[i])] as Vector3)
+		skel.set_bone_rest(i, Transform3D(Basis.IDENTITY, local))
+	if _turtle_rig_skin == null:
+		var sk := Skin.new()
+		for i in range(7):
+			sk.add_bind(i, Transform3D(Basis.IDENTITY, -(origins[i] as Vector3)))
+		_turtle_rig_skin = sk
+	# swap in the skinned mesh; the skeleton lives INSIDE the mesh instance so
+	# skeleton space == mesh space no matter how the wrap is fitted/rotated
+	var ov: Material = mi.get_surface_override_material(0)
+	mi.mesh = _turtle_rig_mesh
+	if ov != null:
+		mi.set_surface_override_material(0, ov)
+	mi.skin = _turtle_rig_skin
+	mi.add_child(skel)
+	mi.skeleton = mi.get_path_to(skel)
+	skel.reset_bone_poses()
+	return {"skel": skel, "ph": randf() * TAU, "speed": speed}
+
+func _turtle_idle(rig: Dictionary, t: float) -> void:
+	# the flap cycle: slow recovery lift, quick power pull (second harmonic
+	# sharpens the downbeat), flippers feathering through the stroke like a
+	# slow-motion wingbeat; rear paddles rudder on the half-beat; the neck
+	# looks around on its own slower clock so she reads as curious, not
+	# mechanical. Bones rotate in mesh space: +Z forward, fins along +/-X.
+	var skel: Skeleton3D = rig.get("skel", null)
+	if skel == null or not is_instance_valid(skel):
+		return
+	var ph: float = t * float(rig["speed"]) + float(rig["ph"])
+	var flap: float = sin(ph) * 0.42 + sin(ph * 2.0 + 0.9) * 0.13
+	var feather: float = sin(ph - 1.1) * 0.22
+	skel.set_bone_pose_rotation(3, Quaternion(Vector3(0, 0, 1), flap) * Quaternion(Vector3(1, 0, 0), feather))
+	skel.set_bone_pose_rotation(4, Quaternion(Vector3(0, 0, 1), -flap) * Quaternion(Vector3(1, 0, 0), -feather))
+	skel.set_bone_pose_rotation(5, Quaternion(Vector3(1, 0, 0), sin(ph * 0.5 + 2.0) * 0.16))
+	skel.set_bone_pose_rotation(6, Quaternion(Vector3(1, 0, 0), sin(ph * 0.5 + 2.6) * 0.16))
+	var yaw: float = sin(t * 0.31 + float(rig["ph"])) * 0.30
+	var pitch: float = sin(t * 0.21 + float(rig["ph"]) * 1.7) * 0.10
+	skel.set_bone_pose_rotation(1, Quaternion(Vector3(0, 1, 0), yaw) * Quaternion(Vector3(1, 0, 0), pitch))
+	skel.set_bone_pose_rotation(2, Quaternion(Vector3(0, 1, 0), yaw * 0.6) * Quaternion(Vector3(1, 0, 0), pitch * 0.7))
+	skel.set_bone_pose_rotation(0, Quaternion(Vector3(1, 0, 0), sin(ph - 1.4) * 0.05))
+
+func _set_sway(pet: Node3D, amount: float) -> void:
+	# retune the sway shader on one instance (materials are per-surface
+	# copies, so this never bleeds to other creatures). The rigged turtle
+	# drops to near-zero so the skeleton owns the motion; the other tank
+	# friends get a close-up boost so their idle reads through the glass.
+	if pet == null or not is_instance_valid(pet):
+		return
+	for mi in _all_meshes(pet):
+		if mi.mesh == null:
+			continue
+		for si in range(mi.mesh.get_surface_count()):
+			var mat: Material = mi.get_surface_override_material(si)
+			if mat is ShaderMaterial:
+				(mat as ShaderMaterial).set_shader_parameter("sway_amount", amount)
 
 func _tick_aquatic(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
@@ -1732,6 +1880,8 @@ func _tick_aquatic(delta: float) -> void:
 		var pos := Vector3(cos(ang) * rad, float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0, sin(ang) * rad)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
+		if mv.has("rig"):
+			_turtle_idle(mv["rig"], t)
 		# a fish SHE made recognises her: heart puff + chirp when she swims by
 		if bool(mv.get("crafted", false)) and game == "":
 			mv["greet_cool"] = maxf(0.0, float(mv.get("greet_cool", 0.0)) - delta)
@@ -5514,12 +5664,24 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		# a strip of sand so it reads "little home", not "specimen jar"
 		var sand := _course_box(tpos + Vector3(0, -1.6, 0), Vector3(5.2, 0.35, 2.4), Color(0.93, 0.85, 0.6))
 		sand.material_override.roughness = 1.0
-		# the friend swimming inside (sway shader gives it idle life)
+		# the friend swimming inside — each species gets its own close-up idle:
+		# the turtle a full skeleton (fin strokes via _rig_turtle), the others
+		# a boosted sway so wing/jet/tail motion reads through the glass
 		var pet: Node3D = null
+		var trig := {}
 		if CREATURE_GEN2.has(String(ta["model"])):
 			pet = _gen2_creature(String(CREATURE_GEN2[String(ta["model"])]), tpos + Vector3(0, -0.3, 0), 2.2)
 		if pet != null:
 			game_nodes.append(pet)
+			if tid == "turtle":
+				trig = _rig_turtle(pet, 2.4)
+				_set_sway(pet, 0.02)   # the skeleton owns the motion now
+			elif tid == "stingray":
+				_set_sway(pet, 0.22)
+			elif tid == "squid":
+				_set_sway(pet, 0.18)
+			elif tid == "dolphin":
+				_set_sway(pet, 0.13)
 		var ttag := Label3D.new()
 		ttag.text = "%s\n%d pearls" % [String(ta["label"]), int(ta["price"])]
 		ttag.font_size = 64
@@ -5533,7 +5695,7 @@ func _build_shop_cabin(origin: Vector3) -> void:
 			if pet != null:
 				pet.visible = false
 			ttag.text = "%s\n(set free!)" % String(ta["label"])
-		(g["tanks"] as Array).append({"id": tid, "node": pet, "tag": ttag, "price": int(ta["price"]), "base": tpos, "ph": randf() * TAU})
+		(g["tanks"] as Array).append({"id": tid, "node": pet, "tag": ttag, "price": int(ta["price"]), "base": tpos, "ph": randf() * TAU, "rig": trig})
 	# glowing exit door
 	var door := MeshInstance3D.new()
 	var dt := TorusMesh.new()

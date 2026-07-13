@@ -51,11 +51,43 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		if pet != null and is_instance_valid(pet) and pet.visible:
 			# little laps inside the glass so the tank reads alive: x sweeps on a
 			# sine, and the friend turns to face its swim direction (creatures
-			# face -X at rotation.y 0 - same convention the reef movers steer)
-			var swim := sin(float(m.g["t"]) * 0.9 + float(tk["ph"]))
-			pet.position.x = (tk["base"] as Vector3).x + swim * 1.1
-			var going: float = cos(float(m.g["t"]) * 0.9 + float(tk["ph"]))
+			# face -X at rotation.y 0 - same convention the reef movers steer).
+			# On top of the lap, EACH species plays its own close-up idle -
+			# this is what she watches while deciding to buy.
+			var tt: float = float(m.g["t"])
+			var base: Vector3 = tk["base"]
+			var ph: float = float(tk["ph"])
+			var rate: float = 0.9
+			var sweep: float = 1.1
+			if tid == "turtle":
+				rate = 0.55        # turtles glide, they don't dart
+			elif tid == "stingray":
+				rate = 0.7
+			elif tid == "squid":
+				rate = 0.5
+				sweep = 0.4        # squid mostly hovers and breathes
+			var swim := sin(tt * rate + ph)
+			pet.position.x = base.x + swim * sweep
+			var going: float = cos(tt * rate + ph)
 			pet.rotation.y = lerp_angle(pet.rotation.y, 0.0 if going < 0.0 else PI, delta * 4.0)
+			if tid == "turtle":
+				# the full skeleton: flipper power strokes, rudder paddles,
+				# curious look-around (built by _rig_turtle's motion cage)
+				pet.position.y = base.y - 0.3 + sin(tt * 0.8 + ph) * 0.08
+				if not (tk["rig"] as Dictionary).is_empty():
+					m._turtle_idle(tk["rig"], tt)
+			elif tid == "dolphin":
+				# porpoise arcs: two gentle rises per lap
+				pet.position.y = base.y - 0.3 + sin(tt * rate * 2.0 + ph) * 0.22
+			elif tid == "stingray":
+				# wing-heavy glide (boosted sway) with a lazy banking roll
+				pet.position.y = base.y - 0.3 + sin(tt * 0.6 + ph) * 0.12
+				pet.rotation.z = sin(tt * 0.8 + ph) * 0.08
+			elif tid == "squid":
+				# jet breathing: squash-and-stretch synced to a drifting bob
+				var pulse := sin(tt * 2.6 + ph)
+				pet.scale = Vector3(1.0 - pulse * 0.03, 1.0 + pulse * 0.06, 1.0 - pulse * 0.03)
+				pet.position.y = base.y - 0.3 + sin(tt * 2.6 + ph - 0.7) * 0.10
 		if bool(m.animals_owned.get(tid, false)):
 			continue
 		if m._near_ground(tk["base"], ppos, 5.5, 7.0):
