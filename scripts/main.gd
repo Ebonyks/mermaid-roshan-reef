@@ -129,6 +129,9 @@ var slide_portal_penguin: Node3D = null
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
+var gokart_fr := {"fname": "Go-Kart Cove", "game": "gokart", "won": true, "cool": 0.0}
+var gokart_pos := Vector3.ZERO
+var gokart_cool := 0.0
 var shop_msg_cool := 0.0
 var pearl_slots: Array = []
 var pearl_mat: ShaderMaterial
@@ -229,6 +232,7 @@ func _ready() -> void:
 	add_child(touch_ui)
 	_build_guide()
 	_build_slide_portal()
+	_build_gokart_portal()
 	_build_pause()
 	_load_save()
 
@@ -767,7 +771,8 @@ func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
 #   * a kinematic pusher sphere that follows Roshan, so her ReefPhysics
 #     motion shoves Jolt bodies around
 # Layer 1 = static world, layer 2 = dynamic props + Roshan's pusher.
-var jolt_props: Array = []
+var jolt_props: Array = []    # persistent reef props (barrels)
+var game_props: Array = []    # per-minigame rigid bodies, freed by _clear_game
 
 func _build_jolt_world() -> void:
 	# --- static seabed: heightmap sampled from the seabed_y() oracle ---
@@ -831,13 +836,31 @@ func _clear_of_solids(pos: Vector3, pad: float) -> bool:
 # explicit impulse — a firm contact push plus a softer swim-wake that scales
 # with her speed. Runs at the physics tick so it is frame-rate independent.
 func _physics_process(delta: float) -> void:
-	if player == null or jolt_props.is_empty():
+	if player == null:
+		return
+	# timed debris (fairy-bug tumbles) fades out and frees itself
+	for di in range(game_props.size() - 1, -1, -1):
+		var db := game_props[di] as RigidBody3D
+		if db == null or not is_instance_valid(db):
+			game_props.remove_at(di)
+			continue
+		if db.has_meta("ttl"):
+			var ttl: float = float(db.get_meta("ttl")) - delta
+			db.set_meta("ttl", ttl)
+			if ttl <= 0.0:
+				db.queue_free()
+				game_props.remove_at(di)
+	if jolt_props.is_empty() and game_props.is_empty():
 		return
 	var ppos: Vector3 = player.position
 	var pvel: Vector3 = player.vel
-	for p in jolt_props:
+	_shove_props(jolt_props, ppos, pvel, delta)
+	_shove_props(game_props, ppos, pvel, delta)
+
+func _shove_props(props: Array, ppos: Vector3, pvel: Vector3, delta: float) -> void:
+	for p in props:
 		var b := p as RigidBody3D
-		if b == null or not is_instance_valid(b):
+		if b == null or not is_instance_valid(b) or b.has_meta("no_shove"):
 			continue
 		var d: Vector3 = b.position - ppos
 		var dist: float = d.length()
@@ -894,6 +917,83 @@ func _jolt_barrel(pos: Vector3) -> RigidBody3D:
 	prop.position = pos
 	add_child(prop)
 	return prop
+
+# Invisible static collision box for per-game Jolt scenes (arena floors,
+# track walls, chute planks). Registered in game_nodes so _clear_game frees it.
+func _jolt_static_box(center: Vector3, size: Vector3, basis: Basis = Basis.IDENTITY) -> StaticBody3D:
+	var sb := StaticBody3D.new()
+	sb.collision_layer = 1
+	sb.collision_mask = 0
+	var cs := CollisionShape3D.new()
+	var bx := BoxShape3D.new()
+	bx.size = size
+	cs.shape = bx
+	sb.add_child(cs)
+	sb.transform = Transform3D(basis, center)
+	add_child(sb)
+	game_nodes.append(sb)
+	return sb
+
+# Light dynamic ball for minigame scenes (play-place toys, snowballs).
+func _jolt_ball(pos: Vector3, r: float, col: Color, gscale: float, damp: float) -> RigidBody3D:
+	var b := RigidBody3D.new()
+	b.collision_layer = 2
+	b.collision_mask = 1 | 2
+	b.mass = 1.0
+	b.gravity_scale = gscale
+	b.linear_damp = damp
+	b.angular_damp = damp * 0.5
+	var cs := CollisionShape3D.new()
+	var sh := SphereShape3D.new()
+	sh.radius = r
+	cs.shape = sh
+	b.add_child(cs)
+	var mi := MeshInstance3D.new()
+	var sm := SphereMesh.new()
+	sm.radius = r
+	sm.height = r * 2.0
+	mi.mesh = sm
+	var mm := StandardMaterial3D.new()
+	mm.albedo_color = col
+	mm.roughness = 0.6
+	mi.material_override = mm
+	b.add_child(mi)
+	b.position = pos
+	add_child(b)
+	game_props.append(b)
+	return b
+
+# Short-lived tumbling debris (zapped fairy bugs): a rigid chunk kicked by an
+# impulse, spinning off and freeing itself after ttl seconds.
+func _jolt_debris(pos: Vector3, impulse: Vector3, col: Color, ttl: float = 1.4) -> void:
+	var b := RigidBody3D.new()
+	b.collision_layer = 2
+	b.collision_mask = 0        # pure juice: nothing depends on where it lands
+	b.mass = 0.5
+	b.gravity_scale = 1.4
+	b.set_meta("ttl", ttl)
+	b.set_meta("no_shove", true)
+	var cs := CollisionShape3D.new()
+	var sh := SphereShape3D.new()
+	sh.radius = 0.8
+	cs.shape = sh
+	b.add_child(cs)
+	var mi := MeshInstance3D.new()
+	var bm := BoxMesh.new()
+	bm.size = Vector3(1.6, 0.9, 1.6)
+	mi.mesh = bm
+	var mm := StandardMaterial3D.new()
+	mm.albedo_color = col
+	mm.emission_enabled = true
+	mm.emission = col * 0.5
+	mi.mesh = bm
+	mi.material_override = mm
+	b.add_child(mi)
+	b.position = pos
+	add_child(b)
+	b.apply_central_impulse(impulse * b.mass)
+	b.apply_torque_impulse(Vector3(randf() * 6.0 - 3.0, randf() * 6.0 - 3.0, randf() * 6.0 - 3.0))
+	game_props.append(b)
 
 func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if rock_pbr == null:
@@ -4391,6 +4491,10 @@ func _clear_game() -> void:
 		if is_instance_valid(n):
 			n.queue_free()
 	game_nodes.clear()
+	for p in game_props:
+		if is_instance_valid(p):
+			(p as Node).queue_free()
+	game_props.clear()
 	arena_solids.clear()
 	fade_walls.clear()
 	game = ""
@@ -5310,7 +5414,19 @@ func _start_game(fr: Dictionary) -> void:
 		g["checks"] = []
 		g["chains"] = []
 		_build_playplace(origin, fr)
+		# Jolt toys on the play-place floor: light beach balls Roshan can
+		# scatter while she climbs (the arena floor gets a static collider)
+		_jolt_static_box(origin + Vector3(0, 1.5, 0), Vector3(96, 2.0, 96))
+		var ball_cols := [Color(1.0, 0.5, 0.55), Color(1.0, 0.85, 0.4), Color(0.45, 0.85, 1.0), Color(0.6, 0.95, 0.55), Color(0.8, 0.6, 1.0), Color(1.0, 0.7, 0.4)]
+		for bb in range(6):
+			var ba: float = float(bb) * TAU / 6.0 + 0.4
+			_jolt_ball(origin + Vector3(cos(ba) * (19.0 + float(bb % 3) * 3.0), 4.0, sin(ba) * (19.0 + float(bb % 3) * 3.0)),
+					1.3, ball_cols[bb], 0.55, 0.7)
 		show_msg(fr["fname"], "Welcome to the play place! Touch the sparkles all the way up to the BIG slide!")
+	elif game == "gokart":
+		g["timer"] = -1.0   # no countdown — finishing 2 laps ends the race
+		_build_gokart(origin)
+		show_msg(fr["fname"], "Ready... set... GO! Two laps around the track — hold UP to zoom!")
 	elif game == "shop":
 		g["timer"] = 999.0
 		_build_shop_cabin(origin)
@@ -5456,7 +5572,7 @@ func _ice_mat(col: Color, glow: float = 0.18) -> StandardMaterial3D:
 	m.emission = col * glow
 	return m
 
-func _slide_plank(a: Vector3, b: Vector3, width: float, mat: StandardMaterial3D, thick: float = 0.8) -> void:
+func _slide_plank(a: Vector3, b: Vector3, width: float, mat: StandardMaterial3D, thick: float = 0.8, solid: bool = false) -> void:
 	var mid: Vector3 = (a + b) * 0.5
 	var dir: Vector3 = b - a
 	var seg: float = dir.length()
@@ -5475,6 +5591,11 @@ func _slide_plank(a: Vector3, b: Vector3, width: float, mat: StandardMaterial3D,
 	mi.material_override = mat
 	mi.transform = Transform3D(Basis(right, up2, fwd), mid)
 	add_child(mi)
+	game_nodes.append(mi)
+	if solid:
+		# matching Jolt collision so rigid bodies (the rolling snowball) can
+		# ride the chute exactly where the visual planks are
+		_jolt_static_box(mid, Vector3(width, thick, seg * 1.06), Basis(right, up2, fwd))
 	game_nodes.append(mi)
 
 func _aq_game(model: String, pos: Vector3, scl: float) -> Node3D:
@@ -5523,12 +5644,12 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
 		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.72, 0.9, 1.0))
-		_slide_plank(a, b, SLIDE_WIDTH, pmat)
-		# side rails sit on the chute edges
+		_slide_plank(a, b, SLIDE_WIDTH, pmat, 0.8, true)
+		# side rails sit on the chute edges (solid, so the snowball stays in)
 		var smp := _slide_dir(i)
 		var rt: Vector3 = smp[1]
-		_slide_plank(a + rt * (SLIDE_WIDTH * 0.5), b + rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0)
-		_slide_plank(a - rt * (SLIDE_WIDTH * 0.5), b - rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0)
+		_slide_plank(a + rt * (SLIDE_WIDTH * 0.5), b + rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0, true)
+		_slide_plank(a - rt * (SLIDE_WIDTH * 0.5), b - rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0, true)
 	# ---- penguins cheering on the banks ----
 	for k in range(6):
 		var tt: float = 0.12 + 0.72 * float(k) / 5.0
@@ -5556,12 +5677,11 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 			var halo := _halo(fpos, Color(1.0, 0.85, 0.4), 6.0)
 			game_nodes.append(halo)
 			(g["fish"] as Array).append({"node": fish, "halo": halo, "pos": fpos, "got": false})
-		# ---- a big ball rolling behind, for the "chase" feel (decor only) ----
-		var ball := MeshInstance3D.new()
-		var bs := SphereMesh.new(); bs.radius = 7.0; bs.height = 14.0
-		ball.mesh = bs
-		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.97, 0.99, 1.0), 0.05)
-		add_child(ball); game_nodes.append(ball)
+		# ---- a REAL snowball (Jolt body) rolling down the chute behind her:
+		# gravity does the chasing, the solid rails keep it in the chute ----
+		var ball := _jolt_ball(path[0] + Vector3(0, 6.0, 0), 3.2,
+				Color(1.0, 0.85, 0.4) if theme == "rainbow" else Color(0.97, 0.99, 1.0), 1.0, 0.05)
+		ball.set_meta("no_shove", true)   # chase decor: the wake must not yank it
 		g["ball"] = ball
 	# ---- finish banner at the bottom ----
 	var fin := _slide_sample(total)
@@ -5683,11 +5803,17 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			return
 	else:
 		# ===== COLLECT THE FISH =====
-		# rolling chase snowball behind (decor)
+		# chase snowball: it genuinely rolls (Jolt), we only step in if it
+		# gets stuck far behind or catches all the way up to Roshan
 		if g.has("ball") and is_instance_valid(g["ball"]):
+			var jball := g["ball"] as RigidBody3D
 			var bsamp := _slide_sample(maxf(0.0, s - 26.0))
-			(g["ball"] as Node3D).position = bsamp[0] + Vector3(0, 5.0, 0)
-			(g["ball"] as Node3D).rotate_x(delta * 3.0)
+			var too_far: bool = jball.position.distance_to(bsamp[0]) > 45.0
+			var too_close: bool = jball.position.distance_to(pos) < 9.0
+			if too_far or too_close:
+				jball.position = bsamp[0] + Vector3(0, 4.5, 0)
+				jball.linear_velocity = samp[1] * maxf(v - 3.0, 4.0)
+				jball.angular_velocity = Vector3.ZERO
 		for fd in g.get("fish", []):
 			if fd["got"]:
 				continue
@@ -5947,6 +6073,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				g["hits"] = int(g["hits"]) + 1
 				var tn: Node = td["node"]
 				_sparkle_burst((tn as Node3D).position, Color(1.0, 0.5, 0.7))
+				# the zapped bug tumbles away as a Jolt body, kicked by the bolt
+				_jolt_debris((tn as Node3D).position, Vector3(randf() * 8.0 - 4.0, 7.0, 14.0), Color(0.30, 0.18, 0.45))
 				if is_instance_valid(tn): tn.queue_free()
 				if chime != null:
 					chime.pitch_scale = 1.2; chime.play()
@@ -6045,6 +6173,177 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			_end_game(true, fr, "The Fairy Flower blossomed! You did it!")
 		return
 
+# ===================== GO-KART COVE (Jolt-native racing) =====================
+# The one minigame that lives entirely on the rigid-body engine: the kart is a
+# RigidBody3D steered with arcade shaping (authored forward speed + tire grip,
+# Jolt handles collisions with the walls and floor), racing a turtle two laps
+# around a walled oval.
+const KART_TRACK_R := 31.0     # centerline radius
+const KART_MAX_V := 22.0       # top speed, u/s
+const KART_ACCEL := 26.0       # throttle accel, u/s^2
+
+func _build_gokart(origin: Vector3) -> void:
+	# ground plate + walled oval (visual planks with matching Jolt collision)
+	_jolt_static_box(origin + Vector3(0, 1.5, 0), Vector3(110, 2.0, 110))
+	var wall_mat := _ice_mat(Color(1.0, 0.55, 0.55), 0.35)
+	var wall_mat2 := _ice_mat(Color(0.55, 0.75, 1.0), 0.35)
+	for ring in [40.0, 22.0]:
+		var segs := 20
+		for i in range(segs):
+			var a0: float = float(i) * TAU / float(segs)
+			var a1: float = float(i + 1) * TAU / float(segs)
+			var p0: Vector3 = origin + Vector3(cos(a0) * ring, 4.0, sin(a0) * ring)
+			var p1: Vector3 = origin + Vector3(cos(a1) * ring, 4.0, sin(a1) * ring)
+			_slide_plank(p0, p1, 1.6, wall_mat if ring > 30.0 else wall_mat2, 3.2, true)
+	# checkered start line across the lane at angle 0
+	for ci in range(6):
+		var cx: float = 23.5 + float(ci) * 2.8
+		_course_box(origin + Vector3(cx, 2.7, 0), Vector3(2.6, 0.3, 2.6), Color(1, 1, 1) if ci % 2 == 0 else Color(0.1, 0.1, 0.1))
+	# cheering flags around the outside
+	for fi in range(10):
+		var fa: float = float(fi) * TAU / 10.0
+		_course_box(origin + Vector3(cos(fa) * 44.0, 6.0, sin(fa) * 44.0), Vector3(0.4, 8.0, 0.4), Color(0.8, 0.7, 0.5))
+		_course_box(origin + Vector3(cos(fa) * 44.0, 9.2, sin(fa) * 44.0), Vector3(2.4, 1.6, 0.3), [Color(1, 0.4, 0.45), Color(1, 0.85, 0.35), Color(0.4, 0.8, 1.0)][fi % 3])
+	# ---- Roshan's kart: a real Jolt rigid body ----
+	var kart := RigidBody3D.new()
+	kart.collision_layer = 2
+	kart.collision_mask = 1 | 2
+	kart.mass = 6.0
+	kart.gravity_scale = 1.0
+	kart.linear_damp = 0.1
+	kart.angular_damp = 3.0
+	kart.axis_lock_angular_x = true
+	kart.axis_lock_angular_z = true
+	kart.set_meta("no_shove", true)     # she is ON it; the wake must not fight it
+	var kcs := CollisionShape3D.new()
+	var kbx := BoxShape3D.new()
+	kbx.size = Vector3(2.4, 1.4, 3.4)
+	kcs.shape = kbx
+	kcs.position.y = 0.9
+	kart.add_child(kcs)
+	kart.add_child(_kart_visual(Color(1.0, 0.35, 0.4)))
+	kart.position = origin + Vector3(KART_TRACK_R, 3.4, 0)
+	kart.rotation.y = PI    # kart forward is -Z; face +Z (the lap direction)
+	add_child(kart)
+	game_props.append(kart)
+	g["kart"] = kart
+	# ---- the rival: a turtle kart pacing the centerline (choreographed) ----
+	var opp := Node3D.new()
+	opp.add_child(_kart_visual(Color(0.35, 0.8, 0.45)))
+	var shell := _aq_game("Turtle", Vector3.ZERO, 2.6)
+	if shell != null and shell.get_parent() != null:
+		shell.get_parent().remove_child(shell)
+		opp.add_child(shell)
+		shell.position = Vector3(0, 1.8, 0.4)
+	add_child(opp)
+	game_nodes.append(opp)
+	g["opp"] = opp
+	g["opp_ang"] = 0.5                 # slight head start
+	g["lap_ang"] = 0.0
+	g["last_ang"] = 0.0
+	# ---- Roshan rides: park her on the kart, camera chases ----
+	player.position = kart.position + Vector3(0, 2.3, 0)
+	player.vel = Vector3.ZERO
+	_play_music("fetch")
+
+func _tick_gokart(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
+	var kart: RigidBody3D = g["kart"]
+	var origin: Vector3 = ARENA_POS
+	# ---- input: throttle + steer (keys / stick / touch, same as the slide) ----
+	var throttle := 0.0
+	var steer := 0.0
+	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
+		throttle = 1.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		steer -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		steer += 1.0
+	var jy: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	if jy < -0.2:
+		throttle = maxf(throttle, -jy)
+	var jx: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	if absf(jx) > 0.2:
+		steer += jx
+	if touch_ui != null:
+		if touch_ui.stick_vec.y < -0.15:
+			throttle = maxf(throttle, -touch_ui.stick_vec.y)
+		if absf(touch_ui.stick_vec.x) > 0.15:
+			steer += touch_ui.stick_vec.x
+		if touch_ui.action_down:
+			throttle = 1.0
+	steer = clampf(steer, -1.0, 1.0)
+	# ---- arcade shaping on the Jolt body: authored forward speed and tire
+	# grip; the solver keeps collisions with walls honest ----
+	var rel: Vector3 = kart.position - origin
+	var fdir: Vector3 = -kart.global_transform.basis.z
+	fdir.y = 0.0
+	fdir = fdir.normalized()
+	var v: Vector3 = kart.linear_velocity
+	var vf: float = v.dot(fdir)
+	if throttle > 0.0:
+		vf += throttle * KART_ACCEL * delta
+	else:
+		vf *= pow(0.4, delta)          # coasting: engine braking
+	vf = clampf(vf, 0.0, KART_MAX_V)
+	var lat: Vector3 = v - fdir * v.dot(fdir)
+	var vy: float = lat.y
+	lat.y = 0.0
+	lat *= pow(0.02, delta)            # tire grip: sideways slip dies fast
+	# soft wall bumper: slide along the ring instead of wedging nose-in
+	var rd: float = Vector2(rel.x, rel.z).length()
+	var radial := Vector3(rel.x / maxf(rd, 0.01), 0, rel.z / maxf(rd, 0.01))
+	var bumper := 0.0
+	if rd > 36.0:
+		bumper = -(rd - 36.0) * 3.0
+	elif rd < 26.0:
+		bumper = (26.0 - rd) * 3.0
+	kart.linear_velocity = fdir * vf + lat + Vector3(0, vy, 0) + radial * bumper
+	# steering = child's input + a gentle auto-align to the lane tangent, so
+	# just holding UP races the oval; steering picks your line
+	var want_yaw: float = PI - atan2(rel.z, rel.x)
+	var align: float = clampf(wrapf(want_yaw - kart.rotation.y, -PI, PI), -1.0, 1.0)
+	kart.angular_velocity = Vector3(0, -steer * 1.9 * (0.35 + (vf / KART_MAX_V) * 0.65) + align * 0.9, 0)
+	# ---- Roshan rides the kart; chase camera ----
+	player.position = kart.position + Vector3(0, 2.3, 0)
+	player.vel = Vector3.ZERO
+	player.yaw = kart.rotation.y + PI
+	player.rotation = Vector3(0, kart.rotation.y, 0)
+	if player.cam != null and player.cam.is_inside_tree():
+		var cam_target: Vector3 = kart.position - fdir * 15.0 + Vector3(0, 7.5, 0)
+		player.cam.position = player.cam.position.lerp(cam_target, 1.0 - pow(0.0008, delta))
+		player.cam.look_at(kart.position + fdir * 6.0 + Vector3(0, 1.5, 0))
+	# ---- rival turtle: paced centerline with rubber-banding ----
+	var ang: float = atan2(rel.z, rel.x)
+	var oa: float = float(g["opp_ang"])
+	var lead: float = oa - (float(g["lap_ang"]) + 0.0)   # rough gap in radians
+	# paced so a child at full throttle (~0.21 rad/s) slowly reels him in and
+	# usually wins; he surges when passed so it always feels like a race
+	var ospd := 0.18
+	if lead > 1.2:
+		ospd = 0.10        # he waits for you (4yo-friendly)
+	elif lead < 0.2:
+		ospd = 0.30        # he surges so it feels like a race
+	oa += ospd * delta
+	g["opp_ang"] = oa
+	var opp: Node3D = g["opp"]
+	if is_instance_valid(opp):
+		opp.position = origin + Vector3(cos(oa) * KART_TRACK_R, 2.6, sin(oa) * KART_TRACK_R)
+		opp.rotation.y = -oa   # kart-forward -Z aligned with the +ang tangent
+	# ---- lap counting: accumulate unwrapped angle around the ring ----
+	var dang: float = wrapf(ang - float(g["last_ang"]), -PI, PI)
+	if absf(dang) < 1.0:
+		g["lap_ang"] = float(g["lap_ang"]) + dang
+	g["last_ang"] = ang
+	var laps: float = float(g["lap_ang"]) / TAU
+	hud_game.text = "Lap %d / 2   %s" % [clampi(int(laps) + 1, 1, 2), "🐢 ahead!" if lead > 0.15 else "🐢 behind you!"]
+	# stuck / escaped guard: put the kart back on the lane
+	if kart.position.y < origin.y - 8.0 or Vector2(rel.x, rel.z).length() > 46.0:
+		kart.position = origin + Vector3(cos(ang) * KART_TRACK_R, 3.4, sin(ang) * KART_TRACK_R)
+		kart.linear_velocity = Vector3.ZERO
+	if laps >= 2.0:
+		var beat_turtle: bool = float(g["lap_ang"]) > (oa - 0.5)
+		_end_game(true, fr, "You won the race! ZOOM ZOOM!" if beat_turtle else "What a race! The turtle just made it — race him again!")
+
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
 	slide_portal_pos = Vector3(80.0, WATER_TOP - 20.0, -70.0)
@@ -6066,6 +6365,63 @@ func _build_slide_portal() -> void:
 	lab.font_size = 64; lab.pixel_size = 0.04; lab.outline_size = 14
 	lab.modulate = Color(0.75, 0.95, 1.0); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.position = slide_portal_pos + Vector3(0, 9, 0); add_child(lab)
+
+func _build_gokart_portal() -> void:
+	# a toy kart on a checkered pad in the reef — swim up to it to race
+	gokart_pos = Vector3(-120.0, seabed_y(-120.0, 90.0) + 5.0, 90.0)
+	var pad := MeshInstance3D.new()
+	var pm := CylinderMesh.new(); pm.top_radius = 9.5; pm.bottom_radius = 8.0; pm.height = 2.2
+	pad.mesh = pm
+	var pmat := StandardMaterial3D.new()
+	pmat.albedo_color = Color(0.9, 0.92, 0.95)
+	pad.material_override = pmat
+	pad.position = gokart_pos + Vector3(0, -3.6, 0)
+	add_child(pad)
+	var kart := _kart_visual(Color(1.0, 0.35, 0.4))
+	kart.position = gokart_pos + Vector3(0, -1.4, 0)
+	kart.rotation.y = 0.7
+	add_child(kart)
+	_halo(gokart_pos + Vector3(0, 2, 0), Color(1.0, 0.6, 0.4), 14.0)
+	var l := OmniLight3D.new()
+	l.light_color = Color(1.0, 0.75, 0.5); l.light_energy = 2.2; l.omni_range = 22.0
+	l.position = gokart_pos + Vector3(0, 6, 0); add_child(l)
+	var lab := Label3D.new()
+	lab.text = "🏁 Go-Kart Cove!"
+	lab.font_size = 64; lab.pixel_size = 0.04; lab.outline_size = 14
+	lab.modulate = Color(1.0, 0.85, 0.6); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.position = gokart_pos + Vector3(0, 8, 0); add_child(lab)
+
+# A little toy kart built from primitives (no asset needed): body, seat, wheels.
+func _kart_visual(col: Color) -> Node3D:
+	var root := Node3D.new()
+	var body := MeshInstance3D.new()
+	var bm := BoxMesh.new(); bm.size = Vector3(2.2, 0.8, 3.2)
+	body.mesh = bm
+	var bmat := StandardMaterial3D.new()
+	bmat.albedo_color = col
+	bmat.metallic = 0.3; bmat.roughness = 0.4
+	body.material_override = bmat
+	body.position.y = 0.9
+	root.add_child(body)
+	var seat := MeshInstance3D.new()
+	var sm := BoxMesh.new(); sm.size = Vector3(1.4, 0.9, 0.4)
+	seat.mesh = sm
+	seat.material_override = bmat
+	seat.position = Vector3(0, 1.6, 0.9)
+	root.add_child(seat)
+	var wmat := StandardMaterial3D.new()
+	wmat.albedo_color = Color(0.12, 0.12, 0.14)
+	wmat.roughness = 0.9
+	for wx in [-1.2, 1.2]:
+		for wz in [-1.1, 1.1]:
+			var wheel := MeshInstance3D.new()
+			var wm := CylinderMesh.new(); wm.top_radius = 0.55; wm.bottom_radius = 0.55; wm.height = 0.5
+			wheel.mesh = wm
+			wheel.material_override = wmat
+			wheel.rotation.z = PI * 0.5
+			wheel.position = Vector3(wx, 0.55, wz)
+			root.add_child(wheel)
+	return root
 
 func _decorate_lamb_meadow(origin: Vector3) -> void:
 	# a soft rolling green meadow for Lamb-a' to play in
@@ -6217,6 +6573,8 @@ func _tick_game(delta: float) -> void:
 		_tick_melody(delta, fr, ppos)
 	elif game == "slide":
 		_tick_slide(delta, fr, ppos)
+	elif game == "gokart":
+		_tick_gokart(delta, fr, ppos)
 	elif game == "fairyshoot":
 		_tick_fairyshoot(delta, fr, ppos)
 
@@ -6533,6 +6891,7 @@ func _process(delta: float) -> void:
 	shop_cool = maxf(0.0, shop_cool - delta)
 	treasure_cool = maxf(0.0, treasure_cool - delta)
 	slide_cool = maxf(0.0, slide_cool - delta)
+	gokart_cool = maxf(0.0, gokart_cool - delta)
 	if game == "" and finale_t < 0.0:
 		if manta != null and shop_cool <= 0.0:
 			if manta.position.distance_to(ppos) < 17.0:
@@ -6544,6 +6903,9 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 12.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
+		if gokart_cool <= 0.0 and gokart_pos != Vector3.ZERO and gokart_pos.distance_to(ppos) < 11.0:
+			gokart_cool = 14.0
+			_start_game(gokart_fr)
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:
@@ -7074,6 +7436,11 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(1, 1, 0.95)
 		arena_env.ambient_light_energy = 1.2
 		_arena_floor(Color(0.95, 1.0, 0.92), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
+	elif kind == "gokart":       # sunny raceway lagoon
+		arena_env.background_color = Color(0.55, 0.82, 1.0)
+		arena_env.ambient_light_color = Color(1.0, 1.0, 0.92)
+		arena_env.ambient_light_energy = 1.25
+		_arena_floor(Color(0.92, 1.0, 0.9), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
 		arena_env.background_color = Color(1.0, 0.62, 0.38)
 		arena_env.ambient_light_color = Color(1.0, 0.8, 0.65)

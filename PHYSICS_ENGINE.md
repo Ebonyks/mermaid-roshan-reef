@@ -26,6 +26,32 @@ The project runs a two-layer physics architecture:
   and an unflattened radial push would loft them instead of scooting them.
 - Layers: 1 = static world, 2 = props.
 
+### Jolt in the minigames
+
+Per-game rigid bodies live in `game_props` (freed by `_clear_game`; bodies
+tagged `no_shove` opt out of Roshan's shove/wake, `ttl` metadata makes
+self-freeing debris). Builders: `_jolt_static_box`, `_jolt_ball`,
+`_jolt_debris`, and `_slide_plank(..., solid=true)` for visual planks with
+matching collision.
+
+- **Go-Kart Cove (`gokart`)** — a NEW minigame, Jolt-native racing: swim to
+  the kart pad in the reef (near the west rocks) to race a turtle two laps
+  around a walled oval. The kart is a `RigidBody3D` with arcade shaping
+  (authored forward speed + tire grip + soft wall bumper + gentle
+  auto-align steering, so holding UP races and steering picks your line);
+  Jolt owns the wall/floor collisions. The turtle rubber-bands so a child
+  at full throttle reels him in and usually wins. `probe_gokart.gd` drives
+  it headless.
+- **Race (play place / rainbow slide)** — six light Jolt beach balls on the
+  arena floor (static ground plate) that Roshan scatters while climbing.
+- **Penguin slide** — the chute's planks and rails bake matching static
+  collision, and the chase snowball is now a real rolling `RigidBody3D`:
+  gravity does the chasing down the grade; the game only intervenes if it
+  falls too far behind or catches all the way up.
+- **Fairy Pond shooter** — every zapped shadow bug spawns a tumbling Jolt
+  debris chunk kicked along the bolt direction (`ttl`-freed, no gameplay
+  dependency — pure juice).
+
 **Which layer does a new feature belong to?** If the player or a minigame
 needs authored, forgiving, tunable motion → ReefPhysics. If an object should
 tumble/stack/roll believably and nothing depends on its exact path → a Jolt
