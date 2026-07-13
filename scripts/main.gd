@@ -1477,7 +1477,8 @@ const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin":
 const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], "turtle": [0, 2.2, 0.08],
 	"shark": [0, 3.6, 0.12], "hammerhead": [0, 3.4, 0.12], "whale": [1, 1.6, 0.08],
 	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
-	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06]}   # penguin: rigged clips carry the motion now
+	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06],   # penguin: rigged clips carry the motion now
+	"craft_kitty": [3, 2.0, 0.05], "craft_birdie": [3, 2.8, 0.07]}   # HER craft creatures: gentle waddle idle
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -4031,12 +4032,15 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 	else:
 		nd.set("modulate", Color(col.r, col.g, col.b, base_a))
 
+# each craft-studio creature -> its family Meshy mesh + footprint target. All
+# three of HER creations are real 3D friends now, recolored in her chosen
+# colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
+const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
+
 func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
-	if kind == "fish":
-		# HER painted fish are real 3D swimmers now (owner 2026-07-11): the
-		# family clownfish mesh repainted in the craft-studio colors via the
-		# sway shader. The billboard sprite stays the strangler-fig fallback.
-		var pf := _gen2_creature("clownfish", Vector3.ZERO, 1.7)
+	if CRAFT_GEN2.has(kind):
+		var spec: Array = CRAFT_GEN2[kind]
+		var pf := _gen2_creature(String(spec[0]), Vector3.ZERO, float(spec[1]))
 		if pf != null:
 			remove_child(pf)   # _gen2_prop parents to main; callers re-parent
 			for mi in _all_meshes(pf):
@@ -4049,30 +4053,35 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_mix", 1.0)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_fin", accent)
+			pf.set_meta("gen2", true)   # base at origin (billboards are center-origin)
 			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
 	# inner pivot so the idle animation never fights whoever owns root position
 	var anim := Node3D.new()
 	root.add_child(anim)
-	var acca := 1.0   # accents are separate zones now — draw them pure, no blending
 	var lb := Sprite3D.new()
 	lb.texture = load("res://assets/mg/" + String(ln[1]) + ".png")
 	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0
-	lb.set_meta("rb", body_rb)
 	anim.add_child(lb)
 	var la := Sprite3D.new()
 	la.texture = load("res://assets/mg/" + String(ln[0]) + ".png")
 	la.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1
-	la.set_meta("rb", acc_rb)
 	anim.add_child(la)
 	var ll := Sprite3D.new()
 	ll.texture = load("res://assets/mg/" + String(ln[2]) + ".png")
 	ll.billboard = BaseMaterial3D.BILLBOARD_ENABLED; ll.pixel_size = 0.02; ll.render_priority = 2
 	anim.add_child(ll)
-	# tweens can only start inside the tree, hence the deferred hook
-	root.tree_entered.connect(_animate_billboard_creature.bind(anim, la, kind), CONNECT_ONE_SHOT)
+	# colors + idle tweens can only start inside the tree, hence the deferred
+	# hook (create_tween() errors outside it; this also restores the craft
+	# tints the billboard fallback would otherwise render pure white)
+	root.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _creature_spawned(lb: Sprite3D, la: Sprite3D, anim: Node3D, body: Color, accent: Color, body_rb: bool, acc_rb: bool, kind: String) -> void:
+	_layer_fx(lb, "body", body, body_rb, kind)
+	_layer_fx(la, "accent", accent, acc_rb, kind)
+	_animate_billboard_creature(anim, la, kind)
 
 func _animate_billboard_creature(anim: Node3D, accent: Sprite3D, kind: String) -> void:
 	# idle life for the billboard craft creatures (kitty + birdie in the

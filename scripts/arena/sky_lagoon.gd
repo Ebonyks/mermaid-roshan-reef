@@ -247,7 +247,12 @@ func _build_pearl_castle(o: Vector3) -> void:
 			continue
 		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]))
 		var fang: float = float(fi) * 1.3
-		frn.position = o + Vector3(cos(fang) * (34.0 + float(fi % 5) * 11.0), 6.0, 70.0 + sin(fang) * 45.0)
+		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
+		var frz: float = 70.0 + sin(fang) * 45.0
+		# gen2 meshes seat their base at the origin -> stand them on the lawn;
+		# billboard fallbacks are center-origin and keep the old float height
+		var fry: float = (_lagoon_local(frx, frz) + 0.2) if frn.has_meta("gen2") else 6.0
+		frn.position = o + Vector3(frx, fry, frz)
 		m.add_child(frn)
 		m.game_nodes.append(frn)
 		(m.g["crafted"] as Array).append({"node": frn, "cool": 0.0})
