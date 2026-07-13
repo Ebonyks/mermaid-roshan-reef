@@ -140,47 +140,104 @@ def _bend_leg_to(paw, target_z, tol=0.02, iters=40):
         bpy.context.view_layer.update()
     return abs(_pawz(paw) - target_z) <= tol * 2
 
-def keypose(action_pose, frame, extra=None, contact=(), clearance=None, floor_feet=(), nose_max=None):
+LEG_BONES = tuple(f"{seg}_{tag}" for seg in ("legU", "legL", "foot")
+                  for tag in ("FL", "FR", "BL", "BR"))
+
+def keypose(action_pose, frame, extra=None, contact=(), clearance=None, floor_feet=(),
+            nose_max=None, clamp_prev=None, clamp_deg=16.0, clear_paws=None):
     """Apply pose, then solve constraints, then keyframe everything.
     contact:    paws that must touch the ground this frame (root drops to the
                 lowest, then each remaining paw's leg is bent down to reach).
     clearance:  minimum height of ALL paws above ground (flight frames).
-    floor_feet: paws that must not be BELOW ground (raised to it if sunk)."""
+    floor_feet: paws that must not be BELOW ground (raised to it if sunk).
+    clamp_prev: previous frame's solved pose — leg joints are limited to
+                clamp_deg of travel from it (damps solver frame-to-frame
+                oscillation, which read as popping joints)."""
     p = _merge(action_pose, extra)
     _apply(p)
+    _solve_constraints(contact, clearance, floor_feet, nose_max, clear_paws)
+    if clamp_prev is not None:
+        lim = math.radians(clamp_deg)
+        changed = False
+        for bn in LEG_BONES:
+            cur = arm_obj.pose.bones[bn].rotation_euler.x
+            prv = math.radians(clamp_prev[bn][0])
+            if cur - prv > lim:
+                arm_obj.pose.bones[bn].rotation_euler.x = prv + lim
+                changed = True
+            elif prv - cur > lim:
+                arm_obj.pose.bones[bn].rotation_euler.x = prv - lim
+                changed = True
+        if changed:
+            bpy.context.view_layer.update()
+    for pb in arm_obj.pose.bones:
+        pb.keyframe_insert("rotation_euler", frame=frame)
+        if pb.name == "root":
+            pb.keyframe_insert("location", frame=frame)
+
+def _solve_constraints(contact=(), clearance=None, floor_feet=(), nose_max=None, clear_paws=None):
     if contact:
-        dz = GROUND - min(_pawz(c) for c in contact)
+        # SYMMETRIC solve: root moves by the pair MEAN, then every contact paw
+        # bends BOTH ways onto the target. (One-way bending made a sunken paw
+        # hoist the whole root instead - phantom bob peaks, deep paws.)
+        dz = (GROUND + 0.03) - sum(_pawz(c) for c in contact) / len(contact)
         arm_obj.pose.bones["root"].location.z += dz
         bpy.context.view_layer.update()
         for c in contact:
-            if _pawz(c) > GROUND + 0.03:
-                _bend_leg_to(c, GROUND + 0.005)
+            if abs(_pawz(c) - (GROUND + 0.04)) > 0.025:
+                _bend_leg_to(c, GROUND + 0.04)
     if clearance is not None:
-        # fix low paws by curling THAT leg, never by hoisting the root
-        for c in PAWS:
+        # fix low paws by curling THAT leg, never by hoisting the root;
+        # clear_paws restricts which legs must lift (e.g. the airborne pair
+        # during the other pair's plant)
+        for c in (clear_paws if clear_paws is not None else PAWS):
             if _pawz(c) < GROUND + clearance:
                 _bend_leg_to(c, GROUND + clearance + 0.04, tol=0.03)
     for c in floor_feet:
         if _pawz(c) < GROUND - 0.02:
             _bend_leg_to(c, GROUND + 0.01)
     if nose_max is not None:
-        for _ in range(36):
+        # measured sign convention (bow_probe): POSITIVE neck/head x lowers
+        # the nose on this rig; negative orbits it upward
+        for _ in range(20):   # capped assist: the BASE pose must do the work
             nz = (arm_obj.matrix_world @ arm_obj.pose.bones["head"].tail).z
             if nz <= GROUND + nose_max:
                 break
-            arm_obj.pose.bones["neck"].rotation_euler.x -= math.radians(2.5)
-            arm_obj.pose.bones["head"].rotation_euler.x -= math.radians(2.0)
+            arm_obj.pose.bones["neck"].rotation_euler.x += math.radians(2.5)
+            arm_obj.pose.bones["head"].rotation_euler.x += math.radians(2.0)
             bpy.context.view_layer.update()
-    # key TWICE: Blender 5 slotted actions stomp the manually-set pose while
-    # creating the slot on the very first insert of a fresh action, zeroing
-    # that frame. Re-applying and re-keying overwrites with correct values.
-    solved = snapshot_pose()
-    for _pass in range(2):
-        _apply(solved)
-        for pb in arm_obj.pose.bones:
-            pb.keyframe_insert("rotation_euler", frame=frame)
-            if pb.name == "root":
-                pb.keyframe_insert("location", frame=frame)
+
+def lerp_pose(a, b, t):
+    """Cosine-eased blend of two pose dicts (all bones + root_dz)."""
+    t = 0.5 - 0.5 * math.cos(t * math.pi)
+    out = {}
+    for k in set(a) | set(b):
+        va, vb = a.get(k, (0, 0, 0)), b.get(k, (0, 0, 0))
+        if k == "root_dz":
+            va = a.get(k, 0.0); vb = b.get(k, 0.0)
+            out[k] = va + (vb - va) * t
+        else:
+            out[k] = tuple(x + (y - x) * t for x, y in zip(va, vb))
+    return out
+
+def bake_clip(anchors, schedule, nframes, loop, clamp_deg=22.0):
+    """Key EVERY frame: cosine-interpolate between anchor poses, then apply
+    that frame's contact/clearance constraints. Sparse keys leave interpolated
+    frames unconstrained (dips, phantom contacts); per-frame baking doesn't.
+    anchors:  sorted [(frame, posedict), ...] spanning 1..nframes+1
+    schedule: {frame: constraint-kwargs for keypose}"""
+    prev_solved = None
+    for f in range(1, nframes + 1):
+        prev = max((af, ap) for af, ap in anchors if af <= f)
+        nxt = min((af, ap) for af, ap in anchors if af >= f)
+        t = 0.0 if nxt[0] == prev[0] else (f - prev[0]) / (nxt[0] - prev[0])
+        keypose(lerp_pose(prev[1], nxt[1], t), f, clamp_prev=prev_solved, clamp_deg=clamp_deg,
+                **schedule.get(f, {}))
+        prev_solved = snapshot_pose()
+        if f == 1 and loop:
+            first = prev_solved
+    if loop:
+        keypose(first, nframes + 1)
 
 def snapshot_pose():
     """Read back the solved pose as a dict (so every key of a static clip
@@ -196,6 +253,10 @@ def new_action(name):
     act = bpy.data.actions.new(name)
     arm_obj.animation_data_create()
     arm_obj.animation_data.action = act
+    # Flush the one-time animation re-evaluation that assigning an action
+    # triggers: with stashed NLA strips present it stomps the next manually
+    # set pose (verified in Blender 5.1). Eat it now, before posing.
+    bpy.context.view_layer.update()
     return act
 
 def stash(act):
@@ -272,12 +333,12 @@ def build_run():
              "legU_BR": (24, 0, 0), "legL_BR": (-12, 0, 0), "foot_BR": (16, 0, 0),
              "legU_FL": (-40, 0, 0), "legL_FL": (24, 0, 0), "foot_FL": (10, 0, 0),
              "legU_FR": (-40, 0, 0), "legL_FR": (24, 0, 0), "foot_FR": (10, 0, 0)},
-        5:  {"root_dz": 0.15, "hips": (-8, 0, 0), "spine": (6, 0, 0), "chest": (4, 0, 0),
+        5:  {"root_dz": 0.10, "hips": (-8, 0, 0), "spine": (6, 0, 0), "chest": (4, 0, 0),
              "neck": (-6, 0, 0), "head": (2, 0, 0), "tail1": (40, 0, 0), "tail2": (22, 0, 0),
-             "legU_BL": (42, 0, 0), "legL_BL": (-26, 0, 0), "foot_BL": (20, 0, 0),
-             "legU_BR": (42, 0, 0), "legL_BR": (-26, 0, 0), "foot_BR": (20, 0, 0),
-             "legU_FL": (-34, 0, 0), "legL_FL": (14, 0, 0), "foot_FL": (6, 0, 0),
-             "legU_FR": (-34, 0, 0), "legL_FR": (14, 0, 0), "foot_FR": (6, 0, 0)},
+             "legU_BL": (48, 0, 0), "legL_BL": (-34, 0, 0), "foot_BL": (22, 0, 0),
+             "legU_BR": (48, 0, 0), "legL_BR": (-34, 0, 0), "foot_BR": (22, 0, 0),
+             "legU_FL": (-34, 0, 0), "legL_FL": (20, 0, 0), "foot_FL": (6, 0, 0),
+             "legU_FR": (-34, 0, 0), "legL_FR": (20, 0, 0), "foot_FR": (6, 0, 0)},
         7:  {"root_dz": 0.03, "hips": (8, 0, 0), "spine": (-10, 0, 0), "chest": (-4, 0, 0),
              "neck": (6, 0, 0), "head": (-8, 0, 0), "tail1": (22, 0, 0), "tail2": (12, 0, 0),
              "legU_BL": (-18, 0, 0), "legL_BL": (10, 0, 0), "foot_BL": (-6, 0, 0),
@@ -290,18 +351,18 @@ def build_run():
              "legU_BR": (-30, 0, 0), "legL_BR": (16, 0, 0), "foot_BR": (-8, 0, 0),
              "legU_FL": (12, 0, 0), "legL_FL": (6, 0, 0), "foot_FL": (4, 0, 0),
              "legU_FR": (12, 0, 0), "legL_FR": (6, 0, 0), "foot_FR": (4, 0, 0)},
-        11: {"root_dz": 0.07, "hips": (6, 0, 0), "spine": (-8, 0, 0), "chest": (-2, 0, 0),
+        11: {"root_dz": 0.03, "hips": (6, 0, 0), "spine": (-8, 0, 0), "chest": (-2, 0, 0),
              "neck": (2, 0, 0), "head": (-4, 0, 0), "tail1": (24, 0, 0), "tail2": (14, 0, 0),
-             "legU_BL": (-22, 0, 0), "legL_BL": (26, 0, 0), "foot_BL": (-10, 0, 0),
-             "legU_BR": (-22, 0, 0), "legL_BR": (26, 0, 0), "foot_BR": (-10, 0, 0),
-             "legU_FL": (28, 0, 0), "legL_FL": (22, 0, 0), "foot_FL": (10, 0, 0),
-             "legU_FR": (28, 0, 0), "legL_FR": (22, 0, 0), "foot_FR": (10, 0, 0)},
-        13: {"root_dz": 0.06, "hips": (2, 0, 0), "spine": (-6, 0, 0), "chest": (0, 0, 0),
+             "legU_BL": (-20, 0, 0), "legL_BL": (18, 0, 0), "foot_BL": (-8, 0, 0),
+             "legU_BR": (-20, 0, 0), "legL_BR": (18, 0, 0), "foot_BR": (-8, 0, 0),
+             "legU_FL": (28, 0, 0), "legL_FL": (26, 0, 0), "foot_FL": (10, 0, 0),
+             "legU_FR": (16, 0, 0), "legL_FR": (16, 0, 0), "foot_FR": (8, 0, 0)},
+        13: {"root_dz": 0.03, "hips": (2, 0, 0), "spine": (-6, 0, 0), "chest": (0, 0, 0),
              "neck": (-4, 0, 0), "head": (0, 0, 0), "tail1": (28, 0, 0), "tail2": (16, 0, 0),
-             "legU_BL": (-10, 0, 0), "legL_BL": (14, 0, 0), "foot_BL": (-4, 0, 0),
-             "legU_BR": (-10, 0, 0), "legL_BR": (14, 0, 0), "foot_BR": (-4, 0, 0),
-             "legU_FL": (-16, 0, 0), "legL_FL": (18, 0, 0), "foot_FL": (8, 0, 0),
-             "legU_FR": (-16, 0, 0), "legL_FR": (18, 0, 0), "foot_FR": (8, 0, 0)},
+             "legU_BL": (-8, 0, 0), "legL_BL": (10, 0, 0), "foot_BL": (-4, 0, 0),
+             "legU_BR": (-8, 0, 0), "legL_BR": (10, 0, 0), "foot_BR": (-4, 0, 0),
+             "legU_FL": (-6, 0, 0), "legL_FL": (20, 0, 0), "foot_FL": (8, 0, 0),
+             "legU_FR": (-6, 0, 0), "legL_FR": (20, 0, 0), "foot_FR": (8, 0, 0)},
         15: {"root_dz": 0.03, "hips": (0, 0, 0), "spine": (-5, 0, 0), "chest": (1, 0, 0),
              "neck": (-6, 0, 0), "head": (2, 0, 0), "tail1": (26, 0, 0), "tail2": (14, 0, 0),
              "legU_BL": (4, 0, 0), "legL_BL": (-2, 0, 0), "foot_BL": (0, 0, 0),
@@ -309,42 +370,77 @@ def build_run():
              "legU_FL": (-32, 0, 0), "legL_FL": (26, 0, 0), "foot_FL": (10, 0, 0),
              "legU_FR": (-32, 0, 0), "legL_FR": (26, 0, 0), "foot_FR": (10, 0, 0)},
     }
-    CONSTRAINTS = {
-        1: {"contact": ("foot_BL", "foot_BR")},
-        3: {"contact": ("foot_BL", "foot_BR")},
-        5: {"clearance": 0.10},
-        7: {"contact": ("foot_FL", "foot_FR")},
-        9: {"contact": ("foot_FL", "foot_FR")},
-        11: {"clearance": 0.07},
-        13: {"clearance": 0.05},
-        15: {"clearance": 0.02},
-    }
-    f1_solved = None
-    for f, pose in T.items():
-        keypose(STAND, f, pose, **CONSTRAINTS[f])
-        if f == 1:
-            f1_solved = snapshot_pose()
-    keypose(f1_solved, 17)   # seamless loop: f17 == solved f1, cycle length 16
+    # per-frame constraint schedule (baked at every frame — see bake_clip):
+    # hind plant f1-4, flight f5-7, front plant f8-11, gather f12-16.
+    # Clearances stay ABOVE the 0.07 contact threshold except the approach
+    # frames (7, 16) which ease toward the next plant.
+    # each plant also LIFTS the opposite pair — without it all four paws sat
+    # on the floor through the front plant (audit v15 strips)
+    HC = {"contact": ("foot_BL", "foot_BR"), "clearance": 0.18, "clear_paws": ("foot_FL", "foot_FR")}
+    FC = {"contact": ("foot_FL", "foot_FR"), "clearance": 0.18, "clear_paws": ("foot_BL", "foot_BR")}
+    schedule = {1: HC, 2: HC, 3: HC, 4: HC,
+                5: {"clearance": 0.15}, 6: {"clearance": 0.15}, 7: {"clearance": 0.10},
+                8: FC, 9: FC, 10: FC, 11: FC,
+                12: {"clearance": 0.16}, 13: {"clearance": 0.16}, 14: {"clearance": 0.12},
+                15: {"clearance": 0.10}, 16: {"clearance": 0.09}}
+    anchors = sorted(T.items()) + [(17, T[1])]
+    bake_clip(anchors, schedule, 16, loop=True, clamp_deg=26.0)
     return act
 
 def build_pickup():
     act = new_action("pickup")
-    # deep play-bow: nose solved down to ball height, grounded paws solved
-    # onto the floor at both ends so nothing drifts
-    BOW = {"root_dz": -0.20, "hips": (8, 0, 0), "spine": (14, 0, 0), "chest": (14, 0, 0),
-           "neck": (-46, 0, 0), "head": (-38, 0, 0),
-           "legU_FL": (-10, 0, 0), "legL_FL": (20, 0, 0), "foot_FL": (-8, 0, 0),
-           "legU_FR": (-10, 0, 0), "legL_FR": (20, 0, 0), "foot_FR": (-8, 0, 0),
-           "legU_BL": (-8, 0, 0), "legL_BL": (2, 0, 0), "foot_BL": (2, 0, 0),
-           "legU_BR": (-8, 0, 0), "legL_BR": (2, 0, 0), "foot_BR": (2, 0, 0),
-           "tail1": (32, 0, 0), "tail2": (16, 0, 0)}
+    # play-bow that PIVOTS around the hips: front end dives (chest low, elbows
+    # folded), rear stays tall with hind legs counter-rotated against the hips
+    # so the rear paws never leave their spots. Bending the neck alone can
+    # never reach the ball - the neck JOINT has to come down.
+    # Bow designed from bow_probe.py measurements: spine/chest/root lower the
+    # nose with ZERO hind-paw movement (hips rotation slid the rear paws 0.4
+    # and is banned here). Neck/head signs are POSITIVE-down on this rig.
+    # root stays UP (root drops sank the hind paws, and re-grounding them
+    # frame by frame random-walked the rear 0.3); depth comes from spine/chest
+    # pivot + front legs sliding forward LOW (no fold-plunge through floor)
+    BOW = {"root_dz": 0.0, "hips": (0, 0, 0), "spine": (22, 0, 0), "chest": (16, 0, 0),
+           "neck": (50, 0, 0), "head": (26, 0, 0),
+           "legU_FL": (-30, 0, 0), "legL_FL": (12, 0, 0), "foot_FL": (6, 0, 0),
+           "legU_FR": (-30, 0, 0), "legL_FR": (12, 0, 0), "foot_FR": (6, 0, 0),
+           "tail1": (38, 0, 0), "tail2": (20, 0, 0)}
     start = solved_base("stand", STAND, contact=GROUND_PAWS)
-    keypose(start, 1)
-    keypose(STAND, 8, BOW, contact=("foot_FL", "foot_BL", "foot_BR"),
-            floor_feet=("foot_FR",), nose_max=0.50)
-    bow_solved = snapshot_pose()
-    keypose(bow_solved, 12)
-    keypose(start, 20)
+    # pre-solve the bow ONCE (per-key greedy solves each land differently and
+    # made the hind paws wander between keys), then bake every frame between
+    # the same two solved endpoints
+    # BOW deltas go ON TOP of the solved stand: the stand calibration bends
+    # each leg to the (uneven) scan ground, and the bow must inherit those
+    # hind angles exactly or the rear legs animate between bent and straight
+    _apply(_merge(start, BOW))
+    _solve_constraints(floor_feet=("foot_FR",), nose_max=0.95)
+    _bend_leg_to("foot_FL", GROUND + 0.10, tol=0.02)   # margin for importer tail synthesis
+    nz = (arm_obj.matrix_world @ arm_obj.pose.bones["head"].tail).z
+    print(f"PICKUP nose after solve: {nz - GROUND:.2f} above ground")
+    bow = snapshot_pose()
+    # crouch waypoint keeps the folding front paws ON the floor mid-path —
+    # a straight joint-space lerp plunges them through it
+    CROUCH = dict(start)
+    for k, v in {"root_dz": -0.02, "spine": (10, 0, 0), "chest": (8, 0, 0),
+                 "neck": (22, 0, 0), "head": (12, 0, 0),
+                 "legU_FL": (-15, 0, 0), "legL_FL": (6, 0, 0), "foot_FL": (2, 0, 0),
+                 "legU_FR": (-15, 0, 0), "legL_FR": (6, 0, 0), "foot_FR": (2, 0, 0)}.items():
+        if k == "root_dz":
+            CROUCH[k] = CROUCH.get(k, 0.0) + v
+        else:
+            b = CROUCH.get(k, (0, 0, 0))
+            CROUCH[k] = (b[0] + v[0], b[1] + v[1], b[2] + v[2])
+    anchors = [(1, start), (5, CROUCH), (9, bow), (13, bow), (16, CROUCH), (20, start)]
+    # hind paws never dip (root stays up), so only the front pair needs floor
+    # guarding — solving the hind each frame was the drift source
+    schedule = {f: {"floor_feet": ("foot_FL", "foot_FR")} for f in range(2, 20)}
+    bake_clip(anchors, schedule, 20, loop=False)
+    for tag in ("legU_BL", "legL_BL", "foot_BL"):
+        print(f"PICKDBG {tag} start={start.get(tag)} bow={bow.get(tag)}")
+    for f in (1, 5, 9, 13, 17, 20):
+        bpy.context.scene.frame_set(f)
+        bpy.context.view_layer.update()
+        pw = arm_obj.matrix_world @ arm_obj.pose.bones["foot_BL"].tail
+        print(f"PICKDBG f{f} BLpaw=({pw.x:+.3f},{pw.y:+.3f},{pw.z:+.3f})")
     return act
 
 def build_wag():
@@ -353,7 +449,7 @@ def build_wag():
     base = solved_base("stand", STAND, contact=GROUND_PAWS)
     for f, side in [(1, 1), (5, -1), (9, 1), (13, -1), (17, 1), (21, -1), (25, 1), (29, -1), (33, 1)]:
         keypose(base, f, {"tail1": (40, 0, 30 * side), "tail2": (20, 0, 40 * side),
-                          "hips": (0, 0, 2.5 * side), "chest": (0, 0, -2.5 * side),
+                          "hips": (0, 0, 2.5 * side), "spine": (0, 0, -2.5 * side),
                           "head": (0, 0, -6 * side), "neck": (10, 0, 0)})
     return act
 
@@ -430,6 +526,14 @@ if PREVIEW:
 acts = []
 for name, (build, length) in BUILDERS.items():
     act = build()
+    # LINEAR interpolation: kills Bezier overshoot (mid-segment paw dips and
+    # amplified joint deltas); reads crisp at this toy scale
+    for layer in act.layers:
+        for strip in layer.strips:
+            for bag in strip.channelbags:
+                for fc in bag.fcurves:
+                    for kp in fc.keyframe_points:
+                        kp.interpolation = "LINEAR"
     stash(act)
     acts.append((name, length))
     print("built:", name, length, "frames")

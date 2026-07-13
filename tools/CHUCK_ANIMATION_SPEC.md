@@ -44,7 +44,7 @@ S1–S3 as sit_idle, plus:
 ## pickup (20f one-shot)
 | ID | Criterion | Threshold |
 |----|-----------|-----------|
-| P1 | Nose dips to ball height (head-bone tip min z above ground) | ≤ 0.55 |
+| P1 | Nose dips to ball height (head-bone tip min z above ground). The fetch ball is a BEACH ball: radius 0.53 model units, resting center 0.60, top 1.13 — nose ≤ 1.00 visibly overlaps the ball. (0.55 was a v1 error assuming a ground-level tennis ball; corrected 2026-07-12.) | ≤ 1.00 |
 | P2 | Dip reached in frames 6–14, recovered by clip end (head back within 15° of start) | — |
 | P3 | Hind paws stay grounded throughout | drift < 0.08 |
 
