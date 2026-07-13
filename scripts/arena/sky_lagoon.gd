@@ -255,7 +255,26 @@ func _build_pearl_castle(o: Vector3) -> void:
 		frn.position = o + Vector3(frx, fry, frz)
 		m.add_child(frn)
 		m.game_nodes.append(frn)
-		(m.g["crafted"] as Array).append({"node": frn, "cool": 0.0})
+		# collect the sway ShaderMaterials so the tick can ramp their `excite`
+		# (faster/bigger body wiggle) while the friend runs or nuzzles
+		var swaymats: Array = []
+		for mi in m._all_meshes(frn):
+			var msh: Mesh = mi.mesh
+			if msh == null:
+				continue
+			for si in range(msh.get_surface_count()):
+				var sm3: Material = mi.get_active_material(si)
+				if sm3 is ShaderMaterial:
+					swaymats.append(sm3)
+		# ground offset captured now so terrain-following works regardless of the
+		# lagoon_walk_h vs _lagoon_local coordinate convention
+		var goff: float = frn.position.y - m.lagoon_walk_h(frn.position.x, frn.position.z)
+		(m.g["crafted"] as Array).append({
+			"node": frn, "cool": 0.0, "kind": String(cf2[0]),
+			"state": "idle", "t": 0.0, "next": 2.5 + randf() * 4.0,
+			"home": frn.position, "goff": goff, "tgt": frn.position,
+			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null,
+		})
 	# a big rainbow arc over the meadow
 	var rainbow := MeshInstance3D.new()
 	var rt := TorusMesh.new()
@@ -1010,6 +1029,144 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			m._sparkle_burst(toy["anchor"], Color(1.0, 0.9, 0.6))
 			break
 
+# --- crafted-friend behaviour (kitty / birdie 3D meshes) ---------------------
+# Static Meshy meshes with the sway shader for body life; locomotion, facing and
+# gestures are procedural. States: idle -> sporadic wander/run -> approach when
+# Roshan is near -> nuzzle (rub against her, purr). Terrain-followed via
+# lagoon_walk_h; gen2 face is local -X (see memory gen2-creature-facing).
+const _CR_WANDER_R := 26.0     # scamper radius around home
+const _CR_WANDER_SPD := 9.0
+const _CR_RUN_SPD := 16.0
+const _CR_APPROACH := 14.0      # start running to greet within this range
+const _CR_NUZZLE := 3.4         # close enough to begin rubbing
+const _CR_NUZZLE_DUR := 4.5
+const _CR_HOP := 0.9            # gait bounce height at full run
+
+func _tick_crafted(delta: float, ppos: Vector3) -> void:
+	for cd in m.g.get("crafted", []):
+		var cn: Node3D = cd["node"]
+		if not is_instance_valid(cn):
+			continue
+		cd["t"] = float(cd["t"]) + delta
+		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
+		var flat: Vector3 = ppos - cn.position
+		flat.y = 0.0
+		var pdist: float = flat.length()
+		var state: String = String(cd["state"])
+		# a calm friend bolts over to say hi when she comes near (off cooldown)
+		if (state == "idle" or state == "wander") and pdist < _CR_APPROACH and float(cd["cool"]) <= 0.0:
+			state = "approach"
+			cd["state"] = "approach"
+			cd["t"] = 0.0
+		match state:
+			"idle":
+				_crafted_sway(cd, 0.0)
+				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+				if float(cd["t"]) >= float(cd["next"]):
+					cd["state"] = "wander"
+					cd["t"] = 0.0
+					var home: Vector3 = cd["home"]
+					var tgt: Vector3
+					if pdist < 30.0 and randf() < 0.5:
+						# playful: bolt straight away from Roshan (chase-me)
+						var away: Vector3 = cn.position - ppos
+						away.y = 0.0
+						if away.length() < 0.1:
+							away = Vector3(randf() - 0.5, 0.0, randf() - 0.5)
+						tgt = home + away.normalized() * (_CR_WANDER_R * (0.6 + randf() * 0.4))
+					else:
+						var a: float = randf() * TAU
+						tgt = home + Vector3(cos(a), 0.0, sin(a)) * (_CR_WANDER_R * (0.3 + randf() * 0.7))
+					cd["tgt"] = tgt
+			"wander":
+				_crafted_sway(cd, 0.35)
+				if _crafted_move(cd, cd["tgt"], _CR_WANDER_SPD, delta):
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["next"] = 3.0 + randf() * 5.0
+			"approach":
+				_crafted_sway(cd, 1.0)
+				var goal: Vector3 = cn.position
+				if pdist > 0.1:
+					goal = ppos - flat.normalized() * (_CR_NUZZLE * 0.7)
+				_crafted_move(cd, goal, _CR_RUN_SPD, delta)
+				if pdist < _CR_NUZZLE:
+					cd["state"] = "nuzzle"
+					cd["t"] = 0.0
+					cd["purr_cd"] = 0.0
+					if String(cd["kind"]) == "cat":
+						_crafted_purr(cd, true)
+			"nuzzle":
+				_crafted_nuzzle(cd, ppos, delta)
+				if float(cd["t"]) >= _CR_NUZZLE_DUR or pdist > 7.0:
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["cool"] = 7.0 + randf() * 6.0
+					cn.rotation.x = 0.0
+					_crafted_sway(cd, 0.0)
+					_crafted_purr(cd, false)
+
+func _crafted_sway(cd: Dictionary, energy: float) -> void:
+	for sm in cd["mats"]:
+		(sm as ShaderMaterial).set_shader_parameter("excite", energy)
+
+func _crafted_move(cd: Dictionary, tgt: Vector3, spd: float, delta: float) -> bool:
+	var cn: Node3D = cd["node"]
+	var d: Vector3 = tgt - cn.position
+	d.y = 0.0
+	var dist: float = d.length()
+	if dist < 1.2:
+		cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+		return true
+	var dir: Vector3 = d / dist
+	var np: Vector3 = cn.position + dir * minf(spd * delta, dist)
+	cd["gait"] = float(cd["gait"]) + delta * spd * 0.8
+	var hop: float = absf(sin(float(cd["gait"]))) * _CR_HOP * (spd / _CR_RUN_SPD)
+	np.y = m.lagoon_walk_h(np.x, np.z) + float(cd["goff"]) + hop
+	cn.position = np
+	# gen2 face is local -X -> yaw = atan2(dir.z, -dir.x) (memory: gen2-creature-facing)
+	cn.rotation.y = lerp_angle(cn.rotation.y, atan2(dir.z, -dir.x), 0.25)
+	return false
+
+func _crafted_nuzzle(cd: Dictionary, ppos: Vector3, delta: float) -> void:
+	var cn: Node3D = cd["node"]
+	var to_p: Vector3 = ppos - cn.position
+	to_p.y = 0.0
+	var d: float = to_p.length()
+	var dir: Vector3 = (to_p / d) if d > 0.1 else Vector3.FORWARD
+	# press beside her and rub side-to-side along her flank
+	var side: Vector3 = Vector3(-dir.z, 0.0, dir.x)
+	var wig: float = sin(float(cd["t"]) * 6.5)
+	var goal: Vector3 = ppos - dir * (_CR_NUZZLE * 0.55) + side * wig * 0.9
+	goal.y = m.lagoon_walk_h(goal.x, goal.z) + float(cd["goff"]) + absf(wig) * 0.18
+	cn.position = cn.position.lerp(goal, 0.3)
+	# nose into her; happy body-roll wiggle (memory: -X face -> x-euler = roll)
+	cn.rotation.y = atan2(dir.z, -dir.x)
+	cn.rotation.x = wig * 0.14
+	_crafted_sway(cd, 1.0)
+	cd["purr_cd"] = float(cd["purr_cd"]) - delta
+	if float(cd["purr_cd"]) <= 0.0:
+		cd["purr_cd"] = 1.1
+		m._greet_heart(cn.position + Vector3(0.0, 3.0, 0.0))
+
+func _crafted_purr(cd: Dictionary, on: bool) -> void:
+	var p: AudioStreamPlayer3D = cd["purr"]
+	if on:
+		if p == null:
+			p = AudioStreamPlayer3D.new()
+			var st: AudioStream = load("res://assets/audio/purr.wav")
+			if st is AudioStreamWAV:
+				(st as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD
+			p.stream = st
+			p.unit_size = 6.0
+			p.max_distance = 40.0
+			(cd["node"] as Node3D).add_child(p)
+			cd["purr"] = p
+		p.pitch_scale = 0.95 + randf() * 0.1
+		p.play()
+	elif p != null and p.playing:
+		p.stop()
+
 func _tick_level2(delta: float, ppos: Vector3) -> void:
 	_tick_toys(delta, ppos)
 	if m.mg_kind != "":
@@ -1021,17 +1178,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(m.g.get("phase", "court")) == "hall":
 		m._tick_castle_hall(delta, ppos)
 		return
-	# crafted friends WAVE back: heart puff + happy chirp when Roshan visits
-	for cd in m.g.get("crafted", []):
-		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
-		var cn: Node3D = cd["node"]
-		if is_instance_valid(cn) and float(cd["cool"]) <= 0.0 and cn.position.distance_to(ppos) < 6.5:
-			cd["cool"] = 9.0
-			m._greet_heart(cn.position + Vector3(0, 3.0, 0))
-			var hop_y: float = cn.position.y
-			var hop := cn.create_tween()
-			hop.tween_property(cn, "position:y", hop_y + 1.2, 0.18)
-			hop.tween_property(cn, "position:y", hop_y, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	# crafted friends are alive: they scamper around, and run up to nuzzle +
+	# purr when Roshan comes near
+	_tick_crafted(delta, ppos)
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta
