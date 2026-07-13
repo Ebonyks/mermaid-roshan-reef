@@ -68,7 +68,8 @@ func _shop_buy(id: String) -> void:
 				m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.6, 1.0, 0.4))
 				_check_shopper()
 			return
-		# permanent treasures (Rainbow Trail / Pearl Tiara / Pearl Princess)
+		# permanent treasures (hard-generated assets only — the early procedural
+		# cosmetics were retired; the catalog is beans-only until replacements land)
 		if bool(m.shop_owned.get(id, false)):
 			return
 		m.pearl_count -= int(it["price"])
@@ -78,18 +79,16 @@ func _shop_buy(id: String) -> void:
 		if m.buy_sound != null:
 			m.buy_sound.play()
 		m._sparkle_burst(m.player.position + Vector3(0, 2, 0), Color(1.0, 0.9, 1.0))
-		if id == "tail":
-			m.player.set_rainbow_trail(true)
-			m.show_msg("Pearl Shop", "A RAINBOW TRAIL! Sparkles will follow you FOREVER!", "win")
-		elif id == "tiara":
-			m.player.set_tiara(true)
-			m.show_msg("Pearl Shop", "The PEARL TIARA! Fit for a real princess!", "win")
-		elif id == "pearlskin":
-			m.show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
 		_check_shopper()
 		return
 
 func _check_shopper() -> void:
-	if bool(m.shop_owned.get("_beans_once", false)) and bool(m.shop_owned.get("tail", false)) \
-			and bool(m.shop_owned.get("tiara", false)) and bool(m.shop_owned.get("pearlskin", false)):
-		m.award_sticker("shopper")
+	# Big Shopper = bought everything in the current catalog (beans once, plus
+	# any permanent treasure it lists)
+	if not bool(m.shop_owned.get("_beans_once", false)):
+		return
+	for it in m.SHOP_ITEMS:
+		var id := String(it["id"])
+		if id != "beans" and not bool(m.shop_owned.get(id, false)):
+			return
+	m.award_sticker("shopper")

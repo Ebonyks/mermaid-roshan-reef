@@ -32,11 +32,9 @@ func load_save() -> void:
 	m.custom_friends = m.save_data.get("custom_friends", [])
 	m.craft_unlocks = m.save_data.get("crafts", {})
 	m.stickers = m.save_data.get("stickers", {})
+	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
+	# old saves — kept for save compatibility, no longer applied to the player
 	m.shop_owned = m.save_data.get("owned", {})
-	if bool(m.shop_owned.get("tail", false)):
-		m.player.set_rainbow_trail(true)
-	if bool(m.shop_owned.get("tiara", false)):
-		m.player.set_tiara(true)
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.skin_id = String(m.save_data.get("skin", "classic"))

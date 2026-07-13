@@ -148,10 +148,6 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 # "rigged plushie" was a statue and the swim silently never applied. The
 # Huluu skin uses her illustrated cutout billboard instead (doll era: over).
 const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
-const SKIN_TIARA_Y := {"huluu": 2.5}   # V2 bodies are fuller up top; the plushie Huluu keeps the low halo
-
-func _tiara_y() -> float:
-	return float(SKIN_TIARA_Y.get(skin_id, 4.0))
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -339,8 +335,6 @@ func _attach_wing_cards(mdl: Node3D) -> void:
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
-	if _tiara != null:
-		_tiara.position.y = _tiara_y()
 	if SKIN_MODELS.has(id) and ResourceLoader.exists(String(SKIN_MODELS[id])):
 		# the full Roshan treatment: a rigged double-sided plushie with the SAME
 		# bone names, so the procedural swim drives her directly
@@ -382,7 +376,7 @@ func set_skin(id: String, tex_path: String) -> void:
 		skel = _roshan_skel
 		bone_idx = _roshan_maps[0]
 		rest = _roshan_maps[1]
-	var on_skin: bool = not (id == "classic" or id == "pearl" or tex_path == "")
+	var on_skin: bool = not (id == "classic" or tex_path == "")
 	if on_skin:
 		if skin_sprite != null:
 			var tex: Texture2D = load(tex_path)
@@ -399,91 +393,8 @@ func set_skin(id: String, tex_path: String) -> void:
 			model_root.visible = true
 		if skin_sprite != null:
 			skin_sprite.visible = false
-	# PEARL PRINCESS (Pearl Shop, 250 pearls): the classic model wrapped in an
-	# iridescent mother-of-pearl shimmer overlay
-	_set_pearl_overlay(id == "pearl")
 	if skin_sparkles != null:
-		skin_sparkles.emitting = on_skin or id == "pearl" or rainbow_trail
-
-var _pearl_mat: StandardMaterial3D = null
-var rainbow_trail := false
-var _tiara: Node3D = null
-
-func _set_pearl_overlay(on: bool) -> void:
-	if _pearl_mat == null and on:
-		_pearl_mat = StandardMaterial3D.new()
-		_pearl_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		_pearl_mat.albedo_color = Color(1.0, 0.92, 1.0, 0.22)
-		_pearl_mat.rim_enabled = true
-		_pearl_mat.rim = 1.0
-		_pearl_mat.rim_tint = 0.6
-		_pearl_mat.emission_enabled = true
-		_pearl_mat.emission = Color(0.9, 0.75, 1.0)
-		_pearl_mat.emission_energy_multiplier = 0.45
-	_apply_overlay(model_root, _pearl_mat if on else null)
-
-func _apply_overlay(n: Node, mat: Material) -> void:
-	if n == null:
-		return
-	if n is MeshInstance3D:
-		(n as MeshInstance3D).material_overlay = mat
-	for c in n.get_children():
-		_apply_overlay(c, mat)
-
-func set_rainbow_trail(on: bool) -> void:
-	# Pearl Shop treasure: sparkles follow Roshan forever, in every look
-	rainbow_trail = on
-	if on and skin_sparkles != null:
-		skin_sparkles.amount = 44
-		var grad := Gradient.new()
-		grad.set_color(0, Color(1.0, 0.5, 0.7))
-		grad.set_color(1, Color(0.5, 0.8, 1.0))
-		var gt := GradientTexture1D.new()
-		gt.gradient = grad
-		skin_sparkles.color_ramp = grad
-		skin_sparkles.emitting = true
-
-func set_tiara(on: bool) -> void:
-	# Pearl Shop treasure: a floating golden tiara ringed with pearls
-	if on and _tiara == null:
-		_tiara = Node3D.new()
-		var ring := MeshInstance3D.new()
-		var tm := TorusMesh.new()
-		tm.inner_radius = 0.5
-		tm.outer_radius = 0.72
-		ring.mesh = tm
-		var gm := StandardMaterial3D.new()
-		gm.albedo_color = Color(1.0, 0.85, 0.35)
-		gm.metallic = 0.85
-		gm.roughness = 0.2
-		gm.emission_enabled = true
-		gm.emission = Color(1.0, 0.8, 0.3)
-		gm.emission_energy_multiplier = 0.9
-		ring.material_override = gm
-		_tiara.add_child(ring)
-		for pi in range(5):
-			var pearl := MeshInstance3D.new()
-			var sm := SphereMesh.new()
-			sm.radius = 0.13
-			sm.height = 0.26
-			pearl.mesh = sm
-			var pm := StandardMaterial3D.new()
-			pm.albedo_color = Color(1.0, 0.97, 1.0)
-			pm.metallic = 0.5
-			pm.roughness = 0.15
-			pm.emission_enabled = true
-			pm.emission = Color(1.0, 0.9, 0.98)
-			pm.emission_energy_multiplier = 0.6
-			pearl.material_override = pm
-			var pa: float = TAU * float(pi) / 5.0
-			pearl.position = Vector3(cos(pa) * 0.61, 0.12, sin(pa) * 0.61)
-			_tiara.add_child(pearl)
-		_tiara.position = Vector3(0, _tiara_y(), 0)   # floats just above her head in every look
-		add_child(_tiara)
-		var tw := _tiara.create_tween().set_loops()
-		tw.tween_property(_tiara, "rotation:y", TAU, 6.0).from(0.0)
-	if _tiara != null:
-		_tiara.visible = on
+		skin_sparkles.emitting = on_skin
 
 func _flatten_materials(node: Node) -> void:
 	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
