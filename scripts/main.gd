@@ -5764,7 +5764,9 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var side: float = -1.0 if k % 2 == 0 else 1.0
 		var peng := _aq_game("Penguin", ps[0] + ps[2] * (side * (SLIDE_WIDTH * 0.5 + 4.0)) + Vector3(0, 2.0, 0), 3.0)
 		if peng != null:
-			peng.rotation.y = atan2(-ps[1].x, -ps[1].z) + (0.4 if side > 0.0 else -0.4)
+			# gen2 creatures face local -X (mover convention): atan2(-t.z, t.x)
+			# points the face UP-slope, at the oncoming racer
+			peng.rotation.y = atan2(-ps[1].z, ps[1].x) + (0.4 if side > 0.0 else -0.4)
 			_play_clip(peng, "cheer", 0.85 + 0.12 * float(k))   # phase-varied crowd
 	g["fish"] = []
 	if mode == "chase":
@@ -5772,6 +5774,30 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var baby := _aq_game("Penguin", _slide_sample(40.0)[0] + Vector3(0, SLIDE_RIDE, 0), 2.2)
 		g["peng_node"] = baby
 		g["peng_x"] = 0.0
+		if baby != null:
+			# continuous snow spray kicked up at his tail (+X local: face is -X)
+			# so his speed reads even when he's just a dot up the track
+			var spray := CPUParticles3D.new()
+			spray.amount = 70
+			spray.lifetime = 0.7
+			spray.direction = Vector3(1.0, 0.7, 0.0)
+			spray.spread = 28.0
+			spray.initial_velocity_min = 5.0
+			spray.initial_velocity_max = 11.0
+			spray.gravity = Vector3(0, -16.0, 0)
+			spray.scale_amount_min = 0.16
+			spray.scale_amount_max = 0.40
+			var sbm := BoxMesh.new()
+			sbm.size = Vector3(0.3, 0.3, 0.3)
+			spray.mesh = sbm
+			var spm := StandardMaterial3D.new()
+			spm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			# icy BLUE, not white — white spray vanishes into the bright snow
+			spm.albedo_color = Color(0.55, 0.8, 1.0)
+			spray.material_override = spm
+			spray.position = Vector3(1.8, 0.5, 0)
+			baby.add_child(spray)
+			g["peng_spray"] = spray
 	else:
 		# ---- 5 fish collectables, spaced along the run, alternating sides ----
 		var spots := [0.16, 0.34, 0.52, 0.70, 0.86]
@@ -5947,12 +5973,21 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		var pbpos: Vector3 = psamp[0] + psamp[2] * px + Vector3(0, SLIDE_RIDE, 0)
 		var pnode = g.get("peng_node")
 		if pnode != null and is_instance_valid(pnode):
-			(pnode as Node3D).position = pbpos
-			var wob: float = sin(float(g["t"]) * 9.0) * 0.18      # waddle
-			(pnode as Node3D).rotation = Vector3(0, atan2(psamp[1].x, psamp[1].z) + PI, wob)
-			# rigged clips: SPRINT while panicking or being reeled in, WADDLE otherwise
+			var pnd := pnode as Node3D
+			pnd.position = pbpos
 			var sprinting: bool = float(g.get("burst", 0.0)) > 0.5 or (beany and gap < 13.0)
-			_play_clip(pnode as Node3D, "sprint" if sprinting else "waddle", 1.35 if sprinting else 1.0)
+			# gen2 creatures face local -X (mover convention): atan2(t.z, -t.x)
+			# points his face DOWN-slope, the way he's racing. Euler is YXZ, so
+			# z = innermost = nose-down luge lean, x = body shimmy roll.
+			var pyaw: float = atan2(psamp[1].z, -psamp[1].x)
+			var shimmy: float = sin(float(g["t"]) * (13.0 if sprinting else 9.0)) * (0.12 if sprinting else 0.18)
+			pnd.rotation = Vector3(shimmy, pyaw, 0.30 if sprinting else 0.12)
+			# rigged clips: he's RACING the whole ride — sprint luge always,
+			# kicked faster while panicking or being reeled in
+			_play_clip(pnd, "sprint", 1.6 if sprinting else 1.1)
+			var spray = g.get("peng_spray")
+			if spray != null and is_instance_valid(spray):
+				(spray as CPUParticles3D).speed_scale = 1.7 if sprinting else 1.0
 		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
 		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
@@ -6243,6 +6278,8 @@ func _build_slide_portal() -> void:
 	add_child(floe)
 	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)
 	if peng != null:
+		# face the reef center (gen2 -X face) so Roshan meets his face, not his back
+		peng.rotation.y = atan2(-slide_portal_pos.z, slide_portal_pos.x)
 		_play_clip(peng, "idle")
 	if peng != null:
 		slide_portal_penguin = peng
