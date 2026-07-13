@@ -59,6 +59,44 @@ const CTRL := [
 const SHORTCUT_FROM_U := 0.34
 const SHORTCUT_TO_U := 0.50
 
+# the rainbow road gets its own loop: a floating road doesn't have to hug a
+# seabed, so it ROLLERCOASTERS — 66 units of climb and dive around the
+# Butterfly World (owner: "track design is repetitive" — the two races now
+# share nothing but the engine). Keeps every point 100+ units from the loop
+# centre so the planet, moons and butterflies stay clear of the racing line.
+const RAINBOW_CTRL := [
+	Vector3(0, 8, 158),
+	Vector3(82, 26, 138),
+	Vector3(132, 44, 66),
+	Vector3(158, 18, -12),
+	Vector3(128, -6, -86),
+	Vector3(58, -20, -132),
+	Vector3(-18, 2, -160),
+	Vector3(-92, 30, -126),
+	Vector3(-142, 46, -50),
+	Vector3(-160, 22, 34),
+	Vector3(-118, -12, 96),
+	Vector3(-52, -4, 148),
+]
+
+# ------------------------------------------------------------ hazards
+# Gentle, telegraphed, no fail states: every hazard slows or bounces — and
+# one of them (the geyser) is secretly a free jump. u = loop fraction.
+const HAZARDS_OCEAN := [
+	{"u": 0.12, "kind": "crab"},
+	{"u": 0.30, "kind": "geyser"},
+	{"u": 0.52, "kind": "kelp"},
+	{"u": 0.68, "kind": "crab"},
+	{"u": 0.88, "kind": "geyser"},
+]
+const HAZARDS_RAINBOW := [
+	{"u": 0.10, "kind": "comet"},
+	{"u": 0.33, "kind": "cloud"},
+	{"u": 0.55, "kind": "pendulum"},
+	{"u": 0.72, "kind": "cloud"},
+	{"u": 0.90, "kind": "comet"},
+]
+
 # meter charge per source + placement tables (u = fraction along the loop)
 const STRIPS := [
 	{"u": 0.08, "lat": 0.0, "len": 16.0, "hw": 7.0},
@@ -282,7 +320,10 @@ func _catmull(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, t: float) -> V
 	return 0.5 * ((2.0 * p1) + (-p0 + p2) * t + (2.0 * p0 - 5.0 * p1 + 4.0 * p2 - p3) * t2 + (-p0 + 3.0 * p1 - 3.0 * p2 + p3) * t3)
 
 func _ctrl_pts() -> Array:
-	return _cv("ctrl", CTRL)
+	# the floating rainbow race rides its own rollercoaster loop; the seabed
+	# race keeps the terrain-hugging line (its shape comes from the reef)
+	var dflt: Array = RAINBOW_CTRL if (_theme() == "rainbow" and _ground_mode() == "float") else CTRL
+	return _cv("ctrl", dflt)
 
 func _origin() -> Vector3:
 	if _ground_mode() == "terrain":
@@ -430,6 +471,7 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_pickups()
 	_build_pearls()
 	_build_ramps()
+	_build_hazards()
 	_build_engine()
 	_build_camera()
 	_build_hud()
@@ -1267,6 +1309,226 @@ func _check_ramps() -> void:
 					_chime(1.15)
 					_flash_big("WHEEE!")
 
+# ------------------------------------------------------------ hazards
+var _hazards_live: Array = []
+
+func _hazard_table() -> Array:
+	return _cv("hazards", HAZARDS_OCEAN if _theme() == "ocean" else HAZARDS_RAINBOW)
+
+func _build_hazards() -> void:
+	for hd in _hazard_table():
+		var s0: float = float(hd["u"]) * _len
+		var w: float = _width_at(s0)
+		var kind := String(hd["kind"])
+		var h := {"kind": kind, "s": s0, "w": w, "ph": s0 * 0.13, "lat": 0.0}
+		var holder := Node3D.new()
+		add_child(holder)
+		h["node"] = holder
+		match kind:
+			"crab":
+				if ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
+					var cb: Node3D = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+					holder.add_child(cb)
+					_bw_fit(cb, 3.4)
+				else:
+					var q := MeshInstance3D.new()
+					var qm := SphereMesh.new()
+					qm.radius = 1.6
+					qm.height = 2.2
+					q.mesh = qm
+					var qmat := StandardMaterial3D.new()
+					qmat.albedo_color = Color(0.95, 0.4, 0.3)
+					q.material_override = qmat
+					holder.add_child(q)
+			"kelp":
+				# a forest patch ACROSS the road — drive through it and the
+				# fronds drag you (turbo powers through: that's the counterplay)
+				var base: Vector3 = _frame_at(s0, 0.0)[0]
+				holder.position = base
+				for i in range(3):
+					var kp := "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
+					if not ResourceLoader.exists(kp):
+						continue
+					var sw: Node3D = (load(kp) as PackedScene).instantiate()
+					var kh := Node3D.new()
+					holder.add_child(kh)
+					kh.add_child(sw)
+					_bw_fit(sw, 5.0)
+					var fr := _frame_at(s0 + float(i - 1) * 4.0, (float(i) - 1.0) * w * 0.55)
+					kh.position = (fr[0] as Vector3) - base
+			"geyser":
+				# bubbly vent on a rhythm: quiet = safe, erupting = free JUMP —
+				# the hazard a kid learns to chase, not fear
+				var mound := MeshInstance3D.new()
+				var mm := CylinderMesh.new()
+				mm.top_radius = 2.2
+				mm.bottom_radius = 3.4
+				mm.height = 1.0
+				mound.mesh = mm
+				var smat := StandardMaterial3D.new()
+				smat.albedo_color = Color(0.75, 0.65, 0.45)
+				smat.roughness = 1.0
+				mound.material_override = smat
+				holder.add_child(mound)
+				var bub := CPUParticles3D.new()
+				bub.emitting = false
+				bub.amount = 26
+				bub.lifetime = 0.8
+				bub.direction = Vector3.UP
+				bub.spread = 8.0
+				bub.initial_velocity_min = 14.0
+				bub.initial_velocity_max = 20.0
+				bub.gravity = Vector3.ZERO
+				bub.scale_amount_min = 0.2
+				bub.scale_amount_max = 0.55
+				var bm := SphereMesh.new()
+				bm.radius = 0.45
+				bm.height = 0.9
+				bub.mesh = bm
+				var bmat := StandardMaterial3D.new()
+				bmat.albedo_color = Color(0.7, 0.92, 1.0, 0.55)
+				bmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+				bmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+				bub.mesh.material = bmat
+				holder.add_child(bub)
+				h["bub"] = bub
+			"comet":
+				var st := Label3D.new()
+				st.text = "★"
+				st.font_size = 220
+				st.pixel_size = 0.03
+				st.outline_size = 16
+				st.modulate = Color(1.0, 0.9, 0.4)
+				st.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+				holder.add_child(st)
+				h["star"] = st
+				h["side"] = 1.0 if int(s0) % 2 == 0 else -1.0
+			"pendulum":
+				var pst := Label3D.new()
+				pst.text = "★"
+				pst.font_size = 300
+				pst.pixel_size = 0.03
+				pst.outline_size = 18
+				pst.modulate = Color(1.0, 0.55, 0.85)
+				pst.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+				holder.add_child(pst)
+			"cloud":
+				for i in range(3):
+					var cl := MeshInstance3D.new()
+					var cm := SphereMesh.new()
+					cm.radius = [2.6, 2.0, 1.7][i]
+					cm.height = cm.radius * 2.0
+					cl.mesh = cm
+					var cmat := StandardMaterial3D.new()
+					cmat.albedo_color = Color(0.7, 0.6, 0.95, 0.5)
+					cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+					cmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+					cl.material_override = cmat
+					cl.position = Vector3([-2.2, 1.6, 0.2][i], [0.6, 0.4, 1.8][i], [0.4, -1.2, 0.9][i])
+					holder.add_child(cl)
+		_hazards_live.append(h)
+
+func _hazard_bonk(k: Dictionary, slow: float, dir: float) -> void:
+	# soft and silly, never punishing: a slow + a shove + a full spin
+	if float(k.get("haz_cool", 0.0)) > 0.0 or float(k.get("air_t", 0.0)) > 0.0:
+		return
+	k["haz_cool"] = 1.5
+	k["speed"] = float(k["speed"]) * slow
+	k["latv"] = float(k["latv"]) + dir * 16.0
+	k["squash"] = 0.3
+	k["hop"] = 0.22
+	k["spin_t"] = 0.6
+	_drift_cancel(k)
+	if bool(k["is_player"]):
+		_shake = maxf(_shake, 0.3)
+		if _thunk_cool <= 0.0:
+			_chime(0.45)
+			_thunk_cool = 0.35
+		if _main != null and _main.has_method("_say"):
+			_main._say("roshan", "bump", 7.0)
+
+func _tick_hazards(delta: float) -> void:
+	var tt: float = Time.get_ticks_msec() / 1000.0
+	var racing: bool = _state == "race"
+	for h in _hazards_live:
+		var kind := String(h["kind"])
+		var s0: float = float(h["s"])
+		var w: float = float(h["w"])
+		var node: Node3D = h["node"]
+		match kind:
+			"crab":
+				h["lat"] = sin(tt * 0.55 + float(h["ph"])) * (w - 2.5)
+				var fr := _frame_at(s0, float(h["lat"]))
+				node.position = (fr[0] as Vector3) + Vector3(0, 0.3 + absf(sin(tt * 6.0)) * 0.3, 0)
+				node.rotation.y = tt * 0.8
+				if racing:
+					for k in _karts:
+						if (k["node"] as Node3D).position.distance_to(node.position) < 3.4:
+							_hazard_bonk(k, 0.75, signf(float(k["lat"]) - float(h["lat"])))
+			"pendulum":
+				h["lat"] = sin(tt * 1.1 + float(h["ph"])) * (w - 2.0)
+				var fr2 := _frame_at(s0, float(h["lat"]))
+				node.position = (fr2[0] as Vector3) + Vector3(0, 1.6, 0)
+				if racing:
+					for k in _karts:
+						if (k["node"] as Node3D).position.distance_to(node.position) < 3.6:
+							_hazard_bonk(k, 0.75, signf(float(k["lat"]) - float(h["lat"])))
+			"geyser":
+				var cyc: float = fposmod(tt + float(h["ph"]), 4.2)
+				var erupting: bool = cyc < 1.4
+				var frg := _frame_at(s0, 0.0)
+				node.position = frg[0] as Vector3
+				if h.has("bub"):
+					(h["bub"] as CPUParticles3D).emitting = erupting
+				# pre-cue: the mound quivers half a second before it blows
+				node.scale = Vector3.ONE * (1.0 + (0.18 * sin(tt * 30.0) if cyc > 3.7 else 0.0))
+				if racing and erupting:
+					for k in _karts:
+						if float(k.get("air_t", 0.0)) > 0.0:
+							continue
+						if (k["node"] as Node3D).position.distance_to(node.position) < 4.5:
+							k["air_t"] = AIR_DUR   # tossed sky-high — the fun kind of hazard
+							if bool(k["is_player"]):
+								_chime(1.15)
+								_flash_big("WHEEE!")
+			"comet":
+				# a shooting star sweeps the road on a 5s rhythm; it hovers and
+				# pulses at the entry edge first — the telegraph a 4yo can read
+				var ccyc: float = fposmod(tt + float(h["ph"]), 5.0)
+				var star: Label3D = h["star"]
+				var side: float = float(h["side"])
+				if ccyc >= 3.8:
+					var p: float = (ccyc - 3.8) / 1.2
+					h["lat"] = lerpf(side * (w + 9.0), -side * (w + 9.0), p)
+					var frx := _frame_at(s0, float(h["lat"]))
+					node.position = (frx[0] as Vector3) + Vector3(0, 1.5, 0)
+					node.visible = true
+					star.modulate = Color(1.0, 0.9, 0.4)
+					if racing:
+						for k in _karts:
+							if (k["node"] as Node3D).position.distance_to(node.position) < 3.6:
+								_hazard_bonk(k, 0.7, -side)
+				elif ccyc >= 3.1:
+					h["lat"] = side * (w + 9.0)
+					var fre := _frame_at(s0, float(h["lat"]))
+					node.position = (fre[0] as Vector3) + Vector3(0, 1.5, 0)
+					node.visible = true
+					star.modulate = Color(1.0, 0.9, 0.4, 0.4 + 0.6 * absf(sin(tt * 12.0)))
+				else:
+					node.visible = false
+			"kelp", "cloud":
+				if kind == "cloud":
+					h["lat"] = sin(tt * 0.35 + float(h["ph"])) * w * 0.55
+					var frc := _frame_at(s0, float(h["lat"]))
+					node.position = (frc[0] as Vector3) + Vector3(0, 1.2, 0)
+				if racing:
+					var rad: float = 7.5 if kind == "kelp" else 5.5
+					for k in _karts:
+						if (k["node"] as Node3D).position.distance_to(node.position) < rad:
+							# drag, not a stop — and a burning turbo powers through
+							if float(k["boost_t"]) <= 0.0:
+								k["speed"] = maxf(float(k["speed"]) * (1.0 - 1.5 * delta), _vmax * 0.5)
+
 func _build_pearls() -> void:
 	var rows: Array = _cv("pearl_rows", PEARL_ROWS)
 	for row in rows:
@@ -1721,6 +1983,9 @@ func _process(delta: float) -> void:
 			(rm as BaseMaterial3D).emission = rc * 0.5
 	# the Butterfly World turns below the road (rainbow theme)
 	_tick_butterfly_world(tt)
+	# hazards animate in every state (crabs scuttle behind the pick screens
+	# too); they only make CONTACT during the race
+	_tick_hazards(delta)
 	# ambient fish cruise gently beside the course (ocean theme)
 	for fd in _deco_fish:
 		var fn: Node3D = fd["node"]
@@ -1993,12 +2258,19 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 				_shake = maxf(_shake, 0.15)
 				if _main != null and _main.has_method("_sparkle_burst"):
 					_main._sparkle_burst(node.position, Color(1.0, 0.9, 0.4))
+	k["haz_cool"] = maxf(0.0, float(k.get("haz_cool", 0.0)) - delta)
 	node.position = pos + up * (1.2 + hop_h + air_h)
 	if fwd.length() > 0.001:
 		node.look_at(pos + fwd + up * 1.2, up)
 		if air_p > 0.0:
 			# nose lifts off the ramp, dips into the landing
 			node.rotate_object_local(Vector3(1, 0, 0), -cos(air_p * PI) * 0.30)
+		# hazard bonk: one silly full spin (visual only — steering unaffected)
+		var spin_t: float = float(k.get("spin_t", 0.0))
+		if spin_t > 0.0:
+			spin_t = maxf(0.0, spin_t - delta)
+			k["spin_t"] = spin_t
+			node.rotate_object_local(Vector3(0, 1, 0), (1.0 - spin_t / 0.6) * TAU)
 		# point the nose INTO the turn (the visual feedback that makes steering feel real)
 		var vyaw: float = clampf(-float(k["latv"]) * 0.030, -0.55, 0.55)
 		if bool(k.get("drift", false)):

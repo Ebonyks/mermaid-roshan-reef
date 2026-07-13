@@ -113,7 +113,7 @@ func _solo_run(policy: String) -> Dictionary:
 	# bare track: no pickups/strips/pearls/shortcut so the measurement is the
 	# HANDLING, not which boosts a line happens to sweep through
 	kg.configure({"theme": "rainbow", "ground": "float", "racers": SOLO, "pearl_payout": false,
-		"pickups": [], "strips": [], "pearl_rows": [], "ramps": [], "shortcut": false})
+		"pickups": [], "strips": [], "pearl_rows": [], "ramps": [], "hazards": [], "shortcut": false})
 	main.game = "kart"
 	kg.start(main, Callable(self, "_on_race_done"))
 	_force_race_start(kg)
