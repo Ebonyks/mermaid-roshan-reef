@@ -614,19 +614,20 @@ func _build_christmas_village(o: Vector3) -> void:
 	# Everything uses existing project materials and emissive paint; no extra
 	# lights are added, keeping the old-phone Mobile-renderer budget unchanged.
 	var cottage_rows: Array = [
-		[Vector3(-67.0, 0.0, -170.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28)],
-		[Vector3(67.0, 0.0, -170.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42)],
-		[Vector3(-36.0, 0.0, -188.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76)],
+		[Vector3(-92.0, 0.0, -158.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 12.0],
+		[Vector3(92.0, 0.0, -158.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 12.0],
+		[Vector3(-70.0, 0.0, -182.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
 	]
 	for row: Array in cottage_rows:
 		var lp: Vector3 = row[0]
-		_village_snow_patch(o, lp, 12.0)
+		_village_snow_patch(o, lp, float(row[3]))
 		_village_cottage(o, lp, row[1], row[2])
 
-	# The open middle is deliberately offset from the hatch at (0,-175): a
-	# broad one-finger route remains between the two front cottages.
-	var tree_pos := Vector3(43.0, 0.0, -185.0)
-	_village_snow_patch(o, tree_pos, 13.0)
+	# The train circles the castle at radius 78. The village lives beyond its
+	# clear corridor (and leaves the hatch at 0,-175 open), so no car ever has
+	# to trip its clip guard while still keeping every prop on the island rim.
+	var tree_pos := Vector3(70.0, 0.0, -182.0)
+	_village_snow_patch(o, tree_pos, 8.0)
 	_village_pine(o, tree_pos, 1.22, true)
 	_village_gift(o, tree_pos + Vector3(-4.2, 0.0, 2.6), Color(0.86, 0.20, 0.32), Color(1.0, 0.82, 0.32), 1.0)
 	_village_gift(o, tree_pos + Vector3(4.0, 0.0, 2.0), Color(0.25, 0.62, 0.70), Color(0.96, 0.72, 0.84), 0.82)
@@ -635,37 +636,14 @@ func _build_christmas_village(o: Vector3) -> void:
 	# A few snowy pines close the silhouette without turning the clearing into
 	# another dense forest. Speedy keeps the two strongest shapes only.
 	var pine_spots: Array = [
-		[Vector3(-88.0, 0.0, -164.0), 0.72],
-		[Vector3(88.0, 0.0, -164.0), 0.78],
-		[Vector3(-61.0, 0.0, -188.0), 0.64],
-		[Vector3(61.0, 0.0, -190.0), 0.68],
+		[Vector3(-105.0, 0.0, -155.0), 0.72],
+		[Vector3(105.0, 0.0, -155.0), 0.78],
 	]
-	var pine_count := 2 if m.quality == "speedy" else pine_spots.size()
-	for pi in range(pine_count):
+	for pi in range(pine_spots.size()):
 		var prow: Array = pine_spots[pi]
 		_village_pine(o, prow[0], float(prow[1]), false)
 
-	_village_snowman(o, Vector3(5.0, 0.0, -190.0))
-
-	# Oversized stepping stones gently point from the back of the moat toward
-	# the tree. They are visual guidance only and never block swimming.
-	for si in range(4):
-		var t: float = float(si) / 3.0
-		var sx: float = lerpf(7.0, 25.0, t)
-		var sz: float = lerpf(-185.0, -188.0, t)
-		var sy: float = _lagoon_local(sx, sz)
-		var step := MeshInstance3D.new()
-		var step_mesh := CylinderMesh.new()
-		step_mesh.top_radius = 2.2
-		step_mesh.bottom_radius = 2.5
-		step_mesh.height = 0.35
-		step_mesh.radial_segments = 10
-		step.mesh = step_mesh
-		step.material_override = m._up_mat("cobble", 0.12, Color(0.92, 0.88, 0.96))
-		step.position = o + Vector3(sx, sy + 0.18, sz)
-		step.visibility_range_end = 165.0
-		m.add_child(step)
-		m.game_nodes.append(step)
+	_village_snowman(o, Vector3(52.0, 0.0, -190.0))
 
 
 func _village_snow_patch(o: Vector3, lp: Vector3, radius: float) -> void:
