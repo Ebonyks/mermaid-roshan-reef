@@ -2,7 +2,10 @@ extends CanvasLayer
 # Touch controls (Android/tablet):
 #   * drag anywhere on EMPTY screen -> a virtual stick appears under your finger
 #   * quick tap (no drag)           -> jump/action
-#   * a SECOND finger while steering -> instant jump (steer + jump together)
+#   * a SECOND finger: tap or hold  -> jump (held = swim up, as before)
+#                      DRAG         -> camera look-around (peek, drifts back)
+#     which one is decided after TAP_SLOP px of movement or JUMP_HOLD_MS,
+#     whichever comes first — same trick the stick uses to split tap vs steer
 # Implemented via _unhandled_input, so every button / 2D minigame / overlay control
 # (any canvas layer) gets first claim on its taps — the stick only sees touches
 # nothing else wanted. No fixed buttons, no blocking zones.
@@ -17,6 +20,10 @@ var _knob: Panel
 var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
 var _touch_idx := -1      # the finger that owns the stick
 var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
+var _pend := {}           # extra fingers not yet classified: idx -> {"pos", "ms"}
+var _look_idx := -1       # the finger that owns the camera peek
+var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
+var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
 var _origin := Vector2.ZERO
 var _moved := false
 var _press_ms := 0
@@ -24,6 +31,7 @@ var _pulse := 0.0         # keeps action_down true briefly after a tap so per-fr
 const R := 78.0   # smaller thumb travel for full deflection — livelier steering on tablets
 const TAP_SLOP := 22.0    # finger drift allowed for a "tap" (px)
 const TAP_MS := 300       # max press time for a tap
+const JUMP_HOLD_MS := 140 # still second finger older than this = held jump
 
 func _ready() -> void:
 	layer = 9
@@ -74,6 +82,17 @@ func _process(delta: float) -> void:
 		_pulse -= delta
 		if _pulse <= 0.0 and _jump_fingers.is_empty():
 			action_down = false
+	# a second finger that sat still past the decision window is a HELD jump —
+	# it was only kept pending in case it turned into a camera drag
+	if not _pend.is_empty():
+		var now := Time.get_ticks_msec()
+		for idx in _pend.keys():
+			if now - int(_pend[idx]["ms"]) >= JUMP_HOLD_MS:
+				_jump_fingers[idx] = true
+				action_down = true
+				action_just = true
+				_flash(_pend[idx]["pos"])
+				_pend.erase(idx)
 	if _act_vis != null:
 		_act_t += delta
 		var pulse_s: float = 1.0 + sin(_act_t * 2.2) * 0.045
@@ -142,14 +161,19 @@ func _unhandled_input(ev: InputEvent) -> void:
 			if _touch_idx == -1:
 				_press(t.position, t.index)          # first finger: stick (or tap-to-jump)
 			elif t.index != _touch_idx:
-				# extra finger while steering: HELD jump — swim up for as long as it's down
-				_jump_fingers[t.index] = true
-				action_down = true
-				action_just = true
-				_flash(t.position)
+				# extra finger: jump OR camera drag — pending until it moves
+				# past TAP_SLOP (camera) or JUMP_HOLD_MS elapses (held jump)
+				_pend[t.index] = {"pos": t.position, "ms": Time.get_ticks_msec()}
 		else:
 			if t.index == _touch_idx:
 				_release_stick()
+			elif _pend.has(t.index):
+				# quick second-finger tap, decided on release: jump/action
+				_pend.erase(t.index)
+				_jump_pulse()
+				_flash(t.position)
+			elif t.index == _look_idx:
+				_look_idx = -1
 			elif _jump_fingers.has(t.index):
 				_jump_fingers.erase(t.index)
 				if _jump_fingers.is_empty() and _pulse <= 0.0:
@@ -158,6 +182,19 @@ func _unhandled_input(ev: InputEvent) -> void:
 		var d := ev as InputEventScreenDrag
 		if d.index == _touch_idx:
 			_drag(d.position)
+		elif _pend.has(d.index):
+			if (d.position - (_pend[d.index]["pos"] as Vector2)).length() > TAP_SLOP:
+				_pend.erase(d.index)
+				if _look_idx == -1:
+					_look_idx = d.index   # a real drag: this finger drives the camera
+				else:
+					# a camera finger is already down — treat a third drag as held jump
+					_jump_fingers[d.index] = true
+					action_down = true
+					action_just = true
+		elif d.index == _look_idx:
+			_look_dx += d.relative.x
+			_look_dy += d.relative.y
 	elif ev is InputEventMouseButton:
 		var mb := ev as InputEventMouseButton
 		if mb.device == InputEvent.DEVICE_ID_EMULATION:
@@ -183,6 +220,17 @@ func consume_action_just() -> bool:
 	var j := action_just
 	action_just = false
 	return j
+
+func look_active() -> bool:
+	return _look_idx != -1
+
+func consume_look() -> Vector2:
+	# capped so deltas that piled up while no camera was consuming (minigame
+	# handoffs, overlays) nudge the camera instead of snapping it
+	var v := Vector2(clampf(_look_dx, -120.0, 120.0), clampf(_look_dy, -120.0, 120.0))
+	_look_dx = 0.0
+	_look_dy = 0.0
+	return v
 
 func _input(ev: InputEvent) -> void:
 	var toggle := false
