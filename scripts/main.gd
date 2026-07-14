@@ -292,6 +292,10 @@ var slide_cool := 0.0
 var slide_portal_pos := Vector3.ZERO
 var slide_portal_penguin: Node3D = null
 var peng_wave_cool := 0.0   # portal penguin's interactive cheer cooldown
+var peng_pal: Node3D = null          # the caught baby penguin — follows Roshan in the reef
+var peng_pal_cool := 0.0             # pal's cheer/giggle cooldown
+var peng_pal_cheer_t := -1.0         # while >0 the cheer clip owns the pal
+var peng_pal_greeted := false        # one-time "I'm coming too!" message per session
 var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
@@ -2035,6 +2039,63 @@ func _tick_aquatic(delta: float) -> void:
 				mv["greet_cool"] = 14.0
 				_creature_greet(node)
 
+func _tick_peng_pal(delta: float) -> void:
+	# THE BABY PENGUIN PAL: once Roshan catches him on the big slide (the
+	# "penguin" sticker), he becomes a little secondary character who tags
+	# along behind her in the open reef — paddling hard when he falls behind,
+	# waddle-bobbing at her side, and cheering with a giggle when she stops.
+	if not bool(stickers.get("penguin", false)):
+		return
+	if peng_pal == null or not is_instance_valid(peng_pal):
+		if game != "":
+			return   # spawn him in the open water, never inside an arena
+		var fwd0 := Vector3(sin(player.yaw), 0, cos(player.yaw))
+		peng_pal = _gen2_creature("penguin", player.position - fwd0 * 5.0 + Vector3(1.5, 1.0, 0), 2.4)
+		if peng_pal == null:
+			return
+		_sparkle_burst(peng_pal.position + Vector3(0, 1.5, 0), Color(0.7, 0.9, 1.0))
+		if peng_giggle != null:
+			peng_giggle.pitch_scale = 1.05
+			peng_giggle.play()
+		if not peng_pal_greeted:
+			peng_pal_greeted = true
+			show_msg("Baby Penguin", "Wait for meee! I'm coming too! Toot toot!")
+	# hide him during minigames/castle so he never photobombs an arena
+	peng_pal.visible = game == ""
+	if game != "":
+		return
+	var t: float = Time.get_ticks_msec() / 1000.0
+	var fwd := Vector3(sin(player.yaw), 0, cos(player.yaw))
+	var want: Vector3 = player.position - fwd * 4.5 + Vector3(0, 0.8, 0)
+	want += Vector3(sin(t * 0.7) * 0.8, sin(t * 1.1) * 0.5, cos(t * 0.9) * 0.8)   # lively drift
+	var to_want: Vector3 = want - peng_pal.position
+	var d: float = to_want.length()
+	if d > 70.0:
+		peng_pal.position = want   # she warped across the reef — pop him back to her side
+	elif d > 0.05:
+		# swims harder the further he lags, so he rubber-bands but never magnets
+		var spd: float = clampf(d * 1.8, 2.5, 20.0)
+		peng_pal.position += to_want.limit_length(spd * delta)
+	# keep the little guy out of the sand
+	peng_pal.position.y = maxf(peng_pal.position.y, seabed_y(peng_pal.position.x, peng_pal.position.z) + 1.4)
+	# face where he's headed (gen2 face = local -X), or Roshan when idling
+	var face: Vector3 = to_want if d > 1.6 else (player.position - peng_pal.position)
+	if Vector2(face.x, face.z).length() > 0.3:
+		peng_pal.rotation.y = lerp_angle(peng_pal.rotation.y, atan2(face.z, -face.x), 1.0 - pow(0.03, delta))
+	peng_pal_cool -= delta
+	peng_pal_cheer_t -= delta
+	if peng_pal_cool <= 0.0 and d < 6.5 and player.vel.length() < 3.0:
+		peng_pal_cool = 16.0
+		peng_pal_cheer_t = 1.4
+		_greet_heart(peng_pal.position + Vector3(0, 2.4, 0))
+		if peng_giggle != null:
+			peng_giggle.pitch_scale = 0.95 + randf() * 0.2
+			peng_giggle.play()
+	if peng_pal_cheer_t > 0.0:
+		_play_clip(peng_pal, "cheer", 1.0)
+	else:
+		_play_clip(peng_pal, "sprint" if d > 9.0 else "waddle", 1.4 if d > 9.0 else 0.9)
+
 func _build_pearls() -> void:
 	pearl_mat = _rainbow_mat()
 	for i in range(PEARL_TOTAL):
@@ -3347,7 +3408,37 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 			sm.set_shader_parameter("sway_amount", float(prof[2]))
 			sm.next_pass = _gen2_outline_mat()
 			mi.set_surface_override_material(si, sm)
+	if gname == "penguin":
+		_attach_penguin_beak(wrap)   # AFTER the material pass so the beak keeps its own paint
 	return wrap
+
+func _attach_penguin_beak(wrap: Node3D) -> void:
+	# the Meshy penguin sculpt has NO beak — just a smooth face with eyes
+	# (owner report 2026-07-13). Graft a small orange cone onto the rig's
+	# head bone so it rides every clip. Placement tuned via
+	# scripts/probe_penguin_beak.gd (bone frame != Blender frame — don't
+	# eyeball it, probe it).
+	var skels := wrap.find_children("*", "Skeleton3D", true, false)
+	if skels.is_empty():
+		return
+	var att := BoneAttachment3D.new()
+	(skels[0] as Skeleton3D).add_child(att)
+	att.bone_name = "head"
+	var beak := MeshInstance3D.new()
+	var cone := CylinderMesh.new()
+	cone.top_radius = 0.0
+	cone.bottom_radius = 0.07
+	cone.height = 0.18
+	cone.radial_segments = 24
+	beak.mesh = cone
+	var bm := StandardMaterial3D.new()
+	bm.albedo_color = Color(1.0, 0.66, 0.12)   # matches his feet
+	bm.roughness = 0.9
+	bm.next_pass = _gen2_outline_mat()
+	beak.material_override = bm
+	att.add_child(beak)
+	beak.position = Vector3(0, 0.50, 0.14)
+	beak.rotation = Vector3(-0.32, 0, 0)
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
 	# GEN2 sea grass: a family-style sprite (seaweed cluster / thin grass tuft
@@ -6093,7 +6184,9 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.95, 1.02, 1.08), 0.10, "snow")
+		# plank albedo stays UNDER 1.0 — over-white components push the snow
+		# past ACES white and the surface detail clips away (Android blowout)
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.86, 0.92, 1.0), 0.06, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -6158,7 +6251,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var ball := MeshInstance3D.new()
 		var bs := SphereMesh.new(); bs.radius = 7.0; bs.height = 14.0
 		ball.mesh = bs
-		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(1.0, 1.02, 1.05), 0.05, "snow")
+		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.88, 0.93, 1.0), 0.05, "snow")
 		add_child(ball); game_nodes.append(ball)
 		g["ball"] = ball
 	# ---- finish banner at the bottom ----
@@ -6995,6 +7088,7 @@ func _process(delta: float) -> void:
 	_tick_life(delta)
 	_tick_movers(delta)
 	_tick_aquatic(delta)
+	_tick_peng_pal(delta)
 	_tick_god_rays(delta)
 	_tick_guide(delta)
 	_tick_finale(delta)
@@ -7990,10 +8084,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.glow_intensity = 1.15
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
+		# same anti-white-wash recipe as the snowy "fetch" yard: on an
+		# already-white ice scene the WW screen-blend haze + hot ambient
+		# clips the whole frame past ACES white (fully blown out on the
+		# Android framebuffer, owner report 2026-07-13)
 		arena_env.background_color = Color(0.62, 0.82, 1.0)
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
-		arena_env.ambient_light_energy = 1.25
-		arena_env.glow_intensity = 0.7
+		arena_env.ambient_light_energy = 0.7
+		arena_env.glow_bloom = 0.05
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
