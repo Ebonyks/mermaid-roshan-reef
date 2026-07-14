@@ -68,6 +68,41 @@ var _avatar: Node3D = null
 var _fire_prev := false
 var _bob_t := 0.0
 
+# look-around peek (right stick / hold-RIGHT-mouse drag) — same feel and
+# constants as player.gd's chase camera: peek, hold, drift back on release
+var _cam_orbit := 0.0
+var _cam_pitch := 0.0
+var _mlook_dx := 0.0
+var _mlook_dy := 0.0
+
+func _input(ev: InputEvent) -> void:
+	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
+		_mlook_dx += ev.relative.x
+		_mlook_dy += ev.relative.y
+
+func _cam_peek(delta: float) -> void:
+	# consume accumulated mouse deltas every camera frame so a stale burst
+	# can never apply as one big jump after a pause or cutscene
+	var mdx: float = _mlook_dx
+	var mdy: float = _mlook_dy
+	_mlook_dx = 0.0
+	_mlook_dy = 0.0
+	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
+	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
+	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	if absf(rx) > 0.25:
+		_cam_orbit = clampf(_cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
+	elif mlook:
+		_cam_orbit = clampf(_cam_orbit - mdx * 0.005, -PI * 0.9, PI * 0.9)
+	else:
+		_cam_orbit = lerpf(_cam_orbit, 0.0, 1.0 - pow(0.35, delta))
+	if absf(ry) > 0.25:
+		_cam_pitch = clampf(_cam_pitch + ry * 9.0 * delta, -4.0, 7.0)
+	elif mlook:
+		_cam_pitch = clampf(_cam_pitch + mdy * 0.02, -4.0, 7.0)
+	else:
+		_cam_pitch = lerpf(_cam_pitch, 0.0, 1.0 - pow(0.35, delta))
+
 var _shard_nodes: Array = []
 var _shards_got := 0
 var _grand: Node3D = null
@@ -1308,11 +1343,13 @@ func _process(delta: float) -> void:
 	if _h <= 0.0:
 		_vy = 0.0
 	_update_avatar_transform()
-	# ---- camera: behind & above along the local up ----
+	# ---- camera: behind & above along the local up (+ look-around peek) ----
+	_cam_peek(delta)
 	var up := _dir
-	var want: Vector3 = _surf(_dir, _h + 7.5) - _fwd * 13.0
+	var cam_fwd := _fwd.rotated(up, _cam_orbit)
+	var want: Vector3 = _surf(_dir, _h + 7.5 + _cam_pitch) - cam_fwd * 13.0
 	_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
-	_cam.look_at(_surf(_dir, _h + 2.2) + _fwd * 3.0, up)
+	_cam.look_at(_surf(_dir, _h + 2.2) + cam_fwd * 3.0, up)
 	# ---- pickups ----
 	var feet := _surf(_dir, _h)
 	for sd in _shard_nodes:
@@ -1664,9 +1701,11 @@ func _tick_hall(delta: float) -> void:
 		_avatar.position = HALL_C + _cpos + Vector3(0, 0.5 + _ch + sin(_bob_t * 3.0) * 0.1, 0)
 		_avatar.transform.basis = Basis(fwd.cross(Vector3.UP).normalized(), Vector3.UP, -fwd).orthonormalized()
 	if _cam != null:
-		var want: Vector3 = HALL_C + _cpos + Vector3(0, _ch + 6.5, 0) - fwd * 11.5
+		_cam_peek(delta)
+		var cam_fwd := fwd.rotated(Vector3.UP, _cam_orbit)
+		var want: Vector3 = HALL_C + _cpos + Vector3(0, _ch + 6.5 + _cam_pitch, 0) - cam_fwd * 11.5
 		_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
-		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + fwd * 3.0, Vector3.UP)
+		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + cam_fwd * 3.0, Vector3.UP)
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	# her tiny galaxy spins
 	for od in _orrery_planets:
