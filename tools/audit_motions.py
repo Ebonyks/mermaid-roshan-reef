@@ -9,7 +9,7 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4e_slim.glb"
+GLB = "roshan_v4f_slim.glb"
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -128,15 +128,15 @@ VERBS = {
    "armF2":{"axis":RIGHT,"keys":[[0,0],[0.6,0.55],[0.9,-0.45],[1.2,0.55],[1.5,-0.45],[1.8,0.55],[2.2,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.7,0.16],[2.0,0.16],[2.6,0]]}}},
  "cheer": {"len":2.2,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.3],[1.7,2.3],[2.2,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.1],[1.7,2.1],[2.2,-0.2]]},
    "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.2],[1.7,0.2],[2.2,0]]},
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.12],[1.7,-0.12],[2.2,0]]}}},
  "clap": {"len":2.0,"tracks":{
    "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
-   "armF":{"axis":(1,0,-1),"keys":[[0,0],[0.5,-1.4],[0.65,-0.4],[0.8,-1.4],[0.95,-0.4],[1.1,-1.4],[1.25,-0.4],[1.4,-1.4],[1.7,0]]},
-   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,0.4],[0.65,0.0],[0.8,0.4],[0.95,0.0],[1.1,0.4],[1.25,0.0],[1.4,0.4],[1.7,0]]}}},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.0],[1.7,2.0],[2.0,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.2],[0.65,0.4],[0.8,1.2],[0.95,0.4],[1.1,1.2],[1.25,0.4],[1.4,1.2],[1.7,0]]},
+   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.3],[0.65,0.0],[0.8,-0.3],[0.95,0.0],[1.1,-0.3],[1.25,0.0],[1.4,-0.3],[1.7,0]]}}},
  "twirl": {"len":1.9,"tracks":{
    "armU":{"axis":FWD,"keys":[[0,0],[0.4,-1.2],[1.5,-1.2],[1.9,0]]},
    "armU2":{"axis":FWD,"keys":[[0,0],[0.4,1.2],[1.5,1.2],[1.9,0]]},
@@ -147,7 +147,7 @@ VERBS = {
  "giggle": {"len":1.5,"tracks":{
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.2,-0.14],[0.4,0.02],[0.6,-0.14],[0.8,0.02],[1.0,-0.14],[1.5,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.25,0.18],[0.55,-0.18],[0.85,0.18],[1.15,-0.18],[1.5,0]]},
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,0.9],[1.2,0.9],[1.5,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.2],[1.2,2.2],[1.5,-0.2]]},
    "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.9],[1.2,1.9],[1.5,-0.2]]}}},
  "sleep": {"len":6.0,"tracks":{
    "head":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.5],[5.0,-0.5],[6.0,0]]},
@@ -353,6 +353,7 @@ for side, (sh, el, wr) in ARMS.items():
     v1 = (Sh-El)/np.linalg.norm(Sh-El); v2 = (Wr-El)/np.linalg.norm(Wr-El)
     interior = np.degrees(np.arccos(np.clip(np.dot(v1,v2),-1,1)))
     check(f"elbow {side} rest bend natural", 140 <= interior <= 178, f"interior={interior:.0f} deg")
+    check(f"shoulder {side} lateral (not in chest)", abs(Sh[0]) >= 0.11, f"|x|={abs(Sh[0]):.2f}")
     ext0 = (El-Sh)/np.linalg.norm(El-Sh)
     fr0 = np.array([0,0,-1.0]) - np.dot([0,0,-1.0], ext0)*ext0
     elbow_ref[side] = (fr0/np.linalg.norm(fr0), ext0, G0e[name2j[sh]][:3,:3])
