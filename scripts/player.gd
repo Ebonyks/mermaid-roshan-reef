@@ -875,11 +875,16 @@ func _process(delta: float) -> void:
 		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
 		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
-	# right-stick / right-drag camera: peek around / up / down, then drift back
-	# behind her once the stick AND the mouse button are released
+	# right-stick / right-drag / second-finger-drag camera: peek around and up
+	# or down, then drift back behind her once every look input is released
 	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
 	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
 	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	if "touch_ui" in _m0 and _m0.touch_ui != null and _m0.touch_ui.has_method("consume_look"):
+		var tl: Vector2 = _m0.touch_ui.consume_look()
+		mlook_x += tl.x
+		mlook_y += tl.y
+		mlook = mlook or bool(_m0.touch_ui.look_active())
 	if absf(rx) > 0.25:
 		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
 	elif mlook:

@@ -90,6 +90,11 @@ func _cam_peek(delta: float) -> void:
 	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
 	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
 	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	if _main != null and "touch_ui" in _main and _main.touch_ui != null and _main.touch_ui.has_method("consume_look"):
+		var tl: Vector2 = _main.touch_ui.consume_look()
+		mdx += tl.x
+		mdy += tl.y
+		mlook = mlook or bool(_main.touch_ui.look_active())
 	if absf(rx) > 0.25:
 		_cam_orbit = clampf(_cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
 	elif mlook:
