@@ -461,6 +461,21 @@ func _build_ui() -> void:
 	_slider("side_height", "Side/front height", 0.0, 20.0, 0.5, side_height, func(x: float): side_height = x)
 
 	# ---- animation lab ----
+	_section("Physics Lab (M11 grading — cleanse later)")
+	_check("phys_foliage", "Foliage physics (meadow push + shop kelp)", true, func(on: bool):
+		main.foliage_push_enabled = on)
+	var jspawn := Button.new()
+	jspawn.text = "Spawn 12 Jolt props around Roshan"
+	jspawn.add_theme_font_size_override("font_size", 15)
+	jspawn.custom_minimum_size = Vector2(0, 42)
+	jspawn.pressed.connect(func(): main._physlab_spawn())
+	vb.add_child(jspawn)
+	var jclear := Button.new()
+	jclear.text = "Clear Jolt props"
+	jclear.add_theme_font_size_override("font_size", 15)
+	jclear.custom_minimum_size = Vector2(0, 42)
+	jclear.pressed.connect(func(): main._physlab_clear())
+	vb.add_child(jclear)
 	_section("Animation Lab (Roshan)")
 	var vflow := HFlowContainer.new()
 	vb.add_child(vflow)

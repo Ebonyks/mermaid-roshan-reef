@@ -19,6 +19,22 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	m.hud_game.text = "Pearls: %d - swim to a treasure or a tank friend to buy it!" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
+	# PHYSICS LAB: hanging kelp = damped spring pendulums, swing when brushed
+	if m.foliage_push_enabled:
+		for kd in m.g.get("kelp", []):
+			var bn: MeshInstance3D = kd["node"]
+			if not is_instance_valid(bn):
+				continue
+			var ang0: Vector2 = kd["ang"]
+			var tip: Vector3 = bn.position + Vector3(ang0.x, -1.0, ang0.y).normalized() * 2.0
+			var dd: float = tip.distance_to(ppos)
+			if dd < 2.4:
+				var push := Vector2(tip.x - ppos.x, tip.z - ppos.z)
+				if push.length() > 0.01:
+					kd["vel"] = (kd["vel"] as Vector2) + push.normalized() * (2.4 - dd) * 12.0 * delta
+			ReefPhysics.spring2(kd, 6.0, 1.5, delta)
+			var ang: Vector2 = kd["ang"]
+			bn.rotation = Vector3(PI - ang.y * 0.8, float(kd["yaw"]), ang.x * 0.8)
 	for it in m.g.get("items", []):
 		var inode: Node3D = it["node"]
 		if not inode.visible:
@@ -120,7 +136,8 @@ func _shop_buy(id: String) -> void:
 				m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.6, 1.0, 0.4))
 				_check_shopper()
 			return
-		# permanent treasures (Rainbow Trail / Pearl Tiara / Pearl Princess)
+		# permanent treasures (hard-generated assets only — the early procedural
+		# cosmetics were retired; the catalog is beans-only until replacements land)
 		if bool(m.shop_owned.get(id, false)):
 			return
 		m.pearl_count -= int(it["price"])
@@ -130,14 +147,6 @@ func _shop_buy(id: String) -> void:
 		if m.buy_sound != null:
 			m.buy_sound.play()
 		m._sparkle_burst(m.player.position + Vector3(0, 2, 0), Color(1.0, 0.9, 1.0))
-		if id == "tail":
-			m.player.set_rainbow_trail(true)
-			m.show_msg("Pearl Shop", "A RAINBOW TRAIL! Sparkles will follow you FOREVER!", "win")
-		elif id == "tiara":
-			m.player.set_tiara(true)
-			m.show_msg("Pearl Shop", "The PEARL TIARA! Fit for a real princess!", "win")
-		elif id == "pearlskin":
-			m.show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
 		_check_shopper()
 		return
 
@@ -170,6 +179,12 @@ func _tank_buy(id: String) -> void:
 		return
 
 func _check_shopper() -> void:
-	if bool(m.shop_owned.get("_beans_once", false)) and bool(m.shop_owned.get("tail", false)) \
-			and bool(m.shop_owned.get("tiara", false)) and bool(m.shop_owned.get("pearlskin", false)):
-		m.award_sticker("shopper")
+	# Big Shopper = bought everything in the current catalog (beans once, plus
+	# any permanent treasure it lists)
+	if not bool(m.shop_owned.get("_beans_once", false)):
+		return
+	for it in m.SHOP_ITEMS:
+		var id := String(it["id"])
+		if id != "beans" and not bool(m.shop_owned.get(id, false)):
+			return
+	m.award_sticker("shopper")

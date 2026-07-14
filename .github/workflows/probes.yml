@@ -6,7 +6,7 @@ name: Probe suite (graphics fork)
 
 on:
   push:
-    branches: [claude/graphics-upgrade-fork, claude/go-kart-mobile-rainbow-track-8gyatx, claude/pearl-monetization-animals-ivgvtc]
+    branches: [master, claude/graphics-upgrade-fork, claude/go-kart-mobile-rainbow-track-8gyatx, claude/pearl-monetization-animals-ivgvtc, claude/fairy-minigame-2d-overhead-eebbl0, claude/castle-courtyard-train-59qwf1]
   workflow_dispatch:
 
 env:
@@ -54,7 +54,7 @@ jobs:
         run: |
           set -o pipefail
           FAILED=0
-          for p in probe_audit probe_passive probe_load probe_mg2d probe_l2 probe_verbs probe_skins probe_kart_feel; do
+          for p in probe_audit probe_passive probe_load probe_mg2d probe_l2 probe_train probe_verbs probe_skins probe_kart_feel; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "SKIP: scripts/$p.gd not present"
               continue

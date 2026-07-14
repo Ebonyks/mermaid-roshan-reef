@@ -20,6 +20,7 @@ var hud_game: Label
 var msg_timer := 0.0
 var voice: AudioStreamPlayer
 var model_cache := {}
+var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
@@ -278,8 +279,7 @@ var treasure_cool := 0.0
 const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
-	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
-	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
+	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
 var wardrobe_layer: CanvasLayer = null
@@ -309,7 +309,10 @@ var cur_track := ""
 var prev_track := ""
 # THE PEARL SINK: with the Sticker Book driving completion, pearls become the
 # treasure-shopping currency — real things to save up for instead of a number
-# that only ever grows. Beans stay cheap; the rest are permanent treasures.
+# that only ever grows. The early procedural cosmetics (Rainbow Trail / Pearl
+# Tiara / Pearl Princess) were retired 2026-07-13 — low-res primitives that
+# never sat right on the V2+ bodies; any new treasure must be a hard-generated
+# asset that actually fits her. Old saves keep their "owned" flags harmlessly.
 const SHOP_ITEMS := [
 	{"id": "beans", "label": "Can of Beans", "price": 2},
 	{"id": "tail", "label": "Rainbow Trail", "price": 60},
@@ -742,7 +745,7 @@ func _apply_time_of_day() -> void:
 		world_env.ambient_light_color = Color(0.46, 0.66, 0.72)
 		world_env.ambient_light_energy = 0.9
 		world_env.fog_light_color = Color(0.10, 0.26, 0.34)
-		world_env.glow_intensity = 0.95
+		world_env.glow_intensity = _world_glow_target()
 		if caustics_mat != null:          # bright sun dapples
 			caustics_mat.set_shader_parameter("strength", 0.30)
 			caustics_mat.set_shader_parameter("tint", Vector3(0.50, 0.80, 0.90))
@@ -898,6 +901,22 @@ func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float =
 	env.set_glow_level(2, 1.0)
 	env.set_glow_level(4, 1.0)    # wide dreamy halo
 	env.set_glow_level(6, 0.35)   # very wide faint wash
+	_speedy_glow_clamp(env)
+
+func _speedy_glow_clamp(env: Environment) -> void:
+	# speedy quality = calmer bloom EVERYWHERE, not just the reef. Remembers the
+	# full-quality pair in meta first so _apply_quality can restore it live when
+	# the player toggles back to sparkly mid-scene.
+	env.set_meta("ww_full", Vector2(env.glow_intensity, env.glow_bloom))
+	if quality == "speedy":
+		env.glow_intensity = minf(env.glow_intensity, 0.75)
+		env.glow_bloom = minf(env.glow_bloom, 0.12)
+
+func _world_glow_target() -> float:
+	# ONE place decides the reef glow intensity so day/night and the quality
+	# toggle can't fight over it (last-writer-wins bugs)
+	var gi: float = 1.0 if is_night else 0.95   # bioluminescence reads stronger in the dark
+	return minf(gi, 0.75) if quality == "speedy" else gi
 
 func _build_environment() -> void:
 	var env := Environment.new()
@@ -2473,7 +2492,13 @@ func _apply_quality(q: String) -> void:
 		sun_light.shadow_enabled = not speedy
 	if world_env != null:
 		world_env.glow_bloom = 0.12 if speedy else 0.4
-		world_env.glow_intensity = 0.75 if speedy else 0.95
+		world_env.glow_intensity = _world_glow_target()
+	# keep the ACTIVE cutaway environment (lagoon / castle / arena) in step too —
+	# restore its remembered full-quality bloom or clamp it, live
+	if arena_env != null and we_node != null and we_node.environment == arena_env and arena_env.has_meta("ww_full"):
+		var fv: Vector2 = arena_env.get_meta("ww_full")
+		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
+		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
 	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
@@ -3044,6 +3069,15 @@ func _lagoon_ref() -> SkyLagoon:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
 
+# The courtyard train (Sky Lagoon ride) lives in scripts/arena/courtyard_train.gd
+# (state stays here in g["train"] / g["toys"]; the satellite receives main by reference)
+var _train_obj: CourtyardTrain = null
+
+func _train_ref() -> CourtyardTrain:
+	if _train_obj == null:
+		_train_obj = CourtyardTrain.new(self)
+	return _train_obj
+
 func _build_pearl_castle(o: Vector3) -> void:
 	_lagoon_ref()._build_pearl_castle(o)
 
@@ -3127,14 +3161,22 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 	if node is MeshInstance3D:
 		var mi := node as MeshInstance3D
 		if mi.mesh != null:
-			var tm := StandardMaterial3D.new()
-			tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
-			tm.albedo_color = _pastel(tint)
-			tm.uv1_triplanar = true
-			tm.uv1_scale = Vector3(uvs, uvs, uvs)
-			tm.roughness = 1.0
-			tm.metallic = 0.0
-			tm.metallic_specular = 0.1
+			# One shared material per tile config, cached on main — same
+			# teardown rationale as _toonify's cache: a node-owned material
+			# is freed before its instance and the headless dummy renderer
+			# errors on the stale RID during the dirty-instance flush.
+			var ck := "%s|%s|%s" % [key, uvs, tint]
+			var tm: StandardMaterial3D = _toon_mats.get(ck)
+			if tm == null:
+				tm = StandardMaterial3D.new()
+				tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
+				tm.albedo_color = _pastel(tint)
+				tm.uv1_triplanar = true
+				tm.uv1_scale = Vector3(uvs, uvs, uvs)
+				tm.roughness = 1.0
+				tm.metallic = 0.0
+				tm.metallic_specular = 0.1
+				_toon_mats[ck] = tm
 			for si in range(mi.mesh.get_surface_count()):
 				mi.set_surface_override_material(si, tm)
 	for c in node.get_children():
@@ -3449,12 +3491,21 @@ func _toonify(node: Node) -> void:
 				if sm0 == null:
 					sm0 = mi.mesh.surface_get_material(si)
 				if sm0 is StandardMaterial3D:
-					var m2 := (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
-					m2.normal_enabled = false
-					m2.roughness = 1.0
-					m2.metallic = 0.0
-					m2.metallic_specular = 0.1
-					m2.albedo_color = _pastel(m2.albedo_color)
+					# One shared override per source material, cached on main.
+					# A per-node duplicate's only ref is the node itself, and
+					# node teardown frees the material RID before the instance
+					# RID — the headless dummy renderer then enumerates the
+					# stale RID and spams "Parameter material is null" (probe
+					# audit). The cache keeps the override alive past the node.
+					var m2: StandardMaterial3D = _toon_mats.get(sm0)
+					if m2 == null:
+						m2 = (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
+						m2.normal_enabled = false
+						m2.roughness = 1.0
+						m2.metallic = 0.0
+						m2.metallic_specular = 0.1
+						m2.albedo_color = _pastel(m2.albedo_color)
+						_toon_mats[sm0] = m2
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_toonify(c)
@@ -4766,7 +4817,7 @@ func _wardrobe_refresh() -> void:
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
 		var eid := String(entry["id"])
-		var locked: bool = (eid.begins_with("fairy") and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
+		var locked: bool = eid.begins_with("fairy") and not fairy_skin_unlocked
 		var box: StyleBoxFlat = entry["box"]
 		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
@@ -4782,12 +4833,6 @@ func _wardrobe_pick(id: String) -> void:
 			chime.pitch_scale = 0.5
 			chime.play()
 		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
-		return
-	if id == "pearl" and not bool(shop_owned.get("pearlskin", false)):
-		if chime != null:
-			chime.pitch_scale = 0.5
-			chime.play()
-		_wardrobe_toast("🦪 Pearl Princess is waiting at the Pearl Shop — 250 pearls!")
 		return
 	skin_id = id
 	_apply_skin()
@@ -5718,7 +5763,8 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		game_nodes.append(bulb)
 		var cord := _course_box(lamp.position + Vector3(0, 3.0, 0), Vector3(0.12, 6.0, 0.12), Color(0.25, 0.18, 0.1))
 		cord.material_override.emission_enabled = false
-	# hanging kelp bunches like dried herbs
+	# hanging kelp bunches like dried herbs — spring pendulums (PHYSICS LAB)
+	g["kelp"] = []
 	for hk in range(5):
 		var bunch := MeshInstance3D.new()
 		bunch.mesh = _cross_blade(0.5, 2.2)
@@ -5727,6 +5773,7 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		bunch.rotation_degrees = Vector3(180, randf() * 360.0, 0)
 		add_child(bunch)
 		game_nodes.append(bunch)
+		(g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
 	# barrels in the corners
 	var b1 := _spawn("barrel", Vector3(origin.x - 13.0, f, origin.z + 12.0), 3.2, 0.4)
 	if b1 != null:
@@ -5760,78 +5807,36 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	klbl.position = Vector3(origin.x, f + 14.0, origin.z - 9.0)
 	add_child(klbl)
 	game_nodes.append(klbl)
-	# wares on the counter
+	# wares on the counter — spread evenly around the middle
 	g["items"] = []
-	var slots := [-6.5, -2.2, 2.2, 6.5]
 	for ii in range(SHOP_ITEMS.size()):
 		var it: Dictionary = SHOP_ITEMS[ii]
 		var iid := String(it["id"])
-		var ipos := Vector3(origin.x + slots[ii], f + 2.2, origin.z - 4.6)
-		var inode: Node3D
-		if iid == "tiara":
-			var crown := MeshInstance3D.new()
-			var tm := TorusMesh.new()
-			tm.inner_radius = 0.55
-			tm.outer_radius = 0.85
-			crown.mesh = tm
-			var cm := StandardMaterial3D.new()
-			cm.albedo_color = Color(1.0, 0.85, 0.35)
-			cm.metallic = 0.8
-			cm.roughness = 0.25
-			cm.emission_enabled = true
-			cm.emission = Color(1.0, 0.8, 0.3)
-			cm.emission_energy_multiplier = 1.6
-			crown.material_override = cm
-			inode = crown
-		elif iid == "tail":
-			var orb := MeshInstance3D.new()
-			var om2 := SphereMesh.new()
-			om2.radius = 0.7
-			om2.height = 1.4
-			orb.mesh = om2
-			orb.material_override = _rainbow_mat()
-			inode = orb
-		elif iid == "pearlskin":
-			# the grand prize: a giant shimmering pearl
-			var bigp := MeshInstance3D.new()
-			var pm3 := SphereMesh.new()
-			pm3.radius = 1.0
-			pm3.height = 2.0
-			bigp.mesh = pm3
-			var pmm := StandardMaterial3D.new()
-			pmm.albedo_color = Color(1.0, 0.96, 1.0)
-			pmm.metallic = 0.55
-			pmm.roughness = 0.15
-			pmm.emission_enabled = true
-			pmm.emission = Color(1.0, 0.85, 0.95)
-			pmm.emission_energy_multiplier = 0.9
-			bigp.material_override = pmm
-			inode = bigp
-		else:
-			# the legendary Can of Beans
-			var can := MeshInstance3D.new()
-			var cyl := CylinderMesh.new()
-			cyl.top_radius = 0.45
-			cyl.bottom_radius = 0.45
-			cyl.height = 1.1
-			can.mesh = cyl
-			var tin := StandardMaterial3D.new()
-			tin.albedo_color = Color(0.75, 0.78, 0.8)
-			tin.metallic = 0.9
-			tin.roughness = 0.3
-			can.material_override = tin
-			var lbl := MeshInstance3D.new()
-			var lcyl := CylinderMesh.new()
-			lcyl.top_radius = 0.47
-			lcyl.bottom_radius = 0.47
-			lcyl.height = 0.6
-			lbl.mesh = lcyl
-			var lm2 := StandardMaterial3D.new()
-			lm2.albedo_color = Color(0.85, 0.3, 0.2)
-			lm2.roughness = 0.8
-			lbl.material_override = lm2
-			can.add_child(lbl)
-			inode = can
+		var ipos := Vector3(origin.x + (float(ii) - float(SHOP_ITEMS.size() - 1) * 0.5) * 4.3, f + 2.2, origin.z - 4.6)
+		# the legendary Can of Beans
+		var can := MeshInstance3D.new()
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = 0.45
+		cyl.bottom_radius = 0.45
+		cyl.height = 1.1
+		can.mesh = cyl
+		var tin := StandardMaterial3D.new()
+		tin.albedo_color = Color(0.75, 0.78, 0.8)
+		tin.metallic = 0.9
+		tin.roughness = 0.3
+		can.material_override = tin
+		var lbl := MeshInstance3D.new()
+		var lcyl := CylinderMesh.new()
+		lcyl.top_radius = 0.47
+		lcyl.bottom_radius = 0.47
+		lcyl.height = 0.6
+		lbl.mesh = lcyl
+		var lm2 := StandardMaterial3D.new()
+		lm2.albedo_color = Color(0.85, 0.3, 0.2)
+		lm2.roughness = 0.8
+		lbl.material_override = lm2
+		can.add_child(lbl)
+		var inode: Node3D = can
 		inode.position = ipos
 		add_child(inode)
 		game_nodes.append(inode)
@@ -5844,9 +5849,6 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		tag.position = ipos + Vector3(0, 1.7, 0)
 		add_child(tag)
 		game_nodes.append(tag)
-		if iid != "beans" and bool(shop_owned.get(iid, false)):
-			inode.visible = false
-			tag.text = "%s\n(yours!)" % String(it["label"])
 		(g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
 	# ANIMAL TANKS: glass tanks mounted on the back wall, each holding a reef
 	# friend Kareem will sell. Swim up with enough pearls and it goes FREE -
@@ -6091,7 +6093,9 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.95, 1.02, 1.08), 0.10, "snow")
+		# plank albedo stays UNDER 1.0 — over-white components push the snow
+		# past ACES white and the surface detail clips away (Android blowout)
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.86, 0.92, 1.0), 0.06, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -6156,7 +6160,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var ball := MeshInstance3D.new()
 		var bs := SphereMesh.new(); bs.radius = 7.0; bs.height = 14.0
 		ball.mesh = bs
-		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(1.0, 1.02, 1.05), 0.05, "snow")
+		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.88, 0.93, 1.0), 0.05, "snow")
 		add_child(ball); game_nodes.append(ball)
 		g["ball"] = ball
 	# ---- finish banner at the bottom ----
@@ -6382,38 +6386,44 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
 			_end_game(true, fr, msg)
 
-# ===================== FAIRY POND — OVERHEAD SPARKLE DODGER =====================
-# A gentle top-down "bullet hell" sized for a 4-year-old: the camera hangs straight
-# above a round fairy pond, so the whole game reads like a flat 2D map. Roshan (in
-# her fairy form) slides across the water with the stick only — no jump, no turning,
-# no depth, and she stops the moment the stick lets go. Shadow bugs drift in slow
-# circles and lob big slow shadow sparks to dodge; Roshan's wand zaps any bug she
-# flies near all by itself. SPACE / the big button pops a sparkle shield that
-# clears the sparks around her.
-const FS_R := 26.0             # pond radius — the whole playfield fits on one screen
+# ===================== FAIRY POND — OVERHEAD SCROLLING BULLET HELL =====================
+# A gentle top-down scrolling shooter sized for a 4-year-old: the camera hangs
+# straight above a long pond "track" that glides beneath Roshan (in her fairy
+# form) like a classic overhead shmup. She drifts up the screen on her own; the
+# stick only slides her around the screen window — no jump, no turning, no depth.
+# Shadow bugs wait along the track and lob big slow shadow sparks to dodge; her
+# wand zaps straight up the screen all by itself. SPACE / the big button pops a
+# sparkle shield that clears the sparks around her. The Fairy Flower boss waits
+# at the end of the track.
+const FS_LEN := 420.0          # track length (forward, +Z = up the screen)
+const FS_FWD := 14.0           # auto-scroll speed (gentle — ~30 s to the boss)
 const FS_PLANE := 3.0          # everything gameplay lives at this height (flat = 2D)
 const FS_CAM_H := 58.0         # overhead camera height
-const FS_MOVE := 17.0          # direct move speed (no momentum)
+const FS_LOOK := 6.0           # camera looks a touch ahead, shmup-style
+const FS_MOVE := 17.0          # direct steer speed (no momentum)
+const FS_BX := 20.0            # half movement bound, across the screen
+const FS_BZB := 12.0           # movement bound, down the screen (hanging back)
+const FS_BZF := 14.0           # movement bound, up the screen (pushing ahead)
 const FS_BOLT := 55.0          # wand bolt speed
-const FS_RANGE := 17.0         # wand reach — fly close to a bug and it zaps alone
-const FS_FIRE_CD := 0.3
+const FS_BOLT_FLY := 46.0      # bolt lifetime distance (a bit past the screen top)
+const FS_FIRE_CD := 0.25
 const FS_HIT_R := 3.4          # forgiving bolt-vs-bug radius
 const FS_BUG_R := 2.2
-const FS_WAVE := 4             # bugs per wave
-const FS_WAVES := 3            # 3 waves of 4 = 12 bugs, then the flower
+const FS_NBUGS := 12           # shadow bugs waiting along the track
+const FS_BUG_WAKE := 36.0      # bugs this far up the screen start lobbing sparks
 const FS_HEARTS := 3
-const FS_ORB_SPD := 6.5        # shadow spark speed (slow enough to see coming)
+const FS_ORB_SPD := 5.5        # shadow spark speed (slow enough to see coming)
 const FS_ORB_R := 2.6          # spark-vs-Roshan touch radius
-const FS_ORB_CD_MIN := 3.0     # each bug lobs a spark every 3-5 s
+const FS_ORB_CD_MIN := 3.0     # each awake bug lobs a spark every 3-5 s
 const FS_ORB_CD_MAX := 5.0
-const FS_ORB_MAX := 6          # never more sparks than this during the waves
+const FS_ORB_MAX := 6          # never more sparks than this on screen
 const FS_HURT_T := 1.6         # sparkle-blink safety time after a bump
 const FS_NOVA_CD := 3.0        # sparkle-shield cooldown
 const FS_NOVA_R := 11.0        # sparkle-shield clear radius
-# ---- final boss: the Fairy Flower, blooming in the pond's heart ----
+# ---- final boss: the Fairy Flower at the end of the track ----
 var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
+const FS_BOSS_AHEAD := 24.0        # boss sits near the top of the frozen screen
 const FS_BOSS_HIT_R := 5.5         # generous hitboxes
-const FS_BOSS_KEEP := 6.5          # Roshan can't fly into the flower itself
 const FS_LEAVES := 6               # outer leaf shield
 const FS_LEAF_HP := 1              # one blast per leaf
 const FS_LEAF_T := 20.0            # seconds to blast the leaves away
@@ -6432,37 +6442,39 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	player.set_skin("fairy", FAIRY_SKIN_PATH)
 	if chime != null:
 		chime.volume_db = -13.0   # the wand fires a lot — keep its chime soft (restored in _end_game)
-	g["hits"] = 0; g["fire_cd"] = 0.0; g["wave"] = 0
+	g["fz"] = 0.0; g["ox"] = 0.0; g["oz"] = 0.0
+	g["hits"] = 0; g["fire_cd"] = 0.0
 	g["hearts"] = FS_HEARTS; g["hurt_t"] = 0.0; g["nova_cd"] = 0.0
-	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []
+	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
-	# ---- the round dreamy pond, seen straight from above ----
+	# ---- the long dreamy pond track, seen straight from above ----
 	var pond := MeshInstance3D.new()
-	var pm := CylinderMesh.new(); pm.top_radius = FS_R + 7.0; pm.bottom_radius = FS_R + 7.0; pm.height = 1.0
+	var pm := BoxMesh.new(); pm.size = Vector3(90.0, 1.0, FS_LEN + 160.0)
 	pond.mesh = pm
 	var pmat := StandardMaterial3D.new()
 	pmat.albedo_color = Color(0.2, 0.35, 0.55)
 	pmat.metallic = 0.7; pmat.roughness = 0.1
 	pmat.emission_enabled = true; pmat.emission = Color(0.15, 0.3, 0.5); pmat.emission_energy_multiplier = 0.25
 	pond.material_override = pmat
-	pond.position = origin
+	pond.position = origin + Vector3(0, 0.0, FS_LEN * 0.5)
 	add_child(pond); game_nodes.append(pond)
-	# glowing rim so the edge of the playfield reads at a glance from above
-	var rim := MeshInstance3D.new()
-	var rt2 := TorusMesh.new(); rt2.inner_radius = FS_R - 0.6; rt2.outer_radius = FS_R + 0.6; rt2.rings = 48; rt2.ring_segments = 8
-	rim.mesh = rt2
-	rim.material_override = _soft_mat(Color(0.55, 0.9, 1.0), 1.8)
-	rim.position = origin + Vector3(0, 1.0, 0)
-	add_child(rim); game_nodes.append(rim)
-	# ---- lily pads floating inside; glowing reeds ringing the bank ----
-	for i in range(14):
-		var a: float = randf() * TAU
-		var r: float = 5.0 + randf() * (FS_R - 9.0)
+	# mossy banks flanking the water so the track edges read from above
+	for side2 in [-1.0, 1.0]:
+		var bank := MeshInstance3D.new()
+		var bkm := BoxMesh.new(); bkm.size = Vector3(14.0, 1.4, FS_LEN + 160.0)
+		bank.mesh = bkm
+		bank.material_override = _soft_mat(Color(0.25, 0.55, 0.35), 0.15)
+		bank.position = origin + Vector3(side2 * 50.0, 0.2, FS_LEN * 0.5)
+		add_child(bank); game_nodes.append(bank)
+	# ---- lily pads along the track + glowing reeds on the banks ----
+	for i in range(26):
+		var z: float = 15.0 + randf() * (FS_LEN + 40.0)
+		var side: float = -1.0 if i % 2 == 0 else 1.0
 		var pad := MeshInstance3D.new()
-		var cm := CylinderMesh.new(); cm.top_radius = 1.6 + randf() * 1.2; cm.bottom_radius = cm.top_radius; cm.height = 0.25
+		var cm := CylinderMesh.new(); cm.top_radius = 1.6 + randf() * 1.4; cm.bottom_radius = cm.top_radius; cm.height = 0.25
 		pad.mesh = cm
 		pad.material_override = _soft_mat(Color(0.3, 0.7, 0.4), 0.2)
-		pad.position = origin + Vector3(cos(a) * r, 0.7, sin(a) * r)
+		pad.position = origin + Vector3(side * (10.0 + randf() * 28.0), 0.7, z)
 		add_child(pad); game_nodes.append(pad)
 		if i % 3 == 0:   # a glowing flower on some pads
 			var fl := MeshInstance3D.new()
@@ -6471,47 +6483,39 @@ func _build_fairyshoot(origin: Vector3) -> void:
 			fl.material_override = _soft_mat(Color(1.0, 0.6, 0.85), 1.4)
 			fl.position = pad.position + Vector3(0, 0.7, 0)
 			add_child(fl); game_nodes.append(fl)
-	for k in range(12):
-		var a2: float = float(k) / 12.0 * TAU
+	for k in range(24):
+		var rz: float = 10.0 + float(k) / 24.0 * (FS_LEN + 40.0)
+		var rside: float = -1.0 if k % 2 == 0 else 1.0
 		var reed := MeshInstance3D.new()
 		var rm := CapsuleMesh.new(); rm.radius = 0.5; rm.height = 3.2
 		reed.mesh = rm
 		reed.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.4)
-		reed.position = origin + Vector3(cos(a2) * (FS_R + 3.5), 1.8, sin(a2) * (FS_R + 3.5))
+		reed.position = origin + Vector3(rside * 44.0, 1.8, rz)
 		add_child(reed); game_nodes.append(reed)
+	# ---- flat fairy rings on the water to fly over (homage to the old gates) ----
+	for k in range(6):
+		var z2: float = 60.0 + float(k) * 62.0
+		var rx: float = randf() * 16.0 - 8.0
+		var ring := MeshInstance3D.new()
+		var tor := TorusMesh.new(); tor.inner_radius = 3.4; tor.outer_radius = 4.2; tor.rings = 24; tor.ring_segments = 8
+		ring.mesh = tor
+		ring.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.6)
+		ring.position = origin + Vector3(rx, 0.8, z2)
+		add_child(ring); game_nodes.append(ring)
+		(g["rings"] as Array).append({"node": ring, "x": rx, "z": z2, "done": false})
 	# ---- drifting fireflies, low over the water (below the flight plane) ----
-	for i in range(16):
+	for i in range(24):
 		var ff := MeshInstance3D.new()
 		var fm := SphereMesh.new(); fm.radius = 0.3; fm.height = 0.6
 		ff.mesh = fm
 		ff.material_override = _soft_mat(Color(1.0, 0.95, 0.6), 3.0)
-		var fa: float = randf() * TAU
-		var frr: float = randf() * (FS_R - 3.0)
-		ff.position = origin + Vector3(cos(fa) * frr, 1.6, sin(fa) * frr)
+		ff.position = origin + Vector3(randf() * 68.0 - 34.0, 1.6, 15.0 + randf() * (FS_LEN + 20.0))
 		add_child(ff); game_nodes.append(ff)
 		(g["fireflies"] as Array).append({"node": ff, "ph": randf() * TAU, "base": ff.position})
-	# ---- wand target marker (hovers over whichever bug is in reach) ----
-	var ret := MeshInstance3D.new()
-	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
-	ret.mesh = rt
-	ret.material_override = _soft_mat(Color(1.0, 0.9, 0.4), 2.5)
-	ret.visible = false
-	add_child(ret); game_nodes.append(ret)
-	g["reticle"] = ret
-	# ---- first wave of shadow bugs ----
-	_fairy_spawn_wave(origin)
-	# ---- Roshan starts near the pond's south bank; camera snaps straight overhead ----
-	player.position = origin + Vector3(0, FS_PLANE, FS_R * 0.65)
-	player.vel = Vector3.ZERO
-	if player.cam != null and player.cam.is_inside_tree():
-		player.cam.position = origin + Vector3(0, FS_CAM_H, 0)
-		player.cam.look_at(origin, Vector3(0, 0, -1))
-
-func _fairy_spawn_wave(origin: Vector3) -> void:
-	g["wave"] = int(g["wave"]) + 1
-	for k in range(FS_WAVE):
-		var a: float = randf() * TAU
-		var r: float = 9.0 + randf() * (FS_R - 13.0)
+	# ---- shadow bugs waiting along the track ----
+	for k in range(FS_NBUGS):
+		var z3: float = 70.0 + float(k) / float(FS_NBUGS) * (FS_LEN - 100.0) + randf() * 12.0
+		var bx: float = (randf() * 2.0 - 1.0) * (FS_BX - 2.0)
 		var bug := MeshInstance3D.new()
 		var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
 		bug.mesh = sm
@@ -6519,11 +6523,24 @@ func _fairy_spawn_wave(origin: Vector3) -> void:
 		bmat.albedo_color = Color(0.22, 0.05, 0.3)
 		bmat.emission_enabled = true; bmat.emission = Color(0.85, 0.2, 0.55); bmat.emission_energy_multiplier = 1.5
 		bug.material_override = bmat
-		bug.position = origin + Vector3(cos(a) * r, FS_PLANE, sin(a) * r)
+		var bpos: Vector3 = origin + Vector3(bx, FS_PLANE, z3)
+		bug.position = bpos
 		add_child(bug); game_nodes.append(bug)
-		var spin: float = (0.25 + randf() * 0.2) * (1.0 if k % 2 == 0 else -1.0)
-		(g["targets"] as Array).append({"node": bug, "ang": a, "rad": r, "spin": spin,
-				"alive": true, "ph": randf() * TAU, "orb_cd": 2.0 + randf() * 2.5})
+		(g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
+				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
+	# ---- wand aim guide floating up-screen of Roshan ----
+	var ret := MeshInstance3D.new()
+	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
+	ret.mesh = rt
+	ret.material_override = _soft_mat(Color(1.0, 0.9, 0.4), 2.5)
+	add_child(ret); game_nodes.append(ret)
+	g["reticle"] = ret
+	# ---- Roshan at the start of the track; camera snaps straight overhead ----
+	player.position = origin + Vector3(0, FS_PLANE, 0)
+	player.vel = Vector3.ZERO
+	if player.cam != null and player.cam.is_inside_tree():
+		player.cam.position = origin + Vector3(0, FS_CAM_H, FS_LOOK)
+		player.cam.look_at(origin + Vector3(0, 0, FS_LOOK), Vector3(0, 0, 1))
 
 func _fairy_spawn_orb(from: Vector3, dirv: Vector3) -> void:
 	# a slow glowing shadow spark — the "bullet" of this bullet hell
@@ -6546,7 +6563,8 @@ func _fairy_clear_orbs() -> void:
 
 func _fairy_start_boss(origin: Vector3) -> void:
 	# Built from real CC0 Kenney flora models (assets/nature) — minimal custom geometry.
-	var center: Vector3 = origin + Vector3(0, FS_PLANE, 0)
+	# The scroll freezes and the flower fills the top of the screen.
+	var center: Vector3 = origin + Vector3(0, FS_PLANE, float(g["fz"]) + FS_BOSS_AHEAD)
 	g["boss_center"] = center
 	g["phase"] = "boss_leaves"
 	# retry kindness: each earlier fail stretches both boss timers by 6s (max +12)
@@ -6554,8 +6572,8 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	g["ring_cd"] = FS_RING_CD
 	_fairy_clear_orbs()   # a clean entrance for the flower
 	# leafy island base under the flower (a big bush model)
-	if _nature("plant_bushLargeTriangle", origin + Vector3(0, 0.5, 1.0), 6.0, 0.0) == null:
-		_mg_noop_ref(_course_box(origin + Vector3(0, 1.0, 0), Vector3(7, 1.5, 7), Color(0.3, 0.65, 0.35)))
+	if _nature("plant_bushLargeTriangle", Vector3(center.x, origin.y + 0.5, center.z + 1.0), 6.0, 0.0) == null:
+		_mg_noop_ref(_course_box(Vector3(center.x, origin.y + 1.0, center.z), Vector3(7, 1.5, 7), Color(0.3, 0.65, 0.35)))
 	# the flower at the core — ONE flower (FS_FLOWER), small/tight until the leaves fall,
 	# then it grows bigger with every hit before blooming
 	var bud := _nature(FS_FLOWER, center + Vector3(0, -1.5, 0), FS_BUD_SCALE * 0.4, 0.0)
@@ -6568,7 +6586,7 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	g["bud"] = bud
 	g["bud_hp"] = FS_BUD_HP
 	# leaf shield: a wreath of real leafy bushes spinning slowly around the bud —
-	# a little flying keeps the nearest leaf inside wand reach
+	# a little sliding keeps a leaf lined up with the wand
 	g["leaves"] = []
 	var leafkinds := ["plant_bushLargeTriangle", "grass_leafsLarge", "plant_bush"]
 	for k in range(FS_LEAVES):
@@ -6740,7 +6758,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"   # classic + pearl (classic art)
+	return "res://assets/characters/roshan_sprite.png"   # classic
 
 var _pad_prev_a := false
 var _pad_prev_b := false
@@ -6975,6 +6993,7 @@ func _process(delta: float) -> void:
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
+	_tick_foliage_push(ppos)
 	_tick_life(delta)
 	_tick_movers(delta)
 	_tick_aquatic(delta)
@@ -7045,7 +7064,144 @@ func _process(delta: float) -> void:
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
+# ============== PHYSICS LAB (dev-mode experiment — cleanse later) ==============
+# Two engine experiments for the Lenovo M11 (Helio G88 / Mali-G52) grading run,
+# both triggerable from Developer Mode:
+#  1. foliage_push_enabled — GPU foliage interaction: Roshan's position/speed
+#     feed the (memoized) sway shaders once per frame; blades part around her.
+#  2. Jolt props — real RigidBody3D barrels/balls (Jolt engine, see
+#     project.godot [physics]) spawned near Roshan, shoved by her swim wake.
+var foliage_push_enabled := true
+var _sway_mat_cache := {}     # one sway material per color pair (also a perf win)
+var jolt_props: Array = []
+
+func _tick_foliage_push(ppos: Vector3) -> void:
+	if _sway_mat_cache.is_empty():
+		return
+	var amt: float = 0.0
+	if foliage_push_enabled and player != null:
+		amt = clampf(0.25 + (player.vel as Vector3).length() * 0.04, 0.25, 1.1)
+	for m in _sway_mat_cache.values():
+		(m as ShaderMaterial).set_shader_parameter("push_pos", ppos)
+		(m as ShaderMaterial).set_shader_parameter("push_amt", amt)
+
+func _physlab_spawn() -> void:
+	# 6 barrels + 6 balls in a ring around Roshan, resting on an invisible
+	# static disc at seabed height (the reef floor is analytic, not a body)
+	_physlab_clear()
+	if player == null:
+		return
+	var c: Vector3 = player.position
+	var floor_y: float = seabed_y(c.x, c.z)
+	var sb := _jolt_static_box(Vector3(c.x, floor_y - 0.5, c.z), Vector3(60, 1, 60))
+	sb.set_meta("physlab", true)
+	jolt_props.append(sb)
+	for i in range(12):
+		var a: float = float(i) / 12.0 * TAU
+		var pos := Vector3(c.x + cos(a) * 6.0, floor_y + 3.0 + float(i % 3), c.z + sin(a) * 6.0)
+		if i % 2 == 0:
+			jolt_props.append(_jolt_barrel(pos))
+		else:
+			jolt_props.append(_jolt_ball(pos, 0.9, Color.from_hsv(float(i) / 12.0, 0.6, 1.0), 0.35, 1.4))
+
+func _physlab_clear() -> void:
+	for p in jolt_props:
+		if is_instance_valid(p):
+			p.queue_free()
+	jolt_props.clear()
+
+func _physics_process(delta: float) -> void:
+	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
+	# at the physics tick so it is frame-rate independent.
+	if player == null or jolt_props.is_empty():
+		return
+	var ppos: Vector3 = player.position
+	var pvel: Vector3 = player.vel
+	for p in jolt_props:
+		var b := p as RigidBody3D
+		if b == null or not is_instance_valid(b):
+			continue
+		var d: Vector3 = b.position - ppos
+		var dist: float = d.length()
+		if dist > 7.0 or dist < 0.001:
+			continue
+		var flat := Vector3(d.x, d.y * 0.25, d.z)
+		if flat.length() < 0.001:
+			flat = Vector3(pvel.x, 0, pvel.z)
+		var dirf: Vector3 = flat.normalized()
+		var imp: Vector3 = dirf * (maxf(0.0, 4.5 - dist) * 22.0)
+		imp += pvel * (maxf(0.0, 1.0 - dist / 7.0) * 0.9)
+		if imp.length_squared() > 0.0001:
+			b.apply_central_impulse(imp * delta * b.mass)
+
+func _jolt_barrel(pos: Vector3) -> RigidBody3D:
+	var prop := RigidBody3D.new()
+	prop.collision_layer = 2
+	prop.collision_mask = 1 | 2
+	prop.mass = 2.0
+	prop.gravity_scale = 0.30       # water-logged: sinks slowly, easy to shove
+	prop.linear_damp = 1.6
+	prop.angular_damp = 1.2
+	var shp := CollisionShape3D.new()
+	var cy := CylinderShape3D.new()
+	cy.radius = 1.0
+	cy.height = 2.4
+	shp.shape = cy
+	prop.add_child(shp)
+	if ResourceLoader.exists("res://assets/ship/barrel.glb"):
+		var vis: Node3D = (load("res://assets/ship/barrel.glb") as PackedScene).instantiate()
+		vis.scale = Vector3.ONE * 2.4
+		vis.position.y = -1.2
+		if wood_overlay == null:
+			_texture_mats()
+		_apply_mat(vis, wood_overlay, true)
+		prop.add_child(vis)
+	prop.position = pos
+	add_child(prop)
+	return prop
+
+func _jolt_ball(pos: Vector3, r: float, col: Color, gscale: float, damp: float) -> RigidBody3D:
+	var b := RigidBody3D.new()
+	b.collision_layer = 2
+	b.collision_mask = 1 | 2
+	b.mass = 1.0
+	b.gravity_scale = gscale
+	b.linear_damp = damp
+	b.angular_damp = damp * 0.5
+	var cs := CollisionShape3D.new()
+	var sh := SphereShape3D.new()
+	sh.radius = r
+	cs.shape = sh
+	b.add_child(cs)
+	var mi := MeshInstance3D.new()
+	var sm := SphereMesh.new()
+	sm.radius = r
+	sm.height = r * 2.0
+	mi.mesh = sm
+	mi.material_override = _soft_mat(col, 0.3)
+	b.add_child(mi)
+	b.position = pos
+	add_child(b)
+	return b
+
+func _jolt_static_box(center: Vector3, size: Vector3) -> StaticBody3D:
+	var sb := StaticBody3D.new()
+	sb.collision_layer = 1
+	sb.collision_mask = 0
+	var cs := CollisionShape3D.new()
+	var bx := BoxShape3D.new()
+	bx.size = size
+	cs.shape = bx
+	sb.add_child(cs)
+	sb.position = center
+	add_child(sb)
+	return sb
+# ============ END PHYSICS LAB ==============
+
 func _sway_grass_mat(base: Color, tip: Color) -> ShaderMaterial:
+	var key := "%s|%s" % [base.to_html(), tip.to_html()]
+	if _sway_mat_cache.has(key):
+		return _sway_mat_cache[key]
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
 render_mode cull_disabled, depth_prepass_alpha;
@@ -7054,6 +7210,8 @@ uniform vec3 tip_col;
 uniform sampler2D leaf;
 global uniform vec3 wind_dir;
 global uniform float wind_gust;
+uniform vec3 push_pos;          // Roshan's position (fed per frame)
+uniform float push_amt = 0.0;   // bend strength, scaled by her speed
 void vertex(){
 	float w = UV.y;
 	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -7063,6 +7221,17 @@ void vertex(){
 	float ph = TIME * (0.9 + wind_gust * 0.7) - dot(wp.xz, wind_dir.xz) * 0.14;
 	VERTEX.x += (sin(ph + wp.x * 0.28 + wp.z * 0.22) * 0.5 * gg + wind_dir.x * wind_gust * 0.5) * w;
 	VERTEX.z += (cos(ph * 0.78 + wp.x * 0.16) * 0.36 * gg + wind_dir.z * wind_gust * 0.5) * w;
+	// PHYSICS LAB: blades bend away from Roshan, harder the faster she moves
+	vec2 away = wp.xz - push_pos.xz;
+	float pdist = length(away);
+	float ring = 1.0 - smoothstep(0.0, 4.5, pdist);
+	float band = 1.0 - smoothstep(2.0, 8.0, abs(wp.y - push_pos.y));
+	float bend = ring * band * push_amt * w;
+	if (bend > 0.001 && pdist > 0.001) {
+		vec3 off_ws = vec3(away.x / pdist, -0.35, away.y / pdist);
+		vec3 off_ms = normalize((vec4(off_ws, 0.0) * MODEL_MATRIX).xyz);
+		VERTEX += off_ms * bend * 1.5;
+	}
 }
 void fragment(){
 	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
@@ -7083,6 +7252,7 @@ void fragment(){
 	m.set_shader_parameter("base_col", Vector3(base.r, base.g, base.b))
 	m.set_shader_parameter("tip_col", Vector3(tip.r, tip.g, tip.b))
 	m.set_shader_parameter("leaf", load("res://assets/terrain/leaf.png"))
+	_sway_mat_cache[key] = m
 	return m
 func _glow_dot_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -7822,10 +7992,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.glow_intensity = 1.15
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
+		# same anti-white-wash recipe as the snowy "fetch" yard: on an
+		# already-white ice scene the WW screen-blend haze + hot ambient
+		# clips the whole frame past ACES white (fully blown out on the
+		# Android framebuffer, owner report 2026-07-13)
 		arena_env.background_color = Color(0.62, 0.82, 1.0)
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
-		arena_env.ambient_light_energy = 1.25
-		arena_env.glow_intensity = 0.7
+		arena_env.ambient_light_energy = 0.7
+		arena_env.glow_bloom = 0.05
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
@@ -7837,6 +8011,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
 		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	_speedy_glow_clamp(arena_env)   # re-run after the per-theme overrides so they respect speedy too
 	_grade(arena_env)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
