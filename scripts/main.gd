@@ -65,6 +65,7 @@ var craft_fishbox: Control = null
 var craft_kind := "fish"
 var craft_body_rb := false           # rainbow-cycle toggle for the body layer (ww craft fx)
 var craft_fins_rb := false           # rainbow-cycle toggle for the accent layer
+var craft_c3 := Color(0, 0, 0, 0)    # third zone colour; alpha 0 = the kind's book-art default
 var craft_unlocks := {}            # one-time pearl unlocks for craft creatures ("cat", "bird")
 var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
 var craft_pearl_lbl: Label = null
@@ -3252,7 +3253,7 @@ var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 # static mesh sliding. Recolour still rides the sway shader (sway_amount 0 so it
 # never fights the skeleton; paint_body/fin map HER colours by luma). The
 # returned wrap carries meta "ap" = the AnimationPlayer for the behaviour FSM.
-func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color) -> Node3D:
+func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color, third: Color = Color(1, 1, 1)) -> Node3D:
 	var ps: PackedScene = _gen2_cache.get(gname, null)
 	if ps == null:
 		var path := "res://assets/props/gen2/" + gname + ".glb"
@@ -3284,6 +3285,13 @@ func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Co
 			sm.set_shader_parameter("paint_mix", 1.0)
 			sm.set_shader_parameter("paint_body", body)
 			sm.set_shader_parameter("paint_fin", accent)
+			sm.set_shader_parameter("paint_third", third)
+			# zone mask (baked from geometry) paints the BOOK-ART pattern:
+			# body / accent / third-colour regions; black = fixed features
+			var mpath := "res://assets/props/gen2/" + gname.replace("_rigged", "_mask") + ".png"
+			if ResourceLoader.exists(mpath):
+				sm.set_shader_parameter("zone_mask", load(mpath))
+				sm.set_shader_parameter("use_zones", 1)
 			mi.set_surface_override_material(si, sm)
 	var ap: AnimationPlayer = inst.find_child("AnimationPlayer", true, false)
 	if ap != null:
@@ -4460,12 +4468,16 @@ const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "b
 # creatures with a real skeleton + gait clips take priority over the static sway
 # mesh (kitty -> Chuck's quadruped cage; birdie -> its own standing-bird rig,
 # tools/rig_birdie.py). name -> [rigged glb, footprint]
-const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2], "bird": ["craft_birdie_rigged", 2.6]}
+# name -> [rigged glb, footprint, default third colour (the book-art tone:
+# kitty's white muzzle+chest bib, birdie's sunny belly)]
+const CRAFT_RIGGED := {"cat": ["craft_kitty_rigged", 3.2, Color(0.97, 0.96, 0.93)],
+	"bird": ["craft_birdie_rigged", 2.6, Color(1.0, 0.9, 0.45)]}
 
-func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false) -> Node3D:
+func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false, third: Color = Color(0, 0, 0, 0)) -> Node3D:
 	if CRAFT_RIGGED.has(kind):
 		var rspec: Array = CRAFT_RIGGED[kind]
-		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent)
+		var c3: Color = third if third.a > 0.0 else (rspec[2] as Color)
+		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent, c3)
 		if rn != null:
 			return rn
 	if CRAFT_GEN2.has(kind):
@@ -4570,6 +4582,7 @@ func _open_craft_studio() -> void:
 	craft_fins = Color(1.0, 0.6, 0.2)
 	craft_body_rb = false
 	craft_fins_rb = false
+	craft_c3 = Color(0, 0, 0, 0)
 	craft_layer = CanvasLayer.new(); craft_layer.layer = 18; add_child(craft_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); craft_layer.add_child(root)
 	var vp: Vector2 = get_viewport().get_visible_rect().size
@@ -4622,21 +4635,22 @@ func _open_craft_studio() -> void:
 	stage.add_child(craft_status)
 	craft_fishbox = Control.new(); craft_fishbox.size = Vector2(400, 400); craft_fishbox.position = Vector2(440, 72); stage.add_child(craft_fishbox)
 	_craft_build_preview()
-	var pal := [Color(0.92, 0.26, 0.3), Color(1, 0.6, 0.2), Color(1, 0.85, 0.25), Color(0.35, 0.8, 0.4), Color(0.3, 0.8, 0.9), Color(0.3, 0.55, 1.0), Color(0.6, 0.4, 0.9), Color(0.95, 0.5, 0.8)]
-	for row in range(2):
-		var part := "body" if row == 0 else "accent"
+	var pal := [Color(0.92, 0.26, 0.3), Color(1, 0.6, 0.2), Color(1, 0.85, 0.25), Color(0.35, 0.8, 0.4), Color(0.3, 0.8, 0.9), Color(0.3, 0.55, 1.0), Color(0.6, 0.4, 0.9), Color(0.95, 0.5, 0.8), Color(0.97, 0.96, 0.93)]
+	for row in range(3):
+		var part: String = ["body", "accent", "third"][row]
 		for ci in range(pal.size()):
-			var sw := Button.new(); sw.custom_minimum_size = Vector2(90, 90); sw.size = Vector2(90, 90)
-			sw.position = Vector2(300.0 + float(ci) * 100.0, 492.0 + float(row) * 108.0)
+			var sw := Button.new(); sw.custom_minimum_size = Vector2(84, 84); sw.size = Vector2(84, 84)
+			sw.position = Vector2(300.0 + float(ci) * 94.0, 444.0 + float(row) * 92.0)
 			var sb := StyleBoxFlat.new(); sb.bg_color = pal[ci]; sb.set_corner_radius_all(20); sb.set_border_width_all(4); sb.border_color = Color(1, 1, 1, 0.7)
 			sw.add_theme_stylebox_override("normal", sb); sw.add_theme_stylebox_override("hover", sb); sw.add_theme_stylebox_override("pressed", sb)
 			var col: Color = pal[ci]; var pp: String = part
 			sw.pressed.connect(func(): _craft_set(pp, col))
 			stage.add_child(sw)
-		# 9th swatch: RAINBOW (the whole layer cycles through every color)
-		var rbw := Button.new(); rbw.custom_minimum_size = Vector2(90, 90); rbw.size = Vector2(90, 90)
-		rbw.position = Vector2(300.0 + float(pal.size()) * 100.0 - 1400.0 * 0.0, 492.0 + float(row) * 108.0)
-		rbw.position.x = 300.0 - 100.0   # place it BEFORE the solid colors so it fits the row
+		# RAINBOW swatch (body/accent only; the third zone keeps solid colours)
+		if row == 2:
+			continue
+		var rbw := Button.new(); rbw.custom_minimum_size = Vector2(84, 84); rbw.size = Vector2(84, 84)
+		rbw.position = Vector2(300.0 - 94.0, 444.0 + float(row) * 92.0)   # BEFORE the solids
 		rbw.flat = true
 		var rimg := TextureRect.new(); rimg.texture = load("res://assets/mg/rainbow_swatch.png")
 		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_SCALE
@@ -4685,6 +4699,8 @@ func _craft_set(part: String, col: Color, rb: bool = false) -> void:
 	if part == "body":
 		craft_body = col
 		craft_body_rb = rb
+	elif part == "third":
+		craft_c3 = col
 	else:
 		craft_fins = col
 		craft_fins_rb = rb
@@ -4710,7 +4726,10 @@ func _craft_done() -> void:
 		_spawn_crafted_fish()   # same spawn path as build/load keeps the counter honest
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
-		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b, 1 if craft_body_rb else 0, 1 if craft_fins_rb else 0])
+		var c3: Color = craft_c3
+		if c3.a <= 0.0 and CRAFT_RIGGED.has(craft_kind):
+			c3 = (CRAFT_RIGGED[craft_kind] as Array)[2]
+		custom_friends.append([craft_kind, craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b, 1 if craft_body_rb else 0, 1 if craft_fins_rb else 0, c3.r, c3.g, c3.b])
 		msgtxt = "Off to the courtyard! Find me when you visit!"
 	_write_save()
 	if chime != null:

@@ -14,11 +14,18 @@ uniform float sway_speed = 4.2;
 uniform float sway_amount = 0.09;   // in model units (Meshy bodies are ~1.1 long)
 uniform float phase = 0.0;
 uniform float excite = 0.0;         // 0..1 greeting boost (faster + bigger)
-// craft-studio repaint (painted fish): light zones take the fin color, the
-// rest takes the body color; the bake's shading survives through the luma
+// craft-studio repaint. Two modes:
+//  * luma mode (no zone_mask): light zones take the fin colour — the fish.
+//  * zone mode (zone_mask bound, use_zones=1): mask R/G/B = body / accent /
+//    third-colour regions baked from geometry (tools/bake_zone_mask.py), so
+//    the coloration matches the book art (white kitty muzzle, pink wings...).
+//    Black mask = fixed features (horn, feet, beak) keep the baked texture.
 uniform float paint_mix = 0.0;
 uniform vec4 paint_body : source_color = vec4(1.0);
 uniform vec4 paint_fin : source_color = vec4(1.0);
+uniform vec4 paint_third : source_color = vec4(1.0);
+uniform int use_zones = 0;
+uniform sampler2D zone_mask : hint_default_black;
 
 void vertex() {
 	float sp = sway_speed * (1.0 + excite * 1.6);
@@ -41,11 +48,20 @@ void fragment() {
 	vec3 alb = texture(albedo_tex, UV).rgb;
 	if (paint_mix > 0.001) {
 		float luma = dot(alb, vec3(0.35, 0.5, 0.15));
-		vec3 paint = mix(paint_body.rgb, paint_fin.rgb, smoothstep(0.55, 0.8, luma));
+		vec3 paint;
+		float zone_w = 1.0;
+		if (use_zones == 1) {
+			vec3 zw = texture(zone_mask, UV).rgb;
+			zone_w = clamp(zw.r + zw.g + zw.b, 0.0, 1.0);
+			paint = (zw.r * paint_body.rgb + zw.g * paint_fin.rgb + zw.b * paint_third.rgb)
+				/ max(zone_w, 0.001);
+		} else {
+			paint = mix(paint_body.rgb, paint_fin.rgb, smoothstep(0.55, 0.8, luma));
+		}
 		// near-black texels are FEATURES (eyes, nose, mouth, stitches) — keep
 		// them, or every painted friend comes out eyeless (playtest 2026-07-13)
 		float dark = 1.0 - smoothstep(0.06, 0.22, luma);
-		alb = mix(mix(alb, paint * (0.55 + luma * 0.9), paint_mix), alb, dark);
+		alb = mix(mix(alb, paint * (0.55 + luma * 0.9), paint_mix * zone_w), alb, dark);
 	}
 	ALBEDO = alb * tint.rgb;
 	ROUGHNESS = 1.0;

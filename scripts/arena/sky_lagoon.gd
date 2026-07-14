@@ -253,7 +253,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var cf2: Array = m.custom_friends[fi]
 		if cf2.size() < 7:
 			continue
-		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]))
+		# rows saved before the third colour existed fall back to the kind default
+		var c3 := Color(0, 0, 0, 0)
+		if cf2.size() >= 12:
+			c3 = Color(cf2[9], cf2[10], cf2[11])
+		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), false, false, c3)
 		var fang: float = float(fi) * 1.3
 		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
 		var frz: float = 70.0 + sin(fang) * 45.0
