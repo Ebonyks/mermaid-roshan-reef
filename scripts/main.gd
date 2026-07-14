@@ -20,6 +20,7 @@ var hud_game: Label
 var msg_timer := 0.0
 var voice: AudioStreamPlayer
 var model_cache := {}
+var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
@@ -278,8 +279,7 @@ var treasure_cool := 0.0
 const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
-	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
-	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
+	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
 var wardrobe_layer: CanvasLayer = null
@@ -309,7 +309,10 @@ var cur_track := ""
 var prev_track := ""
 # THE PEARL SINK: with the Sticker Book driving completion, pearls become the
 # treasure-shopping currency — real things to save up for instead of a number
-# that only ever grows. Beans stay cheap; the rest are permanent treasures.
+# that only ever grows. The early procedural cosmetics (Rainbow Trail / Pearl
+# Tiara / Pearl Princess) were retired 2026-07-13 — low-res primitives that
+# never sat right on the V2+ bodies; any new treasure must be a hard-generated
+# asset that actually fits her. Old saves keep their "owned" flags harmlessly.
 const SHOP_ITEMS := [
 	{"id": "beans", "label": "Can of Beans", "price": 2},
 	{"id": "tail", "label": "Rainbow Trail", "price": 60},
@@ -742,7 +745,7 @@ func _apply_time_of_day() -> void:
 		world_env.ambient_light_color = Color(0.46, 0.66, 0.72)
 		world_env.ambient_light_energy = 0.9
 		world_env.fog_light_color = Color(0.10, 0.26, 0.34)
-		world_env.glow_intensity = 0.95
+		world_env.glow_intensity = _world_glow_target()
 		if caustics_mat != null:          # bright sun dapples
 			caustics_mat.set_shader_parameter("strength", 0.30)
 			caustics_mat.set_shader_parameter("tint", Vector3(0.50, 0.80, 0.90))
@@ -898,6 +901,22 @@ func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float =
 	env.set_glow_level(2, 1.0)
 	env.set_glow_level(4, 1.0)    # wide dreamy halo
 	env.set_glow_level(6, 0.35)   # very wide faint wash
+	_speedy_glow_clamp(env)
+
+func _speedy_glow_clamp(env: Environment) -> void:
+	# speedy quality = calmer bloom EVERYWHERE, not just the reef. Remembers the
+	# full-quality pair in meta first so _apply_quality can restore it live when
+	# the player toggles back to sparkly mid-scene.
+	env.set_meta("ww_full", Vector2(env.glow_intensity, env.glow_bloom))
+	if quality == "speedy":
+		env.glow_intensity = minf(env.glow_intensity, 0.75)
+		env.glow_bloom = minf(env.glow_bloom, 0.12)
+
+func _world_glow_target() -> float:
+	# ONE place decides the reef glow intensity so day/night and the quality
+	# toggle can't fight over it (last-writer-wins bugs)
+	var gi: float = 1.0 if is_night else 0.95   # bioluminescence reads stronger in the dark
+	return minf(gi, 0.75) if quality == "speedy" else gi
 
 func _build_environment() -> void:
 	var env := Environment.new()
@@ -2473,7 +2492,13 @@ func _apply_quality(q: String) -> void:
 		sun_light.shadow_enabled = not speedy
 	if world_env != null:
 		world_env.glow_bloom = 0.12 if speedy else 0.4
-		world_env.glow_intensity = 0.75 if speedy else 0.95
+		world_env.glow_intensity = _world_glow_target()
+	# keep the ACTIVE cutaway environment (lagoon / castle / arena) in step too —
+	# restore its remembered full-quality bloom or clamp it, live
+	if arena_env != null and we_node != null and we_node.environment == arena_env and arena_env.has_meta("ww_full"):
+		var fv: Vector2 = arena_env.get_meta("ww_full")
+		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
+		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
 	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
@@ -3044,6 +3069,15 @@ func _lagoon_ref() -> SkyLagoon:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
 
+# The courtyard train (Sky Lagoon ride) lives in scripts/arena/courtyard_train.gd
+# (state stays here in g["train"] / g["toys"]; the satellite receives main by reference)
+var _train_obj: CourtyardTrain = null
+
+func _train_ref() -> CourtyardTrain:
+	if _train_obj == null:
+		_train_obj = CourtyardTrain.new(self)
+	return _train_obj
+
 func _build_pearl_castle(o: Vector3) -> void:
 	_lagoon_ref()._build_pearl_castle(o)
 
@@ -3127,14 +3161,22 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 	if node is MeshInstance3D:
 		var mi := node as MeshInstance3D
 		if mi.mesh != null:
-			var tm := StandardMaterial3D.new()
-			tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
-			tm.albedo_color = _pastel(tint)
-			tm.uv1_triplanar = true
-			tm.uv1_scale = Vector3(uvs, uvs, uvs)
-			tm.roughness = 1.0
-			tm.metallic = 0.0
-			tm.metallic_specular = 0.1
+			# One shared material per tile config, cached on main — same
+			# teardown rationale as _toonify's cache: a node-owned material
+			# is freed before its instance and the headless dummy renderer
+			# errors on the stale RID during the dirty-instance flush.
+			var ck := "%s|%s|%s" % [key, uvs, tint]
+			var tm: StandardMaterial3D = _toon_mats.get(ck)
+			if tm == null:
+				tm = StandardMaterial3D.new()
+				tm.albedo_texture = load("res://assets/terrain/up_%s_col.jpg" % key)
+				tm.albedo_color = _pastel(tint)
+				tm.uv1_triplanar = true
+				tm.uv1_scale = Vector3(uvs, uvs, uvs)
+				tm.roughness = 1.0
+				tm.metallic = 0.0
+				tm.metallic_specular = 0.1
+				_toon_mats[ck] = tm
 			for si in range(mi.mesh.get_surface_count()):
 				mi.set_surface_override_material(si, tm)
 	for c in node.get_children():
@@ -3430,12 +3472,21 @@ func _toonify(node: Node) -> void:
 				if sm0 == null:
 					sm0 = mi.mesh.surface_get_material(si)
 				if sm0 is StandardMaterial3D:
-					var m2 := (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
-					m2.normal_enabled = false
-					m2.roughness = 1.0
-					m2.metallic = 0.0
-					m2.metallic_specular = 0.1
-					m2.albedo_color = _pastel(m2.albedo_color)
+					# One shared override per source material, cached on main.
+					# A per-node duplicate's only ref is the node itself, and
+					# node teardown frees the material RID before the instance
+					# RID — the headless dummy renderer then enumerates the
+					# stale RID and spams "Parameter material is null" (probe
+					# audit). The cache keeps the override alive past the node.
+					var m2: StandardMaterial3D = _toon_mats.get(sm0)
+					if m2 == null:
+						m2 = (sm0 as StandardMaterial3D).duplicate() as StandardMaterial3D
+						m2.normal_enabled = false
+						m2.roughness = 1.0
+						m2.metallic = 0.0
+						m2.metallic_specular = 0.1
+						m2.albedo_color = _pastel(m2.albedo_color)
+						_toon_mats[sm0] = m2
 					mi.set_surface_override_material(si, m2)
 	for c in node.get_children():
 		_toonify(c)
@@ -4747,7 +4798,7 @@ func _wardrobe_refresh() -> void:
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
 		var eid := String(entry["id"])
-		var locked: bool = (eid.begins_with("fairy") and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
+		var locked: bool = eid.begins_with("fairy") and not fairy_skin_unlocked
 		var box: StyleBoxFlat = entry["box"]
 		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
@@ -4763,12 +4814,6 @@ func _wardrobe_pick(id: String) -> void:
 			chime.pitch_scale = 0.5
 			chime.play()
 		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
-		return
-	if id == "pearl" and not bool(shop_owned.get("pearlskin", false)):
-		if chime != null:
-			chime.pitch_scale = 0.5
-			chime.play()
-		_wardrobe_toast("🦪 Pearl Princess is waiting at the Pearl Shop — 250 pearls!")
 		return
 	skin_id = id
 	_apply_skin()
@@ -5741,78 +5786,36 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	klbl.position = Vector3(origin.x, f + 14.0, origin.z - 9.0)
 	add_child(klbl)
 	game_nodes.append(klbl)
-	# wares on the counter
+	# wares on the counter — spread evenly around the middle
 	g["items"] = []
-	var slots := [-6.5, -2.2, 2.2, 6.5]
 	for ii in range(SHOP_ITEMS.size()):
 		var it: Dictionary = SHOP_ITEMS[ii]
 		var iid := String(it["id"])
-		var ipos := Vector3(origin.x + slots[ii], f + 2.2, origin.z - 4.6)
-		var inode: Node3D
-		if iid == "tiara":
-			var crown := MeshInstance3D.new()
-			var tm := TorusMesh.new()
-			tm.inner_radius = 0.55
-			tm.outer_radius = 0.85
-			crown.mesh = tm
-			var cm := StandardMaterial3D.new()
-			cm.albedo_color = Color(1.0, 0.85, 0.35)
-			cm.metallic = 0.8
-			cm.roughness = 0.25
-			cm.emission_enabled = true
-			cm.emission = Color(1.0, 0.8, 0.3)
-			cm.emission_energy_multiplier = 1.6
-			crown.material_override = cm
-			inode = crown
-		elif iid == "tail":
-			var orb := MeshInstance3D.new()
-			var om2 := SphereMesh.new()
-			om2.radius = 0.7
-			om2.height = 1.4
-			orb.mesh = om2
-			orb.material_override = _rainbow_mat()
-			inode = orb
-		elif iid == "pearlskin":
-			# the grand prize: a giant shimmering pearl
-			var bigp := MeshInstance3D.new()
-			var pm3 := SphereMesh.new()
-			pm3.radius = 1.0
-			pm3.height = 2.0
-			bigp.mesh = pm3
-			var pmm := StandardMaterial3D.new()
-			pmm.albedo_color = Color(1.0, 0.96, 1.0)
-			pmm.metallic = 0.55
-			pmm.roughness = 0.15
-			pmm.emission_enabled = true
-			pmm.emission = Color(1.0, 0.85, 0.95)
-			pmm.emission_energy_multiplier = 0.9
-			bigp.material_override = pmm
-			inode = bigp
-		else:
-			# the legendary Can of Beans
-			var can := MeshInstance3D.new()
-			var cyl := CylinderMesh.new()
-			cyl.top_radius = 0.45
-			cyl.bottom_radius = 0.45
-			cyl.height = 1.1
-			can.mesh = cyl
-			var tin := StandardMaterial3D.new()
-			tin.albedo_color = Color(0.75, 0.78, 0.8)
-			tin.metallic = 0.9
-			tin.roughness = 0.3
-			can.material_override = tin
-			var lbl := MeshInstance3D.new()
-			var lcyl := CylinderMesh.new()
-			lcyl.top_radius = 0.47
-			lcyl.bottom_radius = 0.47
-			lcyl.height = 0.6
-			lbl.mesh = lcyl
-			var lm2 := StandardMaterial3D.new()
-			lm2.albedo_color = Color(0.85, 0.3, 0.2)
-			lm2.roughness = 0.8
-			lbl.material_override = lm2
-			can.add_child(lbl)
-			inode = can
+		var ipos := Vector3(origin.x + (float(ii) - float(SHOP_ITEMS.size() - 1) * 0.5) * 4.3, f + 2.2, origin.z - 4.6)
+		# the legendary Can of Beans
+		var can := MeshInstance3D.new()
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = 0.45
+		cyl.bottom_radius = 0.45
+		cyl.height = 1.1
+		can.mesh = cyl
+		var tin := StandardMaterial3D.new()
+		tin.albedo_color = Color(0.75, 0.78, 0.8)
+		tin.metallic = 0.9
+		tin.roughness = 0.3
+		can.material_override = tin
+		var lbl := MeshInstance3D.new()
+		var lcyl := CylinderMesh.new()
+		lcyl.top_radius = 0.47
+		lcyl.bottom_radius = 0.47
+		lcyl.height = 0.6
+		lbl.mesh = lcyl
+		var lm2 := StandardMaterial3D.new()
+		lm2.albedo_color = Color(0.85, 0.3, 0.2)
+		lm2.roughness = 0.8
+		lbl.material_override = lm2
+		can.add_child(lbl)
+		var inode: Node3D = can
 		inode.position = ipos
 		add_child(inode)
 		game_nodes.append(inode)
@@ -5825,9 +5828,6 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		tag.position = ipos + Vector3(0, 1.7, 0)
 		add_child(tag)
 		game_nodes.append(tag)
-		if iid != "beans" and bool(shop_owned.get(iid, false)):
-			inode.visible = false
-			tag.text = "%s\n(yours!)" % String(it["label"])
 		(g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
 	# ANIMAL TANKS: glass tanks mounted on the back wall, each holding a reef
 	# friend Kareem will sell. Swim up with enough pearls and it goes FREE -
@@ -6735,7 +6735,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"   # classic + pearl (classic art)
+	return "res://assets/characters/roshan_sprite.png"   # classic
 
 var _pad_prev_a := false
 var _pad_prev_b := false
@@ -7832,6 +7832,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
 		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	_speedy_glow_clamp(arena_env)   # re-run after the per-theme overrides so they respect speedy too
 	_grade(arena_env)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
