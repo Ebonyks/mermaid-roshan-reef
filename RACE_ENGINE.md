@@ -66,12 +66,18 @@ kart, so the engine never breaks on assets.
 **Tracks are distinct now**: the seabed race hugs the real reef floor; the
 rainbow race rides its own `RAINBOW_CTRL` rollercoaster loop (66 units of
 climb/dive around the Butterfly World). **Hazards** (`hazards` in configure,
-themed defaults, all gentle/no-fail): ocean gets scuttling crabs (soft bonk +
-silly spin), kelp patches (drag — a burning turbo powers through) and bubble
-geysers on a telegraphed rhythm (erupting = free JUMP: the hazard kids learn
-to chase); rainbow gets sweeping comets (hover-pulse telegraph, then a bonk
-sweep), sleepy clouds (drag) and a swinging star pendulum (bonk). Bonks slow
-+ shove + one full visual spin, cancel a drift charge, never stun or stop.
+themed defaults, all gentle/no-fail) follow a strict visual grammar: stars /
+gold / cyan glow always mean COLLECT; hazards are the opposite vocabulary —
+dark, plum, spiky, rocky, wobbly. Ocean: scuttling crabs (soft bonk + silly
+spin), kelp patches (drag — a burning turbo powers through), bubble geysers
+on a telegraphed rhythm (erupting = free JUMP: the hazard kids learn to
+chase), and a spinning sand whirlpool that tugs sideways (6 u/s — steering
+always wins). Rainbow: a grumpy tumbling METEOR with a fiery ember tail
+(quiver-telegraph at the road edge, then a 1.2 s sweep), sleepy "z Z z"
+clouds (drag), a swinging plum SPIKE BALL (bonk), and a wobbly translucent
+jelly-moon dome (BOING — a big bouncy shove with a boing chime, deliberately
+distinct from the bonk-spin). Bonks slow + shove + one full visual spin,
+cancel a drift charge, never stun or stop.
 
 ## configure() keys (all optional; defaults = ocean course)
 `name, theme ("ocean"|"rainbow"), laps, lap_target_sec, road_half,
