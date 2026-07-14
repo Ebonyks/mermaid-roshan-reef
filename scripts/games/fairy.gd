@@ -12,7 +12,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
 	m._build_fairyshoot(origin)
 	m._play_music("melody")   # dreamy track
-	m.show_msg(fr["fname"], "Fly up the fairy pond! Slide to dodge the shadow sparks — your wand zaps ahead all by itself! SPACE / TAP makes a sparkle shield!")
+	m.show_msg(fr["fname"], "Fly up the fairy pond! Dodge the sparks and the shadow monsters — your wand zaps ahead all by itself! SPACE / TAP makes a sparkle shield!")
 
 func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var origin: Vector3 = m.ARENA_POS
@@ -120,6 +120,38 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				m.player.visible = true
 				m.fs_fails += 1
 				m._end_game(false, fr, "The shadow sparks tired Roshan out! Splash back in and try again!", "fail")
+				return
+	# ---- shadow monsters prowl the track: jellies drift, urchins spin,
+	# eels sweep the whole lane — the wand can't zap them, only flying
+	# around them works (one heart on touch, same sparkle-blink mercy) ----
+	for hd in m.g["hazards"]:
+		var hn: Node3D = hd["node"]
+		if not is_instance_valid(hn):
+			continue
+		var hkind: String = hd["kind"]
+		var hb: Vector3 = hd["base"]
+		var hph: float = hd["ph"]
+		var hhit := false
+		if hkind == "jelly":
+			hn.position = hb + Vector3(sin(tt * 0.7 + hph) * 4.0, 0, sin(tt * 0.9 + hph) * 3.0)
+			hn.scale = Vector3.ONE * (1.0 + sin(tt * 3.0 + hph) * 0.1)
+			hhit = hn.position.distance_to(pos) < m.FS_HAZ_R
+		elif hkind == "urchin":
+			hn.rotation.y = tt * 1.1 + hph
+			hhit = hn.position.distance_to(pos) < m.FS_HAZ_R
+		else:   # eel: long body, box-ish touch check across the lane
+			hn.position = hb + Vector3(sin(tt * 0.5 + hph) * (m.FS_BX - 6.0), 0, 0)
+			hhit = absf(pos.z - hn.position.z) < 2.6 and absf(pos.x - hn.position.x) < 7.6
+		if hhit and float(m.g["hurt_t"]) <= 0.0:
+			m.g["hearts"] = int(m.g["hearts"]) - 1
+			m.g["hurt_t"] = m.FS_HURT_T
+			m._sparkle_burst(pos, Color(0.7, 0.4, 1.0))
+			if m.chime != null:
+				m.chime.pitch_scale = 0.7; m.chime.play()
+			if int(m.g["hearts"]) <= 0:
+				m.player.visible = true
+				m.fs_fails += 1
+				m._end_game(false, fr, "The shadow monsters tired Roshan out! Splash back in and try again!", "fail")
 				return
 	# ---- wand aim guide floats up-screen of Roshan ----
 	if m.g.has("reticle") and is_instance_valid(m.g["reticle"]):
