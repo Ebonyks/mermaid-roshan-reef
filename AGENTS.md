@@ -11,7 +11,8 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
 ## Layout
 - scenes/main.tscn → scripts/main.gd (~6.2k lines after Phase 7; still the
   state owner — see Refactor rules. Target <2.5k; remaining bulk is the
-  intro, HUD, craft studio, wardrobe, galaxy/kart glue and arena builders)
+  intro, HUD, craft studio, wardrobe, galaxy/kart glue and arena builders;
+  `class_name ReefMain`)
 - Phase 7 satellites (RefCounted, receive `main` by reference, own logic
   only — ALL state stays on main):
   scripts/save_state.gd, scripts/audio_director.gd,
@@ -19,10 +20,14 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
+- scripts/physics.gd — ReefPhysics (analytic). Jolt is ONLY for the
+  dev-mode Physics Lab; mass gameplay/foliage must never become bodies.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
 - assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
+- Target device: Lenovo Tab M11 (Helio G88 / Mali-G52) — Speedy tier is the
+  mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
 ## Build & test (headless, no display needed)
 GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
@@ -43,9 +48,9 @@ GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
 3. Never trust probe_games.gd / probe_trial.gd / probe_race.gd until
    Phase 1 replaces them — they reference removed APIs. (Deleted Phase 0.)
 
-NOTE (this environment): no Godot binary is available inside the remote
-session container and GitHub release downloads are proxy-blocked, so the
-probe suite runs in CI instead — .github/workflows/probes.yml executes
+NOTE (remote session containers): no Godot binary is available inside the
+container and GitHub release downloads are proxy-blocked, so the probe
+suite runs in CI instead — .github/workflows/probes.yml executes
 import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
@@ -74,12 +79,35 @@ installs it in place (save data kept).
 - Save compatibility: never remove keys from reef_save.json; add with defaults.
 - GDScript: tabs, typed vars where present, match surrounding style.
 
-## Git workflow
+## Git workflow (multi-agent)
+Multiple agents (Claude sessions, Codex, humans) work on this repo
+concurrently, on several machines. These rules exist because divergent local
+masters and stale side-copies have repeatedly forced manual merge rescues.
+
+- **Local `master` is pull-only during development.** Never commit work
+  directly to it. Update it only with `git pull --ff-only`; if that fails,
+  STOP — do not rebase master; rescue your work (below) and re-sync from
+  `origin/master`.
+- Start every task from a fresh fetch: branch `codex/<topic>` or
+  `claude/<topic>` off `origin/master`.
+- If the working tree is dirty when your session starts, first push it to
+  `rescue/<machine>-<date>` untouched, then start clean.
 - Owner rule (2026-07-13): when a task is COMPLETE (probes green on CI),
   merge the work branch into `master` and push it — master is the branch
   the owner pulls and plays, so finished work parked only on a feature
-  branch is invisible to him. Develop on the session's designated work
-  branch as usual, and never merge unprobed or red work into master.
+  branch is invisible to him. This is the ONLY case where an agent pushes
+  master; never merge unprobed or red work into it, and reconcile
+  `origin/master` (merge, resolve, re-run gates) before pushing.
+- Never work in other local copies of this project (`reef2`,
+  `roshan-graphics-fork`, `roshan-new`, backups) — only a clone of this repo.
+
+## Gates (run before every push)
+- `python -m gdtoolkit.parser <changed .gd files>`
+- `python tools/lint_inference.py <changed .gd files>`
+- CI also runs Godot's full analyzer (`--check-only`) on every script:
+  `var x := <expr>` fails when the receiver is untyped — declare explicit
+  types (`var x: Node3D = ...`), and keep `var m: ReefMain` back-references
+  typed in extracted classes.
 
 ## Refactor rules for main.gd
 Extract, don't rewrite. Moves must be mechanical: one arena builder or one

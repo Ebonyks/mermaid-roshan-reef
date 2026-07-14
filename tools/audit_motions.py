@@ -9,7 +9,7 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4f_slim.glb"
+GLB = "roshan_v4g_slim.glb"
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -468,6 +468,30 @@ def rear_blue(S):
 rb0, rb1 = rear_blue(P0), rear_blue(S1)
 check("rear hair keeps brown/rainbow mix", rb1 < 0.62 and rb1 < rb0*1.6 + 0.05,
       f"rear blue fraction rest={rb0:.2f} stress={rb1:.2f}")
+
+# authored rainbow design (v4g): her-right rear scalp is pure chestnut, and the
+# swath lobe carries all rainbow band families (warm / green / cyan) at rest
+def _hue_deg(cc):
+    mxh = cc.max(1); mnh = cc.min(1); dh = np.maximum(mxh-mnh, 1e-6)
+    r_, g_, b_ = cc[:, 0], cc[:, 1], cc[:, 2]
+    h = np.where(mxh == r_, ((g_-b_)/dh) % 6,
+                 np.where(mxh == g_, (b_-r_)/dh+2, (r_-g_)/dh+4))
+    return h*60
+_scalpR = (P0[:, 0] > 0.10) & (P0[:, 1] > 0.35) & (P0[:, 2] > 0.05)
+_ccR = CT[_scalpR]
+_tealR = ((_ccR[:, 2] > _ccR[:, 0]+10) | ((_ccR[:, 1] > _ccR[:, 0]+15) & (_ccR[:, 1] > 90)))
+check("rear-right scalp chestnut (no teal)", float(_tealR.mean()) < 0.10,
+      f"teal fraction {_tealR.mean():.3f} over {len(_ccR)} verts")
+_swath = (P0[:, 0] < -0.08) & (P0[:, 1] > 0.20) & (P0[:, 1] < 0.75)
+_csw = CT[_swath]
+_hsw = _hue_deg(_csw)
+_satsw = (_csw.max(1)-_csw.min(1))/np.maximum(_csw.max(1), 1)
+_col = _satsw > 0.30
+_fw = float((((_hsw < 75) | (_hsw > 300)) & _col).mean())
+_fg = float((((_hsw >= 85) & (_hsw < 160)) & _col).mean())
+_fc = float((((_hsw >= 160) & (_hsw < 255)) & _col).mean())
+check("swath shows full rainbow banding", _fw > 0.10 and _fg > 0.05 and _fc > 0.05,
+      f"warm {_fw:.2f} green {_fg:.2f} cyan {_fc:.2f} of {len(_csw)} swath verts")
 
 # ---------------- report ----------------
 fails = 0

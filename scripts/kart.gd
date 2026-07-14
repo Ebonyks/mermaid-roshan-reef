@@ -82,17 +82,22 @@ const RAINBOW_CTRL := [
 # ------------------------------------------------------------ hazards
 # Gentle, telegraphed, no fail states: every hazard slows or bounces — and
 # one of them (the geyser) is secretly a free jump. u = loop fraction.
+# VISUAL GRAMMAR (owner 2026-07-14: "it doesn't make sense that the star is
+# the hazard"): stars/gold/cyan glow = COLLECT ME, always. Hazards are the
+# opposite vocabulary — dark, plum, spiky, rocky or wobbly. Never a star.
 const HAZARDS_OCEAN := [
-	{"u": 0.12, "kind": "crab"},
-	{"u": 0.30, "kind": "geyser"},
-	{"u": 0.52, "kind": "kelp"},
+	{"u": 0.12, "kind": "crab"},      # scuttles across the road — soft bonk
+	{"u": 0.30, "kind": "geyser"},    # bubbly rhythm: erupting = free jump
+	{"u": 0.42, "kind": "whirl"},     # sand whirlpool tugs you toward it
+	{"u": 0.52, "kind": "kelp"},      # frond patch drags (turbo powers through)
 	{"u": 0.68, "kind": "crab"},
 	{"u": 0.88, "kind": "geyser"},
 ]
 const HAZARDS_RAINBOW := [
-	{"u": 0.10, "kind": "comet"},
-	{"u": 0.33, "kind": "cloud"},
-	{"u": 0.55, "kind": "pendulum"},
+	{"u": 0.10, "kind": "comet"},     # grumpy meteor sweeps the road
+	{"u": 0.33, "kind": "cloud"},     # sleepy Zzz cloud — drag zone
+	{"u": 0.45, "kind": "jelly"},     # wobbly jelly-moon parked on the road: BOING
+	{"u": 0.55, "kind": "pendulum"},  # swinging spike ball
 	{"u": 0.72, "kind": "cloud"},
 	{"u": 0.90, "kind": "comet"},
 ]
@@ -1393,25 +1398,123 @@ func _build_hazards() -> void:
 				holder.add_child(bub)
 				h["bub"] = bub
 			"comet":
-				var st := Label3D.new()
-				st.text = "★"
-				st.font_size = 220
-				st.pixel_size = 0.03
-				st.outline_size = 16
-				st.modulate = Color(1.0, 0.9, 0.4)
-				st.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-				holder.add_child(st)
-				h["star"] = st
+				# a grumpy METEOR — dark craggy rock with a fiery tail. Rocks
+				# bonk; stars are treats (never reuse the pickup vocabulary)
+				if ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
+					var rk: Node3D = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
+					holder.add_child(rk)
+					_bw_fit(rk, 3.2)
+					_bw_tint(rk, Color(0.32, 0.26, 0.44), 0.3)   # dark slate-plum
+				else:
+					var rq := MeshInstance3D.new()
+					var rqm := SphereMesh.new()
+					rqm.radius = 1.5
+					rqm.height = 3.0
+					rq.mesh = rqm
+					var rqmat := StandardMaterial3D.new()
+					rqmat.albedo_color = Color(0.3, 0.25, 0.4)
+					rq.material_override = rqmat
+					holder.add_child(rq)
+				var tail := CPUParticles3D.new()
+				tail.amount = 18
+				tail.lifetime = 0.45
+				tail.local_coords = false   # embers hang in space behind the sweep
+				tail.direction = Vector3(0, 0.4, 0)
+				tail.spread = 30.0
+				tail.initial_velocity_min = 1.0
+				tail.initial_velocity_max = 3.0
+				tail.gravity = Vector3.ZERO
+				tail.scale_amount_min = 0.14
+				tail.scale_amount_max = 0.4
+				var tbm := BoxMesh.new()
+				tbm.size = Vector3(0.3, 0.3, 0.3)
+				tail.mesh = tbm
+				var tmat := StandardMaterial3D.new()
+				tmat.albedo_color = Color(1.0, 0.55, 0.2)
+				tmat.emission_enabled = true
+				tmat.emission = Color(1.0, 0.45, 0.1)
+				tmat.emission_energy_multiplier = 1.2
+				tmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+				tail.mesh.material = tmat
+				holder.add_child(tail)
 				h["side"] = 1.0 if int(s0) % 2 == 0 else -1.0
 			"pendulum":
-				var pst := Label3D.new()
-				pst.text = "★"
-				pst.font_size = 300
-				pst.pixel_size = 0.03
-				pst.outline_size = 18
-				pst.modulate = Color(1.0, 0.55, 0.85)
-				pst.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-				holder.add_child(pst)
+				# a swinging SPIKE BALL — blunt cartoon spikes read "don't
+				# touch" in any language a 4yo speaks
+				var ball := MeshInstance3D.new()
+				var blm := SphereMesh.new()
+				blm.radius = 1.5
+				blm.height = 3.0
+				ball.mesh = blm
+				var bmat2 := StandardMaterial3D.new()
+				bmat2.albedo_color = Color(0.42, 0.26, 0.5)   # deep plum
+				bmat2.emission_enabled = true
+				bmat2.emission = Color(0.75, 0.2, 0.3)
+				bmat2.emission_energy_multiplier = 0.35
+				ball.material_override = bmat2
+				holder.add_child(ball)
+				for i in range(8):
+					var a: float = float(i) * TAU / 8.0
+					var tilt: float = 0.55 if i % 2 == 0 else -0.55
+					var d := Vector3(cos(a) * cos(tilt), sin(tilt), sin(a) * cos(tilt)).normalized()
+					var spk := MeshInstance3D.new()
+					var cm2 := CylinderMesh.new()
+					cm2.top_radius = 0.0
+					cm2.bottom_radius = 0.42
+					cm2.height = 1.1
+					spk.mesh = cm2
+					spk.material_override = bmat2
+					spk.position = d * 1.7
+					var any := Vector3.UP if absf(d.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT
+					var tx := any.cross(d).normalized()
+					spk.transform.basis = Basis(tx, d, tx.cross(d)).orthonormalized()
+					holder.add_child(spk)
+			"whirl":
+				# a spinning sand-whirlpool set to one side of the road — it
+				# TUGS you toward its middle; steering (or a turbo) escapes
+				h["lat"] = w * 0.35 * (1.0 if int(s0) % 2 == 0 else -1.0)
+				var frw := _frame_at(s0, float(h["lat"]))
+				holder.position = (frw[0] as Vector3) + Vector3(0, 0.15, 0)
+				var disc := MeshInstance3D.new()
+				var dm := PlaneMesh.new()
+				dm.size = Vector2(11.0, 11.0)
+				disc.mesh = dm
+				var wsh := Shader.new()
+				wsh.code = """shader_type spatial;
+render_mode unshaded, cull_disabled;
+void fragment(){
+	vec2 c = UV - 0.5;
+	float r = length(c);
+	float ang = atan(c.y, c.x);
+	float sp = sin(ang * 3.0 + r * 28.0 - TIME * 4.0);
+	float m = smoothstep(0.5, 0.46, r);
+	ALBEDO = mix(vec3(0.14, 0.30, 0.36), vec3(0.5, 0.75, 0.8), step(0.0, sp));
+	ALPHA = m * 0.85;
+}"""
+				var wmat := ShaderMaterial.new()
+				wmat.shader = wsh
+				disc.material_override = wmat
+				holder.add_child(disc)
+			"jelly":
+				# a wobbly jelly-moon dome parked on the road: BOING — a big
+				# bouncy shove, deliberately distinct from the bonk-spin
+				h["lat"] = w * 0.4 * (1.0 if int(s0) % 2 == 0 else -1.0)
+				var frj := _frame_at(s0, float(h["lat"]))
+				holder.position = frj[0] as Vector3
+				var dome := MeshInstance3D.new()
+				var dsm := SphereMesh.new()
+				dsm.radius = 2.6
+				dsm.height = 2.6
+				dsm.is_hemisphere = true
+				dome.mesh = dsm
+				var jmat := StandardMaterial3D.new()
+				jmat.albedo_color = Color(0.95, 0.5, 0.8, 0.6)
+				jmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+				jmat.emission_enabled = true
+				jmat.emission = Color(0.9, 0.4, 0.75)
+				jmat.emission_energy_multiplier = 0.3
+				dome.material_override = jmat
+				holder.add_child(dome)
 			"cloud":
 				for i in range(3):
 					var cl := MeshInstance3D.new()
@@ -1426,6 +1529,17 @@ func _build_hazards() -> void:
 					cl.material_override = cmat
 					cl.position = Vector3([-2.2, 1.6, 0.2][i], [0.6, 0.4, 1.8][i], [0.4, -1.2, 0.9][i])
 					holder.add_child(cl)
+				# the "z Z z" makes it read SLEEPY, not decorative
+				var zz := Label3D.new()
+				zz.text = "z Z z"
+				zz.font_size = 90
+				zz.pixel_size = 0.03
+				zz.outline_size = 12
+				zz.modulate = Color(0.8, 0.75, 1.0)
+				zz.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+				zz.position = Vector3(0, 3.4, 0)
+				holder.add_child(zz)
+				h["zz"] = zz
 		_hazards_live.append(h)
 
 func _hazard_bonk(k: Dictionary, slow: float, dir: float) -> void:
@@ -1492,10 +1606,9 @@ func _tick_hazards(delta: float) -> void:
 								_chime(1.15)
 								_flash_big("WHEEE!")
 			"comet":
-				# a shooting star sweeps the road on a 5s rhythm; it hovers and
-				# pulses at the entry edge first — the telegraph a 4yo can read
+				# the meteor sweeps the road on a 5s rhythm; first it hovers
+				# and QUIVERS at the entry edge — the telegraph a 4yo can read
 				var ccyc: float = fposmod(tt + float(h["ph"]), 5.0)
-				var star: Label3D = h["star"]
 				var side: float = float(h["side"])
 				if ccyc >= 3.8:
 					var p: float = (ccyc - 3.8) / 1.2
@@ -1503,7 +1616,8 @@ func _tick_hazards(delta: float) -> void:
 					var frx := _frame_at(s0, float(h["lat"]))
 					node.position = (frx[0] as Vector3) + Vector3(0, 1.5, 0)
 					node.visible = true
-					star.modulate = Color(1.0, 0.9, 0.4)
+					node.scale = Vector3.ONE
+					node.rotation.y = tt * 5.0   # tumbling rock
 					if racing:
 						for k in _karts:
 							if (k["node"] as Node3D).position.distance_to(node.position) < 3.6:
@@ -1513,14 +1627,49 @@ func _tick_hazards(delta: float) -> void:
 					var fre := _frame_at(s0, float(h["lat"]))
 					node.position = (fre[0] as Vector3) + Vector3(0, 1.5, 0)
 					node.visible = true
-					star.modulate = Color(1.0, 0.9, 0.4, 0.4 + 0.6 * absf(sin(tt * 12.0)))
+					node.scale = Vector3.ONE * (1.0 + 0.22 * absf(sin(tt * 12.0)))
 				else:
 					node.visible = false
+			"whirl":
+				# fixed position (set at build); the pull is the hazard
+				if racing:
+					for k in _karts:
+						if float(k.get("air_t", 0.0)) > 0.0:
+							continue
+						if (k["node"] as Node3D).position.distance_to(node.position) < 6.5:
+							# 6 u/s tug toward the swirl — steering (22-30 u/s)
+							# always wins, so it pesters rather than traps
+							_apply_lat(k, float(k["lat"]) + signf(float(h["lat"]) - float(k["lat"])) * 6.0 * delta)
+							if float(k["boost_t"]) <= 0.0:
+								k["speed"] = maxf(float(k["speed"]) * (1.0 - 0.9 * delta), _vmax * 0.55)
+			"jelly":
+				# wobble idle; BOING on contact — a big bouncy shove, no spin
+				var kick: float = float(h.get("kick", 0.0))
+				if kick > 0.0:
+					h["kick"] = maxf(0.0, kick - delta)
+				var wob: float = 0.06 + kick * 0.5
+				node.scale = Vector3(1.0 + wob * sin(tt * 6.0), 1.0 - wob * sin(tt * 6.0), 1.0 + wob * cos(tt * 6.0))
+				if racing:
+					for k in _karts:
+						if float(k.get("haz_cool", 0.0)) > 0.0 or float(k.get("air_t", 0.0)) > 0.0:
+							continue
+						if (k["node"] as Node3D).position.distance_to(node.position) < 3.9:
+							k["haz_cool"] = 1.2
+							k["speed"] = float(k["speed"]) * 0.55
+							k["latv"] = signf(float(k["lat"]) - float(h["lat"])) * 34.0
+							k["hop"] = 0.3
+							k["squash"] = 0.35
+							h["kick"] = 0.5
+							if bool(k["is_player"]):
+								_shake = maxf(_shake, 0.3)
+								_chime(1.6)   # BOING, not thunk
 			"kelp", "cloud":
 				if kind == "cloud":
 					h["lat"] = sin(tt * 0.35 + float(h["ph"])) * w * 0.55
 					var frc := _frame_at(s0, float(h["lat"]))
 					node.position = (frc[0] as Vector3) + Vector3(0, 1.2, 0)
+					if h.has("zz"):
+						(h["zz"] as Label3D).position.y = 3.4 + sin(tt * 2.0) * 0.4
 				if racing:
 					var rad: float = 7.5 if kind == "kelp" else 5.5
 					for k in _karts:
