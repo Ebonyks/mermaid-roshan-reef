@@ -19,6 +19,22 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	m.hud_game.text = "Pearls: %d - swim to a treasure or a tank friend to buy it!" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
+	# PHYSICS LAB: hanging kelp = damped spring pendulums, swing when brushed
+	if m.foliage_push_enabled:
+		for kd in m.g.get("kelp", []):
+			var bn: MeshInstance3D = kd["node"]
+			if not is_instance_valid(bn):
+				continue
+			var ang0: Vector2 = kd["ang"]
+			var tip: Vector3 = bn.position + Vector3(ang0.x, -1.0, ang0.y).normalized() * 2.0
+			var dd: float = tip.distance_to(ppos)
+			if dd < 2.4:
+				var push := Vector2(tip.x - ppos.x, tip.z - ppos.z)
+				if push.length() > 0.01:
+					kd["vel"] = (kd["vel"] as Vector2) + push.normalized() * (2.4 - dd) * 12.0 * delta
+			ReefPhysics.spring2(kd, 6.0, 1.5, delta)
+			var ang: Vector2 = kd["ang"]
+			bn.rotation = Vector3(PI - ang.y * 0.8, float(kd["yaw"]), ang.x * 0.8)
 	for it in m.g.get("items", []):
 		var inode: Node3D = it["node"]
 		if not inode.visible:

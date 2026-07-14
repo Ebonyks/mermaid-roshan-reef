@@ -5744,7 +5744,8 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		game_nodes.append(bulb)
 		var cord := _course_box(lamp.position + Vector3(0, 3.0, 0), Vector3(0.12, 6.0, 0.12), Color(0.25, 0.18, 0.1))
 		cord.material_override.emission_enabled = false
-	# hanging kelp bunches like dried herbs
+	# hanging kelp bunches like dried herbs — spring pendulums (PHYSICS LAB)
+	g["kelp"] = []
 	for hk in range(5):
 		var bunch := MeshInstance3D.new()
 		bunch.mesh = _cross_blade(0.5, 2.2)
@@ -5753,6 +5754,7 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		bunch.rotation_degrees = Vector3(180, randf() * 360.0, 0)
 		add_child(bunch)
 		game_nodes.append(bunch)
+		(g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
 	# barrels in the corners
 	var b1 := _spawn("barrel", Vector3(origin.x - 13.0, f, origin.z + 12.0), 3.2, 0.4)
 	if b1 != null:
@@ -6970,6 +6972,7 @@ func _process(delta: float) -> void:
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
+	_tick_foliage_push(ppos)
 	_tick_life(delta)
 	_tick_movers(delta)
 	_tick_aquatic(delta)
@@ -7040,7 +7043,144 @@ func _process(delta: float) -> void:
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
+# ============== PHYSICS LAB (dev-mode experiment — cleanse later) ==============
+# Two engine experiments for the Lenovo M11 (Helio G88 / Mali-G52) grading run,
+# both triggerable from Developer Mode:
+#  1. foliage_push_enabled — GPU foliage interaction: Roshan's position/speed
+#     feed the (memoized) sway shaders once per frame; blades part around her.
+#  2. Jolt props — real RigidBody3D barrels/balls (Jolt engine, see
+#     project.godot [physics]) spawned near Roshan, shoved by her swim wake.
+var foliage_push_enabled := true
+var _sway_mat_cache := {}     # one sway material per color pair (also a perf win)
+var jolt_props: Array = []
+
+func _tick_foliage_push(ppos: Vector3) -> void:
+	if _sway_mat_cache.is_empty():
+		return
+	var amt: float = 0.0
+	if foliage_push_enabled and player != null:
+		amt = clampf(0.25 + (player.vel as Vector3).length() * 0.04, 0.25, 1.1)
+	for m in _sway_mat_cache.values():
+		(m as ShaderMaterial).set_shader_parameter("push_pos", ppos)
+		(m as ShaderMaterial).set_shader_parameter("push_amt", amt)
+
+func _physlab_spawn() -> void:
+	# 6 barrels + 6 balls in a ring around Roshan, resting on an invisible
+	# static disc at seabed height (the reef floor is analytic, not a body)
+	_physlab_clear()
+	if player == null:
+		return
+	var c: Vector3 = player.position
+	var floor_y: float = seabed_y(c.x, c.z)
+	var sb := _jolt_static_box(Vector3(c.x, floor_y - 0.5, c.z), Vector3(60, 1, 60))
+	sb.set_meta("physlab", true)
+	jolt_props.append(sb)
+	for i in range(12):
+		var a: float = float(i) / 12.0 * TAU
+		var pos := Vector3(c.x + cos(a) * 6.0, floor_y + 3.0 + float(i % 3), c.z + sin(a) * 6.0)
+		if i % 2 == 0:
+			jolt_props.append(_jolt_barrel(pos))
+		else:
+			jolt_props.append(_jolt_ball(pos, 0.9, Color.from_hsv(float(i) / 12.0, 0.6, 1.0), 0.35, 1.4))
+
+func _physlab_clear() -> void:
+	for p in jolt_props:
+		if is_instance_valid(p):
+			p.queue_free()
+	jolt_props.clear()
+
+func _physics_process(delta: float) -> void:
+	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
+	# at the physics tick so it is frame-rate independent.
+	if player == null or jolt_props.is_empty():
+		return
+	var ppos: Vector3 = player.position
+	var pvel: Vector3 = player.vel
+	for p in jolt_props:
+		var b := p as RigidBody3D
+		if b == null or not is_instance_valid(b):
+			continue
+		var d: Vector3 = b.position - ppos
+		var dist: float = d.length()
+		if dist > 7.0 or dist < 0.001:
+			continue
+		var flat := Vector3(d.x, d.y * 0.25, d.z)
+		if flat.length() < 0.001:
+			flat = Vector3(pvel.x, 0, pvel.z)
+		var dirf: Vector3 = flat.normalized()
+		var imp: Vector3 = dirf * (maxf(0.0, 4.5 - dist) * 22.0)
+		imp += pvel * (maxf(0.0, 1.0 - dist / 7.0) * 0.9)
+		if imp.length_squared() > 0.0001:
+			b.apply_central_impulse(imp * delta * b.mass)
+
+func _jolt_barrel(pos: Vector3) -> RigidBody3D:
+	var prop := RigidBody3D.new()
+	prop.collision_layer = 2
+	prop.collision_mask = 1 | 2
+	prop.mass = 2.0
+	prop.gravity_scale = 0.30       # water-logged: sinks slowly, easy to shove
+	prop.linear_damp = 1.6
+	prop.angular_damp = 1.2
+	var shp := CollisionShape3D.new()
+	var cy := CylinderShape3D.new()
+	cy.radius = 1.0
+	cy.height = 2.4
+	shp.shape = cy
+	prop.add_child(shp)
+	if ResourceLoader.exists("res://assets/ship/barrel.glb"):
+		var vis: Node3D = (load("res://assets/ship/barrel.glb") as PackedScene).instantiate()
+		vis.scale = Vector3.ONE * 2.4
+		vis.position.y = -1.2
+		if wood_overlay == null:
+			_texture_mats()
+		_apply_mat(vis, wood_overlay, true)
+		prop.add_child(vis)
+	prop.position = pos
+	add_child(prop)
+	return prop
+
+func _jolt_ball(pos: Vector3, r: float, col: Color, gscale: float, damp: float) -> RigidBody3D:
+	var b := RigidBody3D.new()
+	b.collision_layer = 2
+	b.collision_mask = 1 | 2
+	b.mass = 1.0
+	b.gravity_scale = gscale
+	b.linear_damp = damp
+	b.angular_damp = damp * 0.5
+	var cs := CollisionShape3D.new()
+	var sh := SphereShape3D.new()
+	sh.radius = r
+	cs.shape = sh
+	b.add_child(cs)
+	var mi := MeshInstance3D.new()
+	var sm := SphereMesh.new()
+	sm.radius = r
+	sm.height = r * 2.0
+	mi.mesh = sm
+	mi.material_override = _soft_mat(col, 0.3)
+	b.add_child(mi)
+	b.position = pos
+	add_child(b)
+	return b
+
+func _jolt_static_box(center: Vector3, size: Vector3) -> StaticBody3D:
+	var sb := StaticBody3D.new()
+	sb.collision_layer = 1
+	sb.collision_mask = 0
+	var cs := CollisionShape3D.new()
+	var bx := BoxShape3D.new()
+	bx.size = size
+	cs.shape = bx
+	sb.add_child(cs)
+	sb.position = center
+	add_child(sb)
+	return sb
+# ============ END PHYSICS LAB ==============
+
 func _sway_grass_mat(base: Color, tip: Color) -> ShaderMaterial:
+	var key := "%s|%s" % [base.to_html(), tip.to_html()]
+	if _sway_mat_cache.has(key):
+		return _sway_mat_cache[key]
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
 render_mode cull_disabled, depth_prepass_alpha;
@@ -7049,6 +7189,8 @@ uniform vec3 tip_col;
 uniform sampler2D leaf;
 global uniform vec3 wind_dir;
 global uniform float wind_gust;
+uniform vec3 push_pos;          // Roshan's position (fed per frame)
+uniform float push_amt = 0.0;   // bend strength, scaled by her speed
 void vertex(){
 	float w = UV.y;
 	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -7058,6 +7200,17 @@ void vertex(){
 	float ph = TIME * (0.9 + wind_gust * 0.7) - dot(wp.xz, wind_dir.xz) * 0.14;
 	VERTEX.x += (sin(ph + wp.x * 0.28 + wp.z * 0.22) * 0.5 * gg + wind_dir.x * wind_gust * 0.5) * w;
 	VERTEX.z += (cos(ph * 0.78 + wp.x * 0.16) * 0.36 * gg + wind_dir.z * wind_gust * 0.5) * w;
+	// PHYSICS LAB: blades bend away from Roshan, harder the faster she moves
+	vec2 away = wp.xz - push_pos.xz;
+	float pdist = length(away);
+	float ring = 1.0 - smoothstep(0.0, 4.5, pdist);
+	float band = 1.0 - smoothstep(2.0, 8.0, abs(wp.y - push_pos.y));
+	float bend = ring * band * push_amt * w;
+	if (bend > 0.001 && pdist > 0.001) {
+		vec3 off_ws = vec3(away.x / pdist, -0.35, away.y / pdist);
+		vec3 off_ms = normalize((vec4(off_ws, 0.0) * MODEL_MATRIX).xyz);
+		VERTEX += off_ms * bend * 1.5;
+	}
 }
 void fragment(){
 	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
@@ -7078,6 +7231,7 @@ void fragment(){
 	m.set_shader_parameter("base_col", Vector3(base.r, base.g, base.b))
 	m.set_shader_parameter("tip_col", Vector3(tip.r, tip.g, tip.b))
 	m.set_shader_parameter("leaf", load("res://assets/terrain/leaf.png"))
+	_sway_mat_cache[key] = m
 	return m
 func _glow_dot_mat() -> ShaderMaterial:
 	var sh := Shader.new()
