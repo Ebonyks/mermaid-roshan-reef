@@ -279,8 +279,7 @@ var treasure_cool := 0.0
 const SKINS := [
 	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
-	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"},
-	{"id": "pearl", "label": "Pearl Princess", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""}]
+	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
 var wardrobe_layer: CanvasLayer = null
@@ -310,7 +309,10 @@ var cur_track := ""
 var prev_track := ""
 # THE PEARL SINK: with the Sticker Book driving completion, pearls become the
 # treasure-shopping currency — real things to save up for instead of a number
-# that only ever grows. Beans stay cheap; the rest are permanent treasures.
+# that only ever grows. The early procedural cosmetics (Rainbow Trail / Pearl
+# Tiara / Pearl Princess) were retired 2026-07-13 — low-res primitives that
+# never sat right on the V2+ bodies; any new treasure must be a hard-generated
+# asset that actually fits her. Old saves keep their "owned" flags harmlessly.
 const SHOP_ITEMS := [
 	{"id": "beans", "label": "Can of Beans", "price": 2},
 	{"id": "tail", "label": "Rainbow Trail", "price": 60},
@@ -4796,7 +4798,7 @@ func _wardrobe_refresh() -> void:
 	for entry in wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == skin_id
 		var eid := String(entry["id"])
-		var locked: bool = (eid.begins_with("fairy") and not fairy_skin_unlocked) or (eid == "pearl" and not bool(shop_owned.get("pearlskin", false)))
+		var locked: bool = eid.begins_with("fairy") and not fairy_skin_unlocked
 		var box: StyleBoxFlat = entry["box"]
 		box.bg_color = Color(0.28, 0.28, 0.38) if locked else (Color(0.3, 0.75, 0.42) if sel else Color(0.4, 0.42, 0.6))
 		box.set_border_width_all(6 if sel else 0)
@@ -4812,12 +4814,6 @@ func _wardrobe_pick(id: String) -> void:
 			chime.pitch_scale = 0.5
 			chime.play()
 		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
-		return
-	if id == "pearl" and not bool(shop_owned.get("pearlskin", false)):
-		if chime != null:
-			chime.pitch_scale = 0.5
-			chime.play()
-		_wardrobe_toast("🦪 Pearl Princess is waiting at the Pearl Shop — 250 pearls!")
 		return
 	skin_id = id
 	_apply_skin()
@@ -5790,78 +5786,36 @@ func _build_shop_cabin(origin: Vector3) -> void:
 	klbl.position = Vector3(origin.x, f + 14.0, origin.z - 9.0)
 	add_child(klbl)
 	game_nodes.append(klbl)
-	# wares on the counter
+	# wares on the counter — spread evenly around the middle
 	g["items"] = []
-	var slots := [-6.5, -2.2, 2.2, 6.5]
 	for ii in range(SHOP_ITEMS.size()):
 		var it: Dictionary = SHOP_ITEMS[ii]
 		var iid := String(it["id"])
-		var ipos := Vector3(origin.x + slots[ii], f + 2.2, origin.z - 4.6)
-		var inode: Node3D
-		if iid == "tiara":
-			var crown := MeshInstance3D.new()
-			var tm := TorusMesh.new()
-			tm.inner_radius = 0.55
-			tm.outer_radius = 0.85
-			crown.mesh = tm
-			var cm := StandardMaterial3D.new()
-			cm.albedo_color = Color(1.0, 0.85, 0.35)
-			cm.metallic = 0.8
-			cm.roughness = 0.25
-			cm.emission_enabled = true
-			cm.emission = Color(1.0, 0.8, 0.3)
-			cm.emission_energy_multiplier = 1.6
-			crown.material_override = cm
-			inode = crown
-		elif iid == "tail":
-			var orb := MeshInstance3D.new()
-			var om2 := SphereMesh.new()
-			om2.radius = 0.7
-			om2.height = 1.4
-			orb.mesh = om2
-			orb.material_override = _rainbow_mat()
-			inode = orb
-		elif iid == "pearlskin":
-			# the grand prize: a giant shimmering pearl
-			var bigp := MeshInstance3D.new()
-			var pm3 := SphereMesh.new()
-			pm3.radius = 1.0
-			pm3.height = 2.0
-			bigp.mesh = pm3
-			var pmm := StandardMaterial3D.new()
-			pmm.albedo_color = Color(1.0, 0.96, 1.0)
-			pmm.metallic = 0.55
-			pmm.roughness = 0.15
-			pmm.emission_enabled = true
-			pmm.emission = Color(1.0, 0.85, 0.95)
-			pmm.emission_energy_multiplier = 0.9
-			bigp.material_override = pmm
-			inode = bigp
-		else:
-			# the legendary Can of Beans
-			var can := MeshInstance3D.new()
-			var cyl := CylinderMesh.new()
-			cyl.top_radius = 0.45
-			cyl.bottom_radius = 0.45
-			cyl.height = 1.1
-			can.mesh = cyl
-			var tin := StandardMaterial3D.new()
-			tin.albedo_color = Color(0.75, 0.78, 0.8)
-			tin.metallic = 0.9
-			tin.roughness = 0.3
-			can.material_override = tin
-			var lbl := MeshInstance3D.new()
-			var lcyl := CylinderMesh.new()
-			lcyl.top_radius = 0.47
-			lcyl.bottom_radius = 0.47
-			lcyl.height = 0.6
-			lbl.mesh = lcyl
-			var lm2 := StandardMaterial3D.new()
-			lm2.albedo_color = Color(0.85, 0.3, 0.2)
-			lm2.roughness = 0.8
-			lbl.material_override = lm2
-			can.add_child(lbl)
-			inode = can
+		var ipos := Vector3(origin.x + (float(ii) - float(SHOP_ITEMS.size() - 1) * 0.5) * 4.3, f + 2.2, origin.z - 4.6)
+		# the legendary Can of Beans
+		var can := MeshInstance3D.new()
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = 0.45
+		cyl.bottom_radius = 0.45
+		cyl.height = 1.1
+		can.mesh = cyl
+		var tin := StandardMaterial3D.new()
+		tin.albedo_color = Color(0.75, 0.78, 0.8)
+		tin.metallic = 0.9
+		tin.roughness = 0.3
+		can.material_override = tin
+		var lbl := MeshInstance3D.new()
+		var lcyl := CylinderMesh.new()
+		lcyl.top_radius = 0.47
+		lcyl.bottom_radius = 0.47
+		lcyl.height = 0.6
+		lbl.mesh = lcyl
+		var lm2 := StandardMaterial3D.new()
+		lm2.albedo_color = Color(0.85, 0.3, 0.2)
+		lm2.roughness = 0.8
+		lbl.material_override = lm2
+		can.add_child(lbl)
+		var inode: Node3D = can
 		inode.position = ipos
 		add_child(inode)
 		game_nodes.append(inode)
@@ -5874,9 +5828,6 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		tag.position = ipos + Vector3(0, 1.7, 0)
 		add_child(tag)
 		game_nodes.append(tag)
-		if iid != "beans" and bool(shop_owned.get(iid, false)):
-			inode.visible = false
-			tag.text = "%s\n(yours!)" % String(it["label"])
 		(g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
 	# ANIMAL TANKS: glass tanks mounted on the back wall, each holding a reef
 	# friend Kareem will sell. Swim up with enough pearls and it goes FREE -
@@ -6784,7 +6735,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"   # classic + pearl (classic art)
+	return "res://assets/characters/roshan_sprite.png"   # classic
 
 var _pad_prev_a := false
 var _pad_prev_b := false
