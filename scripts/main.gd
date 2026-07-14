@@ -2793,6 +2793,15 @@ void fragment(){
 
 func _enter_level2(from_castle: bool = false) -> void:
 	game = "level2"
+	# free whatever level nodes are still alive BEFORE rebuilding: the rainbow-
+	# road/galaxy return path re-entered here without tearing the lagoon down
+	# first, stacking a second terrain+castle+playground exactly on top of the
+	# live one (coplanar z-fighting shimmer over the whole level). Same idiom
+	# as _enter_castle_interior; the callers that already pre-free stay no-ops.
+	for n in game_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	game_nodes.clear()
 	g = {"t": 0.0}
 	arena_solids.clear()
 	arena_zones.clear()
