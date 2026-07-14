@@ -6372,16 +6372,17 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 # straight above a long pond "track" that glides beneath Roshan (in her fairy
 # form) like a classic overhead shmup. She drifts up the screen on her own; the
 # stick only slides her around the screen window — no jump, no turning, no depth.
-# Shadow bugs wait along the track and lob big slow shadow sparks to dodge; her
+# Shadow bugs wait along the track and lob big slow shadow sparks to dodge, and
+# scary-but-toylike shadow monsters (jellies, urchins, eels) prowl the lane; her
 # wand zaps straight up the screen all by itself. SPACE / the big button pops a
 # sparkle shield that clears the sparks around her. The Fairy Flower boss waits
 # at the end of the track.
-const FS_LEN := 420.0          # track length (forward, +Z = up the screen)
-const FS_FWD := 14.0           # auto-scroll speed (gentle — ~30 s to the boss)
+const FS_LEN := 280.0          # track length (forward, +Z = up the screen)
+const FS_FWD := 19.0           # auto-scroll speed (~15 s of cruise to the boss)
 const FS_PLANE := 3.0          # everything gameplay lives at this height (flat = 2D)
 const FS_CAM_H := 58.0         # overhead camera height
 const FS_LOOK := 6.0           # camera looks a touch ahead, shmup-style
-const FS_MOVE := 17.0          # direct steer speed (no momentum)
+const FS_MOVE := 19.0          # direct steer speed (no momentum)
 const FS_BX := 20.0            # half movement bound, across the screen
 const FS_BZB := 12.0           # movement bound, down the screen (hanging back)
 const FS_BZF := 14.0           # movement bound, up the screen (pushing ahead)
@@ -6390,10 +6391,11 @@ const FS_BOLT_FLY := 46.0      # bolt lifetime distance (a bit past the screen t
 const FS_FIRE_CD := 0.25
 const FS_HIT_R := 3.4          # forgiving bolt-vs-bug radius
 const FS_BUG_R := 2.2
-const FS_NBUGS := 12           # shadow bugs waiting along the track
+const FS_NBUGS := 10           # shadow bugs waiting along the track
 const FS_BUG_WAKE := 36.0      # bugs this far up the screen start lobbing sparks
 const FS_HEARTS := 3
-const FS_ORB_SPD := 5.5        # shadow spark speed (slow enough to see coming)
+const FS_ORB_SPD := 6.5        # shadow spark speed (slow enough to see coming)
+const FS_HAZ_R := 3.2          # shadow-monster touch radius (jelly / urchin)
 const FS_ORB_R := 2.6          # spark-vs-Roshan touch radius
 const FS_ORB_CD_MIN := 3.0     # each awake bug lobs a spark every 3-5 s
 const FS_ORB_CD_MAX := 5.0
@@ -6427,6 +6429,7 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	g["hits"] = 0; g["fire_cd"] = 0.0
 	g["hearts"] = FS_HEARTS; g["hurt_t"] = 0.0; g["nova_cd"] = 0.0
 	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
+	g["hazards"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
 	# ---- the long dreamy pond track, seen straight from above ----
 	var pond := MeshInstance3D.new()
@@ -6475,7 +6478,7 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		add_child(reed); game_nodes.append(reed)
 	# ---- flat fairy rings on the water to fly over (homage to the old gates) ----
 	for k in range(6):
-		var z2: float = 60.0 + float(k) * 62.0
+		var z2: float = 40.0 + float(k) * 40.0
 		var rx: float = randf() * 16.0 - 8.0
 		var ring := MeshInstance3D.new()
 		var tor := TorusMesh.new(); tor.inner_radius = 3.4; tor.outer_radius = 4.2; tor.rings = 24; tor.ring_segments = 8
@@ -6509,6 +6512,8 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		add_child(bug); game_nodes.append(bug)
 		(g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
 				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
+	# ---- scary-but-toylike shadow monsters lurking along the track ----
+	_fairy_build_hazards(origin)
 	# ---- wand aim guide floating up-screen of Roshan ----
 	var ret := MeshInstance3D.new()
 	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
@@ -6522,6 +6527,75 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	if player.cam != null and player.cam.is_inside_tree():
 		player.cam.position = origin + Vector3(0, FS_CAM_H, FS_LOOK)
 		player.cam.look_at(origin + Vector3(0, 0, FS_LOOK), Vector3(0, 0, 1))
+
+func _fairy_eye(parent: Node3D, off: Vector3) -> void:
+	# a glowing monster eye — reads clearly from straight above
+	var eye := MeshInstance3D.new()
+	var em := SphereMesh.new(); em.radius = 0.38; em.height = 0.76
+	eye.mesh = em
+	eye.material_override = _soft_mat(Color(1.0, 0.55, 0.2), 2.6)
+	eye.position = off
+	parent.add_child(eye)
+
+func _fairy_build_hazards(origin: Vector3) -> void:
+	# scary-but-toylike shadow monsters to steer around — the wand can't zap
+	# them, so the only answer is to fly around them (all one heart on touch)
+	var shadow := _soft_mat(Color(0.16, 0.08, 0.26), 0.35)
+	# shadow jellyfish that drift loops around their spot
+	for k in range(4):
+		var jz: float = 55.0 + float(k) * ((FS_LEN - 110.0) / 3.0)
+		var jelly := Node3D.new()
+		var dome := MeshInstance3D.new()
+		var dm := SphereMesh.new(); dm.radius = 2.4; dm.height = 3.4
+		dome.mesh = dm; dome.material_override = shadow
+		jelly.add_child(dome)
+		for t in range(5):
+			var ta: float = float(t) / 5.0 * TAU
+			var tent := MeshInstance3D.new()
+			var tm := CapsuleMesh.new(); tm.radius = 0.28; tm.height = 2.6
+			tent.mesh = tm; tent.material_override = _soft_mat(Color(0.45, 0.2, 0.7), 0.9)
+			tent.position = Vector3(cos(ta) * 1.6, -2.0, sin(ta) * 1.6)
+			jelly.add_child(tent)
+		_fairy_eye(jelly, Vector3(-0.8, 1.6, -0.5))
+		_fairy_eye(jelly, Vector3(0.8, 1.6, -0.5))
+		jelly.position = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 4.0), FS_PLANE, jz)
+		add_child(jelly); game_nodes.append(jelly)
+		(g["hazards"] as Array).append({"node": jelly, "kind": "jelly", "base": jelly.position, "ph": randf() * TAU})
+	# spiky shadow urchins that spin in place
+	for k in range(3):
+		var uz: float = 75.0 + float(k) * ((FS_LEN - 150.0) / 2.0)
+		var urch := Node3D.new()
+		var core := MeshInstance3D.new()
+		var cm2 := SphereMesh.new(); cm2.radius = 1.9; cm2.height = 3.8
+		core.mesh = cm2; core.material_override = shadow
+		urch.add_child(core)
+		for s in range(8):
+			var sa: float = float(s) / 8.0 * TAU
+			var spike := MeshInstance3D.new()
+			var spm2 := CylinderMesh.new(); spm2.top_radius = 0.0; spm2.bottom_radius = 0.5; spm2.height = 2.4
+			spike.mesh = spm2; spike.material_override = _soft_mat(Color(0.8, 0.3, 1.0), 1.2)
+			spike.position = Vector3(cos(sa) * 2.6, 0, sin(sa) * 2.6)
+			spike.rotation = Vector3(0, -sa, -PI / 2.0)   # point the cone outward
+			urch.add_child(spike)
+		_fairy_eye(urch, Vector3(-0.7, 1.7, 0))
+		_fairy_eye(urch, Vector3(0.7, 1.7, 0))
+		urch.position = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 6.0), FS_PLANE, uz)
+		add_child(urch); game_nodes.append(urch)
+		(g["hazards"] as Array).append({"node": urch, "kind": "urchin", "base": urch.position, "ph": randf() * TAU})
+	# shadow eels sweeping side to side across the lane — time the gap!
+	for k in range(2):
+		var ez: float = FS_LEN * (0.4 if k == 0 else 0.75)
+		var eel := Node3D.new()
+		var body := MeshInstance3D.new()
+		var bm2 := CapsuleMesh.new(); bm2.radius = 1.1; bm2.height = 13.0
+		body.mesh = bm2; body.material_override = shadow
+		body.rotation = Vector3(0, 0, PI / 2.0)   # lie the capsule across the lane
+		eel.add_child(body)
+		_fairy_eye(eel, Vector3(5.6, 1.2, -0.6))
+		_fairy_eye(eel, Vector3(5.6, 1.2, 0.6))
+		eel.position = origin + Vector3(0, FS_PLANE, ez)
+		add_child(eel); game_nodes.append(eel)
+		(g["hazards"] as Array).append({"node": eel, "kind": "eel", "base": eel.position, "ph": float(k) * PI})
 
 func _fairy_spawn_orb(from: Vector3, dirv: Vector3) -> void:
 	# a slow glowing shadow spark — the "bullet" of this bullet hell
