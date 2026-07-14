@@ -1089,7 +1089,8 @@ const _CR_WANDER_SPD := 9.0
 const _CR_RUN_SPD := 16.0
 const _CR_APPROACH := 14.0      # start running to greet within this range
 const _CR_NUZZLE := 3.4         # close enough to begin rubbing
-const _CR_NUZZLE_DUR := 4.5
+const _CR_NUZZLE_DUR := 2.5     # one hug, not a long rub (playtest 2026-07-13)
+const _CR_GREET_COOL := 30.0    # owner-tuned: half a minute between hugs
 const _CR_HOP := 0.9            # gait bounce height at full run
 
 func _tick_crafted(delta: float, ppos: Vector3) -> void:
@@ -1158,7 +1159,7 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 				elif pdist < _CR_NUZZLE + 1.0 or reached:
 					cd["state"] = "nuzzle"
 					cd["t"] = 0.0
-					cd["purr_cd"] = 0.0
+					m._greet_heart(cn.position + Vector3(0.0, 3.0, 0.0))
 					if String(cd["kind"]) == "cat":
 						_crafted_purr(cd, true)
 			"nuzzle":
@@ -1167,7 +1168,7 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 				if float(cd["t"]) >= _CR_NUZZLE_DUR or pdist > 7.0:
 					cd["state"] = "idle"
 					cd["t"] = 0.0
-					cd["cool"] = 7.0 + randf() * 6.0
+					cd["cool"] = _CR_GREET_COOL
 					cn.rotation.x = 0.0
 					_crafted_sway(cd, 0.0)
 					_crafted_purr(cd, false)
@@ -1214,26 +1215,21 @@ func _crafted_move(cd: Dictionary, tgt: Vector3, spd: float, delta: float) -> bo
 	cn.rotation.y = lerp_angle(cn.rotation.y, atan2(dir.z, -dir.x), 0.25)
 	return false
 
-func _crafted_nuzzle(cd: Dictionary, ppos: Vector3, delta: float) -> void:
+func _crafted_nuzzle(cd: Dictionary, ppos: Vector3, _delta: float) -> void:
+	# ONE hug: press gently into her side and hold — the happy clip carries
+	# the affection (head rub, wing/tail flutter). No orbiting, no heart spam
+	# (playtest 2026-07-13: the side-to-side rub read as circling her).
 	var cn: Node3D = cd["node"]
 	var to_p: Vector3 = ppos - cn.position
 	to_p.y = 0.0
 	var d: float = to_p.length()
 	var dir: Vector3 = (to_p / d) if d > 0.1 else Vector3.FORWARD
-	# press beside her and rub side-to-side along her flank
-	var side: Vector3 = Vector3(-dir.z, 0.0, dir.x)
-	var wig: float = sin(float(cd["t"]) * 6.5)
-	var goal: Vector3 = ppos - dir * (_CR_NUZZLE * 0.55) + side * wig * 0.9
-	goal.y = m.lagoon_walk_h(goal.x, goal.z) + float(cd["goff"]) + absf(wig) * 0.18
-	cn.position = cn.position.lerp(goal, 0.3)
-	# nose into her; happy body-roll wiggle (memory: -X face -> x-euler = roll)
+	var lean: float = minf(float(cd["t"]) * 2.0, 1.0)   # ease into the press
+	var goal: Vector3 = ppos - dir * (_CR_NUZZLE * (0.85 - 0.3 * lean))
+	goal.y = m.lagoon_walk_h(goal.x, goal.z) + float(cd["goff"])
+	cn.position = cn.position.lerp(goal, 0.25)
 	cn.rotation.y = atan2(dir.z, -dir.x)
-	cn.rotation.x = wig * 0.14
 	_crafted_sway(cd, 1.0)
-	cd["purr_cd"] = float(cd["purr_cd"]) - delta
-	if float(cd["purr_cd"]) <= 0.0:
-		cd["purr_cd"] = 1.1
-		m._greet_heart(cn.position + Vector3(0.0, 3.0, 0.0))
 
 func _crafted_zzz(pos: Vector3) -> void:
 	# a soft floating Z while a crafted friend naps (same recipe as the hearts)

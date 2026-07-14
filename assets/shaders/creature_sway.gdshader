@@ -42,7 +42,10 @@ void fragment() {
 	if (paint_mix > 0.001) {
 		float luma = dot(alb, vec3(0.35, 0.5, 0.15));
 		vec3 paint = mix(paint_body.rgb, paint_fin.rgb, smoothstep(0.55, 0.8, luma));
-		alb = mix(alb, paint * (0.55 + luma * 0.9), paint_mix);
+		// near-black texels are FEATURES (eyes, nose, mouth, stitches) — keep
+		// them, or every painted friend comes out eyeless (playtest 2026-07-13)
+		float dark = 1.0 - smoothstep(0.06, 0.22, luma);
+		alb = mix(mix(alb, paint * (0.55 + luma * 0.9), paint_mix), alb, dark);
 	}
 	ALBEDO = alb * tint.rgb;
 	ROUGHNESS = 1.0;
