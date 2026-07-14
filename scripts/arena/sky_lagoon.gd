@@ -277,6 +277,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 			"state": "idle", "t": 0.0, "next": 2.5 + randf() * 4.0,
 			"home": frn.position, "goff": goff, "tgt": frn.position,
 			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null, "ap": ap,
+			"sleep_cd": 25.0 + randf() * 25.0, "nap": 0.0, "zzz_cd": 0.0,
 		})
 	# a big rainbow arc over the meadow
 	var rainbow := MeshInstance3D.new()
@@ -1052,6 +1053,7 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 			continue
 		cd["t"] = float(cd["t"]) + delta
 		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
+		cd["sleep_cd"] = maxf(0.0, float(cd["sleep_cd"]) - delta)
 		var flat: Vector3 = ppos - cn.position
 		flat.y = 0.0
 		var pdist: float = flat.length()
@@ -1066,7 +1068,14 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 				_crafted_sway(cd, 0.0)
 				_crafted_clip(cd, "idle")
 				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
-				if float(cd["t"]) >= float(cd["next"]):
+				if float(cd["sleep_cd"]) <= 0.0 and pdist > _CR_APPROACH * 1.5:
+					# nap time: curl up right here and drift off
+					cd["state"] = "sleep"
+					cd["t"] = 0.0
+					cd["nap"] = 14.0 + randf() * 14.0
+					cd["zzz_cd"] = 1.2
+					_crafted_purr(cd, false)
+				elif float(cd["t"]) >= float(cd["next"]):
 					cd["state"] = "wander"
 					cd["t"] = 0.0
 					var home: Vector3 = cd["home"]
@@ -1116,6 +1125,20 @@ func _tick_crafted(delta: float, ppos: Vector3) -> void:
 					cn.rotation.x = 0.0
 					_crafted_sway(cd, 0.0)
 					_crafted_purr(cd, false)
+			"sleep":
+				_crafted_sway(cd, 0.0)
+				_crafted_clip(cd, "sleep")
+				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+				cd["zzz_cd"] = float(cd["zzz_cd"]) - delta
+				if float(cd["zzz_cd"]) <= 0.0:
+					cd["zzz_cd"] = 1.7
+					_crafted_zzz(cn.position + Vector3(0.0, 2.4, 0.0))
+				# wake up: nap over, or Roshan comes close to say hi
+				if float(cd["t"]) >= float(cd["nap"]) or pdist < 6.0:
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["next"] = 1.2 + randf() * 2.0
+					cd["sleep_cd"] = 35.0 + randf() * 35.0
 
 func _crafted_sway(cd: Dictionary, energy: float) -> void:
 	for sm in cd["mats"]:
@@ -1165,6 +1188,23 @@ func _crafted_nuzzle(cd: Dictionary, ppos: Vector3, delta: float) -> void:
 	if float(cd["purr_cd"]) <= 0.0:
 		cd["purr_cd"] = 1.1
 		m._greet_heart(cn.position + Vector3(0.0, 3.0, 0.0))
+
+func _crafted_zzz(pos: Vector3) -> void:
+	# a soft floating Z while a crafted friend naps (same recipe as the hearts)
+	var z := Label3D.new()
+	z.text = "z"
+	z.font_size = 150
+	z.pixel_size = 0.02
+	z.outline_size = 16
+	z.modulate = Color(0.65, 0.75, 1.0)
+	z.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	z.position = pos
+	m.add_child(z)
+	var tw := z.create_tween()
+	tw.tween_property(z, "position:y", pos.y + 2.8, 1.6)
+	tw.parallel().tween_property(z, "modulate:a", 0.0, 1.6)
+	tw.parallel().tween_property(z, "font_size", 220, 1.6)
+	tw.tween_callback(z.queue_free)
 
 func _crafted_purr(cd: Dictionary, on: bool) -> void:
 	var p: AudioStreamPlayer3D = cd["purr"]
