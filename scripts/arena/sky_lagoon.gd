@@ -551,6 +551,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bglow.position = back_pos + Vector3(0, 2.2, 0)
 	m.add_child(bglow); m.game_nodes.append(bglow)
 	m.g["back_entry"] = back_pos
+	# A tiny Christmas village waits on the dry meadow beyond the rear moat.
+	# It frames (rather than covers) the secret-hatch route, so curious swimming
+	# still has a clear reward and the cottages become a landmark on the way out.
+	_build_christmas_village(o)
 	var dl := Label3D.new()
 	dl.text = "Princess Huluu\u2019s Castle"
 	dl.font_size = 90
@@ -607,6 +611,285 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# seats join g["toys"] and play through the same play-moment system
 	m._train_ref()._build_train(o)
 	_build_fairy_pond(o)
+
+
+func _build_christmas_village(o: Vector3) -> void:
+	# Compact, low-poly toy-diorama dressing for the meadow behind the castle.
+	# Everything uses existing project materials and emissive paint; no extra
+	# lights are added, keeping the old-phone Mobile-renderer budget unchanged.
+	var cottage_rows: Array = [
+		[Vector3(-67.0, 0.0, -170.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28)],
+		[Vector3(67.0, 0.0, -170.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42)],
+		[Vector3(-36.0, 0.0, -188.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76)],
+	]
+	for row: Array in cottage_rows:
+		var lp: Vector3 = row[0]
+		_village_snow_patch(o, lp, 12.0)
+		_village_cottage(o, lp, row[1], row[2])
+
+	# The open middle is deliberately offset from the hatch at (0,-175): a
+	# broad one-finger route remains between the two front cottages.
+	var tree_pos := Vector3(43.0, 0.0, -185.0)
+	_village_snow_patch(o, tree_pos, 13.0)
+	_village_pine(o, tree_pos, 1.22, true)
+	_village_gift(o, tree_pos + Vector3(-4.2, 0.0, 2.6), Color(0.86, 0.20, 0.32), Color(1.0, 0.82, 0.32), 1.0)
+	_village_gift(o, tree_pos + Vector3(4.0, 0.0, 2.0), Color(0.25, 0.62, 0.70), Color(0.96, 0.72, 0.84), 0.82)
+	_village_gift(o, tree_pos + Vector3(1.0, 0.0, -4.0), Color(0.48, 0.35, 0.72), Color(0.90, 0.96, 1.0), 0.72)
+
+	# A few snowy pines close the silhouette without turning the clearing into
+	# another dense forest. Speedy keeps the two strongest shapes only.
+	var pine_spots: Array = [
+		[Vector3(-88.0, 0.0, -164.0), 0.72],
+		[Vector3(88.0, 0.0, -164.0), 0.78],
+		[Vector3(-61.0, 0.0, -188.0), 0.64],
+		[Vector3(61.0, 0.0, -190.0), 0.68],
+	]
+	var pine_count := 2 if m.quality == "speedy" else pine_spots.size()
+	for pi in range(pine_count):
+		var prow: Array = pine_spots[pi]
+		_village_pine(o, prow[0], float(prow[1]), false)
+
+	_village_snowman(o, Vector3(5.0, 0.0, -190.0))
+
+	# Oversized stepping stones gently point from the back of the moat toward
+	# the tree. They are visual guidance only and never block swimming.
+	for si in range(4):
+		var t: float = float(si) / 3.0
+		var sx: float = lerpf(7.0, 25.0, t)
+		var sz: float = lerpf(-185.0, -188.0, t)
+		var sy: float = _lagoon_local(sx, sz)
+		var step := MeshInstance3D.new()
+		var step_mesh := CylinderMesh.new()
+		step_mesh.top_radius = 2.2
+		step_mesh.bottom_radius = 2.5
+		step_mesh.height = 0.35
+		step_mesh.radial_segments = 10
+		step.mesh = step_mesh
+		step.material_override = m._up_mat("cobble", 0.12, Color(0.92, 0.88, 0.96))
+		step.position = o + Vector3(sx, sy + 0.18, sz)
+		step.visibility_range_end = 165.0
+		m.add_child(step)
+		m.game_nodes.append(step)
+
+
+func _village_snow_patch(o: Vector3, lp: Vector3, radius: float) -> void:
+	var snow := MeshInstance3D.new()
+	var smesh := CylinderMesh.new()
+	smesh.top_radius = radius
+	smesh.bottom_radius = radius * 0.94
+	smesh.height = 0.34
+	smesh.radial_segments = 18
+	snow.mesh = smesh
+	snow.material_override = m._up_mat("snow", 0.075, Color(0.86, 0.93, 1.0))
+	snow.position = o + Vector3(lp.x, _lagoon_local(lp.x, lp.z) + 0.16, lp.z)
+	snow.visibility_range_end = 175.0
+	m.add_child(snow)
+	m.game_nodes.append(snow)
+
+
+func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	var body := m._l2_box(base + Vector3(0.0, 4.1, 0.0), Vector3(14.0, 8.2, 11.0), wall_col)
+	body.material_override = m._up_mat("castle", 0.11, wall_col)
+	body.visibility_range_end = 180.0
+	# The solid reaches through the snow-capped roof, so the cottages never turn
+	# into ghost scenery when Roshan swims above door height.
+	m._wall_solid(base + Vector3(0.0, 7.5, 0.0), Vector3(14.0, 15.0, 11.0), 0.7)
+
+	var roof := MeshInstance3D.new()
+	var rmesh := CylinderMesh.new()
+	rmesh.top_radius = 0.15
+	rmesh.bottom_radius = 10.5
+	rmesh.height = 6.4
+	rmesh.radial_segments = 4
+	roof.mesh = rmesh
+	roof.material_override = m._up_mat("roof", 0.14, roof_col)
+	roof.position = base + Vector3(0.0, 11.3, 0.0)
+	roof.rotation.y = PI * 0.25
+	roof.visibility_range_end = 180.0
+	m.add_child(roof)
+	m.game_nodes.append(roof)
+
+	# A smaller white pyramid leaves a band of coloured eaves visible below it.
+	var cap := MeshInstance3D.new()
+	var cap_mesh := CylinderMesh.new()
+	cap_mesh.top_radius = 0.1
+	cap_mesh.bottom_radius = 7.7
+	cap_mesh.height = 4.6
+	cap_mesh.radial_segments = 4
+	cap.mesh = cap_mesh
+	cap.material_override = m._up_mat("snow", 0.09, Color(0.92, 0.97, 1.0))
+	cap.position = base + Vector3(0.0, 12.3, 0.0)
+	cap.rotation.y = PI * 0.25
+	cap.visibility_range_end = 180.0
+	m.add_child(cap)
+	m.game_nodes.append(cap)
+
+	var door := m._l2_box(base + Vector3(0.0, 2.75, 5.62), Vector3(3.2, 5.5, 0.35), Color(0.36, 0.22, 0.18))
+	door.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.36, 0.28))
+	door.visibility_range_end = 155.0
+	for wx: float in [-4.35, 4.35]:
+		var win := m._l2_box(base + Vector3(wx, 4.7, 5.72), Vector3(2.5, 2.8, 0.28), Color(1.0, 0.78, 0.38), 1.7)
+		win.visibility_range_end = 155.0
+
+	var chimney := m._l2_box(base + Vector3(3.5, 12.1, -0.8), Vector3(2.0, 6.0, 2.0), Color(0.48, 0.22, 0.22))
+	chimney.material_override = m._up_mat("castle", 0.15, Color(0.62, 0.30, 0.30))
+	chimney.visibility_range_end = 165.0
+
+
+func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	# Background trees reuse the already imported low-poly nature prop. Only the
+	# decorated landmark needs the layered procedural silhouette below.
+	if not decorated:
+		var nature_pine = m._nature("tree_pineRoundF", base - Vector3(0.0, 0.25, 0.0), 8.5 + sc * 2.0, 0.0)
+		if nature_pine != null:
+			m._cyl_solid(base + Vector3(0.0, 6.0, 0.0), 1.25, 6.0, 0.5)
+			return
+	var trunk := MeshInstance3D.new()
+	var trunk_mesh := CylinderMesh.new()
+	trunk_mesh.top_radius = 0.75 * sc
+	trunk_mesh.bottom_radius = 0.95 * sc
+	trunk_mesh.height = 4.0 * sc
+	trunk_mesh.radial_segments = 8
+	trunk.mesh = trunk_mesh
+	trunk.material_override = m._up_mat("wood", 0.14, Color(0.48, 0.31, 0.22))
+	trunk.position = base + Vector3(0.0, 2.0 * sc, 0.0)
+	trunk.visibility_range_end = 175.0
+	m.add_child(trunk)
+	m.game_nodes.append(trunk)
+
+	for ti in range(3):
+		var rad: float = (5.4 - float(ti) * 1.25) * sc
+		var cy: float = (5.2 + float(ti) * 3.45) * sc
+		var needles := MeshInstance3D.new()
+		var nmesh := CylinderMesh.new()
+		nmesh.top_radius = 0.1
+		nmesh.bottom_radius = rad
+		nmesh.height = 6.8 * sc
+		nmesh.radial_segments = 10
+		needles.mesh = nmesh
+		needles.material_override = m._up_mat("grass", 0.16, Color(0.18, 0.48, 0.38))
+		needles.position = base + Vector3(0.0, cy, 0.0)
+		needles.visibility_range_end = 175.0
+		m.add_child(needles)
+		m.game_nodes.append(needles)
+
+		var snow := MeshInstance3D.new()
+		var snow_mesh := CylinderMesh.new()
+		snow_mesh.top_radius = 0.08
+		snow_mesh.bottom_radius = rad * 0.70
+		snow_mesh.height = 2.7 * sc
+		snow_mesh.radial_segments = 10
+		snow.mesh = snow_mesh
+		snow.material_override = m._up_mat("snow", 0.10, Color(0.90, 0.97, 1.0))
+		snow.position = base + Vector3(0.0, cy + 1.7 * sc, 0.0)
+		snow.visibility_range_end = 175.0
+		m.add_child(snow)
+		m.game_nodes.append(snow)
+
+	if decorated:
+		var ornament_cols := [Color(1.0, 0.34, 0.42), Color(0.28, 0.75, 0.88), Color(1.0, 0.78, 0.28), Color(0.78, 0.48, 0.92)]
+		var ornament_count := 5 if m.quality == "speedy" else 8
+		for oi in range(ornament_count):
+			var ang: float = float(oi) * 2.4
+			var oy: float = (5.2 + float(oi % 3) * 3.2) * sc
+			var rr: float = (4.4 - float(oi % 3) * 0.85) * sc
+			var ornament := MeshInstance3D.new()
+			var omesh := SphereMesh.new()
+			omesh.radius = 0.55 * sc
+			omesh.height = 1.1 * sc
+			omesh.radial_segments = 8
+			omesh.rings = 4
+			ornament.mesh = omesh
+			var omat := StandardMaterial3D.new()
+			omat.albedo_color = ornament_cols[oi % ornament_cols.size()]
+			omat.emission_enabled = true
+			omat.emission = omat.albedo_color
+			omat.emission_energy_multiplier = 0.75
+			ornament.material_override = omat
+			ornament.position = base + Vector3(cos(ang) * rr, oy, sin(ang) * rr)
+			ornament.visibility_range_end = 125.0
+			m.add_child(ornament)
+			m.game_nodes.append(ornament)
+		var star := Label3D.new()
+		star.text = "\u2605"
+		star.font_size = 220
+		star.pixel_size = 0.025 * sc
+		star.outline_size = 28
+		star.modulate = Color(1.0, 0.86, 0.30)
+		star.outline_modulate = Color(0.45, 0.24, 0.48)
+		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		star.position = base + Vector3(0.0, 17.8 * sc, 0.0)
+		m.add_child(star)
+		m.game_nodes.append(star)
+	m._cyl_solid(base + Vector3(0.0, 8.0 * sc, 0.0), 2.1 * sc, 8.0 * sc, 0.5)
+
+
+func _village_gift(o: Vector3, lp: Vector3, col: Color, ribbon_col: Color, sc: float) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	var gift := m._l2_box(base + Vector3(0.0, 1.25 * sc, 0.0), Vector3(3.2, 2.5, 3.2) * sc, col)
+	var ribbon_v := m._l2_box(base + Vector3(0.0, 1.28 * sc, 0.0), Vector3(0.48, 2.58, 3.28) * sc, ribbon_col, 0.25)
+	var ribbon_h := m._l2_box(base + Vector3(0.0, 1.30 * sc, 0.0), Vector3(3.28, 2.62, 0.48) * sc, ribbon_col, 0.25)
+	for part: MeshInstance3D in [gift, ribbon_v, ribbon_h]:
+		part.visibility_range_end = 115.0
+
+
+func _village_snowman(o: Vector3, lp: Vector3) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	for ball: Array in [[2.0, 2.0], [1.55, 5.0], [1.15, 7.55]]:
+		var snowball := MeshInstance3D.new()
+		var bmesh := SphereMesh.new()
+		bmesh.radius = float(ball[0])
+		bmesh.height = float(ball[0]) * 2.0
+		bmesh.radial_segments = 10
+		bmesh.rings = 6
+		snowball.mesh = bmesh
+		snowball.material_override = m._up_mat("snow", 0.10, Color(0.90, 0.97, 1.0))
+		snowball.position = base + Vector3(0.0, float(ball[1]), 0.0)
+		snowball.visibility_range_end = 135.0
+		m.add_child(snowball)
+		m.game_nodes.append(snowball)
+	for ex: float in [-0.38, 0.38]:
+		var eye := MeshInstance3D.new()
+		var emesh := SphereMesh.new()
+		emesh.radius = 0.13
+		emesh.height = 0.26
+		emesh.radial_segments = 6
+		emesh.rings = 3
+		eye.mesh = emesh
+		var emat := StandardMaterial3D.new()
+		emat.albedo_color = Color(0.10, 0.12, 0.18)
+		eye.material_override = emat
+		eye.position = base + Vector3(ex, 7.8, 1.03)
+		eye.visibility_range_end = 95.0
+		m.add_child(eye)
+		m.game_nodes.append(eye)
+	var nose := MeshInstance3D.new()
+	var nose_mesh := CylinderMesh.new()
+	nose_mesh.top_radius = 0.0
+	nose_mesh.bottom_radius = 0.28
+	nose_mesh.height = 1.4
+	nose_mesh.radial_segments = 8
+	nose.mesh = nose_mesh
+	var nose_mat := StandardMaterial3D.new()
+	nose_mat.albedo_color = Color(1.0, 0.42, 0.12)
+	nose_mat.roughness = 1.0
+	nose.material_override = nose_mat
+	nose.position = base + Vector3(0.0, 7.45, 1.55)
+	nose.rotation.x = PI * 0.5
+	nose.visibility_range_end = 105.0
+	m.add_child(nose)
+	m.game_nodes.append(nose)
+	var hat := m._l2_box(base + Vector3(0.0, 9.05, 0.0), Vector3(2.5, 1.2, 2.5), Color(0.24, 0.20, 0.34))
+	var brim := m._l2_box(base + Vector3(0.0, 8.48, 0.0), Vector3(3.2, 0.25, 3.2), Color(0.24, 0.20, 0.34))
+	hat.visibility_range_end = 120.0
+	brim.visibility_range_end = 120.0
+	m._cyl_solid(base + Vector3(0.0, 4.2, 0.0), 1.75, 4.2, 0.3)
 
 
 func _build_lagoon_terrain(o: Vector3) -> void:
