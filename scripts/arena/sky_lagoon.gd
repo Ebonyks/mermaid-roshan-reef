@@ -679,6 +679,15 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		pts.append(rv[rv.size() - 1])
 		var st2 := SurfaceTool.new()
 		st2.begin(Mesh.PRIMITIVE_TRIANGLES)
+		# waterline pass first: surface 1.5 under the bank rim — but NEVER above
+		# the real terrain just beyond either ribbon edge. rim-1.5 alone floated
+		# a full-width water sheet 6 units over the east meadow wherever the path
+		# crossed a hill (the "flooded playground": merry/seesaw looked sunk in a
+		# lake), and 13 over the west bank. Capping against both outer banks
+		# keeps the water inside its gorge on hill crossings; a slope-limit pass
+		# smooths the cap steps into gentle rapids instead of sawtooth ledges.
+		var perps: Array = []
+		var wys: PackedFloat32Array = PackedFloat32Array()
 		for i in range(pts.size()):
 			var p2: Vector2 = pts[i]
 			var pn: Vector2 = pts[mini(i + 1, pts.size() - 1)]
@@ -686,19 +695,28 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var d2: Vector2 = (pn - pp)
 			d2 = d2.normalized() if d2.length() > 0.001 else Vector2(0, 1)
 			var perp := Vector2(-d2.y, d2.x) * 16.3
-			# the water FILLS the channel: surface 1.5 under the bank rim, and the
-			# ribbon is slightly wider than the waterline so its edges bury into
-			# the banks (no gap, no floating-band look). Depth ~10.5 = deep swims.
+			perps.append(perp)
 			var floor_h: float = _lagoon_local(p2.x, p2.y)
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
-			var wy: float = maxf(floor_h + 0.8, (floor_h + dip_h) - 1.5)
+			var eo: Vector2 = perp.normalized() * 20.0   # just past the carved channel (W=17)
+			var bank_cap: float = minf(_lagoon_local(p2.x + eo.x, p2.y + eo.y),
+				_lagoon_local(p2.x - eo.x, p2.y - eo.y)) - 0.5
+			var wy: float = minf((floor_h + dip_h) - 1.5, bank_cap)
+			wys.append(maxf(floor_h + 0.8, wy))
+		for i in range(1, wys.size()):   # slope-limit downstream…
+			wys[i] = minf(wys[i], wys[i - 1] + 0.5)
+		for i in range(wys.size() - 2, -1, -1):   # …and upstream
+			wys[i] = minf(wys[i], wys[i + 1] + 0.5)
+		for i in range(pts.size()):
+			var p2b: Vector2 = pts[i]
+			var perp2: Vector2 = perps[i]
 			var v: float = float(i) / float(pts.size())
 			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(0.0, v * 6.0))
-			st2.add_vertex(Vector3(p2.x + perp.x, wy, p2.y + perp.y))
+			st2.add_vertex(Vector3(p2b.x + perp2.x, wys[i], p2b.y + perp2.y))
 			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(1.0, v * 6.0))
-			st2.add_vertex(Vector3(p2.x - perp.x, wy, p2.y - perp.y))
+			st2.add_vertex(Vector3(p2b.x - perp2.x, wys[i], p2b.y - perp2.y))
 		for i in range(pts.size() - 1):
 			var a3 := i * 2
 			st2.add_index(a3); st2.add_index(a3 + 1); st2.add_index(a3 + 3)
