@@ -3148,8 +3148,11 @@ const KIT_GEN2 := {"play/slide_A": "play_slide", "play/swing_A_large": "play_swi
 func _toy_anim(node: Node3D, name: String) -> void:
 	# simple always-alive toy motion (cosmetic; solids stay where they were)
 	if name.contains("merry"):
+		# the ambient spin IS the ride drive — _tick_toys reads rotation.y to
+		# seat Roshan on the deck, so this never pauses. 7s/turn reads clearly
+		# as spinning from across the meadow (11s looked parked at a glance).
 		var tw := create_tween().set_loops()
-		tw.tween_property(node, "rotation:y", node.rotation.y + TAU, 11.0)
+		tw.tween_property(node, "rotation:y", node.rotation.y + TAU, 7.0)
 	elif name.contains("horse"):
 		var tw2 := create_tween().set_loops()
 		tw2.tween_property(node, "rotation:x", 0.07, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -3161,7 +3164,23 @@ func _toy_anim(node: Node3D, name: String) -> void:
 		tw3.tween_property(node, "rotation:z", -0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		node.set_meta("toy_tw", tw3)   # paused while Roshan bounces the open seat
 	elif name.contains("swing"):
-		_wind_sway(node)
+		# the sculpt is fused (no seat nodes), so the empty seats pendulum at
+		# the vertex stage: swap the cel shader for the swing_sway variant and
+		# feed it each mesh's local AABB — pivot at the top bar, middle span
+		# only (legs + ground rails stay rigid). See swing_sway.gdshader.
+		var sway_sh: Shader = load("res://assets/shaders/swing_sway.gdshader")
+		for mi in _all_meshes(node):
+			if mi.mesh == null:
+				continue
+			var bb: AABB = mi.mesh.get_aabb()
+			for si in range(mi.mesh.get_surface_count()):
+				var sm: Material = mi.get_active_material(si)
+				if sm is ShaderMaterial:
+					var swm := sm as ShaderMaterial
+					swm.shader = sway_sh
+					swm.set_shader_parameter("bar_y", bb.position.y + bb.size.y * 0.92)
+					swm.set_shader_parameter("y_min", bb.position.y + bb.size.y * 0.12)
+					swm.set_shader_parameter("x_max", bb.size.x * 0.30)
 
 func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
 	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
