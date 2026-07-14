@@ -7,17 +7,28 @@ extends RefCounted
 # it ships with zero new assets. Phase 7 satellite: logic only, ALL state
 # lives on main in m.g["train"] and the seat toys in m.g["toys"].
 #
-# Layout: a ring of track (radius 78) around the castle+moat at local
-# (0,-120). Terrain along the whole ring is flat (verified against
-# _lagoon_local: every hill/river sits outside it), and the one conflict —
-# the grand cobble path to the bridge — is crossed on a little viaduct that
-# lifts the track 9.5 units over the walkway, so the train never blocks or
-# touches the route a 4yo (or the audit bot) swims to the castle.
+# Layout (owner 2026-07-14: "much larger"): a GRAND TOUR ring of track,
+# radius 191.5 about local (0,-3.5), circling the whole courtyard — over
+# both hill summits (railhead peaks ~14.6, a little mountain railway),
+# across each river mouth on a low causeway bridge (the track rides at
+# bank level + a gentle hump, skimming above the water), and around the
+# NORTH END of the grand path behind the gatehouse, so the loop never
+# enters the path corridor at all (the old viaduct is gone) and never
+# blocks the route a 4yo (or the audit bot) swims to the castle. Offline
+# sweep: 9.3 units min clearance to every deterministic solid, max
+# origin-distance 195 (island rim slope starts at 205).
 #
 # Consist (front to back): puffing engine, coal tender, an open-sided
 # passenger coach with a bench INSIDE for Roshan, an open-top gondola with a
 # cushion, and a caboose with an open back balcony — three places she can
 # ride, all through the existing playground play-moment system.
+#
+# Hop on / hop off ANY TIME (owner 2026-07-14): boarding is a wide 9-unit
+# proximity plop (moving or parked, station optional), the ride never
+# times out, and she leaves whenever she chooses — a jump press, or the
+# swim stick held for a beat, pops her off with a giggle (short 2s seat
+# cooldown so she can hop right back on). Headless probes see no input,
+# so they can neither board nor dismount by accident.
 #
 # Clipping contract (owner request): the corridor is kept clear at build
 # time (tree/undergrowth spawning skips the track band, sky_lagoon.gd), the
@@ -29,18 +40,17 @@ extends RefCounted
 
 var m: ReefMain
 
-const RING_CX := 0.0          # ring centre = castle/moat centre (local)
-const RING_CZ := -120.0
-const RING_R := 78.0          # outside the moat (outer 64) with margin
+const RING_CX := 0.0          # grand-tour ring centre (local, island middle)
+const RING_CZ := -3.5
+const RING_R := 191.5         # hugs the whole courtyard; origin-dist tops out at 195
 const RAIL_LIFT := 0.55       # railhead above the terrain
-const VIA_LIFT := 9.5         # viaduct height over the grand path (a = 0)
-const VIA_FLAT := 0.30        # |angle| fully lifted
-const VIA_RAMP := 0.72        # |angle| back at grade
 const CAR_SOLID_R := 3.1      # moving-collider radius per bogie point
 const CAR_SOLID_H := 10.0     # collider top above the railhead (clears the coach roof)
-const STATION_A := 1.6        # station bearing on the ring (east side)
+const STATION_A := 2.4        # station bearing on the ring (flat southeast meadow)
 const DWELL_T := 8.0          # station stop, seconds
 const GUARD_DT := 0.25        # clip-guard cadence, seconds
+const BOARD_RAD := 9.0        # hop-on proximity (toys default 6.5)
+const SPD_MAX := 12.0         # cruise speed (owner 2026-07-14: 1.5x the original 8)
 
 
 func _init(main: ReefMain) -> void:
@@ -49,18 +59,15 @@ func _init(main: ReefMain) -> void:
 
 # ---------------- track geometry ----------------
 
-func _lift(a: float) -> float:
-	# viaduct profile: full height straddling the path crossing at a=0,
-	# easing back to grade well before the moat-side lamp posts
-	var aa: float = absf(wrapf(a, -PI, PI))
-	return VIA_LIFT * (1.0 - smoothstep(VIA_FLAT, VIA_RAMP, aa))
-
-
 func _track_h(a: float) -> float:
-	# local railhead height at ring bearing a
+	# local railhead height at ring bearing a: the terrain, with the river
+	# carve added BACK (the track crosses each channel at bank level, like
+	# a causeway) plus a gentle bridge hump so the deck skirt always clears
+	# the water surface. Hills are ridden as-is — that's the fun part.
 	var lx: float = RING_CX + sin(a) * RING_R
 	var lz: float = RING_CZ + cos(a) * RING_R
-	return m._lagoon_local(lx, lz) + RAIL_LIFT + _lift(a)
+	var dip: float = m._lagoon_river_dip(lx, lz)
+	return m._lagoon_local(lx, lz) + dip + minf(1.2, dip * 0.25) + RAIL_LIFT
 
 
 func _track_pt(a: float) -> Vector3:
@@ -101,11 +108,12 @@ func _build_train(o: Vector3) -> void:
 				"y0": -9000.0, "y1": -9000.0})
 			(car["solids"] as Array).append(m.arena_solids.back())
 	# ----- ride seats, through the playground play-moment system -----
-	# [kind, car index, seat offset in car space, ride seconds]
+	# [kind, car index, seat offset in car space]. dur is effectively
+	# forever — she rides until SHE hops off (jump, or stick held a beat)
 	var seat_rows: Array = [
-		["train_cabin", 2, Vector3(0.0, 4.5, -1.2), 30.0],   # bench INSIDE the coach
-		["train_deck", 3, Vector3(0.0, 4.25, 0.0), 22.0],    # open-top gondola cushion
-		["train_deck", 4, Vector3(0.0, 3.5, -2.9), 22.0],    # caboose back balcony
+		["train_cabin", 2, Vector3(0.0, 4.5, -1.2)],   # bench INSIDE the coach
+		["train_deck", 3, Vector3(0.0, 4.25, 0.0)],    # open-top gondola cushion
+		["train_deck", 4, Vector3(0.0, 3.5, -2.9)],    # caboose back balcony
 	]
 	if not m.g.has("toys"):
 		m.g["toys"] = []
@@ -114,20 +122,22 @@ func _build_train(o: Vector3) -> void:
 		var car: Dictionary = cars[int(row[1])]
 		var seat := {"kind": String(row[0]), "anchor": o, "base": o,
 			"fwd": Vector3.FORWARD, "left": Vector3.LEFT, "tgt": 6.0,
-			"node": car["node"], "seat": row[2], "cool": 4.0, "dur": float(row[3])}
+			"node": car["node"], "seat": row[2], "cool": 4.0, "dur": 9999.0,
+			"rad": BOARD_RAD}
 		(m.g["toys"] as Array).append(seat)
 		seats.append(seat)
 	m.g["train"] = {"o": o, "cars": cars, "seats": seats, "s": STATION_A * RING_R,
-		"spd": 0.0, "spd_max": 8.0, "state": "dwell", "dwell": DWELL_T, "dwells": 0,
+		"spd": 0.0, "spd_max": SPD_MAX, "state": "dwell", "dwell": DWELL_T, "dwells": 0,
 		"hidden": false, "guard_t": 0.0, "static": static_solids}
 	_tick_train(0.0, m.player.position if m.player != null else o)
 
 
 func _build_track(o: Vector3) -> void:
 	# ballast/deck ribbon with side skirts, two navy rails, wooden ties —
-	# three cheap SurfaceTool/MultiMesh nodes for the whole ring
-	# shallow skirt: the viaduct underside stays >8 units above the walkway
-	_ring_ribbon(o, 0.0, 2.7, -0.45, 1.4, Color(0.78, 0.68, 0.52))
+	# three cheap SurfaceTool/MultiMesh nodes for the whole ring. The skirt
+	# is shallow (1.2) so the causeway deck skims ABOVE the river surface
+	# at the crossings instead of walling the channel (fish swim under it).
+	_ring_ribbon(o, 0.0, 2.7, -0.45, 1.2, Color(0.78, 0.68, 0.52))
 	_ring_ribbon(o, -1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
 	_ring_ribbon(o, 1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
 	var ties := MultiMeshInstance3D.new()
@@ -137,7 +147,7 @@ func _build_track(o: Vector3) -> void:
 	tie.size = Vector3(4.6, 0.2, 1.1)
 	tie.material = _train_mat(Color(0.50, 0.36, 0.22))
 	mm.mesh = tie
-	var tie_n := 120
+	var tie_n := 240
 	mm.instance_count = tie_n
 	for i in range(tie_n):
 		var a: float = float(i) / float(tie_n) * TAU
@@ -149,29 +159,13 @@ func _build_track(o: Vector3) -> void:
 	ties.position = o
 	m.add_child(ties)
 	m.game_nodes.append(ties)
-	# viaduct piers under the lifted span — solid, but always clear of the
-	# walk channel (|x| < 13) so the path under the flyover stays wide open
-	var pier_col := Color(0.55, 0.40, 0.26)
-	var pa := -VIA_RAMP
-	while pa <= VIA_RAMP:
-		if _lift(pa) > 1.2:
-			var px: float = RING_CX + sin(pa) * RING_R
-			var pz: float = RING_CZ + cos(pa) * RING_R
-			if absf(px) >= 13.0:
-				var ground: float = m._lagoon_local(px, pz)
-				var top: float = _track_h(pa) - 0.45
-				var ph: float = top - ground
-				if ph > 1.5:
-					m._l2_box(o + Vector3(px, ground + ph * 0.5, pz), Vector3(2.2, ph, 2.2), pier_col)
-					m._cyl_solid(o + Vector3(px, ground + ph * 0.5, pz), 1.3, ph * 0.5, 0.5)
-		pa += 0.11
 
 
 func _ring_ribbon(o: Vector3, lat: float, half_w: float, y_off: float, skirt: float, col: Color) -> void:
 	# closed ribbon following the ring at lateral offset `lat`: a flat top
 	# strip plus two vertical skirts so the raised viaduct reads solid from
 	# the side (the same trick the rivers use to hug their banks)
-	var n := 240
+	var n := 360
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	for i in range(n):
@@ -600,3 +594,46 @@ func _drop_train_ride() -> void:
 		m.toy_play = {}
 		if m.player != null:
 			m.player.rotation.x = 0.0
+
+
+func _ride_jump_pressed() -> bool:
+	# the deliberate hop-off gesture: the same jump inputs the swim uses
+	if Input.is_physical_key_pressed(KEY_SPACE):
+		return true
+	if m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B):
+		return true
+	if "touch_ui" in m and m.touch_ui != null and m.touch_ui.action_down:
+		return true
+	return false
+
+
+func _ride_move_held() -> bool:
+	# any swim input (keys, left stick, d-pad, touch stick) — held for a
+	# beat it also hops her off, so holding the stick can never trap her
+	# on the train (probes see no input, so headless never dismounts)
+	for k: int in [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_W, KEY_A, KEY_S, KEY_D]:
+		if Input.is_physical_key_pressed(k):
+			return true
+	if absf(m.joy_axis(JOY_AXIS_LEFT_X)) > 0.3 or absf(m.joy_axis(JOY_AXIS_LEFT_Y)) > 0.3:
+		return true
+	if m.joy_pressed(JOY_BUTTON_DPAD_UP) or m.joy_pressed(JOY_BUTTON_DPAD_DOWN) \
+			or m.joy_pressed(JOY_BUTTON_DPAD_LEFT) or m.joy_pressed(JOY_BUTTON_DPAD_RIGHT):
+		return true
+	if "touch_ui" in m and m.touch_ui != null and (m.touch_ui.stick_vec as Vector2).length() > 0.3:
+		return true
+	return false
+
+
+func _hop_off(toy: Dictionary) -> void:
+	# end the ride on HER terms: giggle, sparkle, a little upward pop, and
+	# a short seat cooldown so she can hop straight back on
+	toy["cool"] = 2.0
+	m.toy_play = {}
+	var pl: Node3D = m.player
+	if pl != null:
+		pl.rotation.x = 0.0
+		if "vel" in pl:
+			pl.vel = Vector3(0, 9.0, 0)
+		m._sparkle_burst(pl.position, Color(0.7, 0.95, 1.0))
+		if pl.has_method("play_verb"):
+			pl.play_verb("giggle")
