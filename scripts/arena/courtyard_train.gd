@@ -46,7 +46,7 @@ const RING_R := 191.5         # hugs the whole courtyard; origin-dist tops out a
 const RAIL_LIFT := 0.55       # railhead above the terrain
 const CAR_SOLID_R := 3.1      # moving-collider radius per bogie point
 const CAR_SOLID_H := 10.0     # collider top above the railhead (clears the coach roof)
-const STATION_A := 2.4        # station bearing on the ring (flat southeast meadow)
+const STATION_A := 2.1        # station bearing on the ring (flat southeast meadow)
 const DWELL_T := 8.0          # station stop, seconds
 const GUARD_DT := 0.25        # clip-guard cadence, seconds
 const BOARD_RAD := 9.0        # hop-on proximity (toys default 6.5)
@@ -59,19 +59,43 @@ func _init(main: ReefMain) -> void:
 
 # ---------------- track geometry ----------------
 
+func _ring_r(a: float) -> float:
+	# variable ring radius: a broad sweep INSIDE the whole christmas
+	# village behind the castle (cottages ±92/-70, pines, gifts, snowman —
+	# master 2026-07-13 placed them beyond the OLD radius-78 corridor),
+	# then a steady ease back out so the due-south stretch keeps
+	# castle-distance ≥ 68 (the moat band ends at 64) and clears the
+	# secret hatch at (0,-175). Every number here is swept offline against
+	# every village prop + the moat before it ships.
+	var aw: float = absf(wrapf(a, -PI, PI))
+	return RING_R - 27.5 * smoothstep(2.30, 2.56, aw) + 22.0 * smoothstep(2.65, 3.00, aw)
+
+
 func _track_h(a: float) -> float:
 	# local railhead height at ring bearing a: the terrain, with the river
 	# carve added BACK (the track crosses each channel at bank level, like
 	# a causeway) plus a gentle bridge hump so the deck skirt always clears
 	# the water surface. Hills are ridden as-is — that's the fun part.
-	var lx: float = RING_CX + sin(a) * RING_R
-	var lz: float = RING_CZ + cos(a) * RING_R
+	var r: float = _ring_r(a)
+	var lx: float = RING_CX + sin(a) * r
+	var lz: float = RING_CZ + cos(a) * r
 	var dip: float = m._lagoon_river_dip(lx, lz)
 	return m._lagoon_local(lx, lz) + dip + minf(1.2, dip * 0.25) + RAIL_LIFT
 
 
 func _track_pt(a: float) -> Vector3:
-	return Vector3(RING_CX + sin(a) * RING_R, _track_h(a), RING_CZ + cos(a) * RING_R)
+	var r: float = _ring_r(a)
+	return Vector3(RING_CX + sin(a) * r, _track_h(a), RING_CZ + cos(a) * r)
+
+
+func _track_perp(a: float) -> Vector3:
+	# horizontal unit normal to the actual path (finite difference, NOT the
+	# radial — in the village tuck the radius changes fast enough that the
+	# radial would skew the ribbon and ties by up to ~30 degrees)
+	var t: Vector3 = _track_pt(a + 0.004) - _track_pt(a - 0.004)
+	t.y = 0.0
+	t = t.normalized() if t.length() > 0.0001 else Vector3(cos(a), 0, -sin(a))
+	return Vector3(-t.z, 0, t.x)
 
 
 # ---------------- build ----------------
@@ -152,9 +176,9 @@ func _build_track(o: Vector3) -> void:
 	for i in range(tie_n):
 		var a: float = float(i) / float(tie_n) * TAU
 		var p: Vector3 = _track_pt(a) + Vector3(0, -0.28, 0)
-		var radial := Vector3(sin(a), 0, cos(a))
-		# right-handed basis (radial x UP = this z), else the box mirrors
-		mm.set_instance_transform(i, Transform3D(Basis(radial, Vector3.UP, Vector3(-cos(a), 0, sin(a))), p))
+		var perp: Vector3 = _track_perp(a)
+		# right-handed basis (perp x UP = this z), else the box mirrors
+		mm.set_instance_transform(i, Transform3D(Basis(perp, Vector3.UP, Vector3(-perp.z, 0, perp.x)), p))
 	ties.multimesh = mm
 	ties.position = o
 	m.add_child(ties)
@@ -174,17 +198,18 @@ func _ring_ribbon(o: Vector3, lat: float, half_w: float, y_off: float, skirt: fl
 		var pts: Array = []
 		for a: float in [a0, a1]:
 			var c: Vector3 = _track_pt(a)
-			var radial := Vector3(sin(a), 0, cos(a))
-			pts.append(c + radial * (lat - half_w) + Vector3(0, y_off, 0))
-			pts.append(c + radial * (lat + half_w) + Vector3(0, y_off, 0))
+			var perp: Vector3 = _track_perp(a)
+			pts.append(c + perp * (lat - half_w) + Vector3(0, y_off, 0))
+			pts.append(c + perp * (lat + half_w) + Vector3(0, y_off, 0))
 		var i0: Vector3 = pts[0]
 		var o0: Vector3 = pts[1]
 		var i1: Vector3 = pts[2]
 		var o1: Vector3 = pts[3]
-		_quad(st, i0, o0, o1, i1, Vector3.UP)                                        # top
+		var pn: Vector3 = _track_perp(a0)
+		_quad(st, i0, o0, o1, i1, Vector3.UP)             # top
 		var drop := Vector3(0, -skirt, 0)
-		_quad(st, i0 + drop, i0, i1, i1 + drop, Vector3(-sin(a0), 0, -cos(a0)))      # inner skirt
-		_quad(st, o0, o0 + drop, o1 + drop, o1, Vector3(sin(a0), 0, cos(a0)))        # outer skirt
+		_quad(st, i0 + drop, i0, i1, i1 + drop, -pn)      # inner skirt
+		_quad(st, o0, o0 + drop, o1 + drop, o1, pn)       # outer skirt
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
 	mi.material_override = _train_mat(col)
@@ -204,7 +229,7 @@ func _build_station(o: Vector3) -> void:
 	# a tiny platform stop on the east side of the loop — low and NON-solid
 	# (like the cobble path) so nobody can ever get pinched by it
 	var radial := Vector3(sin(STATION_A), 0, cos(STATION_A))
-	var c: Vector3 = Vector3(RING_CX, 0, RING_CZ) + radial * (RING_R + 6.5)
+	var c: Vector3 = Vector3(RING_CX, 0, RING_CZ) + radial * (_ring_r(STATION_A) + 6.5)
 	c.y = m._lagoon_local(c.x, c.z)
 	m._l2_box(o + c + Vector3(0, 0.35, 0), Vector3(5.0, 0.7, 12.0), Color(0.86, 0.78, 0.66))
 	for pz: float in [-4.6, 4.6]:

@@ -106,9 +106,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 		if absf(gcx) < 26.0 and gcz > -95.0 and gcz < 165.0:
 			continue
 		# keep the train corridor clear: no grove may straddle the grand-tour
-		# ring (radius 191.5 about (0,-3.5); trees scatter up to ±10 from
-		# the grove centre, hence the wide 26-unit band)
-		if absf(sqrt(gcx * gcx + (gcz + 3.5) * (gcz + 3.5)) - 191.5) < 26.0:
+		# ring (variable radius ~181-191.5 about (0,-3.5); trees scatter up
+		# to ±10 from the grove centre, hence the wide 26-unit band)
+		var g_ta: float = atan2(gcx, gcz + 3.5)
+		if absf(sqrt(gcx * gcx + (gcz + 3.5) * (gcz + 3.5)) - m._train_ref()._ring_r(g_ta)) < 26.0:
 			continue
 		@warning_ignore("integer_division")
 		for t in range(3 + (sd / 3) % 4):
@@ -141,7 +142,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		if absf(px) < 13.0 and pz > -92.0 and pz < 168.0:
 			continue
 		# undergrowth also stays off the train track band
-		if absf(sqrt(px * px + (pz + 3.5) * (pz + 3.5)) - 191.5) < 13.0:
+		var u_ta: float = atan2(px, pz + 3.5)
+		if absf(sqrt(px * px + (pz + 3.5) * (pz + 3.5)) - m._train_ref()._ring_r(u_ta)) < 13.0:
 			continue
 		@warning_ignore("integer_division")
 		var pick := (sd / 7) % 10
@@ -623,9 +625,11 @@ func _build_christmas_village(o: Vector3) -> void:
 		_village_snow_patch(o, lp, float(row[3]))
 		_village_cottage(o, lp, row[1], row[2])
 
-	# The train circles the castle at radius 78. The village lives beyond its
-	# clear corridor (and leaves the hatch at 0,-175 open), so no car ever has
-	# to trip its clip guard while still keeping every prop on the island rim.
+	# The train's grand-tour ring (courtyard_train.gd) swerves INSIDE this
+	# village row on the south — its _ring_r southern tuck was measured
+	# against every prop here (and leaves the hatch at 0,-175 open), so no
+	# car ever has to trip its clip guard. Move a cottage/pine — re-verify
+	# the tuck.
 	var tree_pos := Vector3(70.0, 0.0, -182.0)
 	_village_snow_patch(o, tree_pos, 8.0)
 	_village_pine(o, tree_pos, 1.22, true)
