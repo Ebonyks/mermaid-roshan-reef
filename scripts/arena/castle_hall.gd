@@ -430,11 +430,16 @@ func build_expansion(o: Vector3) -> void:
 	m._iwall(o + Vector3(0, 41, -39.5), Vector3(1.5, 16, 7), wcol, "castle")    # divider, front seg
 	m._iwall(o + Vector3(0, 41, -58.5), Vector3(1.5, 16, 11), wcol, "castle")   # divider, back seg (door z -43..-53)
 	# back-block ceiling, SEGMENTED around the Dreaming Floor stairwell opening
-	# (x -2..8, z -44..-38 — a flight rises from the Star Chamber's front)
-	m._l2_box(o + Vector3(-27.5, 49, -50), Vector3(51, 1.2, 28), Color(0.84, 0.8, 0.9))
-	m._l2_box(o + Vector3(30.5, 49, -50), Vector3(45, 1.2, 28), Color(0.84, 0.8, 0.9))
-	m._l2_box(o + Vector3(3, 49, -54), Vector3(10, 1.2, 20), Color(0.84, 0.8, 0.9))
-	m._l2_box(o + Vector3(3, 49, -37), Vector3(10, 1.2, 2), Color(0.84, 0.8, 0.9))
+	# (x -9..-3, z -44..-38). The flight lives ENTIRELY in the Star Chamber,
+	# west of the x-0 divider wall: the first cut ran the stairs straight
+	# through the divider's collider, which walled the top of the flight off
+	# in both directions and trapped Roshan on the top floor. The opening also
+	# ends AT the stair top — a wider hole left a strip the stair ramp zone
+	# did not govern, an invisible floor she could stand on but not sink through.
+	m._l2_box(o + Vector3(-31, 49, -50), Vector3(44, 1.2, 28), Color(0.84, 0.8, 0.9))
+	m._l2_box(o + Vector3(25, 49, -50), Vector3(56, 1.2, 28), Color(0.84, 0.8, 0.9))
+	m._l2_box(o + Vector3(-6, 49, -54), Vector3(6, 1.2, 20), Color(0.84, 0.8, 0.9))
+	m._l2_box(o + Vector3(-6, 49, -37), Vector3(6, 1.2, 2), Color(0.84, 0.8, 0.9))
 	for csgn in [-1.0, 1.0]:
 		m._l2_box(o + Vector3(csgn * 44.25, 49, -9.0), Vector3(18.5, 1.2, 54), Color(0.84, 0.8, 0.9))  # wing ceilings
 	# soft window glows down the outer walls (emissive only — light budget stays)
@@ -576,7 +581,7 @@ func build_expansion(o: Vector3) -> void:
 		# ceil (48) so the two can never both claim the y 48..50 airspace, and
 		# the stair zone comes AFTER it so the ramp wins inside the stairwell.
 		{"rect": Rect2(-53, -64, 106, 28), "band": Vector2(49.8, 66.0), "floor": 50.6, "ceil": 63.5},
-		{"rect": Rect2(-14, -44, 17, 6), "band": Vector2(33.0, 53.0), "ramp": [0, -14.0, 34.6, 2.0, 50.2], "ceil": 52.5},   # dreaming stairs
+		{"rect": Rect2(-20, -44, 17, 6), "band": Vector2(33.0, 53.0), "ramp": [0, -20.0, 34.6, -4.0, 50.2], "ceil": 52.5},   # dreaming stairs (rect spans the WHOLE opening, x -20..-3)
 		{"rect": Rect2(-6, -50, 12, 12), "band": Vector2(-18.0, -2.0), "ramp": [2, -47.5, -3.4, -40.5, -15.4], "ceil": -2.8},
 	]
 	# The back stairwell starts SEALED under the golden stand: its band stops
@@ -596,15 +601,16 @@ func build_dreaming_floor(o: Vector3) -> void:
 	var wcol := Color(0.95, 0.92, 0.97)
 	var gold := Color(0.95, 0.8, 0.35)
 	# ---------- the flight up from the Star Chamber + its under-stair mass
+	# (x -20..-4: clear of the x-0 chamber divider and its collider pad)
 	for i in range(8):
-		m._l2_box(o + Vector3(-13.0 + 2.0 * float(i), 35.1 + 1.95 * float(i), -41.0), Vector3(2.1, 0.9, 5.0), Color(0.93, 0.9, 0.95))
-	m._wall_solid(o + Vector3(-5.0, 36.5, -41.0), Vector3(5.4, 5.4, 6.0), 0.4)
-	m._wall_solid(o + Vector3(0.25, 39.9, -41.0), Vector3(4.5, 11.6, 6.0), 0.4)
+		m._l2_box(o + Vector3(-19.0 + 2.0 * float(i), 35.1 + 1.95 * float(i), -41.0), Vector3(2.1, 0.9, 5.0), Color(0.93, 0.9, 0.95))
+	m._wall_solid(o + Vector3(-11.0, 36.5, -41.0), Vector3(5.4, 5.4, 6.0), 0.4)
+	m._wall_solid(o + Vector3(-5.75, 39.7, -41.0), Vector3(4.5, 11.2, 6.0), 0.4)
 	# gold rim around the stairwell opening upstairs
-	for rx in [-2.4, 8.4]:
+	for rx in [-9.4, -2.6]:
 		m._l2_box(o + Vector3(rx, 50.1, -41.0), Vector3(0.8, 0.5, 7.0), gold, 0.3)
 	for rz in [-44.4, -37.6]:
-		m._l2_box(o + Vector3(3.0, 50.1, rz), Vector3(11.6, 0.5, 0.8), gold, 0.3)
+		m._l2_box(o + Vector3(-6.0, 50.1, rz), Vector3(7.6, 0.5, 0.8), gold, 0.3)
 	# ---------- shell: perimeter walls + roof (the floor is the y-49 slab)
 	m._iwall(o + Vector3(0, 57, -64), Vector3(106, 15, 1.5), wcol, "castle")       # back wall
 	m._iwall(o + Vector3(0, 57, -36), Vector3(106, 15, 1.5), wcol, "castle")       # front wall
@@ -709,7 +715,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	fsign.font_size = 48; fsign.pixel_size = 0.024; fsign.outline_size = 12
 	fsign.modulate = Color(0.85, 0.88, 1.0)
 	fsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	fsign.position = o + Vector3(3, 56.5, -40)
+	fsign.position = o + Vector3(-6, 56.5, -40)
 	m.add_child(fsign); m.game_nodes.append(fsign)
 	for lx in [-30.0, 0.0, 30.0]:
 		m._l2_box(o + Vector3(lx, 62.5, -44.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 3.0)

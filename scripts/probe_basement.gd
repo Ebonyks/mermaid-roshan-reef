@@ -158,7 +158,7 @@ func _init() -> void:
 		_ck("craft easel lives in the craft room", cev.y - h.y < -8.0 and cev.x - h.x > 14.0,
 			"rel=(%.1f, %.1f, %.1f)" % [cev.x - h.x, cev.y - h.y, cev.z - h.z])
 	# 7c) the Dreaming Floor: the flight up holds, and the bedroom floor holds
-	player.position = h + Vector3(-6, 44, -41)     # mid-flight to the third story
+	player.position = h + Vector3(-12, 44, -41)    # mid-flight to the third story
 	player.vel = Vector3.ZERO
 	await _wait_ms(900)
 	_ck("dreaming stairs hold", player.position.y - h.y > 39.0 and player.position.y - h.y < 45.0,
@@ -168,7 +168,32 @@ func _init() -> void:
 	await _wait_ms(900)
 	_ck("dreaming floor holds", player.position.y - h.y > 49.5 and player.position.y - h.y < 52.5,
 		"y=%.1f" % (player.position.y - h.y))
-	await _shot("dreaming_floor", h + Vector3(3, 56, -39), h + Vector3(-20, 51, -57))
+	# 7d) WALK the flight both ways — the whole route, not just static points.
+	# (Two launch bugs hid here: an ungoverned strip of the opening was an
+	# invisible floor, and the chamber divider's collider walled off the top.)
+	player.position = h + Vector3(-22, 36, -41)    # Star Chamber floor, at the flight's base
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	var t2 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t2 < 3000:
+		player.vel = Vector3(9.0, 4.0, 0)    # walk east, up the flight
+		await process_frame
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	_ck("dreaming stairs walk up", player.position.y - h.y > 49.5,
+		"y=%.1f x=%.1f" % [player.position.y - h.y, player.position.x - h.x])
+	player.position = h + Vector3(-4, 51, -41)     # east edge of the opening
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	var t3 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t3 < 3000:
+		player.vel = Vector3(-9.0, -4.0, 0)   # walk west, down the flight
+		await process_frame
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	_ck("dreaming stairs walk back down", player.position.y - h.y < 40.0,
+		"y=%.1f" % (player.position.y - h.y))
+	await _shot("dreaming_floor", h + Vector3(-6, 56, -39), h + Vector3(-20, 51, -57))
 	# 8) every castle staircase is solid — Roshan rests ON the steps at the
 	# ramp height for that spot instead of sinking through to the floor below
 	player.position = h + Vector3(0, 12, -16)      # royal staircase, mid-flight
