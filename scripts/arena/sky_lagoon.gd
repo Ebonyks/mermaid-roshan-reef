@@ -255,10 +255,38 @@ func _build_pearl_castle(o: Vector3) -> void:
 			continue
 		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]))
 		var fang: float = float(fi) * 1.3
-		frn.position = o + Vector3(cos(fang) * (34.0 + float(fi % 5) * 11.0), 6.0, 70.0 + sin(fang) * 45.0)
+		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
+		var frz: float = 70.0 + sin(fang) * 45.0
+		# gen2 meshes seat their base at the origin -> stand them on the lawn;
+		# billboard fallbacks are center-origin and keep the old float height
+		var fry: float = (_lagoon_local(frx, frz) + 0.2) if frn.has_meta("gen2") else 6.0
+		frn.position = o + Vector3(frx, fry, frz)
 		m.add_child(frn)
 		m.game_nodes.append(frn)
-		(m.g["crafted"] as Array).append({"node": frn, "cool": 0.0})
+		# collect the sway ShaderMaterials so the tick can ramp their `excite`
+		# (faster/bigger body wiggle) while the friend runs or nuzzles
+		var swaymats: Array = []
+		for mi in m._all_meshes(frn):
+			var msh: Mesh = mi.mesh
+			if msh == null:
+				continue
+			for si in range(msh.get_surface_count()):
+				var sm3: Material = mi.get_active_material(si)
+				if sm3 is ShaderMaterial:
+					swaymats.append(sm3)
+		# ground offset captured now so terrain-following works regardless of the
+		# lagoon_walk_h vs _lagoon_local coordinate convention
+		var goff: float = frn.position.y - m.lagoon_walk_h(frn.position.x, frn.position.z)
+		# rigged creatures (kitty) carry an AnimationPlayer -> play skeletal
+		# idle/walk/run/happy clips; static ones (bird) fall back to the sway shader
+		var ap: AnimationPlayer = frn.get_meta("ap") if frn.has_meta("ap") else null
+		(m.g["crafted"] as Array).append({
+			"node": frn, "cool": 0.0, "kind": String(cf2[0]),
+			"state": "idle", "t": 0.0, "next": 2.5 + randf() * 4.0,
+			"home": frn.position, "goff": goff, "tgt": frn.position,
+			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null, "ap": ap,
+			"sleep_cd": 25.0 + randf() * 25.0, "nap": 0.0, "zzz_cd": 0.0,
+		})
 	# a big rainbow arc over the meadow
 	var rainbow := MeshInstance3D.new()
 	var rt := TorusMesh.new()
@@ -519,6 +547,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bglow.position = back_pos + Vector3(0, 2.2, 0)
 	m.add_child(bglow); m.game_nodes.append(bglow)
 	m.g["back_entry"] = back_pos
+	# A tiny Christmas village waits on the dry meadow beyond the rear moat.
+	# It frames (rather than covers) the secret-hatch route, so curious swimming
+	# still has a clear reward and the cottages become a landmark on the way out.
+	_build_christmas_village(o)
 	var dl := Label3D.new()
 	dl.text = "Princess Huluu\u2019s Castle"
 	dl.font_size = 90
@@ -575,6 +607,263 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# seats join g["toys"] and play through the same play-moment system
 	m._train_ref()._build_train(o)
 	_build_fairy_pond(o)
+
+
+func _build_christmas_village(o: Vector3) -> void:
+	# Compact, low-poly toy-diorama dressing for the meadow behind the castle.
+	# Everything uses existing project materials and emissive paint; no extra
+	# lights are added, keeping the old-phone Mobile-renderer budget unchanged.
+	var cottage_rows: Array = [
+		[Vector3(-92.0, 0.0, -158.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 12.0],
+		[Vector3(92.0, 0.0, -158.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 12.0],
+		[Vector3(-70.0, 0.0, -182.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
+	]
+	for row: Array in cottage_rows:
+		var lp: Vector3 = row[0]
+		_village_snow_patch(o, lp, float(row[3]))
+		_village_cottage(o, lp, row[1], row[2])
+
+	# The train circles the castle at radius 78. The village lives beyond its
+	# clear corridor (and leaves the hatch at 0,-175 open), so no car ever has
+	# to trip its clip guard while still keeping every prop on the island rim.
+	var tree_pos := Vector3(70.0, 0.0, -182.0)
+	_village_snow_patch(o, tree_pos, 8.0)
+	_village_pine(o, tree_pos, 1.22, true)
+	_village_gift(o, tree_pos + Vector3(-4.2, 0.0, 2.6), Color(0.86, 0.20, 0.32), Color(1.0, 0.82, 0.32), 1.0)
+	_village_gift(o, tree_pos + Vector3(4.0, 0.0, 2.0), Color(0.25, 0.62, 0.70), Color(0.96, 0.72, 0.84), 0.82)
+	_village_gift(o, tree_pos + Vector3(1.0, 0.0, -4.0), Color(0.48, 0.35, 0.72), Color(0.90, 0.96, 1.0), 0.72)
+
+	# A few snowy pines close the silhouette without turning the clearing into
+	# another dense forest. Speedy keeps the two strongest shapes only.
+	var pine_spots: Array = [
+		[Vector3(-105.0, 0.0, -155.0), 0.72],
+		[Vector3(105.0, 0.0, -155.0), 0.78],
+	]
+	for pi in range(pine_spots.size()):
+		var prow: Array = pine_spots[pi]
+		_village_pine(o, prow[0], float(prow[1]), false)
+
+	_village_snowman(o, Vector3(52.0, 0.0, -190.0))
+
+
+func _village_snow_patch(o: Vector3, lp: Vector3, radius: float) -> void:
+	var snow := MeshInstance3D.new()
+	var smesh := CylinderMesh.new()
+	smesh.top_radius = radius
+	smesh.bottom_radius = radius * 0.94
+	smesh.height = 0.34
+	smesh.radial_segments = 18
+	snow.mesh = smesh
+	snow.material_override = m._up_mat("snow", 0.075, Color(0.86, 0.93, 1.0))
+	snow.position = o + Vector3(lp.x, _lagoon_local(lp.x, lp.z) + 0.16, lp.z)
+	snow.visibility_range_end = 175.0
+	m.add_child(snow)
+	m.game_nodes.append(snow)
+
+
+func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	var body := m._l2_box(base + Vector3(0.0, 4.1, 0.0), Vector3(14.0, 8.2, 11.0), wall_col)
+	body.material_override = m._up_mat("castle", 0.11, wall_col)
+	body.visibility_range_end = 180.0
+	# The solid reaches through the snow-capped roof, so the cottages never turn
+	# into ghost scenery when Roshan swims above door height.
+	m._wall_solid(base + Vector3(0.0, 7.5, 0.0), Vector3(14.0, 15.0, 11.0), 0.7)
+
+	var roof := MeshInstance3D.new()
+	var rmesh := CylinderMesh.new()
+	rmesh.top_radius = 0.15
+	rmesh.bottom_radius = 10.5
+	rmesh.height = 6.4
+	rmesh.radial_segments = 4
+	roof.mesh = rmesh
+	roof.material_override = m._up_mat("roof", 0.14, roof_col)
+	roof.position = base + Vector3(0.0, 11.3, 0.0)
+	roof.rotation.y = PI * 0.25
+	roof.visibility_range_end = 180.0
+	m.add_child(roof)
+	m.game_nodes.append(roof)
+
+	# A smaller white pyramid leaves a band of coloured eaves visible below it.
+	var cap := MeshInstance3D.new()
+	var cap_mesh := CylinderMesh.new()
+	cap_mesh.top_radius = 0.1
+	cap_mesh.bottom_radius = 7.7
+	cap_mesh.height = 4.6
+	cap_mesh.radial_segments = 4
+	cap.mesh = cap_mesh
+	cap.material_override = m._up_mat("snow", 0.09, Color(0.92, 0.97, 1.0))
+	cap.position = base + Vector3(0.0, 12.3, 0.0)
+	cap.rotation.y = PI * 0.25
+	cap.visibility_range_end = 180.0
+	m.add_child(cap)
+	m.game_nodes.append(cap)
+
+	var door := m._l2_box(base + Vector3(0.0, 2.75, 5.62), Vector3(3.2, 5.5, 0.35), Color(0.36, 0.22, 0.18))
+	door.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.36, 0.28))
+	door.visibility_range_end = 155.0
+	for wx: float in [-4.35, 4.35]:
+		var win := m._l2_box(base + Vector3(wx, 4.7, 5.72), Vector3(2.5, 2.8, 0.28), Color(1.0, 0.78, 0.38), 1.7)
+		win.visibility_range_end = 155.0
+
+	var chimney := m._l2_box(base + Vector3(3.5, 12.1, -0.8), Vector3(2.0, 6.0, 2.0), Color(0.48, 0.22, 0.22))
+	chimney.material_override = m._up_mat("castle", 0.15, Color(0.62, 0.30, 0.30))
+	chimney.visibility_range_end = 165.0
+
+
+func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	# Background trees reuse the already imported low-poly nature prop. Only the
+	# decorated landmark needs the layered procedural silhouette below.
+	if not decorated:
+		var nature_pine = m._nature("tree_pineRoundF", base - Vector3(0.0, 0.25, 0.0), 8.5 + sc * 2.0, 0.0)
+		if nature_pine != null:
+			m._cyl_solid(base + Vector3(0.0, 6.0, 0.0), 1.25, 6.0, 0.5)
+			return
+	var trunk := MeshInstance3D.new()
+	var trunk_mesh := CylinderMesh.new()
+	trunk_mesh.top_radius = 0.75 * sc
+	trunk_mesh.bottom_radius = 0.95 * sc
+	trunk_mesh.height = 4.0 * sc
+	trunk_mesh.radial_segments = 8
+	trunk.mesh = trunk_mesh
+	trunk.material_override = m._up_mat("wood", 0.14, Color(0.48, 0.31, 0.22))
+	trunk.position = base + Vector3(0.0, 2.0 * sc, 0.0)
+	trunk.visibility_range_end = 175.0
+	m.add_child(trunk)
+	m.game_nodes.append(trunk)
+
+	for ti in range(3):
+		var rad: float = (5.4 - float(ti) * 1.25) * sc
+		var cy: float = (5.2 + float(ti) * 3.45) * sc
+		var needles := MeshInstance3D.new()
+		var nmesh := CylinderMesh.new()
+		nmesh.top_radius = 0.1
+		nmesh.bottom_radius = rad
+		nmesh.height = 6.8 * sc
+		nmesh.radial_segments = 10
+		needles.mesh = nmesh
+		needles.material_override = m._up_mat("grass", 0.16, Color(0.18, 0.48, 0.38))
+		needles.position = base + Vector3(0.0, cy, 0.0)
+		needles.visibility_range_end = 175.0
+		m.add_child(needles)
+		m.game_nodes.append(needles)
+
+		var snow := MeshInstance3D.new()
+		var snow_mesh := CylinderMesh.new()
+		snow_mesh.top_radius = 0.08
+		snow_mesh.bottom_radius = rad * 0.70
+		snow_mesh.height = 2.7 * sc
+		snow_mesh.radial_segments = 10
+		snow.mesh = snow_mesh
+		snow.material_override = m._up_mat("snow", 0.10, Color(0.90, 0.97, 1.0))
+		snow.position = base + Vector3(0.0, cy + 1.7 * sc, 0.0)
+		snow.visibility_range_end = 175.0
+		m.add_child(snow)
+		m.game_nodes.append(snow)
+
+	if decorated:
+		var ornament_cols := [Color(1.0, 0.34, 0.42), Color(0.28, 0.75, 0.88), Color(1.0, 0.78, 0.28), Color(0.78, 0.48, 0.92)]
+		var ornament_count := 5 if m.quality == "speedy" else 8
+		for oi in range(ornament_count):
+			var ang: float = float(oi) * 2.4
+			var oy: float = (5.2 + float(oi % 3) * 3.2) * sc
+			var rr: float = (4.4 - float(oi % 3) * 0.85) * sc
+			var ornament := MeshInstance3D.new()
+			var omesh := SphereMesh.new()
+			omesh.radius = 0.55 * sc
+			omesh.height = 1.1 * sc
+			omesh.radial_segments = 8
+			omesh.rings = 4
+			ornament.mesh = omesh
+			var omat := StandardMaterial3D.new()
+			omat.albedo_color = ornament_cols[oi % ornament_cols.size()]
+			omat.emission_enabled = true
+			omat.emission = omat.albedo_color
+			omat.emission_energy_multiplier = 0.75
+			ornament.material_override = omat
+			ornament.position = base + Vector3(cos(ang) * rr, oy, sin(ang) * rr)
+			ornament.visibility_range_end = 125.0
+			m.add_child(ornament)
+			m.game_nodes.append(ornament)
+		var star := Label3D.new()
+		star.text = "\u2605"
+		star.font_size = 220
+		star.pixel_size = 0.025 * sc
+		star.outline_size = 28
+		star.modulate = Color(1.0, 0.86, 0.30)
+		star.outline_modulate = Color(0.45, 0.24, 0.48)
+		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		star.position = base + Vector3(0.0, 17.8 * sc, 0.0)
+		m.add_child(star)
+		m.game_nodes.append(star)
+	m._cyl_solid(base + Vector3(0.0, 8.0 * sc, 0.0), 2.1 * sc, 8.0 * sc, 0.5)
+
+
+func _village_gift(o: Vector3, lp: Vector3, col: Color, ribbon_col: Color, sc: float) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	var gift := m._l2_box(base + Vector3(0.0, 1.25 * sc, 0.0), Vector3(3.2, 2.5, 3.2) * sc, col)
+	var ribbon_v := m._l2_box(base + Vector3(0.0, 1.28 * sc, 0.0), Vector3(0.48, 2.58, 3.28) * sc, ribbon_col, 0.25)
+	var ribbon_h := m._l2_box(base + Vector3(0.0, 1.30 * sc, 0.0), Vector3(3.28, 2.62, 0.48) * sc, ribbon_col, 0.25)
+	for part: MeshInstance3D in [gift, ribbon_v, ribbon_h]:
+		part.visibility_range_end = 115.0
+
+
+func _village_snowman(o: Vector3, lp: Vector3) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.z)
+	var base := o + Vector3(lp.x, gy, lp.z)
+	for ball: Array in [[2.0, 2.0], [1.55, 5.0], [1.15, 7.55]]:
+		var snowball := MeshInstance3D.new()
+		var bmesh := SphereMesh.new()
+		bmesh.radius = float(ball[0])
+		bmesh.height = float(ball[0]) * 2.0
+		bmesh.radial_segments = 10
+		bmesh.rings = 6
+		snowball.mesh = bmesh
+		snowball.material_override = m._up_mat("snow", 0.10, Color(0.90, 0.97, 1.0))
+		snowball.position = base + Vector3(0.0, float(ball[1]), 0.0)
+		snowball.visibility_range_end = 135.0
+		m.add_child(snowball)
+		m.game_nodes.append(snowball)
+	for ex: float in [-0.38, 0.38]:
+		var eye := MeshInstance3D.new()
+		var emesh := SphereMesh.new()
+		emesh.radius = 0.13
+		emesh.height = 0.26
+		emesh.radial_segments = 6
+		emesh.rings = 3
+		eye.mesh = emesh
+		var emat := StandardMaterial3D.new()
+		emat.albedo_color = Color(0.10, 0.12, 0.18)
+		eye.material_override = emat
+		eye.position = base + Vector3(ex, 7.8, 1.03)
+		eye.visibility_range_end = 95.0
+		m.add_child(eye)
+		m.game_nodes.append(eye)
+	var nose := MeshInstance3D.new()
+	var nose_mesh := CylinderMesh.new()
+	nose_mesh.top_radius = 0.0
+	nose_mesh.bottom_radius = 0.28
+	nose_mesh.height = 1.4
+	nose_mesh.radial_segments = 8
+	nose.mesh = nose_mesh
+	var nose_mat := StandardMaterial3D.new()
+	nose_mat.albedo_color = Color(1.0, 0.42, 0.12)
+	nose_mat.roughness = 1.0
+	nose.material_override = nose_mat
+	nose.position = base + Vector3(0.0, 7.45, 1.55)
+	nose.rotation.x = PI * 0.5
+	nose.visibility_range_end = 105.0
+	m.add_child(nose)
+	m.game_nodes.append(nose)
+	var hat := m._l2_box(base + Vector3(0.0, 9.05, 0.0), Vector3(2.5, 1.2, 2.5), Color(0.24, 0.20, 0.34))
+	var brim := m._l2_box(base + Vector3(0.0, 8.48, 0.0), Vector3(3.2, 0.25, 3.2), Color(0.24, 0.20, 0.34))
+	hat.visibility_range_end = 120.0
+	brim.visibility_range_end = 120.0
+	m._cyl_solid(base + Vector3(0.0, 4.2, 0.0), 1.75, 4.2, 0.3)
 
 
 func _build_lagoon_terrain(o: Vector3) -> void:
@@ -663,6 +952,15 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		pts.append(rv[rv.size() - 1])
 		var st2 := SurfaceTool.new()
 		st2.begin(Mesh.PRIMITIVE_TRIANGLES)
+		# waterline pass first: surface 1.5 under the bank rim — but NEVER above
+		# the real terrain just beyond either ribbon edge. rim-1.5 alone floated
+		# a full-width water sheet 6 units over the east meadow wherever the path
+		# crossed a hill (the "flooded playground": merry/seesaw looked sunk in a
+		# lake), and 13 over the west bank. Capping against both outer banks
+		# keeps the water inside its gorge on hill crossings; a slope-limit pass
+		# smooths the cap steps into gentle rapids instead of sawtooth ledges.
+		var perps: Array = []
+		var wys: PackedFloat32Array = PackedFloat32Array()
 		for i in range(pts.size()):
 			var p2: Vector2 = pts[i]
 			var pn: Vector2 = pts[mini(i + 1, pts.size() - 1)]
@@ -670,19 +968,28 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var d2: Vector2 = (pn - pp)
 			d2 = d2.normalized() if d2.length() > 0.001 else Vector2(0, 1)
 			var perp := Vector2(-d2.y, d2.x) * 16.3
-			# the water FILLS the channel: surface 1.5 under the bank rim, and the
-			# ribbon is slightly wider than the waterline so its edges bury into
-			# the banks (no gap, no floating-band look). Depth ~10.5 = deep swims.
+			perps.append(perp)
 			var floor_h: float = _lagoon_local(p2.x, p2.y)
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
-			var wy: float = maxf(floor_h + 0.8, (floor_h + dip_h) - 1.5)
+			var eo: Vector2 = perp.normalized() * 20.0   # just past the carved channel (W=17)
+			var bank_cap: float = minf(_lagoon_local(p2.x + eo.x, p2.y + eo.y),
+				_lagoon_local(p2.x - eo.x, p2.y - eo.y)) - 0.5
+			var wy: float = minf((floor_h + dip_h) - 1.5, bank_cap)
+			wys.append(maxf(floor_h + 0.8, wy))
+		for i in range(1, wys.size()):   # slope-limit downstream…
+			wys[i] = minf(wys[i], wys[i - 1] + 0.5)
+		for i in range(wys.size() - 2, -1, -1):   # …and upstream
+			wys[i] = minf(wys[i], wys[i + 1] + 0.5)
+		for i in range(pts.size()):
+			var p2b: Vector2 = pts[i]
+			var perp2: Vector2 = perps[i]
 			var v: float = float(i) / float(pts.size())
 			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(0.0, v * 6.0))
-			st2.add_vertex(Vector3(p2.x + perp.x, wy, p2.y + perp.y))
+			st2.add_vertex(Vector3(p2b.x + perp2.x, wys[i], p2b.y + perp2.y))
 			st2.set_normal(Vector3.UP)
 			st2.set_uv(Vector2(1.0, v * 6.0))
-			st2.add_vertex(Vector3(p2.x - perp.x, wy, p2.y - perp.y))
+			st2.add_vertex(Vector3(p2b.x - perp2.x, wys[i], p2b.y - perp2.y))
 		for i in range(pts.size() - 1):
 			var a3 := i * 2
 			st2.add_index(a3); st2.add_index(a3 + 1); st2.add_index(a3 + 3)
@@ -1051,6 +1358,197 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			m._sparkle_burst(toy["anchor"], Color(1.0, 0.9, 0.6))
 			break
 
+# --- crafted-friend behaviour (kitty / birdie 3D meshes) ---------------------
+# Static Meshy meshes with the sway shader for body life; locomotion, facing and
+# gestures are procedural. States: idle -> sporadic wander/run -> approach when
+# Roshan is near -> nuzzle (rub against her, purr). Terrain-followed via
+# lagoon_walk_h; gen2 face is local -X (see memory gen2-creature-facing).
+const _CR_WANDER_R := 26.0     # scamper radius around home
+const _CR_WANDER_SPD := 9.0
+const _CR_RUN_SPD := 16.0
+const _CR_APPROACH := 14.0      # start running to greet within this range
+const _CR_NUZZLE := 3.4         # close enough to begin rubbing
+const _CR_NUZZLE_DUR := 4.5
+const _CR_HOP := 0.9            # gait bounce height at full run
+
+func _tick_crafted(delta: float, ppos: Vector3) -> void:
+	for cd in m.g.get("crafted", []):
+		var cn: Node3D = cd["node"]
+		if not is_instance_valid(cn):
+			continue
+		cd["t"] = float(cd["t"]) + delta
+		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
+		cd["sleep_cd"] = maxf(0.0, float(cd["sleep_cd"]) - delta)
+		var flat: Vector3 = ppos - cn.position
+		flat.y = 0.0
+		var pdist: float = flat.length()
+		var state: String = String(cd["state"])
+		# a calm friend bolts over to say hi when she comes near (off cooldown)
+		if (state == "idle" or state == "wander") and pdist < _CR_APPROACH and float(cd["cool"]) <= 0.0:
+			state = "approach"
+			cd["state"] = "approach"
+			cd["t"] = 0.0
+		match state:
+			"idle":
+				_crafted_sway(cd, 0.0)
+				_crafted_clip(cd, "idle")
+				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+				if float(cd["sleep_cd"]) <= 0.0 and pdist > _CR_APPROACH * 1.5:
+					# nap time: curl up right here and drift off
+					cd["state"] = "sleep"
+					cd["t"] = 0.0
+					cd["nap"] = 14.0 + randf() * 14.0
+					cd["zzz_cd"] = 1.2
+					_crafted_purr(cd, false)
+				elif float(cd["t"]) >= float(cd["next"]):
+					cd["state"] = "wander"
+					cd["t"] = 0.0
+					var home: Vector3 = cd["home"]
+					var tgt: Vector3
+					if pdist < 30.0 and randf() < 0.5:
+						# playful: bolt straight away from Roshan (chase-me)
+						var away: Vector3 = cn.position - ppos
+						away.y = 0.0
+						if away.length() < 0.1:
+							away = Vector3(randf() - 0.5, 0.0, randf() - 0.5)
+						tgt = home + away.normalized() * (_CR_WANDER_R * (0.6 + randf() * 0.4))
+					else:
+						var a: float = randf() * TAU
+						tgt = home + Vector3(cos(a), 0.0, sin(a)) * (_CR_WANDER_R * (0.3 + randf() * 0.7))
+					cd["tgt"] = tgt
+			"wander":
+				_crafted_sway(cd, 0.35)
+				_crafted_clip(cd, "walk")
+				if _crafted_move(cd, cd["tgt"], _CR_WANDER_SPD, delta):
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["next"] = 3.0 + randf() * 5.0
+			"approach":
+				_crafted_sway(cd, 1.0)
+				_crafted_clip(cd, "run")
+				var goal: Vector3 = cn.position
+				if pdist > 0.1:
+					goal = ppos - flat.normalized() * (_CR_NUZZLE * 0.5)
+				var reached: bool = _crafted_move(cd, goal, _CR_RUN_SPD, delta)
+				if pdist > _CR_APPROACH * 1.6:
+					# she walked away — give up the greet and go back to scampering
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+				elif pdist < _CR_NUZZLE + 1.0 or reached:
+					cd["state"] = "nuzzle"
+					cd["t"] = 0.0
+					cd["purr_cd"] = 0.0
+					if String(cd["kind"]) == "cat":
+						_crafted_purr(cd, true)
+			"nuzzle":
+				_crafted_clip(cd, "happy")
+				_crafted_nuzzle(cd, ppos, delta)
+				if float(cd["t"]) >= _CR_NUZZLE_DUR or pdist > 7.0:
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["cool"] = 7.0 + randf() * 6.0
+					cn.rotation.x = 0.0
+					_crafted_sway(cd, 0.0)
+					_crafted_purr(cd, false)
+			"sleep":
+				_crafted_sway(cd, 0.0)
+				_crafted_clip(cd, "sleep")
+				cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+				cd["zzz_cd"] = float(cd["zzz_cd"]) - delta
+				if float(cd["zzz_cd"]) <= 0.0:
+					cd["zzz_cd"] = 1.7
+					_crafted_zzz(cn.position + Vector3(0.0, 2.4, 0.0))
+				# wake up: nap over, or Roshan comes close to say hi
+				if float(cd["t"]) >= float(cd["nap"]) or pdist < 6.0:
+					cd["state"] = "idle"
+					cd["t"] = 0.0
+					cd["next"] = 1.2 + randf() * 2.0
+					cd["sleep_cd"] = 35.0 + randf() * 35.0
+
+func _crafted_sway(cd: Dictionary, energy: float) -> void:
+	for sm in cd["mats"]:
+		(sm as ShaderMaterial).set_shader_parameter("excite", energy)
+
+func _crafted_clip(cd: Dictionary, name: String) -> void:
+	# rigged creatures crossfade skeletal clips; static ones (no ap) no-op
+	var ap: AnimationPlayer = cd.get("ap")
+	if ap != null and ap.has_animation(name) and ap.current_animation != name:
+		ap.play(name, 0.2)
+
+func _crafted_move(cd: Dictionary, tgt: Vector3, spd: float, delta: float) -> bool:
+	var cn: Node3D = cd["node"]
+	var d: Vector3 = tgt - cn.position
+	d.y = 0.0
+	var dist: float = d.length()
+	if dist < 1.2:
+		cn.position.y = m.lagoon_walk_h(cn.position.x, cn.position.z) + float(cd["goff"])
+		return true
+	var dir: Vector3 = d / dist
+	var np: Vector3 = cn.position + dir * minf(spd * delta, dist)
+	cd["gait"] = float(cd["gait"]) + delta * spd * 0.8
+	var hop: float = absf(sin(float(cd["gait"]))) * _CR_HOP * (spd / _CR_RUN_SPD)
+	np.y = m.lagoon_walk_h(np.x, np.z) + float(cd["goff"]) + hop
+	cn.position = np
+	# gen2 face is local -X -> yaw = atan2(dir.z, -dir.x) (memory: gen2-creature-facing)
+	cn.rotation.y = lerp_angle(cn.rotation.y, atan2(dir.z, -dir.x), 0.25)
+	return false
+
+func _crafted_nuzzle(cd: Dictionary, ppos: Vector3, delta: float) -> void:
+	var cn: Node3D = cd["node"]
+	var to_p: Vector3 = ppos - cn.position
+	to_p.y = 0.0
+	var d: float = to_p.length()
+	var dir: Vector3 = (to_p / d) if d > 0.1 else Vector3.FORWARD
+	# press beside her and rub side-to-side along her flank
+	var side: Vector3 = Vector3(-dir.z, 0.0, dir.x)
+	var wig: float = sin(float(cd["t"]) * 6.5)
+	var goal: Vector3 = ppos - dir * (_CR_NUZZLE * 0.55) + side * wig * 0.9
+	goal.y = m.lagoon_walk_h(goal.x, goal.z) + float(cd["goff"]) + absf(wig) * 0.18
+	cn.position = cn.position.lerp(goal, 0.3)
+	# nose into her; happy body-roll wiggle (memory: -X face -> x-euler = roll)
+	cn.rotation.y = atan2(dir.z, -dir.x)
+	cn.rotation.x = wig * 0.14
+	_crafted_sway(cd, 1.0)
+	cd["purr_cd"] = float(cd["purr_cd"]) - delta
+	if float(cd["purr_cd"]) <= 0.0:
+		cd["purr_cd"] = 1.1
+		m._greet_heart(cn.position + Vector3(0.0, 3.0, 0.0))
+
+func _crafted_zzz(pos: Vector3) -> void:
+	# a soft floating Z while a crafted friend naps (same recipe as the hearts)
+	var z := Label3D.new()
+	z.text = "z"
+	z.font_size = 150
+	z.pixel_size = 0.02
+	z.outline_size = 16
+	z.modulate = Color(0.65, 0.75, 1.0)
+	z.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	z.position = pos
+	m.add_child(z)
+	var tw := z.create_tween()
+	tw.tween_property(z, "position:y", pos.y + 2.8, 1.6)
+	tw.parallel().tween_property(z, "modulate:a", 0.0, 1.6)
+	tw.parallel().tween_property(z, "font_size", 220, 1.6)
+	tw.tween_callback(z.queue_free)
+
+func _crafted_purr(cd: Dictionary, on: bool) -> void:
+	var p: AudioStreamPlayer3D = cd["purr"]
+	if on:
+		if p == null:
+			p = AudioStreamPlayer3D.new()
+			var st: AudioStream = load("res://assets/audio/purr.wav")
+			if st is AudioStreamWAV:
+				(st as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD
+			p.stream = st
+			p.unit_size = 6.0
+			p.max_distance = 40.0
+			(cd["node"] as Node3D).add_child(p)
+			cd["purr"] = p
+		p.pitch_scale = 0.95 + randf() * 0.1
+		p.play()
+	elif p != null and p.playing:
+		p.stop()
+
 func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# the train moves first so the ride seats' anchors are fresh when the
 	# toy tick reads them (it also hides itself whenever phase != "court")
@@ -1065,17 +1563,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(m.g.get("phase", "court")) == "hall":
 		m._tick_castle_hall(delta, ppos)
 		return
-	# crafted friends WAVE back: heart puff + happy chirp when Roshan visits
-	for cd in m.g.get("crafted", []):
-		cd["cool"] = maxf(0.0, float(cd["cool"]) - delta)
-		var cn: Node3D = cd["node"]
-		if is_instance_valid(cn) and float(cd["cool"]) <= 0.0 and cn.position.distance_to(ppos) < 6.5:
-			cd["cool"] = 9.0
-			m._greet_heart(cn.position + Vector3(0, 3.0, 0))
-			var hop_y: float = cn.position.y
-			var hop := cn.create_tween()
-			hop.tween_property(cn, "position:y", hop_y + 1.2, 0.18)
-			hop.tween_property(cn, "position:y", hop_y, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	# crafted friends are alive: they scamper around, and run up to nuzzle +
+	# purr when Roshan comes near
+	_tick_crafted(delta, ppos)
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta

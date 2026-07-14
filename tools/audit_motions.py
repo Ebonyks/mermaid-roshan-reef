@@ -9,7 +9,7 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4c_slim.glb"
+GLB = "roshan_v4g_slim.glb"
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -128,15 +128,15 @@ VERBS = {
    "armF2":{"axis":RIGHT,"keys":[[0,0],[0.6,0.55],[0.9,-0.45],[1.2,0.55],[1.5,-0.45],[1.8,0.55],[2.2,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.7,0.16],[2.0,0.16],[2.6,0]]}}},
  "cheer": {"len":2.2,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.3],[1.7,2.3],[2.2,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.1],[1.7,2.1],[2.2,-0.2]]},
    "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.2],[1.7,0.2],[2.2,0]]},
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.12],[1.7,-0.12],[2.2,0]]}}},
  "clap": {"len":2.0,"tracks":{
    "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
-   "armF":{"axis":(1,0,-1),"keys":[[0,0],[0.5,-1.4],[0.65,-0.4],[0.8,-1.4],[0.95,-0.4],[1.1,-1.4],[1.25,-0.4],[1.4,-1.4],[1.7,0]]},
-   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,0.4],[0.65,0.0],[0.8,0.4],[0.95,0.0],[1.1,0.4],[1.25,0.0],[1.4,0.4],[1.7,0]]}}},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.0],[1.7,2.0],[2.0,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.2],[0.65,0.4],[0.8,1.2],[0.95,0.4],[1.1,1.2],[1.25,0.4],[1.4,1.2],[1.7,0]]},
+   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.3],[0.65,0.0],[0.8,-0.3],[0.95,0.0],[1.1,-0.3],[1.25,0.0],[1.4,-0.3],[1.7,0]]}}},
  "twirl": {"len":1.9,"tracks":{
    "armU":{"axis":FWD,"keys":[[0,0],[0.4,-1.2],[1.5,-1.2],[1.9,0]]},
    "armU2":{"axis":FWD,"keys":[[0,0],[0.4,1.2],[1.5,1.2],[1.9,0]]},
@@ -147,7 +147,7 @@ VERBS = {
  "giggle": {"len":1.5,"tracks":{
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.2,-0.14],[0.4,0.02],[0.6,-0.14],[0.8,0.02],[1.0,-0.14],[1.5,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.25,0.18],[0.55,-0.18],[0.85,0.18],[1.15,-0.18],[1.5,0]]},
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,0.9],[1.2,0.9],[1.5,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.2],[1.2,2.2],[1.5,-0.2]]},
    "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.9],[1.2,1.9],[1.5,-0.2]]}}},
  "sleep": {"len":6.0,"tracks":{
    "head":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.5],[5.0,-0.5],[6.0,0]]},
@@ -353,6 +353,7 @@ for side, (sh, el, wr) in ARMS.items():
     v1 = (Sh-El)/np.linalg.norm(Sh-El); v2 = (Wr-El)/np.linalg.norm(Wr-El)
     interior = np.degrees(np.arccos(np.clip(np.dot(v1,v2),-1,1)))
     check(f"elbow {side} rest bend natural", 140 <= interior <= 178, f"interior={interior:.0f} deg")
+    check(f"shoulder {side} lateral (not in chest)", abs(Sh[0]) >= 0.11, f"|x|={abs(Sh[0]):.2f}")
     ext0 = (El-Sh)/np.linalg.norm(El-Sh)
     fr0 = np.array([0,0,-1.0]) - np.dot([0,0,-1.0], ext0)*ext0
     elbow_ref[side] = (fr0/np.linalg.norm(fr0), ext0, G0e[name2j[sh]][:3,:3])
@@ -400,6 +401,97 @@ check("elbow L never hyperextends", worst["L"] > -6.0, f"worst={worst['L']:.1f} 
 check("elbow L never over-folds", minfold["L"] > 25, f"min interior={minfold['L']:.0f} deg")
 check("elbow R never hyperextends", worst["R"] > -6.0, f"worst={worst['R']:.1f} deg")
 check("elbow R never over-folds", minfold["R"] > 25, f"min interior={minfold['R']:.0f} deg")
+
+# ---------------- skinning stress: streaks, shirt/skin capture, rear hair hue ----
+import io as _io
+from PIL import Image as _Im
+UVs = acc_np(prim["attributes"]["TEXCOORD_0"]).astype(np.float64)
+_mat = gltf["materials"][0]
+_src = gltf["textures"][_mat["pbrMetallicRoughness"]["baseColorTexture"]["index"]]["source"]
+_bv = gltf["bufferViews"][gltf["images"][_src]["bufferView"]]
+_tex = _Im.open(_io.BytesIO(bin_data[_bv.get("byteOffset",0):_bv.get("byteOffset",0)+_bv["byteLength"]])).convert("RGB")
+_T = np.asarray(_tex); _th,_tw = _T.shape[:2]
+_u = np.clip((UVs[:,0]%1.0)*(_tw-1),0,_tw-1).astype(int)
+_v = np.clip((UVs[:,1]%1.0)*(_th-1),0,_th-1).astype(int)
+CT = _T[_v,_u].astype(float)
+_r,_g,_b = CT[:,0],CT[:,1],CT[:,2]
+_mx=CT.max(1); _mn=CT.min(1); _sat=(_mx-_mn)/np.maximum(_mx,1)
+_skin = (_r>170)&(_r>_g)&(_g>_b)&(_g>110)&(_g<215)&(_b>90)&(_b<190)&((_r-_b)>25)&((_r-_b)<95)
+_pink = (_r>190)&(_b>170)&(_g>140)&(_g<_r)&(_sat<0.35)&~_skin
+strand_ks = [k for k,j in enumerate(joints) if jname[j].startswith("hair_")]
+_sw = np.zeros(len(P0))
+for c in range(4):
+    _sw += np.where(np.isin(J[:,c], strand_ks), W[:,c], 0)
+check("no shirt verts strand-driven", int(((_sw>0.3)&_pink).sum()) == 0,
+      f"{int(((_sw>0.3)&_pink).sum())} pink-top verts >30% strand weight")
+check("no skin verts strand-driven", int(((_sw>0.3)&_skin).sum()) == 0,
+      f"{int(((_sw>0.3)&_skin).sum())} skin verts >30% strand weight")
+
+def full_skin_pose(deltas):
+    M = joint_mats(deltas)
+    S = np.zeros((len(P0),3))
+    for c in range(4):
+        S += W[:,c][:,None]*np.einsum("nij,nj->ni", M[J[:,c]], Ph)[:,:3]
+    return S
+
+# worst-case: every strand at HairSim MAX_ANGLE (0.35 rad after damping), both axes,
+# on top of sprint swim + a cheer peak
+HMAX = 0.35
+stress = swim_deltas(1.3, 25.0)
+for k in strand_ks:
+    nm = jname[joints[k]]
+    q = qmul(model_axis_delta(nm, RIGHT, HMAX), model_axis_delta(nm, BACK, HMAX))
+    stress[nm] = q
+stress["armU"] = model_axis_delta("armU", RIGHT, 2.3)
+stress["armU2"] = model_axis_delta("armU2", RIGHT, 2.4)
+S1 = full_skin_pose(stress)
+disp = np.linalg.norm(S1-P0, axis=1)
+check("stress max displacement bounded", float(disp.max()) < 1.1,
+      f"max vert displacement {disp.max():.2f} (hair tips ~0.6 legit)")
+IDX = acc_np(prim["indices"]).astype(np.int64).reshape(-1,3)
+e = np.unique(np.sort(np.concatenate([IDX[:,[0,1]], IDX[:,[1,2]], IDX[:,[0,2]]]),1), axis=0)
+sel_e = e[np.random.RandomState(7).choice(len(e), 30000, replace=False)]
+l0 = np.linalg.norm(P0[sel_e[:,0]]-P0[sel_e[:,1]], axis=1)
+l1 = np.linalg.norm(S1[sel_e[:,0]]-S1[sel_e[:,1]], axis=1)
+ok_e = l0 > 1e-4
+ratio = (l1[ok_e]/l0[ok_e])
+opening = l1[ok_e] - l0[ok_e]
+check("stress no visible tearing", float(np.percentile(opening, 99.9)) < 0.05 and float(opening.max()) < 0.12,
+      f"edge opening 99.9pct {np.percentile(opening,99.9):.3f} max {opening.max():.3f} model units")
+# rear hair hue balance: blue fraction of rear-facing hair pixels, rest vs stress
+def rear_blue(S):
+    m = (S[:,2] > 0.05) & (S[:,1] > 0.1)     # back hemisphere, above waist
+    cc = CT[m]
+    blue = (cc[:,2] > cc[:,0]+20) & (cc[:,2] > 110)
+    brownish = (cc[:,0] > cc[:,2]+20)
+    return blue.sum()/max(blue.sum()+brownish.sum(),1)
+rb0, rb1 = rear_blue(P0), rear_blue(S1)
+check("rear hair keeps brown/rainbow mix", rb1 < 0.62 and rb1 < rb0*1.6 + 0.05,
+      f"rear blue fraction rest={rb0:.2f} stress={rb1:.2f}")
+
+# authored rainbow design (v4g): her-right rear scalp is pure chestnut, and the
+# swath lobe carries all rainbow band families (warm / green / cyan) at rest
+def _hue_deg(cc):
+    mxh = cc.max(1); mnh = cc.min(1); dh = np.maximum(mxh-mnh, 1e-6)
+    r_, g_, b_ = cc[:, 0], cc[:, 1], cc[:, 2]
+    h = np.where(mxh == r_, ((g_-b_)/dh) % 6,
+                 np.where(mxh == g_, (b_-r_)/dh+2, (r_-g_)/dh+4))
+    return h*60
+_scalpR = (P0[:, 0] > 0.10) & (P0[:, 1] > 0.35) & (P0[:, 2] > 0.05)
+_ccR = CT[_scalpR]
+_tealR = ((_ccR[:, 2] > _ccR[:, 0]+10) | ((_ccR[:, 1] > _ccR[:, 0]+15) & (_ccR[:, 1] > 90)))
+check("rear-right scalp chestnut (no teal)", float(_tealR.mean()) < 0.10,
+      f"teal fraction {_tealR.mean():.3f} over {len(_ccR)} verts")
+_swath = (P0[:, 0] < -0.08) & (P0[:, 1] > 0.20) & (P0[:, 1] < 0.75)
+_csw = CT[_swath]
+_hsw = _hue_deg(_csw)
+_satsw = (_csw.max(1)-_csw.min(1))/np.maximum(_csw.max(1), 1)
+_col = _satsw > 0.30
+_fw = float((((_hsw < 75) | (_hsw > 300)) & _col).mean())
+_fg = float((((_hsw >= 85) & (_hsw < 160)) & _col).mean())
+_fc = float((((_hsw >= 160) & (_hsw < 255)) & _col).mean())
+check("swath shows full rainbow banding", _fw > 0.10 and _fg > 0.05 and _fc > 0.05,
+      f"warm {_fw:.2f} green {_fg:.2f} cyan {_fc:.2f} of {len(_csw)} swath verts")
 
 # ---------------- report ----------------
 fails = 0

@@ -18,6 +18,18 @@ func joy_pressed(btn: int) -> bool:
 		return m.joy_pressed(btn)
 	return Input.is_joy_button_pressed(0, btn)
 
+# mouse look-around: hold the RIGHT button and drag (left button belongs to
+# minigames / the touch stick). Deltas accumulate here between frames and are
+# consumed at the top of _process, so frames the player logic skips (overlays,
+# minigame modes) just discard them instead of applying one big camera jump.
+var _mlook_dx := 0.0
+var _mlook_dy := 0.0
+
+func _input(ev: InputEvent) -> void:
+	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
+		_mlook_dx += ev.relative.x
+		_mlook_dy += ev.relative.y
+
 var yaw := 0.0
 var vel := Vector3.ZERO
 var swim_phase := 0.0
@@ -41,16 +53,16 @@ const VERB_LIB := {
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
 	}},
 	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.3], [1.7, 2.3], [2.2, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.1], [1.7, 2.1], [2.2, -0.2]]},
 		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.2], [1.7, 0.2], [2.2, 0.0]]},
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.12], [1.7, -0.12], [2.2, 0.0]]},
 	}},
 	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
 		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2], [1.7, 2.2], [2.0, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2], [1.7, 2.2], [2.0, -0.2]]},
-		"armF": {"axis": Vector3(1, 0, -1), "keys": [[0.0, 0.0], [0.5, -1.4], [0.65, -0.4], [0.8, -1.4], [0.95, -0.4], [1.1, -1.4], [1.25, -0.4], [1.4, -1.4], [1.7, 0.0]]},
-		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, 0.4], [0.65, 0.0], [0.8, 0.4], [0.95, 0.0], [1.1, 0.4], [1.25, 0.0], [1.4, 0.4], [1.7, 0.0]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.0], [1.7, 2.0], [2.0, -0.2]]},
+		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 1.2], [0.65, 0.4], [0.8, 1.2], [0.95, 0.4], [1.1, 1.2], [1.25, 0.4], [1.4, 1.2], [1.7, 0.0]]},
+		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, -0.3], [0.65, 0.0], [0.8, -0.3], [0.95, 0.0], [1.1, -0.3], [1.25, 0.0], [1.4, -0.3], [1.7, 0.0]]},
 	}},
 	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
 		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
@@ -64,7 +76,7 @@ const VERB_LIB := {
 	"giggle": {"len": 1.5, "sig": ["armU", 0.4], "tracks": {
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.2, -0.14], [0.4, 0.02], [0.6, -0.14], [0.8, 0.02], [1.0, -0.14], [1.5, 0.0]]},
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.25, 0.18], [0.55, -0.18], [0.85, 0.18], [1.15, -0.18], [1.5, 0.0]]},
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 0.9], [1.2, 0.9], [1.5, -0.2]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 2.2], [1.2, 2.2], [1.5, -0.2]]},
 		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.9], [1.2, 1.9], [1.5, -0.2]]},
 	}},
 	"sleep": {"len": 6.0, "sig": ["head", 0.3], "tracks": {
@@ -148,10 +160,6 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 # "rigged plushie" was a statue and the swim silently never applied. The
 # Huluu skin uses her illustrated cutout billboard instead (doll era: over).
 const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
-const SKIN_TIARA_Y := {"huluu": 2.5}   # V2 bodies are fuller up top; the plushie Huluu keeps the low halo
-
-func _tiara_y() -> float:
-	return float(SKIN_TIARA_Y.get(skin_id, 4.0))
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
@@ -339,8 +347,6 @@ func _attach_wing_cards(mdl: Node3D) -> void:
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
-	if _tiara != null:
-		_tiara.position.y = _tiara_y()
 	if SKIN_MODELS.has(id) and ResourceLoader.exists(String(SKIN_MODELS[id])):
 		# the full Roshan treatment: a rigged double-sided plushie with the SAME
 		# bone names, so the procedural swim drives her directly
@@ -382,7 +388,7 @@ func set_skin(id: String, tex_path: String) -> void:
 		skel = _roshan_skel
 		bone_idx = _roshan_maps[0]
 		rest = _roshan_maps[1]
-	var on_skin: bool = not (id == "classic" or id == "pearl" or tex_path == "")
+	var on_skin: bool = not (id == "classic" or tex_path == "")
 	if on_skin:
 		if skin_sprite != null:
 			var tex: Texture2D = load(tex_path)
@@ -399,91 +405,8 @@ func set_skin(id: String, tex_path: String) -> void:
 			model_root.visible = true
 		if skin_sprite != null:
 			skin_sprite.visible = false
-	# PEARL PRINCESS (Pearl Shop, 250 pearls): the classic model wrapped in an
-	# iridescent mother-of-pearl shimmer overlay
-	_set_pearl_overlay(id == "pearl")
 	if skin_sparkles != null:
-		skin_sparkles.emitting = on_skin or id == "pearl" or rainbow_trail
-
-var _pearl_mat: StandardMaterial3D = null
-var rainbow_trail := false
-var _tiara: Node3D = null
-
-func _set_pearl_overlay(on: bool) -> void:
-	if _pearl_mat == null and on:
-		_pearl_mat = StandardMaterial3D.new()
-		_pearl_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		_pearl_mat.albedo_color = Color(1.0, 0.92, 1.0, 0.22)
-		_pearl_mat.rim_enabled = true
-		_pearl_mat.rim = 1.0
-		_pearl_mat.rim_tint = 0.6
-		_pearl_mat.emission_enabled = true
-		_pearl_mat.emission = Color(0.9, 0.75, 1.0)
-		_pearl_mat.emission_energy_multiplier = 0.45
-	_apply_overlay(model_root, _pearl_mat if on else null)
-
-func _apply_overlay(n: Node, mat: Material) -> void:
-	if n == null:
-		return
-	if n is MeshInstance3D:
-		(n as MeshInstance3D).material_overlay = mat
-	for c in n.get_children():
-		_apply_overlay(c, mat)
-
-func set_rainbow_trail(on: bool) -> void:
-	# Pearl Shop treasure: sparkles follow Roshan forever, in every look
-	rainbow_trail = on
-	if on and skin_sparkles != null:
-		skin_sparkles.amount = 44
-		var grad := Gradient.new()
-		grad.set_color(0, Color(1.0, 0.5, 0.7))
-		grad.set_color(1, Color(0.5, 0.8, 1.0))
-		var gt := GradientTexture1D.new()
-		gt.gradient = grad
-		skin_sparkles.color_ramp = grad
-		skin_sparkles.emitting = true
-
-func set_tiara(on: bool) -> void:
-	# Pearl Shop treasure: a floating golden tiara ringed with pearls
-	if on and _tiara == null:
-		_tiara = Node3D.new()
-		var ring := MeshInstance3D.new()
-		var tm := TorusMesh.new()
-		tm.inner_radius = 0.5
-		tm.outer_radius = 0.72
-		ring.mesh = tm
-		var gm := StandardMaterial3D.new()
-		gm.albedo_color = Color(1.0, 0.85, 0.35)
-		gm.metallic = 0.85
-		gm.roughness = 0.2
-		gm.emission_enabled = true
-		gm.emission = Color(1.0, 0.8, 0.3)
-		gm.emission_energy_multiplier = 0.9
-		ring.material_override = gm
-		_tiara.add_child(ring)
-		for pi in range(5):
-			var pearl := MeshInstance3D.new()
-			var sm := SphereMesh.new()
-			sm.radius = 0.13
-			sm.height = 0.26
-			pearl.mesh = sm
-			var pm := StandardMaterial3D.new()
-			pm.albedo_color = Color(1.0, 0.97, 1.0)
-			pm.metallic = 0.5
-			pm.roughness = 0.15
-			pm.emission_enabled = true
-			pm.emission = Color(1.0, 0.9, 0.98)
-			pm.emission_energy_multiplier = 0.6
-			pearl.material_override = pm
-			var pa: float = TAU * float(pi) / 5.0
-			pearl.position = Vector3(cos(pa) * 0.61, 0.12, sin(pa) * 0.61)
-			_tiara.add_child(pearl)
-		_tiara.position = Vector3(0, _tiara_y(), 0)   # floats just above her head in every look
-		add_child(_tiara)
-		var tw := _tiara.create_tween().set_loops()
-		tw.tween_property(_tiara, "rotation:y", TAU, 6.0).from(0.0)
-	if _tiara != null:
-		_tiara.visible = on
+		skin_sparkles.emitting = on_skin
 
 func _flatten_materials(node: Node) -> void:
 	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
@@ -678,6 +601,11 @@ func _tail_curl(amt: float) -> void:
 	_rot_bone("finBot", Vector3.RIGHT, -amt * 0.35)
 
 func _process(delta: float) -> void:
+	# consume mouse-look deltas up front: early returns below then drop them
+	var mlook_x: float = _mlook_dx
+	var mlook_y: float = _mlook_dy
+	_mlook_dx = 0.0
+	_mlook_dy = 0.0
 	var _m0: Node = get_parent()
 	if "intro_active" in _m0 and _m0.intro_active:
 		return
@@ -947,15 +875,21 @@ func _process(delta: float) -> void:
 		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
 		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
-	# right-stick camera: peek around / up / down, then drift back behind her
+	# right-stick / right-drag camera: peek around / up / down, then drift back
+	# behind her once the stick AND the mouse button are released
 	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
 	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
+	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
 	if absf(rx) > 0.25:
 		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
+	elif mlook:
+		cam_orbit = clampf(cam_orbit - mlook_x * 0.005, -PI * 0.9, PI * 0.9)
 	else:
 		cam_orbit = lerpf(cam_orbit, 0.0, 1.0 - pow(0.35, delta))
 	if absf(ry) > 0.25:
 		cam_pitch_off = clampf(cam_pitch_off + ry * 9.0 * delta, -4.5, 8.0)
+	elif mlook:
+		cam_pitch_off = clampf(cam_pitch_off + mlook_y * 0.02, -4.5, 8.0)
 	else:
 		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
 

@@ -59,6 +59,15 @@ var god_rays_on := true
 var plankton_on := true
 var accent_on := true
 
+# ---- Animation Lab (Roshan stress testing) ----
+const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep"]
+var anim_loop := false        # cycle every verb back-to-back (soak test)
+var anim_loop_idx := 0
+var anim_loop_gap := 0.0
+var anim_speed := 0.0         # forced forward swim speed (0 = off)
+var anim_serpentine := false  # hard S-turns at speed: hair trail + turn stress
+var anim_serp_t := 0.0
+
 func _ready() -> void:
 	main = get_parent()
 	layer = 20
@@ -102,6 +111,7 @@ func _process(delta: float) -> void:
 		fps_label.text = "%d fps" % Engine.get_frames_per_second()
 	if main == null or main.player == null or get_tree().paused:
 		return
+	_tick_anim_lab(delta)
 	var p: Node3D = main.player
 	var cam: Camera3D = p.cam
 	if cam == null or not cam.is_inside_tree():
@@ -150,6 +160,37 @@ func _set_cam_mode(id: String) -> void:
 		var p: Node3D = main.player
 		orbit_angle = atan2(p.cam.position.z - p.position.z, p.cam.position.x - p.position.x)
 	_status("Camera: " + id)
+
+# ============================ animation lab ============================
+
+func _tick_anim_lab(delta: float) -> void:
+	# drives only free swim - minigames and cutscenes keep full control
+	var p: Node3D = main.player
+	# free-roam only: block just the modes that drive the player themselves
+	# (same list player.gd uses), plus intro/cutscenes
+	if String(main.game) in ["slide", "fairyshoot", "kart", "galaxy"] 			or main.intro_active or main.l2_cutscene_t >= 0.0:
+		return
+	if anim_serpentine:
+		anim_serp_t += delta
+		p.yaw += delta * 2.4 * signf(sin(anim_serp_t * 1.5))
+		p.vel = Vector3(sin(p.yaw), 0.0, cos(p.yaw)) * maxf(anim_speed, 18.0)
+	elif anim_speed > 0.05:
+		p.vel = Vector3(sin(p.yaw), 0.0, cos(p.yaw)) * anim_speed
+	if anim_loop:
+		if String(p.verb) == "":
+			anim_loop_gap -= delta
+			if anim_loop_gap <= 0.0:
+				p.play_verb(ANIM_VERBS[anim_loop_idx])
+				_status("Anim lab: " + ANIM_VERBS[anim_loop_idx])
+				anim_loop_idx = (anim_loop_idx + 1) % ANIM_VERBS.size()
+				anim_loop_gap = 0.5
+		else:
+			anim_loop_gap = 0.5
+
+func _play_lab_verb(vname: String) -> void:
+	if main != null and main.player != null:
+		main.player.play_verb(vname)
+		_status("Playing: " + vname)
 
 # ============================ collect / apply ============================
 
@@ -418,6 +459,44 @@ func _build_ui() -> void:
 	_slider("top_height", "Top-down height", 15.0, 90.0, 1.0, top_height, func(x: float): top_height = x)
 	_slider("side_dist", "Side/front distance", 8.0, 40.0, 1.0, side_dist, func(x: float): side_dist = x)
 	_slider("side_height", "Side/front height", 0.0, 20.0, 0.5, side_height, func(x: float): side_height = x)
+
+	# ---- animation lab ----
+	_section("Physics Lab (M11 grading — cleanse later)")
+	_check("phys_foliage", "Foliage physics (meadow push + shop kelp)", true, func(on: bool):
+		main.foliage_push_enabled = on)
+	var jspawn := Button.new()
+	jspawn.text = "Spawn 12 Jolt props around Roshan"
+	jspawn.add_theme_font_size_override("font_size", 15)
+	jspawn.custom_minimum_size = Vector2(0, 42)
+	jspawn.pressed.connect(func(): main._physlab_spawn())
+	vb.add_child(jspawn)
+	var jclear := Button.new()
+	jclear.text = "Clear Jolt props"
+	jclear.add_theme_font_size_override("font_size", 15)
+	jclear.custom_minimum_size = Vector2(0, 42)
+	jclear.pressed.connect(func(): main._physlab_clear())
+	vb.add_child(jclear)
+	_section("Animation Lab (Roshan)")
+	var vflow := HFlowContainer.new()
+	vb.add_child(vflow)
+	for vn in ANIM_VERBS:
+		var vbtn := Button.new()
+		vbtn.text = vn.capitalize()
+		vbtn.add_theme_font_size_override("font_size", 15)
+		vbtn.custom_minimum_size = Vector2(0, 42)
+		vbtn.pressed.connect(_play_lab_verb.bind(vn))
+		vflow.add_child(vbtn)
+	_check("anim_loop", "Loop all gestures (soak test)", false, func(on: bool):
+		anim_loop = on
+		anim_loop_idx = 0
+		anim_loop_gap = 0.0
+		_status("Gesture soak " + ("ON - every verb, back to back" if on else "off")))
+	_slider("anim_speed", "Forced swim speed", 0.0, 26.0, 0.5, 0.0, func(x: float):
+		anim_speed = x)
+	_check("anim_serpentine", "Serpentine stress (hard S-turns)", false, func(on: bool):
+		anim_serpentine = on
+		anim_serp_t = 0.0
+		_status("Serpentine " + ("ON - S-turns at speed; watch hair + arms" if on else "off")))
 
 	# ---- lighting ----
 	_section("Lighting")

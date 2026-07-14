@@ -32,7 +32,10 @@ func load_save() -> void:
 	m.custom_friends = m.save_data.get("custom_friends", [])
 	m.craft_unlocks = m.save_data.get("crafts", {})
 	m.stickers = m.save_data.get("stickers", {})
+	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
+	# old saves — kept for save compatibility, no longer applied to the player
 	m.shop_owned = m.save_data.get("owned", {})
+	m.animals_owned = m.save_data.get("animals", {})
 	if bool(m.shop_owned.get("tail", false)):
 		m.player.set_rainbow_trail(true)
 	if bool(m.shop_owned.get("tiara", false)):
@@ -64,7 +67,7 @@ func write_save() -> void:
 	for f2 in m.friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	m.save_data = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "stickers": m.stickers, "owned": m.shop_owned}
+	m.save_data = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned}
 	var f = FileAccess.open(m.SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(m.save_data))

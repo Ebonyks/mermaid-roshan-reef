@@ -21,8 +21,11 @@ func _frames(n: int) -> void:
 		await process_frame
 
 func _swim(dir: Vector3, n: int) -> void:
-	# sustained swim: drag kills a one-shot impulse in ~0.4s, so re-assert vel
-	for i in range(n):
+	# sustained swim: drag kills a one-shot impulse in ~0.4s, so re-assert vel.
+	# n is in 60fps-frame units but paced by WALL CLOCK — headless frame rates
+	# vary wildly, and a raw frame count under-travels on a fast machine
+	var t0 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t0 < int(float(n) * 1000.0 / 60.0):
 		main.player.vel = dir
 		await process_frame
 

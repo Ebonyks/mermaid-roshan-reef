@@ -51,6 +51,14 @@ probe suite runs in CI instead — .github/workflows/probes.yml executes
 import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
+## Getting the game onto the phone
+Every push to `master` auto-builds the debug APK
+(.github/workflows/android.yml) and refreshes the stable download URL
+https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-test/roshan-reef.apk
+— bookmark that on the phone; tapping it always grabs the newest build.
+From a computer, `./pull-apk.sh` downloads it and, if a phone is on adb,
+installs it in place (save data kept).
+
 ## Hard rules
 - Renderer: "mobile" on EVERY platform (owner decision 2026-07-11:
   desktop and phone must look identical — mobile is the dominant
@@ -67,6 +75,13 @@ on any FAIL line. Treat a red probes run exactly like a local red probe.
   also fire a voice line via _say() and a visual pointer.
 - Save compatibility: never remove keys from reef_save.json; add with defaults.
 - GDScript: tabs, typed vars where present, match surrounding style.
+
+## Git workflow
+- Owner rule (2026-07-13): when a task is COMPLETE (probes green on CI),
+  merge the work branch into `master` and push it — master is the branch
+  the owner pulls and plays, so finished work parked only on a feature
+  branch is invisible to him. Develop on the session's designated work
+  branch as usual, and never merge unprobed or red work into master.
 
 ## Refactor rules for main.gd
 Extract, don't rewrite. Moves must be mechanical: one arena builder or one

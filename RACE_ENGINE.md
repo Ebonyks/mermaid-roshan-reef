@@ -63,6 +63,16 @@ kart, so the engine never breaks on assets.
   hue-cycling shader). Live preview on the podium; originals cached so repainting
   never compounds. Override the list with `paints` in configure().
 
+**Tracks are distinct now**: the seabed race hugs the real reef floor; the
+rainbow race rides its own `RAINBOW_CTRL` rollercoaster loop (66 units of
+climb/dive around the Butterfly World). **Hazards** (`hazards` in configure,
+themed defaults, all gentle/no-fail): ocean gets scuttling crabs (soft bonk +
+silly spin), kelp patches (drag — a burning turbo powers through) and bubble
+geysers on a telegraphed rhythm (erupting = free JUMP: the hazard kids learn
+to chase); rainbow gets sweeping comets (hover-pulse telegraph, then a bonk
+sweep), sleepy clouds (drag) and a swinging star pendulum (bonk). Bonks slow
++ shove + one full visual spin, cancel a drift charge, never stun or stop.
+
 ## configure() keys (all optional; defaults = ocean course)
 `name, theme ("ocean"|"rainbow"), laps, lap_target_sec, road_half,
 ctrl (Array[Vector3] loop points), origin, racers (name/col/sprite/player),

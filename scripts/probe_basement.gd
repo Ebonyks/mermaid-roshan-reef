@@ -127,25 +127,73 @@ func _init() -> void:
 		"y=%.1f" % (player.position.y - h.y))
 	# 6) the basement wing: the widened hallway and the side rooms all hold the
 	# basement floor (each point was OUTSIDE the old 12-wide corridor zone)
-	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(17, -12, -28)]:
+	# (the craft-room point stays >7 from the easel or the craft studio would
+	# open and freeze player physics for the rest of the probe)
+	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(13, -12, -28), Vector3(-30, -12, -28)]:
 		player.position = h + wp
 		player.vel = Vector3.ZERO
 		await _wait_ms(900)
 		_ck("basement floor at (%d, %d)" % [int(wp.x), int(wp.z)], player.position.y - h.y < -14.0,
 			"y=%.1f" % (player.position.y - h.y))
+		if main.craft_layer != null:
+			main._close_craft()   # safety: never leave an overlay freezing physics
+			await _frames(5)
 	await _shot("basement_hallway", h + Vector3(0, -8, 0), h + Vector3(0, -16, -30))
-	# 7) the royal loo waits at the very bottom of the basement hallway
+	# 7) the royal loo hides in the secret privy behind the Bubble Bath — deep
+	# in the far corner of the basement, not out in the open
 	_ck("toilet exists", main.g.has("toilet"))
 	if main.g.has("toilet"):
 		var tpos: Vector3 = (main.g["toilet"] as Dictionary)["pos"]
-		_ck("toilet is down in the basement", tpos.y - h.y < -10.0 and tpos.z - h.z < -35.0,
+		_ck("toilet hides deep in the basement", tpos.y - h.y < -10.0 and tpos.x - h.x < -25.0,
 			"rel=(%.1f, %.1f, %.1f)" % [tpos.x - h.x, tpos.y - h.y, tpos.z - h.z])
-		player.position = h + Vector3(-3.0, -15.5, -41.0)
+		player.position = h + Vector3(-30.5, -15.5, -28.0)
 		player.vel = Vector3.ZERO
 		await _frames(30)
 		var td: Dictionary = main.g["toilet"]
 		_ck("toilet toots on approach", not bool(td.get("armed", true)))
-		await _shot("royal_loo", h + Vector3(1, -13, -36), h + Vector3(-6, -16, -42))
+		await _shot("royal_loo", h + Vector3(-27, -13, -24), h + Vector3(-32, -16, -28))
+	# 7b) the craft easel moved into its dedicated basement craft room
+	if main.g.has("craft_easel"):
+		var cev: Vector3 = main.g["craft_easel"]
+		_ck("craft easel lives in the craft room", cev.y - h.y < -8.0 and cev.x - h.x > 14.0,
+			"rel=(%.1f, %.1f, %.1f)" % [cev.x - h.x, cev.y - h.y, cev.z - h.z])
+	# 7c) the Dreaming Floor: the flight up holds, and the bedroom floor holds
+	player.position = h + Vector3(-12, 44, -41)    # mid-flight to the third story
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("dreaming stairs hold", player.position.y - h.y > 39.0 and player.position.y - h.y < 45.0,
+		"y=%.1f" % (player.position.y - h.y))
+	player.position = h + Vector3(-36, 54, -57.5)  # Princess Huluu's bedroom
+	player.vel = Vector3.ZERO
+	await _wait_ms(900)
+	_ck("dreaming floor holds", player.position.y - h.y > 49.5 and player.position.y - h.y < 52.5,
+		"y=%.1f" % (player.position.y - h.y))
+	# 7d) WALK the flight both ways — the whole route, not just static points.
+	# (Two launch bugs hid here: an ungoverned strip of the opening was an
+	# invisible floor, and the chamber divider's collider walled off the top.)
+	player.position = h + Vector3(-22, 36, -41)    # Star Chamber floor, at the flight's base
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	var t2 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t2 < 3000:
+		player.vel = Vector3(9.0, 4.0, 0)    # walk east, up the flight
+		await process_frame
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	_ck("dreaming stairs walk up", player.position.y - h.y > 49.5,
+		"y=%.1f x=%.1f" % [player.position.y - h.y, player.position.x - h.x])
+	player.position = h + Vector3(-4, 51, -41)     # east edge of the opening
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	var t3 := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - t3 < 3000:
+		player.vel = Vector3(-9.0, -4.0, 0)   # walk west, down the flight
+		await process_frame
+	player.vel = Vector3.ZERO
+	await _wait_ms(600)
+	_ck("dreaming stairs walk back down", player.position.y - h.y < 40.0,
+		"y=%.1f" % (player.position.y - h.y))
+	await _shot("dreaming_floor", h + Vector3(-6, 56, -39), h + Vector3(-20, 51, -57))
 	# 8) every castle staircase is solid — Roshan rests ON the steps at the
 	# ramp height for that spot instead of sinking through to the floor below
 	player.position = h + Vector3(0, 12, -16)      # royal staircase, mid-flight
@@ -153,12 +201,12 @@ func _init() -> void:
 	await _wait_ms(900)
 	_ck("royal staircase holds", player.position.y - h.y > 4.0 and player.position.y - h.y < 12.0,
 		"y=%.1f" % (player.position.y - h.y))
-	player.position = h + Vector3(30.5, 24, -18)   # balcony stairs (right), mid-flight
+	player.position = h + Vector3(30.5, 24, -28)   # balcony stairs (right), mid-flight
 	player.vel = Vector3.ZERO
 	await _wait_ms(900)
 	_ck("balcony stairs hold (right)", player.position.y - h.y > 17.0 and player.position.y - h.y < 24.0,
 		"y=%.1f" % (player.position.y - h.y))
-	player.position = h + Vector3(-30.5, 24, -18)  # balcony stairs (left), mid-flight
+	player.position = h + Vector3(-30.5, 24, -28)  # balcony stairs (left), mid-flight
 	player.vel = Vector3.ZERO
 	await _wait_ms(900)
 	_ck("balcony stairs hold (left)", player.position.y - h.y > 17.0 and player.position.y - h.y < 24.0,

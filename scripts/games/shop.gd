@@ -14,11 +14,27 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.player.position = origin + Vector3(0, 4, 9)
 	m.player.vel = Vector3.ZERO
 	m.player.yaw = PI
-	m.show_msg("Pearl Shop", "Welcome aboard! Swim up to a treasure on the counter to buy it!")
+	m.show_msg("Pearl Shop", "Welcome aboard! Treasures on the counter - and new reef friends in the tanks!")
 
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Pearls: %d - swim to a treasure to buy it!" % m.pearl_count
+	m.hud_game.text = "Pearls: %d - swim to a treasure or a tank friend to buy it!" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
+	# PHYSICS LAB: hanging kelp = damped spring pendulums, swing when brushed
+	if m.foliage_push_enabled:
+		for kd in m.g.get("kelp", []):
+			var bn: MeshInstance3D = kd["node"]
+			if not is_instance_valid(bn):
+				continue
+			var ang0: Vector2 = kd["ang"]
+			var tip: Vector3 = bn.position + Vector3(ang0.x, -1.0, ang0.y).normalized() * 2.0
+			var dd: float = tip.distance_to(ppos)
+			if dd < 2.4:
+				var push := Vector2(tip.x - ppos.x, tip.z - ppos.z)
+				if push.length() > 0.01:
+					kd["vel"] = (kd["vel"] as Vector2) + push.normalized() * (2.4 - dd) * 12.0 * delta
+			ReefPhysics.spring2(kd, 6.0, 1.5, delta)
+			var ang: Vector2 = kd["ang"]
+			bn.rotation = Vector3(PI - ang.y * 0.8, float(kd["yaw"]), ang.x * 0.8)
 	for it in m.g.get("items", []):
 		var inode: Node3D = it["node"]
 		if not inode.visible:
@@ -45,6 +61,58 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			elif m.shop_msg_cool <= 0.0:
 				m.shop_msg_cool = 2.5
 				m.show_msg("Pearl Shop", "You need %d pearls for that - the reef is full of them!" % price)
+	for tk in m.g.get("tanks", []):
+		var tid := String(tk["id"])
+		var pet: Node3D = tk["node"]
+		if pet != null and is_instance_valid(pet) and pet.visible:
+			# little laps inside the glass so the tank reads alive: x sweeps on a
+			# sine, and the friend turns to face its swim direction (creatures
+			# face -X at rotation.y 0 - same convention the reef movers steer).
+			# On top of the lap, EACH species plays its own close-up idle -
+			# this is what she watches while deciding to buy.
+			var tt: float = float(m.g["t"])
+			var base: Vector3 = tk["base"]
+			var ph: float = float(tk["ph"])
+			var rate: float = 0.9
+			var sweep: float = 1.1
+			if tid == "turtle":
+				rate = 0.55        # turtles glide, they don't dart
+			elif tid == "stingray":
+				rate = 0.7
+			elif tid == "squid":
+				rate = 0.5
+				sweep = 0.4        # squid mostly hovers and breathes
+			var swim := sin(tt * rate + ph)
+			pet.position.x = base.x + swim * sweep
+			var going: float = cos(tt * rate + ph)
+			pet.rotation.y = lerp_angle(pet.rotation.y, 0.0 if going < 0.0 else PI, delta * 4.0)
+			if tid == "turtle":
+				# the full skeleton: flipper power strokes, rudder paddles,
+				# curious look-around (built by _rig_turtle's motion cage)
+				pet.position.y = base.y - 0.3 + sin(tt * 0.8 + ph) * 0.08
+				if not (tk["rig"] as Dictionary).is_empty():
+					m._turtle_idle(tk["rig"], tt)
+			elif tid == "dolphin":
+				# porpoise arcs: two gentle rises per lap
+				pet.position.y = base.y - 0.3 + sin(tt * rate * 2.0 + ph) * 0.22
+			elif tid == "stingray":
+				# wing-heavy glide (boosted sway) with a lazy banking roll
+				pet.position.y = base.y - 0.3 + sin(tt * 0.6 + ph) * 0.12
+				pet.rotation.z = sin(tt * 0.8 + ph) * 0.08
+			elif tid == "squid":
+				# jet breathing: squash-and-stretch synced to a drifting bob
+				var pulse := sin(tt * 2.6 + ph)
+				pet.scale = Vector3(1.0 - pulse * 0.03, 1.0 + pulse * 0.06, 1.0 - pulse * 0.03)
+				pet.position.y = base.y - 0.3 + sin(tt * 2.6 + ph - 0.7) * 0.10
+		if bool(m.animals_owned.get(tid, false)):
+			continue
+		if m._near_ground(tk["base"], ppos, 5.5, 7.0):
+			var tprice: int = int(tk["price"])
+			if m.pearl_count >= tprice:
+				_tank_buy(tid)
+			elif m.shop_msg_cool <= 0.0:
+				m.shop_msg_cool = 2.5
+				m.show_msg("Pearl Shop", "This friend costs %d pearls - the reef is full of them!" % tprice)
 	var door: MeshInstance3D = m.g["exit"]
 	door.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 3.0) * 0.08)
 	# leave the shop by simply swimming OUT of the room (open front / sides)
@@ -68,7 +136,8 @@ func _shop_buy(id: String) -> void:
 				m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.6, 1.0, 0.4))
 				_check_shopper()
 			return
-		# permanent treasures (Rainbow Trail / Pearl Tiara / Pearl Princess)
+		# permanent treasures (hard-generated assets only — the early procedural
+		# cosmetics were retired; the catalog is beans-only until replacements land)
 		if bool(m.shop_owned.get(id, false)):
 			return
 		m.pearl_count -= int(it["price"])
@@ -78,18 +147,44 @@ func _shop_buy(id: String) -> void:
 		if m.buy_sound != null:
 			m.buy_sound.play()
 		m._sparkle_burst(m.player.position + Vector3(0, 2, 0), Color(1.0, 0.9, 1.0))
-		if id == "tail":
-			m.player.set_rainbow_trail(true)
-			m.show_msg("Pearl Shop", "A RAINBOW TRAIL! Sparkles will follow you FOREVER!", "win")
-		elif id == "tiara":
-			m.player.set_tiara(true)
-			m.show_msg("Pearl Shop", "The PEARL TIARA! Fit for a real princess!", "win")
-		elif id == "pearlskin":
-			m.show_msg("Pearl Shop", "PEARL PRINCESS! Your shimmery look waits in the castle wardrobe!", "win")
 		_check_shopper()
 		return
 
+func _tank_buy(id: String) -> void:
+	# release a tank friend into the reef: deduct pearls, persist, spawn its
+	# patrols + babies right away so it is already swimming when she leaves.
+	# Callable outside the shop scene too (probes) - the tank visuals are only
+	# touched when the cabin is actually built.
+	for it in m.ANIMAL_SHOP:
+		if String(it["id"]) != id:
+			continue
+		if bool(m.animals_owned.get(id, false)) or m.pearl_count < int(it["price"]):
+			return
+		m.pearl_count -= int(it["price"])
+		m.animals_owned[id] = true
+		m._spawn_shop_animals()
+		m._update_hud()
+		m._write_save()
+		if m.buy_sound != null:
+			m.buy_sound.play()
+		m._sparkle_burst(m.player.position + Vector3(0, 2, 0), Color(0.5, 1.0, 0.9))
+		for tk in m.g.get("tanks", []):
+			if String(tk["id"]) != id:
+				continue
+			var pet: Node3D = tk["node"]
+			if pet != null and is_instance_valid(pet):
+				pet.visible = false
+			(tk["tag"] as Label3D).text = "%s\n(set free!)" % String(it["label"])
+		m.show_msg("Pearl Shop", "The %s is FREE! It lives in YOUR reef now - go find it!" % String(it["label"]), "win")
+		return
+
 func _check_shopper() -> void:
-	if bool(m.shop_owned.get("_beans_once", false)) and bool(m.shop_owned.get("tail", false)) \
-			and bool(m.shop_owned.get("tiara", false)) and bool(m.shop_owned.get("pearlskin", false)):
-		m.award_sticker("shopper")
+	# Big Shopper = bought everything in the current catalog (beans once, plus
+	# any permanent treasure it lists)
+	if not bool(m.shop_owned.get("_beans_once", false)):
+		return
+	for it in m.SHOP_ITEMS:
+		var id := String(it["id"])
+		if id != "beans" and not bool(m.shop_owned.get(id, false)):
+			return
+	m.award_sticker("shopper")

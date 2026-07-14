@@ -1,8 +1,13 @@
 name: Android APK
 
+# master is the branch the owner pulls and plays (owner rule 2026-07-13),
+# so every master push refreshes the stable android-test download URL.
+# The old claude/replace-assets-free-sources-lnplz7 trigger was dropped:
+# that stale branch also published to android-test and a push there would
+# have clobbered the master channel.
 on:
   push:
-    branches: [claude/replace-assets-free-sources-lnplz7, claude/graphics-upgrade-fork]
+    branches: [master, claude/graphics-upgrade-fork]
   workflow_dispatch:
 
 permissions:
@@ -71,7 +76,7 @@ jobs:
             echo "title=Android test build (graphics fork)" >> "$GITHUB_OUTPUT"
           else
             echo "tag=android-test" >> "$GITHUB_OUTPUT"
-            echo "title=Android test build" >> "$GITHUB_OUTPUT"
+            echo "title=Android build (latest master)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Publish APK to the prerelease (stable download URL)
@@ -83,4 +88,9 @@ jobs:
           body: |
             Debug APK of Mermaid Roshan Reef of Light (auto-built from the latest push).
             On the phone: download roshan-reef.apk, open it, and allow "install unknown apps" when prompted.
+
+            Bookmarkable direct link (always the newest build on this channel):
+            https://github.com/${{ github.repository }}/releases/download/${{ steps.tag.outputs.tag }}/roshan-reef.apk
+
+            From a computer with the phone plugged in: `./pull-apk.sh`
           files: build/roshan-reef.apk

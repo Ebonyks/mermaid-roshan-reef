@@ -12,13 +12,16 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
 	m._build_fairyshoot(origin)
 	m._play_music("melody")   # dreamy track
-	m.show_msg(fr["fname"], "Fly over the fairy pond! Dodge the shadow sparks — your wand zaps bugs all by itself! SPACE / TAP makes a sparkle shield!")
+	m.show_msg(fr["fname"], "Fly up the fairy pond! Dodge the sparks and the shadow monsters — your wand zaps ahead all by itself! SPACE / TAP makes a sparkle shield!")
 
 func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var origin: Vector3 = m.ARENA_POS
 	var phase: String = String(m.g.get("phase", "fly"))
 	var tt: float = float(m.g["t"])
-	# ---- restricted movement: flat screen-relative slide — no momentum, no jump ----
+	# ---- the track scrolls on its own; the stick only slides Roshan around ----
+	if phase == "fly":
+		m.g["fz"] = float(m.g["fz"]) + m.FS_FWD * delta
+	var fz: float = m.g["fz"]
 	var inx := 0.0
 	var iny := 0.0
 	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
@@ -36,27 +39,18 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if m.touch_ui != null:
 		if absf(m.touch_ui.stick_vec.x) > 0.15: inx += m.touch_ui.stick_vec.x
 		if absf(m.touch_ui.stick_vec.y) > 0.15: iny -= m.touch_ui.stick_vec.y
-	var pos: Vector3 = m.player.position
-	pos.x += clampf(inx, -1.0, 1.0) * m.FS_MOVE * delta
-	pos.z -= clampf(iny, -1.0, 1.0) * m.FS_MOVE * delta   # stick up = up the screen
-	pos.y = origin.y + m.FS_PLANE
-	# keep Roshan inside the glowing rim (and out of the flower's heart)
-	var off := Vector2(pos.x - origin.x, pos.z - origin.z)
-	if off.length() > m.FS_R - 2.0:
-		off = off.normalized() * (m.FS_R - 2.0)
-		pos.x = origin.x + off.x; pos.z = origin.z + off.y
-	if phase != "fly":
-		var dcen: float = off.length()
-		if dcen < m.FS_BOSS_KEEP:
-			off = (off / dcen if dcen > 0.001 else Vector2.RIGHT) * m.FS_BOSS_KEEP
-			pos.x = origin.x + off.x; pos.z = origin.z + off.y
+	# x negated so 'right' reads screen-right under the overhead camera
+	var ox: float = clampf(float(m.g["ox"]) - clampf(inx, -1.0, 1.0) * m.FS_MOVE * delta, -m.FS_BX, m.FS_BX)
+	var oz: float = clampf(float(m.g["oz"]) + clampf(iny, -1.0, 1.0) * m.FS_MOVE * delta, -m.FS_BZB, m.FS_BZF)
+	m.g["ox"] = ox; m.g["oz"] = oz
+	var pos: Vector3 = origin + Vector3(ox, m.FS_PLANE, fz + oz)
 	m.player.position = pos
 	m.player.vel = Vector3.ZERO
-	# ---- fixed overhead camera: the pond reads like a flat 2D map ----
+	# ---- fixed overhead camera glides up the track: reads like a scrolling 2D map ----
 	if m.player.cam != null and m.player.cam.is_inside_tree():
-		var focus := Vector3(origin.x + off.x * 0.12, origin.y, origin.z + off.y * 0.12)
+		var focus: Vector3 = origin + Vector3(ox * 0.15, 0, fz + m.FS_LOOK)
 		m.player.cam.position = m.player.cam.position.lerp(focus + Vector3(0, m.FS_CAM_H, 0), 1.0 - pow(0.002, delta))
-		m.player.cam.look_at(focus, Vector3(0, 0, -1))
+		m.player.cam.look_at(focus, Vector3(0, 0, 1))
 	# ---- sparkle-blink safety time after a bump ----
 	m.g["hurt_t"] = maxf(0.0, float(m.g["hurt_t"]) - delta)
 	m.player.visible = float(m.g["hurt_t"]) <= 0.0 or fmod(tt, 0.24) > 0.09
@@ -81,20 +75,29 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				on0.queue_free(); orbs0.remove_at(oi0)
 		if m.chime != null:
 			m.chime.pitch_scale = 1.6; m.chime.play()
-	# ---- shadow bugs circle the pond and lob slow sparks ----
+	# ---- fairy rings sparkle as Roshan flies over them ----
+	for rd in m.g["rings"]:
+		if not rd["done"] and is_instance_valid(rd["node"]):
+			if absf(pos.x - (origin.x + float(rd["x"]))) < 4.5 and absf(pos.z - (origin.z + float(rd["z"]))) < 3.0:
+				rd["done"] = true
+				m._sparkle_burst(pos, Color(1.0, 0.95, 0.6))
+				if m.chime != null:
+					m.chime.pitch_scale = 1.5; m.chime.play()
+	# ---- shadow bugs bob in place; the ones on screen lob slow sparks ----
 	for td in m.g["targets"]:
 		if not td["alive"] or not is_instance_valid(td["node"]):
 			continue
-		td["ang"] = float(td["ang"]) + float(td["spin"]) * delta
-		var bp: Vector3 = origin + Vector3(cos(float(td["ang"])) * float(td["rad"]),
-				m.FS_PLANE + sin(tt * 2.0 + float(td["ph"])) * 0.5, sin(float(td["ang"])) * float(td["rad"]))
+		var b0: Vector3 = td["base"]
+		var bp: Vector3 = b0 + Vector3(sin(tt * 0.8 + float(td["ph"])) * 3.0, sin(tt * 2.0 + float(td["ph"])) * 0.5, 0)
 		(td["node"] as Node3D).position = bp
-		td["orb_cd"] = float(td["orb_cd"]) - delta
-		if float(td["orb_cd"]) <= 0.0 and (m.g["orbs"] as Array).size() < m.FS_ORB_MAX:
-			td["orb_cd"] = m.FS_ORB_CD_MIN + randf() * (m.FS_ORB_CD_MAX - m.FS_ORB_CD_MIN)
-			var dirv := Vector3(pos.x - bp.x, 0, pos.z - bp.z)
-			if dirv.length() > 0.5:
-				m._fairy_spawn_orb(Vector3(bp.x, origin.y + m.FS_PLANE, bp.z), dirv.normalized())
+		var ahead: float = bp.z - pos.z
+		if ahead > -4.0 and ahead < m.FS_BUG_WAKE:
+			td["orb_cd"] = float(td["orb_cd"]) - delta
+			if float(td["orb_cd"]) <= 0.0 and (m.g["orbs"] as Array).size() < m.FS_ORB_MAX:
+				td["orb_cd"] = m.FS_ORB_CD_MIN + randf() * (m.FS_ORB_CD_MAX - m.FS_ORB_CD_MIN)
+				var dirv := Vector3(pos.x - bp.x, 0, pos.z - bp.z)
+				if dirv.length() > 0.5:
+					m._fairy_spawn_orb(Vector3(bp.x, origin.y + m.FS_PLANE, bp.z), dirv.normalized())
 	# ---- sparks drift; touching one costs a heart (then a safe sparkle-blink) ----
 	var orbs: Array = m.g["orbs"]
 	for oi in range(orbs.size() - 1, -1, -1):
@@ -104,7 +107,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			orbs.remove_at(oi); continue
 		on.position += (od["dir"] as Vector3) * m.FS_ORB_SPD * delta
 		on.scale = Vector3.ONE * (1.0 + sin(tt * 6.0) * 0.12)
-		if Vector2(on.position.x - origin.x, on.position.z - origin.z).length() > m.FS_R + 4.0:
+		if on.position.z < pos.z - 14.0 or on.position.z > pos.z + 52.0 or absf(on.position.x - origin.x) > 46.0:
 			on.queue_free(); orbs.remove_at(oi); continue
 		if float(m.g["hurt_t"]) <= 0.0 and on.position.distance_to(pos) < m.FS_ORB_R:
 			on.queue_free(); orbs.remove_at(oi)
@@ -118,44 +121,54 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				m.fs_fails += 1
 				m._end_game(false, fr, "The shadow sparks tired Roshan out! Splash back in and try again!", "fail")
 				return
-	# ---- the wand aims itself: nearest zappable thing within reach ----
-	var aim_pos := Vector3.ZERO
-	var aim_found := false
-	var best: float = m.FS_RANGE
-	if phase == "fly":
-		for td in m.g["targets"]:
-			if td["alive"] and is_instance_valid(td["node"]):
-				var d: float = (td["node"] as Node3D).position.distance_to(pos)
-				if d < best:
-					best = d; aim_pos = (td["node"] as Node3D).position; aim_found = true
-	elif phase == "boss_leaves":
-		for lf in m.g["leaves"]:
-			if int(lf["hp"]) > 0 and is_instance_valid(lf["node"]):
-				var d2: float = (lf["node"] as Node3D).position.distance_to(pos)
-				if d2 < best:
-					best = d2; aim_pos = (lf["node"] as Node3D).position; aim_found = true
-	elif phase == "boss_bud":
-		var center0: Vector3 = m.g["boss_center"]
-		if center0.distance_to(pos) < m.FS_RANGE + 4.0:
-			aim_pos = center0; aim_found = true
+	# ---- shadow monsters prowl the track: jellies drift, urchins spin,
+	# eels sweep the whole lane — the wand can't zap them, only flying
+	# around them works (one heart on touch, same sparkle-blink mercy) ----
+	for hd in m.g["hazards"]:
+		var hn: Node3D = hd["node"]
+		if not is_instance_valid(hn):
+			continue
+		var hkind: String = hd["kind"]
+		var hb: Vector3 = hd["base"]
+		var hph: float = hd["ph"]
+		var hhit := false
+		if hkind == "jelly":
+			hn.position = hb + Vector3(sin(tt * 0.7 + hph) * 4.0, 0, sin(tt * 0.9 + hph) * 3.0)
+			hn.scale = Vector3.ONE * (1.0 + sin(tt * 3.0 + hph) * 0.1)
+			hhit = hn.position.distance_to(pos) < m.FS_HAZ_R
+		elif hkind == "urchin":
+			hn.rotation.y = tt * 1.1 + hph
+			hhit = hn.position.distance_to(pos) < m.FS_HAZ_R
+		else:   # eel: long body, box-ish touch check across the lane
+			hn.position = hb + Vector3(sin(tt * 0.5 + hph) * (m.FS_BX - 6.0), 0, 0)
+			hhit = absf(pos.z - hn.position.z) < 2.6 and absf(pos.x - hn.position.x) < 7.6
+		if hhit and float(m.g["hurt_t"]) <= 0.0:
+			m.g["hearts"] = int(m.g["hearts"]) - 1
+			m.g["hurt_t"] = m.FS_HURT_T
+			m._sparkle_burst(pos, Color(0.7, 0.4, 1.0))
+			if m.chime != null:
+				m.chime.pitch_scale = 0.7; m.chime.play()
+			if int(m.g["hearts"]) <= 0:
+				m.player.visible = true
+				m.fs_fails += 1
+				m._end_game(false, fr, "The shadow monsters tired Roshan out! Splash back in and try again!", "fail")
+				return
+	# ---- wand aim guide floats up-screen of Roshan ----
 	if m.g.has("reticle") and is_instance_valid(m.g["reticle"]):
 		var ret := m.g["reticle"] as Node3D
-		ret.visible = aim_found
-		if aim_found:
-			ret.position = Vector3(aim_pos.x, origin.y + m.FS_PLANE + 1.5, aim_pos.z)
-	# ---- firing (auto-shooter: the wand zaps by itself; you just fly close) ----
+		ret.visible = phase != "boss_bloom"
+		ret.position = pos + Vector3(0, 1.5, 12.0)
+	# ---- firing (auto-shooter: bolts zap straight up the screen; you just line up) ----
 	m.g["fire_cd"] = maxf(0.0, float(m.g["fire_cd"]) - delta)
-	if aim_found and float(m.g["fire_cd"]) <= 0.0:
+	if phase != "boss_bloom" and float(m.g["fire_cd"]) <= 0.0:
 		m.g["fire_cd"] = m.FS_FIRE_CD
 		var bolt := MeshInstance3D.new()
 		var bsm := SphereMesh.new(); bsm.radius = 0.6; bsm.height = 1.2
 		bolt.mesh = bsm
 		bolt.material_override = m._soft_mat(Color(0.6, 1.0, 0.9), 3.0)
-		bolt.position = pos
+		bolt.position = pos + Vector3(0, 0, 2.0)
 		m.add_child(bolt); m.game_nodes.append(bolt)
-		var bdir := Vector3(aim_pos.x - pos.x, 0, aim_pos.z - pos.z)
-		(m.g["bolts"] as Array).append({"node": bolt,
-				"dir": (bdir.normalized() if bdir.length() > 0.001 else Vector3.FORWARD), "fly": 0.0})
+		(m.g["bolts"] as Array).append({"node": bolt, "fly": 0.0})
 		if m.chime != null:
 			m.chime.pitch_scale = 1.8; m.chime.play()
 	# ---- advance bolts, check hits ----
@@ -165,11 +178,11 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		var bn: Node3D = bd["node"]
 		if not is_instance_valid(bn):
 			bolts.remove_at(bi); continue
-		bn.position += (bd["dir"] as Vector3) * m.FS_BOLT * delta
+		bn.position.z += m.FS_BOLT * delta
 		bd["fly"] = float(bd["fly"]) + m.FS_BOLT * delta
-		var dead: bool = float(bd["fly"]) > m.FS_RANGE + 8.0
+		var dead: bool = float(bd["fly"]) > m.FS_BOLT_FLY
 		for td in m.g["targets"]:
-			if not td["alive"]:
+			if not td["alive"] or not is_instance_valid(td["node"]):
 				continue
 			if bn.position.distance_to((td["node"] as Node3D).position) < m.FS_HIT_R:
 				td["alive"] = false
@@ -212,17 +225,9 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# ---- phase logic ----
 	var hearts_str: String = "💗".repeat(maxi(0, int(m.g["hearts"])))
 	if phase == "fly":
-		m.hud_game.text = "Fairy Pond!  Shadow bugs zapped: %d / %d   %s" % [int(m.g["hits"]), m.FS_WAVE * m.FS_WAVES, hearts_str]
-		var alive_n := 0
-		for td in m.g["targets"]:
-			if td["alive"]:
-				alive_n += 1
-		if alive_n == 0:
-			if int(m.g["wave"]) >= m.FS_WAVES:
-				m._fairy_start_boss(origin)
-			else:
-				m._fairy_spawn_wave(origin)
-				m.show_msg(m.fr_name_safe(), "More shadow bugs! Fly close and zap them!")
+		m.hud_game.text = "Fairy Pond!  Shadow bugs zapped: %d / %d   %s" % [int(m.g["hits"]), m.FS_NBUGS, hearts_str]
+		if fz >= m.FS_LEN:
+			m._fairy_start_boss(origin)
 		return
 	# ---- the flower puffs slow rings of sparks to weave through ----
 	if phase != "boss_bloom":
@@ -296,4 +301,3 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			m.fs_fails = 0
 			m._end_game(true, fr, "The Fairy Flower blossomed! You did it!")
 		return
-
