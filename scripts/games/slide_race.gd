@@ -25,7 +25,7 @@ func build_slide(fr: Dictionary, origin: Vector3) -> void:
 	if theme == "rainbow":
 		m.arena_env.background_color = Color(0.72, 0.86, 1.0)
 		m.arena_env.ambient_light_color = Color(1.0, 0.97, 1.0)
-		m.arena_env.ambient_light_energy = 1.35
+		m.arena_env.ambient_light_energy = 0.9   # 1.35 clipped the pale track past ACES white (Android blowout)
 	if mode == "chase":
 		if m.beans_t >= 0.0:
 			m.show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")

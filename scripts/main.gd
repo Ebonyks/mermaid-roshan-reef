@@ -6074,7 +6074,9 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.95, 1.02, 1.08), 0.10, "snow")
+		# plank albedo stays UNDER 1.0 — over-white components push the snow
+		# past ACES white and the surface detail clips away (Android blowout)
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.86, 0.92, 1.0), 0.06, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -6139,7 +6141,7 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var ball := MeshInstance3D.new()
 		var bs := SphereMesh.new(); bs.radius = 7.0; bs.height = 14.0
 		ball.mesh = bs
-		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(1.0, 1.02, 1.05), 0.05, "snow")
+		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.88, 0.93, 1.0), 0.05, "snow")
 		add_child(ball); game_nodes.append(ball)
 		g["ball"] = ball
 	# ---- finish banner at the bottom ----
@@ -7971,10 +7973,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.glow_intensity = 1.15
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
+		# same anti-white-wash recipe as the snowy "fetch" yard: on an
+		# already-white ice scene the WW screen-blend haze + hot ambient
+		# clips the whole frame past ACES white (fully blown out on the
+		# Android framebuffer, owner report 2026-07-13)
 		arena_env.background_color = Color(0.62, 0.82, 1.0)
 		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
-		arena_env.ambient_light_energy = 1.25
-		arena_env.glow_intensity = 0.7
+		arena_env.ambient_light_energy = 0.7
+		arena_env.glow_bloom = 0.05
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
