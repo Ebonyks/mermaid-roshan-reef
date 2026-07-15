@@ -7407,7 +7407,7 @@ func _process(delta: float) -> void:
 	elif game == "combat":
 		pass   # the CombatArena node owns movement, camera and encounter logic
 	elif game == "dungeon":
-		pass   # DungeonLevel sequences ten configured CombatArena rooms
+		pass   # DungeonLevel sequences four CombatArena battles and six visual puzzles
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)

@@ -1,25 +1,26 @@
 class_name DungeonLevel
 extends Node
-# Ten-room campaign wrapper around CombatArena. The arena remains the sole
-# combat engine; this class owns room order, checkpoint saves and the safe exit.
+# Ten-room adventure dungeon. CombatArena owns battles, DungeonPuzzleRoom owns
+# visual puzzles, and this class owns room order, checkpoints and safe exits.
 
 const ROOMS := [
-	{"name": "Frozen Foyer", "kind": "ice", "enemy_count": 4, "layout": "ring", "imp_speed": 1.1, "attack_gap": 3.8, "floor": Color(0.52, 0.66, 0.84), "trim": Color(0.7, 0.95, 1.0)},
-	{"name": "Berry Barracks", "kind": "ice", "enemy_count": 5, "layout": "double", "imp_speed": 1.3, "attack_gap": 3.5, "floor": Color(0.42, 0.55, 0.78), "trim": Color(0.62, 0.86, 1.0)},
-	{"name": "Spiral Pantry", "kind": "ice", "enemy_count": 6, "layout": "spiral", "imp_speed": 1.4, "attack_gap": 3.3, "floor": Color(0.48, 0.45, 0.72), "trim": Color(0.78, 0.72, 1.0)},
-	{"name": "Pepper Guard", "kind": "fire", "boss_hp": 3, "peek_time": 5.2, "shell_time": 2.2, "shell_speed": 4.5, "floor": Color(0.52, 0.29, 0.20), "trim": Color(1.0, 0.58, 0.25)},
-	{"name": "Crystal Crossing", "kind": "ice", "enemy_count": 7, "layout": "double", "imp_speed": 1.55, "attack_gap": 3.1, "floor": Color(0.34, 0.58, 0.70), "trim": Color(0.5, 1.0, 0.92)},
-	{"name": "Claw Gallery", "kind": "fire", "boss_hp": 4, "peek_time": 4.8, "shell_time": 2.5, "shell_speed": 5.0, "attack_gap": 1.4, "floor": Color(0.56, 0.24, 0.24), "trim": Color(1.0, 0.48, 0.35)},
-	{"name": "Snowflake Vault", "kind": "ice", "enemy_count": 8, "layout": "spiral", "imp_speed": 1.7, "attack_gap": 2.9, "floor": Color(0.40, 0.50, 0.76), "trim": Color(0.8, 0.9, 1.0)},
-	{"name": "Ember Shell Hall", "kind": "fire", "boss_hp": 5, "peek_time": 4.4, "shell_time": 2.7, "shell_speed": 5.4, "attack_gap": 1.2, "floor": Color(0.48, 0.20, 0.16), "trim": Color(1.0, 0.66, 0.18)},
-	{"name": "Popcorn Gauntlet", "kind": "ice", "enemy_count": 10, "layout": "double", "imp_speed": 1.85, "attack_gap": 2.7, "floor": Color(0.40, 0.42, 0.68), "trim": Color(0.72, 0.78, 1.0)},
-	{"name": "Dragon-Turtle Throne", "kind": "fire", "boss_hp": 9, "peek_time": 4.0, "shell_time": 3.0, "shell_speed": 5.8, "attack_gap": 1.0, "floor": Color(0.42, 0.16, 0.18), "trim": Color(1.0, 0.40, 0.18)},
+	{"name": "Frozen Foyer", "type": "combat", "kind": "ice", "enemy_count": 4, "layout": "ring", "imp_speed": 1.1, "attack_gap": 3.8, "floor": Color(0.52, 0.66, 0.84), "trim": Color(0.7, 0.95, 1.0)},
+	{"name": "Crystal Chimes", "type": "puzzle", "puzzle": "sequence", "choices": ["◆", "●", "▲"], "solution": [0, 2, 1], "button_count": 3, "voice": "The crystals sang three notes! Tap the same colorful pictures.", "floor": Color(0.38, 0.48, 0.72), "trim": Color(0.75, 0.68, 1.0)},
+	{"name": "Frozen River", "type": "puzzle", "puzzle": "path", "choices": ["◀", "▶"], "solution": [0, 1, 1, 0], "button_count": 2, "voice": "Use the picture arrows to freeze a safe path across the river.", "floor": Color(0.28, 0.55, 0.72), "trim": Color(0.58, 0.96, 1.0)},
+	{"name": "Popcorn Ambush", "type": "combat", "kind": "ice", "enemy_count": 6, "layout": "spiral", "imp_speed": 1.45, "attack_gap": 3.3, "floor": Color(0.46, 0.43, 0.7), "trim": Color(0.78, 0.72, 1.0)},
+	{"name": "Pepper Lanterns", "type": "puzzle", "puzzle": "torches", "choices": ["1", "2", "3", "4"], "solution": [1, 3, 0, 2], "button_count": 4, "voice": "Spicy peppers can light the lanterns. Start with the shortest torch!", "floor": Color(0.5, 0.28, 0.2), "trim": Color(1.0, 0.58, 0.25)},
+	{"name": "Turtle Gallery", "type": "puzzle", "puzzle": "rotate", "targets": [1, 2, 3], "button_count": 3, "voice": "Turn each shell statue until its golden nose points to the pearl.", "floor": Color(0.3, 0.52, 0.44), "trim": Color(0.65, 0.94, 0.62)},
+	{"name": "Claw Guardian", "type": "combat", "kind": "fire", "boss_hp": 4, "peek_time": 4.8, "shell_time": 2.5, "shell_speed": 5.0, "attack_gap": 1.4, "floor": Color(0.56, 0.24, 0.24), "trim": Color(1.0, 0.48, 0.35)},
+	{"name": "Moon Rune Vault", "type": "puzzle", "puzzle": "pairs", "cards": ["☾", "★", "☾", "★"], "button_count": 4, "voice": "Peek under two moon tiles. Find the pictures that match!", "floor": Color(0.28, 0.3, 0.58), "trim": Color(0.72, 0.7, 1.0)},
+	{"name": "Elemental Door", "type": "puzzle", "puzzle": "elemental", "choices": ["❄", "🔥"], "solution": [0, 1, 0, 0, 1], "button_count": 2, "voice": "The big door shows ice and fire. Copy its magic picture order!", "floor": Color(0.4, 0.32, 0.5), "trim": Color(1.0, 0.72, 0.4)},
+	{"name": "Dragon-Turtle Throne", "type": "combat", "kind": "fire", "boss_hp": 8, "peek_time": 4.1, "shell_time": 2.9, "shell_speed": 5.6, "attack_gap": 1.1, "floor": Color(0.42, 0.16, 0.18), "trim": Color(1.0, 0.4, 0.18)},
 ]
 
 var m: ReefMain
 var finish_cb: Callable
 var room_index := 0
 var arena: CombatArena = null
+var puzzle: DungeonPuzzleRoom = null
 var hud: CanvasLayer = null
 var progress_label: Label = null
 var room_label: Label = null
@@ -97,18 +98,30 @@ func _update_hud() -> void:
 	room_label.text = "%s\n%d / %d" % [String(room["name"]), room_index + 1, ROOMS.size()]
 
 func _begin_room() -> void:
-	if state != "active" or arena != null:
+	if state != "active" or arena != null or puzzle != null:
 		return
 	var room: Dictionary = ROOMS[room_index].duplicate()
 	room["room_tag"] = "ROOM %d / %d" % [room_index + 1, ROOMS.size()]
 	room["win_time"] = 1.4
-	arena = CombatArena.new()
-	add_child(arena)
-	arena.start(m, String(room["kind"]), Callable(self, "_room_won"), room)
-	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden arrow!" % [String(room["name"]), room_index + 1, ROOMS.size()], "dungeon_room")
+	if String(room.get("type", "combat")) == "combat":
+		arena = CombatArena.new()
+		add_child(arena)
+		arena.start(m, String(room["kind"]), Callable(self, "_combat_won"), room)
+	else:
+		puzzle = DungeonPuzzleRoom.new()
+		add_child(puzzle)
+		puzzle.start(m, room, Callable(self, "_puzzle_won"))
+	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, ROOMS.size()], "dungeon_room")
 
-func _room_won(_battle_kind: String) -> void:
+func _combat_won(_battle_kind: String) -> void:
 	arena = null
+	_room_won()
+
+func _puzzle_won() -> void:
+	puzzle = null
+	_room_won()
+
+func _room_won() -> void:
 	room_index += 1
 	m.dungeon_progress = maxi(m.dungeon_progress, room_index)
 	m.pearl_count += 3
@@ -130,7 +143,7 @@ func _complete_dungeon() -> void:
 	m._update_hud()
 	progress_label.text = "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
 	room_label.text = "DUNGEON\nHERO!"
-	m.show_msg("Roshan", "All TEN rooms! The dungeon is sparkling and safe!", "win")
+	m.show_msg("Roshan", "All ten rooms! The dungeon is sparkling and safe!", "win")
 	var timer := get_tree().create_timer(3.0)
 	timer.timeout.connect(func(): _finish(true))
 
@@ -141,6 +154,9 @@ func _leave_early() -> void:
 	if arena != null:
 		arena.cancel()
 		arena = null
+	if puzzle != null:
+		puzzle.cancel()
+		puzzle = null
 	m.show_msg("Roshan", "Checkpoint saved! We can come back to the next room any time.", "home")
 	_finish(false)
 
@@ -153,6 +169,8 @@ func _finish(completed: bool) -> void:
 	queue_free()
 
 func action_label() -> String:
-	if arena == null:
-		return "READY"
-	return "ICE" if arena.kind == "ice" else "FIRE"
+	if arena != null:
+		return "ICE" if arena.kind == "ice" else "FIRE"
+	if puzzle != null:
+		return "PUZZLE"
+	return "READY"
