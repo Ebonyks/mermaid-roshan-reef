@@ -60,7 +60,7 @@ func _init() -> void:
 
 	dance.close_demo()
 	await process_frame
-	if get_tree().paused or main.trophies != trophies_before:
+	if paused or main.trophies != trophies_before:
 		print("DANCE|close: FAIL world state/progress was not restored")
 		bad += 1
 	else:
