@@ -37,6 +37,7 @@ var world_env: Environment
 var arena_env: Environment
 var we_node: WorldEnvironment
 var music: AudioStreamPlayer
+var dance_engine: CanvasLayer = null
 var return_pos := Vector3.ZERO
 const ARENA_POS := Vector3(0, -600, 0)
 const LEVEL2_POS := Vector3(0, -1300, 0)
@@ -2639,6 +2640,23 @@ func _build_pause() -> void:
 	gear.position = Vector2(-96, 18)
 	gear.pressed.connect(toggle_pause)
 	pause_layer.add_child(gear)
+	# Always-visible, non-reading entry to the rhythm demo. It sits beside Pause
+	# and stays below story/cutscene overlays, which use higher canvas layers.
+	var dance_btn := Button.new()
+	dance_btn.text = "♫"
+	dance_btn.tooltip_text = "Dance Party"
+	dance_btn.add_theme_font_size_override("font_size", 38)
+	dance_btn.custom_minimum_size = Vector2(76, 76)
+	var dsb := StyleBoxFlat.new()
+	dsb.bg_color = Color(0.65, 0.22, 0.72, 0.78)
+	dsb.border_color = Color(1.0, 0.68, 0.9, 0.9)
+	dsb.set_border_width_all(3)
+	dsb.set_corner_radius_all(38)
+	dance_btn.add_theme_stylebox_override("normal", dsb)
+	dance_btn.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	dance_btn.position = Vector2(-184, 18)
+	dance_btn.pressed.connect(_open_dance_demo)
+	pause_layer.add_child(dance_btn)
 	pause_panel = Panel.new()
 	var psb := StyleBoxFlat.new()
 	psb.bg_color = Color(0.07, 0.1, 0.24, 0.93)
@@ -2705,6 +2723,13 @@ func toggle_pause() -> void:
 		var fo := get_viewport().gui_get_focus_owner()
 		if fo != null:
 			fo.release_focus()
+
+
+func _open_dance_demo() -> void:
+	if dance_engine == null or not is_instance_valid(dance_engine):
+		dance_engine = preload("res://scripts/games/dance_engine.gd").new(self)
+		add_child(dance_engine)
+	(dance_engine as DanceEngine).open_demo()
 
 # Phase 7.4: one file per minigame under scripts/games/ (state stays on
 # main; each game class receives main by reference)
