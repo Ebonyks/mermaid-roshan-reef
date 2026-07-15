@@ -1,5 +1,7 @@
 extends Node3D
 class_name GalaxyLevel
+
+const StoryArtFactory = preload("res://scripts/story_art.gd")
 # ============================================================================
 # LEVEL 3 — ROSHAN'S BUTTERFLY WORLD. A Mario-Galaxy-style mini-planet themed
 # after the book's Milwaukee-museum butterfly vivarium: glass conservatory dome,
@@ -32,22 +34,19 @@ const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crys
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
 # is a greenhouse full of tropical plants, not a pine forest
-const TROPICAL := [
-	"res://assets/galaxy/trop_palm1.glb", "res://assets/galaxy/trop_palm2.glb",
-	"res://assets/galaxy/trop_monstera.glb", "res://assets/galaxy/trop_bigleaf.glb",
-	"res://assets/galaxy/trop_fern.glb",
-	"res://assets/nature/plant_bush.glb", "res://assets/nature/grass_leafsLarge.glb"]
+const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
+	"trop_fern", "plant_bush", "grass_leafsLarge"]
 const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gate on the planet
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
-const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
+const FRUIT_ROLES := ["apple", "banana", "orange", "melon"]
 const TRAY_GLB := "res://assets/galaxy/tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
-const BUG_GLBS := ["res://assets/galaxy/beetle.glb", "res://assets/galaxy/ladybug.glb"]
+const BUG_ROLES := ["beetle", "ladybug"]
 const CORALS := ["res://assets/props/gen2/coral1.glb", "res://assets/props/gen2/coral2.glb", "res://assets/props/gen2/coral3.glb", "res://assets/props/gen2/coral4.glb", "res://assets/props/gen2/coral5.glb", "res://assets/props/gen2/coral6.glb"]
 
 var _main: Node = null
@@ -457,31 +456,29 @@ func _build_decor() -> void:
 	# ---- LUSH TROPICAL GARDEN, 3-4x dense: palms, monstera, big leaves, ferns
 	# all around the little planet (natural colours — no candy tint) ----
 	for i in range(32):
-		var gpath: String = TROPICAL[i % TROPICAL.size()]
-		if not ResourceLoader.exists(gpath):
+		var role: String = TROPICAL[i % TROPICAL.size()]
+		var tall: bool = i % TROPICAL.size() < 2
+		var plant_height := (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4))
+		var gr: Node3D = StoryArtFactory.plant(role, plant_height)
+		if gr == null:
 			continue
-		var gr: Node3D = (load(gpath) as PackedScene).instantiate()
 		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
 		var holder := Node3D.new()
 		add_child(holder)
 		holder.add_child(gr)
-		var tall: bool = i % TROPICAL.size() < 2   # the two palm species
-		_fit_small(gr, (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4)))
 		_place_on_planet(holder, dir)
 		holder.rotate(dir, randf() * TAU)
 		if tall:   # collision audit: ALL tall palms are solid now (soft foliage stays walk-through)
 			_blockers.append({"dir": dir, "r": 1.6, "cool": 0.0})
 	# flower beds (bright, chest-high) between the palms
 	for i in range(28):
-		var fpath := "res://assets/nature/%s.glb" % FLORA[i % FLORA.size()]
-		if not ResourceLoader.exists(fpath):
+		var flora_role: String = FLORA[i % FLORA.size()]
+		var fl: Node3D = StoryArtFactory.plant(flora_role, 4.0 + fposmod(float(i) * 2.3, 3.0), pastels[(i + 2) % pastels.size()])
+		if fl == null:
 			continue
-		var fl: Node3D = (load(fpath) as PackedScene).instantiate()
 		var holder2 := Node3D.new()
 		add_child(holder2)
-		fl.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 2.3, 3.0))
 		holder2.add_child(fl)
-		_tint_meshes(fl, pastels[(i + 2) % pastels.size()], 0.20)
 		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
 		_place_on_planet(holder2, dir2)
 	# ---- FRUIT FEEDING TRAYS: walk up and the butterflies swarm in to feast ----
@@ -522,14 +519,13 @@ func _build_decor() -> void:
 			cyl.mesh = cm
 			th.add_child(cyl)
 		for fi in range(3):
-			var fpath2: String = FRUIT_GLBS[(ti + fi) % FRUIT_GLBS.size()]
-			if not ResourceLoader.exists(fpath2):
+			var fruit_role: String = FRUIT_ROLES[(ti + fi) % FRUIT_ROLES.size()]
+			var fr: Node3D = StoryArtFactory.fruit(fruit_role, 1.5)
+			if fr == null:
 				continue
-			var fr: Node3D = (load(fpath2) as PackedScene).instantiate()
 			var fh := Node3D.new()
 			th.add_child(fh)
 			fh.add_child(fr)
-			_fit_small(fr, 1.5)
 			fh.position = Vector3(cos(float(fi) * TAU / 3.0) * 1.1, 0.5, sin(float(fi) * TAU / 3.0) * 1.1)
 		var tl := OmniLight3D.new()
 		tl.light_color = Color(1.0, 0.9, 0.6)
@@ -555,7 +551,7 @@ func _build_decor() -> void:
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
-		_tint_meshes(ck, Color(0.72, 0.68, 1.0), 0.45)   # amethyst-glass glow
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
 	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
@@ -565,7 +561,7 @@ func _build_decor() -> void:
 		spire.scale = Vector3.ONE * 4.0
 		spire.position = Vector3([-13.0, 13.0][i], 0, 6.0)
 		castle.add_child(spire)
-		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	_place_on_planet(castle, Vector3.UP)
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
 	# plane, or its corners hover visibly above the curving horizon
@@ -816,16 +812,13 @@ void fragment(){
 		_place_on_planet(ch, cdir)
 	# ---- friendly beetles + ladybugs crawl the paths (the museum beetle drawer!) ----
 	for i in range(8):
-		var bpath: String = BUG_GLBS[i % BUG_GLBS.size()]
-		if not ResourceLoader.exists(bpath):
+		var bug_role: String = BUG_ROLES[i % BUG_ROLES.size()]
+		var bug: Node3D = StoryArtFactory.bug(bug_role, 1.6 if bug_role == "beetle" else 1.1)
+		if bug == null:
 			continue
-		var bug: Node3D = (load(bpath) as PackedScene).instantiate()
 		var bh2 := Node3D.new()
 		add_child(bh2)
 		bh2.add_child(bug)
-		_fit_small(bug, 1.6 if i % BUG_GLBS.size() == 0 else 1.1)
-		if i % BUG_GLBS.size() == 0:
-			_tint_meshes(bug, [Color(0.4, 0.9, 0.5), Color(0.9, 0.6, 0.2), Color(0.5, 0.6, 1.0)][i % 3], 0.30)   # jewel-beetle shine
 		var bd0 := Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()
 		var bax := bd0.cross(Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()).normalized()
 		_bugs.append({"node": bh2, "axis": bax, "dir0": bd0, "spd": 0.02 + randf() * 0.02, "ph": randf() * TAU, "cool": 0.0})
@@ -1124,8 +1117,8 @@ func _build_hud() -> void:
 	_lbl_shards.position = Vector2(24, 18)
 	_lbl_shards.add_theme_font_size_override("font_size", 40)
 	_lbl_shards.add_theme_color_override("font_color", Color(1.0, 0.95, 0.6))
-	_lbl_shards.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	_lbl_shards.add_theme_constant_override("outline_size", 8)
+	_lbl_shards.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	_lbl_shards.add_theme_constant_override("outline_size", 6)
 	root.add_child(_lbl_shards)
 	_lbl_big = Label.new()
 	_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -1142,8 +1135,8 @@ func _build_hud() -> void:
 	_lbl_hint.position = Vector2(24, -56)
 	_lbl_hint.add_theme_font_size_override("font_size", 26)
 	_lbl_hint.add_theme_color_override("font_color", Color(0.92, 0.9, 1.0))
-	_lbl_hint.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	_lbl_hint.add_theme_constant_override("outline_size", 6)
+	_lbl_hint.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	_lbl_hint.add_theme_constant_override("outline_size", 5)
 	root.add_child(_lbl_hint)
 	_update_shard_hud()
 
@@ -1510,7 +1503,7 @@ func _build_hall() -> void:
 		_fit_small(col, 3.4)
 		var ca: float = float(i) / 6.0 * TAU + 0.26
 		chh.position = Vector3(sin(ca) * 18.0, 0.5, cos(ca) * 18.0)
-		_tint_meshes(col, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(col, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# star chandeliers
 	for i in range(3):
 		var star := Label3D.new()

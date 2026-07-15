@@ -1,5 +1,7 @@
 extends Node3D
 class_name KartGame
+
+const StoryArtFactory = preload("res://scripts/story_art.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -790,7 +792,7 @@ void fragment(){
 		var ck: Node3D = (load(BW_CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_bw_fit(ck, 40.0)
-		_bw_tint(ck, Color(0.72, 0.68, 1.0), 0.45)
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
 	for i in range(BW_CRYSTALS.size()):
 		var path: String = BW_CRYSTALS[i]
 		if not ResourceLoader.exists(path):
@@ -799,7 +801,7 @@ void fragment(){
 		spire.scale = Vector3.ONE * 4.5
 		spire.position = Vector3([-15.0, 15.0][i], 0, 7.0)
 		castle.add_child(spire)
-		_bw_tint(spire, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# sunk a little so its base corners don't hover above the curving horizon
 	castle.position = Vector3(0, BW_PLANET_R - 6.0, 0)
 	_bw_spin.add_child(castle)
@@ -807,24 +809,28 @@ void fragment(){
 	# jungle and the crystal outcrops (so the orb reads as THAT world from
 	# orbit, not a generic green ball)
 	var marks := [
-		{"glb": "res://assets/galaxy/trop_palm1.glb", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0, "tint": Color()},
-		{"glb": "res://assets/galaxy/trop_palm2.glb", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0, "tint": Color()},
-		{"glb": "res://assets/galaxy/trop_monstera.glb", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0, "tint": Color()},
+		{"role": "trop_palm1", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0},
+		{"role": "trop_palm2", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0},
+		{"role": "trop_monstera", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0},
 		{"glb": "res://assets/galaxy/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
 		{"glb": "res://assets/galaxy/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
 		{"glb": "res://assets/galaxy/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
 	]
 	for md in marks:
-		var mpath := String(md["glb"])
-		if not ResourceLoader.exists(mpath):
-			continue
 		var holder := Node3D.new()
-		var prop: Node3D = (load(mpath) as PackedScene).instantiate()
+		var prop: Node3D = null
+		if md.has("role"):
+			prop = StoryArtFactory.plant(String(md["role"]), float(md["size"]))
+		else:
+			var mpath := String(md["glb"])
+			if ResourceLoader.exists(mpath):
+				prop = (load(mpath) as PackedScene).instantiate()
+		if prop == null:
+			continue
 		holder.add_child(prop)
-		_bw_fit(prop, float(md["size"]))
-		var tc: Color = md["tint"]
-		if tc.a > 0.0 and (tc.r + tc.g + tc.b) > 0.0:
-			_bw_tint(prop, tc, 0.4)
+		if not md.has("role"):
+			_bw_fit(prop, float(md["size"]))
+			StoryArtFactory.apply_triplanar(prop, "res://assets/terrain/up_crystal_col.png", 0.16)
 		_bw_place(holder, md["dir"])
 		_bw_spin.add_child(holder)
 	# the seven butterflies circle their world (they're what stage 3 is about)
@@ -1851,7 +1857,12 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 				_rainbow_mats.append(rm)
 				mi.set_surface_override_material(si, rm)
 			elif paint.get("col") == null:
-				mi.set_surface_override_material(si, null)   # Stock: restore original
+				var stock_src: Material = origs[si] if si < origs.size() else null
+				var stock: BaseMaterial3D = (stock_src.duplicate() if stock_src is BaseMaterial3D else StandardMaterial3D.new())
+				stock.roughness = 1.0
+				stock.metallic = 0.0
+				stock.metallic_specular = 0.08
+				mi.set_surface_override_material(si, stock)
 			else:
 				var col: Color = paint["col"]
 				var src: Material = origs[si] if si < origs.size() else null
@@ -1904,9 +1915,11 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		top_h = _fit_model(model, float(vd["size"]))
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)
-		if String(vd["glb"]) == "res://assets/vehicles/monstertruck_story.glb" and _main != null and _main.has_method("_toonify"):
+		if _main != null and _main.has_method("_toonify"):
 			_main._toonify(model)
-		if not paint.is_empty():
+		if paint.is_empty():
+			_apply_paint(model, {"col": col.lerp(Color(0.55, 0.86, 0.92), 0.18)})
+		else:
 			_apply_paint(model, paint)
 	else:
 		# fallback: simple coloured box kart (never leaves a racer invisible)
@@ -2896,8 +2909,8 @@ func _mk_label(parent: Control, pos: Vector2, size: int, col: Color = Color.WHIT
 	l.position = pos
 	l.add_theme_font_size_override("font_size", size)
 	l.add_theme_color_override("font_color", col)
-	l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	l.add_theme_constant_override("outline_size", 8)
+	l.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	l.add_theme_constant_override("outline_size", 6)
 	parent.add_child(l)
 	return l
 
