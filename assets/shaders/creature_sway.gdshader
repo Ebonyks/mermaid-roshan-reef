@@ -21,6 +21,7 @@ uniform float excite = 0.0;         // 0..1 greeting boost (faster + bigger)
 //    the coloration matches the book art (white kitty muzzle, pink wings...).
 //    Black mask = fixed features (horn, feet, beak) keep the baked texture.
 uniform float paint_mix = 0.0;
+uniform float paint_contrast = 1.0;
 uniform vec4 paint_body : source_color = vec4(1.0);
 uniform vec4 paint_fin : source_color = vec4(1.0);
 uniform vec4 paint_third : source_color = vec4(1.0);
@@ -63,6 +64,7 @@ void fragment() {
 		float dark = 1.0 - smoothstep(0.06, 0.22, luma);
 		alb = mix(mix(alb, paint * (0.55 + luma * 0.9), paint_mix * zone_w), alb, dark);
 	}
+	alb = clamp((alb - vec3(0.5)) * paint_contrast + vec3(0.5), vec3(0.0), vec3(1.0));
 	ALBEDO = alb * tint.rgb;
 	ROUGHNESS = 1.0;
 	SPECULAR = 0.0;

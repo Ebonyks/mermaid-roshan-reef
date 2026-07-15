@@ -1,5 +1,7 @@
 class_name ReefMain
 extends Node3D
+
+const StoryArtFactory = preload("res://scripts/story_art.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -606,7 +608,7 @@ func _build_intro() -> void:
 	var panel := Panel.new()
 	var psb := StyleBoxFlat.new()
 	psb.bg_color = Color(0.04, 0.08, 0.2, 0.92)
-	psb.set_corner_radius_all(24)
+	psb.set_corner_radius_all(8)
 	psb.border_color = Color(1.0, 0.8, 0.5)
 	psb.set_border_width_all(3)
 	panel.add_theme_stylebox_override("panel", psb)
@@ -620,8 +622,8 @@ func _build_intro() -> void:
 	intro_text.offset_left = 30
 	intro_text.offset_right = -30
 	intro_text.add_theme_font_size_override("font_size", 30)
-	intro_text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
-	intro_text.add_theme_constant_override("outline_size", 8)
+	intro_text.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28, 0.88))
+	intro_text.add_theme_constant_override("outline_size", 5)
 	intro_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	intro_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	intro_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -1307,10 +1309,9 @@ func _texture_mats() -> void:
 	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
 	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	wood_overlay = StandardMaterial3D.new()
-	wood_overlay.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
-	wood_overlay.albedo_color = Color(1.35, 1.3, 1.25)      # lift so MUL keeps base colors
-	wood_overlay.normal_enabled = true
-	wood_overlay.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
+	wood_overlay.albedo_texture = load("res://assets/terrain/up_shipwood_col.png")
+	wood_overlay.albedo_color = Color(1.2, 1.16, 1.2)      # lift so MUL keeps base colors
+	wood_overlay.normal_enabled = false
 	wood_overlay.uv1_triplanar = true
 	wood_overlay.uv1_scale = Vector3(0.9, 0.9, 0.9)
 	wood_overlay.blend_mode = BaseMaterial3D.BLEND_MODE_MUL
@@ -1638,6 +1639,13 @@ const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], 
 	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
 	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06],   # penguin: rigged clips carry the motion now
 	"craft_kitty": [3, 2.0, 0.05], "craft_birdie": [3, 2.8, 0.07]}   # HER craft creatures: gentle waddle idle
+
+# The three former 3/5 creatures keep their proven anatomy and animation, but
+# receive stronger story-palette separation instead of another model lottery.
+const CREATURE_REPAINT_3 := {
+	"dolphin": [Color(0.30, 0.72, 0.86), Color(0.78, 0.94, 0.94)],
+	"whale": [Color(0.48, 0.45, 0.72), Color(0.74, 0.90, 0.96)],
+}
 
 const AQ_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6",
 	"Rock": "rock", "Rock1": "rock1", "Rock2": "rock2", "Rock3": "rock3", "Rock4": "rock4", "Rock5": "rock5",
@@ -2492,7 +2500,7 @@ func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	l.position = pos
 	l.add_theme_font_size_override("font_size", fsize)
 	l.add_theme_color_override("font_outline_color", Color(0.02, 0.05, 0.14, 0.9))
-	l.add_theme_constant_override("outline_size", 10)
+	l.add_theme_constant_override("outline_size", 6)
 	cl.add_child(l)
 	return l
 
@@ -2532,7 +2540,7 @@ func _flash_speaker_icon(who: String) -> void:
 		var panel := Panel.new()
 		var sb := StyleBoxFlat.new()
 		sb.bg_color = Color(0.06, 0.1, 0.22, 0.85)
-		sb.set_corner_radius_all(20)
+		sb.set_corner_radius_all(8)
 		sb.border_color = Color(1.0, 0.85, 0.5)
 		sb.set_border_width_all(3)
 		panel.add_theme_stylebox_override("panel", sb)
@@ -2702,7 +2710,9 @@ func _build_pause() -> void:
 	pause_panel = Panel.new()
 	var psb := StyleBoxFlat.new()
 	psb.bg_color = Color(0.07, 0.1, 0.24, 0.93)
-	psb.set_corner_radius_all(28)
+	psb.border_color = Color(0.48, 0.86, 0.9, 0.9)
+	psb.set_border_width_all(3)
+	psb.set_corner_radius_all(8)
 	pause_panel.add_theme_stylebox_override("panel", psb)
 	pause_panel.custom_minimum_size = Vector2(460, 540)
 	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
@@ -3169,9 +3179,7 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 	var bm := BoxMesh.new()
 	bm.size = size
 	b.mesh = bm
-	var m := StandardMaterial3D.new()
-	m.albedo_color = col
-	m.roughness = 0.7
+	var m := _up_mat("castle", 0.12, col.lightened(0.12))
 	if glow > 0.0:
 		m.emission_enabled = true
 		m.emission = col
@@ -3238,7 +3246,7 @@ func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
 
 # courtyard trees: pack name -> painted GEN2 sculpt (strangler-fig fallback)
 const NATURE_GEN2 := {"tree_palm": "tree_palm", "tree_default_fall": "tree_fall",
-	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat"}
+	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat", "tree_pineRoundF": "tree_pineroundf"}
 
 func _wind_sway(node: Node3D) -> void:
 	# simple living-world animation: a slow base-pinned lean, random phase
@@ -3256,6 +3264,14 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 		if gn != null:
 			_wind_sway(gn)
 			return gn
+	var story_plant: Node3D = StoryArtFactory.plant(name, scl)
+	if story_plant != null:
+		story_plant.position = pos
+		story_plant.rotation.y = yrot
+		add_child(story_plant)
+		game_nodes.append(story_plant)
+		_wind_sway(story_plant)
+		return story_plant
 	var ps: PackedScene = _nat_cache.get(name, null)
 	if ps == null:
 		var path := "res://assets/nature/" + name + ".glb"
@@ -3368,8 +3384,20 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	var wrap := Node3D.new()
 	var inst: Node3D = ps.instantiate()
 	_fit_prop(inst, target)
-	if name.begins_with("castle/") and not name.contains("flag"):
+	if name.begins_with("castle/") and name.contains("roof"):
+		_toon_tile(inst, "roof", 0.12, Color(0.92, 0.88, 1.0))
+	elif name.begins_with("castle/") and name.contains("flag"):
+		_toon_tile(inst, "fabric", 0.16, Color(1.0, 0.72, 0.9))
+	elif name.begins_with("castle/"):
 		_toon_tile(inst, "castle", 0.14, Color(0.98, 0.95, 1.0))   # painted masonry
+	elif name in ["furniture/bookcase", "furniture/table", "park/bench"]:
+		_toon_tile(inst, "wood", 0.22, Color(1.0, 0.86, 0.78))
+	elif name == "furniture/chair":
+		_toon_tile(inst, "fabric", 0.18, Color(0.92, 0.84, 1.0))
+	elif name == "park/fountain":
+		_toon_tile(inst, "marble", 0.14, Color(0.86, 0.96, 1.0))
+	elif name.begins_with("park/hedge"):
+		_toon_tile(inst, "grass", 0.18, Color(0.62, 0.92, 0.72))
 	wrap.add_child(inst)
 	wrap.position = pos
 	if KIT_GEN2.has(name):
@@ -3486,6 +3514,12 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 			sm.set_shader_parameter("sway_mode", int(prof[0]))
 			sm.set_shader_parameter("sway_speed", float(prof[1]))
 			sm.set_shader_parameter("sway_amount", float(prof[2]))
+			sm.set_shader_parameter("paint_contrast", 1.18 if gname in ["dolphin", "whale", "penguin"] else 1.0)
+			if CREATURE_REPAINT_3.has(gname):
+				var repaint: Array = CREATURE_REPAINT_3[gname]
+				sm.set_shader_parameter("paint_mix", 0.72)
+				sm.set_shader_parameter("paint_body", repaint[0])
+				sm.set_shader_parameter("paint_fin", repaint[1])
 			sm.next_pass = _gen2_outline_mat()
 			mi.set_surface_override_material(si, sm)
 	if gname == "penguin":
@@ -4797,7 +4831,7 @@ func _open_craft_studio() -> void:
 		var locked: bool = kpr > 0 and not bool(craft_unlocks.get(kk, false))
 		var kb := Button.new(); kb.text = knm; kb.add_theme_font_size_override("font_size", 36)
 		kb.position = Vector2(760.0 + float(ki) * 165.0, 14.0); kb.custom_minimum_size = Vector2(155, 64)
-		var ksb := StyleBoxFlat.new(); ksb.bg_color = Color(0.32, 0.34, 0.48) if locked else Color(0.4, 0.45, 0.7); ksb.set_corner_radius_all(18)
+		var ksb := StyleBoxFlat.new(); ksb.bg_color = Color(0.32, 0.34, 0.48) if locked else Color(0.4, 0.45, 0.7); ksb.set_corner_radius_all(8)
 		kb.add_theme_stylebox_override("normal", ksb); kb.add_theme_stylebox_override("hover", ksb); kb.add_theme_stylebox_override("pressed", ksb)
 		kb.set_meta("style", ksb)
 		if locked:
@@ -4853,7 +4887,7 @@ func _open_craft_studio() -> void:
 		stage.add_child(rbw)
 	var done := Button.new(); done.text = "  Done!  "; done.add_theme_font_size_override("font_size", 46)
 	done.position = Vector2(1050, 330); done.custom_minimum_size = Vector2(190, 130)
-	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.4); dsb.set_corner_radius_all(30)
+	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.4); dsb.set_corner_radius_all(8)
 	done.add_theme_stylebox_override("normal", dsb); done.add_theme_stylebox_override("hover", dsb); done.add_theme_stylebox_override("pressed", dsb)
 	done.pressed.connect(_craft_done); stage.add_child(done)
 
@@ -4972,7 +5006,7 @@ func _open_wardrobe() -> void:
 	title.position = Vector2(60, 18); stage.add_child(title)
 	# ---- preview of the selected skin ----
 	var frame := Panel.new(); frame.position = Vector2(110, 110); frame.size = Vector2(470, 560)
-	var fsb := StyleBoxFlat.new(); fsb.bg_color = Color(0.22, 0.26, 0.42); fsb.set_corner_radius_all(28)
+	var fsb := StyleBoxFlat.new(); fsb.bg_color = Color(0.22, 0.26, 0.42); fsb.border_color = Color(0.48, 0.86, 0.9, 0.9); fsb.set_border_width_all(3); fsb.set_corner_radius_all(8)
 	fsb.set_border_width_all(8); fsb.border_color = Color(0.95, 0.8, 0.45)
 	frame.add_theme_stylebox_override("panel", fsb); stage.add_child(frame)
 	var preview := TextureRect.new()
@@ -4988,7 +5022,7 @@ func _open_wardrobe() -> void:
 		var id: String = String(entry["id"])
 		var b := Button.new(); b.add_theme_font_size_override("font_size", 40)
 		b.position = Vector2(640, 130.0 + float(si) * 110.0); b.custom_minimum_size = Vector2(450, 92)
-		var sb := StyleBoxFlat.new(); sb.set_corner_radius_all(20)
+		var sb := StyleBoxFlat.new(); sb.set_corner_radius_all(8)
 		b.add_theme_stylebox_override("normal", sb); b.add_theme_stylebox_override("hover", sb); b.add_theme_stylebox_override("pressed", sb)
 		b.pressed.connect(func(): _wardrobe_pick(id))
 		stage.add_child(b)
@@ -4996,7 +5030,7 @@ func _open_wardrobe() -> void:
 	# ---- Done ----
 	var done := Button.new(); done.text = "  Done!  "; done.add_theme_font_size_override("font_size", 46)
 	done.position = Vector2(740, 560); done.custom_minimum_size = Vector2(220, 120)
-	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.45); dsb.set_corner_radius_all(30)
+	var dsb := StyleBoxFlat.new(); dsb.bg_color = Color(0.3, 0.8, 0.45); dsb.set_corner_radius_all(8)
 	done.add_theme_stylebox_override("normal", dsb); done.add_theme_stylebox_override("hover", dsb); done.add_theme_stylebox_override("pressed", dsb)
 	done.pressed.connect(_wardrobe_done); stage.add_child(done)
 	_wardrobe_refresh()
@@ -5064,7 +5098,7 @@ func _open_stickers() -> void:
 		cell.size = Vector2(184, 178)
 		var csb := StyleBoxFlat.new()
 		csb.bg_color = Color(0.32, 0.28, 0.5, 0.95) if earned else Color(0.2, 0.19, 0.28, 0.9)
-		csb.set_corner_radius_all(22)
+		csb.set_corner_radius_all(8)
 		csb.set_border_width_all(4)
 		csb.border_color = Color(1.0, 0.85, 0.4) if earned else Color(0.35, 0.35, 0.45)
 		cell.add_theme_stylebox_override("panel", csb)
@@ -5668,7 +5702,7 @@ func _course_box(pos: Vector3, size: Vector3, col: Color, rotdeg: Vector3 = Vect
 	var bm := BoxMesh.new()
 	bm.size = size
 	b.mesh = bm
-	b.material_override = _soft_mat(col)
+	b.material_override = _up_mat("fabric", 0.18, col.lightened(0.12))
 	b.position = pos
 	b.rotation_degrees = rotdeg
 	add_child(b)
