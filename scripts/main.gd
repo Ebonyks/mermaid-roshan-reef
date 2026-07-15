@@ -3274,7 +3274,9 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 	var bm := BoxMesh.new()
 	bm.size = size
 	b.mesh = bm
-	var m := _up_mat("castle", 0.12, col.lightened(0.12))
+	# All Level 2 blockwork shares the castle albedo, but avoids the legacy
+	# placeholder normal and mismatched roughness sheets audited in this pass.
+	var m := _castle_mat("wall", 0.12, col.lightened(0.12))
 	if glow > 0.0:
 		m.emission_enabled = true
 		m.emission = col
