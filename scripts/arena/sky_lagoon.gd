@@ -7,6 +7,16 @@ extends RefCounted
 
 var m: ReefMain
 
+const ALPINE_MOUNTAIN_CENTER := Vector2(-135.0, -165.0)
+const ALPINE_MOUNTAIN_RADIUS := 66.0
+const ALPINE_MOUNTAIN_HEIGHT := 70.0
+const ALPINE_VILLAGE_CENTER := Vector2(-82.0, -182.0)
+const ALPINE_SNOW_CENTER := Vector2(-96.0, -180.0)
+const ALPINE_SNOW_RADIUS := Vector2(52.0, 43.0)
+const ALPINE_CAVE_FLOOR := 43.0
+const ALPINE_CAVE_ENTRANCE := Vector2(-108.0, -165.0)
+const ALPINE_CAVE_ROOM := Vector2(-128.0, -165.0)
+
 func _init(main: ReefMain) -> void:
 	m = main
 
@@ -105,6 +115,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var gcz: float = sin(ga) * grad
 		if absf(gcx) < 26.0 and gcz > -95.0 and gcz < 165.0:
 			continue
+		# Reserve the whole snowy Alpine destination: no random meadow grove may
+		# become a palm tree in the village square or block the cave trail.
+		if Vector2(gcx, gcz).distance_to(ALPINE_SNOW_CENTER) < 80.0:
+			continue
 		# keep the train corridor clear: no grove may straddle the ring of
 		# track around the castle (radius 78 about (0,-120); trees scatter
 		# up to ±10 from the grove centre, hence the wide 26-unit band)
@@ -139,6 +153,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var px: float = cos(ang) * rad
 		var pz: float = sin(ang) * rad
 		if absf(px) < 13.0 and pz > -92.0 and pz < 168.0:
+			continue
+		if Vector2(px, pz).distance_to(ALPINE_SNOW_CENTER) < 66.0:
 			continue
 		# undergrowth also stays off the train track band
 		if absf(sqrt(px * px + (pz + 120.0) * (pz + 120.0)) - 78.0) < 13.0:
@@ -551,9 +567,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 	bglow.position = back_pos + Vector3(0, 2.2, 0)
 	m.add_child(bglow); m.game_nodes.append(bglow)
 	m.g["back_entry"] = back_pos
-	# A tiny Christmas village waits on the dry meadow beyond the rear moat.
-	# It frames (rather than covers) the secret-hatch route, so curious swimming
-	# still has a clear reward and the cottages become a landmark on the way out.
+	# A compact Christmas village and its Alpine mountain occupy their own snowy
+	# corner beyond the rear-left moat, leaving the underwater hatch route clear.
 	_build_christmas_village(o)
 	var dl := Label3D.new()
 	dl.text = "Princess Huluu\u2019s Castle"
@@ -614,40 +629,246 @@ func _build_pearl_castle(o: Vector3) -> void:
 
 
 func _build_christmas_village(o: Vector3) -> void:
-	# Compact, low-poly toy-diorama dressing for the meadow behind the castle.
-	# Everything uses existing project materials and emissive paint; no extra
-	# lights are added, keeping the old-phone Mobile-renderer budget unchanged.
+	# A self-contained Alpine corner beyond the rear-left train corridor. The
+	# conforming snowfield, clustered chalets, pines and mountain read as one
+	# destination instead of scattered props behind the whole castle.
+	var village_local := ALPINE_VILLAGE_CENTER
+	m.g["alpine_village_center"] = o + Vector3(village_local.x,
+		_lagoon_local(village_local.x, village_local.y), village_local.y)
+	_build_alpine_snowfield(o, ALPINE_SNOW_CENTER, ALPINE_SNOW_RADIUS)
+	_build_alpine_mountain(o)
+
 	var cottage_rows: Array = [
-		[Vector3(-92.0, 0.0, -158.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 12.0],
-		[Vector3(92.0, 0.0, -158.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 12.0],
-		[Vector3(-70.0, 0.0, -182.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
+		[Vector3(-92.0, 0.0, -156.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 9.0],
+		[Vector3(-78.0, 0.0, -185.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 10.0],
+		[Vector3(-112.0, 0.0, -190.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
 	]
 	for row: Array in cottage_rows:
 		var lp: Vector3 = row[0]
 		_village_snow_patch(o, lp, float(row[3]))
 		_village_cottage(o, lp, row[1], row[2])
 
-	# The train circles the castle at radius 78. The village lives beyond its
-	# clear corridor (and leaves the hatch at 0,-175 open), so no car ever has
-	# to trip its clip guard while still keeping every prop on the island rim.
-	var tree_pos := Vector3(70.0, 0.0, -182.0)
+	# The decorated tree anchors the little square between all three chalets.
+	# Its outer-rim placement keeps the entire solid cluster beyond the train ring.
+	var tree_pos := Vector3(-67.0, 0.0, -190.0)
 	_village_snow_patch(o, tree_pos, 8.0)
 	_village_pine(o, tree_pos, 1.22, true)
 	_village_gift(o, tree_pos + Vector3(-4.2, 0.0, 2.6), Color(0.86, 0.20, 0.32), Color(1.0, 0.82, 0.32), 1.0)
 	_village_gift(o, tree_pos + Vector3(4.0, 0.0, 2.0), Color(0.25, 0.62, 0.70), Color(0.96, 0.72, 0.84), 0.82)
 	_village_gift(o, tree_pos + Vector3(1.0, 0.0, -4.0), Color(0.48, 0.35, 0.72), Color(0.90, 0.96, 1.0), 0.72)
 
-	# A few snowy pines close the silhouette without turning the clearing into
-	# another dense forest. Speedy keeps the two strongest shapes only.
+	# Snowy pines wall off the corner and merge the village silhouette into the
+	# mountain. Speedy keeps this deliberately small set for the Mali-G52.
 	var pine_spots: Array = [
-		[Vector3(-105.0, 0.0, -155.0), 0.72],
-		[Vector3(105.0, 0.0, -155.0), 0.78],
+		[Vector3(-100.0, 0.0, -146.0), 0.76],
+		[Vector3(-121.0, 0.0, -190.0), 0.82],
+		[Vector3(-52.0, 0.0, -203.0), 0.72],
 	]
 	for pi in range(pine_spots.size()):
 		var prow: Array = pine_spots[pi]
 		_village_pine(o, prow[0], float(prow[1]), false)
 
-	_village_snowman(o, Vector3(52.0, 0.0, -190.0))
+	_village_snowman(o, Vector3(-61.0, 0.0, -191.0))
+
+	# A child-readable trail of glowing cairns points uphill without revealing
+	# the cave outright. It is a visual pointer, not text or a fail-able quest.
+	for trail: Vector2 in [Vector2(-86.0, -181.0), Vector2(-92.0, -175.0),
+		Vector2(-98.0, -170.0), Vector2(-103.0, -167.0)]:
+		_alpine_cairn(o, trail)
+
+
+func _build_alpine_snowfield(o: Vector3, center: Vector2, radius: Vector2) -> void:
+	# One low-cost mesh follows the real heightfield, avoiding the floating flat
+	# snow discs that would otherwise slice through the mountain slope.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var cells := 14
+	var dx: float = radius.x * 2.0 / float(cells)
+	var dz: float = radius.y * 2.0 / float(cells)
+	for ix in range(cells):
+		var x0: float = center.x - radius.x + float(ix) * dx
+		var x1: float = x0 + dx
+		for iz in range(cells):
+			var z0: float = center.y - radius.y + float(iz) * dz
+			var z1: float = z0 + dz
+			var nx: float = ((x0 + x1) * 0.5 - center.x) / radius.x
+			var nz: float = ((z0 + z1) * 0.5 - center.y) / radius.y
+			if nx * nx + nz * nz > 1.0:
+				continue
+			_alpine_snow_v(st, x0, z0)
+			_alpine_snow_v(st, x1, z1)
+			_alpine_snow_v(st, x0, z1)
+			_alpine_snow_v(st, x0, z0)
+			_alpine_snow_v(st, x1, z0)
+			_alpine_snow_v(st, x1, z1)
+	st.generate_normals()
+	st.generate_tangents()
+	var snowfield := MeshInstance3D.new()
+	snowfield.mesh = st.commit()
+	snowfield.material_override = m._up_mat("snow", 0.055, Color(0.88, 0.95, 1.0))
+	snowfield.position = o
+	snowfield.visibility_range_end = 230.0
+	m.add_child(snowfield)
+	m.game_nodes.append(snowfield)
+
+
+func _alpine_snow_v(st: SurfaceTool, x: float, z: float) -> void:
+	st.set_uv(Vector2(x * 0.055, z * 0.055))
+	st.add_vertex(Vector3(x, _lagoon_local(x, z) + 0.18, z))
+
+
+func _build_alpine_mountain(o: Vector3) -> void:
+	var mc := ALPINE_MOUNTAIN_CENTER
+	m.g["alpine_mountain_center"] = o + Vector3(mc.x, _lagoon_local(mc.x, mc.y), mc.y)
+	# Three uneven crags break up the rounded heightfield into a toy-Alps ridge.
+	for crag: Array in [
+		[Vector2(-142.0, -176.0), 16.0, 28.0],
+		[Vector2(-151.0, -157.0), 13.0, 24.0],
+		[Vector2(-130.0, -190.0), 12.0, 22.0],
+	]:
+		_alpine_crag(o, crag[0], float(crag[1]), float(crag[2]))
+
+	var floor_y := ALPINE_CAVE_FLOOR
+	var rock_col := Color(0.43, 0.48, 0.58)
+	# A real covered alcove: open on the east/village side, with a level carved
+	# floor in _lagoon_local. Side and back walls are solid; the roof is scenery
+	# so the horizontal soft-collision system never ejects Roshan from below it.
+	var cave_parts: Array = [
+		[Vector3(-120.0, floor_y + 6.0, -173.0), Vector3(28.0, 12.0, 4.0), true],
+		[Vector3(-120.0, floor_y + 6.0, -157.0), Vector3(28.0, 12.0, 4.0), true],
+		[Vector3(-121.0, floor_y + 12.0, -165.0), Vector3(30.0, 4.0, 16.0), false],
+		[Vector3(-135.0, floor_y + 7.0, -165.0), Vector3(4.0, 14.0, 16.0), true],
+	]
+	for part: Array in cave_parts:
+		var cp: Vector3 = part[0]
+		var cs: Vector3 = part[1]
+		var stone := m._l2_box(o + cp, cs, rock_col)
+		stone.material_override = m._up_mat("cliff", 0.07, rock_col)
+		stone.visibility_range_end = 205.0
+		if bool(part[2]):
+			m._wall_solid(o + cp, cs, 0.5)
+
+	# Snowy boulders disguise the mouth until the uphill trail bends around them.
+	for brow: Array in [
+		[Vector3(-107.0, floor_y + 3.5, -171.5), Vector3(4.5, 4.8, 4.2)],
+		[Vector3(-107.0, floor_y + 3.5, -158.5), Vector3(4.5, 4.8, 4.2)],
+		[Vector3(-108.0, floor_y + 10.5, -165.0), Vector3(5.5, 3.2, 8.5)],
+	]:
+		_alpine_boulder(o + (brow[0] as Vector3), brow[1])
+
+	# The dark back makes the short tunnel read as depth even on Mobile, while
+	# the warm star is only visible after crossing the shadowed mouth.
+	var recess := m._l2_box(o + Vector3(-132.7, floor_y + 6.3, -165.0),
+		Vector3(0.3, 10.5, 11.0), Color(0.035, 0.045, 0.075))
+	recess.material_override.roughness = 1.0
+	var pedestal := m._l2_box(o + Vector3(-128.0, floor_y + 1.2, -165.0),
+		Vector3(4.2, 2.4, 4.2), Color(0.42, 0.48, 0.60))
+	pedestal.material_override = m._up_mat("marble", 0.08, Color(0.62, 0.72, 0.84))
+
+	var secret := Label3D.new()
+	secret.text = "\u2605"
+	secret.font_size = 360
+	secret.pixel_size = 0.032
+	secret.outline_size = 38
+	secret.modulate = Color(1.0, 0.86, 0.30)
+	secret.outline_modulate = Color(0.33, 0.20, 0.48)
+	secret.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	secret.position = o + Vector3(ALPINE_CAVE_ROOM.x, floor_y + 5.5, ALPINE_CAVE_ROOM.y)
+	m.add_child(secret)
+	m.game_nodes.append(secret)
+	m.g["alpine_cave_entrance"] = o + Vector3(ALPINE_CAVE_ENTRANCE.x, floor_y + 3.0, ALPINE_CAVE_ENTRANCE.y)
+	m.g["alpine_secret_pos"] = secret.position
+	m.g["alpine_secret_node"] = secret
+	m.g["alpine_secret_claimed"] = bool(m.stickers.get("_alpine_secret", false))
+
+	for crystal_pos: Vector3 in [Vector3(-130.2, floor_y + 2.7, -167.2),
+		Vector3(-130.0, floor_y + 2.3, -162.8), Vector3(-125.8, floor_y + 2.0, -168.0)]:
+		var crystal := MeshInstance3D.new()
+		var crystal_mesh := CylinderMesh.new()
+		crystal_mesh.top_radius = 0.0
+		crystal_mesh.bottom_radius = 0.65
+		crystal_mesh.height = 3.0
+		crystal_mesh.radial_segments = 5
+		crystal.mesh = crystal_mesh
+		crystal.material_override = m._soft_mat(Color(0.48, 0.86, 1.0), 1.4)
+		crystal.position = o + crystal_pos
+		crystal.rotation.z = 0.18
+		m.add_child(crystal)
+		m.game_nodes.append(crystal)
+
+
+func _alpine_crag(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
+	var base_y: float = _lagoon_local(lp.x, lp.y) - 0.8
+	var crag := MeshInstance3D.new()
+	var crag_mesh := CylinderMesh.new()
+	crag_mesh.top_radius = radius * 0.10
+	crag_mesh.bottom_radius = radius
+	crag_mesh.height = height
+	crag_mesh.radial_segments = 9
+	crag.mesh = crag_mesh
+	crag.material_override = m._up_mat("cliff", 0.06, Color(0.50, 0.53, 0.61))
+	crag.position = o + Vector3(lp.x, base_y + height * 0.5, lp.y)
+	crag.visibility_range_end = 235.0
+	m.add_child(crag)
+	m.game_nodes.append(crag)
+	m._cyl_solid(crag.position, radius * 0.46, height * 0.5, 0.6)
+
+	var cap := MeshInstance3D.new()
+	var cap_mesh := CylinderMesh.new()
+	cap_mesh.top_radius = 0.05
+	cap_mesh.bottom_radius = radius * 0.60
+	cap_mesh.height = height * 0.38
+	cap_mesh.radial_segments = 9
+	cap.mesh = cap_mesh
+	cap.material_override = m._up_mat("snow", 0.07, Color(0.91, 0.97, 1.0))
+	cap.position = o + Vector3(lp.x, base_y + height * 0.81, lp.y)
+	cap.visibility_range_end = 235.0
+	m.add_child(cap)
+	m.game_nodes.append(cap)
+
+
+func _alpine_boulder(pos: Vector3, size: Vector3) -> void:
+	var boulder := MeshInstance3D.new()
+	var boulder_mesh := SphereMesh.new()
+	boulder_mesh.radius = 1.0
+	boulder_mesh.height = 2.0
+	boulder_mesh.radial_segments = 8
+	boulder_mesh.rings = 5
+	boulder.mesh = boulder_mesh
+	boulder.scale = size
+	boulder.material_override = m._up_mat("cliff", 0.07, Color(0.47, 0.51, 0.60))
+	boulder.position = pos
+	boulder.visibility_range_end = 190.0
+	m.add_child(boulder)
+	m.game_nodes.append(boulder)
+
+
+func _alpine_cairn(o: Vector3, lp: Vector2) -> void:
+	var gy: float = _lagoon_local(lp.x, lp.y)
+	for ci in range(3):
+		var stone := MeshInstance3D.new()
+		var smesh := SphereMesh.new()
+		smesh.radius = 0.75 - float(ci) * 0.13
+		smesh.height = 1.0
+		smesh.radial_segments = 7
+		smesh.rings = 4
+		stone.mesh = smesh
+		stone.scale = Vector3(1.2, 0.65, 1.0)
+		stone.material_override = m._up_mat("cliff", 0.09, Color(0.57, 0.62, 0.70))
+		stone.position = o + Vector3(lp.x, gy + 0.45 + float(ci) * 0.62, lp.y)
+		stone.visibility_range_end = 130.0
+		m.add_child(stone)
+		m.game_nodes.append(stone)
+	var glint := Label3D.new()
+	glint.text = "\u2726"
+	glint.font_size = 120
+	glint.pixel_size = 0.018
+	glint.modulate = Color(0.58, 0.90, 1.0)
+	glint.outline_size = 16
+	glint.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	glint.position = o + Vector3(lp.x, gy + 3.0, lp.y)
+	m.add_child(glint)
+	m.game_nodes.append(glint)
 
 
 func _village_snow_patch(o: Vector3, lp: Vector3, radius: float) -> void:
@@ -710,6 +931,21 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color)
 	for wx: float in [-4.35, 4.35]:
 		var win := m._l2_box(base + Vector3(wx, 4.7, 5.72), Vector3(2.5, 2.8, 0.28), Color(1.0, 0.78, 0.38), 1.7)
 		win.visibility_range_end = 155.0
+	# Dark timber framing and broad eaves turn the pastel cottages into little
+	# Alpine chalets while keeping their warm, toy-storybook palette.
+	for bx: float in [-5.8, 5.8]:
+		var beam_v := m._l2_box(base + Vector3(bx, 4.5, 5.88),
+			Vector3(0.55, 7.4, 0.32), Color(0.32, 0.20, 0.16))
+		beam_v.material_override = m._up_mat("wood", 0.14, Color(0.42, 0.27, 0.20))
+		beam_v.visibility_range_end = 155.0
+	var beam_h := m._l2_box(base + Vector3(0.0, 7.15, 5.90),
+		Vector3(12.2, 0.55, 0.34), Color(0.32, 0.20, 0.16))
+	beam_h.material_override = m._up_mat("wood", 0.14, Color(0.42, 0.27, 0.20))
+	beam_h.visibility_range_end = 155.0
+	var eave := m._l2_box(base + Vector3(0.0, 8.65, 0.0),
+		Vector3(17.0, 0.55, 13.5), Color(0.34, 0.22, 0.18))
+	eave.material_override = m._up_mat("wood", 0.14, Color(0.43, 0.28, 0.22))
+	eave.visibility_range_end = 165.0
 
 	var chimney := m._l2_box(base + Vector3(3.5, 12.1, -0.8), Vector3(2.0, 6.0, 2.0), Color(0.48, 0.22, 0.22))
 	chimney.material_override = m._up_mat("castle", 0.15, Color(0.62, 0.30, 0.30))
@@ -1548,6 +1784,29 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# crafted friends are alive: they scamper around, and run up to nuzzle +
 	# purr when Roshan comes near
 	_tick_crafted(delta, ppos)
+	# Alpine secret: the cairns are the visual pointer; nearing the hidden mouth
+	# adds a recorded voice hint. Reaching the star pays once and persists in the
+	# existing stickers dictionary under a private progress key.
+	if m.g.has("alpine_secret_pos"):
+		var cave_entrance: Vector3 = m.g["alpine_cave_entrance"]
+		var secret_pos: Vector3 = m.g["alpine_secret_pos"]
+		var secret_node: Label3D = m.g.get("alpine_secret_node") as Label3D
+		if is_instance_valid(secret_node):
+			secret_node.rotate_y(delta * 0.8)
+			secret_node.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 3.0) * 0.07)
+		if (not bool(m.g.get("alpine_cave_hint", false))
+			and not bool(m.g.get("alpine_secret_claimed", false))
+			and cave_entrance.distance_to(ppos) < 34.0):
+			m.g["alpine_cave_hint"] = true
+			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles go inside!", "pearl")
+		if not bool(m.g.get("alpine_secret_claimed", false)) and secret_pos.distance_to(ppos) < 8.0:
+			m.g["alpine_secret_claimed"] = true
+			m.stickers["_alpine_secret"] = true
+			m.pearl_count += 3
+			m._write_save()
+			m._sparkle_burst(secret_pos, Color(1.0, 0.88, 0.35))
+			m._fanfare()
+			m.show_msg("Roshan", "A secret Alpine Star! Three rainbow pearls!", "pearl")
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta
@@ -1790,6 +2049,10 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	h += _lagoon_bump(lx, lz, 128.0, -20.0, 64.0, 18.0)
 	h += _lagoon_bump(lx, lz, -60.0, 168.0, 54.0, 15.0)
 	h += _lagoon_bump(lx, lz, 100.0, 150.0, 54.0, 14.0)
+	# The Alpine corner is physically attached to the island heightfield, not a
+	# floating backdrop. Its upper east face holds the hidden cave below.
+	h += _lagoon_bump(lx, lz, ALPINE_MOUNTAIN_CENTER.x, ALPINE_MOUNTAIN_CENTER.y,
+		ALPINE_MOUNTAIN_RADIUS, ALPINE_MOUNTAIN_HEIGHT)
 	# rivers carve valleys
 	h -= _lagoon_river_dip(lx, lz)
 	# smoothly flatten the castle disc + the path corridor so they stay solid & level
@@ -1803,6 +2066,15 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	# island rim falls away at the edge
 	if r > 205.0:
 		h -= (r - 205.0) * 1.2
+	# Cut a short level slot into the upper slope, then cover it with the cave
+	# shell in _build_alpine_mountain. The feathered edges keep the terrain mesh
+	# smooth while the stone side walls hide the open-top heightfield trick.
+	var cave_x: float = smoothstep(-138.0, -133.0, lx) * (1.0 - smoothstep(-103.0, -99.0, lx))
+	var cave_z: float = 1.0 - smoothstep(5.2, 8.2, absf(lz - ALPINE_CAVE_ROOM.y))
+	var room_d: float = Vector2(lx, lz).distance_to(ALPINE_CAVE_ROOM)
+	var cave_room: float = 1.0 - smoothstep(7.0, 11.0, room_d)
+	var cave_mask: float = maxf(cave_x * cave_z, cave_room)
+	h = lerpf(h, ALPINE_CAVE_FLOOR, cave_mask)
 	return h
 
 

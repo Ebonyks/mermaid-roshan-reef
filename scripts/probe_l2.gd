@@ -15,6 +15,23 @@ func _init() -> void:
 	main.trophies = 5
 	main._enter_level2()
 	await process_frame
+	# The Alpine addition must remain one distinct corner, clear of the train,
+	# with its attached mountain and near-summit secret cave fully built.
+	var alpine_ok: bool = (main.g.has("alpine_village_center")
+		and main.g.has("alpine_mountain_center")
+		and main.g.has("alpine_cave_entrance")
+		and main.g.has("alpine_secret_pos"))
+	if alpine_ok:
+		var village: Vector3 = main.g["alpine_village_center"]
+		var mountain: Vector3 = main.g["alpine_mountain_center"]
+		var secret: Vector3 = main.g["alpine_secret_pos"]
+		var vl: Vector3 = village - main.LEVEL2_POS
+		var ml: Vector3 = mountain - main.LEVEL2_POS
+		var sl: Vector3 = secret - main.LEVEL2_POS
+		var train_clear: bool = Vector2(vl.x, vl.z + 120.0).length() > 90.0
+		var attached: bool = Vector2(vl.x - ml.x, vl.z - ml.z).length() < 80.0
+		alpine_ok = vl.x < -60.0 and vl.z < -140.0 and train_clear and attached and sl.y > 45.0
+	print("ALPINE|corner + mountain + secret cave: ", "OK" if alpine_ok else "FAIL")
 	var t := 0.0
 	var got_log := []
 	var last_got := 0
