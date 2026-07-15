@@ -61,6 +61,10 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var nova_pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
 	if m.touch_ui != null and m.touch_ui.action_down:
 		nova_pressed = true
+	if bool(m.g.get("fairy_wait_release", false)):
+		if not nova_pressed:
+			m.g["fairy_wait_release"] = false
+		nova_pressed = false
 	if nova_pressed:
 		m.g["player_acted"] = true
 	if nova_pressed and float(m.g["nova_cd"]) <= 0.0:

@@ -2285,6 +2285,7 @@ func _process(delta: float) -> void:
 			if _main != null and "touch_ui" in _main and _main.touch_ui != null and (_main.touch_ui.stick_vec as Vector2).length() > 0.1:
 				hot = true
 			if hot and _pl != null:
+				_player_acted = true
 				_pl["boost_t"] = 0.9
 				_pl["squash"] = 0.3
 				_chime(1.25)

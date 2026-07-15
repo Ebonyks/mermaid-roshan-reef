@@ -30,11 +30,15 @@ var enemies: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
+var encounter := {}
+var room_tag := ""
 
-func start(main: ReefMain, battle_kind: String, done_cb: Callable) -> void:
+func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
 	kind = battle_kind
 	finish_cb = done_cb
+	encounter = config
+	room_tag = String(encounter.get("room_tag", ""))
 	player_pos = CENTER + Vector3(0, 1.1, 8.0)
 	_build_environment()
 	_build_octagon()
@@ -53,7 +57,8 @@ func _build_environment() -> void:
 	prev_env = m.we_node.environment
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color(0.08, 0.05, 0.16) if kind == "ice" else Color(0.18, 0.055, 0.035)
+	var default_bg := Color(0.08, 0.05, 0.16) if kind == "ice" else Color(0.18, 0.055, 0.035)
+	env.background_color = encounter.get("background", default_bg)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color(0.65, 0.78, 1.0) if kind == "ice" else Color(1.0, 0.68, 0.42)
 	env.ambient_light_energy = 0.9
@@ -107,8 +112,11 @@ func _build_octagon() -> void:
 	floor.bottom_radius = RADIUS
 	floor.height = 1.0
 	floor.radial_segments = 8
-	_mesh(self, floor, CENTER, Color(0.46, 0.55, 0.78) if kind == "ice" else Color(0.48, 0.25, 0.20))
-	var trim_col := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
+	var default_floor := Color(0.46, 0.55, 0.78) if kind == "ice" else Color(0.48, 0.25, 0.20)
+	var default_trim := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
+	var floor_col: Color = encounter.get("floor", default_floor)
+	var trim_col: Color = encounter.get("trim", default_trim)
+	_mesh(self, floor, CENTER, floor_col)
 	for i in range(8):
 		var a: float = float(i) * TAU / 8.0
 		var wall := BoxMesh.new()
@@ -122,8 +130,9 @@ func _build_octagon() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	avatar.texture = load("res://assets/characters/roshan_sprite.png")
-	avatar.pixel_size = 6.2 / maxf(float(avatar.texture.get_height()), 1.0)
+	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
+	avatar.texture = avatar_tex
+	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.no_depth_test = false
 	avatar.position = player_pos
@@ -133,8 +142,8 @@ func _build_camera() -> void:
 	cam = Camera3D.new()
 	cam.fov = 58.0
 	cam.position = CENTER + Vector3(0, 30.0, 31.0)
-	cam.look_at(CENTER + Vector3(0, 1.5, 0), Vector3.UP)
 	add_child(cam)
+	cam.look_at(CENTER + Vector3(0, 1.5, 0), Vector3.UP)
 	cam.make_current()
 
 func _build_hud() -> void:
@@ -176,9 +185,16 @@ func _build_hud() -> void:
 	add_child(pointer)
 
 func _build_ice_swarm() -> void:
-	for i in range(8):
-		var a: float = float(i) * TAU / 8.0
-		var pos := CENTER + Vector3(sin(a) * 18.0, 1.0, cos(a) * 18.0)
+	var count: int = int(encounter.get("enemy_count", 8))
+	var layout: String = String(encounter.get("layout", "ring"))
+	for i in range(count):
+		var a: float = float(i) * TAU / float(count)
+		var spawn_r := 18.0
+		if layout == "double":
+			spawn_r = 11.0 if i % 2 == 0 else 20.0
+		elif layout == "spiral":
+			spawn_r = 9.0 + float(i) / maxf(float(count - 1), 1.0) * 12.0
+		var pos := CENTER + Vector3(sin(a) * spawn_r, 1.0, cos(a) * spawn_r)
 		var root := Node3D.new()
 		root.position = pos
 		add_child(root)
@@ -220,7 +236,7 @@ func _build_pepper_boss() -> void:
 		for ci in range(3):
 			var claw := _cone(root, Vector3(side * (3.6 + float(ci) * 0.42), 0.8, 2.7 - float(ci) * 0.35), 0.35, 1.4, Color(0.92, 0.88, 0.62))
 			claw.rotation_degrees.z = side * 72.0
-	boss = {"node": root, "head": head, "shell": shell, "hp": 7, "phase": "peek", "timer": 4.5, "attack": 1.2, "pos": root.position}
+	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": "peek", "timer": float(encounter.get("peek_time", 4.5)), "attack": 1.2, "pos": root.position}
 
 func _move_input() -> Vector2:
 	var value := Vector2.ZERO
@@ -345,12 +361,12 @@ func _tick_imps(delta: float) -> void:
 			var toward: Vector3 = player_pos - pos
 			toward.y = 0.0
 			if toward.length() > 7.0:
-				pos += toward.normalized() * delta * 1.5
+				pos += toward.normalized() * delta * float(encounter.get("imp_speed", 1.5))
 			enemy["pos"] = pos
 			node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25, 0)
 			enemy["attack"] = float(enemy["attack"]) - delta
 			if float(enemy["attack"]) <= 0.0:
-				enemy["attack"] = 3.0 + randf() * 1.5
+				enemy["attack"] = float(encounter.get("attack_gap", 3.0)) + randf() * 1.5
 				_spawn_enemy_shot(pos + Vector3(0, 2.4, 0), player_pos, Color(0.72, 0.34, 0.92))
 		elif String(enemy["state"]) == "frozen":
 			remaining += 1
@@ -396,7 +412,7 @@ func _tick_boss(delta: float) -> void:
 		(boss["head"] as Node3D).visible = true
 		root.rotation.y = sin(elapsed * 1.4) * 0.18
 		if float(boss["attack"]) <= 0.0:
-			boss["attack"] = 1.25
+			boss["attack"] = float(encounter.get("attack_gap", 1.25))
 			if (boss["pos"] as Vector3).distance_to(player_pos) < 9.0:
 				# The bright ivory claws swipe, but Roshan's bubble shield makes
 				# contact playful: a push and sparkles, never damage or failure.
@@ -405,7 +421,7 @@ func _tick_boss(delta: float) -> void:
 				_spawn_enemy_shot((boss["pos"] as Vector3) + Vector3(0, 3.2, 4.2), player_pos, Color(1.0, 0.24, 0.04))
 		if float(boss["timer"]) <= 0.0:
 			boss["phase"] = "shell"
-			boss["timer"] = 2.8
+			boss["timer"] = float(encounter.get("shell_time", 2.8))
 			boss["attack"] = 0.8
 	else:
 		(boss["head"] as Node3D).visible = false
@@ -414,14 +430,14 @@ func _tick_boss(delta: float) -> void:
 		var chase: Vector3 = player_pos - pos
 		chase.y = 0.0
 		if chase.length() > 1.0:
-			pos += chase.normalized() * delta * 5.5
+			pos += chase.normalized() * delta * float(encounter.get("shell_speed", 5.5))
 		boss["pos"] = pos
 		root.position = pos
 		if pos.distance_to(player_pos) < 6.0:
 			_bump_player(pos)
 		if float(boss["timer"]) <= 0.0:
 			boss["phase"] = "peek"
-			boss["timer"] = 4.8
+			boss["timer"] = float(encounter.get("peek_time", 4.8))
 			boss["attack"] = 0.35
 			var back: Vector3 = CENTER + Vector3(0, 1.0, -10.0)
 			boss["pos"] = back
@@ -472,18 +488,19 @@ func _update_hud() -> void:
 		var left := 0
 		for enemy in enemies:
 			if String(enemy["state"]) != "popped": left += 1
-		objective.text = "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
 		counter.text = "❄  %d" % left
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
-		objective.text = "🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"
+		var action_text := "🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
 func _win() -> void:
 	if state != "play":
 		return
 	state = "won"
-	win_t = 3.5
+	win_t = float(encounter.get("win_time", 3.5))
 	pointer.visible = false
 	objective.text = "✨  POPCORN PARTY!  ✨" if kind == "ice" else "✨  TURTLE-LIZARD TAMED!  ✨"
 	counter.text = "★"
@@ -500,7 +517,7 @@ func _finish() -> void:
 		finish_cb.call(kind)
 	queue_free()
 
-func cancel() -> void:
+func cancel(notify_finish: bool = true) -> void:
 	if state == "done":
 		return
 	if state == "won":
@@ -509,6 +526,6 @@ func cancel() -> void:
 	state = "done"
 	if prev_env != null:
 		m.we_node.environment = prev_env
-	if finish_cb.is_valid():
+	if notify_finish and finish_cb.is_valid():
 		finish_cb.call("")
 	queue_free()

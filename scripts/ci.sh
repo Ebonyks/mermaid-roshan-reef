@@ -18,8 +18,8 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "SCRIPT ERROR|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Failed loading resource|Cannot open file|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_mg2d probe_dance probe_l2 probe_l2_reenter probe_crown probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat; do
-	[ -f "scripts/$p.gd" ] || { echo "SKIP: scripts/$p.gd not present"; continue; }
+for p in probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_mg2d probe_dance probe_l2 probe_l2_reenter probe_crown probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon; do
+	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
 	mkdir -p "$probe_home/data" "$probe_home/config"

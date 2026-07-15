@@ -11,7 +11,7 @@ const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
-	"combat_ice", "combat_fire", "portal_unlocked",
+	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals",
@@ -21,6 +21,7 @@ const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
+	"dungeon_progress", "dungeon_done",
 	"stickers", "owned", "animals",
 ]
 
@@ -88,6 +89,8 @@ func load_save() -> void:
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
+	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
+	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
 	m.fairy_skin_unlocked = bool(m.save_data.get("fairyskin", false)) or m.skin_id == "fairy"
@@ -108,7 +111,11 @@ func load_save() -> void:
 	m._update_hud()
 
 func write_save() -> void:
-	if future_schema_read_only:
+	# Recheck disk at the write boundary too: callers can construct SaveState and
+	# write without calling load_save() first, and a recovery copy may be the only
+	# surviving N+1 document.
+	if future_schema_read_only or not _find_future_candidate().is_empty():
+		future_schema_read_only = true
 		push_warning("SaveState: skipped write because a newer save schema is loaded")
 		return
 	var won_d: Dictionary = {}
@@ -140,6 +147,8 @@ func write_save() -> void:
 	next_data["fairyskin"] = m.fairy_skin_unlocked
 	next_data["combat_ice"] = m.combat_ice_done
 	next_data["combat_fire"] = m.combat_fire_done
+	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
+	next_data["dungeon_done"] = m.dungeon_done
 	next_data["stickers"] = m.stickers
 	next_data["owned"] = m.shop_owned
 	next_data["animals"] = m.animals_owned
@@ -148,9 +157,16 @@ func write_save() -> void:
 		push_error("SaveState: progress remains in memory, but could not be written safely")
 
 func _select_load_candidate() -> Dictionary:
-	var primary: Dictionary = _read_save_candidate(save_path)
-	if bool(primary.get("valid", false)) and bool(primary.get("future", false)):
-		return primary
+	var paths: Array[String] = _candidate_paths()
+	var candidates: Array[Dictionary] = []
+	for path: String in paths:
+		candidates.append(_read_save_candidate(path))
+	# Never choose an older clean fallback before discovering an N+1 recovery
+	# copy later in the list. Preserving the newest schema outranks repair order.
+	for candidate: Dictionary in candidates:
+		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
+			return candidate
+	var primary: Dictionary = candidates[0]
 	if bool(primary.get("clean", false)):
 		return primary
 	# Normalise a damaged preference/config field in place instead of rolling
@@ -158,23 +174,31 @@ func _select_load_candidate() -> Dictionary:
 	# through to a known-good recovery copy.
 	if bool(primary.get("valid", false)) and bool(primary.get("complete", false)) and bool(primary.get("progress_clean", false)):
 		return primary
-	var candidates: Array[String] = [
+	var salvage: Dictionary = primary if bool(primary.get("valid", false)) else {}
+	for i in range(1, candidates.size()):
+		var candidate: Dictionary = candidates[i]
+		if bool(candidate.get("clean", false)):
+			return candidate
+		if salvage.is_empty() and bool(candidate.get("valid", false)):
+			salvage = candidate
+	return salvage
+
+func _candidate_paths() -> Array[String]:
+	return [
+		save_path,
 		_temp_path(save_path),
 		_old_path(save_path),
 		_backup_path(),
 		_temp_path(_backup_path()),
 		_old_path(_backup_path()),
 	]
-	var salvage: Dictionary = primary if bool(primary.get("valid", false)) else {}
-	for path: String in candidates:
+
+func _find_future_candidate() -> Dictionary:
+	for path: String in _candidate_paths():
 		var candidate: Dictionary = _read_save_candidate(path)
 		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
 			return candidate
-		if bool(candidate.get("clean", false)):
-			return candidate
-		if salvage.is_empty() and bool(candidate.get("valid", false)):
-			salvage = candidate
-	return salvage
+	return {}
 
 func _read_save_candidate(path: String) -> Dictionary:
 	var result: Dictionary = {
@@ -255,7 +279,7 @@ func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	return true
@@ -275,6 +299,8 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 	if data.has("pearls") and not _is_nonnegative_integer(data["pearls"]):
 		return false
 	if data.has("pearls_ever") and not _is_nonnegative_integer(data["pearls_ever"]):
+		return false
+	if data.has("dungeon_progress") and not _is_nonnegative_integer(data["dungeon_progress"]):
 		return false
 	if data.has("plays") and not _is_nonnegative_integer(data["plays"]):
 		return false
@@ -310,6 +336,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)
 	data["combat_ice"] = _bool_or_default(raw, "combat_ice", false)
 	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
+	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)
+	data["dungeon_done"] = _bool_or_default(raw, "dungeon_done", false)
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")
