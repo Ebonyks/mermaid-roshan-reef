@@ -98,26 +98,14 @@ func build(o: Vector3) -> void:
 	else:
 		var throne = m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
-	# Princess Huluu on her throne — the full plushie treatment (rigged model,
-	# tail swaying), no more flat quivering billboard
-	if ResourceLoader.exists("res://assets/characters/huluu.glb"):
-		var hn: Node3D = (load("res://assets/characters/huluu.glb") as PackedScene).instantiate()
-		hn.scale = Vector3.ONE * 3.6
-		hn.position = o + Vector3(0, 16.2, -27.0)
-		hn.rotation.y = PI
-		m.add_child(hn)
-		m.game_nodes.append(hn)
-		var hskel = m._find_skel(hn)
-		if hskel != null:
-			m.g["huluu_skel"] = hskel
-	else:
-		var huluu := Sprite3D.new()
-		huluu.texture = load("res://assets/characters/friends/huluu.png")
-		huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		huluu.pixel_size = 0.011
-		huluu.position = o + Vector3(0, 21.0, -27.0)
-		m.add_child(huluu)
-		m.game_nodes.append(huluu)
+	# Protected book cutout until an owner-approved source-faithful model exists.
+	var huluu := Sprite3D.new()
+	huluu.texture = load("res://assets/characters/friends/huluu.png")
+	huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	huluu.pixel_size = 0.011
+	huluu.position = o + Vector3(0, 21.0, -27.0)
+	m.add_child(huluu)
+	m.game_nodes.append(huluu)
 	var hl := OmniLight3D.new()
 	hl.light_color = Color(1.0, 0.9, 0.95)
 	hl.light_energy = 1.4

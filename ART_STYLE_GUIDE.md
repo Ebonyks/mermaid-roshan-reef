@@ -692,3 +692,33 @@ An asset is ready only when every applicable item is true.
 | Use rainbow color on identity and delight beats | Put full-spectrum rainbow color on every prop |
 | Keep outlines clean, thin, and dark-colored | Use scratchy ink or thick white sticker borders |
 | Judge work in Mobile and at phone size | Approve from a close-up desktop PBR render alone |
+
+## 3D conversion contract
+
+Many world assets begin as 2D masters and are later rebuilt as meshes. The 2D
+master is a design authority, not a promise that a flat image can replace the
+runtime model. Use `ART_3D_CONVERSION_MANIFEST.md` for the work state and apply
+these rules to every conversion:
+
+- Start from a complete orthographic concept with a named gameplay role. For
+  creatures, show complete anatomy and the side or three-quarter view used by
+  play; for props, show the attachment/base point and no invented face.
+- Preserve the concept's silhouette, broad color blocks, and source-derived
+  identity through front, side, and back views. Do not add detail that changes
+  the object into a different species, toy, or character.
+- Model rounded masses with simple Mobile-safe topology. Use a single clear
+  collision story, stable scale, and an animation contract before adding surface
+  detail. A 2D card is acceptable for ambient decoration only when its billboarding,
+  parallax, and occlusion behavior are explicitly tested.
+- Keep ink and cel bands in the material pipeline where possible. Do not bake
+  black outlines, hard cast shadows, glossy chrome, or repeated prop clusters
+  into a reusable texture.
+- Split family sheets into independently named meshes or cards before wiring.
+  Christmas is specifically one empty tree board plus five detachable ornaments;
+  a sheet is never one combined runtime object.
+- For creatures and plants, test anatomy and repetition at phone size. Reject
+  accidental eyes, mouths, mixed biomes, incomplete wings, floating roots, and
+  repeated islands that become visible when scattered.
+- A mesh is not promoted until it passes a Mobile screenshot at gameplay distance,
+  has dimensions within the texture rule, and is documented in
+  `ASSET_LICENSES.md` with its source and modifications.

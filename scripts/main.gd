@@ -1503,18 +1503,20 @@ func _build_garden() -> void:
 			if rock != null:
 				rock.rotation_degrees = Vector3(randf() * 14.0, randf() * 360.0, randf() * 14.0)
 				_register_solid(rock)
-		# giant glowing anemone crowns on the rocks
+		# Storybook anemone crowns on the rocks; the ribbon mesh is fallback.
 		for k in range(3 + randi() % 3):
 			var ga: float = randf() * TAU
 			var gx: float = cx + cos(ga) * (2.0 + randf() * 9.0)
 			var gz: float = cz + sin(ga) * (2.0 + randf() * 9.0)
-			var an := MeshInstance3D.new()
-			an.mesh = _anemone_mesh()
-			an.material_override = _glow_tip_mat()
-			var mm0 := an.material_override
-			an.scale = Vector3.ONE * (2.4 + randf() * 2.4)
-			an.position = Vector3(gx, seabed_y(gx, gz) + 1.6, gz)
-			add_child(an)
+			var apos := Vector3(gx, seabed_y(gx, gz) + 0.1, gz)
+			var an: Node3D = _gen2_prop("anemone_story", apos, 5.0 + randf() * 4.0, randf() * TAU, 0.04)
+			if an == null:
+				var old_an := MeshInstance3D.new()
+				old_an.mesh = _anemone_mesh()
+				old_an.material_override = _glow_tip_mat()
+				old_an.scale = Vector3.ONE * (2.4 + randf() * 2.4)
+				old_an.position = apos + Vector3(0, 1.5, 0)
+				add_child(old_an)
 		# fairy light hero every 6th grove
 		_fairy_light(Vector3(cx, seabed_y(cx, cz) + 7.5 + randf() * 3.0, cz), fairy_cols[ci % fairy_cols.size()], ci % 6 == 0)
 	# cave landmarks (rock PBR boxes arch)
@@ -1568,17 +1570,9 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 		m.uv1_world_triplanar = true   # rocks are static; creature materials below stay object-space
 		m.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	elif key.begins_with("SeaWeed"):
-		# leafy — same treatment as the seagrass that reads well
-		m.albedo_texture = load("res://assets/terrain/leaf.png")
+		# Legacy solid-mesh fallback stays matte; the illustrated alpha leaf is for cards.
 		m.albedo_color = col * 1.2
-		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/scales_normal.png")
-		m.normal_scale = 0.6
-		m.uv1_scale = Vector3(1.8, 1.8, 1.8)
 		m.roughness = 0.95
-		m.emission_enabled = true
-		m.emission = col * 0.25
-		m.emission_energy_multiplier = 0.6
 	elif key.begins_with("Coral") or key in ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar", "StarFish"]:
 		# living coral — polyp detail albedo + bump
 		m.albedo_texture = load("res://assets/terrain/polyp.png")
@@ -2978,28 +2972,21 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
-	# Phase 5: a real painted-looking sky — 2K CC0 Poly Haven panoramas
-	# (Qwantani pure-sky day + its dusk sister for the bedtime flip). The
-	# procedural gradient stays as the fallback if the HDRs ever go missing.
-	var pano_path := "res://assets/sky/lagoon_dusk_2k.hdr" if is_night else "res://assets/sky/lagoon_day_2k.hdr"
-	if ResourceLoader.exists(pano_path):
-		var pano := PanoramaSkyMaterial.new()
-		pano.panorama = load(pano_path)
-		pano.energy_multiplier = 0.6 if is_night else 1.0   # night stays dim + cosy
-		sky.sky_material = pano
+	# Illustrated color bands stay seamless and identical under the Mobile renderer.
+	var psky := ProceduralSkyMaterial.new()
+	if is_night:
+		psky.sky_top_color = Color(0.09, 0.08, 0.28)
+		psky.sky_horizon_color = Color(0.48, 0.36, 0.66)
+		psky.ground_bottom_color = Color(0.08, 0.18, 0.30)
+		psky.ground_horizon_color = Color(0.34, 0.46, 0.64)
 	else:
-		var psky := ProceduralSkyMaterial.new()
-		if is_night:
-			psky.sky_top_color = Color(0.06, 0.07, 0.22)
-			psky.sky_horizon_color = Color(0.22, 0.20, 0.42)
-			psky.ground_bottom_color = Color(0.10, 0.12, 0.26)
-			psky.ground_horizon_color = Color(0.18, 0.18, 0.36)
-		else:
-			psky.sky_top_color = Color(0.35, 0.62, 0.95)
-			psky.sky_horizon_color = Color(0.85, 0.92, 1.0)
-			psky.ground_bottom_color = Color(0.7, 0.85, 0.95)
-			psky.ground_horizon_color = Color(0.8, 0.9, 1.0)
-		sky.sky_material = psky
+		psky.sky_top_color = Color(0.25, 0.72, 0.88)
+		psky.sky_horizon_color = Color(0.88, 0.96, 0.92)
+		psky.ground_bottom_color = Color(0.20, 0.55, 0.68)
+		psky.ground_horizon_color = Color(0.72, 0.90, 0.88)
+	psky.sky_curve = 0.12
+	psky.ground_curve = 0.18
+	sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
@@ -3393,6 +3380,7 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	return wrap
 
 var _gen2_cache := {}
+var _gen2_mesh_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
 
@@ -3580,6 +3568,27 @@ func _gen2_outline_mat() -> ShaderMaterial:
 		# navy/purple ink per the art direction (not black)
 		_gen2_outline.set_shader_parameter("line_color", Color(0.16, 0.12, 0.3))
 	return _gen2_outline
+
+func _gen2_static_mesh(name: String) -> Mesh:
+	# MultiMesh scenery needs the joined mesh resource from the story GLB.
+	var cached: Mesh = _gen2_mesh_cache.get(name, null)
+	if cached != null:
+		return cached
+	var path := "res://assets/props/gen2/" + name + ".glb"
+	if not ResourceLoader.exists(path):
+		return null
+	var ps: PackedScene = load(path)
+	if ps == null:
+		return null
+	var inst: Node3D = ps.instantiate()
+	var meshes := _all_meshes(inst)
+	if meshes.is_empty():
+		inst.free()
+		return null
+	var result: Mesh = (meshes[0] as MeshInstance3D).mesh
+	_gen2_mesh_cache[name] = result
+	inst.free()
+	return result
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
@@ -4836,7 +4845,7 @@ func _open_craft_studio() -> void:
 		rbw.position = Vector2(300.0 - 94.0, 444.0 + float(row) * 92.0)   # BEFORE the solids
 		rbw.flat = true
 		var rimg := TextureRect.new(); rimg.texture = load("res://assets/mg/rainbow_swatch.png")
-		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_SCALE
+		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		rimg.set_anchors_preset(Control.PRESET_FULL_RECT); rimg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		rbw.add_child(rimg)
 		var pp2: String = part
@@ -5587,18 +5596,38 @@ func _game_ball(col: Color, radius: float) -> MeshInstance3D:
 	sph.radius = radius
 	sph.height = radius * 2.0
 	mi.mesh = sph
-	var m := StandardMaterial3D.new()
+	var m: Material
 	if col == Color(1.0, 0.4, 0.25):
-		m.albedo_texture = load("res://assets/terrain/beachball.png")
-		m.albedo_color = Color(1, 1, 1)
-		m.roughness = 0.35
-		m.emission_enabled = true
-		m.emission = Color(0.6, 0.5, 0.45)
-		m.emission_energy_multiplier = 0.25
+		var ball_shader := Shader.new()
+		ball_shader.code = """shader_type spatial;
+render_mode diffuse_burley, specular_schlick_ggx;
+void fragment() {
+	float angle = UV.x;
+	float panel = floor(fract(angle) * 6.0);
+	vec3 coral = vec3(0.98, 0.38, 0.40);
+	vec3 aqua = vec3(0.25, 0.78, 0.78);
+	vec3 shell = vec3(1.0, 0.88, 0.68);
+	vec3 lavender = vec3(0.62, 0.49, 0.82);
+	vec3 gold = vec3(1.0, 0.70, 0.24);
+	vec3 color = panel < 1.0 ? coral : (panel < 2.0 ? aqua : (panel < 3.0 ? shell : (panel < 4.0 ? lavender : (panel < 5.0 ? gold : aqua))));
+	float panel_uv = fract(angle * 6.0);
+	float edge = min(panel_uv, 1.0 - panel_uv);
+	float seam = 1.0 - smoothstep(0.008, 0.025, edge);
+	ALBEDO = mix(color, vec3(0.16, 0.12, 0.28), seam * 0.55);
+	ROUGHNESS = 0.82;
+	SPECULAR = 0.12;
+}"""
+		var shader_mat := ShaderMaterial.new()
+		shader_mat.shader = ball_shader
+		m = shader_mat
 	else:
-		m.albedo_color = col
-		m.emission_enabled = true
-		m.emission = col * 0.5
+		var soft := StandardMaterial3D.new()
+		soft.albedo_color = col
+		soft.roughness = 0.78
+		soft.emission_enabled = true
+		soft.emission = col * 0.25
+		soft.emission_energy_multiplier = 0.35
+		m = soft
 	mi.material_override = m
 	add_child(mi)
 	game_nodes.append(mi)
@@ -5821,12 +5850,16 @@ func _build_cavern(origin: Vector3) -> void:
 				game_nodes.append(rk)
 	# glowing anemones light the way
 	for p2 in pts:
-		var an := MeshInstance3D.new()
-		an.mesh = _anemone_mesh()
-		an.material_override = _glow_tip_mat()
-		an.scale = Vector3.ONE * 1.8
-		an.position = p2 + Vector3(1.5, -2.0, 1.0)
-		add_child(an)
+		var apos: Vector3 = p2 + Vector3(1.5, -2.5, 1.0)
+		var an: Node3D = _gen2_prop("anemone_story", apos, 4.6, randf() * TAU, 0.03)
+		if an == null:
+			var old_an := MeshInstance3D.new()
+			old_an.mesh = _anemone_mesh()
+			old_an.material_override = _glow_tip_mat()
+			old_an.scale = Vector3.ONE * 1.8
+			old_an.position = apos + Vector3(0, 0.5, 0)
+			add_child(old_an)
+			an = old_an
 		game_nodes.append(an)
 	# treasure chest at the bottom, bathed in gold light
 	var chest := _spawn("chest", pts[pts.size() - 1] + Vector3(0, -2.4, 0), 5.0, 0.9)
@@ -6766,23 +6799,25 @@ func _fairy_build_hazards(origin: Vector3) -> void:
 	# spiky shadow urchins that spin in place
 	for k in range(3):
 		var uz: float = 75.0 + float(k) * ((FS_LEN - 150.0) / 2.0)
-		var urch := Node3D.new()
-		var core := MeshInstance3D.new()
-		var cm2 := SphereMesh.new(); cm2.radius = 1.9; cm2.height = 3.8
-		core.mesh = cm2; core.material_override = shadow
-		urch.add_child(core)
-		for s in range(8):
-			var sa: float = float(s) / 8.0 * TAU
-			var spike := MeshInstance3D.new()
-			var spm2 := CylinderMesh.new(); spm2.top_radius = 0.0; spm2.bottom_radius = 0.5; spm2.height = 2.4
-			spike.mesh = spm2; spike.material_override = _soft_mat(Color(0.8, 0.3, 1.0), 1.2)
-			spike.position = Vector3(cos(sa) * 2.6, 0, sin(sa) * 2.6)
-			spike.rotation = Vector3(0, -sa, -PI / 2.0)   # point the cone outward
-			urch.add_child(spike)
-		_fairy_eye(urch, Vector3(-0.7, 1.7, 0))
-		_fairy_eye(urch, Vector3(0.7, 1.7, 0))
-		urch.position = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 6.0), FS_PLANE, uz)
-		add_child(urch); game_nodes.append(urch)
+		var upos := origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 6.0), FS_PLANE - 1.4, uz)
+		var urch: Node3D = _gen2_prop("urchin_story", upos, 5.2, randf() * TAU, 0.0)
+		if urch == null:
+			urch = Node3D.new()
+			var core := MeshInstance3D.new()
+			var cm2 := SphereMesh.new(); cm2.radius = 1.9; cm2.height = 3.8
+			core.mesh = cm2; core.material_override = shadow
+			urch.add_child(core)
+			for s in range(8):
+				var sa: float = float(s) / 8.0 * TAU
+				var spike := MeshInstance3D.new()
+				var spm2 := CylinderMesh.new(); spm2.top_radius = 0.0; spm2.bottom_radius = 0.5; spm2.height = 2.4
+				spike.mesh = spm2; spike.material_override = _soft_mat(Color(0.8, 0.3, 1.0), 1.2)
+				spike.position = Vector3(cos(sa) * 2.6, 0, sin(sa) * 2.6)
+				spike.rotation = Vector3(0, -sa, -PI / 2.0)
+				urch.add_child(spike)
+			urch.position = upos
+			add_child(urch)
+		game_nodes.append(urch)
 		(g["hazards"] as Array).append({"node": urch, "kind": "urchin", "base": urch.position, "ph": randf() * TAU})
 	# shadow eels sweeping side to side across the lane — time the gap!
 	for k in range(2):
@@ -7568,8 +7603,12 @@ func _build_meadows() -> void:
 	_scatter_field(420, _cross_blade(1.7, 4.5), _sway_sprite_mat("res://assets/props/gen2/kelp.png"), 0.0, false, [])
 	# anemones + urchins stay procedural for now (no painted source art yet —
 	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
-	_scatter_field(360, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
-		[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)])
+	var anemone_mesh := _gen2_static_mesh("anemone_story")
+	if anemone_mesh != null:
+		_scatter_field(180, anemone_mesh, null, 0.1, false, [])
+	else:
+		_scatter_field(180, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
+			[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)])
 	# HER starfish: flat painted decals resting on the sand (rendered from the
 	# gen2 starfish model — the procedural white stars read as paper cutouts)
 	var sf := PlaneMesh.new()
@@ -7583,8 +7622,12 @@ func _build_meadows() -> void:
 	sfm.emission = Color(0.45, 0.32, 0.3)
 	sfm.emission_energy_multiplier = 0.25
 	_scatter_field(240, sf, sfm, 0.12, false, [])
-	_scatter_field(200, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
-		[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)])
+	var urchin_mesh := _gen2_static_mesh("urchin_story")
+	if urchin_mesh != null:
+		_scatter_field(100, urchin_mesh, null, 0.15, false, [])
+	else:
+		_scatter_field(100, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
+			[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)])
 
 func _sway_sprite_mat(sprite_path: String) -> ShaderMaterial:
 	# gen2 painted blade: same wind-driven sway as the old procedural grass,
@@ -7923,30 +7966,47 @@ func _manta_mesh() -> ArrayMesh:
 
 var movers: Array = []
 func _build_megafauna() -> void:
-	# 3 glowing mantas
+	# Three storybook stingrays; the procedural ribbon remains missing-file fallback.
 	var mmesh := _manta_mesh()
 	for i in range(3):
-		var m := MeshInstance3D.new()
-		m.mesh = mmesh
-		m.material_override = _flap_mat([Color(0.4, 0.9, 1.0), Color(0.9, 0.6, 1.0), Color(0.5, 1.0, 0.7)][i])
-		m.scale = Vector3.ONE * (2.2 + float(i) * 0.6)
-		add_child(m)
+		var m: Node3D = _gen2_creature("stingray", Vector3.ZERO, 5.0 + float(i) * 1.2)
+		if m == null:
+			var old_m := MeshInstance3D.new()
+			old_m.mesh = mmesh
+			old_m.material_override = _flap_mat([Color(0.4, 0.9, 1.0), Color(0.9, 0.6, 1.0), Color(0.5, 1.0, 0.7)][i])
+			old_m.scale = Vector3.ONE * (2.2 + float(i) * 0.6)
+			add_child(old_m)
+			m = old_m
 		movers.append({"node": m, "kind": "manta", "rad": 90.0 + float(i) * 45.0, "spd": 0.06 + randf() * 0.04,
 			"ph": randf() * TAU, "y": 24.0 + float(i) * 8.0})
-	# 1 great glowing whale
-	var w := MeshInstance3D.new()
-	w.mesh = _fish_mesh(14.0)
-	w.material_override = _creature_mat()
-	var mmw := MultiMesh.new()
-	add_child(w)
+	# One great storybook fish with paired fins and horizontal flukes.
+	var w: Node3D = _gen2_prop("giant_fish_story", Vector3.ZERO, 28.0, 0.0, 0.0)
+	if w != null:
+		var wap := _find_anim(w)
+		if wap != null:
+			var clips := wap.get_animation_list()
+			if not clips.is_empty():
+				var clip: StringName = clips[0]
+				wap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+				wap.play(clip)
+				wap.speed_scale = 0.65
+	else:
+		var old_w := MeshInstance3D.new()
+		old_w.mesh = _fish_mesh(14.0)
+		old_w.material_override = _creature_mat()
+		add_child(old_w)
+		w = old_w
 	movers.append({"node": w, "kind": "whale", "rad": 200.0, "spd": 0.018, "ph": 0.0, "y": 38.0})
 	# 2 sea turtles cruising low
 	for i in range(2):
-		var tm := MeshInstance3D.new()
-		tm.mesh = _manta_mesh()
-		tm.material_override = _flap_mat(Color(0.55, 1.0, 0.45))
-		tm.scale = Vector3.ONE * 1.1
-		add_child(tm)
+		var tm: Node3D = _gen2_creature("turtle", Vector3.ZERO, 5.2 + float(i) * 0.8)
+		if tm == null:
+			var old_tm := MeshInstance3D.new()
+			old_tm.mesh = _manta_mesh()
+			old_tm.material_override = _flap_mat(Color(0.55, 1.0, 0.45))
+			old_tm.scale = Vector3.ONE * 1.1
+			add_child(old_tm)
+			tm = old_tm
 		movers.append({"node": tm, "kind": "turtle", "rad": 60.0 + float(i) * 70.0, "spd": 0.05,
 			"ph": PI * float(i), "y": 10.0 + float(i) * 5.0})
 
