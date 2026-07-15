@@ -95,9 +95,9 @@ protected voice rule remains in `AGENTS.md` and is unchanged.
 | 2 | `assets/vehicles/monstertruck.glb` and `monstertruck_Atlas.png` | Prefer the Blender-authored `monstertruck_story.glb`; retain old rover only as fallback. | Batch 01 rounded matte mesh is wired and pending Mobile paint/orientation/collision QA. |
 | 2 | Rainbow paint shader | Code correction to matte-to-satin response: zero metallic, high roughness, restrained emission. | Shader institution, no mesh conversion. |
 | 2 | `assets/mg/fish_body.png`, `fish_fins.png` | Batch 04 candidates `006`, `007`; preserve `fish_line.png` registration. | Ready for a layered low-poly fish mesh or cutout rig after registration check. |
-| 2 | Minigame placeholders: `coal.png`, `flower*.png`, `k_bush.png`, `k_flower*.png`, `k_pine.png`, `k_sprout.png`, `star.png`, `sun.png`, `tree.png`, `xtree.png`, `sprout.png` | Batch 04 candidates `008`-`013`; source book carrot, watering can, friendship flower, and snowman stay protected. | Family sheet is the modeling reference; split items before runtime or mesh conversion. |
-| 1 | `assets/mg/k_bush2.png` | Replaced by the rounded bush candidate in Batch 04. | Ready as a simple low-poly bush card or mesh. |
-| 2 | `assets/mg/orn1.png`-`orn5.png` | Batch 04 candidate `014`; five detachable designs, one empty tree board. | Each ornament is a separate mesh-ready concept; do not model the sheet as one object. |
+| 2 | Minigame placeholders: `coal.png`, `flower*.png`, `k_bush.png`, `k_flower*.png`, `k_pine.png`, `k_sprout.png`, `star.png`, `sun.png`, `tree.png`, `xtree.png`, `sprout.png` | Replaced in place by 512px Blender renders from Batch 02; source book carrot, watering can, friendship flower, and snowman stay protected. | Runtime promoted, pending Mobile picture-game review. |
+| 1 | `assets/mg/k_bush2.png` | Replaced in place by the Batch 02 flowering-shrub render. | Runtime promoted at provisional 4/5, pending Mobile review. |
+| 2 | `assets/mg/orn1.png`-`orn5.png` | Replaced by five separate Batch 02 models/renders; `xtree.png` is empty. | Runtime promoted, preserving detachable placement and protected topper logic. |
 | 2 | `assets/mg/rainbow_swatch.png` | Batch 04 candidate `015`; fin-shaped, matte palette control. | UI-only; no mesh conversion. |
 | 2 | Visible `assets/sky/lagoon_day_2k.hdr`, `lagoon_dusk_2k.hdr` | Batch 04 candidates `016`, `017` replace visible presentation; HDR can remain non-visible lighting data. | Panorama reference only; not a mesh target. |
 | 2 | Procedural glow-tip anemones and urchins | Prefer `anemone_story.glb` and `urchin_story.glb`; procedural geometry remains fallback-only. | Batch 01 joined Mobile meshes are wired and pending gameplay screenshot QA. |
@@ -123,8 +123,8 @@ protected voice rule remains in `AGENTS.md` and is unchanged.
 ## Open work after institution
 
 The <=2/5 inventory is now covered by a replacement or disposition, but several
-items still need implementation work: splitting and wiring of multi-item sheets,
-terrain and sky presentation, source-faithful protected-character modeling, and
-Mobile screenshot review of the five Batch 01 meshes.
+items still need implementation work: layered fish registration, kart motif
+splitting, terrain and sky presentation, source-faithful protected-character
+modeling, and Mobile screenshot review of Batch 01 and Batch 02.
 These are deliberately tracked as conversion gates rather than silently marked
 complete by the presence of a generated PNG.

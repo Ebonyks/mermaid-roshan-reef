@@ -377,3 +377,17 @@ checks confirm 12,232 total triangles with no embedded raster images. Final
 promotion remains gated on Godot Mobile import and gameplay screenshots because
 no Godot binary is available in this environment. Protected book art, legacy
 character models, family cutouts, and child-owned toys were not modified.
+
+## 2026-07-14 Blender production Batch 02
+
+`ART_3D_BATCH_02.md` records 21 editable Blender models rendered into 23
+power-of-two picture-game sprites. This replaces the score-1/2 coal,
+seed/sprout, flower, bush, tree, sun, star, and detachable ornament family
+without changing any touch, growth-stage, or placement code.
+
+The former 1/5 `k_bush2.png` now reads as a flowering shrub. The Christmas
+tree no longer contains baked bulbs or a star before play begins: five separate
+ornaments are placed by the child, followed by the protected friendship-flower
+topper. Blender contact review scores the family provisionally at 4/5. Book
+carrot, watering can, friendship flower, characters, cutouts, and child-owned
+toys were not transformed.

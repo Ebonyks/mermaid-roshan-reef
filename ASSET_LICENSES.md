@@ -94,6 +94,8 @@
 | assets_src/blender/qa_low_score_batch_01/butterfly_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
 | assets_src/blender/qa_low_score_batch_01/giant_fish_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
 | assets_src/blender/qa_low_score_batch_01/monstertruck_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+| assets/mg/coal.png, seed.png, sprout.png, k_sprout.png, flower.png, flower2.png, flower3.png, flower4.png, k_flower1.png, k_flower2.png, k_bush.png, k_bush2.png, tree.png, k_pine.png, xtree.png, k_xmastree.png, sun.png, star.png, orn1.png, orn2.png, orn3.png, orn4.png, orn5.png | Project-authored Blender 4.4.3 models and orthographic renders guided by the approved Batch 04 concepts and `ART_STYLE_GUIDE.md` | **Project-generated art** | - | 512x512 RGBA; matte materials; navy Freestyle contours; existing runtime paths replaced in place; generated 2026-07-14 |
+| assets_src/blender/low_score_batch_02.blend | Project-authored Blender source for 3D Replacement Batch 02 | **Project-generated source art** | - | 21 editable minigame models producing 23 runtime PNGs; generated 2026-07-14 |
 
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay

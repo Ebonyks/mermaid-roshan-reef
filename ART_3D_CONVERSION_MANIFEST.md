@@ -31,8 +31,8 @@ intact.
 | P0 | Giant ambient fish | `assets/props/gen2/giant_fish_story.glb` | MOBILE_QA | Anatomical whale silhouette with paired fins, dorsal fin, horizontal flukes, and one tail action. |
 | P0 | Monster truck | `assets/vehicles/monstertruck_story.glb` | MOBILE_QA | New rounded matte toy mesh is the preferred kart body; old rover remains missing-file fallback. Verify yaw, paint, and collision in Mobile. |
 | P1 | Fish craft body/fins | `assets_src/style_review_batch_04/final/006_fish_body_layer.png`, `007_fish_fins_layer.png`, protected `fish_line.png` | MODEL_PENDING | Check pixel registration; use separate body, fins, and line layers in a flat-shaded fish mesh or cutout rig. |
-| P1 | Bush, flowers, leaves, trees, seed stages | `assets_src/style_review_batch_04/final/003`-`005`, `008`, `009`, `013` | CONCEPT_READY | Split each item before modeling; avoid baking a repeat prop into a terrain tile. |
-| P1 | Christmas ornaments | `assets_src/style_review_batch_04/final/014_ornament_set.png` | CONCEPT_READY | Five independent detachable meshes; tree board remains separate and empty. |
+| P1 | Bush, flowers, trees, seed stages, coal, sun, and star | `assets/mg/*.png`, source in `assets_src/blender/low_score_batch_02.blend` | MOBILE_QA | Twenty-one Blender models feed touch-safe 2D renders; existing filenames preserve growth and placement contracts. |
+| P1 | Christmas ornaments | `assets/mg/orn1.png`-`orn5.png`, `xtree.png` | MOBILE_QA | Five independent ornament models/renders; the tree is now separate, empty, and has no baked topper. |
 | P1 | Kart checker, boost, hazards | `assets_src/style_review_batch_04/final/021_kart_motif_sheet.png` | IMPLEMENTATION_PENDING | Split checker ribbon, boost ribbon, and hazard clusters; keep hazard readability and no fail-state language. |
 | P2 | Tropical leaf/frond family | `assets_src/style_review_batch_04/final/005_leaf_tropical_sheet.png` | CONCEPT_READY | Rebake broadleaf, sword leaf, fern, and fan/palm materials; use crossed cards or low-poly clumps. |
 | P2 | Castle/furniture/park/ship raw kit surfaces | `ART_REMEDIATION_BATCH_03.md` material sheets and current GEN2 references | MODEL_PENDING | Shared trim vocabulary, rounded edges, matte paint, no photoreal PBR. |
@@ -64,6 +64,12 @@ details and measured budgets are in `ART_3D_BATCH_01.md`. Every route preserves
 its previous asset as a missing-file fallback. The meshes remain in `MOBILE_QA`
 rather than final acceptance because this environment has no Godot binary and
 cannot produce a Mobile-render gameplay screenshot.
+
+Batch 02 promotes 23 Blender-rendered picture-game PNGs while retaining their
+existing touch and layer contracts; details are in `ART_3D_BATCH_02.md`. The
+source scene contains 21 editable models. The Christmas tree is now empty, and
+its five ornaments remain detachable. This family remains in `MOBILE_QA` until
+the snowman, garden, trampoline, and Christmas screens are reviewed on-device.
 
 Protected book art, legacy character models, family cutouts, and child-owned
 toys were not transformed. Future promotion remains reviewable so a concept
