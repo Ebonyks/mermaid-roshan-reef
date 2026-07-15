@@ -54,16 +54,18 @@ func _init() -> void:
 	# the front door still leaves the castle to the courtyard
 	if main.g.has("hall_exit"):
 		var hx: Vector3 = main.g["hall_exit"]
+		# The production gate is time-based, so make this headless probe independent
+		# of uncapped process-frame timing before exercising the real hall tick.
+		main.g["t"] = maxf(3.0, float(main.g.get("t", 0.0)))
 		player.position = o + Vector3(0, 6, 10)   # far enough to arm the exit
-		await _frames(30)
+		player.vel = Vector3.ZERO
+		await process_frame
 		print("CROWN|dbg exit=", hx - o, " armed=", main.g.get("hall_exit_armed", "?"))
-		var to_exit: Vector3 = hx - player.position
-		for i in range(120):
-			to_exit = hx - player.position
-			if String(main.g.get("phase", "")) != "hall":
-				break
-			player.vel = (to_exit.normalized() * 12.0) if to_exit.length() > 1.0 else Vector3.ZERO
-			await process_frame
+		# Approach to the playable side of the front-wall blocker (the door centre
+		# itself lies behind that blocker), then let the normal trigger process it.
+		player.position = hx + Vector3(0, 1, -11.5)
+		player.vel = Vector3.ZERO
+		await process_frame
 		print("CROWN|dbg final_d=", (hx - player.position).length())
 		_ck("front_door_exits", String(main.g.get("phase", "")) != "hall", "phase=%s" % str(main.g.get("phase", "")))
 	else:

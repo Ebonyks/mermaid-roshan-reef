@@ -1475,7 +1475,9 @@ func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> Mes
 	# an interior wall: visible box + solid collider + registered for camera cutaway fade.
 	# tex (e.g. "castle") swaps the flat plaster for a real PBR stone material.
 	var node := _l2_box(center, size, col)
-	if tex != "":
+	if tex == "castle":
+		node.material_override = _castle_mat("wall", 0.065, col)
+	elif tex != "":
 		node.material_override = _up_mat(tex, 0.045, col)
 	_wall_solid(center, size)
 	var base_a: float = 1.0
@@ -2604,6 +2606,7 @@ func _apply_quality(q: String) -> void:
 		var fv: Vector2 = arena_env.get_meta("ww_full")
 		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
 		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
+	_sync_castle_lights()
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
 	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
@@ -2989,9 +2992,11 @@ func _enter_level2(from_castle: bool = false) -> void:
 	sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
-	_wind_waker_bloom(arena_env, 0.85, 0.3, 1.0)   # open sky above the lagoon — bloom the sky/windows, not every sunlit wall (0.82 white-washed the whole castle)
+	arena_env.ambient_light_energy = 0.54 if is_night else 0.58
+	_wind_waker_bloom(arena_env, 0.44, 0.05, 1.18)   # retain emitters while pale castle/snow values stay below clipping
 	_grade(arena_env)
+	arena_env.tonemap_exposure = 0.82   # exterior-only: separate the pearl stone from the bright illustrated sky
+	arena_env.tonemap_white = 1.35
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -3163,6 +3168,67 @@ func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> Sta
 	m.uv1_scale = Vector3(uvs, uvs, uvs)
 	m.roughness = 1.0
 	return m
+
+func _castle_mat(role: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1), roughness_override: float = -1.0) -> StandardMaterial3D:
+	# Castle-only painted materials. The legacy up_* normal maps are identical
+	# neutral placeholders and their roughness sheets do not match the painted
+	# albedos. Sampling those through triplanar projection cost the Mali three
+	# times per map while adding false/no surface detail, so this family keeps
+	# one color texture plus an honest scalar roughness per material role.
+	var tex_path: String = "res://assets/terrain/up_castle_col.jpg"
+	var role_roughness: float = 0.86
+	match role:
+		"floor":
+			tex_path = "res://assets/terrain/castle_floor_col.jpg"
+			role_roughness = 0.62
+		"carpet":
+			tex_path = "res://assets/terrain/castle_carpet_col.jpg"
+			role_roughness = 0.95
+		"door":
+			tex_path = "res://assets/terrain/up_door_col.jpg"
+			role_roughness = 0.78
+		"roof":
+			tex_path = "res://assets/terrain/up_roof_col.jpg"
+			role_roughness = 0.82
+		"wood":
+			tex_path = "res://assets/terrain/up_wood_col.jpg"
+			role_roughness = 0.78
+		"cobble":
+			tex_path = "res://assets/terrain/up_cobble_col.jpg"
+			role_roughness = 0.90
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = load(tex_path)
+	mat.albedo_color = tint
+	mat.uv1_triplanar = true
+	mat.uv1_world_triplanar = true
+	mat.uv1_scale = Vector3(uvs, uvs, uvs)
+	mat.roughness = roughness_override if roughness_override >= 0.0 else role_roughness
+	mat.metallic = 0.0
+	return mat
+
+func _register_castle_light(light: Light3D, speedy_visible: bool = false, night_only: bool = false, quality_shadows: bool = false) -> void:
+	# One quality-aware registry serves the outdoor keep and the rebuilt hall.
+	# Both scenes reset g before building, so stale freed lights never accumulate.
+	var detail_lights: Array = g.get("castle_detail_lights", [])
+	detail_lights.append({"light": light, "speedy": speedy_visible, "night_only": night_only, "quality_shadows": quality_shadows})
+	g["castle_detail_lights"] = detail_lights
+	var show_now: bool = (quality != "speedy" or speedy_visible) and (not night_only or is_night)
+	light.visible = show_now
+	if quality_shadows:
+		light.shadow_enabled = quality != "speedy"
+
+func _sync_castle_lights() -> void:
+	var speedy: bool = quality == "speedy"
+	var detail_lights: Array = g.get("castle_detail_lights", [])
+	for value in detail_lights:
+		var item: Dictionary = value
+		var light: Light3D = item.get("light") as Light3D
+		if not is_instance_valid(light):
+			continue
+		var show_now: bool = (not speedy or bool(item.get("speedy", false))) and (not bool(item.get("night_only", false)) or is_night)
+		light.visible = show_now
+		if bool(item.get("quality_shadows", false)):
+			light.shadow_enabled = not speedy
 
 func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
 	var b := MeshInstance3D.new()
@@ -3913,8 +3979,8 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	ie.background_color = Color(0.12, 0.10, 0.16)
 	ie.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	ie.ambient_light_color = Color(0.9, 0.82, 0.7)
-	ie.ambient_light_energy = 0.8
-	_wind_waker_bloom(ie, 0.6, 0.22, 1.05)   # threshold above 1.0: only true emitters bloom — pale lit walls stay crisp instead of smearing white
+	ie.ambient_light_energy = 0.68
+	_wind_waker_bloom(ie, 0.48, 0.14, 1.12)   # the throne/lights bloom; walls and pale floors retain their value steps
 	ie.fog_enabled = true
 	ie.fog_light_color = Color(0.5, 0.42, 0.45)
 	ie.fog_density = 0.002   # 0.006 pink-hazed the whole hall and mushed the floor pattern into "spliced" blotches
@@ -3975,36 +4041,27 @@ func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	bl.translate_object_local(Vector3(0, 0, -3.0))
 	add_child(bl)
 	game_nodes.append(bl)
+	_register_castle_light(bl, false)
 
 func _glass_window(pos: Vector3, rot_deg: Vector3, height: float) -> void:
 	var pane := MeshInstance3D.new()
 	var q := QuadMesh.new()
-	q.size = Vector2(height * 0.72, height)
+	# Crop to the actual pointed pane inside the protected source. The source has
+	# a baked checkerboard/signature around that pane; a UV silhouette removes it
+	# at render time without altering, recompressing, or replacing the image.
+	q.size = Vector2(height * 0.61, height)
 	pane.mesh = q
-	var m := StandardMaterial3D.new()
-	var tex := load("res://assets/book/hall/glass_mermaid.png")
-	m.albedo_texture = tex
-	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	m.emission_enabled = true
-	m.emission_texture = tex
-	m.emission_energy_multiplier = 0.9
-	m.roughness = 0.5
-	pane.material_override = m
+	var glass_shader := Shader.new()
+	glass_shader.code = "shader_type spatial;\nrender_mode unshaded, cull_disabled;\nuniform sampler2D glass_tex : source_color, filter_linear_mipmap;\nvoid fragment(){\n\tfloat roof_half = mix(0.015, 0.50, clamp(UV.y / 0.16, 0.0, 1.0));\n\tif (abs(UV.x - 0.5) > roof_half) discard;\n\tvec2 src_uv = vec2(mix(0.105, 0.895, UV.x), mix(0.035, 0.965, UV.y));\n\tvec3 c = texture(glass_tex, src_uv).rgb;\n\tALBEDO = c;\n\tEMISSION = c * 0.22;\n}"
+	var glass_mat := ShaderMaterial.new()
+	glass_mat.shader = glass_shader
+	glass_mat.set_shader_parameter("glass_tex", load("res://assets/book/hall/glass_mermaid.png"))
+	pane.material_override = glass_mat
 	pane.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF   # the quad cast a huge round shadow blob onto the facade
 	pane.position = pos
 	pane.rotation_degrees = rot_deg
 	add_child(pane)
 	game_nodes.append(pane)
-	# backlight so it glows like real stained glass
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.95, 0.9)
-	bl.light_energy = 2.2
-	bl.omni_range = height * 2.2
-	bl.position = pos
-	bl.translate_object_local(Vector3(0, 0, -3.0))
-	add_child(bl)
-	game_nodes.append(bl)
 
 const PIC_GAME := {"p_snowman": "snowman", "p_garden": "garden", "p_trampoline": "trampoline", "p_slide": "slide", "p_xmas": "xmas"}
 func _hang_portrait(pos: Vector3, rot_deg: Vector3, art: String) -> void:
