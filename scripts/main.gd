@@ -1568,17 +1568,9 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 		m.uv1_world_triplanar = true   # rocks are static; creature materials below stay object-space
 		m.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	elif key.begins_with("SeaWeed"):
-		# leafy — same treatment as the seagrass that reads well
-		m.albedo_texture = load("res://assets/terrain/leaf.png")
+		# Legacy solid-mesh fallback stays matte; the illustrated alpha leaf is for cards.
 		m.albedo_color = col * 1.2
-		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/scales_normal.png")
-		m.normal_scale = 0.6
-		m.uv1_scale = Vector3(1.8, 1.8, 1.8)
 		m.roughness = 0.95
-		m.emission_enabled = true
-		m.emission = col * 0.25
-		m.emission_energy_multiplier = 0.6
 	elif key.begins_with("Coral") or key in ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar", "StarFish"]:
 		# living coral — polyp detail albedo + bump
 		m.albedo_texture = load("res://assets/terrain/polyp.png")
@@ -2978,28 +2970,21 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
-	# Phase 5: a real painted-looking sky — 2K CC0 Poly Haven panoramas
-	# (Qwantani pure-sky day + its dusk sister for the bedtime flip). The
-	# procedural gradient stays as the fallback if the HDRs ever go missing.
-	var pano_path := "res://assets/sky/lagoon_dusk_2k.hdr" if is_night else "res://assets/sky/lagoon_day_2k.hdr"
-	if ResourceLoader.exists(pano_path):
-		var pano := PanoramaSkyMaterial.new()
-		pano.panorama = load(pano_path)
-		pano.energy_multiplier = 0.6 if is_night else 1.0   # night stays dim + cosy
-		sky.sky_material = pano
+	# Illustrated color bands stay seamless and identical under the Mobile renderer.
+	var psky := ProceduralSkyMaterial.new()
+	if is_night:
+		psky.sky_top_color = Color(0.09, 0.08, 0.28)
+		psky.sky_horizon_color = Color(0.48, 0.36, 0.66)
+		psky.ground_bottom_color = Color(0.08, 0.18, 0.30)
+		psky.ground_horizon_color = Color(0.34, 0.46, 0.64)
 	else:
-		var psky := ProceduralSkyMaterial.new()
-		if is_night:
-			psky.sky_top_color = Color(0.06, 0.07, 0.22)
-			psky.sky_horizon_color = Color(0.22, 0.20, 0.42)
-			psky.ground_bottom_color = Color(0.10, 0.12, 0.26)
-			psky.ground_horizon_color = Color(0.18, 0.18, 0.36)
-		else:
-			psky.sky_top_color = Color(0.35, 0.62, 0.95)
-			psky.sky_horizon_color = Color(0.85, 0.92, 1.0)
-			psky.ground_bottom_color = Color(0.7, 0.85, 0.95)
-			psky.ground_horizon_color = Color(0.8, 0.9, 1.0)
-		sky.sky_material = psky
+		psky.sky_top_color = Color(0.25, 0.72, 0.88)
+		psky.sky_horizon_color = Color(0.88, 0.96, 0.92)
+		psky.ground_bottom_color = Color(0.20, 0.55, 0.68)
+		psky.ground_horizon_color = Color(0.72, 0.90, 0.88)
+	psky.sky_curve = 0.12
+	psky.ground_curve = 0.18
+	sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
@@ -4836,7 +4821,7 @@ func _open_craft_studio() -> void:
 		rbw.position = Vector2(300.0 - 94.0, 444.0 + float(row) * 92.0)   # BEFORE the solids
 		rbw.flat = true
 		var rimg := TextureRect.new(); rimg.texture = load("res://assets/mg/rainbow_swatch.png")
-		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_SCALE
+		rimg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; rimg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		rimg.set_anchors_preset(Control.PRESET_FULL_RECT); rimg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		rbw.add_child(rimg)
 		var pp2: String = part
@@ -5587,18 +5572,38 @@ func _game_ball(col: Color, radius: float) -> MeshInstance3D:
 	sph.radius = radius
 	sph.height = radius * 2.0
 	mi.mesh = sph
-	var m := StandardMaterial3D.new()
+	var m: Material
 	if col == Color(1.0, 0.4, 0.25):
-		m.albedo_texture = load("res://assets/terrain/beachball.png")
-		m.albedo_color = Color(1, 1, 1)
-		m.roughness = 0.35
-		m.emission_enabled = true
-		m.emission = Color(0.6, 0.5, 0.45)
-		m.emission_energy_multiplier = 0.25
+		var ball_shader := Shader.new()
+		ball_shader.code = """shader_type spatial;
+render_mode diffuse_burley, specular_schlick_ggx;
+void fragment() {
+	float angle = UV.x;
+	float panel = floor(fract(angle) * 6.0);
+	vec3 coral = vec3(0.98, 0.38, 0.40);
+	vec3 aqua = vec3(0.25, 0.78, 0.78);
+	vec3 shell = vec3(1.0, 0.88, 0.68);
+	vec3 lavender = vec3(0.62, 0.49, 0.82);
+	vec3 gold = vec3(1.0, 0.70, 0.24);
+	vec3 color = panel < 1.0 ? coral : (panel < 2.0 ? aqua : (panel < 3.0 ? shell : (panel < 4.0 ? lavender : (panel < 5.0 ? gold : aqua))));
+	float panel_uv = fract(angle * 6.0);
+	float edge = min(panel_uv, 1.0 - panel_uv);
+	float seam = 1.0 - smoothstep(0.008, 0.025, edge);
+	ALBEDO = mix(color, vec3(0.16, 0.12, 0.28), seam * 0.55);
+	ROUGHNESS = 0.82;
+	SPECULAR = 0.12;
+}"""
+		var shader_mat := ShaderMaterial.new()
+		shader_mat.shader = ball_shader
+		m = shader_mat
 	else:
-		m.albedo_color = col
-		m.emission_enabled = true
-		m.emission = col * 0.5
+		var soft := StandardMaterial3D.new()
+		soft.albedo_color = col
+		soft.roughness = 0.78
+		soft.emission_enabled = true
+		soft.emission = col * 0.25
+		soft.emission_energy_multiplier = 0.35
+		m = soft
 	mi.material_override = m
 	add_child(mi)
 	game_nodes.append(mi)
@@ -7923,14 +7928,17 @@ func _manta_mesh() -> ArrayMesh:
 
 var movers: Array = []
 func _build_megafauna() -> void:
-	# 3 glowing mantas
+	# Three storybook stingrays; the procedural ribbon remains missing-file fallback.
 	var mmesh := _manta_mesh()
 	for i in range(3):
-		var m := MeshInstance3D.new()
-		m.mesh = mmesh
-		m.material_override = _flap_mat([Color(0.4, 0.9, 1.0), Color(0.9, 0.6, 1.0), Color(0.5, 1.0, 0.7)][i])
-		m.scale = Vector3.ONE * (2.2 + float(i) * 0.6)
-		add_child(m)
+		var m: Node3D = _gen2_creature("stingray", Vector3.ZERO, 5.0 + float(i) * 1.2)
+		if m == null:
+			var old_m := MeshInstance3D.new()
+			old_m.mesh = mmesh
+			old_m.material_override = _flap_mat([Color(0.4, 0.9, 1.0), Color(0.9, 0.6, 1.0), Color(0.5, 1.0, 0.7)][i])
+			old_m.scale = Vector3.ONE * (2.2 + float(i) * 0.6)
+			add_child(old_m)
+			m = old_m
 		movers.append({"node": m, "kind": "manta", "rad": 90.0 + float(i) * 45.0, "spd": 0.06 + randf() * 0.04,
 			"ph": randf() * TAU, "y": 24.0 + float(i) * 8.0})
 	# 1 great glowing whale
@@ -7942,11 +7950,14 @@ func _build_megafauna() -> void:
 	movers.append({"node": w, "kind": "whale", "rad": 200.0, "spd": 0.018, "ph": 0.0, "y": 38.0})
 	# 2 sea turtles cruising low
 	for i in range(2):
-		var tm := MeshInstance3D.new()
-		tm.mesh = _manta_mesh()
-		tm.material_override = _flap_mat(Color(0.55, 1.0, 0.45))
-		tm.scale = Vector3.ONE * 1.1
-		add_child(tm)
+		var tm: Node3D = _gen2_creature("turtle", Vector3.ZERO, 5.2 + float(i) * 0.8)
+		if tm == null:
+			var old_tm := MeshInstance3D.new()
+			old_tm.mesh = _manta_mesh()
+			old_tm.material_override = _flap_mat(Color(0.55, 1.0, 0.45))
+			old_tm.scale = Vector3.ONE * 1.1
+			add_child(old_tm)
+			tm = old_tm
 		movers.append({"node": tm, "kind": "turtle", "rad": 60.0 + float(i) * 70.0, "spd": 0.05,
 			"ph": PI * float(i), "y": 10.0 + float(i) * 5.0})
 

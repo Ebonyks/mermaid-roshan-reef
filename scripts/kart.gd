@@ -1106,9 +1106,10 @@ func _build_finish() -> void:
 render_mode unshaded, cull_disabled;
 void fragment(){
 	vec2 g = floor(UV * vec2(10.0, 2.0));
-	float chk = mod(g.x + g.y, 2.0);
-	ALBEDO = vec3(chk);
-	EMISSION = vec3(chk) * 0.3;
+		float chk = mod(g.x + g.y, 2.0);
+		vec3 navy = vec3(0.18, 0.20, 0.52);
+		vec3 shell = vec3(1.0, 0.91, 0.70);
+		ALBEDO = mix(navy, shell, chk);
 }"""
 	var lmat := ShaderMaterial.new()
 	lmat.shader = lsh
@@ -1121,10 +1122,8 @@ void fragment(){
 		pbm.size = Vector3(1.4, 15.0, 1.4)
 		post.mesh = pbm
 		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(1, 1, 1)
-		pmat.emission_enabled = true
-		pmat.emission = Color(1, 1, 1)
-		pmat.emission_energy_multiplier = 0.3
+		pmat.albedo_color = Color(0.30, 0.76, 0.78) if psgn > 0.0 else Color(0.68, 0.52, 0.84)
+		pmat.roughness = 0.82
 		post.material_override = pmat
 		post.position = c0 + fright * (_rhalf() * psgn) + Vector3(0, 7.5, 0)
 		add_child(post)
@@ -1154,14 +1153,12 @@ void fragment(){
 	dome.material_override = dmat
 	dome.transform = Transform3D(Basis(fright, ffwd, Vector3.UP).orthonormalized(), c0 + Vector3(0, 1.0, 0))
 	add_child(dome)
-	var flab := Label3D.new()
-	flab.text = "★ FINISH ★"
-	flab.font_size = 120
-	flab.outline_size = 22
-	flab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	flab.modulate = Color(1.0, 0.95, 0.4)
-	flab.position = c0 + Vector3(0, _rhalf() + 8.0, 0)
-	add_child(flab)
+	var finish_banner := Sprite3D.new()
+	finish_banner.texture = load("res://assets/kart/finish_banner.png")
+	finish_banner.pixel_size = 0.025
+	finish_banner.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	finish_banner.position = c0 + Vector3(0, 11.0, 0)
+	add_child(finish_banner)
 
 func _build_shortcut() -> void:
 	var gate_fr := _frame_at(SHORTCUT_FROM_U * _len, 0.0)
@@ -1292,15 +1289,12 @@ func _build_ramps() -> void:
 		# jump bump from BOTH directions, so reverse laps get it for free
 		wedge.rotation = Vector3(0, atan2(fwd.x, fwd.z) + PI * 0.5, 0)
 		add_child(wedge)
-		var lab := Label3D.new()
-		lab.text = "⤴"
-		lab.font_size = 140
-		lab.pixel_size = 0.03
-		lab.outline_size = 18
-		lab.modulate = Color(1.0, 0.95, 0.5)
-		lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		lab.position = pos + Vector3(0, 6.0, 0)
-		add_child(lab)
+		var ribbon := Sprite3D.new()
+		ribbon.texture = load("res://assets/kart/boost_ribbon.png")
+		ribbon.pixel_size = 0.012
+		ribbon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		ribbon.position = pos + Vector3(0, 5.2, 0)
+		add_child(ribbon)
 		_ramp_data.append({"pos": pos})
 
 func _check_ramps() -> void:
