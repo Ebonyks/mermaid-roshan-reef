@@ -42,6 +42,8 @@ func load_save() -> void:
 		m.player.set_tiara(true)
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
+	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
+	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
 	m.fairy_skin_unlocked = bool(m.save_data.get("fairyskin", false)) or m.skin_id == "fairy"
@@ -67,7 +69,7 @@ func write_save() -> void:
 	for f2 in m.friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	m.save_data = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned}
+	m.save_data = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "combat_ice": m.combat_ice_done, "combat_fire": m.combat_fire_done, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned}
 	var f = FileAccess.open(m.SAVE_PATH, FileAccess.WRITE)
 	if f != null:
 		f.store_string(JSON.stringify(m.save_data))

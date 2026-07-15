@@ -142,6 +142,8 @@ var _dance_t := 0.0
 var _dance_note := 0
 var _dance_cool := 0.0
 var _throne_cool := 0.0
+var _ice_gate: Node3D = null       # frosty berry portal inside Butterfly Castle
+var _ice_gate_cool := 0.0
 const PENT := [0, 2, 4, 7, 9]
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
@@ -1659,6 +1661,48 @@ void fragment(){
 		var bf := _make_butterfly(WING_COLS[(i * 2) % WING_COLS.size()], 1.8)
 		_hall_root.add_child(bf)
 		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4, "visit_t": 0.0})
+	_build_ice_gate()
+
+func _build_ice_gate() -> void:
+	# An icon-first berry pedestal gives the non-reader a visible destination.
+	# Touching it once opens the new octagonal ice encounter.
+	_ice_gate = Node3D.new()
+	_ice_gate.position = Vector3(-14.0, 0.8, 11.0)
+	_hall_root.add_child(_ice_gate)
+	var base := MeshInstance3D.new()
+	var bcm := CylinderMesh.new()
+	bcm.top_radius = 2.8
+	bcm.bottom_radius = 3.4
+	bcm.height = 1.4
+	base.mesh = bcm
+	var bmat := StandardMaterial3D.new()
+	bmat.albedo_color = Color(0.42, 0.62, 0.92)
+	bmat.emission_enabled = true
+	bmat.emission = Color(0.3, 0.65, 1.0)
+	bmat.emission_energy_multiplier = 0.55
+	base.material_override = bmat
+	_ice_gate.add_child(base)
+	for i in range(3):
+		var berry := MeshInstance3D.new()
+		var bsm := SphereMesh.new()
+		bsm.radius = 0.9
+		bsm.height = 1.8
+		bsm.radial_segments = 12
+		bsm.rings = 6
+		berry.mesh = bsm
+		berry.material_override = bmat
+		berry.position = Vector3((float(i) - 1.0) * 1.25, 1.7 + float(i % 2) * 0.5, 0)
+		_ice_gate.add_child(berry)
+	var snow := Label3D.new()
+	var ice_won: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
+	snow.text = "★\nPOPCORN" if ice_won else "❄\n🫐"
+	snow.font_size = 130
+	snow.pixel_size = 0.025
+	snow.outline_size = 20
+	snow.modulate = Color(0.72, 0.94, 1.0)
+	snow.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	snow.position = Vector3(0, 5.4, 0)
+	_ice_gate.add_child(snow)
 
 func _enter_hall() -> void:
 	if not _hall_built:
@@ -1685,6 +1729,7 @@ func _exit_hall() -> void:
 		_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
 
 func _tick_hall(delta: float) -> void:
+	_ice_gate_cool = maxf(0.0, _ice_gate_cool - delta)
 	var mv := _move_input()
 	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
 	if absf(mv.x) > 0.01:
@@ -1711,11 +1756,20 @@ func _tick_hall(delta: float) -> void:
 		var want: Vector3 = HALL_C + _cpos + Vector3(0, _ch + 6.5 + _cam_pitch, 0) - cam_fwd * 11.5
 		_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
 		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + cam_fwd * 3.0, Vector3.UP)
+	if _ice_gate != null:
+		_ice_gate.rotation.y += delta * 0.35
+		var ice_done: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
+		if not ice_done and _ice_gate_cool <= 0.0 and Vector2(_cpos.x + 14.0, _cpos.z - 11.0).length() < 4.2:
+			_ice_gate_cool = 10.0
+			if _main != null and _main.has_method("_start_combat"):
+				_main._start_combat("ice")
+			return
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	# her tiny galaxy spins
 	for od in _orrery_planets:
 		var oa: float = tt * float(od["spd"]) + float(od["ph"])
 		(od["node"] as Node3D).position = Vector3(0, 9.0, 0) + Vector3(cos(oa) * float(od["r"]), sin(oa) * float(od["r"]) * float(od["tilt"]), sin(oa) * float(od["r"]))
+
 	# the star rug is a DANCE FLOOR: it hue-cycles, and dancing on it starts a
 	# party — rising chime melody, sparkle bursts, butterflies swooping down
 	if _hall_rug_mat != null:
@@ -1790,6 +1844,14 @@ func _tick_hall(delta: float) -> void:
 	# the doorway back out
 	if _cpos.z > 21.5 and absf(_cpos.x) < 7.0:
 		_exit_hall()
+
+func resume_from_combat() -> void:
+	_ice_gate_cool = 8.0
+	_cpos = Vector3(-7.0, 0.0, 11.0)
+	if _cam != null:
+		_cam.make_current()
+	if _lbl_hint != null:
+		_lbl_hint.text = "Popcorn party complete! The frosty berry pedestal is now your victory trophy."
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:

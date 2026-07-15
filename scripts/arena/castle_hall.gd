@@ -1233,8 +1233,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 				m.g["stand_armed"] = true
 			elif bool(m.g.get("stand_armed", false)) and sdist < 11.0:
 				slide_stand()
-	# the little loo toots a bubbly parp when Roshan swims up to it (re-arms
-	# when she swims away)
+	# The royal loo is the hidden doorway to the pepper battle. It still gives
+	# its familiar bubbly toot, then transforms the room into the combat arena.
+	# Once won, it returns to being a harmless re-arming joke prop.
 	if m.g.has("toilet"):
 		var td: Dictionary = m.g["toilet"]
 		var tpp: Vector3 = td["pos"]
@@ -1244,6 +1245,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 			td["armed"] = false
 			(td["player"] as AudioStreamPlayer).play()
 			m._sparkle_burst(tpp + Vector3(0, 2.0, 0), Color(0.6, 0.9, 1.0))
+			if not m.combat_fire_done and m.combat_game == null:
+				m.call_deferred("_start_combat", "fire")
+				return
 	# leave the castle from the entrance
 	if m.g.has("hall_exit") and float(m.g["t"]) > 2.5:
 		var hx: Vector3 = m.g["hall_exit"]

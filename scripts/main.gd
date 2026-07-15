@@ -106,6 +106,10 @@ var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd
 var galaxy_unlocked := false
 var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
 var bwd_done := false              # the 7 butterflies are home FOREVER (owner: never repeat the quest)
+var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
+var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
+var combat_game: CombatArena = null
+var combat_from := ""
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content
@@ -2357,6 +2361,50 @@ func _end_galaxy(completed: bool) -> void:
 		call_deferred("_enter_level2", true)
 		return
 	kart_from = ""
+
+func _start_combat(battle_kind: String) -> void:
+	if combat_game != null or battle_kind not in ["ice", "fire"]:
+		return
+	combat_from = game
+	game = "combat"
+	if hud_layer != null:
+		hud_layer.visible = false
+	player.visible = false
+	if combat_from == "galaxy" and galaxy_game != null:
+		var galaxy_level := galaxy_game as GalaxyLevel
+		galaxy_level.visible = false
+		galaxy_level.process_mode = Node.PROCESS_MODE_DISABLED
+	combat_game = CombatArena.new()
+	add_child(combat_game)
+	combat_game.start(self, battle_kind, Callable(self, "_end_combat"))
+
+func _end_combat(battle_kind: String) -> void:
+	combat_game = null
+	if battle_kind == "ice":
+		combat_ice_done = true
+		pearl_count += 12
+	else:
+		combat_fire_done = true
+		pearl_count += 20
+	_write_save()
+	_update_hud()
+	game = combat_from
+	if combat_from == "galaxy" and galaxy_game != null:
+		var galaxy_level := galaxy_game as GalaxyLevel
+		galaxy_level.visible = true
+		galaxy_level.process_mode = Node.PROCESS_MODE_INHERIT
+		galaxy_level.resume_from_combat()
+	else:
+		player.visible = true
+		if player.cam != null:
+			player.cam.make_current()
+		if hud_layer != null:
+			hud_layer.visible = true
+		if game == "level2" and g.has("toilet"):
+			var toilet_pos: Vector3 = (g["toilet"] as Dictionary)["pos"]
+			player.position = toilet_pos + Vector3(5.5, 1.0, 0)
+			player.vel = Vector3.ZERO
+	combat_from = ""
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -7174,6 +7222,8 @@ func _process(delta: float) -> void:
 		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
+	elif game == "combat":
+		pass   # the CombatArena node owns movement, camera and encounter logic
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -7246,6 +7296,8 @@ func _process(delta: float) -> void:
 			act_lbl = "SPARKLE"
 		elif game == "kart" and kart_game != null and kart_game.has_method("action_label"):
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
+		elif game == "combat" and combat_game != null:
+			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
