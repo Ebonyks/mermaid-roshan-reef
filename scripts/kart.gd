@@ -147,6 +147,7 @@ const PEARL_ROWS := [
 	{"u": 0.95, "lat": -4.0, "n": 3},
 ]
 const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
+const SHELL_GEN2 := "spiralshell"
 
 # Butterfly World centerpiece (rainbow theme): the Level-2 rainbow legs are the
 # road TO stage 3, so the track orbits the Butterfly World itself — the same
@@ -156,6 +157,8 @@ const BW_PLANET_R := 70.0
 const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
+const BW_BUTTERFLY_CARDS := ["butterfly1", "butterfly2"]
 const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 # painted rainbow road tile (GEN2 / nano banana — tools/gen2_rainbow_road.py);
 # the shader falls back to procedural stripes while this file is absent
@@ -185,7 +188,8 @@ const VEHICLES := {
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
-		"glb": "res://assets/vehicles/monstertruck.glb",
+		"glb": "res://assets/vehicles/monstertruck_story.glb",
+		"legacy_glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
@@ -686,7 +690,7 @@ func _bw_place(node: Node3D, dir: Vector3, sink: float = 1.5) -> void:
 
 func _bw_fit(model: Node3D, target_long: float) -> void:
 	# normalise a GLB to a footprint and centre it (mirrors galaxy.gd's _fit_small)
-	if _main != null and _main.has_method("_toonify"):
+	if not model.has_meta("gen2") and _main != null and _main.has_method("_toonify"):
 		_main._toonify(model)
 	var acc: Array = []
 	_gather_aabbs(model, Transform3D.IDENTITY, acc)
@@ -826,9 +830,18 @@ void fragment(){
 	# the seven butterflies circle their world (they're what stage 3 is about)
 	for i in range(BW_WING_COLS.size()):
 		var holder := Node3D.new()
-		var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
-		if ResourceLoader.exists(bpath):
-			var bf: Node3D = (load(bpath) as PackedScene).instantiate()
+		var bf: Node3D = null
+		if ResourceLoader.exists(BW_BUTTERFLY_STORY_GLB):
+			bf = (load(BW_BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
+			holder.set_meta("wing_l", bf.find_child("wing_L", true, false))
+			holder.set_meta("wing_r", bf.find_child("wing_R", true, false))
+		elif ResourceLoader.exists("res://assets/props/gen2/%s.png" % BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()]):
+			bf = _gen2_card(BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()], 7.0)
+		else:
+			var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
+			if ResourceLoader.exists(bpath):
+				bf = (load(bpath) as PackedScene).instantiate()
+		if bf != null:
 			holder.add_child(bf)
 			_bw_fit(bf, 7.0)
 			_bw_tint(bf, BW_WING_COLS[i], 0.3)
@@ -885,7 +898,14 @@ func _tick_butterfly_world(tt: float) -> void:
 		bn.position = newp
 		if vel.length() > 0.01:
 			bn.look_at(newp + vel, pdir)
-		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
+		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		if wing_l != null and wing_r != null:
+			var flap_angle: float = deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
+			wing_l.rotation.y = flap_angle
+			wing_r.rotation.y = -flap_angle
+		else:
+			bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 
 func _build_track() -> void:
 	var st := SurfaceTool.new()
@@ -1024,8 +1044,69 @@ const OCEAN_PROPS := [
 	"Coral3", "Rock7", "Coral4", "SeaWeed2", "SpiralShell", "Coral5", "Rock9",
 	"Coral6", "SandDollar",
 ]
-const OCEAN_FISH := ["ClownFish", "Dory", "Tuna", "Carp"]
+const OCEAN_PROP_GEN2 := {
+	"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2",
+	"Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5",
+	"Coral6": "coral6", "Rock3": "rock3", "Rock7": "rock1",
+	"Rock9": "rock3", "FanShell": "fanshell", "SpiralShell": "spiralshell",
+	"SandDollar": "sanddollar",
+}
+const OCEAN_FISH_GEN2 := ["clownfish", "turtle", "stingray", "dolphin"]
 var _deco_fish: Array = []
+
+func _gen2_instance(name: String) -> Node3D:
+	var path := "res://assets/props/gen2/%s.glb" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var scene: PackedScene = load(path)
+	if scene == null:
+		return null
+	var instance := scene.instantiate() as Node3D
+	if instance == null:
+		return null
+	instance.set_meta("gen2", true)
+	return instance
+
+func _gen2_card(name: String, target_width: float) -> Node3D:
+	var path := "res://assets/props/gen2/%s.png" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var tex: Texture2D = load(path)
+	var card := Sprite3D.new()
+	card.texture = tex
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	card.pixel_size = target_width / maxf(float(tex.get_width()), 1.0)
+	var holder := Node3D.new()
+	holder.add_child(card)
+	holder.set_meta("fitted", true)
+	return holder
+
+func _gen2_grass_card(index: int, target_height: float) -> Node3D:
+	var names := ["seagrass", "grasstuft", "kelp"]
+	var name: String = names[index % names.size()]
+	var path := "res://assets/props/gen2/%s.png" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var tex: Texture2D = load(path)
+	var holder := Node3D.new()
+	var aspect: float = float(tex.get_width()) / maxf(float(tex.get_height()), 1.0)
+	for turn in [0.0, PI * 0.5]:
+		var card := MeshInstance3D.new()
+		var quad := QuadMesh.new()
+		quad.size = Vector2(target_height * aspect, target_height)
+		card.mesh = quad
+		var mat := StandardMaterial3D.new()
+		mat.albedo_texture = tex
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		mat.alpha_scissor_threshold = 0.35
+		mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		mat.roughness = 1.0
+		card.material_override = mat
+		card.position.y = target_height * 0.5
+		card.rotation.y = turn
+		holder.add_child(card)
+	holder.set_meta("fitted", true)
+	return holder
 
 func _play_first_anim(root: Node) -> void:
 	var stack: Array = [root]
@@ -1048,8 +1129,17 @@ func _build_ocean_props() -> void:
 	# seabed dressing: the game's own corals / seaweed / rocks / shells on little
 	# sand mounds along both sides of the track
 	for i in range(OCEAN_PROPS.size()):
-		var path := "res://assets/aquatic/%s.glb" % OCEAN_PROPS[i]
-		if not ResourceLoader.exists(path):
+		var prop_name: String = OCEAN_PROPS[i]
+		var prop: Node3D = null
+		if prop_name.begins_with("SeaWeed"):
+			prop = _gen2_grass_card(i, 1.0)
+		elif OCEAN_PROP_GEN2.has(prop_name):
+			prop = _gen2_instance(String(OCEAN_PROP_GEN2[prop_name]))
+		else:
+			var path: String = "res://assets/aquatic/%s.glb" % prop_name
+			if ResourceLoader.exists(path):
+				prop = (load(path) as PackedScene).instantiate()
+		if prop == null:
 			continue
 		var su: float = float(i) / float(OCEAN_PROPS.size())
 		var pf := _frame_at(su * _len, 0.0)
@@ -1071,21 +1161,24 @@ func _build_ocean_props() -> void:
 		mound.material_override = smat
 		mound.position = base + Vector3(0, -0.6, 0)
 		add_child(mound)
-		var prop: Node3D = (load(path) as PackedScene).instantiate()
-		prop.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 1.9, 3.0))
+		var target_size: float = 4.0 + fposmod(float(i) * 1.9, 3.0)
+		if prop.has_meta("fitted"):
+			prop.scale = Vector3.ONE * target_size
+		else:
+			_bw_fit(prop, target_size)
 		prop.position = base
 		prop.rotation = Vector3(0, float(i) * 2.4, 0)
 		add_child(prop)
 	# a few animated fish cruising beside the course
-	for i in range(OCEAN_FISH.size()):
-		var path2 := "res://assets/aquatic/%s.glb" % OCEAN_FISH[i]
-		if not ResourceLoader.exists(path2):
+	for i in range(OCEAN_FISH_GEN2.size()):
+		var fish: Node3D = null
+		fish = _gen2_instance(OCEAN_FISH_GEN2[i])
+		if fish == null:
 			continue
-		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH.size())
+		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH_GEN2.size())
 		var pf2 := _frame_at(su2 * _len, 0.0)
 		var side2: float = 1.0 if i % 2 == 0 else -1.0
-		var fish: Node3D = (load(path2) as PackedScene).instantiate()
-		fish.scale = Vector3.ONE * 2.2
+		_bw_fit(fish, 4.4)
 		var fbase: Vector3 = (pf2[0] as Vector3) + (pf2[2] as Vector3) * ((_rhalf() + 14.0) * side2) + Vector3(0, 6.0, 0)
 		fish.position = fbase
 		add_child(fish)
@@ -1221,8 +1314,14 @@ func _build_pickups() -> void:
 		holder.position = pos + Vector3(0, 2.6, 0)
 		var kind := String(pd["kind"])
 		var rlab: Label3D = null
-		if kind == "shell" and ResourceLoader.exists(SHELL_GLB):
-			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
+		if kind == "shell":
+			var sm: Node3D = null
+			if ResourceLoader.exists("res://assets/props/gen2/%s.glb" % SHELL_GEN2):
+				sm = _gen2_instance(SHELL_GEN2)
+			elif ResourceLoader.exists(SHELL_GLB):
+				sm = (load(SHELL_GLB) as PackedScene).instantiate()
+			if sm == null:
+				continue
 			sm.scale = Vector3.ONE * 2.4
 			holder.add_child(sm)
 			pass   # shell pickups glow via emission; no per-pickup realtime light
@@ -1325,8 +1424,12 @@ func _build_hazards() -> void:
 		h["node"] = holder
 		match kind:
 			"crab":
-				if ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
-					var cb: Node3D = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+				var cb: Node3D = null
+				if ResourceLoader.exists("res://assets/props/gen2/crab.glb"):
+					cb = _gen2_instance("crab")
+				elif ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
+					cb = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+				if cb != null:
 					holder.add_child(cb)
 					_bw_fit(cb, 3.4)
 				else:
@@ -1345,14 +1448,20 @@ func _build_hazards() -> void:
 				var base: Vector3 = _frame_at(s0, 0.0)[0]
 				holder.position = base
 				for i in range(3):
-					var kp := "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
-					if not ResourceLoader.exists(kp):
+					var sw: Node3D = null
+					if ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
+						sw = _gen2_grass_card(i, 5.0)
+					else:
+						var kp: String = "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
+						if ResourceLoader.exists(kp):
+							sw = (load(kp) as PackedScene).instantiate()
+					if sw == null:
 						continue
-					var sw: Node3D = (load(kp) as PackedScene).instantiate()
 					var kh := Node3D.new()
 					holder.add_child(kh)
 					kh.add_child(sw)
-					_bw_fit(sw, 5.0)
+					if not sw.has_meta("fitted"):
+						_bw_fit(sw, 5.0)
 					var fr := _frame_at(s0 + float(i - 1) * 4.0, (float(i) - 1.0) * w * 0.55)
 					kh.position = (fr[0] as Vector3) - base
 			"geyser":
@@ -1394,8 +1503,12 @@ func _build_hazards() -> void:
 			"comet":
 				# a grumpy METEOR — dark craggy rock with a fiery tail. Rocks
 				# bonk; stars are treats (never reuse the pickup vocabulary)
-				if ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
-					var rk: Node3D = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
+				var rk: Node3D = null
+				if ResourceLoader.exists("res://assets/props/gen2/rock3.glb"):
+					rk = _gen2_instance("rock3")
+				elif ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
+					rk = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
+				if rk != null:
 					holder.add_child(rk)
 					_bw_fit(rk, 3.2)
 					_bw_tint(rk, Color(0.32, 0.26, 0.44), 0.3)   # dark slate-plum
@@ -1779,7 +1892,9 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
 	var model: Node3D = null
-	var glb_path := String(vd["glb"])
+	var glb_path: String = String(vd["glb"])
+	if not ResourceLoader.exists(glb_path):
+		glb_path = String(vd.get("legacy_glb", glb_path))
 	if ResourceLoader.exists(glb_path):
 		var ps: PackedScene = load(glb_path)
 		if ps != null:
@@ -1789,6 +1904,8 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		top_h = _fit_model(model, float(vd["size"]))
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)
+		if String(vd["glb"]) == "res://assets/vehicles/monstertruck_story.glb" and _main != null and _main.has_method("_toonify"):
+			_main._toonify(model)
 		if not paint.is_empty():
 			_apply_paint(model, paint)
 	else:
