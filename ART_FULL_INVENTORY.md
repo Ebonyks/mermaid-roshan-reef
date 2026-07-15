@@ -89,20 +89,22 @@ protected voice rule remains in `AGENTS.md` and is unchanged.
 | Score | Complete source family | New-art or runtime institution | 3D conversion status |
 |---:|---|---|---|
 | 2 | Legacy character models: `roshan.glb`, `fairy.glb`, `huluu.glb`, `chuck_poodle.glb`, `chuck_poodle_slim.glb` | Do not promote. Roshan V4, Fairy V2, rigged Chuck, or protected Huluu cutout are the preferred paths. | Retire/fallback policy. Huluu requires an explicitly approved source-faithful model, not auto-generation. |
+| 1 | `assets/mg/cat_body.png`, `cat_accent.png`, `cat_line.png` | Owner-confirmed rejection; keep out of automatic replacement generation. | Active craft-preview exception pending source art from the child's real toy. Do not transform a book or toy asset to hide this gap. |
+| 2 | `assets/mg/bird_body.png`, `bird_accent.png`, `bird_line.png` | Grayscale Baby Eagle derivative with a blank line layer; keep out of automatic redesign. | Active craft-preview exception pending owner-approved layer separation from protected source art. |
 | 2 | Entire direct `assets/aquatic/*.glb` fallback family, including coral, seaweed, shells, rocks, fish, and invertebrates | No new direct consumers. Kart, Butterfly World, and main-reef role aliases prefer GEN2 replacements. | Existing GEN2 meshes are the replacement family; remaining legacy files are deprecation inputs. |
 | 2 | `assets/galaxy/butterfly1.glb`, `butterfly2.glb` | Prefer complete `butterfly_story.glb`; cards and legacy GLBs remain fallbacks. | Batch 01 paired-wing mesh is wired and pending Mobile QA. |
-| 2 | `assets/terrain/grass.jpg`, `beachball.png`, `flower.png`, `flower2.png`, `leaf.png` | Batch 04 candidates `001`-`005`, exact-role copies staged review-only. | Leaf and flowers are mesh/card-ready; grass remains a repeat-safe tile. |
+| 2 | `assets/terrain/grass.jpg`, `beachball.png`, `flower.png`, `flower2.png`; former `leaf.png` | The leaf is promoted at 4/5. The glossy ball texture has no runtime consumer; its role uses a matte pastel panel shader. Remaining files are dormant inventory or future terrain polish. | Leaf MOBILE_QA; ball presentation MOBILE_QA. |
 | 2 | `assets/vehicles/monstertruck.glb` and `monstertruck_Atlas.png` | Prefer the Blender-authored `monstertruck_story.glb`; retain old rover only as fallback. | Batch 01 rounded matte mesh is wired and pending Mobile paint/orientation/collision QA. |
 | 2 | Rainbow paint shader | Code correction to matte-to-satin response: zero metallic, high roughness, restrained emission. | Shader institution, no mesh conversion. |
-| 2 | `assets/mg/fish_body.png`, `fish_fins.png` | Batch 04 candidates `006`, `007`; preserve `fish_line.png` registration. | Ready for a layered low-poly fish mesh or cutout rig after registration check. |
-| 2 | Minigame placeholders: `coal.png`, `flower*.png`, `k_bush.png`, `k_flower*.png`, `k_pine.png`, `k_sprout.png`, `star.png`, `sun.png`, `tree.png`, `xtree.png`, `sprout.png` | Batch 04 candidates `008`-`013`; source book carrot, watering can, friendship flower, and snowman stay protected. | Family sheet is the modeling reference; split items before runtime or mesh conversion. |
-| 1 | `assets/mg/k_bush2.png` | Replaced by the rounded bush candidate in Batch 04. | Ready as a simple low-poly bush card or mesh. |
-| 2 | `assets/mg/orn1.png`-`orn5.png` | Batch 04 candidate `014`; five detachable designs, one empty tree board. | Each ornament is a separate mesh-ready concept; do not model the sheet as one object. |
-| 2 | `assets/mg/rainbow_swatch.png` | Batch 04 candidate `015`; fin-shaped, matte palette control. | UI-only; no mesh conversion. |
-| 2 | Visible `assets/sky/lagoon_day_2k.hdr`, `lagoon_dusk_2k.hdr` | Batch 04 candidates `016`, `017` replace visible presentation; HDR can remain non-visible lighting data. | Panorama reference only; not a mesh target. |
+| 4 | `assets/mg/fish_body.png`, `fish_fins.png`, `fish_line.png` | Registered Batch 04 composite is live. This is a replaceable craft family, not protected book art; future passes may redesign all three layers together. | MOBILE_QA; preserve independent body/accent coloring. No 3D spawn change is required because GEN2 clownfish serves that role. |
+| 2 | Minigame placeholders: `coal.png`, `flower*.png`, `k_bush.png`, `k_flower*.png`, `k_pine.png`, `k_sprout.png`, `star.png`, `sun.png`, `tree.png`, `xtree.png`, `sprout.png` | Replaced in place by 512px Blender renders from Batch 02; source book carrot, watering can, friendship flower, and snowman stay protected. | Runtime promoted, pending Mobile picture-game review. |
+| 1 | `assets/mg/k_bush2.png` | Replaced in place by the Batch 02 flowering-shrub render. | Runtime promoted at provisional 4/5, pending Mobile review. |
+| 2 | `assets/mg/orn1.png`-`orn5.png` | Replaced by five separate Batch 02 models/renders; `xtree.png` is empty. | Runtime promoted, preserving detachable placement and protected topper logic. |
+| 4 | `assets/mg/rainbow_swatch.png` | Fin-shaped matte palette control is live with aspect-preserving display. | MOBILE_QA; UI-only. |
+| 2 | Dormant `assets/sky/lagoon_day_2k.hdr`, `lagoon_dusk_2k.hdr` | No runtime consumer remains. Visible day/dusk presentation uses seamless illustrated procedural bands, provisionally 4/5. | Retained licensed inventory only. |
 | 2 | Procedural glow-tip anemones and urchins | Prefer `anemone_story.glb` and `urchin_story.glb`; procedural geometry remains fallback-only. | Batch 01 joined Mobile meshes are wired and pending gameplay screenshot QA. |
 | 2 | Procedural giant fish and slide-arena grass stand-in | Prefer `giant_fish_story.glb`; foliage remains covered by leaf/grass family references. | Batch 01 animated whale is wired; foliage card/clump conversion remains. |
-| 2 | Kart finish checker, boost strips, and generic hazards | Batch 04 candidate `021`; split into separate runtime motifs. | Convert shell/hazard clusters into simple modular meshes only after material split. |
+| 4 | Kart finish checker and ramp cue | Candidate `021` was split into live finish and motion-ribbon textures. Decorated rock clusters were rejected as hazards because they reuse reward symbols. | MOBILE_QA; existing GEN2 crab, kelp, bubble, and rock hazard roles remain functionally distinct. |
 
 ## Replacement rules now in force
 
@@ -123,8 +125,8 @@ protected voice rule remains in `AGENTS.md` and is unchanged.
 ## Open work after institution
 
 The <=2/5 inventory is now covered by a replacement or disposition, but several
-items still need implementation work: splitting and wiring of multi-item sheets,
-terrain and sky presentation, source-faithful protected-character modeling, and
-Mobile screenshot review of the five Batch 01 meshes.
+items still need implementation work: layered fish registration, kart motif
+splitting, terrain and sky presentation, source-faithful protected-character
+modeling, and Mobile screenshot review of Batch 01 and Batch 02.
 These are deliberately tracked as conversion gates rather than silently marked
 complete by the presence of a generated PNG.

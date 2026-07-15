@@ -177,9 +177,9 @@ direct paths to this family.
 | `up_snowsoft_col.jpg` | 3 | Functionally quiet and safe, but too low-information to share the illustrated texture language without supporting props. |
 | Missing `up_rainbowroad_col.jpg`; procedural stripe fallback | 3 | Readable and joyful but mechanically uniform and more emissive/gamey than the source. Install a verified painted road tile or improve the fallback. |
 | `grass.jpg` | 2 | Generic mottled green texture without the source linework or broad painted shape language. |
-| `beachball.png` | 2 | Generic glossy RGB stripe material. Too plastic and primary-color-heavy. |
+| `beachball.png` | 2 inventory / retired | Generic glossy RGB stripe texture remains for provenance but has no runtime consumer. The ball role now uses a matte pastel panel shader, provisionally 4/5. |
 | `flower.png`, `flower2.png` | 2 | Flat geometric icons; useful at tiny size but not suitable as world-facing flora art. |
-| `leaf.png` | 1 | Reads as a narrow strip/mask rather than an illustrated leaf surface and is reused as a material stand-in. Replace with a proper painted tropical leaf sheet. |
+| `leaf.png` | 4 | Replaced by a broad illustrated tropical leaf isolated from the approved Batch 04 family. It retains alpha-safe crossed-card behavior and colored linework. |
 | `polyp.png` | 3 | Delicate illustrated repeat, but dense micro-detail can become noise on phone-size coral. |
 | `scales.png` | 4 | Clear large graphic repeat that supports mermaid and creature identity. |
 | `star_detail.png` | 3 | Decorative radial pattern is usable as a mask/detail, but should not become a visible material focal point. |
@@ -235,9 +235,9 @@ line art, flat vector placeholders, shaded spheres, and glossy ornaments.
 
 | Items | Score | Verdict and evidence |
 |---|---:|---|
-| `bird_body.png`, `bird_accent.png`, `bird_line.png`, `cat_body.png`, `cat_accent.png`, `cat_line.png` | 4 | Expressive source-compatible line art designed for player recoloring. Keep the line layer dark-indigo rather than pure black in future updates. |
-| `fish_line.png` | 4 | Charming eye and clean contour; strong craft anchor. |
-| `fish_body.png`, `fish_fins.png` | 2 | Generic shaded primitives before recolor. They depend on the line layer to read and do not share the bird/cat drawing quality. |
+| `bird_body.png`, `bird_accent.png`, `bird_line.png` | 2 | The body/accent are grayscale transformations of protected Baby Eagle and the nominal line layer is blank. Readable, but not a valid three-zone source-art translation. Replacement requires owner-approved separation from the canonical art, not auto-redesign. |
+| `cat_body.png`, `cat_accent.png`, `cat_line.png` | 1 | Confirmed owner rejection. Plush-style full render is duplicated across paint zones and the line layer is blank, so it fails both style and customization readability. Hard no for auto-generation: replace only from the child's real toy source. |
+| `fish_line.png`, `fish_body.png`, `fish_fins.png` | 4 | Registered illustrated craft composite with independent body and fin colors. This is not core book art: all three layers may be redeveloped together if a stronger complete fish preserves the customization contract. |
 | `snowman.png` | 5 | Direct source-art derivative and the strongest picture-game asset. |
 | `seed.png` | 3 | Simple, readable, and warm, but visually plain. |
 | `carrot.png` | 5 | Direct source-book component. Preserve it; the earlier placeholder classification was incorrect. Source-derived art outranks surface-level stylistic uniformity. |
@@ -246,13 +246,13 @@ line art, flat vector placeholders, shaded spheres, and glossy ornaments.
 | `coal.png`, `flower.png`, `flower2.png`, `flower3.png`, `flower4.png`, `k_bush.png`, `k_flower1.png`, `k_flower2.png`, `k_pine.png`, `k_sprout.png`, `k_xmastree.png`, `sprout.png`, `star.png`, `sun.png`, `tree.png`, `xtree.png` | 2 | Functional flat vector placeholders with weak linework and inconsistent proportions. Rebuild as one cel-illustrated icon family, preserving simple silhouettes and animation-layer requirements. Confirmed direct book art is excluded from this replacement group. |
 | `k_bush2.png` | 1 | Does not read as a bush; it resembles an orange cone/flame and fails role recognition. Replace first. |
 | `orn1.png`, `orn2.png`, `orn3.png`, `orn4.png`, `orn5.png` | 2 | Inconsistent mix of glossy shaded spheres and flat geometric ornaments. Replace as a single painted set. |
-| `rainbow_swatch.png` | 2 | Harsh rectangular spectrum bars. Replace with a soft source-tail-inspired swatch or fin-shaped palette control. |
+| `rainbow_swatch.png` | 4 | Fin-shaped matte spectrum control is now live and displayed without aspect distortion. |
 
 ## Sky, UI, effects, and procedural art
 
 | Item/family | Score | Verdict and evidence |
 |---|---:|---|
-| `assets/sky/lagoon_day_2k.hdr`, `lagoon_dusk_2k.hdr` | 2 | Photoreal sky lighting/background source conflicts with the illustrated world. Replace the visible sky with a painted panorama while retaining safe lighting data if needed. |
+| `assets/sky/lagoon_day_2k.hdr`, `lagoon_dusk_2k.hdr` | 2 inventory / retired | The photoreal files remain licensed inventory but no longer drive the visible lagoon. Seamless illustrated day/dusk color bands now serve the runtime role at provisional 4/5. |
 | Bubble columns, drifting bubbles, marine snow | 4 | Correct recurring source motif and gentle motion. Keep sparse around faces and touch targets. |
 | Caustic plane and surface caustics | 4 | Correct geometry-preserving magic overlay. Existing use matches the guide when opacity remains low. |
 | Sparkle bursts and four-point stars | 4 | Correct source punctuation and child-readable success feedback. |
@@ -262,7 +262,7 @@ line art, flat vector placeholders, shaded spheres, and glossy ornaments.
 | Procedural giant silhouette fish and slide-arena grass bunch | 2 | Functional stand-ins without the source's line, color, or silhouette personality. |
 | Box/cylinder castle and arena architecture | 3 | Quiet toy-playset masses and readable layout, but lacks the hand-shaped taper and illustrated surface variation needed for 4-5. |
 | HUD panels, labels, touch controls, sticker toast | 3 | High contrast and readable, with useful indigo/plum outlines, but styling is inconsistent between modes and often uses heavy black text outline. A dedicated UI art pass is warranted. |
-| Kart finish checker, boost strips, generic hazard primitives | 2 | Familiar game language but visually disconnected from the storybook. Repaint as shell, ribbon, bubble, and star motifs. |
+| Kart finish checker and ramp cue | 4 | Shell-tied checker banner, navy/cream ground checks, matte posts, and an aqua/coral/lavender motion ribbon now serve the live roles. Candidate rock clusters were rejected as hazards because their reward symbols would confuse gameplay. |
 
 ## Priority remediation plan
 
@@ -326,9 +326,10 @@ normalized review candidates. All raster-capable families below 4 also have
 review candidates or exact-role reused candidates in
 `assets_src/style_review_batch_03/replacement_candidates/`.
 
-The original runtime assets remain unchanged pending owner review. Legacy GLB
-paths, model geometry, rigging, shader behavior, and cross-mode routing remain
-open remediation items and are not counted as fixed by the presence of a PNG.
+That review-only statement is superseded for the promoted families by
+`ART_3D_BATCH_01.md`, `ART_3D_BATCH_02.md`, and
+`ART_RUNTIME_REMEDIATION_BATCH_03.md`. Unpromoted candidates remain review art,
+and no candidate is counted as fixed merely because a PNG exists.
 
 ## 2026-07-14 score-2-and-lower remediation pass
 
@@ -341,13 +342,11 @@ monster-truck atlas candidate. The
 first urchin draft was rejected for inventing a face and was replaced by the
 non-character `019_urchin_card_v2` candidate.
 
-Candidates remain review-only and do not overwrite protected book art, family
-cutouts, child-owned toys, or runtime assets. Kart and Butterfly World routing
-now prefer the existing GEN2 family, Huluu remains the protected source cutout,
-and the rainbow paint shader has been corrected toward a matte-to-satin finish.
-Monster-truck geometry, atlas UV/material verification, remaining fallback-model
-roles, and implementation of the multi-item motif sheets remain open for a
-model-aware or material-aware follow-up pass.
+Approved candidates are promoted only through the model, layer-registration,
+and gameplay-role gates recorded below. Protected book art, family cutouts, and
+child-owned toys remain unchanged. Kart and Butterfly World prefer the GEN2
+family, Huluu remains the protected source cutout, and rainbow paint is matte.
+Unpromoted multi-item sheets remain reference art rather than runtime assets.
 
 ## 2026-07-14 full-art inventory closure
 
@@ -377,3 +376,29 @@ checks confirm 12,232 total triangles with no embedded raster images. Final
 promotion remains gated on Godot Mobile import and gameplay screenshots because
 no Godot binary is available in this environment. Protected book art, legacy
 character models, family cutouts, and child-owned toys were not modified.
+
+## 2026-07-14 Blender production Batch 02
+
+`ART_3D_BATCH_02.md` records 21 editable Blender models rendered into 23
+power-of-two picture-game sprites. This replaces the score-1/2 coal,
+seed/sprout, flower, bush, tree, sun, star, and detachable ornament family
+without changing any touch, growth-stage, or placement code.
+
+The former 1/5 `k_bush2.png` now reads as a flowering shrub. The Christmas
+tree no longer contains baked bulbs or a star before play begins: five separate
+ornaments are placed by the child, followed by the protected friendship-flower
+topper. Blender contact review scores the family provisionally at 4/5. Book
+carrot, watering can, friendship flower, characters, cutouts, and child-owned
+toys were not transformed.
+
+## 2026-07-14 runtime remediation Batch 03
+
+`ART_RUNTIME_REMEDIATION_BATCH_03.md` records the active-runtime continuation.
+The broadleaf card, fin-shaped rainbow control, and registered fish body/fin
+layers are now live. The glossy beach-ball texture and photoreal lagoon HDRs no
+longer have runtime consumers; Mobile-safe matte panels and seamless illustrated
+sky bands serve those roles. Kart uses the shell-tied finish banner and flowing
+ramp ribbon. The candidate rock clusters were rejected as hazards because their
+stars and shells already communicate rewards. The continuation audit also found
+procedural manta geometry serving both ray and turtle roles; normal play now
+routes those movers to the 5/5 GEN2 stingray and turtle models.
