@@ -188,10 +188,10 @@ static func create_butterfly_gate(scale_value: float) -> Node3D:
 	var animation := Animation.new()
 	animation.length = 2.4
 	animation.loop_mode = Animation.LOOP_LINEAR
-	for wing_name in ["UpperLeft", "LowerLeft", "UpperRight", "LowerRight"]:
-		var track := animation.add_track(Animation.TYPE_VALUE)
+	for wing_name: String in ["UpperLeft", "LowerLeft", "UpperRight", "LowerRight"]:
+		var track: int = animation.add_track(Animation.TYPE_VALUE)
 		animation.track_set_path(track, NodePath("%s:rotation:y" % wing_name))
-		var direction := -1.0 if wing_name.ends_with("Left") else 1.0
+		var direction: float = -1.0 if wing_name.ends_with("Left") else 1.0
 		animation.track_insert_key(track, 0.0, direction * 0.035)
 		animation.track_insert_key(track, 1.2, direction * 0.11)
 		animation.track_insert_key(track, 2.4, direction * 0.035)
@@ -216,7 +216,7 @@ static func create_cloud(size: float, variant: int = 0, sleepy: bool = false) ->
 	for i in range(profile.size()):
 		var lobe := MeshInstance3D.new()
 		var sphere := SphereMesh.new()
-		var radius := size * [0.42, 0.5, 0.58, 0.48, 0.38][i]
+		var radius: float = size * float([0.42, 0.5, 0.58, 0.48, 0.38][i])
 		sphere.radius = radius
 		sphere.height = radius * 2.0
 		sphere.radial_segments = 12
