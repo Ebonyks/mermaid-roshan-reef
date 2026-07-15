@@ -147,6 +147,7 @@ const PEARL_ROWS := [
 	{"u": 0.95, "lat": -4.0, "n": 3},
 ]
 const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
+const SHELL_GEN2 := "spiralshell"
 
 # Butterfly World centerpiece (rainbow theme): the Level-2 rainbow legs are the
 # road TO stage 3, so the track orbits the Butterfly World itself — the same
@@ -156,6 +157,8 @@ const BW_PLANET_R := 70.0
 const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const BW_BUTTERFLY_CARDS := ["res://assets/props/gen2/butterfly1.png", "res://assets/props/gen2/butterfly2.png"]
+const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 # painted rainbow road tile (GEN2 / nano banana — tools/gen2_rainbow_road.py);
 # the shader falls back to procedural stripes while this file is absent
@@ -185,7 +188,8 @@ const VEHICLES := {
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
-		"glb": "res://assets/vehicles/monstertruck.glb",
+		"glb": "res://assets/vehicles/monstertruck_story.glb",
+		"legacy_glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
@@ -826,8 +830,24 @@ void fragment(){
 	# the seven butterflies circle their world (they're what stage 3 is about)
 	for i in range(BW_WING_COLS.size()):
 		var holder := Node3D.new()
+		var card_path: String = BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()]
 		var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
-		if ResourceLoader.exists(bpath):
+		if ResourceLoader.exists(BW_BUTTERFLY_STORY_GLB):
+			var bf_story: Node3D = (load(BW_BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
+			holder.add_child(bf_story)
+			_bw_fit(bf_story, 7.0)
+			_bw_tint(bf_story, BW_WING_COLS[i], 0.16)
+			holder.set_meta("wing_l", bf_story.find_child("wing_L", true, false))
+			holder.set_meta("wing_r", bf_story.find_child("wing_R", true, false))
+		elif ResourceLoader.exists(card_path):
+			var tex: Texture2D = load(card_path)
+			var card := Sprite3D.new()
+			card.texture = tex
+			card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			card.pixel_size = 7.0 / maxf(float(tex.get_width()), 1.0)
+			card.modulate = Color.WHITE.lerp(BW_WING_COLS[i], 0.28)
+			holder.add_child(card)
+		elif ResourceLoader.exists(bpath):
 			var bf: Node3D = (load(bpath) as PackedScene).instantiate()
 			holder.add_child(bf)
 			_bw_fit(bf, 7.0)
@@ -885,7 +905,14 @@ func _tick_butterfly_world(tt: float) -> void:
 		bn.position = newp
 		if vel.length() > 0.01:
 			bn.look_at(newp + vel, pdir)
-		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+		var wing_l := bn.get_meta("wing_l", null) as Node3D
+		var wing_r := bn.get_meta("wing_r", null) as Node3D
+		if wing_l != null and wing_r != null:
+			var flap_angle := deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
+			wing_l.rotation.y = flap_angle
+			wing_r.rotation.y = -flap_angle
+		else:
+			bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 
 func _build_track() -> void:
 	var st := SurfaceTool.new()
@@ -1025,6 +1052,8 @@ const OCEAN_PROPS := [
 	"Coral6", "SandDollar",
 ]
 const OCEAN_FISH := ["ClownFish", "Dory", "Tuna", "Carp"]
+const OCEAN_PROP_GEN2 := {"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2", "Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5", "Coral6": "coral6", "Rock3": "rock3", "Rock7": "rock1", "Rock9": "rock3", "FanShell": "fanshell", "SpiralShell": "spiralshell", "SandDollar": "sanddollar"}
+const OCEAN_FISH_GEN2 := {"ClownFish": "clownfish", "Dory": "clownfish", "Tuna": "whale", "Carp": "clownfish"}
 var _deco_fish: Array = []
 
 func _play_first_anim(root: Node) -> void:
@@ -1049,8 +1078,6 @@ func _build_ocean_props() -> void:
 	# sand mounds along both sides of the track
 	for i in range(OCEAN_PROPS.size()):
 		var path := "res://assets/aquatic/%s.glb" % OCEAN_PROPS[i]
-		if not ResourceLoader.exists(path):
-			continue
 		var su: float = float(i) / float(OCEAN_PROPS.size())
 		var pf := _frame_at(su * _len, 0.0)
 		var sp: Vector3 = pf[0]
@@ -1071,25 +1098,38 @@ func _build_ocean_props() -> void:
 		mound.material_override = smat
 		mound.position = base + Vector3(0, -0.6, 0)
 		add_child(mound)
-		var prop: Node3D = (load(path) as PackedScene).instantiate()
-		prop.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 1.9, 3.0))
-		prop.position = base
-		prop.rotation = Vector3(0, float(i) * 2.4, 0)
-		add_child(prop)
+		var prop: Node3D = null
+		var prop_target := 4.0 + fposmod(float(i) * 1.9, 3.0)
+		if _main != null and _main.has_method("_gen2_prop") and OCEAN_PROP_GEN2.has(OCEAN_PROPS[i]):
+			prop = _main._gen2_prop(String(OCEAN_PROP_GEN2[OCEAN_PROPS[i]]), base, prop_target, float(i) * 2.4, 0.08)
+		elif _main != null and _main.has_method("_gen2_seagrass") and String(OCEAN_PROPS[i]).begins_with("SeaWeed"):
+			prop = _main._gen2_seagrass(base, prop_target)
+			if prop != null:
+				prop.rotation.y = float(i) * 2.4
+		if prop == null and ResourceLoader.exists(path):
+			prop = (load(path) as PackedScene).instantiate()
+			prop.scale = Vector3.ONE * prop_target
+			prop.position = base
+			prop.rotation = Vector3(0, float(i) * 2.4, 0)
+			add_child(prop)
 	# a few animated fish cruising beside the course
 	for i in range(OCEAN_FISH.size()):
 		var path2 := "res://assets/aquatic/%s.glb" % OCEAN_FISH[i]
-		if not ResourceLoader.exists(path2):
-			continue
 		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH.size())
 		var pf2 := _frame_at(su2 * _len, 0.0)
 		var side2: float = 1.0 if i % 2 == 0 else -1.0
-		var fish: Node3D = (load(path2) as PackedScene).instantiate()
-		fish.scale = Vector3.ONE * 2.2
 		var fbase: Vector3 = (pf2[0] as Vector3) + (pf2[2] as Vector3) * ((_rhalf() + 14.0) * side2) + Vector3(0, 6.0, 0)
-		fish.position = fbase
-		add_child(fish)
-		_play_first_anim(fish)
+		var fish: Node3D = null
+		if _main != null and _main.has_method("_gen2_creature") and OCEAN_FISH_GEN2.has(OCEAN_FISH[i]):
+			fish = _main._gen2_creature(String(OCEAN_FISH_GEN2[OCEAN_FISH[i]]), fbase, 2.2)
+		if fish == null and ResourceLoader.exists(path2):
+			fish = (load(path2) as PackedScene).instantiate()
+			fish.scale = Vector3.ONE * 2.2
+			fish.position = fbase
+			add_child(fish)
+			_play_first_anim(fish)
+		if fish == null:
+			continue
 		_deco_fish.append({"node": fish, "base": fbase, "ph": float(i) * 1.7})
 
 func _build_finish() -> void:
@@ -1224,11 +1264,18 @@ func _build_pickups() -> void:
 		holder.position = pos + Vector3(0, 2.6, 0)
 		var kind := String(pd["kind"])
 		var rlab: Label3D = null
-		if kind == "shell" and ResourceLoader.exists(SHELL_GLB):
-			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
-			sm.scale = Vector3.ONE * 2.4
-			holder.add_child(sm)
-			pass   # shell pickups glow via emission; no per-pickup realtime light
+		if kind == "shell":
+			var shell_gen2: Node3D = null
+			if _main != null and _main.has_method("_gen2_prop"):
+				shell_gen2 = _main._gen2_prop(SHELL_GEN2, holder.position, 3.0, 0.0, 0.0)
+				if shell_gen2 != null:
+					shell_gen2.reparent(holder, false)
+					shell_gen2.position = Vector3.ZERO
+			if shell_gen2 == null and ResourceLoader.exists(SHELL_GLB):
+				var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
+				sm.scale = Vector3.ONE * 2.4
+				holder.add_child(sm)
+			# shell pickups glow via emission; no per-pickup realtime light
 		elif kind == "bubble":
 			# zoom bubble: translucent glowing sphere — drive through, POP, instant zip
 			var bub := MeshInstance3D.new()
@@ -1331,11 +1378,17 @@ func _build_hazards() -> void:
 		h["node"] = holder
 		match kind:
 			"crab":
-				if ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
-					var cb: Node3D = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+				var cb: Node3D = null
+				if _main != null and _main.has_method("_gen2_creature"):
+					cb = _main._gen2_creature("crab", Vector3.ZERO, 3.4)
+					if cb != null:
+						cb.reparent(holder, false)
+						cb.position = Vector3.ZERO
+				if cb == null and ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
+					cb = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
 					holder.add_child(cb)
 					_bw_fit(cb, 3.4)
-				else:
+				if cb == null:
 					var q := MeshInstance3D.new()
 					var qm := SphereMesh.new()
 					qm.radius = 1.6
@@ -1352,15 +1405,20 @@ func _build_hazards() -> void:
 				holder.position = base
 				for i in range(3):
 					var kp := "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
-					if not ResourceLoader.exists(kp):
-						continue
-					var sw: Node3D = (load(kp) as PackedScene).instantiate()
 					var kh := Node3D.new()
 					holder.add_child(kh)
-					kh.add_child(sw)
-					_bw_fit(sw, 5.0)
 					var fr := _frame_at(s0 + float(i - 1) * 4.0, (float(i) - 1.0) * w * 0.55)
 					kh.position = (fr[0] as Vector3) - base
+					var sw: Node3D = null
+					if _main != null and _main.has_method("_gen2_seagrass"):
+						sw = _main._gen2_seagrass(Vector3.ZERO, 5.0)
+						if sw != null:
+							sw.reparent(kh, false)
+							sw.position = Vector3.ZERO
+					if sw == null and ResourceLoader.exists(kp):
+						sw = (load(kp) as PackedScene).instantiate()
+						kh.add_child(sw)
+						_bw_fit(sw, 5.0)
 			"geyser":
 				# bubbly vent on a rhythm: quiet = safe, erupting = free JUMP —
 				# the hazard a kid learns to chase, not fear
@@ -1400,12 +1458,18 @@ func _build_hazards() -> void:
 			"comet":
 				# a grumpy METEOR — dark craggy rock with a fiery tail. Rocks
 				# bonk; stars are treats (never reuse the pickup vocabulary)
-				if ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
-					var rk: Node3D = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
+				var rk: Node3D = null
+				if _main != null and _main.has_method("_gen2_prop"):
+					rk = _main._gen2_prop("rock3", Vector3.ZERO, 3.2, 0.0, 0.0)
+					if rk != null:
+						rk.reparent(holder, false)
+						rk.position = Vector3.ZERO
+				if rk == null and ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
+					rk = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
 					holder.add_child(rk)
 					_bw_fit(rk, 3.2)
 					_bw_tint(rk, Color(0.32, 0.26, 0.44), 0.3)   # dark slate-plum
-				else:
+				if rk == null:
 					var rq := MeshInstance3D.new()
 					var rqm := SphereMesh.new()
 					rqm.radius = 1.5
@@ -1740,6 +1804,9 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 				# shader, so it can never fail/vanish on the Mobile renderer
 				var src0: Material = origs[si] if si < origs.size() else null
 				var rm: BaseMaterial3D = (src0.duplicate() if src0 is BaseMaterial3D else StandardMaterial3D.new())
+				rm.roughness = 0.72
+				rm.metallic = 0.0
+				rm.metallic_specular = 0.12
 				rm.emission_enabled = true
 				_rainbow_mats.append(rm)
 				mi.set_surface_override_material(si, rm)
@@ -1750,6 +1817,9 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 				var src: Material = origs[si] if si < origs.size() else null
 				var m: BaseMaterial3D = (src.duplicate() if src is BaseMaterial3D else StandardMaterial3D.new())
 				m.albedo_color = m.albedo_color.lerp(col, 0.62)
+				m.roughness = 0.78
+				m.metallic = 0.0
+				m.metallic_specular = 0.12
 				m.emission_enabled = true
 				m.emission = col
 				m.emission_energy_multiplier = 0.12
@@ -1786,12 +1856,16 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	var vd: Dictionary = _vehicles_table()[vkey]
 	var model: Node3D = null
 	var glb_path := String(vd["glb"])
+	if not ResourceLoader.exists(glb_path) and vd.has("legacy_glb"):
+		glb_path = String(vd["legacy_glb"])
 	if ResourceLoader.exists(glb_path):
 		var ps: PackedScene = load(glb_path)
 		if ps != null:
 			model = ps.instantiate()
 	var top_h := 2.5
 	if model != null:
+		if glb_path.ends_with("monstertruck_story.glb") and _main != null and _main.has_method("_toonify"):
+			_main._toonify(model)
 		top_h = _fit_model(model, float(vd["size"]))
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)

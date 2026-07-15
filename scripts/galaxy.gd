@@ -42,12 +42,13 @@ const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gat
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
 const TRAY_GLB := "res://assets/galaxy/tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 const BUG_GLBS := ["res://assets/galaxy/beetle.glb", "res://assets/galaxy/ladybug.glb"]
-const CORALS := ["res://assets/aquatic/Coral1.glb", "res://assets/aquatic/Coral2.glb", "res://assets/aquatic/Coral3.glb", "res://assets/aquatic/Coral4.glb", "res://assets/aquatic/Coral5.glb", "res://assets/aquatic/Coral6.glb"]
+const CORALS := ["res://assets/props/gen2/coral1.glb", "res://assets/props/gen2/coral2.glb", "res://assets/props/gen2/coral3.glb", "res://assets/props/gen2/coral4.glb", "res://assets/props/gen2/coral5.glb", "res://assets/props/gen2/coral6.glb"]
 
 var _main: Node = null
 var _player_node: Node3D = null
@@ -411,8 +412,27 @@ func _fit_small(model: Node3D, target_long: float) -> float:
 	return bb.size.y * sc
 
 func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
-	# a tinted butterfly from the CC set (two body styles x seven wing colours)
+	# Prefer the complete Blender-native mesh. Cards remain the Mobile-safe
+	# fallback; the old GLBs are missing-file fallback only.
 	var holder := Node3D.new()
+	if ResourceLoader.exists(BUTTERFLY_STORY_GLB):
+		var bf: Node3D = (load(BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
+		holder.add_child(bf)
+		_fit_small(bf, wingspan)
+		_tint_meshes(bf, tint, 0.14)
+		holder.set_meta("wing_l", bf.find_child("wing_L", true, false))
+		holder.set_meta("wing_r", bf.find_child("wing_R", true, false))
+		return holder
+	var card_path := "res://assets/props/gen2/butterfly%d.png" % (1 + randi() % 2)
+	if ResourceLoader.exists(card_path):
+		var tex: Texture2D = load(card_path)
+		var card := Sprite3D.new()
+		card.texture = tex
+		card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		card.pixel_size = wingspan / maxf(float(tex.get_width()), 1.0)
+		card.modulate = Color.WHITE.lerp(tint, 0.28)
+		holder.add_child(card)
+		return holder
 	var path: String = BUTTERFLY_GLBS[randi() % BUTTERFLY_GLBS.size()]
 	if ResourceLoader.exists(path):
 		var bf: Node3D = (load(path) as PackedScene).instantiate()
@@ -471,8 +491,8 @@ func _build_decor() -> void:
 		_blockers.append({"dir": tdir, "r": 1.6, "cool": 0.0})   # pedestal rock is solid (feast trigger fires at 4.5)
 		var th := Node3D.new()
 		add_child(th)
-		if ResourceLoader.exists("res://assets/aquatic/Rock2.glb"):
-			var ped: Node3D = (load("res://assets/aquatic/Rock2.glb") as PackedScene).instantiate()
+		if ResourceLoader.exists("res://assets/props/gen2/rock2.glb"):
+			var ped: Node3D = (load("res://assets/props/gen2/rock2.glb") as PackedScene).instantiate()
 			var ph2 := Node3D.new()
 			th.add_child(ph2)
 			ph2.add_child(ped)
@@ -936,6 +956,7 @@ func _build_avatar() -> void:
 	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
 	# plushie back every time the rainbow race chained into the galaxy)
 	var glb := "res://assets/characters/roshan.glb"
+	var cutout: Sprite3D = null
 	for vpath in ["res://assets/characters/roshan_v4.glb",
 			"res://assets/characters/roshan_v3.glb"]:
 		if ResourceLoader.exists(vpath):
@@ -943,11 +964,19 @@ func _build_avatar() -> void:
 			break
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
-		if sid == "huluu" and ResourceLoader.exists("res://assets/characters/huluu.glb"):
-			glb = "res://assets/characters/huluu.glb"
-		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy.glb"):
-			glb = "res://assets/characters/fairy.glb"
-	if ResourceLoader.exists(glb):
+		if sid == "huluu":
+			# Huluu is protected book art; do not promote the plush-era GLB.
+			glb = ""
+			cutout = Sprite3D.new()
+			cutout.texture = load("res://assets/characters/friends/huluu.png")
+			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			cutout.pixel_size = 0.011
+			cutout.position = Vector3(0, 2.2, 0)
+		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
+			glb = "res://assets/characters/fairy_v2.glb"
+	if cutout != null:
+		_avatar.add_child(cutout)
+	if glb != "" and ResourceLoader.exists(glb):
 		var inst: Node3D = (load(glb) as PackedScene).instantiate()
 		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
 		var acc: Array = []
@@ -1195,7 +1224,14 @@ func _process(delta: float) -> void:
 		var vel2: Vector3 = newp - bn.position
 		bn.position = newp
 		_safe_look(bn, vel2, pdir)
-		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+		var wing_l := bn.get_meta("wing_l", null) as Node3D
+		var wing_r := bn.get_meta("wing_r", null) as Node3D
+		if wing_l != null and wing_r != null:
+			var flap_angle := deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
+			wing_l.rotation.y = flap_angle
+			wing_r.rotation.y = -flap_angle
+		else:
+			bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 	# beetles + ladybugs crawl slowly along the garden (poke one — it chirps!)
 	for bd2 in _bugs:
 		bd2["cool"] = maxf(0.0, float(bd2["cool"]) - delta)

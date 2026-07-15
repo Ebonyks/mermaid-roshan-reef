@@ -80,6 +80,21 @@
 | assets/galaxy/trop_bigleaf.glb | "Big Leaf Plant" by reyshapes | **CC0** | poly.pizza/m/aKIm5k6l5F | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | disabled_addons/tessarakkt.oceanfft | OceanFFT addon (disabled, .gdignore) | **MIT** | github.com/tessarakkt/godot4-oceanfft | dead code removed Phase 0 |
 
+| assets_src/style_review_batch_02/** | OpenAI ChatGPT image generation, guided by `ART_STYLE_GUIDE.md` and book motif analysis | **Project-generated review art** | - | chroma-key removed; normalized to <=1024px; review-only, generated 2026-07-13 |
+| assets_src/style_review_batch_03/** | OpenAI ChatGPT image generation and approved Batch 02 candidates, guided by `ART_STYLE_GUIDE.md` and the full below-4 audit | **Project-generated review art** | - | chroma-key removed where applicable; normalized to <=1024px; review-only, generated 2026-07-14 |
+| assets_src/style_review_batch_04/** | OpenAI ChatGPT image generation and approved project references, guided by `ART_STYLE_GUIDE.md` and the score-2-and-lower audit | **Project-generated review art** | - | chroma-key removed where applicable; normalized to <=1024px; review-only, generated 2026-07-14 |
+| assets/props/gen2/anemone_story.glb | Project-authored Blender 4.4.3 geometry based on the approved Batch 04 anemone concept | **Project-generated art** | - | rooted ten-tentacle mesh; joined and Mobile-decimated; embedded matte palette materials; generated 2026-07-14 |
+| assets/props/gen2/urchin_story.glb | Project-authored Blender 4.4.3 geometry based on the approved Batch 04 urchin concept | **Project-generated art** | - | radial non-character mesh; joined and Mobile-decimated; embedded matte palette materials; generated 2026-07-14 |
+| assets/props/gen2/butterfly_story.glb | Project-authored Blender 4.4.3 geometry based on approved complete-butterfly references | **Project-generated art** | - | complete paired fore/hind wings, antennae, and two flap pivots; embedded matte palette materials; generated 2026-07-14 |
+| assets/props/gen2/giant_fish_story.glb | Project-authored Blender 4.4.3 geometry based on the approved Batch 04 giant-fish concept | **Project-generated art** | - | anatomical whale silhouette with paired pectoral fins, dorsal fin, horizontal flukes, and tail action; generated 2026-07-14 |
+| assets/vehicles/monstertruck_story.glb | Project-authored Blender 4.4.3 geometry based on the approved style guide and monster-truck role | **Project-generated art** | - | rounded toy body, oversized wheels, matte embedded palette, no stock logos; generated 2026-07-14 |
+| assets_src/blender/low_score_batch_01.blend | Project-authored Blender source for 3D Replacement Batch 01 | **Project-generated source art** | - | editable source scene for five production GLBs; generated 2026-07-14 |
+| assets_src/blender/qa_low_score_batch_01/anemone_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+| assets_src/blender/qa_low_score_batch_01/urchin_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+| assets_src/blender/qa_low_score_batch_01/butterfly_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+| assets_src/blender/qa_low_score_batch_01/giant_fish_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+| assets_src/blender/qa_low_score_batch_01/monstertruck_story.png | Blender Workbench QA render of project-authored Batch 01 geometry | **Project-generated review art** | - | transparent 900x700 visual QA render; generated 2026-07-14 |
+
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file

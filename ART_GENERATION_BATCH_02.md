@@ -144,3 +144,32 @@ phone-readable shape. All output is review-only until placed in a runtime scene.
 Generated output will be copied to a versioned staging directory, normalized to
 the project's 1024px maximum, alpha-validated, and documented in
 `ASSET_LICENSES.md`.
+
+## Generation and functional QA
+
+Generated 2026-07-13 as 100 review candidates under
+`assets_src/style_review_batch_02/`. Raw chroma-key sources are in `raw/`;
+clean alpha outputs are in `clean/`; normalized review outputs are in `final/`.
+The contact sheet is `batch02_contact_sheet.png`. These files are review-only
+and are not wired into live scenes yet.
+
+The Christmas contract is now one empty placement tree (`061`) plus five
+detachable ornaments (`062`-`066`). `072` is an unadorned snowy village pine;
+there is no generated pre-decorated bulb tree. The protected book topper remains
+`assets/book/friendship_flower.png`.
+
+Feedback and hold list:
+
+| Assets | First-pass status | Reason / next action |
+|---|---|---|
+| `026_jellyfish_lilac`, `027_shrimp_coral_side`, `029_octopus_round_side` | **Reject** | Inaccurate anatomy; redraw with species-specific reference before runtime use |
+| `028_hermit_crab_shell` | **5/5 reference** | Clear success; keep as a style and readability reference |
+| `035_marine_snow_sparse` | **Hold** | Very sparse/near-invisible; verify against the scene before using |
+| `036`-`050` | **Regenerated** | Earlier temporary-path collision caused wrong content under these names; corrected candidates are now staged and normalized |
+| `047_aloe_potted` | **Pass after correction** | Regenerated as one plant plus one pot; no separate soil object |
+| `100_seabed_blank_aqua` | **Pass as texture** | Intentionally opaque repeat-safe seabed texture, not an isolated sprite |
+
+Canonical book objects, including the carrot, watering can, friendship flower,
+story portraits, and protected character/family art, are excluded from this
+generation block and remain 5/5 by source-fidelity policy. Stuffed animals and
+dolls are also excluded from automatic generation.

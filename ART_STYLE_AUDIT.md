@@ -316,3 +316,64 @@ The next audit should meet all of these conditions:
 - all minigame art belongs to one outlined, softly painted icon family;
 - no terrain tile duplicates a prop that is also placed in 3D;
 - all new art is documented in `ASSET_LICENSES.md` and passes the project probes.
+
+## 2026-07-14 remediation pass
+
+The full below-4 inventory and replacement ledger are maintained in
+`ART_REMEDIATION_BATCH_03.md`. The audit contains no 0/5 rows. The two 1/5
+raster breaks, `assets/terrain/leaf.png` and `assets/mg/k_bush2.png`, now have
+normalized review candidates. All raster-capable families below 4 also have
+review candidates or exact-role reused candidates in
+`assets_src/style_review_batch_03/replacement_candidates/`.
+
+The original runtime assets remain unchanged pending owner review. Legacy GLB
+paths, model geometry, rigging, shader behavior, and cross-mode routing remain
+open remediation items and are not counted as fixed by the presence of a PNG.
+
+## 2026-07-14 score-2-and-lower remediation pass
+
+The global score-2-and-lower inventory and candidate ledger are maintained in
+`ART_REMEDIATION_BATCH_04.md`. Batch 04 contains 22 generated finals, with 21
+passing the new-art 4/5 gate and one provisional atlas candidate, including
+raster candidates for terrain, minigame icons, layered fish art,
+ornaments, sky presentation, procedural marine cards, kart motifs, and a
+monster-truck atlas candidate. The
+first urchin draft was rejected for inventing a face and was replaced by the
+non-character `019_urchin_card_v2` candidate.
+
+Candidates remain review-only and do not overwrite protected book art, family
+cutouts, child-owned toys, or runtime assets. Kart and Butterfly World routing
+now prefer the existing GEN2 family, Huluu remains the protected source cutout,
+and the rainbow paint shader has been corrected toward a matte-to-satin finish.
+Monster-truck geometry, atlas UV/material verification, remaining fallback-model
+roles, and implementation of the multi-item motif sheets remain open for a
+model-aware or material-aware follow-up pass.
+
+## 2026-07-14 full-art inventory closure
+
+The complete directory-level coverage is now recorded in
+`ART_FULL_INVENTORY.md`: 487 visual source files across the runtime art tree,
+excluding audio and import metadata. Every score-2-or-lower family has an
+explicit disposition: protected source art, retire/fallback, routed stronger
+mesh, staged replacement candidate, or a named shader/material correction.
+
+Future conversion of those candidates into meshes is tracked in
+`ART_3D_CONVERSION_MANIFEST.md`. The manifest deliberately separates a 2D
+concept from a finished model and records anatomy, silhouette, UV, rig,
+collision, animation, Mobile screenshot, and licensing gates. No generated
+concept is silently treated as a replacement for a model contract.
+
+## 2026-07-14 Blender production Batch 01
+
+`ART_3D_BATCH_01.md` records the first five local-Blender production meshes:
+anemone, urchin, complete paired-wing butterfly, animated giant whale, and
+rounded monster truck. Preferred runtime routes now use these models while the
+old score-2 geometry remains missing-file fallback only. The whale explicitly
+uses paired pectoral fins, one dorsal fin, and horizontal flukes; the butterfly
+uses paired fore/hind wings and independent flap pivots.
+
+The Blender QA renders pass a provisional 4/5 visual review, and structural
+checks confirm 12,232 total triangles with no embedded raster images. Final
+promotion remains gated on Godot Mobile import and gameplay screenshots because
+no Godot binary is available in this environment. Protected book art, legacy
+character models, family cutouts, and child-owned toys were not modified.
