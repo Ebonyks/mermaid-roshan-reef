@@ -1,5 +1,7 @@
 class_name SkyLagoon
 extends RefCounted
+
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # Phase 7.3: mechanical extraction of the Sky Lagoon courtyard from main.gd
 # (pearl-castle build, terrain + rivers + moat math, night dressing, fairy
 # pond, courtyard tick). All state stays on main; main delegates through
@@ -586,14 +588,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var _plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
 		m._nature("flower_yellowB", sp + Vector3(-3, -2.6, -3), 4.0, 0.0)
 		m._nature("flower_redA", sp + Vector3(3, -2.6, 3), 4.0, 1.0)
-		var star := Label3D.new()
-		star.text = "\u2605"
-		star.font_size = 340
-		star.pixel_size = 0.05
-		star.modulate = Color(1.0, 1.0, 1.0)
-		star.outline_size = 34
+		var star: Node3D = LandmarkArtFactory.create_star(3.8, [Color(0.98, 0.52, 0.62), Color(0.42, 0.86, 0.82), Color(0.72, 0.56, 0.94)][idx])
 		star.set_meta("rainbow", randf() * TAU)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		star.position = sp + Vector3(0, 4.0, 0)
 		m.add_child(star)
 		m.game_nodes.append(star)
@@ -606,19 +602,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 		if pre_got:
 			star.visible = false
 		m.l2_stars.append({"node": star, "got": pre_got})
-	# ---------- clouds + rainbow accents ----------
+	# ---------- layered storybook clouds + rainbow accents ----------
 	for cz in range(14):
-		var cloud := MeshInstance3D.new()
-		var cs := SphereMesh.new()
-		cs.radius = 8.0 + randf() * 7.0
-		cs.height = 10.0
-		cloud.mesh = cs
-		var cm2 := StandardMaterial3D.new()
-		cm2.albedo_color = Color(1, 1, 1)
-		cm2.roughness = 1.0
-		cloud.material_override = cm2
+		var cloud: Node3D = LandmarkArtFactory.create_cloud(7.0 + randf() * 3.0, cz)
 		cloud.position = o + Vector3(randf() * 380.0 - 190.0, 55.0 + randf() * 40.0, randf() * 380.0 - 190.0)
-		cloud.scale = Vector3(2.2, 0.7, 1.7)
 		m.add_child(cloud)
 		m.game_nodes.append(cloud)
 	# ---------- the COURTYARD TRAIN: a ride circling the castle ----------
@@ -1028,14 +1015,7 @@ func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
 			ornament.visibility_range_end = 125.0
 			m.add_child(ornament)
 			m.game_nodes.append(ornament)
-		var star := Label3D.new()
-		star.text = "\u2605"
-		star.font_size = 220
-		star.pixel_size = 0.025 * sc
-		star.outline_size = 28
-		star.modulate = Color(1.0, 0.86, 0.30)
-		star.outline_modulate = Color(0.45, 0.24, 0.48)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var star: Node3D = LandmarkArtFactory.create_star(1.8 * sc, Color(1.0, 0.76, 0.3), false, true)
 		star.position = base + Vector3(0.0, 17.8 * sc, 0.0)
 		m.add_child(star)
 		m.game_nodes.append(star)
@@ -1857,9 +1837,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if bool(sd["got"]):
 			got += 1
 			continue
-		var star: Label3D = sd["node"]
+		var star: Node3D = sd["node"]
 		star.position.y += sin(float(m.g["t"]) * 2.0 + star.position.x) * 0.02
-		star.rotate_y(delta * 1.6)
+		star.rotate_z(delta * 0.8)
 		star.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 4.0) * 0.12)
 		if nxt == null:
 			nxt = star
@@ -1887,12 +1867,6 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				m._open_castle_door()
 	if got >= 3 and not m.l2_open:
 		m._open_castle_door()
-	# iridescent rainbow shimmer on the dream stars
-	for sd2 in m.l2_stars:
-		var stn: Label3D = sd2["node"]
-		if is_instance_valid(stn) and stn.has_meta("rainbow"):
-			var hue: float = fmod(float(m.g["t"]) * 0.4 + float(stn.get_meta("rainbow")), 1.0)
-			stn.modulate = Color.from_hsv(hue, 0.55, 1.0)
 	# fairy pond — fly the top-down sparkle dodger (active once the castle is open)
 	# (the fairy flight now launches from the Fairy Fountain in the Butterfly
 	# World — the courtyard pond stays as scenery)
