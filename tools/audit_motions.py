@@ -9,7 +9,9 @@ import json, struct, io, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
-GLB = "roshan_v4g_slim.glb"
+GLB = "assets/characters/roshan_v4.glb"
+if "--glb" in sys.argv:
+    GLB = sys.argv[sys.argv.index("--glb") + 1]
 FPS = 60.0
 
 # ---------------- GLB / skinning core ----------------
@@ -128,15 +130,17 @@ VERBS = {
    "armF2":{"axis":RIGHT,"keys":[[0,0],[0.6,0.55],[0.9,-0.45],[1.2,0.55],[1.5,-0.45],[1.8,0.55],[2.2,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.7,0.16],[2.0,0.16],[2.6,0]]}}},
  "cheer": {"len":2.2,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.4],[1.7,2.4],[2.2,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.1],[1.7,2.1],[2.2,-0.2]]},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.22],[1.7,2.22],[2.2,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.35],[1.7,2.35],[2.2,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.4,0.78],[1.7,0.78],[2.2,0]]},
+   "armF2":{"axis":RIGHT,"keys":[[0,0],[0.4,0.64],[1.7,0.64],[2.2,0]]},
    "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.2],[1.7,0.2],[2.2,0]]},
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.12],[1.7,-0.12],[2.2,0]]}}},
  "clap": {"len":2.0,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2],[1.7,2.2],[2.0,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.0],[1.7,2.0],[2.0,-0.2]]},
-   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.2],[0.65,0.4],[0.8,1.2],[0.95,0.4],[1.1,1.2],[1.25,0.4],[1.4,1.2],[1.7,0]]},
-   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.3],[0.65,0.0],[0.8,-0.3],[0.95,0.0],[1.1,-0.3],[1.25,0.0],[1.4,-0.3],[1.7,0]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,1.8784],[1.7,1.8784],[2.0,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.1856],[1.7,2.1856],[2.0,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.5558],[0.65,1.065],[0.8,1.5558],[0.95,1.065],[1.1,1.5558],[1.25,1.065],[1.4,1.5558],[1.7,0]]},
+   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.6593],[0.65,-0.154],[0.8,-0.6593],[0.95,-0.154],[1.1,-0.6593],[1.25,-0.154],[1.4,-0.6593],[1.7,0]]}}},
  "twirl": {"len":1.9,"tracks":{
    "armU":{"axis":FWD,"keys":[[0,0],[0.4,-1.2],[1.5,-1.2],[1.9,0]]},
    "armU2":{"axis":FWD,"keys":[[0,0],[0.4,1.2],[1.5,1.2],[1.9,0]]},
@@ -147,8 +151,8 @@ VERBS = {
  "giggle": {"len":1.5,"tracks":{
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.2,-0.14],[0.4,0.02],[0.6,-0.14],[0.8,0.02],[1.0,-0.14],[1.5,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.25,0.18],[0.55,-0.18],[0.85,0.18],[1.15,-0.18],[1.5,0]]},
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.2],[1.2,2.2],[1.5,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.9],[1.2,1.9],[1.5,-0.2]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.8],[1.2,1.8],[1.5,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.1],[1.2,2.1],[1.5,-0.2]]}}},
  "sleep": {"len":6.0,"tracks":{
    "head":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.5],[5.0,-0.5],[6.0,0]]},
    "neck":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.32],[5.0,-0.32],[6.0,0]]},
@@ -278,7 +282,7 @@ rows = track("clap")
 hL = np.array([r[1]["hand"] for r in rows]); hR = np.array([r[1]["hand2"] for r in rows])
 dist = np.linalg.norm(hL-hR, axis=1)
 i = dist.argmin()
-check("clap hands near (anat. limit 0.30)", dist[i] < 0.33, f"min dist {dist[i]:.2f} at t={rows[i][0]:.2f}")
+check("clap hands make contact", dist[i] < 0.15, f"min centroid dist {dist[i]:.3f} at t={rows[i][0]:.2f}")
 check("clap in front", hL[i, 2] < 0.0 and hR[i, 2] < 0.0, f"z L={hL[i,2]:.2f} R={hR[i,2]:.2f}")
 check("clap at chest height", -0.1 < hL[i, 1] < 0.48, f"y={hL[i,1]:.2f}")
 mid = dist[int(0.5*FPS):int(1.5*FPS)]
@@ -373,14 +377,16 @@ def elbow_stats(deltas):
     return o
 
 worst = {"L": 0.0, "R": 0.0}
+worst_source = {"L": "rest", "R": "rest"}
 minfold = {"L": 180.0, "R": 180.0}
-def scan_hyper(gen):
-    for d in gen:
+def scan_hyper(label, gen):
+    for frame_index, d in enumerate(gen):
         st = elbow_stats(d)
         for s2 in ("L","R"):
             ang, inter = st[s2]
-            if ang < 0:
-                worst[s2] = min(worst[s2], ang)
+            if ang < worst[s2]:
+                worst[s2] = ang
+                worst_source[s2] = f"{label}@{frame_index / FPS:.2f}s"
             minfold[s2] = min(minfold[s2], inter)
 for speed in (0.0, 25.0):
     def sg(spd=speed):
@@ -388,7 +394,7 @@ for speed in (0.0, 25.0):
         for f in range(180):
             ph += (2.2+spd*0.9)/FPS
             yield swim_deltas(ph, spd)
-    scan_hyper(sg())
+    scan_hyper(f"swim@{speed:g}", sg())
 for vn in VERBS:
     vlen = VERBS[vn]["len"]
     def vg(v=vn, L=vlen):
@@ -396,10 +402,12 @@ for vn in VERBS:
         for f in range(int(L*FPS)):
             ph += 2.2/FPS
             yield verb_frame(v, f/FPS, swim_deltas(ph, 0.0))
-    scan_hyper(vg())
-check("elbow L never hyperextends", worst["L"] > -6.0, f"worst={worst['L']:.1f} deg")
+    scan_hyper(vn, vg())
+check("elbow L never hyperextends", worst["L"] > -6.0,
+      f"worst={worst['L']:.1f} deg at {worst_source['L']}")
 check("elbow L never over-folds", minfold["L"] > 25, f"min interior={minfold['L']:.0f} deg")
-check("elbow R never hyperextends", worst["R"] > -6.0, f"worst={worst['R']:.1f} deg")
+check("elbow R never hyperextends", worst["R"] > -6.0,
+      f"worst={worst['R']:.1f} deg at {worst_source['R']}")
 check("elbow R never over-folds", minfold["R"] > 25, f"min interior={minfold['R']:.0f} deg")
 
 # ---------------- skinning stress: streaks, shirt/skin capture, rear hair hue ----
@@ -420,12 +428,20 @@ _skin = (_r>170)&(_r>_g)&(_g>_b)&(_g>110)&(_g<215)&(_b>90)&(_b<190)&((_r-_b)>25)
 _pink = (_r>190)&(_b>170)&(_g>140)&(_g<_r)&(_sat<0.35)&~_skin
 strand_ks = [k for k,j in enumerate(joints) if jname[j].startswith("hair_")]
 _sw = np.zeros(len(P0))
+_head_w = np.zeros(len(P0))
+_head_k = joints.index(name2j["head"])
 for c in range(4):
     _sw += np.where(np.isin(J[:,c], strand_ks), W[:,c], 0)
-check("no shirt verts strand-driven", int(((_sw>0.3)&_pink).sum()) == 0,
-      f"{int(((_sw>0.3)&_pink).sum())} pink-top verts >30% strand weight")
-check("no skin verts strand-driven", int(((_sw>0.3)&_skin).sum()) == 0,
-      f"{int(((_sw>0.3)&_skin).sum())} skin verts >30% strand weight")
+    _head_w += np.where(J[:,c] == _head_k, W[:,c], 0)
+# Head-dominant scalp vertices legitimately combine head and strand motion;
+# exclude them from the garment/skin capture test even if their painted pixels
+# happen to meet the broad pink or skin color heuristic.
+_bad_shirt = np.flatnonzero((_sw > 0.3) & (_head_w < 0.5) & _pink)
+_bad_skin = np.flatnonzero((_sw > 0.3) & (_head_w < 0.5) & _skin)
+check("no shirt verts strand-driven", len(_bad_shirt) == 0,
+      f"{len(_bad_shirt)} pink-top verts >30% strand weight: {_bad_shirt.tolist()}")
+check("no skin verts strand-driven", len(_bad_skin) == 0,
+      f"{len(_bad_skin)} skin verts >30% strand weight: {_bad_skin.tolist()}")
 
 def full_skin_pose(deltas):
     M = joint_mats(deltas)

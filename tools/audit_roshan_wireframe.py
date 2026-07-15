@@ -657,8 +657,10 @@ def build_pose_specs() -> list[PoseSpec]:
 	def cheer(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.cheer, held peak (t=0.5..1.7).
-		rotate_model_axis(armature, "armU", GD_RIGHT, 2.4)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.1)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 2.22)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.35)
+		rotate_model_axis(armature, "armF", GD_BACK, 0.78)
+		rotate_model_axis(armature, "armF2", GD_RIGHT, 0.64)
 		rotate_model_axis(armature, "head", GD_RIGHT, 0.2)
 		rotate_model_axis(armature, "chest", GD_RIGHT, -0.12)
 		bpy.context.view_layer.update()
@@ -666,20 +668,22 @@ def build_pose_specs() -> list[PoseSpec]:
 	def clap_open(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.65: the open/rebound key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 2.2)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.0)
-		rotate_model_axis(armature, "armF", GD_BACK, 0.4)
-		rotate_model_axis(armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), 0.0)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8784)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.1856)
+		rotate_model_axis(armature, "armF", GD_BACK, 1.065)
+		rotate_model_axis(
+			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.154
+		)
 		bpy.context.view_layer.update()
 
 	def clap_contact(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.50: the authored contact key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 2.2)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.0)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.2)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8784)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.1856)
+		rotate_model_axis(armature, "armF", GD_BACK, 1.5558)
 		rotate_model_axis(
-			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.3
+			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.6593
 		)
 		bpy.context.view_layer.update()
 
@@ -1627,25 +1631,58 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 
 	open_gap = report["poses"]["clap_open"]["hands"]["weighted_probe_centroids"]["gap"]
 	contact_gap = report["poses"]["clap_contact"]["hands"]["weighted_probe_centroids"]["gap"]
+	open_surface_gap = report["poses"]["clap_open"]["hands"]["weighted_mesh_hand_surface"][
+		"minimum_unsigned_vertex_gap"
+	]
+	contact_surface_gap = report["poses"]["clap_contact"]["hands"][
+		"weighted_mesh_hand_surface"
+	]["minimum_unsigned_vertex_gap"]
 	height = report["character_height"]
-	if contact_gap > height * 0.06:
+	if contact_gap > height * 0.075 or contact_surface_gap > height * 0.01:
 		add(
 			"CLAP_CONTACT_GAP",
 			"problem",
 			f"The authored clap-contact key leaves weighted hand probes {contact_gap:.3f} apart "
-			f"({contact_gap / height:.1%} of height); this is not convincing contact.",
+			f"and the closest hand surfaces {contact_surface_gap:.3f} apart; this is not "
+			"convincing contact.",
 		)
-	elif contact_gap >= open_gap * 0.90:
+	elif contact_gap >= open_gap * 0.90 or (
+		open_surface_gap - contact_surface_gap
+	) < height * 0.05:
 		add(
 			"CLAP_CONTACT_MOTION",
 			"review",
-			f"The contact key ({contact_gap:.3f}) is not much closer than the open key ({open_gap:.3f}).",
+			f"The contact key (centroids {contact_gap:.3f}, surfaces "
+			f"{contact_surface_gap:.3f}) is not much closer than the open key "
+			f"({open_gap:.3f}, {open_surface_gap:.3f}).",
 		)
 	else:
 		add(
 			"CLAP_CONTACT_GAP",
 			"ok",
-			f"The contact key reduces weighted-hand gap from {open_gap:.3f} to {contact_gap:.3f}.",
+			f"The contact key reduces weighted-hand centroid gap from {open_gap:.3f} "
+			f"to {contact_gap:.3f} and surface gap from {open_surface_gap:.3f} "
+			f"to {contact_surface_gap:.3f}.",
+		)
+
+	cheer = report["poses"]["cheer_peak"]["overhead_quality"]
+	primary_clearance = cheer["primary_weighted_hand_clearance_above_head"]
+	secondary_clearance = cheer["secondary_weighted_hand_clearance_above_head"]
+	if min(primary_clearance, secondary_clearance) < height * 0.02:
+		add(
+			"CHEER_OVERHEAD",
+			"problem",
+			f"The cheer does not place both weighted hand regions clearly above the "
+			f"head joint (clearances {primary_clearance:.3f}, "
+			f"{secondary_clearance:.3f}).",
+		)
+	else:
+		add(
+			"CHEER_OVERHEAD",
+			"ok",
+			f"Both weighted hand regions clear the posed head joint by "
+			f"{primary_clearance:.3f} and {secondary_clearance:.3f}; bilateral "
+			f"height mismatch is {cheer['weighted_hand_height_mismatch']:.3f}.",
 		)
 
 	worst_pose = None
@@ -1704,7 +1741,13 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 		hand_regions = weights["hand_weighted_regions"]
 		left_hand = hand_regions["positive_x_anatomical_left_hand"]
 		right_hand = hand_regions["negative_x_anatomical_right_hand"]
-		if left_hand["vertices"] > 0 and left_hand["vertices"] < right_hand["vertices"] * 0.5:
+		if left_hand["vertices"] == 0:
+			add(
+				"LEFT_HAND_MISSING_BINDING",
+				"problem",
+				"No rendered vertex carries the anatomical-left hand bone.",
+			)
+		elif left_hand["vertices"] < right_hand["vertices"] * 0.5:
 			left_extent = left_hand["bounds_blender"]["extent"]
 			right_extent = right_hand["bounds_blender"]["extent"]
 			add(
@@ -1715,6 +1758,14 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 				f"(weight sums {left_hand['weight_sum']:.1f} vs {right_hand['weight_sum']:.1f}); "
 				f"its bind envelope is {left_extent[0]:.3f}x{left_extent[1]:.3f}x{left_extent[2]:.3f} "
 				f"versus {right_extent[0]:.3f}x{right_extent[1]:.3f}x{right_extent[2]:.3f}.",
+			)
+		else:
+			add(
+				"LEFT_HAND_BINDING",
+				"ok",
+				f"The anatomical left hand has a complete binding region: "
+				f"{left_hand['vertices']} vertices versus {right_hand['vertices']} on "
+				"the anatomical right.",
 			)
 
 	unweighted = sum(mesh["unweighted_vertices"] for mesh in report["weights"].values())
@@ -1985,6 +2036,37 @@ def main() -> None:
 			"rendered_mesh_gap": finite(rendered_gap, 9),
 			"absolute_gap_residual": finite(gap_residual, 9),
 		}
+		if pose.name == "cheer_peak":
+			head_world = _RUNTIME_RIG.joint_head_blender("head", _POSE_DELTAS)
+			primary_height = float(
+				pose_report["hands"]["weighted_probe_centroids"]["primary_blender"][2]
+			)
+			secondary_height = float(
+				pose_report["hands"]["weighted_probe_centroids"]["secondary_blender"][2]
+			)
+			primary_depth = float(
+				pose_report["hands"]["weighted_probe_centroids"]["primary_blender"][1]
+			)
+			secondary_depth = float(
+				pose_report["hands"]["weighted_probe_centroids"]["secondary_blender"][1]
+			)
+			pose_report["overhead_quality"] = {
+				"posed_head_joint_height_blender": finite(head_world.z),
+				"primary_weighted_hand_height_blender": finite(primary_height),
+				"secondary_weighted_hand_height_blender": finite(secondary_height),
+				"primary_weighted_hand_clearance_above_head": finite(
+					primary_height - head_world.z
+				),
+				"secondary_weighted_hand_clearance_above_head": finite(
+					secondary_height - head_world.z
+				),
+				"weighted_hand_height_mismatch": finite(
+					abs(primary_height - secondary_height)
+				),
+				"weighted_hand_depth_mismatch": finite(
+					abs(primary_depth - secondary_depth)
+				),
+			}
 		for obj in deform_meshes:
 			pose_report["strain_by_mesh"][obj.name] = strain_stats(
 				pose_coordinates[obj.name],
