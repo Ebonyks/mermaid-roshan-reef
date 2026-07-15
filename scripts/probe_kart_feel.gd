@@ -2,7 +2,7 @@ extends SceneTree
 # KART FEEL TELEMETRY — run headless, no display:
 #   $GODOT --headless -s scripts/probe_kart_feel.gd
 # Measures the kart engine's handling against kart-class feel gates (KART_FEEL.md):
-#   A. assist floor   — a zero-input solo run still finishes (auto-cruise)
+#   A. assist floor   — a zero-input solo run still finishes neutrally (auto-cruise)
 #   B. racing line    — an inside-line policy beats an outside-line policy
 #   C. skill ceiling  — a drift policy reaches tier >= 2 and beats hands-off
 #   D. speed channel  — the camera FOV breathes with speed (range >= 8 deg)
@@ -51,6 +51,8 @@ func _init() -> void:
 
 	# ---- E: full-pack terrain race through the real glue + X-quit restore ----
 	_race_place = -99
+	var passive_pearls: int = main.pearl_count
+	var passive_racer_sticker: bool = bool(main.stickers.get("racer", false))
 	main._start_kart_game(false, "terrain")
 	var kg = main.kart_game
 	_force_race_start(kg)
@@ -63,6 +65,10 @@ func _init() -> void:
 		print("FAIL|full-pack terrain race never finished"); ok = false
 	else:
 		print("FEEL|full_pack_race=done game='%s'" % main.game)
+	if main.pearl_count != passive_pearls or bool(main.stickers.get("racer", false)) != passive_racer_sticker:
+		print("FAIL|zero-input race awarded progression pearls=%d->%d racer=%s->%s" % [passive_pearls, main.pearl_count, passive_racer_sticker, bool(main.stickers.get("racer", false))]); ok = false
+	else:
+		print("FEEL|zero_input_reward=none")
 	await process_frame
 	main._start_kart_game(false, "terrain")
 	await process_frame

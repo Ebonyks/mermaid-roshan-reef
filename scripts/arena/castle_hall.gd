@@ -338,7 +338,12 @@ func build(o: Vector3) -> void:
 	crown.position = o + Vector3(0, 24.0, -28.0)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
-	m.l2_stars = [{"node": crown, "got": false}]
+	# On later visits the Crown Star remains as a royal keepsake, but it cannot
+	# replay the ownership win or pull Roshan toward an already-completed goal.
+	if m.level2_done_once:
+		m.g["crown_won"] = true
+		crown.modulate = Color(1.0, 0.98, 0.7)
+	m.l2_stars = [{"node": crown, "got": m.level2_done_once}]
 	# EXIT door at the entrance — swim into it to go back to the ocean
 	var exit := MeshInstance3D.new()
 	var et := TorusMesh.new()

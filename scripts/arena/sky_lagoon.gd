@@ -273,7 +273,9 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var c3 := Color(0, 0, 0, 0)
 		if cf2.size() >= 12:
 			c3 = Color(cf2[9], cf2[10], cf2[11])
-		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), false, false, c3)
+		var body_rb: bool = cf2.size() > 7 and int(cf2[7]) == 1
+		var acc_rb: bool = cf2.size() > 8 and int(cf2[8]) == 1
+		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)
 		var fang: float = float(fi) * 1.3
 		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
 		var frz: float = 70.0 + sin(fang) * 45.0
@@ -353,7 +355,38 @@ func _build_pearl_castle(o: Vector3) -> void:
 		lockl.position = m.bw_portal_pos + Vector3(0, 4.0, 0)
 		m.add_child(lockl)
 		m.game_nodes.append(lockl)
-	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
+	# Two clearly marked, non-reading-dependent home rings: one beside the arrival
+	# meadow and one beside the castle entrance. They use emissive geometry rather
+	# than another OmniLight, keeping the Speedy-tier light budget unchanged.
+	var home_portals: Array = []
+	var home_offsets: Array[Vector3] = [Vector3(-34, 0, 162), Vector3(-30, 0, -55)]
+	for hoff: Vector3 in home_offsets:
+		var hpos: Vector3 = o + hoff
+		hpos.y = m.lagoon_h(hpos.x, hpos.z) + 6.0
+		var home_ring := MeshInstance3D.new()
+		var home_mesh := TorusMesh.new()
+		home_mesh.inner_radius = 5.0
+		home_mesh.outer_radius = 6.5
+		home_mesh.rings = 24
+		home_mesh.ring_segments = 12
+		home_ring.mesh = home_mesh
+		home_ring.material_override = m._rainbow_mat()
+		home_ring.position = hpos
+		m.add_child(home_ring)
+		m.game_nodes.append(home_ring)
+		var home_label := Label3D.new()
+		home_label.text = "🏠 OCEAN HOME\nswim in!"
+		home_label.font_size = 68
+		home_label.outline_size = 16
+		home_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		home_label.modulate = Color(0.65, 1.0, 0.9)
+		home_label.position = hpos + Vector3(0, 8.0, 0)
+		m.add_child(home_label)
+		m.game_nodes.append(home_label)
+		var home_tw := home_ring.create_tween().set_loops()
+		home_tw.tween_property(home_ring, "rotation:y", TAU, 6.0).from(0.0)
+		home_portals.append({"pos": hpos, "armed": false})
+	m.g["home_portals"] = home_portals
 	# drifting butterflies for life — GEN2 pilot: real family-style
 	# butterfly art instead of the flower.png stand-in
 	var bfly := CPUParticles3D.new()
@@ -1816,6 +1849,18 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
 	m.kart_cool = maxf(0.0, m.kart_cool - delta)
 	m.bw_cool = maxf(0.0, m.bw_cool - delta)
+	# Home rings require swimming toward them from outside, so neither an arena
+	# rebuild nor a return spawn can immediately bounce Roshan back to the ocean.
+	for home_data_v in m.g.get("home_portals", []):
+		var home_data: Dictionary = home_data_v
+		var home_pos: Vector3 = home_data["pos"]
+		var home_dist: float = Vector2(home_pos.x - ppos.x, home_pos.z - ppos.z).length()
+		if home_dist > 14.0:
+			home_data["armed"] = true
+		if bool(home_data.get("armed", false)) and home_dist < 9.0 and absf(home_pos.y - ppos.y) < 12.0:
+			home_data["armed"] = false
+			m._exit_level2()
+			return
 	if m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO and m.bw_cool <= 0.0 and m.kart_cool <= 0.0:
 		if Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length() < 9.0 and absf(m.bw_portal_pos.y - ppos.y) < 10.0:
 			m.bw_cool = 10.0
@@ -1872,6 +1917,8 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			var sidx: int = m.l2_stars.find(sd)
 			if sidx >= 0 and sidx < m.l2_star_progress.size():
 				m.l2_star_progress[sidx] = true
+				m.stickers["_l2_star_%d" % sidx] = true
+				m._write_save()
 			got += 1
 			m._sparkle_burst(star.position, Color(1.0, 0.9, 0.4))
 			if m.chime != null:

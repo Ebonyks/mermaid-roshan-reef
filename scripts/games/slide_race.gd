@@ -9,7 +9,7 @@ func _init(main: ReefMain) -> void:
 	m = main
 
 func build(fr: Dictionary, origin: Vector3) -> void:
-	m.g["timer"] = 999.0
+	m.g["timer"] = -1.0
 	m.g["checks"] = []
 	m.g["chains"] = []
 	m._build_playplace(origin, fr)

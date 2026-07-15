@@ -259,6 +259,7 @@ var _race_t := 0.0
 var _shortcut_used_lap := -1
 var _rev := false
 var _pearls_got := 0
+var _player_acted := false          # steer/brake/turbo; selecting a ride alone does not earn a race payout
 var _fire_prev := false
 var _sel_idx := 1                  # start highlight on the kart
 var _sel_nodes: Array = []
@@ -471,6 +472,7 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_main = main
 	_finish_cb = finish_cb
 	_rev = reversed_track
+	_player_acted = false
 	if "player" in main and main.player != null:
 		_player_node = main.player
 	_build_lut()
@@ -2297,6 +2299,8 @@ func _process(delta: float) -> void:
 	var steer := _steer_input()
 	var braking := _brake_input()
 	var fired := _fire_just()
+	if absf(steer) > 0.05 or braking or fired:
+		_player_acted = true
 
 	for k in _karts:
 		if k["is_player"]:
@@ -3010,7 +3014,8 @@ func _finish() -> void:
 	_state = "podium"
 	var place := _placement()
 	var suffix: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
-	# pearls payout: pearls collected + placement bonus, into the real game economy
+	# Pearls and placement prizes require one deliberate race verb. Auto-cruise
+	# remains a gentle assist, but an unattended kart cannot farm progression.
 	var bonus := 5
 	if place == 1:
 		bonus = 15
@@ -3019,14 +3024,14 @@ func _finish() -> void:
 	elif place == 3:
 		bonus = 8
 	var payout: int = _pearls_got + bonus
-	if bool(_cv("pearl_payout", true)) and _main != null and "pearl_count" in _main:
+	if _player_acted and bool(_cv("pearl_payout", true)) and _main != null and "pearl_count" in _main:
 		_main.pearl_count += payout
 		if _main.has_method("_write_save"):
 			_main._write_save()
 		if _main.has_method("_update_hud"):
 			_main._update_hud()
-	_lbl_big.text = ("YOU WIN!" if place == 1 else "%d%s!" % [place, suffix])
-	_lbl_hint.text = "+%d pearls for your treasure!" % payout
+	_lbl_big.text = (("YOU WIN!" if place == 1 else "%d%s!" % [place, suffix]) if _player_acted else "YOUR TURN!")
+	_lbl_hint.text = ("+%d pearls for your treasure!" % payout) if _player_acted else "Steer or tap TURBO next race to join in!"
 	# podium: top 3 by distance
 	var order := _karts.duplicate()
 	order.sort_custom(func(a, b): return float(a["s"]) > float(b["s"]))
@@ -3061,7 +3066,7 @@ func _finish() -> void:
 		_cam.look_at(c0 + Vector3(0, 4.0, 0), Vector3.UP)
 	var tw := create_tween()
 	tw.tween_interval(3.6)
-	tw.tween_callback(_teardown.bind(place))
+	tw.tween_callback(_teardown.bind(place if _player_acted else -1))
 
 func _teardown(place: int) -> void:
 	_state = "done"

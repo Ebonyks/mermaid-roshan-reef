@@ -13,6 +13,8 @@ var player: Node3D
 var pearls: Array[Node3D] = []
 var friends: Array = []
 var pearl_count := 0
+var pearls_ever := 0              # highest pearl balance ever held; preserves the original 10-pearl gate after spending
+var portal_unlocked := false
 var trophies := 0
 var hud_layer: CanvasLayer = null
 var hud_pearls: Label
@@ -109,6 +111,10 @@ var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd
 var galaxy_unlocked := false
 var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
 var bwd_done := false              # the 7 butterflies are home FOREVER (owner: never repeat the quest)
+var galaxy_from := ""              # world to restore after Butterfly World ("" ocean / "level2")
+var galaxy_return_set := false     # stays set across the optional fairy-flight round trip
+var galaxy_return_pos := Vector3.ZERO
+var galaxy_level2_open := false
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_game: CombatArena = null
@@ -261,6 +267,7 @@ var flag_sh: Shader = null
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_resume_btn: Button = null
+var pause_leave_btn: Button = null
 var fps_lbl: Label = null
 # bedtime: swim onto the castle bed -> tuck-in cutscene that flips day <-> night
 var sleep_t := -1.0
@@ -539,6 +546,9 @@ func _ready() -> void:
 		voice_pool.append(ap)
 	touch_ui = preload("res://scripts/touch_ui.gd").new()
 	add_child(touch_ui)
+	if OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args():
+		dev_mode = preload("res://scripts/dev_mode.gd").new()
+		add_child(dev_mode)
 	_build_guide()
 	_build_slide_portal()
 	_build_pause()
@@ -547,8 +557,6 @@ func _ready() -> void:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
-	dev_mode = preload("res://scripts/dev_mode.gd").new()
-	add_child(dev_mode)
 
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
@@ -2321,15 +2329,27 @@ func _end_kart_game(place: int) -> void:
 	var msg := "Ocean Race champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
 	show_msg("Ocean Race", msg)
 	if kart_from == "level2":
+		var saved_level2_open: bool = l2_open
+		var saved_level2_pos: Vector3 = player.position
 		kart_from = ""
 		game = ""
-		call_deferred("_enter_level2", true)   # rebuild the courtyard cleanly
+		call_deferred("_restore_level2_after_trip", saved_level2_open, saved_level2_pos)
 		return
 	kart_from = ""
 	game = ""
 	_update_hud()
 
 func _start_galaxy() -> void:
+	# A direct courtyard portal and the Rainbow Road both reach this function.
+	# Remember the actual world underneath once, and keep it through the optional
+	# fairy-flight detour so Butterfly World always returns symmetrically.
+	if not galaxy_return_set:
+		galaxy_from = kart_from if game == "kart" else game
+		galaxy_return_pos = player.position
+		galaxy_level2_open = l2_open
+		galaxy_return_set = true
+		if game == "kart":
+			kart_from = ""
 	if hud_layer != null:
 		hud_layer.visible = false   # the galaxy draws its own HUD — no overlap
 	if not galaxy_unlocked:
@@ -2359,11 +2379,34 @@ func _end_galaxy(completed: bool) -> void:
 	else:
 		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
 	_update_hud()
-	if kart_from == "level2":
-		kart_from = ""
-		call_deferred("_enter_level2", true)
+	var return_world: String = galaxy_from
+	var return_level2_open: bool = galaxy_level2_open or level2_done_once
+	var saved_return_pos: Vector3 = galaxy_return_pos
+	galaxy_from = ""
+	galaxy_return_set = false
+	galaxy_return_pos = Vector3.ZERO
+	galaxy_level2_open = false
+	if return_world == "level2":
+		call_deferred("_restore_level2_after_trip", return_level2_open, saved_return_pos)
 		return
 	kart_from = ""
+	# Defensive ocean restoration for direct/debug entries. GalaxyLevel restores
+	# its previous environment, but these assignments also repair an older hybrid
+	# state left by a portal that forgot where it came from.
+	player.position = saved_return_pos
+	player.vel = Vector3.ZERO
+	we_node.environment = world_env
+	_play_music("world")
+
+func _restore_level2_after_trip(was_open: bool, saved_position: Vector3) -> void:
+	# Rebuild the lagoon cleanly, then put Roshan back beside the exact doorway
+	# she chose. The cooldown prevents that doorway from immediately swallowing
+	# her again on the first frame home.
+	_enter_level2(was_open)
+	player.position = saved_position
+	player.vel = Vector3.ZERO
+	bw_cool = maxf(bw_cool, 3.0)
+	kart_cool = maxf(kart_cool, 3.0)
 
 func _start_combat(battle_kind: String) -> void:
 	if combat_game != null or battle_kind not in ["ice", "fire"]:
@@ -2383,20 +2426,22 @@ func _start_combat(battle_kind: String) -> void:
 
 func _end_combat(battle_kind: String) -> void:
 	combat_game = null
+	var completed: bool = battle_kind in ["ice", "fire"]
 	if battle_kind == "ice":
 		combat_ice_done = true
 		pearl_count += 12
-	else:
+	elif battle_kind == "fire":
 		combat_fire_done = true
 		pearl_count += 20
-	_write_save()
-	_update_hud()
+	if completed:
+		_write_save()
+		_update_hud()
 	game = combat_from
 	if combat_from == "galaxy" and galaxy_game != null:
 		var galaxy_level := galaxy_game as GalaxyLevel
 		galaxy_level.visible = true
 		galaxy_level.process_mode = Node.PROCESS_MODE_INHERIT
-		galaxy_level.resume_from_combat()
+		galaxy_level.resume_from_combat(completed)
 	else:
 		player.visible = true
 		if player.cam != null:
@@ -2714,26 +2759,29 @@ func _build_pause() -> void:
 	psb.set_border_width_all(3)
 	psb.set_corner_radius_all(8)
 	pause_panel.add_theme_stylebox_override("panel", psb)
-	pause_panel.custom_minimum_size = Vector2(460, 540)
+	pause_panel.custom_minimum_size = Vector2(500, 680)
 	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
-	pause_panel.position = Vector2(-230, -270)
-	pause_panel.size = Vector2(460, 540)   # tall enough for the Sticker Book row
+	pause_panel.position = Vector2(-250, -340)
+	pause_panel.size = Vector2(500, 680)
 	pause_panel.visible = false
 	pause_layer.add_child(pause_panel)
 	var vb := VBoxContainer.new()
 	vb.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	vb.offset_left = 36
-	vb.offset_right = -36
-	vb.offset_top = 30
-	vb.offset_bottom = -30
-	vb.add_theme_constant_override("separation", 22)
+	vb.offset_left = 28
+	vb.offset_right = -28
+	vb.offset_top = 20
+	vb.offset_bottom = -20
+	vb.add_theme_constant_override("separation", 8)
 	pause_panel.add_child(vb)
 	fps_lbl = Label.new()
 	fps_lbl.add_theme_font_size_override("font_size", 20)
 	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	fps_lbl.position = Vector2(16, 516)
+	fps_lbl.position = Vector2(16, 650)
 	pause_panel.add_child(fps_lbl)
 	var resume := _pause_btn(vb, "Keep Swimming!")
+	pause_leave_btn = _pause_btn(vb, "🏠 Leave Activity")
+	pause_leave_btn.visible = false
+	pause_leave_btn.pressed.connect(_leave_current_activity)
 	var stick_btn := _pause_btn(vb, "⭐ Sticker Book")
 	stick_btn.pressed.connect(func():
 		toggle_pause()
@@ -2750,10 +2798,10 @@ func _build_pause() -> void:
 		music.volume_db = -8.0 if music_on else -60.0
 		music_btn.text = "Music: On" if music_on else "Music: Off"
 		_write_save())
-	var dev_btn := _pause_btn(vb, "Developer Mode")
-	dev_btn.pressed.connect(func():
-		toggle_pause()
-		if dev_mode != null:
+	if dev_mode != null:
+		var dev_btn := _pause_btn(vb, "Developer Mode")
+		dev_btn.pressed.connect(func():
+			toggle_pause()
 			dev_mode.toggle())
 
 func _pause_btn(vb: VBoxContainer, txt: String) -> Button:
@@ -2768,13 +2816,75 @@ func toggle_pause() -> void:
 	var p: bool = not get_tree().paused
 	get_tree().paused = p
 	pause_panel.visible = p
+	if pause_leave_btn != null:
+		pause_leave_btn.visible = p and _has_leave_context()
 	# gamepad menu navigation: focus the first button so D-pad + A work
 	if p and pause_resume_btn != null:
 		pause_resume_btn.grab_focus()
 	elif not p:
+		if touch_ui != null and touch_ui.has_method("_clear_touch_state"):
+			touch_ui._clear_touch_state()
+		if game == "shop":
+			# A/Enter may be the button that resumed the menu. Require a release
+			# before it can become a purchase confirmation near the counter.
+			g["shop_wait_release"] = true
 		var fo := get_viewport().gui_get_focus_owner()
 		if fo != null:
 			fo.release_focus()
+
+func _has_leave_context() -> bool:
+	return mg_kind != "" or game != "" or wardrobe_layer != null or craft_layer != null
+
+func _leave_current_activity() -> void:
+	# This is a voluntary, neutral exit -- never a loss and never a free win.
+	get_tree().paused = false
+	pause_panel.visible = false
+	if mg_kind != "":
+		_mg2d_close()
+		return
+	if wardrobe_layer != null:
+		_close_wardrobe()
+		return
+	if craft_layer != null:
+		_close_craft()
+		return
+	if game == "level2":
+		_exit_level2()
+		return
+	if game == "galaxy" and galaxy_game != null:
+		(galaxy_game as GalaxyLevel)._teardown(false)
+		return
+	if game == "kart" and kart_game != null:
+		kart_game.call("_quit_race")
+		return
+	if game == "combat" and combat_game != null:
+		combat_game.cancel()
+		return
+	if game == "":
+		return
+	var leaving_game: String = game
+	var fr: Dictionary = g.get("fr", {})
+	var leaving_name: String = String(fr.get("fname", ""))
+	_leave_arena()
+	if not fr.is_empty():
+		fr["cool"] = 8.0
+	if leaving_game == "fairyshoot":
+		_apply_skin()
+	if leaving_name == "Pearl Shop":
+		shop_cool = 16.0
+	elif leaving_name == "Secret Cave":
+		treasure_cool = 14.0
+	elif leaving_name == "Penguin Slide":
+		slide_cool = 14.0
+	_clear_game()
+	_write_save()
+	if leaving_game == "fairyshoot" and fairy_from_galaxy:
+		fairy_from_galaxy = false
+		call_deferred("_start_galaxy")
+	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
+		call_deferred("_enter_level2", l2_open)
+	else:
+		show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
 
 
 func _open_dance_demo() -> void:
@@ -2853,7 +2963,14 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 	for f in friends:
 		if f["found"]:
 			stars += 1
-	var ready: bool = trophies >= 5 and stars >= 5 and pearl_count >= PEARL_TOTAL
+	# The original gate required a ten-pearl wallet. Remember the highest balance
+	# so buying a toy later can never close a story doorway that already opened.
+	pearls_ever = maxi(pearls_ever, pearl_count)
+	# Story progress is a permanent milestone, never a test of the current wallet.
+	if not portal_unlocked and trophies >= 5 and stars >= 5 and pearls_ever >= PEARL_TOTAL:
+		portal_unlocked = true
+		_write_save()
+	var ready: bool = portal_unlocked or level2_done_once
 	if ready and portal_node == null:
 		_raise_portal()
 	if portal_node != null and is_instance_valid(portal_node):
@@ -2871,8 +2988,13 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 			portal_armed = true
 		if portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
 			portal_armed = false
-			l2_star_progress = [false, false, false]   # fresh visit, fresh stars
-			_enter_level2()
+			if level2_done_once:
+				l2_star_progress = [true, true, true]
+				_enter_level2(true)
+			else:
+				for i in range(l2_star_progress.size()):
+					l2_star_progress[i] = bool(stickers.get("_l2_star_%d" % i, l2_star_progress[i]))
+				_enter_level2()
 
 func _raise_portal() -> void:
 	var hub := Node3D.new()
@@ -2957,6 +3079,13 @@ void fragment(){
 
 func _enter_level2(from_castle: bool = false) -> void:
 	game = "level2"
+	# A completed castle is a permanent playground. Never rebuild its three-star
+	# lock on a later visit, even when an older caller omits from_castle.
+	if level2_done_once:
+		l2_star_progress = [true, true, true]
+	else:
+		for i in range(l2_star_progress.size()):
+			l2_star_progress[i] = bool(stickers.get("_l2_star_%d" % i, l2_star_progress[i]))
 	# free whatever level nodes are still alive BEFORE rebuilding: the rainbow-
 	# road/galaxy return path re-entered here without tearing the lagoon down
 	# first, stacking a second terrain+castle+playground exactly on top of the
@@ -3008,7 +3137,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 		_build_lagoon_night(LEVEL2_POS)
 	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
 	# track selected at the top of this function — the lagoon music never played)
-	if from_castle:
+	if from_castle or level2_done_once:
 		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
 		for sd in l2_stars:
 			sd["got"] = true
@@ -3262,6 +3391,7 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if NATURE_GEN2.has(name):
 		var gn := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
 		if gn != null:
+			game_nodes.append(gn)
 			_wind_sway(gn)
 			return gn
 	var story_plant: Node3D = StoryArtFactory.plant(name, scl)
@@ -3370,6 +3500,7 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	if KIT_GEN2.has(name):
 		var kg := _gen2_prop(String(KIT_GEN2[name]), pos, target, yrot, 0.04)
 		if kg != null:
+			game_nodes.append(kg)
 			_toy_anim(kg, name)
 			return kg
 	var ps: PackedScene = _kit_cache.get(name, null)
@@ -4705,6 +4836,8 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 		var c3: Color = third if third.a > 0.0 else (rspec[2] as Color)
 		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent, c3)
 		if rn != null:
+			if body_rb or acc_rb:
+				rn.tree_entered.connect(_start_gen2_rainbow.bind(rn, body_rb, acc_rb), CONNECT_ONE_SHOT)
 			return rn
 	if CRAFT_GEN2.has(kind):
 		var spec: Array = CRAFT_GEN2[kind]
@@ -4722,6 +4855,8 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_fin", accent)
 			pf.set_meta("gen2", true)   # base at origin (billboards are center-origin)
+			if body_rb or acc_rb:
+				pf.tree_entered.connect(_start_gen2_rainbow.bind(pf, body_rb, acc_rb), CONNECT_ONE_SHOT)
 			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
@@ -4745,6 +4880,31 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 	# tints the billboard fallback would otherwise render pure white)
 	root.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _start_gen2_rainbow(root: Node3D, body_rb: bool, acc_rb: bool) -> void:
+	for mi in _all_meshes(root):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var material: Material = mi.get_surface_override_material(si)
+			if not material is ShaderMaterial:
+				continue
+			var shader_material := material as ShaderMaterial
+			if body_rb:
+				_loop_paint_rainbow(root, shader_material, "paint_body")
+			if acc_rb:
+				_loop_paint_rainbow(root, shader_material, "paint_fin")
+
+func _loop_paint_rainbow(owner: Node3D, material: ShaderMaterial, parameter: String) -> void:
+	var tw: Tween = owner.create_tween().set_loops()
+	for hi in range(7):
+		var c0 := Color.from_hsv(float(hi) / 7.0, 0.75, 1.0)
+		var c1 := Color.from_hsv(float(hi + 1) / 7.0, 0.75, 1.0)
+		tw.tween_method(_set_paint_colour.bind(material, parameter), c0, c1, 0.4)
+
+func _set_paint_colour(colour: Color, material: ShaderMaterial, parameter: String) -> void:
+	material.set_shader_parameter(parameter, colour)
 
 func _creature_spawned(lb: Sprite3D, la: Sprite3D, anim: Node3D, body: Color, accent: Color, body_rb: bool, acc_rb: bool, kind: String) -> void:
 	_layer_fx(lb, "body", body, body_rb, kind)
@@ -4948,7 +5108,7 @@ func _craft_done() -> void:
 	var fishy: bool = craft_kind == "fish"
 	var msgtxt: String
 	if fishy:
-		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
+		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b, 1 if craft_body_rb else 0, 1 if craft_fins_rb else 0])
 		_spawn_crafted_fish()   # same spawn path as build/load keeps the counter honest
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
@@ -6214,7 +6374,7 @@ func _tick_chains(delta: float, ppos: Vector3) -> void:
 
 func _start_game(fr: Dictionary) -> void:
 	game = String(fr["game"])
-	g = {"fr": fr, "t": 0.0, "timer": 30.0}
+	g = {"fr": fr, "t": 0.0, "timer": -1.0}
 	_enter_arena(game)
 	var origin: Vector3 = ARENA_POS
 	if game == "fetch":
@@ -6486,6 +6646,8 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if touch_ui != null and absf(touch_ui.stick_vec.x) > 0.15:
 		steer += touch_ui.stick_vec.x
 	steer = clampf(steer, -1.0, 1.0)
+	if absf(steer) > 0.15:
+		g["steered"] = true
 	# --- along-slope physics: gravity pulls down the gradient, drag caps speed ---
 	var v: float = g["v"]
 	var grade: float = -tangent.y          # >0 going downhill
@@ -6584,7 +6746,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if spray != null and is_instance_valid(spray):
 				(spray as CPUParticles3D).speed_scale = 1.7 if sprinting else 1.0
 		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
-		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
+		if beany and bool(g.get("steered", false)) and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
 			award_sticker("penguin")
 			var cn = g.get("peng_node")
@@ -6605,7 +6767,16 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		else:
 			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
-			_end_game(false, fr, "He crossed the finish first — he's just too speedy! Hmm... maybe magic BEANS from the Pearl Shop would give me a super boost! Toot toot!", "fail")
+			if bool(g.get("steered", false)):
+				_end_game(true, fr, "What a race! The baby penguin zoomed ahead — and wants to race you again! Magic Beans can help you catch him.")
+			else:
+				# Auto-slide alone cannot complete the activity. Restart at the top
+				# and demonstrate the one deliberate verb without a loss screen.
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				g["burst"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the race! Take your time.", "hint")
 			return
 	else:
 		# ===== COLLECT THE FISH =====
@@ -6633,8 +6804,14 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		hud_game.text = "Slide!  Fish: %d / 5" % int(g["got"])
 		if float(g["s"]) >= total - 0.5:
 			var got: int = int(g["got"])
-			var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
-			_end_game(true, fr, msg)
+			if bool(g.get("steered", false)):
+				var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
+				_end_game(true, fr, msg)
+			else:
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the slide! Take your time.", "hint")
 
 # ===================== FAIRY POND — OVERHEAD SCROLLING BULLET HELL =====================
 # A gentle top-down scrolling shooter sized for a 4-year-old: the camera hangs
@@ -6697,6 +6874,7 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	g["fz"] = 0.0; g["ox"] = 0.0; g["oz"] = 0.0
 	g["hits"] = 0; g["fire_cd"] = 0.0
 	g["hearts"] = FS_HEARTS; g["hurt_t"] = 0.0; g["nova_cd"] = 0.0
+	g["player_acted"] = false; g["awaiting_cheer"] = false
 	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
 	g["hazards"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
@@ -6935,7 +7113,6 @@ func fr_name_safe() -> String:
 	return String((g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
 
 func _fairy_bloom_start() -> void:
-	award_sticker("flower")
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
 	_fairy_clear_orbs()   # nothing to dodge during the celebration
@@ -7051,8 +7228,8 @@ func _tick_game(delta: float) -> void:
 	if float(g["timer"]) > 0.0:
 		g["timer"] = float(g["timer"]) - delta
 		if float(g["timer"]) <= 0.0:
-			_end_game(false, fr, _fail_line(), "fail")
-			return
+			g["timer"] = -1.0
+			show_msg(String(fr.get("fname", "Roshan")), "Take your time — keep playing when you're ready!", "hint")
 	var ppos: Vector3 = player.position
 	if game == "fetch":
 		_tick_fetch(delta, fr, ppos)
@@ -7386,6 +7563,8 @@ func _process(delta: float) -> void:
 		var act_lbl := "JUMP"
 		if game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"
+		elif game == "shop":
+			act_lbl = "BUY"
 		elif game == "fairyshoot":
 			act_lbl = "SPARKLE"
 		elif game == "kart" and kart_game != null and kart_game.has_method("action_label"):

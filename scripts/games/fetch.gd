@@ -208,7 +208,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			chuck.rotation.y = atan2(watch.x, watch.z)
 		_chuck_play("sit_excited" if String(m.g["phase"]) == "fly" else "sit_idle", 0.35)
 	if String(m.g["phase"]) == "aim":
-		m.hud_game.text = "Throw %d / 2   (oops: %d / 3)" % [int(m.g["round"]) + 1, int(m.g["miss"])]
+		m.hud_game.text = "Throw %d / 2   splashes: %d" % [int(m.g["round"]) + 1, int(m.g["miss"])]
 		# Roshan HOLDS the ball
 		var fdir = Vector3(sin(m.player.yaw + PI), 0, cos(m.player.yaw + PI))
 		ball.position = ppos + fdir * 1.3 + Vector3(0, -0.2, 0)
@@ -216,7 +216,16 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		# (only ~1 in 4 finished). Slower sweep, and it slows FURTHER after each
 		# splash so a struggling kid always gets there (skill still shows: fewer
 		# splashes = faster win)
-		var sw: float = sin(float(m.g["t"]) * 0.9 * pow(0.72, float(m.g["miss"]))) * 1.25
+		var misses: int = int(m.g["miss"])
+		# Each splash makes the safe snow side wider as well as slowing the
+		# sweep. After three splashes every throw is safely on the snow, but
+		# Roshan must still choose to press THROW to continue.
+		var sweep_width := 1.25
+		if misses == 2:
+			sweep_width = 0.85
+		elif misses >= 3:
+			sweep_width = 0.55
+		var sw: float = sin(float(m.g["t"]) * 0.9 * pow(0.72, float(misses))) * sweep_width
 		var dirv := Vector3(sin(sw), 0, -cos(sw))
 		m.g["aim_dir"] = dirv
 		var arrow: MeshInstance3D = m.g["arrow"]
@@ -265,9 +274,9 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				bz.play()
 				bz.finished.connect(bz.queue_free)
 				if int(m.g["miss"]) >= 3:
-					m._end_game(false, fr, "Aww... now Chuck is all wet!", "fail")
-					return
-				m.show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!", "splash")
+					m.show_msg(fr["fname"], "Chuck shakes off! Now the arrow stays on the safe snow — press when you're ready!", "splash")
+				else:
+					m.show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!", "splash")
 				m.g["phase"] = "aim"
 				(m.g["arrow"] as MeshInstance3D).visible = true
 			else:

@@ -47,6 +47,9 @@ func _init() -> void:
 		main.touch_ui.stick_vec = Vector2.ZERO
 		main.touch_ui.action_down = false
 		var won_before := bool(f["won"])
+		var pearls_before: int = main.pearl_count
+		var trophies_before: int = main.trophies
+		var stickers_before: Dictionary = main.stickers.duplicate(true)
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
 			await process_frame
 		var still_running: bool = main.game != ""
@@ -54,12 +57,13 @@ func _init() -> void:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
-		if won_passively:
-			print("PASSIVE|", fname, " [", gname, "]: FAIL won with zero input")
+		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before
+		if won_passively or progression_changed or not still_running:
+			print("PASSIVE|", fname, " [", gname, "]: FAIL zero-input state won=", won_passively,
+				" progression=", progression_changed, " still_running=", still_running)
 			bad += 1
 		else:
-			print("PASSIVE|", fname, " [", gname, "]: OK not won (",
-				"still running at 60s" if still_running else "ended unwon", ")")
+			print("PASSIVE|", fname, " [", gname, "]: OK active and unrewarded at 60s")
 		await _frames(20)
 	print("PASSIVE|result: ", ("ALL OK" if bad == 0 else "%d game(s) FAILED" % bad))
 	quit()
