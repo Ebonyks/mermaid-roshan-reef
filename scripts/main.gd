@@ -113,6 +113,9 @@ var combat_ice_done := false       # Butterfly Castle ice-berry encounter comple
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_game: CombatArena = null
 var combat_from := ""
+var dungeon_game: DungeonLevel = null
+var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
+var dungeon_done := false
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content
@@ -2408,6 +2411,32 @@ func _end_combat(battle_kind: String) -> void:
 			player.position = toilet_pos + Vector3(5.5, 1.0, 0)
 			player.vel = Vector3.ZERO
 	combat_from = ""
+
+func _start_dungeon() -> void:
+	if dungeon_game != null or not combat_ice_done or not combat_fire_done:
+		return
+	game = "dungeon"
+	if hud_layer != null:
+		hud_layer.visible = false
+	player.visible = false
+	dungeon_game = DungeonLevel.new()
+	add_child(dungeon_game)
+	dungeon_game.start(self, dungeon_progress, Callable(self, "_end_dungeon"))
+
+func _end_dungeon(completed: bool) -> void:
+	dungeon_game = null
+	game = "level2"
+	player.visible = true
+	if player.cam != null:
+		player.cam.make_current()
+	if hud_layer != null:
+		hud_layer.visible = true
+	if g.has("dungeon_gate"):
+		var gate: Dictionary = g["dungeon_gate"]
+		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
+		player.vel = Vector3.ZERO
+		gate["armed"] = false
+	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -7318,6 +7347,8 @@ func _process(delta: float) -> void:
 		pass   # the GalaxyLevel node ticks itself
 	elif game == "combat":
 		pass   # the CombatArena node owns movement, camera and encounter logic
+	elif game == "dungeon":
+		pass   # DungeonLevel sequences ten configured CombatArena rooms
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -7392,6 +7423,8 @@ func _process(delta: float) -> void:
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		elif game == "combat" and combat_game != null:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
+		elif game == "dungeon" and dungeon_game != null:
+			act_lbl = dungeon_game.action_label()
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
