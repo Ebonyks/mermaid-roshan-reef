@@ -33,6 +33,7 @@ func _input(ev: InputEvent) -> void:
 var yaw := 0.0
 var vel := Vector3.ZERO
 var swim_phase := 0.0
+var arm_swim_phase := 0.0
 var jump_cool := 0.0
 var idle_t := 0.0
 
@@ -822,6 +823,9 @@ func _process(delta: float) -> void:
 	var speed: float = vel.length()
 	_tick_wake(delta, speed)
 	swim_phase += delta * (2.2 + speed * 0.9)
+	# Arms keep a separate, deliberately slow water-sweep phase. Tying them to
+	# the tail beat made a sprint look like frantic flapping instead of swimming.
+	arm_swim_phase += delta * (1.0 + minf(speed * 0.035, 0.9))
 	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
 	var kick: float = sin(swim_phase)
 	if skel != null:
@@ -852,17 +856,19 @@ func _process(delta: float) -> void:
 			_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
 			_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
 		if model_v3 and skel == _roshan_skel:
-			# v3 arms: gentle paddle. Speed-scaled amplitude (near-still when
-			# idle), no constant offset (rest = the authored pose), far arm
-			# trails the near arm slightly; forearms lag their upper arms.
-			# The old constant offsets + 144-degree syncopation read as
-			# uncoordinated flailing on a true-3D body.
-			var arm_amp: float = 0.06 + minf(speed * 0.02, 0.20)
-			var arm_ph: float = swim_phase * 0.5
-			_rot_bone("armU", Vector3.RIGHT, sin(arm_ph) * arm_amp)
-			_rot_bone("armF", Vector3.RIGHT, (sin(arm_ph - 0.5) + 1.0) * 0.5 * arm_amp)   # flexion-only: elbows never bend past straight
-			_rot_bone("armU2", Vector3.RIGHT, sin(arm_ph - 0.35) * arm_amp)
-			_rot_bone("armF2", Vector3.RIGHT, (sin(arm_ph - 0.85) + 1.0) * 0.5 * arm_amp)
+			# Relax the authored diagnostic A-pose into a soft, hip-height swim
+			# posture. Both hands sweep laterally with a small alternating depth
+			# drift, as though they are idly feeling the water. Upper arms lead;
+			# forearms follow with less travel so the elbows never look hinged.
+			var arm_ph: float = arm_swim_phase
+			var left_sway: float = sin(arm_ph)
+			var right_sway: float = sin(arm_ph - 0.35)
+			var depth_sway: float = sin(arm_ph - 0.8) * 0.16
+			var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
+			_rot_bone("armU", water_axis, -(0.65 + left_sway * 0.14))
+			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06))
+			_rot_bone("armU2", water_axis, 0.65 + right_sway * 0.14)
+			_rot_bone("armF2", water_axis, 0.18 + sin(arm_ph - 0.85) * 0.06)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
