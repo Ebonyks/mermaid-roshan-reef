@@ -35,12 +35,14 @@ func _init() -> void:
 	_ck("dungeon mixes four battles with six puzzles", combat_count == 4 and puzzle_count == 6)
 	_ck("progress HUD never blocks touch", dungeon.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and dungeon.room_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	_ck("first room uses bounded combat scene", dungeon.arena is CombatArena and _descendants(dungeon.arena) < 100)
+	_ck("combat arena uses authored dungeon kit", dungeon.arena.find_child("DungeonArena", true, false) != null and dungeon.arena.find_child("MischiefImp", true, false) != null)
 	for i in range(30): await process_frame
 	_ck("combat room cannot win passively", dungeon.room_index == 0 and dungeon.arena != null)
 	_clear_combat(dungeon)
 	await _wait_for_room(dungeon, 1)
 	_ck("puzzle gives Roshan spatial controls", dungeon.puzzle.avatar != null and dungeon.puzzle.interactives.size() == 3)
 	_ck("puzzle room stays inside mobile node budget", _descendants(dungeon.puzzle) < 90)
+	_ck("puzzle uses modeled pedestals and shell door", dungeon.puzzle.find_child("CrystalPedestal", true, false) != null and dungeon.puzzle.find_child("DungeonDoor", true, false) != null)
 	for i in range(30): await process_frame
 	_ck("puzzle cannot win passively", dungeon.puzzle.state == "play")
 	_exercise_puzzle(dungeon.puzzle, DungeonLevel.ROOMS[1])
@@ -81,7 +83,7 @@ func _exercise_puzzle(puzzle: DungeonPuzzleRoom, config: Dictionary) -> void:
 	if kind == "pairs":
 		_activate(puzzle, 0)
 		_activate(puzzle, 1)
-		_ck("mismatched runes remain visible", puzzle.pair_hide_t > 0.0 and puzzle.card_labels[0].text != "?" and puzzle.card_labels[1].text != "?")
+		_ck("mismatched runes remain visible", puzzle.pair_hide_t > 0.0 and _pictogram_visible(puzzle.card_labels[0], "Moon") and _pictogram_visible(puzzle.card_labels[1], "Star"))
 		puzzle._process(1.2)
 		_activate(puzzle, 0)
 		_activate(puzzle, 2)
@@ -100,6 +102,10 @@ func _exercise_puzzle(puzzle: DungeonPuzzleRoom, config: Dictionary) -> void:
 	_ck("puzzle solution physically opens door", puzzle.state == "exit" and puzzle.door != null)
 	puzzle._finish()
 
+func _pictogram_visible(root: Node3D, part_name: String) -> bool:
+	var part: Node3D = root.find_child(part_name, true, false) as Node3D
+	return part != null and part.visible
+
 func _activate(puzzle: DungeonPuzzleRoom, choice: int) -> void:
 	for entry: Dictionary in puzzle.interactives:
 		if int(entry["index"]) == choice:
@@ -111,6 +117,8 @@ func _activate(puzzle: DungeonPuzzleRoom, choice: int) -> void:
 
 func _exercise_finale(arena: CombatArena) -> void:
 	_ck("final boss starts with ice shell phase", arena.kind == "dual" and arena.action_label() == "ICE")
+	var modeled_shell: Node3D = arena.boss.get("shell") as Node3D
+	_ck("final boss has a readable modeled shell crown", modeled_shell != null and _descendants(modeled_shell) > 0)
 	var hp: int = int(arena.boss["hp"])
 	arena._hit_boss("fire")
 	_ck("fire cannot skip frozen-shell lesson", int(arena.boss["hp"]) == hp and String(arena.boss["phase"]) == "shell")
