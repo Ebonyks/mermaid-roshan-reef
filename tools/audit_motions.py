@@ -187,7 +187,7 @@ def sample_keys(keys, t):
             return a[1] + (b[1]-a[1])*smoothstep(0, 1, f)
     return keys[-1][1]
 
-def swim_deltas(phase, speed):
+def swim_deltas(phase, speed, arm_phase=None):
     amp = 0.10 + min(speed*0.03, 0.26)
     d = {}
     for i in range(8):
@@ -201,12 +201,19 @@ def swim_deltas(phase, speed):
     d["chest"] = model_axis_delta("chest", RIGHT, -np.sin(phase-0.4)*amp*0.12)
     d["neck"] = model_axis_delta("neck", RIGHT, np.sin(phase-0.7)*amp*0.06)
     d["head"] = model_axis_delta("head", BACK, np.sin(phase*0.5+0.6)*0.02)
-    arm_amp = 0.06 + min(speed*0.02, 0.20)
-    ap = phase*0.5
-    d["armU"] = model_axis_delta("armU", RIGHT, np.sin(ap)*arm_amp)
-    d["armF"] = model_axis_delta("armF", RIGHT, (np.sin(ap-0.5)+1.0)*0.5*arm_amp)
-    d["armU2"] = model_axis_delta("armU2", RIGHT, np.sin(ap-0.35)*arm_amp)
-    d["armF2"] = model_axis_delta("armF2", RIGHT, (np.sin(ap-0.85)+1.0)*0.5*arm_amp)
+    if arm_phase is None:
+        # Static-pose callers have no clock; reconstruct the matching arm clock
+        # from the constant-speed tail phase used by their sample.
+        arm_rate = 1.0 + min(speed*0.035, 0.9)
+        arm_phase = phase * arm_rate / (2.2 + speed*0.9)
+    left_sway = np.sin(arm_phase)
+    right_sway = np.sin(arm_phase-0.35)
+    depth_sway = np.sin(arm_phase-0.8)*0.16
+    water_axis = (depth_sway, 0, 1)
+    d["armU"] = model_axis_delta("armU", water_axis, -(0.65 + left_sway*0.14))
+    d["armF"] = model_axis_delta("armF", water_axis, -(0.18 + np.sin(arm_phase-0.5)*0.06))
+    d["armU2"] = model_axis_delta("armU2", water_axis, 0.65 + right_sway*0.14)
+    d["armF2"] = model_axis_delta("armF2", water_axis, 0.18 + np.sin(arm_phase-0.85)*0.06)
     return d
 
 def verb_frame(vname, t, swim_d):
@@ -227,19 +234,23 @@ def track(vname, speed=0.0):
     T = spec["len"]
     rows = []
     phase = 0.0
+    arm_phase = 0.0
     for f in range(int(T*FPS)+1):
         t = f/FPS
         phase += (2.2 + speed*0.9)/FPS
-        d = verb_frame(vname, t, swim_deltas(phase, speed))
+        arm_phase += (1.0 + min(speed*0.035, 0.9))/FPS
+        d = verb_frame(vname, t, swim_deltas(phase, speed, arm_phase))
         rows.append((t, probe_pos(d)))
     return rows
 
 def swim_track(speed, seconds=3.0):
     rows = []
     phase = 0.0
+    arm_phase = 0.0
     for f in range(int(seconds*FPS)):
         phase += (2.2 + speed*0.9)/FPS
-        rows.append((f/FPS, probe_pos(swim_deltas(phase, speed))))
+        arm_phase += (1.0 + min(speed*0.035, 0.9))/FPS
+        rows.append((f/FPS, probe_pos(swim_deltas(phase, speed, arm_phase))))
     return rows
 
 # ---------------- criteria ----------------
@@ -255,11 +266,16 @@ for speed in (0.0, 12.0, 25.0):
     rows = swim_track(speed)
     hL = np.array([r[1]["hand"] for r in rows]); hR = np.array([r[1]["hand2"] for r in rows])
     t8 = np.array([r[1]["tail8"] for r in rows])
-    ampL = hL[:, 2].max()-hL[:, 2].min(); ampR = hR[:, 2].max()-hR[:, 2].min()
-    check(f"swim@{speed:g} both arms move", ampL > 0.01 and ampR > 0.01,
-          f"z-sweep L={ampL:.3f} R={ampR:.3f}")
+    ampL = hL[:, 0].max()-hL[:, 0].min(); ampR = hR[:, 0].max()-hR[:, 0].min()
+    depthL = hL[:, 2].max()-hL[:, 2].min(); depthR = hR[:, 2].max()-hR[:, 2].min()
+    check(f"swim@{speed:g} both arms sway laterally", ampL > 0.06 and ampR > 0.06,
+          f"x-sweep L={ampL:.3f} R={ampR:.3f}")
+    check(f"swim@{speed:g} arms feel through water", depthL > 0.025 and depthR > 0.025,
+          f"z-sweep L={depthL:.3f} R={depthR:.3f}")
     check(f"swim@{speed:g} arms stay below shoulders", hL[:, 1].max() < 0.25 and hR[:, 1].max() < 0.25,
           f"peak y L={hL[:,1].max():.2f} R={hR[:,1].max():.2f}")
+    check(f"swim@{speed:g} hands rest near body", np.max(np.abs(hL[:,0])) < 0.36 and np.max(np.abs(hR[:,0])) < 0.36,
+          f"outer x L={np.max(np.abs(hL[:,0])):.2f} R={np.max(np.abs(hR[:,0])):.2f}")
     check(f"swim@{speed:g} amps comparable", 0.4 < (ampL/max(ampR, 1e-6)) < 2.5,
           f"ratio {ampL/max(ampR,1e-6):.2f}")
     check(f"swim@{speed:g} tail waves", (t8[:, 2].max()-t8[:, 2].min()) > 0.05,
@@ -275,9 +291,13 @@ check("cheer both hands clearly overhead",
 check("cheer hands forward not buried", hL[iL, 2] < 0.05 and hR[iR, 2] < 0.05,
       f"peak z L={hL[iL,2]:.2f} R={hR[iR,2]:.2f}")
 check("cheer symmetric", abs(hL[iL, 1]-hR[iR, 1]) < 0.12, f"dy={abs(hL[iL,1]-hR[iR,1]):.2f}")
-check("cheer returns to rest", np.linalg.norm(hL[-1]-REST["hand"]) < 0.15 and
-      np.linalg.norm(hR[-1]-REST["hand2"]) < 0.15,
-      f"end drift L={np.linalg.norm(hL[-1]-REST['hand']):.2f} R={np.linalg.norm(hR[-1]-REST['hand2']):.2f}")
+_cheer_frames = int(VERBS["cheer"]["len"]*FPS)+1
+_cheer_swim_end = probe_pos(swim_deltas(
+    _cheer_frames*2.2/FPS, 0.0, _cheer_frames/FPS))
+_cheer_end_left = np.linalg.norm(hL[-1]-_cheer_swim_end["hand"])
+_cheer_end_right = np.linalg.norm(hR[-1]-_cheer_swim_end["hand2"])
+check("cheer returns to swim sway", _cheer_end_left < 0.01 and _cheer_end_right < 0.01,
+      f"end drift from same-frame swim L={_cheer_end_left:.4f} R={_cheer_end_right:.4f}")
 
 # wave: right hand high, left ~static
 rows = track("wave")
@@ -508,17 +528,21 @@ def scan_hyper(label, gen):
 for speed in (0.0, 25.0):
     def sg(spd=speed):
         ph = 0.0
+        aph = 0.0
         for f in range(180):
             ph += (2.2+spd*0.9)/FPS
-            yield swim_deltas(ph, spd)
+            aph += (1.0+min(spd*0.035,0.9))/FPS
+            yield swim_deltas(ph, spd, aph)
     scan_hyper(f"swim@{speed:g}", sg())
 for vn in VERBS:
     vlen = VERBS[vn]["len"]
     def vg(v=vn, L=vlen):
         ph = 0.0
+        aph = 0.0
         for f in range(int(L*FPS)):
             ph += 2.2/FPS
-            yield verb_frame(v, f/FPS, swim_deltas(ph, 0.0))
+            aph += 1.0/FPS
+            yield verb_frame(v, f/FPS, swim_deltas(ph, 0.0, aph))
     scan_hyper(vn, vg())
 check("elbow L never hyperextends", worst["L"] > -6.0,
       f"worst={worst['L']:.1f} deg at {worst_source['L']}")
@@ -547,16 +571,62 @@ _skin = (_r>170)&(_r>_g)&(_g>_b)&(_g>110)&(_g<215)&(_b>90)&(_b<190)&((_r-_b)>25)
 _pink = (_r>190)&(_b>170)&(_g>140)&(_g<_r)&(_sat<0.35)&~_skin
 strand_ks = [k for k,j in enumerate(joints) if jname[j].startswith("hair_")]
 _sw = np.zeros(len(P0))
-_head_w = np.zeros(len(P0))
-_head_k = joints.index(name2j["head"])
 for c in range(4):
     _sw += np.where(np.isin(J[:,c], strand_ks), W[:,c], 0)
-    _head_w += np.where(J[:,c] == _head_k, W[:,c], 0)
-# Head-dominant scalp vertices legitimately combine head and strand motion;
-# exclude them from the garment/skin capture test even if their painted pixels
-# happen to meet the broad pink or skin color heuristic.
-_bad_shirt = np.flatnonzero((_sw > 0.3) & (_head_w < 0.5) & _pink)
-_bad_skin = np.flatnonzero((_sw > 0.3) & (_head_w < 0.5) & _skin)
+
+# The deterministic repair classifies whole disconnected topology locks against
+# the embedded texture. Preserve that stricter region boundary here: texture
+# bilinear bleed gives 38 real hair vertices skin-like sampled RGB values, so a
+# color-only capture test would falsely reject the intended locks.
+_hair_component_ranks = {
+    4,9,17,22,23,24,28,31,32,38,39,42,49,50,52,55,56,57,58,60,65,67,
+    69,70,71,72,75,76,77,78,80,88,89,90,91,92,98,101,104,112,113,118,119,120,
+}
+_primary_n = len(P_parts[0])
+_parent = np.arange(_primary_n)
+def _find_component(v):
+    while _parent[v] != v:
+        _parent[v] = _parent[_parent[v]]
+        v = _parent[v]
+    return v
+def _union_component(a, b):
+    ra, rb = _find_component(a), _find_component(b)
+    if ra != rb:
+        _parent[rb] = ra
+_primary_triangles = acc_np(prim["indices"]).astype(np.int64).reshape(-1,3)
+for _triangle in _primary_triangles:
+    _union_component(int(_triangle[0]), int(_triangle[1]))
+    _union_component(int(_triangle[1]), int(_triangle[2]))
+_component_groups = {}
+for _vertex in range(_primary_n):
+    _component_groups.setdefault(_find_component(_vertex), []).append(_vertex)
+_component_groups = sorted(_component_groups.values(), key=len, reverse=True)
+_verified_hair = np.zeros(len(P0), bool)
+for _rank in _hair_component_ranks:
+    _verified_hair[_component_groups[_rank]] = True
+_strand_vertices = _sw > 1e-6
+check("strand weights restored to hair locks", int(_strand_vertices.sum()) == 7745,
+      f"{int(_strand_vertices.sum())} strand-driven verts (expected 7745)")
+check("strand weights stay inside verified hair", not np.any(_strand_vertices & ~_verified_hair),
+      f"{int((_strand_vertices & ~_verified_hair).sum())} verts escaped verified locks")
+for _strand in range(8):
+    _strand_indices = [k for k,j in enumerate(joints)
+                       if jname[j].startswith(f"hair_{_strand:02d}_")]
+    _strand_weight = np.zeros(len(P0))
+    for c in range(4):
+        _strand_weight += np.where(np.isin(J[:,c], _strand_indices), W[:,c], 0)
+    check(f"hair chain {_strand:02d} drives a visible lock", int((_strand_weight > 1e-6).sum()) >= 100,
+          f"{int((_strand_weight > 1e-6).sum())} influenced verts")
+    _points = [G0e[name2j[f"hair_{_strand:02d}_{segment}"]][:3,3]
+               for segment in range(3)]
+    _segments = [(_points[i+1]-_points[i]) for i in range(2)]
+    _alignment = float(np.dot(_segments[0], _segments[1]) /
+                       max(np.linalg.norm(_segments[0])*np.linalg.norm(_segments[1]), 1e-9))
+    check(f"hair chain {_strand:02d} is monotonic", _points[0][1] > _points[1][1] > _points[2][1] and _alignment > 0.45,
+          f"y={_points[0][1]:.2f}>{_points[1][1]:.2f}>{_points[2][1]:.2f}, alignment={_alignment:.2f}")
+
+_bad_shirt = np.flatnonzero((_sw > 0.3) & ~_verified_hair & _pink)
+_bad_skin = np.flatnonzero((_sw > 0.3) & ~_verified_hair & _skin)
 check("no shirt verts strand-driven", len(_bad_shirt) == 0,
       f"{len(_bad_shirt)} pink-top verts >30% strand weight: {_bad_shirt.tolist()}")
 check("no skin verts strand-driven", len(_bad_skin) == 0,
@@ -569,13 +639,14 @@ def full_skin_pose(deltas):
         S += W[:,c][:,None]*np.einsum("nij,nj->ni", M[J[:,c]], Ph)[:,:3]
     return S
 
-# Worst-case: every strand at HairSim MAX_ANGLE (0.35 rad after damping),
-# both axes, on top of sprint swim + the exact player.gd cheer peak.
-HMAX = 0.35
+# Worst-case: every strand at its HairSim depth limit (0.08 root to 0.22
+# tip), both water axes, on top of sprint swim + the exact cheer peak.
 stress = swim_deltas(1.3, 25.0)
 for k in strand_ks:
     nm = jname[joints[k]]
-    q = qmul(model_axis_delta(nm, RIGHT, HMAX), model_axis_delta(nm, BACK, HMAX))
+    segment = int(nm.rsplit("_", 1)[1])
+    hmax = 0.08 + (0.22-0.08)*(segment/2.0)
+    q = qmul(model_axis_delta(nm, RIGHT, hmax), model_axis_delta(nm, BACK, hmax))
     stress[nm] = q
 stress["armU"] = model_axis_delta("armU", (1,0,3), 2.4)
 stress["armU2"] = model_axis_delta("armU2", (1,0,-3), 2.4)
