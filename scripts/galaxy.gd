@@ -2,6 +2,7 @@ extends Node3D
 class_name GalaxyLevel
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # ============================================================================
 # LEVEL 3 — ROSHAN'S BUTTERFLY WORLD. A Mario-Galaxy-style mini-planet themed
 # after the book's Milwaukee-museum butterfly vivarium: glass conservatory dome,
@@ -889,29 +890,13 @@ func _build_shards() -> void:
 
 func _build_home_ring() -> void:
 	_home_pos = _surf(Vector3.DOWN, 4.0)
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 3.0
-	tm.outer_radius = 4.2
-	ring.mesh = tm
-	var m := StandardMaterial3D.new()
-	m.albedo_color = Color(0.6, 0.95, 0.8)
-	m.emission_enabled = true
-	m.emission = Color(0.4, 1.0, 0.7)
-	m.emission_energy_multiplier = 1.2
-	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	ring.material_override = m
-	ring.position = _home_pos
-	add_child(ring)
-	# the Butterfly Gate marks the way home too — same doorway everywhere
-	if ResourceLoader.exists("res://assets/portal/butterfly_gate.glb"):
-		var bg := (load("res://assets/portal/butterfly_gate.glb") as PackedScene).instantiate() as Node3D
-		var holder := Node3D.new()
-		add_child(holder)
-		holder.add_child(bg)
-		bg.position = Vector3(0, 2.4, 0)
-		bg.scale = Vector3.ONE * 2.4
-		_place_on_planet(holder, Vector3.DOWN)
+	# Use the same authored landmark at both ends of the world transition.
+	var holder := Node3D.new()
+	add_child(holder)
+	var gate: Node3D = LandmarkArtFactory.create_butterfly_gate(2.4)
+	holder.add_child(gate)
+	gate.position = Vector3(0, 2.4, 0)
+	_place_on_planet(holder, Vector3.DOWN)
 	var lab := Label3D.new()
 	lab.text = "🏠 home"
 	lab.font_size = 56
@@ -1506,13 +1491,7 @@ func _build_hall() -> void:
 		StoryArtFactory.apply_triplanar(col, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# star chandeliers
 	for i in range(3):
-		var star := Label3D.new()
-		star.text = "★"
-		star.font_size = 240
-		star.pixel_size = 0.03
-		star.outline_size = 22
-		star.modulate = Color(1.0, 0.92, 0.55)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var star: Node3D = LandmarkArtFactory.create_star(2.2, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][i])
 		star.position = Vector3(sin(float(i) * TAU / 3.0) * 9.0, 10.0, cos(float(i) * TAU / 3.0) * 9.0)
 		_hall_root.add_child(star)
 		var sl := OmniLight3D.new()

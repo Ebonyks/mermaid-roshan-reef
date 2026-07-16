@@ -1,5 +1,7 @@
 class_name CastleHall
 extends RefCounted
+
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
@@ -323,14 +325,9 @@ func build(o: Vector3) -> void:
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# (the crafting easel now lives in its own dedicated CRAFT ROOM down in the
 	# basement wing — see build_basement_wing; the hall keeps the reading nook)
-	# the crown Star atop the throne — the goal
-	var crown := Label3D.new()
-	crown.text = "\u2605"
-	crown.font_size = 340
-	crown.pixel_size = 0.028
-	crown.modulate = Color(1.0, 0.9, 0.3)
-	crown.outline_size = 34
-	crown.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# The Crown Star is authored landmark geometry rather than a font glyph.
+	# The audited chandelier pair above remains the hall's only overhead lights.
+	var crown: Node3D = LandmarkArtFactory.create_star(5.2, Color(1.0, 0.76, 0.24), true)
 	crown.position = o + Vector3(0, 24.0, -28.0)
 	crown.set_meta("base_y", crown.position.y)
 	m.add_child(crown)
@@ -459,11 +456,7 @@ func build_expansion(o: Vector3) -> void:
 	scope.rotation_degrees = Vector3(-30, 20, 0)
 	m._l2_box(o + Vector3(-24, 34.2, -55), Vector3(2.6, 1.4, 2.6), Color(0.5, 0.4, 0.3))
 	for st in range(14):
-		var star := Label3D.new()
-		star.text = "✦"
-		star.font_size = 64 + (st % 3) * 28
-		star.modulate = Color(1.0, 0.95, 0.6, 0.9)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var star: Node3D = LandmarkArtFactory.create_star(0.7 + float(st % 3) * 0.18, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][st % 3], false, true)
 		star.position = o + Vector3(-30.0 + float(st % 7) * 4.3, 42.0 + float(st % 4) * 1.6, -60.5 + float(st / 7) * 2.0)
 		m.add_child(star)
 		m.game_nodes.append(star)
@@ -1406,7 +1399,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Princess Huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!", "hero")
 		else:
 			m.show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
-	var crown: Label3D = m.l2_stars[0]["node"]
+	var crown: Node3D = m.l2_stars[0]["node"]
 	var crown_t: float = float(m.g["t"])
 	crown.rotate_y(delta * 1.4)
 	var crown_won: bool = bool(m.g.get("crown_won", false))

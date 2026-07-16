@@ -10,6 +10,8 @@
 
 | Path | Source | License | URL | Modifications |
 |---|---|---|---|---|
+| scripts/landmark_art.gd | Original project code-native artwork | project original | — | Runtime low-poly Dream Stars, Crown Star, Butterfly Gate, and storybook clouds; no external visual assets or protected book art used |
+| backups/art_pre_landmarks_2026-07-15/** | Archival copies of previously licensed project assets | same licenses as live originals | — | Unmodified rollback copies; not loaded at runtime |
 | assets/book/** (incl. hall/) | Mermaid Roshan storybook scans | **Original work © Mermaid Roshan LLC, all rights reserved** | — | cropped/resized for in-game frames |
 | assets/characters/friends/* | book character art (family) | **© Mermaid Roshan LLC, all rights reserved** | — | background removal only — SACRED, never restyle |
 | assets/characters/roshan.glb, huluu.glb, fairy.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |

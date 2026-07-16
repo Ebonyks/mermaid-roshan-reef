@@ -2,6 +2,7 @@ class_name ReefMain
 extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -3126,69 +3127,7 @@ func _build_page_frame() -> void:
 			root.add_child(bub)
 
 func _butterfly_gate(scl: float) -> Node3D:
-	# the BUTTERFLY GATE — GEN2 rebuild (owner 2026-07-12: the old white
-	# procedural wings read as strange): a painted pearl ring with HER
-	# butterfly cards fluttering at its sides, rainbow film inside
-	var root := Node3D.new()
-	var ring := MeshInstance3D.new()
-	var tor := TorusMesh.new()
-	tor.inner_radius = 0.82
-	tor.outer_radius = 1.0
-	ring.mesh = tor
-	ring.rotation.x = PI * 0.5   # frame the swirl (torus lies flat by default)
-	var rm := StandardMaterial3D.new()
-	rm.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
-	rm.albedo_color = Color(1.0, 0.86, 0.94)   # pearl pink
-	rm.uv1_triplanar = true
-	rm.uv1_scale = Vector3(0.5, 0.5, 0.5)
-	rm.roughness = 0.35
-	rm.emission_enabled = true
-	rm.emission = Color(1.0, 0.8, 0.95)
-	rm.emission_energy_multiplier = 0.35
-	ring.material_override = rm
-	root.add_child(ring)
-	var btex: Texture2D = load("res://assets/props/gen2/butterfly1.png")
-	for side in [-1.0, 1.0]:
-		var wing := MeshInstance3D.new()
-		var wq := QuadMesh.new()
-		wq.size = Vector2(1.05, 0.85)
-		wing.mesh = wq
-		var wmat := StandardMaterial3D.new()
-		wmat.albedo_texture = btex
-		wmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-		wmat.alpha_scissor_threshold = 0.4
-		wmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		wmat.emission_enabled = true
-		wmat.emission = Color(0.4, 0.32, 0.42)
-		wmat.emission_energy_multiplier = 0.5
-		wing.material_override = wmat
-		wing.position = Vector3(side * 1.16, 0.28, 0.0)
-		wing.rotation.y = side * 0.5
-		root.add_child(wing)
-		var wt := create_tween().set_loops()
-		wt.tween_property(wing, "rotation:y", side * 0.15, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		wt.tween_property(wing, "rotation:y", side * 0.5, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	var swirl := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = Vector2(1.84, 1.84)
-	swirl.mesh = qm
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
-void fragment(){
-	vec2 c = UV - vec2(0.5);
-	float r = length(c) * 2.0;
-	float hue = fract(r * 0.7 - TIME * 0.14 + atan(c.y, c.x) / 6.2831);
-	float b6 = hue * 6.0;
-	vec3 col = clamp(vec3(abs(b6 - 3.0) - 1.0, 2.0 - abs(b6 - 2.0), 2.0 - abs(b6 - 4.0)), 0.0, 1.0);
-	ALBEDO = col * (1.0 - smoothstep(0.82, 1.0, r)) * 0.75;
-}"""
-	var sm := ShaderMaterial.new()
-	sm.shader = sh
-	swirl.material_override = sm
-	root.add_child(swirl)
-	root.scale = Vector3.ONE * scl
-	return root
+	return LandmarkArtFactory.create_butterfly_gate(scl)
 
 func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> StandardMaterial3D:
 	# upgraded CC0 PBR material (color + OpenGL normal + roughness), triplanar-tiled
@@ -5763,26 +5702,11 @@ func _soft_mat(col: Color, glow: float = 0.12) -> StandardMaterial3D:
 	m.emission = col * glow
 	return m
 
-func _check_star(pos: Vector3) -> MeshInstance3D:
-	var st := MeshInstance3D.new()
-	var tor := TorusMesh.new()
-	tor.inner_radius = 1.7
-	tor.outer_radius = 2.3
-	st.mesh = tor
-	var m := StandardMaterial3D.new()
-	m.albedo_color = Color(1.0, 0.88, 0.35)
-	m.emission_enabled = true
-	m.emission = Color(1.0, 0.85, 0.4)
-	m.emission_energy_multiplier = 1.6
-	st.material_override = m
+func _check_star(pos: Vector3) -> Node3D:
+	var st: Node3D = LandmarkArtFactory.create_star(2.4, Color(1.0, 0.76, 0.24))
 	st.position = pos
 	add_child(st)
 	game_nodes.append(st)
-	var l := OmniLight3D.new()
-	l.light_color = Color(1.0, 0.9, 0.6)
-	l.light_energy = 1.3
-	l.omni_range = 9.0
-	st.add_child(l)
 	return st
 
 func _course_box(pos: Vector3, size: Vector3, col: Color, rotdeg: Vector3 = Vector3.ZERO) -> MeshInstance3D:
@@ -7110,19 +7034,10 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 			_nature("grass_leafsLarge", gp, 3.5, yr)
 		else:
 			_nature(flowers[(seed / 17) % flowers.size()], gp, 4.5, yr)
-	# a couple of fluffy clouds + a warm sun glow
+	# Layered storybook clouds keep a readable silhouette and cool painted underside.
 	for c in range(5):
-		var cl := MeshInstance3D.new()
-		var cs := SphereMesh.new()
-		cs.radius = 5.0 + randf() * 4.0
-		cs.height = 7.0
-		cl.mesh = cs
-		var cmat := StandardMaterial3D.new()
-		cmat.albedo_color = Color(1, 1, 1)
-		cmat.roughness = 1.0
-		cl.material_override = cmat
+		var cl: Node3D = LandmarkArtFactory.create_cloud(5.0 + randf() * 2.0, c)
 		cl.position = origin + Vector3(randf() * 70.0 - 35.0, 28.0 + randf() * 10.0, randf() * 70.0 - 35.0)
-		cl.scale = Vector3(1.8, 0.6, 1.4)
 		add_child(cl)
 		game_nodes.append(cl)
 	var sun := OmniLight3D.new()
