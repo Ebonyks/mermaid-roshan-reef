@@ -4,16 +4,16 @@ extends Node
 # visual puzzles, and this class owns room order, checkpoints and safe exits.
 
 const ROOMS := [
-	{"name": "Frozen Foyer", "type": "combat", "kind": "ice", "enemy_count": 4, "layout": "ring", "imp_speed": 1.1, "attack_gap": 3.8, "floor": Color(0.52, 0.66, 0.84), "trim": Color(0.7, 0.95, 1.0)},
-	{"name": "Crystal Chimes", "type": "puzzle", "puzzle": "sequence", "choices": ["◆", "●", "▲"], "solution": [0, 2, 1], "button_count": 3, "voice": "The crystals sang three notes! Tap the same colorful pictures.", "floor": Color(0.38, 0.48, 0.72), "trim": Color(0.75, 0.68, 1.0)},
-	{"name": "Frozen River", "type": "puzzle", "puzzle": "path", "choices": ["◀", "▶"], "solution": [0, 1, 1, 0], "button_count": 2, "voice": "Use the picture arrows to freeze a safe path across the river.", "floor": Color(0.28, 0.55, 0.72), "trim": Color(0.58, 0.96, 1.0)},
-	{"name": "Popcorn Ambush", "type": "combat", "kind": "ice", "enemy_count": 6, "layout": "spiral", "imp_speed": 1.45, "attack_gap": 3.3, "floor": Color(0.46, 0.43, 0.7), "trim": Color(0.78, 0.72, 1.0)},
-	{"name": "Pepper Lanterns", "type": "puzzle", "puzzle": "torches", "choices": ["1", "2", "3", "4"], "solution": [1, 3, 0, 2], "button_count": 4, "voice": "Spicy peppers can light the lanterns. Start with the shortest torch!", "floor": Color(0.5, 0.28, 0.2), "trim": Color(1.0, 0.58, 0.25)},
-	{"name": "Turtle Gallery", "type": "puzzle", "puzzle": "rotate", "targets": [1, 2, 3], "button_count": 3, "voice": "Turn each shell statue until its golden nose points to the pearl.", "floor": Color(0.3, 0.52, 0.44), "trim": Color(0.65, 0.94, 0.62)},
+	{"name": "Frozen Foyer", "type": "combat", "kind": "ice", "enemy_count": 4, "layout": "ring", "imp_speed": 1.1, "attack_gap": 3.8, "popcorn_count": 5, "win_spark_gap": 0.4, "floor": Color(0.52, 0.66, 0.84), "trim": Color(0.7, 0.95, 1.0)},
+	{"name": "Crystal Chimes", "type": "puzzle", "puzzle": "sequence", "choices": ["◆", "●", "▲"], "solution": [0, 2, 1], "choice_count": 3, "voice": "Look at the three big crystal pictures. Swim to those crystal pads in the same order!", "floor": Color(0.38, 0.48, 0.72), "trim": Color(0.75, 0.68, 1.0)},
+	{"name": "Frozen River", "type": "puzzle", "puzzle": "path", "solution": [0, 1, 1, 0], "voice": "The tiny ice stones show a path. Swim to the left or right arrow and freeze each step!", "floor": Color(0.28, 0.55, 0.72), "trim": Color(0.58, 0.96, 1.0)},
+	{"name": "Popcorn Ambush", "type": "combat", "kind": "ice", "enemy_count": 6, "layout": "spiral", "imp_speed": 1.45, "attack_gap": 3.3, "popcorn_count": 5, "win_spark_gap": 0.4, "floor": Color(0.46, 0.43, 0.7), "trim": Color(0.78, 0.72, 1.0)},
+	{"name": "Pepper Lanterns", "type": "puzzle", "puzzle": "torches", "solution": [1, 3, 0, 2], "voice": "Swim to the pepper lanterns and light them from shortest to tallest!", "floor": Color(0.5, 0.28, 0.2), "trim": Color(1.0, 0.58, 0.25)},
+	{"name": "Turtle Gallery", "type": "puzzle", "puzzle": "rotate", "targets": [1, 0, 3], "voice": "Swim to each shell statue. Turn every golden nose toward the pearl!", "floor": Color(0.3, 0.52, 0.44), "trim": Color(0.65, 0.94, 0.62)},
 	{"name": "Claw Guardian", "type": "combat", "kind": "fire", "boss_hp": 4, "peek_time": 4.8, "shell_time": 2.5, "shell_speed": 5.0, "attack_gap": 1.4, "floor": Color(0.56, 0.24, 0.24), "trim": Color(1.0, 0.48, 0.35)},
 	{"name": "Moon Rune Vault", "type": "puzzle", "puzzle": "pairs", "cards": ["☾", "★", "☾", "★"], "button_count": 4, "voice": "Peek under two moon tiles. Find the pictures that match!", "floor": Color(0.28, 0.3, 0.58), "trim": Color(0.72, 0.7, 1.0)},
 	{"name": "Elemental Door", "type": "puzzle", "puzzle": "elemental", "choices": ["❄", "🔥"], "solution": [0, 1, 0, 0, 1], "button_count": 2, "voice": "The big door shows ice and fire. Copy its magic picture order!", "floor": Color(0.4, 0.32, 0.5), "trim": Color(1.0, 0.72, 0.4)},
-	{"name": "Dragon-Turtle Throne", "type": "combat", "kind": "fire", "boss_hp": 8, "peek_time": 4.1, "shell_time": 2.9, "shell_speed": 5.6, "attack_gap": 1.1, "floor": Color(0.42, 0.16, 0.18), "trim": Color(1.0, 0.4, 0.18)},
+	{"name": "Dragon-Turtle Throne", "type": "combat", "kind": "dual", "dual_phase": true, "boss_hp": 4, "peek_time": 3.2, "shell_time": 5.0, "shell_speed": 5.2, "attack_gap": 1.25, "win_spark_gap": 0.4, "floor": Color(0.42, 0.16, 0.18), "trim": Color(1.0, 0.4, 0.18)},
 ]
 
 var m: ReefMain
@@ -47,6 +47,7 @@ func _build_hud() -> void:
 	strip.add_theme_stylebox_override("panel", style)
 	strip.position = Vector2(245, 612)
 	strip.size = Vector2(790, 88)
+	strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.add_child(strip)
 	progress_label = Label.new()
 	progress_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -55,6 +56,7 @@ func _build_hud() -> void:
 	progress_label.add_theme_constant_override("outline_size", 7)
 	progress_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	progress_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	progress_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	strip.add_child(progress_label)
 	room_label = Label.new()
 	room_label.position = Vector2(30, 620)
@@ -65,6 +67,7 @@ func _build_hud() -> void:
 	room_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	room_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	room_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	room_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.add_child(room_label)
 	var home := Button.new()
 	home.text = "⌂"
@@ -111,7 +114,7 @@ func _begin_room() -> void:
 		puzzle = DungeonPuzzleRoom.new()
 		add_child(puzzle)
 		puzzle.start(m, room, Callable(self, "_puzzle_won"))
-	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, ROOMS.size()], "dungeon_room")
+	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, ROOMS.size()], "talk")
 
 func _combat_won(_battle_kind: String) -> void:
 	arena = null
@@ -170,7 +173,7 @@ func _finish(completed: bool) -> void:
 
 func action_label() -> String:
 	if arena != null:
-		return "ICE" if arena.kind == "ice" else "FIRE"
+		return arena.action_label()
 	if puzzle != null:
-		return "PUZZLE"
+		return "USE"
 	return "READY"
