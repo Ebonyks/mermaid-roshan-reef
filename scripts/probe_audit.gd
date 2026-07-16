@@ -40,6 +40,16 @@ func _init() -> void:
 			continue
 		var gname: String = main.game
 		var cutaway_ok: bool = player.position.distance_to(main.ARENA_POS) <= 120.0
+		if gname == "melody":
+			var stage: Node = main.get_node_or_null("GabbyTheater3D")
+			var stage_ok: bool = stage != null
+			if stage_ok:
+				var required := ["BackWall", "StageDeck", "RainbowArc0", "ProsceniumBulbs", "Runway", "TheaterSeats", "GabbyPerformer"]
+				for child_name in required:
+					if stage.get_node_or_null(String(child_name)) == null:
+						stage_ok = false
+						break
+			print("AUDIT|Gabby 3D theater: ", ("OK" if stage_ok else "FAIL"))
 		var f0 := Time.get_ticks_msec()
 		var ok := await _drive_game(gname, f)
 		var secs := float(Time.get_ticks_msec() - f0) / 1000.0

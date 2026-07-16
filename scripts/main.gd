@@ -8417,7 +8417,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.9
 		arena_env.glow_intensity = 1.2
 		arena_env.glow_bloom = 0.5   # extra-dreamy fairy pond
-	else:                        # concert stage night
+	elif kind == "melody":      # Gabby's enclosed underwater rainbow theater
+		arena_env.background_color = Color(0.035, 0.09, 0.16)
+		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
+		arena_env.ambient_light_energy = 0.90
+		arena_env.glow_intensity = 0.92
+		arena_env.glow_bloom = 0.22
+		_arena_floor(Color(0.22, 0.42, 0.50), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	else:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
