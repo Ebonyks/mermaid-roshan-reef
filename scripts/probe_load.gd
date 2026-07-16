@@ -12,6 +12,7 @@ func _init() -> void:
 				sd = d
 	sd["custom_fish"] = [[0.9, 0.3, 0.3, 1.0, 0.8, 0.2]]   # one crafted fish in the save
 	sd["animals"] = {"turtle": true}   # one tank friend already set free
+	sd["critters"] = {"coral_clownfish": true}   # one Critter Book discovery
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -51,4 +52,8 @@ func _init() -> void:
 		print("FAIL: reloaded shop turtle missing its flipper skeleton (%d/%d rigged)" % [rigged, pets])
 	else:
 		print("shop animals restored: ", pets, " (all rigged)")
+	if not bool(main.critter_collection.get("coral_clownfish", false)):
+		print("FAIL: Critter Book discovery missing after reload")
+	else:
+		print("Critter Book restored: coral_clownfish")
 	quit()

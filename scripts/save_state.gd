@@ -74,6 +74,8 @@ func load_save() -> void:
 	# old saves — kept for save compatibility, no longer applied to the player
 	m.shop_owned = m.save_data.get("owned", {})
 	m.animals_owned = m.save_data.get("animals", {})
+	var saved_critters: Variant = m.save_data.get("critters", {})
+	m.critter_collection = saved_critters if saved_critters is Dictionary else {}
 	if bool(m.shop_owned.get("tail", false)):
 		m.player.set_rainbow_trail(true)
 	if bool(m.shop_owned.get("tiara", false)):
@@ -110,7 +112,7 @@ func write_save() -> bool:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
 	var next_generation: int = m.save_generation + 1
-	var next_save_data: Dictionary = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "combat_ice": m.combat_ice_done, "combat_fire": m.combat_fire_done, "dungeon_progress": m.dungeon_progress, "dungeon_done": m.dungeon_done, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned, "save_generation": next_generation}
+	var next_save_data: Dictionary = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "combat_ice": m.combat_ice_done, "combat_fire": m.combat_fire_done, "dungeon_progress": m.dungeon_progress, "dungeon_done": m.dungeon_done, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned, "critters": m.critter_collection, "save_generation": next_generation}
 	# Alternate staging slots by generation. A retry never deletes the previous
 	# complete temp before its replacement is flushed, so a kill/open failure at
 	# any point still leaves at least the last durable generation recoverable.
