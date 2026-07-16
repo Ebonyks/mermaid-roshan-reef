@@ -24,17 +24,19 @@ func _init(main: ReefMain) -> void:
 
 func _build_pearl_castle(o: Vector3) -> void:
 	m.wall_pics = []
+	m.g["castle_detail_lights"] = []
 	# ---------- warm daytime sun for the sky lagoon (soft shadows) ----------
 	var sun2 := DirectionalLight3D.new()
 	sun2.rotation_degrees = Vector3(-48.0, 35.0, 0.0)
 	sun2.light_color = Color(0.6, 0.68, 0.95) if m.is_night else Color(1.0, 0.96, 0.86)
-	sun2.light_energy = 0.5 if m.is_night else 1.15
+	sun2.light_energy = 0.44 if m.is_night else 0.70
 	sun2.shadow_enabled = (m.quality != "speedy")
 	sun2.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun2.directional_shadow_max_distance = 110.0
 	sun2.light_specular = 0.3
 	m.add_child(sun2)
 	m.game_nodes.append(sun2)
+	m._register_castle_light(sun2, true, false, true)
 	# ---------- rolling-hill grass terrain + carved river valleys (real -Y depth) ----------
 	_build_lagoon_terrain(o)
 	# ---------- rocky floating-island underside ----------
@@ -54,7 +56,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	var pb := BoxMesh.new()
 	pb.size = Vector3(18.0, 0.6, 270.0)
 	path.mesh = pb
-	path.material_override = m._up_mat("cobble", 0.05)   # cobblestone path to the castle (same stone size as the basement floors)
+	path.material_override = m._castle_mat("cobble", 0.05)   # one honest albedo + scalar roughness; no fake triplanar PBR maps
 	path.position = o + Vector3(0, 2.4, 45.0)
 	m.add_child(path)
 	m.game_nodes.append(path)
@@ -73,18 +75,19 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var lm := StandardMaterial3D.new()
 			lm.emission_enabled = true
 			lm.emission = Color(1.0, 0.85, 0.5)
-			lm.emission_energy_multiplier = 3.0
+			lm.emission_energy_multiplier = 2.0 if m.is_night else 0.12
 			lampbulb.material_override = lm
 			lampbulb.position = o + Vector3(sgn * 13.0, 12.5, z)
 			m.add_child(lampbulb)
 			m.game_nodes.append(lampbulb)
 			var lo := OmniLight3D.new()
 			lo.light_color = Color(1.0, 0.85, 0.55)
-			lo.light_energy = 1.6
-			lo.omni_range = 26.0
+			lo.light_energy = 1.25
+			lo.omni_range = 21.0
 			lo.position = lampbulb.position
 			m.add_child(lo)
 			m.game_nodes.append(lo)
+			m._register_castle_light(lo, li % 2 == 0, true)
 		# a hanging banner of her memories on the left posts
 		m._hang_portrait(o + Vector3(-13.0, 7.0, z) + Vector3(0.7, 0, 0), Vector3(0, 90, 0), banners[li])
 	# ---------- Phase 4a: courtyard GATEHOUSE (Kenney Castle Kit, CC0) ----------
@@ -411,7 +414,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# the moat is carved into the lagoon terrain (see _lagoon_moat_dip); the bridge crosses it
 	# a long wooden bridge from the courtyard, ACROSS the moat, right up to the door
 	var bridge = m._l2_box(c + Vector3(0, 2.6, 40.0), Vector3(13.0, 0.8, 60.0), Color(0.62, 0.45, 0.28))
-	bridge.material_override = m._up_mat("wood", 0.12, Color(0.82, 0.6, 0.42))   # real wood-plank PBR (was a flat tan slab)
+	bridge.material_override = m._castle_mat("wood", 0.12, Color(0.82, 0.6, 0.42))
 	# bridge railings + posts
 	for bsgn in [-1.0, 1.0]:
 		m._l2_box(c + Vector3(bsgn * 6.2, 4.0, 40.0), Vector3(0.6, 2.2, 60.0), Color(0.5, 0.36, 0.22))
@@ -420,17 +423,31 @@ func _build_pearl_castle(o: Vector3) -> void:
 			m._l2_box(c + Vector3(bsgn * 6.2, 4.2, 12.0 + float(bp) * 9.0), Vector3(1.0, 3.0, 1.0), Color(0.45, 0.32, 0.2))
 	# keep + battlements
 	# keep — a STONE shell with a real doorway opening, so the open door reveals a warm interior (not a white void)
-	var _stone := load("res://assets/terrain/up_castle_col.jpg")
 	var _keep_parts := [
 		m._l2_box(c + Vector3(-18, 26, 12), Vector3(20, 52, 1.5), Color(0.88, 0.86, 0.92)),
 		m._l2_box(c + Vector3(18, 26, 12), Vector3(20, 52, 1.5), Color(0.88, 0.86, 0.92)),
-		m._l2_box(c + Vector3(0, 38, 12), Vector3(16, 28, 1.5), Color(0.88, 0.86, 0.92)),
 		m._l2_box(c + Vector3(0, 26, -28), Vector3(56, 52, 1.5), Color(0.82, 0.80, 0.87)),
 		m._l2_box(c + Vector3(-28, 26, -8), Vector3(1.5, 52, 40), Color(0.84, 0.82, 0.89)),
 		m._l2_box(c + Vector3(28, 26, -8), Vector3(1.5, 52, 40), Color(0.84, 0.82, 0.89)),
 		m._l2_box(c + Vector3(0, 52, -8), Vector3(56, 1.5, 40), Color(0.82, 0.80, 0.87))]
 	for _kp in _keep_parts:
-		_kp.material_override = m._up_mat("marble", 0.05, Color(0.99, 0.97, 1.0))   # royal white marble, ONE scale across keep/battlements/turrets
+		_kp.material_override = m._castle_mat("wall", 0.065, Color(0.86, 0.80, 0.93))
+	# A darker foundation and projecting pearl belt give the keep three readable
+	# value tiers. These are visual-only: the proven shell blockers below remain
+	# the sole navigation contract.
+	var foundation_specs: Array = [
+		[c + Vector3(-18, 3.0, 12.8), Vector3(20, 6, 2.4)],
+		[c + Vector3(18, 3.0, 12.8), Vector3(20, 6, 2.4)],
+		[c + Vector3(-28.7, 3.0, -8), Vector3(2.4, 6, 40)],
+		[c + Vector3(28.7, 3.0, -8), Vector3(2.4, 6, 40)],
+		[c + Vector3(0, 3.0, -28.8), Vector3(56, 6, 2.4)]]
+	for spec: Array in foundation_specs:
+		var foundation: MeshInstance3D = m._l2_box(spec[0], spec[1], Color(0.50, 0.45, 0.64))
+		foundation.material_override = m._castle_mat("wall", 0.065, Color(0.58, 0.52, 0.72))
+	for belt_z: float in [12.95, -28.95]:
+		var belt: MeshInstance3D = m._l2_box(c + Vector3(0, 10.0, belt_z), Vector3(56.5, 1.5, 1.2), Color(0.88, 0.68, 0.35))
+		belt.material_override.metallic = 0.35
+		belt.material_override.roughness = 0.48
 	# --- collision: the keep shell is SOLID. The doorway (and the secret moat
 	# hatch) are the only ways in — without these the star-gated door was cosmetic.
 	# collision audit #3: solids reach the courtyard CEILING (y120) — the walls
@@ -444,106 +461,121 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m._wall_solid(c + Vector3(28, 60, -8), Vector3(1.5, 120, 40))
 	# ---- warm interior foyer, visible through the doorway ----
 	var _foyback = m._l2_box(c + Vector3(0, 12, -2), Vector3(22, 24, 1.0), Color(0.9, 0.66, 0.45))
-	_foyback.material_override.albedo_texture = _stone
-	_foyback.material_override.uv1_triplanar = true
-	_foyback.material_override.uv1_scale = Vector3(0.05, 0.05, 0.05)
+	_foyback.material_override = m._castle_mat("wall", 0.065, Color(0.78, 0.56, 0.52))
 	m._l2_box(c + Vector3(0, 0.7, 5), Vector3(13, 0.4, 16), Color(0.72, 0.16, 0.22))      # red carpet leading in
 	m._l2_box(c + Vector3(-11, 12, 5), Vector3(1.0, 24, 14), Color(0.84, 0.82, 0.89))     # foyer left wall
 	m._l2_box(c + Vector3(11, 12, 5), Vector3(1.0, 24, 14), Color(0.84, 0.82, 0.89))      # foyer right wall
 	m._l2_box(c + Vector3(0, 24, 5), Vector3(22, 1.0, 14), Color(0.80, 0.78, 0.85))       # foyer ceiling
 	var _foylight := OmniLight3D.new()
 	_foylight.light_color = Color(1.0, 0.82, 0.5)
-	_foylight.light_energy = 3.2
-	_foylight.omni_range = 32.0
+	_foylight.light_energy = 2.1
+	_foylight.omni_range = 25.0
 	_foylight.position = c + Vector3(0, 14, 6)
 	m.add_child(_foylight); m.game_nodes.append(_foylight)
+	m._register_castle_light(_foylight, true)
 	m._hang_portrait(c + Vector3(0, 13, -1.3), Vector3(0, 0, 0), "p_seattle")             # a glimpse of 'inside'''
 	for bx in range(-4, 5):
-		m._l2_box(c + Vector3(float(bx) * 6.0, 53.0, -8.0), Vector3(3.5, 6.0, 40.0), Color(0.9, 0.88, 0.95))
+		var roof_merlon: MeshInstance3D = m._l2_box(c + Vector3(float(bx) * 6.0, 53.0, -8.0), Vector3(3.5, 6.0, 40.0), Color(0.72, 0.67, 0.84))
+		roof_merlon.material_override = m._castle_mat("wall", 0.065, Color(0.72, 0.67, 0.84))
 	# four big towers (solid shafts — Roshan slides around them)
 	for tw_off: Vector3 in [Vector3(-32.0, 2.0, 10.0), Vector3(32.0, 2.0, 10.0), Vector3(-32.0, 2.0, -28.0), Vector3(32.0, 2.0, -28.0)]:
 		_l2_tower(c + tw_off, 1.9)
 		m._cyl_solid(c + tw_off + Vector3(0, 60.0, 0), 5.6, 60.0)   # tower solids reach the sky too
-		# STORYBOOK FORK: coral cone roofs turn the stone towers into a shell palace
-		var roof := MeshInstance3D.new()
-		var rcone := CylinderMesh.new()
-		rcone.top_radius = 0.2
-		rcone.bottom_radius = 7.4
-		rcone.height = 9.0
-		rcone.radial_segments = 14
-		roof.mesh = rcone
-		var rmat := StandardMaterial3D.new()
-		rmat.albedo_color = Color(0.96, 0.62, 0.66)
-		rmat.roughness = 1.0
-		roof.material_override = rmat
-		roof.position = c + tw_off + Vector3(0, 52.0, 0)
-		m.add_child(roof)
-		m.game_nodes.append(roof)
-	# scallop-shell crest along the front wall top + painted glowing windows
-	for si2 in range(7):
-		var shell := MeshInstance3D.new()
-		var ssm := SphereMesh.new()
-		ssm.radius = 2.6
-		ssm.height = 5.2
-		shell.mesh = ssm
-		var shm := StandardMaterial3D.new()
-		shm.albedo_color = Color(0.98, 0.80, 0.86) if si2 % 2 == 0 else Color(0.78, 0.86, 0.97)
-		shm.roughness = 1.0
-		shell.material_override = shm
-		shell.position = c + Vector3(-18.0 + float(si2) * 6.0, 52.5, 12.0)
-		m.add_child(shell)
-		m.game_nodes.append(shell)
+	# A taller central crown makes the castle unmistakable from the spawn path.
+	# It sits entirely on the existing keep roof and adds no new collision.
+	var crown_body: MeshInstance3D = m._l2_box(c + Vector3(0, 62.0, -8.0), Vector3(22, 19, 20), Color(0.72, 0.66, 0.84))
+	crown_body.material_override = m._castle_mat("wall", 0.065, Color(0.72, 0.66, 0.84))
+	var crown_belt: MeshInstance3D = m._l2_box(c + Vector3(0, 53.4, -8.0), Vector3(23.5, 1.8, 21.5), Color(0.90, 0.70, 0.34))
+	crown_belt.material_override.metallic = 0.38
+	crown_belt.material_override.roughness = 0.46
+	var crown_roof := MeshInstance3D.new()
+	var crown_roof_mesh := CylinderMesh.new()
+	crown_roof_mesh.top_radius = 0.0
+	crown_roof_mesh.bottom_radius = 12.0
+	crown_roof_mesh.height = 13.0
+	crown_roof_mesh.radial_segments = 4
+	crown_roof.mesh = crown_roof_mesh
+	crown_roof.material_override = m._castle_mat("roof", 0.11, Color(0.82, 0.58, 0.72))
+	crown_roof.rotation.y = PI * 0.25
+	crown_roof.position = c + Vector3(0, 78.0, -8.0)
+	m.add_child(crown_roof)
+	m.game_nodes.append(crown_roof)
+	# Real fan-shell models replace the old row of spheres that did not read as
+	# shells. Three large crests stay legible without becoming a picket fence.
+	for crest_x: float in [-15.0, 0.0, 15.0]:
+		m._gen2_prop("fanshell", c + Vector3(crest_x, 53.5, 13.2), 7.0, 0.0)
 	for wx2: float in [-11.0, 11.0]:
+		var window_recess: MeshInstance3D = m._l2_box(c + Vector3(wx2, 20.0, 12.9), Vector3(6.5, 9.0, 1.2), Color(0.28, 0.30, 0.48))
+		window_recess.material_override.roughness = 0.92
 		var winq := MeshInstance3D.new()
 		var wqm := QuadMesh.new()
-		wqm.size = Vector2(4.5, 7.0)
+		wqm.size = Vector2(3.6, 5.6)
 		winq.mesh = wqm
 		var wmm := StandardMaterial3D.new()
-		wmm.albedo_color = Color(0.82, 0.78, 0.98)
-		wmm.emission_enabled = true
-		wmm.emission = Color(1.0, 0.9, 0.7)
-		wmm.emission_energy_multiplier = 1.1
+		wmm.albedo_color = Color(0.18, 0.30, 0.55)
+		wmm.emission_enabled = m.is_night
+		wmm.emission = Color(0.72, 0.82, 1.0)
+		wmm.emission_energy_multiplier = 0.38
 		winq.material_override = wmm
-		winq.position = c + Vector3(wx2, 20.0, 12.85)
+		winq.position = c + Vector3(wx2, 19.4, 13.55)
 		m.add_child(winq)
 		m.game_nodes.append(winq)
+		# Projecting gold jambs and a pointed hood turn the remaining rectangle
+		# into a small lancet window while keeping its cheap single-quad pane.
+		for window_side: float in [-1.0, 1.0]:
+			m._l2_box(c + Vector3(wx2 + window_side * 2.25, 19.7, 13.7), Vector3(0.55, 7.0, 0.7), Color(0.76, 0.58, 0.28))
+			var window_hood: MeshInstance3D = m._l2_box(c + Vector3(wx2 + window_side * 1.15, 23.7, 13.7), Vector3(0.55, 3.4, 0.7), Color(0.76, 0.58, 0.28))
+			window_hood.rotation_degrees.z = window_side * 43.0
 	# ---- the Mermaid Roshan stained glass — the grand centrepiece on the FRONT facade ----
-	m._glass_window(c + Vector3(0, 38.0, 12.3), Vector3(0, 0, 0), 30.0)
-	# gold frame around the rose window
-	for fxg in [-1.0, 1.0]:
-		m._l2_box(c + Vector3(fxg * 11.5, 38.0, 12.2), Vector3(1.2, 32.0, 1.0), Color(0.95, 0.8, 0.4), 0.3)
-	m._l2_box(c + Vector3(0, 54.0, 12.2), Vector3(24.0, 1.2, 1.0), Color(0.95, 0.8, 0.4), 0.3)
-	m._l2_box(c + Vector3(0, 22.0, 12.2), Vector3(24.0, 1.2, 1.0), Color(0.95, 0.8, 0.4), 0.3)
+	var glass_recess: MeshInstance3D = m._l2_box(c + Vector3(0, 38.0, 12.4), Vector3(19.5, 27.0, 1.0), Color(0.22, 0.20, 0.40))
+	glass_recess.material_override.roughness = 0.95
+	m._glass_window(c + Vector3(0, 38.0, 13.05), Vector3(0, 0, 0), 25.0)
+	# A deep pointed surround makes the protected image read as built glass. The
+	# hood also masks the source signature without altering the irreplaceable PNG.
+	for fxg: float in [-1.0, 1.0]:
+		m._l2_box(c + Vector3(fxg * 10.0, 37.0, 13.35), Vector3(1.3, 25.0, 1.1), Color(0.88, 0.68, 0.32))
+		var hood: MeshInstance3D = m._l2_box(c + Vector3(fxg * 5.1, 52.0, 13.35), Vector3(1.3, 13.0, 1.1), Color(0.88, 0.68, 0.32))
+		hood.rotation_degrees.z = fxg * 52.0
+	m._l2_box(c + Vector3(0, 24.6, 13.35), Vector3(21.0, 1.3, 1.1), Color(0.88, 0.68, 0.32))
 	# ---- crenellated battlements along the keep top ----
 	for cz2 in [12.0, -28.0]:
 		for cmx in range(-4, 5):
 			var mr = m._l2_box(c + Vector3(float(cmx) * 6.4, 53.5, cz2), Vector3(3.2, 5.0, 2.0), Color(0.9, 0.88, 0.95))
-			mr.material_override = m._up_mat("marble", 0.05, Color(0.99, 0.97, 1.0))
+			mr.material_override = m._castle_mat("wall", 0.065, Color(0.78, 0.72, 0.88))
 	for cmx2 in range(-3, 4):
 		for csx in [-28.0, 28.0]:
 			var mr2 = m._l2_box(c + Vector3(csx, 53.5, -8.0 + float(cmx2) * 6.4), Vector3(2.0, 5.0, 3.2), Color(0.9, 0.88, 0.95))
-			mr2.material_override = m._up_mat("marble", 0.05, Color(0.99, 0.97, 1.0))
+			mr2.material_override = m._castle_mat("wall", 0.065, Color(0.68, 0.63, 0.80))
 	# ---- royal banners flanking the door ----
-	for bxs in [-1.0, 1.0]:
+	for bxs: float in [-1.0, 1.0]:
 		var ban := MeshInstance3D.new()
-		var banq := QuadMesh.new(); banq.size = Vector2(5.0, 18.0)
+		var banq := QuadMesh.new(); banq.size = Vector2(4.0, 14.0)
 		ban.mesh = banq
 		var banm := StandardMaterial3D.new()
-		banm.albedo_color = Color(0.7, 0.18, 0.3) if bxs < 0.0 else Color(0.2, 0.35, 0.7)
-		banm.emission_enabled = true; banm.emission = banm.albedo_color * 0.4
+		banm.albedo_color = Color(0.52, 0.16, 0.30) if bxs < 0.0 else Color(0.20, 0.30, 0.52)
 		banm.cull_mode = BaseMaterial3D.CULL_DISABLED; banm.roughness = 0.9
 		ban.material_override = banm
-		ban.position = c + Vector3(bxs * 9.5, 17.0, 12.6)
+		ban.position = c + Vector3(bxs * 19.0, 17.0, 13.1)
 		m.add_child(ban); m.game_nodes.append(ban)
 		# a little gold star crest on the banner
 		var crest := Label3D.new()
 		crest.text = "★"; crest.font_size = 110; crest.modulate = Color(1.0, 0.88, 0.4)
-		crest.position = c + Vector3(bxs * 9.5, 19.0, 12.8)
+		crest.position = c + Vector3(bxs * 19.0, 18.0, 13.35)
 		m.add_child(crest); m.game_nodes.append(crest)
 	# big arched door (starts closed)
 	var door = m._l2_box(c + Vector3(0, 12.0, 12.4), Vector3(16.0, 24.0, 1.2), Color(0.62, 0.42, 0.26), 0.0)
-	door.material_override = m._up_mat("door", 0.045, Color(1, 1, 1))   # GEN2 castle-door planks + iron strapwork (audit: wood read as the road)
+	door.material_override = m._castle_mat("door", 0.045, Color(0.84, 0.78, 0.90))
 	door.material_override.uv1_world_triplanar = false   # the door slides open — keep its planks glued to the mesh, not the world
+	# Keep the forgiving rectangular passage, but mask it with a deep storybook
+	# arch so the entrance no longer reads as a texture pasted on a box.
+	for door_side: float in [-1.0, 1.0]:
+		var door_pier: MeshInstance3D = m._l2_box(c + Vector3(door_side * 9.2, 11.5, 13.25), Vector3(2.4, 23.0, 2.0), Color(0.56, 0.50, 0.70))
+		door_pier.material_override = m._castle_mat("wall", 0.065, Color(0.56, 0.50, 0.70))
+	for arch_i in range(7):
+		var arch_angle: float = lerpf(0.0, PI, float(arch_i) / 6.0)
+		var arch_stone: MeshInstance3D = m._l2_box(c + Vector3(cos(arch_angle) * 9.0, 23.0 + sin(arch_angle) * 7.0, 13.25), Vector3(4.2, 2.5, 2.0), Color(0.66, 0.58, 0.78))
+		arch_stone.rotation.z = arch_angle - PI * 0.5
+		arch_stone.material_override = m._castle_mat("wall", 0.065, Color(0.66, 0.58, 0.78))
 	m.l2_door = door
 	m.g["door_closed_y"] = door.position.y
 	m.g["entry"] = door.position
@@ -563,23 +595,16 @@ func _build_pearl_castle(o: Vector3) -> void:
 	var recess = m._l2_box(c + Vector3(0, -10.0, -49.0), Vector3(11.0, 10.0, 1.0), Color(0.04, 0.06, 0.08))
 	recess.material_override.roughness = 1.0                 # a dark opening in the trench's inner bank
 	var hatch = m._l2_box(back_pos, Vector3(9.0, 1.0, 7.0), Color(0.2, 0.22, 0.28))
-	hatch.material_override = m._up_mat("castle", 0.08, Color(0.7, 0.72, 0.8))   # stone hatch on the floor
+	hatch.material_override = m._castle_mat("wall", 0.08, Color(0.7, 0.72, 0.8))   # stone hatch on the floor
 	var bglow := OmniLight3D.new()                          # dim glow: findable, but still 'hidden'
 	bglow.light_color = Color(0.5, 0.85, 1.0); bglow.light_energy = 1.3; bglow.omni_range = 13.0
 	bglow.position = back_pos + Vector3(0, 2.2, 0)
 	m.add_child(bglow); m.game_nodes.append(bglow)
+	m._register_castle_light(bglow, true)
 	m.g["back_entry"] = back_pos
 	# A compact Christmas village and its Alpine mountain occupy their own snowy
 	# corner beyond the rear-left moat, leaving the underwater hatch route clear.
 	_build_christmas_village(o)
-	var dl := Label3D.new()
-	dl.text = "Princess Huluu\u2019s Castle"
-	dl.font_size = 90
-	dl.outline_size = 18
-	dl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	dl.position = c + Vector3(0, 30.0, 14.0)
-	m.add_child(dl)
-	m.game_nodes.append(dl)
 	# ---------- 3 Dream Stars: low + along the path, easy for a 4yo ----------
 	var spots: Array = m.L2_STAR_SPOTS
 	for idx in range(spots.size()):
@@ -1794,11 +1819,18 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.night_star_t = 5.0 + randf() * 7.0
 			m._spawn_shooting_star(ppos)
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
-	m.kart_cool = maxf(0.0, m.kart_cool - delta)
+	# main owns the shared kart cooldown tick; do not count it down a second time here.
 	m.bw_cool = maxf(0.0, m.bw_cool - delta)
-	if m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO and m.bw_cool <= 0.0 and m.kart_cool <= 0.0:
-		if Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length() < 9.0 and absf(m.bw_portal_pos.y - ppos.y) < 10.0:
+	if m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO:
+		var bw_dist: float = Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length()
+		var bw_height: float = absf(m.bw_portal_pos.y - ppos.y)
+		if not m.galaxy_gateway_armed:
+			if bw_dist > 13.0 or bw_height > 14.0:
+				m.galaxy_gateway_armed = true
+		elif m.bw_cool <= 0.0 and m.kart_cool <= 0.0 and bw_dist < 9.0 and bw_height < 10.0:
 			m.bw_cool = 10.0
+			m.galaxy_gateway_armed = false
+			m.kart_from = "level2"   # Galaxy return routing shares the race-origin state
 			m.show_msg("Roshan", "To the Butterfly World! Wheee!")
 			m._start_galaxy()
 			return
@@ -1812,7 +1844,12 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Rainbow Road", "The rainbow road to ROSHAN GALAXY! Race the rainbow to reach the stars — each side goes a different way around!")
 		if minf(dA, dB) < 48.0:
 			m.hud_game.text = "Swim INTO the rainbow to race your go-kart!"
-		if m.kart_cool <= 0.0:
+		var a_outside: bool = dA > 18.0 or absf(m.kart_legA.y - ppos.y) > 22.0
+		var b_outside: bool = dB > 18.0 or absf(m.kart_legB.y - ppos.y) > 22.0
+		if not m.kart_float_portals_armed:
+			if a_outside and b_outside:
+				m.kart_float_portals_armed = true
+		elif m.kart_cool <= 0.0:
 			if dA < 14.0 and absf(m.kart_legA.y - ppos.y) < 18.0:
 				m._start_kart_game(false, "float")
 				return
@@ -1924,7 +1961,7 @@ func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	cm.height = 26.0 * sc
 	cm.radial_segments = 16
 	shaft.mesh = cm
-	shaft.material_override = m._up_mat("marble", 0.05, Color(0.99, 0.97, 1.0))
+	shaft.material_override = m._castle_mat("wall", 0.065, Color(0.74, 0.69, 0.86))
 	shaft.position = pos + Vector3(0, 13.0 * sc, 0)
 	m.add_child(shaft)
 	m.game_nodes.append(shaft)
@@ -1940,10 +1977,10 @@ func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	band.position = pos + Vector3(0, 24.0 * sc, 0)
 	m.add_child(band); m.game_nodes.append(band)
 	# glowing arched window facing the courtyard
-	var win = m._l2_box(pos + Vector3(0, 16.0 * sc, 3.5 * sc), Vector3(1.8 * sc, 4.2 * sc, 0.5 * sc), Color(1.0, 0.85, 0.5))
-	win.material_override.emission_enabled = true
-	win.material_override.emission = Color(1.0, 0.8, 0.45)
-	win.material_override.emission_energy_multiplier = 1.6
+	var win = m._l2_box(pos + Vector3(0, 16.0 * sc, 3.5 * sc), Vector3(1.8 * sc, 4.2 * sc, 0.5 * sc), Color(0.18, 0.30, 0.56))
+	win.material_override.emission_enabled = m.is_night
+	win.material_override.emission = Color(0.70, 0.82, 1.0)
+	win.material_override.emission_energy_multiplier = 0.42
 	# steeper conic roof
 	var roof := MeshInstance3D.new()
 	var rc := CylinderMesh.new()
@@ -1952,7 +1989,7 @@ func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	rc.height = 9.5 * sc
 	rc.radial_segments = 16
 	roof.mesh = rc
-	roof.material_override = m._up_mat("roof", 0.12, Color(1.0, 0.7, 0.7))   # clay roof tiles
+	roof.material_override = m._castle_mat("roof", 0.12, Color(0.84, 0.58, 0.70))
 	roof.position = pos + Vector3(0, 30.7 * sc, 0)
 	m.add_child(roof)
 	m.game_nodes.append(roof)

@@ -61,13 +61,17 @@ jobs:
             fi
             echo "=== $p ==="
             timeout 8m godot --headless -s "scripts/$p.gd" 2>&1 | tee "/tmp/$p.out" || FAILED=1
-            if grep -q "FAIL" "/tmp/$p.out"; then
-              echo "PROBE $p reported FAIL"
+            if grep -qE "FAIL|SCRIPT ERROR" "/tmp/$p.out"; then
+              echo "PROBE $p reported a failure or runtime script error"
               FAILED=1
             fi
             if grep -qE "Parse Error|Compile Error" "/tmp/$p.out"; then
               echo "PROBE $p hit a script compile error - aborting gate"
               exit 1
+            fi
+            if [ "$p" = "probe_kart_feel" ] && grep -qE 'SCRIPT ERROR|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)' "/tmp/$p.out"; then
+              echo "PROBE $p reported a missing resource or script error"
+              FAILED=1
             fi
           done
           exit $FAILED

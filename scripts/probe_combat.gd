@@ -49,6 +49,7 @@ func _ice_case() -> void:
 
 func _fire_case() -> void:
 	main.game = "level2"
+	main.g["t"] = 0.0
 	main._start_combat("fire")
 	await process_frame
 	var arena: CombatArena = main.combat_game
