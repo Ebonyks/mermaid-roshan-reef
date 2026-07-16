@@ -631,6 +631,9 @@ func _process(delta: float) -> void:
 		return   # a 2D minigame overlay is up — stick input belongs to IT (snowball rolling!)
 	if "craft_layer" in _m0 and _m0.craft_layer != null:
 		return   # frozen while the craft studio is open (was drifting behind the overlay)
+	if "collection_layer" in _m0 and _m0.collection_layer != null:
+		vel = Vector3.ZERO
+		return   # the icon-led Critter Book is a full-screen touch overlay
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon"):
 		return   # the slide / fairy-shooter / kart / galaxy modes drive the player + camera themselves
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:

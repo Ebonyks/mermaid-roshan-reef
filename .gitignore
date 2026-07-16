@@ -7,6 +7,12 @@
 *.tmp
 /roshan-reef.apk
 
+# Godot 4 editor sidecars. Historical tracked sidecars remain tracked, but new
+# assets and scripts must not add machine-generated import/UID churn.
+*.import
+*.uid
+/assets/characters/roshan_v4_Image_*.jpg
+
 # OS / editor cruft
 Thumbs.db
 desktop.ini

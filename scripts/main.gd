@@ -3,6 +3,7 @@ extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -21,6 +22,19 @@ var hud_stars: Label
 var hud_msg: Label
 var hud_game: Label
 var msg_timer := 0.0
+# ---- CRITTER BOOK: mutable state stays on ReefMain; CollectionSystem owns logic ----
+var critter_collection := {}              # species id -> true; persisted in reef_save.json
+var collection_nodes: Array = []          # runtime rows for the active world
+var collection_root: Node3D = null
+var collection_habitat := ""              # "ocean" | "lagoon" | ""
+var collection_nearby_id := ""
+var collection_action_prev := false
+var collection_hint_shown := false
+var collection_layer: CanvasLayer = null
+var collection_stage: Control = null
+var collection_button_layer: CanvasLayer = null
+var collection_button: Button = null
+var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
@@ -561,6 +575,7 @@ func _ready() -> void:
 	_build_slide_portal()
 	_build_pause()
 	_load_save()
+	_collection_ref().build()
 	if first_session:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
@@ -2463,7 +2478,11 @@ func _update_hud() -> void:
 	for f in friends:
 		if f["found"]:
 			stars += 1
-	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5" % [stars, trophies]
+	var critters := 0
+	for caught_value: Variant in critter_collection.values():
+		if bool(caught_value):
+			critters += 1
+	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
@@ -2603,6 +2622,12 @@ func _set_vis_range(n: Node, dist: float) -> void:
 # Phase 7.1: save/load logic lives in scripts/save_state.gd (state stays
 # here on main; SaveState receives main by reference and only owns logic)
 var _save_state: SaveState = null
+var _collection_system: CollectionSystem = null
+
+func _collection_ref() -> CollectionSystem:
+	if _collection_system == null:
+		_collection_system = CollectionSystemLogic.new(self)
+	return _collection_system
 
 func _load_save() -> void:
 	if _save_state == null:
@@ -7037,6 +7062,8 @@ func _overlay_root_for_cursor() -> Node:
 		return wardrobe_layer
 	if stickers_layer != null and is_instance_valid(stickers_layer):
 		return stickers_layer
+	if collection_layer != null and is_instance_valid(collection_layer):
+		return collection_layer
 	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
 		return mg2d_layer
 	return null
@@ -7099,7 +7126,7 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
@@ -7115,6 +7142,9 @@ func _tick_overlay_pads(delta: float) -> void:
 		elif stickers_layer != null:
 			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
 				_close_stickers()
+		elif collection_layer != null:
+			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
+				_collection_ref().close_book()
 	_pad_prev_a = a
 	_pad_prev_b = b
 
@@ -7194,6 +7224,7 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	_collection_ref().tick(delta, ppos)
 	if caustics_plane != null:
 		if game == "" and not intro_active and caustics_enabled:
 			caustics_plane.visible = true
@@ -7344,7 +7375,9 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if game == "fetch" and String(g.get("phase", "")) == "aim":
+		if _collection_ref().has_nearby():
+			act_lbl = "CATCH!"
+		elif game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"
 		elif game == "fairyshoot":
 			act_lbl = "SPARKLE"
