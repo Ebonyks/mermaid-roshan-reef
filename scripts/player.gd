@@ -53,18 +53,18 @@ const VERB_LIB := {
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
 	}},
 	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.22], [1.7, 2.22], [2.2, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.35], [1.7, 2.35], [2.2, -0.2]]},
-		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.4, 0.78], [1.7, 0.78], [2.2, 0.0]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.4, 0.64], [1.7, 0.64], [2.2, 0.0]]},
-		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.2], [1.7, 0.2], [2.2, 0.0]]},
-		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.12], [1.7, -0.12], [2.2, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.45], [1.7, 2.45], [2.2, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.502], [1.7, 2.502], [2.2, -0.2]]},
+		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.4, 1.15], [1.7, 1.15], [2.2, 0.0]]},
+		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.4, 0.76], [1.7, 0.76], [2.2, 0.0]]},
+		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.08], [1.7, 0.08], [2.2, 0.0]]},
+		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.08], [1.7, -0.08], [2.2, 0.0]]},
 	}},
 	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 1.8784], [1.7, 1.8784], [2.0, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.1856], [1.7, 2.1856], [2.0, -0.2]]},
-		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 1.5558], [0.65, 1.065], [0.8, 1.5558], [0.95, 1.065], [1.1, 1.5558], [1.25, 1.065], [1.4, 1.5558], [1.7, 0.0]]},
-		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, -0.6593], [0.65, -0.154], [0.8, -0.6593], [0.95, -0.154], [1.1, -0.6593], [1.25, -0.154], [1.4, -0.6593], [1.7, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 1.8857], [1.7, 1.8857], [2.0, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2294], [1.7, 2.2294], [2.0, -0.2]]},
+		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 1.812], [0.65, 1.6198], [0.8, 1.812], [0.95, 1.6198], [1.1, 1.812], [1.25, 1.6198], [1.4, 1.812], [1.7, 0.0]]},
+		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, -0.405], [0.65, 0.2239], [0.8, -0.405], [0.95, 0.2239], [1.1, -0.405], [1.25, 0.2239], [1.4, -0.405], [1.7, 0.0]]},
 	}},
 	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
 		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
@@ -78,8 +78,8 @@ const VERB_LIB := {
 	"giggle": {"len": 1.5, "sig": ["armU", 0.4], "tracks": {
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.2, -0.14], [0.4, 0.02], [0.6, -0.14], [0.8, 0.02], [1.0, -0.14], [1.5, 0.0]]},
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.25, 0.18], [0.55, -0.18], [0.85, 0.18], [1.15, -0.18], [1.5, 0.0]]},
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.8], [1.2, 1.8], [1.5, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 2.1], [1.2, 2.1], [1.5, -0.2]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.74], [1.2, 1.74], [1.5, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 2.22], [1.2, 2.22], [1.5, -0.2]]},
 	}},
 	"sleep": {"len": 6.0, "sig": ["head", 0.3], "tracks": {
 		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, -0.5], [5.0, -0.5], [6.0, 0.0]]},
@@ -511,7 +511,7 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 	_rot_bone("hair2", Vector3.BACK, sin(t * 2.1 + 0.25) * 0.07)
 	_rot_bone("hair3", Vector3.BACK, sin(t * 2.1 - 0.35) * 0.09)
 	# V4 RIG SIGNS (hand audit 2026-07-12, derived from the re-keyed verbs):
-	# arms about RIGHT raise with POSITIVE angles (cheer +2.22/+2.35; the old
+	# arms about RIGHT raise with POSITIVE angles (cheer +2.45/+2.502; the old
 	# negative raises drove the arms backward THROUGH her dress — shard-burst),
 	# head/neck/chest pitch is negative-forward, tail/hair are unchanged.
 	# NOTE: chest stays within the motion-cage range (|angle| <= ~0.28, and
@@ -562,10 +562,13 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 			_rot_bone("neck", Vector3.RIGHT, -0.18)
 			_rot_bone("head", Vector3.RIGHT, -0.3)   # watching her hands
 			# the idle arm hovers forward; the scooping arm plunges to the sand
+			var dig_upper: float = 0.55 - dr * 0.45
+			var dig_forearm: float = 0.3 + dr * 0.35
+			var dig_mirror: Vector2 = _mirror_arm(dig_upper, dig_forearm)
 			_rot_bone("armU", Vector3.RIGHT, 0.55 - dl * 0.45)
 			_rot_bone("armF", Vector3.RIGHT, 0.3 + dl * 0.35)
-			_rot_bone("armU2", Vector3.RIGHT, _mirror_u(0.55 - dr * 0.45))
-			_rot_bone("armF2", Vector3.RIGHT, _mirror_f(0.3 + dr * 0.35))
+			_rot_bone("armU2", Vector3.RIGHT, dig_mirror.x)
+			_rot_bone("armF2", Vector3.RIGHT, dig_mirror.y)
 			_tail_curl(0.7)   # plopped into the sand, tail tucked under
 		"seat":
 			# seated grip for the carousel / spring pony / seesaw: hands
@@ -579,25 +582,24 @@ func _arms_fwd(amt: float, bend: float = 0.0) -> void:
 	# raise both arms forward by `amt` from the v4 rest (-0.2): POSITIVE about
 	# model RIGHT is the raise direction on this rig.
 	var ang: float = -0.2 + amt
+	var mirrored: Vector2 = _mirror_arm(ang, bend)
 	_rot_bone("armU", Vector3.RIGHT, ang)
-	_rot_bone("armU2", Vector3.RIGHT, _mirror_u(ang))
+	_rot_bone("armU2", Vector3.RIGHT, mirrored.x)
 	_rot_bone("armF", Vector3.RIGHT, bend)
-	_rot_bone("armF2", Vector3.RIGHT, _mirror_f(bend))
+	_rot_bone("armF2", Vector3.RIGHT, mirrored.y)
 
-func _mirror_u(ang: float) -> float:
-	# The left upper arm does NOT mirror the right at the same angle: its rest
-	# orientation differs, so the mapping is affine (solved numerically by
-	# probe_arm_solve.gd — hand2 global pos vs the mirrored hand, best fit
-	# over 0.4..2.3; revalidated after the 2026-07-15 hand repair). A
-	# same-angle key leaves the left arm hanging ~0.7 rad
-	# low at seat height, dragging the dress side panel with it (shard-burst).
-	return ang * 0.70 + 0.88
-
-func _mirror_f(bend: float) -> float:
-	# The repaired left hand needs more forearm response than the old collapsed
-	# binding. A conservative 1.3x fit keeps swing/dig/seat hands paired without
-	# approaching the more aggressive 1.6x position-only optimum.
-	return bend * 1.3
+func _mirror_arm(upper: float, forearm: float) -> Vector2:
+	# Roshan's two native shoulder frames intentionally differ in depth and
+	# orientation. After the arm resculpt, upper and forearm angles must be
+	# solved together: either independent mapping leaves up to 0.18 units of
+	# shoulder-local hand error across swing/climb/ride/land/dig/seat. This fit
+	# uses the weighted hand regions over 55 calibrated toy-control states; the
+	# actual alternating dig sweep is checked separately. It keeps the secondary
+	# elbow between 118 and 155 degrees.
+	return Vector2(
+		upper * 0.96 + forearm * 0.22 + 0.35,
+		upper * 0.31 + forearm * 0.82 + 0.45,
+	)
 
 func _tail_curl(amt: float) -> void:
 	# curl the tail forward/under (positive amt grows down the chain — the
