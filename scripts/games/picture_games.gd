@@ -413,6 +413,11 @@ func _mg_tick_snow_chase(delta: float) -> void:
 	elif String(m.mg["phase"]) == "carrot":
 		var car2: TextureRect = m.mg.get("carrot_bit")
 		if is_instance_valid(car2) and absf((car2.position.x + 47.0) - cx) < 75.0:
+			# Stop polling the carrot during the victory-close tween. Leaving the
+			# phase on "carrot" retried this branch after queue_free() and logged
+			# an invalid-instance script error every frame.
+			m.mg["phase"] = "done"
+			m.mg.erase("carrot_bit")
 			car2.queue_free()
 			if m.chime != null:
 				m.chime.pitch_scale = 1.5

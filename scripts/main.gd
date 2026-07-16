@@ -1112,7 +1112,7 @@ void fragment(){
 	SPECULAR = 0.05;
 }"""
 	mat.shader = tsh
-	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/Ground054_2K_Color.jpg"))
+	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/up_sand_col.jpg"))
 	var cliff_path := "res://assets/terrain/up_cliffwall_col.jpg"
 	if not ResourceLoader.exists(cliff_path):
 		cliff_path = "res://assets/terrain/up_cliff_col.jpg"   # strangler-fig fallback
@@ -1312,11 +1312,11 @@ var wood_overlay: StandardMaterial3D
 
 func _texture_mats() -> void:
 	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
 	rock_pbr.albedo_color = Color(0.62, 0.68, 0.76)
 	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 	rock_pbr.uv1_triplanar = true
 	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
 	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
@@ -1574,12 +1574,12 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.uv1_triplanar = true
 	if key == "Rock":
-		# true stone — upgraded CC0 rock face (shared with grove boulders & cavern)
-		m.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+		# painted stone face shared with grove boulders and the cavern
+		m.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
 		m.albedo_color = Color(0.66, 0.7, 0.76)
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-		m.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+		m.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+		m.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 		m.uv1_world_triplanar = true   # rocks are static; creature materials below stay object-space
 		m.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	elif key.begins_with("SeaWeed"):
@@ -3925,6 +3925,11 @@ func _tick_mg2d(delta: float) -> void:
 		var jv := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
 		if jv.length() > 0.35:   # little thumbs: was 0.45, half-pushed circles count too
 			ang = jv.angle()
+			ang_ok = true
+		elif touch_ui != null and (touch_ui.stick_vec as Vector2).length() > 0.35:
+			# The Android virtual stick is the primary control on the target
+			# device. Treat circling it exactly like circling a physical stick.
+			ang = (touch_ui.stick_vec as Vector2).angle()
 			ang_ok = true
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
 			var mp: Vector2 = mg2d_stage.get_local_mouse_position()
@@ -8481,7 +8486,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.35, 0.55, 0.75)
 		arena_env.ambient_light_energy = 0.55
 		arena_env.glow_intensity = 1.15
-		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
+		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
 		# same anti-white-wash recipe as the snowy "fetch" yard: on an
 		# already-white ice scene the WW screen-blend haze + hot ambient

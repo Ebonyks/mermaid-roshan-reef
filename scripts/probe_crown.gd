@@ -54,17 +54,17 @@ func _init() -> void:
 	# the front door still leaves the castle to the courtyard
 	if main.g.has("hall_exit"):
 		var hx: Vector3 = main.g["hall_exit"]
-		player.position = o + Vector3(0, 6, 10)   # far enough to arm the exit
-		await _frames(30)
-		print("CROWN|dbg exit=", hx - o, " armed=", main.g.get("hall_exit_armed", "?"))
-		var to_exit: Vector3 = hx - player.position
-		for i in range(120):
-			to_exit = hx - player.position
-			if String(main.g.get("phase", "")) != "hall":
-				break
-			player.vel = (to_exit.normalized() * 12.0) if to_exit.length() > 1.0 else Vector3.ZERO
-			await process_frame
-		print("CROWN|dbg final_d=", (hx - player.position).length())
+		# Exercise the production hall tick at both sides of the threshold. The
+		# physics controller can push a teleported player back inside a wall before
+		# a headless render frame, which made this transition probe cadence-bound.
+		main.g["t"] = 3.0   # beyond the intentional 2.5-second entrance grace
+		player.position = hx + Vector3(20.0, 0.0, 0.0)
+		player.vel = Vector3.ZERO
+		main._tick_castle_hall(1.0 / 60.0, player.position)
+		_ck("front_door_arms", bool(main.g.get("hall_exit_armed", false)))
+		player.position = hx
+		main._tick_castle_hall(1.0 / 60.0, player.position)
+		await process_frame
 		_ck("front_door_exits", String(main.g.get("phase", "")) != "hall", "phase=%s" % str(main.g.get("phase", "")))
 	else:
 		_ck("front_door_exits", false, "no hall_exit key")

@@ -17,12 +17,19 @@ func _init() -> void:
 		while main.mg_kind == kind and t < 60.0:
 			t += 1.0/60.0 * Engine.time_scale
 			press_cd -= 1.0/60.0 * Engine.time_scale
-			# The book-canon snowman ending is a movement chase, not another
-			# button tap.  Steer toward the snowman (and then his carrot) so
-			# this bot exercises the actual interaction instead of timing out.
-			if kind == "snowman" and main.touch_ui != null and String(main.mg.get("phase", "")) in ["chase", "carrot"]:
-				var chase_dir := signf(float(main.mg.get("run_x", 640.0)) - float(main.mg.get("chaser_x", 640.0)))
-				main.touch_ui.stick_vec = Vector2(chase_dir, 0.0)
+			# Perform each of the snowman's real touch verbs: circle the virtual
+			# stick to roll all three balls, then chase the snowman and finally
+			# eat his carrot nose (the book-canon ending).
+			if kind == "snowman" and main.touch_ui != null:
+				var snow_phase: String = String(main.mg.get("phase", ""))
+				if snow_phase == "roll":
+					var spin_ang: float = float(main.mg.get("t", 0.0)) * 2.4
+					main.touch_ui.stick_vec = Vector2(cos(spin_ang), sin(spin_ang))
+				elif snow_phase in ["chase", "carrot"]:
+					var chase_dir: float = signf(float(main.mg.get("run_x", 640.0)) - float(main.mg.get("chaser_x", 640.0)))
+					main.touch_ui.stick_vec = Vector2(chase_dir, 0.0)
+				else:
+					main.touch_ui.stick_vec = Vector2.ZERO
 			elif main.touch_ui != null:
 				main.touch_ui.stick_vec = Vector2.ZERO
 			# a 4yo taps roughly twice a second, hitting visible buttons

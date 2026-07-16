@@ -101,6 +101,9 @@ func play_verb(vname: String) -> bool:
 		return false
 	verb = vname
 	verb_t = 0.0
+	# A gesture is activity. Reset the idle clock so an explicitly played
+	# "look" cannot finish and immediately auto-start the same idle verb.
+	idle_t = 0.0
 	return true
 
 func _sample_keys(keys: Array, t: float) -> float:

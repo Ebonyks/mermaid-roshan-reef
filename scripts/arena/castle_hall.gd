@@ -1286,7 +1286,11 @@ func tick(delta: float, ppos: Vector3) -> void:
 		if ready != bool(dg["ready"]):
 			dg["ready"] = ready
 			(dg["label"] as Label3D).text = "★  TEN ROOMS  ★\n◆ ◆ ◆ ◆ ◆\n◆ ◆ ◆ ◆ ◆" if ready else "❄ + 🌶\n◇ ◇ ◇ ◇ ◇\n◇ ◇ ◇ ◇ ◇"
-			(dg["veil"] as MeshInstance3D).modulate = Color(1.0, 0.82, 0.45) if ready else Color(0.7, 0.6, 1.0)
+			var veil: MeshInstance3D = dg["veil"]
+			var veil_mat: StandardMaterial3D = veil.material_override as StandardMaterial3D
+			if veil_mat != null:
+				veil_mat.albedo_color = Color(1.0, 0.82, 0.45, 0.58) if ready else Color(0.28, 0.18, 0.55, 0.58)
+				veil_mat.emission = Color(1.0, 0.72, 0.24) if ready else Color(0.38, 0.28, 0.75)
 		var gate_pos: Vector3 = dg["pos"]
 		var gate_dist: float = gate_pos.distance_to(ppos)
 		if gate_dist > 8.0:
@@ -1396,6 +1400,6 @@ func tick(delta: float, ppos: Vector3) -> void:
 				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 			var ctw: Tween = crown.create_tween()
 			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			ctw.parallel().tween_property(crown, "modulate", Color(1.0, 0.98, 0.7, 1.0), 0.8)
+			ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
 			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 

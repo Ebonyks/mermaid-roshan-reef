@@ -289,6 +289,12 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
 				player.position = player.position.lerp(bush.position, 0.15)
 				player.vel = Vector3.ZERO
+		elif gname == "slide":
+			# The downhill ride now requires one deliberate lean before it can
+			# award a win. Alternate the touch stick like a child weaving down
+			# the chute instead of relying on the passive auto-slide.
+			var weave: float = 0.65 if int(fcount / 45) % 2 == 0 else -0.65
+			main.touch_ui.stick_vec = Vector2(weave, 0.0)
 		elif gname == "race" or gname == "treasure":
 			if String(g.get("phase", "")) != "slide":
 				var checks: Array = g.get("checks", [])
