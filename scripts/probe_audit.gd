@@ -20,6 +20,21 @@ func _init() -> void:
 	player = main.player
 	print("AUDIT|boot OK, seed=", seed_str)
 	var t_start := Time.get_ticks_msec()
+	# --- Critter Book: approach + one real touch-action edge catches exactly one ---
+	main.critter_collection = {}
+	var collection: CollectionSystem = main._collection_ref()
+	var first_critter: Dictionary = main.collection_nodes[0]
+	var critter_node: Node3D = first_critter["node"]
+	var critter_def: Dictionary = first_critter["def"]
+	player.position = critter_node.position
+	player.vel = Vector3.ZERO
+	main.touch_ui.action_down = false
+	await process_frame
+	main.touch_ui.action_down = true
+	await process_frame
+	main.touch_ui.action_down = false
+	var critter_ok: bool = collection.caught_count() == 1 and bool(main.critter_collection.get(String(critter_def["id"]), false))
+	print("AUDIT|Critter Book: ", ("OK" if critter_ok else "FAIL"))
 	for fi in range(5):
 		var f: Dictionary = main.friends[fi]
 		var fname: String = f["fname"]
