@@ -217,6 +217,7 @@ func _mg_build_snowman() -> void:
 	m.mg["phase"] = "roll"
 	m.mg["balls"] = 0
 	m.mg["face"] = 0
+	m.mg["motor_assist"] = false
 	(m.mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
 	# ground
 	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
@@ -242,6 +243,8 @@ func _mg_snow_new_ball() -> void:
 	m.mg["rot_acc"] = 0.0
 	m.mg["rot_prev"] = 0.0
 	m.mg["prev_ang"] = null
+	m.mg["stall"] = 0.0
+	m.mg["stall_acc"] = 0.0
 
 
 func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
@@ -413,6 +416,10 @@ func _mg_tick_snow_chase(delta: float) -> void:
 	elif String(m.mg["phase"]) == "carrot":
 		var car2: TextureRect = m.mg.get("carrot_bit")
 		if is_instance_valid(car2) and absf((car2.position.x + 47.0) - cx) < 75.0:
+			# Stop polling the carrot during the victory-close tween. Leaving the
+			# phase on "carrot" retries a queued-free node every frame.
+			m.mg["phase"] = "done"
+			m.mg.erase("carrot_bit")
 			car2.queue_free()
 			if m.chime != null:
 				m.chime.pitch_scale = 1.5

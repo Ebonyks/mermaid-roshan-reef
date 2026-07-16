@@ -989,6 +989,7 @@ func build_music_room(o: Vector3) -> void:
 		m.game_nodes.append(bell)
 		var bp := AudioStreamPlayer.new()
 		bp.stream = load("res://assets/audio/chime.ogg")
+		bp.bus = "SFX"
 		bp.pitch_scale = bellpitch[bi]
 		bp.volume_db = -13.0   # much softer bells
 		bell.add_child(bp)   # parent to the bell so it frees with the room (game_nodes is Array[Node3D])
@@ -1212,6 +1213,7 @@ func build_toilet(ground: Vector3) -> void:
 	# bubbly toot, gentle volume for little ears (tick re-arms it on swim-away)
 	var tap := AudioStreamPlayer.new()
 	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.bus = "SFX"
 	tap.volume_db = -8.0
 	tap.pitch_scale = 1.1
 	base.add_child(tap)   # frees with the toilet
@@ -1238,6 +1240,7 @@ func slide_stand() -> void:
 		zd.erase("ceil")
 	var rumble := AudioStreamPlayer.new()
 	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.bus = "SFX"
 	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
 	chest.add_child(rumble)   # frees with the chest
 	rumble.play()

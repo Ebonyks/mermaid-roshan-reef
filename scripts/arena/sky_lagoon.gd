@@ -1759,6 +1759,7 @@ func _crafted_purr(cd: Dictionary, on: bool) -> void:
 	if on:
 		if p == null:
 			p = AudioStreamPlayer3D.new()
+			p.bus = "SFX"
 			var st: AudioStream = load("res://assets/audio/purr.wav")
 			if st is AudioStreamWAV:
 				(st as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD

@@ -261,6 +261,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				m._sparkle_burst(ball.position, Color(0.4, 0.7, 1.0))
 				var bz := AudioStreamPlayer.new()
 				bz.stream = load("res://assets/audio/voices/chuck_whimper.ogg")
+				bz.bus = "Voice"
 				m.add_child(bz)
 				bz.play()
 				bz.finished.connect(bz.queue_free)

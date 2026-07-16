@@ -186,9 +186,11 @@ func _build_ui() -> void:
 	root.add_child(title_label)
 
 	song_player = AudioStreamPlayer.new()
+	song_player.bus = "Music"
 	song_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	root.add_child(song_player)
 	chime_player = AudioStreamPlayer.new()
+	chime_player.bus = "SFX"
 	chime_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	chime_player.stream = load("res://assets/audio/chime.ogg")
 	chime_player.volume_db = -5.0

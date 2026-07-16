@@ -526,18 +526,23 @@ func _ready() -> void:
 	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
+	voice.bus = "Voice"
 	add_child(voice)
 	chime = AudioStreamPlayer.new()
 	chime.stream = load("res://assets/audio/chime.ogg")
+	chime.bus = "SFX"
 	chime.volume_db = -4.0
 	add_child(chime)
 	peng_giggle = AudioStreamPlayer.new()
 	peng_giggle.stream = load("res://assets/audio/penguin_giggle.ogg")
+	peng_giggle.bus = "SFX"
 	peng_giggle.volume_db = -3.0
 	add_child(peng_giggle)
 	buy_sound = AudioStreamPlayer.new()
 	buy_sound.stream = load("res://assets/audio/buy.ogg")
+	buy_sound.bus = "SFX"
 	beans_sfx = AudioStreamPlayer.new()
+	beans_sfx.bus = "SFX"
 	var banjo_st: AudioStream = load("res://assets/audio/music/banjo.ogg")
 	if banjo_st is AudioStreamOggVorbis:
 		(banjo_st as AudioStreamOggVorbis).loop = true
@@ -547,6 +552,7 @@ func _ready() -> void:
 	add_child(buy_sound)
 	for vp in range(4):
 		var ap := AudioStreamPlayer.new()
+		ap.bus = "Voice"
 		add_child(ap)
 		voice_pool.append(ap)
 	touch_ui = preload("res://scripts/touch_ui.gd").new()
@@ -977,6 +983,7 @@ func _build_environment() -> void:
 	we_node.environment = env
 	add_child(we_node)
 	music = AudioStreamPlayer.new()
+	music.bus = "Music"
 	add_child(music)
 	_play_music("world")
 	_build_bubble_columns()
@@ -3884,10 +3891,18 @@ func _tick_mg2d(delta: float) -> void:
 		# drawing circles around the snowball
 		var ang_ok := false
 		var ang := 0.0
+		var stick_intent := false
 		var jv := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
 		if jv.length() > 0.35:   # little thumbs: was 0.45, half-pushed circles count too
 			ang = jv.angle()
 			ang_ok = true
+			stick_intent = true
+		elif touch_ui != null and (touch_ui.stick_vec as Vector2).length() > 0.35:
+			# The Android virtual stick is the primary control on the target device.
+			# Treat circling it exactly like circling a physical stick.
+			ang = (touch_ui.stick_vec as Vector2).angle()
+			ang_ok = true
+			stick_intent = true
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
 			var mp: Vector2 = mg2d_stage.get_local_mouse_position()
 			var off: Vector2 = mp - SNOW_ROLL_C
@@ -3915,11 +3930,21 @@ func _tick_mg2d(delta: float) -> void:
 			stall = 0.0
 		else:
 			stall += delta
-		var assist: bool = stall > 8.0
-		if assist and stall - delta <= 8.0 and voice != null:
-			voice.pitch_scale = 1.3
-			voice.play()
+		var assist: bool = bool(mg.get("motor_assist", false))
+		if not assist and stall > 8.0 and stick_intent:
+			# A held direction is a deliberate motor alternative after the child has
+			# tried for eight seconds. Zero input still makes zero progress.
+			assist = true
+			mg["motor_assist"] = true
+			if voice != null:
+				voice.pitch_scale = 1.3
+				voice.play()
+		if assist and stick_intent:
+			mg["rot_acc"] = float(mg["rot_acc"]) + delta * 2.4
 		mg["stall"] = stall
+		prog = clampf(float(mg["rot_acc"]) / float(mg["rot_need"]), 0.0, 1.0)
+		r = lerpf(26.0, float(mg["final_r"]), prog)
+		_mg_snow_ball_size(mg["roll_ball"], r, SNOW_ROLL_C)
 		# crunchy tick every half circle so the rolling feels alive
 		if int(float(mg["rot_acc"]) / PI) > int(float(mg["rot_prev"]) / PI) and chime != null:
 			chime.pitch_scale = 0.8 + prog * 0.35
@@ -4321,6 +4346,7 @@ func _build_castle_toilet(br: Vector3) -> void:
 	# bubbly toot when Roshan swims up to it (re-arms when she swims away)
 	var tap := AudioStreamPlayer.new()
 	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.bus = "SFX"
 	tap.volume_db = -4.0
 	tap.pitch_scale = 1.1
 	base.add_child(tap)   # frees with the toilet
@@ -4340,6 +4366,7 @@ func _slide_basement_stand() -> void:
 	g["secret_door"] = chest.position + slide
 	var rumble := AudioStreamPlayer.new()
 	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.bus = "SFX"
 	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
 	rumble.volume_db = 3.0
 	chest.add_child(rumble)   # frees with the chest
@@ -4691,6 +4718,7 @@ func _play_hug_cutscene() -> void:
 	root.add_child(lbl)
 	var dp := AudioStreamPlayer.new()
 	dp.stream = load("res://assets/audio/voices/daddy1.ogg")
+	dp.bus = "Voice"
 	dp.volume_db = 4.0
 	root.add_child(dp)
 	dp.play()

@@ -2925,6 +2925,7 @@ func _build_engine() -> void:
 	if _speedy():
 		return   # per-frame buffer fill is CPU the budget tier doesn't have
 	_eng = AudioStreamPlayer.new()
+	_eng.bus = "SFX"
 	var gen := AudioStreamGenerator.new()
 	gen.mix_rate = 22050.0
 	gen.buffer_length = 0.15

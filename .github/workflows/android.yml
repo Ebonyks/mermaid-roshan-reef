@@ -56,7 +56,13 @@ jobs:
           EOF
 
       - name: Import project (first run generates .godot resources)
-        run: godot --headless --path . --import || true
+        run: |
+          set -o pipefail
+          godot --headless --path . --import 2>&1 | tee /tmp/import.out
+          if grep -qE 'SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource' /tmp/import.out; then
+            echo "IMPORT FAIL (resource or script error)"
+            exit 1
+          fi
 
       - name: Export debug APK
         run: |

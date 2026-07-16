@@ -88,7 +88,7 @@ func _set_ambience(track: String) -> void:
 	# birds in the lagoon, airy room tone in the castle. Ducks -6dB under voices.
 	if m.ambience == null:
 		m.ambience = AudioStreamPlayer.new()
-		m.ambience.bus = "Master"
+		m.ambience.bus = "Ambience"
 		m.add_child(m.ambience)
 	var amb := ""
 	match track:
@@ -125,6 +125,7 @@ func _tick_ambience_duck(delta: float) -> void:
 func _ui_tap() -> void:
 	if m._tap_player == null:
 		m._tap_player = AudioStreamPlayer.new()
+		m._tap_player.bus = "UI"
 		m._tap_player.stream = load("res://assets/audio/ui_tap.ogg")
 		m._tap_player.volume_db = -8.0
 		m._tap_player.process_mode = Node.PROCESS_MODE_ALWAYS
