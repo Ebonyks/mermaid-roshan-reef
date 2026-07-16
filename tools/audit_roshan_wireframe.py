@@ -657,33 +657,33 @@ def build_pose_specs() -> list[PoseSpec]:
 	def cheer(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.cheer, held peak (t=0.5..1.7).
-		rotate_model_axis(armature, "armU", GD_RIGHT, 2.22)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.35)
-		rotate_model_axis(armature, "armF", GD_BACK, 0.78)
-		rotate_model_axis(armature, "armF2", GD_RIGHT, 0.64)
-		rotate_model_axis(armature, "head", GD_RIGHT, 0.2)
-		rotate_model_axis(armature, "chest", GD_RIGHT, -0.12)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 2.45)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.502)
+		rotate_model_axis(armature, "armF", GD_BACK, 1.15)
+		rotate_model_axis(armature, "armF2", GD_RIGHT, 0.76)
+		rotate_model_axis(armature, "head", GD_RIGHT, 0.08)
+		rotate_model_axis(armature, "chest", GD_RIGHT, -0.08)
 		bpy.context.view_layer.update()
 
 	def clap_open(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.65: the open/rebound key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8784)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.1856)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.065)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8857)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.2294)
+		rotate_model_axis(armature, "armF", GD_BACK, 1.6198)
 		rotate_model_axis(
-			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.154
+			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), 0.2239
 		)
 		bpy.context.view_layer.update()
 
 	def clap_contact(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.50: the authored contact key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8784)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.1856)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.5558)
+		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8857)
+		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.2294)
+		rotate_model_axis(armature, "armF", GD_BACK, 1.812)
 		rotate_model_axis(
-			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.6593
+			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.405
 		)
 		bpy.context.view_layer.update()
 
@@ -1136,6 +1136,11 @@ def arm_asymmetry(armature: bpy.types.Object, midline_x: float, height: float) -
 		),
 		"shoulder_height_difference": finite(abs(primary_points[0].z - secondary_points[0].z)),
 		"shoulder_depth_difference": finite(abs(primary_points[0].y - secondary_points[0].y)),
+		"mirror_metric_interpretation": (
+			"Raw reflected rest-joint position error, retained as a descriptor of the "
+			"native shoulder pose/depth offset. It is not a measure of arm-segment "
+			"proportion parity and does not gate that finding."
+		),
 		"chain_scope": "Shoulder, elbow, and wrist joint heads; terminal display-bone tails excluded.",
 	}
 
@@ -1346,15 +1351,19 @@ def pose_hand_metrics(
 	}
 
 
-def t_pose_quality(armature: bpy.types.Object) -> dict[str, Any]:
+def t_pose_quality(
+	armature: bpy.types.Object, hand_metrics: dict[str, Any]
+) -> dict[str, Any]:
 	if _RUNTIME_RIG is None:
 		raise RuntimeError("Source glTF rig is required for T-pose validation")
 	angles = {}
 	heights = []
+	shoulders: dict[str, Vector] = {}
 	for chain in (ARM_PRIMARY, ARM_SECONDARY):
 		shoulder = armature.matrix_world @ _RUNTIME_RIG.joint_head_blender(
 			chain[0], _POSE_DELTAS
 		)
+		shoulders[chain[0]] = shoulder
 		target = GD_RIGHT if shoulder.x >= 0.0 else -GD_RIGHT
 		for bone_name, child_name in zip(chain[:2], chain[1:]):
 			head = armature.matrix_world @ _RUNTIME_RIG.joint_head_blender(
@@ -1366,10 +1375,33 @@ def t_pose_quality(armature: bpy.types.Object) -> dict[str, Any]:
 			direction = child - head
 			angles[bone_name] = finite(angle_degrees(direction, target))
 			heights.extend([head.z, child.z])
+	probes = hand_metrics["weighted_probe_centroids"]
+	primary_probe = Vector(probes["primary_blender"])
+	secondary_probe = Vector(probes["secondary_blender"])
+	primary_target = GD_RIGHT if shoulders["armU"].x >= 0.0 else -GD_RIGHT
+	secondary_target = GD_RIGHT if shoulders["armU2"].x >= 0.0 else -GD_RIGHT
+	primary_reach = float((primary_probe - shoulders["armU"]).dot(primary_target))
+	secondary_reach = float((secondary_probe - shoulders["armU2"]).dot(secondary_target))
+	reach_difference = abs(primary_reach - secondary_reach)
+	mean_reach = max((abs(primary_reach) + abs(secondary_reach)) * 0.5, 1.0e-9)
 	return {
 		"segment_deviation_from_outward_model_x_degrees": angles,
 		"maximum_segment_deviation_degrees": finite(max(angles.values())),
 		"full_arm_vertical_spread": finite(max(heights) - min(heights)),
+		"weighted_hand_shoulder_local_outward_reach": {
+			"definition": (
+				"Outward model-X projection from each posed shoulder joint head to "
+				"the matching >0.12 hand-bone weighted-vertex centroid. Subtracting "
+				"each shoulder preserves native shoulder pose/depth while testing "
+				"functional T-frame reach parity."
+			),
+			"primary_armU_hand": finite(primary_reach),
+			"secondary_armU2_hand2": finite(secondary_reach),
+			"absolute_difference": finite(reach_difference),
+			"difference_fraction_of_bilateral_mean": finite(
+				reach_difference / mean_reach
+			),
+		},
 		"scope_note": "Upper-arm and forearm segments; rigid hands have no child/finger joint.",
 	}
 
@@ -1614,20 +1646,29 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 	length_delta = asymmetry["total_length_difference_fraction_of_mean"] or 0.0
 	longer_excess = asymmetry["longer_chain_excess_fraction_of_shorter"] or 0.0
 	mirror_rms = asymmetry["mirrored_joint_rms_fraction_of_height"] or 0.0
-	if length_delta > 0.10 or mirror_rms > 0.05:
+	if length_delta > 0.10:
 		add(
-			"ARM_CHAIN_ASYMMETRY",
+			"ARM_CHAIN_PROPORTION_PARITY",
 			"review",
-			f"Rest shoulder-to-wrist chains are materially asymmetric: the longer side is "
-			f"{longer_excess:.1%} longer ({length_delta:.1%} of bilateral mean), "
-			f"mirrored-joint RMS {mirror_rms:.1%} of character height.",
+			f"Rest shoulder-to-wrist proportions differ materially: the longer side is "
+			f"{longer_excess:.1%} longer ({length_delta:.1%} of bilateral mean; "
+			"review threshold 10%).",
 		)
 	else:
 		add(
-			"ARM_CHAIN_ASYMMETRY",
+			"ARM_CHAIN_PROPORTION_PARITY",
 			"ok",
-			f"Rest arm-chain length and mirrored-joint errors are modest ({length_delta:.1%}, {mirror_rms:.1%}).",
+			f"Rest shoulder-to-wrist chain-length difference is {length_delta:.1%} "
+			"of the bilateral mean (within the 10% proportion threshold).",
 		)
+	add(
+		"NATIVE_SHOULDER_POSE_OFFSET",
+		"info",
+		f"Raw mirrored-joint RMS is {mirror_rms:.1%} of character height; native "
+		f"shoulder height/depth offsets are {asymmetry['shoulder_height_difference']:.3f}/"
+		f"{asymmetry['shoulder_depth_difference']:.3f}. These rest-pose coordinates "
+		"remain reported for inspection but do not determine arm proportion parity.",
+	)
 
 	open_gap = report["poses"]["clap_open"]["hands"]["weighted_probe_centroids"]["gap"]
 	contact_gap = report["poses"]["clap_contact"]["hands"]["weighted_probe_centroids"]["gap"]
@@ -1685,7 +1726,8 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 			f"height mismatch is {cheer['weighted_hand_height_mismatch']:.3f}.",
 		)
 
-	worst_pose = None
+	worst_strain_pose = None
+	worst_change_pose = None
 	worst_strain = -1.0
 	worst_absolute_change = -1.0
 	for pose_name, pose in report["poses"].items():
@@ -1697,24 +1739,26 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 				"p99_absolute_fractional_strain", 0.0
 			) or 0.0
 			absolute_change = edge_report.get("maximum_absolute_measure_change", 0.0) or 0.0
-			if absolute_change > worst_absolute_change:
-				worst_pose = pose_name
+			if value > worst_strain:
+				worst_strain_pose = pose_name
 				worst_strain = value
+			if absolute_change > worst_absolute_change:
+				worst_change_pose = pose_name
 				worst_absolute_change = absolute_change
 	if worst_absolute_change > report["character_height"] * 0.04:
 		add(
 			"ARM_EDGE_STRAIN",
 			"problem",
 			f"An arm-weighted connected edge changes length by {worst_absolute_change:.3f} "
-			f"({worst_absolute_change / report['character_height']:.1%} of height) in {worst_pose}; "
-			f"that pose's p99 relative edge strain is {worst_strain:.1%}. "
+			f"({worst_absolute_change / report['character_height']:.1%} of height) in {worst_change_pose}; "
+			f"peak p99 relative edge strain is {worst_strain:.1%} in {worst_strain_pose}. "
 			"inspect shoulder/elbow collapse in the wireframe.",
 		)
 	elif worst_strain > 0.18:
 		add(
 			"ARM_EDGE_STRAIN",
 			"review",
-			f"Arm-weighted p99 edge strain peaks at {worst_strain:.1%} in {worst_pose}.",
+			f"Arm-weighted p99 edge strain peaks at {worst_strain:.1%} in {worst_strain_pose}.",
 		)
 	else:
 		add(
@@ -1810,6 +1854,23 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 			"T_POSE_ALIGNMENT",
 			"ok",
 			f"Diagnostic T-pose is genuinely lateral (maximum segment error {t_deviation:.2f} degrees).",
+		)
+	t_reach = t_quality["weighted_hand_shoulder_local_outward_reach"]
+	t_reach_difference = t_reach["absolute_difference"] or 0.0
+	t_reach_fraction = t_reach["difference_fraction_of_bilateral_mean"] or 0.0
+	if t_reach_fraction > 0.05:
+		add(
+			"T_POSE_HAND_REACH_PARITY",
+			"review",
+			f"Shoulder-local weighted-hand reaches differ by {t_reach_difference:.4f} "
+			f"({t_reach_fraction:.1%} of their bilateral mean; review threshold 5%).",
+		)
+	else:
+		add(
+			"T_POSE_HAND_REACH_PARITY",
+			"ok",
+			f"Shoulder-local weighted-hand reaches differ by {t_reach_difference:.4f} "
+			f"({t_reach_fraction:.1%} of their bilateral mean; within the 5% threshold).",
 		)
 	return findings
 
@@ -2076,7 +2137,9 @@ def main() -> None:
 				height,
 			)
 		if pose.name == "t_pose":
-			pose_report["t_pose_quality"] = t_pose_quality(armature)
+			pose_report["t_pose_quality"] = t_pose_quality(
+				armature, pose_report["hands"]
+			)
 		report["poses"][pose.name] = pose_report
 
 		if not args.no_render:
