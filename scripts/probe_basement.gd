@@ -129,7 +129,7 @@ func _init() -> void:
 	# basement floor (each point was OUTSIDE the old 12-wide corridor zone)
 	# (the craft-room point stays >7 from the easel or the craft studio would
 	# open and freeze player physics for the rest of the probe)
-	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(13, -12, -28), Vector3(-30, -12, -28)]:
+	for wp in [Vector3(7, -12, -20), Vector3(-17, -12, -2), Vector3(17, -12, -2), Vector3(13, -12, -28), Vector3(-30, -12, -28)]:
 		player.position = h + wp
 		player.vel = Vector3.ZERO
 		await _wait_ms(900)
