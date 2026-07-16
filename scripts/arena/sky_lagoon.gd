@@ -21,6 +21,23 @@ const ALPINE_CAVE_ROOM := Vector2(-128.0, -165.0)
 const ALPINE_HOUSE_A := Vector2(-92.0, -156.0)
 const ALPINE_HOUSE_B := Vector2(-78.0, -185.0)
 const ALPINE_HOUSE_C := Vector2(-112.0, -190.0)
+const ALPINE_HABITAT_SCENES := [
+	preload("res://assets/props/alpine/alpine_fish_aquarium.glb"),
+	preload("res://assets/props/alpine/alpine_beetle_terrarium.glb"),
+	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
+]
+const ALPINE_CREATURE_KINDS := ["fish", "insect", "bird"]
+const ALPINE_CREATURE_CAGES := ["aquarium", "terrarium", "bird_cage"]
+const ALPINE_CREATURE_KEYS := [
+	"_alpine_house_creature_fish",
+	"_alpine_house_creature_insect",
+	"_alpine_house_creature_bird",
+]
+const ALPINE_CREATURE_MESSAGES := [
+	"A tiny fish friend! Safe and snug in your collection!",
+	"A shiny little beetle! Safe and snug in your collection!",
+	"A sweet snowy bird! Safe and snug in your collection!",
+]
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -995,7 +1012,7 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color,
 		"inside": base + Vector3(0.0, 2.7, 0.0),
 		"door_width": 6.0,
 	})
-	_village_house_bonus(base, house_index)
+	_village_house_collectible(base, house_index)
 
 
 func _village_cottage_wall(center: Vector3, size: Vector3, wall_col: Color) -> void:
@@ -1048,11 +1065,13 @@ func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -
 		Vector3(2.5, 0.32, 0.78), Color(0.94, 0.96, 1.0))
 	pillow.visibility_range_end = 90.0
 
-	var table_leg := m._l2_box(base + Vector3(3.3, 1.05, -0.8),
+	# The tea table sits toward the entrance, leaving a clear display alcove at
+	# the back-right for the aquarium, terrarium, or bird cage.
+	var table_leg := m._l2_box(base + Vector3(3.45, 1.05, 1.65),
 		Vector3(0.55, 1.8, 0.55), Color(0.45, 0.28, 0.20))
 	table_leg.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.38, 0.27))
 	table_leg.visibility_range_end = 90.0
-	var table_top := m._l2_box(base + Vector3(3.3, 2.02, -0.8),
+	var table_top := m._l2_box(base + Vector3(3.45, 2.02, 1.65),
 		Vector3(3.2, 0.32, 2.5), Color(0.52, 0.33, 0.23))
 	table_top.material_override = m._up_mat("wood", 0.16, Color(0.66, 0.45, 0.31))
 	table_top.visibility_range_end = 90.0
@@ -1064,32 +1083,61 @@ func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -
 	cup_mesh.radial_segments = 8
 	cup.mesh = cup_mesh
 	cup.material_override = m._soft_mat(accent.lightened(0.28))
-	cup.position = base + Vector3(3.3, 2.46, -0.8)
+	cup.position = base + Vector3(3.45, 2.46, 1.65)
 	cup.visibility_range_end = 75.0
 	m.add_child(cup)
 	m.game_nodes.append(cup)
 
 
-func _village_house_bonus(base: Vector3, house_index: int) -> void:
+func _village_house_collectible(base: Vector3, house_index: int) -> void:
 	var bonus_colors: Array[Color] = [
-		Color(1.0, 0.72, 0.30),
-		Color(0.42, 0.90, 0.84),
-		Color(0.82, 0.58, 1.0),
+		Color(0.35, 0.82, 1.0),
+		Color(1.0, 0.55, 0.48),
+		Color(0.88, 0.70, 1.0),
 	]
-	var bonus: Node3D = LandmarkArtFactory.create_star(1.2,
-		bonus_colors[house_index], false, true)
-	bonus.position = base + Vector3(3.25, 3.55, -3.45)
-	m.add_child(bonus)
-	m.game_nodes.append(bonus)
-	var save_key := "_alpine_house_bonus_%d" % house_index
+	var habitat_scene: PackedScene = ALPINE_HABITAT_SCENES[house_index]
+	var habitat: Node3D = habitat_scene.instantiate() as Node3D
+	habitat.position = base + Vector3(3.15, 0.44, -3.15)
+	m.add_child(habitat)
+	m.game_nodes.append(habitat)
+	var collectible: Node3D = habitat.find_child("Collectible", true, false) as Node3D
+	var cage: Node3D = habitat.find_child("Cage", true, false) as Node3D
+	if not is_instance_valid(collectible):
+		collectible = Node3D.new()
+		collectible.name = "MissingCollectible"
+		habitat.add_child(collectible)
+
+	# A glowing floor ring is the non-reading pointer. It disappears with the
+	# rescued animal, while the aquarium/terrarium/cage remains as a clear record.
+	var halo := MeshInstance3D.new()
+	var halo_mesh := TorusMesh.new()
+	halo_mesh.inner_radius = 1.82
+	halo_mesh.outer_radius = 2.08
+	halo_mesh.rings = 20
+	halo_mesh.ring_segments = 8
+	halo.mesh = halo_mesh
+	halo.material_override = m._soft_mat(bonus_colors[house_index], 1.35)
+	halo.position = base + Vector3(3.15, 0.56, -3.15)
+	m.add_child(halo)
+	m.game_nodes.append(halo)
+
+	var save_key: String = ALPINE_CREATURE_KEYS[house_index]
 	var claimed: bool = bool(m.stickers.get(save_key, false))
-	bonus.visible = not claimed
+	collectible.visible = not claimed
+	halo.visible = not claimed
 	var bonuses: Array = m.g["alpine_house_bonuses"]
 	bonuses.append({
-		"node": bonus,
-		"pos": bonus.position,
-		"base_y": bonus.position.y,
+		"kind": ALPINE_CREATURE_KINDS[house_index],
+		"cage_kind": ALPINE_CREATURE_CAGES[house_index],
+		"habitat": habitat,
+		"cage": cage,
+		"node": collectible,
+		"halo": halo,
+		"pos": base + Vector3(3.15, 2.20, -3.15),
+		"base_position": collectible.position,
+		"base_rotation": collectible.rotation,
 		"color": bonus_colors[house_index],
+		"message": ALPINE_CREATURE_MESSAGES[house_index],
 		"key": save_key,
 		"claimed": claimed,
 		"phase": float(house_index) * 1.7,
@@ -1914,22 +1962,44 @@ func _tick_alpine_house_bonuses(delta: float, ppos: Vector3) -> void:
 		var bonus: Node3D = bonus_data.get("node") as Node3D
 		if not is_instance_valid(bonus):
 			continue
-		bonus.rotate_y(delta * 0.9)
-		bonus.position.y = float(bonus_data["base_y"]) + sin(
-			float(m.g.get("t", 0.0)) * 2.8 + float(bonus_data["phase"])) * 0.32
+		var halo: Node3D = bonus_data.get("halo") as Node3D
+		var base_position: Vector3 = bonus_data["base_position"]
+		var base_rotation: Vector3 = bonus_data["base_rotation"]
+		var time_now: float = float(m.g.get("t", 0.0))
+		var phase: float = float(bonus_data["phase"])
+		var kind: String = bonus_data["kind"]
+		bonus.position = base_position
+		bonus.rotation = base_rotation
+		match kind:
+			"fish":
+				bonus.position.y += sin(time_now * 2.2 + phase) * 0.12
+				bonus.rotation.y += sin(time_now * 1.4 + phase) * 0.32
+			"insect":
+				bonus.position.y += sin(time_now * 3.0 + phase) * 0.05
+				bonus.rotation.y += fposmod(time_now * 0.48 + phase, TAU)
+			"bird":
+				bonus.position.y += sin(time_now * 2.0 + phase) * 0.08
+				bonus.rotation.y += sin(time_now * 1.15 + phase) * 0.22
+				bonus.rotation.z += sin(time_now * 1.8 + phase) * 0.035
+		if is_instance_valid(halo):
+			halo.rotate_y(delta * 0.55)
+			halo.scale = Vector3.ONE * (1.0 + sin(time_now * 3.0 + phase) * 0.07)
 		var bonus_pos: Vector3 = bonus_data["pos"]
 		if bonus_pos.distance_to(ppos) >= 4.6:
 			continue
 		bonus_data["claimed"] = true
 		bonus.visible = false
+		if is_instance_valid(halo):
+			halo.visible = false
 		var save_key: String = bonus_data["key"]
 		var bonus_color: Color = bonus_data["color"]
+		var rescue_message: String = bonus_data["message"]
 		m.stickers[save_key] = true
 		m.pearl_count += 1
 		m._write_save()
-		m._sparkle_burst(bonus.position, bonus_color)
+		m._sparkle_burst(bonus_pos, bonus_color)
 		m._fanfare()
-		m.show_msg("Roshan", "A cozy chalet surprise! One rainbow pearl!", "pearl")
+		m.show_msg("Roshan", rescue_message + " One rainbow pearl!", "pearl")
 
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
