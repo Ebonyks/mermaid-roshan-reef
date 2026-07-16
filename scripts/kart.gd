@@ -2,6 +2,7 @@ extends Node3D
 class_name KartGame
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -1631,19 +1632,9 @@ void fragment(){
 				dome.material_override = jmat
 				holder.add_child(dome)
 			"cloud":
-				for i in range(3):
-					var cl := MeshInstance3D.new()
-					var cm := SphereMesh.new()
-					cm.radius = [2.6, 2.0, 1.7][i]
-					cm.height = cm.radius * 2.0
-					cl.mesh = cm
-					var cmat := StandardMaterial3D.new()
-					cmat.albedo_color = Color(0.7, 0.6, 0.95, 0.5)
-					cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-					cmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-					cl.material_override = cmat
-					cl.position = Vector3([-2.2, 1.6, 0.2][i], [0.6, 0.4, 1.8][i], [0.4, -1.2, 0.9][i])
-					holder.add_child(cl)
+				var cl: Node3D = LandmarkArtFactory.create_cloud(2.7, int(s0) % 3, true)
+				cl.position = Vector3(0.0, 0.7, 0.0)
+				holder.add_child(cl)
 				# the "z Z z" makes it read SLEEPY, not decorative
 				var zz := Label3D.new()
 				zz.text = "z Z z"

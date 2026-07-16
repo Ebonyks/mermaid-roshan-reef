@@ -1,5 +1,7 @@
 class_name CastleHall
 extends RefCounted
+
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
@@ -328,13 +330,8 @@ func build(o: Vector3) -> void:
 		bulb.position = ch.position
 		m.add_child(bulb)
 		m.game_nodes.append(bulb)
-	# the crown Star atop the throne — the goal
-	var crown := Label3D.new()
-	crown.text = "\u2605"
-	crown.font_size = 340
-	crown.modulate = Color(1.0, 0.9, 0.3)
-	crown.outline_size = 34
-	crown.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# The goal is authored landmark geometry, not a font glyph.
+	var crown: Node3D = LandmarkArtFactory.create_star(5.2, Color(1.0, 0.76, 0.24), true)
 	crown.position = o + Vector3(0, 24.0, -28.0)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
@@ -449,11 +446,7 @@ func build_expansion(o: Vector3) -> void:
 	scope.rotation_degrees = Vector3(-30, 20, 0)
 	m._l2_box(o + Vector3(-24, 34.2, -55), Vector3(2.6, 1.4, 2.6), Color(0.5, 0.4, 0.3))
 	for st in range(14):
-		var star := Label3D.new()
-		star.text = "✦"
-		star.font_size = 64 + (st % 3) * 28
-		star.modulate = Color(1.0, 0.95, 0.6, 0.9)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var star: Node3D = LandmarkArtFactory.create_star(0.7 + float(st % 3) * 0.18, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][st % 3], false, true)
 		star.position = o + Vector3(-30.0 + float(st % 7) * 4.3, 42.0 + float(st % 4) * 1.6, -60.5 + float(st / 7) * 2.0)
 		m.add_child(star)
 		m.game_nodes.append(star)
@@ -1378,7 +1371,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Princess Huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!", "hero")
 		else:
 			m.show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
-	var crown: Label3D = m.l2_stars[0]["node"]
+	var crown: Node3D = m.l2_stars[0]["node"]
 	crown.rotate_y(delta * 1.4)
 	crown.position.y += sin(float(m.g["t"]) * 2.0) * 0.02
 	# Touching the Crown Star CELEBRATES IN PLACE (owner 2026-07-12: it used to

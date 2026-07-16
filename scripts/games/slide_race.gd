@@ -73,9 +73,9 @@ func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	m.hud_game.text = ("Climb the play place! Sparkles: %d / %d" if m.game == "race" else "Dive the caverns! Sparkles: %d / %d") % [done, checks.size()]
 	if nxt.is_empty():
 		return
-	var node: MeshInstance3D = nxt["node"]
+	var node: Node3D = nxt["node"]
 	node.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 5.0) * 0.15)
-	node.rotate_y(delta * 1.5)
+	node.rotate_z(delta * 0.75)
 	# Phase 6: the FIRST sparkle must be earned — swim toward it to arm the
 	# course. Until armed the magnet is off and checkpoints are inert, so a
 	# player who does nothing goes nowhere; one little push starts the ride
