@@ -33,6 +33,10 @@ func _fresh_main() -> Node3D:
 	return main
 
 func _init() -> void:
+	if DisplayServer.get_name() == "headless":
+		print("ART_AUDIT|RESULT: HEADLESS SKIP (visual capture requires a display renderer)")
+		quit()
+		return
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	camera = Camera3D.new()
 	camera.fov = 66.0

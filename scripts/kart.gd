@@ -482,6 +482,7 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_main = main
 	_finish_cb = finish_cb
 	_rev = reversed_track
+	_player_acted = false
 	_payout_banked = 0
 	_payout_dirty = false
 	_completion_committed = false

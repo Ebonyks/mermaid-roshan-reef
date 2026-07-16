@@ -14,7 +14,7 @@ const BOOL_KEYS: Array[String] = [
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 ]
 const DICTIONARY_KEYS: Array[String] = [
-	"won", "found", "crafts", "stickers", "owned", "animals",
+	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
 const KNOWN_KEYS: Array[String] = [
@@ -33,50 +33,28 @@ func _init(main: ReefMain, path_override: String = "") -> void:
 	m = main
 	save_path = path_override if not path_override.is_empty() else m.SAVE_PATH
 
-func _read_save_dict(path: String) -> Variant:
-	if not FileAccess.file_exists(path):
-		return null
-	var f: FileAccess = FileAccess.open(path, FileAccess.READ)
-	if f == null:
-		return null
-	var d: Variant = JSON.parse_string(f.get_as_text())
-	return d if d is Dictionary else null
-
-func _recover_save_if_needed() -> Variant:
-	# Compare transaction generations, not just existence: Android can kill the
-	# app after a newer .tmp is flushed but before the older primary is rotated.
-	# Ties prefer the primary because it is listed first.
-	var candidates: Array[String] = [m.SAVE_PATH, m.SAVE_PATH + ".tmp0", m.SAVE_PATH + ".tmp1", m.SAVE_PATH + ".tmp", m.SAVE_PATH + ".bak"]
-	var best_path := ""
-	var best_data: Variant = null
-	var best_generation := -1
-	for candidate: String in candidates:
-		var candidate_data: Variant = _read_save_dict(candidate)
-		if not (candidate_data is Dictionary):
-			continue
-		var generation: int = int((candidate_data as Dictionary).get("save_generation", 0))
-		if generation > best_generation:
-			best_generation = generation
-			best_path = candidate
-			best_data = candidate_data
-	if not (best_data is Dictionary):
-		return null
-	if best_path != m.SAVE_PATH:
-		var save_abs: String = ProjectSettings.globalize_path(m.SAVE_PATH)
-		var best_abs: String = ProjectSettings.globalize_path(best_path)
-		var can_promote := true
-		if FileAccess.file_exists(m.SAVE_PATH):
-			can_promote = DirAccess.remove_absolute(save_abs) == OK
-		if can_promote:
-			# If promotion fails, the validated candidate remains in place and will
-			# still win the generation comparison on the next launch.
-			DirAccess.rename_absolute(best_abs, save_abs)
-	return best_data
-
 func load_save() -> void:
-	var loaded: Variant = _recover_save_if_needed()
-	if loaded is Dictionary:
-		m.save_data = loaded
+	future_schema_read_only = false
+	var selected: Dictionary = _select_load_candidate()
+	if bool(selected.get("valid", false)):
+		var selected_data: Dictionary = selected.get("data", {})
+		m.save_data = selected_data.duplicate(true)
+		var source_path: String = String(selected.get("path", ""))
+		future_schema_read_only = bool(selected.get("future", false))
+		if future_schema_read_only:
+			push_warning("SaveState: save schema is newer than this build; preserving it read-only")
+		else:
+			var backup: Dictionary = _read_save_candidate(_backup_path())
+			if not bool(backup.get("clean", false)):
+				if not _install_backup(m.save_data):
+					push_warning("SaveState: could not establish a last-known-good backup")
+			if source_path != save_path or bool(selected.get("changed", false)):
+				if source_path != save_path:
+					push_warning("SaveState: recovered progress from %s" % source_path)
+				if not _repair_primary(m.save_data):
+					push_warning("SaveState: recovery loaded in memory but the primary file could not be repaired")
+	else:
+		m.save_data = _normalise_save({})
 	m.save_generation = int(m.save_data.get("save_generation", 0))
 	m.finale_done = bool(m.save_data.get("finale", false))
 	m.level2_done_once = bool(m.save_data.get("level2", false))
@@ -134,51 +112,417 @@ func load_save() -> void:
 	m._update_hud()
 
 func write_save() -> bool:
-	var won_d := {}
-	var found_d := {}
+	# Recheck disk at the write boundary too: callers can construct SaveState and
+	# write without calling load_save() first, and a recovery copy may be the only
+	# surviving N+1 document.
+	if future_schema_read_only or not _find_future_candidate().is_empty():
+		future_schema_read_only = true
+		push_warning("SaveState: skipped write because a newer save schema is loaded")
+		return true
+	var won_d: Dictionary = {}
+	var found_d: Dictionary = {}
 	for f2 in m.friends:
 		won_d[String(f2["fname"])] = bool(f2["won"])
 		found_d[String(f2["fname"])] = bool(f2["found"])
-	var next_generation: int = m.save_generation + 1
-	var next_save_data: Dictionary = {"won": won_d, "found": found_d, "finale": m.finale_done, "music": m.music_on, "quality": m.quality, "pearls": m.pearl_count, "skin": m.skin_id, "level2": m.level2_done_once, "plays": m.plays, "custom_fish": m.custom_fish, "custom_friends": m.custom_friends, "crafts": m.craft_unlocks, "galaxy": m.galaxy_unlocked, "bwdone": m.bwd_done, "fairyskin": m.fairy_skin_unlocked, "combat_ice": m.combat_ice_done, "combat_fire": m.combat_fire_done, "dungeon_progress": m.dungeon_progress, "dungeon_done": m.dungeon_done, "stickers": m.stickers, "owned": m.shop_owned, "animals": m.animals_owned, "critters": m.critter_collection, "save_generation": next_generation}
-	# Alternate staging slots by generation. A retry never deletes the previous
-	# complete temp before its replacement is flushed, so a kill/open failure at
-	# any point still leaves at least the last durable generation recoverable.
-	var temp_path: String = m.SAVE_PATH + (".tmp%d" % (next_generation & 1))
-	var backup_path: String = m.SAVE_PATH + ".bak"
-	var temp_abs: String = ProjectSettings.globalize_path(temp_path)
-	var save_abs: String = ProjectSettings.globalize_path(m.SAVE_PATH)
-	var backup_abs: String = ProjectSettings.globalize_path(backup_path)
-	if FileAccess.file_exists(temp_path):
-		if DirAccess.remove_absolute(temp_abs) != OK:
-			return false
-	var f: FileAccess = FileAccess.open(temp_path, FileAccess.WRITE)
-	if f == null:
+	# Start with the loaded document so keys from later builds survive a round
+	# trip through this one. Known fields are then replaced by current state.
+	m.pearls_ever = maxi(m.pearls_ever, m.pearl_count)
+	var next_data: Dictionary = _normalise_save(m.save_data)
+	var next_generation: int = maxi(m.save_generation, int(next_data.get("save_generation", 0))) + 1
+	next_data["schema_version"] = maxi(int(next_data.get("schema_version", SCHEMA_VERSION)), SCHEMA_VERSION)
+	next_data["won"] = won_d
+	next_data["found"] = found_d
+	next_data["finale"] = m.finale_done
+	next_data["music"] = m.music_on
+	next_data["quality"] = m.quality
+	next_data["pearls"] = maxi(m.pearl_count, 0)
+	next_data["pearls_ever"] = maxi(m.pearls_ever, 0)
+	next_data["portal_unlocked"] = m.portal_unlocked
+	next_data["skin"] = m.skin_id
+	next_data["level2"] = m.level2_done_once
+	next_data["plays"] = maxi(m.plays, 0)
+	next_data["custom_fish"] = m.custom_fish
+	next_data["custom_friends"] = m.custom_friends
+	next_data["crafts"] = m.craft_unlocks
+	next_data["galaxy"] = m.galaxy_unlocked
+	next_data["bwdone"] = m.bwd_done
+	next_data["fairyskin"] = m.fairy_skin_unlocked
+	next_data["combat_ice"] = m.combat_ice_done
+	next_data["combat_fire"] = m.combat_fire_done
+	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
+	next_data["dungeon_done"] = m.dungeon_done
+	next_data["stickers"] = m.stickers
+	next_data["owned"] = m.shop_owned
+	next_data["animals"] = m.animals_owned
+	next_data["critters"] = m.critter_collection
+	next_data["save_generation"] = next_generation
+	var normalised: Dictionary = _normalise_save(next_data)
+	if not _commit_save(normalised):
+		push_error("SaveState: progress remains in memory, but could not be written safely")
 		return false
-	f.store_string(JSON.stringify(next_save_data))
-	f.flush()
-	var write_ok: bool = f.get_error() == OK
-	f.close()
-	if not write_ok:
-		DirAccess.remove_absolute(temp_abs)
-		return false
-	# Only now may retries advance to the other slot: this generation is fully
-	# flushed and remains a recovery candidate even if every later rename fails.
+	m.save_data = normalised
 	m.save_generation = next_generation
-	m.save_data = next_save_data
-	if FileAccess.file_exists(backup_path):
-		if DirAccess.remove_absolute(backup_abs) != OK:
-			return false
-	var had_save: bool = FileAccess.file_exists(m.SAVE_PATH)
-	if had_save and DirAccess.rename_absolute(save_abs, backup_abs) != OK:
-		return false
-	if DirAccess.rename_absolute(temp_abs, save_abs) != OK:
-		if had_save and FileAccess.file_exists(backup_path):
-			DirAccess.rename_absolute(backup_abs, save_abs)
-		return false
-	# The new primary is durable. Older transaction artifacts can now be removed;
-	# cleanup failure is harmless because generation selection ignores them.
-	for stale_path: String in [m.SAVE_PATH + ".tmp0", m.SAVE_PATH + ".tmp1", m.SAVE_PATH + ".tmp", backup_path]:
-		if FileAccess.file_exists(stale_path):
-			DirAccess.remove_absolute(ProjectSettings.globalize_path(stale_path))
 	return true
+
+func _select_load_candidate() -> Dictionary:
+	var paths: Array[String] = _candidate_paths()
+	var candidates: Array[Dictionary] = []
+	for path: String in paths:
+		candidates.append(_read_save_candidate(path))
+	# Never choose an older clean fallback before discovering an N+1 recovery
+	# copy later in the list. Preserving the newest schema outranks repair order.
+	for candidate: Dictionary in candidates:
+		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
+			return candidate
+	var primary: Dictionary = candidates[0]
+	var newest_clean: Dictionary = {}
+	var newest_generation: int = -1
+	for candidate: Dictionary in candidates:
+		if not bool(candidate.get("clean", false)):
+			continue
+		var candidate_data: Dictionary = candidate.get("data", {})
+		var generation: int = int(candidate_data.get("save_generation", 0))
+		if newest_clean.is_empty() or generation > newest_generation:
+			newest_clean = candidate
+			newest_generation = generation
+	if bool(primary.get("clean", false)):
+		return newest_clean
+	# Normalise a damaged preference/config field in place instead of rolling
+	# all newer progress back. Critical progression corruption still falls
+	# through to a known-good recovery copy.
+	if bool(primary.get("valid", false)) and bool(primary.get("complete", false)) and bool(primary.get("progress_clean", false)):
+		var primary_data: Dictionary = primary.get("data", {})
+		if newest_clean.is_empty() or int(primary_data.get("save_generation", 0)) >= newest_generation:
+			return primary
+		return newest_clean
+	if not newest_clean.is_empty():
+		return newest_clean
+	var salvage: Dictionary = primary if bool(primary.get("valid", false)) else {}
+	for i in range(1, candidates.size()):
+		var candidate: Dictionary = candidates[i]
+		if salvage.is_empty() and bool(candidate.get("valid", false)):
+			salvage = candidate
+	return salvage
+
+func _recover_save_if_needed() -> Variant:
+	# Compatibility entry point used by the kart durability probe and older
+	# callers. Selection compares transaction generations and repairs the primary
+	# from a newer fully validated staging slot without deleting the source first.
+	var selected: Dictionary = _select_load_candidate()
+	if not bool(selected.get("valid", false)):
+		return null
+	var data: Dictionary = selected.get("data", {})
+	var source_path: String = String(selected.get("path", ""))
+	if source_path != save_path and not bool(selected.get("future", false)):
+		if not _repair_primary(data):
+			push_warning("SaveState: newer recovery data remains staged because primary promotion failed")
+	return data
+
+func _candidate_paths() -> Array[String]:
+	return [
+		save_path,
+		save_path + ".tmp0",
+		save_path + ".tmp1",
+		_temp_path(save_path),
+		_old_path(save_path),
+		_backup_path(),
+		_temp_path(_backup_path()),
+		_old_path(_backup_path()),
+	]
+
+func _find_future_candidate() -> Dictionary:
+	for path: String in _candidate_paths():
+		var candidate: Dictionary = _read_save_candidate(path)
+		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
+			return candidate
+	return {}
+
+func _read_save_candidate(path: String) -> Dictionary:
+	var result: Dictionary = {
+		"valid": false,
+		"clean": false,
+		"complete": false,
+		"progress_clean": false,
+		"future": false,
+		"changed": false,
+		"path": path,
+		"data": {},
+	}
+	if not FileAccess.file_exists(path):
+		return result
+	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		return result
+	var text: String = file.get_as_text()
+	file.close()
+	if text.strip_edges().is_empty():
+		return result
+	var json: JSON = JSON.new()
+	var parse_error: Error = json.parse(text)
+	if parse_error != OK:
+		return result
+	var parsed: Variant = json.data
+	if typeof(parsed) != TYPE_DICTIONARY:
+		return result
+	var raw: Dictionary = parsed
+	if not _looks_like_save(raw):
+		return result
+	var normalised: Dictionary = _normalise_save(raw)
+	var version: int = _schema_version(raw)
+	var future: bool = version > SCHEMA_VERSION
+	var complete: bool = _has_complete_schema(raw)
+	result["valid"] = true
+	result["clean"] = _known_types_are_valid(raw) and complete
+	result["complete"] = complete
+	result["progress_clean"] = _progress_types_are_valid(raw)
+	result["future"] = future
+	result["changed"] = raw != normalised
+	result["data"] = normalised
+	return result
+
+func _looks_like_save(data: Dictionary) -> bool:
+	for key: String in KNOWN_KEYS:
+		if data.has(key):
+			return true
+	return false
+
+func _schema_version(data: Dictionary) -> int:
+	if not data.has("schema_version") or not _is_nonnegative_integer(data["schema_version"]):
+		return 0
+	return int(data["schema_version"])
+
+func _has_complete_schema(data: Dictionary) -> bool:
+	var version: int = _schema_version(data)
+	if version > SCHEMA_VERSION:
+		return true
+	if data.has("schema_version"):
+		for key: String in KNOWN_KEYS:
+			if not data.has(key):
+				return false
+		return true
+	# Legacy releases had no schema marker, but every genuine save contained
+	# these core progression fields. A one-key JSON fragment is not a save.
+	return data.has("won") and data.has("found") and data.has("pearls") and data.has("plays")
+
+func _progress_types_are_valid(data: Dictionary) -> bool:
+	for key: String in BOOL_KEYS:
+		if key == "music":
+			continue
+		if data.has(key) and typeof(data[key]) != TYPE_BOOL:
+			return false
+	for key: String in DICTIONARY_KEYS:
+		if data.has(key) and typeof(data[key]) != TYPE_DICTIONARY:
+			return false
+	for key: String in ARRAY_KEYS:
+		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
+			return false
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "save_generation"]:
+		if data.has(key) and not _is_nonnegative_integer(data[key]):
+			return false
+	return true
+
+func _known_types_are_valid(data: Dictionary) -> bool:
+	for key: String in BOOL_KEYS:
+		if data.has(key) and typeof(data[key]) != TYPE_BOOL:
+			return false
+	for key: String in DICTIONARY_KEYS:
+		if data.has(key) and typeof(data[key]) != TYPE_DICTIONARY:
+			return false
+	for key: String in ARRAY_KEYS:
+		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
+			return false
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "plays", "save_generation"]:
+		if data.has(key) and not _is_nonnegative_integer(data[key]):
+			return false
+	if data.has("quality"):
+		if typeof(data["quality"]) != TYPE_STRING or not (String(data["quality"]) in ["speedy", "sparkly"]):
+			return false
+	if data.has("skin") and (typeof(data["skin"]) != TYPE_STRING or String(data["skin"]).is_empty()):
+		return false
+	return true
+
+func _normalise_save(raw: Dictionary) -> Dictionary:
+	var data: Dictionary = raw.duplicate(true)
+	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
+	var version: int = _nonnegative_int_or_default(raw, "schema_version", SCHEMA_VERSION)
+	data["schema_version"] = maxi(version, SCHEMA_VERSION)
+	data["won"] = _dictionary_or_default(raw, "won")
+	data["found"] = _dictionary_or_default(raw, "found")
+	data["finale"] = _bool_or_default(raw, "finale", false)
+	data["music"] = _bool_or_default(raw, "music", true)
+	data["quality"] = _quality_or_default(raw, qdef)
+	var pearls: int = _nonnegative_int_or_default(raw, "pearls", 0)
+	data["pearls"] = pearls
+	data["pearls_ever"] = maxi(pearls, _nonnegative_int_or_default(raw, "pearls_ever", pearls))
+	data["portal_unlocked"] = _bool_or_default(raw, "portal_unlocked", false)
+	data["skin"] = _string_or_default(raw, "skin", "classic")
+	data["level2"] = _bool_or_default(raw, "level2", false)
+	data["plays"] = _nonnegative_int_or_default(raw, "plays", 0)
+	data["custom_fish"] = _array_or_default(raw, "custom_fish")
+	data["custom_friends"] = _array_or_default(raw, "custom_friends")
+	data["crafts"] = _dictionary_or_default(raw, "crafts")
+	data["galaxy"] = _bool_or_default(raw, "galaxy", false)
+	data["bwdone"] = _bool_or_default(raw, "bwdone", false)
+	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)
+	data["combat_ice"] = _bool_or_default(raw, "combat_ice", false)
+	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
+	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)
+	data["dungeon_done"] = _bool_or_default(raw, "dungeon_done", false)
+	data["stickers"] = _dictionary_or_default(raw, "stickers")
+	data["owned"] = _dictionary_or_default(raw, "owned")
+	data["animals"] = _dictionary_or_default(raw, "animals")
+	data["critters"] = _dictionary_or_default(raw, "critters")
+	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
+	return data
+
+func _bool_or_default(data: Dictionary, key: String, default_value: bool) -> bool:
+	var value: Variant = data.get(key, default_value)
+	return bool(value) if typeof(value) == TYPE_BOOL else default_value
+
+func _dictionary_or_default(data: Dictionary, key: String) -> Dictionary:
+	var value: Variant = data.get(key, {})
+	if typeof(value) == TYPE_DICTIONARY:
+		var dictionary: Dictionary = value
+		return dictionary.duplicate(true)
+	return {}
+
+func _array_or_default(data: Dictionary, key: String) -> Array:
+	var value: Variant = data.get(key, [])
+	if typeof(value) == TYPE_ARRAY:
+		var array: Array = value
+		return array.duplicate(true)
+	return []
+
+func _string_or_default(data: Dictionary, key: String, default_value: String) -> String:
+	var value: Variant = data.get(key, default_value)
+	if typeof(value) == TYPE_STRING and not String(value).is_empty():
+		return String(value)
+	return default_value
+
+func _quality_or_default(data: Dictionary, default_value: String) -> String:
+	var value: Variant = data.get("quality", default_value)
+	if typeof(value) == TYPE_STRING and String(value) in ["speedy", "sparkly"]:
+		return String(value)
+	return default_value
+
+func _nonnegative_int_or_default(data: Dictionary, key: String, default_value: int) -> int:
+	var value: Variant = data.get(key, default_value)
+	return int(value) if _is_nonnegative_integer(value) else default_value
+
+func _is_nonnegative_integer(value: Variant) -> bool:
+	if typeof(value) == TYPE_INT:
+		return int(value) >= 0
+	if typeof(value) == TYPE_FLOAT:
+		var number: float = float(value)
+		return is_finite(number) and number >= 0.0 and number == floorf(number)
+	return false
+
+func _commit_save(data: Dictionary) -> bool:
+	var primary_temp: String = _temp_path(save_path)
+	if not _write_checked_file(primary_temp, data):
+		return false
+	var primary_before: Dictionary = _read_save_candidate(save_path)
+	var backup_before: Dictionary = _read_save_candidate(_backup_path())
+	var backup_ready: bool = bool(backup_before.get("clean", false))
+	if bool(primary_before.get("clean", false)):
+		var previous_data: Dictionary = primary_before.get("data", {})
+		backup_ready = _install_backup(previous_data)
+		if not backup_ready and bool(backup_before.get("clean", false)):
+			backup_ready = true
+			push_warning("SaveState: keeping the existing valid backup because it could not be refreshed")
+	elif not backup_ready:
+		backup_ready = _install_backup(data)
+	if not backup_ready:
+		_remove_temporary(primary_temp)
+		return false
+	if not _replace_file(primary_temp, save_path):
+		return false
+	var installed: Dictionary = _read_save_candidate(save_path)
+	if not bool(installed.get("clean", false)):
+		push_error("SaveState: primary verification failed after installation; backup was retained")
+		return false
+	return true
+
+func _install_backup(data: Dictionary) -> bool:
+	var backup_path: String = _backup_path()
+	var backup_temp: String = _temp_path(backup_path)
+	if not _write_checked_file(backup_temp, data):
+		return false
+	if not _replace_file(backup_temp, backup_path):
+		return false
+	var installed: Dictionary = _read_save_candidate(backup_path)
+	return bool(installed.get("clean", false))
+
+func _repair_primary(data: Dictionary) -> bool:
+	var primary_temp: String = _temp_path(save_path)
+	if not _write_checked_file(primary_temp, data):
+		return false
+	return _replace_file(primary_temp, save_path)
+
+func _write_checked_file(path: String, data: Dictionary) -> bool:
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		push_error("SaveState: could not open %s for writing" % path)
+		return false
+	file.store_string(JSON.stringify(data))
+	file.flush()
+	var write_error: Error = file.get_error()
+	file.close()
+	if write_error != OK:
+		push_error("SaveState: write failed for %s (error %d)" % [path, write_error])
+		return false
+	var checked: Dictionary = _read_save_candidate(path)
+	if not bool(checked.get("clean", false)):
+		push_error("SaveState: refused an invalid temporary save at %s" % path)
+		return false
+	return true
+
+func _replace_file(source_path: String, target_path: String) -> bool:
+	var source_absolute: String = ProjectSettings.globalize_path(source_path)
+	var target_absolute: String = ProjectSettings.globalize_path(target_path)
+	# POSIX rename replaces the destination atomically. Windows may reject that
+	# form, so retain the old target until the new file has landed.
+	var direct_error: Error = DirAccess.rename_absolute(source_absolute, target_absolute)
+	if direct_error == OK:
+		return true
+	if not FileAccess.file_exists(target_path):
+		push_error("SaveState: could not install %s (error %d)" % [target_path, direct_error])
+		return false
+	var old_path: String = _old_path(target_path)
+	if FileAccess.file_exists(old_path):
+		var stale_remove_error: Error = DirAccess.remove_absolute(ProjectSettings.globalize_path(old_path))
+		if stale_remove_error != OK:
+			push_error("SaveState: preserved target because stale recovery file could not be removed")
+			return false
+	var move_old_error: Error = DirAccess.rename_absolute(target_absolute, ProjectSettings.globalize_path(old_path))
+	if move_old_error != OK:
+		push_error("SaveState: preserved target because it could not be staged (error %d)" % move_old_error)
+		return false
+	var install_error: Error = DirAccess.rename_absolute(source_absolute, target_absolute)
+	if install_error != OK:
+		var restore_error: Error = DirAccess.rename_absolute(ProjectSettings.globalize_path(old_path), target_absolute)
+		if restore_error != OK:
+			push_error("SaveState: install and rollback both failed; recovery copies remain on disk")
+		else:
+			push_error("SaveState: install failed; the previous file was restored")
+		return false
+	var remove_error: Error = DirAccess.remove_absolute(ProjectSettings.globalize_path(old_path))
+	if remove_error != OK:
+		push_warning("SaveState: new file installed; an extra recovery copy remains at %s" % old_path)
+	return true
+
+func _remove_temporary(path: String) -> void:
+	if not FileAccess.file_exists(path):
+		return
+	var remove_error: Error = DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	if remove_error != OK:
+		push_warning("SaveState: could not remove temporary file %s" % path)
+
+func _backup_path() -> String:
+	return save_path + BACKUP_SUFFIX
+
+func _temp_path(path: String) -> String:
+	return path + TEMP_SUFFIX
+
+func _old_path(path: String) -> String:
+	return path + OLD_SUFFIX

@@ -20,7 +20,6 @@ var solved_pairs: Array[int] = []
 var interactives: Array[Dictionary] = []
 var reveal_nodes: Array[Node3D] = []
 var card_labels: Array[Label3D] = []
-var buttons: Array[Button] = []
 var pair_hide: Array[int] = []
 var pair_hide_t := 0.0
 var prev_env: Environment = null
@@ -33,7 +32,6 @@ var hud: CanvasLayer = null
 var objective: Label = null
 var hint: Label = null
 var pointer: Label3D = null
-var touch_pointer: Label = null
 var clue_pos := CENTER + Vector3(0, 8.0, -12.0)
 var materials := {}
 
@@ -408,8 +406,6 @@ func _pair_action(choice: int) -> void:
 	if first_root.get_meta("symbol") == card_root.get_meta("symbol") and selected != choice:
 		solved_pairs.append(selected)
 		solved_pairs.append(choice)
-		buttons[selected].disabled = true
-		buttons[choice].disabled = true
 		selected = -1
 		_step_chime(2)
 		if solved_pairs.size() == card_labels.size():
@@ -434,8 +430,6 @@ func _gentle_hint() -> void:
 func _update_visuals() -> void:
 	if objective == null or state != "play":
 		return
-	if touch_pointer != null:
-		touch_pointer.visible = false
 	var solution: Array = config.get("solution", [])
 	match puzzle_kind:
 		"sequence": objective.text = "♫  SWIM TO THE CRYSTALS IN PICTURE ORDER  ♫"
