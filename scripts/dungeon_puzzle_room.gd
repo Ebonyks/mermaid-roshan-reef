@@ -163,6 +163,10 @@ func _add_pad(index: int, pos: Vector3, symbol: String, col: Color) -> Node3D:
 	interactives.append({"index": index, "node": root, "label": label, "pos": pos})
 	return root
 
+func _choice_color(index: int) -> Color:
+	var palette := [Color(0.28, 0.72, 1.0), Color(1.0, 0.38, 0.22), Color(0.72, 0.42, 1.0), Color(0.25, 0.82, 0.55)]
+	return palette[index % palette.size()]
+
 func _build_props() -> void:
 	match puzzle_kind:
 		"sequence", "elemental":
