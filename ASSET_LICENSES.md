@@ -111,6 +111,9 @@
 | assets/mg/seed.png | OpenAI ChatGPT score-3 garden icon rebuild | **Project-generated art** | assets_src/style_review_score3/seed.png | 512px transparent seed icon; previous file archived; generated 2026-07-15 |
 | assets/mg/butterfly.png | Approved project-generated complete butterfly card, adapted from the GEN2 butterfly family | **Project-generated art** | assets/props/gen2/butterfly1.png | resized to 512px for garden-minigame use; previous wing-only file archived; promoted 2026-07-15 |
 | backups/art_pre_score3_2026-07-15/** | Snapshots of every runtime raster overwritten by the score-3 rebuild | **Same license as each original mirrored asset** | original repository paths and this ledger | reversal archive plus restore script; created 2026-07-15 |
+| assets/collectibles/*.glb | Eighteen Critter Book species plus the storybook catch net, modeled and palette-skinned in Blender 4.4.3 for this project | **Project-generated art** | tools/build_collection_critters.py | Rounded low-poly primitives; embedded matte materials only; no external textures or source meshes; Mobile-safe exports; generated 2026-07-15 |
+| assets_src/blender/collection_critters.blend | Editable Blender source scene for all Critter Book species and the catch net | **Project-generated source art** | tools/build_collection_critters.py | Contains fish, seahorse, insect and bird anatomy families with distinct per-species material skins; generated 2026-07-15 |
+| assets_src/blender/qa_collection_critters.png | Blender Eevee overview render of the complete Critter Book asset family | **Project-generated review art** | assets_src/blender/collection_critters.blend | Visual QA only; transparent 1200x700 render; generated 2026-07-15 |
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file

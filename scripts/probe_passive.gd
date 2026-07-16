@@ -20,6 +20,15 @@ func _init() -> void:
 	player = main.player
 	print("PASSIVE|boot OK")
 	var bad := 0
+	# Ambient critters may sparkle and move, but zero input can never add them.
+	main.critter_collection = {}
+	main.touch_ui.action_down = false
+	await _frames(120)
+	if main._collection_ref().caught_count() != 0:
+		print("PASSIVE|Critter Book: FAIL collected with zero input")
+		bad += 1
+	else:
+		print("PASSIVE|Critter Book: OK not collected")
 	for fi in range(5):
 		var f: Dictionary = main.friends[fi]
 		var fname := String(f["fname"])
