@@ -406,6 +406,8 @@ func _pair_action(choice: int) -> void:
 	if first_root.get_meta("symbol") == card_root.get_meta("symbol") and selected != choice:
 		solved_pairs.append(selected)
 		solved_pairs.append(choice)
+		buttons[selected].disabled = true
+		buttons[choice].disabled = true
 		selected = -1
 		_step_chime(2)
 		if solved_pairs.size() == card_labels.size():
@@ -430,6 +432,8 @@ func _gentle_hint() -> void:
 func _update_visuals() -> void:
 	if objective == null or state != "play":
 		return
+	if touch_pointer != null:
+		touch_pointer.visible = false
 	var solution: Array = config.get("solution", [])
 	match puzzle_kind:
 		"sequence": objective.text = "♫  SWIM TO THE CRYSTALS IN PICTURE ORDER  ♫"
@@ -458,6 +462,13 @@ func force_solve() -> void:
 	_solve()
 
 func cancel() -> void:
+	# Opening the door is the earned completion moment. If the child taps Home
+	# during the short celebration, checkpoint it instead of discarding it.
+	if state == "celebrate":
+		_finish()
+		return
+	if state == "done" or state == "cancelled":
+		return
 	state = "cancelled"
 	_restore_environment()
 	queue_free()

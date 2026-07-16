@@ -154,17 +154,25 @@ func _init() -> void:
 	main._respawn_pearls()
 	print("AUDIT|Pearl respawn: ", ("OK" if collected and main.pearls.size() == 10 else "FAIL"))
 	# --- level 2 ---
-	main.pearl_count = main.PEARL_TOTAL
+	main.portal_unlocked = false
+	main.pearl_count = main.PEARL_TOTAL - 1
+	main.pearls_ever = main.PEARL_TOTAL - 1
 	for f in main.friends:
 		f["found"] = true
 		f["won"] = true
 	main.trophies = 5
+	main._check_level2_unlock(player.position, 0.1)
+	print("AUDIT|Level 2 nine-pearl lock: ", ("OK" if not main.portal_unlocked and main.portal_node == null else "FAIL"))
+	main.pearl_count = main.PEARL_TOTAL
 	var pf := 0
 	while main.portal_node == null and pf < 300:
 		pf += 1
 		main._check_level2_unlock(player.position, 0.1)
 		await process_frame
 	print("AUDIT|Level 2 portal: ", ("OK" if main.portal_node != null else "FAIL"))
+	main.pearl_count = 0
+	main._check_level2_unlock(player.position, 0.1)
+	print("AUDIT|Level 2 portal stays unlocked after spending: ", ("OK" if main.portal_unlocked and main.portal_node != null else "FAIL"))
 	if main.portal_node != null:
 		var rf := 0
 		while main.game == "" and rf < 600:

@@ -151,7 +151,7 @@ func _init() -> void:
 	print("=== LEVEL 2 CHILD-PACED STRESS TEST ===")
 	for l in got_log: print(l)
 	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
-	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "STUCK"), t])
+	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "FAIL (STUCK)"), t])
 	quit()
 
 

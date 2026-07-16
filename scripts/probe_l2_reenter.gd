@@ -34,6 +34,9 @@ func _init() -> void:
 	var n2: int = get_node_count()
 	var toys2: int = (main.g.get("toys", []) as Array).size()
 	print("REENTER|nodes first=%d second=%d toys=%d/%d" % [n1, n2, toys1, toys2])
-	var ok: bool = toys1 == 6 and toys2 == 6 and n2 <= n1 + int(float(n1) * 0.1)
+	# New courtyard activities may legitimately change the absolute toy count.
+	# Re-entry is safe when the rebuilt level has the same non-zero inventory and
+	# the scene tree stays within the original anti-duplication tolerance.
+	var ok: bool = toys1 > 0 and toys2 == toys1 and n2 <= n1 + int(float(n1) * 0.1)
 	print("REENTER|no_duplicate_level: ", ("OK" if ok else "FAIL"))
 	quit()

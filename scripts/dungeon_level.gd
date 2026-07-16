@@ -151,17 +151,25 @@ func _complete_dungeon() -> void:
 	timer.timeout.connect(func(): _finish(true))
 
 func _leave_early() -> void:
+	if state == "celebrate":
+		_finish(true)
+		return
 	if state != "active":
 		return
 	state = "leaving"
 	if arena != null:
-		arena.cancel()
+		# Active rooms are checkpoints, not wins. A room already in its victory
+		# celebration still reports completion through CombatArena._finish().
+		arena.cancel(false)
 		arena = null
 	if puzzle != null:
+		# As with combat, a puzzle whose door has already opened keeps its earned
+		# checkpoint; an unfinished puzzle is only a neutral exit.
 		puzzle.cancel()
 		puzzle = null
-	m.show_msg("Roshan", "Checkpoint saved! We can come back to the next room any time.", "home")
-	_finish(false)
+	var completed: bool = m.dungeon_done
+	m.show_msg("Roshan", "All ten rooms are safe!" if completed else "Checkpoint saved! We can come back to the next room any time.", "win" if completed else "home")
+	_finish(completed)
 
 func _finish(completed: bool) -> void:
 	if state == "done":

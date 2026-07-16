@@ -48,6 +48,9 @@ func _ice_case() -> void:
 	_ck("ice completion saves", main.combat_ice_done)
 
 func _fire_case() -> void:
+	# Fire combat is entered from the live Pearl Castle hall. Build that source
+	# state instead of only labelling an empty probe dictionary as "level2": the
+	# main loop resumes the owning arena on the same frame the combat child exits.
 	main.game = "level2"
 	main.g["t"] = 0.0
 	main._start_combat("fire")

@@ -39,6 +39,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if m.touch_ui != null:
 		if absf(m.touch_ui.stick_vec.x) > 0.15: inx += m.touch_ui.stick_vec.x
 		if absf(m.touch_ui.stick_vec.y) > 0.15: iny -= m.touch_ui.stick_vec.y
+	if absf(inx) > 0.15 or absf(iny) > 0.15:
+		m.g["player_acted"] = true
 	# x negated so 'right' reads screen-right under the overhead camera
 	var ox: float = clampf(float(m.g["ox"]) - clampf(inx, -1.0, 1.0) * m.FS_MOVE * delta, -m.FS_BX, m.FS_BX)
 	var oz: float = clampf(float(m.g["oz"]) + clampf(iny, -1.0, 1.0) * m.FS_MOVE * delta, -m.FS_BZB, m.FS_BZF)
@@ -59,6 +61,12 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var nova_pressed: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
 	if m.touch_ui != null and m.touch_ui.action_down:
 		nova_pressed = true
+	if bool(m.g.get("fairy_wait_release", false)):
+		if not nova_pressed:
+			m.g["fairy_wait_release"] = false
+		nova_pressed = false
+	if nova_pressed:
+		m.g["player_acted"] = true
 	if nova_pressed and float(m.g["nova_cd"]) <= 0.0:
 		m.g["nova_cd"] = m.FS_NOVA_CD
 		for k in range(6):
@@ -98,7 +106,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				var dirv := Vector3(pos.x - bp.x, 0, pos.z - bp.z)
 				if dirv.length() > 0.5:
 					m._fairy_spawn_orb(Vector3(bp.x, origin.y + m.FS_PLANE, bp.z), dirv.normalized())
-	# ---- sparks drift; touching one costs a heart (then a safe sparkle-blink) ----
+	# ---- sparks drift; touching one uses sparkle energy, which refills with
+	# extra safety time instead of ending the game ----
 	var orbs: Array = m.g["orbs"]
 	for oi in range(orbs.size() - 1, -1, -1):
 		var od: Dictionary = orbs[oi]
@@ -117,10 +126,11 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if m.chime != null:
 				m.chime.pitch_scale = 0.7; m.chime.play()
 			if int(m.g["hearts"]) <= 0:
-				m.player.visible = true
 				m.fs_fails += 1
-				m._end_game(false, fr, "The shadow sparks tired Roshan out! Splash back in and try again!", "fail")
-				return
+				m.g["hearts"] = m.FS_HEARTS
+				m.g["hurt_t"] = m.FS_HURT_T * 2.0
+				m.player.visible = true
+				m.show_msg(fr["fname"], "Sparkle shield! Your fairy light is full again — keep flying!", "encourage")
 	# ---- shadow monsters prowl the track: jellies drift, urchins spin,
 	# eels sweep the whole lane — the wand can't zap them, only flying
 	# around them works (one heart on touch, same sparkle-blink mercy) ----
@@ -149,10 +159,11 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if m.chime != null:
 				m.chime.pitch_scale = 0.7; m.chime.play()
 			if int(m.g["hearts"]) <= 0:
-				m.player.visible = true
 				m.fs_fails += 1
-				m._end_game(false, fr, "The shadow monsters tired Roshan out! Splash back in and try again!", "fail")
-				return
+				m.g["hearts"] = m.FS_HEARTS
+				m.g["hurt_t"] = m.FS_HURT_T * 2.0
+				m.player.visible = true
+				m.show_msg(fr["fname"], "Sparkle shield! Your fairy light is full again — keep flying!", "encourage")
 	# ---- wand aim guide floats up-screen of Roshan ----
 	if m.g.has("reticle") and is_instance_valid(m.g["reticle"]):
 		var ret := m.g["reticle"] as Node3D
@@ -252,7 +263,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 					lf["ang"] = float(lf["ang"]) + delta * 0.3
 					(lf["node"] as Node3D).position = center3 + Vector3(cos(float(lf["ang"])) * m.FS_LEAF_RING, -1.0, sin(float(lf["ang"])) * m.FS_LEAF_RING)
 					(lf["node"] as Node3D).scale = Vector3.ONE * (m.FS_LEAF_SCALE * (1.0 + sin(tt * 4.0 + float(lf["ang"])) * 0.06))
-		m.hud_game.text = "Blast the leaves away!   leaves left: %d   %s   ⏱ %d" % [left, hearts_str, int(ceil(pt))]
+		m.hud_game.text = "Blast the leaves away!   leaves left: %d   %s" % [left, hearts_str]
 		if left <= 0:
 			m.g["phase"] = "boss_bud"
 			m.g["phase_t"] = m.FS_BUD_T + 6.0 * float(mini(m.fs_fails, 2))
@@ -260,9 +271,13 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				(m.g["bud"] as Node3D).scale = Vector3.ONE * (m.FS_BUD_SCALE * 0.5)
 			m.show_msg(m.fr_name_safe(), "The flower! Keep blasting to make it grow and bloom!")
 		elif pt <= 0.0:
-			m.player.visible = true
 			m.fs_fails += 1
-			m._end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
+			m.g["phase_t"] = m.FS_LEAF_T + 6.0 * float(mini(m.fs_fails, 2))
+			m.g["hearts"] = m.FS_HEARTS
+			m.g["ring_cd"] = m.FS_RING_CD * 2.0
+			m._fairy_clear_orbs()
+			m.player.visible = true
+			m.show_msg(fr["fname"], "The fairy light made more time! Keep lining up with the leaves!", "encourage")
 		return
 	if phase == "boss_bud":
 		var hp: int = int(m.g["bud_hp"])
@@ -272,14 +287,18 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			var grown: float = lerpf(0.5, 1.4, clampf(1.0 - float(hp) / float(m.FS_BUD_HP), 0.0, 1.0))
 			var pulse: float = 1.0 + sin(tt * 8.0) * 0.05
 			bud.scale = Vector3.ONE * (m.FS_BUD_SCALE * grown * pulse)
-		m.hud_game.text = "Open the flower!   %d hits left   %s   ⏱ %d" % [maxi(0, hp), hearts_str, int(ceil(pt))]
+		m.hud_game.text = "Open the flower!   %d hits left   %s" % [maxi(0, hp), hearts_str]
 		if hp <= 0:
 			m._fairy_bloom_start()
 			m.show_msg(m.fr_name_safe(), "It's blooming! 🌸")
 		elif pt <= 0.0:
-			m.player.visible = true
 			m.fs_fails += 1
-			m._end_game(false, fr, "Oh no — the flower stayed shut! Fly back and try again!", "fail")
+			m.g["phase_t"] = m.FS_BUD_T + 6.0 * float(mini(m.fs_fails, 2))
+			m.g["hearts"] = m.FS_HEARTS
+			m.g["ring_cd"] = m.FS_RING_CD * 2.0
+			m._fairy_clear_orbs()
+			m.player.visible = true
+			m.show_msg(fr["fname"], "The fairy light made more time! Keep growing the flower!", "encourage")
 		return
 	if phase == "boss_bloom":
 		m.g["bloom_t"] = float(m.g.get("bloom_t", 0.0)) - delta
@@ -297,7 +316,14 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		if fmod(tt, 0.18) < delta:
 			m._sparkle_burst(center + Vector3(randf() * 16 - 8, 1.0, randf() * 16 - 8), Color.from_hsv(randf(), 0.4, 1.0))
 		if float(m.g["bloom_t"]) <= 0.0:
+			if not bool(m.g.get("player_acted", false)):
+				m.g["bloom_t"] = 0.0
+				if not bool(m.g.get("awaiting_cheer", false)):
+					m.g["awaiting_cheer"] = true
+					m.show_msg(fr["fname"], "Tap the sparkle or steer to cheer the flower awake!", "hint")
+				return
 			m.player.visible = true
+			m.award_sticker("flower")
 			m.fs_fails = 0
 			m._end_game(true, fr, "The Fairy Flower blossomed! You did it!")
 		return

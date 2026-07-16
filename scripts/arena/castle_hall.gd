@@ -362,7 +362,11 @@ func build(o: Vector3) -> void:
 	crown.set_meta("base_y", crown.position.y)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
-	m.l2_stars = [{"node": crown, "got": false}]
+	# On later visits the Crown Star remains as a royal keepsake, but it cannot
+	# replay the ownership win or pull Roshan toward an already-completed goal.
+	if m.level2_done_once:
+		m.g["crown_won"] = true
+	m.l2_stars = [{"node": crown, "got": m.level2_done_once}]
 	# A short, non-reading sparkle trail connects the runner and stairs to the
 	# crown. It is visual guidance only; the existing objective and collision
 	# contracts remain unchanged.
@@ -376,6 +380,7 @@ func build(o: Vector3) -> void:
 		guide.modulate = Color(1.0, 0.80, 0.28, 0.82)
 		guide.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		guide.position = o + Vector3(0, 5.0 + float(guide_i) * 4.6, -11.0 - float(guide_i) * 5.2)
+		guide.visible = not m.level2_done_once
 		m.add_child(guide)
 		m.game_nodes.append(guide)
 		crown_guides.append(guide)

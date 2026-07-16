@@ -1,14 +1,16 @@
 name: Android APK
 
-# master is the branch the owner pulls and plays (owner rule 2026-07-13),
-# so every master push refreshes the stable android-test download URL.
-# The old claude/replace-assets-free-sources-lnplz7 trigger was dropped:
-# that stale branch also published to android-test and a push there would
-# have clobbered the master channel.
+# Publish only after the probe workflow has passed for the exact commit.
+# A single repository secret supplies the persistent debug signing identity;
+# replacing that identity would make Android reject in-place updates.
 on:
-  push:
-    branches: [master, claude/graphics-upgrade-fork]
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Probe suite (graphics fork)"]
+    types: [completed]
+
+concurrency:
+  group: android-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -19,9 +21,16 @@ env:
 
 jobs:
   build:
+    if: >-
+      github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       (github.event.workflow_run.head_branch == 'master' ||
+        github.event.workflow_run.head_branch == 'claude/graphics-upgrade-fork')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - uses: actions/setup-java@v4
         with:
@@ -38,11 +47,17 @@ jobs:
           unzip -q templates.tpz -d /tmp/tpl
           mv /tmp/tpl/templates/* "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable/"
 
-      - name: Debug keystore + editor settings (Android SDK is preinstalled on the runner)
+      - name: Restore stable signing identity + editor settings
+        env:
+          ANDROID_DEBUG_KEYSTORE_BASE64: ${{ secrets.ANDROID_DEBUG_KEYSTORE_BASE64 }}
         run: |
-          keytool -genkeypair -v -keystore /tmp/debug.keystore -storepass android \
-            -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 \
-            -dname "CN=Android Debug,O=Android,C=US"
+          if [ -z "$ANDROID_DEBUG_KEYSTORE_BASE64" ]; then
+            echo "Missing ANDROID_DEBUG_KEYSTORE_BASE64 repository secret; refusing to rotate the app signing identity."
+            exit 1
+          fi
+          printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" | base64 --decode > /tmp/debug.keystore
+          keytool -list -v -keystore /tmp/debug.keystore -storepass android \
+            -alias androiddebugkey | grep -E "Alias name:|SHA256:"
           mkdir -p "$HOME/.config/godot"
           cat > "$HOME/.config/godot/editor_settings-${GODOT_VERSION}.tres" <<EOF
           [gd_resource type="EditorSettings" format=3]
@@ -66,9 +81,11 @@ jobs:
 
       - name: Export debug APK
         run: |
+          sed -i "s/^version\/code=.*/version\/code=${GITHUB_RUN_NUMBER}/" export_presets.cfg
           mkdir -p build
           godot --headless --path . --export-debug "Android" build/roshan-reef.apk
-          ls -la build/
+          test -s build/roshan-reef.apk
+          sha256sum build/roshan-reef.apk > build/roshan-reef.apk.sha256
 
       # NOTE: no actions/upload-artifact step — each run's ~165MB artifact blew
       # the account's Actions storage quota and, worse, its failure blocked the
@@ -76,8 +93,10 @@ jobs:
       # assets do not count against the artifact quota.
       - name: Pick release tag by branch (graphics fork gets its own channel)
         id: tag
+        env:
+          BUILD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          if [ "${GITHUB_REF_NAME}" = "claude/graphics-upgrade-fork" ]; then
+          if [ "$BUILD_BRANCH" = "claude/graphics-upgrade-fork" ]; then
             echo "tag=android-graphics" >> "$GITHUB_OUTPUT"
             echo "title=Android test build (graphics fork)" >> "$GITHUB_OUTPUT"
           else
@@ -92,11 +111,14 @@ jobs:
           name: ${{ steps.tag.outputs.title }}
           prerelease: true
           body: |
-            Debug APK of Mermaid Roshan Reef of Light (auto-built from the latest push).
+            Debug APK of Mermaid Roshan Reef of Light, built only after the probe suite passed.
+            Commit: ${{ github.event.workflow_run.head_sha }}
             On the phone: download roshan-reef.apk, open it, and allow "install unknown apps" when prompted.
 
             Bookmarkable direct link (always the newest build on this channel):
             https://github.com/${{ github.repository }}/releases/download/${{ steps.tag.outputs.tag }}/roshan-reef.apk
 
             From a computer with the phone plugged in: `./pull-apk.sh`
-          files: build/roshan-reef.apk
+          files: |
+            build/roshan-reef.apk
+            build/roshan-reef.apk.sha256

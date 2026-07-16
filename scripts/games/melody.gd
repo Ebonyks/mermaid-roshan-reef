@@ -29,6 +29,7 @@ func _init(main: ReefMain) -> void:
 
 
 func build(fr: Dictionary, origin: Vector3) -> void:
+	m.g["timer"] = -1.0
 	m.g["caught"] = 0
 	m.g["orbs"] = []
 

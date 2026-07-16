@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Full local gate: fresh import + every trusted probe. Fails on any FAIL line.
+# Full local gate: fresh import + every trusted probe.  Probe user data is
+# isolated so one bot cannot make the next bot pass by pre-winning content.
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."

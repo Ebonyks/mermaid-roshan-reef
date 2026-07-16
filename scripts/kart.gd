@@ -2350,6 +2350,7 @@ func _process(delta: float) -> void:
 			if _main != null and "touch_ui" in _main and _main.touch_ui != null and (_main.touch_ui.stick_vec as Vector2).length() > 0.1:
 				hot = true
 			if hot and _pl != null:
+				_player_acted = true
 				_pl["boost_t"] = 0.9
 				_pl["squash"] = 0.3
 				_chime(1.25)
@@ -2367,6 +2368,8 @@ func _process(delta: float) -> void:
 	var steer := _steer_input()
 	var braking := _brake_input()
 	var fired := _fire_just()
+	if absf(steer) > 0.05 or braking or fired:
+		_player_acted = true
 
 	for k in _karts:
 		if k["is_player"]:
@@ -3250,7 +3253,7 @@ func _finish() -> void:
 		_cam.look_at(c0 + Vector3(0, 4.0, 0), Vector3.UP)
 	var tw := create_tween()
 	tw.tween_interval(3.6)
-	tw.tween_callback(_teardown.bind(place))
+	tw.tween_callback(_teardown.bind(place if _player_acted else -1))
 
 func _teardown(place: int) -> void:
 	# Covers explicit quit and any direct teardown caller. Both helpers are

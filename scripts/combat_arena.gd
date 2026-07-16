@@ -556,10 +556,17 @@ func _finish() -> void:
 		finish_cb.call(kind)
 	queue_free()
 
-func cancel() -> void:
+func cancel(notify_finish: bool = true) -> void:
+	if state == "done":
+		return
+	if state == "won":
+		_finish()   # the victory was already earned; leaving skips only the delay
+		return
 	state = "done"
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	if notify_finish and finish_cb.is_valid():
+		finish_cb.call("")
 	queue_free()
 
 func action_label() -> String:

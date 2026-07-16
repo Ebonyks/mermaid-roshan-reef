@@ -1,13 +1,37 @@
 class_name SaveState
 extends RefCounted
 # Phase 7.1: mechanical extraction of the save/load helpers from main.gd.
-# ALL state stays on main (m.*) — this class owns only the logic, so save
-# compatibility and behavior are unchanged. Received main by reference.
+# ALL state stays on main (m.*) -- this class owns only the logic. Save files
+# are versioned and installed transactionally so a killed write cannot erase a
+# child's progress.
+
+const SCHEMA_VERSION := 1
+const BACKUP_SUFFIX := ".bak"
+const TEMP_SUFFIX := ".tmp"
+const OLD_SUFFIX := ".old"
+const BOOL_KEYS: Array[String] = [
+	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
+	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
+]
+const DICTIONARY_KEYS: Array[String] = [
+	"won", "found", "crafts", "stickers", "owned", "animals",
+]
+const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
+const KNOWN_KEYS: Array[String] = [
+	"schema_version", "won", "found", "finale", "music", "quality",
+	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
+	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
+	"dungeon_progress", "dungeon_done",
+	"stickers", "owned", "animals",
+]
 
 var m: ReefMain
+var save_path: String
+var future_schema_read_only := false
 
-func _init(main: ReefMain) -> void:
+func _init(main: ReefMain, path_override: String = "") -> void:
 	m = main
+	save_path = path_override if not path_override.is_empty() else m.SAVE_PATH
 
 func _read_save_dict(path: String) -> Variant:
 	if not FileAccess.file_exists(path):
@@ -66,12 +90,16 @@ func load_save() -> void:
 	if m.music_btn != null:
 		m.music_btn.text = "Music: On" if m.music_on else "Music: Off"
 	m.pearl_count = int(m.save_data.get("pearls", 0))
+	m.pearls_ever = maxi(m.pearl_count, int(m.save_data.get("pearls_ever", m.pearl_count)))
+	# A completed Level 2 is definitive legacy evidence that the portal opened.
+	# The five-friend finale alone never satisfied the original ten-pearl gate.
+	m.portal_unlocked = bool(m.save_data.get("portal_unlocked", false)) or m.level2_done_once
 	m.custom_fish = m.save_data.get("custom_fish", [])
 	m.custom_friends = m.save_data.get("custom_friends", [])
 	m.craft_unlocks = m.save_data.get("crafts", {})
 	m.stickers = m.save_data.get("stickers", {})
 	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
-	# old saves — kept for save compatibility, no longer applied to the player
+	# old saves -- kept for save compatibility, no longer applied to the player
 	m.shop_owned = m.save_data.get("owned", {})
 	m.animals_owned = m.save_data.get("animals", {})
 	var saved_critters: Variant = m.save_data.get("critters", {})
