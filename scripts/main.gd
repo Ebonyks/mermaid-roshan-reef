@@ -2463,7 +2463,9 @@ func _end_combat(battle_kind: String) -> void:
 	combat_from = ""
 
 func _start_dungeon() -> void:
-	if dungeon_game != null or not combat_ice_done or not combat_fire_done:
+	# The dungeon introduces its elemental actions in context. Requiring the two
+	# optional overworld encounters here made a fresh save impossible to progress.
+	if dungeon_game != null:
 		return
 	game = "dungeon"
 	if hud_layer != null:
