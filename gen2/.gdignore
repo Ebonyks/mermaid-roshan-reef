@@ -1,1 +1,3 @@
-
+# Source concepts and turnarounds only. Runtime assets are promoted into assets/.
+# Several provider downloads retain .png names while containing JPEG bytes, so
+# Godot must never attempt to import this art-production workspace.

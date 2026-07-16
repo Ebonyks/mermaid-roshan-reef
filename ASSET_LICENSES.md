@@ -118,6 +118,9 @@
 | assets_src/blender/qa_alpine_chalet_creatures/alpine_fish_habitat.png | Blender Eevee QA render of the Alpine fish aquarium | **Project-generated review art** | assets_src/blender/alpine_chalet_creatures.blend | 700x700 visual QA render; generated 2026-07-15 |
 | assets_src/blender/qa_alpine_chalet_creatures/alpine_beetle_habitat.png | Blender Eevee QA render of the Alpine beetle terrarium | **Project-generated review art** | assets_src/blender/alpine_chalet_creatures.blend | 700x700 visual QA render; generated 2026-07-15 |
 | assets_src/blender/qa_alpine_chalet_creatures/alpine_bird_habitat.png | Blender Eevee QA render of the Alpine bird cage | **Project-generated review art** | assets_src/blender/alpine_chalet_creatures.blend | 700x700 visual QA render; generated 2026-07-15 |
+| assets/collectibles/*.glb | Eighteen Critter Book species plus the storybook catch net, modeled and palette-skinned in Blender 4.4.3 for this project | **Project-generated art** | tools/build_collection_critters.py | Rounded low-poly primitives; embedded matte materials only; no external textures or source meshes; Mobile-safe exports; generated 2026-07-15 |
+| assets_src/blender/collection_critters.blend | Editable Blender source scene for all Critter Book species and the catch net | **Project-generated source art** | tools/build_collection_critters.py | Contains fish, seahorse, insect and bird anatomy families with distinct per-species material skins; generated 2026-07-15 |
+| assets_src/blender/qa_collection_critters.png | Blender Eevee overview render of the complete Critter Book asset family | **Project-generated review art** | assets_src/blender/collection_critters.blend | Visual QA only; transparent 1200x700 render; generated 2026-07-15 |
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file
