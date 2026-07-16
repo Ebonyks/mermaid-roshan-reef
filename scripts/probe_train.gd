@@ -43,7 +43,7 @@ func _init() -> void:
 	# ---- full-lap clip sweep: crank the speed, drive a whole lap, and the
 	# ---- guard must never need to hide the train (corridor really is clear)
 	tr["spd_max"] = 55.0
-	var lap: float = TAU * 78.0
+	var lap: float = TAU * CourtyardTrain.RING_R
 	var travelled := 0.0
 	var last_s: float = float(tr["s"])
 	var clipped := false
@@ -61,14 +61,15 @@ func _init() -> void:
 		("OK" if (not clipped and travelled >= lap) else "FAIL (hidden=%s travelled=%.0f)" % [str(clipped), travelled]))
 	print("TRAIN|station dwell on the lap: ",
 		("OK" if int(tr["dwells"]) > dwelt else "FAIL"))
-	# every car must sit ON the ring (railhead between grade and viaduct top)
+	# every car must sit ON the ring (railhead spans grade 0.55 up to ~14.6
+	# over the hill summits on the grand-tour loop)
 	var y_ok := true
 	var o: Vector3 = tr["o"]
 	for car in cars:
 		var ly: float = ((car as Dictionary)["node"] as Node3D).global_position.y - o.y
-		if ly < -1.0 or ly > 12.0:
+		if ly < -1.0 or ly > 17.0:
 			y_ok = false
-	print("TRAIN|cars ride the railhead (grade..viaduct band): ", ("OK" if y_ok else "FAIL"))
+	print("TRAIN|cars ride the railhead (grade..hilltop band): ", ("OK" if y_ok else "FAIL"))
 	# ---- zero-input safety: headless never auto-boards a seat ----
 	tr["spd_max"] = 8.0
 	player.position = cabin["anchor"]
@@ -83,7 +84,7 @@ func _init() -> void:
 	var wait_t := 0.0
 	while wait_t < 60.0:
 		wait_t += 1.0 / 60.0 * Engine.time_scale
-		var d_st: float = fposmod(1.6 * 78.0 - float(tr["s"]), lap)
+		var d_st: float = fposmod(CourtyardTrain.STATION_A * CourtyardTrain.RING_R - float(tr["s"]), lap)
 		if String(tr["state"]) == "run" and d_st > 60.0:
 			break
 		await process_frame
