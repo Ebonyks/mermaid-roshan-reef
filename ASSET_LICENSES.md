@@ -111,6 +111,10 @@
 | assets/mg/seed.png | OpenAI ChatGPT score-3 garden icon rebuild | **Project-generated art** | assets_src/style_review_score3/seed.png | 512px transparent seed icon; previous file archived; generated 2026-07-15 |
 | assets/mg/butterfly.png | Approved project-generated complete butterfly card, adapted from the GEN2 butterfly family | **Project-generated art** | assets/props/gen2/butterfly1.png | resized to 512px for garden-minigame use; previous wing-only file archived; promoted 2026-07-15 |
 | backups/art_pre_score3_2026-07-15/** | Snapshots of every runtime raster overwritten by the score-3 rebuild | **Same license as each original mirrored asset** | original repository paths and this ledger | reversal archive plus restore script; created 2026-07-15 |
+| assets/dungeon/*.glb | Project-authored Blender 4.4.3 dungeon geometry guided by `ART_STYLE_GUIDE.md` and the 2026-07-16 human art audit | **Project-generated art** | assets_src/blender/dungeon_art_v2.blend | ten Mobile-friendly models replacing primitive arena, door, enemy, boss, basket, pedestal, lantern, statue, stepping-stone, and pictogram roles; embedded matte storybook palette; generated 2026-07-16 |
+| assets_src/blender/dungeon_art_v2.blend | Editable source for the authored Dungeon Art V2 kit | **Project-generated source art** | tools/build_dungeon_art_v2.py | complete editable source scene for all ten runtime GLBs; generated 2026-07-16 |
+| assets_src/blender/qa_dungeon_art_v2/*.png | Blender Workbench QA renders of Dungeon Art V2 | **Project-generated review art** | assets_src/blender/dungeon_art_v2.blend | transparent 900x700 model review renders; generated 2026-07-16 |
+| backups/art_pre_dungeon_v2_2026-07-16/** | Byte-identical pre-integration dungeon builder scripts | **Same license as original project code** | scripts/combat_arena.gd; scripts/dungeon_puzzle_room.gd | reversal archive with SHA-256 manifest; created 2026-07-16 |
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file
