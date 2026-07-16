@@ -49,22 +49,22 @@ var idle_verb_cool := 0.0
 const VERB_LIB := {
 	"wave": {"len": 2.6, "sig": ["armU2", 1.2], "tracks": {
 		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 2.8], [2.1, 2.8], [2.6, -0.2]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.6, 0.55], [0.9, -0.45], [1.2, 0.55], [1.5, -0.45], [1.8, 0.55], [2.2, 0.0]]},
+		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.55], [0.9, -0.55], [1.2, 0.55], [1.5, -0.55], [1.8, 0.55], [2.2, 0.0]]},
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
 	}},
 	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.45], [1.7, 2.45], [2.2, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 2.502], [1.7, 2.502], [2.2, -0.2]]},
-		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.4, 1.15], [1.7, 1.15], [2.2, 0.0]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.4, 0.76], [1.7, 0.76], [2.2, 0.0]]},
+		"armU": {"axis": Vector3(1, 0, 3), "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
+		"armU2": {"axis": Vector3(1, 0, -3), "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
+		"armF": {"axis": Vector3(1, 0, -0.5), "keys": [[0.0, 0.0], [0.4, 0.8], [1.7, 0.8], [2.2, 0.0]]},
+		"armF2": {"axis": Vector3(1, 0, 0.5), "keys": [[0.0, 0.0], [0.4, 0.8], [1.7, 0.8], [2.2, 0.0]]},
 		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.08], [1.7, 0.08], [2.2, 0.0]]},
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.08], [1.7, -0.08], [2.2, 0.0]]},
 	}},
 	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 1.8857], [1.7, 1.8857], [2.0, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.35, 2.2294], [1.7, 2.2294], [2.0, -0.2]]},
-		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 1.812], [0.65, 1.6198], [0.8, 1.812], [0.95, 1.6198], [1.1, 1.812], [1.25, 1.6198], [1.4, 1.812], [1.7, 0.0]]},
-		"armF2": {"axis": Vector3(1, 0, 1), "keys": [[0.0, 0.0], [0.5, -0.405], [0.65, 0.2239], [0.8, -0.405], [0.95, 0.2239], [1.1, -0.405], [1.25, 0.2239], [1.4, -0.405], [1.7, 0.0]]},
+		"armU": {"axis": Vector3(1, 0, -1.5), "keys": [[0.0, -0.2], [0.35, 0.8], [0.5, 2.4], [0.65, 0.8], [0.8, 2.4], [0.95, 0.8], [1.1, 2.4], [1.25, 0.8], [1.4, 2.4], [1.55, 0.8], [2.0, -0.2]]},
+		"armU2": {"axis": Vector3(1, 0, 1.5), "keys": [[0.0, -0.2], [0.35, 0.8], [0.5, 2.4], [0.65, 0.8], [0.8, 2.4], [0.95, 0.8], [1.1, 2.4], [1.25, 0.8], [1.4, 2.4], [1.55, 0.8], [2.0, -0.2]]},
+		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, -0.5], [0.65, 0.0], [0.8, -0.5], [0.95, 0.0], [1.1, -0.5], [1.25, 0.0], [1.4, -0.5], [1.7, 0.0]]},
+		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 0.5], [0.65, 0.0], [0.8, 0.5], [0.95, 0.0], [1.1, 0.5], [1.25, 0.0], [1.4, 0.5], [1.7, 0.0]]},
 	}},
 	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
 		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
@@ -78,8 +78,8 @@ const VERB_LIB := {
 	"giggle": {"len": 1.5, "sig": ["armU", 0.4], "tracks": {
 		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.2, -0.14], [0.4, 0.02], [0.6, -0.14], [0.8, 0.02], [1.0, -0.14], [1.5, 0.0]]},
 		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.25, 0.18], [0.55, -0.18], [0.85, 0.18], [1.15, -0.18], [1.5, 0.0]]},
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.74], [1.2, 1.74], [1.5, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 2.22], [1.2, 2.22], [1.5, -0.2]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.95], [1.2, 1.95], [1.5, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.95], [1.2, 1.95], [1.5, -0.2]]},
 	}},
 	"sleep": {"len": 6.0, "sig": ["head", 0.3], "tracks": {
 		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, -0.5], [5.0, -0.5], [6.0, 0.0]]},
@@ -154,6 +154,7 @@ var cam_pitch_off := 0.0    # right-stick look-around: height offset
 var skel: Skeleton3D
 var bone_idx := {}
 var rest := {}
+var rest_global := {}
 var warned := false
 var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
 # model-backed skins: rigged plushies sharing Roshan's bone names, so the
@@ -164,7 +165,7 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
-var _roshan_maps: Array = []      # [bone_idx, rest] for Roshan, to restore on skin swap
+var _roshan_maps: Array = []      # [bone_idx, local rest, global rest] for Roshan
 var model_v3 := false
 var model_v2 := false             # true-3D v2 fallback (flat-card model needs in-plane swings)             # true-3D rebuild (multi-view Meshy, head faces forward)
 var hair_sim: HairSim = null      # spring physics for the v3 hair_SS_J strand chains
@@ -221,7 +222,7 @@ func _ready() -> void:
 		skel = _find_skeleton(inst)
 		_map_bones()
 		_roshan_skel = skel
-		_roshan_maps = [bone_idx.duplicate(), rest.duplicate()]
+		_roshan_maps = [bone_idx.duplicate(), rest.duplicate(), rest_global.duplicate()]
 		if model_v3:
 			hair_sim = HairSim.new()
 			add_child(hair_sim)
@@ -302,6 +303,7 @@ func _ready() -> void:
 func _map_bones() -> void:
 	bone_idx = {}
 	rest = {}
+	rest_global = {}
 	if skel == null:
 		return
 	for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
@@ -312,6 +314,7 @@ func _map_bones() -> void:
 		bone_idx[n] = bi
 		if bi >= 0:
 			rest[n] = skel.get_bone_pose(bi)
+			rest_global[n] = skel.get_bone_global_rest(bi)
 
 func _attach_wing_cards(mdl: Node3D) -> void:
 	# CARD WINGS: the Meshy sculpt fused its wings into her back (relief, not
@@ -390,6 +393,7 @@ func set_skin(id: String, tex_path: String) -> void:
 		skel = _roshan_skel
 		bone_idx = _roshan_maps[0]
 		rest = _roshan_maps[1]
+		rest_global = _roshan_maps[2]
 	var on_skin: bool = not (id == "classic" or tex_path == "")
 	if on_skin:
 		if skin_sprite != null:
@@ -479,18 +483,17 @@ func attach_bone(n: Node3D, bone: String) -> bool:
 
 func _model_axis_quat(bname: String, axis: Vector3, angle: float) -> Quaternion:
 	# Rotation about a MODEL-space axis, composed after the rest rotation. The
-	# card-era rigs have identity rests (axis passes through unchanged); the
-	# v3 rig carries Blender rest orientations, so the axis is brought into
-	# the bone's local frame first — same visual semantics on every model.
+	# card-era rigs have identity rests (axis passes through unchanged); imported
+	# rigs carry accumulated parent/rest orientations, so the model axis is
+	# brought through the bone's global rest basis first.
 	var rq: Quaternion = (rest[bname] as Transform3D).basis.get_rotation_quaternion()
-	var local_axis: Vector3 = (rq.inverse() * axis).normalized()
+	var global_rq: Quaternion = (rest_global[bname] as Transform3D).basis.get_rotation_quaternion()
+	var local_axis: Vector3 = (global_rq.inverse() * axis).normalized()
 	return rq * Quaternion(local_axis, angle)
 
 func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
 	# Rotate a bone about a MODEL-space axis, composed after its rest rotation.
-	# The old card rig has identity rests (axis passes through unchanged); the
-	# v2 rig's bones carry Blender rest orientations, so the axis must be
-	# brought into the bone's local frame first.
+	# _model_axis_quat handles the accumulated imported-rest orientation.
 	var bi: int = bone_idx.get(bname, -1)
 	if bi < 0 or not rest.has(bname):
 		return
@@ -507,8 +510,9 @@ func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
 	_rot_bone("hair1", Vector3.BACK, sin(t * 2.1 + 0.8) * 0.05)
 	_rot_bone("hair2", Vector3.BACK, sin(t * 2.1 + 0.25) * 0.07)
 	_rot_bone("hair3", Vector3.BACK, sin(t * 2.1 - 0.35) * 0.09)
-	# V4 RIG SIGNS (hand audit 2026-07-12, derived from the re-keyed verbs):
-	# arms about RIGHT raise with POSITIVE angles (cheer +2.45/+2.502; the old
+	# ROSHAN RIG SIGNS (hand audit 2026-07-15, derived from the re-keyed verbs):
+	# arm raises use positive angles; the overhead cheer uses mirrored diagonal
+	# axes. The old
 	# negative raises drove the arms backward THROUGH her dress — shard-burst),
 	# head/neck/chest pitch is negative-forward, tail/hair are unchanged.
 	# NOTE: chest stays within the motion-cage range (|angle| <= ~0.28, and
@@ -586,16 +590,12 @@ func _arms_fwd(amt: float, bend: float = 0.0) -> void:
 	_rot_bone("armF2", Vector3.RIGHT, mirrored.y)
 
 func _mirror_arm(upper: float, forearm: float) -> Vector2:
-	# Roshan's two native shoulder frames intentionally differ in depth and
-	# orientation. After the arm resculpt, upper and forearm angles must be
-	# solved together: either independent mapping leaves up to 0.18 units of
-	# shoulder-local hand error across swing/climb/ride/land/dig/seat. This fit
-	# uses the weighted hand regions over 55 calibrated toy-control states; the
-	# actual alternating dig sweep is checked separately. It keeps the secondary
-	# elbow between 118 and 155 degrees.
+	# V5's joints are bilateral; this small fitted transfer compensates only for
+	# the differently sculpted weighted hand centroids and exported child rolls.
+	# It is calibrated over all 55 swing/climb/ride/land/dig/seat control states.
 	return Vector2(
-		upper * 0.96 + forearm * 0.22 + 0.35,
-		upper * 0.31 + forearm * 0.82 + 0.45,
+		upper * 1.015287 + forearm * 0.400216 - 0.450241,
+		upper * -0.027198 + forearm * 0.230443 + 0.586111,
 	)
 
 func _tail_curl(amt: float) -> void:

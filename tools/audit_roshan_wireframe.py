@@ -336,8 +336,10 @@ class GltfRuntimeRig:
 
 	def model_axis_delta(self, bone_name: str, axis_gltf: Vector, angle: float) -> np.ndarray:
 		index = self.name_to_node[bone_name]
-		rest_matrix = self.quat_matrix(self.rest_rotation[index])
-		local_axis = rest_matrix.T @ np.asarray(axis_gltf, dtype=np.float64)
+		global_rest = self.rest_globals[index][:3, :3]
+		u, _, vh = np.linalg.svd(global_rest)
+		global_rest_rotation = u @ vh
+		local_axis = global_rest_rotation.T @ np.asarray(axis_gltf, dtype=np.float64)
 		return self.axis_angle_quaternion(local_axis, angle)
 
 	def lateral_alignment_delta(
@@ -621,10 +623,10 @@ def rotate_model_axis(
 
 	The authoritative path computes global glTF deformation matrices and maps
 	them onto Blender's imported rest bones.  This avoids confusing glTF joint
-	axes with Blender's edit-bone roll.  The local-axis formula remains the one
-	used by ``player.gd`` and ``tools/audit_motions.py``::
+	axes with Blender's edit-bone roll.  The axis conversion matches
+	``player.gd`` and ``tools/audit_motions.py``::
 
-	    local_axis = rest_rotation.inverse() * model_axis
+	    local_axis = global_rest_rotation.inverse() * model_axis
 	    posed_local_rotation = rest_rotation * Quaternion(local_axis, angle)
 	"""
 	pose_bone = armature.pose.bones.get(bone_name)
@@ -680,10 +682,10 @@ def build_pose_specs() -> list[PoseSpec]:
 	def cheer(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.cheer, held peak (t=0.5..1.7).
-		rotate_model_axis(armature, "armU", GD_RIGHT, 2.45)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.502)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.15)
-		rotate_model_axis(armature, "armF2", GD_RIGHT, 0.76)
+		rotate_model_axis(armature, "armU", GD_RIGHT + GD_BACK * 3.0, 2.4)
+		rotate_model_axis(armature, "armU2", GD_RIGHT - GD_BACK * 3.0, 2.4)
+		rotate_model_axis(armature, "armF", GD_RIGHT - GD_BACK * 0.5, 0.8)
+		rotate_model_axis(armature, "armF2", GD_RIGHT + GD_BACK * 0.5, 0.8)
 		rotate_model_axis(armature, "head", GD_RIGHT, 0.08)
 		rotate_model_axis(armature, "chest", GD_RIGHT, -0.08)
 		bpy.context.view_layer.update()
@@ -691,23 +693,17 @@ def build_pose_specs() -> list[PoseSpec]:
 	def clap_open(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.65: the open/rebound key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8857)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.2294)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.6198)
-		rotate_model_axis(
-			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), 0.2239
-		)
+		rotate_model_axis(armature, "armU", GD_RIGHT - GD_BACK * 1.5, 0.8)
+		rotate_model_axis(armature, "armU2", GD_RIGHT + GD_BACK * 1.5, 0.8)
 		bpy.context.view_layer.update()
 
 	def clap_contact(armature: bpy.types.Object, _midline_x: float) -> None:
 		reset_pose(armature)
 		# player.gd VERB_LIB.clap at t=0.50: the authored contact key.
-		rotate_model_axis(armature, "armU", GD_RIGHT, 1.8857)
-		rotate_model_axis(armature, "armU2", GD_RIGHT, 2.2294)
-		rotate_model_axis(armature, "armF", GD_BACK, 1.812)
-		rotate_model_axis(
-			armature, "armF2", (GD_RIGHT + GD_BACK).normalized(), -0.405
-		)
+		rotate_model_axis(armature, "armU", GD_RIGHT - GD_BACK * 1.5, 2.4)
+		rotate_model_axis(armature, "armU2", GD_RIGHT + GD_BACK * 1.5, 2.4)
+		rotate_model_axis(armature, "armF", GD_BACK, -0.5)
+		rotate_model_axis(armature, "armF2", GD_BACK, 0.5)
 		bpy.context.view_layer.update()
 
 	return [
@@ -875,7 +871,7 @@ def mesh_topology(obj: bpy.types.Object, rest_coordinates: np.ndarray) -> tuple[
 
 
 def cohesive_arm_surface_report(rig: GltfRuntimeRig) -> dict[str, Any]:
-	"""Validate the dedicated closed shoulder-to-palm repair surfaces."""
+	"""Validate continuous shoulder-to-palm topology in repaired or native meshes."""
 	purpose = "continuous shoulder-elbow-wrist anatomical underlay"
 	matches = [
 		primitive
@@ -884,10 +880,126 @@ def cohesive_arm_surface_report(rig: GltfRuntimeRig) -> dict[str, Any]:
 		if primitive.get("extras", {}).get("purpose") == purpose
 	]
 	if len(matches) != 1:
+		# Newer Roshan sculpts carry each anatomical arm in the native character
+		# surface instead of adding a closed tube underneath it. Validate that a
+		# single connected weighted region spans upper arm, forearm, and hand and
+		# blends into the torso at the shoulder on each side.
+		joint_names = [rig.nodes[node].get("name", "") for node in rig.skin_joints]
+		name_to_skin = {name: index for index, name in enumerate(joint_names)}
+		chains = {
+			"positive_x": ("armU", "armF", "hand"),
+			"negative_x": ("armU2", "armF2", "hand2"),
+		}
+		torso_names = tuple(
+			name for name in ("spine1", "chest") if name in name_to_skin
+		)
+		native_primitives = [
+			primitive
+			for mesh in rig.gltf.get("meshes", [])
+			for primitive in mesh.get("primitives", [])
+			if primitive.get("indices") is not None
+			and all(
+				name in primitive.get("attributes", {})
+				for name in ("POSITION", "JOINTS_0", "WEIGHTS_0")
+			)
+		]
+		component_reports = []
+		for label, names in chains.items():
+			best: dict[str, Any] | None = None
+			for primitive_index, primitive in enumerate(native_primitives):
+				attributes = primitive["attributes"]
+				positions = rig.accessor(int(attributes["POSITION"])).astype(np.float64)
+				joints = rig.accessor(int(attributes["JOINTS_0"])).astype(np.int64)
+				weights = rig.accessor(int(attributes["WEIGHTS_0"])).astype(np.float64)
+				weights /= np.maximum(weights.sum(axis=1, keepdims=True), 1.0e-12)
+				triangles = rig.accessor(int(primitive["indices"])).astype(np.int64).reshape((-1, 3))
+				bone_weights = {
+					name: np.where(joints == name_to_skin[name], weights, 0.0).sum(axis=1)
+					for name in names
+				}
+				chain_weights = sum(bone_weights.values(), np.zeros(len(positions)))
+				torso_weights = sum(
+					(
+						np.where(joints == name_to_skin[name], weights, 0.0).sum(axis=1)
+						for name in torso_names
+					),
+					np.zeros(len(positions)),
+				)
+				selected = chain_weights > 0.03
+				parent = np.arange(len(positions), dtype=np.int64)
+
+				def find(index: int) -> int:
+					while parent[index] != index:
+						parent[index] = parent[parent[index]]
+						index = int(parent[index])
+					return index
+
+				edges = np.vstack(
+					[
+						triangles[:, (0, 1)],
+						triangles[:, (1, 2)],
+						triangles[:, (2, 0)],
+					]
+				)
+				for a, b in edges[selected[edges[:, 0]] & selected[edges[:, 1]]]:
+					ra, rb = find(int(a)), find(int(b))
+					if ra != rb:
+						parent[rb] = ra
+				components: dict[int, list[int]] = {}
+				for vertex in np.flatnonzero(selected):
+					components.setdefault(find(int(vertex)), []).append(int(vertex))
+				if not components:
+					continue
+				dominant = max(
+					components.values(),
+					key=lambda vertices: float(chain_weights[vertices].sum()),
+				)
+				selection = np.asarray(dominant, dtype=np.int64)
+				bone_totals = {
+					name: finite(float(values[selection].sum()))
+					for name, values in bone_weights.items()
+				}
+				total_weight = max(float(chain_weights.sum()), 1.0e-12)
+				candidate = {
+					"label": label,
+					"primitive_index": primitive_index,
+					"vertices": len(dominant),
+					"weighted_components": len(components),
+					"dominant_component_fraction_of_chain_weight": finite(
+						float(chain_weights[selection].sum()) / total_weight
+					),
+					"shoulder_torso_bridge_vertices": int(
+						np.count_nonzero(torso_weights[selection] > 0.03)
+					),
+					"coverage": {
+						"bone_weight_totals": bone_totals,
+						"all_chain_bones_present": all(
+							(bone_totals[name] or 0.0) > 0.1 for name in names
+						),
+					},
+				}
+				if best is None or (
+					candidate["dominant_component_fraction_of_chain_weight"] or 0.0
+				) > (best["dominant_component_fraction_of_chain_weight"] or 0.0):
+					best = candidate
+			if best is not None:
+				component_reports.append(best)
+		present = (
+			len(component_reports) == len(chains)
+			and all(
+				component["coverage"]["all_chain_bones_present"]
+				and (component["dominant_component_fraction_of_chain_weight"] or 0.0) > 0.80
+				and component["shoulder_torso_bridge_vertices"] > 0
+				for component in component_reports
+			)
+		)
 		return {
-			"present": False,
+			"present": present,
+			"mode": "native_continuous_mesh",
 			"matching_primitives": len(matches),
+			"skinned_primitives": len(native_primitives),
 			"expected_purpose": purpose,
+			"component_reports": component_reports,
 		}
 	primitive = matches[0]
 	attributes = primitive["attributes"]
@@ -960,6 +1072,7 @@ def cohesive_arm_surface_report(rig: GltfRuntimeRig) -> dict[str, Any]:
 	)
 	return {
 		"present": True,
+		"mode": "dedicated_closed_underlay",
 		"matching_primitives": 1,
 		"purpose": purpose,
 		"vertices": len(positions),
@@ -1794,8 +1907,9 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 	cohesive = report["cohesive_arm_surface"]
 	component_reports = cohesive.get("component_reports", [])
 	component_labels = {component.get("label") for component in component_reports}
-	cohesive_ok = (
+	dedicated_ok = (
 		cohesive.get("present", False)
+		and cohesive.get("mode") == "dedicated_closed_underlay"
 		and cohesive.get("matching_primitives") == 1
 		and cohesive.get("connected_components") == 2
 		and cohesive.get("boundary_edges") == 0
@@ -1807,7 +1921,20 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 			for component in component_reports
 		)
 	)
-	if cohesive_ok:
+	native_ok = (
+		cohesive.get("present", False)
+		and cohesive.get("mode") == "native_continuous_mesh"
+		and component_labels == {"positive_x", "negative_x"}
+		and all(
+			component.get("coverage", {}).get("all_chain_bones_present", False)
+			and (
+				component.get("dominant_component_fraction_of_chain_weight", 0.0) or 0.0
+			) > 0.80
+			and component.get("shoulder_torso_bridge_vertices", 0) > 0
+			for component in component_reports
+		)
+	)
+	if dedicated_ok:
 		add(
 			"COHESIVE_ARM_SURFACE",
 			"ok",
@@ -1815,12 +1942,24 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 			f"({cohesive['vertices']} vertices, {cohesive['triangles']} triangles); each "
 			"covers upper arm, forearm, and hand influences from shoulder into palm.",
 		)
+	elif native_ok:
+		fractions = [
+			component["dominant_component_fraction_of_chain_weight"]
+			for component in component_reports
+		]
+		add(
+			"COHESIVE_ARM_SURFACE",
+			"ok",
+			f"Both native arm surfaces have one dominant connected shoulder-to-palm "
+			f"region ({fractions[0]:.1%}/{fractions[1]:.1%} of chain weight), with "
+			f"upper-arm, forearm, hand, and torso-blended shoulder coverage.",
+		)
 	else:
 		add(
 			"COHESIVE_ARM_SURFACE",
 			"problem",
-			"The dedicated shoulder-to-palm arm underlay is missing, open, non-manifold, "
-			f"or does not cover both complete arm chains: {cohesive}.",
+			"No continuous native or repaired shoulder-to-palm surface covers both "
+			f"complete arm chains: {cohesive}.",
 		)
 
 	open_gap = report["poses"]["clap_open"]["hands"]["weighted_probe_centroids"]["gap"]

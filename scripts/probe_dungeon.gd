@@ -14,14 +14,17 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 	main._skip_intro()
-	main.combat_ice_done = true
-	main.combat_fire_done = true
+	# A brand-new save must be able to enter. These abilities are introduced by
+	# the dungeon rooms and must never be prerequisites for the entrance.
+	main.combat_ice_done = false
+	main.combat_fire_done = false
 	main.dungeon_progress = 0
 	main.dungeon_done = false
 	main.game = "level2"
 	main.g["t"] = 0.0
 	main._start_dungeon()
 	var dungeon: DungeonLevel = main.dungeon_game
+	_ck("fresh save can enter before finding elemental encounters", dungeon != null)
 	await _wait_for_room(dungeon, 0)
 	_ck("dungeon defines ten rooms", DungeonLevel.ROOMS.size() == 10)
 	var combat_count := 0
