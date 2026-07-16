@@ -135,7 +135,7 @@ var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
 var _bells: Array = []            # star bells: {node, pos, cool}
 var _fount_cool := 0.0
 var _gate_cool := 0.0
-var _gate_lbl: Label3D = null   # locked/open castle-gate sign
+var _gate_lbl: Label3D = null   # always-open castle-gate sign
 var _fairyf_cool := 0.0
 var _orrery_planets: Array = []   # her own tiny galaxy: {node, r, spd, ph, tilt}
 var _hall_rug_mat: StandardMaterial3D = null
@@ -179,13 +179,13 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
-	_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
+	_lbl_hint.text = "Rosalina's castle is OPEN!  •  rescue 7 lost butterflies or visit the dance floor!"
 	# owner 2026-07-11: the 7-butterfly quest happens ONCE. On return visits
-	# the babies are already home and the castle stands open — a playground,
-	# not a chore. (No grand star: that prize was already won.)
+	# the babies are already home and stay home — the castle is an open
+	# playground on every visit. (No grand star: that prize was already won.)
 	if _main != null and "bwd_done" in _main and _main.bwd_done:
 		_shards_got = SHARDS
-		_lbl_hint.text = "Welcome back! The butterflies are safe — Rosalina's castle is open!"
+		_lbl_hint.text = "Welcome back! The butterflies are safe — come dance in Rosalina's castle!"
 		if _lbl_shards != null:
 			_lbl_shards.text = "🦋 %d / %d" % [SHARDS, SHARDS]
 		if _gate_lbl != null and is_instance_valid(_gate_lbl):
@@ -567,14 +567,14 @@ func _build_decor() -> void:
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
 	# plane, or its corners hover visibly above the curving horizon
 	castle.position = _surf(Vector3.UP, -5.0)
-	# the glowing GATE — walk into it to step inside the crystal castle
+	# The glowing gate is always open. The butterfly rescue remains a joyful
+	# optional quest and prize, never a lock between Roshan and the play space.
 	var gatel := Label3D.new()
-	# the castle is LOCKED until all 7 butterflies are home — stage 3's quest
-	gatel.text = "🔒 Rosalina's castle\nbring the 7 butterflies!"
+	gatel.text = "✨ Crystal Castle ✨\n♫ come dance! ♫"
 	gatel.font_size = 50
 	gatel.pixel_size = 0.03
 	gatel.outline_size = 12
-	gatel.modulate = Color(1.0, 0.7, 0.8)
+	gatel.modulate = Color(1.0, 0.92, 0.55)
 	gatel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	gatel.position = _surf(GATE_DIR, 6.5)
 	add_child(gatel)
@@ -1238,7 +1238,7 @@ func _process(delta: float) -> void:
 			_chime(1.15)
 			if _main != null and _main.has_method("show_msg"):
 				if _shards_got < SHARDS:
-					_main.show_msg("Mermaid Rosalina", "My baby butterflies all escaped! Bring all SEVEN home and I'll open my castle for you!", "greet")
+					_main.show_msg("Mermaid Rosalina", "My castle is open! Come dance whenever you like — and help my seven baby butterflies find home!", "greet")
 				else:
 					_main.show_msg("Mermaid Rosalina", "My butterflies are home! Come into my castle, little star!", "open")
 	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
@@ -1332,18 +1332,10 @@ func _process(delta: float) -> void:
 			_main.fairy_pending = true
 			_teardown(false)
 			return
-	# the castle gate: LOCKED until every butterfly is home, then it opens
+	# The castle is a playground, not a quest reward: its gate is always open.
 	_gate_cool = maxf(0.0, _gate_cool - delta)
 	if _gate_cool <= 0.0 and _h < 1.5 and _dir.angle_to(GATE_DIR.normalized()) * PLANET_R < 4.5:
-		if _shards_got < SHARDS:
-			_gate_cool = 6.0
-			_chime(0.6)
-			if _lbl_hint != null:
-				_lbl_hint.text = "Rosalina: my butterflies escaped! Bring all 7 and I'll open the castle! (%d / %d)" % [_shards_got, SHARDS]
-			if _main != null and _main.has_method("show_msg"):
-				_main.show_msg("Mermaid Rosalina", "Not yet, little star! Please find all SEVEN of my butterflies first!", "locked")
-			return
-		_enter_hall()
+		_enter_castle_gate()
 		return
 	# idle timer (a butterfly visits Roshan when she stands still)
 	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
@@ -1396,13 +1388,13 @@ func _process(delta: float) -> void:
 					_lbl_hint.text = "ONE butterfly left — follow the GIANT beacon!"
 			if _shards_got >= SHARDS and not _grand_active:
 				_spawn_grand_star()
-				# every butterfly is home — Rosalina opens her castle!
+				# every butterfly is home — Rosalina turns the open castle into a party!
 				if _gate_lbl != null and is_instance_valid(_gate_lbl):
 					_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
 					_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
 				_chime(1.35)
 				if _main != null and _main.has_method("show_msg"):
-					_main.show_msg("Mermaid Rosalina", "You found them ALL! My castle is open — come in, come in!", "open")
+					_main.show_msg("Mermaid Rosalina", "You found them ALL! Come celebrate together in my castle!", "open")
 	if _grand_active and _grand != null and _grand.position.distance_to(feet) < 7.0:
 		_grand_active = false
 		_grand.visible = false
@@ -1457,6 +1449,17 @@ func _build_hall() -> void:
 	rug.position = Vector3(0, 0.6, 0)
 	_hall_root.add_child(rug)
 	_hall_rug_mat = rmat   # the DANCE FLOOR: hue-cycles, and pulses when Roshan dances on it
+	# Icon-first rhythm invitation: no reading is needed to understand that the
+	# floating arrows belong with the glowing floor below them.
+	var dance_beacon := Label3D.new()
+	dance_beacon.text = "♫\n←  ↓  ↑  →"
+	dance_beacon.font_size = 82
+	dance_beacon.pixel_size = 0.025
+	dance_beacon.outline_size = 16
+	dance_beacon.modulate = Color(1.0, 0.72, 0.95)
+	dance_beacon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	dance_beacon.position = Vector3(0, 4.2, 0)
+	_hall_root.add_child(dance_beacon)
 	# amethyst-glass wall panels (door gap at +z)
 	for i in range(12):
 		if i == 0:
@@ -1721,7 +1724,11 @@ func _enter_hall() -> void:
 	if _lbl_hint != null:
 		_lbl_hint.text = "The STAR HALL!  •  dance on the star rug • ring the bells • wish at the fountain • sit on the throne!"
 	if _main != null and _main.has_method("show_msg"):
-		_main.show_msg("Mermaid Rosalina", "Come in, come in! This is my Star Hall — the whole galaxy shines under the floor!", "greet")
+		_main.show_msg("Mermaid Rosalina", "Come in! Step onto the glowing arrows and dance with the whole galaxy!", "greet")
+
+func _enter_castle_gate() -> void:
+	_gate_cool = 2.0
+	_enter_hall()
 
 func _exit_hall() -> void:
 	_mode = "planet"
@@ -1731,7 +1738,7 @@ func _exit_hall() -> void:
 	_h = 0.0
 	_vy = 0.0
 	if _lbl_hint != null:
-		_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
+		_lbl_hint.text = "The castle stays open!  •  rescue the 7 butterflies or come back to dance anytime!"
 
 func _tick_hall(delta: float) -> void:
 	_ice_gate_cool = maxf(0.0, _ice_gate_cool - delta)
@@ -1781,6 +1788,12 @@ func _tick_hall(delta: float) -> void:
 		_hall_rug_mat.emission = Color.from_hsv(fposmod(tt * 0.10, 1.0), 0.55, 1.0) * (0.35 + minf(_dance_t, 2.0) * 0.25)
 	var on_rug: bool = _ch < 0.5 and Vector2(_cpos.x, _cpos.z).length() < 8.0
 	if on_rug:
+		if _dance_t <= 0.0 and _main != null and _main.has_method("_open_dance_demo"):
+			# Mark the rug occupied before opening the pausing overlay. When it
+			# closes, Roshan must step off and back on to deliberately replay it.
+			_dance_t = 0.01
+			_main._open_dance_demo()
+			return
 		_dance_t += delta
 		_dance_cool -= delta
 		if _dance_cool <= 0.0:
