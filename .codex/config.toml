@@ -1,0 +1,52 @@
+# Mermaid Roshan: Reef of Light - trusted-project Codex defaults.
+#
+# This file intentionally contains no credentials, provider configuration,
+# personal model choice, notification command, or telemetry destination.
+# Codex loads project configuration only after the repository is trusted.
+
+# High autonomy inside the checkout, with reviewed escalation at its boundary.
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+sandbox_mode = "workspace-write"
+
+# Cached search avoids fetching arbitrary live pages unless a task explicitly
+# needs fresher information and requests the corresponding permission.
+web_search = "cached"
+
+[sandbox_workspace_write]
+# Keep writes inside the active checkout and normal temporary directories.
+# Git metadata and .codex remain protected paths and require escalation.
+writable_roots = []
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+
+# Enable normal development downloads, constrained by the proxy allowlist
+# below. A destination not on the list remains blocked unless separately
+# reviewed and approved.
+network_access = true
+
+[shell_environment_policy]
+# Preserve Godot, Android, Java, Git, and graphics-tool discovery while keeping
+# Codex's built-in KEY/SECRET/TOKEN filtering enabled. The extra patterns cover
+# common credential names outside that built-in filter.
+inherit = "all"
+ignore_default_excludes = false
+exclude = ["*_PASSWORD", "*_PASS", "*_CREDENTIAL*", "*_COOKIE*", "*_PRIVATE_KEY*"]
+set = {}
+include_only = []
+
+[features.network_proxy]
+enabled = true
+
+# GitHub/CI, Godot, Python, Android/Gradle, Blender, and the project's approved
+# world-art sources. ** matches both the named host and its subdomains.
+domains = { "localhost" = "allow", "127.0.0.1" = "allow", "**.github.com" = "allow", "**.githubusercontent.com" = "allow", "**.githubassets.com" = "allow", "**.github.io" = "allow", "**.openai.com" = "allow", "**.chatgpt.com" = "allow", "**.godotengine.org" = "allow", "**.python.org" = "allow", "**.pythonhosted.org" = "allow", "**.pypi.org" = "allow", "**.npmjs.org" = "allow", "**.npmjs.com" = "allow", "**.gradle.org" = "allow", "**.maven.org" = "allow", "**.maven.apache.org" = "allow", "**.google.com" = "allow", "**.googleapis.com" = "allow", "**.gstatic.com" = "allow", "**.android.com" = "allow", "**.blender.org" = "allow", "**.gitlab.com" = "allow", "**.sourceforge.net" = "allow", "**.poly.pizza" = "allow", "**.quaternius.com" = "allow", "**.kenney.nl" = "allow", "**.itch.io" = "allow", "**.itch.zone" = "allow", "**.ambientcg.com" = "allow", "**.polyhaven.com" = "allow", "**.opengameart.org" = "allow" }
+
+# Exact loopback exceptions support local Godot servers and the ADB client.
+# Other loopback aliases plus private and LAN destinations remain blocked.
+allow_local_binding = false
+enable_socks5 = false
+enable_socks5_udp = false
+allow_upstream_proxy = true
+dangerously_allow_non_loopback_proxy = false
+dangerously_allow_all_unix_sockets = false
