@@ -110,6 +110,15 @@ func _dolls2d_open(fr: Dictionary) -> void:
 	tint.color = Color(0.08, 0.05, 0.2, 0.25)
 	tint.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.dolls_root.add_child(tint)
+	# Ground the catcher and falling targets without altering the protected
+	# nursery illustration itself.
+	var lower_shade := ColorRect.new()
+	lower_shade.color = Color(0.08, 0.05, 0.20, 0.16)
+	lower_shade.anchor_left = 0.0
+	lower_shade.anchor_top = 0.55
+	lower_shade.anchor_right = 1.0
+	lower_shade.anchor_bottom = 1.0
+	m.dolls_root.add_child(lower_shade)
 	var faron := TextureRect.new()
 	faron.texture = (fr["node"] as Sprite3D).texture
 	faron.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

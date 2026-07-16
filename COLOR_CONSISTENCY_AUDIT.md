@@ -27,6 +27,28 @@ scenes independently combine high ambient energy, near-white or greater-than-
 white albedo, the global bright ACES grade, and sometimes large emissive
 surfaces. Speedy mode limits bloom but does not constrain the other contributors.
 
+## Repair validation
+
+The recommended corrections were implemented on this branch and the identical
+28-state Mobile-renderer capture was repeated at Speedy quality. All six repair
+states now retain their broad surface detail and fall below the audit's clipping
+limits. The original findings table below is retained as the pre-repair baseline.
+
+| State | Before | After |
+|---|---:|---:|
+| Snow fetch | mean 0.812, 34.2% channel clip | mean 0.670, 1.0% channel clip |
+| Seek meadow | mean 0.963, range 0.063 | mean 0.768, range 0.413 |
+| Sunset play-place | mean 0.868, range 0.190 | mean 0.518, range 0.571 |
+| Penguin ice slide | mean 0.932, range 0.095 | mean 0.681, range 0.333 |
+| Rainbow slide | mean 0.902, range 0.222 | mean 0.556, range 0.492 |
+| Butterfly World | 15.3% pure white, range 0.778 | 0.9% pure white, range 0.825 |
+| Dolls nursery | mean 0.702, range 0.048 | mean 0.657, range 0.127 |
+
+Sky Lagoon improved modestly from mean luminance 0.841 to 0.824 while retaining
+its readable castle/path hierarchy. Its remaining white-card artifacts in the
+local captures are missing worktree texture imports, not authored white panels;
+the clean-import CI gate remains authoritative for those assets.
+
 ## Method
 
 Twenty-eight representative frames were captured from the production Mobile

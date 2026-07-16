@@ -205,20 +205,19 @@ func _build_env_sky() -> void:
 		e.background_mode = Environment.BG_COLOR
 		e.background_color = Color(0.01, 0.005, 0.03)
 		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-		e.ambient_light_color = Color(0.55, 0.45, 0.75)
-		e.ambient_light_energy = 1.0
-		e.glow_enabled = true
-		e.glow_intensity = 0.7
-		e.glow_bloom = 0.1
+		e.ambient_light_color = Color(0.48, 0.42, 0.70)
+		e.ambient_light_energy = 0.72
+		_main._wind_waker_bloom(e, 0.65, 0.08, 1.15)
+		_main._apply_scene_grade(e, "galaxy")
 		_main.we_node.environment = e
 	# key light: soft starlight sun + a cool rim from the opposite side
 	var sun := DirectionalLight3D.new()
-	sun.light_energy = 1.1
+	sun.light_energy = 0.8
 	sun.light_color = Color(1.0, 0.92, 0.95)
 	sun.rotation_degrees = Vector3(-40, 35, 0)
 	add_child(sun)
 	var rim := DirectionalLight3D.new()
-	rim.light_energy = 0.5
+	rim.light_energy = 0.3
 	rim.light_color = Color(0.5, 0.8, 1.0)
 	rim.rotation_degrees = Vector3(30, 215, 0)
 	add_child(rim)
@@ -307,11 +306,11 @@ void fragment(){
 	// with sandy landscaped paths and thousands of tiny flower dots
 	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
 	vec3 grass = triplanar(grass_tex, mpos, mnrm, 0.045);
-	vec3 col = grass * mix(vec3(0.86, 0.97, 0.84), vec3(1.04, 1.10, 0.96), band);
+	vec3 col = grass * mix(vec3(0.72, 0.84, 0.72), vec3(0.90, 0.98, 0.86), band);
 	// two winding garden paths circling the planet
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
-	vec3 sand = triplanar(path_tex, mpos, mnrm, 0.06) * vec3(1.06, 1.0, 0.9);
+	vec3 sand = triplanar(path_tex, mpos, mnrm, 0.06) * vec3(0.92, 0.88, 0.80);
 	col = mix(col, sand, clamp(pathm, 0.0, 1.0) * 0.9);
 	// confetti of tiny flowers
 	vec2 g = UV * vec2(220.0, 120.0);
@@ -322,7 +321,7 @@ void fragment(){
 	// firefly sparkle at "night" side
 	float sparkle = step(0.996, h21(floor(g) + 31.0)) * (0.5 + 0.5 * sin(TIME * 3.0 + fh * 50.0));
 	ALBEDO = col;
-	EMISSION = col * 0.08 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
+	EMISSION = col * 0.04 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
 	ROUGHNESS = 0.85;
 }"""
 	var mat := ShaderMaterial.new()
@@ -552,7 +551,7 @@ func _build_decor() -> void:
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.84, 0.80, 0.92))
 	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
@@ -667,7 +666,7 @@ func _build_decor() -> void:
 	fbase.mesh = fbc
 	var fmarble := StandardMaterial3D.new()
 	fmarble.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
-	fmarble.albedo_color = Color(0.95, 0.92, 1.0)
+	fmarble.albedo_color = Color(0.82, 0.78, 0.92)
 	fmarble.uv1_triplanar = true
 	fmarble.uv1_scale = Vector3(0.2, 0.2, 0.2)
 	fbase.material_override = fmarble

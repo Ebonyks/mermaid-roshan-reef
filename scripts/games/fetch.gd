@@ -21,7 +21,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	snm.size = Vector3(70.0, 1.0, 170.0)
 	snow.mesh = snm
 	var snmat := StandardMaterial3D.new()
-	snmat.albedo_color = Color(0.96, 0.98, 1.0)
+	snmat.albedo_color = Color(0.84, 0.90, 0.97)
 	snmat.roughness = 0.85
 	snow.material_override = snmat
 	snow.position = origin + Vector3(-27.0, 0.0, 0.0)
@@ -44,7 +44,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.add_child(lake)
 	m.game_nodes.append(lake)
 	# snowdrift shoreline ridge along the waterline (the whole length)
-	m._course_box(origin + Vector3(8.2, 0.7, 0.0), Vector3(2.0, 1.4, 170.0), Color(0.99, 1.0, 1.0))
+	m._course_box(origin + Vector3(8.2, 0.7, 0.0), Vector3(2.0, 1.4, 170.0), Color(0.80, 0.88, 0.96))
 	# drifting ice floes far out on the lake
 	for fl in range(8):
 		var floe := MeshInstance3D.new()
@@ -53,7 +53,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 		fm.bottom_radius = fm.top_radius + 0.3
 		fm.height = 0.5
 		floe.mesh = fm
-		floe.material_override = m._soft_mat(Color(0.95, 0.98, 1.0), 0.1)
+		floe.material_override = m._soft_mat(Color(0.80, 0.88, 0.96), 0.04)
 		floe.position = origin + Vector3(18.0 + randf() * 90.0, 0.8, -75.0 + randf() * 150.0)
 		m.add_child(floe)
 		m.game_nodes.append(floe)

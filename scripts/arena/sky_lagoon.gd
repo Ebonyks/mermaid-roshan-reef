@@ -717,7 +717,7 @@ func _build_alpine_snowfield(o: Vector3, center: Vector2, radius: Vector2) -> vo
 	st.generate_tangents()
 	var snowfield := MeshInstance3D.new()
 	snowfield.mesh = st.commit()
-	snowfield.material_override = m._up_mat("snow", 0.055, Color(0.88, 0.95, 1.0))
+	snowfield.material_override = m._up_mat("snow", 0.055, Color(0.80, 0.88, 0.96))
 	snowfield.position = o
 	snowfield.visibility_range_end = 230.0
 	m.add_child(snowfield)

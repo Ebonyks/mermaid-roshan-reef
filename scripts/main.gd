@@ -908,6 +908,69 @@ func _grade(env: Environment) -> void:
 	env.tonemap_exposure = 1.15
 	env.tonemap_white = 1.2
 
+func _apply_scene_grade(env: Environment, profile: String) -> void:
+	# Bright arenas used to stack the reef grade with near-white albedo and hot
+	# ambient light. Named profiles keep those independently-built worlds inside
+	# one contrast envelope while preserving the reef's established treatment.
+	_grade(env)
+	var full_exposure: float = 1.15
+	var speedy_exposure: float = 1.05
+	var white_point: float = 1.2
+	var saturation: float = 1.0
+	var contrast: float = 1.0
+	var brightness: float = 1.0
+	var full_ambient_cap: float = env.ambient_light_energy
+	var speedy_ambient_cap: float = env.ambient_light_energy
+	match profile:
+		"bright_pastel":
+			full_exposure = 0.88
+			speedy_exposure = 0.78
+			white_point = 1.4
+			saturation = 1.04
+			contrast = 1.12
+			brightness = 0.95
+			full_ambient_cap = 0.75
+			speedy_ambient_cap = 0.68
+		"warm_pastel":
+			full_exposure = 0.92
+			speedy_exposure = 0.82
+			white_point = 1.35
+			saturation = 1.06
+			contrast = 1.10
+			brightness = 0.95
+			full_ambient_cap = 0.82
+			speedy_ambient_cap = 0.74
+		"galaxy":
+			full_exposure = 0.92
+			speedy_exposure = 0.82
+			white_point = 1.45
+			saturation = 1.04
+			contrast = 1.10
+			brightness = 0.95
+			full_ambient_cap = 0.82
+			speedy_ambient_cap = 0.72
+		_:
+			pass
+	env.tonemap_white = white_point
+	env.adjustment_enabled = true
+	env.adjustment_saturation = saturation
+	env.adjustment_contrast = contrast
+	env.adjustment_brightness = brightness
+	var full_ambient: float = minf(env.ambient_light_energy, full_ambient_cap)
+	env.set_meta("scene_grade_profile", profile)
+	env.set_meta("scene_grade_exposure", Vector2(full_exposure, speedy_exposure))
+	env.set_meta("scene_grade_ambient", Vector2(full_ambient, minf(full_ambient, speedy_ambient_cap)))
+	_refresh_scene_grade(env)
+
+func _refresh_scene_grade(env: Environment) -> void:
+	if not env.has_meta("scene_grade_exposure") or not env.has_meta("scene_grade_ambient"):
+		return
+	var exposures: Vector2 = env.get_meta("scene_grade_exposure")
+	var ambients: Vector2 = env.get_meta("scene_grade_ambient")
+	var speedy: bool = quality == "speedy"
+	env.tonemap_exposure = exposures.y if speedy else exposures.x
+	env.ambient_light_energy = ambients.y if speedy else ambients.x
+
 func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float = 0.4, threshold: float = 0.9) -> void:
 	# Wind Waker-style bloom: drop the HDR threshold below white so sunlit surfaces
 	# (sand, sky, snow, highlights) bleed light — not just emissive materials — and
@@ -2693,6 +2756,7 @@ func _apply_quality(q: String) -> void:
 		var fv: Vector2 = arena_env.get_meta("ww_full")
 		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
 		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
+		_refresh_scene_grade(arena_env)
 	_sync_castle_lights()
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
@@ -3073,9 +3137,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.54 if is_night else 0.58
 	_wind_waker_bloom(arena_env, 0.44, 0.05, 1.18)   # retain emitters while pale castle/snow values stay below clipping
-	_grade(arena_env)
-	arena_env.tonemap_exposure = 0.82   # exterior-only: separate the pearl stone from the bright illustrated sky
-	arena_env.tonemap_white = 1.35
+	_apply_scene_grade(arena_env, "bright_pastel")
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -4636,14 +4698,15 @@ func _l2_start_slide() -> void:
 	rainbow_slide_mode = false
 	# a brighter rainbow-dream sky in place of the sunset
 	if arena_env != null:
-		arena_env.background_color = Color(0.62, 0.80, 1.0)
-		arena_env.ambient_light_color = Color(1.0, 0.95, 1.0)
-		arena_env.ambient_light_energy = 1.2
+		arena_env.background_color = Color(0.48, 0.70, 0.90)
+		arena_env.ambient_light_color = Color(0.88, 0.90, 1.0)
+		arena_env.ambient_light_energy = 0.62
+		_apply_scene_grade(arena_env, "bright_pastel")
 	# flashing colored disco lights ringing the play place (this is the RAINBOW slide!)
 	var rbc := [Color(1, 0.2, 0.2), Color(1, 0.6, 0.1), Color(1, 0.9, 0.2), Color(0.2, 0.9, 0.3), Color(0.2, 0.5, 1.0), Color(0.6, 0.3, 0.9)]
 	for li in range(8):
 		var fl := OmniLight3D.new()
-		fl.light_energy = 4.0
+		fl.light_energy = 1.25 if quality == "speedy" else 2.0
 		fl.omni_range = 34.0
 		var ang: float = float(li) / 8.0 * TAU
 		fl.position = ARENA_POS + Vector3(cos(ang) * 17.0, 5.0 + float(li % 4) * 8.0, sin(ang) * 17.0)
@@ -6410,14 +6473,14 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	g["got"] = 0
 	g["caught"] = false
 	# ---- build the chute: themed floor planks + glowing side rails ----
-	var rainbow := [Color(1, 0.45, 0.5), Color(1, 0.7, 0.4), Color(1, 0.95, 0.45), Color(0.5, 0.9, 0.55), Color(0.45, 0.8, 1.0), Color(0.6, 0.55, 1.0), Color(0.9, 0.55, 0.95)]
-	var rail := _ice_mat(Color(0.55, 0.8, 1.0), 0.5) if theme == "ice" else _ice_mat(Color(1.0, 0.9, 0.5), 0.6)
+	var rainbow := [Color(0.90, 0.32, 0.42), Color(0.94, 0.58, 0.30), Color(0.92, 0.82, 0.30), Color(0.36, 0.76, 0.46), Color(0.34, 0.67, 0.90), Color(0.50, 0.44, 0.88), Color(0.78, 0.42, 0.84)]
+	var rail := _ice_mat(Color(0.42, 0.68, 0.90), 0.15) if theme == "ice" else _ice_mat(Color(0.84, 0.72, 0.34), 0.18)
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
 		# plank albedo stays UNDER 1.0 — over-white components push the snow
 		# past ACES white and the surface detail clips away (Android blowout)
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.86, 0.92, 1.0), 0.06, "snow")
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.10) if theme == "rainbow" else _ice_mat(Color(0.68, 0.78, 0.90), 0.02, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -7119,7 +7182,7 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		game_nodes.append(cl)
 	var sun := OmniLight3D.new()
 	sun.light_color = Color(1.0, 0.95, 0.8)
-	sun.light_energy = 1.6
+	sun.light_energy = 0.9
 	sun.omni_range = 70.0
 	sun.position = origin + Vector3(18, 30, 12)
 	add_child(sun)
@@ -8413,28 +8476,32 @@ func _enter_arena(kind: String) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_COLOR
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	var grade_profile: String = ""
 	_wind_waker_bloom(arena_env, 0.9, 0.35, 1.02)   # bloom emitters only — 0.85 white-washed bright floors (snow!)
 	if kind == "fetch":          # snowy backyard noon
-		arena_env.background_color = Color(0.75, 0.88, 1.0)
-		arena_env.ambient_light_color = Color(0.94, 0.96, 1.0)
-		arena_env.ambient_light_energy = 0.65   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
+		grade_profile = "bright_pastel"
+		arena_env.background_color = Color(0.62, 0.80, 0.94)
+		arena_env.ambient_light_color = Color(0.88, 0.92, 1.0)
+		arena_env.ambient_light_energy = 0.58   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
 		arena_env.glow_bloom = 0.05             # near-zero whole-frame haze: on an already-white scene the WW haze clips everything
-		_arena_floor(Color(0.74, 0.77, 0.84), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
+		_arena_floor(Color(0.68, 0.74, 0.82), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
 	elif kind == "dolls":        # starry dream nursery
 		arena_env.background_color = Color(0.10, 0.06, 0.22)
 		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.7
 		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
-		arena_env.background_color = Color(0.55, 0.85, 1.0)
-		arena_env.ambient_light_color = Color(1, 1, 0.95)
-		arena_env.ambient_light_energy = 1.2
-		_arena_floor(Color(0.95, 1.0, 0.92), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
+		grade_profile = "bright_pastel"
+		arena_env.background_color = Color(0.38, 0.68, 0.86)
+		arena_env.ambient_light_color = Color(0.84, 0.92, 0.82)
+		arena_env.ambient_light_energy = 0.68
+		_arena_floor(Color(0.56, 0.70, 0.50), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
-		arena_env.background_color = Color(1.0, 0.62, 0.38)
-		arena_env.ambient_light_color = Color(1.0, 0.8, 0.65)
-		arena_env.ambient_light_energy = 1.1
-		_arena_floor(Color(1.05, 0.82, 0.62), GTA + "up_dirt_col.jpg", GTA + "up_dirt_nrm.jpg", 0.05)
+		grade_profile = "warm_pastel"
+		arena_env.background_color = Color(0.82, 0.42, 0.30)
+		arena_env.ambient_light_color = Color(0.94, 0.72, 0.62)
+		arena_env.ambient_light_energy = 0.74
+		_arena_floor(Color(0.72, 0.50, 0.40), GTA + "up_dirt_col.jpg", GTA + "up_dirt_nrm.jpg", 0.05)
 	elif kind == "shop":         # warm wooden ship cabin
 		arena_env.background_color = Color(0.06, 0.045, 0.025)
 		arena_env.ambient_light_color = Color(1.0, 0.85, 0.6)
@@ -8448,13 +8515,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.glow_intensity = 1.15
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
+		grade_profile = "bright_pastel"
 		# same anti-white-wash recipe as the snowy "fetch" yard: on an
 		# already-white ice scene the WW screen-blend haze + hot ambient
 		# clips the whole frame past ACES white (fully blown out on the
 		# Android framebuffer, owner report 2026-07-13)
-		arena_env.background_color = Color(0.62, 0.82, 1.0)
-		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
-		arena_env.ambient_light_energy = 0.7
+		arena_env.background_color = Color(0.48, 0.70, 0.90)
+		arena_env.ambient_light_color = Color(0.86, 0.92, 1.0)
+		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_bloom = 0.05
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
@@ -8468,7 +8536,10 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.85
 		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	_speedy_glow_clamp(arena_env)   # re-run after the per-theme overrides so they respect speedy too
-	_grade(arena_env)
+	if grade_profile.is_empty():
+		_grade(arena_env)
+	else:
+		_apply_scene_grade(arena_env, grade_profile)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO

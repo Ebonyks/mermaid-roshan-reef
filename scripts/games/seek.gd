@@ -28,8 +28,8 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 		bmat3.normal_scale = 1.0
 		bmat3.roughness = 1.0
 		bmat3.emission_enabled = true
-		bmat3.emission = m.BTN_COLS[i] * 0.3
-		bmat3.emission_energy_multiplier = 0.7
+		bmat3.emission = m.BTN_COLS[i] * 0.18
+		bmat3.emission_energy_multiplier = 0.25
 		bush.material_override = bmat3
 		bush.position = origin + m.BTN_OFFS[i] + Vector3(0, 2.2, 0)
 		m.add_child(bush)
