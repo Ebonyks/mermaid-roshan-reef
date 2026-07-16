@@ -1437,6 +1437,6 @@ func tick(delta: float, ppos: Vector3) -> void:
 				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 			var ctw: Tween = crown.create_tween()
 			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			ctw.parallel().tween_property(crown, "modulate", Color(1.0, 0.98, 0.7, 1.0), 0.8)
+			ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
 			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 

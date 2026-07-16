@@ -6558,6 +6558,8 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if touch_ui != null and absf(touch_ui.stick_vec.x) > 0.15:
 		steer += touch_ui.stick_vec.x
 	steer = clampf(steer, -1.0, 1.0)
+	if absf(steer) > 0.15:
+		g["steered"] = true
 	# --- along-slope physics: gravity pulls down the gradient, drag caps speed ---
 	var v: float = g["v"]
 	var grade: float = -tangent.y          # >0 going downhill
@@ -6656,7 +6658,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if spray != null and is_instance_valid(spray):
 				(spray as CPUParticles3D).speed_scale = 1.7 if sprinting else 1.0
 		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
-		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
+		if beany and bool(g.get("steered", false)) and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
 			award_sticker("penguin")
 			var cn = g.get("peng_node")
@@ -6677,7 +6679,16 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		else:
 			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
-			_end_game(false, fr, "He crossed the finish first — he's just too speedy! Hmm... maybe magic BEANS from the Pearl Shop would give me a super boost! Toot toot!", "fail")
+			if bool(g.get("steered", false)):
+				_end_game(true, fr, "What a race! The baby penguin zoomed ahead — and wants to race you again! Magic Beans can help you catch him.")
+			else:
+				# Auto-slide alone cannot complete the activity. Restart at the top
+				# and demonstrate the one deliberate verb without a loss screen.
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				g["burst"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the race! Take your time.", "hint")
 			return
 	else:
 		# ===== COLLECT THE FISH =====
@@ -6705,8 +6716,14 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		hud_game.text = "Slide!  Fish: %d / 5" % int(g["got"])
 		if float(g["s"]) >= total - 0.5:
 			var got: int = int(g["got"])
-			var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
-			_end_game(true, fr, msg)
+			if bool(g.get("steered", false)):
+				var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
+				_end_game(true, fr, msg)
+			else:
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the slide! Take your time.", "hint")
 
 # ===================== FAIRY POND — OVERHEAD SCROLLING BULLET HELL =====================
 # A gentle top-down scrolling shooter sized for a 4-year-old: the camera hangs
