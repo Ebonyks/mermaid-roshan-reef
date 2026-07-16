@@ -291,9 +291,13 @@ check("cheer both hands clearly overhead",
 check("cheer hands forward not buried", hL[iL, 2] < 0.05 and hR[iR, 2] < 0.05,
       f"peak z L={hL[iL,2]:.2f} R={hR[iR,2]:.2f}")
 check("cheer symmetric", abs(hL[iL, 1]-hR[iR, 1]) < 0.12, f"dy={abs(hL[iL,1]-hR[iR,1]):.2f}")
-check("cheer returns to rest", np.linalg.norm(hL[-1]-REST["hand"]) < 0.15 and
-      np.linalg.norm(hR[-1]-REST["hand2"]) < 0.15,
-      f"end drift L={np.linalg.norm(hL[-1]-REST['hand']):.2f} R={np.linalg.norm(hR[-1]-REST['hand2']):.2f}")
+_cheer_frames = int(VERBS["cheer"]["len"]*FPS)+1
+_cheer_swim_end = probe_pos(swim_deltas(
+    _cheer_frames*2.2/FPS, 0.0, _cheer_frames/FPS))
+_cheer_end_left = np.linalg.norm(hL[-1]-_cheer_swim_end["hand"])
+_cheer_end_right = np.linalg.norm(hR[-1]-_cheer_swim_end["hand2"])
+check("cheer returns to swim sway", _cheer_end_left < 0.01 and _cheer_end_right < 0.01,
+      f"end drift from same-frame swim L={_cheer_end_left:.4f} R={_cheer_end_right:.4f}")
 
 # wave: right hand high, left ~static
 rows = track("wave")
