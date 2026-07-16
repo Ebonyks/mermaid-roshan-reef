@@ -69,16 +69,16 @@ audit:
 | Evidence | Current value | Meaning |
 |---|---:|---|
 | GDScript files | 77 | Broad system surface |
-| GDScript lines | 27,869 | Substantial personal-project codebase |
-| `main.gd` | 8,239 lines | Still the dominant state/content owner |
+| GDScript lines | 28,001 | Substantial personal-project codebase |
+| `main.gd` | 8,295 lines | Still the dominant state/content owner |
 | `kart.gd` | 2,950 lines | One activity approaches subsystem scale |
 | authored `.tscn` scenes | 1 | Nearly all content is constructed in code |
-| asset files | 1,181 | Large and diverse presentation inventory |
-| asset tree size | ~326 MB | Import, memory, and package discipline matter |
-| `.new()` calls in `main.gd` | 497 | Heavy runtime construction and allocation |
+| asset files | 1,185 | Large and diverse presentation inventory |
+| asset tree size | ~326.4 MB | Import, memory, and package discipline matter |
+| `.new()` calls in `main.gd` | 498 | Heavy runtime construction and allocation |
 | `_build*` functions in `main.gd` | 45 | Content authoring is code-centric |
 | `_tick*` functions in `main.gd` | 35 | Broad per-frame responsibility |
-| direct `g[...]` uses in `main.gd` | 140 | Significant string/dictionary state surface |
+| direct `g[...]` uses in `main.gd` | 141 | Significant string/dictionary state surface |
 | probe files | 49 | Excellent diagnostic investment |
 | trusted CI probes | 19 | Strong integration gate; incomplete visual/device gate |
 
