@@ -281,6 +281,7 @@ func _pause_persistence_check() -> bool:
 	_force_race_start(kg)
 	kg.set_process(false)
 	var pearls_before: int = int(main.pearl_count)
+	kg._player_acted = true
 	kg._pearls_got = 2
 	kg._notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
 	var pearls_after_first: int = int(main.pearl_count)
@@ -348,6 +349,9 @@ func _second_place_completion_check() -> bool:
 		elif not bool(k["is_player"]):
 			k["s"] = 0.0
 	var place: int = int(kg._placement())
+	# This direct finish bypasses the input loop, so mark the simulated racer as
+	# having participated before testing placement-independent completion.
+	kg._player_acted = true
 	kg._finish()
 	var before_podium: bool = main.game == "kart" and main.kart_game == kg
 	var sticker_committed: bool = bool(main.stickers.get("racer", false))

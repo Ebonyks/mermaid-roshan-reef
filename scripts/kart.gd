@@ -513,7 +513,7 @@ func _notification(what: int) -> void:
 	# Android normally sends a pause notification before the process can be
 	# evicted. Bank the pearls already collected at that point; the incremental
 	# payout helper will add only the remainder and finish bonus if play resumes.
-	if what == NOTIFICATION_APPLICATION_PAUSED and _main != null and (_payout_dirty or _pearls_got > _payout_banked):
+	if what == NOTIFICATION_APPLICATION_PAUSED and _player_acted and _main != null and (_payout_dirty or _pearls_got > _payout_banked):
 		_commit_payout(0)
 
 var _hidden_props: Array = []
@@ -2370,8 +2370,12 @@ func _process(delta: float) -> void:
 	var steer := _steer_input()
 	var braking := _brake_input()
 	var fired := _fire_just()
-	if absf(steer) > 0.05 or braking or fired:
+	var acted_now: bool = absf(steer) > 0.05 or braking or fired
+	if acted_now and not _player_acted:
 		_player_acted = true
+		# Pearls swept up by auto-cruise become earned only when Roshan performs
+		# a deliberate race verb. Bank that pending progress at the first input.
+		_commit_payout(0)
 
 	for k in _karts:
 		if k["is_player"]:
@@ -2830,7 +2834,8 @@ func _check_pearls() -> void:
 			pd["got"] = true
 			node.visible = false
 			_pearls_got += 1
-			_commit_payout(0)   # zero-lost-progress: each collected pearl is durable now
+			if _player_acted:
+				_commit_payout(0)   # zero-lost-progress after deliberate participation
 			_charge(_pl, 0.05)
 			_chime(0.8 + 0.02 * float(_pearls_got % 8))
 			if _main != null and _main.has_method("_sparkle_burst"):
@@ -3121,6 +3126,7 @@ func _quit_race() -> void:
 	# Two icon taps prevent a stray preschool thumb from closing a run. No
 	# reading is required: the button visibly becomes a pulsing double-X.
 	if _quit_arm_t <= 0.0:
+		_player_acted = true
 		_quit_arm_t = 2.2
 		_btn_quit.text = "✕  ✕"
 		_btn_quit.modulate = Color(1.0, 0.55, 0.55)
@@ -3209,16 +3215,19 @@ func _finish() -> void:
 	_state = "podium"
 	var place := _placement()
 	var suffix: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
-	# Finish is a positive completion at every placement. Commit durable economy
-	# first, then let main atomically save sticker/Galaxy progression before the
-	# purely presentational podium delay.
-	var payout: int = _commit_payout(_placement_bonus(place))
+	# A finish at every placement is positive after one deliberate race verb.
+	# Auto-cruise remains a gentle assist, but an unattended kart cannot farm
+	# pearls, stickers, or Galaxy progression.
+	var payout := 0
+	if _player_acted:
+		payout = _commit_payout(_placement_bonus(place))
 	if _main != null and _main.has_method("_update_hud"):
 		_main._update_hud()
-	_commit_completion(place)
+	if _player_acted:
+		_commit_completion(place)
 	_set_guide_mode("")
-	_lbl_big.text = "YOU DID IT!"
-	_lbl_hint.text = ("%d%s place  •  +%d pearls!" % [place, suffix, payout]) if bool(_cv("pearl_payout", true)) else ("Great racing — %d%s place!" % [place, suffix])
+	_lbl_big.text = "YOU DID IT!" if _player_acted else "YOUR TURN!"
+	_lbl_hint.text = (("%d%s place  •  +%d pearls!" % [place, suffix, payout]) if bool(_cv("pearl_payout", true)) else ("Great racing — %d%s place!" % [place, suffix])) if _player_acted else "Steer or tap TURBO next race to join in!"
 	if _main != null and _main.has_method("_say"):
 		_main._say("roshan", "win", 2.0)
 	# podium: top 3 by distance
@@ -3260,8 +3269,8 @@ func _finish() -> void:
 func _teardown(place: int) -> void:
 	# Covers explicit quit and any direct teardown caller. Both helpers are
 	# idempotent, so the normal finish path cannot double-award anything.
-	_commit_payout(_placement_bonus(place) if place > 0 else 0)
 	if place > 0:
+		_commit_payout(_placement_bonus(place))
 		_commit_completion(place)
 	_state = "done"
 	for n in _hidden_props:
