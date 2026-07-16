@@ -83,7 +83,7 @@ func _exercise_puzzle(puzzle: DungeonPuzzleRoom, config: Dictionary) -> void:
 	if kind == "pairs":
 		_activate(puzzle, 0)
 		_activate(puzzle, 1)
-		_ck("mismatched runes remain visible", puzzle.pair_hide_t > 0.0 and puzzle.card_labels[0].text != "?" and puzzle.card_labels[1].text != "?")
+		_ck("mismatched runes remain visible", puzzle.pair_hide_t > 0.0 and _pictogram_visible(puzzle.card_labels[0], "Moon") and _pictogram_visible(puzzle.card_labels[1], "Star"))
 		puzzle._process(1.2)
 		_activate(puzzle, 0)
 		_activate(puzzle, 2)
@@ -102,6 +102,10 @@ func _exercise_puzzle(puzzle: DungeonPuzzleRoom, config: Dictionary) -> void:
 	_ck("puzzle solution physically opens door", puzzle.state == "exit" and puzzle.door != null)
 	puzzle._finish()
 
+func _pictogram_visible(root: Node3D, part_name: String) -> bool:
+	var part: Node3D = root.find_child(part_name, true, false) as Node3D
+	return part != null and part.visible
+
 func _activate(puzzle: DungeonPuzzleRoom, choice: int) -> void:
 	for entry: Dictionary in puzzle.interactives:
 		if int(entry["index"]) == choice:
@@ -113,7 +117,8 @@ func _activate(puzzle: DungeonPuzzleRoom, choice: int) -> void:
 
 func _exercise_finale(arena: CombatArena) -> void:
 	_ck("final boss starts with ice shell phase", arena.kind == "dual" and arena.action_label() == "ICE")
-	_ck("final boss has a readable modeled shell crown", arena.find_child("Shell_Crown_Star", true, false) != null)
+	var modeled_shell: Node3D = arena.boss.get("shell") as Node3D
+	_ck("final boss has a readable modeled shell crown", modeled_shell != null and _descendants(modeled_shell) > 0)
 	var hp: int = int(arena.boss["hp"])
 	arena._hit_boss("fire")
 	_ck("fire cannot skip frozen-shell lesson", int(arena.boss["hp"]) == hp and String(arena.boss["phase"]) == "shell")
