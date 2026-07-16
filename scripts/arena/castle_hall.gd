@@ -900,8 +900,8 @@ func build_basement_wing(o: Vector3) -> void:
 	build_dungeon_gate(o + Vector3(0, -18.0, 5.0))
 
 func build_dungeon_gate(ground: Vector3) -> void:
-	# The ten-room gate waits at the basement hall entrance. Its two large
-	# ability icons explain the lock without reading; approaching also speaks it.
+	# The ten-room gate waits at the basement hall entrance. The dungeon itself
+	# teaches ice and fire, so this entrance is open on a fresh save.
 	var root := Node3D.new()
 	root.position = ground
 	m.add_child(root)
@@ -932,7 +932,7 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	veil.position = Vector3(0, 4.0, 0)
 	root.add_child(veil)
 	var label := Label3D.new()
-	label.text = "❄ + 🌶\n◇ ◇ ◇ ◇ ◇\n◇ ◇ ◇ ◇ ◇"
+	label.text = "★  TEN ROOMS  ★\n◆ ◆ ◆ ◆ ◆\n◆ ◆ ◆ ◆ ◆"
 	label.font_size = 70
 	label.pixel_size = 0.022
 	label.outline_size = 14
@@ -940,7 +940,8 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.position = Vector3(0, 9.0, 0)
 	root.add_child(label)
-	m.g["dungeon_gate"] = {"node": root, "veil": veil, "label": label, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0, "ready": false}
+	veil.modulate = Color(1.0, 0.82, 0.45)
+	m.g["dungeon_gate"] = {"node": root, "veil": veil, "label": label, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
 
 
 func build_music_room(o: Vector3) -> void:
@@ -1304,16 +1305,12 @@ func tick(delta: float, ppos: Vector3) -> void:
 			if not m.combat_fire_done and m.combat_game == null:
 				m.call_deferred("_start_combat", "fire")
 				return
-	# Elemental dungeon gate: both tutorial encounters unlock it. Lingering at
-	# the threshold cannot retrigger it; the safe-home return places Roshan aside.
+	# The dungeon teaches its own actions, so the entrance never depends on
+	# optional encounters elsewhere. Lingering cannot retrigger it; the safe-home
+	# return places Roshan aside.
 	if m.g.has("dungeon_gate"):
 		var dg: Dictionary = m.g["dungeon_gate"]
 		dg["cool"] = maxf(0.0, float(dg["cool"]) - delta)
-		var ready: bool = m.combat_ice_done and m.combat_fire_done
-		if ready != bool(dg["ready"]):
-			dg["ready"] = ready
-			(dg["label"] as Label3D).text = "★  TEN ROOMS  ★\n◆ ◆ ◆ ◆ ◆\n◆ ◆ ◆ ◆ ◆" if ready else "❄ + 🌶\n◇ ◇ ◇ ◇ ◇\n◇ ◇ ◇ ◇ ◇"
-			(dg["veil"] as MeshInstance3D).modulate = Color(1.0, 0.82, 0.45) if ready else Color(0.7, 0.6, 1.0)
 		var gate_pos: Vector3 = dg["pos"]
 		var gate_dist: float = gate_pos.distance_to(ppos)
 		if gate_dist > 8.0:
@@ -1321,10 +1318,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		elif gate_dist < 5.0 and bool(dg["armed"]) and float(dg["cool"]) <= 0.0:
 			dg["armed"] = false
 			dg["cool"] = 5.0
-			if ready and m.dungeon_game == null:
+			if m.dungeon_game == null:
 				m.call_deferred("_start_dungeon")
 				return
-			m.show_msg("Roshan", "The dungeon needs BOTH powers: the Ice Berry and the spicy garden pepper!", "locked")
 	# leave the castle from the entrance
 	if m.g.has("hall_exit") and float(m.g["t"]) > 2.5:
 		var hx: Vector3 = m.g["hall_exit"]
