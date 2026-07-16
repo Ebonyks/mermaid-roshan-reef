@@ -33,6 +33,50 @@ func _init() -> void:
 		var attached: bool = Vector2(vl.x - ml.x, vl.z - ml.z).length() < 80.0
 		alpine_ok = vl.x < -60.0 and vl.z < -140.0 and train_clear and attached and sl.y > 45.0
 	print("ALPINE|corner + mountain + secret cave: ", "OK" if alpine_ok else "FAIL")
+	# All three chalets must expose a clear front-to-centre corridor and place a
+	# persistent one-time bonus beyond the doorway, not on the outside facade.
+	var houses_ok: bool = (main.g.has("alpine_house_entries")
+		and main.g.has("alpine_house_bonuses"))
+	var entries: Array = main.g.get("alpine_house_entries", [])
+	var bonuses: Array = main.g.get("alpine_house_bonuses", [])
+	houses_ok = houses_ok and entries.size() == 3 and bonuses.size() == 3
+	if houses_ok:
+		for house_index in range(3):
+			var entry_data: Dictionary = entries[house_index]
+			var bonus_data: Dictionary = bonuses[house_index]
+			var entry_pos: Vector3 = entry_data["entry"]
+			var inside_pos: Vector3 = entry_data["inside"]
+			var bonus_pos: Vector3 = bonus_data["pos"]
+			houses_ok = (houses_ok
+				and float(entry_data["door_width"]) >= 5.0
+				and entry_pos.distance_to(inside_pos) < 7.0
+				and bonus_pos.distance_to(inside_pos) < 6.0
+				and bonus_pos.z < entry_pos.z)
+			for sample_index in range(7):
+				var sample_pos: Vector3 = entry_pos.lerp(inside_pos,
+					float(sample_index) / 6.0)
+				if _arena_point_blocked(main, sample_pos):
+					houses_ok = false
+	# Exercise one real bonus twice: the first visit pays exactly once and stores
+	# its private save key; lingering beside it must never farm extra pearls.
+	var bonus_once_ok := false
+	if bonuses.size() == 3:
+		var first_bonus: Dictionary = bonuses[0]
+		var first_key: String = first_bonus["key"]
+		var first_node: Node3D = first_bonus["node"] as Node3D
+		main.stickers.erase(first_key)
+		first_bonus["claimed"] = false
+		first_node.visible = true
+		var pearls_before: int = main.pearl_count
+		main._lagoon_ref()._tick_alpine_house_bonuses(0.016, first_bonus["pos"])
+		var pearls_after_first: int = main.pearl_count
+		main._lagoon_ref()._tick_alpine_house_bonuses(0.016, first_bonus["pos"])
+		bonus_once_ok = (pearls_after_first == pearls_before + 1
+			and main.pearl_count == pearls_after_first
+			and bool(main.stickers.get(first_key, false))
+			and not first_node.visible)
+	print("ALPINE HOUSES|walk-in + 3 saved bonuses: ",
+		"OK" if houses_ok and bonus_once_ok else "FAIL")
 	var t := 0.0
 	var got_log := []
 	var last_got := 0
@@ -80,6 +124,24 @@ func _init() -> void:
 	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
 	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "STUCK"), t])
 	quit()
+
+
+func _arena_point_blocked(main: Node, point: Vector3) -> bool:
+	for value in main.arena_solids:
+		var solid: Dictionary = value
+		if point.y < float(solid["y0"]) or point.y > float(solid["y1"]):
+			continue
+		if bool(solid.get("box", false)):
+			if (absf(point.x - float(solid["cx"])) <= float(solid["hx"])
+				and absf(point.z - float(solid["cz"])) <= float(solid["hz"])):
+				return true
+		else:
+			var dx: float = point.x - float(solid["x"])
+			var dz: float = point.z - float(solid["z"])
+			var radius: float = float(solid["r"])
+			if dx * dx + dz * dz <= radius * radius:
+				return true
+	return false
 
 func _kart_gateway_regressions(main: Node, player: Node3D) -> void:
 	# Exercise the real Sky Lagoon portal logic without launching either large
