@@ -700,6 +700,10 @@ func _process(delta: float) -> void:
 			# Sky Lagoon: rest on the rolling-hill terrain (plus the bridge deck /
 			# star platforms); dip down into the river valleys and the castle moat
 			floor_a = m.lagoon_walk_h(position.x, position.z) + 2.0
+		elif "northern_floor" in m and m.northern_floor:
+			# The separately loaded northern kingdom has its own mountain-to-fjord
+			# heightfield, with the same forgiving two-unit swim clearance.
+			floor_a = m.northern_walk_h(position.x, position.z) + 2.0
 		var ceil_a: float = ap.y + ceil_h
 		if "arena_zones" in m:
 			# Y-BANDED level zones (castle balcony/top chambers/basement): a

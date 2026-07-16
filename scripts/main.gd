@@ -45,6 +45,7 @@ var return_pos := Vector3.ZERO
 const ARENA_POS := Vector3(0, -600, 0)
 const LEVEL2_POS := Vector3(0, -1300, 0)
 const CASTLE_POS := Vector3(500, -1300, 0)
+const NORTHERN_POS := Vector3(0, -2200, 0)
 var arena_center := Vector3(0, -600, 0)
 var arena_dome := 48.0
 var arena_ceil := 42.0
@@ -252,6 +253,7 @@ var save_retry_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
+var northern_floor := false  # the Alpine-pass world has its own terrain heightfield
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
 var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
@@ -3020,7 +3022,7 @@ void fragment(){
 	portal_node = hub
 	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
 
-func _enter_level2(from_castle: bool = false) -> void:
+func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	game = "level2"
 	# free whatever level nodes are still alive BEFORE rebuilding: the rainbow-
 	# road/galaxy return path re-entered here without tearing the lagoon down
@@ -3036,6 +3038,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	arena_zones.clear()
 	fade_walls.clear()
 	lagoon_floor = true   # the courtyard floor follows the rolling-hill terrain
+	northern_floor = false
 	_play_music("level2")
 	return_pos = player.position
 	arena_center = LEVEL2_POS
@@ -3075,7 +3078,18 @@ func _enter_level2(from_castle: bool = false) -> void:
 		_build_lagoon_night(LEVEL2_POS)
 	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
 	# track selected at the top of this function — the lagoon music never played)
-	if from_castle:
+	if from_north:
+		# Return beside the Alpine gate, facing back toward the snowy village.
+		# The gate is disarmed until Roshan swims away, preventing a bounce loop.
+		var north_gate: Vector3 = g.get("northern_portal_pos",
+			LEVEL2_POS + Vector3(-112.0, 40.0, -185.0))
+		player.position = north_gate + Vector3(16.0, 0.0, 0.0)
+		player.position.y = lagoon_walk_h(player.position.x, player.position.z) + 2.0
+		player.yaw = PI * 0.5
+		player.vel = Vector3.ZERO
+		g["northern_portal_armed"] = false
+		show_msg("Roshan", "Back through the snowy mountain pass!", "pearl2")
+	elif from_castle:
 		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
 		for sd in l2_stars:
 			sd["got"] = true
@@ -3097,6 +3111,29 @@ func _enter_level2(from_castle: bool = false) -> void:
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		show_msg("Sky Lagoon", "You found Princess Huluu's SKY LAGOON! Follow the path and catch 3 Dream Stars to open the castle!")
+
+func _enter_northern_kingdom() -> void:
+	game = "north"
+	for n in game_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	game_nodes.clear()
+	g = {"t": 0.0, "phase": "north"}
+	arena_solids.clear()
+	arena_zones.clear()
+	fade_walls.clear()
+	lagoon_floor = false
+	northern_floor = true
+	_play_music("level2")
+	arena_center = NORTHERN_POS
+	arena_dome = 214.0
+	arena_ceil = 115.0
+	_northern_ref().build(NORTHERN_POS)
+	var spawn_y: float = northern_walk_h(NORTHERN_POS.x, NORTHERN_POS.z + 165.0)
+	player.position = Vector3(NORTHERN_POS.x, spawn_y + 2.0, NORTHERN_POS.z + 165.0)
+	player.yaw = PI
+	player.vel = Vector3.ZERO
+	show_msg("Roshan", "A magical forest! The glowing lights lead to the fjord castle!", "pearl")
 
 func _build_page_frame() -> void:
 	# STORYBOOK DIORAMA FRAMING (fork): every book page has a delicate dotted
@@ -3266,6 +3303,22 @@ func _lagoon_ref() -> SkyLagoon:
 	if _sky_lagoon == null:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
+
+# The northern kingdom beyond the Alpine pass is loaded separately so its
+# forest, town, and castle never share the mobile render budget with the lagoon.
+# State stays here on main; the satellite only builds and ticks it.
+var _northern_kingdom: NorthernKingdom = null
+
+func _northern_ref() -> NorthernKingdom:
+	if _northern_kingdom == null:
+		_northern_kingdom = NorthernKingdom.new(self)
+	return _northern_kingdom
+
+func northern_walk_h(x: float, z: float) -> float:
+	return _northern_ref().walk_h(x, z)
+
+func _tick_northern(delta: float, ppos: Vector3) -> void:
+	_northern_ref().tick(delta, ppos)
 
 # The courtyard train (Sky Lagoon ride) lives in scripts/arena/courtyard_train.gd
 # (state stays here in g["train"] / g["toys"]; the satellite receives main by reference)
@@ -7358,6 +7411,8 @@ func _process(delta: float) -> void:
 	if game == "level2":
 		g["t"] = float(g["t"]) + delta
 		_tick_level2(delta, ppos)
+	elif game == "north":
+		_tick_northern(delta, ppos)
 	elif game == "kart":
 		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
