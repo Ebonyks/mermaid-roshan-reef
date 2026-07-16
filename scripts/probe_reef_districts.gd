@@ -10,6 +10,9 @@ func _check(label: String, condition: bool) -> void:
 func _init() -> void:
 	_check("six district centers", ReefDistricts.REGION_CENTERS.size() == 6)
 	_check("authored grove count", ReefDistricts.GROVES.size() == 18)
+	_check("six regional object signatures", ReefDistricts.REGION_SIGNATURES.size() == 6)
+	for key: String in ReefDistricts.REGION_SIGNATURES:
+		_check("%s has three object families" % key, (ReefDistricts.REGION_SIGNATURES[key] as Array).size() >= 3)
 	var kinds := {}
 	for value: Dictionary in ReefDistricts.GROVES:
 		kinds[String(value["kind"])] = true
@@ -27,5 +30,8 @@ func _init() -> void:
 	_check("kelp ridge raised", ReefDistricts.shape_terrain(-55.0, 132.0, 0.0) > 7.0)
 	for key: String in ReefDistricts.STRUCTURE_SCENES:
 		_check("structure %s exists" % key, ResourceLoader.exists(String(ReefDistricts.STRUCTURE_SCENES[key])))
+	_check("six Blender regional assets", ReefDistricts.REGIONAL_SCENES.size() == 6)
+	for key: String in ReefDistricts.REGIONAL_SCENES:
+		_check("regional asset %s exists" % key, ResourceLoader.exists(String(ReefDistricts.REGIONAL_SCENES[key])))
 	print("REEFDISTRICT|RESULT|", "PASS" if ok else "FAIL")
 	quit(0 if ok else 1)

@@ -40,6 +40,26 @@ const STRUCTURE_SCENES := {
 	"cave": "res://assets/ship/cliff_cave_rock.glb",
 }
 
+const REGIONAL_SCENES := {
+	"kelp_arch": "res://assets/reef_regions/kelp_cathedral_arch.glb",
+	"kelp_lanterns": "res://assets/reef_regions/kelp_lantern_cluster.glb",
+	"moon_arch": "res://assets/reef_regions/moon_shell_arch.glb",
+	"moon_totem": "res://assets/reef_regions/moon_pearl_totem.glb",
+	"ice_crystals": "res://assets/reef_regions/ice_crystal_cluster.glb",
+	"ice_current": "res://assets/reef_regions/ice_current_fan.glb",
+}
+
+# The audit vocabulary for each district. Every region has at least three
+# object families with a role beyond recolouring the same coral or rock.
+const REGION_SIGNATURES := {
+	"pearl": ["shell gardens", "barrel sponges", "pearl-shop ship"],
+	"kelp": ["cathedral arches", "lantern pods", "tall kelp aisles"],
+	"wreck": ["broken ship", "treasure debris", "ravine shoulders"],
+	"moon": ["shell arch", "pearl totems", "anemone bowls"],
+	"rainbow": ["race gateway", "coral bouquets", "starfish flats"],
+	"ice": ["crystal clusters", "current fins", "penguin floe"],
+}
+
 var m: ReefMain
 var _scatter_rng := RandomNumberGenerator.new()
 
@@ -134,14 +154,25 @@ func build_macro_structures() -> void:
 		var z: float = 86.0 + float(row) * 34.0
 		_structure("spire", Vector2(-58, z), 38.0 + float(row) * 5.0, 0.25, Color(0.28, 0.43, 0.43))
 		_structure("spire", Vector2(18, z + 5.0), 34.0 + float(row) * 4.0, -0.4, Color(0.30, 0.46, 0.44))
+	# Two enormous living ribs create an actual cathedral sequence; lantern
+	# clusters punctuate it without repeating at every grove.
+	_regional_prop("kelp_arch", Vector2(-20, 105), 30.0, 0.0, false)
+	_regional_prop("kelp_arch", Vector2(-18, 145), 34.0, 0.08, false)
+	_regional_prop("kelp_lanterns", Vector2(-47, 92), 9.0, -0.35, false)
+	_regional_prop("kelp_lanterns", Vector2(5, 126), 10.0, 0.5, false)
+	_regional_prop("kelp_lanterns", Vector2(-45, 158), 8.0, -0.8, false)
 	# Wreck Ravine: two irregular shoulders frame the diagonal trench.
 	var wreck_left := [Vector2(-157, 126), Vector2(-132, 108), Vector2(-105, 85)]
 	var wreck_right := [Vector2(-139, 149), Vector2(-110, 128), Vector2(-82, 101)]
 	for i in range(wreck_left.size()):
 		_structure("block", wreck_left[i], 34.0 + float(i) * 5.0, 2.35, Color(0.42, 0.43, 0.55))
 		_structure("spire", wreck_right[i], 31.0 + float(i) * 4.0, -0.7, Color(0.36, 0.40, 0.52))
-	# Moon-shell Grotto: one readable arch with asymmetric flanking masses.
-	_structure("cave", Vector2(-126, 2), 58.0, 1.55, Color(0.54, 0.45, 0.64))
+	# Moon-shell Grotto: its hero arch and pearl cairns use their own vocabulary,
+	# with asymmetric rock masses acting as quiet enclosure rather than identity.
+	_regional_prop("moon_arch", Vector2(-126, 2), 42.0, 1.55, false)
+	_regional_prop("moon_totem", Vector2(-101, -24), 9.0, -0.4, false)
+	_regional_prop("moon_totem", Vector2(-151, 23), 11.0, 0.7, false)
+	_regional_prop("moon_totem", Vector2(-105, 33), 7.0, 1.2, false)
 	_structure("spire", Vector2(-162, -18), 38.0, 0.2, Color(0.48, 0.44, 0.59))
 	_structure("block", Vector2(-91, 30), 32.0, -0.5, Color(0.59, 0.50, 0.66))
 	# Rainbow Flats: low warm banks preserve long, open race lanes.
@@ -151,6 +182,10 @@ func build_macro_structures() -> void:
 	_structure("spire", Vector2(96, -103), 39.0, -0.25, Color(0.47, 0.58, 0.69))
 	_structure("block", Vector2(128, -47), 31.0, 0.55, Color(0.50, 0.61, 0.71))
 	_structure("spire", Vector2(82, -25), 29.0, 0.2, Color(0.45, 0.55, 0.67), false)
+	_regional_prop("ice_crystals", Vector2(72, -91), 15.0, -0.3, true)
+	_regional_prop("ice_crystals", Vector2(117, -68), 11.0, 0.55, true)
+	_regional_prop("ice_current", Vector2(51, -51), 14.0, -0.15, false)
+	_regional_prop("ice_current", Vector2(101, -28), 12.0, 0.7, false)
 
 func _structure(kind: String, xz: Vector2, target: float, yrot: float, tint: Color, solid: bool = true) -> Node3D:
 	var path: String = STRUCTURE_SCENES[kind]
@@ -171,6 +206,26 @@ func _structure(kind: String, xz: Vector2, target: float, yrot: float, tint: Col
 	m.flora_nodes.append(wrap)
 	if solid:
 		m._register_solid(wrap, 0.72, 1.2)
+	return wrap
+
+func _regional_prop(kind: String, xz: Vector2, target: float, yrot: float, solid: bool) -> Node3D:
+	var path: String = REGIONAL_SCENES[kind]
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path)
+	if packed == null:
+		return null
+	var wrap := Node3D.new()
+	wrap.name = "Reef_region_%s" % kind
+	var model: Node3D = packed.instantiate()
+	m._fit_prop(model, target) # toonifies embedded matte region materials
+	wrap.add_child(model)
+	wrap.position = Vector3(xz.x, m.seabed_y(xz.x, xz.y), xz.y)
+	wrap.rotation.y = yrot
+	m.add_child(wrap)
+	m.flora_nodes.append(wrap)
+	if solid:
+		m._register_solid(wrap, 0.68, 1.0)
 	return wrap
 
 func build_groves() -> void:

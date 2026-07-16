@@ -115,6 +115,9 @@
 | assets/mg/seed.png | OpenAI ChatGPT score-3 garden icon rebuild | **Project-generated art** | assets_src/style_review_score3/seed.png | 512px transparent seed icon; previous file archived; generated 2026-07-15 |
 | assets/mg/butterfly.png | Approved project-generated complete butterfly card, adapted from the GEN2 butterfly family | **Project-generated art** | assets/props/gen2/butterfly1.png | resized to 512px for garden-minigame use; previous wing-only file archived; promoted 2026-07-15 |
 | backups/art_pre_score3_2026-07-15/** | Snapshots of every runtime raster overwritten by the score-3 rebuild | **Same license as each original mirrored asset** | original repository paths and this ledger | reversal archive plus restore script; created 2026-07-15 |
+| assets/reef_regions/kelp_cathedral_arch.glb, kelp_lantern_cluster.glb, moon_shell_arch.glb, moon_pearl_totem.glb, ice_crystal_cluster.glb, ice_current_fan.glb | Project-authored Blender 4.4.3 regional reef kit | **Project-generated art** | assets_src/blender/reef_region_kit.blend | six low-poly, embedded-matte silhouette families for Kelp Cathedral, Moon Grotto, and Ice Current; generated 2026-07-15 |
+| assets_src/blender/reef_region_kit.blend | Project-authored Blender source for the regional reef kit | **Project-generated source art** | - | editable source scene for six production GLBs; generated 2026-07-15 |
+| assets_src/blender/qa_reef_region_kit/*.png | Blender Eevee QA renders of the regional reef kit | **Project-generated review art** | assets_src/blender/reef_region_kit.blend | isolated transparent visual QA renders; generated 2026-07-15 |
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file
