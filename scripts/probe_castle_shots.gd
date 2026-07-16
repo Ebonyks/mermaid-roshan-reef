@@ -72,5 +72,7 @@ func _init() -> void:
 	await _shot("tex_hall_backroom", h + Vector3(0, 10, -36), h + Vector3(6, 4, -48))
 	await _shot("tex_room_music", h + Vector3(-36, 12, -16), h + Vector3(-46, 2, -5))
 	await _shot("tex_room_bedroom", h + Vector3(36, 12, -16), h + Vector3(46, 3, -16))
+	await _shot("tex_room_kitchen_overview", h + Vector3(9.5, -9.0, -1.0), h + Vector3(19.0, -14.0, -5.0))
+	await _shot("tex_room_kitchen_counter", h + Vector3(17.0, -10.0, 4.5), h + Vector3(18.5, -14.0, -7.5))
 	print("PROBE DONE")
 	quit()
