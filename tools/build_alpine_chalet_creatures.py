@@ -279,8 +279,13 @@ def fin_mesh(
 
 def habitat_root(name: str) -> tuple[bpy.types.Object, bpy.types.Object, bpy.types.Object]:
     root = empty(name)
-    cage = empty("Cage", root)
-    collectible = empty("Collectible", root)
+    # Blender object names are global within a .blend. Keep descriptive source
+    # names here, then assign the exact runtime role names while exporting each
+    # selected habitat below.
+    cage = empty(f"{name}Cage", root)
+    cage["habitat_role"] = "cage"
+    collectible = empty(f"{name}Collectible", root)
+    collectible["habitat_role"] = "collectible"
     return root, cage, collectible
 
 
@@ -429,6 +434,18 @@ def descendants(root: bpy.types.Object) -> list[bpy.types.Object]:
 
 
 def export_root(root: bpy.types.Object, output_name: str) -> None:
+    cage = next(
+        child for child in root.children
+        if child.get("habitat_role") == "cage"
+    )
+    collectible = next(
+        child for child in root.children
+        if child.get("habitat_role") == "collectible"
+    )
+    cage_source_name = cage.name
+    collectible_source_name = collectible.name
+    cage.name = "Cage"
+    collectible.name = "Collectible"
     bpy.ops.object.select_all(action="DESELECT")
     for obj in descendants(root):
         obj.select_set(True)
@@ -444,6 +461,8 @@ def export_root(root: bpy.types.Object, output_name: str) -> None:
         export_lights=False,
         export_animations=False,
     )
+    cage.name = cage_source_name
+    collectible.name = collectible_source_name
     print("EXPORTED", output_path, output_path.stat().st_size, "bytes")
 
 
