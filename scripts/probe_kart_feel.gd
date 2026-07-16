@@ -143,10 +143,19 @@ func _init() -> void:
 		main.kart_game._quit_race()
 		main.kart_game._quit_race()
 		await process_frame
-	main.set_process(true)
 	_end_save_isolation()
 	print("KARTFEEL|%s" % ("ALL OK" if ok else "SEE FAIL LINES"))
-	quit()
+	# This probe builds and tears down several complete race scenes.  Leaving the
+	# live world for SceneTree's final shutdown occasionally strands the headless
+	# process after every assertion has passed.  Free it while frames can still
+	# drain queued deletes, then restore the global clock before requesting exit.
+	main.set_process(false)
+	main.queue_free()
+	await process_frame
+	await process_frame
+	main = null
+	Engine.time_scale = 1.0
+	quit(0 if ok else 1)
 
 func _begin_save_isolation() -> void:
 	# Probes run on developer machines as well as CI. Redirect user:// before the
