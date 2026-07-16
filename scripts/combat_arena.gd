@@ -32,6 +32,7 @@ var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var encounter := {}
 var room_tag := ""
+var materials := {}
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
@@ -47,10 +48,13 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	_build_hud()
 	if kind == "ice":
 		_build_ice_swarm()
-		m.show_msg("Roshan", "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!", "combat_ice")
+		m.show_msg("Roshan", "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!", "talk")
 	else:
 		_build_pepper_boss()
-		m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "combat_fire")
+		if kind == "dual":
+			m.show_msg("Roshan", "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!", "talk")
+		else:
+			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
 	_update_hud()
 
 func _build_environment() -> void:
@@ -65,14 +69,19 @@ func _build_environment() -> void:
 	env.glow_enabled = true
 	env.glow_intensity = 0.65
 	env.glow_bloom = 0.12
+	m._speedy_glow_clamp(env)
 	m.we_node.environment = env
 	var sun := DirectionalLight3D.new()
 	sun.light_color = Color(0.72, 0.86, 1.0) if kind == "ice" else Color(1.0, 0.72, 0.45)
 	sun.light_energy = 1.15
+	sun.shadow_enabled = m.quality != "speedy"
 	sun.rotation_degrees = Vector3(-48, -28, 0)
 	add_child(sun)
 
 func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
+	var key := "%s:%.2f" % [col.to_html(true), emission]
+	if materials.has(key):
+		return materials[key]
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = col
 	mat.roughness = 0.62
@@ -80,6 +89,7 @@ func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 		mat.emission_enabled = true
 		mat.emission = col
 		mat.emission_energy_multiplier = emission
+	materials[key] = mat
 	return mat
 
 func _mesh(parent: Node3D, mesh: Mesh, pos: Vector3, col: Color, emission: float = 0.0) -> MeshInstance3D:
@@ -236,7 +246,11 @@ func _build_pepper_boss() -> void:
 		for ci in range(3):
 			var claw := _cone(root, Vector3(side * (3.6 + float(ci) * 0.42), 0.8, 2.7 - float(ci) * 0.35), 0.35, 1.4, Color(0.92, 0.88, 0.62))
 			claw.rotation_degrees.z = side * 72.0
-	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": "peek", "timer": float(encounter.get("peek_time", 4.5)), "attack": 1.2, "pos": root.position}
+	var first_phase := "shell" if kind == "dual" else "peek"
+	var first_time := float(encounter.get("shell_time", 4.5)) if kind == "dual" else float(encounter.get("peek_time", 4.5))
+	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position}
+	if kind == "dual":
+		head.visible = false
 
 func _move_input() -> Vector2:
 	var value := Vector2.ZERO
@@ -268,7 +282,7 @@ func _process(delta: float) -> void:
 	bump_cool = maxf(0.0, bump_cool - delta)
 	if state == "won":
 		win_t -= delta
-		if fmod(win_t, 0.22) < delta:
+		if fmod(win_t, float(encounter.get("win_spark_gap", 0.32))) < delta:
 			m._sparkle_burst(CENTER + Vector3(randf_range(-10.0, 10.0), randf_range(1.0, 6.0), randf_range(-8.0, 8.0)), Color.from_hsv(randf(), 0.55, 1.0))
 		if win_t <= 0.0:
 			_finish()
@@ -294,7 +308,7 @@ func _process(delta: float) -> void:
 	_tick_pointer()
 
 func _nearest_target() -> Vector3:
-	if kind == "fire" and not boss.is_empty():
+	if kind != "ice" and not boss.is_empty():
 		return boss["pos"]
 	var best := CENTER
 	var best_d := INF
@@ -308,14 +322,16 @@ func _nearest_target() -> Vector3:
 	return best
 
 func _fire() -> void:
+	var power := action_label().to_lower()
 	var target := _nearest_target()
 	var dir: Vector3 = target - player_pos
 	dir.y = 0.0
 	if dir.length() < 0.1:
 		dir = Vector3(sin(player_yaw), 0, cos(player_yaw))
 	dir = dir.normalized()
-	var orb := _sphere(self, player_pos + Vector3(0, 2.2, 0) + dir * 1.5, 0.65, Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.25, 0.06), 1.8)
-	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6})
+	var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
+	var orb := _sphere(self, player_pos + Vector3(0, 2.2, 0) + dir * 1.5, 0.65, orb_col, 1.8)
+	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)
 
@@ -333,7 +349,7 @@ func _tick_shots(delta: float) -> void:
 					hit = true
 					break
 		elif not boss.is_empty() and node.position.distance_to((boss["pos"] as Vector3) + Vector3(0, 2.5, 0)) < 5.2:
-			_hit_boss()
+			_hit_boss(String(shot.get("power", "fire")))
 			hit = true
 		if hit or float(shot["life"]) <= 0.0:
 			node.queue_free()
@@ -381,8 +397,9 @@ func _pop_imp(enemy: Dictionary) -> void:
 	enemy["state"] = "popped"
 	var pos: Vector3 = enemy["pos"]
 	(enemy["node"] as Node3D).visible = false
-	for i in range(9):
-		var a: float = float(i) * TAU / 9.0
+	var corn_count := int(encounter.get("popcorn_count", 7))
+	for i in range(corn_count):
+		var a: float = float(i) * TAU / float(corn_count)
 		var corn := _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
 		var tw := corn.create_tween()
 		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -391,14 +408,31 @@ func _pop_imp(enemy: Dictionary) -> void:
 	m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.45))
 	_update_hud()
 
-func _hit_boss() -> void:
-	if state != "play" or String(boss["phase"]) == "shell":
+func _hit_boss(power: String = "fire") -> void:
+	if state != "play":
+		return
+	var phase := String(boss["phase"])
+	if kind == "dual" and phase == "shell":
+		if power == "ice":
+			boss["phase"] = "peek"
+			boss["timer"] = float(encounter.get("peek_time", 3.2))
+			boss["attack"] = 0.55
+			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.55, 0.92, 1.0))
+			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!", "talk")
+		else:
+			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
+		return
+	if phase == "shell" or (kind == "dual" and power != "fire"):
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
 	boss["hp"] = int(boss["hp"]) - 1
 	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 3.0, 3.5), Color(1.0, 0.3, 0.08))
 	if int(boss["hp"]) <= 0:
 		_win()
+	elif kind == "dual":
+		boss["phase"] = "shell"
+		boss["timer"] = float(encounter.get("shell_time", 5.0))
+		boss["attack"] = 0.8
 	_update_hud()
 
 func _tick_boss(delta: float) -> void:
@@ -435,7 +469,12 @@ func _tick_boss(delta: float) -> void:
 		root.position = pos
 		if pos.distance_to(player_pos) < 6.0:
 			_bump_player(pos)
-		if float(boss["timer"]) <= 0.0:
+		if float(boss["timer"]) <= 0.0 and kind == "dual":
+			# No fail state: keep presenting the required ice action and repeat
+			# the picture/voice hint until the child freezes the shell.
+			boss["timer"] = 1.5
+			m.show_msg("Roshan", "The shell keeps spinning. Freeze it with ICE!", "talk")
+		elif float(boss["timer"]) <= 0.0:
 			boss["phase"] = "peek"
 			boss["timer"] = float(encounter.get("peek_time", 4.8))
 			boss["attack"] = 0.35
@@ -474,7 +513,7 @@ func _bump_player(from: Vector3) -> void:
 	m._sparkle_burst(player_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
 	if bump_cool <= 0.0:
 		bump_cool = 4.0
-		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!", "shield")
+		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!", "talk")
 
 func _tick_pointer() -> void:
 	var target := _nearest_target()
@@ -492,7 +531,7 @@ func _update_hud() -> void:
 		counter.text = "❄  %d" % left
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
-		var action_text := "🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"
+		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
 		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
@@ -502,7 +541,7 @@ func _win() -> void:
 	state = "won"
 	win_t = float(encounter.get("win_time", 3.5))
 	pointer.visible = false
-	objective.text = "✨  POPCORN PARTY!  ✨" if kind == "ice" else "✨  TURTLE-LIZARD TAMED!  ✨"
+	objective.text = "✨  POPCORN PARTY!  ✨" if kind == "ice" else "✨  DRAGON-TURTLE TAMED!  ✨"
 	counter.text = "★"
 	if kind == "ice":
 		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!", "win")
@@ -522,3 +561,10 @@ func cancel() -> void:
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	queue_free()
+
+func action_label() -> String:
+	if kind == "ice":
+		return "ICE"
+	if kind == "dual" and not boss.is_empty() and String(boss.get("phase", "shell")) == "shell":
+		return "ICE"
+	return "FIRE"

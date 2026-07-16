@@ -17,7 +17,8 @@ rc=0
 for p in probe_audit probe_passive probe_load probe_mg2d probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon; do
 	echo "=== $p ==="
 	timeout 8m "$GODOT" --headless -s "scripts/$p.gd" 2>&1 | tee "/tmp/$p.out" || rc=1
-	grep -q "FAIL" "/tmp/$p.out" && { echo "PROBE $p reported FAIL"; rc=1; }
+	grep -qE "FAIL|SCRIPT ERROR" "/tmp/$p.out" \
+		&& { echo "PROBE $p reported a failure or runtime script error"; rc=1; }
 	# a script that cannot compile leaves the probe waiting on a world that
 	# never builds - bail on the whole gate instead of timing out per-probe
 	grep -qE "Parse Error|Compile Error" "/tmp/$p.out" \
