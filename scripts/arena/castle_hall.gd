@@ -11,6 +11,36 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
+func _dress_kitchen_prop(node: Node, materials: Dictionary) -> void:
+	if node is MeshInstance3D:
+		var mesh_node: MeshInstance3D = node as MeshInstance3D
+		var node_name: String = String(mesh_node.name)
+		for prefix_value in materials:
+			var prefix: String = String(prefix_value)
+			if node_name.begins_with(prefix):
+				mesh_node.material_override = materials[prefix] as Material
+				break
+	for child in node.get_children():
+		_dress_kitchen_prop(child, materials)
+
+func _kitchen_prop(path: String, pos: Vector3, materials: Dictionary) -> Node3D:
+	# Static furnishings use an exact-size root/origin and named material-role
+	# meshes. They do not need a Skeleton3D; this lightweight material rig keeps
+	# the three custom surfaces shared instead of embedding duplicate rasters.
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path) as PackedScene
+	if packed == null:
+		return null
+	var prop: Node3D = packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	_dress_kitchen_prop(prop, materials)
+	prop.position = pos
+	m.add_child(prop)
+	m.game_nodes.append(prop)
+	return prop
+
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
 	# Quiet lavender stone floor: broad value shapes keep the long hall legible
@@ -799,33 +829,78 @@ func build_basement_wing(o: Vector3) -> void:
 	var tc: Vector3 = o + Vector3(17, 0, -2)
 	var backsplash: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -10.9, -7.15), Vector3(10.5, 6.8, 0.18), Color.WHITE)
 	backsplash.material_override = m._castle_mat("kitchen_floor", 0.09, Color(0.96, 0.98, 1.0), 0.62)
-	var counter: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))
-	counter.material_override = m._castle_mat("kitchen_wood", 0.11, Color(0.98, 0.91, 0.82))
-	var counter_top: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))
-	counter_top.material_override = m._castle_mat("kitchen_counter", 0.12, Color(1.0, 0.99, 0.98))
+	var kitchen_gold_mat: StandardMaterial3D = m._soft_mat(gold, 0.0)
+	kitchen_gold_mat.metallic = 0.38
+	kitchen_gold_mat.roughness = 0.44
+	var counter_materials: Dictionary = {
+		"CounterWood": m._castle_mat("kitchen_wood", 0.11, Color(0.98, 0.91, 0.82)),
+		"CounterTop": m._castle_mat("kitchen_counter", 0.12, Color(1.0, 0.99, 0.98)),
+		"CounterMetal": kitchen_gold_mat,
+	}
+	var counter_prop: Node3D = _kitchen_prop(
+		"res://assets/castle/kitchen_counter.glb",
+		tc + Vector3(-2.0, -18.0, -6.6),
+		counter_materials,
+	)
+	if counter_prop == null:
+		var counter_fallback: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))
+		counter_fallback.material_override = counter_materials["CounterWood"] as Material
+		var counter_top_fallback: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))
+		counter_top_fallback.material_override = counter_materials["CounterTop"] as Material
 	m._wall_solid(tc + Vector3(-2.0, -16.0, -6.6), Vector3(10, 4.5, 2.6), 0.4)
-	var stove: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
+	var sink_basin_mat: StandardMaterial3D = m._soft_mat(Color(0.43, 0.82, 0.81), 0.0)
+	sink_basin_mat.roughness = 0.38
+	var sink_water_mat: StandardMaterial3D = m._soft_mat(Color(0.34, 0.82, 0.87), 0.35)
+	sink_water_mat.roughness = 0.26
+	var sink_materials: Dictionary = {
+		"SinkPorcelain": m._castle_mat("kitchen_counter", 0.14, Color(1.0, 0.99, 0.98)),
+		"SinkBasin": sink_basin_mat,
+		"SinkMetal": kitchen_gold_mat,
+		"SinkWater": sink_water_mat,
+	}
+	_kitchen_prop(
+		"res://assets/castle/kitchen_sink.glb",
+		tc + Vector3(-0.4, -14.35, -6.45),
+		sink_materials,
+	)
 	var stove_mat: StandardMaterial3D = m._soft_mat(Color(0.78, 0.86, 0.93), 0.0)
 	stove_mat.emission_enabled = false
-	stove_mat.roughness = 0.4
-	stove.material_override = stove_mat
-	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
-	var hot_burner: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)
+	stove_mat.roughness = 0.46
+	var stove_cream_mat: StandardMaterial3D = m._soft_mat(Color(0.98, 0.93, 0.84), 0.0)
+	stove_cream_mat.roughness = 0.54
+	var stove_trim_mat: StandardMaterial3D = m._soft_mat(Color(0.72, 0.65, 0.90), 0.0)
+	stove_trim_mat.roughness = 0.48
+	var stove_glass_mat: StandardMaterial3D = m._soft_mat(Color(0.25, 0.20, 0.43), 1.0)
+	stove_glass_mat.emission_energy_multiplier = 1.0
 	var hot_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.45, 0.25), 1.0)
 	hot_burner_mat.emission_energy_multiplier = 2.2
-	hot_burner.material_override = hot_burner_mat
-	var warm_burner: MeshInstance3D = m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)
 	var warm_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.65, 0.35), 1.0)
 	warm_burner_mat.emission_energy_multiplier = 1.4
-	warm_burner.material_override = warm_burner_mat
-	var oven_window: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.6, -4.8), Vector3(2.7, 1.7, 0.3), Color(1.0, 0.85, 0.5), 1.2)
-	var oven_window_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.85, 0.5), 1.0)
-	oven_window_mat.emission_energy_multiplier = 1.2
-	oven_window.material_override = oven_window_mat
-	var oven_handle: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -15.4, -4.8), Vector3(3.0, 0.3, 0.35), gold, 0.4)
-	var oven_handle_mat: StandardMaterial3D = m._soft_mat(gold, 0.4)
-	oven_handle_mat.metallic = 0.35
-	oven_handle.material_override = oven_handle_mat
+	var dark_burner_mat: StandardMaterial3D = m._soft_mat(Color(0.19, 0.16, 0.31), 0.0)
+	dark_burner_mat.roughness = 0.65
+	var stove_materials: Dictionary = {
+		"StoveBody": stove_mat,
+		"StoveCream": stove_cream_mat,
+		"StoveTrim": stove_trim_mat,
+		"StoveMetal": kitchen_gold_mat,
+		"StoveGlass": stove_glass_mat,
+		"StoveBurnerHot": hot_burner_mat,
+		"StoveBurnerWarm": warm_burner_mat,
+		"StoveBurnerDark": dark_burner_mat,
+	}
+	var stove_prop: Node3D = _kitchen_prop(
+		"res://assets/castle/kitchen_stove.glb",
+		tc + Vector3(6.0, -18.0, -6.4),
+		stove_materials,
+	)
+	if stove_prop == null:
+		var stove_fallback: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
+		stove_fallback.material_override = stove_mat
+		var hot_burner_fallback: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)
+		hot_burner_fallback.material_override = hot_burner_mat
+		var warm_burner_fallback: MeshInstance3D = m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)
+		warm_burner_fallback.material_override = warm_burner_mat
+	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
 	var pot := MeshInstance3D.new()   # copper soup pot bubbling on the hot burner
 	var pcy := CylinderMesh.new(); pcy.top_radius = 0.9; pcy.bottom_radius = 0.8; pcy.height = 1.1
 	pot.mesh = pcy

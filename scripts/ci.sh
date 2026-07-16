@@ -14,7 +14,7 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 KART_RUNTIME_ERROR_RE='SCRIPT ERROR|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 timeout 12m "$GODOT" --headless --import . || { echo "IMPORT FAIL"; exit 1; }
 rc=0
-for p in probe_audit probe_passive probe_load probe_mg2d probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon; do
+for p in probe_audit probe_passive probe_load probe_mg2d probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon probe_kitchen_props; do
 	echo "=== $p ==="
 	timeout 8m "$GODOT" --headless -s "scripts/$p.gd" 2>&1 | tee "/tmp/$p.out" || rc=1
 	grep -qE "FAIL|SCRIPT ERROR" "/tmp/$p.out" \
