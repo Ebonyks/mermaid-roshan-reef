@@ -755,7 +755,7 @@ func build_basement_wing(o: Vector3) -> void:
 	# ---------- four side rooms off the hallway ----------
 	var rooms := [
 		{"c": Vector3(-17, 0, -2), "name": "✨ Pantry ✨", "tint": Color(0.85, 0.78, 0.62)},
-		{"c": Vector3(17, 0, -2), "name": "✨ Royal Kitchen ✨", "tint": Color(0.95, 0.82, 0.66)},
+		{"c": Vector3(17, 0, -2), "name": "✨ Royal Kitchen ✨", "tint": Color(0.95, 0.82, 0.66), "floor_role": "kitchen_floor", "floor_tint": Color(0.98, 0.98, 1.0)},
 		{"c": Vector3(-17, 0, -28), "name": "✨ Bubble Bath ✨", "tint": Color(0.7, 0.8, 0.88), "ensuite": true},
 		{"c": Vector3(17, 0, -28), "name": "✨ Craft Room ✨", "tint": Color(0.85, 0.75, 0.9)},
 	]
@@ -763,7 +763,9 @@ func build_basement_wing(o: Vector3) -> void:
 		var rc: Vector3 = rd["c"]
 		var sx2: float = signf(rc.x)
 		var rfl = m._l2_box(o + rc + Vector3(0, -18.6, 0), Vector3(18, 1.2, 16), Color(0.6, 0.56, 0.64))
-		rfl.material_override = m._castle_mat("cobble", 0.05, rd["tint"])
+		var floor_role: String = String(rd.get("floor_role", "cobble"))
+		var floor_tint: Color = Color(rd.get("floor_tint", rd["tint"]))
+		rfl.material_override = m._castle_mat(floor_role, 0.05, floor_tint)
 		var rcl = m._l2_box(o + rc + Vector3(0, -0.9, 0), Vector3(19, 0.8, 17), Color(0.55, 0.52, 0.6))   # ceiling
 		m.fade_walls.append({"node": rcl, "c": rcl.position, "h": (rcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 		if bool(rd.get("ensuite", false)):
@@ -795,23 +797,43 @@ func build_basement_wing(o: Vector3) -> void:
 	# table set for two — the pantry is right across the hallway, the way a
 	# real castle kitchen works (the old toy den moved up to the Toy Room)
 	var tc: Vector3 = o + Vector3(17, 0, -2)
-	m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))     # counter
-	m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))  # counter top
+	var backsplash: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -10.9, -7.15), Vector3(10.5, 6.8, 0.18), Color.WHITE)
+	backsplash.material_override = m._castle_mat("kitchen_floor", 0.09, Color(0.96, 0.98, 1.0), 0.62)
+	var counter: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))
+	counter.material_override = m._castle_mat("kitchen_wood", 0.11, Color(0.98, 0.91, 0.82))
+	var counter_top: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))
+	counter_top.material_override = m._castle_mat("kitchen_counter", 0.12, Color(1.0, 0.99, 0.98))
 	m._wall_solid(tc + Vector3(-2.0, -16.0, -6.6), Vector3(10, 4.5, 2.6), 0.4)
-	var stove = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
-	stove.material_override.roughness = 0.4
+	var stove: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
+	var stove_mat: StandardMaterial3D = m._soft_mat(Color(0.78, 0.86, 0.93), 0.0)
+	stove_mat.emission_enabled = false
+	stove_mat.roughness = 0.4
+	stove.material_override = stove_mat
 	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
-	m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)   # hot burner
-	m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)   # warm burner
-	m._l2_box(tc + Vector3(6.0, -16.6, -4.8), Vector3(2.7, 1.7, 0.3), Color(1.0, 0.85, 0.5), 1.2)     # oven window glow
-	m._l2_box(tc + Vector3(6.0, -15.4, -4.8), Vector3(3.0, 0.3, 0.35), gold, 0.4)                     # gold oven handle
+	var hot_burner: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)
+	var hot_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.45, 0.25), 1.0)
+	hot_burner_mat.emission_energy_multiplier = 2.2
+	hot_burner.material_override = hot_burner_mat
+	var warm_burner: MeshInstance3D = m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)
+	var warm_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.65, 0.35), 1.0)
+	warm_burner_mat.emission_energy_multiplier = 1.4
+	warm_burner.material_override = warm_burner_mat
+	var oven_window: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.6, -4.8), Vector3(2.7, 1.7, 0.3), Color(1.0, 0.85, 0.5), 1.2)
+	var oven_window_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.85, 0.5), 1.0)
+	oven_window_mat.emission_energy_multiplier = 1.2
+	oven_window.material_override = oven_window_mat
+	var oven_handle: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -15.4, -4.8), Vector3(3.0, 0.3, 0.35), gold, 0.4)
+	var oven_handle_mat: StandardMaterial3D = m._soft_mat(gold, 0.4)
+	oven_handle_mat.metallic = 0.35
+	oven_handle.material_override = oven_handle_mat
 	var pot := MeshInstance3D.new()   # copper soup pot bubbling on the hot burner
 	var pcy := CylinderMesh.new(); pcy.top_radius = 0.9; pcy.bottom_radius = 0.8; pcy.height = 1.1
 	pot.mesh = pcy
 	pot.material_override = m._soft_mat(Color(0.85, 0.55, 0.35), 0.2)
 	pot.position = tc + Vector3(5.2, -13.4, -6.4)
 	m.add_child(pot); m.game_nodes.append(pot)
-	m._l2_box(tc + Vector3(5.2, -12.8, -6.4), Vector3(1.2, 0.2, 1.2), Color(0.7, 0.95, 0.6), 0.9)     # the soup!
+	var soup: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -12.8, -6.4), Vector3(1.2, 0.2, 1.2), Color(0.7, 0.95, 0.6), 0.9)
+	soup.material_override = m._soft_mat(Color(0.7, 0.95, 0.6), 0.9)
 	var kettle := MeshInstance3D.new()
 	var ksp := SphereMesh.new(); ksp.radius = 0.7; ksp.height = 1.2
 	kettle.mesh = ksp
@@ -819,15 +841,17 @@ func build_basement_wing(o: Vector3) -> void:
 	kettle.position = tc + Vector3(-4.0, -13.9, -6.6)
 	m.add_child(kettle); m.game_nodes.append(kettle)
 	for pn in range(3):   # copper pans hang over the counter
-		m._l2_box(tc + Vector3(-5.0 + float(pn) * 2.2, -11.0, -6.9), Vector3(1.4, 1.4, 0.25), Color(0.8, 0.6, 0.4), 0.15)
+		var pan: MeshInstance3D = m._l2_box(tc + Vector3(-5.0 + float(pn) * 2.2, -11.0, -6.9), Vector3(1.4, 1.4, 0.25), Color(0.8, 0.6, 0.4), 0.15)
+		pan.material_override = m._soft_mat(Color(0.86, 0.58, 0.36), 0.15)
 	var ttab := MeshInstance3D.new()   # tea table set for two
 	var tcy := CylinderMesh.new(); tcy.top_radius = 2.2; tcy.bottom_radius = 0.5; tcy.height = 2.6
 	ttab.mesh = tcy
-	ttab.material_override = m._soft_mat(Color(0.7, 0.5, 0.34))
+	ttab.material_override = m._castle_mat("kitchen_wood", 0.12, Color(0.96, 0.88, 0.78))
 	ttab.position = tc + Vector3(-2.0, -16.6, 3.5)
 	m.add_child(ttab); m.game_nodes.append(ttab)
 	m._cyl_solid(tc + Vector3(-2.0, -16.6, 3.5), 2.2, 1.4, 0.3)
-	m._l2_box(tc + Vector3(-2.0, -15.1, 3.5), Vector3(1.4, 0.5, 1.4), Color(0.95, 0.9, 0.98), 0.5)    # teapot
+	var teapot: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -15.1, 3.5), Vector3(1.4, 0.5, 1.4), Color(0.95, 0.9, 0.98), 0.5)
+	teapot.material_override = m._soft_mat(Color(0.95, 0.9, 0.98), 0.5)
 	for stx in [-4.8, 0.8]:
 		var stool := MeshInstance3D.new()
 		var scy := CylinderMesh.new(); scy.top_radius = 1.0; scy.bottom_radius = 0.8; scy.height = 1.6

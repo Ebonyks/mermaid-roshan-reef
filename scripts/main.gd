@@ -3221,6 +3221,15 @@ func _castle_mat(role: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1), r
 		"cobble":
 			tex_path = "res://assets/terrain/up_cobble_col.jpg"
 			role_roughness = 0.90
+		"kitchen_floor":
+			tex_path = "res://assets/terrain/kitchen_floor_col.jpg"
+			role_roughness = 0.72
+		"kitchen_wood":
+			tex_path = "res://assets/terrain/kitchen_wood_col.jpg"
+			role_roughness = 0.80
+		"kitchen_counter":
+			tex_path = "res://assets/terrain/kitchen_counter_col.jpg"
+			role_roughness = 0.58
 	var mat := StandardMaterial3D.new()
 	mat.albedo_texture = load(tex_path)
 	mat.albedo_color = tint
