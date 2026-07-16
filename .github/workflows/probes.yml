@@ -69,5 +69,9 @@ jobs:
               echo "PROBE $p hit a script compile error - aborting gate"
               exit 1
             fi
+            if [ "$p" = "probe_kart_feel" ] && grep -qE 'SCRIPT ERROR|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)' "/tmp/$p.out"; then
+              echo "PROBE $p reported a missing resource or script error"
+              FAILED=1
+            fi
           done
           exit $FAILED

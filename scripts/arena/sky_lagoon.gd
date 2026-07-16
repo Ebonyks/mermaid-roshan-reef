@@ -1814,11 +1814,18 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.night_star_t = 5.0 + randf() * 7.0
 			m._spawn_shooting_star(ppos)
 	# Rainbow Road race — swim into either leg of the rainbow arch (right leg = reversed lap)
-	m.kart_cool = maxf(0.0, m.kart_cool - delta)
+	# main owns the shared kart cooldown tick; do not count it down a second time here.
 	m.bw_cool = maxf(0.0, m.bw_cool - delta)
-	if m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO and m.bw_cool <= 0.0 and m.kart_cool <= 0.0:
-		if Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length() < 9.0 and absf(m.bw_portal_pos.y - ppos.y) < 10.0:
+	if m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO:
+		var bw_dist: float = Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length()
+		var bw_height: float = absf(m.bw_portal_pos.y - ppos.y)
+		if not m.galaxy_gateway_armed:
+			if bw_dist > 13.0 or bw_height > 14.0:
+				m.galaxy_gateway_armed = true
+		elif m.bw_cool <= 0.0 and m.kart_cool <= 0.0 and bw_dist < 9.0 and bw_height < 10.0:
 			m.bw_cool = 10.0
+			m.galaxy_gateway_armed = false
+			m.kart_from = "level2"   # Galaxy return routing shares the race-origin state
 			m.show_msg("Roshan", "To the Butterfly World! Wheee!")
 			m._start_galaxy()
 			return
@@ -1832,7 +1839,12 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Rainbow Road", "The rainbow road to ROSHAN GALAXY! Race the rainbow to reach the stars — each side goes a different way around!")
 		if minf(dA, dB) < 48.0:
 			m.hud_game.text = "Swim INTO the rainbow to race your go-kart!"
-		if m.kart_cool <= 0.0:
+		var a_outside: bool = dA > 18.0 or absf(m.kart_legA.y - ppos.y) > 22.0
+		var b_outside: bool = dB > 18.0 or absf(m.kart_legB.y - ppos.y) > 22.0
+		if not m.kart_float_portals_armed:
+			if a_outside and b_outside:
+				m.kart_float_portals_armed = true
+		elif m.kart_cool <= 0.0:
 			if dA < 14.0 and absf(m.kart_legA.y - ppos.y) < 18.0:
 				m._start_kart_game(false, "float")
 				return

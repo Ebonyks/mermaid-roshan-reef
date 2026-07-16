@@ -15,6 +15,7 @@ func _init() -> void:
 	main.trophies = 5
 	main._enter_level2()
 	await process_frame
+	_kart_gateway_regressions(main, player)
 	# The Alpine addition must remain one distinct corner, clear of the train,
 	# with its attached mountain and near-summit secret cave fully built.
 	var alpine_ok: bool = (main.g.has("alpine_village_center")
@@ -79,3 +80,63 @@ func _init() -> void:
 	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
 	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "STUCK"), t])
 	quit()
+
+func _kart_gateway_regressions(main: Node, player: Node3D) -> void:
+	# Exercise the real Sky Lagoon portal logic without launching either large
+	# destination. The world is already built for this probe, so this is cheap.
+	var was_processing: bool = main.is_processing()
+	var old_pos: Vector3 = player.position
+	var old_vel: Vector3 = player.vel
+	var old_galaxy: bool = bool(main.galaxy_unlocked)
+	var old_float_armed: bool = bool(main.kart_float_portals_armed)
+	var old_galaxy_armed: bool = bool(main.galaxy_gateway_armed)
+	var old_kart_cool: float = float(main.kart_cool)
+	var old_bw_cool: float = float(main.bw_cool)
+	var old_intro: bool = bool(main.g.get("kart_intro", false))
+	var old_t: float = float(main.g.get("t", 0.0))
+	main.set_process(false)
+	main.g["kart_intro"] = true
+
+	main.kart_float_portals_armed = false
+	main.kart_cool = 0.0
+	main._tick_level2(0.0, main.kart_legA)
+	var float_blocked: bool = main.game == "level2" and main.kart_game == null and not main.kart_float_portals_armed
+	main._tick_level2(0.0, main.kart_legA + Vector3(24.0, 0.0, 0.0))
+	var float_rearmed: bool = bool(main.kart_float_portals_armed)
+
+	main.galaxy_unlocked = true
+	main.galaxy_gateway_armed = false
+	main.bw_cool = 0.0
+	main.kart_cool = 0.0
+	main._tick_level2(0.0, main.bw_portal_pos)
+	var galaxy_blocked: bool = main.game == "level2" and main.galaxy_game == null and not main.galaxy_gateway_armed
+	main._tick_level2(0.0, main.bw_portal_pos + Vector3(16.0, 0.0, 0.0))
+	var galaxy_rearmed: bool = bool(main.galaxy_gateway_armed)
+
+	# main owns the one cooldown decrement; SkyLagoon must not subtract it too.
+	main.galaxy_unlocked = false
+	main.kart_float_portals_armed = false
+	main.galaxy_gateway_armed = false
+	main.kart_cool = 6.0
+	player.position = main.bw_portal_pos + Vector3(60.0, 60.0, 0.0)
+	player.vel = Vector3.ZERO
+	main._process(0.1)
+	var single_cooldown: bool = is_equal_approx(float(main.kart_cool), 5.9)
+	print("KARTGATES|float blocked/rearm=%s/%s galaxy blocked/rearm=%s/%s cooldown=%.1f" % [float_blocked, float_rearmed, galaxy_blocked, galaxy_rearmed, float(main.kart_cool)])
+	if not float_blocked or not float_rearmed:
+		print("FAIL|Sky Lagoon kart gate did not require leave + re-enter")
+	if not galaxy_blocked or not galaxy_rearmed:
+		print("FAIL|Butterfly World gate did not require leave + re-enter")
+	if not single_cooldown:
+		print("FAIL|kart cooldown decremented more than once in one Level 2 frame")
+
+	player.position = old_pos
+	player.vel = old_vel
+	main.galaxy_unlocked = old_galaxy
+	main.kart_float_portals_armed = old_float_armed
+	main.galaxy_gateway_armed = old_galaxy_armed
+	main.kart_cool = old_kart_cool
+	main.bw_cool = old_bw_cool
+	main.g["kart_intro"] = old_intro
+	main.g["t"] = old_t
+	main.set_process(was_processing)

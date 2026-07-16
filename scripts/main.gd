@@ -105,6 +105,11 @@ var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
 var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
+var kart_ocean_portal_armed := true   # Roshan must leave the gate before it can fire again
+var kart_float_portals_armed := true  # shared latch for the two Sky Lagoon rainbow legs
+var galaxy_gateway_armed := true      # direct Butterfly World gate uses the same rule
+var kart_completion_committed := false
+var kart_prev_track := ""
 var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd)
 var galaxy_unlocked := false
 var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
@@ -129,7 +134,7 @@ const STICKER_DEFS := [
 	{"id": "bells", "emoji": "🔔", "label": "Bell Singer", "hint": "Sing the whole bell song!"},
 	{"id": "treasure", "emoji": "💎", "label": "Treasure Hunter", "hint": "Find the Secret Cave treasure!"},
 	{"id": "snowman", "emoji": "⛄", "label": "Snow Roller", "hint": "Roll up a whole snowman!"},
-	{"id": "racer", "emoji": "🏁", "label": "Rainbow Racer", "hint": "Win the race in 1st place!"},
+	{"id": "racer", "emoji": "🏁", "label": "Rainbow Racer", "hint": "Finish a rainbow race!"},
 	{"id": "throne", "emoji": "👑", "label": "Star Princess", "hint": "Sit on the Moon Throne!"},
 	{"id": "fruit", "emoji": "🍎", "label": "Butterfly Feast", "hint": "Call the swarm to a fruit tray!"},
 	{"id": "butterfly", "emoji": "🦋", "label": "Butterfly Hero", "hint": "Save the Butterfly World!"},
@@ -240,6 +245,9 @@ var touch_ui: CanvasLayer
 var quality := "sparkly"
 var music_on := true
 var save_data := {}
+var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
+var save_dirty := false    # main retains failed-write responsibility after a minigame frees
+var save_retry_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
@@ -1070,8 +1078,8 @@ func _build_terrain() -> void:
 	var mesh := st.commit()
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
-	# GEN3 terrain shader: triplanar SAND on the flats (Ground054 kept — the
-	# painted sheet read as cracked dirt) blending to the new painted
+	# GEN3 terrain shader: triplanar compact up_sand map on the flats (the prior
+	# painted sheet read as cracked dirt), blending to the new painted
 	# CLIFF-WALL sheet on steep slopes, so the hills and the scalloped rim
 	# bays have real wall detail (owner 2026-07-13: "walls have no details").
 	# Vertex colours keep the storybook depth banding exactly as before.
@@ -1103,7 +1111,7 @@ void fragment(){
 	SPECULAR = 0.05;
 }"""
 	mat.shader = tsh
-	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/Ground054_2K_Color.jpg"))
+	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/up_sand_col.jpg"))
 	var cliff_path := "res://assets/terrain/up_cliffwall_col.jpg"
 	if not ResourceLoader.exists(cliff_path):
 		cliff_path = "res://assets/terrain/up_cliff_col.jpg"   # strangler-fig fallback
@@ -1303,11 +1311,11 @@ var wood_overlay: StandardMaterial3D
 
 func _texture_mats() -> void:
 	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
 	rock_pbr.albedo_color = Color(0.62, 0.68, 0.76)
 	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 	rock_pbr.uv1_triplanar = true
 	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
 	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
@@ -1566,11 +1574,11 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 	m.uv1_triplanar = true
 	if key == "Rock":
 		# true stone — upgraded CC0 rock face (shared with grove boulders & cavern)
-		m.albedo_texture = load("res://assets/terrain/Rock061_2K_Color.jpg")
+		m.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
 		m.albedo_color = Color(0.66, 0.7, 0.76)
 		m.normal_enabled = true
-		m.normal_texture = load("res://assets/terrain/Rock061_2K_NormalGL.jpg")
-		m.roughness_texture = load("res://assets/terrain/Rock061_2K_Roughness.jpg")
+		m.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
+		m.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
 		m.uv1_world_triplanar = true   # rocks are static; creature materials below stay object-space
 		m.uv1_scale = Vector3(0.3, 0.3, 0.3)
 	elif key.begins_with("SeaWeed"):
@@ -2284,6 +2292,13 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 		hud_layer.visible = false   # the race draws its own HUD — no overlap
 	kart_from = game
 	kart_ground = ground
+	kart_completion_committed = false
+	if ground == "float":
+		kart_float_portals_armed = false
+	else:
+		kart_ocean_portal_armed = false
+	kart_prev_track = cur_track
+	_play_music("race")
 	game = "kart"
 	hud_game.text = ""
 	kart_game = KartGame.new()
@@ -2294,13 +2309,40 @@ func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> voi
 	player.visible = false   # audit: the real mermaid mesh was left frozen in-frame
 	(kart_game as KartGame).start(self, Callable(self, "_end_kart_game"), reversed)
 
+func _kart_completion_committed(place: int) -> void:
+	# KartGame calls this immediately after its pearl payout/save and before the
+	# podium. Keep the teardown callback as a fallback for older/test controllers.
+	if place <= 0 or kart_completion_committed:
+		return
+	kart_completion_committed = true
+	var unlocked_galaxy := false
+	if kart_ground == "float" and not galaxy_unlocked:
+		galaxy_unlocked = true
+		unlocked_galaxy = true
+	# Every completed race is a success for a preschooler. Set Galaxy first so
+	# award_sticker's immediate save commits both rewards in the same snapshot.
+	if not bool(stickers.get("racer", false)):
+		award_sticker("racer")
+	elif unlocked_galaxy:
+		_write_save()
+
+func _restore_kart_music() -> void:
+	var restore_track := kart_prev_track
+	if restore_track == "":
+		restore_track = "level2" if kart_from == "level2" else "world"
+	kart_prev_track = ""
+	_play_music(restore_track)
+
 func _end_kart_game(place: int) -> void:
+	if place > 0:
+		_kart_completion_committed(place)
+	_restore_kart_music()
 	player.visible = true
 	if place < 0:
-		# ✕ quit from the race HUD: no prize, no podium, no galaxy. The mermaid
+		# ✕ quit from the race HUD: no completion reward, podium, or galaxy. The mermaid
 		# node never moves during a race, so restoring the pre-race mode
-		# respawns her exactly where she swam into the portal — kart_cool keeps
-		# that same portal from instantly grabbing her again.
+		# respawns her exactly where she swam into the portal. The source portal's
+		# armed latch stays false until she deliberately leaves its trigger.
 		if hud_layer != null:
 			hud_layer.visible = true
 		kart_game = null
@@ -2309,8 +2351,6 @@ func _end_kart_game(place: int) -> void:
 		kart_from = ""
 		_update_hud()
 		return
-	if place == 1:
-		award_sticker("racer")
 	if hud_layer != null:
 		hud_layer.visible = true
 	kart_game = null
@@ -2684,10 +2724,17 @@ func _load_save() -> void:
 		_save_state = SaveState.new(self)
 	_save_state.load_save()
 
-func _write_save() -> void:
+func _write_save() -> bool:
 	if _save_state == null:
 		_save_state = SaveState.new(self)
-	_save_state.write_save()
+	var saved: bool = _save_state.write_save()
+	save_dirty = not saved
+	save_retry_t = 1.5 if save_dirty else 0.0
+	return saved
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED and save_dirty:
+		_write_save()
 
 func _add_won_star(fr: Dictionary) -> void:
 	if fr.has("star"):
@@ -7254,6 +7301,10 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
 
 func _process(delta: float) -> void:
+	if save_dirty:
+		save_retry_t -= delta
+		if save_retry_t <= 0.0:
+			_write_save()
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
@@ -7283,6 +7334,13 @@ func _process(delta: float) -> void:
 			caustics_plane.position = Vector3(ppos.x, seabed_y(ppos.x, ppos.z) + 1.2, ppos.z)
 		elif caustics_plane.visible:
 			caustics_plane.visible = false
+	# KartGame owns the visible scene and input while racing. Keep the small
+	# global timer/audio work above, but suspend hidden reef collectibles,
+	# characters, foliage, movers and culling instead of paying for two worlds.
+	if game == "kart":
+		if touch_ui != null and kart_game != null and kart_game.has_method("action_label"):
+			touch_ui.set_action_label(String(kart_game.action_label()))
+		return
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)
@@ -7392,9 +7450,14 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
-		if kart_cool <= 0.0 and kart_portal_pos != Vector3.ZERO:
+		if kart_portal_pos != Vector3.ZERO:
 			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
-			if kd < 12.0 and absf(kart_portal_pos.y - ppos.y) < 14.0:
+			var ky: float = absf(kart_portal_pos.y - ppos.y)
+			if not kart_ocean_portal_armed:
+				# Hysteresis keeps boundary bobbing from re-arming the gate under Roshan.
+				if kd > 16.0 or ky > 18.0:
+					kart_ocean_portal_armed = true
+			elif kart_cool <= 0.0 and kd < 12.0 and ky < 14.0:
 				_start_kart_game(false, "terrain")
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
@@ -8379,7 +8442,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.35, 0.55, 0.75)
 		arena_env.ambient_light_energy = 0.55
 		arena_env.glow_intensity = 1.15
-		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "Rock061_2K_Color.jpg", GTA + "Rock061_2K_NormalGL.jpg", 0.08)
+		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
 		# same anti-white-wash recipe as the snowy "fetch" yard: on an
 		# already-white ice scene the WW screen-blend haze + hot ambient
