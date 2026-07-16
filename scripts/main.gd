@@ -27,6 +27,7 @@ var _toon_mats := {}   # source material -> shared pastel override (see _toonify
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
+var _reef_districts: ReefDistricts = null
 var manta: Node3D
 var manta_t := -20.0
 var bloom_t := 25.0
@@ -495,7 +496,12 @@ static func seabed_y(x: float, z: float) -> float:
 		# capped so the cliff ring CRESTS and the painted seamount backdrop
 		# shows above it (uncapped, the mesh corners towered over the ring)
 		h += minf(rim * 0.85 + sin(atan2(z, x) * 9.0 + rim * 0.06) * minf(rim * 0.25, 7.0), 84.0)
-	return h
+	return ReefDistricts.shape_terrain(x, z, h)
+
+func _district_ref() -> ReefDistricts:
+	if _reef_districts == null:
+		_reef_districts = ReefDistricts.new(self)
+	return _reef_districts
 
 func _ready() -> void:
 	for jmap in EXTRA_JOY_MAPPINGS:
@@ -939,7 +945,7 @@ func _speedy_glow_clamp(env: Environment) -> void:
 func _world_glow_target() -> float:
 	# ONE place decides the reef glow intensity so day/night and the quality
 	# toggle can't fight over it (last-writer-wins bugs)
-	var gi: float = 1.0 if is_night else 0.95   # bioluminescence reads stronger in the dark
+	var gi: float = 0.82 if is_night else 0.68   # landmarks glow; the whole reef no longer does
 	return minf(gi, 0.75) if quality == "speedy" else gi
 
 func _build_environment() -> void:
@@ -966,11 +972,11 @@ func _build_environment() -> void:
 	env.fog_density = 0.0042
 	env.fog_aerial_perspective = 0.75
 	env.fog_sky_affect = 0.5
-	_wind_waker_bloom(env, 0.95, 0.4, 0.92)   # reef is full of emissive props — bloom only true emitters
+	_wind_waker_bloom(env, 0.68, 0.22, 0.96)   # selective magic, not a white wash over ordinary scenery
 	env.adjustment_enabled = true
-	env.adjustment_saturation = 1.12
-	env.adjustment_contrast = 1.07
-	env.adjustment_brightness = 1.02
+	env.adjustment_saturation = 0.98
+	env.adjustment_contrast = 1.03
+	env.adjustment_brightness = 0.96
 	_grade(env)
 	world_env = env
 	we_node = WorldEnvironment.new()
@@ -1102,12 +1108,22 @@ vec3 tri(sampler2D t, vec3 p, vec3 n, float s){
 	w /= (w.x + w.y + w.z);
 	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y + texture(t, p.xy * s).rgb * w.z;
 }
+float district(vec2 p, vec2 c, float r){
+	return 1.0 - smoothstep(r * 0.45, r, distance(p, c));
+}
 void fragment(){
 	vec3 n = normalize(mat3(INV_VIEW_MATRIX) * NORMAL);
 	vec3 sand = tri(sand_tex, wpos, n, 0.06) * sand_tint * vcol;
 	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
 	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
-	ALBEDO = mix(sand, cliff, steep);
+	vec3 zone = vec3(0.94, 0.96, 0.96);
+	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-22.0, 116.0), 88.0));
+	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-122.0, 100.0), 78.0));
+	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-124.0, 4.0), 72.0));
+	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-12.0, -105.0), 70.0));
+	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(82.0, -60.0), 78.0));
+	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(0.0), 52.0));
+	ALBEDO = mix(sand, cliff, steep) * zone;
 	ROUGHNESS = 0.95;
 	SPECULAR = 0.05;
 }"""
@@ -1160,45 +1176,7 @@ void fragment(){
 	add_child(ring)
 
 func _build_landmark_hills() -> void:
-	# GEN3: crown the three tallest swell hills so the new geography reads as
-	# PLACES — a mega family rock with a kelp-grove halo on each summit
-	var peaks: Array = []
-	for gi in range(26):
-		for gj in range(26):
-			var lx: float = (float(gi) / 25.0 - 0.5) * WORLD_R * 1.5
-			var lz: float = (float(gj) / 25.0 - 0.5) * WORLD_R * 1.5
-			var dd: float = Vector2(lx, lz).length()
-			if dd < 70.0 or dd > WORLD_R * 0.76:
-				continue
-			peaks.append([seabed_y(lx, lz), lx, lz])
-	peaks.sort()
-	peaks.reverse()
-	var placed: Array = []
-	for pk in peaks:
-		if placed.size() >= 3:
-			break
-		var px2: float = pk[1]
-		var pz2: float = pk[2]
-		var okd := true
-		for q in placed:
-			if Vector2(px2 - (q as Vector2).x, pz2 - (q as Vector2).y).length() < 110.0:
-				okd = false
-				break
-		if not okd:
-			continue
-		placed.append(Vector2(px2, pz2))
-		var base := Vector3(px2, seabed_y(px2, pz2), pz2)
-		var mega := _gen2_prop("rock_largea", base, 20.0 + randf() * 6.0, randf() * TAU, 0.22)
-		if mega != null:
-			flora_nodes.append(mega)
-			_register_solid(mega, 0.8, 2.0)
-		for k in range(6):
-			var ka := TAU * float(k) / 6.0 + randf() * 0.4
-			var kr := 9.0 + randf() * 6.0
-			var kx := px2 + cos(ka) * kr
-			var kz := pz2 + sin(ka) * kr
-			_gen2_seagrass(Vector3(kx, seabed_y(kx, kz), kz), 5.0 + randf() * 2.5)
-		_halo(base + Vector3(4.0, 16.0, 0.0), Color(0.75, 0.9, 1.0), 14.0)
+	_district_ref().build_macro_structures()
 
 func _add_caustics(terrain_mesh: Mesh) -> void:
 	# light dapples glued to the actual seabed: the terrain mesh drawn a second
@@ -1208,8 +1186,8 @@ func _add_caustics(terrain_mesh: Mesh) -> void:
 	sh.code = """shader_type spatial;
 render_mode blend_add, unshaded, depth_draw_never, shadows_disabled;
 uniform sampler2D caustic;
-uniform float strength = 0.30;
-uniform vec3 tint = vec3(0.50, 0.80, 0.90);
+uniform float strength = 0.18;
+uniform vec3 tint = vec3(0.42, 0.66, 0.72);
 void fragment(){
 	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	// two counter-scrolling layers + a slow swirl so the dapples wander like real light
@@ -1500,46 +1478,7 @@ func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> Mes
 	return node
 
 func _build_garden() -> void:
-	# marine coral groves: rock outcrops + giant anemone heads + kelp columns (Kenney garden retired)
-	var fairy_cols := [Color(1.0, 0.55, 0.8), Color(0.5, 0.95, 1.0), Color(1.0, 0.85, 0.45), Color(0.75, 0.6, 1.0)]
-	for ci in range(26):
-		var a: float = float(ci) / 26.0 * TAU + hash2(ci, 7) * 1.5
-		var r: float = 35.0 + hash2(ci, 3) * (WORLD_R * 0.85 - 35.0)
-		var cx: float = cos(a) * r
-		var cz: float = sin(a) * r
-		cluster_centers.append(Vector3(cx, seabed_y(cx, cz), cz))
-		# rocky reef heart
-		for k in range(2 + randi() % 3):
-			var ra: float = randf() * TAU
-			var rx: float = cx + cos(ra) * (3.0 + randf() * 8.0)
-			var rz: float = cz + sin(ra) * (3.0 + randf() * 8.0)
-			var rname := "Rock" if randi() % 12 == 0 else "Rock%d" % (1 + randi() % 11)
-			var rock := _place_aq(rname, Vector3(rx, seabed_y(rx, rz) + 0.2, rz), 2.0 + randf() * 2.6, false)
-			if rock != null:
-				rock.rotation_degrees = Vector3(randf() * 14.0, randf() * 360.0, randf() * 14.0)
-				_register_solid(rock)
-		# Storybook anemone crowns on the rocks; the ribbon mesh is fallback.
-		for k in range(3 + randi() % 3):
-			var ga: float = randf() * TAU
-			var gx: float = cx + cos(ga) * (2.0 + randf() * 9.0)
-			var gz: float = cz + sin(ga) * (2.0 + randf() * 9.0)
-			var apos := Vector3(gx, seabed_y(gx, gz) + 0.1, gz)
-			var an: Node3D = _gen2_prop("anemone_story", apos, 5.0 + randf() * 4.0, randf() * TAU, 0.04)
-			if an == null:
-				var old_an := MeshInstance3D.new()
-				old_an.mesh = _anemone_mesh()
-				old_an.material_override = _glow_tip_mat()
-				old_an.scale = Vector3.ONE * (2.4 + randf() * 2.4)
-				old_an.position = apos + Vector3(0, 1.5, 0)
-				add_child(old_an)
-		# fairy light hero every 6th grove
-		_fairy_light(Vector3(cx, seabed_y(cx, cz) + 7.5 + randf() * 3.0, cz), fairy_cols[ci % fairy_cols.size()], ci % 6 == 0)
-	# cave landmarks (rock PBR boxes arch)
-	for li in range(2):
-		var la: float = float(li) * PI + 0.9
-		var lx: float = cos(la) * 110.0
-		var lz: float = sin(la) * 110.0
-		_fairy_light(Vector3(lx, seabed_y(lx, lz) + 5.0, lz), Color(0.6, 1.0, 0.9), true)
+	_district_ref().build_groves()
 
 func _rainbow_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -1599,7 +1538,7 @@ func _aq_mat(model: String) -> StandardMaterial3D:
 		m.roughness = 0.85
 		m.emission_enabled = true
 		m.emission = col * 0.22
-		m.emission_energy_multiplier = 0.6
+		m.emission_energy_multiplier = 0.28
 	else:
 		# creatures — scaled hide, soft sheen, no washout
 		m.albedo_color = col
@@ -1748,67 +1687,7 @@ func _play_clip(node: Node3D, clip: String, speed: float = 1.0) -> void:
 	ap.speed_scale = speed
 
 func _build_aquatic_flora() -> void:
-	# real corals, seaweed, shells clustered on the reef groves; rocks scattered
-	var corals := ["Coral", "Coral1", "Coral2", "Coral3", "Coral4", "Coral5", "Coral6"]
-	var weeds := ["SeaWeed", "SeaWeed1", "SeaWeed2"]
-	var shells := ["FanShell", "SmallFanShell", "SpiralShell", "SandDollar", "StarFish", "StarFish"]
-	var rocks := ["Rock", "Rock1", "Rock2", "Rock3", "Rock4", "Rock5", "Rock6", "Rock7", "Rock8", "Rock9", "Rock10", "Rock11"]
-	for c in cluster_centers:
-		# GEN2 pilot: a family-style coral crowns the middle of every grove
-		# (prominent placement per the owner's curation note)
-		var gcoral := _gen2_prop("coral3", Vector3(c.x, seabed_y(c.x, c.z), c.z), 8.5, randf() * TAU, 0.08)
-		if gcoral != null:
-			flora_nodes.append(gcoral)
-		# a sponge or two nestles into every grove (new undersea layer)
-		for sk in range(1 + randi() % 2):
-			var spa := randf() * TAU
-			var spr := 2.5 + randf() * 8.0
-			var spx := c.x + cos(spa) * spr
-			var spz := c.z + sin(spa) * spr
-			var spn := "sponge_barrel" if randf() < 0.55 else "sponge_tubes"
-			_gen2_prop(spn, Vector3(spx, seabed_y(spx, spz), spz), 2.2 + randf() * 1.6, randf() * TAU, 0.12)
-		# coral bouquet
-		for k in range(4 + randi() % 4):
-			var ca := randf() * TAU
-			var cr := 2.0 + randf() * 9.0
-			var cx := c.x + cos(ca) * cr
-			var cz := c.z + sin(ca) * cr
-			_place_aq(corals[randi() % corals.size()], Vector3(cx, seabed_y(cx, cz), cz), 1.6 + randf() * 2.2, false)
-		# swaying seaweed — GEN2 crossed-quad sprite when present (denser, cheaper,
-		# reads storybook); old GLB pack stays the strangler-fig fallback
-		for k in range(3 + randi() % 3):
-			var wa := randf() * TAU
-			var wr := 3.0 + randf() * 10.0
-			var wx := c.x + cos(wa) * wr
-			var wz := c.z + sin(wa) * wr
-			var sg := _gen2_seagrass(Vector3(wx, seabed_y(wx, wz), wz), 2.6 + randf() * 2.4)
-			if sg == null:
-				_place_aq(weeds[randi() % weeds.size()], Vector3(wx, seabed_y(wx, wz), wz), 1.8 + randf() * 2.0, true)
-		# shells nestled in
-		for k in range(2):
-			var sa := randf() * TAU
-			var sx := c.x + cos(sa) * (2.0 + randf() * 6.0)
-			var sz := c.z + sin(sa) * (2.0 + randf() * 6.0)
-			_place_aq(shells[randi() % shells.size()], Vector3(sx, seabed_y(sx, sz) + 0.3, sz), 1.2 + randf() * 1.5, false)
-	# scattered boulders across the open seabed — the bigger ones are SOLID like
-	# the grove rocks (they used to be swim-through, which read as a glitch)
-	for i in range(70):
-		var a := randf() * TAU
-		var r := 25.0 + randf() * (WORLD_R * 0.85 - 25.0)
-		var x := cos(a) * r
-		var z := sin(a) * r
-		var bscl: float = 2.0 + randf() * 4.0
-		# GEN2 pilot: every other big boulder is the family-style rock
-		# (audit KEEP nature_rock_largea/v1, owner-approved exemplar)
-		if bscl >= 2.2 and i % 2 == 0:
-			var grock := _gen2_prop("rock_largea", Vector3(x, seabed_y(x, z), z), bscl * 1.9, randf() * TAU, 0.25)
-			if grock != null:
-				flora_nodes.append(grock)
-				_register_solid(grock)
-				continue
-		var brock := _place_aq(rocks[randi() % rocks.size()], Vector3(x, seabed_y(x, z), z), bscl, false)
-		if bscl >= 2.2:   # audit #8: half the boulders were swim-through — inconsistent, read as a glitch
-			_register_solid(brock)
+	_district_ref().build_flora()
 
 func _build_aquatic_creatures() -> void:
 	# hero animated creatures patrolling on circular paths. The turtles,
@@ -2197,8 +2076,8 @@ func _build_friends() -> void:
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
 		beacon.light_color = bcol
-		beacon.light_energy = 2.4 + float(i % 3)
-		beacon.omni_range = 20.0 + float(i % 3) * 6.0
+		beacon.light_energy = 0.7
+		beacon.omni_range = 15.0
 		beacon.position = spr.position + Vector3(0, 8, 0)
 		add_child(beacon)
 		var pil := MeshInstance3D.new()
@@ -2211,7 +2090,7 @@ func _build_friends() -> void:
 		pmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		pmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		pmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		pmat.albedo_color = Color(bcol.r, bcol.g, bcol.b, 0.10)
+		pmat.albedo_color = Color(bcol.r, bcol.g, bcol.b, 0.035)
 		pmat.cull_mode = BaseMaterial3D.CULL_DISABLED
 		pil.mesh = pm2
 		pil.material_override = pmat
@@ -2227,7 +2106,7 @@ func _build_friends() -> void:
 			var omat := StandardMaterial3D.new()
 			omat.emission_enabled = true
 			omat.emission = bcol
-			omat.emission_energy_multiplier = 3.0
+			omat.emission_energy_multiplier = 1.2
 			orb.material_override = omat
 			add_child(orb)
 			sparks.append(orb)
@@ -5385,12 +5264,19 @@ func _tick_guide(delta: float) -> void:
 		var pmat2 := pil.material_override as StandardMaterial3D
 		if pmat2 == null:
 			continue
+		var beacon: OmniLight3D = f.get("beacon") as OmniLight3D
 		if bool(f["won"]):
-			pmat2.albedo_color.a = 0.03
+			pmat2.albedo_color.a = 0.012
+			if beacon != null:
+				beacon.light_energy = 0.25
 		elif have and (f["node"] as Sprite3D).position == target:
-			pmat2.albedo_color.a = 0.22 + 0.12 * (0.5 + 0.5 * sin(tt2 * 2.4))
+			pmat2.albedo_color.a = 0.12 + 0.07 * (0.5 + 0.5 * sin(tt2 * 2.4))
+			if beacon != null:
+				beacon.light_energy = 1.5 + 0.35 * sin(tt2 * 2.4)
 		else:
-			pmat2.albedo_color.a = 0.10
+			pmat2.albedo_color.a = 0.035
+			if beacon != null:
+				beacon.light_energy = 0.55
 	if not have or best <= 16.0:
 		return
 	var dir2: Vector3 = (target - player.position).normalized()
@@ -7663,24 +7549,15 @@ void fragment(){
 	var m := ShaderMaterial.new()
 	m.shader = sh
 	return m
-func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_color: bool, cols: Array, upright: bool = false) -> void:
+func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_color: bool, cols: Array, upright: bool = false, habitat: String = "mixed") -> void:
 	var mm := MultiMesh.new()
 	mm.transform_format = MultiMesh.TRANSFORM_3D
 	mm.use_colors = use_color
 	mm.mesh = mesh
 	mm.instance_count = count
 	for i in range(count):
-		var pos := Vector3.ZERO
-		if i % 10 < 6 and cluster_centers.size() > 0:
-			var c: Vector3 = cluster_centers[randi() % cluster_centers.size()]
-			var aa: float = randf() * TAU
-			var rr: float = 4.0 + randf() * 22.0
-			pos = Vector3(c.x + cos(aa) * rr, 0, c.z + sin(aa) * rr)
-		else:
-			var aa2: float = randf() * TAU
-			var rr2: float = 25.0 + randf() * (WORLD_R * 0.9 - 25.0)
-			pos = Vector3(cos(aa2) * rr2, 0, sin(aa2) * rr2)
-		pos.y = seabed_y(pos.x, pos.z) + y_off
+		var pos: Vector3 = _district_ref().scatter_point(habitat)
+		pos.y += y_off
 		var sc: float = 0.55 + randf() * 1.9
 		var bas := Basis(Vector3.UP, randf() * TAU).scaled(Vector3(sc, sc * (0.8 + randf() * 0.8), sc))
 		if upright:
@@ -7699,17 +7576,17 @@ func _build_meadows() -> void:
 	# seagrass meadow — HER painted blades (the gen2 seagrass/kelp sprites on
 	# the crossed sway quads; the old procedural needles read as teal spikes,
 	# owner 2026-07-12). Blade proportions match each sprite's aspect.
-	_scatter_field(1400, _cross_blade(3.0, 2.5), _sway_sprite_mat("res://assets/props/gen2/seagrass.png"), 0.0, false, [])
+	_scatter_field(850, _cross_blade(3.0, 2.5), _sway_sprite_mat("res://assets/props/gen2/seagrass.png"), 0.0, false, [], false, "mixed")
 	# tall kelp ribbons
-	_scatter_field(420, _cross_blade(1.7, 4.5), _sway_sprite_mat("res://assets/props/gen2/kelp.png"), 0.0, false, [])
+	_scatter_field(260, _cross_blade(1.7, 4.5), _sway_sprite_mat("res://assets/props/gen2/kelp.png"), 0.0, false, [], false, "kelp")
 	# anemones + urchins stay procedural for now (no painted source art yet —
 	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
 	var anemone_mesh := _gen2_static_mesh("anemone_story")
 	if anemone_mesh != null:
-		_scatter_field(180, anemone_mesh, null, 0.1, false, [])
+		_scatter_field(100, anemone_mesh, null, 0.1, false, [], false, "anemone")
 	else:
-		_scatter_field(180, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
-			[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)])
+		_scatter_field(100, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
+			[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)], false, "anemone")
 	# HER starfish: flat painted decals resting on the sand (rendered from the
 	# gen2 starfish model — the procedural white stars read as paper cutouts)
 	var sf := PlaneMesh.new()
@@ -7722,13 +7599,13 @@ func _build_meadows() -> void:
 	sfm.emission_enabled = true
 	sfm.emission = Color(0.45, 0.32, 0.3)
 	sfm.emission_energy_multiplier = 0.25
-	_scatter_field(240, sf, sfm, 0.12, false, [])
+	_scatter_field(140, sf, sfm, 0.12, false, [], false, "starfish")
 	var urchin_mesh := _gen2_static_mesh("urchin_story")
 	if urchin_mesh != null:
-		_scatter_field(100, urchin_mesh, null, 0.15, false, [])
+		_scatter_field(60, urchin_mesh, null, 0.15, false, [], false, "urchin")
 	else:
-		_scatter_field(100, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
-			[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)])
+		_scatter_field(60, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
+			[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)], false, "urchin")
 
 func _sway_sprite_mat(sprite_path: String) -> ShaderMaterial:
 	# gen2 painted blade: same wind-driven sway as the old procedural grass,
@@ -7754,7 +7631,7 @@ void fragment(){
 	ROUGHNESS = 0.85;
 	SPECULAR = 0.1;
 	BACKLIGHT = lf.rgb * (0.2 + UV.y * 0.3);
-	EMISSION = lf.rgb * (0.04 + UV.y * UV.y * 0.16);
+	EMISSION = lf.rgb * (0.02 + UV.y * UV.y * 0.06);
 }"""
 	var m := ShaderMaterial.new()
 	m.shader = sh

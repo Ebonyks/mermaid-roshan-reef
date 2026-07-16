@@ -127,10 +127,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 		# become a palm tree in the village square or block the cave trail.
 		if Vector2(gcx, gcz).distance_to(ALPINE_SNOW_CENTER) < 80.0:
 			continue
-		# keep the train corridor clear: no grove may straddle the ring of
-		# track around the castle (radius 78 about (0,-120); trees scatter
-		# up to ±10 from the grove centre, hence the wide 26-unit band)
-		if absf(sqrt(gcx * gcx + (gcz + 120.0) * (gcz + 120.0)) - 78.0) < 26.0:
+		# keep the train corridor clear: no grove may straddle the grand-tour
+		# ring (variable radius about (0,-3.5); trees scatter up to ±10 from
+		# the grove centre, hence the wide 26-unit band)
+		var g_ta: float = atan2(gcx, gcz + 3.5)
+		if absf(sqrt(gcx * gcx + (gcz + 3.5) * (gcz + 3.5)) - m._train_ref()._ring_r(g_ta)) < 26.0:
 			continue
 		@warning_ignore("integer_division")
 		for t in range(3 + (sd / 3) % 4):
@@ -165,7 +166,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		if Vector2(px, pz).distance_to(ALPINE_SNOW_CENTER) < 66.0:
 			continue
 		# undergrowth also stays off the train track band
-		if absf(sqrt(px * px + (pz + 120.0) * (pz + 120.0)) - 78.0) < 13.0:
+		var u_ta: float = atan2(px, pz + 3.5)
+		if absf(sqrt(px * px + (pz + 3.5) * (pz + 3.5)) - m._train_ref()._ring_r(u_ta)) < 13.0:
 			continue
 		@warning_ignore("integer_division")
 		var pick := (sd / 7) % 10
@@ -668,7 +670,9 @@ func _build_christmas_village(o: Vector3) -> void:
 		_village_cottage(o, lp, row[1], row[2], house_index)
 
 	# The decorated tree anchors the little square between all three chalets.
-	# Its outer-rim placement keeps the entire solid cluster beyond the train ring.
+	# The train's grand-tour ring (courtyard_train.gd) swerves around this
+	# whole Alpine corner — its _ring_r southwest tuck is measured offline
+	# against every solid here. Move a chalet/pine/crag — re-verify the tuck.
 	var tree_pos := Vector3(-67.0, 0.0, -190.0)
 	_village_snow_patch(o, tree_pos, 8.0)
 	_village_pine(o, tree_pos, 1.22, true)
@@ -1696,6 +1700,22 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				lean = rock
 				pl.toy_pose("seat", tt, rock * 3.0)
 			"train_cabin", "train_deck":
+				# hop off ANY TIME, on her terms: a jump press is immediate
+				# (short grace so the boarding tap can't bounce her), and the
+				# swim stick held for a beat also works — holding the stick
+				# can never trap her aboard. Headless probes see no input.
+				var hop := false
+				if tt > 0.8 and m._train_ref()._ride_jump_pressed():
+					hop = true
+				if tt > 1.5 and m._train_ref()._ride_move_held():
+					tp["exit_hold"] = float(tp.get("exit_hold", 0.0)) + delta
+					if float(tp["exit_hold"]) > 1.0:
+						hop = true
+				else:
+					tp["exit_hold"] = 0.0
+				if hop:
+					m._train_ref()._hop_off(toy)
+					return
 				# seated on the moving train: glued to the car's seat point,
 				# facing the way it carries her, with a gentle carriage sway
 				# (validity check BEFORE the typed assign — a freed instance
@@ -1741,7 +1761,9 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 		return
 	for toy in (m.g.get("toys", []) as Array):
 		toy["cool"] = maxf(0.0, float(toy["cool"]) - delta)
-		if float(toy["cool"]) <= 0.0 and ppos.distance_to(toy["anchor"]) < 6.5:
+		# per-toy board radius: train seats are extra-wide (9) so hopping
+		# on a moving car is easy; playground toys keep the classic 6.5
+		if float(toy["cool"]) <= 0.0 and ppos.distance_to(toy["anchor"]) < float(toy.get("rad", 6.5)):
 			var ph := 0.0
 			if String(toy["kind"]) == "merry" and is_instance_valid(toy["node"]):
 				var dp: Vector3 = ppos - (toy["base"] as Vector3)
