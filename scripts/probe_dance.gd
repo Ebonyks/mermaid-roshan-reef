@@ -65,5 +65,31 @@ func _init() -> void:
 		bad += 1
 	else:
 		print("DANCE|close: OK world resumed with no passive reward")
+
+	# Castle placement contract: no butterfly count may gate the hall, and the
+	# central star rug must launch the same tested rhythm engine.
+	main._start_galaxy()
+	await process_frame
+	var galaxy: GalaxyLevel = main.galaxy_game as GalaxyLevel
+	galaxy._shards_got = 0
+	galaxy._enter_castle_gate()
+	if galaxy._mode != "hall" or not galaxy._hall_built:
+		print("DANCE|castle: FAIL zero-butterfly castle entry was blocked")
+		bad += 1
+	else:
+		print("DANCE|castle: OK castle is open with zero butterflies")
+	galaxy._cpos = Vector3.ZERO
+	galaxy._dance_t = 0.0
+	galaxy._tick_hall(1.0 / 60.0)
+	await process_frame
+	if not dance.active:
+		print("DANCE|rug: FAIL Butterfly Castle rug did not launch rhythm engine")
+		bad += 1
+	else:
+		print("DANCE|rug: OK Butterfly Castle rug launches rhythm engine")
+		dance.close_demo()
+		await process_frame
+	galaxy._teardown(false)
+	await process_frame
 	print("DANCE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()

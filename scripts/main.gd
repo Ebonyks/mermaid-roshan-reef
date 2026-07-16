@@ -2772,23 +2772,6 @@ func _build_pause() -> void:
 	gear.position = Vector2(-96, 18)
 	gear.pressed.connect(toggle_pause)
 	pause_layer.add_child(gear)
-	# Always-visible, non-reading entry to the rhythm demo. It sits beside Pause
-	# and stays below story/cutscene overlays, which use higher canvas layers.
-	var dance_btn := Button.new()
-	dance_btn.text = "♫"
-	dance_btn.tooltip_text = "Dance Party"
-	dance_btn.add_theme_font_size_override("font_size", 38)
-	dance_btn.custom_minimum_size = Vector2(76, 76)
-	var dsb := StyleBoxFlat.new()
-	dsb.bg_color = Color(0.65, 0.22, 0.72, 0.78)
-	dsb.border_color = Color(1.0, 0.68, 0.9, 0.9)
-	dsb.set_border_width_all(3)
-	dsb.set_corner_radius_all(38)
-	dance_btn.add_theme_stylebox_override("normal", dsb)
-	dance_btn.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	dance_btn.position = Vector2(-184, 18)
-	dance_btn.pressed.connect(_open_dance_demo)
-	pause_layer.add_child(dance_btn)
 	pause_panel = Panel.new()
 	var psb := StyleBoxFlat.new()
 	psb.bg_color = Color(0.07, 0.1, 0.24, 0.93)
