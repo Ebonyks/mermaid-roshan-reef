@@ -259,6 +259,7 @@ var _race_t := 0.0
 var _shortcut_used_lap := -1
 var _rev := false
 var _pearls_got := 0
+var _player_acted := false
 var _payout_banked := 0
 var _payout_dirty := false
 var _completion_committed := false

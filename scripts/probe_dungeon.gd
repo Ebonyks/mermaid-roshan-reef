@@ -37,6 +37,7 @@ func _init() -> void:
 	_ck("first room uses bounded combat scene", dungeon.arena is CombatArena and _descendants(dungeon.arena) < 100)
 	for i in range(30): await process_frame
 	_ck("combat room cannot win passively", dungeon.room_index == 0 and dungeon.arena != null)
+	var pearls_before_exit: int = main.pearl_count
 	_clear_combat(dungeon)
 	await _wait_for_room(dungeon, 1)
 	_ck("puzzle gives Roshan spatial controls", dungeon.puzzle.avatar != null and dungeon.puzzle.interactives.size() == 3)
