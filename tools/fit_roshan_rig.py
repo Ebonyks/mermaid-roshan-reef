@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""
-fit_roshan_rig.py — fit the 26-bone Roshan rig to the NEW Meshy multi-view mesh.
+"""Fit the Roshan game rig to a Meshy mermaid sculpt.
 
-Self-calibrating: detects the character's facing direction from face-skin
-texture, rotates her to the game convention (face -> glTF -Z after export),
-places all bones from texture+geometry landmarks, binds with bone-heat and
-falls back to analytic region-gated weights if heat fails, then separates
-hair weights onto physics strand chains (hair_SS_J) for scripts/hair.gd.
+The fitter detects geometry/texture landmarks, normalizes orientation, places
+the complete game skeleton, and supports either bone-heat or deterministic
+analytic weights. For the shipping v5 sculpt, run after the documented shrink
+and 39,999-triangle decimation passes:
 
-Run headless:
-    blender --background --python tools/fit_roshan_rig.py -- \
-        --mesh ../meshy_rebuild/roshan_multiview_30k.glb \
-        --out  ../meshy_rebuild/roshan_v2_rigged.glb
+    blender --background --factory-startup --python tools/fit_roshan_rig.py -- \
+        --mesh audit/roshan_v5_40k.glb \
+        --out audit/roshan_v5_rigged.glb \
+        --strands 8 --segs 3 --lower_arms 0 --yaw_degrees 180 \
+        --symmetrize_arms 1 --force_analytic 1 --static_hair 1 \
+        --soft_regions 1 --weight_smooth_steps 5
 """
 import sys, os
 from math import pi, atan2, degrees
@@ -26,7 +26,19 @@ def parse_args(argv):
     # signs per side) AFTER weighting, baked into rest pose + mesh, so winged
     # A/T-pose generations export with a natural hang and the game's
     # animation/verb library applies unchanged.
-    a = {"mesh": "", "out": "", "strands": "8", "segs": "3", "lower_arms": "0"}
+    a = {
+        "mesh": "",
+        "out": "",
+        "strands": "8",
+        "segs": "3",
+        "lower_arms": "0",
+        "yaw_degrees": "auto",
+        "symmetrize_arms": "0",
+        "force_analytic": "0",
+        "static_hair": "0",
+        "soft_regions": "0",
+        "weight_smooth_steps": "0",
+    }
     if "--" in argv:
         rest = argv[argv.index("--") + 1:]
         i = 0
@@ -114,8 +126,13 @@ def main():
     hc = P[head_m].mean(0)
     face_m = head_m & skin
     fd = P[face_m][:, :2].mean(0) - hc[:2]
-    ang = atan2(fd[0], fd[1])          # current facing angle from +Y (Blender)
-    print(f"[i] face dir {fd.round(3)}  rotating {degrees(ang):.1f} deg about Z")
+    if args["yaw_degrees"].lower() == "auto":
+        ang = atan2(fd[0], fd[1])      # current facing angle from +Y (Blender)
+        yaw_source = "detected"
+    else:
+        ang = float(args["yaw_degrees"]) * pi / 180.0
+        yaw_source = "override"
+    print(f"[i] face dir {fd.round(3)}  rotating {degrees(ang):.1f} deg about Z ({yaw_source})")
     for o in list(bpy.data.objects):
         if o.parent is None:
             o.matrix_world = Matrix.Rotation(ang, 4, 'Z') @ o.matrix_world
@@ -231,22 +248,59 @@ def main():
         raise RuntimeError("neither arm found by skin mask — check texture thresholds")
     shL, elL, wrL, tipL = chainL
     shR, elR, wrR, tipR = chainR
+    if args["symmetrize_arms"] == "1":
+        # The torso center is best recovered from the paired shoulder roots;
+        # face/skin/bounds centroids are all biased by the one-sided rainbow
+        # hair mass.  Center the mesh and every already-computed landmark
+        # before constructing the bilateral armature.
+        center_x = 0.5 * (shL[0] + shR[0])
+        mesh_obj.data.transform(Matrix.Translation((-center_x, 0, 0)))
+        mesh_obj.data.update()
+        P[:, 0] -= center_x
+        for point in (root_p, spine1_p, chest_p, neck_p, head_p, skull_c):
+            point[0] -= center_x
+        chainL = [point - np.array([center_x, 0, 0]) for point in chainL]
+        chainR = [point - np.array([center_x, 0, 0]) for point in chainR]
+        shL, elL, wrL, tipL = chainL
+        shR, elR, wrR, tipR = chainR
+        print(f"[i] centered paired shoulder axis by x={center_x:.3f}")
+    if args["symmetrize_arms"] == "1":
+        # Large asymmetric hair masses can bias the face centroid and leave an
+        # otherwise bilateral A-pose with slightly different fitted depth and
+        # height on each side.  Average corresponding landmarks around the
+        # torso axis so paired game-authored arm rotations remain mirrored.
+        axis_x = 0.0
+        symmetric_left = []
+        symmetric_right = []
+        for left_point, right_point in zip(chainL, chainR):
+            offset = 0.5 * (abs(left_point[0] - axis_x) + abs(right_point[0] - axis_x))
+            shared_y = 0.5 * (left_point[1] + right_point[1])
+            shared_z = 0.5 * (left_point[2] + right_point[2])
+            symmetric_left.append(np.array([axis_x + offset, shared_y, shared_z]))
+            symmetric_right.append(np.array([axis_x - offset, shared_y, shared_z]))
+        chainL = symmetric_left
+        chainR = symmetric_right
+        shL, elL, wrL, tipL = chainL
+        shR, elR, wrR, tipR = chainR
+        print(f"[i] arm chains symmetrized around x={axis_x:.3f}")
     print(f"[i] armL chain {np.array(chainL).round(3).tolist()}")
     print(f"[i] armR chain {np.array(chainR).round(3).tolist()}")
 
     # capsule-based arm regions: near the chain AND clearly lateral of the spine axis
-    def capsule_mask(chain, r):
+    def capsule_distance(chain):
         d = np.full(len(P), np.inf)
         for a, b2 in zip(chain[:-1], chain[1:]):
             ab = b2 - a
             ab2 = max(float(ab @ ab), 1e-9)
             t = np.clip(((P - a) @ ab) / ab2, 0, 1)
             d = np.minimum(d, np.linalg.norm(P - a - t[:, None] * ab, axis=1))
-        return d < r
+        return d
     spine_x = 0.5 * (chest_p[0] + root_p[0])
     r_arm = 0.045 * H
-    armL_m = capsule_mask(chainL, r_arm) & (P[:, 0] > spine_x + 0.045 * H) & ~hair_deform
-    armR_m = capsule_mask(chainR, r_arm) & (P[:, 0] < spine_x - 0.045 * H) & ~hair_deform
+    armL_distance = capsule_distance(chainL)
+    armR_distance = capsule_distance(chainR)
+    armL_m = (armL_distance < r_arm) & (P[:, 0] > spine_x + 0.045 * H) & ~hair_deform
+    armR_m = (armR_distance < r_arm) & (P[:, 0] < spine_x - 0.045 * H) & ~hair_deform
     print(f"[i] arm regions (capsule): L {armL_m.sum()}  R {armR_m.sum()}")
 
     # ---- tail ------------------------------------------------------------------------
@@ -354,17 +408,20 @@ def main():
     bpy.ops.object.select_all(action="DESELECT")
     mesh_obj.select_set(True); arm.select_set(True)
     bpy.context.view_layer.objects.active = arm
-    heat_ok = True
-    try:
-        bpy.ops.object.parent_set(type="ARMATURE_AUTO")
-    except Exception as e:
-        heat_ok = False
-        print("[!] bone heat threw:", e)
-    weighted = sum(1 for v in mesh_obj.data.vertices if v.groups)
-    cover = weighted / len(mesh_obj.data.vertices)
-    print(f"[i] heat coverage: {cover:.2%}")
-    if cover < 0.95:
-        heat_ok = False
+    heat_ok = args["force_analytic"] != "1"
+    if heat_ok:
+        try:
+            bpy.ops.object.parent_set(type="ARMATURE_AUTO")
+        except Exception as e:
+            heat_ok = False
+            print("[!] bone heat threw:", e)
+        weighted = sum(1 for v in mesh_obj.data.vertices if v.groups)
+        cover = weighted / len(mesh_obj.data.vertices)
+        print(f"[i] heat coverage: {cover:.2%}")
+        if cover < 0.95:
+            heat_ok = False
+    else:
+        print("[i] analytic weights forced")
     if not heat_ok:
         print("[i] falling back to analytic region-gated weights")
         if mesh_obj.parent != arm:
@@ -380,7 +437,37 @@ def main():
         # region gates
         names = list(bones.keys())
         region = np.full(len(P), 0, int)   # 0 torso/tail core
-        region[armL_m] = 1; region[armR_m] = 2; region[hair_deform] = 3
+        region[armL_m] = 1; region[armR_m] = 2
+        if args["static_hair"] != "1":
+            region[hair_deform] = 3
+        else:
+            print("[i] static-hair mode: hair shell uses head/neck/core weights")
+        strengths = np.zeros((len(P), 4), dtype=float)
+        if args["soft_regions"] == "1":
+            def smooth01(value):
+                value = np.clip(value, 0.0, 1.0)
+                return value * value * (3.0 - 2.0 * value)
+            def shoulder_strength(distance, side_x, shoulder, elbow):
+                upper = elbow - shoulder
+                upper2 = max(float(upper @ upper), 1e-9)
+                progress = ((P - shoulder) @ upper) / upper2
+                along = smooth01((progress + 0.20) / 0.35)
+                radial = smooth01((r_arm * 1.35 - distance) / (r_arm * 0.60))
+                lateral = smooth01((side_x - 0.025 * H) / (0.050 * H))
+                return along * radial * lateral * (~hair_deform).astype(float)
+            strengths[:, 1] = shoulder_strength(
+                armL_distance, P[:, 0] - spine_x, shL, elL)
+            strengths[:, 2] = shoulder_strength(
+                armR_distance, spine_x - P[:, 0], shR, elR)
+            if args["static_hair"] != "1":
+                strengths[:, 3] = hair_deform.astype(float)
+            strengths[:, 0] = 1.0 - np.maximum.reduce(
+                [strengths[:, 1], strengths[:, 2], strengths[:, 3]])
+            totals = np.maximum(strengths.sum(1), 1e-9)
+            strengths /= totals[:, None]
+            print("[i] soft shoulder region transitions enabled")
+        else:
+            strengths[np.arange(len(P)), region] = 1.0
         gate = {}
         for nm in names:
             if nm.startswith(("armU2", "armF2", "hand2")):
@@ -402,8 +489,23 @@ def main():
             d = np.linalg.norm(ap - t[:, None] * ab[j], axis=1)
             sigma = 0.06 * H if gate[nm] == 0 else 0.035 * H
             w = np.exp(-(d / sigma) ** 2)
-            w[region != gate[nm]] = 0.0
+            w *= strengths[:, gate[nm]]
             Wmat[:, j] = w
+        smooth_steps = int(args["weight_smooth_steps"])
+        if smooth_steps > 0:
+            edge_pairs = np.array(
+                [[edge.vertices[0], edge.vertices[1]] for edge in mesh_obj.data.edges],
+                dtype=np.int64,
+            )
+            degree = np.bincount(edge_pairs.reshape(-1), minlength=len(P)).astype(float)
+            degree = np.maximum(degree, 1.0)
+            for _step in range(smooth_steps):
+                neighbor_sum = np.zeros_like(Wmat)
+                np.add.at(neighbor_sum, edge_pairs[:, 0], Wmat[edge_pairs[:, 1]])
+                np.add.at(neighbor_sum, edge_pairs[:, 1], Wmat[edge_pairs[:, 0]])
+                neighbor_mean = neighbor_sum / degree[:, None]
+                Wmat = Wmat * 0.55 + neighbor_mean * 0.45
+            print(f"[i] topology-smoothed analytic weights: {smooth_steps} steps")
         # every vert needs some weight: fall back to nearest core bone
         rowsum = Wmat.sum(1)
         dead = rowsum < 1e-8

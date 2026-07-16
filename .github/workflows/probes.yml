@@ -30,7 +30,7 @@ jobs:
         # and the job dies at the 30m ceiling as an opaque 'cancelled' -
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
-          pip install --quiet gdtoolkit==4.*
+          pip install --quiet gdtoolkit==4.* numpy Pillow
           python3 -m gdtoolkit.parser scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
 
@@ -42,6 +42,9 @@ jobs:
             echo "IMPORT FAIL (resource or script error)"
             exit 1
           fi
+
+      - name: Roshan full motion cage
+        run: python3 tools/audit_motions.py --glb assets/characters/roshan_v4.glb
 
       - name: Compile-check every script (real analyzer, catches what parse-only cannot)
         # probes only compile scripts the run actually loads; lazily-loaded
@@ -62,7 +65,7 @@ jobs:
           FAILED=0
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
           FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
-          for p in probe_audit probe_passive probe_load probe_mg2d probe_audio probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon; do
+          for p in probe_reef_districts probe_audit probe_passive probe_load probe_mg2d probe_audio probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1

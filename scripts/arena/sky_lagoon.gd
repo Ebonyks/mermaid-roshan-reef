@@ -18,6 +18,9 @@ const ALPINE_SNOW_RADIUS := Vector2(52.0, 43.0)
 const ALPINE_CAVE_FLOOR := 43.0
 const ALPINE_CAVE_ENTRANCE := Vector2(-108.0, -165.0)
 const ALPINE_CAVE_ROOM := Vector2(-128.0, -165.0)
+const ALPINE_HOUSE_A := Vector2(-92.0, -156.0)
+const ALPINE_HOUSE_B := Vector2(-78.0, -185.0)
+const ALPINE_HOUSE_C := Vector2(-112.0, -190.0)
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -649,16 +652,19 @@ func _build_christmas_village(o: Vector3) -> void:
 		_lagoon_local(village_local.x, village_local.y), village_local.y)
 	_build_alpine_snowfield(o, ALPINE_SNOW_CENTER, ALPINE_SNOW_RADIUS)
 	_build_alpine_mountain(o)
+	m.g["alpine_house_entries"] = []
+	m.g["alpine_house_bonuses"] = []
 
 	var cottage_rows: Array = [
-		[Vector3(-92.0, 0.0, -156.0), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 9.0],
-		[Vector3(-78.0, 0.0, -185.0), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 10.0],
-		[Vector3(-112.0, 0.0, -190.0), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
+		[Vector3(ALPINE_HOUSE_A.x, 0.0, ALPINE_HOUSE_A.y), Color(0.78, 0.91, 0.96), Color(0.72, 0.20, 0.28), 9.0],
+		[Vector3(ALPINE_HOUSE_B.x, 0.0, ALPINE_HOUSE_B.y), Color(0.96, 0.82, 0.88), Color(0.20, 0.48, 0.42), 10.0],
+		[Vector3(ALPINE_HOUSE_C.x, 0.0, ALPINE_HOUSE_C.y), Color(0.91, 0.85, 0.98), Color(0.34, 0.44, 0.76), 8.0],
 	]
-	for row: Array in cottage_rows:
+	for house_index in range(cottage_rows.size()):
+		var row: Array = cottage_rows[house_index]
 		var lp: Vector3 = row[0]
 		_village_snow_patch(o, lp, float(row[3]))
-		_village_cottage(o, lp, row[1], row[2])
+		_village_cottage(o, lp, row[1], row[2], house_index)
 
 	# The decorated tree anchors the little square between all three chalets.
 	# Its outer-rim placement keeps the entire solid cluster beyond the train ring.
@@ -898,15 +904,28 @@ func _village_snow_patch(o: Vector3, lp: Vector3, radius: float) -> void:
 	m.game_nodes.append(snow)
 
 
-func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color) -> void:
+func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color,
+	house_index: int) -> void:
 	var gy: float = _lagoon_local(lp.x, lp.z)
 	var base := o + Vector3(lp.x, gy, lp.z)
-	var body := m._l2_box(base + Vector3(0.0, 4.1, 0.0), Vector3(14.0, 8.2, 11.0), wall_col)
-	body.material_override = m._up_mat("castle", 0.11, wall_col)
-	body.visibility_range_end = 180.0
-	# The solid reaches through the snow-capped roof, so the cottages never turn
-	# into ghost scenery when Roshan swims above door height.
-	m._wall_solid(base + Vector3(0.0, 7.5, 0.0), Vector3(14.0, 15.0, 11.0), 0.7)
+	# Hollow wall panels replace the old solid decorative box. The wide front
+	# gap remains open from the snow to above Roshan's head, so one-finger steering
+	# can carry her straight into every chalet without a transition or button.
+	var wall_parts: Array = [
+		[Vector3(0.0, 4.1, -5.18), Vector3(14.0, 8.2, 0.64)],
+		[Vector3(-6.68, 4.1, 0.0), Vector3(0.64, 8.2, 11.0)],
+		[Vector3(6.68, 4.1, 0.0), Vector3(0.64, 8.2, 11.0)],
+		[Vector3(-5.0, 4.1, 5.18), Vector3(4.0, 8.2, 0.64)],
+		[Vector3(5.0, 4.1, 5.18), Vector3(4.0, 8.2, 0.64)],
+		[Vector3(0.0, 7.05, 5.18), Vector3(6.0, 2.3, 0.64)],
+	]
+	for wall_part: Array in wall_parts:
+		_village_cottage_wall(base + (wall_part[0] as Vector3), wall_part[1], wall_col)
+
+	var floor := m._l2_box(base + Vector3(0.0, 0.22, 0.0),
+		Vector3(13.0, 0.42, 10.0), Color(0.58, 0.39, 0.27))
+	floor.material_override = m._up_mat("wood", 0.16, Color(0.72, 0.53, 0.38))
+	floor.visibility_range_end = 145.0
 
 	var roof := MeshInstance3D.new()
 	var rmesh := CylinderMesh.new()
@@ -921,6 +940,7 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color)
 	roof.visibility_range_end = 180.0
 	m.add_child(roof)
 	m.game_nodes.append(roof)
+	_village_register_fade(roof, roof.position, Vector3(21.0, 6.4, 21.0))
 
 	# A smaller white pyramid leaves a band of coloured eaves visible below it.
 	var cap := MeshInstance3D.new()
@@ -936,8 +956,12 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color)
 	cap.visibility_range_end = 180.0
 	m.add_child(cap)
 	m.game_nodes.append(cap)
+	_village_register_fade(cap, cap.position, Vector3(15.4, 4.6, 15.4))
 
-	var door := m._l2_box(base + Vector3(0.0, 2.75, 5.62), Vector3(3.2, 5.5, 0.35), Color(0.36, 0.22, 0.18))
+	# The door is visibly swung inward along the right wall instead of covering
+	# the entrance like the previous flat facade prop.
+	var door := m._l2_box(base + Vector3(5.95, 2.75, 2.7),
+		Vector3(0.30, 5.5, 4.5), Color(0.36, 0.22, 0.18))
 	door.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.36, 0.28))
 	door.visibility_range_end = 155.0
 	for wx: float in [-4.35, 4.35]:
@@ -958,10 +982,118 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color)
 		Vector3(17.0, 0.55, 13.5), Color(0.34, 0.22, 0.18))
 	eave.material_override = m._up_mat("wood", 0.14, Color(0.43, 0.28, 0.22))
 	eave.visibility_range_end = 165.0
+	_village_register_fade(eave, eave.position, Vector3(17.0, 0.55, 13.5))
 
 	var chimney := m._l2_box(base + Vector3(3.5, 12.1, -0.8), Vector3(2.0, 6.0, 2.0), Color(0.48, 0.22, 0.22))
 	chimney.material_override = m._up_mat("castle", 0.15, Color(0.62, 0.30, 0.30))
 	chimney.visibility_range_end = 165.0
+
+	_village_cottage_interior(base, roof_col, house_index)
+	var entries: Array = m.g["alpine_house_entries"]
+	entries.append({
+		"entry": base + Vector3(0.0, 2.7, 6.35),
+		"inside": base + Vector3(0.0, 2.7, 0.0),
+		"door_width": 6.0,
+	})
+	_village_house_bonus(base, house_index)
+
+
+func _village_cottage_wall(center: Vector3, size: Vector3, wall_col: Color) -> void:
+	var wall := m._l2_box(center, size, wall_col)
+	wall.material_override = m._up_mat("castle", 0.11, wall_col)
+	wall.visibility_range_end = 180.0
+	m._wall_solid(center, size, 0.35)
+	_village_register_fade(wall, center, size)
+
+
+func _village_register_fade(node: MeshInstance3D, center: Vector3, size: Vector3) -> void:
+	# These tiny rooms use the shared camera cutaway system: whichever wall or
+	# roof is between Roshan and the chase camera fades, leaving the interior clear.
+	var base_alpha := 1.0
+	if node.material_override is StandardMaterial3D:
+		base_alpha = (node.material_override as StandardMaterial3D).albedo_color.a
+	m.fade_walls.append({
+		"node": node,
+		"c": center,
+		"h": size * 0.5,
+		"base_a": base_alpha,
+		"a": base_alpha,
+	})
+
+
+func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -> void:
+	# A low-prop-count dollhouse interior: soft rug, bed, pillow, and a tea table.
+	# Furniture is intentionally non-solid so a four-year-old cannot wedge Roshan
+	# into a corner while turning toward the surprise.
+	var rug_colors: Array[Color] = [
+		Color(0.42, 0.72, 0.82),
+		Color(0.88, 0.56, 0.67),
+		Color(0.62, 0.55, 0.86),
+	]
+	var rug := m._l2_box(base + Vector3(0.0, 0.48, 0.4),
+		Vector3(6.6, 0.12, 4.4), rug_colors[house_index])
+	rug.material_override = m._castle_mat("carpet", 0.13, rug_colors[house_index])
+	rug.visibility_range_end = 90.0
+
+	var bed_frame := m._l2_box(base + Vector3(-3.65, 0.95, -2.65),
+		Vector3(4.4, 1.2, 3.6), Color(0.49, 0.31, 0.22))
+	bed_frame.material_override = m._up_mat("wood", 0.15, Color(0.60, 0.40, 0.28))
+	bed_frame.visibility_range_end = 90.0
+	var quilt_col: Color = accent.lightened(0.36)
+	var quilt := m._l2_box(base + Vector3(-3.65, 1.62, -2.45),
+		Vector3(3.9, 0.55, 3.05), quilt_col)
+	quilt.material_override = m._castle_mat("carpet", 0.14, quilt_col)
+	quilt.visibility_range_end = 90.0
+	var pillow := m._l2_box(base + Vector3(-3.65, 1.97, -3.42),
+		Vector3(2.5, 0.32, 0.78), Color(0.94, 0.96, 1.0))
+	pillow.visibility_range_end = 90.0
+
+	var table_leg := m._l2_box(base + Vector3(3.3, 1.05, -0.8),
+		Vector3(0.55, 1.8, 0.55), Color(0.45, 0.28, 0.20))
+	table_leg.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.38, 0.27))
+	table_leg.visibility_range_end = 90.0
+	var table_top := m._l2_box(base + Vector3(3.3, 2.02, -0.8),
+		Vector3(3.2, 0.32, 2.5), Color(0.52, 0.33, 0.23))
+	table_top.material_override = m._up_mat("wood", 0.16, Color(0.66, 0.45, 0.31))
+	table_top.visibility_range_end = 90.0
+	var cup := MeshInstance3D.new()
+	var cup_mesh := CylinderMesh.new()
+	cup_mesh.top_radius = 0.34
+	cup_mesh.bottom_radius = 0.30
+	cup_mesh.height = 0.58
+	cup_mesh.radial_segments = 8
+	cup.mesh = cup_mesh
+	cup.material_override = m._soft_mat(accent.lightened(0.28))
+	cup.position = base + Vector3(3.3, 2.46, -0.8)
+	cup.visibility_range_end = 75.0
+	m.add_child(cup)
+	m.game_nodes.append(cup)
+
+
+func _village_house_bonus(base: Vector3, house_index: int) -> void:
+	var bonus_colors: Array[Color] = [
+		Color(1.0, 0.72, 0.30),
+		Color(0.42, 0.90, 0.84),
+		Color(0.82, 0.58, 1.0),
+	]
+	var bonus: Node3D = LandmarkArtFactory.create_star(1.2,
+		bonus_colors[house_index], false, true)
+	bonus.position = base + Vector3(3.25, 3.55, -3.45)
+	m.add_child(bonus)
+	m.game_nodes.append(bonus)
+	var save_key := "_alpine_house_bonus_%d" % house_index
+	var claimed: bool = bool(m.stickers.get(save_key, false))
+	bonus.visible = not claimed
+	var bonuses: Array = m.g["alpine_house_bonuses"]
+	bonuses.append({
+		"node": bonus,
+		"pos": bonus.position,
+		"base_y": bonus.position.y,
+		"color": bonus_colors[house_index],
+		"key": save_key,
+		"claimed": claimed,
+		"phase": float(house_index) * 1.7,
+	})
 
 
 func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
@@ -1773,6 +1905,34 @@ func _crafted_purr(cd: Dictionary, on: bool) -> void:
 	elif p != null and p.playing:
 		p.stop()
 
+
+func _tick_alpine_house_bonuses(delta: float, ppos: Vector3) -> void:
+	var bonuses: Array = m.g.get("alpine_house_bonuses", [])
+	for value in bonuses:
+		var bonus_data: Dictionary = value
+		if bool(bonus_data.get("claimed", false)):
+			continue
+		var bonus: Node3D = bonus_data.get("node") as Node3D
+		if not is_instance_valid(bonus):
+			continue
+		bonus.rotate_y(delta * 0.9)
+		bonus.position.y = float(bonus_data["base_y"]) + sin(
+			float(m.g.get("t", 0.0)) * 2.8 + float(bonus_data["phase"])) * 0.32
+		var bonus_pos: Vector3 = bonus_data["pos"]
+		if bonus_pos.distance_to(ppos) >= 4.6:
+			continue
+		bonus_data["claimed"] = true
+		bonus.visible = false
+		var save_key: String = bonus_data["key"]
+		var bonus_color: Color = bonus_data["color"]
+		m.stickers[save_key] = true
+		m.pearl_count += 1
+		m._write_save()
+		m._sparkle_burst(bonus.position, bonus_color)
+		m._fanfare()
+		m.show_msg("Roshan", "A cozy chalet surprise! One rainbow pearl!", "pearl")
+
+
 func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# the train moves first so the ride seats' anchors are fresh when the
 	# toy tick reads them (it also hides itself whenever phase != "court")
@@ -1790,6 +1950,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# crafted friends are alive: they scamper around, and run up to nuzzle +
 	# purr when Roshan comes near
 	_tick_crafted(delta, ppos)
+	_tick_alpine_house_bonuses(delta, ppos)
 	# Alpine secret: the cairns are the visual pointer; nearing the hidden mouth
 	# adds a recorded voice hint. Reaching the star pays once and persists in the
 	# existing stickers dictionary under a private progress key.
@@ -2053,6 +2214,43 @@ func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: f
 	return amp * f * f
 
 
+func _alpine_house_floor_height(center: Vector2) -> float:
+	# Evaluate the ordinary terrain once at the chalet centre. Keeping this math
+	# in sync with _lagoon_local lets each tiny interior sit on a level pad even
+	# where the third house meets the steep mountain and floating-island rim.
+	var lx := center.x
+	var lz := center.y
+	var r: float = sqrt(lx * lx + lz * lz)
+	var h := 0.0
+	h += _lagoon_bump(lx, lz, -130.0, 20.0, 62.0, 20.0)
+	h += _lagoon_bump(lx, lz, 128.0, -20.0, 64.0, 18.0)
+	h += _lagoon_bump(lx, lz, -60.0, 168.0, 54.0, 15.0)
+	h += _lagoon_bump(lx, lz, 100.0, 150.0, 54.0, 14.0)
+	h += _lagoon_bump(lx, lz, ALPINE_MOUNTAIN_CENTER.x, ALPINE_MOUNTAIN_CENTER.y,
+		ALPINE_MOUNTAIN_RADIUS, ALPINE_MOUNTAIN_HEIGHT)
+	h -= _lagoon_river_dip(lx, lz)
+	var castle_disc: float = 1.0 - smoothstep(50.0, 72.0, r)
+	var path_mask := 0.0
+	if lz > -95.0 and lz < 172.0:
+		path_mask = 1.0 - smoothstep(16.0, 28.0, absf(lx))
+	h = lerpf(h, 0.0, maxf(castle_disc, path_mask))
+	h -= _lagoon_moat_dip(lx, lz)
+	if r > 205.0:
+		h -= (r - 205.0) * 1.2
+	return h
+
+
+func _alpine_flatten_house(h: float, lx: float, lz: float, center: Vector2) -> float:
+	# Full-strength mask spans the walkable floor and doorway; the outer feather
+	# blends back into the snow slope so no house becomes a floating platform.
+	var mask_x: float = 1.0 - smoothstep(6.4, 9.2, absf(lx - center.x))
+	var mask_z: float = 1.0 - smoothstep(5.4, 8.0, absf(lz - center.y))
+	var mask := mask_x * mask_z
+	if mask <= 0.0:
+		return h
+	return lerpf(h, _alpine_house_floor_height(center), mask)
+
+
 func _lagoon_local(lx: float, lz: float) -> float:
 	var r: float = sqrt(lx * lx + lz * lz)
 	var h := 0.0
@@ -2078,6 +2276,11 @@ func _lagoon_local(lx: float, lz: float) -> float:
 	# island rim falls away at the edge
 	if r > 205.0:
 		h -= (r - 205.0) * 1.2
+	# Level dollhouse pads make the open chalet interiors genuinely navigable.
+	# These run after the island rim so the high back chalet does not tilt sharply.
+	h = _alpine_flatten_house(h, lx, lz, ALPINE_HOUSE_A)
+	h = _alpine_flatten_house(h, lx, lz, ALPINE_HOUSE_B)
+	h = _alpine_flatten_house(h, lx, lz, ALPINE_HOUSE_C)
 	# Cut a short level slot into the upper slope, then cover it with the cave
 	# shell in _build_alpine_mountain. The feathered edges keep the terrain mesh
 	# smooth while the stone side walls hide the open-top heightfield trick.
