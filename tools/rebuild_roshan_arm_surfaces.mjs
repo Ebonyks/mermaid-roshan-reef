@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 /**
- * Add continuous anatomical arm surfaces beneath Roshan v4's damaged arm
- * shells.  The Meshy remesh contains a usable positive-X hand/arm sculpt and
- * a decorated negative-X forearm/hand shell, but neither side has a dependable
- * shoulder-to-wrist skin surface under animation.  This deterministic pass
- * builds one low-cost, skinned tube per arm.  Each tube begins inside the
- * torso, blends across shoulder/elbow/wrist joints, and ends inside the hand.
- * The authored hands, sleeve/scale overlays, texture, and original topology
- * remain intact above the new anatomical underlay.
+ * Add continuous anatomical safety surfaces beneath Roshan's native arm
+ * shells. This deterministic pass builds one low-cost, skinned tube per arm.
+ * Each tube begins inside the torso, blends across shoulder/elbow/wrist joints,
+ * and ends inside the hand. The v5 profile preserves every native triangle and
+ * uses a narrow hidden radius; the legacy v4 profile also removes its audited
+ * torn shells. Authored hands, sleeves, textures, and visible v5 topology stay
+ * intact above the underlay.
  *
  * Run from the repository root:
  *
@@ -32,12 +31,31 @@ import {
 	vectorSub,
 } from "./resculpt_roshan_v4.mjs";
 
-const EXPECTED_SOURCE_SHA256 =
-	"9fefb159dc9262404056d97f2e4144754108ae6d5d77b2379e19f09e65d7fedf";
-const EXPECTED_OUTPUT_SHA256 =
-	"6e9db85f9388e8bacee1d423a6adca6d0fd1e9e14ddb76bc26593d1f931b82e9";
-const EXPECTED_TEXTURE_SHA256 =
-	"487c2409bcc5647b8d8f3cd5980d70e010d690de22c2968d99881490df55167d";
+const SOURCE_PROFILES = new Map([
+	[
+		"9fefb159dc9262404056d97f2e4144754108ae6d5d77b2379e19f09e65d7fedf",
+		{
+			label: "v4 damaged-shell repair",
+			outputSha256: "6e9db85f9388e8bacee1d423a6adca6d0fd1e9e14ddb76bc26593d1f931b82e9",
+			textureSha256: ["487c2409bcc5647b8d8f3cd5980d70e010d690de22c2968d99881490df55167d"],
+			removeDamagedTriangles: true,
+			radiusScale: 1.0,
+		},
+	],
+	[
+		"af85d4ea6c992fdadb1e16c8895b426b51153984f16725812b7d76e115634e94",
+		{
+			label: "v5 native-shell safety underlay",
+			outputSha256: "478eaf479d6cda1e08de6f7e27a1f5b7d7b48d158a77e8745c3527aca65fb86e",
+			textureSha256: [
+				"90d40c67c57603d3cab6a8c9a3d88f4fc69322efaf001b2b07c14e5414f259b2",
+				"d25ec8e72c8c4bf1cff736b40865d7d1d1e286cc7f9393758882e0d932350ad5",
+			],
+			removeDamagedTriangles: false,
+			radiusScale: 0.55,
+		},
+	],
+]);
 const SIDES = 14;
 const SKIN_COLOUR = [0.79, 0.67, 0.61, 1.0];
 
@@ -177,7 +195,7 @@ function chainRings(shoulder, elbow, wrist, names) {
 	return { rings, upperLength, forearmLength };
 }
 
-function buildArmSurface(chains, skinIndexByName) {
+function buildArmSurface(chains, skinIndexByName, radiusScale = 1.0) {
 	const positions = [];
 	const normals = [];
 	const texcoords = [];
@@ -201,6 +219,9 @@ function buildArmSurface(chains, skinIndexByName) {
 		const base = positions.length / 3;
 		const generated = chainRings(chain.shoulder, chain.elbow, chain.wrist, chain);
 		const rings = generated.rings;
+		for (const ring of rings) {
+			ring.radius *= radiusScale;
+		}
 		for (let ringIndex = 0; ringIndex < rings.length; ringIndex += 1) {
 			const ring = rings[ringIndex];
 			const frame = ringFrame(vectorNormalize(ring.tangent));
@@ -359,7 +380,10 @@ function main() {
 	}
 	const sourceBytes = fs.readFileSync(sourcePath);
 	const sourceHash = sha256(sourceBytes);
-	if (sourceHash === EXPECTED_OUTPUT_SHA256) {
+	const finalProfile = [...SOURCE_PROFILES.values()].find(
+		(profile) => profile.outputSha256 === sourceHash,
+	);
+	if (finalProfile) {
 		if (!samePath(sourcePath, outPath)) {
 			writeAtomic(outPath, sourceBytes);
 		}
@@ -367,15 +391,20 @@ function main() {
 		console.log(`ROSHAN_ARM_SURFACE|OUTPUT|${outPath}`);
 		return;
 	}
-	if (sourceHash !== EXPECTED_SOURCE_SHA256) {
+	const profile = SOURCE_PROFILES.get(sourceHash);
+	if (!profile) {
 		throw new Error(`Unexpected source SHA-256 ${sourceHash}`);
 	}
-	const glb = new Glb(sourceBytes, "Roshan v4 cohesive-arm source");
+	const glb = new Glb(sourceBytes, `Roshan ${profile.label}`);
 	if (glb.gltf.meshes?.length !== 1 || glb.gltf.skins?.length !== 1) {
 		throw new Error("Expected Roshan's one-mesh/one-skin GLB contract");
 	}
 	const images = glb.imagePayloads();
-	if (images.length !== 1 || sha256(images[0]) !== EXPECTED_TEXTURE_SHA256) {
+	const imageHashes = images.map((image) => sha256(image));
+	if (
+		imageHashes.length !== profile.textureSha256.length ||
+		imageHashes.some((hash, index) => hash !== profile.textureSha256[index])
+	) {
 		throw new Error("Embedded Roshan texture changed or is missing");
 	}
 	const skin = glb.gltf.skins[0];
@@ -401,10 +430,14 @@ function main() {
 		wrist: jointPoint(chain.hand),
 	}));
 	const sourcePrimitive = glb.gltf.meshes[0].primitives[0];
-	const cleanup = removeDamagedArmTriangles(
-		glb, sourcePrimitive, jointNames, chains[0].wrist,
-	);
-	const surface = buildArmSurface(chains, skinIndexByName);
+	const cleanup = profile.removeDamagedTriangles
+		? removeDamagedArmTriangles(glb, sourcePrimitive, jointNames, chains[0].wrist)
+		: {
+			keptTriangles: glb.gltf.accessors[sourcePrimitive.indices].count / 3,
+			removedPositive: 0,
+			removedNegative: 0,
+		};
+	const surface = buildArmSurface(chains, skinIndexByName, profile.radiusScale);
 	const vertexCount = surface.positions.length / 3;
 	if (vertexCount >= 65536) {
 		throw new Error("Generated arm surface exceeded uint16 index range");
@@ -455,23 +488,29 @@ function main() {
 	glb.gltf.asset.extras = {
 		...(glb.gltf.asset.extras || {}),
 		roshanCohesiveArmSurface: {
-			version: 1,
+			version: 2,
+			profile: profile.label,
 			sides: SIDES,
+			radiusScale: profile.radiusScale,
 			vertexCount,
 			triangleCount: surface.indices.length / 3,
+			removedNativeTriangles: cleanup.removedPositive + cleanup.removedNegative,
 		},
 	};
 	const outputBytes = glb.toBuffer();
 	const outputHash = sha256(outputBytes);
-	if (outputHash !== EXPECTED_OUTPUT_SHA256) {
+	if (profile.outputSha256 && outputHash !== profile.outputSha256) {
 		throw new Error(
-			`Cohesive-arm output ${outputHash} differs from audited ${EXPECTED_OUTPUT_SHA256}`,
+			`Cohesive-arm output ${outputHash} differs from audited ${profile.outputSha256}`,
 		);
 	}
 	writeAtomic(outPath, outputBytes);
 	console.log(`ROSHAN_ARM_SURFACE|SOURCE_SHA256|${sourceHash}`);
 	console.log(`ROSHAN_ARM_SURFACE|OUTPUT_SHA256|${outputHash}`);
-	console.log(`ROSHAN_ARM_SURFACE|TEXTURE_SHA256|${sha256(glb.imagePayloads()[0])}`);
+	console.log(`ROSHAN_ARM_SURFACE|PROFILE|${profile.label}`);
+	for (const [index, hash] of imageHashes.entries()) {
+		console.log(`ROSHAN_ARM_SURFACE|TEXTURE_${index}_SHA256|${hash}`);
+	}
 	console.log(`ROSHAN_ARM_SURFACE|VERTICES|${vertexCount}`);
 	console.log(`ROSHAN_ARM_SURFACE|TRIANGLES|${surface.indices.length / 3}`);
 	console.log(
