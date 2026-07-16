@@ -12,18 +12,32 @@ fitted to the recovered geometry.  It accepts either the audited original v4g
 or its own repaired output, making the checked-in result idempotently
 reproducible.
 
-By default the donor is read directly from Git revision b0b469c, so no second
-3.3 MB character asset needs to be committed.  A full-history clone is required;
-``--reference`` can instead name an extracted donor GLB.
+This is stage one of the deterministic repair -> resculpt pipeline.  Its
+audited output is the canonical input to ``tools/resculpt_roshan_v4.mjs``,
+which performs the localized arm-proportion resculpt.  That second stage
+updates arm positions/normals, arm-segment rest translations, and inverse bind
+matrices while preserving this repair's weights, the shoulder roots and hand
+sculpts, topology/indices, UVs, material, and embedded texture.
 
-Run from the repository root with Blender's bundled Python (NumPy required)::
+By default the audited pre-repair source and donor are read directly from Git
+history, so no second 3.3 MB character asset needs to be committed.  A
+full-history clone is required; ``--source`` and ``--reference`` can instead
+name extracted GLBs.
+
+Run stage one from the repository root with Blender's bundled Python (NumPy
+required), then run stage two with Node.js::
 
     python tools/repair_roshan_v4.py \
-      --source assets/characters/roshan_v4.glb \
       --out audit/roshan_v4_repaired.glb
 
-The output must be audited before it replaces the shipping GLB.  This script
-refuses to overwrite its input.
+    node tools/resculpt_roshan_v4.mjs \
+      --source audit/roshan_v4_repaired.glb \
+      --out audit/roshan_v4_resculpted.glb
+
+The repaired intermediate must pass into the resculpt stage; the resculpted
+candidate must be audited before installation.  The repair tool never
+overwrites its input.  The resculpt tool requires an explicit ``--in-place``
+flag only when its source and output resolve to the same file.
 """
 
 from __future__ import annotations
@@ -40,11 +54,13 @@ from typing import Any
 import numpy as np
 
 
-REFERENCE_REVISION = "b0b469c"
+SOURCE_REVISION = "3d172124a2c1a21c0e129b5f3f589f3f30e845d1"
+REFERENCE_REVISION = "b0b469ce364000d96b5ee5291eac721d4ef2f6d6"
 REFERENCE_PATH = "assets/characters/roshan_v4.glb"
 LEFT_BONES = ("armU", "armF", "hand")
 EXPECTED_SOURCE_SHA256 = "3537c1fa27f2c048c587fb9062a3e32846c61552fd949931791f9b76e6a5275b"
 EXPECTED_REFERENCE_SHA256 = "18ee1c6df47193ca0eaebedfd4240005f7b601315d3a6f67fe312e757ec0f2b0"
+# Deterministic first-pass stage boundary consumed by resculpt_roshan_v4.mjs.
 EXPECTED_REPAIRED_SHA256 = "b50862c4117c9413d9242b81c9275dc9538733f6c63510cb8473ea208e450dbf"
 EXPECTED_IMAGE_SHA256 = "487c2409bcc5647b8d8f3cd5980d70e010d690de22c2968d99881490df55167d"
 
@@ -76,7 +92,12 @@ REPAIRED_GLOBAL_ELBOW = np.array(
 
 def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description=__doc__)
-	parser.add_argument("--source", default="assets/characters/roshan_v4.glb")
+	source = parser.add_mutually_exclusive_group()
+	source.add_argument("--source", help="Optional extracted audited source GLB")
+	source.add_argument(
+		"--source-revision",
+		help=f"Git revision containing the audited source (default: {SOURCE_REVISION})",
+	)
 	parser.add_argument("--out", default="audit/roshan_v4_repaired.glb")
 	parser.add_argument(
 		"--reference",
@@ -88,6 +109,38 @@ def parse_args() -> argparse.Namespace:
 
 def sha256(data: bytes) -> str:
 	return hashlib.sha256(data).hexdigest()
+
+
+def load_git_blob(revision: str, label: str) -> bytes:
+	result = subprocess.run(
+		["git", "show", f"{revision}:{REFERENCE_PATH}"],
+		check=False,
+		stdout=subprocess.PIPE,
+		stderr=subprocess.PIPE,
+	)
+	if result.returncode != 0:
+		detail = result.stderr.decode("utf-8", errors="replace").strip()
+		raise RuntimeError(
+			f"Unable to read the {label} from Git history. Pass its explicit path "
+			f"instead. git show said: {detail}"
+		)
+	return result.stdout
+
+
+def load_source(args: argparse.Namespace) -> bytes:
+	if args.source:
+		return Path(args.source).resolve().read_bytes()
+	return load_git_blob(args.source_revision or SOURCE_REVISION, "audited source")
+
+
+def paths_refer_to_same_file(first: Path, second: Path) -> bool:
+	"""Compare path identity, including existing hard links."""
+	try:
+		if first.exists() and second.exists():
+			return first.samefile(second)
+	except OSError:
+		pass
+	return first.resolve() == second.resolve()
 
 
 class Glb:
@@ -224,19 +277,7 @@ class Glb:
 def load_reference(args: argparse.Namespace) -> bytes:
 	if args.reference:
 		return Path(args.reference).resolve().read_bytes()
-	result = subprocess.run(
-		["git", "show", f"{args.reference_revision}:{REFERENCE_PATH}"],
-		check=False,
-		stdout=subprocess.PIPE,
-		stderr=subprocess.PIPE,
-	)
-	if result.returncode != 0:
-		detail = result.stderr.decode("utf-8", errors="replace").strip()
-		raise RuntimeError(
-			"Unable to read the pre-regression donor from Git history. Pass "
-			f"--reference explicitly. git show said: {detail}"
-		)
-	return result.stdout
+	return load_git_blob(args.reference_revision, "pre-regression donor")
 
 
 def quat_matrix(quaternion: np.ndarray) -> np.ndarray:
@@ -306,11 +347,13 @@ def compact_weights(dense: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
 
 def main() -> None:
 	args = parse_args()
-	source_path = Path(args.source).resolve()
 	out_path = Path(args.out).resolve()
-	if source_path == out_path:
-		raise ValueError("Refusing to overwrite --source; write and audit a candidate first")
-	source_bytes = source_path.read_bytes()
+	for label, input_name in (("--source", args.source), ("--reference", args.reference)):
+		if input_name and paths_refer_to_same_file(Path(input_name), out_path):
+			raise ValueError(
+				f"Refusing to overwrite {label}; write and audit a candidate first"
+			)
+	source_bytes = load_source(args)
 	reference_bytes = load_reference(args)
 	source_hash = sha256(source_bytes)
 	if source_hash not in (EXPECTED_SOURCE_SHA256, EXPECTED_REPAIRED_SHA256):

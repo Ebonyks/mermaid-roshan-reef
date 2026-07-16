@@ -1,7 +1,8 @@
 """Motion-cage audit for roshan_v4: simulate every motion the game plays
-(swim at 3 speeds + all 7 verbs, incl. the idle-swim underneath and the verb
-blend window) exactly as player.gd computes them, then judge each against
-numeric acceptance criteria. Frame math mirrors _rot_bone/_apply_verb:
+(swim at 3 speeds + all 7 verbs + all paired-arm playground toy ranges,
+including the idle-swim underneath and the verb blend window) exactly as
+player.gd computes them, then judge each against numeric acceptance criteria.
+Frame math mirrors _rot_bone/_apply_verb:
 absolute pose = rest * delta; verb slerp happens in delta space (slerp is
 left-invariant). glTF frame: +y up, -z her front, +x her left.
 """
@@ -130,17 +131,17 @@ VERBS = {
    "armF2":{"axis":RIGHT,"keys":[[0,0],[0.6,0.55],[0.9,-0.45],[1.2,0.55],[1.5,-0.45],[1.8,0.55],[2.2,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.7,0.16],[2.0,0.16],[2.6,0]]}}},
  "cheer": {"len":2.2,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.22],[1.7,2.22],[2.2,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.35],[1.7,2.35],[2.2,-0.2]]},
-   "armF":{"axis":BACK,"keys":[[0,0],[0.4,0.78],[1.7,0.78],[2.2,0]]},
-   "armF2":{"axis":RIGHT,"keys":[[0,0],[0.4,0.64],[1.7,0.64],[2.2,0]]},
-   "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.2],[1.7,0.2],[2.2,0]]},
-   "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.12],[1.7,-0.12],[2.2,0]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.45],[1.7,2.45],[2.2,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.4,2.502],[1.7,2.502],[2.2,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.4,1.15],[1.7,1.15],[2.2,0]]},
+   "armF2":{"axis":RIGHT,"keys":[[0,0],[0.4,0.76],[1.7,0.76],[2.2,0]]},
+   "head":{"axis":RIGHT,"keys":[[0,0],[0.5,0.08],[1.7,0.08],[2.2,0]]},
+   "chest":{"axis":RIGHT,"keys":[[0,0],[0.5,-0.08],[1.7,-0.08],[2.2,0]]}}},
  "clap": {"len":2.0,"tracks":{
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,1.8784],[1.7,1.8784],[2.0,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.1856],[1.7,2.1856],[2.0,-0.2]]},
-   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.5558],[0.65,1.065],[0.8,1.5558],[0.95,1.065],[1.1,1.5558],[1.25,1.065],[1.4,1.5558],[1.7,0]]},
-   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.6593],[0.65,-0.154],[0.8,-0.6593],[0.95,-0.154],[1.1,-0.6593],[1.25,-0.154],[1.4,-0.6593],[1.7,0]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,1.8857],[1.7,1.8857],[2.0,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.35,2.2294],[1.7,2.2294],[2.0,-0.2]]},
+   "armF":{"axis":BACK,"keys":[[0,0],[0.5,1.812],[0.65,1.6198],[0.8,1.812],[0.95,1.6198],[1.1,1.812],[1.25,1.6198],[1.4,1.812],[1.7,0]]},
+   "armF2":{"axis":(1,0,1),"keys":[[0,0],[0.5,-0.405],[0.65,0.2239],[0.8,-0.405],[0.95,0.2239],[1.1,-0.405],[1.25,0.2239],[1.4,-0.405],[1.7,0]]}}},
  "twirl": {"len":1.9,"tracks":{
    "armU":{"axis":FWD,"keys":[[0,0],[0.4,-1.2],[1.5,-1.2],[1.9,0]]},
    "armU2":{"axis":FWD,"keys":[[0,0],[0.4,1.2],[1.5,1.2],[1.9,0]]},
@@ -151,8 +152,8 @@ VERBS = {
  "giggle": {"len":1.5,"tracks":{
    "chest":{"axis":RIGHT,"keys":[[0,0],[0.2,-0.14],[0.4,0.02],[0.6,-0.14],[0.8,0.02],[1.0,-0.14],[1.5,0]]},
    "head":{"axis":BACK,"keys":[[0,0],[0.25,0.18],[0.55,-0.18],[0.85,0.18],[1.15,-0.18],[1.5,0]]},
-   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.8],[1.2,1.8],[1.5,-0.2]]},
-   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.1],[1.2,2.1],[1.5,-0.2]]}}},
+   "armU":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,1.74],[1.2,1.74],[1.5,-0.2]]},
+   "armU2":{"axis":RIGHT,"keys":[[0,-0.2],[0.3,2.22],[1.2,2.22],[1.5,-0.2]]}}},
  "sleep": {"len":6.0,"tracks":{
    "head":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.5],[5.0,-0.5],[6.0,0]]},
    "neck":{"axis":RIGHT,"keys":[[0,0],[1.2,-0.32],[5.0,-0.32],[6.0,0]]},
@@ -338,6 +339,110 @@ def gmats(deltas={}):
         G[i] = (G[parent[i]] @ L) if i in parent else L
     return G
 
+# Playground paired-arm fit from player.gd _mirror_arm(). Independent upper/
+# forearm maps cannot reconcile the two intentionally different shoulder
+# frames after the localized resculpt. The symmetric modes below are actual
+# simultaneous controls. The dig range is also included as a transfer probe:
+# runtime alternates the two scoops, so those mapped controls are not applied
+# to both arms at once. Actual alternating dig poses are audited separately.
+def toy_mirror_arm(upper, forearm):
+    return np.array([
+        upper*0.96 + forearm*0.22 + 0.35,
+        upper*0.31 + forearm*0.82 + 0.45,
+    ])
+
+toy_samples = [("swing", 1.10, 0.55), ("seat", 0.65, 0.50)]
+toy_samples += [("climb", 0.35 + 1.15*p, 0.25 + 0.30*p)
+                for p in np.linspace(0.0, 1.0, 13)]
+toy_samples += [("ride", 1.50 - 0.80*d, 0.35)
+                for d in np.linspace(0.0, 1.0, 11)]
+toy_samples += [("land", -0.20 + 1.70*n, 0.35*n)
+                for n in np.linspace(0.0, 1.0, 18)]
+toy_samples += [("dig_transfer", 0.55 - 0.45*s, 0.30 + 0.35*s)
+                for s in np.linspace(0.0, 1.0, 11)]
+toy_errors = []
+toy_yz_errors = []
+toy_residuals = []
+toy_arm2_interiors = []
+dig_primary_points = []
+dig_secondary_points = []
+for _toy_name, upper, forearm in toy_samples:
+    upper2, forearm2 = toy_mirror_arm(upper, forearm)
+    deltas = {
+        "armU": model_axis_delta("armU", RIGHT, upper),
+        "armF": model_axis_delta("armF", RIGHT, forearm),
+        "armU2": model_axis_delta("armU2", RIGHT, upper2),
+        "armF2": model_axis_delta("armF2", RIGHT, forearm2),
+    }
+    posed = probe_pos(deltas)
+    globals_ = gmats(deltas)
+    shoulder = globals_[name2j["armU"]][:3, 3]
+    shoulder2 = globals_[name2j["armU2"]][:3, 3]
+    target = posed["hand"] - shoulder
+    target[0] *= -1.0
+    residual = (posed["hand2"] - shoulder2) - target
+    toy_errors.append(float(np.linalg.norm(residual)))
+    toy_yz_errors.append(float(np.linalg.norm(residual[1:])))
+    toy_residuals.append(residual)
+    if _toy_name == "dig_transfer":
+        dig_primary_points.append(posed["hand"] - shoulder)
+        dig_secondary_points.append(posed["hand2"] - shoulder2)
+    elbow2 = globals_[name2j["armF2"]][:3, 3]
+    wrist2 = globals_[name2j["hand2"]][:3, 3]
+    upper_vector = (shoulder2-elbow2)/np.linalg.norm(shoulder2-elbow2)
+    forearm_vector = (wrist2-elbow2)/np.linalg.norm(wrist2-elbow2)
+    toy_arm2_interiors.append(float(np.degrees(np.arccos(
+        np.clip(np.dot(upper_vector, forearm_vector), -1.0, 1.0)
+    ))))
+
+toy_error_rms = float(np.sqrt(np.mean(np.square(toy_errors))))
+toy_error_max = max(toy_errors)
+toy_yz_rms = float(np.sqrt(np.mean(np.square(toy_yz_errors))))
+toy_yz_max = max(toy_yz_errors)
+toy_residuals = np.asarray(toy_residuals)
+toy_y_abs_max = float(np.abs(toy_residuals[:, 1]).max())
+toy_z_abs_max = float(np.abs(toy_residuals[:, 2]).max())
+dig_primary_sweep = float(np.linalg.norm(dig_primary_points[-1]-dig_primary_points[0]))
+dig_secondary_sweep = float(np.linalg.norm(dig_secondary_points[-1]-dig_secondary_points[0]))
+dig_sweep_ratio = dig_secondary_sweep/max(dig_primary_sweep, 1e-9)
+check("toy mirror mapping stays paired", toy_error_rms < 0.045 and toy_error_max < 0.060 and
+      toy_yz_rms < 0.020 and toy_yz_max < 0.040 and
+      toy_y_abs_max < 0.040 and toy_z_abs_max < 0.040,
+      f"55 mapped control states: xyz RMS={toy_error_rms:.3f} max={toy_error_max:.3f}, "
+      f"yz RMS={toy_yz_rms:.3f} max={toy_yz_max:.3f}, "
+      f"|dy|/|dz| max={toy_y_abs_max:.3f}/{toy_z_abs_max:.3f}")
+runtime_dig_primary = []
+runtime_dig_secondary = []
+for scoop in np.linspace(0.0, 1.0, 11):
+    idle2 = toy_mirror_arm(0.55, 0.30)
+    left_active = probe_pos({
+        "armU": model_axis_delta("armU", RIGHT, 0.55 - 0.45*scoop),
+        "armF": model_axis_delta("armF", RIGHT, 0.30 + 0.35*scoop),
+        "armU2": model_axis_delta("armU2", RIGHT, idle2[0]),
+        "armF2": model_axis_delta("armF2", RIGHT, idle2[1]),
+    })
+    active2 = toy_mirror_arm(0.55 - 0.45*scoop, 0.30 + 0.35*scoop)
+    right_active = probe_pos({
+        "armU": model_axis_delta("armU", RIGHT, 0.55),
+        "armF": model_axis_delta("armF", RIGHT, 0.30),
+        "armU2": model_axis_delta("armU2", RIGHT, active2[0]),
+        "armF2": model_axis_delta("armF2", RIGHT, active2[1]),
+    })
+    runtime_dig_primary.append(left_active["hand"])
+    runtime_dig_secondary.append(right_active["hand2"])
+runtime_dig_primary_sweep = float(np.linalg.norm(
+    runtime_dig_primary[-1] - runtime_dig_primary[0]))
+runtime_dig_secondary_sweep = float(np.linalg.norm(
+    runtime_dig_secondary[-1] - runtime_dig_secondary[0]))
+runtime_dig_sweep_ratio = runtime_dig_secondary_sweep/max(runtime_dig_primary_sweep, 1e-9)
+check("runtime alternating dig sweeps stay comparable",
+      0.80 <= runtime_dig_sweep_ratio <= 1.25 and
+      abs(runtime_dig_sweep_ratio-dig_sweep_ratio) < 1e-6,
+      f"secondary/primary endpoint sweep={runtime_dig_sweep_ratio:.3f}")
+check("toy secondary elbow stays natural", min(toy_arm2_interiors) > 100.0 and
+      max(toy_arm2_interiors) < 175.0,
+      f"interior={min(toy_arm2_interiors):.0f}..{max(toy_arm2_interiors):.0f} deg")
+
 ARMS = {"L": ("armU","armF","hand"), "R": ("armU2","armF2","hand2")}
 G0e = gmats()
 elbow_ref = {}
@@ -450,16 +555,20 @@ def full_skin_pose(deltas):
         S += W[:,c][:,None]*np.einsum("nij,nj->ni", M[J[:,c]], Ph)[:,:3]
     return S
 
-# worst-case: every strand at HairSim MAX_ANGLE (0.35 rad after damping), both axes,
-# on top of sprint swim + a cheer peak
+# Worst-case: every strand at HairSim MAX_ANGLE (0.35 rad after damping),
+# both axes, on top of sprint swim + the exact player.gd cheer peak.
 HMAX = 0.35
 stress = swim_deltas(1.3, 25.0)
 for k in strand_ks:
     nm = jname[joints[k]]
     q = qmul(model_axis_delta(nm, RIGHT, HMAX), model_axis_delta(nm, BACK, HMAX))
     stress[nm] = q
-stress["armU"] = model_axis_delta("armU", RIGHT, 2.3)
-stress["armU2"] = model_axis_delta("armU2", RIGHT, 2.4)
+stress["armU"] = model_axis_delta("armU", RIGHT, 2.45)
+stress["armU2"] = model_axis_delta("armU2", RIGHT, 2.502)
+stress["armF"] = model_axis_delta("armF", BACK, 1.15)
+stress["armF2"] = model_axis_delta("armF2", RIGHT, 0.76)
+stress["head"] = model_axis_delta("head", RIGHT, 0.08)
+stress["chest"] = model_axis_delta("chest", RIGHT, -0.08)
 S1 = full_skin_pose(stress)
 disp = np.linalg.norm(S1-P0, axis=1)
 check("stress max displacement bounded", float(disp.max()) < 1.1,
@@ -472,8 +581,34 @@ l1 = np.linalg.norm(S1[sel_e[:,0]]-S1[sel_e[:,1]], axis=1)
 ok_e = l0 > 1e-4
 ratio = (l1[ok_e]/l0[ok_e])
 opening = l1[ok_e] - l0[ok_e]
+open_edges = sel_e[ok_e]
+worst_opening_index = int(np.argmax(opening))
+worst_opening_edge = open_edges[worst_opening_index]
+def dominant_bone(vertex):
+    slot = int(np.argmax(W[vertex]))
+    return jname[joints[int(J[vertex, slot])]]
+hair_edge = (_sw[open_edges[:,0]] > 0.3) | (_sw[open_edges[:,1]] > 0.3)
+arm_indices = [joints.index(name2j[name]) for name in
+               ("armU", "armF", "hand", "armU2", "armF2", "hand2")]
+arm_weight = np.zeros(len(P0))
+for c in range(4):
+    arm_weight += np.where(np.isin(J[:,c], arm_indices), W[:,c], 0)
+arm_edge = (arm_weight[open_edges[:,0]] > 0.3) | (arm_weight[open_edges[:,1]] > 0.3)
+def region_opening(mask):
+    values = opening[mask]
+    if len(values) == 0:
+        return (0.0, 0.0)
+    return (float(np.percentile(values, 99.9)), float(values.max()))
+hair_opening = region_opening(hair_edge)
+arm_opening = region_opening(arm_edge)
+body_opening = region_opening(~hair_edge & ~arm_edge)
 check("stress no visible tearing", float(np.percentile(opening, 99.9)) < 0.05 and float(opening.max()) < 0.12,
-      f"edge opening 99.9pct {np.percentile(opening,99.9):.3f} max {opening.max():.3f} model units")
+      f"edge opening 99.9pct {np.percentile(opening,99.9):.3f} max {opening.max():.3f}; "
+      f"hair {hair_opening[0]:.3f}/{hair_opening[1]:.3f}, "
+      f"arm {arm_opening[0]:.3f}/{arm_opening[1]:.3f}, "
+      f"body {body_opening[0]:.3f}/{body_opening[1]:.3f}; "
+      f"worst {worst_opening_edge[0]}-{worst_opening_edge[1]} "
+      f"({dominant_bone(worst_opening_edge[0])}/{dominant_bone(worst_opening_edge[1])})")
 # rear hair hue balance: blue fraction of rear-facing hair pixels, rest vs stress
 def rear_blue(S):
     m = (S[:,2] > 0.05) & (S[:,1] > 0.1)     # back hemisphere, above waist
