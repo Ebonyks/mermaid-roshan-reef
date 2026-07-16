@@ -4,9 +4,9 @@
 
 This audit supersedes the conclusion in `ART_RESIDUAL_LOW_SCORE_AUDIT.md` that there were no active, automatically replaceable 0-2/5 art roles. That conclusion was not supported by gameplay-level visual review. Earlier audits frequently scored the existence, routing, or intended style of an asset instead of the appearance of the finished object in the Mobile renderer.
 
-The current build contains many visible 0-2/5 assets and several whole areas whose art remains at prototype quality. The largest failures are the castle architecture and interiors, dungeon rooms and enemies, Sky Lagoon castle and clouds, Butterfly World, kart presentation, generic picture-game art, and repeated reef dressing.
+The current build contains many visible 0-2/5 assets and several whole areas whose art remains at prototype quality. The largest remaining failures are the castle architecture and interiors, Sky Lagoon castle and clouds, Butterfly World, kart presentation, generic picture-game art, and repeated reef dressing.
 
-Detailed item-level results are in `audit/human_art_ledger_2026-07-16.csv`. The audit currently records **88 roles: 15 at 0/5, 44 at 1/5, 25 at 2/5, two branch-only texture candidates at 3/5, and two protected book assets at 5/5**. That is 84 active or pipeline roles at 0-2/5. Protected book and family assets are not replacement targets, even when their runtime presentation needs repair.
+Detailed item-level results are in `audit/human_art_ledger_2026-07-16.csv`. After the verified Dungeon Art V2 pass, the audit records **88 roles: 8 at 0/5, 38 at 1/5, 25 at 2/5, 15 at 3/5, and two protected book assets at 5/5**. That leaves 71 active or pipeline roles at 0-2/5. Thirteen dungeon roles advanced to provisional 3/5 through Mobile gameplay captures; none advanced to 4/5 without owner review. Protected book and family assets are not replacement targets, even when their runtime presentation needs repair.
 
 ## New Scoring Gate
 
@@ -59,9 +59,9 @@ Dream, crown, and chamber stars are code-built layered prisms. They are recogniz
 
 Butterfly World is a sparse sphere with repeated palms and weak environmental storytelling. The home-gate capture showed the planet occluding the view and the gate reading as a slab-like construction at an incoherent orientation. Gate wings need book-derived butterfly structure, a readable body and hinge, and inspection from both sides during transition.
 
-### Dungeon and Combat: 0-1/5 overall
+### Dungeon and Combat: provisional 3/5 overall
 
-This new wing is almost entirely prototype art. Rooms are octagonal slabs and box walls; enemies are spheres with cone ears and glowing dots; doors, baskets, peppers, torches, crystals, shells, and puzzle pads are primitives or symbols. Flat colors vary the rooms but do not constitute art differentiation. This wing must remain behind a visual-development gate until its arena kit, enemy family, props, and puzzle language are rebuilt.
+Dungeon Art V2 replaces the focal blockout geometry with a batched shell-stone arena, coral-glass buttresses, modeled imps, a complete dragon-turtle, shell door, basket, pedestals, lanterns, statues, stepping stones, and eleven sculpted pictograms. Combat, both boss phases, sequence, lantern, and repeated pair-card states were captured in the Mobile renderer. The pepper projectile remains a 1/5 transient token, and every rebuilt role remains capped at 3/5 until owner review covers near and mid distances across all room palettes.
 
 ### Kart World: 1/5 overall
 
@@ -77,7 +77,7 @@ The selection area has severe bloom, oversized UI, repeated coral cards blocking
 |---|---|---:|---|
 | Alpine house interiors | `origin/codex/alpine-house-interiors` | Hold at 1-2 | Capture every room; score architecture, furniture, lighting, and repeated props separately before merge. |
 | Kitchen textures | `origin/codex/kitchen-textures` | Textures 2-3, room 1 | Keep texture candidates, rebuild primitive kitchen models, then perform Mobile room review. |
-| Dungeon/adventure | merged | 0-1 | Treat all current geometry as blockout; replace arena, enemies, puzzle props, doors, and dressing. |
+| Dungeon/adventure | merged | 3 candidate | Review Dungeon Art V2 in the shipped build; polish owner-rejected roles and replace the remaining pepper token. |
 | Kart expansion | merged | 1-2 | Rebuild showcase composition and track language; verify each vehicle independently. |
 | Castle differentiation | merged/in progress | 1-2 | Color changes do not satisfy differentiation; require authored silhouettes and surfaces. |
 | Northern/undersea additions | active branches | Unverified, max 2 | Add runtime captures to this same probe before any art score is promoted. |
@@ -85,7 +85,7 @@ The selection area has severe bloom, oversized UI, repeated coral cards blocking
 ## Rebuild Order
 
 1. **P0 focal landmarks:** Sky Lagoon castle, castle hall architecture, butterfly gates, castle stars, and cloud family.
-2. **P0 new gameplay:** dungeon arena kit, enemy and boss family, puzzle room kit, doors, crystals, and interaction props.
+2. **P0 new gameplay review:** owner-review Dungeon Art V2 across every room palette; polish rejected roles and replace the remaining pepper token.
 3. **P1 readability:** reef exposure, portal bloom, card density, kart showcase, and camera occlusion.
 4. **P1 authored prop sets:** kitchen, bedroom, bath, throne, stairs, railings, and castle wall modules.
 5. **P2 texture and sprite families:** picture-game fish, trees, sun, coal, star, bush, ornaments, and animation-ready butterfly.
