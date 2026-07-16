@@ -12,45 +12,38 @@ func _init(main: ReefMain) -> void:
 	m = main
 
 func build(o: Vector3) -> void:
-	# polished marble flr
+	m.g["castle_detail_lights"] = []
+	# Quiet lavender stone floor: broad value shapes keep the long hall legible
+	# without the high-frequency checker/vein noise of the old marble stack.
 	var flr := MeshInstance3D.new()
 	var fb := BoxMesh.new()
 	fb.size = Vector3(70, 1.0, 80)
 	flr.mesh = fb
-	var fm = m._up_mat("marble", 0.045, Color(0.95, 0.93, 0.98))   # polished marble hall flr (same 0.045 scale as the _iwall stone so floor + walls read as one build)
-	fm.metallic = 0.25
-	fm.roughness = 0.22
+	var fm: StandardMaterial3D = m._castle_mat("floor", 0.028, Color(0.82, 0.79, 0.90))
 	flr.material_override = fm
 	flr.position = o + Vector3(0, 0, 6)
 	m.add_child(flr)
 	m.game_nodes.append(flr)
-	# checker accent tiles
-	for cxx in range(-3, 4):
-		for czz in range(-3, 5):
-			if (cxx + czz) % 2 == 0:
-				continue
-			var tile = m._l2_box(o + Vector3(float(cxx) * 9.0, 0.55, 6.0 + float(czz) * 9.0), Vector3(8.6, 0.1, 8.6), Color(0.55, 0.5, 0.72))
-			tile.material_override = m._up_mat("flagstone", 0.05, Color(0.7, 0.66, 0.85))
 	# plush red carpet runner from the entrance up to the stairs
 	var runner = m._l2_box(o + Vector3(0, 0.62, 14.0), Vector3(10.0, 0.15, 52.0), Color(0.72, 0.16, 0.22))
-	runner.material_override = m._up_mat("fabric", 0.10, Color(0.8, 0.22, 0.28))   # real woven carpet
+	runner.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
 	for trim in [-5.4, 5.4]:
 		m._l2_box(o + Vector3(trim, 0.66, 14.0), Vector3(0.7, 0.2, 52.0), Color(0.95, 0.8, 0.35), 0.15)
 	# walls (each upright wall also registers a solid collider so Roshan can't swim through it)
-	var wcol := Color(0.95, 0.92, 0.97)
-	var scol := Color(0.93, 0.9, 0.95)
+	var wcol := Color(0.76, 0.72, 0.84)
+	var scol := Color(0.68, 0.66, 0.78)
 	# back wall, SEGMENTED to leave two real doorway openings at x=+-22 (the side archways)
 	# GRAND EXPANSION (owner 2026-07-11): the hall rises to 52 — a real great
 	# hall — and the center wall gains a GALLERY DOORWAY (x -8..8, y 33..42)
 	# from the new balcony into the top chambers.
-	m._iwall(o + Vector3(0, 16.5, -34), Vector3(35.0, 33, 1.5), wcol, "marble")    # center, below the gallery door
-	m._iwall(o + Vector3(-12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "marble")  # gallery door, left pier
-	m._iwall(o + Vector3(12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "marble")   # gallery door, right pier
-	m._iwall(o + Vector3(0, 47, -34), Vector3(16.0, 10, 1.5), wcol, "marble")        # gallery door, top strip
-	m._iwall(o + Vector3(-30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "marble")  # left edge
-	m._iwall(o + Vector3(30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "marble")   # right edge
-	m._iwall(o + Vector3(-22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "marble")   # lintel over left arch
-	m._iwall(o + Vector3(22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "marble")    # lintel over right arch
+	m._iwall(o + Vector3(0, 16.5, -34), Vector3(35.0, 33, 1.5), wcol, "castle")    # center, below the gallery door
+	m._iwall(o + Vector3(-12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "castle")  # gallery door, left pier
+	m._iwall(o + Vector3(12.75, 42.5, -34), Vector3(9.5, 19, 1.5), wcol, "castle")   # gallery door, right pier
+	m._iwall(o + Vector3(0, 47, -34), Vector3(16.0, 10, 1.5), wcol, "castle")        # gallery door, top strip
+	m._iwall(o + Vector3(-30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "castle")  # left edge
+	m._iwall(o + Vector3(30.75, 26, -34), Vector3(8.5, 52, 1.5), wcol, "castle")   # right edge
+	m._iwall(o + Vector3(-22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "castle")   # lintel over left arch
+	m._iwall(o + Vector3(22, 33.5, -34), Vector3(9.0, 37, 1.5), wcol, "castle")    # lintel over right arch
 	# side walls, SEGMENTED in three layers (owner 2026-07-12: the upper story
 	# wraps around BOTH wings, so the y 33..49 band gains three ARCH OPENINGS
 	# per side — swim from the hall straight into the wing galleries):
@@ -60,28 +53,43 @@ func build(o: Vector3) -> void:
 	var bal_gold := Color(0.95, 0.8, 0.35)
 	for sgn in [-1.0, 1.0]:
 		var sx: float = sgn * 35.0
-		m._iwall(o + Vector3(sx, 16.5, 17.5), Vector3(1.5, 33, 57), scol, "marble")   # lower front (z -11..46)
-		m._iwall(o + Vector3(sx, 16.5, -27.5), Vector3(1.5, 33, 13), scol, "marble")  # lower back (z -34..-21)
-		m._iwall(o + Vector3(sx, 25.5, -16), Vector3(1.5, 15, 10), scol, "marble")    # lintel over the wing door
-		m._iwall(o + Vector3(sx, 41, -27.5), Vector3(1.5, 16, 13), scol, "marble")    # arcade pier (z -34..-21)
-		m._iwall(o + Vector3(sx, 41, -6), Vector3(1.5, 16, 10), scol, "marble")       # arcade pier (z -11..-1)
-		m._iwall(o + Vector3(sx, 41, 14), Vector3(1.5, 16, 10), scol, "marble")       # arcade pier (z 9..19)
-		m._iwall(o + Vector3(sx, 41, 37.5), Vector3(1.5, 16, 17.5), scol, "marble")   # arcade pier (z 29..46)
-		m._iwall(o + Vector3(sx, 50.5, 6), Vector3(1.5, 3, 80), scol, "marble")       # crown band (y 49..52)
+		m._iwall(o + Vector3(sx, 16.5, 17.5), Vector3(1.5, 33, 57), scol, "castle")   # lower front (z -11..46)
+		m._iwall(o + Vector3(sx, 16.5, -27.5), Vector3(1.5, 33, 13), scol, "castle")  # lower back (z -34..-21)
+		m._iwall(o + Vector3(sx, 25.5, -16), Vector3(1.5, 15, 10), scol, "castle")    # lintel over the wing door
+		m._iwall(o + Vector3(sx, 41, -27.5), Vector3(1.5, 16, 13), scol, "castle")    # arcade pier (z -34..-21)
+		m._iwall(o + Vector3(sx, 41, -6), Vector3(1.5, 16, 10), scol, "castle")       # arcade pier (z -11..-1)
+		m._iwall(o + Vector3(sx, 41, 14), Vector3(1.5, 16, 10), scol, "castle")       # arcade pier (z 9..19)
+		m._iwall(o + Vector3(sx, 41, 37.5), Vector3(1.5, 16, 17.5), scol, "castle")   # arcade pier (z 29..46)
+		m._iwall(o + Vector3(sx, 50.5, 6), Vector3(1.5, 3, 80), scol, "castle")       # crown band (y 49..52)
 		# gold balustrade across each arch so the openings read as balconies
 		for az in [-16.0, 4.0, 24.0]:
 			m._l2_box(o + Vector3(sx, 34.6, az), Vector3(0.5, 0.5, 9.0), bal_gold, 0.2)
 			for pz in [-3.0, 0.0, 3.0]:
 				m._l2_box(o + Vector3(sx, 33.9, az + pz), Vector3(0.4, 1.6, 0.4), bal_gold, 0.15)
-	m._l2_box(o + Vector3(0, 51, 6), Vector3(70, 1.5, 80), Color(0.85, 0.82, 0.9))      # ceiling (no collider; the hall zone caps height)
+	# Projecting bases and cornices give the enormous walls a readable scale and
+	# keep floor/wall/ceiling transitions from looking like intersecting slabs.
+	for trim_side: float in [-1.0, 1.0]:
+		m._l2_box(o + Vector3(trim_side * 34.1, 1.3, 6), Vector3(1.1, 2.6, 78), Color(0.42, 0.38, 0.58))
+		m._l2_box(o + Vector3(trim_side * 34.1, 49.2, 6), Vector3(1.1, 2.0, 78), Color(0.66, 0.52, 0.36))
+	m._l2_box(o + Vector3(0, 1.3, -33.1), Vector3(68, 2.6, 1.1), Color(0.42, 0.38, 0.58))
+	m._l2_box(o + Vector3(0, 51, 6), Vector3(70, 1.5, 80), Color(0.58, 0.54, 0.66))      # ceiling (no collider; the hall zone caps height)
 	# regal stained-glass panels behind the throne (the Mermaid Roshan glass now lives
 	# on the castle's FRONT exterior — this is a plain coloured rose window for Huluu)
 	m._panel_glass(o + Vector3(0, 23, -33.0), Vector3(0, 0, 0), 17.0, 24.0)
+	# Dark plum stage piers and a shallow canopy isolate the throne from the wall
+	# texture. The window becomes a backdrop rather than the brightest whole wall.
+	for stage_side: float in [-1.0, 1.0]:
+		m._l2_box(o + Vector3(stage_side * 10.0, 20.0, -32.0), Vector3(2.0, 29.0, 2.2), Color(0.30, 0.24, 0.46))
+		var stage_hood: MeshInstance3D = m._l2_box(o + Vector3(stage_side * 5.2, 35.0, -32.0), Vector3(1.8, 13.0, 2.2), Color(0.72, 0.55, 0.28))
+		stage_hood.rotation_degrees.z = stage_side * 52.0
 	# royal red-carpet staircase up to the throne dais
 	for st in range(7):
-		m._l2_box(o + Vector3(0, 1.5 + float(st) * 2.0, -10.0 - float(st) * 2.2), Vector3(16.0 - float(st) * 0.6, 2.0, 3.0), Color(0.8, 0.25, 0.3))
+		var stair: MeshInstance3D = m._l2_box(o + Vector3(0, 1.5 + float(st) * 2.0, -10.0 - float(st) * 2.2), Vector3(16.0 - float(st) * 0.6, 2.0, 3.0), Color(0.72, 0.16, 0.24))
+		stair.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
 	# throne dais
-	m._l2_box(o + Vector3(0, 15.0, -27.0), Vector3(14, 2.0, 6), Color(0.95, 0.85, 0.55), 0.2)
+	var dais: MeshInstance3D = m._l2_box(o + Vector3(0, 15.0, -27.0), Vector3(14, 2.0, 6), Color(0.72, 0.16, 0.24))
+	dais.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
+	m._l2_box(o + Vector3(0, 14.1, -27.0), Vector3(15.0, 0.8, 7.0), Color(0.76, 0.58, 0.28))
 	# collision audit #2 (+ stairs pass 2026-07-12): the throne centerpiece was
 	# ghostly. The dais/throne block keeps a solid; the STAIRCASE itself is now
 	# a ramp-floor zone (see build_expansion) so Roshan rests on and climbs the
@@ -115,6 +123,7 @@ func build(o: Vector3) -> void:
 	hl.position = o + Vector3(0, 22.0, -24.0)
 	m.add_child(hl)
 	m.game_nodes.append(hl)
+	m._register_castle_light(hl, true)
 	# ---------- columns line the hall ----------
 	for cz in [-24.0, -8.0, 8.0, 24.0]:
 		for cx in [-28.0, 28.0]:
@@ -125,8 +134,8 @@ func build(o: Vector3) -> void:
 			colm.height = 34.0
 			col.mesh = colm
 			var clmat := StandardMaterial3D.new()
-			clmat.albedo_color = Color(0.96, 0.93, 0.98)
-			clmat.roughness = 0.4
+			clmat.albedo_color = Color(0.68, 0.64, 0.78)
+			clmat.roughness = 0.72
 			col.material_override = clmat
 			col.position = o + Vector3(cx, 17.0, cz)
 			m.add_child(col)
@@ -138,11 +147,12 @@ func build(o: Vector3) -> void:
 			# warm sconce glow at each column
 			var sc := OmniLight3D.new()
 			sc.light_color = Color(1.0, 0.78, 0.5)
-			sc.light_energy = 1.7
-			sc.omni_range = 24.0
+			sc.light_energy = 1.1
+			sc.omni_range = 16.0
 			sc.position = o + Vector3(cx * 0.86, 20.0, cz)
 			m.add_child(sc)
 			m.game_nodes.append(sc)
+			m._register_castle_light(sc, false)
 			var flame := MeshInstance3D.new()
 			var fl := SphereMesh.new()
 			fl.radius = 0.7
@@ -157,21 +167,19 @@ func build(o: Vector3) -> void:
 			m.add_child(flame)
 			m.game_nodes.append(flame)
 	# ---------- tapestries between the columns ----------
-	var tcols := [Color(0.7, 0.2, 0.3), Color(0.25, 0.4, 0.75), Color(0.45, 0.3, 0.65), Color(0.2, 0.55, 0.45)]
-	for ti in range(4):
+	var tcols := [Color(0.46, 0.18, 0.30), Color(0.24, 0.30, 0.52)]
+	for ti in range(3):
 		for sgn in [-1.0, 1.0]:
 			var tap := MeshInstance3D.new()
 			var tq := QuadMesh.new()
-			tq.size = Vector2(7.0, 16.0)
+			tq.size = Vector2(6.0, 13.0)
 			tap.mesh = tq
 			var tm2 := StandardMaterial3D.new()
-			tm2.albedo_color = tcols[ti]
+			tm2.albedo_color = tcols[ti % tcols.size()]
 			tm2.roughness = 1.0
 			tm2.cull_mode = BaseMaterial3D.CULL_DISABLED
-			tm2.emission_enabled = true
-			tm2.emission = tcols[ti] * 0.2
 			tap.material_override = tm2
-			tap.position = o + Vector3(sgn * 34.0, 20.0, -24.0 + float(ti) * 16.0)
+			tap.position = o + Vector3(sgn * 34.0, 20.0, -20.0 + float(ti) * 24.0)
 			tap.rotation_degrees = Vector3(0, -90.0 * sgn, 0)
 			m.add_child(tap)
 			m.game_nodes.append(tap)
@@ -216,18 +224,19 @@ func build(o: Vector3) -> void:
 		chm.roughness = 0.3
 		chm.emission_enabled = true
 		chm.emission = Color(1.0, 0.8, 0.4)
-		chm.emission_energy_multiplier = 0.8
+		chm.emission_energy_multiplier = 0.35
 		ch.material_override = chm
 		ch.position = o + Vector3(0, 30.0, chz)
 		m.add_child(ch)
 		m.game_nodes.append(ch)
 		var chl := OmniLight3D.new()
 		chl.light_color = Color(1.0, 0.85, 0.55)
-		chl.light_energy = 2.2
-		chl.omni_range = 30.0
+		chl.light_energy = 1.45
+		chl.omni_range = 22.0
 		chl.position = o + Vector3(0, 28.0, chz)
 		m.add_child(chl)
 		m.game_nodes.append(chl)
+		m._register_castle_light(chl, true)
 	# OPEN back doorways (dark archways) flanking the throne
 	for dx in [-22.0, 22.0]:
 		m._l2_box(o + Vector3(dx - 5.0, 8, -33.2), Vector3(1.2, 16, 1.2), Color(0.8, 0.7, 0.5), 0.1)  # gold frame posts
@@ -245,31 +254,35 @@ func build(o: Vector3) -> void:
 	brsegs.append(m._l2_box(br + Vector3(0, 0.4, -7.1), Vector3(6.8, 1.0, 7.8), Color(0.86, 0.82, 0.92)))    # back strip
 	brsegs.append(m._l2_box(br + Vector3(0, 0.4, 6.1), Vector3(6.8, 1.0, 9.8), Color(0.86, 0.82, 0.92)))     # front strip
 	for fseg in brsegs:
+		fseg.material_override = m._castle_mat("floor", 0.035, Color(0.72, 0.68, 0.82))
 		m.fade_walls.append({"node": fseg, "c": fseg.position, "h": (fseg.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
-	m._l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.82, 0.79, 0.88))           # ceiling
-	m._iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.93, 0.9, 0.95), "marble")          # back wall
-	m._iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")          # left wall
-	m._iwall(br + Vector3(25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.93, 0.9, 0.95), "marble")           # right wall
+	m._l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.58, 0.54, 0.66))           # ceiling
+	m._iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.76, 0.70, 0.84), "castle")          # back wall
+	m._iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.72, 0.67, 0.81), "castle")          # left wall
+	m._iwall(br + Vector3(25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.72, 0.67, 0.81), "castle")           # right wall
 	# warm light + a soft red runner inside
-	var brl := OmniLight3D.new(); brl.light_color = Color(1.0, 0.85, 0.6); brl.light_energy = 2.0; brl.omni_range = 34.0
+	var brl := OmniLight3D.new(); brl.light_color = Color(1.0, 0.85, 0.6); brl.light_energy = 0.9; brl.omni_range = 26.0
 	brl.position = br + Vector3(0, 20, 0); m.add_child(brl); m.game_nodes.append(brl)
-	m._l2_box(br + Vector3(0, 1.0, 6.6), Vector3(10, 0.2, 10.8), Color(0.72, 0.16, 0.22))        # carpet from arch to the stand
+	m._register_castle_light(brl, false)
+	var back_runner: MeshInstance3D = m._l2_box(br + Vector3(0, 1.0, 6.6), Vector3(10, 0.2, 10.8), Color(0.72, 0.16, 0.22))
+	back_runner.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
 	# a glowing royal treasure chest = the bonus trigger. It doubles as the
 	# GOLDEN STAND sealing the undercroft's back stairwell: it pulses
 	# invitingly and rumbles aside when Roshan gets close (see slide_stand).
-	var chest = m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.95, 0.78, 0.35), 0.6)
+	var chest = m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.76, 0.56, 0.20), 0.12)
 	chest.material_override.metallic = 0.6
-	var chest_lid = m._l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.8, 0.62, 0.25), 0.5)   # lid rim
+	var chest_lid = m._l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.68, 0.47, 0.17), 0.08)   # lid rim
 	m.g["secret_door"] = chest.position
 	m.g["stand_chest"] = chest
 	m.g["stand_lid"] = chest_lid
 	m.g["stand_open"] = false
 	m.g["stand_armed"] = false   # arms once Roshan is >14 away (the moat hatch spawns right beside it)
 	var ctw: Tween = chest.create_tween().set_loops()
-	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 1.7, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.6, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	var sl2 := OmniLight3D.new(); sl2.light_color = Color(0.6, 0.95, 1.0); sl2.light_energy = 2.2; sl2.omni_range = 16.0
+	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.32, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.10, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var sl2 := OmniLight3D.new(); sl2.light_color = Color(0.6, 0.95, 1.0); sl2.light_energy = 0.75; sl2.omni_range = 11.0
 	sl2.position = chest.position + Vector3(0, 4, 0); m.add_child(sl2); m.game_nodes.append(sl2)
+	m._register_castle_light(sl2, true)
 	# Daddy mermaid lives in the secret room (his real recorded voice greets Roshan)
 	var daddy := Sprite3D.new()
 	daddy.texture = m._cutout_tex("daddy")
@@ -277,8 +290,9 @@ func build(o: Vector3) -> void:
 	daddy.pixel_size = 0.0066
 	daddy.position = br + Vector3(10, 8, -3)
 	m.add_child(daddy); m.game_nodes.append(daddy)
-	var dlt := OmniLight3D.new(); dlt.light_color = Color(1.0, 0.9, 0.8); dlt.light_energy = 1.8; dlt.omni_range = 22.0
+	var dlt := OmniLight3D.new(); dlt.light_color = Color(1.0, 0.9, 0.8); dlt.light_energy = 0.9; dlt.omni_range = 18.0
 	dlt.position = daddy.position + Vector3(0, 2, 5); m.add_child(dlt); m.game_nodes.append(dlt)
+	m._register_castle_light(dlt, false)
 	var sl := OmniLight3D.new()
 	sl.light_color = Color(0.5, 0.9, 1.0)
 	sl.light_energy = 1.5
@@ -286,6 +300,7 @@ func build(o: Vector3) -> void:
 	sl.position = o + Vector3(-22, 7, -33.0)   # invite glow at the left archway
 	m.add_child(sl)
 	m.game_nodes.append(sl)
+	m._register_castle_light(sl, false)
 	var sl3 := OmniLight3D.new()
 	sl3.light_color = Color(0.5, 0.9, 1.0)
 	sl3.light_energy = 1.5
@@ -293,11 +308,13 @@ func build(o: Vector3) -> void:
 	sl3.position = o + Vector3(22, 7, -33.0)   # invite glow at the right archway
 	m.add_child(sl3)
 	m.game_nodes.append(sl3)
+	m._register_castle_light(sl3, false)
 	var slab := Label3D.new()
-	slab.text = "\u2728 Daddy Mermaid \u2728"
-	slab.font_size = 40
+	slab.text = "\u2726"
+	slab.font_size = 140
 	slab.pixel_size = 0.02
-	slab.outline_size = 10
+	slab.outline_size = 16
+	slab.modulate = Color(1.0, 0.82, 0.28)
 	slab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	slab.position = m.g["secret_door"] + Vector3(0, 7.0, 0)
 	m.add_child(slab)
@@ -308,34 +325,31 @@ func build(o: Vector3) -> void:
 	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
 	# (the crafting easel now lives in its own dedicated CRAFT ROOM down in the
 	# basement wing — see build_basement_wing; the hall keeps the reading nook)
-	# hanging chandeliers
-	for cz in [-14.0, 8.0]:
-		var ch := OmniLight3D.new()
-		ch.light_color = Color(1.0, 0.8, 0.5)
-		ch.light_energy = 2.0
-		ch.omni_range = 26.0
-		ch.position = o + Vector3(0, 26, cz)
-		m.add_child(ch)
-		m.game_nodes.append(ch)
-		var bulb := MeshInstance3D.new()
-		var bs := SphereMesh.new()
-		bs.radius = 0.8
-		bs.height = 1.6
-		bulb.mesh = bs
-		var bm := StandardMaterial3D.new()
-		bm.emission_enabled = true
-		bm.emission = Color(1.0, 0.85, 0.5)
-		bm.emission_energy_multiplier = 3.0
-		bulb.material_override = bm
-		bulb.position = ch.position
-		m.add_child(bulb)
-		m.game_nodes.append(bulb)
-	# The goal is authored landmark geometry, not a font glyph.
+	# The Crown Star is authored landmark geometry rather than a font glyph.
+	# The audited chandelier pair above remains the hall's only overhead lights.
 	var crown: Node3D = LandmarkArtFactory.create_star(5.2, Color(1.0, 0.76, 0.24), true)
 	crown.position = o + Vector3(0, 24.0, -28.0)
+	crown.set_meta("base_y", crown.position.y)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
 	m.l2_stars = [{"node": crown, "got": false}]
+	# A short, non-reading sparkle trail connects the runner and stairs to the
+	# crown. It is visual guidance only; the existing objective and collision
+	# contracts remain unchanged.
+	var crown_guides: Array[Label3D] = []
+	for guide_i in range(3):
+		var guide := Label3D.new()
+		guide.text = "\u2726"
+		guide.font_size = 150
+		guide.pixel_size = 0.018
+		guide.outline_size = 18
+		guide.modulate = Color(1.0, 0.80, 0.28, 0.82)
+		guide.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		guide.position = o + Vector3(0, 5.0 + float(guide_i) * 4.6, -11.0 - float(guide_i) * 5.2)
+		m.add_child(guide)
+		m.game_nodes.append(guide)
+		crown_guides.append(guide)
+	m.g["crown_guides"] = crown_guides
 	# EXIT door at the entrance — swim into it to go back to the ocean
 	var exit := MeshInstance3D.new()
 	var et := TorusMesh.new()
@@ -353,9 +367,10 @@ func build(o: Vector3) -> void:
 	exl.position = exit.position
 	m.add_child(exl)
 	m.game_nodes.append(exl)
+	m._register_castle_light(exl, true)
 	var exlab := Label3D.new()
-	exlab.text = "\u2190 leave the castle"
-	exlab.font_size = 60
+	exlab.text = "\u2190"
+	exlab.font_size = 120
 	exlab.pixel_size = 0.03
 	exlab.outline_size = 12
 	exlab.modulate = Color(0.7, 0.95, 1.0)
@@ -382,11 +397,11 @@ func build_expansion(o: Vector3) -> void:
 	var gold := Color(0.95, 0.8, 0.35)
 	# ---------- balcony deck along the raised back wall, above the throne
 	var deck = m._l2_box(o + Vector3(0, 32.4, -27.0), Vector3(52, 1.2, 12), wcol)
-	deck.material_override = m._up_mat("marble", 0.05, Color(0.9, 0.87, 0.96))
+	deck.material_override = m._castle_mat("floor", 0.035, Color(0.88, 0.84, 0.94))
 	for px in range(-6, 7):
 		m._l2_box(o + Vector3(float(px) * 4.0, 34.6, -21.4), Vector3(0.5, 3.2, 0.5), gold, 0.2)
 	m._l2_box(o + Vector3(0, 36.4, -21.4), Vector3(52, 0.5, 0.6), gold, 0.25)
-	# twin marble stairs hugging the side walls up to the deck. STEEP flights
+	# twin stone stairs hugging the side walls up to the deck. STEEP flights
 	# along the doorless back stretch (z -21..-33) — the old shallow run
 	# crossed the music/bedroom doorways at z -16, and its ramp + under-stair
 	# mass sealed them shut (probe_upstairs caught it). Treads are a ramp-floor
@@ -403,10 +418,10 @@ func build_expansion(o: Vector3) -> void:
 	# extend on all three sides. Reached from the balcony gallery door OR by
 	# swimming through the new hall arcade arches.
 	var uf = m._l2_box(o + Vector3(0, 33.0, -50.0), Vector3(106, 1.2, 28), Color(0.9, 0.86, 0.94))
-	uf.material_override = m._up_mat("flagstone", 0.05, Color(0.85, 0.8, 0.95))
+	uf.material_override = m._castle_mat("floor", 0.035, Color(0.84, 0.80, 0.94))
 	for wsgn in [-1.0, 1.0]:
 		var wf = m._l2_box(o + Vector3(wsgn * 44.25, 33.0, -9.0), Vector3(17.5, 1.2, 54), Color(0.9, 0.86, 0.94))
-		wf.material_override = m._up_mat("flagstone", 0.05, Color(0.85, 0.8, 0.95))
+		wf.material_override = m._castle_mat("floor", 0.035, Color(0.84, 0.80, 0.94))
 	m._iwall(o + Vector3(0, 41, -64), Vector3(106, 16, 1.5), wcol, "castle")      # far wall, full width
 	m._iwall(o + Vector3(-53.5, 41, -22.6), Vector3(1.5, 16, 83), wcol, "castle") # left outer wall (z -64..18.75)
 	m._iwall(o + Vector3(53.5, 41, -22.6), Vector3(1.5, 16, 83), wcol, "castle")  # right outer wall
@@ -508,7 +523,7 @@ func build_expansion(o: Vector3) -> void:
 	for i in range(8):
 		m._l2_box(o + shaft + Vector3(0, -1.5 - float(i) * 2.1, -3.5 + float(i) * 1.0), Vector3(8.0, 0.8, 2.6), Color(0.62, 0.58, 0.66))
 	var bf = m._l2_box(o + Vector3(0, -18.6, 24.0), Vector3(60, 1.2, 32), Color(0.6, 0.56, 0.64))
-	bf.material_override = m._up_mat("cobble", 0.05, Color(0.75, 0.7, 0.8))
+	bf.material_override = m._castle_mat("cobble", 0.05, Color(0.75, 0.70, 0.80))
 	m._iwall(o + Vector3(0, -9.5, 40), Vector3(60, 18, 1.5), Color(0.7, 0.66, 0.74), "castle")
 	# front wall SEGMENTED: the basement hallway opens through it at x -8..8
 	# (this wall used to seal the corridor off from the undercroft entirely)
@@ -715,7 +730,7 @@ func build_basement_wing(o: Vector3) -> void:
 	var gold := Color(0.95, 0.8, 0.35)
 	# ---------- the hallway floor
 	var cfl = m._l2_box(o + Vector3(0, -18.6, -18.0), Vector3(16, 1.2, 52), Color(0.6, 0.56, 0.64))
-	cfl.material_override = m._up_mat("cobble", 0.05, Color(0.75, 0.7, 0.8))
+	cfl.material_override = m._castle_mat("cobble", 0.05, Color(0.75, 0.70, 0.80))
 	# hallway walls, SEGMENTED for the side-room doorways
 	# (row 1 doors z -8..2, row 2 doors z -34..-24, both sides)
 	for sx in [-1.0, 1.0]:
@@ -729,10 +744,10 @@ func build_basement_wing(o: Vector3) -> void:
 	# here would shove Roshan off the staircase that passes through this plane)
 	for ew in [Vector3(-6.2, -9.5, -44.0), Vector3(6.2, -9.5, -44.0)]:
 		var ewn = m._l2_box(o + ew, Vector3(3.6, 18, 1.5), stone)
-		ewn.material_override = m._up_mat("castle", 0.045, stone)
+		ewn.material_override = m._castle_mat("wall", 0.045, stone)
 		m.fade_walls.append({"node": ewn, "c": ewn.position, "h": (ewn.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 	var ewl = m._l2_box(o + Vector3(0, -2.75, -44.0), Vector3(8.8, 4.5, 1.5), stone)
-	ewl.material_override = m._up_mat("castle", 0.045, stone)
+	ewl.material_override = m._castle_mat("wall", 0.045, stone)
 	m.fade_walls.append({"node": ewl, "c": ewl.position, "h": (ewl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 	# warm lanterns alternate down the hallway (emissive boxes, no lights)
 	for li2 in range(6):
@@ -748,7 +763,7 @@ func build_basement_wing(o: Vector3) -> void:
 		var rc: Vector3 = rd["c"]
 		var sx2: float = signf(rc.x)
 		var rfl = m._l2_box(o + rc + Vector3(0, -18.6, 0), Vector3(18, 1.2, 16), Color(0.6, 0.56, 0.64))
-		rfl.material_override = m._up_mat("cobble", 0.05, rd["tint"])
+		rfl.material_override = m._castle_mat("cobble", 0.05, rd["tint"])
 		var rcl = m._l2_box(o + rc + Vector3(0, -0.9, 0), Vector3(19, 0.8, 17), Color(0.55, 0.52, 0.6))   # ceiling
 		m.fade_walls.append({"node": rcl, "c": rcl.position, "h": (rcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 		if bool(rd.get("ensuite", false)):
@@ -874,7 +889,7 @@ func build_basement_wing(o: Vector3) -> void:
 		m._l2_box(o + Vector3(-26, -10.0, gp2), Vector3(1.0, 16, 1.0), gold, 0.2)   # gold posts mark the secret door
 	var lc: Vector3 = o + Vector3(-30.25, 0, -28)   # privy centre (interior x -34.25..-26.75)
 	var lfl = m._l2_box(lc + Vector3(0, -18.6, 0), Vector3(10, 1.2, 12), Color(0.6, 0.56, 0.64))
-	lfl.material_override = m._up_mat("cobble", 0.05, Color(0.72, 0.78, 0.85))
+	lfl.material_override = m._castle_mat("cobble", 0.05, Color(0.72, 0.78, 0.85))
 	var lcl = m._l2_box(lc + Vector3(0, -0.9, 0), Vector3(10.5, 0.8, 13), Color(0.55, 0.52, 0.6))   # ceiling
 	m.fade_walls.append({"node": lcl, "c": lcl.position, "h": (lcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 	m._iwall(lc + Vector3(-4.75, -9.5, 0), Vector3(1.5, 18, 12), stone, "castle")   # far wall (x -35)
@@ -933,40 +948,43 @@ func build_music_room(o: Vector3) -> void:
 	# Footprint x:-52..-35 (width 17), z:-24..+14 (depth 38) — a long room so the
 	# xylophone has space. Interior corners stay inside the dome (r<58).
 	var mo: Vector3 = o + Vector3(-43.5, 0, -5)           # room centre
-	var wall := Color(0.86, 0.88, 0.98)                  # cool lilac plaster
+	var wall := Color(0.62, 0.65, 0.80)                  # cool lilac plaster
 	# flr + ceiling (no colliders — flr clamp / arena_ceil handle vertical)
 	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
-	mfloor.material_override.roughness = 0.9
-	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.8, 0.82, 0.92))
+	mfloor.material_override = m._castle_mat("floor", 0.035, Color(0.58, 0.60, 0.78))
+	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.54, 0.56, 0.68))
 	# enclosing walls (the right/hall side is the segmented hall wall already built)
-	m._iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall, "marble")       # far wall (x=-52.75)
-	m._iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall, "marble")      # back wall (z=-24.75)
-	m._iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall, "marble")       # front wall (z=+14.75)
+	m._iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall)       # far wall (x=-52.75)
+	m._iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall)      # back wall (z=-24.75)
+	m._iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall)       # front wall (z=+14.75)
 	# gold doorway frame around the opening in the hall wall
 	for dz in [-21.0, -11.0]:
 		m._l2_box(o + Vector3(-35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
 	# soft rug by the entrance
 	var rug = m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
-	rug.material_override = m._up_mat("fabric", 0.14, Color(0.5, 0.45, 0.75))   # woven rug
+	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.62, 0.58, 0.82))
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellcols := [Color(1, 0.3, 0.3), Color(1, 0.6, 0.2), Color(1, 0.9, 0.3), Color(0.3, 0.85, 0.4), Color(0.3, 0.6, 1.0), Color(0.5, 0.4, 0.9), Color(0.95, 0.4, 0.8)]
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
 	m.g["bells"] = []
+	for rail_x: float in [-4.1, 4.1]:
+		var rail: MeshInstance3D = m._l2_box(mo + Vector3(rail_x, 1.25, 0.0), Vector3(0.8, 1.0, 32.0), Color(0.28, 0.18, 0.24))
+		rail.material_override = m._castle_mat("wood", 0.14, Color(0.42, 0.30, 0.38))
 	for bi in range(7):
 		var bell := MeshInstance3D.new()
 		var bm := BoxMesh.new()
-		bm.size = Vector3(2.6, 9.0 - float(bi) * 0.5, 2.6)
+		bm.size = Vector3(8.4 - float(bi) * 0.55, 1.25, 2.8)
 		bell.mesh = bm
 		var bmat := StandardMaterial3D.new()
 		bmat.albedo_color = bellcols[bi]
 		bmat.emission_enabled = true
 		bmat.emission = bellcols[bi]
-		bmat.emission_energy_multiplier = 0.7
-		bmat.metallic = 0.4
-		bmat.roughness = 0.3
+		bmat.emission_energy_multiplier = 0.10
+		bmat.metallic = 0.1
+		bmat.roughness = 0.58
 		bell.material_override = bmat
-		bell.position = mo + Vector3(0.0, 5.0, -13.5 + float(bi) * 4.5)   # spaced 4.5 along z
+		bell.position = mo + Vector3(0.0, 2.6, -13.5 + float(bi) * 4.5)   # spaced 4.5 along z
 		m.add_child(bell)
 		m.game_nodes.append(bell)
 		var bp := AudioStreamPlayer.new()
@@ -990,25 +1008,27 @@ func build_music_room(o: Vector3) -> void:
 	m.game_nodes.append(song_star)
 	var ssl := OmniLight3D.new()
 	ssl.light_color = Color(1.0, 0.9, 0.4)
-	ssl.light_energy = 1.6
+	ssl.light_energy = 0.9
 	ssl.omni_range = 9.0
 	ssl.position = song_star.position
 	m.add_child(ssl)
 	m.game_nodes.append(ssl)
+	m._register_castle_light(ssl, true)
 	m.g["song_star"] = song_star.position
 	m.g["bellgame"] = {"state": "idle", "seq": [], "i": 0, "t": 0.0, "round": 0, "cool": 0.0}
 	# two warm fill lights down the length
 	for lz in [-12.0, 10.0]:
 		var ml := OmniLight3D.new()
-		ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 1.7; ml.omni_range = 28.0
+		ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 0.85; ml.omni_range = 24.0
 		ml.position = mo + Vector3(0, 22, lz); m.add_child(ml); m.game_nodes.append(ml)
+		m._register_castle_light(ml, false)
 	# glowing windows on the far wall
 	for wz in [-10.0, 10.0]:
-		var win = m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.7, 0.8, 1.0), 0.8)
-		win.material_override.emission_energy_multiplier = 1.2
+		var win = m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.42, 0.56, 0.82), 0.12)
+		win.material_override.emission_energy_multiplier = 0.18
 	# sign over the doorway
 	var msign := Label3D.new()
-	msign.text = "♪ Music Room ♪"
+	msign.text = "♪"
 	msign.font_size = 56; msign.pixel_size = 0.028; msign.outline_size = 12
 	msign.modulate = Color(0.85, 0.9, 1.0); msign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	msign.position = o + Vector3(-35, 20.0, -16); m.add_child(msign); m.game_nodes.append(msign)
@@ -1016,21 +1036,28 @@ func build_music_room(o: Vector3) -> void:
 	var il := OmniLight3D.new()
 	il.light_color = Color(0.6, 0.7, 1.0); il.light_energy = 1.6; il.omni_range = 14.0
 	il.position = o + Vector3(-34, 7, -16); m.add_child(il); m.game_nodes.append(il)
+	m._register_castle_light(il, true)
 
 
 func build_bedroom(o: Vector3) -> void:
 	# Roomy royal bedroom off the right-wall doorway (x=35, z=-16).
 	# Footprint x:35..57, z:-28..-6 (22x22) — corners r<65, inside the dome (66).
 	var bo: Vector3 = o + Vector3(46, 0, -17)            # room centre
-	var wall := Color(0.96, 0.9, 0.86)                   # warm rosy plaster
+	var wall := Color(0.66, 0.54, 0.60)                  # warm rosy plaster
 	# flr + ceiling (no colliders — handled by the flr clamp / arena_ceil)
 	var bfloor = m._l2_box(bo + Vector3(0, 0.4, 0), Vector3(22, 1.0, 22), Color(0.78, 0.6, 0.5))
-	bfloor.material_override.roughness = 0.9
-	m._l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.9, 0.84, 0.82))
+	bfloor.material_override = m._castle_mat("floor", 0.035, Color(0.82, 0.70, 0.72))
+	m._l2_box(bo + Vector3(0, 33.0, 0), Vector3(22, 1.5, 22), Color(0.56, 0.48, 0.54))
 	# enclosing walls (the left/hall side is the segmented hall wall already built)
-	m._iwall(bo + Vector3(11, 16, 0), Vector3(1.5, 34, 22), wall, "marble")          # far wall (x=57)
-	m._iwall(bo + Vector3(0, 16, -11), Vector3(22, 34, 1.5), wall, "marble")         # back wall (z=-28)
-	m._iwall(bo + Vector3(0, 16, 11), Vector3(22, 34, 1.5), wall, "marble")          # front wall (z=-6)
+	m._iwall(bo + Vector3(11, 16, 0), Vector3(1.5, 34, 22), wall)          # far wall (x=57)
+	m._iwall(bo + Vector3(0, 16, -11), Vector3(22, 34, 1.5), wall)         # back wall (z=-28)
+	m._iwall(bo + Vector3(0, 16, 11), Vector3(22, 34, 1.5), wall)          # front wall (z=-6)
+	# Base and cornice bands stop the compact room reading as three intersecting
+	# blank planes; all are visual-only and stay tight to the existing shell.
+	for trim_y: float in [1.6, 29.8]:
+		m._l2_box(bo + Vector3(10.2, trim_y, 0), Vector3(0.8, 1.6, 20.5), Color(0.46, 0.31, 0.46))
+		m._l2_box(bo + Vector3(0, trim_y, -10.2), Vector3(20.5, 1.6, 0.8), Color(0.46, 0.31, 0.46))
+		m._l2_box(bo + Vector3(0, trim_y, 10.2), Vector3(20.5, 1.6, 0.8), Color(0.46, 0.31, 0.46))
 	# gold doorway frame around the opening in the hall wall
 	for dz in [-21.0, -11.0]:
 		m._l2_box(o + Vector3(35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
@@ -1061,7 +1088,7 @@ func build_bedroom(o: Vector3) -> void:
 	m._wall_solid(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), 0.5)
 	m.g["bed_pos"] = Vector3(bcx, o.y + 3.6, bcz)   # mattress top — the go-to-sleep trigger
 	var bedsign := Label3D.new()
-	bedsign.text = "zZz  snuggle in!"
+	bedsign.text = "zZz"
 	bedsign.font_size = 40
 	bedsign.pixel_size = 0.02
 	bedsign.outline_size = 10
@@ -1078,16 +1105,17 @@ func build_bedroom(o: Vector3) -> void:
 	var ls := SphereMesh.new(); ls.radius = 0.7; ls.height = 1.4
 	lampbulb.mesh = ls
 	var lmat := StandardMaterial3D.new()
-	lmat.emission_enabled = true; lmat.emission = Color(1.0, 0.82, 0.5); lmat.emission_energy_multiplier = 3.0
+	lmat.emission_enabled = true; lmat.emission = Color(1.0, 0.82, 0.5); lmat.emission_energy_multiplier = 0.55
 	lampbulb.material_override = lmat
 	lampbulb.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0)
 	m.add_child(lampbulb); m.game_nodes.append(lampbulb)
 	var lamp := OmniLight3D.new()
-	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 2.0; lamp.omni_range = 18.0
+	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 0.85; lamp.omni_range = 11.0
 	lamp.position = lampbulb.position; m.add_child(lamp); m.game_nodes.append(lamp)
+	m._register_castle_light(lamp, true)
 	# big soft rug in the middle of the room
 	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
-	rug.material_override = m._up_mat("fabric", 0.14, Color(0.8, 0.4, 0.5))   # woven rug
+	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.82, 0.66, 0.72))
 	# toy chest by the far wall (decor)
 	var chest = m._l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
 	chest.material_override.roughness = 0.85
@@ -1097,34 +1125,36 @@ func build_bedroom(o: Vector3) -> void:
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
 	var wardrobe = m._l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
 	wardrobe.material_override.roughness = 0.8
-	var mirror = m._l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.7, 0.92, 1.0), 0.6)  # glowing mirror glass
-	mirror.material_override.metallic = 0.9
-	mirror.material_override.roughness = 0.05
+	var mirror = m._l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.45, 0.68, 0.82), 0.15)  # softly glowing mirror glass
+	mirror.material_override.metallic = 0.55
+	mirror.material_override.roughness = 0.18
 	for fx in [-2.6, 2.6]:                                 # gold mirror frame posts
 		m._l2_box(vpos + Vector3(fx, 7.5, 0.2), Vector3(0.6, 9.5, 0.5), Color(0.95, 0.8, 0.4), 0.2)
 	m._l2_box(vpos + Vector3(0, 12.4, 0.2), Vector3(5.7, 0.6, 0.5), Color(0.95, 0.8, 0.4), 0.2)   # frame top
 	m._wall_solid(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6))   # the wardrobe is solid
 	var vsign := Label3D.new()
-	vsign.text = "\U0001f457 Dress Up!"
+	vsign.text = "\U0001f457"
 	vsign.font_size = 48; vsign.pixel_size = 0.028; vsign.outline_size = 12
 	vsign.modulate = Color(1.0, 0.8, 0.95); vsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	vsign.position = vpos + Vector3(0, 13.6, 0); m.add_child(vsign); m.game_nodes.append(vsign)
 	var vl := OmniLight3D.new()
-	vl.light_color = Color(1.0, 0.85, 0.95); vl.light_energy = 1.6; vl.omni_range = 14.0
+	vl.light_color = Color(1.0, 0.85, 0.95); vl.light_energy = 0.9; vl.omni_range = 12.0
 	vl.position = vpos + Vector3(0, 8, -2); m.add_child(vl); m.game_nodes.append(vl)
+	m._register_castle_light(vl, false)
 	m.g["wardrobe"] = vpos + Vector3(0, 6, -2)
 	# fill light so the room reads warm
 	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 2.0; bl.omni_range = 36.0
+	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 0.8; bl.omni_range = 22.0
 	bl.position = bo + Vector3(0, 22, 0); m.add_child(bl); m.game_nodes.append(bl)
+	m._register_castle_light(bl, false)
 	# glowing windows on the far and back walls for ambiance
-	var win = m._l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.6, 0.85, 1.0), 0.8)
-	win.material_override.emission_energy_multiplier = 1.2
-	var win2 = m._l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.6, 0.85, 1.0), 0.8)
-	win2.material_override.emission_energy_multiplier = 1.2
+	var win = m._l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.38, 0.62, 0.82), 0.12)
+	win.material_override.emission_energy_multiplier = 0.18
+	var win2 = m._l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.38, 0.62, 0.82), 0.12)
+	win2.material_override.emission_energy_multiplier = 0.18
 	# label over the doorway
 	var blab := Label3D.new()
-	blab.text = "\U0001f6cf️ Bedroom"
+	blab.text = "\U0001f6cf️"
 	blab.font_size = 56; blab.pixel_size = 0.03; blab.outline_size = 12
 	blab.modulate = Color(1.0, 0.9, 0.85)
 	blab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -1134,6 +1164,7 @@ func build_bedroom(o: Vector3) -> void:
 	var il := OmniLight3D.new()
 	il.light_color = Color(1.0, 0.8, 0.6); il.light_energy = 1.6; il.omni_range = 14.0
 	il.position = o + Vector3(34, 7, -16); m.add_child(il); m.game_nodes.append(il)
+	m._register_castle_light(il, true)
 
 
 func build_toilet(ground: Vector3) -> void:
@@ -1299,7 +1330,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		var hx: Vector3 = m.g["hall_exit"]
 		if hx.distance_to(ppos) > 14.0:
 			m.g["hall_exit_armed"] = true
-		if bool(m.g.get("hall_exit_armed", false)) and hx.distance_to(ppos) < 6.0:
+		# The solid front wall stops Roshan about 11.7 units from this centre point;
+		# catch her on the playable side of the arch instead of behind the blocker.
+		if bool(m.g.get("hall_exit_armed", false)) and hx.distance_to(ppos) < 12.0:
 			m._return_to_courtyard()
 			return
 	# crafting studio: swim up to the easel to color a fish
@@ -1367,13 +1400,27 @@ func tick(delta: float, ppos: Vector3) -> void:
 		else:
 			m.show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
 	var crown: Node3D = m.l2_stars[0]["node"]
+	var crown_t: float = float(m.g["t"])
 	crown.rotate_y(delta * 1.4)
-	crown.position.y += sin(float(m.g["t"]) * 2.0) * 0.02
+	var crown_won: bool = bool(m.g.get("crown_won", false))
+	if not crown_won:
+		var crown_base_y: float = float(crown.get_meta("base_y", crown.position.y))
+		crown.position.y = crown_base_y + sin(crown_t * 2.0) * 0.55
+		var crown_pulse: float = 1.0 + sin(crown_t * 3.2) * 0.08
+		crown.scale = Vector3.ONE * crown_pulse
+	var crown_guides: Array = m.g.get("crown_guides", [])
+	for guide_i in range(crown_guides.size()):
+		var guide: Label3D = crown_guides[guide_i] as Label3D
+		if not is_instance_valid(guide):
+			continue
+		guide.visible = not crown_won
+		var guide_pulse: float = 0.90 + sin(crown_t * 3.0 - float(guide_i) * 0.85) * 0.14
+		guide.scale = Vector3.ONE * guide_pulse
 	# Touching the Crown Star CELEBRATES IN PLACE (owner 2026-07-12: it used to
 	# call _finish_level2() and eject Roshan to the ocean — touching the throne
 	# yanked her out of her own castle). The win still counts (level2_done_once
 	# + save); she keeps the castle and leaves by the front door when SHE wants.
-	if not bool(m.g.get("crown_won", false)):
+	if not crown_won:
 		# gentle stair helper (not a black hole): only a soft updraft when the player
 		# is in FRONT of the throne and below the crown; retired once the crown is won
 		var d: float = crown.position.distance_to(ppos)
