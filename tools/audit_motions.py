@@ -244,7 +244,7 @@ def swim_track(speed, seconds=3.0):
 
 # ---------------- criteria ----------------
 REST = probe_pos({})
-HEAD_JOINT_Y = gmats()[name2j["head"]][1, 3]
+HEAD_JOINT_Y = float(np.linalg.inv(ibm[joints.index(name2j["head"])])[1, 3])
 results = []
 
 def check(name, cond, detail):
