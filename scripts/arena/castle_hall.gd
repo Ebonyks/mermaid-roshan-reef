@@ -339,7 +339,6 @@ func build(o: Vector3) -> void:
 	# replay the ownership win or pull Roshan toward an already-completed goal.
 	if m.level2_done_once:
 		m.g["crown_won"] = true
-		crown.modulate = Color(1.0, 0.98, 0.7)
 	m.l2_stars = [{"node": crown, "got": m.level2_done_once}]
 	# EXIT door at the entrance — swim into it to go back to the ocean
 	var exit := MeshInstance3D.new()

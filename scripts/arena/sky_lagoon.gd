@@ -1908,8 +1908,6 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				m.voice.pitch_scale = 1.0 + randf() * 0.2
 				m.voice.play()
 			star.visible = false
-			if star.get_child_count() > 0:
-				star.get_child(0).queue_free()
 			if got >= 3:
 				m._open_castle_door()
 	if got >= 3 and not m.l2_open:
