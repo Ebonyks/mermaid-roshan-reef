@@ -160,18 +160,41 @@ class GltfRuntimeRig:
 		self.inverse_bind = self.accessor(int(self.skin["inverseBindMatrices"])).reshape(
 			(-1, 4, 4)
 		).transpose((0, 2, 1))
-		primitive = self.gltf["meshes"][0]["primitives"][0]
-		attributes = primitive["attributes"]
-		self.positions = self.accessor(int(attributes["POSITION"])).astype(np.float64)
-		self.vertex_joints = self.accessor(int(attributes["JOINTS_0"])).astype(np.int64)
-		self.vertex_weights = self.accessor(int(attributes["WEIGHTS_0"])).astype(np.float64)
+		# Blender combines a glTF mesh's skinned primitives into one deform mesh.
+		# Preserve that same primitive order here so direct authoritative LBS also
+		# covers repair underlays/material splits instead of auditing primitive 0
+		# while leaving later surfaces frozen in the bind pose.
+		position_parts: list[np.ndarray] = []
+		joint_parts: list[np.ndarray] = []
+		weight_parts: list[np.ndarray] = []
+		index_parts: list[np.ndarray] = []
+		vertex_offset = 0
+		for primitive in self.gltf["meshes"][0]["primitives"]:
+			attributes = primitive["attributes"]
+			for required in ("POSITION", "JOINTS_0", "WEIGHTS_0"):
+				if required not in attributes:
+					raise ValueError(f"Skinned mesh primitive is missing {required}")
+			positions = self.accessor(int(attributes["POSITION"])).astype(np.float64)
+			position_parts.append(positions)
+			joint_parts.append(
+				self.accessor(int(attributes["JOINTS_0"])).astype(np.int64)
+			)
+			weight_parts.append(
+				self.accessor(int(attributes["WEIGHTS_0"])).astype(np.float64)
+			)
+			indices = self.accessor(int(primitive["indices"])).astype(np.int64).reshape(-1)
+			index_parts.append(indices + vertex_offset)
+			vertex_offset += len(positions)
+		self.positions = np.concatenate(position_parts, axis=0)
+		self.vertex_joints = np.concatenate(joint_parts, axis=0)
+		self.vertex_weights = np.concatenate(weight_parts, axis=0)
 		self.source_weight_sum_error = float(
 			np.max(np.abs(self.vertex_weights.sum(axis=1) - 1.0))
 		)
 		self.vertex_weights /= np.maximum(
 			self.vertex_weights.sum(axis=1, keepdims=True), 1.0e-12
 		)
-		self.indices = self.accessor(int(primitive["indices"])).astype(np.int64).reshape(-1)
+		self.indices = np.concatenate(index_parts)
 		self.referenced_mask = np.zeros(len(self.positions), dtype=bool)
 		self.referenced_mask[self.indices] = True
 		self.referenced_indices = np.flatnonzero(self.referenced_mask)
@@ -849,6 +872,104 @@ def mesh_topology(obj: bpy.types.Object, rest_coordinates: np.ndarray) -> tuple[
 		"rest_triangle_areas": rest_areas,
 	}
 	return report, arrays
+
+
+def cohesive_arm_surface_report(rig: GltfRuntimeRig) -> dict[str, Any]:
+	"""Validate the dedicated closed shoulder-to-palm repair surfaces."""
+	purpose = "continuous shoulder-elbow-wrist anatomical underlay"
+	matches = [
+		primitive
+		for mesh in rig.gltf.get("meshes", [])
+		for primitive in mesh.get("primitives", [])
+		if primitive.get("extras", {}).get("purpose") == purpose
+	]
+	if len(matches) != 1:
+		return {
+			"present": False,
+			"matching_primitives": len(matches),
+			"expected_purpose": purpose,
+		}
+	primitive = matches[0]
+	attributes = primitive["attributes"]
+	positions = rig.accessor(int(attributes["POSITION"])).astype(np.float64)
+	joints = rig.accessor(int(attributes["JOINTS_0"])).astype(np.int64)
+	weights = rig.accessor(int(attributes["WEIGHTS_0"])).astype(np.float64)
+	weights /= np.maximum(weights.sum(axis=1, keepdims=True), 1.0e-12)
+	triangles = rig.accessor(int(primitive["indices"])).astype(np.int64).reshape((-1, 3))
+	if triangles.min() < 0 or triangles.max() >= len(positions):
+		raise ValueError("Cohesive arm surface indices are out of range")
+	edges = np.vstack(
+		[
+			triangles[:, (0, 1)],
+			triangles[:, (1, 2)],
+			triangles[:, (2, 0)],
+		]
+	)
+	edges.sort(axis=1)
+	unique_edges, edge_counts = np.unique(edges, axis=0, return_counts=True)
+	parent = np.arange(len(positions), dtype=np.int64)
+
+	def find(index: int) -> int:
+		while parent[index] != index:
+			parent[index] = parent[parent[index]]
+			index = int(parent[index])
+		return index
+
+	for a, b in unique_edges:
+		ra, rb = find(int(a)), find(int(b))
+		if ra != rb:
+			parent[rb] = ra
+	used = np.unique(triangles.reshape(-1))
+	components: dict[int, list[int]] = {}
+	for vertex in used:
+		components.setdefault(find(int(vertex)), []).append(int(vertex))
+	joint_names = [rig.nodes[node].get("name", "") for node in rig.skin_joints]
+	name_to_skin = {name: index for index, name in enumerate(joint_names)}
+	chains = {
+		"positive_x": ("armU", "armF", "hand"),
+		"negative_x": ("armU2", "armF2", "hand2"),
+	}
+	component_reports = []
+	for vertices in sorted(components.values(), key=len, reverse=True):
+		selection = np.asarray(vertices, dtype=np.int64)
+		coverage = {}
+		for label, names in chains.items():
+			total = 0.0
+			bone_totals = {}
+			for name in names:
+				skin_index = name_to_skin[name]
+				bone_total = float(np.where(joints[selection] == skin_index, weights[selection], 0.0).sum())
+				bone_totals[name] = finite(bone_total)
+				total += bone_total
+			coverage[label] = {
+				"total_weight": finite(total),
+				"bone_weight_totals": bone_totals,
+				"all_chain_bones_present": all((bone_totals[name] or 0.0) > 0.1 for name in names),
+			}
+		label = max(coverage, key=lambda key: coverage[key]["total_weight"] or 0.0)
+		component_reports.append(
+			{
+				"label": label,
+				"vertices": len(vertices),
+				"coverage": coverage[label],
+			}
+		)
+	points = positions[triangles]
+	areas = 0.5 * np.linalg.norm(
+		np.cross(points[:, 1] - points[:, 0], points[:, 2] - points[:, 0]), axis=1
+	)
+	return {
+		"present": True,
+		"matching_primitives": 1,
+		"purpose": purpose,
+		"vertices": len(positions),
+		"triangles": len(triangles),
+		"connected_components": len(components),
+		"component_reports": component_reports,
+		"boundary_edges": int(np.count_nonzero(edge_counts == 1)),
+		"edges_with_more_than_two_faces": int(np.count_nonzero(edge_counts > 2)),
+		"degenerate_triangles_area_lt_1e-10": int(np.count_nonzero(areas < 1.0e-10)),
+	}
 
 
 def mesh_weights(
@@ -1670,6 +1791,38 @@ def aggregate_findings(report: dict[str, Any]) -> list[dict[str, str]]:
 		"remain reported for inspection but do not determine arm proportion parity.",
 	)
 
+	cohesive = report["cohesive_arm_surface"]
+	component_reports = cohesive.get("component_reports", [])
+	component_labels = {component.get("label") for component in component_reports}
+	cohesive_ok = (
+		cohesive.get("present", False)
+		and cohesive.get("matching_primitives") == 1
+		and cohesive.get("connected_components") == 2
+		and cohesive.get("boundary_edges") == 0
+		and cohesive.get("edges_with_more_than_two_faces") == 0
+		and cohesive.get("degenerate_triangles_area_lt_1e-10") == 0
+		and component_labels == {"positive_x", "negative_x"}
+		and all(
+			component.get("coverage", {}).get("all_chain_bones_present", False)
+			for component in component_reports
+		)
+	)
+	if cohesive_ok:
+		add(
+			"COHESIVE_ARM_SURFACE",
+			"ok",
+			f"Dedicated anatomical underlay contains two closed manifold arm surfaces "
+			f"({cohesive['vertices']} vertices, {cohesive['triangles']} triangles); each "
+			"covers upper arm, forearm, and hand influences from shoulder into palm.",
+		)
+	else:
+		add(
+			"COHESIVE_ARM_SURFACE",
+			"problem",
+			"The dedicated shoulder-to-palm arm underlay is missing, open, non-manifold, "
+			f"or does not cover both complete arm chains: {cohesive}.",
+		)
+
 	open_gap = report["poses"]["clap_open"]["hands"]["weighted_probe_centroids"]["gap"]
 	contact_gap = report["poses"]["clap_contact"]["hands"]["weighted_probe_centroids"]["gap"]
 	open_surface_gap = report["poses"]["clap_open"]["hands"]["weighted_mesh_hand_surface"][
@@ -2037,6 +2190,7 @@ def main() -> None:
 		"character_height": finite(height),
 		"topology": topology_report,
 		"practical_weld_topology": _RUNTIME_RIG.practical_weld_topology(),
+		"cohesive_arm_surface": cohesive_arm_surface_report(_RUNTIME_RIG),
 		"weights": weight_report,
 		"arm_chain_asymmetry_rest": arm_asymmetry(armature, midline_x, height),
 		"pose_method": {

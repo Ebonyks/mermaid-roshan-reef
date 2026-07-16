@@ -88,10 +88,17 @@ def joint_mats(deltas):  # deltas: bone-name -> delta quat (post-rest, local)
         G[i] = (G[parent[i]] @ L) if i in parent else L
     return np.stack([G[j] @ ibm[k] for k, j in enumerate(joints)])
 
-prim = gltf["meshes"][0]["primitives"][0]
-P0 = acc_np(prim["attributes"]["POSITION"]).astype(np.float64)
-J = acc_np(prim["attributes"]["JOINTS_0"]).astype(int)
-W = acc_np(prim["attributes"]["WEIGHTS_0"]).astype(np.float64)
+prims = gltf["meshes"][0]["primitives"]
+prim = prims[0]
+P_parts = [acc_np(p["attributes"]["POSITION"]).astype(np.float64) for p in prims]
+primitive_offsets = np.cumsum([0] + [len(values) for values in P_parts[:-1]])
+P0 = np.concatenate(P_parts, axis=0)
+J = np.concatenate([
+    acc_np(p["attributes"]["JOINTS_0"]).astype(int) for p in prims
+], axis=0)
+W = np.concatenate([
+    acc_np(p["attributes"]["WEIGHTS_0"]).astype(np.float64) for p in prims
+], axis=0)
 W = W/np.maximum(W.sum(1, keepdims=True), 1e-9)
 
 def probe_set(bone, wmin=0.12):
@@ -518,7 +525,9 @@ check("elbow R never over-folds", minfold["R"] > 25, f"min interior={minfold['R'
 # ---------------- skinning stress: streaks, shirt/skin capture, rear hair hue ----
 import io as _io
 from PIL import Image as _Im
-UVs = acc_np(prim["attributes"]["TEXCOORD_0"]).astype(np.float64)
+UVs = np.concatenate([
+    acc_np(p["attributes"]["TEXCOORD_0"]).astype(np.float64) for p in prims
+], axis=0)
 _mat = gltf["materials"][0]
 _src = gltf["textures"][_mat["pbrMetallicRoughness"]["baseColorTexture"]["index"]]["source"]
 _bv = gltf["bufferViews"][gltf["images"][_src]["bufferView"]]
@@ -573,7 +582,10 @@ S1 = full_skin_pose(stress)
 disp = np.linalg.norm(S1-P0, axis=1)
 check("stress max displacement bounded", float(disp.max()) < 1.1,
       f"max vert displacement {disp.max():.2f} (hair tips ~0.6 legit)")
-IDX = acc_np(prim["indices"]).astype(np.int64).reshape(-1,3)
+IDX = np.concatenate([
+    acc_np(p["indices"]).astype(np.int64).reshape(-1,3) + primitive_offsets[index]
+    for index, p in enumerate(prims)
+], axis=0)
 e = np.unique(np.sort(np.concatenate([IDX[:,[0,1]], IDX[:,[1,2]], IDX[:,[0,2]]]),1), axis=0)
 sel_e = e[np.random.RandomState(7).choice(len(e), 30000, replace=False)]
 l0 = np.linalg.norm(P0[sel_e[:,0]]-P0[sel_e[:,1]], axis=1)
