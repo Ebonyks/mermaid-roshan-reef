@@ -1,0 +1,724 @@
+# Mermaid Roshan Art Style Guide
+
+_Source-art edition, 2026-07-13_
+
+## Purpose and authority
+
+This guide translates the visual language of the owner-provided
+`Mermaid_Roshan_INTERIOR_A5.pdf` into production rules for future textures,
+models, skins, props, environments, effects, and supporting 2D artwork.
+
+The PDF is original family artwork owned by Mermaid Roshan LLC. It is the
+primary visual authority and is not redistributed with this guide. Existing
+art in `assets/book/` and `assets/characters/friends/` remains protected source
+material: do not repaint, restyle, recompress, or replace it unless the owner
+specifically requests that work.
+
+Source reviewed: 34-page `Mermaid_Roshan_INTERIOR_A5.pdf`, SHA-256
+`5EE95EA53AAC63CFAD288F0C44A394DD823B9A2E5D9314B83A6668AA48FD83D9`.
+
+When references disagree, use this order:
+
+1. The protected source art for character identity and family likeness.
+2. This guide for the shared visual language and 2D-to-3D translation.
+3. A task-specific owner brief or approved turnaround.
+4. Technical pipeline documents such as `CHARACTER_PIPELINE.md`,
+   `CHARACTER_RUNBOOK.md`, `CEL_SHADING.md`, and `NB_TEXTURE_PLAN.md`.
+
+Wind Waker is a rendering reference for readable cel shading and stylized
+geometry only. Do not copy Zelda assets, symbols, characters, UI, or designs.
+
+## The visual promise
+
+Mermaid Roshan should feel like a warm family memory transformed into a gentle
+underwater adventure. The style is:
+
+- modern flat-color anime with soft storybook painting;
+- high-key, colorful, and emotionally safe;
+- rounded and immediately readable on a small phone;
+- grounded in recognizable places and objects;
+- made magical with water, bubbles, caustics, coral, shells, and rainbow color;
+- detailed enough to reward looking, but never gritty, noisy, or threatening.
+
+The source art alternates between airy scrapbook-like pages and immersive
+full-page scenes. Both belong to the same world. Airy compositions emphasize a
+single person, prop, or memory against pale aqua paper. Full scenes preserve
+real architecture and object placement, then flood the scene with cool light
+and marine life.
+
+## Source reference map
+
+Use the following rendered PDF pages when studying a particular problem. Page
+numbers refer to the 34-page owner PDF as supplied.
+
+| Need | Best source pages | What to study |
+|---|---:|---|
+| Roshan identity | 3, 4, 25, 30, 32, 33 | face, brown hair, rainbow forelock, tail, expressions |
+| Family and friends | 2, 3, 11, 13, 17, 26, 31 | likeness, pose, paired silhouettes, age differences |
+| Airy layouts | 4, 5, 7, 10, 11, 13, 15, 16, 21, 22, 25, 28, 29 | pale field, isolated subjects, coral edge motifs |
+| Underwater interiors | 6, 12, 14, 17, 23, 24, 27, 30, 32 | geometry lock, aqua grade, caustics, floating physics |
+| Nature and rocks | 19, 20, 33 | layered foliage, broad rock planes, atmospheric depth |
+| Snow and seasonal art | 7, 8, 27, 28, 33 | cool shadows, warm focal accents, soft snow shapes |
+| Props and crafts | 4, 5, 10, 15, 16, 18, 21, 22, 28, 29 | recognizable silhouette, simplified detail, story role |
+
+Do not lift pixels from the PDF into a new asset unless the owner asks for a
+direct derivative. Recreate the language, not a hidden collage of source art.
+
+## Book-defined motif families
+
+### Canonical source-art rule
+
+Any object directly copied from the book is a 5/5 canonical asset, even when it
+looks unlike the runtime's generated cel-shaded world. Preserve it pixel-for-
+pixel and do not feed it into an AI replacement pass. This currently includes
+the carrot, watering can, friendship flower, story portraits, and protected
+family/character art. A nearby placeholder with the same gameplay role does not
+override the source asset.
+
+### Functional seasonal asset rule
+
+The Christmas picture game is a placement interaction, not a decorated-tree
+gallery. Its functional art contract is one empty tree board, five detachable
+ornaments that are each tapped and then placed, and the protected friendship
+flower topper. Generate those pieces independently. A pre-decorated bulb tree
+is redundant and should not be added. Snowy pines in the village are separate
+background scenery and remain unadorned by ornaments.
+
+The book does not apply one generic treatment to every object. Repeated subjects
+establish smaller, distinct style systems. Use the relevant motif family before
+the general rules in this guide. Do not average butterflies, coral, plants, toys,
+and craft objects into the same rounded mascot style.
+
+Motif recognition is not a request for realism. Preserve the identifying anatomy
+or growth habit, then simplify it into the game's cartoon language: broad shapes,
+few internal marks and two or three cel value bands. When a draft could pass as a
+field-guide plate, product rendering or realistic botanical illustration, push it
+back toward the friendly illustrated game world.
+
+| Motif family | Canonical pages | Primary evidence |
+|---|---:|---|
+| Page-border reef | 2-5, 7, 9-11, 13, 15-16, 18, 21-22, 25-26, 28-31, 34 | branching coral, fan shells, pebbles, pale seabed framing |
+| Immersive coral and reef flora | 6, 12, 14, 17, 19-20, 27, 30, 32 | dimensional coral, kelp, seagrass, anemone-like forms |
+| Terrestrial garden plants | 3, 10, 19-20, 27, 34 | potted trees, flowering shrubs, succulents, aloe, cactus |
+| Butterflies | 18-20, 34 | monarch, blue morpho, black-and-cream and pale small species |
+| Beetles and museum insects | 18, 34 | stag beetle, ladybird and varied pinned specimen silhouettes |
+| Shells and marine keepsakes | 2-5, 7-11, 13, 15-18, 21-22, 25-34 | fan shells, spiral shells, starfish, anchors and compasses |
+| Plush toys and dolls | 5, 11, 13, 21, 23-24, 28-30, 34 | soft toys, baby dolls, child craft cats and playset figures |
+| Handmade craft materials | 21, 25, 34 | paper, pom-poms, glue, thread, buttons, scissors and streamers |
+| Food and kitchen objects | 16-17, 22, 34 | mixer, saucepan, tray, apricots, cake and lollies |
+| Snow and seasonal decorations | 7-9, 27-29, 33-34 | snow, pine trees, ornaments, gifts and winter clouds |
+| Architecture, vehicles and machinery | 3, 6-8, 12, 14, 18, 23-24, 27, 29-30, 32 | Space Needle, homes, cockpit, museum, playground, kitchen |
+| Rocks, ground and water | 8, 19-20, 27, 30, 32-33 | broad rock planes, snow caps, shallow water and caustics |
+
+### Page-border reef
+
+The border reef is graphic framing, not a miniature ecosystem.
+
+- Use a low pale aqua seabed ridge with large quiet negative space above it.
+- Corals are isolated branching silhouettes with rounded finger ends. Typical
+  colors are muted mint-grey, shell cream, coral blush, dusty lavender and pale
+  blue, separated by a fine blue-grey or plum contour.
+- Fan shells use five to nine broad radial ribs, a cream-to-blush face and a thin
+  cool shadow along the lower edge. Pebbles are sparse and subordinate.
+- Keep each coral, shell, pebble group and keepsake as a separate asset. Compose
+  the border in-engine; do not bake a coral garden, flowers, rocks and shells into
+  one repeated card.
+- Border motifs are flatter, quieter and less saturated than interactive reef
+  props. They must frame without becoming objectives.
+
+### Immersive coral and reef flora
+
+Full-scene reef growth has more depth than page-border coral but remains built
+from broad cel planes.
+
+- Use layered silhouettes: a clear front branch or blade group, one cool shadow
+  plane and a restrained rear mass. Avoid a dense painterly bouquet.
+- Coral families stay marine: branching coral, low mound coral, soft fingers,
+  tubes, fans and anemone-like crowns. Do not add terrestrial blossoms or leaves
+  to make a coral prop feel decorative.
+- Kelp and seagrass grow from one attachment point and use long S-curved blades.
+  Anemones use one low base plus a countable ring of thick tapered tentacles.
+- Neighboring props provide variety. A single asset should not contain its own
+  rocks, sand island, shells, flowers and several unrelated species.
+- Scene coral can use stronger coral pink, violet, turquoise and blue than border
+  coral, but one specimen should still have a dominant hue.
+
+### Terrestrial plants
+
+Pages 10, 19, 20, 27 and 34 preserve recognizable plant structure rather than
+turning every plant into the same rounded tuft.
+
+- Identify the growth habit first: woody branching tree, upright cane, trailing
+  vine, rosette succulent, paddle cactus, sword-leaf plant or flowering shrub.
+- Woody plants show a visible trunk and fork pattern. Leaves attach in readable
+  clusters along branches instead of forming one undifferentiated blob.
+- Succulents use thick overlapping leaves with a clear center rosette. Aloe and
+  snake plants use long tapered blades with restrained edge marks.
+- Flowers belong only to a flowering species. Keep blossoms sparse enough that
+  the leaf and branch structure still reads.
+- Potted plants keep the pot as a separate material family: simple teal, blue or
+  warm clay vessel, broad rim, visible soil plane and no decorative reef base.
+- Above-water garden plants never include coral, tube sponges, shells or seabed
+  stones in the same sprite or model.
+
+### Butterflies
+
+The butterfly room on pages 19-20, the museum page 18 and the small butterfly on
+page 34 establish a clear butterfly guide.
+
+- Preserve species-readable wing architecture. Forewings are longer and more
+  triangular; hindwings are rounder. The thorax, abdomen and two antennae remain
+  visible between them.
+- Use complete anatomy: four wings, body and antennae. A dorsal sprite shows both
+  left and right wing pairs. A side or perched sprite still includes a complete
+  body and a deliberate overlap of the far wings.
+- Monarch-like butterflies use warm orange cells, black or deep-brown veins and
+  cream edge spots. Blue morpho-like butterflies use saturated blue-violet fields
+  with dark margins. Smaller background species may be pale yellow, orange,
+  lavender or blue, but retain believable wing panels.
+- Butterflies are elegant animals, not mascot characters. Do not add a human face,
+  star-tipped antennae, heart wings or rainbow panels unless a named story object
+  explicitly requires them.
+- Contours are finer than toy contours. Wing veins and spot patterns are sparse,
+  species-informed and mirrored loosely rather than mechanically.
+- Animation sets require matched registration and scale. Generate open,
+  half-folded and closed poses separately; every frame must depict the complete
+  butterfly, not one wing intended to be inferred by mirroring.
+
+### Beetles and museum insects
+
+The museum display on page 18 and the foreground stag beetles on pages 18 and 34
+favor observational, species-readable insects.
+
+- Keep the head, thorax and wing-case abdomen as three readable masses. Include
+  six legs and the correct antenna or mandible silhouette.
+- A stag beetle needs broad branched mandibles; a ladybird needs a domed split
+  wing case; a scarab or jewel beetle needs a compact oval case and small head.
+- Use dark brown, black, olive, bottle green, muted bronze and restrained blue
+  iridescence. Highlights are narrow cel shapes, not chrome reflections.
+- Use a thin dark-brown or indigo contour and a few anatomical joints. Do not add
+  eyes with pupils, smiles, shoes, hands or plush proportions.
+- Museum-specimen accuracy is the starting point; simplification serves phone
+  readability without changing the species into a generic bug icon. Omit fine
+  shell pits, hairs, micro-ridges and realistic reflective texture.
+
+### Shells, starfish and marine keepsakes
+
+- Fan shells are cream or blush with broad radial ribs and a scalloped edge.
+- Spiral shells use one clear expanding spiral plus two or three value bands; do
+  not cover them in microtexture.
+- Starfish have five mildly uneven tapered arms and a quiet dotted or ridged center.
+- Anchors, compasses, whistles, leads and small travel keepsakes remain ordinary,
+  recognizable objects with restrained brass, rope, leather or steel colors.
+- These objects may frame a page or mark an objective. Their saturation and scale,
+  not a face or glow baked into the texture, distinguish the interactive version.
+
+### Plush toys, dolls and playsets
+
+- Plush toys use a large head-to-body ratio, short limbs, a soft resting silhouette
+  and only the seams needed to explain construction. Fur is grouped into broad
+  clumps or a quiet soft edge, never photoreal strands.
+- Dolls retain human or baby proportions appropriate to the depicted toy. Do not
+  turn every doll into the same big-eyed mascot.
+- Child-made paper crafts preserve uneven pencil marks, imperfect symmetry,
+  visible glue pieces and tactile pom-poms. Their charm comes from construction,
+  not professional vector polish.
+- Playsets and toy vehicles use simplified real geometry, clear doors and shelves,
+  and a small number of candy-colored panels.
+- Named family toys and protected source cutouts keep their exact identity.
+  Externally branded toys visible in the story are evidence for scale and finish
+  only; do not copy their characters, logos or proprietary designs into new game
+  assets.
+
+### Handmade materials and celebration ribbons
+
+- Paper, thread, buttons, glue and scissors should look handled and usable, with a
+  single clear functional silhouette and one or two construction details.
+- Pom-poms are matte fabric spheres, not glass beads. Thread and streamers follow
+  loose S-curves with slight irregularity and no rigid perfect spiral.
+- Craft palettes may be more varied than world props, but arrange colors in small
+  deliberate groups instead of an automatic full rainbow.
+- Keep loose craft pieces separate so the game can compose activities without a
+  repeated baked tabletop scene.
+
+### Food and kitchen objects
+
+- Preserve real domestic silhouettes: mixer head and bowl, saucepan handle, tray
+  lip, cake layers, icing edge and recognizable fruit shape.
+- Food uses shell cream, apricot, honey, berry and chocolate accents with cool aqua
+  environmental shadows. It should look appealing but not glossy or hyperreal.
+- Cakes and baked goods use broad layers and a few crumbs or inclusions. Avoid
+  perfect product-photography frosting and dense sprinkle noise.
+- Ordinary food and tools do not receive faces. Scale or warm color identifies
+  them as interactive props.
+
+### Snow and seasonal decorations
+
+- Snow forms broad rounded caps with blue-grey or lavender undersides. Individual
+  crystal detail is reserved for a few foreground accents.
+- Pine trees use a readable trunk and tiered branch silhouette beneath the snow;
+  avoid a perfect green cone.
+- Ornaments are simple glass or painted spheres, ribbed finials and stars in jewel
+  violet, rose, blue, pearl and restrained gold. Use one crisp highlight and one
+  cool shadow band, not metallic chrome or airbrushed gloss.
+- Gifts use clear box geometry, soft ribbon loops and pale winter colors. Keep
+  wrapping patterns broad enough for the phone screen.
+
+### Architecture, vehicles and machinery
+
+- Preserve the identifying geometry of the real place or object before applying
+  the underwater grade. Cockpit controls, playground slides, kitchens, museum
+  facades, beds and dollhouses remain recognizable.
+- Simplify repeated controls and clutter into grouped panels without inventing a
+  generic fantasy substitute.
+- Cyan caustics, bubbles, coral and drifting objects are separate scene overlays.
+  Do not bake them into reusable architecture textures.
+
+### Rocks, ground and water
+
+- Rocks use broad interlocking grey-teal planes with thin colored edges and a
+  small cream or cyan top highlight. Snow caps remain a separate rounded layer.
+- Shallow water is high-key aqua with a few broad caustic ribbons and soft ripples.
+  Do not encode a hard sun direction or dense white web into a reusable tile.
+- Ground surfaces stay quiet enough for characters and objectives. Distinct shells,
+  flowers, leaves and stones are placed props, not landmarks baked into a repeat.
+
+## Visual DNA
+
+### Shape language
+
+- Build from broad, rounded, slightly asymmetrical masses.
+- Preserve the real object's unmistakable silhouette before stylizing it.
+- Use gentle S-curves in tails, hair, plants, ribbons, cables, and water motion.
+- Favor tapered fins, leaf tips, and coral branches over sharp mechanical spikes.
+- Bevel hard props enough to catch a clean highlight, but do not make every form
+  uniformly puffy or plush.
+- Exaggerate the feature that explains an object's play value: a slide is wide,
+  a flower is face-sized, a shell has a clear fan, and a crown reads at phone size.
+- Keep small details grouped into two or three calm clusters. Do not distribute
+  visual noise evenly over a surface.
+
+### Line language
+
+- Use a clean, confident outer contour. Major silhouettes should read as roughly
+  2-4 screen pixels at 1280x720; interior lines should read as 1-2 pixels.
+- Prefer deep indigo, charcoal blue, plum, or warm brown-black ink. Pure black is
+  acceptable for tiny facial features, but should not dominate environments.
+- Let line color relate to the local material: blue-grey on water and metal,
+  brown on hair and wood, muted plum on purple cloth.
+- Keep contours smooth and continuous. Avoid scratchy hatching, comic-book speed
+  lines, distressed edges, or thick white sticker rims.
+- Use interior lines sparingly to explain scales, folds, panel breaks, and facial
+  features. Value blocks should do most of the modeling.
+
+### Value and lighting
+
+- Keep the image high-key. Faces, hands, and objective props must never disappear
+  into a dark value mass.
+- Use three broad value families: light base, cool midtone, and restrained deep
+  accent. Reserve the deepest accents for eyes, contour separation, and focus.
+- Light feels diffuse and underwater, usually from above and in front.
+- Shadows are aqua, blue-grey, or lavender rather than neutral black.
+- Highlights may be warm cream, pale cyan, or white. Use small white sparkles as
+  punctuation, not as a coating over every surface.
+- Caustics are broad, soft-edged ribbons that cross existing geometry. They are an
+  overlay and must not erase the object's local color or material identity.
+- Never bake a dramatic spotlight, horror lighting, heavy vignette, or crushed
+  ambient occlusion into reusable textures.
+
+### Color behavior
+
+The world uses cool water colors as its large field and warm rainbow colors as
+story accents. This balance is more important than any single hex value.
+
+The following working palette was sampled and visually normalized from the
+source. It is a production starting point, not a limit on character-specific
+colors.
+
+| Role | Hex | Use |
+|---|---|---|
+| Foam white | `#E4F5F6` | bubbles, snow light, sparkle, eye highlight |
+| Paper aqua | `#DEF2F5` | airy page field, pale water, quiet negative space |
+| Mist cyan | `#C3E8ED` | soft fill, distant water, pale painted surfaces |
+| Lagoon cyan | `#68C6CF` | water accent, magic light, friendly interaction cue |
+| Ocean blue | `#4087B0` | mid-depth water, painted metal, cool prop accent |
+| Deep teal | `#345F73` | structure, shaded water, environmental separation |
+| Ink indigo | `#222E44` | contours, text-like marks, deepest safe dark |
+| Sea-glass mint | `#A1D5BF` | fins, plants, magical trim, reflected light |
+| Leaf sage | `#7A9088` | subdued foliage, stone moss, supporting neutrals |
+| Shell cream | `#E8D4B8` | sand, shells, cake, warm highlight |
+| Skin warmth | `#E2B59D` | skin midtone reference; preserve each person's likeness |
+| Coral blush | `#D08B85` | cheeks, coral, warm environmental accent |
+| Rose berry | `#B45F78` | clothing, ornaments, flower accents |
+| Tail pink | `#E88FB9` | Roshan identity accent, magical focal color |
+| Apricot | `#F2A45F` | rainbow transition, shells, food, warm focus |
+| Sun yellow | `#F4D968` | rainbow transition, crown, joyful highlight |
+| Reef green | `#79C982` | rainbow tail, plants, friendly nature cues |
+| Fin blue | `#55A9D6` | rainbow tail and fin transition |
+| Mermaid violet | `#9A77C8` | clothing, tail shadow, magical secondary accent |
+| Chestnut | `#7A4B35` | Roshan hair and warm wood family |
+
+Palette rules:
+
+- Let cool colors occupy about two thirds of an environment; use warm colors to
+  identify characters, rewards, and touch targets.
+- Keep local color visible under the underwater grade. A pink coat remains pink,
+  wood remains warm, and a plant remains green.
+- Use rainbows as an identity and delight accent, not as a universal surface fill.
+- Avoid neon color over large areas. Saturation should peak in small focal zones.
+- Avoid one-note all-blue scenes. Add shell cream, coral, leaf green, chestnut, or
+  lavender so the image retains the source artwork's warmth.
+
+## Character and creature art
+
+### Identity comes before style
+
+For Roshan, family members, and named friends, likeness and established costume
+details are not optional decoration. Start from the protected character source
+or an owner-approved turnaround. Do not average faces into a generic anime face,
+change skin tone, alter age, or redesign body proportions without approval.
+
+Roshan's recurring anchors are:
+
+- warm brown eyes and a friendly, open child expression;
+- chestnut-brown hair with soft grouped locks;
+- the rainbow streak on the front-left side of the hair, never moved to the back
+  or top pony, and never accidentally mirrored;
+- a purple/lavender clothing family unless a scene reference specifies an outfit;
+- a colored iridescent scale tail, with green on her right, pink on her left, and
+  a controlled transition between them;
+- a clearly separated multicolor fin and a small tiara when called for by the
+  source or scene.
+
+Use large expressive eyes, small simplified noses, soft cheek warmth, and clear
+mouth shapes. Expressions should be readable and kind. Avoid realistic pores,
+individual eyelashes at gameplay scale, hard nasolabial lines, or adult glamour
+rendering on child characters.
+
+Hair is made from a few flowing ribbon-like masses with painted interior locks.
+Underwater hair arcs upward or outward in an S-curve. It should not look rigid,
+greasy, strand-simulated, or uniformly ballooned.
+
+Tails need a strong continuous gesture from waist to fin. Scales are overlapping
+color shapes, not metallic armor. Keep the scale pattern larger around the torso
+and gameplay camera, simplify it with distance, and avoid high-frequency fish-skin
+photo texture.
+
+Creatures should inherit the same friendly shape logic: oversized identifying
+features, simple face, rounded body, short readable appendages, and no exposed
+teeth or predatory glare unless softened into a playful expression.
+
+### 3D character translation
+
+- Match the approved front and side silhouettes before adding surface detail.
+- Model broad facial planes and grouped hair clumps. Do not solve softness by
+  rounding every transition or by adding plush/felt surface noise.
+- Keep hands, fins, crowns, eyes, and hair streaks thick enough to survive the
+  Mobile renderer and animation deformation.
+- Place UV seams away from the face, rainbow forelock, front torso, and hero side
+  of the tail. Never let a tail gradient jump across a visible seam.
+- Use toon bands and a controlled outline to reproduce the illustration. Do not
+  chase photoreal subsurface scattering or cinematic skin.
+- Give the model a soft, cool contact shadow so it sits in the playset. Avoid a
+  hard black footprint.
+- Preserve all rig and bone-name contracts in `CHARACTER_PIPELINE.md` and the
+  relevant work order. A visual upgrade must not break movement.
+
+Static book-character cutouts remain unshaded illustrations. They may receive a
+subtle idle bob, contact shadow, bubbles, or sparkles, but must not be relit or
+redesigned.
+
+## Environment and prop art
+
+### The recognizable-world rule
+
+The source turns real experiences into underwater adventures without discarding
+the place. Cockpits, kitchens, playgrounds, museums, bedrooms, gardens, and
+butterfly rooms keep their perspective and recognizable structures.
+
+For new environment work:
+
+1. Lock the large perspective, circulation path, and major object silhouettes.
+2. Simplify clutter into grouped color shapes.
+3. Shift the ambient palette toward cyan and blue while retaining local colors.
+4. Add underwater storytelling on top: bubbles, marine snow, caustics, sea plants,
+   coral, shells, starfish, and gently floating loose items.
+5. Keep faces, paths, doors, objectives, and interactive props visually clear.
+
+Do not replace an ordinary location with a generic fantasy reef when the real
+location is part of the memory. The magic comes from the flood overlay.
+
+### Geometry
+
+- Favor rounded toy-playset geometry with broad planes and shallow bevels.
+- Keep stairs, doors, handles, ramps, and collectible shapes oversized enough for
+  a four-year-old to recognize at a glance.
+- Use mild asymmetry and hand-shaped taper so assets do not feel CAD-perfect.
+- Break large surfaces with a few intentional panel lines or color patches rather
+  than dense greebles.
+- Rocks use large interlocking facets with cool top planes and deeper teal/lavender
+  side planes. Avoid realistic scanned crags and noisy displacement.
+- Foliage is layered from graphic leaf clusters. Each plant needs a readable outer
+  silhouette before interior leaves are added.
+
+### Props
+
+- Preserve the object's functional silhouette and one or two signature details.
+- Use 5-8 major color shapes for a normal gameplay prop. Add tiny decoration only
+  after the object reads at thumbnail size.
+- Make interactive props warmer, brighter, or more saturated than their immediate
+  background. Do not depend on text or a tiny icon to explain interaction.
+- Food, toys, shells, craft items, and gifts may be slightly oversized and more
+  saturated than architecture.
+- Damage, dirt, cracks, and rust should be minimal, rounded, and non-threatening.
+
+## Texture and material standards
+
+### Albedo/base color
+
+- Paint broad flat-color regions first, then add restrained storybook variation.
+- Runtime sprites and model textures must read as cel art before any surface
+  texture is visible: use two or three deliberate value bands with hard or gently
+  eased boundaries. Do not use watercolor rendering as the primary shading model.
+- Variation should look like soft watercolor bloom, dry-brush grain, or gentle
+  mottling. Keep it low contrast and contained inside a color band; it must not
+  blur silhouettes, replace cel planes, or become photographic noise.
+- Keep important edges in geometry or deliberate painted lines. Do not rely on
+  high-resolution texture detail to define the object.
+- Use cool colored shadows and warm/cyan highlights. Avoid black creases and white
+  edge wear.
+- Do not bake directional lighting, cast shadows, caustics, or ambient occlusion
+  into a reusable tile. Those belong to materials, decals, or scene lighting.
+- A hero skin may include carefully painted local shading when it reproduces the
+  source illustration, but it must remain compatible with toon lighting.
+
+### Surface maps
+
+- Normal maps should reinforce broad scales, cloth folds, stone planes, wood grain,
+  or shell ridges. Remove pores, sand-sized bumps, and scan noise.
+- Keep normal strength subtle. If the normal map is the first thing visible on a
+  phone screenshot, it is too strong.
+- Most painted surfaces are matte to satin. Use roughness around 0.65-0.90 for
+  stone, cloth, plants, paper, and painted architecture.
+- Skin, hair, and clean painted props generally sit around 0.50-0.80 roughness.
+- Wet scales, glazed food, polished shells, and water-washed surfaces may use
+  controlled 0.30-0.60 roughness accents, never an all-over plastic shine.
+- Metallic is zero unless the object is visibly metal. Crowns and hardware can use
+  restrained metallic response while preserving their painted color bands.
+- Ambient occlusion must be soft and colored by the albedo. Never produce black
+  seams around every scale, leaf, or panel.
+
+### Seamless tiles
+
+Every repeating tile must be:
+
+- seamless on all four edges;
+- square, top-down or straight-on orthographic as appropriate;
+- evenly lit with no vignette, border, cast shadow, or perspective convergence;
+- readable as broad painted shapes at 1280x720;
+- tested at least as a 3x3 repeat, including a mirrored seam inspection;
+- free of a unique landmark that reveals repetition immediately.
+
+Use a small family of coordinated tiles rather than one texture for every object.
+Good families include pale sand, cool rock, cream-pink castle stone, lavender
+marble, honey wood, spring grass, packed earth, warm cobble, blue-shadow snow, and
+coral roof. `NB_TEXTURE_PLAN.md` defines the current terrain slots.
+
+### Technical limits
+
+- New textures must be 1024 pixels or less on the longest side, or power-of-two.
+- Use VRAM compression only for power-of-two textures.
+- Color maps use sRGB. Normal, roughness, metallic, and masks use linear data.
+- Prefer PNG for alpha, masks, normals, and crisp painted edges. Use high-quality
+  JPEG or WebP only where alpha and exact edge color are not required.
+- Preview all materials with Godot's Mobile renderer. Desktop and phone must share
+  the same visual result.
+- Do not add a new OmniLight without a Speedy-tier cull path.
+- Add every new source asset to `ASSET_LICENSES.md` in the same commit.
+
+## Water and magical effects
+
+- Bubbles are thin pale circles with one bright highlight and slight size variety.
+  Keep them sparse around faces and touch targets.
+- Marine snow is a low-contrast field of tiny drifting specks, not a blizzard.
+- Caustics are slow, broad cyan-white ribbons at low opacity. They follow surfaces
+  and should not flash rapidly.
+- Sparkles use the source's simple four-point diamond/star shape. Reserve them for
+  successful interaction, magic, polished objects, and composition corners.
+- Coral and shells use muted supporting colors at scene edges, with brighter coral
+  near an objective. Avoid a uniform rainbow reef behind a rainbow character.
+- Underwater motion is buoyant: hair, fabric, leaves, ribbons, and cords lag and
+  rise gently. Keep amplitude calm enough for a young child.
+
+## Composition and mobile readability
+
+- One image or gameplay view should have one obvious primary subject.
+- Keep the subject silhouette clear against a quieter value field.
+- Use foreground coral, architecture, plants, or cables to frame rather than cover.
+- Place detail around the subject and let at least one area breathe.
+- Keep important faces and hands away from screen edges, HUD, and touch controls.
+- Check every asset and scene at the base 1280x720 canvas and on the target phone.
+- At gameplay distance, the player should identify an asset by silhouette and two
+  or three color blocks before seeing texture detail.
+- Text is never part of an objective prop or texture. Objectives require voice and
+  a visual pointer in the game.
+
+## AI-assisted art
+
+AI generation is a draft and variation tool, not permission to reinterpret a
+protected character. Character work requires the correct owner-provided references
+at generation time and a visual comparison before import.
+
+### General asset prompt block
+
+Use this as a starting block and add the asset's exact form, camera, and palette:
+
+> Mermaid Roshan children's game asset, clean flat-color anime cel illustration,
+> rounded readable silhouette, thin clean dark-indigo contour, two or three broad
+> flat value bands, crisp deliberate shadow shapes, high-key underwater cyan fill,
+> aqua and lavender shadows, warm coral and rainbow focal accents, extremely
+> restrained surface grain inside color regions only, gentle friendly mood,
+> simple four-year-old-readable design, Mobile game asset
+
+Useful negative constraints:
+
+> no photorealism, no gritty detail, no horror, no dramatic dark shadows, no thick
+> white sticker rim, no glossy plastic, no plush or felt texture, no tiny greebles,
+> no watercolor wash as shading, no painterly edge breakup, no text, no logo, no
+> vignette, no copyrighted franchise symbols
+
+For a seamless tile, also require a square orthographic view, flat even lighting,
+no baked shadow, no border, and perfect four-edge tiling. For a 3D turnaround,
+require identical proportions and colors across front, side, and back views, neutral
+pose, orthographic camera, and no perspective exaggeration.
+
+### 2D runtime and animation generation
+
+- Generate a reusable asset, not a finished scene. One sprite depicts one object
+  with no ground patch, neighboring flora, coral cluster, cast shadow, particles,
+  or decorative frame unless those layers are explicitly requested.
+- A modular plant has one root or attachment point and a silhouette that can be
+  rotated, mirrored, and overlapped without creating an obvious repeated island.
+- Do not mix biomes inside one prop. Above-water flowers do not share a baked card
+  with coral, tube sponges, stones, or seabed dressing.
+- State the camera and animation contract in the prompt. A flying butterfly needs
+  a complete body and both left and right wings; open, half-folded, and closed
+  poses are separate matched frames or separate named layers.
+- For layered craft art, generate each required part independently against the
+  same registration canvas. Do not ask the model to infer cut lines from a single
+  finished illustration.
+- Require flat cel bands explicitly. Reject generations whose identity depends on
+  watercolor volume, soft airbrushed modeling, noisy brush texture, or a thick
+  contour that overwhelms the current game art.
+- Prefer cartoon simplification whenever source accuracy and game readability
+  compete. Use no more anatomical or botanical detail than survives at the
+  intended phone size; never let a generated asset drift into natural-history,
+  product-render or photoreal illustration.
+- Compare the draft beside an approved in-game asset at its actual display size
+  before removing the chroma key or preparing an import.
+
+The owner-supplied character mapping and geometry-lock prompt remains in
+`gen2/prompts/style_transfer_v10.14.md`. Use its stricter identity rules whenever
+Roshan or family members appear.
+
+## Production workflow
+
+1. **Classify the asset.** Decide whether it is protected character art, a direct
+   derivative, a new world asset, or a licensed external base.
+2. **Choose references.** Record the relevant source PDF pages and any approved
+   turnaround. For a real place or prop, preserve its identifying geometry.
+3. **Make a silhouette pass.** Review it as a solid shape and at phone thumbnail
+   size before sculpting or painting detail.
+4. **Make a color-block pass.** Use the cool-field/warm-focus balance and confirm
+   that the focal feature reads in grayscale and color.
+5. **Author surface detail.** Add only detail that survives the intended camera and
+   supports material identity.
+6. **Preview in the project look.** Use toon bands, outline, contact shadow, and the
+   Mobile renderer. Do not approve a raw PBR viewport render as final.
+7. **Test motion and seams.** Rotate models, deform rigged characters, repeat tiles
+   3x3, and inspect the rainbow forelock and tail from both sides.
+8. **Test in context.** Review at 1280x720 and on the target phone with HUD and touch
+   controls visible.
+9. **License and document.** Update `ASSET_LICENSES.md`, note modifications, and keep
+   source provenance with the work order.
+10. **Run validation.** Import assets, run `scripts/ci.sh`, and require green probes
+    before merging finished work to `master`.
+
+## Art review checklist
+
+An asset is ready only when every applicable item is true.
+
+### Identity and tone
+
+- [ ] Named characters match the protected reference and approved turnaround.
+- [ ] Roshan's rainbow forelock and tail colors are correctly placed and not mirrored.
+- [ ] The expression is friendly, legible, and age-appropriate.
+- [ ] Nothing reads as frightening, dirty, damaged, or aggressively sharp.
+
+### Shape and composition
+
+- [ ] The silhouette is recognizable at gameplay size.
+- [ ] Broad S-curves and rounded masses match the source language.
+- [ ] Small details are grouped and do not create even visual noise.
+- [ ] The asset has a clear focal feature and does not compete with the player.
+
+### Color and material
+
+- [ ] Cool field colors and warm focal colors are balanced.
+- [ ] Local color survives the underwater grade.
+- [ ] Shadows are colored and no reusable texture contains crushed black shading.
+- [ ] Roughness, normals, and metallic response support the illustration instead of
+      making it photoreal or plastic.
+- [ ] Rainbow color is used intentionally and does not overwhelm the scene.
+
+### Technical and legal
+
+- [ ] Texture dimensions and compression obey the project limits.
+- [ ] UV seams, tile seams, alpha edges, and rig deformation pass inspection.
+- [ ] The asset renders correctly under Godot Mobile at 1280x720 and target phone size.
+- [ ] Protected files were not modified as a side effect.
+- [ ] `ASSET_LICENSES.md` contains source, license, URL, and modifications.
+- [ ] Trusted probes pass before merge.
+
+## Fast do/don't reference
+
+| Do | Don't |
+|---|---|
+| Preserve likeness and real-place geometry | Genericize family faces or replace the remembered place |
+| Use broad, rounded, readable shapes | Use noisy scans, micro-detail, or razor-sharp silhouettes |
+| Shade with aqua, blue-grey, and lavender | Use black shadows or cinematic horror contrast |
+| Keep materials matte-to-satin with selected wet accents | Coat the whole world in glossy plastic |
+| Use bubbles, caustics, shells, and floating motion as overlays | Erase local color or structure to make a generic reef |
+| Use rainbow color on identity and delight beats | Put full-spectrum rainbow color on every prop |
+| Keep outlines clean, thin, and dark-colored | Use scratchy ink or thick white sticker borders |
+| Judge work in Mobile and at phone size | Approve from a close-up desktop PBR render alone |
+
+## 3D conversion contract
+
+Many world assets begin as 2D masters and are later rebuilt as meshes. The 2D
+master is a design authority, not a promise that a flat image can replace the
+runtime model. Use `ART_3D_CONVERSION_MANIFEST.md` for the work state and apply
+these rules to every conversion:
+
+- Start from a complete orthographic concept with a named gameplay role. For
+  creatures, show complete anatomy and the side or three-quarter view used by
+  play; for props, show the attachment/base point and no invented face.
+- Preserve the concept's silhouette, broad color blocks, and source-derived
+  identity through front, side, and back views. Do not add detail that changes
+  the object into a different species, toy, or character.
+- Model rounded masses with simple Mobile-safe topology. Use a single clear
+  collision story, stable scale, and an animation contract before adding surface
+  detail. A 2D card is acceptable for ambient decoration only when its billboarding,
+  parallax, and occlusion behavior are explicitly tested.
+- Keep ink and cel bands in the material pipeline where possible. Do not bake
+  black outlines, hard cast shadows, glossy chrome, or repeated prop clusters
+  into a reusable texture.
+- Split family sheets into independently named meshes or cards before wiring.
+  Christmas is specifically one empty tree board plus five detachable ornaments;
+  a sheet is never one combined runtime object.
+- For creatures and plants, test anatomy and repetition at phone size. Reject
+  accidental eyes, mouths, mixed biomes, incomplete wings, floating roots, and
+  repeated islands that become visible when scattered.
+- A mesh is not promoted until it passes a Mobile screenshot at gameplay distance,
+  has dimensions within the texture rule, and is documented in
+  `ASSET_LICENSES.md` with its source and modifications.

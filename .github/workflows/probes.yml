@@ -30,12 +30,15 @@ jobs:
         # and the job dies at the 30m ceiling as an opaque 'cancelled' -
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
-          pip install --quiet gdtoolkit==4.*
+          pip install --quiet gdtoolkit==4.* numpy Pillow
           python3 -m gdtoolkit.parser scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
 
       - name: Import (deadlock-guarded)
         run: timeout 12m godot --headless --import . || (echo "IMPORT FAIL (hang or error)" && exit 1)
+
+      - name: Roshan full motion cage
+        run: python3 tools/audit_motions.py --glb assets/characters/roshan_v4.glb
 
       - name: Compile-check every script (real analyzer, catches what parse-only cannot)
         # probes only compile scripts the run actually loads; lazily-loaded
@@ -54,20 +57,24 @@ jobs:
         run: |
           set -o pipefail
           FAILED=0
-          for p in probe_audit probe_passive probe_load probe_mg2d probe_l2 probe_train probe_verbs probe_skins probe_kart_feel; do
+          for p in probe_reef_districts probe_audit probe_passive probe_load probe_mg2d probe_dance probe_l2 probe_train probe_verbs probe_skins probe_kart_feel probe_combat probe_dungeon; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "SKIP: scripts/$p.gd not present"
               continue
             fi
             echo "=== $p ==="
             timeout 8m godot --headless -s "scripts/$p.gd" 2>&1 | tee "/tmp/$p.out" || FAILED=1
-            if grep -q "FAIL" "/tmp/$p.out"; then
-              echo "PROBE $p reported FAIL"
+            if grep -qE "FAIL|SCRIPT ERROR" "/tmp/$p.out"; then
+              echo "PROBE $p reported a failure or runtime script error"
               FAILED=1
             fi
             if grep -qE "Parse Error|Compile Error" "/tmp/$p.out"; then
               echo "PROBE $p hit a script compile error - aborting gate"
               exit 1
+            fi
+            if [ "$p" = "probe_kart_feel" ] && grep -qE 'SCRIPT ERROR|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)' "/tmp/$p.out"; then
+              echo "PROBE $p reported a missing resource or script error"
+              FAILED=1
             fi
           done
           exit $FAILED

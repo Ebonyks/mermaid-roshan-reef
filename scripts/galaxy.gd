@@ -1,5 +1,8 @@
 extends Node3D
 class_name GalaxyLevel
+
+const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # ============================================================================
 # LEVEL 3 — ROSHAN'S BUTTERFLY WORLD. A Mario-Galaxy-style mini-planet themed
 # after the book's Milwaukee-museum butterfly vivarium: glass conservatory dome,
@@ -32,22 +35,20 @@ const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crys
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
 # is a greenhouse full of tropical plants, not a pine forest
-const TROPICAL := [
-	"res://assets/galaxy/trop_palm1.glb", "res://assets/galaxy/trop_palm2.glb",
-	"res://assets/galaxy/trop_monstera.glb", "res://assets/galaxy/trop_bigleaf.glb",
-	"res://assets/galaxy/trop_fern.glb",
-	"res://assets/nature/plant_bush.glb", "res://assets/nature/grass_leafsLarge.glb"]
+const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
+	"trop_fern", "plant_bush", "grass_leafsLarge"]
 const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gate on the planet
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
-const FRUIT_GLBS := ["res://assets/galaxy/fruit_apple.glb", "res://assets/galaxy/fruit_banana.glb", "res://assets/galaxy/fruit_orange.glb", "res://assets/galaxy/fruit_melon.glb"]
+const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
+const FRUIT_ROLES := ["apple", "banana", "orange", "melon"]
 const TRAY_GLB := "res://assets/galaxy/tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
-const BUG_GLBS := ["res://assets/galaxy/beetle.glb", "res://assets/galaxy/ladybug.glb"]
-const CORALS := ["res://assets/aquatic/Coral1.glb", "res://assets/aquatic/Coral2.glb", "res://assets/aquatic/Coral3.glb", "res://assets/aquatic/Coral4.glb", "res://assets/aquatic/Coral5.glb", "res://assets/aquatic/Coral6.glb"]
+const BUG_ROLES := ["beetle", "ladybug"]
+const CORALS := ["res://assets/props/gen2/coral1.glb", "res://assets/props/gen2/coral2.glb", "res://assets/props/gen2/coral3.glb", "res://assets/props/gen2/coral4.glb", "res://assets/props/gen2/coral5.glb", "res://assets/props/gen2/coral6.glb"]
 
 var _main: Node = null
 var _player_node: Node3D = null
@@ -90,6 +91,11 @@ func _cam_peek(delta: float) -> void:
 	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
 	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
 	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	if _main != null and "touch_ui" in _main and _main.touch_ui != null and _main.touch_ui.has_method("consume_look"):
+		var tl: Vector2 = _main.touch_ui.consume_look()
+		mdx += tl.x
+		mdy += tl.y
+		mlook = mlook or bool(_main.touch_ui.look_active())
 	if absf(rx) > 0.25:
 		_cam_orbit = clampf(_cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
 	elif mlook:
@@ -129,7 +135,7 @@ var _hall_flies: Array = []       # indoor butterflies: {node, r, spd, ph, h}
 var _bells: Array = []            # star bells: {node, pos, cool}
 var _fount_cool := 0.0
 var _gate_cool := 0.0
-var _gate_lbl: Label3D = null   # locked/open castle-gate sign
+var _gate_lbl: Label3D = null   # always-open castle-gate sign
 var _fairyf_cool := 0.0
 var _orrery_planets: Array = []   # her own tiny galaxy: {node, r, spd, ph, tilt}
 var _hall_rug_mat: StandardMaterial3D = null
@@ -137,6 +143,8 @@ var _dance_t := 0.0
 var _dance_note := 0
 var _dance_cool := 0.0
 var _throne_cool := 0.0
+var _ice_gate: Node3D = null       # frosty berry portal inside Butterfly Castle
+var _ice_gate_cool := 0.0
 const PENT := [0, 2, 4, 7, 9]
 var _state := "play"              # play -> won -> done
 var _won_t := 0.0
@@ -171,13 +179,13 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
-	_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
+	_lbl_hint.text = "Rosalina's castle is OPEN!  •  rescue 7 lost butterflies or visit the dance floor!"
 	# owner 2026-07-11: the 7-butterfly quest happens ONCE. On return visits
-	# the babies are already home and the castle stands open — a playground,
-	# not a chore. (No grand star: that prize was already won.)
+	# the babies are already home and stay home — the castle is an open
+	# playground on every visit. (No grand star: that prize was already won.)
 	if _main != null and "bwd_done" in _main and _main.bwd_done:
 		_shards_got = SHARDS
-		_lbl_hint.text = "Welcome back! The butterflies are safe — Rosalina's castle is open!"
+		_lbl_hint.text = "Welcome back! The butterflies are safe — come dance in Rosalina's castle!"
 		if _lbl_shards != null:
 			_lbl_shards.text = "🦋 %d / %d" % [SHARDS, SHARDS]
 		if _gate_lbl != null and is_instance_valid(_gate_lbl):
@@ -406,8 +414,25 @@ func _fit_small(model: Node3D, target_long: float) -> float:
 	return bb.size.y * sc
 
 func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
-	# a tinted butterfly from the CC set (two body styles x seven wing colours)
 	var holder := Node3D.new()
+	if ResourceLoader.exists(BUTTERFLY_STORY_GLB):
+		var story: Node3D = (load(BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
+		holder.add_child(story)
+		_fit_small(story, wingspan)
+		_tint_meshes(story, tint, 0.14)
+		holder.set_meta("wing_l", story.find_child("wing_L", true, false))
+		holder.set_meta("wing_r", story.find_child("wing_R", true, false))
+		return holder
+	var card_path := "res://assets/props/gen2/butterfly%d.png" % (1 + randi() % 2)
+	if ResourceLoader.exists(card_path):
+		var tex: Texture2D = load(card_path)
+		var card := Sprite3D.new()
+		card.texture = tex
+		card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		card.pixel_size = wingspan / maxf(float(tex.get_width()), 1.0)
+		card.modulate = Color.WHITE.lerp(tint, 0.28)
+		holder.add_child(card)
+		return holder
 	var path: String = BUTTERFLY_GLBS[randi() % BUTTERFLY_GLBS.size()]
 	if ResourceLoader.exists(path):
 		var bf: Node3D = (load(path) as PackedScene).instantiate()
@@ -432,31 +457,29 @@ func _build_decor() -> void:
 	# ---- LUSH TROPICAL GARDEN, 3-4x dense: palms, monstera, big leaves, ferns
 	# all around the little planet (natural colours — no candy tint) ----
 	for i in range(32):
-		var gpath: String = TROPICAL[i % TROPICAL.size()]
-		if not ResourceLoader.exists(gpath):
+		var role: String = TROPICAL[i % TROPICAL.size()]
+		var tall: bool = i % TROPICAL.size() < 2
+		var plant_height := (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4))
+		var gr: Node3D = StoryArtFactory.plant(role, plant_height)
+		if gr == null:
 			continue
-		var gr: Node3D = (load(gpath) as PackedScene).instantiate()
 		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
 		var holder := Node3D.new()
 		add_child(holder)
 		holder.add_child(gr)
-		var tall: bool = i % TROPICAL.size() < 2   # the two palm species
-		_fit_small(gr, (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4)))
 		_place_on_planet(holder, dir)
 		holder.rotate(dir, randf() * TAU)
 		if tall:   # collision audit: ALL tall palms are solid now (soft foliage stays walk-through)
 			_blockers.append({"dir": dir, "r": 1.6, "cool": 0.0})
 	# flower beds (bright, chest-high) between the palms
 	for i in range(28):
-		var fpath := "res://assets/nature/%s.glb" % FLORA[i % FLORA.size()]
-		if not ResourceLoader.exists(fpath):
+		var flora_role: String = FLORA[i % FLORA.size()]
+		var fl: Node3D = StoryArtFactory.plant(flora_role, 4.0 + fposmod(float(i) * 2.3, 3.0), pastels[(i + 2) % pastels.size()])
+		if fl == null:
 			continue
-		var fl: Node3D = (load(fpath) as PackedScene).instantiate()
 		var holder2 := Node3D.new()
 		add_child(holder2)
-		fl.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 2.3, 3.0))
 		holder2.add_child(fl)
-		_tint_meshes(fl, pastels[(i + 2) % pastels.size()], 0.20)
 		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
 		_place_on_planet(holder2, dir2)
 	# ---- FRUIT FEEDING TRAYS: walk up and the butterflies swarm in to feast ----
@@ -466,8 +489,8 @@ func _build_decor() -> void:
 		_blockers.append({"dir": tdir, "r": 1.6, "cool": 0.0})   # pedestal rock is solid (feast trigger fires at 4.5)
 		var th := Node3D.new()
 		add_child(th)
-		if ResourceLoader.exists("res://assets/aquatic/Rock2.glb"):
-			var ped: Node3D = (load("res://assets/aquatic/Rock2.glb") as PackedScene).instantiate()
+		if ResourceLoader.exists("res://assets/props/gen2/rock2.glb"):
+			var ped: Node3D = (load("res://assets/props/gen2/rock2.glb") as PackedScene).instantiate()
 			var ph2 := Node3D.new()
 			th.add_child(ph2)
 			ph2.add_child(ped)
@@ -497,14 +520,13 @@ func _build_decor() -> void:
 			cyl.mesh = cm
 			th.add_child(cyl)
 		for fi in range(3):
-			var fpath2: String = FRUIT_GLBS[(ti + fi) % FRUIT_GLBS.size()]
-			if not ResourceLoader.exists(fpath2):
+			var fruit_role: String = FRUIT_ROLES[(ti + fi) % FRUIT_ROLES.size()]
+			var fr: Node3D = StoryArtFactory.fruit(fruit_role, 1.5)
+			if fr == null:
 				continue
-			var fr: Node3D = (load(fpath2) as PackedScene).instantiate()
 			var fh := Node3D.new()
 			th.add_child(fh)
 			fh.add_child(fr)
-			_fit_small(fr, 1.5)
 			fh.position = Vector3(cos(float(fi) * TAU / 3.0) * 1.1, 0.5, sin(float(fi) * TAU / 3.0) * 1.1)
 		var tl := OmniLight3D.new()
 		tl.light_color = Color(1.0, 0.9, 0.6)
@@ -530,7 +552,7 @@ func _build_decor() -> void:
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
-		_tint_meshes(ck, Color(0.72, 0.68, 1.0), 0.45)   # amethyst-glass glow
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
 	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
@@ -540,19 +562,19 @@ func _build_decor() -> void:
 		spire.scale = Vector3.ONE * 4.0
 		spire.position = Vector3([-13.0, 13.0][i], 0, 6.0)
 		castle.add_child(spire)
-		_tint_meshes(spire, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	_place_on_planet(castle, Vector3.UP)
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
 	# plane, or its corners hover visibly above the curving horizon
 	castle.position = _surf(Vector3.UP, -5.0)
-	# the glowing GATE — walk into it to step inside the crystal castle
+	# The glowing gate is always open. The butterfly rescue remains a joyful
+	# optional quest and prize, never a lock between Roshan and the play space.
 	var gatel := Label3D.new()
-	# the castle is LOCKED until all 7 butterflies are home — stage 3's quest
-	gatel.text = "🔒 Rosalina's castle\nbring the 7 butterflies!"
+	gatel.text = "✨ Crystal Castle ✨\n♫ come dance! ♫"
 	gatel.font_size = 50
 	gatel.pixel_size = 0.03
 	gatel.outline_size = 12
-	gatel.modulate = Color(1.0, 0.7, 0.8)
+	gatel.modulate = Color(1.0, 0.92, 0.55)
 	gatel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	gatel.position = _surf(GATE_DIR, 6.5)
 	add_child(gatel)
@@ -791,16 +813,13 @@ void fragment(){
 		_place_on_planet(ch, cdir)
 	# ---- friendly beetles + ladybugs crawl the paths (the museum beetle drawer!) ----
 	for i in range(8):
-		var bpath: String = BUG_GLBS[i % BUG_GLBS.size()]
-		if not ResourceLoader.exists(bpath):
+		var bug_role: String = BUG_ROLES[i % BUG_ROLES.size()]
+		var bug: Node3D = StoryArtFactory.bug(bug_role, 1.6 if bug_role == "beetle" else 1.1)
+		if bug == null:
 			continue
-		var bug: Node3D = (load(bpath) as PackedScene).instantiate()
 		var bh2 := Node3D.new()
 		add_child(bh2)
 		bh2.add_child(bug)
-		_fit_small(bug, 1.6 if i % BUG_GLBS.size() == 0 else 1.1)
-		if i % BUG_GLBS.size() == 0:
-			_tint_meshes(bug, [Color(0.4, 0.9, 0.5), Color(0.9, 0.6, 0.2), Color(0.5, 0.6, 1.0)][i % 3], 0.30)   # jewel-beetle shine
 		var bd0 := Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()
 		var bax := bd0.cross(Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()).normalized()
 		_bugs.append({"node": bh2, "axis": bax, "dir0": bd0, "spd": 0.02 + randf() * 0.02, "ph": randf() * TAU, "cool": 0.0})
@@ -871,29 +890,13 @@ func _build_shards() -> void:
 
 func _build_home_ring() -> void:
 	_home_pos = _surf(Vector3.DOWN, 4.0)
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 3.0
-	tm.outer_radius = 4.2
-	ring.mesh = tm
-	var m := StandardMaterial3D.new()
-	m.albedo_color = Color(0.6, 0.95, 0.8)
-	m.emission_enabled = true
-	m.emission = Color(0.4, 1.0, 0.7)
-	m.emission_energy_multiplier = 1.2
-	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	ring.material_override = m
-	ring.position = _home_pos
-	add_child(ring)
-	# the Butterfly Gate marks the way home too — same doorway everywhere
-	if ResourceLoader.exists("res://assets/portal/butterfly_gate.glb"):
-		var bg := (load("res://assets/portal/butterfly_gate.glb") as PackedScene).instantiate() as Node3D
-		var holder := Node3D.new()
-		add_child(holder)
-		holder.add_child(bg)
-		bg.position = Vector3(0, 2.4, 0)
-		bg.scale = Vector3.ONE * 2.4
-		_place_on_planet(holder, Vector3.DOWN)
+	# Use the same authored landmark at both ends of the world transition.
+	var holder := Node3D.new()
+	add_child(holder)
+	var gate: Node3D = LandmarkArtFactory.create_butterfly_gate(2.4)
+	holder.add_child(gate)
+	gate.position = Vector3(0, 2.4, 0)
+	_place_on_planet(holder, Vector3.DOWN)
 	var lab := Label3D.new()
 	lab.text = "🏠 home"
 	lab.font_size = 56
@@ -931,6 +934,7 @@ func _build_avatar() -> void:
 	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
 	# plushie back every time the rainbow race chained into the galaxy)
 	var glb := "res://assets/characters/roshan.glb"
+	var cutout: Sprite3D = null
 	for vpath in ["res://assets/characters/roshan_v4.glb",
 			"res://assets/characters/roshan_v3.glb"]:
 		if ResourceLoader.exists(vpath):
@@ -938,11 +942,18 @@ func _build_avatar() -> void:
 			break
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
-		if sid == "huluu" and ResourceLoader.exists("res://assets/characters/huluu.glb"):
-			glb = "res://assets/characters/huluu.glb"
-		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy.glb"):
-			glb = "res://assets/characters/fairy.glb"
-	if ResourceLoader.exists(glb):
+		if sid == "huluu":
+			glb = ""
+			cutout = Sprite3D.new()
+			cutout.texture = load("res://assets/characters/friends/huluu.png")
+			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			cutout.pixel_size = 0.011
+			cutout.position = Vector3(0, 2.2, 0)
+		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
+			glb = "res://assets/characters/fairy_v2.glb"
+	if cutout != null:
+		_avatar.add_child(cutout)
+	if glb != "" and ResourceLoader.exists(glb):
 		var inst: Node3D = (load(glb) as PackedScene).instantiate()
 		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
 		var acc: Array = []
@@ -1091,8 +1102,8 @@ func _build_hud() -> void:
 	_lbl_shards.position = Vector2(24, 18)
 	_lbl_shards.add_theme_font_size_override("font_size", 40)
 	_lbl_shards.add_theme_color_override("font_color", Color(1.0, 0.95, 0.6))
-	_lbl_shards.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	_lbl_shards.add_theme_constant_override("outline_size", 8)
+	_lbl_shards.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	_lbl_shards.add_theme_constant_override("outline_size", 6)
 	root.add_child(_lbl_shards)
 	_lbl_big = Label.new()
 	_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -1109,8 +1120,8 @@ func _build_hud() -> void:
 	_lbl_hint.position = Vector2(24, -56)
 	_lbl_hint.add_theme_font_size_override("font_size", 26)
 	_lbl_hint.add_theme_color_override("font_color", Color(0.92, 0.9, 1.0))
-	_lbl_hint.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	_lbl_hint.add_theme_constant_override("outline_size", 6)
+	_lbl_hint.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	_lbl_hint.add_theme_constant_override("outline_size", 5)
 	root.add_child(_lbl_hint)
 	_update_shard_hud()
 
@@ -1190,7 +1201,14 @@ func _process(delta: float) -> void:
 		var vel2: Vector3 = newp - bn.position
 		bn.position = newp
 		_safe_look(bn, vel2, pdir)
-		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
+		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		if wing_l != null and wing_r != null:
+			var flap_angle := deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
+			wing_l.rotation.y = flap_angle
+			wing_r.rotation.y = -flap_angle
+		else:
+			bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 	# beetles + ladybugs crawl slowly along the garden (poke one — it chirps!)
 	for bd2 in _bugs:
 		bd2["cool"] = maxf(0.0, float(bd2["cool"]) - delta)
@@ -1220,7 +1238,7 @@ func _process(delta: float) -> void:
 			_chime(1.15)
 			if _main != null and _main.has_method("show_msg"):
 				if _shards_got < SHARDS:
-					_main.show_msg("Mermaid Rosalina", "My baby butterflies all escaped! Bring all SEVEN home and I'll open my castle for you!", "greet")
+					_main.show_msg("Mermaid Rosalina", "My castle is open! Come dance whenever you like — and help my seven baby butterflies find home!", "greet")
 				else:
 					_main.show_msg("Mermaid Rosalina", "My butterflies are home! Come into my castle, little star!", "open")
 	# ---- fruit trays: stand close and the whole swarm dives in to feast ----
@@ -1314,18 +1332,10 @@ func _process(delta: float) -> void:
 			_main.fairy_pending = true
 			_teardown(false)
 			return
-	# the castle gate: LOCKED until every butterfly is home, then it opens
+	# The castle is a playground, not a quest reward: its gate is always open.
 	_gate_cool = maxf(0.0, _gate_cool - delta)
 	if _gate_cool <= 0.0 and _h < 1.5 and _dir.angle_to(GATE_DIR.normalized()) * PLANET_R < 4.5:
-		if _shards_got < SHARDS:
-			_gate_cool = 6.0
-			_chime(0.6)
-			if _lbl_hint != null:
-				_lbl_hint.text = "Rosalina: my butterflies escaped! Bring all 7 and I'll open the castle! (%d / %d)" % [_shards_got, SHARDS]
-			if _main != null and _main.has_method("show_msg"):
-				_main.show_msg("Mermaid Rosalina", "Not yet, little star! Please find all SEVEN of my butterflies first!", "locked")
-			return
-		_enter_hall()
+		_enter_castle_gate()
 		return
 	# idle timer (a butterfly visits Roshan when she stands still)
 	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
@@ -1378,13 +1388,13 @@ func _process(delta: float) -> void:
 					_lbl_hint.text = "ONE butterfly left — follow the GIANT beacon!"
 			if _shards_got >= SHARDS and not _grand_active:
 				_spawn_grand_star()
-				# every butterfly is home — Rosalina opens her castle!
+				# every butterfly is home — Rosalina turns the open castle into a party!
 				if _gate_lbl != null and is_instance_valid(_gate_lbl):
 					_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
 					_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
 				_chime(1.35)
 				if _main != null and _main.has_method("show_msg"):
-					_main.show_msg("Mermaid Rosalina", "You found them ALL! My castle is open — come in, come in!", "open")
+					_main.show_msg("Mermaid Rosalina", "You found them ALL! Come celebrate together in my castle!", "open")
 	if _grand_active and _grand != null and _grand.position.distance_to(feet) < 7.0:
 		_grand_active = false
 		_grand.visible = false
@@ -1439,6 +1449,17 @@ func _build_hall() -> void:
 	rug.position = Vector3(0, 0.6, 0)
 	_hall_root.add_child(rug)
 	_hall_rug_mat = rmat   # the DANCE FLOOR: hue-cycles, and pulses when Roshan dances on it
+	# Icon-first rhythm invitation: no reading is needed to understand that the
+	# floating arrows belong with the glowing floor below them.
+	var dance_beacon := Label3D.new()
+	dance_beacon.text = "♫\n←  ↓  ↑  →"
+	dance_beacon.font_size = 82
+	dance_beacon.pixel_size = 0.025
+	dance_beacon.outline_size = 16
+	dance_beacon.modulate = Color(1.0, 0.72, 0.95)
+	dance_beacon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	dance_beacon.position = Vector3(0, 4.2, 0)
+	_hall_root.add_child(dance_beacon)
 	# amethyst-glass wall panels (door gap at +z)
 	for i in range(12):
 		if i == 0:
@@ -1470,16 +1491,10 @@ func _build_hall() -> void:
 		_fit_small(col, 3.4)
 		var ca: float = float(i) / 6.0 * TAU + 0.26
 		chh.position = Vector3(sin(ca) * 18.0, 0.5, cos(ca) * 18.0)
-		_tint_meshes(col, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(col, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# star chandeliers
 	for i in range(3):
-		var star := Label3D.new()
-		star.text = "★"
-		star.font_size = 240
-		star.pixel_size = 0.03
-		star.outline_size = 22
-		star.modulate = Color(1.0, 0.92, 0.55)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var star: Node3D = LandmarkArtFactory.create_star(2.2, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][i])
 		star.position = Vector3(sin(float(i) * TAU / 3.0) * 9.0, 10.0, cos(float(i) * TAU / 3.0) * 9.0)
 		_hall_root.add_child(star)
 		var sl := OmniLight3D.new()
@@ -1654,6 +1669,48 @@ void fragment(){
 		var bf := _make_butterfly(WING_COLS[(i * 2) % WING_COLS.size()], 1.8)
 		_hall_root.add_child(bf)
 		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4, "visit_t": 0.0})
+	_build_ice_gate()
+
+func _build_ice_gate() -> void:
+	# An icon-first berry pedestal gives the non-reader a visible destination.
+	# Touching it once opens the new octagonal ice encounter.
+	_ice_gate = Node3D.new()
+	_ice_gate.position = Vector3(-14.0, 0.8, 11.0)
+	_hall_root.add_child(_ice_gate)
+	var base := MeshInstance3D.new()
+	var bcm := CylinderMesh.new()
+	bcm.top_radius = 2.8
+	bcm.bottom_radius = 3.4
+	bcm.height = 1.4
+	base.mesh = bcm
+	var bmat := StandardMaterial3D.new()
+	bmat.albedo_color = Color(0.42, 0.62, 0.92)
+	bmat.emission_enabled = true
+	bmat.emission = Color(0.3, 0.65, 1.0)
+	bmat.emission_energy_multiplier = 0.55
+	base.material_override = bmat
+	_ice_gate.add_child(base)
+	for i in range(3):
+		var berry := MeshInstance3D.new()
+		var bsm := SphereMesh.new()
+		bsm.radius = 0.9
+		bsm.height = 1.8
+		bsm.radial_segments = 12
+		bsm.rings = 6
+		berry.mesh = bsm
+		berry.material_override = bmat
+		berry.position = Vector3((float(i) - 1.0) * 1.25, 1.7 + float(i % 2) * 0.5, 0)
+		_ice_gate.add_child(berry)
+	var snow := Label3D.new()
+	var ice_won: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
+	snow.text = "★\nPOPCORN" if ice_won else "❄\n🫐"
+	snow.font_size = 130
+	snow.pixel_size = 0.025
+	snow.outline_size = 20
+	snow.modulate = Color(0.72, 0.94, 1.0)
+	snow.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	snow.position = Vector3(0, 5.4, 0)
+	_ice_gate.add_child(snow)
 
 func _enter_hall() -> void:
 	if not _hall_built:
@@ -1667,7 +1724,11 @@ func _enter_hall() -> void:
 	if _lbl_hint != null:
 		_lbl_hint.text = "The STAR HALL!  •  dance on the star rug • ring the bells • wish at the fountain • sit on the throne!"
 	if _main != null and _main.has_method("show_msg"):
-		_main.show_msg("Mermaid Rosalina", "Come in, come in! This is my Star Hall — the whole galaxy shines under the floor!", "greet")
+		_main.show_msg("Mermaid Rosalina", "Come in! Step onto the glowing arrows and dance with the whole galaxy!", "greet")
+
+func _enter_castle_gate() -> void:
+	_gate_cool = 2.0
+	_enter_hall()
 
 func _exit_hall() -> void:
 	_mode = "planet"
@@ -1677,9 +1738,10 @@ func _exit_hall() -> void:
 	_h = 0.0
 	_vy = 0.0
 	if _lbl_hint != null:
-		_lbl_hint.text = "Find the 7 lost butterflies to open Rosalina's castle!  •  follow their beacons!"
+		_lbl_hint.text = "The castle stays open!  •  rescue the 7 butterflies or come back to dance anytime!"
 
 func _tick_hall(delta: float) -> void:
+	_ice_gate_cool = maxf(0.0, _ice_gate_cool - delta)
 	var mv := _move_input()
 	_last_move = minf(1.0, absf(mv.y) + absf(mv.x) * 0.4)
 	if absf(mv.x) > 0.01:
@@ -1706,17 +1768,32 @@ func _tick_hall(delta: float) -> void:
 		var want: Vector3 = HALL_C + _cpos + Vector3(0, _ch + 6.5 + _cam_pitch, 0) - cam_fwd * 11.5
 		_cam.position = _cam.position.lerp(want, clampf(delta * 5.0, 0.0, 1.0))
 		_cam.look_at(HALL_C + _cpos + Vector3(0, _ch + 2.2, 0) + cam_fwd * 3.0, Vector3.UP)
+	if _ice_gate != null:
+		_ice_gate.rotation.y += delta * 0.35
+		var ice_done: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
+		if not ice_done and _ice_gate_cool <= 0.0 and Vector2(_cpos.x + 14.0, _cpos.z - 11.0).length() < 4.2:
+			_ice_gate_cool = 10.0
+			if _main != null and _main.has_method("_start_combat"):
+				_main._start_combat("ice")
+			return
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	# her tiny galaxy spins
 	for od in _orrery_planets:
 		var oa: float = tt * float(od["spd"]) + float(od["ph"])
 		(od["node"] as Node3D).position = Vector3(0, 9.0, 0) + Vector3(cos(oa) * float(od["r"]), sin(oa) * float(od["r"]) * float(od["tilt"]), sin(oa) * float(od["r"]))
+
 	# the star rug is a DANCE FLOOR: it hue-cycles, and dancing on it starts a
 	# party — rising chime melody, sparkle bursts, butterflies swooping down
 	if _hall_rug_mat != null:
 		_hall_rug_mat.emission = Color.from_hsv(fposmod(tt * 0.10, 1.0), 0.55, 1.0) * (0.35 + minf(_dance_t, 2.0) * 0.25)
 	var on_rug: bool = _ch < 0.5 and Vector2(_cpos.x, _cpos.z).length() < 8.0
 	if on_rug:
+		if _dance_t <= 0.0 and _main != null and _main.has_method("_open_dance_demo"):
+			# Mark the rug occupied before opening the pausing overlay. When it
+			# closes, Roshan must step off and back on to deliberately replay it.
+			_dance_t = 0.01
+			_main._open_dance_demo()
+			return
 		_dance_t += delta
 		_dance_cool -= delta
 		if _dance_cool <= 0.0:
@@ -1785,6 +1862,14 @@ func _tick_hall(delta: float) -> void:
 	# the doorway back out
 	if _cpos.z > 21.5 and absf(_cpos.x) < 7.0:
 		_exit_hall()
+
+func resume_from_combat() -> void:
+	_ice_gate_cool = 8.0
+	_cpos = Vector3(-7.0, 0.0, 11.0)
+	if _cam != null:
+		_cam.make_current()
+	if _lbl_hint != null:
+		_lbl_hint.text = "Popcorn party complete! The frosty berry pedestal is now your victory trophy."
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:

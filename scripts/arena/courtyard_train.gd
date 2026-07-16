@@ -60,15 +60,21 @@ func _init(main: ReefMain) -> void:
 # ---------------- track geometry ----------------
 
 func _ring_r(a: float) -> float:
-	# variable ring radius: a broad sweep INSIDE the whole christmas
-	# village behind the castle (cottages ±92/-70, pines, gifts, snowman —
-	# master 2026-07-13 placed them beyond the OLD radius-78 corridor),
-	# then a steady ease back out so the due-south stretch keeps
-	# castle-distance ≥ 68 (the moat band ends at 64) and clears the
-	# secret hatch at (0,-175). Every number here is swept offline against
-	# every village prop + the moat before it ships.
-	var aw: float = absf(wrapf(a, -PI, PI))
-	return RING_R - 27.5 * smoothstep(2.30, 2.56, aw) + 22.0 * smoothstep(2.65, 3.00, aw)
+	# variable ring radius: a broad WEST-side sweep around the whole Alpine
+	# corner (the 70-tall mountain baked into _lagoon_local at -135,-165
+	# r66, the three chalets, decorated tree, pines, snowman and cairn
+	# trail — master 2026-07-14 composed them beyond the OLD radius-78
+	# corridor). The ring ducks to ~151.5 across the mountain's foot,
+	# passes north of chalet row A/B/C, and eases back out along the moat
+	# constraint (castle-distance ≥ 68; the moat band ends at 64) while
+	# clearing the secret hatch at (0,-175). East/south bearings need no
+	# tuck at all now. Every number is swept offline against every solid
+	# and visual prop before it ships.
+	var aw: float = wrapf(a, -PI, PI)
+	if aw >= 0.0:
+		return RING_R
+	var b: float = -aw
+	return RING_R - 40.0 * (smoothstep(2.02, 2.35, b) - smoothstep(2.66, 2.98, b))
 
 
 func _track_h(a: float) -> float:

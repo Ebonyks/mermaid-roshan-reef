@@ -1,5 +1,8 @@
 extends Node3D
 class_name KartGame
+
+const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -40,7 +43,7 @@ const SAMPLES := 260
 const ORIGIN := Vector3(0.0, 4000.0, 0.0)
 const BOOST_MUL := 0.5             # speed bonus while turbo is burning
 const TURBO_TIME := 1.4            # seconds of turbo per full fire
-const SELECT_TIMEOUT := 8.0        # auto-pick quickly so pre-race wait stays short
+const SELECT_TIMEOUT := 5.0        # short unattended path: two choices + countdown in about 14s
 
 const CTRL := [
 	Vector3(0, 0, 150),
@@ -82,17 +85,22 @@ const RAINBOW_CTRL := [
 # ------------------------------------------------------------ hazards
 # Gentle, telegraphed, no fail states: every hazard slows or bounces — and
 # one of them (the geyser) is secretly a free jump. u = loop fraction.
+# VISUAL GRAMMAR (owner 2026-07-14: "it doesn't make sense that the star is
+# the hazard"): stars/gold/cyan glow = COLLECT ME, always. Hazards are the
+# opposite vocabulary — dark, plum, spiky, rocky or wobbly. Never a star.
 const HAZARDS_OCEAN := [
-	{"u": 0.12, "kind": "crab"},
-	{"u": 0.30, "kind": "geyser"},
-	{"u": 0.52, "kind": "kelp"},
+	{"u": 0.12, "kind": "crab"},      # scuttles across the road — soft bonk
+	{"u": 0.30, "kind": "geyser"},    # bubbly rhythm: erupting = free jump
+	{"u": 0.42, "kind": "whirl"},     # sand whirlpool tugs you toward it
+	{"u": 0.52, "kind": "kelp"},      # frond patch drags (turbo powers through)
 	{"u": 0.68, "kind": "crab"},
 	{"u": 0.88, "kind": "geyser"},
 ]
 const HAZARDS_RAINBOW := [
-	{"u": 0.10, "kind": "comet"},
-	{"u": 0.33, "kind": "cloud"},
-	{"u": 0.55, "kind": "pendulum"},
+	{"u": 0.10, "kind": "comet"},     # grumpy meteor sweeps the road
+	{"u": 0.33, "kind": "cloud"},     # sleepy Zzz cloud — drag zone
+	{"u": 0.45, "kind": "jelly"},     # wobbly jelly-moon parked on the road: BOING
+	{"u": 0.55, "kind": "pendulum"},  # swinging spike ball
 	{"u": 0.72, "kind": "cloud"},
 	{"u": 0.90, "kind": "comet"},
 ]
@@ -142,6 +150,7 @@ const PEARL_ROWS := [
 	{"u": 0.95, "lat": -4.0, "n": 3},
 ]
 const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
+const SHELL_GEN2 := "spiralshell"
 
 # Butterfly World centerpiece (rainbow theme): the Level-2 rainbow legs are the
 # road TO stage 3, so the track orbits the Butterfly World itself — the same
@@ -151,11 +160,9 @@ const BW_PLANET_R := 70.0
 const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
+const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
+const BW_BUTTERFLY_CARDS := ["butterfly1", "butterfly2"]
 const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
-# painted rainbow road tile (GEN2 / nano banana — tools/gen2_rainbow_road.py);
-# the shader falls back to procedural stripes while this file is absent
-const ROAD_TEX := "res://assets/terrain/up_rainbowroad_col.jpg"
-
 # ------------------------------------------------------------ vehicles
 # handling: vmax (x base), steer (lat u/s), wall (speed kept on scrape),
 # mass (collision shove weight), turbo (x BOOST_MUL), slip (lat drift keep),
@@ -180,7 +187,8 @@ const VEHICLES := {
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
-		"glb": "res://assets/vehicles/monstertruck.glb",
+		"glb": "res://assets/vehicles/monstertruck_story.glb",
+		"legacy_glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
@@ -227,6 +235,9 @@ var _lbl_lap: Label = null
 var _lbl_big: Label = null
 var _lbl_pearls: Label = null
 var _lbl_hint: Label = null
+var _guide_pointer: Label = null
+var _guide_mode := ""
+var _guide_t := 0.0
 var _meter_bg: ColorRect = null
 var _meter_fill: ColorRect = null
 var _btn_quit: Button = null
@@ -248,7 +259,12 @@ var _race_t := 0.0
 var _shortcut_used_lap := -1
 var _rev := false
 var _pearls_got := 0
+var _payout_banked := 0
+var _payout_dirty := false
+var _completion_committed := false
 var _fire_prev := false
+var _rocket_armed := false
+var _select_confirm_queued := false
 var _sel_idx := 1                  # start highlight on the kart
 var _sel_nodes: Array = []
 var _sel_t := 0.0
@@ -257,6 +273,7 @@ var _sel_phase := "ride"           # ride -> paint
 var _paint_idx := 0
 var _paint_orbs: Array = []
 var _paint_prev := -1
+var _quit_arm_t := 0.0
 var _bw_centre := Vector3.ZERO     # Butterfly World planet centre (rainbow theme)
 var _bw_planet: MeshInstance3D = null
 var _bw_spin: Node3D = null        # landmark carrier — turns with the planet surface
@@ -272,7 +289,11 @@ func _touch_device() -> bool:
 
 func action_label() -> String:
 	# what the touch action bubble should read right now (main polls this each frame)
-	return "GO!" if _state == "select" else "TURBO"
+	if _state == "select" or _state == "countdown":
+		return "GO!"
+	if _state == "race":
+		return "TURBO"
+	return "★"
 
 func joy_axis(axis: int) -> float:
 	# delegate to main's gamepad layer (multi-device + raw fallback for pads
@@ -460,6 +481,12 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_main = main
 	_finish_cb = finish_cb
 	_rev = reversed_track
+	_payout_banked = 0
+	_payout_dirty = false
+	_completion_committed = false
+	_rocket_armed = false
+	_select_confirm_queued = false
+	_quit_arm_t = 0.0
 	if "player" in main and main.player != null:
 		_player_node = main.player
 	_build_lut()
@@ -479,6 +506,13 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_clear_corridor()
 	_state = "select"
 	_sel_t = 0.0
+
+func _notification(what: int) -> void:
+	# Android normally sends a pause notification before the process can be
+	# evicted. Bank the pearls already collected at that point; the incremental
+	# payout helper will add only the remainder and finish bonus if play resumes.
+	if what == NOTIFICATION_APPLICATION_PAUSED and _main != null and (_payout_dirty or _pearls_got > _payout_banked):
+		_commit_payout(0)
 
 var _hidden_props: Array = []
 
@@ -542,7 +576,7 @@ func _build_sky() -> void:
 		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 		e.ambient_light_color = (Color(0.45, 0.65, 0.75) if _theme() == "ocean" else Color(0.5, 0.5, 0.7))
 		e.ambient_light_energy = 1.0
-		e.glow_enabled = true
+		e.glow_enabled = not _speedy()
 		e.glow_intensity = 0.5
 		if _theme() == "ocean":
 			e.fog_enabled = true
@@ -579,10 +613,10 @@ void fragment(){
 	vec2 uv = UV;
 	vec3 col = mix(vec3(0.01, 0.005, 0.04), vec3(0.05, 0.02, 0.10), uv.y);
 	vec2 g1 = uv * vec2(260.0, 140.0);
-	float s1 = step(0.994, h21(floor(g1))) * smoothstep(0.22, 0.0, length(fract(g1) - 0.5));
+	float s1 = step(0.994, h21(floor(g1))) * (1.0 - smoothstep(0.0, 0.22, length(fract(g1) - 0.5)));
 	vec2 g2 = uv * vec2(120.0, 70.0);
 	float tw = 0.6 + 0.4 * sin(TIME * 2.0 + h21(floor(g2)) * 40.0);
-	float s2 = step(0.990, h21(floor(g2) + 7.0)) * smoothstep(0.3, 0.0, length(fract(g2) - 0.5)) * tw;
+	float s2 = step(0.990, h21(floor(g2) + 7.0)) * (1.0 - smoothstep(0.0, 0.3, length(fract(g2) - 0.5))) * tw;
 	col += vec3(s1) + vec3(1.0, 0.9, 0.8) * s2;
 	vec2 gc = (uv - vec2(0.72, 0.62)) * vec2(2.0, 3.6);
 	float r = length(gc);
@@ -612,7 +646,7 @@ void fragment(){
 	vec2 uv = UV * vec2(220.0, 120.0);
 	vec2 c = floor(uv); vec2 f = fract(uv);
 	float r = h(c);
-	float star = step(0.992, r) * smoothstep(0.18, 0.0, length(f - 0.5));
+	float star = step(0.992, r) * (1.0 - smoothstep(0.0, 0.18, length(f - 0.5)));
 	vec3 sky = mix(col_lo, col_hi, UV.y);
 	ALBEDO = sky + vec3(star);
 	EMISSION = vec3(star) * 1.5;
@@ -681,7 +715,7 @@ func _bw_place(node: Node3D, dir: Vector3, sink: float = 1.5) -> void:
 
 func _bw_fit(model: Node3D, target_long: float) -> void:
 	# normalise a GLB to a footprint and centre it (mirrors galaxy.gd's _fit_small)
-	if _main != null and _main.has_method("_toonify"):
+	if not model.has_meta("gen2") and _main != null and _main.has_method("_toonify"):
 		_main._toonify(model)
 	var acc: Array = []
 	_gather_aabbs(model, Transform3D.IDENTITY, acc)
@@ -712,8 +746,8 @@ func _build_butterfly_world() -> void:
 	var pm := SphereMesh.new()
 	pm.radius = BW_PLANET_R
 	pm.height = BW_PLANET_R * 2.0
-	pm.radial_segments = 96
-	pm.rings = 48
+	pm.radial_segments = 48 if _speedy() else 96
+	pm.rings = 24 if _speedy() else 48
 	_bw_planet.mesh = pm
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
@@ -736,7 +770,7 @@ void fragment(){
 	// they must survive being seen from the racetrack)
 	vec2 g = UV * vec2(220.0, 120.0);
 	float fh = h21(floor(g));
-	float dot2 = step(0.980, fh) * smoothstep(0.36, 0.06, length(fract(g) - 0.5));
+	float dot2 = step(0.980, fh) * (1.0 - smoothstep(0.06, 0.36, length(fract(g) - 0.5)));
 	vec3 fcol = 0.55 + 0.45 * cos(6.28 * (fh * 7.0 + vec3(0.0, 0.33, 0.67)));
 	col = mix(col, fcol, dot2 * (1.0 - clamp(pathm, 0.0, 1.0)));
 	// firefly sparkle at "night" side
@@ -750,25 +784,27 @@ void fragment(){
 	_bw_planet.material_override = mat
 	_bw_planet.position = _bw_centre
 	add_child(_bw_planet)
-	# atmosphere: slightly larger fresnel shell
-	var atmo := MeshInstance3D.new()
-	var am := SphereMesh.new()
-	am.radius = BW_PLANET_R * 1.06
-	am.height = BW_PLANET_R * 2.12
-	atmo.mesh = am
-	var ash := Shader.new()
-	ash.code = """shader_type spatial;
+	# atmosphere: slightly larger fresnel shell. The additive full-screen shell
+	# is costly fill on the phone and the planet remains clear without it.
+	if not _speedy():
+		var atmo := MeshInstance3D.new()
+		var am := SphereMesh.new()
+		am.radius = BW_PLANET_R * 1.06
+		am.height = BW_PLANET_R * 2.12
+		atmo.mesh = am
+		var ash := Shader.new()
+		ash.code = """shader_type spatial;
 render_mode unshaded, blend_add, cull_back;
 void fragment(){
 	float f = pow(1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0), 2.5);
 	ALBEDO = vec3(0.55, 0.5, 1.0) * f * 0.55;
 	ALPHA = f * 0.55;
 }"""
-	var amat := ShaderMaterial.new()
-	amat.shader = ash
-	atmo.material_override = amat
-	atmo.position = _bw_centre
-	add_child(atmo)
+		var amat := ShaderMaterial.new()
+		amat.shader = ash
+		atmo.material_override = amat
+		atmo.position = _bw_centre
+		add_child(atmo)
 	# landmark carrier: everything standing ON the globe is a child of this
 	# node, which turns at the same rate as the planet mesh — so the castle
 	# and jungle ride the surface instead of hovering while it spins
@@ -781,7 +817,7 @@ void fragment(){
 		var ck: Node3D = (load(BW_CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_bw_fit(ck, 40.0)
-		_bw_tint(ck, Color(0.72, 0.68, 1.0), 0.45)
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
 	for i in range(BW_CRYSTALS.size()):
 		var path: String = BW_CRYSTALS[i]
 		if not ResourceLoader.exists(path):
@@ -790,7 +826,7 @@ void fragment(){
 		spire.scale = Vector3.ONE * 4.5
 		spire.position = Vector3([-15.0, 15.0][i], 0, 7.0)
 		castle.add_child(spire)
-		_bw_tint(spire, Color(0.8, 0.7, 1.0), 0.5)
+		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# sunk a little so its base corners don't hover above the curving horizon
 	castle.position = Vector3(0, BW_PLANET_R - 6.0, 0)
 	_bw_spin.add_child(castle)
@@ -798,32 +834,46 @@ void fragment(){
 	# jungle and the crystal outcrops (so the orb reads as THAT world from
 	# orbit, not a generic green ball)
 	var marks := [
-		{"glb": "res://assets/galaxy/trop_palm1.glb", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0, "tint": Color()},
-		{"glb": "res://assets/galaxy/trop_palm2.glb", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0, "tint": Color()},
-		{"glb": "res://assets/galaxy/trop_monstera.glb", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0, "tint": Color()},
+		{"role": "trop_palm1", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0},
+		{"role": "trop_palm2", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0},
+		{"role": "trop_monstera", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0},
 		{"glb": "res://assets/galaxy/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
 		{"glb": "res://assets/galaxy/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
 		{"glb": "res://assets/galaxy/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
 	]
 	for md in marks:
-		var mpath := String(md["glb"])
-		if not ResourceLoader.exists(mpath):
-			continue
 		var holder := Node3D.new()
-		var prop: Node3D = (load(mpath) as PackedScene).instantiate()
+		var prop: Node3D = null
+		if md.has("role"):
+			prop = StoryArtFactory.plant(String(md["role"]), float(md["size"]))
+		else:
+			var mpath := String(md["glb"])
+			if ResourceLoader.exists(mpath):
+				prop = (load(mpath) as PackedScene).instantiate()
+		if prop == null:
+			continue
 		holder.add_child(prop)
-		_bw_fit(prop, float(md["size"]))
-		var tc: Color = md["tint"]
-		if tc.a > 0.0 and (tc.r + tc.g + tc.b) > 0.0:
-			_bw_tint(prop, tc, 0.4)
+		if not md.has("role"):
+			_bw_fit(prop, float(md["size"]))
+			StoryArtFactory.apply_triplanar(prop, "res://assets/terrain/up_crystal_col.png", 0.16)
 		_bw_place(holder, md["dir"])
 		_bw_spin.add_child(holder)
 	# the seven butterflies circle their world (they're what stage 3 is about)
-	for i in range(BW_WING_COLS.size()):
+	var butterfly_count: int = 4 if _speedy() else BW_WING_COLS.size()
+	for i in range(butterfly_count):
 		var holder := Node3D.new()
-		var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
-		if ResourceLoader.exists(bpath):
-			var bf: Node3D = (load(bpath) as PackedScene).instantiate()
+		var bf: Node3D = null
+		if ResourceLoader.exists(BW_BUTTERFLY_STORY_GLB):
+			bf = (load(BW_BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
+			holder.set_meta("wing_l", bf.find_child("wing_L", true, false))
+			holder.set_meta("wing_r", bf.find_child("wing_R", true, false))
+		elif ResourceLoader.exists("res://assets/props/gen2/%s.png" % BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()]):
+			bf = _gen2_card(BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()], 7.0)
+		else:
+			var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
+			if ResourceLoader.exists(bpath):
+				bf = (load(bpath) as PackedScene).instantiate()
+		if bf != null:
 			holder.add_child(bf)
 			_bw_fit(bf, 7.0)
 			_bw_tint(bf, BW_WING_COLS[i], 0.3)
@@ -880,7 +930,14 @@ func _tick_butterfly_world(tt: float) -> void:
 		bn.position = newp
 		if vel.length() > 0.01:
 			bn.look_at(newp + vel, pdir)
-		bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
+		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
+		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		if wing_l != null and wing_r != null:
+			var flap_angle: float = deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
+			wing_l.rotation.y = flap_angle
+			wing_r.rotation.y = -flap_angle
+		else:
+			bn.scale = Vector3(1.0 + 0.28 * sin(tt * float(fd["flap"])), 1.0, 1.0)
 
 func _build_track() -> void:
 	var st := SurfaceTool.new()
@@ -902,6 +959,9 @@ func _build_track() -> void:
 		var a := i * 2
 		st.add_index(a); st.add_index(a + 1); st.add_index(a + 3)
 		st.add_index(a); st.add_index(a + 3); st.add_index(a + 2)
+	# l/r strip winding points down; flip the generated normals so the lit,
+	# cull-disabled road has a correctly illuminated top face.
+	st.generate_normals(true)
 	var road := MeshInstance3D.new()
 	road.mesh = st.commit()
 	var rsh := Shader.new()
@@ -917,26 +977,15 @@ void fragment(){
 	float c1 = sin(UV.y * 90.0 + TIME * 1.3 + sin(UV.x * 12.0));
 	float c2 = sin(UV.y * 55.0 - TIME * 0.9 + UV.x * 20.0);
 	float caus = smoothstep(0.75, 1.0, c1 * c2);
-	float edge = smoothstep(0.0, 0.12, UV.x) * smoothstep(1.0, 0.88, UV.x);
+	float edge = smoothstep(0.0, 0.12, UV.x) * (1.0 - smoothstep(0.88, 1.0, UV.x));
 	ALBEDO = mix(vec3(0.28, 0.48, 0.52), sand, edge);
 	EMISSION = vec3(0.45, 0.7, 0.75) * caus * 0.12;
 	ROUGHNESS = 0.95;
 }"""
-	elif ResourceLoader.exists(ROAD_TEX):
-		# nano-banana painted rainbow tile (GEN2 pipeline — tools/gen2_rainbow_road.py).
-		# Gentle emission only: the old full-strength glow bloomed the whole
-		# near-field road to white on the Mobile renderer.
-		rsh.code = """shader_type spatial;
-render_mode cull_disabled;
-uniform sampler2D road_tex: source_color, filter_linear_mipmap, repeat_enable;
-void fragment(){
-	vec3 c = texture(road_tex, vec2(UV.x, UV.y * 40.0)).rgb;
-	ALBEDO = c;
-	EMISSION = c * (0.16 + 0.08 * sin(TIME * 2.0 + UV.y * 40.0));
-	ROUGHNESS = 0.6;
-}"""
 	else:
-		# procedural fallback until the painted tile is generated
+		# Graphic painted-panel road, generated in the Mobile-safe shader. Bold
+		# navy edge/seam ink gives the ribbon depth without a missing texture or
+		# another sampled map in the phone's hot path.
 		rsh.code = """shader_type spatial;
 render_mode cull_disabled;
 void fragment(){
@@ -948,14 +997,18 @@ void fragment(){
 	else if(b<0.66) c=vec3(0.3,0.85,0.45);
 	else if(b<0.83) c=vec3(0.3,0.6,1.0);
 	else c=vec3(0.65,0.4,0.95);
-	ALBEDO = c;
-	EMISSION = c * (0.18 + 0.10*sin(TIME*2.0 + UV.y*40.0));
-	ROUGHNESS = 0.6;
+	float edge = smoothstep(0.015, 0.075, UV.x) * (1.0 - smoothstep(0.925, 0.985, UV.x));
+	float seam_dist = min(b, 1.0-b);
+	float seam = 1.0-smoothstep(0.0, 0.045, seam_dist);
+	vec3 ink = vec3(0.12, 0.10, 0.28);
+	vec3 shell = vec3(1.0, 0.93, 0.74);
+	vec3 painted = mix(c, shell, seam * 0.34);
+	ALBEDO = mix(ink, painted, edge);
+	EMISSION = c * edge * (0.10 + 0.05*sin(TIME*2.0 + UV.y*40.0));
+	ROUGHNESS = 0.72;
 }"""
 	var rmat := ShaderMaterial.new()
 	rmat.shader = rsh
-	if _theme() != "ocean" and ResourceLoader.exists(ROAD_TEX):
-		rmat.set_shader_parameter("road_tex", load(ROAD_TEX))
 	road.material_override = rmat
 	road.position = _origin()
 	add_child(road)
@@ -994,8 +1047,9 @@ void fragment(){
 		_build_ocean_props()
 	else:
 		# floating crystals (rainbow theme)
-		for si2 in range(7):
-			var su: float = float(si2) / 7.0
+		var deco_count: int = 4 if _speedy() else 7
+		for si2 in range(deco_count):
+			var su: float = float(si2) / float(deco_count)
 			var pf := _frame_at(su * _len, 0.0)
 			var sp: Vector3 = pf[0]
 			var rgt: Vector3 = pf[2]
@@ -1019,8 +1073,69 @@ const OCEAN_PROPS := [
 	"Coral3", "Rock7", "Coral4", "SeaWeed2", "SpiralShell", "Coral5", "Rock9",
 	"Coral6", "SandDollar",
 ]
-const OCEAN_FISH := ["ClownFish", "Dory", "Tuna", "Carp"]
+const OCEAN_PROP_GEN2 := {
+	"Coral": "coral", "Coral1": "coral1", "Coral2": "coral2",
+	"Coral3": "coral3", "Coral4": "coral4", "Coral5": "coral5",
+	"Coral6": "coral6", "Rock3": "rock3", "Rock7": "rock1",
+	"Rock9": "rock3", "FanShell": "fanshell", "SpiralShell": "spiralshell",
+	"SandDollar": "sanddollar",
+}
+const OCEAN_FISH_GEN2 := ["clownfish", "turtle", "stingray", "dolphin"]
 var _deco_fish: Array = []
+
+func _gen2_instance(name: String) -> Node3D:
+	var path := "res://assets/props/gen2/%s.glb" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var scene: PackedScene = load(path)
+	if scene == null:
+		return null
+	var instance := scene.instantiate() as Node3D
+	if instance == null:
+		return null
+	instance.set_meta("gen2", true)
+	return instance
+
+func _gen2_card(name: String, target_width: float) -> Node3D:
+	var path := "res://assets/props/gen2/%s.png" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var tex: Texture2D = load(path)
+	var card := Sprite3D.new()
+	card.texture = tex
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	card.pixel_size = target_width / maxf(float(tex.get_width()), 1.0)
+	var holder := Node3D.new()
+	holder.add_child(card)
+	holder.set_meta("fitted", true)
+	return holder
+
+func _gen2_grass_card(index: int, target_height: float) -> Node3D:
+	var names := ["seagrass", "grasstuft", "kelp"]
+	var name: String = names[index % names.size()]
+	var path := "res://assets/props/gen2/%s.png" % name
+	if not ResourceLoader.exists(path):
+		return null
+	var tex: Texture2D = load(path)
+	var holder := Node3D.new()
+	var aspect: float = float(tex.get_width()) / maxf(float(tex.get_height()), 1.0)
+	for turn in [0.0, PI * 0.5]:
+		var card := MeshInstance3D.new()
+		var quad := QuadMesh.new()
+		quad.size = Vector2(target_height * aspect, target_height)
+		card.mesh = quad
+		var mat := StandardMaterial3D.new()
+		mat.albedo_texture = tex
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		mat.alpha_scissor_threshold = 0.35
+		mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		mat.roughness = 1.0
+		card.material_override = mat
+		card.position.y = target_height * 0.5
+		card.rotation.y = turn
+		holder.add_child(card)
+	holder.set_meta("fitted", true)
+	return holder
 
 func _play_first_anim(root: Node) -> void:
 	var stack: Array = [root]
@@ -1043,15 +1158,28 @@ func _build_ocean_props() -> void:
 	# seabed dressing: the game's own corals / seaweed / rocks / shells on little
 	# sand mounds along both sides of the track
 	for i in range(OCEAN_PROPS.size()):
-		var path := "res://assets/aquatic/%s.glb" % OCEAN_PROPS[i]
-		if not ResourceLoader.exists(path):
-			continue
 		var su: float = float(i) / float(OCEAN_PROPS.size())
+		# The first bend is the vehicle showroom. Dressing there sat directly
+		# between its side-on camera and the podiums; leave that sightline clear.
+		if su < 0.08 or (_speedy() and i % 2 == 1):
+			continue
+		var prop_name: String = OCEAN_PROPS[i]
+		var prop: Node3D = null
+		if prop_name.begins_with("SeaWeed"):
+			prop = _gen2_grass_card(i, 1.0)
+		elif OCEAN_PROP_GEN2.has(prop_name):
+			prop = _gen2_instance(String(OCEAN_PROP_GEN2[prop_name]))
+		else:
+			var path: String = "res://assets/aquatic/%s.glb" % prop_name
+			if ResourceLoader.exists(path):
+				prop = (load(path) as PackedScene).instantiate()
+		if prop == null:
+			continue
 		var pf := _frame_at(su * _len, 0.0)
 		var sp: Vector3 = pf[0]
 		var rgt: Vector3 = pf[2]
 		var side: float = 1.0 if i % 2 == 0 else -1.0
-		var base: Vector3 = sp + rgt * ((_width_at(su * _len) + 10.0 + fposmod(float(i) * 3.7, 8.0)) * side)
+		var base: Vector3 = sp + rgt * ((_width_at(su * _len) + 15.0 + fposmod(float(i) * 3.7, 8.0)) * side)
 		if _ground_mode() == "terrain":
 			base.y = _terrain_y(base.x, base.z)   # props stand on the real floor beside the track
 		var mound := MeshInstance3D.new()
@@ -1059,6 +1187,7 @@ func _build_ocean_props() -> void:
 		mm.top_radius = 4.0
 		mm.bottom_radius = 5.5
 		mm.height = 1.2
+		mm.radial_segments = 20
 		mound.mesh = mm
 		var smat := StandardMaterial3D.new()
 		smat.albedo_color = Color(0.82, 0.72, 0.5)
@@ -1066,21 +1195,26 @@ func _build_ocean_props() -> void:
 		mound.material_override = smat
 		mound.position = base + Vector3(0, -0.6, 0)
 		add_child(mound)
-		var prop: Node3D = (load(path) as PackedScene).instantiate()
-		prop.scale = Vector3.ONE * (4.0 + fposmod(float(i) * 1.9, 3.0))
+		var target_size: float = 4.0 + fposmod(float(i) * 1.9, 3.0)
+		if prop.has_meta("fitted"):
+			prop.scale = Vector3.ONE * target_size
+		else:
+			_bw_fit(prop, target_size)
 		prop.position = base
 		prop.rotation = Vector3(0, float(i) * 2.4, 0)
 		add_child(prop)
 	# a few animated fish cruising beside the course
-	for i in range(OCEAN_FISH.size()):
-		var path2 := "res://assets/aquatic/%s.glb" % OCEAN_FISH[i]
-		if not ResourceLoader.exists(path2):
+	for i in range(OCEAN_FISH_GEN2.size()):
+		if _speedy() and i % 2 == 1:
 			continue
-		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH.size())
+		var fish: Node3D = null
+		fish = _gen2_instance(OCEAN_FISH_GEN2[i])
+		if fish == null:
+			continue
+		var su2: float = (float(i) + 0.5) / float(OCEAN_FISH_GEN2.size())
 		var pf2 := _frame_at(su2 * _len, 0.0)
 		var side2: float = 1.0 if i % 2 == 0 else -1.0
-		var fish: Node3D = (load(path2) as PackedScene).instantiate()
-		fish.scale = Vector3.ONE * 2.2
+		_bw_fit(fish, 4.4)
 		var fbase: Vector3 = (pf2[0] as Vector3) + (pf2[2] as Vector3) * ((_rhalf() + 14.0) * side2) + Vector3(0, 6.0, 0)
 		fish.position = fbase
 		add_child(fish)
@@ -1101,9 +1235,10 @@ func _build_finish() -> void:
 render_mode unshaded, cull_disabled;
 void fragment(){
 	vec2 g = floor(UV * vec2(10.0, 2.0));
-	float chk = mod(g.x + g.y, 2.0);
-	ALBEDO = vec3(chk);
-	EMISSION = vec3(chk) * 0.3;
+		float chk = mod(g.x + g.y, 2.0);
+		vec3 navy = vec3(0.18, 0.20, 0.52);
+		vec3 shell = vec3(1.0, 0.91, 0.70);
+		ALBEDO = mix(navy, shell, chk);
 }"""
 	var lmat := ShaderMaterial.new()
 	lmat.shader = lsh
@@ -1116,10 +1251,8 @@ void fragment(){
 		pbm.size = Vector3(1.4, 15.0, 1.4)
 		post.mesh = pbm
 		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(1, 1, 1)
-		pmat.emission_enabled = true
-		pmat.emission = Color(1, 1, 1)
-		pmat.emission_energy_multiplier = 0.3
+		pmat.albedo_color = Color(0.30, 0.76, 0.78) if psgn > 0.0 else Color(0.68, 0.52, 0.84)
+		pmat.roughness = 0.82
 		post.material_override = pmat
 		post.position = c0 + fright * (_rhalf() * psgn) + Vector3(0, 7.5, 0)
 		add_child(post)
@@ -1149,14 +1282,12 @@ void fragment(){
 	dome.material_override = dmat
 	dome.transform = Transform3D(Basis(fright, ffwd, Vector3.UP).orthonormalized(), c0 + Vector3(0, 1.0, 0))
 	add_child(dome)
-	var flab := Label3D.new()
-	flab.text = "★ FINISH ★"
-	flab.font_size = 120
-	flab.outline_size = 22
-	flab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	flab.modulate = Color(1.0, 0.95, 0.4)
-	flab.position = c0 + Vector3(0, _rhalf() + 8.0, 0)
-	add_child(flab)
+	var finish_banner := Sprite3D.new()
+	finish_banner.texture = load("res://assets/kart/finish_banner.png")
+	finish_banner.pixel_size = 0.025
+	finish_banner.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	finish_banner.position = c0 + Vector3(0, 11.0, 0)
+	add_child(finish_banner)
 
 func _build_shortcut() -> void:
 	var gate_fr := _frame_at(SHORTCUT_FROM_U * _len, 0.0)
@@ -1197,6 +1328,8 @@ void fragment(){
 		var fr := _frame_at(s0 + float(sd["len"]) * 0.5, float(sd["lat"]))
 		var pos: Vector3 = fr[0]
 		var fwd: Vector3 = fr[1]
+		var right: Vector3 = fr[2]
+		var up: Vector3 = fr[3]
 		var pm := PlaneMesh.new()
 		pm.size = Vector2(float(sd["hw"]) * 2.0, float(sd["len"]))
 		var mi := MeshInstance3D.new()
@@ -1204,10 +1337,9 @@ void fragment(){
 		var mat := ShaderMaterial.new()
 		mat.shader = sh
 		mi.material_override = mat
-		mi.position = pos + Vector3(0, 0.18, 0)
-		mi.rotation = Vector3(0, atan2(fwd.x, fwd.z), 0)
+		mi.transform = Transform3D(Basis(right, up, -fwd).orthonormalized(), pos + up * 0.18)
 		add_child(mi)
-		_strip_data.append({"pos": pos + Vector3(0, 1.0, 0), "len": float(sd["len"])})
+		_strip_data.append({"pos": pos + up, "len": float(sd["len"])})
 
 func _build_pickups() -> void:
 	var table: Array = _cv("pickups", PICKUPS)
@@ -1219,8 +1351,14 @@ func _build_pickups() -> void:
 		holder.position = pos + Vector3(0, 2.6, 0)
 		var kind := String(pd["kind"])
 		var rlab: Label3D = null
-		if kind == "shell" and ResourceLoader.exists(SHELL_GLB):
-			var sm: Node3D = (load(SHELL_GLB) as PackedScene).instantiate()
+		if kind == "shell":
+			var sm: Node3D = null
+			if ResourceLoader.exists("res://assets/props/gen2/%s.glb" % SHELL_GEN2):
+				sm = _gen2_instance(SHELL_GEN2)
+			elif ResourceLoader.exists(SHELL_GLB):
+				sm = (load(SHELL_GLB) as PackedScene).instantiate()
+			if sm == null:
+				continue
 			sm.scale = Vector3.ONE * 2.4
 			holder.add_child(sm)
 			pass   # shell pickups glow via emission; no per-pickup realtime light
@@ -1239,11 +1377,12 @@ func _build_pickups() -> void:
 			bm.emission_energy_multiplier = 1.2
 			bub.material_override = bm
 			holder.add_child(bub)
-			var gl3 := OmniLight3D.new()
-			gl3.light_color = Color(0.5, 0.95, 1.0)
-			gl3.light_energy = 2.0
-			gl3.omni_range = 9.0
-			holder.add_child(gl3)
+			if not _speedy():
+				var gl3 := OmniLight3D.new()
+				gl3.light_color = Color(0.5, 0.95, 1.0)
+				gl3.light_energy = 2.0
+				gl3.omni_range = 9.0
+				holder.add_child(gl3)
 		else:
 			var lab := Label3D.new()
 			lab.text = "★"
@@ -1254,7 +1393,7 @@ func _build_pickups() -> void:
 			holder.add_child(lab)
 			if kind == "rainbow":
 				rlab = lab   # hue-cycled every frame — the jackpot pickup
-			if kind == "star" or kind == "rainbow":   # shells/bubbles glow via emission only (light diet)
+			if not _speedy() and (kind == "star" or kind == "rainbow"):   # Speedy uses emission, no pickup realtime lights
 				var gl2 := OmniLight3D.new()
 				gl2.light_color = lab.modulate
 				gl2.light_energy = 2.4
@@ -1272,6 +1411,8 @@ func _build_ramps() -> void:
 		var fr := _frame_at(s0, float(rd["lat"]))
 		var pos: Vector3 = fr[0]
 		var fwd: Vector3 = fr[1]
+		var right: Vector3 = fr[2]
+		var up: Vector3 = fr[3]
 		var wedge := MeshInstance3D.new()
 		var pm := PrismMesh.new()
 		pm.size = Vector3(9.0, 2.2, 6.0)
@@ -1282,20 +1423,17 @@ func _build_ramps() -> void:
 		gm.emission = Color(1.0, 0.8, 0.25)
 		gm.emission_energy_multiplier = 0.8
 		wedge.material_override = gm
-		wedge.position = pos + Vector3(0, 1.1, 0)
 		# tent-shaped pad with the slope aligned along the road — reads as a
-		# jump bump from BOTH directions, so reverse laps get it for free
-		wedge.rotation = Vector3(0, atan2(fwd.x, fwd.z) + PI * 0.5, 0)
+		# jump bump from BOTH directions, so reverse laps get it for free. Follow
+		# the full banked frame instead of floating horizontally through corners.
+		wedge.transform = Transform3D(Basis(fwd, up, right).orthonormalized(), pos + up * 1.1)
 		add_child(wedge)
-		var lab := Label3D.new()
-		lab.text = "⤴"
-		lab.font_size = 140
-		lab.pixel_size = 0.03
-		lab.outline_size = 18
-		lab.modulate = Color(1.0, 0.95, 0.5)
-		lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		lab.position = pos + Vector3(0, 6.0, 0)
-		add_child(lab)
+		var ribbon := Sprite3D.new()
+		ribbon.texture = load("res://assets/kart/boost_ribbon.png")
+		ribbon.pixel_size = 0.012
+		ribbon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		ribbon.position = pos + up * 5.2
+		add_child(ribbon)
 		_ramp_data.append({"pos": pos})
 
 func _check_ramps() -> void:
@@ -1326,8 +1464,12 @@ func _build_hazards() -> void:
 		h["node"] = holder
 		match kind:
 			"crab":
-				if ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
-					var cb: Node3D = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+				var cb: Node3D = null
+				if ResourceLoader.exists("res://assets/props/gen2/crab.glb"):
+					cb = _gen2_instance("crab")
+				elif ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
+					cb = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
+				if cb != null:
 					holder.add_child(cb)
 					_bw_fit(cb, 3.4)
 				else:
@@ -1346,14 +1488,20 @@ func _build_hazards() -> void:
 				var base: Vector3 = _frame_at(s0, 0.0)[0]
 				holder.position = base
 				for i in range(3):
-					var kp := "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
-					if not ResourceLoader.exists(kp):
+					var sw: Node3D = null
+					if ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
+						sw = _gen2_grass_card(i, 5.0)
+					else:
+						var kp: String = "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
+						if ResourceLoader.exists(kp):
+							sw = (load(kp) as PackedScene).instantiate()
+					if sw == null:
 						continue
-					var sw: Node3D = (load(kp) as PackedScene).instantiate()
 					var kh := Node3D.new()
 					holder.add_child(kh)
 					kh.add_child(sw)
-					_bw_fit(sw, 5.0)
+					if not sw.has_meta("fitted"):
+						_bw_fit(sw, 5.0)
 					var fr := _frame_at(s0 + float(i - 1) * 4.0, (float(i) - 1.0) * w * 0.55)
 					kh.position = (fr[0] as Vector3) - base
 			"geyser":
@@ -1372,7 +1520,7 @@ func _build_hazards() -> void:
 				holder.add_child(mound)
 				var bub := CPUParticles3D.new()
 				bub.emitting = false
-				bub.amount = 26
+				bub.amount = 12 if _speedy() else 26
 				bub.lifetime = 0.8
 				bub.direction = Vector3.UP
 				bub.spread = 8.0
@@ -1393,39 +1541,142 @@ func _build_hazards() -> void:
 				holder.add_child(bub)
 				h["bub"] = bub
 			"comet":
-				var st := Label3D.new()
-				st.text = "★"
-				st.font_size = 220
-				st.pixel_size = 0.03
-				st.outline_size = 16
-				st.modulate = Color(1.0, 0.9, 0.4)
-				st.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-				holder.add_child(st)
-				h["star"] = st
+				# a grumpy METEOR — dark craggy rock with a fiery tail. Rocks
+				# bonk; stars are treats (never reuse the pickup vocabulary)
+				var rk: Node3D = null
+				if ResourceLoader.exists("res://assets/props/gen2/rock3.glb"):
+					rk = _gen2_instance("rock3")
+				elif ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
+					rk = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
+				if rk != null:
+					holder.add_child(rk)
+					_bw_fit(rk, 3.2)
+					_bw_tint(rk, Color(0.32, 0.26, 0.44), 0.3)   # dark slate-plum
+				else:
+					var rq := MeshInstance3D.new()
+					var rqm := SphereMesh.new()
+					rqm.radius = 1.5
+					rqm.height = 3.0
+					rq.mesh = rqm
+					var rqmat := StandardMaterial3D.new()
+					rqmat.albedo_color = Color(0.3, 0.25, 0.4)
+					rq.material_override = rqmat
+					holder.add_child(rq)
+				var tail := CPUParticles3D.new()
+				tail.amount = 8 if _speedy() else 18
+				tail.lifetime = 0.45
+				tail.local_coords = false   # embers hang in space behind the sweep
+				tail.direction = Vector3(0, 0.4, 0)
+				tail.spread = 30.0
+				tail.initial_velocity_min = 1.0
+				tail.initial_velocity_max = 3.0
+				tail.gravity = Vector3.ZERO
+				tail.scale_amount_min = 0.14
+				tail.scale_amount_max = 0.4
+				var tbm := BoxMesh.new()
+				tbm.size = Vector3(0.3, 0.3, 0.3)
+				tail.mesh = tbm
+				var tmat := StandardMaterial3D.new()
+				tmat.albedo_color = Color(1.0, 0.55, 0.2)
+				tmat.emission_enabled = true
+				tmat.emission = Color(1.0, 0.45, 0.1)
+				tmat.emission_energy_multiplier = 1.2
+				tmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+				tail.mesh.material = tmat
+				holder.add_child(tail)
 				h["side"] = 1.0 if int(s0) % 2 == 0 else -1.0
 			"pendulum":
-				var pst := Label3D.new()
-				pst.text = "★"
-				pst.font_size = 300
-				pst.pixel_size = 0.03
-				pst.outline_size = 18
-				pst.modulate = Color(1.0, 0.55, 0.85)
-				pst.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-				holder.add_child(pst)
+				# a swinging SPIKE BALL — blunt cartoon spikes read "don't
+				# touch" in any language a 4yo speaks
+				var ball := MeshInstance3D.new()
+				var blm := SphereMesh.new()
+				blm.radius = 1.5
+				blm.height = 3.0
+				ball.mesh = blm
+				var bmat2 := StandardMaterial3D.new()
+				bmat2.albedo_color = Color(0.42, 0.26, 0.5)   # deep plum
+				bmat2.emission_enabled = true
+				bmat2.emission = Color(0.75, 0.2, 0.3)
+				bmat2.emission_energy_multiplier = 0.35
+				ball.material_override = bmat2
+				holder.add_child(ball)
+				for i in range(8):
+					var a: float = float(i) * TAU / 8.0
+					var tilt: float = 0.55 if i % 2 == 0 else -0.55
+					var d := Vector3(cos(a) * cos(tilt), sin(tilt), sin(a) * cos(tilt)).normalized()
+					var spk := MeshInstance3D.new()
+					var cm2 := CylinderMesh.new()
+					cm2.top_radius = 0.0
+					cm2.bottom_radius = 0.42
+					cm2.height = 1.1
+					spk.mesh = cm2
+					spk.material_override = bmat2
+					spk.position = d * 1.7
+					var any := Vector3.UP if absf(d.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT
+					var tx := any.cross(d).normalized()
+					spk.transform.basis = Basis(tx, d, tx.cross(d)).orthonormalized()
+					holder.add_child(spk)
+			"whirl":
+				# a spinning sand-whirlpool set to one side of the road — it
+				# TUGS you toward its middle; steering (or a turbo) escapes
+				h["lat"] = w * 0.35 * (1.0 if int(s0) % 2 == 0 else -1.0)
+				var frw := _frame_at(s0, float(h["lat"]))
+				holder.position = (frw[0] as Vector3) + Vector3(0, 0.15, 0)
+				var disc := MeshInstance3D.new()
+				var dm := PlaneMesh.new()
+				dm.size = Vector2(11.0, 11.0)
+				disc.mesh = dm
+				var wsh := Shader.new()
+				wsh.code = """shader_type spatial;
+render_mode unshaded, cull_disabled;
+void fragment(){
+	vec2 c = UV - 0.5;
+	float r = length(c);
+	float ang = atan(c.y, c.x);
+	float sp = sin(ang * 3.0 + r * 28.0 - TIME * 4.0);
+	float m = 1.0 - smoothstep(0.46, 0.5, r);
+	ALBEDO = mix(vec3(0.14, 0.30, 0.36), vec3(0.5, 0.75, 0.8), step(0.0, sp));
+	ALPHA = m * 0.85;
+}"""
+				var wmat := ShaderMaterial.new()
+				wmat.shader = wsh
+				disc.material_override = wmat
+				holder.add_child(disc)
+			"jelly":
+				# a wobbly jelly-moon dome parked on the road: BOING — a big
+				# bouncy shove, deliberately distinct from the bonk-spin
+				h["lat"] = w * 0.4 * (1.0 if int(s0) % 2 == 0 else -1.0)
+				var frj := _frame_at(s0, float(h["lat"]))
+				holder.position = frj[0] as Vector3
+				var dome := MeshInstance3D.new()
+				var dsm := SphereMesh.new()
+				dsm.radius = 2.6
+				dsm.height = 2.6
+				dsm.is_hemisphere = true
+				dome.mesh = dsm
+				var jmat := StandardMaterial3D.new()
+				jmat.albedo_color = Color(0.95, 0.5, 0.8, 0.6)
+				jmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+				jmat.emission_enabled = true
+				jmat.emission = Color(0.9, 0.4, 0.75)
+				jmat.emission_energy_multiplier = 0.3
+				dome.material_override = jmat
+				holder.add_child(dome)
 			"cloud":
-				for i in range(3):
-					var cl := MeshInstance3D.new()
-					var cm := SphereMesh.new()
-					cm.radius = [2.6, 2.0, 1.7][i]
-					cm.height = cm.radius * 2.0
-					cl.mesh = cm
-					var cmat := StandardMaterial3D.new()
-					cmat.albedo_color = Color(0.7, 0.6, 0.95, 0.5)
-					cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-					cmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-					cl.material_override = cmat
-					cl.position = Vector3([-2.2, 1.6, 0.2][i], [0.6, 0.4, 1.8][i], [0.4, -1.2, 0.9][i])
-					holder.add_child(cl)
+				var cl: Node3D = LandmarkArtFactory.create_cloud(2.7, int(s0) % 3, true)
+				cl.position = Vector3(0.0, 0.7, 0.0)
+				holder.add_child(cl)
+				# the "z Z z" makes it read SLEEPY, not decorative
+				var zz := Label3D.new()
+				zz.text = "z Z z"
+				zz.font_size = 90
+				zz.pixel_size = 0.03
+				zz.outline_size = 12
+				zz.modulate = Color(0.8, 0.75, 1.0)
+				zz.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+				zz.position = Vector3(0, 3.4, 0)
+				holder.add_child(zz)
+				h["zz"] = zz
 		_hazards_live.append(h)
 
 func _hazard_bonk(k: Dictionary, slow: float, dir: float) -> void:
@@ -1492,10 +1743,9 @@ func _tick_hazards(delta: float) -> void:
 								_chime(1.15)
 								_flash_big("WHEEE!")
 			"comet":
-				# a shooting star sweeps the road on a 5s rhythm; it hovers and
-				# pulses at the entry edge first — the telegraph a 4yo can read
+				# the meteor sweeps the road on a 5s rhythm; first it hovers
+				# and QUIVERS at the entry edge — the telegraph a 4yo can read
 				var ccyc: float = fposmod(tt + float(h["ph"]), 5.0)
-				var star: Label3D = h["star"]
 				var side: float = float(h["side"])
 				if ccyc >= 3.8:
 					var p: float = (ccyc - 3.8) / 1.2
@@ -1503,7 +1753,8 @@ func _tick_hazards(delta: float) -> void:
 					var frx := _frame_at(s0, float(h["lat"]))
 					node.position = (frx[0] as Vector3) + Vector3(0, 1.5, 0)
 					node.visible = true
-					star.modulate = Color(1.0, 0.9, 0.4)
+					node.scale = Vector3.ONE
+					node.rotation.y = tt * 5.0   # tumbling rock
 					if racing:
 						for k in _karts:
 							if (k["node"] as Node3D).position.distance_to(node.position) < 3.6:
@@ -1513,14 +1764,49 @@ func _tick_hazards(delta: float) -> void:
 					var fre := _frame_at(s0, float(h["lat"]))
 					node.position = (fre[0] as Vector3) + Vector3(0, 1.5, 0)
 					node.visible = true
-					star.modulate = Color(1.0, 0.9, 0.4, 0.4 + 0.6 * absf(sin(tt * 12.0)))
+					node.scale = Vector3.ONE * (1.0 + 0.22 * absf(sin(tt * 12.0)))
 				else:
 					node.visible = false
+			"whirl":
+				# fixed position (set at build); the pull is the hazard
+				if racing:
+					for k in _karts:
+						if float(k.get("air_t", 0.0)) > 0.0:
+							continue
+						if (k["node"] as Node3D).position.distance_to(node.position) < 6.5:
+							# 6 u/s tug toward the swirl — steering (22-30 u/s)
+							# always wins, so it pesters rather than traps
+							_apply_lat(k, float(k["lat"]) + signf(float(h["lat"]) - float(k["lat"])) * 6.0 * delta)
+							if float(k["boost_t"]) <= 0.0:
+								k["speed"] = maxf(float(k["speed"]) * (1.0 - 0.9 * delta), _vmax * 0.55)
+			"jelly":
+				# wobble idle; BOING on contact — a big bouncy shove, no spin
+				var kick: float = float(h.get("kick", 0.0))
+				if kick > 0.0:
+					h["kick"] = maxf(0.0, kick - delta)
+				var wob: float = 0.06 + kick * 0.5
+				node.scale = Vector3(1.0 + wob * sin(tt * 6.0), 1.0 - wob * sin(tt * 6.0), 1.0 + wob * cos(tt * 6.0))
+				if racing:
+					for k in _karts:
+						if float(k.get("haz_cool", 0.0)) > 0.0 or float(k.get("air_t", 0.0)) > 0.0:
+							continue
+						if (k["node"] as Node3D).position.distance_to(node.position) < 3.9:
+							k["haz_cool"] = 1.2
+							k["speed"] = float(k["speed"]) * 0.55
+							k["latv"] = signf(float(k["lat"]) - float(h["lat"])) * 34.0
+							k["hop"] = 0.3
+							k["squash"] = 0.35
+							h["kick"] = 0.5
+							if bool(k["is_player"]):
+								_shake = maxf(_shake, 0.3)
+								_chime(1.6)   # BOING, not thunk
 			"kelp", "cloud":
 				if kind == "cloud":
 					h["lat"] = sin(tt * 0.35 + float(h["ph"])) * w * 0.55
 					var frc := _frame_at(s0, float(h["lat"]))
 					node.position = (frc[0] as Vector3) + Vector3(0, 1.2, 0)
+					if h.has("zz"):
+						(h["zz"] as Label3D).position.y = 3.4 + sin(tt * 2.0) * 0.4
 				if racing:
 					var rad: float = 7.5 if kind == "kelp" else 5.5
 					for k in _karts:
@@ -1531,24 +1817,29 @@ func _tick_hazards(delta: float) -> void:
 
 func _build_pearls() -> void:
 	var rows: Array = _cv("pearl_rows", PEARL_ROWS)
+	var pearl_mesh := SphereMesh.new()
+	pearl_mesh.radius = 0.9
+	pearl_mesh.height = 1.8
+	var pearl_mats: Array = []
+	var hue_count: int = 3 if _speedy() else 6
+	for i in range(hue_count):
+		var shared_mat := StandardMaterial3D.new()
+		shared_mat.albedo_color = Color.from_hsv(float(i) / float(hue_count), 0.4, 1.0)
+		shared_mat.emission_enabled = true
+		shared_mat.emission = shared_mat.albedo_color
+		shared_mat.emission_energy_multiplier = 0.8 if _speedy() else 1.0
+		shared_mat.metallic = 0.6
+		shared_mat.roughness = 0.2
+		pearl_mats.append(shared_mat)
 	for row in rows:
 		var s0: float = float(row["u"]) * _len
 		for j in range(int(row["n"])):
 			var s := s0 + float(j) * 6.0
 			var fr := _frame_at(s, float(row["lat"]))
 			var p := MeshInstance3D.new()
-			var sph := SphereMesh.new()
-			sph.radius = 0.9
-			sph.height = 1.8
-			p.mesh = sph
-			var m := StandardMaterial3D.new()
-			m.albedo_color = Color.from_hsv(fposmod(s / _len, 1.0), 0.4, 1.0)
-			m.emission_enabled = true
-			m.emission = m.albedo_color
-			m.emission_energy_multiplier = 1.0
-			m.metallic = 0.6
-			m.roughness = 0.2
-			p.material_override = m
+			p.mesh = pearl_mesh
+			var hue_i: int = clampi(int(floor(fposmod(s / _len, 1.0) * float(hue_count))), 0, hue_count - 1)
+			p.material_override = pearl_mats[hue_i]
 			p.position = (fr[0] as Vector3) + Vector3(0, 2.0, 0)
 			add_child(p)
 			_pearls_live.append({"node": p, "got": false})
@@ -1595,7 +1886,12 @@ func _apply_paint(root: Node, paint: Dictionary) -> void:
 				_rainbow_mats.append(rm)
 				mi.set_surface_override_material(si, rm)
 			elif paint.get("col") == null:
-				mi.set_surface_override_material(si, null)   # Stock: restore original
+				var stock_src: Material = origs[si] if si < origs.size() else null
+				var stock: BaseMaterial3D = (stock_src.duplicate() if stock_src is BaseMaterial3D else StandardMaterial3D.new())
+				stock.roughness = 1.0
+				stock.metallic = 0.0
+				stock.metallic_specular = 0.08
+				mi.set_surface_override_material(si, stock)
 			else:
 				var col: Color = paint["col"]
 				var src: Material = origs[si] if si < origs.size() else null
@@ -1636,7 +1932,9 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
 	var model: Node3D = null
-	var glb_path := String(vd["glb"])
+	var glb_path: String = String(vd["glb"])
+	if not ResourceLoader.exists(glb_path):
+		glb_path = String(vd.get("legacy_glb", glb_path))
 	if ResourceLoader.exists(glb_path):
 		var ps: PackedScene = load(glb_path)
 		if ps != null:
@@ -1646,7 +1944,11 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		top_h = _fit_model(model, float(vd["size"]))
 		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
 		root.add_child(model)
-		if not paint.is_empty():
+		if _main != null and _main.has_method("_toonify"):
+			_main._toonify(model)
+		if paint.is_empty():
+			_apply_paint(model, {"col": col.lerp(Color(0.55, 0.86, 0.92), 0.18)})
+		else:
 			_apply_paint(model, paint)
 	else:
 		# fallback: simple coloured box kart (never leaves a racer invisible)
@@ -1678,7 +1980,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	nl.position = Vector3(0, top_h + 3.4, 0)
 	root.add_child(nl)
 	root.set_meta("name_lbl", nl)
-	if racer_name == "Roshan":
+	if racer_name == "Roshan" and not _speedy():
 		var trail := OmniLight3D.new()
 		trail.light_color = Color(1.0, 0.5, 0.9)
 		trail.light_energy = 2.5
@@ -1792,7 +2094,9 @@ func _build_select() -> void:
 		body.position = Vector3(0, 1.2, 0)
 		slot.add_child(body)
 		var lab := Label3D.new()
-		lab.text = String(vd["label"]) + "\n" + String(vd["blurb"])
+		# The models and glowing choice halo carry the selection for a non-reader;
+		# keep the 3D card to one short name instead of covering it with a paragraph.
+		lab.text = String(vd["label"])
 		lab.font_size = 52
 		lab.outline_size = 12
 		lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -1803,10 +2107,14 @@ func _build_select() -> void:
 		halo.light_energy = 0.0
 		halo.omni_range = 18.0
 		halo.position = Vector3(0, 4, 0)
+		halo.visible = not _speedy()
 		slot.add_child(halo)
 		_sel_nodes.append({"slot": slot, "halo": halo, "body": body})
 	_lbl_big.text = "Pick your ride!"
-	_lbl_hint.text = ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  TAP or SPACE to GO!")
+	_lbl_hint.text = ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  SPACE or A to GO!")
+	_set_guide_mode("steer")
+	if _main != null and _main.has_method("_say"):
+		_main._say("roshan", "intro4", 10.0)
 	if _cam != null:
 		var mid := _select_slot_pos(1)
 		if _ground_mode() == "terrain":
@@ -1814,7 +2122,7 @@ func _build_select() -> void:
 			# rides sit left-to-right instead of stacking behind each other
 			var fr := _frame_at(31.0, 0.0)
 			var right: Vector3 = fr[2]
-			_cam.position = mid + right * 27.0 + Vector3(0, 8.5, 0)
+			_cam.position = mid + right * 25.0 + Vector3(0, 7.5, 0)
 			_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
 		else:
 			_cam.position = mid + Vector3(0, 7.0, 26.0)
@@ -1878,8 +2186,12 @@ func _tick_select(delta: float) -> void:
 		(sn["slot"] as Node3D).scale = (sn["slot"] as Node3D).scale.lerp(Vector3.ONE * want_s, delta * 8.0)
 	var edge := _sel_move()
 	var confirm := _fire_just()
-	if _sel_t < 0.6:
+	if confirm and _sel_t < 0.6:
+		_select_confirm_queued = true
 		confirm = false
+	elif _select_confirm_queued and _sel_t >= 0.6:
+		confirm = true
+		_select_confirm_queued = false
 	if _sel_phase == "ride":
 		if edge != 0:
 			_sel_idx = clampi(_sel_idx + edge, 0, VEHICLE_ORDER.size() - 1)
@@ -1898,10 +2210,23 @@ func _tick_select(delta: float) -> void:
 		var orb: Node3D = _paint_orbs[i]
 		orb.scale = orb.scale.lerp(Vector3.ONE * (1.7 if i == _paint_idx else 1.0), delta * 10.0)
 		orb.rotation.y += delta * 2.0
+	if _sel_phase == "paint" and _cam != null:
+		var focus_slot: Node3D = (_sel_nodes[_sel_idx] as Dictionary)["slot"]
+		var focus: Vector3 = focus_slot.position
+		var want_cam: Vector3
+		if _ground_mode() == "terrain":
+			var ffr := _frame_at(16.0 + float(_sel_idx) * 15.0, 0.0)
+			want_cam = focus + (ffr[2] as Vector3) * 18.0 + Vector3(0, 6.5, 0)
+			want_cam.y = maxf(want_cam.y, _terrain_y(want_cam.x, want_cam.z) + 5.0)
+		else:
+			want_cam = focus + Vector3(0, 6.0, 18.0)
+		_cam.position = _cam.position.lerp(want_cam, minf(1.0, delta * 4.0))
+		_cam.look_at(focus + Vector3(0, 3.2, 0), Vector3.UP)
 	if _paint_idx != _paint_prev:
 		_paint_prev = _paint_idx
 		_apply_paint((_sel_nodes[_sel_idx] as Dictionary)["body"], PAINTS[_paint_idx])
-		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  TAP to GO!"
+		var confirm_hint := "TAP to GO!" if _touch_device() else "SPACE or A to GO!"
+		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint
 	if confirm or _sel_t > SELECT_TIMEOUT:
 		var vkey: String = VEHICLE_ORDER[_sel_idx]
 		var paint: Dictionary = PAINTS[_paint_idx]
@@ -1913,8 +2238,9 @@ func _tick_select(delta: float) -> void:
 		_state = "countdown"
 		_clock = 3.999
 		_lbl_big.text = ""
-		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  TAP = TURBO when the bar is full!")
+		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
 		_meter_bg.visible = true
+		_set_guide_mode("action")
 		# put the whole pack ON the grid right now (nodes used to sit at the
 		# world origin until the first race frame — the countdown showed an
 		# empty road) and SNAP the camera behind Roshan: the old 1s glide from
@@ -1965,15 +2291,27 @@ func _steer_input() -> float:
 func _brake_input() -> bool:
 	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
 		return true
-	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
-		if (_main.touch_ui.stick_vec as Vector2).y > 0.5:
-			return true
+	if joy_pressed(JOY_BUTTON_DPAD_DOWN) or joy_axis(JOY_AXIS_TRIGGER_LEFT) > 0.45:
+		return true
+	# Touch is deliberately steer-only. A preschool diagonal drag must never
+	# silently cut auto-cruise to 45%; the course has no braking requirement.
 	return false
 
 # ------------------------------------------------------------ per-frame
 func _process(delta: float) -> void:
 	if _state == "done":
 		return
+	_tick_guide(delta)
+	if _quit_arm_t > 0.0:
+		_quit_arm_t = maxf(0.0, _quit_arm_t - delta)
+		if _btn_quit != null:
+			var quit_pulse: float = 1.0 + sin(_quit_arm_t * 10.0) * 0.08
+			_btn_quit.pivot_offset = _btn_quit.size * 0.5
+			_btn_quit.scale = Vector2.ONE * quit_pulse
+		if _quit_arm_t <= 0.0 and _btn_quit != null:
+			_btn_quit.text = "✕"
+			_btn_quit.modulate = Color.WHITE
+			_btn_quit.scale = Vector2.ONE
 	# rainbow paint: cycle hue on plain materials (renderer-proof)
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	if _rainbow_mats.size() > 0:
@@ -1999,6 +2337,8 @@ func _process(delta: float) -> void:
 		return
 	_clock -= delta
 	if _state == "countdown":
+		if _fire_just():
+			_rocket_armed = true
 		var n := int(ceil(_clock))
 		_lbl_big.text = ("GO!" if n <= 0 else str(n))
 		if _clock <= 0.0:
@@ -2006,7 +2346,7 @@ func _process(delta: float) -> void:
 			_lbl_big.text = ""
 			# ROCKET START: already on the controls the instant GO fires —
 			# teachable purely by feel, no reading required
-			var hot: bool = absf(_steer_input()) > 0.05 or Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A)
+			var hot: bool = _rocket_armed or absf(_steer_input()) > 0.05 or Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_ENTER) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 			if _main != null and "touch_ui" in _main and _main.touch_ui != null and (_main.touch_ui.stick_vec as Vector2).length() > 0.1:
 				hot = true
 			if hot and _pl != null:
@@ -2014,6 +2354,9 @@ func _process(delta: float) -> void:
 				_pl["squash"] = 0.3
 				_chime(1.25)
 				_flash_big("ROCKET START!")
+			_rocket_armed = false
+			if _main != null and _main.has_method("_say"):
+				_main._say("roshan", "talk", 10.0)
 		for k0 in _karts:
 			_place_kart(k0, delta)   # pack idles ON the grid through 3-2-1
 		_tick_engine()   # idle rumble builds anticipation through the count
@@ -2032,7 +2375,7 @@ func _process(delta: float) -> void:
 			_update_ai(k, delta)
 		_place_kart(k, delta)
 
-	_check_strips()
+	_check_strips(delta)
 	_check_ramps()
 	_check_pickups(delta)
 	_check_pearls()
@@ -2240,7 +2583,8 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	if hop_t > 0.0:
 		hop_t = maxf(0.0, hop_t - delta)
 		k["hop"] = hop_t
-		hop_h = sin((1.0 - hop_t / 0.25) * PI) * 0.9
+		var hop_p: float = clampf(1.0 - hop_t / 0.25, 0.0, 1.0)
+		hop_h = sin(hop_p * PI) * 0.9
 	# ramp air: a real arc with hang time; the clean landing pays a free zip
 	var air_t: float = float(k.get("air_t", 0.0))
 	var air_p := 0.0
@@ -2261,7 +2605,10 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	k["haz_cool"] = maxf(0.0, float(k.get("haz_cool", 0.0)) - delta)
 	node.position = pos + up * (1.2 + hop_h + air_h)
 	if fwd.length() > 0.001:
-		node.look_at(pos + fwd + up * 1.2, up)
+		# Orient from the raised kart position toward the track tangent. Looking
+		# from the airborne kart down at the ground-frame target pitched it almost
+		# vertically nose-first at every jump apex.
+		node.look_at(node.position + fwd, up)
 		if air_p > 0.0:
 			# nose lifts off the ramp, dips into the landing
 			node.rotate_object_local(Vector3(1, 0, 0), -cos(air_p * PI) * 0.30)
@@ -2287,7 +2634,7 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	# face used to fill the screen whenever the pack pressed in behind you
 	if _cam != null and not bool(k["is_player"]):
 		var camd: float = node.position.distance_to(_cam.position)
-		var fade: float = clampf((camd - 5.0) / 6.0, 0.10, 1.0)
+		var fade: float = clampf((camd - 10.0) / 8.0, 0.0, 1.0)
 		var dspr: Sprite3D = k["node"].get_meta("driver_spr", null)
 		if dspr != null and is_instance_valid(dspr):
 			dspr.modulate.a = fade
@@ -2400,7 +2747,7 @@ func _draft_ahead(k: Dictionary) -> bool:
 			return true
 	return false
 
-func _check_strips() -> void:
+func _check_strips(delta: float) -> void:
 	for k in _karts:
 		var kn: Node3D = k["node"]
 		for sd in _strip_data:
@@ -2408,7 +2755,7 @@ func _check_strips() -> void:
 				# strips: small instant zip + meter charge
 				if float(k["boost_t"]) < 0.35:
 					k["boost_t"] = 0.35
-				_charge(k, 0.010)
+				_charge(k, 0.60 * delta)
 
 func _check_pickups(delta: float) -> void:
 	if _pl == null:
@@ -2478,6 +2825,7 @@ func _check_pearls() -> void:
 			pd["got"] = true
 			node.visible = false
 			_pearls_got += 1
+			_commit_payout(0)   # zero-lost-progress: each collected pearl is durable now
 			_charge(_pl, 0.05)
 			_chime(0.8 + 0.02 * float(_pearls_got % 8))
 			if _main != null and _main.has_method("_sparkle_burst"):
@@ -2523,20 +2871,29 @@ func _resolve_collisions() -> void:
 				b["lat"] = clampf(float(b["lat"]) - dir * sep * (ma / tot), -wb, wb)
 				a["latv"] = float(a["latv"]) + dir * 30.0 * (mb / tot)
 				b["latv"] = float(b["latv"]) - dir * 30.0 * (ma / tot)
-				var heavy: Dictionary = a if ma >= mb else b
-				var light: Dictionary = b if ma >= mb else a
-				var edge: float = maxf(ma, mb) / tot
-				var fastest: float = maxf(float(a["speed"]), float(b["speed"]))
-				heavy["speed"] = minf(maxf(float(heavy["speed"]), fastest) * (1.0 + 0.08 * edge), _vmax * 1.9)
-				light["speed"] = float(light["speed"]) * (1.08 - 0.5 * edge)
-				# a bump strips a RIVAL's zip, never hers — the bumper AI hunts
-				# her lane, so this line was silently deleting almost every
-				# boost she earned ("the items don't work")
-				if not bool(light["is_player"]):
-					light["boost_t"] = minf(float(light["boost_t"]), 0.1)
-				light["stun_t"] = 0.45   # drop back instead of grinding inside the winner
-				if float(light["s"]) > float(heavy["s"]):
-					light["s"] = float(light["s"]) - sep * 0.15
+				var player_was_light := false
+				if absf(ma - mb) < 0.001:
+					# Equal rides trade the same fair thump. Do not let array order
+					# crown `a` the winner and silently hand it a speed boost.
+					var avg_speed: float = (float(a["speed"]) + float(b["speed"])) * 0.5
+					a["speed"] = lerpf(float(a["speed"]), avg_speed, 0.35) * 0.96
+					b["speed"] = lerpf(float(b["speed"]), avg_speed, 0.35) * 0.96
+				else:
+					var heavy: Dictionary = a if ma > mb else b
+					var light: Dictionary = b if ma > mb else a
+					player_was_light = bool(light["is_player"])
+					var edge: float = maxf(ma, mb) / tot
+					var fastest: float = maxf(float(a["speed"]), float(b["speed"]))
+					heavy["speed"] = minf(maxf(float(heavy["speed"]), fastest) * (1.0 + 0.08 * edge), _vmax * 1.9)
+					light["speed"] = float(light["speed"]) * (1.08 - 0.5 * edge)
+					# a bump strips a RIVAL's zip, never hers — the bumper AI hunts
+					# her lane, so this line was silently deleting almost every
+					# boost she earned ("the items don't work")
+					if not bool(light["is_player"]):
+						light["boost_t"] = minf(float(light["boost_t"]), 0.1)
+					light["stun_t"] = 0.45   # drop back instead of grinding inside the winner
+					if float(light["s"]) > float(heavy["s"]):
+						light["s"] = float(light["s"]) - sep * 0.15
 				a["squash"] = 0.3
 				b["squash"] = 0.3
 				a["hop"] = 0.25
@@ -2547,8 +2904,7 @@ func _resolve_collisions() -> void:
 						_chime(0.45)   # deep bumper thunk
 						_thunk_cool = 0.3
 						# Roshan whoops when SHE takes the shove ("Whoooaa!")
-						var pl_light: bool = (bool(a["is_player"]) and light == a) or (bool(b["is_player"]) and light == b)
-						if pl_light and _main != null and _main.has_method("_say"):
+						if player_was_light and _main != null and _main.has_method("_say"):
 							_main._say("roshan", "bump", 7.0)
 
 func _chime(pitch: float) -> void:
@@ -2636,10 +2992,53 @@ func _mk_label(parent: Control, pos: Vector2, size: int, col: Color = Color.WHIT
 	l.position = pos
 	l.add_theme_font_size_override("font_size", size)
 	l.add_theme_color_override("font_color", col)
-	l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-	l.add_theme_constant_override("outline_size", 8)
+	l.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
+	l.add_theme_constant_override("outline_size", 6)
 	parent.add_child(l)
 	return l
+
+func _set_guide_mode(mode: String) -> void:
+	if _guide_mode == mode:
+		return
+	_guide_mode = mode
+	if _guide_pointer == null:
+		return
+	_guide_pointer.visible = mode != ""
+	_guide_pointer.scale = Vector2.ONE
+	_guide_pointer.rotation = 0.0
+	if mode == "action":
+		if not _touch_device():
+			# Desktop/gamepad has no bottom-right touch bubble to point at.
+			_guide_pointer.visible = false
+			return
+		# Points directly into touch_ui's bottom-right action bubble.
+		_guide_pointer.text = "➜"
+		_guide_pointer.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		_guide_pointer.offset_left = -300.0
+		_guide_pointer.offset_top = -190.0
+		_guide_pointer.offset_right = -190.0
+		_guide_pointer.offset_bottom = -90.0
+	elif mode == "steer":
+		_guide_pointer.text = "↔"
+		_guide_pointer.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+		_guide_pointer.offset_left = -92.0
+		_guide_pointer.offset_top = -180.0
+		_guide_pointer.offset_right = 92.0
+		_guide_pointer.offset_bottom = -80.0
+
+func _tick_guide(delta: float) -> void:
+	if _guide_pointer == null or not _guide_pointer.visible:
+		return
+	_guide_t += delta
+	_guide_pointer.pivot_offset = _guide_pointer.size * 0.5
+	if _guide_mode == "action":
+		var pulse: float = 1.0 + sin(_guide_t * 5.0) * 0.13
+		_guide_pointer.scale = Vector2.ONE * pulse
+	else:
+		var slide: float = sin(_guide_t * 2.7) * 44.0
+		_guide_pointer.offset_left = -92.0 + slide
+		_guide_pointer.offset_right = 92.0 + slide
+		_guide_pointer.rotation = sin(_guide_t * 2.7) * 0.05
 
 func _build_hud() -> void:
 	_hud = CanvasLayer.new()
@@ -2654,10 +3053,22 @@ func _build_hud() -> void:
 	_lbl_lap = _mk_label(root, Vector2(24, 18), 38, Color(1, 0.95, 0.6))
 	_lbl_place = _mk_label(root, Vector2(24, 66), 48, Color(0.7, 1.0, 1.0))
 	_lbl_pearls = _mk_label(root, Vector2(24, 124), 30, Color(1.0, 0.85, 1.0))
-	_lbl_big = _mk_label(root, Vector2(0, 0), 88, Color(1, 1, 1))
-	_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)   # centred by alignment — can't overflow
+	_lbl_big = _mk_label(root, Vector2.ZERO, 76, Color(1, 1, 1))
+	# Reset both anchors AND offsets. Keeping the position offsets created by
+	# _mk_label made this full-rect label clip into the top-left on Mobile.
+	_lbl_big.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_lbl_big.offset_left = 150.0
+	_lbl_big.offset_top = 80.0
+	_lbl_big.offset_right = -150.0
+	_lbl_big.offset_bottom = -90.0
 	_lbl_big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_lbl_big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_lbl_big.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_guide_pointer = _mk_label(root, Vector2.ZERO, 78, Color(1.0, 0.92, 0.35))
+	_guide_pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_guide_pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_guide_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_guide_pointer.visible = false
 	_lbl_hint = _mk_label(root, Vector2(24, 0), 26, Color(0.9, 0.9, 1.0))
 	_lbl_hint.anchor_top = 1.0
 	_lbl_hint.position = Vector2(24, -56)
@@ -2681,7 +3092,7 @@ func _build_hud() -> void:
 	# stick only ever sees touches nothing else wanted.
 	_btn_quit = Button.new()
 	_btn_quit.text = "✕"
-	_btn_quit.add_theme_font_size_override("font_size", 44)
+	_btn_quit.add_theme_font_size_override("font_size", 40)
 	_btn_quit.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
 	var qsb := StyleBoxFlat.new()
 	qsb.bg_color = Color(0.2, 0.15, 0.35, 0.55)
@@ -2691,7 +3102,7 @@ func _build_hud() -> void:
 	_btn_quit.add_theme_stylebox_override("pressed", qsb)
 	_btn_quit.focus_mode = Control.FOCUS_NONE
 	_btn_quit.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	_btn_quit.offset_left = -96.0
+	_btn_quit.offset_left = -140.0
 	_btn_quit.offset_top = 16.0
 	_btn_quit.offset_right = -20.0
 	_btn_quit.offset_bottom = 92.0
@@ -2699,10 +3110,17 @@ func _build_hud() -> void:
 	root.add_child(_btn_quit)
 
 func _quit_race() -> void:
-	# no prize, no podium — main reads place -1 as "quit" and respawns Roshan
-	# at the spot she launched the race from
 	if _state == "podium" or _state == "done":
 		return   # already finishing — let the podium payout complete instead
+	# Two icon taps prevent a stray preschool thumb from closing a run. No
+	# reading is required: the button visibly becomes a pulsing double-X.
+	if _quit_arm_t <= 0.0:
+		_quit_arm_t = 2.2
+		_btn_quit.text = "✕  ✕"
+		_btn_quit.modulate = Color(1.0, 0.55, 0.55)
+		_chime(0.8)
+		return
+	_commit_payout(0)
 	_chime(0.6)
 	_teardown(-1)
 
@@ -2714,6 +3132,47 @@ func _placement() -> int:
 		if not k["is_player"] and float(k["s"]) > float(_pl["s"]):
 			ahead += 1
 	return ahead
+
+func _placement_bonus(place: int) -> int:
+	if place == 1:
+		return 15
+	if place == 2:
+		return 10
+	if place == 3:
+		return 8
+	return 5
+
+func _commit_payout(bonus: int) -> int:
+	# Incremental and idempotent: pearls are banked as collected, while finish
+	# adds only the still-unbanked remainder plus the placement bonus.
+	if not bool(_cv("pearl_payout", true)):
+		return 0
+	var wanted: int = maxi(0, _pearls_got) + maxi(0, bonus)
+	var add_now: int = maxi(0, wanted - _payout_banked)
+	if _main != null and "pearl_count" in _main:
+		if add_now > 0:
+			_main.pearl_count += add_now
+			_payout_banked += add_now
+			_payout_dirty = true
+		# Keep the in-memory bank separate from persistence state. A failed open or
+		# flush must not double-add pearls, but pause/quit should retry the same save.
+		if _payout_dirty and _main.has_method("_write_save"):
+			var save_result: Variant = _main._write_save()
+			if save_result == true:
+				_payout_dirty = false
+	else:
+		# Test/minimal hosts may not expose the economy. Still make repeated calls
+		# idempotent within this race instance.
+		_payout_banked = wanted
+		_payout_dirty = false
+	return wanted
+
+func _commit_completion(place: int) -> void:
+	if _completion_committed or place < 1:
+		return
+	_completion_committed = true
+	if _main != null and _main.has_method("_kart_completion_committed"):
+		_main._kart_completion_committed(place)
 
 func _update_hud() -> void:
 	if _pl == null:
@@ -2728,7 +3187,14 @@ func _update_hud() -> void:
 	_meter_fill.size = Vector2(354.0 * m, 24)
 	var rdy: bool = m >= 0.5 and float(_pl["boost_t"]) <= 0.0
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if rdy else Color(0.3, 0.95, 1.0))
-	_lbl_hint.text = "TAP for TURBO!!" if rdy else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
+	var ready_hint := "TAP for TURBO!!" if _touch_device() else "SPACE or A for TURBO!!"
+	_lbl_hint.text = ready_hint if rdy else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
+	if rdy:
+		_set_guide_mode("action")
+	elif _race_t < 7.0:
+		_set_guide_mode("steer")
+	else:
+		_set_guide_mode("")
 
 # ------------------------------------------------------------ finish + podium
 func _finish() -> void:
@@ -2737,23 +3203,18 @@ func _finish() -> void:
 	_state = "podium"
 	var place := _placement()
 	var suffix: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
-	# pearls payout: pearls collected + placement bonus, into the real game economy
-	var bonus := 5
-	if place == 1:
-		bonus = 15
-	elif place == 2:
-		bonus = 10
-	elif place == 3:
-		bonus = 8
-	var payout: int = _pearls_got + bonus
-	if bool(_cv("pearl_payout", true)) and _main != null and "pearl_count" in _main:
-		_main.pearl_count += payout
-		if _main.has_method("_write_save"):
-			_main._write_save()
-		if _main.has_method("_update_hud"):
-			_main._update_hud()
-	_lbl_big.text = ("YOU WIN!" if place == 1 else "%d%s!" % [place, suffix])
-	_lbl_hint.text = "+%d pearls for your treasure!" % payout
+	# Finish is a positive completion at every placement. Commit durable economy
+	# first, then let main atomically save sticker/Galaxy progression before the
+	# purely presentational podium delay.
+	var payout: int = _commit_payout(_placement_bonus(place))
+	if _main != null and _main.has_method("_update_hud"):
+		_main._update_hud()
+	_commit_completion(place)
+	_set_guide_mode("")
+	_lbl_big.text = "YOU DID IT!"
+	_lbl_hint.text = ("%d%s place  •  +%d pearls!" % [place, suffix, payout]) if bool(_cv("pearl_payout", true)) else ("Great racing — %d%s place!" % [place, suffix])
+	if _main != null and _main.has_method("_say"):
+		_main._say("roshan", "win", 2.0)
 	# podium: top 3 by distance
 	var order := _karts.duplicate()
 	order.sort_custom(func(a, b): return float(a["s"]) > float(b["s"]))
@@ -2791,6 +3252,11 @@ func _finish() -> void:
 	tw.tween_callback(_teardown.bind(place))
 
 func _teardown(place: int) -> void:
+	# Covers explicit quit and any direct teardown caller. Both helpers are
+	# idempotent, so the normal finish path cannot double-award anything.
+	_commit_payout(_placement_bonus(place) if place > 0 else 0)
+	if place > 0:
+		_commit_completion(place)
 	_state = "done"
 	for n in _hidden_props:
 		if is_instance_valid(n):
