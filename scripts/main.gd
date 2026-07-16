@@ -2,6 +2,7 @@ class_name ReefMain
 extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -1487,7 +1488,9 @@ func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> Mes
 	# an interior wall: visible box + solid collider + registered for camera cutaway fade.
 	# tex (e.g. "castle") swaps the flat plaster for a real PBR stone material.
 	var node := _l2_box(center, size, col)
-	if tex != "":
+	if tex == "castle":
+		node.material_override = _castle_mat("wall", 0.065, col)
+	elif tex != "":
 		node.material_override = _up_mat(tex, 0.045, col)
 	_wall_solid(center, size)
 	var base_a: float = 1.0
@@ -2681,6 +2684,7 @@ func _apply_quality(q: String) -> void:
 		var fv: Vector2 = arena_env.get_meta("ww_full")
 		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
 		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
+	_sync_castle_lights()
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
 	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
@@ -3075,9 +3079,11 @@ func _enter_level2(from_castle: bool = false) -> void:
 	sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	arena_env.ambient_light_energy = 0.7 if is_night else 1.0
-	_wind_waker_bloom(arena_env, 0.85, 0.3, 1.0)   # open sky above the lagoon — bloom the sky/windows, not every sunlit wall (0.82 white-washed the whole castle)
+	arena_env.ambient_light_energy = 0.54 if is_night else 0.58
+	_wind_waker_bloom(arena_env, 0.44, 0.05, 1.18)   # retain emitters while pale castle/snow values stay below clipping
 	_grade(arena_env)
+	arena_env.tonemap_exposure = 0.82   # exterior-only: separate the pearl stone from the bright illustrated sky
+	arena_env.tonemap_white = 1.35
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -3168,69 +3174,7 @@ func _build_page_frame() -> void:
 			root.add_child(bub)
 
 func _butterfly_gate(scl: float) -> Node3D:
-	# the BUTTERFLY GATE — GEN2 rebuild (owner 2026-07-12: the old white
-	# procedural wings read as strange): a painted pearl ring with HER
-	# butterfly cards fluttering at its sides, rainbow film inside
-	var root := Node3D.new()
-	var ring := MeshInstance3D.new()
-	var tor := TorusMesh.new()
-	tor.inner_radius = 0.82
-	tor.outer_radius = 1.0
-	ring.mesh = tor
-	ring.rotation.x = PI * 0.5   # frame the swirl (torus lies flat by default)
-	var rm := StandardMaterial3D.new()
-	rm.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
-	rm.albedo_color = Color(1.0, 0.86, 0.94)   # pearl pink
-	rm.uv1_triplanar = true
-	rm.uv1_scale = Vector3(0.5, 0.5, 0.5)
-	rm.roughness = 0.35
-	rm.emission_enabled = true
-	rm.emission = Color(1.0, 0.8, 0.95)
-	rm.emission_energy_multiplier = 0.35
-	ring.material_override = rm
-	root.add_child(ring)
-	var btex: Texture2D = load("res://assets/props/gen2/butterfly1.png")
-	for side in [-1.0, 1.0]:
-		var wing := MeshInstance3D.new()
-		var wq := QuadMesh.new()
-		wq.size = Vector2(1.05, 0.85)
-		wing.mesh = wq
-		var wmat := StandardMaterial3D.new()
-		wmat.albedo_texture = btex
-		wmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-		wmat.alpha_scissor_threshold = 0.4
-		wmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		wmat.emission_enabled = true
-		wmat.emission = Color(0.4, 0.32, 0.42)
-		wmat.emission_energy_multiplier = 0.5
-		wing.material_override = wmat
-		wing.position = Vector3(side * 1.16, 0.28, 0.0)
-		wing.rotation.y = side * 0.5
-		root.add_child(wing)
-		var wt := create_tween().set_loops()
-		wt.tween_property(wing, "rotation:y", side * 0.15, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		wt.tween_property(wing, "rotation:y", side * 0.5, 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	var swirl := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = Vector2(1.84, 1.84)
-	swirl.mesh = qm
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
-void fragment(){
-	vec2 c = UV - vec2(0.5);
-	float r = length(c) * 2.0;
-	float hue = fract(r * 0.7 - TIME * 0.14 + atan(c.y, c.x) / 6.2831);
-	float b6 = hue * 6.0;
-	vec3 col = clamp(vec3(abs(b6 - 3.0) - 1.0, 2.0 - abs(b6 - 2.0), 2.0 - abs(b6 - 4.0)), 0.0, 1.0);
-	ALBEDO = col * (1.0 - smoothstep(0.82, 1.0, r)) * 0.75;
-}"""
-	var sm := ShaderMaterial.new()
-	sm.shader = sh
-	swirl.material_override = sm
-	root.add_child(swirl)
-	root.scale = Vector3.ONE * scl
-	return root
+	return LandmarkArtFactory.create_butterfly_gate(scl)
 
 func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> StandardMaterial3D:
 	# upgraded CC0 PBR material (color + OpenGL normal + roughness), triplanar-tiled
@@ -3250,12 +3194,75 @@ func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> Sta
 	m.roughness = 1.0
 	return m
 
+func _castle_mat(role: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1), roughness_override: float = -1.0) -> StandardMaterial3D:
+	# Castle-only painted materials. The legacy up_* normal maps are identical
+	# neutral placeholders and their roughness sheets do not match the painted
+	# albedos. Sampling those through triplanar projection cost the Mali three
+	# times per map while adding false/no surface detail, so this family keeps
+	# one color texture plus an honest scalar roughness per material role.
+	var tex_path: String = "res://assets/terrain/up_castle_col.jpg"
+	var role_roughness: float = 0.86
+	match role:
+		"floor":
+			tex_path = "res://assets/terrain/castle_floor_col.jpg"
+			role_roughness = 0.62
+		"carpet":
+			tex_path = "res://assets/terrain/castle_carpet_col.jpg"
+			role_roughness = 0.95
+		"door":
+			tex_path = "res://assets/terrain/up_door_col.jpg"
+			role_roughness = 0.78
+		"roof":
+			tex_path = "res://assets/terrain/up_roof_col.jpg"
+			role_roughness = 0.82
+		"wood":
+			tex_path = "res://assets/terrain/up_wood_col.jpg"
+			role_roughness = 0.78
+		"cobble":
+			tex_path = "res://assets/terrain/up_cobble_col.jpg"
+			role_roughness = 0.90
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = load(tex_path)
+	mat.albedo_color = tint
+	mat.uv1_triplanar = true
+	mat.uv1_world_triplanar = true
+	mat.uv1_scale = Vector3(uvs, uvs, uvs)
+	mat.roughness = roughness_override if roughness_override >= 0.0 else role_roughness
+	mat.metallic = 0.0
+	return mat
+
+func _register_castle_light(light: Light3D, speedy_visible: bool = false, night_only: bool = false, quality_shadows: bool = false) -> void:
+	# One quality-aware registry serves the outdoor keep and the rebuilt hall.
+	# Both scenes reset g before building, so stale freed lights never accumulate.
+	var detail_lights: Array = g.get("castle_detail_lights", [])
+	detail_lights.append({"light": light, "speedy": speedy_visible, "night_only": night_only, "quality_shadows": quality_shadows})
+	g["castle_detail_lights"] = detail_lights
+	var show_now: bool = (quality != "speedy" or speedy_visible) and (not night_only or is_night)
+	light.visible = show_now
+	if quality_shadows:
+		light.shadow_enabled = quality != "speedy"
+
+func _sync_castle_lights() -> void:
+	var speedy: bool = quality == "speedy"
+	var detail_lights: Array = g.get("castle_detail_lights", [])
+	for value in detail_lights:
+		var item: Dictionary = value
+		var light: Light3D = item.get("light") as Light3D
+		if not is_instance_valid(light):
+			continue
+		var show_now: bool = (not speedy or bool(item.get("speedy", false))) and (not bool(item.get("night_only", false)) or is_night)
+		light.visible = show_now
+		if bool(item.get("quality_shadows", false)):
+			light.shadow_enabled = not speedy
+
 func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
 	var b := MeshInstance3D.new()
 	var bm := BoxMesh.new()
 	bm.size = size
 	b.mesh = bm
-	var m := _up_mat("castle", 0.12, col.lightened(0.12))
+	# All Level 2 blockwork shares the castle albedo, but avoids the legacy
+	# placeholder normal and mismatched roughness sheets audited in this pass.
+	var m := _castle_mat("wall", 0.12, col.lightened(0.12))
 	if glow > 0.0:
 		m.emission_enabled = true
 		m.emission = col
@@ -4023,8 +4030,8 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	ie.background_color = Color(0.12, 0.10, 0.16)
 	ie.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	ie.ambient_light_color = Color(0.9, 0.82, 0.7)
-	ie.ambient_light_energy = 0.8
-	_wind_waker_bloom(ie, 0.6, 0.22, 1.05)   # threshold above 1.0: only true emitters bloom — pale lit walls stay crisp instead of smearing white
+	ie.ambient_light_energy = 0.68
+	_wind_waker_bloom(ie, 0.48, 0.14, 1.12)   # the throne/lights bloom; walls and pale floors retain their value steps
 	ie.fog_enabled = true
 	ie.fog_light_color = Color(0.5, 0.42, 0.45)
 	ie.fog_density = 0.002   # 0.006 pink-hazed the whole hall and mushed the floor pattern into "spliced" blotches
@@ -4085,36 +4092,27 @@ func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	bl.translate_object_local(Vector3(0, 0, -3.0))
 	add_child(bl)
 	game_nodes.append(bl)
+	_register_castle_light(bl, false)
 
 func _glass_window(pos: Vector3, rot_deg: Vector3, height: float) -> void:
 	var pane := MeshInstance3D.new()
 	var q := QuadMesh.new()
-	q.size = Vector2(height * 0.72, height)
+	# Crop to the actual pointed pane inside the protected source. The source has
+	# a baked checkerboard/signature around that pane; a UV silhouette removes it
+	# at render time without altering, recompressing, or replacing the image.
+	q.size = Vector2(height * 0.61, height)
 	pane.mesh = q
-	var m := StandardMaterial3D.new()
-	var tex := load("res://assets/book/hall/glass_mermaid.png")
-	m.albedo_texture = tex
-	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	m.emission_enabled = true
-	m.emission_texture = tex
-	m.emission_energy_multiplier = 0.9
-	m.roughness = 0.5
-	pane.material_override = m
+	var glass_shader := Shader.new()
+	glass_shader.code = "shader_type spatial;\nrender_mode unshaded, cull_disabled;\nuniform sampler2D glass_tex : source_color, filter_linear_mipmap;\nvoid fragment(){\n\tfloat roof_half = mix(0.015, 0.50, clamp(UV.y / 0.16, 0.0, 1.0));\n\tif (abs(UV.x - 0.5) > roof_half) discard;\n\tvec2 src_uv = vec2(mix(0.105, 0.895, UV.x), mix(0.035, 0.965, UV.y));\n\tvec3 c = texture(glass_tex, src_uv).rgb;\n\tALBEDO = c;\n\tEMISSION = c * 0.22;\n}"
+	var glass_mat := ShaderMaterial.new()
+	glass_mat.shader = glass_shader
+	glass_mat.set_shader_parameter("glass_tex", load("res://assets/book/hall/glass_mermaid.png"))
+	pane.material_override = glass_mat
 	pane.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF   # the quad cast a huge round shadow blob onto the facade
 	pane.position = pos
 	pane.rotation_degrees = rot_deg
 	add_child(pane)
 	game_nodes.append(pane)
-	# backlight so it glows like real stained glass
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.95, 0.9)
-	bl.light_energy = 2.2
-	bl.omni_range = height * 2.2
-	bl.position = pos
-	bl.translate_object_local(Vector3(0, 0, -3.0))
-	add_child(bl)
-	game_nodes.append(bl)
 
 const PIC_GAME := {"p_snowman": "snowman", "p_garden": "garden", "p_trampoline": "trampoline", "p_slide": "slide", "p_xmas": "xmas"}
 func _hang_portrait(pos: Vector3, rot_deg: Vector3, art: String) -> void:
@@ -5751,26 +5749,11 @@ func _soft_mat(col: Color, glow: float = 0.12) -> StandardMaterial3D:
 	m.emission = col * glow
 	return m
 
-func _check_star(pos: Vector3) -> MeshInstance3D:
-	var st := MeshInstance3D.new()
-	var tor := TorusMesh.new()
-	tor.inner_radius = 1.7
-	tor.outer_radius = 2.3
-	st.mesh = tor
-	var m := StandardMaterial3D.new()
-	m.albedo_color = Color(1.0, 0.88, 0.35)
-	m.emission_enabled = true
-	m.emission = Color(1.0, 0.85, 0.4)
-	m.emission_energy_multiplier = 1.6
-	st.material_override = m
+func _check_star(pos: Vector3) -> Node3D:
+	var st: Node3D = LandmarkArtFactory.create_star(2.4, Color(1.0, 0.76, 0.24))
 	st.position = pos
 	add_child(st)
 	game_nodes.append(st)
-	var l := OmniLight3D.new()
-	l.light_color = Color(1.0, 0.9, 0.6)
-	l.light_energy = 1.3
-	l.omni_range = 9.0
-	st.add_child(l)
 	return st
 
 func _course_box(pos: Vector3, size: Vector3, col: Color, rotdeg: Vector3 = Vector3.ZERO) -> MeshInstance3D:
@@ -7098,19 +7081,10 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 			_nature("grass_leafsLarge", gp, 3.5, yr)
 		else:
 			_nature(flowers[(seed / 17) % flowers.size()], gp, 4.5, yr)
-	# a couple of fluffy clouds + a warm sun glow
+	# Layered storybook clouds keep a readable silhouette and cool painted underside.
 	for c in range(5):
-		var cl := MeshInstance3D.new()
-		var cs := SphereMesh.new()
-		cs.radius = 5.0 + randf() * 4.0
-		cs.height = 7.0
-		cl.mesh = cs
-		var cmat := StandardMaterial3D.new()
-		cmat.albedo_color = Color(1, 1, 1)
-		cmat.roughness = 1.0
-		cl.material_override = cmat
+		var cl: Node3D = LandmarkArtFactory.create_cloud(5.0 + randf() * 2.0, c)
 		cl.position = origin + Vector3(randf() * 70.0 - 35.0, 28.0 + randf() * 10.0, randf() * 70.0 - 35.0)
-		cl.scale = Vector3(1.8, 0.6, 1.4)
 		add_child(cl)
 		game_nodes.append(cl)
 	var sun := OmniLight3D.new()
@@ -7406,7 +7380,7 @@ func _process(delta: float) -> void:
 	elif game == "combat":
 		pass   # the CombatArena node owns movement, camera and encounter logic
 	elif game == "dungeon":
-		pass   # DungeonLevel sequences ten configured CombatArena rooms
+		pass   # DungeonLevel sequences four CombatArena battles and six visual puzzles
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
