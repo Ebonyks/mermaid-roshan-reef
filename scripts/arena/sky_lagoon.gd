@@ -831,6 +831,48 @@ func _build_alpine_mountain(o: Vector3) -> void:
 		crystal.rotation.z = 0.18
 		m.add_child(crystal)
 		m.game_nodes.append(crystal)
+	_build_northern_pass_gate(o)
+
+
+func _build_northern_pass_gate(o: Vector3) -> void:
+	# The next world begins at a high saddle just beyond the Alpine cairns. The
+	# portal is an authored landmark rather than a menu, so one finger and simple
+	# exploration are enough to continue.
+	var lp := Vector2(-112.0, -185.0)
+	var gy: float = _lagoon_local(lp.x, lp.y)
+	var gate: Vector3 = o + Vector3(lp.x, gy, lp.y)
+	var stone := Color(0.46, 0.51, 0.62)
+	for side: float in [-1.0, 1.0]:
+		var pillar_pos: Vector3 = gate + Vector3(side * 5.8, 6.0, 0.0)
+		var pillar: MeshInstance3D = m._l2_box(pillar_pos,
+			Vector3(3.2, 12.0, 3.4), stone)
+		pillar.material_override = m._up_mat("cliff", 0.075, stone)
+		m._wall_solid(pillar_pos, Vector3(3.2, 12.0, 3.4), 0.5)
+	var lintel: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 12.0, 0.0),
+		Vector3(15.0, 3.0, 3.4), stone)
+	lintel.material_override = m._up_mat("cliff", 0.075, stone)
+	var veil: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 6.0, 0.25),
+		Vector3(8.5, 9.5, 0.25), Color(0.45, 0.90, 1.0), 1.5)
+	veil.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	veil.material_override.albedo_color.a = 0.34
+	veil.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+	var rune := Label3D.new()
+	rune.text = "\u2744"
+	rune.font_size = 260
+	rune.pixel_size = 0.024
+	rune.outline_size = 30
+	rune.modulate = Color(0.72, 0.96, 1.0)
+	rune.outline_modulate = Color(0.18, 0.24, 0.48)
+	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	rune.position = gate + Vector3(0.0, 7.0, 0.0)
+	m.add_child(rune)
+	m.game_nodes.append(rune)
+	m.g["northern_portal_pos"] = gate + Vector3(0.0, 4.0, 0.0)
+	m.g["northern_portal_rune"] = rune
+	m.g["northern_portal_armed"] = true
+	_alpine_cairn(o, Vector2(-102.0, -179.0))
+	_alpine_cairn(o, Vector2(-107.0, -183.0))
 
 
 func _alpine_crag(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
@@ -2081,6 +2123,23 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m._sparkle_burst(secret_pos, Color(1.0, 0.88, 0.35))
 			m._fanfare()
 			m.show_msg("Roshan", "A secret Alpine Star! Three rainbow pearls!", "pearl")
+	# Snowflake gate: leave-and-re-enter hysteresis prevents an immediate return
+	# trip from bouncing Roshan between the two separately loaded worlds.
+	if m.g.has("northern_portal_pos"):
+		var north_pos: Vector3 = m.g["northern_portal_pos"]
+		var north_rune: Label3D = m.g.get("northern_portal_rune") as Label3D
+		if is_instance_valid(north_rune):
+			north_rune.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 2.4) * 0.08)
+		var north_dist: float = north_pos.distance_to(ppos)
+		if not bool(m.g.get("northern_portal_armed", true)):
+			if north_dist > 16.0:
+				m.g["northern_portal_armed"] = true
+		elif north_dist < 8.0:
+			m._enter_northern_kingdom()
+			return
+		if (not bool(m.g.get("northern_portal_hint", false)) and north_dist < 28.0):
+			m.g["northern_portal_hint"] = true
+			m.show_msg("Roshan", "A snowflake gate! A new world is through there!", "pearl2")
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta
