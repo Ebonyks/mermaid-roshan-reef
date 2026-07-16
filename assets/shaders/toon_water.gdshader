@@ -23,6 +23,8 @@ uniform float scroll_speed = 0.05;
 uniform float ripple_scale = 0.05;
 uniform float sparkle = 0.35;                             // 0 disables the dot pass
 uniform bool use_depth = true;                            // Speedy tier flips this off
+uniform bool mesh_edge_foam = false;                      // cheap shoreline fallback for authored ribbons/rings
+uniform float mesh_edge_width : hint_range(0.01, 0.35) = 0.10;
 uniform sampler2D ripple : hint_normal, repeat_enable;
 uniform sampler2D caustics : repeat_enable;
 uniform sampler2D depth_texture : hint_depth_texture;
@@ -60,6 +62,12 @@ void fragment() {
 		float diff = (-view.z) - (-oview.z);
 		shore = 1.0 - smoothstep(0.0, foam_width, diff);
 		shallow = 1.0 - smoothstep(0.0, depth_fade, diff);
+	}
+	if (mesh_edge_foam) {
+		// River and moat meshes author UV.x from bank to bank. This keeps both
+		// shores obvious on Speedy, where scene-depth reads are intentionally off.
+		float edge_dist = min(UV.x, 1.0 - UV.x);
+		shore = max(shore, 1.0 - smoothstep(0.0, mesh_edge_width, edge_dist));
 	}
 	// storybook sparkle dots, same trick as the reef surface (caustics green)
 	float sp = texture(caustics, uv1 * 2.3).g * texture(caustics, uv2 * 2.1).g;

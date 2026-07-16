@@ -3096,7 +3096,7 @@ func _enter_level2(from_castle: bool = false) -> void:
 	else:
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
-		show_msg("Sky Lagoon", "You found Princess Huluu's SKY LAGOON! Follow the path and catch 3 Dream Stars to open the castle!")
+		show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 
 func _build_page_frame() -> void:
 	# STORYBOOK DIORAMA FRAMING (fork): every book page has a delicate dotted
@@ -3800,7 +3800,8 @@ const LAGOON_RIVERS := [
 	[Vector2(-210, -40), Vector2(-150, 30), Vector2(-90, 100), Vector2(-30, 170)],
 	[Vector2(205, -30), Vector2(150, 40), Vector2(95, 110), Vector2(45, 180)]]
 const LAGOON_RIVER_W := 17.0
-const LAGOON_RIVER_DEPTH := 12.0   # was 18: that carved bare-walled canyons that no water sheet could ever look right in
+const LAGOON_RIVER_DEPTH := 15.5   # deeper bed, unchanged waterline: enough room for Roshan to swim at every capped rapid
+const LAGOON_RIVER_MIN_DEPTH := 4.3
 # Castle moat: a ring channel carved around the keep, with a hidden door at its floor.
 const MOAT_CX := 0.0
 const MOAT_CZ := -120.0      # local (relative to LEVEL2_POS); matches the castle base
@@ -7226,12 +7227,13 @@ var _wayfind_t := 0.0
 
 func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	# MOBILE NAV AUDIT: a sparkle comet-trail from Roshan toward the current
-	# best objective while she roams the open reef — the "pathfinding" a
-	# non-reader can follow. Nearest un-won friend first; with all five won,
-	# the Pearl Shop ship when she can afford something, else the penguin
-	# floe. Throttled to 3 cheap bursts every 2.2s; silent inside games,
-	# overlays, the intro and other worlds.
-	if game != "" or mg_kind != "" or intro_active:
+	# best objective — the "pathfinding" a non-reader can follow. In the reef
+	# this is the nearest friend/shop/slide goal; in the Sky Lagoon it is the
+	# next Dream Star, then the open castle door. Throttled to 3 cheap bursts
+	# every 2.2s and silent during overlays, minigames and castle interiors.
+	var level2_court: bool = (game == "level2"
+		and String(g.get("phase", "court")) == "court")
+	if (game != "" and not level2_court) or mg_kind != "" or intro_active:
 		return
 	if _overlay_root_for_cursor() != null:
 		return
@@ -7240,19 +7242,29 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		return
 	_wayfind_t = 2.2
 	var target := Vector3.ZERO
-	var best := 1e9
-	for f in friends:
-		if not bool(f["won"]):
-			var p: Vector3 = (f["node"] as Node3D).position
-			var d: float = p.distance_to(ppos)
-			if d < best:
-				best = d
-				target = p
-	if target == Vector3.ZERO:
-		if pearl_count >= 60 and manta != null and is_instance_valid(manta):
-			target = manta.position
-		elif slide_portal_pos != Vector3.ZERO:
-			target = slide_portal_pos
+	if level2_court:
+		for sd in l2_stars:
+			if not bool(sd["got"]):
+				var star: Node3D = sd["node"]
+				if is_instance_valid(star):
+					target = star.position
+				break
+		if target == Vector3.ZERO and l2_open and l2_door != null and is_instance_valid(l2_door):
+			target = g.get("entry", l2_door.position)
+	else:
+		var best := 1e9
+		for f in friends:
+			if not bool(f["won"]):
+				var p: Vector3 = (f["node"] as Node3D).position
+				var d: float = p.distance_to(ppos)
+				if d < best:
+					best = d
+					target = p
+		if target == Vector3.ZERO:
+			if pearl_count >= 60 and manta != null and is_instance_valid(manta):
+				target = manta.position
+			elif slide_portal_pos != Vector3.ZERO:
+				target = slide_portal_pos
 	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
 		return
 	for k in range(3):

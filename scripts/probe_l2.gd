@@ -15,6 +15,15 @@ func _init() -> void:
 	main.trophies = 5
 	main._enter_level2()
 	await process_frame
+	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
+	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
+		"OK" if river_depth >= 4.0 else "FAIL"])
+	var wayfinder_children: int = main.get_child_count()
+	main._wayfind_t = 0.0
+	main._tick_wayfinder(0.1, player.position)
+	var wayfinder_ok: bool = (main._wayfind_t > 2.0
+		and main.get_child_count() >= wayfinder_children + 3)
+	print("WAYFINDER|Level 2 sparkle trail: ", "OK" if wayfinder_ok else "FAIL")
 	_kart_gateway_regressions(main, player)
 	# The Alpine addition must remain one distinct corner, clear of the train,
 	# with its attached mountain and near-summit secret cave fully built.

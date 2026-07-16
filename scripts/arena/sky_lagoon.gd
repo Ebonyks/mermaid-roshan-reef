@@ -650,7 +650,8 @@ func _build_christmas_village(o: Vector3) -> void:
 	var village_local := ALPINE_VILLAGE_CENTER
 	m.g["alpine_village_center"] = o + Vector3(village_local.x,
 		_lagoon_local(village_local.x, village_local.y), village_local.y)
-	_build_alpine_snowfield(o, ALPINE_SNOW_CENTER, ALPINE_SNOW_RADIUS)
+	# Snow is blended directly into the shared heightfield material so the Alpine
+	# biome has a soft melt line instead of a pale, stepped overlay mesh.
 	_build_alpine_mountain(o)
 	m.g["alpine_house_entries"] = []
 	m.g["alpine_house_bonuses"] = []
@@ -1244,19 +1245,36 @@ func _village_snowman(o: Vector3, lp: Vector3) -> void:
 
 
 func _build_lagoon_terrain(o: Vector3) -> void:
-	# blended terrain material: lush grass on the hills/plains, muddy dirt down in the
-	# river valleys (CC0 Poly Haven sets), with normal maps for real surface depth
+	# One terrain draw call carries four readable zones: shaded meadow, warm park
+	# sand, muddy river beds and Alpine snow. Keeping the values below white is
+	# essential under the bright storybook sky; otherwise every lawn reads as snow.
 	var tsh := Shader.new()
 	tsh.code = "shader_type spatial;\n" + \
 		"uniform sampler2D grass_t; uniform sampler2D grass_n; uniform sampler2D dirt_t; uniform sampler2D dirt_n;\n" + \
+		"uniform sampler2D sand_t; uniform sampler2D sand_n; uniform sampler2D snow_t; uniform sampler2D snow_n;\n" + \
 		"uniform float tile = 0.045; uniform float blo = -6.0; uniform float bhi = 2.5;\n" + \
-		"varying float ly;\n" + \
-		"void vertex(){ ly = VERTEX.y; }\n" + \
+		"varying float ly; varying vec2 lp;\n" + \
+		"void vertex(){ ly = VERTEX.y; lp = VERTEX.xz; }\n" + \
 		"void fragment(){\n" + \
 		"  vec2 uv = UV * tile;\n" + \
 		"  float g = smoothstep(blo, bhi, ly);\n" + \
-		"  ALBEDO = mix(texture(dirt_t, uv).rgb, texture(grass_t, uv).rgb, g);\n" + \
-		"  NORMAL_MAP = mix(texture(dirt_n, uv).rgb, texture(grass_n, uv).rgb, g);\n" + \
+		"  vec3 dirt = texture(dirt_t, uv).rgb * vec3(0.78, 0.70, 0.65);\n" + \
+		"  vec3 grass = texture(grass_t, uv).rgb * vec3(0.70, 0.82, 0.67);\n" + \
+		"  vec3 sand = texture(sand_t, uv).rgb * vec3(0.88, 0.76, 0.62);\n" + \
+		"  vec3 snow = texture(snow_t, uv).rgb * vec3(0.76, 0.86, 0.98);\n" + \
+		"  vec3 nrm = mix(texture(dirt_n, uv).rgb, texture(grass_n, uv).rgb, g);\n" + \
+		"  vec3 ground = mix(dirt, grass, g);\n" + \
+		"  float park_d = length((lp - vec2(75.0, 91.0)) / vec2(52.0, 50.0));\n" + \
+		"  float park = 1.0 - smoothstep(0.72, 1.0, park_d);\n" + \
+		"  ground = mix(ground, sand, park * g * 0.82);\n" + \
+		"  nrm = mix(nrm, texture(sand_n, uv).rgb, park * g * 0.82);\n" + \
+		"  float village_d = length((lp - vec2(-96.0, -180.0)) / vec2(52.0, 43.0));\n" + \
+		"  float village_snow = 1.0 - smoothstep(0.78, 1.08, village_d);\n" + \
+		"  float mountain_d = distance(lp, vec2(-135.0, -165.0));\n" + \
+		"  float high_snow = (1.0 - smoothstep(58.0, 78.0, mountain_d)) * smoothstep(12.0, 27.0, ly);\n" + \
+		"  float snow_mix = max(village_snow, high_snow);\n" + \
+		"  ALBEDO = mix(ground, snow, snow_mix);\n" + \
+		"  NORMAL_MAP = mix(nrm, texture(snow_n, uv).rgb, snow_mix);\n" + \
 		"  ROUGHNESS = 0.95;\n" + \
 		"}"
 	var gm := ShaderMaterial.new()
@@ -1265,6 +1283,10 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	gm.set_shader_parameter("grass_n", load("res://assets/terrain/up_grass_nrm.jpg"))
 	gm.set_shader_parameter("dirt_t", load("res://assets/terrain/up_dirt_col.jpg"))
 	gm.set_shader_parameter("dirt_n", load("res://assets/terrain/up_dirt_nrm.jpg"))
+	gm.set_shader_parameter("sand_t", load("res://assets/terrain/up_sand_col.jpg"))
+	gm.set_shader_parameter("sand_n", load("res://assets/terrain/up_sand_nrm.jpg"))
+	gm.set_shader_parameter("snow_t", load("res://assets/terrain/up_snow_col.jpg"))
+	gm.set_shader_parameter("snow_n", load("res://assets/terrain/up_snow_nrm.jpg"))
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	# 128 (was 64): at 7.7-unit quads the mesh cut corners across the path
@@ -1314,6 +1336,9 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var river_mat = m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
 	river_mat.set_shader_parameter("foam_width", 2.6)
 	river_mat.set_shader_parameter("depth_fade", 7.0)
+	river_mat.set_shader_parameter("mesh_edge_foam", true)
+	river_mat.set_shader_parameter("mesh_edge_width", 0.12)
+	var observed_min_depth: float = INF
 	for rv in m.LAGOON_RIVERS:
 		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
 		# flat planes got buried wherever the river path crossed a hill (rock on top,
@@ -1337,6 +1362,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		# keeps the water inside its gorge on hill crossings; a slope-limit pass
 		# smooths the cap steps into gentle rapids instead of sawtooth ledges.
 		var perps: Array = []
+		var floors := PackedFloat32Array()
 		var wys: PackedFloat32Array = PackedFloat32Array()
 		for i in range(pts.size()):
 			var p2: Vector2 = pts[i]
@@ -1347,16 +1373,22 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var perp := Vector2(-d2.y, d2.x) * 16.3
 			perps.append(perp)
 			var floor_h: float = _lagoon_local(p2.x, p2.y)
+			floors.append(floor_h)
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
 			var eo: Vector2 = perp.normalized() * 20.0   # just past the carved channel (W=17)
 			var bank_cap: float = minf(_lagoon_local(p2.x + eo.x, p2.y + eo.y),
 				_lagoon_local(p2.x - eo.x, p2.y - eo.y)) - 0.5
 			var wy: float = minf((floor_h + dip_h) - 1.5, bank_cap)
-			wys.append(maxf(floor_h + 0.8, wy))
+			wys.append(maxf(floor_h + m.LAGOON_RIVER_MIN_DEPTH, wy))
 		for i in range(1, wys.size()):   # slope-limit downstream…
 			wys[i] = minf(wys[i], wys[i - 1] + 0.5)
 		for i in range(wys.size() - 2, -1, -1):   # …and upstream
 			wys[i] = minf(wys[i], wys[i + 1] + 0.5)
+		# The slope pass may only lower a sample. Re-assert a real swim pocket at
+		# every point; the deeper bed keeps this at the exact pre-audit waterline.
+		for i in range(wys.size()):
+			wys[i] = maxf(wys[i], floors[i] + m.LAGOON_RIVER_MIN_DEPTH)
+			observed_min_depth = minf(observed_min_depth, wys[i] - floors[i])
 		for i in range(pts.size()):
 			var p2b: Vector2 = pts[i]
 			var perp2: Vector2 = perps[i]
@@ -1388,6 +1420,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				m.game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(m.g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
+	m.g["l2_river_min_depth"] = observed_min_depth
 	# ---- moat water: the channel is FULL (surface 2.5 under the rim, like the
 	# rivers), mostly opaque, and painted with the GEN2 family-style water
 	# albedo. The old sheet sat at -6 in a 16-deep trench, so from the grounds
@@ -1419,6 +1452,8 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	# from every angle and on every quality tier
 	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.92, 0.2, 0.04)
 	mwmat.set_shader_parameter("foam_width", 2.4)
+	mwmat.set_shader_parameter("mesh_edge_foam", true)
+	mwmat.set_shader_parameter("mesh_edge_width", 0.10)
 	mwmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
 	mwmat.set_shader_parameter("albedo_mix", 0.85)
 	mwmat.set_shader_parameter("albedo_scale", 0.035)
@@ -1462,9 +1497,11 @@ func _build_fairy_pond(o: Vector3) -> void:
 	var pond := MeshInstance3D.new()
 	var cm := CylinderMesh.new(); cm.top_radius = 17.0; cm.bottom_radius = 17.0; cm.height = 1.0
 	pond.mesh = cm
-	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = Color(0.4, 0.55, 0.95); pmat.metallic = 0.85; pmat.roughness = 0.07
-	pmat.emission_enabled = true; pmat.emission = Color(0.5, 0.55, 1.0); pmat.emission_energy_multiplier = 0.6
+	var pmat = m._toon_water_mat(Color(0.30, 0.42, 0.78), Color(0.62, 0.72, 1.0), 0.92, 0.16, 0.055)
+	pmat.set_shader_parameter("sparkle", 0.55)
+	pmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
+	pmat.set_shader_parameter("albedo_mix", 0.32)
+	pmat.set_shader_parameter("albedo_scale", 0.045)
 	pond.material_override = pmat
 	pond.position = c + Vector3(0, 2.6, 0)
 	m.add_child(pond); m.game_nodes.append(pond)
@@ -2098,9 +2135,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room
 			return
 	if not m.l2_open:
-		m.hud_game.text = "Dream Stars: %d / 3  -  follow the sparkles!" % got
+		m.hud_game.text = "★  %d / 3   ✦ follow the sparkle trail!" % got
 	else:
-		m.hud_game.text = "The castle is OPEN!  Swim to the glowing door!"
+		m.hud_game.text = "★ ★ ★   ➜   Castle door!"
 		# magnet toward the fixed doorway (the door itself slides up out of view)
 		var entry: Vector3 = m.g.get("entry", m.l2_door.position)
 		var dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()
