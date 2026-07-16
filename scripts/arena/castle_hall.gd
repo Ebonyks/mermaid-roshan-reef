@@ -922,11 +922,11 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	quad.size = Vector2(5.8, 5.8)
 	veil.mesh = quad
 	var veil_mat := StandardMaterial3D.new()
-	veil_mat.albedo_color = Color(0.28, 0.18, 0.55, 0.58)
+	veil_mat.albedo_color = Color(1.0, 0.82, 0.45, 0.38)
 	veil_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	veil_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	veil_mat.emission_enabled = true
-	veil_mat.emission = Color(0.38, 0.28, 0.75)
+	veil_mat.emission = Color(0.75, 0.48, 0.16)
 	veil_mat.emission_energy_multiplier = 0.7
 	veil.material_override = veil_mat
 	veil.position = Vector3(0, 4.0, 0)
@@ -940,7 +940,6 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.position = Vector3(0, 9.0, 0)
 	root.add_child(label)
-	veil.modulate = Color(1.0, 0.82, 0.45)
 	m.g["dungeon_gate"] = {"node": root, "veil": veil, "label": label, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
 
 
