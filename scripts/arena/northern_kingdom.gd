@@ -1,7 +1,7 @@
 class_name NorthernKingdom
 extends RefCounted
 
-# A separately loaded storybook world beyond the Sky Lagoon's Alpine pass.
+# A separately loaded storybook world beyond the Sky Lagoon's Alpine cave star.
 # State remains on ReefMain (mostly in g); this satellite only builds and ticks
 # the region. Keeping it separate means the Mali-G52 never renders both large
 # outdoor worlds at once.

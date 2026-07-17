@@ -1,5 +1,5 @@
 extends SceneTree
-# Northern-world regression: the Alpine snowflake gate reaches a separately
+# Northern-world regression: the Alpine cave star reaches a separately
 # loaded, passive-safe forest/town/castle world and its return latch cannot loop.
 
 var ok := true
@@ -30,11 +30,14 @@ func _init() -> void:
 	main.set_process(false)
 	main.player.set_process(false)
 
-	_ck("Alpine pass gate built", main.g.has("northern_portal_pos"))
+	_ck("Alpine cave star is entrance", main.g.has("northern_portal_pos")
+		and main.g.has("alpine_secret_pos")
+		and (main.g["northern_portal_pos"] as Vector3).is_equal_approx(
+			main.g["alpine_secret_pos"] as Vector3))
 	var sky_gate: Vector3 = main.g.get("northern_portal_pos", Vector3.ZERO)
 	main._tick_level2(0.0, sky_gate)
 	await process_frame
-	_ck("pass enters northern world", main.game == "north" and main.northern_floor)
+	_ck("cave star enters northern world", main.game == "north" and main.northern_floor)
 	_ck("three readable regions", main.g.has("north_forest_center")
 		and main.g.has("north_town_center") and main.g.has("north_castle_center"))
 	_ck("mobile dressing budget", int(main.g.get("north_tree_count", 0)) == 16
@@ -71,10 +74,13 @@ func _init() -> void:
 	main._tick_northern(0.0, return_gate + Vector3(0.0, 0.0, -24.0))
 	main._tick_northern(0.0, return_gate)
 	await process_frame
-	_ck("return reaches Alpine pass", main.game == "level2"
+	_ck("return reaches Alpine cave", main.game == "level2"
 		and not bool(main.g.get("northern_portal_armed", true)))
 	var rebuilt_gate: Vector3 = main.g.get("northern_portal_pos", Vector3.ZERO)
-	_ck("return spawn clears the gate", main.player.position.distance_to(rebuilt_gate) >= 15.0)
+	var cave_mouth: Vector3 = main.g.get("alpine_cave_entrance", Vector3.ZERO)
+	_ck("return spawn clears star at cave mouth",
+		main.player.position.distance_to(rebuilt_gate) >= 15.0
+		and main.player.position.distance_to(cave_mouth) < 4.0)
 
 	print("NORTH|RESULT: %s" % ("OK" if ok else "FAIL"))
 	quit(0 if ok else 1)

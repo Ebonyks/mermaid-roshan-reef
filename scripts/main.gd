@@ -274,7 +274,7 @@ var save_retry_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
-var northern_floor := false  # the Alpine-pass world has its own terrain heightfield
+var northern_floor := false  # the world beyond the Alpine cave has its own terrain heightfield
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
 var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
@@ -3186,16 +3186,16 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
 	# track selected at the top of this function — the lagoon music never played)
 	if from_north:
-		# Return beside the Alpine gate, facing back toward the snowy village.
-		# The gate is disarmed until Roshan swims away, preventing a bounce loop.
+		# Return at the cave mouth, facing the snowy village. The star is disarmed
+		# until Roshan swims away, preventing a bounce loop.
 		var north_gate: Vector3 = g.get("northern_portal_pos",
-			LEVEL2_POS + Vector3(-112.0, 40.0, -185.0))
-		player.position = north_gate + Vector3(16.0, 0.0, 0.0)
+			LEVEL2_POS + Vector3(-128.0, 52.0, -165.0))
+		player.position = g.get("alpine_cave_entrance", north_gate + Vector3(20.0, 0.0, 0.0))
 		player.position.y = lagoon_walk_h(player.position.x, player.position.z) + 2.0
 		player.yaw = PI * 0.5
 		player.vel = Vector3.ZERO
 		g["northern_portal_armed"] = false
-		show_msg("Roshan", "Back through the snowy mountain pass!", "pearl2")
+		show_msg("Roshan", "Back through the magic cave star!", "pearl2")
 	elif from_castle:
 		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
 		for sd in l2_stars:
@@ -3420,7 +3420,7 @@ func _lagoon_ref() -> SkyLagoon:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
 
-# The northern kingdom beyond the Alpine pass is loaded separately so its
+# The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
 # State stays here on main; the satellite only builds and ticks it.
 var _northern_kingdom: NorthernKingdom = null
