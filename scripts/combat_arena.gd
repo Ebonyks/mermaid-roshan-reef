@@ -108,35 +108,13 @@ func _sphere(parent: Node3D, pos: Vector3, radius: float, col: Color, emission: 
 	shape.rings = 6
 	return _mesh(parent, shape, pos, col, emission)
 
-func _cone(parent: Node3D, pos: Vector3, radius: float, height: float, col: Color) -> MeshInstance3D:
-	var shape := CylinderMesh.new()
-	shape.top_radius = 0.0
-	shape.bottom_radius = radius
-	shape.height = height
-	shape.radial_segments = 8
-	return _mesh(parent, shape, pos, col)
-
 func _build_octagon() -> void:
-	var floor := CylinderMesh.new()
-	floor.top_radius = RADIUS
-	floor.bottom_radius = RADIUS
-	floor.height = 1.0
-	floor.radial_segments = 8
 	var default_floor := Color(0.46, 0.55, 0.78) if kind == "ice" else Color(0.48, 0.25, 0.20)
 	var default_trim := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
 	var floor_col: Color = encounter.get("floor", default_floor)
 	var trim_col: Color = encounter.get("trim", default_trim)
-	_mesh(self, floor, CENTER, floor_col)
-	for i in range(8):
-		var a: float = float(i) * TAU / 8.0
-		var wall := BoxMesh.new()
-		wall.size = Vector3(21.0, 3.0, 1.0)
-		var w := _mesh(self, wall, CENTER + Vector3(sin(a) * 26.2, 1.1, cos(a) * 26.2), trim_col, 0.25)
-		w.rotation.y = a
-	# Eight low-cost rune lights are emissive meshes, not OmniLights.
-	for i in range(8):
-		var a: float = (float(i) + 0.5) * TAU / 8.0
-		_sphere(self, CENTER + Vector3(sin(a) * 23.0, 1.0, cos(a) * 23.0), 0.45, trim_col, 1.2)
+	var arena := DungeonArt.spawn("arena", self, CENTER)
+	DungeonArt.tint(arena, _mat(floor_col), _mat(trim_col, 0.18))
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -208,44 +186,16 @@ func _build_ice_swarm() -> void:
 		var root := Node3D.new()
 		root.position = pos
 		add_child(root)
-		_sphere(root, Vector3(0, 1.8, 0), 1.65, Color(0.42, 0.18, 0.58))
-		_sphere(root, Vector3(0, 3.4, 0), 1.15, Color(0.55, 0.25, 0.68))
-		_cone(root, Vector3(-0.65, 4.65, 0), 0.42, 1.5, Color(0.15, 0.08, 0.30)).rotation_degrees.z = 18.0
-		_cone(root, Vector3(0.65, 4.65, 0), 0.42, 1.5, Color(0.15, 0.08, 0.30)).rotation_degrees.z = -18.0
-		_sphere(root, Vector3(-0.42, 3.65, 1.0), 0.2, Color(1.0, 0.95, 0.55), 1.0)
-		_sphere(root, Vector3(0.42, 3.65, 1.0), 0.2, Color(1.0, 0.95, 0.55), 1.0)
+		DungeonArt.spawn("imp", root)
 		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
 
 func _build_pepper_boss() -> void:
 	# A little basket makes the ability source readable even without text.
-	var basket := Node3D.new()
-	basket.position = CENTER + Vector3(-8.0, 0.7, 10.0)
-	add_child(basket)
-	var bowl := CylinderMesh.new()
-	bowl.top_radius = 2.2
-	bowl.bottom_radius = 1.5
-	bowl.height = 1.5
-	_mesh(basket, bowl, Vector3.ZERO, Color(0.55, 0.30, 0.14))
-	for i in range(5):
-		var pepper := _sphere(basket, Vector3(-1.1 + float(i) * 0.55, 1.0 + float(i % 2) * 0.35, 0), 0.48, Color(0.95, 0.12, 0.08), 0.25)
-		pepper.scale = Vector3(0.7, 1.5, 0.7)
-	var root := Node3D.new()
-	root.position = CENTER + Vector3(0, 1.0, -10.0)
-	add_child(root)
-	_sphere(root, Vector3(0, 2.0, 0), 4.0, Color(0.22, 0.58, 0.34))
-	var shell := _sphere(root, Vector3(0, 3.0, -0.7), 4.4, Color(0.18, 0.30, 0.22))
-	shell.scale = Vector3(1.0, 0.65, 1.0)
-	for i in range(8):
-		var a: float = float(i) * TAU / 8.0
-		var spike := _cone(root, Vector3(sin(a) * 3.0, 5.2, cos(a) * 3.0 - 0.7), 0.55, 1.7, Color(0.55, 0.70, 0.35))
-		spike.rotation_degrees = Vector3(cos(a) * 38.0, 0, -sin(a) * 38.0)
-	var head := _sphere(root, Vector3(0, 2.4, 4.1), 2.2, Color(0.42, 0.72, 0.34))
-	_sphere(root, Vector3(-0.65, 3.1, 5.8), 0.32, Color(1.0, 0.75, 0.25), 1.0)
-	_sphere(root, Vector3(0.65, 3.1, 5.8), 0.32, Color(1.0, 0.75, 0.25), 1.0)
-	for side in [-1.0, 1.0]:
-		for ci in range(3):
-			var claw := _cone(root, Vector3(side * (3.6 + float(ci) * 0.42), 0.8, 2.7 - float(ci) * 0.35), 0.35, 1.4, Color(0.92, 0.88, 0.62))
-			claw.rotation_degrees.z = side * 72.0
+	DungeonArt.spawn("basket", self, CENTER + Vector3(-8.0, 0.7, 10.0))
+	var root := DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
+	root.scale = Vector3.ONE * 1.3
+	var head := DungeonArt.find_part(root, "Head")
+	var shell := DungeonArt.find_part(root, "Shell")
 	var first_phase := "shell" if kind == "dual" else "peek"
 	var first_time := float(encounter.get("shell_time", 4.5)) if kind == "dual" else float(encounter.get("peek_time", 4.5))
 	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position}
@@ -361,9 +311,7 @@ func _freeze_imp(enemy: Dictionary) -> void:
 	enemy["state"] = "frozen"
 	enemy["timer"] = 1.7
 	var node: Node3D = enemy["node"]
-	for child in node.get_children():
-		if child is MeshInstance3D:
-			(child as MeshInstance3D).material_override = _mat(Color(0.45, 0.88, 1.0), 0.45)
+	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
@@ -403,7 +351,7 @@ func _pop_imp(enemy: Dictionary) -> void:
 		var corn := _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
 		var tw := corn.create_tween()
 		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(corn, "modulate:a", 0.0, 0.35)
+		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 		tw.tween_callback(corn.queue_free)
 	m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.45))
 	_update_hud()
@@ -556,10 +504,17 @@ func _finish() -> void:
 		finish_cb.call(kind)
 	queue_free()
 
-func cancel() -> void:
+func cancel(notify_finish: bool = true) -> void:
+	if state == "done":
+		return
+	if state == "won":
+		_finish()   # the victory was already earned; leaving skips only the delay
+		return
 	state = "done"
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	if notify_finish and finish_cb.is_valid():
+		finish_cb.call("")
 	queue_free()
 
 func action_label() -> String:

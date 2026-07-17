@@ -20,6 +20,21 @@ func _init() -> void:
 	player = main.player
 	print("AUDIT|boot OK, seed=", seed_str)
 	var t_start := Time.get_ticks_msec()
+	# --- Critter Book: approach + one real touch-action edge catches exactly one ---
+	main.critter_collection = {}
+	var collection: CollectionSystem = main._collection_ref()
+	var first_critter: Dictionary = main.collection_nodes[0]
+	var critter_node: Node3D = first_critter["node"]
+	var critter_def: Dictionary = first_critter["def"]
+	player.position = critter_node.position
+	player.vel = Vector3.ZERO
+	main.touch_ui.action_down = false
+	await process_frame
+	main.touch_ui.action_down = true
+	await process_frame
+	main.touch_ui.action_down = false
+	var critter_ok: bool = collection.caught_count() == 1 and bool(main.critter_collection.get(String(critter_def["id"]), false))
+	print("AUDIT|Critter Book: ", ("OK" if critter_ok else "FAIL"))
 	for fi in range(5):
 		var f: Dictionary = main.friends[fi]
 		var fname: String = f["fname"]
@@ -40,6 +55,16 @@ func _init() -> void:
 			continue
 		var gname: String = main.game
 		var cutaway_ok: bool = player.position.distance_to(main.ARENA_POS) <= 120.0
+		if gname == "melody":
+			var stage: Node = main.get_node_or_null("GabbyTheater3D")
+			var stage_ok: bool = stage != null
+			if stage_ok:
+				var required := ["BackWall", "StageDeck", "RainbowArc0", "ProsceniumBulbs", "Runway", "TheaterSeats", "GabbyPerformer"]
+				for child_name in required:
+					if stage.get_node_or_null(String(child_name)) == null:
+						stage_ok = false
+						break
+			print("AUDIT|Gabby 3D theater: ", ("OK" if stage_ok else "FAIL"))
 		var f0 := Time.get_ticks_msec()
 		var ok := await _drive_game(gname, f)
 		var secs := float(Time.get_ticks_msec() - f0) / 1000.0
@@ -129,17 +154,25 @@ func _init() -> void:
 	main._respawn_pearls()
 	print("AUDIT|Pearl respawn: ", ("OK" if collected and main.pearls.size() == 10 else "FAIL"))
 	# --- level 2 ---
-	main.pearl_count = main.PEARL_TOTAL
+	main.portal_unlocked = false
+	main.pearl_count = main.PEARL_TOTAL - 1
+	main.pearls_ever = main.PEARL_TOTAL - 1
 	for f in main.friends:
 		f["found"] = true
 		f["won"] = true
 	main.trophies = 5
+	main._check_level2_unlock(player.position, 0.1)
+	print("AUDIT|Level 2 nine-pearl lock: ", ("OK" if not main.portal_unlocked and main.portal_node == null else "FAIL"))
+	main.pearl_count = main.PEARL_TOTAL
 	var pf := 0
 	while main.portal_node == null and pf < 300:
 		pf += 1
 		main._check_level2_unlock(player.position, 0.1)
 		await process_frame
 	print("AUDIT|Level 2 portal: ", ("OK" if main.portal_node != null else "FAIL"))
+	main.pearl_count = 0
+	main._check_level2_unlock(player.position, 0.1)
+	print("AUDIT|Level 2 portal stays unlocked after spending: ", ("OK" if main.portal_unlocked and main.portal_node != null else "FAIL"))
 	if main.portal_node != null:
 		var rf := 0
 		while main.game == "" and rf < 600:
@@ -281,6 +314,10 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
 				player.position = player.position.lerp(bush.position, 0.15)
 				player.vel = Vector3.ZERO
+		elif gname == "slide":
+			# Exercise the deliberate lean that the downhill ride requires.
+			var weave: float = 0.65 if int(fcount / 45) % 2 == 0 else -0.65
+			main.touch_ui.stick_vec = Vector2(weave, 0.0)
 		elif gname == "race" or gname == "treasure":
 			if String(g.get("phase", "")) != "slide":
 				var checks: Array = g.get("checks", [])

@@ -11,6 +11,36 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
+func _dress_kitchen_prop(node: Node, materials: Dictionary) -> void:
+	if node is MeshInstance3D:
+		var mesh_node: MeshInstance3D = node as MeshInstance3D
+		var node_name: String = String(mesh_node.name)
+		for prefix_value in materials:
+			var prefix: String = String(prefix_value)
+			if node_name.begins_with(prefix):
+				mesh_node.material_override = materials[prefix] as Material
+				break
+	for child in node.get_children():
+		_dress_kitchen_prop(child, materials)
+
+func _kitchen_prop(path: String, pos: Vector3, materials: Dictionary) -> Node3D:
+	# Static furnishings use an exact-size root/origin and named material-role
+	# meshes. They do not need a Skeleton3D; this lightweight material rig keeps
+	# the three custom surfaces shared instead of embedding duplicate rasters.
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path) as PackedScene
+	if packed == null:
+		return null
+	var prop: Node3D = packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	_dress_kitchen_prop(prop, materials)
+	prop.position = pos
+	m.add_child(prop)
+	m.game_nodes.append(prop)
+	return prop
+
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
 	# Quiet lavender stone floor: broad value shapes keep the long hall legible
@@ -332,7 +362,11 @@ func build(o: Vector3) -> void:
 	crown.set_meta("base_y", crown.position.y)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
-	m.l2_stars = [{"node": crown, "got": false}]
+	# On later visits the Crown Star remains as a royal keepsake, but it cannot
+	# replay the ownership win or pull Roshan toward an already-completed goal.
+	if m.level2_done_once:
+		m.g["crown_won"] = true
+	m.l2_stars = [{"node": crown, "got": m.level2_done_once}]
 	# A short, non-reading sparkle trail connects the runner and stairs to the
 	# crown. It is visual guidance only; the existing objective and collision
 	# contracts remain unchanged.
@@ -346,6 +380,7 @@ func build(o: Vector3) -> void:
 		guide.modulate = Color(1.0, 0.80, 0.28, 0.82)
 		guide.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		guide.position = o + Vector3(0, 5.0 + float(guide_i) * 4.6, -11.0 - float(guide_i) * 5.2)
+		guide.visible = not m.level2_done_once
 		m.add_child(guide)
 		m.game_nodes.append(guide)
 		crown_guides.append(guide)
@@ -755,7 +790,7 @@ func build_basement_wing(o: Vector3) -> void:
 	# ---------- four side rooms off the hallway ----------
 	var rooms := [
 		{"c": Vector3(-17, 0, -2), "name": "✨ Pantry ✨", "tint": Color(0.85, 0.78, 0.62)},
-		{"c": Vector3(17, 0, -2), "name": "✨ Royal Kitchen ✨", "tint": Color(0.95, 0.82, 0.66)},
+		{"c": Vector3(17, 0, -2), "name": "✨ Royal Kitchen ✨", "tint": Color(0.95, 0.82, 0.66), "floor_role": "kitchen_floor", "floor_tint": Color(0.98, 0.98, 1.0)},
 		{"c": Vector3(-17, 0, -28), "name": "✨ Bubble Bath ✨", "tint": Color(0.7, 0.8, 0.88), "ensuite": true},
 		{"c": Vector3(17, 0, -28), "name": "✨ Craft Room ✨", "tint": Color(0.85, 0.75, 0.9)},
 	]
@@ -763,7 +798,9 @@ func build_basement_wing(o: Vector3) -> void:
 		var rc: Vector3 = rd["c"]
 		var sx2: float = signf(rc.x)
 		var rfl = m._l2_box(o + rc + Vector3(0, -18.6, 0), Vector3(18, 1.2, 16), Color(0.6, 0.56, 0.64))
-		rfl.material_override = m._castle_mat("cobble", 0.05, rd["tint"])
+		var floor_role: String = String(rd.get("floor_role", "cobble"))
+		var floor_tint: Color = Color(rd.get("floor_tint", rd["tint"]))
+		rfl.material_override = m._castle_mat(floor_role, 0.05, floor_tint)
 		var rcl = m._l2_box(o + rc + Vector3(0, -0.9, 0), Vector3(19, 0.8, 17), Color(0.55, 0.52, 0.6))   # ceiling
 		m.fade_walls.append({"node": rcl, "c": rcl.position, "h": (rcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
 		if bool(rd.get("ensuite", false)):
@@ -795,23 +832,88 @@ func build_basement_wing(o: Vector3) -> void:
 	# table set for two — the pantry is right across the hallway, the way a
 	# real castle kitchen works (the old toy den moved up to the Toy Room)
 	var tc: Vector3 = o + Vector3(17, 0, -2)
-	m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))     # counter
-	m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))  # counter top
+	var backsplash: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -10.9, -7.15), Vector3(10.5, 6.8, 0.18), Color.WHITE)
+	backsplash.material_override = m._castle_mat("kitchen_floor", 0.09, Color(0.96, 0.98, 1.0), 0.62)
+	var kitchen_gold_mat: StandardMaterial3D = m._soft_mat(gold, 0.0)
+	kitchen_gold_mat.metallic = 0.38
+	kitchen_gold_mat.roughness = 0.44
+	var counter_materials: Dictionary = {
+		"CounterWood": m._castle_mat("kitchen_wood", 0.11, Color(0.98, 0.91, 0.82)),
+		"CounterTop": m._castle_mat("kitchen_counter", 0.12, Color(1.0, 0.99, 0.98)),
+		"CounterMetal": kitchen_gold_mat,
+	}
+	var counter_prop: Node3D = _kitchen_prop(
+		"res://assets/castle/kitchen_counter.glb",
+		tc + Vector3(-2.0, -18.0, -6.6),
+		counter_materials,
+	)
+	if counter_prop == null:
+		var counter_fallback: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -16.4, -6.6), Vector3(10, 3.2, 2.6), Color(0.6, 0.42, 0.28))
+		counter_fallback.material_override = counter_materials["CounterWood"] as Material
+		var counter_top_fallback: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -14.6, -6.6), Vector3(10.4, 0.5, 3.0), Color(0.95, 0.93, 0.88))
+		counter_top_fallback.material_override = counter_materials["CounterTop"] as Material
 	m._wall_solid(tc + Vector3(-2.0, -16.0, -6.6), Vector3(10, 4.5, 2.6), 0.4)
-	var stove = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
-	stove.material_override.roughness = 0.4
+	var sink_basin_mat: StandardMaterial3D = m._soft_mat(Color(0.43, 0.82, 0.81), 0.0)
+	sink_basin_mat.roughness = 0.38
+	var sink_water_mat: StandardMaterial3D = m._soft_mat(Color(0.34, 0.82, 0.87), 0.35)
+	sink_water_mat.roughness = 0.26
+	var sink_materials: Dictionary = {
+		"SinkPorcelain": m._castle_mat("kitchen_counter", 0.14, Color(1.0, 0.99, 0.98)),
+		"SinkBasin": sink_basin_mat,
+		"SinkMetal": kitchen_gold_mat,
+		"SinkWater": sink_water_mat,
+	}
+	_kitchen_prop(
+		"res://assets/castle/kitchen_sink.glb",
+		tc + Vector3(-0.4, -14.35, -6.45),
+		sink_materials,
+	)
+	var stove_mat: StandardMaterial3D = m._soft_mat(Color(0.78, 0.86, 0.93), 0.0)
+	stove_mat.emission_enabled = false
+	stove_mat.roughness = 0.46
+	var stove_cream_mat: StandardMaterial3D = m._soft_mat(Color(0.98, 0.93, 0.84), 0.0)
+	stove_cream_mat.roughness = 0.54
+	var stove_trim_mat: StandardMaterial3D = m._soft_mat(Color(0.72, 0.65, 0.90), 0.0)
+	stove_trim_mat.roughness = 0.48
+	var stove_glass_mat: StandardMaterial3D = m._soft_mat(Color(0.25, 0.20, 0.43), 1.0)
+	stove_glass_mat.emission_energy_multiplier = 1.0
+	var hot_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.45, 0.25), 1.0)
+	hot_burner_mat.emission_energy_multiplier = 2.2
+	var warm_burner_mat: StandardMaterial3D = m._soft_mat(Color(1.0, 0.65, 0.35), 1.0)
+	warm_burner_mat.emission_energy_multiplier = 1.4
+	var dark_burner_mat: StandardMaterial3D = m._soft_mat(Color(0.19, 0.16, 0.31), 0.0)
+	dark_burner_mat.roughness = 0.65
+	var stove_materials: Dictionary = {
+		"StoveBody": stove_mat,
+		"StoveCream": stove_cream_mat,
+		"StoveTrim": stove_trim_mat,
+		"StoveMetal": kitchen_gold_mat,
+		"StoveGlass": stove_glass_mat,
+		"StoveBurnerHot": hot_burner_mat,
+		"StoveBurnerWarm": warm_burner_mat,
+		"StoveBurnerDark": dark_burner_mat,
+	}
+	var stove_prop: Node3D = _kitchen_prop(
+		"res://assets/castle/kitchen_stove.glb",
+		tc + Vector3(6.0, -18.0, -6.4),
+		stove_materials,
+	)
+	if stove_prop == null:
+		var stove_fallback: MeshInstance3D = m._l2_box(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), Color(0.88, 0.9, 0.94))
+		stove_fallback.material_override = stove_mat
+		var hot_burner_fallback: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)
+		hot_burner_fallback.material_override = hot_burner_mat
+		var warm_burner_fallback: MeshInstance3D = m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)
+		warm_burner_fallback.material_override = warm_burner_mat
 	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
-	m._l2_box(tc + Vector3(5.2, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.45, 0.25), 2.2)   # hot burner
-	m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)   # warm burner
-	m._l2_box(tc + Vector3(6.0, -16.6, -4.8), Vector3(2.7, 1.7, 0.3), Color(1.0, 0.85, 0.5), 1.2)     # oven window glow
-	m._l2_box(tc + Vector3(6.0, -15.4, -4.8), Vector3(3.0, 0.3, 0.35), gold, 0.4)                     # gold oven handle
 	var pot := MeshInstance3D.new()   # copper soup pot bubbling on the hot burner
 	var pcy := CylinderMesh.new(); pcy.top_radius = 0.9; pcy.bottom_radius = 0.8; pcy.height = 1.1
 	pot.mesh = pcy
 	pot.material_override = m._soft_mat(Color(0.85, 0.55, 0.35), 0.2)
 	pot.position = tc + Vector3(5.2, -13.4, -6.4)
 	m.add_child(pot); m.game_nodes.append(pot)
-	m._l2_box(tc + Vector3(5.2, -12.8, -6.4), Vector3(1.2, 0.2, 1.2), Color(0.7, 0.95, 0.6), 0.9)     # the soup!
+	var soup: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -12.8, -6.4), Vector3(1.2, 0.2, 1.2), Color(0.7, 0.95, 0.6), 0.9)
+	soup.material_override = m._soft_mat(Color(0.7, 0.95, 0.6), 0.9)
 	var kettle := MeshInstance3D.new()
 	var ksp := SphereMesh.new(); ksp.radius = 0.7; ksp.height = 1.2
 	kettle.mesh = ksp
@@ -819,15 +921,17 @@ func build_basement_wing(o: Vector3) -> void:
 	kettle.position = tc + Vector3(-4.0, -13.9, -6.6)
 	m.add_child(kettle); m.game_nodes.append(kettle)
 	for pn in range(3):   # copper pans hang over the counter
-		m._l2_box(tc + Vector3(-5.0 + float(pn) * 2.2, -11.0, -6.9), Vector3(1.4, 1.4, 0.25), Color(0.8, 0.6, 0.4), 0.15)
+		var pan: MeshInstance3D = m._l2_box(tc + Vector3(-5.0 + float(pn) * 2.2, -11.0, -6.9), Vector3(1.4, 1.4, 0.25), Color(0.8, 0.6, 0.4), 0.15)
+		pan.material_override = m._soft_mat(Color(0.86, 0.58, 0.36), 0.15)
 	var ttab := MeshInstance3D.new()   # tea table set for two
 	var tcy := CylinderMesh.new(); tcy.top_radius = 2.2; tcy.bottom_radius = 0.5; tcy.height = 2.6
 	ttab.mesh = tcy
-	ttab.material_override = m._soft_mat(Color(0.7, 0.5, 0.34))
+	ttab.material_override = m._castle_mat("kitchen_wood", 0.12, Color(0.96, 0.88, 0.78))
 	ttab.position = tc + Vector3(-2.0, -16.6, 3.5)
 	m.add_child(ttab); m.game_nodes.append(ttab)
 	m._cyl_solid(tc + Vector3(-2.0, -16.6, 3.5), 2.2, 1.4, 0.3)
-	m._l2_box(tc + Vector3(-2.0, -15.1, 3.5), Vector3(1.4, 0.5, 1.4), Color(0.95, 0.9, 0.98), 0.5)    # teapot
+	var teapot: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -15.1, 3.5), Vector3(1.4, 0.5, 1.4), Color(0.95, 0.9, 0.98), 0.5)
+	teapot.material_override = m._soft_mat(Color(0.95, 0.9, 0.98), 0.5)
 	for stx in [-4.8, 0.8]:
 		var stool := MeshInstance3D.new()
 		var scy := CylinderMesh.new(); scy.top_radius = 1.0; scy.bottom_radius = 0.8; scy.height = 1.6
@@ -989,6 +1093,7 @@ func build_music_room(o: Vector3) -> void:
 		m.game_nodes.append(bell)
 		var bp := AudioStreamPlayer.new()
 		bp.stream = load("res://assets/audio/chime.ogg")
+		bp.bus = "SFX"
 		bp.pitch_scale = bellpitch[bi]
 		bp.volume_db = -13.0   # much softer bells
 		bell.add_child(bp)   # parent to the bell so it frees with the room (game_nodes is Array[Node3D])
@@ -1212,6 +1317,7 @@ func build_toilet(ground: Vector3) -> void:
 	# bubbly toot, gentle volume for little ears (tick re-arms it on swim-away)
 	var tap := AudioStreamPlayer.new()
 	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.bus = "SFX"
 	tap.volume_db = -8.0
 	tap.pitch_scale = 1.1
 	base.add_child(tap)   # frees with the toilet
@@ -1238,6 +1344,7 @@ func slide_stand() -> void:
 		zd.erase("ceil")
 	var rumble := AudioStreamPlayer.new()
 	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.bus = "SFX"
 	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
 	chest.add_child(rumble)   # frees with the chest
 	rumble.play()
@@ -1434,6 +1541,6 @@ func tick(delta: float, ppos: Vector3) -> void:
 				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 			var ctw: Tween = crown.create_tween()
 			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			ctw.parallel().tween_property(crown, "modulate", Color(1.0, 0.98, 0.7, 1.0), 0.8)
+			ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
 			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 

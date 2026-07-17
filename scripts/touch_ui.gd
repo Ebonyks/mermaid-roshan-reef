@@ -152,6 +152,46 @@ func _release_stick() -> void:
 	_base.visible = false
 	_knob.visible = false
 
+func _clear_touch_state() -> void:
+	_touch_idx = -1
+	_look_idx = -1
+	_jump_fingers.clear()
+	_pend.clear()
+	stick_vec = Vector2.ZERO
+	action_down = false
+	action_just = false
+	_look_dx = 0.0
+	_look_dy = 0.0
+	_moved = false
+	_pulse = 0.0
+	if _base != null:
+		_base.visible = false
+	if _knob != null:
+		_knob.visible = false
+
+func _request_pause() -> void:
+	var m: Node = get_parent()
+	if m != null and m.has_method("toggle_pause"):
+		m.toggle_pause()
+
+func _flush_parent_save() -> void:
+	var m: Node = get_parent()
+	if m != null and m.has_method("_write_save"):
+		m.call("_write_save")
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_clear_touch_state()
+	elif what == NOTIFICATION_APPLICATION_PAUSED:
+		_clear_touch_state()
+		_flush_parent_save()
+	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		_clear_touch_state()
+		_request_pause()
+	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_clear_touch_state()
+		_flush_parent_save()
+
 func _unhandled_input(ev: InputEvent) -> void:
 	if not wants_touch():
 		return
@@ -241,9 +281,7 @@ func _input(ev: InputEvent) -> void:
 		if (ev as InputEventJoypadButton).button_index == JOY_BUTTON_START:
 			toggle = true
 	if toggle:
-		var m: Node = get_parent()
-		if m != null and m.has_method("toggle_pause"):
-			m.toggle_pause()
+		_request_pause()
 
 static func wants_touch() -> bool:
 	return DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") or "--touch" in OS.get_cmdline_user_args()

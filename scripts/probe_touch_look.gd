@@ -97,6 +97,19 @@ func _init() -> void:
 		print("PASS held jump releases")
 	else:
 		print("FAIL action_down stuck after release")
+
+	# Home/interruption can arrive without matching finger-up events.  The
+	# lifecycle notification must clear every held gesture immediately.
+	_down(0, Vector2(400, 700))
+	_move(0, Vector2(470, 700))
+	_down(1, Vector2(1200, 700))
+	await process_frame
+	touch.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await process_frame
+	if (touch.stick_vec as Vector2).is_zero_approx() and not bool(touch.action_down) and not touch.look_active():
+		print("PASS focus loss clears touch state")
+	else:
+		print("FAIL focus loss left touch state active")
 	_up(0, _f[0])
 	await process_frame
 

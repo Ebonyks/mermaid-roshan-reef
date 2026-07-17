@@ -12,6 +12,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["spawned"] = 0
 	m.g["caught"] = 0
 	m.g["resolved"] = 0
+	m.g["missed"] = 0
 	m.g["next"] = 0.6
 	m.g["dolls"] = []
 	m.g["timer"] = -1.0
@@ -45,13 +46,21 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		m.g["verb_t"] = maxf(0.0, float(m.g.get("verb_t", 0.0)) - delta)
 	var hands_on: bool = float(m.g.get("verb_t", 0.0)) > 0.0
 	m.g["next"] = float(m.g["next"]) - delta
-	if float(m.g["next"]) <= 0.0 and int(m.g["spawned"]) < 5:
+	if float(m.g["next"]) <= 0.0 and int(m.g["caught"]) < 3:
 		m.g["spawned"] = int(m.g["spawned"]) + 1
 		m.g["next"] = 1.2
 		var doll := ColorRect.new()
 		doll.color = Color(0, 0, 0, 0)
 		doll.size = Vector2(96, 86)
-		doll.position = Vector2(80.0 + randf() * 1100.0, -100.0)
+		var missed: int = int(m.g["missed"])
+		var drop_x: float = 80.0 + randf() * 1100.0
+		if missed >= 2:
+			# Bring later dolls toward Roshan and slow them down. A live touch or
+			# stick movement is still required, so an unattended game cannot win.
+			var spread: float = maxf(35.0, 220.0 - float(missed - 2) * 35.0)
+			drop_x = clampf(m.dolls_catcher.position.x + 17.0 + randf_range(-spread, spread), 0.0, 1160.0)
+		doll.position = Vector2(drop_x, -100.0)
+		doll.set_meta("fall_speed", maxf(105.0, 190.0 - float(missed) * 15.0))
 		var dtex := TextureRect.new()
 		dtex.texture = load(["res://assets/book/baby_doll.png", "res://assets/book/baby_doll2.png", "res://assets/book/baby_doll3.png"][int(m.g["spawned"]) % 3])
 		dtex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -63,7 +72,7 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var dolls: Array = m.g["dolls"]
 	for i in range(dolls.size() - 1, -1, -1):
 		var doll: ColorRect = dolls[i]
-		doll.position.y += 190.0 * delta
+		doll.position.y += float(doll.get_meta("fall_speed", 190.0)) * delta
 		doll.position.x += sin(float(m.g["t"]) * 1.6 + float(i) * 2.0) * 60.0 * delta
 		doll.rotation = sin(float(m.g["t"]) * 2.0 + float(i)) * 0.25
 		var caught: bool = hands_on and doll.position.y > 490.0 and absf(doll.position.x + 48.0 - (m.dolls_catcher.position.x + 65.0)) < 115.0
@@ -77,6 +86,7 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				m.voice.play()
 		elif doll.position.y > 700.0:
 			m.g["resolved"] = int(m.g["resolved"]) + 1
+			m.g["missed"] = int(m.g["missed"]) + 1
 			# a baby got away! Faron gasps (min-gap so two misses don't overlap)
 			m._say("faron", "miss", 3.0)
 			doll.queue_free()
@@ -85,12 +95,9 @@ func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	# onto the dolls layer itself so it is actually visible
 	if m.dolls_score_lbl != null:
 		m.dolls_score_lbl.text = "Sleepy dolls caught: %d  (catch 3 to win!)" % int(m.g["caught"])
-	if int(m.g["resolved"]) >= 5 and dolls.is_empty():
+	if int(m.g["caught"]) >= 3:
 		_dolls2d_close()
-		if int(m.g["caught"]) >= 3:
-			m._end_game(true, fr, "You tucked in %d dolls! All cozy now." % int(m.g["caught"]))
-		else:
-			m._end_game(false, fr, "Oh no, the babies!", "fail")
+		m._end_game(true, fr, "You tucked in %d dolls! All cozy now." % int(m.g["caught"]))
 
 func _dolls2d_open(fr: Dictionary) -> void:
 	if m.dolls_layer == null:
@@ -110,6 +117,15 @@ func _dolls2d_open(fr: Dictionary) -> void:
 	tint.color = Color(0.08, 0.05, 0.2, 0.25)
 	tint.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.dolls_root.add_child(tint)
+	# Ground the catcher and falling targets without altering the protected
+	# nursery illustration itself.
+	var lower_shade := ColorRect.new()
+	lower_shade.color = Color(0.08, 0.05, 0.20, 0.16)
+	lower_shade.anchor_left = 0.0
+	lower_shade.anchor_top = 0.55
+	lower_shade.anchor_right = 1.0
+	lower_shade.anchor_bottom = 1.0
+	m.dolls_root.add_child(lower_shade)
 	var faron := TextureRect.new()
 	faron.texture = (fr["node"] as Sprite3D).texture
 	faron.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

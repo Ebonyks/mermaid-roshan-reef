@@ -61,6 +61,7 @@ func _init() -> void:
 		player.vel = Vector3.ZERO
 		await process_frame
 		print("CROWN|dbg exit=", hx - o, " armed=", main.g.get("hall_exit_armed", "?"))
+		_ck("front_door_arms", bool(main.g.get("hall_exit_armed", false)))
 		# Approach to the playable side of the front-wall blocker (the door centre
 		# itself lies behind that blocker), then let the normal trigger process it.
 		player.position = hx + Vector3(0, 1, -11.5)

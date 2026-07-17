@@ -19,14 +19,14 @@ var selected := -1
 var solved_pairs: Array[int] = []
 var interactives: Array[Dictionary] = []
 var reveal_nodes: Array[Node3D] = []
-var card_labels: Array[Label3D] = []
+var card_labels: Array[Node3D] = []
 var pair_hide: Array[int] = []
 var pair_hide_t := 0.0
 var prev_env: Environment = null
 var avatar: Sprite3D = null
 var player_pos := Vector3.ZERO
 var fire_prev := false
-var door: MeshInstance3D = null
+var door: Node3D = null
 var exit_t := 0.0
 var hud: CanvasLayer = null
 var objective: Label = null
@@ -101,32 +101,13 @@ func _sphere(pos: Vector3, radius: float, col: Color, glow: float = 0.0, parent:
 	mesh.rings = 5
 	return _mesh(mesh, pos, col, glow, parent)
 
-func _box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0, parent: Node3D = null) -> MeshInstance3D:
-	var mesh := BoxMesh.new()
-	mesh.size = size
-	return _mesh(mesh, pos, col, glow, parent)
-
 func _build_room() -> void:
-	var floor := CylinderMesh.new()
-	floor.top_radius = 27.0
-	floor.bottom_radius = 27.0
-	floor.height = 1.0
-	floor.radial_segments = 8
-	_mesh(floor, CENTER, Color(config.get("floor", Color(0.32, 0.42, 0.62))))
+	var floor_col := Color(config.get("floor", Color(0.32, 0.42, 0.62)))
 	var trim: Color = Color(config.get("trim", Color(0.65, 0.92, 1.0)))
-	for i in range(8):
-		var angle := float(i) * TAU / 8.0
-		# Leave readable openings at the entrance and destination.
-		if i == 0 or i == 4:
-			continue
-		var wall := _box(CENTER + Vector3(sin(angle) * 26.2, 2.0, cos(angle) * 26.2), Vector3(20.5, 4.5, 1.0), trim, 0.15)
-		wall.rotation.y = angle
-	for side in [-1.0, 1.0]:
-		_box(CENTER + Vector3(side * 7.0, 5.0, -24.8), Vector3(5.0, 10.0, 1.4), trim)
-	door = _box(CENTER + Vector3(0, 5.0, -24.7), Vector3(9.0, 10.0, 1.2), Color(0.16, 0.12, 0.3))
-	_sphere(CENTER + Vector3(0, 8.0, -24.0), 0.85, Color(1.0, 0.88, 0.22), 1.2)
-	# A short entrance bridge visually connects this room to the previous one.
-	_box(CENTER + Vector3(0, 0.25, 25.5), Vector3(9.0, 0.5, 8.0), trim.darkened(0.25))
+	var arena := DungeonArt.spawn("arena", self, CENTER)
+	DungeonArt.tint(arena, _mat(floor_col), _mat(trim, 0.15))
+	door = DungeonArt.spawn("door", self, CENTER + Vector3(0, 0, -24.7))
+	DungeonArt.tint(door, _mat(floor_col.darkened(0.2)), _mat(trim))
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -137,30 +118,14 @@ func _build_avatar() -> void:
 	avatar.position = player_pos
 	add_child(avatar)
 
-func _add_label(text: String, pos: Vector3, col: Color, size: int = 130) -> Label3D:
-	var label := Label3D.new()
-	label.text = text
-	label.font_size = size
-	label.pixel_size = 0.024
-	label.outline_size = 20
-	label.modulate = col
-	label.position = pos
-	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	add_child(label)
-	return label
-
-func _add_pad(index: int, pos: Vector3, symbol: String, col: Color) -> Node3D:
+func _add_pad(index: int, pos: Vector3, symbol: String, col: Color, keep_kinds: Array[String] = []) -> Node3D:
 	var root := Node3D.new()
 	root.position = pos
 	add_child(root)
-	var pad := CylinderMesh.new()
-	pad.top_radius = 3.4
-	pad.bottom_radius = 3.8
-	pad.height = 0.8
-	pad.radial_segments = 8
-	_mesh(pad, Vector3.ZERO, col, 0.2, root)
-	var label := _add_label(symbol, pos + Vector3(0, 3.0, 0), Color.WHITE, 120)
-	interactives.append({"index": index, "node": root, "label": label, "pos": pos})
+	var pedestal := DungeonArt.spawn("pedestal", root)
+	DungeonArt.tint(pedestal, _mat(col.darkened(0.35)), _mat(col, 0.18))
+	var picture := DungeonArt.add_pictogram(symbol, root, Vector3(0, 3.0, 0), 1.15, keep_kinds)
+	interactives.append({"index": index, "node": root, "picture": picture, "pos": pos})
 	return root
 
 func _choice_color(index: int) -> Color:
@@ -181,24 +146,33 @@ func _build_props() -> void:
 			_build_pair_props()
 
 func _build_sequence_props() -> void:
-	var choices: Array = config.get("choices", ["◆", "●", "▲"])
 	var solution: Array = config.get("solution", [0, 1, 2])
 	for i in range(solution.size()):
-		_add_label(String(choices[int(solution[i])]), CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 5.0, 7.0, -13.0), _choice_color(int(solution[i])))
-	var count := int(config.get("choice_count", choices.size()))
+		var choice_index := int(solution[i])
+		var kind := _element_kind(choice_index) if puzzle_kind == "elemental" else _sequence_kind(choice_index)
+		DungeonArt.add_pictogram(kind, self, CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 5.0, 7.0, -13.0), 1.25)
+	var default_count := 2 if puzzle_kind == "elemental" else 3
+	var count := int(config.get("choice_count", default_count))
 	for i in range(count):
-		_add_pad(i, CENTER + Vector3((float(i) - float(count - 1) * 0.5) * 8.0, 0.7, 4.0), String(choices[i]), _choice_color(i))
+		var kind := _element_kind(i) if puzzle_kind == "elemental" else _sequence_kind(i)
+		_add_pad(i, CENTER + Vector3((float(i) - float(count - 1) * 0.5) * 8.0, 0.7, 4.0), kind, _choice_color(i))
 	clue_pos = CENTER + Vector3(0, 11.0, -13.0)
+
+func _sequence_kind(index: int) -> String:
+	return ["diamond", "orb", "triangle"][index % 3]
+
+func _element_kind(index: int) -> String:
+	return "ice" if index % 2 == 0 else "flame"
 
 func _build_path_props() -> void:
 	var solution: Array = config.get("solution", [0, 1, 0, 0])
 	for i in range(solution.size()):
 		var x := -4.5 if int(solution[i]) == 0 else 4.5
-		var stone := _box(CENTER + Vector3(x, 0.8, 2.0 - float(i) * 5.0), Vector3(5.5, 0.7, 3.8), Color(0.5, 0.88, 1.0), 0.35)
+		var stone := DungeonArt.spawn("stone", self, CENTER + Vector3(x, 0.8, 2.0 - float(i) * 5.0))
 		stone.scale = Vector3(0.12, 0.12, 0.12)
 		reveal_nodes.append(stone)
-	_add_pad(0, CENTER + Vector3(-6.5, 0.7, 11.0), "◀", _choice_color(0))
-	_add_pad(1, CENTER + Vector3(6.5, 0.7, 11.0), "▶", _choice_color(1))
+	_add_pad(0, CENTER + Vector3(-6.5, 0.7, 11.0), "left", _choice_color(0))
+	_add_pad(1, CENTER + Vector3(6.5, 0.7, 11.0), "right", _choice_color(1))
 	clue_pos = CENTER + Vector3(0, 9.0, -7.0)
 
 func _build_torch_props() -> void:
@@ -206,25 +180,18 @@ func _build_torch_props() -> void:
 	for i in range(4):
 		var x := (float(i) - 1.5) * 7.0
 		var pos := CENTER + Vector3(x, 0.5, -6.0)
-		_box(pos + Vector3(0, heights[i] * 0.5, 0), Vector3(1.2, heights[i], 1.2), Color(0.34, 0.2, 0.12))
-		var flame := _sphere(pos + Vector3(0, heights[i] + 0.6, 0), 0.9, Color(1.0, 0.38, 0.08), 1.2)
+		var lantern := DungeonArt.spawn("lantern", self, pos)
+		lantern.scale.y = heights[i] / 5.5
+		var flame := DungeonArt.find_part(lantern, "Glow")
 		flame.visible = false
 		reveal_nodes.append(flame)
-		_add_pad(i, pos, "🌶", _choice_color(i))
+		_add_pad(i, pos, "pepper", _choice_color(i))
 	clue_pos = CENTER + Vector3(0, 11.0, -6.0)
 
 func _build_shell_props() -> void:
 	values = [0, 0, 0]
 	for i in range(3):
-		var root := Node3D.new()
-		root.position = CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0)
-		add_child(root)
-		var shell := SphereMesh.new()
-		shell.radius = 2.5
-		shell.height = 4.0
-		shell.radial_segments = 8
-		_mesh(shell, Vector3.ZERO, Color(0.34, 0.65, 0.48), 0.0, root)
-		_box(Vector3(0, 0.4, 2.4), Vector3(0.7, 0.7, 3.2), Color(1.0, 0.83, 0.25), 0.4, root)
+		var root := DungeonArt.spawn("statue", self, CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0))
 		interactives.append({"index": i, "node": root, "pos": root.position})
 	_sphere(CENTER + Vector3(0, 2.0, 2.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
 	clue_pos = CENTER + Vector3(0, 9.0, 2.0)
@@ -233,10 +200,12 @@ func _build_pair_props() -> void:
 	var symbols: Array = config.get("cards", ["☾", "★", "☾", "★"])
 	for i in range(symbols.size()):
 		var pos := CENTER + Vector3((float(i % 2) - 0.5) * 11.0, 0.7, 3.0 - float(i / 2) * 9.0)
-		var root := _add_pad(i, pos, "?", Color(0.48, 0.34, 0.72))
+		var symbol_kind := "moon" if i % 2 == 0 else "star"
+		var root := _add_pad(i, pos, "question", Color(0.48, 0.34, 0.72), ["question", symbol_kind])
 		root.set_meta("symbol", String(symbols[i]))
+		root.set_meta("symbol_kind", symbol_kind)
 		var entry: Dictionary = interactives[interactives.size() - 1]
-		card_labels.append(entry["label"] as Label3D)
+		card_labels.append(entry["picture"] as Node3D)
 	clue_pos = CENTER + Vector3(0, 11.0, -2.0)
 
 func _build_camera() -> void:
@@ -315,7 +284,7 @@ func _process(delta: float) -> void:
 		pair_hide_t -= delta
 		if pair_hide_t <= 0.0:
 			for idx in pair_hide:
-				card_labels[idx].text = "?"
+				DungeonArt.show_pictogram(card_labels[idx], "question")
 			pair_hide.clear()
 	if state == "exit":
 		exit_t += delta
@@ -397,7 +366,7 @@ func _pair_action(choice: int) -> void:
 	if choice in solved_pairs or choice < 0 or choice >= card_labels.size():
 		return
 	var card_root: Node3D = interactives[choice]["node"]
-	card_labels[choice].text = String(card_root.get_meta("symbol"))
+	DungeonArt.show_pictogram(card_labels[choice], String(card_root.get_meta("symbol_kind")))
 	if selected < 0:
 		selected = choice
 		_step_chime(0)
@@ -451,13 +420,20 @@ func _solve() -> void:
 	pointer.position = CENTER + Vector3(0, 11.0, -24.0)
 	if door != null:
 		var tween := door.create_tween()
-		tween.tween_property(door, "position:y", CENTER.y - 6.0, 0.75).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		tween.tween_property(door, "position:y", CENTER.y - 10.0, 0.75).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	m.show_msg("Roshan", "The golden door is open! Swim through!", "win")
 
 func force_solve() -> void:
 	_solve()
 
 func cancel() -> void:
+	# Opening the door is the earned completion moment. If the child taps Home
+	# during the short celebration, checkpoint it instead of discarding it.
+	if state == "celebrate":
+		_finish()
+		return
+	if state == "done" or state == "cancelled":
+		return
 	state = "cancelled"
 	_restore_environment()
 	queue_free()

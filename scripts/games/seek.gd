@@ -10,7 +10,9 @@ func _init(main: ReefMain) -> void:
 
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["found"] = 0
-	m.g["timer"] = 20.0
+	m.g["timer"] = -1.0
+	m.g["help_t"] = 0.0
+	m.g["seek_anchor"] = m.player.position
 	m.g["bushes"] = []
 	for i in range(4):
 		var bush := MeshInstance3D.new()
@@ -28,8 +30,8 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 		bmat3.normal_scale = 1.0
 		bmat3.roughness = 1.0
 		bmat3.emission_enabled = true
-		bmat3.emission = m.BTN_COLS[i] * 0.3
-		bmat3.emission_energy_multiplier = 0.7
+		bmat3.emission = m.BTN_COLS[i] * 0.18
+		bmat3.emission_energy_multiplier = 0.25
 		bush.material_override = bmat3
 		bush.position = origin + m.BTN_OFFS[i] + Vector3(0, 2.2, 0)
 		m.add_child(bush)
@@ -50,7 +52,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 
 func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Find Lamb-a'! %d / 4   %ds" % [int(m.g["found"]), int(m.g["timer"])]
+	m.hud_game.text = "Find Lamb-a'! %d / 4" % int(m.g["found"])
 	# giggle beacon: she can be HEARD from the wiggly bush, not just seen
 	m.g["gig_t"] = float(m.g.get("gig_t", 2.0)) - delta
 	if float(m.g["gig_t"]) <= 0.0:
@@ -60,12 +62,14 @@ func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			m.voice.play()
 	var which: int = int(m.g.get("which", 0))
 	var bush: MeshInstance3D = (m.g["bushes"] as Array)[which]
-	var hit: bool = m._btn_pressed() == which or bush.position.distance_to(ppos) < 4.0
+	m.g["help_t"] = float(m.g.get("help_t", 0.0)) + delta
+	var help_radius: float = minf(9.0, 4.0 + float(m.g["help_t"]) * 0.35)
+	var seek_anchor: Vector3 = m.g.get("seek_anchor", ppos)
+	var moved_to_seek: bool = ppos.distance_to(seek_anchor) > 0.75
+	var hit: bool = m._btn_pressed() == which or (moved_to_seek and bush.position.distance_to(ppos) < help_radius)
 	if hit:
 		m.g["found"] = int(m.g["found"]) + 1
-		# 50-run sim: 4 finds on one 20s clock passed only 6% on touch —
-		# each find gifts +6s so a slow little seeker still wins the game
-		m.g["timer"] = float(m.g["timer"]) + 6.0
+		m.g["help_t"] = 0.0
 		var lamb2: Node3D = m.g["lamb"]
 		lamb2.position = bush.position + Vector3(0, 4.8, 0)
 		var twl = m.create_tween()
@@ -80,6 +84,7 @@ func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		_seek_hide()
 
 func _seek_hide() -> void:
+	m.g["seek_anchor"] = m.player.position
 	m.g["which"] = randi() % 4
 	var bush: MeshInstance3D = (m.g["bushes"] as Array)[int(m.g["which"])]
 	(m.g["lamb"] as Node3D).position = bush.position + Vector3(0, 0.5, -2.2)

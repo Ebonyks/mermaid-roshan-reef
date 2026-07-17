@@ -11,6 +11,8 @@ func _init() -> void:
 		if ResourceLoader.exists("res://assets/audio/voices/roshan_%s.ogg" % ln):
 			n += 1
 	print("Roshan voice clips present: %d / 8" % n)
+	if n != 8:
+		print("FAIL voice clips missing: %d / 8 present" % n)
 	main._say("roshan", "whale")
 	main._say("roshan", "win")
 	await process_frame

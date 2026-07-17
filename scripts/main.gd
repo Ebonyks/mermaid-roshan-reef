@@ -3,6 +3,7 @@ extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -14,6 +15,8 @@ var player: Node3D
 var pearls: Array[Node3D] = []
 var friends: Array = []
 var pearl_count := 0
+var pearls_ever := 0              # highest pearl balance ever held; preserves the original 10-pearl gate after spending
+var portal_unlocked := false
 var trophies := 0
 var hud_layer: CanvasLayer = null
 var hud_pearls: Label
@@ -21,6 +24,19 @@ var hud_stars: Label
 var hud_msg: Label
 var hud_game: Label
 var msg_timer := 0.0
+# ---- CRITTER BOOK: mutable state stays on ReefMain; CollectionSystem owns logic ----
+var critter_collection := {}              # species id -> true; persisted in reef_save.json
+var collection_nodes: Array = []          # runtime rows for the active world
+var collection_root: Node3D = null
+var collection_habitat := ""              # "ocean" | "lagoon" | ""
+var collection_nearby_id := ""
+var collection_action_prev := false
+var collection_hint_shown := false
+var collection_layer: CanvasLayer = null
+var collection_stage: Control = null
+var collection_button_layer: CanvasLayer = null
+var collection_button: Button = null
+var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
@@ -117,6 +133,10 @@ var galaxy_game: Node = null    # Level 3 — Butterfly World (scripts/galaxy.gd
 var galaxy_unlocked := false
 var fairy_skin_unlocked := false   # Butterfly World prize: the Fairy Roshan look
 var bwd_done := false              # the 7 butterflies are home FOREVER (owner: never repeat the quest)
+var galaxy_from := ""              # world to restore after Butterfly World ("" ocean / "level2")
+var galaxy_return_set := false     # stays set across the optional fairy-flight round trip
+var galaxy_return_pos := Vector3.ZERO
+var galaxy_level2_open := false
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_game: CombatArena = null
@@ -276,6 +296,7 @@ var flag_sh: Shader = null
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_resume_btn: Button = null
+var pause_leave_btn: Button = null
 var fps_lbl: Label = null
 # bedtime: swim onto the castle bed -> tuck-in cutscene that flips day <-> night
 var sleep_t := -1.0
@@ -534,18 +555,23 @@ func _ready() -> void:
 	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
+	voice.bus = "Voice"
 	add_child(voice)
 	chime = AudioStreamPlayer.new()
 	chime.stream = load("res://assets/audio/chime.ogg")
+	chime.bus = "SFX"
 	chime.volume_db = -4.0
 	add_child(chime)
 	peng_giggle = AudioStreamPlayer.new()
 	peng_giggle.stream = load("res://assets/audio/penguin_giggle.ogg")
+	peng_giggle.bus = "SFX"
 	peng_giggle.volume_db = -3.0
 	add_child(peng_giggle)
 	buy_sound = AudioStreamPlayer.new()
 	buy_sound.stream = load("res://assets/audio/buy.ogg")
+	buy_sound.bus = "SFX"
 	beans_sfx = AudioStreamPlayer.new()
+	beans_sfx.bus = "SFX"
 	var banjo_st: AudioStream = load("res://assets/audio/music/banjo.ogg")
 	if banjo_st is AudioStreamOggVorbis:
 		(banjo_st as AudioStreamOggVorbis).loop = true
@@ -555,20 +581,23 @@ func _ready() -> void:
 	add_child(buy_sound)
 	for vp in range(4):
 		var ap := AudioStreamPlayer.new()
+		ap.bus = "Voice"
 		add_child(ap)
 		voice_pool.append(ap)
 	touch_ui = preload("res://scripts/touch_ui.gd").new()
 	add_child(touch_ui)
+	if OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args():
+		dev_mode = preload("res://scripts/dev_mode.gd").new()
+		add_child(dev_mode)
 	_build_guide()
 	_build_slide_portal()
 	_build_pause()
 	_load_save()
+	_collection_ref().build()
 	if first_session:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
-	dev_mode = preload("res://scripts/dev_mode.gd").new()
-	add_child(dev_mode)
 
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
@@ -910,6 +939,69 @@ func _grade(env: Environment) -> void:
 	env.tonemap_exposure = 1.15
 	env.tonemap_white = 1.2
 
+func _apply_scene_grade(env: Environment, profile: String) -> void:
+	# Bright arenas used to stack the reef grade with near-white albedo and hot
+	# ambient light. Named profiles keep those independently-built worlds inside
+	# one contrast envelope while preserving the reef's established treatment.
+	_grade(env)
+	var full_exposure: float = 1.15
+	var speedy_exposure: float = 1.05
+	var white_point: float = 1.2
+	var saturation: float = 1.0
+	var contrast: float = 1.0
+	var brightness: float = 1.0
+	var full_ambient_cap: float = env.ambient_light_energy
+	var speedy_ambient_cap: float = env.ambient_light_energy
+	match profile:
+		"bright_pastel":
+			full_exposure = 0.88
+			speedy_exposure = 0.78
+			white_point = 1.4
+			saturation = 1.04
+			contrast = 1.12
+			brightness = 0.95
+			full_ambient_cap = 0.75
+			speedy_ambient_cap = 0.68
+		"warm_pastel":
+			full_exposure = 0.92
+			speedy_exposure = 0.82
+			white_point = 1.35
+			saturation = 1.06
+			contrast = 1.10
+			brightness = 0.95
+			full_ambient_cap = 0.82
+			speedy_ambient_cap = 0.74
+		"galaxy":
+			full_exposure = 0.92
+			speedy_exposure = 0.82
+			white_point = 1.45
+			saturation = 1.04
+			contrast = 1.10
+			brightness = 0.95
+			full_ambient_cap = 0.82
+			speedy_ambient_cap = 0.72
+		_:
+			pass
+	env.tonemap_white = white_point
+	env.adjustment_enabled = true
+	env.adjustment_saturation = saturation
+	env.adjustment_contrast = contrast
+	env.adjustment_brightness = brightness
+	var full_ambient: float = minf(env.ambient_light_energy, full_ambient_cap)
+	env.set_meta("scene_grade_profile", profile)
+	env.set_meta("scene_grade_exposure", Vector2(full_exposure, speedy_exposure))
+	env.set_meta("scene_grade_ambient", Vector2(full_ambient, minf(full_ambient, speedy_ambient_cap)))
+	_refresh_scene_grade(env)
+
+func _refresh_scene_grade(env: Environment) -> void:
+	if not env.has_meta("scene_grade_exposure") or not env.has_meta("scene_grade_ambient"):
+		return
+	var exposures: Vector2 = env.get_meta("scene_grade_exposure")
+	var ambients: Vector2 = env.get_meta("scene_grade_ambient")
+	var speedy: bool = quality == "speedy"
+	env.tonemap_exposure = exposures.y if speedy else exposures.x
+	env.ambient_light_energy = ambients.y if speedy else ambients.x
+
 func _wind_waker_bloom(env: Environment, intensity: float = 0.95, bloom: float = 0.4, threshold: float = 0.9) -> void:
 	# Wind Waker-style bloom: drop the HDR threshold below white so sunlit surfaces
 	# (sand, sky, snow, highlights) bleed light — not just emissive materials — and
@@ -985,6 +1077,7 @@ func _build_environment() -> void:
 	we_node.environment = env
 	add_child(we_node)
 	music = AudioStreamPlayer.new()
+	music.bus = "Music"
 	add_child(music)
 	_play_music("world")
 	_build_bubble_columns()
@@ -2248,15 +2341,27 @@ func _end_kart_game(place: int) -> void:
 	var msg := "Ocean Race champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
 	show_msg("Ocean Race", msg)
 	if kart_from == "level2":
+		var saved_level2_open: bool = l2_open
+		var saved_level2_pos: Vector3 = player.position
 		kart_from = ""
 		game = ""
-		call_deferred("_enter_level2", true)   # rebuild the courtyard cleanly
+		call_deferred("_restore_level2_after_trip", saved_level2_open, saved_level2_pos)
 		return
 	kart_from = ""
 	game = ""
 	_update_hud()
 
 func _start_galaxy() -> void:
+	# A direct courtyard portal and the Rainbow Road both reach this function.
+	# Remember the actual world underneath once, and keep it through the optional
+	# fairy-flight detour so Butterfly World always returns symmetrically.
+	if not galaxy_return_set:
+		galaxy_from = kart_from if game == "kart" else game
+		galaxy_return_pos = player.position
+		galaxy_level2_open = l2_open
+		galaxy_return_set = true
+		if game == "kart":
+			kart_from = ""
 	if hud_layer != null:
 		hud_layer.visible = false   # the galaxy draws its own HUD — no overlap
 	if not galaxy_unlocked:
@@ -2286,11 +2391,34 @@ func _end_galaxy(completed: bool) -> void:
 	else:
 		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
 	_update_hud()
-	if kart_from == "level2":
-		kart_from = ""
-		call_deferred("_enter_level2", true)
+	var return_world: String = galaxy_from
+	var return_level2_open: bool = galaxy_level2_open or level2_done_once
+	var saved_return_pos: Vector3 = galaxy_return_pos
+	galaxy_from = ""
+	galaxy_return_set = false
+	galaxy_return_pos = Vector3.ZERO
+	galaxy_level2_open = false
+	if return_world == "level2":
+		call_deferred("_restore_level2_after_trip", return_level2_open, saved_return_pos)
 		return
 	kart_from = ""
+	# Defensive ocean restoration for direct/debug entries. GalaxyLevel restores
+	# its previous environment, but these assignments also repair an older hybrid
+	# state left by a portal that forgot where it came from.
+	player.position = saved_return_pos
+	player.vel = Vector3.ZERO
+	we_node.environment = world_env
+	_play_music("world")
+
+func _restore_level2_after_trip(was_open: bool, saved_position: Vector3) -> void:
+	# Rebuild the lagoon cleanly, then put Roshan back beside the exact doorway
+	# she chose. The cooldown prevents that doorway from immediately swallowing
+	# her again on the first frame home.
+	_enter_level2(was_open)
+	player.position = saved_position
+	player.vel = Vector3.ZERO
+	bw_cool = maxf(bw_cool, 3.0)
+	kart_cool = maxf(kart_cool, 3.0)
 
 func _start_combat(battle_kind: String) -> void:
 	if combat_game != null or battle_kind not in ["ice", "fire"]:
@@ -2310,20 +2438,22 @@ func _start_combat(battle_kind: String) -> void:
 
 func _end_combat(battle_kind: String) -> void:
 	combat_game = null
+	var completed: bool = battle_kind in ["ice", "fire"]
 	if battle_kind == "ice":
 		combat_ice_done = true
 		pearl_count += 12
-	else:
+	elif battle_kind == "fire":
 		combat_fire_done = true
 		pearl_count += 20
-	_write_save()
-	_update_hud()
+	if completed:
+		_write_save()
+		_update_hud()
 	game = combat_from
 	if combat_from == "galaxy" and galaxy_game != null:
 		var galaxy_level := galaxy_game as GalaxyLevel
 		galaxy_level.visible = true
 		galaxy_level.process_mode = Node.PROCESS_MODE_INHERIT
-		galaxy_level.resume_from_combat()
+		galaxy_level.resume_from_combat(completed)
 	else:
 		player.visible = true
 		if player.cam != null:
@@ -2465,7 +2595,11 @@ func _update_hud() -> void:
 	for f in friends:
 		if f["found"]:
 			stars += 1
-	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5" % [stars, trophies]
+	var critters := 0
+	for caught_value: Variant in critter_collection.values():
+		if bool(caught_value):
+			critters += 1
+	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
@@ -2567,6 +2701,7 @@ func _apply_quality(q: String) -> void:
 		var fv: Vector2 = arena_env.get_meta("ww_full")
 		arena_env.glow_intensity = minf(fv.x, 0.75) if speedy else fv.x
 		arena_env.glow_bloom = minf(fv.y, 0.12) if speedy else fv.y
+		_refresh_scene_grade(arena_env)
 	_sync_castle_lights()
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
@@ -2605,6 +2740,12 @@ func _set_vis_range(n: Node, dist: float) -> void:
 # Phase 7.1: save/load logic lives in scripts/save_state.gd (state stays
 # here on main; SaveState receives main by reference and only owns logic)
 var _save_state: SaveState = null
+var _collection_system: CollectionSystem = null
+
+func _collection_ref() -> CollectionSystem:
+	if _collection_system == null:
+		_collection_system = CollectionSystemLogic.new(self)
+	return _collection_system
 
 func _load_save() -> void:
 	if _save_state == null:
@@ -2660,26 +2801,29 @@ func _build_pause() -> void:
 	psb.set_border_width_all(3)
 	psb.set_corner_radius_all(8)
 	pause_panel.add_theme_stylebox_override("panel", psb)
-	pause_panel.custom_minimum_size = Vector2(460, 540)
+	pause_panel.custom_minimum_size = Vector2(500, 680)
 	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
-	pause_panel.position = Vector2(-230, -270)
-	pause_panel.size = Vector2(460, 540)   # tall enough for the Sticker Book row
+	pause_panel.position = Vector2(-250, -340)
+	pause_panel.size = Vector2(500, 680)
 	pause_panel.visible = false
 	pause_layer.add_child(pause_panel)
 	var vb := VBoxContainer.new()
 	vb.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	vb.offset_left = 36
-	vb.offset_right = -36
-	vb.offset_top = 30
-	vb.offset_bottom = -30
-	vb.add_theme_constant_override("separation", 22)
+	vb.offset_left = 28
+	vb.offset_right = -28
+	vb.offset_top = 20
+	vb.offset_bottom = -20
+	vb.add_theme_constant_override("separation", 8)
 	pause_panel.add_child(vb)
 	fps_lbl = Label.new()
 	fps_lbl.add_theme_font_size_override("font_size", 20)
 	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	fps_lbl.position = Vector2(16, 516)
+	fps_lbl.position = Vector2(16, 650)
 	pause_panel.add_child(fps_lbl)
 	var resume := _pause_btn(vb, "Keep Swimming!")
+	pause_leave_btn = _pause_btn(vb, "🏠 Leave Activity")
+	pause_leave_btn.visible = false
+	pause_leave_btn.pressed.connect(_leave_current_activity)
 	var stick_btn := _pause_btn(vb, "⭐ Sticker Book")
 	stick_btn.pressed.connect(func():
 		toggle_pause()
@@ -2696,10 +2840,10 @@ func _build_pause() -> void:
 		music.volume_db = -8.0 if music_on else -60.0
 		music_btn.text = "Music: On" if music_on else "Music: Off"
 		_write_save())
-	var dev_btn := _pause_btn(vb, "Developer Mode")
-	dev_btn.pressed.connect(func():
-		toggle_pause()
-		if dev_mode != null:
+	if dev_mode != null:
+		var dev_btn := _pause_btn(vb, "Developer Mode")
+		dev_btn.pressed.connect(func():
+			toggle_pause()
 			dev_mode.toggle())
 
 func _pause_btn(vb: VBoxContainer, txt: String) -> Button:
@@ -2714,13 +2858,80 @@ func toggle_pause() -> void:
 	var p: bool = not get_tree().paused
 	get_tree().paused = p
 	pause_panel.visible = p
+	if pause_leave_btn != null:
+		pause_leave_btn.visible = p and _has_leave_context()
 	# gamepad menu navigation: focus the first button so D-pad + A work
 	if p and pause_resume_btn != null:
 		pause_resume_btn.grab_focus()
 	elif not p:
+		if touch_ui != null and touch_ui.has_method("_clear_touch_state"):
+			touch_ui._clear_touch_state()
+		if game == "shop":
+			# A/Enter may be the button that resumed the menu. Require a release
+			# before it can become a purchase confirmation near the counter.
+			g["shop_wait_release"] = true
+		elif game == "fairyshoot":
+			g["fairy_wait_release"] = true
 		var fo := get_viewport().gui_get_focus_owner()
 		if fo != null:
 			fo.release_focus()
+
+func _has_leave_context() -> bool:
+	return mg_kind != "" or game != "" or wardrobe_layer != null or craft_layer != null
+
+func _leave_current_activity() -> void:
+	# This is a voluntary, neutral exit -- never a loss and never a free win.
+	get_tree().paused = false
+	pause_panel.visible = false
+	if mg_kind != "":
+		_mg2d_close()
+		return
+	if wardrobe_layer != null:
+		_close_wardrobe()
+		return
+	if craft_layer != null:
+		_close_craft()
+		return
+	if game == "level2":
+		_exit_level2()
+		return
+	if game == "galaxy" and galaxy_game != null:
+		(galaxy_game as GalaxyLevel)._teardown(false)
+		return
+	if game == "kart" and kart_game != null:
+		kart_game.call("_quit_race")
+		return
+	if game == "combat" and combat_game != null:
+		combat_game.cancel()
+		return
+	if game == "dungeon" and dungeon_game != null:
+		dungeon_game._leave_early()
+		return
+	if game == "":
+		return
+	var leaving_game: String = game
+	var fr: Dictionary = g.get("fr", {})
+	var leaving_name: String = String(fr.get("fname", ""))
+	_leave_arena()
+	if not fr.is_empty():
+		fr["cool"] = 8.0
+	if leaving_game == "fairyshoot":
+		_apply_skin()
+	if leaving_name == "Pearl Shop":
+		shop_cool = 16.0
+	elif leaving_name == "Secret Cave":
+		treasure_cool = 14.0
+	elif leaving_name == "Penguin Slide":
+		slide_cool = 14.0
+	_clear_game()
+	_write_save()
+	if leaving_game == "fairyshoot" and fairy_from_galaxy:
+		fairy_from_galaxy = false
+		call_deferred("_start_galaxy")
+	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
+		call_deferred("_enter_level2", l2_open)
+	else:
+		show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
 
 
 func _open_dance_demo() -> void:
@@ -2799,7 +3010,14 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 	for f in friends:
 		if f["found"]:
 			stars += 1
-	var ready: bool = trophies >= 5 and stars >= 5 and pearl_count >= PEARL_TOTAL
+	# The original gate required a ten-pearl wallet. Remember the highest balance
+	# so buying a toy later can never close a story doorway that already opened.
+	pearls_ever = maxi(pearls_ever, pearl_count)
+	# Story progress is a permanent milestone, never a test of the current wallet.
+	if not portal_unlocked and trophies >= 5 and stars >= 5 and pearls_ever >= PEARL_TOTAL:
+		portal_unlocked = true
+		_write_save()
+	var ready: bool = portal_unlocked or level2_done_once
 	if ready and portal_node == null:
 		_raise_portal()
 	if portal_node != null and is_instance_valid(portal_node):
@@ -2817,8 +3035,13 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 			portal_armed = true
 		if portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
 			portal_armed = false
-			l2_star_progress = [false, false, false]   # fresh visit, fresh stars
-			_enter_level2()
+			if level2_done_once:
+				l2_star_progress = [true, true, true]
+				_enter_level2(true)
+			else:
+				for i in range(l2_star_progress.size()):
+					l2_star_progress[i] = bool(stickers.get("_l2_star_%d" % i, l2_star_progress[i]))
+				_enter_level2()
 
 func _raise_portal() -> void:
 	var hub := Node3D.new()
@@ -2903,6 +3126,13 @@ void fragment(){
 
 func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	game = "level2"
+	# A completed castle is a permanent playground. Never rebuild its three-star
+	# lock on a later visit, even when an older caller omits from_castle.
+	if level2_done_once:
+		l2_star_progress = [true, true, true]
+	else:
+		for i in range(l2_star_progress.size()):
+			l2_star_progress[i] = bool(stickers.get("_l2_star_%d" % i, l2_star_progress[i]))
 	# free whatever level nodes are still alive BEFORE rebuilding: the rainbow-
 	# road/galaxy return path re-entered here without tearing the lagoon down
 	# first, stacking a second terrain+castle+playground exactly on top of the
@@ -2948,9 +3178,7 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	arena_env.ambient_light_energy = 0.54 if is_night else 0.58
 	_wind_waker_bloom(arena_env, 0.44, 0.05, 1.18)   # retain emitters while pale castle/snow values stay below clipping
-	_grade(arena_env)
-	arena_env.tonemap_exposure = 0.82   # exterior-only: separate the pearl stone from the bright illustrated sky
-	arena_env.tonemap_white = 1.35
+	_apply_scene_grade(arena_env, "bright_pastel")
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -2989,7 +3217,7 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	else:
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
-		show_msg("Sky Lagoon", "You found Princess Huluu's SKY LAGOON! Follow the path and catch 3 Dream Stars to open the castle!")
+		show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 
 func _enter_northern_kingdom() -> void:
 	game = "north"
@@ -3122,6 +3350,15 @@ func _castle_mat(role: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1), r
 		"cobble":
 			tex_path = "res://assets/terrain/up_cobble_col.jpg"
 			role_roughness = 0.90
+		"kitchen_floor":
+			tex_path = "res://assets/terrain/kitchen_floor_col.jpg"
+			role_roughness = 0.72
+		"kitchen_wood":
+			tex_path = "res://assets/terrain/kitchen_wood_col.jpg"
+			role_roughness = 0.80
+		"kitchen_counter":
+			tex_path = "res://assets/terrain/kitchen_counter_col.jpg"
+			role_roughness = 0.58
 	var mat := StandardMaterial3D.new()
 	mat.albedo_texture = load(tex_path)
 	mat.albedo_color = tint
@@ -3262,6 +3499,7 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if NATURE_GEN2.has(name):
 		var gn := _gen2_prop(String(NATURE_GEN2[name]), pos, scl, yrot, 0.06)
 		if gn != null:
+			game_nodes.append(gn)
 			_wind_sway(gn)
 			return gn
 	var story_plant: Node3D = StoryArtFactory.plant(name, scl)
@@ -3370,6 +3608,7 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 	if KIT_GEN2.has(name):
 		var kg := _gen2_prop(String(KIT_GEN2[name]), pos, target, yrot, 0.04)
 		if kg != null:
+			game_nodes.append(kg)
 			_toy_anim(kg, name)
 			return kg
 	var ps: PackedScene = _kit_cache.get(name, null)
@@ -3732,7 +3971,8 @@ const LAGOON_RIVERS := [
 	[Vector2(-210, -40), Vector2(-150, 30), Vector2(-90, 100), Vector2(-30, 170)],
 	[Vector2(205, -30), Vector2(150, 40), Vector2(95, 110), Vector2(45, 180)]]
 const LAGOON_RIVER_W := 17.0
-const LAGOON_RIVER_DEPTH := 12.0   # was 18: that carved bare-walled canyons that no water sheet could ever look right in
+const LAGOON_RIVER_DEPTH := 15.5   # deeper bed, unchanged waterline: enough room for Roshan to swim at every capped rapid
+const LAGOON_RIVER_MIN_DEPTH := 4.3
 # Castle moat: a ring channel carved around the keep, with a hidden door at its floor.
 const MOAT_CX := 0.0
 const MOAT_CZ := -120.0      # local (relative to LEVEL2_POS); matches the castle base
@@ -3818,10 +4058,18 @@ func _tick_mg2d(delta: float) -> void:
 		# drawing circles around the snowball
 		var ang_ok := false
 		var ang := 0.0
+		var stick_intent := false
 		var jv := Vector2(joy_axis(JOY_AXIS_LEFT_X), joy_axis(JOY_AXIS_LEFT_Y))
 		if jv.length() > 0.35:   # little thumbs: was 0.45, half-pushed circles count too
 			ang = jv.angle()
 			ang_ok = true
+			stick_intent = true
+		elif touch_ui != null and (touch_ui.stick_vec as Vector2).length() > 0.35:
+			# The Android virtual stick is the primary control on the target device.
+			# Treat circling it exactly like circling a physical stick.
+			ang = (touch_ui.stick_vec as Vector2).angle()
+			ang_ok = true
+			stick_intent = true
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
 			var mp: Vector2 = mg2d_stage.get_local_mouse_position()
 			var off: Vector2 = mp - SNOW_ROLL_C
@@ -3849,11 +4097,21 @@ func _tick_mg2d(delta: float) -> void:
 			stall = 0.0
 		else:
 			stall += delta
-		var assist: bool = stall > 8.0
-		if assist and stall - delta <= 8.0 and voice != null:
-			voice.pitch_scale = 1.3
-			voice.play()
+		var assist: bool = bool(mg.get("motor_assist", false))
+		if not assist and stall > 8.0 and stick_intent:
+			# A held direction is a deliberate motor alternative after the child has
+			# tried for eight seconds. Zero input still makes zero progress.
+			assist = true
+			mg["motor_assist"] = true
+			if voice != null:
+				voice.pitch_scale = 1.3
+				voice.play()
+		if assist and stick_intent:
+			mg["rot_acc"] = float(mg["rot_acc"]) + delta * 2.4
 		mg["stall"] = stall
+		prog = clampf(float(mg["rot_acc"]) / float(mg["rot_need"]), 0.0, 1.0)
+		r = lerpf(26.0, float(mg["final_r"]), prog)
+		_mg_snow_ball_size(mg["roll_ball"], r, SNOW_ROLL_C)
 		# crunchy tick every half circle so the rolling feels alive
 		if int(float(mg["rot_acc"]) / PI) > int(float(mg["rot_prev"]) / PI) and chime != null:
 			chime.pitch_scale = 0.8 + prog * 0.35
@@ -4255,6 +4513,7 @@ func _build_castle_toilet(br: Vector3) -> void:
 	# bubbly toot when Roshan swims up to it (re-arms when she swims away)
 	var tap := AudioStreamPlayer.new()
 	tap.stream = load("res://assets/audio/fart.ogg")
+	tap.bus = "SFX"
 	tap.volume_db = -4.0
 	tap.pitch_scale = 1.1
 	base.add_child(tap)   # frees with the toilet
@@ -4274,6 +4533,7 @@ func _slide_basement_stand() -> void:
 	g["secret_door"] = chest.position + slide
 	var rumble := AudioStreamPlayer.new()
 	rumble.stream = load("res://assets/audio/buzz.ogg")
+	rumble.bus = "SFX"
 	rumble.pitch_scale = 0.45   # deep slow buzz = stone grinding
 	rumble.volume_db = 3.0
 	chest.add_child(rumble)   # frees with the chest
@@ -4541,14 +4801,15 @@ func _l2_start_slide() -> void:
 	rainbow_slide_mode = false
 	# a brighter rainbow-dream sky in place of the sunset
 	if arena_env != null:
-		arena_env.background_color = Color(0.62, 0.80, 1.0)
-		arena_env.ambient_light_color = Color(1.0, 0.95, 1.0)
-		arena_env.ambient_light_energy = 1.2
+		arena_env.background_color = Color(0.48, 0.70, 0.90)
+		arena_env.ambient_light_color = Color(0.88, 0.90, 1.0)
+		arena_env.ambient_light_energy = 0.62
+		_apply_scene_grade(arena_env, "bright_pastel")
 	# flashing colored disco lights ringing the play place (this is the RAINBOW slide!)
 	var rbc := [Color(1, 0.2, 0.2), Color(1, 0.6, 0.1), Color(1, 0.9, 0.2), Color(0.2, 0.9, 0.3), Color(0.2, 0.5, 1.0), Color(0.6, 0.3, 0.9)]
 	for li in range(8):
 		var fl := OmniLight3D.new()
-		fl.light_energy = 4.0
+		fl.light_energy = 1.25 if quality == "speedy" else 2.0
 		fl.omni_range = 34.0
 		var ang: float = float(li) / 8.0 * TAU
 		fl.position = ARENA_POS + Vector3(cos(ang) * 17.0, 5.0 + float(li % 4) * 8.0, sin(ang) * 17.0)
@@ -4625,6 +4886,7 @@ func _play_hug_cutscene() -> void:
 	root.add_child(lbl)
 	var dp := AudioStreamPlayer.new()
 	dp.stream = load("res://assets/audio/voices/daddy1.ogg")
+	dp.bus = "Voice"
 	dp.volume_db = 4.0
 	root.add_child(dp)
 	dp.play()
@@ -4696,6 +4958,8 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 		var c3: Color = third if third.a > 0.0 else (rspec[2] as Color)
 		var rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent, c3)
 		if rn != null:
+			if body_rb or acc_rb:
+				rn.tree_entered.connect(_start_gen2_rainbow.bind(rn, body_rb, acc_rb), CONNECT_ONE_SHOT)
 			return rn
 	if CRAFT_GEN2.has(kind):
 		var spec: Array = CRAFT_GEN2[kind]
@@ -4713,6 +4977,8 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_body", body)
 						(sm2 as ShaderMaterial).set_shader_parameter("paint_fin", accent)
 			pf.set_meta("gen2", true)   # base at origin (billboards are center-origin)
+			if body_rb or acc_rb:
+				pf.tree_entered.connect(_start_gen2_rainbow.bind(pf, body_rb, acc_rb), CONNECT_ONE_SHOT)
 			return pf
 	var ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS["fish"])
 	var root := Node3D.new()
@@ -4736,6 +5002,31 @@ func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool
 	# tints the billboard fallback would otherwise render pure white)
 	root.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)
 	return root
+
+func _start_gen2_rainbow(root: Node3D, body_rb: bool, acc_rb: bool) -> void:
+	for mi in _all_meshes(root):
+		var mesh: Mesh = mi.mesh
+		if mesh == null:
+			continue
+		for si in range(mesh.get_surface_count()):
+			var material: Material = mi.get_surface_override_material(si)
+			if not material is ShaderMaterial:
+				continue
+			var shader_material := material as ShaderMaterial
+			if body_rb:
+				_loop_paint_rainbow(root, shader_material, "paint_body")
+			if acc_rb:
+				_loop_paint_rainbow(root, shader_material, "paint_fin")
+
+func _loop_paint_rainbow(owner: Node3D, material: ShaderMaterial, parameter: String) -> void:
+	var tw: Tween = owner.create_tween().set_loops()
+	for hi in range(7):
+		var c0 := Color.from_hsv(float(hi) / 7.0, 0.75, 1.0)
+		var c1 := Color.from_hsv(float(hi + 1) / 7.0, 0.75, 1.0)
+		tw.tween_method(_set_paint_colour.bind(material, parameter), c0, c1, 0.4)
+
+func _set_paint_colour(colour: Color, material: ShaderMaterial, parameter: String) -> void:
+	material.set_shader_parameter(parameter, colour)
 
 func _creature_spawned(lb: Sprite3D, la: Sprite3D, anim: Node3D, body: Color, accent: Color, body_rb: bool, acc_rb: bool, kind: String) -> void:
 	_layer_fx(lb, "body", body, body_rb, kind)
@@ -4939,7 +5230,7 @@ func _craft_done() -> void:
 	var fishy: bool = craft_kind == "fish"
 	var msgtxt: String
 	if fishy:
-		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b])
+		custom_fish.append([craft_body.r, craft_body.g, craft_body.b, craft_fins.r, craft_fins.g, craft_fins.b, 1 if craft_body_rb else 0, 1 if craft_fins_rb else 0])
 		_spawn_crafted_fish()   # same spawn path as build/load keeps the counter honest
 		msgtxt = "Swim away, little fish! Find me in the ocean!"
 	else:
@@ -5599,6 +5890,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		treasure_cool = 14.0
 	elif String(fr["fname"]) == "Pearl Shop":
 		shop_cool = 16.0
+	elif String(fr["fname"]) == "Penguin Slide":
+		slide_cool = 14.0
 	elif String(fr["fname"]) == "Fairy Pond":
 		# quick retry after a boss fail — a 12s wait outside the pond was pure
 		# friction for a kid who wants straight back in
@@ -6197,7 +6490,7 @@ func _tick_chains(delta: float, ppos: Vector3) -> void:
 
 func _start_game(fr: Dictionary) -> void:
 	game = String(fr["game"])
-	g = {"fr": fr, "t": 0.0, "timer": 30.0}
+	g = {"fr": fr, "t": 0.0, "timer": -1.0}
 	_enter_arena(game)
 	var origin: Vector3 = ARENA_POS
 	if game == "fetch":
@@ -6321,14 +6614,14 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 	g["got"] = 0
 	g["caught"] = false
 	# ---- build the chute: themed floor planks + glowing side rails ----
-	var rainbow := [Color(1, 0.45, 0.5), Color(1, 0.7, 0.4), Color(1, 0.95, 0.45), Color(0.5, 0.9, 0.55), Color(0.45, 0.8, 1.0), Color(0.6, 0.55, 1.0), Color(0.9, 0.55, 0.95)]
-	var rail := _ice_mat(Color(0.55, 0.8, 1.0), 0.5) if theme == "ice" else _ice_mat(Color(1.0, 0.9, 0.5), 0.6)
+	var rainbow := [Color(0.90, 0.32, 0.42), Color(0.94, 0.58, 0.30), Color(0.92, 0.82, 0.30), Color(0.36, 0.76, 0.46), Color(0.34, 0.67, 0.90), Color(0.50, 0.44, 0.88), Color(0.78, 0.42, 0.84)]
+	var rail := _ice_mat(Color(0.42, 0.68, 0.90), 0.15) if theme == "ice" else _ice_mat(Color(0.84, 0.72, 0.34), 0.18)
 	for i in range(path.size() - 1):
 		var a: Vector3 = path[i]
 		var b: Vector3 = path[i + 1]
 		# plank albedo stays UNDER 1.0 — over-white components push the snow
 		# past ACES white and the surface detail clips away (Android blowout)
-		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.35) if theme == "rainbow" else _ice_mat(Color(0.86, 0.92, 1.0), 0.06, "snow")
+		var pmat: StandardMaterial3D = _ice_mat(rainbow[i % rainbow.size()], 0.10) if theme == "rainbow" else _ice_mat(Color(0.68, 0.78, 0.90), 0.02, "snow")
 		_slide_plank(a, b, SLIDE_WIDTH, pmat)
 		# side rails sit on the chute edges
 		var smp := _slide_dir(i)
@@ -6469,6 +6762,8 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if touch_ui != null and absf(touch_ui.stick_vec.x) > 0.15:
 		steer += touch_ui.stick_vec.x
 	steer = clampf(steer, -1.0, 1.0)
+	if absf(steer) > 0.15:
+		g["steered"] = true
 	# --- along-slope physics: gravity pulls down the gradient, drag caps speed ---
 	var v: float = g["v"]
 	var grade: float = -tangent.y          # >0 going downhill
@@ -6567,7 +6862,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if spray != null and is_instance_valid(spray):
 				(spray as CPUParticles3D).speed_scale = 1.7 if sprinting else 1.0
 		# catch when you've cornered him — BEANS ONLY (he escapes anyone slower)
-		if beany and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
+		if beany and bool(g.get("steered", false)) and not bool(g.get("caught", false)) and gap < 9.0 and absf(x - px) < 4.5:
 			g["caught"] = true
 			award_sticker("penguin")
 			var cn = g.get("peng_node")
@@ -6588,7 +6883,16 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		else:
 			hud_game.text = "Catch the baby penguin! ...he's SO fast!"
 		if float(g["s"]) >= total - 0.5:
-			_end_game(false, fr, "He crossed the finish first — he's just too speedy! Hmm... maybe magic BEANS from the Pearl Shop would give me a super boost! Toot toot!", "fail")
+			if bool(g.get("steered", false)):
+				_end_game(true, fr, "What a race! The baby penguin zoomed ahead — and wants to race you again! Magic Beans can help you catch him.")
+			else:
+				# Auto-slide alone cannot complete the activity. Restart at the top
+				# and demonstrate the one deliberate verb without a loss screen.
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				g["burst"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the race! Take your time.", "hint")
 			return
 	else:
 		# ===== COLLECT THE FISH =====
@@ -6616,8 +6920,14 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		hud_game.text = "Slide!  Fish: %d / 5" % int(g["got"])
 		if float(g["s"]) >= total - 0.5:
 			var got: int = int(g["got"])
-			var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
-			_end_game(true, fr, msg)
+			if bool(g.get("steered", false)):
+				var msg := "WHEEE! You grabbed every fish! Best slider ever!" if got >= 5 else "What a ride! You caught %d fish!" % got
+				_end_game(true, fr, msg)
+			else:
+				g["s"] = 0.0
+				g["x"] = 0.0
+				g["vx"] = 0.0
+				show_msg(fr["fname"], "Lean LEFT or RIGHT to join the slide! Take your time.", "hint")
 
 # ===================== FAIRY POND — OVERHEAD SCROLLING BULLET HELL =====================
 # A gentle top-down scrolling shooter sized for a 4-year-old: the camera hangs
@@ -6680,6 +6990,8 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	g["fz"] = 0.0; g["ox"] = 0.0; g["oz"] = 0.0
 	g["hits"] = 0; g["fire_cd"] = 0.0
 	g["hearts"] = FS_HEARTS; g["hurt_t"] = 0.0; g["nova_cd"] = 0.0
+	g["player_acted"] = false; g["awaiting_cheer"] = false
+	g["fairy_wait_release"] = false
 	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
 	g["hazards"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
@@ -6918,7 +7230,6 @@ func fr_name_safe() -> String:
 	return String((g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
 
 func _fairy_bloom_start() -> void:
-	award_sticker("flower")
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
 	_fairy_clear_orbs()   # nothing to dodge during the celebration
@@ -7013,7 +7324,7 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		game_nodes.append(cl)
 	var sun := OmniLight3D.new()
 	sun.light_color = Color(1.0, 0.95, 0.8)
-	sun.light_energy = 1.6
+	sun.light_energy = 0.9
 	sun.omni_range = 70.0
 	sun.position = origin + Vector3(18, 30, 12)
 	add_child(sun)
@@ -7025,8 +7336,8 @@ func _tick_game(delta: float) -> void:
 	if float(g["timer"]) > 0.0:
 		g["timer"] = float(g["timer"]) - delta
 		if float(g["timer"]) <= 0.0:
-			_end_game(false, fr, _fail_line(), "fail")
-			return
+			g["timer"] = -1.0
+			show_msg(String(fr.get("fname", "Roshan")), "Take your time — keep playing when you're ready!", "hint")
 	var ppos: Vector3 = player.position
 	if game == "fetch":
 		_tick_fetch(delta, fr, ppos)
@@ -7080,6 +7391,8 @@ func _overlay_root_for_cursor() -> Node:
 		return wardrobe_layer
 	if stickers_layer != null and is_instance_valid(stickers_layer):
 		return stickers_layer
+	if collection_layer != null and is_instance_valid(collection_layer):
+		return collection_layer
 	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
 		return mg2d_layer
 	return null
@@ -7142,7 +7455,7 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
@@ -7158,6 +7471,9 @@ func _tick_overlay_pads(delta: float) -> void:
 		elif stickers_layer != null:
 			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
 				_close_stickers()
+		elif collection_layer != null:
+			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
+				_collection_ref().close_book()
 	_pad_prev_a = a
 	_pad_prev_b = b
 
@@ -7165,12 +7481,13 @@ var _wayfind_t := 0.0
 
 func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	# MOBILE NAV AUDIT: a sparkle comet-trail from Roshan toward the current
-	# best objective while she roams the open reef — the "pathfinding" a
-	# non-reader can follow. Nearest un-won friend first; with all five won,
-	# the Pearl Shop ship when she can afford something, else the penguin
-	# floe. Throttled to 3 cheap bursts every 2.2s; silent inside games,
-	# overlays, the intro and other worlds.
-	if game != "" or mg_kind != "" or intro_active:
+	# best objective — the "pathfinding" a non-reader can follow. In the reef
+	# this is the nearest friend/shop/slide goal; in the Sky Lagoon it is the
+	# next Dream Star, then the open castle door. Throttled to 3 cheap bursts
+	# every 2.2s and silent during overlays, minigames and castle interiors.
+	var level2_court: bool = (game == "level2"
+		and String(g.get("phase", "court")) == "court")
+	if (game != "" and not level2_court) or mg_kind != "" or intro_active:
 		return
 	if _overlay_root_for_cursor() != null:
 		return
@@ -7179,19 +7496,29 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		return
 	_wayfind_t = 2.2
 	var target := Vector3.ZERO
-	var best := 1e9
-	for f in friends:
-		if not bool(f["won"]):
-			var p: Vector3 = (f["node"] as Node3D).position
-			var d: float = p.distance_to(ppos)
-			if d < best:
-				best = d
-				target = p
-	if target == Vector3.ZERO:
-		if pearl_count >= 60 and manta != null and is_instance_valid(manta):
-			target = manta.position
-		elif slide_portal_pos != Vector3.ZERO:
-			target = slide_portal_pos
+	if level2_court:
+		for sd in l2_stars:
+			if not bool(sd["got"]):
+				var star: Node3D = sd["node"]
+				if is_instance_valid(star):
+					target = star.position
+				break
+		if target == Vector3.ZERO and l2_open and l2_door != null and is_instance_valid(l2_door):
+			target = g.get("entry", l2_door.position)
+	else:
+		var best := 1e9
+		for f in friends:
+			if not bool(f["won"]):
+				var p: Vector3 = (f["node"] as Node3D).position
+				var d: float = p.distance_to(ppos)
+				if d < best:
+					best = d
+					target = p
+		if target == Vector3.ZERO:
+			if pearl_count >= 60 and manta != null and is_instance_valid(manta):
+				target = manta.position
+			elif slide_portal_pos != Vector3.ZERO:
+				target = slide_portal_pos
 	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
 		return
 	for k in range(3):
@@ -7226,6 +7553,7 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	_collection_ref().tick(delta, ppos)
 	if caustics_plane != null:
 		if game == "" and not intro_active and caustics_enabled:
 			caustics_plane.visible = true
@@ -7378,8 +7706,12 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if game == "fetch" and String(g.get("phase", "")) == "aim":
+		if _collection_ref().has_nearby():
+			act_lbl = "CATCH!"
+		elif game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"
+		elif game == "shop":
+			act_lbl = "BUY"
 		elif game == "fairyshoot":
 			act_lbl = "SPARKLE"
 		elif game == "kart" and kart_game != null and kart_game.has_method("action_label"):
@@ -8300,28 +8632,32 @@ func _enter_arena(kind: String) -> void:
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_COLOR
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	var grade_profile: String = ""
 	_wind_waker_bloom(arena_env, 0.9, 0.35, 1.02)   # bloom emitters only — 0.85 white-washed bright floors (snow!)
 	if kind == "fetch":          # snowy backyard noon
-		arena_env.background_color = Color(0.75, 0.88, 1.0)
-		arena_env.ambient_light_color = Color(0.94, 0.96, 1.0)
-		arena_env.ambient_light_energy = 0.65   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
+		grade_profile = "bright_pastel"
+		arena_env.background_color = Color(0.62, 0.80, 0.94)
+		arena_env.ambient_light_color = Color(0.88, 0.92, 1.0)
+		arena_env.ambient_light_energy = 0.58   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
 		arena_env.glow_bloom = 0.05             # near-zero whole-frame haze: on an already-white scene the WW haze clips everything
-		_arena_floor(Color(0.74, 0.77, 0.84), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
+		_arena_floor(Color(0.68, 0.74, 0.82), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
 	elif kind == "dolls":        # starry dream nursery
 		arena_env.background_color = Color(0.10, 0.06, 0.22)
 		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.7
 		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
-		arena_env.background_color = Color(0.55, 0.85, 1.0)
-		arena_env.ambient_light_color = Color(1, 1, 0.95)
-		arena_env.ambient_light_energy = 1.2
-		_arena_floor(Color(0.95, 1.0, 0.92), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
+		grade_profile = "bright_pastel"
+		arena_env.background_color = Color(0.38, 0.68, 0.86)
+		arena_env.ambient_light_color = Color(0.84, 0.92, 0.82)
+		arena_env.ambient_light_energy = 0.68
+		_arena_floor(Color(0.56, 0.70, 0.50), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
-		arena_env.background_color = Color(1.0, 0.62, 0.38)
-		arena_env.ambient_light_color = Color(1.0, 0.8, 0.65)
-		arena_env.ambient_light_energy = 1.1
-		_arena_floor(Color(1.05, 0.82, 0.62), GTA + "up_dirt_col.jpg", GTA + "up_dirt_nrm.jpg", 0.05)
+		grade_profile = "warm_pastel"
+		arena_env.background_color = Color(0.82, 0.42, 0.30)
+		arena_env.ambient_light_color = Color(0.94, 0.72, 0.62)
+		arena_env.ambient_light_energy = 0.74
+		_arena_floor(Color(0.72, 0.50, 0.40), GTA + "up_dirt_col.jpg", GTA + "up_dirt_nrm.jpg", 0.05)
 	elif kind == "shop":         # warm wooden ship cabin
 		arena_env.background_color = Color(0.06, 0.045, 0.025)
 		arena_env.ambient_light_color = Color(1.0, 0.85, 0.6)
@@ -8335,13 +8671,14 @@ func _enter_arena(kind: String) -> void:
 		arena_env.glow_intensity = 1.15
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
+		grade_profile = "bright_pastel"
 		# same anti-white-wash recipe as the snowy "fetch" yard: on an
 		# already-white ice scene the WW screen-blend haze + hot ambient
 		# clips the whole frame past ACES white (fully blown out on the
 		# Android framebuffer, owner report 2026-07-13)
-		arena_env.background_color = Color(0.62, 0.82, 1.0)
-		arena_env.ambient_light_color = Color(0.95, 0.98, 1.0)
-		arena_env.ambient_light_energy = 0.7
+		arena_env.background_color = Color(0.48, 0.70, 0.90)
+		arena_env.ambient_light_color = Color(0.86, 0.92, 1.0)
+		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_bloom = 0.05
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
@@ -8349,13 +8686,23 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.9
 		arena_env.glow_intensity = 1.2
 		arena_env.glow_bloom = 0.5   # extra-dreamy fairy pond
-	else:                        # concert stage night
+	elif kind == "melody":      # Gabby's enclosed underwater rainbow theater
+		arena_env.background_color = Color(0.035, 0.09, 0.16)
+		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
+		arena_env.ambient_light_energy = 0.90
+		arena_env.glow_intensity = 0.92
+		arena_env.glow_bloom = 0.22
+		_arena_floor(Color(0.22, 0.42, 0.50), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	else:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.85
 		_arena_floor(Color(0.62, 0.5, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	_speedy_glow_clamp(arena_env)   # re-run after the per-theme overrides so they respect speedy too
-	_grade(arena_env)
+	if grade_profile.is_empty():
+		_grade(arena_env)
+	else:
+		_apply_scene_grade(arena_env, grade_profile)
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO

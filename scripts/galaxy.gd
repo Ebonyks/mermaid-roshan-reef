@@ -168,12 +168,16 @@ func joy_pressed(btn: int) -> bool:
 func start(main: Node, finish_cb: Callable) -> void:
 	_main = main
 	_finish_cb = finish_cb
+	var already_complete: bool = "bwd_done" in main and bool(main.bwd_done)
 	if "player" in main and main.player != null:
 		_player_node = main.player
 	_build_env_sky()
 	_build_planet()
 	_build_decor()
-	_build_shards()
+	if already_complete:
+		_shards_got = SHARDS
+	else:
+		_build_shards()
 	_build_home_ring()
 	_build_avatar()
 	_build_camera()
@@ -191,6 +195,13 @@ func start(main: Node, finish_cb: Callable) -> void:
 		if _gate_lbl != null and is_instance_valid(_gate_lbl):
 			_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
 			_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
+	elif _shards_got > 0:
+		_lbl_hint.text = "%d butterflies are already safe — follow the beacons to the rest!" % _shards_got
+		if _shards_got >= SHARDS:
+			_spawn_grand_star()
+			if _gate_lbl != null and is_instance_valid(_gate_lbl):
+				_gate_lbl.text = "✨ Crystal Castle ✨\ncome in!"
+				_gate_lbl.modulate = Color(1.0, 0.92, 0.55)
 	var tw := create_tween()
 	tw.tween_interval(3.0)
 	tw.tween_callback(func():
@@ -205,20 +216,19 @@ func _build_env_sky() -> void:
 		e.background_mode = Environment.BG_COLOR
 		e.background_color = Color(0.01, 0.005, 0.03)
 		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-		e.ambient_light_color = Color(0.55, 0.45, 0.75)
-		e.ambient_light_energy = 1.0
-		e.glow_enabled = true
-		e.glow_intensity = 0.7
-		e.glow_bloom = 0.1
+		e.ambient_light_color = Color(0.48, 0.42, 0.70)
+		e.ambient_light_energy = 0.72
+		_main._wind_waker_bloom(e, 0.65, 0.08, 1.15)
+		_main._apply_scene_grade(e, "galaxy")
 		_main.we_node.environment = e
 	# key light: soft starlight sun + a cool rim from the opposite side
 	var sun := DirectionalLight3D.new()
-	sun.light_energy = 1.1
+	sun.light_energy = 0.8
 	sun.light_color = Color(1.0, 0.92, 0.95)
 	sun.rotation_degrees = Vector3(-40, 35, 0)
 	add_child(sun)
 	var rim := DirectionalLight3D.new()
-	rim.light_energy = 0.5
+	rim.light_energy = 0.3
 	rim.light_color = Color(0.5, 0.8, 1.0)
 	rim.rotation_degrees = Vector3(30, 215, 0)
 	add_child(rim)
@@ -307,11 +317,11 @@ void fragment(){
 	// with sandy landscaped paths and thousands of tiny flower dots
 	float band = sin(UV.y * 14.0) * 0.5 + 0.5;
 	vec3 grass = triplanar(grass_tex, mpos, mnrm, 0.045);
-	vec3 col = grass * mix(vec3(0.86, 0.97, 0.84), vec3(1.04, 1.10, 0.96), band);
+	vec3 col = grass * mix(vec3(0.72, 0.84, 0.72), vec3(0.90, 0.98, 0.86), band);
 	// two winding garden paths circling the planet
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float pathm = exp(-pow((UV.y - 0.36 + wob) * 34.0, 2.0)) + exp(-pow((UV.y - 0.66 - wob) * 34.0, 2.0));
-	vec3 sand = triplanar(path_tex, mpos, mnrm, 0.06) * vec3(1.06, 1.0, 0.9);
+	vec3 sand = triplanar(path_tex, mpos, mnrm, 0.06) * vec3(0.92, 0.88, 0.80);
 	col = mix(col, sand, clamp(pathm, 0.0, 1.0) * 0.9);
 	// confetti of tiny flowers
 	vec2 g = UV * vec2(220.0, 120.0);
@@ -322,7 +332,7 @@ void fragment(){
 	// firefly sparkle at "night" side
 	float sparkle = step(0.996, h21(floor(g) + 31.0)) * (0.5 + 0.5 * sin(TIME * 3.0 + fh * 50.0));
 	ALBEDO = col;
-	EMISSION = col * 0.08 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
+	EMISSION = col * 0.04 + vec3(1.0, 0.95, 0.6) * sparkle * 0.5;
 	ROUGHNESS = 0.85;
 }"""
 	var mat := ShaderMaterial.new()
@@ -552,7 +562,7 @@ func _build_decor() -> void:
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
+		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.84, 0.80, 0.92))
 	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
 	for i in range(2):
 		var path3: String = CRYSTALS[i % CRYSTALS.size()]
@@ -667,7 +677,7 @@ func _build_decor() -> void:
 	fbase.mesh = fbc
 	var fmarble := StandardMaterial3D.new()
 	fmarble.albedo_texture = load("res://assets/terrain/up_marble_col.jpg")
-	fmarble.albedo_color = Color(0.95, 0.92, 1.0)
+	fmarble.albedo_color = Color(0.82, 0.78, 0.92)
 	fmarble.uv1_triplanar = true
 	fmarble.uv1_scale = Vector3(0.2, 0.2, 0.2)
 	fbase.material_override = fmarble
@@ -851,6 +861,13 @@ void fragment(){
 # ---------------------------------------------------------------- objective
 func _build_shards() -> void:
 	for i in range(SHARDS):
+		# Hidden sticker keys are already part of the compatible save dictionary,
+		# so each rescue can checkpoint without changing the save schema. Completed
+		# butterflies are not rebuilt as misleading collectibles on the next visit.
+		var save_key := "_bwd_butterfly_%d" % i
+		if _main != null and "stickers" in _main and bool(_main.stickers.get(save_key, false)):
+			_shards_got += 1
+			continue
 		var a: float = float(i) / float(SHARDS) * TAU
 		var dir := Vector3(cos(a) * 0.9, sin(a * 3.0) * 0.75 - 0.1, sin(a) * 0.9).normalized()
 		# a LOST BABY BUTTERFLY, one of each wing colour (the objective, re-themed
@@ -886,7 +903,7 @@ func _build_shards() -> void:
 		beam.transform.basis = Basis(bt, bup, bt.cross(bup).normalized() * -1.0).orthonormalized()
 		beam.position = _surf(dir, 19.0)
 		add_child(beam)
-		_shard_nodes.append({"node": star, "dir": dir, "got": false, "ph": float(i) * 1.3, "beam": beam})
+		_shard_nodes.append({"node": star, "dir": dir, "got": false, "ph": float(i) * 1.3, "beam": beam, "idx": i})
 
 func _build_home_ring() -> void:
 	_home_pos = _surf(Vector3.DOWN, 4.0)
@@ -1260,6 +1277,8 @@ func _process(delta: float) -> void:
 					_main.pearl_count += 1
 					if _main.has_method("_update_hud"):
 						_main._update_hud()
+					if _main.has_method("_write_save"):
+						_main._write_save()
 				if _lbl_hint != null:
 					_lbl_hint.text = "The butterflies LOVE the fruit!  +1 pearl"
 	for sd in _shard_nodes:
@@ -1372,6 +1391,11 @@ func _process(delta: float) -> void:
 			if sd.get("beam") != null and is_instance_valid(sd["beam"]):
 				(sd["beam"] as Node3D).visible = false
 			_shards_got += 1
+			if _main != null and "stickers" in _main:
+				var save_key := "_bwd_butterfly_%d" % int(sd["idx"])
+				_main.stickers[save_key] = true
+				if _main.has_method("_write_save"):
+					_main._write_save()
 			_update_shard_hud()
 			_chime(0.7 + 0.06 * float(_shards_got))
 			if _main != null and _main.has_method("_sparkle_burst"):
@@ -1857,19 +1881,23 @@ func _tick_hall(delta: float) -> void:
 			_main.pearl_count += 2
 			if _main.has_method("_update_hud"):
 				_main._update_hud()
+			if _main.has_method("_write_save"):
+				_main._write_save()
 		if _main != null and _main.has_method("show_msg"):
 			_main.show_msg("Mermaid Rosalina", "Your wish sparkles true! +2 pearls!", "win")
 	# the doorway back out
 	if _cpos.z > 21.5 and absf(_cpos.x) < 7.0:
 		_exit_hall()
 
-func resume_from_combat() -> void:
+func resume_from_combat(completed: bool = true) -> void:
 	_ice_gate_cool = 8.0
 	_cpos = Vector3(-7.0, 0.0, 11.0)
 	if _cam != null:
 		_cam.make_current()
-	if _lbl_hint != null:
+	if _lbl_hint != null and completed:
 		_lbl_hint.text = "Popcorn party complete! The frosty berry pedestal is now your victory trophy."
+	elif _lbl_hint != null:
+		_lbl_hint.text = "Welcome back! Explore the castle whenever you're ready."
 
 func _chime(pitch: float) -> void:
 	if _main != null and "chime" in _main and _main.chime != null:
@@ -1877,6 +1905,13 @@ func _chime(pitch: float) -> void:
 		_main.chime.play()
 
 func _win() -> void:
+	# The grand reward is strictly once-per-save. This guard also makes old or
+	# externally-driven sessions safe if they somehow invoke _win after bwdone.
+	if _main != null and "bwd_done" in _main and bool(_main.bwd_done):
+		_state = "play"
+		_lbl_big.text = "The butterflies are already safe!"
+		_lbl_hint.text = "Rosalina's castle is open for play."
+		return
 	_state = "won"
 	_won_t = 5.0
 	_lbl_big.text = "⭐ YOU SAVED\nROSHAN GALAXY! ⭐\n🧚 FAIRY ROSHAN unlocked!"
@@ -1887,16 +1922,19 @@ func _win() -> void:
 			_main.fairy_skin_unlocked = true   # the Butterfly World prize
 		if "bwd_done" in _main:
 			_main.bwd_done = true   # the butterflies stay home forever
+		if _main.has_method("award_sticker"):
+			_main.award_sticker("butterfly")
 		if _main.has_method("_write_save"):
 			_main._write_save()
 	_chime(1.0)
 
 func _teardown(completed: bool) -> void:
+	var earned_completion: bool = completed or _state == "won"
 	_state = "done"
 	if _prev_env != null and "we_node" in _main and _main.we_node != null:
 		_main.we_node.environment = _prev_env
 	if _player_node != null and "cam" in _player_node and _player_node.cam != null:
 		(_player_node.cam as Camera3D).make_current()
 	if _finish_cb.is_valid():
-		_finish_cb.call(completed)
+		_finish_cb.call(earned_completion)
 	queue_free()

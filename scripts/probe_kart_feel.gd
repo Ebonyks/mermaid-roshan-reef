@@ -2,7 +2,7 @@ extends SceneTree
 # KART FEEL TELEMETRY — run headless, no display:
 #   $GODOT --headless -s scripts/probe_kart_feel.gd
 # Measures the kart engine's handling against kart-class feel gates (KART_FEEL.md):
-#   A. assist floor   — a zero-input solo run still finishes (auto-cruise)
+#   A. assist floor   — a zero-input solo run still finishes neutrally (auto-cruise)
 #   B. racing line    — an inside-line policy beats an outside-line policy
 #   C. skill ceiling  — a drift policy reaches tier >= 2 and beats hands-off
 #   D. speed channel  — the camera FOV breathes with speed (range >= 8 deg)
@@ -78,6 +78,8 @@ func _init() -> void:
 
 	# ---- E: full-pack terrain race through the real glue + X-quit restore ----
 	_race_place = -99
+	var passive_pearls: int = main.pearl_count
+	var passive_racer_sticker: bool = bool(main.stickers.get("racer", false))
 	main._start_kart_game(false, "terrain")
 	var kg = main.kart_game
 	_force_race_start(kg)
@@ -90,6 +92,10 @@ func _init() -> void:
 		print("FAIL|full-pack terrain race never finished"); ok = false
 	else:
 		print("FEEL|full_pack_race=done game='%s'" % main.game)
+	if main.pearl_count != passive_pearls or bool(main.stickers.get("racer", false)) != passive_racer_sticker:
+		print("FAIL|zero-input race awarded progression pearls=%d->%d racer=%s->%s" % [passive_pearls, main.pearl_count, passive_racer_sticker, bool(main.stickers.get("racer", false))]); ok = false
+	else:
+		print("FEEL|zero_input_reward=none")
 	await process_frame
 	# Launch from the actual gate position. Quitting must leave Roshan there but
 	# disarm the gate until she has deliberately moved away and returned.
@@ -137,14 +143,18 @@ func _init() -> void:
 		main.kart_game._quit_race()
 		main.kart_game._quit_race()
 		await process_frame
-	main.set_process(true)
 	_end_save_isolation()
 	print("KARTFEEL|%s" % ("ALL OK" if ok else "SEE FAIL LINES"))
-	# This probe builds several full kart scenes on top of the reef. Release the
-	# test root synchronously before quitting so the expanded reef's queued scene
-	# teardown cannot keep the headless process alive until CI's timeout.
-	if is_instance_valid(main):
-		main.free()
+	# This probe builds and tears down several complete race scenes.  Leaving the
+	# live world for SceneTree's final shutdown occasionally strands the headless
+	# process after every assertion has passed.  Free it while frames can still
+	# drain queued deletes, then restore the global clock before requesting exit.
+	main.set_process(false)
+	main.queue_free()
+	await process_frame
+	await process_frame
+	main = null
+	Engine.time_scale = 1.0
 	quit(0 if ok else 1)
 
 func _begin_save_isolation() -> void:
@@ -271,6 +281,7 @@ func _pause_persistence_check() -> bool:
 	_force_race_start(kg)
 	kg.set_process(false)
 	var pearls_before: int = int(main.pearl_count)
+	kg._player_acted = true
 	kg._pearls_got = 2
 	kg._notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
 	var pearls_after_first: int = int(main.pearl_count)
@@ -338,6 +349,9 @@ func _second_place_completion_check() -> bool:
 		elif not bool(k["is_player"]):
 			k["s"] = 0.0
 	var place: int = int(kg._placement())
+	# This direct finish bypasses the input loop, so mark the simulated racer as
+	# having participated before testing placement-independent completion.
+	kg._player_acted = true
 	kg._finish()
 	var before_podium: bool = main.game == "kart" and main.kart_game == kg
 	var sticker_committed: bool = bool(main.stickers.get("racer", false))

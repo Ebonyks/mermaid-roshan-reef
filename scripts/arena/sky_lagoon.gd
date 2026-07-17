@@ -21,6 +21,23 @@ const ALPINE_CAVE_ROOM := Vector2(-128.0, -165.0)
 const ALPINE_HOUSE_A := Vector2(-92.0, -156.0)
 const ALPINE_HOUSE_B := Vector2(-78.0, -185.0)
 const ALPINE_HOUSE_C := Vector2(-112.0, -190.0)
+const ALPINE_HABITAT_SCENES := [
+	preload("res://assets/props/alpine/alpine_fish_aquarium.glb"),
+	preload("res://assets/props/alpine/alpine_beetle_terrarium.glb"),
+	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
+]
+const ALPINE_CREATURE_KINDS := ["fish", "insect", "bird"]
+const ALPINE_CREATURE_CAGES := ["aquarium", "terrarium", "bird_cage"]
+const ALPINE_CREATURE_KEYS := [
+	"_alpine_house_creature_fish",
+	"_alpine_house_creature_insect",
+	"_alpine_house_creature_bird",
+]
+const ALPINE_CREATURE_MESSAGES := [
+	"A tiny fish friend! Safe and snug in your collection!",
+	"A shiny little beetle! Safe and snug in your collection!",
+	"A sweet snowy bird! Safe and snug in your collection!",
+]
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -127,10 +144,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 		# become a palm tree in the village square or block the cave trail.
 		if Vector2(gcx, gcz).distance_to(ALPINE_SNOW_CENTER) < 80.0:
 			continue
-		# keep the train corridor clear: no grove may straddle the ring of
-		# track around the castle (radius 78 about (0,-120); trees scatter
-		# up to ±10 from the grove centre, hence the wide 26-unit band)
-		if absf(sqrt(gcx * gcx + (gcz + 120.0) * (gcz + 120.0)) - 78.0) < 26.0:
+		# keep the train corridor clear: no grove may straddle the grand-tour
+		# ring (variable radius about (0,-3.5); trees scatter up to ±10 from
+		# the grove centre, hence the wide 26-unit band)
+		var g_ta: float = atan2(gcx, gcz + 3.5)
+		if absf(sqrt(gcx * gcx + (gcz + 3.5) * (gcz + 3.5)) - m._train_ref()._ring_r(g_ta)) < 26.0:
 			continue
 		@warning_ignore("integer_division")
 		for t in range(3 + (sd / 3) % 4):
@@ -165,7 +183,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		if Vector2(px, pz).distance_to(ALPINE_SNOW_CENTER) < 66.0:
 			continue
 		# undergrowth also stays off the train track band
-		if absf(sqrt(px * px + (pz + 120.0) * (pz + 120.0)) - 78.0) < 13.0:
+		var u_ta: float = atan2(px, pz + 3.5)
+		if absf(sqrt(px * px + (pz + 3.5) * (pz + 3.5)) - m._train_ref()._ring_r(u_ta)) < 13.0:
 			continue
 		@warning_ignore("integer_division")
 		var pick := (sd / 7) % 10
@@ -281,7 +300,9 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var c3 := Color(0, 0, 0, 0)
 		if cf2.size() >= 12:
 			c3 = Color(cf2[9], cf2[10], cf2[11])
-		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), false, false, c3)
+		var body_rb: bool = cf2.size() > 7 and int(cf2[7]) == 1
+		var acc_rb: bool = cf2.size() > 8 and int(cf2[8]) == 1
+		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)
 		var fang: float = float(fi) * 1.3
 		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
 		var frz: float = 70.0 + sin(fang) * 45.0
@@ -361,7 +382,38 @@ func _build_pearl_castle(o: Vector3) -> void:
 		lockl.position = m.bw_portal_pos + Vector3(0, 4.0, 0)
 		m.add_child(lockl)
 		m.game_nodes.append(lockl)
-	# (home portal removed — the way back to the ocean is now inside the castle / Level 3)
+	# Two clearly marked, non-reading-dependent home rings: one beside the arrival
+	# meadow and one beside the castle entrance. They use emissive geometry rather
+	# than another OmniLight, keeping the Speedy-tier light budget unchanged.
+	var home_portals: Array = []
+	var home_offsets: Array[Vector3] = [Vector3(-34, 0, 162), Vector3(-30, 0, -55)]
+	for hoff: Vector3 in home_offsets:
+		var hpos: Vector3 = o + hoff
+		hpos.y = m.lagoon_h(hpos.x, hpos.z) + 6.0
+		var home_ring := MeshInstance3D.new()
+		var home_mesh := TorusMesh.new()
+		home_mesh.inner_radius = 5.0
+		home_mesh.outer_radius = 6.5
+		home_mesh.rings = 24
+		home_mesh.ring_segments = 12
+		home_ring.mesh = home_mesh
+		home_ring.material_override = m._rainbow_mat()
+		home_ring.position = hpos
+		m.add_child(home_ring)
+		m.game_nodes.append(home_ring)
+		var home_label := Label3D.new()
+		home_label.text = "🏠 OCEAN HOME\nswim in!"
+		home_label.font_size = 68
+		home_label.outline_size = 16
+		home_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		home_label.modulate = Color(0.65, 1.0, 0.9)
+		home_label.position = hpos + Vector3(0, 8.0, 0)
+		m.add_child(home_label)
+		m.game_nodes.append(home_label)
+		var home_tw := home_ring.create_tween().set_loops()
+		home_tw.tween_property(home_ring, "rotation:y", TAU, 6.0).from(0.0)
+		home_portals.append({"pos": hpos, "armed": false})
+	m.g["home_portals"] = home_portals
 	# drifting butterflies for life — GEN2 pilot: real family-style
 	# butterfly art instead of the flower.png stand-in
 	var bfly := CPUParticles3D.new()
@@ -650,7 +702,8 @@ func _build_christmas_village(o: Vector3) -> void:
 	var village_local := ALPINE_VILLAGE_CENTER
 	m.g["alpine_village_center"] = o + Vector3(village_local.x,
 		_lagoon_local(village_local.x, village_local.y), village_local.y)
-	_build_alpine_snowfield(o, ALPINE_SNOW_CENTER, ALPINE_SNOW_RADIUS)
+	# Snow is blended directly into the shared heightfield material so the Alpine
+	# biome has a soft melt line instead of a pale, stepped overlay mesh.
 	_build_alpine_mountain(o)
 	m.g["alpine_house_entries"] = []
 	m.g["alpine_house_bonuses"] = []
@@ -667,7 +720,9 @@ func _build_christmas_village(o: Vector3) -> void:
 		_village_cottage(o, lp, row[1], row[2], house_index)
 
 	# The decorated tree anchors the little square between all three chalets.
-	# Its outer-rim placement keeps the entire solid cluster beyond the train ring.
+	# The train's grand-tour ring (courtyard_train.gd) swerves around this
+	# whole Alpine corner — its _ring_r southwest tuck is measured offline
+	# against every solid here. Move a chalet/pine/crag — re-verify the tuck.
 	var tree_pos := Vector3(-67.0, 0.0, -190.0)
 	_village_snow_patch(o, tree_pos, 8.0)
 	_village_pine(o, tree_pos, 1.22, true)
@@ -723,7 +778,7 @@ func _build_alpine_snowfield(o: Vector3, center: Vector2, radius: Vector2) -> vo
 	st.generate_tangents()
 	var snowfield := MeshInstance3D.new()
 	snowfield.mesh = st.commit()
-	snowfield.material_override = m._up_mat("snow", 0.055, Color(0.88, 0.95, 1.0))
+	snowfield.material_override = m._up_mat("snow", 0.055, Color(0.80, 0.88, 0.96))
 	snowfield.position = o
 	snowfield.visibility_range_end = 230.0
 	m.add_child(snowfield)
@@ -1000,7 +1055,7 @@ func _village_cottage(o: Vector3, lp: Vector3, wall_col: Color, roof_col: Color,
 		"inside": base + Vector3(0.0, 2.7, 0.0),
 		"door_width": 6.0,
 	})
-	_village_house_bonus(base, house_index)
+	_village_house_collectible(base, house_index)
 
 
 func _village_cottage_wall(center: Vector3, size: Vector3, wall_col: Color) -> void:
@@ -1053,11 +1108,13 @@ func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -
 		Vector3(2.5, 0.32, 0.78), Color(0.94, 0.96, 1.0))
 	pillow.visibility_range_end = 90.0
 
-	var table_leg := m._l2_box(base + Vector3(3.3, 1.05, -0.8),
+	# The tea table sits toward the entrance, leaving a clear display alcove at
+	# the back-right for the aquarium, terrarium, or bird cage.
+	var table_leg := m._l2_box(base + Vector3(3.45, 1.05, 1.65),
 		Vector3(0.55, 1.8, 0.55), Color(0.45, 0.28, 0.20))
 	table_leg.material_override = m._up_mat("wood", 0.16, Color(0.58, 0.38, 0.27))
 	table_leg.visibility_range_end = 90.0
-	var table_top := m._l2_box(base + Vector3(3.3, 2.02, -0.8),
+	var table_top := m._l2_box(base + Vector3(3.45, 2.02, 1.65),
 		Vector3(3.2, 0.32, 2.5), Color(0.52, 0.33, 0.23))
 	table_top.material_override = m._up_mat("wood", 0.16, Color(0.66, 0.45, 0.31))
 	table_top.visibility_range_end = 90.0
@@ -1069,32 +1126,61 @@ func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -
 	cup_mesh.radial_segments = 8
 	cup.mesh = cup_mesh
 	cup.material_override = m._soft_mat(accent.lightened(0.28))
-	cup.position = base + Vector3(3.3, 2.46, -0.8)
+	cup.position = base + Vector3(3.45, 2.46, 1.65)
 	cup.visibility_range_end = 75.0
 	m.add_child(cup)
 	m.game_nodes.append(cup)
 
 
-func _village_house_bonus(base: Vector3, house_index: int) -> void:
+func _village_house_collectible(base: Vector3, house_index: int) -> void:
 	var bonus_colors: Array[Color] = [
-		Color(1.0, 0.72, 0.30),
-		Color(0.42, 0.90, 0.84),
-		Color(0.82, 0.58, 1.0),
+		Color(0.35, 0.82, 1.0),
+		Color(1.0, 0.55, 0.48),
+		Color(0.88, 0.70, 1.0),
 	]
-	var bonus: Node3D = LandmarkArtFactory.create_star(1.2,
-		bonus_colors[house_index], false, true)
-	bonus.position = base + Vector3(3.25, 3.55, -3.45)
-	m.add_child(bonus)
-	m.game_nodes.append(bonus)
-	var save_key := "_alpine_house_bonus_%d" % house_index
+	var habitat_scene: PackedScene = ALPINE_HABITAT_SCENES[house_index]
+	var habitat: Node3D = habitat_scene.instantiate() as Node3D
+	habitat.position = base + Vector3(3.15, 0.44, -3.15)
+	m.add_child(habitat)
+	m.game_nodes.append(habitat)
+	var collectible: Node3D = habitat.find_child("Collectible", true, false) as Node3D
+	var cage: Node3D = habitat.find_child("Cage", true, false) as Node3D
+	if not is_instance_valid(collectible):
+		collectible = Node3D.new()
+		collectible.name = "MissingCollectible"
+		habitat.add_child(collectible)
+
+	# A glowing floor ring is the non-reading pointer. It disappears with the
+	# rescued animal, while the aquarium/terrarium/cage remains as a clear record.
+	var halo := MeshInstance3D.new()
+	var halo_mesh := TorusMesh.new()
+	halo_mesh.inner_radius = 1.82
+	halo_mesh.outer_radius = 2.08
+	halo_mesh.rings = 20
+	halo_mesh.ring_segments = 8
+	halo.mesh = halo_mesh
+	halo.material_override = m._soft_mat(bonus_colors[house_index], 1.35)
+	halo.position = base + Vector3(3.15, 0.56, -3.15)
+	m.add_child(halo)
+	m.game_nodes.append(halo)
+
+	var save_key: String = ALPINE_CREATURE_KEYS[house_index]
 	var claimed: bool = bool(m.stickers.get(save_key, false))
-	bonus.visible = not claimed
+	collectible.visible = not claimed
+	halo.visible = not claimed
 	var bonuses: Array = m.g["alpine_house_bonuses"]
 	bonuses.append({
-		"node": bonus,
-		"pos": bonus.position,
-		"base_y": bonus.position.y,
+		"kind": ALPINE_CREATURE_KINDS[house_index],
+		"cage_kind": ALPINE_CREATURE_CAGES[house_index],
+		"habitat": habitat,
+		"cage": cage,
+		"node": collectible,
+		"halo": halo,
+		"pos": base + Vector3(3.15, 2.20, -3.15),
+		"base_position": collectible.position,
+		"base_rotation": collectible.rotation,
 		"color": bonus_colors[house_index],
+		"message": ALPINE_CREATURE_MESSAGES[house_index],
 		"key": save_key,
 		"claimed": claimed,
 		"phase": float(house_index) * 1.7,
@@ -1249,19 +1335,36 @@ func _village_snowman(o: Vector3, lp: Vector3) -> void:
 
 
 func _build_lagoon_terrain(o: Vector3) -> void:
-	# blended terrain material: lush grass on the hills/plains, muddy dirt down in the
-	# river valleys (CC0 Poly Haven sets), with normal maps for real surface depth
+	# One terrain draw call carries four readable zones: shaded meadow, warm park
+	# sand, muddy river beds and Alpine snow. Keeping the values below white is
+	# essential under the bright storybook sky; otherwise every lawn reads as snow.
 	var tsh := Shader.new()
 	tsh.code = "shader_type spatial;\n" + \
 		"uniform sampler2D grass_t; uniform sampler2D grass_n; uniform sampler2D dirt_t; uniform sampler2D dirt_n;\n" + \
+		"uniform sampler2D sand_t; uniform sampler2D sand_n; uniform sampler2D snow_t; uniform sampler2D snow_n;\n" + \
 		"uniform float tile = 0.045; uniform float blo = -6.0; uniform float bhi = 2.5;\n" + \
-		"varying float ly;\n" + \
-		"void vertex(){ ly = VERTEX.y; }\n" + \
+		"varying float ly; varying vec2 lp;\n" + \
+		"void vertex(){ ly = VERTEX.y; lp = VERTEX.xz; }\n" + \
 		"void fragment(){\n" + \
 		"  vec2 uv = UV * tile;\n" + \
 		"  float g = smoothstep(blo, bhi, ly);\n" + \
-		"  ALBEDO = mix(texture(dirt_t, uv).rgb, texture(grass_t, uv).rgb, g);\n" + \
-		"  NORMAL_MAP = mix(texture(dirt_n, uv).rgb, texture(grass_n, uv).rgb, g);\n" + \
+		"  vec3 dirt = texture(dirt_t, uv).rgb * vec3(0.78, 0.70, 0.65);\n" + \
+		"  vec3 grass = texture(grass_t, uv).rgb * vec3(0.70, 0.82, 0.67);\n" + \
+		"  vec3 sand = texture(sand_t, uv).rgb * vec3(0.88, 0.76, 0.62);\n" + \
+		"  vec3 snow = texture(snow_t, uv).rgb * vec3(0.76, 0.86, 0.98);\n" + \
+		"  vec3 nrm = mix(texture(dirt_n, uv).rgb, texture(grass_n, uv).rgb, g);\n" + \
+		"  vec3 ground = mix(dirt, grass, g);\n" + \
+		"  float park_d = length((lp - vec2(75.0, 91.0)) / vec2(52.0, 50.0));\n" + \
+		"  float park = 1.0 - smoothstep(0.72, 1.0, park_d);\n" + \
+		"  ground = mix(ground, sand, park * g * 0.82);\n" + \
+		"  nrm = mix(nrm, texture(sand_n, uv).rgb, park * g * 0.82);\n" + \
+		"  float village_d = length((lp - vec2(-96.0, -180.0)) / vec2(52.0, 43.0));\n" + \
+		"  float village_snow = 1.0 - smoothstep(0.78, 1.08, village_d);\n" + \
+		"  float mountain_d = distance(lp, vec2(-135.0, -165.0));\n" + \
+		"  float high_snow = (1.0 - smoothstep(58.0, 78.0, mountain_d)) * smoothstep(12.0, 27.0, ly);\n" + \
+		"  float snow_mix = max(village_snow, high_snow);\n" + \
+		"  ALBEDO = mix(ground, snow, snow_mix);\n" + \
+		"  NORMAL_MAP = mix(nrm, texture(snow_n, uv).rgb, snow_mix);\n" + \
 		"  ROUGHNESS = 0.95;\n" + \
 		"}"
 	var gm := ShaderMaterial.new()
@@ -1270,6 +1373,10 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	gm.set_shader_parameter("grass_n", load("res://assets/terrain/up_grass_nrm.jpg"))
 	gm.set_shader_parameter("dirt_t", load("res://assets/terrain/up_dirt_col.jpg"))
 	gm.set_shader_parameter("dirt_n", load("res://assets/terrain/up_dirt_nrm.jpg"))
+	gm.set_shader_parameter("sand_t", load("res://assets/terrain/up_sand_col.jpg"))
+	gm.set_shader_parameter("sand_n", load("res://assets/terrain/up_sand_nrm.jpg"))
+	gm.set_shader_parameter("snow_t", load("res://assets/terrain/up_snow_col.jpg"))
+	gm.set_shader_parameter("snow_n", load("res://assets/terrain/up_snow_nrm.jpg"))
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	# 128 (was 64): at 7.7-unit quads the mesh cut corners across the path
@@ -1319,6 +1426,9 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var river_mat = m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
 	river_mat.set_shader_parameter("foam_width", 2.6)
 	river_mat.set_shader_parameter("depth_fade", 7.0)
+	river_mat.set_shader_parameter("mesh_edge_foam", true)
+	river_mat.set_shader_parameter("mesh_edge_width", 0.12)
+	var observed_min_depth: float = INF
 	for rv in m.LAGOON_RIVERS:
 		# the stream is a RIBBON that hugs the carved valley floor sample-by-sample —
 		# flat planes got buried wherever the river path crossed a hill (rock on top,
@@ -1342,6 +1452,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 		# keeps the water inside its gorge on hill crossings; a slope-limit pass
 		# smooths the cap steps into gentle rapids instead of sawtooth ledges.
 		var perps: Array = []
+		var floors := PackedFloat32Array()
 		var wys: PackedFloat32Array = PackedFloat32Array()
 		for i in range(pts.size()):
 			var p2: Vector2 = pts[i]
@@ -1352,16 +1463,22 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 			var perp := Vector2(-d2.y, d2.x) * 16.3
 			perps.append(perp)
 			var floor_h: float = _lagoon_local(p2.x, p2.y)
+			floors.append(floor_h)
 			var dip_h: float = _lagoon_river_dip(p2.x, p2.y)
 			var eo: Vector2 = perp.normalized() * 20.0   # just past the carved channel (W=17)
 			var bank_cap: float = minf(_lagoon_local(p2.x + eo.x, p2.y + eo.y),
 				_lagoon_local(p2.x - eo.x, p2.y - eo.y)) - 0.5
 			var wy: float = minf((floor_h + dip_h) - 1.5, bank_cap)
-			wys.append(maxf(floor_h + 0.8, wy))
+			wys.append(maxf(floor_h + m.LAGOON_RIVER_MIN_DEPTH, wy))
 		for i in range(1, wys.size()):   # slope-limit downstream…
 			wys[i] = minf(wys[i], wys[i - 1] + 0.5)
 		for i in range(wys.size() - 2, -1, -1):   # …and upstream
 			wys[i] = minf(wys[i], wys[i + 1] + 0.5)
+		# The slope pass may only lower a sample. Re-assert a real swim pocket at
+		# every point; the deeper bed keeps this at the exact pre-audit waterline.
+		for i in range(wys.size()):
+			wys[i] = maxf(wys[i], floors[i] + m.LAGOON_RIVER_MIN_DEPTH)
+			observed_min_depth = minf(observed_min_depth, wys[i] - floors[i])
 		for i in range(pts.size()):
 			var p2b: Vector2 = pts[i]
 			var perp2: Vector2 = perps[i]
@@ -1393,6 +1510,7 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 				m.game_nodes.append(fishinst)
 				var fa := o + Vector3(ra.x, _lagoon_local(ra.x, ra.y) + 1.5, ra.y)
 				(m.g["l2_fish"] as Array).append({"node": fishinst, "a": fa, "dir": rdir3, "len": rlen, "off": randf() * rlen, "spd": 4.0 + randf() * 4.0, "lane": randf() * 6.0 - 3.0})
+	m.g["l2_river_min_depth"] = observed_min_depth
 	# ---- moat water: the channel is FULL (surface 2.5 under the rim, like the
 	# rivers), mostly opaque, and painted with the GEN2 family-style water
 	# albedo. The old sheet sat at -6 in a 16-deep trench, so from the grounds
@@ -1424,6 +1542,8 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	# from every angle and on every quality tier
 	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.92, 0.2, 0.04)
 	mwmat.set_shader_parameter("foam_width", 2.4)
+	mwmat.set_shader_parameter("mesh_edge_foam", true)
+	mwmat.set_shader_parameter("mesh_edge_width", 0.10)
 	mwmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
 	mwmat.set_shader_parameter("albedo_mix", 0.85)
 	mwmat.set_shader_parameter("albedo_scale", 0.035)
@@ -1467,9 +1587,11 @@ func _build_fairy_pond(o: Vector3) -> void:
 	var pond := MeshInstance3D.new()
 	var cm := CylinderMesh.new(); cm.top_radius = 17.0; cm.bottom_radius = 17.0; cm.height = 1.0
 	pond.mesh = cm
-	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = Color(0.4, 0.55, 0.95); pmat.metallic = 0.85; pmat.roughness = 0.07
-	pmat.emission_enabled = true; pmat.emission = Color(0.5, 0.55, 1.0); pmat.emission_energy_multiplier = 0.6
+	var pmat = m._toon_water_mat(Color(0.30, 0.42, 0.78), Color(0.62, 0.72, 1.0), 0.92, 0.16, 0.055)
+	pmat.set_shader_parameter("sparkle", 0.55)
+	pmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
+	pmat.set_shader_parameter("albedo_mix", 0.32)
+	pmat.set_shader_parameter("albedo_scale", 0.045)
 	pond.material_override = pmat
 	pond.position = c + Vector3(0, 2.6, 0)
 	m.add_child(pond); m.game_nodes.append(pond)
@@ -1664,6 +1786,22 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				lean = rock
 				pl.toy_pose("seat", tt, rock * 3.0)
 			"train_cabin", "train_deck":
+				# hop off ANY TIME, on her terms: a jump press is immediate
+				# (short grace so the boarding tap can't bounce her), and the
+				# swim stick held for a beat also works — holding the stick
+				# can never trap her aboard. Headless probes see no input.
+				var hop := false
+				if tt > 0.8 and m._train_ref()._ride_jump_pressed():
+					hop = true
+				if tt > 1.5 and m._train_ref()._ride_move_held():
+					tp["exit_hold"] = float(tp.get("exit_hold", 0.0)) + delta
+					if float(tp["exit_hold"]) > 1.0:
+						hop = true
+				else:
+					tp["exit_hold"] = 0.0
+				if hop:
+					m._train_ref()._hop_off(toy)
+					return
 				# seated on the moving train: glued to the car's seat point,
 				# facing the way it carries her, with a gentle carriage sway
 				# (validity check BEFORE the typed assign — a freed instance
@@ -1709,7 +1847,9 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 		return
 	for toy in (m.g.get("toys", []) as Array):
 		toy["cool"] = maxf(0.0, float(toy["cool"]) - delta)
-		if float(toy["cool"]) <= 0.0 and ppos.distance_to(toy["anchor"]) < 6.5:
+		# per-toy board radius: train seats are extra-wide (9) so hopping
+		# on a moving car is easy; playground toys keep the classic 6.5
+		if float(toy["cool"]) <= 0.0 and ppos.distance_to(toy["anchor"]) < float(toy.get("rad", 6.5)):
 			var ph := 0.0
 			if String(toy["kind"]) == "merry" and is_instance_valid(toy["node"]):
 				var dp: Vector3 = ppos - (toy["base"] as Vector3)
@@ -1896,6 +2036,7 @@ func _crafted_purr(cd: Dictionary, on: bool) -> void:
 	if on:
 		if p == null:
 			p = AudioStreamPlayer3D.new()
+			p.bus = "SFX"
 			var st: AudioStream = load("res://assets/audio/purr.wav")
 			if st is AudioStreamWAV:
 				(st as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD
@@ -1919,22 +2060,44 @@ func _tick_alpine_house_bonuses(delta: float, ppos: Vector3) -> void:
 		var bonus: Node3D = bonus_data.get("node") as Node3D
 		if not is_instance_valid(bonus):
 			continue
-		bonus.rotate_y(delta * 0.9)
-		bonus.position.y = float(bonus_data["base_y"]) + sin(
-			float(m.g.get("t", 0.0)) * 2.8 + float(bonus_data["phase"])) * 0.32
+		var halo: Node3D = bonus_data.get("halo") as Node3D
+		var base_position: Vector3 = bonus_data["base_position"]
+		var base_rotation: Vector3 = bonus_data["base_rotation"]
+		var time_now: float = float(m.g.get("t", 0.0))
+		var phase: float = float(bonus_data["phase"])
+		var kind: String = bonus_data["kind"]
+		bonus.position = base_position
+		bonus.rotation = base_rotation
+		match kind:
+			"fish":
+				bonus.position.y += sin(time_now * 2.2 + phase) * 0.12
+				bonus.rotation.y += sin(time_now * 1.4 + phase) * 0.32
+			"insect":
+				bonus.position.y += sin(time_now * 3.0 + phase) * 0.05
+				bonus.rotation.y += fposmod(time_now * 0.48 + phase, TAU)
+			"bird":
+				bonus.position.y += sin(time_now * 2.0 + phase) * 0.08
+				bonus.rotation.y += sin(time_now * 1.15 + phase) * 0.22
+				bonus.rotation.z += sin(time_now * 1.8 + phase) * 0.035
+		if is_instance_valid(halo):
+			halo.rotate_y(delta * 0.55)
+			halo.scale = Vector3.ONE * (1.0 + sin(time_now * 3.0 + phase) * 0.07)
 		var bonus_pos: Vector3 = bonus_data["pos"]
 		if bonus_pos.distance_to(ppos) >= 4.6:
 			continue
 		bonus_data["claimed"] = true
 		bonus.visible = false
+		if is_instance_valid(halo):
+			halo.visible = false
 		var save_key: String = bonus_data["key"]
 		var bonus_color: Color = bonus_data["color"]
+		var rescue_message: String = bonus_data["message"]
 		m.stickers[save_key] = true
 		m.pearl_count += 1
 		m._write_save()
-		m._sparkle_burst(bonus.position, bonus_color)
+		m._sparkle_burst(bonus_pos, bonus_color)
 		m._fanfare()
-		m.show_msg("Roshan", "A cozy chalet surprise! One rainbow pearl!", "pearl")
+		m.show_msg("Roshan", rescue_message + " One rainbow pearl!", "pearl")
 
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
@@ -2057,6 +2220,8 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			var sidx: int = m.l2_stars.find(sd)
 			if sidx >= 0 and sidx < m.l2_star_progress.size():
 				m.l2_star_progress[sidx] = true
+				m.stickers["_l2_star_%d" % sidx] = true
+				m._write_save()
 			got += 1
 			m._sparkle_burst(star.position, Color(1.0, 0.9, 0.4))
 			if m.chime != null:
@@ -2066,8 +2231,6 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				m.voice.pitch_scale = 1.0 + randf() * 0.2
 				m.voice.play()
 			star.visible = false
-			if star.get_child_count() > 0:
-				star.get_child(0).queue_free()
 			if got >= 3:
 				m._open_castle_door()
 	if got >= 3 and not m.l2_open:
@@ -2105,9 +2268,9 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room
 			return
 	if not m.l2_open:
-		m.hud_game.text = "Dream Stars: %d / 3  -  follow the sparkles!" % got
+		m.hud_game.text = "★  %d / 3   ✦ follow the sparkle trail!" % got
 	else:
-		m.hud_game.text = "The castle is OPEN!  Swim to the glowing door!"
+		m.hud_game.text = "★ ★ ★   ➜   Castle door!"
 		# magnet toward the fixed doorway (the door itself slides up out of view)
 		var entry: Vector3 = m.g.get("entry", m.l2_door.position)
 		var dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()

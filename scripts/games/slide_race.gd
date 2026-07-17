@@ -9,7 +9,7 @@ func _init(main: ReefMain) -> void:
 	m = main
 
 func build(fr: Dictionary, origin: Vector3) -> void:
-	m.g["timer"] = 999.0
+	m.g["timer"] = -1.0
 	m.g["checks"] = []
 	m.g["chains"] = []
 	m._build_playplace(origin, fr)
@@ -23,9 +23,10 @@ func build_slide(fr: Dictionary, origin: Vector3) -> void:
 	m._build_slide(origin, theme, mode)
 	m._play_music("fetch")   # reuse the snowy track
 	if theme == "rainbow":
-		m.arena_env.background_color = Color(0.72, 0.86, 1.0)
-		m.arena_env.ambient_light_color = Color(1.0, 0.97, 1.0)
-		m.arena_env.ambient_light_energy = 0.9   # 1.35 clipped the pale track past ACES white (Android blowout)
+		m.arena_env.background_color = Color(0.52, 0.72, 0.92)
+		m.arena_env.ambient_light_color = Color(0.88, 0.90, 1.0)
+		m.arena_env.ambient_light_energy = 0.62
+		m._apply_scene_grade(m.arena_env, "bright_pastel")
 	if mode == "chase":
 		if m.beans_t >= 0.0:
 			m.show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")
