@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build six Mobile-friendly Blender props for the reef's weak districts.
+"""Build seven Mobile-friendly Blender props for the reef's weak districts.
 
 Usage: blender --background --python tools/build_reef_region_kit.py
 """
@@ -27,6 +27,7 @@ COLORS = {
 	"shell": (0.79, 0.67, 0.82, 1), "shell2": (0.92, 0.83, 0.88, 1),
 	"pearl": (0.88, 0.93, 0.94, 1), "ice0": (0.35, 0.52, 0.65, 1),
 	"ice1": (0.56, 0.76, 0.84, 1), "ice2": (0.78, 0.91, 0.94, 1),
+	"wreck0": (0.28, 0.31, 0.42, 1), "wreck1": (0.43, 0.42, 0.54, 1),
 }
 
 
@@ -226,7 +227,15 @@ def organic_sweep(name, points, radii, mat, parent, seed=0):
 	mesh.update()
 	obj = bpy.data.objects.new(name, mesh)
 	bpy.context.collection.objects.link(obj)
-	return finish(obj, mat, parent, True)
+	finish(obj, mat, parent, True)
+	# Preserve the authored asymmetry while rounding the sparse path rings into
+	# water-worn massing instead of a chain of geometric elbows.
+	subd = obj.modifiers.new("water_worn_mass", "SUBSURF")
+	subd.subdivision_type = "CATMULL_CLARK"
+	subd.levels = subd.render_levels = 1
+	bpy.context.view_layer.objects.active = obj
+	bpy.ops.object.modifier_apply(modifier=subd.name)
+	return obj
 
 
 def blob(name, loc, scale, mat, parent, seed=0):
@@ -350,6 +359,25 @@ def kelp_arch():
 	return r
 
 
+def wreck_shoulders():
+	r = root("wreck_ravine_shoulders")
+	# A low cluster of overlapping water-worn boulders with unequal crests. It
+	# provides destination-scale structure without becoming another arch/icon.
+	blob("ridge_foot", (0, 0, .45), (4.8, 1.55, .72), MAT["wreck0"], r, 23)
+	mounds = (
+		((-3.35, .05, 1.05), (1.55, 1.18, 1.35), MAT["wreck1"], 27),
+		((-1.55, -.1, 1.55), (2.05, 1.35, 2.05), MAT["wreck0"], 31),
+		((.75, .15, 1.7), (1.75, 1.42, 2.35), MAT["wreck1"], 36),
+		((2.75, -.05, 1.05), (1.65, 1.2, 1.45), MAT["wreck0"], 41),
+	)
+	for index, (loc, scale, mat, seed) in enumerate(mounds):
+		blob("ridge_mound_%d" % index, loc, scale, mat, r, seed)
+	for index, (x, y, z, sx, sz) in enumerate(((-4.05, -.35, .55, .72, .48),
+		(-.2, -.65, .65, .9, .55), (3.85, -.25, .58, .68, .46))):
+		blob("ridge_lobe_%d" % index, (x, y, z), (sx, sx * .72, sz), MAT["wreck1"], r, index + 47)
+	return r
+
+
 def kelp_lanterns():
 	r = root("kelp_lantern_cluster")
 	# Lantern pods hang beneath branching kelp arms; none sit on top like flowers.
@@ -462,6 +490,7 @@ def ice_fan():
 
 
 BUILDERS = {
+	"wreck_ravine_shoulders": wreck_shoulders,
 	"kelp_cathedral_arch": kelp_arch, "kelp_lantern_cluster": kelp_lanterns,
 	"moon_shell_arch": moon_arch, "moon_pearl_totem": moon_totem,
 	"ice_crystal_cluster": ice_crystals, "ice_current_fan": ice_fan,

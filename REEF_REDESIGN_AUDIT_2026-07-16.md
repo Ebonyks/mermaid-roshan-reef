@@ -31,10 +31,12 @@ geographic separation.
   bodies outward behind them.
 - Narrow palette fields enough to leave neutral sand/water buffers.
 - Remove random cross-district scatter.
-- Reduce groves from 18 to 14, macro props from roughly 34 to 19, grove rocks
+- Reduce groves from 18 to 14, macro props from roughly 34 to 9, grove rocks
   from roughly 40 to 13, and loose boulders from 42 to 24.
-- Rebuild all six regional GLBs as asymmetric curved/eroded forms with varied
+- Rebuild the six existing regional GLBs as asymmetric curved/eroded forms with varied
   thickness, lean, height, and silhouette.
+- Add a dedicated organic Wreck ridge if removing the generic cliff slabs leaves
+  that district without destination-scale geology.
 - Keep every new or rebuilt asset texture-free, Mobile-friendly, and editable
   from the checked-in Blender source.
 
@@ -52,7 +54,7 @@ bodies provides the visual pause that the first pass lacked.
 | Minimum district-center separation | ~96 m | **~129 m** |
 | Faron distance from hub | ~115 m | **~72 m** |
 | Authored groves | 18 | **14** |
-| Macro structures/region props | ~34 | **19** |
+| Macro structures/region props | ~34 | **9** |
 | Grove rocks | 40 | **13** |
 | Loose perimeter boulders | 42 | **24** |
 | Cross-district scatter chance | 16% | **0%** |
@@ -71,7 +73,7 @@ young touch player does not have to hold a narrow position during the countdown.
 |---|---|---|---|
 | Pearl Garden | Broad calm hub and low framing stones | Shell gardens, barrel sponges, pearl-shop ship | Quiet, low, familiar starting area |
 | Kelp Cathedral | Long outer ridges and a living threshold | Tapered old-kelp trunks, trailing blades, hanging lantern pods, tall aisles | Strongest vertical/green silhouette; dense body begins beyond Harper |
-| Wreck Ravine | Diagonal trench with raised irregular shoulders | Broken ship, treasure debris, four ravine masses | Hard-edged salvage and negative trench distinguish it without extra color clutter |
+| Wreck Ravine | Diagonal trench with raised irregular shoulders | Broken ship, treasure debris, two dedicated organic reef ridges | Hard-edged salvage and negative trench distinguish it without generic cliff slabs |
 | Moon-shell Grotto | Outer bowl and broken enclosing ring | One eroded shell-rock arch, open pearl nest, anemone bowl | Rounded lavender enclosure is unique; Faron remains in the open gateway before it |
 | Rainbow Flats | Two large flattened race clearings | Race gateway, low coral bouquets, starfish flats | Deliberately lowest and most open region, with uninterrupted sightlines |
 | Ice Current | Sparse blue-grey outer shelf | Rounded brinicle hummocks, directional frozen-current sheets, penguin floe | Cool palette is reinforced by a flowing horizontal silhouette rather than generic crystals |
@@ -81,15 +83,21 @@ profile. Repetition remains inside each habitat as ecological rhythm, but shared
 generic rocks have been reduced enough that they no longer define the map.
 
 All interactive gateways and authored macro structures remain inside the 270 m
-player boundary. The outermost wreck shoulder is about 241 m from the hub,
+player boundary. The outermost wreck shoulder is about 237 m from the hub,
 leaving a usable margin before the boundary clamp; loose boulders alone dress
 the non-interactive cliff rim.
 
 ## Asset rebuild audit
 
-The six Blender assets were rejected twice during repair review. The final
+The first six Blender assets were rejected twice during repair review. The final
 generation removes mirrored gates, stacked spheres, cones, flat fan symbols,
 and uniform tubes. Production geometry now uses varying-radius curves,
 irregular continuous sweeps, and smoothed tapered ribbons. The checked-in
 Blender source and isolated QA renders were regenerated with the GLBs so the
 silhouettes remain inspectable and reproducible.
+
+The first in-engine capture then exposed a separate inherited problem: the
+generic cliff-block GLBs rendered as enormous rectangular slabs, including one
+directly across Faron's approach. All 10 generic slab/spire placements were
+removed. Wreck Ravine, the one region that still needed large framing geology,
+received a seventh purpose-built asymmetric reef-ridge asset instead.

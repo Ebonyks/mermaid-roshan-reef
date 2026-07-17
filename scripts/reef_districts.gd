@@ -40,13 +40,8 @@ const FRIEND_POSITIONS := [
 	Vector2(70, -58),
 ]
 
-const STRUCTURE_SCENES := {
-	"spire": "res://assets/nature/cliff_large_rock.glb",
-	"block": "res://assets/nature/cliff_block_rock.glb",
-	"cave": "res://assets/ship/cliff_cave_rock.glb",
-}
-
 const REGIONAL_SCENES := {
+	"wreck_shoulders": "res://assets/reef_regions/wreck_ravine_shoulders.glb",
 	"kelp_arch": "res://assets/reef_regions/kelp_cathedral_arch.glb",
 	"kelp_lanterns": "res://assets/reef_regions/kelp_lantern_cluster.glb",
 	"moon_arch": "res://assets/reef_regions/moon_shell_arch.glb",
@@ -163,54 +158,22 @@ func scatter_point(habitat: String) -> Vector3:
 	return Vector3(p.x, m.seabed_y(p.x, p.y), p.y)
 
 func build_macro_structures() -> void:
-	# Pearl Garden: low framing stones leave the centre broad and readable.
-	_structure("block", Vector2(-42, 25), 21.0, 0.4, Color(0.58, 0.63, 0.69), false)
-	_structure("block", Vector2(44, -10), 18.0, -0.8, Color(0.64, 0.61, 0.72), false)
+	# Pearl Garden and Rainbow Flats intentionally have no generic macro rocks:
+	# they are the two broad, low breathing spaces in the world rhythm.
 	# Kelp begins with one unmistakable living threshold, then grows outward.
-	_structure("spire", Vector2(-72, 168), 38.0, 0.25, Color(0.28, 0.43, 0.43))
-	_structure("spire", Vector2(12, 184), 32.0, -0.4, Color(0.30, 0.46, 0.44))
 	_regional_prop("kelp_arch", Vector2(-28, 130), 28.0, 0.0, false)
 	_regional_prop("kelp_lanterns", Vector2(-52, 165), 9.0, -0.35, false)
 	_regional_prop("kelp_lanterns", Vector2(-12, 198), 7.0, 0.5, false)
-	# Wreck Ravine: two irregular shoulders frame the diagonal trench.
-	var wreck_left := [Vector2(-158, 128), Vector2(-182, 151)]
-	var wreck_right := [Vector2(-143, 153), Vector2(-174, 166)]
-	for i in range(wreck_left.size()):
-		_structure("block", wreck_left[i], 34.0 + float(i) * 5.0, 2.35, Color(0.42, 0.43, 0.55))
-		_structure("spire", wreck_right[i], 31.0 + float(i) * 4.0, -0.7, Color(0.36, 0.40, 0.52))
+	# Wreck Ravine: two dedicated organic ridges frame the diagonal trench.
+	_regional_prop("wreck_shoulders", Vector2(-150, 128), 34.0, 2.35, false)
+	_regional_prop("wreck_shoulders", Vector2(-177, 157), 29.0, -0.7, false)
 	# Moon-shell Grotto: its hero arch and pearl cairns use their own vocabulary,
-	# with asymmetric rock masses acting as quiet enclosure rather than identity.
+	# with the terrain bowl acting as quiet enclosure rather than generic blocks.
 	_regional_prop("moon_arch", Vector2(-125, 6), 36.0, 1.55, false)
 	_regional_prop("moon_totem", Vector2(-175, -12), 10.0, 0.7, false)
-	_structure("block", Vector2(-200, 25), 29.0, -0.5, Color(0.59, 0.50, 0.66))
-	# Rainbow Flats: low warm banks preserve long, open race lanes.
-	_structure("block", Vector2(-72, -168), 24.0, 0.8, Color(0.64, 0.55, 0.48), false)
-	_structure("block", Vector2(20, -190), 22.0, -0.7, Color(0.66, 0.57, 0.51), false)
-	# Ice Current: sparse blue-grey pillars support the floe/shop silhouette.
-	_structure("block", Vector2(175, -115), 30.0, 0.55, Color(0.50, 0.61, 0.71))
+	# Ice Current: its two unique families support the floe/shop silhouette.
 	_regional_prop("ice_current", Vector2(98, -82), 15.0, -0.15, false)
 	_regional_prop("ice_crystals", Vector2(155, -135), 14.0, 0.55, true)
-
-func _structure(kind: String, xz: Vector2, target: float, yrot: float, tint: Color, solid: bool = true) -> Node3D:
-	var path: String = STRUCTURE_SCENES[kind]
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	wrap.name = "Reef_%s" % kind
-	var model: Node3D = packed.instantiate()
-	m._fit_prop(model, target)
-	m._toon_tile(model, "cliff", 0.045, tint)
-	wrap.add_child(model)
-	wrap.position = Vector3(xz.x, m.seabed_y(xz.x, xz.y) - 1.2, xz.y)
-	wrap.rotation.y = yrot
-	m.add_child(wrap)
-	m.flora_nodes.append(wrap)
-	if solid:
-		m._register_solid(wrap, 0.72, 1.2)
-	return wrap
 
 func _regional_prop(kind: String, xz: Vector2, target: float, yrot: float, solid: bool) -> Node3D:
 	var path: String = REGIONAL_SCENES[kind]

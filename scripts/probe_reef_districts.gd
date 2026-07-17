@@ -33,9 +33,7 @@ func _init() -> void:
 	_check("wreck ravine carved", ReefDistricts.shape_terrain(-160.0, 135.0, 0.0) < -8.0)
 	_check("moon bowl carved", ReefDistricts.shape_terrain(-165.0, 5.0, 0.0) < -6.0)
 	_check("kelp ridge raised", ReefDistricts.shape_terrain(-78.0, 175.0, 0.0) > 7.0)
-	for key: String in ReefDistricts.STRUCTURE_SCENES:
-		_check("structure %s exists" % key, ResourceLoader.exists(String(ReefDistricts.STRUCTURE_SCENES[key])))
-	_check("six Blender regional assets", ReefDistricts.REGIONAL_SCENES.size() == 6)
+	_check("seven Blender regional assets", ReefDistricts.REGIONAL_SCENES.size() == 7)
 	for key: String in ReefDistricts.REGIONAL_SCENES:
 		_check("regional asset %s exists" % key, ResourceLoader.exists(String(ReefDistricts.REGIONAL_SCENES[key])))
 	print("REEFDISTRICT|RESULT|", "PASS" if ok else "FAIL")
