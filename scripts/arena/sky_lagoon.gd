@@ -797,7 +797,12 @@ func _build_alpine_mountain(o: Vector3) -> void:
 	m.g["alpine_cave_entrance"] = o + Vector3(ALPINE_CAVE_ENTRANCE.x, floor_y + 3.0, ALPINE_CAVE_ENTRANCE.y)
 	m.g["alpine_secret_pos"] = secret.position
 	m.g["alpine_secret_node"] = secret
-	m.g["alpine_secret_claimed"] = bool(m.stickers.get("_alpine_secret", false))
+	# This is the authored doorway into the northern world. Keep the established
+	# cave star as the only entrance landmark instead of adding a second gate on
+	# the exposed mountain pass.
+	m.g["northern_portal_pos"] = secret.position
+	m.g["northern_portal_rune"] = secret
+	m.g["northern_portal_armed"] = true
 
 	for crystal_pos: Vector3 in [Vector3(-130.2, floor_y + 2.7, -167.2),
 		Vector3(-130.0, floor_y + 2.3, -162.8), Vector3(-125.8, floor_y + 2.0, -168.0)]:
@@ -813,48 +818,6 @@ func _build_alpine_mountain(o: Vector3) -> void:
 		crystal.rotation.z = 0.18
 		m.add_child(crystal)
 		m.game_nodes.append(crystal)
-	_build_northern_pass_gate(o)
-
-
-func _build_northern_pass_gate(o: Vector3) -> void:
-	# The next world begins at a high saddle just beyond the Alpine cairns. The
-	# portal is an authored landmark rather than a menu, so one finger and simple
-	# exploration are enough to continue.
-	var lp := Vector2(-112.0, -185.0)
-	var gy: float = _lagoon_local(lp.x, lp.y)
-	var gate: Vector3 = o + Vector3(lp.x, gy, lp.y)
-	var stone := Color(0.46, 0.51, 0.62)
-	for side: float in [-1.0, 1.0]:
-		var pillar_pos: Vector3 = gate + Vector3(side * 5.8, 6.0, 0.0)
-		var pillar: MeshInstance3D = m._l2_box(pillar_pos,
-			Vector3(3.2, 12.0, 3.4), stone)
-		pillar.material_override = m._up_mat("cliff", 0.075, stone)
-		m._wall_solid(pillar_pos, Vector3(3.2, 12.0, 3.4), 0.5)
-	var lintel: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 12.0, 0.0),
-		Vector3(15.0, 3.0, 3.4), stone)
-	lintel.material_override = m._up_mat("cliff", 0.075, stone)
-	var veil: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 6.0, 0.25),
-		Vector3(8.5, 9.5, 0.25), Color(0.45, 0.90, 1.0), 1.5)
-	veil.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	veil.material_override.albedo_color.a = 0.34
-	veil.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-
-	var rune := Label3D.new()
-	rune.text = "\u2744"
-	rune.font_size = 260
-	rune.pixel_size = 0.024
-	rune.outline_size = 30
-	rune.modulate = Color(0.72, 0.96, 1.0)
-	rune.outline_modulate = Color(0.18, 0.24, 0.48)
-	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	rune.position = gate + Vector3(0.0, 7.0, 0.0)
-	m.add_child(rune)
-	m.game_nodes.append(rune)
-	m.g["northern_portal_pos"] = gate + Vector3(0.0, 4.0, 0.0)
-	m.g["northern_portal_rune"] = rune
-	m.g["northern_portal_armed"] = true
-	_alpine_cairn(o, Vector2(-102.0, -179.0))
-	_alpine_cairn(o, Vector2(-107.0, -183.0))
 
 
 func _alpine_crag(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
@@ -1992,30 +1955,15 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# purr when Roshan comes near
 	_tick_crafted(delta, ppos)
 	_tick_alpine_house_bonuses(delta, ppos)
-	# Alpine secret: the cairns are the visual pointer; nearing the hidden mouth
-	# adds a recorded voice hint. Reaching the star pays once and persists in the
-	# existing stickers dictionary under a private progress key.
+	# Alpine cave: the cairns are the visual pointer and nearing the hidden mouth
+	# adds a recorded voice hint. The warm star inside is the northern-world door.
 	if m.g.has("alpine_secret_pos"):
 		var cave_entrance: Vector3 = m.g["alpine_cave_entrance"]
-		var secret_pos: Vector3 = m.g["alpine_secret_pos"]
-		var secret_node: Label3D = m.g.get("alpine_secret_node") as Label3D
-		if is_instance_valid(secret_node):
-			secret_node.rotate_y(delta * 0.8)
-			secret_node.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 3.0) * 0.07)
 		if (not bool(m.g.get("alpine_cave_hint", false))
-			and not bool(m.g.get("alpine_secret_claimed", false))
 			and cave_entrance.distance_to(ppos) < 34.0):
 			m.g["alpine_cave_hint"] = true
-			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles go inside!", "pearl")
-		if not bool(m.g.get("alpine_secret_claimed", false)) and secret_pos.distance_to(ppos) < 8.0:
-			m.g["alpine_secret_claimed"] = true
-			m.stickers["_alpine_secret"] = true
-			m.pearl_count += 3
-			m._write_save()
-			m._sparkle_burst(secret_pos, Color(1.0, 0.88, 0.35))
-			m._fanfare()
-			m.show_msg("Roshan", "A secret Alpine Star! Three rainbow pearls!", "pearl")
-	# Snowflake gate: leave-and-re-enter hysteresis prevents an immediate return
+			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles lead to that star!", "pearl")
+	# Cave star: leave-and-re-enter hysteresis prevents an immediate return
 	# trip from bouncing Roshan between the two separately loaded worlds.
 	if m.g.has("northern_portal_pos"):
 		var north_pos: Vector3 = m.g["northern_portal_pos"]
@@ -2031,7 +1979,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			return
 		if (not bool(m.g.get("northern_portal_hint", false)) and north_dist < 28.0):
 			m.g["northern_portal_hint"] = true
-			m.show_msg("Roshan", "A snowflake gate! A new world is through there!", "pearl2")
+			m.show_msg("Roshan", "A magic star! A new world is through there!", "pearl2")
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta

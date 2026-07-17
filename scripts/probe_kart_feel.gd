@@ -140,7 +140,12 @@ func _init() -> void:
 	main.set_process(true)
 	_end_save_isolation()
 	print("KARTFEEL|%s" % ("ALL OK" if ok else "SEE FAIL LINES"))
-	quit()
+	# This probe builds several full kart scenes on top of the reef. Release the
+	# test root synchronously before quitting so the expanded reef's queued scene
+	# teardown cannot keep the headless process alive until CI's timeout.
+	if is_instance_valid(main):
+		main.free()
+	quit(0 if ok else 1)
 
 func _begin_save_isolation() -> void:
 	# Probes run on developer machines as well as CI. Redirect user:// before the
