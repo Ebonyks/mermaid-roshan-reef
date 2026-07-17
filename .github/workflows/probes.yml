@@ -97,3 +97,22 @@ jobs:
             fi
           done
           exit $FAILED
+
+      - name: Capture first-world visual review
+        env:
+          REEF_SHOT_OUT: /tmp/reef-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$REEF_SHOT_OUT"
+          # The headless display driver never emits frame_post_draw, so image
+          # capture must use a real X11 viewport. Xvfb + software rendering is
+          # deterministic on the hosted runner and keeps the project on Mobile.
+          timeout 6m xvfb-run -a godot --rendering-method mobile -s scripts/probe_reef_shots.gd
+
+      - name: Upload first-world visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reef-first-world-review
+          path: /tmp/reef-shots/*.png
+          if-no-files-found: error
