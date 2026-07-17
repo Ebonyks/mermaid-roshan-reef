@@ -159,6 +159,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var tpos := o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz)
 			@warning_ignore("integer_division")
 			var tname: String = trees[(sd / 11) % trees.size()]
+			if not _lagoon_plant_allowed(tname, gcx + ox, gcz + oz):
+				continue
 			if tname == "tree_pineRoundF":
 				# GEN2 pilot: the round puff tree is the family-style one now
 				var gtree = m._gen2_prop("tree_pineroundf", tpos, 8.0 + float(sd % 5), float(sd % 628) / 100.0)
@@ -190,19 +192,29 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var pick := (sd / 7) % 10
 		var gp := Vector3(px, _lagoon_local(px, pz) - 0.2, pz)
 		var yr := float(sd % 628) / 100.0
+		var plant_name: String
+		var plant_size: float
 		if pick < 3:
-			m._nature("plant_bushLargeTriangle", o + gp, 6.0, yr)
+			plant_name = "plant_bushLargeTriangle"
+			plant_size = 6.0
 		elif pick < 5:
-			m._nature("plant_bush", o + gp, 5.0, yr)
+			plant_name = "plant_bush"
+			plant_size = 5.0
 		elif pick < 6:
-			m._nature("mushroom_red", o + gp, 5.0, yr)
+			plant_name = "mushroom_red"
+			plant_size = 5.0
 		elif pick < 7:
-			m._nature("mushroom_tanGroup", o + gp, 5.5, yr)
+			plant_name = "mushroom_tanGroup"
+			plant_size = 5.5
 		elif pick < 8:
-			m._nature("grass_leafsLarge", o + gp, 5.0, yr)
+			plant_name = "grass_leafsLarge"
+			plant_size = 5.0
 		else:
 			@warning_ignore("integer_division")
-			m._nature(flowers[(sd / 17) % flowers.size()], o + gp, 6.0, yr)
+			plant_name = flowers[(sd / 17) % flowers.size()]
+			plant_size = 6.0
+		if _lagoon_plant_allowed(plant_name, px, pz):
+			m._nature(plant_name, o + gp, plant_size, yr)
 	# a calm pond off to the side, ringed with cattails
 	var pond := MeshInstance3D.new()
 	var pondm := CylinderMesh.new()
@@ -666,8 +678,6 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
 		var _plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
-		m._nature("flower_yellowB", sp + Vector3(-3, -2.6, -3), 4.0, 0.0)
-		m._nature("flower_redA", sp + Vector3(3, -2.6, 3), 4.0, 1.0)
 		var star: Node3D = LandmarkArtFactory.create_star(3.8, [Color(0.98, 0.52, 0.62), Color(0.42, 0.86, 0.82), Color(0.72, 0.56, 0.94)][idx])
 		star.set_meta("rainbow", randf() * TAU)
 		star.position = sp + Vector3(0, 4.0, 0)
@@ -852,7 +862,12 @@ func _build_alpine_mountain(o: Vector3) -> void:
 	m.g["alpine_cave_entrance"] = o + Vector3(ALPINE_CAVE_ENTRANCE.x, floor_y + 3.0, ALPINE_CAVE_ENTRANCE.y)
 	m.g["alpine_secret_pos"] = secret.position
 	m.g["alpine_secret_node"] = secret
-	m.g["alpine_secret_claimed"] = bool(m.stickers.get("_alpine_secret", false))
+	# This is the authored doorway into the northern world. Keep the established
+	# cave star as the only entrance landmark instead of adding a second gate on
+	# the exposed mountain pass.
+	m.g["northern_portal_pos"] = secret.position
+	m.g["northern_portal_rune"] = secret
+	m.g["northern_portal_armed"] = true
 
 	for crystal_pos: Vector3 in [Vector3(-130.2, floor_y + 2.7, -167.2),
 		Vector3(-130.0, floor_y + 2.3, -162.8), Vector3(-125.8, floor_y + 2.0, -168.0)]:
@@ -868,48 +883,6 @@ func _build_alpine_mountain(o: Vector3) -> void:
 		crystal.rotation.z = 0.18
 		m.add_child(crystal)
 		m.game_nodes.append(crystal)
-	_build_northern_pass_gate(o)
-
-
-func _build_northern_pass_gate(o: Vector3) -> void:
-	# The next world begins at a high saddle just beyond the Alpine cairns. The
-	# portal is an authored landmark rather than a menu, so one finger and simple
-	# exploration are enough to continue.
-	var lp := Vector2(-112.0, -185.0)
-	var gy: float = _lagoon_local(lp.x, lp.y)
-	var gate: Vector3 = o + Vector3(lp.x, gy, lp.y)
-	var stone := Color(0.46, 0.51, 0.62)
-	for side: float in [-1.0, 1.0]:
-		var pillar_pos: Vector3 = gate + Vector3(side * 5.8, 6.0, 0.0)
-		var pillar: MeshInstance3D = m._l2_box(pillar_pos,
-			Vector3(3.2, 12.0, 3.4), stone)
-		pillar.material_override = m._up_mat("cliff", 0.075, stone)
-		m._wall_solid(pillar_pos, Vector3(3.2, 12.0, 3.4), 0.5)
-	var lintel: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 12.0, 0.0),
-		Vector3(15.0, 3.0, 3.4), stone)
-	lintel.material_override = m._up_mat("cliff", 0.075, stone)
-	var veil: MeshInstance3D = m._l2_box(gate + Vector3(0.0, 6.0, 0.25),
-		Vector3(8.5, 9.5, 0.25), Color(0.45, 0.90, 1.0), 1.5)
-	veil.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	veil.material_override.albedo_color.a = 0.34
-	veil.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-
-	var rune := Label3D.new()
-	rune.text = "\u2744"
-	rune.font_size = 260
-	rune.pixel_size = 0.024
-	rune.outline_size = 30
-	rune.modulate = Color(0.72, 0.96, 1.0)
-	rune.outline_modulate = Color(0.18, 0.24, 0.48)
-	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	rune.position = gate + Vector3(0.0, 7.0, 0.0)
-	m.add_child(rune)
-	m.game_nodes.append(rune)
-	m.g["northern_portal_pos"] = gate + Vector3(0.0, 4.0, 0.0)
-	m.g["northern_portal_rune"] = rune
-	m.g["northern_portal_armed"] = true
-	_alpine_cairn(o, Vector2(-102.0, -179.0))
-	_alpine_cairn(o, Vector2(-107.0, -183.0))
 
 
 func _alpine_crag(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
@@ -2155,30 +2128,15 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# purr when Roshan comes near
 	_tick_crafted(delta, ppos)
 	_tick_alpine_house_bonuses(delta, ppos)
-	# Alpine secret: the cairns are the visual pointer; nearing the hidden mouth
-	# adds a recorded voice hint. Reaching the star pays once and persists in the
-	# existing stickers dictionary under a private progress key.
+	# Alpine cave: the cairns are the visual pointer and nearing the hidden mouth
+	# adds a recorded voice hint. The warm star inside is the northern-world door.
 	if m.g.has("alpine_secret_pos"):
 		var cave_entrance: Vector3 = m.g["alpine_cave_entrance"]
-		var secret_pos: Vector3 = m.g["alpine_secret_pos"]
-		var secret_node: Label3D = m.g.get("alpine_secret_node") as Label3D
-		if is_instance_valid(secret_node):
-			secret_node.rotate_y(delta * 0.8)
-			secret_node.scale = Vector3.ONE * (1.0 + sin(float(m.g["t"]) * 3.0) * 0.07)
 		if (not bool(m.g.get("alpine_cave_hint", false))
-			and not bool(m.g.get("alpine_secret_claimed", false))
 			and cave_entrance.distance_to(ppos) < 34.0):
 			m.g["alpine_cave_hint"] = true
-			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles go inside!", "pearl")
-		if not bool(m.g.get("alpine_secret_claimed", false)) and secret_pos.distance_to(ppos) < 8.0:
-			m.g["alpine_secret_claimed"] = true
-			m.stickers["_alpine_secret"] = true
-			m.pearl_count += 3
-			m._write_save()
-			m._sparkle_burst(secret_pos, Color(1.0, 0.88, 0.35))
-			m._fanfare()
-			m.show_msg("Roshan", "A secret Alpine Star! Three rainbow pearls!", "pearl")
-	# Snowflake gate: leave-and-re-enter hysteresis prevents an immediate return
+			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles lead to that star!", "pearl")
+	# Cave star: leave-and-re-enter hysteresis prevents an immediate return
 	# trip from bouncing Roshan between the two separately loaded worlds.
 	if m.g.has("northern_portal_pos"):
 		var north_pos: Vector3 = m.g["northern_portal_pos"]
@@ -2194,7 +2152,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			return
 		if (not bool(m.g.get("northern_portal_hint", false)) and north_dist < 28.0):
 			m.g["northern_portal_hint"] = true
-			m.show_msg("Roshan", "A snowflake gate! A new world is through there!", "pearl2")
+			m.show_msg("Roshan", "A magic star! A new world is through there!", "pearl2")
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta
@@ -2433,6 +2391,34 @@ func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: f
 		return 0.0
 	var f: float = 1.0 - d2 / r2
 	return amp * f * f
+
+
+func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
+	# Keep terrestrial flora tied to the same ecological zones painted by the
+	# terrain shader. Explicit cattails and Alpine pines are built separately.
+	if _lagoon_river_dip(lx, lz) > 0.0:
+		return false
+	var moat_d: float = Vector2(lx - m.MOAT_CX, lz - m.MOAT_CZ).length()
+	if moat_d > m.MOAT_INNER and moat_d < m.MOAT_OUTER:
+		return false
+	if Vector2(lx + 95.0, lz - 70.0).length() < 38.0:
+		return false
+
+	var ground_y: float = _lagoon_local(lx, lz)
+	var village_delta := Vector2((lx + 96.0) / 52.0, (lz + 180.0) / 43.0)
+	var village_snow: float = 1.0 - smoothstep(0.78, 1.08, village_delta.length())
+	var mountain_d: float = Vector2(lx + 135.0, lz + 165.0).length()
+	var high_snow: float = (1.0 - smoothstep(58.0, 78.0, mountain_d)) * smoothstep(12.0, 27.0, ground_y)
+	if maxf(village_snow, high_snow) > 0.05:
+		return role == "tree_pineRoundF"
+
+	var grass_mix: float = smoothstep(-6.0, 2.5, ground_y)
+	var park_delta := Vector2((lx - 75.0) / 52.0, (lz - 91.0) / 50.0)
+	var park_mix: float = (1.0 - smoothstep(0.72, 1.0, park_delta.length())) * grass_mix * 0.82
+	if park_mix > 0.25:
+		return false
+	# Sky Lagoon is a temperate meadow; tropical palms belong in Butterfly World.
+	return role != "tree_palm"
 
 
 func _alpine_house_floor_height(center: Vector2) -> float:

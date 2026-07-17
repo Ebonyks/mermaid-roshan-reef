@@ -274,7 +274,7 @@ var save_retry_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
-var northern_floor := false  # the Alpine-pass world has its own terrain heightfield
+var northern_floor := false  # the world beyond the Alpine cave has its own terrain heightfield
 var pearl_lights: Array = []
 var sun_light: DirectionalLight3D
 var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef floor
@@ -407,7 +407,8 @@ const BTN_OFFS := [Vector3(0, 0, 9), Vector3(9, 0, 0), Vector3(-9, 0, 0), Vector
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
 	{"tex": "two_friends",   "fname": "Harper and Fiona",      "msg": "Sisters Harper and Fiona! Come grab the fish down the rainbow slide!", "game": "slide", "theme": "rainbow", "mode": "fish"},
-	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls"},
+	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls",
+		"discover_radius": 12.0, "linger_radius": 13.0, "start_radius": 10.0},
 	{"tex": "gabby",         "fname": "Gabby",                 "msg": "Gabby! Come catch the rainbow on stage!", "game": "melody"},
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
@@ -1181,12 +1182,12 @@ void fragment(){
 	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
 	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
 	vec3 zone = vec3(0.94, 0.96, 0.96);
-	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-22.0, 116.0), 88.0));
-	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-122.0, 100.0), 78.0));
-	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-124.0, 4.0), 72.0));
-	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-12.0, -105.0), 70.0));
-	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(82.0, -60.0), 78.0));
-	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(0.0), 52.0));
+	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-35.0, 165.0), 70.0));
+	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-160.0, 135.0), 68.0));
+	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-165.0, 5.0), 62.0));
+	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-40.0, -165.0), 70.0));
+	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(140.0, -115.0), 70.0));
+	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(35.0, 30.0), 50.0));
 	ALBEDO = mix(sand, cliff, steep) * zone;
 	ROUGHNESS = 0.95;
 	SPECULAR = 0.05;
@@ -2067,12 +2068,10 @@ func _build_pearls() -> void:
 		# along the route between consecutive friends, light jitter
 		var fi: int = i % FRIEND_DEFS.size()
 		var fj: int = (fi + 1) % FRIEND_DEFS.size()
-		var aa: float = float(fi) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var ab: float = float(fj) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var ra: float = 55.0 + float(fi % 3) * 30.0
-		var rb: float = 55.0 + float(fj % 3) * 30.0
-		var pa := Vector3(cos(aa) * ra, 0, sin(aa) * ra)
-		var pb := Vector3(cos(ab) * rb, 0, sin(ab) * rb)
+		var fpa: Vector2 = ReefDistricts.friend_position(fi)
+		var fpb: Vector2 = ReefDistricts.friend_position(fj)
+		var pa := Vector3(fpa.x, 0, fpa.y)
+		var pb := Vector3(fpb.x, 0, fpb.y)
 		var tmix: float = 0.35 if i < FRIEND_DEFS.size() else 0.65
 		var pp: Vector3 = pa.lerp(pb, tmix)
 		var x: float = pp.x + hash2(i, 5) * 10.0 - 5.0
@@ -2127,10 +2126,9 @@ func _cutout_tex(name: String) -> Texture2D:
 func _build_friends() -> void:
 	for i in range(FRIEND_DEFS.size()):
 		var fd: Dictionary = FRIEND_DEFS[i]
-		var a: float = float(i) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var r: float = 55.0 + float(i % 3) * 30.0
-		var x: float = cos(a) * r
-		var z: float = sin(a) * r
+		var fp: Vector2 = ReefDistricts.friend_position(i)
+		var x: float = fp.x
+		var z: float = fp.y
 		var spr := Sprite3D.new()
 		spr.texture = _cutout_tex(String(fd["tex"]))
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -2177,6 +2175,8 @@ func _build_friends() -> void:
 			sparks.append(orb)
 		friends.append({"node": spr, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
+			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
+			"start_radius": fd.get("start_radius", 8.0),
 			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
 
 func _build_kart_portal() -> void:
@@ -3156,16 +3156,16 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
 	# track selected at the top of this function — the lagoon music never played)
 	if from_north:
-		# Return beside the Alpine gate, facing back toward the snowy village.
-		# The gate is disarmed until Roshan swims away, preventing a bounce loop.
+		# Return at the cave mouth, facing the snowy village. The star is disarmed
+		# until Roshan swims away, preventing a bounce loop.
 		var north_gate: Vector3 = g.get("northern_portal_pos",
-			LEVEL2_POS + Vector3(-112.0, 40.0, -185.0))
-		player.position = north_gate + Vector3(16.0, 0.0, 0.0)
+			LEVEL2_POS + Vector3(-128.0, 52.0, -165.0))
+		player.position = g.get("alpine_cave_entrance", north_gate + Vector3(20.0, 0.0, 0.0))
 		player.position.y = lagoon_walk_h(player.position.x, player.position.z) + 2.0
 		player.yaw = PI * 0.5
 		player.vel = Vector3.ZERO
 		g["northern_portal_armed"] = false
-		show_msg("Roshan", "Back through the snowy mountain pass!", "pearl2")
+		show_msg("Roshan", "Back through the magic cave star!", "pearl2")
 	elif from_castle:
 		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
 		for sd in l2_stars:
@@ -3393,7 +3393,7 @@ func _lagoon_ref() -> SkyLagoon:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
 
-# The northern kingdom beyond the Alpine pass is loaded separately so its
+# The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
 # State stays here on main; the satellite only builds and ticks it.
 var _northern_kingdom: NorthernKingdom = null
@@ -6980,9 +6980,87 @@ const FS_BUD_T := 20.0             # seconds to bloom the flower open
 const FS_BLOOM_T := 3.0
 const FS_RING_CD := 4.5            # the flower puffs a slow ring of sparks
 const FS_RING_N := 6
-const FS_LEAF_SCALE := 5.0         # real Kenney bush models (CC0)
-const FS_BUD_SCALE := 7.0
-const FS_FLOWER := "flower_purpleA"  # ONE flower for the whole boss (grows, then blooms)
+const FS_LEAF_SCALE := 6.5
+const FS_BUG_ART_SCALE := 7.0
+const FS_BACKGROUND_ART := [
+	"res://assets/fairy/pond_dawn.png",
+	"res://assets/fairy/pond_twilight.png",
+	"res://assets/fairy/pond_boss_clearing.png",
+]
+const FS_BUG_ART := [
+	"res://assets/fairy/models/bug_jewel.glb",
+	"res://assets/fairy/models/bug_moth.glb",
+	"res://assets/fairy/models/bug_firefly.glb",
+]
+const FS_BOSS_ART := {
+	"seed": "res://assets/fairy/models/boss_seed.glb",
+	"sprout": "res://assets/fairy/models/boss_sprout.glb",
+	"bud": "res://assets/fairy/models/boss_bud.glb",
+	"opening": "res://assets/fairy/models/boss_opening.glb",
+	"bloom": "res://assets/fairy/models/boss_bloom.glb",
+}
+const FS_BOSS_STAGE_SCALE := {
+	"seed": 7.0,
+	"sprout": 9.0,
+	"bud": 12.0,
+	"opening": 15.5,
+	"bloom": 20.0,
+}
+const FS_BOSS_LEAF_ART := "res://assets/fairy/models/boss_leaf.glb"
+var _fairy_art_cache: Dictionary = {}
+
+func _fairy_art_item(path: String, pos: Vector3, scl: float, yrot: float = 0.0) -> Node3D:
+	var ps: PackedScene = _fairy_art_cache.get(path, null)
+	if ps == null:
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_fairy_art_cache[path] = ps
+	if ps == null:
+		return null
+	var item: Node3D = ps.instantiate()
+	item.position = pos
+	item.scale = Vector3.ONE * scl
+	item.rotation.y = yrot
+	add_child(item)
+	game_nodes.append(item)
+	return item
+
+func _fairy_background_panel(origin: Vector3, texture_path: String, z_center: float, depth: float) -> void:
+	if not ResourceLoader.exists(texture_path):
+		return
+	var texture: Texture2D = load(texture_path)
+	if texture == null:
+		return
+	var panel := MeshInstance3D.new()
+	var plane := PlaneMesh.new()
+	plane.size = Vector2(90.0, depth)
+	panel.mesh = plane
+	var material := StandardMaterial3D.new()
+	material.albedo_texture = texture
+	material.roughness = 1.0
+	material.metallic = 0.0
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	panel.material_override = material
+	panel.position = origin + Vector3(0, 0.06, z_center)
+	add_child(panel)
+	game_nodes.append(panel)
+
+func _fairy_set_boss_stage(stage: String) -> Node3D:
+	var current: Node3D = g.get("boss_art")
+	if String(g.get("boss_stage", "")) == stage and current != null and is_instance_valid(current):
+		return current
+	if current != null and is_instance_valid(current):
+		current.queue_free()
+	var path: String = String(FS_BOSS_ART.get(stage, ""))
+	var scale_value: float = float(FS_BOSS_STAGE_SCALE.get(stage, 8.0))
+	var center: Vector3 = g.get("boss_center", ARENA_POS)
+	var art: Node3D = _fairy_art_item(path, center + Vector3(0, 0.18, 0), scale_value)
+	g["boss_art"] = art
+	g["boss_stage"] = stage
+	g["bud"] = art   # compatibility for probes and cleanup paths that still name the focal node "bud"
+	return art
 
 func _build_fairyshoot(origin: Vector3) -> void:
 	# Roshan wears her fairy form for this game only
@@ -6997,42 +7075,15 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
 	g["hazards"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
-	# ---- the long dreamy pond track, seen straight from above ----
-	var pond := MeshInstance3D.new()
-	var pm := BoxMesh.new(); pm.size = Vector3(90.0, 1.0, FS_LEN + 160.0)
-	pond.mesh = pm
-	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = Color(0.2, 0.35, 0.55)
-	pmat.metallic = 0.7; pmat.roughness = 0.1
-	pmat.emission_enabled = true; pmat.emission = Color(0.15, 0.3, 0.5); pmat.emission_energy_multiplier = 0.25
-	pond.material_override = pmat
-	pond.position = origin + Vector3(0, 0.0, FS_LEN * 0.5)
-	add_child(pond); game_nodes.append(pond)
-	# mossy banks flanking the water so the track edges read from above
-	for side2 in [-1.0, 1.0]:
-		var bank := MeshInstance3D.new()
-		var bkm := BoxMesh.new(); bkm.size = Vector3(18.0, 1.4, FS_LEN + 160.0)
-		bank.mesh = bkm
-		bank.material_override = _soft_mat(Color(0.18, 0.42, 0.34), 0.08)
-		bank.position = origin + Vector3(side2 * 49.0, 0.2, FS_LEN * 0.5)
-		add_child(bank); game_nodes.append(bank)
-		for bank_i in range(9):
-			var bank_z: float = 18.0 + float(bank_i) * ((FS_LEN + 55.0) / 8.0)
-			var bank_cluster: Node3D = _art35_prop("res://assets/art35/arena/fairy_bank_%d.glb" % ((bank_i + int(side2 > 0.0)) % 2), origin + Vector3(side2 * 43.2, 0.72, bank_z), 1.32, PI * 0.5)
-			if bank_cluster != null and side2 < 0.0:
-				bank_cluster.rotation.y += PI
-	# Multi-part lily clusters and real blade silhouettes replace the flat
-	# cylinders and neon capsules in the original top-down pass.
-	for i in range(14):
-		var z: float = 15.0 + randf() * (FS_LEN + 40.0)
-		var side: float = -1.0 if i % 2 == 0 else 1.0
-		_art35_prop("res://assets/art35/arena/fairy_lily_cluster.glb", origin + Vector3(side * (10.0 + randf() * 28.0), 0.7, z), 1.1 + randf() * 0.45, randf() * TAU)
-	for k in range(14):
-		var rz: float = 10.0 + float(k) / 14.0 * (FS_LEN + 40.0)
-		var rside: float = -1.0 if k % 2 == 0 else 1.0
-		_art35_prop("res://assets/art35/reef/seagrass_%d.glb" % (k % 2), origin + Vector3(rside * 44.0, 0.65, rz), 2.1, randf() * TAU)
-	# Flowered arches provide the same fly-through targets with a readable
-	# destination silhouette instead of six anonymous glowing toruses.
+	g["boss_art"] = null; g["boss_stage"] = ""
+	# ---- three authored overhead pond plates replace the metallic box, stock
+	# banks, and primitive lily/reed dressing. Their quiet center preserves the
+	# one-finger flight lane while the edge art changes from dawn to twilight to
+	# the circular boss clearing. ----
+	for bg_index in range(FS_BACKGROUND_ART.size()):
+		_fairy_background_panel(origin, String(FS_BACKGROUND_ART[bg_index]), 50.0 + float(bg_index) * 120.0, 120.0)
+	# Modeled flower arches keep the fly-through goals readable over the
+	# purpose-built Fairy Pond V2 background plates.
 	for k in range(6):
 		var z2: float = 40.0 + float(k) * 40.0
 		var rx: float = randf() * 16.0 - 8.0
@@ -7052,7 +7103,17 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		var z3: float = 70.0 + float(k) / float(FS_NBUGS) * (FS_LEN - 100.0) + randf() * 12.0
 		var bx: float = (randf() * 2.0 - 1.0) * (FS_BX - 2.0)
 		var bpos: Vector3 = origin + Vector3(bx, FS_PLANE, z3)
-		var bug: Node3D = _art35_prop("res://assets/art35/arena/fairy_shadow_beetle.glb", bpos, 1.20, randf() * TAU)
+		var bug_path: String = String(FS_BUG_ART[k % FS_BUG_ART.size()])
+		var bug: Node3D = _fairy_art_item(bug_path, bpos, FS_BUG_ART_SCALE, randf() * TAU)
+		if bug == null:
+			bug = Node3D.new()
+			var fallback := MeshInstance3D.new()
+			var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
+			fallback.mesh = sm
+			fallback.material_override = _soft_mat(Color(0.35, 0.12, 0.5), 0.8)
+			bug.add_child(fallback)
+			bug.position = bpos
+			add_child(bug); game_nodes.append(bug)
 		(g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
 				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
 	# ---- scary-but-toylike shadow monsters lurking along the track ----
@@ -7144,8 +7205,7 @@ func _fairy_clear_orbs() -> void:
 	(g["orbs"] as Array).clear()
 
 func _fairy_start_boss(origin: Vector3) -> void:
-	# Built from real CC0 Kenney flora models (assets/nature) — minimal custom geometry.
-	# The scroll freezes and the flower fills the top of the screen.
+	# The scroll freezes and the authored Fairy Flower fills the top of the screen.
 	var center: Vector3 = origin + Vector3(0, FS_PLANE, float(g["fz"]) + FS_BOSS_AHEAD)
 	g["boss_center"] = center
 	g["phase"] = "boss_leaves"
@@ -7153,38 +7213,21 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(fs_fails, 2))
 	g["ring_cd"] = FS_RING_CD
 	_fairy_clear_orbs()   # a clean entrance for the flower
-	# leafy island base under the flower (a big bush model)
-	if _nature("plant_bushLargeTriangle", Vector3(center.x, origin.y + 0.5, center.z + 1.0), 6.0, 0.0) == null:
-		_mg_noop_ref(_course_box(Vector3(center.x, origin.y + 1.0, center.z), Vector3(7, 1.5, 7), Color(0.3, 0.65, 0.35)))
-	# the flower at the core — ONE flower (FS_FLOWER), small/tight until the leaves fall,
-	# then it grows bigger with every hit before blooming
-	var bud := _nature(FS_FLOWER, center + Vector3(0, -1.5, 0), FS_BUD_SCALE * 0.4, 0.0)
-	if bud == null:
-		var bm := MeshInstance3D.new()
-		var bsm := SphereMesh.new(); bsm.radius = 4.5; bsm.height = 9.0
-		bm.mesh = bsm; bm.material_override = _soft_mat(Color(0.85, 0.45, 0.7), 0.5)
-		bm.position = center; bm.scale = Vector3.ONE * (FS_BUD_SCALE * 0.4)
-		add_child(bm); game_nodes.append(bm); bud = bm
-	g["bud"] = bud
+	# Begin with the small cracked seed; matched reliefs replace it as it grows.
+	_fairy_set_boss_stage("seed")
 	g["bud_hp"] = FS_BUD_HP
-	# leaf shield: a wreath of real leafy bushes spinning slowly around the bud —
-	# a little sliding keeps a leaf lined up with the wand
+	# Six matching authored leaves orbit slowly so one stays lined up with the wand.
 	g["leaves"] = []
-	var leafkinds := ["plant_bushLargeTriangle", "grass_leafsLarge", "plant_bush"]
 	for k in range(FS_LEAVES):
 		var a: float = float(k) / float(FS_LEAVES) * TAU
 		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING, -1.0, sin(a) * FS_LEAF_RING)
-		var leaf := _nature(leafkinds[k % leafkinds.size()], lp, FS_LEAF_SCALE, randf() * TAU)
+		var leaf: Node3D = _fairy_art_item(FS_BOSS_LEAF_ART, lp, FS_LEAF_SCALE, PI / 2.0 - a)
 		if leaf == null:
 			var lm := MeshInstance3D.new()
 			var pm := PrismMesh.new(); pm.size = Vector3(5.0, 9.0, 2.0)
 			lm.mesh = pm; lm.material_override = _soft_mat(Color(0.35, 0.75, 0.4), 0.4)
 			lm.position = lp; add_child(lm); game_nodes.append(lm); leaf = lm
 		(g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a})
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 2.6; bl.omni_range = 44.0
-	bl.position = center + Vector3(0, 8.0, 0); add_child(bl); game_nodes.append(bl)
-	g["boss_light"] = bl
 	show_msg(fr_name_safe(), "The Fairy Flower! Blast the leaves out of the way!")
 
 func fr_name_safe() -> String:
@@ -7194,18 +7237,11 @@ func _fairy_bloom_start() -> void:
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
 	_fairy_clear_orbs()   # nothing to dodge during the celebration
-	var center: Vector3 = g["boss_center"]
 	g["petals"] = []
-	# the blossom is a ring of the SAME flower opening outward (one coherent flower)
-	for k in range(8):
-		var a: float = float(k) / 8.0 * TAU
-		var petal := _nature(FS_FLOWER, center, 0.5, a)
-		if petal == null:
-			var pm := MeshInstance3D.new()
-			var sp := SphereMesh.new(); sp.radius = 2.4; sp.height = 4.8
-			pm.mesh = sp; pm.material_override = _soft_mat(Color(1.0, 0.6, 0.8), 1.2)
-			pm.position = center; add_child(pm); game_nodes.append(pm); petal = pm
-		(g["petals"] as Array).append({"node": petal, "ang": a})
+	# One coherent full-blossom model grows outward for the celebration.
+	var bloom: Node3D = _fairy_set_boss_stage("bloom")
+	if bloom != null:
+		bloom.scale = Vector3.ONE * (float(FS_BOSS_STAGE_SCALE["bloom"]) * 0.72)
 
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
@@ -7265,7 +7301,10 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		var pick := (seed / 7) % 10
 		var yr := float(seed % 628) / 100.0
 		if pick < 3:
-			_nature(trees[(seed / 13) % trees.size()], gp, 4.5 + float(seed % 3), yr)
+			var tree_name: String = trees[(seed / 13) % trees.size()]
+			if tree_name == "tree_palm":
+				continue
+			_nature(tree_name, gp, 4.5 + float(seed % 3), yr)
 			_cyl_solid(gp + Vector3(0, 3.0, 0), 0.9, 3.0, 0.5)   # trunks solid; hide-bushes stay soft
 		elif pick < 5:
 			_nature("plant_bushLargeTriangle", gp, 4.0, yr)
@@ -7568,7 +7607,10 @@ func _process(delta: float) -> void:
 		pl.scale.z = pl.scale.x
 		f["cool"] = maxf(0.0, float(f["cool"]) - delta)
 		var dd: float = node.position.distance_to(ppos)
-		if not f["found"] and dd < 9.0:
+		var discover_radius: float = float(f.get("discover_radius", 9.0))
+		var linger_radius: float = float(f.get("linger_radius", 10.0))
+		var start_radius: float = float(f.get("start_radius", 8.0))
+		if not f["found"] and dd < discover_radius:
 			f["found"] = true
 			(f["beacon"] as OmniLight3D).light_energy = 1.0
 			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
@@ -7577,10 +7619,10 @@ func _process(delta: float) -> void:
 			show_msg(f["fname"], f["msg"])
 			_update_hud()
 			_write_save()
-		elif f["found"] and game == "" and dd < 10.0:
+		elif f["found"] and game == "" and dd < linger_radius:
 			if float(f["cool"]) > 0.0:
 				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
-			elif dd < 8.0:
+			elif dd < start_radius:
 				hud_game.text = ""
 				_start_game(f)
 	if game == "level2":

@@ -7,40 +7,41 @@ extends RefCounted
 const GROVES := [
 	{"p": Vector2(45, 27), "kind": "pearl"},
 	{"p": Vector2(30, 52), "kind": "pearl"},
-	{"p": Vector2(-24, 78), "kind": "kelp"},
-	{"p": Vector2(-48, 108), "kind": "kelp"},
-	{"p": Vector2(4, 125), "kind": "kelp"},
-	{"p": Vector2(-8, 158), "kind": "kelp"},
-	{"p": Vector2(-84, 78), "kind": "wreck"},
-	{"p": Vector2(-126, 112), "kind": "wreck"},
-	{"p": Vector2(-158, 82), "kind": "wreck"},
-	{"p": Vector2(-88, 8), "kind": "moon"},
-	{"p": Vector2(-124, -10), "kind": "moon"},
-	{"p": Vector2(-151, 24), "kind": "moon"},
-	{"p": Vector2(-50, -68), "kind": "rainbow"},
-	{"p": Vector2(-14, -112), "kind": "rainbow"},
-	{"p": Vector2(23, -128), "kind": "rainbow"},
-	{"p": Vector2(52, -48), "kind": "ice"},
-	{"p": Vector2(88, -76), "kind": "ice"},
-	{"p": Vector2(118, -42), "kind": "ice"},
+	{"p": Vector2(-28, 128), "kind": "kelp"},
+	{"p": Vector2(-55, 165), "kind": "kelp"},
+	{"p": Vector2(-12, 194), "kind": "kelp"},
+	{"p": Vector2(-130, 110), "kind": "wreck"},
+	{"p": Vector2(-160, 135), "kind": "wreck"},
+	{"p": Vector2(-185, 155), "kind": "wreck"},
+	{"p": Vector2(-130, 8), "kind": "moon"},
+	{"p": Vector2(-178, -7), "kind": "moon"},
+	{"p": Vector2(-25, -125), "kind": "rainbow"},
+	{"p": Vector2(-48, -180), "kind": "rainbow"},
+	{"p": Vector2(95, -78), "kind": "ice"},
+	{"p": Vector2(150, -125), "kind": "ice"},
 ]
 
 const REGION_CENTERS := {
-	"pearl": Vector2(20, 25),
-	"kelp": Vector2(-22, 116),
-	"wreck": Vector2(-122, 100),
-	"moon": Vector2(-124, 4),
-	"rainbow": Vector2(-12, -105),
-	"ice": Vector2(82, -60),
+	"pearl": Vector2(35, 30),
+	"kelp": Vector2(-35, 165),
+	"wreck": Vector2(-160, 135),
+	"moon": Vector2(-165, 5),
+	"rainbow": Vector2(-40, -165),
+	"ice": Vector2(140, -115),
 }
 
-const STRUCTURE_SCENES := {
-	"spire": "res://assets/nature/cliff_large_rock.glb",
-	"block": "res://assets/nature/cliff_block_rock.glb",
-	"cave": "res://assets/ship/cliff_cave_rock.glb",
-}
+# Friend order matches ReefMain.FRIEND_DEFS. Friends sit at readable gateways;
+# the dense scenic body of each district begins farther out behind them.
+const FRIEND_POSITIONS := [
+	Vector2(45, 32),
+	Vector2(-22, 88),
+	Vector2(-72, 8),
+	Vector2(-26, -76),
+	Vector2(70, -58),
+]
 
 const REGIONAL_SCENES := {
+	"wreck_shoulders": "res://assets/reef_regions/wreck_ravine_shoulders.glb",
 	"kelp_arch": "res://assets/reef_regions/kelp_cathedral_arch.glb",
 	"kelp_lanterns": "res://assets/reef_regions/kelp_lantern_cluster.glb",
 	"moon_arch": "res://assets/reef_regions/moon_shell_arch.glb",
@@ -53,11 +54,11 @@ const REGIONAL_SCENES := {
 # object families with a role beyond recolouring the same coral or rock.
 const REGION_SIGNATURES := {
 	"pearl": ["shell gardens", "barrel sponges", "pearl-shop ship"],
-	"kelp": ["cathedral arches", "lantern pods", "tall kelp aisles"],
+	"kelp": ["living kelp threshold", "hanging lantern pods", "tall kelp aisles"],
 	"wreck": ["broken ship", "treasure debris", "ravine shoulders"],
-	"moon": ["shell arch", "pearl totems", "anemone bowls"],
+	"moon": ["eroded shell arch", "pearl shell nest", "anemone bowl"],
 	"rainbow": ["race gateway", "coral bouquets", "starfish flats"],
-	"ice": ["crystal clusters", "current fins", "penguin floe"],
+	"ice": ["brinicle hummocks", "frozen current sheets", "penguin floe"],
 }
 
 var m: ReefMain
@@ -82,24 +83,27 @@ static func shape_terrain(x: float, z: float, base_h: float) -> float:
 	var h := base_h
 	# A calm, readable hub and an open racing flat interrupt the noisy FBM.
 	h = lerpf(h, -1.5, _soft_disc(p, Vector2.ZERO, 48.0) * 0.72)
-	h = lerpf(h, -3.0, _soft_disc(p, REGION_CENTERS["rainbow"], 55.0) * 0.68)
+	# Faron's nursery gateway is deliberately flat and free of the Moon bowl.
+	h = lerpf(h, -2.0, _soft_disc(p, FRIEND_POSITIONS[2], 30.0) * 0.88)
+	h = lerpf(h, -3.0, _soft_disc(p, Vector2(-5, -95), 42.0) * 0.72)
+	h = lerpf(h, -4.0, _soft_disc(p, REGION_CENTERS["rainbow"], 52.0) * 0.58)
 	# The wreck sits in a real diagonal ravine with raised shoulders.
-	var trench: float = _segment_mask(p, Vector2(-174, 148), Vector2(-72, 62), 25.0)
-	var shoulders: float = _segment_mask(p, Vector2(-174, 148), Vector2(-72, 62), 48.0) - trench
+	var trench: float = _segment_mask(p, Vector2(-190, 160), Vector2(-110, 95), 23.0)
+	var shoulders: float = _segment_mask(p, Vector2(-190, 160), Vector2(-110, 95), 46.0) - trench
 	h -= trench * 12.0
 	h += maxf(shoulders, 0.0) * 9.0
 	# A quiet bowl and broken ring give the moon grotto enclosure.
-	var moon_inner: float = _soft_disc(p, REGION_CENTERS["moon"], 45.0)
-	var moon_outer: float = _soft_disc(p, REGION_CENTERS["moon"], 72.0)
+	var moon_inner: float = _soft_disc(p, REGION_CENTERS["moon"], 38.0)
+	var moon_outer: float = _soft_disc(p, REGION_CENTERS["moon"], 66.0)
 	h -= moon_inner * 8.0
 	h += maxf(moon_outer - moon_inner, 0.0) * 17.0
 	# Long ridges behind the kelp district make its vertical skyline legible.
-	h += _segment_mask(p, Vector2(-68, 98), Vector2(-50, 170), 24.0) * 12.0
-	h += _segment_mask(p, Vector2(22, 92), Vector2(16, 170), 20.0) * 9.0
+	h += _segment_mask(p, Vector2(-78, 145), Vector2(-82, 220), 22.0) * 12.0
+	h += _segment_mask(p, Vector2(12, 145), Vector2(5, 215), 19.0) * 9.0
 	return h
 
 static func region_at(p: Vector2) -> String:
-	if p.length() < 50.0:
+	if p.length() < 55.0:
 		return "pearl"
 	var best := "pearl"
 	var best_d := INF
@@ -108,6 +112,19 @@ static func region_at(p: Vector2) -> String:
 		if d < best_d:
 			best_d = d
 			best = key
+	return best
+
+static func friend_position(index: int) -> Vector2:
+	return FRIEND_POSITIONS[clampi(index, 0, FRIEND_POSITIONS.size() - 1)]
+
+static func minimum_center_separation() -> float:
+	var keys: Array = REGION_CENTERS.keys()
+	var best: float = INF
+	for i in range(keys.size()):
+		for j in range(i + 1, keys.size()):
+			var center_a: Vector2 = REGION_CENTERS[keys[i]]
+			var center_b: Vector2 = REGION_CENTERS[keys[j]]
+			best = minf(best, center_a.distance_to(center_b))
 	return best
 
 func seed_cluster_centers() -> void:
@@ -123,90 +140,40 @@ func scatter_point(habitat: String) -> Vector3:
 	var choices: Array[Vector2] = []
 	match habitat:
 		"kelp":
-			choices = [Vector2(-24, 90), Vector2(-44, 126), Vector2(5, 140)]
+			choices = [Vector2(-28, 145), Vector2(-55, 178), Vector2(-10, 202)]
 		"anemone":
-			choices = [Vector2(-104, 5), Vector2(-142, 18), Vector2(36, 35)]
+			choices = [Vector2(-142, 5), Vector2(-185, 8)]
 		"starfish":
-			choices = [Vector2(18, 24), Vector2(-15, -92), Vector2(20, -125)]
+			choices = [Vector2(35, 34), Vector2(-22, -138), Vector2(-52, -182)]
 		"urchin":
-			choices = [Vector2(-116, 96), Vector2(-146, 78), Vector2(-128, -2)]
+			choices = [Vector2(-142, 118), Vector2(-178, 150), Vector2(-174, 0)]
 		_:
-			choices = [Vector2(36, 38), Vector2(-25, 105), Vector2(-120, 102), Vector2(-125, 4), Vector2(-8, -104), Vector2(83, -62)]
+			choices = [Vector2(38, 38), Vector2(-35, 165), Vector2(-160, 135), Vector2(-165, 5), Vector2(-40, -165), Vector2(140, -115)]
 	var center: Vector2 = choices[_scatter_rng.randi_range(0, choices.size() - 1)]
 	var ang: float = _scatter_rng.randf_range(0.0, TAU)
-	var radius: float = sqrt(_scatter_rng.randf()) * (38.0 if habitat != "kelp" else 46.0)
-	# A small minority bridges districts; the hub itself stays calm and open.
-	if _scatter_rng.randf() < 0.16:
-		ang = _scatter_rng.randf_range(0.0, TAU)
-		radius = _scatter_rng.randf_range(75.0, 220.0)
-		center = Vector2.ZERO
+	var radius: float = sqrt(_scatter_rng.randf()) * (28.0 if habitat != "kelp" else 36.0)
 	var p: Vector2 = center + Vector2(cos(ang), sin(ang)) * radius
 	if p.length() < 28.0:
 		p = p.normalized() * 28.0 if p.length() > 0.1 else Vector2(28.0, 0.0)
 	return Vector3(p.x, m.seabed_y(p.x, p.y), p.y)
 
 func build_macro_structures() -> void:
-	# Pearl Garden: low framing stones leave the centre broad and readable.
-	_structure("block", Vector2(-38, 20), 25.0, 0.4, Color(0.58, 0.63, 0.69), false)
-	_structure("block", Vector2(36, -17), 22.0, -0.8, Color(0.64, 0.61, 0.72), false)
-	# Kelp Cathedral: paired ribs create a destination-scale aisle.
-	for row in range(3):
-		var z: float = 86.0 + float(row) * 34.0
-		_structure("spire", Vector2(-58, z), 38.0 + float(row) * 5.0, 0.25, Color(0.28, 0.43, 0.43))
-		_structure("spire", Vector2(18, z + 5.0), 34.0 + float(row) * 4.0, -0.4, Color(0.30, 0.46, 0.44))
-	# Two enormous living ribs create an actual cathedral sequence; lantern
-	# clusters punctuate it without repeating at every grove.
-	_regional_prop("kelp_arch", Vector2(-20, 105), 30.0, 0.0, false)
-	_regional_prop("kelp_arch", Vector2(-18, 145), 34.0, 0.08, false)
-	_regional_prop("kelp_lanterns", Vector2(-47, 92), 9.0, -0.35, false)
-	_regional_prop("kelp_lanterns", Vector2(5, 126), 10.0, 0.5, false)
-	_regional_prop("kelp_lanterns", Vector2(-45, 158), 8.0, -0.8, false)
-	# Wreck Ravine: two irregular shoulders frame the diagonal trench.
-	var wreck_left := [Vector2(-157, 126), Vector2(-132, 108), Vector2(-105, 85)]
-	var wreck_right := [Vector2(-139, 149), Vector2(-110, 128), Vector2(-82, 101)]
-	for i in range(wreck_left.size()):
-		_structure("block", wreck_left[i], 34.0 + float(i) * 5.0, 2.35, Color(0.42, 0.43, 0.55))
-		_structure("spire", wreck_right[i], 31.0 + float(i) * 4.0, -0.7, Color(0.36, 0.40, 0.52))
+	# Pearl Garden and Rainbow Flats intentionally have no generic macro rocks:
+	# they are the two broad, low breathing spaces in the world rhythm.
+	# Kelp begins with one unmistakable living threshold, then grows outward.
+	_regional_prop("kelp_arch", Vector2(-28, 130), 28.0, 0.0, false)
+	_regional_prop("kelp_lanterns", Vector2(-52, 165), 9.0, -0.35, false)
+	_regional_prop("kelp_lanterns", Vector2(-12, 198), 7.0, 0.5, false)
+	# Wreck Ravine: two dedicated organic ridges frame the diagonal trench.
+	_regional_prop("wreck_shoulders", Vector2(-150, 128), 34.0, 2.35, false)
+	_regional_prop("wreck_shoulders", Vector2(-177, 157), 29.0, -0.7, false)
 	# Moon-shell Grotto: its hero arch and pearl cairns use their own vocabulary,
-	# with asymmetric rock masses acting as quiet enclosure rather than identity.
-	_regional_prop("moon_arch", Vector2(-126, 2), 42.0, 1.55, false)
-	_regional_prop("moon_totem", Vector2(-101, -24), 9.0, -0.4, false)
-	_regional_prop("moon_totem", Vector2(-151, 23), 11.0, 0.7, false)
-	_regional_prop("moon_totem", Vector2(-105, 33), 7.0, 1.2, false)
-	_structure("spire", Vector2(-162, -18), 38.0, 0.2, Color(0.48, 0.44, 0.59))
-	_structure("block", Vector2(-91, 30), 32.0, -0.5, Color(0.59, 0.50, 0.66))
-	# Rainbow Flats: low warm banks preserve long, open race lanes.
-	_structure("block", Vector2(-58, -112), 26.0, 0.8, Color(0.64, 0.55, 0.48), false)
-	_structure("block", Vector2(38, -104), 24.0, -0.7, Color(0.66, 0.57, 0.51), false)
-	# Ice Current: sparse blue-grey pillars support the floe/shop silhouette.
-	_structure("spire", Vector2(96, -103), 39.0, -0.25, Color(0.47, 0.58, 0.69))
-	_structure("block", Vector2(128, -47), 31.0, 0.55, Color(0.50, 0.61, 0.71))
-	_structure("spire", Vector2(82, -25), 29.0, 0.2, Color(0.45, 0.55, 0.67), false)
-	_regional_prop("ice_crystals", Vector2(72, -91), 15.0, -0.3, true)
-	_regional_prop("ice_crystals", Vector2(117, -68), 11.0, 0.55, true)
-	_regional_prop("ice_current", Vector2(51, -51), 14.0, -0.15, false)
-	_regional_prop("ice_current", Vector2(101, -28), 12.0, 0.7, false)
-
-func _structure(kind: String, xz: Vector2, target: float, yrot: float, tint: Color, solid: bool = true) -> Node3D:
-	var path: String = STRUCTURE_SCENES[kind]
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	wrap.name = "Reef_%s" % kind
-	var model: Node3D = packed.instantiate()
-	m._fit_prop(model, target)
-	m._toon_tile(model, "cliff", 0.045, tint)
-	wrap.add_child(model)
-	wrap.position = Vector3(xz.x, m.seabed_y(xz.x, xz.y) - 1.2, xz.y)
-	wrap.rotation.y = yrot
-	m.add_child(wrap)
-	m.flora_nodes.append(wrap)
-	if solid:
-		m._register_solid(wrap, 0.72, 1.2)
-	return wrap
+	# with the terrain bowl acting as quiet enclosure rather than generic blocks.
+	_regional_prop("moon_arch", Vector2(-125, 6), 36.0, 1.55, false)
+	_regional_prop("moon_totem", Vector2(-175, -12), 10.0, 0.7, false)
+	# Ice Current: its two unique families support the floe/shop silhouette.
+	_regional_prop("ice_current", Vector2(98, -82), 15.0, -0.15, false)
+	_regional_prop("ice_crystals", Vector2(155, -135), 14.0, 0.55, true)
 
 func _regional_prop(kind: String, xz: Vector2, target: float, yrot: float, solid: bool) -> Node3D:
 	var path: String = REGIONAL_SCENES[kind]
@@ -236,7 +203,7 @@ func build_groves() -> void:
 		var entry: Dictionary = GROVES[i]
 		var p: Vector2 = entry["p"]
 		var kind: String = entry["kind"]
-		var rocks: int = {"pearl": 1, "kelp": 2, "wreck": 4, "moon": 3, "rainbow": 1, "ice": 2}[kind]
+		var rocks: int = {"pearl": 0, "kelp": 1, "wreck": 2, "moon": 1, "rainbow": 0, "ice": 1}[kind]
 		for k in range(rocks):
 			var rp: Vector2 = _around(rng, p, 4.0, 13.0)
 			var target: float = rng.randf_range(6.0, 12.0) if kind != "wreck" else rng.randf_range(9.0, 16.0)
@@ -247,7 +214,7 @@ func build_groves() -> void:
 				if target >= 9.0:
 					m._register_solid(rock)
 		# Only one subtle magical marker per district, not one per grove.
-		if i in [0, 2, 6, 9, 12, 15]:
+		if i in [0, 2, 6, 9, 10, 12]:
 			var col: Color = _district_accent(kind)
 			m._fairy_light(Vector3(p.x, m.seabed_y(p.x, p.y) + 6.0, p.y), col, false)
 
@@ -283,9 +250,9 @@ func build_flora() -> void:
 	build_scattered_boulders(rng)
 
 func build_scattered_boulders(rng: RandomNumberGenerator) -> void:
-	for i in range(42):
+	for i in range(24):
 		var ang: float = rng.randf_range(0.0, TAU)
-		var radius: float = rng.randf_range(62.0, 225.0)
+		var radius: float = rng.randf_range(185.0, 245.0)
 		var p := Vector2(cos(ang), sin(ang)) * radius
 		var target: float = rng.randf_range(6.0, 14.0)
 		var name: String = "rock_largea" if i % 4 == 0 else "rock%d" % rng.randi_range(1, 5)
