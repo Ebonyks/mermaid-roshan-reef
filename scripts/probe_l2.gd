@@ -18,6 +18,16 @@ func _init() -> void:
 	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
 	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
 		"OK" if river_depth >= 4.0 else "FAIL"])
+	var lagoon: SkyLagoon = main._lagoon_ref()
+	var ecology_ok: bool = (not lagoon._lagoon_plant_allowed("tree_pineRoundF", 150.0, 40.0)
+		and not lagoon._lagoon_plant_allowed("tree_default_fall", -95.0, 70.0)
+		and not lagoon._lagoon_plant_allowed("mushroom_red", 55.0, -120.0)
+		and not lagoon._lagoon_plant_allowed("mushroom_tanGroup", -96.0, -180.0)
+		and lagoon._lagoon_plant_allowed("tree_pineRoundF", -96.0, -180.0)
+		and not lagoon._lagoon_plant_allowed("plant_bush", 75.0, 91.0)
+		and not lagoon._lagoon_plant_allowed("tree_palm", 130.0, -20.0)
+		and lagoon._lagoon_plant_allowed("mushroom_red", 130.0, -20.0))
+	print("ECOLOGY|water/snow/sand/climate flora filter: ", "OK" if ecology_ok else "FAIL")
 	var wayfinder_children: int = main.get_child_count()
 	main._wayfind_t = 0.0
 	main._tick_wayfinder(0.1, player.position)

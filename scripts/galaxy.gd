@@ -405,6 +405,16 @@ func _place_on_planet(node: Node3D, dir: Vector3, h: float = 0.0) -> void:
 	var t := any.cross(up).normalized()
 	node.transform.basis = Basis(t, up, t.cross(up).normalized() * -1.0).orthonormalized()
 
+func _garden_path_mix(dir: Vector3) -> float:
+	# Mirrors the two sandy bands in _build_planet's shader. Plant centres stay
+	# on the meadow instead of growing from the maintained walking paths.
+	var d: Vector3 = dir.normalized()
+	var u: float = fposmod(atan2(d.x, d.z) / TAU, 1.0)
+	var v: float = acos(clampf(d.y, -1.0, 1.0)) / PI
+	var wobble: float = sin(u * 12.566) * 0.03
+	return (exp(-pow((v - 0.36 + wobble) * 34.0, 2.0))
+		+ exp(-pow((v - 0.66 - wobble) * 34.0, 2.0))) * 0.9
+
 func _fit_small(model: Node3D, target_long: float) -> float:
 	# normalise a GLB to a footprint (assets range from 0.14 to 98 units raw)
 	if _main != null and _main.has_method("_toonify"):
@@ -470,10 +480,12 @@ func _build_decor() -> void:
 		var role: String = TROPICAL[i % TROPICAL.size()]
 		var tall: bool = i % TROPICAL.size() < 2
 		var plant_height := (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4))
+		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
+		if _garden_path_mix(dir) > 0.5:
+			continue
 		var gr: Node3D = StoryArtFactory.plant(role, plant_height)
 		if gr == null:
 			continue
-		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
 		var holder := Node3D.new()
 		add_child(holder)
 		holder.add_child(gr)
@@ -484,13 +496,15 @@ func _build_decor() -> void:
 	# flower beds (bright, chest-high) between the palms
 	for i in range(28):
 		var flora_role: String = FLORA[i % FLORA.size()]
+		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
+		if _garden_path_mix(dir2) > 0.5:
+			continue
 		var fl: Node3D = StoryArtFactory.plant(flora_role, 4.0 + fposmod(float(i) * 2.3, 3.0), pastels[(i + 2) % pastels.size()])
 		if fl == null:
 			continue
 		var holder2 := Node3D.new()
 		add_child(holder2)
 		holder2.add_child(fl)
-		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
 		_place_on_planet(holder2, dir2)
 	# ---- FRUIT FEEDING TRAYS: walk up and the butterflies swarm in to feast ----
 	var tray_dirs := [Vector3(0.8, 0.15, -0.6), Vector3(-0.75, 0.4, 0.5), Vector3(0.1, -0.55, 0.83), Vector3(-0.4, -0.75, -0.55)]

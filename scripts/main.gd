@@ -7304,7 +7304,10 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		var pick := (seed / 7) % 10
 		var yr := float(seed % 628) / 100.0
 		if pick < 3:
-			_nature(trees[(seed / 13) % trees.size()], gp, 4.5 + float(seed % 3), yr)
+			var tree_name: String = trees[(seed / 13) % trees.size()]
+			if tree_name == "tree_palm":
+				continue
+			_nature(tree_name, gp, 4.5 + float(seed % 3), yr)
 			_cyl_solid(gp + Vector3(0, 3.0, 0), 0.9, 3.0, 0.5)   # trunks solid; hide-bushes stay soft
 		elif pick < 5:
 			_nature("plant_bushLargeTriangle", gp, 4.0, yr)
