@@ -6978,9 +6978,87 @@ const FS_BUD_T := 20.0             # seconds to bloom the flower open
 const FS_BLOOM_T := 3.0
 const FS_RING_CD := 4.5            # the flower puffs a slow ring of sparks
 const FS_RING_N := 6
-const FS_LEAF_SCALE := 5.0         # real Kenney bush models (CC0)
-const FS_BUD_SCALE := 7.0
-const FS_FLOWER := "flower_purpleA"  # ONE flower for the whole boss (grows, then blooms)
+const FS_LEAF_SCALE := 6.5
+const FS_BUG_ART_SCALE := 7.0
+const FS_BACKGROUND_ART := [
+	"res://assets/fairy/pond_dawn.png",
+	"res://assets/fairy/pond_twilight.png",
+	"res://assets/fairy/pond_boss_clearing.png",
+]
+const FS_BUG_ART := [
+	"res://assets/fairy/models/bug_jewel.glb",
+	"res://assets/fairy/models/bug_moth.glb",
+	"res://assets/fairy/models/bug_firefly.glb",
+]
+const FS_BOSS_ART := {
+	"seed": "res://assets/fairy/models/boss_seed.glb",
+	"sprout": "res://assets/fairy/models/boss_sprout.glb",
+	"bud": "res://assets/fairy/models/boss_bud.glb",
+	"opening": "res://assets/fairy/models/boss_opening.glb",
+	"bloom": "res://assets/fairy/models/boss_bloom.glb",
+}
+const FS_BOSS_STAGE_SCALE := {
+	"seed": 7.0,
+	"sprout": 9.0,
+	"bud": 12.0,
+	"opening": 15.5,
+	"bloom": 20.0,
+}
+const FS_BOSS_LEAF_ART := "res://assets/fairy/models/boss_leaf.glb"
+var _fairy_art_cache: Dictionary = {}
+
+func _fairy_art_item(path: String, pos: Vector3, scl: float, yrot: float = 0.0) -> Node3D:
+	var ps: PackedScene = _fairy_art_cache.get(path, null)
+	if ps == null:
+		if not ResourceLoader.exists(path):
+			return null
+		ps = load(path)
+		_fairy_art_cache[path] = ps
+	if ps == null:
+		return null
+	var item: Node3D = ps.instantiate()
+	item.position = pos
+	item.scale = Vector3.ONE * scl
+	item.rotation.y = yrot
+	add_child(item)
+	game_nodes.append(item)
+	return item
+
+func _fairy_background_panel(origin: Vector3, texture_path: String, z_center: float, depth: float) -> void:
+	if not ResourceLoader.exists(texture_path):
+		return
+	var texture: Texture2D = load(texture_path)
+	if texture == null:
+		return
+	var panel := MeshInstance3D.new()
+	var plane := PlaneMesh.new()
+	plane.size = Vector2(90.0, depth)
+	panel.mesh = plane
+	var material := StandardMaterial3D.new()
+	material.albedo_texture = texture
+	material.roughness = 1.0
+	material.metallic = 0.0
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	panel.material_override = material
+	panel.position = origin + Vector3(0, 0.06, z_center)
+	add_child(panel)
+	game_nodes.append(panel)
+
+func _fairy_set_boss_stage(stage: String) -> Node3D:
+	var current: Node3D = g.get("boss_art")
+	if String(g.get("boss_stage", "")) == stage and current != null and is_instance_valid(current):
+		return current
+	if current != null and is_instance_valid(current):
+		current.queue_free()
+	var path: String = String(FS_BOSS_ART.get(stage, ""))
+	var scale_value: float = float(FS_BOSS_STAGE_SCALE.get(stage, 8.0))
+	var center: Vector3 = g.get("boss_center", ARENA_POS)
+	var art: Node3D = _fairy_art_item(path, center + Vector3(0, 0.18, 0), scale_value)
+	g["boss_art"] = art
+	g["boss_stage"] = stage
+	g["bud"] = art   # compatibility for probes and cleanup paths that still name the focal node "bud"
+	return art
 
 func _build_fairyshoot(origin: Vector3) -> void:
 	# Roshan wears her fairy form for this game only
@@ -6995,51 +7073,13 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	g["targets"] = []; g["bolts"] = []; g["orbs"] = []; g["fireflies"] = []; g["rings"] = []
 	g["hazards"] = []
 	g["phase"] = "fly"; g["leaves"] = []; g["bud"] = null; g["petals"] = []
-	# ---- the long dreamy pond track, seen straight from above ----
-	var pond := MeshInstance3D.new()
-	var pm := BoxMesh.new(); pm.size = Vector3(90.0, 1.0, FS_LEN + 160.0)
-	pond.mesh = pm
-	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = Color(0.2, 0.35, 0.55)
-	pmat.metallic = 0.7; pmat.roughness = 0.1
-	pmat.emission_enabled = true; pmat.emission = Color(0.15, 0.3, 0.5); pmat.emission_energy_multiplier = 0.25
-	pond.material_override = pmat
-	pond.position = origin + Vector3(0, 0.0, FS_LEN * 0.5)
-	add_child(pond); game_nodes.append(pond)
-	# mossy banks flanking the water so the track edges read from above
-	for side2 in [-1.0, 1.0]:
-		var bank := MeshInstance3D.new()
-		var bkm := BoxMesh.new(); bkm.size = Vector3(14.0, 1.4, FS_LEN + 160.0)
-		bank.mesh = bkm
-		bank.material_override = _soft_mat(Color(0.25, 0.55, 0.35), 0.15)
-		bank.position = origin + Vector3(side2 * 50.0, 0.2, FS_LEN * 0.5)
-		add_child(bank); game_nodes.append(bank)
-	# ---- lily pads along the track + glowing reeds on the banks ----
-	for i in range(26):
-		var z: float = 15.0 + randf() * (FS_LEN + 40.0)
-		var side: float = -1.0 if i % 2 == 0 else 1.0
-		var pad := MeshInstance3D.new()
-		var cm := CylinderMesh.new(); cm.top_radius = 1.6 + randf() * 1.4; cm.bottom_radius = cm.top_radius; cm.height = 0.25
-		pad.mesh = cm
-		pad.material_override = _soft_mat(Color(0.3, 0.7, 0.4), 0.2)
-		pad.position = origin + Vector3(side * (10.0 + randf() * 28.0), 0.7, z)
-		add_child(pad); game_nodes.append(pad)
-		if i % 3 == 0:   # a glowing flower on some pads
-			var fl := MeshInstance3D.new()
-			var fs := SphereMesh.new(); fs.radius = 0.7; fs.height = 1.4
-			fl.mesh = fs
-			fl.material_override = _soft_mat(Color(1.0, 0.6, 0.85), 1.4)
-			fl.position = pad.position + Vector3(0, 0.7, 0)
-			add_child(fl); game_nodes.append(fl)
-	for k in range(24):
-		var rz: float = 10.0 + float(k) / 24.0 * (FS_LEN + 40.0)
-		var rside: float = -1.0 if k % 2 == 0 else 1.0
-		var reed := MeshInstance3D.new()
-		var rm := CapsuleMesh.new(); rm.radius = 0.5; rm.height = 3.2
-		reed.mesh = rm
-		reed.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.4)
-		reed.position = origin + Vector3(rside * 44.0, 1.8, rz)
-		add_child(reed); game_nodes.append(reed)
+	g["boss_art"] = null; g["boss_stage"] = ""
+	# ---- three authored overhead pond plates replace the metallic box, stock
+	# banks, and primitive lily/reed dressing. Their quiet center preserves the
+	# one-finger flight lane while the edge art changes from dawn to twilight to
+	# the circular boss clearing. ----
+	for bg_index in range(FS_BACKGROUND_ART.size()):
+		_fairy_background_panel(origin, String(FS_BACKGROUND_ART[bg_index]), 50.0 + float(bg_index) * 120.0, 120.0)
 	# ---- flat fairy rings on the water to fly over (homage to the old gates) ----
 	for k in range(6):
 		var z2: float = 40.0 + float(k) * 40.0
@@ -7064,16 +7104,18 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	for k in range(FS_NBUGS):
 		var z3: float = 70.0 + float(k) / float(FS_NBUGS) * (FS_LEN - 100.0) + randf() * 12.0
 		var bx: float = (randf() * 2.0 - 1.0) * (FS_BX - 2.0)
-		var bug := MeshInstance3D.new()
-		var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
-		bug.mesh = sm
-		var bmat := StandardMaterial3D.new()
-		bmat.albedo_color = Color(0.22, 0.05, 0.3)
-		bmat.emission_enabled = true; bmat.emission = Color(0.85, 0.2, 0.55); bmat.emission_energy_multiplier = 1.5
-		bug.material_override = bmat
 		var bpos: Vector3 = origin + Vector3(bx, FS_PLANE, z3)
-		bug.position = bpos
-		add_child(bug); game_nodes.append(bug)
+		var bug_path: String = String(FS_BUG_ART[k % FS_BUG_ART.size()])
+		var bug: Node3D = _fairy_art_item(bug_path, bpos, FS_BUG_ART_SCALE, randf() * TAU)
+		if bug == null:
+			bug = Node3D.new()
+			var fallback := MeshInstance3D.new()
+			var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
+			fallback.mesh = sm
+			fallback.material_override = _soft_mat(Color(0.35, 0.12, 0.5), 0.8)
+			bug.add_child(fallback)
+			bug.position = bpos
+			add_child(bug); game_nodes.append(bug)
 		(g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
 				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
 	# ---- scary-but-toylike shadow monsters lurking along the track ----
@@ -7183,8 +7225,7 @@ func _fairy_clear_orbs() -> void:
 	(g["orbs"] as Array).clear()
 
 func _fairy_start_boss(origin: Vector3) -> void:
-	# Built from real CC0 Kenney flora models (assets/nature) — minimal custom geometry.
-	# The scroll freezes and the flower fills the top of the screen.
+	# The scroll freezes and the authored Fairy Flower fills the top of the screen.
 	var center: Vector3 = origin + Vector3(0, FS_PLANE, float(g["fz"]) + FS_BOSS_AHEAD)
 	g["boss_center"] = center
 	g["phase"] = "boss_leaves"
@@ -7192,38 +7233,21 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(fs_fails, 2))
 	g["ring_cd"] = FS_RING_CD
 	_fairy_clear_orbs()   # a clean entrance for the flower
-	# leafy island base under the flower (a big bush model)
-	if _nature("plant_bushLargeTriangle", Vector3(center.x, origin.y + 0.5, center.z + 1.0), 6.0, 0.0) == null:
-		_mg_noop_ref(_course_box(Vector3(center.x, origin.y + 1.0, center.z), Vector3(7, 1.5, 7), Color(0.3, 0.65, 0.35)))
-	# the flower at the core — ONE flower (FS_FLOWER), small/tight until the leaves fall,
-	# then it grows bigger with every hit before blooming
-	var bud := _nature(FS_FLOWER, center + Vector3(0, -1.5, 0), FS_BUD_SCALE * 0.4, 0.0)
-	if bud == null:
-		var bm := MeshInstance3D.new()
-		var bsm := SphereMesh.new(); bsm.radius = 4.5; bsm.height = 9.0
-		bm.mesh = bsm; bm.material_override = _soft_mat(Color(0.85, 0.45, 0.7), 0.5)
-		bm.position = center; bm.scale = Vector3.ONE * (FS_BUD_SCALE * 0.4)
-		add_child(bm); game_nodes.append(bm); bud = bm
-	g["bud"] = bud
+	# Begin with the small cracked seed; matched reliefs replace it as it grows.
+	_fairy_set_boss_stage("seed")
 	g["bud_hp"] = FS_BUD_HP
-	# leaf shield: a wreath of real leafy bushes spinning slowly around the bud —
-	# a little sliding keeps a leaf lined up with the wand
+	# Six matching authored leaves orbit slowly so one stays lined up with the wand.
 	g["leaves"] = []
-	var leafkinds := ["plant_bushLargeTriangle", "grass_leafsLarge", "plant_bush"]
 	for k in range(FS_LEAVES):
 		var a: float = float(k) / float(FS_LEAVES) * TAU
 		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING, -1.0, sin(a) * FS_LEAF_RING)
-		var leaf := _nature(leafkinds[k % leafkinds.size()], lp, FS_LEAF_SCALE, randf() * TAU)
+		var leaf: Node3D = _fairy_art_item(FS_BOSS_LEAF_ART, lp, FS_LEAF_SCALE, PI / 2.0 - a)
 		if leaf == null:
 			var lm := MeshInstance3D.new()
 			var pm := PrismMesh.new(); pm.size = Vector3(5.0, 9.0, 2.0)
 			lm.mesh = pm; lm.material_override = _soft_mat(Color(0.35, 0.75, 0.4), 0.4)
 			lm.position = lp; add_child(lm); game_nodes.append(lm); leaf = lm
 		(g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a})
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.7, 0.85); bl.light_energy = 2.6; bl.omni_range = 44.0
-	bl.position = center + Vector3(0, 8.0, 0); add_child(bl); game_nodes.append(bl)
-	g["boss_light"] = bl
 	show_msg(fr_name_safe(), "The Fairy Flower! Blast the leaves out of the way!")
 
 func fr_name_safe() -> String:
@@ -7233,18 +7257,11 @@ func _fairy_bloom_start() -> void:
 	g["phase"] = "boss_bloom"
 	g["bloom_t"] = FS_BLOOM_T
 	_fairy_clear_orbs()   # nothing to dodge during the celebration
-	var center: Vector3 = g["boss_center"]
 	g["petals"] = []
-	# the blossom is a ring of the SAME flower opening outward (one coherent flower)
-	for k in range(8):
-		var a: float = float(k) / 8.0 * TAU
-		var petal := _nature(FS_FLOWER, center, 0.5, a)
-		if petal == null:
-			var pm := MeshInstance3D.new()
-			var sp := SphereMesh.new(); sp.radius = 2.4; sp.height = 4.8
-			pm.mesh = sp; pm.material_override = _soft_mat(Color(1.0, 0.6, 0.8), 1.2)
-			pm.position = center; add_child(pm); game_nodes.append(pm); petal = pm
-		(g["petals"] as Array).append({"node": petal, "ang": a})
+	# One coherent full-blossom model grows outward for the celebration.
+	var bloom: Node3D = _fairy_set_boss_stage("bloom")
+	if bloom != null:
+		bloom.scale = Vector3.ONE * (float(FS_BOSS_STAGE_SCALE["bloom"]) * 0.72)
 
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
