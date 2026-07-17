@@ -38,7 +38,7 @@ const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red
 const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
 	"trop_fern", "plant_bush", "grass_leafsLarge"]
 const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
-const GATE_DIR := Vector3(0.30, 1.0, 0.0)   # (normalized on use) the castle gate on the planet
+const GATE_DIR := Vector3(0.55, 0.84, 0.16)   # separated from the north-pole crystal silhouette
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
@@ -423,6 +423,24 @@ func _fit_small(model: Node3D, target_long: float) -> float:
 	model.position = Vector3(-c.x * sc, -bb.position.y * sc, -c.z * sc)
 	return bb.size.y * sc
 
+func _authored_prop(path: String, parent: Node3D, pos: Vector3, target_long: float, yaw: float = 0.0) -> Node3D:
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path) as PackedScene
+	if packed == null:
+		return null
+	var holder := Node3D.new()
+	var model: Node3D = packed.instantiate() as Node3D
+	if model == null:
+		holder.free()
+		return null
+	holder.add_child(model)
+	parent.add_child(holder)
+	_fit_small(model, target_long)
+	holder.position = pos
+	holder.rotation.y = yaw
+	return holder
+
 func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
 	var holder := Node3D.new()
 	if ResourceLoader.exists(BUTTERFLY_STORY_GLB):
@@ -506,17 +524,6 @@ func _build_decor() -> void:
 			ph2.add_child(ped)
 			_fit_small(ped, 3.6)
 			ph2.position = Vector3(0, -0.4, 0)
-		for ci in range(5):
-			var cube := MeshInstance3D.new()
-			var cbm := BoxMesh.new()
-			cbm.size = Vector3(0.42, 0.42, 0.42)
-			cube.mesh = cbm
-			var cmat := StandardMaterial3D.new()
-			cmat.albedo_color = [Color(1.0, 0.6, 0.2), Color(1.0, 0.85, 0.3), Color(0.6, 0.9, 0.4), Color(1.0, 0.5, 0.5), Color(0.95, 0.75, 0.4)][ci]
-			cmat.roughness = 0.4
-			cube.material_override = cmat
-			cube.position = Vector3(cos(float(ci) * 1.25) * 0.7, 0.75, sin(float(ci) * 1.25) * 0.7)
-			th.add_child(cube)
 		if ResourceLoader.exists(TRAY_GLB):
 			var tray_n: Node3D = (load(TRAY_GLB) as PackedScene).instantiate()
 			th.add_child(tray_n)
@@ -561,50 +568,21 @@ func _build_decor() -> void:
 	if ResourceLoader.exists(CASTLE_GLB):
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
-		_fit_small(ck, 36.0)   # the pole landmark — big enough to walk INTO
+		_fit_small(ck, 28.0)   # landmark scale leaves the authored gate legible nearby
 		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.84, 0.80, 0.92))
-	_blockers.append({"dir": Vector3.UP, "r": 9.5, "cool": 0.0})   # castle core + flanking spires; enter via the GATE
-	for i in range(2):
-		var path3: String = CRYSTALS[i % CRYSTALS.size()]
-		if not ResourceLoader.exists(path3):
-			continue
-		var spire: Node3D = (load(path3) as PackedScene).instantiate()
-		spire.scale = Vector3.ONE * 4.0
-		spire.position = Vector3([-13.0, 13.0][i], 0, 6.0)
-		castle.add_child(spire)
-		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
+	_blockers.append({"dir": Vector3.UP, "r": 8.0, "cool": 0.0})
 	_place_on_planet(castle, Vector3.UP)
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
 	# plane, or its corners hover visibly above the curving horizon
 	castle.position = _surf(Vector3.UP, -5.0)
-	# The glowing gate is always open. The butterfly rescue remains a joyful
-	# optional quest and prize, never a lock between Roshan and the play space.
-	var gatel := Label3D.new()
-	gatel.text = "✨ Crystal Castle ✨\n♫ come dance! ♫"
-	gatel.font_size = 50
-	gatel.pixel_size = 0.03
-	gatel.outline_size = 12
-	gatel.modulate = Color(1.0, 0.92, 0.55)
-	gatel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	gatel.position = _surf(GATE_DIR, 6.5)
-	add_child(gatel)
-	_gate_lbl = gatel
-	var gatehalo := MeshInstance3D.new()
-	var ghm := TorusMesh.new()
-	ghm.inner_radius = 2.4
-	ghm.outer_radius = 3.2
-	gatehalo.mesh = ghm
-	var ghmat := StandardMaterial3D.new()
-	ghmat.albedo_color = Color(0.8, 0.7, 1.0)
-	ghmat.emission_enabled = true
-	ghmat.emission = Color(0.75, 0.65, 1.0)
-	ghmat.emission_energy_multiplier = 1.6
-	gatehalo.material_override = ghmat
+	# The always-open castle entrance is a complete articulated butterfly. Its
+	# silhouette and motion replace both the generic torus and billboard words.
+	_gate_lbl = null
 	var gh_holder := Node3D.new()
 	add_child(gh_holder)
-	gh_holder.add_child(gatehalo)
-	gatehalo.position = Vector3(0, 2.6, 0)
-	gatehalo.rotation_degrees = Vector3(90, 0, 0)
+	var castle_gate: Node3D = LandmarkArtFactory.create_butterfly_gate(2.7)
+	gh_holder.add_child(castle_gate)
+	castle_gate.position = Vector3(0, 3.0, 0)
 	_place_on_planet(gh_holder, GATE_DIR)
 	# Mermaid Rosalina, keeper of the crystal castle
 	var rosa := Sprite3D.new()
@@ -616,23 +594,6 @@ func _build_decor() -> void:
 	rosa.position = _surf(Vector3(0.16, 1.0, 0.13).normalized(), 4.0)
 	add_child(rosa)
 	_rosalina = rosa
-	var rl := Label3D.new()
-	rl.text = "Mermaid Rosalina"
-	rl.font_size = 52
-	rl.pixel_size = 0.03
-	rl.outline_size = 12
-	rl.modulate = Color(0.8, 0.9, 1.0)
-	rl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	rl.position = rosa.position + Vector3(0, 5.0, 0)
-	add_child(rl)
-	var claby := Label3D.new()
-	claby.text = "Butterfly Palace"
-	claby.font_size = 72
-	claby.outline_size = 16
-	claby.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	claby.modulate = Color(0.95, 0.85, 1.0)
-	claby.position = _surf(Vector3.UP, 14.0)
-	add_child(claby)
 	var cl := OmniLight3D.new()
 	cl.light_color = Color(0.85, 0.7, 1.0)
 	cl.light_energy = 2.5
@@ -744,8 +705,8 @@ func _build_decor() -> void:
 	var dsm := SphereMesh.new()
 	dsm.radius = PLANET_R * 2.7
 	dsm.height = PLANET_R * 5.4
-	dsm.radial_segments = 48
-	dsm.rings = 24
+	dsm.radial_segments = 32
+	dsm.rings = 16
 	dome.mesh = dsm
 	var dsh := Shader.new()
 	dsh.code = """shader_type spatial;
@@ -755,14 +716,14 @@ render_mode unshaded, cull_front;
 // warm woodwork instead of bare white lines; the panes stay open glass.
 uniform sampler2D wood_tex : source_color, repeat_enable, filter_linear_mipmap;
 void fragment(){
-	vec2 grid = abs(fract(UV * vec2(26.0, 13.0)) - 0.5);
-	float line = smoothstep(0.035, 0.012, min(grid.x, grid.y));
+	vec2 grid = abs(fract(UV * vec2(14.0, 7.0)) - 0.5);
+	float line = smoothstep(0.022, 0.008, min(grid.x, grid.y));
 	if (line < 0.04) {
 		discard;   // skip the fullscreen glass haze — only the mullion grid draws
 	}
-	vec3 wood = texture(wood_tex, UV * vec2(26.0, 13.0) * 0.35).rgb;
-	ALBEDO = mix(vec3(0.75, 0.9, 0.95), wood * vec3(1.08, 0.98, 0.92), line);
-	ALPHA = mix(0.05, 0.6, line);
+	vec3 wood = texture(wood_tex, UV * vec2(14.0, 7.0) * 0.35).rgb;
+	ALBEDO = mix(vec3(0.52, 0.70, 0.78), wood * vec3(0.86, 0.82, 0.88), line);
+	ALPHA = mix(0.02, 0.25, line);
 }"""
 	var dmat := ShaderMaterial.new()
 	dmat.shader = dsh
@@ -808,19 +769,8 @@ void fragment(){
 		ll.position = Vector3(0, 6.4, 0)
 		lp.add_child(ll)
 		_place_on_planet(lp, ldir)
-	# ---- corals nestled among the plants (the book's underwater-garden mashup) ----
-	for i in range(18):
-		var cpath: String = CORALS[i % CORALS.size()]
-		if not ResourceLoader.exists(cpath):
-			continue
-		var co: Node3D = (load(cpath) as PackedScene).instantiate()
-		var ch := Node3D.new()
-		add_child(ch)
-		ch.add_child(co)
-		_fit_small(co, 2.6 + randf() * 1.8)
-		_tint_meshes(co, [Color(1.0, 0.6, 0.7), Color(0.6, 0.8, 1.0), Color(1.0, 0.8, 0.5), Color(0.8, 0.6, 1.0)][i % 4], 0.15)
-		var cdir := Vector3(sin(float(i) * 1.9 + 1.0), cos(float(i) * 1.3 + 0.5) * 0.9, sin(float(i) * 0.8 - 2.0)).normalized()
-		_place_on_planet(ch, cdir)
+	# Coral remains an underwater habitat family. Mixing it into the vivarium
+	# made both plant sets read as generic decoration rather than distinct biomes.
 	# ---- friendly beetles + ladybugs crawl the paths (the museum beetle drawer!) ----
 	for i in range(8):
 		var bug_role: String = BUG_ROLES[i % BUG_ROLES.size()]
@@ -914,13 +864,6 @@ func _build_home_ring() -> void:
 	holder.add_child(gate)
 	gate.position = Vector3(0, 2.4, 0)
 	_place_on_planet(holder, Vector3.DOWN)
-	var lab := Label3D.new()
-	lab.text = "🏠 home"
-	lab.font_size = 56
-	lab.outline_size = 12
-	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.position = _surf(Vector3.DOWN, 9.0)
-	add_child(lab)
 
 func _spawn_grand_star() -> void:
 	_grand_active = true
@@ -1505,6 +1448,10 @@ func _build_hall() -> void:
 		_hall_root.add_child(wp)
 	# crystal columns
 	for i in range(6):
+		# Column five occupied the direct child-height sightline from the hall
+		# entrance to the ice arch. Keep that objective visibly distinct.
+		if i == 5:
+			continue
 		var cpath: String = CRYSTALS[i % CRYSTALS.size()]
 		if not ResourceLoader.exists(cpath):
 			continue
@@ -1527,20 +1474,9 @@ func _build_hall() -> void:
 		sl.omni_range = 20.0
 		sl.position = star.position
 		_hall_root.add_child(sl)
-	# the Moon Throne at the back, Rosalina's indoor seat
-	var seat := MeshInstance3D.new()
-	var scm := SphereMesh.new()
-	scm.radius = 2.6
-	scm.height = 2.6
-	seat.mesh = scm
-	var smat := StandardMaterial3D.new()
-	smat.albedo_color = Color(0.95, 0.93, 1.0)
-	smat.emission_enabled = true
-	smat.emission = Color(0.85, 0.85, 1.0)
-	smat.emission_energy_multiplier = 0.5
-	seat.material_override = smat
-	seat.position = Vector3(0, 1.6, -20.0)
-	_hall_root.add_child(seat)
+	# The Moon Throne now has a shell-back silhouette and a real seat instead
+	# of a single glowing sphere.
+	_authored_prop("res://assets/art35/galaxy/shell_throne.glb", _hall_root, Vector3(0, 0.5, -20.0), 10.0, PI)
 	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
 		var rosa2 := Sprite3D.new()
 		var rtex2: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
@@ -1549,60 +1485,17 @@ func _build_hall() -> void:
 		rosa2.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		rosa2.position = Vector3(0, 5.6, -20.0)
 		_hall_root.add_child(rosa2)
-	# three star bells (play a note when touched)
+	# Three authored hanging stars remain independent touch targets.
 	for i in range(3):
-		var bell := Label3D.new()
-		bell.text = "★"
-		bell.font_size = 170
-		bell.pixel_size = 0.03
-		bell.outline_size = 18
-		bell.modulate = [Color(1.0, 0.5, 0.6), Color(0.5, 0.9, 1.0), Color(0.7, 1.0, 0.6)][i]
-		bell.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		var bpos := Vector3(14.0, 2.2, -6.0 + float(i) * 6.0)
-		bell.position = bpos
-		_hall_root.add_child(bell)
+		var bell: Node3D = _authored_prop("res://assets/art35/galaxy/star_bell_%d.glb" % i, _hall_root, bpos, 4.8)
 		_bells.append({"node": bell, "pos": HALL_C + bpos, "cool": 0.0, "pitch": 0.7 + float(i) * 0.18})
-	# the wish fountain (+2 pearls, slow cooldown)
-	var fring := MeshInstance3D.new()
-	var ftm := TorusMesh.new()
-	ftm.inner_radius = 1.8
-	ftm.outer_radius = 2.6
-	fring.mesh = ftm
-	var fmat2 := StandardMaterial3D.new()
-	fmat2.albedo_color = Color(0.5, 0.85, 1.0)
-	fmat2.emission_enabled = true
-	fmat2.emission = Color(0.4, 0.8, 1.0)
-	fmat2.emission_energy_multiplier = 1.2
-	fring.material_override = fmat2
-	fring.position = Vector3(-14.0, 1.0, -2.0)
-	_hall_root.add_child(fring)
-	var flab := Label3D.new()
-	flab.text = "wish fountain"
-	flab.font_size = 40
-	flab.pixel_size = 0.025
-	flab.outline_size = 10
-	flab.modulate = Color(0.7, 0.9, 1.0)
-	flab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	flab.position = Vector3(-14.0, 4.4, -2.0)
-	_hall_root.add_child(flab)
-	# doorway arch + label
-	var arch := MeshInstance3D.new()
-	var atm := TorusMesh.new()
-	atm.inner_radius = 3.2
-	atm.outer_radius = 4.0
-	arch.mesh = atm
-	arch.material_override = fmat2
-	arch.position = Vector3(0, 3.4, 24.6)
-	_hall_root.add_child(arch)
-	var dlab := Label3D.new()
-	dlab.text = "back to the garden"
-	dlab.font_size = 44
-	dlab.pixel_size = 0.025
-	dlab.outline_size = 10
-	dlab.modulate = Color(0.8, 1.0, 0.85)
-	dlab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	dlab.position = Vector3(0, 8.0, 24.6)
-	_hall_root.add_child(dlab)
+	# The wish fountain and garden doorway communicate through their physical
+	# silhouettes; no reading-dependent floating labels remain.
+	_authored_prop("res://assets/art35/galaxy/wish_fountain.glb", _hall_root, Vector3(-14.0, 0.5, -2.0), 7.5)
+	var garden_gate: Node3D = LandmarkArtFactory.create_butterfly_gate(3.3)
+	garden_gate.position = Vector3(0, 4.2, 24.6)
+	_hall_root.add_child(garden_gate)
 	# ---- HER OWN TINY GALAXY: a golden mini-star with five pastel planets on
 	# tilted orbits, floating in the middle of the hall ----
 	var msun := MeshInstance3D.new()
@@ -1699,42 +1592,9 @@ func _build_ice_gate() -> void:
 	# An icon-first berry pedestal gives the non-reader a visible destination.
 	# Touching it once opens the new octagonal ice encounter.
 	_ice_gate = Node3D.new()
-	_ice_gate.position = Vector3(-14.0, 0.8, 11.0)
+	_ice_gate.position = Vector3(-16.0, 0.8, 8.0)
 	_hall_root.add_child(_ice_gate)
-	var base := MeshInstance3D.new()
-	var bcm := CylinderMesh.new()
-	bcm.top_radius = 2.8
-	bcm.bottom_radius = 3.4
-	bcm.height = 1.4
-	base.mesh = bcm
-	var bmat := StandardMaterial3D.new()
-	bmat.albedo_color = Color(0.42, 0.62, 0.92)
-	bmat.emission_enabled = true
-	bmat.emission = Color(0.3, 0.65, 1.0)
-	bmat.emission_energy_multiplier = 0.55
-	base.material_override = bmat
-	_ice_gate.add_child(base)
-	for i in range(3):
-		var berry := MeshInstance3D.new()
-		var bsm := SphereMesh.new()
-		bsm.radius = 0.9
-		bsm.height = 1.8
-		bsm.radial_segments = 12
-		bsm.rings = 6
-		berry.mesh = bsm
-		berry.material_override = bmat
-		berry.position = Vector3((float(i) - 1.0) * 1.25, 1.7 + float(i % 2) * 0.5, 0)
-		_ice_gate.add_child(berry)
-	var snow := Label3D.new()
-	var ice_won: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
-	snow.text = "★\nPOPCORN" if ice_won else "❄\n🫐"
-	snow.font_size = 130
-	snow.pixel_size = 0.025
-	snow.outline_size = 20
-	snow.modulate = Color(0.72, 0.94, 1.0)
-	snow.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	snow.position = Vector3(0, 5.4, 0)
-	_ice_gate.add_child(snow)
+	_authored_prop("res://assets/art35/galaxy/ice_gate.glb", _ice_gate, Vector3.ZERO, 8.5)
 
 func _enter_hall() -> void:
 	if not _hall_built:
@@ -1795,7 +1655,7 @@ func _tick_hall(delta: float) -> void:
 	if _ice_gate != null:
 		_ice_gate.rotation.y += delta * 0.35
 		var ice_done: bool = _main != null and "combat_ice_done" in _main and bool(_main.combat_ice_done)
-		if not ice_done and _ice_gate_cool <= 0.0 and Vector2(_cpos.x + 14.0, _cpos.z - 11.0).length() < 4.2:
+		if not ice_done and _ice_gate_cool <= 0.0 and Vector2(_cpos.x + 16.0, _cpos.z - 8.0).length() < 4.2:
 			_ice_gate_cool = 10.0
 			if _main != null and _main.has_method("_start_combat"):
 				_main._start_combat("ice")
@@ -1891,7 +1751,7 @@ func _tick_hall(delta: float) -> void:
 
 func resume_from_combat(completed: bool = true) -> void:
 	_ice_gate_cool = 8.0
-	_cpos = Vector3(-7.0, 0.0, 11.0)
+	_cpos = Vector3(-9.0, 0.0, 8.0)
 	if _cam != null:
 		_cam.make_current()
 	if _lbl_hint != null and completed:

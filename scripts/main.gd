@@ -885,46 +885,15 @@ void fragment(){
 	var jcols := [Color(0.5, 0.95, 1.0), Color(1.0, 0.6, 0.9), Color(0.7, 0.6, 1.0), Color(0.5, 1.0, 0.8)]
 	for i in range(8):
 		var jc: Color = jcols[i % jcols.size()]
-		var jelly := Node3D.new()
-		var bell := MeshInstance3D.new()
-		var bsp := SphereMesh.new()
-		bsp.radius = 1.7
-		bsp.height = 2.6
-		bell.mesh = bsp
-		var jm := StandardMaterial3D.new()
-		jm.albedo_color = Color(jc.r, jc.g, jc.b, 0.65)
-		jm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		jm.emission_enabled = true
-		jm.emission = jc
-		jm.emission_energy_multiplier = 1.5
-		jm.cull_mode = BaseMaterial3D.CULL_DISABLED
-		bell.material_override = jm
-		jelly.add_child(bell)
-		for tn in range(4):
-			var tent := MeshInstance3D.new()
-			var tc := CylinderMesh.new()
-			tc.top_radius = 0.09
-			tc.bottom_radius = 0.03
-			tc.height = 3.4
-			tc.radial_segments = 5
-			tent.mesh = tc
-			var tmat := StandardMaterial3D.new()
-			tmat.albedo_color = Color(jc.r, jc.g, jc.b, 0.5)
-			tmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			tmat.emission_enabled = true
-			tmat.emission = jc
-			tmat.emission_energy_multiplier = 0.8
-			tent.material_override = tmat
-			var ta: float = float(tn) / 4.0 * TAU
-			tent.position = Vector3(cos(ta) * 0.8, -2.1, sin(ta) * 0.8)
-			jelly.add_child(tent)
+		var jelly: Node3D = _gen2_creature("jellyfish", Vector3.ZERO, 5.4 + float(i % 3) * 0.7)
+		if jelly == null:
+			continue
 		var jl := OmniLight3D.new()
 		jl.light_color = jc
 		jl.light_energy = 1.1
 		jl.omni_range = 15.0
 		jl.visible = (q != "speedy") or (i % 2 == 0)
 		jelly.add_child(jl)
-		add_child(jelly)
 		night_nodes.append(jelly)
 		aquatic_movers.append({"node": jelly, "rad": 40.0 + randf() * 140.0, "spd": 0.05 + randf() * 0.06, "y": 16.0 + randf() * 26.0, "ph": randf() * TAU})
 	# ---- the plankton field glows brighter on mystical nights ----
@@ -1685,6 +1654,7 @@ const CREATURE_GEN2 := {"ClownFish": "clownfish", "Turtle": "turtle", "Dolphin":
 const CREATURE_SWAY := {"clownfish": [0, 4.2, 0.14], "dolphin": [0, 3.2, 0.11], "turtle": [0, 2.2, 0.08],
 	"shark": [0, 3.6, 0.12], "hammerhead": [0, 3.4, 0.12], "whale": [1, 1.6, 0.08],
 	"stingray": [1, 2.6, 0.15], "squid": [2, 2.8, 0.12], "octopus": [2, 2.2, 0.13],
+	"jellyfish": [2, 1.8, 0.10], "shrimp": [3, 3.0, 0.04],
 	"penguin": [3, 3.0, 0.03], "lobster": [3, 2.4, 0.06], "crab": [3, 2.6, 0.06],   # penguin: rigged clips carry the motion now
 	"craft_kitty": [3, 2.0, 0.05], "craft_birdie": [3, 2.8, 0.07]}   # HER craft creatures: gentle waddle idle
 
@@ -3752,6 +3722,16 @@ func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 				tex0 = (src0 as ShaderMaterial).get_shader_parameter("albedo_tex")
 			if tex0 != null:
 				sm.set_shader_parameter("albedo_tex", tex0)
+			# Blender-authored replacements use flat material colors instead of
+			# baked albedo maps. Preserve that tint when the swim shader takes over.
+			var source_tint := Color.WHITE
+			if src0 is BaseMaterial3D:
+				source_tint = (src0 as BaseMaterial3D).albedo_color
+			elif src0 is ShaderMaterial:
+				var tint_value: Variant = (src0 as ShaderMaterial).get_shader_parameter("tint")
+				if tint_value is Color:
+					source_tint = tint_value as Color
+			sm.set_shader_parameter("tint", source_tint)
 			sm.set_shader_parameter("phase", ph)
 			sm.set_shader_parameter("sway_mode", int(prof[0]))
 			sm.set_shader_parameter("sway_speed", float(prof[1]))
@@ -3797,43 +3777,21 @@ func _attach_penguin_beak(wrap: Node3D) -> void:
 	beak.rotation = Vector3(-0.32, 0, 0)
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
-	# GEN2 sea grass: a family-style sprite (seaweed cluster / thin grass tuft
-	# / tall kelp strand) on two crossed quads with a vertex-sine sway.
-	# Returns null if sprites are missing so callers can fall back to the pack.
-	if not ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
+	# Rounded modeled blades replace the crossed cards that dominated nearby cameras.
+	var variant: int = randi() % 2
+	var family: String = "kelp" if randf() > 0.82 else "seagrass"
+	var path := "res://assets/art35/reef/%s_%d.glb" % [family, variant]
+	if not ResourceLoader.exists(path):
 		return null
-	var pick: Array = SEAGRASS_SPRITES[0]
-	var rv := randf()
-	if rv > 0.8 and ResourceLoader.exists("res://assets/props/gen2/kelp.png"):
-		pick = SEAGRASS_SPRITES[2]
-	elif rv > 0.5 and ResourceLoader.exists("res://assets/props/gen2/grasstuft.png"):
-		pick = SEAGRASS_SPRITES[1]
-	var sname: String = pick[0]
-	if not _seagrass_mats.has(sname):
-		var arr: Array = []
-		for i in range(4):
-			var sm := ShaderMaterial.new()
-			sm.shader = load("res://assets/shaders/seagrass_sway.gdshader")
-			sm.set_shader_parameter("tex", load("res://assets/props/gen2/%s.png" % sname))
-			sm.set_shader_parameter("phase", float(i) * 1.7)
-			sm.set_shader_parameter("sway_amount", 0.22 + 0.07 * float(i))
-			arr.append(sm)
-		_seagrass_mats[sname] = arr
+	var packed: PackedScene = load(path)
+	if packed == null:
+		return null
 	var wrap := Node3D.new()
-	var qw: float = size * float(pick[2])
-	var qh: float = qw * float(pick[1])
-	var qm := QuadMesh.new()
-	qm.size = Vector2(qw, qh)
-	var mats: Array = _seagrass_mats[sname]
-	for q in range(2):
-		var mi := MeshInstance3D.new()
-		mi.mesh = qm
-		mi.material_override = mats[randi() % mats.size()]
-		mi.rotation.y = PI * 0.5 * float(q) + randf() * 0.4
-		mi.position.y = qh * 0.5 - 0.15   # seat the base just in the sand
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		wrap.add_child(mi)
+	var inst: Node3D = packed.instantiate()
+	_fit_prop(inst, size * (0.62 if family == "kelp" else 0.46))
+	wrap.add_child(inst)
 	wrap.position = pos
+	wrap.rotation.y = randf() * TAU
 	add_child(wrap)
 	flora_nodes.append(wrap)
 	return wrap
@@ -3865,6 +3823,44 @@ func _gen2_static_mesh(name: String) -> Mesh:
 	_gen2_mesh_cache[name] = result
 	inst.free()
 	return result
+
+func _art35_static_mesh(path: String) -> Mesh:
+	var cached: Mesh = _gen2_mesh_cache.get(path, null)
+	if cached != null:
+		return cached
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path)
+	if packed == null:
+		return null
+	var inst: Node3D = packed.instantiate()
+	var meshes := _all_meshes(inst)
+	if meshes.is_empty():
+		inst.free()
+		return null
+	var result: Mesh = (meshes[0] as MeshInstance3D).mesh
+	_gen2_mesh_cache[path] = result
+	inst.free()
+	return result
+
+func _art35_prop(path: String, pos: Vector3, scl: float = 1.0, yaw: float = 0.0) -> Node3D:
+	# Authored multi-part props must stay as scene trees; taking only the first
+	# mesh would drop their outlines, petals, legs, books, or snow layers.
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path) as PackedScene
+	if packed == null:
+		return null
+	var prop: Node3D = packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.scale = Vector3.ONE * scl
+	prop.rotation.y = yaw
+	_cel_replace(prop, _gen2_outline_mat())
+	add_child(prop)
+	game_nodes.append(prop)
+	return prop
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
@@ -6155,14 +6151,19 @@ func _build_cavern(origin: Vector3) -> void:
 		var dirv: Vector3 = (b2 - a2).normalized()
 		var side: Vector3 = dirv.cross(Vector3.UP).normalized()
 		var up2: Vector3 = side.cross(dirv).normalized()
-		for k in range(7):
-			var ra: float = float(k) / 7.0 * TAU
+		for k in range(4):
+			var ra: float = float(k) / 4.0 * TAU
 			var rp: Vector3 = mid + (side * cos(ra) + up2 * sin(ra)) * 5.2
 			var rk := _place_aq("Rock%d" % (1 + (k + i) % 11), rp, 1.5 + randf() * 1.2, false)
 			if rk != null:
 				game_nodes.append(rk)
 	# glowing anemones light the way
-	for p2 in pts:
+	for point_index in range(pts.size()):
+		# The last route point belongs to the treasure silhouette. A glowing
+		# anemone here hid the chest from the actual approach camera.
+		if point_index == pts.size() - 1:
+			continue
+		var p2: Vector3 = pts[point_index]
 		var apos: Vector3 = p2 + Vector3(1.5, -2.5, 1.0)
 		var an: Node3D = _gen2_prop("anemone_story", apos, 4.6, randf() * TAU, 0.03)
 		if an == null:
@@ -6174,38 +6175,40 @@ func _build_cavern(origin: Vector3) -> void:
 			add_child(old_an)
 			an = old_an
 		game_nodes.append(an)
-	# treasure chest at the bottom, bathed in gold light
-	var chest := _spawn("chest", pts[pts.size() - 1] + Vector3(0, -2.4, 0), 5.0, 0.9)
-	if chest != null:
-		game_nodes.append(chest)
+	# The final chamber now resolves into one deliberate chest-on-dais focal
+	# composition instead of another equally bright scatter cluster.
+	var chest_approach: Vector3 = (pts[pts.size() - 2] - pts[pts.size() - 1]).normalized()
+	var chest_yaw: float = atan2(chest_approach.x, chest_approach.z)
+	_art35_prop("res://assets/art35/arena/treasure_dais.glb", pts[pts.size() - 1] + Vector3(0, -3.1, 0), 1.08, chest_yaw)
+	var chest: Node3D = _art35_prop("res://assets/art35/arena/treasure_chest.glb", pts[pts.size() - 1] + Vector3(0, -2.4, 0), 1.22, chest_yaw)
+	g["treasure_chest"] = chest
 	var gl := OmniLight3D.new()
 	gl.light_color = Color(1.0, 0.85, 0.4)
-	gl.light_energy = 2.2
-	gl.omni_range = 14.0
+	gl.light_energy = 1.15
+	gl.omni_range = 12.0
 	gl.position = pts[pts.size() - 1]
 	add_child(gl)
 	game_nodes.append(gl)
 	# ---- treasure-cave dressing: glowing crystals, gems, gold coins, pearls ----
 	var gem_cols := [Color(1.0, 0.3, 0.45), Color(0.4, 0.7, 1.0), Color(0.5, 1.0, 0.65), Color(1.0, 0.85, 0.35), Color(0.8, 0.45, 1.0)]
 	var seed2 := 7
-	for k in range(28):
+	for k in range(12):
 		seed2 = (seed2 * 1103515245 + 12345) & 0x7fffffff
-		var pa: Vector3 = pts[(seed2 / 31) % pts.size()]
+		# Keep the final route point clear so the authored treasure dais and chest
+		# remain the unmistakable reward silhouette.
+		var pa: Vector3 = pts[(seed2 / 31) % (pts.size() - 1)]
 		var off := Vector3(float(seed2 % 100) / 100.0 * 9.0 - 4.5, -2.2 - float((seed2 / 100) % 100) / 100.0 * 1.6, float((seed2 / 7) % 100) / 100.0 * 9.0 - 4.5)
 		var spot: Vector3 = pa + off
+		if spot.distance_to(pts[pts.size() - 1] as Vector3) < 9.0:
+			continue
 		var kind := (seed2 / 13) % 4
 		if kind == 0:                      # glowing crystal cluster
-			var cr := MeshInstance3D.new()
-			var pm := PrismMesh.new(); pm.size = Vector3(1.3, 3.5 + randf() * 2.5, 1.3)
-			cr.mesh = pm
-			cr.material_override = _soft_mat(gem_cols[(seed2 / 3) % gem_cols.size()], 1.7)
-			cr.position = spot; cr.rotation = Vector3(randf() * 0.3, randf() * TAU, randf() * 0.3)
-			add_child(cr); game_nodes.append(cr)
+			_art35_prop("res://assets/art35/arena/treasure_cluster_%d.glb" % (k % 3), spot, 0.72 + randf() * 0.32, randf() * TAU)
 		elif kind == 1:                    # bright gem
 			var gem := MeshInstance3D.new()
 			var sp := SphereMesh.new(); sp.radius = 0.55; sp.height = 1.1
 			gem.mesh = sp
-			gem.material_override = _soft_mat(gem_cols[(seed2 / 5) % gem_cols.size()], 2.6)
+			gem.material_override = _soft_mat(gem_cols[(seed2 / 5) % gem_cols.size()], 0.55)
 			gem.position = spot + Vector3(0, 1.0, 0)
 			add_child(gem); game_nodes.append(gem)
 		elif kind == 2:                    # stack of gold coins
@@ -6254,20 +6257,14 @@ func _plank_box(pos: Vector3, size: Vector3, alpha: float = 1.0) -> void:
 
 func _build_shop_cabin(origin: Vector3) -> void:
 	var f: float = ARENA_POS.y + 2.0
-	# open-fronted cabin diorama: solid back, see-through sides, no front wall/ceiling
-	# (so the chase camera never clips into a solid wall)
-	_plank_box(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2))
-	_plank_box(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.35)
-	_plank_box(Vector3(origin.x + 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.35)
+	# A single authored open-front diorama replaces the repeated all-surface wood
+	# sheet. The broad floor/wall panels retain the cozy cabin role while giving
+	# the shop a distinct shell emblem, canopy, palette, and readable counter.
+	_art35_prop("res://assets/art35/arena/shop_interior.glb", Vector3(origin.x, f - 0.5, origin.z), 1.0)
 	# collision audit #4: the cabin walls were swim-through
 	_wall_solid(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2), 0.5)
 	_wall_solid(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
 	_wall_solid(Vector3(origin.x + 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
-	# slim top beam instead of a full ceiling
-	_plank_box(Vector3(origin.x, f + 18.0, origin.z - 13.0), Vector3(34, 1.2, 4), 0.5)
-	# counter with a cloth
-	var counter := _course_box(Vector3(origin.x, f + 1.3, origin.z - 5.0), Vector3(12.0, 2.6, 4.6), Color(0.35, 0.55, 0.3))
-	counter.material_override.roughness = 1.0
 	# warm hanging lanterns
 	for lx in [-7.0, 7.0]:
 		var lamp := OmniLight3D.new()
@@ -6303,13 +6300,6 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		add_child(bunch)
 		game_nodes.append(bunch)
 		(g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
-	# barrels in the corners
-	var b1 := _spawn("barrel", Vector3(origin.x - 13.0, f, origin.z + 12.0), 3.2, 0.4)
-	if b1 != null:
-		game_nodes.append(b1)
-	var b2 := _spawn("barrel", Vector3(origin.x + 13.0, f, origin.z - 9.0), 3.2, 1.1)
-	if b2 != null:
-		game_nodes.append(b2)
 	# Kareem is the living shopkeeper, a billboard sprite sitting beside his goods
 	var kareem := Sprite3D.new()
 	kareem.texture = load("res://assets/characters/friends/kareem.png")
@@ -6631,6 +6621,21 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		var rt: Vector3 = smp[1]
 		_slide_plank(a + rt * (SLIDE_WIDTH * 0.5), b + rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0)
 		_slide_plank(a - rt * (SLIDE_WIDTH * 0.5), b - rt * (SLIDE_WIDTH * 0.5), 1.4, rail, 4.0)
+		if i % 4 == 1:
+			var bank_mid: Vector3 = (a + b) * 0.5
+			var bank_fwd: Vector3 = (b - a).normalized()
+			var bank_yaw: float = atan2(-bank_fwd.z, bank_fwd.x)
+			for bank_side in [-1.0, 1.0]:
+				_art35_prop("res://assets/art35/arena/slide_snowbank_%d.glb" % ((int(i / 4) + int(bank_side > 0.0)) % 2), bank_mid + rt * bank_side * (SLIDE_WIDTH * 0.5 + 2.8), 1.20, bank_yaw)
+		if i % 4 == 3:
+			var tree_side: float = -1.0 if int(i / 4) % 2 == 0 else 1.0
+			var tree_pos: Vector3 = (a + b) * 0.5 + rt * tree_side * (SLIDE_WIDTH * 0.5 + 7.2)
+			_art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % (int(i / 4) % 3), tree_pos, 1.05, randf() * TAU)
+	# A large physical star arch makes the bottom of the run readable from the
+	# first bend and replaces the tiny generic finish bar.
+	var finish_dir: Vector3 = ((path[path.size() - 1] as Vector3) - (path[path.size() - 2] as Vector3)).normalized()
+	var finish_yaw: float = atan2(finish_dir.x, finish_dir.z)
+	_art35_prop("res://assets/art35/arena/slide_finish_arch.glb", path[path.size() - 1] as Vector3, 1.70, finish_yaw)
 	# ---- penguins cheering on the banks ----
 	for k in range(6):
 		var tt: float = 0.12 + 0.72 * float(k) / 5.0
@@ -6692,12 +6697,6 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 		ball.material_override = _ice_mat(Color(1.0, 0.85, 0.4), 0.5) if theme == "rainbow" else _ice_mat(Color(0.88, 0.93, 1.0), 0.05, "snow")
 		add_child(ball); game_nodes.append(ball)
 		g["ball"] = ball
-	# ---- finish banner at the bottom ----
-	var fin := _slide_sample(total)
-	var banner := _course_box(fin[0] + Vector3(0, 9.0, 0), Vector3(SLIDE_WIDTH + 6.0, 1.6, 1.0), Color(1.0, 0.85, 0.35))
-	banner.material_override = _ice_mat(Color(1.0, 0.85, 0.35), 0.6)
-	for sx in [-1.0, 1.0]:
-		_course_box(fin[0] + Vector3(sx * (SLIDE_WIDTH * 0.5 + 3.0), 4.5, 0), Vector3(1.2, 9.0, 1.2), Color(1.0, 0.8, 0.4))
 	# ---- place Roshan at the top, facing down the chute ----
 	var top := _slide_sample(0.0)
 	player.position = top[0] + Vector3(0, SLIDE_RIDE, 0)
@@ -7012,47 +7011,32 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	# mossy banks flanking the water so the track edges read from above
 	for side2 in [-1.0, 1.0]:
 		var bank := MeshInstance3D.new()
-		var bkm := BoxMesh.new(); bkm.size = Vector3(14.0, 1.4, FS_LEN + 160.0)
+		var bkm := BoxMesh.new(); bkm.size = Vector3(18.0, 1.4, FS_LEN + 160.0)
 		bank.mesh = bkm
-		bank.material_override = _soft_mat(Color(0.25, 0.55, 0.35), 0.15)
-		bank.position = origin + Vector3(side2 * 50.0, 0.2, FS_LEN * 0.5)
+		bank.material_override = _soft_mat(Color(0.18, 0.42, 0.34), 0.08)
+		bank.position = origin + Vector3(side2 * 49.0, 0.2, FS_LEN * 0.5)
 		add_child(bank); game_nodes.append(bank)
-	# ---- lily pads along the track + glowing reeds on the banks ----
-	for i in range(26):
+		for bank_i in range(9):
+			var bank_z: float = 18.0 + float(bank_i) * ((FS_LEN + 55.0) / 8.0)
+			var bank_cluster: Node3D = _art35_prop("res://assets/art35/arena/fairy_bank_%d.glb" % ((bank_i + int(side2 > 0.0)) % 2), origin + Vector3(side2 * 43.2, 0.72, bank_z), 1.32, PI * 0.5)
+			if bank_cluster != null and side2 < 0.0:
+				bank_cluster.rotation.y += PI
+	# Multi-part lily clusters and real blade silhouettes replace the flat
+	# cylinders and neon capsules in the original top-down pass.
+	for i in range(14):
 		var z: float = 15.0 + randf() * (FS_LEN + 40.0)
 		var side: float = -1.0 if i % 2 == 0 else 1.0
-		var pad := MeshInstance3D.new()
-		var cm := CylinderMesh.new(); cm.top_radius = 1.6 + randf() * 1.4; cm.bottom_radius = cm.top_radius; cm.height = 0.25
-		pad.mesh = cm
-		pad.material_override = _soft_mat(Color(0.3, 0.7, 0.4), 0.2)
-		pad.position = origin + Vector3(side * (10.0 + randf() * 28.0), 0.7, z)
-		add_child(pad); game_nodes.append(pad)
-		if i % 3 == 0:   # a glowing flower on some pads
-			var fl := MeshInstance3D.new()
-			var fs := SphereMesh.new(); fs.radius = 0.7; fs.height = 1.4
-			fl.mesh = fs
-			fl.material_override = _soft_mat(Color(1.0, 0.6, 0.85), 1.4)
-			fl.position = pad.position + Vector3(0, 0.7, 0)
-			add_child(fl); game_nodes.append(fl)
-	for k in range(24):
-		var rz: float = 10.0 + float(k) / 24.0 * (FS_LEN + 40.0)
+		_art35_prop("res://assets/art35/arena/fairy_lily_cluster.glb", origin + Vector3(side * (10.0 + randf() * 28.0), 0.7, z), 1.1 + randf() * 0.45, randf() * TAU)
+	for k in range(14):
+		var rz: float = 10.0 + float(k) / 14.0 * (FS_LEN + 40.0)
 		var rside: float = -1.0 if k % 2 == 0 else 1.0
-		var reed := MeshInstance3D.new()
-		var rm := CapsuleMesh.new(); rm.radius = 0.5; rm.height = 3.2
-		reed.mesh = rm
-		reed.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.4)
-		reed.position = origin + Vector3(rside * 44.0, 1.8, rz)
-		add_child(reed); game_nodes.append(reed)
-	# ---- flat fairy rings on the water to fly over (homage to the old gates) ----
+		_art35_prop("res://assets/art35/reef/seagrass_%d.glb" % (k % 2), origin + Vector3(rside * 44.0, 0.65, rz), 2.1, randf() * TAU)
+	# Flowered arches provide the same fly-through targets with a readable
+	# destination silhouette instead of six anonymous glowing toruses.
 	for k in range(6):
 		var z2: float = 40.0 + float(k) * 40.0
 		var rx: float = randf() * 16.0 - 8.0
-		var ring := MeshInstance3D.new()
-		var tor := TorusMesh.new(); tor.inner_radius = 3.4; tor.outer_radius = 4.2; tor.rings = 24; tor.ring_segments = 8
-		ring.mesh = tor
-		ring.material_override = _soft_mat(Color.from_hsv(fmod(float(k) * 0.16, 1.0), 0.5, 1.0), 1.6)
-		ring.position = origin + Vector3(rx, 0.8, z2)
-		add_child(ring); game_nodes.append(ring)
+		var ring: Node3D = _art35_prop("res://assets/art35/arena/fairy_flower_gate.glb", origin + Vector3(rx, 0.8, z2), 1.05)
 		(g["rings"] as Array).append({"node": ring, "x": rx, "z": z2, "done": false})
 	# ---- drifting fireflies, low over the water (below the flight plane) ----
 	for i in range(24):
@@ -7067,16 +7051,8 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	for k in range(FS_NBUGS):
 		var z3: float = 70.0 + float(k) / float(FS_NBUGS) * (FS_LEN - 100.0) + randf() * 12.0
 		var bx: float = (randf() * 2.0 - 1.0) * (FS_BX - 2.0)
-		var bug := MeshInstance3D.new()
-		var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
-		bug.mesh = sm
-		var bmat := StandardMaterial3D.new()
-		bmat.albedo_color = Color(0.22, 0.05, 0.3)
-		bmat.emission_enabled = true; bmat.emission = Color(0.85, 0.2, 0.55); bmat.emission_energy_multiplier = 1.5
-		bug.material_override = bmat
 		var bpos: Vector3 = origin + Vector3(bx, FS_PLANE, z3)
-		bug.position = bpos
-		add_child(bug); game_nodes.append(bug)
+		var bug: Node3D = _art35_prop("res://assets/art35/arena/fairy_shadow_beetle.glb", bpos, 1.20, randf() * TAU)
 		(g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
 				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
 	# ---- scary-but-toylike shadow monsters lurking along the track ----
@@ -7111,22 +7087,10 @@ func _fairy_build_hazards(origin: Vector3) -> void:
 	# shadow jellyfish that drift loops around their spot
 	for k in range(4):
 		var jz: float = 55.0 + float(k) * ((FS_LEN - 110.0) / 3.0)
-		var jelly := Node3D.new()
-		var dome := MeshInstance3D.new()
-		var dm := SphereMesh.new(); dm.radius = 2.4; dm.height = 3.4
-		dome.mesh = dm; dome.material_override = shadow
-		jelly.add_child(dome)
-		for t in range(5):
-			var ta: float = float(t) / 5.0 * TAU
-			var tent := MeshInstance3D.new()
-			var tm := CapsuleMesh.new(); tm.radius = 0.28; tm.height = 2.6
-			tent.mesh = tm; tent.material_override = _soft_mat(Color(0.45, 0.2, 0.7), 0.9)
-			tent.position = Vector3(cos(ta) * 1.6, -2.0, sin(ta) * 1.6)
-			jelly.add_child(tent)
-		_fairy_eye(jelly, Vector3(-0.8, 1.6, -0.5))
-		_fairy_eye(jelly, Vector3(0.8, 1.6, -0.5))
-		jelly.position = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 4.0), FS_PLANE, jz)
-		add_child(jelly); game_nodes.append(jelly)
+		var jelly_pos: Vector3 = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 4.0), FS_PLANE, jz)
+		var jelly: Node3D = _art35_prop("res://assets/art35/arena/fairy_shadow_jellyfish.glb", jelly_pos, 1.32, randf() * TAU)
+		if jelly == null:
+			continue
 		(g["hazards"] as Array).append({"node": jelly, "kind": "jelly", "base": jelly.position, "ph": randf() * TAU})
 	# spiky shadow urchins that spin in place
 	for k in range(3):
@@ -7154,16 +7118,10 @@ func _fairy_build_hazards(origin: Vector3) -> void:
 	# shadow eels sweeping side to side across the lane — time the gap!
 	for k in range(2):
 		var ez: float = FS_LEN * (0.4 if k == 0 else 0.75)
-		var eel := Node3D.new()
-		var body := MeshInstance3D.new()
-		var bm2 := CapsuleMesh.new(); bm2.radius = 1.1; bm2.height = 13.0
-		body.mesh = bm2; body.material_override = shadow
-		body.rotation = Vector3(0, 0, PI / 2.0)   # lie the capsule across the lane
-		eel.add_child(body)
-		_fairy_eye(eel, Vector3(5.6, 1.2, -0.6))
-		_fairy_eye(eel, Vector3(5.6, 1.2, 0.6))
-		eel.position = origin + Vector3(0, FS_PLANE, ez)
-		add_child(eel); game_nodes.append(eel)
+		var eel_pos: Vector3 = origin + Vector3(0, FS_PLANE, ez)
+		var eel: Node3D = _art35_prop("res://assets/art35/arena/fairy_shadow_eel.glb", eel_pos, 1.25, PI * 0.5)
+		if eel == null:
+			continue
 		(g["hazards"] as Array).append({"node": eel, "kind": "eel", "base": eel.position, "ph": float(k) * PI})
 
 func _fairy_spawn_orb(from: Vector3, dirv: Vector3) -> void:
@@ -7954,9 +7912,16 @@ func _build_meadows() -> void:
 	# seagrass meadow — HER painted blades (the gen2 seagrass/kelp sprites on
 	# the crossed sway quads; the old procedural needles read as teal spikes,
 	# owner 2026-07-12). Blade proportions match each sprite's aspect.
-	_scatter_field(850, _cross_blade(3.0, 2.5), _sway_sprite_mat("res://assets/props/gen2/seagrass.png"), 0.0, false, [], false, "mixed")
-	# tall kelp ribbons
-	_scatter_field(260, _cross_blade(1.7, 4.5), _sway_sprite_mat("res://assets/props/gen2/kelp.png"), 0.0, false, [], false, "kelp")
+	# Two rounded modeled silhouettes per family replace 1,110 crossed alpha
+	# cards. Lower density keeps the reef lush without repetitive walls or
+	# transparent overdraw on the target tablet.
+	for variant in range(2):
+		var grass_mesh: Mesh = _art35_static_mesh("res://assets/art35/reef/seagrass_%d.glb" % variant)
+		if grass_mesh != null:
+			_scatter_field(120, grass_mesh, null, 0.0, false, [], false, "mixed")
+		var kelp_mesh: Mesh = _art35_static_mesh("res://assets/art35/reef/kelp_%d.glb" % variant)
+		if kelp_mesh != null:
+			_scatter_field(42, kelp_mesh, null, 0.0, false, [], false, "kelp")
 	# anemones + urchins stay procedural for now (no painted source art yet —
 	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
 	var anemone_mesh := _gen2_static_mesh("anemone_story")
@@ -8369,19 +8334,22 @@ func _build_megafauna() -> void:
 var god_rays: Array = []
 func _build_god_rays() -> void:
 	var rsh := Shader.new()
-	rsh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded, blend_add, depth_draw_never;\nuniform vec4 tint : source_color;\nvoid fragment(){\n\tfloat across = 1.0 - abs(UV.x - 0.5) * 2.0;\n\tfloat down = smoothstep(0.0, 0.35, UV.y) * (1.0 - UV.y * 0.5);\n\tALBEDO = tint.rgb;\n\tALPHA = tint.a * pow(across, 1.8) * down;\n}"
-	for i in range(18):
-		var a: float = float(i) / 18.0 * TAU + randf() * 0.5
-		var r: float = 30.0 + randf() * (WORLD_R * 0.85)
+	rsh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded, blend_mix, depth_draw_never, shadows_disabled;\nuniform vec4 tint : source_color;\nvoid fragment(){\n\tfloat across = 1.0 - abs(UV.x - 0.5) * 2.0;\n\tfloat down = smoothstep(0.0, 0.28, UV.y) * smoothstep(1.0, 0.52, UV.y);\n\tALBEDO = tint.rgb;\n\tALPHA = tint.a * pow(max(across, 0.0), 2.4) * down;\n}"
+	# Seven faint distant shafts are enough to imply filtered surface light.
+	# The former 18 full-height quads overlapped into opaque blue walls on Mobile.
+	var ray_count := 7
+	for i in range(ray_count):
+		var a: float = float(i) / float(ray_count) * TAU + randf() * 0.35
+		var r: float = 72.0 + randf() * (WORLD_R * 0.58)
 		var quad := QuadMesh.new()
-		quad.size = Vector2(7.0 + randf() * 10.0, WATER_TOP + 30.0)
+		quad.size = Vector2(4.0 + randf() * 4.0, WATER_TOP + 16.0)
 		var m := ShaderMaterial.new()
 		m.shader = rsh
-		m.set_shader_parameter("tint", Color(0.55, 0.88, 1.0, 0.06 + randf() * 0.05))
+		m.set_shader_parameter("tint", Color(0.62, 0.90, 1.0, 0.018 + randf() * 0.012))
 		var mi := MeshInstance3D.new()
 		mi.mesh = quad
 		mi.material_override = m
-		mi.position = Vector3(cos(a) * r, (WATER_TOP + 30.0) * 0.45, sin(a) * r)
+		mi.position = Vector3(cos(a) * r, (WATER_TOP + 16.0) * 0.45, sin(a) * r)
 		mi.rotation_degrees = Vector3(0, randf() * 180.0, 6.0 + randf() * 8.0)
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(mi)
@@ -8651,9 +8619,11 @@ func _enter_arena(kind: String) -> void:
 		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
-		arena_env.background_color = Color(0.38, 0.68, 0.86)
-		arena_env.ambient_light_color = Color(0.84, 0.92, 0.82)
-		arena_env.ambient_light_energy = 0.68
+		arena_env.background_color = Color(0.30, 0.58, 0.78)
+		arena_env.ambient_light_color = Color(0.76, 0.86, 0.78)
+		arena_env.ambient_light_energy = 0.52
+		arena_env.glow_intensity = 0.54
+		arena_env.glow_bloom = 0.04
 		_arena_floor(Color(0.56, 0.70, 0.50), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
 		grade_profile = "warm_pastel"
@@ -8664,14 +8634,16 @@ func _enter_arena(kind: String) -> void:
 	elif kind == "shop":         # warm wooden ship cabin
 		arena_env.background_color = Color(0.06, 0.045, 0.025)
 		arena_env.ambient_light_color = Color(1.0, 0.85, 0.6)
-		arena_env.ambient_light_energy = 0.9
-		arena_env.glow_intensity = 0.8
+		arena_env.ambient_light_energy = 0.52
+		arena_env.glow_intensity = 0.46
+		arena_env.glow_bloom = 0.08
 		_arena_floor(Color(0.9, 0.8, 0.65), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "treasure":     # deep dark cavern
-		arena_env.background_color = Color(0.012, 0.035, 0.06)
-		arena_env.ambient_light_color = Color(0.35, 0.55, 0.75)
-		arena_env.ambient_light_energy = 0.55
-		arena_env.glow_intensity = 1.15
+		arena_env.background_color = Color(0.025, 0.075, 0.12)
+		arena_env.ambient_light_color = Color(0.42, 0.62, 0.82)
+		arena_env.ambient_light_energy = 0.64
+		arena_env.glow_intensity = 0.72
+		arena_env.glow_bloom = 0.12
 		_arena_floor(Color(0.55, 0.54, 0.6), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.08)
 	elif kind == "slide":        # bright icy sky — the chute builds its own geometry (no flat floor)
 		grade_profile = "bright_pastel"
@@ -8686,15 +8658,15 @@ func _enter_arena(kind: String) -> void:
 	elif kind == "fairyshoot":   # dreamy twilight fairy pond — the top-down pond builds its own geometry
 		arena_env.background_color = Color(0.16, 0.10, 0.30)
 		arena_env.ambient_light_color = Color(0.7, 0.65, 1.0)
-		arena_env.ambient_light_energy = 0.9
-		arena_env.glow_intensity = 1.2
-		arena_env.glow_bloom = 0.5   # extra-dreamy fairy pond
+		arena_env.ambient_light_energy = 0.58
+		arena_env.glow_intensity = 0.52
+		arena_env.glow_bloom = 0.08
 	elif kind == "melody":      # Gabby's enclosed underwater rainbow theater
 		arena_env.background_color = Color(0.035, 0.09, 0.16)
 		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
-		arena_env.ambient_light_energy = 0.90
-		arena_env.glow_intensity = 0.92
-		arena_env.glow_bloom = 0.22
+		arena_env.ambient_light_energy = 0.68
+		arena_env.glow_intensity = 0.72
+		arena_env.glow_bloom = 0.12
 		_arena_floor(Color(0.22, 0.42, 0.50), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	else:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)

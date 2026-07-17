@@ -21,7 +21,13 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	snm.size = Vector3(70.0, 1.0, 170.0)
 	snow.mesh = snm
 	var snmat := StandardMaterial3D.new()
-	snmat.albedo_color = Color(0.84, 0.90, 0.97)
+	snmat.albedo_texture = load("res://assets/terrain/up_snow_col.jpg")
+	snmat.normal_enabled = true
+	snmat.normal_texture = load("res://assets/terrain/up_snow_nrm.jpg")
+	snmat.uv1_triplanar = true
+	snmat.uv1_world_triplanar = true
+	snmat.uv1_scale = Vector3(0.10, 0.10, 0.10)
+	snmat.albedo_color = Color(0.86, 0.92, 0.98)
 	snmat.roughness = 0.85
 	snow.material_override = snmat
 	snow.position = origin + Vector3(-27.0, 0.0, 0.0)
@@ -30,17 +36,17 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	# the VAST icy lake — stretches the whole length on the right, out to the horizon
 	var lake := MeshInstance3D.new()
 	var lb := BoxMesh.new()
-	lb.size = Vector3(220.0, 0.6, 320.0)
+	lb.size = Vector3(150.0, 0.6, 220.0)
 	lake.mesh = lb
 	var lm := StandardMaterial3D.new()
-	lm.albedo_color = Color(0.45, 0.66, 0.82)
-	lm.metallic = 0.85
-	lm.roughness = 0.06
+	lm.albedo_color = Color(0.38, 0.70, 0.80)
+	lm.metallic = 0.28
+	lm.roughness = 0.24
 	lm.emission_enabled = true
-	lm.emission = Color(0.3, 0.55, 0.72)
-	lm.emission_energy_multiplier = 0.2
+	lm.emission = Color(0.24, 0.50, 0.62)
+	lm.emission_energy_multiplier = 0.08
 	lake.material_override = lm
-	lake.position = origin + Vector3(118.0, 0.3, 0.0)
+	lake.position = origin + Vector3(82.0, 0.3, 0.0)
 	m.add_child(lake)
 	m.game_nodes.append(lake)
 	# snowdrift shoreline ridge along the waterline (the whole length)
@@ -73,29 +79,20 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 			hill.scale.y = 0.45
 			m.add_child(hill)
 			m.game_nodes.append(hill)
-		# snowy pine (green cone capped with snow)
-		var pine := MeshInstance3D.new()
-		var pc := CylinderMesh.new()
-		pc.top_radius = 0.0
-		pc.bottom_radius = 3.0 + randf() * 1.5
-		pc.height = 9.0 + randf() * 4.0
-		pine.mesh = pc
-		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(0.25, 0.42, 0.32)
-		pine.material_override = pmat
-		pine.position = origin + Vector3(tx, pc.height * 0.5, tzz)
-		m.add_child(pine)
-		m.game_nodes.append(pine)
-		var cap := MeshInstance3D.new()
-		var cc := CylinderMesh.new()
-		cc.top_radius = 0.0
-		cc.bottom_radius = pc.bottom_radius * 0.7
-		cc.height = pc.height * 0.45
-		cap.mesh = cc
-		cap.material_override = snmat
-		cap.position = pine.position + Vector3(0, pc.height * 0.32, 0)
-		m.add_child(cap)
-		m.game_nodes.append(cap)
+		# Rounded layered crowns and separate snow facets replace the old paired
+		# green/white cones, preserving the same forest placement and density.
+		m._art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % (tz % 3), origin + Vector3(tx, 0.5, tzz), 1.05 + randf() * 0.28, randf() * TAU)
+	# A smaller foreground row brings the authored forest into the playable view
+	# without blocking the throw lane around Roshan and Chuck.
+	for near_i in range(10):
+		var near_z: float = -70.0 + float(near_i) * 15.5
+		var near_x: float = -38.0 + float(near_i % 3) * 7.0
+		m._art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % ((near_i + 1) % 3), origin + Vector3(near_x, 0.5, near_z), 0.82 + float(near_i % 2) * 0.10, randf() * TAU)
+	# Snow-capped shoreline clusters break the ruler-straight water edge without
+	# blocking the throw lane or adding alpha-card overdraw.
+	for shore_i in range(6):
+		var shore_z: float = -68.0 + float(shore_i) * 27.0
+		m._art35_prop("res://assets/art35/arena/winter_shore_%d.glb" % (shore_i % 2), origin + Vector3(5.8, 0.65, shore_z), 1.45, PI * 0.5)
 	# gently falling snow over the scene
 	var snowfall := GPUParticles3D.new()
 	snowfall.amount = 120

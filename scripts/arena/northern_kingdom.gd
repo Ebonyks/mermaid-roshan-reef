@@ -248,14 +248,24 @@ func _build_mountain_pass(o: Vector3) -> void:
 
 	var pass_y: float = _north_local(PASS_LOCAL.x, PASS_LOCAL.y)
 	var stone: Color = Color(0.50, 0.55, 0.66)
+	var gate_scene: PackedScene = load("res://assets/art35/northern/northern_gate.glb")
+	var authored_gate: Node3D = null
+	if gate_scene != null:
+		authored_gate = gate_scene.instantiate() as Node3D
+		m._fit_prop(authored_gate, 17.8)
+		authored_gate.position = o + Vector3(0.0, pass_y, PASS_LOCAL.y)
+		m.add_child(authored_gate)
+		m.game_nodes.append(authored_gate)
 	for side: float in [-1.0, 1.0]:
 		var pillar_pos: Vector3 = o + Vector3(side * 7.2, pass_y + 6.0, PASS_LOCAL.y)
-		var pillar: MeshInstance3D = m._l2_box(pillar_pos, Vector3(3.4, 12.0, 4.0), stone)
-		pillar.material_override = m._up_mat("cliff", 0.08, stone)
+		if authored_gate == null:
+			var pillar: MeshInstance3D = m._l2_box(pillar_pos, Vector3(3.4, 12.0, 4.0), stone)
+			pillar.material_override = m._up_mat("cliff", 0.08, stone)
 		m._wall_solid(pillar_pos, Vector3(3.4, 12.0, 4.0), 0.6)
-	var lintel_pos: Vector3 = o + Vector3(0.0, pass_y + 12.0, PASS_LOCAL.y)
-	var lintel: MeshInstance3D = m._l2_box(lintel_pos, Vector3(17.8, 3.0, 4.0), stone)
-	lintel.material_override = m._up_mat("cliff", 0.08, stone)
+	if authored_gate == null:
+		var lintel_pos: Vector3 = o + Vector3(0.0, pass_y + 12.0, PASS_LOCAL.y)
+		var lintel: MeshInstance3D = m._l2_box(lintel_pos, Vector3(17.8, 3.0, 4.0), stone)
+		lintel.material_override = m._up_mat("cliff", 0.08, stone)
 
 	var veil: MeshInstance3D = m._l2_box(o + Vector3(0.0, pass_y + 6.0, PASS_LOCAL.y + 0.3),
 		Vector3(10.5, 9.5, 0.25), Color(0.40, 0.88, 1.0), 1.5)
@@ -279,6 +289,17 @@ func _build_mountain_pass(o: Vector3) -> void:
 
 func _mountain_peak(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
 	var base_y: float = _north_local(lp.x, lp.y) - 7.0
+	var mountain_scene: PackedScene = load("res://assets/art35/northern/northern_mountain.glb")
+	if mountain_scene != null:
+		var authored_mountain: Node3D = mountain_scene.instantiate() as Node3D
+		m._fit_prop(authored_mountain, radius * 2.0)
+		authored_mountain.position = o + Vector3(lp.x, base_y, lp.y)
+		authored_mountain.rotation.y = lp.x * 0.013
+		m.add_child(authored_mountain)
+		m.game_nodes.append(authored_mountain)
+		m._set_vis_range(authored_mountain, 280.0)
+		m._cyl_solid(o + Vector3(lp.x, base_y + height * 0.5, lp.y), radius * 0.42, height * 0.5, 0.6)
+		return
 	var peak: MeshInstance3D = MeshInstance3D.new()
 	var mesh: CylinderMesh = CylinderMesh.new()
 	mesh.top_radius = radius * 0.06
@@ -347,8 +368,9 @@ func _build_town(o: Vector3) -> void:
 		[Vector2(-82, -43), Color(0.55, 0.67, 0.88), Color(0.31, 0.26, 0.45)],
 		[Vector2(82, -48), Color(0.91, 0.60, 0.38), Color(0.25, 0.34, 0.40)],
 	]
-	for row: Array in houses:
-		_nordic_house(o, row[0], row[1], row[2])
+	for house_i in range(houses.size()):
+		var row: Array = houses[house_i]
+		_nordic_house(o, row[0], row[1], row[2], house_i % 3)
 	m.g["north_house_count"] = houses.size()
 
 	# Low, open docks and pennants make the settlement read as a fjord town.
@@ -359,10 +381,21 @@ func _build_town(o: Vector3) -> void:
 			m._set_vis_range(flag, 170.0)
 
 
-func _nordic_house(o: Vector3, lp: Vector2, body_col: Color, roof_col: Color) -> void:
+func _nordic_house(o: Vector3, lp: Vector2, body_col: Color, roof_col: Color, variant: int) -> void:
 	var gy: float = _north_local(lp.x, lp.y)
 	var center: Vector3 = o + Vector3(lp.x, gy, lp.y)
 	var body_pos: Vector3 = center + Vector3(0.0, 6.0, 0.0)
+	var house_scene: PackedScene = load("res://assets/art35/northern/northern_house_%d.glb" % variant)
+	if house_scene != null:
+		var authored_house: Node3D = house_scene.instantiate() as Node3D
+		m._fit_prop(authored_house, 18.0)
+		authored_house.position = center
+		authored_house.rotation.y = PI * 0.5 if lp.x > 0.0 else -PI * 0.5
+		m.add_child(authored_house)
+		m.game_nodes.append(authored_house)
+		m._set_vis_range(authored_house, 190.0)
+		m._wall_solid(body_pos, Vector3(18.0, 12.0, 15.0), 0.7)
+		return
 	var body: MeshInstance3D = m._l2_box(body_pos, Vector3(18.0, 12.0, 15.0), body_col)
 	body.material_override = m._castle_mat("wood", 0.18, body_col)
 	m._wall_solid(body_pos, Vector3(18.0, 12.0, 15.0), 0.7)
@@ -395,7 +428,6 @@ func _build_center_castle(o: Vector3) -> void:
 	var gy: float = _north_local(cx, cz)
 	var c: Vector3 = o + Vector3(cx, gy, cz)
 	var stone: Color = Color(0.70, 0.72, 0.84)
-	var roof_col: Color = Color(0.29, 0.35, 0.55)
 
 	# Square curtain wall; the broad south gate stays open and easy to swim through.
 	_castle_wall(c + Vector3(0, 7, -37), Vector3(68, 14, 4), stone)
@@ -416,33 +448,25 @@ func _build_center_castle(o: Vector3) -> void:
 		m._cyl_solid(tower_base + Vector3(0, 9, 0), 6.6, 9.0, 0.6)
 		m._kit("castle/flag", tower_base + Vector3(0, 19.0, 0), 2.5)
 
-	# The keep sits in the middle-back of the open courtyard. Its glowing door
-	# and crown are a destination, but there is no lock, score, or fail state.
-	var keep_pos: Vector3 = c + Vector3(0, 10.0, -13.0)
-	var keep: MeshInstance3D = m._l2_box(keep_pos, Vector3(30, 20, 24), Color(0.77, 0.78, 0.89))
-	keep.material_override = m._castle_mat("wall", 0.065, Color(0.77, 0.78, 0.89))
-	m._wall_solid(keep_pos, Vector3(30, 20, 24), 0.8)
-	for side: float in [-1.0, 1.0]:
-		var roof: MeshInstance3D = m._l2_box(c + Vector3(side * 7.2, 22.0, -13.0),
-			Vector3(18.0, 1.2, 27.0), roof_col)
-		roof.rotation.z = side * 0.58
-		roof.material_override = m._castle_mat("roof", 0.11, roof_col)
-	var door: MeshInstance3D = m._l2_box(c + Vector3(0, 5.0, 0.0),
-		Vector3(8.0, 10.0, 0.5), Color(0.48, 0.30, 0.20), 0.45)
-	door.material_override = m._castle_mat("door", 0.12, Color(0.82, 0.68, 0.48))
-	door.material_override.uv1_world_triplanar = false
-
-	var crown: Label3D = Label3D.new()
-	crown.text = "\u265B"
-	crown.font_size = 290
-	crown.pixel_size = 0.028
-	crown.outline_size = 32
-	crown.modulate = Color(1.0, 0.84, 0.36)
-	crown.outline_modulate = Color(0.24, 0.22, 0.48)
-	crown.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	crown.position = c + Vector3(0, 29.0, -13.0)
-	m.add_child(crown)
-	m.game_nodes.append(crown)
+	# The former keep was an open box with two tilted slabs for a roof. Keep its
+	# broad collision footprint, but present one authored, closed toy-castle
+	# silhouette with a framed door, snow caps, windows and readable towers.
+	var keep_base: Vector3 = c + Vector3(0, 0.0, -13.0)
+	var castle_scene: PackedScene = load("res://assets/art35/northern/northern_castle.glb")
+	var authored_castle: Node3D = null
+	if castle_scene != null:
+		authored_castle = castle_scene.instantiate() as Node3D
+	if authored_castle != null:
+		m._fit_prop(authored_castle, 52.0)
+		authored_castle.position = keep_base
+		authored_castle.rotation.y = PI
+		m.add_child(authored_castle)
+		m.game_nodes.append(authored_castle)
+		m._set_vis_range(authored_castle, 260.0)
+	else:
+		var keep: MeshInstance3D = m._l2_box(keep_base + Vector3(0, 10.0, 0), Vector3(30, 20, 24), Color(0.77, 0.78, 0.89))
+		keep.material_override = m._castle_mat("wall", 0.065, Color(0.77, 0.78, 0.89))
+	m._wall_solid(keep_base + Vector3(0, 10.0, 0), Vector3(30, 20, 24), 0.8)
 
 	var fountain: Node3D = m._kit("park/fountain", c + Vector3(0, 0.15, 18.0), 12.0)
 	if fountain != null:

@@ -361,7 +361,7 @@ func build(o: Vector3) -> void:
 	# The Crown Star is authored landmark geometry rather than a font glyph.
 	# The audited chandelier pair above remains the hall's only overhead lights.
 	var crown: Node3D = LandmarkArtFactory.create_star(5.2, Color(1.0, 0.76, 0.24), true)
-	crown.position = o + Vector3(0, 24.0, -28.0)
+	crown.position = o + Vector3(-8.0, 24.0, -27.0)
 	crown.set_meta("base_y", crown.position.y)
 	m.add_child(crown)
 	m.game_nodes.append(crown)
@@ -382,7 +382,7 @@ func build(o: Vector3) -> void:
 		guide.outline_size = 18
 		guide.modulate = Color(1.0, 0.80, 0.28, 0.82)
 		guide.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		guide.position = o + Vector3(0, 5.0 + float(guide_i) * 4.6, -11.0 - float(guide_i) * 5.2)
+		guide.position = o + Vector3(-2.0 - float(guide_i) * 2.0, 5.0 + float(guide_i) * 4.6, -11.0 - float(guide_i) * 5.2)
 		guide.visible = not m.level2_done_once
 		m.add_child(guide)
 		m.game_nodes.append(guide)
@@ -490,14 +490,17 @@ func build_expansion(o: Vector3) -> void:
 		win2.material_override.emission_energy_multiplier = 1.2
 	# STAR CHAMBER (left, now ~52 wide): her observatory
 	m._l2_box(o + Vector3(-26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.2, 0.2, 0.42))   # midnight rug
-	var scope = m._l2_box(o + Vector3(-24, 36.2, -55), Vector3(1.6, 1.6, 7.0), gold, 0.25)
-	scope.rotation_degrees = Vector3(-30, 20, 0)
-	m._l2_box(o + Vector3(-24, 34.2, -55), Vector3(2.6, 1.4, 2.6), Color(0.5, 0.4, 0.3))
-	for st in range(14):
-		var star: Node3D = LandmarkArtFactory.create_star(0.7 + float(st % 3) * 0.18, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][st % 3], false, true)
-		star.position = o + Vector3(-30.0 + float(st % 7) * 4.3, 42.0 + float(st % 4) * 1.6, -60.5 + float(st / 7) * 2.0)
-		m.add_child(star)
-		m.game_nodes.append(star)
+	# A complete authored orrery replaces the box telescope and glyph wallpaper.
+	# It carries a thick chamber-star silhouette, three independent orbit rings,
+	# planets, and a low child-readable pedestal in one Mobile-safe landmark.
+	_static_prop("res://assets/art35/landmarks/star_observatory.glb", o + Vector3(-25.0, 34.0, -50.0), {}, 0.0, true)
+	for st in range(6):
+		var star_prop: Node3D = _static_prop(
+			"res://assets/art35/landmarks/chamber_star.glb",
+			o + Vector3(-40.0 + float(st) * 5.8, 41.0 + float(st % 2) * 2.5, -63.0),
+			{}, 0.0, true)
+		if star_prop != null:
+			star_prop.scale = Vector3.ONE * (1.15 + float(st % 3) * 0.18)
 	# CLOUD LOUNGE (right): pillow pile + her memory portraits
 	for ci in range(6):
 		var cc := Color(1.0, 0.75, 0.85) if ci % 2 == 0 else Color(0.75, 0.85, 1.0)
@@ -507,23 +510,20 @@ func build_expansion(o: Vector3) -> void:
 	m._l2_box(o + Vector3(26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.85, 0.7, 0.9))    # lounge rug (fills the wider chamber)
 	# gallery lamps (back block + one down each wing)
 	for lx in [-14.0, 14.0]:
-		m._l2_box(o + Vector3(lx, 46.0, -50.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 3.0)
+		m._l2_box(o + Vector3(lx, 46.0, -50.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 1.2)
 	for lsgn in [-1.0, 1.0]:
 		for lz in [-20.0, 4.0]:
-			m._l2_box(o + Vector3(lsgn * 44.25, 46.0, lz), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 3.0)
+			m._l2_box(o + Vector3(lsgn * 44.25, 46.0, lz), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 1.2)
 	# ---------- LEFT WING GALLERY: the ROYAL LIBRARY ----------
-	var shelf_cols := [Color(0.85, 0.3, 0.3), Color(0.3, 0.55, 0.85), Color(0.95, 0.8, 0.35), Color(0.45, 0.75, 0.45), Color(0.7, 0.45, 0.85)]
 	for sh in range(4):
 		var shz: float = -28.0 + float(sh) * 12.0
-		m._l2_box(o + Vector3(-51.8, 38.0, shz), Vector3(1.4, 10.0, 9.0), Color(0.5, 0.34, 0.22))     # bookcase
-		for row in range(3):
-			m._l2_box(o + Vector3(-51.0, 34.6 + float(row) * 3.0, shz), Vector3(0.8, 1.8, 8.0), shelf_cols[(sh + row) % shelf_cols.size()], 0.12)
+		_static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
 	m._l2_box(o + Vector3(-44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.55, 0.4, 0.65))              # reading rug
 	m._l2_box(o + Vector3(-44, 34.8, 9.0), Vector3(4.5, 1.6, 4.5), Color(0.95, 0.85, 0.6))            # story cushion
 	var lsign := Label3D.new()
 	lsign.text = "📚 Royal Library"
 	lsign.font_size = 52
-	lsign.pixel_size = 0.028
+	lsign.pixel_size = 0.010
 	lsign.outline_size = 12
 	lsign.modulate = Color(0.9, 0.85, 1.0)
 	lsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -543,7 +543,7 @@ func build_expansion(o: Vector3) -> void:
 	var tsign := Label3D.new()
 	tsign.text = "🧸 Toy Room"
 	tsign.font_size = 52
-	tsign.pixel_size = 0.028
+	tsign.pixel_size = 0.010
 	tsign.outline_size = 12
 	tsign.modulate = Color(1.0, 0.9, 0.85)
 	tsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -663,7 +663,8 @@ func build_dreaming_floor(o: Vector3) -> void:
 		{"cx": 18.0, "name": "✨ Kareem ✨", "tex": "kareem", "col": Color(0.55, 0.85, 0.62), "keep": "star"},
 		{"cx": 36.0, "name": "✨ Gabby ✨", "tex": "gabby", "col": Color(1.0, 0.66, 0.5), "keep": "note"},
 	]
-	for rd in bedrooms:
+	for bedroom_index in range(bedrooms.size()):
+		var rd: Dictionary = bedrooms[bedroom_index]
 		var cx: float = rd["cx"]
 		var bcol: Color = rd["col"]
 		# front wall with a doorway + gold posts
@@ -671,13 +672,12 @@ func build_dreaming_floor(o: Vector3) -> void:
 		m._iwall(o + Vector3(cx + 6.5, 57, -52), Vector3(5, 15, 1.5), wcol, "castle")
 		for gp in [-4.0, 4.0]:
 			m._l2_box(o + Vector3(cx + gp, 53.5, -52), Vector3(0.9, 7.5, 0.9), gold, 0.2)
-		# rug + bed (frame, mattress, pillow, character-colored blanket)
+		# Rug + authored character-color bed. All five retain their distinct
+		# story palette while sharing the stronger royal furniture silhouette.
 		m._l2_box(o + Vector3(cx - 4.0, 49.85, -55.5), Vector3(6, 0.25, 5), bcol.lightened(0.35))
-		m._l2_box(o + Vector3(cx + 3.0, 50.5, -59.5), Vector3(5.5, 1.8, 7), Color(0.5, 0.34, 0.22))     # frame
-		m._l2_box(o + Vector3(cx + 3.0, 51.6, -59.5), Vector3(4.8, 1.0, 6.4), Color(0.98, 0.97, 1.0))   # mattress
-		m._l2_box(o + Vector3(cx + 3.0, 52.3, -61.8), Vector3(3.8, 0.7, 1.8), Color(1.0, 1.0, 1.0))     # pillow
-		m._l2_box(o + Vector3(cx + 3.0, 52.2, -57.8), Vector3(5.0, 0.5, 3.6), bcol)                     # blanket
-		m._l2_box(o + Vector3(cx + 3.0, 51.9, -62.9), Vector3(5.5, 3.2, 0.8), Color(0.45, 0.28, 0.17))  # headboard
+		var dream_bed: Node3D = _static_prop("res://assets/art35/castle/dream_bed_%d.glb" % bedroom_index, o + Vector3(cx + 3.0, 50.0, -59.5), {}, 0.0, true)
+		if dream_bed != null:
+			dream_bed.scale = Vector3.ONE * 0.62
 		m._wall_solid(o + Vector3(cx + 3.0, 50.8, -59.5), Vector3(5.5, 2.4, 7), 0.4)
 		# glowing bedside lamp (emissive — no light-budget cost) + their window
 		m._l2_box(o + Vector3(cx - 2.0, 51.2, -61.5), Vector3(1.6, 3.2, 1.6), Color(0.5, 0.34, 0.22))
@@ -694,7 +694,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 		# name plate over the door
 		var nsign := Label3D.new()
 		nsign.text = rd["name"]
-		nsign.font_size = 40; nsign.pixel_size = 0.02; nsign.outline_size = 10
+		nsign.font_size = 40; nsign.pixel_size = 0.008; nsign.outline_size = 10
 		nsign.modulate = Color(1.0, 0.95, 0.85)
 		nsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		nsign.position = o + Vector3(cx, 56.5, -51)
@@ -738,7 +738,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	m.add_child(wspr); m.game_nodes.append(wspr)
 	var wsign := Label3D.new()
 	wsign.text = "✨ Wacky & Chuck ✨"
-	wsign.font_size = 36; wsign.pixel_size = 0.018; wsign.outline_size = 9
+	wsign.font_size = 36; wsign.pixel_size = 0.008; wsign.outline_size = 9
 	wsign.modulate = Color(0.9, 0.95, 1.0)
 	wsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	wsign.position = wb + Vector3(0, 56.0, 0)
@@ -746,7 +746,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	# floor sign at the stair top + soft star lamps down the corridor
 	var fsign := Label3D.new()
 	fsign.text = "✨ The Dreaming Floor ✨"
-	fsign.font_size = 48; fsign.pixel_size = 0.024; fsign.outline_size = 12
+	fsign.font_size = 48; fsign.pixel_size = 0.008; fsign.outline_size = 12
 	fsign.modulate = Color(0.85, 0.88, 1.0)
 	fsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	fsign.position = o + Vector3(-6, 56.5, -40)
@@ -820,7 +820,7 @@ func build_basement_wing(o: Vector3) -> void:
 		m._l2_box(o + rc + Vector3(sx2 * 8.0, -12.0, lantern_z), Vector3(0.6, 1.4, 1.0), Color(1.0, 0.8, 0.45), 3.2)
 		var rsign := Label3D.new()
 		rsign.text = rd["name"]
-		rsign.font_size = 40; rsign.pixel_size = 0.02; rsign.outline_size = 10
+		rsign.font_size = 40; rsign.pixel_size = 0.008; rsign.outline_size = 10
 		rsign.modulate = Color(0.9, 0.95, 1.0)
 		rsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		rsign.position = o + Vector3(sx2 * 8.0, -3.5, rc.z)
@@ -911,39 +911,14 @@ func build_basement_wing(o: Vector3) -> void:
 		var warm_burner_fallback: MeshInstance3D = m._l2_box(tc + Vector3(6.9, -14.0, -6.4), Vector3(1.3, 0.25, 1.3), Color(1.0, 0.65, 0.35), 1.4)
 		warm_burner_fallback.material_override = warm_burner_mat
 	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
-	var pot := MeshInstance3D.new()   # copper soup pot bubbling on the hot burner
-	var pcy := CylinderMesh.new(); pcy.top_radius = 0.9; pcy.bottom_radius = 0.8; pcy.height = 1.1
-	pot.mesh = pcy
-	pot.material_override = m._soft_mat(Color(0.85, 0.55, 0.35), 0.2)
-	pot.position = tc + Vector3(5.2, -13.4, -6.4)
-	m.add_child(pot); m.game_nodes.append(pot)
-	var soup: MeshInstance3D = m._l2_box(tc + Vector3(5.2, -12.8, -6.4), Vector3(1.2, 0.2, 1.2), Color(0.7, 0.95, 0.6), 0.9)
-	soup.material_override = m._soft_mat(Color(0.7, 0.95, 0.6), 0.9)
-	var kettle := MeshInstance3D.new()
-	var ksp := SphereMesh.new(); ksp.radius = 0.7; ksp.height = 1.2
-	kettle.mesh = ksp
-	kettle.material_override = m._soft_mat(Color(0.9, 0.9, 0.95), 0.15)
-	kettle.position = tc + Vector3(-4.0, -13.9, -6.6)
-	m.add_child(kettle); m.game_nodes.append(kettle)
-	for pn in range(3):   # copper pans hang over the counter
-		var pan: MeshInstance3D = m._l2_box(tc + Vector3(-5.0 + float(pn) * 2.2, -11.0, -6.9), Vector3(1.4, 1.4, 0.25), Color(0.8, 0.6, 0.4), 0.15)
-		pan.material_override = m._soft_mat(Color(0.86, 0.58, 0.36), 0.15)
-	var ttab := MeshInstance3D.new()   # tea table set for two
-	var tcy := CylinderMesh.new(); tcy.top_radius = 2.2; tcy.bottom_radius = 0.5; tcy.height = 2.6
-	ttab.mesh = tcy
-	ttab.material_override = m._castle_mat("kitchen_wood", 0.12, Color(0.96, 0.88, 0.78))
-	ttab.position = tc + Vector3(-2.0, -16.6, 3.5)
-	m.add_child(ttab); m.game_nodes.append(ttab)
+	# Authored silhouettes replace the sphere/cube stand-ins. Separate handles,
+	# rims, spouts and seats keep each object readable at phone size.
+	_static_prop("res://assets/art35/castle/kitchen_soup_pot.glb", tc + Vector3(5.2, -12.9, -6.4), {}, 0.0, true)
+	_static_prop("res://assets/art35/castle/kitchen_kettle.glb", tc + Vector3(-4.0, -14.25, -6.6), {}, 0.0, true)
+	_static_prop("res://assets/art35/castle/kitchen_pan_set.glb", tc + Vector3(-0.8, -14.18, -6.5), {}, 20.0, true)
+	_static_prop("res://assets/art35/castle/kitchen_table_set.glb", tc + Vector3(-2.0, -18.0, 3.5), {}, 10.0, true)
 	m._cyl_solid(tc + Vector3(-2.0, -16.6, 3.5), 2.2, 1.4, 0.3)
-	var teapot: MeshInstance3D = m._l2_box(tc + Vector3(-2.0, -15.1, 3.5), Vector3(1.4, 0.5, 1.4), Color(0.95, 0.9, 0.98), 0.5)
-	teapot.material_override = m._soft_mat(Color(0.95, 0.9, 0.98), 0.5)
-	for stx in [-4.8, 0.8]:
-		var stool := MeshInstance3D.new()
-		var scy := CylinderMesh.new(); scy.top_radius = 1.0; scy.bottom_radius = 0.8; scy.height = 1.6
-		stool.mesh = scy
-		stool.material_override = m._soft_mat(Color(0.95, 0.75, 0.8))
-		stool.position = tc + Vector3(stx, -17.1, 3.5)
-		m.add_child(stool); m.game_nodes.append(stool)
+	_static_prop("res://assets/art35/castle/kitchen_teapot.glb", tc + Vector3(-2.0, -16.55, 3.5), {}, -25.0, true)
 	# BUBBLE BATH: exact-size storybook fixtures. Moving the tub to the front
 	# wall opens a floor-height route through the centre of the room to the
 	# hidden Royal Loo; the old centre placement sealed that doorway.
@@ -1055,24 +1030,19 @@ func build_basement_wing(o: Vector3) -> void:
 func build_dungeon_gate(ground: Vector3) -> void:
 	# The ten-room gate waits at the basement hall entrance. The dungeon itself
 	# teaches ice and fire, so this entrance is open on a fresh save.
-	var root := Node3D.new()
+	var root: Node3D = null
+	var packed: PackedScene = load("res://assets/art35/castle/dungeon_gate.glb") as PackedScene
+	if packed != null:
+		root = packed.instantiate() as Node3D
+	if root == null:
+		root = Node3D.new()
 	root.position = ground
+	m._cel_replace(root, m._gen2_outline_mat())
 	m.add_child(root)
 	m.game_nodes.append(root)
-	var arch_col := Color(0.64, 0.52, 0.92)
-	for i in range(8):
-		var a: float = float(i) * TAU / 8.0
-		var seg := MeshInstance3D.new()
-		var box := BoxMesh.new()
-		box.size = Vector3(3.0, 0.7, 0.8)
-		seg.mesh = box
-		seg.material_override = m._soft_mat(arch_col, 0.8)
-		seg.position = Vector3(cos(a) * 3.5, 4.0 + sin(a) * 3.5, 0)
-		seg.rotation.z = a + PI * 0.5
-		root.add_child(seg)
 	var veil := MeshInstance3D.new()
 	var quad := QuadMesh.new()
-	quad.size = Vector2(5.8, 5.8)
+	quad.size = Vector2(5.4, 5.6)
 	veil.mesh = quad
 	var veil_mat := StandardMaterial3D.new()
 	veil_mat.albedo_color = Color(1.0, 0.82, 0.45, 0.38)
@@ -1084,16 +1054,8 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	veil.material_override = veil_mat
 	veil.position = Vector3(0, 4.0, 0)
 	root.add_child(veil)
-	var label := Label3D.new()
-	label.text = "★  TEN ROOMS  ★\n◆ ◆ ◆ ◆ ◆\n◆ ◆ ◆ ◆ ◆"
-	label.font_size = 70
-	label.pixel_size = 0.022
-	label.outline_size = 14
-	label.modulate = Color(0.9, 0.86, 1.0)
-	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	label.position = Vector3(0, 9.0, 0)
-	root.add_child(label)
-	m.g["dungeon_gate"] = {"node": root, "veil": veil, "label": label, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
+	# Ten colored pearls communicate the ten-room journey without billboard text.
+	m.g["dungeon_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
 
 
 func build_music_room(o: Vector3) -> void:
@@ -1118,28 +1080,13 @@ func build_music_room(o: Vector3) -> void:
 	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.62, 0.58, 0.82))
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
-	var bellcols := [Color(1, 0.3, 0.3), Color(1, 0.6, 0.2), Color(1, 0.9, 0.3), Color(0.3, 0.85, 0.4), Color(0.3, 0.6, 1.0), Color(0.5, 0.4, 0.9), Color(0.95, 0.4, 0.8)]
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
 	m.g["bells"] = []
-	for rail_x: float in [-4.1, 4.1]:
-		var rail: MeshInstance3D = m._l2_box(mo + Vector3(rail_x, 1.25, 0.0), Vector3(0.8, 1.0, 32.0), Color(0.28, 0.18, 0.24))
-		rail.material_override = m._castle_mat("wood", 0.14, Color(0.42, 0.30, 0.38))
+	_static_prop("res://assets/art35/castle/music_rail.glb", mo + Vector3(0.0, 0.75, 0.0), {}, 0.0, true)
 	for bi in range(7):
-		var bell := MeshInstance3D.new()
-		var bm := BoxMesh.new()
-		bm.size = Vector3(8.4 - float(bi) * 0.55, 1.25, 2.8)
-		bell.mesh = bm
-		var bmat := StandardMaterial3D.new()
-		bmat.albedo_color = bellcols[bi]
-		bmat.emission_enabled = true
-		bmat.emission = bellcols[bi]
-		bmat.emission_energy_multiplier = 0.10
-		bmat.metallic = 0.1
-		bmat.roughness = 0.58
-		bell.material_override = bmat
-		bell.position = mo + Vector3(0.0, 2.6, -13.5 + float(bi) * 4.5)   # spaced 4.5 along z
-		m.add_child(bell)
-		m.game_nodes.append(bell)
+		var bell: Node3D = _static_prop("res://assets/art35/castle/music_bar_%d.glb" % bi, mo + Vector3(0.0, 1.70, -13.5 + float(bi) * 4.5), {}, 0.0, true)
+		if bell == null:
+			continue
 		var bp := AudioStreamPlayer.new()
 		bp.stream = load("res://assets/audio/chime.ogg")
 		bp.bus = "SFX"
@@ -1150,25 +1097,16 @@ func build_music_room(o: Vector3) -> void:
 	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
 	# Simon-says for little ears. Wrong notes just replay the song (no fail);
 	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
-	var song_star := Label3D.new()
-	song_star.text = "♪"
-	song_star.font_size = 220
-	song_star.pixel_size = 0.02
-	song_star.outline_size = 18
-	song_star.modulate = Color(1.0, 0.85, 0.3)
-	song_star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	song_star.position = mo + Vector3(0, 6.5, -18.5)
-	m.add_child(song_star)
-	m.game_nodes.append(song_star)
+	_static_prop("res://assets/art35/castle/music_song_star.glb", mo + Vector3(0, 0.75, -18.5), {}, 0.0, true)
 	var ssl := OmniLight3D.new()
 	ssl.light_color = Color(1.0, 0.9, 0.4)
 	ssl.light_energy = 0.9
 	ssl.omni_range = 9.0
-	ssl.position = song_star.position
+	ssl.position = mo + Vector3(0, 6.5, -18.5)
 	m.add_child(ssl)
 	m.game_nodes.append(ssl)
 	m._register_castle_light(ssl, true)
-	m.g["song_star"] = song_star.position
+	m.g["song_star"] = ssl.position
 	m.g["bellgame"] = {"state": "idle", "seq": [], "i": 0, "t": 0.0, "round": 0, "cool": 0.0}
 	# two warm fill lights down the length
 	for lz in [-12.0, 10.0]:
@@ -1180,6 +1118,15 @@ func build_music_room(o: Vector3) -> void:
 	for wz in [-10.0, 10.0]:
 		var win = m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.42, 0.56, 0.82), 0.12)
 		win.material_override.emission_energy_multiplier = 0.18
+	# Three large authored star bells carry the instrument palette up the blank
+	# wall and visually connect the free-play keys to the room's music purpose.
+	for decor_i in range(3):
+		var wall_bell: Node3D = _static_prop("res://assets/art35/galaxy/star_bell_%d.glb" % decor_i, mo + Vector3(-8.75, 11.0, -10.0 + float(decor_i) * 10.0), {}, 90.0, true)
+		if wall_bell != null:
+			wall_bell.scale = Vector3.ONE * 1.45
+	# A framed physical music staff gives the forward wall its own silhouette and
+	# stays readable behind the xylophone from the normal room approach.
+	_static_prop("res://assets/art35/castle/music_wall_panel.glb", mo + Vector3(0.0, 8.0, 19.0), {}, 180.0, true)
 	# sign over the doorway
 	var msign := Label3D.new()
 	msign.text = "♪"
@@ -1218,25 +1165,7 @@ func build_bedroom(o: Vector3) -> void:
 	# ---------- the royal bed (head against the back wall, room to walk all around) ----------
 	var bcx: float = bo.x + 4.0
 	var bcz: float = bo.z - 2.0
-	if ResourceLoader.exists("res://assets/castle/bed.glb"):
-		# real Kenney bed (CC0). Length runs along Z; the headboard sits at +Z in
-		# the GLB (verified render) so spin PI to put it against the back wall.
-		var bmodel: Node3D = (load("res://assets/castle/bed.glb") as PackedScene).instantiate()
-		var bh := Node3D.new()
-		bh.add_child(bmodel)
-		m._fit_prop(bmodel, 12.0)
-		bh.rotation.y = PI
-		bh.position = Vector3(bcx, o.y + 0.9, bcz)
-		m.add_child(bh)
-		m.game_nodes.append(bh)
-	else:
-		var frame = m._l2_box(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), Color(0.5, 0.32, 0.2))   # wooden frame
-		frame.material_override.roughness = 0.8
-		m._l2_box(Vector3(bcx, o.y + 3.7, bcz), Vector3(6, 1.2, 11), Color(0.98, 0.97, 1.0))               # mattress
-		m._l2_box(Vector3(bcx, o.y + 4.4, bcz + 2.0), Vector3(6.2, 0.5, 6.5), Color(0.45, 0.62, 0.92))     # folded blanket
-		m._l2_box(Vector3(bcx, o.y + 4.6, bcz - 4.2), Vector3(5.0, 0.9, 2.4), Color(1.0, 1.0, 1.0))        # pillow
-		var headboard = m._l2_box(Vector3(bcx, o.y + 5.8, bcz - 5.8), Vector3(7, 6.5, 0.9), Color(0.45, 0.28, 0.17))
-		headboard.material_override.roughness = 0.7
+	_static_prop("res://assets/art35/castle/royal_bed.glb", Vector3(bcx, o.y + 0.9, bcz), {}, 0.0, true)
 	# bed collider: SLIM pad — the old 1.6 pad ejected Roshan outside the sleep
 	# trigger radius, so climbing into bed could never fire the cutscene
 	m._wall_solid(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), 0.5)
@@ -1252,20 +1181,11 @@ func build_bedroom(o: Vector3) -> void:
 	m.add_child(bedsign)
 	m.game_nodes.append(bedsign)
 	# ---------- bedside table + glowing lamp (at the bed's head) ----------
-	var table = m._l2_box(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), Color(0.5, 0.32, 0.2))
-	table.material_override.roughness = 0.8
+	_static_prop("res://assets/art35/castle/royal_nightstand.glb", Vector3(bcx - 6.5, o.y + 0.2, bcz - 5.0), {}, 0.0, true)
 	m._wall_solid(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), 0.4)
-	var lampbulb := MeshInstance3D.new()
-	var ls := SphereMesh.new(); ls.radius = 0.7; ls.height = 1.4
-	lampbulb.mesh = ls
-	var lmat := StandardMaterial3D.new()
-	lmat.emission_enabled = true; lmat.emission = Color(1.0, 0.82, 0.5); lmat.emission_energy_multiplier = 0.55
-	lampbulb.material_override = lmat
-	lampbulb.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0)
-	m.add_child(lampbulb); m.game_nodes.append(lampbulb)
 	var lamp := OmniLight3D.new()
 	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 0.85; lamp.omni_range = 11.0
-	lamp.position = lampbulb.position; m.add_child(lamp); m.game_nodes.append(lamp)
+	lamp.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0); m.add_child(lamp); m.game_nodes.append(lamp)
 	m._register_castle_light(lamp, true)
 	# big soft rug in the middle of the room
 	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
@@ -1602,7 +1522,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
 			m.player.position = m.player.position.lerp(crown.position, minf(0.16, delta * 0.5))
 			m.player.vel.y = maxf(m.player.vel.y, 0.0)
-		if d < 5.0:
+		# The rebuilt five-unit star sits just left of the throne so it remains
+		# readable beside Huluu. Match its generous child-scale visual footprint.
+		if d < 10.0:
 			m.g["crown_won"] = true
 			m.level2_done_once = true
 			m._write_save()

@@ -8,6 +8,8 @@ const PATHS := {
 	"imp": ROOT + "mischief_imp.glb",
 	"boss": ROOT + "dragon_turtle.glb",
 	"basket": ROOT + "pepper_basket.glb",
+	"pepper_projectile": ROOT + "pepper_projectile.glb",
+	"ice_berry_projectile": ROOT + "ice_berry_projectile.glb",
 	"pedestal": ROOT + "crystal_pedestal.glb",
 	"lantern": ROOT + "pepper_lantern.glb",
 	"statue": ROOT + "turtle_statue.glb",

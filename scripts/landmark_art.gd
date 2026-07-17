@@ -7,6 +7,15 @@ const CORAL := Color(1.0, 0.48, 0.55)
 const LAVENDER := Color(0.68, 0.51, 0.92)
 const GOLD := Color(1.0, 0.76, 0.24)
 
+const STAR_DREAM_PATH := "res://assets/art35/landmarks/dream_star.glb"
+const STAR_CROWN_PATH := "res://assets/art35/landmarks/crown_star.glb"
+const BUTTERFLY_GATE_PATH := "res://assets/art35/landmarks/butterfly_gate.glb"
+const CLOUD_PATHS := [
+	"res://assets/art35/landmarks/cloud_0.glb",
+	"res://assets/art35/landmarks/cloud_1.glb",
+	"res://assets/art35/landmarks/cloud_2.glb",
+]
+
 static func _mat(color: Color, emission: float = 0.0) -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
@@ -64,7 +73,36 @@ static func _scaled_points(points: PackedVector2Array, scale_value: float) -> Pa
 		result.append(point * scale_value)
 	return result
 
+static func _authored_scene(path: String) -> Node3D:
+	if not ResourceLoader.exists(path):
+		return null
+	var packed: PackedScene = load(path)
+	if packed == null:
+		return null
+	return packed.instantiate() as Node3D
+
+static func _tint_authored(root: Node, accent: Color, sleepy: bool = false) -> void:
+	for child: Node in root.get_children():
+		_tint_authored(child, accent, sleepy)
+	if not root is MeshInstance3D:
+		return
+	var mesh_instance := root as MeshInstance3D
+	var node_name: String = mesh_instance.name.to_lower()
+	if node_name.contains("paintedface"):
+		mesh_instance.material_override = _mat(accent)
+	elif sleepy and node_name.contains("cloud"):
+		mesh_instance.material_override = _mat(Color(0.76, 0.69, 0.92))
+	elif sleepy and node_name.contains("underside"):
+		mesh_instance.material_override = _mat(Color(0.43, 0.35, 0.68))
+
 static func create_star(size: float, accent: Color = GOLD, crown: bool = false, simple: bool = false) -> Node3D:
+	if not simple:
+		var authored: Node3D = _authored_scene(STAR_CROWN_PATH if crown else STAR_DREAM_PATH)
+		if authored != null:
+			authored.scale = Vector3.ONE * size
+			_tint_authored(authored, accent)
+			authored.set_meta("landmark_art", "crown_star" if crown else "dream_star")
+			return authored
 	var root := Node3D.new()
 	var points := _star_points(size)
 	var outline := _polygon_node(_scaled_points(points, 1.12), size * 0.22, INK)
@@ -134,6 +172,39 @@ void fragment() {
 	return material
 
 static func create_butterfly_gate(scale_value: float) -> Node3D:
+	var authored: Node3D = _authored_scene(BUTTERFLY_GATE_PATH)
+	if authored != null:
+		# The authored model is a complete four-wing butterfly wrapped around a
+		# pearl portal. It is intentionally larger than an ordinary prop so the
+		# destination reads before a non-reader reaches the interaction radius.
+		authored.scale = Vector3.ONE * scale_value * 1.32
+		var animation := Animation.new()
+		animation.length = 2.4
+		animation.loop_mode = Animation.LOOP_LINEAR
+		for wing_path: String in [
+			"Upper_L_Ink", "Upper_L", "UpperInset_L",
+			"Lower_L_Ink", "Lower_L", "LowerInset_L",
+			"Upper_R_Ink", "Upper_R", "UpperInset_R",
+			"Lower_R_Ink", "Lower_R", "LowerInset_R",
+		]:
+			var wing: Node = authored.find_child(wing_path, true, false)
+			if wing == null:
+				continue
+			var track: int = animation.add_track(Animation.TYPE_VALUE)
+			animation.track_set_path(track, NodePath("%s:rotation:y" % authored.get_path_to(wing)))
+			var direction: float = -1.0 if wing_path.contains("_L_") else 1.0
+			animation.track_insert_key(track, 0.0, direction * 0.02)
+			animation.track_insert_key(track, 1.2, direction * 0.10)
+			animation.track_insert_key(track, 2.4, direction * 0.02)
+		var library := AnimationLibrary.new()
+		library.add_animation("breathe", animation)
+		var player := AnimationPlayer.new()
+		player.add_animation_library("", library)
+		authored.add_child(player)
+		if animation.get_track_count() > 0:
+			player.play("breathe")
+		authored.set_meta("landmark_art", "butterfly_gate")
+		return authored
 	var root := Node3D.new()
 	var portal := MeshInstance3D.new()
 	var portal_mesh := QuadMesh.new()
@@ -206,6 +277,14 @@ static func create_butterfly_gate(scale_value: float) -> Node3D:
 	return root
 
 static func create_cloud(size: float, variant: int = 0, sleepy: bool = false) -> Node3D:
+	var authored: Node3D = _authored_scene(CLOUD_PATHS[posmod(variant, CLOUD_PATHS.size())])
+	if authored != null:
+		# Blender clouds are about three metres wide at unit scale. This keeps
+		# existing call-site intent without recreating the old screen-filling discs.
+		authored.scale = Vector3.ONE * size * 0.62
+		_tint_authored(authored, Color.WHITE, sleepy)
+		authored.set_meta("landmark_art", "sleepy_cloud" if sleepy else "storybook_cloud")
+		return authored
 	var root := Node3D.new()
 	var profiles := [
 		[Vector3(-0.88, 0.0, 0.0), Vector3(-0.34, 0.34, 0.04), Vector3(0.18, 0.46, 0.0), Vector3(0.72, 0.18, 0.03), Vector3(0.96, -0.08, 0.0)],

@@ -1247,6 +1247,14 @@ void fragment(){
 	line.material_override = lmat
 	line.transform = Transform3D(Basis(fright, Vector3.UP, ffwd).orthonormalized(), c0 + Vector3(0, 0.2, 0))
 	add_child(line)
+	var arch_scene: PackedScene = load("res://assets/art35/kart/finish_arch.glb")
+	if arch_scene != null:
+		var authored_arch: Node3D = arch_scene.instantiate() as Node3D
+		_bw_fit(authored_arch, _rhalf() * 2.0 + 7.0)
+		authored_arch.position = c0
+		add_child(authored_arch)
+		authored_arch.look_at(c0 + ffwd, Vector3.UP)
+		return
 	for psgn: float in [1.0, -1.0]:
 		var post := MeshInstance3D.new()
 		var pbm := BoxMesh.new()
@@ -2065,8 +2073,9 @@ func _select_slot_pos(i: int) -> Vector3:
 	if _ground_mode() == "terrain":
 		# stage the podiums ON the start straight — the road is always flat, wide
 		# and clear, so the choice reads no matter what the seabed does around it
-		var fr := _frame_at(16.0 + float(i) * 15.0, 0.0)
-		return (fr[0] as Vector3) + Vector3(0, 0.3, 0)
+		# Selection props are removed before countdown, so stage them in a
+		# dedicated elevated showroom clear of procedural seabed columns.
+		return _origin() + Vector3((float(i) - 1.0) * 16.0, 52.0, 58.0)
 	# float: staged outside the loop (the old spot, 60 under the origin, is now
 	# inside the Butterfly World planet) — the camera faces the world hanging
 	# in the sky behind the podiums
@@ -2079,21 +2088,14 @@ func _build_select() -> void:
 		var slot := Node3D.new()
 		slot.position = _select_slot_pos(i)
 		add_child(slot)
-		var pod := MeshInstance3D.new()
-		var pcm := CylinderMesh.new()
-		pcm.top_radius = 5.5
-		pcm.bottom_radius = 6.0
-		pcm.height = 1.6
-		pod.mesh = pcm
-		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(0.25, 0.25, 0.4)
-		pmat.emission_enabled = true
-		pmat.emission = Color.from_hsv(float(i) / 3.0, 0.5, 1.0)
-		pmat.emission_energy_multiplier = 0.3
-		pod.material_override = pmat
-		slot.add_child(pod)
+		var plinth_scene: PackedScene = load("res://assets/art35/kart/showcase_plinth.glb")
+		if plinth_scene != null:
+			var plinth: Node3D = plinth_scene.instantiate() as Node3D
+			_bw_fit(plinth, 11.0)
+			plinth.rotation.y = float(i) * 0.16
+			slot.add_child(plinth)
 		var body := _vehicle_body(vkey, Color(1, 1, 1), "", "")
-		body.position = Vector3(0, 1.2, 0)
+		body.position = Vector3(0, 2.0, 0)
 		slot.add_child(body)
 		var lab := Label3D.new()
 		# The models and glowing choice halo carry the selection for a non-reader;
@@ -2122,10 +2124,7 @@ func _build_select() -> void:
 		if _ground_mode() == "terrain":
 			# view the podium row SIDE-ON (looking across the road) so all three
 			# rides sit left-to-right instead of stacking behind each other
-			var fr := _frame_at(31.0, 0.0)
-			var right: Vector3 = fr[2]
-			_cam.position = mid + right * 25.0 + Vector3(0, 7.5, 0)
-			_cam.position.y = maxf(_cam.position.y, _terrain_y(_cam.position.x, _cam.position.z) + 5.0)
+			_cam.position = mid + Vector3(0, 8.0, 29.0)
 		else:
 			_cam.position = mid + Vector3(0, 7.0, 26.0)
 		_cam.look_at(mid + Vector3(0, 3.0, 0), Vector3.UP)
@@ -2217,9 +2216,7 @@ func _tick_select(delta: float) -> void:
 		var focus: Vector3 = focus_slot.position
 		var want_cam: Vector3
 		if _ground_mode() == "terrain":
-			var ffr := _frame_at(16.0 + float(_sel_idx) * 15.0, 0.0)
-			want_cam = focus + (ffr[2] as Vector3) * 18.0 + Vector3(0, 6.5, 0)
-			want_cam.y = maxf(want_cam.y, _terrain_y(want_cam.x, want_cam.z) + 5.0)
+			want_cam = focus + Vector3(0, 6.5, 20.0)
 		else:
 			want_cam = focus + Vector3(0, 6.0, 18.0)
 		_cam.position = _cam.position.lerp(want_cam, minf(1.0, delta * 4.0))
