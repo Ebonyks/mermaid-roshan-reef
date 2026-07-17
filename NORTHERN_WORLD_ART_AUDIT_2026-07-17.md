@@ -41,6 +41,10 @@ The editable `.blend` retains separate modeling pieces, while each runtime GLB i
 
 The Northern scene also moves to the established `bright_pastel` scene grade with reduced sun, ambient, bloom, and darker grass/cobble tints to restore color separation in the Mobile renderer.
 
+## Candidate iteration 1 rejected
+
+GitHub Actions run `29588787382` passed import, static gates, the full Godot analyzer, all trusted probes, and the eleven-view capture. Visual review still rejected the build. The general imported-CC0 `_toonify` path was lifting the kit's already-authored pastel materials a second time, so walls, roofs, snow, docks, and wisps clipped toward white. The larger replacement pine also occluded the fixed near-house review. The follow-up keeps the embedded authored materials, disables northern-only screen bloom, reduces exposure and wisp emission, and moves the near-house camera to the unobstructed inward facade.
+
 ## Candidate status
 
 Isolated QA passes silhouette, material-family, completeness, and family-variation review. The assets remain capped at 2/5 until the replacement build completes the same eleven-view Mobile capture. If those views pass, the role family can advance to provisional 3/5 and be presented for the required owner review; it must not be recorded as an official 4/5 before that review.

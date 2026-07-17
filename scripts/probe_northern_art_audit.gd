@@ -57,7 +57,7 @@ func _init() -> void:
 	await _shot("north_03_forest_gameplay", o + Vector3(42, 24, 134), o + Vector3(0, 8, 82))
 	await _shot("north_04_forest_mid", o + Vector3(-68, 24, 108), o + Vector3(0, 7, 76))
 	await _shot("north_05_town_overview", o + Vector3(118, 52, 58), o + Vector3(0, 8, -2))
-	await _shot("north_06_house_near", o + Vector3(-48, 16, 55), o + Vector3(-76, 8, 31))
+	await _shot("north_06_house_near", o + Vector3(-48, 14, 31), o + Vector3(-76, 8, 31))
 	await _shot("north_07_dock_near", o + Vector3(154, 13, 30), o + Vector3(121, 1, 2))
 	await _shot("north_08_castle_gameplay", o + Vector3(0, 24, 44), o + Vector3(0, 14, -55))
 	await _shot("north_09_castle_mid", o + Vector3(92, 48, -4), o + Vector3(0, 14, -55))

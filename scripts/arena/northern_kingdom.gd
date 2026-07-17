@@ -41,6 +41,25 @@ func _init(main: ReefMain) -> void:
 	m = main
 
 
+func _fit_authored_prop(model: Node3D, target_long: float) -> float:
+	# Northern GLBs already use the approved matte pastel palette. Calling the
+	# general imported-CC0 _toonify pass a second time lifts them toward white.
+	var boxes: Array = []
+	m._local_aabbs(model, Transform3D.IDENTITY, boxes)
+	if boxes.is_empty():
+		return 0.0
+	var bounds: AABB = boxes[0]
+	for index in range(1, boxes.size()):
+		bounds = bounds.merge(boxes[index])
+	var longest: float = maxf(maxf(bounds.size.x, bounds.size.z), 0.001)
+	var prop_scale: float = target_long / longest
+	model.scale = Vector3.ONE * prop_scale
+	var center: Vector3 = bounds.position + bounds.size * 0.5
+	model.position = Vector3(-center.x * prop_scale, -bounds.position.y * prop_scale,
+		-center.z * prop_scale)
+	return bounds.size.y * prop_scale
+
+
 func _north_prop(kind: String, pos: Vector3, target_long: float,
 		yrot: float = 0.0) -> Node3D:
 	if not NORTH_ASSETS.has(kind):
@@ -54,7 +73,7 @@ func _north_prop(kind: String, pos: Vector3, target_long: float,
 	var wrap := Node3D.new()
 	wrap.name = "Northern_%s" % kind
 	var model: Node3D = packed.instantiate()
-	m._fit_prop(model, target_long)
+	_fit_authored_prop(model, target_long)
 	wrap.add_child(model)
 	wrap.position = pos
 	wrap.rotation.y = yrot
@@ -75,7 +94,7 @@ func _light_wisp(node: Node) -> void:
 					var standard := material as StandardMaterial3D
 					standard.emission_enabled = true
 					standard.emission = standard.albedo_color
-					standard.emission_energy_multiplier = 1.45
+					standard.emission_energy_multiplier = 0.72
 	for child in node.get_children():
 		_light_wisp(child)
 
@@ -184,15 +203,17 @@ func _build_environment() -> void:
 	sky.sky_material = psky
 	m.arena_env.sky = sky
 	m.arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	m.arena_env.ambient_light_energy = 0.38 if m.is_night else 0.46
-	m._wind_waker_bloom(m.arena_env, 0.30, 0.04, 1.25)
+	m.arena_env.ambient_light_energy = 0.30 if m.is_night else 0.38
 	m._apply_scene_grade(m.arena_env, "bright_pastel")
+	m.arena_env.glow_enabled = false
+	m.arena_env.tonemap_exposure = 0.56 if m.quality == "speedy" else 0.64
+	m.arena_env.adjustment_brightness = 0.90
 	m.we_node.environment = m.arena_env
 
 	var sun: DirectionalLight3D = DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-52.0, -28.0, 0.0)
 	sun.light_color = Color(0.66, 0.74, 0.98) if m.is_night else Color(1.0, 0.93, 0.78)
-	sun.light_energy = 0.34 if m.is_night else 0.54
+	sun.light_energy = 0.30 if m.is_night else 0.46
 	sun.shadow_enabled = m.quality != "speedy"
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun.directional_shadow_max_distance = 115.0
