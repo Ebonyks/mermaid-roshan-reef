@@ -9,7 +9,11 @@ func _check(label: String, condition: bool) -> void:
 
 func _init() -> void:
 	_check("six district centers", ReefDistricts.REGION_CENTERS.size() == 6)
-	_check("authored grove count", ReefDistricts.GROVES.size() == 18)
+	_check("authored grove count", ReefDistricts.GROVES.size() == 14)
+	_check("district centers have neutral buffers", ReefDistricts.minimum_center_separation() >= 125.0)
+	_check("Faron is within a short swim", ReefDistricts.friend_position(2).length() <= 75.0)
+	for i in range(ReefDistricts.FRIEND_POSITIONS.size()):
+		_check("friend %d is reachable" % i, (ReefDistricts.FRIEND_POSITIONS[i] as Vector2).length() <= 95.0)
 	_check("six regional object signatures", ReefDistricts.REGION_SIGNATURES.size() == 6)
 	for key: String in ReefDistricts.REGION_SIGNATURES:
 		_check("%s has three object families" % key, (ReefDistricts.REGION_SIGNATURES[key] as Array).size() >= 3)
@@ -18,16 +22,17 @@ func _init() -> void:
 		kinds[String(value["kind"])] = true
 	_check("all grove identities", kinds.size() == 6)
 	_check("pearl region", ReefDistricts.region_at(Vector2(5, 8)) == "pearl")
-	_check("kelp region", ReefDistricts.region_at(Vector2(-22, 116)) == "kelp")
-	_check("wreck region", ReefDistricts.region_at(Vector2(-122, 100)) == "wreck")
-	_check("moon region", ReefDistricts.region_at(Vector2(-124, 4)) == "moon")
-	_check("rainbow region", ReefDistricts.region_at(Vector2(-12, -105)) == "rainbow")
-	_check("ice region", ReefDistricts.region_at(Vector2(82, -60)) == "ice")
+	_check("kelp region", ReefDistricts.region_at(Vector2(-35, 165)) == "kelp")
+	_check("wreck region", ReefDistricts.region_at(Vector2(-160, 135)) == "wreck")
+	_check("moon region", ReefDistricts.region_at(Vector2(-165, 5)) == "moon")
+	_check("rainbow region", ReefDistricts.region_at(Vector2(-40, -165)) == "rainbow")
+	_check("ice region", ReefDistricts.region_at(Vector2(140, -115)) == "ice")
 	_check("hub flattened", ReefDistricts.shape_terrain(0.0, 0.0, 20.0) < 6.0)
-	_check("race flat flattened", ReefDistricts.shape_terrain(-12.0, -105.0, 20.0) < 7.0)
-	_check("wreck ravine carved", ReefDistricts.shape_terrain(-122.0, 104.0, 0.0) < -8.0)
-	_check("moon bowl carved", ReefDistricts.shape_terrain(-124.0, 4.0, 0.0) < -6.0)
-	_check("kelp ridge raised", ReefDistricts.shape_terrain(-55.0, 132.0, 0.0) > 7.0)
+	_check("Faron approach flattened", ReefDistricts.shape_terrain(-72.0, 8.0, 20.0) < 2.0)
+	_check("race flat flattened", ReefDistricts.shape_terrain(-40.0, -165.0, 20.0) < 8.0)
+	_check("wreck ravine carved", ReefDistricts.shape_terrain(-160.0, 135.0, 0.0) < -8.0)
+	_check("moon bowl carved", ReefDistricts.shape_terrain(-165.0, 5.0, 0.0) < -6.0)
+	_check("kelp ridge raised", ReefDistricts.shape_terrain(-78.0, 175.0, 0.0) > 7.0)
 	for key: String in ReefDistricts.STRUCTURE_SCENES:
 		_check("structure %s exists" % key, ResourceLoader.exists(String(ReefDistricts.STRUCTURE_SCENES[key])))
 	_check("six Blender regional assets", ReefDistricts.REGIONAL_SCENES.size() == 6)

@@ -96,3 +96,17 @@ jobs:
             fi
           done
           exit $FAILED
+
+      - name: Capture first-world visual review
+        env:
+          REEF_SHOT_OUT: /tmp/reef-shots
+        run: |
+          mkdir -p "$REEF_SHOT_OUT"
+          timeout 4m godot --headless -s scripts/probe_reef_shots.gd
+
+      - name: Upload first-world visual review
+        uses: actions/upload-artifact@v4
+        with:
+          name: reef-first-world-review
+          path: /tmp/reef-shots/*.png
+          if-no-files-found: error
