@@ -407,7 +407,8 @@ const BTN_OFFS := [Vector3(0, 0, 9), Vector3(9, 0, 0), Vector3(-9, 0, 0), Vector
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
 	{"tex": "two_friends",   "fname": "Harper and Fiona",      "msg": "Sisters Harper and Fiona! Come grab the fish down the rainbow slide!", "game": "slide", "theme": "rainbow", "mode": "fish"},
-	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls"},
+	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls",
+		"discover_radius": 12.0, "linger_radius": 13.0, "start_radius": 10.0},
 	{"tex": "gabby",         "fname": "Gabby",                 "msg": "Gabby! Come catch the rainbow on stage!", "game": "melody"},
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
@@ -1212,12 +1213,12 @@ void fragment(){
 	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
 	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
 	vec3 zone = vec3(0.94, 0.96, 0.96);
-	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-22.0, 116.0), 88.0));
-	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-122.0, 100.0), 78.0));
-	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-124.0, 4.0), 72.0));
-	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-12.0, -105.0), 70.0));
-	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(82.0, -60.0), 78.0));
-	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(0.0), 52.0));
+	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-35.0, 165.0), 70.0));
+	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-160.0, 135.0), 68.0));
+	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-165.0, 5.0), 62.0));
+	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-40.0, -165.0), 70.0));
+	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(140.0, -115.0), 70.0));
+	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(35.0, 30.0), 50.0));
 	ALBEDO = mix(sand, cliff, steep) * zone;
 	ROUGHNESS = 0.95;
 	SPECULAR = 0.05;
@@ -2097,12 +2098,10 @@ func _build_pearls() -> void:
 		# along the route between consecutive friends, light jitter
 		var fi: int = i % FRIEND_DEFS.size()
 		var fj: int = (fi + 1) % FRIEND_DEFS.size()
-		var aa: float = float(fi) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var ab: float = float(fj) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var ra: float = 55.0 + float(fi % 3) * 30.0
-		var rb: float = 55.0 + float(fj % 3) * 30.0
-		var pa := Vector3(cos(aa) * ra, 0, sin(aa) * ra)
-		var pb := Vector3(cos(ab) * rb, 0, sin(ab) * rb)
+		var fpa: Vector2 = ReefDistricts.friend_position(fi)
+		var fpb: Vector2 = ReefDistricts.friend_position(fj)
+		var pa := Vector3(fpa.x, 0, fpa.y)
+		var pb := Vector3(fpb.x, 0, fpb.y)
 		var tmix: float = 0.35 if i < FRIEND_DEFS.size() else 0.65
 		var pp: Vector3 = pa.lerp(pb, tmix)
 		var x: float = pp.x + hash2(i, 5) * 10.0 - 5.0
@@ -2157,10 +2156,9 @@ func _cutout_tex(name: String) -> Texture2D:
 func _build_friends() -> void:
 	for i in range(FRIEND_DEFS.size()):
 		var fd: Dictionary = FRIEND_DEFS[i]
-		var a: float = float(i) / float(FRIEND_DEFS.size()) * TAU + 0.6
-		var r: float = 55.0 + float(i % 3) * 30.0
-		var x: float = cos(a) * r
-		var z: float = sin(a) * r
+		var fp: Vector2 = ReefDistricts.friend_position(i)
+		var x: float = fp.x
+		var z: float = fp.y
 		var spr := Sprite3D.new()
 		spr.texture = _cutout_tex(String(fd["tex"]))
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -2207,6 +2205,8 @@ func _build_friends() -> void:
 			sparks.append(orb)
 		friends.append({"node": spr, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
+			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
+			"start_radius": fd.get("start_radius", 8.0),
 			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
 
 func _build_kart_portal() -> void:
@@ -7607,7 +7607,10 @@ func _process(delta: float) -> void:
 		pl.scale.z = pl.scale.x
 		f["cool"] = maxf(0.0, float(f["cool"]) - delta)
 		var dd: float = node.position.distance_to(ppos)
-		if not f["found"] and dd < 9.0:
+		var discover_radius: float = float(f.get("discover_radius", 9.0))
+		var linger_radius: float = float(f.get("linger_radius", 10.0))
+		var start_radius: float = float(f.get("start_radius", 8.0))
+		if not f["found"] and dd < discover_radius:
 			f["found"] = true
 			(f["beacon"] as OmniLight3D).light_energy = 1.0
 			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
@@ -7616,10 +7619,10 @@ func _process(delta: float) -> void:
 			show_msg(f["fname"], f["msg"])
 			_update_hud()
 			_write_save()
-		elif f["found"] and game == "" and dd < 10.0:
+		elif f["found"] and game == "" and dd < linger_radius:
 			if float(f["cool"]) > 0.0:
 				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
-			elif dd < 8.0:
+			elif dd < start_radius:
 				hud_game.text = ""
 				_start_game(f)
 	if game == "level2":
