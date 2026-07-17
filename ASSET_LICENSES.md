@@ -132,6 +132,9 @@
 | assets_src/blender/dungeon_art_v2.blend | Editable source for the authored Dungeon Art V2 kit | **Project-generated source art** | tools/build_dungeon_art_v2.py | complete editable source scene for all ten runtime GLBs; generated 2026-07-16 |
 | assets_src/blender/qa_dungeon_art_v2/*.png | Blender Workbench QA renders of Dungeon Art V2 | **Project-generated review art** | assets_src/blender/dungeon_art_v2.blend | transparent 900x700 model review renders; generated 2026-07-16 |
 | backups/art_pre_dungeon_v2_2026-07-16/** | Byte-identical pre-integration dungeon builder scripts | **Same license as original project code** | scripts/combat_arena.gd; scripts/dungeon_puzzle_room.gd | reversal archive with SHA-256 manifest; created 2026-07-16 |
+| assets/northern/*.glb | Project-authored Blender 4.4.3 Northern Kingdom kit guided by `ART_STYLE_GUIDE.md` and the 2026-07-16 human art-audit rubric | **Project-generated art** | tools/build_northern_kingdom_kit.py | seventeen texture-free, Mobile-friendly models replacing primitive pass, mountain, forest, town, dock, castle, and wisp roles; embedded matte pastel materials; generated 2026-07-17 |
+| assets_src/blender/northern_kingdom_kit.blend | Editable source for the Northern Kingdom art kit | **Project-generated source art** | tools/build_northern_kingdom_kit.py | complete editable source scene for all seventeen runtime GLBs; generated 2026-07-17 |
+| assets_src/blender/qa_northern_kingdom_kit/*.png | Blender Eevee QA renders of the Northern Kingdom art kit | **Project-generated review art** | assets_src/blender/northern_kingdom_kit.blend | isolated 780x660 asset-review renders; generated 2026-07-17 |
 ## Individual credits (detail)
 - **chuck_bark.ogg / chuck.ogg** — 'Free Dog Bark' by DRAGON-STUDIO via Pixabay
   (Pixabay Content License, royalty-free, no attribution required), file

@@ -13,10 +13,71 @@ const FOREST_LOCAL := Vector2(0.0, 92.0)
 const TOWN_LOCAL := Vector2(0.0, 4.0)
 const CASTLE_LOCAL := Vector2(0.0, -55.0)
 const WORLD_RADIUS := 214.0
+const NORTH_ASSET_DIR := "res://assets/northern/"
+const NORTH_ASSETS := {
+	"pass_arch": "northern_pass_arch.glb",
+	"peak_a": "northern_peak_a.glb",
+	"peak_b": "northern_peak_b.glb",
+	"pine_a": "northern_pine_a.glb",
+	"pine_b": "northern_pine_b.glb",
+	"pine_c": "northern_pine_c.glb",
+	"mushrooms_red": "northern_mushrooms_red.glb",
+	"mushrooms_tan": "northern_mushrooms_tan.glb",
+	"house_red": "northern_house_red.glb",
+	"house_amber": "northern_house_amber.glb",
+	"house_aqua": "northern_house_aqua.glb",
+	"house_rose": "northern_house_rose.glb",
+	"house_blue": "northern_house_blue.glb",
+	"house_orange": "northern_house_orange.glb",
+	"fjord_dock": "northern_fjord_dock.glb",
+	"center_castle": "northern_center_castle.glb",
+	"wisp": "northern_wisp.glb",
+}
+
+var north_asset_cache: Dictionary = {}
 
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+
+func _north_prop(kind: String, pos: Vector3, target_long: float,
+		yrot: float = 0.0) -> Node3D:
+	if not NORTH_ASSETS.has(kind):
+		return null
+	if not north_asset_cache.has(kind):
+		var path: String = NORTH_ASSET_DIR + String(NORTH_ASSETS[kind])
+		north_asset_cache[kind] = load(path) if ResourceLoader.exists(path) else null
+	var packed: PackedScene = north_asset_cache[kind] as PackedScene
+	if packed == null:
+		return null
+	var wrap := Node3D.new()
+	wrap.name = "Northern_%s" % kind
+	var model: Node3D = packed.instantiate()
+	m._fit_prop(model, target_long)
+	wrap.add_child(model)
+	wrap.position = pos
+	wrap.rotation.y = yrot
+	m.add_child(wrap)
+	m.game_nodes.append(wrap)
+	m.g["north_authored_asset_instance_count"] = int(m.g.get(
+		"north_authored_asset_instance_count", 0)) + 1
+	return wrap
+
+
+func _light_wisp(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh_node := node as MeshInstance3D
+		if mesh_node.mesh != null:
+			for surface in range(mesh_node.mesh.get_surface_count()):
+				var material: Material = mesh_node.get_active_material(surface)
+				if material is StandardMaterial3D:
+					var standard := material as StandardMaterial3D
+					standard.emission_enabled = true
+					standard.emission = standard.albedo_color
+					standard.emission_energy_multiplier = 1.45
+	for child in node.get_children():
+		_light_wisp(child)
 
 
 func build(o: Vector3) -> void:
@@ -33,6 +94,8 @@ func build(o: Vector3) -> void:
 	m.g["north_town_greeted"] = false
 	m.g["north_hint_t"] = 1.0
 	m.g["north_wisps"] = []
+	m.g["north_authored_asset_family_count"] = NORTH_ASSETS.size()
+	m.g["north_authored_asset_instance_count"] = 0
 	_build_environment()
 	_build_terrain(o)
 	_build_fjords(o)
@@ -49,7 +112,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 	var wisps: Array = m.g.get("north_wisps", [])
 	for i in range(wisps.size()):
 		var item: Dictionary = wisps[i]
-		var orb: MeshInstance3D = item.get("node") as MeshInstance3D
+		var orb: Node3D = item.get("node") as Node3D
 		if not is_instance_valid(orb):
 			continue
 		var base: Vector3 = item["base"]
@@ -121,17 +184,15 @@ func _build_environment() -> void:
 	sky.sky_material = psky
 	m.arena_env.sky = sky
 	m.arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	m.arena_env.ambient_light_energy = 0.54 if m.is_night else 0.62
-	m._wind_waker_bloom(m.arena_env, 0.48, 0.08, 1.12)
-	m._grade(m.arena_env)
-	m.arena_env.tonemap_exposure = 0.88
-	m.arena_env.tonemap_white = 1.4
+	m.arena_env.ambient_light_energy = 0.38 if m.is_night else 0.46
+	m._wind_waker_bloom(m.arena_env, 0.30, 0.04, 1.25)
+	m._apply_scene_grade(m.arena_env, "bright_pastel")
 	m.we_node.environment = m.arena_env
 
 	var sun: DirectionalLight3D = DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-52.0, -28.0, 0.0)
 	sun.light_color = Color(0.66, 0.74, 0.98) if m.is_night else Color(1.0, 0.93, 0.78)
-	sun.light_energy = 0.42 if m.is_night else 0.72
+	sun.light_energy = 0.34 if m.is_night else 0.54
 	sun.shadow_enabled = m.quality != "speedy"
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun.directional_shadow_max_distance = 115.0
@@ -175,7 +236,7 @@ func _build_terrain(o: Vector3) -> void:
 	st.generate_tangents()
 	var terrain: MeshInstance3D = MeshInstance3D.new()
 	terrain.mesh = st.commit()
-	terrain.material_override = m._up_mat("grass", 0.042, Color(0.70, 0.90, 0.78))
+	terrain.material_override = m._up_mat("grass", 0.042, Color(0.52, 0.74, 0.61))
 	terrain.position = o
 	m.add_child(terrain)
 	m.game_nodes.append(terrain)
@@ -197,7 +258,7 @@ func _build_terrain(o: Vector3) -> void:
 	path.generate_tangents()
 	var road: MeshInstance3D = MeshInstance3D.new()
 	road.mesh = path.commit()
-	road.material_override = m._castle_mat("cobble", 0.07, Color(0.88, 0.86, 0.90))
+	road.material_override = m._castle_mat("cobble", 0.07, Color(0.68, 0.66, 0.72))
 	road.position = o
 	m.add_child(road)
 	m.game_nodes.append(road)
@@ -227,84 +288,38 @@ func _build_fjords(o: Vector3) -> void:
 		m.add_child(fjord)
 		m.game_nodes.append(fjord)
 
-		# Timber piers make the fjord town readable from the main path.
-		var pier: MeshInstance3D = m._l2_box(o + Vector3(side * 121.0, -0.9, 2.0),
-			Vector3(46.0, 1.0, 8.0), Color(0.48, 0.30, 0.19))
-		pier.material_override = m._castle_mat("wood", 0.16, Color(0.88, 0.73, 0.56))
-		for px: float in [side * 103.0, side * 121.0, side * 139.0]:
-			var post: MeshInstance3D = m._l2_box(o + Vector3(px, -0.2, -1.5),
-				Vector3(1.0, 4.0, 1.0), Color(0.40, 0.25, 0.16))
-			post.material_override = m._castle_mat("wood", 0.18, Color(0.72, 0.54, 0.38))
+		# Authored rope piers replace the former slabs and posts. The fish carving
+		# sits on the water-side end on both banks.
+		_north_prop("fjord_dock", o + Vector3(side * 121.0, -1.3, 2.0), 46.0,
+			PI if side < 0.0 else 0.0)
 
 
 func _build_mountain_pass(o: Vector3) -> void:
 	for row: Array in [
-		[Vector2(-53.0, 174.0), 38.0, 66.0],
-		[Vector2(52.0, 179.0), 35.0, 61.0],
-		[Vector2(-82.0, 145.0), 25.0, 45.0],
-		[Vector2(82.0, 148.0), 24.0, 43.0],
+		[Vector2(-53.0, 174.0), 38.0, 66.0, "peak_a"],
+		[Vector2(52.0, 179.0), 35.0, 61.0, "peak_b"],
+		[Vector2(-82.0, 145.0), 25.0, 45.0, "peak_b"],
+		[Vector2(82.0, 148.0), 24.0, 43.0, "peak_a"],
 	]:
-		_mountain_peak(o, row[0], float(row[1]), float(row[2]))
+		_mountain_peak(o, row[0], float(row[1]), float(row[2]), String(row[3]))
 
 	var pass_y: float = _north_local(PASS_LOCAL.x, PASS_LOCAL.y)
-	var stone: Color = Color(0.50, 0.55, 0.66)
+	_north_prop("pass_arch", o + Vector3(0.0, pass_y, PASS_LOCAL.y), 18.0)
 	for side: float in [-1.0, 1.0]:
 		var pillar_pos: Vector3 = o + Vector3(side * 7.2, pass_y + 6.0, PASS_LOCAL.y)
-		var pillar: MeshInstance3D = m._l2_box(pillar_pos, Vector3(3.4, 12.0, 4.0), stone)
-		pillar.material_override = m._up_mat("cliff", 0.08, stone)
 		m._wall_solid(pillar_pos, Vector3(3.4, 12.0, 4.0), 0.6)
-	var lintel_pos: Vector3 = o + Vector3(0.0, pass_y + 12.0, PASS_LOCAL.y)
-	var lintel: MeshInstance3D = m._l2_box(lintel_pos, Vector3(17.8, 3.0, 4.0), stone)
-	lintel.material_override = m._up_mat("cliff", 0.08, stone)
-
-	var veil: MeshInstance3D = m._l2_box(o + Vector3(0.0, pass_y + 6.0, PASS_LOCAL.y + 0.3),
-		Vector3(10.5, 9.5, 0.25), Color(0.40, 0.88, 1.0), 1.5)
-	veil.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	veil.material_override.albedo_color.a = 0.34
-	veil.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	m.g["north_return_pos"] = o + Vector3(0.0, pass_y + 4.0, PASS_LOCAL.y)
 
-	var rune: Label3D = Label3D.new()
-	rune.text = "\u2744"
-	rune.font_size = 230
-	rune.pixel_size = 0.025
-	rune.outline_size = 28
-	rune.modulate = Color(0.72, 0.96, 1.0)
-	rune.outline_modulate = Color(0.18, 0.24, 0.48)
-	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	rune.position = o + Vector3(0.0, pass_y + 8.0, PASS_LOCAL.y - 0.5)
-	m.add_child(rune)
-	m.game_nodes.append(rune)
 
-
-func _mountain_peak(o: Vector3, lp: Vector2, radius: float, height: float) -> void:
+func _mountain_peak(o: Vector3, lp: Vector2, radius: float, height: float,
+		kind: String) -> void:
 	var base_y: float = _north_local(lp.x, lp.y) - 7.0
-	var peak: MeshInstance3D = MeshInstance3D.new()
-	var mesh: CylinderMesh = CylinderMesh.new()
-	mesh.top_radius = radius * 0.06
-	mesh.bottom_radius = radius
-	mesh.height = height
-	mesh.radial_segments = 10
-	peak.mesh = mesh
-	peak.material_override = m._up_mat("cliff", 0.055, Color(0.54, 0.58, 0.66))
-	peak.position = o + Vector3(lp.x, base_y + height * 0.5, lp.y)
-	peak.visibility_range_end = 260.0
-	m.add_child(peak)
-	m.game_nodes.append(peak)
-	m._cyl_solid(peak.position, radius * 0.42, height * 0.5, 0.6)
-
-	var snow: MeshInstance3D = MeshInstance3D.new()
-	var cap: CylinderMesh = CylinderMesh.new()
-	cap.top_radius = 0.0
-	cap.bottom_radius = radius * 0.54
-	cap.height = height * 0.30
-	cap.radial_segments = 10
-	snow.mesh = cap
-	snow.material_override = m._up_mat("snow", 0.07, Color(0.90, 0.96, 1.0))
-	snow.position = o + Vector3(lp.x, base_y + height * 0.84, lp.y)
-	snow.visibility_range_end = 270.0
-	m.add_child(snow)
-	m.game_nodes.append(snow)
+	var peak_pos: Vector3 = o + Vector3(lp.x, base_y, lp.y)
+	var peak: Node3D = _north_prop(kind, peak_pos, radius * 2.0, lp.x * 0.013)
+	if peak != null:
+		m._set_vis_range(peak, 270.0)
+	m._cyl_solid(peak_pos + Vector3(0.0, height * 0.5, 0.0),
+		radius * 0.42, height * 0.5, 0.6)
 
 
 func _build_magic_forest(o: Vector3) -> void:
@@ -317,9 +332,10 @@ func _build_magic_forest(o: Vector3) -> void:
 	for i in range(tree_spots.size()):
 		var lp: Vector2 = tree_spots[i]
 		var gy: float = _north_local(lp.x, lp.y)
-		var scale: float = 9.0 + float(i % 4) * 1.25
-		var tree: Node3D = m._nature("tree_pineRoundF", o + Vector3(lp.x, gy - 0.35, lp.y),
-			scale, float(i) * 0.71)
+		var target: float = 9.4 + float(i % 4) * 1.1
+		var pine_kind: String = String(["pine_a", "pine_b", "pine_c"][i % 3])
+		var tree: Node3D = _north_prop(pine_kind, o + Vector3(lp.x, gy - 0.35, lp.y),
+			target, float(i) * 0.71)
 		if tree != null:
 			m._set_vis_range(tree, 185.0)
 		m._cyl_solid(o + Vector3(lp.x, gy + 5.0, lp.y), 1.2, 5.0, 0.55)
@@ -330,9 +346,9 @@ func _build_magic_forest(o: Vector3) -> void:
 	]
 	for i in range(mushroom_spots.size()):
 		var mp: Vector2 = mushroom_spots[i]
-		var kind := "mushroom_red" if i % 2 == 0 else "mushroom_tanGroup"
-		var plant: Node3D = m._nature(kind, o + Vector3(mp.x,
-			_north_local(mp.x, mp.y) - 0.2, mp.y), 4.8 + float(i % 3), float(i) * 0.8)
+		var kind := "mushrooms_red" if i % 2 == 0 else "mushrooms_tan"
+		var plant: Node3D = _north_prop(kind, o + Vector3(mp.x,
+			_north_local(mp.x, mp.y) - 0.2, mp.y), 5.2 + float(i % 3), float(i) * 0.8)
 		if plant != null:
 			m._set_vis_range(plant, 120.0)
 	m.g["north_tree_count"] = tree_spots.size()
@@ -340,15 +356,15 @@ func _build_magic_forest(o: Vector3) -> void:
 
 func _build_town(o: Vector3) -> void:
 	var houses: Array = [
-		[Vector2(-76, 31), Color(0.90, 0.42, 0.35), Color(0.27, 0.34, 0.48)],
-		[Vector2(76, 28), Color(0.96, 0.73, 0.32), Color(0.35, 0.24, 0.40)],
-		[Vector2(-83, -4), Color(0.40, 0.72, 0.70), Color(0.24, 0.32, 0.45)],
-		[Vector2(84, -8), Color(0.82, 0.48, 0.68), Color(0.27, 0.29, 0.43)],
-		[Vector2(-82, -43), Color(0.55, 0.67, 0.88), Color(0.31, 0.26, 0.45)],
-		[Vector2(82, -48), Color(0.91, 0.60, 0.38), Color(0.25, 0.34, 0.40)],
+		[Vector2(-76, 31), "house_red"],
+		[Vector2(76, 28), "house_amber"],
+		[Vector2(-83, -4), "house_aqua"],
+		[Vector2(84, -8), "house_rose"],
+		[Vector2(-82, -43), "house_blue"],
+		[Vector2(82, -48), "house_orange"],
 	]
 	for row: Array in houses:
-		_nordic_house(o, row[0], row[1], row[2])
+		_nordic_house(o, row[0], String(row[1]))
 	m.g["north_house_count"] = houses.size()
 
 	# Low, open docks and pennants make the settlement read as a fjord town.
@@ -359,34 +375,14 @@ func _build_town(o: Vector3) -> void:
 			m._set_vis_range(flag, 170.0)
 
 
-func _nordic_house(o: Vector3, lp: Vector2, body_col: Color, roof_col: Color) -> void:
+func _nordic_house(o: Vector3, lp: Vector2, kind: String) -> void:
 	var gy: float = _north_local(lp.x, lp.y)
 	var center: Vector3 = o + Vector3(lp.x, gy, lp.y)
-	var body_pos: Vector3 = center + Vector3(0.0, 6.0, 0.0)
-	var body: MeshInstance3D = m._l2_box(body_pos, Vector3(18.0, 12.0, 15.0), body_col)
-	body.material_override = m._castle_mat("wood", 0.18, body_col)
-	m._wall_solid(body_pos, Vector3(18.0, 12.0, 15.0), 0.7)
-
-	# Two thick roof cards form the steep snow-shedding gable silhouette.
-	for side: float in [-1.0, 1.0]:
-		var roof: MeshInstance3D = m._l2_box(center + Vector3(side * 4.25, 13.7, 0.0),
-			Vector3(11.2, 1.0, 17.2), roof_col)
-		roof.rotation.z = side * 0.64
-		roof.material_override = m._castle_mat("roof", 0.13, roof_col)
-
-	var inward: float = -1.0 if lp.x > 0.0 else 1.0
-	var door_pos: Vector3 = center + Vector3(inward * 9.1, 3.1, 0.0)
-	var door: MeshInstance3D = m._l2_box(door_pos, Vector3(0.35, 6.2, 3.8), Color(0.34, 0.22, 0.18))
-	door.material_override = m._castle_mat("door", 0.18, Color(0.72, 0.50, 0.34))
-	for zoff: float in [-4.6, 4.6]:
-		var window: MeshInstance3D = m._l2_box(center + Vector3(inward * 9.2, 7.1, zoff),
-			Vector3(0.3, 3.3, 3.0), Color(0.70, 0.91, 1.0), 0.55)
-		window.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	# White corner boards give the little houses their painted timber character.
-	for zedge: float in [-7.55, 7.55]:
-		var trim: MeshInstance3D = m._l2_box(center + Vector3(inward * 9.25, 6.2, zedge),
-			Vector3(0.45, 12.4, 0.7), Color(0.95, 0.96, 0.91))
-		trim.material_override = m._castle_mat("wood", 0.22, Color(0.95, 0.96, 0.91))
+	var inward_rotation: float = -PI * 0.5 if lp.x > 0.0 else PI * 0.5
+	var house: Node3D = _north_prop(kind, center, 19.5, inward_rotation)
+	if house != null:
+		m._set_vis_range(house, 205.0)
+	m._wall_solid(center + Vector3(0.0, 7.2, 0.0), Vector3(15.0, 14.4, 15.0), 0.7)
 
 
 func _build_center_castle(o: Vector3) -> void:
@@ -394,55 +390,26 @@ func _build_center_castle(o: Vector3) -> void:
 	var cz: float = CASTLE_LOCAL.y
 	var gy: float = _north_local(cx, cz)
 	var c: Vector3 = o + Vector3(cx, gy, cz)
-	var stone: Color = Color(0.70, 0.72, 0.84)
-	var roof_col: Color = Color(0.29, 0.35, 0.55)
+	var castle: Node3D = _north_prop("center_castle", c, 74.0)
+	if castle != null:
+		m._set_vis_range(castle, 245.0)
 
-	# Square curtain wall; the broad south gate stays open and easy to swim through.
-	_castle_wall(c + Vector3(0, 7, -37), Vector3(68, 14, 4), stone)
-	_castle_wall(c + Vector3(-36, 7, 0), Vector3(4, 14, 70), stone)
-	_castle_wall(c + Vector3(36, 7, 0), Vector3(4, 14, 70), stone)
-	_castle_wall(c + Vector3(-24, 7, 37), Vector3(24, 14, 4), stone)
-	_castle_wall(c + Vector3(24, 7, 37), Vector3(24, 14, 4), stone)
-	var arch: MeshInstance3D = m._l2_box(c + Vector3(0, 13.0, 37),
-		Vector3(24, 4, 4.4), stone.lightened(0.08))
-	arch.material_override = m._castle_mat("wall", 0.07, stone.lightened(0.08))
+	# Analytic solids stay independent from the authored scene so collision
+	# remains cheap and deterministic on the phone.
+	_castle_wall(c + Vector3(0, 7, -37), Vector3(68, 14, 4))
+	_castle_wall(c + Vector3(-36, 7, 0), Vector3(4, 14, 70))
+	_castle_wall(c + Vector3(36, 7, 0), Vector3(4, 14, 70))
+	_castle_wall(c + Vector3(-24, 7, 37), Vector3(24, 14, 4))
+	_castle_wall(c + Vector3(24, 7, 37), Vector3(24, 14, 4))
 
 	for corner: Vector2 in [Vector2(-36, -37), Vector2(36, -37),
 		Vector2(-36, 37), Vector2(36, 37)]:
 		var tower_base: Vector3 = c + Vector3(corner.x, -0.2, corner.y)
-		var tower: Node3D = m._kit("castle/tower-square", tower_base, 15.0)
-		if tower != null:
-			m._set_vis_range(tower, 235.0)
 		m._cyl_solid(tower_base + Vector3(0, 9, 0), 6.6, 9.0, 0.6)
-		m._kit("castle/flag", tower_base + Vector3(0, 19.0, 0), 2.5)
 
-	# The keep sits in the middle-back of the open courtyard. Its glowing door
-	# and crown are a destination, but there is no lock, score, or fail state.
+	# The keep stays open as a destination: there is no lock, score, or fail state.
 	var keep_pos: Vector3 = c + Vector3(0, 10.0, -13.0)
-	var keep: MeshInstance3D = m._l2_box(keep_pos, Vector3(30, 20, 24), Color(0.77, 0.78, 0.89))
-	keep.material_override = m._castle_mat("wall", 0.065, Color(0.77, 0.78, 0.89))
 	m._wall_solid(keep_pos, Vector3(30, 20, 24), 0.8)
-	for side: float in [-1.0, 1.0]:
-		var roof: MeshInstance3D = m._l2_box(c + Vector3(side * 7.2, 22.0, -13.0),
-			Vector3(18.0, 1.2, 27.0), roof_col)
-		roof.rotation.z = side * 0.58
-		roof.material_override = m._castle_mat("roof", 0.11, roof_col)
-	var door: MeshInstance3D = m._l2_box(c + Vector3(0, 5.0, 0.0),
-		Vector3(8.0, 10.0, 0.5), Color(0.48, 0.30, 0.20), 0.45)
-	door.material_override = m._castle_mat("door", 0.12, Color(0.82, 0.68, 0.48))
-	door.material_override.uv1_world_triplanar = false
-
-	var crown: Label3D = Label3D.new()
-	crown.text = "\u265B"
-	crown.font_size = 290
-	crown.pixel_size = 0.028
-	crown.outline_size = 32
-	crown.modulate = Color(1.0, 0.84, 0.36)
-	crown.outline_modulate = Color(0.24, 0.22, 0.48)
-	crown.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	crown.position = c + Vector3(0, 29.0, -13.0)
-	m.add_child(crown)
-	m.game_nodes.append(crown)
 
 	var fountain: Node3D = m._kit("park/fountain", c + Vector3(0, 0.15, 18.0), 12.0)
 	if fountain != null:
@@ -450,9 +417,7 @@ func _build_center_castle(o: Vector3) -> void:
 		m._cyl_solid(c + Vector3(0, 3.0, 18.0), 4.5, 3.0, 0.5)
 
 
-func _castle_wall(pos: Vector3, size: Vector3, col: Color) -> void:
-	var wall: MeshInstance3D = m._l2_box(pos, size, col)
-	wall.material_override = m._castle_mat("wall", 0.07, col)
+func _castle_wall(pos: Vector3, size: Vector3) -> void:
 	m._wall_solid(pos, size, 0.65)
 
 
@@ -465,31 +430,11 @@ func _build_wisp_trail(o: Vector3) -> void:
 	for i in range(spots.size()):
 		var lp: Vector2 = spots[i]
 		var base: Vector3 = o + Vector3(lp.x, _north_local(lp.x, lp.y) + 4.2, lp.y)
-		var orb: MeshInstance3D = MeshInstance3D.new()
-		var sphere: SphereMesh = SphereMesh.new()
-		sphere.radius = 0.75
-		sphere.height = 1.5
-		sphere.radial_segments = 8
-		sphere.rings = 5
-		orb.mesh = sphere
-		var col: Color = Color(0.54, 0.94, 1.0) if i % 2 == 0 else Color(0.88, 0.66, 1.0)
-		orb.material_override = m._soft_mat(col, 1.8)
-		orb.position = base
-		orb.visibility_range_end = 145.0
-
-		var ring: MeshInstance3D = MeshInstance3D.new()
-		var torus: TorusMesh = TorusMesh.new()
-		torus.inner_radius = 1.4
-		torus.outer_radius = 1.7
-		torus.rings = 10
-		torus.ring_segments = 6
-		ring.mesh = torus
-		ring.material_override = m._soft_mat(col, 1.15)
-		ring.rotation.x = PI * 0.5
-		orb.add_child(ring)
-		m.add_child(orb)
-		m.game_nodes.append(orb)
-		wisps.append({"node": orb, "base": base})
+		var orb: Node3D = _north_prop("wisp", base, 3.3, float(i) * 0.57)
+		if orb != null:
+			_light_wisp(orb)
+			m._set_vis_range(orb, 145.0)
+			wisps.append({"node": orb, "base": base})
 	m.g["north_wisps"] = wisps
 	m.g["north_wisp_count"] = wisps.size()
 

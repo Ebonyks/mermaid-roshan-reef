@@ -43,6 +43,9 @@ func _init() -> void:
 	_ck("mobile dressing budget", int(main.g.get("north_tree_count", 0)) == 16
 		and int(main.g.get("north_house_count", 0)) == 6
 		and int(main.g.get("north_wisp_count", 0)) == 8)
+	_ck("authored northern asset family", int(main.g.get(
+		"north_authored_asset_family_count", 0)) == 17
+		and int(main.g.get("north_authored_asset_instance_count", 0)) == 46)
 
 	var pass_h: float = main.northern_walk_h(main.NORTHERN_POS.x,
 		main.NORTHERN_POS.z + 184.0)
