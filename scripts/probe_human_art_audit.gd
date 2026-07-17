@@ -9,10 +9,10 @@ func _frames(count: int) -> void:
 	for i in range(count):
 		await process_frame
 
-func _shot(name: String, position: Vector3 = Vector3.ZERO, target: Vector3 = Vector3.ZERO, use_hold: bool = false) -> void:
+func _shot(name: String, position: Vector3 = Vector3.ZERO, target: Vector3 = Vector3.ZERO, use_hold: bool = false, up: Vector3 = Vector3.UP) -> void:
 	if use_hold:
 		camera.position = position
-		camera.look_at(target, Vector3.UP)
+		camera.look_at(target, up)
 		camera.make_current()
 	await _frames(3)
 	await RenderingServer.frame_post_draw
@@ -82,5 +82,34 @@ func _init() -> void:
 	main._start_kart_game(false, "terrain")
 	await _frames(45)
 	await _shot("13_kart_world")
+	await _fresh_main()
+	main._start_game(main.fairy_fr)
+	await _frames(25)
+	var fairy_origin: Vector3 = main.ARENA_POS
+	await _shot("14_fairy_pond_flight", fairy_origin + Vector3(0, 58, 95), fairy_origin + Vector3(0, 0, 95), true, Vector3(0, 0, 1))
+	main.g["fz"] = main.FS_LEN
+	main._fairy_start_boss(fairy_origin)
+	await _frames(5)
+	var flower: Vector3 = main.g["boss_center"]
+	await _shot("15_fairy_flower_seed", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	for leaf_data in main.g["leaves"]:
+		if is_instance_valid(leaf_data["node"]):
+			(leaf_data["node"] as Node3D).queue_free()
+	main.g["leaves"] = []
+	main.g["phase"] = "boss_bud"
+	main.g["phase_t"] = 99.0
+	main.g["bud_hp"] = 10
+	await _frames(3)
+	await _shot("16_fairy_flower_sprout", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	main.g["bud_hp"] = 6
+	await _frames(3)
+	await _shot("17_fairy_flower_bud", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	main.g["bud_hp"] = 2
+	await _frames(3)
+	await _shot("18_fairy_flower_opening", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	main._fairy_bloom_start()
+	main.g["bloom_t"] = main.FS_BLOOM_T * 0.2
+	await _frames(3)
+	await _shot("19_fairy_flower_bloom", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
 	print("ART_AUDIT|DONE")
 	quit()
