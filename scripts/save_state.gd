@@ -82,10 +82,6 @@ func load_save() -> void:
 	m.animals_owned = m.save_data.get("animals", {})
 	var saved_critters: Variant = m.save_data.get("critters", {})
 	m.critter_collection = saved_critters if saved_critters is Dictionary else {}
-	if bool(m.shop_owned.get("tail", false)):
-		m.player.set_rainbow_trail(true)
-	if bool(m.shop_owned.get("tiara", false)):
-		m.player.set_tiara(true)
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
