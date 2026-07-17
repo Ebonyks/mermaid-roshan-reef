@@ -115,3 +115,19 @@ jobs:
           name: reef-first-world-review
           path: /tmp/reef-shots/*.png
           if-no-files-found: error
+
+      - name: Capture northern-world visual review
+        env:
+          NORTH_SHOT_OUT: /tmp/northern-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$NORTH_SHOT_OUT"
+          timeout 6m xvfb-run -a godot --rendering-method mobile -s scripts/probe_northern_art_audit.gd
+
+      - name: Upload northern-world visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: northern-world-review
+          path: /tmp/northern-shots/*.png
+          if-no-files-found: error
