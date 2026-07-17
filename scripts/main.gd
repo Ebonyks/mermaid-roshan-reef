@@ -1771,7 +1771,8 @@ func _build_aquatic_creatures() -> void:
 			continue
 		if String(entry[0]) == "Whale":
 			whale_node = inst
-		aquatic_movers.append({"node": inst, "rad": entry[1], "spd": entry[2], "y": entry[3], "ph": randf() * TAU})
+		aquatic_movers.append({"node": inst, "rad": entry[1], "spd": entry[2], "y": entry[3],
+			"ph": randf() * TAU, "clearance": float(entry[4]) + 1.5})
 	# bottom dwellers posed in the groves
 	if cluster_centers.size() >= 4:
 		var oc: Vector3 = cluster_centers[2]
@@ -1789,7 +1790,9 @@ func _build_aquatic_creatures() -> void:
 		var inst := _place_aq("ClownFish", Vector3.ZERO, 1.2 + randf() * 1.0, true)
 		if inst == null:
 			continue
-		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU})
+		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0,
+			"spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0,
+			"ph": randf() * TAU, "clearance": 2.0})
 	# player-crafted fish from the Crafting Studio (persist via save)
 	_spawn_crafted_fish()
 	# reef friends already bought free from the shop tanks (persist via save)
@@ -1808,7 +1811,9 @@ func _spawn_crafted_fish() -> void:
 		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]), (cf as Array).size() > 6 and int(cf[6]) == 1, (cf as Array).size() > 7 and int(cf[7]) == 1)
 		add_child(cfn)
 		flora_nodes.append(cfn)
-		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0, "spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0, "ph": randf() * TAU, "crafted": true})
+		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0,
+			"spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0,
+			"ph": randf() * TAU, "crafted": true, "clearance": 2.0})
 
 func _spawn_shop_animals() -> void:
 	# put every OWNED tank species in the water: its old patrol rows plus its
@@ -1825,7 +1830,9 @@ func _spawn_shop_animals() -> void:
 			var inst := _place_aq(String(it["model"]), Vector3.ZERO, float(pat[3]), true)
 			if inst == null:
 				continue
-			var mover := {"node": inst, "rad": float(pat[0]), "spd": float(pat[1]), "y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp}
+			var mover := {"node": inst, "rad": float(pat[0]), "spd": float(pat[1]),
+				"y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp,
+				"clearance": maxf(2.0, float(pat[3]) * 0.55)}
 			if sp == "turtle":
 				# the freed turtle keeps its tank skeleton: flippers stroke
 				# out in the open reef too, so the purchase payoff is visible
@@ -1838,7 +1845,9 @@ func _spawn_shop_animals() -> void:
 			var binst := _place_aq(String(it["model"]), Vector3.ZERO, 1.2 + randf() * 1.0, true)
 			if binst == null:
 				continue
-			var bmover := {"node": binst, "rad": 40.0 + randf() * 150.0, "spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0, "ph": randf() * TAU, "shop_pet": sp}
+			var bmover := {"node": binst, "rad": 40.0 + randf() * 150.0,
+				"spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0,
+				"ph": randf() * TAU, "shop_pet": sp, "clearance": 2.0}
 			if sp == "turtle":
 				var brig := _rig_turtle(binst, 3.6)
 				if not brig.is_empty():
@@ -1980,13 +1989,25 @@ func _set_sway(pet: Node3D, amount: float) -> void:
 			if mat is ShaderMaterial:
 				(mat as ShaderMaterial).set_shader_parameter("sway_amount", amount)
 
+func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: float = 3.0) -> float:
+	# Patrol circles cross terrain of very different heights. Keep each creature
+	# above the local seabed while retaining a safe margin below the water surface.
+	var ceiling: float = WATER_TOP - 3.0
+	var floor: float = minf(seabed_y(x, z) + clearance, ceiling)
+	return clampf(desired_y, floor, ceiling)
+
+
 func _tick_aquatic(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0
 	for mv in aquatic_movers:
 		var node: Node3D = mv["node"]
 		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
 		var rad: float = float(mv["rad"])
-		var pos := Vector3(cos(ang) * rad, float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0, sin(ang) * rad)
+		var px: float = cos(ang) * rad
+		var pz: float = sin(ang) * rad
+		var desired_y: float = float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0
+		var pos := Vector3(px, _aquatic_patrol_height(px, pz, desired_y,
+			float(mv.get("clearance", 3.0))), pz)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
 		if mv.has("rig"):
@@ -7245,7 +7266,7 @@ func _fairy_bloom_start() -> void:
 
 func _build_slide_portal() -> void:
 	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
-	slide_portal_pos = Vector3(48.0, WATER_TOP - 26.0, -42.0)   # nav audit: was (80,-20,-70) = 106m swim; now ~64m on an open lane
+	slide_portal_pos = Vector3(48.0, WATER_TOP + 0.5, -42.0)
 	var floe := MeshInstance3D.new()
 	var fm := CylinderMesh.new(); fm.top_radius = 11.0; fm.bottom_radius = 8.5; fm.height = 3.0
 	floe.mesh = fm
@@ -7290,7 +7311,7 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 	add_child(hill)
 	game_nodes.append(hill)
 	# scattered living things around the play circle (kept clear of the bushes)
-	var trees := ["tree_palm", "tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
+	var trees := ["tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
 	var flowers := ["flower_redA", "flower_yellowB", "flower_purpleA"]
 	var seed := 11
 	for k in range(40):
@@ -7300,10 +7321,11 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 		var gp := origin + Vector3(cos(ang) * rad, 1.0, sin(ang) * rad)
 		var pick := (seed / 7) % 10
 		var yr := float(seed % 628) / 100.0
+		var tree_name: String = trees[(seed / 13) % trees.size()] if pick < 3 else ""
+		var placement_role: String = tree_name if pick < 3 else "soft_flora"
+		if not _lamb_meadow_placement_allowed(Vector2(gp.x - origin.x, gp.z - origin.z), placement_role):
+			continue
 		if pick < 3:
-			var tree_name: String = trees[(seed / 13) % trees.size()]
-			if tree_name == "tree_palm":
-				continue
 			_nature(tree_name, gp, 4.5 + float(seed % 3), yr)
 			_cyl_solid(gp + Vector3(0, 3.0, 0), 0.9, 3.0, 0.5)   # trunks solid; hide-bushes stay soft
 		elif pick < 5:
@@ -7329,6 +7351,16 @@ func _decorate_lamb_meadow(origin: Vector3) -> void:
 	sun.position = origin + Vector3(18, 30, 12)
 	add_child(sun)
 	game_nodes.append(sun)
+
+
+func _lamb_meadow_placement_allowed(local: Vector2, role: String) -> bool:
+	if local.length() < 15.0 or local.length() > 44.0 or role == "tree_palm":
+		return false
+	var clearance: float = 12.0 if role.begins_with("tree_") else 8.5
+	for bush_offset: Vector3 in BTN_OFFS:
+		if local.distance_to(Vector2(bush_offset.x, bush_offset.z)) < clearance:
+			return false
+	return true
 
 func _tick_game(delta: float) -> void:
 	var fr: Dictionary = g["fr"]

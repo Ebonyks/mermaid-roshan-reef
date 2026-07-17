@@ -316,8 +316,20 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var acc_rb: bool = cf2.size() > 8 and int(cf2[8]) == 1
 		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)
 		var fang: float = float(fi) * 1.3
-		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
-		var frz: float = 70.0 + sin(fang) * 45.0
+		var friend_home := Vector2(cos(fang) * (34.0 + float(fi % 5) * 11.0),
+			70.0 + sin(fang) * 45.0)
+		# Saved friends can outnumber the original layout assumptions. Walk each
+		# candidate around the meadow until it is off paths, water and landmarks.
+		for attempt in range(32):
+			var try_ang: float = fang + float(attempt) * 0.53
+			var try_radius: float = 34.0 + float((fi + attempt) % 5) * 11.0
+			var candidate := Vector2(cos(try_ang) * try_radius,
+				70.0 + sin(try_ang) * 45.0)
+			if _lagoon_ground_object_allowed("crafted_friend", candidate.x, candidate.y):
+				friend_home = candidate
+				break
+		var frx: float = friend_home.x
+		var frz: float = friend_home.y
 		# gen2 meshes seat their base at the origin -> stand them on the lawn;
 		# billboard fallbacks are center-origin and keep the old float height
 		var fry: float = (_lagoon_local(frx, frz) + 0.2) if frn.has_meta("gen2") else 6.0
@@ -2393,15 +2405,44 @@ func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: f
 	return amp * f * f
 
 
-func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
-	# Keep terrestrial flora tied to the same ecological zones painted by the
-	# terrain shader. Explicit cattails and Alpine pines are built separately.
+func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
+	# Shared continuity guard for generated objects. The clearance grows for
+	# larger actors so their visible footprint, not just their origin, stays off
+	# water, maintained routes, solid landmarks and the island rim.
+	var clearance: float = 4.5 if role == "crafted_friend" else 2.5
+	if Vector2(lx, lz).length() > 202.0 - clearance:
+		return false
 	if _lagoon_river_dip(lx, lz) > 0.0:
 		return false
 	var moat_d: float = Vector2(lx - m.MOAT_CX, lz - m.MOAT_CZ).length()
-	if moat_d > m.MOAT_INNER and moat_d < m.MOAT_OUTER:
+	# The castle and its surrounding moat are authored play spaces, not scatter
+	# ground. This also prevents plants appearing inside the castle shell.
+	if moat_d < m.MOAT_OUTER + clearance:
 		return false
-	if Vector2(lx + 95.0, lz - 70.0).length() < 38.0:
+	if Vector2(lx + 95.0, lz - 70.0).length() < 38.0 + clearance:
+		return false
+	if lz > -95.0 - clearance and lz < 172.0 + clearance and absf(lx) < 9.0 + clearance:
+		return false
+	for star_pos: Vector3 in m.L2_STAR_SPOTS:
+		if Vector2(lx - star_pos.x, lz - star_pos.z).length() < 9.0 + clearance:
+			return false
+	if Vector2(lx + 30.0, lz - 140.0).length() < 9.0 + clearance:
+		return false
+	for gate_x: float in [-26.0, -15.0, 15.0, 26.0]:
+		if Vector2(lx - gate_x, lz - 164.0).length() < 7.0 + clearance:
+			return false
+	for house_center: Vector2 in [ALPINE_HOUSE_A, ALPINE_HOUSE_B, ALPINE_HOUSE_C]:
+		if Vector2(lx, lz).distance_to(house_center) < 11.0 + clearance:
+			return false
+	if Vector2(lx, lz).distance_to(ALPINE_MOUNTAIN_CENTER) < 43.0 + clearance:
+		return false
+	return true
+
+
+func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
+	# Keep terrestrial flora tied to the same ecological zones painted by the
+	# terrain shader. Explicit cattails and Alpine pines are built separately.
+	if not _lagoon_ground_object_allowed(role, lx, lz):
 		return false
 
 	var ground_y: float = _lagoon_local(lx, lz)

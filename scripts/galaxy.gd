@@ -415,6 +415,33 @@ func _garden_path_mix(dir: Vector3) -> float:
 	return (exp(-pow((v - 0.36 + wobble) * 34.0, 2.0))
 		+ exp(-pow((v - 0.66 - wobble) * 34.0, 2.0))) * 0.9
 
+
+func _garden_fixture_allowed(role: String, dir: Vector3) -> bool:
+	# Castle gates deliberately meet the path; meadow fixtures and living plants
+	# must sit beside it so the two sandy walking bands remain visually legible.
+	return role == "gate" or _garden_path_mix(dir) <= 0.25
+
+
+func _garden_meadow_dir(dir: Vector3) -> Vector3:
+	var d: Vector3 = dir.normalized()
+	if _garden_fixture_allowed("fixture", d):
+		return d
+	var u: float = fposmod(atan2(d.x, d.z) / TAU, 1.0)
+	var v: float = acos(clampf(d.y, -1.0, 1.0)) / PI
+	# Preserve longitude and nudge only far enough across the nearest path edge.
+	# Alternating signs makes this deterministic and avoids clustering fixtures
+	# on one side of each garden path.
+	for step in range(1, 17):
+		for sign_value: float in [-1.0, 1.0]:
+			var candidate_v: float = clampf(v + sign_value * float(step) * 0.0125, 0.02, 0.98)
+			var polar: float = candidate_v * PI
+			var azimuth: float = u * TAU
+			var candidate := Vector3(sin(polar) * sin(azimuth), cos(polar),
+				sin(polar) * cos(azimuth)).normalized()
+			if _garden_fixture_allowed("fixture", candidate):
+				return candidate
+	return d
+
 func _fit_small(model: Node3D, target_long: float) -> float:
 	# normalise a GLB to a footprint (assets range from 0.14 to 98 units raw)
 	if _main != null and _main.has_method("_toonify"):
@@ -499,7 +526,7 @@ func _build_decor() -> void:
 		var tall: bool = i % TROPICAL.size() < 2
 		var plant_height := (10.0 + fposmod(float(i) * 1.7, 4.0)) if tall else (3.2 + fposmod(float(i) * 1.3, 2.4))
 		var dir := Vector3(sin(float(i) * 2.4) * cos(float(i) * 0.83), sin(float(i) * 0.9) * 0.85, cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
-		if _garden_path_mix(dir) > 0.5:
+		if not _garden_fixture_allowed("plant", dir):
 			continue
 		var gr: Node3D = StoryArtFactory.plant(role, plant_height)
 		if gr == null:
@@ -515,7 +542,7 @@ func _build_decor() -> void:
 	for i in range(28):
 		var flora_role: String = FLORA[i % FLORA.size()]
 		var dir2 := Vector3(sin(float(i) * 1.1 + 2.0), cos(float(i) * 1.7), sin(float(i) * 0.6 - 1.0)).normalized()
-		if _garden_path_mix(dir2) > 0.5:
+		if not _garden_fixture_allowed("plant", dir2):
 			continue
 		var fl: Node3D = StoryArtFactory.plant(flora_role, 4.0 + fposmod(float(i) * 2.3, 3.0), pastels[(i + 2) % pastels.size()])
 		if fl == null:
@@ -527,7 +554,7 @@ func _build_decor() -> void:
 	# ---- FRUIT FEEDING TRAYS: walk up and the butterflies swarm in to feast ----
 	var tray_dirs := [Vector3(0.8, 0.15, -0.6), Vector3(-0.75, 0.4, 0.5), Vector3(0.1, -0.55, 0.83), Vector3(-0.4, -0.75, -0.55)]
 	for ti in range(tray_dirs.size()):
-		var tdir: Vector3 = (tray_dirs[ti] as Vector3).normalized()
+		var tdir: Vector3 = _garden_meadow_dir((tray_dirs[ti] as Vector3).normalized())
 		_blockers.append({"dir": tdir, "r": 1.6, "cool": 0.0})   # pedestal rock is solid (feast trigger fires at 4.5)
 		var th := Node3D.new()
 		add_child(th)
@@ -616,7 +643,7 @@ func _build_decor() -> void:
 	add_child(cl)
 	# ---- FLOWER BOUNCE PADS: glowing blossom rings that fling Roshan sky-high ----
 	for pdir_raw in [Vector3(1.0, 0.35, 0.5), Vector3(-0.55, -0.45, 0.75), Vector3(0.25, -0.85, -0.55)]:
-		var pdir: Vector3 = (pdir_raw as Vector3).normalized()
+		var pdir: Vector3 = _garden_meadow_dir((pdir_raw as Vector3).normalized())
 		var pad := MeshInstance3D.new()
 		var ptm := TorusMesh.new()
 		ptm.inner_radius = 2.0

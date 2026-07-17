@@ -13,6 +13,14 @@ const FOREST_LOCAL := Vector2(0.0, 92.0)
 const TOWN_LOCAL := Vector2(0.0, 4.0)
 const CASTLE_LOCAL := Vector2(0.0, -55.0)
 const WORLD_RADIUS := 214.0
+const MOUNTAIN_LAYOUT: Array = [
+	[Vector2(-53.0, 174.0), 38.0, 66.0], [Vector2(52.0, 179.0), 35.0, 61.0],
+	[Vector2(-82.0, 145.0), 25.0, 45.0], [Vector2(82.0, 148.0), 24.0, 43.0],
+]
+const TOWN_HOUSE_CENTERS: Array[Vector2] = [
+	Vector2(-76, 31), Vector2(76, 28), Vector2(-83, -4),
+	Vector2(84, -8), Vector2(-82, -43), Vector2(82, -48),
+]
 
 
 func _init(main: ReefMain) -> void:
@@ -232,18 +240,15 @@ func _build_fjords(o: Vector3) -> void:
 			Vector3(46.0, 1.0, 8.0), Color(0.48, 0.30, 0.19))
 		pier.material_override = m._castle_mat("wood", 0.16, Color(0.88, 0.73, 0.56))
 		for px: float in [side * 103.0, side * 121.0, side * 139.0]:
-			var post: MeshInstance3D = m._l2_box(o + Vector3(px, -0.2, -1.5),
+			# Posts reach from the deck through the fjord surface instead of
+			# stopping in mid-water above it.
+			var post: MeshInstance3D = m._l2_box(o + Vector3(px, -3.0, -1.5),
 				Vector3(1.0, 4.0, 1.0), Color(0.40, 0.25, 0.16))
 			post.material_override = m._castle_mat("wood", 0.18, Color(0.72, 0.54, 0.38))
 
 
 func _build_mountain_pass(o: Vector3) -> void:
-	for row: Array in [
-		[Vector2(-53.0, 174.0), 38.0, 66.0],
-		[Vector2(52.0, 179.0), 35.0, 61.0],
-		[Vector2(-82.0, 145.0), 25.0, 45.0],
-		[Vector2(82.0, 148.0), 24.0, 43.0],
-	]:
+	for row: Array in MOUNTAIN_LAYOUT:
 		_mountain_peak(o, row[0], float(row[1]), float(row[2]))
 
 	var pass_y: float = _north_local(PASS_LOCAL.x, PASS_LOCAL.y)
@@ -335,13 +340,17 @@ func _build_magic_forest(o: Vector3) -> void:
 		Vector2(-43, 88), Vector2(45, 82), Vector2(-77, 74), Vector2(75, 66),
 		Vector2(-34, 59), Vector2(37, 54), Vector2(-62, 43), Vector2(63, 39),
 	]
+	var tree_count := 0
 	for i in range(tree_spots.size()):
 		var lp: Vector2 = tree_spots[i]
+		if not _north_flora_allowed("tree_pineRoundF", lp.x, lp.y):
+			continue
 		var gy: float = _north_local(lp.x, lp.y)
 		var scale: float = 9.0 + float(i % 4) * 1.25
 		var tree: Node3D = m._nature("tree_pineRoundF", o + Vector3(lp.x, gy - 0.35, lp.y),
 			scale, float(i) * 0.71)
 		if tree != null:
+			tree_count += 1
 			m._set_vis_range(tree, 185.0)
 		m._cyl_solid(o + Vector3(lp.x, gy + 5.0, lp.y), 1.2, 5.0, 0.55)
 
@@ -349,14 +358,19 @@ func _build_magic_forest(o: Vector3) -> void:
 		Vector2(-18, 137), Vector2(20, 126), Vector2(-22, 105), Vector2(19, 91),
 		Vector2(-24, 76), Vector2(22, 62), Vector2(-19, 48), Vector2(24, 39),
 	]
+	var mushroom_count := 0
 	for i in range(mushroom_spots.size()):
 		var mp: Vector2 = mushroom_spots[i]
 		var kind := "mushroom_red" if i % 2 == 0 else "mushroom_tanGroup"
+		if not _north_flora_allowed(kind, mp.x, mp.y):
+			continue
 		var plant: Node3D = m._nature(kind, o + Vector3(mp.x,
 			_north_local(mp.x, mp.y) - 0.2, mp.y), 4.8 + float(i % 3), float(i) * 0.8)
 		if plant != null:
+			mushroom_count += 1
 			m._set_vis_range(plant, 120.0)
-	m.g["north_tree_count"] = tree_spots.size()
+	m.g["north_tree_count"] = tree_count
+	m.g["north_mushroom_count"] = mushroom_count
 
 
 func _build_town(o: Vector3) -> void:
@@ -375,6 +389,9 @@ func _build_town(o: Vector3) -> void:
 
 	# Low, open docks and pennants make the settlement read as a fjord town.
 	for side: float in [-1.0, 1.0]:
+		var mast: MeshInstance3D = m._l2_box(o + Vector3(side * 103.0, 4.6, 2.0),
+			Vector3(0.65, 10.0, 0.65), Color(0.43, 0.27, 0.17))
+		mast.material_override = m._castle_mat("wood", 0.18, Color(0.72, 0.54, 0.38))
 		var flag: Node3D = m._kit("castle/flag", o + Vector3(side * 103.0, 8.0, 2.0), 3.0,
 			-PI * 0.5 if side < 0.0 else PI * 0.5)
 		if flag != null:
@@ -525,6 +542,34 @@ func _bump(lx: float, lz: float, cx: float, cz: float, radius: float, amp: float
 		return 0.0
 	var f: float = 1.0 - d2 / r2
 	return amp * f * f
+
+
+func _north_flora_allowed(role: String, lx: float, lz: float) -> bool:
+	var p := Vector2(lx, lz)
+	if p.length() > 198.0:
+		return false
+	# Water, the maintained cobble route and authored play structures are never
+	# scatter substrates, even when the terrain mesh continues underneath them.
+	if absf(lx) > 128.0 and absf(lx) < 205.0 and lz > -173.0 and lz < 160.0:
+		return false
+	if absf(lx) < 11.0 and lz > -23.0 and lz < 178.0:
+		return false
+	if p.distance_to(CASTLE_LOCAL) < 48.0:
+		return false
+	for house_center: Vector2 in TOWN_HOUSE_CENTERS:
+		if p.distance_to(house_center) < 15.0:
+			return false
+	for row: Array in MOUNTAIN_LAYOUT:
+		var center: Vector2 = row[0]
+		var radius: float = float(row[1])
+		var mountain_d: float = p.distance_to(center)
+		if mountain_d < radius * 0.55:
+			return false
+		if mountain_d < radius * 1.15:
+			return role == "tree_pineRoundF"
+	# The kingdom's ordinary low terrain is cool grassland: temperate pines and
+	# fungi fit here, while tropical plants do not.
+	return role != "tree_palm"
 
 
 func _north_local(lx: float, lz: float) -> float:

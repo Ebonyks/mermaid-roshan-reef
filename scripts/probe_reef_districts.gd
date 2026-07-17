@@ -27,6 +27,19 @@ func _init() -> void:
 	_check("moon region", ReefDistricts.region_at(Vector2(-165, 5)) == "moon")
 	_check("rainbow region", ReefDistricts.region_at(Vector2(-40, -165)) == "rainbow")
 	_check("ice region", ReefDistricts.region_at(Vector2(140, -115)) == "ice")
+	_check("kelp scatter stays in kelp district",
+		ReefDistricts.habitat_point_allowed("kelp", Vector2(-35, 165))
+		and not ReefDistricts.habitat_point_allowed("kelp", Vector2(140, -115)))
+	_check("cold-water flora stays in ice district",
+		ReefDistricts.habitat_point_allowed("ice", Vector2(140, -115))
+		and not ReefDistricts.habitat_point_allowed("ice", Vector2(-165, 5)))
+	_check("species use compatible districts",
+		ReefDistricts.habitat_point_allowed("starfish", Vector2(-40, -165))
+		and ReefDistricts.habitat_point_allowed("urchin", Vector2(-160, 135))
+		and not ReefDistricts.habitat_point_allowed("anemone", Vector2(-40, -165)))
+	_check("friend and portal gateways stay clear",
+		not ReefDistricts.habitat_point_allowed("starfish", ReefDistricts.FRIEND_POSITIONS[0] as Vector2)
+		and not ReefDistricts.habitat_point_allowed("starfish", Vector2(-5, -95)))
 	_check("hub flattened", ReefDistricts.shape_terrain(0.0, 0.0, 20.0) < 6.0)
 	_check("Faron approach flattened", ReefDistricts.shape_terrain(-72.0, 8.0, 20.0) < 2.0)
 	_check("race flat flattened", ReefDistricts.shape_terrain(-40.0, -165.0, 20.0) < 8.0)
