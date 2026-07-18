@@ -2661,161 +2661,23 @@ func _add_won_star(fr: Dictionary) -> void:
 	add_child(st)
 	fr["star"] = st
 
-func _build_pause() -> void:
-	pause_layer = CanvasLayer.new()
-	pause_layer.layer = 12
-	pause_layer.process_mode = Node.PROCESS_MODE_ALWAYS
-	add_child(pause_layer)
-	var gear := Button.new()
-	gear.text = "| |"
-	gear.add_theme_font_size_override("font_size", 26)
-	gear.custom_minimum_size = Vector2(76, 76)
-	var gsb := StyleBoxFlat.new()
-	gsb.bg_color = Color(0.1, 0.15, 0.3, 0.55)
-	gsb.set_corner_radius_all(38)
-	gear.add_theme_stylebox_override("normal", gsb)
-	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	gear.position = Vector2(-96, 18)
-	gear.pressed.connect(toggle_pause)
-	pause_layer.add_child(gear)
-	pause_panel = Panel.new()
-	var psb := StyleBoxFlat.new()
-	psb.bg_color = Color(0.07, 0.1, 0.24, 0.93)
-	psb.border_color = Color(0.48, 0.86, 0.9, 0.9)
-	psb.set_border_width_all(3)
-	psb.set_corner_radius_all(8)
-	pause_panel.add_theme_stylebox_override("panel", psb)
-	pause_panel.custom_minimum_size = Vector2(500, 680)
-	pause_panel.set_anchors_preset(Control.PRESET_CENTER)
-	pause_panel.position = Vector2(-250, -340)
-	pause_panel.size = Vector2(500, 680)
-	pause_panel.visible = false
-	pause_layer.add_child(pause_panel)
-	var vb := VBoxContainer.new()
-	vb.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	vb.offset_left = 28
-	vb.offset_right = -28
-	vb.offset_top = 20
-	vb.offset_bottom = -20
-	vb.add_theme_constant_override("separation", 8)
-	pause_panel.add_child(vb)
-	fps_lbl = Label.new()
-	fps_lbl.add_theme_font_size_override("font_size", 20)
-	fps_lbl.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	fps_lbl.position = Vector2(16, 650)
-	pause_panel.add_child(fps_lbl)
-	var resume := _pause_btn(vb, "Keep Swimming!")
-	pause_leave_btn = _pause_btn(vb, "🏠 Leave Activity")
-	pause_leave_btn.visible = false
-	pause_leave_btn.pressed.connect(_leave_current_activity)
-	var stick_btn := _pause_btn(vb, "⭐ Sticker Book")
-	stick_btn.pressed.connect(func():
-		toggle_pause()
-		_open_stickers())
-	resume.pressed.connect(toggle_pause)
-	pause_resume_btn = resume
-	quality_btn = _pause_btn(vb, "Graphics: Sparkly")
-	quality_btn.pressed.connect(func():
-		_apply_quality("speedy" if quality == "sparkly" else "sparkly")
-		_write_save())
-	music_btn = _pause_btn(vb, "Music: On")
-	music_btn.pressed.connect(func():
-		music_on = not music_on
-		music.volume_db = -8.0 if music_on else -60.0
-		music_btn.text = "Music: On" if music_on else "Music: Off"
-		_write_save())
-	if dev_mode != null:
-		var dev_btn := _pause_btn(vb, "Developer Mode")
-		dev_btn.pressed.connect(func():
-			toggle_pause()
-			dev_mode.toggle())
+# the pause menu overlay lives in scripts/pause_menu.gd
+# (state stays here; PauseMenu receives main by reference)
+var _pause_menu: PauseMenu = null
 
-func _pause_btn(vb: VBoxContainer, txt: String) -> Button:
-	var b := Button.new()
-	b.text = txt
-	b.add_theme_font_size_override("font_size", 30)
-	b.custom_minimum_size = Vector2(0, 96)
-	vb.add_child(b)
-	return b
+func _pause_ref() -> PauseMenu:
+	if _pause_menu == null:
+		_pause_menu = PauseMenu.new(self)
+	return _pause_menu
+
+func _build_pause() -> void:
+	_pause_ref()._build_pause()
 
 func toggle_pause() -> void:
-	var p: bool = not get_tree().paused
-	get_tree().paused = p
-	pause_panel.visible = p
-	if pause_leave_btn != null:
-		pause_leave_btn.visible = p and _has_leave_context()
-	# gamepad menu navigation: focus the first button so D-pad + A work
-	if p and pause_resume_btn != null:
-		pause_resume_btn.grab_focus()
-	elif not p:
-		if touch_ui != null and touch_ui.has_method("_clear_touch_state"):
-			touch_ui._clear_touch_state()
-		if game == "shop":
-			# A/Enter may be the button that resumed the menu. Require a release
-			# before it can become a purchase confirmation near the counter.
-			g["shop_wait_release"] = true
-		elif game == "fairyshoot":
-			g["fairy_wait_release"] = true
-		var fo := get_viewport().gui_get_focus_owner()
-		if fo != null:
-			fo.release_focus()
-
-func _has_leave_context() -> bool:
-	return mg_kind != "" or game != "" or wardrobe_layer != null or craft_layer != null
+	_pause_ref().toggle_pause()
 
 func _leave_current_activity() -> void:
-	# This is a voluntary, neutral exit -- never a loss and never a free win.
-	get_tree().paused = false
-	pause_panel.visible = false
-	if mg_kind != "":
-		_mg2d_close()
-		return
-	if wardrobe_layer != null:
-		_close_wardrobe()
-		return
-	if craft_layer != null:
-		_close_craft()
-		return
-	if game == "level2":
-		_exit_level2()
-		return
-	if game == "galaxy" and galaxy_game != null:
-		(galaxy_game as GalaxyLevel)._teardown(false)
-		return
-	if game == "kart" and kart_game != null:
-		kart_game.call("_quit_race")
-		return
-	if game == "combat" and combat_game != null:
-		combat_game.cancel()
-		return
-	if game == "dungeon" and dungeon_game != null:
-		dungeon_game._leave_early()
-		return
-	if game == "":
-		return
-	var leaving_game: String = game
-	var fr: Dictionary = g.get("fr", {})
-	var leaving_name: String = String(fr.get("fname", ""))
-	_leave_arena()
-	if not fr.is_empty():
-		fr["cool"] = 8.0
-	if leaving_game == "fairyshoot":
-		_apply_skin()
-	if leaving_name == "Pearl Shop":
-		shop_cool = 16.0
-	elif leaving_name == "Secret Cave":
-		treasure_cool = 14.0
-	elif leaving_name == "Penguin Slide":
-		slide_cool = 14.0
-	_clear_game()
-	_write_save()
-	if leaving_game == "fairyshoot" and fairy_from_galaxy:
-		fairy_from_galaxy = false
-		call_deferred("_start_galaxy")
-	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
-		call_deferred("_enter_level2", l2_open)
-	else:
-		show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
+	_pause_ref()._leave_current_activity()
 
 
 func _open_dance_demo() -> void:
