@@ -8,9 +8,210 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
+func _build_shop_cabin(origin: Vector3) -> void:
+	var f: float = m.ARENA_POS.y + 2.0
+	# A single authored open-front diorama replaces the repeated all-surface wood
+	# sheet. The broad floor/wall panels retain the cozy cabin role while giving
+	# the shop a distinct shell emblem, canopy, palette, and readable counter.
+	m._art35_prop("res://assets/art35/arena/shop_interior.glb", Vector3(origin.x, f - 0.5, origin.z), 1.0)
+	# collision audit #4: the cabin walls were swim-through
+	m._wall_solid(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2), 0.5)
+	m._wall_solid(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
+	m._wall_solid(Vector3(origin.x + 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
+	# warm hanging lanterns
+	for lx in [-7.0, 7.0]:
+		var lamp := OmniLight3D.new()
+		lamp.light_color = Color(1.0, 0.78, 0.45)
+		lamp.light_energy = 2.4
+		lamp.omni_range = 22.0
+		lamp.position = Vector3(origin.x + lx, f + 12.0, origin.z - 2.0)
+		m.add_child(lamp)
+		m.game_nodes.append(lamp)
+		var bulb := MeshInstance3D.new()
+		var bm3 := SphereMesh.new()
+		bm3.radius = 0.3
+		bm3.height = 0.6
+		bulb.mesh = bm3
+		var bmat3 := StandardMaterial3D.new()
+		bmat3.emission_enabled = true
+		bmat3.emission = Color(1.0, 0.8, 0.45)
+		bmat3.emission_energy_multiplier = 3.5
+		bulb.material_override = bmat3
+		bulb.position = lamp.position
+		m.add_child(bulb)
+		m.game_nodes.append(bulb)
+		var cord := m._course_box(lamp.position + Vector3(0, 3.0, 0), Vector3(0.12, 6.0, 0.12), Color(0.25, 0.18, 0.1))
+		cord.material_override.emission_enabled = false
+	# hanging kelp bunches like dried herbs — spring pendulums (PHYSICS LAB)
+	m.g["kelp"] = []
+	for hk in range(5):
+		var bunch := MeshInstance3D.new()
+		bunch.mesh = m._cross_blade(0.5, 2.2)
+		bunch.material_override = m._sway_grass_mat(Color(0.2, 0.25, 0.1), Color(0.45, 0.5, 0.2))
+		bunch.position = Vector3(origin.x - 10.0 + float(hk) * 5.0, f + 15.5, origin.z - 9.0)
+		bunch.rotation_degrees = Vector3(180, randf() * 360.0, 0)
+		m.add_child(bunch)
+		m.game_nodes.append(bunch)
+		(m.g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
+	# Kareem is the living shopkeeper, a billboard sprite sitting beside his goods
+	var kareem := Sprite3D.new()
+	kareem.texture = load("res://assets/characters/friends/kareem.png")
+	kareem.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	kareem.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	kareem.pixel_size = 0.02
+	kareem.position = Vector3(origin.x + 9.5, f + 5.5, origin.z - 6.0)
+	m.add_child(kareem)
+	m.game_nodes.append(kareem)
+	var kspot := OmniLight3D.new()
+	kspot.light_color = Color(1.0, 0.92, 0.8)
+	kspot.light_energy = 1.6
+	kspot.omni_range = 16.0
+	kspot.position = kareem.position + Vector3(0, 3, 3)
+	m.add_child(kspot)
+	m.game_nodes.append(kspot)
+	var klbl := Label3D.new()
+	klbl.text = "Kareem's Shop"
+	klbl.font_size = 60
+	klbl.pixel_size = 0.02
+	klbl.outline_size = 12
+	klbl.modulate = Color(1.0, 0.9, 0.6)
+	klbl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	klbl.position = Vector3(origin.x, f + 14.0, origin.z - 9.0)
+	m.add_child(klbl)
+	m.game_nodes.append(klbl)
+	# wares on the counter — spread evenly around the middle
+	m.g["items"] = []
+	for ii in range(m.SHOP_ITEMS.size()):
+		var it: Dictionary = m.SHOP_ITEMS[ii]
+		var iid := String(it["id"])
+		var ipos := Vector3(origin.x + (float(ii) - float(m.SHOP_ITEMS.size() - 1) * 0.5) * 4.3, f + 2.2, origin.z - 4.6)
+		# the legendary Can of Beans
+		var can := MeshInstance3D.new()
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = 0.45
+		cyl.bottom_radius = 0.45
+		cyl.height = 1.1
+		can.mesh = cyl
+		var tin := StandardMaterial3D.new()
+		tin.albedo_color = Color(0.75, 0.78, 0.8)
+		tin.metallic = 0.9
+		tin.roughness = 0.3
+		can.material_override = tin
+		var lbl := MeshInstance3D.new()
+		var lcyl := CylinderMesh.new()
+		lcyl.top_radius = 0.47
+		lcyl.bottom_radius = 0.47
+		lcyl.height = 0.6
+		lbl.mesh = lcyl
+		var lm2 := StandardMaterial3D.new()
+		lm2.albedo_color = Color(0.85, 0.3, 0.2)
+		lm2.roughness = 0.8
+		lbl.material_override = lm2
+		can.add_child(lbl)
+		var inode: Node3D = can
+		inode.position = ipos
+		m.add_child(inode)
+		m.game_nodes.append(inode)
+		var tag := Label3D.new()
+		tag.text = "%s\n%d pearls" % [String(it["label"]), int(it["price"])]
+		tag.font_size = 64
+		tag.modulate = Color(1.0, 0.95, 0.8)
+		tag.outline_size = 14
+		tag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		tag.position = ipos + Vector3(0, 1.7, 0)
+		m.add_child(tag)
+		m.game_nodes.append(tag)
+		(m.g["items"] as Array).append({"id": iid, "node": inode, "tag": tag, "price": int(it["price"]), "base": ipos})
+	# ANIMAL TANKS: glass tanks mounted on the back wall, each holding a reef
+	# friend Kareem will sell. Swim up with enough pearls and it goes FREE -
+	# out of the tank and into the reef forever (ANIMAL_SHOP / _tank_buy).
+	m.g["tanks"] = []
+	var tank_slots := [-10.5, -3.5, 3.5, 10.5]
+	for ti in range(m.ANIMAL_SHOP.size()):
+		var ta: Dictionary = m.ANIMAL_SHOP[ti]
+		var tid := String(ta["id"])
+		var tpos := Vector3(origin.x + tank_slots[ti], f + 8.8, origin.z - 11.4)
+		# wooden shelf, then the glass box on top
+		var shelf := m._course_box(tpos + Vector3(0, -2.2, 0), Vector3(6.0, 0.5, 3.2), Color(0.45, 0.3, 0.18))
+		shelf.material_override.roughness = 1.0
+		var glass := MeshInstance3D.new()
+		var gbox := BoxMesh.new()
+		gbox.size = Vector3(5.6, 3.6, 2.8)
+		glass.mesh = gbox
+		var gmat := StandardMaterial3D.new()
+		gmat.albedo_color = Color(0.55, 0.85, 1.0, 0.22)
+		gmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		gmat.metallic = 0.2
+		gmat.roughness = 0.05
+		gmat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		glass.material_override = gmat
+		glass.position = tpos
+		m.add_child(glass)
+		m.game_nodes.append(glass)
+		# a strip of sand so it reads "little home", not "specimen jar"
+		var sand := m._course_box(tpos + Vector3(0, -1.6, 0), Vector3(5.2, 0.35, 2.4), Color(0.93, 0.85, 0.6))
+		sand.material_override.roughness = 1.0
+		# the friend swimming inside — each species gets its own close-up idle:
+		# the turtle a full skeleton (fin strokes via _rig_turtle), the others
+		# a boosted sway so wing/jet/tail motion reads through the glass
+		var pet: Node3D = null
+		var trig := {}
+		if m.CREATURE_GEN2.has(String(ta["model"])):
+			pet = m._gen2_creature(String(m.CREATURE_GEN2[String(ta["model"])]), tpos + Vector3(0, -0.3, 0), 2.2)
+		if pet != null:
+			m.game_nodes.append(pet)
+			if tid == "turtle":
+				trig = m._rig_turtle(pet, 2.4)
+				m._set_sway(pet, 0.02)   # the skeleton owns the motion now
+			elif tid == "stingray":
+				m._set_sway(pet, 0.22)
+			elif tid == "squid":
+				m._set_sway(pet, 0.18)
+			elif tid == "dolphin":
+				m._set_sway(pet, 0.13)
+		var ttag := Label3D.new()
+		ttag.text = "%s\n%d pearls" % [String(ta["label"]), int(ta["price"])]
+		ttag.font_size = 64
+		ttag.modulate = Color(0.75, 1.0, 0.95)
+		ttag.outline_size = 14
+		ttag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		ttag.position = tpos + Vector3(0, 2.6, 0.6)
+		m.add_child(ttag)
+		m.game_nodes.append(ttag)
+		if bool(m.animals_owned.get(tid, false)):
+			if pet != null:
+				pet.visible = false
+			ttag.text = "%s\n(set free!)" % String(ta["label"])
+		(m.g["tanks"] as Array).append({"id": tid, "node": pet, "tag": ttag, "price": int(ta["price"]), "base": tpos, "ph": randf() * TAU, "rig": trig})
+	# glowing exit door
+	var door := MeshInstance3D.new()
+	var dt := TorusMesh.new()
+	dt.inner_radius = 2.4
+	dt.outer_radius = 3.1
+	door.mesh = dt
+	door.rotation_degrees = Vector3(90, 0, 0)
+	var dm := StandardMaterial3D.new()
+	dm.albedo_color = Color(0.5, 0.9, 1.0)
+	dm.emission_enabled = true
+	dm.emission = Color(0.4, 0.85, 1.0)
+	dm.emission_energy_multiplier = 1.8
+	door.material_override = dm
+	door.position = Vector3(origin.x - 12.0, f + 4.0, origin.z + 14.5)
+	m.add_child(door)
+	m.game_nodes.append(door)
+	m.g["exit"] = door
+	var dl := Label3D.new()
+	dl.text = "\u2190 swim out to leave"
+	dl.font_size = 56
+	dl.outline_size = 12
+	dl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	dl.position = door.position + Vector3(0, 3.6, 0)
+	m.add_child(dl)
+	m.game_nodes.append(dl)
+
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
-	m._build_shop_cabin(origin)
+	_build_shop_cabin(origin)
 	# The old trail/tiara/skin wares no longer have visible, fitted rewards.
 	# Keep their save keys for compatibility, but do not display or sell a
 	# promise the game cannot currently keep. Center the one real counter item.
