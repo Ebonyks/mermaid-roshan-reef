@@ -243,9 +243,9 @@ func build(o: Vector3) -> void:
 	# a glowing royal treasure chest = the bonus trigger. It doubles as the
 	# GOLDEN STAND sealing the undercroft's back stairwell: it pulses
 	# invitingly and rumbles aside when Roshan gets close (see slide_stand).
-	# The authored art35 chest (same asset as the treasure cavern) stands in
-	# for the old flat gold boxes; they remain as the missing-asset fallback.
-	var chest: Node3D = m._art35_prop("res://assets/art35/arena/treasure_chest.glb", br + Vector3(0, 1.0, -1.0), 2.1)
+	# A castle-specific shell chest now seals the stairwell. It remains one
+	# static root so the established slide tween and hug trigger stay exact.
+	var chest: Node3D = _pearl("pearl_secret_chest", br + Vector3(0, 1.0, -1.0))
 	var chest_lid: Node3D
 	if chest != null:
 		# slide_stand() tweens the lid alongside the chest; the authored chest
@@ -296,13 +296,7 @@ func build(o: Vector3) -> void:
 	m.add_child(sl3)
 	m.game_nodes.append(sl3)
 	m._register_castle_light(sl3, false)
-	var slab := Label3D.new()
-	slab.text = "\u2726"
-	slab.font_size = 140
-	slab.pixel_size = 0.02
-	slab.outline_size = 16
-	slab.modulate = Color(1.0, 0.82, 0.28)
-	slab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	var slab: Node3D = LandmarkArtFactory.create_star(1.25, Color(1.0, 0.82, 0.28), true)
 	slab.position = m.g["secret_door"] + Vector3(0, 7.0, 0)
 	m.add_child(slab)
 	m.game_nodes.append(slab)
@@ -346,6 +340,9 @@ func build(o: Vector3) -> void:
 	if entrance_medallion != null:
 		entrance_medallion.scale = Vector3(1.0, 0.28, 1.0)
 	# EXIT door at the entrance — swim into it to go back to the ocean
+	# The rainbow frame now opens onto graphic water instead of a blank wall.
+	# Both pieces are decorative; the existing analytic exit marker stays put.
+	_pearl("pearl_ocean_portal", o + Vector3(0, 0.5, 44.05))
 	_pearl("pearl_rainbow_gate", o + Vector3(0, 0.5, 43.8))
 	var exit := Node3D.new()
 	exit.position = o + Vector3(0, 5.0, 44.0)
@@ -432,20 +429,13 @@ func build_expansion(o: Vector3) -> void:
 	m._l2_box(o + Vector3(-6, 49, -37), Vector3(6, 1.2, 2), Color(0.84, 0.8, 0.9))
 	for csgn in [-1.0, 1.0]:
 		m._l2_box(o + Vector3(csgn * 44.25, 49, -9.0), Vector3(18.5, 1.2, 54), Color(0.84, 0.8, 0.9))  # wing ceilings
-	# soft window glows down the outer walls (emissive only — light budget stays)
+	# Authored shell windows replace the floating emissive rectangles. Their
+	# cool glass keeps the wing rhythm without spending any light budget.
 	for wz in [-22.0, -4.0, 12.0]:
 		for wsgn2 in [-1.0, 1.0]:
-			var win = m._l2_box(o + Vector3(wsgn2 * 53.2, 42, wz), Vector3(0.4, 6, 5), Color(0.75, 0.85, 1.0), 0.9)
-			win.material_override.emission_energy_multiplier = 1.2
-			var side_window_frame: Node3D = _pearl("pearl_shell_arch", o + Vector3(wsgn2 * 53.0, 39.1, wz), -90.0 * wsgn2)
-			if side_window_frame != null:
-				side_window_frame.scale = Vector3.ONE * 0.43
+			_pearl("pearl_shell_window", o + Vector3(wsgn2 * 52.9, 38.2, wz), -90.0 * wsgn2)
 	for wx in [-40.0, -20.0, 20.0, 40.0]:
-		var win2 = m._l2_box(o + Vector3(wx, 42, -63.8), Vector3(5, 6, 0.4), Color(0.75, 0.85, 1.0), 0.9)
-		win2.material_override.emission_energy_multiplier = 1.2
-		var back_window_frame: Node3D = _pearl("pearl_shell_arch", o + Vector3(wx, 39.1, -63.6))
-		if back_window_frame != null:
-			back_window_frame.scale = Vector3.ONE * 0.43
+		_pearl("pearl_shell_window", o + Vector3(wx, 38.2, -63.5))
 	# STAR CHAMBER (left, now ~52 wide): her observatory
 	m._l2_box(o + Vector3(-26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.2, 0.2, 0.42))   # midnight rug
 	# A complete authored orrery replaces the box telescope and glyph wallpaper.
@@ -483,37 +473,14 @@ func build_expansion(o: Vector3) -> void:
 		var shz: float = -28.0 + float(sh) * 12.0
 		_static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
 	m._l2_box(o + Vector3(-44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.55, 0.4, 0.65))              # reading rug
-	m._l2_box(o + Vector3(-44, 34.8, 9.0), Vector3(4.5, 1.6, 4.5), Color(0.95, 0.85, 0.6))            # story cushion
-	var lsign := Label3D.new()
-	lsign.text = "📚 Royal Library"
-	lsign.font_size = 52
-	lsign.pixel_size = 0.010
-	lsign.outline_size = 12
-	lsign.modulate = Color(0.9, 0.85, 1.0)
-	lsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lsign.position = o + Vector3(-44, 45.5, 12)
-	m.add_child(lsign)
-	m.game_nodes.append(lsign)
+	_pearl("pearl_story_cushion", o + Vector3(-44, 34.0, 9.0), 180.0)
 	# ---------- RIGHT WING GALLERY: the TOY ROOM ----------
-	var block_cols := [Color(0.9, 0.4, 0.4), Color(0.4, 0.6, 0.9), Color(0.95, 0.8, 0.3), Color(0.5, 0.8, 0.5)]
-	for bi in range(4):
-		m._l2_box(o + Vector3(48.5 - float(bi % 2) * 3.4, 34.9 + float(bi / 2) * 3.4, -24.0 + float(bi % 2) * 1.5), Vector3(3.0, 3.0, 3.0), block_cols[bi], 0.15)
-	var tchest = m._l2_box(o + Vector3(49.5, 34.9, -4.0), Vector3(5.5, 3.4, 4.0), Color(0.62, 0.42, 0.26))
-	tchest.material_override.roughness = 0.8
-	m._l2_box(o + Vector3(49.5, 36.9, -4.0), Vector3(5.9, 1.0, 4.4), Color(0.95, 0.8, 0.35), 0.3)     # gold chest lid
+	# These are generic play objects only. Child-specific stuffed animals remain
+	# excluded from generated art and will come from the child's own toys.
+	_pearl("pearl_toy_block_stack", o + Vector3(48.0, 34.0, -24.0), -8.0)
+	_pearl("pearl_toy_chest", o + Vector3(49.0, 34.0, -4.0), 90.0)
 	m._l2_box(o + Vector3(44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.95, 0.75, 0.8))               # play rug
-	for hb in range(3):
-		m._l2_box(o + Vector3(41.0, 34.4, 8.0 + float(hb) * 3.2), Vector3(2.4, 0.9, 2.4), Color(1.0, 0.9, 0.55), 0.4)  # hopscotch pads
-	var tsign := Label3D.new()
-	tsign.text = "🧸 Toy Room"
-	tsign.font_size = 52
-	tsign.pixel_size = 0.010
-	tsign.outline_size = 12
-	tsign.modulate = Color(1.0, 0.9, 0.85)
-	tsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	tsign.position = o + Vector3(44, 45.5, 12)
-	m.add_child(tsign)
-	m.game_nodes.append(tsign)
+	_pearl("pearl_shell_hopscotch", o + Vector3(41.0, 34.0, 7.6), 180.0)
 	# ---------- THE DREAMING FLOOR: five legacy bedrooms over the back block
 	build_dreaming_floor(o)
 	# ---------- the UNDERCROFT: stone basement under the front hall
@@ -537,14 +504,14 @@ func build_expansion(o: Vector3) -> void:
 	m._iwall(o + Vector3(30, -9.5, 24), Vector3(1.5, 18, 32), Color(0.7, 0.66, 0.74), "castle")
 	for px2 in [-15.0, 0.0, 15.0]:
 		m._l2_box(o + Vector3(px2, -9.5, 24.0), Vector3(3.0, 18, 3.0), Color(0.65, 0.6, 0.7))
-	# cosy clutter: barrels, crates, a treasure glint, warm lanterns (emissive
-	# only - the OmniLight budget stays untouched)
+	# Purpose-built storage and shell lanterns replace the undercroft cube pile.
+	# They are static and emissive-only, so the OmniLight budget stays untouched.
 	for bi in range(5):
-		m._l2_box(o + Vector3(-24.0 + float(bi) * 4.5, -16.8, 36.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		_pearl("pearl_storage_barrel", o + Vector3(-24.0 + float(bi) * 4.5, -18.0, 36.0), float(bi % 2) * 18.0)
 	for cr in range(3):
-		m._l2_box(o + Vector3(20.0 + float(cr) * 4.0, -17.0, 12.0 + float(cr) * 2.0), Vector3(3.4, 3.0, 3.4), Color(0.66, 0.5, 0.32))
+		_pearl("pearl_storage_crate", o + Vector3(20.0 + float(cr) * 4.0, -18.0, 12.0 + float(cr) * 2.0), -12.0 + float(cr) * 10.0)
 	for li in range(4):
-		m._l2_box(o + Vector3(-26.0 + float(li) * 17.0, -12.0, 39.2), Vector3(1.0, 1.4, 0.6), Color(1.0, 0.8, 0.45), 3.2)
+		_pearl("pearl_shell_lantern", o + Vector3(-26.0 + float(li) * 17.0, -10.8, 39.0), 180.0)
 	# ---------- the BASEMENT WING: wide hallway, side rooms, the royal loo
 	build_basement_wing(o)
 	# stair back up into Daddy's room — recentered directly under the golden
@@ -631,11 +598,12 @@ func build_dreaming_floor(o: Vector3) -> void:
 		var rd: Dictionary = bedrooms[bedroom_index]
 		var cx: float = rd["cx"]
 		var bcol: Color = rd["col"]
-		# front wall with a doorway + gold posts
+		# A shell arch identifies each doorway without reading-dependent signage.
 		m._iwall(o + Vector3(cx - 6.5, 57, -52), Vector3(5, 15, 1.5), wcol, "castle")
 		m._iwall(o + Vector3(cx + 6.5, 57, -52), Vector3(5, 15, 1.5), wcol, "castle")
-		for gp in [-4.0, 4.0]:
-			m._l2_box(o + Vector3(cx + gp, 53.5, -52), Vector3(0.9, 7.5, 0.9), gold, 0.2)
+		var dream_arch: Node3D = _pearl("pearl_shell_arch", o + Vector3(cx, 49.8, -51.7))
+		if dream_arch != null:
+			dream_arch.scale = Vector3.ONE * 0.72
 		# Rug + authored character-color bed. All five retain their distinct
 		# story palette while sharing the stronger royal furniture silhouette.
 		m._l2_box(o + Vector3(cx - 4.0, 49.85, -55.5), Vector3(6, 0.25, 5), bcol.lightened(0.35))
@@ -643,11 +611,13 @@ func build_dreaming_floor(o: Vector3) -> void:
 		if dream_bed != null:
 			dream_bed.scale = Vector3.ONE * 0.62
 		m._wall_solid(o + Vector3(cx + 3.0, 50.8, -59.5), Vector3(5.5, 2.4, 7), 0.4)
-		# glowing bedside lamp (emissive — no light-budget cost) + their window
-		m._l2_box(o + Vector3(cx - 2.0, 51.2, -61.5), Vector3(1.6, 3.2, 1.6), Color(0.5, 0.34, 0.22))
-		m._l2_box(o + Vector3(cx - 2.0, 53.3, -61.5), Vector3(1.1, 1.1, 1.1), Color(1.0, 0.85, 0.55), 3.0)
-		var win = m._l2_box(o + Vector3(cx, 57.5, -63.2), Vector3(4.5, 4.5, 0.4), Color(0.75, 0.85, 1.0), 0.9)
-		win.material_override.emission_energy_multiplier = 1.2
+		# Shared bedside and window anatomy ties these rooms to the royal suite.
+		var dream_table: Node3D = _pearl("pearl_bedside_table", o + Vector3(cx - 2.0, 49.8, -61.0))
+		if dream_table != null:
+			dream_table.scale = Vector3.ONE * 0.58
+		var dream_window: Node3D = _pearl("pearl_shell_window", o + Vector3(cx, 54.0, -63.45))
+		if dream_window != null:
+			dream_window.scale = Vector3.ONE * 0.72
 		# the character themselves, home at last
 		var spr := Sprite3D.new()
 		spr.texture = m._cutout_tex(rd["tex"])
@@ -655,68 +625,38 @@ func build_dreaming_floor(o: Vector3) -> void:
 		spr.pixel_size = 0.0052
 		spr.position = o + Vector3(cx - 4.0, 53.6, -58.5)
 		m.add_child(spr); m.game_nodes.append(spr)
-		# name plate over the door
-		var nsign := Label3D.new()
-		nsign.text = rd["name"]
-		nsign.font_size = 40; nsign.pixel_size = 0.008; nsign.outline_size = 10
-		nsign.modulate = Color(1.0, 0.95, 0.85)
-		nsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		nsign.position = o + Vector3(cx, 56.5, -51)
-		m.add_child(nsign); m.game_nodes.append(nsign)
-		# a keepsake that tells THEIR part of the story
+		# A physical keepsake tells each story beside the protected cutout.
 		match String(rd["keep"]):
-			"crown":   # Huluu's little tiara on the rug
-				for ci in range(3):
-					m._l2_box(o + Vector3(cx - 5.5 + float(ci) * 1.1, 50.4 + (0.5 if ci == 1 else 0.0), -55.0), Vector3(0.8, 1.0 + (0.5 if ci == 1 else 0.0), 0.8), gold, 0.8)
-			"chest":   # Daddy's mini treasure chest
-				var kchest = m._l2_box(o + Vector3(cx - 5.0, 50.6, -55.0), Vector3(2.6, 2.0, 1.8), gold, 0.5)
-				kchest.material_override.metallic = 0.6
-			"cradle":  # the baby's cradle beside Mama's bed
-				m._l2_box(o + Vector3(cx - 5.0, 50.7, -55.0), Vector3(2.4, 1.6, 3.4), Color(0.98, 0.97, 1.0))
-				m._l2_box(o + Vector3(cx - 5.0, 51.4, -55.0), Vector3(2.0, 0.4, 3.0), Color(1.0, 0.75, 0.85), 0.3)
-			"star":    # Kareem's wishing star
-				var kstar := Label3D.new()
-				kstar.text = "✦"
-				kstar.font_size = 140
-				kstar.modulate = Color(1.0, 0.9, 0.4)
-				kstar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			"crown":
+				_pearl("pearl_keepsake_tiara", o + Vector3(cx - 5.0, 49.9, -55.0), 180.0)
+			"chest":
+				var keepsake_chest: Node3D = _pearl("pearl_toy_chest", o + Vector3(cx - 5.0, 49.9, -55.0), 180.0)
+				if keepsake_chest != null:
+					keepsake_chest.scale = Vector3.ONE * 0.52
+			"cradle":
+				var keepsake_cradle: Node3D = _pearl("pearl_keepsake_cradle", o + Vector3(cx - 5.0, 49.9, -55.0), 90.0)
+				if keepsake_cradle != null:
+					keepsake_cradle.scale = Vector3.ONE * 0.72
+			"star":
+				var kstar: Node3D = LandmarkArtFactory.create_star(1.15, Color(1.0, 0.9, 0.4), true)
 				kstar.position = o + Vector3(cx - 5.0, 52.4, -55.0)
 				m.add_child(kstar); m.game_nodes.append(kstar)
-			"note":    # Gabby's song
-				var knote := Label3D.new()
-				knote.text = "♪"
-				knote.font_size = 150
-				knote.modulate = Color(1.0, 0.8, 0.5)
-				knote.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-				knote.position = o + Vector3(cx - 5.0, 52.4, -55.0)
-				m.add_child(knote); m.game_nodes.append(knote)
+			"note":
+				_pearl("pearl_keepsake_music_box", o + Vector3(cx - 5.0, 49.9, -55.0), 180.0)
 	# Wacky & Chuck curl up in a basket at the corridor's end
 	var wb: Vector3 = o + Vector3(48.0, 0, -44.0)
-	m._l2_box(wb + Vector3(0, 50.2, 0), Vector3(4.4, 1.2, 4.4), Color(0.72, 0.52, 0.3))
-	m._l2_box(wb + Vector3(0, 50.8, 0), Vector3(3.4, 0.6, 3.4), Color(1.0, 0.8, 0.9))
+	_pearl("pearl_pet_basket", wb + Vector3(0, 49.9, 0), 180.0)
 	var wspr := Sprite3D.new()
 	wspr.texture = m._cutout_tex("wacky_chuck")
 	wspr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	wspr.pixel_size = 0.0048
 	wspr.position = wb + Vector3(0, 53.0, -1.0)
 	m.add_child(wspr); m.game_nodes.append(wspr)
-	var wsign := Label3D.new()
-	wsign.text = "✨ Wacky & Chuck ✨"
-	wsign.font_size = 36; wsign.pixel_size = 0.008; wsign.outline_size = 9
-	wsign.modulate = Color(0.9, 0.95, 1.0)
-	wsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	wsign.position = wb + Vector3(0, 56.0, 0)
-	m.add_child(wsign); m.game_nodes.append(wsign)
-	# floor sign at the stair top + soft star lamps down the corridor
-	var fsign := Label3D.new()
-	fsign.text = "✨ The Dreaming Floor ✨"
-	fsign.font_size = 48; fsign.pixel_size = 0.008; fsign.outline_size = 12
-	fsign.modulate = Color(0.85, 0.88, 1.0)
-	fsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	fsign.position = o + Vector3(-6, 56.5, -40)
-	m.add_child(fsign); m.game_nodes.append(fsign)
+	# Low shell chandeliers replace cube-shaped corridor lamps.
 	for lx in [-30.0, 0.0, 30.0]:
-		m._l2_box(o + Vector3(lx, 62.5, -44.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 3.0)
+		var dream_chandelier: Node3D = _pearl("pearl_shell_chandelier", o + Vector3(lx, 63.0, -44.0))
+		if dream_chandelier != null:
+			dream_chandelier.scale = Vector3.ONE * 0.28
 
 
 func build_basement_wing(o: Vector3) -> void:
@@ -739,9 +679,12 @@ func build_basement_wing(o: Vector3) -> void:
 		m._iwall(o + Vector3(sx * 8.0, -9.5, -39.0), Vector3(1.5, 18, 10), stone, "castle")   # z -44..-34
 		m._iwall(o + Vector3(sx * 8.0, -9.5, -16.0), Vector3(1.5, 18, 16), stone, "castle")   # z -24..-8
 		m._iwall(o + Vector3(sx * 8.0, -9.5, 5.0), Vector3(1.5, 18, 6), stone, "castle")      # z  +2..+8
-	# gold posts frame every doorway
-	for dp in [Vector2(-8, -34), Vector2(-8, -24), Vector2(-8, -8), Vector2(-8, 2), Vector2(8, -34), Vector2(8, -24), Vector2(8, -8), Vector2(8, 2)]:
-		m._l2_box(o + Vector3(dp.x, -10.0, dp.y), Vector3(1.0, 16, 1.0), gold, 0.2)
+	# Repeated shell arches turn the corridor into one authored castle wing.
+	for doorway_x in [-8.0, 8.0]:
+		for doorway_z in [-29.0, -3.0]:
+			var basement_arch: Node3D = _pearl("pearl_shell_arch", o + Vector3(doorway_x, -17.8, doorway_z), -90.0 * signf(doorway_x))
+			if basement_arch != null:
+				basement_arch.scale = Vector3.ONE * 0.82
 	# end wall framing the stair nook (VISUAL only, no solid — a collider pad
 	# here would shove Roshan off the staircase that passes through this plane)
 	for ew in [Vector3(-6.2, -9.5, -44.0), Vector3(6.2, -9.5, -44.0)]:
@@ -751,9 +694,10 @@ func build_basement_wing(o: Vector3) -> void:
 	var ewl = m._l2_box(o + Vector3(0, -2.75, -44.0), Vector3(8.8, 4.5, 1.5), stone)
 	ewl.material_override = m._castle_mat("wall", 0.045, stone)
 	m.fade_walls.append({"node": ewl, "c": ewl.position, "h": (ewl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
-	# warm lanterns alternate down the hallway (emissive boxes, no lights)
+	# Warm shell lanterns alternate down the hallway without adding lights.
 	for li2 in range(6):
-		m._l2_box(o + Vector3(-7.2 + float(li2 % 2) * 14.4, -12.0, -40.0 + float(li2) * 9.0), Vector3(0.6, 1.4, 1.0), Color(1.0, 0.8, 0.45), 3.2)
+		var hallway_lantern_x: float = -7.15 + float(li2 % 2) * 14.3
+		_pearl("pearl_shell_lantern", o + Vector3(hallway_lantern_x, -9.5, -40.0 + float(li2) * 9.0), 90.0 if hallway_lantern_x < 0.0 else -90.0)
 	# ---------- four side rooms off the hallway ----------
 	var rooms := [
 		{"c": Vector3(-17, 0, -2), "name": "✨ Pantry ✨", "tint": Color(0.85, 0.78, 0.62)},
@@ -778,25 +722,14 @@ func build_basement_wing(o: Vector3) -> void:
 			m._iwall(o + rc + Vector3(sx2 * 9.0, -9.5, 0), Vector3(1.5, 18, 16), stone, "castle")   # far wall (x +-26)
 		m._iwall(o + rc + Vector3(0, -9.5, -8), Vector3(18, 18, 1.5), stone, "castle")          # back wall
 		m._iwall(o + rc + Vector3(0, -9.5, 8), Vector3(18, 18, 1.5), stone, "castle")           # front wall
-		# glowing lantern on the far wall + a name plate over the doorway. The
-		# ensuite lantern sits on its north pier, not in the privy opening.
+		# The ensuite lantern sits on its north pier, not in the privy opening.
 		var lantern_z: float = -5.6 if bool(rd.get("ensuite", false)) else 0.0
-		m._l2_box(o + rc + Vector3(sx2 * 8.0, -12.0, lantern_z), Vector3(0.6, 1.4, 1.0), Color(1.0, 0.8, 0.45), 3.2)
-		var rsign := Label3D.new()
-		rsign.text = rd["name"]
-		rsign.font_size = 40; rsign.pixel_size = 0.008; rsign.outline_size = 10
-		rsign.modulate = Color(0.9, 0.95, 1.0)
-		rsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		rsign.position = o + Vector3(sx2 * 8.0, -3.5, rc.z)
-		m.add_child(rsign); m.game_nodes.append(rsign)
-	# PANTRY: shelves of glowing jam jars + barrels
+		_pearl("pearl_shell_lantern", o + rc + Vector3(sx2 * 8.0, -9.5, lantern_z), -90.0 * sx2)
+	# PANTRY: one authored stocked shelf and two shell-stamped barrels.
 	var pc: Vector3 = o + Vector3(-17, 0, -2)
-	for sh in range(2):
-		m._l2_box(pc + Vector3(-7.0, -14.0 + float(sh) * 3.4, 0), Vector3(1.6, 0.5, 12), Color(0.55, 0.4, 0.26))
-		for ji in range(4):
-			m._l2_box(pc + Vector3(-7.0, -13.2 + float(sh) * 3.4, -4.5 + float(ji) * 3.0), Vector3(1.1, 1.3, 1.1), [Color(1.0, 0.5, 0.55), Color(1.0, 0.75, 0.3), Color(0.6, 0.85, 0.4), Color(0.6, 0.7, 1.0)][ji], 0.8)
+	_pearl("pearl_pantry_shelf", pc + Vector3(-7.0, -18.0, 0), 90.0)
 	for bi2 in range(2):
-		m._l2_box(pc + Vector3(4.0 + float(bi2) * 4.0, -16.2, 5.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		_pearl("pearl_storage_barrel", pc + Vector3(4.0 + float(bi2) * 3.0, -18.0, 5.0), float(bi2) * 20.0)
 	# ROYAL KITCHEN: counters, a glowing stove with soup on the boil, a tea
 	# table set for two — the pantry is right across the hallway, the way a
 	# real castle kitchen works (the old toy den moved up to the Toy Room)
@@ -911,19 +844,7 @@ func build_basement_wing(o: Vector3) -> void:
 		var water_fallback: MeshInstance3D = m._l2_box(tub_root_pos + Vector3(0, 3.0, 0), Vector3(6.3, 0.3, 3.8), Color(0.55, 0.85, 1.0), 0.8)
 		water_fallback.material_override = bath_water_mat
 	m._wall_solid(tub_root_pos + Vector3(0, 1.6, 0), Vector3(7.5, 3.2, 5.0), 0.4)
-	var duck := MeshInstance3D.new()
-	var dm := SphereMesh.new(); dm.radius = 0.9; dm.height = 1.8
-	duck.mesh = dm
-	duck.material_override = m._soft_mat(Color(1.0, 0.9, 0.25), 0.4)
-	duck.position = bc + Vector3(-3.2, -14.8, 4.7)
-	m.add_child(duck); m.game_nodes.append(duck)
-	var dh := MeshInstance3D.new()
-	var dhm := SphereMesh.new(); dhm.radius = 0.55; dhm.height = 1.1
-	dh.mesh = dhm
-	dh.material_override = m._soft_mat(Color(1.0, 0.9, 0.25), 0.4)
-	dh.position = bc + Vector3(-2.3, -14.0, 4.7)
-	m.add_child(dh); m.game_nodes.append(dh)
-	m._l2_box(bc + Vector3(-1.75, -14.0, 4.7), Vector3(0.7, 0.35, 0.5), Color(1.0, 0.6, 0.2), 0.4)   # beak
+	_pearl("pearl_bath_duck", bc + Vector3(-3.0, -15.3, 4.7), -90.0)
 	var vanity_body_fallback_mat: StandardMaterial3D = m._soft_mat(Color(0.76, 0.44, 0.22), 0.0)
 	vanity_body_fallback_mat.roughness = 0.72
 	var vanity_top_fallback_mat: StandardMaterial3D = m._soft_mat(Color(0.97, 0.91, 0.82), 0.0)
@@ -946,16 +867,14 @@ func build_basement_wing(o: Vector3) -> void:
 		var vanity_water_fallback: MeshInstance3D = m._l2_box(vanity_root_pos + Vector3(0, 3.5, -0.2), Vector3(2.1, 0.12, 1.0), Color(0.43, 0.82, 0.81), 0.3)
 		vanity_water_fallback.material_override = bath_basin_mat
 	m._wall_solid(vanity_root_pos + Vector3(0, 1.75, 0), Vector3(4.5, 3.5, 2.6), 0.3)
-	for tw2 in range(2):
-		m._l2_box(bc + Vector3(5.5, -15.6 + float(tw2) * 1.1, 5.2), Vector3(2.6, 1.0, 2.2), Color(1.0, 0.8, 0.9) if tw2 == 0 else Color(0.8, 0.9, 1.0))
+	_pearl("pearl_towel_stack", bc + Vector3(5.5, -18.0, 5.2), 90.0)
 	# CRAFT ROOM: the color-a-fish easel finally gets its own dedicated studio
 	# (moved down from the grand hall), with paint pots and a paper table
 	var gc: Vector3 = o + Vector3(17, 0, -28)
-	var easel = m._l2_box(gc + Vector3(7.4, -13.4, 0), Vector3(0.6, 9.0, 7.0), Color(0.55, 0.4, 0.26))
-	m._mg_noop_ref(easel)
+	var easel: Node3D = _pearl("pearl_craft_easel", gc + Vector3(6.8, -18.0, 0), -90.0)
+	if easel != null:
+		m._mg_noop_ref(easel)
 	m._wall_solid(gc + Vector3(7.4, -13.4, 0), Vector3(0.6, 9.0, 7.0), 0.5)
-	var canvas = m._l2_box(gc + Vector3(6.8, -12.4, 0), Vector3(0.4, 6.0, 5.2), Color(0.97, 0.96, 0.92), 0.15)
-	m._mg_noop_ref(canvas)
 	var craft_fish_icon := Sprite3D.new()
 	craft_fish_icon.texture = load("res://assets/mg/fish_line.png")
 	craft_fish_icon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -963,22 +882,16 @@ func build_basement_wing(o: Vector3) -> void:
 	craft_fish_icon.position = gc + Vector3(6.3, -12.4, 0)
 	m.add_child(craft_fish_icon); m.game_nodes.append(craft_fish_icon)
 	m.g["craft_easel"] = gc + Vector3(5.5, -13.4, 0)
-	var potcols := [Color(0.92, 0.3, 0.3), Color(1.0, 0.8, 0.25), Color(0.35, 0.75, 0.4), Color(0.35, 0.6, 0.95), Color(0.7, 0.4, 0.9)]
-	for pi3 in range(potcols.size()):   # paint pots along the back wall
-		m._l2_box(gc + Vector3(-6.0 + float(pi3) * 3.0, -16.6, -6.5), Vector3(1.6, 2.2, 1.6), Color(0.85, 0.82, 0.78))
-		m._l2_box(gc + Vector3(-6.0 + float(pi3) * 3.0, -15.3, -6.5), Vector3(1.3, 0.4, 1.3), potcols[pi3], 0.5)
-	m._l2_box(gc + Vector3(-3.0, -16.2, 3.0), Vector3(6.5, 3.0, 4.5), Color(0.7, 0.5, 0.34))   # paper table
+	_pearl("pearl_paint_rack", gc + Vector3(0.0, -18.0, -6.4))
+	_pearl("pearl_craft_table", gc + Vector3(-3.0, -18.0, 3.0), -8.0)
 	m._wall_solid(gc + Vector3(-3.0, -16.2, 3.0), Vector3(6.5, 3.0, 4.5), 0.4)
-	m._l2_box(gc + Vector3(-3.8, -14.5, 2.4), Vector3(2.6, 0.25, 3.4), Color(0.98, 0.98, 0.95), 0.2)   # drawing paper
-	for cy2 in range(3):   # crayons scattered beside it
-		var cray = m._l2_box(gc + Vector3(-1.0 + float(cy2) * 0.9, -14.45, 3.6), Vector3(0.5, 0.3, 2.2), potcols[cy2], 0.4)
-		cray.rotation_degrees = Vector3(0, -14.0 + float(cy2) * 14.0, 0)
 	# ---------- the hidden ROYAL LOO: a secret privy tucked BEHIND the Bubble
 	# Bath, deep in the basement's far corner. Find the little door!
 	# The Bubble Bath room loop already built both privy-door piers; duplicating
 	# them here caused overlapping solids and visible z-fighting.
-	for gp2 in [-32.0, -24.0]:
-		m._l2_box(o + Vector3(-26, -10.0, gp2), Vector3(1.0, 16, 1.0), gold, 0.2)   # gold posts mark the secret door
+	var privy_arch: Node3D = _pearl("pearl_shell_arch", o + Vector3(-26.0, -17.8, -28.0), 90.0)
+	if privy_arch != null:
+		privy_arch.scale = Vector3.ONE * 0.70
 	var lc: Vector3 = o + Vector3(-30.25, 0, -28)   # privy centre (interior x -34.25..-26.75)
 	var lfl = m._l2_box(lc + Vector3(0, -18.6, 0), Vector3(10, 1.2, 12), Color(0.6, 0.56, 0.64))
 	lfl.material_override = m._castle_mat("bathroom_tile", 0.055, Color(0.95, 0.98, 1.0))
@@ -987,7 +900,7 @@ func build_basement_wing(o: Vector3) -> void:
 	m._iwall(lc + Vector3(-4.75, -9.5, 0), Vector3(1.5, 18, 12), stone, "castle")   # far wall (x -35)
 	m._iwall(lc + Vector3(0, -9.5, -6), Vector3(10, 18, 1.5), stone, "castle")      # back wall
 	m._iwall(lc + Vector3(0, -9.5, 6), Vector3(10, 18, 1.5), stone, "castle")       # front wall
-	m._l2_box(lc + Vector3(-4.0, -12.0, 0), Vector3(0.6, 1.4, 1.0), Color(1.0, 0.8, 0.45), 3.2)   # lantern
+	_pearl("pearl_shell_lantern", lc + Vector3(-4.0, -9.5, 0), 90.0)
 	build_toilet(lc + Vector3(-1.75, -18.0, 0))
 	build_dungeon_gate(o + Vector3(0, -18.0, 5.0))
 
@@ -1036,9 +949,8 @@ func build_music_room(o: Vector3) -> void:
 	m._iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall)       # far wall (x=-52.75)
 	m._iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall)      # back wall (z=-24.75)
 	m._iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall)       # front wall (z=+14.75)
-	# gold doorway frame around the opening in the hall wall
-	for dz in [-21.0, -11.0]:
-		m._l2_box(o + Vector3(-35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
+	# A shell arch makes the music room legible from the hall without a glyph.
+	_pearl("pearl_shell_arch", o + Vector3(-34.7, 0.5, -16.0), 90.0)
 	# soft rug by the entrance
 	var rug = m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
 	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.62, 0.58, 0.82))
@@ -1046,9 +958,9 @@ func build_music_room(o: Vector3) -> void:
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
 	m.g["bells"] = []
-	_static_prop("res://assets/art35/castle/music_rail.glb", mo + Vector3(0.0, 0.75, 0.0), {}, 0.0, true)
+	_pearl("pearl_music_rail", mo + Vector3(0.0, 0.75, 0.0))
 	for bi in range(7):
-		var bell: Node3D = _static_prop("res://assets/art35/castle/music_bar_%d.glb" % bi, mo + Vector3(0.0, 1.70, -13.5 + float(bi) * 4.5), {}, 0.0, true)
+		var bell: Node3D = _pearl("pearl_music_bar_%d" % bi, mo + Vector3(0.0, 1.70, -13.5 + float(bi) * 4.5))
 		if bell == null:
 			continue
 		var bp := AudioStreamPlayer.new()
@@ -1078,10 +990,9 @@ func build_music_room(o: Vector3) -> void:
 		ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 0.85; ml.omni_range = 24.0
 		ml.position = mo + Vector3(0, 22, lz); m.add_child(ml); m.game_nodes.append(ml)
 		m._register_castle_light(ml, false)
-	# glowing windows on the far wall
+	# Framed cool windows repeat the same vocabulary as the upper galleries.
 	for wz in [-10.0, 10.0]:
-		var win = m._l2_box(mo + Vector3(-9.1, 20, wz), Vector3(0.4, 7, 6), Color(0.42, 0.56, 0.82), 0.12)
-		win.material_override.emission_energy_multiplier = 0.18
+		_pearl("pearl_shell_window", mo + Vector3(-9.0, 16.2, wz), 90.0)
 	# Three large authored star bells carry the instrument palette up the blank
 	# wall and visually connect the free-play keys to the room's music purpose.
 	for decor_i in range(3):
@@ -1091,12 +1002,6 @@ func build_music_room(o: Vector3) -> void:
 	# A framed physical music staff gives the forward wall its own silhouette and
 	# stays readable behind the xylophone from the normal room approach.
 	_static_prop("res://assets/art35/castle/music_wall_panel.glb", mo + Vector3(0.0, 8.0, 19.0), {}, 180.0, true)
-	# sign over the doorway
-	var msign := Label3D.new()
-	msign.text = "♪"
-	msign.font_size = 56; msign.pixel_size = 0.028; msign.outline_size = 12
-	msign.modulate = Color(0.85, 0.9, 1.0); msign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	msign.position = o + Vector3(-35, 20.0, -16); m.add_child(msign); m.game_nodes.append(msign)
 	# cool invite glow at the doorway
 	var il := OmniLight3D.new()
 	il.light_color = Color(0.6, 0.7, 1.0); il.light_energy = 1.6; il.omni_range = 14.0
@@ -1123,58 +1028,33 @@ func build_bedroom(o: Vector3) -> void:
 		m._l2_box(bo + Vector3(10.2, trim_y, 0), Vector3(0.8, 1.6, 20.5), Color(0.46, 0.31, 0.46))
 		m._l2_box(bo + Vector3(0, trim_y, -10.2), Vector3(20.5, 1.6, 0.8), Color(0.46, 0.31, 0.46))
 		m._l2_box(bo + Vector3(0, trim_y, 10.2), Vector3(20.5, 1.6, 0.8), Color(0.46, 0.31, 0.46))
-	# gold doorway frame around the opening in the hall wall
-	for dz in [-21.0, -11.0]:
-		m._l2_box(o + Vector3(35, 8, dz), Vector3(1.2, 16, 1.2), Color(0.85, 0.72, 0.45), 0.15)
+	# The bedroom receives the same shell doorway language as the music room.
+	_pearl("pearl_shell_arch", o + Vector3(34.7, 0.5, -16.0), -90.0)
 	# ---------- the royal bed (head against the back wall, room to walk all around) ----------
 	var bcx: float = bo.x + 4.0
 	var bcz: float = bo.z - 2.0
-	_static_prop("res://assets/art35/castle/royal_bed.glb", Vector3(bcx, o.y + 0.9, bcz), {}, 0.0, true)
+	_pearl("pearl_canopy_bed", Vector3(bcx, o.y + 0.9, bcz))
 	# bed collider: SLIM pad — the old 1.6 pad ejected Roshan outside the sleep
 	# trigger radius, so climbing into bed could never fire the cutscene
 	m._wall_solid(Vector3(bcx, o.y + 2.0, bcz), Vector3(7, 2.5, 12), 0.5)
 	m.g["bed_pos"] = Vector3(bcx, o.y + 3.6, bcz)   # mattress top — the go-to-sleep trigger
-	var bedsign := Label3D.new()
-	bedsign.text = "zZz"
-	bedsign.font_size = 40
-	bedsign.pixel_size = 0.02
-	bedsign.outline_size = 10
-	bedsign.modulate = Color(0.8, 0.85, 1.0)
-	bedsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	bedsign.position = Vector3(bcx, o.y + 10.0, bcz)
-	m.add_child(bedsign)
-	m.game_nodes.append(bedsign)
 	# ---------- bedside table + glowing lamp (at the bed's head) ----------
-	_static_prop("res://assets/art35/castle/royal_nightstand.glb", Vector3(bcx - 6.5, o.y + 0.2, bcz - 5.0), {}, 0.0, true)
+	_pearl("pearl_bedside_table", Vector3(bcx - 6.5, o.y + 0.9, bcz - 5.0))
 	m._wall_solid(Vector3(bcx - 6.5, o.y + 1.8, bcz - 5.0), Vector3(2.4, 3.2, 2.4), 0.4)
 	var lamp := OmniLight3D.new()
 	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 0.85; lamp.omni_range = 11.0
-	lamp.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0); m.add_child(lamp); m.game_nodes.append(lamp)
+	lamp.position = Vector3(bcx - 6.5, o.y + 5.0, bcz - 5.0); m.add_child(lamp); m.game_nodes.append(lamp)
 	m._register_castle_light(lamp, true)
 	# big soft rug in the middle of the room
 	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
 	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.82, 0.66, 0.72))
-	# toy chest by the far wall (decor)
-	var chest = m._l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
-	chest.material_override.roughness = 0.85
+	# Toy chest by the far wall; generic storage only, no generated plush toys.
+	_pearl("pearl_toy_chest", bo + Vector3(8.5, 0.9, 6.0), 90.0)
 	m._wall_solid(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), 0.4)
-	m._l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
-	var wardrobe = m._l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
-	wardrobe.material_override.roughness = 0.8
-	var mirror = m._l2_box(vpos + Vector3(0, 7.5, 0.1), Vector3(4.5, 9.0, 0.2), Color(0.45, 0.68, 0.82), 0.15)  # softly glowing mirror glass
-	mirror.material_override.metallic = 0.55
-	mirror.material_override.roughness = 0.18
-	for fx in [-2.6, 2.6]:                                 # gold mirror frame posts
-		m._l2_box(vpos + Vector3(fx, 7.5, 0.2), Vector3(0.6, 9.5, 0.5), Color(0.95, 0.8, 0.4), 0.2)
-	m._l2_box(vpos + Vector3(0, 12.4, 0.2), Vector3(5.7, 0.6, 0.5), Color(0.95, 0.8, 0.4), 0.2)   # frame top
+	_pearl("pearl_shell_wardrobe", vpos + Vector3(0, 0.9, 0.7), 180.0)
 	m._wall_solid(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6))   # the wardrobe is solid
-	var vsign := Label3D.new()
-	vsign.text = "\U0001f457"
-	vsign.font_size = 48; vsign.pixel_size = 0.028; vsign.outline_size = 12
-	vsign.modulate = Color(1.0, 0.8, 0.95); vsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	vsign.position = vpos + Vector3(0, 13.6, 0); m.add_child(vsign); m.game_nodes.append(vsign)
 	var vl := OmniLight3D.new()
 	vl.light_color = Color(1.0, 0.85, 0.95); vl.light_energy = 0.9; vl.omni_range = 12.0
 	vl.position = vpos + Vector3(0, 8, -2); m.add_child(vl); m.game_nodes.append(vl)
@@ -1185,19 +1065,9 @@ func build_bedroom(o: Vector3) -> void:
 	bl.light_color = Color(1.0, 0.88, 0.78); bl.light_energy = 0.8; bl.omni_range = 22.0
 	bl.position = bo + Vector3(0, 22, 0); m.add_child(bl); m.game_nodes.append(bl)
 	m._register_castle_light(bl, false)
-	# glowing windows on the far and back walls for ambiance
-	var win = m._l2_box(bo + Vector3(10.4, 20, 0), Vector3(0.4, 7, 6), Color(0.38, 0.62, 0.82), 0.12)
-	win.material_override.emission_energy_multiplier = 0.18
-	var win2 = m._l2_box(bo + Vector3(-4.0, 20, -10.4), Vector3(6, 7, 0.4), Color(0.38, 0.62, 0.82), 0.12)
-	win2.material_override.emission_energy_multiplier = 0.18
-	# label over the doorway
-	var blab := Label3D.new()
-	blab.text = "\U0001f6cf️"
-	blab.font_size = 56; blab.pixel_size = 0.03; blab.outline_size = 12
-	blab.modulate = Color(1.0, 0.9, 0.85)
-	blab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	blab.position = o + Vector3(35, 20.0, -16)
-	m.add_child(blab); m.game_nodes.append(blab)
+	# Framed glass on both exterior walls replaces the flat glow panels.
+	_pearl("pearl_shell_window", bo + Vector3(10.2, 16.2, 0), -90.0)
+	_pearl("pearl_shell_window", bo + Vector3(-4.0, 16.2, -10.2))
 	# warm invite glow at the doorway
 	var il := OmniLight3D.new()
 	il.light_color = Color(1.0, 0.8, 0.6); il.light_energy = 1.6; il.omni_range = 14.0
@@ -1263,13 +1133,6 @@ func build_toilet(ground: Vector3) -> void:
 	# Match the imported model's complete bounds (including the bowl's front lip
 	# and tank lid) with a small swimmer-clearance pad.
 	m._wall_solid(ground + Vector3(0.23, 2.5, 0.063), Vector3(4.2, 5.0, 3.13), 0.4)
-	var tsign := Label3D.new()
-	tsign.text = "✨ Royal Loo ✨"
-	tsign.font_size = 40; tsign.pixel_size = 0.02; tsign.outline_size = 10
-	tsign.modulate = Color(0.8, 0.92, 1.0)
-	tsign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	tsign.position = ground + Vector3(0, 6.1, 0)
-	m.add_child(tsign); m.game_nodes.append(tsign)
 	# bubbly toot, gentle volume for little ears (tick re-arms it on swim-away)
 	var tap := AudioStreamPlayer.new()
 	tap.stream = load("res://assets/audio/fart.ogg")

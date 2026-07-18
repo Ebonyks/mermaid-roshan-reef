@@ -24,6 +24,37 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_shell_banner_a",
 	"pearl_shell_banner_b",
 	"pearl_stair_rail",
+	"pearl_ocean_portal",
+	"pearl_shell_window",
+	"pearl_story_cushion",
+	"pearl_toy_block_stack",
+	"pearl_toy_chest",
+	"pearl_secret_chest",
+	"pearl_shell_hopscotch",
+	"pearl_canopy_bed",
+	"pearl_bedside_table",
+	"pearl_shell_wardrobe",
+	"pearl_music_rail",
+	"pearl_music_bar_0",
+	"pearl_music_bar_1",
+	"pearl_music_bar_2",
+	"pearl_music_bar_3",
+	"pearl_music_bar_4",
+	"pearl_music_bar_5",
+	"pearl_music_bar_6",
+	"pearl_storage_barrel",
+	"pearl_storage_crate",
+	"pearl_shell_lantern",
+	"pearl_pantry_shelf",
+	"pearl_craft_easel",
+	"pearl_paint_rack",
+	"pearl_craft_table",
+	"pearl_bath_duck",
+	"pearl_towel_stack",
+	"pearl_keepsake_tiara",
+	"pearl_keepsake_cradle",
+	"pearl_pet_basket",
+	"pearl_keepsake_music_box",
 ]
 const MIN_RUNTIME_COUNTS := {
 	"pearl_column": 8,
@@ -44,6 +75,37 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_shell_banner_a": 4,
 	"pearl_shell_banner_b": 2,
 	"pearl_stair_rail": 2,
+	"pearl_ocean_portal": 1,
+	"pearl_shell_window": 19,
+	"pearl_story_cushion": 1,
+	"pearl_toy_block_stack": 1,
+	"pearl_toy_chest": 3,
+	"pearl_secret_chest": 1,
+	"pearl_shell_hopscotch": 1,
+	"pearl_canopy_bed": 1,
+	"pearl_bedside_table": 6,
+	"pearl_shell_wardrobe": 1,
+	"pearl_music_rail": 1,
+	"pearl_music_bar_0": 1,
+	"pearl_music_bar_1": 1,
+	"pearl_music_bar_2": 1,
+	"pearl_music_bar_3": 1,
+	"pearl_music_bar_4": 1,
+	"pearl_music_bar_5": 1,
+	"pearl_music_bar_6": 1,
+	"pearl_storage_barrel": 7,
+	"pearl_storage_crate": 3,
+	"pearl_shell_lantern": 15,
+	"pearl_pantry_shelf": 1,
+	"pearl_craft_easel": 1,
+	"pearl_paint_rack": 1,
+	"pearl_craft_table": 1,
+	"pearl_bath_duck": 1,
+	"pearl_towel_stack": 1,
+	"pearl_keepsake_tiara": 1,
+	"pearl_keepsake_cradle": 1,
+	"pearl_pet_basket": 1,
+	"pearl_keepsake_music_box": 1,
 }
 const MAX_ASSET_TRIANGLES := 10000
 const MAX_ASSET_SURFACES := 12
@@ -170,13 +232,19 @@ func _capture_castle() -> void:
 	await _shot("castle_02_throne_focal", o + Vector3(19, 20, -2), o + Vector3(0, 23, -29))
 	await _shot("castle_03_entrance_motifs", o + Vector3(0, 12, 18), o + Vector3(0, 5, 40), 68.0)
 	await _shot("castle_04_wall_fixture", o + Vector3(4, 17, 6), o + Vector3(33, 18, 4))
-	await _shot("castle_05_upper_gallery", o + Vector3(39, 40, 15), o + Vector3(52, 41, -7), 70.0)
-	await _shot("castle_06_cloud_lounge", o + Vector3(7, 40, -40), o + Vector3(26, 38, -53), 64.0)
-	await _shot("castle_07_star_chamber", o + Vector3(-6, 40, -40), o + Vector3(-27, 40, -53), 64.0)
-	await _shot("castle_08_royal_bedroom", o + Vector3(36, 10, -8), o + Vector3(48, 7, -19), 70.0)
-	await _shot("castle_09_music_room", o + Vector3(-35, 10, -15), o + Vector3(-46, 8, -2), 70.0)
-	await _shot("castle_10_royal_loo", o + Vector3(-27.2, -10.5, -23.5), o + Vector3(-32, -15, -28), 76.0)
-	await _shot("castle_11_back_chamber", o + Vector3(20, 12, -37), o + Vector3(0, 8, -46), 68.0)
+	await _shot("castle_05_toy_room", o + Vector3(38, 40, 12), o + Vector3(48, 38, -8), 66.0)
+	await _shot("castle_06_cloud_lounge", o + Vector3(45, 40, -40), o + Vector3(26, 38, -53), 64.0)
+	await _shot("castle_07_star_chamber", o + Vector3(-45, 41, -40), o + Vector3(-25, 39, -53), 64.0)
+	await _shot("castle_08_royal_bedroom", o + Vector3(38, 11, -9), o + Vector3(50, 6, -20), 68.0)
+	await _shot("castle_09_music_room", o + Vector3(-49, 10, 11), o + Vector3(-44, 6, -6), 68.0)
+	await _shot("castle_10_royal_loo", o + Vector3(-28.5, -9.5, -24.5), o + Vector3(-32.0, -15.0, -28.0), 68.0)
+	await _shot("castle_11_back_chamber", o + Vector3(12, 11, -38), o + Vector3(0, 7, -47), 66.0)
+	await _shot("castle_12_royal_library", o + Vector3(-38, 40, 12), o + Vector3(-48, 38, -8), 66.0)
+	await _shot("castle_13_undercroft", o + Vector3(0, -8, 11), o + Vector3(-4, -14, 31), 70.0)
+	await _shot("castle_14_dreaming_floor", o + Vector3(0, 58, -39), o + Vector3(10, 54, -58), 70.0)
+	await _shot("castle_15_pantry", o + Vector3(-10, -9, 4), o + Vector3(-20, -14, -2), 70.0)
+	await _shot("castle_16_craft_room", o + Vector3(10, -9, -22), o + Vector3(20, -14, -28), 70.0)
+	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
 
 
 func _run() -> void:
@@ -205,6 +273,11 @@ func _run() -> void:
 		_ck("runtime_" + String(asset_name), actual >= minimum, "actual=%d minimum=%d" % [actual, minimum])
 	_ck("hall_exit_marker", main.g.has("hall_exit"), str(main.g.get("hall_exit", Vector3.ZERO)))
 	_ck("toilet_contract_preserved", main.g.has("toilet"), "royal loo interaction remains active")
+	_ck("music_contract_preserved", (main.g.get("bells", []) as Array).size() == 7, "seven independent playable keys remain")
+	_ck("bed_contract_preserved", main.g.has("bed_pos"), str(main.g.get("bed_pos", Vector3.ZERO)))
+	_ck("wardrobe_contract_preserved", main.g.has("wardrobe"), str(main.g.get("wardrobe", Vector3.ZERO)))
+	_ck("craft_contract_preserved", main.g.has("craft_easel"), str(main.g.get("craft_easel", Vector3.ZERO)))
+	_ck("secret_stand_contract_preserved", main.g.has("stand_chest") and main.g.has("stand_lid"), "slide tween roots remain")
 	await _capture_castle()
 	print("CASTLE_ART|RESULT=", "FAIL" if checks_failed > 0 else "OK", " checks_failed=", checks_failed)
 	quit(1 if checks_failed > 0 else 0)

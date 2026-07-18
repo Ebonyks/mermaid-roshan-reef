@@ -214,6 +214,32 @@ Most frequent failures:
   eleven fixed hall/throne/entrance/gallery/room captures, route and light-budget
   preservation, and both isolated and runtime toilet side views.
 
+### A12 - Pearl Castle contiguous-room evidence correction
+
+- Source and commit: expanded `CASTLE_PEARL_ART_AUDIT_2026-07-18.md`; branch
+  `codex/castle-rainbow-shell-5of5` after the green eleven-view runtime pass.
+- Scope: every castle room adjoining or visible from the Grand Hall, including
+  Toy Room, Royal Library, Star Chamber, Dreaming Floor, undercroft, basement
+  rooms, music room, royal bedroom, Royal Loo, and back chamber.
+- Evidence class: E3 Mobile runtime screenshots plus E2 Blender/export metrics.
+- Findings independently verified: a structurally green focal audit still hid
+  raw colored blocks, slab furniture, text glyphs, flat windows, primitive
+  storage/craft/bath props, camera clipping, and a decorative gate with no
+  destination read.
+- Findings accepted: capture scope must follow contiguous player sightlines;
+  motifs must identify function; coordinated room families outperform isolated
+  one-off replacements; playable assemblies must preserve separate trigger
+  nodes beneath a unified visual design.
+- Findings accepted as proposals only: the expanded forty-nine-asset kit is a
+  5/5 target but remains a runtime candidate until all seventeen fixed Mobile
+  frames are inspected and the owner accepts it.
+- Findings rejected or superseded: a green eleven-view probe, nonblank frame,
+  or isolated render does not establish game-wide castle coverage.
+- New rule: R-QA7. Reinforces R-GOV4, R-ROLE3, R-MOT4, R-GEO5, and R-QA4.
+- Required test: seventeen fixed contiguous-area captures, measured import
+  budgets for all forty-nine assets, and explicit preservation of exit,
+  toilet, seven-key music, bed, wardrobe, craft, and moving-stand contracts.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -343,6 +369,10 @@ These rule IDs are stable. Reference them in manifests and review notes.
 - **R-QA6 - Wire or quarantine.** Promote and reference the asset in the same
   workstream, with a byte-identical backup. Rejected, superseded, and
   reference-only candidates remain labeled and excluded from APK export.
+- **R-QA7 - Follow contiguous sightlines.** A focal-area audit must enumerate
+  every adjacent player-visible room and approach. A technically successful
+  capture set fails when uncaptured neighboring art can remain at blockout
+  quality.
 
 ## Family-specific directives for the next pass
 
@@ -494,6 +524,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v3:** Added the Pearl Castle contiguous-room correction, expanded
+  the generation kit from eighteen to forty-nine props, and established R-QA7
+  after a green eleven-view pass still hid adjacent 0-2/5 blockouts.
 - **2026-07-18-v2:** Added the Pearl Castle and Royal Loo implementation audit,
   role-based motif hierarchy, multi-view functional-assembly rule, measured
   export contracts, and the pending Mobile/owner acceptance boundary.

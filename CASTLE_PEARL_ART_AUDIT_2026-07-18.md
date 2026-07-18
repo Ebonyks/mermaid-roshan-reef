@@ -2,10 +2,12 @@
 
 ## Scope
 
-This pass addresses the Grand Hall, its ceremonial threshold and throne wall,
-the upper gallery visible from the hall, the Cloud Lounge, and the Royal Loo
-shape correction. It does not alter protected book art, Huluu, family voices,
-friend cutouts, legacy character models, or child-supplied stuffed animals.
+This pass addresses the Grand Hall, ceremonial threshold, throne wall, upper
+galleries, Cloud Lounge, Star Chamber, Royal Library, Toy Room, Dreaming Floor,
+undercroft, basement rooms, music room, royal bedroom, back chamber, and Royal
+Loo shape correction. It does not alter protected book art, Huluu, family
+voices, friend cutouts, legacy character models, or child-supplied stuffed
+animals.
 
 The pass evaluates and applies the shared findings in:
 
@@ -76,12 +78,30 @@ armature, animation, light, camera, or collision body, and remains under the
 | `pearl_shell_planter.glb` | 3,488 | Integrated planter and modeled leaf family |
 | `pearl_shell_bench.glb` | 3,432 | Entrance seating |
 | `pearl_cloud_settee.glb` | 4,284 | Cloud Lounge seating with explicit cushion, back, and arms |
-| `pearl_cloud_pouf.glb` | 1,464 | Low Cloud Lounge footstool/seating pair |
+| `pearl_cloud_pouf.glb` | 1,704 | Low Cloud Lounge footstool/seating pair with exposed cushion |
 | `pearl_shell_fountain.glb` | 2,064 | New side-bay water landmark |
 | `pearl_rainbow_gate.glb` | 4,372 | Return threshold replacing the torus marker |
 | `pearl_shell_banner_a.glb` | 1,608 | Plum shell-and-wave wall hanging |
 | `pearl_shell_banner_b.glb` | 1,608 | Aqua shell-and-wave wall hanging |
 | `pearl_stair_rail.glb` | 4,824 | Sloped ceremonial rail for the throne staircase |
+
+The evidence expansion added thirty-one more single-mesh assets after the
+eleven-view Mobile pass exposed out-of-frame blockouts:
+
+| Family | Assets | Triangle range | Runtime role |
+|---|---:|---:|---|
+| Threshold and windows | 2 | 1,844-2,456 | Graphic ocean return curtain and nineteen shell-framed windows |
+| Library and Toy Room | 4 | 1,208-5,768 | Story seat, toy block stack, shell chest, physical hopscotch |
+| Secret chamber | 1 | 1,608 | Sliding shell treasure chest with existing tween contract |
+| Royal bedroom | 3 | 1,608-4,244 | Open canopy bed, bedside fixture, dress-up wardrobe |
+| Playable music set | 8 | 456-1,768 | One rail plus seven separately triggered rainbow keys |
+| Undercroft and pantry | 4 | 904-5,144 | Barrel, crate, shell lantern, stocked pantry shelf |
+| Craft and bath | 5 | 540-2,512 | Easel, paint rack, paper table, anatomical bath duck, towel stack |
+| Dreaming keepsakes | 4 | 1,540-2,240 | Tiara, cradle, empty pet basket, physical music box |
+
+No generated stuffed animal was introduced. The pet basket surrounds the
+existing protected Wacky and Chuck cutout; child-specific toys remain a manual
+future source-art workflow.
 
 The editable source is `assets_src/blender/pearl_castle_kit.blend`; isolated
 renders live in `assets_src/blender/qa_pearl_castle_kit/`.
@@ -104,6 +124,30 @@ the fixed runtime review from six views to eleven. This is a direct application
 of R-GEO5, R-QA2, and R-QA4: a technically valid asset or nonblank screenshot is
 not evidence when it hides the functional assembly or target composition.
 
+## Second Runtime Review And Evidence Expansion
+
+The green eleven-view pass was still rejected as an art-completeness claim.
+Human inspection found a blank return-gate void; raw Toy Room boxes; clumped
+Cloud Lounge poufs; clipped Star Chamber, bedroom, music, loo, and back-room
+cameras; slab bedroom furniture; primitive xylophone rails and keys; a generic
+secret chest; and uncaptured blockout storage, pantry, craft, bath, and Dreaming
+Floor props. This was not an exporter failure. It was an evidence-radius and
+art-direction failure.
+
+The expanded pass therefore:
+
+- turns the return gate into an ocean-facing threshold rather than decoration;
+- replaces labels and emoji glyphs with physical arches, fixtures, and keepsakes;
+- preserves seven independent music triggers under one coordinated instrument;
+- rebuilds the bedroom around one bed/bedside/wardrobe furniture family;
+- replaces undercroft, pantry, craft, bath, and Dreaming Floor primitives;
+- retains every protected family cutout and authored legacy bed unchanged;
+- expands fixed Mobile review from eleven to seventeen contiguous-area views.
+
+The rejected six-view and eleven-view runtime evidence is retained under the
+Blender QA source tree. A green structural probe is not promoted without human
+inspection of every frame.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -124,9 +168,9 @@ count is 8,412 triangles with zero exported degenerate triangles.
 - Purpose-built settees and poufs replace both the old box cushions and the
   rejected first-pass use of outdoor landmark clouds as furniture.
 - `scripts/probe_castle_pearl_art.gd` enforces import budgets, one-mesh exports,
-  static-only assets, minimum live placement counts, exit/toilet contracts, and
-  eleven fixed Mobile-render review captures spanning the hall, throne,
-  entrance, wall fixtures, upper rooms, Royal Loo, and back chamber.
+  static-only assets, minimum live placement counts, exit/toilet/music/bed/
+  wardrobe/craft/secret-stand contracts, and seventeen fixed Mobile-render
+  review captures spanning every contiguous castle wing touched by this pass.
 
 ## Current Rating
 
