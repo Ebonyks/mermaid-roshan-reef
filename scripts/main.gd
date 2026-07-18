@@ -273,6 +273,8 @@ var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
 var save_retry_t := 0.0
+var save_pending := false  # debounced write queued by the hot sites (pearl pickup, friend discovery)
+var save_pending_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
@@ -2640,13 +2642,27 @@ func _write_save() -> bool:
 	if _save_state == null:
 		_save_state = SaveState.new(self)
 	var saved: bool = _save_state.write_save()
+	# every immediate write also satisfies any debounced request — milestone
+	# sites (_end_game etc.) are natural flush points, never double writes
+	save_pending = false
+	save_pending_t = 0.0
 	save_dirty = not saved
 	save_retry_t = 1.5 if save_dirty else 0.0
 	return saved
 
+func _queue_save() -> void:
+	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
+	# one write ~1.5s after the last event instead of a synchronous multi-file
+	# write per pearl. Milestones keep calling _write_save() directly.
+	save_pending = true
+	save_pending_t = 1.5
+
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_PAUSED and save_dirty:
-		_write_save()
+	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# flush BOTH a failed write awaiting retry and a debounced pending
+		# write — going to the background must never drop queued progress
+		if save_dirty or save_pending:
+			_write_save()
 
 func _add_won_star(fr: Dictionary) -> void:
 	if fr.has("star"):
@@ -5549,6 +5565,10 @@ func _process(delta: float) -> void:
 		save_retry_t -= delta
 		if save_retry_t <= 0.0:
 			_write_save()
+	elif save_pending:
+		save_pending_t -= delta
+		if save_pending_t <= 0.0:
+			_write_save()
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
@@ -5614,7 +5634,7 @@ func _process(delta: float) -> void:
 				pearl_note += 1
 			_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
 			_update_hud()
-			_write_save()
+			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	for f in friends:
 		var node: Sprite3D = f["node"]
@@ -5639,7 +5659,7 @@ func _process(delta: float) -> void:
 			f["cool"] = 2.5
 			show_msg(f["fname"], f["msg"])
 			_update_hud()
-			_write_save()
+			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 		elif f["found"] and game == "" and dd < linger_radius:
 			if float(f["cool"]) > 0.0:
 				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
