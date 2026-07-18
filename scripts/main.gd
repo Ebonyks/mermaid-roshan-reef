@@ -6796,6 +6796,10 @@ func _enter_arena(kind: String) -> void:
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO
+	# drop any leftover swim banking/pitch tilt: slide/fairyshoot early-return
+	# in player._process, so a mid-turn lean would otherwise freeze on her
+	player.rotation.x = 0.0
+	player.rotation.z = 0.0
 	_play_music(kind)
 
 func _leave_arena() -> void:
