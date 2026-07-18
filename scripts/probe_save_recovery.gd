@@ -146,6 +146,7 @@ func _init() -> void:
 	_expect(core_state.write_save(), "core-quartet fixture written")
 	var trimmed: Dictionary = _read_json(TEST_PATH)
 	trimmed.erase("stickers")   # stands in for any key a later build adds
+	trimmed.erase("critters")   # real case: saves from before the Critter Book
 	_write_text(TEST_PATH, JSON.stringify(trimmed))
 	var older_backup: Dictionary = _read_json(TEST_PATH + ".bak")
 	older_backup["pearls"] = 1   # a demotion to the backup would visibly roll progress back
@@ -155,6 +156,7 @@ func _init() -> void:
 	_expect(bool(core_candidate.get("clean", false)) and String(core_candidate.get("path", "")) == TEST_PATH, "save missing a newly-added key is still clean")
 	var core_data: Dictionary = core_candidate.get("data", {})
 	_expect(core_data.get("stickers") is Dictionary, "missing key restored with its default")
+	_expect(core_data.get("critters") is Dictionary, "pre-Critter-Book save defaults critters without demotion")
 	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
 
 	_cleanup()

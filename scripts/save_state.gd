@@ -25,7 +25,7 @@ const KNOWN_KEYS: Array[String] = [
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done",
-	"stickers", "owned", "animals",
+	"stickers", "owned", "animals", "critters",
 ]
 
 var m: ReefMain
