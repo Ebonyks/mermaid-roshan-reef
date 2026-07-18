@@ -45,6 +45,20 @@ The Northern scene also moves to the established `bright_pastel` scene grade wit
 
 GitHub Actions run `29588787382` passed import, static gates, the full Godot analyzer, all trusted probes, and the eleven-view capture. Visual review still rejected the build. The general imported-CC0 `_toonify` path was lifting the kit's already-authored pastel materials a second time, so walls, roofs, snow, docks, and wisps clipped toward white. The larger replacement pine also occluded the fixed near-house review. The follow-up keeps the embedded authored materials, disables northern-only screen bloom, reduces exposure and wisp emission, and moves the near-house camera to the unobstructed inward facade.
 
-## Candidate status
+## Final Mobile evidence
 
-Isolated QA passes silhouette, material-family, completeness, and family-variation review. The assets remain capped at 2/5 until the replacement build completes the same eleven-view Mobile capture. If those views pass, the role family can advance to provisional 3/5 and be presented for the required owner review; it must not be recorded as an official 4/5 before that review.
+Commit `90b6b83` corrected the material path. GitHub Actions run `29609915332` then passed static gates, import, the full Godot analyzer, every trusted probe, and all eleven Mobile captures. Visual review confirmed the intended authored palette, readable house fronts, modeled dock detail, open castle approach, and restrained wisp emission. The review also found three defects in the fixed evidence cameras: two frames intersected scenery and the wisp frame was too distant. These were capture defects rather than runtime asset defects, but invalid frames were not counted as quality evidence.
+
+The viewpoints were corrected and rerun. Run `29624007719` passed every gate and established clear forest and near-wisp views; its alternate pass camera still intersected a different peak and was rejected. The final centerline pass view was captured by run `29624457732` from commit `8a9289d`. That exact revision passed:
+
+- gdtoolkit parsing and Variant-inference lint;
+- deadlock-guarded clean import;
+- the full Godot script analyzer and Roshan motion cage;
+- every trusted gameplay, save/load, passive, picture-game, lagoon, northern, and kart probe;
+- all first-world and eleven northern-world Mobile-render captures.
+
+The accepted Mobile set shows the complete pass arch and peak corridor, three distinct pine profiles, both mushroom families, all six varied timber houses, the rope-and-plank dock, the castle at gameplay/mid/near distances, and a near wisp with the continuing trail and destination in view. No focal role is a primitive blockout, no family depends on crossed cards or billboards, no reviewed asset is hidden by camera occlusion, and the authored materials retain silhouette separation without bloom clipping.
+
+## Final score and decision
+
+Every item in `audit/northern_asset_ledger_2026-07-17.csv` now clears the internal silhouette, material, scale, composition, and repetition checks for a **4/5-ready candidate**. Per the repository hard cap, the recorded score remains **provisional 3/5 pending owner review**; this is an administrative review cap, not a remaining automatic-regeneration defect. No further automatic regeneration is triggered. An official 4/5 promotion requires the owner to accept the shipped Mobile views.

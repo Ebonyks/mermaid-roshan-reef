@@ -80,7 +80,8 @@ The selection area has severe bloom, oversized UI, repeated coral cards blocking
 | Dungeon/adventure | merged | 3 candidate | Review Dungeon Art V2 in the shipped build; polish owner-rejected roles and replace the remaining pepper token. |
 | Kart expansion | merged | 1-2 | Rebuild showcase composition and track language; verify each vehicle independently. |
 | Castle differentiation | merged/in progress | 1-2 | Color changes do not satisfy differentiation; require authored silhouettes and surfaces. |
-| Northern/undersea additions | active branches | Unverified, max 2 | Add runtime captures to this same probe before any art score is promoted. |
+| Northern Kingdom | `origin/codex/northern-art-audit` | Provisional 3; 4-ready | Eleven-view Mobile set and all trusted probes pass; owner review is required for official 4/5. |
+| Undersea additions | active branches | Unverified, max 2 | Add runtime captures to this same probe before any art score is promoted. |
 
 ## Rebuild Order
 
