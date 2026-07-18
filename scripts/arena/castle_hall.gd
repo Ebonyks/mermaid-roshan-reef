@@ -302,17 +302,30 @@ func build(o: Vector3) -> void:
 	# a glowing royal treasure chest = the bonus trigger. It doubles as the
 	# GOLDEN STAND sealing the undercroft's back stairwell: it pulses
 	# invitingly and rumbles aside when Roshan gets close (see slide_stand).
-	var chest = m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.76, 0.56, 0.20), 0.12)
-	chest.material_override.metallic = 0.6
-	var chest_lid = m._l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.68, 0.47, 0.17), 0.08)   # lid rim
+	# The authored art35 chest (same asset as the treasure cavern) stands in
+	# for the old flat gold boxes; they remain as the missing-asset fallback.
+	var chest: Node3D = m._art35_prop("res://assets/art35/arena/treasure_chest.glb", br + Vector3(0, 1.0, -1.0), 2.1)
+	var chest_lid: Node3D
+	if chest != null:
+		# slide_stand() tweens the lid alongside the chest; the authored chest
+		# is one piece, so the lid slot gets an inert stub to keep that path.
+		chest_lid = Node3D.new()
+		chest_lid.position = br + Vector3(0, 6.0, -1.0)
+		m.add_child(chest_lid)
+		m.game_nodes.append(chest_lid)
+	else:
+		var chest_box = m._l2_box(br + Vector3(0, 3.0, -1.0), Vector3(7, 5, 4.5), Color(0.76, 0.56, 0.20), 0.12)
+		chest_box.material_override.metallic = 0.6
+		var ctw: Tween = chest_box.create_tween().set_loops()
+		ctw.tween_property(chest_box.material_override, "emission_energy_multiplier", 0.32, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		ctw.tween_property(chest_box.material_override, "emission_energy_multiplier", 0.10, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		chest = chest_box
+		chest_lid = m._l2_box(br + Vector3(0, 6.0, -1.0), Vector3(7.4, 1.4, 5.0), Color(0.68, 0.47, 0.17), 0.08)   # lid rim
 	m.g["secret_door"] = chest.position
 	m.g["stand_chest"] = chest
 	m.g["stand_lid"] = chest_lid
 	m.g["stand_open"] = false
 	m.g["stand_armed"] = false   # arms once Roshan is >14 away (the moat hatch spawns right beside it)
-	var ctw: Tween = chest.create_tween().set_loops()
-	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.32, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	ctw.tween_property(chest.material_override, "emission_energy_multiplier", 0.10, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	var sl2 := OmniLight3D.new(); sl2.light_color = Color(0.6, 0.95, 1.0); sl2.light_energy = 0.75; sl2.omni_range = 11.0
 	sl2.position = chest.position + Vector3(0, 4, 0); m.add_child(sl2); m.game_nodes.append(sl2)
 	m._register_castle_light(sl2, true)
