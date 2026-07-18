@@ -87,8 +87,8 @@ func _init() -> void:
 	await _frames(25)
 	var fairy_origin: Vector3 = main.ARENA_POS
 	await _shot("14_fairy_pond_flight", fairy_origin + Vector3(0, 58, 95), fairy_origin + Vector3(0, 0, 95), true, Vector3(0, 0, 1))
-	main.g["fz"] = main.FS_LEN
-	main._fairy_start_boss(fairy_origin)
+	main.g["fz"] = FairyGame.FS_LEN
+	main._game_obj("fairyshoot", FairyGame)._fairy_start_boss(fairy_origin)
 	await _frames(5)
 	var flower: Vector3 = main.g["boss_center"]
 	await _shot("15_fairy_flower_seed", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
@@ -107,8 +107,8 @@ func _init() -> void:
 	main.g["bud_hp"] = 2
 	await _frames(3)
 	await _shot("18_fairy_flower_opening", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
-	main._fairy_bloom_start()
-	main.g["bloom_t"] = main.FS_BLOOM_T * 0.2
+	main._game_obj("fairyshoot", FairyGame)._fairy_bloom_start()
+	main.g["bloom_t"] = FairyGame.FS_BLOOM_T * 0.2
 	await _frames(3)
 	await _shot("19_fairy_flower_bloom", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
 	print("ART_AUDIT|DONE")

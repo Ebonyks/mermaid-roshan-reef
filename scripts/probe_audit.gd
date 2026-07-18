@@ -26,9 +26,9 @@ func _init() -> void:
 		and patrol_y <= main.WATER_TOP - 3.0
 		and is_equal_approx(main._aquatic_patrol_height(0.0, 0.0, 20.0), 20.0))
 	print("AUDIT|Aquatic patrol terrain clearance: ", "OK" if aquatic_continuity else "FAIL")
-	var lamb_continuity: bool = (not main._lamb_meadow_placement_allowed(Vector2(0.0, 9.0), "tree_fat")
-		and main._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_fat")
-		and not main._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_palm"))
+	var lamb_continuity: bool = (not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(0.0, 9.0), "tree_fat")
+		and main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_fat")
+		and not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_palm"))
 	print("AUDIT|Lamb meadow hide zones and climate: ", "OK" if lamb_continuity else "FAIL")
 	print("AUDIT|Penguin floe at water surface: ",
 		"OK" if absf(main.slide_portal_pos.y - (main.WATER_TOP + 0.5)) < 0.01 else "FAIL")

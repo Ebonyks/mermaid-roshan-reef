@@ -14,6 +14,10 @@ func _init() -> void:
 	for f in main.friends:
 		if String(f["game"]) == "fetch":
 			fr = f
+	if fr.is_empty():
+		print("FAIL: no fetch friend found in main.friends")
+		quit()
+		return
 	main._start_game(fr)
 	await process_frame
 	var fcount := 0
@@ -32,4 +36,6 @@ func _init() -> void:
 			main.touch_ui.action_down = false
 		await process_frame
 	print("END game=", main.game, " won=", fr.get("won"), " frames=", fcount)
+	if not bool(fr.get("won", false)):
+		print("FAIL: fetch did not reach a win (frames=", fcount, ")")
 	quit()

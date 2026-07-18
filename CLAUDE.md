@@ -9,9 +9,10 @@ recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
 ## Layout
-- scenes/main.tscn → scripts/main.gd (~6.2k lines after Phase 7; still the
-  state owner — see Refactor rules. Target <2.5k; remaining bulk is the
-  intro, HUD, craft studio, wardrobe, galaxy/kart glue and arena builders)
+- scenes/main.tscn → scripts/main.gd (~8.9k lines as of 2026-07-18; still
+  the state owner — see Refactor rules. Target <2.5k; remaining bulk is the
+  intro, HUD, craft studio, wardrobe, galaxy/kart glue, arena builders, and
+  several half-finished extractions whose builder bodies still live here)
 - Phase 7 satellites (RefCounted, receive `main` by reference, own logic
   only — ALL state stays on main):
   scripts/save_state.gd, scripts/audio_director.gd,
