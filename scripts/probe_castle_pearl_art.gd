@@ -30,6 +30,10 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_toy_block_stack",
 	"pearl_toy_chest",
 	"pearl_secret_chest",
+	"pearl_rainbow_stacker",
+	"pearl_shell_drum",
+	"pearl_toy_sailboat",
+	"pearl_library_table",
 	"pearl_shell_hopscotch",
 	"pearl_canopy_bed",
 	"pearl_bedside_table",
@@ -42,6 +46,7 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_music_bar_4",
 	"pearl_music_bar_5",
 	"pearl_music_bar_6",
+	"pearl_music_mallet_stand",
 	"pearl_storage_barrel",
 	"pearl_storage_crate",
 	"pearl_shell_lantern",
@@ -63,15 +68,15 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_rainbow_window": 1,
 	"pearl_shell_sconce": 8,
 	"pearl_shell_chandelier": 8,
-	"pearl_floor_medallion": 1,
+	"pearl_floor_medallion": 2,
 	"pearl_throne_canopy": 1,
 	"pearl_shell_throne": 1,
 	"pearl_shell_planter": 4,
 	"pearl_shell_bench": 2,
 	"pearl_cloud_settee": 2,
-	"pearl_cloud_pouf": 2,
+	"pearl_cloud_pouf": 3,
 	"pearl_shell_fountain": 2,
-	"pearl_rainbow_gate": 1,
+	"pearl_rainbow_gate": 2,
 	"pearl_shell_banner_a": 4,
 	"pearl_shell_banner_b": 2,
 	"pearl_stair_rail": 2,
@@ -81,6 +86,10 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_toy_block_stack": 1,
 	"pearl_toy_chest": 3,
 	"pearl_secret_chest": 1,
+	"pearl_rainbow_stacker": 1,
+	"pearl_shell_drum": 1,
+	"pearl_toy_sailboat": 1,
+	"pearl_library_table": 1,
 	"pearl_shell_hopscotch": 1,
 	"pearl_canopy_bed": 1,
 	"pearl_bedside_table": 6,
@@ -93,6 +102,7 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_music_bar_4": 1,
 	"pearl_music_bar_5": 1,
 	"pearl_music_bar_6": 1,
+	"pearl_music_mallet_stand": 1,
 	"pearl_storage_barrel": 7,
 	"pearl_storage_crate": 3,
 	"pearl_shell_lantern": 15,
@@ -235,9 +245,9 @@ func _capture_castle() -> void:
 	await _shot("castle_05_toy_room", o + Vector3(38, 40, 12), o + Vector3(48, 38, -8), 66.0)
 	await _shot("castle_06_cloud_lounge", o + Vector3(45, 40, -40), o + Vector3(26, 38, -53), 64.0)
 	await _shot("castle_07_star_chamber", o + Vector3(-45, 41, -40), o + Vector3(-25, 39, -53), 64.0)
-	await _shot("castle_08_royal_bedroom", o + Vector3(38, 11, -9), o + Vector3(50, 6, -20), 68.0)
+	await _shot("castle_08_royal_bedroom", o + Vector3(36, 12, -7), o + Vector3(48, 6, -18), 72.0)
 	await _shot("castle_09_music_room", o + Vector3(-49, 10, 11), o + Vector3(-44, 6, -6), 68.0)
-	await _shot("castle_10_royal_loo", o + Vector3(-28.5, -9.5, -24.5), o + Vector3(-32.0, -15.0, -28.0), 68.0)
+	await _shot("castle_10_royal_loo", o + Vector3(-27.5, -13.5, -23.5), o + Vector3(-32.0, -15.2, -28.0), 64.0)
 	await _shot("castle_11_back_chamber", o + Vector3(12, 11, -38), o + Vector3(0, 7, -47), 66.0)
 	await _shot("castle_12_royal_library", o + Vector3(-38, 40, 12), o + Vector3(-48, 38, -8), 66.0)
 	await _shot("castle_13_undercroft", o + Vector3(0, -8, 11), o + Vector3(-4, -14, 31), 70.0)

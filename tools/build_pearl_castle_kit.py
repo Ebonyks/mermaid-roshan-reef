@@ -671,14 +671,22 @@ def build_toy_block_stack() -> bpy.types.Object:
 		(0.95, 0.10, 2.70, 1.42, "rose", -7.0),
 	]
 	for index, (x, y, z, size, color, angle) in enumerate(blocks):
-		rounded_box("ToyBlock_Ink_%d" % index, (x, y, z),
-			(size + 0.18, size + 0.18, size + 0.18), MATS["ink"], r, 0.24,
+		# A complete dark wrapper hid the colored cube on the Mobile renderer.
+		# Keep the outline as a low shadow plinth and let the color own the form.
+		rounded_box("ToyBlock_Shadow_%d" % index,
+			(x, y + 0.03, z - size * 0.5 + 0.10),
+			(size + 0.14, size + 0.14, 0.22), MATS["ink"], r, 0.11,
 			(0.0, 0.0, math.radians(angle)))
-		rounded_box("ToyBlock_Color_%d" % index, (x, y - 0.08, z + 0.05),
+		rounded_box("ToyBlock_Color_%d" % index, (x, y, z),
 			(size, size, size), MATS[color], r, 0.26,
 			(0.0, 0.0, math.radians(angle)))
-		ellipsoid("ToyBlock_Pearl_%d" % index, (x, y - size * 0.52, z + 0.05),
-			(size * 0.16, size * 0.10, size * 0.16), MATS["pearl_light"], r)
+		rounded_box("ToyBlock_Face_%d" % index,
+			(x, y - size * 0.51, z + 0.03),
+			(size * 0.68, 0.10, size * 0.68), MATS["pearl_light"], r, 0.14,
+			(0.0, 0.0, math.radians(angle)))
+		ellipsoid("ToyBlock_Pearl_%d" % index,
+			(x, y - size * 0.58, z + 0.05),
+			(size * 0.16, size * 0.08, size * 0.16), MATS[color], r)
 	return r
 
 
@@ -688,13 +696,19 @@ def build_chest(name: str, secret: bool = False) -> bpy.types.Object:
 	depth = 4.5 if secret else 3.8
 	body_height = 3.55 if secret else 2.85
 	body_mat = MATS["plum"] if secret else MATS["aqua"]
+	lid_mat = MATS["pearl"] if secret else MATS["rose"]
 	rounded_box("Chest_InkBase", (0.0, 0.0, 0.34), (width + 0.30, depth + 0.30, 0.68), MATS["ink"], r, 0.24)
 	rounded_box("Chest_Body", (0.0, 0.0, 0.58 + body_height * 0.5),
 		(width, depth, body_height), body_mat, r, 0.38)
-	rounded_box("Chest_LidInk", (0.0, 0.0, body_height + 0.92),
-		(width + 0.40, depth + 0.40, 1.20), MATS["ink"], r, 0.42)
-	rounded_box("Chest_LidPearl", (0.0, -0.05, body_height + 1.02),
-		(width + 0.12, depth + 0.15, 0.92), MATS["pearl"], r, 0.38)
+	# The lid uses a visible colored cap over a thin ink hinge/shadow band. A
+	# nested full lid looked like an unpainted navy slab in gameplay.
+	rounded_box("Chest_LidShadow", (0.0, 0.0, body_height + 0.62),
+		(width + 0.40, depth + 0.40, 0.42), MATS["ink"], r, 0.18)
+	rounded_box("Chest_LidColor", (0.0, -0.04, body_height + 1.06),
+		(width + 0.18, depth + 0.20, 0.72), lid_mat, r, 0.34)
+	for x in (-width * 0.34, width * 0.34):
+		rounded_box("Chest_LidGold", (x, -depth * 0.515, body_height + 1.04),
+			(0.28, 0.16, 0.76), MATS["gold"], r, 0.07)
 	for x in (-width * 0.32, width * 0.32):
 		rounded_box("Chest_GoldBand", (x, -depth * 0.515, 2.05),
 			(0.32, 0.18, body_height + 2.0), MATS["gold"], r, 0.08)
@@ -705,6 +719,81 @@ def build_chest(name: str, secret: bool = False) -> bpy.types.Object:
 			ellipsoid("Chest_RainbowPearl_%d" % index,
 				((-2.0 + float(index)) * 0.72, -depth * 0.535, body_height + 1.05),
 				(0.20, 0.13, 0.20), MATS[color], r)
+	return r
+
+
+def build_rainbow_stacker() -> bpy.types.Object:
+	r = root("pearl_rainbow_stacker")
+	cylinder("Stacker_InkFoot", (0.0, 0.0, 0.20), 2.25, 0.40, MATS["ink"], r, 20)
+	cylinder("Stacker_GoldFoot", (0.0, 0.0, 0.48), 2.08, 0.34, MATS["gold"], r, 20)
+	cylinder("Stacker_PearlStem", (0.0, 0.0, 2.35), 0.16, 3.72, MATS["pearl"], r, 12)
+	colors = ("coral", "peach", "yellow", "mint", "aqua", "sky", "rose")
+	for index, color in enumerate(colors):
+		radius = 1.78 - float(index) * 0.19
+		torus("Stacker_Ring_%d" % index, (0.0, 0.0, 0.82 + float(index) * 0.46),
+			radius, 0.21, MATS[color], r, major_segments=22)
+	ellipsoid("Stacker_TopPearl", (0.0, 0.0, 4.20), (0.38, 0.38, 0.44), MATS["pearl_light"], r)
+	shell_fan("Stacker_Shell", (0.0, -2.14, 0.62), 0.72, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_shell_drum() -> bpy.types.Object:
+	r = root("pearl_shell_drum")
+	cylinder("Drum_AquaBody", (0.0, 0.0, 1.72), 1.92, 3.10, MATS["aqua"], r, 20)
+	for z in (0.22, 3.18):
+		torus("Drum_InkRim", (0.0, 0.0, z), 1.86, 0.18, MATS["ink"], r, major_segments=22)
+		torus("Drum_GoldRim", (0.0, 0.0, z + 0.10), 1.82, 0.09, MATS["gold"], r, major_segments=22)
+	cylinder("Drum_PearlHead", (0.0, 0.0, 3.36), 1.78, 0.24, MATS["pearl_light"], r, 20)
+	for x in (-1.18, 1.18):
+		tube("Drum_GoldLacing", [(x, -1.55, 0.38), (x * 0.88, -1.78, 3.02)],
+			0.08, MATS["gold"], r)
+	shell_fan("Drum_ShellMark", (0.0, -1.86, 1.72), 0.92, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	for index, x in enumerate((-0.62, 0.62)):
+		tube("Drum_Mallet_%d" % index,
+			[(x * 1.45, -0.55, 3.55), (-x * 0.85, 0.42, 4.15)],
+			0.09, MATS["gold"], r)
+		ellipsoid("Drum_MalletHead_%d" % index,
+			(-x * 0.88, 0.44, 4.18), (0.28, 0.28, 0.32),
+			MATS[("coral", "mint")[index]], r)
+	return r
+
+
+def build_toy_sailboat() -> bpy.types.Object:
+	r = root("pearl_toy_sailboat")
+	panel_xz("Sailboat_InkHull", [(-2.30, 1.24), (-1.72, 0.18), (1.72, 0.18), (2.30, 1.24)],
+		1.72, (0.0, 0.0, 0.0), MATS["ink"], r, 0.16)
+	panel_xz("Sailboat_AquaHull", [(-2.02, 1.18), (-1.55, 0.42), (1.55, 0.42), (2.02, 1.18)],
+		1.50, (0.0, -0.05, 0.0), MATS["aqua"], r, 0.14)
+	rounded_box("Sailboat_GoldDeck", (0.0, -0.03, 1.32), (3.72, 1.64, 0.24), MATS["gold"], r, 0.10)
+	cylinder("Sailboat_Mast", (0.0, 0.0, 3.50), 0.11, 4.45, MATS["gold"], r, 12)
+	panel_xz("Sailboat_CoralSail", [(-0.14, 1.58), (-0.14, 5.40), (-1.80, 1.96)],
+		0.16, (0.0, 0.0, 0.0), MATS["coral"], r, 0.06)
+	panel_xz("Sailboat_MintSail", [(0.14, 1.78), (0.14, 5.05), (1.58, 2.12)],
+		0.16, (0.0, 0.0, 0.0), MATS["mint"], r, 0.06)
+	panel_xz("Sailboat_RoseFlag", [(0.08, 5.68), (0.08, 6.36), (0.92, 6.04)],
+		0.13, (0.0, 0.0, 0.0), MATS["rose"], r, 0.05)
+	shell_fan("Sailboat_Shell", (0.0, -0.93, 0.90), 0.70, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_library_table() -> bpy.types.Object:
+	r = root("pearl_library_table")
+	cylinder("LibraryTable_InkFoot", (0.0, 0.0, 0.24), 1.92, 0.48, MATS["ink"], r, 20)
+	cone("LibraryTable_PearlPedestal", (0.0, 0.0, 1.62), 1.42, 0.76, 2.50, MATS["pearl"], r, 20)
+	cylinder("LibraryTable_GoldCollar", (0.0, 0.0, 2.82), 1.18, 0.34, MATS["gold"], r, 20)
+	cylinder("LibraryTable_PlumTop", (0.0, 0.0, 3.18), 3.08, 0.54, MATS["plum"], r, 22)
+	cylinder("LibraryTable_PearlTop", (0.0, -0.02, 3.52), 2.86, 0.28, MATS["pearl_light"], r, 22)
+	rounded_box("LibraryBook_Left", (-0.92, -0.12, 3.86), (1.85, 2.72, 0.18),
+		MATS["pearl"], r, 0.07, (0.0, -0.12, 0.0))
+	rounded_box("LibraryBook_Right", (0.92, -0.12, 3.86), (1.85, 2.72, 0.18),
+		MATS["pearl"], r, 0.07, (0.0, 0.12, 0.0))
+	rounded_box("LibraryBook_Spine", (0.0, -0.12, 3.92), (0.18, 2.78, 0.16), MATS["gold"], r, 0.05)
+	rounded_box("LibraryBook_Marker", (0.42, -1.18, 4.00), (0.26, 0.82, 0.10), MATS["rose"], r, 0.04)
+	shell_fan("LibraryTable_Shell", (0.0, -1.10, 1.62), 0.82, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
 
 
@@ -763,8 +852,13 @@ def build_bedside_table() -> bpy.types.Object:
 
 def build_wardrobe() -> bpy.types.Object:
 	r = root("pearl_shell_wardrobe")
-	rounded_box("Wardrobe_InkBody", (0.0, 0.0, 6.6), (7.1, 2.25, 13.2), MATS["ink"], r, 0.34)
-	rounded_box("Wardrobe_PearlBody", (0.0, -0.08, 6.55), (6.65, 2.12, 12.75), MATS["pearl"], r, 0.32)
+	# Pearl owns the cabinet silhouette. Dark trim is structural, not a sealed
+	# wrapper, so side views no longer collapse into one navy rectangle.
+	rounded_box("Wardrobe_PearlBody", (0.0, 0.0, 6.55), (6.65, 2.12, 12.75), MATS["pearl"], r, 0.32)
+	rounded_box("Wardrobe_InkPlinth", (0.0, 0.0, 0.34), (7.10, 2.28, 0.68), MATS["ink"], r, 0.22)
+	rounded_box("Wardrobe_PlumCornice", (0.0, 0.0, 12.78), (7.10, 2.28, 0.72), MATS["plum"], r, 0.24)
+	for x in (-3.20, 3.20):
+		rounded_box("Wardrobe_PlumSide", (x, -0.04, 6.55), (0.34, 2.18, 11.90), MATS["plum"], r, 0.10)
 	rounded_box("Wardrobe_Mirror", (0.0, -1.14, 6.75), (4.35, 0.18, 8.15), MATS["sky"], r, 0.18)
 	for x in (-2.42, 2.42):
 		rounded_box("Wardrobe_GoldFrame", (x, -1.24, 6.75), (0.34, 0.22, 8.82), MATS["gold"], r, 0.09)
@@ -798,13 +892,35 @@ def build_music_bar(index: int) -> bpy.types.Object:
 	for x in (-width * 0.36, width * 0.36):
 		ellipsoid("MusicBar_PearlPin", (x, -0.72, 0.92), (0.24, 0.24, 0.18), MATS["pearl_light"], r)
 	ellipsoid("MusicBar_Resonator", (0.0, 0.42, -0.18), (1.25, 0.66, 0.42), MATS["gold"], r)
+	shell_fan("MusicBar_Shell", (0.0, -1.34, 0.63), 0.46, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_music_mallet_stand() -> bpy.types.Object:
+	r = root("pearl_music_mallet_stand")
+	cylinder("MalletStand_InkFoot", (0.0, 0.0, 0.22), 1.62, 0.44, MATS["ink"], r, 18)
+	cylinder("MalletStand_GoldFoot", (0.0, 0.0, 0.50), 1.42, 0.30, MATS["gold"], r, 18)
+	cone("MalletStand_PearlBody", (0.0, 0.0, 1.58), 1.18, 0.72, 1.92, MATS["pearl"], r, 18)
+	shell_fan("MalletStand_Shell", (0.0, -0.82, 1.40), 0.72, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	for index, side in enumerate((-1.0, 1.0)):
+		tube("MalletStand_Handle_%d" % index,
+			[(side * 0.48, 0.0, 2.15), (-side * 0.72, 0.0, 4.35)],
+			0.10, MATS["gold"], r)
+		ellipsoid("MalletStand_Head_%d" % index,
+			(-side * 0.78, 0.0, 4.48), (0.38, 0.38, 0.44),
+			MATS[("coral", "aqua")[index]], r)
 	return r
 
 
 def build_storage_barrel() -> bpy.types.Object:
 	r = root("pearl_storage_barrel")
-	cylinder("Barrel_Ink", (0.0, 0.0, 1.70), 1.72, 3.40, MATS["ink"], r, 18)
-	cone("Barrel_Plum", (0.0, 0.0, 1.70), 1.42, 1.58, 3.10, MATS["plum"], r, 18)
+	# Use visible lavender staves with dark end caps. The former complete ink
+	# cylinder swallowed the smaller plum body and read as a featureless drum.
+	cone("Barrel_LavenderStaves", (0.0, 0.0, 1.70), 1.46, 1.58, 3.10, MATS["lavender"], r, 18)
+	cylinder("Barrel_InkFoot", (0.0, 0.0, 0.20), 1.66, 0.40, MATS["ink"], r, 18)
+	cylinder("Barrel_PlumTop", (0.0, 0.0, 3.20), 1.64, 0.36, MATS["plum"], r, 18)
 	for z in (0.34, 1.70, 3.06):
 		torus("Barrel_GoldHoop", (0.0, 0.0, z), 1.52, 0.12, MATS["gold"], r, major_segments=20)
 	for x in (-0.54, 0.0, 0.54):
@@ -817,8 +933,9 @@ def build_storage_barrel() -> bpy.types.Object:
 
 def build_storage_crate() -> bpy.types.Object:
 	r = root("pearl_storage_crate")
-	rounded_box("Crate_Ink", (0.0, 0.0, 1.55), (3.55, 3.35, 3.10), MATS["ink"], r, 0.28)
-	rounded_box("Crate_Pearl", (0.0, -0.04, 1.58), (3.18, 3.02, 2.78), MATS["pearl_shadow"], r, 0.24)
+	rounded_box("Crate_PearlBody", (0.0, 0.0, 1.55), (3.20, 3.02, 2.78), MATS["pearl_shadow"], r, 0.24)
+	for z in (0.18, 2.92):
+		rounded_box("Crate_InkRail", (0.0, 0.0, z), (3.55, 3.35, 0.36), MATS["ink"], r, 0.12)
 	for x in (-1.42, 1.42):
 		rounded_box("Crate_GoldEdge", (x, -1.57, 1.55), (0.28, 0.22, 2.95), MATS["gold"], r, 0.08)
 	for angle in (-0.60, 0.60):
@@ -850,10 +967,13 @@ def build_pantry_shelf() -> bpy.types.Object:
 	for row, z in enumerate((1.22, 3.94, 6.66)):
 		for index, color in enumerate(("coral", "yellow", "mint", "sky")):
 			x = -3.72 + float(index) * 2.48
-			cylinder("PantryJar_%d_%d" % (row, index), (x, -0.18, z), 0.50, 1.18,
+			jar_height = 1.02 + float((row + index) % 3) * 0.16
+			cylinder("PantryJar_%d_%d" % (row, index), (x, -0.18, z), 0.50, jar_height,
 				MATS[color], r, 14)
-			cylinder("PantryJarLid_%d_%d" % (row, index), (x, -0.18, z + 0.68), 0.54, 0.20,
+			cylinder("PantryJarLid_%d_%d" % (row, index), (x, -0.18, z + jar_height * 0.5 + 0.10), 0.54, 0.20,
 				MATS["gold"], r, 14)
+			ellipsoid("PantryJarPearl_%d_%d" % (row, index),
+				(x, -0.70, z), (0.16, 0.09, 0.16), MATS["pearl_light"], r)
 	shell_fan("PantryShelf_Crest", (0.0, -0.92, 8.20), 1.25, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
@@ -867,6 +987,26 @@ def build_craft_easel() -> bpy.types.Object:
 	rounded_box("CraftEasel_InkFrame", (0.0, -0.22, 5.15), (6.25, 0.50, 5.90), MATS["ink"], r, 0.22)
 	rounded_box("CraftEasel_Canvas", (0.0, -0.52, 5.15), (5.65, 0.22, 5.30), MATS["pearl_light"], r, 0.16)
 	rounded_box("CraftEasel_Tray", (0.0, -0.52, 2.20), (6.55, 1.10, 0.42), MATS["gold"], r, 0.15)
+	# Complete modeled fish drawing. This replaces the incomplete half-fish
+	# bitmap that failed the owner's animation and silhouette review.
+	fish_y = -0.68
+	fish_outline = [
+		(1.92, fish_y, 5.18), (1.48, fish_y, 6.00), (0.52, fish_y, 6.42),
+		(-0.62, fish_y, 6.30), (-1.54, fish_y, 5.72), (-1.82, fish_y, 5.18),
+		(-1.54, fish_y, 4.64), (-0.62, fish_y, 4.06), (0.52, fish_y, 3.94),
+		(1.48, fish_y, 4.36), (1.92, fish_y, 5.18),
+	]
+	tube("CraftEasel_FishBody", fish_outline, 0.075, MATS["plum"], r)
+	tube("CraftEasel_FishTail",
+		[(-1.55, fish_y, 5.68), (-2.70, fish_y, 6.35), (-2.48, fish_y, 5.18),
+		(-2.70, fish_y, 4.02), (-1.55, fish_y, 4.66)],
+		0.075, MATS["plum"], r)
+	ellipsoid("CraftEasel_FishEye", (1.18, fish_y - 0.05, 5.48),
+		(0.14, 0.08, 0.14), MATS["aqua"], r)
+	for index, color in enumerate(("coral", "yellow", "mint", "aqua")):
+		ellipsoid("CraftEasel_FishScale_%d" % index,
+			(-0.70 + float(index) * 0.48, fish_y - 0.04, 5.18 + float(index % 2) * 0.22),
+			(0.17, 0.07, 0.17), MATS[color], r)
 	shell_fan("CraftEasel_Crest", (0.0, -0.66, 8.25), 1.05, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
@@ -1004,6 +1144,10 @@ ASSETS = {
 	"pearl_toy_block_stack": build_toy_block_stack(),
 	"pearl_toy_chest": build_chest("pearl_toy_chest"),
 	"pearl_secret_chest": build_chest("pearl_secret_chest", True),
+	"pearl_rainbow_stacker": build_rainbow_stacker(),
+	"pearl_shell_drum": build_shell_drum(),
+	"pearl_toy_sailboat": build_toy_sailboat(),
+	"pearl_library_table": build_library_table(),
 	"pearl_shell_hopscotch": build_shell_hopscotch(),
 	"pearl_canopy_bed": build_canopy_bed(),
 	"pearl_bedside_table": build_bedside_table(),
@@ -1016,6 +1160,7 @@ ASSETS = {
 	"pearl_music_bar_4": build_music_bar(4),
 	"pearl_music_bar_5": build_music_bar(5),
 	"pearl_music_bar_6": build_music_bar(6),
+	"pearl_music_mallet_stand": build_music_mallet_stand(),
 	"pearl_storage_barrel": build_storage_barrel(),
 	"pearl_storage_crate": build_storage_crate(),
 	"pearl_shell_lantern": build_shell_lantern(),

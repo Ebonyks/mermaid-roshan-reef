@@ -19,6 +19,16 @@ Room, bedroom, music room, undercroft, pantry, craft room, bath, Dreaming Floor,
 and back chamber still contained uncaptured or newly exposed blockout props.
 Several room cameras also clipped walls or ceilings.
 
+## `runtime_rejected_50b1907/`
+
+Third seventeen-view Mobile capture from fully green CI run `29663467793`.
+Rejected after human inspection because opaque navy wrapper meshes hid the
+colored bodies of the Toy Room blocks, storage barrels/crates, wardrobe sides,
+and chest lids. The same pass exposed a thin Toy Room composition, a repeated
+straight storage row, a weak music-room focal point, and an incomplete craft
+fish bitmap. These frames are the negative control for the material-visibility
+correction; green CI and complete capture count did not make them acceptable.
+
 ## Final Candidate
 
 The final seventeen-view Mobile evidence belongs in a sibling folder named

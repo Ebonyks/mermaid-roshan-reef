@@ -85,16 +85,16 @@ armature, animation, light, camera, or collision body, and remains under the
 | `pearl_shell_banner_b.glb` | 1,608 | Aqua shell-and-wave wall hanging |
 | `pearl_stair_rail.glb` | 4,824 | Sloped ceremonial rail for the throne staircase |
 
-The evidence expansion added thirty-one more single-mesh assets after the
+The evidence expansion added thirty-six more single-mesh assets after the
 eleven-view Mobile pass exposed out-of-frame blockouts:
 
 | Family | Assets | Triangle range | Runtime role |
 |---|---:|---:|---|
 | Threshold and windows | 2 | 1,844-2,456 | Graphic ocean return curtain and nineteen shell-framed windows |
-| Library and Toy Room | 4 | 1,208-5,768 | Story seat, toy block stack, shell chest, physical hopscotch |
+| Library and Toy Room | 8 | 1,264-5,768 | Story seat/table, visible-color blocks and chest, physical hopscotch, sailboat, drum, rainbow stacker |
 | Secret chamber | 1 | 1,608 | Sliding shell treasure chest with existing tween contract |
 | Royal bedroom | 3 | 1,608-4,244 | Open canopy bed, bedside fixture, dress-up wardrobe |
-| Playable music set | 8 | 456-1,768 | One rail plus seven separately triggered rainbow keys |
+| Playable music set | 9 | 560-1,768 | One rail, seven separately triggered rainbow keys, and a shell mallet stand |
 | Undercroft and pantry | 4 | 904-5,144 | Barrel, crate, shell lantern, stocked pantry shelf |
 | Craft and bath | 5 | 540-2,512 | Easel, paint rack, paper table, anatomical bath duck, towel stack |
 | Dreaming keepsakes | 4 | 1,540-2,240 | Tiara, cradle, empty pet basket, physical music box |
@@ -148,6 +148,38 @@ The rejected six-view and eleven-view runtime evidence is retained under the
 Blender QA source tree. A green structural probe is not promoted without human
 inspection of every frame.
 
+## Third Runtime Review And Material Visibility Correction
+
+CI run `29663467793` was fully green and produced all seventeen requested
+Mobile frames, but human inspection rejected the art-completeness claim again.
+The Toy Room blocks, undercroft barrels/crates, wardrobe sides, and chest lids
+rendered as dark slabs even though their isolated source scenes contained color.
+The generator had placed an opaque navy object completely around a smaller
+colored object to imitate an outline. In an opaque 3D export, that construction
+hides the inner form instead of outlining it. The same capture also exposed a
+thin Toy Room composition, a repetitive straight storage row, an under-staged
+music focal point, and the incomplete half-fish bitmap on the craft easel.
+
+The corrected fifty-four-asset kit now:
+
+- gives the intended color/material ownership of each block, barrel, crate,
+  chest lid, and wardrobe body, with dark geometry limited to visible plinths,
+  rails, caps, or braces;
+- adds a non-plush rainbow stacker, shell drum, sailboat, library reading table,
+  and music mallet stand rather than filling rooms with unrelated decoration;
+- varies undercroft storage depth and angle so mass placement is not a repeated
+  row;
+- frames the playable song star with a scaled rainbow gate while preserving all
+  seven independent key triggers;
+- replaces the incomplete craft bitmap with a complete modeled fish outline;
+- retains the already corrected 8,412-triangle Royal Loo mesh and lowers the
+  review camera to show its cistern, bowl, pedestal, and continuous rear skirt.
+
+All fifty-four exported GLBs remain one mesh, at 560-6,104 triangles and no
+more than twelve material surfaces. The rejected seventeen-view evidence is
+retained under `runtime_rejected_50b1907/`; fifteen superseded GLBs are retained
+under `backups/art_pre_castle_visibility_2026-07-18/`.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -174,13 +206,17 @@ count is 8,412 triangles with zero exported degenerate triangles.
 
 ## Current Rating
 
-The generated models and isolated renders meet the project's structural 4/5
-candidate gate. They are designed as 5/5 replacements, but final 5/5 status is
-not self-awarded: it requires the fixed in-game Mobile captures, gameplay-scale
+The fifty-four generated models and isolated renders meet the project's
+structural and isolated-visual candidate gate. They are designed as 5/5
+replacements, but final 5/5 status is not self-awarded: the material-visibility
+correction still requires replacement in-game Mobile captures, gameplay-scale
 inspection, and owner acceptance. Particular review attention should go to
-Huluu's uninterrupted silhouette, wall-sconce readability, Cloud Lounge scale,
-toilet side anatomy, fountain route clearance, and repeated arch density.
+Toy Room spacing, storage color read, the song-star canopy, wardrobe front/side
+read, the complete craft fish, toilet side anatomy, fountain route clearance,
+and repeated arch density.
 
 The prior files are preserved in
 `backups/art_pre_castle_pearl_2026-07-18/castle_pre_pearl_assets.zip` for
+full pre-pass reversal. The fifteen GLBs superseded by the third review are also
+preserved under `backups/art_pre_castle_visibility_2026-07-18/` for direct
 file-by-file reversal.

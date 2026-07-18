@@ -474,13 +474,17 @@ func build_expansion(o: Vector3) -> void:
 		_static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
 	m._l2_box(o + Vector3(-44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.55, 0.4, 0.65))              # reading rug
 	_pearl("pearl_story_cushion", o + Vector3(-44, 34.0, 9.0), 180.0)
+	_pearl("pearl_library_table", o + Vector3(-44.0, 34.0, 2.0), 180.0)
 	# ---------- RIGHT WING GALLERY: the TOY ROOM ----------
 	# These are generic play objects only. Child-specific stuffed animals remain
 	# excluded from generated art and will come from the child's own toys.
-	_pearl("pearl_toy_block_stack", o + Vector3(48.0, 34.0, -24.0), -8.0)
-	_pearl("pearl_toy_chest", o + Vector3(49.0, 34.0, -4.0), 90.0)
 	m._l2_box(o + Vector3(44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.95, 0.75, 0.8))               # play rug
-	_pearl("pearl_shell_hopscotch", o + Vector3(41.0, 34.0, 7.6), 180.0)
+	_pearl("pearl_toy_block_stack", o + Vector3(47.5, 34.0, -20.0), -8.0)
+	_pearl("pearl_toy_chest", o + Vector3(49.0, 34.0, -4.0), -90.0)
+	_pearl("pearl_toy_sailboat", o + Vector3(41.0, 34.0, -11.0), 16.0)
+	_pearl("pearl_shell_drum", o + Vector3(47.2, 34.0, 5.0), -18.0)
+	_pearl("pearl_rainbow_stacker", o + Vector3(40.0, 34.0, -1.5), 12.0)
+	_pearl("pearl_shell_hopscotch", o + Vector3(40.5, 34.0, 8.0), 180.0)
 	# ---------- THE DREAMING FLOOR: five legacy bedrooms over the back block
 	build_dreaming_floor(o)
 	# ---------- the UNDERCROFT: stone basement under the front hall
@@ -506,10 +510,22 @@ func build_expansion(o: Vector3) -> void:
 		m._l2_box(o + Vector3(px2, -9.5, 24.0), Vector3(3.0, 18, 3.0), Color(0.65, 0.6, 0.7))
 	# Purpose-built storage and shell lanterns replace the undercroft cube pile.
 	# They are static and emissive-only, so the OmniLight budget stays untouched.
-	for bi in range(5):
-		_pearl("pearl_storage_barrel", o + Vector3(-24.0 + float(bi) * 4.5, -18.0, 36.0), float(bi % 2) * 18.0)
-	for cr in range(3):
-		_pearl("pearl_storage_crate", o + Vector3(20.0 + float(cr) * 4.0, -18.0, 12.0 + float(cr) * 2.0), -12.0 + float(cr) * 10.0)
+	var undercroft_barrels: Array[Vector3] = [
+		Vector3(-24.0, -18.0, 36.0),
+		Vector3(-20.0, -18.0, 34.3),
+		Vector3(-15.7, -18.0, 36.8),
+		Vector3(-11.4, -18.0, 34.8),
+		Vector3(-7.0, -18.0, 36.2),
+	]
+	for bi in range(undercroft_barrels.size()):
+		_pearl("pearl_storage_barrel", o + undercroft_barrels[bi], -16.0 + float(bi) * 11.0)
+	var undercroft_crates: Array[Vector3] = [
+		Vector3(20.0, -18.0, 12.0),
+		Vector3(24.0, -18.0, 14.5),
+		Vector3(27.0, -18.0, 11.5),
+	]
+	for cr in range(undercroft_crates.size()):
+		_pearl("pearl_storage_crate", o + undercroft_crates[cr], -14.0 + float(cr) * 17.0)
 	for li in range(4):
 		_pearl("pearl_shell_lantern", o + Vector3(-26.0 + float(li) * 17.0, -10.8, 39.0), 180.0)
 	# ---------- the BASEMENT WING: wide hallway, side rooms, the royal loo
@@ -875,12 +891,6 @@ func build_basement_wing(o: Vector3) -> void:
 	if easel != null:
 		m._mg_noop_ref(easel)
 	m._wall_solid(gc + Vector3(7.4, -13.4, 0), Vector3(0.6, 9.0, 7.0), 0.5)
-	var craft_fish_icon := Sprite3D.new()
-	craft_fish_icon.texture = load("res://assets/mg/fish_line.png")
-	craft_fish_icon.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	craft_fish_icon.pixel_size = 0.012
-	craft_fish_icon.position = gc + Vector3(6.3, -12.4, 0)
-	m.add_child(craft_fish_icon); m.game_nodes.append(craft_fish_icon)
 	m.g["craft_easel"] = gc + Vector3(5.5, -13.4, 0)
 	_pearl("pearl_paint_rack", gc + Vector3(0.0, -18.0, -6.4))
 	_pearl("pearl_craft_table", gc + Vector3(-3.0, -18.0, 3.0), -8.0)
@@ -973,6 +983,10 @@ func build_music_room(o: Vector3) -> void:
 	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
 	# Simon-says for little ears. Wrong notes just replay the song (no fail);
 	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
+	var song_canopy: Node3D = _pearl("pearl_rainbow_gate", mo + Vector3(0.0, 0.75, -19.0))
+	if song_canopy != null:
+		song_canopy.scale = Vector3.ONE * 0.58
+	_pearl("pearl_music_mallet_stand", mo + Vector3(-4.7, 0.75, -16.8), -12.0)
 	_static_prop("res://assets/art35/castle/music_song_star.glb", mo + Vector3(0, 0.75, -18.5), {}, 0.0, true)
 	var ssl := OmniLight3D.new()
 	ssl.light_color = Color(1.0, 0.9, 0.4)
@@ -1048,12 +1062,18 @@ func build_bedroom(o: Vector3) -> void:
 	# big soft rug in the middle of the room
 	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
 	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.82, 0.66, 0.72))
+	var bedroom_medallion: Node3D = _pearl("pearl_floor_medallion", bo + Vector3(-5.0, 1.02, 3.0))
+	if bedroom_medallion != null:
+		bedroom_medallion.scale = Vector3.ONE * 0.42
 	# Toy chest by the far wall; generic storage only, no generated plush toys.
-	_pearl("pearl_toy_chest", bo + Vector3(8.5, 0.9, 6.0), 90.0)
+	_pearl("pearl_toy_chest", bo + Vector3(8.5, 0.9, 6.0), -90.0)
 	m._wall_solid(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), 0.4)
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
 	_pearl("pearl_shell_wardrobe", vpos + Vector3(0, 0.9, 0.7), 180.0)
+	var vanity_stool: Node3D = _pearl("pearl_cloud_pouf", vpos + Vector3(0, 0.9, -3.2), 180.0)
+	if vanity_stool != null:
+		vanity_stool.scale = Vector3.ONE * 0.52
 	m._wall_solid(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6))   # the wardrobe is solid
 	var vl := OmniLight3D.new()
 	vl.light_color = Color(1.0, 0.85, 0.95); vl.light_energy = 0.9; vl.omni_range = 12.0

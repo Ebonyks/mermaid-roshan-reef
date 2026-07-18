@@ -240,6 +240,33 @@ Most frequent failures:
   budgets for all forty-nine assets, and explicit preservation of exit,
   toilet, seven-key music, bed, wardrobe, craft, and moving-stand contracts.
 
+### A13 - Pearl Castle opaque-wrapper rejection
+
+- Source and commit: seventeen-view Mobile capture from commit `50b1907`, CI
+  run `29663467793`; corrected branch `codex/castle-rainbow-shell-5of5`.
+- Scope: Toy Room blocks/chests, undercroft and pantry storage, wardrobe,
+  playable music set, craft easel, and room-scale placement composition.
+- Evidence class: E3 fixed Mobile runtime frames cross-checked against E2
+  isolated Blender renders and parsed GLB measurements.
+- Findings independently verified: several generators imitated an outline by
+  wrapping a complete opaque navy mesh around a smaller colored mesh. That
+  construction hid the intended surface on Mobile and reduced blocks, barrels,
+  crates, and furniture to featureless dark slabs. A straight row of repeated
+  storage and a complete capture count also produced weak composition.
+- Findings accepted: let the intended material own the visible form; restrict
+  dark geometry to plinths, rails, caps, braces, seams, or a proven outline
+  shader. Judge repeated props in the room layout, not only one isolated turn.
+- Findings accepted as proposals only: the corrected fifty-four-asset kit and
+  five new role-specific room props remain candidates until replacement Mobile
+  frames and owner review.
+- Findings rejected or superseded: colored inner meshes, successful export,
+  green CI, or an isolated three-quarter render do not prove runtime material
+  visibility.
+- New rule: R-MAT3. Reinforces R-GOV4, R-GEO2, R-REP1, R-QA4, and R-QA7.
+- Required test: oblique Mobile views of every layered opaque assembly, mixed
+  storage placement, full Toy Room composition, song-star focal staging, and
+  the corrected lower side view of the Royal Loo.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -320,6 +347,10 @@ These rule IDs are stable. Reference them in manifests and review notes.
 - **R-MAT2 - Reconcile at room scale.** New floor, wall, counter, and prop
   colors are reviewed together. Do not promote a vivid texture into a muted
   room one file at a time.
+- **R-MAT3 - Never use a sealed opaque wrapper as an outline.** A complete
+  outer mesh hides the colored mesh inside it. Use structural edge pieces,
+  plinths, caps, braces, seams, or a verified outline shader, then inspect the
+  assembly from oblique Mobile views before promotion.
 
 ### Repetition and composition
 
@@ -449,7 +480,7 @@ Create this packet for every role before generating. Missing fields block the
 role.
 
 ```text
-audit_log_version: 2026-07-18-v1
+audit_log_version: 2026-07-18-v4
 asset_id:
 role_name:
 role_type: prop | kit_piece | texture | sprite | interactive | composition
@@ -524,6 +555,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v4:** Added the green seventeen-view opaque-wrapper rejection,
+  established R-MAT3, expanded the Pearl Castle kit from forty-nine to
+  fifty-four props, and required oblique runtime material-visibility evidence.
 - **2026-07-18-v3:** Added the Pearl Castle contiguous-room correction, expanded
   the generation kit from eighteen to forty-nine props, and established R-QA7
   after a green eleven-view pass still hid adjacent 0-2/5 blockouts.
