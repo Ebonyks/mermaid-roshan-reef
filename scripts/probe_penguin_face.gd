@@ -36,7 +36,7 @@ func _init() -> void:
 		var pnd := pn as Node3D
 		# front-quarter view of the penguin, looking back up the slide at him
 		var s_p: float = minf(float(main.g["s"]) + 22.0, float(main.g["total"]))
-		var samp: Array = main._slide_sample(s_p)
+		var samp: Array = main._game_obj("race", SlideRaceGame)._slide_sample(s_p)
 		var tang: Vector3 = samp[1]
 		cam.position = pnd.position + tang * 11.0 + Vector3(0, 4.0, 0) + (samp[2] as Vector3) * 5.0
 		cam.look_at(pnd.position + Vector3(0, 1.0, 0))
