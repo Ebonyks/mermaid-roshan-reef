@@ -112,3 +112,38 @@ Watch items (none blocking):
   resize/POT-pad or document as an exception at leisure. The raw 2048²
   Meshy source maps in `gen2/` are safely behind `.gdignore` (headless-import
   deadlock cannot trigger).
+
+## Follow-up (same day): shoulder-stretch fix after owner review
+
+Owner human review reported the raw Meshy V5 preview reading cleaner than the
+committed v4, with **arm/shoulder stretching** in-game. Root cause confirmed
+by a full-edge sweep of every verb timeline (the cage's tearing gate samples
+30k of ~81k edges and had passed at the threshold): the worst tearing edge of
+every arm verb is a **chest↔armU blend vertex at the shoulder crease** —
+jagged weight splits make adjacent vertices move very differently when the
+arm rotates (cheer raises 137°). The unrigged Meshy preview never
+articulates, which is why it can't show this. Full-sweep worst edge opening:
+wave 0.073, look 0.064, cheer 0.060, giggle 0.058, clap 0.055 — at the
+player's 3.7× scale, up to 0.27 world units of visible stretch.
+
+Fix shipped: `tools/smooth_shoulder_weights.py` — a harmonic (Laplace)
+re-solve of the arm-fraction field over the crease band, per side (252
+vertices, ≥92% owned by chest/spine1/root + armU, forearm/hand excluded).
+Weights only: geometry, joints, textures, hair chains, and the rest pose are
+bit-for-bit unaffected. Measured result:
+
+| Motion | before | after |
+|---|---|---|
+| wave (worst offender) | 0.0732 | **0.0563** |
+| cheer | 0.0595 | **0.0502** |
+| clap | 0.0552 | 0.0550 |
+| twirl / look / giggle / sleep / swim ×3 speeds | — | unchanged |
+| cage stress arm region (99.9pct / max) | 0.050 / 0.054 | **0.044 / 0.050** |
+
+Motion cage: **79/79 PASS** on the fixed GLB. Remaining smaller offenders are
+neck↔arm collar edges (look 0.064, giggle 0.058); two attempted collar
+smoothing passes moved the discontinuity instead of removing it and were
+rejected — a proper fix needs a clavicle-style blend or authored collar
+weights, noted as future polish, not a blocker. The sleep-curl tail
+compression (0.117 at tail6–tail8) is pre-existing, unrelated to arms, and
+reads as intentional curling on device.
