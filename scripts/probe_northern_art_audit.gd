@@ -53,7 +53,7 @@ func _init() -> void:
 	cam.current = true
 	var o: Vector3 = main.NORTHERN_POS
 	await _shot("north_01_pass_gameplay", o + Vector3(0, 48, 214), o + Vector3(0, 24, 152))
-	await _shot("north_02_pass_mid", o + Vector3(112, 54, 220), o + Vector3(0, 22, 158))
+	await _shot("north_02_pass_mid", o + Vector3(0, 50, 250), o + Vector3(0, 22, 158))
 	await _shot("north_03_forest_gameplay", o + Vector3(42, 24, 134), o + Vector3(0, 8, 82))
 	await _shot("north_04_forest_mid", o + Vector3(0, 18, 120), o + Vector3(0, 7, 76))
 	await _shot("north_05_town_overview", o + Vector3(118, 52, 58), o + Vector3(0, 8, -2))
