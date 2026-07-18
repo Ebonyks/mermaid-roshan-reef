@@ -40,6 +40,7 @@ var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
+var _nature_mats: Dictionary = {}   # pastel rgba32 -> shared flat material (see _dress_nature)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
@@ -3729,10 +3730,21 @@ func _dress_nature(node: Node) -> void:
 				var col := Color(0.5, 0.6, 0.4)
 				if bm is StandardMaterial3D:
 					col = (bm as StandardMaterial3D).albedo_color
-				var nm := StandardMaterial3D.new()
-				nm.albedo_color = _pastel(col)
-				nm.roughness = 1.0
-				nm.metallic_specular = 0.1
+				# perf (Mali-G52): identical pastel colors share ONE material.
+				# A fresh StandardMaterial3D per surface per instance made
+				# every nature prop its own draw-state (hundreds of unique
+				# RIDs in the lagoon, defeating batching, re-allocated on
+				# every arena entry). All other params are constants, so the
+				# final pastel color is the whole visual identity of the mat.
+				var pc: Color = _pastel(col)
+				var key: int = pc.to_rgba32()
+				var nm: StandardMaterial3D = _nature_mats.get(key)
+				if nm == null:
+					nm = StandardMaterial3D.new()
+					nm.albedo_color = pc
+					nm.roughness = 1.0
+					nm.metallic_specular = 0.1
+					_nature_mats[key] = nm
 				mi.set_surface_override_material(si, nm)
 	for c in node.get_children():
 		_dress_nature(c)
