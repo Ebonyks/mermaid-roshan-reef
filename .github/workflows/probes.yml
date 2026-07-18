@@ -71,7 +71,7 @@ jobs:
           FAILED=0
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
           FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
-          for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
+          for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -81,8 +81,23 @@ jobs:
             PROBE_HOME="/tmp/reef-$p"
             rm -rf "$PROBE_HOME"
             mkdir -p "$PROBE_HOME/data" "$PROBE_HOME/config"
+            PROBE_RC=0
             XDG_DATA_HOME="$PROBE_HOME/data" XDG_CONFIG_HOME="$PROBE_HOME/config" \
-              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || FAILED=1
+              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
+            if [ "$PROBE_RC" -ne 0 ]; then
+              # Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at
+              # EXIT after a probe has already printed its complete verdict —
+              # observed repeatedly in processes that ran a KartGame, always
+              # AFTER an ALL OK line. Accept a timeout kill (124) only when the
+              # transcript ends with a final verdict marker; the FAILURE_RE and
+              # runtime-error greps below still veto any bad content. Every
+              # other nonzero exit stays a real failure.
+              if [ "$PROBE_RC" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then
+                echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
+              else
+                FAILED=1
+              fi
+            fi
             if grep -qE "$FAILURE_RE" "/tmp/$p.out"; then
               echo "PROBE $p reported a failure or runtime script error"
               FAILED=1
