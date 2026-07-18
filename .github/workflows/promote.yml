@@ -1,0 +1,51 @@
+name: Promote dev to master
+
+# The only way master moves. Run from the Actions tab (workflow_dispatch).
+# Master is the release branch the phone's stable APK bookmark tracks;
+# this promotion fast-forwards it to dev's tested HEAD and refuses to run
+# unless the probe suite is green for that exact commit, so master history
+# is always identical to probed history.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: promote-master
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Verify probe suite is green for dev HEAD
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHA=$(git rev-parse HEAD)
+          echo "dev HEAD: $SHA"
+          CONCLUSION=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/probes.yml/runs?head_sha=$SHA&per_page=1" \
+            | python3 -c "import json,sys; r=json.load(sys.stdin)['workflow_runs']; print(r[0]['conclusion'] if r else 'no-run')")
+          echo "probe suite conclusion for $SHA: $CONCLUSION"
+          if [ "$CONCLUSION" != "success" ]; then
+            echo "Refusing to promote: probes for dev HEAD are '$CONCLUSION', not success."
+            exit 1
+          fi
+
+      - name: Fast-forward master to dev
+        run: |
+          git fetch origin master
+          if ! git merge-base --is-ancestor origin/master HEAD; then
+            echo "master has commits that are not on dev. Merge origin/master into dev first, let probes go green, then re-run."
+            exit 1
+          fi
+          git push origin HEAD:master
+          echo "master fast-forwarded to $(git rev-parse HEAD)"

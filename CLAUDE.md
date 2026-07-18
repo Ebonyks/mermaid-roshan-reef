@@ -78,11 +78,21 @@ installs it in place (save data kept).
 - GDScript: tabs, typed vars where present, match surrounding style.
 
 ## Git workflow
-- Owner rule (2026-07-13): when a task is COMPLETE (probes green on CI),
-  merge the work branch into `master` and push it — master is the branch
-  the owner pulls and plays, so finished work parked only on a feature
-  branch is invisible to him. Develop on the session's designated work
-  branch as usual, and never merge unprobed or red work into master.
+- Owner rule (2026-07-18; supersedes 2026-07-13): `master` is the RELEASE
+  branch — never commit to it or merge into it directly. It moves ONLY by
+  fast-forward promotion from `dev` via the "Promote dev to master"
+  workflow (Actions tab / workflow_dispatch), which refuses to run unless
+  the probe suite is green for dev's exact HEAD.
+- `dev` is the INTEGRATION branch: when a task is COMPLETE (probes green
+  on CI for the work branch), merge the work branch into `dev` and push.
+  Never merge unprobed or red work into dev.
+- Develop on the session's designated work branch as usual.
+- APK channels: master publishes to the `android-test` release tag (the
+  phone's stable bookmark, unchanged URL); every green `dev` push
+  publishes to `android-dev` for pre-promotion play-testing. Keep the
+  family phone on the stable bookmark day-to-day — after playing a dev
+  build, don't reinstall from the stable bookmark until dev has been
+  promoted (same-or-lower version codes won't install over a newer one).
 
 ## Refactor rules for main.gd
 Extract, don't rewrite. Moves must be mechanical: one arena builder or one
