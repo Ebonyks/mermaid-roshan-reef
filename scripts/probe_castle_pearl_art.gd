@@ -14,8 +14,11 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_shell_chandelier",
 	"pearl_floor_medallion",
 	"pearl_throne_canopy",
+	"pearl_shell_throne",
 	"pearl_shell_planter",
 	"pearl_shell_bench",
+	"pearl_cloud_settee",
+	"pearl_cloud_pouf",
 	"pearl_shell_fountain",
 	"pearl_rainbow_gate",
 	"pearl_shell_banner_a",
@@ -31,8 +34,11 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_shell_chandelier": 8,
 	"pearl_floor_medallion": 1,
 	"pearl_throne_canopy": 1,
+	"pearl_shell_throne": 1,
 	"pearl_shell_planter": 4,
-	"pearl_shell_bench": 3,
+	"pearl_shell_bench": 2,
+	"pearl_cloud_settee": 2,
+	"pearl_cloud_pouf": 2,
 	"pearl_shell_fountain": 2,
 	"pearl_rainbow_gate": 1,
 	"pearl_shell_banner_a": 4,
@@ -131,7 +137,8 @@ func _collect_visible_layers(node: Node, layers: Array[CanvasLayer]) -> void:
 		_collect_visible_layers(child, layers)
 
 
-func _shot(name_value: String, position: Vector3, target: Vector3) -> void:
+func _shot(name_value: String, position: Vector3, target: Vector3, fov_value: float = 66.0) -> void:
+	camera.fov = fov_value
 	camera.position = position
 	camera.look_at(target, Vector3.UP)
 	await _frames(4)
@@ -161,10 +168,15 @@ func _capture_castle() -> void:
 	var o: Vector3 = main.CASTLE_POS
 	await _shot("castle_01_hall_overview", o + Vector3(0, 14, 40), o + Vector3(0, 15, -24))
 	await _shot("castle_02_throne_focal", o + Vector3(19, 20, -2), o + Vector3(0, 23, -29))
-	await _shot("castle_03_entrance_motifs", o + Vector3(20, 11, 43), o + Vector3(0, 6, 32))
-	await _shot("castle_04_column_banner", o + Vector3(2, 17, 10), o + Vector3(28, 18, 8))
-	await _shot("castle_05_upper_gallery", o + Vector3(0, 40, -4), o + Vector3(0, 37, -28))
-	await _shot("castle_06_cloud_lounge", o + Vector3(8, 42, -36), o + Vector3(26, 39, -53))
+	await _shot("castle_03_entrance_motifs", o + Vector3(0, 12, 18), o + Vector3(0, 5, 40), 68.0)
+	await _shot("castle_04_wall_fixture", o + Vector3(4, 17, 6), o + Vector3(33, 18, 4))
+	await _shot("castle_05_upper_gallery", o + Vector3(39, 40, 15), o + Vector3(52, 41, -7), 70.0)
+	await _shot("castle_06_cloud_lounge", o + Vector3(7, 40, -40), o + Vector3(26, 38, -53), 64.0)
+	await _shot("castle_07_star_chamber", o + Vector3(-6, 40, -40), o + Vector3(-27, 40, -53), 64.0)
+	await _shot("castle_08_royal_bedroom", o + Vector3(36, 10, -8), o + Vector3(48, 7, -19), 70.0)
+	await _shot("castle_09_music_room", o + Vector3(-35, 10, -15), o + Vector3(-46, 8, -2), 70.0)
+	await _shot("castle_10_royal_loo", o + Vector3(-27.2, -10.5, -23.5), o + Vector3(-32, -15, -28), 76.0)
+	await _shot("castle_11_back_chamber", o + Vector3(20, 12, -37), o + Vector3(0, 8, -46), 68.0)
 
 
 func _run() -> void:

@@ -359,14 +359,15 @@ def build_rainbow_window() -> bpy.types.Object:
 
 def build_sconce() -> bpy.types.Object:
 	r = root("pearl_shell_sconce")
-	ellipsoid("Sconce_InkPlaque", (0.0, 0.08, 0.0), (1.15, 0.26, 1.45), MATS["ink"], r)
-	shell_fan("Sconce_Shell", (0.0, -0.18, -0.08), 1.25, r,
+	ellipsoid("Sconce_InkPlaque", (0.0, 0.10, 0.0), (1.38, 0.24, 1.58), MATS["ink"], r)
+	shell_fan("Sconce_Shell", (0.0, -0.20, 0.02), 1.58, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
-	tube("Sconce_GoldArm", [(0.0, -0.30, -0.25), (0.0, -0.92, 0.10),
-		(0.0, -1.10, 0.62)], 0.12, MATS["gold"], r)
-	ellipsoid("Sconce_PearlLight", (0.0, -1.10, 0.85), (0.48, 0.48, 0.62), MATS["yellow"], r)
-	torus("Sconce_GoldHalo", (0.0, -1.08, 0.83), 0.56, 0.08, MATS["gold"], r,
-		(math.pi * 0.5, 0.0, 0.0), 18)
+	for side in (-1.0, 1.0):
+		tube("Sconce_GoldCradle", [(side * 0.62, -0.42, -0.18),
+			(side * 0.50, -0.92, 0.22), (side * 0.24, -1.18, 0.42)],
+			0.09, MATS["gold"], r)
+	ellipsoid("Sconce_GoldCup", (0.0, -1.05, 0.20), (0.48, 0.28, 0.18), MATS["gold"], r)
+	ellipsoid("Sconce_PearlLight", (0.0, -1.22, 0.44), (0.28, 0.28, 0.32), MATS["yellow"], r)
 	return r
 
 
@@ -411,10 +412,35 @@ def build_throne_canopy() -> bpy.types.Object:
 		cylinder("Canopy_GoldFoot", (x, 0.0, 0.65), 1.25, 1.3, MATS["gold"], r, 18)
 	arc_tube("Canopy_InkHood", (0.0, 0.0, 13.2), 6.6, 0.95, MATS["ink"], r, steps=17)
 	arc_tube("Canopy_PearlHood", (0.0, -0.08, 13.2), 6.6, 0.67, MATS["pearl_light"], r, steps=17)
-	for index, color in enumerate(("coral", "yellow", "mint", "aqua", "rose")):
-		arc_tube("Canopy_Rainbow_%s" % color, (0.0, -0.76, 13.2),
-			5.35 - float(index) * 0.58, 0.20, MATS[color], r, 0.20, math.pi - 0.20, 13)
+	arc_tube("Canopy_GoldInlay", (0.0, -0.76, 13.2), 5.42, 0.18,
+		MATS["gold"], r, 0.20, math.pi - 0.20, 15)
 	shell_fan("Canopy_CrownShell", (0.0, -0.78, 19.55), 2.15, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_throne() -> bpy.types.Object:
+	"""A shell-backed throne whose rails never cross the seated character."""
+	r = root("pearl_shell_throne")
+	outer = [(-4.35, 1.75), (-4.35, 6.70), (-3.78, 8.65), (-2.35, 10.25),
+		(0.0, 11.25), (2.35, 10.25), (3.78, 8.65), (4.35, 6.70), (4.35, 1.75)]
+	inner = [(-3.82, 2.05), (-3.82, 6.55), (-3.28, 8.18), (-2.00, 9.55),
+		(0.0, 10.38), (2.00, 9.55), (3.28, 8.18), (3.82, 6.55), (3.82, 2.05)]
+	panel_xz("Throne_InkBack", outer, 0.72, (0.0, 1.34, 0.0), MATS["ink"], r, 0.18)
+	panel_xz("Throne_PearlBack", inner, 0.78, (0.0, 1.00, 0.0), MATS["plum"], r, 0.16)
+	for index, x in enumerate((-3.0, -1.5, 0.0, 1.5, 3.0)):
+		tube("Throne_ShellRib_%d" % index,
+			[(0.0, 0.54, 2.55), (x * 0.52, 0.52, 6.20), (x, 0.50, 9.10 - abs(x) * 0.18)],
+			0.13, MATS["gold"] if index % 2 == 0 else MATS["pearl_light"], r)
+	rounded_box("Throne_InkPlinth", (0.0, -0.35, 0.42), (8.5, 4.25, 0.84), MATS["ink"], r, 0.26)
+	rounded_box("Throne_GoldPlinth", (0.0, -0.42, 0.90), (7.9, 3.85, 0.48), MATS["gold"], r, 0.22)
+	rounded_box("Throne_PearlSeat", (0.0, -0.62, 1.78), (6.45, 3.35, 1.28), MATS["pearl"], r, 0.36)
+	rounded_box("Throne_RoseCushion", (0.0, -0.78, 2.48), (5.85, 2.92, 0.50), MATS["rose"], r, 0.28)
+	for x in (-3.18, 3.18):
+		rounded_box("Throne_Arm", (x, -0.72, 3.18), (0.72, 2.72, 2.20), MATS["pearl_light"], r, 0.28)
+		shell_fan("Throne_ArmShell", (x, -2.00, 4.22), 1.18, r,
+			lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	shell_fan("Throne_CrestShell", (0.0, 0.45, 10.05), 2.25, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
 
@@ -449,6 +475,43 @@ def build_bench() -> bpy.types.Object:
 	for index, color in enumerate(("coral", "yellow", "mint", "aqua", "rose")):
 		arc_tube("Bench_Rainbow_%s" % color, (0.0, 0.72, 3.55),
 			2.85 - float(index) * 0.42, 0.14, MATS[color], r, 0.15, math.pi - 0.15, 11)
+	return r
+
+
+def build_cloud_settee() -> bpy.types.Object:
+	"""Purpose-built lounge seating with a cloud silhouette and explicit seat."""
+	r = root("pearl_cloud_settee")
+	for x in (-3.55, 3.55):
+		cylinder("CloudSettee_GoldFoot", (x, 0.22, 0.62), 0.38, 1.24, MATS["gold"], r, 14)
+	rounded_box("CloudSettee_InkBase", (0.0, 0.0, 1.30), (9.0, 3.45, 1.15), MATS["ink"], r, 0.40)
+	rounded_box("CloudSettee_AquaSeat", (0.0, -0.20, 2.02), (8.35, 3.02, 0.62), MATS["aqua"], r, 0.34)
+	cloud_lobes = [(-3.35, 3.95, 1.55), (-1.75, 4.55, 1.90), (0.0, 4.90, 2.12),
+		(1.75, 4.55, 1.90), (3.35, 3.95, 1.55)]
+	for index, (x, z, scale) in enumerate(cloud_lobes):
+		ellipsoid("CloudSettee_Shadow_%d" % index, (x, 1.12, z - 0.30),
+			(scale * 0.96, 0.56, scale * 0.84), MATS["lavender"], r)
+		ellipsoid("CloudSettee_Lobe_%d" % index, (x, 0.78, z),
+			(scale, 0.58, scale * 0.88), MATS["pearl_light"], r)
+	for x in (-4.05, 4.05):
+		ellipsoid("CloudSettee_Arm", (x, -0.28, 2.85), (0.95, 1.36, 1.18), MATS["pearl"], r)
+		shell_fan("CloudSettee_ArmShell", (x, -1.48, 3.02), 0.86, r,
+			lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	for index, color in enumerate(("coral", "yellow", "mint", "aqua", "rose")):
+		arc_tube("CloudSettee_Rainbow_%s" % color, (0.0, -0.86, 3.90),
+			2.62 - float(index) * 0.43, 0.12, MATS[color], r, 0.18, math.pi - 0.18, 11)
+	return r
+
+
+def build_cloud_pouf() -> bpy.types.Object:
+	r = root("pearl_cloud_pouf")
+	for index, (x, y) in enumerate(((-1.25, -0.42), (-0.62, 0.54), (0.55, 0.58), (1.28, -0.35), (0.0, -0.76))):
+		ellipsoid("CloudPouf_Lobe_%d" % index, (x, y, 1.18),
+			(1.18, 0.92, 0.86), MATS["pearl_light"] if index % 2 == 0 else MATS["pearl"], r)
+	cylinder("CloudPouf_InkFoot", (0.0, 0.0, 0.30), 1.82, 0.60, MATS["ink"], r, 18)
+	cylinder("CloudPouf_GoldBand", (0.0, 0.0, 0.62), 1.68, 0.30, MATS["gold"], r, 18)
+	ellipsoid("CloudPouf_RoseCushion", (0.0, -0.10, 1.62), (1.52, 1.18, 0.48), MATS["rose"], r)
+	shell_fan("CloudPouf_Shell", (0.0, -1.08, 1.20), 0.82, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
 
 
@@ -534,8 +597,11 @@ ASSETS = {
 	"pearl_shell_chandelier": build_chandelier(),
 	"pearl_floor_medallion": build_floor_medallion(),
 	"pearl_throne_canopy": build_throne_canopy(),
+	"pearl_shell_throne": build_throne(),
 	"pearl_shell_planter": build_planter(),
 	"pearl_shell_bench": build_bench(),
+	"pearl_cloud_settee": build_cloud_settee(),
+	"pearl_cloud_pouf": build_cloud_pouf(),
 	"pearl_shell_fountain": build_fountain(),
 	"pearl_rainbow_gate": build_rainbow_gate(),
 	"pearl_shell_banner_a": build_banner("pearl_shell_banner_a", False),

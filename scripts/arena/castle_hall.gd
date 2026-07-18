@@ -132,7 +132,8 @@ func build(o: Vector3) -> void:
 	# steps instead of swimming through them. The old one-box solid covered the
 	# upper flight and would eject her off the new walkable steps.
 	m._wall_solid(o + Vector3(0, 8.0, -27.0), Vector3(14, 16, 6), 0.8)
-	if ResourceLoader.exists("res://assets/castle/throne.glb"):
+	var authored_throne: Node3D = _pearl("pearl_shell_throne", o + Vector3(0, 15.5, -28.1))
+	if authored_throne == null and ResourceLoader.exists("res://assets/castle/throne.glb"):
 		var tmodel: Node3D = (load("res://assets/castle/throne.glb") as PackedScene).instantiate()
 		var th := Node3D.new()
 		th.add_child(tmodel)
@@ -141,7 +142,7 @@ func build(o: Vector3) -> void:
 		th.position = o + Vector3(0, 16.0, -28.0)
 		m.add_child(th)
 		m.game_nodes.append(th)
-	else:
+	elif authored_throne == null:
 		var throne = m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
 	# Protected book cutout until an owner-approved source-faithful model exists.
@@ -149,7 +150,7 @@ func build(o: Vector3) -> void:
 	huluu.texture = load("res://assets/characters/friends/huluu.png")
 	huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	huluu.pixel_size = 0.011
-	huluu.position = o + Vector3(0, 21.0, -27.0)
+	huluu.position = o + Vector3(0, 21.0, -25.8)
 	m.add_child(huluu)
 	m.game_nodes.append(huluu)
 	var hl := OmniLight3D.new()
@@ -165,16 +166,16 @@ func build(o: Vector3) -> void:
 		for cx in [-28.0, 28.0]:
 			_pearl("pearl_column", o + Vector3(cx, 0.5, cz))
 			m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0)
-			# warm sconce glow at each column
+			# Wall-mounted shell fixtures cast inward between the column bays.
 			var sc := OmniLight3D.new()
 			sc.light_color = Color(1.0, 0.78, 0.5)
 			sc.light_energy = 1.1
 			sc.omni_range = 16.0
-			sc.position = o + Vector3(cx * 0.86, 20.0, cz)
+			sc.position = o + Vector3(sign(cx) * 30.5, 20.0, cz)
 			m.add_child(sc)
 			m.game_nodes.append(sc)
 			m._register_castle_light(sc, false)
-			_pearl("pearl_shell_sconce", sc.position, -90.0 * sign(cx))
+			_pearl("pearl_shell_sconce", o + Vector3(sign(cx) * 33.1, 20.0, cz), -90.0 * sign(cx))
 	# ---------- tapestries between the columns ----------
 	for ti in range(3):
 		for sgn in [-1.0, 1.0]:
@@ -193,7 +194,7 @@ func build(o: Vector3) -> void:
 	# ---------- her memories framed along the hall walls ----------
 	# (Roshan wall-art portraits removed from the Grand Hall — inconsistent with how the games work here)
 	# ---------- potted plants flank the throne + entrance ----------
-	for pp in [Vector3(-9, 1.0, -22), Vector3(9, 1.0, -22), Vector3(-7, 1.0, 36), Vector3(7, 1.0, 36)]:
+	for pp in [Vector3(-9, 1.0, -22), Vector3(9, 1.0, -22), Vector3(-12.5, 1.0, 35), Vector3(12.5, 1.0, 35)]:
 		_pearl("pearl_shell_planter", o + Vector3(pp.x, 0.5, pp.z), randf() * 360.0)
 	# Furnish the broad entrance bays without narrowing the one-finger route.
 	_pearl("pearl_shell_bench", o + Vector3(-20.0, 0.5, 36.0), 180.0)
@@ -458,13 +459,12 @@ func build_expansion(o: Vector3) -> void:
 			{}, 0.0, true)
 		if star_prop != null:
 			star_prop.scale = Vector3.ONE * (1.15 + float(st % 3) * 0.18)
-	# CLOUD LOUNGE (right): pillow pile + her memory portraits
-	for ci in range(4):
-		var cloud_seat: Node3D = LandmarkArtFactory.create_cloud(4.2 + float(ci % 2) * 0.5, ci)
-		cloud_seat.position = o + Vector3(14.0 + float(ci % 2) * 10.0, 35.0 + float(ci / 2) * 1.3, -54.0 + float(ci / 2) * 5.0)
-		m.add_child(cloud_seat)
-		m.game_nodes.append(cloud_seat)
-	_pearl("pearl_shell_bench", o + Vector3(26.0, 33.6, -56.0))
+	# CLOUD LOUNGE (right): readable furniture anatomy replaces outdoor cloud
+	# masses; paired settees and low poufs keep the portrait wall unobstructed.
+	_pearl("pearl_cloud_settee", o + Vector3(15.5, 33.5, -56.5))
+	_pearl("pearl_cloud_settee", o + Vector3(36.5, 33.5, -56.5))
+	_pearl("pearl_cloud_pouf", o + Vector3(18.0, 33.5, -47.5), -12.0)
+	_pearl("pearl_cloud_pouf", o + Vector3(34.0, 33.5, -47.5), 12.0)
 	m._hang_portrait(o + Vector3(52.4, 41.0, -46.0), Vector3(0, -90, 0), "p_seattle")
 	m._hang_portrait(o + Vector3(52.4, 41.0, -54.0), Vector3(0, -90, 0), "p_garden")
 	m._l2_box(o + Vector3(26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.85, 0.7, 0.9))    # lounge rug (fills the wider chamber)

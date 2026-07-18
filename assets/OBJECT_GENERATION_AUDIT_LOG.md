@@ -191,23 +191,28 @@ Most frequent failures:
   `codex/castle-rainbow-shell-5of5`.
 - Scope: Grand Hall architecture, ceremonial motifs, visible upper gallery,
   Cloud Lounge seating, and toilet side-view construction.
-- Evidence class: E2 export measurements plus isolated Blender renders;
-  runtime Mobile captures are required before promotion to E3.
+- Evidence class: E2 export measurements plus isolated Blender renders and an
+  E3 first-pass Mobile review that rejected four scene-level failures; the
+  corrected pass still requires replacement Mobile evidence before promotion.
 - Findings independently verified: generic cylinders, box rails, torus lights,
   flat banners, raw rainbow gate, and box cushions were still visible blockout
   language; the toilet lacked a continuous rear skirt and convincing S-trap.
 - Findings accepted: shells should express joints, capitals, bowls, keystones,
   and water transitions; rainbows should mark ceremony and wayfinding rather
   than decorate every prop.
-- Findings accepted as proposals only: all fifteen kit members are 5/5 targets,
+- First runtime rejects: the retained throne occluded protected character art,
+  outdoor clouds failed as seating, fixtures read as column-mounted bulbs, and
+  two nonblank review cameras did not actually frame their audit targets.
+- Findings accepted as proposals only: all eighteen kit members are 5/5 targets,
   but remain structural/isolated candidates until fixed Mobile captures and
   owner review.
 - Findings rejected: motif count, pastel harmony, or successful export alone
   cannot establish a 5/5 score.
-- New rules: R-MOT4 and R-GEO5.
+- New rules: R-MOT4 and R-GEO5; the runtime rejects also reinforce R-QA2 and
+  R-QA4.
 - Required tests: one-mesh/triangle/static-node GLB audit, live placement count,
-  fixed hall/throne/entrance/gallery/lounge captures, route and light-budget
-  preservation, and a toilet side-view render.
+  eleven fixed hall/throne/entrance/gallery/room captures, route and light-budget
+  preservation, and both isolated and runtime toilet side views.
 
 ## Consolidated generation rules
 

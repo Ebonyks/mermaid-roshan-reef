@@ -25,6 +25,7 @@ The pass evaluates and applies the shared findings in:
 | Balcony rails | 1/5 | Thin boxes and posts; no authored silhouette |
 | Throne frame | 1.5/5 | Rectangular piers and tilted box canopy |
 | Throne glass | 2.5/5 | Broad generic color panel without castle-specific construction |
+| Throne model | 2/5 | Generic wooden scaffold crossed the protected character in gameplay views |
 | Door frames | 1.5/5 | Three-box lintel language at focal transitions |
 | Staircase dressing | 2/5 | Functional treads with no balustrade or ceremonial finish |
 | Column lights | 1/5 | Exposed emissive spheres |
@@ -67,12 +68,15 @@ armature, animation, light, camera, or collision body, and remains under the
 | `pearl_balustrade.glb` | 5,224 | Hall arcade and throne-gallery rails |
 | `pearl_shell_arch.glb` | 2,556 | Door and window transition frame |
 | `pearl_rainbow_window.glb` | 5,328 | Throne-wall stained glass |
-| `pearl_shell_sconce.glb` | 1,012 | Column light fixture; reuses existing OmniLight |
+| `pearl_shell_sconce.glb` | 952 | Wall-mounted shell-and-pearl fixture; reuses existing OmniLight |
 | `pearl_shell_chandelier.glb` | 5,092 | Main and gallery hanging fixture; reuses existing lights |
 | `pearl_floor_medallion.glb` | 2,124 | Entrance ceremonial focal point |
-| `pearl_throne_canopy.glb` | 4,444 | Pearl, shell, and restrained rainbow throne frame |
+| `pearl_throne_canopy.glb` | 2,924 | Pearl-and-shell frame around the rainbow glass |
+| `pearl_shell_throne.glb` | 3,012 | Open-sightline shell throne replacing the generic scaffold |
 | `pearl_shell_planter.glb` | 3,488 | Integrated planter and modeled leaf family |
-| `pearl_shell_bench.glb` | 3,432 | Entrance and Cloud Lounge seating |
+| `pearl_shell_bench.glb` | 3,432 | Entrance seating |
+| `pearl_cloud_settee.glb` | 4,284 | Cloud Lounge seating with explicit cushion, back, and arms |
+| `pearl_cloud_pouf.glb` | 1,464 | Low Cloud Lounge footstool/seating pair |
 | `pearl_shell_fountain.glb` | 2,064 | New side-bay water landmark |
 | `pearl_rainbow_gate.glb` | 4,372 | Return threshold replacing the torus marker |
 | `pearl_shell_banner_a.glb` | 1,608 | Plum shell-and-wave wall hanging |
@@ -81,6 +85,24 @@ armature, animation, light, camera, or collision body, and remains under the
 
 The editable source is `assets_src/blender/pearl_castle_kit.blend`; isolated
 renders live in `assets_src/blender/qa_pearl_castle_kit/`.
+
+## First Runtime Review And Correction
+
+The first six Mobile captures were not promoted. They proved four failures that
+isolated renders and structural probes had missed:
+
+- the retained generic throne crossed Huluu's face and torso with wooden bars;
+- outdoor landmark clouds became oversized blank masses when misused as seats;
+- sconces attached to column faces and read as floating lightbulbs;
+- the entrance and upper-gallery cameras clipped geometry or missed the work
+  they were supposed to validate.
+
+The second pass replaces the throne with a shell-backed seat whose character
+sightline stays open, uses purpose-built cloud settees and poufs, mounts smaller
+pearl lights on the walls, moves entrance planters off the runner, and expands
+the fixed runtime review from six views to eleven. This is a direct application
+of R-GEO5, R-QA2, and R-QA4: a technically valid asset or nonblank screenshot is
+not evidence when it hides the functional assembly or target composition.
 
 ## Toilet Correction
 
@@ -96,12 +118,15 @@ count is 8,412 triangles with zero exported degenerate triangles.
 - Existing walls, doorway gaps, stair floor zones, and navigation solids stay in place.
 - Column and fountain collision uses the existing analytic solid system.
 - No new OmniLights were added; authored fixtures wrap the existing lights.
-- Protected Huluu and the existing throne remain unchanged inside the new canopy.
+- Protected Huluu remains unchanged; the audited 2/5 generic throne is retained
+  in the rollback archive but replaced at runtime by `pearl_shell_throne.glb`.
 - The exit gameplay marker remains a plain `Node3D`; the authored gate is visual only.
-- Existing authored storybook clouds replace the Cloud Lounge box cushions.
+- Purpose-built settees and poufs replace both the old box cushions and the
+  rejected first-pass use of outdoor landmark clouds as furniture.
 - `scripts/probe_castle_pearl_art.gd` enforces import budgets, one-mesh exports,
   static-only assets, minimum live placement counts, exit/toilet contracts, and
-  six fixed Mobile-render review captures.
+  eleven fixed Mobile-render review captures spanning the hall, throne,
+  entrance, wall fixtures, upper rooms, Royal Loo, and back chamber.
 
 ## Current Rating
 
@@ -109,8 +134,8 @@ The generated models and isolated renders meet the project's structural 4/5
 candidate gate. They are designed as 5/5 replacements, but final 5/5 status is
 not self-awarded: it requires the fixed in-game Mobile captures, gameplay-scale
 inspection, and owner acceptance. Particular review attention should go to
-column-capital readability at distance, throne-wall motif balance, staircase
-rail alignment, fountain route clearance, and repeated arch density upstairs.
+Huluu's uninterrupted silhouette, wall-sconce readability, Cloud Lounge scale,
+toilet side anatomy, fountain route clearance, and repeated arch density.
 
 The prior files are preserved in
 `backups/art_pre_castle_pearl_2026-07-18/castle_pre_pearl_assets.zip` for
