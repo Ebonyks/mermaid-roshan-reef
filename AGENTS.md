@@ -9,10 +9,12 @@ recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
 ## Layout
-- scenes/main.tscn → scripts/main.gd (~6.2k lines after Phase 7; still the
-  state owner — see Refactor rules. Target <2.5k; remaining bulk is the
-  intro, HUD, craft studio, wardrobe, galaxy/kart glue and arena builders;
-  `class_name ReefMain`)
+- scenes/main.tscn → scripts/main.gd (~6.8k lines as of 2026-07-18; still
+  the state owner — see Refactor rules. Target <2.5k; remaining bulk is
+  the HUD, environment/terrain, aquatic-life builders, galaxy/kart glue
+  and level-2 flow; `class_name ReefMain`. The intro, craft studio,
+  wardrobe and pause overlays now live in scripts/intro_overlay.gd,
+  craft_studio.gd, wardrobe_ui.gd, pause_menu.gd)
 - Phase 7 satellites (RefCounted, receive `main` by reference, own logic
   only — ALL state stays on main):
   scripts/save_state.gd, scripts/audio_director.gd,
@@ -55,10 +57,15 @@ import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
 ## Getting the game onto the phone
-Every push to `master` auto-builds the debug APK
-(.github/workflows/android.yml) and refreshes the stable download URL
-https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-test/roshan-reef.apk
-— bookmark that on the phone; tapping it always grabs the newest build.
+Every green push to `master` or `dev` auto-builds a debug APK
+(.github/workflows/android.yml), on two channels:
+- stable (master):
+  https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-test/roshan-reef.apk
+  — the phone's bookmark; tapping it always grabs the newest promoted build.
+- dev (integration, pre-promotion play-testing):
+  https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk
+After installing a dev build, don't reinstall from the stable bookmark
+until dev has been promoted (Android refuses version-code downgrades).
 From a computer, `./pull-apk.sh` downloads it and, if a phone is on adb,
 installs it in place (save data kept).
 
@@ -84,20 +91,27 @@ Multiple agents (Claude sessions, Codex, humans) work on this repo
 concurrently, on several machines. These rules exist because divergent local
 masters and stale side-copies have repeatedly forced manual merge rescues.
 
-- **Local `master` is pull-only during development.** Never commit work
-  directly to it. Update it only with `git pull --ff-only`; if that fails,
-  STOP — do not rebase master; rescue your work (below) and re-sync from
-  `origin/master`.
+- **Local `master` and `dev` are pull-only during development.** Never
+  commit work directly to either. Update them only with
+  `git pull --ff-only`; if that fails, STOP — do not rebase; rescue your
+  work (below) and re-sync from origin.
 - Start every task from a fresh fetch: branch `codex/<topic>` or
-  `claude/<topic>` off `origin/master`.
+  `claude/<topic>` off `origin/dev` (dev is the integration branch —
+  master may lag it until the next promotion).
 - If the working tree is dirty when your session starts, first push it to
   `rescue/<machine>-<date>` untouched, then start clean.
-- Owner rule (2026-07-13): when a task is COMPLETE (probes green on CI),
-  merge the work branch into `master` and push it — master is the branch
-  the owner pulls and plays, so finished work parked only on a feature
-  branch is invisible to him. This is the ONLY case where an agent pushes
-  master; never merge unprobed or red work into it, and reconcile
-  `origin/master` (merge, resolve, re-run gates) before pushing.
+- Owner rule (2026-07-18; supersedes 2026-07-13 — see
+  WORKFLOW_BRANCHING_2026-07-18.md for the full explainer): `master` is
+  now the RELEASE branch. NO agent ever commits to it, merges into it, or
+  pushes it — not even for finished work. It moves ONLY by fast-forward
+  promotion from `dev` via the "Promote dev to master" workflow
+  (workflow_dispatch), which verifies the probe suite is green for dev's
+  exact HEAD before pushing.
+- `dev` is the INTEGRATION branch: when a task is COMPLETE (probes green
+  on CI for your work branch), merge the work branch into `dev` and push
+  dev — that is where finished work becomes visible. Reconcile
+  `origin/dev` (merge, resolve, re-run gates) before pushing; never merge
+  unprobed or red work into dev.
 - Never work in other local copies of this project (`reef2`,
   `roshan-graphics-fork`, `roshan-new`, backups) — only a clone of this repo.
 
