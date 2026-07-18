@@ -941,14 +941,24 @@ func _process(delta: float) -> void:
 			var spread: float = 0.65 - 0.22 * streamline
 			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
 			var bend_mul: float = 1.0 - 0.5 * streamline
-			var left_sway: float = sin(arm_ph)
-			var right_sway: float = sin(arm_ph - 0.35)
-			var depth_sway: float = sin(arm_ph - 0.8) * 0.16
-			var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
-			_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
-			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
-			_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
-			_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
+			var carrying: bool = false
+			if "carry_sys" in m0 and m0.carry_sys != null:
+				carrying = bool(m0.carry_sys.is_carrying())
+			if carrying:
+				# both hands raised under the carried toy (positive RIGHT = raise)
+				_rot_bone("armU", Vector3.RIGHT, 1.15 + sin(arm_ph) * 0.05)
+				_rot_bone("armF", Vector3.RIGHT, 0.4)
+				_rot_bone("armU2", Vector3.RIGHT, 1.15 + sin(arm_ph - 0.4) * 0.05)
+				_rot_bone("armF2", Vector3.RIGHT, 0.4)
+			else:
+				var left_sway: float = sin(arm_ph)
+				var right_sway: float = sin(arm_ph - 0.35)
+				var depth_sway: float = sin(arm_ph - 0.8) * 0.16
+				var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
+				_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
+				_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
+				_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
+				_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
