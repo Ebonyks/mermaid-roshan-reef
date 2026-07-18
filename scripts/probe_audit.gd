@@ -311,15 +311,17 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 		elif gname == "dolls":
 			# Phase 6: perform the VERB — steer the catcher through the touch
 			# stick like a real hand (teleporting the node no longer scores;
-			# catches require live input inside the last 2s)
+			# catches require live input inside the last 2s). Phase 8: the
+			# catcher is the real 3D player on the side-scroll stage, babies
+			# are Node3Ds falling toward stage-local y=0 — chase the LOWEST.
 			var dolls: Array = g.get("dolls", [])
-			if dolls.size() > 0 and main.dolls_catcher != null:
-				var lowest: Control = dolls[0]
+			if dolls.size() > 0:
+				var lowest: Node3D = dolls[0]
 				for d in dolls:
-					if (d as Control).position.y > lowest.position.y:
+					if is_instance_valid(d) and (d as Node3D).global_position.y < lowest.global_position.y:
 						lowest = d
-				var want_x: float = lowest.position.x - 17.0
-				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.dolls_catcher.position.x) / 90.0, -1.0, 1.0), 0.0)
+				var want_x: float = lowest.global_position.x
+				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.player.global_position.x) / 3.6, -1.0, 1.0), 0.0)
 			else:
 				main.touch_ui.stick_vec = Vector2(0.3, 0.0)   # keep the hand 'live' between spawns
 		elif gname == "seek":

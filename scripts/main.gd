@@ -2701,12 +2701,6 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
 
-func _dolls2d_open(fr: Dictionary) -> void:
-	_game_obj("dolls", DollsGame)._dolls2d_open(fr)
-
-func _dolls2d_close() -> void:
-	_game_obj("dolls", DollsGame)._dolls2d_close()
-
 func _seek_hide() -> void:
 	_game_obj("seek", SeekGame)._seek_hide()
 
@@ -4925,7 +4919,7 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
-	_dolls2d_close()
+	_game_obj("dolls", DollsGame).stage_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -5375,15 +5369,10 @@ func _tick_game(delta: float) -> void:
 	elif game == "fairyshoot":
 		_tick_fairyshoot(delta, fr, ppos)
 
-var dolls_layer: CanvasLayer
-var dolls_root: Control
-var dolls_catcher: TextureRect
-var dolls_score_lbl: Label
-
 func skin_sprite_path() -> String:
-	# the flat art matching the wardrobe skin — used by the kart driver,
-	# the 2D minigame mermaid and the dolls catcher so the chosen look
-	# follows Roshan into every game, not just the ocean
+	# the flat art matching the wardrobe skin — used by the kart driver and
+	# the 2D minigame mermaid so the chosen look follows Roshan into every
+	# game, not just the ocean (the dolls nursery uses the real 3D player now)
 	if skin_id == "huluu":
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
