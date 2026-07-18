@@ -29,7 +29,7 @@ jobs:
       github.event.workflow_run.event == 'push' &&
        github.event.workflow_run.conclusion == 'success' &&
        (github.event.workflow_run.head_branch == 'master' ||
-        github.event.workflow_run.head_branch == 'claude/graphics-upgrade-fork')
+        github.event.workflow_run.head_branch == 'dev')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -121,14 +121,14 @@ jobs:
       # the account's Actions storage quota and, worse, its failure blocked the
       # release-publish step below (the actual download channel). Release
       # assets do not count against the artifact quota.
-      - name: Pick release tag by branch (graphics fork gets its own channel)
+      - name: Pick release tag by branch (dev gets its own pre-promotion channel)
         id: tag
         env:
           BUILD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          if [ "$BUILD_BRANCH" = "claude/graphics-upgrade-fork" ]; then
-            echo "tag=android-graphics" >> "$GITHUB_OUTPUT"
-            echo "title=Android test build (graphics fork)" >> "$GITHUB_OUTPUT"
+          if [ "$BUILD_BRANCH" = "dev" ]; then
+            echo "tag=android-dev" >> "$GITHUB_OUTPUT"
+            echo "title=Android dev build (integration branch)" >> "$GITHUB_OUTPUT"
           else
             echo "tag=android-test" >> "$GITHUB_OUTPUT"
             echo "title=Android build (latest master)" >> "$GITHUB_OUTPUT"

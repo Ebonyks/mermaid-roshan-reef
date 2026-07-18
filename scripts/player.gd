@@ -46,6 +46,8 @@ var idle_t := 0.0
 var verb := ""
 var verb_t := 0.0
 var idle_verb_cool := 0.0
+var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every frame
+var was_airborne := false    # free-swim only: tracks surface crossings for splashes
 
 const VERB_LIB := {
 	"wave": {"len": 2.6, "sig": ["armU2", 1.2], "tracks": {
@@ -94,6 +96,34 @@ const VERB_LIB := {
 		"tail6": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.46], [5.0, -0.46], [6.0, 0.0]]},
 		"tail7": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.52], [5.0, -0.52], [6.0, 0.0]]},
 		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.58], [5.0, -0.58], [6.0, 0.0]]},
+	}},
+	"point": {"len": 2.0, "sig": ["armU2", 0.9], "tracks": {
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 1.65], [1.6, 1.65], [2.0, -0.2]]},
+		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.4, 0.15], [1.6, 0.15], [2.0, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 0.12], [1.5, 0.12], [2.0, 0.0]]},
+	}},
+	"collect": {"len": 1.1, "sig": ["armU", 0.8], "tracks": {
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.35], [0.7, 1.35], [1.1, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.35], [0.7, 1.35], [1.1, -0.2]]},
+		"armF": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.35, 0.7], [0.7, 0.7], [1.1, 0.0]]},
+		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.35, 0.7], [0.7, 0.7], [1.1, 0.0]]},
+		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.3, -0.14], [0.7, -0.14], [1.1, 0.0]]},
+	}},
+	"boing": {"len": 0.8, "sig": ["armU", 0.5], "tracks": {
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.15, 1.1], [0.4, 0.4], [0.55, 0.9], [0.8, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.15, 1.1], [0.4, 0.4], [0.55, 0.9], [0.8, -0.2]]},
+		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.15, -0.2], [0.45, 0.08], [0.8, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.2], [0.45, -0.16], [0.8, 0.0]]},
+	}},
+	"hairtwirl": {"len": 3.0, "sig": ["armU2", 1.3], "tracks": {
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 2.25], [2.4, 2.25], [3.0, -0.2]]},
+		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.35], [1.2, -0.35], [1.7, 0.35], [2.2, -0.35], [2.7, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.18], [2.4, 0.18], [3.0, 0.0]]},
+	}},
+	"hum": {"len": 3.4, "sig": ["head", 0.16], "tracks": {
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.3], [1.3, -0.3], [2.0, 0.3], [2.7, -0.3], [3.4, 0.0]]},
+		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.1], [1.5, -0.1], [2.3, 0.1], [3.4, 0.0]]},
+		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.6, 0.0], [2.4, -0.3], [3.4, 0.0]]},
 	}},
 }
 
@@ -680,7 +710,10 @@ func _process(delta: float) -> void:
 		jump_held = true
 
 	jump_cool -= delta
-	if jump_held and jump_cool <= 0.0:
+	bump_verb_cool = maxf(0.0, bump_verb_cool - delta)
+	var free_swim: bool = String(m0.game) == ""
+	# no swim-kicks while breached above the surface — she is ballistic in air
+	if jump_held and jump_cool <= 0.0 and not (free_swim and position.y > WATER_TOP):
 		jump_cool = 0.4
 		vel.y = 16.0
 		if m0 != null and m0.has_method("on_player_jump"):
@@ -691,10 +724,31 @@ func _process(delta: float) -> void:
 	var smult := 1.0
 	if "speed_mult" in m0:
 		smult = float(m0.speed_mult)
-	vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
-	vel.y -= 13.0 * delta                # 1.3x weight
-	vel *= pow(0.18, delta)
+	# media rules (ReefPhysics presets, applied inline): breaching the reef
+	# surface swaps water rules for air — ballistic gravity, thin thrust
+	# authority — and a buoyant band just under the waterline settles her into
+	# a gentle bob instead of the old invisible ceiling clamp.
+	if free_swim and position.y > WATER_TOP:
+		vel += dir * fwd * 43.7 * smult * 0.3 * delta
+		vel.y -= 30.0 * delta
+		vel *= pow(0.90, delta)
+	else:
+		vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
+		vel.y -= 13.0 * delta                # 1.3x weight
+		vel *= pow(0.18, delta)
+		if free_swim:
+			var depth: float = WATER_TOP - position.y
+			if depth < 4.5:
+				vel.y += 34.0 * (1.0 - depth / 4.5) * delta
 	position += vel * delta
+	if free_swim:
+		var now_air: bool = position.y > WATER_TOP
+		if now_air != was_airborne and absf(vel.y) > 5.0:
+			if m0.has_method("on_player_jump"):
+				m0.on_player_jump(Vector3(position.x, WATER_TOP - 1.0, position.z))
+			if now_air and vel.y > 10.0 and verb == "":
+				play_verb("twirl")   # a joyful breach pirouette
+		was_airborne = now_air
 
 	var m: Node = get_parent()
 	if String(m.game) != "":
@@ -762,11 +816,17 @@ func _process(delta: float) -> void:
 							var sgx: float = signf(lx) if lx != 0.0 else 1.0
 							position.x = s.cx + sgx * s.hx
 							if vel.x * sgx < 0.0:
+								if vel.x * sgx < -14.0 and bump_verb_cool <= 0.0 and verb == "":
+									play_verb("boing")
+									bump_verb_cool = 2.0
 								vel.x = 0.0
 						else:
 							var sgz: float = signf(lz) if lz != 0.0 else 1.0
 							position.z = s.cz + sgz * s.hz
 							if vel.z * sgz < 0.0:
+								if vel.z * sgz < -14.0 and bump_verb_cool <= 0.0 and verb == "":
+									play_verb("boing")
+									bump_verb_cool = 2.0
 								vel.z = 0.0
 				else:
 					var dx: float = position.x - s.x
@@ -781,13 +841,17 @@ func _process(delta: float) -> void:
 						if vn < 0.0:
 							vel.x -= vn * nx
 							vel.z -= vn * nz
+							if vn < -14.0 and bump_verb_cool <= 0.0 and verb == "":
+								play_verb("boing")
+								bump_verb_cool = 2.0
 	else:
 		var floor_y: float = m.seabed_y(position.x, position.z) + 3.0
 		if position.y < floor_y:
 			position.y = floor_y
 			vel.y = maxf(0.0, vel.y)
-		if position.y > WATER_TOP - 3.0:
-			position.y = WATER_TOP - 3.0
+		if position.y > WATER_TOP + 14.0:
+			# far above any breach arc — a safety net, not the old surface wall
+			position.y = WATER_TOP + 14.0
 			vel.y = minf(0.0, vel.y)
 		var d: float = Vector2(position.x, position.z).length()
 		if d > WORLD_R:
@@ -812,8 +876,18 @@ func _process(delta: float) -> void:
 					if vn < 0.0:
 						vel.x -= vn * nx
 						vel.z -= vn * nz
+						if vn < -14.0 and bump_verb_cool <= 0.0 and verb == "":
+							play_verb("boing")   # a fast bonk is a toy, not a wall
+							bump_verb_cool = 2.0
 
 	rotation.y = yaw + PI
+	# body language: bank into turns and pitch with climbs/dives — she arcs
+	# like a fish instead of rotating flat (visual only; heading stays yaw)
+	var spd_n: float = clampf(vel.length() / 26.0, 0.0, 1.0)
+	var bank_t: float = clampf(turn, -1.0, 1.0) * (0.10 + 0.30 * spd_n)
+	var pitch_t: float = clampf(vel.y * 0.020, -0.38, 0.34)
+	rotation.z = lerpf(rotation.z, bank_t, 1.0 - pow(0.02, delta))
+	rotation.x = lerpf(rotation.x, pitch_t, 1.0 - pow(0.03, delta))
 
 	if fwd != 0.0 or turn != 0.0 or jump_held:
 		idle_t = 0.0
@@ -861,14 +935,20 @@ func _process(delta: float) -> void:
 			# drift, as though they are idly feeling the water. Upper arms lead;
 			# forearms follow with less travel so the elbows never look hinged.
 			var arm_ph: float = arm_swim_phase
+			# sprint streamline: the lateral spread tucks toward her sides and
+			# the idle sway calms as speed rises, so a dash reads as a dash
+			var streamline: float = smoothstep(16.0, 26.0, speed)
+			var spread: float = 0.65 - 0.22 * streamline
+			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
+			var bend_mul: float = 1.0 - 0.5 * streamline
 			var left_sway: float = sin(arm_ph)
 			var right_sway: float = sin(arm_ph - 0.35)
 			var depth_sway: float = sin(arm_ph - 0.8) * 0.16
 			var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
-			_rot_bone("armU", water_axis, -(0.65 + left_sway * 0.14))
-			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06))
-			_rot_bone("armU2", water_axis, 0.65 + right_sway * 0.14)
-			_rot_bone("armF2", water_axis, 0.18 + sin(arm_ph - 0.85) * 0.06)
+			_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
+			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
+			_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
+			_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
@@ -888,7 +968,8 @@ func _process(delta: float) -> void:
 				play_verb("sleep")
 				idle_verb_cool = 22.0
 			else:
-				play_verb("look")
+				# small idle repertoire so a quiet minute stays alive
+				play_verb(["look", "hairtwirl", "hum"][randi() % 3])
 				idle_verb_cool = 15.0
 
 	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
@@ -923,9 +1004,14 @@ func _process(delta: float) -> void:
 
 	if cam != null and cam.is_inside_tree():
 		var cyaw: float = yaw + cam_orbit
-		var target := position + Vector3(-sin(cyaw) * cam_back, cam_high + cam_pitch_off, -cos(cyaw) * cam_back)
+		# WW sail-stretch: the chase distance and lens breathe out a little at
+		# sprint speed, so going fast LOOKS fast (identical at rest)
+		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
+		var back_eff: float = cam_back * (1.0 + 0.10 * cam_spd)
+		var target := position + Vector3(-sin(cyaw) * back_eff, cam_high + cam_pitch_off, -cos(cyaw) * back_eff)
 		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
 		cam.look_at(position + Vector3(0, 1.5, 0))
+		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
 
 func _tick_wake(delta: float, speed: float) -> void:
 	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
