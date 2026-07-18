@@ -37,11 +37,23 @@ var materials := {}
 var audience: Array[Node3D] = []
 
 # ---- "order" engine ----
+# Three flavors share the pad core but play differently: "deliver" (chef)
+# taps layers to the bowl then STIRS it; "hidden" (detective) makes each
+# clue pop out only when Roshan swims close — a real search; "carry_paint"
+# (painter) loads the brush at a pot then SWIPES the canvas to paint.
 var pads: Array[Dictionary] = []
 var order_steps: Array[int] = []
 var step := 0
 var goal: Node3D = null
 var reveal_one := false
+var order_flow := "deliver"        # deliver | carry_paint
+var order_hidden := false          # clues hide until Roshan is near
+var order_phase := "steps"         # steps | stir
+var stir_done := 0
+var brush_loaded := -1
+var brush_node: Node3D = null
+var canvas_pos := Vector3.ZERO
+var stripes: Array[Node3D] = []
 
 # ---- "echo" engine ----
 var echo_rounds: Array[int] = []
@@ -80,6 +92,7 @@ var candy_node: Node3D = null
 var press_block: Node3D = null
 var press_slider: Node3D = null
 var press_zone_box: Node3D = null
+var shelf_candies: Array[Node3D] = []
 
 # ---- "doctor" engine ----
 var doc_targets: Array[Dictionary] = []
@@ -117,6 +130,15 @@ var lantern_i := 0
 var puffs: Array[Dictionary] = []
 var bump_cool := 0.0
 var spotlight: Node3D = null
+var peek_spots: Array[float] = [-12.0, 0.0, 12.0]   # the dragon roams the curtain
+var peek_i := 0
+var far_hint_cool := 0.0
+
+# ---- shared: the rescue arrow ----
+# The golden pointer is a RESCUE, not the answer: for guessing games it only
+# appears after ~5s without progress (or right after a mistake), so the child
+# gets a real "I did it myself!" moment before help arrives.
+const RESCUE_DELAY := 5.0
 
 func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	m = main
@@ -424,6 +446,8 @@ func _build_order() -> void:
 	var steps: Array = config.get("order", [0, 1, 2])
 	for v in steps:
 		order_steps.append(int(v))
+	order_flow = String(config.get("flow", "deliver"))
+	order_hidden = bool(config.get("hide_props", false))
 	var theme := String(config.get("props", "cake"))
 	var cols := _order_colors(theme)
 	for i in range(cols.size()):
@@ -434,7 +458,9 @@ func _build_order() -> void:
 		add_child(root)
 		_cyl(Vector3(0, -0.4, 0), 2.6, 0.5, cols[i].darkened(0.4), 0.0, root)
 		var prop := _order_prop(theme, i, cols[i], root)
-		pads.append({"index": i, "node": root, "pos": pos, "prop": prop})
+		if order_hidden:
+			prop.visible = false   # pops out with a sparkle when Roshan swims close
+		pads.append({"index": i, "node": root, "pos": pos, "prop": prop, "revealed": not order_hidden})
 	# the goal prop at centre-back: bowl / tiara chest / easel canvas
 	goal = Node3D.new()
 	goal.name = "OperaGoal"
@@ -458,6 +484,19 @@ func _build_order() -> void:
 		for s in range(order_steps.size()):
 			var ci := order_steps[s]
 			_sphere(goal.position + Vector3(-3.2 + float(s) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
+	if order_flow == "carry_paint":
+		canvas_pos = goal.position
+		# three hidden stripes fill the canvas as Roshan swipes each color on
+		for s2 in range(order_steps.size()):
+			var stripe := _box(goal.position + Vector3(0, 1.2 + float(s2) * 1.4, 0.25), Vector3(5.8, 1.2, 0.2), cols[order_steps[s2]], 0.35)
+			stripe.visible = false
+			stripes.append(stripe)
+		brush_node = Node3D.new()
+		brush_node.name = "PaintBrush"
+		brush_node.visible = false
+		add_child(brush_node)
+		_box(Vector3(0, 0, 0), Vector3(0.2, 1.4, 0.2), Color(0.6, 0.4, 0.25), 0.0, brush_node)
+		_box(Vector3(0, 0.9, 0), Vector3(0.32, 0.5, 0.32), Color(0.9, 0.9, 0.95), 0.3, brush_node)
 
 func _order_colors(theme: String) -> Array[Color]:
 	match theme:
@@ -499,7 +538,7 @@ func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 	return prop
 
 func _order_action(choice: int) -> void:
-	if state != "play" or kind != "order" or step >= order_steps.size():
+	if state != "play" or kind != "order" or order_phase != "steps" or step >= order_steps.size():
 		return
 	var want := order_steps[step]
 	var pad: Dictionary = pads[choice]
@@ -509,6 +548,20 @@ func _order_action(choice: int) -> void:
 			m.chime.pitch_scale = 0.55
 			m.chime.play()
 		m.show_msg("Roshan", "Hmm, not that one yet — follow the golden sparkle!", "hint")
+		progress_t = maxf(progress_t, RESCUE_DELAY)   # summon the rescue arrow now
+		return
+	if order_flow == "carry_paint":
+		# the pot loads the brush; the stripe paints when Roshan swipes the canvas
+		brush_loaded = choice
+		brush_node.visible = true
+		var cols := _order_colors(String(config.get("props", "cake")))
+		_apply_brush_tint(cols[choice])
+		m._sparkle_burst((pad["pos"] as Vector3) + Vector3(0, 2.0, 0), cols[choice])
+		if m.chime != null:
+			m.chime.pitch_scale = 1.05
+			m.chime.play()
+		m.show_msg("Roshan", "Brush loaded! Swipe it across the big canvas!", "talk")
+		_update_hud()
 		return
 	step += 1
 	progress_t = 0.0
@@ -522,6 +575,58 @@ func _order_action(choice: int) -> void:
 		m.chime.play()
 	var gt := goal.create_tween()
 	gt.tween_property(goal, "scale", Vector3.ONE * (1.0 + 0.12 * float(step)), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if step >= order_steps.size():
+		if String(config.get("finale", "")) == "stir":
+			order_phase = "stir"
+			m.show_msg("Roshan", "Every layer is in! Now swim to the big bowl and STIR, one, two, three!", "talk")
+			_update_hud()
+		else:
+			_win()
+	else:
+		_update_hud()
+
+func _apply_brush_tint(col: Color) -> void:
+	var tip := brush_node.get_child(1) as MeshInstance3D
+	if tip != null:
+		tip.material_override = _mat(col, 0.6)
+
+func _stir_action() -> void:
+	# the chef finale: three big stirs spin the bowl faster and faster
+	if state != "play" or kind != "order" or order_phase != "stir":
+		return
+	stir_done += 1
+	progress_t = 0.0
+	var tw := goal.create_tween()
+	tw.tween_property(goal, "rotation:y", goal.rotation.y + TAU * float(stir_done), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.85 + 0.25 * float(stir_done)
+		m.chime.play()
+	if stir_done >= 3:
+		var pop := goal.create_tween()
+		pop.tween_property(goal, "scale", goal.scale * 1.25, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		m._sparkle_burst(goal.position + Vector3(0, 4.5, 0), Color(1.0, 0.75, 0.9))
+		_win()
+	else:
+		_update_hud()
+
+func _paint_touch() -> void:
+	# the painter swipe: a loaded brush near the canvas sweeps a stripe on
+	if state != "play" or kind != "order" or order_flow != "carry_paint" or brush_loaded < 0:
+		return
+	var stripe := stripes[step]
+	stripe.visible = true
+	stripe.scale = Vector3(0.05, 1.0, 1.0)
+	var tw := stripe.create_tween()
+	tw.tween_property(stripe, "scale", Vector3.ONE, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	brush_node.visible = false
+	brush_loaded = -1
+	m._sparkle_burst(canvas_pos + Vector3(0, 3.0, 1.0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.95 + 0.18 * float(step)
+		m.chime.play()
+	step += 1
+	progress_t = 0.0
 	if step >= order_steps.size():
 		_win()
 	else:
@@ -651,13 +756,15 @@ func _shuffle_hide(target: int) -> void:
 	var tw := bunny.create_tween()
 	tw.tween_property(bunny, "position", (hats[bunny_at]["pos"] as Vector3) + Vector3(0, 0.8, 0), 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	tw.tween_callback(func() -> void: bunny.visible = false)
-	# plan two slow, watchable swaps. Hats swap PLACES but keep their identity
-	# (each dict's "pos" follows its node), so the bunny stays with hat
-	# `target` wherever it slides — picking is by proximity to the hat's
+	# plan slow, watchable swaps — one MORE each round so the trick escalates
+	# (round 1: two swaps, round 2: three). Hats swap PLACES but keep their
+	# identity (each dict's "pos" follows its node), so the bunny stays with
+	# hat `target` wherever it slides — picking is by proximity to the hat's
 	# current pos, which makes the reveal honest automatically.
 	swap_plan = []
-	swap_plan.append({"a": target, "b": (target + 1) % 3})
-	swap_plan.append({"a": (target + 1) % 3, "b": (target + 2) % 3})
+	var swap_total := 2 + shuffle_round
+	for k in range(swap_total):
+		swap_plan.append({"a": (target + k) % 3, "b": (target + k + 1) % 3})
 	shuffle_phase = "watch"
 	shuffle_t = 0.0
 	_update_hud()
@@ -951,10 +1058,24 @@ func _press_action() -> void:
 	tw.tween_property(press_block, "position", stamp_down, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tw.tween_property(press_block, "position", stamp_home, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	if absf(press_x) <= press_zone:
-		# stamp a smiley face and slide the happy candy onto the shelf
-		_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-		_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-		_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
+		# every candy gets its own face: dot eyes, then starry eyes, then a
+		# blushing heart-mouth — collecting the trio is half the fun
+		match candies_done:
+			1:
+				_sphere(Vector3(-0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
+				_sphere(Vector3(0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
+				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
+			2:
+				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+				_sphere(Vector3(-0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
+				_sphere(Vector3(0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
+				_sphere(Vector3(0, -0.3, 1.15), 0.22, Color(0.95, 0.35, 0.5), 0.4, candy_node)
+			_:
+				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
+		shelf_candies.append(candy_node)
 		m._sparkle_burst(candy_node.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
 		if m.chime != null:
 			m.chime.pitch_scale = 1.0 + 0.15 * float(candies_done)
@@ -1012,28 +1133,40 @@ func _build_doctor() -> void:
 		_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.82, 0.7, 0.95), 0.1, patient)
 	_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
 	_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-	# step 0: the thermometer on its little stand
+	# step 0: the stethoscope — listen to the plushy's little heart first
+	var scope := Node3D.new()
+	scope.name = "Stethoscope"
+	scope.position = CENTER + Vector3(-9.0, 1.0, 4.0)
+	add_child(scope)
+	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
+	var ring := TorusMesh.new()
+	ring.inner_radius = 0.55
+	ring.outer_radius = 0.75
+	_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
+	_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
+	doc_targets.append({"index": 0, "node": scope, "pos": scope.position, "kind": "scope"})
+	# step 1: the thermometer on its little stand
 	var thermo := Node3D.new()
 	thermo.name = "Thermometer"
-	thermo.position = CENTER + Vector3(-9.0, 1.0, 4.0)
+	thermo.position = CENTER + Vector3(9.0, 1.0, 4.0)
 	add_child(thermo)
 	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
 	var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
 	stem.rotation_degrees = Vector3(0, 0, 18.0)
 	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
-	doc_targets.append({"index": 0, "node": thermo, "pos": thermo.position, "kind": "thermo"})
-	# steps 1-2: glowing boo-boos on the plush that become hearts when tended
+	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
+	# steps 2-3: glowing boo-boos on the plush that become hearts when tended
 	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9)]
 	for b in range(boo_spots.size()):
 		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
 		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
 		heart.visible = false
 		var reach := CENTER + Vector3(-2.0 + float(b) * 4.0, 1.0, 1.4)
-		doc_targets.append({"index": 1 + b, "node": boo, "heart": heart, "pos": reach, "kind": "boo"})
-	# step 3: the bandage roll, which wraps a soft white band around the plush
+		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": reach, "kind": "boo"})
+	# step 4: the bandage roll, which wraps a soft white band around the plush
 	var roll := Node3D.new()
 	roll.name = "BandageRoll"
-	roll.position = CENTER + Vector3(9.0, 1.0, 4.0)
+	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
 	add_child(roll)
 	var loop := TorusMesh.new()
 	loop.inner_radius = 0.4
@@ -1041,7 +1174,7 @@ func _build_doctor() -> void:
 	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
 	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
 	band.visible = false
-	doc_targets.append({"index": 3, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+	doc_targets.append({"index": 4, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
 
 func _doctor_action(choice: int) -> void:
 	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
@@ -1057,6 +1190,18 @@ func _doctor_action(choice: int) -> void:
 	progress_t = 0.0
 	var node: Node3D = target["node"] as Node3D
 	match String(target["kind"]):
+		"scope":
+			# two soft heart-thumps while the plushy's chest pulses
+			var beat := create_tween()
+			beat.tween_callback(_heart_thump)
+			beat.tween_interval(0.4)
+			beat.tween_callback(_heart_thump)
+			var pulse := patient.create_tween()
+			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
+			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35)
+			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
+			m.show_msg("Roshan", "Bum-bum... bum-bum... a strong little heart! Now the thermometer!", "talk")
 		"thermo":
 			var tw := node.create_tween()
 			tw.tween_property(node, "position", patient.position + Vector3(0, 2.4, 1.2), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
@@ -1085,13 +1230,21 @@ func _doctor_action(choice: int) -> void:
 		m.chime.play()
 	doc_step += 1
 	if doc_step >= doc_targets.size():
-		# the plush pops up feeling all better — that's the whole show
+		# magic-kiss finale: a fountain of hearts, then the plush pops up better
+		for h in range(3):
+			m._sparkle_burst(patient.position + Vector3(-1.5 + float(h) * 1.5, 2.5 + float(h) * 0.8, 1.0), Color(1.0, 0.6, 0.8))
 		var hop := patient.create_tween()
 		hop.tween_property(patient, "position:y", patient.position.y + 1.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		hop.tween_property(patient, "position:y", patient.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		_win()
 	else:
 		_update_hud()
+
+func _heart_thump() -> void:
+	if m.chime != null:
+		m.chime.pitch_scale = 0.45
+		m.chime.play()
+	m._sparkle_burst(patient.position + Vector3(0, 1.5, 1.2), Color(1.0, 0.55, 0.7))
 
 func _nearest_doc_target() -> int:
 	var best := -1
@@ -1165,7 +1318,8 @@ func _build_farm() -> void:
 		_panel_circle(pig, Vector2(30, 34), 38, Color(0.98, 0.6, 0.68))
 		var bubble := _panel_circle(pig, Vector2(20, -74), 56, Color(1.0, 1.0, 1.0, 0.92))
 		var want := Label.new()
-		want.text = "🥕"
+		# every piggy dreams of a different snack — small variety, big charm
+		want.text = ["🥕", "🍎", "🌽", "🍓", "🎃"][i % 5]
 		want.add_theme_font_size_override("font_size", 34)
 		want.position = Vector2(8, 4)
 		want.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1191,13 +1345,14 @@ func _tick_farm(delta: float) -> void:
 		node.position.x = sx
 		if not bool(pig["fed"]):
 			(pig["bubble"] as Control).scale = Vector2.ONE * (1.0 + 0.12 * sin(elapsed * 5.0 + float(pig["index"])))
+			node.rotation = sin(elapsed * 5.5 + float(pig["index"]) * 1.7) * 0.06   # trotting wiggle
 
 func _toss_action() -> void:
 	if state != "play" or kind != "scroll" or farm_toss_cool > 0.0:
 		return
 	farm_toss_cool = 0.5
 	var best := -1
-	var best_d := 150.0
+	var best_d := 170.0
 	for pig in piggies:
 		if bool(pig["fed"]):
 			continue
@@ -1210,9 +1365,15 @@ func _toss_action() -> void:
 		pig2["fed"] = true
 		(pig2["want"] as Label).text = "❤"
 		var node := pig2["node"] as Control
+		node.rotation = 0.0
 		var tw := node.create_tween()
 		tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		if farm_roshan != null:
+			# Roshan does a happy throw-squash so every toss FEELS thrown
+			var squash := farm_roshan.create_tween()
+			squash.tween_property(farm_roshan, "scale", Vector2(1.15, 0.85), 0.12)
+			squash.tween_property(farm_roshan, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		if m.chime != null:
 			m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
 			m.chime.play()
@@ -1379,11 +1540,18 @@ func _light_lantern() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.2
 		m.chime.play()
+	# the phantom is caught right beside the lantern the child just lit —
+	# the spatial payoff lands exactly where they are standing
+	var lant_pos: Vector3 = lant["pos"] as Vector3
+	var caught := Vector3(lant_pos.x, 1.0, -12.0)
+	boss["home"] = caught
+	(boss["node"] as Node3D).position = caught
 	boss["phase"] = "peek"
 	boss["timer"] = float(config.get("peek_time", 5.0))
 	boss["attack"] = 1.2
 	if spotlight != null:
 		spotlight.visible = true
+		spotlight.position = caught + Vector3(0, 7.0, 0)
 	m.show_msg("Roshan", "The light found him! Tap SPARKLE, quick!", "talk")
 	_update_hud()
 
@@ -1428,10 +1596,16 @@ func _tick_boss(delta: float) -> void:
 	if phase == "hide":
 		root.position = root.position.lerp(home + Vector3(0, -6.5, 0), delta * 4.0)
 		if float(boss["timer"]) <= 0.0:
+			# whack-a-mole roam: the dragon pops from a DIFFERENT curtain spot
+			# each time, so Roshan chases him along the stage
+			peek_i = (peek_i + 1) % peek_spots.size()
+			var new_home := Vector3(CENTER.x + peek_spots[peek_i], home.y, home.z)
+			boss["home"] = new_home
+			root.position = new_home + Vector3(0, -6.5, 0)
 			boss["phase"] = "peek"
 			boss["timer"] = float(config.get("peek_time", 4.5))
 			boss["attack"] = 1.0
-			m._sparkle_burst(home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
+			m._sparkle_burst(new_home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
 	elif phase == "peek":
 		root.position = root.position.lerp(home, delta * 5.0)
 		root.rotation.y = sin(elapsed * 1.6) * 0.2
@@ -1468,6 +1642,7 @@ func _spawn_puff(from: Vector3) -> void:
 
 func _tick_puffs(delta: float) -> void:
 	bump_cool = maxf(0.0, bump_cool - delta)
+	far_hint_cool = maxf(0.0, far_hint_cool - delta)
 	for i in range(puffs.size() - 1, -1, -1):
 		var puff: Dictionary = puffs[i]
 		var node: Node3D = puff["node"] as Node3D
@@ -1489,7 +1664,20 @@ func _tick_puffs(delta: float) -> void:
 			puffs.remove_at(i)
 
 func _fire_star() -> void:
-	var target: Vector3 = (boss["node"] as Node3D).position + Vector3(0, 4.5, 0)
+	# sparkles only reach a nearby boss: chasing him across the stage is the
+	# game. Far shots fall short with a kindly hint instead of failing.
+	var bpos: Vector3 = (boss["node"] as Node3D).position
+	if String(boss["phase"]) == "peek" and bpos.distance_to(player_pos) > 18.0:
+		var short := _sphere(player_pos + Vector3(0, 2.2, 0), 0.45, Color(1.0, 0.9, 0.4), 1.2)
+		var tw_s := short.create_tween()
+		tw_s.tween_property(short, "position", player_pos.lerp(bpos, 0.4) + Vector3(0, 2.0, 0), 0.35).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw_s.tween_property(short, "scale", Vector3.ZERO, 0.2)
+		tw_s.tween_callback(short.queue_free)
+		if far_hint_cool <= 0.0:
+			far_hint_cool = 5.0
+			m.show_msg("Roshan", "Almost! Swim closer so the sparkles can reach him!", "hint")
+		return
+	var target: Vector3 = bpos + Vector3(0, 4.5, 0)
 	var orb := _sphere(player_pos + Vector3(0, 2.2, 0), 0.5, Color(1.0, 0.9, 0.4), 1.6)
 	var tw := orb.create_tween()
 	tw.tween_property(orb, "position", target, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
@@ -1553,6 +1741,23 @@ func _process(delta: float) -> void:
 		win_t -= delta
 		if fmod(win_t, 0.35) < delta:
 			m._sparkle_burst(CENTER + Vector3(randf_range(-12.0, 12.0), randf_range(1.0, 8.0), randf_range(-8.0, 10.0)), Color.from_hsv(randf(), 0.5, 1.0))
+		if kind == "echo":
+			# free-dance encore: during the applause every tile still lights up
+			# under Roshan — a pure toy moment with no goal at all
+			var move2 := _move_input()
+			player_pos += Vector3(move2.x, 0, move2.y) * MOVE_SPEED * delta
+			avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
+			if costume_root != null:
+				costume_root.position = avatar.position
+			var on_pad := -1
+			for pad in pads:
+				if (pad["pos"] as Vector3).distance_to(player_pos) < 3.2:
+					on_pad = int(pad["index"])
+			if on_pad >= 0 and on_pad != last_pad:
+				last_pad = on_pad
+				_echo_light(on_pad, true)
+			elif on_pad < 0:
+				last_pad = -1
 		if win_t <= 0.0:
 			_finish()
 		return
@@ -1582,7 +1787,15 @@ func _process(delta: float) -> void:
 		audience[i].position.y = CENTER.y + 4.0 + sin(elapsed * 2.2 + float(i) * 1.4) * 0.18
 	if _action_pressed():
 		match kind:
-			"order", "shuffle":
+			"order":
+				if order_phase == "stir":
+					if goal.position.distance_to(player_pos) < 5.5:
+						_stir_action()
+				else:
+					var near_pad := _nearest_pad()
+					if near_pad >= 0:
+						_act_action(near_pad)
+			"shuffle":
 				var near := _nearest_pad()
 				if near >= 0:
 					_act_action(near)
@@ -1620,6 +1833,26 @@ func _process(delta: float) -> void:
 				else:
 					_fire_star()
 	match kind:
+		"order":
+			if order_hidden:
+				# the detective search: clues pop out when Roshan swims close
+				for pad in pads:
+					if not bool(pad["revealed"]) and (pad["pos"] as Vector3).distance_to(player_pos) < 6.5:
+						pad["revealed"] = true
+						var prop := pad["prop"] as Node3D
+						prop.visible = true
+						prop.scale = Vector3.ZERO
+						var tw_r := prop.create_tween()
+						tw_r.tween_property(prop, "scale", Vector3.ONE, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+						m._sparkle_burst((pad["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.8, 0.95, 1.0))
+						if m.chime != null:
+							m.chime.pitch_scale = 1.25
+							m.chime.play()
+			if order_flow == "carry_paint" and brush_loaded >= 0:
+				brush_node.position = player_pos + Vector3(0, 3.2, 0)
+				brush_node.rotation.z = sin(elapsed * 6.0) * 0.25
+				if canvas_pos.distance_to(player_pos) < 5.5:
+					_paint_touch()
 		"echo":
 			_tick_echo(delta)
 			if echo_phase == "repeat":
@@ -1651,6 +1884,10 @@ func _process(delta: float) -> void:
 func _pointer_target() -> Vector3:
 	match kind:
 		"order":
+			if order_phase == "stir":
+				return goal.position + Vector3(0, 7.5, 0)
+			if brush_loaded >= 0:
+				return canvas_pos + Vector3(0, 7.5, 0)
 			if step < order_steps.size():
 				var pad: Dictionary = pads[order_steps[step]]
 				return (pad["pos"] as Vector3) + Vector3(0, 5.5, 0)
@@ -1688,7 +1925,14 @@ func _pointer_target() -> Vector3:
 	return player_pos + Vector3(0, 7.0, 0)
 
 func _tick_pointer() -> void:
-	pointer.visible = state == "play" and not (kind == "shuffle" and shuffle_phase == "pick")
+	var show := state == "play" and not (kind == "shuffle" and shuffle_phase == "pick")
+	# guessing games earn a moment without the answer: the arrow is a rescue
+	# that arrives after RESCUE_DELAY without progress (mistakes summon it)
+	if kind == "order" and not order_hidden:
+		show = show and progress_t > RESCUE_DELAY
+	elif kind == "echo" and echo_phase == "repeat":
+		show = show and progress_t > RESCUE_DELAY
+	pointer.visible = show
 	pointer.position = _pointer_target() + Vector3(0, sin(elapsed * 4.0) * 0.45, 0)
 
 func _wobble(node: Node3D) -> void:
@@ -1703,7 +1947,12 @@ func _update_hud() -> void:
 	var tag := act_tag + "  •  " if act_tag != "" else ""
 	match kind:
 		"order":
-			objective.text = tag + "✨  %d / %d — follow the golden arrow!" % [step, order_steps.size()]
+			if order_phase == "stir":
+				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
+			elif brush_loaded >= 0:
+				objective.text = tag + "🖌  Swipe the canvas to paint!  %d / %d" % [step, order_steps.size()]
+			else:
+				objective.text = tag + "✨  Match the pictures!  %d / %d" % [step, order_steps.size()]
 		"echo":
 			if echo_phase == "show":
 				objective.text = tag + "👀  WATCH the twinkling tiles!"
@@ -1755,6 +2004,17 @@ func _win() -> void:
 		tw.tween_property(spr, "position:y", spr.position.y + 0.9, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tw.tween_property(spr, "position:y", spr.position.y, 0.3)
 	m._sparkle_burst(player_pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 1.0))
+	if kind == "press":
+		# the three smiley candies do a little parade hop down the shelf
+		# (relative hops, delayed past the last candy's slide onto the shelf)
+		for i in range(shelf_candies.size()):
+			var c := shelf_candies[i]
+			if not is_instance_valid(c):
+				continue
+			var hop := c.create_tween()
+			hop.tween_interval(1.1 + float(i) * 0.25)
+			hop.tween_property(c, "position:y", 1.2, 0.22).as_relative().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			hop.tween_property(c, "position:y", -1.2, 0.28).as_relative().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	if kind == "boss":
 		var root: Node3D = boss["node"] as Node3D
 		var tw2 := root.create_tween()
