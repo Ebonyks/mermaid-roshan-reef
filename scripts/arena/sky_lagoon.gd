@@ -159,6 +159,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var tpos := o + Vector3(gcx + ox, _lagoon_local(gcx + ox, gcz + oz) - 0.5, gcz + oz)
 			@warning_ignore("integer_division")
 			var tname: String = trees[(sd / 11) % trees.size()]
+			if not _lagoon_plant_allowed(tname, gcx + ox, gcz + oz):
+				continue
 			if tname == "tree_pineRoundF":
 				# GEN2 pilot: the round puff tree is the family-style one now
 				var gtree = m._gen2_prop("tree_pineroundf", tpos, 8.0 + float(sd % 5), float(sd % 628) / 100.0)
@@ -190,19 +192,29 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var pick := (sd / 7) % 10
 		var gp := Vector3(px, _lagoon_local(px, pz) - 0.2, pz)
 		var yr := float(sd % 628) / 100.0
+		var plant_name: String
+		var plant_size: float
 		if pick < 3:
-			m._nature("plant_bushLargeTriangle", o + gp, 6.0, yr)
+			plant_name = "plant_bushLargeTriangle"
+			plant_size = 6.0
 		elif pick < 5:
-			m._nature("plant_bush", o + gp, 5.0, yr)
+			plant_name = "plant_bush"
+			plant_size = 5.0
 		elif pick < 6:
-			m._nature("mushroom_red", o + gp, 5.0, yr)
+			plant_name = "mushroom_red"
+			plant_size = 5.0
 		elif pick < 7:
-			m._nature("mushroom_tanGroup", o + gp, 5.5, yr)
+			plant_name = "mushroom_tanGroup"
+			plant_size = 5.5
 		elif pick < 8:
-			m._nature("grass_leafsLarge", o + gp, 5.0, yr)
+			plant_name = "grass_leafsLarge"
+			plant_size = 5.0
 		else:
 			@warning_ignore("integer_division")
-			m._nature(flowers[(sd / 17) % flowers.size()], o + gp, 6.0, yr)
+			plant_name = flowers[(sd / 17) % flowers.size()]
+			plant_size = 6.0
+		if _lagoon_plant_allowed(plant_name, px, pz):
+			m._nature(plant_name, o + gp, plant_size, yr)
 	# a calm pond off to the side, ringed with cattails
 	var pond := MeshInstance3D.new()
 	var pondm := CylinderMesh.new()
@@ -304,8 +316,20 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var acc_rb: bool = cf2.size() > 8 and int(cf2[8]) == 1
 		var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)
 		var fang: float = float(fi) * 1.3
-		var frx: float = cos(fang) * (34.0 + float(fi % 5) * 11.0)
-		var frz: float = 70.0 + sin(fang) * 45.0
+		var friend_home := Vector2(cos(fang) * (34.0 + float(fi % 5) * 11.0),
+			70.0 + sin(fang) * 45.0)
+		# Saved friends can outnumber the original layout assumptions. Walk each
+		# candidate around the meadow until it is off paths, water and landmarks.
+		for attempt in range(32):
+			var try_ang: float = fang + float(attempt) * 0.53
+			var try_radius: float = 34.0 + float((fi + attempt) % 5) * 11.0
+			var candidate := Vector2(cos(try_ang) * try_radius,
+				70.0 + sin(try_ang) * 45.0)
+			if _lagoon_ground_object_allowed("crafted_friend", candidate.x, candidate.y):
+				friend_home = candidate
+				break
+		var frx: float = friend_home.x
+		var frz: float = friend_home.y
 		# gen2 meshes seat their base at the origin -> stand them on the lawn;
 		# billboard fallbacks are center-origin and keep the old float height
 		var fry: float = (_lagoon_local(frx, frz) + 0.2) if frn.has_meta("gen2") else 6.0
@@ -666,8 +690,6 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var sp: Vector3 = o + spots[idx]
 		# a low, friendly platform with a soft ramp feel
 		var _plat = m._l2_box(sp + Vector3(0, -3.5, 0), Vector3(12, 1.4, 12), Color(0.9, 0.82, 0.98), 0.1)
-		m._nature("flower_yellowB", sp + Vector3(-3, -2.6, -3), 4.0, 0.0)
-		m._nature("flower_redA", sp + Vector3(3, -2.6, 3), 4.0, 1.0)
 		var star: Node3D = LandmarkArtFactory.create_star(3.8, [Color(0.98, 0.52, 0.62), Color(0.42, 0.86, 0.82), Color(0.72, 0.56, 0.94)][idx])
 		star.set_meta("rainbow", randf() * TAU)
 		star.position = sp + Vector3(0, 4.0, 0)
@@ -2381,6 +2403,63 @@ func _lagoon_bump(lx: float, lz: float, cx: float, cz: float, rad: float, amp: f
 		return 0.0
 	var f: float = 1.0 - d2 / r2
 	return amp * f * f
+
+
+func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
+	# Shared continuity guard for generated objects. The clearance grows for
+	# larger actors so their visible footprint, not just their origin, stays off
+	# water, maintained routes, solid landmarks and the island rim.
+	var clearance: float = 4.5 if role == "crafted_friend" else 2.5
+	if Vector2(lx, lz).length() > 202.0 - clearance:
+		return false
+	if _lagoon_river_dip(lx, lz) > 0.0:
+		return false
+	var moat_d: float = Vector2(lx - m.MOAT_CX, lz - m.MOAT_CZ).length()
+	# The castle and its surrounding moat are authored play spaces, not scatter
+	# ground. This also prevents plants appearing inside the castle shell.
+	if moat_d < m.MOAT_OUTER + clearance:
+		return false
+	if Vector2(lx + 95.0, lz - 70.0).length() < 38.0 + clearance:
+		return false
+	if lz > -95.0 - clearance and lz < 172.0 + clearance and absf(lx) < 9.0 + clearance:
+		return false
+	for star_pos: Vector3 in m.L2_STAR_SPOTS:
+		if Vector2(lx - star_pos.x, lz - star_pos.z).length() < 9.0 + clearance:
+			return false
+	if Vector2(lx + 30.0, lz - 140.0).length() < 9.0 + clearance:
+		return false
+	for gate_x: float in [-26.0, -15.0, 15.0, 26.0]:
+		if Vector2(lx - gate_x, lz - 164.0).length() < 7.0 + clearance:
+			return false
+	for house_center: Vector2 in [ALPINE_HOUSE_A, ALPINE_HOUSE_B, ALPINE_HOUSE_C]:
+		if Vector2(lx, lz).distance_to(house_center) < 11.0 + clearance:
+			return false
+	if Vector2(lx, lz).distance_to(ALPINE_MOUNTAIN_CENTER) < 43.0 + clearance:
+		return false
+	return true
+
+
+func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
+	# Keep terrestrial flora tied to the same ecological zones painted by the
+	# terrain shader. Explicit cattails and Alpine pines are built separately.
+	if not _lagoon_ground_object_allowed(role, lx, lz):
+		return false
+
+	var ground_y: float = _lagoon_local(lx, lz)
+	var village_delta := Vector2((lx + 96.0) / 52.0, (lz + 180.0) / 43.0)
+	var village_snow: float = 1.0 - smoothstep(0.78, 1.08, village_delta.length())
+	var mountain_d: float = Vector2(lx + 135.0, lz + 165.0).length()
+	var high_snow: float = (1.0 - smoothstep(58.0, 78.0, mountain_d)) * smoothstep(12.0, 27.0, ground_y)
+	if maxf(village_snow, high_snow) > 0.05:
+		return role == "tree_pineRoundF"
+
+	var grass_mix: float = smoothstep(-6.0, 2.5, ground_y)
+	var park_delta := Vector2((lx - 75.0) / 52.0, (lz - 91.0) / 50.0)
+	var park_mix: float = (1.0 - smoothstep(0.72, 1.0, park_delta.length())) * grass_mix * 0.82
+	if park_mix > 0.25:
+		return false
+	# Sky Lagoon is a temperate meadow; tropical palms belong in Butterfly World.
+	return role != "tree_palm"
 
 
 func _alpine_house_floor_height(center: Vector2) -> float:

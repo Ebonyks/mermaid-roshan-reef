@@ -136,6 +136,28 @@ func seed_cluster_centers() -> void:
 func grove_kind(index: int) -> String:
 	return String((GROVES[index] as Dictionary)["kind"])
 
+static func habitat_point_allowed(habitat: String, p: Vector2) -> bool:
+	# Scatter is bounded to the playable seabed and kept away from the calm hub,
+	# friend gateways and the rainbow portal's approach lane.
+	if p.length() < 28.0 or p.length() > 252.0:
+		return false
+	for friend_pos: Vector2 in FRIEND_POSITIONS:
+		if p.distance_to(friend_pos) < 12.0:
+			return false
+	if p.distance_to(Vector2(-5.0, -95.0)) < 18.0:
+		return false
+	var region: String = region_at(p)
+	match habitat:
+		"kelp", "anemone", "pearl", "wreck", "moon", "rainbow", "ice":
+			var expected: String = "moon" if habitat == "anemone" else habitat
+			return region == expected
+		"starfish":
+			return region == "pearl" or region == "rainbow"
+		"urchin":
+			return region == "wreck" or region == "moon"
+		_:
+			return true
+
 func scatter_point(habitat: String) -> Vector3:
 	var choices: Array[Vector2] = []
 	match habitat:
@@ -149,12 +171,19 @@ func scatter_point(habitat: String) -> Vector3:
 			choices = [Vector2(-142, 118), Vector2(-178, 150), Vector2(-174, 0)]
 		_:
 			choices = [Vector2(38, 38), Vector2(-35, 165), Vector2(-160, 135), Vector2(-165, 5), Vector2(-40, -165), Vector2(140, -115)]
-	var center: Vector2 = choices[_scatter_rng.randi_range(0, choices.size() - 1)]
-	var ang: float = _scatter_rng.randf_range(0.0, TAU)
-	var radius: float = sqrt(_scatter_rng.randf()) * (28.0 if habitat != "kelp" else 36.0)
-	var p: Vector2 = center + Vector2(cos(ang), sin(ang)) * radius
-	if p.length() < 28.0:
-		p = p.normalized() * 28.0 if p.length() > 0.1 else Vector2(28.0, 0.0)
+	var p: Vector2 = choices[0]
+	for fallback: Vector2 in choices:
+		if habitat_point_allowed(habitat, fallback):
+			p = fallback
+			break
+	for attempt in range(24):
+		var center: Vector2 = choices[_scatter_rng.randi_range(0, choices.size() - 1)]
+		var ang: float = _scatter_rng.randf_range(0.0, TAU)
+		var radius: float = sqrt(_scatter_rng.randf()) * (28.0 if habitat != "kelp" else 36.0)
+		var candidate: Vector2 = center + Vector2(cos(ang), sin(ang)) * radius
+		if habitat_point_allowed(habitat, candidate):
+			p = candidate
+			break
 	return Vector3(p.x, m.seabed_y(p.x, p.y), p.y)
 
 func build_macro_structures() -> void:
@@ -227,26 +256,31 @@ func build_flora() -> void:
 		var kind: String = entry["kind"]
 		match kind:
 			"pearl":
-				_place_family(rng, p, ["fanshell", "smallfanshell", "spiralshell"], 5, 2.2, 4.8, 3.0, 12.0)
-				_place_family(rng, p, ["sponge_barrel"], 1, 2.8, 4.0, 4.0, 9.0)
-				_place_family(rng, p, ["coral5", "coral2"], 2, 3.2, 5.2, 5.0, 12.0)
+				_place_family(rng, kind, p, ["fanshell", "smallfanshell", "spiralshell"], 5, 2.2, 4.8, 3.0, 12.0)
+				_place_family(rng, kind, p, ["sponge_barrel"], 1, 2.8, 4.0, 4.0, 9.0)
+				_place_family(rng, kind, p, ["coral5", "coral2"], 2, 3.2, 5.2, 5.0, 12.0)
 			"kelp":
 				for k in range(8):
-					var kp: Vector2 = _around(rng, p, 4.0, 18.0)
+					var kp: Vector2 = p
+					for attempt in range(8):
+						var kelp_candidate: Vector2 = _around(rng, p, 4.0, 18.0)
+						if habitat_point_allowed(kind, kelp_candidate):
+							kp = kelp_candidate
+							break
 					m._gen2_seagrass(Vector3(kp.x, m.seabed_y(kp.x, kp.y), kp.y), rng.randf_range(5.0, 9.0))
-				_place_family(rng, p, ["coral5", "sponge_tubes"], 2, 3.0, 5.5, 5.0, 14.0)
+				_place_family(rng, kind, p, ["coral5", "sponge_tubes"], 2, 3.0, 5.5, 5.0, 14.0)
 			"wreck":
-				_place_family(rng, p, ["urchin_story"], 4, 1.8, 3.4, 5.0, 16.0)
-				_place_family(rng, p, ["sponge_barrel", "sponge_tubes"], 1, 2.5, 4.2, 6.0, 14.0)
+				_place_family(rng, kind, p, ["urchin_story"], 4, 1.8, 3.4, 5.0, 16.0)
+				_place_family(rng, kind, p, ["sponge_barrel", "sponge_tubes"], 1, 2.5, 4.2, 6.0, 14.0)
 			"moon":
-				_place_family(rng, p, ["anemone_story"], 5, 3.8, 7.5, 4.0, 16.0)
-				_place_family(rng, p, ["spiralshell", "fanshell", "coral3"], 3, 2.4, 5.0, 4.0, 13.0)
+				_place_family(rng, kind, p, ["anemone_story"], 5, 3.8, 7.5, 4.0, 16.0)
+				_place_family(rng, kind, p, ["spiralshell", "fanshell", "coral3"], 3, 2.4, 5.0, 4.0, 13.0)
 			"rainbow":
-				_place_family(rng, p, ["coral", "coral1", "coral4", "coral6"], 5, 2.8, 5.8, 5.0, 16.0)
-				_place_family(rng, p, ["starfish"], 2, 1.8, 2.8, 4.0, 12.0)
+				_place_family(rng, kind, p, ["coral", "coral1", "coral4", "coral6"], 5, 2.8, 5.8, 5.0, 16.0)
+				_place_family(rng, kind, p, ["starfish"], 2, 1.8, 2.8, 4.0, 12.0)
 			"ice":
-				_place_family(rng, p, ["sponge_tubes", "sponge_barrel"], 3, 2.8, 5.2, 5.0, 16.0)
-				_place_family(rng, p, ["smallfanshell", "coral5"], 2, 2.0, 4.2, 5.0, 13.0)
+				_place_family(rng, kind, p, ["sponge_tubes", "sponge_barrel"], 3, 2.8, 5.2, 5.0, 16.0)
+				_place_family(rng, kind, p, ["smallfanshell", "coral5"], 2, 2.0, 4.2, 5.0, 13.0)
 	build_scattered_boulders(rng)
 
 func build_scattered_boulders(rng: RandomNumberGenerator) -> void:
@@ -262,9 +296,16 @@ func build_scattered_boulders(rng: RandomNumberGenerator) -> void:
 			if target >= 9.0:
 				m._register_solid(rock)
 
-func _place_family(rng: RandomNumberGenerator, center: Vector2, names: Array, count: int, min_size: float, max_size: float, min_radius: float, max_radius: float) -> void:
+func _place_family(rng: RandomNumberGenerator, habitat: String, center: Vector2, names: Array, count: int, min_size: float, max_size: float, min_radius: float, max_radius: float) -> void:
 	for i in range(count):
-		var p: Vector2 = _around(rng, center, min_radius, max_radius)
+		var p: Vector2 = center
+		for attempt in range(8):
+			var candidate: Vector2 = _around(rng, center, min_radius, max_radius)
+			if habitat_point_allowed(habitat, candidate):
+				p = candidate
+				break
+		if not habitat_point_allowed(habitat, p):
+			continue
 		var name: String = String(names[rng.randi_range(0, names.size() - 1)])
 		var node: Node3D = m._gen2_prop(name, Vector3(p.x, m.seabed_y(p.x, p.y), p.y), rng.randf_range(min_size, max_size), rng.randf_range(0.0, TAU), 0.1)
 		if node != null:

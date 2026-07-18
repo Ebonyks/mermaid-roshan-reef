@@ -253,8 +253,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var pt: float = maxf(0.0, float(m.g["phase_t"]))
 	if phase == "boss_leaves":
 		var left := 0
-		# spin the leaf wreath slowly + rustle survivors (gentle scale pulse
-		# keeps the GLB bushes upright)
+		# Spin the custom leaf wreath slowly and rustle the survivors.
 		var center3: Vector3 = m.g["boss_center"]
 		for lf in m.g["leaves"]:
 			if int(lf["hp"]) > 0:
@@ -263,12 +262,14 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 					lf["ang"] = float(lf["ang"]) + delta * 0.3
 					(lf["node"] as Node3D).position = center3 + Vector3(cos(float(lf["ang"])) * m.FS_LEAF_RING, -1.0, sin(float(lf["ang"])) * m.FS_LEAF_RING)
 					(lf["node"] as Node3D).scale = Vector3.ONE * (m.FS_LEAF_SCALE * (1.0 + sin(tt * 4.0 + float(lf["ang"])) * 0.06))
+		var seed_art: Node3D = m.g.get("boss_art")
+		if seed_art != null and is_instance_valid(seed_art):
+			seed_art.scale = Vector3.ONE * (float(m.FS_BOSS_STAGE_SCALE["seed"]) * (1.0 + sin(tt * 2.0) * 0.035))
 		m.hud_game.text = "Blast the leaves away!   leaves left: %d   %s" % [left, hearts_str]
 		if left <= 0:
 			m.g["phase"] = "boss_bud"
 			m.g["phase_t"] = m.FS_BUD_T + 6.0 * float(mini(m.fs_fails, 2))
-			if m.g.get("bud") != null and is_instance_valid(m.g["bud"]):
-				(m.g["bud"] as Node3D).scale = Vector3.ONE * (m.FS_BUD_SCALE * 0.5)
+			m._fairy_set_boss_stage("sprout")
 			m.show_msg(m.fr_name_safe(), "The flower! Keep blasting to make it grow and bloom!")
 		elif pt <= 0.0:
 			m.fs_fails += 1
@@ -281,12 +282,17 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		return
 	if phase == "boss_bud":
 		var hp: int = int(m.g["bud_hp"])
+		var growth_stage := "sprout"
+		if hp <= 7:
+			growth_stage = "bud"
+		if hp <= 3:
+			growth_stage = "opening"
+		m._fairy_set_boss_stage(growth_stage)
 		var bud: Node3D = m.g.get("bud")
 		if bud != null and is_instance_valid(bud):
-			# the flower GROWS bigger with every hit (0.5x -> 1.4x), plus a gentle pulse
-			var grown: float = lerpf(0.5, 1.4, clampf(1.0 - float(hp) / float(m.FS_BUD_HP), 0.0, 1.0))
+			var stage_scale: float = float(m.FS_BOSS_STAGE_SCALE[growth_stage])
 			var pulse: float = 1.0 + sin(tt * 8.0) * 0.05
-			bud.scale = Vector3.ONE * (m.FS_BUD_SCALE * grown * pulse)
+			bud.scale = Vector3.ONE * (stage_scale * pulse)
 		m.hud_game.text = "Open the flower!   %d hits left   %s" % [maxi(0, hp), hearts_str]
 		if hp <= 0:
 			m._fairy_bloom_start()
@@ -304,15 +310,10 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		m.g["bloom_t"] = float(m.g.get("bloom_t", 0.0)) - delta
 		var f: float = clampf(1.0 - float(m.g["bloom_t"]) / m.FS_BLOOM_T, 0.0, 1.0)
 		var center: Vector3 = m.g["boss_center"]
-		if m.g.get("bud") != null and is_instance_valid(m.g["bud"]):
-			(m.g["bud"] as Node3D).scale = Vector3.ONE * (m.FS_BUD_SCALE * (1.0 - f * 0.55))
-		for pd in m.g.get("petals", []):
-			if is_instance_valid(pd["node"]):
-				var a: float = pd["ang"]
-				var r: float = 3.0 + f * 9.0
-				# petals open flat across the pond, like a blossom seen from above
-				(pd["node"] as Node3D).position = center + Vector3(cos(a) * r, 0.5, sin(a) * r)
-				(pd["node"] as Node3D).scale = Vector3.ONE * (1.0 + f * 6.0)
+		var bloom_art: Node3D = m.g.get("boss_art")
+		if bloom_art != null and is_instance_valid(bloom_art):
+			var bloom_scale: float = float(m.FS_BOSS_STAGE_SCALE["bloom"])
+			bloom_art.scale = Vector3.ONE * (bloom_scale * lerpf(0.72, 1.0, f))
 		if fmod(tt, 0.18) < delta:
 			m._sparkle_burst(center + Vector3(randf() * 16 - 8, 1.0, randf() * 16 - 8), Color.from_hsv(randf(), 0.4, 1.0))
 		if float(m.g["bloom_t"]) <= 0.0:

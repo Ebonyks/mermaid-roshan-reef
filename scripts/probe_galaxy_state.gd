@@ -37,6 +37,19 @@ func _init() -> void:
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await _frames(2)
+	var path_probe: GalaxyLevel = _bare_galaxy()
+	var sandy_mushroom_dir := Vector3(sin(3.0 * 1.1 + 2.0), cos(3.0 * 1.7),
+		sin(3.0 * 0.6 - 1.0)).normalized()
+	_ck("garden_paths_reject_plants", path_probe._garden_path_mix(sandy_mushroom_dir) > 0.5
+		and path_probe._garden_path_mix(Vector3.BACK) < 0.5
+		and not path_probe._garden_fixture_allowed("plant", sandy_mushroom_dir))
+	var path_tray_dir := Vector3(-0.75, 0.4, 0.5).normalized()
+	var meadow_tray_dir: Vector3 = path_probe._garden_meadow_dir(path_tray_dir)
+	_ck("garden_fixtures_rehomed_beside_paths",
+		not path_probe._garden_fixture_allowed("feeding_tray", path_tray_dir)
+		and path_probe._garden_fixture_allowed("feeding_tray", meadow_tray_dir)
+		and path_tray_dir.angle_to(meadow_tray_dir) < 0.7)
+	path_probe.free()
 
 	# The grand reward is paid once, and only once.
 	main.bwd_done = false

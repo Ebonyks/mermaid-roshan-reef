@@ -279,8 +279,16 @@ func _fire() -> void:
 	if dir.length() < 0.1:
 		dir = Vector3(sin(player_yaw), 0, cos(player_yaw))
 	dir = dir.normalized()
-	var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
-	var orb := _sphere(self, player_pos + Vector3(0, 2.2, 0) + dir * 1.5, 0.65, orb_col, 1.8)
+	var shot_pos: Vector3 = player_pos + Vector3(0, 2.2, 0) + dir * 1.5
+	var role := "ice_berry_projectile" if power == "ice" else "pepper_projectile"
+	var orb: Node3D = DungeonArt.spawn(role, self, shot_pos)
+	if orb.name.begins_with("MissingDungeonArt"):
+		var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
+		orb.queue_free()
+		orb = _sphere(self, shot_pos, 0.65, orb_col, 1.8)
+	else:
+		orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
+		orb.rotation.y = atan2(dir.x, dir.z)
 	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)

@@ -42,10 +42,19 @@ func _init() -> void:
 		and main.g.has("north_town_center") and main.g.has("north_castle_center"))
 	_ck("mobile dressing budget", int(main.g.get("north_tree_count", 0)) == 16
 		and int(main.g.get("north_house_count", 0)) == 6
-		and int(main.g.get("north_wisp_count", 0)) == 8)
+		and int(main.g.get("north_wisp_count", 0)) == 8
+		and int(main.g.get("north_mushroom_count", 0)) == 8)
 	_ck("authored northern asset family", int(main.g.get(
 		"north_authored_asset_family_count", 0)) == 17
 		and int(main.g.get("north_authored_asset_instance_count", 0)) == 46)
+	var northern: NorthernKingdom = main._northern_ref()
+	_ck("flora follows substrate and reserved footprints",
+		northern._north_flora_allowed("tree_pineRoundF", -23.0, 174.0)
+		and not northern._north_flora_allowed("mushroom_red", -23.0, 174.0)
+		and northern._north_flora_allowed("mushroom_red", -18.0, 137.0)
+		and not northern._north_flora_allowed("tree_pineRoundF", 0.0, 80.0)
+		and not northern._north_flora_allowed("tree_pineRoundF", 150.0, 0.0)
+		and not northern._north_flora_allowed("tree_pineRoundF", 0.0, -55.0))
 
 	var pass_h: float = main.northern_walk_h(main.NORTHERN_POS.x,
 		main.NORTHERN_POS.z + 184.0)
