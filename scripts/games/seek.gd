@@ -8,6 +8,78 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
+func _decorate_lamb_meadow(origin: Vector3) -> void:
+	# a soft rolling green meadow for Lamb-a' to play in
+	var hill := MeshInstance3D.new()
+	var hs := SphereMesh.new()
+	hs.radius = 60.0
+	hs.height = 120.0
+	hill.mesh = hs
+	var hm := StandardMaterial3D.new()
+	hm.albedo_texture = load("res://assets/terrain/up_grass_col.jpg")
+	hm.albedo_color = Color(0.92, 1.0, 0.9)
+	hm.normal_enabled = true
+	hm.normal_texture = load("res://assets/terrain/up_grass_nrm.jpg")
+	hm.uv1_triplanar = true
+	hm.uv1_world_triplanar = true
+	hm.uv1_scale = Vector3(0.05, 0.05, 0.05)
+	hm.roughness = 1.0
+	hill.material_override = hm
+	hill.position = origin + Vector3(0, -56.0, 0)
+	m.add_child(hill)
+	m.game_nodes.append(hill)
+	# scattered living things around the play circle (kept clear of the bushes)
+	var trees := ["tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
+	var flowers := ["flower_redA", "flower_yellowB", "flower_purpleA"]
+	var seed := 11
+	for k in range(40):
+		seed = (seed * 1103515245 + 12345) & 0x7fffffff
+		var ang: float = float(seed % 1000) / 1000.0 * TAU
+		var rad: float = 16.0 + float((seed / 1000) % 1000) / 1000.0 * 26.0
+		var gp := origin + Vector3(cos(ang) * rad, 1.0, sin(ang) * rad)
+		var pick := (seed / 7) % 10
+		var yr := float(seed % 628) / 100.0
+		var tree_name: String = trees[(seed / 13) % trees.size()] if pick < 3 else ""
+		var placement_role: String = tree_name if pick < 3 else "soft_flora"
+		if not _lamb_meadow_placement_allowed(Vector2(gp.x - origin.x, gp.z - origin.z), placement_role):
+			continue
+		if pick < 3:
+			m._nature(tree_name, gp, 4.5 + float(seed % 3), yr)
+			m._cyl_solid(gp + Vector3(0, 3.0, 0), 0.9, 3.0, 0.5)   # trunks solid; hide-bushes stay soft
+		elif pick < 5:
+			m._nature("plant_bushLargeTriangle", gp, 4.0, yr)
+		elif pick < 6:
+			m._nature("mushroom_red", gp, 4.0, yr)
+		elif pick < 7:
+			m._nature("mushroom_tanGroup", gp, 4.5, yr)
+		elif pick < 8:
+			m._nature("grass_leafsLarge", gp, 3.5, yr)
+		else:
+			m._nature(flowers[(seed / 17) % flowers.size()], gp, 4.5, yr)
+	# Layered storybook clouds keep a readable silhouette and cool painted underside.
+	for c in range(5):
+		var cl: Node3D = LandmarkArtFactory.create_cloud(5.0 + randf() * 2.0, c)
+		cl.position = origin + Vector3(randf() * 70.0 - 35.0, 28.0 + randf() * 10.0, randf() * 70.0 - 35.0)
+		m.add_child(cl)
+		m.game_nodes.append(cl)
+	var sun := OmniLight3D.new()
+	sun.light_color = Color(1.0, 0.95, 0.8)
+	sun.light_energy = 0.9
+	sun.omni_range = 70.0
+	sun.position = origin + Vector3(18, 30, 12)
+	m.add_child(sun)
+	m.game_nodes.append(sun)
+
+
+func _lamb_meadow_placement_allowed(local: Vector2, role: String) -> bool:
+	if local.length() < 15.0 or local.length() > 44.0 or role == "tree_palm":
+		return false
+	var clearance: float = 12.0 if role.begins_with("tree_") else 8.5
+	for bush_offset: Vector3 in m.BTN_OFFS:
+		if local.distance_to(Vector2(bush_offset.x, bush_offset.z)) < clearance:
+			return false
+	return true
+
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["found"] = 0
 	m.g["timer"] = -1.0
@@ -31,7 +103,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	else:
 		lamb = m._game_ball(Color(1.0, 0.99, 0.95), 1.2)
 	m.g["lamb"] = lamb
-	m._decorate_lamb_meadow(origin)
+	_decorate_lamb_meadow(origin)
 	_seek_hide()
 	m.show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 
