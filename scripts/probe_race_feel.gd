@@ -77,7 +77,7 @@ func _steer_for(policy: String, t: float, seed_i: int) -> float:
 			for fd in g.get("fish", []):
 				if not bool(fd["got"]):
 					var fp: Vector3 = fd["pos"]
-					var right: Vector3 = main._slide_sample(float(g["s"]))[2]
+					var right: Vector3 = main._game_obj("race", SlideRaceGame)._slide_sample(float(g["s"]))[2]
 					var lat: float = (fp - pos).dot(right)
 					return clampf(-lat * 0.5, -1.0, 1.0)   # steer input is screen-space (negated in tick)
 			return 0.0
@@ -92,8 +92,8 @@ func _steer_for(policy: String, t: float, seed_i: int) -> float:
 		"inside", "outside":
 			# steer toward the inside (or outside) of the current curve
 			var s_now: float = float(g.get("s", 0.0))
-			var t0: Vector3 = main._slide_sample(s_now)[1]
-			var t1: Vector3 = main._slide_sample(s_now + 6.0)[1]
+			var t0: Vector3 = main._game_obj("race", SlideRaceGame)._slide_sample(s_now)[1]
+			var t1: Vector3 = main._game_obj("race", SlideRaceGame)._slide_sample(s_now + 6.0)[1]
 			var curve_sign: float = signf(t0.cross(t1).y)   # + = curving left
 			if curve_sign == 0.0:
 				return 0.0
@@ -102,8 +102,8 @@ func _steer_for(policy: String, t: float, seed_i: int) -> float:
 			return clampf(want, -1.0, 1.0)
 		"drifter":
 			var s_d: float = float(g.get("s", 0.0))
-			var td0: Vector3 = main._slide_sample(s_d)[1]
-			var td1: Vector3 = main._slide_sample(s_d + 6.0)[1]
+			var td0: Vector3 = main._game_obj("race", SlideRaceGame)._slide_sample(s_d)[1]
+			var td1: Vector3 = main._game_obj("race", SlideRaceGame)._slide_sample(s_d + 6.0)[1]
 			var cs: float = signf(td0.cross(td1).y)
 			return cs   # full commit into every bend, releases automatically between bends
 		"perfect":

@@ -159,6 +159,8 @@ const SHELL_GEN2 := "spiralshell"
 const BW_PLANET_R := 70.0
 const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
+const BW_DECO_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
+const KART_BARRIER_GLB := "res://assets/art35/kart/soft_barrier.glb"
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const BW_BUTTERFLY_CARDS := ["butterfly1", "butterfly2"]
@@ -1014,8 +1016,34 @@ void fragment(){
 	road.material_override = rmat
 	road.position = _origin()
 	add_child(road)
-	# glowing rails
-	for sgn: float in [1.0, -1.0]:
+	# track edge: authored soft-barrier segments when the GLB exists (visual
+	# only, no colliders — steering limits stay in the track math); the
+	# extruded glow rails below remain as the fallback edge treatment
+	var barrier_placed := false
+	if ResourceLoader.exists(KART_BARRIER_GLB):
+		var bscene: PackedScene = load(KART_BARRIER_GLB)
+		if bscene != null:
+			var bspacing: float = 26.0 if _speedy() else 13.0
+			var bs := 0.0
+			while bs < _len:
+				var bf := _frame_at(bs, 0.0)
+				var bfwd: Vector3 = bf[1]
+				var bright: Vector3 = bf[2]
+				for bsgn: float in [1.0, -1.0]:
+					var seg := bscene.instantiate() as Node3D
+					if seg == null:
+						continue
+					_bw_fit(seg, bspacing * 0.85)
+					var holder := Node3D.new()
+					holder.add_child(seg)
+					holder.position = bf[0] + bright * ((_width_at(bs) + 1.4) * bsgn)
+					add_child(holder)
+					holder.look_at(holder.position + bfwd, Vector3.UP)
+					barrier_placed = true
+				bs += bspacing
+	# glowing rails (fallback edge when no authored barrier shipped)
+	var rail_signs: Array = [] if barrier_placed else [1.0, -1.0]
+	for sgn: float in rail_signs:
 		var rail := MeshInstance3D.new()
 		var rst := SurfaceTool.new()
 		rst.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -1048,7 +1076,7 @@ void fragment(){
 	if _theme() == "ocean":
 		_build_ocean_props()
 	else:
-		# floating crystals (rainbow theme)
+		# floating crystals (rainbow theme) — authored GLBs, box fallback
 		var deco_count: int = 4 if _speedy() else 7
 		for si2 in range(deco_count):
 			var su: float = float(si2) / float(deco_count)
@@ -1056,16 +1084,28 @@ void fragment(){
 			var sp: Vector3 = pf[0]
 			var rgt: Vector3 = pf[2]
 			var side: float = 1.0 if si2 % 2 == 0 else -1.0
-			var deco := MeshInstance3D.new()
-			var dmsh := BoxMesh.new()
-			dmsh.size = Vector3(7, 7, 7)
-			deco.mesh = dmsh
-			var dcm := StandardMaterial3D.new()
-			dcm.albedo_color = Color.from_hsv(su, 0.55, 1.0)
-			dcm.emission_enabled = true
-			dcm.emission = dcm.albedo_color
-			dcm.emission_energy_multiplier = 0.6
-			deco.material_override = dcm
+			var deco: Node3D = null
+			var cpath: String = BW_DECO_CRYSTALS[si2 % BW_DECO_CRYSTALS.size()]
+			if ResourceLoader.exists(cpath):
+				var cscene: PackedScene = load(cpath)
+				if cscene != null:
+					var crystal := cscene.instantiate() as Node3D
+					if crystal != null:
+						_bw_fit(crystal, 7.0)
+						deco = Node3D.new()
+						deco.add_child(crystal)
+			if deco == null:
+				var mi := MeshInstance3D.new()
+				var dmsh := BoxMesh.new()
+				dmsh.size = Vector3(7, 7, 7)
+				mi.mesh = dmsh
+				var dcm := StandardMaterial3D.new()
+				dcm.albedo_color = Color.from_hsv(su, 0.55, 1.0)
+				dcm.emission_enabled = true
+				dcm.emission = dcm.albedo_color
+				dcm.emission_energy_multiplier = 0.6
+				mi.material_override = dcm
+				deco = mi
 			deco.position = sp + rgt * ((_rhalf() + 16.0) * side) + Vector3(0, 4.0 + sin(su * TAU) * 8.0, 0)
 			deco.rotation = Vector3(su * 6.0, su * 4.0, su * 2.0)
 			add_child(deco)

@@ -106,7 +106,8 @@ const SKY_PRESETS := {
 }
 
 # ---- Animation Lab (Roshan stress testing) ----
-const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep"]
+const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep",
+	"point", "collect", "boing", "hairtwirl", "hum"]
 var anim_loop := false        # cycle every verb back-to-back (soak test)
 var anim_loop_idx := 0
 var anim_loop_gap := 0.0
