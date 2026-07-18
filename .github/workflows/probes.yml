@@ -104,7 +104,13 @@ jobs:
           done
           exit $FAILED
 
+      # The screenshot captures below are review aids, not gameplay gates.
+      # They are continue-on-error so a flaky Xvfb capture cannot fail this
+      # workflow and thereby block the Android APK publish (android.yml
+      # triggers only on this workflow's overall success). A missing capture
+      # still surfaces as a warning annotation on the run.
       - name: Capture first-world visual review
+        continue-on-error: true
         env:
           REEF_SHOT_OUT: /tmp/reef-shots
           LIBGL_ALWAYS_SOFTWARE: 1
@@ -117,13 +123,15 @@ jobs:
 
       - name: Upload first-world visual review
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: reef-first-world-review
           path: /tmp/reef-shots/*.png
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Capture northern-world visual review
+        continue-on-error: true
         env:
           NORTH_SHOT_OUT: /tmp/northern-shots
           LIBGL_ALWAYS_SOFTWARE: 1
@@ -133,8 +141,9 @@ jobs:
 
       - name: Upload northern-world visual review
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: northern-world-review
           path: /tmp/northern-shots/*.png
-          if-no-files-found: error
+          if-no-files-found: warn
