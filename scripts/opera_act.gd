@@ -97,12 +97,17 @@ var farm_roshan: Control = null
 var piggies: Array[Dictionary] = []
 
 # ---- "race" engine (KartGame exhibition reuse) ----
-var kart: KartGame = null
+# kart.gd / dance_engine.gd are loaded by PATH at runtime, never by class
+# name: a typed reference here would pull them into every script's load
+# graph and closes a load cycle (OperaAct -> DanceEngine -> ReefMain ->
+# OperaHouse -> OperaAct) that destabilised engine teardown in CI — two
+# probe processes hung at exit until the load edges were cut.
+var kart: Node = null
 var race_flag: Node3D = null
 var race_prev_track := ""
 
 # ---- "dance" engine (DanceEngine guest spot) ----
-var dance: DanceEngine = null
+var dance: CanvasLayer = null
 var mic: Node3D = null
 
 # ---- "boss" engine ----
@@ -1248,10 +1253,11 @@ func _launch_race() -> void:
 		return
 	race_prev_track = m.cur_track
 	m._play_music("race")
-	kart = KartGame.new()
+	var kart_script: GDScript = load("res://scripts/kart.gd") as GDScript
+	kart = kart_script.new() as Node
 	add_child(kart)
-	kart.configure({"name": "Opera Grand Prix", "laps": 1})
-	kart.start(m, Callable(self, "_race_finished"))
+	kart.call("configure", {"name": "Opera Grand Prix", "laps": 1})
+	kart.call("start", m, Callable(self, "_race_finished"))
 
 func _race_finished(place: int) -> void:
 	if kart != null and is_instance_valid(kart):
@@ -1287,16 +1293,17 @@ func _open_dance() -> void:
 	if state != "play" or kind != "dance":
 		return
 	if dance == null:
-		dance = DanceEngine.new(m)
-		dance.guest_mode = true
+		var dance_script: GDScript = load("res://scripts/games/dance_engine.gd") as GDScript
+		dance = dance_script.new(m) as CanvasLayer
+		dance.set("guest_mode", true)
 		add_child(dance)
-		dance.closed.connect(_dance_closed)
-	dance.open_demo()
+		dance.connect("closed", _dance_closed)
+	dance.call("open_demo")
 
 func _dance_closed() -> void:
 	if state != "play":
 		return
-	if dance != null and dance.happy_hits > 0:
+	if dance != null and int(dance.get("happy_hits")) > 0:
 		_win()
 	else:
 		m.show_msg("Roshan", "The stage is yours whenever you're ready — tap the sparkling microphone!", "talk")
@@ -1778,8 +1785,8 @@ func cancel() -> void:
 		kart.queue_free()
 		kart = null
 		m._play_music(race_prev_track if race_prev_track != "" else "level2")
-	if dance != null and is_instance_valid(dance) and dance.active:
-		dance.close_demo()
+	if dance != null and is_instance_valid(dance) and bool(dance.get("active")):
+		dance.call("close_demo")
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	queue_free()
@@ -1794,7 +1801,7 @@ func action_label() -> String:
 			return "TOSS"
 		"race":
 			if kart != null:
-				return String(kart.action_label())
+				return String(kart.call("action_label"))
 			return "GO!"
 		"dance":
 			return "SING"

@@ -216,7 +216,7 @@ func _drive_race(act: OperaAct) -> void:
 		guard += 1
 		await process_frame
 	_ck("kart engine is reused for the Grand Prix", act.kart is KartGame)
-	_ck("exhibition race runs a single lap", act.kart != null and act.kart._laps() == 1)
+	_ck("exhibition race runs a single lap", act.kart != null and (act.kart as KartGame)._laps() == 1)
 	# ✕ quitting the race returns to the stage without winning; the internals of
 	# the race itself are probe_kart_feel's job, so completion is simulated here
 	act._race_finished(-1)
@@ -226,20 +226,21 @@ func _drive_race(act: OperaAct) -> void:
 
 func _drive_dance(act: OperaAct) -> void:
 	var guard := 0
-	while (act.dance == null or not act.dance.active) and guard < 240:
+	while (act.dance == null or not (act.dance as DanceEngine).active) and guard < 240:
 		guard += 1
 		await process_frame
-	_ck("dance engine opens in guest mode", act.dance != null and act.dance.guest_mode and act.dance.active)
-	act.dance.close_demo()
+	var de := act.dance as DanceEngine
+	_ck("dance engine opens in guest mode", de != null and de.guest_mode and de.active)
+	de.close_demo()
 	await process_frame
 	_ck("closing without dancing keeps the mic waiting", act.state == "play")
 	act._open_dance()
 	guard = 0
-	while (act.dance == null or not act.dance.active) and guard < 240:
+	while not de.active and guard < 240:
 		guard += 1
 		await process_frame
-	act.dance.happy_hits = 6
-	act.dance.close_demo()
+	de.happy_hits = 6
+	de.close_demo()
 	await process_frame
 	_ck("a happy round takes the pop star's bow", act.state == "won")
 
