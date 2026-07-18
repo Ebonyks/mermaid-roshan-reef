@@ -53,15 +53,15 @@ func _init() -> void:
 	cam.current = true
 	var o: Vector3 = main.NORTHERN_POS
 	await _shot("north_01_pass_gameplay", o + Vector3(0, 48, 214), o + Vector3(0, 24, 152))
-	await _shot("north_02_pass_mid", o + Vector3(76, 54, 196), o + Vector3(0, 22, 158))
+	await _shot("north_02_pass_mid", o + Vector3(112, 54, 220), o + Vector3(0, 22, 158))
 	await _shot("north_03_forest_gameplay", o + Vector3(42, 24, 134), o + Vector3(0, 8, 82))
-	await _shot("north_04_forest_mid", o + Vector3(-68, 24, 108), o + Vector3(0, 7, 76))
+	await _shot("north_04_forest_mid", o + Vector3(0, 18, 120), o + Vector3(0, 7, 76))
 	await _shot("north_05_town_overview", o + Vector3(118, 52, 58), o + Vector3(0, 8, -2))
 	await _shot("north_06_house_near", o + Vector3(-48, 14, 31), o + Vector3(-76, 8, 31))
 	await _shot("north_07_dock_near", o + Vector3(154, 13, 30), o + Vector3(121, 1, 2))
 	await _shot("north_08_castle_gameplay", o + Vector3(0, 24, 44), o + Vector3(0, 14, -55))
 	await _shot("north_09_castle_mid", o + Vector3(92, 48, -4), o + Vector3(0, 14, -55))
 	await _shot("north_10_castle_near", o + Vector3(0, 18, -5), o + Vector3(0, 12, -55))
-	await _shot("north_11_wisp_near", o + Vector3(15, 11, 70), o + Vector3(4, 7, 54))
+	await _shot("north_11_wisp_near", o + Vector3(10, 8, 60), o + Vector3(4, 6.5, 54))
 	print("NORTHSHOT|DONE|", out_dir)
 	quit()
