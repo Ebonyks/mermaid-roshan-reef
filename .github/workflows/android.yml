@@ -74,12 +74,50 @@ jobs:
             echo "Missing ANDROID_DEBUG_KEYSTORE_BASE64 repository secret; refusing to rotate the app signing identity."
             exit 1
           fi
-          # tolerate whitespace/CR from pasting the secret; keytool below still
-          # validates keystore integrity, so a truly corrupt value cannot pass
-          printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" | tr -d ' \t\r\n' | base64 --decode > /tmp/debug.keystore \
-            || { echo "Secret is not valid base64 even after whitespace strip - re-save ANDROID_DEBUG_KEYSTORE_BASE64 from: base64 -w0 debug.keystore"; exit 1; }
-          keytool -list -v -keystore /tmp/debug.keystore -storepass android \
-            -alias androiddebugkey | grep -E "Alias name:|SHA256:"
+          # Normalize the pasted secret before decoding. Every build since the
+          # persistent-identity secret landed has died at 'base64: invalid
+          # input' even after whitespace stripping, so also repair the other
+          # common paste mutations: surrounding quotes, base64url alphabet
+          # (-_ for +/), and stripped '=' padding. keytool below still
+          # validates keystore integrity, so no repair can smuggle in a
+          # corrupt or wrong-identity keystore.
+          CLEAN=$(printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" \
+            | tr -d ' \t\r\n' \
+            | sed -e 's/^["'\'']*//' -e 's/["'\'']*$//' \
+            | tr -- '-_' '+/')
+          case $(( ${#CLEAN} % 4 )) in
+            2) CLEAN="${CLEAN}==" ;;
+            3) CLEAN="${CLEAN}=" ;;
+          esac
+          printf '%s' "$CLEAN" | base64 --decode > /tmp/debug.keystore 2>/dev/null \
+            || printf '%s' "$CLEAN" | base64 --decode --ignore-garbage > /tmp/debug.keystore 2>/dev/null \
+            || : > /tmp/debug.keystore
+          # If the decode produced base64 TEXT of a keystore (double-encoded
+          # secret), peel the second layer. JKS base64 starts '/u3+7Q',
+          # PKCS12 base64 starts 'MII' - real keystore bytes are not printable.
+          if head -c 6 /tmp/debug.keystore | grep -qE '^(/u3\+7Q|MII)'; then
+            base64 --decode < /tmp/debug.keystore > /tmp/debug.keystore.inner 2>/dev/null \
+              && mv /tmp/debug.keystore.inner /tmp/debug.keystore
+          fi
+          if ! keytool -list -v -keystore /tmp/debug.keystore -storepass android \
+              -alias androiddebugkey | grep -E "Alias name:|SHA256:"; then
+            # Diagnostics only - never echo any part of the secret itself.
+            RAW_LEN=${#ANDROID_DEBUG_KEYSTORE_BASE64}
+            BAD=$(printf '%s' "$CLEAN" | tr -d 'A-Za-z0-9+/=' | wc -c)
+            DEC=$(stat -c %s /tmp/debug.keystore 2>/dev/null || echo 0)
+            echo "::error::ANDROID_DEBUG_KEYSTORE_BASE64 does not decode to a valid keystore."
+            echo "Secret length: ${RAW_LEN} chars (after cleanup: ${#CLEAN}, remainder mod 4: $(( ${#CLEAN} % 4 )))"
+            echo "Characters outside the base64 alphabet after cleanup: ${BAD}"
+            echo "Decoded size: ${DEC} bytes (a debug keystore is roughly 2000-6000 bytes)"
+            case "$ANDROID_DEBUG_KEYSTORE_BASE64" in
+              *-----*)        echo "Hint: value looks PEM-armored (-----BEGIN...). Encode the raw .keystore file instead." ;;
+              [0-9A-Fa-f][0-9A-Fa-f]:*) echo "Hint: value looks like a certificate FINGERPRINT (AB:CD:...). The secret must be the keystore file's contents, not its fingerprint." ;;
+              /*|~*)          echo "Hint: value looks like a file PATH. The secret must be the file's base64-encoded CONTENTS." ;;
+            esac
+            echo "Re-save the secret with the exact output of:  base64 -w0 debug.keystore"
+            echo "(macOS: base64 -i debug.keystore | tr -d '\\n')  Settings > Secrets and variables > Actions > ANDROID_DEBUG_KEYSTORE_BASE64"
+            exit 1
+          fi
           mkdir -p "$HOME/.config/godot"
           cat > "$HOME/.config/godot/editor_settings-${GODOT_VERSION}.tres" <<EOF
           [gd_resource type="EditorSettings" format=3]
