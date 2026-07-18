@@ -1898,16 +1898,30 @@ func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: flo
 
 
 func _tick_aquatic(delta: float) -> void:
+	# NOTE: this keeps running inside the cutaway arenas/lagoon/castle — the
+	# reef creatures are never hidden there (the cutaways just sit hundreds of
+	# units below at ARENA_POS/LEVEL2_POS), so their patrols stay live. Only
+	# kart suspends the whole reef tick block upstream in _process.
 	var t: float = Time.get_ticks_msec() / 1000.0
+	var ceiling: float = WATER_TOP - 3.0
+	var frame: int = Engine.get_process_frames()
+	var idx: int = -1
 	for mv in aquatic_movers:
+		idx += 1
 		var node: Node3D = mv["node"]
 		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
 		var rad: float = float(mv["rad"])
 		var px: float = cos(ang) * rad
 		var pz: float = sin(ang) * rad
 		var desired_y: float = float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0
-		var pos := Vector3(px, _aquatic_patrol_height(px, pz, desired_y,
-			float(mv.get("clearance", 3.0))), pz)
+		# perf (Helio G88): seabed_y costs ~12 sin/sqrt per call — too hot for
+		# every mover every frame. Cache each mover's clamp floor ("_cy") and
+		# refresh it every 8th frame, staggered by loop index so the movers
+		# don't all recompute on the same frame. Movement itself stays
+		# per-frame smooth — only the terrain floor under the bob is cadenced.
+		if not mv.has("_cy") or (frame + idx) % 8 == 0:
+			mv["_cy"] = minf(seabed_y(px, pz) + float(mv.get("clearance", 3.0)), ceiling)
+		var pos := Vector3(px, clampf(desired_y, float(mv["_cy"]), ceiling), pz)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
 		if mv.has("rig"):
