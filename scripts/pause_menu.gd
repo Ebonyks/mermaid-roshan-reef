@@ -155,6 +155,8 @@ func _leave_current_activity() -> void:
 		m.treasure_cool = 14.0
 	elif leaving_name == "Penguin Slide":
 		m.slide_cool = 14.0
+	elif leaving_name == "Toy Castle":
+		m.brawl_cool = 14.0
 	m._clear_game()
 	m._write_save()
 	if leaving_game == "fairyshoot" and m.fairy_from_galaxy:

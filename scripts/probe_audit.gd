@@ -101,6 +101,22 @@ func _init() -> void:
 		print("AUDIT|Secret Cave [treasure]: ", ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
 	else:
 		print("AUDIT|Secret Cave [treasure]: DID NOT START")
+	# --- toy castle brawler (two heroes: Roshan + AI Huluu) ---
+	main.brawl_cool = 0.0
+	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
+	player.vel = Vector3.ZERO
+	var bwait := 0
+	while main.game == "" and bwait < 900:
+		bwait += 1
+		player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
+		player.vel = Vector3.ZERO
+		await process_frame
+	if main.game == "brawl":
+		var okb := await _drive_game("brawl", main.brawl_fr)
+		main.touch_ui.action_down = false
+		print("AUDIT|Toy Castle [brawl]: ", ("WON co-op" if okb else "FAILED/TIMEOUT"))
+	else:
+		print("AUDIT|Toy Castle [brawl]: DID NOT START")
 	# --- beans consumable (current shop API) ---
 	main.pearl_count = 5
 	main._shop_buy("beans")
@@ -324,6 +340,30 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.player.global_position.x) / 3.6, -1.0, 1.0), 0.0)
 			else:
 				main.touch_ui.stick_vec = Vector2(0.3, 0.0)   # keep the hand 'live' between spawns
+		elif gname == "brawl":
+			# walk the plane to the nearest live imp (stick x AND depth y),
+			# pulse fresh tap edges inside pop range — Huluu's AI stuns are
+			# assists only, so the win must come from these taps
+			var imps: Array = g.get("enemies", [])
+			var btarget: Node3D = null
+			var bbest := 1e9
+			for e in imps:
+				var en: Node3D = (e as Dictionary).get("node") as Node3D
+				if en == null or not is_instance_valid(en):
+					continue
+				var bd: float = Vector2(en.global_position.x - main.player.global_position.x,
+					en.global_position.z - main.player.global_position.z).length()
+				if bd < bbest:
+					bbest = bd
+					btarget = en
+			if btarget != null:
+				var bdx: float = btarget.global_position.x - main.player.global_position.x
+				var bdz: float = btarget.global_position.z - main.player.global_position.z
+				main.touch_ui.stick_vec = Vector2(clampf(bdx / 3.6, -1.0, 1.0), clampf(bdz / 3.6, -1.0, 1.0))
+				main.touch_ui.action_down = bbest < 5.0 and fcount % 14 < 7
+			else:
+				main.touch_ui.stick_vec = Vector2(0.5, 0.0)   # walk to the next gate
+				main.touch_ui.action_down = false
 		elif gname == "seek":
 			if g.has("bushes") and g.has("which"):
 				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]

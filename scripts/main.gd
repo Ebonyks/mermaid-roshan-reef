@@ -342,6 +342,9 @@ var peng_pal_cool := 0.0             # pal's cheer/giggle cooldown
 var peng_pal_cheer_t := -1.0         # while >0 the cheer clip owns the pal
 var peng_pal_greeted := false        # one-time "I'm coming too!" message per session
 var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
+var brawl_fr := {"fname": "Toy Castle", "game": "brawl", "won": true, "cool": 0.0}
+var brawl_portal_pos := Vector3.ZERO
+var brawl_cool := 0.0
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
@@ -594,6 +597,7 @@ func _ready() -> void:
 		add_child(dev_mode)
 	_build_guide()
 	_build_slide_portal()
+	_build_brawl_portal()
 	_build_pause()
 	_load_save()
 	_collection_ref().build()
@@ -2700,6 +2704,9 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 
 func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
+
+func _tick_brawl(delta: float, fr: Dictionary, ppos: Vector3) -> void:
+	_game_obj("brawl", BrawlGame)._tick_brawl(delta, fr, ppos)
 
 func _seek_hide() -> void:
 	_game_obj("seek", SeekGame)._seek_hide()
@@ -4920,6 +4927,7 @@ func _tick_hints(delta: float) -> void:
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
+	_game_obj("brawl", BrawlGame).stage_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -4938,6 +4946,7 @@ func _fail_line() -> String:
 	match game:
 		"fetch":      return "Aww... now Chuck is all wet!"
 		"dolls":      return "Oh no, the babies!"
+		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
 		"seek":       return "Where did Lamb-a' go?"
 		"melody":     return "Oh no, the colors!"
 		"treasure":   return "Aww, the treasure slipped back into the dark!"
@@ -5111,6 +5120,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		shop_cool = 16.0
 	elif String(fr["fname"]) == "Penguin Slide":
 		slide_cool = 14.0
+	elif String(fr["fname"]) == "Toy Castle":
+		brawl_cool = 14.0
 	elif String(fr["fname"]) == "Fairy Pond":
 		# quick retry after a boss fail — a 12s wait outside the pond was pure
 		# friction for a kid who wants straight back in
@@ -5285,6 +5296,8 @@ func _start_game(fr: Dictionary) -> void:
 		_game_obj("fetch", FetchGame).build(fr, origin)
 	elif game == "dolls":
 		_game_obj("dolls", DollsGame).build(fr, origin)
+	elif game == "brawl":
+		_game_obj("brawl", BrawlGame).build(fr, origin)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).build(fr, origin)
 	elif game == "race":
@@ -5333,6 +5346,50 @@ func _build_slide_portal() -> void:
 		_play_clip(peng, "idle")
 	if peng != null:
 		slide_portal_penguin = peng
+
+func _build_brawl_portal() -> void:
+	# Princess Huluu waits by her toy castle on the seabed — swim up to start
+	# the two-hero TOY CASTLE brawler (scripts/games/brawl.gd)
+	var bx := -98.0
+	var bz := 72.0
+	brawl_portal_pos = Vector3(bx, seabed_y(bx, bz) + 4.0, bz)
+	var castle := Node3D.new()
+	castle.position = brawl_portal_pos + Vector3(0, -3.2, -5.0)
+	add_child(castle)
+	var keep := MeshInstance3D.new()
+	var km := BoxMesh.new()
+	km.size = Vector3(7.0, 6.0, 5.0)
+	keep.mesh = km
+	keep.position = Vector3(0, 3.0, 0)
+	keep.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
+	castle.add_child(keep)
+	for tx in [-4.2, 4.2]:
+		var tower := MeshInstance3D.new()
+		var tm := CylinderMesh.new()
+		tm.top_radius = 1.5
+		tm.bottom_radius = 1.7
+		tm.height = 8.0
+		tower.mesh = tm
+		tower.position = Vector3(float(tx), 4.0, 0)
+		tower.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
+		castle.add_child(tower)
+		var roof := MeshInstance3D.new()
+		var rm := CylinderMesh.new()
+		rm.top_radius = 0.05
+		rm.bottom_radius = 1.9
+		rm.height = 2.6
+		roof.mesh = rm
+		roof.position = Vector3(float(tx), 9.2, 0)
+		roof.material_override = _soft_mat(Color(0.78, 0.55, 0.75), 0.16)
+		castle.add_child(roof)
+	var hu := Sprite3D.new()
+	hu.texture = load("res://assets/characters/friends/huluu.png")
+	hu.pixel_size = 5.5 / maxf(1.0, float(hu.texture.get_height()))
+	hu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	hu.shaded = false
+	hu.position = brawl_portal_pos + Vector3(3.2, 0.4, 3.0)
+	add_child(hu)
+	_halo(brawl_portal_pos + Vector3(0, 0.6, 0), Color(1.0, 0.8, 0.95), 10.0)
 	_halo(slide_portal_pos + Vector3(0, 3, 0), Color(0.6, 0.9, 1.0), 15.0)
 	var l := OmniLight3D.new()
 	l.light_color = Color(0.7, 0.9, 1.0); l.light_energy = 2.2; l.omni_range = 24.0
@@ -5356,6 +5413,8 @@ func _tick_game(delta: float) -> void:
 		_tick_fetch(delta, fr, ppos)
 	elif game == "dolls":
 		_tick_dolls(delta, fr, ppos)
+	elif game == "brawl":
+		_tick_brawl(delta, fr, ppos)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
 	elif game == "race" or game == "treasure":
@@ -5663,6 +5722,7 @@ func _process(delta: float) -> void:
 	shop_cool = maxf(0.0, shop_cool - delta)
 	treasure_cool = maxf(0.0, treasure_cool - delta)
 	slide_cool = maxf(0.0, slide_cool - delta)
+	brawl_cool = maxf(0.0, brawl_cool - delta)
 	kart_cool = maxf(0.0, kart_cool - delta)
 	if game == "" and finale_t < 0.0:
 		if manta != null and shop_cool <= 0.0:
@@ -5689,6 +5749,9 @@ func _process(delta: float) -> void:
 		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
 			slide_cool = 14.0
 			_start_game(slide_fr)
+		if brawl_cool <= 0.0 and brawl_portal_pos != Vector3.ZERO and brawl_portal_pos.distance_to(ppos) < 13.0:
+			brawl_cool = 14.0
+			_start_game(brawl_fr)
 		if kart_portal_pos != Vector3.ZERO:
 			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
 			var ky: float = absf(kart_portal_pos.y - ppos.y)
@@ -6667,6 +6730,13 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
 		arena_env.ambient_light_energy = 0.7
 		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
+	elif kind == "brawl":        # toy castle courtyard, warm afternoon
+		grade_profile = "warm_pastel"
+		arena_env.background_color = Color(0.62, 0.72, 0.92)
+		arena_env.ambient_light_color = Color(0.96, 0.88, 0.78)
+		arena_env.ambient_light_energy = 0.62
+		arena_env.glow_bloom = 0.06
+		_arena_floor(Color(0.84, 0.76, 0.68), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.07)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
 		arena_env.background_color = Color(0.30, 0.58, 0.78)

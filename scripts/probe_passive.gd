@@ -81,6 +81,8 @@ func _init() -> void:
 	bad += slide_bad
 	var fairy_bad: int = await _probe_fairy_agency()
 	bad += fairy_bad
+	var brawl_bad: int = await _probe_brawl_agency()
+	bad += brawl_bad
 	print("PASSIVE|result: ", ("ALL OK" if bad == 0 else "%d game(s) FAILED" % bad))
 	quit()
 
@@ -106,6 +108,28 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and main.stickers == before["stickers"] \
 		and main.shop_owned == before["shop"] \
 		and main.animals_owned == before["animals"]
+
+func _probe_brawl_agency() -> int:
+	# The brawler ships with an AI partner (Huluu) who fights on her own —
+	# the sharpest agency risk in the game. Assert the invariant: Huluu only
+	# STUNS; with zero player input no imp ever pops, no wave ever clears.
+	if main.game != "":
+		main._leave_current_activity()   # the fairy agency test leaves its game open
+		await _frames(2)
+	main.brawl_cool = 0.0
+	main.touch_ui.stick_vec = Vector2.ZERO
+	main.touch_ui.action_down = false
+	main._start_game(main.brawl_fr)
+	var before: Dictionary = _progress_snapshot()
+	await _frames(600)
+	var enemies_left: int = (main.g.get("enemies", []) as Array).size()
+	var idle_ok: bool = main.game == "brawl" and int(main.g.get("seg", 0)) == 0 \
+		and int(main.g.get("bops", 0)) == 0 and enemies_left > 0 and _progress_unchanged(before)
+	main._leave_current_activity()
+	await _frames(2)
+	var leave_ok: bool = main.game == ""
+	print("PASSIVE|Toy Castle agency: ", ("OK Huluu stuns, only Roshan's tap pops" if idle_ok and leave_ok else "FAIL idle=%s leave=%s" % [idle_ok, leave_ok]))
+	return 0 if idle_ok and leave_ok else 1
 
 func _probe_shop_agency() -> int:
 	main.beans_t = -1.0

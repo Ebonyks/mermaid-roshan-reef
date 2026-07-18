@@ -19,8 +19,9 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
   scripts/arena/courtyard_train.gd,
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
-  picture_games,side_scroll}.gd (side_scroll = the shared 2.5D stage
-  engine — see MINIGAME_ENGINES.md)
+  picture_games,side_scroll,brawl}.gd (side_scroll = the shared 2.5D stage
+  engine, brawl = the co-op toy-castle brawler on it — see
+  MINIGAME_ENGINES.md)
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
