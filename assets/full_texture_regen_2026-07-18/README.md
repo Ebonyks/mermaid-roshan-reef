@@ -9,7 +9,9 @@ current playable branch.
 
 - Audited roles: **88**
 - Generated/rebuilt roles: **85**
-- Candidate files: **167** (`137` GLB models and `30` PNG textures)
+- Reviewed candidate files: **167** (`137` GLB models and `30` PNG textures)
+- Development additions: **1** unscored PNG texture, the calmer R044
+  mass-placement meadow base requested in the iteration-2 art critique
 - Northern Kingdom: **included**, with `17` candidates
 - Structural stress: **pass**
 - Full-size gallery review: **pass at 4/5 candidate threshold**
@@ -23,8 +25,10 @@ at 4/5 until the owner accepts them.
 ## Directory Map
 
 - `models/` - 137 texture-free GLBs with embedded matte palette materials
-- `textures/` - 30 normalized PNG candidates, no side over 1024 px
-- `source_generations/accepted/` - 28 original image-generation outputs
+- `textures/` - 30 reviewed PNG candidates plus one unscored development
+  texture, with no side over 1024 px
+- `source_generations/accepted/` - 28 reviewed image-generation outputs plus
+  the raw source for the unscored R044 calm-ground development variant
 - `source_generations/rejected/` - rejected attempts retained with the reason in the filename
 - `manifest.json` - hashes, role mappings, counts, exclusions, and source records
 - `../../assets_src/blender/full_texture_regen_2026-07-18/` - editable Blender source and model manifest
@@ -46,9 +50,10 @@ No file under `assets/book/`, `assets/audio/voices/`, or
 
 ## Functional Pairing Rules
 
-- `R044` Butterfly World ground supplies three seam-safe variants. Wrap once per
-  authored planet patch or randomize variants between patches. Never repeat one
-  variant as a visible grid.
+- `R044` Butterfly World ground supplies three warm feature-patch variants and
+  one cooler, low-flower, seam-safe development base for mass placement. Wrap
+  once per authored planet patch or randomize feature variants between sparse
+  patches. Never repeat one feature variant as a visible grid.
 - `R045` and `R046` are different gates. The first is the home gate; the second
   is the inter-world gate. `R047` presents both identities during transition.
 - `R075` is the empty Christmas tree used before completion.
@@ -67,3 +72,8 @@ role ledger and `candidate_asset_review.csv` for every candidate file. Contact
 sheets include full-size, repeated-tile, and 112 px phone-scale views. The pack
 is ready for owner review and selective integration, not automatic wholesale
 replacement.
+
+The calm R044 development texture is intentionally excluded from those prior
+scores and ledgers. Its prompt and provenance are recorded in `PROMPTS.md`; it
+is ready for the Fable 5 co-constructor to review and wire, not for automatic
+promotion.
