@@ -5,10 +5,14 @@ exist — the visual roles still built from engine primitives, photo-derived
 tiles, or flat fills in code — and names the authored asset that would close
 each gap. Line references are current master.
 
-Governance reminder: on the repo scale, 5/5 is reserved for book-source art or
-owner-validated exceptional assets. "5/5 aesthetics" for a stage therefore
-means every visible role at 4+, with the protected book art featured as
-anchors. The lists below are ordered by aesthetic lift per stage.
+Governance (amended 2026-07-18, owner decision — see
+`ART_SCORING_GOVERNANCE_2026-07-18.md`): 5/5 means an asset survived the full
+stress-test loop (near/mid/gameplay-distance Mobile captures with rejection
+iterations) and was accepted by the owner. Book fidelity no longer grants an
+automatic 5/5; book-derived characters and story objects follow their own
+Meshy image-to-3D workflow rather than the Blender world-asset pipeline.
+"5/5 aesthetics" for a stage means every visible role clears that loop. The
+lists below are ordered by aesthetic lift per stage.
 
 ## Quick wins — assets that already exist, zero modeling required
 
@@ -24,10 +28,11 @@ anchors. The lists below are ordered by aesthetic lift per stage.
 4. `assets/galaxy/crystal1-3.glb` — kart rainbow-track "crystals" are flat
    emissive boxes (kart.gd:1059); authored crystals already ship in the
    Butterfly World variant.
-5. **The book art itself**: the castle gallery doorway exists but portraits
-   were removed (castle_hall.gd:70-75). Re-hanging the protected story
-   portraits/family art is the only change in this document that adds literal
-   5/5 assets to a stage.
+5. **The empty gallery**: the castle gallery doorway exists but portraits
+   were removed (castle_hall.gd:70-75). Re-hanging story portraits/family art
+   is a pure recognition win for the player; under the amended governance the
+   frames/presentation are scored like any other asset, and the portraits may
+   be original cutouts or Meshy-derived pieces.
 6. Cleanup: the four orphaned fairy GLBs, six superseded `art35/northern`
    GLBs, and the two retired photoreal HDRs (`assets/sky/lagoon_*_2k.hdr`,
    scored 2/5 and deliberately unwired — do NOT re-wire; delete or replace
