@@ -55,8 +55,9 @@ func _init() -> void:
 	var wrong: int = (int(order[0]) + 1) % 3
 	act._act_action(wrong)
 	_ck("wrong cake layer is gentle (no fail, no step)", act.state == "play" and act.step == 0)
-	_drive_order(act, order)
-	_ck("finishing the recipe wins act one", act.state == "won")
+	_ck("a mistake summons the rescue arrow", act.progress_t >= act.RESCUE_DELAY)
+	await _drive_order(act, first_cfg)
+	_ck("cake show ends in a win", act.state == "won")
 	act.win_t = 0.0
 	await _wait_for_act(opera, 1)
 	_ck("act one clear saves a checkpoint", main.opera_progress == 1)
@@ -74,7 +75,7 @@ func _init() -> void:
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
 		match String(cfg2["kind"]):
 			"order":
-				_drive_order(act, cfg2["order"])
+				await _drive_order(act, cfg2)
 			"echo":
 				await _drive_echo(act)
 			"shuffle":
@@ -108,12 +109,35 @@ func _init() -> void:
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
-func _drive_order(act: OperaAct, order: Array) -> void:
+func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
+	var order: Array = cfg["order"]
+	var flow := String(cfg.get("flow", "deliver"))
+	var hidden := bool(cfg.get("hide_props", false))
+	if flow == "carry_paint":
+		for choice in order:
+			var idx := int(choice)
+			act.player_pos = (act.pads[idx]["pos"] as Vector3)
+			act._act_action(idx)
+			_ck("pot %d loads the brush" % idx, act.brush_loaded == idx)
+			act.player_pos = act.canvas_pos
+			act._paint_touch()
+			_ck("canvas swipe paints with pot %d" % idx, act.brush_loaded == -1)
+		return
 	for choice in order:
-		var idx := int(choice)
-		act.player_pos = (act.pads[idx]["pos"] as Vector3)
-		_ck("order pad %d reachable by proximity" % idx, act._nearest_pad() == idx)
-		act._act_action(idx)
+		var idx2 := int(choice)
+		act.player_pos = (act.pads[idx2]["pos"] as Vector3)
+		if hidden:
+			for i in range(6):
+				await process_frame
+			_ck("clue %d pops out when Roshan is near" % idx2, bool(act.pads[idx2]["revealed"]))
+		_ck("order pad %d reachable by proximity" % idx2, act._nearest_pad() == idx2)
+		act._act_action(idx2)
+	if String(cfg.get("finale", "")) == "stir":
+		_ck("three layers open the stirring finale", act.order_phase == "stir" and act.state == "play")
+		act.player_pos = act.goal.position
+		for s in range(3):
+			act._stir_action()
+		_ck("three stirs finish the cake", act.state == "won")
 
 func _drive_echo(act: OperaAct) -> void:
 	var guard := 0
@@ -190,15 +214,15 @@ func _drive_press(act: OperaAct) -> void:
 	_ck("three smiley candies finish the show", act.candies_done == 3)
 
 func _drive_doctor(act: OperaAct) -> void:
-	_ck("checkup has four one-touch steps", act.doc_targets.size() == 4)
+	_ck("checkup has five one-touch steps", act.doc_targets.size() == 5)
 	act._doctor_action(3)
 	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
-	for s in range(4):
+	for s in range(5):
 		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
 		act.player_pos = reach
 		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
 		act._doctor_action(act.doc_step)
-	_ck("four tended steps heal the plushy", act.state == "won")
+	_ck("five tended steps heal the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
 	_ck("meadow has five hungry piggies", act.piggies.size() == 5)
@@ -258,6 +282,7 @@ func _drive_boss(act: OperaAct, dual: bool) -> void:
 			act._hit_boss()
 	else:
 		_ck("dragon opens hiding in the curtains", String(act.boss["phase"]) == "hide" and act.action_label() == "SPARKLE")
+		_ck("dragon roams three curtain spots", act.peek_spots.size() == 3)
 		act._hit_boss()
 		_ck("sparkles fizzle while he hides", int(act.boss["hp"]) == hp)
 		var guard := 0
