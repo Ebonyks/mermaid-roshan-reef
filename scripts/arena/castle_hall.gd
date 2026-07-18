@@ -368,7 +368,7 @@ func build(o: Vector3) -> void:
 	m.g["stand_label"] = slab
 	# (the royal loo lives down in the basement wing — see build_basement_wing)
 	# just TWO framed memories on the side walls (fewer pictures)
-	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see _build_castle_music_room)
+	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see build_music_room)
 	# (the crafting easel now lives in its own dedicated CRAFT ROOM down in the
 	# basement wing — see build_basement_wing; the hall keeps the reading nook)
 	# The Crown Star is authored landmark geometry rather than a font glyph.
