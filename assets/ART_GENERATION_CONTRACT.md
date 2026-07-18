@@ -5,6 +5,11 @@ This file is self-contained; authoritative long-form sources are
 `ART_STYLE_GUIDE.md`, `ART_SCORING_GOVERNANCE_2026-07-18.md`, and
 `ART_GAP_WORKORDER_2026-07-18.md` at the repo root.
 
+**Active work order:** if you are iterating on the full-texture-regen
+candidate pack, `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` at the repo root is
+the current prioritized directive list (P0 QA fixes → P1 promotion → P2
+rework → P3 coverage). Close P0 before generating anything new.
+
 ## Scoring standard (owner decision 2026-07-18)
 
 - **5/5** = the asset survived the stress-test loop AND the owner accepted
