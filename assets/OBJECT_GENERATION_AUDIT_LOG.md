@@ -185,6 +185,30 @@ Most frequent failures:
 - Rejected as visual reference: all Zelda-specific appearance and iconography.
 - Carried forward: R-ROLE1, R-FUNC1, R-FUNC2.
 
+### A11 - Pearl Castle architecture and Royal Loo implementation audit
+
+- Source and commit: `CASTLE_PEARL_ART_AUDIT_2026-07-18.md`; branch
+  `codex/castle-rainbow-shell-5of5`.
+- Scope: Grand Hall architecture, ceremonial motifs, visible upper gallery,
+  Cloud Lounge seating, and toilet side-view construction.
+- Evidence class: E2 export measurements plus isolated Blender renders;
+  runtime Mobile captures are required before promotion to E3.
+- Findings independently verified: generic cylinders, box rails, torus lights,
+  flat banners, raw rainbow gate, and box cushions were still visible blockout
+  language; the toilet lacked a continuous rear skirt and convincing S-trap.
+- Findings accepted: shells should express joints, capitals, bowls, keystones,
+  and water transitions; rainbows should mark ceremony and wayfinding rather
+  than decorate every prop.
+- Findings accepted as proposals only: all fifteen kit members are 5/5 targets,
+  but remain structural/isolated candidates until fixed Mobile captures and
+  owner review.
+- Findings rejected: motif count, pastel harmony, or successful export alone
+  cannot establish a 5/5 score.
+- New rules: R-MOT4 and R-GEO5.
+- Required tests: one-mesh/triangle/static-node GLB audit, live placement count,
+  fixed hall/throne/entrance/gallery/lounge captures, route and light-budget
+  preservation, and a toilet side-view render.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -240,6 +264,9 @@ These rule IDs are stable. Reference them in manifests and review notes.
 - **R-MOT3 - Encode meaning redundantly.** Important state uses silhouette,
   orientation, scale, motion, and value in addition to color. This is required
   for elemental objects, locks, keys, clues, and completed puzzle pieces.
+- **R-MOT4 - Attach motifs to function.** Shells, rainbows, stars, and other
+  branded forms belong at meaningful joints, thresholds, focal points, or
+  state cues. Repeating them as stickers on every surface weakens place identity.
 - **R-GEO1 - Read as a black silhouette.** Test at full frame and 112 px.
   Locomotives need unmistakable locomotive cues; butterflies need complete
   anatomy; plants need their actual growth habit.
@@ -252,6 +279,10 @@ These rule IDs are stable. Reference them in manifests and review notes.
 - **R-GEO4 - Plants are volumes.** Kelp and seagrass use overlapping, twisted,
   thickness-bearing clumps. Better-painted cards do not resolve a card-mass
   audit failure.
+- **R-GEO5 - Audit functional assemblies from all useful views.** Plumbing,
+  seating, hinges, vehicles, doors, and tools must preserve their structural
+  connections in front, side, and gameplay views. A readable front icon does
+  not excuse a missing rear body, support, joint, or mechanism.
 - **R-MAT1 - Material identity precedes palette harmony.** Wood, metal, stone,
   leaf, snow, cloth, glass, and shell must remain distinguishable through
   value, roughness, shape transitions, and restrained local color.
@@ -458,6 +489,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v2:** Added the Pearl Castle and Royal Loo implementation audit,
+  role-based motif hierarchy, multi-view functional-assembly rule, measured
+  export contracts, and the pending Mobile/owner acceptance boundary.
 - **2026-07-18-v1:** Integrated the Claude GEN-2 corpus, human runtime audits,
   placement audit, non-5 critique, independent implementation review, Codex
   iteration-2 directives, revised generation contract, Jolt/feel audit,

@@ -2,6 +2,7 @@ class_name CastleHall
 extends RefCounted
 
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const PEARL_KIT := "res://assets/castle/pearl_kit/"
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
@@ -44,6 +45,12 @@ func _static_prop(path: String, pos: Vector3, materials: Dictionary, yaw_degrees
 	m.game_nodes.append(prop)
 	return prop
 
+func _pearl(asset_name: String, pos: Vector3, yaw_degrees: float = 0.0) -> Node3D:
+	var prop: Node3D = _static_prop(PEARL_KIT + asset_name + ".glb", pos, {}, yaw_degrees, true)
+	if prop != null:
+		prop.set_meta("pearl_castle_asset", asset_name)
+	return prop
+
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
 	# Quiet lavender stone floor: broad value shapes keep the long hall legible
@@ -83,7 +90,6 @@ func build(o: Vector3) -> void:
 	#   lower  y 0..33  — downstairs wall with the music/bedroom doorway (z -21..-11)
 	#   upper  y 33..49 — arcade: arches at z -21..-11, -1..9 and 19..29
 	#   crown  y 49..52 — solid band up to the ceiling
-	var bal_gold := Color(0.95, 0.8, 0.35)
 	for sgn in [-1.0, 1.0]:
 		var sx: float = sgn * 35.0
 		m._iwall(o + Vector3(sx, 16.5, 17.5), Vector3(1.5, 33, 57), scol, "castle")   # lower front (z -11..46)
@@ -94,11 +100,9 @@ func build(o: Vector3) -> void:
 		m._iwall(o + Vector3(sx, 41, 14), Vector3(1.5, 16, 10), scol, "castle")       # arcade pier (z 9..19)
 		m._iwall(o + Vector3(sx, 41, 37.5), Vector3(1.5, 16, 17.5), scol, "castle")   # arcade pier (z 29..46)
 		m._iwall(o + Vector3(sx, 50.5, 6), Vector3(1.5, 3, 80), scol, "castle")       # crown band (y 49..52)
-		# gold balustrade across each arch so the openings read as balconies
+		# Authored shell balustrades make each opening read as a royal balcony.
 		for az in [-16.0, 4.0, 24.0]:
-			m._l2_box(o + Vector3(sx, 34.6, az), Vector3(0.5, 0.5, 9.0), bal_gold, 0.2)
-			for pz in [-3.0, 0.0, 3.0]:
-				m._l2_box(o + Vector3(sx, 33.9, az + pz), Vector3(0.4, 1.6, 0.4), bal_gold, 0.15)
+			_pearl("pearl_balustrade", o + Vector3(sx, 33.1, az), 90.0)
 	# Projecting bases and cornices give the enormous walls a readable scale and
 	# keep floor/wall/ceiling transitions from looking like intersecting slabs.
 	for trim_side: float in [-1.0, 1.0]:
@@ -106,19 +110,18 @@ func build(o: Vector3) -> void:
 		m._l2_box(o + Vector3(trim_side * 34.1, 49.2, 6), Vector3(1.1, 2.0, 78), Color(0.66, 0.52, 0.36))
 	m._l2_box(o + Vector3(0, 1.3, -33.1), Vector3(68, 2.6, 1.1), Color(0.42, 0.38, 0.58))
 	m._l2_box(o + Vector3(0, 51, 6), Vector3(70, 1.5, 80), Color(0.58, 0.54, 0.66))      # ceiling (no collider; the hall zone caps height)
-	# regal stained-glass panels behind the throne (the Mermaid Roshan glass now lives
-	# on the castle's FRONT exterior — this is a plain coloured rose window for Huluu)
-	m._panel_glass(o + Vector3(0, 23, -33.0), Vector3(0, 0, 0), 17.0, 24.0)
-	# Dark plum stage piers and a shallow canopy isolate the throne from the wall
-	# texture. The window becomes a backdrop rather than the brightest whole wall.
-	for stage_side: float in [-1.0, 1.0]:
-		m._l2_box(o + Vector3(stage_side * 10.0, 20.0, -32.0), Vector3(2.0, 29.0, 2.2), Color(0.30, 0.24, 0.46))
-		var stage_hood: MeshInstance3D = m._l2_box(o + Vector3(stage_side * 5.2, 35.0, -32.0), Vector3(1.8, 13.0, 2.2), Color(0.72, 0.55, 0.28))
-		stage_hood.rotation_degrees.z = stage_side * 52.0
+	# Rainbow is reserved for the ceremonial focal wall: broad stained-glass
+	# bands sit inside a pearl-and-shell canopy rather than washing every wall.
+	var throne_window: Node3D = _pearl("pearl_rainbow_window", o + Vector3(0, 14.7, -32.8))
+	if throne_window != null:
+		throne_window.scale = Vector3(1.30, 1.55, 1.0)
+	_pearl("pearl_throne_canopy", o + Vector3(0, 14.0, -31.7))
 	# royal red-carpet staircase up to the throne dais
 	for st in range(7):
 		var stair: MeshInstance3D = m._l2_box(o + Vector3(0, 1.5 + float(st) * 2.0, -10.0 - float(st) * 2.2), Vector3(16.0 - float(st) * 0.6, 2.0, 3.0), Color(0.72, 0.16, 0.24))
 		stair.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
+	_pearl("pearl_stair_rail", o + Vector3(-7.8, 1.0, -9.7))
+	_pearl("pearl_stair_rail", o + Vector3(7.8, 1.0, -9.7))
 	# throne dais
 	var dais: MeshInstance3D = m._l2_box(o + Vector3(0, 15.0, -27.0), Vector3(14, 2.0, 6), Color(0.72, 0.16, 0.24))
 	dais.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
@@ -160,23 +163,8 @@ func build(o: Vector3) -> void:
 	# ---------- columns line the hall ----------
 	for cz in [-24.0, -8.0, 8.0, 24.0]:
 		for cx in [-28.0, 28.0]:
-			var col := MeshInstance3D.new()
-			var colm := CylinderMesh.new()
-			colm.top_radius = 2.2
-			colm.bottom_radius = 2.6
-			colm.height = 34.0
-			col.mesh = colm
-			var clmat := StandardMaterial3D.new()
-			clmat.albedo_color = Color(0.68, 0.64, 0.78)
-			clmat.roughness = 0.72
-			col.material_override = clmat
-			col.position = o + Vector3(cx, 17.0, cz)
-			m.add_child(col)
-			m.game_nodes.append(col)
-			m._cyl_solid(col.position, 2.6, 17.0)   # pillars are solid — Roshan slides around them
-			# gold capital + base
-			m._l2_box(o + Vector3(cx, 33.6, cz), Vector3(6, 1.4, 6), Color(0.95, 0.8, 0.4), 0.2)
-			m._l2_box(o + Vector3(cx, 1.0, cz), Vector3(6, 2.0, 6), Color(0.9, 0.85, 0.7))
+			_pearl("pearl_column", o + Vector3(cx, 0.5, cz))
+			m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0)
 			# warm sconce glow at each column
 			var sc := OmniLight3D.new()
 			sc.light_color = Color(1.0, 0.78, 0.5)
@@ -186,36 +174,12 @@ func build(o: Vector3) -> void:
 			m.add_child(sc)
 			m.game_nodes.append(sc)
 			m._register_castle_light(sc, false)
-			var flame := MeshInstance3D.new()
-			var fl := SphereMesh.new()
-			fl.radius = 0.7
-			fl.height = 1.4
-			flame.mesh = fl
-			var flm := StandardMaterial3D.new()
-			flm.emission_enabled = true
-			flm.emission = Color(1.0, 0.7, 0.35)
-			flm.emission_energy_multiplier = 4.0
-			flame.material_override = flm
-			flame.position = sc.position
-			m.add_child(flame)
-			m.game_nodes.append(flame)
+			_pearl("pearl_shell_sconce", sc.position, -90.0 * sign(cx))
 	# ---------- tapestries between the columns ----------
-	var tcols := [Color(0.46, 0.18, 0.30), Color(0.24, 0.30, 0.52)]
 	for ti in range(3):
 		for sgn in [-1.0, 1.0]:
-			var tap := MeshInstance3D.new()
-			var tq := QuadMesh.new()
-			tq.size = Vector2(6.0, 13.0)
-			tap.mesh = tq
-			var tm2 := StandardMaterial3D.new()
-			tm2.albedo_color = tcols[ti % tcols.size()]
-			tm2.roughness = 1.0
-			tm2.cull_mode = BaseMaterial3D.CULL_DISABLED
-			tap.material_override = tm2
-			tap.position = o + Vector3(sgn * 34.0, 20.0, -20.0 + float(ti) * 24.0)
-			tap.rotation_degrees = Vector3(0, -90.0 * sgn, 0)
-			m.add_child(tap)
-			m.game_nodes.append(tap)
+			var banner_name: String = "pearl_shell_banner_a" if ti % 2 == 0 else "pearl_shell_banner_b"
+			_pearl(banner_name, o + Vector3(sgn * 33.8, 13.4, -20.0 + float(ti) * 24.0), -90.0 * sgn)
 	# ---------- Phase 4c: a lived-in reading nook (Quaternius furniture, CC0) ----------
 	# light touch only — the hall keeps its bespoke throne/stairs/columns. A tall
 	# bookcase against the left wall bay and a little tea table with two chairs
@@ -230,38 +194,16 @@ func build(o: Vector3) -> void:
 	# (Roshan wall-art portraits removed from the Grand Hall — inconsistent with how the games work here)
 	# ---------- potted plants flank the throne + entrance ----------
 	for pp in [Vector3(-9, 1.0, -22), Vector3(9, 1.0, -22), Vector3(-7, 1.0, 36), Vector3(7, 1.0, 36)]:
-		var pot := MeshInstance3D.new()
-		var potm := CylinderMesh.new()
-		potm.top_radius = 1.6
-		potm.bottom_radius = 1.2
-		potm.height = 2.4
-		pot.mesh = potm
-		var ptm := StandardMaterial3D.new()
-		ptm.albedo_color = Color(0.7, 0.4, 0.3)
-		ptm.roughness = 0.7
-		pot.material_override = ptm
-		pot.position = o + pp + Vector3(0, 0.5, 0)
-		m.add_child(pot)
-		m.game_nodes.append(pot)
-		m._nature("plant_bushLargeTriangle", o + pp + Vector3(0, 1.6, 0), 3.0, randf() * TAU)
+		_pearl("pearl_shell_planter", o + Vector3(pp.x, 0.5, pp.z), randf() * 360.0)
+	# Furnish the broad entrance bays without narrowing the one-finger route.
+	_pearl("pearl_shell_bench", o + Vector3(-20.0, 0.5, 36.0), 180.0)
+	_pearl("pearl_shell_bench", o + Vector3(20.0, 0.5, 36.0), 180.0)
+	for fountain_x in [-18.0, 18.0]:
+		_pearl("pearl_shell_fountain", o + Vector3(fountain_x, 0.5, 14.0))
+		m._cyl_solid(o + Vector3(fountain_x, 4.0, 14.0), 2.85, 3.5, 0.5)
 	# ---------- hanging chandeliers (mesh + light) ----------
 	for chz in [-12.0, 10.0]:
-		var ch := MeshInstance3D.new()
-		var cht := TorusMesh.new()
-		cht.inner_radius = 2.4
-		cht.outer_radius = 3.2
-		ch.mesh = cht
-		var chm := StandardMaterial3D.new()
-		chm.albedo_color = Color(0.95, 0.8, 0.4)
-		chm.metallic = 0.8
-		chm.roughness = 0.3
-		chm.emission_enabled = true
-		chm.emission = Color(1.0, 0.8, 0.4)
-		chm.emission_energy_multiplier = 0.35
-		ch.material_override = chm
-		ch.position = o + Vector3(0, 30.0, chz)
-		m.add_child(ch)
-		m.game_nodes.append(ch)
+		_pearl("pearl_shell_chandelier", o + Vector3(0, 30.0, chz))
 		var chl := OmniLight3D.new()
 		chl.light_color = Color(1.0, 0.85, 0.55)
 		chl.light_energy = 1.45
@@ -272,9 +214,7 @@ func build(o: Vector3) -> void:
 		m._register_castle_light(chl, true)
 	# OPEN back doorways (dark archways) flanking the throne
 	for dx in [-22.0, 22.0]:
-		m._l2_box(o + Vector3(dx - 5.0, 8, -33.2), Vector3(1.2, 16, 1.2), Color(0.8, 0.7, 0.5), 0.1)  # gold frame posts
-		m._l2_box(o + Vector3(dx + 5.0, 8, -33.2), Vector3(1.2, 16, 1.2), Color(0.8, 0.7, 0.5), 0.1)
-		m._l2_box(o + Vector3(dx, 15.5, -33.2), Vector3(11, 1.2, 1.2), Color(0.8, 0.7, 0.5), 0.1)
+		_pearl("pearl_shell_arch", o + Vector3(dx, 0.5, -33.1))
 	# ---------- REAL BACK ROOM behind the throne (entered through the two side archways) ----------
 	var br := o + Vector3(0, 0, -46.0)   # back-room center
 	# flr is SEGMENTED around the undercroft's back-stairwell opening
@@ -401,13 +341,12 @@ func build(o: Vector3) -> void:
 		m.game_nodes.append(guide)
 		crown_guides.append(guide)
 	m.g["crown_guides"] = crown_guides
+	var entrance_medallion: Node3D = _pearl("pearl_floor_medallion", o + Vector3(0, 0.52, 30.0))
+	if entrance_medallion != null:
+		entrance_medallion.scale = Vector3(1.0, 0.28, 1.0)
 	# EXIT door at the entrance — swim into it to go back to the ocean
-	var exit := MeshInstance3D.new()
-	var et := TorusMesh.new()
-	et.inner_radius = 3.4
-	et.outer_radius = 4.6
-	exit.mesh = et
-	exit.material_override = m._rainbow_mat()
+	_pearl("pearl_rainbow_gate", o + Vector3(0, 0.5, 43.8))
+	var exit := Node3D.new()
 	exit.position = o + Vector3(0, 5.0, 44.0)
 	m.add_child(exit)
 	m.game_nodes.append(exit)
@@ -449,9 +388,8 @@ func build_expansion(o: Vector3) -> void:
 	# ---------- balcony deck along the raised back wall, above the throne
 	var deck = m._l2_box(o + Vector3(0, 32.4, -27.0), Vector3(52, 1.2, 12), wcol)
 	deck.material_override = m._castle_mat("floor", 0.035, Color(0.88, 0.84, 0.94))
-	for px in range(-6, 7):
-		m._l2_box(o + Vector3(float(px) * 4.0, 34.6, -21.4), Vector3(0.5, 3.2, 0.5), gold, 0.2)
-	m._l2_box(o + Vector3(0, 36.4, -21.4), Vector3(52, 0.5, 0.6), gold, 0.25)
+	for railing_x in [-22.5, -13.5, -4.5, 4.5, 13.5, 22.5]:
+		_pearl("pearl_balustrade", o + Vector3(railing_x, 33.0, -21.4))
 	# twin stone stairs hugging the side walls up to the deck. STEEP flights
 	# along the doorless back stretch (z -21..-33) — the old shallow run
 	# crossed the music/bedroom doorways at z -16, and its ramp + under-stair
@@ -498,9 +436,15 @@ func build_expansion(o: Vector3) -> void:
 		for wsgn2 in [-1.0, 1.0]:
 			var win = m._l2_box(o + Vector3(wsgn2 * 53.2, 42, wz), Vector3(0.4, 6, 5), Color(0.75, 0.85, 1.0), 0.9)
 			win.material_override.emission_energy_multiplier = 1.2
+			var side_window_frame: Node3D = _pearl("pearl_shell_arch", o + Vector3(wsgn2 * 53.0, 39.1, wz), -90.0 * wsgn2)
+			if side_window_frame != null:
+				side_window_frame.scale = Vector3.ONE * 0.43
 	for wx in [-40.0, -20.0, 20.0, 40.0]:
 		var win2 = m._l2_box(o + Vector3(wx, 42, -63.8), Vector3(5, 6, 0.4), Color(0.75, 0.85, 1.0), 0.9)
 		win2.material_override.emission_energy_multiplier = 1.2
+		var back_window_frame: Node3D = _pearl("pearl_shell_arch", o + Vector3(wx, 39.1, -63.6))
+		if back_window_frame != null:
+			back_window_frame.scale = Vector3.ONE * 0.43
 	# STAR CHAMBER (left, now ~52 wide): her observatory
 	m._l2_box(o + Vector3(-26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.2, 0.2, 0.42))   # midnight rug
 	# A complete authored orrery replaces the box telescope and glyph wallpaper.
@@ -515,18 +459,25 @@ func build_expansion(o: Vector3) -> void:
 		if star_prop != null:
 			star_prop.scale = Vector3.ONE * (1.15 + float(st % 3) * 0.18)
 	# CLOUD LOUNGE (right): pillow pile + her memory portraits
-	for ci in range(6):
-		var cc := Color(1.0, 0.75, 0.85) if ci % 2 == 0 else Color(0.75, 0.85, 1.0)
-		m._l2_box(o + Vector3(12.0 + float(ci % 3) * 6.5, 34.2 + float(ci / 3) * 1.3, -52.0 + float(ci % 2) * 4.0), Vector3(5.0, 1.6, 5.0), cc)
+	for ci in range(4):
+		var cloud_seat: Node3D = LandmarkArtFactory.create_cloud(4.2 + float(ci % 2) * 0.5, ci)
+		cloud_seat.position = o + Vector3(14.0 + float(ci % 2) * 10.0, 35.0 + float(ci / 2) * 1.3, -54.0 + float(ci / 2) * 5.0)
+		m.add_child(cloud_seat)
+		m.game_nodes.append(cloud_seat)
+	_pearl("pearl_shell_bench", o + Vector3(26.0, 33.6, -56.0))
 	m._hang_portrait(o + Vector3(52.4, 41.0, -46.0), Vector3(0, -90, 0), "p_seattle")
 	m._hang_portrait(o + Vector3(52.4, 41.0, -54.0), Vector3(0, -90, 0), "p_garden")
 	m._l2_box(o + Vector3(26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.85, 0.7, 0.9))    # lounge rug (fills the wider chamber)
 	# gallery lamps (back block + one down each wing)
 	for lx in [-14.0, 14.0]:
-		m._l2_box(o + Vector3(lx, 46.0, -50.0), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 1.2)
+		var gallery_chandelier: Node3D = _pearl("pearl_shell_chandelier", o + Vector3(lx, 46.0, -50.0))
+		if gallery_chandelier != null:
+			gallery_chandelier.scale = Vector3.ONE * 0.52
 	for lsgn in [-1.0, 1.0]:
 		for lz in [-20.0, 4.0]:
-			m._l2_box(o + Vector3(lsgn * 44.25, 46.0, lz), Vector3(1.2, 1.2, 1.2), Color(1.0, 0.9, 0.6), 1.2)
+			var wing_chandelier: Node3D = _pearl("pearl_shell_chandelier", o + Vector3(lsgn * 44.25, 46.0, lz))
+			if wing_chandelier != null:
+				wing_chandelier.scale = Vector3.ONE * 0.52
 	# ---------- LEFT WING GALLERY: the ROYAL LIBRARY ----------
 	for sh in range(4):
 		var shz: float = -28.0 + float(sh) * 12.0
