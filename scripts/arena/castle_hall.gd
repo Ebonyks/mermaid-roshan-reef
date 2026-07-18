@@ -1151,6 +1151,48 @@ func build_music_room(o: Vector3) -> void:
 	il.light_color = Color(0.6, 0.7, 1.0); il.light_energy = 1.6; il.omni_range = 14.0
 	il.position = o + Vector3(-34, 7, -16); m.add_child(il); m.game_nodes.append(il)
 	m._register_castle_light(il, true)
+	# the Pearl Opera House stage door opens off the music room's far wall
+	build_opera_gate(mo + Vector3(-6.8, 0.9, 0))
+
+func build_opera_gate(ground: Vector3) -> void:
+	# A toy theatre marquee: gold pillars, crimson curtains and a glowing star.
+	# Swimming into the warm veil starts the eight-act opera (OperaHouse).
+	# The opera teaches each show itself, so the door is open on a fresh save.
+	var root := Node3D.new()
+	root.position = ground
+	m.add_child(root)
+	m.game_nodes.append(root)
+	var back = m._l2_box(ground + Vector3(-0.6, 3.2, 0), Vector3(0.5, 6.6, 5.8), Color(0.3, 0.16, 0.3))
+	back.material_override = m._castle_mat("wall", 0.05, Color(0.42, 0.26, 0.42))
+	for pz in [-2.6, 2.6]:
+		m._l2_box(ground + Vector3(0, 3.1, pz), Vector3(0.8, 6.2, 0.8), Color(0.85, 0.72, 0.45), 0.15)
+	m._l2_box(ground + Vector3(0, 6.5, 0), Vector3(0.9, 0.9, 6.2), Color(0.85, 0.72, 0.45), 0.15)
+	for cz in [-1.5, 1.5]:
+		m._l2_box(ground + Vector3(0.1, 2.9, cz), Vector3(0.35, 5.2, 1.9), Color(0.66, 0.16, 0.24))
+	var star = m._l2_box(ground + Vector3(0, 7.6, 0), Vector3(0.9, 0.9, 0.9), Color(1.0, 0.88, 0.4), 0.6)
+	star.rotation_degrees = Vector3(45, 0, 45)
+	var veil := MeshInstance3D.new()
+	var quad := QuadMesh.new()
+	quad.size = Vector2(2.6, 4.8)
+	veil.mesh = quad
+	var veil_mat := StandardMaterial3D.new()
+	veil_mat.albedo_color = Color(1.0, 0.72, 0.55, 0.38)
+	veil_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	veil_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	veil_mat.emission_enabled = true
+	veil_mat.emission = Color(0.8, 0.4, 0.2)
+	veil_mat.emission_energy_multiplier = 0.7
+	veil.material_override = veil_mat
+	veil.position = Vector3(0.3, 2.9, 0)
+	veil.rotation_degrees = Vector3(0, 90, 0)
+	root.add_child(veil)
+	var osign := Label3D.new()
+	osign.text = "★"
+	osign.font_size = 48; osign.pixel_size = 0.028; osign.outline_size = 12
+	osign.modulate = Color(1.0, 0.9, 0.55); osign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	osign.position = ground + Vector3(0.6, 9.0, 0)
+	m.add_child(osign); m.game_nodes.append(osign)
+	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0.6, 2.9, 0), "armed": true, "cool": 0.0}
 
 
 func build_bedroom(o: Vector3) -> void:
@@ -1431,6 +1473,22 @@ func tick(delta: float, ppos: Vector3) -> void:
 			dg["cool"] = 5.0
 			if m.dungeon_game == null:
 				m.call_deferred("_start_dungeon")
+				return
+	# the opera stage door in the music room — same open-entrance rules as the
+	# dungeon gate: hysteresis so lingering cannot retrigger, and the safe-home
+	# return from _end_opera places Roshan aside
+	if m.g.has("opera_gate"):
+		var og: Dictionary = m.g["opera_gate"]
+		og["cool"] = maxf(0.0, float(og["cool"]) - delta)
+		var og_pos: Vector3 = og["pos"]
+		var og_dist: float = og_pos.distance_to(ppos)
+		if og_dist > 7.5:
+			og["armed"] = true
+		elif og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
+			og["armed"] = false
+			og["cool"] = 5.0
+			if m.opera_game == null:
+				m.call_deferred("_start_opera")
 				return
 	# leave the castle from the entrance
 	if m.g.has("hall_exit") and float(m.g["t"]) > 2.5:
