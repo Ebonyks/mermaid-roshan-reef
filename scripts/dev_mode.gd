@@ -83,12 +83,14 @@ var postfx_mat: ShaderMaterial = null
 var postfx := {"posterize": 0.0, "vignette": 0.0, "ripple": 0.0, "grain": 0.0}
 var sky_saved := {}              # original ProceduralSkyMaterial colors for restore
 
+# Environment.ToneMapper values (LINEAR/REINHARDT/FILMIC/ACES/AGX). Plain ints:
+# the REINHARDT constant's historic spelling already broke one CI compile.
 const TONEMAPS := [
-	["Linear", Environment.TONE_MAPPER_LINEAR],
-	["Reinhard", Environment.TONE_MAPPER_REINHARD],
-	["Filmic", Environment.TONE_MAPPER_FILMIC],
-	["ACES", Environment.TONE_MAPPER_ACES],
-	["AgX", Environment.TONE_MAPPER_AGX],
+	["Linear", 0],
+	["Reinhard", 1],
+	["Filmic", 2],
+	["ACES", 3],
+	["AgX", 4],
 ]
 
 const AMBIENT_COLORS := [
