@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / "audit" / "full_regen_2026-07-18"
 PACK = ROOT / "assets" / "full_texture_regen_2026-07-18"
 ROLE_LEDGER = AUDIT / "target_ledger.csv"
+VALID_RENDER_STATUSES = frozenset({"pass", "reject"})
 
 SPECIAL_NOTES = {
 	"R017": "Cloud family uses a pale body with navy/lavender underside geometry for bright-sky and phone-scale contrast.",
@@ -45,6 +46,44 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
 		writer.writerows(rows)
 
 
+def index_render_metrics(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+	"""Index render verdicts by the model name shared with the GLB stem."""
+	indexed: dict[str, dict[str, str]] = {}
+	for line_number, row in enumerate(rows, start=2):
+		name = row.get("name", "").strip()
+		status = row.get("status", "").strip()
+		if not name:
+			raise ValueError(f"model_render_metrics.csv:{line_number}: missing model name")
+		if name in indexed:
+			raise ValueError(f"model_render_metrics.csv:{line_number}: duplicate model name {name}")
+		if status not in VALID_RENDER_STATUSES:
+			raise ValueError(
+				f"model_render_metrics.csv:{line_number}: invalid render status {status!r} for {name}"
+			)
+		normalized = dict(row)
+		normalized["name"] = name
+		normalized["status"] = status
+		indexed[name] = normalized
+	return indexed
+
+
+def validate_render_metric_coverage(
+	assets: list[Path], render_metrics: dict[str, dict[str, str]]
+) -> None:
+	model_names = {path.stem for path in assets if path.suffix.lower() == ".glb"}
+	metric_names = set(render_metrics)
+	missing = sorted(model_names - metric_names)
+	unexpected = sorted(metric_names - model_names)
+	if not missing and not unexpected:
+		return
+	details = []
+	if missing:
+		details.append(f"missing metrics for {', '.join(missing)}")
+	if unexpected:
+		details.append(f"stale metrics for {', '.join(unexpected)}")
+	raise ValueError("Render metrics do not match candidate models: " + "; ".join(details))
+
+
 def asset_role(path: Path, roles: list[str]) -> str:
 	stem = path.stem.upper()
 	for role in sorted(roles, key=len, reverse=True):
@@ -66,9 +105,10 @@ def main() -> None:
 	role_ids = [row["role_id"].upper() for row in roles]
 	model_stress = {row["path"]: row for row in read_csv(AUDIT / "model_stress_results.csv")}
 	texture_stress = {row["path"]: row for row in read_csv(AUDIT / "texture_stress_results.csv")}
-	render_metrics = {row["path"]: row for row in read_csv(AUDIT / "model_render_metrics.csv")}
+	render_metrics = index_render_metrics(read_csv(AUDIT / "model_render_metrics.csv"))
 
 	assets = sorted((PACK / "models").glob("*.glb")) + sorted((PACK / "textures").glob("*.png"))
+	validate_render_metric_coverage(assets, render_metrics)
 	assets_by_role: dict[str, list[Path]] = {role: [] for role in role_ids}
 	asset_rows: list[dict[str, object]] = []
 	for path in assets:
@@ -77,14 +117,14 @@ def main() -> None:
 		relative = path.relative_to(ROOT).as_posix()
 		kind = "model_3d" if path.suffix.lower() == ".glb" else "texture_2d"
 		stress = model_stress.get(relative) if kind == "model_3d" else texture_stress.get(relative)
-		render = render_metrics.get(relative, {})
+		render = render_metrics[path.stem] if kind == "model_3d" else None
 		asset_rows.append(
 			{
 				"role_id": role,
 				"asset": relative,
 				"kind": kind,
 				"structural_status": stress.get("status", "missing") if stress else "missing",
-				"render_status": render.get("status", "not_applicable") if kind == "model_3d" else "not_applicable",
+				"render_status": render["status"] if render is not None else "not_applicable",
 				"full_size_gallery_review": "pass",
 				"phone_scale_review": "pass",
 				"candidate_score": "4/5",
