@@ -1698,6 +1698,11 @@ func _spawn_crafted_fish() -> void:
 	# counter: runs at world build, after _load_save() (the save loads AFTER
 	# the reef builds, so spawning only at build time made every crafted fish
 	# vanish on the next launch), and on each new craft.
+	# Live spawns cap at the NEWEST 30 entries (skip ahead to the tail) so a
+	# big collection cannot flood the reef with movers. The saved custom_fish
+	# array itself is uncapped by design — her crafted fish data is sacred and
+	# is never truncated or reordered here.
+	crafted_fish_spawned = maxi(crafted_fish_spawned, custom_fish.size() - 30)
 	while crafted_fish_spawned < custom_fish.size():
 		var cf: Variant = custom_fish[crafted_fish_spawned]
 		crafted_fish_spawned += 1
