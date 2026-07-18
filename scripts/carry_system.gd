@@ -35,7 +35,8 @@ func _build() -> void:
 		if n == null:
 			continue
 		stars.append({"node": n, "state": "idle", "vel": Vector3.ZERO,
-			"seat": Vector3(sp.x, y, sp.z), "spin": randf() * TAU, "fly_t": 0.0})
+			"seat": Vector3(sp.x, y, sp.z), "spin": randf() * TAU, "fly_t": 0.0,
+			"aim": -1})
 	for sp in [Vector3(34.0, 0.0, -6.0), Vector3(-28.0, 0.0, 20.0)]:
 		var y: float = ReefMain.seabed_y(sp.x, sp.z) + 0.1
 		var n: Node3D = m._gen2_prop("spiralshell", Vector3(sp.x, y, sp.z), 4.6, randf() * TAU, 0.05)
@@ -90,6 +91,18 @@ func tick(delta: float, ppos: Vector3) -> void:
 				var v: Vector3 = s["vel"]
 				v.y -= GRAV * delta
 				v *= pow(DRAG, delta)
+				# aim assist: a toss roughly at a shell curves into its mouth —
+				# a four-year-old's "at" is the whole point of the toy
+				var ai: int = int(s.get("aim", -1))
+				if ai >= 0:
+					var mouth: Vector3 = shells[ai]["mouth"]
+					var to_t: Vector3 = mouth - n.position
+					if to_t.length() < 0.8 or v.dot(to_t) <= 0.0:
+						s["aim"] = -1   # arrived or flew past — stop steering
+					else:
+						var vlen: float = v.length()
+						if vlen > 0.5:
+							v = (v / vlen).slerp(to_t.normalized(), 1.0 - pow(0.2, delta)) * vlen
 				n.position += v * delta
 				n.rotation.y += delta * 7.0
 				if n.position.y > ReefMain.WATER_TOP - 0.5:
@@ -170,6 +183,20 @@ func _throw(s: Dictionary) -> void:
 	s["fly_t"] = 0.0
 	s["vel"] = Vector3(sin(yawv), 0.0, cos(yawv)) * THROW_FWD \
 		+ Vector3(0.0, THROW_UP, 0.0) + (pl.vel as Vector3) * 0.6
+	# lock aim assist onto a shell the throw is roughly facing
+	s["aim"] = -1
+	var pos0: Vector3 = (s["node"] as Node3D).position
+	var vdir: Vector3 = (s["vel"] as Vector3).normalized()
+	var best_dot: float = 0.7
+	for i in range(shells.size()):
+		var to_s: Vector3 = (shells[i]["mouth"] as Vector3) - pos0
+		var d: float = to_s.length()
+		if d < 1.0 or d > 34.0:
+			continue
+		var facing: float = vdir.dot(to_s / d)
+		if facing > best_dot:
+			best_dot = facing
+			s["aim"] = i
 	pl.jump_cool = maxf(float(pl.jump_cool), 0.5)
 
 func _sing(sh: Dictionary) -> void:
