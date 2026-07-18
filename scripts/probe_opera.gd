@@ -1,5 +1,5 @@
 extends SceneTree
-# Pearl Opera House regression: eight costume acts across two floors (three
+# Pearl Opera House regression: ten costume acts across two floors (four
 # shows + a boss showdown per floor), no passive wins, wrong answers stay
 # gentle, checkpoint resume, and the completion rewards land exactly once.
 
@@ -25,7 +25,7 @@ func _init() -> void:
 	var opera: OperaHouse = main.opera_game
 	_ck("fresh save can enter the opera house", opera != null)
 	await _wait_for_act(opera, 0)
-	_ck("opera defines eight acts", OperaHouse.ACTS.size() == 8)
+	_ck("opera defines ten acts", OperaHouse.ACTS.size() == 10)
 	var floor1_shows := 0
 	var floor2_shows := 0
 	var floor1_boss := 0
@@ -38,10 +38,10 @@ func _init() -> void:
 		else:
 			if story == 1: floor1_shows += 1
 			else: floor2_shows += 1
-	_ck("each floor runs three shows", floor1_shows == 3 and floor2_shows == 3)
+	_ck("each floor runs four shows", floor1_shows == 4 and floor2_shows == 4)
 	_ck("each floor ends with one boss", floor1_boss == 1 and floor2_boss == 1)
-	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[3]["type"]) == "boss")
-	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[7]["type"]) == "boss")
+	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[4]["type"]) == "boss")
+	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[9]["type"]) == "boss")
 	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	var act: OperaAct = opera.act
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
@@ -79,6 +79,10 @@ func _init() -> void:
 				await _drive_echo(act)
 			"shuffle":
 				await _drive_shuffle(act, expected)
+			"fix":
+				_drive_fix(act)
+			"press":
+				await _drive_press(act)
 			"boss":
 				await _drive_boss(act, bool(cfg2.get("dual", false)))
 		_ck("act %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
@@ -87,7 +91,7 @@ func _init() -> void:
 			await _wait_for_act(opera, expected + 1)
 	await process_frame
 	await process_frame
-	_ck("all eight checkpoints persist", main.opera_progress == 8)
+	_ck("all ten checkpoints persist", main.opera_progress == 10)
 	_ck("final act completes the opera", main.opera_done)
 	_ck("the Showtime sticker is earned", bool(main.stickers.get("showtime", false)))
 	opera._finish(true)
@@ -141,6 +145,41 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 		else:
 			await process_frame
 	_ck("shuffle act does not stall", guard < 900)
+
+func _drive_fix(act: OperaAct) -> void:
+	_ck("pipe puzzle has three gaps and three pieces", act.slots.size() == 3 and act.pieces.size() == 3)
+	# a wrong shape bounces home kindly — no fail, no lost progress
+	var need0: int = int(act.slots[0]["need"])
+	var wrong_piece: int = (need0 + 1) % 3
+	act._pick_piece(wrong_piece)
+	_ck("any piece can be picked up", act.carried == wrong_piece)
+	act._place_piece()
+	_ck("wrong pipe shape bounces home gently", act.carried == -1 and act.fix_step == 0 and not bool(act.pieces[wrong_piece]["placed"]))
+	for s in range(3):
+		var need: int = int(act.slots[act.fix_step]["need"])
+		act.player_pos = act.pieces[need]["pos"] as Vector3
+		_ck("pipe piece %d reachable by proximity" % need, act._nearest_piece() == need)
+		act._pick_piece(need)
+		act._place_piece()
+	_ck("three placed pipes reveal the valve", act.fix_phase == "valve")
+	act._turn_valve()
+	_ck("spinning the valve launches the rocket", act.state == "won")
+
+func _drive_press(act: OperaAct) -> void:
+	# a mistimed press only squishes a giggle — the candy always survives
+	act.press_x = 0.96
+	act._press_action()
+	_ck("mistimed press is gentle (no fail, no candy)", act.state == "play" and act.candies_done == 0)
+	var guard := 0
+	while act.state == "play" and guard < 900:
+		guard += 1
+		if act.press_busy <= 0.0 and act.candy_node != null:
+			act.press_x = 0.0
+			act._press_action()
+		else:
+			await process_frame
+	_ck("press act does not stall", guard < 900)
+	_ck("three smiley candies finish the show", act.candies_done == 3)
 
 func _drive_boss(act: OperaAct, dual: bool) -> void:
 	var hp: int = int(act.boss["hp"])

@@ -1,7 +1,7 @@
 class_name OperaHouse
 extends Node
-# The Pearl Opera House (Peach Showtime-inspired): eight costume acts across
-# two floors. Each floor runs three career shows and ends with a gentle boss
+# The Pearl Opera House (Peach Showtime-inspired): ten costume acts across
+# two floors. Each floor runs four career shows and ends with a gentle boss
 # showdown. OperaAct owns each performance; this class owns act order,
 # checkpoints, the progress HUD and safe exits — mirroring DungeonLevel.
 
@@ -22,6 +22,11 @@ const ACTS := [
 		"voice": "Ballerina twirl! Watch the glowing dance tiles twinkle, then dance the same steps!",
 		"win_line": "What a beautiful dance! The whole reef is clapping!",
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
+	{"name": "The Candy Parade", "career": "Candy Maker", "costume": "candymaker", "story": 1, "type": "show",
+		"kind": "press",
+		"voice": "Candy Maker Roshan! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
+		"win_line": "Three smiley candies! The sweetest show the reef has ever tasted!",
+		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
 	{"name": "The Curtain Dragon", "career": "Sparkle Knight", "costume": "knight", "story": 1, "type": "boss",
 		"kind": "boss", "boss_hp": 3, "peek_time": 4.5, "hide_time": 2.2,
 		"voice": "A grumbly dragon is hiding in the curtains! Be brave — tap SPARKLE when he peeks out!",
@@ -43,6 +48,11 @@ const ACTS := [
 		"voice": "Painter Roshan! Look at the colors over the canvas — dip in the paint pots in that same order!",
 		"win_line": "The sunrise backdrop is finished! It's a masterpiece!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},
+	{"name": "The Bubble Rocket", "career": "Astronaut Engineer", "costume": "astronaut", "story": 2, "type": "show",
+		"kind": "fix",
+		"voice": "Astronaut Engineer Roshan! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
+		"win_line": "The bubbles reached the rocket! Three, two, one — TWINKLE-OFF!",
+		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
 	{"name": "The Shadow Phantom", "career": "Star Cape", "costume": "starcape", "story": 2, "type": "boss",
 		"kind": "boss", "dual": true, "boss_hp": 3, "peek_time": 5.0, "hide_time": 2.0,
 		"voice": "A shy shadow is hiding on the stage! Light the twinkling lantern with SHINE, then tap SPARKLE when he peeks!",
@@ -123,7 +133,7 @@ func _update_hud() -> void:
 		return
 	var marks := ""
 	for i in range(ACTS.size()):
-		if i == 4:
+		if i == 5:
 			marks += "‖ "   # the staircase between the two floors
 		if i < act_index:
 			marks += "★ "
@@ -168,7 +178,7 @@ func _complete_opera() -> void:
 	m.opera_progress = ACTS.size()
 	m._write_save()
 	m._update_hud()
-	progress_label.text = "★ ★ ★ ★ ‖ ★ ★ ★ ★"
+	progress_label.text = "★ ★ ★ ★ ★ ‖ ★ ★ ★ ★ ★"
 	act_label.text = "OPERA\nSTAR!"
 	m.show_msg("Roshan", "Every show, every costume, both floors! Take a bow, Opera Star Roshan!", "win")
 	var timer := get_tree().create_timer(3.0)

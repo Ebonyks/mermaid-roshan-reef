@@ -93,7 +93,7 @@ func load_save() -> void:
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
 	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
 	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 8)
+	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 10)
 	m.opera_done = bool(m.save_data.get("opera_done", false))
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
@@ -154,7 +154,7 @@ func write_save() -> bool:
 	next_data["combat_fire"] = m.combat_fire_done
 	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
 	next_data["dungeon_done"] = m.dungeon_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 8)
+	next_data["opera_progress"] = clampi(m.opera_progress, 0, 10)
 	next_data["opera_done"] = m.opera_done
 	next_data["stickers"] = m.stickers
 	next_data["owned"] = m.shop_owned
@@ -373,7 +373,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
 	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)
 	data["dungeon_done"] = _bool_or_default(raw, "dungeon_done", false)
-	data["opera_progress"] = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 8)
+	data["opera_progress"] = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 10)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")

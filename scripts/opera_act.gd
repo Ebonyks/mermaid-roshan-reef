@@ -1,11 +1,14 @@
 class_name OperaAct
 extends Node3D
 # One act of the Pearl Opera House (Peach Showtime-inspired). Roshan puts on a
-# career costume and performs a little show on a toy theatre stage. Four
-# engines cover all eight acts: "order" (bring props in the pictured order),
+# career costume and performs a little show on a toy theatre stage. Six
+# engines cover all ten acts: "order" (bring props in the pictured order),
 # "echo" (repeat the lit dance/bell sequence), "shuffle" (follow the bunny-fish
-# under the magic hats) and "boss" (sparkle showdown with a shy stage puppet).
-# No fail states anywhere: mistakes wobble, giggle and re-show the answer.
+# under the magic hats), "fix" (carry pipe pieces into their shape-matched
+# slots, then spin the valve), "press" (stamp candy faces when the sliding
+# star crosses the sweet spot) and "boss" (sparkle showdown with a shy stage
+# puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
+# answer. Props are rough primitive demos — authored art swaps in later.
 
 const CENTER := Vector3(0.0, -2600.0, 0.0)
 const RADIUS := 22.0
@@ -59,6 +62,25 @@ var shuffle_phase := "watch"       # watch | pick
 var shuffle_t := 0.0
 var swap_plan: Array[Dictionary] = []
 
+# ---- "fix" engine ----
+var pieces: Array[Dictionary] = []
+var slots: Array[Dictionary] = []
+var fix_step := 0
+var carried := -1
+var fix_phase := "pipes"           # pipes | valve
+var valve: Node3D = null
+var rocket_window: MeshInstance3D = null
+
+# ---- "press" engine ----
+var press_x := 0.0                 # slider position, -1..1
+var press_zone := 0.34             # sweet-spot half-width (generous, shrinks a little)
+var press_busy := 0.0              # stamp animation lockout
+var candies_done := 0
+var candy_node: Node3D = null
+var press_block: Node3D = null
+var press_slider: Node3D = null
+var press_zone_box: Node3D = null
+
 # ---- "boss" engine ----
 var boss: Dictionary = {}
 var lanterns: Array[Dictionary] = []
@@ -87,6 +109,10 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_echo()
 		"shuffle":
 			_build_shuffle()
+		"fix":
+			_build_fix()
+		"press":
+			_build_press()
 		"boss":
 			_build_boss()
 	# the Showtime transformation moment: sparkles + the career announcement
@@ -262,6 +288,20 @@ func _build_costume(costume: String) -> void:
 			var cape := _box(Vector3(0, 1.9, -0.9), Vector3(2.4, 3.4, 0.18), Color(0.16, 0.14, 0.4), 0.1, costume_root)
 			cape.rotation_degrees = Vector3(8.0, 0, 0)
 			_sphere(Vector3(0, 3.8, 0), 0.45, Color(1.0, 0.9, 0.4), 0.8, costume_root)
+		"astronaut":
+			var collar := TorusMesh.new()
+			collar.inner_radius = 0.75
+			collar.outer_radius = 1.05
+			_mesh(collar, Vector3(0, 2.9, 0), Color(0.85, 0.88, 0.95), 0.2, costume_root)
+			_sphere(Vector3(0, 3.7, 0), 1.15, Color(0.92, 0.97, 1.0), 0.15, costume_root)
+			_cyl(Vector3(-0.5, 1.6, -0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2, costume_root)
+			_cyl(Vector3(0.5, 1.6, -0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2, costume_root)
+		"candymaker":
+			_cyl(Vector3(0, 3.4, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2, costume_root)
+			_cyl(Vector3(0, 3.9, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2, costume_root)
+			_cyl(Vector3(0, 4.4, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2, costume_root)
+			_cyl(Vector3(1.9, 2.6, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6, costume_root)
+			_box(Vector3(1.9, 1.6, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1, costume_root)
 	costume_root.position = player_pos
 
 func _build_camera() -> void:
@@ -619,6 +659,269 @@ func _shuffle_action(choice: int) -> void:
 		m._sparkle_burst((hats[bunny_at]["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.9, 0.5))
 		m.show_msg("Roshan", "Empty! Look — that hat is wiggling!", "hint")
 
+# ------------- "fix" engine (astronaut engineer: the bubble pipes) -------------
+# Rough demo props: a bubble tank feeds a star rocket through a pipe run with
+# three missing pieces. Roshan carries each glowing piece into the slot whose
+# ghost shows the same shape, then spins the valve to launch the bubbles.
+
+func _build_fix() -> void:
+	# bubble tank (left) and star rocket (right) joined by a pipe run at the back
+	var tank := Node3D.new()
+	tank.name = "BubbleTank"
+	tank.position = CENTER + Vector3(-16.0, 1.0, -12.0)
+	add_child(tank)
+	_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
+	_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
+	var rocket := Node3D.new()
+	rocket.name = "StarRocket"
+	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
+	add_child(rocket)
+	_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
+	var nose := CylinderMesh.new()
+	nose.top_radius = 0.1
+	nose.bottom_radius = 1.8
+	nose.height = 2.6
+	_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
+	rocket_window = _sphere(Vector3(0, 3.6, 1.5), 0.8, Color(0.2, 0.22, 0.4), 0.05, rocket)
+	rocket_window.material_override = rocket_window.material_override.duplicate() as StandardMaterial3D
+	# fixed pipe stubs along the run, with three gaps between them
+	for px in [-12.0, -4.0, 4.0, 12.0]:
+		var stub := _cyl(CENTER + Vector3(px, 3.0, -12.0), 0.55, 2.6, Color(0.75, 0.78, 0.88), 0.1)
+		stub.rotation_degrees = Vector3(0, 0, 90.0)
+	# the three gaps: each slot ghost shows the SHAPE it needs (picture clue)
+	var needs: Array[int] = [2, 0, 1]
+	for i in range(3):
+		var sx := -8.0 + float(i) * 8.0
+		var slot_root := Node3D.new()
+		slot_root.name = "PipeSlot%d" % i
+		slot_root.position = CENTER + Vector3(sx, 3.0, -12.0)
+		add_child(slot_root)
+		var ghost := _box(Vector3.ZERO, Vector3(2.6, 2.0, 1.2), Color(0.95, 0.95, 0.6, 0.3), 0.3, slot_root)
+		var gm := ghost.material_override as StandardMaterial3D
+		gm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		var hint := _make_pipe_shape(needs[i], Color(1.0, 0.92, 0.5))
+		hint.scale = Vector3.ONE * 0.45
+		hint.position = Vector3(0, 3.0, 0)
+		slot_root.add_child(hint)
+		slots.append({"index": i, "node": slot_root, "ghost": ghost, "hint": hint,
+			"pos": CENTER + Vector3(sx, 1.0, -12.0), "need": needs[i], "filled": false})
+	# the three loose pieces wait on pads at the front of the stage
+	var piece_cols: Array[Color] = [Color(0.45, 0.85, 1.0), Color(1.0, 0.62, 0.78), Color(0.6, 0.95, 0.65)]
+	for i in range(3):
+		var px2 := -12.0 + float(i) * 12.0
+		var home := CENTER + Vector3(px2, 1.0, 5.0)
+		var pad_root := Node3D.new()
+		pad_root.name = "PiecePad%d" % i
+		pad_root.position = home
+		add_child(pad_root)
+		_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, piece_cols[i].darkened(0.45), 0.0, pad_root)
+		var piece := _make_pipe_shape(i, piece_cols[i])
+		piece.position = home + Vector3(0, 1.4, 0)
+		add_child(piece)
+		pieces.append({"index": i, "node": piece, "home": piece.position, "pos": home, "placed": false})
+	# the valve appears on the tank once every pipe is in place
+	valve = Node3D.new()
+	valve.name = "BubbleValve"
+	valve.position = CENTER + Vector3(-16.0, 4.6, -10.4)
+	add_child(valve)
+	var wheel := TorusMesh.new()
+	wheel.inner_radius = 0.5
+	wheel.outer_radius = 1.0
+	var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
+	wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
+	_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
+
+func _make_pipe_shape(shape: int, col: Color) -> Node3D:
+	# 0 = straight pipe, 1 = elbow pipe, 2 = ring coupler — chunky and distinct
+	var root := Node3D.new()
+	root.name = "PipePiece%d" % shape
+	match shape:
+		1:
+			var a := _cyl(Vector3(-0.5, 0, 0), 0.55, 1.6, col, 0.25, root)
+			a.rotation_degrees = Vector3(0, 0, 90.0)
+			_cyl(Vector3(0.3, 0.7, 0), 0.55, 1.6, col, 0.25, root)
+		2:
+			var ring := TorusMesh.new()
+			ring.inner_radius = 0.45
+			ring.outer_radius = 1.0
+			_mesh(ring, Vector3.ZERO, col, 0.25, root)
+		_:
+			var straight := _cyl(Vector3.ZERO, 0.55, 2.4, col, 0.25, root)
+			straight.rotation_degrees = Vector3(0, 0, 90.0)
+	return root
+
+func _nearest_piece() -> int:
+	var best := -1
+	var best_d := PAD_REACH
+	for piece in pieces:
+		if bool(piece["placed"]):
+			continue
+		var d: float = (piece["pos"] as Vector3).distance_to(player_pos)
+		if d < best_d:
+			best_d = d
+			best = int(piece["index"])
+	return best
+
+func _pick_piece(i: int) -> void:
+	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried >= 0:
+		return
+	if bool(pieces[i]["placed"]):
+		return
+	carried = i
+	progress_t = 0.0
+	m._sparkle_burst(((pieces[i]["node"] as Node3D)).position + Vector3(0, 1.0, 0), Color(0.8, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.05
+		m.chime.play()
+	m.show_msg("Roshan", "Got it! Now carry it to the glowing pipe gap!", "talk")
+	_update_hud()
+
+func _place_piece() -> void:
+	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried < 0:
+		return
+	var slot: Dictionary = slots[fix_step]
+	var piece: Dictionary = pieces[carried]
+	var node: Node3D = piece["node"] as Node3D
+	if carried == int(slot["need"]):
+		piece["placed"] = true
+		slot["filled"] = true
+		node.position = (slot["node"] as Node3D).position
+		(slot["ghost"] as Node3D).visible = false
+		(slot["hint"] as Node3D).visible = false
+		carried = -1
+		fix_step += 1
+		progress_t = 0.0
+		m._sparkle_burst(node.position + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.5))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.95 + 0.18 * float(fix_step)
+			m.chime.play()
+		if fix_step >= slots.size():
+			fix_phase = "valve"
+			m.show_msg("Roshan", "Every pipe is fixed! Now spin the big valve to send the bubbles!", "talk")
+		_update_hud()
+	else:
+		# gentle bounce home: wrong shape never fails, the ghost just wiggles
+		var tw := node.create_tween()
+		tw.tween_property(node, "position", piece["home"] as Vector3, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		carried = -1
+		_wobble(slot["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "That shape doesn't fit this gap — look at the little picture above it!", "hint")
+
+func _turn_valve() -> void:
+	if state != "play" or kind != "fix" or fix_phase != "valve":
+		return
+	var tw := valve.create_tween()
+	tw.tween_property(valve, "rotation:z", TAU, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	# bubbles race down the finished pipe and light the rocket window
+	for i in range(5):
+		m._sparkle_burst(CENTER + Vector3(-14.0 + float(i) * 7.0, 4.0, -12.0), Color(0.7, 0.95, 1.0))
+	if rocket_window != null:
+		var wm := rocket_window.material_override as StandardMaterial3D
+		wm.albedo_color = Color(1.0, 0.95, 0.6)
+		wm.emission = Color(1.0, 0.95, 0.6)
+		wm.emission_enabled = true
+		wm.emission_energy_multiplier = 1.5
+	_win()
+
+func _tick_fix(_delta: float) -> void:
+	if carried >= 0:
+		var node: Node3D = pieces[carried]["node"] as Node3D
+		node.position = player_pos + Vector3(0, 3.4, 0)
+		node.rotation.y = elapsed * 1.5
+	if fix_phase == "valve" and valve != null:
+		valve.scale = Vector3.ONE * (1.0 + 0.08 * sin(elapsed * 5.0))
+
+# ------------- "press" engine (candy maker: the face-stamp machine) -------------
+# Rough demo props: a candy press with a sliding star gauge. Tap PRESS when
+# the star crosses the glowing middle and the press stamps a smiley face on
+# the candy. Misses just squish a silly wobble — the candy always survives.
+
+func _build_press() -> void:
+	var machine := Node3D.new()
+	machine.name = "CandyPress"
+	machine.position = CENTER + Vector3(0, 1.0, -10.0)
+	add_child(machine)
+	_box(Vector3(-4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+	_box(Vector3(4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+	_box(Vector3(0, 7.2, 0), Vector3(9.6, 1.2, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+	_cyl(Vector3(0, 0.5, 0), 2.0, 1.0, Color(0.95, 0.9, 0.98), 0.1, machine)
+	press_block = _box(Vector3(0, 5.4, 0), Vector3(2.6, 1.6, 2.0), Color(1.0, 0.75, 0.85), 0.2, machine)
+	# the timing gauge floats in front: track, sweet-spot glow, sliding star
+	var track_y := 8.9
+	_box(CENTER + Vector3(0, track_y, -8.5), Vector3(11.0, 0.5, 0.5), Color(0.4, 0.34, 0.55), 0.1)
+	press_zone_box = _box(CENTER + Vector3(0, track_y, -8.4), Vector3(11.0 * press_zone, 1.0, 0.7), Color(0.55, 0.95, 0.6), 0.7)
+	press_slider = _sphere(CENTER + Vector3(0, track_y, -8.2), 0.65, Color(1.0, 0.9, 0.4), 1.2)
+	# a little shelf where the finished smiley candies line up
+	_box(CENTER + Vector3(11.0, 1.2, -6.0), Vector3(6.0, 0.5, 3.0), Color(0.6, 0.45, 0.65), 0.1)
+	_candy_next()
+
+func _candy_next() -> void:
+	var candy_cols: Array[Color] = [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
+	candy_node = Node3D.new()
+	candy_node.name = "Candy%d" % candies_done
+	candy_node.position = CENTER + Vector3(0, 2.4, -10.0)
+	add_child(candy_node)
+	_sphere(Vector3.ZERO, 1.3, candy_cols[candies_done % candy_cols.size()], 0.25, candy_node)
+	candy_node.scale = Vector3.ZERO
+	var tw := candy_node.create_tween()
+	tw.tween_property(candy_node, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func _press_action() -> void:
+	if state != "play" or kind != "press" or press_busy > 0.0 or candy_node == null:
+		return
+	press_busy = 0.9
+	var stamp_down := press_block.position + Vector3(0, -2.4, 0)
+	var stamp_home := press_block.position
+	var tw := press_block.create_tween()
+	tw.tween_property(press_block, "position", stamp_down, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tw.tween_property(press_block, "position", stamp_home, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	if absf(press_x) <= press_zone:
+		# stamp a smiley face and slide the happy candy onto the shelf
+		_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+		_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
+		_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
+		m._sparkle_burst(candy_node.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 1.0 + 0.15 * float(candies_done)
+			m.chime.play()
+		candies_done += 1
+		progress_t = 0.0
+		var done := candy_node
+		var shelf := CENTER + Vector3(8.0 + float(candies_done) * 2.4, 1.9, -6.0)
+		var tw2 := done.create_tween()
+		tw2.tween_interval(0.35)
+		tw2.tween_property(done, "position", shelf, 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+		candy_node = null
+		# the sweet spot narrows a touch each candy, but stays generous
+		press_zone = maxf(0.22, 0.34 - 0.06 * float(candies_done))
+		if press_zone_box != null:
+			press_zone_box.scale.x = press_zone / 0.34
+		if candies_done >= 3:
+			_win()
+		else:
+			var tw3 := create_tween()
+			tw3.tween_interval(0.8)
+			tw3.tween_callback(_candy_next)
+			_update_hud()
+	else:
+		# a miss just squishes a giggle-wobble — the candy is always fine
+		var squish := candy_node.create_tween()
+		squish.tween_property(candy_node, "scale", Vector3(1.25, 0.7, 1.25), 0.15)
+		squish.tween_property(candy_node, "scale", Vector3.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Squish! Wait until the star slides into the green middle, then PRESS!", "hint")
+
+func _tick_press(delta: float) -> void:
+	press_busy = maxf(0.0, press_busy - delta)
+	press_x = sin(elapsed * 1.6)
+	if press_slider != null:
+		press_slider.position.x = CENTER.x + press_x * 5.5
+
 # ---------------- "boss" engine (curtain dragon / shadow phantom) ----------------
 
 func _build_boss() -> void:
@@ -885,6 +1188,20 @@ func _process(delta: float) -> void:
 				var near := _nearest_pad()
 				if near >= 0:
 					_act_action(near)
+			"fix":
+				if fix_phase == "valve":
+					if valve.position.distance_to(player_pos) < 6.0:
+						_turn_valve()
+					else:
+						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+				elif carried < 0:
+					var near_piece := _nearest_piece()
+					if near_piece >= 0:
+						_pick_piece(near_piece)
+				elif fix_step < slots.size() and (slots[fix_step]["pos"] as Vector3).distance_to(player_pos) < 5.0:
+					_place_piece()
+			"press":
+				_press_action()
 			"boss":
 				if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
 					var lant: Dictionary = lanterns[lantern_i]
@@ -912,6 +1229,10 @@ func _process(delta: float) -> void:
 					_pad_touch(touched)
 		"shuffle":
 			_tick_shuffle(delta)
+		"fix":
+			_tick_fix(delta)
+		"press":
+			_tick_press(delta)
 		"boss":
 			_tick_boss(delta)
 	if progress_t > 22.0:
@@ -933,6 +1254,16 @@ func _pointer_target() -> Vector3:
 			if shuffle_phase == "watch":
 				return CENTER + Vector3(0, 8.0, 3.0)
 			return player_pos + Vector3(0, 7.0, 0)
+		"fix":
+			if fix_phase == "valve":
+				return valve.position + Vector3(0, 4.5, 0)
+			if carried >= 0 and fix_step < slots.size():
+				return ((slots[fix_step]["node"] as Node3D)).position + Vector3(0, 6.0, 0)
+			if fix_step < slots.size():
+				var need := int(slots[fix_step]["need"])
+				return (pieces[need]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+		"press":
+			return CENTER + Vector3(0, 12.5, -8.5)
 		"boss":
 			if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
 				return (lanterns[lantern_i]["pos"] as Vector3) + Vector3(0, 7.5, 0)
@@ -966,6 +1297,15 @@ func _update_hud() -> void:
 				objective.text = tag + "👀  WATCH the hats dance!"
 			else:
 				objective.text = tag + "🎩  PICK the bunny-fish hat!  %d / %d" % [shuffle_round, int(config.get("rounds", 2))]
+		"fix":
+			if fix_phase == "valve":
+				objective.text = tag + "💨  Spin the big valve — tap USE!"
+			elif carried >= 0:
+				objective.text = tag + "🔧  Carry it to the glowing gap!  %d / %d" % [fix_step, slots.size()]
+			else:
+				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
+		"press":
+			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / 3" % candies_done
 		"boss":
 			var hearts := ""
 			for i in range(maxi(0, int(boss.get("hp", 0)))):
@@ -1021,6 +1361,8 @@ func action_label() -> String:
 	match kind:
 		"echo":
 			return "DANCE"
+		"press":
+			return "PRESS"
 		"boss":
 			if bool(boss.get("dual", false)) and String(boss.get("phase", "")) == "shadow":
 				return "SHINE"
