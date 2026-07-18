@@ -23,7 +23,8 @@ func _init() -> void:
 	# 1. physical push: park her against block 0's west face, swimming east
 	var b0: Dictionary = g.blocks[0]
 	var start_cell: Vector2i = b0["cell"]
-	for i in range(90):
+	var push_end: int = Time.get_ticks_msec() + 8000   # wall-clock: push_t is time-based
+	while Time.get_ticks_msec() < push_end:
 		var bp: Vector3 = (b0["node"] as Node3D).position
 		pl.position = bp + Vector3(-3.2, 0.0, 0.0)
 		pl.vel = Vector3(8.0, 0.0, 0.0)
@@ -46,7 +47,8 @@ func _init() -> void:
 			if float(b["move_t"]) >= 0.0:
 				moving = true
 		if moving:
-			for i in range(30):
+			var mv_end: int = Time.get_ticks_msec() + 600
+			while Time.get_ticks_msec() < mv_end:
 				await process_frame
 			continue
 		var advanced := false
@@ -67,7 +69,8 @@ func _init() -> void:
 			if alt != Vector2i(0, 0) and g._try_slide(b, alt):
 				advanced = true
 				break
-		for i in range(30):
+		var sl_end: int = Time.get_ticks_msec() + 600
+		while Time.get_ticks_msec() < sl_end:
 			await process_frame
 		if not advanced and not g.done:
 			continue
@@ -81,10 +84,12 @@ func _init() -> void:
 	var pearls1: int = int(main.pearl_count)
 	var bb: Dictionary = g.blocks[0]
 	g._try_slide(bb, Vector2i(0, -1))
-	for i in range(40):
+	var n1_end: int = Time.get_ticks_msec() + 700
+	while Time.get_ticks_msec() < n1_end:
 		await process_frame
 	g._try_slide(bb, Vector2i(0, 1))
-	for i in range(40):
+	var n2_end: int = Time.get_ticks_msec() + 700
+	while Time.get_ticks_msec() < n2_end:
 		await process_frame
 	if int(main.pearl_count) != pearls1:
 		print("FAIL: grotto re-rewarded after the win latch")

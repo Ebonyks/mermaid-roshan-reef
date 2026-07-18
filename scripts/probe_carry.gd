@@ -38,7 +38,8 @@ func _init() -> void:
 	var mouth: Vector3 = sh["mouth"]
 	pl.position = mouth + Vector3(-11.0, 0.5, 0.0)
 	pl.yaw = atan2(mouth.x - pl.position.x, mouth.z - pl.position.z)
-	for i in range(40):
+	var c_end: int = Time.get_ticks_msec() + 900   # wall-clock: the carry lerp is time-based
+	while Time.get_ticks_msec() < c_end:
 		await process_frame
 	pl.yaw = atan2(mouth.x - pl.position.x, mouth.z - pl.position.z)
 	pl.vel = Vector3.ZERO
@@ -47,7 +48,8 @@ func _init() -> void:
 	if String(star["state"]) != "fly":
 		print("FAIL: second action did not throw the held star (state=", star["state"], ")")
 	var hit := false
-	for i in range(600):
+	var fly_end: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < fly_end:
 		await process_frame
 		if int(main.pearl_count) > pearls0:
 			hit = true
@@ -56,7 +58,8 @@ func _init() -> void:
 		print("FAIL: thrown star never rang the shell (pearls unchanged)")
 	else:
 		print("carry: scoop/throw/sing ok (+", int(main.pearl_count) - pearls0, " pearl)")
-	for i in range(900):
+	var settle_end: int = Time.get_ticks_msec() + 15000
+	while Time.get_ticks_msec() < settle_end:
 		await process_frame
 		if String(star["state"]) == "idle":
 			break

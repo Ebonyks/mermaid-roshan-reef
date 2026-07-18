@@ -104,6 +104,8 @@ func tick(delta: float, ppos: Vector3) -> void:
 			b["push_t"] = maxf(0.0, float(b["push_t"]) - delta * 2.0)
 
 func _try_slide(b: Dictionary, stepc: Vector2i) -> bool:
+	if float(b["move_t"]) >= 0.0:
+		return false   # already gliding — one cell per push
 	var nc: Vector2i = (b["cell"] as Vector2i) + stepc
 	if nc.x < -1 or nc.x > 1 or nc.y < -1 or nc.y > 1:
 		return false

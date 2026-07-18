@@ -22,11 +22,11 @@ func _init() -> void:
 		print("FAIL: current field is not zero far from every stream")
 	var gx: float = float(flow.GEYSER["x"])
 	var gz: float = float(flow.GEYSER["z"])
-	# wait for the start of an ON phase so the ride gets the full 6 s window
-	var waited := 0
+	# wait (wall-clock — headless fps is not 60) for the start of an ON phase
+	# so the ride gets the full 6 s window; one full cycle is 10 s
+	var t0: int = Time.get_ticks_msec()
 	while not (flow.geyser_on() and fmod(Time.get_ticks_msec() / 1000.0, flow.GEYSER_CYCLE) < 1.0):
-		waited += 1
-		if waited > 900:
+		if Time.get_ticks_msec() - t0 > 30000:
 			print("FAIL: geyser never entered a fresh ON phase")
 			quit()
 			return
@@ -35,16 +35,18 @@ func _init() -> void:
 	pl.position = Vector3(gx, main.seabed_y(gx, gz) + 4.0, gz)
 	pl.vel = Vector3.ZERO
 	var max_y := -999.0
-	for i in range(360):
+	var ride_end: int = Time.get_ticks_msec() + 5500
+	while Time.get_ticks_msec() < ride_end:
 		await process_frame
 		max_y = maxf(max_y, pl.position.y)
 	if max_y < 50.0:
 		print("FAIL: geyser ride peaked at y=", "%.1f" % max_y, " (wanted the surface band > 50)")
 	else:
 		print("flow: geyser lifted her to y=", "%.1f" % max_y)
-	# the breathing gap: an OFF phase must exist within one cycle
+	# the breathing gap: an OFF phase must exist within ~one cycle (wall-clock)
 	var saw_off := false
-	for i in range(700):
+	var off_end: int = Time.get_ticks_msec() + 12000
+	while Time.get_ticks_msec() < off_end:
 		await process_frame
 		if not flow.geyser_on():
 			saw_off = true
