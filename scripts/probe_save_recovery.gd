@@ -135,6 +135,28 @@ func _init() -> void:
 	var stale_candidate: Dictionary = stale_writer._select_load_candidate()
 	_expect(String(stale_candidate.get("path", "")) == TEST_PATH and not bool(stale_candidate.get("future", false)), "stale future temp does not hijack load selection")
 
+	# A save missing a key that a NEWER build added (schema growth) must stay
+	# clean: completeness is judged against the frozen core quartet, so the
+	# missing key just gets its default instead of demoting every existing
+	# save to the salvage path on first launch.
+	_cleanup()
+	main.save_data = {}
+	main.pearl_count = 12
+	var core_state := SaveState.new(main, TEST_PATH)
+	_expect(core_state.write_save(), "core-quartet fixture written")
+	var trimmed: Dictionary = _read_json(TEST_PATH)
+	trimmed.erase("stickers")   # stands in for any key a later build adds
+	_write_text(TEST_PATH, JSON.stringify(trimmed))
+	var older_backup: Dictionary = _read_json(TEST_PATH + ".bak")
+	older_backup["pearls"] = 1   # a demotion to the backup would visibly roll progress back
+	older_backup["save_generation"] = 0
+	_write_text(TEST_PATH + ".bak", JSON.stringify(older_backup))
+	var core_candidate: Dictionary = core_state._select_load_candidate()
+	_expect(bool(core_candidate.get("clean", false)) and String(core_candidate.get("path", "")) == TEST_PATH, "save missing a newly-added key is still clean")
+	var core_data: Dictionary = core_candidate.get("data", {})
+	_expect(core_data.get("stickers") is Dictionary, "missing key restored with its default")
+	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
+
 	_cleanup()
 	main.free()
 	if failures == 0:

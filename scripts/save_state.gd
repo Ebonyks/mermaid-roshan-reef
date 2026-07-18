@@ -17,6 +17,9 @@ const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
+# FROZEN completeness core — never grow this list. A document carrying these
+# is a genuine save; everything else in KNOWN_KEYS defaults on load.
+const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
 const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
@@ -309,14 +312,17 @@ func _has_complete_schema(data: Dictionary) -> bool:
 	var version: int = _schema_version(data)
 	if version > SCHEMA_VERSION:
 		return true
-	if data.has("schema_version"):
-		for key: String in KNOWN_KEYS:
-			if not data.has(key):
-				return false
-		return true
-	# Legacy releases had no schema marker, but every genuine save contained
-	# these core progression fields. A one-key JSON fragment is not a save.
-	return data.has("won") and data.has("found") and data.has("pearls") and data.has("plays")
+	# Completeness is judged against a FROZEN core: the progression quartet
+	# every genuine save (with or without a schema marker) has always carried.
+	# Requiring every key in KNOWN_KEYS here demoted ALL existing saves to the
+	# salvage path the first launch after a build added any new key — new keys
+	# must instead pick up their defaults in _normalise_save. KNOWN_KEYS stays
+	# in use for type validation only (_known_types_are_valid), which never
+	# demotes a save for merely lacking a key.
+	for key: String in CORE_KEYS:
+		if not data.has(key):
+			return false
+	return true
 
 func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in BOOL_KEYS:
