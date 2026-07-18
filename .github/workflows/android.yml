@@ -55,7 +55,10 @@ jobs:
             echo "Missing ANDROID_DEBUG_KEYSTORE_BASE64 repository secret; refusing to rotate the app signing identity."
             exit 1
           fi
-          printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" | base64 --decode > /tmp/debug.keystore
+          # tolerate whitespace/CR from pasting the secret; keytool below still
+          # validates keystore integrity, so a truly corrupt value cannot pass
+          printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" | tr -d ' \t\r\n' | base64 --decode > /tmp/debug.keystore \
+            || { echo "Secret is not valid base64 even after whitespace strip - re-save ANDROID_DEBUG_KEYSTORE_BASE64 from: base64 -w0 debug.keystore"; exit 1; }
           keytool -list -v -keystore /tmp/debug.keystore -storepass android \
             -alias androiddebugkey | grep -E "Alias name:|SHA256:"
           mkdir -p "$HOME/.config/godot"
