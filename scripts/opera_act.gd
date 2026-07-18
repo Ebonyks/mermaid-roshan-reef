@@ -81,6 +81,30 @@ var press_block: Node3D = null
 var press_slider: Node3D = null
 var press_zone_box: Node3D = null
 
+# ---- "doctor" engine ----
+var doc_targets: Array[Dictionary] = []
+var doc_step := 0
+var patient: Node3D = null
+
+# ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
+const FARM_SPEED := 150.0
+const FARM_WRAP := 3000.0
+var farm_layer: CanvasLayer = null
+var farm_t := 0.0
+var farm_fed := 0
+var farm_toss_cool := 0.0
+var farm_roshan: Control = null
+var piggies: Array[Dictionary] = []
+
+# ---- "race" engine (KartGame exhibition reuse) ----
+var kart: KartGame = null
+var race_flag: Node3D = null
+var race_prev_track := ""
+
+# ---- "dance" engine (DanceEngine guest spot) ----
+var dance: DanceEngine = null
+var mic: Node3D = null
+
 # ---- "boss" engine ----
 var boss: Dictionary = {}
 var lanterns: Array[Dictionary] = []
@@ -113,6 +137,14 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_fix()
 		"press":
 			_build_press()
+		"doctor":
+			_build_doctor()
+		"scroll":
+			_build_farm()
+		"race":
+			_build_race()
+		"dance":
+			_build_dance()
 		"boss":
 			_build_boss()
 	# the Showtime transformation moment: sparkles + the career announcement
@@ -302,6 +334,41 @@ func _build_costume(costume: String) -> void:
 			_cyl(Vector3(0, 4.4, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2, costume_root)
 			_cyl(Vector3(1.9, 2.6, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6, costume_root)
 			_box(Vector3(1.9, 1.6, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1, costume_root)
+		"doctor":
+			var mirror := TorusMesh.new()
+			mirror.inner_radius = 0.55
+			mirror.outer_radius = 0.8
+			_mesh(mirror, Vector3(0, 3.4, 0), Color(0.95, 0.97, 1.0), 0.2, costume_root)
+			_sphere(Vector3(0, 3.75, 0.5), 0.3, Color(1.0, 0.9, 0.5), 0.8, costume_root)
+			var scope := TorusMesh.new()
+			scope.inner_radius = 0.6
+			scope.outer_radius = 0.78
+			_mesh(scope, Vector3(0, 2.5, 0.2), Color(0.35, 0.4, 0.55), 0.1, costume_root)
+			_cyl(Vector3(0, 1.7, 0.55), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4, costume_root)
+		"racer":
+			_sphere(Vector3(0, 3.7, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2, costume_root)
+			_box(Vector3(0, 3.6, 0.75), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4, costume_root)
+			var wheel := TorusMesh.new()
+			wheel.inner_radius = 0.55
+			wheel.outer_radius = 0.85
+			var wheel_mesh := _mesh(wheel, Vector3(1.8, 1.5, 0), Color(0.25, 0.25, 0.35), 0.1, costume_root)
+			wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
+		"farmer":
+			_cyl(Vector3(0, 3.35, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1, costume_root)
+			_cyl(Vector3(0, 3.75, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1, costume_root)
+			var carrot := CylinderMesh.new()
+			carrot.top_radius = 0.05
+			carrot.bottom_radius = 0.4
+			carrot.height = 1.2
+			var carrot_mesh := _mesh(carrot, Vector3(1.8, 1.7, 0), Color(1.0, 0.55, 0.2), 0.3, costume_root)
+			carrot_mesh.rotation_degrees = Vector3(180, 0, 0)
+			_sphere(Vector3(1.8, 2.45, 0), 0.3, Color(0.45, 0.8, 0.4), 0.2, costume_root)
+		"popstar":
+			_sphere(Vector3(-0.5, 3.0, 0.6), 0.4, Color(1.0, 0.85, 0.35), 0.7, costume_root)
+			_sphere(Vector3(0.5, 3.0, 0.6), 0.4, Color(1.0, 0.85, 0.35), 0.7, costume_root)
+			_box(Vector3(0, 3.0, 0.62), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7, costume_root)
+			_box(Vector3(1.8, 1.7, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2, costume_root)
+			_sphere(Vector3(1.8, 2.5, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6, costume_root)
 	costume_root.position = player_pos
 
 func _build_camera() -> void:
@@ -922,6 +989,318 @@ func _tick_press(delta: float) -> void:
 	if press_slider != null:
 		press_slider.position.x = CENTER.x + press_x * 5.5
 
+# ------------- "doctor" engine (one-touch surgery on a plush patient) -------------
+# Rough demo props: a poorly plush starfish on the operating table. Four
+# one-touch steps in a guided order: thermometer, two boo-boos that turn into
+# hearts, then the bandage. Taps out of order just wobble and re-point.
+
+func _build_doctor() -> void:
+	_box(CENTER + Vector3(0, 1.2, -2.0), Vector3(7.0, 1.6, 4.4), Color(0.9, 0.93, 0.98), 0.05)
+	_box(CENTER + Vector3(0, 0.4, -2.0), Vector3(5.6, 0.8, 3.4), Color(0.75, 0.8, 0.9), 0.0)
+	patient = Node3D.new()
+	patient.name = "PlushPatient"
+	patient.position = CENTER + Vector3(0, 2.6, -2.0)
+	add_child(patient)
+	_sphere(Vector3.ZERO, 1.6, Color(0.78, 0.66, 0.92), 0.1, patient)
+	for i in range(5):
+		var a := float(i) * TAU / 5.0 + 0.3
+		_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.82, 0.7, 0.95), 0.1, patient)
+	_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+	_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+	# step 0: the thermometer on its little stand
+	var thermo := Node3D.new()
+	thermo.name = "Thermometer"
+	thermo.position = CENTER + Vector3(-9.0, 1.0, 4.0)
+	add_child(thermo)
+	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
+	var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
+	stem.rotation_degrees = Vector3(0, 0, 18.0)
+	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
+	doc_targets.append({"index": 0, "node": thermo, "pos": thermo.position, "kind": "thermo"})
+	# steps 1-2: glowing boo-boos on the plush that become hearts when tended
+	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9)]
+	for b in range(boo_spots.size()):
+		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
+		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
+		heart.visible = false
+		var reach := CENTER + Vector3(-2.0 + float(b) * 4.0, 1.0, 1.4)
+		doc_targets.append({"index": 1 + b, "node": boo, "heart": heart, "pos": reach, "kind": "boo"})
+	# step 3: the bandage roll, which wraps a soft white band around the plush
+	var roll := Node3D.new()
+	roll.name = "BandageRoll"
+	roll.position = CENTER + Vector3(9.0, 1.0, 4.0)
+	add_child(roll)
+	var loop := TorusMesh.new()
+	loop.inner_radius = 0.4
+	loop.outer_radius = 0.9
+	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
+	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
+	band.visible = false
+	doc_targets.append({"index": 3, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+
+func _doctor_action(choice: int) -> void:
+	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
+		return
+	var target: Dictionary = doc_targets[choice]
+	if choice != doc_step:
+		_wobble(target["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Not that one yet, doctor — follow the golden sparkle!", "hint")
+		return
+	progress_t = 0.0
+	var node: Node3D = target["node"] as Node3D
+	match String(target["kind"]):
+		"thermo":
+			var tw := node.create_tween()
+			tw.tween_property(node, "position", patient.position + Vector3(0, 2.4, 1.2), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+			tw.tween_interval(0.4)
+			tw.tween_property(node, "position", target["pos"] as Vector3, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+			m.show_msg("Roshan", "Just a tiny fever — the boo-boos need some love!", "talk")
+		"boo":
+			node.visible = false
+			var heart := target["heart"] as Node3D
+			heart.visible = true
+			heart.scale = Vector3.ZERO
+			var tw2 := heart.create_tween()
+			tw2.tween_property(heart, "scale", Vector3.ONE, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		"bandage":
+			var tw3 := node.create_tween()
+			tw3.tween_property(node, "position", patient.position + Vector3(0, 1.0, 0), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+			tw3.tween_callback(func() -> void: node.visible = false)
+			var band := target["band"] as Node3D
+			band.visible = true
+			band.scale = Vector3.ZERO
+			var tw4 := band.create_tween()
+			tw4.tween_property(band, "scale", Vector3.ONE, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst((target["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.7, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.95 + 0.15 * float(doc_step)
+		m.chime.play()
+	doc_step += 1
+	if doc_step >= doc_targets.size():
+		# the plush pops up feeling all better — that's the whole show
+		var hop := patient.create_tween()
+		hop.tween_property(patient, "position:y", patient.position.y + 1.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hop.tween_property(patient, "position:y", patient.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		_win()
+	else:
+		_update_hud()
+
+func _nearest_doc_target() -> int:
+	var best := -1
+	var best_d := PAD_REACH
+	for target in doc_targets:
+		var d: float = (target["pos"] as Vector3).distance_to(player_pos)
+		if d < best_d:
+			best_d = d
+			best = int(target["index"])
+	return best
+
+# ------------- "scroll" engine (farmer: the 2D piggy-feeding meadow) -------------
+# A one-touch side-scroller played on a flat overlay: the meadow slides past,
+# hungry piggies drift toward Roshan, and a tap tosses a veggie to the nearest
+# one. Unfed piggies loop back around, so every piggy gets fed eventually.
+# ALL piggy/meadow art here is a rough placeholder (circle-panels) — the
+# owner's authored farm art replaces these panels in a later pass.
+
+func _panel_circle(parent: Control, pos: Vector2, size: float, col: Color) -> Panel:
+	var panel := Panel.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = col
+	style.set_corner_radius_all(int(size * 0.5))
+	panel.add_theme_stylebox_override("panel", style)
+	panel.position = pos
+	panel.size = Vector2(size, size)
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(panel)
+	return panel
+
+func _build_farm() -> void:
+	farm_layer = CanvasLayer.new()
+	farm_layer.layer = 13   # below the act banner (14) so the objective stays visible
+	add_child(farm_layer)
+	var root := Control.new()
+	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	farm_layer.add_child(root)
+	var sky := ColorRect.new()
+	sky.color = Color(0.62, 0.85, 0.98)
+	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	sky.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(sky)
+	_panel_circle(root, Vector2(1050, 40), 130, Color(1.0, 0.92, 0.55))
+	for h in range(3):
+		_panel_circle(root, Vector2(-100.0 + float(h) * 460.0, 380.0), 420, Color(0.6, 0.85, 0.55))
+	var ground := ColorRect.new()
+	ground.color = Color(0.52, 0.78, 0.45)
+	ground.position = Vector2(0, 520)
+	ground.size = Vector2(1280, 200)
+	ground.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(ground)
+	var roshan := TextureRect.new()
+	roshan.texture = load("res://assets/characters/roshan_sprite.png") as Texture2D
+	roshan.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	roshan.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	roshan.position = Vector2(190, 330)
+	roshan.size = Vector2(150, 190)
+	roshan.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(roshan)
+	farm_roshan = roshan
+	for i in range(5):
+		var pig := Control.new()
+		pig.position = Vector2(900.0 + float(i) * 520.0, 420.0)
+		pig.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		root.add_child(pig)
+		# placeholder circle-piggy (art pending): body, ears, snout
+		_panel_circle(pig, Vector2(0, 0), 96, Color(1.0, 0.72, 0.78))
+		_panel_circle(pig, Vector2(8, -16), 28, Color(0.98, 0.62, 0.7))
+		_panel_circle(pig, Vector2(60, -16), 28, Color(0.98, 0.62, 0.7))
+		_panel_circle(pig, Vector2(30, 34), 38, Color(0.98, 0.6, 0.68))
+		var bubble := _panel_circle(pig, Vector2(20, -74), 56, Color(1.0, 1.0, 1.0, 0.92))
+		var want := Label.new()
+		want.text = "🥕"
+		want.add_theme_font_size_override("font_size", 34)
+		want.position = Vector2(8, 4)
+		want.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		bubble.add_child(want)
+		piggies.append({"index": i, "node": pig, "bubble": bubble, "want": want,
+			"x": 900.0 + float(i) * 520.0, "sx": 900.0 + float(i) * 520.0, "fed": false})
+
+func _tick_farm(delta: float) -> void:
+	farm_t += delta
+	farm_toss_cool = maxf(0.0, farm_toss_cool - delta)
+	if farm_roshan != null:
+		farm_roshan.position.y = 330.0 + sin(elapsed * 3.2) * 14.0
+	for pig in piggies:
+		var sx: float = float(pig["x"]) - farm_t * FARM_SPEED
+		while sx < -160.0:
+			# unfed piggies trot back around; fed ones park happily off-screen
+			if bool(pig["fed"]):
+				break
+			pig["x"] = float(pig["x"]) + FARM_WRAP
+			sx = float(pig["x"]) - farm_t * FARM_SPEED
+		pig["sx"] = sx
+		var node := pig["node"] as Control
+		node.position.x = sx
+		if not bool(pig["fed"]):
+			(pig["bubble"] as Control).scale = Vector2.ONE * (1.0 + 0.12 * sin(elapsed * 5.0 + float(pig["index"])))
+
+func _toss_action() -> void:
+	if state != "play" or kind != "scroll" or farm_toss_cool > 0.0:
+		return
+	farm_toss_cool = 0.5
+	var best := -1
+	var best_d := 150.0
+	for pig in piggies:
+		if bool(pig["fed"]):
+			continue
+		var d: float = absf(float(pig["sx"]) - 250.0)
+		if d < best_d:
+			best_d = d
+			best = int(pig["index"])
+	if best >= 0:
+		var pig2: Dictionary = piggies[best]
+		pig2["fed"] = true
+		(pig2["want"] as Label).text = "❤"
+		var node := pig2["node"] as Control
+		var tw := node.create_tween()
+		tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
+			m.chime.play()
+		farm_fed += 1
+		progress_t = 0.0
+		if farm_fed >= piggies.size():
+			_win()
+		else:
+			_update_hud()
+	else:
+		# a toss with nobody close is just a bouncing veggie — never a fail
+		if m.chime != null:
+			m.chime.pitch_scale = 0.6
+			m.chime.play()
+		if farm_roshan != null:
+			var tw2 := farm_roshan.create_tween()
+			tw2.tween_property(farm_roshan, "rotation", 0.12, 0.1)
+			tw2.tween_property(farm_roshan, "rotation", 0.0, 0.15)
+
+# ------------- "race" engine (racecar driver: KartGame exhibition) -------------
+# Real reuse of the kart engine via its documented configure()/start() hooks:
+# a one-lap Opera Grand Prix. Quitting with ✕ returns to the stage where the
+# checkered flag restarts the race — finishing in any place wins the act.
+
+func _build_race() -> void:
+	race_flag = Node3D.new()
+	race_flag.name = "RaceFlag"
+	race_flag.position = CENTER + Vector3(0, 1.0, 2.0)
+	add_child(race_flag)
+	_box(Vector3(0, 2.6, 0), Vector3(0.25, 5.2, 0.25), Color(0.75, 0.78, 0.88), 0.1, race_flag)
+	_box(Vector3(1.1, 4.4, 0), Vector3(2.0, 1.5, 0.12), Color(0.95, 0.95, 0.95), 0.25, race_flag)
+	_box(Vector3(0.6, 4.4, 0.02), Vector3(0.9, 0.72, 0.12), Color(0.12, 0.12, 0.18), 0.0, race_flag)
+	_box(Vector3(1.55, 3.7, 0.02), Vector3(0.9, 0.72, 0.12), Color(0.12, 0.12, 0.18), 0.0, race_flag)
+	_launch_race()
+
+func _launch_race() -> void:
+	if state != "play" or kind != "race" or kart != null:
+		return
+	race_prev_track = m.cur_track
+	m._play_music("race")
+	kart = KartGame.new()
+	add_child(kart)
+	kart.configure({"name": "Opera Grand Prix", "laps": 1})
+	kart.start(m, Callable(self, "_race_finished"))
+
+func _race_finished(place: int) -> void:
+	if kart != null and is_instance_valid(kart):
+		kart.queue_free()
+	kart = null
+	if state != "play":
+		return
+	if cam != null:
+		cam.make_current()
+	m._play_music(race_prev_track if race_prev_track != "" else "level2")
+	if place > 0:
+		_win()
+	else:
+		m.show_msg("Roshan", "The Grand Prix is waiting! Tap the checkered flag when you're ready to race!", "talk")
+		_update_hud()
+
+# ------------- "dance" engine (pop star: the DanceEngine guest spot) -------------
+# Reuses the beat-synced rhythm playground as-is: tapping the sparkling
+# microphone opens the dance stage in guest mode, and the first round with
+# any happy hits takes the act's bow. Closing early just returns to the mic.
+
+func _build_dance() -> void:
+	mic = Node3D.new()
+	mic.name = "StarMicrophone"
+	mic.position = CENTER + Vector3(0, 1.0, 2.0)
+	add_child(mic)
+	_cyl(Vector3(0, 0.2, 0), 1.3, 0.4, Color(0.4, 0.36, 0.6), 0.1, mic)
+	_box(Vector3(0, 2.0, 0), Vector3(0.22, 3.6, 0.22), Color(0.8, 0.82, 0.92), 0.15, mic)
+	_sphere(Vector3(0, 4.2, 0), 0.75, Color(1.0, 0.85, 0.4), 0.7, mic)
+	_open_dance()
+
+func _open_dance() -> void:
+	if state != "play" or kind != "dance":
+		return
+	if dance == null:
+		dance = DanceEngine.new(m)
+		dance.guest_mode = true
+		add_child(dance)
+		dance.closed.connect(_dance_closed)
+	dance.open_demo()
+
+func _dance_closed() -> void:
+	if state != "play":
+		return
+	if dance != null and dance.happy_hits > 0:
+		_win()
+	else:
+		m.show_msg("Roshan", "The stage is yours whenever you're ready — tap the sparkling microphone!", "talk")
+
 # ---------------- "boss" engine (curtain dragon / shadow phantom) ----------------
 
 func _build_boss() -> void:
@@ -1170,6 +1549,18 @@ func _process(delta: float) -> void:
 		if win_t <= 0.0:
 			_finish()
 		return
+	if kind == "race" and kart != null:
+		# KartGame owns the camera, HUD and every input while the race runs —
+		# consuming taps here would steal the TURBO button
+		return
+	if kind == "scroll":
+		_tick_farm(delta)
+		if _action_pressed():
+			_toss_action()
+		if progress_t > 22.0:
+			progress_t = 0.0
+			m.show_msg("Roshan", String(config.get("voice", "Follow the golden sparkle!")), "hint")
+		return
 	var move := _move_input()
 	player_pos += Vector3(move.x, 0, move.y) * MOVE_SPEED * delta
 	var flat := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
@@ -1202,6 +1593,16 @@ func _process(delta: float) -> void:
 					_place_piece()
 			"press":
 				_press_action()
+			"doctor":
+				var near_doc := _nearest_doc_target()
+				if near_doc >= 0:
+					_doctor_action(near_doc)
+			"race":
+				if race_flag != null and race_flag.position.distance_to(player_pos) < 5.5:
+					_launch_race()
+			"dance":
+				if mic != null and mic.position.distance_to(player_pos) < 5.5:
+					_open_dance()
 			"boss":
 				if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
 					var lant: Dictionary = lanterns[lantern_i]
@@ -1264,6 +1665,15 @@ func _pointer_target() -> Vector3:
 				return (pieces[need]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 		"press":
 			return CENTER + Vector3(0, 12.5, -8.5)
+		"doctor":
+			if doc_step < doc_targets.size():
+				return (doc_targets[doc_step]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+		"race":
+			if race_flag != null:
+				return race_flag.position + Vector3(0, 7.0, 0)
+		"dance":
+			if mic != null:
+				return mic.position + Vector3(0, 7.0, 0)
 		"boss":
 			if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
 				return (lanterns[lantern_i]["pos"] as Vector3) + Vector3(0, 7.5, 0)
@@ -1306,6 +1716,14 @@ func _update_hud() -> void:
 				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
 		"press":
 			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / 3" % candies_done
+		"doctor":
+			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
+		"scroll":
+			objective.text = tag + "🐷  TOSS veggies to the hungry piggies!  %d / %d" % [farm_fed, piggies.size()]
+		"race":
+			objective.text = tag + "🏁  Race the Opera Grand Prix!"
+		"dance":
+			objective.text = tag + "🎤  Tap the microphone and dance the arrows!"
 		"boss":
 			var hearts := ""
 			for i in range(maxi(0, int(boss.get("hp", 0)))):
@@ -1322,6 +1740,8 @@ func _win() -> void:
 	win_t = 2.6
 	pointer.visible = false
 	objective.text = "🎉  TA-DAAA!  🎉"
+	if farm_layer != null:
+		farm_layer.visible = false   # lift the 2D meadow so the stage bow shows
 	# curtain-call bow: the audience hops and the star of the show gets confetti
 	for spr: Node3D in audience:
 		var tw := spr.create_tween()
@@ -1353,6 +1773,13 @@ func cancel() -> void:
 		_finish()   # the applause was already earned; leaving skips only the delay
 		return
 	state = "done"
+	# guest engines clean up their own borrowed state (music, pause) first
+	if kart != null and is_instance_valid(kart):
+		kart.queue_free()
+		kart = null
+		m._play_music(race_prev_track if race_prev_track != "" else "level2")
+	if dance != null and is_instance_valid(dance) and dance.active:
+		dance.close_demo()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	queue_free()
@@ -1363,6 +1790,14 @@ func action_label() -> String:
 			return "DANCE"
 		"press":
 			return "PRESS"
+		"scroll":
+			return "TOSS"
+		"race":
+			if kart != null:
+				return String(kart.action_label())
+			return "GO!"
+		"dance":
+			return "SING"
 		"boss":
 			if bool(boss.get("dual", false)) and String(boss.get("phase", "")) == "shadow":
 				return "SHINE"

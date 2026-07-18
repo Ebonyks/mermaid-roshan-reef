@@ -1,5 +1,5 @@
 extends SceneTree
-# Pearl Opera House regression: ten costume acts across two floors (four
+# Pearl Opera House regression: fourteen costume acts across two floors (six
 # shows + a boss showdown per floor), no passive wins, wrong answers stay
 # gentle, checkpoint resume, and the completion rewards land exactly once.
 
@@ -25,7 +25,7 @@ func _init() -> void:
 	var opera: OperaHouse = main.opera_game
 	_ck("fresh save can enter the opera house", opera != null)
 	await _wait_for_act(opera, 0)
-	_ck("opera defines ten acts", OperaHouse.ACTS.size() == 10)
+	_ck("opera defines fourteen acts", OperaHouse.ACTS.size() == 14)
 	var floor1_shows := 0
 	var floor2_shows := 0
 	var floor1_boss := 0
@@ -38,10 +38,10 @@ func _init() -> void:
 		else:
 			if story == 1: floor1_shows += 1
 			else: floor2_shows += 1
-	_ck("each floor runs four shows", floor1_shows == 4 and floor2_shows == 4)
+	_ck("each floor runs six shows", floor1_shows == 6 and floor2_shows == 6)
 	_ck("each floor ends with one boss", floor1_boss == 1 and floor2_boss == 1)
-	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[4]["type"]) == "boss")
-	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[9]["type"]) == "boss")
+	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[6]["type"]) == "boss")
+	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[13]["type"]) == "boss")
 	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	var act: OperaAct = opera.act
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
@@ -83,6 +83,14 @@ func _init() -> void:
 				_drive_fix(act)
 			"press":
 				await _drive_press(act)
+			"doctor":
+				_drive_doctor(act)
+			"scroll":
+				_drive_scroll(act)
+			"race":
+				await _drive_race(act)
+			"dance":
+				await _drive_dance(act)
 			"boss":
 				await _drive_boss(act, bool(cfg2.get("dual", false)))
 		_ck("act %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
@@ -91,7 +99,7 @@ func _init() -> void:
 			await _wait_for_act(opera, expected + 1)
 	await process_frame
 	await process_frame
-	_ck("all ten checkpoints persist", main.opera_progress == 10)
+	_ck("all fourteen checkpoints persist", main.opera_progress == 14)
 	_ck("final act completes the opera", main.opera_done)
 	_ck("the Showtime sticker is earned", bool(main.stickers.get("showtime", false)))
 	opera._finish(true)
@@ -180,6 +188,60 @@ func _drive_press(act: OperaAct) -> void:
 			await process_frame
 	_ck("press act does not stall", guard < 900)
 	_ck("three smiley candies finish the show", act.candies_done == 3)
+
+func _drive_doctor(act: OperaAct) -> void:
+	_ck("checkup has four one-touch steps", act.doc_targets.size() == 4)
+	act._doctor_action(3)
+	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
+	for s in range(4):
+		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
+		act.player_pos = reach
+		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
+		act._doctor_action(act.doc_step)
+	_ck("four tended steps heal the plushy", act.state == "won")
+
+func _drive_scroll(act: OperaAct) -> void:
+	_ck("meadow has five hungry piggies", act.piggies.size() == 5)
+	act._toss_action()
+	_ck("toss with nobody close is gentle (no feed)", act.state == "play" and act.farm_fed == 0)
+	for i in range(5):
+		act.farm_toss_cool = 0.0
+		act.piggies[i]["sx"] = 250.0
+		act._toss_action()
+	_ck("five fed piggies finish the picnic", act.state == "won" and act.farm_fed == 5)
+
+func _drive_race(act: OperaAct) -> void:
+	var guard := 0
+	while act.kart == null and guard < 240:
+		guard += 1
+		await process_frame
+	_ck("kart engine is reused for the Grand Prix", act.kart is KartGame)
+	_ck("exhibition race runs a single lap", act.kart != null and act.kart._laps() == 1)
+	# ✕ quitting the race returns to the stage without winning; the internals of
+	# the race itself are probe_kart_feel's job, so completion is simulated here
+	act._race_finished(-1)
+	_ck("race quit returns to the stage flag", act.state == "play" and act.kart == null)
+	act._race_finished(2)
+	_ck("any finishing place wins the act", act.state == "won")
+
+func _drive_dance(act: OperaAct) -> void:
+	var guard := 0
+	while (act.dance == null or not act.dance.active) and guard < 240:
+		guard += 1
+		await process_frame
+	_ck("dance engine opens in guest mode", act.dance != null and act.dance.guest_mode and act.dance.active)
+	act.dance.close_demo()
+	await process_frame
+	_ck("closing without dancing keeps the mic waiting", act.state == "play")
+	act._open_dance()
+	guard = 0
+	while (act.dance == null or not act.dance.active) and guard < 240:
+		guard += 1
+		await process_frame
+	act.dance.happy_hits = 6
+	act.dance.close_demo()
+	await process_frame
+	_ck("a happy round takes the pop star's bow", act.state == "won")
 
 func _drive_boss(act: OperaAct, dual: bool) -> void:
 	var hp: int = int(act.boss["hp"])

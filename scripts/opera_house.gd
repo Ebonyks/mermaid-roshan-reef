@@ -1,8 +1,8 @@
 class_name OperaHouse
 extends Node
-# The Pearl Opera House (Peach Showtime-inspired): ten costume acts across
-# two floors. Each floor runs four career shows and ends with a gentle boss
-# showdown. OperaAct owns each performance; this class owns act order,
+# The Pearl Opera House (Peach Showtime-inspired): fourteen costume acts
+# across two floors. Each floor runs six career shows and ends with a gentle
+# boss showdown. OperaAct owns each performance; this class owns act order,
 # checkpoints, the progress HUD and safe exits — mirroring DungeonLevel.
 
 const ACTS := [
@@ -27,6 +27,16 @@ const ACTS := [
 		"voice": "Candy Maker Roshan! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
 		"win_line": "Three smiley candies! The sweetest show the reef has ever tasted!",
 		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
+	{"name": "The Plushy Checkup", "career": "Doctor", "costume": "doctor", "story": 1, "type": "show",
+		"kind": "doctor",
+		"voice": "Doctor Roshan is here! The plushy starfish has boo-boos — follow the golden sparkle: thermometer first, then kiss the ouchies better, then the bandage!",
+		"win_line": "All better! The plushy starfish feels brand new — best doctor in the sea!",
+		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
+	{"name": "The Piggy Picnic", "career": "Farmer", "costume": "farmer", "story": 1, "type": "show",
+		"kind": "scroll",
+		"voice": "Farmer Roshan! The meadow is sliding by and the piggies are SO hungry — tap TOSS when a piggy is close to throw it a yummy veggie!",
+		"win_line": "Five happy piggies with full tummies! Best picnic the farm has ever had!",
+		"floor_col": Color(0.55, 0.75, 0.5), "trim": Color(0.95, 0.9, 0.55), "curtain": Color(0.4, 0.6, 0.35)},
 	{"name": "The Curtain Dragon", "career": "Sparkle Knight", "costume": "knight", "story": 1, "type": "boss",
 		"kind": "boss", "boss_hp": 3, "peek_time": 4.5, "hide_time": 2.2,
 		"voice": "A grumbly dragon is hiding in the curtains! Be brave — tap SPARKLE when he peeks out!",
@@ -53,6 +63,16 @@ const ACTS := [
 		"voice": "Astronaut Engineer Roshan! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
 		"win_line": "The bubbles reached the rocket! Three, two, one — TWINKLE-OFF!",
 		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
+	{"name": "The Opera Grand Prix", "career": "Racecar Driver", "costume": "racer", "story": 2, "type": "show",
+		"kind": "race",
+		"voice": "Racecar Driver Roshan! One special lap of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
+		"win_line": "What a race! The whole audience is waving checkered flags!",
+		"floor_col": Color(0.4, 0.4, 0.48), "trim": Color(1.0, 0.95, 0.95), "curtain": Color(0.85, 0.25, 0.3)},
+	{"name": "The Starlight Concert", "career": "Pop Star", "costume": "popstar", "story": 2, "type": "show",
+		"kind": "dance",
+		"voice": "Pop Star Roshan! Tap the sparkling microphone, then dance the floating arrows to make rainbow magic!",
+		"win_line": "The crowd is singing along! Pop Star Roshan, the reef's biggest star!",
+		"floor_col": Color(0.5, 0.3, 0.6), "trim": Color(1.0, 0.7, 0.95), "curtain": Color(0.45, 0.2, 0.55)},
 	{"name": "The Shadow Phantom", "career": "Star Cape", "costume": "starcape", "story": 2, "type": "boss",
 		"kind": "boss", "dual": true, "boss_hp": 3, "peek_time": 5.0, "hide_time": 2.0,
 		"voice": "A shy shadow is hiding on the stage! Light the twinkling lantern with SHINE, then tap SPARKLE when he peeks!",
@@ -133,7 +153,7 @@ func _update_hud() -> void:
 		return
 	var marks := ""
 	for i in range(ACTS.size()):
-		if i == 5:
+		if i == 7:
 			marks += "‖ "   # the staircase between the two floors
 		if i < act_index:
 			marks += "★ "
@@ -178,7 +198,7 @@ func _complete_opera() -> void:
 	m.opera_progress = ACTS.size()
 	m._write_save()
 	m._update_hud()
-	progress_label.text = "★ ★ ★ ★ ★ ‖ ★ ★ ★ ★ ★"
+	progress_label.text = "★ ★ ★ ★ ★ ★ ★ ‖ ★ ★ ★ ★ ★ ★ ★"
 	act_label.text = "OPERA\nSTAR!"
 	m.show_msg("Roshan", "Every show, every costume, both floors! Take a bow, Opera Star Roshan!", "win")
 	var timer := get_tree().create_timer(3.0)

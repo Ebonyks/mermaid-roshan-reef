@@ -40,6 +40,8 @@ var happy_hits := 0
 var combo := 0
 var active := false
 var finishing := false
+var guest_mode := false   # opera guest spot: the first happy round auto-closes
+                          # instead of looping, so the act can take its bow
 var prior_paused := false
 var prior_stream: AudioStream = null
 var prior_music_position := 0.0
@@ -456,12 +458,20 @@ func _finish_round() -> void:
 		title_label.text = "THE MUSIC IS WAITING  ♫"
 		prompt_label.text = "Tap any floating arrow to join!"
 		title_label.visible = true
-	get_tree().create_timer(2.4, true).timeout.connect(_restart_round.bind(chart_generation))
+	if guest_mode and happy_hits > 0:
+		get_tree().create_timer(2.4, true).timeout.connect(_close_if_active)
+	else:
+		get_tree().create_timer(2.4, true).timeout.connect(_restart_round.bind(chart_generation))
 
 
 func _restart_round(generation: int) -> void:
 	if active and generation == chart_generation:
 		_start_song()
+
+
+func _close_if_active() -> void:
+	if active:
+		close_demo()
 
 
 func _say_dance(event: String) -> void:
