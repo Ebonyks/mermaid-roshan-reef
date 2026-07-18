@@ -9,7 +9,7 @@ has to learn once.
 This document is the game-wide audit of every playable mode, the recommended
 engine set, and the migration map. First shipped step: the **SideScrollStage**
 engine (`scripts/games/side_scroll.gd`) with the rebuilt 2.5D catch-the-babies
-nursery as its first client (see §6).
+nursery as its first client (see §7).
 
 ---
 
@@ -69,7 +69,61 @@ Two architectural families, which do NOT share a base:
 
 ---
 
-## 2. Recommended engine set: **four engines + two kits**
+## 2. One universal engine, or several? (evaluated)
+
+The tempting alternative is a single `MiniGameEngine` API that every game —
+dungeon, catcher, runner, shooter, racer — configures. Evaluated honestly:
+
+**What a single API would buy.** One lifecycle to learn and probe; plumbing
+(input, rewards, mercy, teardown) written exactly once; every new game is
+"just config"; accessibility and safety rules (no-fail, voice objectives,
+tap targets) enforced in one place instead of promised in eight.
+
+**Why a single API fails at the simulation layer.** The games genuinely
+disagree where it matters most — the *feel*:
+- **Kinematics:** a drift-charging kart on a banked spline, a gravity-fed
+  slide, a hovering catcher on a line, and a globe-walker share no motion
+  math. A config flag per behavior turns configs into a worse programming
+  language than GDScript.
+- **Camera:** chase-on-spline, side-on glide, top-down scroll, and octagon
+  overhead are four different rigs with four different tuning surfaces; feel
+  work (KART_FEEL.md-style) needs each to stay small and owned.
+- **The god-object lesson is already in this repo:** main.gd at ~8.9k lines
+  *is* the one-engine-that-does-everything, and every phase since has been
+  spent taking it apart. A universal engine rebuilds that problem one level
+  down, with every game paying the complexity of every other game's
+  features — and a regression in the shared simulation breaks all ten games
+  at once instead of one.
+- **Probe determinism:** analytic, per-mode simulations are why the bots can
+  drive every game; a mega-engine's interacting feature flags multiply the
+  state space the probes must cover.
+
+**The synthesis that IS strong enough to support all of them: one contract,
+few engines.** What is truly identical across every minigame is not the
+simulation — it is the *plumbing*. So standardize that as the single
+**MiniGame contract** every game (and every engine) sits on:
+
+1. **Lifecycle** — `build(cfg) → tick(delta) → end(win)`, teardown through
+   `game_nodes`/`_clear_game`, state on `main.g` (already Family A's shape;
+   Family B's `finish_cb` nodes migrate to it over time).
+2. **GameInput** — the one-finger grammar (drag/point ∥ stick ∥ keys ∥ pad,
+   tap = THE button) read from one helper, never re-implemented.
+3. **RewardDirector** — every win funnels through `_reward()`; no bespoke
+   pearl/sticker/save code.
+4. **Mercy hooks** — a standard "escalate help on struggle" pattern (widen,
+   slow, magnetize) instead of per-game reinvention.
+5. **Objective voice + pointer** — firing `_say()` + golden pointer is part
+   of the contract, so the non-reader rule can't be forgotten.
+6. **Probe surface** — objective state readable from `main.g`, motion
+   analytic, so one bot pattern drives any conforming game.
+
+Under that single contract sit the **four perspective engines** below — each
+owning one kind of simulation and camera — and games become thin objective
+scripts on top. New minigame cost drops to "pick an engine, write the
+objective"; the feel stays hand-tuned per perspective; and nothing ever
+grows big enough to become the next main.gd.
+
+## 3. Recommended engine set: **four engines + two kits**
 
 More than four adds abstraction without coverage; fewer forces perspectives
 that don't mix (a side-scroller and a spline racer share almost no math).
@@ -137,7 +191,7 @@ fetch.gd (timing minigame, shares only input/reward plumbing).
 
 ---
 
-## 3. The single touch interface
+## 4. The single touch interface
 
 One grammar across every engine, so the player's hand never re-learns:
 - **drag / hold** = point where to be (stage games) or steer (stick emerges
@@ -153,7 +207,7 @@ including kart/galaxy's private `joy_axis` clones. That helper is also where
 a future accessibility tweak (bigger dead-zones, hold-assist) lands once for
 every game at the same time.
 
-## 4. Consolidation map
+## 5. Consolidation map
 
 | Game | Runs on (now) | Target | Effort |
 |---|---|---|---|
@@ -173,7 +227,7 @@ every game at the same time.
 | Dance | own node | K2 neighbor; leave | none |
 | Fetch / Seek / Shop / Galaxy | bespoke | leave (one-offs) | — |
 
-## 5. What this buys
+## 6. What this buys
 
 - **Code/file size:** the duplicated input reads, room rigs, spline math, and
   primitive-art kits are the bulk of the ~5.9k lines in combat/dungeon/slide/
@@ -186,7 +240,7 @@ every game at the same time.
 - **Probe cost:** one probe per engine exercises every client's shared
   machinery; per-game probes shrink to objective checks.
 
-## 6. Migration order (each step mechanical, probe-green before merge)
+## 7. Migration order (each step mechanical, probe-green before merge)
 
 1. ✅ **E2 shipped** — SideScrollStage + dolls 2.5D rebuild (this branch).
 2. Snowman chase → E2 catch mode (deletes the duplicate mover).
@@ -202,7 +256,7 @@ behavior identical unless the change *is* the task (as the dolls rebuild was).
 
 ---
 
-## 7. SideScrollStage API (engine E2)
+## 8. SideScrollStage API (engine E2)
 
 `scripts/games/side_scroll.gd`, RefCounted satellite (state on `main.g`
 `ss_*` keys; every node registered in `main.game_nodes` so `_clear_game`
