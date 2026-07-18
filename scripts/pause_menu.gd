@@ -145,6 +145,10 @@ func _leave_current_activity() -> void:
 	var fr: Dictionary = m.g.get("fr", {})
 	var leaving_name: String = String(fr.get("fname", ""))
 	m._leave_arena()
+	# back to free swim at return_pos: shed any banking/pitch tilt frozen by
+	# the arena so she doesn't reappear mid-lean in the reef
+	m.player.rotation.x = 0.0
+	m.player.rotation.z = 0.0
 	if not fr.is_empty():
 		fr["cool"] = 8.0
 	if leaving_game == "fairyshoot":

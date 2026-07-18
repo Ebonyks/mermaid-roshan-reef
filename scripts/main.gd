@@ -40,6 +40,7 @@ var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
+var _nature_mats: Dictionary = {}   # pastel rgba32 -> shared flat material (see _dress_nature)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
@@ -273,6 +274,8 @@ var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
 var save_retry_t := 0.0
+var save_pending := false  # debounced write queued by the hot sites (pearl pickup, friend discovery)
+var save_pending_t := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
@@ -1700,6 +1703,11 @@ func _spawn_crafted_fish() -> void:
 	# counter: runs at world build, after _load_save() (the save loads AFTER
 	# the reef builds, so spawning only at build time made every crafted fish
 	# vanish on the next launch), and on each new craft.
+	# Live spawns cap at the NEWEST 30 entries (skip ahead to the tail) so a
+	# big collection cannot flood the reef with movers. The saved custom_fish
+	# array itself is uncapped by design — her crafted fish data is sacred and
+	# is never truncated or reordered here.
+	crafted_fish_spawned = maxi(crafted_fish_spawned, custom_fish.size() - 30)
 	while crafted_fish_spawned < custom_fish.size():
 		var cf: Variant = custom_fish[crafted_fish_spawned]
 		crafted_fish_spawned += 1
@@ -1895,16 +1903,30 @@ func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: flo
 
 
 func _tick_aquatic(delta: float) -> void:
+	# NOTE: this keeps running inside the cutaway arenas/lagoon/castle — the
+	# reef creatures are never hidden there (the cutaways just sit hundreds of
+	# units below at ARENA_POS/LEVEL2_POS), so their patrols stay live. Only
+	# kart suspends the whole reef tick block upstream in _process.
 	var t: float = Time.get_ticks_msec() / 1000.0
+	var ceiling: float = WATER_TOP - 3.0
+	var frame: int = Engine.get_process_frames()
+	var idx: int = -1
 	for mv in aquatic_movers:
+		idx += 1
 		var node: Node3D = mv["node"]
 		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
 		var rad: float = float(mv["rad"])
 		var px: float = cos(ang) * rad
 		var pz: float = sin(ang) * rad
 		var desired_y: float = float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0
-		var pos := Vector3(px, _aquatic_patrol_height(px, pz, desired_y,
-			float(mv.get("clearance", 3.0))), pz)
+		# perf (Helio G88): seabed_y costs ~12 sin/sqrt per call — too hot for
+		# every mover every frame. Cache each mover's clamp floor ("_cy") and
+		# refresh it every 8th frame, staggered by loop index so the movers
+		# don't all recompute on the same frame. Movement itself stays
+		# per-frame smooth — only the terrain floor under the bob is cadenced.
+		if not mv.has("_cy") or (frame + idx) % 8 == 0:
+			mv["_cy"] = minf(seabed_y(px, pz) + float(mv.get("clearance", 3.0)), ceiling)
+		var pos := Vector3(px, clampf(desired_y, float(mv["_cy"]), ceiling), pz)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
 		if mv.has("rig"):
@@ -2627,6 +2649,27 @@ func _set_vis_range(n: Node, dist: float) -> void:
 
 # Phase 7.1: save/load logic lives in scripts/save_state.gd (state stays
 # here on main; SaveState receives main by reference and only owns logic)
+var carry_sys: CarrySystem = null
+
+func _carry_ref() -> CarrySystem:
+	if carry_sys == null:
+		carry_sys = CarrySystem.new(self)
+	return carry_sys
+
+var flow_sys: ReefFlow = null
+
+func _flow_ref() -> ReefFlow:
+	if flow_sys == null:
+		flow_sys = ReefFlow.new(self)
+	return flow_sys
+
+var grotto_sys: GrottoPuzzle = null
+
+func _grotto_ref() -> GrottoPuzzle:
+	if grotto_sys == null:
+		grotto_sys = GrottoPuzzle.new(self)
+	return grotto_sys
+
 var _save_state: SaveState = null
 var _collection_system: CollectionSystem = null
 
@@ -2644,13 +2687,27 @@ func _write_save() -> bool:
 	if _save_state == null:
 		_save_state = SaveState.new(self)
 	var saved: bool = _save_state.write_save()
+	# every immediate write also satisfies any debounced request — milestone
+	# sites (_end_game etc.) are natural flush points, never double writes
+	save_pending = false
+	save_pending_t = 0.0
 	save_dirty = not saved
 	save_retry_t = 1.5 if save_dirty else 0.0
 	return saved
 
+func _queue_save() -> void:
+	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
+	# one write ~1.5s after the last event instead of a synchronous multi-file
+	# write per pearl. Milestones keep calling _write_save() directly.
+	save_pending = true
+	save_pending_t = 1.5
+
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_PAUSED and save_dirty:
-		_write_save()
+	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# flush BOTH a failed write awaiting retry and a debounced pending
+		# write — going to the background must never drop queued progress
+		if save_dirty or save_pending:
+			_write_save()
 
 func _add_won_star(fr: Dictionary) -> void:
 	if fr.has("star"):
@@ -3695,10 +3752,21 @@ func _dress_nature(node: Node) -> void:
 				var col := Color(0.5, 0.6, 0.4)
 				if bm is StandardMaterial3D:
 					col = (bm as StandardMaterial3D).albedo_color
-				var nm := StandardMaterial3D.new()
-				nm.albedo_color = _pastel(col)
-				nm.roughness = 1.0
-				nm.metallic_specular = 0.1
+				# perf (Mali-G52): identical pastel colors share ONE material.
+				# A fresh StandardMaterial3D per surface per instance made
+				# every nature prop its own draw-state (hundreds of unique
+				# RIDs in the lagoon, defeating batching, re-allocated on
+				# every arena entry). All other params are constants, so the
+				# final pastel color is the whole visual identity of the mat.
+				var pc: Color = _pastel(col)
+				var key: int = pc.to_rgba32()
+				var nm: StandardMaterial3D = _nature_mats.get(key)
+				if nm == null:
+					nm = StandardMaterial3D.new()
+					nm.albedo_color = pc
+					nm.roughness = 1.0
+					nm.metallic_specular = 0.1
+					_nature_mats[key] = nm
 				mi.set_surface_override_material(si, nm)
 	for c in node.get_children():
 		_dress_nature(c)
@@ -5597,6 +5665,10 @@ func _process(delta: float) -> void:
 		save_retry_t -= delta
 		if save_retry_t <= 0.0:
 			_write_save()
+	elif save_pending:
+		save_pending_t -= delta
+		if save_pending_t <= 0.0:
+			_write_save()
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
@@ -5634,6 +5706,10 @@ func _process(delta: float) -> void:
 		if touch_ui != null and kart_game != null and kart_game.has_method("action_label"):
 			touch_ui.set_action_label(String(kart_game.action_label()))
 		return
+	if game == "":
+		_carry_ref().tick(delta, ppos)   # starfish scoop/toss + singing shells
+		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
+		_grotto_ref().tick(delta, ppos)  # push-block grotto
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)
@@ -5642,6 +5718,7 @@ func _process(delta: float) -> void:
 			var l: OmniLight3D = p.get_meta("light")
 			if is_instance_valid(l):
 				l.queue_free()
+			pearl_lights.erase(l)   # keep the quality-toggle list free of dead refs
 			var h: MeshInstance3D = p.get_meta("halo")
 			if is_instance_valid(h):
 				h.queue_free()
@@ -5662,7 +5739,7 @@ func _process(delta: float) -> void:
 				pearl_note += 1
 			_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
 			_update_hud()
-			_write_save()
+			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	for f in friends:
 		var node: Sprite3D = f["node"]
@@ -5687,7 +5764,7 @@ func _process(delta: float) -> void:
 			f["cool"] = 2.5
 			show_msg(f["fname"], f["msg"])
 			_update_hud()
-			_write_save()
+			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 		elif f["found"] and game == "" and dd < linger_radius:
 			if float(f["cool"]) > 0.0:
 				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
@@ -6803,6 +6880,10 @@ func _enter_arena(kind: String) -> void:
 	we_node.environment = arena_env
 	player.position = ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO
+	# drop any leftover swim banking/pitch tilt: slide/fairyshoot early-return
+	# in player._process, so a mid-turn lean would otherwise freeze on her
+	player.rotation.x = 0.0
+	player.rotation.z = 0.0
 	_play_music(kind)
 
 func _leave_arena() -> void:
