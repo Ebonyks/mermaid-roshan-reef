@@ -179,3 +179,11 @@ Contains models by Poly by Google, jeremy, S. Paul Michael, Ivan Kraft
 (CC-BY 3.0, via poly.pizza). Music by Juhani Junkala (CC0). World assets by
 Kenney, Kay Lousberg, Isa Lousberg (Tiny Treats), Quaternius, Poly Haven,
 ambientCG (all CC0).
+
+### Archived castle differentiation texture candidates (2026-07-17)
+- Files: `art_library/candidates/castle_differentiation_2026-07-17/*.jpg`
+- Source: project-authored texture studies recovered from the local
+  `castle-differentiation` worktree
+- License: project original; not for external redistribution
+- Modifications: none; archived byte-for-byte and excluded from Godot imports
+- Status: unintegrated candidates retained for visual review
