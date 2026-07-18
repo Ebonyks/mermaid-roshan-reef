@@ -5633,6 +5633,7 @@ func _process(delta: float) -> void:
 			var l: OmniLight3D = p.get_meta("light")
 			if is_instance_valid(l):
 				l.queue_free()
+			pearl_lights.erase(l)   # keep the quality-toggle list free of dead refs
 			var h: MeshInstance3D = p.get_meta("halo")
 			if is_instance_valid(h):
 				h.queue_free()
