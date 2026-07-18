@@ -3,6 +3,8 @@ extends RefCounted
 # Phase 7.4: mechanical extraction from main.gd — builder + tick for the
 # seek minigame. All state stays on main (m.*); received by reference.
 
+const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+
 var m: ReefMain
 
 func _init(main: ReefMain) -> void:
