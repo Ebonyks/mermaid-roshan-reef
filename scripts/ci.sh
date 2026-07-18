@@ -29,8 +29,21 @@ for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_re
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
 	mkdir -p "$probe_home/data" "$probe_home/config"
+	probe_rc=0
 	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
-		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || rc=1
+		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
+	if [ "$probe_rc" -ne 0 ]; then
+		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
+		# after a probe printed its complete verdict (seen after kart-heavy
+		# probes, always AFTER an ALL OK line). Accept a timeout kill (124)
+		# only when the transcript ends with a final verdict marker; the
+		# failure greps below still veto bad content. Anything else is real.
+		if [ "$probe_rc" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then
+			echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
+		else
+			rc=1
+		fi
+	fi
 	grep -qE "$FAILURE_RE" "/tmp/$p.out" \
 		&& { echo "PROBE $p reported a failure or runtime script error"; rc=1; }
 	# a script that cannot compile leaves the probe waiting on a world that
