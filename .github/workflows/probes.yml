@@ -36,7 +36,7 @@ jobs:
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
           pip install --quiet gdtoolkit==4.* numpy Pillow
-          python3 -m gdtoolkit.parser scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
+          python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/audit_fairy_art_v2.py
 
@@ -71,7 +71,7 @@ jobs:
           FAILED=0
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
           FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
-          for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
+          for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -93,6 +93,12 @@ jobs:
             fi
             if grep -qE "$RUNTIME_ERROR_RE" "/tmp/$p.out"; then
               echo "PROBE $p reported a resource or property runtime error"
+              FAILED=1
+            fi
+            # positive floor: a probe that exits 0 while printing nothing
+            # asserted nothing - silent no-op must not count as a pass
+            if [ ! -s "/tmp/$p.out" ]; then
+              echo "PROBE $p produced no output - silent no-op treated as failure"
               FAILED=1
             fi
           done
