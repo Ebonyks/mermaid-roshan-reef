@@ -28,6 +28,7 @@ const KNOWN_KEYS: Array[String] = [
 var m: ReefMain
 var save_path: String
 var future_schema_read_only := false
+var _warned_future_write_skip := false
 
 func _init(main: ReefMain, path_override: String = "") -> void:
 	m = main
@@ -113,12 +114,16 @@ func load_save() -> void:
 
 func write_save() -> bool:
 	# Recheck disk at the write boundary too: callers can construct SaveState and
-	# write without calling load_save() first, and a recovery copy may be the only
-	# surviving N+1 document.
+	# write without calling load_save() first, and the backup may be the only
+	# surviving N+1 document. A disabled write reports failure so main.gd's
+	# save_dirty/retry path (and the pause flush) can see it instead of
+	# believing the write landed.
 	if future_schema_read_only or not _find_future_candidate().is_empty():
 		future_schema_read_only = true
-		push_warning("SaveState: skipped write because a newer save schema is loaded")
-		return true
+		if not _warned_future_write_skip:
+			_warned_future_write_skip = true
+			push_warning("SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory")
+		return false
 	var won_d: Dictionary = {}
 	var found_d: Dictionary = {}
 	for f2 in m.friends:
@@ -169,9 +174,15 @@ func _select_load_candidate() -> Dictionary:
 	var candidates: Array[Dictionary] = []
 	for path: String in paths:
 		candidates.append(_read_save_candidate(path))
-	# Never choose an older clean fallback before discovering an N+1 recovery
-	# copy later in the list. Preserving the newest schema outranks repair order.
+	# Never choose an older clean fallback before discovering an N+1 backup.
+	# Preserving the newest schema outranks repair order — but only the real
+	# documents (primary, then backup) may claim it. A stale future-versioned
+	# temp or sidecar beside a current primary must never hijack selection or
+	# silently disable writes.
 	for candidate: Dictionary in candidates:
+		var candidate_path: String = String(candidate.get("path", ""))
+		if candidate_path != save_path and candidate_path != _backup_path():
+			continue
 		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
 			return candidate
 	var primary: Dictionary = candidates[0]
@@ -231,7 +242,10 @@ func _candidate_paths() -> Array[String]:
 	]
 
 func _find_future_candidate() -> Dictionary:
-	for path: String in _candidate_paths():
+	# Only the documents that can win load selection (primary, then backup) may
+	# declare the save future-schema. Stale .tmp/.old sidecars from an aborted
+	# newer-build write must not disable this build's saves.
+	for path: String in [save_path, _backup_path()]:
 		var candidate: Dictionary = _read_save_candidate(path)
 		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
 			return candidate
