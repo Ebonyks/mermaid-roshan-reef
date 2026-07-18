@@ -51,6 +51,7 @@ func _speaker_key(who: String) -> String:
 	if "wacky" in w: return "wacky"
 	if "shop" in w: return "shop"
 	if "sparkle" in w or "eagle" in w: return "sparkle"
+	if "kitty" in w: return "kitty"
 	if "everyone" in w: return "everyone"
 	return "roshan"
 

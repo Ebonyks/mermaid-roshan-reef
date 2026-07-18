@@ -143,6 +143,31 @@ var combat_ice_done := false       # Butterfly Castle ice-berry encounter comple
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_game: CombatArena = null
 var combat_from := ""
+# ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
+# ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
+# ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
+var companion_id := ""                    # chosen stuffie ("" until picked at Huluu's throne)
+var companion_colors: Array = []          # [body, accent, third] html colours from the picker
+var fish_tokens := 0                      # sparkle-fish pickups → companion level
+var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
+var companion_node: Node3D = null         # the follower in the open reef (never saved)
+var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
+var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
+var companion_tokens: Array = []          # sparkle-fish rows {base, node, timer, phase}
+var companion_layer: CanvasLayer = null   # picker overlay
+var companion_stage: Control = null
+var companion_pick_id := ""               # picker working state
+var companion_pick_colors: Array = []
+var companion_cool := 0.0                 # cheer cooldown
+var companion_cheer_t := -1.0
+var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
+var companion_greeted := false            # one-time hello per session
+var companion_den_said := false           # one-time den intro per session
+var companion_action_prev := false
+var companion_p2 := false                 # true while a pad holds R1 — P2 steers the stuffie
+var stuffie_game: StuffieBattle = null
+var stuffie_from := ""
+var stuffie_cool := 0.0
 var dungeon_game: DungeonLevel = null
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
@@ -2354,6 +2379,47 @@ func _end_combat(battle_kind: String) -> void:
 			player.vel = Vector3.ZERO
 	combat_from = ""
 
+func _start_stuffie_battle() -> void:
+	# the sparring-den ladder: one round per visit; once all three are won the
+	# den keeps serving rounds in rotation (replayable, no dead end)
+	if stuffie_game != null or companion_id == "":
+		return
+	var ladder_index := 0
+	for i in range(StuffieBattle.LADDER.size()):
+		if not bool(stuffie_wins.get(String(StuffieBattle.LADDER[i]["tag"]), false)):
+			ladder_index = i
+			break
+		ladder_index = (int(stuffie_wins.get("_replays", 0)) + i + 1) % StuffieBattle.LADDER.size()
+	stuffie_from = game
+	game = "stuffie"
+	if hud_layer != null:
+		hud_layer.visible = false
+	player.visible = false
+	if companion_node != null and is_instance_valid(companion_node):
+		companion_node.visible = false
+	stuffie_game = StuffieBattle.new()
+	add_child(stuffie_game)
+	stuffie_game.start(self, ladder_index, Callable(self, "_end_stuffie_battle"))
+
+func _end_stuffie_battle(round_tag: String) -> void:
+	stuffie_game = null
+	if round_tag != "":
+		if bool(stuffie_wins.get(round_tag, false)):
+			stuffie_wins["_replays"] = int(stuffie_wins.get("_replays", 0)) + 1
+		stuffie_wins[round_tag] = true
+		pearl_count += 8
+		_reward(false)
+		_write_save()
+		_update_hud()
+	game = stuffie_from
+	stuffie_from = ""
+	stuffie_cool = 12.0
+	player.visible = true
+	if player.cam != null:
+		player.cam.make_current()
+	if hud_layer != null:
+		hud_layer.visible = true
+
 func _start_dungeon() -> void:
 	# The dungeon introduces its elemental actions in context. Requiring the two
 	# optional overworld encounters here made a fresh save impossible to progress.
@@ -2518,7 +2584,7 @@ func _update_hud() -> void:
 	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
-const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
+const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "kitty": 1.3, "rosalina": 1.15, "everyone": 1.1}
 
 var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
@@ -2662,6 +2728,15 @@ func _collection_ref() -> CollectionSystem:
 	if _collection_system == null:
 		_collection_system = CollectionSystemLogic.new(self)
 	return _collection_system
+
+# ---- the stuffed-friend companion wing lives in scripts/companion.gd
+# ---- (state stays here; CompanionSystem receives main by reference)
+var _companion_system: CompanionSystem = null
+
+func _companion_ref() -> CompanionSystem:
+	if _companion_system == null:
+		_companion_system = CompanionSystem.new(self)
+	return _companion_system
 
 func _load_save() -> void:
 	if _save_state == null:
@@ -5678,6 +5753,8 @@ func _process(delta: float) -> void:
 		pass   # the GalaxyLevel node ticks itself
 	elif game == "combat":
 		pass   # the CombatArena node owns movement, camera and encounter logic
+	elif game == "stuffie":
+		pass   # the StuffieBattle node owns the creature, camera and dodge QTE
 	elif game == "dungeon":
 		pass   # DungeonLevel sequences four CombatArena battles and six visual puzzles
 	elif game == "opera":
@@ -5690,6 +5767,7 @@ func _process(delta: float) -> void:
 	_tick_movers(delta)
 	_tick_aquatic(delta)
 	_tick_peng_pal(delta)
+	_companion_ref().tick(delta)
 	_tick_god_rays(delta)
 	_tick_guide(delta)
 	_tick_finale(delta)
@@ -5765,6 +5843,8 @@ func _process(delta: float) -> void:
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		elif game == "combat" and combat_game != null:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
+		elif game == "stuffie" and stuffie_game != null:
+			act_lbl = stuffie_game.action_label()   # PECK / CLAW
 		elif game == "dungeon" and dungeon_game != null:
 			act_lbl = dungeon_game.action_label()
 		elif game == "opera" and opera_game != null:

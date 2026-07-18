@@ -43,6 +43,8 @@ Two architectural families, which do NOT share a base:
 | Picture games ×5 | games/picture_games.gd (593) | 2D canvas | tap-to-place / chase | tap, stick |
 | Dance | games/dance_engine.gd (509) | 2D canvas rhythm | tap lanes on beat | lane buttons |
 | Critter collection | collection_system.gd (452) | ambient in-world | approach + catch | tap |
+| Stuffie battle | stuffie_battle.gd | overhead octagon, YOU are the creature | one-button attack + DODGE QTE | stick + tap + big dodge bubble |
+| Companion wing | companion.gd | ambient in-world | follow / tokens / den entrance | proximity + tap |
 
 ### Duplication found by the audit (the cost of no engines)
 

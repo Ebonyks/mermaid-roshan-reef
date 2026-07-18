@@ -24,7 +24,7 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
+for p in probe_reef_districts probe_audit probe_passive probe_load probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"

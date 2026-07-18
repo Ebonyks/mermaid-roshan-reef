@@ -16,8 +16,9 @@ const BOOL_KEYS: Array[String] = [
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
+	"stuffie_wins",
 ]
-const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
+const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors"]
 const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
@@ -25,6 +26,10 @@ const KNOWN_KEYS: Array[String] = [
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_done",
 	"stickers", "owned", "animals",
 ]
+# companion keys (2026-07-18 stuffed-friend wing) are deliberately NOT in
+# KNOWN_KEYS: _has_complete_schema treats every KNOWN_KEYS entry as required,
+# which would mark every pre-companion save "incomplete". New keys ride the
+# normalise defaults instead — save compatibility rule: add with defaults.
 
 var m: ReefMain
 var save_path: String
@@ -83,6 +88,12 @@ func load_save() -> void:
 	m.animals_owned = m.save_data.get("animals", {})
 	var saved_critters: Variant = m.save_data.get("critters", {})
 	m.critter_collection = saved_critters if saved_critters is Dictionary else {}
+	m.companion_id = String(m.save_data.get("companion", ""))
+	var saved_companion_colors: Variant = m.save_data.get("companion_colors", [])
+	m.companion_colors = saved_companion_colors if saved_companion_colors is Array else []
+	m.fish_tokens = int(m.save_data.get("fish_tokens", 0))
+	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
+	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
 	if bool(m.shop_owned.get("tail", false)):
 		m.player.set_rainbow_trail(true)
 	if bool(m.shop_owned.get("tiara", false)):
@@ -160,6 +171,10 @@ func write_save() -> bool:
 	next_data["owned"] = m.shop_owned
 	next_data["animals"] = m.animals_owned
 	next_data["critters"] = m.critter_collection
+	next_data["companion"] = m.companion_id
+	next_data["companion_colors"] = m.companion_colors
+	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
+	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
 	if not _commit_save(normalised):
@@ -379,6 +394,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")
 	data["critters"] = _dictionary_or_default(raw, "critters")
+	data["companion"] = _string_or_default(raw, "companion", "")
+	data["companion_colors"] = _array_or_default(raw, "companion_colors")
+	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
+	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
 
