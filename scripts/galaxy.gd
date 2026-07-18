@@ -120,6 +120,7 @@ var _pads: Array = []             # flower bounce pads: {dir: Vector3, cool: flo
 var _flyers: Array = []           # ambient butterflies: {node, axis, dir0, alt, spd, ph, flap}
 var _trays: Array = []            # fruit feeding trays: {dir: Vector3, cool: float, node}
 var _idle_t := 0.0                # stand still and a butterfly comes to visit
+var _run_t := 0.0                 # total session time — the butterfly-rescue medal ranks on it
 var _bugs: Array = []             # crawling beetles/ladybugs: {node, axis, dir0, spd, ph, cool}
 var _rosalina: Sprite3D = null
 var _rosa_cool := 0.0
@@ -1179,6 +1180,7 @@ func _process(delta: float) -> void:
 	if _state == "done":
 		return
 	_bob_t += delta
+	_run_t += delta
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	# moons orbit; shards spin & bob
 	for md in _moons:
@@ -1806,6 +1808,10 @@ func _chime(pitch: float) -> void:
 		_main.chime.play()
 
 func _win() -> void:
+	# The medal ranks every completed rescue — including replays after bwdone,
+	# so a faster return trip can still upgrade bronze into gold.
+	if _main != null and _main.has_method("_medal_ref"):
+		_main._medal_ref().award_stats("galaxy", {"time": _run_t})
 	# The grand reward is strictly once-per-save. This guard also makes old or
 	# externally-driven sessions safe if they somehow invoke _win after bwdone.
 	if _main != null and "bwd_done" in _main and bool(_main.bwd_done):

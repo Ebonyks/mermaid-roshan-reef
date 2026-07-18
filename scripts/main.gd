@@ -18,6 +18,7 @@ var pearl_count := 0
 var pearls_ever := 0              # highest pearl balance ever held; preserves the original 10-pearl gate after spending
 var portal_unlocked := false
 var trophies := 0
+var medals := {}                  # game id -> best tier ever (1 bronze / 2 silver / 3 gold); persisted, upgrade-only (MedalSystem owns logic)
 var hud_layer: CanvasLayer = null
 var hud_pearls: Label
 var hud_stars: Label
@@ -2176,6 +2177,7 @@ func _kart_completion_committed(place: int) -> void:
 	if place <= 0 or kart_completion_committed:
 		return
 	kart_completion_committed = true
+	_medal_ref().award_stats("kart", {"place": place})
 	var unlocked_galaxy := false
 	if kart_ground == "float" and not galaxy_unlocked:
 		galaxy_unlocked = true
@@ -2483,7 +2485,7 @@ func _update_hud() -> void:
 	for caught_value: Variant in critter_collection.values():
 		if bool(caught_value):
 			critters += 1
-	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
+	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters] + _medal_ref().hud_suffix()
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
@@ -2630,6 +2632,15 @@ func _collection_ref() -> CollectionSystem:
 	if _collection_system == null:
 		_collection_system = CollectionSystemLogic.new(self)
 	return _collection_system
+
+# bronze/silver/gold rankings live in scripts/medal_system.gd
+# (state stays here on m.medals; MedalSystem receives main by reference)
+var _medal_system: MedalSystem = null
+
+func _medal_ref() -> MedalSystem:
+	if _medal_system == null:
+		_medal_system = MedalSystem.new(self)
+	return _medal_system
 
 func _load_save() -> void:
 	if _save_state == null:
@@ -4199,6 +4210,7 @@ func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 	if st == "idle":
 		if float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
 			bg2["round"] = 0
+			bg2["oops"] = 0
 			show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
 			_bellgame_new_round(bg2)
 	elif st == "play":
@@ -4248,6 +4260,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 				_update_hud()
 				_reward()
 				award_sticker("bells")
+				_medal_ref().award_stats("bells", {"oops": int(bg2.get("oops", 0))})
 				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
 			else:
 				if chime != null:
@@ -4260,6 +4273,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 			chime.pitch_scale = 0.5
 			chime.play()
 		show_msg("Music Room", "Almost! Listen to the song one more time...", "oops")
+		bg2["oops"] = int(bg2.get("oops", 0)) + 1
 		bg2["state"] = "play"
 		bg2["i"] = 0
 		bg2["t"] = 1.2
@@ -5097,6 +5111,10 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
+	if win:
+		# ranked BEFORE _clear_game wipes g — every completion earns at least
+		# bronze; MedalSystem persists only upgrades (shop is unranked: no-op)
+		_medal_ref().award_from_end_game(game, g)
 	if win and not fr["won"]:
 		fr["won"] = true
 		trophies += 1

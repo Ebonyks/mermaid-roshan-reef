@@ -60,6 +60,7 @@ func _init() -> void:
 		var pearls_before: int = main.pearl_count
 		var trophies_before: int = main.trophies
 		var stickers_before: Dictionary = main.stickers.duplicate(true)
+		var medals_before: Dictionary = main.medals.duplicate(true)
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
 			await process_frame
 		var still_running: bool = main.game != ""
@@ -67,7 +68,7 @@ func _init() -> void:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
-		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before
+		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before or main.medals != medals_before
 		if won_passively or progression_changed or not still_running:
 			print("PASSIVE|", fname, " [", gname, "]: FAIL zero-input state won=", won_passively,
 				" progression=", progression_changed, " still_running=", still_running)
@@ -92,12 +93,14 @@ func _progress_snapshot() -> Dictionary:
 	var stickers_now: Dictionary = main.stickers
 	var shop_now: Dictionary = main.shop_owned
 	var animals_now: Dictionary = main.animals_owned
+	var medals_now: Dictionary = main.medals
 	return {
 		"pearls": int(main.pearl_count),
 		"trophies": int(main.trophies),
 		"stickers": stickers_now.duplicate(true),
 		"shop": shop_now.duplicate(true),
 		"animals": animals_now.duplicate(true),
+		"medals": medals_now.duplicate(true),
 	}
 
 func _progress_unchanged(before: Dictionary) -> bool:
@@ -105,7 +108,8 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and int(main.trophies) == int(before["trophies"]) \
 		and main.stickers == before["stickers"] \
 		and main.shop_owned == before["shop"] \
-		and main.animals_owned == before["animals"]
+		and main.animals_owned == before["animals"] \
+		and main.medals == before["medals"]
 
 func _probe_shop_agency() -> int:
 	main.beans_t = -1.0

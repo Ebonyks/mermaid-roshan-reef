@@ -15,6 +15,7 @@ const BOOL_KEYS: Array[String] = [
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
+	"medals",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
 const KNOWN_KEYS: Array[String] = [
@@ -82,6 +83,8 @@ func load_save() -> void:
 	m.animals_owned = m.save_data.get("animals", {})
 	var saved_critters: Variant = m.save_data.get("critters", {})
 	m.critter_collection = saved_critters if saved_critters is Dictionary else {}
+	var saved_medals: Variant = m.save_data.get("medals", {})
+	m.medals = saved_medals if saved_medals is Dictionary else {}
 	if bool(m.shop_owned.get("tail", false)):
 		m.player.set_rainbow_trail(true)
 	if bool(m.shop_owned.get("tiara", false)):
@@ -109,6 +112,7 @@ func load_save() -> void:
 			f2["won"] = true
 			m.trophies += 1
 			m._add_won_star(f2)
+	m._medal_ref().refresh_friend_glyphs()
 	m._update_hud()
 
 func write_save() -> bool:
@@ -155,6 +159,7 @@ func write_save() -> bool:
 	next_data["owned"] = m.shop_owned
 	next_data["animals"] = m.animals_owned
 	next_data["critters"] = m.critter_collection
+	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
 	if not _commit_save(normalised):
@@ -372,8 +377,24 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")
 	data["critters"] = _dictionary_or_default(raw, "critters")
+	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
+
+func _medals_or_default(data: Dictionary) -> Dictionary:
+	# game id -> best tier (1 bronze / 2 silver / 3 gold); JSON round-trips
+	# numbers as floats, so coerce and clamp rather than reject the save.
+	# NOTE: "medals" is deliberately NOT in KNOWN_KEYS (same as "critters") so
+	# older saves without it still count as schema-complete.
+	var out: Dictionary = {}
+	var value: Variant = data.get("medals", {})
+	if typeof(value) != TYPE_DICTIONARY:
+		return out
+	for medal_key: Variant in (value as Dictionary):
+		var tier: Variant = (value as Dictionary)[medal_key]
+		if _is_nonnegative_integer(tier) and int(tier) > 0:
+			out[String(medal_key)] = clampi(int(tier), 1, 3)
+	return out
 
 func _bool_or_default(data: Dictionary, key: String, default_value: bool) -> bool:
 	var value: Variant = data.get(key, default_value)

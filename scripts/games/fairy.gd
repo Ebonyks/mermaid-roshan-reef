@@ -635,6 +635,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				return
 			m.player.visible = true
 			m.award_sticker("flower")
-			m.fs_fails = 0
+			# _end_game's medal hook reads m.fs_fails for the ranking, so the
+			# retry-kindness counter resets AFTER the win is reported
 			m._end_game(true, fr, "The Fairy Flower blossomed! You did it!")
+			m.fs_fails = 0
 		return
