@@ -6528,10 +6528,6 @@ func _start_game(fr: Dictionary) -> void:
 # ===================== PENGUIN ICE SLIDE =====================
 # A short N64-style downhill chute. Roshan slides on momentum (gravity along the
 # slope); the player only steers left/right. 5 fish to grab, ~12 seconds.
-
-# ===================== PENGUIN ICE SLIDE =====================
-# A short N64-style downhill chute. Roshan slides on momentum (gravity along the
-# slope); the player only steers left/right. 5 fish to grab, ~12 seconds.
 const SLIDE_WIDTH := 18.0          # chute interior width
 const SLIDE_GRAV := 44.0           # along-slope gravity pull
 const SLIDE_FRICT := 0.32          # speed-proportional drag (sets terminal speed)
