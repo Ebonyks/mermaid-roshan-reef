@@ -146,6 +146,9 @@ var combat_from := ""
 var dungeon_game: DungeonLevel = null
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
+var opera_game: OperaHouse = null
+var opera_progress := 0            # cleared opera acts, 0..14; next visit resumes here
+var opera_done := false
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content
@@ -166,6 +169,7 @@ const STICKER_DEFS := [
 	{"id": "flower", "emoji": "🌸", "label": "Flower Bloomer", "hint": "Bloom the giant flower!"},
 	{"id": "carrot", "emoji": "🥕", "label": "Snowman Snack", "hint": "Chase the runaway snowman... and EAT him!"},
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
+	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -2378,6 +2382,34 @@ func _end_dungeon(completed: bool) -> void:
 		gate["armed"] = false
 	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
 
+func _start_opera() -> void:
+	# The opera teaches each show inside its own act, so the stage door is open
+	# on a fresh save — nothing elsewhere is ever a prerequisite.
+	if opera_game != null:
+		return
+	game = "opera"
+	if hud_layer != null:
+		hud_layer.visible = false
+	player.visible = false
+	opera_game = OperaHouse.new()
+	add_child(opera_game)
+	opera_game.start(self, opera_progress, Callable(self, "_end_opera"))
+
+func _end_opera(completed: bool) -> void:
+	opera_game = null
+	game = "level2"
+	player.visible = true
+	if player.cam != null:
+		player.cam.make_current()
+	if hud_layer != null:
+		hud_layer.visible = true
+	if g.has("opera_gate"):
+		var gate: Dictionary = g["opera_gate"]
+		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
+		player.vel = Vector3.ZERO
+		gate["armed"] = false
+	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
+
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
 func _apply_cel_shading() -> void:
@@ -2700,12 +2732,6 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 
 func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
-
-func _dolls2d_open(fr: Dictionary) -> void:
-	_game_obj("dolls", DollsGame)._dolls2d_open(fr)
-
-func _dolls2d_close() -> void:
-	_game_obj("dolls", DollsGame)._dolls2d_close()
 
 func _seek_hide() -> void:
 	_game_obj("seek", SeekGame)._seek_hide()
@@ -4925,7 +4951,7 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
-	_dolls2d_close()
+	_game_obj("dolls", DollsGame).stage_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -5375,15 +5401,10 @@ func _tick_game(delta: float) -> void:
 	elif game == "fairyshoot":
 		_tick_fairyshoot(delta, fr, ppos)
 
-var dolls_layer: CanvasLayer
-var dolls_root: Control
-var dolls_catcher: TextureRect
-var dolls_score_lbl: Label
-
 func skin_sprite_path() -> String:
-	# the flat art matching the wardrobe skin — used by the kart driver,
-	# the 2D minigame mermaid and the dolls catcher so the chosen look
-	# follows Roshan into every game, not just the ocean
+	# the flat art matching the wardrobe skin — used by the kart driver and
+	# the 2D minigame mermaid so the chosen look follows Roshan into every
+	# game, not just the ocean (the dolls nursery uses the real 3D player now)
 	if skin_id == "huluu":
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
@@ -5659,6 +5680,8 @@ func _process(delta: float) -> void:
 		pass   # the CombatArena node owns movement, camera and encounter logic
 	elif game == "dungeon":
 		pass   # DungeonLevel sequences four CombatArena battles and six visual puzzles
+	elif game == "opera":
+		pass   # OperaHouse sequences the eight costume acts across two floors
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -5744,6 +5767,8 @@ func _process(delta: float) -> void:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
 		elif game == "dungeon" and dungeon_game != null:
 			act_lbl = dungeon_game.action_label()
+		elif game == "opera" and opera_game != null:
+			act_lbl = opera_game.action_label()
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================

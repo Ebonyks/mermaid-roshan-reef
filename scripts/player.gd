@@ -667,8 +667,8 @@ func _process(delta: float) -> void:
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon"):
-		return   # the slide / fairy-shooter / kart / galaxy modes drive the player + camera themselves
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls"):
+		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))
