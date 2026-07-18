@@ -2630,6 +2630,20 @@ func _carry_ref() -> CarrySystem:
 		carry_sys = CarrySystem.new(self)
 	return carry_sys
 
+var flow_sys: ReefFlow = null
+
+func _flow_ref() -> ReefFlow:
+	if flow_sys == null:
+		flow_sys = ReefFlow.new(self)
+	return flow_sys
+
+var grotto_sys: GrottoPuzzle = null
+
+func _grotto_ref() -> GrottoPuzzle:
+	if grotto_sys == null:
+		grotto_sys = GrottoPuzzle.new(self)
+	return grotto_sys
+
 var _save_state: SaveState = null
 var _collection_system: CollectionSystem = null
 
@@ -5595,6 +5609,8 @@ func _process(delta: float) -> void:
 		return
 	if game == "":
 		_carry_ref().tick(delta, ppos)   # starfish scoop/toss + singing shells
+		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
+		_grotto_ref().tick(delta, ppos)  # push-block grotto
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)

@@ -740,6 +740,9 @@ func _process(delta: float) -> void:
 			var depth: float = WATER_TOP - position.y
 			if depth < 4.5:
 				vel.y += 34.0 * (1.0 - depth / 4.5) * delta
+			# authored reef currents: stream rides + the breathing geyser lift
+			if "flow_sys" in m0 and m0.flow_sys != null:
+				vel += (m0.flow_sys.accel_at(position) as Vector3) * delta
 	position += vel * delta
 	if free_swim:
 		var now_air: bool = position.y > WATER_TOP
