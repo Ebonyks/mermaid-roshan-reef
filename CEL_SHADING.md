@@ -67,3 +67,8 @@ blender --background --python tools/preview_render.py -- <model.glb> <out.png> <
 > Status: shaders + preview tooling committed (inert). Applying cel-shading game-wide
 > is the next step and should be done where it can be tested in Godot (or via a
 > one-line toggle for you to test), not blind.
+>
+> Update 2026-07-18: that toggle now exists — developer mode (F1) has a
+> "Cel-shade the whole world" switch in the Lighting Lab that applies
+> cel.gdshader + the ink outline to every opaque surface live, with full
+> restore. See LIGHTING_SHADER_AUDIT_2026-07-18.md §3-A for the rollout plan.

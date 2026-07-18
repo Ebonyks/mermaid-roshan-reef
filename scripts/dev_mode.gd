@@ -10,6 +10,14 @@ extends CanvasLayer
 #   - Rendering layers: fog, glow/bloom, god rays, caustic dapples, plankton,
 #     color grade (brightness/contrast/saturation), exposure, render scale, MSAA.
 #   - Look presets for quick side-by-side comparisons during playtests.
+#   - Lighting Lab (experimental): proof-of-concept toggles for the bigger
+#     Godot techniques — tonemapper A/B (ACES vs AgX etc.), cel-shading the
+#     whole world + ink outlines, diorama tilt-shift depth of field, rim /
+#     follow-spot / caustic-projector lights, a shadow quality lab, flat
+#     ambient + sky restyles, FXAA, and a Mobile-safe screen-space post
+#     stack (posterize / vignette / ripple / grain). Everything is built
+#     lazily on first use and fully restorable; nothing in the lab is
+#     persisted by Save Look. See LIGHTING_SHADER_AUDIT_2026-07-18.md.
 #   - "Save Look" persists the tuned look across launches (user://look_config.json);
 #     "Copy for Feedback" puts the full settings JSON on the clipboard so a tester
 #     can paste exactly what they were seeing into a feedback note.
@@ -58,6 +66,42 @@ var sun_warm := 0.0
 var god_rays_on := true
 var plankton_on := true
 var accent_on := true
+
+# ---- Lighting Lab (experimental proof-of-concept) state ----
+var cel_world_on := false
+var cel_saved: Array = []        # [mesh_instance, surface, previous_override]
+var cel_mat_cache := {}          # source StandardMaterial3D -> shared cel ShaderMaterial
+var outline_world_on := false
+var outline_saved: Array = []    # BaseMaterial3Ds we gave an outline next_pass
+var rim_light: DirectionalLight3D = null
+var follow_spot: SpotLight3D = null
+var caustic_spot: SpotLight3D = null
+var dof_attrs: CameraAttributesPractical = null
+var postfx_layer: CanvasLayer = null
+var postfx_rect: ColorRect = null
+var postfx_mat: ShaderMaterial = null
+var postfx := {"posterize": 0.0, "vignette": 0.0, "ripple": 0.0, "grain": 0.0}
+var sky_saved := {}              # original ProceduralSkyMaterial colors for restore
+
+const TONEMAPS := [
+	["Linear", Environment.TONE_MAPPER_LINEAR],
+	["Reinhard", Environment.TONE_MAPPER_REINHARD],
+	["Filmic", Environment.TONE_MAPPER_FILMIC],
+	["ACES", Environment.TONE_MAPPER_ACES],
+	["AgX", Environment.TONE_MAPPER_AGX],
+]
+
+const AMBIENT_COLORS := [
+	["Aqua", Color(0.46, 0.72, 0.78)],
+	["Lavender", Color(0.62, 0.56, 0.86)],
+	["Peach", Color(0.95, 0.72, 0.58)],
+]
+
+const SKY_PRESETS := {
+	"Sunset Glow": {"top": Color(0.55, 0.30, 0.55), "horizon": Color(0.98, 0.62, 0.42), "gbot": Color(0.20, 0.10, 0.22), "ghor": Color(0.85, 0.50, 0.40), "energy": 0.85},
+	"Night Nebula": {"top": Color(0.10, 0.06, 0.24), "horizon": Color(0.36, 0.16, 0.44), "gbot": Color(0.02, 0.02, 0.08), "ghor": Color(0.22, 0.10, 0.30), "energy": 0.55},
+	"Bright Day": {"top": Color(0.35, 0.62, 0.92), "horizon": Color(0.78, 0.90, 0.98), "gbot": Color(0.20, 0.35, 0.45), "ghor": Color(0.65, 0.82, 0.90), "energy": 1.0},
+}
 
 # ---- Animation Lab (Roshan stress testing) ----
 const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep"]
@@ -108,10 +152,12 @@ func _env() -> Environment:
 
 func _process(delta: float) -> void:
 	if open and fps_label != null:
-		fps_label.text = "%d fps" % Engine.get_frames_per_second()
+		var fps := Engine.get_frames_per_second()
+		fps_label.text = "%d fps (%.1f ms)" % [fps, 1000.0 / maxf(1.0, fps)]
 	if main == null or main.player == null or get_tree().paused:
 		return
 	_tick_anim_lab(delta)
+	_tick_lab_lights(delta)
 	var p: Node3D = main.player
 	var cam: Camera3D = p.cam
 	if cam == null or not cam.is_inside_tree():
@@ -329,6 +375,253 @@ func _set_accent(on: bool) -> void:
 		var l2: Light3D = pl["light"]
 		if is_instance_valid(l2):
 			l2.visible = on
+
+# ==================== lighting lab (experimental PoC) ====================
+# Each experiment demonstrates one Godot lighting/rendering tool that the
+# game does not currently use. All Mobile-renderer safe. Built lazily so the
+# lab costs nothing (headless probes included) until a control is touched.
+
+func _tick_lab_lights(delta: float) -> void:
+	var p: Node3D = main.player
+	if follow_spot != null and follow_spot.visible:
+		follow_spot.position = p.position + Vector3(7.0, 15.0, 7.0)
+		follow_spot.look_at(p.position + Vector3(0, 1.0, 0))
+	if caustic_spot != null and caustic_spot.visible:
+		# straight-down projector; the slow Y spin makes the dapples shimmer
+		caustic_spot.position = p.position + Vector3(0.0, 22.0, 0.0)
+		caustic_spot.rotation_degrees = Vector3(-90.0, caustic_spot.rotation_degrees.y + delta * 5.0, 0.0)
+
+func _set_tonemap(mode: int, mname: String) -> void:
+	var env := _env()
+	if env != null:
+		env.tonemap_mode = mode
+		_status("Tonemap: " + mname + " (compare skin, coral pinks and the glow halos)")
+
+func _set_cel_world(on: bool) -> void:
+	# extends the gen2 cel pipeline (cel.gdshader + hull outline next_pass) to
+	# EVERY opaque StandardMaterial3D surface in the built world: terrain, props,
+	# Roshan. ShaderMaterial surfaces (water, sway flora, creatures) and alpha
+	# materials (sticker cutouts, glass) are left alone, so book art stays book art.
+	cel_world_on = on
+	if main == null:
+		return
+	if on:
+		var outline: ShaderMaterial = main._gen2_outline_mat()
+		var cel_shader: Shader = load("res://assets/shaders/cel.gdshader")
+		for mi in main._all_meshes(main):
+			if not is_instance_valid(mi) or mi.mesh == null:
+				continue
+			for si in range(mi.mesh.get_surface_count()):
+				var m: Material = mi.get_active_material(si)
+				if not (m is StandardMaterial3D):
+					continue
+				var bm := m as StandardMaterial3D
+				if bm.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED:
+					continue
+				var cm: ShaderMaterial = cel_mat_cache.get(bm)
+				if cm == null:
+					cm = ShaderMaterial.new()
+					cm.shader = cel_shader
+					if bm.albedo_texture != null:
+						cm.set_shader_parameter("albedo_tex", bm.albedo_texture)
+					cm.set_shader_parameter("tint", bm.albedo_color)
+					cm.next_pass = outline
+					cel_mat_cache[bm] = cm
+				cel_saved.append([mi, si, mi.get_surface_override_material(si)])
+				mi.set_surface_override_material(si, cm)
+		_status("Cel world ON: %d surfaces toon-banded + inked. Re-toggle after entering a new area." % cel_saved.size())
+	else:
+		for e in cel_saved:
+			var mi: MeshInstance3D = e[0]
+			if is_instance_valid(mi) and mi.mesh != null and int(e[1]) < mi.mesh.get_surface_count():
+				mi.set_surface_override_material(int(e[1]), e[2])
+		cel_saved.clear()
+		_status("Cel world off - original materials restored.")
+
+func _set_outline_world(on: bool) -> void:
+	# ink outlines only (no toon banding): hangs the inverted-hull outline off
+	# every opaque material's next_pass. Doubles opaque draw calls - watch fps.
+	outline_world_on = on
+	if main == null:
+		return
+	if on:
+		var outline: ShaderMaterial = main._gen2_outline_mat()
+		for mi in main._all_meshes(main):
+			if not is_instance_valid(mi) or mi.mesh == null:
+				continue
+			for si in range(mi.mesh.get_surface_count()):
+				var m: Material = mi.get_active_material(si)
+				if m is BaseMaterial3D and m.next_pass == null 						and (m as BaseMaterial3D).transparency == BaseMaterial3D.TRANSPARENCY_DISABLED:
+					m.next_pass = outline
+					outline_saved.append(m)
+		_status("Ink outlines ON: %d materials outlined (draw calls roughly double)." % outline_saved.size())
+	else:
+		for m in outline_saved:
+			if m != null:
+				(m as BaseMaterial3D).next_pass = null
+		outline_saved.clear()
+		_status("Ink outlines off.")
+
+func _set_dof(on: bool) -> void:
+	# CameraAttributesPractical depth of field - the diorama / tilt-shift look.
+	# Supported by the Mobile renderer (half-res blur); NOT free on old phones.
+	if main.player == null or main.player.cam == null:
+		return
+	var cam: Camera3D = main.player.cam
+	if on:
+		if dof_attrs == null:
+			dof_attrs = CameraAttributesPractical.new()
+			dof_attrs.dof_blur_far_enabled = true
+			dof_attrs.dof_blur_far_distance = 35.0
+			dof_attrs.dof_blur_far_transition = 20.0
+			dof_attrs.dof_blur_near_enabled = true
+			dof_attrs.dof_blur_near_distance = 2.0
+			dof_attrs.dof_blur_near_transition = 4.0
+			dof_attrs.dof_blur_amount = 0.08
+		cam.attributes = dof_attrs
+		_status("Tilt-shift ON: far reef melts away like a toy diorama.")
+	else:
+		cam.attributes = null
+		_status("Tilt-shift off.")
+
+func _set_rim_light(on: bool) -> void:
+	# second DirectionalLight3D opposite the sun: cool lavender silhouette rim.
+	# Shadowless, so it costs one extra directional pass - cheap.
+	if rim_light == null:
+		rim_light = DirectionalLight3D.new()
+		rim_light.light_color = Color(0.72, 0.68, 1.0)
+		rim_light.light_energy = 0.35
+		rim_light.shadow_enabled = false
+		rim_light.visible = false
+		main.add_child(rim_light)
+	if main.sun_light != null:
+		rim_light.rotation_degrees = Vector3(-20.0, wrapf(main.sun_light.rotation_degrees.y + 180.0, -180.0, 180.0), 0.0)
+	rim_light.visible = on
+	_status("Rim light " + ("ON - lavender back-glow on every silhouette" if on else "off"))
+
+func _set_follow_spot(on: bool) -> void:
+	# SpotLight3D stage key light that tracks Roshan (the game uses zero spots today)
+	if follow_spot == null:
+		follow_spot = SpotLight3D.new()
+		follow_spot.light_color = Color(1.0, 0.95, 0.82)
+		follow_spot.light_energy = 3.0
+		follow_spot.spot_range = 50.0
+		follow_spot.spot_angle = 18.0
+		follow_spot.spot_angle_attenuation = 1.6
+		follow_spot.shadow_enabled = false
+		follow_spot.visible = false
+		main.add_child(follow_spot)
+	follow_spot.visible = on
+	_status("Follow spot " + ("ON - a warm stage light tracks Roshan" if on else "off"))
+
+func _set_caustic_projector(on: bool) -> void:
+	# light PROJECTOR caustics: a texture cookie on a real SpotLight3D, so the
+	# dapples wrap geometry and shade correctly - vs the additive caustics plane.
+	if caustic_spot == null:
+		caustic_spot = SpotLight3D.new()
+		caustic_spot.light_color = Color(0.5, 0.85, 1.0)
+		caustic_spot.light_energy = 2.4
+		caustic_spot.spot_range = 45.0
+		caustic_spot.spot_angle = 45.0
+		caustic_spot.shadow_enabled = false
+		caustic_spot.visible = false
+		var noise := FastNoiseLite.new()
+		noise.noise_type = FastNoiseLite.TYPE_CELLULAR
+		noise.cellular_return_type = FastNoiseLite.RETURN_DISTANCE2
+		noise.frequency = 0.06
+		var nt := NoiseTexture2D.new()
+		nt.noise = noise
+		nt.seamless = true
+		nt.width = 256
+		nt.height = 256
+		caustic_spot.light_projector = nt
+		main.add_child(caustic_spot)
+	caustic_spot.visible = on
+	_status("Caustic projector " + ("ON - real light-space dapples follow Roshan" if on else "off"))
+
+func _set_flat_ambient(on: bool) -> void:
+	var env := _env()
+	if env == null:
+		return
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR if on else Environment.AMBIENT_SOURCE_SKY
+	_status("Ambient from " + ("flat color - pick a tint below" if on else "the sky gradient (default)"))
+
+func _set_ambient_color(c: Color, cname: String) -> void:
+	var env := _env()
+	if env != null:
+		env.ambient_light_color = c
+		_status("Ambient tint: " + cname + " (turn on Flat ambient to see it fully)")
+
+func _apply_sky_preset(pname: String) -> void:
+	var env := _env()
+	if env == null or env.sky == null or not (env.sky.sky_material is ProceduralSkyMaterial):
+		_status("This scene has no procedural sky to restyle.")
+		return
+	var psky := env.sky.sky_material as ProceduralSkyMaterial
+	if sky_saved.is_empty():
+		sky_saved = {"top": psky.sky_top_color, "horizon": psky.sky_horizon_color,
+			"gbot": psky.ground_bottom_color, "ghor": psky.ground_horizon_color,
+			"energy": psky.energy_multiplier}
+	var d: Dictionary = sky_saved if pname == "Reef Default" else SKY_PRESETS[pname]
+	psky.sky_top_color = d["top"]
+	psky.sky_horizon_color = d["horizon"]
+	psky.ground_bottom_color = d["gbot"]
+	psky.ground_horizon_color = d["ghor"]
+	psky.energy_multiplier = d["energy"]
+	_status("Sky: " + pname + " (ambient follows the sky, so the whole scene shifts)")
+
+func _ensure_postfx() -> void:
+	# one fullscreen canvas_item pass reading hint_screen_texture - the only
+	# post-process route the Mobile renderer offers (no CompositorEffects).
+	if postfx_rect != null:
+		return
+	var sh := Shader.new()
+	sh.code = """shader_type canvas_item;
+uniform sampler2D screen_tex : hint_screen_texture, filter_linear;
+uniform float posterize = 0.0;
+uniform float vignette = 0.0;
+uniform float ripple = 0.0;
+uniform float grain = 0.0;
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	if (ripple > 0.001) {
+		uv += vec2(sin(uv.y * 36.0 + TIME * 1.8), cos(uv.x * 30.0 + TIME * 1.4)) * 0.0035 * ripple;
+	}
+	vec3 col = texture(screen_tex, uv).rgb;
+	if (posterize > 0.5) {
+		vec3 hi = max(col - vec3(0.92), vec3(0.0));
+		col = floor(col * posterize + 0.5) / posterize + hi;
+	}
+	if (grain > 0.001) {
+		float g = fract(sin(dot(uv + fract(TIME), vec2(12.9898, 78.233))) * 43758.5453);
+		col += (g - 0.5) * 0.10 * grain;
+	}
+	if (vignette > 0.001) {
+		float d = distance(uv, vec2(0.5));
+		col *= 1.0 - smoothstep(0.30, 0.72, d) * vignette;
+	}
+	COLOR = vec4(col, 1.0);
+}"""
+	postfx_mat = ShaderMaterial.new()
+	postfx_mat.shader = sh
+	postfx_layer = CanvasLayer.new()
+	postfx_layer.layer = 15   # under the dev panel (20), over the 3D scene
+	main.add_child(postfx_layer)
+	postfx_rect = ColorRect.new()
+	postfx_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	postfx_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	postfx_rect.material = postfx_mat
+	postfx_layer.add_child(postfx_rect)
+
+func _set_postfx(key: String, val: float) -> void:
+	_ensure_postfx()
+	postfx[key] = val
+	postfx_mat.set_shader_parameter(key, val)
+	var any_on := false
+	for v in postfx.values():
+		if float(v) > 0.001:
+			any_on = true
+	postfx_layer.visible = any_on
 
 # ============================ save / share ============================
 
@@ -567,6 +860,111 @@ func _build_ui() -> void:
 	_check("msaa", "Smooth edges (MSAA 4x)", false, func(on: bool):
 		var vp := get_viewport()
 		if vp != null: vp.msaa_3d = Viewport.MSAA_4X if on else Viewport.MSAA_DISABLED)
+
+	# ---- lighting lab (experimental PoC) ----
+	_section("Lighting Lab (experimental)")
+	var lab_note := Label.new()
+	lab_note.text = "Proof-of-concept Godot lighting tools. Not saved by Save Look. Cel/outline apply to what exists now - re-toggle after changing areas."
+	lab_note.add_theme_font_size_override("font_size", 13)
+	lab_note.add_theme_color_override("font_color", Color(0.9, 0.75, 0.55))
+	lab_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	vb.add_child(lab_note)
+	var tm_flow := HFlowContainer.new()
+	vb.add_child(tm_flow)
+	var tm_group := ButtonGroup.new()
+	for tm in TONEMAPS:
+		var tb := Button.new()
+		tb.text = tm[0]
+		tb.toggle_mode = true
+		tb.button_group = tm_group
+		tb.button_pressed = tm[0] == "ACES"
+		tb.add_theme_font_size_override("font_size", 15)
+		tb.custom_minimum_size = Vector2(0, 42)
+		tb.pressed.connect(_set_tonemap.bind(int(tm[1]), String(tm[0])))
+		tm_flow.add_child(tb)
+	_check("lab_cel", "Cel-shade the whole world (toon bands + ink)", false, _set_cel_world)
+	_check("lab_outline", "Ink outlines everywhere (outlines only)", false, _set_outline_world)
+	_check("lab_dof", "Diorama tilt-shift blur (depth of field)", false, _set_dof)
+	_slider("lab_dof_amt", "Tilt-shift strength", 0.02, 0.2, 0.01, 0.08, func(x: float):
+		if dof_attrs != null: dof_attrs.dof_blur_amount = x)
+	_check("lab_rim", "Moon rim light (lavender back-light)", false, _set_rim_light)
+	_slider("lab_rim_e", "Rim energy", 0.0, 1.2, 0.05, 0.35, func(x: float):
+		if rim_light != null: rim_light.light_energy = x)
+	_check("lab_spot", "Follow spotlight (stage key light)", false, _set_follow_spot)
+	_slider("lab_spot_e", "Spot energy", 0.5, 8.0, 0.25, 3.0, func(x: float):
+		if follow_spot != null: follow_spot.light_energy = x)
+	_check("lab_caustic", "Caustic light projector (cookie spot)", false, _set_caustic_projector)
+	_slider("lab_caustic_e", "Projector energy", 0.5, 6.0, 0.25, 2.4, func(x: float):
+		if caustic_spot != null: caustic_spot.light_energy = x)
+	_check("lab_flat_amb", "Flat ambient color (vs sky gradient)", false, _set_flat_ambient)
+	var amb_flow := HFlowContainer.new()
+	vb.add_child(amb_flow)
+	for ac in AMBIENT_COLORS:
+		var ab := Button.new()
+		ab.text = ac[0]
+		ab.add_theme_font_size_override("font_size", 15)
+		ab.custom_minimum_size = Vector2(0, 42)
+		ab.pressed.connect(_set_ambient_color.bind(ac[1], String(ac[0])))
+		amb_flow.add_child(ab)
+	var sky_flow := HFlowContainer.new()
+	vb.add_child(sky_flow)
+	for sname in ["Reef Default", "Sunset Glow", "Night Nebula", "Bright Day"]:
+		var skb := Button.new()
+		skb.text = sname
+		skb.add_theme_font_size_override("font_size", 15)
+		skb.custom_minimum_size = Vector2(0, 42)
+		skb.pressed.connect(_apply_sky_preset.bind(sname))
+		sky_flow.add_child(skb)
+
+	# ---- shadow lab ----
+	_section("Shadow Lab")
+	var sp_flow := HFlowContainer.new()
+	vb.add_child(sp_flow)
+	var sp_group := ButtonGroup.new()
+	for sd in [["1 split", DirectionalLight3D.SHADOW_ORTHOGONAL], ["2 splits", DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS], ["4 splits", DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS]]:
+		var spb := Button.new()
+		spb.text = sd[0]
+		spb.toggle_mode = true
+		spb.button_group = sp_group
+		spb.button_pressed = int(sd[1]) == DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+		spb.add_theme_font_size_override("font_size", 15)
+		spb.custom_minimum_size = Vector2(0, 42)
+		spb.pressed.connect(func():
+			if main.sun_light != null:
+				main.sun_light.directional_shadow_mode = int(sd[1])
+				_status("Shadow splits: " + String(sd[0]) + " (more splits = sharper near, costlier)"))
+		sp_flow.add_child(spb)
+	_slider("lab_sh_dist", "Shadow distance", 20.0, 200.0, 5.0, 90.0, func(x: float):
+		if main.sun_light != null: main.sun_light.directional_shadow_max_distance = x)
+	_slider("lab_sh_blur", "Shadow softness", 0.0, 4.0, 0.1, 1.0, func(x: float):
+		if main.sun_light != null: main.sun_light.shadow_blur = x)
+	_slider("lab_sh_op", "Shadow opacity", 0.2, 1.0, 0.05, 1.0, func(x: float):
+		if main.sun_light != null: main.sun_light.shadow_opacity = x)
+	var at_flow := HFlowContainer.new()
+	vb.add_child(at_flow)
+	for asz in [1024, 2048, 4096]:
+		var atb := Button.new()
+		atb.text = "Atlas %d" % asz
+		atb.add_theme_font_size_override("font_size", 15)
+		atb.custom_minimum_size = Vector2(0, 42)
+		atb.pressed.connect(func():
+			RenderingServer.directional_shadow_atlas_set_size(asz, true)
+			_status("Directional shadow atlas: %dpx (phone default is 2048)" % asz))
+		at_flow.add_child(atb)
+
+	# ---- post fx lab ----
+	_section("Post FX Lab (screen-space)")
+	_check("lab_fxaa", "FXAA (cheap smooth edges)", false, func(on: bool):
+		var vp := get_viewport()
+		if vp != null: vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if on else Viewport.SCREEN_SPACE_AA_DISABLED)
+	_slider("lab_poster", "Posterize bands (0 = off)", 0.0, 10.0, 1.0, 0.0, func(x: float):
+		_set_postfx("posterize", x))
+	_slider("lab_vig", "Vignette", 0.0, 1.0, 0.05, 0.0, func(x: float):
+		_set_postfx("vignette", x))
+	_slider("lab_ripple", "Underwater ripple", 0.0, 1.0, 0.05, 0.0, func(x: float):
+		_set_postfx("ripple", x))
+	_slider("lab_grain", "Storybook grain", 0.0, 1.0, 0.05, 0.0, func(x: float):
+		_set_postfx("grain", x))
 
 	# ---- share ----
 	_section("Save & Share")
