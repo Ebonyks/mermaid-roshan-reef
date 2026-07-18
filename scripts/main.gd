@@ -5602,6 +5602,8 @@ func _process(delta: float) -> void:
 			pearl_count += 1
 			if pearl_count % 25 == 0 and player != null:
 				player.play_verb("giggle")   # R2-C: every 25th pearl is a little party
+			elif player != null and String(player.verb) == "":
+				player.play_verb("collect")   # quick two-hand scoop on every pearl
 			_sparkle_burst(p.position, Color(1.0, 0.8, 1.0))
 			if chime != null:
 				var step: int = pearl_note % 21
