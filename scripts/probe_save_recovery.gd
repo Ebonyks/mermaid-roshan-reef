@@ -7,6 +7,8 @@ const TEST_FILES: Array[String] = [
 	TEST_PATH,
 	TEST_PATH + ".bak",
 	TEST_PATH + ".tmp",
+	TEST_PATH + ".tmp0",
+	TEST_PATH + ".tmp1",
 	TEST_PATH + ".old",
 	TEST_PATH + ".bak.tmp",
 	TEST_PATH + ".bak.old",
@@ -90,7 +92,8 @@ func _init() -> void:
 	_expect(int(preference_data.get("pearls", -1)) == 44, "noncritical repair preserves newer progress")
 
 	# Opening an N+1 save in N is read-only: unknown data and the schema claim
-	# survive even if gameplay requests a write.
+	# survive even if gameplay requests a write — and the disabled write must
+	# REPORT failure so main.gd's save_dirty/retry path can see it.
 	var future_data: Dictionary = preference_data.duplicate(true)
 	future_data["schema_version"] = SaveState.SCHEMA_VERSION + 4
 	future_data["future_only_progress"] = {"chapter": 9}
@@ -101,11 +104,11 @@ func _init() -> void:
 	main.save_data = future_data
 	main.pearl_count = 99
 	var fresh_state := SaveState.new(main, TEST_PATH)
-	fresh_state.write_save()
+	_expect(not fresh_state.write_save(), "write against a future primary reports failure")
 	_expect(_read_text(TEST_PATH) == future_text_before, "fresh writer leaves future schema byte-for-byte untouched")
 
-	# A future recovery copy outranks an older clean temp even when the primary
-	# is corrupt; candidate order must never downgrade a newer schema.
+	# A future BACKUP outranks an older clean temp even when the primary is
+	# corrupt; candidate order must never downgrade a newer schema.
 	_write_text(TEST_PATH, "{broken")
 	var current_temp: Dictionary = preference_data.duplicate(true)
 	current_temp["schema_version"] = SaveState.SCHEMA_VERSION
@@ -113,6 +116,48 @@ func _init() -> void:
 	_write_text(TEST_PATH + ".bak", JSON.stringify(future_data))
 	var future_recovery: Dictionary = fresh_state._select_load_candidate()
 	_expect(bool(future_recovery.get("future", false)) and String(future_recovery.get("path", "")) == TEST_PATH + ".bak", "future backup outranks older clean temp")
+
+	# But a stale future-versioned TEMP/sidecar beside a current primary must
+	# not hijack selection or silently disable this build's writes — that would
+	# make every save a no-op after one visit from a newer dev APK.
+	_cleanup()
+	main.save_data = {}
+	main.pearl_count = 7
+	var stale_state := SaveState.new(main, TEST_PATH)
+	_expect(stale_state.write_save(), "baseline write succeeds")
+	var stale_future: Dictionary = _read_json(TEST_PATH)
+	stale_future["schema_version"] = SaveState.SCHEMA_VERSION + 2
+	_write_text(TEST_PATH + ".tmp0", JSON.stringify(stale_future))
+	main.pearl_count = 8
+	var stale_writer := SaveState.new(main, TEST_PATH)
+	_expect(stale_writer.write_save(), "stale future temp does not disable writes")
+	_expect(int(_read_json(TEST_PATH).get("pearls", -1)) == 8, "write landed despite stale future temp")
+	var stale_candidate: Dictionary = stale_writer._select_load_candidate()
+	_expect(String(stale_candidate.get("path", "")) == TEST_PATH and not bool(stale_candidate.get("future", false)), "stale future temp does not hijack load selection")
+
+	# A save missing a key that a NEWER build added (schema growth) must stay
+	# clean: completeness is judged against the frozen core quartet, so the
+	# missing key just gets its default instead of demoting every existing
+	# save to the salvage path on first launch.
+	_cleanup()
+	main.save_data = {}
+	main.pearl_count = 12
+	var core_state := SaveState.new(main, TEST_PATH)
+	_expect(core_state.write_save(), "core-quartet fixture written")
+	var trimmed: Dictionary = _read_json(TEST_PATH)
+	trimmed.erase("stickers")   # stands in for any key a later build adds
+	trimmed.erase("critters")   # real case: saves from before the Critter Book
+	_write_text(TEST_PATH, JSON.stringify(trimmed))
+	var older_backup: Dictionary = _read_json(TEST_PATH + ".bak")
+	older_backup["pearls"] = 1   # a demotion to the backup would visibly roll progress back
+	older_backup["save_generation"] = 0
+	_write_text(TEST_PATH + ".bak", JSON.stringify(older_backup))
+	var core_candidate: Dictionary = core_state._select_load_candidate()
+	_expect(bool(core_candidate.get("clean", false)) and String(core_candidate.get("path", "")) == TEST_PATH, "save missing a newly-added key is still clean")
+	var core_data: Dictionary = core_candidate.get("data", {})
+	_expect(core_data.get("stickers") is Dictionary, "missing key restored with its default")
+	_expect(core_data.get("critters") is Dictionary, "pre-Critter-Book save defaults critters without demotion")
+	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
 
 	_cleanup()
 	main.free()
