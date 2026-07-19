@@ -358,6 +358,18 @@ func build(o: Vector3) -> void:
 	var entrance_lintel: MeshInstance3D = m._l2_box(
 		o + Vector3(0, 42.0, 45.25), Vector3(68.0, 20.0, 0.28), scol)
 	entrance_lintel.material_override = entrance_wall_mat
+	for reveal_side: float in [-1.0, 1.0]:
+		var reveal_panel: MeshInstance3D = m._l2_box(
+			o + Vector3(reveal_side * 6.1, 18.0, 43.55),
+			Vector3(2.35, 30.0, 0.22), scol)
+		reveal_panel.material_override = entrance_wall_mat
+		var reveal_trim: MeshInstance3D = m._l2_box(
+			o + Vector3(reveal_side * 7.45, 17.4, 43.32),
+			Vector3(0.38, 27.2, 0.18), Color(0.95, 0.78, 0.34))
+		reveal_trim.material_override = m._castle_mat("wall", 0.075, Color(0.95, 0.78, 0.34))
+	var reveal_lintel: MeshInstance3D = m._l2_box(
+		o + Vector3(0, 34.4, 43.50), Vector3(17.2, 5.4, 0.22), scol)
+	reveal_lintel.material_override = entrance_wall_mat
 	_pearl("pearl_shell_banner_a", o + Vector3(-19.0, 13.4, 44.55))
 	_pearl("pearl_shell_banner_b", o + Vector3(19.0, 13.4, 44.55))
 	# The rainbow frame opens onto graphic water instead of a blank wall.
