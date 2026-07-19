@@ -147,6 +147,7 @@ func _release_stick() -> void:
 	# a short press with no real drag = TAP -> jump/action
 	if not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
+		_flash(_origin)   # same confirmation ring the second-finger tap gets
 	_touch_idx = -1
 	stick_vec = Vector2.ZERO
 	_base.visible = false

@@ -2162,7 +2162,7 @@ func _build_friends() -> void:
 		pmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		pmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		pmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		pmat.albedo_color = Color(bcol.r, bcol.g, bcol.b, 0.035)
+		pmat.albedo_color = Color(bcol.r, bcol.g, bcol.b, 0.09)
 		pmat.cull_mode = BaseMaterial3D.CULL_DISABLED
 		pil.mesh = pm2
 		pil.material_override = pmat
@@ -5076,7 +5076,9 @@ func _tick_guide(delta: float) -> void:
 			if beacon != null:
 				beacon.light_energy = 1.5 + 0.35 * sin(tt2 * 2.4)
 		else:
-			pmat2.albedo_color.a = 0.035
+			# idle floor 0.09: actually visible on a phone in daylight, yet the
+			# nearest-friend pulse (0.12-0.19) still reads clearly brighter
+			pmat2.albedo_color.a = 0.09
 			if beacon != null:
 				beacon.light_energy = 0.55
 	if not have or best <= 16.0:
@@ -5945,7 +5947,7 @@ func _process(delta: float) -> void:
 			f["found"] = true
 			(f["beacon"] as OmniLight3D).light_energy = 1.0
 			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
-			pmat2.albedo_color.a = 0.035
+			pmat2.albedo_color.a = 0.09
 			f["cool"] = 2.5
 			show_msg(f["fname"], f["msg"])
 			_update_hud()
