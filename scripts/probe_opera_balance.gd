@@ -170,7 +170,7 @@ func _drive(act: OperaAct, dt: float) -> void:
 	if act.stage_phase == "brawl":
 		var target := Vector3.ZERO
 		var found := false
-		for g in act.gremlins:
+		for g in act.imps:
 			if not bool(g["popped"]):
 				target = g["pos"] as Vector3
 				found = true

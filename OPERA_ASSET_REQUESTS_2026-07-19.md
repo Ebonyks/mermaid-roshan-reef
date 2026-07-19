@@ -1,7 +1,7 @@
 # Pearl Opera House — asset & mechanics request lists (per act)
 
 Owner request 2026-07-19: each act is a 1–2 minute Showtime-style performance
-(backstage gremlin brawl → curtain → puzzle beat → bow). Everything below is
+(backstage imp brawl → curtain → puzzle beat → bow). Everything below is
 currently a rough primitive demo; each item names the placeholder node it
 replaces so art drops in one-for-one without touching game logic. World art
 follows the house rules: CC0 sources or original, restyled through the
@@ -15,15 +15,17 @@ Assets
   (`gate_curtain`) with an authored open animation
 - Backstage corridor kit: wooden boards, prop crates, rope pulleys, string
   lights (replaces `_build_backstage` primitives)
-- STAGE GREMLIN character (replaces the recast dungeon `mischief_imp` GLB):
-  a giggly theatre gremlin — plus a "pop into confetti" burst sprite
+- Backstage pests are the DUNGEON'S MISCHIEF IMPS reused on purpose (owner
+  decision 2026-07-19 — same little demons, they get everywhere): no new
+  creature needed. Optional: a tiny bow-tie/usher-cap accessory pass on the
+  existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite
 - Audience seat bench + a curtain-call confetti burst
-- SFX: curtain whoosh, gremlin giggle/pop, applause loop, ta-daa sting
+- SFX: curtain whoosh, imp giggle/pop, applause loop, ta-daa sting
 - Voice lines (family recordings): backstage intro, curtain-open, act win
   lines per act (scripts already pass distinct `voice`/`win_line` strings)
 
 Mechanics wishlist
-- Gremlins occasionally juggle a stolen act prop (pure flavor)
+- Imps occasionally juggle a stolen act prop (pure flavor)
 - Curtain-call bow pose for Roshan's cutout (verb clip)
 
 ## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir finale)

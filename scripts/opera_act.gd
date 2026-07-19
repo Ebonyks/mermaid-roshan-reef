@@ -147,17 +147,17 @@ var far_hint_cool := 0.0
 const RESCUE_DELAY := 5.0
 
 # ---- the Showtime shell (Peach Showtime level framework) ----
-# Most show acts open BACKSTAGE: a corridor where mischievous stage gremlins
-# have run off with the props. Roshan sparkle-pops them brawler-style (bumps
+# Most show acts open BACKSTAGE: a corridor where the dungeon's mischief
+# imps have snuck in after the props. Roshan sparkle-pops them brawler-style (bumps
 # only, never a fail), the side curtain sweeps open, and the act's puzzle
 # waits on the main stage. Traversal -> light brawl -> puzzle -> bow keeps
 # every act a 1-2 minute performance.
 const BACKSTAGE_X0 := -58.0        # corridor west wall (relative to CENTER.x)
 const BACKSTAGE_X1 := -26.0        # curtain gate line
-const GREMLIN_COUNT := 3
+const IMP_COUNT := 3
 var stage_phase := "puzzle"        # brawl | puzzle
-var gremlins: Array[Dictionary] = []
-var gremlins_left := 0
+var imps: Array[Dictionary] = []
+var imps_left := 0
 var gate_curtain: Node3D = null
 var brawl_bump_cool := 0.0
 
@@ -206,7 +206,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 1.0))
 	m._sparkle_burst(player_pos + Vector3(0, 0.8, 0), Color(0.72, 0.95, 1.0))
 	if stage_phase == "brawl":
-		m.show_msg("Roshan", "Oh no — stage gremlins backstage! Pop them with SPARKLE so the show can start!", "talk")
+		m.show_msg("Roshan", "Oh no — mischief imps snuck backstage! Pop them with SPARKLE so the show can start!", "talk")
 	else:
 		m.show_msg("Roshan", String(config.get("voice", "It's showtime! Follow the golden sparkle!")), "talk")
 	_update_hud()
@@ -324,7 +324,7 @@ func _build_theatre() -> void:
 
 func _build_backstage() -> void:
 	# the corridor: warm wooden boards, prop crates, string lights, and the
-	# big side curtain that opens onto the main stage once the gremlins pop
+	# big side curtain that opens onto the main stage once the imps pop
 	_box(CENTER + Vector3((BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5, -0.3, 3.0), Vector3(BACKSTAGE_X1 - BACKSTAGE_X0 + 4.0, 1.2, 20.0), Color(0.5, 0.36, 0.28))
 	_box(CENTER + Vector3(BACKSTAGE_X0 - 1.0, 5.0, 3.0), Vector3(1.2, 12.0, 20.0), Color(0.32, 0.24, 0.3))
 	for cx in [-52.0, -44.0, -33.0]:
@@ -334,12 +334,12 @@ func _build_backstage() -> void:
 		_sphere(CENTER + Vector3(-54.0 + float(i) * 8.0, 10.0, 3.0), 0.45, Color.from_hsv(float(i) / 4.0, 0.35, 1.0), 1.2)
 	# the gate: a tall crimson curtain wall blocking the way to the stage
 	gate_curtain = _box(CENTER + Vector3(BACKSTAGE_X1 + 1.0, 6.5, 3.0), Vector3(1.6, 14.0, 20.0), Color(config.get("curtain", Color(0.78, 0.24, 0.34))))
-	# three stage gremlins between Roshan and the curtain (mischief imps —
-	# the dungeon's authored kit, recast as theatre gremlins)
-	for g in range(GREMLIN_COUNT):
+	# three mischief imps between Roshan and the curtain — the same little
+	# demons from the dungeon, reused on purpose (they get everywhere)
+	for g in range(IMP_COUNT):
 		var pos := CENTER + Vector3(-46.0 + float(g) * 6.5, 1.0, -1.0 + float(g % 2) * 7.0)
 		var root := Node3D.new()
-		root.name = "StageGremlin%d" % g
+		root.name = "MischiefImp%d" % g
 		root.position = pos
 		add_child(root)
 		var imp := DungeonArt.spawn("imp", root)
@@ -347,17 +347,17 @@ func _build_backstage() -> void:
 			_sphere(Vector3(0, 1.2, 0), 0.9, Color(0.55, 0.35, 0.75), 0.3, root)
 			_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
 			_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
-		gremlins.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
-	gremlins_left = GREMLIN_COUNT
+		imps.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
+	imps_left = IMP_COUNT
 
 func _brawl_action() -> void:
-	# the brawler verb: a sparkle star pops the nearest gremlin into confetti.
+	# the brawler verb: a sparkle star pops the nearest imp into confetti.
 	# Out of reach = the star falls short, exactly like the boss fights.
 	if state != "play" or stage_phase != "brawl":
 		return
 	var best := -1
 	var best_d := 8.0
-	for g in gremlins:
+	for g in imps:
 		if bool(g["popped"]):
 			continue
 		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
@@ -367,12 +367,12 @@ func _brawl_action() -> void:
 	if best < 0:
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
 		return
-	var grem: Dictionary = gremlins[best]
-	grem["popped"] = true
-	gremlins_left -= 1
+	var imp: Dictionary = imps[best]
+	imp["popped"] = true
+	imps_left -= 1
 	progress_t = 0.0
-	var node := grem["node"] as Node3D
-	var gpos: Vector3 = grem["pos"] as Vector3
+	var node := imp["node"] as Node3D
+	var gpos: Vector3 = imp["pos"] as Vector3
 	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
 	for c in range(5):
 		var a := float(c) * TAU / 5.0
@@ -383,9 +383,9 @@ func _brawl_action() -> void:
 		tw.tween_callback(confetti.queue_free)
 	node.visible = false
 	if m.chime != null:
-		m.chime.pitch_scale = 1.0 + 0.2 * float(GREMLIN_COUNT - gremlins_left)
+		m.chime.pitch_scale = 1.0 + 0.2 * float(IMP_COUNT - imps_left)
 		m.chime.play()
-	if gremlins_left <= 0:
+	if imps_left <= 0:
 		_open_gate()
 	else:
 		_update_hud()
@@ -405,7 +405,7 @@ func _open_gate() -> void:
 
 func _tick_brawl(delta: float) -> void:
 	brawl_bump_cool = maxf(0.0, brawl_bump_cool - delta)
-	for g in gremlins:
+	for g in imps:
 		if bool(g["popped"]):
 			continue
 		var node := g["node"] as Node3D
@@ -417,7 +417,7 @@ func _tick_brawl(delta: float) -> void:
 		g["pos"] = pos
 		node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(g["phase"])) * 0.3, 0)
 		node.rotation.y = sin(elapsed * 2.0 + float(g["phase"])) * 0.4
-		# a gremlin that reaches Roshan just bounces off her bubble shield
+		# an imp that reaches Roshan just bounces off her bubble shield
 		if pos.distance_to(player_pos) < 2.5:
 			var away: Vector3 = player_pos - pos
 			away.y = 0.0
@@ -427,7 +427,7 @@ func _tick_brawl(delta: float) -> void:
 			m._sparkle_burst(player_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
 			if brawl_bump_cool <= 0.0:
 				brawl_bump_cool = 4.0
-				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly stage gremlins!", "talk")
+				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly mischief imps!", "talk")
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -1932,7 +1932,7 @@ func _process(delta: float) -> void:
 			_brawl_action()
 		if progress_t > 22.0:
 			progress_t = 0.0
-			m.show_msg("Roshan", "Tap SPARKLE to pop the stage gremlins, then the curtain opens!", "hint")
+			m.show_msg("Roshan", "Tap SPARKLE to pop the mischief imps, then the curtain opens!", "hint")
 		_tick_pointer()
 		return
 	if _action_pressed():
@@ -2063,7 +2063,7 @@ func _pointer_target() -> Vector3:
 		var best_d := INF
 		var best := player_pos
 		var any := false
-		for g in gremlins:
+		for g in imps:
 			if bool(g["popped"]):
 				continue
 			var d: float = (g["pos"] as Vector3).distance_to(player_pos)
@@ -2141,7 +2141,7 @@ func _update_hud() -> void:
 		return
 	var tag := act_tag + "  •  " if act_tag != "" else ""
 	if stage_phase == "brawl":
-		objective.text = tag + "✨  Pop the stage gremlins!  %d / %d" % [GREMLIN_COUNT - gremlins_left, GREMLIN_COUNT]
+		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [IMP_COUNT - imps_left, IMP_COUNT]
 		return
 	match kind:
 		"order":

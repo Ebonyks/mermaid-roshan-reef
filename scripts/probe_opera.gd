@@ -47,17 +47,17 @@ func _init() -> void:
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
-	_ck("shelled act opens backstage with the gremlin brawl", act.stage_phase == "brawl" and act.gremlins.size() == 3)
+	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() == 3)
 	for i in range(30): await process_frame
 	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
-	# a sparkle with no gremlin near just fizzles — never a fail (probe-only
-	# teleport to centre stage guarantees every gremlin is out of reach)
-	var far_left: int = act.gremlins_left
+	# a sparkle with no imp near just fizzles — never a fail (probe-only
+	# teleport to centre stage guarantees every imp is out of reach)
+	var far_left: int = act.imps_left
 	act.player_pos = act.CENTER + Vector3(0.0, 1.1, 14.0)
 	act._brawl_action()
-	_ck("far sparkle fizzles kindly in the brawl", act.gremlins_left == far_left)
+	_ck("far sparkle fizzles kindly in the brawl", act.imps_left == far_left)
 	_drive_brawl(act)
-	_ck("popped gremlins open the curtain to the stage", act.stage_phase == "puzzle")
+	_ck("popped imps open the curtain to the stage", act.stage_phase == "puzzle")
 	# a wrong tap wobbles and re-hints, it never fails or advances
 	var first_cfg: Dictionary = OperaHouse.ACTS[0]
 	var order: Array = first_cfg["order"]
@@ -123,7 +123,7 @@ func _init() -> void:
 	quit()
 
 func _drive_brawl(act: OperaAct) -> void:
-	for g in act.gremlins:
+	for g in act.imps:
 		if bool(g["popped"]):
 			continue
 		act.player_pos = (g["pos"] as Vector3)
