@@ -110,7 +110,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 
 func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Find Lamb-a'! %d / 4" % int(m.g["found"])
+	m.hud_game.text = "Find Lamb-a'!  " + m._pips(int(m.g["found"]), 4, "🐑")
 	# giggle beacon: she can be HEARD from the wiggly bush, not just seen
 	m.g["gig_t"] = float(m.g.get("gig_t", 2.0)) - delta
 	if float(m.g["gig_t"]) <= 0.0:

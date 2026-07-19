@@ -210,14 +210,16 @@ func _probe_penguin_agency() -> int:
 	main.slide_cool = 0.0
 	main._leave_current_activity()
 	await _frames(2)
-	var leave_ok: bool = main.game == "" and float(main.slide_cool) > 10.0
+	# the refreshed full cooldown is 3s now ("again!" polish) via _end_game;
+	# the pause-menu leave path still sets 14 — assert "refreshed", not "long"
+	var leave_ok: bool = main.game == "" and float(main.slide_cool) > 2.0
 	# A normal, deliberately-steered finish must also refresh the portal cooldown.
 	main.slide_cool = 0.0
 	main._start_game(main.slide_fr)
 	main.g["steered"] = true
 	main.g["s"] = float(main.g["total"])
 	await _frames(2)
-	var finish_ok: bool = main.game == "" and float(main.slide_cool) > 10.0
+	var finish_ok: bool = main.game == "" and float(main.slide_cool) > 2.0   # 3.0 fresh minus two frames of decay
 	var ok: bool = passive_ok and leave_ok and finish_ok
 	print("PASSIVE|Penguin Slide agency: ", ("OK passive restarts; exits are neutral" if ok else "FAIL passive=%s leave=%s finish=%s" % [passive_ok, leave_ok, finish_ok]))
 	return 0 if ok else 1

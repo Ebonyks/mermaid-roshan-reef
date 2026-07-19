@@ -2446,7 +2446,11 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	var want_fire := fired
 	if float(k["meter"]) >= 0.99 and float(k["boost_t"]) <= 0.0:
 		k["full_t"] = float(k.get("full_t", 0.0)) + delta
-		if float(k["full_t"]) >= 2.5:
+		# TOUCH CO-PILOT (same _touch_t flag as the wall assist): the one thumb
+		# is busy steering, so on touch a full meter fires itself almost at once
+		# (0.2s so the full bar + chime still reads); pad/keyboard players keep
+		# the 2.5s beat to pick their moment
+		if float(k["full_t"]) >= (0.2 if _touch_t > 0.0 else 2.5):
 			want_fire = true
 			_flash_big("TURBO!")
 	else:

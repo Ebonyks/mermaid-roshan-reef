@@ -117,6 +117,11 @@ func _init() -> void:
 		print("AUDIT|Toy Castle [brawl]: ", ("WON co-op" if okb else "FAILED/TIMEOUT"))
 	else:
 		print("AUDIT|Toy Castle [brawl]: DID NOT START")
+	# _end_game put her back beside the toy castle; with the short "again!"
+	# re-entry cooldown (3s) the brawl would auto-restart mid-beans-test if
+	# she stayed parked in the portal radius — park in open water instead
+	player.position = main.ARENA_POS + Vector3(0, 8, 18)
+	player.vel = Vector3.ZERO
 	# --- beans consumable (current shop API) ---
 	main.pearl_count = 5
 	main._shop_buy("beans")

@@ -205,7 +205,8 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			chuck.rotation.y = atan2(watch.x, watch.z)
 		_chuck_play("sit_excited" if String(m.g["phase"]) == "fly" else "sit_idle", 0.35)
 	if String(m.g["phase"]) == "aim":
-		m.hud_game.text = "Throw %d / 2   splashes: %d" % [int(m.g["round"]) + 1, int(m.g["miss"])]
+		var splash_pips: String = "💦".repeat(mini(int(m.g["miss"]), 10))
+		m.hud_game.text = "Throw " + m._pips(int(m.g["round"]) + 1, 2, "🎾") + ("   " + splash_pips if splash_pips != "" else "")
 		# Roshan HOLDS the ball
 		var fdir = Vector3(sin(m.player.yaw + PI), 0, cos(m.player.yaw + PI))
 		ball.position = ppos + fdir * 1.3 + Vector3(0, -0.2, 0)

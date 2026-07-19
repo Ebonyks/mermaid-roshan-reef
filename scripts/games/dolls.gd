@@ -86,7 +86,7 @@ func _tick_dolls(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			m._say("faron", "miss", 3.0)
 			dolls.remove_at(i)
 			_land_on_pillow(baby)
-	m.hud_game.text = "Sleepy dolls caught: %d  (catch 3 to win!)" % int(m.g["caught"])
+	m.hud_game.text = "Sleepy dolls  " + m._pips(int(m.g["caught"]), 3, "🎎")
 	if int(m.g["caught"]) >= 3:
 		m._end_game(true, fr, "You tucked in %d dolls! All cozy now." % int(m.g["caught"]))
 

@@ -471,7 +471,7 @@ func _add_seat_multimesh(node_name: String, positions: Array[Vector3], colors: A
 
 func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var caught: int = int(m.g["caught"])
-	m.hud_game.text = "Rainbow colors: %d / 7" % caught
+	m.hud_game.text = "Rainbow colors  " + m._pips(caught, 7, "🌈")
 	# Phase 6: the one deliberate verb — orbs WAIT just out of reach until
 	# Roshan swims toward them. No timer, no fail: a held orb hovers and
 	# sparkles at the hold ring, and drifts in the moment she moves at it.

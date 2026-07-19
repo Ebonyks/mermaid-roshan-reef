@@ -140,13 +140,20 @@ func _drag(pos: Vector2) -> void:
 		_moved = true
 	if off.length() > R:
 		off = off.normalized() * R
-	stick_vec = off / R if _moved else Vector2.ZERO
+	# ramp in from the dead zone: magnitude 0 at TAP_SLOP rising linearly to
+	# 1.0 at R, instead of snapping from 0 to ~0.28 the moment slop is crossed
+	if _moved and off.length() > 0.0:
+		var mag := clampf((off.length() - TAP_SLOP) / (R - TAP_SLOP), 0.0, 1.0)
+		stick_vec = off.normalized() * mag
+	else:
+		stick_vec = Vector2.ZERO
 	_knob.position = _origin + off - _knob.size * 0.5
 
 func _release_stick() -> void:
 	# a short press with no real drag = TAP -> jump/action
 	if not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
+		_flash(_origin)   # same confirmation ring the second-finger tap gets
 	_touch_idx = -1
 	stick_vec = Vector2.ZERO
 	_base.visible = false
