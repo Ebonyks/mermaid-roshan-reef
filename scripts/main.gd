@@ -4212,7 +4212,16 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 		player.yaw = PI
 		player.vel = Vector3.ZERO
 		g["secret_armed"] = false   # don't fire the treasure-chest surprise on arrival
-		show_msg("Daddy", "Pssst... you found my secret door, Roshan! Welcome to the treasure room - Huluu is out on her throne!", "greet")
+		show_msg("", "Pssst... you found my secret door, Roshan! Welcome to the treasure room - Huluu is out on her throne!")
+		# Daddy's REAL recorded voice: no daddy.ogg base clip exists for the _say
+		# path, so direct-load like the hug cutscene. daddy2 keeps this line
+		# distinct from the hug's clip.
+		var dvo := AudioStreamPlayer.new()
+		dvo.stream = load("res://assets/audio/voices/daddy2.ogg")
+		dvo.bus = "Voice"
+		add_child(dvo)
+		dvo.play()
+		dvo.finished.connect(dvo.queue_free)
 	else:
 		player.position = CASTLE_POS + Vector3(0, 6, 24)
 		player.yaw = 0.0
@@ -4663,7 +4672,7 @@ func _play_hug_cutscene() -> void:
 	lbl.modulate.a = 0.0
 	root.add_child(lbl)
 	var dp := AudioStreamPlayer.new()
-	dp.stream = load("res://assets/audio/voices/daddy1.ogg")
+	dp.stream = load("res://assets/audio/voices/" + ["daddy1", "daddy2", "daddy3"][randi() % 3] + ".ogg")
 	dp.bus = "Voice"
 	dp.volume_db = 4.0
 	root.add_child(dp)
