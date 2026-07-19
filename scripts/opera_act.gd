@@ -1313,15 +1313,19 @@ func _build_doctor() -> void:
 	stem.rotation_degrees = Vector3(0, 0, 18.0)
 	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
 	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
-	# steps 2-3: glowing boo-boos on the plush that become hearts when tended
-	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(0.1, 0.3, 1.3), Vector3(1.2, 0.5, 0.9)]
-	var boo_reaches: Array[Vector3] = [Vector3(-2.4, 1.0, 1.4), Vector3(0.0, 1.0, 2.4), Vector3(2.4, 1.0, 1.4)]
+	# steps 2-6: glowing boo-boos on the plush that become hearts when tended.
+	# The reach points alternate sides so each kiss is a little swim, not a
+	# stand-still tap chain.
+	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9),
+		Vector3(-0.5, 0.3, 1.25), Vector3(0.9, 0.85, 1.1), Vector3(0.1, 0.3, 1.35)]
+	var boo_reaches: Array[Vector3] = [Vector3(-2.4, 1.0, 1.4), Vector3(2.4, 1.0, 1.4),
+		Vector3(-1.5, 1.0, 2.2), Vector3(1.5, 1.0, 2.2), Vector3(0.0, 1.0, 2.4)]
 	for b in range(boo_spots.size()):
 		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
 		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
 		heart.visible = false
 		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": CENTER + boo_reaches[b], "kind": "boo"})
-	# step 4: the bandage roll, which wraps a soft white band around the plush
+	# step 7: the bandage roll, which wraps a soft white band around the plush
 	var roll := Node3D.new()
 	roll.name = "BandageRoll"
 	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
@@ -1332,7 +1336,7 @@ func _build_doctor() -> void:
 	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
 	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
 	band.visible = false
-	doc_targets.append({"index": 5, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
 
 func _doctor_action(choice: int) -> void:
 	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
@@ -1402,11 +1406,11 @@ func _doctor_action(choice: int) -> void:
 		# checkup is a story, not a tap race
 		match String(target["kind"]):
 			"scope":
-				doc_wait = 2.6
+				doc_wait = 3.0
 			"thermo":
-				doc_wait = 2.0
+				doc_wait = 2.4
 			_:
-				doc_wait = 1.7
+				doc_wait = 2.0
 		_update_hud()
 
 func _heart_thump() -> void:

@@ -48,26 +48,26 @@ Assets: glowing dance tile set ×4 (`OperaPad*`), tutu costume, mirror-ball.
 SFX: four-note tile scale (authored, replacing pitched chime).
 Mechanics wishlist: Roshan twirl verb on every correct step.
 
-## Act 4 — Candy Maker, "The Candy Parade" (press timing, 4 candies)
+## Act 4 — Candy Maker, "The Candy Parade" (press timing, 7 candies)
 Assets: candy press machine (`CandyPress`), gauge track + star slider art,
 candy bodies with 4 authored face decals (dot / starry / hearts / sleepy),
 shelf. SFX: press *thunk*, squish-giggle, parade kazoo.
 Mechanics wishlist: a wrapped-candy toss to the audience at the bow.
 
-## Act 5 — Doctor, "The Plushy Checkup" (5 one-touch steps)
+## Act 5 — Doctor, "The Plushy Checkup" (8 one-touch steps)
 Assets: plush starfish patient (`PlushPatient`) with sad→happy faces,
 stethoscope (`Stethoscope`), thermometer, bandage roll, band wrap, heart
 puffs. SFX: thump-thump heartbeat, pop-kiss, better-now chirp.
 Mechanics wishlist: patient blinks and giggles when tickled between steps.
 
-## Act 6 — Farmer, "The Piggy Picnic" (2D side-scroller, 7 piggies)
+## Act 6 — Farmer, "The Piggy Picnic" (2D side-scroller, 9 piggies)
 Assets (2D): meadow parallax layers, PIGGY sprite with trot/hop/munch frames
 (replaces the circle-panel piggies), snack icons (carrot/apple/corn/berry/
 pumpkin), veggie toss arc sprite, barn backdrop for the finale.
-SFX: oink ×7 pitched, munch, toss-whoosh.
+SFX: oink ×9 pitched, munch, toss-whoosh.
 Mechanics wishlist: a mud puddle piggies hop over (pure animation beat).
 
-## Act 7 boss — "The Curtain Dragon" (roaming peek boss, 4 stars)
+## Act 7 boss — "The Curtain Dragon" (roaming peek boss, 10 stars)
 Assets: dragon puppet on a stick (head + curtain slot ×3 spots), sparkle
 star projectile, bubble-puff. SFX: grumble, puff, tamed-purr.
 Mechanics wishlist: dragon sneezes confetti when popped the final time.

@@ -239,7 +239,7 @@ func _drive_press(act: OperaAct) -> void:
 	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
 
 func _drive_doctor(act: OperaAct) -> void:
-	_ck("checkup has six one-touch steps", act.doc_targets.size() == 6)
+	_ck("checkup has eight one-touch steps", act.doc_targets.size() == 8)
 	act._doctor_action(3)
 	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
 	for s in range(act.doc_targets.size()):
