@@ -615,6 +615,64 @@ func _ready() -> void:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
+	_warm_shaders()         # precompile the hot runtime shaders behind the intro
+
+func _warm_shaders() -> void:
+	# Pipeline pre-warm: the runtime ShaderMaterials that first draw MID-PLAY
+	# (the trophy beach ball, the first cel/coral_flow toonified prop, the
+	# first sparkle burst) each hitch the phone on their first frame while the
+	# driver compiles them. Draw each once now, far below the world, while the
+	# intro/first seconds cover the cost. extra_cull_margin keeps the draws
+	# from being frustum-culled (a culled draw compiles nothing); no fragment
+	# ever lands on screen. Display builds only — the headless dummy renderer
+	# compiles nothing and probes must not carry the extra nodes.
+	if DisplayServer.get_name() == "headless":
+		return
+	var rig := Node3D.new()
+	rig.position = Vector3(0.0, -5000.0, 0.0)
+	add_child(rig)
+	var mats: Array[Material] = []
+	mats.append(_ball_panel_mat())   # shares the cached Shader _game_ball uses
+	var cel := ShaderMaterial.new()  # _cel_replace's default pair: cel + ink outline next_pass
+	cel.shader = load("res://assets/shaders/cel.gdshader")
+	cel.set_shader_parameter("tint", Color(1.0, 1.0, 1.0))
+	cel.next_pass = _gen2_outline_mat()
+	mats.append(cel)
+	var flow := ShaderMaterial.new() # the swaying-coral variant (see _cel_replace)
+	flow.shader = load("res://assets/shaders/coral_flow.gdshader")
+	flow.set_shader_parameter("phase", 0.0)
+	flow.set_shader_parameter("aabb_y0", -0.6)
+	flow.set_shader_parameter("aabb_h", 1.2)
+	flow.next_pass = _gen2_outline_mat()
+	mats.append(flow)
+	for mat in mats:
+		var mi := MeshInstance3D.new()
+		var sph := SphereMesh.new()
+		sph.radius = 0.5
+		sph.height = 1.0
+		sph.radial_segments = 8
+		sph.rings = 4
+		mi.mesh = sph
+		mi.material_override = mat
+		mi.extra_cull_margin = 16384.0
+		rig.add_child(mi)
+	# the trophy sparkle burst: CPUParticles draws are their own pipeline
+	# variant, so warm one with _sparkle_burst's exact material recipe
+	var cp := CPUParticles3D.new()
+	cp.amount = 4
+	cp.lifetime = 1.1
+	cp.emitting = true
+	var bm := BoxMesh.new()
+	bm.size = Vector3(0.3, 0.3, 0.3)
+	cp.mesh = bm
+	var pm := StandardMaterial3D.new()
+	pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	pm.albedo_color = Color(1.0, 0.9, 0.7)
+	cp.material_override = pm
+	cp.extra_cull_margin = 16384.0
+	rig.add_child(cp)
+	# a handful of frames is enough for the driver to finish; then vanish
+	get_tree().create_timer(0.5).timeout.connect(rig.queue_free)
 
 # the storybook intro overlay lives in scripts/intro_overlay.gd
 # (state stays here; IntroOverlay receives main by reference)
@@ -5314,8 +5372,28 @@ func _game_ball(col: Color, radius: float) -> MeshInstance3D:
 	mi.mesh = sph
 	var m: Material
 	if col == Color(1.0, 0.4, 0.25):
-		var ball_shader := Shader.new()
-		ball_shader.code = """shader_type spatial;
+		m = _ball_panel_mat()
+	else:
+		var soft := StandardMaterial3D.new()
+		soft.albedo_color = col
+		soft.roughness = 0.78
+		soft.emission_enabled = true
+		soft.emission = col * 0.25
+		soft.emission_energy_multiplier = 0.35
+		m = soft
+	mi.material_override = m
+	add_child(mi)
+	game_nodes.append(mi)
+	return mi
+
+var _ball_panel_shader: Shader = null
+
+func _ball_panel_mat() -> ShaderMaterial:
+	# the six-panel beach-ball shader (shared Shader resource: one pipeline
+	# compile ever, pre-warmed by _warm_shaders behind the intro)
+	if _ball_panel_shader == null:
+		_ball_panel_shader = Shader.new()
+		_ball_panel_shader.code = """shader_type spatial;
 render_mode diffuse_burley, specular_schlick_ggx;
 void fragment() {
 	float angle = UV.x;
@@ -5333,21 +5411,9 @@ void fragment() {
 	ROUGHNESS = 0.82;
 	SPECULAR = 0.12;
 }"""
-		var shader_mat := ShaderMaterial.new()
-		shader_mat.shader = ball_shader
-		m = shader_mat
-	else:
-		var soft := StandardMaterial3D.new()
-		soft.albedo_color = col
-		soft.roughness = 0.78
-		soft.emission_enabled = true
-		soft.emission = col * 0.25
-		soft.emission_energy_multiplier = 0.35
-		m = soft
-	mi.material_override = m
-	add_child(mi)
-	game_nodes.append(mi)
-	return mi
+	var shader_mat := ShaderMaterial.new()
+	shader_mat.shader = _ball_panel_shader
+	return shader_mat
 
 func _soft_mat(col: Color, glow: float = 0.12) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
