@@ -446,7 +446,14 @@ func _mg_build_garden() -> void:
 		var potm := _mg_circle(Vector2(x, 640), 64.0, Color(0.78, 0.42, 0.28))
 		potm.size = Vector2(150, 100)
 		potm.position = Vector2(x - 75, 600)
-		var sp := _mg_artbtn("res://assets/mg/seed.png", Vector2(x, 600), Vector2(72, 72))
+		# tap forgiveness: the Button (invisible, flat) is 140x140 so near-misses
+		# still count, with the 72px seed art centered inside. Seeds sit 240px
+		# apart, so 140px hit areas can never overlap (100px clear gap).
+		var sp := _mg_artbtn("res://assets/mg/seed.png", Vector2(x, 600), Vector2(140, 140))
+		var seed_tex := sp.get_child(0) as TextureRect
+		seed_tex.set_anchors_preset(Control.PRESET_CENTER)
+		seed_tex.size = Vector2(72, 72)
+		seed_tex.position = (Vector2(140, 140) - Vector2(72, 72)) * 0.5
 		sp.set_meta("hx", x)
 		var idx := i
 		sp.pressed.connect(func(): _mg_garden_tap(idx, sp))
@@ -470,7 +477,10 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 	m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.4, 0.7, 1.0))
 	var tex = b.get_child(0) as TextureRect
 	if int(st[i]) == 1:
-		# seed -> seedling (same small sprout for every plant)
+		# seed -> seedling (same small sprout for every plant); the art fills the
+		# button again from here on (the seed stage kept it small inside the
+		# oversized 140px hit area)
+		tex.set_anchors_preset(Control.PRESET_FULL_RECT)
 		tex.texture = load("res://assets/mg/k_sprout.png")
 		b.size = Vector2(120, 150)
 		b.custom_minimum_size = b.size
