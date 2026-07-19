@@ -294,6 +294,30 @@ favor observational, species-readable insects.
 - Cyan caustics, bubbles, coral and drifting objects are separate scene overlays.
   Do not bake them into reusable architecture textures.
 
+#### Pearl castle grammar
+
+- Castle shells are structural: use broad fan-shell ribs at capitals,
+  balusters, keystones, sconces, basins, planter relief and ceremonial joints.
+  A small shell sticker on an otherwise generic box or cylinder does not resolve
+  the architecture.
+- Castle rainbows are hierarchical: reserve broad muted bands for stained glass,
+  a throne or reward focal point, a floor medallion, or a return threshold. Do
+  not repeat a full rainbow across ordinary walls, columns and every furnishing.
+- Use warm pearl and cream for the main mass, lavender for modeled recesses,
+  deep navy or plum for contour separation, aqua/rose/coral/green for local
+  accents, and restrained gold for hardware and ceremonial edges.
+- A hall is a coordinated kit plus composition, not one castle-shaped prop.
+  Columns, rails, arches, doors, stairs, lighting, furniture and wall hangings
+  must share dimensions and joint language when seen together at gameplay scale.
+- Sanitary fixtures and other functional assemblies must read from side and rear
+  views as well as the front. Preserve cistern-to-bowl transitions, pedestal and
+  trap bodies, hinges, supports, handles, openings and attachment points before
+  applying shell or terrazzo decoration.
+- Keep route and light functions separate from visible dressing. Authored shells
+  may wrap an existing light or collision volume, but decorative geometry must
+  not quietly add lights, block a doorway, narrow a child-readable route, or
+  replace an interaction marker.
+
 ### Rocks, ground and water
 
 - Rocks use broad interlocking grey-teal planes with thin colored edges and a

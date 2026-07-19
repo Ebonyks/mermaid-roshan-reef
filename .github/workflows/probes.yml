@@ -71,7 +71,7 @@ jobs:
           FAILED=0
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
           FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
-          for p in probe_reef_districts probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_fairy_art; do
+          for p in probe_reef_districts probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -161,4 +161,22 @@ jobs:
         with:
           name: northern-world-review
           path: /tmp/northern-shots/*.png
+          if-no-files-found: warn
+
+      - name: Capture pearl-castle visual review
+        continue-on-error: true
+        env:
+          CASTLE_SHOT_OUT: /tmp/castle-pearl-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$CASTLE_SHOT_OUT"
+          timeout 6m xvfb-run -a godot --rendering-method mobile -s scripts/probe_castle_pearl_art.gd
+
+      - name: Upload pearl-castle visual review
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: pearl-castle-review
+          path: /tmp/castle-pearl-shots/*.png
           if-no-files-found: warn
