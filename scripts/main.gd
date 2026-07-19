@@ -24,6 +24,8 @@ var hud_stars: Label
 var hud_msg: Label
 var hud_game: Label
 var msg_timer := 0.0
+var fade_rect: ColorRect = null   # full-screen black cover (layer 30) — see _fade_cut
+var fade_tween: Tween = null      # active reveal tween; killed on every new cut
 # ---- CRITTER BOOK: mutable state stays on ReefMain; CollectionSystem owns logic ----
 var critter_collection := {}              # species id -> true; persisted in reef_save.json
 var collection_nodes: Array = []          # runtime rows for the active world
@@ -563,6 +565,7 @@ func _ready() -> void:
 	_build_kart_portal()
 	_build_player()
 	_build_hud()
+	_build_fade_cover()
 	_apply_cel_shading()
 	_build_page_frame()
 	get_tree().node_added.connect(_hook_button_taps)
@@ -2179,6 +2182,9 @@ func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
 	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
+	_fade_cut(_start_kart_game_now.bind(reversed, ground))
+
+func _start_kart_game_now(reversed: bool = false, ground: String = "terrain") -> void:
 	if hud_layer != null:
 		hud_layer.visible = false   # the race draws its own HUD — no overlap
 	kart_from = game
@@ -2266,6 +2272,9 @@ func _end_kart_game(place: int) -> void:
 	_update_hud()
 
 func _start_galaxy() -> void:
+	_fade_cut(_start_galaxy_now)
+
+func _start_galaxy_now() -> void:
 	# A direct courtyard portal and the Rainbow Road both reach this function.
 	# Remember the actual world underneath once, and keep it through the optional
 	# fairy-flight detour so Butterfly World always returns symmetrically.
@@ -2381,6 +2390,9 @@ func _end_combat(battle_kind: String) -> void:
 	combat_from = ""
 
 func _start_dungeon() -> void:
+	_fade_cut(_start_dungeon_now)
+
+func _start_dungeon_now() -> void:
 	# The dungeon introduces its elemental actions in context. Requiring the two
 	# optional overworld encounters here made a fresh save impossible to progress.
 	if dungeon_game != null:
@@ -2409,6 +2421,9 @@ func _end_dungeon(completed: bool) -> void:
 	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
 
 func _start_opera() -> void:
+	_fade_cut(_start_opera_now)
+
+func _start_opera_now() -> void:
 	# The opera teaches each show inside its own act, so the stage door is open
 	# on a fresh save — nothing elsewhere is ever a prerequisite.
 	if opera_game != null:
@@ -2521,6 +2536,35 @@ func _build_hud() -> void:
 	hud_msg = _mk_label(cl, Vector2(20, 630), 30)
 	hud_msg.text = "Find the glowing friends in the fairy garden!"
 	_update_hud()
+
+func _build_fade_cover() -> void:
+	# layer 30: above the HUD, pause menu and touch UI — a plain black cover
+	# that hides the single-frame stall of every heavy world rebuild (_fade_cut)
+	var cl := CanvasLayer.new()
+	cl.layer = 30
+	add_child(cl)
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_rect.modulate.a = 0.0
+	cl.add_child(fade_rect)
+	fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+func _fade_cut(cb: Callable) -> void:
+	# Visual cover for a synchronous heavy world rebuild. PROBE SAFETY: the
+	# rebuild must happen in THIS call chain — probes call these entry points
+	# and assert state a frame or two later, so cb is never tween-deferred.
+	# Snap the cover to full black, run the build under it in the same frame,
+	# then tween only the reveal. State timing is byte-identical to before.
+	if fade_rect == null:
+		cb.call()
+		return
+	fade_rect.modulate.a = 1.0
+	cb.call()
+	if fade_tween != null and fade_tween.is_valid():
+		fade_tween.kill()
+	fade_tween = create_tween()
+	fade_tween.tween_property(fade_rect, "modulate:a", 0.0, 0.25)
 
 func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	var l := Label.new()
@@ -2961,6 +3005,11 @@ void fragment(){
 	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
 
 func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
+	# covers every entry: the ocean portal, the _end_game/pause deferred
+	# returns and _restore_level2_after_trip (call_deferred callers unchanged)
+	_fade_cut(_enter_level2_now.bind(from_castle, from_north))
+
+func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> void:
 	game = "level2"
 	# A completed castle is a permanent playground. Never rebuild its three-star
 	# lock on a later visit, even when an older caller omits from_castle.
@@ -4061,6 +4110,9 @@ func _tick_cutscene(delta: float) -> void:
 		show_msg("Roshan", "Wow! Let's go inside!")
 
 func _enter_castle_interior(from_back: bool = false) -> void:
+	_fade_cut(_enter_castle_interior_now.bind(from_back))
+
+func _enter_castle_interior_now(from_back: bool = false) -> void:
 	_play_music("hall")
 	g["l2_fish"] = []
 	for n in game_nodes:
@@ -4771,6 +4823,9 @@ func _close_stickers() -> void:
 	_wardrobe_ref()._close_stickers()
 
 func _exit_level2() -> void:
+	_fade_cut(_exit_level2_now)
+
+func _exit_level2_now() -> void:
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
@@ -5388,6 +5443,9 @@ func _tick_chains(delta: float, ppos: Vector3) -> void:
 			seg.quaternion = Quaternion(Vector3.DOWN, dirv)
 
 func _start_game(fr: Dictionary) -> void:
+	_fade_cut(_start_game_now.bind(fr))
+
+func _start_game_now(fr: Dictionary) -> void:
 	game = String(fr["game"])
 	g = {"fr": fr, "t": 0.0, "timer": -1.0}
 	_enter_arena(game)
@@ -6923,6 +6981,11 @@ func _enter_arena(kind: String) -> void:
 	_play_music(kind)
 
 func _leave_arena() -> void:
+	# covers both callers of the arena→reef cut: _end_game and the pause
+	# menu's Leave Activity (pause_menu.gd)
+	_fade_cut(_leave_arena_now)
+
+func _leave_arena_now() -> void:
 	we_node.environment = world_env
 	player.position = return_pos
 	player.vel = Vector3.ZERO
