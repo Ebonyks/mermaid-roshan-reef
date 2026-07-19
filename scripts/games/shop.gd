@@ -355,12 +355,16 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				m.shop_msg_cool = 2.5
 				m.show_msg("Pearl Shop", "You already have bean power — enjoy the ride!")
 		elif m.pearl_count < choice_price:
-			m.hud_game.text = "Pearls: %d / %d" % [m.pearl_count, choice_price]
+			# prices run to 250, so raw pearl pips are absurd — show a 10-slot
+			# "how close am I" meter toward THIS item instead (capped at 9 so a
+			# not-yet-affordable item never shows a full bar)
+			var meter_fill := clampi(int(floor(10.0 * float(m.pearl_count) / float(maxi(1, choice_price)))), 0, 9)
+			m.hud_game.text = "Pearls  " + m._pips(meter_fill, 10, "⚪")
 			if buy_pressed and m.shop_msg_cool <= 0.0:
 				m.shop_msg_cool = 2.5
 				m.show_msg("Pearl Shop", "That costs %d pearls — the reef is full of them!" % choice_price)
 		else:
-			m.hud_game.text = "Pearls: %d - tap the pink button to choose!" % m.pearl_count
+			m.hud_game.text = "Pearls  " + m._pips(10, 10, "⚪") + "  tap the pink button to choose!"
 			if buy_pressed:
 				if choice_kind == "beans":
 					_shop_buy(choice_id)

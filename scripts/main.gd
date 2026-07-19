@@ -2637,6 +2637,12 @@ func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	cl.add_child(l)
 	return l
 
+# Non-reader progress pips: filled thematic emoji up to `filled`, then "·"
+# placeholders up to `total` — a 4yo can compare lengths, not numerals.
+func _pips(filled: int, total: int, emoji: String) -> String:
+	var f := clampi(filled, 0, total)
+	return emoji.repeat(f) + "·".repeat(total - f)
+
 func _update_hud() -> void:
 	hud_pearls.text = "Rainbow pearls: %d" % pearl_count
 	var stars := 0
@@ -2647,7 +2653,8 @@ func _update_hud() -> void:
 	for caught_value: Variant in critter_collection.values():
 		if bool(caught_value):
 			critters += 1
-	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
+	# critters stay numeric on purpose: 18 pips would wrap the HUD line
+	hud_stars.text = "Friends %s   Trophies %s   Critters: %d / 18" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}

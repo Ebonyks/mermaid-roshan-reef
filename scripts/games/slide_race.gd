@@ -529,7 +529,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				if m.chime != null:
 					m.chime.pitch_scale = 1.0 + 0.12 * float(m.g["got"])
 					m.chime.play()
-		m.hud_game.text = "Slide!  Fish: %d / 5" % int(m.g["got"])
+		m.hud_game.text = "Slide!  " + m._pips(int(m.g["got"]), 5, "🐟")
 		if float(m.g["s"]) >= total - 0.5:
 			var got: int = int(m.g["got"])
 			if bool(m.g.get("steered", false)):

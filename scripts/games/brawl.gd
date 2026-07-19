@@ -133,7 +133,10 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			m._say("huluu", "hero", 0.0)
 			m._end_game(true, fr, "You and Huluu saved the toy castle! Hero high-five!")
 			return
-	m.hud_game.text = "POP the mischief imps!  %d popped" % int(m.g["bops"])
+	var imps_total := 0
+	for wv in WAVES:
+		imps_total += int(wv)
+	m.hud_game.text = "POP the mischief imps!  " + m._pips(int(m.g["bops"]), imps_total, "🎈")
 
 func stage_close() -> void:
 	stage.close()
