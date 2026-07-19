@@ -262,6 +262,7 @@ func _capture_castle() -> void:
 	await _shot("castle_16_craft_room", o + Vector3(10, -9, -22), o + Vector3(20, -14, -28), 70.0)
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
 	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
+	await _shot("castle_19_bedroom_wardrobe", o + Vector3(39.0, 8.0, -17.0), o + Vector3(40.0, 6.0, -8.0), 65.0)
 
 
 func _run() -> void:

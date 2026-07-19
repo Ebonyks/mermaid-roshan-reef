@@ -294,6 +294,32 @@ Most frequent failures:
 - Required test: unoccluded bedroom bed view, useful undercroft hutch/cart view,
   dedicated Opera-threshold view, and preserved bed/storage/Opera contracts.
 
+### A15 - Pearl Castle orientation and portal-depth correction
+
+- Source and commit: eighteen-view Mobile capture from commit `37c238a`, CI
+  run `29666433765`.
+- Scope: undercroft storage faces/spacing, secret-chest niche alignment, Opera
+  portal depth cue, and Royal Bedroom wardrobe evidence.
+- Evidence class: E3 fixed Mobile runtime frames cross-checked against E2
+  isolated Blender renders and live placement coordinates.
+- Findings independently verified: prop fronts that succeeded in isolation
+  faced away from the player in the undercroft; foreground crates hid the cart;
+  the centered treasure arch missed the chest under an oblique approach; and a
+  translucent warm veil over stone looked like a lit wall, not a destination.
+- Findings accepted: orient asymmetric decoration from the gameplay approach,
+  reserve foreground negative space around role-critical props, align backdrops
+  along the reviewed perspective rather than world axes alone, and give magical
+  portals an unmistakable broad value field. Add explicit evidence for repaired
+  material faces such as the wardrobe front.
+- Findings accepted as proposals only: the reoriented storage layout, deep
+  aqua-plum Opera veil, sightline-aligned treasure arch, and nineteen-view set
+  remain candidates pending replacement Mobile frames and owner review.
+- Findings rejected or superseded: isolated front renders and object-local yaw
+  assumptions do not prove runtime facing; a glowing wall is not an open portal.
+- New rules: none; reinforces R-REP1, R-REP3, R-MOT4, R-QA4, R-QA5, and R-QA8.
+- Required test: approach view with visible hutch/cart/crate/barrel fronts,
+  chest-aligned arch, deep Opera portal field, and wardrobe-front capture.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -587,6 +613,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v6:** Added the green `37c238a` orientation/portal-depth
+  rejection and required gameplay-facing decoration, foreground negative space,
+  perspective-aligned backdrops, and an explicit wardrobe-front capture.
 - **2026-07-18-v5:** Added the green `2920da1` camera-integrity rejection,
   established R-QA8, re-audited parallel Opera work, and expanded the Pearl
   Castle kit from fifty-four to fifty-seven role-specific props.

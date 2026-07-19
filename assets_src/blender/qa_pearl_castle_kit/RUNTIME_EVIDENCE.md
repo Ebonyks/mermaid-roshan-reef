@@ -39,8 +39,18 @@ merged Opera House gate, whose primitive marquee required its own authored-art
 pass. These frames prove that technical validity and an apparently complete
 shot list still fail when review cameras do not expose the claimed work.
 
+## `runtime_rejected_37c238a/`
+
+Fifth eighteen-view Mobile capture from fully green CI run `29666433765`.
+The bedroom camera and Opera asset integration were technically corrected, but
+the undercroft props showed their undecorated backs and crowded the cart, the
+treasure arch missed the chest along the oblique review sightline, and the
+Opera veil revealed glowing stone rather than reading as a destination. The
+wardrobe front was also outside the evidence radius. These frames are retained
+as the negative control for orientation, portal-depth, and sightline alignment.
+
 ## Final Candidate
 
-The final eighteen-view Mobile evidence belongs in a sibling folder named
+The final nineteen-view Mobile evidence belongs in a sibling folder named
 `runtime_candidate_<commit>/` only after the full import, analyzer, gameplay,
 and capture workflow is green. Candidate does not mean owner-accepted 5/5.

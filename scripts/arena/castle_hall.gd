@@ -242,10 +242,10 @@ func build(o: Vector3) -> void:
 	back_runner.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
 	# The bonus chest now sits in a shallow rainbow-and-shell niche. It gives the
 	# sparse room a clear focal hierarchy without changing the moving chest root.
-	var treasure_niche: Node3D = _pearl("pearl_rainbow_gate", br + Vector3(0, 0.5, -9.5))
+	var treasure_niche: Node3D = _pearl("pearl_rainbow_gate", br + Vector3(-10.0, 0.5, -9.5))
 	if treasure_niche != null:
-		treasure_niche.scale = Vector3.ONE * 0.68
-	for niche_x: float in [-7.5, 7.5]:
+		treasure_niche.scale = Vector3.ONE * 0.80
+	for niche_x: float in [-17.5, -2.5]:
 		_pearl("pearl_shell_lantern", br + Vector3(niche_x, 8.2, -9.8), 180.0)
 	# a glowing royal treasure chest = the bonus trigger. It doubles as the
 	# GOLDEN STAND sealing the undercroft's back stairwell: it pulses
@@ -518,23 +518,23 @@ func build_expansion(o: Vector3) -> void:
 	# Purpose-built storage and shell lanterns replace the undercroft cube pile.
 	# They are static and emissive-only, so the OmniLight budget stays untouched.
 	_pearl("pearl_provisions_hutch", o + Vector3(-7.3, -18.0, 39.0), 180.0)
-	_pearl("pearl_storage_cart", o + Vector3(8.0, -18.0, 33.5), -12.0)
+	_pearl("pearl_storage_cart", o + Vector3(8.0, -18.0, 34.0), 168.0)
 	var undercroft_barrels: Array[Vector3] = [
-		Vector3(-24.0, -18.0, 35.8),
-		Vector3(-20.2, -18.0, 32.7),
-		Vector3(-11.5, -18.0, 33.2),
-		Vector3(-7.5, -18.0, 30.4),
-		Vector3(-3.8, -18.0, 35.0),
+		Vector3(-25.0, -18.0, 34.0),
+		Vector3(-21.0, -18.0, 37.0),
+		Vector3(-12.0, -18.0, 32.0),
+		Vector3(15.0, -18.0, 36.0),
+		Vector3(24.0, -18.0, 34.0),
 	]
 	for bi in range(undercroft_barrels.size()):
-		_pearl("pearl_storage_barrel", o + undercroft_barrels[bi], -16.0 + float(bi) * 11.0)
+		_pearl("pearl_storage_barrel", o + undercroft_barrels[bi], 164.0 + float(bi) * 11.0)
 	var undercroft_crates: Array[Vector3] = [
-		Vector3(6.5, -18.0, 27.0),
-		Vector3(11.5, -18.0, 29.2),
-		Vector3(20.5, -18.0, 35.5),
+		Vector3(18.0, -18.0, 31.5),
+		Vector3(22.0, -18.0, 35.0),
+		Vector3(26.0, -18.0, 32.5),
 	]
 	for cr in range(undercroft_crates.size()):
-		_pearl("pearl_storage_crate", o + undercroft_crates[cr], -14.0 + float(cr) * 17.0)
+		_pearl("pearl_storage_crate", o + undercroft_crates[cr], 166.0 + float(cr) * 17.0)
 	for li in range(4):
 		_pearl("pearl_shell_lantern", o + Vector3(-26.0 + float(li) * 17.0, -10.8, 39.0), 180.0)
 	# ---------- the BASEMENT WING: wide hallway, side rooms, the royal loo
@@ -1048,12 +1048,12 @@ func build_opera_gate(ground: Vector3) -> void:
 	quad.size = Vector2(2.6, 4.8)
 	veil.mesh = quad
 	var veil_mat := StandardMaterial3D.new()
-	veil_mat.albedo_color = Color(1.0, 0.72, 0.55, 0.38)
+	veil_mat.albedo_color = Color(0.16, 0.14, 0.30, 0.84)
 	veil_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	veil_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	veil_mat.emission_enabled = true
-	veil_mat.emission = Color(0.8, 0.4, 0.2)
-	veil_mat.emission_energy_multiplier = 0.7
+	veil_mat.emission = Color(0.28, 0.62, 0.72)
+	veil_mat.emission_energy_multiplier = 0.52
 	veil.material_override = veil_mat
 	veil.position = Vector3(0.3, 2.9, 0)
 	veil.rotation_degrees = Vector3(0, 90, 0)

@@ -213,6 +213,23 @@ green but visually rejected evidence is retained under
 from commit `2227031` and is documented under
 `backups/art_pre_castle_opera_2026-07-18/`.
 
+## Fifth Runtime Review And Orientation Correction
+
+CI run `29666433765` was fully green at commit `37c238a`, including the Opera
+probe and eighteen Mobile castle views. The bedroom bed, Royal Loo, authored
+Opera frame, and revised material ownership remained sound. Promotion was still
+rejected because undercroft crates and barrels presented their undecorated backs
+and obscured the storage cart, the treasure arch did not align behind the chest
+from the oblique approach, and the warm translucent Opera veil showed lit stone
+rather than a clear magical destination. The wardrobe front also remained
+outside the runtime evidence set.
+
+The correction rotates asymmetric storage decoration toward the player, moves
+the crates out of the cart's foreground, redistributes barrels across separate
+bays, aligns the treasure arch along the actual review ray, changes the Opera
+field to deep aqua-plum, and adds a nineteenth wardrobe-front capture. Rejected
+frames are retained under `runtime_rejected_37c238a/`.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -234,7 +251,7 @@ count is 8,412 triangles with zero exported degenerate triangles.
   rejected first-pass use of outdoor landmark clouds as furniture.
 - `scripts/probe_castle_pearl_art.gd` enforces import budgets, one-mesh exports,
   static-only assets, minimum live placement counts, exit/toilet/music/bed/
-  wardrobe/craft/secret-stand/Opera contracts, and eighteen fixed Mobile-render
+  wardrobe/craft/secret-stand/Opera contracts, and nineteen fixed Mobile-render
   review captures spanning every contiguous castle wing touched by this pass.
 
 ## Current Rating
@@ -242,8 +259,9 @@ count is 8,412 triangles with zero exported degenerate triangles.
 The fifty-seven generated models and isolated renders meet the project's
 structural and isolated-visual candidate gate. They are designed as 5/5
 replacements, but final 5/5 status is not self-awarded: the camera-integrity,
-undercroft, treasure-niche, and Opera corrections still require replacement
-in-game Mobile captures, gameplay-scale inspection, and owner acceptance.
+undercroft, treasure-niche, Opera, and wardrobe-evidence corrections still
+require replacement in-game Mobile captures, gameplay-scale inspection, and
+owner acceptance.
 Particular review attention should go to the open Opera passage, bedroom bed
 framing, undercroft hutch/cart visibility, toilet side anatomy, fountain route
 clearance, and repeated arch density.
