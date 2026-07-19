@@ -20,6 +20,9 @@ Assets
   creature needed. Optional: a tiny bow-tie/usher-cap accessory pass on the
   existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite
 - Audience seat bench + a curtain-call confetti burst
+- Theatre marquee door (two placements, one asset): the music-room stage door
+  AND the Sky Lagoon courtyard entrance both use `build_opera_gate`'s
+  primitives — gold pillars, crimson curtains, star crest, warm glow veil
 - SFX: curtain whoosh, imp giggle/pop, applause loop, ta-daa sting
 - Voice lines (family recordings): backstage intro, curtain-open, act win
   lines per act (scripts already pass distinct `voice`/`win_line` strings)
