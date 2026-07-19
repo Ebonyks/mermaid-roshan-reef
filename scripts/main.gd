@@ -2732,8 +2732,8 @@ func _ui_tap() -> void:
 func _hook_button_taps(n: Node) -> void:
 	_audio_ref()._hook_button_taps(n)
 
-func _play_music(track: String) -> void:
-	_audio_ref()._play_music(track)
+func _play_music(track: String, loop: bool = true) -> void:
+	_audio_ref()._play_music(track, loop)
 
 func _apply_quality(q: String) -> void:
 	quality = q
@@ -4135,7 +4135,7 @@ func _open_castle_door() -> void:
 	# ----- CUTSCENE: glorious door opening -----
 	l2_cutscene_t = 5.0
 	prev_track = cur_track
-	_play_music("castle_open")
+	_play_music("castle_open", false)   # one-shot stinger (6.2s); _tick_cutscene restores prev_track at 5s
 	show_msg("Princess Huluu", "You found all three stars! Behold... my castle opens!", "greet")
 	if g.has("door_solid"):
 		arena_solids.erase(g["door_solid"])   # the open doorway is passable again
@@ -4675,7 +4675,7 @@ func _play_hug_cutscene() -> void:
 	var dp := AudioStreamPlayer.new()
 	dp.stream = load("res://assets/audio/voices/" + ["daddy1", "daddy2", "daddy3"][randi() % 3] + ".ogg")
 	dp.bus = "Voice"
-	dp.volume_db = 4.0
+	dp.volume_db = 1.5   # was +4: headroom — the hot daddy clip clipped on small phone speakers
 	root.add_child(dp)
 	dp.play()
 	var tw := create_tween().set_parallel(true)
@@ -5121,7 +5121,7 @@ func _begin_finale() -> void:
 	finale_done = true
 	finale_t = 0.0
 	_write_save()
-	_play_music("finale")
+	_play_music("finale", false)   # one-shot fanfare (42s); _tick_finale brings "world" back at 10s
 	show_msg("Everyone", "Roshan did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
 
 func _tick_finale(delta: float) -> void:

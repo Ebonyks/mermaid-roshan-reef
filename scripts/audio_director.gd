@@ -148,7 +148,7 @@ func _hook_button_taps(n: Node) -> void:
 		(n as Button).pressed.connect(m._ui_tap)
 
 
-func _play_music(track: String) -> void:
+func _play_music(track: String, loop: bool = true) -> void:
 	m.cur_track = track
 	# night flips the reef to its dreamier track (Prairie Nights)
 	var fname := track
@@ -160,7 +160,9 @@ func _play_music(track: String) -> void:
 		return   # no track for this kind (e.g. transient arena setup) — keep current music
 	var st: AudioStream = load(mpath)
 	if st is AudioStreamOggVorbis:
-		(st as AudioStreamOggVorbis).loop = true
+		# loop=false for one-shot stingers (finale, castle_open) so a short
+		# fanfare doesn't wrap around; their call sites restore ongoing music
+		(st as AudioStreamOggVorbis).loop = loop
 	m.music.stream = st
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	m.music.play()
