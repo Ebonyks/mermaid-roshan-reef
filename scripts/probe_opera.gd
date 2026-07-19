@@ -247,7 +247,7 @@ func _drive_doctor(act: OperaAct) -> void:
 	_ck("five tended steps heal the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
-	_ck("meadow has seven hungry piggies", act.piggies.size() == 7)
+	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
 	act._toss_action()
 	_ck("toss with nobody close is gentle (no feed)", act.state == "play" and act.farm_fed == 0)
 	for i in range(act.piggies.size()):

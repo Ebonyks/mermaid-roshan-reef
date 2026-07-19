@@ -64,6 +64,9 @@ var echo_phase := "show"           # show | repeat
 var echo_show_i := 0
 var echo_show_t := 0.0
 var last_pad := -1
+var dwell_pad := -1                # tile currently being stood on (pre-fire)
+var pad_dwell := 0.0               # playtest fix: tiles fire on a short DWELL,
+                                   # so swimming ACROSS the row never punishes
 
 # ---- "shuffle" engine ----
 var hats: Array[Dictionary] = []
@@ -104,7 +107,7 @@ var doc_step := 0
 var patient: Node3D = null
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
-const FARM_SPEED := 150.0
+const FARM_SPEED := 120.0
 var farm_layer: CanvasLayer = null
 var farm_t := 0.0
 var farm_fed := 0
@@ -1449,7 +1452,7 @@ func _build_farm() -> void:
 	farm_roshan = roshan
 	for i in range(int(config.get("piggies", 7))):
 		var pig := Control.new()
-		pig.position = Vector2(900.0 + float(i) * 520.0, 420.0)
+		pig.position = Vector2(900.0 + float(i) * 560.0, 420.0)
 		pig.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		root.add_child(pig)
 		# placeholder circle-piggy (art pending): body, ears, snout
@@ -1466,14 +1469,14 @@ func _build_farm() -> void:
 		want.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		bubble.add_child(want)
 		piggies.append({"index": i, "node": pig, "bubble": bubble, "want": want,
-			"x": 900.0 + float(i) * 520.0, "sx": 900.0 + float(i) * 520.0, "fed": false})
+			"x": 900.0 + float(i) * 560.0, "sx": 900.0 + float(i) * 560.0, "fed": false})
 
 func _tick_farm(delta: float) -> void:
 	farm_t += delta
 	farm_toss_cool = maxf(0.0, farm_toss_cool - delta)
 	if farm_roshan != null:
 		farm_roshan.position.y = 330.0 + sin(elapsed * 3.2) * 14.0
-	var wrap := 600.0 + 520.0 * float(piggies.size())
+	var wrap := 600.0 + 560.0 * float(piggies.size())
 	for pig in piggies:
 		var sx: float = float(pig["x"]) - farm_t * FARM_SPEED
 		while sx < -160.0:
@@ -2012,9 +2015,20 @@ func _process(delta: float) -> void:
 						touched = int(pad["index"])
 				if not near_any:
 					last_pad = -1
+					dwell_pad = -1
+					pad_dwell = 0.0
 				elif touched >= 0 and touched != last_pad:
-					last_pad = touched
-					_pad_touch(touched)
+					# stand on a tile a beat to dance it — crossing is free
+					if touched == dwell_pad:
+						pad_dwell += delta
+						if pad_dwell >= 0.3:
+							last_pad = touched
+							dwell_pad = -1
+							pad_dwell = 0.0
+							_pad_touch(touched)
+					else:
+						dwell_pad = touched
+						pad_dwell = 0.0
 		"shuffle":
 			_tick_shuffle(delta)
 		"fix":

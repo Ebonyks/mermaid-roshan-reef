@@ -13,17 +13,20 @@ const TIME_CAP := 240.0
 const BAND_LO := 55.0
 const BAND_HI := 140.0
 
+# Personas are calibrated to a real 4-year-old, not an optimal bot: slow
+# reactions, slower swimming, wandering, and GAWK — the pause to stare at
+# sparkles/confetti after doing something exciting.
 const PERSONAS := [
-	{"name": "speedy", "reaction": 0.35, "err": 0.05, "speed": 1.0, "wander": 0.0},
-	{"name": "casual", "reaction": 0.75, "err": 0.15, "speed": 0.85, "wander": 0.1},
-	{"name": "casual", "reaction": 0.75, "err": 0.15, "speed": 0.85, "wander": 0.1},
-	{"name": "wander", "reaction": 0.9, "err": 0.12, "speed": 0.8, "wander": 0.45},
-	{"name": "masher", "reaction": 0.45, "err": 0.35, "speed": 0.9, "wander": 0.1},
-	{"name": "speedy", "reaction": 0.4, "err": 0.08, "speed": 1.0, "wander": 0.0},
-	{"name": "casual", "reaction": 0.8, "err": 0.18, "speed": 0.85, "wander": 0.15},
-	{"name": "wander", "reaction": 1.0, "err": 0.1, "speed": 0.75, "wander": 0.5},
-	{"name": "masher", "reaction": 0.5, "err": 0.3, "speed": 0.9, "wander": 0.1},
-	{"name": "casual", "reaction": 0.7, "err": 0.2, "speed": 0.85, "wander": 0.1},
+	{"name": "speedy", "reaction": 0.9, "err": 0.06, "speed": 0.85, "wander": 0.05, "gawk": 0.15},
+	{"name": "casual", "reaction": 1.5, "err": 0.15, "speed": 0.7, "wander": 0.15, "gawk": 0.3},
+	{"name": "casual", "reaction": 1.4, "err": 0.16, "speed": 0.7, "wander": 0.15, "gawk": 0.3},
+	{"name": "wander", "reaction": 1.8, "err": 0.12, "speed": 0.6, "wander": 0.5, "gawk": 0.35},
+	{"name": "masher", "reaction": 1.0, "err": 0.32, "speed": 0.75, "wander": 0.1, "gawk": 0.2},
+	{"name": "speedy", "reaction": 1.0, "err": 0.08, "speed": 0.85, "wander": 0.05, "gawk": 0.15},
+	{"name": "casual", "reaction": 1.6, "err": 0.18, "speed": 0.7, "wander": 0.2, "gawk": 0.3},
+	{"name": "wander", "reaction": 2.0, "err": 0.1, "speed": 0.6, "wander": 0.55, "gawk": 0.4},
+	{"name": "masher", "reaction": 1.1, "err": 0.3, "speed": 0.75, "wander": 0.1, "gawk": 0.2},
+	{"name": "casual", "reaction": 1.5, "err": 0.2, "speed": 0.7, "wander": 0.15, "gawk": 0.3},
 ]
 
 var main: ReefMain
@@ -32,6 +35,8 @@ var mistakes := 0
 var wait_t := 0.0
 var persona: Dictionary = {}
 var wrong_pending := -1            # a queued wrong choice (mistake) to commit first
+var echo_key := -1                 # sticky echo intent: (round, pos) being danced
+var echo_target := -1
 
 func _init() -> void:
 	Engine.time_scale = 8.0
@@ -58,7 +63,7 @@ func _init() -> void:
 			var t := await _play_act(cfg.duplicate())
 			if t < 0.0:
 				incomplete += 1
-				print("BALANCE|act=%02d %s|run=%d persona=%s|INCOMPLETE cap=%ds mistakes=%d" % [act_i + 1, String(cfg["career"]), run, String(persona["name"]), int(TIME_CAP), mistakes])
+				print("BALANCE|act=%02d %s|run=%d persona=%s|INCOMPLETE cap=%ds mistakes=%d snap[%s]" % [act_i + 1, String(cfg["career"]), run, String(persona["name"]), int(TIME_CAP), mistakes, last_snapshot])
 			else:
 				times.append(t)
 				mistake_counts.append(mistakes)
@@ -78,11 +83,41 @@ func _init() -> void:
 	print("BALANCE|done")
 	quit()
 
+var last_snapshot := ""
+
+func _snapshot(act: OperaAct) -> String:
+	if not is_instance_valid(act):
+		return "act-freed"
+	var base := "state=%s phase=%s" % [act.state, act.stage_phase]
+	match act.kind:
+		"echo":
+			return base + " echo=%s round=%d pos=%d dwell=%.2f" % [act.echo_phase, act.echo_round, act.echo_pos, act.pad_dwell]
+		"boss":
+			var bphase := String(act.boss.get("phase", "?"))
+			var bdist := ((act.boss["node"] as Node3D).position).distance_to(act.player_pos) if act.boss.has("node") else -1.0
+			return base + " boss=%s hp=%d lant=%d dist=%.1f" % [bphase, int(act.boss.get("hp", -1)), act.lantern_i, bdist]
+		"order":
+			return base + " order=%s step=%d brush=%d" % [act.order_phase, act.step, act.brush_loaded]
+		"press":
+			return base + " candies=%d busy=%.2f" % [act.candies_done, act.press_busy]
+		"shuffle":
+			return base + " shuffle=%s round=%d" % [act.shuffle_phase, act.shuffle_round]
+		"doctor":
+			return base + " step=%d" % act.doc_step
+		"scroll":
+			return base + " fed=%d" % act.farm_fed
+		"fix":
+			return base + " fix=%s step=%d carried=%d" % [act.fix_phase, act.fix_step, act.carried]
+	return base
+
 func _play_act(cfg: Dictionary) -> float:
 	done = false
 	mistakes = 0
 	wait_t = 1.0
 	wrong_pending = -1
+	echo_key = -1
+	echo_target = -1
+	last_snapshot = ""
 	var act := OperaAct.new()
 	act.process_mode = Node.PROCESS_MODE_DISABLED   # only our manual pumps tick it
 	get_root().add_child(act)
@@ -98,6 +133,7 @@ func _play_act(cfg: Dictionary) -> float:
 			await process_frame
 	var result := sim_t if done else -1.0
 	if not done:
+		last_snapshot = _snapshot(act)
 		act.cancel()
 	await process_frame
 	await process_frame
@@ -124,6 +160,8 @@ func _ready_to_act(dt: float) -> bool:
 	if wait_t > 0.0:
 		return false
 	wait_t = float(persona["reaction"]) * randf_range(0.7, 1.4)
+	if randf() < float(persona.get("gawk", 0.0)):
+		wait_t += randf_range(1.5, 3.0)   # staring at the sparkles
 	return true
 
 func _drive(act: OperaAct, dt: float) -> void:
@@ -187,12 +225,24 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 		act._act_action(choice)
 
 func _drive_echo(act: OperaAct, dt: float) -> void:
+	# tiles fire on DWELL now: the persona picks a sticky target per step
+	# (sometimes the wrong tile), swims there and simply stands on it
 	if act.echo_phase != "repeat" or act.echo_pos >= act.echo_seq.size():
+		echo_key = -1
 		return
-	var want: int = act.echo_seq[act.echo_pos]
-	var choice := _maybe_wrong(act.pads.size(), want)
-	if _travel(act, act.pads[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
-		act._pad_touch(choice)
+	var key: int = act.echo_round * 100 + act.echo_pos
+	if key != echo_key:
+		echo_key = key
+		var want: int = act.echo_seq[act.echo_pos]
+		echo_target = want
+		if randf() < float(persona["err"]):
+			mistakes += 1
+			echo_target = (want + 1 + randi() % maxi(1, act.pads.size() - 1)) % act.pads.size()
+	if act.last_pad == echo_target:
+		# the tile underfoot just fired — step off the row so it can re-arm
+		_travel(act, (act.pads[echo_target]["pos"] as Vector3) + Vector3(0, 0, 6.0), dt)
+		return
+	_travel(act, act.pads[echo_target]["pos"] as Vector3, dt)
 
 func _drive_shuffle(act: OperaAct, dt: float) -> void:
 	if act.shuffle_phase != "pick":
