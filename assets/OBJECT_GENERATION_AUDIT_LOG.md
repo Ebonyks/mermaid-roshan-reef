@@ -569,7 +569,7 @@ Create this packet for every role before generating. Missing fields block the
 role.
 
 ```text
-audit_log_version: 2026-07-18-v7
+audit_log_version: 2026-07-18-v8
 asset_id:
 role_name:
 role_type: prop | kit_piece | texture | sprite | interactive | composition
@@ -644,6 +644,10 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v8:** Recorded the green `ffae3fe` Pearl Castle candidate
+  evidence and the green-but-visually-rejected `dec3a2c` entrance experiment;
+  reinforced that focal trim must read as authored construction, not floating
+  guide lines.
 - **2026-07-18-v7:** Added the green `affb617` role-readability rejection,
   expanded the Pearl Castle kit from fifty-seven to fifty-eight props, and
   required runtime proof for opaque magical destinations, wardrobe identity,

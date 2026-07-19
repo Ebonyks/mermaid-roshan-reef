@@ -62,8 +62,26 @@ the exit gate. These frames are retained as the negative control for role
 readability, container variety, opaque destination fields, and full-room
 material treatment.
 
+## `runtime_rejected_dec3a2c/`
+
+Seventh nineteen-view Mobile capture from fully green CI run `29676117040`.
+This short-lived entrance-reveal experiment added tall gold trim strips around
+the return gate. The run passed import, analyzer, gameplay probes, and capture
+upload, but visual review rejected the strips as floating construction lines
+that made the entrance read worse. Commit `ffae3fe` reverts the experiment.
+
+## `runtime_candidate_ffae3fe/`
+
+Current nineteen-view Mobile candidate from fully green CI run `29676569723`.
+This is the `13b58d1` role-readability correction with the rejected `dec3a2c`
+entrance experiment reverted. It keeps the opaque Opera vista, remodeled
+wardrobe, remodeled pantry, entrance wall treatment, Royal Loo correction,
+undercroft facing, treasure alignment, and all prior accepted room fixes.
+Candidate evidence means ready for owner review; it is not self-awarded 5/5.
+
 ## Final Candidate
 
-The final nineteen-view Mobile evidence belongs in a sibling folder named
-`runtime_candidate_<commit>/` only after the full import, analyzer, gameplay,
-and capture workflow is green. Candidate does not mean owner-accepted 5/5.
+The current final candidate is `runtime_candidate_ffae3fe/`. Future candidates
+must use a sibling folder named `runtime_candidate_<commit>/` only after the
+full import, analyzer, gameplay, and capture workflow is green. Candidate does
+not mean owner-accepted 5/5.

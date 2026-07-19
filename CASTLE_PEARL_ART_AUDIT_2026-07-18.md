@@ -264,6 +264,14 @@ the wardrobe. Rejected frames are retained under `runtime_rejected_affb617/`;
 the two superseded runtime GLBs are retained under
 `backups/art_pre_castle_final_polish_2026-07-18/`.
 
+CI run `29673708420` then passed at commit `13b58d1` with all nineteen Mobile
+castle captures. A later entrance-reveal experiment at `dec3a2c` also passed
+CI but was visually rejected because its tall gold strips read as floating
+construction lines. Commit `ffae3fe` reverts that experiment; CI run
+`29676569723` is the current green candidate evidence set, retained under
+`runtime_candidate_ffae3fe/`. The rejected experiment is retained under
+`runtime_rejected_dec3a2c/`.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -292,10 +300,10 @@ count is 8,412 triangles with zero exported degenerate triangles.
 
 The fifty-eight generated models and isolated renders meet the project's
 structural and isolated-visual candidate gate. They are designed as 5/5
-replacements, but final 5/5 status is not self-awarded: the final-polish
-entrance-wall, Opera-vista, pantry, and wardrobe corrections still
-require replacement in-game Mobile captures, gameplay-scale inspection, and
-owner acceptance.
+replacements, but final 5/5 status is not self-awarded. The final-polish
+entrance-wall, Opera-vista, pantry, and wardrobe corrections now have a green
+nineteen-view Mobile candidate at commit `ffae3fe`; they still require owner
+acceptance before any 5/5 label is applied.
 Particular review attention should go to the opaque Opera destination read,
 wardrobe storage identity, pantry silhouette variety, entrance wall treatment,
 toilet side anatomy, fountain route clearance, and repeated arch density.
