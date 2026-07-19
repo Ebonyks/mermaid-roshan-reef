@@ -192,6 +192,7 @@ func award_sticker(id: String) -> void:
 	var d := _sticker_def(id)
 	_sticker_toast("%s  New sticker:  %s!" % [String(d["emoji"]), String(d["label"])])
 	_fanfare()
+	_say("roshan", "win", 0.5)   # cheer with the toast — the fanfare alone felt silent
 	if player != null:
 		_sparkle_burst(player.position + Vector3(0, 2.5, 0), Color(1.0, 0.9, 0.4))
 	_check_superstar()
