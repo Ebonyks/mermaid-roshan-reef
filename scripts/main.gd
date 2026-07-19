@@ -5269,18 +5269,21 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		if player != null:
 			player.play_verb("cheer")   # R2-C: arms up for the trophy curtain call
 	fr["cool"] = 5.0
+	# Short re-entry cooldowns: "again!" should take seconds, not sixteen.
+	# They only need to outlast the return teleport so the portal doesn't
+	# swallow her on the same frame — lingering by choice restarting the game
+	# is the feature (starting is a greeting, not a win; probe_passive keeps
+	# zero-input play unwinnable regardless of how often a game re-opens).
 	if String(fr["fname"]) == "Secret Cave":
-		treasure_cool = 14.0
+		treasure_cool = 4.0
 	elif String(fr["fname"]) == "Pearl Shop":
-		shop_cool = 16.0
+		shop_cool = 4.0
 	elif String(fr["fname"]) == "Penguin Slide":
-		slide_cool = 14.0
+		slide_cool = 3.0
 	elif String(fr["fname"]) == "Toy Castle":
-		brawl_cool = 14.0
+		brawl_cool = 3.0
 	elif String(fr["fname"]) == "Fairy Pond":
-		# quick retry after a boss fail — a 12s wait outside the pond was pure
-		# friction for a kid who wants straight back in
-		fairy_cool = 12.0 if win else 5.0
+		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
 	_respawn_pearls()
 	show_msg(fr["fname"], txt, "win" if win else vo)
