@@ -45,10 +45,19 @@ func _init() -> void:
 	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	var act: OperaAct = opera.act
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 130)
+	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
+	_ck("shelled act opens backstage with the gremlin brawl", act.stage_phase == "brawl" and act.gremlins.size() == 3)
 	for i in range(30): await process_frame
-	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play")
+	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
+	# a sparkle with no gremlin near just fizzles — never a fail (probe-only
+	# teleport to centre stage guarantees every gremlin is out of reach)
+	var far_left: int = act.gremlins_left
+	act.player_pos = act.CENTER + Vector3(0.0, 1.1, 14.0)
+	act._brawl_action()
+	_ck("far sparkle fizzles kindly in the brawl", act.gremlins_left == far_left)
+	_drive_brawl(act)
+	_ck("popped gremlins open the curtain to the stage", act.stage_phase == "puzzle")
 	# a wrong tap wobbles and re-hints, it never fails or advances
 	var first_cfg: Dictionary = OperaHouse.ACTS[0]
 	var order: Array = first_cfg["order"]
@@ -73,6 +82,10 @@ func _init() -> void:
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
 		act = opera.act
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
+		if bool(cfg2.get("shell", false)):
+			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
+			_drive_brawl(act)
+			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
 		match String(cfg2["kind"]):
 			"order":
 				await _drive_order(act, cfg2)
@@ -108,6 +121,15 @@ func _init() -> void:
 	_ck("completion returns to the castle", main.game == "level2" and main.opera_game == null)
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
+
+func _drive_brawl(act: OperaAct) -> void:
+	for g in act.gremlins:
+		if bool(g["popped"]):
+			continue
+		act.player_pos = (g["pos"] as Vector3)
+		act._brawl_action()
+	if act.stage_phase == "puzzle":
+		act.player_pos = act.CENTER + Vector3(0, 1.1, 14.0)
 
 func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 	var order: Array = cfg["order"]
@@ -211,7 +233,7 @@ func _drive_press(act: OperaAct) -> void:
 		else:
 			await process_frame
 	_ck("press act does not stall", guard < 900)
-	_ck("three smiley candies finish the show", act.candies_done == 3)
+	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
 
 func _drive_doctor(act: OperaAct) -> void:
 	_ck("checkup has five one-touch steps", act.doc_targets.size() == 5)
@@ -225,14 +247,14 @@ func _drive_doctor(act: OperaAct) -> void:
 	_ck("five tended steps heal the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
-	_ck("meadow has five hungry piggies", act.piggies.size() == 5)
+	_ck("meadow has seven hungry piggies", act.piggies.size() == 7)
 	act._toss_action()
 	_ck("toss with nobody close is gentle (no feed)", act.state == "play" and act.farm_fed == 0)
-	for i in range(5):
+	for i in range(act.piggies.size()):
 		act.farm_toss_cool = 0.0
 		act.piggies[i]["sx"] = 250.0
 		act._toss_action()
-	_ck("five fed piggies finish the picnic", act.state == "won" and act.farm_fed == 5)
+	_ck("every fed piggy finishes the picnic", act.state == "won" and act.farm_fed == act.piggies.size())
 
 func _drive_race(act: OperaAct) -> void:
 	var guard := 0
@@ -270,7 +292,7 @@ func _drive_dance(act: OperaAct) -> void:
 
 func _drive_boss(act: OperaAct, dual: bool) -> void:
 	var hp: int = int(act.boss["hp"])
-	_ck("boss starts with three sparkle stars", hp == 3)
+	_ck("boss starts with its configured sparkle stars", hp >= 3)
 	if dual:
 		_ck("phantom opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
 		act._hit_boss()

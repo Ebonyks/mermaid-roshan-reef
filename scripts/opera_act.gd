@@ -70,8 +70,10 @@ var hats: Array[Dictionary] = []
 var bunny: Node3D = null
 var bunny_at := 0
 var shuffle_round := 0
-var shuffle_phase := "watch"       # watch | pick
+var shuffle_phase := "watch"       # watch | pick | wait
 var shuffle_t := 0.0
+var shuffle_wait_t := 0.0          # countdown between rounds (timer-driven)
+var shuffle_next := 0
 var swap_plan: Array[Dictionary] = []
 
 # ---- "fix" engine ----
@@ -87,7 +89,9 @@ var rocket_window: MeshInstance3D = null
 var press_x := 0.0                 # slider position, -1..1
 var press_zone := 0.34             # sweet-spot half-width (generous, shrinks a little)
 var press_busy := 0.0              # stamp animation lockout
+var press_next_t := 0.0            # countdown to the next candy rolling in
 var candies_done := 0
+var candies_goal := 4
 var candy_node: Node3D = null
 var press_block: Node3D = null
 var press_slider: Node3D = null
@@ -101,7 +105,6 @@ var patient: Node3D = null
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
 const FARM_SPEED := 150.0
-const FARM_WRAP := 3000.0
 var farm_layer: CanvasLayer = null
 var farm_t := 0.0
 var farm_fed := 0
@@ -140,6 +143,21 @@ var far_hint_cool := 0.0
 # gets a real "I did it myself!" moment before help arrives.
 const RESCUE_DELAY := 5.0
 
+# ---- the Showtime shell (Peach Showtime level framework) ----
+# Most show acts open BACKSTAGE: a corridor where mischievous stage gremlins
+# have run off with the props. Roshan sparkle-pops them brawler-style (bumps
+# only, never a fail), the side curtain sweeps open, and the act's puzzle
+# waits on the main stage. Traversal -> light brawl -> puzzle -> bow keeps
+# every act a 1-2 minute performance.
+const BACKSTAGE_X0 := -58.0        # corridor west wall (relative to CENTER.x)
+const BACKSTAGE_X1 := -26.0        # curtain gate line
+const GREMLIN_COUNT := 3
+var stage_phase := "puzzle"        # brawl | puzzle
+var gremlins: Array[Dictionary] = []
+var gremlins_left := 0
+var gate_curtain: Node3D = null
+var brawl_bump_cool := 0.0
+
 func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	m = main
 	config = act_config
@@ -147,9 +165,14 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	kind = String(config.get("kind", "order"))
 	reveal_one = bool(config.get("reveal_one", false))
 	act_tag = String(config.get("act_tag", ""))
+	stage_phase = "brawl" if bool(config.get("shell", false)) else "puzzle"
 	player_pos = CENTER + Vector3(0, 1.1, 14.0)
+	if stage_phase == "brawl":
+		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
 	_build_environment()
 	_build_theatre()
+	if stage_phase == "brawl":
+		_build_backstage()
 	_build_avatar()
 	_build_camera()
 	_build_hud()
@@ -174,10 +197,15 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_dance()
 		"boss":
 			_build_boss()
-	# the Showtime transformation moment: sparkles + the career announcement
+	# the Showtime transformation moment: sparkles + the career announcement.
+	# Shelled acts open with the backstage story instead — the act's own
+	# instructions arrive when the curtain sweeps open in _open_gate().
 	m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 1.0))
 	m._sparkle_burst(player_pos + Vector3(0, 0.8, 0), Color(0.72, 0.95, 1.0))
-	m.show_msg("Roshan", String(config.get("voice", "It's showtime! Follow the golden sparkle!")), "talk")
+	if stage_phase == "brawl":
+		m.show_msg("Roshan", "Oh no — stage gremlins backstage! Pop them with SPARKLE so the show can start!", "talk")
+	else:
+		m.show_msg("Roshan", String(config.get("voice", "It's showtime! Follow the golden sparkle!")), "talk")
 	_update_hud()
 
 # ---------------- shared toy-theatre set ----------------
@@ -290,6 +318,113 @@ func _build_theatre() -> void:
 		spr.position = CENTER + Vector3(gx, 4.0, 22.4)
 		add_child(spr)
 		audience.append(spr)
+
+func _build_backstage() -> void:
+	# the corridor: warm wooden boards, prop crates, string lights, and the
+	# big side curtain that opens onto the main stage once the gremlins pop
+	_box(CENTER + Vector3((BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5, -0.3, 3.0), Vector3(BACKSTAGE_X1 - BACKSTAGE_X0 + 4.0, 1.2, 20.0), Color(0.5, 0.36, 0.28))
+	_box(CENTER + Vector3(BACKSTAGE_X0 - 1.0, 5.0, 3.0), Vector3(1.2, 12.0, 20.0), Color(0.32, 0.24, 0.3))
+	for cx in [-52.0, -44.0, -33.0]:
+		_box(CENTER + Vector3(cx, 1.3, -4.5), Vector3(3.0, 2.6, 3.0), Color(0.62, 0.46, 0.3))
+		_box(CENTER + Vector3(cx, 3.1, -4.5), Vector3(2.2, 1.0, 2.2), Color(0.55, 0.4, 0.27))
+	for i in range(4):
+		_sphere(CENTER + Vector3(-54.0 + float(i) * 8.0, 10.0, 3.0), 0.45, Color.from_hsv(float(i) / 4.0, 0.35, 1.0), 1.2)
+	# the gate: a tall crimson curtain wall blocking the way to the stage
+	gate_curtain = _box(CENTER + Vector3(BACKSTAGE_X1 + 1.0, 6.5, 3.0), Vector3(1.6, 14.0, 20.0), Color(config.get("curtain", Color(0.78, 0.24, 0.34))))
+	# three stage gremlins between Roshan and the curtain (mischief imps —
+	# the dungeon's authored kit, recast as theatre gremlins)
+	for g in range(GREMLIN_COUNT):
+		var pos := CENTER + Vector3(-46.0 + float(g) * 6.5, 1.0, -1.0 + float(g % 2) * 7.0)
+		var root := Node3D.new()
+		root.name = "StageGremlin%d" % g
+		root.position = pos
+		add_child(root)
+		var imp := DungeonArt.spawn("imp", root)
+		if imp.name.begins_with("MissingDungeonArt"):
+			_sphere(Vector3(0, 1.2, 0), 0.9, Color(0.55, 0.35, 0.75), 0.3, root)
+			_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
+			_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
+		gremlins.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
+	gremlins_left = GREMLIN_COUNT
+
+func _brawl_action() -> void:
+	# the brawler verb: a sparkle star pops the nearest gremlin into confetti.
+	# Out of reach = the star falls short, exactly like the boss fights.
+	if state != "play" or stage_phase != "brawl":
+		return
+	var best := -1
+	var best_d := 8.0
+	for g in gremlins:
+		if bool(g["popped"]):
+			continue
+		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
+		if d < best_d:
+			best_d = d
+			best = int(g["index"])
+	if best < 0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+		return
+	var grem: Dictionary = gremlins[best]
+	grem["popped"] = true
+	gremlins_left -= 1
+	progress_t = 0.0
+	var node := grem["node"] as Node3D
+	var gpos: Vector3 = grem["pos"] as Vector3
+	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
+	for c in range(5):
+		var a := float(c) * TAU / 5.0
+		var confetti := _sphere(gpos + Vector3(cos(a) * 0.8, 1.5, sin(a) * 0.8), 0.35, Color.from_hsv(float(c) / 5.0, 0.6, 1.0), 0.5)
+		var tw := confetti.create_tween()
+		tw.tween_property(confetti, "position", confetti.position + Vector3(cos(a) * 2.5, 3.0, sin(a) * 2.5), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(confetti, "scale", Vector3.ZERO, 0.3)
+		tw.tween_callback(confetti.queue_free)
+	node.visible = false
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.2 * float(GREMLIN_COUNT - gremlins_left)
+		m.chime.play()
+	if gremlins_left <= 0:
+		_open_gate()
+	else:
+		_update_hud()
+
+func _open_gate() -> void:
+	stage_phase = "puzzle"
+	progress_t = 0.0
+	if gate_curtain != null:
+		var tw := gate_curtain.create_tween()
+		tw.tween_property(gate_curtain, "position:y", gate_curtain.position.y + 13.0, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	m._sparkle_burst(CENTER + Vector3(BACKSTAGE_X1 + 1.0, 4.0, 3.0), Color(1.0, 0.9, 0.5))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.4
+		m.chime.play()
+	m.show_msg("Roshan", String(config.get("voice", "The stage is clear — on with the show!")), "talk")
+	_update_hud()
+
+func _tick_brawl(delta: float) -> void:
+	brawl_bump_cool = maxf(0.0, brawl_bump_cool - delta)
+	for g in gremlins:
+		if bool(g["popped"]):
+			continue
+		var node := g["node"] as Node3D
+		var pos: Vector3 = g["pos"] as Vector3
+		var toward: Vector3 = player_pos - pos
+		toward.y = 0.0
+		if toward.length() > 4.5:
+			pos += toward.normalized() * delta * 1.6
+		g["pos"] = pos
+		node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(g["phase"])) * 0.3, 0)
+		node.rotation.y = sin(elapsed * 2.0 + float(g["phase"])) * 0.4
+		# a gremlin that reaches Roshan just bounces off her bubble shield
+		if pos.distance_to(player_pos) < 2.5:
+			var away: Vector3 = player_pos - pos
+			away.y = 0.0
+			if away.length() < 0.1:
+				away = Vector3.FORWARD
+			player_pos += away.normalized() * 2.5
+			m._sparkle_burst(player_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
+			if brawl_bump_cool <= 0.0:
+				brawl_bump_cool = 4.0
+				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly stage gremlins!", "talk")
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -770,6 +905,11 @@ func _shuffle_hide(target: int) -> void:
 	_update_hud()
 
 func _tick_shuffle(delta: float) -> void:
+	if shuffle_phase == "wait":
+		shuffle_wait_t -= delta
+		if shuffle_wait_t <= 0.0:
+			_shuffle_hide(shuffle_next)
+		return
 	if shuffle_phase != "watch":
 		return
 	shuffle_t += delta
@@ -821,11 +961,9 @@ func _shuffle_action(choice: int) -> void:
 			_win()
 		else:
 			m.show_msg("Roshan", "You found him! One more time — watch the hats!", "talk")
-			shuffle_phase = "wait"   # neutral while the reveal plays out
-			var next := (bunny_at + 1) % 3
-			var tw2 := create_tween()
-			tw2.tween_interval(0.9)
-			tw2.tween_callback(func() -> void: _shuffle_hide(next))
+			shuffle_phase = "wait"   # timer-driven pause while the reveal plays out
+			shuffle_next = (bunny_at + 1) % 3
+			shuffle_wait_t = 0.9
 	else:
 		# mercy peek: the empty hat lifts, giggles, and the right hat wiggles
 		var tw3 := hat.create_tween()
@@ -1019,6 +1157,7 @@ func _tick_fix(_delta: float) -> void:
 # the candy. Misses just squish a silly wobble — the candy always survives.
 
 func _build_press() -> void:
+	candies_goal = int(config.get("candies", 4))
 	var machine := Node3D.new()
 	machine.name = "CandyPress"
 	machine.position = CENTER + Vector3(0, 1.0, -10.0)
@@ -1089,15 +1228,13 @@ func _press_action() -> void:
 		tw2.tween_property(done, "position", shelf, 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 		candy_node = null
 		# the sweet spot narrows a touch each candy, but stays generous
-		press_zone = maxf(0.22, 0.34 - 0.06 * float(candies_done))
+		press_zone = maxf(0.2, 0.34 - 0.045 * float(candies_done))
 		if press_zone_box != null:
 			press_zone_box.scale.x = press_zone / 0.34
-		if candies_done >= 3:
+		if candies_done >= candies_goal:
 			_win()
 		else:
-			var tw3 := create_tween()
-			tw3.tween_interval(0.8)
-			tw3.tween_callback(_candy_next)
+			press_next_t = 0.8   # timer-driven so headless playtests can pump time
 			_update_hud()
 	else:
 		# a miss just squishes a giggle-wobble — the candy is always fine
@@ -1111,6 +1248,10 @@ func _press_action() -> void:
 
 func _tick_press(delta: float) -> void:
 	press_busy = maxf(0.0, press_busy - delta)
+	if press_next_t > 0.0:
+		press_next_t -= delta
+		if press_next_t <= 0.0:
+			_candy_next()
 	press_x = sin(elapsed * 1.6)
 	if press_slider != null:
 		press_slider.position.x = CENTER.x + press_x * 5.5
@@ -1306,7 +1447,7 @@ func _build_farm() -> void:
 	roshan.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(roshan)
 	farm_roshan = roshan
-	for i in range(5):
+	for i in range(int(config.get("piggies", 7))):
 		var pig := Control.new()
 		pig.position = Vector2(900.0 + float(i) * 520.0, 420.0)
 		pig.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1332,13 +1473,14 @@ func _tick_farm(delta: float) -> void:
 	farm_toss_cool = maxf(0.0, farm_toss_cool - delta)
 	if farm_roshan != null:
 		farm_roshan.position.y = 330.0 + sin(elapsed * 3.2) * 14.0
+	var wrap := 600.0 + 520.0 * float(piggies.size())
 	for pig in piggies:
 		var sx: float = float(pig["x"]) - farm_t * FARM_SPEED
 		while sx < -160.0:
 			# unfed piggies trot back around; fed ones park happily off-screen
 			if bool(pig["fed"]):
 				break
-			pig["x"] = float(pig["x"]) + FARM_WRAP
+			pig["x"] = float(pig["x"]) + wrap
 			sx = float(pig["x"]) - farm_t * FARM_SPEED
 		pig["sx"] = sx
 		var node := pig["node"] as Control
@@ -1775,16 +1917,21 @@ func _process(delta: float) -> void:
 		return
 	var move := _move_input()
 	player_pos += Vector3(move.x, 0, move.y) * MOVE_SPEED * delta
-	var flat := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
-	if flat.length() > RADIUS - 2.0:
-		flat = flat.normalized() * (RADIUS - 2.0)
-		player_pos.x = CENTER.x + flat.x
-		player_pos.z = CENTER.z + flat.y
+	_clamp_player()
 	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
 	if costume_root != null:
 		costume_root.position = avatar.position
 	for i in range(audience.size()):
 		audience[i].position.y = CENTER.y + 4.0 + sin(elapsed * 2.2 + float(i) * 1.4) * 0.18
+	if stage_phase == "brawl":
+		_tick_brawl(delta)
+		if _action_pressed():
+			_brawl_action()
+		if progress_t > 22.0:
+			progress_t = 0.0
+			m.show_msg("Roshan", "Tap SPARKLE to pop the stage gremlins, then the curtain opens!", "hint")
+		_tick_pointer()
+		return
 	if _action_pressed():
 		match kind:
 			"order":
@@ -1881,7 +2028,38 @@ func _process(delta: float) -> void:
 		m.show_msg("Roshan", String(config.get("voice", "Follow the golden sparkle!")), "hint")
 	_tick_pointer()
 
+func _clamp_player() -> void:
+	if stage_phase == "brawl":
+		player_pos.x = clampf(player_pos.x, CENTER.x + BACKSTAGE_X0 + 2.0, CENTER.x + BACKSTAGE_X1 - 1.5)
+		player_pos.z = clampf(player_pos.z, CENTER.z - 6.0, CENTER.z + 12.0)
+		return
+	if bool(config.get("shell", false)) and player_pos.x < CENTER.x + BACKSTAGE_X1:
+		# the opened corridor stays swimmable — clamp to its walls instead
+		player_pos.x = maxf(player_pos.x, CENTER.x + BACKSTAGE_X0 + 2.0)
+		player_pos.z = clampf(player_pos.z, CENTER.z - 6.0, CENTER.z + 12.0)
+		return
+	var flat := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
+	if flat.length() > RADIUS - 2.0:
+		flat = flat.normalized() * (RADIUS - 2.0)
+		player_pos.x = CENTER.x + flat.x
+		player_pos.z = CENTER.z + flat.y
+
 func _pointer_target() -> Vector3:
+	if stage_phase == "brawl":
+		var best_d := INF
+		var best := player_pos
+		var any := false
+		for g in gremlins:
+			if bool(g["popped"]):
+				continue
+			var d: float = (g["pos"] as Vector3).distance_to(player_pos)
+			if d < best_d:
+				best_d = d
+				best = (g["pos"] as Vector3)
+				any = true
+		if any:
+			return best + Vector3(0, 5.5, 0)
+		return player_pos + Vector3(0, 7.0, 0)
 	match kind:
 		"order":
 			if order_phase == "stir":
@@ -1927,8 +2105,11 @@ func _pointer_target() -> Vector3:
 func _tick_pointer() -> void:
 	var show := state == "play" and not (kind == "shuffle" and shuffle_phase == "pick")
 	# guessing games earn a moment without the answer: the arrow is a rescue
-	# that arrives after RESCUE_DELAY without progress (mistakes summon it)
-	if kind == "order" and not order_hidden:
+	# that arrives after RESCUE_DELAY without progress (mistakes summon it).
+	# The brawl arrow is directional, not an answer — always on.
+	if stage_phase == "brawl":
+		pass
+	elif kind == "order" and not order_hidden:
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "echo" and echo_phase == "repeat":
 		show = show and progress_t > RESCUE_DELAY
@@ -1945,6 +2126,9 @@ func _update_hud() -> void:
 	if objective == null:
 		return
 	var tag := act_tag + "  •  " if act_tag != "" else ""
+	if stage_phase == "brawl":
+		objective.text = tag + "✨  Pop the stage gremlins!  %d / %d" % [GREMLIN_COUNT - gremlins_left, GREMLIN_COUNT]
+		return
 	match kind:
 		"order":
 			if order_phase == "stir":
@@ -1971,7 +2155,7 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
 		"press":
-			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / 3" % candies_done
+			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
 			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
 		"scroll":
@@ -2052,6 +2236,8 @@ func cancel() -> void:
 	queue_free()
 
 func action_label() -> String:
+	if stage_phase == "brawl":
+		return "SPARKLE"
 	match kind:
 		"echo":
 			return "DANCE"
