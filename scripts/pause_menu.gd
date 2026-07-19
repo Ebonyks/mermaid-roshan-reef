@@ -136,6 +136,9 @@ func _leave_current_activity() -> void:
 	if m.game == "combat" and m.combat_game != null:
 		m.combat_game.cancel()
 		return
+	if m.game == "stuffie" and m.stuffie_game != null:
+		m.stuffie_game.cancel()
+		return
 	if m.game == "dungeon" and m.dungeon_game != null:
 		m.dungeon_game._leave_early()
 		return

@@ -667,7 +667,7 @@ func _process(delta: float) -> void:
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
@@ -683,8 +683,11 @@ func _process(delta: float) -> void:
 		turn += 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		turn -= 1.0
-	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
-	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
+	# while a pad holds R1 it is Player 2's — its left stick steers the stuffie
+	# companion (companion.gd), so Roshan must ignore it for that beat
+	var pad_is_p2: bool = "companion_p2" in _m0 and bool(_m0.companion_p2)
+	var jx: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
 		turn -= jx
 	if absf(jy) > 0.2:

@@ -15,13 +15,16 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   several half-finished extractions whose builder bodies still live here)
 - Phase 7 satellites (RefCounted, receive `main` by reference, own logic
   only — ALL state stays on main):
-  scripts/save_state.gd, scripts/audio_director.gd,
+  scripts/save_state.gd, scripts/audio_director.gd, scripts/companion.gd
+  (the stuffed-friend companion wing — see STUFFIE_COMPANIONS.md),
   scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
   scripts/arena/courtyard_train.gd,
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games,side_scroll,brawl}.gd (side_scroll = the shared 2.5D stage
   engine, brawl = the co-op toy-castle brawler on it — see
   MINIGAME_ENGINES.md)
+- scripts/stuffie_battle.gd — Family-B battle node (control the stuffie,
+  one attack button + DODGE QTE, no fail states), paired with companion.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
@@ -45,6 +48,7 @@ GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
    $GODOT --headless -s scripts/probe_mg2d.gd      # 5 picture games
    $GODOT --headless -s scripts/probe_l2.gd        # sky lagoon
    $GODOT --headless -s scripts/probe_train.gd     # courtyard train: no-clip lap, ride, hide
+   $GODOT --headless -s scripts/probe_stuffie.gd   # companion pick/follow + stuffie battle QTE
 3. Never trust probe_games.gd / probe_trial.gd / probe_race.gd until
    Phase 1 replaces them — they reference removed APIs. (Deleted Phase 0.)
 
