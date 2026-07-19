@@ -429,7 +429,7 @@ func force_solve() -> void:
 func cancel() -> void:
 	# Opening the door is the earned completion moment. If the child taps Home
 	# during the short celebration, checkpoint it instead of discarding it.
-	if state == "celebrate":
+	if state == "exit":
 		_finish()
 		return
 	if state == "done" or state == "cancelled":

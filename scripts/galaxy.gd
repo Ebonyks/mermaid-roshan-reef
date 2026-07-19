@@ -1768,7 +1768,7 @@ func _tick_hall(delta: float) -> void:
 		if float(b["cool"]) <= 0.0 and (b["pos"] as Vector3).distance_to(feet) < 3.4:
 			b["cool"] = 0.5
 			_chime(float(b["pitch"]))
-			var bn: Label3D = b["node"]
+			var bn: Node3D = b["node"]
 			var tw2 := bn.create_tween()
 			tw2.tween_property(bn, "scale", Vector3.ONE * 1.5, 0.08)
 			tw2.tween_property(bn, "scale", Vector3.ONE, 0.2)

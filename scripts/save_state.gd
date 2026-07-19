@@ -95,10 +95,6 @@ func load_save() -> void:
 	m.fish_tokens = int(m.save_data.get("fish_tokens", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
-	if bool(m.shop_owned.get("tail", false)):
-		m.player.set_rainbow_trail(true)
-	if bool(m.shop_owned.get("tiara", false)):
-		m.player.set_tiara(true)
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
