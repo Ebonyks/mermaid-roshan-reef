@@ -250,13 +250,27 @@ func _add_star_performer() -> void:
 	podium.radial_segments = 24
 	_mesh("StarPodium", podium, Vector3(0.0, 2.25, -20.5), _mat(PINK, 0.22))
 
-	var performer := Sprite3D.new()
-	performer.name = "StarPerformer"
-	performer.texture = m._cutout_tex("daddy")
-	performer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	performer.pixel_size = 0.018
-	performer.position = Vector3(0.0, 10.0, -20.5)
-	stage_root.add_child(performer)
+	var glb_path := "res://assets/characters/friends/daddy.glb"
+	if ResourceLoader.exists(glb_path):
+		var ps: PackedScene = load(glb_path)
+		var mdl: Node3D = ps.instantiate() as Node3D
+		mdl.name = "StarPerformer"
+		mdl.scale = Vector3.ONE * 4.0
+		mdl.position = Vector3(0.0, 2.7, -20.5)   # standing on the podium
+		stage_root.add_child(mdl)
+		var ap := m._find_anim(mdl)
+		if ap != null and ap.get_animation_list().size() > 0:
+			var clip: String = ap.get_animation_list()[0]
+			ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+			ap.play(clip)
+	else:
+		var performer := Sprite3D.new()
+		performer.name = "StarPerformer"
+		performer.texture = m._cutout_tex("daddy")
+		performer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		performer.pixel_size = 0.018
+		performer.position = Vector3(0.0, 10.0, -20.5)
+		stage_root.add_child(performer)
 
 
 func _build_rainbow_orbs(origin: Vector3) -> void:
