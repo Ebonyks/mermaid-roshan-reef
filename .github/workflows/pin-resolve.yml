@@ -1,0 +1,51 @@
+name: Pin resolve (temporary bootstrap)
+
+# TEMPORARY — deleted in the same security-hardening branch that adds it.
+# The remote dev container cannot reach github.com (proxy-blocked), so this
+# one-shot job resolves, on a runner with real network access, the values the
+# hardening commit needs to pin:
+#   - commit SHAs behind the action tags used by our workflows
+#   - official SHA512 sums for the Godot 4.4-stable editor + export templates
+#   - exact pip package versions behind the loose specs in probes.yml
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/security-audit-hardening-797qe6]
+    paths: [.github/workflows/pin-resolve.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Resolve action tag SHAs
+        run: |
+          for repo in actions/checkout actions/setup-java actions/cache actions/upload-artifact actions/github-script softprops/action-gh-release; do
+            echo "=== $repo ==="
+            git ls-remote --tags "https://github.com/$repo" | grep -E 'refs/tags/v[0-9]+(\.[0-9]+){0,2}(\^\{\})?$' | sort -t/ -k3 -V
+          done
+
+      - name: Godot 4.4-stable official checksums
+        run: |
+          REL="4.4-stable"
+          curl -sSL -o SHA512-SUMS.txt "https://github.com/godotengine/godot/releases/download/${REL}/SHA512-SUMS.txt"
+          echo "=== official SHA512-SUMS.txt (relevant lines) ==="
+          grep -E 'linux\.x86_64\.zip|export_templates\.tpz' SHA512-SUMS.txt || cat SHA512-SUMS.txt
+          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${REL}/Godot_v${REL}_linux.x86_64.zip"
+          curl -sSL -o templates.tpz "https://github.com/godotengine/godot/releases/download/${REL}/Godot_v${REL}_export_templates.tpz"
+          echo "=== computed sha512 ==="
+          sha512sum godot.zip templates.tpz
+          echo "=== cross-check against official file ==="
+          ZSUM=$(grep 'Godot_v4.4-stable_linux.x86_64.zip' SHA512-SUMS.txt | awk '{print $1}')
+          TSUM=$(grep 'Godot_v4.4-stable_export_templates.tpz' SHA512-SUMS.txt | awk '{print $1}')
+          echo "${ZSUM}  godot.zip" | sha512sum -c -
+          echo "${TSUM}  templates.tpz" | sha512sum -c -
+
+      - name: Resolve pip pins
+        run: |
+          pip install --quiet 'gdtoolkit==4.*' numpy Pillow
+          pip show gdtoolkit numpy Pillow lark | grep -E '^(Name|Version):'
