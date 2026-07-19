@@ -29,8 +29,18 @@ straight storage row, a weak music-room focal point, and an incomplete craft
 fish bitmap. These frames are the negative control for the material-visibility
 correction; green CI and complete capture count did not make them acceptable.
 
+## `runtime_rejected_2920da1/`
+
+Fourth seventeen-view Mobile capture from fully green CI run `29665038876`.
+The material-visibility repairs worked, but the set was rejected because the
+Royal Bedroom camera sat behind the wardrobe and the undercroft sightline hid
+most of its supposedly improved storage composition. It also predates the
+merged Opera House gate, whose primitive marquee required its own authored-art
+pass. These frames prove that technical validity and an apparently complete
+shot list still fail when review cameras do not expose the claimed work.
+
 ## Final Candidate
 
-The final seventeen-view Mobile evidence belongs in a sibling folder named
+The final eighteen-view Mobile evidence belongs in a sibling folder named
 `runtime_candidate_<commit>/` only after the full import, analyzer, gameplay,
 and capture workflow is green. Candidate does not mean owner-accepted 5/5.

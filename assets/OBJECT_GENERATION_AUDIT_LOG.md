@@ -267,6 +267,33 @@ Most frequent failures:
   storage placement, full Toy Room composition, song-star focal staging, and
   the corrected lower side view of the Royal Loo.
 
+### A14 - Pearl Castle camera-integrity and parallel-Opera audit
+
+- Source and commit: seventeen-view Mobile capture from commit `2920da1`, CI
+  run `29665038876`; Opera blockout merged from commit `2227031`.
+- Scope: Royal Bedroom, undercroft, secret chamber, music-room Opera threshold,
+  and audit coverage after parallel work reconciliation.
+- Evidence class: E3 fixed Mobile runtime frames cross-checked against E2
+  isolated Blender renders, gameplay contracts, and the newly merged source.
+- Findings independently verified: the material-visibility correction worked,
+  but the bedroom camera was behind the wardrobe and the undercroft sightline
+  hid most revised props. A later primitive Opera marquee also entered the
+  already-audited castle, proving that a focal score expires when parallel work
+  adds new visible content.
+- Findings accepted: every review camera must occupy clear player-relevant
+  volume and visibly expose its claimed target; reconcile and re-audit new
+  adjacent work before promotion; keep trigger veils/positions independent of
+  decorative portals; vary organized shelf contents as well as mass placement.
+- Findings accepted as proposals only: the fifty-seven-asset kit, authored
+  Opera portal, varied provisions hutch, storage cart, treasure niche, and
+  corrected eighteen-view capture set remain candidates pending Mobile frames
+  and owner review.
+- Findings rejected or superseded: green CI, complete shot count, or a previous
+  room score cannot cover an occluded frame or later merged blockout.
+- New rule: R-QA8. Reinforces R-GOV4, R-REP1 through R-REP3, R-QA4, and R-QA7.
+- Required test: unoccluded bedroom bed view, useful undercroft hutch/cart view,
+  dedicated Opera-threshold view, and preserved bed/storage/Opera contracts.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -404,6 +431,11 @@ These rule IDs are stable. Reference them in manifests and review notes.
   every adjacent player-visible room and approach. A technically successful
   capture set fails when uncaptured neighboring art can remain at blockout
   quality.
+- **R-QA8 - Validate the review camera itself.** A frame is invalid when its
+  camera is inside or directly behind a wall, prop, character, effect, or other
+  occluder that hides the claimed target. Place fixed cameras in clear,
+  player-relevant volume and fail the pass when the target assembly is not
+  visibly reviewable.
 
 ## Family-specific directives for the next pass
 
@@ -555,6 +587,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v5:** Added the green `2920da1` camera-integrity rejection,
+  established R-QA8, re-audited parallel Opera work, and expanded the Pearl
+  Castle kit from fifty-four to fifty-seven role-specific props.
 - **2026-07-18-v4:** Added the green seventeen-view opaque-wrapper rejection,
   established R-MAT3, expanded the Pearl Castle kit from forty-nine to
   fifty-four props, and required oblique runtime material-visibility evidence.

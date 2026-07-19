@@ -914,6 +914,42 @@ def build_music_mallet_stand() -> bpy.types.Object:
 	return r
 
 
+def build_opera_gate() -> bpy.types.Object:
+	"""A shell-theatre proscenium with a clear child-sized entrance."""
+	r = root("pearl_opera_gate")
+	rounded_box("Opera_InkStage", (0.0, 0.0, 0.24), (7.8, 2.35, 0.48), MATS["ink"], r, 0.20)
+	rounded_box("Opera_GoldStage", (0.0, -0.12, 0.55), (7.25, 2.08, 0.34), MATS["gold"], r, 0.15)
+	for x in (-3.20, 3.20):
+		rounded_box("Opera_PearlPost", (x, 0.0, 3.18), (1.08, 1.18, 5.90), MATS["pearl"], r, 0.22)
+		rounded_box("Opera_PlumPostInset", (x, -0.66, 3.32), (0.54, 0.18, 4.72), MATS["plum"], r, 0.10)
+		cylinder("Opera_GoldFoot", (x, 0.0, 0.64), 0.76, 0.82, MATS["gold"], r, 16)
+	arc_tube("Opera_InkArch", (0.0, 0.0, 5.46), 3.20, 0.54, MATS["ink"], r, steps=17)
+	arc_tube("Opera_GoldArch", (0.0, -0.28, 5.46), 3.18, 0.25, MATS["gold"], r, steps=17)
+	arc_tube("Opera_PearlArch", (0.0, -0.43, 5.46), 2.82, 0.18, MATS["pearl_light"], r, steps=17)
+	left_curtain = [(-3.06, 0.78), (-3.06, 5.42), (-1.18, 5.42),
+		(-1.02, 4.70), (-1.38, 3.94), (-1.02, 3.12), (-1.24, 0.78)]
+	right_curtain = [(-x, z) for x, z in reversed(left_curtain)]
+	panel_xz("Opera_CoralCurtainL", left_curtain, 0.28, (0.0, -0.48, 0.0), MATS["coral"], r, 0.12)
+	panel_xz("Opera_CoralCurtainR", right_curtain, 0.28, (0.0, -0.48, 0.0), MATS["coral"], r, 0.12)
+	for x in (-1.28, 1.28):
+		ellipsoid("Opera_GoldTieback", (x, -0.74, 3.42), (0.33, 0.20, 0.42), MATS["gold"], r)
+		tube("Opera_CurtainFold", [(x * 1.30, -0.66, 1.12), (x * 1.10, -0.70, 3.45),
+			(x * 1.24, -0.66, 5.12)], 0.07, MATS["rose"], r)
+	shell_fan("Opera_CrestShell", (0.0, -0.42, 8.70), 1.24, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	star_points = []
+	for index in range(10):
+		a = math.pi * 0.5 + float(index) * math.pi / 5.0
+		radius = 0.72 if index % 2 == 0 else 0.34
+		star_points.append((math.cos(a) * radius, math.sin(a) * radius))
+	panel_xz("Opera_GoldStar", star_points, 0.24, (0.0, -0.78, 8.48), MATS["gold"], r, 0.06)
+	for index, color in enumerate(("coral", "yellow", "mint", "aqua", "rose")):
+		ellipsoid("Opera_Footlight_%d" % index,
+			(-2.20 + float(index) * 1.10, -1.18, 0.92),
+			(0.22, 0.18, 0.22), MATS[color], r)
+	return r
+
+
 def build_storage_barrel() -> bpy.types.Object:
 	r = root("pearl_storage_barrel")
 	# Use visible lavender staves with dark end caps. The former complete ink
@@ -942,6 +978,76 @@ def build_storage_crate() -> bpy.types.Object:
 		rounded_box("Crate_Brace", (0.0, -1.60, 1.56), (0.28, 0.20, 3.58), MATS["plum"], r, 0.07,
 			(angle, 0.0, 0.0))
 	shell_fan("Crate_ShellMark", (0.0, -1.72, 1.52), 0.62, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_provisions_hutch() -> bpy.types.Object:
+	"""An organized undercroft focal that reads as provisions, not cube clutter."""
+	r = root("pearl_provisions_hutch")
+	rounded_box("Hutch_InkPlinth", (0.0, 0.0, 0.26), (10.8, 2.55, 0.52), MATS["ink"], r, 0.18)
+	for x in (-5.0, 5.0):
+		rounded_box("Hutch_PearlPost", (x, 0.0, 4.18), (0.54, 2.32, 7.85), MATS["pearl"], r, 0.15)
+	for z in (0.68, 3.28, 5.88, 8.18):
+		rounded_box("Hutch_PlumShelf", (0.0, 0.0, z), (10.35, 2.42, 0.42), MATS["plum"], r, 0.14)
+	# Each shelf has its own storage language so the hutch does not become a
+	# repeated grid when it is seen beside the barrels and crates.
+	for index, (x, color, height) in enumerate((
+		(-3.72, "coral", 1.34), (-1.24, "yellow", 1.52),
+		(1.24, "mint", 1.28), (3.72, "aqua", 1.46),
+	)):
+		z = 0.86 + height * 0.5
+		rounded_box("Hutch_Parcel_%d" % index, (x, -0.18, z),
+			(1.76, 1.72, height), MATS[color], r, 0.24)
+		ellipsoid("Hutch_ParcelLabel_%d" % index,
+			(x, -1.08, z), (0.23, 0.12, 0.23), MATS["pearl_light"], r)
+	for index, (x, color, width, height) in enumerate((
+		(-3.35, "mint", 2.20, 1.46), (0.0, "rose", 2.62, 1.66),
+		(3.35, "yellow", 2.08, 1.34),
+	)):
+		z = 3.50 + height * 0.5
+		rounded_box("Hutch_Basket_%d" % index, (x, -0.16, z),
+			(width, 1.76, height), MATS[color], r, 0.26)
+		tube("Hutch_BasketHandle_%d" % index,
+			[(x - width * 0.28, -1.10, z + height * 0.22),
+				(x, -1.20, z + height * 0.52),
+				(x + width * 0.28, -1.10, z + height * 0.22)],
+			0.07, MATS["gold"], r)
+	for index, (x, color, height) in enumerate((
+		(-4.0, "rose", 1.22), (-2.0, "yellow", 1.58), (0.0, "mint", 1.34),
+		(2.0, "aqua", 1.70), (4.0, "coral", 1.42),
+	)):
+		z = 6.08 + height * 0.5
+		cylinder("Hutch_Jar_%d" % index, (x, -0.18, z), 0.56, height,
+			MATS[color], r, 14)
+		cylinder("Hutch_JarLid_%d" % index, (x, -0.18, z + height * 0.5 + 0.10),
+			0.60, 0.20, MATS["gold"], r, 14)
+		ellipsoid("Hutch_JarLabel_%d" % index,
+			(x, -0.76, z), (0.18, 0.10, 0.18), MATS["pearl_light"], r)
+	rounded_box("Hutch_GoldCornice", (0.0, 0.0, 8.55), (11.0, 2.62, 0.48), MATS["gold"], r, 0.17)
+	shell_fan("Hutch_Crest", (0.0, -1.42, 8.58), 1.22, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	return r
+
+
+def build_storage_cart() -> bpy.types.Object:
+	r = root("pearl_storage_cart")
+	rounded_box("Cart_InkBase", (0.0, 0.0, 0.96), (6.30, 3.62, 0.52), MATS["ink"], r, 0.18)
+	rounded_box("Cart_PearlBody", (0.0, 0.0, 2.05), (5.88, 3.28, 2.05), MATS["pearl_shadow"], r, 0.30)
+	rounded_box("Cart_PlumTopRail", (0.0, 0.0, 3.18), (6.20, 3.58, 0.42), MATS["plum"], r, 0.15)
+	for x in (-2.30, 2.30):
+		for y in (-1.72, 1.72):
+			cylinder("Cart_InkWheel", (x, y, 0.58), 0.62, 0.30, MATS["ink"], r, 16,
+				(math.pi * 0.5, 0.0, 0.0))
+			cylinder("Cart_GoldHub", (x, y - 0.18, 0.58), 0.25, 0.34, MATS["gold"], r, 14,
+				(math.pi * 0.5, 0.0, 0.0))
+	for index, color in enumerate(("coral", "yellow", "mint", "aqua")):
+		rounded_box("Cart_Parcel_%d" % index,
+			(-1.78 + float(index) * 1.18, -0.18, 3.72 + float(index % 2) * 0.20),
+			(0.92, 1.82, 0.82), MATS[color], r, 0.18)
+	tube("Cart_GoldHandle", [(2.62, 1.38, 2.65), (3.62, 1.38, 4.08),
+		(4.32, 1.38, 4.08)], 0.13, MATS["gold"], r)
+	shell_fan("Cart_ShellMark", (0.0, -1.82, 2.05), 0.88, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
 
@@ -1161,8 +1267,11 @@ ASSETS = {
 	"pearl_music_bar_5": build_music_bar(5),
 	"pearl_music_bar_6": build_music_bar(6),
 	"pearl_music_mallet_stand": build_music_mallet_stand(),
+	"pearl_opera_gate": build_opera_gate(),
 	"pearl_storage_barrel": build_storage_barrel(),
 	"pearl_storage_crate": build_storage_crate(),
+	"pearl_provisions_hutch": build_provisions_hutch(),
+	"pearl_storage_cart": build_storage_cart(),
 	"pearl_shell_lantern": build_shell_lantern(),
 	"pearl_pantry_shelf": build_pantry_shelf(),
 	"pearl_craft_easel": build_craft_easel(),

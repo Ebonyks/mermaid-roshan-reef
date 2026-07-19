@@ -4,10 +4,10 @@
 
 This pass addresses the Grand Hall, ceremonial threshold, throne wall, upper
 galleries, Cloud Lounge, Star Chamber, Royal Library, Toy Room, Dreaming Floor,
-undercroft, basement rooms, music room, royal bedroom, back chamber, and Royal
-Loo shape correction. It does not alter protected book art, Huluu, family
-voices, friend cutouts, legacy character models, or child-supplied stuffed
-animals.
+undercroft, basement rooms, music room, Opera threshold, royal bedroom, back
+chamber, and Royal Loo shape correction. It does not alter protected book art,
+Huluu, family voices, friend cutouts, legacy character models, or
+child-supplied stuffed animals.
 
 The pass evaluates and applies the shared findings in:
 
@@ -180,6 +180,39 @@ more than twelve material surfaces. The rejected seventeen-view evidence is
 retained under `runtime_rejected_50b1907/`; fifteen superseded GLBs are retained
 under `backups/art_pre_castle_visibility_2026-07-18/`.
 
+## Fourth Runtime Review, Camera Integrity, And Opera Rebuild
+
+CI run `29665038876` passed import, the full analyzer, all trusted gameplay
+probes, and all seventeen castle captures at commit `2920da1`. Human review
+accepted the corrected color ownership, complete craft fish, toy-room staging,
+music focal, and Royal Loo anatomy, but rejected promotion for two evidence
+failures: the bedroom camera rendered the back of the wardrobe across most of
+the frame, and the undercroft camera left the revised storage outside its useful
+sightline. The parallel Opera House merge also introduced a new high-value gate
+made from boxes, curtain panels, and a billboard star. That 1-2/5 blockout was
+not allowed to inherit a passing castle score merely because it arrived later.
+
+The fifty-seven-asset correction adds:
+
+- `pearl_opera_gate.glb`, a physically open shell-theatre proscenium with coral
+  curtains, structural ink/gold trim, a modeled star crest, and restrained
+  rainbow footlights; the existing warm veil and Opera trigger remain separate;
+- `pearl_provisions_hutch.glb`, whose parcels, handled baskets, and varied jars
+  avoid repeated-row storage language;
+- `pearl_storage_cart.glb`, a wheeled shell-marked cart that gives the
+  undercroft a second storage silhouette;
+- a rainbow-and-shell niche behind the existing moving secret chest, without
+  parenting or changing the chest tween root;
+- corrected bedroom and undercroft review cameras plus a dedicated eighteenth
+  Mobile view of the Opera threshold.
+
+All three additions are one static mesh each: the Opera gate is 4,496 triangles,
+the varied hutch is 4,768, and the cart is 2,800; each uses 11 surfaces. The
+green but visually rejected evidence is retained under
+`runtime_rejected_2920da1/`. The original Opera blockout remains recoverable
+from commit `2227031` and is documented under
+`backups/art_pre_castle_opera_2026-07-18/`.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -201,19 +234,19 @@ count is 8,412 triangles with zero exported degenerate triangles.
   rejected first-pass use of outdoor landmark clouds as furniture.
 - `scripts/probe_castle_pearl_art.gd` enforces import budgets, one-mesh exports,
   static-only assets, minimum live placement counts, exit/toilet/music/bed/
-  wardrobe/craft/secret-stand contracts, and seventeen fixed Mobile-render
+  wardrobe/craft/secret-stand/Opera contracts, and eighteen fixed Mobile-render
   review captures spanning every contiguous castle wing touched by this pass.
 
 ## Current Rating
 
-The fifty-four generated models and isolated renders meet the project's
+The fifty-seven generated models and isolated renders meet the project's
 structural and isolated-visual candidate gate. They are designed as 5/5
-replacements, but final 5/5 status is not self-awarded: the material-visibility
-correction still requires replacement in-game Mobile captures, gameplay-scale
-inspection, and owner acceptance. Particular review attention should go to
-Toy Room spacing, storage color read, the song-star canopy, wardrobe front/side
-read, the complete craft fish, toilet side anatomy, fountain route clearance,
-and repeated arch density.
+replacements, but final 5/5 status is not self-awarded: the camera-integrity,
+undercroft, treasure-niche, and Opera corrections still require replacement
+in-game Mobile captures, gameplay-scale inspection, and owner acceptance.
+Particular review attention should go to the open Opera passage, bedroom bed
+framing, undercroft hutch/cart visibility, toilet side anatomy, fountain route
+clearance, and repeated arch density.
 
 The prior files are preserved in
 `backups/art_pre_castle_pearl_2026-07-18/castle_pre_pearl_assets.zip` for

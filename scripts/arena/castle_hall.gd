@@ -240,6 +240,13 @@ func build(o: Vector3) -> void:
 	m._register_castle_light(brl, false)
 	var back_runner: MeshInstance3D = m._l2_box(br + Vector3(0, 1.0, 6.6), Vector3(10, 0.2, 10.8), Color(0.72, 0.16, 0.22))
 	back_runner.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
+	# The bonus chest now sits in a shallow rainbow-and-shell niche. It gives the
+	# sparse room a clear focal hierarchy without changing the moving chest root.
+	var treasure_niche: Node3D = _pearl("pearl_rainbow_gate", br + Vector3(0, 0.5, -9.5))
+	if treasure_niche != null:
+		treasure_niche.scale = Vector3.ONE * 0.68
+	for niche_x: float in [-7.5, 7.5]:
+		_pearl("pearl_shell_lantern", br + Vector3(niche_x, 8.2, -9.8), 180.0)
 	# a glowing royal treasure chest = the bonus trigger. It doubles as the
 	# GOLDEN STAND sealing the undercroft's back stairwell: it pulses
 	# invitingly and rumbles aside when Roshan gets close (see slide_stand).
@@ -510,19 +517,21 @@ func build_expansion(o: Vector3) -> void:
 		m._l2_box(o + Vector3(px2, -9.5, 24.0), Vector3(3.0, 18, 3.0), Color(0.65, 0.6, 0.7))
 	# Purpose-built storage and shell lanterns replace the undercroft cube pile.
 	# They are static and emissive-only, so the OmniLight budget stays untouched.
+	_pearl("pearl_provisions_hutch", o + Vector3(-7.3, -18.0, 39.0), 180.0)
+	_pearl("pearl_storage_cart", o + Vector3(8.0, -18.0, 33.5), -12.0)
 	var undercroft_barrels: Array[Vector3] = [
-		Vector3(-24.0, -18.0, 36.0),
-		Vector3(-20.0, -18.0, 34.3),
-		Vector3(-15.7, -18.0, 36.8),
-		Vector3(-11.4, -18.0, 34.8),
-		Vector3(-7.0, -18.0, 36.2),
+		Vector3(-24.0, -18.0, 35.8),
+		Vector3(-20.2, -18.0, 32.7),
+		Vector3(-11.5, -18.0, 33.2),
+		Vector3(-7.5, -18.0, 30.4),
+		Vector3(-3.8, -18.0, 35.0),
 	]
 	for bi in range(undercroft_barrels.size()):
 		_pearl("pearl_storage_barrel", o + undercroft_barrels[bi], -16.0 + float(bi) * 11.0)
 	var undercroft_crates: Array[Vector3] = [
-		Vector3(20.0, -18.0, 12.0),
-		Vector3(24.0, -18.0, 14.5),
-		Vector3(27.0, -18.0, 11.5),
+		Vector3(6.5, -18.0, 27.0),
+		Vector3(11.5, -18.0, 29.2),
+		Vector3(20.5, -18.0, 35.5),
 	]
 	for cr in range(undercroft_crates.size()):
 		_pearl("pearl_storage_crate", o + undercroft_crates[cr], -14.0 + float(cr) * 17.0)
@@ -1025,22 +1034,15 @@ func build_music_room(o: Vector3) -> void:
 	build_opera_gate(mo + Vector3(-6.8, 0.9, 0))
 
 func build_opera_gate(ground: Vector3) -> void:
-	# A toy theatre marquee: gold pillars, crimson curtains and a glowing star.
-	# Swimming into the warm veil starts the eight-act opera (OperaHouse).
-	# The opera teaches each show itself, so the door is open on a fresh save.
+	# The authored shell-theatre portal replaces the original cube marquee and
+	# billboard glyph. The warm veil remains a separate gameplay affordance.
 	var root := Node3D.new()
 	root.position = ground
 	m.add_child(root)
 	m.game_nodes.append(root)
-	var back = m._l2_box(ground + Vector3(-0.6, 3.2, 0), Vector3(0.5, 6.6, 5.8), Color(0.3, 0.16, 0.3))
-	back.material_override = m._castle_mat("wall", 0.05, Color(0.42, 0.26, 0.42))
-	for pz in [-2.6, 2.6]:
-		m._l2_box(ground + Vector3(0, 3.1, pz), Vector3(0.8, 6.2, 0.8), Color(0.85, 0.72, 0.45), 0.15)
-	m._l2_box(ground + Vector3(0, 6.5, 0), Vector3(0.9, 0.9, 6.2), Color(0.85, 0.72, 0.45), 0.15)
-	for cz in [-1.5, 1.5]:
-		m._l2_box(ground + Vector3(0.1, 2.9, cz), Vector3(0.35, 5.2, 1.9), Color(0.66, 0.16, 0.24))
-	var star = m._l2_box(ground + Vector3(0, 7.6, 0), Vector3(0.9, 0.9, 0.9), Color(1.0, 0.88, 0.4), 0.6)
-	star.rotation_degrees = Vector3(45, 0, 45)
+	var gate_art: Node3D = _pearl("pearl_opera_gate", ground, 90.0)
+	if gate_art != null:
+		gate_art.reparent(root, true)
 	var veil := MeshInstance3D.new()
 	var quad := QuadMesh.new()
 	quad.size = Vector2(2.6, 4.8)
@@ -1056,12 +1058,6 @@ func build_opera_gate(ground: Vector3) -> void:
 	veil.position = Vector3(0.3, 2.9, 0)
 	veil.rotation_degrees = Vector3(0, 90, 0)
 	root.add_child(veil)
-	var osign := Label3D.new()
-	osign.text = "★"
-	osign.font_size = 48; osign.pixel_size = 0.028; osign.outline_size = 12
-	osign.modulate = Color(1.0, 0.9, 0.55); osign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	osign.position = ground + Vector3(0.6, 9.0, 0)
-	m.add_child(osign); m.game_nodes.append(osign)
 	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0.6, 2.9, 0), "armed": true, "cool": 0.0}
 
 

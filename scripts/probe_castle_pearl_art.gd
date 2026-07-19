@@ -47,8 +47,11 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_music_bar_5",
 	"pearl_music_bar_6",
 	"pearl_music_mallet_stand",
+	"pearl_opera_gate",
 	"pearl_storage_barrel",
 	"pearl_storage_crate",
+	"pearl_provisions_hutch",
+	"pearl_storage_cart",
 	"pearl_shell_lantern",
 	"pearl_pantry_shelf",
 	"pearl_craft_easel",
@@ -76,7 +79,7 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_cloud_settee": 2,
 	"pearl_cloud_pouf": 3,
 	"pearl_shell_fountain": 2,
-	"pearl_rainbow_gate": 2,
+	"pearl_rainbow_gate": 3,
 	"pearl_shell_banner_a": 4,
 	"pearl_shell_banner_b": 2,
 	"pearl_stair_rail": 2,
@@ -103,8 +106,11 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_music_bar_5": 1,
 	"pearl_music_bar_6": 1,
 	"pearl_music_mallet_stand": 1,
+	"pearl_opera_gate": 1,
 	"pearl_storage_barrel": 7,
 	"pearl_storage_crate": 3,
+	"pearl_provisions_hutch": 1,
+	"pearl_storage_cart": 1,
 	"pearl_shell_lantern": 15,
 	"pearl_pantry_shelf": 1,
 	"pearl_craft_easel": 1,
@@ -245,16 +251,17 @@ func _capture_castle() -> void:
 	await _shot("castle_05_toy_room", o + Vector3(38, 40, 12), o + Vector3(48, 38, -8), 66.0)
 	await _shot("castle_06_cloud_lounge", o + Vector3(45, 40, -40), o + Vector3(26, 38, -53), 64.0)
 	await _shot("castle_07_star_chamber", o + Vector3(-45, 41, -40), o + Vector3(-25, 39, -53), 64.0)
-	await _shot("castle_08_royal_bedroom", o + Vector3(36, 12, -7), o + Vector3(48, 6, -18), 72.0)
+	await _shot("castle_08_royal_bedroom", o + Vector3(37.5, 9.0, -18.0), o + Vector3(50.0, 4.5, -19.0), 68.0)
 	await _shot("castle_09_music_room", o + Vector3(-49, 10, 11), o + Vector3(-44, 6, -6), 68.0)
 	await _shot("castle_10_royal_loo", o + Vector3(-27.5, -13.5, -23.5), o + Vector3(-32.0, -15.2, -28.0), 64.0)
 	await _shot("castle_11_back_chamber", o + Vector3(12, 11, -38), o + Vector3(0, 7, -47), 66.0)
 	await _shot("castle_12_royal_library", o + Vector3(-38, 40, 12), o + Vector3(-48, 38, -8), 66.0)
-	await _shot("castle_13_undercroft", o + Vector3(0, -8, 11), o + Vector3(-4, -14, 31), 70.0)
+	await _shot("castle_13_undercroft", o + Vector3(0, -9.5, 13.5), o + Vector3(0, -14.5, 34.5), 74.0)
 	await _shot("castle_14_dreaming_floor", o + Vector3(0, 58, -39), o + Vector3(10, 54, -58), 70.0)
 	await _shot("castle_15_pantry", o + Vector3(-10, -9, 4), o + Vector3(-20, -14, -2), 70.0)
 	await _shot("castle_16_craft_room", o + Vector3(10, -9, -22), o + Vector3(20, -14, -28), 70.0)
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
+	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
 
 
 func _run() -> void:
@@ -284,6 +291,7 @@ func _run() -> void:
 	_ck("hall_exit_marker", main.g.has("hall_exit"), str(main.g.get("hall_exit", Vector3.ZERO)))
 	_ck("toilet_contract_preserved", main.g.has("toilet"), "royal loo interaction remains active")
 	_ck("music_contract_preserved", (main.g.get("bells", []) as Array).size() == 7, "seven independent playable keys remain")
+	_ck("opera_contract_preserved", main.g.has("opera_gate"), "authored gate keeps the open Opera House trigger")
 	_ck("bed_contract_preserved", main.g.has("bed_pos"), str(main.g.get("bed_pos", Vector3.ZERO)))
 	_ck("wardrobe_contract_preserved", main.g.has("wardrobe"), str(main.g.get("wardrobe", Vector3.ZERO)))
 	_ck("craft_contract_preserved", main.g.has("craft_easel"), str(main.g.get("craft_easel", Vector3.ZERO)))
