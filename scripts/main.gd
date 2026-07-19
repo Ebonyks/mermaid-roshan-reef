@@ -415,7 +415,7 @@ const FRIEND_DEFS := [
 	{"tex": "two_friends",   "fname": "Harper and Fiona",      "msg": "Sisters Harper and Fiona! Come grab the fish down the rainbow slide!", "game": "slide", "theme": "rainbow", "mode": "fish"},
 	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls",
 		"discover_radius": 12.0, "linger_radius": 13.0, "start_radius": 10.0},
-	{"tex": "gabby",         "fname": "Gabby",                 "msg": "Gabby! Come catch the rainbow on stage!", "game": "melody"},
+	{"tex": "daddy",         "fname": "Daddy Mermaid",         "msg": "Daddy Mermaid! Come catch the rainbow on stage!", "game": "melody"},
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
 
@@ -2518,7 +2518,7 @@ func _update_hud() -> void:
 	hud_stars.text = "Friends: %d / 5   Trophies: %d / 5   Critters: %d / 18" % [stars, trophies, critters]
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
-const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
+const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "rosalina": 1.15, "everyone": 1.1}
 
 var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
@@ -2529,7 +2529,7 @@ const SPEAKER_PORTRAIT := {
 	"evie": "res://assets/characters/friends/mama_baby.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
 	"faron": "res://assets/characters/friends/mama_baby.png",
-	"gabby": "res://assets/characters/friends/gabby.png",
+	"daddy": "res://assets/characters/friends/daddy.webp",
 	"wacky": "res://assets/characters/friends/wacky_chuck.png",
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
 	"shop": "res://assets/characters/roshan_sprite.png",
@@ -6749,7 +6749,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_intensity = 0.52
 		arena_env.glow_bloom = 0.08
-	elif kind == "melody":      # Gabby's enclosed underwater rainbow theater
+	elif kind == "melody":      # Daddy Mermaid's enclosed underwater rainbow theater
 		arena_env.background_color = Color(0.035, 0.09, 0.16)
 		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
 		arena_env.ambient_light_energy = 0.68

@@ -8,7 +8,7 @@ will still bind to the procedural animator in scripts/player.gd.
 
 Usage:
     python3 tools/glb_check.py assets/characters/roshan.glb
-    python3 tools/glb_check.py assets/characters/friends/gabby.glb
+    python3 tools/glb_check.py assets/characters/friends/daddy.glb
 """
 import json, struct, sys, os
 

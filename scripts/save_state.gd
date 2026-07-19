@@ -18,6 +18,10 @@ const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
+# Friends whose save identity changed. Progress recorded under the old fname
+# migrates forward on load so no found/won star is ever lost (Gabby's reef
+# slot became Daddy Mermaid on 2026-07-19 — IP hold, see attic/gabby/).
+const LEGACY_FRIEND_SAVE_KEYS := {"Daddy Mermaid": "Gabby"}
 const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
@@ -103,12 +107,13 @@ func load_save() -> void:
 	var found_d: Dictionary = m.save_data.get("found", {})
 	for f2 in m.friends:
 		var nm := String(f2["fname"])
-		if bool(found_d.get(nm, false)):
+		var legacy := String(LEGACY_FRIEND_SAVE_KEYS.get(nm, ""))
+		if bool(found_d.get(nm, false)) or (legacy != "" and bool(found_d.get(legacy, false))):
 			m.first_session = false
 			f2["found"] = true
 			(f2["beacon"] as OmniLight3D).light_energy = 1.0
 			((f2["pillar"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color.a = 0.035
-		if bool(won_d.get(nm, false)):
+		if bool(won_d.get(nm, false)) or (legacy != "" and bool(won_d.get(legacy, false))):
 			f2["won"] = true
 			m.trophies += 1
 			m._add_won_star(f2)

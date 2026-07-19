@@ -82,10 +82,13 @@ except skins/story art as noted:
 | `pearl_friend` | Evie **and Lamb-a'** (lamb mesh already exists: `lamb.glb`) | `FRIEND_DEFS` |
 | `two_friends` | Harper & Fiona (sisters) | `FRIEND_DEFS` |
 | `mama_baby` | Faron (+ dolls) | `FRIEND_DEFS` |
-| `gabby` | Gabby | `FRIEND_DEFS` |
+| `daddy` | Daddy Mermaid (rainbow-theater host since 2026-07-19) | `FRIEND_DEFS` |
 | `wacky_chuck` | Wacky & Chuck | `FRIEND_DEFS` |
 | `huluu` | Princess Huluu | story (`main.gd:325`) |
-| `daddy`, `kareem`, `flower_friend` | supporting art | `friends/` |
+| `kareem`, `flower_friend` | supporting art | `friends/` |
+
+> Gabby was removed 2026-07-19 (IP hold — owner directive; assets preserved in
+> `attic/gabby/`). Do not add her back without an owner-approved redesign.
 | `fairy_mermaid` (skin) | Roshan alt-skin | `characters/skins/` |
 
 **Approach:** one **shared 18-bone humanoid rig** (`tools/build_npc_rig.py`) for
@@ -168,8 +171,9 @@ session that can open the editor to tune the `scale`/`position` constants).
 
 1. **Roshan re-sculpt** (§1) — highest visual payoff, zero engine risk (rig contract).
 2. **Integration patch** (§4) — small, safe, unlocks incremental NPC drop-in.
-3. **NPC cast** (§2) — start with the most-seen characters (Gabby, Wacky & Chuck,
-   Huluu), then the rest; each `.glb` upgrades one character independently.
+3. **NPC cast** (§2) — start with the most-seen characters (Daddy Mermaid,
+   Wacky & Chuck, Huluu), then the rest; each `.glb` upgrades one character
+   independently. (Meshy lane: see NPC_3D_WORKORDER_2026-07-19.md.)
 4. **Lamb-a' idle** (§3) — quick polish.
 
 ## 6. Tools index

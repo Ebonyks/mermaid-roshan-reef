@@ -105,9 +105,14 @@ explicit goal of the task.
 
 ## Art direction (graphics fork)
 Static Mermaid Roshan storybook characters in a cel-shaded, Wind
-Waker-inspired diorama world. Characters are illustrated cutouts —
-unshaded, pre-drawn outlines, idle bob, contact shadows, sparkle/bubble
-overlays; never re-lit, never redesigned. The world is a pastel toy
+Waker-inspired diorama world. OWNER DECISION 2026-07-19: characters are
+migrating from sprite cutouts to gen2 Meshy 3D models (roster + staging in
+NPC_3D_WORKORDER_2026-07-19.md; Daddy Mermaid first). Until a character's
+.glb lands in assets/characters/friends/, its cutout remains the shipped
+fallback. Gabby is REMOVED (IP hold — assets preserved in attic/gabby/;
+do not reintroduce without an owner-approved redesign). Cutout rules while
+they remain: unshaded, pre-drawn outlines, idle bob, contact shadows,
+sparkle/bubble overlays; never re-lit, never redesigned. The world is a pastel toy
 playset: rounded geometry, toon materials, navy/purple outlines,
 aqua/lavender shadows, graphic water, oversized child-readable props.
 CC0 sources only for the world (Tiny Treats, KayKit, Quaternius, Kenney,

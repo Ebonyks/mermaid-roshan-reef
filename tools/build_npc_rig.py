@@ -4,7 +4,7 @@ build_npc_rig.py — Blender bootstrap for the NPC 3D conversion.
 
 WHY THIS EXISTS
 ---------------
-Every friend/NPC (Gabby, Wacky, Chuck, Huluu, Evie, Harper, Fiona, Faron,
+Every friend/NPC (Wacky, Chuck, Huluu, Evie, Harper, Fiona, Faron,
 Daddy, Kareem, ...) is currently a flat 2D billboard `.png` in
 assets/characters/friends/. Converting them to 3D means: one low-poly humanoid
 mesh per character, on a SHARED standard rig, with a simple looping idle so they
@@ -70,10 +70,10 @@ EXPORT_CONTRACT = """
 3. Author ONE looping 'idle' clip on the shared rig; reuse across all NPCs.
 4. Export glTF Binary (.glb), +Y Up, Skinning ON, Animation ON (the single idle).
 5. Save each as assets/characters/friends/<tex>.glb where <tex> matches the
-   FRIEND_DEFS / sprite name (gabby, wacky_chuck, huluu, pearl_friend, ...).
+   FRIEND_DEFS / sprite name (daddy, wacky_chuck, huluu, pearl_friend, ...).
    The model-aware loader (see CHARACTER_PIPELINE.md §4) picks the .glb up
    automatically and falls back to the .png until the model exists.
-6. Validate:  python3 tools/glb_check.py assets/characters/friends/gabby.glb
+6. Validate:  python3 tools/glb_check.py assets/characters/friends/daddy.glb
 =====================================================
 """
 

@@ -278,7 +278,7 @@ func _build_theatre() -> void:
 		beam.rotation_degrees = Vector3(0, 0, signf(sx) * -16.0)
 	# the audience: four friend cutouts on toy benches past the apron
 	var seat_col := Color(0.32, 0.26, 0.5)
-	var guests: Array[String] = ["pearl_friend", "two_friends", "gabby", "wacky_chuck"]
+	var guests: Array[String] = ["pearl_friend", "two_friends", "mama_baby", "wacky_chuck"]
 	for i in range(guests.size()):
 		var gx := -13.5 + float(i) * 9.0
 		_box(CENTER + Vector3(gx, 0.9, 21.5), Vector3(6.5, 1.4, 3.2), seat_col)

@@ -642,7 +642,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	# ============ THE DREAMING FLOOR (owner 2026-07-12) ============
 	# Third story over the back block: five little bedrooms, one for each part
 	# of the Mermaid Roshan legacy — Princess Huluu, Daddy Mermaid, Mama & Baby,
-	# Kareem and Gabby — plus a basket for Wacky & Chuck at the corridor's end.
+	# Kareem and Evie & Lamb-a' — plus a basket for Wacky & Chuck at the corridor's end.
 	# Reached up a marble flight from the Star Chamber (ramp zone through the
 	# opening cut in the y-49 ceiling). Emissive lamps only — light budget safe.
 	var wcol := Color(0.95, 0.92, 0.97)
@@ -674,7 +674,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 		{"cx": -18.0, "name": "✨ Daddy Mermaid ✨", "tex": "daddy", "col": Color(0.45, 0.75, 0.95), "keep": "chest"},
 		{"cx": 0.0, "name": "✨ Mama & Baby ✨", "tex": "mama_baby", "col": Color(0.82, 0.68, 0.95), "keep": "cradle"},
 		{"cx": 18.0, "name": "✨ Kareem ✨", "tex": "kareem", "col": Color(0.55, 0.85, 0.62), "keep": "star"},
-		{"cx": 36.0, "name": "✨ Gabby ✨", "tex": "gabby", "col": Color(1.0, 0.66, 0.5), "keep": "note"},
+		{"cx": 36.0, "name": "✨ Evie & Lamb-a' ✨", "tex": "pearl_friend", "col": Color(0.9, 0.82, 0.98), "keep": "note"},
 	]
 	for bedroom_index in range(bedrooms.size()):
 		var rd: Dictionary = bedrooms[bedroom_index]
@@ -731,7 +731,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 				kstar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 				kstar.position = o + Vector3(cx - 5.0, 52.4, -55.0)
 				m.add_child(kstar); m.game_nodes.append(kstar)
-			"note":    # Gabby's song
+			"note":    # Evie & Lamb-a's lullaby
 				var knote := Label3D.new()
 				knote.text = "♪"
 				knote.font_size = 150

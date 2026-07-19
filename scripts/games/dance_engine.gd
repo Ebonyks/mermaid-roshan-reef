@@ -479,7 +479,7 @@ func _say_dance(event: String) -> void:
 	# players process through the paused dance overlay so the cue is never lost.
 	for player in main.voice_pool:
 		(player as AudioStreamPlayer).process_mode = Node.PROCESS_MODE_ALWAYS
-	main._say("gabby", event)
+	main._say("daddy", event)
 
 
 func _unhandled_input(event: InputEvent) -> void:

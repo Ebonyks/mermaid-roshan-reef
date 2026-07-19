@@ -33,11 +33,10 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["caught"] = 0
 	m.g["orbs"] = []
 
-	# gabby_stage.jpg is a design reference, not a wall-sized final asset. The
-	# theater below rebuilds its visual language as an actual 3D playset: cat
+	# Daddy Mermaid's rainbow theater — an original 3D playset: crown
 	# proscenium, rainbow tree, stage wings, sound towers, runway and seating.
 	stage_root = Node3D.new()
-	stage_root.name = "GabbyTheater3D"
+	stage_root.name = "RainbowTheater3D"
 	stage_root.position = origin
 	m.add_child(stage_root)
 	m.game_nodes.append(stage_root)
@@ -45,13 +44,13 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	_build_room()
 	_build_stage_deck()
 	_build_rainbow_scenery()
-	_build_cat_proscenium()
+	_build_crown_proscenium()
 	_build_sound_towers()
 	_build_lighting_rig()
 	_build_runway()
 	_build_audience()
 	_build_streamers()
-	_add_gabby_performer()
+	_add_star_performer()
 
 	# The set has physical depth without putting invisible barriers across the
 	# catch area. Only the back wall and the outboard sound towers are solid.
@@ -133,30 +132,34 @@ func _build_rainbow_scenery() -> void:
 	_add_tube_multimesh("RainbowTreeSculpture", tree_segments)
 
 
-func _build_cat_proscenium() -> void:
-	# Explicit silhouette points reproduce the friendly cat-ear stage opening.
+func _build_crown_proscenium() -> void:
+	# Explicit silhouette points draw a royal three-point crown over the stage
+	# opening — Reef-of-Light royalty, matching the castle's gold language.
 	var points: Array[Vector3] = [
 		Vector3(-21.0, 2.0, -24.1),
-		Vector3(-21.0, 25.0, -24.1),
-		Vector3(-16.2, 35.0, -24.1),
-		Vector3(-9.2, 29.0, -24.1),
-		Vector3(9.2, 29.0, -24.1),
-		Vector3(16.2, 35.0, -24.1),
-		Vector3(21.0, 25.0, -24.1),
+		Vector3(-21.0, 26.0, -24.1),
+		Vector3(-14.0, 34.0, -24.1),
+		Vector3(-7.5, 28.5, -24.1),
+		Vector3(0.0, 35.5, -24.1),
+		Vector3(7.5, 28.5, -24.1),
+		Vector3(14.0, 34.0, -24.1),
+		Vector3(21.0, 26.0, -24.1),
 		Vector3(21.0, 2.0, -24.1),
 	]
 	var ink_segments: Array[Dictionary] = []
 	var face_segments: Array[Dictionary] = []
 	for i in range(points.size() - 1):
 		ink_segments.append({"a": points[i] + Vector3(0.0, 0.0, -0.18), "b": points[i + 1] + Vector3(0.0, 0.0, -0.18), "r": 1.22, "col": INK})
-		face_segments.append({"a": points[i], "b": points[i + 1], "r": 0.86, "col": Color(0.70, 0.80, 0.80)})
-	_add_tube_multimesh("CatFrameInk", ink_segments)
-	_add_tube_multimesh("CatFrame", face_segments)
+		face_segments.append({"a": points[i], "b": points[i + 1], "r": 0.86, "col": GOLD.darkened(0.15)})
+	_add_tube_multimesh("CrownFrameInk", ink_segments)
+	_add_tube_multimesh("CrownFrame", face_segments)
+	# a pearl on each crown peak
+	for peak in [Vector3(-14.0, 34.0, -24.1), Vector3(0.0, 35.5, -24.1), Vector3(14.0, 34.0, -24.1)]:
+		_sphere("CrownPearl", peak + Vector3(0.0, 1.3, 0.0), 0.85, Color(0.98, 0.95, 1.0), 0.45)
 	_add_proscenium_bulbs(points)
 
 
 func _build_sound_towers() -> void:
-	var ear_segments: Array[Dictionary] = []
 	for side in [-1.0, 1.0]:
 		var x: float = side * 23.0
 		var label: String = "Left" if side < 0.0 else "Right"
@@ -172,12 +175,8 @@ func _build_sound_towers() -> void:
 			_mesh("SpeakerCone", cone, Vector3(x, cy, -12.45), _mat(Color(0.22, 0.28, 0.38), 0.10), Vector3(90.0, 0.0, 0.0))
 			_sphere("SpeakerCore", Vector3(x, cy, -12.0), 0.52, AQUA, 0.35)
 
-		# Two simple triangular ears visually tie each sound tower to the cat arch.
-		ear_segments.append({"a": Vector3(x - 2.0, 14.0, -13.0), "b": Vector3(x - 1.1, 17.0, -13.0), "r": 0.35, "col": PINK})
-		ear_segments.append({"a": Vector3(x - 1.1, 17.0, -13.0), "b": Vector3(x, 14.0, -13.0), "r": 0.35, "col": PINK})
-		ear_segments.append({"a": Vector3(x, 14.0, -13.0), "b": Vector3(x + 1.1, 17.0, -13.0), "r": 0.35, "col": PINK})
-		ear_segments.append({"a": Vector3(x + 1.1, 17.0, -13.0), "b": Vector3(x + 2.0, 14.0, -13.0), "r": 0.35, "col": PINK})
-	_add_tube_multimesh("SpeakerEars", ear_segments)
+		# A glowing pearl finial ties each sound tower to the crown arch.
+		_sphere("SpeakerPearl", Vector3(x, 15.4, -13.0), 0.95, Color(0.98, 0.95, 1.0), 0.45)
 
 
 func _build_lighting_rig() -> void:
@@ -241,21 +240,23 @@ func _build_streamers() -> void:
 	_add_tube_multimesh("StageStreamers", streamer_segments)
 
 
-func _add_gabby_performer() -> void:
+func _add_star_performer() -> void:
+	# Daddy Mermaid on the podium. Sprite cutout today; when the gen2 Meshy
+	# model lands at friends/daddy.glb the loader below upgrades him to 3D.
 	var podium := CylinderMesh.new()
 	podium.top_radius = 4.8
 	podium.bottom_radius = 5.3
 	podium.height = 0.9
 	podium.radial_segments = 24
-	_mesh("GabbyPodium", podium, Vector3(0.0, 2.25, -20.5), _mat(PINK, 0.22))
+	_mesh("StarPodium", podium, Vector3(0.0, 2.25, -20.5), _mat(PINK, 0.22))
 
-	var gabby := Sprite3D.new()
-	gabby.name = "GabbyPerformer"
-	gabby.texture = m._cutout_tex("gabby")
-	gabby.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	gabby.pixel_size = 0.018
-	gabby.position = Vector3(0.0, 10.0, -20.5)
-	stage_root.add_child(gabby)
+	var performer := Sprite3D.new()
+	performer.name = "StarPerformer"
+	performer.texture = m._cutout_tex("daddy")
+	performer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	performer.pixel_size = 0.018
+	performer.position = Vector3(0.0, 10.0, -20.5)
+	stage_root.add_child(performer)
 
 
 func _build_rainbow_orbs(origin: Vector3) -> void:
@@ -484,7 +485,7 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		m.g["still_t"] = 0.0
 	if float(m.g.get("still_t", 0.0)) > 8.0 and not bool(m.g.get("hinted", false)):
 		m.g["hinted"] = true
-		m.show_msg("Gabby", "Swim to the colors! They are waiting for YOU!", "hint")
+		m.show_msg("Daddy Mermaid", "Swim to the colors! They are waiting for YOU!", "hint")
 	for ob in m.g["orbs"]:
 		if bool(ob["caught"]):
 			continue
@@ -528,5 +529,5 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				m.voice.pitch_scale = 1.0 + randf() * 0.25
 				m.voice.play()
 			if caught >= 7:
-				m._end_game(true, fr, "You caught the WHOLE rainbow! Gabby and her friends cheer!")
+				m._end_game(true, fr, "You caught the WHOLE rainbow! Daddy Mermaid cheers for you!")
 				return
