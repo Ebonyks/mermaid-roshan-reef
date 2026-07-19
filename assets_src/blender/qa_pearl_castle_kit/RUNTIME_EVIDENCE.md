@@ -49,6 +49,19 @@ Opera veil revealed glowing stone rather than reading as a destination. The
 wardrobe front was also outside the evidence radius. These frames are retained
 as the negative control for orientation, portal-depth, and sightline alignment.
 
+## `runtime_rejected_affb617/`
+
+Sixth nineteen-view Mobile capture from fully green CI run `29667302052`.
+The undercroft facing, treasure niche, Royal Loo, bedroom bed, music room, toy
+room, Cloud Lounge, and star chamber remained sound. Promotion was still
+rejected because the transparent Opera field transmitted masonry and read as a
+painted wall, the wardrobe evidence still read primarily as a giant mirror
+rather than a dress-up storage object, the pantry shelf reduced to repeated
+cylinders, and the entrance motif frame exposed a broad flat mauve wall around
+the exit gate. These frames are retained as the negative control for role
+readability, container variety, opaque destination fields, and full-room
+material treatment.
+
 ## Final Candidate
 
 The final nineteen-view Mobile evidence belongs in a sibling folder named
