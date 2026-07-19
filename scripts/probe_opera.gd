@@ -47,7 +47,7 @@ func _init() -> void:
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
-	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() == 3)
+	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
 	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
 	# a sparkle with no imp near just fizzles — never a fail (probe-only
@@ -217,7 +217,10 @@ func _drive_fix(act: OperaAct) -> void:
 		act._place_piece()
 	_ck("three placed pipes reveal the valve", act.fix_phase == "valve")
 	act._turn_valve()
-	_ck("spinning the valve launches the rocket", act.state == "won")
+	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
+	act._turn_valve()
+	act._turn_valve()
+	_ck("three valve spins launch the rocket", act.state == "won")
 
 func _drive_press(act: OperaAct) -> void:
 	# a mistimed press only squishes a giggle — the candy always survives
@@ -236,15 +239,15 @@ func _drive_press(act: OperaAct) -> void:
 	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
 
 func _drive_doctor(act: OperaAct) -> void:
-	_ck("checkup has five one-touch steps", act.doc_targets.size() == 5)
+	_ck("checkup has six one-touch steps", act.doc_targets.size() == 6)
 	act._doctor_action(3)
 	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
-	for s in range(5):
+	for s in range(act.doc_targets.size()):
 		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
 		act.player_pos = reach
 		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
 		act._doctor_action(act.doc_step)
-	_ck("five tended steps heal the plushy", act.state == "won")
+	_ck("every tended step heals the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
 	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)

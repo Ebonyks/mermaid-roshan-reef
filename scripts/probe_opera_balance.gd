@@ -34,7 +34,8 @@ var done := false
 var mistakes := 0
 var wait_t := 0.0
 var persona: Dictionary = {}
-var wrong_pending := -1            # a queued wrong choice (mistake) to commit first
+var intent_key := -9999            # sticky wrong/right choice per objective step
+var intent_choice := -1
 var echo_key := -1                 # sticky echo intent: (round, pos) being danced
 var echo_target := -1
 
@@ -114,7 +115,8 @@ func _play_act(cfg: Dictionary) -> float:
 	done = false
 	mistakes = 0
 	wait_t = 1.0
-	wrong_pending = -1
+	intent_key = -9999
+	intent_choice = -1
 	echo_key = -1
 	echo_target = -1
 	last_snapshot = ""
@@ -196,18 +198,20 @@ func _drive(act: OperaAct, dt: float) -> void:
 		"boss":
 			_drive_boss(act, dt)
 
-func _maybe_wrong(count: int, want: int) -> int:
-	# a persona sometimes reaches for the wrong thing first; the engine's
-	# gentle bounce costs time, which is exactly what we want to measure
-	if wrong_pending >= 0:
-		var w := wrong_pending
-		wrong_pending = -1
-		return w
-	if randf() < float(persona["err"]):
-		mistakes += 1
-		wrong_pending = want
-		return (want + 1 + randi() % maxi(1, count - 1)) % count
-	return want
+func _intent(count: int, want: int, key: int) -> int:
+	# one sticky decision per objective step: usually right, sometimes a
+	# wrong reach (rolled ONCE, not per tick). After the engine's gentle
+	# bounce the persona learns and goes for the right thing.
+	if key != intent_key:
+		intent_key = key
+		intent_choice = want
+		if count > 1 and randf() < float(persona["err"]):
+			mistakes += 1
+			intent_choice = (want + 1 + randi() % maxi(1, count - 1)) % count
+	return intent_choice
+
+func _intent_learned(want: int) -> void:
+	intent_choice = want
 
 func _drive_order(act: OperaAct, dt: float) -> void:
 	if act.order_phase == "stir":
@@ -220,9 +224,11 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 	if act.step >= act.order_steps.size():
 		return
 	var want: int = act.order_steps[act.step]
-	var choice := _maybe_wrong(act.pads.size(), want)
+	var choice := _intent(act.pads.size(), want, 1000 + act.step)
 	if _travel(act, act.pads[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 		act._act_action(choice)
+		if choice != want:
+			_intent_learned(want)
 
 func _drive_echo(act: OperaAct, dt: float) -> void:
 	# tiles fire on DWELL now: the persona picks a sticky target per step
@@ -247,9 +253,11 @@ func _drive_echo(act: OperaAct, dt: float) -> void:
 func _drive_shuffle(act: OperaAct, dt: float) -> void:
 	if act.shuffle_phase != "pick":
 		return
-	var choice := _maybe_wrong(act.hats.size(), act.bunny_at)
+	var choice := _intent(act.hats.size(), act.bunny_at, 3000 + act.shuffle_round)
 	if _travel(act, act.hats[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 		act._act_action(choice)
+		if choice != act.bunny_at:
+			_intent_learned(act.bunny_at)
 
 func _drive_press(act: OperaAct, dt: float) -> void:
 	if act.press_busy > 0.0 or act.candy_node == null:
@@ -269,9 +277,11 @@ func _drive_press(act: OperaAct, dt: float) -> void:
 func _drive_doctor(act: OperaAct, dt: float) -> void:
 	if act.doc_step >= act.doc_targets.size():
 		return
-	var choice := _maybe_wrong(act.doc_targets.size(), act.doc_step)
+	var choice := _intent(act.doc_targets.size(), act.doc_step, 2000 + act.doc_step)
 	if _travel(act, act.doc_targets[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 		act._doctor_action(choice)
+		if choice != act.doc_step:
+			_intent_learned(act.doc_step)
 
 func _drive_scroll(act: OperaAct, dt: float) -> void:
 	if act.farm_toss_cool > 0.0:
@@ -296,11 +306,13 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 			act._place_piece()
 		return
 	var want: int = int(act.slots[act.fix_step]["need"])
-	var choice := _maybe_wrong(act.pieces.size(), want)
+	var choice := _intent(act.pieces.size(), want, 4000 + act.fix_step)
 	if bool(act.pieces[choice]["placed"]):
 		choice = want
 	if _travel(act, act.pieces[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 		act._pick_piece(choice)
+		if choice != want:
+			_intent_learned(want)
 
 func _drive_boss(act: OperaAct, dt: float) -> void:
 	var phase := String(act.boss["phase"])

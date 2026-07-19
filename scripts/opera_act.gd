@@ -65,8 +65,9 @@ var echo_show_i := 0
 var echo_show_t := 0.0
 var last_pad := -1
 var dwell_pad := -1                # tile currently being stood on (pre-fire)
-var pad_dwell := 0.0               # playtest fix: tiles fire on a short DWELL,
-                                   # so swimming ACROSS the row never punishes
+var pad_dwell := 0.0               # playtest fix: tiles fire on a short STILL
+var echo_prev_pos := Vector3.ZERO  # dwell — standing nearly still commits a
+                                   # tile; swimming across at any speed is free
 
 # ---- "shuffle" engine ----
 var hats: Array[Dictionary] = []
@@ -86,6 +87,7 @@ var fix_step := 0
 var carried := -1
 var fix_phase := "pipes"           # pipes | valve
 var valve: Node3D = null
+var valve_spins := 0
 var rocket_window: MeshInstance3D = null
 
 # ---- "press" engine ----
@@ -154,7 +156,7 @@ const RESCUE_DELAY := 5.0
 # every act a 1-2 minute performance.
 const BACKSTAGE_X0 := -58.0        # corridor west wall (relative to CENTER.x)
 const BACKSTAGE_X1 := -26.0        # curtain gate line
-const IMP_COUNT := 3
+var imp_count := 4                 # config "imps" can tune per act
 var stage_phase := "puzzle"        # brawl | puzzle
 var imps: Array[Dictionary] = []
 var imps_left := 0
@@ -336,8 +338,9 @@ func _build_backstage() -> void:
 	gate_curtain = _box(CENTER + Vector3(BACKSTAGE_X1 + 1.0, 6.5, 3.0), Vector3(1.6, 14.0, 20.0), Color(config.get("curtain", Color(0.78, 0.24, 0.34))))
 	# three mischief imps between Roshan and the curtain — the same little
 	# demons from the dungeon, reused on purpose (they get everywhere)
-	for g in range(IMP_COUNT):
-		var pos := CENTER + Vector3(-46.0 + float(g) * 6.5, 1.0, -1.0 + float(g % 2) * 7.0)
+	imp_count = int(config.get("imps", 4))
+	for g in range(imp_count):
+		var pos := CENTER + Vector3(-48.0 + float(g) * 5.5, 1.0, -1.0 + float(g % 2) * 7.0)
 		var root := Node3D.new()
 		root.name = "MischiefImp%d" % g
 		root.position = pos
@@ -348,7 +351,7 @@ func _build_backstage() -> void:
 			_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
 			_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
 		imps.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
-	imps_left = IMP_COUNT
+	imps_left = imp_count
 
 func _brawl_action() -> void:
 	# the brawler verb: a sparkle star pops the nearest imp into confetti.
@@ -383,7 +386,7 @@ func _brawl_action() -> void:
 		tw.tween_callback(confetti.queue_free)
 	node.visible = false
 	if m.chime != null:
-		m.chime.pitch_scale = 1.0 + 0.2 * float(IMP_COUNT - imps_left)
+		m.chime.pitch_scale = 1.0 + 0.2 * float(imp_count - imps_left)
 		m.chime.play()
 	if imps_left <= 0:
 		_open_gate()
@@ -625,8 +628,9 @@ func _build_order() -> void:
 	if order_flow == "carry_paint":
 		canvas_pos = goal.position
 		# three hidden stripes fill the canvas as Roshan swipes each color on
+		var stripe_gap := 3.4 / maxf(1.0, float(order_steps.size() - 1))
 		for s2 in range(order_steps.size()):
-			var stripe := _box(goal.position + Vector3(0, 1.2 + float(s2) * 1.4, 0.25), Vector3(5.8, 1.2, 0.2), cols[order_steps[s2]], 0.35)
+			var stripe := _box(goal.position + Vector3(0, 1.0 + float(s2) * stripe_gap, 0.25), Vector3(5.8, minf(1.2, stripe_gap * 0.85), 0.2), cols[order_steps[s2]], 0.35)
 			stripe.visible = false
 			stripes.append(stripe)
 		brush_node = Node3D.new()
@@ -1131,13 +1135,22 @@ func _place_piece() -> void:
 		m.show_msg("Roshan", "That shape doesn't fit this gap — look at the little picture above it!", "hint")
 
 func _turn_valve() -> void:
+	# three big spins build the bubble pressure, then the rocket lights up
 	if state != "play" or kind != "fix" or fix_phase != "valve":
 		return
+	valve_spins += 1
+	progress_t = 0.0
 	var tw := valve.create_tween()
-	tw.tween_property(valve, "rotation:z", TAU, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-	# bubbles race down the finished pipe and light the rocket window
-	for i in range(5):
+	tw.tween_property(valve, "rotation:z", TAU * float(valve_spins), 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	for i in range(1 + valve_spins):
 		m._sparkle_burst(CENTER + Vector3(-14.0 + float(i) * 7.0, 4.0, -12.0), Color(0.7, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.2 * float(valve_spins)
+		m.chime.play()
+	if valve_spins < 3:
+		m.show_msg("Roshan", "The bubbles are building — spin it again!", "talk")
+		_update_hud()
+		return
 	if rocket_window != null:
 		var wm := rocket_window.material_override as StandardMaterial3D
 		wm.albedo_color = Color(1.0, 0.95, 0.6)
@@ -1300,13 +1313,13 @@ func _build_doctor() -> void:
 	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
 	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
 	# steps 2-3: glowing boo-boos on the plush that become hearts when tended
-	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9)]
+	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(0.1, 0.3, 1.3), Vector3(1.2, 0.5, 0.9)]
+	var boo_reaches: Array[Vector3] = [Vector3(-2.4, 1.0, 1.4), Vector3(0.0, 1.0, 2.4), Vector3(2.4, 1.0, 1.4)]
 	for b in range(boo_spots.size()):
 		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
 		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
 		heart.visible = false
-		var reach := CENTER + Vector3(-2.0 + float(b) * 4.0, 1.0, 1.4)
-		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": reach, "kind": "boo"})
+		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": CENTER + boo_reaches[b], "kind": "boo"})
 	# step 4: the bandage roll, which wraps a soft white band around the plush
 	var roll := Node3D.new()
 	roll.name = "BandageRoll"
@@ -1318,7 +1331,7 @@ func _build_doctor() -> void:
 	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
 	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
 	band.visible = false
-	doc_targets.append({"index": 4, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+	doc_targets.append({"index": 5, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
 
 func _doctor_action(choice: int) -> void:
 	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
@@ -1688,7 +1701,7 @@ func _light_lantern() -> void:
 	# the phantom is caught right beside the lantern the child just lit —
 	# the spatial payoff lands exactly where they are standing
 	var lant_pos: Vector3 = lant["pos"] as Vector3
-	var caught := Vector3(lant_pos.x, 1.0, -12.0)
+	var caught := Vector3(lant_pos.x, CENTER.y + 1.0, CENTER.z - 12.0)
 	boss["home"] = caught
 	(boss["node"] as Node3D).position = caught
 	boss["phase"] = "peek"
@@ -2013,22 +2026,25 @@ func _process(delta: float) -> void:
 					if d < 3.2:
 						near_any = true
 						touched = int(pad["index"])
+				var echo_speed := (player_pos - echo_prev_pos).length() / maxf(delta, 0.001)
+				echo_prev_pos = player_pos
 				if not near_any:
 					last_pad = -1
 					dwell_pad = -1
 					pad_dwell = 0.0
 				elif touched >= 0 and touched != last_pad:
-					# stand on a tile a beat to dance it — crossing is free
-					if touched == dwell_pad:
+					# stand STILL on a tile a beat to dance it — swimming
+					# across the row at any speed never commits a step
+					if touched == dwell_pad and echo_speed < 3.0:
 						pad_dwell += delta
-						if pad_dwell >= 0.3:
+						if pad_dwell >= 0.25:
 							last_pad = touched
 							dwell_pad = -1
 							pad_dwell = 0.0
 							_pad_touch(touched)
 					else:
 						dwell_pad = touched
-						pad_dwell = 0.0
+						pad_dwell = 0.0 if touched != dwell_pad else pad_dwell
 		"shuffle":
 			_tick_shuffle(delta)
 		"fix":
@@ -2141,7 +2157,7 @@ func _update_hud() -> void:
 		return
 	var tag := act_tag + "  •  " if act_tag != "" else ""
 	if stage_phase == "brawl":
-		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [IMP_COUNT - imps_left, IMP_COUNT]
+		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
 		return
 	match kind:
 		"order":
@@ -2163,7 +2179,7 @@ func _update_hud() -> void:
 				objective.text = tag + "🎩  PICK the bunny-fish hat!  %d / %d" % [shuffle_round, int(config.get("rounds", 2))]
 		"fix":
 			if fix_phase == "valve":
-				objective.text = tag + "💨  Spin the big valve — tap USE!"
+				objective.text = tag + "💨  Spin the big valve — tap USE!  %d / 3" % valve_spins
 			elif carried >= 0:
 				objective.text = tag + "🔧  Carry it to the glowing gap!  %d / %d" % [fix_step, slots.size()]
 			else:
