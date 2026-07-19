@@ -701,9 +701,12 @@ func _process(delta: float) -> void:
 	var m0: Node = get_parent()
 	if "touch_ui" in m0 and m0.touch_ui != null:
 		var tv: Vector2 = m0.touch_ui.stick_vec
-		if absf(tv.x) > 0.15:
+		# 0.10 (was 0.15): the stick now ramps from 0 at its 22px slop edge, so
+		# a 0.15 gate on top would leave the first ~8px past slop dead — the
+		# slop itself is the dead zone now, this only filters jitter
+		if absf(tv.x) > 0.10:
 			turn -= tv.x
-		if absf(tv.y) > 0.15:
+		if absf(tv.y) > 0.10:
 			fwd -= tv.y
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
