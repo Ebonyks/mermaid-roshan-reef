@@ -16,14 +16,14 @@ func _build_pause() -> void:
 	m.add_child(m.pause_layer)
 	var gear := Button.new()
 	gear.text = "| |"
-	gear.add_theme_font_size_override("font_size", 26)
-	gear.custom_minimum_size = Vector2(76, 76)
+	gear.add_theme_font_size_override("font_size", 32)
+	gear.custom_minimum_size = Vector2(100, 100)   # frustrated fingers mash here
 	var gsb := StyleBoxFlat.new()
 	gsb.bg_color = Color(0.1, 0.15, 0.3, 0.55)
-	gsb.set_corner_radius_all(38)
+	gsb.set_corner_radius_all(50)
 	gear.add_theme_stylebox_override("normal", gsb)
 	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	gear.position = Vector2(-96, 18)
+	gear.position = Vector2(-120, 18)
 	gear.pressed.connect(toggle_pause)
 	m.pause_layer.add_child(gear)
 	m.pause_panel = Panel.new()

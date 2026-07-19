@@ -57,12 +57,12 @@ func _mg2d_open(kind: String) -> void:
 	# a friendly ✕ so ANY config can leave without finishing (controller: B)
 	var xb := Button.new()
 	xb.text = "✕"
-	xb.add_theme_font_size_override("font_size", 42)
-	xb.custom_minimum_size = Vector2(76, 76)
-	xb.position = Vector2(1186, 14)
+	xb.add_theme_font_size_override("font_size", 48)
+	xb.custom_minimum_size = Vector2(100, 100)   # frustrated fingers mash here
+	xb.position = Vector2(1146, 34)   # ~20px further in from the corner: edge taps miss less
 	var xsb := StyleBoxFlat.new()
 	xsb.bg_color = Color(0.1, 0.12, 0.25, 0.55)
-	xsb.set_corner_radius_all(38)
+	xsb.set_corner_radius_all(50)
 	xb.add_theme_stylebox_override("normal", xsb)
 	xb.add_theme_stylebox_override("hover", xsb)
 	xb.add_theme_stylebox_override("pressed", xsb)
