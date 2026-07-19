@@ -17,6 +17,7 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   only — ALL state stays on main):
   scripts/save_state.gd, scripts/audio_director.gd, scripts/companion.gd
   (the stuffed-friend companion wing — see STUFFIE_COMPANIONS.md),
+  scripts/medal_system.gd (bronze/silver/gold rankings — see MEDALS.md),
   scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
   scripts/arena/courtyard_train.gd,
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,

@@ -170,6 +170,7 @@ func _mg2d_win(msg: String) -> void:
 	if bool(m.mg.get("won", false)):
 		return
 	m.mg["won"] = true
+	m._medal_ref().award_from_mg2d(m.mg_kind, m.mg)
 	m.show_msg("Roshan", msg, "win")
 	for i in range(8):
 		m._sparkle_burst(m.player.position + Vector3(randf() * 8 - 4, randf() * 6, randf() * 8 - 4), Color.from_hsv(randf(), 0.6, 1.0))

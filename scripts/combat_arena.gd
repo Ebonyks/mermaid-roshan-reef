@@ -496,6 +496,10 @@ func _win() -> void:
 		return
 	state = "won"
 	win_t = float(encounter.get("win_time", 3.5))
+	# standalone arena battles rank on time-to-victory; dungeon rooms
+	# (room_tag set) roll into the single "dungeon" medal instead
+	if room_tag == "":
+		m._medal_ref().award_stats("combat_ice" if kind == "ice" else "combat_fire", {"time": elapsed})
 	pointer.visible = false
 	objective.text = "✨  POPCORN PARTY!  ✨" if kind == "ice" else "✨  DRAGON-TURTLE TAMED!  ✨"
 	counter.text = "★"

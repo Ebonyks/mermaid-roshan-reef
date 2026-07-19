@@ -10,6 +10,12 @@ candidate pack, `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` at the repo root is
 the current prioritized directive list (P0 QA fixes → P1 promotion → P2
 rework → P3 coverage). Close P0 before generating anything new.
 
+**Audit memory:** read `assets/OBJECT_GENERATION_AUDIT_LOG.md` before creating
+a generation prompt or Blender generator. It evaluates the source audits,
+assigns stable rule IDs, records family-specific failures, and defines the
+required per-role generation packet. Append new audit findings there before
+changing a batch prompt so rejected patterns do not re-enter later runs.
+
 ## Scoring standard (owner decision 2026-07-18)
 
 - **5/5** = the asset survived the stress-test loop AND the owner accepted

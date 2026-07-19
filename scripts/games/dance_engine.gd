@@ -38,6 +38,7 @@ var song_time := 0.0
 var round_end := 0.0
 var happy_hits := 0
 var combo := 0
+var best_combo := 0   # longest unbroken streak this round — the dance medal ranks on it
 var active := false
 var finishing := false
 var guest_mode := false   # opera guest spot: the first happy round auto-closes
@@ -240,6 +241,7 @@ func _start_song() -> void:
 	_clear_notes()
 	happy_hits = 0
 	combo = 0
+	best_combo = 0
 	finishing = false
 	title_label.visible = false
 	prompt_label.text = "Tap the matching arrows!"
@@ -406,6 +408,7 @@ func _press_lane(lane: int) -> void:
 	note.visible = false
 	happy_hits += 1
 	combo += 1
+	best_combo = maxi(best_combo, combo)
 	prompt_label.text = ["Lovely!", "Sparkly!", "Great dancing!", "Keep going!"][happy_hits % 4]
 	_update_magic()
 	chime_player.pitch_scale = 0.92 + float(lane) * 0.09 + minf(float(combo), 8.0) * 0.015
@@ -452,6 +455,9 @@ func _finish_round() -> void:
 		prompt_label.text = "You made rainbow dance magic!"
 		title_label.visible = true
 		_say_dance("win")
+		# a danced round is a completed round — rank the streak (loops forever,
+		# so every round is another shot at gold)
+		main._medal_ref().award_stats("dance", {"combo": best_combo, "hits": happy_hits})
 		for lane in range(4):
 			_pop_feedback(lane)
 	else:
