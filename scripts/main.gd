@@ -2057,7 +2057,10 @@ func _respawn_pearls() -> void:
 		if not used.has(i):
 			_spawn_pearl(i)
 			grew = true
-	if grew:
+	if grew and msg_timer <= 4.0:
+		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
+		# less than a second ago (the _end_game win message) — never fight it;
+		# the respawned pearls announce themselves by shimmering anyway
 		show_msg("", "New rainbow pearls are shimmering in the reef!")
 
 func _cutout_tex(name: String) -> Texture2D:
@@ -5285,8 +5288,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
-	_respawn_pearls()
 	show_msg(fr["fname"], txt, "win" if win else vo)
+	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
 	_clear_game()
 	_write_save()
