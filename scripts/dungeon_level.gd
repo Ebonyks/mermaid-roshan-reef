@@ -19,6 +19,7 @@ const ROOMS := [
 var m: ReefMain
 var finish_cb: Callable
 var room_index := 0
+var start_room := 0   # checkpoint this session began at — the medal ranks rooms cleared in ONE visit
 var arena: CombatArena = null
 var puzzle: DungeonPuzzleRoom = null
 var hud: CanvasLayer = null
@@ -30,6 +31,7 @@ func start(main: ReefMain, checkpoint: int, done_cb: Callable) -> void:
 	m = main
 	finish_cb = done_cb
 	room_index = 0 if checkpoint >= ROOMS.size() else clampi(checkpoint, 0, ROOMS.size() - 1)
+	start_room = room_index
 	_build_hud()
 	_update_hud()
 	call_deferred("_begin_room")
@@ -144,6 +146,9 @@ func _complete_dungeon() -> void:
 	m.dungeon_progress = ROOMS.size()
 	m._write_save()
 	m._update_hud()
+	# gold = all ten rooms conquered in a single visit; checkpointed journeys
+	# still finish (and still medal) — resuming is never punished
+	m._medal_ref().award_stats("dungeon", {"rooms": ROOMS.size() - start_room})
 	progress_label.text = "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
 	room_label.text = "DUNGEON\nHERO!"
 	m.show_msg("Roshan", "All ten rooms! The dungeon is sparkling and safe!", "win")
