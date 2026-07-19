@@ -25,12 +25,13 @@ probe-deterministic analytic motion.
 ## The roster (data-driven — a third friend is one dictionary away)
 
 `CompanionSystem.ROSTER`:
-- **Sparkle the Baby Eagle** (`eagle`) — the book's baby-eagle art; rides the
-  rigged **birdie** body (`craft_birdie_rigged.glb`). Attack: **PECK** (golden
-  double-jab). Pro: speedy.
-- **Kitty** (`kitty`) — rides the rigged **kitty** quadruped
+- **Baby Eagle** (`eagle`) — the book's baby-eagle art; rides the rigged
+  **birdie** body (`craft_birdie_rigged.glb`). Attack: **PECK** (golden
+  double-jab). Pro: speedy. (Voice fallback shares the existing baby-eagle
+  "sparkle" pitch key.)
+- **Mewsha** (`mewsha`) — rides the rigged **kitty** quadruped
   (`craft_kitty_rigged.glb`). Attack: **CLAW** (three pastel swipe streaks).
-  Pro: big swipes.
+  Pro: big swipes. (Voice clips land as `mewsha_*.ogg`.)
 
 Both bodies take the craft-studio 3-zone paint shader (body / accent /
 third), so "you first choose its colors" reuses the proven pipeline, and the

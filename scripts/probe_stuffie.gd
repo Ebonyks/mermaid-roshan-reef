@@ -47,13 +47,13 @@ func _picker_case() -> void:
 	comp.open_picker()
 	await process_frame
 	_ck("picker overlay builds", main.companion_layer != null and main.companion_stage != null)
-	comp._pick_friend("kitty")
+	comp._pick_friend("mewsha")
 	await process_frame
 	comp._pick_color(0, Color(0.45, 0.82, 0.95))
 	await process_frame
 	comp._confirm_pick()
 	await process_frame
-	_ck("kitty chosen with painted body", main.companion_id == "kitty"
+	_ck("mewsha chosen with painted body", main.companion_id == "mewsha"
 		and main.companion_colors.size() == 3
 		and String(main.companion_colors[0]) == Color(0.45, 0.82, 0.95).to_html(false))
 	_ck("picker closed after choosing", main.companion_layer == null)
@@ -83,8 +83,8 @@ func _battle_case() -> void:
 	var battle: StuffieBattle = main.stuffie_game
 	_ck("battle starts round 1 with two imps", battle != null and main.game == "stuffie"
 		and battle.enemies.size() == 2 and battle.round_tag == "round1")
-	_ck("battle creature is the painted kitty", battle != null and battle.creature != null
-		and String(battle.creature_def.get("id", "")) == "kitty")
+	_ck("battle creature is the painted mewsha", battle != null and battle.creature != null
+		and String(battle.creature_def.get("id", "")) == "mewsha")
 	if battle == null:
 		return
 	# passive: no input → nothing can be won
@@ -123,7 +123,7 @@ func _battle_case() -> void:
 func _save_case() -> void:
 	main._write_save()
 	var doc: Dictionary = main.save_data
-	_ck("save carries companion keys", String(doc.get("companion", "")) == "kitty"
+	_ck("save carries companion keys", String(doc.get("companion", "")) == "mewsha"
 		and (doc.get("companion_colors", []) as Array).size() == 3
 		and int(doc.get("fish_tokens", -1)) == main.fish_tokens
 		and bool((doc.get("stuffie_wins", {}) as Dictionary).get("round1", false)))
@@ -131,4 +131,4 @@ func _save_case() -> void:
 	var reread := SaveState.new(main)
 	var loaded: Variant = reread._recover_save_if_needed()
 	_ck("save roundtrips through recovery reader", loaded is Dictionary
-		and String((loaded as Dictionary).get("companion", "")) == "kitty")
+		and String((loaded as Dictionary).get("companion", "")) == "mewsha")

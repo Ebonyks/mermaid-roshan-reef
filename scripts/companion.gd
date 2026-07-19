@@ -20,13 +20,13 @@ var m: ReefMain
 # kind → CREATURE_LAYERS/CRAFT_RIGGED key on main (bird = the rigged birdie
 # body doubling as the baby eagle; cat = the rigged kitty).
 const ROSTER := [
-	{"id": "eagle", "name": "Sparkle the Baby Eagle", "kind": "bird", "attack": "PECK",
+	{"id": "eagle", "name": "Baby Eagle", "kind": "bird", "attack": "PECK",
 		"body": Color(0.98, 0.72, 0.55), "accent": Color(1.0, 0.85, 0.40), "third": Color(1.0, 0.92, 0.55),
-		"hello": "Sparkle the baby eagle flies with you now! Peck peck!",
+		"hello": "Baby Eagle flies with you now! Peck peck!",
 		"pro": "Speedy wings and a quick peck!"},
-	{"id": "kitty", "name": "Kitty", "kind": "cat", "attack": "CLAW",
+	{"id": "mewsha", "name": "Mewsha", "kind": "cat", "attack": "CLAW",
 		"body": Color(0.95, 0.70, 0.85), "accent": Color(0.60, 0.40, 0.90), "third": Color(0.97, 0.96, 0.93),
-		"hello": "Kitty pads along beside you now! Swish swish!",
+		"hello": "Mewsha pads along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
 ]
 
