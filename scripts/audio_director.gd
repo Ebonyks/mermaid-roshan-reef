@@ -111,13 +111,21 @@ func _set_ambience(track: String) -> void:
 
 
 func _tick_ambience_duck(delta: float) -> void:
-	if m.ambience == null or not m.ambience.playing:
-		return
 	var talking := false
 	for vp in m.voice_pool:
 		if (vp as AudioStreamPlayer).playing:
 			talking = true
 			break
+	# family voices also duck the music: lerp toward base (-8) plus a duck
+	# offset. Re-anchoring on the -8 base means _play_music resetting
+	# volume_db to -8 on a track change never fights the duck — the next
+	# frame simply lerps from wherever the volume is. Skipped entirely when
+	# music is muted (-60) so the duck can't drag a muted track audible.
+	if m.music != null and m.music.playing and m.music_on:
+		var mwant: float = -8.0 + (-6.0 if talking else 0.0)
+		m.music.volume_db = lerpf(m.music.volume_db, mwant, minf(1.0, delta * 6.0))
+	if m.ambience == null or not m.ambience.playing:
+		return
 	var want: float = -16.0 if talking else -10.0
 	m.ambience.volume_db = lerpf(m.ambience.volume_db, want, minf(1.0, delta * 6.0))
 

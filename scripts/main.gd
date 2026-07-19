@@ -5909,7 +5909,13 @@ func _process(delta: float) -> void:
 				chime.pitch_scale = 0.75 * pow(2.0, float(PENT[deg] + 12 * octv) / 12.0)
 				chime.play()
 				pearl_note += 1
-			_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
+			# ~6s min-gap shared across all three pearl lines. _say's own gap is
+			# keyed per speaker_event, so the rotating pick would sidestep it and
+			# chatter on every pearl of a string.
+			var vnow := Time.get_ticks_msec() / 1000.0
+			if vnow - float(said_cool.get("roshan_pearl_any", -99.0)) >= 6.0:
+				said_cool["roshan_pearl_any"] = vnow
+				_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
 			_update_hud()
 			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 	var tt: float = Time.get_ticks_msec() / 1000.0
