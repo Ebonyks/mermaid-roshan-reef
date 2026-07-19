@@ -106,6 +106,7 @@ var shelf_candies: Array[Node3D] = []
 # ---- "doctor" engine ----
 var doc_targets: Array[Dictionary] = []
 var doc_step := 0
+var doc_wait := 0.0                # care moment: taps rest while the plushy reacts
 var patient: Node3D = null
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
@@ -624,7 +625,7 @@ func _build_order() -> void:
 	if not reveal_one:
 		for s in range(order_steps.size()):
 			var ci := order_steps[s]
-			_sphere(goal.position + Vector3(-3.2 + float(s) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
+			_sphere(goal.position + Vector3((float(s) - float(order_steps.size() - 1) * 0.5) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
 	if order_flow == "carry_paint":
 		canvas_pos = goal.position
 		# three hidden stripes fill the canvas as Roshan swipes each color on
@@ -1336,6 +1337,8 @@ func _build_doctor() -> void:
 func _doctor_action(choice: int) -> void:
 	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
 		return
+	if doc_wait > 0.0:
+		return   # the plushy is still giggling from the last step — taps rest kindly
 	var target: Dictionary = doc_targets[choice]
 	if choice != doc_step:
 		_wobble(target["node"] as Node3D)
@@ -1395,6 +1398,15 @@ func _doctor_action(choice: int) -> void:
 		hop.tween_property(patient, "position:y", patient.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		_win()
 	else:
+		# let each little animation finish before the next tap counts — the
+		# checkup is a story, not a tap race
+		match String(target["kind"]):
+			"scope":
+				doc_wait = 2.6
+			"thermo":
+				doc_wait = 2.0
+			_:
+				doc_wait = 1.7
 		_update_hud()
 
 func _heart_thump() -> void:
@@ -1895,6 +1907,8 @@ func _process(delta: float) -> void:
 		return
 	elapsed += delta
 	progress_t += delta
+	if doc_wait > 0.0:
+		doc_wait -= delta
 	if state == "won":
 		win_t -= delta
 		if fmod(win_t, 0.35) < delta:

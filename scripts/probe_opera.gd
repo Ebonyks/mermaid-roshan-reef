@@ -98,7 +98,7 @@ func _init() -> void:
 			"press":
 				await _drive_press(act)
 			"doctor":
-				_drive_doctor(act)
+				await _drive_doctor(act)
 			"scroll":
 				_drive_scroll(act)
 			"race":
@@ -243,10 +243,20 @@ func _drive_doctor(act: OperaAct) -> void:
 	act._doctor_action(3)
 	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
 	for s in range(act.doc_targets.size()):
+		var guard := 0
+		while act.doc_wait > 0.0 and guard < 400:
+			guard += 1
+			await process_frame
+		_ck("care moment rests before step %d" % s, act.doc_wait <= 0.0)
 		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
 		act.player_pos = reach
 		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
 		act._doctor_action(act.doc_step)
+		if s == 0:
+			_ck("giggling plushy pauses the next tap kindly", act.doc_wait > 0.0)
+			var step_now: int = act.doc_step
+			act._doctor_action(act.doc_step)
+			_ck("tap during the care moment is swallowed gently", act.doc_step == step_now)
 	_ck("every tended step heals the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
