@@ -46,6 +46,7 @@ func _static_prop(path: String, pos: Vector3, materials: Dictionary, yaw_degrees
 
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
+	_touch_reset()
 	# Quiet lavender stone floor: broad value shapes keep the long hall legible
 	# without the high-frequency checker/vein noise of the old marble stack.
 	var flr := MeshInstance3D.new()
@@ -138,9 +139,11 @@ func build(o: Vector3) -> void:
 		th.position = o + Vector3(0, 16.0, -28.0)
 		m.add_child(th)
 		m.game_nodes.append(th)
+		_touch("throne", th.position + Vector3(0, 2.0, 1.5), 5.5, {"node": th})
 	else:
 		var throne = m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
+		_touch("throne", throne.position + Vector3(0, 0, 1.5), 5.5, {"node": throne})
 	# Protected book cutout until an owner-approved source-faithful model exists.
 	var huluu := Sprite3D.new()
 	huluu.texture = load("res://assets/characters/friends/huluu.png")
@@ -199,6 +202,7 @@ func build(o: Vector3) -> void:
 			flame.position = sc.position
 			m.add_child(flame)
 			m.game_nodes.append(flame)
+			_touch("sconce", flame.position, 5.0, {"node": flame, "mat": flm, "light": sc})
 	# ---------- tapestries between the columns ----------
 	var tcols := [Color(0.46, 0.18, 0.30), Color(0.24, 0.30, 0.52)]
 	for ti in range(3):
@@ -216,14 +220,20 @@ func build(o: Vector3) -> void:
 			tap.rotation_degrees = Vector3(0, -90.0 * sgn, 0)
 			m.add_child(tap)
 			m.game_nodes.append(tap)
+			_touch("tapestry", tap.position, 6.0, {"node": tap})
 	# ---------- Phase 4c: a lived-in reading nook (Quaternius furniture, CC0) ----------
 	# light touch only — the hall keeps its bespoke throne/stairs/columns. A tall
 	# bookcase against the left wall bay and a little tea table with two chairs
 	# in the right bay, all pastel-restyled by _kit() so the dark wood reads soft.
 	m._kit("furniture/bookcase", o + Vector3(-31.5, 0.1, 2.0), 7.0, PI * 0.5)
 	m._wall_solid(o + Vector3(-31.5, 6.0, 2.0), Vector3(2.8, 12.0, 7.4), 0.8)
+	# a little storybook rests against the bookcase — nudge it and it flutters
+	var story_book: MeshInstance3D = m._l2_box(o + Vector3(-29.6, 6.2, 2.0), Vector3(0.5, 1.6, 1.2), Color(0.85, 0.35, 0.45), 0.1)
+	story_book.rotation_degrees.z = -9.0
+	_touch("bookcase", o + Vector3(-30.0, 4.0, 2.0), 5.5, {"node": story_book})
 	m._kit("furniture/table", o + Vector3(29.0, 0.1, 0.0), 8.0, PI * 0.5)
 	m._cyl_solid(o + Vector3(29.0, 1.5, 0.0), 3.2, 1.5, 0.6)
+	_touch("teatable", o + Vector3(29.0, 3.0, 0.0), 5.0)
 	m._kit("furniture/chair", o + Vector3(26.0, 0.1, 3.6), 2.2, PI * 0.75)
 	m._kit("furniture/chair", o + Vector3(26.0, 0.1, -3.6), 2.2, PI * 1.25)
 	# ---------- her memories framed along the hall walls ----------
@@ -243,7 +253,8 @@ func build(o: Vector3) -> void:
 		pot.position = o + pp + Vector3(0, 0.5, 0)
 		m.add_child(pot)
 		m.game_nodes.append(pot)
-		m._nature("plant_bushLargeTriangle", o + pp + Vector3(0, 1.6, 0), 3.0, randf() * TAU)
+		var bush: Node3D = m._nature("plant_bushLargeTriangle", o + pp + Vector3(0, 1.6, 0), 3.0, randf() * TAU)
+		_touch("plant", pot.position, 4.5, {"node": pot, "node2": bush})
 	# ---------- hanging chandeliers (mesh + light) ----------
 	for chz in [-12.0, 10.0]:
 		var ch := MeshInstance3D.new()
@@ -270,6 +281,7 @@ func build(o: Vector3) -> void:
 		m.add_child(chl)
 		m.game_nodes.append(chl)
 		m._register_castle_light(chl, true)
+		_touch("chandelier", ch.position, 7.0, {"node": ch, "mat": chm, "light": chl})
 	# OPEN back doorways (dark archways) flanking the throne
 	for dx in [-22.0, 22.0]:
 		m._l2_box(o + Vector3(dx - 5.0, 8, -33.2), Vector3(1.2, 16, 1.2), Color(0.8, 0.7, 0.5), 0.1)  # gold frame posts
@@ -506,7 +518,9 @@ func build_expansion(o: Vector3) -> void:
 	# A complete authored orrery replaces the box telescope and glyph wallpaper.
 	# It carries a thick chamber-star silhouette, three independent orbit rings,
 	# planets, and a low child-readable pedestal in one Mobile-safe landmark.
-	_static_prop("res://assets/art35/landmarks/star_observatory.glb", o + Vector3(-25.0, 34.0, -50.0), {}, 0.0, true)
+	var orrery: Node3D = _static_prop("res://assets/art35/landmarks/star_observatory.glb", o + Vector3(-25.0, 34.0, -50.0), {}, 0.0, true)
+	if orrery != null:
+		_touch("orrery", orrery.position + Vector3(0, 3.0, 0), 7.0, {"node": orrery})
 	for st in range(6):
 		var star_prop: Node3D = _static_prop(
 			"res://assets/art35/landmarks/chamber_star.glb",
@@ -514,10 +528,13 @@ func build_expansion(o: Vector3) -> void:
 			{}, 0.0, true)
 		if star_prop != null:
 			star_prop.scale = Vector3.ONE * (1.15 + float(st % 3) * 0.18)
+			_touch("chamber_star", star_prop.position, 4.5, {"node": star_prop, "pitch": 1.5 + float(st) * 0.14})
 	# CLOUD LOUNGE (right): pillow pile + her memory portraits
+	var pillow_nodes: Array = []
 	for ci in range(6):
 		var cc := Color(1.0, 0.75, 0.85) if ci % 2 == 0 else Color(0.75, 0.85, 1.0)
-		m._l2_box(o + Vector3(12.0 + float(ci % 3) * 6.5, 34.2 + float(ci / 3) * 1.3, -52.0 + float(ci % 2) * 4.0), Vector3(5.0, 1.6, 5.0), cc)
+		pillow_nodes.append(m._l2_box(o + Vector3(12.0 + float(ci % 3) * 6.5, 34.2 + float(ci / 3) * 1.3, -52.0 + float(ci % 2) * 4.0), Vector3(5.0, 1.6, 5.0), cc))
+	_touch("pillows", o + Vector3(18.0, 35.0, -50.0), 7.5, {"nodes": pillow_nodes})
 	m._hang_portrait(o + Vector3(52.4, 41.0, -46.0), Vector3(0, -90, 0), "p_seattle")
 	m._hang_portrait(o + Vector3(52.4, 41.0, -54.0), Vector3(0, -90, 0), "p_garden")
 	m._l2_box(o + Vector3(26, 33.9, -50), Vector3(42, 0.3, 20), Color(0.85, 0.7, 0.9))    # lounge rug (fills the wider chamber)
@@ -530,9 +547,12 @@ func build_expansion(o: Vector3) -> void:
 	# ---------- LEFT WING GALLERY: the ROYAL LIBRARY ----------
 	for sh in range(4):
 		var shz: float = -28.0 + float(sh) * 12.0
-		_static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
+		var shelf: Node3D = _static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
+		if shelf != null:
+			_touch("library", shelf.position + Vector3(1.5, 3.0, 0), 5.0, {"node": shelf})
 	m._l2_box(o + Vector3(-44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.55, 0.4, 0.65))              # reading rug
-	m._l2_box(o + Vector3(-44, 34.8, 9.0), Vector3(4.5, 1.6, 4.5), Color(0.95, 0.85, 0.6))            # story cushion
+	var cushion: MeshInstance3D = m._l2_box(o + Vector3(-44, 34.8, 9.0), Vector3(4.5, 1.6, 4.5), Color(0.95, 0.85, 0.6))            # story cushion
+	_touch("cushion", cushion.position, 4.0, {"node": cushion})
 	var lsign := Label3D.new()
 	lsign.text = "📚 Royal Library"
 	lsign.font_size = 52
@@ -545,14 +565,19 @@ func build_expansion(o: Vector3) -> void:
 	m.game_nodes.append(lsign)
 	# ---------- RIGHT WING GALLERY: the TOY ROOM ----------
 	var block_cols := [Color(0.9, 0.4, 0.4), Color(0.4, 0.6, 0.9), Color(0.95, 0.8, 0.3), Color(0.5, 0.8, 0.5)]
+	var block_nodes: Array = []
 	for bi in range(4):
-		m._l2_box(o + Vector3(48.5 - float(bi % 2) * 3.4, 34.9 + float(bi / 2) * 3.4, -24.0 + float(bi % 2) * 1.5), Vector3(3.0, 3.0, 3.0), block_cols[bi], 0.15)
+		block_nodes.append(m._l2_box(o + Vector3(48.5 - float(bi % 2) * 3.4, 34.9 + float(bi / 2) * 3.4, -24.0 + float(bi % 2) * 1.5), Vector3(3.0, 3.0, 3.0), block_cols[bi], 0.15))
+	_touch("blocks", o + Vector3(47.0, 36.5, -23.5), 6.0, {"nodes": block_nodes})
 	var tchest = m._l2_box(o + Vector3(49.5, 34.9, -4.0), Vector3(5.5, 3.4, 4.0), Color(0.62, 0.42, 0.26))
 	tchest.material_override.roughness = 0.8
-	m._l2_box(o + Vector3(49.5, 36.9, -4.0), Vector3(5.9, 1.0, 4.4), Color(0.95, 0.8, 0.35), 0.3)     # gold chest lid
+	var tchest_lid: MeshInstance3D = m._l2_box(o + Vector3(49.5, 36.9, -4.0), Vector3(5.9, 1.0, 4.4), Color(0.95, 0.8, 0.35), 0.3)     # gold chest lid
+	_touch("toychest2", tchest.position, 5.0, {"node": tchest_lid})
 	m._l2_box(o + Vector3(44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.95, 0.75, 0.8))               # play rug
+	var pad_nodes: Array = []
 	for hb in range(3):
-		m._l2_box(o + Vector3(41.0, 34.4, 8.0 + float(hb) * 3.2), Vector3(2.4, 0.9, 2.4), Color(1.0, 0.9, 0.55), 0.4)  # hopscotch pads
+		pad_nodes.append(m._l2_box(o + Vector3(41.0, 34.4, 8.0 + float(hb) * 3.2), Vector3(2.4, 0.9, 2.4), Color(1.0, 0.9, 0.55), 0.4))  # hopscotch pads
+	_touch("hopscotch", o + Vector3(41.0, 35.0, 11.2), 6.0, {"nodes": pad_nodes})
 	var tsign := Label3D.new()
 	tsign.text = "🧸 Toy Room"
 	tsign.font_size = 52
@@ -589,11 +614,14 @@ func build_expansion(o: Vector3) -> void:
 	# cosy clutter: barrels, crates, a treasure glint, warm lanterns (emissive
 	# only - the OmniLight budget stays untouched)
 	for bi in range(5):
-		m._l2_box(o + Vector3(-24.0 + float(bi) * 4.5, -16.8, 36.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		var barrel: MeshInstance3D = m._l2_box(o + Vector3(-24.0 + float(bi) * 4.5, -16.8, 36.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		_touch("barrel", barrel.position, 4.0, {"node": barrel})
 	for cr in range(3):
-		m._l2_box(o + Vector3(20.0 + float(cr) * 4.0, -17.0, 12.0 + float(cr) * 2.0), Vector3(3.4, 3.0, 3.4), Color(0.66, 0.5, 0.32))
+		var crate: MeshInstance3D = m._l2_box(o + Vector3(20.0 + float(cr) * 4.0, -17.0, 12.0 + float(cr) * 2.0), Vector3(3.4, 3.0, 3.4), Color(0.66, 0.5, 0.32))
+		_touch("crate", crate.position, 4.0, {"node": crate})
 	for li in range(4):
-		m._l2_box(o + Vector3(-26.0 + float(li) * 17.0, -12.0, 39.2), Vector3(1.0, 1.4, 0.6), Color(1.0, 0.8, 0.45), 3.2)
+		var cellar_lamp: MeshInstance3D = m._l2_box(o + Vector3(-26.0 + float(li) * 17.0, -12.0, 39.2), Vector3(1.0, 1.4, 0.6), Color(1.0, 0.8, 0.45), 3.2)
+		_touch("lantern", cellar_lamp.position, 4.5, {"node": cellar_lamp, "mat": cellar_lamp.material_override})
 	# ---------- the BASEMENT WING: wide hallway, side rooms, the royal loo
 	build_basement_wing(o)
 	# stair back up into Daddy's room — recentered directly under the golden
@@ -694,7 +722,8 @@ func build_dreaming_floor(o: Vector3) -> void:
 		m._wall_solid(o + Vector3(cx + 3.0, 50.8, -59.5), Vector3(5.5, 2.4, 7), 0.4)
 		# glowing bedside lamp (emissive — no light-budget cost) + their window
 		m._l2_box(o + Vector3(cx - 2.0, 51.2, -61.5), Vector3(1.6, 3.2, 1.6), Color(0.5, 0.34, 0.22))
-		m._l2_box(o + Vector3(cx - 2.0, 53.3, -61.5), Vector3(1.1, 1.1, 1.1), Color(1.0, 0.85, 0.55), 3.0)
+		var dream_lamp: MeshInstance3D = m._l2_box(o + Vector3(cx - 2.0, 53.3, -61.5), Vector3(1.1, 1.1, 1.1), Color(1.0, 0.85, 0.55), 3.0)
+		_touch("dreamlamp", dream_lamp.position, 3.5, {"node": dream_lamp, "mat": dream_lamp.material_override})
 		var win = m._l2_box(o + Vector3(cx, 57.5, -63.2), Vector3(4.5, 4.5, 0.4), Color(0.75, 0.85, 1.0), 0.9)
 		win.material_override.emission_energy_multiplier = 1.2
 		# the character themselves, home at last
@@ -715,14 +744,18 @@ func build_dreaming_floor(o: Vector3) -> void:
 		# a keepsake that tells THEIR part of the story
 		match String(rd["keep"]):
 			"crown":   # Huluu's little tiara on the rug
+				var tiara_nodes: Array = []
 				for ci in range(3):
-					m._l2_box(o + Vector3(cx - 5.5 + float(ci) * 1.1, 50.4 + (0.5 if ci == 1 else 0.0), -55.0), Vector3(0.8, 1.0 + (0.5 if ci == 1 else 0.0), 0.8), gold, 0.8)
+					tiara_nodes.append(m._l2_box(o + Vector3(cx - 5.5 + float(ci) * 1.1, 50.4 + (0.5 if ci == 1 else 0.0), -55.0), Vector3(0.8, 1.0 + (0.5 if ci == 1 else 0.0), 0.8), gold, 0.8))
+				_touch("keepsake", o + Vector3(cx - 4.4, 51.0, -55.0), 3.5, {"sub": "tiara", "nodes": tiara_nodes})
 			"chest":   # Daddy's mini treasure chest
 				var kchest = m._l2_box(o + Vector3(cx - 5.0, 50.6, -55.0), Vector3(2.6, 2.0, 1.8), gold, 0.5)
 				kchest.material_override.metallic = 0.6
+				_touch("keepsake", kchest.position, 3.5, {"sub": "minichest", "node": kchest})
 			"cradle":  # the baby's cradle beside Mama's bed
-				m._l2_box(o + Vector3(cx - 5.0, 50.7, -55.0), Vector3(2.4, 1.6, 3.4), Color(0.98, 0.97, 1.0))
-				m._l2_box(o + Vector3(cx - 5.0, 51.4, -55.0), Vector3(2.0, 0.4, 3.0), Color(1.0, 0.75, 0.85), 0.3)
+				var cradle: MeshInstance3D = m._l2_box(o + Vector3(cx - 5.0, 50.7, -55.0), Vector3(2.4, 1.6, 3.4), Color(0.98, 0.97, 1.0))
+				var blanket: MeshInstance3D = m._l2_box(o + Vector3(cx - 5.0, 51.4, -55.0), Vector3(2.0, 0.4, 3.0), Color(1.0, 0.75, 0.85), 0.3)
+				_touch("keepsake", cradle.position, 3.5, {"sub": "cradle", "node": cradle, "node2": blanket})
 			"star":    # Kareem's wishing star
 				var kstar := Label3D.new()
 				kstar.text = "✦"
@@ -731,6 +764,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 				kstar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 				kstar.position = o + Vector3(cx - 5.0, 52.4, -55.0)
 				m.add_child(kstar); m.game_nodes.append(kstar)
+				_touch("keepsake", kstar.position, 3.5, {"sub": "star", "node": kstar})
 			"note":    # Gabby's song
 				var knote := Label3D.new()
 				knote.text = "♪"
@@ -739,6 +773,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 				knote.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 				knote.position = o + Vector3(cx - 5.0, 52.4, -55.0)
 				m.add_child(knote); m.game_nodes.append(knote)
+				_touch("keepsake", knote.position, 3.5, {"sub": "note", "node": knote})
 	# Wacky & Chuck curl up in a basket at the corridor's end
 	var wb: Vector3 = o + Vector3(48.0, 0, -44.0)
 	m._l2_box(wb + Vector3(0, 50.2, 0), Vector3(4.4, 1.2, 4.4), Color(0.72, 0.52, 0.3))
@@ -749,6 +784,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	wspr.pixel_size = 0.0048
 	wspr.position = wb + Vector3(0, 53.0, -1.0)
 	m.add_child(wspr); m.game_nodes.append(wspr)
+	_touch("wacky", wb + Vector3(0, 51.5, 0), 5.0, {"node": wspr})
 	var wsign := Label3D.new()
 	wsign.text = "✨ Wacky & Chuck ✨"
 	wsign.font_size = 36; wsign.pixel_size = 0.008; wsign.outline_size = 9
@@ -840,12 +876,15 @@ func build_basement_wing(o: Vector3) -> void:
 		m.add_child(rsign); m.game_nodes.append(rsign)
 	# PANTRY: shelves of glowing jam jars + barrels
 	var pc: Vector3 = o + Vector3(-17, 0, -2)
+	var jar_nodes: Array = []
 	for sh in range(2):
 		m._l2_box(pc + Vector3(-7.0, -14.0 + float(sh) * 3.4, 0), Vector3(1.6, 0.5, 12), Color(0.55, 0.4, 0.26))
 		for ji in range(4):
-			m._l2_box(pc + Vector3(-7.0, -13.2 + float(sh) * 3.4, -4.5 + float(ji) * 3.0), Vector3(1.1, 1.3, 1.1), [Color(1.0, 0.5, 0.55), Color(1.0, 0.75, 0.3), Color(0.6, 0.85, 0.4), Color(0.6, 0.7, 1.0)][ji], 0.8)
+			jar_nodes.append(m._l2_box(pc + Vector3(-7.0, -13.2 + float(sh) * 3.4, -4.5 + float(ji) * 3.0), Vector3(1.1, 1.3, 1.1), [Color(1.0, 0.5, 0.55), Color(1.0, 0.75, 0.3), Color(0.6, 0.85, 0.4), Color(0.6, 0.7, 1.0)][ji], 0.8))
+	_touch("jars", pc + Vector3(-7.0, -13.0, 0), 6.0, {"nodes": jar_nodes})
 	for bi2 in range(2):
-		m._l2_box(pc + Vector3(4.0 + float(bi2) * 4.0, -16.2, 5.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		var pantry_barrel: MeshInstance3D = m._l2_box(pc + Vector3(4.0 + float(bi2) * 4.0, -16.2, 5.0), Vector3(3.0, 3.6, 3.0), Color(0.55, 0.4, 0.26))
+		_touch("barrel", pantry_barrel.position, 4.0, {"node": pantry_barrel})
 	# ROYAL KITCHEN: counters, a glowing stove with soup on the boil, a tea
 	# table set for two — the pantry is right across the hallway, the way a
 	# real castle kitchen works (the old toy den moved up to the Toy Room)
@@ -886,6 +925,7 @@ func build_basement_wing(o: Vector3) -> void:
 		tc + Vector3(-0.4, -14.35, -6.45),
 		sink_materials,
 	)
+	_touch("sink", tc + Vector3(-0.4, -14.0, -6.45), 3.5, {"mat": sink_water_mat})
 	var stove_mat: StandardMaterial3D = m._soft_mat(Color(0.78, 0.86, 0.93), 0.0)
 	stove_mat.emission_enabled = false
 	stove_mat.roughness = 0.46
@@ -926,12 +966,17 @@ func build_basement_wing(o: Vector3) -> void:
 	m._wall_solid(tc + Vector3(6.0, -16.1, -6.4), Vector3(3.8, 3.8, 3.0), 0.4)
 	# Authored silhouettes replace the sphere/cube stand-ins. Separate handles,
 	# rims, spouts and seats keep each object readable at phone size.
-	_static_prop("res://assets/art35/castle/kitchen_soup_pot.glb", tc + Vector3(5.2, -12.9, -6.4), {}, 0.0, true)
-	_static_prop("res://assets/art35/castle/kitchen_kettle.glb", tc + Vector3(-4.0, -14.25, -6.6), {}, 0.0, true)
+	var soup_pot: Node3D = _static_prop("res://assets/art35/castle/kitchen_soup_pot.glb", tc + Vector3(5.2, -12.9, -6.4), {}, 0.0, true)
+	_touch("stove", tc + Vector3(6.0, -14.5, -6.4), 4.5, {"node": soup_pot, "mat": hot_burner_mat, "mat2": warm_burner_mat})
+	var kettle: Node3D = _static_prop("res://assets/art35/castle/kitchen_kettle.glb", tc + Vector3(-4.0, -14.25, -6.6), {}, 0.0, true)
+	if kettle != null:
+		_touch("kettle", kettle.position, 3.5, {"node": kettle})
 	_static_prop("res://assets/art35/castle/kitchen_pan_set.glb", tc + Vector3(-0.8, -14.18, -6.5), {}, 20.0, true)
 	_static_prop("res://assets/art35/castle/kitchen_table_set.glb", tc + Vector3(-2.0, -18.0, 3.5), {}, 10.0, true)
 	m._cyl_solid(tc + Vector3(-2.0, -16.6, 3.5), 2.2, 1.4, 0.3)
-	_static_prop("res://assets/art35/castle/kitchen_teapot.glb", tc + Vector3(-2.0, -16.55, 3.5), {}, -25.0, true)
+	var teapot: Node3D = _static_prop("res://assets/art35/castle/kitchen_teapot.glb", tc + Vector3(-2.0, -16.55, 3.5), {}, -25.0, true)
+	if teapot != null:
+		_touch("teapot", teapot.position, 4.0, {"node": teapot})
 	# BUBBLE BATH: exact-size storybook fixtures. Moving the tub to the front
 	# wall opens a floor-height route through the centre of the room to the
 	# hidden Royal Loo; the old centre placement sealed that doorway.
@@ -960,6 +1005,7 @@ func build_basement_wing(o: Vector3) -> void:
 		var water_fallback: MeshInstance3D = m._l2_box(tub_root_pos + Vector3(0, 3.0, 0), Vector3(6.3, 0.3, 3.8), Color(0.55, 0.85, 1.0), 0.8)
 		water_fallback.material_override = bath_water_mat
 	m._wall_solid(tub_root_pos + Vector3(0, 1.6, 0), Vector3(7.5, 3.2, 5.0), 0.4)
+	_touch("tub", tub_root_pos + Vector3(0, 2.5, 0), 6.0)
 	var duck := MeshInstance3D.new()
 	var dm := SphereMesh.new(); dm.radius = 0.9; dm.height = 1.8
 	duck.mesh = dm
@@ -972,7 +1018,8 @@ func build_basement_wing(o: Vector3) -> void:
 	dh.material_override = m._soft_mat(Color(1.0, 0.9, 0.25), 0.4)
 	dh.position = bc + Vector3(-2.3, -14.0, 4.7)
 	m.add_child(dh); m.game_nodes.append(dh)
-	m._l2_box(bc + Vector3(-1.75, -14.0, 4.7), Vector3(0.7, 0.35, 0.5), Color(1.0, 0.6, 0.2), 0.4)   # beak
+	var beak: MeshInstance3D = m._l2_box(bc + Vector3(-1.75, -14.0, 4.7), Vector3(0.7, 0.35, 0.5), Color(1.0, 0.6, 0.2), 0.4)   # beak
+	_touch("duck", duck.position, 3.0, {"node": duck, "node2": dh, "node3": beak})
 	var vanity_body_fallback_mat: StandardMaterial3D = m._soft_mat(Color(0.76, 0.44, 0.22), 0.0)
 	vanity_body_fallback_mat.roughness = 0.72
 	var vanity_top_fallback_mat: StandardMaterial3D = m._soft_mat(Color(0.97, 0.91, 0.82), 0.0)
@@ -995,8 +1042,11 @@ func build_basement_wing(o: Vector3) -> void:
 		var vanity_water_fallback: MeshInstance3D = m._l2_box(vanity_root_pos + Vector3(0, 3.5, -0.2), Vector3(2.1, 0.12, 1.0), Color(0.43, 0.82, 0.81), 0.3)
 		vanity_water_fallback.material_override = bath_basin_mat
 	m._wall_solid(vanity_root_pos + Vector3(0, 1.75, 0), Vector3(4.5, 3.5, 2.6), 0.3)
+	_touch("vanity_mirror", vanity_root_pos + Vector3(0, 3.0, 1.0), 4.0)
+	var towel_nodes: Array = []
 	for tw2 in range(2):
-		m._l2_box(bc + Vector3(5.5, -15.6 + float(tw2) * 1.1, 5.2), Vector3(2.6, 1.0, 2.2), Color(1.0, 0.8, 0.9) if tw2 == 0 else Color(0.8, 0.9, 1.0))
+		towel_nodes.append(m._l2_box(bc + Vector3(5.5, -15.6 + float(tw2) * 1.1, 5.2), Vector3(2.6, 1.0, 2.2), Color(1.0, 0.8, 0.9) if tw2 == 0 else Color(0.8, 0.9, 1.0)))
+	_touch("towels", bc + Vector3(5.5, -15.0, 5.2), 3.5, {"nodes": towel_nodes})
 	# CRAFT ROOM: the color-a-fish easel finally gets its own dedicated studio
 	# (moved down from the grand hall), with paint pots and a paper table
 	var gc: Vector3 = o + Vector3(17, 0, -28)
@@ -1013,15 +1063,20 @@ func build_basement_wing(o: Vector3) -> void:
 	m.add_child(craft_fish_icon); m.game_nodes.append(craft_fish_icon)
 	m.g["craft_easel"] = gc + Vector3(5.5, -13.4, 0)
 	var potcols := [Color(0.92, 0.3, 0.3), Color(1.0, 0.8, 0.25), Color(0.35, 0.75, 0.4), Color(0.35, 0.6, 0.95), Color(0.7, 0.4, 0.9)]
+	var paint_nodes: Array = []
 	for pi3 in range(potcols.size()):   # paint pots along the back wall
 		m._l2_box(gc + Vector3(-6.0 + float(pi3) * 3.0, -16.6, -6.5), Vector3(1.6, 2.2, 1.6), Color(0.85, 0.82, 0.78))
-		m._l2_box(gc + Vector3(-6.0 + float(pi3) * 3.0, -15.3, -6.5), Vector3(1.3, 0.4, 1.3), potcols[pi3], 0.5)
+		paint_nodes.append(m._l2_box(gc + Vector3(-6.0 + float(pi3) * 3.0, -15.3, -6.5), Vector3(1.3, 0.4, 1.3), potcols[pi3], 0.5))
+	_touch("paints", gc + Vector3(0.0, -15.5, -6.5), 6.0, {"nodes": paint_nodes})
 	m._l2_box(gc + Vector3(-3.0, -16.2, 3.0), Vector3(6.5, 3.0, 4.5), Color(0.7, 0.5, 0.34))   # paper table
 	m._wall_solid(gc + Vector3(-3.0, -16.2, 3.0), Vector3(6.5, 3.0, 4.5), 0.4)
 	m._l2_box(gc + Vector3(-3.8, -14.5, 2.4), Vector3(2.6, 0.25, 3.4), Color(0.98, 0.98, 0.95), 0.2)   # drawing paper
+	var crayon_nodes: Array = []
 	for cy2 in range(3):   # crayons scattered beside it
 		var cray = m._l2_box(gc + Vector3(-1.0 + float(cy2) * 0.9, -14.45, 3.6), Vector3(0.5, 0.3, 2.2), potcols[cy2], 0.4)
 		cray.rotation_degrees = Vector3(0, -14.0 + float(cy2) * 14.0, 0)
+		crayon_nodes.append(cray)
+	_touch("crayons", gc + Vector3(-0.1, -14.4, 3.6), 3.5, {"nodes": crayon_nodes})
 	# ---------- the hidden ROYAL LOO: a secret privy tucked BEHIND the Bubble
 	# Bath, deep in the basement's far corner. Find the little door!
 	# The Bubble Bath room loop already built both privy-door piers; duplicating
@@ -1137,6 +1192,7 @@ func build_music_room(o: Vector3) -> void:
 		var wall_bell: Node3D = _static_prop("res://assets/art35/galaxy/star_bell_%d.glb" % decor_i, mo + Vector3(-8.75, 11.0, -10.0 + float(decor_i) * 10.0), {}, 90.0, true)
 		if wall_bell != null:
 			wall_bell.scale = Vector3.ONE * 1.45
+			_touch("gong", wall_bell.position, 5.0, {"node": wall_bell, "pitch": 0.42 + float(decor_i) * 0.09})
 	# A framed physical music staff gives the forward wall its own silhouette and
 	# stays readable behind the xylophone from the normal room approach.
 	_static_prop("res://assets/art35/castle/music_wall_panel.glb", mo + Vector3(0.0, 8.0, 19.0), {}, 180.0, true)
@@ -1242,6 +1298,7 @@ func build_bedroom(o: Vector3) -> void:
 	lamp.light_color = Color(1.0, 0.82, 0.55); lamp.light_energy = 0.85; lamp.omni_range = 11.0
 	lamp.position = Vector3(bcx - 6.5, o.y + 4.6, bcz - 5.0); m.add_child(lamp); m.game_nodes.append(lamp)
 	m._register_castle_light(lamp, true)
+	_touch("lamp", lamp.position, 4.0, {"light": lamp})
 	# big soft rug in the middle of the room
 	var rug = m._l2_box(bo + Vector3(-5.0, 0.95, 3.0), Vector3(10, 0.1, 8), Color(0.7, 0.3, 0.4))
 	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.82, 0.66, 0.72))
@@ -1249,7 +1306,8 @@ func build_bedroom(o: Vector3) -> void:
 	var chest = m._l2_box(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), Color(0.75, 0.5, 0.3))
 	chest.material_override.roughness = 0.85
 	m._wall_solid(bo + Vector3(8.5, 1.6, 6.0), Vector3(3.4, 2.4, 2.4), 0.4)
-	m._l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
+	var chest_top: MeshInstance3D = m._l2_box(bo + Vector3(8.5, 3.0, 6.0), Vector3(3.6, 0.5, 2.6), Color(0.55, 0.34, 0.2))
+	_touch("toybox", chest.position, 4.5, {"node": chest_top})
 	# ---------- DRESS-UP VANITY: a wardrobe + mirror (swim up to pick your outfit) ----------
 	var vpos: Vector3 = bo + Vector3(-6.0, 0, 9.0)        # against the front wall, facing the room
 	var wardrobe = m._l2_box(vpos + Vector3(0, 7.0, 1.0), Vector3(7, 14, 1.6), Color(0.55, 0.34, 0.22))
@@ -1369,6 +1427,436 @@ func build_toilet(ground: Vector3) -> void:
 	tap.pitch_scale = 1.1
 	toilet_root.add_child(tap)   # frees with the imported mesh or fallback
 	m.g["toilet"] = {"pos": ground + Vector3(0, 2.1, 0), "player": tap, "armed": true}
+
+
+# ===================== TOUCH-AND-DELIGHT PROPS =====================
+# (owner request 2026-07-20) The finished castle becomes a toy house: swim
+# into a stove, couch, jam jar or chandelier and it reacts — a tween
+# animation, a sparkle burst and a soft pitched sound from the EXISTING sfx
+# set. Pure delight: no objectives, no wins, no fail states, and no new
+# OmniLights (existing lights only get transient energy pulses), so the
+# probe_passive / probe_audit contracts stay untouched. Same hysteresis
+# pattern as the toilet: each prop re-arms only after Roshan swims away.
+
+const SFX_CHIME := "res://assets/audio/chime.ogg"
+const SFX_TAP := "res://assets/audio/ui_tap.ogg"
+const SFX_BUZZ := "res://assets/audio/buzz.ogg"
+const SFX_GIGGLE := "res://assets/audio/penguin_giggle.ogg"
+const SFX_BUY := "res://assets/audio/buy.ogg"
+const SFX_BARK := "res://assets/audio/voices/chuck_bark.ogg"
+
+func _touch_reset() -> void:
+	m.g["hall_touch"] = []
+	m.g["hall_touch_said"] = {}
+	# a small round-robin player pool so overlapping touches never cut each
+	# other off; parented to a room node so it frees with the arena
+	var sfx_root := Node3D.new()
+	sfx_root.position = m.CASTLE_POS
+	m.add_child(sfx_root)
+	m.game_nodes.append(sfx_root)
+	var pool: Array = []
+	for i in range(4):
+		var ap := AudioStreamPlayer.new()
+		ap.bus = "SFX"
+		sfx_root.add_child(ap)
+		pool.append(ap)
+	m.g["hall_touch_sfx"] = pool
+	m.g["hall_touch_sfx_i"] = 0
+
+func _touch(kind: String, pos: Vector3, radius: float, data: Dictionary = {}) -> void:
+	# register one touchable prop; node refs ride along for the animation and
+	# their rest transforms are captured so re-touches never drift
+	if not m.g.has("hall_touch"):
+		return
+	var item := {"kind": kind, "pos": pos, "r": radius, "armed": true, "cool": 0.0}
+	for k in data:
+		item[k] = data[k]
+	for slot in ["node", "node2", "node3"]:
+		var n_v: Variant = item.get(slot)
+		if n_v is Node3D and is_instance_valid(n_v):
+			item["base_" + slot] = (n_v as Node3D).transform
+	(m.g["hall_touch"] as Array).append(item)
+
+func _tick_touch(delta: float, ppos: Vector3) -> void:
+	var items: Array = m.g.get("hall_touch", [])
+	for it_v in items:
+		var it: Dictionary = it_v
+		it["cool"] = maxf(0.0, float(it["cool"]) - delta)
+		var d: float = (it["pos"] as Vector3).distance_to(ppos)
+		if d > float(it["r"]) + 2.5:
+			it["armed"] = true
+		elif d < float(it["r"]) and bool(it["armed"]) and float(it["cool"]) <= 0.0:
+			it["armed"] = false
+			it["cool"] = 1.0
+			_fire_touch(it)
+
+func _touch_sfx(path: String, pitch: float = 1.0, vol_db: float = -10.0) -> void:
+	var pool: Array = m.g.get("hall_touch_sfx", [])
+	if pool.is_empty():
+		return
+	var idx: int = int(m.g.get("hall_touch_sfx_i", 0))
+	m.g["hall_touch_sfx_i"] = idx + 1
+	var ap: AudioStreamPlayer = pool[idx % pool.size()]
+	if not is_instance_valid(ap) or not ResourceLoader.exists(path):
+		return
+	ap.stream = load(path)
+	ap.pitch_scale = pitch
+	ap.volume_db = vol_db
+	ap.play()
+
+func _touch_chords(pitches: Array, gap: float = 0.16, vol: float = -10.0, path: String = SFX_CHIME) -> void:
+	# a little melodic run — one pitched note per step
+	if pitches.is_empty():
+		return
+	var tw: Tween = m.create_tween()
+	for p in pitches:
+		tw.tween_callback(_touch_sfx.bind(path, float(p), vol))
+		tw.tween_interval(gap)
+
+func _touch_msg(kind: String, who: String, txt: String) -> void:
+	# first touch of each KIND says one playful line; after that the prop
+	# just animates so the HUD never turns into a chatterbox
+	var said: Dictionary = m.g.get("hall_touch_said", {})
+	if bool(said.get(kind, false)):
+		return
+	said[kind] = true
+	m.show_msg(who, txt)
+
+func _touch_node(it: Dictionary, slot: String = "node") -> Node3D:
+	# fetch a registered node and snap it back to its rest transform so the
+	# new animation starts clean even if the old one was still running
+	var n_v: Variant = it.get(slot)
+	if n_v is Node3D and is_instance_valid(n_v):
+		var n3: Node3D = n_v
+		if it.has("base_" + slot):
+			n3.transform = it["base_" + slot]
+		return n3
+	return null
+
+func _touch_hop(n3: Node3D, h: float, spin: float = 0.0) -> void:
+	var tw: Tween = n3.create_tween()
+	tw.tween_property(n3, "position:y", n3.position.y + h, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(n3, "position:y", n3.position.y, 0.30).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if spin != 0.0:
+		var tw2: Tween = n3.create_tween()
+		tw2.tween_property(n3, "rotation:y", n3.rotation.y + spin, 0.46).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _touch_wiggle(n3: Node3D, amt: float, axis: String = "rotation:z") -> void:
+	# damped shake around one axis (pots rock, tapestries ripple, bells sway)
+	var base: float = n3.rotation.x if axis == "rotation:x" else n3.rotation.z
+	var tw: Tween = n3.create_tween()
+	tw.tween_property(n3, axis, base + amt, 0.10)
+	tw.tween_property(n3, axis, base - amt * 0.6, 0.14)
+	tw.tween_property(n3, axis, base + amt * 0.3, 0.12)
+	tw.tween_property(n3, axis, base, 0.12)
+
+func _touch_squash(n3: Node3D, amt: float) -> void:
+	# squash-and-stretch pop; negative amt stretches UP instead (flames)
+	var base: Vector3 = n3.scale
+	var tw: Tween = n3.create_tween()
+	tw.tween_property(n3, "scale", Vector3(base.x * (1.0 + amt * 0.7), base.y * (1.0 - amt), base.z * (1.0 + amt * 0.7)), 0.10)
+	tw.tween_property(n3, "scale", base, 0.30).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func _touch_flare(mat_v: Variant, hi: float, back: float, dur: float = 0.6) -> void:
+	# transient emission surge on a prop's OWN material (never the shared cel mats)
+	if not (mat_v is StandardMaterial3D):
+		return
+	var mat: StandardMaterial3D = mat_v
+	if not mat.emission_enabled:
+		return
+	var tw: Tween = m.create_tween()
+	tw.tween_property(mat, "emission_energy_multiplier", hi, 0.10)
+	tw.tween_property(mat, "emission_energy_multiplier", back, dur)
+
+func _touch_light_pulse(light_v: Variant, hi: float) -> void:
+	# brief brightening of an EXISTING light — no new OmniLights, budget safe
+	if not (light_v is Light3D) or not is_instance_valid(light_v):
+		return
+	var lt: Light3D = light_v
+	var base: float = lt.light_energy
+	var tw: Tween = m.create_tween()
+	tw.tween_property(lt, "light_energy", hi, 0.10)
+	tw.tween_property(lt, "light_energy", base, 0.6)
+
+func _touch_cascade(nodes: Array, gap: float, cb: Callable) -> void:
+	# fire cb(node, index) down a row of props with a little delay between each
+	if nodes.is_empty():
+		return
+	var tw: Tween = m.create_tween()
+	for i in range(nodes.size()):
+		tw.tween_callback(cb.bind(nodes[i], i))
+		tw.tween_interval(gap)
+
+func _touch_hop_pop(n_v: Variant, i: int) -> void:
+	if not (n_v is Node3D) or not is_instance_valid(n_v):
+		return
+	_touch_hop(n_v as Node3D, 0.9, 0.7)
+	_touch_sfx(SFX_TAP, 1.0 + float(i) * 0.15, -12.0)
+
+func _touch_squish_pop(n_v: Variant, i: int) -> void:
+	if not (n_v is Node3D) or not is_instance_valid(n_v):
+		return
+	_touch_squash(n_v as Node3D, 0.35)
+	_touch_sfx(SFX_TAP, 0.7 + float(i) * 0.08, -16.0)
+
+func _touch_jar_pop(n_v: Variant, i: int) -> void:
+	if not (n_v is Node3D) or not is_instance_valid(n_v):
+		return
+	var n3: Node3D = n_v
+	_touch_hop(n3, 0.5)
+	_touch_sfx(SFX_CHIME, 1.0 + float(i) * 0.12, -14.0)
+
+func _touch_paint_pop(n_v: Variant, i: int) -> void:
+	if not (n_v is Node3D) or not is_instance_valid(n_v):
+		return
+	var n3: Node3D = n_v
+	_touch_hop(n3, 0.6)
+	var col := Color(1, 1, 1)
+	if n3 is MeshInstance3D and (n3 as MeshInstance3D).material_override is StandardMaterial3D:
+		col = ((n3 as MeshInstance3D).material_override as StandardMaterial3D).albedo_color
+	m._sparkle_burst(n3.position + Vector3(0, 1.0, 0), col)
+	_touch_sfx(SFX_TAP, 0.9 + float(i) * 0.1, -12.0)
+
+func _touch_pad_glow(n_v: Variant, i: int) -> void:
+	if not (n_v is Node3D) or not is_instance_valid(n_v):
+		return
+	var n3: Node3D = n_v
+	if n3 is MeshInstance3D:
+		_touch_flare((n3 as MeshInstance3D).material_override, 2.6, 0.4, 0.5)
+	_touch_hop(n3, 0.4)
+	_touch_sfx(SFX_CHIME, 1.2 + float(i) * 0.24, -12.0)
+
+func _fire_touch(it: Dictionary) -> void:
+	var pos: Vector3 = it["pos"]
+	match String(it["kind"]):
+		"throne":
+			var th: Node3D = _touch_node(it)
+			if th != null:
+				_touch_squash(th, 0.12)
+			m._sparkle_burst(pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
+			m._sparkle_burst(pos + Vector3(0, 6.0, 0), Color(1.0, 0.72, 0.85))
+			_touch_chords([0.9, 1.12, 1.35], 0.16, -8.0)
+			_touch_msg("throne", "Princess Huluu", "The royal throne suits you, Princess Roshan!")
+		"sconce":
+			var fl: Node3D = _touch_node(it)
+			if fl != null:
+				_touch_squash(fl, -0.45)
+			_touch_flare(it.get("mat"), 9.0, 4.0, 0.7)
+			_touch_light_pulse(it.get("light"), 2.2)
+			m._sparkle_burst(pos + Vector3(0, 1.0, 0), Color(1.0, 0.75, 0.4))
+			_touch_sfx(SFX_TAP, 0.8, -18.0)
+		"tapestry":
+			var tp: Node3D = _touch_node(it)
+			if tp != null:
+				_touch_wiggle(tp, 0.14, "rotation:x")
+			_touch_sfx(SFX_BUZZ, 2.4, -20.0)
+		"chandelier":
+			var ch: Node3D = _touch_node(it)
+			if ch != null:
+				_touch_wiggle(ch, 0.16)
+			_touch_flare(it.get("mat"), 1.6, 0.35, 0.8)
+			_touch_light_pulse(it.get("light"), 2.4)
+			m._sparkle_burst(pos, Color(1.0, 0.88, 0.5))
+			_touch_sfx(SFX_CHIME, 0.6, -10.0)
+		"plant":
+			var pot: Node3D = _touch_node(it)
+			if pot != null:
+				_touch_wiggle(pot, 0.12)
+			var bush: Node3D = _touch_node(it, "node2")
+			if bush != null:
+				_touch_wiggle(bush, 0.18)
+			m._sparkle_burst(pos + Vector3(0, 2.5, 0), Color(0.55, 0.85, 0.5))
+			_touch_sfx(SFX_TAP, 1.4, -16.0)
+		"bookcase":
+			var bk: Node3D = _touch_node(it)
+			if bk != null:
+				_touch_hop(bk, 1.2, TAU)
+			_touch_chords([1.6, 1.8, 2.0], 0.09, -16.0, SFX_TAP)
+			m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(0.9, 0.85, 1.0))
+			_touch_msg("bookcase", "Roshan", "A royal storybook! Once upon a time...")
+		"teatable":
+			m._sparkle_burst(pos + Vector3(0, 1.5, 0), Color(1.0, 1.0, 1.0))
+			_touch_chords([1.7, 2.0], 0.14, -12.0)
+		"toybox":
+			var lid: Node3D = _touch_node(it)
+			if lid != null:
+				_touch_hop(lid, 1.4)
+			m._sparkle_burst(pos + Vector3(0, 2.5, 0), Color(1.0, 0.6, 0.7))
+			m._sparkle_burst(pos + Vector3(0, 3.5, 0), Color(0.5, 0.8, 1.0))
+			_touch_sfx(SFX_GIGGLE, 1.2, -10.0)
+			_touch_msg("toybox", "Roshan", "Peekaboo! A whole chest of toys!")
+		"lamp":
+			var lt_v: Variant = it.get("light")
+			if lt_v is Light3D and is_instance_valid(lt_v):
+				var lt: Light3D = lt_v
+				var was_on: bool = lt.light_energy > 0.4
+				var twl: Tween = m.create_tween()
+				twl.tween_property(lt, "light_energy", 0.08 if was_on else 0.85, 0.25)
+				_touch_sfx(SFX_TAP, 1.3 if was_on else 0.9, -12.0)
+		"gong":
+			var gn: Node3D = _touch_node(it)
+			if gn != null:
+				_touch_wiggle(gn, 0.10)
+			m._sparkle_burst(pos, Color(1.0, 0.85, 0.4))
+			_touch_sfx(SFX_CHIME, float(it.get("pitch", 0.5)), -8.0)
+		"orrery":
+			var orr: Node3D = _touch_node(it)
+			if orr != null:
+				var two: Tween = m.create_tween()
+				two.tween_property(orr, "rotation:y", orr.rotation.y + TAU, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			_touch_chords([1.4, 1.7, 2.1], 0.22, -12.0)
+			m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(0.75, 0.8, 1.0))
+			_touch_msg("orrery", "Roshan", "The stars are dancing! Wheee!")
+		"chamber_star":
+			var cs: Node3D = _touch_node(it)
+			if cs != null:
+				_touch_squash(cs, 0.25)
+			m._sparkle_burst(pos, Color(1.0, 0.9, 0.6))
+			_touch_sfx(SFX_CHIME, float(it.get("pitch", 1.6)), -14.0)
+		"pillows":
+			_touch_cascade(it.get("nodes", []), 0.10, _touch_squish_pop)
+			m._sparkle_burst(pos + Vector3(0, 1.5, 0), Color(1.0, 1.0, 1.0))
+			_touch_sfx(SFX_GIGGLE, 1.0, -10.0)
+			_touch_msg("pillows", "Roshan", "Pillow party in the Cloud Lounge!")
+		"library":
+			var shelf: Node3D = _touch_node(it)
+			if shelf != null:
+				_touch_wiggle(shelf, 0.04, "rotation:x")
+			_touch_chords([1.5, 1.7, 1.9], 0.09, -16.0, SFX_TAP)
+			m._sparkle_burst(pos, Color(0.85, 0.8, 1.0))
+			_touch_msg("library", "Roshan", "So many storybooks!")
+		"cushion":
+			var cu: Node3D = _touch_node(it)
+			if cu != null:
+				_touch_squash(cu, 0.45)
+			m._sparkle_burst(pos + Vector3(0, 1.0, 0), Color(0.98, 0.92, 0.7))
+			_touch_sfx(SFX_TAP, 0.7, -14.0)
+		"blocks":
+			_touch_cascade(it.get("nodes", []), 0.12, _touch_hop_pop)
+		"toychest2":
+			var tlid: Node3D = _touch_node(it)
+			if tlid != null:
+				_touch_hop(tlid, 1.2)
+			m._sparkle_burst(pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
+			_touch_sfx(SFX_BUY, 1.0, -12.0)
+		"hopscotch":
+			_touch_cascade(it.get("nodes", []), 0.16, _touch_pad_glow)
+		"barrel":
+			var br: Node3D = _touch_node(it)
+			if br != null:
+				_touch_wiggle(br, 0.12)
+			_touch_sfx(SFX_BUZZ, 0.55, -14.0)
+		"crate":
+			var cr: Node3D = _touch_node(it)
+			if cr != null:
+				_touch_hop(cr, 0.9)
+			_touch_sfx(SFX_TAP, 0.7, -12.0)
+		"lantern":
+			_touch_flare(it.get("mat"), 7.0, 3.2, 0.7)
+			m._sparkle_burst(pos, Color(1.0, 0.8, 0.45))
+			_touch_sfx(SFX_TAP, 1.6, -18.0)
+		"dreamlamp":
+			_touch_flare(it.get("mat"), 6.5, 3.0, 0.7)
+			_touch_sfx(SFX_TAP, 1.4, -16.0)
+		"keepsake":
+			_fire_keepsake(it, pos)
+		"wacky":
+			var ws: Node3D = _touch_node(it)
+			if ws != null:
+				_touch_hop(ws, 0.8)
+			m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.7, 0.8))
+			_touch_sfx(SFX_BARK, 1.0, -6.0)
+			_touch_msg("wacky", "Wacky", "Woof woof! Wacky and Chuck love you, Roshan!")
+		"stove":
+			var potn: Node3D = _touch_node(it)
+			if potn != null:
+				_touch_hop(potn, 0.5)
+			_touch_flare(it.get("mat"), 5.0, 2.2, 0.8)
+			_touch_flare(it.get("mat2"), 3.0, 1.4, 0.8)
+			m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.6, 0.3))
+			_touch_sfx(SFX_BUZZ, 1.7, -16.0)
+			_touch_msg("stove", "Roshan", "The royal soup is bubbling! Yummy!")
+		"sink":
+			_touch_flare(it.get("mat"), 3.0, 1.0, 0.6)
+			m._sparkle_burst(pos + Vector3(0, 0.8, 0), Color(0.5, 0.85, 0.95))
+			_touch_chords([2.2, 2.5], 0.12, -14.0, SFX_TAP)
+		"kettle":
+			var kt: Node3D = _touch_node(it)
+			if kt != null:
+				_touch_wiggle(kt, 0.14)
+			m._sparkle_burst(pos + Vector3(0, 1.5, 0), Color(1.0, 1.0, 1.0))
+			_touch_chords([2.4, 2.4], 0.20, -14.0)
+		"teapot":
+			var tpn: Node3D = _touch_node(it)
+			if tpn != null:
+				var twp: Tween = m.create_tween()
+				twp.tween_property(tpn, "rotation:z", tpn.rotation.z + 0.35, 0.30).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+				twp.tween_interval(0.25)
+				twp.tween_property(tpn, "rotation:z", tpn.rotation.z, 0.30).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			m._sparkle_burst(pos + Vector3(0.8, 0.8, 0), Color(0.6, 0.85, 0.9))
+			_touch_sfx(SFX_CHIME, 1.7, -14.0)
+		"jars":
+			_touch_cascade(it.get("nodes", []), 0.11, _touch_jar_pop)
+			_touch_msg("jars", "Roshan", "Jingle-jangle jam jars!")
+		"tub":
+			var twb: Tween = m.create_tween()
+			for i in range(3):
+				twb.tween_callback(m._sparkle_burst.bind(pos + Vector3(randf() * 3.0 - 1.5, 0.5 + float(i) * 0.8, randf() * 2.0 - 1.0), Color(0.6, 0.9, 1.0) if i % 2 == 0 else Color(1.0, 1.0, 1.0)))
+				twb.tween_interval(0.18)
+			_touch_sfx(SFX_GIGGLE, 1.3, -10.0)
+			_touch_msg("tub", "Roshan", "Bubble party in the royal bath!")
+		"duck":
+			for slot in ["node", "node2", "node3"]:
+				var dn: Node3D = _touch_node(it, slot)
+				if dn != null:
+					_touch_hop(dn, 0.5)
+			_touch_sfx(SFX_GIGGLE, 1.6, -8.0)
+		"vanity_mirror":
+			m._sparkle_burst(pos, Color(1.0, 0.75, 0.9))
+			_touch_sfx(SFX_CHIME, 1.9, -12.0)
+			_touch_msg("vanity_mirror", "Roshan", "Who's that beautiful mermaid? It's YOU!")
+		"towels":
+			_touch_cascade(it.get("nodes", []), 0.10, _touch_squish_pop)
+		"paints":
+			_touch_cascade(it.get("nodes", []), 0.12, _touch_paint_pop)
+			_touch_msg("paints", "Roshan", "Splish splash, rainbow paint!")
+		"crayons":
+			_touch_cascade(it.get("nodes", []), 0.10, _touch_hop_pop)
+
+func _fire_keepsake(it: Dictionary, pos: Vector3) -> void:
+	# each Dreaming Floor bedroom keepsake tells its own tiny story
+	match String(it.get("sub", "")):
+		"tiara":
+			var tiara_nodes: Array = it.get("nodes", [])
+			if tiara_nodes.size() > 1 and tiara_nodes[1] is Node3D and is_instance_valid(tiara_nodes[1]):
+				_touch_hop(tiara_nodes[1] as Node3D, 0.6)
+			m._sparkle_burst(pos, Color(1.0, 0.85, 0.4))
+			_touch_sfx(SFX_CHIME, 1.8, -12.0)
+		"minichest":
+			var kc: Node3D = _touch_node(it)
+			if kc != null:
+				_touch_hop(kc, 0.7)
+			m._sparkle_burst(pos + Vector3(0, 1.0, 0), Color(1.0, 0.85, 0.4))
+			_touch_sfx(SFX_BUY, 1.2, -14.0)
+		"cradle":
+			var cn: Node3D = _touch_node(it)
+			if cn != null:
+				_touch_wiggle(cn, 0.12)
+			var bn: Node3D = _touch_node(it, "node2")
+			if bn != null:
+				_touch_wiggle(bn, 0.12)
+			_touch_chords([1.0, 0.84], 0.30, -14.0)
+		"star":
+			var sn: Node3D = _touch_node(it)
+			if sn != null:
+				_touch_squash(sn, 0.3)
+			m._sparkle_burst(pos, Color(1.0, 0.9, 0.4))
+			_touch_sfx(SFX_CHIME, 2.2, -12.0)
+		"note":
+			var nn: Node3D = _touch_node(it)
+			if nn != null:
+				_touch_hop(nn, 0.8)
+			_touch_sfx(SFX_CHIME, 1.4, -10.0)
 
 
 func slide_stand() -> void:
@@ -1539,6 +2027,8 @@ func tick(delta: float, ppos: Vector3) -> void:
 			bd["cool"] = 0.12
 			m._ring_bell(bd)
 	m._tick_bellgame(bg2, delta, ppos)
+	# touch-and-delight furniture: every room's props react to a nudge
+	_tick_touch(delta, ppos)
 	# secret easter-egg chest behind the throne -> ONE consistent bonus game.
 	# Fires once when you reach it; will not fire again until you swim away and come back
 	# (so it never spins randomly through games while you linger nearby).
