@@ -1041,12 +1041,12 @@ def build_bedroom_set() -> bpy.types.Object:
 	poly_tube("headboard_ice_trim", [(-2.75, 3.0, 4.1), (-2.15, 3.0, 5.65),
 		(0, 3.0, 6.85), (2.15, 3.0, 5.65), (2.75, 3.0, 4.1)],
 		.16, MATS["snow"], r)
-	panel_xz("footboard", [(-3.0, 0), (3.0, 0), (3.0, 1.65),
-		(0, 2.45), (-3.0, 1.65)], .48, (0, -3.48, .65),
+	panel_xz("footboard", [(-3.0, 0), (3.0, 0), (3.0, 1.1),
+		(0, 1.65), (-3.0, 1.1)], .48, (0, -3.48, .45),
 		MATS["mountain_blue"], r)
 	panel_xz("foot_crown", [(-.85, 0), (.85, 0), (.72, .8), (.32, .35),
 		(0, 1.35), (-.32, .35), (-.72, .8)], .14,
-		(0, -3.76, 1.15), MATS["gold"], r)
+		(0, -3.76, .75), MATS["gold"], r)
 
 	# Broad quilt layers and pillows model softness without costly cloth sims.
 	rounded_box("quilt_blue", (0, -.55, 2.43), (5.25, 4.85, .42),

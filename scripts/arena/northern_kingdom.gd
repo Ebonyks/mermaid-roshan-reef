@@ -1111,7 +1111,7 @@ func _build_grand_hall(o: Vector3) -> void:
 			c + Vector3(bx, mezz_y + 7.0, -8.2), Vector3(14.0, 2.4, 0.8), ice)
 		header.material_override = m._castle_mat("marble", 0.09, ice)
 		var bedroom_set: Node3D = _north_prop("bedroom_set",
-			c + Vector3(bx, mezz_y, -15.0), 11.8)
+			c + Vector3(bx, mezz_y, -15.0), 10.4)
 		if bedroom_set != null:
 			_light_hall_art(bedroom_set)
 			m._set_vis_range(bedroom_set, 100.0)

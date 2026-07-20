@@ -99,9 +99,9 @@ func _init() -> void:
 	var center_bedroom: Node3D = bedroom_sets[1] as Node3D
 	var bedroom_pos: Vector3 = center_bedroom.global_position
 	await _shot("north_22_hall_bedrooms", bedroom_pos + Vector3(-8.0, 7.5, 4.5),
-		bedroom_pos + Vector3(0, 2.2, -0.3), 60.0)
+		bedroom_pos + Vector3(0, 2.2, -0.3), 85.0)
 	await _shot("north_22b_hall_bedroom_set", bedroom_pos + Vector3(0, 8.8, 5.5),
-		bedroom_pos + Vector3(0, 2.0, 0), 60.0)
+		bedroom_pos + Vector3(0, 2.0, 0), 85.0)
 	await _shot("north_23_wisp_near", o + Vector3(9, 44, 318),
 		o + Vector3(3, 37, 330))
 	print("NORTHSHOT|DONE|", out_dir)

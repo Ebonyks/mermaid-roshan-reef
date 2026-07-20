@@ -54,7 +54,7 @@ No score may be raised merely because an asset is new.
 | forge | 2.70 | 4.52 | pass | gabled canopy, chimney, stone hearth, coals, horned anvil, tools and sign |
 | street lantern | 2.90 | 4.58 | pass | stone foot, curved iron hook, cage, cap and warm modeled lamp core |
 | hall centerpiece | 2.80 | 4.55 | pass | six based/capped pillars, linking ice arches, tiered fountain, jets and crystals |
-| bedroom set | 2.85 | 4.68 | pass | crowned snowflake headboard, framed bed, layered quilt, pillows, braided rug, lantern and story shelf |
+| bedroom set | 2.85 | 4.68 | pass | crowned snowflake headboard, lowered sightline-safe footboard, layered quilt, pillows, braided rug, lantern and story shelf |
 
 The lowest final candidate is 4.50; the highest is 4.74. Scores remain below
 the 4.9 ceiling and reflect visible limitations of a low-poly Mobile kit.
@@ -159,7 +159,7 @@ family.
 - Functional evidence: `scripts/probe_northern.gd`
 
 The runtime loop rejected blank/rear castle framing, exterior-fountain
-occlusion, a buried standing-stone family, seven bedroom-camera framings, and the
-primitive bedroom set itself before acceptance. The final exact-HEAD CI run and
-artifact are linked in the task handoff; the stable evidence name remains
-`northern-world-review`.
+occlusion, a buried standing-stone family, nine bedroom-camera framings, an
+over-tall footboard, and the primitive bedroom set itself before acceptance.
+The final exact-HEAD CI run and artifact are linked in the task handoff; the
+stable evidence name remains `northern-world-review`.
