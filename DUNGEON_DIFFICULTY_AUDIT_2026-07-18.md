@@ -18,6 +18,17 @@ This is a design document. No code changes ship with it; the
 files, probe assertions, and hard rules so the changes can land as small
 gated commits later.
 
+> **Addendum 2026-07-20** — after owner playtest reports (Crystal Chimes
+> clue unreadable, Turtle Gallery "broken", Frozen River unclear), the
+> readability and stuck-help fixes shipped in
+> `scripts/dungeon_puzzle_room.gd`: clue symbols enlarged on contrast
+> discs with a current-step marker, statue facing-beaks + done-orbs +
+> pearl pedestal, bigger path stones, no mid-puzzle teleport, wider
+> lantern heights, and escalating reminder prompts (10s: repeat the
+> voice objective; 20s or two wrong taps: the golden arrow points at
+> the exact next target; re-prompt every 12s). Guidance only points —
+> it never auto-solves. The room reorder (§4) has NOT shipped yet.
+
 ---
 
 ## 1. What exists today
