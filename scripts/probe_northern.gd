@@ -54,8 +54,13 @@ func _init() -> void:
 	_ck("forest has understory and mushrooms",
 		int(main.g.get("north_brush_count", 0)) >= 24
 		and int(main.g.get("north_mushroom_count", 0)) >= 10)
-	_ck("two spirit clearings of standing stones",
-		int(main.g.get("north_stone_count", 0)) == 10)
+	var stone_positions: Array = main.g.get("north_stone_positions", [])
+	var stones_grounded := stone_positions.size() == 10
+	for stone_pos: Vector3 in stone_positions:
+		stones_grounded = stones_grounded and absf(stone_pos.y
+			- main.northern_walk_h(stone_pos.x, stone_pos.z)) < 0.75
+	_ck("two grounded spirit clearings of standing stones",
+		int(main.g.get("north_stone_count", 0)) == 10 and stones_grounded)
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3)
 	_ck("authored northern asset family", int(main.g.get(
 		"north_authored_asset_family_count", 0)) == 24

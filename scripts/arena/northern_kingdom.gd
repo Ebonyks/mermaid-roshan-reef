@@ -725,6 +725,7 @@ func _build_spirit_clearings(o: Vector3) -> void:
 	# with glowing element glyphs. These are the future spirit-boss arenas,
 	# so the ground is kept clear and the stones carry all the dressing.
 	var stone_count := 0
+	var stone_positions: Array[Vector3] = []
 	for ci in range(2):
 		var cc: Vector2 = CLEARING_A if ci == 0 else CLEARING_B
 		var tint: Color = (Color(0.95, 0.55, 0.98) if ci == 0
@@ -733,11 +734,12 @@ func _build_spirit_clearings(o: Vector3) -> void:
 			var ang: float = TAU * float(si) / 5.0 + float(ci) * 0.6
 			var sp: Vector3 = o + Vector3(cc.x + cos(ang) * 13.0, 0.0,
 				cc.y + sin(ang) * 13.0)
-			sp.y = _north_local(sp.x - o.x, sp.z - o.z)
+			sp.y = o.y + _north_local(sp.x - o.x, sp.z - o.z)
 			var stone: Node3D = _north_prop("spirit_stone", sp,
 				6.3 + _jit(si + ci * 5, 2.4), PI * 0.5 - ang)
 			if stone != null:
 				m._set_vis_range(stone, 125.0)
+				stone_positions.append(sp)
 			m._wall_solid(sp + Vector3(0, 3.0, 0), Vector3(2.6, 6.0, 2.1), 0.5)
 			stone_count += 1
 
@@ -756,6 +758,7 @@ func _build_spirit_clearings(o: Vector3) -> void:
 		m.add_child(heart)
 		m.game_nodes.append(heart)
 	m.g["north_stone_count"] = stone_count
+	m.g["north_stone_positions"] = stone_positions
 
 
 func _build_town(o: Vector3) -> void:
