@@ -39,6 +39,7 @@ jobs:
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/audit_fairy_art_v2.py
+          python3 tools/audit_sky_lagoon_kit.py
 
       - name: Import (deadlock-guarded)
         run: |
@@ -156,6 +157,24 @@ jobs:
         with:
           name: reef-first-world-review
           path: /tmp/reef-shots/*.png
+          if-no-files-found: warn
+
+      - name: Capture Sky Lagoon visual review
+        continue-on-error: true
+        env:
+          SKY_LAGOON_SHOT_OUT: /tmp/sky-lagoon-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$SKY_LAGOON_SHOT_OUT"
+          timeout 8m xvfb-run -a godot --rendering-method mobile -s scripts/probe_sky_lagoon_art.gd
+
+      - name: Upload Sky Lagoon visual review
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: sky-lagoon-review
+          path: /tmp/sky-lagoon-shots/*.png
           if-no-files-found: warn
 
       - name: Capture northern-world visual review

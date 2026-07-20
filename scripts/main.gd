@@ -2244,18 +2244,21 @@ func _build_kart_portal() -> void:
 	var tw := ring.create_tween().set_loops()
 	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
-func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
+func _kart_gateway(pos: Vector3, label: String, col: Color, show_ring: bool = true) -> void:
 	# a clear, glowing race portal at a rainbow leg
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 5.0; tm.outer_radius = 6.5; tm.rings = 24; tm.ring_segments = 12
-	ring.mesh = tm
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
-	var m := ShaderMaterial.new(); m.shader = sh
-	ring.material_override = m
-	ring.position = pos
-	add_child(ring); game_nodes.append(ring)
+	if show_ring:
+		var ring := MeshInstance3D.new()
+		var tm := TorusMesh.new()
+		tm.inner_radius = 5.0; tm.outer_radius = 6.5; tm.rings = 24; tm.ring_segments = 12
+		ring.mesh = tm
+		var sh := Shader.new()
+		sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
+		var ring_mat := ShaderMaterial.new(); ring_mat.shader = sh
+		ring.material_override = ring_mat
+		ring.position = pos
+		add_child(ring); game_nodes.append(ring)
+		var tw := ring.create_tween().set_loops()
+		tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 	var lab := Label3D.new()
 	lab.text = label; lab.font_size = 64; lab.outline_size = 14
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -2266,8 +2269,6 @@ func _kart_gateway(pos: Vector3, label: String, col: Color) -> void:
 	gl.light_color = col; gl.light_energy = 3.0; gl.omni_range = 22.0
 	gl.position = pos
 	add_child(gl); game_nodes.append(gl)
-	var tw := ring.create_tween().set_loops()
-	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
 
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
 	_fade_cut(_start_kart_game_now.bind(reversed, ground))
