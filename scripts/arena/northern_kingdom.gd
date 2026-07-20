@@ -143,7 +143,7 @@ func _light_hall_art(node: Node) -> void:
 					var standard := material as StandardMaterial3D
 					standard.emission_enabled = true
 					standard.emission = standard.albedo_color.lightened(0.18)
-					standard.emission_energy_multiplier = 0.42
+					standard.emission_energy_multiplier = 0.58
 	for child in node.get_children():
 		_light_hall_art(child)
 
@@ -735,7 +735,7 @@ func _build_spirit_clearings(o: Vector3) -> void:
 				cc.y + sin(ang) * 13.0)
 			sp.y = _north_local(sp.x - o.x, sp.z - o.z)
 			var stone: Node3D = _north_prop("spirit_stone", sp,
-				6.3 + _jit(si + ci * 5, 2.4), ang + 0.4)
+				6.3 + _jit(si + ci * 5, 2.4), PI * 0.5 - ang)
 			if stone != null:
 				m._set_vis_range(stone, 125.0)
 			m._wall_solid(sp + Vector3(0, 3.0, 0), Vector3(2.6, 6.0, 2.1), 0.5)
@@ -875,7 +875,7 @@ func _build_castle(o: Vector3) -> void:
 	var c: Vector3 = o + Vector3(CASTLE_LOCAL.x, HALL_FLOOR, CASTLE_LOCAL.y)
 	var wall_col: Color = Color(0.78, 0.84, 0.96)
 	var roof_col: Color = Color(0.32, 0.40, 0.66)
-	var authored_castle: Node3D = _north_prop("center_castle", c, 96.0, PI)
+	var authored_castle: Node3D = _north_prop("center_castle", c, 96.0, 0.0)
 	if authored_castle != null:
 		m._set_vis_range(authored_castle, 390.0)
 
@@ -1033,8 +1033,8 @@ func _build_grand_hall(o: Vector3) -> void:
 	var floor_mat: StandardMaterial3D = m._castle_mat("marble", 0.10,
 		Color(0.88, 0.95, 1.0))
 	floor_mat.emission_enabled = true
-	floor_mat.emission = Color(0.24, 0.34, 0.50)
-	floor_mat.emission_energy_multiplier = 0.28
+	floor_mat.emission = Color(0.44, 0.56, 0.74)
+	floor_mat.emission_energy_multiplier = 0.52
 	floor_slab.material_override = floor_mat
 
 	# Matching analytic collision for the authored pillar ring.
@@ -1116,7 +1116,7 @@ func _build_grand_hall(o: Vector3) -> void:
 		var quilt_mat: StandardMaterial3D = m._castle_mat("fabric", 0.14, quilts[bi])
 		quilt_mat.emission_enabled = true
 		quilt_mat.emission = quilts[bi].darkened(0.35)
-		quilt_mat.emission_energy_multiplier = 0.34
+		quilt_mat.emission_energy_multiplier = 0.54
 		quilt.material_override = quilt_mat
 		var pillow: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.6, -2.4),
 			Vector3(3.2, 0.6, 1.4), Color(0.97, 0.96, 0.92))

@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import math
 import random
+import sys
 from pathlib import Path
 
 import bpy
@@ -23,6 +24,10 @@ ASSET_OUT = ROOT / "assets" / "northern"
 SOURCE_OUT = ROOT / "assets_src" / "blender"
 QA_OUT = SOURCE_OUT / "qa_northern_kingdom_kit"
 BLEND_OUT = SOURCE_OUT / "northern_kingdom_kit.blend"
+ONLY_ASSET = ""
+for argument in sys.argv[1:]:
+	if argument.startswith("--only="):
+		ONLY_ASSET = argument.split("=", 1)[1]
 for folder in (ASSET_OUT, SOURCE_OUT, QA_OUT):
 	folder.mkdir(parents=True, exist_ok=True)
 
@@ -765,21 +770,34 @@ def build_wisp() -> bpy.types.Object:
 
 def build_spirit_stone() -> bpy.types.Object:
 	r = root("northern_spirit_stone")
-	ground_vignette(r, 2.4, 960, False)
-	stone = crag_mesh("carved_menhir", 6.6, 1.55, 961, MATS["stone"], r)
-	stone.scale = (1.0, .72, 1.0)
-	stone.rotation_euler.y = math.radians(7)
-	panel_xz("menhir_shadow", [(-.7, 0), (.15, .2), (.62, 3.9), (-.25, 5.2)],
-		.16, (0, -1.13, .75), MATS["stone_dark"], r)
-	# The elemental crest is modeled geometry so it remains crisp without fonts.
-	for arm in range(6):
-		angle = math.tau * float(arm) / 6.0
-		bar = rounded_box("crest_arm_%d" % arm, (0, -1.32, 4.0),
-			(.14, .12, 1.05), MATS["wisp_b" if arm % 2 else "ice"], r,
-			(0, angle, 0), .04)
+	# A compact base and strongly vertical silhouette keep this readable as a
+	# standing ritual stone when the runtime camera is several metres away.
+	ground_vignette(r, 1.8, 960, False)
+	cylinder("menhir_lower_plinth", (0, 0, .34), 1.75, .62,
+		MATS["stone_dark"], r, 10)
+	cylinder("menhir_upper_plinth", (0, 0, .78), 1.42, .36,
+		MATS["stone_light"], r, 10)
+	stone = crag_mesh("carved_menhir", 7.2, 1.18, 961, MATS["stone"], r)
+	stone.location.z = .92
+	stone.scale = (.94, .72, 1.0)
+	stone.rotation_euler.y = math.radians(3)
+	panel_xz("menhir_shadow", [(-.55, 0), (.12, .18), (.48, 4.7),
+		(0, 6.15), (-.5, 4.55)], .14, (0, -.88, 1.2), MATS["stone_dark"], r)
+	# The oversized elemental crest is modeled geometry rather than a font or
+	# billboard, so its identity remains crisp under the Mobile renderer.
+	crest_z = 5.0
+	for arm in range(8):
+		angle = math.tau * float(arm) / 8.0
+		bar = rounded_box("crest_arm_%d" % arm, (0, -1.02, crest_z),
+			(.16, .12, 1.42), MATS["wisp_b" if arm % 2 else "ice"], r,
+			(0, angle, 0), .045)
 		bar.rotation_euler.y = angle
-	blob("crest_heart", (0, -1.34, 4.0), (.3, .16, .3), MATS["snow"], r, 962)
-	crystal_cluster(r, (1.55, -.2, .32), .62, "menhir_crystal")
+	blob("crest_heart", (0, -1.08, crest_z), (.46, .2, .46), MATS["snow"], r, 962)
+	ring("crest_halo", (0, -.98, crest_z), 1.05, .1, MATS["gold"], r,
+		(math.pi * .5, 0, 0))
+	cone("menhir_crown", (0, 0, 8.48), .72, .05, 1.05,
+		MATS["wisp_b"], r, 8)
+	crystal_cluster(r, (1.45, -.2, .38), .72, "menhir_crystal")
 	return r
 
 
@@ -1082,6 +1100,10 @@ def triangles(obj: bpy.types.Object) -> int:
 
 
 for asset_name, asset in ASSETS.items():
+	if ONLY_ASSET != "" and asset_name != ONLY_ASSET:
+		for member in family(asset):
+			member.hide_render = True
+		continue
 	runtime_triangles = export_asset(asset_name, asset)
 	lo, hi = bounds(asset)
 	print("NORTH_KIT|%s|triangles=%d|bounds=%s..%s" % (asset_name, runtime_triangles,
@@ -1116,6 +1138,8 @@ scene.world.node_tree.nodes["Background"].inputs["Color"].default_value = (0.055
 scene.world.node_tree.nodes["Background"].inputs["Strength"].default_value = .36
 
 for asset_name, asset in ASSETS.items():
+	if ONLY_ASSET != "" and asset_name != ONLY_ASSET:
+		continue
 	for member in family(asset):
 		member.hide_render = False
 	lo, hi = bounds(asset)
@@ -1131,5 +1155,5 @@ for asset_name, asset in ASSETS.items():
 	for member in family(asset):
 		member.hide_render = True
 
-print("NORTH_KIT|assets|%d" % len(ASSETS))
+print("NORTH_KIT|assets|%d" % (1 if ONLY_ASSET != "" else len(ASSETS)))
 print("NORTH_KIT|blend|%s" % BLEND_OUT)
