@@ -1028,9 +1028,30 @@ func _process(delta: float) -> void:
 		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
 		var back_eff: float = cam_back * (1.0 + 0.10 * cam_spd)
 		var target := position + Vector3(-sin(cyaw) * back_eff, cam_high + cam_pitch_off, -cos(cyaw) * back_eff)
-		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
-		cam.look_at(position + Vector3(0, 1.5, 0))
+		var focus := position + Vector3(0, 1.5, 0)
+		# analytic boom (CAMERA_AUDIT_2026_07 P0): resolve the ideal spot
+		# against walls/terrain/ceilings, glide toward it, then resolve the
+		# glide too — so the boom shortens INSTANTLY when geometry intrudes
+		# but relaxes back out smoothly once it has passed
+		var want := CameraKit.resolve(_m0, focus, target)
+		var glide := cam.position.lerp(want, 1.0 - pow(0.001, delta))
+		cam.position = CameraKit.resolve(_m0, focus, glide)
+		cam.look_at(focus)
 		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
+
+func snap_cam() -> void:
+	# Place the chase camera at its resolved rest pose INSTANTLY. Call after
+	# any teleport or mode handback: the worlds sit thousands of units apart
+	# and the chase lerp would otherwise fly the lens through everything
+	# between them for a full second.
+	if cam == null or not cam.is_inside_tree():
+		return
+	cam_orbit = 0.0
+	cam_pitch_off = 0.0
+	var target := position + Vector3(-sin(yaw) * cam_back, cam_high, -cos(yaw) * cam_back)
+	var focus := position + Vector3(0, 1.5, 0)
+	cam.position = CameraKit.resolve(get_parent(), focus, target)
+	cam.look_at(focus)
 
 func _tick_wake(delta: float, speed: float) -> void:
 	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed

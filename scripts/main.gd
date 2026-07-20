@@ -2497,6 +2497,7 @@ func _end_combat(battle_kind: String) -> void:
 			var toilet_pos: Vector3 = (g["toilet"] as Dictionary)["pos"]
 			player.position = toilet_pos + Vector3(5.5, 1.0, 0)
 			player.vel = Vector3.ZERO
+		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	combat_from = ""
 
 func _start_stuffie_battle() -> void:
@@ -2537,6 +2538,7 @@ func _end_stuffie_battle(round_tag: String) -> void:
 	player.visible = true
 	if player.cam != null:
 		player.cam.make_current()
+		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	if hud_layer != null:
 		hud_layer.visible = true
 
@@ -2569,6 +2571,7 @@ func _end_dungeon(completed: bool) -> void:
 		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
+	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
 
 func _start_opera() -> void:
@@ -2600,6 +2603,7 @@ func _end_opera(completed: bool) -> void:
 		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
+	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
@@ -3279,6 +3283,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> v
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
+	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
 	game = "north"
@@ -3304,6 +3309,7 @@ func _enter_northern_kingdom() -> void:
 	player.position = Vector3(NORTHERN_POS.x, spawn_y + 2.0, NORTHERN_POS.z + 332.0)
 	player.yaw = PI
 	player.vel = Vector3.ZERO
+	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	show_msg("Roshan", "A magical forest! The glowing lights lead to the fjord castle!", "pearl")
 
 func _build_page_frame() -> void:
@@ -4345,6 +4351,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 		player.yaw = 0.0
 		player.vel = Vector3.ZERO
 		show_msg("Pearl Castle", "The Grand Hall! Princess Huluu is waiting up on the throne - climb the royal staircase!")
+	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	# a stained-glass grid of glowing coloured panels (no mermaid)
@@ -5042,6 +5049,7 @@ func _exit_level2_now() -> void:
 	else:
 		player.position = return_pos
 	player.vel = Vector3.ZERO
+	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
 	show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5082,6 +5090,7 @@ func _do_finish_level2() -> void:
 	else:
 		player.position = return_pos
 	player.vel = Vector3.ZERO
+	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
 	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
 
@@ -5959,6 +5968,13 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
 
 func _process(delta: float) -> void:
+	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
+	# current camera without restoring one (kart/galaxy teardown guards,
+	# cancel(false) paths), fall back to Roshan instead of a black screen
+	var vp_cam: Camera3D = get_viewport().get_camera_3d()
+	if vp_cam == null and player != null and player.cam != null and player.cam.is_inside_tree():
+		player.snap_cam()
+		player.cam.make_current()
 	if save_dirty:
 		save_retry_t -= delta
 		if save_retry_t <= 0.0:
