@@ -45,10 +45,19 @@ func _init() -> void:
 	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	var act: OperaAct = opera.act
 	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 130)
+	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
+	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
-	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play")
+	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
+	# a sparkle with no imp near just fizzles — never a fail (probe-only
+	# teleport to centre stage guarantees every imp is out of reach)
+	var far_left: int = act.imps_left
+	act.player_pos = act.CENTER + Vector3(0.0, 1.1, 14.0)
+	act._brawl_action()
+	_ck("far sparkle fizzles kindly in the brawl", act.imps_left == far_left)
+	_drive_brawl(act)
+	_ck("popped imps open the curtain to the stage", act.stage_phase == "puzzle")
 	# a wrong tap wobbles and re-hints, it never fails or advances
 	var first_cfg: Dictionary = OperaHouse.ACTS[0]
 	var order: Array = first_cfg["order"]
@@ -73,6 +82,10 @@ func _init() -> void:
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
 		act = opera.act
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
+		if bool(cfg2.get("shell", false)):
+			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
+			_drive_brawl(act)
+			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
 		match String(cfg2["kind"]):
 			"order":
 				await _drive_order(act, cfg2)
@@ -85,7 +98,7 @@ func _init() -> void:
 			"press":
 				await _drive_press(act)
 			"doctor":
-				_drive_doctor(act)
+				await _drive_doctor(act)
 			"scroll":
 				_drive_scroll(act)
 			"race":
@@ -108,6 +121,15 @@ func _init() -> void:
 	_ck("completion returns to the castle", main.game == "level2" and main.opera_game == null)
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
+
+func _drive_brawl(act: OperaAct) -> void:
+	for g in act.imps:
+		if bool(g["popped"]):
+			continue
+		act.player_pos = (g["pos"] as Vector3)
+		act._brawl_action()
+	if act.stage_phase == "puzzle":
+		act.player_pos = act.CENTER + Vector3(0, 1.1, 14.0)
 
 func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 	var order: Array = cfg["order"]
@@ -195,7 +217,10 @@ func _drive_fix(act: OperaAct) -> void:
 		act._place_piece()
 	_ck("three placed pipes reveal the valve", act.fix_phase == "valve")
 	act._turn_valve()
-	_ck("spinning the valve launches the rocket", act.state == "won")
+	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
+	act._turn_valve()
+	act._turn_valve()
+	_ck("three valve spins launch the rocket", act.state == "won")
 
 func _drive_press(act: OperaAct) -> void:
 	# a mistimed press only squishes a giggle — the candy always survives
@@ -211,28 +236,38 @@ func _drive_press(act: OperaAct) -> void:
 		else:
 			await process_frame
 	_ck("press act does not stall", guard < 900)
-	_ck("three smiley candies finish the show", act.candies_done == 3)
+	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
 
 func _drive_doctor(act: OperaAct) -> void:
-	_ck("checkup has five one-touch steps", act.doc_targets.size() == 5)
+	_ck("checkup has eight one-touch steps", act.doc_targets.size() == 8)
 	act._doctor_action(3)
 	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
-	for s in range(5):
+	for s in range(act.doc_targets.size()):
+		var guard := 0
+		while act.doc_wait > 0.0 and guard < 400:
+			guard += 1
+			await process_frame
+		_ck("care moment rests before step %d" % s, act.doc_wait <= 0.0)
 		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
 		act.player_pos = reach
 		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
 		act._doctor_action(act.doc_step)
-	_ck("five tended steps heal the plushy", act.state == "won")
+		if s == 0:
+			_ck("giggling plushy pauses the next tap kindly", act.doc_wait > 0.0)
+			var step_now: int = act.doc_step
+			act._doctor_action(act.doc_step)
+			_ck("tap during the care moment is swallowed gently", act.doc_step == step_now)
+	_ck("every tended step heals the plushy", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
-	_ck("meadow has five hungry piggies", act.piggies.size() == 5)
+	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
 	act._toss_action()
 	_ck("toss with nobody close is gentle (no feed)", act.state == "play" and act.farm_fed == 0)
-	for i in range(5):
+	for i in range(act.piggies.size()):
 		act.farm_toss_cool = 0.0
 		act.piggies[i]["sx"] = 250.0
 		act._toss_action()
-	_ck("five fed piggies finish the picnic", act.state == "won" and act.farm_fed == 5)
+	_ck("every fed piggy finishes the picnic", act.state == "won" and act.farm_fed == act.piggies.size())
 
 func _drive_race(act: OperaAct) -> void:
 	var guard := 0
@@ -270,7 +305,7 @@ func _drive_dance(act: OperaAct) -> void:
 
 func _drive_boss(act: OperaAct, dual: bool) -> void:
 	var hp: int = int(act.boss["hp"])
-	_ck("boss starts with three sparkle stars", hp == 3)
+	_ck("boss starts with its configured sparkle stars", hp >= 3)
 	if dual:
 		_ck("phantom opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
 		act._hit_boss()

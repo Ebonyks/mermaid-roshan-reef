@@ -43,6 +43,34 @@ func _init() -> void:
 		and main.get_child_count() >= wayfinder_children + 3)
 	print("WAYFINDER|Level 2 sparkle trail: ", "OK" if wayfinder_ok else "FAIL")
 	_kart_gateway_regressions(main, player)
+	# The courtyard opera marquee (owner 2026-07-19): swim-in entrance with
+	# leave-and-return hysteresis, and the home-safe leave places Roshan aside.
+	var og_ok: bool = main.g.has("opera_gate") and String(main.g.get("phase", "court")) == "court"
+	if og_ok:
+		var old_cut: float = main.l2_cutscene_t
+		main.l2_cutscene_t = -1.0
+		var og: Dictionary = main.g["opera_gate"]
+		var og_pos: Vector3 = og["pos"]
+		og["armed"] = false
+		og["cool"] = 0.0
+		main._tick_level2(0.0, og_pos)
+		var og_blocked: bool = main.opera_game == null
+		main._tick_level2(0.0, og_pos + Vector3(12.0, 0.0, 0.0))
+		var og_rearmed: bool = bool(og["armed"])
+		main._tick_level2(0.0, og_pos)
+		await process_frame   # flush the deferred _start_opera
+		var og_opened: bool = main.opera_game != null and main.game == "opera"
+		if main.opera_game != null:
+			main.opera_game._leave_early()
+		await process_frame
+		var og_returned: bool = (main.game == "level2" and main.opera_game == null
+			and og_pos.distance_to(player.position) < 9.0)
+		main.l2_cutscene_t = old_cut
+		og_ok = og_blocked and og_rearmed and og_opened and og_returned
+		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s"
+			% [og_blocked, og_rearmed, og_opened, og_returned])
+	if not og_ok:
+		print("FAIL|courtyard opera marquee gate regression")
 	# The Alpine addition must remain one distinct corner, clear of the train,
 	# with its attached mountain and near-summit secret cave fully built.
 	var alpine_ok: bool = (main.g.has("alpine_village_center")

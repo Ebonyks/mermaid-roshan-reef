@@ -119,6 +119,19 @@ jobs:
           done
           exit $FAILED
 
+      # Advisory balance playtest: ten simulated-child runs per opera act
+      # (personas with reaction delays, travel, wandering, wrong taps) via
+      # manual _process pumping. Prints BALANCE| metrics with a verdict
+      # against the 55-140s fun band. Review-only — never gates the build.
+      - name: Opera balance playtest (advisory)
+        continue-on-error: true
+        run: |
+          BAL_HOME="/tmp/reef-balance"
+          rm -rf "$BAL_HOME"
+          mkdir -p "$BAL_HOME/data" "$BAL_HOME/config"
+          XDG_DATA_HOME="$BAL_HOME/data" XDG_CONFIG_HOME="$BAL_HOME/config" \
+            timeout 10m godot --headless -s scripts/probe_opera_balance.gd -- --touch 2>&1 | grep -E "^BALANCE\|" || true
+
       # The screenshot captures below are review aids, not gameplay gates.
       # They are continue-on-error so a flaky Xvfb capture cannot fail this
       # workflow and thereby block the Android APK publish (android.yml
