@@ -76,6 +76,15 @@ Lagoon a dedicated contrast grade, uses only its authored courtyard sun while
 the world is active, restores the reef sun on ocean return, and makes Speedy the
 binding full capture tier with Sparkly comparison views.
 
+Iteration four (`046fbcf`) passed import, the full analyzer, every trusted probe,
+the child-paced Level 2 traversal, and Mobile visual review in GitHub Actions run
+`29714300033`. It clears the prior clipping rejection: terrain, water, plants,
+gates, clouds, and castle masonry retain distinct color/value groups in Speedy,
+with the Sparkly comparisons remaining readable. The complete evidence set is
+stored under `assets_src/sky_lagoon/runtime_candidate_046fbcf/` as a 4/5
+owner-review candidate. It is not a 5/5 award, and the train consist/track,
+Alpine construction, and assembled castle exterior remain open P0 families.
+
 ## Acceptance gates
 
 1. `probe_l2.gd` must report the botanical rule, all kit resources, and all fixed
