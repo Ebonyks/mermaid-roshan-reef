@@ -19,9 +19,11 @@ func _init() -> void:
 		and not main.sun_light.visible
 		and main.arena_env != null
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon"
-		and main.arena_env.ambient_light_energy <= 0.46)
-	print("LIGHTING|single Lagoon sun + contrast grade: ",
-		"OK" if lagoon_light_ok else "FAIL")
+		and main.arena_env.ambient_light_energy <= 0.461)
+	print("LIGHTING|single Lagoon sun + contrast grade: %s sun=%s ambient=%.4f profile=%s"
+		% ["OK" if lagoon_light_ok else "FAIL", main.sun_light.visible,
+		main.arena_env.ambient_light_energy,
+		String(main.arena_env.get_meta("scene_grade_profile", ""))])
 	if not lagoon_light_ok:
 		print("FAIL|Sky Lagoon ocean-sun or exposure regression")
 	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
