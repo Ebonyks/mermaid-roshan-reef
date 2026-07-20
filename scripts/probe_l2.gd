@@ -44,6 +44,7 @@ func _init() -> void:
 		kit_resources_ok = (kit_resources_ok and ResourceLoader.exists(
 			"res://assets/sky_lagoon/lagoon_kit/" + kit_name + ".glb"))
 	var lagoon_counts: Dictionary = main.g.get("lagoon_art_counts", {})
+	var expected_butterfly_gate_count: int = 1 if main.galaxy_unlocked else 0
 	var grounded_flora_count: int = 0
 	for flora_role: String in lagoon.LAGOON_GROUND_FLORA:
 		grounded_flora_count += int(lagoon_counts.get(flora_role, 0))
@@ -56,7 +57,7 @@ func _init() -> void:
 		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
 		and int(lagoon_counts.get("lagoon_memory_frame", 0)) == 6
 		and int(lagoon_counts.get("lagoon_rainbow_race_arch", 0)) == 2
-		and int(lagoon_counts.get("lagoon_butterfly_world_gate", 0)) == 1
+		and int(lagoon_counts.get("lagoon_butterfly_world_gate", 0)) == expected_butterfly_gate_count
 		and int(lagoon_counts.get("lagoon_train_station", 0)) == 1
 		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
 		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")
