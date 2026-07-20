@@ -4,9 +4,10 @@
 
 The previous 17-family Northern kit did not satisfy the new threshold. Every
 existing family scored below 4.5/5 under the stricter rubric, so none was
-grandfathered. The kit was regenerated twice, obvious defects were rejected,
-and seven previously procedural landmark families were added. The runtime now
-uses 24 authored Northern families.
+grandfathered. The kit was regenerated through five deterministic review
+passes, obvious defects were rejected, and seven previously procedural
+landmark families were added. The runtime now uses 24 authored Northern
+families.
 
 The audit ceiling is **4.9**, as requested. A score of **4.50** is the release
 floor; a score below 4.00 is not acceptable even as background dressing.
@@ -21,7 +22,7 @@ Each dimension is capped at 0.98:
 4. ecological/functional placement continuity;
 5. Mobile-render polish, repetition control, and performance fitness.
 
-Isolated Blender Eevee renders are the first gate. The fixed 23-view Godot
+Isolated Blender Eevee renders are the first gate. The fixed 24-view Godot
 Mobile-render set from `scripts/probe_northern_art_audit.gd` is the final gate.
 No score may be raised merely because an asset is new.
 
@@ -46,7 +47,7 @@ No score may be raised merely because an asset is new.
 | fjord dock | 4.12 | 4.72 | pass | individual planks, cross-bracing, stone feet, rope knots, ladder and bumpers |
 | center castle | 4.08 | 4.73 | pass | open doorway, hollow keep shell, banners, stone courses, courtyard and crystals |
 | wisp | 3.72 | 4.74 | pass | faceted crossed flame, orbit ring, modeled star, core and asymmetric motes |
-| spirit stone | 2.80 | 4.56 | pass | authored menhir, modeled crest, shadow facet, crystals and planted base |
+| spirit stone | 2.80 | 4.72 | pass | tall tapered menhir, two-tier plinth, oversized modeled halo/crest and crystal crown |
 | log bridge | 2.90 | 4.59 | pass | individual planks, six posts, sagging rope, knots and bank stones |
 | mill house | 3.00 | 4.55 | pass | timber frame, gable, roof courses, warm windows, deck, logs and saw sign |
 | mill wheel | 3.10 | 4.64 | pass | double rim, hub, eight spokes and eight functional paddles |
@@ -88,6 +89,11 @@ the 4.9 ceiling and reflect visible limitations of a low-poly Mobile kit.
 - explicit garden flowers remain on modeled soil beds rather than snow/stone;
 - pines remain legal on snow, matching the owner rule.
 
+Standing-stone positions also use the Northern world's Y offset before adding
+local terrain height. The functional probe stores all ten positions and checks
+each against the actual walk surface, preventing buried or floating ritual
+stones from passing a count-only test.
+
 The functional probe tests representative positive and negative cases so later
 shared-library additions cannot silently reintroduce tropical or aquatic life.
 
@@ -122,7 +128,10 @@ shared-library additions cannot silently reintroduce tropical or aquatic life.
 - Deterministic builder: `tools/build_northern_kingdom_kit.py`
 - Isolated renders: `assets_src/blender/qa_northern_kingdom_kit/`
 - Machine-readable ledger: `audit/northern_quality_ledger_2026-07-19.csv`
-- Runtime evidence: `northern-world-review` CI artifact (23 Mobile-render PNGs)
+- Runtime evidence: `northern-world-review` CI artifact (24 Mobile-render PNGs)
 - Functional evidence: `scripts/probe_northern.gd`
 
-The runtime artifact/run ID is appended after the branch CI completes.
+The runtime loop rejected blank/rear castle framing, exterior-fountain
+occlusion, a buried standing-stone family, and three bedroom cameras before
+acceptance. The final exact-HEAD CI run and artifact are linked in the task
+handoff; the stable evidence name remains `northern-world-review`.

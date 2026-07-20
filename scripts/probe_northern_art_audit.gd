@@ -95,8 +95,10 @@ func _init() -> void:
 		o + Vector3(0, 10, -328), 72.0)
 	await _shot("north_21_hall_centerpiece", o + Vector3(5, 12, -307),
 		o + Vector3(0, 9, -320), 66.0)
-	await _shot("north_22_hall_bedrooms", o + Vector3(-19, 28, -336),
-		o + Vector3(-19, 18.5, -344), 82.0)
+	await _shot("north_22_hall_bedrooms", o + Vector3(0, 21, -337),
+		o + Vector3(0, 18.5, -343.5), 80.0)
+	await _shot("north_22b_hall_bedroom_quilt", o + Vector3(0, 23, -340),
+		o + Vector3(0, 18.0, -344), 80.0)
 	await _shot("north_23_wisp_near", o + Vector3(9, 44, 318),
 		o + Vector3(3, 37, 330))
 	print("NORTHSHOT|DONE|", out_dir)
