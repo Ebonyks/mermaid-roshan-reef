@@ -27,7 +27,7 @@ human review. Provenance or successful import does not award 5/5.
 |---|---:|---|---|
 | Meadow undergrowth | 1/5 | One enlarged leaf used as a whole bush or grass plant; obvious crossed-card repetition | Replaced by five complete modeled growth habits |
 | Pond edge | 1/5 | Fourteen single spear leaves mislabeled as cattails | Replaced by ten rooted multi-stem reed beds |
-| Fairy Pond flowers | 1/5 | Glowing spheres stood in for flowering plants | Replaced by rooted coral and lavender flower clusters |
+| Fairy Pond | 1/5 | Glowing spheres stood in for flowers, and the entire pond was buried under the rolling terrain | Replaced by rooted flower clusters, seated pond and trigger on terrain height, and reduced the reading-dependent label to a fairy pictogram |
 | Riverbanks | 2/5 | Bare shader boundary with little physical transition | Added restrained modeled bank-stone groups |
 | Grand-path lighting | 2/5 | Box/cylinder lamp construction | Replaced visible side with shell-crested story lanterns; collider and light contract preserved |
 | Protected memory displays | 3/5 | Book art floated in generic generated slabs | Added shell-and-gold architectural surrounds; source art unchanged |
@@ -59,6 +59,14 @@ crests, and clouds in navy. The same review also rejected the previously shipped
 opaque Butterfly World gate. Iteration two reverses those faces, uses smooth
 normals on rounded masses, and adds an open four-wing gate. Green probes alone
 did not promote the rejected candidate.
+
+Iteration two (`9da8457`) passed every technical and gameplay gate but was also
+rejected by Mobile review: the Fairy Pond was buried under its hill, the high-key
+lighting bleached new materials, one low cloud obscured the castle, and the
+Alpine camera entered a wall. Iteration three seats the pond and trigger on the
+terrain surface, reserves its footprint, deepens source palette bands for the
+actual Lagoon lighting, composes smaller clouds around the island rim, and fixes
+the invalid review camera.
 
 ## Acceptance gates
 

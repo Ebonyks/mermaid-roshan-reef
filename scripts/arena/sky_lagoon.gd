@@ -727,9 +727,14 @@ func _build_pearl_castle(o: Vector3) -> void:
 			star.visible = false
 		m.l2_stars.append({"node": star, "got": pre_got})
 	# ---------- layered storybook clouds + rainbow accents ----------
-	for cz in range(14):
-		var cloud: Node3D = LandmarkArtFactory.create_cloud(7.0 + randf() * 3.0, cz)
-		cloud.position = o + Vector3(randf() * 380.0 - 190.0, 55.0 + randf() * 40.0, randf() * 380.0 - 190.0)
+	# Keep broad clouds high and around the island rim. The former low random
+	# scatter repeatedly parked a giant cloud directly across the castle facade.
+	for cz in range(10):
+		var cloud_angle: float = float(cz) / 10.0 * TAU + randf_range(-0.16, 0.16)
+		var cloud_radius: float = 138.0 + randf() * 52.0
+		var cloud: Node3D = LandmarkArtFactory.create_cloud(4.8 + randf() * 2.0, cz)
+		cloud.position = o + Vector3(cos(cloud_angle) * cloud_radius,
+			78.0 + randf() * 45.0, sin(cloud_angle) * cloud_radius)
 		m.add_child(cloud)
 		m.game_nodes.append(cloud)
 	# ---------- the COURTYARD TRAIN: a ride circling the castle ----------
@@ -1649,8 +1654,11 @@ func _build_lagoon_night(o: Vector3) -> void:
 func _build_fairy_pond(o: Vector3) -> void:
 	# a glowing fairy pond off in the courtyard — swim into it (after the castle opens)
 	# to fly the top-down fairy sparkle dodger
-	var c: Vector3 = o + Vector3(125.0, 0.0, 35.0)
-	m.fairy_pond_pos = c + Vector3(0, 6.0, 0)
+	var pond_local := Vector2(125.0, 35.0)
+	var c: Vector3 = o + Vector3(pond_local.x,
+		_lagoon_local(pond_local.x, pond_local.y), pond_local.y)
+	m.fairy_pond_pos = c + Vector3(0, 4.0, 0)
+	m.g["fairy_pond_surface_y"] = c.y
 	var pond := MeshInstance3D.new()
 	var cm := CylinderMesh.new(); cm.top_radius = 17.0; cm.bottom_radius = 17.0; cm.height = 1.0
 	pond.mesh = cm
@@ -1660,7 +1668,7 @@ func _build_fairy_pond(o: Vector3) -> void:
 	pmat.set_shader_parameter("albedo_mix", 0.32)
 	pmat.set_shader_parameter("albedo_scale", 0.045)
 	pond.material_override = pmat
-	pond.position = c + Vector3(0, 2.6, 0)
+	pond.position = c + Vector3(0, 0.65, 0)
 	m.add_child(pond); m.game_nodes.append(pond)
 	# Rooted modeled flower clusters replace the old glowing spheres. Each reads
 	# as a complete flowering plant and preserves the one-light pond budget.
@@ -1668,15 +1676,15 @@ func _build_fairy_pond(o: Vector3) -> void:
 		var a: float = float(k) / 10.0 * TAU
 		var flower_role := "lagoon_flower_cluster_lavender" if k % 2 == 0 else "lagoon_flower_cluster_coral"
 		_lagoon_prop(flower_role,
-			c + Vector3(cos(a) * 18.0, 2.25, sin(a) * 18.0), 1.10, -a)
+			c + Vector3(cos(a) * 18.0, 0.10, sin(a) * 18.0), 1.10, -a)
 	var l := OmniLight3D.new()
 	l.light_color = Color(0.7, 0.72, 1.0); l.light_energy = 2.6; l.omni_range = 32.0
-	l.position = c + Vector3(0, 9, 0); m.add_child(l); m.game_nodes.append(l)
+	l.position = c + Vector3(0, 8, 0); m.add_child(l); m.game_nodes.append(l)
 	var lab := Label3D.new()
-	lab.text = "🧚 Fairy Pond — fly!"
-	lab.font_size = 64; lab.pixel_size = 0.05; lab.outline_size = 14
+	lab.text = "🧚"
+	lab.font_size = 80; lab.pixel_size = 0.035; lab.outline_size = 10
 	lab.modulate = Color(0.88, 0.82, 1.0); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.position = c + Vector3(0, 13, 0); m.add_child(lab); m.game_nodes.append(lab)
+	lab.position = c + Vector3(0, 10, 0); m.add_child(lab); m.game_nodes.append(lab)
 
 
 func _sand_puff(pos: Vector3) -> void:
@@ -2482,6 +2490,8 @@ func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
 	if moat_d < m.MOAT_OUTER + clearance:
 		return false
 	if Vector2(lx + 95.0, lz - 70.0).length() < 38.0 + clearance:
+		return false
+	if Vector2(lx - 125.0, lz - 35.0).length() < 22.0 + clearance:
 		return false
 	if lz > -95.0 - clearance and lz < 172.0 + clearance and absf(lx) < 9.0 + clearance:
 		return false

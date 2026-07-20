@@ -104,8 +104,8 @@ func _init() -> void:
 			cloud.global_position, 54.0)
 	else:
 		print("LAGOONSHOT|lagoon_12_cloud_family|FAIL missing cloud")
-	await _shot("lagoon_13_alpine_edge", o + Vector3(-25, 30, -112),
-		o + Vector3(-96, 8, -180), 64.0)
+	await _shot("lagoon_13_alpine_edge", o + Vector3(-30, 40, -226),
+		o + Vector3(-96, 10, -180), 64.0)
 	await _shot_role("lagoon_14_train_station", "lagoon_train_station",
 		Vector3(0, 5, 18), Vector3(0, 2.5, 0), 58.0)
 	print("LAGOONSHOT|DONE|", out_dir)
