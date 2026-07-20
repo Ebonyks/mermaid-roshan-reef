@@ -168,27 +168,49 @@ func _build_track(o: Vector3) -> void:
 	# is shallow (1.2) so the causeway deck skims ABOVE the river surface
 	# at the crossings instead of walling the channel (fish swim under it).
 	_ring_ribbon(o, 0.0, 2.7, -0.45, 1.2, Color(0.78, 0.68, 0.52))
-	_ring_ribbon(o, -1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
-	_ring_ribbon(o, 1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
-	var ties := MultiMeshInstance3D.new()
-	var mm := MultiMesh.new()
-	mm.transform_format = MultiMesh.TRANSFORM_3D
-	var tie := BoxMesh.new()
-	tie.size = Vector3(4.6, 0.2, 1.1)
-	tie.material = _train_mat(Color(0.50, 0.36, 0.22))
-	mm.mesh = tie
-	var tie_n := 240
-	mm.instance_count = tie_n
-	for i in range(tie_n):
-		var a: float = float(i) / float(tie_n) * TAU
-		var p: Vector3 = _track_pt(a) + Vector3(0, -0.28, 0)
-		var perp: Vector3 = _track_perp(a)
-		# right-handed basis (perp x UP = this z), else the box mirrors
-		mm.set_instance_transform(i, Transform3D(Basis(perp, Vector3.UP, Vector3(-perp.z, 0, perp.x)), p))
-	ties.multimesh = mm
-	ties.position = o
-	m.add_child(ties)
-	m.game_nodes.append(ties)
+	# authored rail segments (Fable kit): one straight piece per old tie slot,
+	# oriented along the local tangent — chord sag at L 5.013 / r 191.5 is
+	# 0.016, invisible. Falls back to the procedural rails + brown ties.
+	var seg_mesh: Mesh = m._art35_static_mesh("res://assets/fable_kit/track_straight.glb")
+	var seg_n := 240
+	if seg_mesh != null:
+		var segs := MultiMeshInstance3D.new()
+		var smm := MultiMesh.new()
+		smm.transform_format = MultiMesh.TRANSFORM_3D
+		smm.mesh = seg_mesh
+		smm.instance_count = seg_n
+		for i in range(seg_n):
+			var a: float = (float(i) + 0.5) / float(seg_n) * TAU
+			var p: Vector3 = _track_pt(a)
+			var t3: Vector3 = (_track_pt(a + 0.008) - _track_pt(a - 0.008)).normalized()
+			var right: Vector3 = Vector3.UP.cross(t3).normalized()
+			var upv: Vector3 = t3.cross(right)
+			smm.set_instance_transform(i, Transform3D(Basis(right, upv, t3), p))
+		segs.multimesh = smm
+		segs.position = o
+		m.add_child(segs)
+		m.game_nodes.append(segs)
+	else:
+		_ring_ribbon(o, -1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
+		_ring_ribbon(o, 1.55, 0.17, 0.30, 0.6, Color(0.30, 0.28, 0.50))
+		var ties := MultiMeshInstance3D.new()
+		var mm := MultiMesh.new()
+		mm.transform_format = MultiMesh.TRANSFORM_3D
+		var tie := BoxMesh.new()
+		tie.size = Vector3(4.6, 0.2, 1.1)
+		tie.material = _train_mat(Color(0.50, 0.36, 0.22))
+		mm.mesh = tie
+		mm.instance_count = seg_n
+		for i in range(seg_n):
+			var a: float = float(i) / float(seg_n) * TAU
+			var p: Vector3 = _track_pt(a) + Vector3(0, -0.28, 0)
+			var perp: Vector3 = _track_perp(a)
+			# right-handed basis (perp x UP = this z), else the box mirrors
+			mm.set_instance_transform(i, Transform3D(Basis(perp, Vector3.UP, Vector3(-perp.z, 0, perp.x)), p))
+		ties.multimesh = mm
+		ties.position = o
+		m.add_child(ties)
+		m.game_nodes.append(ties)
 
 
 func _ring_ribbon(o: Vector3, lat: float, half_w: float, y_off: float, skirt: float, col: Color) -> void:
@@ -245,6 +267,35 @@ func _build_station(o: Vector3) -> void:
 		counts["lagoon_train_station"] = int(counts.get("lagoon_train_station", 0)) + 1
 		m.g["lagoon_art_counts"] = counts
 	m._kit("park/bench", o + c + Vector3(2.2, 0.6, 0), 5.0, PI * 0.5)
+	# Fable-kit boarding platform + open shelter: beside the COACH stop point
+	# (the train dwells with the engine at STATION_A; the passenger cars sit
+	# ~11..24 units back along the ring), tangentially clear of the depot
+	# building above. Rail-side edge sits 3.6 from the track centerline; both
+	# pieces stay NON-solid like the rest of the station.
+	if ResourceLoader.exists("res://assets/fable_kit/station_platform.glb"):
+		var ap: float = STATION_A - 0.09
+		var rad2 := Vector3(sin(ap), 0, cos(ap))
+		var pc: Vector3 = Vector3(RING_CX, 0, RING_CZ) + rad2 * (_ring_r(ap) + 6.2)
+		pc.y = m._lagoon_local(pc.x, pc.z)
+		var t3: Vector3 = (_track_pt(ap + 0.008) - _track_pt(ap - 0.008)).normalized()
+		t3.y = 0.0
+		t3 = t3.normalized()
+		var right: Vector3 = Vector3.UP.cross(t3).normalized()
+		# yaw PI so the boarding steps (+X local) face AWAY from the rails
+		var bas: Basis = Basis(right, Vector3.UP, t3) * Basis(Vector3.UP, PI)
+		var plat_scene: PackedScene = load("res://assets/fable_kit/station_platform.glb") as PackedScene
+		if plat_scene != null:
+			var plat: Node3D = plat_scene.instantiate() as Node3D
+			plat.transform = Transform3D(bas, o + pc)
+			m.add_child(plat)
+			m.game_nodes.append(plat)
+		if ResourceLoader.exists("res://assets/fable_kit/station_shelter.glb"):
+			var sh_scene: PackedScene = load("res://assets/fable_kit/station_shelter.glb") as PackedScene
+			if sh_scene != null:
+				var sh: Node3D = sh_scene.instantiate() as Node3D
+				sh.transform = Transform3D(bas, o + pc + Vector3(0, 1.1, 0) + t3 * -3.0)
+				m.add_child(sh)
+				m.game_nodes.append(sh)
 	var st_sign := Label3D.new()
 	st_sign.text = "🚂"
 	st_sign.font_size = 72
@@ -341,24 +392,29 @@ func _build_engine(o: Vector3) -> Node3D:
 	var navy := Color(0.22, 0.22, 0.40)
 	var gold := Color(0.95, 0.80, 0.40)
 	var car := _car_base(o, 9.0, navy, [-1.9, 0.2, 2.3], 1.3)
-	# boiler + smokebox face
-	_tcyl(car, Vector3(0, 3.8, 1.4), 1.9, 1.9, 5.2, teal, PI * 0.5)
-	_tcyl(car, Vector3(0, 3.8, 4.2), 2.05, 2.05, 0.6, navy, PI * 0.5)
-	_tsphere(car, Vector3(0, 3.8, 4.6), 0.55, gold, 2.0)   # headlamp (emissive, no light)
-	# gold boiler bands
-	for bz: float in [0.0, 2.6]:
-		_tcyl(car, Vector3(0, 3.8, bz), 1.98, 1.98, 0.3, gold, PI * 0.5)
-	# funnel + steam dome
-	_tcyl(car, Vector3(0, 6.4, 3.2), 1.0, 0.55, 1.7, navy)
-	_tsphere(car, Vector3(0, 5.9, 0.8), 0.8, gold)
-	# cab with a warm window
-	_tpart(car, Vector3(0, 4.6, -2.9), Vector3(4.4, 3.8, 2.8), teal)
-	_tpart(car, Vector3(0, 6.75, -2.9), Vector3(5.0, 0.5, 3.4), navy)
-	for sx: float in [-1.0, 1.0]:
-		_tpart(car, Vector3(sx * 2.25, 5.1, -2.9), Vector3(0.1, 1.5, 1.5), Color(1.0, 0.92, 0.65), 1.2)
-	# cowcatcher
-	var cow := _tcyl(car, Vector3(0, 1.3, 5.1), 0.2, 2.1, 1.9, navy, -PI * 0.5)
-	cow.scale = Vector3(1.0, 1.0, 0.55)
+	# authored body shell (Fable kit, built to the measured interface sheet);
+	# wheels/rods/smoke stay scripted so the ride animation is untouched
+	var body_scene: PackedScene = null
+	if ResourceLoader.exists("res://assets/fable_kit/loco_body.glb"):
+		body_scene = load("res://assets/fable_kit/loco_body.glb") as PackedScene
+	if body_scene != null:
+		var body: Node3D = body_scene.instantiate() as Node3D
+		car.add_child(body)
+	else:
+		# fallback: the original measured-primitive body
+		_tcyl(car, Vector3(0, 3.8, 1.4), 1.9, 1.9, 5.2, teal, PI * 0.5)
+		_tcyl(car, Vector3(0, 3.8, 4.2), 2.05, 2.05, 0.6, navy, PI * 0.5)
+		_tsphere(car, Vector3(0, 3.8, 4.6), 0.55, gold, 2.0)   # headlamp (emissive, no light)
+		for bz: float in [0.0, 2.6]:
+			_tcyl(car, Vector3(0, 3.8, bz), 1.98, 1.98, 0.3, gold, PI * 0.5)
+		_tcyl(car, Vector3(0, 6.4, 3.2), 1.0, 0.55, 1.7, navy)
+		_tsphere(car, Vector3(0, 5.9, 0.8), 0.8, gold)
+		_tpart(car, Vector3(0, 4.6, -2.9), Vector3(4.4, 3.8, 2.8), teal)
+		_tpart(car, Vector3(0, 6.75, -2.9), Vector3(5.0, 0.5, 3.4), navy)
+		for sx: float in [-1.0, 1.0]:
+			_tpart(car, Vector3(sx * 2.25, 5.1, -2.9), Vector3(0.1, 1.5, 1.5), Color(1.0, 0.92, 0.65), 1.2)
+		var cow := _tcyl(car, Vector3(0, 1.3, 5.1), 0.2, 2.1, 1.9, navy, -PI * 0.5)
+		cow.scale = Vector3(1.0, 1.0, 0.55)
 	# smoke puffs from the funnel
 	var puff := CPUParticles3D.new()
 	puff.amount = 16

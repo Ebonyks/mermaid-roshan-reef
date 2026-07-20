@@ -6424,6 +6424,15 @@ func _build_meadows() -> void:
 		var kelp_mesh: Mesh = _art35_static_mesh("res://assets/art35/reef/kelp_%d.glb" % variant)
 		if kelp_mesh != null:
 			_scatter_field(42, kelp_mesh, null, 0.0, false, [], false, "kelp")
+	# Fable-kit constructed flora (from the approved E1 reference sheets):
+	# volumetric ribbon kelp joins the meadow, bare antler coral joins the
+	# mixed reef floor — both single-mesh GLBs with the burial point at origin
+	var kelp_vol: Mesh = _art35_static_mesh("res://assets/fable_kit/kelp_vol_0.glb")
+	if kelp_vol != null:
+		_scatter_field(30, kelp_vol, null, 0.0, false, [], false, "kelp")
+	var coral_bare: Mesh = _art35_static_mesh("res://assets/fable_kit/coral_bare_0.glb")
+	if coral_bare != null:
+		_scatter_field(46, coral_bare, null, 0.0, false, [], false, "mixed")
 	# anemones + urchins stay procedural for now (no painted source art yet —
 	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
 	var anemone_mesh := _gen2_static_mesh("anemone_story")
