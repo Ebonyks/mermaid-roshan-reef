@@ -65,7 +65,7 @@ func _init() -> void:
 	var bedrooms_face_hall := bedroom_sets.size() == 3
 	for bedroom: Node3D in bedroom_sets:
 		bedrooms_face_hall = bedrooms_face_hall and absf(wrapf(
-			bedroom.rotation.y - PI, -PI, PI)) < 0.01
+			bedroom.rotation.y, -PI, PI)) < 0.01
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3
 		and bedrooms_face_hall)
 	_ck("authored northern asset family", int(main.g.get(

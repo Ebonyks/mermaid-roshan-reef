@@ -91,10 +91,10 @@ the 4.9 ceiling and reflect visible limitations of a low-poly Mobile kit.
 - explicit garden flowers remain on modeled soil beds rather than snow/stone;
 - pines remain legal on snow, matching the owner rule.
 
-Each royal bed is also rotated so its tall headboard is planted against the
-rear masonry wall and its lowered footboard faces the hall. The functional
-probe locks this furniture-to-room orientation so a future axis/sign mistake
-cannot turn the headboards back into visual barricades.
+Each royal bed is oriented so its tall headboard is planted against the rear
+masonry wall and its lowered footboard faces the hall. The functional probe
+locks the empirically verified zero-rotation placement so a future axis/sign
+mistake cannot turn the headboards into visual barricades.
 
 Standing-stone positions also use the Northern world's Y offset before adding
 local terrain height. The functional probe stores all ten positions and checks
@@ -165,6 +165,7 @@ family.
 
 The runtime loop rejected blank/rear castle framing, exterior-fountain
 occlusion, a buried standing-stone family, nine bedroom-camera framings, an
-over-tall footboard, a reversed bed orientation, and the primitive bedroom set
-itself before acceptance. The final exact-HEAD CI run and artifact are linked
-in the task handoff; the stable evidence name remains `northern-world-review`.
+over-tall footboard, a reversed-orientation experiment, and the primitive
+bedroom set itself before acceptance. The final exact-HEAD CI run and artifact
+are linked in the task handoff; the stable evidence name remains
+`northern-world-review`.
