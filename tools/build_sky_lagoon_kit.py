@@ -189,7 +189,7 @@ def ellipsoid(
 	material: str,
 	segments: int = 10,
 	rings: int = 6,
-	smooth: bool = False,
+	smooth: bool = True,
 ) -> None:
 	s = asset.surface(material)
 	axis_lengths = (max(length(axis_x), 1.0e-5), max(length(axis_y), 1.0e-5), max(length(axis_z), 1.0e-5))
@@ -213,18 +213,18 @@ def ellipsoid(
 			d, nd = point_normal(lat1, lon0)
 			if ring > 0:
 				if smooth:
-					s.smooth_tri((a, b, c), (na, nb, nc))
+					s.smooth_tri((a, c, b), (na, nc, nb))
 				else:
-					s.tri(a, b, c)
+					s.tri(a, c, b)
 			if ring < rings - 1:
 				if smooth:
-					s.smooth_tri((a, c, d), (na, nc, nd))
+					s.smooth_tri((a, d, c), (na, nd, nc))
 				else:
-					s.tri(a, c, d)
+					s.tri(a, d, c)
 
 
 def sphere(asset: Asset, center: Vec3, scale: Vec3, material: str, segments: int = 10,
-	rings: int = 6, smooth: bool = False) -> None:
+	rings: int = 6, smooth: bool = True) -> None:
 	ellipsoid(asset, center, (scale[0], 0, 0), (0, scale[1], 0), (0, 0, scale[2]), material, segments, rings, smooth)
 
 
@@ -289,6 +289,36 @@ def arch_band(asset: Asset, radius: float, width: float, depth: float, material:
 		i0f, i1f = p(inner, a0, depth * 0.5), p(inner, a1, depth * 0.5)
 		o0b, o1b = p(outer, a0, -depth * 0.5), p(outer, a1, -depth * 0.5)
 		i0b, i1b = p(inner, a0, -depth * 0.5), p(inner, a1, -depth * 0.5)
+		s.quad(i0f, o0f, o1f, i1f, (0, 0, 1))
+		s.quad(o0b, i0b, i1b, o1b, (0, 0, -1))
+		s.quad(o0f, o0b, o1b, o1f)
+		s.quad(i0b, i0f, i1f, i1b)
+
+
+def ellipse_band(asset: Asset, center: tuple[float, float], radius_x: float,
+	radius_y: float, width: float, depth: float, material: str,
+	tilt: float = 0.0, segments: int = 32) -> None:
+	"""Build a closed oval rim in the XY plane for a readable open wing."""
+	s = asset.surface(material)
+	inner_x = radius_x - width
+	inner_y = radius_y - width
+	cos_tilt = math.cos(tilt)
+	sin_tilt = math.sin(tilt)
+	def p(rx: float, ry: float, angle: float, z: float) -> Vec3:
+		local_x = math.cos(angle) * rx
+		local_y = math.sin(angle) * ry
+		return (
+			center[0] + local_x * cos_tilt - local_y * sin_tilt,
+			center[1] + local_x * sin_tilt + local_y * cos_tilt,
+			z,
+		)
+	for index in range(segments):
+		a0 = math.tau * index / segments
+		a1 = math.tau * (index + 1) / segments
+		o0f, o1f = p(radius_x, radius_y, a0, depth * 0.5), p(radius_x, radius_y, a1, depth * 0.5)
+		i0f, i1f = p(inner_x, inner_y, a0, depth * 0.5), p(inner_x, inner_y, a1, depth * 0.5)
+		o0b, o1b = p(radius_x, radius_y, a0, -depth * 0.5), p(radius_x, radius_y, a1, -depth * 0.5)
+		i0b, i1b = p(inner_x, inner_y, a0, -depth * 0.5), p(inner_x, inner_y, a1, -depth * 0.5)
 		s.quad(i0f, o0f, o1f, i1f, (0, 0, 1))
 		s.quad(o0b, i0b, i1b, o1b, (0, 0, -1))
 		s.quad(o0f, o0b, o1b, o1f)
@@ -454,6 +484,34 @@ def rainbow_race_arch() -> Asset:
 	return a
 
 
+def butterfly_world_gate() -> Asset:
+	a = Asset("lagoon_butterfly_world_gate", "four_wing_swim_through_gateway")
+	# Four open oval rims preserve the book's butterfly anatomy while leaving a
+	# generous central swim-through opening. No opaque wing panel blocks the view.
+	for center, rx, ry, tilt, material in (
+		((-8.0, 3.5), 4.5, 5.4, -0.16, "lavender"),
+		((8.0, 3.5), 4.5, 5.4, 0.16, "coral_light"),
+		((-6.7, -3.2), 3.3, 3.7, 0.20, "aqua"),
+		((6.7, -3.2), 3.3, 3.7, -0.20, "mint"),
+	):
+		ellipse_band(a, center, rx, ry, 0.52, 0.82, material, tilt)
+	# Four visible roots tie the open rims to one thorax. They stop short of the
+	# ground-level passage and read as wing veins rather than extra portal rings.
+	for target in ((-3.65, 5.0, 0.0), (3.65, 5.0, 0.0),
+		(-3.45, -0.2, 0.0), (3.45, -0.2, 0.0)):
+		cylinder(a, (0.0, 5.1, 0.0), target, 0.16, 0.10, "gold", 7)
+		sphere(a, target, (0.26, 0.26, 0.20), "gold", 8, 4)
+	# Body and antennae remain above the player opening, with a countable head,
+	# thorax, abdomen, and two antennae instead of a face-like ornament.
+	cylinder(a, (0.0, 4.4, 0.0), (0.0, 8.7, 0.0), 0.58, 0.42, "ink", 10)
+	sphere(a, (0.0, 9.35, 0.0), (0.70, 0.70, 0.62), "gold", 10, 6)
+	cylinder(a, (-0.25, 9.75, 0.0), (-1.55, 11.25, 0.0), 0.10, 0.055, "ink", 7)
+	cylinder(a, (0.25, 9.75, 0.0), (1.55, 11.25, 0.0), 0.10, 0.055, "ink", 7)
+	sphere(a, (-1.62, 11.32, 0.0), (0.20, 0.20, 0.18), "gold", 8, 4)
+	sphere(a, (1.62, 11.32, 0.0), (0.20, 0.20, 0.18), "gold", 8, 4)
+	return a
+
+
 def train_station() -> Asset:
 	a = Asset("lagoon_train_station", "courtyard_train_station")
 	box(a, (0, 0.22, 0), (5.8, 0.44, 12.0), "stone_light")
@@ -508,6 +566,7 @@ ASSETS: list[tuple[Asset, Path]] = [
 	(story_lantern(), KIT_OUT / "lagoon_story_lantern.glb"),
 	(memory_frame(), KIT_OUT / "lagoon_memory_frame.glb"),
 	(rainbow_race_arch(), KIT_OUT / "lagoon_rainbow_race_arch.glb"),
+	(butterfly_world_gate(), KIT_OUT / "lagoon_butterfly_world_gate.glb"),
 	(train_station(), KIT_OUT / "lagoon_train_station.glb"),
 	(snowbank(), KIT_OUT / "lagoon_snowbank.glb"),
 	(cloud_variant(0), CLOUD_OUT / "cloud_0.glb"),

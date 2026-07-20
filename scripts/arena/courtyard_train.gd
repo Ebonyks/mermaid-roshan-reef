@@ -246,10 +246,10 @@ func _build_station(o: Vector3) -> void:
 		m.g["lagoon_art_counts"] = counts
 	m._kit("park/bench", o + c + Vector3(2.2, 0.6, 0), 5.0, PI * 0.5)
 	var st_sign := Label3D.new()
-	st_sign.text = "🚂 Castle Train — hop on!"
-	st_sign.font_size = 56
-	st_sign.pixel_size = 0.05
-	st_sign.outline_size = 14
+	st_sign.text = "🚂"
+	st_sign.font_size = 72
+	st_sign.pixel_size = 0.035
+	st_sign.outline_size = 10
 	st_sign.modulate = Color(1.0, 0.92, 0.7)
 	st_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	st_sign.position = o + c + Vector3(0, 8.2, 0)

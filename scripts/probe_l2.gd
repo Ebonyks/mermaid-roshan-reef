@@ -37,7 +37,7 @@ func _init() -> void:
 		"lagoon_flower_cluster_coral", "lagoon_flower_cluster_lavender",
 		"lagoon_mushroom_cluster", "lagoon_pond_reeds", "lagoon_river_stones",
 		"lagoon_story_lantern", "lagoon_memory_frame", "lagoon_rainbow_race_arch",
-		"lagoon_train_station", "lagoon_snowbank",
+		"lagoon_butterfly_world_gate", "lagoon_train_station", "lagoon_snowbank",
 	]
 	var kit_resources_ok := true
 	for kit_name: String in kit_paths:
@@ -56,6 +56,7 @@ func _init() -> void:
 		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
 		and int(lagoon_counts.get("lagoon_memory_frame", 0)) == 6
 		and int(lagoon_counts.get("lagoon_rainbow_race_arch", 0)) == 2
+		and int(lagoon_counts.get("lagoon_butterfly_world_gate", 0)) == 1
 		and int(lagoon_counts.get("lagoon_train_station", 0)) == 1
 		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
 		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")

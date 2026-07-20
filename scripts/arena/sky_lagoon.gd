@@ -416,10 +416,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m.bw_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, bwz) + 14.0, bwz)
 	if m.galaxy_unlocked:
 		m._kart_gateway(m.bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3), false)
-		var bwg = m._butterfly_gate(4.2)
-		bwg.position = m.bw_portal_pos
-		m.add_child(bwg)
-		m.game_nodes.append(bwg)
+		_lagoon_prop("lagoon_butterfly_world_gate", m.bw_portal_pos, 1.0, 0.0)
 	else:
 		var lockl := Label3D.new()
 		lockl.text = "🦋 Butterfly World\nwin the Rainbow Race to soar there!"

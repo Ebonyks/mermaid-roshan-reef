@@ -34,12 +34,13 @@ human review. Provenance or successful import does not award 5/5.
 | Rainbow race route | 2/5 | One giant decorative torus disagreed with two remote gameplay triggers | Replaced by one authored arch at each functional race trigger |
 | Train station | 1/5 | Primitive slab, posts, and roof | Replaced station shell; train cars and track remain a separate P0 rebuild |
 | Clouds | 1/5 | Small lumpy/faceted silhouettes and muddy value grouping | Rebuilt as three smooth broad cloud families; runtime review required |
+| Butterfly World gate | 1/5 | Giant opaque wing panels obscured the route and failed as a swim-through frame | Replaced in iteration two by four open wing rims, a complete body, and two antennae at the existing trigger |
 | Alpine snow edge | 3/5 | Abrupt shader boundary | Added low snowbank families without changing clearances |
 | Castle exterior | 3/5 | Stronger than the old gate, but much of the shell still reads as assembled primitives | Not closed by this kit; retain as P0 for an authored exterior-shell pass |
 | Alpine chalets and crag | 2-3/5 | Primitive breakup and weak material hierarchy | Not closed; retain as P0 after runtime review of this pass |
 | Courtyard train cars and track | 1/5 | Functional primitives dominate a high-frequency ride | Not closed; station is only the first replacement |
 | Playground | 3/5 | Imported toy set is coherent but not fully integrated with Lagoon motifs | Review in the dedicated capture set before deciding whether to rebuild |
-| Dream Stars and Butterfly gate | 4/5 candidate | Prior authored rebuilds are functionally readable; acceptance still requires current runtime views | Re-capture alongside new work; do not auto-promote |
+| Dream Stars | 4/5 candidate | Prior authored rebuild is functionally readable; acceptance still requires current runtime views | Re-capture alongside new work; do not auto-promote |
 
 ## New authored kit
 
@@ -51,6 +52,13 @@ are preserved under `backups/art_pre_sky_lagoon_5of5_2026-07-19/`.
 The kit adds no textures and does not replace book art, family voices, friend
 cutouts, or stuffed animals. Navigation solids, minigame triggers, race trigger
 coordinates, pond trigger, and save keys are unchanged.
+
+Iteration one (`1e2412a`) was rejected after Mobile review: ellipsoid faces were
+wound inward, allowing the inverted-hull pass to cover plant crowns, shell
+crests, and clouds in navy. The same review also rejected the previously shipped
+opaque Butterfly World gate. Iteration two reverses those faces, uses smooth
+normals on rounded masses, and adds an open four-wing gate. Green probes alone
+did not promote the rejected candidate.
 
 ## Acceptance gates
 

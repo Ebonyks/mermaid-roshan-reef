@@ -65,6 +65,10 @@ func _init() -> void:
 	await _settle(40)
 	if main.hud_layer != null:
 		main.hud_layer.visible = false
+	if main.touch_ui != null:
+		main.touch_ui.visible = false
+	if main.pause_layer != null:
+		main.pause_layer.visible = false
 	cam = Camera3D.new()
 	cam.far = 800.0
 	get_root().add_child(cam)
@@ -84,19 +88,19 @@ func _init() -> void:
 		Vector3(9, 5, 12), Vector3(0, 1.5, 0), 52.0, 2)
 	await _shot_role("lagoon_06_riverbank_stones", "lagoon_river_stones",
 		Vector3(12, 6, 14), Vector3(0, 0.5, 0), 55.0, 2)
-	await _shot("lagoon_07_fairy_pond", main.fairy_pond_pos + Vector3(30, 23, 34),
+	await _shot("lagoon_07_fairy_pond", main.fairy_pond_pos + Vector3(24, 13, 26),
 		main.fairy_pond_pos + Vector3(0, -2, 0), 62.0)
 	await _shot("lagoon_08_playground", o + Vector3(120, 36, 125),
 		o + Vector3(74, 7, 92), 64.0)
 	await _shot("lagoon_09_rainbow_race_gate", main.kart_legA + Vector3(0, 5, 20),
 		main.kart_legA + Vector3(0, 3, 0), 54.0)
-	await _shot("lagoon_10_butterfly_world_gate", main.bw_portal_pos + Vector3(12, 7, 17),
-		main.bw_portal_pos + Vector3(0, 2, 0), 50.0)
+	await _shot("lagoon_10_butterfly_world_gate", main.bw_portal_pos + Vector3(0, 4, 34),
+		main.bw_portal_pos + Vector3(0, 1, 0), 55.0)
 	await _shot("lagoon_11_castle_facade", o + Vector3(0, 26, -42),
 		o + Vector3(0, 30, -120), 62.0)
 	var cloud: Node3D = _find_meta("landmark_art", "storybook_cloud", 1)
 	if cloud != null:
-		await _shot("lagoon_12_cloud_family", cloud.global_position + Vector3(18, 6, 28),
+		await _shot("lagoon_12_cloud_family", cloud.global_position + Vector3(22, 5, 32),
 			cloud.global_position, 54.0)
 	else:
 		print("LAGOONSHOT|lagoon_12_cloud_family|FAIL missing cloud")

@@ -20,6 +20,7 @@ EXPECTED = {
 	"assets/sky_lagoon/lagoon_kit/lagoon_story_lantern.glb": "storybook_path_lantern",
 	"assets/sky_lagoon/lagoon_kit/lagoon_memory_frame.glb": "protected_memory_display_surround",
 	"assets/sky_lagoon/lagoon_kit/lagoon_rainbow_race_arch.glb": "rainbow_race_gateway",
+	"assets/sky_lagoon/lagoon_kit/lagoon_butterfly_world_gate.glb": "four_wing_swim_through_gateway",
 	"assets/sky_lagoon/lagoon_kit/lagoon_train_station.glb": "courtyard_train_station",
 	"assets/sky_lagoon/lagoon_kit/lagoon_snowbank.glb": "alpine_snow_edge_cluster",
 	"assets/art35/landmarks/cloud_0.glb": "soft_toon_cloud_family",
