@@ -1067,6 +1067,10 @@ func build_music_room(o: Vector3) -> void:
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
+	# rainbow per bar for the strike sparkle: the GLB props keep their authored
+	# materials, so the burst color lives here, not on a material_override
+	var bellcols: Array[Color] = [Color(1.0, 0.5, 0.5), Color(1.0, 0.72, 0.42), Color(1.0, 0.95, 0.55),
+		Color(0.6, 0.95, 0.6), Color(0.55, 0.85, 1.0), Color(0.65, 0.6, 1.0), Color(0.9, 0.6, 1.0)]
 	m.g["bells"] = []
 	_pearl("pearl_music_rail", mo + Vector3(0.0, 0.75, 0.0))
 	for bi in range(7):
@@ -1079,7 +1083,7 @@ func build_music_room(o: Vector3) -> void:
 		bp.pitch_scale = bellpitch[bi]
 		bp.volume_db = -13.0   # much softer bells
 		bell.add_child(bp)   # parent to the bell so it frees with the room (game_nodes is Array[Node3D])
-		(m.g["bells"] as Array).append({"node": bell, "player": bp, "cool": 0.0, "base_y": bell.position.y, "tw": null})
+		(m.g["bells"] as Array).append({"node": bell, "player": bp, "cool": 0.0, "base_y": bell.position.y, "tw": null, "color": bellcols[bi]})
 	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
 	# Simon-says for little ears. Wrong notes just replay the song (no fail);
 	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
