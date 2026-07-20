@@ -450,7 +450,7 @@ const FRIEND_DEFS := [
 	{"tex": "two_friends",   "fname": "Harper and Fiona",      "msg": "Sisters Harper and Fiona! Come grab the fish down the rainbow slide!", "game": "slide", "theme": "rainbow", "mode": "fish"},
 	{"tex": "mama_baby",     "fname": "Faron",                 "msg": "Faron and her dolls! Return to catch the sleepy dolls!", "game": "dolls",
 		"discover_radius": 12.0, "linger_radius": 13.0, "start_radius": 10.0},
-	{"tex": "gabby",         "fname": "Gabby",                 "msg": "Gabby! Come catch the rainbow on stage!", "game": "melody"},
+	{"tex": "daddy",         "fname": "Daddy Mermaid",         "msg": "Daddy Mermaid! Come catch the rainbow on stage!", "game": "melody"},
 	{"tex": "wacky_chuck",   "fname": "Wacky and Chuck",       "msg": "Wacky! And Chuck! Come back to play fetch!", "game": "fetch"},
 ]
 
@@ -2164,12 +2164,32 @@ func _build_friends() -> void:
 		var fp: Vector2 = ReefDistricts.friend_position(i)
 		var x: float = fp.x
 		var z: float = fp.y
-		var spr := Sprite3D.new()
-		spr.texture = _cutout_tex(String(fd["tex"]))
-		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		spr.pixel_size = 0.016
-		spr.position = Vector3(x, seabed_y(x, z) + 6.5, z)
-		add_child(spr)
+		# 3D migration (owner 2026-07-19): prefer a gen2 model when one has
+		# landed for this character; the sprite cutout remains the fallback so
+		# the cast converts one .glb at a time with zero breakage.
+		var tex_name := String(fd["tex"])
+		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
+		var spr: Node3D
+		if ResourceLoader.exists(glb_path):
+			var fps2: PackedScene = load(glb_path)
+			var mdl: Node3D = fps2.instantiate() as Node3D
+			mdl.scale = Vector3.ONE * 4.0
+			mdl.position = Vector3(x, seabed_y(x, z) + 4.0, z)
+			add_child(mdl)
+			var fap := _find_anim(mdl)
+			if fap != null and fap.get_animation_list().size() > 0:
+				var clip: String = fap.get_animation_list()[0]
+				fap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+				fap.play(clip)
+			spr = mdl
+		else:
+			var cut := Sprite3D.new()
+			cut.texture = _cutout_tex(tex_name)
+			cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			cut.pixel_size = 0.016
+			cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+			add_child(cut)
+			spr = cut
 		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
@@ -2726,7 +2746,7 @@ func _update_hud() -> void:
 	hud_stars.text = "Friends %s   Trophies %s   Critters: %d / 18" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters] + _medal_ref().hud_suffix()
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
-const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "gabby": 1.22, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
+const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
 
 var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
@@ -2737,7 +2757,7 @@ const SPEAKER_PORTRAIT := {
 	"evie": "res://assets/characters/friends/mama_baby.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
 	"faron": "res://assets/characters/friends/mama_baby.png",
-	"gabby": "res://assets/characters/friends/gabby.png",
+	"daddy": "res://assets/characters/friends/daddy.webp",
 	"wacky": "res://assets/characters/friends/wacky_chuck.png",
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
 	"shop": "res://assets/characters/roshan_sprite.png",
@@ -2950,7 +2970,7 @@ func _add_won_star(fr: Dictionary) -> void:
 	st.modulate = Color(1.0, 0.85, 0.2)
 	st.outline_size = 24
 	st.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	st.position = (fr["node"] as Sprite3D).position + Vector3(0, 7.5, 0)
+	st.position = (fr["node"] as Node3D).position + Vector3(0, 7.5, 0)
 	add_child(st)
 	fr["star"] = st
 
@@ -5133,10 +5153,10 @@ func _tick_guide(delta: float) -> void:
 	var have := false
 	for f in friends:
 		if not bool(f["won"]):
-			var d: float = (f["node"] as Sprite3D).position.distance_to(player.position)
+			var d: float = (f["node"] as Node3D).position.distance_to(player.position)
 			if d < best:
 				best = d
-				target = (f["node"] as Sprite3D).position
+				target = (f["node"] as Node3D).position
 				have = true
 	if not have:
 		for p in pearls:
@@ -5161,7 +5181,7 @@ func _tick_guide(delta: float) -> void:
 			pmat2.albedo_color.a = 0.012
 			if beacon != null:
 				beacon.light_energy = 0.25
-		elif have and (f["node"] as Sprite3D).position == target:
+		elif have and (f["node"] as Node3D).position == target:
 			pmat2.albedo_color.a = 0.12 + 0.07 * (0.5 + 0.5 * sin(tt2 * 2.4))
 			if beacon != null:
 				beacon.light_energy = 1.5 + 0.35 * sin(tt2 * 2.4)
@@ -6023,7 +6043,7 @@ func _process(delta: float) -> void:
 			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	for f in friends:
-		var node: Sprite3D = f["node"]
+		var node: Node3D = f["node"]
 		var sparks: Array = f["sparks"]
 		for si in range(sparks.size()):
 			var orb: MeshInstance3D = sparks[si]
@@ -7150,7 +7170,7 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_intensity = 0.52
 		arena_env.glow_bloom = 0.08
-	elif kind == "melody":      # Gabby's enclosed underwater rainbow theater
+	elif kind == "melody":      # Daddy Mermaid's enclosed underwater rainbow theater
 		arena_env.background_color = Color(0.035, 0.09, 0.16)
 		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
 		arena_env.ambient_light_energy = 0.68

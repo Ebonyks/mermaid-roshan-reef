@@ -211,7 +211,7 @@ const PAINTS := [
 ]
 
 # Racer roster: deliberately AVOIDS the reef friends (Faron, Harper & Fiona,
-# Gabby, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
+# Daddy Mermaid, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
 # standing in the ocean broke the fiction. These characters live in the toy
 # nursery / story world instead, so they never appear twice at once.
 const RACERS := [
