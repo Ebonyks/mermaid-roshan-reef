@@ -84,10 +84,19 @@ func make_creature() -> Node3D:
 
 # ===================== per-frame tick (called from main._process) =====================
 
+# the free-roam worlds where the stuffie tags along (owner 2026-07-19: it
+# follows ALL the time) — self-driven modes (kart, slides, battles, 2D
+# canvas games…) still hide it so it never photobombs an engine's camera
+const FOLLOW_GAMES := ["", "level2", "north"]
+
+func _follow_ctx() -> bool:
+	return m.game in FOLLOW_GAMES
+
 func tick(delta: float) -> void:
 	if m.player == null or m.intro_active:
 		return
 	_tick_gift(delta)
+	_tick_room(delta)
 	if m.companion_id == "":
 		return
 	_tick_follower(delta)
@@ -96,10 +105,12 @@ func tick(delta: float) -> void:
 
 # ---------- the throne gift (unlock moment) ----------
 
-func _tick_gift(_delta: float) -> void:
-	# Princess Huluu's present: appears beside the Crown Star once she has
-	# greeted Roshan, until a stuffie friend has been chosen. Deliberately a
-	# walk-up-and-tap object, never an auto-modal — the crown path stays clear.
+func _tick_gift(delta: float) -> void:
+	# THE OFFER (owner 2026-07-19): meeting Princess Huluu IS the trigger.
+	# A breath after her throne greeting she says her line — "I want you to
+	# have a new friend!" — and the picker opens right there. The gift box
+	# beside the Crown Star remains only as the re-entry if the picker is
+	# closed without choosing.
 	var in_hall: bool = m.game == "level2" and String(m.g.get("phase", "court")) == "hall"
 	if not in_hall or m.companion_id != "":
 		if m.companion_gift != null and is_instance_valid(m.companion_gift):
@@ -108,6 +119,17 @@ func _tick_gift(_delta: float) -> void:
 		m.companion_gift = null
 		return
 	if not bool(m.g.get("huluu_greeted", false)):
+		return
+	if not bool(m.g.get("companion_offered", false)):
+		if m.companion_layer != null:
+			return
+		# let Huluu's greeting line breathe before her offer
+		var wait: float = float(m.g.get("companion_offer_t", 2.8)) - delta
+		m.g["companion_offer_t"] = wait
+		if wait <= 0.0:
+			m.g["companion_offered"] = true
+			open_picker(false)
+			m.show_msg("Princess Huluu", "I want you to have a new friend! Pick Mewsha or Baby Eagle to come along!", "talk")
 		return
 	if m.companion_gift == null or not is_instance_valid(m.companion_gift):
 		_build_gift()
@@ -181,7 +203,7 @@ func _build_gift() -> void:
 	m._sparkle_burst(root.position + Vector3(0, 3.0, 0), Color(1.0, 0.75, 0.9))
 	if not bool(m.g.get("companion_gift_said", false)):
 		m.g["companion_gift_said"] = true
-		m.show_msg("Princess Huluu", "A present for you! Tap the gift box and pick a stuffie friend to carry on your adventure!", "talk")
+		m.show_msg("Princess Huluu", "Changed your mind? Your new friend waits in the gift box - tap it any time!", "talk")
 
 func _action_down() -> bool:
 	var down := Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -191,14 +213,17 @@ func _action_down() -> bool:
 
 # ---------- the picker + colour studio overlay ----------
 
-func open_picker() -> void:
+func open_picker(say_prompt: bool = true, preselect: String = "") -> void:
+	# say_prompt=false when Princess Huluu herself makes the offer — her
+	# "I want you to have a new friend!" line owns that moment.
+	# preselect: the Stuffie Den shelves open the picker on the tapped friend.
 	if m.companion_layer != null:
 		return
-	m.companion_pick_id = String(ROSTER[0]["id"]) if m.companion_id == "" else m.companion_id
-	m.companion_pick_colors = []
-	var pick_def := def_by_id(m.companion_pick_id)
-	for slot in COLOR_SLOTS:
-		m.companion_pick_colors.append((pick_def[slot] as Color).to_html(false))
+	if not def_by_id(preselect).is_empty():
+		m.companion_pick_id = preselect
+	else:
+		m.companion_pick_id = String(ROSTER[0]["id"]) if m.companion_id == "" else m.companion_id
+	_reset_pick_colors()
 	m.companion_layer = CanvasLayer.new()
 	m.companion_layer.layer = 25
 	m.add_child(m.companion_layer)
@@ -223,7 +248,8 @@ func open_picker() -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
 	_draw_picker()
-	m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
+	if say_prompt:
+		m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
 
 func _on_picker_dim_input(ev: InputEvent) -> void:
 	if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
@@ -235,12 +261,21 @@ func close_picker() -> void:
 	m.companion_layer = null
 	m.companion_stage = null
 
-func _pick_friend(id: String) -> void:
-	m.companion_pick_id = id
+func _reset_pick_colors() -> void:
+	# repainting the CURRENT friend starts from its saved coat, a new friend
+	# from its book-art defaults
 	m.companion_pick_colors = []
-	var d := def_by_id(id)
+	if m.companion_pick_id == m.companion_id and m.companion_colors.size() == 3:
+		m.companion_pick_colors = m.companion_colors.duplicate()
+		return
+	var d := def_by_id(m.companion_pick_id)
 	for slot in COLOR_SLOTS:
 		m.companion_pick_colors.append((d[slot] as Color).to_html(false))
+
+func _pick_friend(id: String) -> void:
+	m.companion_pick_id = id
+	_reset_pick_colors()
+	var d := def_by_id(id)
 	m._ui_tap()
 	m.show_msg("Roshan", String(d["name"]) + "! " + String(d["pro"]), "talk")
 	_draw_picker()
@@ -260,6 +295,10 @@ func _confirm_pick() -> void:
 	if m.companion_node != null and is_instance_valid(m.companion_node):
 		m.companion_node.queue_free()
 		m.companion_node = null
+	if m.companion_room != null and is_instance_valid(m.companion_room):
+		m.companion_room.queue_free()   # rebuilt next tick: heart + coat move shelves
+		m.companion_room = null
+		m.companion_room_rows = []
 	m.companion_greeted = false
 	m._write_save()
 	m._reward(false)
@@ -315,21 +354,21 @@ func _draw_picker() -> void:
 		card.add_theme_stylebox_override("pressed", card_style)
 		card.pressed.connect(_pick_friend.bind(id))
 		stage.add_child(card)
-		_add_creature_preview(card, String(d["kind"]), Vector2(28, 24), 0.62,
+		_add_creature_preview(card, String(d["kind"]), Vector2(12, 12), Vector2(150, 200),
 			(d["body"] as Color), (d["accent"] as Color))
 		var nm := Label.new()
 		nm.text = String(d["name"])
 		nm.add_theme_font_size_override("font_size", 26)
 		nm.add_theme_color_override("font_color", Color(1.0, 0.96, 0.80))
-		nm.position = Vector2(160, 40)
-		nm.size = Vector2(160, 120)
+		nm.position = Vector2(172, 30)
+		nm.size = Vector2(150, 120)
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.add_child(nm)
 		var atk := Label.new()
 		atk.text = ("🐦 " if String(d["kind"]) == "bird" else "🐾 ") + String(d["attack"])
 		atk.add_theme_font_size_override("font_size", 24)
 		atk.add_theme_color_override("font_color", Color(0.74, 0.96, 0.88))
-		atk.position = Vector2(160, 165)
+		atk.position = Vector2(172, 168)
 		card.add_child(atk)
 	# big live preview, painted with the picked colours
 	var pick_def := def_by_id(m.companion_pick_id)
@@ -343,7 +382,7 @@ func _draw_picker() -> void:
 	pv_style.set_corner_radius_all(26)
 	preview_panel.add_theme_stylebox_override("panel", pv_style)
 	stage.add_child(preview_panel)
-	_add_creature_preview(preview_panel, String(pick_def["kind"]), Vector2(35, 35), 1.3, pc0, pc1)
+	_add_creature_preview(preview_panel, String(pick_def["kind"]), Vector2(14, 14), Vector2(302, 302), pc0, pc1)
 	# three colour rows on the right
 	for slot in range(3):
 		var row_y := 130.0 + float(slot) * 120.0
@@ -383,29 +422,220 @@ func _draw_picker() -> void:
 	stage.add_child(go)
 	m._hook_button_taps(stage)
 
-func _add_creature_preview(parent: Control, kind: String, pos: Vector2, scale_value: float, body: Color, accent: Color) -> void:
+func _add_creature_preview(parent: Control, kind: String, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
 	# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted —
-	# the same sheets the craft creatures use, so the paint matches in-world
+	# the same sheets the craft creatures use, so the paint matches in-world.
+	# The sheets are large illustrations: FIT them into the given box (uniform
+	# scale, centered) instead of trusting any fixed scale, and paint in the
+	# in-world order — body first, accent OVER it, ink line on top.
 	var layer_names: Array = m.CREATURE_LAYERS.get(kind, m.CREATURE_LAYERS["fish"])
-	var tints: Array[Color] = [accent, body, Color.WHITE]   # [accent, body, line] draw order
+	var draw_order: Array = [1, 0, 2]   # body, accent, line (matches _make_creature_node)
+	var tints: Array[Color] = [body, accent, Color.WHITE]
+	var ref_tex: Texture2D = null
 	for li in range(3):
-		var tex_path := "res://assets/mg/" + String(layer_names[li]) + ".png"
+		var probe_path := "res://assets/mg/" + String(layer_names[li]) + ".png"
+		if ResourceLoader.exists(probe_path):
+			ref_tex = load(probe_path)
+			break
+	if ref_tex == null:
+		return
+	var ts: Vector2 = ref_tex.get_size()
+	var fit: float = minf(box_size.x / maxf(ts.x, 1.0), box_size.y / maxf(ts.y, 1.0))
+	var origin: Vector2 = box_pos + (box_size - ts * fit) * 0.5
+	parent.clip_contents = true   # nothing ever spills over the card/frame edge
+	for i in range(3):
+		var tex_path := "res://assets/mg/" + String(layer_names[int(draw_order[i])]) + ".png"
 		if not ResourceLoader.exists(tex_path):
 			continue
 		var tr := TextureRect.new()
 		tr.texture = load(tex_path)
-		tr.position = pos
-		tr.scale = Vector2.ONE * scale_value
-		tr.modulate = tints[li] if li < 2 else Color.WHITE
+		tr.position = origin
+		tr.scale = Vector2.ONE * fit
+		tr.modulate = tints[i]
 		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		parent.add_child(tr)
+
+# ---------- the Stuffie Den (owner 2026-07-19: a castle room where every
+# ---------- stuffed friend sits on the wall shelves, swappable any time) ----------
+
+const ROOM_LOCAL := Vector3(-49.4, 49.6, -44.0)   # west end of the Dreaming
+# Floor corridor (Wacky & Chuck's basket holds the east end); CASTLE_POS-relative
+
+func _tick_room(delta: float) -> void:
+	var in_hall: bool = m.game == "level2" and String(m.g.get("phase", "court")) == "hall"
+	if not in_hall:
+		m.companion_room = null   # castle teardown frees the nodes via game_nodes
+		m.companion_room_rows = []
+		return
+	if m.companion_room == null or not is_instance_valid(m.companion_room):
+		_build_room()
+	if m.companion_room == null:
+		return
+	var now: float = Time.get_ticks_msec() / 1000.0
+	var pointer_node: Label3D = m.companion_room.get_meta("pointer")
+	if is_instance_valid(pointer_node):
+		pointer_node.position.y = 9.4 + sin(now * 4.0) * 0.4
+	# one-time welcome once she wanders into the nook
+	if not bool(m.g.get("companion_room_said", false)) \
+			and m.companion_room.global_position.distance_to(m.player.position) < 13.0:
+		m.g["companion_room_said"] = true
+		m.show_msg("Roshan", "The Stuffie Den! All my friends live here - tap one to bring it along!", "talk")
+	var best_id := ""
+	var best_d := 6.0
+	for row_v: Variant in m.companion_room_rows:
+		var row: Dictionary = row_v
+		var node: Node3D = row["node"]
+		if not is_instance_valid(node):
+			continue
+		var mine: bool = String(row["id"]) == m.companion_id
+		var marker: Label3D = row["marker"]
+		var heart: Label3D = row["heart"]
+		if is_instance_valid(marker):
+			marker.visible = not mine
+			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
+		if is_instance_valid(heart):
+			heart.visible = mine
+		var dist: float = node.global_position.distance_to(m.player.position)
+		if dist < best_d:
+			best_d = dist
+			best_id = String(row["id"])
+	var action: bool = _action_down()
+	if best_id != "" and action and not m.companion_room_action_prev and m.companion_layer == null:
+		var d := def_by_id(best_id)
+		open_picker(false, best_id)
+		if best_id == m.companion_id:
+			m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
+		else:
+			m.show_msg(String(d["name"]), "Pick me! Paint my colors and I'll come along!", "talk")
+	m.companion_room_action_prev = action
+
+func _room_colors(id: String) -> Array[Color]:
+	# the current friend keeps its painted coat on the shelf; the rest wear
+	# their book-art defaults
+	if id == m.companion_id:
+		return colors()
+	var d := def_by_id(id)
+	var out: Array[Color] = []
+	for slot in COLOR_SLOTS:
+		out.append(d[slot] as Color)
+	return out
+
+func _build_room() -> void:
+	var root := Node3D.new()
+	root.position = m.CASTLE_POS + ROOM_LOCAL
+	m.add_child(root)
+	m.game_nodes.append(root)
+	m.companion_room = root
+	m.companion_room_rows = []
+	# cozy dressing: lavender wall band, pastel rug, a soft emissive lamp
+	var band := MeshInstance3D.new()
+	var band_mesh := BoxMesh.new()
+	band_mesh.size = Vector3(0.35, 7.0, 13.5)
+	band.mesh = band_mesh
+	band.position = Vector3(-3.0, 3.8, 0.0)
+	band.material_override = _room_mat(Color(0.78, 0.68, 0.92), 0.12)
+	root.add_child(band)
+	var rug := MeshInstance3D.new()
+	var rug_mesh := BoxMesh.new()
+	rug_mesh.size = Vector3(6.4, 0.25, 12.8)
+	rug.mesh = rug_mesh
+	rug.position = Vector3(0.8, 0.15, 0.0)
+	rug.material_override = _room_mat(Color(1.0, 0.82, 0.90))
+	root.add_child(rug)
+	var lamp := MeshInstance3D.new()
+	var lamp_mesh := BoxMesh.new()
+	lamp_mesh.size = Vector3(1.1, 1.1, 1.1)
+	lamp.mesh = lamp_mesh
+	lamp.position = Vector3(-2.4, 7.8, 0.0)
+	lamp.material_override = _room_mat(Color(1.0, 0.9, 0.6), 3.0)
+	root.add_child(lamp)
+	var sign := Label3D.new()
+	sign.text = "✨ Stuffie Den ✨"
+	sign.font_size = 44
+	sign.pixel_size = 0.008
+	sign.outline_size = 11
+	sign.modulate = Color(1.0, 0.9, 0.95)
+	sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sign.position = Vector3(0, 7.4, 0)
+	root.add_child(sign)
+	var pointer := Label3D.new()
+	pointer.text = "▼"
+	pointer.font_size = 140
+	pointer.pixel_size = 0.02
+	pointer.outline_size = 22
+	pointer.modulate = Color(1.0, 0.94, 0.25)
+	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	pointer.no_depth_test = true
+	pointer.position = Vector3(0, 9.4, 0)
+	root.add_child(pointer)
+	root.set_meta("pointer", pointer)
+	# one wall shelf per stuffed friend, each seated and waiting
+	for i in range(ROSTER.size()):
+		var d: Dictionary = ROSTER[i]
+		var id := String(d["id"])
+		var shelf_z: float = -3.6 + float(i) * 7.2 - (float(ROSTER.size() - 2) * 3.6)
+		var shelf := MeshInstance3D.new()
+		var shelf_mesh := BoxMesh.new()
+		shelf_mesh.size = Vector3(3.4, 0.5, 3.6)
+		shelf.mesh = shelf_mesh
+		shelf.position = Vector3(-1.5, 2.4, shelf_z)
+		shelf.material_override = _room_mat(Color(0.95, 0.8, 0.35), 0.2)
+		root.add_child(shelf)
+		var cols := _room_colors(id)
+		var creature := m._make_creature_node(String(d["kind"]), cols[0], cols[1], false, false, cols[2])
+		if creature != null:
+			creature.scale = Vector3.ONE * 0.75
+			creature.position = Vector3(-1.5, 2.68, shelf_z)
+			creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
+			root.add_child(creature)
+		var name_sign := Label3D.new()
+		name_sign.text = String(d["name"])
+		name_sign.font_size = 30
+		name_sign.pixel_size = 0.008
+		name_sign.outline_size = 9
+		name_sign.modulate = Color(0.9, 0.95, 1.0)
+		name_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		name_sign.position = Vector3(-1.2, 4.9, shelf_z)
+		root.add_child(name_sign)
+		var marker := Label3D.new()
+		marker.text = "✦"
+		marker.font_size = 120
+		marker.pixel_size = 0.018
+		marker.outline_size = 18
+		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
+		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		marker.no_depth_test = true
+		marker.position = Vector3(-1.2, 5.9, shelf_z)
+		root.add_child(marker)
+		var heart := Label3D.new()
+		heart.text = "💗"
+		heart.font_size = 100
+		heart.pixel_size = 0.018
+		heart.outline_size = 14
+		heart.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		heart.no_depth_test = true
+		heart.position = Vector3(-1.2, 5.9, shelf_z)
+		heart.visible = false
+		root.add_child(heart)
+		m.companion_room_rows.append({"id": id, "node": creature if creature != null else shelf,
+			"marker": marker, "heart": heart, "phase": float(i) * 1.7})
+
+func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = col
+	mat.roughness = 0.6
+	if emission > 0.0:
+		mat.emission_enabled = true
+		mat.emission = col
+		mat.emission_energy_multiplier = emission
+	return mat
 
 # ---------- the overworld follower ----------
 
 func _tick_follower(delta: float) -> void:
 	if m.companion_node == null or not is_instance_valid(m.companion_node):
-		if m.game != "":
-			return   # spawn only in the open reef, never mid-arena
+		if not _follow_ctx():
+			return   # spawn in a free-roam world, never mid-engine
 		var fwd0 := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
 		var node := make_creature()
 		if node == null:
@@ -418,10 +648,10 @@ func _tick_follower(delta: float) -> void:
 			m.companion_greeted = true
 			var d := active_def()
 			m.show_msg(String(d["name"]), "Here I am! Let's explore together!", "talk")
-	# hide during minigames/castle so it never photobombs an arena (the battle
-	# builds its own painted copy of the creature)
-	m.companion_node.visible = m.game == ""
-	if m.game != "":
+	# tag along everywhere free-roam; hide only inside self-driven engines
+	# (the battle builds its own painted copy of the creature)
+	m.companion_node.visible = _follow_ctx()
+	if not _follow_ctx():
 		return
 	var t: float = Time.get_ticks_msec() / 1000.0
 	var fwd := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
@@ -454,7 +684,12 @@ func _tick_follower(delta: float) -> void:
 		var face: Vector3 = to_want if d2 > 1.6 else (m.player.position - m.companion_node.position)
 		if Vector2(face.x, face.z).length() > 0.3:
 			m.companion_node.rotation.y = lerp_angle(m.companion_node.rotation.y, atan2(face.z, -face.x), 1.0 - pow(0.03, delta))
-	m.companion_node.position.y = maxf(m.companion_node.position.y, ReefMain.seabed_y(m.companion_node.position.x, m.companion_node.position.z) + 1.4)
+	# per-world floor: reef seabed / lagoon terrain; castle + northern floors
+	# are architectural, so there it simply keeps to Roshan's height band
+	if m.game == "":
+		m.companion_node.position.y = maxf(m.companion_node.position.y, ReefMain.seabed_y(m.companion_node.position.x, m.companion_node.position.z) + 1.4)
+	elif m.game == "level2" and String(m.g.get("phase", "court")) == "court":
+		m.companion_node.position.y = maxf(m.companion_node.position.y, m.lagoon_h(m.companion_node.position.x, m.companion_node.position.z) + 1.2)
 	_drive_gait(m.companion_node, m.companion_node.position.distance_to(m.player.position))
 	# helper beats: cheer beside a resting Roshan; every so often dash toward
 	# the nearest unfound friend so the stuffie SHOWS the way (visual pointer)
