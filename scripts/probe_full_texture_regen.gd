@@ -7,7 +7,9 @@ extends SceneTree
 const MODEL_DIR := "res://assets/full_texture_regen_2026-07-18/models"
 const TEXTURE_DIR := "res://assets/full_texture_regen_2026-07-18/textures"
 const EXPECTED_MODELS := 137
-const EXPECTED_TEXTURES := 30
+# Thirty reviewed candidates plus the documented unscored R044 calm-ground
+# development candidate, which still belongs in the loadability/budget audit.
+const EXPECTED_TEXTURES := 31
 const MAX_MODEL_TRIANGLES := 12000
 const MAX_TEXTURE_SIDE := 1024
 
