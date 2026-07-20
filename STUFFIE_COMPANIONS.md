@@ -53,11 +53,25 @@ voice hint) as the walk-up-and-tap re-entry, so the moment is never lost.
 ## The follower (generalizes the peng_pal pattern)
 
 Rubber-band follow at Roshan's flank (never magnets, warps back after big
-teleports), seabed clearance, rigged gait FSM (idle/walk/run/happy via the
-wrap's `"ap"` meta), cheer hearts when she rests, and a **helper beat**: every
-~22s it dashes toward the nearest unfound friend with a sparkle trail and a
-"This way!" voice line — the stuffie literally shows the way. Hidden during
-minigames/arenas like the penguin.
+teleports), rigged gait FSM (idle/walk/run/happy via the wrap's `"ap"` meta —
+the 3D bodies are the existing rigged craft models, birdie built from the
+baby-eagle book art), cheer hearts when she rests, and a **helper beat**:
+every ~22s it dashes toward the nearest unfound friend with a sparkle trail
+and a "This way!" voice line. Owner 2026-07-19: it follows **all the time** —
+every free-roam world (reef seabed clamp, lagoon terrain clamp, castle +
+northern kingdom by Roshan's height band); it hides only inside self-driven
+engines (kart, slides, battles, 2D canvas games) so it never photobombs a
+mode's own camera.
+
+## The Stuffie Den (swap room, owner 2026-07-19)
+
+A dedicated castle room at the west end of the Dreaming Floor corridor
+(Wacky & Chuck's basket holds the east end): every stuffed friend from the
+roster sits on a gold wall shelf under its name — the current companion
+wears its painted coat and a floating 💗, the rest wear book-art defaults
+and a sparkle ✦. Walk up and tap a shelf friend → the picker opens
+preselected on it (repaint or confirm) — so the stuffie is swappable ANY
+time, and a new roster entry automatically gains a shelf.
 
 ## Battles — the sparring den
 

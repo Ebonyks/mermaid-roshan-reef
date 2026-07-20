@@ -23,6 +23,7 @@ func _init() -> void:
 	await _follower_case()
 	await _battle_case()
 	await _save_case()
+	await _switch_case()
 	print("STUFFIE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
@@ -144,3 +145,17 @@ func _save_case() -> void:
 	var loaded: Variant = reread._recover_save_if_needed()
 	_ck("save roundtrips through recovery reader", loaded is Dictionary
 		and String((loaded as Dictionary).get("companion", "")) == "mewsha")
+
+func _switch_case() -> void:
+	# owner 2026-07-19: the stuffie is swappable ANY time — the Stuffie Den
+	# shelves open the picker preselected on the tapped friend
+	var comp: CompanionSystem = main._companion_ref()
+	comp.open_picker(false, "eagle")
+	_ck("den shelf preselects the tapped stuffie", main.companion_pick_id == "eagle"
+		and main.companion_layer != null)
+	comp._confirm_pick()
+	_ck("companion swaps to Baby Eagle", main.companion_id == "eagle")
+	await _settle(15)
+	_ck("swapped follower respawns as the bird", main.companion_node != null
+		and is_instance_valid(main.companion_node)
+		and String(comp.active_def()["kind"]) == "bird")
