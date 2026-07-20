@@ -15,6 +15,15 @@ func _init() -> void:
 	main.trophies = 5
 	main._enter_level2()
 	await process_frame
+	var lagoon_light_ok: bool = (main.sun_light != null
+		and not main.sun_light.visible
+		and main.arena_env != null
+		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon"
+		and main.arena_env.ambient_light_energy <= 0.46)
+	print("LIGHTING|single Lagoon sun + contrast grade: ",
+		"OK" if lagoon_light_ok else "FAIL")
+	if not lagoon_light_ok:
+		print("FAIL|Sky Lagoon ocean-sun or exposure regression")
 	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
 	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
 		"OK" if river_depth >= 4.0 else "FAIL"])
@@ -241,6 +250,13 @@ func _init() -> void:
 	for l in got_log: print(l)
 	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
 	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "FAIL (STUCK)"), t])
+	main._exit_level2()
+	await process_frame
+	var reef_sun_restored: bool = main.sun_light != null and main.sun_light.visible
+	print("LIGHTING|reef sun restored on Lagoon exit: ",
+		"OK" if reef_sun_restored else "FAIL")
+	if not reef_sun_restored:
+		print("FAIL|Sky Lagoon left the ocean sun disabled")
 	quit()
 
 

@@ -94,7 +94,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 	var sun2 := DirectionalLight3D.new()
 	sun2.rotation_degrees = Vector3(-48.0, 35.0, 0.0)
 	sun2.light_color = Color(0.6, 0.68, 0.95) if m.is_night else Color(1.0, 0.96, 0.86)
-	sun2.light_energy = 0.44 if m.is_night else 0.70
+	sun2.light_energy = 0.34 if m.is_night else 0.52
 	sun2.shadow_enabled = (m.quality != "speedy")
 	sun2.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun2.directional_shadow_max_distance = 110.0

@@ -59,6 +59,8 @@ func _init() -> void:
 	await process_frame
 	if main.intro_active:
 		main._skip_intro()
+	# Speedy is the phone default and therefore the binding presentation tier.
+	main._apply_quality("speedy")
 	main.galaxy_unlocked = true
 	main.l2_star_progress = [false, false, false]
 	main._enter_level2()
@@ -108,5 +110,15 @@ func _init() -> void:
 		o + Vector3(-96, 10, -180), 64.0)
 	await _shot_role("lagoon_14_train_station", "lagoon_train_station",
 		Vector3(0, 5, 18), Vector3(0, 2.5, 0), 58.0)
+	# A smaller Sparkly comparison set catches quality-toggle exposure drift while
+	# keeping the complete phone-default review above as the primary artifact.
+	main._apply_quality("sparkly")
+	await _settle(6)
+	await _shot("lagoon_15_sparkly_arrival", o + Vector3(54, 25, 182),
+		o + Vector3(0, 7, 98), 66.0)
+	await _shot("lagoon_16_sparkly_fairy_pond", main.fairy_pond_pos + Vector3(24, 13, 26),
+		main.fairy_pond_pos + Vector3(0, -2, 0), 62.0)
+	await _shot("lagoon_17_sparkly_castle", o + Vector3(0, 26, -42),
+		o + Vector3(0, 30, -120), 62.0)
 	print("LAGOONSHOT|DONE|", out_dir)
 	quit()

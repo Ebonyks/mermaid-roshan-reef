@@ -68,6 +68,14 @@ terrain surface, reserves its footprint, deepens source palette bands for the
 actual Lagoon lighting, composes smaller clouds around the island rim, and fixes
 the invalid review camera.
 
+Iteration three (`584d3a0`) passed every technical gate but Mobile review still
+rejected its presentation. The persistent reef sun and the Lagoon sun were both
+lighting the world, so pearl terrain, flowers, water, and new landmarks clipped
+toward white even after source colors were deepened. Iteration four gives Sky
+Lagoon a dedicated contrast grade, uses only its authored courtyard sun while
+the world is active, restores the reef sun on ocean return, and makes Speedy the
+binding full capture tier with Sparkly comparison views.
+
 ## Acceptance gates
 
 1. `probe_l2.gd` must report the botanical rule, all kit resources, and all fixed
@@ -75,6 +83,8 @@ the invalid review camera.
 2. The Mobile-render Sky Lagoon capture artifact must include arrival/path,
    complete ground plants, pond reeds, Fairy Pond, riverbanks, both race gates,
    Butterfly gate, castle facade, clouds, Alpine edge, and train station.
+   The complete set is captured in Speedy, with arrival, pond, and castle also
+   captured in Sparkly to expose quality-toggle drift.
 3. Reject any candidate that reads as an isolated leaf, repeated mesh island,
    stone-like cloud, decorative gate that disagrees with its trigger, floating
    prop, or protected art alteration.
