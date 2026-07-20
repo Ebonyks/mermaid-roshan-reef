@@ -25,6 +25,25 @@ OUT="roshan-reef.apk"
 echo "Pulling ${CHANNEL} build from ${URL}"
 curl -fSL --retry 3 --progress-bar -o "${OUT}" "${URL}"
 
+# Verify the CI-published checksum before anything installs this on the
+# phone. Releases older than the checksum step won't have the asset —
+# warn and continue; a present-but-mismatched sum is always fatal.
+if curl -fsSL --retry 3 -o "${OUT}.sha256" "${URL}.sha256"; then
+	EXPECTED=$(awk '{print $1}' "${OUT}.sha256")
+	ACTUAL=$(sha256sum "${OUT}" | awk '{print $1}')
+	if [ -n "${EXPECTED}" ] && [ "${EXPECTED}" = "${ACTUAL}" ]; then
+		echo "Checksum OK (${ACTUAL})"
+	else
+		echo "!! CHECKSUM MISMATCH — refusing to install."
+		echo "!! expected: ${EXPECTED:-<empty>}"
+		echo "!! actual:   ${ACTUAL}"
+		rm -f "${OUT}"
+		exit 1
+	fi
+else
+	echo "No .sha256 asset on this release yet (pre-checksum build) — skipping verification."
+fi
+
 # The first "updated_at" in the release JSON belongs to the APK asset
 # (releases themselves only carry created_at/published_at).
 BUILT=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/tags/${CHANNEL}" \

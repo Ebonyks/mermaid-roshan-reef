@@ -22,6 +22,10 @@ permissions:
 env:
   GODOT_VERSION: "4.4"
   GODOT_RELEASE: "4.4-stable"
+  # Official values from the 4.4-stable release's SHA512-SUMS.txt, verified
+  # 2026-07-19. A Godot version bump must update these in the same commit.
+  GODOT_ZIP_SHA512: "3d56a7698bdf7027e41e5e0a930b6b93f89a204eb95b9cd0b8ae25180231994029e211984863a5ebb59759b3e602ae1d042e745ab1b7cbbfeda62652c3936f60"
+  GODOT_TPZ_SHA512: "ce5801d2868f8217eb200b402918494184486dab0ea7be97f9ffab73b9283241b6e8c2e3b4ae58218b09b56743449f1d55240f9db50a045efe6186aea0fd8c2c"
 
 jobs:
   build:
@@ -32,20 +36,23 @@ jobs:
         github.event.workflow_run.head_branch == 'dev')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           # full history: version/code below derives from the commit count
           fetch-depth: 0
+          # nothing in this job pushes; don't leave the write-capable token
+          # in .git/config where build-time project code could read it
+          persist-credentials: false
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
         with:
           distribution: temurin
           java-version: "17"
 
       - name: Cache Godot + export templates
         id: godot-cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
             godot.zip
@@ -59,7 +66,12 @@ jobs:
           curl -sSL -o templates.tpz "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_export_templates.tpz"
 
       - name: Install Godot + export templates
+        # verification runs on BOTH the fresh download and a cache restore, so
+        # a poisoned Actions cache entry cannot slip a modified binary into
+        # the build that signs and publishes the phone's APK
         run: |
+          echo "${GODOT_ZIP_SHA512}  godot.zip" | sha512sum -c -
+          echo "${GODOT_TPZ_SHA512}  templates.tpz" | sha512sum -c -
           unzip -q godot.zip
           sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
           mkdir -p "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
@@ -153,7 +165,8 @@ jobs:
           mkdir -p build
           godot --headless --path . --export-debug "Android" build/roshan-reef.apk
           test -s build/roshan-reef.apk
-          sha256sum build/roshan-reef.apk > build/roshan-reef.apk.sha256
+          # bare filename so `sha256sum -c` works next to the downloaded APK
+          (cd build && sha256sum roshan-reef.apk > roshan-reef.apk.sha256)
 
       # NOTE: no actions/upload-artifact step — each run's ~165MB artifact blew
       # the account's Actions storage quota and, worse, its failure blocked the
@@ -173,7 +186,7 @@ jobs:
           fi
 
       - name: Publish APK to the prerelease (stable download URL)
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: ${{ steps.tag.outputs.title }}

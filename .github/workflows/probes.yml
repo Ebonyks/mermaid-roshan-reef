@@ -14,19 +14,30 @@ concurrency:
   group: probes-${{ github.ref }}
   cancel-in-progress: true
 
+# The job only reads the repo; the APK publish lives in android.yml with its
+# own token. Least privilege keeps a compromised probe/dep from writing back.
+permissions:
+  contents: read
+
 env:
   GODOT_RELEASE: "4.4-stable"
+  # Official value from the 4.4-stable release's SHA512-SUMS.txt, verified
+  # 2026-07-19. A Godot version bump must update this in the same commit.
+  GODOT_ZIP_SHA512: "3d56a7698bdf7027e41e5e0a930b6b93f89a204eb95b9cd0b8ae25180231994029e211984863a5ebb59759b3e602ae1d042e745ab1b7cbbfeda62652c3936f60"
 
 jobs:
   probes:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
 
-      - name: Download Godot
+      - name: Download Godot (checksum-verified)
         run: |
           curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          echo "${GODOT_ZIP_SHA512}  godot.zip" | sha512sum -c -
           unzip -q godot.zip
           sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
 
@@ -35,7 +46,7 @@ jobs:
         # and the job dies at the 30m ceiling as an opaque 'cancelled' -
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
-          pip install --quiet gdtoolkit==4.* numpy Pillow
+          pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/audit_fairy_art_v2.py
@@ -153,7 +164,7 @@ jobs:
       - name: Upload first-world visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: reef-first-world-review
           path: /tmp/reef-shots/*.png
@@ -189,7 +200,7 @@ jobs:
       - name: Upload northern-world visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: northern-world-review
           path: /tmp/northern-shots/*.png
