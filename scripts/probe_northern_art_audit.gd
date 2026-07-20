@@ -95,10 +95,13 @@ func _init() -> void:
 		o + Vector3(0, 10, -328), 72.0)
 	await _shot("north_21_hall_centerpiece", o + Vector3(5, 12, -307),
 		o + Vector3(0, 9, -320), 66.0)
-	await _shot("north_22_hall_bedrooms", o + Vector3(0, 21, -337),
-		o + Vector3(0, 18.5, -343.5), 80.0)
-	await _shot("north_22b_hall_bedroom_quilt", o + Vector3(0, 23, -340),
-		o + Vector3(0, 18.0, -344), 80.0)
+	var bedroom_quilts: Array = main.g.get("north_bedroom_quilts", [])
+	var center_quilt: MeshInstance3D = bedroom_quilts[1] as MeshInstance3D
+	var quilt_pos: Vector3 = center_quilt.global_position
+	await _shot("north_22_hall_bedrooms", quilt_pos + Vector3(-4.5, 3.8, 5.5),
+		quilt_pos, 76.0)
+	await _shot("north_22b_hall_bedroom_quilt", quilt_pos + Vector3(0, 5.0, 1.2),
+		quilt_pos, 76.0)
 	await _shot("north_23_wisp_near", o + Vector3(9, 44, 318),
 		o + Vector3(3, 37, 330))
 	print("NORTHSHOT|DONE|", out_dir)

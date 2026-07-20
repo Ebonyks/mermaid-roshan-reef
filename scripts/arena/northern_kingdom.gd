@@ -1096,6 +1096,7 @@ func _build_grand_hall(o: Vector3) -> void:
 	var bay_x: Array[float] = [-19.0, 0.0, 19.0]
 	var quilts: Array[Color] = [Color(0.92, 0.55, 0.68), Color(0.55, 0.75, 0.94),
 		Color(0.72, 0.62, 0.94)]
+	var bedroom_quilts: Array[MeshInstance3D] = []
 	for bi in range(3):
 		var bx: float = bay_x[bi]
 		# partition walls between bays
@@ -1121,6 +1122,7 @@ func _build_grand_hall(o: Vector3) -> void:
 		quilt_mat.emission = quilts[bi].darkened(0.35)
 		quilt_mat.emission_energy_multiplier = 0.54
 		quilt.material_override = quilt_mat
+		bedroom_quilts.append(quilt)
 		var pillow: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.6, -2.4),
 			Vector3(3.2, 0.6, 1.4), Color(0.97, 0.96, 0.92))
 		pillow.material_override = m._castle_mat("fabric", 0.16, Color(0.97, 0.96, 0.92))
@@ -1156,6 +1158,7 @@ func _build_grand_hall(o: Vector3) -> void:
 		if bookcase != null:
 			m._set_vis_range(bookcase, 90.0)
 	m.g["north_bedroom_count"] = 3
+	m.g["north_bedroom_quilts"] = bedroom_quilts
 
 	# chandelier: a slow-turning glow ring high over the fountain
 	var chand_root: Node3D = Node3D.new()
