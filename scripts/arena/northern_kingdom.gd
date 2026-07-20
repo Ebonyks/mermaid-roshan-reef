@@ -142,8 +142,8 @@ func _light_hall_art(node: Node) -> void:
 				if material is StandardMaterial3D:
 					var standard := material as StandardMaterial3D
 					standard.emission_enabled = true
-					standard.emission = standard.albedo_color.lightened(0.12)
-					standard.emission_energy_multiplier = 0.22
+					standard.emission = standard.albedo_color.lightened(0.18)
+					standard.emission_energy_multiplier = 0.42
 	for child in node.get_children():
 		_light_hall_art(child)
 
@@ -879,18 +879,20 @@ func _build_castle(o: Vector3) -> void:
 	if authored_castle != null:
 		m._set_vis_range(authored_castle, 390.0)
 
-	# Curtain wall: front (gated), sides, back.
+	# The authored castle supplies the visible gate and front curtain wall.
+	# Procedural side/back shells close the playable perimeter; front collision
+	# remains analytic so the modeled entry is visible without changing access.
 	for seg: Array in [
-		[Vector3(-25.0, 7.0, 30.0), Vector3(38.0, 14.0, 3.6)],
-		[Vector3(25.0, 7.0, 30.0), Vector3(38.0, 14.0, 3.6)],
 		[Vector3(-44.0, 7.0, -4.0), Vector3(3.6, 14.0, 72.0)],
 		[Vector3(44.0, 7.0, -4.0), Vector3(3.6, 14.0, 72.0)],
 		[Vector3(0.0, 7.0, -38.0), Vector3(91.0, 14.0, 3.6)],
 	]:
 		_castle_wall(c + seg[0], seg[1], wall_col)
-	var arch: MeshInstance3D = m._l2_box(c + Vector3(0, 14.5, 30.0),
-		Vector3(14.0, 3.5, 4.0), wall_col.lightened(0.08))
-	arch.material_override = m._castle_mat("wall", 0.07, wall_col.lightened(0.08))
+	for front_seg: Array in [
+		[Vector3(-25.0, 7.0, 30.0), Vector3(38.0, 14.0, 3.6)],
+		[Vector3(25.0, 7.0, 30.0), Vector3(38.0, 14.0, 3.6)],
+	]:
+		m._wall_solid(c + front_seg[0], front_seg[1], 0.65)
 
 	for tower_lp: Vector2 in [Vector2(-10.0, 30.0), Vector2(10.0, 30.0),
 		Vector2(-44.0, -38.0), Vector2(44.0, -38.0)]:
@@ -1028,7 +1030,12 @@ func _build_grand_hall(o: Vector3) -> void:
 	# Polished floor slab under the authored six-pillar/fountain composition.
 	var floor_slab: MeshInstance3D = m._l2_box(c + Vector3(0, -0.1, 0),
 		Vector3(60.0, 0.5, 44.0), ice.lightened(0.05))
-	floor_slab.material_override = m._castle_mat("marble", 0.10, Color(0.88, 0.95, 1.0))
+	var floor_mat: StandardMaterial3D = m._castle_mat("marble", 0.10,
+		Color(0.88, 0.95, 1.0))
+	floor_mat.emission_enabled = true
+	floor_mat.emission = Color(0.24, 0.34, 0.50)
+	floor_mat.emission_energy_multiplier = 0.28
+	floor_slab.material_override = floor_mat
 
 	# Matching analytic collision for the authored pillar ring.
 	for pi in range(6):
@@ -1106,7 +1113,11 @@ func _build_grand_hall(o: Vector3) -> void:
 		frame.material_override = m._castle_mat("wood", 0.16, Color(0.70, 0.52, 0.36))
 		var quilt: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.45, 0.6),
 			Vector3(4.2, 0.6, 5.0), quilts[bi])
-		quilt.material_override = m._castle_mat("fabric", 0.14, quilts[bi])
+		var quilt_mat: StandardMaterial3D = m._castle_mat("fabric", 0.14, quilts[bi])
+		quilt_mat.emission_enabled = true
+		quilt_mat.emission = quilts[bi].darkened(0.35)
+		quilt_mat.emission_energy_multiplier = 0.34
+		quilt.material_override = quilt_mat
 		var pillow: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.6, -2.4),
 			Vector3(3.2, 0.6, 1.4), Color(0.97, 0.96, 0.92))
 		pillow.material_override = m._castle_mat("fabric", 0.16, Color(0.97, 0.96, 0.92))
