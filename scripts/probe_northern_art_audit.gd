@@ -1,8 +1,8 @@
 extends SceneTree
 
 # Fixed Mobile-render captures for the northern kingdom. These are the visual
-# acceptance evidence for the 4/5 art gate: gameplay, mid, and near views of
-# every distinct asset family introduced with the world.
+# acceptance evidence for the 4.5/5 art gate: gameplay, mid, and near views of
+# every distinct authored family and the larger runtime compositions.
 
 var cam: Camera3D
 var main: ReefMain
@@ -52,16 +52,51 @@ func _init() -> void:
 	get_root().add_child(cam)
 	cam.current = true
 	var o: Vector3 = main.NORTHERN_POS
-	await _shot("north_01_pass_gameplay", o + Vector3(0, 48, 214), o + Vector3(0, 24, 152))
-	await _shot("north_02_pass_mid", o + Vector3(0, 50, 250), o + Vector3(0, 22, 158))
-	await _shot("north_03_forest_gameplay", o + Vector3(42, 24, 134), o + Vector3(0, 8, 82))
-	await _shot("north_04_forest_mid", o + Vector3(0, 18, 120), o + Vector3(0, 7, 76))
-	await _shot("north_05_town_overview", o + Vector3(118, 52, 58), o + Vector3(0, 8, -2))
-	await _shot("north_06_house_near", o + Vector3(-48, 14, 31), o + Vector3(-76, 8, 31))
-	await _shot("north_07_dock_near", o + Vector3(154, 13, 30), o + Vector3(121, 1, 2))
-	await _shot("north_08_castle_gameplay", o + Vector3(0, 24, 44), o + Vector3(0, 14, -55))
-	await _shot("north_09_castle_mid", o + Vector3(92, 48, -4), o + Vector3(0, 14, -55))
-	await _shot("north_10_castle_near", o + Vector3(0, 18, -5), o + Vector3(0, 12, -55))
-	await _shot("north_11_wisp_near", o + Vector3(10, 8, 60), o + Vector3(4, 6.5, 54))
+	await _shot("north_01_pass_gameplay", o + Vector3(0, 50, 405),
+		o + Vector3(0, 24, 348))
+	await _shot("north_02_pass_mid", o + Vector3(55, 48, 385),
+		o + Vector3(0, 22, 348))
+	await _shot("north_03_forest_gameplay", o + Vector3(38, 23, 245),
+		o + Vector3(-8, 7, 198))
+	await _shot("north_04_forest_mushrooms", o + Vector3(-16, 10, 178),
+		o + Vector3(8, 3, 154))
+	await _shot("north_05_spirit_clearing", o + Vector3(45, 18, 165),
+		o + Vector3(18, 5, 138))
+	await _shot("north_06_log_bridge", o + Vector3(30, 13, -7),
+		o + Vector3(5, 3, -28))
+	await _shot("north_07_town_overview", o + Vector3(96, 48, -120),
+		o + Vector3(0, 8, -190))
+	await _shot("north_08_house_red", o + Vector3(2, 13, -150),
+		o + Vector3(-26, 7, -150))
+	await _shot("north_09_house_amber", o + Vector3(2, 12, -196),
+		o + Vector3(-24, 7, -196))
+	await _shot("north_10_house_aqua", o + Vector3(0, 12, -232),
+		o + Vector3(-26, 7, -232))
+	await _shot("north_11_house_rose", o + Vector3(-4, 13, -138),
+		o + Vector3(22, 7, -138))
+	await _shot("north_12_house_blue", o + Vector3(-2, 12, -172),
+		o + Vector3(24, 7, -172))
+	await _shot("north_13_house_orange", o + Vector3(-2, 12, -240),
+		o + Vector3(24, 7, -240))
+	await _shot("north_14_forge", o + Vector3(6, 12, -202),
+		o + Vector3(-13, 4, -206))
+	await _shot("north_15_dock", o + Vector3(54, 12, -140),
+		o + Vector3(35, 2, -158))
+	await _shot("north_16_mill", o + Vector3(27, 14, -199),
+		o + Vector3(52, 5, -218))
+	await _shot("north_17_castle_gameplay", o + Vector3(0, 20, -255),
+		o + Vector3(0, 18, -318))
+	await _shot("north_18_castle_mid", o + Vector3(104, 54, -252),
+		o + Vector3(0, 17, -318))
+	await _shot("north_19_castle_gate", o + Vector3(0, 17, -278),
+		o + Vector3(0, 13, -318))
+	await _shot("north_20_hall_wide", o + Vector3(0, 15, -300),
+		o + Vector3(0, 10, -328))
+	await _shot("north_21_hall_centerpiece", o + Vector3(20, 11, -305),
+		o + Vector3(0, 7, -320))
+	await _shot("north_22_hall_bedrooms", o + Vector3(0, 22, -315),
+		o + Vector3(0, 18, -344))
+	await _shot("north_23_wisp_near", o + Vector3(9, 11, 319),
+		o + Vector3(3, 7, 330))
 	print("NORTHSHOT|DONE|", out_dir)
 	quit()

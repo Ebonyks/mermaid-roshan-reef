@@ -58,8 +58,8 @@ func _init() -> void:
 		int(main.g.get("north_stone_count", 0)) == 10)
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3)
 	_ck("authored northern asset family", int(main.g.get(
-		"north_authored_asset_family_count", 0)) == 17
-		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 60,
+		"north_authored_asset_family_count", 0)) == 24
+		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 75,
 		"instances=%d" % int(main.g.get("north_authored_asset_instance_count", 0)))
 
 	# --- the LONG-STRIP layout: pass high in the north, the forest a real
@@ -94,7 +94,12 @@ func _init() -> void:
 			nk._stream_x(60.0), 60.0)
 		and not nk._north_flora_allowed("mushroom_red", 18.0, 138.0)
 		and not nk._north_flora_allowed("tree_pineRoundF", 0.0, -318.0)
-		and not nk._north_flora_allowed("tree_palm", 30.0, 200.0))
+		and not nk._north_flora_allowed("tree_palm", 30.0, 200.0)
+		and not nk._north_flora_allowed("kelp_tall", 30.0, 200.0)
+		and nk._north_flora_allowed("mushrooms_red", 30.0, 200.0)
+		and not nk._north_flora_allowed("mushrooms_red", 80.0, 310.0)
+		and not nk._north_flora_allowed("tree_default_fall", 80.0, 310.0)
+		and nk._north_flora_allowed("pine_a", 80.0, 310.0))
 
 	# --- the stream really carves a bed, and both crossings stay usable
 	var sx: float = nk._stream_x(60.0)

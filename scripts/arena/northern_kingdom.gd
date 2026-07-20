@@ -23,9 +23,9 @@ extends RefCounted
 
 var m: ReefMain
 
-# Authored northern GLB family (matte pastel palette, audited): every prop
-# with an authored model uses it; procedural blockwork only fills the gaps
-# that have no authored equivalent yet (mill, castle + grand hall interior).
+# Authored northern GLB family (matte pastel palette, audited): landmarks and
+# repeated props use modeled silhouettes; procedural meshes are reserved for
+# terrain, water, collision and large architectural shell surfaces.
 const NORTH_ASSET_DIR := "res://assets/northern/"
 const NORTH_ASSETS := {
 	"pass_arch": "northern_pass_arch.glb",
@@ -45,6 +45,13 @@ const NORTH_ASSETS := {
 	"fjord_dock": "northern_fjord_dock.glb",
 	"center_castle": "northern_center_castle.glb",
 	"wisp": "northern_wisp.glb",
+	"spirit_stone": "northern_spirit_stone.glb",
+	"log_bridge": "northern_log_bridge.glb",
+	"mill_house": "northern_mill_house.glb",
+	"mill_wheel": "northern_mill_wheel.glb",
+	"forge": "northern_forge.glb",
+	"street_lantern": "northern_street_lantern.glb",
+	"hall_centerpiece": "northern_hall_centerpiece.glb",
 }
 
 var north_asset_cache: Dictionary = {}
@@ -442,13 +449,10 @@ func _build_stream(o: Vector3) -> void:
 
 	# Log bridge at the second crossing (walk_h keeps its deck dry).
 	var bx: float = _stream_x(-28.0)
-	var deck: MeshInstance3D = m._l2_box(o + Vector3(bx, 2.0, -28.0),
-		Vector3(12.0, 0.8, 6.4), Color(0.48, 0.30, 0.19))
-	deck.material_override = m._castle_mat("wood", 0.16, Color(0.86, 0.70, 0.52))
-	for side: float in [-1.0, 1.0]:
-		var rail: MeshInstance3D = m._l2_box(o + Vector3(bx, 3.3, -28.0 + side * 3.0),
-			Vector3(12.4, 0.5, 0.5), Color(0.40, 0.25, 0.16))
-		rail.material_override = m._castle_mat("wood", 0.18, Color(0.70, 0.52, 0.36))
+	var log_bridge: Node3D = _north_prop("log_bridge",
+		o + Vector3(bx, 1.75, -28.0), 12.8)
+	if log_bridge != null:
+		m._set_vis_range(log_bridge, 145.0)
 
 
 func _build_mountain_pass(o: Vector3) -> void:
@@ -465,18 +469,6 @@ func _build_mountain_pass(o: Vector3) -> void:
 	veil.material_override.albedo_color.a = 0.34
 	veil.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	m.g["north_return_pos"] = o + Vector3(0.0, pass_y + 4.0, PASS_LOCAL.y)
-
-	var rune: Label3D = Label3D.new()
-	rune.text = "❄"
-	rune.font_size = 230
-	rune.pixel_size = 0.025
-	rune.outline_size = 28
-	rune.modulate = Color(0.72, 0.96, 1.0)
-	rune.outline_modulate = Color(0.18, 0.24, 0.48)
-	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	rune.position = o + Vector3(0.0, pass_y + 8.0, PASS_LOCAL.y - 0.5)
-	m.add_child(rune)
-	m.game_nodes.append(rune)
 
 	# Flanking peaks frame the pass itself.
 	_mountain_peak(o, Vector2(-56.0, 340.0), 38.0, 66.0, "peak_a")
@@ -539,9 +531,22 @@ func _north_flora_allowed(role: String, lx: float, lz: float) -> bool:
 		return false
 	if lz < -112.0 and lz > -256.0 and absf(lx) < 40.0:
 		return false
-	# The kingdom is cool northern grassland: temperate pines, autumn
-	# broadleaves and fungi fit here, tropical plants do not.
-	return role != "tree_palm"
+	var role_l: String = role.to_lower()
+	# Saltwater and hot/dry-biome life never belongs on this inland grass,
+	# leaf litter or snow, even if a shared nature library offers it.
+	for forbidden: String in ["palm", "tropical", "cactus", "coral", "kelp",
+		"seagrass", "anemone", "mangrove"]:
+		if role_l.contains(forbidden):
+			return false
+	# The high pass is continuous snow/rock substrate. Pines may root through
+	# it, while fungi, flowers and autumn broadleaves remain below the snowline.
+	if lz > 285.0:
+		return role_l.contains("pine")
+	# Mushrooms require the damp, shaded forest belt: never the exposed pass,
+	# built town, castle plateau, open water or decorative garden beds.
+	if role_l.contains("mushroom") or role_l.contains("fung"):
+		return lz > -105.0 and lz < 282.0
+	return true
 
 
 func _forest_tree(i: int, pos: Vector3, target: float, yrot: float,
@@ -699,7 +704,6 @@ func _build_spirit_clearings(o: Vector3) -> void:
 	# Two open circles off the path — flattened, ringed by standing stones
 	# with glowing element glyphs. These are the future spirit-boss arenas,
 	# so the ground is kept clear and the stones carry all the dressing.
-	var glyphs: Array[String] = ["✦", "❄", "▲", "●", "✦"]
 	var stone_count := 0
 	for ci in range(2):
 		var cc: Vector2 = CLEARING_A if ci == 0 else CLEARING_B
@@ -710,25 +714,12 @@ func _build_spirit_clearings(o: Vector3) -> void:
 			var sp: Vector3 = o + Vector3(cc.x + cos(ang) * 13.0, 0.0,
 				cc.y + sin(ang) * 13.0)
 			sp.y = _north_local(sp.x - o.x, sp.z - o.z)
-			var h: float = 5.6 + _jit(si + ci * 5, 2.4) * 2.2
-			var stone: MeshInstance3D = m._l2_box(sp + Vector3(0, h * 0.5, 0),
-				Vector3(2.4, h, 1.6), Color(0.48, 0.52, 0.64))
-			stone.material_override = m._up_mat("cliff", 0.09, Color(0.52, 0.56, 0.68))
-			stone.rotation.y = ang + 0.4
-			m._wall_solid(sp + Vector3(0, h * 0.5, 0), Vector3(2.4, h, 1.6), 0.5)
+			var stone: Node3D = _north_prop("spirit_stone", sp,
+				6.3 + _jit(si + ci * 5, 2.4), ang + 0.4)
+			if stone != null:
+				m._set_vis_range(stone, 125.0)
+			m._wall_solid(sp + Vector3(0, 3.0, 0), Vector3(2.6, 6.0, 2.1), 0.5)
 			stone_count += 1
-
-			var glyph: Label3D = Label3D.new()
-			glyph.text = glyphs[si]
-			glyph.font_size = 120
-			glyph.pixel_size = 0.02
-			glyph.outline_size = 20
-			glyph.modulate = tint
-			glyph.outline_modulate = Color(0.20, 0.16, 0.40)
-			glyph.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			glyph.position = sp + Vector3(0, h + 1.3, 0)
-			m.add_child(glyph)
-			m.game_nodes.append(glyph)
 
 		# a soft mote hovers over the circle's heart
 		var heart: MeshInstance3D = MeshInstance3D.new()
@@ -767,89 +758,25 @@ func _build_town(o: Vector3) -> void:
 
 	# Smith's open forge porch beside his house, facing the street.
 	var forge_c: Vector3 = o + Vector3(-13.0, _north_local(-13.0, -206.0), -206.0)
-	for px: Vector2 in [Vector2(-3.4, -3.0), Vector2(3.4, -3.0),
-		Vector2(-3.4, 3.0), Vector2(3.4, 3.0)]:
-		var post: MeshInstance3D = m._l2_box(forge_c + Vector3(px.x, 2.6, px.y),
-			Vector3(0.7, 5.2, 0.7), Color(0.40, 0.25, 0.16))
-		post.material_override = m._castle_mat("wood", 0.18, Color(0.66, 0.48, 0.34))
-	var porch_roof: MeshInstance3D = m._l2_box(forge_c + Vector3(0, 5.6, 0),
-		Vector3(9.0, 0.7, 8.2), Color(0.42, 0.30, 0.22))
-	porch_roof.material_override = m._castle_mat("roof", 0.14, Color(0.60, 0.46, 0.34))
-	var anvil: MeshInstance3D = m._l2_box(forge_c + Vector3(-1.2, 1.0, 0.6),
-		Vector3(1.6, 1.0, 0.9), Color(0.35, 0.36, 0.42))
-	anvil.material_override = m._up_mat("cliff", 0.14, Color(0.40, 0.42, 0.48))
-	var hearth: MeshInstance3D = m._l2_box(forge_c + Vector3(1.8, 1.2, -1.2),
-		Vector3(2.2, 2.4, 2.2), Color(0.52, 0.50, 0.56))
-	hearth.material_override = m._up_mat("cliff", 0.11, Color(0.56, 0.54, 0.60))
-	var ember: MeshInstance3D = m._l2_box(forge_c + Vector3(1.8, 2.55, -1.2),
-		Vector3(1.4, 0.4, 1.4), Color(1.0, 0.55, 0.25), 1.6)
-	ember.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	var forge: Node3D = _north_prop("forge", forge_c, 10.5, PI * 0.5)
+	if forge != null:
+		m._set_vis_range(forge, 135.0)
 
-	# Palisade stubs mark both town gates without enclosing anything.
-	for gz: float in [-116.0, -252.0]:
-		for side: float in [-1.0, 1.0]:
-			for k in range(4):
-				var gx: float = side * (9.0 + float(k) * 3.2)
-				var gy: float = _north_local(gx, gz)
-				var stake: MeshInstance3D = m._l2_box(o + Vector3(gx, gy + 2.2, gz),
-					Vector3(1.1, 4.4 - float(k) * 0.35, 1.1), Color(0.46, 0.31, 0.20))
-				stake.material_override = m._castle_mat("wood", 0.17, Color(0.68, 0.50, 0.34))
-		# gate posts + pennant right at the road edge
-		for side: float in [-1.0, 1.0]:
-			var post_y: float = _north_local(side * 7.6, gz)
-			var gpost: MeshInstance3D = m._l2_box(o + Vector3(side * 7.6, post_y + 3.4, gz),
-				Vector3(1.3, 6.8, 1.3), Color(0.42, 0.28, 0.18))
-			gpost.material_override = m._castle_mat("wood", 0.16, Color(0.64, 0.46, 0.32))
-	var flag: Node3D = m._kit("castle/flag", o + Vector3(7.6,
-		_north_local(7.6, -116.0) + 6.8, -116.0), 3.0, PI * 0.5)
-	if flag != null:
-		m._set_vis_range(flag, 150.0)
-
-	# Street dressing: lantern posts, firewood, a fish-drying rack, benches.
+	# Street dressing: authored lanterns plus existing audited benches.
 	for lz: float in [-132.0, -160.0, -188.0, -216.0, -244.0]:
 		var side: float = 1.0 if int(lz) % 3 == 0 else -1.0
 		var lx: float = side * 8.4
 		var ly: float = _north_local(lx, lz)
-		var lpost: MeshInstance3D = m._l2_box(o + Vector3(lx, ly + 2.4, lz),
-			Vector3(0.5, 4.8, 0.5), Color(0.38, 0.26, 0.18))
-		lpost.material_override = m._castle_mat("wood", 0.2, Color(0.58, 0.42, 0.30))
-		var lamp: MeshInstance3D = MeshInstance3D.new()
-		var lm: SphereMesh = SphereMesh.new()
-		lm.radius = 0.62
-		lm.height = 1.24
-		lm.radial_segments = 8
-		lm.rings = 5
-		lamp.mesh = lm
-		lamp.material_override = m._soft_mat(Color(1.0, 0.88, 0.55), 1.7)
-		lamp.position = o + Vector3(lx, ly + 5.1, lz)
-		lamp.visibility_range_end = 130.0
-		m.add_child(lamp)
-		m.game_nodes.append(lamp)
-	var wood_y: float = _north_local(-18.0, -212.0)
-	for wk in range(3):
-		var logrow: MeshInstance3D = m._l2_box(
-			o + Vector3(-18.0, wood_y + 0.5 + float(wk) * 0.8, -212.0 - float(wk) * 0.1),
-			Vector3(3.4, 0.8, 1.6 - float(wk) * 0.3), Color(0.52, 0.36, 0.24))
-		logrow.material_override = m._castle_mat("wood", 0.2, Color(0.70, 0.52, 0.36))
+		var lantern: Node3D = _north_prop("street_lantern",
+			o + Vector3(lx, ly, lz), 6.4, PI if side < 0.0 else 0.0)
+		if lantern != null:
+			_light_wisp(lantern)
+			m._set_vis_range(lantern, 130.0)
 	# authored dock steps off the street down to the river
 	var dock: Node3D = _north_prop("fjord_dock",
 		o + Vector3(35.0, _north_local(33.0, -158.0), -158.0), 13.0, -PI * 0.5)
 	if dock != null:
 		m._set_vis_range(dock, 150.0)
-	# drying rack by the river
-	var rack_y: float = _north_local(30.0, -186.0)
-	for rx: float in [-2.2, 2.2]:
-		var rpost: MeshInstance3D = m._l2_box(o + Vector3(30.0 + rx, rack_y + 1.9, -186.0),
-			Vector3(0.5, 3.8, 0.5), Color(0.42, 0.28, 0.18))
-		rpost.material_override = m._castle_mat("wood", 0.2, Color(0.62, 0.44, 0.30))
-	var rbar: MeshInstance3D = m._l2_box(o + Vector3(30.0, rack_y + 3.6, -186.0),
-		Vector3(5.4, 0.4, 0.4), Color(0.42, 0.28, 0.18))
-	rbar.material_override = m._castle_mat("wood", 0.2, Color(0.62, 0.44, 0.30))
-	for fi in range(3):
-		var fish: MeshInstance3D = m._l2_box(
-			o + Vector3(28.6 + float(fi) * 1.4, rack_y + 2.7, -186.0),
-			Vector3(0.5, 1.4, 0.2), Color(0.62, 0.80, 0.86))
-		fish.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	for bench_lp: Vector2 in [Vector2(9.0, -150.0), Vector2(-9.0, -170.0)]:
 		var bench: Node3D = m._kit("park/bench",
 			o + Vector3(bench_lp.x, _north_local(bench_lp.x, bench_lp.y) + 0.1, bench_lp.y),
@@ -872,75 +799,27 @@ func _build_town(o: Vector3) -> void:
 
 
 func _build_mill(o: Vector3) -> void:
-	# The lumber mill sits on a little island in the river, reached by a
-	# plank bridge — deck, turning water wheel, and a log ramp into the water.
+	# Authored mill compound: a timber mill, independently spinning wheel and
+	# rope-railed island bridge. Collision stays analytic and invisible.
 	var c: Vector3 = o + Vector3(52.0, _north_local(52.0, -218.0), -218.0)
-	var body: MeshInstance3D = m._l2_box(c + Vector3(0, 3.6, -1.0),
-		Vector3(10.0, 7.2, 8.0), Color(0.60, 0.44, 0.30))
-	body.material_override = m._castle_mat("wood", 0.16, Color(0.74, 0.56, 0.40))
+	var mill: Node3D = _north_prop("mill_house", c + Vector3(0, 0, -1.0),
+		14.5, -PI * 0.5)
+	if mill != null:
+		m._set_vis_range(mill, 195.0)
 	m._wall_solid(c + Vector3(0, 3.6, -1.0), Vector3(10.0, 7.2, 8.0), 0.6)
-	for side: float in [-1.0, 1.0]:
-		var roof: MeshInstance3D = m._l2_box(c + Vector3(side * 2.6, 8.2, -1.0),
-			Vector3(6.6, 0.7, 9.4), Color(0.44, 0.32, 0.24))
-		roof.rotation.z = side * 0.6
-		roof.material_override = m._castle_mat("roof", 0.13, Color(0.58, 0.44, 0.32))
-	# wrap-around work deck
-	var deck: MeshInstance3D = m._l2_box(c + Vector3(0, 0.55, 3.6),
-		Vector3(12.0, 0.7, 4.4), Color(0.52, 0.38, 0.26))
-	deck.material_override = m._castle_mat("wood", 0.15, Color(0.78, 0.60, 0.44))
-	# water wheel on the river side, spun in tick()
-	var wheel_root: Node3D = Node3D.new()
-	wheel_root.position = c + Vector3(-8.0, -1.35, -6.0)
-	var wheel: MeshInstance3D = MeshInstance3D.new()
-	var wm: CylinderMesh = CylinderMesh.new()
-	wm.top_radius = 3.4
-	wm.bottom_radius = 3.4
-	wm.height = 1.0
-	wm.radial_segments = 10
-	wheel.mesh = wm
-	wheel.material_override = m._castle_mat("wood", 0.14, Color(0.68, 0.50, 0.36))
-	wheel.rotation.z = PI * 0.5
-	wheel_root.add_child(wheel)
-	for pk in range(6):
-		var paddle: MeshInstance3D = MeshInstance3D.new()
-		var pm: BoxMesh = BoxMesh.new()
-		pm.size = Vector3(1.2, 7.6, 0.5)
-		paddle.mesh = pm
-		paddle.material_override = m._castle_mat("wood", 0.14, Color(0.62, 0.46, 0.32))
-		paddle.rotation.x = TAU * float(pk) / 6.0
-		wheel_root.add_child(paddle)
-	m.add_child(wheel_root)
-	m.game_nodes.append(wheel_root)
-	var spins: Array = m.g.get("north_spins", [])
-	spins.append({"node": wheel_root, "axis": "x", "speed": 0.7})
-	m.g["north_spins"] = spins
-	# log ramp + floating logs
-	var ramp: MeshInstance3D = m._l2_box(c + Vector3(-4.0, 0.6, 4.4),
-		Vector3(2.6, 0.5, 6.0), Color(0.52, 0.38, 0.26))
-	ramp.rotation.x = -0.35
-	ramp.material_override = m._castle_mat("wood", 0.16, Color(0.70, 0.52, 0.36))
-	for lg in range(2):
-		var flog: MeshInstance3D = MeshInstance3D.new()
-		var fm: CylinderMesh = CylinderMesh.new()
-		fm.top_radius = 0.7
-		fm.bottom_radius = 0.7
-		fm.height = 5.0
-		fm.radial_segments = 7
-		flog.mesh = fm
-		flog.material_override = m._castle_mat("wood", 0.16, Color(0.66, 0.48, 0.34))
-		flog.rotation.z = PI * 0.5
-		flog.rotation.y = 0.4 * float(lg)
-		flog.position = c + Vector3(-2.0 + float(lg) * 3.0, -1.1, 9.0 + float(lg) * 2.5)
-		m.add_child(flog)
-		m.game_nodes.append(flog)
-	# plank bridge from the street bank across the channel (walk_h holds it)
-	var bridge: MeshInstance3D = m._l2_box(o + Vector3(39.5, 2.35,
-		-213.0), Vector3(17.0, 0.6, 4.6), Color(0.50, 0.36, 0.24))
-	bridge.material_override = m._castle_mat("wood", 0.15, Color(0.76, 0.58, 0.42))
-	for px: float in [33.0, 46.0]:
-		var bpost: MeshInstance3D = m._l2_box(o + Vector3(px, 1.2, -215.2),
-			Vector3(0.7, 3.4, 0.7), Color(0.40, 0.25, 0.16))
-		bpost.material_override = m._castle_mat("wood", 0.18, Color(0.64, 0.46, 0.32))
+
+	var wheel: Node3D = _north_prop("mill_wheel", c + Vector3(-7.2, 1.9, -4.8),
+		7.6)
+	if wheel != null:
+		m._set_vis_range(wheel, 180.0)
+		var spins: Array = m.g.get("north_spins", [])
+		spins.append({"node": wheel, "axis": "x", "speed": 0.7})
+		m.g["north_spins"] = spins
+
+	var bridge: Node3D = _north_prop("log_bridge",
+		o + Vector3(39.5, 2.0, -213.0), 17.0)
+	if bridge != null:
+		m._set_vis_range(bridge, 165.0)
 
 
 func _nordic_house(o: Vector3, lp: Vector2, kind: String,
@@ -976,6 +855,9 @@ func _build_castle(o: Vector3) -> void:
 	var c: Vector3 = o + Vector3(CASTLE_LOCAL.x, HALL_FLOOR, CASTLE_LOCAL.y)
 	var wall_col: Color = Color(0.78, 0.84, 0.96)
 	var roof_col: Color = Color(0.32, 0.40, 0.66)
+	var authored_castle: Node3D = _north_prop("center_castle", c, 96.0, PI)
+	if authored_castle != null:
+		m._set_vis_range(authored_castle, 390.0)
 
 	# Curtain wall: front (gated), sides, back.
 	for seg: Array in [
@@ -1095,28 +977,6 @@ func _build_castle(o: Vector3) -> void:
 			Vector3(2.2, 7.5, 0.3), Color(0.55, 0.92, 1.0), 1.1)
 		slit.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 
-	var crown: Label3D = Label3D.new()
-	crown.text = "♛"
-	crown.font_size = 290
-	crown.pixel_size = 0.028
-	crown.outline_size = 32
-	crown.modulate = Color(1.0, 0.84, 0.36)
-	crown.outline_modulate = Color(0.24, 0.22, 0.48)
-	crown.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	crown.position = c + Vector3(0, 57.0, -27.0)
-	m.add_child(crown)
-	m.game_nodes.append(crown)
-	var star: Label3D = Label3D.new()
-	star.text = "✦"
-	star.font_size = 180
-	star.pixel_size = 0.024
-	star.outline_size = 24
-	star.modulate = Color(0.72, 0.96, 1.0)
-	star.outline_modulate = Color(0.20, 0.24, 0.50)
-	star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	star.position = c + Vector3(0, 14.5, front_z + 1.0)
-	m.add_child(star)
-	m.game_nodes.append(star)
 
 
 func _build_grand_hall(o: Vector3) -> void:
@@ -1127,65 +987,25 @@ func _build_grand_hall(o: Vector3) -> void:
 	var c: Vector3 = o + Vector3(0.0, HALL_FLOOR, -326.0)
 	var ice: Color = Color(0.80, 0.90, 1.0)
 	var ice_deep: Color = Color(0.46, 0.62, 0.92)
+	var centerpiece: Node3D = _north_prop("hall_centerpiece",
+		c + Vector3(0, 0, 6.0), 33.0)
+	if centerpiece != null:
+		m._set_vis_range(centerpiece, 115.0)
 
-	# polished floor slab + a six-point star inlay
+	# Polished floor slab under the authored six-pillar/fountain composition.
 	var floor_slab: MeshInstance3D = m._l2_box(c + Vector3(0, -0.1, 0),
 		Vector3(60.0, 0.5, 44.0), ice.lightened(0.05))
 	floor_slab.material_override = m._castle_mat("marble", 0.10, Color(0.88, 0.95, 1.0))
-	var inlay: Label3D = Label3D.new()
-	inlay.text = "✦"
-	inlay.font_size = 420
-	inlay.pixel_size = 0.03
-	inlay.modulate = Color(0.62, 0.88, 1.0, 0.85)
-	inlay.outline_size = 30
-	inlay.outline_modulate = Color(0.30, 0.44, 0.80)
-	inlay.rotation.x = -PI * 0.5
-	inlay.position = c + Vector3(0, 0.35, 4.0)
-	inlay.no_depth_test = false
-	m.add_child(inlay)
-	m.game_nodes.append(inlay)
 
-	# hex ring of ice pillars (phased so the door->fountain axis stays clear)
+	# Matching analytic collision for the authored pillar ring.
 	for pi in range(6):
 		var ang: float = TAU * float(pi) / 6.0
-		var pp: Vector3 = c + Vector3(cos(ang) * 15.0, 8.0, sin(ang) * 11.0 + 2.0)
-		var pillar: MeshInstance3D = MeshInstance3D.new()
-		var pm: CylinderMesh = CylinderMesh.new()
-		pm.top_radius = 1.3
-		pm.bottom_radius = 1.7
-		pm.height = 16.0
-		pm.radial_segments = 8
-		pillar.mesh = pm
-		pillar.material_override = m._castle_mat("marble", 0.09, ice)
-		pillar.position = pp
-		m.add_child(pillar)
-		m.game_nodes.append(pillar)
+		var pp: Vector3 = c + Vector3(cos(ang) * 14.5, 7.5, sin(ang) * 10.8 + 6.0)
 		m._cyl_solid(pp, 1.7, 8.0, 0.4)
 
-	# frozen fountain centerpiece: stacked ice tiers + arrested glow jets
+	# Matching analytic collision for the authored frozen fountain.
 	var f_c: Vector3 = c + Vector3(0.0, 0.0, 6.0)
-	for tier: Array in [[4.6, 1.2, 0.6], [2.9, 1.0, 1.7], [1.5, 2.2, 3.2]]:
-		var td: MeshInstance3D = MeshInstance3D.new()
-		var tm: CylinderMesh = CylinderMesh.new()
-		tm.top_radius = float(tier[0]) * 0.85
-		tm.bottom_radius = float(tier[0])
-		tm.height = float(tier[1])
-		tm.radial_segments = 10
-		td.mesh = tm
-		td.material_override = m._castle_mat("marble", 0.08, Color(0.84, 0.94, 1.0))
-		td.position = f_c + Vector3(0, float(tier[2]), 0)
-		m.add_child(td)
-		m.game_nodes.append(td)
 	m._cyl_solid(f_c + Vector3(0, 2.0, 0), 4.6, 2.0, 0.4)
-	for ji in range(6):
-		var jang: float = TAU * float(ji) / 6.0
-		var jet: MeshInstance3D = m._l2_box(
-			f_c + Vector3(cos(jang) * 2.2, 5.2, sin(jang) * 2.2),
-			Vector3(0.4, 2.8, 0.4), Color(0.72, 0.94, 1.0), 1.0)
-		jet.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		jet.material_override.albedo_color.a = 0.6
-		jet.rotation.z = cos(jang) * 0.55
-		jet.rotation.x = -sin(jang) * 0.55
 
 	# interior wall glow windows
 	for side: float in [-1.0, 1.0]:
