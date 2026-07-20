@@ -61,6 +61,11 @@ front-LEFT rainbow forelock, lavender clothing, green-right/pink-left tail.
   get head/thorax/wing-case + six legs; pines keep trunk + tiered
   silhouette; snow is rounded caps with blue-grey undersides. No invented
   faces on ordinary props (coral, rocks, food, plants).
+- **Ground-plant completeness**: one detached leaf is never a complete plant
+  growing from terrain. Every placed ground plant needs a believable root or
+  attachment point and a full growth habit: baby rosette, multi-leaf clump,
+  reed bed, shrub, flowering plant, or mature tree. Single leaves are allowed
+  only as litter, collectibles, or attached parts of a larger plant.
 - **Functional separation** where play needs it: detachable pieces are
   separate meshes/files (music bars, ornaments, star bells, gates the
   player swims through).

@@ -28,40 +28,6 @@ func _init() -> void:
 		and not lagoon._lagoon_plant_allowed("tree_palm", 130.0, -20.0)
 		and lagoon._lagoon_plant_allowed("mushroom_red", 130.0, -20.0))
 	print("ECOLOGY|water/snow/sand/climate flora filter: ", "OK" if ecology_ok else "FAIL")
-	var botany_rule_ok: bool = (not lagoon._lagoon_plant_allowed("grass_leafsLarge", 130.0, -20.0)
-		and not lagoon._lagoon_plant_allowed("trop_bigleaf", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_baby_rosette", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_meadow_shrub", 130.0, -20.0))
-	var kit_paths: Array[String] = [
-		"lagoon_baby_rosette", "lagoon_meadow_shrub",
-		"lagoon_flower_cluster_coral", "lagoon_flower_cluster_lavender",
-		"lagoon_mushroom_cluster", "lagoon_pond_reeds", "lagoon_river_stones",
-		"lagoon_story_lantern", "lagoon_memory_frame", "lagoon_rainbow_race_arch",
-		"lagoon_train_station", "lagoon_snowbank",
-	]
-	var kit_resources_ok := true
-	for kit_name: String in kit_paths:
-		kit_resources_ok = (kit_resources_ok and ResourceLoader.exists(
-			"res://assets/sky_lagoon/lagoon_kit/" + kit_name + ".glb"))
-	var lagoon_counts: Dictionary = main.g.get("lagoon_art_counts", {})
-	var grounded_flora_count: int = 0
-	for flora_role: String in lagoon.LAGOON_GROUND_FLORA:
-		grounded_flora_count += int(lagoon_counts.get(flora_role, 0))
-	var authored_placement_ok: bool = (grounded_flora_count >= 45
-		and int(lagoon_counts.get("lagoon_pond_reeds", 0)) == 10
-		and int(lagoon_counts.get("lagoon_river_stones", 0)) == 6
-		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
-		and int(lagoon_counts.get("lagoon_memory_frame", 0)) == 6
-		and int(lagoon_counts.get("lagoon_rainbow_race_arch", 0)) == 2
-		and int(lagoon_counts.get("lagoon_train_station", 0)) == 1
-		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
-		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")
-	var lagoon_art_ok: bool = botany_rule_ok and kit_resources_ok and authored_placement_ok
-	print("BOTANY|no isolated ground leaf + complete plant kit: ",
-		"OK" if lagoon_art_ok else "FAIL",
-		" flora=", grounded_flora_count, " placements=", lagoon_counts)
-	if not lagoon_art_ok:
-		print("FAIL|Sky Lagoon authored flora or landmark placement regression")
 	var footprints_ok: bool = (not lagoon._lagoon_ground_object_allowed("plant", 0.0, 100.0)
 		and not lagoon._lagoon_ground_object_allowed("plant", 0.0, -120.0)
 		and not lagoon._lagoon_ground_object_allowed("plant", -22.0, 95.0)

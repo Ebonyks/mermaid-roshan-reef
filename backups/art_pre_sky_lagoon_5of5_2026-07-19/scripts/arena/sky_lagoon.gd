@@ -27,15 +27,6 @@ const ALPINE_HABITAT_SCENES := [
 	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
 ]
 const OPERA_GATE_SPOT := Vector2(-26.0, -30.0)   # local: flat plaza, off the path, clear of moat + Dream Star 3
-const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
-const FORBIDDEN_GROUND_LEAF_ROLES := ["grass_leafsLarge", "trop_bigleaf"]
-const LAGOON_GROUND_FLORA := [
-	"lagoon_baby_rosette",
-	"lagoon_meadow_shrub",
-	"lagoon_flower_cluster_coral",
-	"lagoon_flower_cluster_lavender",
-	"lagoon_mushroom_cluster",
-]
 const ALPINE_CREATURE_KINDS := ["fish", "insect", "bird"]
 const ALPINE_CREATURE_CAGES := ["aquarium", "terrarium", "bird_cage"]
 const ALPINE_CREATURE_KEYS := [
@@ -52,44 +43,9 @@ const ALPINE_CREATURE_MESSAGES := [
 func _init(main: ReefMain) -> void:
 	m = main
 
-
-func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
-	yaw: float = 0.0) -> Node3D:
-	var prop: Node3D = m._art35_prop(LAGOON_KIT_ROOT + name + ".glb", pos, scale_value, yaw)
-	if prop == null:
-		return null
-	prop.set_meta("lagoon_art_role", name)
-	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-	counts[name] = int(counts.get(name, 0)) + 1
-	m.g["lagoon_art_counts"] = counts
-	return prop
-
-
-func _build_lagoon_bank_dressing(o: Vector3) -> void:
-	# A few authored stone groups visually pin each stream into the meadow.
-	# They sit just outside the carved water ribbon and have no collision.
-	for river_index in range(m.LAGOON_RIVERS.size()):
-		var river: Array = m.LAGOON_RIVERS[river_index]
-		for sample_index in range(1, 4):
-			var t: float = float(sample_index) / 4.0
-			var segment_value: float = t * float(river.size() - 1)
-			var segment_index: int = mini(int(floor(segment_value)), river.size() - 2)
-			var local_t: float = segment_value - float(segment_index)
-			var a: Vector2 = river[segment_index]
-			var b: Vector2 = river[segment_index + 1]
-			var center: Vector2 = a.lerp(b, local_t)
-			var direction: Vector2 = (b - a).normalized()
-			var bank_normal := Vector2(-direction.y, direction.x)
-			var side: float = -1.0 if (sample_index + river_index) % 2 == 0 else 1.0
-			var bank: Vector2 = center + bank_normal * (m.LAGOON_RIVER_W + 3.2) * side
-			_lagoon_prop("lagoon_river_stones",
-				o + Vector3(bank.x, _lagoon_local(bank.x, bank.y) - 0.15, bank.y),
-				1.25 + float(sample_index % 2) * 0.18, atan2(direction.x, direction.y))
-
 func _build_pearl_castle(o: Vector3) -> void:
 	m.wall_pics = []
 	m.g["castle_detail_lights"] = []
-	m.g["lagoon_art_counts"] = {}
 	# ---------- warm daytime sun for the sky lagoon (soft shadows) ----------
 	var sun2 := DirectionalLight3D.new()
 	sun2.rotation_degrees = Vector3(-48.0, 35.0, 0.0)
@@ -125,28 +81,36 @@ func _build_pearl_castle(o: Vector3) -> void:
 	path.position = o + Vector3(0, 2.4, 45.0)
 	m.add_child(path)
 	m.game_nodes.append(path)
-	# Authored shell lanterns and framed memory art line the path. The protected
-	# book images remain byte-identical; only their generated 3D surrounds change.
+	# lamp posts + banners (her book art) line the path
 	var banners := ["p_seattle", "p_snowman", "p_garden", "p_trampoline", "p_slide", "p_xmas"]
 	for li in range(6):
 		var z := 150.0 - float(li) * 46.0
 		for sgn in [-1.0, 1.0]:
-			var post_y: float = _lagoon_local(sgn * 13.0, z)
-			if sgn > 0.0:
-				_lagoon_prop("lagoon_story_lantern", o + Vector3(sgn * 13.0, post_y, z), 1.95)
-			m._cyl_solid(o + Vector3(sgn * 13.0, post_y + 6.0, z), 0.9, 6.0, 0.5)
+			var post = m._l2_box(o + Vector3(sgn * 13.0, 6.0, z), Vector3(1.0, 12.0, 1.0), Color(0.5, 0.36, 0.22))
+			m._cyl_solid(o + Vector3(sgn * 13.0, 6.0, z), 0.9, 6.0, 0.5)
+			var lampbulb := MeshInstance3D.new()
+			var lb := SphereMesh.new()
+			lb.radius = 1.1
+			lb.height = 2.2
+			lampbulb.mesh = lb
+			var lm := StandardMaterial3D.new()
+			lm.emission_enabled = true
+			lm.emission = Color(1.0, 0.85, 0.5)
+			lm.emission_energy_multiplier = 2.0 if m.is_night else 0.12
+			lampbulb.material_override = lm
+			lampbulb.position = o + Vector3(sgn * 13.0, 12.5, z)
+			m.add_child(lampbulb)
+			m.game_nodes.append(lampbulb)
 			var lo := OmniLight3D.new()
 			lo.light_color = Color(1.0, 0.85, 0.55)
-			lo.light_energy = 1.10
+			lo.light_energy = 1.25
 			lo.omni_range = 21.0
-			lo.position = o + Vector3(sgn * 13.0, post_y + 11.2, z)
+			lo.position = lampbulb.position
 			m.add_child(lo)
 			m.game_nodes.append(lo)
 			m._register_castle_light(lo, li % 2 == 0, true)
 		# a hanging banner of her memories on the left posts
-		var memory_pos := o + Vector3(-12.3, _lagoon_local(-13.0, z) + 7.0, z)
-		_lagoon_prop("lagoon_memory_frame", memory_pos, 1.0, PI * 0.5)
-		m._hang_portrait(memory_pos, Vector3(0, 90, 0), banners[li])
+		m._hang_portrait(o + Vector3(-13.0, 7.0, z) + Vector3(0.7, 0, 0), Vector3(0, 90, 0), banners[li])
 	# ---------- Phase 4a: courtyard GATEHOUSE (Kenney Castle Kit, CC0) ----------
 	# a chunky storybook welcome framing the path entrance near the spawn. The
 	# path itself stays fully open — towers sit flush with the path edges
@@ -165,6 +129,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		m._wall_solid(o + Vector3(wx, wy + 6.0, gz), Vector3(11.0, 12.0, 11.0), 0.8)
 	# ---------- decorate the meadow with CC0 nature (dense, grounded, clustered) ----------
 	var trees := ["tree_palm", "tree_pineRoundF", "tree_default_fall", "tree_simple_fall", "tree_fat"]
+	var flowers := ["flower_redA", "flower_yellowB", "flower_purpleA"]
 	var sd := 3
 	# tree CLUSTERS (little groves read as a real forest edge)
 	for grove in range(14):
@@ -208,8 +173,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 				m._nature(tname, tpos, 9.0 + float(sd % 5), float(sd % 628) / 100.0)
 			# collision audit #1: the whole forest was ghost — trunks are solid now
 			m._cyl_solid(tpos + Vector3(0, 6.0, 0), 1.3, 6.0, 0.6)
-	# Undergrowth uses complete modeled plants. A single full-size leaf is not a
-	# plant and must never be inserted directly into the terrain.
+	# undergrowth: bushes, mushrooms, grass tufts, flower clumps
 	for k in range(90):
 		sd = (sd * 1103515245 + 12345) & 0x7fffffff
 		var ang: float = float(sd % 1000) / 1000.0 * TAU
@@ -232,25 +196,26 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var plant_name: String
 		var plant_size: float
 		if pick < 3:
-			plant_name = "lagoon_meadow_shrub"
-			plant_size = 1.30
+			plant_name = "plant_bushLargeTriangle"
+			plant_size = 6.0
 		elif pick < 5:
-			plant_name = "lagoon_baby_rosette"
-			plant_size = 1.55
+			plant_name = "plant_bush"
+			plant_size = 5.0
 		elif pick < 6:
-			plant_name = "lagoon_mushroom_cluster"
-			plant_size = 1.70
+			plant_name = "mushroom_red"
+			plant_size = 5.0
 		elif pick < 7:
-			plant_name = "lagoon_flower_cluster_lavender"
-			plant_size = 1.45
+			plant_name = "mushroom_tanGroup"
+			plant_size = 5.5
 		elif pick < 8:
-			plant_name = "lagoon_baby_rosette"
-			plant_size = 1.25
+			plant_name = "grass_leafsLarge"
+			plant_size = 5.0
 		else:
-			plant_name = "lagoon_flower_cluster_coral"
-			plant_size = 1.45
+			@warning_ignore("integer_division")
+			plant_name = flowers[(sd / 17) % flowers.size()]
+			plant_size = 6.0
 		if _lagoon_plant_allowed(plant_name, px, pz):
-			_lagoon_prop(plant_name, o + gp, plant_size, yr)
+			m._nature(plant_name, o + gp, plant_size, yr)
 	# a calm pond off to the side, ringed with cattails
 	var pond := MeshInstance3D.new()
 	var pondm := CylinderMesh.new()
@@ -265,12 +230,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 	pond.position = o + Vector3(-95, _lagoon_local(-95, 70) + 0.6, 70)
 	m.add_child(pond)
 	m.game_nodes.append(pond)
-	for ct in range(10):
-		var cta: float = float(ct) / 10.0 * TAU
+	for ct in range(14):
+		var cta: float = float(ct) / 14.0 * TAU
 		var cpx: float = -95 + cos(cta) * 36.0
 		var cpz: float = 70 + sin(cta) * 36.0
-		_lagoon_prop("lagoon_pond_reeds", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.18, cpz), 1.28 + float(ct % 3) * 0.08, cta + PI)
-	_build_lagoon_bank_dressing(o)
+		m._nature("grass_leafsLarge", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.3, cpz), 5.5, randf() * TAU)
 	# ---------- Phase 4b: PLAYGROUND corner + park dressing (Tiny Treats, CC0) ----------
 	# a real play-place on the east meadow: slide, swings, merry-go-round,
 	# seesaw, sandbox and a spring horse. Pure toy, no objectives — and the
@@ -397,25 +361,37 @@ func _build_pearl_castle(o: Vector3) -> void:
 			"gait": 0.0, "mats": swaymats, "purr_cd": 0.0, "purr": null, "ap": ap,
 			"sleep_cd": 25.0 + randf() * 25.0, "nap": 0.0, "zzz_cd": 0.0,
 		})
-	# The old screen-dominating torus implied one enormous decorative rainbow
-	# while the gameplay actually used two remote circular triggers. Each race
-	# entrance now receives its own authored rainbow arch at the exact trigger.
+	# a big rainbow arc over the meadow
+	var rainbow := MeshInstance3D.new()
+	var rt := TorusMesh.new()
+	rt.inner_radius = 118.0
+	rt.outer_radius = 130.0
+	rt.rings = 48
+	rt.ring_segments = 24
+	rainbow.mesh = rt
+	var rbsh := Shader.new()
+	rbsh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){\n\tfloat b = UV.y;\n\tvec3 c = vec3(0.0);\n\tif(b<0.16)c=vec3(0.9,0.2,0.3);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.9,0.3);else if(b<0.66)c=vec3(0.3,0.8,0.4);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.6,0.4,0.9);\n\tALBEDO=c;\n\tEMISSION=c*0.4;\n\tALPHA=0.6;\n}"
+	var rbm := ShaderMaterial.new()
+	rbm.shader = rbsh
+	rainbow.material_override = rbm
+	rainbow.position = o + Vector3(40, 0, -10)
+	rainbow.rotation_degrees = Vector3(0, 0, 90)
+	m.add_child(rainbow)
+	m.game_nodes.append(rainbow)
+	# the two legs of the rainbow are the Rainbow Road race gateways (right leg = reversed lap)
 	var rb_center := o + Vector3(40, 0, -10)
 	var legaz: float = rb_center.z + 124.0
 	var legbz: float = rb_center.z - 124.0
 	m.kart_legA = Vector3(rb_center.x, m.lagoon_h(rb_center.x, legaz) + 6.0, legaz)
 	m.kart_legB = Vector3(rb_center.x, m.lagoon_h(rb_center.x, legbz) + 6.0, legbz)
-	m.g["lagoon_rainbow_route_mode"] = "paired_authored_gates"
-	_lagoon_prop("lagoon_rainbow_race_arch", m.kart_legA - Vector3(0, 6.0, 0), 1.0, 0.0)
-	_lagoon_prop("lagoon_rainbow_race_arch", m.kart_legB - Vector3(0, 6.0, 0), 1.0, PI)
-	m._kart_gateway(m.kart_legA, "Rainbow Race!", Color(0.4, 0.85, 1.0), false)
-	m._kart_gateway(m.kart_legB, "Rainbow Race!\n(reverse lap)", Color(1.0, 0.6, 0.95), false)
+	m._kart_gateway(m.kart_legA, "Rainbow Race!", Color(0.4, 0.85, 1.0))
+	m._kart_gateway(m.kart_legB, "Rainbow Race!\n(reverse lap)", Color(1.0, 0.6, 0.95))
 	# the door to LEVEL 3 sits between the two race legs. Locked until the
 	# rainbow race has carried Roshan there once; a direct portal afterwards.
 	var bwz: float = (legaz + legbz) * 0.5
 	m.bw_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, bwz) + 14.0, bwz)
 	if m.galaxy_unlocked:
-		m._kart_gateway(m.bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3), false)
+		m._kart_gateway(m.bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3))
 		var bwg = m._butterfly_gate(4.2)
 		bwg.position = m.bw_portal_pos
 		m.add_child(bwg)
@@ -796,20 +772,6 @@ func _build_christmas_village(o: Vector3) -> void:
 	for pi in range(pine_spots.size()):
 		var prow: Array = pine_spots[pi]
 		_village_pine(o, prow[0], float(prow[1]), false)
-	# Low modeled snowbanks break the shader boundary into a readable melt edge.
-	# These are visual shells only and do not alter the established cave, house,
-	# or train clearances.
-	var snowbank_spots: Array[Vector3] = [
-		Vector3(-50.0, 0.0, -165.0), Vector3(-62.0, 0.0, -145.0),
-		Vector3(-90.0, 0.0, -137.0), Vector3(-122.0, 0.0, -140.0),
-		Vector3(-142.0, 0.0, -160.0), Vector3(-104.0, 0.0, -210.0),
-		Vector3(-70.0, 0.0, -207.0),
-	]
-	for bank_index in range(snowbank_spots.size()):
-		var bank_pos: Vector3 = snowbank_spots[bank_index]
-		_lagoon_prop("lagoon_snowbank", o + Vector3(bank_pos.x,
-			_lagoon_local(bank_pos.x, bank_pos.z) - 0.12, bank_pos.z),
-			1.55 + float(bank_index % 3) * 0.16, float(bank_index) * 0.73)
 
 	_village_snowman(o, Vector3(-61.0, 0.0, -191.0))
 
@@ -1665,13 +1627,15 @@ func _build_fairy_pond(o: Vector3) -> void:
 	pond.material_override = pmat
 	pond.position = c + Vector3(0, 2.6, 0)
 	m.add_child(pond); m.game_nodes.append(pond)
-	# Rooted modeled flower clusters replace the old glowing spheres. Each reads
-	# as a complete flowering plant and preserves the one-light pond budget.
+	# a ring of glowing fairy flowers around it
 	for k in range(10):
 		var a: float = float(k) / 10.0 * TAU
-		var flower_role := "lagoon_flower_cluster_lavender" if k % 2 == 0 else "lagoon_flower_cluster_coral"
-		_lagoon_prop(flower_role,
-			c + Vector3(cos(a) * 18.0, 2.25, sin(a) * 18.0), 1.10, -a)
+		var fl := MeshInstance3D.new()
+		var fm := SphereMesh.new(); fm.radius = 1.3; fm.height = 2.6
+		fl.mesh = fm
+		fl.material_override = m._soft_mat(Color.from_hsv(float(k) / 10.0, 0.5, 1.0), 1.5)
+		fl.position = c + Vector3(cos(a) * 17.0, 3.4, sin(a) * 17.0)
+		m.add_child(fl); m.game_nodes.append(fl)
 	var l := OmniLight3D.new()
 	l.light_color = Color(0.7, 0.72, 1.0); l.light_energy = 2.6; l.omni_range = 32.0
 	l.position = c + Vector3(0, 9, 0); m.add_child(l); m.game_nodes.append(l)
@@ -2509,9 +2473,7 @@ func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
 
 func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
 	# Keep terrestrial flora tied to the same ecological zones painted by the
-	# terrain shader. Authored reed beds and Alpine pines are built separately.
-	if role in FORBIDDEN_GROUND_LEAF_ROLES:
-		return false
+	# terrain shader. Explicit cattails and Alpine pines are built separately.
 	if not _lagoon_ground_object_allowed(role, lx, lz):
 		return false
 

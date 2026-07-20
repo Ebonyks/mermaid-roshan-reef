@@ -232,18 +232,15 @@ func _quad(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3, nrm:
 
 
 func _build_station(o: Vector3) -> void:
-	# An authored shell-roof station replaces the primitive post-and-slab stop.
-	# It remains low and NON-solid so nobody can ever get pinched by it.
+	# a tiny platform stop on the east side of the loop — low and NON-solid
+	# (like the cobble path) so nobody can ever get pinched by it
 	var radial := Vector3(sin(STATION_A), 0, cos(STATION_A))
 	var c: Vector3 = Vector3(RING_CX, 0, RING_CZ) + radial * (_ring_r(STATION_A) + 6.5)
 	c.y = m._lagoon_local(c.x, c.z)
-	var station: Node3D = m._art35_prop(
-		"res://assets/sky_lagoon/lagoon_kit/lagoon_train_station.glb", o + c, 1.0, 0.0)
-	if station != null:
-		station.set_meta("lagoon_art_role", "lagoon_train_station")
-		var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-		counts["lagoon_train_station"] = int(counts.get("lagoon_train_station", 0)) + 1
-		m.g["lagoon_art_counts"] = counts
+	m._l2_box(o + c + Vector3(0, 0.35, 0), Vector3(5.0, 0.7, 12.0), Color(0.86, 0.78, 0.66))
+	for pz: float in [-4.6, 4.6]:
+		m._l2_box(o + c + Vector3(1.6, 3.0, pz), Vector3(0.5, 5.2, 0.5), Color(0.50, 0.36, 0.22))
+	m._l2_box(o + c + Vector3(1.2, 5.8, 0), Vector3(4.6, 0.4, 11.0), Color(0.95, 0.62, 0.66))
 	m._kit("park/bench", o + c + Vector3(2.2, 0.6, 0), 5.0, PI * 0.5)
 	var st_sign := Label3D.new()
 	st_sign.text = "🚂 Castle Train — hop on!"

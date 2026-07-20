@@ -170,6 +170,13 @@ turning every plant into the same rounded tuft.
 
 - Identify the growth habit first: woody branching tree, upright cane, trailing
   vine, rosette succulent, paddle cactus, sword-leaf plant or flowering shrub.
+- A single detached leaf must never represent a complete plant emerging from
+  terrain. Single leaves are permitted only as litter, a collectible, or part of
+  a larger branch or canopy assembly.
+- Ground vegetation must show one believable attachment point and a complete
+  growth habit: baby rosette, multi-leaf clump, reed bed, shrub, flowering plant,
+  or mature tree. A baby plant and a developed plant are both valid; an enlarged
+  leaf card stuck upright in the ground is not.
 - Woody plants show a visible trunk and fork pattern. Leaves attach in readable
   clusters along branches instead of forming one undifferentiated blob.
 - Succulents use thick overlapping leaves with a clear center rosette. Aloe and
@@ -619,6 +626,10 @@ pose, orthographic camera, and no perspective exaggeration.
   or decorative frame unless those layers are explicitly requested.
 - A modular plant has one root or attachment point and a silhouette that can be
   rotated, mirrored, and overlapped without creating an obvious repeated island.
+- Reject any ground-vegetation asset whose complete silhouette is one detached
+  leaf, even when that leaf is crossed with a duplicate card or enlarged to read
+  as a bush. Replace it with a rooted baby plant, multi-leaf clump, or larger
+  developed plant appropriate to the biome.
 - Do not mix biomes inside one prop. Above-water flowers do not share a baked card
   with coral, tube sponges, stones, or seabed dressing.
 - State the camera and animation contract in the prompt. A flying butterfly needs
