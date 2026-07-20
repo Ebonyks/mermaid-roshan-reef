@@ -1010,6 +1010,96 @@ def build_hall_centerpiece() -> bpy.types.Object:
 	return r
 
 
+def build_bedroom_set() -> bpy.types.Object:
+	r = root("northern_bedroom_set")
+	# One authored cluster replaces the former box bed, cylinder rug and loose
+	# generic furniture. Its footprint stays compact enough for all three bays.
+	blob("braided_rug", (0, -.15, .12), (4.45, 4.95, .22), MATS["rose"], r, 1200)
+	ring("rug_braid", (0, -.15, .28), 3.75, .22, MATS["gold"], r)
+	blob("rug_snow_heart", (0, -.45, .32), (1.35, 1.7, .12), MATS["blue"], r, 1201)
+
+	# Rounded timber/ice frame with crystal-capped corner posts.
+	rounded_box("bed_frame", (0, 0, 1.15), (6.4, 7.2, 1.25),
+		MATS["stone_light"], r, radius=.3)
+	rounded_box("mattress", (0, -.1, 1.95), (5.6, 6.5, .72),
+		MATS["cream"], r, radius=.34)
+	for side in (-1.0, 1.0):
+		for end in (-1.0, 1.0):
+			x, y = side * 3.15, end * 3.45
+			rounded_box("bed_post_%s_%s" % (side, end), (x, y, 2.15),
+				(.58, .58, 4.3), MATS["mountain_blue"], r, radius=.16)
+			cone("post_crystal_%s_%s" % (side, end), (x, y, 4.75),
+				.62, .05, 1.25, MATS["ice"], r, 8)
+		panel_xz("post_jewel_%s" % side,
+			[(-.28, 0), (0, .38), (.28, 0), (0, -.38)], .12,
+			(side * 3.15, -3.78, 2.4), MATS["gold"], r)
+
+	# Tall arched headboard and lower footboard create the royal silhouette.
+	panel_xz("crowned_headboard", [(-3.0, 0), (3.0, 0), (3.0, 4.1),
+		(2.35, 5.25), (0, 6.35), (-2.35, 5.25), (-3.0, 4.1)],
+		.55, (0, 3.3, .75), MATS["mountain_blue"], r)
+	poly_tube("headboard_ice_trim", [(-2.75, 3.0, 4.1), (-2.15, 3.0, 5.65),
+		(0, 3.0, 6.85), (2.15, 3.0, 5.65), (2.75, 3.0, 4.1)],
+		.16, MATS["snow"], r)
+	panel_xz("footboard", [(-3.0, 0), (3.0, 0), (3.0, 1.65),
+		(0, 2.45), (-3.0, 1.65)], .48, (0, -3.48, .65),
+		MATS["mountain_blue"], r)
+	panel_xz("foot_crown", [(-.85, 0), (.85, 0), (.72, .8), (.32, .35),
+		(0, 1.35), (-.32, .35), (-.72, .8)], .14,
+		(0, -3.76, 1.15), MATS["gold"], r)
+
+	# Broad quilt layers and pillows model softness without costly cloth sims.
+	rounded_box("quilt_blue", (0, -.55, 2.43), (5.25, 4.85, .42),
+		MATS["blue"], r, radius=.22)
+	rounded_box("quilt_rose_fold", (0, .75, 2.68), (5.35, 1.35, .34),
+		MATS["rose"], r, radius=.16)
+	rounded_box("quilt_cream_fold", (0, 1.5, 2.82), (5.45, 1.0, .36),
+		MATS["cream"], r, radius=.16)
+	for index, x in enumerate((-1.45, 1.45)):
+		pillow = rounded_box("pillow_%d" % index, (x, 2.0, 3.0),
+			(2.35, 1.45, .68), MATS["wisp_b" if index == 0 else "rose"],
+			r, (math.radians(-5), 0, math.radians(-4 if index == 0 else 4)), .3)
+		pillow.rotation_euler.z = math.radians(-4 if index == 0 else 4)
+		panel_xz("pillow_jewel_%d" % index,
+			[(-.24, 0), (0, .32), (.24, 0), (0, -.32)], .1,
+			(x, 1.22, 3.0), MATS["gold"], r)
+
+	# Modeled snowflake on the headboard and quilt; no font or billboard.
+	for prefix, y, z, scale in (("head", 2.98, 4.55, 1.0),
+		("quilt", -3.0, 2.72, .72)):
+		for arm in range(6):
+			angle = math.tau * float(arm) / 6.0
+			bar = rounded_box("%s_snow_arm_%d" % (prefix, arm), (0, y, z),
+				(.12 * scale, .1, 1.35 * scale), MATS["snow"], r,
+				(0, angle, 0), .035)
+			bar.rotation_euler.y = angle
+		blob("%s_snow_heart" % prefix, (0, y - .04, z),
+			(.25 * scale, .14, .25 * scale), MATS["ice"], r, 1220 + int(scale * 10))
+
+	# Warm lantern table and a compact shelf complete the lived-in vignette.
+	rounded_box("bedside_table", (4.25, 1.75, 1.25), (2.0, 2.0, 2.5),
+		MATS["wood_light"], r, radius=.22)
+	rounded_box("table_runner", (4.25, .7, 2.55), (2.2, .85, .16),
+		MATS["wisp_b"], r, radius=.06)
+	cylinder("lantern_base", (4.25, 1.75, 2.9), .62, .3, MATS["gold"], r, 10)
+	blob("lantern_glow", (4.25, 1.75, 3.55), (.62, .48, .82),
+		MATS["window_warm"], r, 1230)
+	cone("lantern_cap", (4.25, 1.75, 4.25), .72, .12, .5,
+		MATS["gold"], r, 8)
+	ring("lantern_handle", (4.25, 1.75, 4.65), .42, .08, MATS["gold"], r,
+		(math.pi * .5, 0, 0))
+	rounded_box("storybook_shelf", (-4.25, 1.1, 2.5), (2.15, 2.0, 5.0),
+		MATS["mountain_blue"], r, radius=.24)
+	for z in (1.45, 3.0, 4.55):
+		rounded_box("shelf_%s" % z, (-4.25, -.02, z), (1.9, .28, .2),
+			MATS["snow"], r, radius=.05)
+	for index, (x, z, color) in enumerate(((-4.65, 1.95, "rose"),
+		(-4.2, 2.0, "gold"), (-3.9, 3.55, "wisp_b"), (-4.45, 3.5, "aqua"))):
+		rounded_box("storybook_%d" % index, (x, -.18, z), (.3, .22, .85),
+			MATS[color], r, (0, 0, math.radians(-8 + index * 5)), .04)
+	return r
+
+
 ASSETS = {
 	"northern_pass_arch": build_pass_arch(),
 	"northern_peak_a": build_peak("northern_peak_a", 11, -.08),
@@ -1035,6 +1125,7 @@ ASSETS = {
 	"northern_forge": build_forge(),
 	"northern_street_lantern": build_street_lantern(),
 	"northern_hall_centerpiece": build_hall_centerpiece(),
+	"northern_bedroom_set": build_bedroom_set(),
 }
 
 

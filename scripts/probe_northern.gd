@@ -61,11 +61,11 @@ func _init() -> void:
 			- main.northern_walk_h(stone_pos.x, stone_pos.z)) < 0.75
 	_ck("two grounded spirit clearings of standing stones",
 		int(main.g.get("north_stone_count", 0)) == 10 and stones_grounded)
-	var bedroom_quilts: Array = main.g.get("north_bedroom_quilts", [])
+	var bedroom_sets: Array = main.g.get("north_bedroom_sets", [])
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3
-		and bedroom_quilts.size() == 3)
+		and bedroom_sets.size() == 3)
 	_ck("authored northern asset family", int(main.g.get(
-		"north_authored_asset_family_count", 0)) == 24
+		"north_authored_asset_family_count", 0)) == 25
 		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 75,
 		"instances=%d" % int(main.g.get("north_authored_asset_instance_count", 0)))
 

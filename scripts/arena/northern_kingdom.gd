@@ -52,6 +52,7 @@ const NORTH_ASSETS := {
 	"forge": "northern_forge.glb",
 	"street_lantern": "northern_street_lantern.glb",
 	"hall_centerpiece": "northern_hall_centerpiece.glb",
+	"bedroom_set": "northern_bedroom_set.glb",
 }
 
 var north_asset_cache: Dictionary = {}
@@ -1091,12 +1092,11 @@ func _build_grand_hall(o: Vector3) -> void:
 		Vector3(41.0, 0.4, 0.5), ice_deep)
 	rail.material_override = m._castle_mat("marble", 0.10, Color(0.70, 0.82, 1.0))
 
-	# THREE BEDROOMS along the mezzanine: open bays with arched headers,
-	# little beds, rugs, lamps and a bookcase each.
+	# THREE BEDROOMS along the mezzanine: open bays with arched headers and
+	# complete authored royal sets. The former box beds, cylinder rugs and
+	# generic shelf props failed the 4.5 visual gate and were removed.
 	var bay_x: Array[float] = [-19.0, 0.0, 19.0]
-	var quilts: Array[Color] = [Color(0.92, 0.55, 0.68), Color(0.55, 0.75, 0.94),
-		Color(0.72, 0.62, 0.94)]
-	var bedroom_quilts: Array[MeshInstance3D] = []
+	var bedroom_sets: Array[Node3D] = []
 	for bi in range(3):
 		var bx: float = bay_x[bi]
 		# partition walls between bays
@@ -1110,55 +1110,14 @@ func _build_grand_hall(o: Vector3) -> void:
 		var header: MeshInstance3D = m._l2_box(
 			c + Vector3(bx, mezz_y + 7.0, -8.2), Vector3(14.0, 2.4, 0.8), ice)
 		header.material_override = m._castle_mat("marble", 0.09, ice)
-		# bed: frame, mattress, pillow, headboard
-		var bed_c: Vector3 = c + Vector3(bx, mezz_y, -18.0)
-		var frame: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 0.6, 0),
-			Vector3(4.6, 1.2, 6.6), Color(0.52, 0.38, 0.26))
-		frame.material_override = m._castle_mat("wood", 0.16, Color(0.70, 0.52, 0.36))
-		var quilt: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.45, 0.6),
-			Vector3(4.2, 0.6, 5.0), quilts[bi])
-		var quilt_mat: StandardMaterial3D = m._castle_mat("fabric", 0.14, quilts[bi])
-		quilt_mat.emission_enabled = true
-		quilt_mat.emission = quilts[bi].darkened(0.35)
-		quilt_mat.emission_energy_multiplier = 0.54
-		quilt.material_override = quilt_mat
-		bedroom_quilts.append(quilt)
-		var pillow: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.6, -2.4),
-			Vector3(3.2, 0.6, 1.4), Color(0.97, 0.96, 0.92))
-		pillow.material_override = m._castle_mat("fabric", 0.16, Color(0.97, 0.96, 0.92))
-		var headboard: MeshInstance3D = m._l2_box(bed_c + Vector3(0, 1.9, -3.3),
-			Vector3(4.6, 2.6, 0.5), Color(0.48, 0.34, 0.24))
-		headboard.material_override = m._castle_mat("wood", 0.16, Color(0.66, 0.48, 0.34))
-		# rug
-		var rug: MeshInstance3D = MeshInstance3D.new()
-		var rm: CylinderMesh = CylinderMesh.new()
-		rm.top_radius = 2.6
-		rm.bottom_radius = 2.6
-		rm.height = 0.12
-		rm.radial_segments = 10
-		rug.mesh = rm
-		rug.material_override = m._castle_mat("fabric", 0.13, quilts[bi].lightened(0.25))
-		rug.position = c + Vector3(bx, mezz_y + 0.12, -11.5)
-		m.add_child(rug)
-		m.game_nodes.append(rug)
-		# bedside lamp
-		var lamp: MeshInstance3D = MeshInstance3D.new()
-		var lm: SphereMesh = SphereMesh.new()
-		lm.radius = 0.5
-		lm.height = 1.0
-		lm.radial_segments = 8
-		lm.rings = 5
-		lamp.mesh = lm
-		lamp.material_override = m._soft_mat(Color(1.0, 0.88, 0.60), 1.5)
-		lamp.position = c + Vector3(bx + 3.2, mezz_y + 1.8, -18.5)
-		m.add_child(lamp)
-		m.game_nodes.append(lamp)
-		var bookcase: Node3D = m._kit("furniture/bookcase",
-			c + Vector3(bx - 5.2, mezz_y, -19.0), 3.4)
-		if bookcase != null:
-			m._set_vis_range(bookcase, 90.0)
-	m.g["north_bedroom_count"] = 3
-	m.g["north_bedroom_quilts"] = bedroom_quilts
+		var bedroom_set: Node3D = _north_prop("bedroom_set",
+			c + Vector3(bx, mezz_y, -15.0), 11.8)
+		if bedroom_set != null:
+			_light_hall_art(bedroom_set)
+			m._set_vis_range(bedroom_set, 100.0)
+			bedroom_sets.append(bedroom_set)
+	m.g["north_bedroom_count"] = bedroom_sets.size()
+	m.g["north_bedroom_sets"] = bedroom_sets
 
 	# chandelier: a slow-turning glow ring high over the fountain
 	var chand_root: Node3D = Node3D.new()

@@ -4,10 +4,10 @@
 
 The previous 17-family Northern kit did not satisfy the new threshold. Every
 existing family scored below 4.5/5 under the stricter rubric, so none was
-grandfathered. The kit was regenerated through five deterministic review
-passes, obvious defects were rejected, and seven previously procedural
-landmark families were added. The runtime now uses 24 authored Northern
-families.
+grandfathered. The kit was regenerated through six deterministic review
+passes, obvious defects were rejected, and eight previously procedural
+landmark/furniture families were added. The runtime now uses 25 authored
+Northern families.
 
 The audit ceiling is **4.9**, as requested. A score of **4.50** is the release
 floor; a score below 4.00 is not acceptable even as background dressing.
@@ -54,6 +54,7 @@ No score may be raised merely because an asset is new.
 | forge | 2.70 | 4.52 | pass | gabled canopy, chimney, stone hearth, coals, horned anvil, tools and sign |
 | street lantern | 2.90 | 4.58 | pass | stone foot, curved iron hook, cage, cap and warm modeled lamp core |
 | hall centerpiece | 2.80 | 4.55 | pass | six based/capped pillars, linking ice arches, tiered fountain, jets and crystals |
+| bedroom set | 2.85 | 4.68 | pass | crowned snowflake headboard, framed bed, layered quilt, pillows, braided rug, lantern and story shelf |
 
 The lowest final candidate is 4.50; the highest is 4.74. Scores remain below
 the 4.9 ceiling and reflect visible limitations of a low-poly Mobile kit.
@@ -74,7 +75,8 @@ the 4.9 ceiling and reflect visible limitations of a low-poly Mobile kit.
 | box drying rack and fish | **removed**; did not clear 4.5 and was nonessential |
 | text snowflake, spirit glyphs, crown and star | **removed**; replaced by modeled crests/runes |
 | procedural bridge, mill, wheel, forge and lanterns | **removed from runtime**; replaced by authored GLBs |
-| grand-hall structural shell, stairs, mezzanine and bedrooms | retain as a single architectural composition; authored centerpiece supplies the hero detail |
+| grand-hall structural shell, stairs and mezzanine | retain as a single architectural composition; authored centerpiece supplies the hero detail |
+| box beds, cylinder rugs and generic bedroom shelves | **removed**; replaced by three instances of the authored royal-bedroom set |
 
 ## Ecological and logical continuity rules
 
@@ -122,6 +124,31 @@ shared-library additions cannot silently reintroduce tropical or aquatic life.
 > trademarks, watermark, franchise symbols, primitive blockouts, plain boxes,
 > palette-swap-only houses, photorealism, grim mood, microdetail or clutter.
 
+The first live-node bedroom view then exposed the remaining primitive furniture
+at roughly 3/5, so that set was rejected and regenerated as a separate authored
+family.
+
+- Mode: built-in OpenAI image generation, new image.
+- Output: `assets_src/concepts/northern_bedroom_quality_2026-07-20.png`
+- Purpose: non-runtime shape/material reference for
+  `assets/northern/northern_bedroom_set.glb`.
+- Prompt:
+
+> Use case: stylized-concept. Asset type: isolated 3D game-prop concept sheet
+> for a mobile Godot storybook game. Create a polished Northern Kingdom royal
+> ice-castle bedroom set as one coherent low-poly toy-diorama asset:
+> child-sized carved bed with a distinctive snowflake-and-crown headboard,
+> visibly soft layered quilt with broad sculpted folds, two plump pillows,
+> rounded timber/ice frame, warm bedside lantern on a tiny table, oval braided
+> rug, and a compact storybook shelf. Friendly magical Nordic design, premium
+> authored silhouette, rounded shapes, hand-crafted asymmetry, navy/plum
+> outlines, pastel aqua/lavender/rose/cream/gold palette, warm light accents,
+> clear material separation, practical broad modeled detail suitable for a
+> low-draw-call Mobile GLB. Show one hero three-quarter view plus small
+> front/top callouts on a dark navy studio background. No characters, no text,
+> no logos, no franchise symbols, no photorealism, no flat primitive box bed,
+> no microdetail, no clutter, no watermark.
+
 ## Evidence and validation
 
 - Editable source: `assets_src/blender/northern_kingdom_kit.blend`
@@ -132,6 +159,7 @@ shared-library additions cannot silently reintroduce tropical or aquatic life.
 - Functional evidence: `scripts/probe_northern.gd`
 
 The runtime loop rejected blank/rear castle framing, exterior-fountain
-occlusion, a buried standing-stone family, and three bedroom cameras before
-acceptance. The final exact-HEAD CI run and artifact are linked in the task
-handoff; the stable evidence name remains `northern-world-review`.
+occlusion, a buried standing-stone family, three bedroom cameras, and the
+primitive bedroom set itself before acceptance. The final exact-HEAD CI run and
+artifact are linked in the task handoff; the stable evidence name remains
+`northern-world-review`.
