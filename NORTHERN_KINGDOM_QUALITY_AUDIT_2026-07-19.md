@@ -159,7 +159,7 @@ family.
 - Functional evidence: `scripts/probe_northern.gd`
 
 The runtime loop rejected blank/rear castle framing, exterior-fountain
-occlusion, a buried standing-stone family, five bedroom-camera framings, and the
+occlusion, a buried standing-stone family, seven bedroom-camera framings, and the
 primitive bedroom set itself before acceptance. The final exact-HEAD CI run and
 artifact are linked in the task handoff; the stable evidence name remains
 `northern-world-review`.
