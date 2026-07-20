@@ -62,8 +62,12 @@ func _init() -> void:
 	_ck("two grounded spirit clearings of standing stones",
 		int(main.g.get("north_stone_count", 0)) == 10 and stones_grounded)
 	var bedroom_sets: Array = main.g.get("north_bedroom_sets", [])
+	var bedrooms_face_hall := bedroom_sets.size() == 3
+	for bedroom: Node3D in bedroom_sets:
+		bedrooms_face_hall = bedrooms_face_hall and absf(wrapf(
+			bedroom.rotation.y - PI, -PI, PI)) < 0.01
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3
-		and bedroom_sets.size() == 3)
+		and bedrooms_face_hall)
 	_ck("authored northern asset family", int(main.g.get(
 		"north_authored_asset_family_count", 0)) == 25
 		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 75,
