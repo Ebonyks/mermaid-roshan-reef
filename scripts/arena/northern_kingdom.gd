@@ -625,7 +625,9 @@ func _build_magic_forest(o: Vector3) -> void:
 	# Mushroom clusters dot the path edge; a few glow-mote orbs make the
 	# deepest stands read as enchanted rather than dark.
 	var shroom_count := 0
-	var mz := 288.0
+	# Seed only inside the damp forest belt, with enough candidates that the
+	# stream banks and both spirit clearings can reject clusters naturally.
+	var mz := 278.0
 	var mi := 0
 	while mz > -92.0:
 		var mside: float = 1.0 if mi % 2 == 0 else -1.0
@@ -653,7 +655,7 @@ func _build_magic_forest(o: Vector3) -> void:
 				mote.visibility_range_end = 90.0
 				m.add_child(mote)
 				m.game_nodes.append(mote)
-		mz -= 26.0
+		mz -= 18.0
 	m.g["north_mushroom_count"] = shroom_count
 
 	# Warm leaf-litter pads under the near trees: the ground cover carries
