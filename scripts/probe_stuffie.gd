@@ -44,6 +44,18 @@ func _locked_case() -> void:
 
 func _picker_case() -> void:
 	var comp: CompanionSystem = main._companion_ref()
+	# owner 2026-07-19: meeting Princess Huluu IS the trigger — her greeting
+	# leads straight into "I want you to have a new friend!" and the picker.
+	# Drive the satellite directly with hall state (no awaits, so the live
+	# main loop never sees the borrowed game/g values).
+	main.game = "level2"
+	main.g = {"phase": "hall", "huluu_greeted": true}
+	comp._tick_gift(3.0)
+	_ck("meeting Huluu offers the new friend", main.companion_layer != null
+		and bool(main.g.get("companion_offered", false)))
+	comp.close_picker()
+	main.game = ""
+	main.g = {}
 	comp.open_picker()
 	await process_frame
 	_ck("picker overlay builds", main.companion_layer != null and main.companion_stage != null)

@@ -39,15 +39,16 @@ picker preview tints the same `assets/mg` book-art layers the craft studio
 uses. The owner mentioned the real stuffie may be a flamingo — if so, only
 the ROSTER entry's name/colours change (or a new rigged body lands later).
 
-## Unlock flow
+## Unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
 
 Reaching Princess Huluu's throne in the Pearl Castle Grand Hall
-(`huluu_greeted`) makes a **gift box** appear beside the Crown Star with the
-golden pointer + a Huluu voice line. It is a walk-up-and-tap object, never an
-auto-modal, so the crown path (and the audit bot) stay clear. Tapping it
-opens the picker: friend cards on the left, live-tinted preview, three
-palette rows (body 🎨 / trim ✨ / tummy 🤍), one giant "✔ LET'S GO!".
-Choosing sparkles, saves, and the friend starts following in the reef.
+(`huluu_greeted`) plays her greeting, and ~3s later her offer — **"I want
+you to have a new friend!"** — opens the picker right there: friend cards on
+the left (Mewsha / Baby Eagle), live-tinted preview, three palette rows
+(body 🎨 / trim ✨ / tummy 🤍), one giant "✔ LET'S GO!". Choosing sparkles,
+saves, and the friend starts following in the reef. If the picker is closed
+without choosing, a **gift box** appears beside the Crown Star (pointer +
+voice hint) as the walk-up-and-tap re-entry, so the moment is never lost.
 
 ## The follower (generalizes the peng_pal pattern)
 

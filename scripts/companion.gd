@@ -96,10 +96,12 @@ func tick(delta: float) -> void:
 
 # ---------- the throne gift (unlock moment) ----------
 
-func _tick_gift(_delta: float) -> void:
-	# Princess Huluu's present: appears beside the Crown Star once she has
-	# greeted Roshan, until a stuffie friend has been chosen. Deliberately a
-	# walk-up-and-tap object, never an auto-modal — the crown path stays clear.
+func _tick_gift(delta: float) -> void:
+	# THE OFFER (owner 2026-07-19): meeting Princess Huluu IS the trigger.
+	# A breath after her throne greeting she says her line — "I want you to
+	# have a new friend!" — and the picker opens right there. The gift box
+	# beside the Crown Star remains only as the re-entry if the picker is
+	# closed without choosing.
 	var in_hall: bool = m.game == "level2" and String(m.g.get("phase", "court")) == "hall"
 	if not in_hall or m.companion_id != "":
 		if m.companion_gift != null and is_instance_valid(m.companion_gift):
@@ -108,6 +110,17 @@ func _tick_gift(_delta: float) -> void:
 		m.companion_gift = null
 		return
 	if not bool(m.g.get("huluu_greeted", false)):
+		return
+	if not bool(m.g.get("companion_offered", false)):
+		if m.companion_layer != null:
+			return
+		# let Huluu's greeting line breathe before her offer
+		var wait: float = float(m.g.get("companion_offer_t", 2.8)) - delta
+		m.g["companion_offer_t"] = wait
+		if wait <= 0.0:
+			m.g["companion_offered"] = true
+			open_picker(false)
+			m.show_msg("Princess Huluu", "I want you to have a new friend! Pick Mewsha or Baby Eagle to come along!", "talk")
 		return
 	if m.companion_gift == null or not is_instance_valid(m.companion_gift):
 		_build_gift()
@@ -181,7 +194,7 @@ func _build_gift() -> void:
 	m._sparkle_burst(root.position + Vector3(0, 3.0, 0), Color(1.0, 0.75, 0.9))
 	if not bool(m.g.get("companion_gift_said", false)):
 		m.g["companion_gift_said"] = true
-		m.show_msg("Princess Huluu", "A present for you! Tap the gift box and pick a stuffie friend to carry on your adventure!", "talk")
+		m.show_msg("Princess Huluu", "Changed your mind? Your new friend waits in the gift box - tap it any time!", "talk")
 
 func _action_down() -> bool:
 	var down := Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -191,7 +204,9 @@ func _action_down() -> bool:
 
 # ---------- the picker + colour studio overlay ----------
 
-func open_picker() -> void:
+func open_picker(say_prompt: bool = true) -> void:
+	# say_prompt=false when Princess Huluu herself makes the offer — her
+	# "I want you to have a new friend!" line owns that moment
 	if m.companion_layer != null:
 		return
 	m.companion_pick_id = String(ROSTER[0]["id"]) if m.companion_id == "" else m.companion_id
@@ -223,7 +238,8 @@ func open_picker() -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
 	_draw_picker()
-	m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
+	if say_prompt:
+		m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
 
 func _on_picker_dim_input(ev: InputEvent) -> void:
 	if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
