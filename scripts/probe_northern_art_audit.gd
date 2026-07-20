@@ -98,10 +98,10 @@ func _init() -> void:
 	var bedroom_sets: Array = main.g.get("north_bedroom_sets", [])
 	var center_bedroom: Node3D = bedroom_sets[1] as Node3D
 	var bedroom_pos: Vector3 = center_bedroom.global_position
-	await _shot("north_22_hall_bedrooms", bedroom_pos + Vector3(-6.0, 7.0, 3.5),
-		bedroom_pos + Vector3(0, 2.8, 0), 70.0)
-	await _shot("north_22b_hall_bedroom_set", bedroom_pos + Vector3(0, 5.0, 6.5),
-		bedroom_pos + Vector3(0, 2.6, 0), 76.0)
+	await _shot("north_22_hall_bedrooms", bedroom_pos + Vector3(-11.0, 5.5, 13.0),
+		bedroom_pos + Vector3(0, 2.6, 0), 55.0)
+	await _shot("north_22b_hall_bedroom_set", bedroom_pos + Vector3(0, 4.5, 15.0),
+		bedroom_pos + Vector3(0, 2.7, 0), 58.0)
 	await _shot("north_23_wisp_near", o + Vector3(9, 44, 318),
 		o + Vector3(3, 37, 330))
 	print("NORTHSHOT|DONE|", out_dir)
