@@ -57,6 +57,8 @@ func _init() -> void:
 	_ck("two spirit clearings of standing stones",
 		int(main.g.get("north_stone_count", 0)) == 10)
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3)
+	_ck("forest POI chain built", int(main.g.get("north_poi_count", 0)) >= 8,
+		"pois=%d" % int(main.g.get("north_poi_count", 0)))
 	_ck("authored northern asset family", int(main.g.get(
 		"north_authored_asset_family_count", 0)) == 17
 		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 60,

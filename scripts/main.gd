@@ -3295,7 +3295,10 @@ func _enter_northern_kingdom() -> void:
 	_play_music("level2")
 	arena_center = NORTHERN_POS
 	arena_dome = 430.0   # the redesigned kingdom is a LONG strip, not a disc
-	arena_ceil = 115.0
+	# Low sky: Roshan can hop over the canopy but not helicopter above the
+	# whole stage — the interesting layer is the ground, and the mist hides
+	# nothing worth seeing from up high anyway.
+	arena_ceil = 54.0
 	_northern_ref().build(NORTHERN_POS)
 	var spawn_y: float = northern_walk_h(NORTHERN_POS.x, NORTHERN_POS.z + 332.0)
 	player.position = Vector3(NORTHERN_POS.x, spawn_y + 2.0, NORTHERN_POS.z + 332.0)
