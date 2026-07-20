@@ -4227,7 +4227,9 @@ func _ring_bell(bd: Dictionary) -> void:
 	bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
 	bbtw.tween_property(bn, "position:y", base_y, 0.16)
 	bd["tw"] = bbtw
-	_sparkle_burst(bn.position + Vector3(0, 4, 0), (bn.material_override as StandardMaterial3D).albedo_color)
+	# art pass 3.5 made the bars GLB props — the root Node3D has no
+	# material_override, so the burst color comes from the bell dict
+	_sparkle_burst(bn.position + Vector3(0, 4, 0), Color(bd.get("color", Color(1.0, 0.9, 0.55))))
 
 func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 	if bg2.is_empty():
