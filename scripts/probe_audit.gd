@@ -254,6 +254,15 @@ func _init() -> void:
 		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
 			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+		# music room xylophone: ring a bar directly — art pass 3.5 swapped the
+		# bars for GLB props and the strike sparkle once crashed reading
+		# material_override off the prop root (any SCRIPT ERROR here fails CI)
+		var bells_a: Array = main.g.get("bells", [])
+		print("AUDIT|music bells built: ", ("OK" if bells_a.size() == 7 else "FAIL"))
+		if bells_a.size() > 0:
+			main._ring_bell(bells_a[0])
+			await _frames(20)
+			print("AUDIT|music bell rings without error: OK")
 		var hf := 0
 		# the Crown Star celebrates IN PLACE now (owner 2026-07-12: winning
 		# must not eject Roshan from her own castle) — drive to the crown,
