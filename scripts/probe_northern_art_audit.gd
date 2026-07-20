@@ -58,12 +58,12 @@ func _init() -> void:
 		o + Vector3(0, 22, 348))
 	await _shot("north_03_forest_gameplay", o + Vector3(38, 23, 245),
 		o + Vector3(-8, 7, 198))
-	await _shot("north_04_forest_mushrooms", o + Vector3(-16, 10, 178),
-		o + Vector3(8, 3, 154))
-	await _shot("north_05_spirit_clearing", o + Vector3(45, 18, 165),
+	await _shot("north_04_forest_mushrooms", o + Vector3(25, 14, 182),
+		o + Vector3(14, 4, 170))
+	await _shot("north_05_spirit_clearing", o + Vector3(18, 30, 170),
 		o + Vector3(18, 5, 138))
-	await _shot("north_06_log_bridge", o + Vector3(30, 13, -7),
-		o + Vector3(5, 3, -28))
+	await _shot("north_06_log_bridge", o + Vector3(-36, 13, -8),
+		o + Vector3(-20, 3, -28))
 	await _shot("north_07_town_overview", o + Vector3(96, 48, -120),
 		o + Vector3(0, 8, -190))
 	await _shot("north_08_house_red", o + Vector3(2, 13, -150),
@@ -88,15 +88,15 @@ func _init() -> void:
 		o + Vector3(0, 18, -318))
 	await _shot("north_18_castle_mid", o + Vector3(104, 54, -252),
 		o + Vector3(0, 17, -318))
-	await _shot("north_19_castle_gate", o + Vector3(0, 17, -278),
-		o + Vector3(0, 13, -318))
+	await _shot("north_19_castle_gate", o + Vector3(0, 13, -254),
+		o + Vector3(0, 11, -288))
 	await _shot("north_20_hall_wide", o + Vector3(0, 15, -300),
 		o + Vector3(0, 10, -328))
-	await _shot("north_21_hall_centerpiece", o + Vector3(20, 11, -305),
-		o + Vector3(0, 7, -320))
-	await _shot("north_22_hall_bedrooms", o + Vector3(0, 22, -315),
-		o + Vector3(0, 18, -344))
-	await _shot("north_23_wisp_near", o + Vector3(9, 11, 319),
-		o + Vector3(3, 7, 330))
+	await _shot("north_21_hall_centerpiece", o + Vector3(0, 11, -310),
+		o + Vector3(0, 8, -320))
+	await _shot("north_22_hall_bedrooms", o + Vector3(18, 23, -325),
+		o + Vector3(0, 19, -344))
+	await _shot("north_23_wisp_near", o + Vector3(9, 44, 318),
+		o + Vector3(3, 37, 330))
 	print("NORTHSHOT|DONE|", out_dir)
 	quit()

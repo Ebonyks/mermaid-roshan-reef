@@ -130,6 +130,24 @@ func _light_wisp(node: Node) -> void:
 		_light_wisp(child)
 
 
+func _light_hall_art(node: Node) -> void:
+	# The roof correctly blocks the exterior moon, so the authored icework
+	# carries a very soft self-lit bounce on Speedy where the fill light below
+	# is deliberately culled. This preserves its colors without making it glow.
+	if node is MeshInstance3D:
+		var mesh_node := node as MeshInstance3D
+		if mesh_node.mesh != null:
+			for surface in range(mesh_node.mesh.get_surface_count()):
+				var material: Material = mesh_node.get_active_material(surface)
+				if material is StandardMaterial3D:
+					var standard := material as StandardMaterial3D
+					standard.emission_enabled = true
+					standard.emission = standard.albedo_color.lightened(0.12)
+					standard.emission_energy_multiplier = 0.22
+	for child in node.get_children():
+		_light_hall_art(child)
+
+
 func build(o: Vector3) -> void:
 	m.g["north_pass_pos"] = o + Vector3(PASS_LOCAL.x,
 		_north_local(PASS_LOCAL.x, PASS_LOCAL.y) + 4.0, PASS_LOCAL.y)
@@ -992,7 +1010,20 @@ func _build_grand_hall(o: Vector3) -> void:
 	var centerpiece: Node3D = _north_prop("hall_centerpiece",
 		c + Vector3(0, 0, 6.0), 33.0)
 	if centerpiece != null:
+		_light_hall_art(centerpiece)
 		m._set_vis_range(centerpiece, 115.0)
+	# One shadowless interior fill makes the hall readable on richer tiers.
+	# Speedy omits the light entirely and uses the authored material bounce
+	# above, keeping the default mobile light count unchanged.
+	if m.quality != "speedy":
+		var hall_fill := OmniLight3D.new()
+		hall_fill.light_color = Color(0.70, 0.84, 1.0)
+		hall_fill.light_energy = 1.05
+		hall_fill.omni_range = 32.0
+		hall_fill.shadow_enabled = false
+		hall_fill.position = c + Vector3(0, 12.0, 3.0)
+		m.add_child(hall_fill)
+		m.game_nodes.append(hall_fill)
 
 	# Polished floor slab under the authored six-pillar/fountain composition.
 	var floor_slab: MeshInstance3D = m._l2_box(c + Vector3(0, -0.1, 0),
