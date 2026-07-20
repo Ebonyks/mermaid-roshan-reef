@@ -48,6 +48,7 @@ const ASSET_NAMES: Array[String] = [
 	"pearl_music_bar_6",
 	"pearl_music_mallet_stand",
 	"pearl_opera_gate",
+	"pearl_opera_vista",
 	"pearl_storage_barrel",
 	"pearl_storage_crate",
 	"pearl_provisions_hutch",
@@ -107,6 +108,7 @@ const MIN_RUNTIME_COUNTS := {
 	"pearl_music_bar_6": 1,
 	"pearl_music_mallet_stand": 1,
 	"pearl_opera_gate": 1,
+	"pearl_opera_vista": 1,
 	"pearl_storage_barrel": 7,
 	"pearl_storage_crate": 3,
 	"pearl_provisions_hutch": 1,
@@ -262,7 +264,7 @@ func _capture_castle() -> void:
 	await _shot("castle_16_craft_room", o + Vector3(10, -9, -22), o + Vector3(20, -14, -28), 70.0)
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
 	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
-	await _shot("castle_19_bedroom_wardrobe", o + Vector3(39.0, 8.0, -17.0), o + Vector3(40.0, 6.0, -8.0), 65.0)
+	await _shot("castle_19_bedroom_wardrobe", o + Vector3(43.0, 8.0, -20.0), o + Vector3(40.0, 6.2, -8.0), 62.0)
 
 
 func _run() -> void:

@@ -320,6 +320,37 @@ Most frequent failures:
 - Required test: approach view with visible hutch/cart/crate/barrel fronts,
   chest-aligned arch, deep Opera portal field, and wardrobe-front capture.
 
+### A16 - Pearl Castle role-readability and room-treatment correction
+
+- Source and commit: nineteen-view Mobile capture from commit `affb617`, CI
+  run `29667302052`; corrected branch `codex/castle-rainbow-shell-5of5`.
+- Scope: Opera threshold destination read, Royal Bedroom wardrobe identity,
+  pantry shelf contents, and entrance exit-wall treatment.
+- Evidence class: E3 fixed Mobile runtime frames cross-checked against E2
+  parsed GLB measurements and isolated Blender renders.
+- Findings independently verified: the same asset can pass export, import,
+  placement-count, and isolated-render checks while still failing its in-game
+  role. The Opera field transmitted masonry and read as a painted wall; the
+  wardrobe capture read primarily as a giant mirror; the pantry shelf reduced
+  to repeated cylinders; and a high-value exit motif sat in a broad flat mauve
+  wall instead of a treated castle surface.
+- Findings accepted: object role must read from the gameplay view, not only
+  from the asset name or isolated render. Container variety requires silhouette
+  and organization variance, not color changes alone. Magical destinations need
+  an opaque authored value field when the wall behind remains visible.
+  Structural facing surfaces around focal gates need the same material treatment
+  and motif care as the rooms they connect.
+- Findings accepted as proposals only: the fifty-eight-asset kit, opaque Opera
+  vista, remodeled wardrobe, remodeled pantry, and entrance facing panels remain
+  candidates pending replacement Mobile frames and owner review.
+- Findings rejected or superseded: green CI, nonblank nineteen-view evidence,
+  and successful isolated renders do not prove role readability. An invalid
+  gameplay camera or sightline cannot be rescued by a strong isolated model.
+- New rules: none; reinforces R-GOV4, R-ROLE1, R-ROLE3, R-REP1, R-MOT4,
+  R-MAT3, R-QA4, R-QA5, R-QA7, and R-QA8.
+- Required test: Mobile views proving opaque Opera destination depth, wardrobe
+  storage identity, pantry silhouette variety, and treated entrance-wall framing.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -538,7 +569,7 @@ Create this packet for every role before generating. Missing fields block the
 role.
 
 ```text
-audit_log_version: 2026-07-18-v4
+audit_log_version: 2026-07-18-v8
 asset_id:
 role_name:
 role_type: prop | kit_piece | texture | sprite | interactive | composition
@@ -613,6 +644,14 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-18-v8:** Recorded the green `ffae3fe` Pearl Castle candidate
+  evidence and the green-but-visually-rejected `dec3a2c` entrance experiment;
+  reinforced that focal trim must read as authored construction, not floating
+  guide lines.
+- **2026-07-18-v7:** Added the green `affb617` role-readability rejection,
+  expanded the Pearl Castle kit from fifty-seven to fifty-eight props, and
+  required runtime proof for opaque magical destinations, wardrobe identity,
+  pantry content variety, and focal wall treatment.
 - **2026-07-18-v6:** Added the green `37c238a` orientation/portal-depth
   rejection and required gameplay-facing decoration, foreground negative space,
   perspective-aligned backdrops, and an explicit wardrobe-front capture.

@@ -230,6 +230,48 @@ bays, aligns the treasure arch along the actual review ray, changes the Opera
 field to deep aqua-plum, and adds a nineteenth wardrobe-front capture. Rejected
 frames are retained under `runtime_rejected_37c238a/`.
 
+## Sixth Runtime Review And Role-Readability Correction
+
+CI run `29667302052` was fully green at commit `affb617`, including import,
+the full analyzer, all trusted gameplay probes, and nineteen Mobile castle
+captures. Human inspection accepted the Grand Hall, throne focal area, Toy
+Room, Cloud Lounge, Star Chamber, bedroom bed, music room, Royal Loo anatomy,
+undercroft facing, and treasure niche alignment. Promotion was still rejected
+because several assets succeeded structurally but did not read as their runtime
+roles from the reviewed player views.
+
+The failed items were specific. The Opera field stayed transparent enough to
+show masonry, so it read as a painted wall rather than a destination. The
+wardrobe evidence read primarily as a large mirror, not dress-up storage. The
+pantry shelf used repeated cylinders instead of varied stored goods. The
+entrance gate area exposed a broad flat mauve wall around a high-value exit
+motif.
+
+The fifty-eight-asset correction adds `pearl_opera_vista.glb`, an opaque
+midnight stage-depth panel with nested cool arches, shell footlights, and
+offset stars. It remodels `pearl_shell_wardrobe.glb` with side cabinet doors,
+gold handles, shell door marks, swatches, and a narrower mirror. It remodels
+`pearl_pantry_shelf.glb` with labeled parcels, sacks, handled baskets, bottles,
+and varied jar sizes. The entrance wall now receives shallow painted-stone
+facing panels plus paired shell banners so the exit gate belongs to the room
+instead of floating on a plain wall.
+
+All fifty-eight exported GLBs remain one static mesh each, texture-free and
+Mobile-safe. The parsed kit range is 560-5,768 triangles with no animations,
+skins, embedded images, or texture slots. The three final-polish targets are
+3,596 triangles for the Opera vista, 4,704 for the pantry shelf, and 3,644 for
+the wardrobe. Rejected frames are retained under `runtime_rejected_affb617/`;
+the two superseded runtime GLBs are retained under
+`backups/art_pre_castle_final_polish_2026-07-18/`.
+
+CI run `29673708420` then passed at commit `13b58d1` with all nineteen Mobile
+castle captures. A later entrance-reveal experiment at `dec3a2c` also passed
+CI but was visually rejected because its tall gold strips read as floating
+construction lines. Commit `ffae3fe` reverts that experiment; CI run
+`29676569723` is the current green candidate evidence set, retained under
+`runtime_candidate_ffae3fe/`. The rejected experiment is retained under
+`runtime_rejected_dec3a2c/`.
+
 ## Toilet Correction
 
 The toilet now has a continuous rear ceramic skirt between cistern and bowl, a
@@ -256,18 +298,19 @@ count is 8,412 triangles with zero exported degenerate triangles.
 
 ## Current Rating
 
-The fifty-seven generated models and isolated renders meet the project's
+The fifty-eight generated models and isolated renders meet the project's
 structural and isolated-visual candidate gate. They are designed as 5/5
-replacements, but final 5/5 status is not self-awarded: the camera-integrity,
-undercroft, treasure-niche, Opera, and wardrobe-evidence corrections still
-require replacement in-game Mobile captures, gameplay-scale inspection, and
-owner acceptance.
-Particular review attention should go to the open Opera passage, bedroom bed
-framing, undercroft hutch/cart visibility, toilet side anatomy, fountain route
-clearance, and repeated arch density.
+replacements, but final 5/5 status is not self-awarded. The final-polish
+entrance-wall, Opera-vista, pantry, and wardrobe corrections now have a green
+nineteen-view Mobile candidate at commit `ffae3fe`; they still require owner
+acceptance before any 5/5 label is applied.
+Particular review attention should go to the opaque Opera destination read,
+wardrobe storage identity, pantry silhouette variety, entrance wall treatment,
+toilet side anatomy, fountain route clearance, and repeated arch density.
 
 The prior files are preserved in
 `backups/art_pre_castle_pearl_2026-07-18/castle_pre_pearl_assets.zip` for
 full pre-pass reversal. The fifteen GLBs superseded by the third review are also
 preserved under `backups/art_pre_castle_visibility_2026-07-18/` for direct
-file-by-file reversal.
+file-by-file reversal. The two GLBs superseded by the sixth review are
+preserved under `backups/art_pre_castle_final_polish_2026-07-18/`.

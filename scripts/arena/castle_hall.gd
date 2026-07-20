@@ -347,8 +347,21 @@ func build(o: Vector3) -> void:
 	if entrance_medallion != null:
 		entrance_medallion.scale = Vector3(1.0, 0.28, 1.0)
 	# EXIT door at the entrance — swim into it to go back to the ocean
-	# The rainbow frame now opens onto graphic water instead of a blank wall.
-	# Both pieces are decorative; the existing analytic exit marker stays put.
+	# A shallow painted-stone facing covers the otherwise flat structural shell.
+	# It is visual-only and leaves the existing exit collision untouched.
+	var entrance_wall_mat: StandardMaterial3D = m._castle_mat("wall", 0.065, scol)
+	for entrance_side: float in [-1.0, 1.0]:
+		var entrance_panel: MeshInstance3D = m._l2_box(
+			o + Vector3(entrance_side * 20.0, 16.0, 45.25),
+			Vector3(28.0, 32.0, 0.28), scol)
+		entrance_panel.material_override = entrance_wall_mat
+	var entrance_lintel: MeshInstance3D = m._l2_box(
+		o + Vector3(0, 42.0, 45.25), Vector3(68.0, 20.0, 0.28), scol)
+	entrance_lintel.material_override = entrance_wall_mat
+	_pearl("pearl_shell_banner_a", o + Vector3(-19.0, 13.4, 44.55))
+	_pearl("pearl_shell_banner_b", o + Vector3(19.0, 13.4, 44.55))
+	# The rainbow frame opens onto graphic water instead of a blank wall.
+	# All pieces are decorative; the existing analytic exit marker stays put.
 	_pearl("pearl_ocean_portal", o + Vector3(0, 0.5, 44.05))
 	_pearl("pearl_rainbow_gate", o + Vector3(0, 0.5, 43.8))
 	var exit := Node3D.new()
@@ -1035,7 +1048,8 @@ func build_music_room(o: Vector3) -> void:
 
 func build_opera_gate(ground: Vector3) -> void:
 	# The authored shell-theatre portal replaces the original cube marquee and
-	# billboard glyph. The warm veil remains a separate gameplay affordance.
+	# billboard glyph. Its modeled opaque vista prevents the wall behind from
+	# flattening the threshold into a painted doorway.
 	var root := Node3D.new()
 	root.position = ground
 	m.add_child(root)
@@ -1043,21 +1057,9 @@ func build_opera_gate(ground: Vector3) -> void:
 	var gate_art: Node3D = _pearl("pearl_opera_gate", ground, 90.0)
 	if gate_art != null:
 		gate_art.reparent(root, true)
-	var veil := MeshInstance3D.new()
-	var quad := QuadMesh.new()
-	quad.size = Vector2(2.6, 4.8)
-	veil.mesh = quad
-	var veil_mat := StandardMaterial3D.new()
-	veil_mat.albedo_color = Color(0.16, 0.14, 0.30, 0.84)
-	veil_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	veil_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	veil_mat.emission_enabled = true
-	veil_mat.emission = Color(0.28, 0.62, 0.72)
-	veil_mat.emission_energy_multiplier = 0.52
-	veil.material_override = veil_mat
-	veil.position = Vector3(0.3, 2.9, 0)
-	veil.rotation_degrees = Vector3(0, 90, 0)
-	root.add_child(veil)
+	var veil: Node3D = _pearl("pearl_opera_vista", ground, 90.0)
+	if veil != null:
+		veil.reparent(root, true)
 	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0.6, 2.9, 0), "armed": true, "cool": 0.0}
 
 

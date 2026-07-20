@@ -32,6 +32,7 @@ bpy.context.preferences.filepaths.save_version = 0
 
 PALETTE = {
 	"ink": (0.10, 0.08, 0.22, 1.0),
+	"midnight": (0.11, 0.18, 0.32, 1.0),
 	"plum": (0.31, 0.22, 0.43, 1.0),
 	"lavender": (0.66, 0.55, 0.76, 1.0),
 	"pearl_shadow": (0.72, 0.70, 0.79, 1.0),
@@ -852,17 +853,28 @@ def build_bedside_table() -> bpy.types.Object:
 
 def build_wardrobe() -> bpy.types.Object:
 	r = root("pearl_shell_wardrobe")
-	# Pearl owns the cabinet silhouette. Dark trim is structural, not a sealed
-	# wrapper, so side views no longer collapse into one navy rectangle.
+	# A central dress-up mirror is flanked by two unmistakable cabinet doors.
+	# The earlier full-width mirror passed material checks but did not read as a
+	# wardrobe in the gameplay view.
 	rounded_box("Wardrobe_PearlBody", (0.0, 0.0, 6.55), (6.65, 2.12, 12.75), MATS["pearl"], r, 0.32)
 	rounded_box("Wardrobe_InkPlinth", (0.0, 0.0, 0.34), (7.10, 2.28, 0.68), MATS["ink"], r, 0.22)
 	rounded_box("Wardrobe_PlumCornice", (0.0, 0.0, 12.78), (7.10, 2.28, 0.72), MATS["plum"], r, 0.24)
 	for x in (-3.20, 3.20):
 		rounded_box("Wardrobe_PlumSide", (x, -0.04, 6.55), (0.34, 2.18, 11.90), MATS["plum"], r, 0.10)
-	rounded_box("Wardrobe_Mirror", (0.0, -1.14, 6.75), (4.35, 0.18, 8.15), MATS["sky"], r, 0.18)
-	for x in (-2.42, 2.42):
-		rounded_box("Wardrobe_GoldFrame", (x, -1.24, 6.75), (0.34, 0.22, 8.82), MATS["gold"], r, 0.09)
-	rounded_box("Wardrobe_GoldSill", (0.0, -1.24, 2.26), (5.18, 0.22, 0.34), MATS["gold"], r, 0.09)
+	for index, (x, color) in enumerate(((-2.16, "rose"), (2.16, "mint"))):
+		rounded_box("Wardrobe_DoorFrame_%d" % index, (x, -1.15, 6.75),
+			(1.72, 0.24, 8.55), MATS["plum"], r, 0.16)
+		rounded_box("Wardrobe_Door_%d" % index, (x, -1.31, 6.75),
+			(1.38, 0.18, 8.05), MATS[color], r, 0.15)
+		shell_fan("Wardrobe_DoorShell_%d" % index, (x, -1.47, 7.20), 0.62, r,
+			lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+		ellipsoid("Wardrobe_DoorHandle_%d" % index,
+			(x - (0.48 if x > 0.0 else -0.48), -1.54, 5.55),
+			(0.16, 0.12, 0.24), MATS["gold"], r)
+	rounded_box("Wardrobe_Mirror", (0.0, -1.18, 6.75), (2.42, 0.20, 7.90), MATS["sky"], r, 0.18)
+	for x in (-1.38, 1.38):
+		rounded_box("Wardrobe_GoldFrame", (x, -1.30, 6.75), (0.28, 0.22, 8.62), MATS["gold"], r, 0.08)
+	rounded_box("Wardrobe_GoldSill", (0.0, -1.30, 2.40), (3.00, 0.22, 0.32), MATS["gold"], r, 0.09)
 	shell_fan("Wardrobe_Crest", (0.0, -1.27, 11.72), 1.62, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	for index, color in enumerate(("coral", "yellow", "mint", "aqua", "rose")):
@@ -947,6 +959,40 @@ def build_opera_gate() -> bpy.types.Object:
 		ellipsoid("Opera_Footlight_%d" % index,
 			(-2.20 + float(index) * 1.10, -1.18, 0.92),
 			(0.22, 0.18, 0.22), MATS[color], r)
+	return r
+
+
+def build_opera_vista() -> bpy.types.Object:
+	"""An opaque magical destination field for the Opera threshold."""
+	r = root("pearl_opera_vista")
+	outer = [(-2.72, 0.72), (-2.72, 5.36)]
+	inner = [(-2.42, 0.88), (-2.42, 5.28)]
+	for index in range(15):
+		a = math.pi - math.pi * float(index) / 14.0
+		outer.append((math.cos(a) * 2.72, 5.36 + math.sin(a) * 2.72))
+		inner.append((math.cos(a) * 2.42, 5.28 + math.sin(a) * 2.42))
+	outer.append((2.72, 0.72))
+	inner.append((2.42, 0.88))
+	panel_xz("OperaVista_Ink", outer, 0.30, (0.0, 0.34, 0.0), MATS["ink"], r, 0.10)
+	panel_xz("OperaVista_Midnight", inner, 0.24, (0.0, 0.12, 0.0), MATS["midnight"], r, 0.08)
+	# Cool nested stage-light bands create depth without exposing the wall behind.
+	for radius, color in ((2.08, "aqua"), (1.72, "mint"), (1.36, "rose")):
+		arc_tube("OperaVista_Arch_%s" % color, (0.0, -0.08, 5.20),
+			radius, 0.11, MATS[color], r, steps=15)
+	# A shell-shaped footlight and offset stars avoid a flat portal rectangle.
+	shell_fan("OperaVista_FloorShell", (0.0, -0.10, 1.42), 1.18, r,
+		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
+	for index, (x, z, scale, color) in enumerate((
+		(-1.62, 3.20, 0.34, "yellow"), (1.54, 4.18, 0.28, "aqua"),
+		(-0.82, 6.18, 0.22, "rose"), (0.92, 2.68, 0.20, "mint"),
+	)):
+		points = []
+		for point_index in range(10):
+			a = math.pi * 0.5 + float(point_index) * math.pi / 5.0
+			radius = scale if point_index % 2 == 0 else scale * 0.44
+			points.append((x + math.cos(a) * radius, z + math.sin(a) * radius))
+		panel_xz("OperaVista_Star_%d" % index, points, 0.16,
+			(0.0, -0.12, 0.0), MATS[color], r, 0.04)
 	return r
 
 
@@ -1070,16 +1116,42 @@ def build_pantry_shelf() -> bpy.types.Object:
 		rounded_box("PantryShelf_Post", (x, 0.0, 4.0), (0.46, 1.55, 8.0), MATS["pearl"], r, 0.14)
 	for z in (0.42, 3.15, 5.85, 8.15):
 		rounded_box("PantryShelf_Board", (0.0, 0.0, z), (10.8, 1.82, 0.42), MATS["plum"], r, 0.14)
-	for row, z in enumerate((1.22, 3.94, 6.66)):
-		for index, color in enumerate(("coral", "yellow", "mint", "sky")):
-			x = -3.72 + float(index) * 2.48
-			jar_height = 1.02 + float((row + index) % 3) * 0.16
-			cylinder("PantryJar_%d_%d" % (row, index), (x, -0.18, z), 0.50, jar_height,
-				MATS[color], r, 14)
-			cylinder("PantryJarLid_%d_%d" % (row, index), (x, -0.18, z + jar_height * 0.5 + 0.10), 0.54, 0.20,
-				MATS["gold"], r, 14)
-			ellipsoid("PantryJarPearl_%d_%d" % (row, index),
-				(x, -0.70, z), (0.16, 0.09, 0.16), MATS["pearl_light"], r)
+	# Bottom shelf: labeled parcels and a soft provision sack.
+	for index, (x, color, width, height) in enumerate((
+		(-3.72, "coral", 1.55, 1.28), (-1.34, "yellow", 1.90, 1.52),
+		(1.30, "mint", 1.62, 1.18),
+	)):
+		z = 0.66 + height * 0.5
+		rounded_box("Pantry_Parcel_%d" % index, (x, -0.10, z),
+			(width, 1.32, height), MATS[color], r, 0.22)
+		ellipsoid("Pantry_ParcelLabel_%d" % index,
+			(x, -0.82, z), (0.20, 0.10, 0.20), MATS["pearl_light"], r)
+	ellipsoid("Pantry_Sack", (3.62, -0.06, 1.56), (1.08, 0.72, 1.18), MATS["lavender"], r)
+	tube("Pantry_SackTie", [(3.30, -0.60, 2.45), (3.62, -0.72, 2.70),
+		(3.94, -0.60, 2.45)], 0.08, MATS["gold"], r)
+	# Middle shelf: two handled baskets flank one tall bottle.
+	for index, (x, color, width) in enumerate(((-3.16, "rose", 2.35), (2.78, "aqua", 2.15))):
+		rounded_box("Pantry_Basket_%d" % index, (x, -0.10, 4.02),
+			(width, 1.36, 1.34), MATS[color], r, 0.24)
+		tube("Pantry_BasketHandle_%d" % index,
+			[(x - width * 0.28, -0.86, 4.34), (x, -0.98, 4.92),
+				(x + width * 0.28, -0.86, 4.34)], 0.07, MATS["gold"], r)
+	cone("Pantry_Bottle", (0.02, -0.08, 4.18), 0.56, 0.34, 1.86, MATS["mint"], r, 14)
+	cylinder("Pantry_BottleStopper", (0.02, -0.08, 5.20), 0.30, 0.22, MATS["gold"], r, 12)
+	# Top shelf keeps jars, but varies silhouette, scale, spacing, and color.
+	for index, (x, color, radius, height) in enumerate((
+		(-4.02, "sky", 0.44, 1.28), (-2.18, "yellow", 0.58, 1.62),
+		(0.08, "rose", 0.48, 1.18), (2.08, "mint", 0.62, 1.48),
+		(4.08, "coral", 0.42, 1.06),
+	)):
+		z = 6.08 + height * 0.5
+		cylinder("Pantry_Jar_%d" % index, (x, -0.12, z), radius, height,
+			MATS[color], r, 14)
+		cylinder("Pantry_JarLid_%d" % index,
+			(x, -0.12, z + height * 0.5 + 0.10), radius + 0.05, 0.20,
+			MATS["gold"], r, 14)
+		ellipsoid("Pantry_JarLabel_%d" % index,
+			(x, -0.72, z), (0.16, 0.09, 0.16), MATS["pearl_light"], r)
 	shell_fan("PantryShelf_Crest", (0.0, -0.92, 8.20), 1.25, r,
 		lobe_mat=MATS["pearl_light"], shadow_mat=MATS["lavender"])
 	return r
@@ -1268,6 +1340,7 @@ ASSETS = {
 	"pearl_music_bar_6": build_music_bar(6),
 	"pearl_music_mallet_stand": build_music_mallet_stand(),
 	"pearl_opera_gate": build_opera_gate(),
+	"pearl_opera_vista": build_opera_vista(),
 	"pearl_storage_barrel": build_storage_barrel(),
 	"pearl_storage_crate": build_storage_crate(),
 	"pearl_provisions_hutch": build_provisions_hutch(),
