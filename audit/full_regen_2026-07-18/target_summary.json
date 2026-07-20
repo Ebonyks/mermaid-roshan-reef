@@ -1,0 +1,38 @@
+{
+  "source_role_count": 88,
+  "regeneration_target_count": 85,
+  "protected_or_manual_exclusion_count": 3,
+  "northern_in_scope": true,
+  "target_pack": "assets/full_texture_regen_2026-07-18",
+  "areas": {
+    "Butterfly World": 6,
+    "Castle": 17,
+    "Development": 3,
+    "Dungeon": 14,
+    "Kart": 8,
+    "Picture Games": 11,
+    "Pipeline": 1,
+    "Reef": 13,
+    "Sky Lagoon": 9,
+    "Stars": 3
+  },
+  "target_kinds": {
+    "composition_kit": 13,
+    "modeled_3d": 51,
+    "painted_2d": 20,
+    "pipeline_repair": 1
+  },
+  "failure_categories": {
+    "primitive_or_generic_geometry": 38,
+    "uncategorized_polish_gap": 16,
+    "anatomy_or_identity_error": 13,
+    "composition_scale_or_occlusion": 11,
+    "missing_runtime_validation": 9,
+    "repetition_tiling_or_overdraw": 8,
+    "material_or_rendering_mismatch": 7,
+    "environment_or_biome_language": 4,
+    "exposure_bloom_or_emission": 3,
+    "pipeline_integrity_or_orphans": 3
+  },
+  "score_policy": "Automated candidates cap at 4; owner acceptance is required for 5."
+}

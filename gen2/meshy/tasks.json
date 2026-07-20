@@ -537,5 +537,65 @@
    "side": "gen2/turnarounds/roshan_v2/side.png"
   },
   "stage": "done"
+ },
+ "npc_daddy": {
+  "stage": "ready",
+  "priority": 1,
+  "rig": true,
+  "src": "gen2/npc_src/daddy.png",
+  "target": "assets/characters/friends/daddy.glb",
+  "note": "DADDY MERMAID \u2014 owner focus 2026-07-19, first NPC of the sprite->3D migration. Single-view i23d from the friend art (white-card prep). Meshy rigging expected to 422 on the merman tail; if so, weight-transfer onto a rig via the roshan_v2 retarget lane, then shrink+posterize toon bake."
+ },
+ "npc_huluu": {
+  "stage": "ready",
+  "priority": 2,
+  "rig": true,
+  "src": "gen2/npc_src/huluu.png",
+  "target": "assets/characters/friends/huluu.glb",
+  "note": "Princess Huluu (story + hall + kart portrait uses). Mermaid tail: same retarget fallback as daddy."
+ },
+ "npc_kareem": {
+  "stage": "ready",
+  "priority": 2,
+  "rig": true,
+  "src": "gen2/npc_src/kareem.png",
+  "target": "assets/characters/friends/kareem.glb",
+  "note": "Kareem (shop + castle bedroom). Biped: Meshy auto-rig may succeed; else shared 18-bone NPC rig (tools/build_npc_rig.py)."
+ },
+ "npc_flower_friend": {
+  "stage": "ready",
+  "priority": 3,
+  "rig": true,
+  "src": "gen2/npc_src/flower_friend.png",
+  "target": "assets/characters/friends/flower_friend.glb",
+  "note": "Flower friend (supporting art)."
+ },
+ "npc_wacky": {
+  "stage": "needs_src",
+  "priority": 2,
+  "rig": true,
+  "target": "assets/characters/friends/wacky_chuck.glb",
+  "note": "BLOCKED on source: crop/generate Wacky ALONE from friends/wacky_chuck.png (Gemini turnaround lane). Chuck is already 3D (chuck_poodle_rigged.glb) \u2014 combine into one wacky_chuck.glb or update the loader to compose the pair."
+ },
+ "npc_evie": {
+  "stage": "needs_src",
+  "priority": 2,
+  "rig": true,
+  "target": "assets/characters/friends/pearl_friend.glb",
+  "note": "BLOCKED on source: crop/generate Evie ALONE from friends/pearl_friend.png. Lamb-a' already exists as lamb.glb \u2014 pair composition at load."
+ },
+ "npc_harper_fiona": {
+  "stage": "needs_src",
+  "priority": 3,
+  "rig": true,
+  "target": "assets/characters/friends/two_friends.glb",
+  "note": "BLOCKED on source: split friends/two_friends.png into one source per sister; two meshes or one combined glb per CHARACTER_PIPELINE pair rule."
+ },
+ "npc_faron": {
+  "stage": "needs_src",
+  "priority": 3,
+  "rig": true,
+  "target": "assets/characters/friends/mama_baby.glb",
+  "note": "BLOCKED on source: crop Faron (+ held baby) from friends/mama_baby.png; loose dolls stay props."
  }
 }

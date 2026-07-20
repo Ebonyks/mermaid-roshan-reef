@@ -110,7 +110,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.show_msg(fr["fname"], "Lamb-a' is playing in the meadow! Find her behind a wiggly bush!")
 
 func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Find Lamb-a'! %d / 4" % int(m.g["found"])
+	m.hud_game.text = "Find Lamb-a'!  " + m._pips(int(m.g["found"]), 4, "🐑")
 	# giggle beacon: she can be HEARD from the wiggly bush, not just seen
 	m.g["gig_t"] = float(m.g.get("gig_t", 2.0)) - delta
 	if float(m.g["gig_t"]) <= 0.0:
@@ -126,6 +126,9 @@ func tick(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	var moved_to_seek: bool = ppos.distance_to(seek_anchor) > 0.75
 	var hit: bool = m._btn_pressed() == which or (moved_to_seek and bush.position.distance_to(ppos) < help_radius)
 	if hit:
+		# ranking signal: the SLOWEST find of the round (seconds since the last
+		# one) — gold wants every find quick, before the help radius opens up
+		m.g["slow_find"] = maxf(float(m.g.get("slow_find", 0.0)), float(m.g["help_t"]))
 		m.g["found"] = int(m.g["found"]) + 1
 		m.g["help_t"] = 0.0
 		var lamb2: Node3D = m.g["lamb"]

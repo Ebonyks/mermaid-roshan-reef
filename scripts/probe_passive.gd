@@ -60,6 +60,7 @@ func _init() -> void:
 		var pearls_before: int = main.pearl_count
 		var trophies_before: int = main.trophies
 		var stickers_before: Dictionary = main.stickers.duplicate(true)
+		var medals_before: Dictionary = main.medals.duplicate(true)
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
 			await process_frame
 		var still_running: bool = main.game != ""
@@ -67,7 +68,7 @@ func _init() -> void:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
-		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before
+		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before or main.medals != medals_before
 		if won_passively or progression_changed or not still_running:
 			print("PASSIVE|", fname, " [", gname, "]: FAIL zero-input state won=", won_passively,
 				" progression=", progression_changed, " still_running=", still_running)
@@ -81,6 +82,8 @@ func _init() -> void:
 	bad += slide_bad
 	var fairy_bad: int = await _probe_fairy_agency()
 	bad += fairy_bad
+	var brawl_bad: int = await _probe_brawl_agency()
+	bad += brawl_bad
 	print("PASSIVE|result: ", ("ALL OK" if bad == 0 else "%d game(s) FAILED" % bad))
 	quit()
 
@@ -92,12 +95,14 @@ func _progress_snapshot() -> Dictionary:
 	var stickers_now: Dictionary = main.stickers
 	var shop_now: Dictionary = main.shop_owned
 	var animals_now: Dictionary = main.animals_owned
+	var medals_now: Dictionary = main.medals
 	return {
 		"pearls": int(main.pearl_count),
 		"trophies": int(main.trophies),
 		"stickers": stickers_now.duplicate(true),
 		"shop": shop_now.duplicate(true),
 		"animals": animals_now.duplicate(true),
+		"medals": medals_now.duplicate(true),
 	}
 
 func _progress_unchanged(before: Dictionary) -> bool:
@@ -105,7 +110,30 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and int(main.trophies) == int(before["trophies"]) \
 		and main.stickers == before["stickers"] \
 		and main.shop_owned == before["shop"] \
-		and main.animals_owned == before["animals"]
+		and main.animals_owned == before["animals"] \
+		and main.medals == before["medals"]
+
+func _probe_brawl_agency() -> int:
+	# The brawler ships with an AI partner (Huluu) who fights on her own —
+	# the sharpest agency risk in the game. Assert the invariant: Huluu only
+	# STUNS; with zero player input no imp ever pops, no wave ever clears.
+	if main.game != "":
+		main._leave_current_activity()   # the fairy agency test leaves its game open
+		await _frames(2)
+	main.brawl_cool = 0.0
+	main.touch_ui.stick_vec = Vector2.ZERO
+	main.touch_ui.action_down = false
+	main._start_game(main.brawl_fr)
+	var before: Dictionary = _progress_snapshot()
+	await _frames(600)
+	var enemies_left: int = (main.g.get("enemies", []) as Array).size()
+	var idle_ok: bool = main.game == "brawl" and int(main.g.get("seg", 0)) == 0 \
+		and int(main.g.get("bops", 0)) == 0 and enemies_left > 0 and _progress_unchanged(before)
+	main._leave_current_activity()
+	await _frames(2)
+	var leave_ok: bool = main.game == ""
+	print("PASSIVE|Toy Castle agency: ", ("OK Huluu stuns, only Roshan's tap pops" if idle_ok and leave_ok else "FAIL idle=%s leave=%s" % [idle_ok, leave_ok]))
+	return 0 if idle_ok and leave_ok else 1
 
 func _probe_shop_agency() -> int:
 	main.beans_t = -1.0
@@ -186,14 +214,16 @@ func _probe_penguin_agency() -> int:
 	main.slide_cool = 0.0
 	main._leave_current_activity()
 	await _frames(2)
-	var leave_ok: bool = main.game == "" and float(main.slide_cool) > 10.0
+	# the refreshed full cooldown is 3s now ("again!" polish) via _end_game;
+	# the pause-menu leave path still sets 14 — assert "refreshed", not "long"
+	var leave_ok: bool = main.game == "" and float(main.slide_cool) > 2.0
 	# A normal, deliberately-steered finish must also refresh the portal cooldown.
 	main.slide_cool = 0.0
 	main._start_game(main.slide_fr)
 	main.g["steered"] = true
 	main.g["s"] = float(main.g["total"])
 	await _frames(2)
-	var finish_ok: bool = main.game == "" and float(main.slide_cool) > 10.0
+	var finish_ok: bool = main.game == "" and float(main.slide_cool) > 2.0   # 3.0 fresh minus two frames of decay
 	var ok: bool = passive_ok and leave_ok and finish_ok
 	print("PASSIVE|Penguin Slide agency: ", ("OK passive restarts; exits are neutral" if ok else "FAIL passive=%s leave=%s finish=%s" % [passive_ok, leave_ok, finish_ok]))
 	return 0 if ok else 1

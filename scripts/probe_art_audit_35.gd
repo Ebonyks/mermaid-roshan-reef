@@ -215,7 +215,7 @@ func _capture_arenas() -> void:
 	await _capture_arena("fetch", "50_arena_fetch", Vector3(18, 13, 27), Vector3(0, 3, 0))
 	await _capture_arena("dolls", "51_arena_dolls", Vector3(18, 13, 27), Vector3(0, 4, 0))
 	await _capture_arena("seek", "52_arena_seek", Vector3(18, 13, 27), Vector3(0, 3, 0))
-	await _capture_arena("melody", "53_gabby_theater", Vector3(22, 13, 26), Vector3(0, 7, -15))
+	await _capture_arena("melody", "53_rainbow_theater", Vector3(22, 13, 26), Vector3(0, 7, -15))
 	await _capture_arena("shop", "54_pearl_shop", Vector3(12, 10, 18), Vector3(0, 6, -5))
 	await _capture_arena("treasure", "55_treasure_cavern", Vector3(18, 13, 27), Vector3(0, 4, 0))
 	await _fresh_main()

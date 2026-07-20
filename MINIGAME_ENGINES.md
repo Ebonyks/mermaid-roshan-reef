@@ -43,6 +43,8 @@ Two architectural families, which do NOT share a base:
 | Picture games ×5 | games/picture_games.gd (593) | 2D canvas | tap-to-place / chase | tap, stick |
 | Dance | games/dance_engine.gd (509) | 2D canvas rhythm | tap lanes on beat | lane buttons |
 | Critter collection | collection_system.gd (452) | ambient in-world | approach + catch | tap |
+| Stuffie battle | stuffie_battle.gd | overhead octagon, YOU are the creature | one-button attack + DODGE QTE | stick + tap + big dodge bubble |
+| Companion wing | companion.gd | ambient in-world | follow / tokens / den entrance | proximity + tap |
 
 ### Duplication found by the audit (the cost of no engines)
 
@@ -146,11 +148,21 @@ The catch-babies interface, rebuilt per owner direction as a 2.5D stage: the
 **real 3D Roshan** (wardrobe skin included) on a left/right line before a
 side-on camera, 3D-meshed babies falling in front of the nursery book page.
 - **Modes:** `tick()` = steer-on-a-line (catch games); `run_tick()` = the
-  Mario-run seam — auto-run + tap-to-hop, already in the engine, no client yet.
+  Mario-run seam — auto-run + tap-to-hop, in the engine, no client yet;
+  `brawl_tick()` = **walk-the-plane with depth** (Castle Crashers style):
+  x + z inside a band, a sliding stage window for gated wave progression,
+  facing the run, tap = the bop.
+- **Two heroes:** `companion_open`/`companion_tick` put a second hero on the
+  plane as an illustrated-cutout billboard (per the art direction). AI-driven
+  by default; a second gamepad takes her over the moment its stick moves and
+  hands back after 4s idle — player 2 when present, helper when not.
 - **Owns:** the unified one-finger read (drag-to-point ∥ stick ∥ keys ∥ pad).
-- **Absorbs now:** dolls. **Next:** picture-game snowman chase (same verb);
-  then any one-touch runner (reef dash, penguin waddle-run…) as `run_tick`
-  clients.
+  In brawl mode P1's pad reads are device-0 only so pad 2 belongs to the
+  companion.
+- **Clients:** dolls (catch), **toy-castle brawler** (`games/brawl.gd`,
+  brawl — Huluu the stuffie is player 2; her stuns assist but only Roshan's
+  tap pops an imp, so the AI partner can never hand a passive run a win).
+  **Next:** picture-game snowman chase (catch), one-touch runners (run).
 
 ### E3 — Overhead scroller/shooter engine (the fairy bullet-heaven interface)
 `games/fairy.gd` already is this engine in shape (auto-scroll track, dodge
@@ -212,6 +224,7 @@ every game at the same time.
 | Game | Runs on (now) | Target | Effort |
 |---|---|---|---|
 | Dolls | **E2 SideScrollStage** ✅ | — | done |
+| Toy-castle brawler (co-op) | **E2 brawl mode** ✅ | — | done |
 | Snowman chase (picture) | bespoke canvas | E2 catch mode | small |
 | Future one-touch runners | — | E2 `run_tick` | config only |
 | Fairy pond | bespoke (engine-shaped) | E3 via `configure()` | small |
@@ -278,6 +291,11 @@ stage.open({
 })
 var s := stage.tick(delta)   # catch mode: {"mx", "px", "moved"}
 var r := stage.run_tick(delta)  # run mode: {"x", "y", "grounded", "hopped"}
+var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
+stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
+stage.companion_open(tex, height, start)   # player-2 cutout hero
+var p2 := stage.companion_tick(delta, want_x, want_z, speed)
+	# → {"x","z","tap","human"} — AI toward want unless pad 2 is live
 stage.root()   # the stage Node3D — parent set dressing & fallers under it
 stage.glow(color, size)   # additive billboard halo for pickups/fallers
 stage.close()  # safe when never opened; called from _clear_game

@@ -16,19 +16,29 @@ const BOOL_KEYS: Array[String] = [
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
+	"stuffie_wins", "medals",
 ]
-const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends"]
+const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors"]
+# FROZEN completeness core — never grow this list. A document carrying these
+# is a genuine save; everything else in KNOWN_KEYS defaults on load.
+const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
+# Friends whose save identity changed. Progress recorded under the old fname
+# migrates forward on load so no found/won star is ever lost (Gabby's reef
+# slot became Daddy Mermaid on 2026-07-19 — IP hold, see attic/gabby/).
+const LEGACY_FRIEND_SAVE_KEYS := {"Daddy Mermaid": "Gabby"}
 const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_done",
-	"stickers", "owned", "animals",
+	"stickers", "owned", "animals", "critters",
+	"companion", "companion_colors", "fish_tokens", "stuffie_wins",
 ]
 
 var m: ReefMain
 var save_path: String
 var future_schema_read_only := false
+var _warned_future_write_skip := false
 
 func _init(main: ReefMain, path_override: String = "") -> void:
 	m = main
@@ -83,10 +93,14 @@ func load_save() -> void:
 	m.animals_owned = m.save_data.get("animals", {})
 	var saved_critters: Variant = m.save_data.get("critters", {})
 	m.critter_collection = saved_critters if saved_critters is Dictionary else {}
-	if bool(m.shop_owned.get("tail", false)):
-		m.player.set_rainbow_trail(true)
-	if bool(m.shop_owned.get("tiara", false)):
-		m.player.set_tiara(true)
+	m.companion_id = String(m.save_data.get("companion", ""))
+	var saved_companion_colors: Variant = m.save_data.get("companion_colors", [])
+	m.companion_colors = saved_companion_colors if saved_companion_colors is Array else []
+	m.fish_tokens = int(m.save_data.get("fish_tokens", 0))
+	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
+	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
+	var saved_medals: Variant = m.save_data.get("medals", {})
+	m.medals = saved_medals if saved_medals is Dictionary else {}
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
@@ -103,25 +117,31 @@ func load_save() -> void:
 	var found_d: Dictionary = m.save_data.get("found", {})
 	for f2 in m.friends:
 		var nm := String(f2["fname"])
-		if bool(found_d.get(nm, false)):
+		var legacy := String(LEGACY_FRIEND_SAVE_KEYS.get(nm, ""))
+		if bool(found_d.get(nm, false)) or (legacy != "" and bool(found_d.get(legacy, false))):
 			m.first_session = false
 			f2["found"] = true
 			(f2["beacon"] as OmniLight3D).light_energy = 1.0
 			((f2["pillar"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color.a = 0.035
-		if bool(won_d.get(nm, false)):
+		if bool(won_d.get(nm, false)) or (legacy != "" and bool(won_d.get(legacy, false))):
 			f2["won"] = true
 			m.trophies += 1
 			m._add_won_star(f2)
+	m._medal_ref().refresh_friend_glyphs()
 	m._update_hud()
 
 func write_save() -> bool:
 	# Recheck disk at the write boundary too: callers can construct SaveState and
-	# write without calling load_save() first, and a recovery copy may be the only
-	# surviving N+1 document.
+	# write without calling load_save() first, and the backup may be the only
+	# surviving N+1 document. A disabled write reports failure so main.gd's
+	# save_dirty/retry path (and the pause flush) can see it instead of
+	# believing the write landed.
 	if future_schema_read_only or not _find_future_candidate().is_empty():
 		future_schema_read_only = true
-		push_warning("SaveState: skipped write because a newer save schema is loaded")
-		return true
+		if not _warned_future_write_skip:
+			_warned_future_write_skip = true
+			push_warning("SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory")
+		return false
 	var won_d: Dictionary = {}
 	var found_d: Dictionary = {}
 	for f2 in m.friends:
@@ -160,6 +180,11 @@ func write_save() -> bool:
 	next_data["owned"] = m.shop_owned
 	next_data["animals"] = m.animals_owned
 	next_data["critters"] = m.critter_collection
+	next_data["companion"] = m.companion_id
+	next_data["companion_colors"] = m.companion_colors
+	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
+	next_data["stuffie_wins"] = m.stuffie_wins
+	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
 	if not _commit_save(normalised):
@@ -174,9 +199,15 @@ func _select_load_candidate() -> Dictionary:
 	var candidates: Array[Dictionary] = []
 	for path: String in paths:
 		candidates.append(_read_save_candidate(path))
-	# Never choose an older clean fallback before discovering an N+1 recovery
-	# copy later in the list. Preserving the newest schema outranks repair order.
+	# Never choose an older clean fallback before discovering an N+1 backup.
+	# Preserving the newest schema outranks repair order — but only the real
+	# documents (primary, then backup) may claim it. A stale future-versioned
+	# temp or sidecar beside a current primary must never hijack selection or
+	# silently disable writes.
 	for candidate: Dictionary in candidates:
+		var candidate_path: String = String(candidate.get("path", ""))
+		if candidate_path != save_path and candidate_path != _backup_path():
+			continue
 		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
 			return candidate
 	var primary: Dictionary = candidates[0]
@@ -236,7 +267,10 @@ func _candidate_paths() -> Array[String]:
 	]
 
 func _find_future_candidate() -> Dictionary:
-	for path: String in _candidate_paths():
+	# Only the documents that can win load selection (primary, then backup) may
+	# declare the save future-schema. Stale .tmp/.old sidecars from an aborted
+	# newer-build write must not disable this build's saves.
+	for path: String in [save_path, _backup_path()]:
 		var candidate: Dictionary = _read_save_candidate(path)
 		if bool(candidate.get("valid", false)) and bool(candidate.get("future", false)):
 			return candidate
@@ -300,14 +334,17 @@ func _has_complete_schema(data: Dictionary) -> bool:
 	var version: int = _schema_version(data)
 	if version > SCHEMA_VERSION:
 		return true
-	if data.has("schema_version"):
-		for key: String in KNOWN_KEYS:
-			if not data.has(key):
-				return false
-		return true
-	# Legacy releases had no schema marker, but every genuine save contained
-	# these core progression fields. A one-key JSON fragment is not a save.
-	return data.has("won") and data.has("found") and data.has("pearls") and data.has("plays")
+	# Completeness is judged against a FROZEN core: the progression quartet
+	# every genuine save (with or without a schema marker) has always carried.
+	# Requiring every key in KNOWN_KEYS here demoted ALL existing saves to the
+	# salvage path the first launch after a build added any new key — new keys
+	# must instead pick up their defaults in _normalise_save. KNOWN_KEYS stays
+	# in use for type validation only (_known_types_are_valid), which never
+	# demotes a save for merely lacking a key.
+	for key: String in CORE_KEYS:
+		if not data.has(key):
+			return false
+	return true
 
 func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in BOOL_KEYS:
@@ -379,8 +416,29 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")
 	data["critters"] = _dictionary_or_default(raw, "critters")
+	data["companion"] = _string_or_default(raw, "companion", "")
+	data["companion_colors"] = _array_or_default(raw, "companion_colors")
+	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
+	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
+	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
+
+func _medals_or_default(data: Dictionary) -> Dictionary:
+	# game id -> best tier (1 bronze / 2 silver / 3 gold); JSON round-trips
+	# numbers as floats, so coerce and clamp rather than reject the save.
+	# NOTE: "medals" is deliberately NOT in KNOWN_KEYS — it is an upgrade-only
+	# key outside the frozen CORE_KEYS quartet, so older saves without it still
+	# count as schema-complete and simply default to {} here.
+	var out: Dictionary = {}
+	var value: Variant = data.get("medals", {})
+	if typeof(value) != TYPE_DICTIONARY:
+		return out
+	for medal_key: Variant in (value as Dictionary):
+		var tier: Variant = (value as Dictionary)[medal_key]
+		if _is_nonnegative_integer(tier) and int(tier) > 0:
+			out[String(medal_key)] = clampi(int(tier), 1, 3)
+	return out
 
 func _bool_or_default(data: Dictionary, key: String, default_value: bool) -> bool:
 	var value: Variant = data.get(key, default_value)

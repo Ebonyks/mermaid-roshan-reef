@@ -11,6 +11,9 @@ on:
 
 permissions:
   contents: write
+  # the green-probe check below reads workflow runs via the API; with an
+  # explicit permissions block everything unlisted is 'none', so grant it
+  actions: read
 
 concurrency:
   group: promote-master
@@ -20,7 +23,9 @@ jobs:
   promote:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # persist-credentials stays ON here: the fast-forward push below is the
+      # one legitimate git write in the whole pipeline
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: dev
           fetch-depth: 0

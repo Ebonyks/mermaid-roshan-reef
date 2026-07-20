@@ -1,0 +1,4723 @@
+{
+  "pack": "assets/full_texture_regen_2026-07-18",
+  "generator": "tools/build_full_texture_regen.py",
+  "blender_version": "5.2.0 LTS",
+  "asset_count": 137,
+  "covered_role_count": 64,
+  "role_asset_counts": {
+    "R001_reef_hub_overall": 1,
+    "R002_reef_portal_presentation": 1,
+    "R003_reef_coral_mass_placement": 6,
+    "R004_reef_kelp_cards": 3,
+    "R005_reef_seagrass_cards": 3,
+    "R006_reef_rock_family": 4,
+    "R009_reef_coral_flower_hybrid": 2,
+    "R010_reef_clownfish_model": 1,
+    "R011_reef_octopus_model": 1,
+    "R012_reef_shrimp_role": 1,
+    "R013_reef_jellyfish_role": 1,
+    "R014_sky_lagoon_world_composition": 1,
+    "R015_sky_lagoon_main_castle": 1,
+    "R016_sky_lagoon_castle_towers": 3,
+    "R017_sky_lagoon_cloud_family": 3,
+    "R018_sky_lagoon_rainbow_route": 1,
+    "R019_sky_lagoon_snow_terrain": 3,
+    "R020_sky_lagoon_painting_displays": 1,
+    "R021_sky_lagoon_train_presentation": 6,
+    "R022_sky_lagoon_palm_repetition": 3,
+    "R023_castle_castle_hall_overall": 1,
+    "R024_castle_wall_modules": 1,
+    "R025_castle_stairs": 1,
+    "R026_castle_columns": 1,
+    "R027_castle_doors": 1,
+    "R028_castle_throne_room_presentation": 1,
+    "R029_castle_throne_model": 1,
+    "R030_castle_bed_model": 1,
+    "R031_castle_kitchen_room": 1,
+    "R035_castle_kitchen_stove": 1,
+    "R036_castle_kitchen_kettle": 1,
+    "R037_castle_kitchen_pans": 1,
+    "R038_castle_kitchen_teapot": 1,
+    "R039_castle_kitchen_table_and_stools": 1,
+    "R040_stars_dream_star": 1,
+    "R041_stars_crown_star": 1,
+    "R042_stars_star_chamber_focal": 1,
+    "R043_butterfly_world_world_overall": 1,
+    "R045_butterfly_world_home_gate": 1,
+    "R046_butterfly_world_inter_world_gate": 1,
+    "R047_butterfly_world_gate_transition_composition": 1,
+    "R048_butterfly_world_butterfly_environment_family": 4,
+    "R049_dungeon_combat_arena_overall": 1,
+    "R051_dungeon_arena_walls": 1,
+    "R052_dungeon_standard_enemies": 2,
+    "R053_dungeon_boss": 1,
+    "R054_dungeon_pepper_projectile": 1,
+    "R055_dungeon_basket": 1,
+    "R056_dungeon_puzzle_room_overall": 1,
+    "R057_dungeon_puzzle_door": 1,
+    "R058_dungeon_crystal_pads": 3,
+    "R059_dungeon_puzzle_crystals": 3,
+    "R060_dungeon_torch_family": 2,
+    "R061_dungeon_shell_props": 3,
+    "R062_dungeon_puzzle_symbols": 11,
+    "R063_kart_kart_world_overall": 1,
+    "R064_kart_vehicle_selection_pads": 3,
+    "R065_kart_track_barriers": 3,
+    "R068_kart_coral_dressing": 3,
+    "R069_kart_gokart_source": 1,
+    "R070_kart_monster_truck_source": 1,
+    "R085_development_alpine_interiors": 1,
+    "R086_development_northern_kingdom_additions": 17,
+    "R087_development_undersea_additions": 5
+  },
+  "assets": [
+    {
+      "name": "r001_reef_hub_overall_reef_hub",
+      "role_id": "R001_reef_hub_overall",
+      "kind": "reef_hub",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r001_reef_hub_overall_reef_hub.glb",
+      "vertices": 614,
+      "triangles": 992,
+      "materials": 8,
+      "bounds_min": [
+        -5.8167,
+        -4.8602,
+        -0.7011
+      ],
+      "bounds_max": [
+        6.2502,
+        5.4673,
+        4.78
+      ],
+      "components": [
+        "friend_marker_0",
+        "friend_marker_1",
+        "friend_marker_2",
+        "friend_marker_3",
+        "friend_marker_4",
+        "hub_island",
+        "portal_base_-1",
+        "portal_base_1",
+        "portal_opening",
+        "r001_reef_hub_overall_reef_hub_portal",
+        "shell_rib_0",
+        "shell_rib_1",
+        "shell_rib_2",
+        "shell_rib_3",
+        "shell_rib_4",
+        "shell_rib_5",
+        "shell_rib_6",
+        "shell_rib_7",
+        "shell_rib_8"
+      ]
+    },
+    {
+      "name": "r002_reef_portal_presentation_shell_portal",
+      "role_id": "R002_reef_portal_presentation",
+      "kind": "shell_portal",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r002_reef_portal_presentation_shell_portal.glb",
+      "vertices": 492,
+      "triangles": 832,
+      "materials": 4,
+      "bounds_min": [
+        -3.0097,
+        -0.7663,
+        -0.2
+      ],
+      "bounds_max": [
+        2.956,
+        0.7,
+        4.78
+      ],
+      "components": [
+        "portal_base_-1.001",
+        "portal_base_1.001",
+        "portal_opening.001",
+        "shell_rib_0.001",
+        "shell_rib_1.001",
+        "shell_rib_2.001",
+        "shell_rib_3.001",
+        "shell_rib_4.001",
+        "shell_rib_5.001",
+        "shell_rib_6.001",
+        "shell_rib_7.001",
+        "shell_rib_8.001"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_01",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_01.glb",
+      "vertices": 746,
+      "triangles": 1264,
+      "materials": 3,
+      "bounds_min": [
+        -1.4122,
+        -1.0588,
+        -0.1998
+      ],
+      "bounds_max": [
+        1.4122,
+        0.9212,
+        3.05
+      ],
+      "components": [
+        "antler_fork_0_-1",
+        "antler_fork_0_1",
+        "antler_fork_1_-1",
+        "antler_fork_1_1",
+        "antler_fork_2_-1",
+        "antler_fork_2_1",
+        "antler_fork_3_-1",
+        "antler_fork_3_1",
+        "antler_tip_0_-1",
+        "antler_tip_0_1",
+        "antler_tip_1_-1",
+        "antler_tip_1_1",
+        "antler_tip_2_-1",
+        "antler_tip_2_1",
+        "antler_tip_3_-1",
+        "antler_tip_3_1",
+        "antler_trunk_0",
+        "antler_trunk_1",
+        "antler_trunk_2",
+        "antler_trunk_3",
+        "coral_base"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_02",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_02.glb",
+      "vertices": 322,
+      "triangles": 416,
+      "materials": 3,
+      "bounds_min": [
+        -1.2839,
+        -1.0,
+        -0.2
+      ],
+      "bounds_max": [
+        1.2839,
+        1.0,
+        2.54
+      ],
+      "components": [
+        "coral_base.001",
+        "fan_branch_0",
+        "fan_branch_1",
+        "fan_branch_2",
+        "fan_branch_3",
+        "fan_branch_4",
+        "fan_branch_5",
+        "fan_branch_6",
+        "fan_lattice_0",
+        "fan_lattice_1",
+        "fan_lattice_2",
+        "fan_lattice_3",
+        "fan_lattice_4",
+        "fan_lattice_5",
+        "fan_stem"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_03",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_03.glb",
+      "vertices": 404,
+      "triangles": 720,
+      "materials": 3,
+      "bounds_min": [
+        -1.3034,
+        -1.079,
+        -0.2402
+      ],
+      "bounds_max": [
+        1.3863,
+        1.0041,
+        1.63
+      ],
+      "components": [
+        "brain_groove_0",
+        "brain_groove_1",
+        "brain_groove_2",
+        "brain_groove_3",
+        "brain_groove_4",
+        "brain_mound",
+        "coral_base.002"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_04",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_04.glb",
+      "vertices": 1332,
+      "triangles": 2560,
+      "materials": 3,
+      "bounds_min": [
+        -1.2784,
+        -1.1393,
+        -0.2098
+      ],
+      "bounds_max": [
+        1.4022,
+        1.1393,
+        2.3515
+      ],
+      "components": [
+        "coral_base.003",
+        "plate_scallop_0_0",
+        "plate_scallop_0_1",
+        "plate_scallop_0_2",
+        "plate_scallop_0_3",
+        "plate_scallop_0_4",
+        "plate_scallop_0_5",
+        "plate_scallop_0_6",
+        "plate_scallop_1_0",
+        "plate_scallop_1_1",
+        "plate_scallop_1_2",
+        "plate_scallop_1_3",
+        "plate_scallop_1_4",
+        "plate_scallop_1_5",
+        "plate_scallop_1_6",
+        "plate_scallop_2_0",
+        "plate_scallop_2_1",
+        "plate_scallop_2_2",
+        "plate_scallop_2_3",
+        "plate_scallop_2_4",
+        "plate_scallop_2_5",
+        "plate_scallop_2_6",
+        "table_plate_0",
+        "table_plate_1",
+        "table_plate_2",
+        "table_stem"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_05",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 4,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_05.glb",
+      "vertices": 210,
+      "triangles": 304,
+      "materials": 3,
+      "bounds_min": [
+        -1.2839,
+        -1.0,
+        -0.2
+      ],
+      "bounds_max": [
+        1.2839,
+        1.0,
+        2.9619
+      ],
+      "components": [
+        "coral_base.004",
+        "sea_whip_0",
+        "sea_whip_1",
+        "sea_whip_2",
+        "sea_whip_3",
+        "sea_whip_4",
+        "sea_whip_5",
+        "sea_whip_6"
+      ]
+    },
+    {
+      "name": "r003_reef_coral_mass_placement_coral_06",
+      "role_id": "R003_reef_coral_mass_placement",
+      "kind": "coral",
+      "variant": 5,
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_06.glb",
+      "vertices": 498,
+      "triangles": 944,
+      "materials": 3,
+      "bounds_min": [
+        -1.3519,
+        -0.9105,
+        -0.1656
+      ],
+      "bounds_max": [
+        1.3707,
+        0.9611,
+        2.81
+      ],
+      "components": [
+        "coral_base.005",
+        "finger_0",
+        "finger_1",
+        "finger_2",
+        "finger_3",
+        "finger_4",
+        "finger_5",
+        "finger_tip_0",
+        "finger_tip_1",
+        "finger_tip_2",
+        "finger_tip_3",
+        "finger_tip_4",
+        "finger_tip_5"
+      ]
+    },
+    {
+      "name": "r004_reef_kelp_cards_kelp_01",
+      "role_id": "R004_reef_kelp_cards",
+      "kind": "kelp",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_01.glb",
+      "vertices": 630,
+      "triangles": 1120,
+      "materials": 3,
+      "bounds_min": [
+        -1.2389,
+        -0.2158,
+        0.0041
+      ],
+      "bounds_max": [
+        1.326,
+        0.2054,
+        3.2921
+      ],
+      "components": [
+        "kelp_blade_0",
+        "kelp_blade_1",
+        "kelp_blade_2",
+        "kelp_blade_3",
+        "kelp_blade_4",
+        "kelp_blade_5",
+        "kelp_blade_6",
+        "kelp_midrib_0",
+        "kelp_midrib_1",
+        "kelp_midrib_2",
+        "kelp_midrib_3",
+        "kelp_midrib_4",
+        "kelp_midrib_5",
+        "kelp_midrib_6"
+      ]
+    },
+    {
+      "name": "r004_reef_kelp_cards_kelp_02",
+      "role_id": "R004_reef_kelp_cards",
+      "kind": "kelp",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_02.glb",
+      "vertices": 630,
+      "triangles": 1120,
+      "materials": 3,
+      "bounds_min": [
+        -1.1426,
+        -0.3662,
+        0.0041
+      ],
+      "bounds_max": [
+        1.1555,
+        0.4028,
+        3.6556
+      ],
+      "components": [
+        "kelp_blade_0.001",
+        "kelp_blade_1.001",
+        "kelp_blade_2.001",
+        "kelp_blade_3.001",
+        "kelp_blade_4.001",
+        "kelp_blade_5.001",
+        "kelp_blade_6.001",
+        "kelp_midrib_0.001",
+        "kelp_midrib_1.001",
+        "kelp_midrib_2.001",
+        "kelp_midrib_3.001",
+        "kelp_midrib_4.001",
+        "kelp_midrib_5.001",
+        "kelp_midrib_6.001"
+      ]
+    },
+    {
+      "name": "r004_reef_kelp_cards_kelp_03",
+      "role_id": "R004_reef_kelp_cards",
+      "kind": "kelp",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_03.glb",
+      "vertices": 630,
+      "triangles": 1120,
+      "materials": 3,
+      "bounds_min": [
+        -1.3216,
+        -0.4149,
+        0.0041
+      ],
+      "bounds_max": [
+        1.2317,
+        0.0645,
+        3.6447
+      ],
+      "components": [
+        "kelp_blade_0.002",
+        "kelp_blade_1.002",
+        "kelp_blade_2.002",
+        "kelp_blade_3.002",
+        "kelp_blade_4.002",
+        "kelp_blade_5.002",
+        "kelp_blade_6.002",
+        "kelp_midrib_0.002",
+        "kelp_midrib_1.002",
+        "kelp_midrib_2.002",
+        "kelp_midrib_3.002",
+        "kelp_midrib_4.002",
+        "kelp_midrib_5.002",
+        "kelp_midrib_6.002"
+      ]
+    },
+    {
+      "name": "r005_reef_seagrass_cards_seagrass_01",
+      "role_id": "R005_reef_seagrass_cards",
+      "kind": "seagrass",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_01.glb",
+      "vertices": 594,
+      "triangles": 1144,
+      "materials": 2,
+      "bounds_min": [
+        -0.7139,
+        -0.5883,
+        0.0
+      ],
+      "bounds_max": [
+        1.0006,
+        0.5415,
+        1.7354
+      ],
+      "components": [
+        "grass_blade_0",
+        "grass_blade_1",
+        "grass_blade_10",
+        "grass_blade_2",
+        "grass_blade_3",
+        "grass_blade_4",
+        "grass_blade_5",
+        "grass_blade_6",
+        "grass_blade_7",
+        "grass_blade_8",
+        "grass_blade_9"
+      ]
+    },
+    {
+      "name": "r005_reef_seagrass_cards_seagrass_02",
+      "role_id": "R005_reef_seagrass_cards",
+      "kind": "seagrass",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_02.glb",
+      "vertices": 594,
+      "triangles": 1144,
+      "materials": 2,
+      "bounds_min": [
+        -1.1068,
+        -1.0232,
+        0.0
+      ],
+      "bounds_max": [
+        0.6883,
+        0.5972,
+        1.7102
+      ],
+      "components": [
+        "grass_blade_0.001",
+        "grass_blade_1.001",
+        "grass_blade_10.001",
+        "grass_blade_2.001",
+        "grass_blade_3.001",
+        "grass_blade_4.001",
+        "grass_blade_5.001",
+        "grass_blade_6.001",
+        "grass_blade_7.001",
+        "grass_blade_8.001",
+        "grass_blade_9.001"
+      ]
+    },
+    {
+      "name": "r005_reef_seagrass_cards_seagrass_03",
+      "role_id": "R005_reef_seagrass_cards",
+      "kind": "seagrass",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_03.glb",
+      "vertices": 594,
+      "triangles": 1144,
+      "materials": 2,
+      "bounds_min": [
+        -0.9343,
+        -0.8809,
+        0.0
+      ],
+      "bounds_max": [
+        1.172,
+        0.9639,
+        1.5396
+      ],
+      "components": [
+        "grass_blade_0.002",
+        "grass_blade_1.002",
+        "grass_blade_10.002",
+        "grass_blade_2.002",
+        "grass_blade_3.002",
+        "grass_blade_4.002",
+        "grass_blade_5.002",
+        "grass_blade_6.002",
+        "grass_blade_7.002",
+        "grass_blade_8.002",
+        "grass_blade_9.002"
+      ]
+    },
+    {
+      "name": "r006_reef_rock_family_rock_01",
+      "role_id": "R006_reef_rock_family",
+      "kind": "rock",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_01.glb",
+      "vertices": 240,
+      "triangles": 416,
+      "materials": 3,
+      "bounds_min": [
+        -2.0354,
+        -1.5232,
+        -0.1648
+      ],
+      "bounds_max": [
+        1.342,
+        1.4884,
+        1.3566
+      ],
+      "components": [
+        "aqua_vein_0",
+        "aqua_vein_1",
+        "aqua_vein_2",
+        "rock_0",
+        "rock_1",
+        "rock_2",
+        "rock_3"
+      ]
+    },
+    {
+      "name": "r006_reef_rock_family_rock_02",
+      "role_id": "R006_reef_rock_family",
+      "kind": "rock",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_02.glb",
+      "vertices": 282,
+      "triangles": 496,
+      "materials": 3,
+      "bounds_min": [
+        -1.6831,
+        -1.7675,
+        -0.1907
+      ],
+      "bounds_max": [
+        1.2312,
+        1.2405,
+        1.088
+      ],
+      "components": [
+        "aqua_vein_0.001",
+        "aqua_vein_1.001",
+        "aqua_vein_2.001",
+        "rock_0.001",
+        "rock_1.001",
+        "rock_2.001",
+        "rock_3.001",
+        "rock_4"
+      ]
+    },
+    {
+      "name": "r006_reef_rock_family_rock_03",
+      "role_id": "R006_reef_rock_family",
+      "kind": "rock",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_03.glb",
+      "vertices": 240,
+      "triangles": 416,
+      "materials": 3,
+      "bounds_min": [
+        -1.807,
+        -1.7185,
+        -0.205
+      ],
+      "bounds_max": [
+        1.1702,
+        1.1973,
+        1.2181
+      ],
+      "components": [
+        "aqua_vein_0.002",
+        "aqua_vein_1.002",
+        "aqua_vein_2.002",
+        "rock_0.002",
+        "rock_1.002",
+        "rock_2.002",
+        "rock_3.002"
+      ]
+    },
+    {
+      "name": "r006_reef_rock_family_rock_04",
+      "role_id": "R006_reef_rock_family",
+      "kind": "rock",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_04.glb",
+      "vertices": 282,
+      "triangles": 496,
+      "materials": 3,
+      "bounds_min": [
+        -1.9761,
+        -1.6637,
+        -0.2503
+      ],
+      "bounds_max": [
+        1.2524,
+        1.2946,
+        1.3764
+      ],
+      "components": [
+        "aqua_vein_0.003",
+        "aqua_vein_1.003",
+        "aqua_vein_2.003",
+        "rock_0.003",
+        "rock_1.003",
+        "rock_2.003",
+        "rock_3.003",
+        "rock_4.001"
+      ]
+    },
+    {
+      "name": "r009_reef_coral_flower_hybrid_coral_01",
+      "role_id": "R009_reef_coral_flower_hybrid",
+      "kind": "coral",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r009_reef_coral_flower_hybrid_coral_01.glb",
+      "vertices": 746,
+      "triangles": 1264,
+      "materials": 3,
+      "bounds_min": [
+        -1.4122,
+        -1.0588,
+        -0.1998
+      ],
+      "bounds_max": [
+        1.4122,
+        0.9212,
+        3.05
+      ],
+      "components": [
+        "antler_fork_0_-1.001",
+        "antler_fork_0_1.001",
+        "antler_fork_1_-1.001",
+        "antler_fork_1_1.001",
+        "antler_fork_2_-1.001",
+        "antler_fork_2_1.001",
+        "antler_fork_3_-1.001",
+        "antler_fork_3_1.001",
+        "antler_tip_0_-1.001",
+        "antler_tip_0_1.001",
+        "antler_tip_1_-1.001",
+        "antler_tip_1_1.001",
+        "antler_tip_2_-1.001",
+        "antler_tip_2_1.001",
+        "antler_tip_3_-1.001",
+        "antler_tip_3_1.001",
+        "antler_trunk_0.001",
+        "antler_trunk_1.001",
+        "antler_trunk_2.001",
+        "antler_trunk_3.001",
+        "coral_base.006"
+      ]
+    },
+    {
+      "name": "r009_reef_coral_flower_hybrid_coral_02",
+      "role_id": "R009_reef_coral_flower_hybrid",
+      "kind": "coral",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r009_reef_coral_flower_hybrid_coral_02.glb",
+      "vertices": 322,
+      "triangles": 416,
+      "materials": 3,
+      "bounds_min": [
+        -1.2839,
+        -1.0,
+        -0.2
+      ],
+      "bounds_max": [
+        1.2839,
+        1.0,
+        2.54
+      ],
+      "components": [
+        "coral_base.007",
+        "fan_branch_0.001",
+        "fan_branch_1.001",
+        "fan_branch_2.001",
+        "fan_branch_3.001",
+        "fan_branch_4.001",
+        "fan_branch_5.001",
+        "fan_branch_6.001",
+        "fan_lattice_0.001",
+        "fan_lattice_1.001",
+        "fan_lattice_2.001",
+        "fan_lattice_3.001",
+        "fan_lattice_4.001",
+        "fan_lattice_5.001",
+        "fan_stem.001"
+      ]
+    },
+    {
+      "name": "r010_reef_clownfish_model_clownfish",
+      "role_id": "R010_reef_clownfish_model",
+      "kind": "clownfish",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r010_reef_clownfish_model_clownfish.glb",
+      "vertices": 1016,
+      "triangles": 2000,
+      "materials": 4,
+      "bounds_min": [
+        -2.5433,
+        -0.8405,
+        -1.0309
+      ],
+      "bounds_max": [
+        1.7,
+        0.8405,
+        1.5522
+      ],
+      "components": [
+        "clown_band_-0.65",
+        "clown_band_0.35",
+        "dorsal_fin",
+        "eye_-1",
+        "eye_1",
+        "fish_body",
+        "pectoral_fin_-1",
+        "pectoral_fin_1",
+        "tail_lower",
+        "tail_upper"
+      ]
+    },
+    {
+      "name": "r011_reef_octopus_model_octopus",
+      "role_id": "R011_reef_octopus_model",
+      "kind": "octopus",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r011_reef_octopus_model_octopus.glb",
+      "vertices": 854,
+      "triangles": 1556,
+      "materials": 3,
+      "bounds_min": [
+        -1.8318,
+        -1.8318,
+        0.05
+      ],
+      "bounds_max": [
+        1.8318,
+        1.8318,
+        2.65
+      ],
+      "components": [
+        "arm_0",
+        "arm_1",
+        "arm_2",
+        "arm_3",
+        "arm_4",
+        "arm_5",
+        "arm_6",
+        "arm_7",
+        "eye_-1.001",
+        "eye_1.001",
+        "octopus_head",
+        "octopus_mantle",
+        "pupil_-1",
+        "pupil_1"
+      ]
+    },
+    {
+      "name": "r012_reef_shrimp_role_shrimp",
+      "role_id": "R012_reef_shrimp_role",
+      "kind": "shrimp",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r012_reef_shrimp_role_shrimp.glb",
+      "vertices": 1416,
+      "triangles": 2560,
+      "materials": 5,
+      "bounds_min": [
+        -1.9978,
+        -0.9,
+        -0.4153
+      ],
+      "bounds_max": [
+        3.05,
+        0.9,
+        1.25
+      ],
+      "components": [
+        "abdomen_segment_0",
+        "abdomen_segment_1",
+        "abdomen_segment_2",
+        "abdomen_segment_3",
+        "abdomen_segment_4",
+        "abdomen_segment_5",
+        "abdomen_segment_6",
+        "antenna_-1_a",
+        "antenna_-1_b",
+        "antenna_1_a",
+        "antenna_1_b",
+        "carapace",
+        "eye_-1.002",
+        "eye_1.002",
+        "leg_-1_0",
+        "leg_-1_1",
+        "leg_-1_2",
+        "leg_-1_3",
+        "leg_-1_4",
+        "leg_1_0",
+        "leg_1_1",
+        "leg_1_2",
+        "leg_1_3",
+        "leg_1_4",
+        "tail_fan_-1",
+        "tail_fan_1"
+      ]
+    },
+    {
+      "name": "r013_reef_jellyfish_role_jellyfish",
+      "role_id": "R013_reef_jellyfish_role",
+      "kind": "jellyfish",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r013_reef_jellyfish_role_jellyfish.glb",
+      "vertices": 746,
+      "triangles": 1296,
+      "materials": 2,
+      "bounds_min": [
+        -1.25,
+        -1.25,
+        -1.0
+      ],
+      "bounds_max": [
+        1.25,
+        1.25,
+        2.32
+      ],
+      "components": [
+        "bell",
+        "bell_rim",
+        "oral_arm_0",
+        "oral_arm_1",
+        "oral_arm_2",
+        "oral_arm_3",
+        "tentacle_0",
+        "tentacle_1",
+        "tentacle_2",
+        "tentacle_3",
+        "tentacle_4",
+        "tentacle_5",
+        "tentacle_6",
+        "tentacle_7"
+      ]
+    },
+    {
+      "name": "r014_sky_lagoon_world_composition_sky_world",
+      "role_id": "R014_sky_lagoon_world_composition",
+      "kind": "sky_world",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r014_sky_lagoon_world_composition_sky_world.glb",
+      "vertices": 5191,
+      "triangles": 9922,
+      "materials": 10,
+      "bounds_min": [
+        -9.319,
+        -6.0451,
+        -1.1598
+      ],
+      "bounds_max": [
+        7.0553,
+        5.6459,
+        7.05
+      ],
+      "components": [
+        "castle_door",
+        "castle_keep",
+        "cloud_body_shelf",
+        "cloud_body_shelf.001",
+        "cloud_body_shelf.002",
+        "cloud_body_shelf.003",
+        "cloud_lobe_0",
+        "cloud_lobe_0.001",
+        "cloud_lobe_0.002",
+        "cloud_lobe_0.003",
+        "cloud_lobe_1",
+        "cloud_lobe_1.001",
+        "cloud_lobe_1.002",
+        "cloud_lobe_1.003",
+        "cloud_lobe_2",
+        "cloud_lobe_2.001",
+        "cloud_lobe_2.002",
+        "cloud_lobe_2.003",
+        "cloud_lobe_3",
+        "cloud_lobe_3.001",
+        "cloud_lobe_3.002",
+        "cloud_lobe_3.003",
+        "cloud_lobe_4",
+        "cloud_lobe_4.001",
+        "cloud_lobe_4.002",
+        "cloud_lobe_4.003",
+        "cloud_lobe_5",
+        "cloud_lobe_5.001",
+        "cloud_outline_shelf",
+        "cloud_outline_shelf.001",
+        "cloud_outline_shelf.002",
+        "cloud_outline_shelf.003",
+        "cloud_shadow_shelf",
+        "cloud_shadow_shelf.001",
+        "cloud_shadow_shelf.002",
+        "cloud_shadow_shelf.003",
+        "door_shell_trim",
+        "floating_island",
+        "r014_sky_lagoon_world_composition_sky_world_castle",
+        "r014_sky_lagoon_world_composition_sky_world_cloud_0",
+        "r014_sky_lagoon_world_composition_sky_world_cloud_1",
+        "r014_sky_lagoon_world_composition_sky_world_cloud_2",
+        "r014_sky_lagoon_world_composition_sky_world_cloud_3",
+        "roof_finial_0",
+        "roof_finial_1",
+        "roof_finial_2",
+        "roof_finial_3",
+        "roof_finial_4",
+        "snow_field",
+        "tower_0",
+        "tower_1",
+        "tower_roof_0",
+        "tower_roof_1",
+        "tower_window_0_0",
+        "tower_window_0_1",
+        "tower_window_1_0",
+        "tower_window_1_1",
+        "wind_curl_-1",
+        "wind_curl_-1.001",
+        "wind_curl_-1.002",
+        "wind_curl_-1.003",
+        "wind_curl_1",
+        "wind_curl_1.001",
+        "wind_curl_1.002",
+        "wind_curl_1.003",
+        "wind_curl_outline_-1",
+        "wind_curl_outline_-1.001",
+        "wind_curl_outline_-1.002",
+        "wind_curl_outline_-1.003",
+        "wind_curl_outline_1",
+        "wind_curl_outline_1.001",
+        "wind_curl_outline_1.002",
+        "wind_curl_outline_1.003"
+      ]
+    },
+    {
+      "name": "r015_sky_lagoon_main_castle_sky_castle",
+      "role_id": "R015_sky_lagoon_main_castle",
+      "kind": "sky_castle",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r015_sky_lagoon_main_castle_sky_castle.glb",
+      "vertices": 839,
+      "triangles": 1618,
+      "materials": 7,
+      "bounds_min": [
+        -4.3,
+        -1.55,
+        0.0
+      ],
+      "bounds_max": [
+        4.3,
+        1.4,
+        6.05
+      ],
+      "components": [
+        "castle_door.001",
+        "castle_keep.001",
+        "door_shell_trim.001",
+        "roof_finial_0.001",
+        "roof_finial_1.001",
+        "roof_finial_2.001",
+        "roof_finial_3.001",
+        "roof_finial_4.001",
+        "tower_0.001",
+        "tower_1.001",
+        "tower_roof_0.001",
+        "tower_roof_1.001",
+        "tower_window_0_0.001",
+        "tower_window_0_1.001",
+        "tower_window_1_0.001",
+        "tower_window_1_1.001"
+      ]
+    },
+    {
+      "name": "r016_sky_lagoon_castle_towers_castle_tower_01",
+      "role_id": "R016_sky_lagoon_castle_towers",
+      "kind": "castle_tower",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_01.glb",
+      "vertices": 839,
+      "triangles": 1618,
+      "materials": 7,
+      "bounds_min": [
+        -3.256,
+        -1.55,
+        0.0
+      ],
+      "bounds_max": [
+        3.256,
+        1.4,
+        6.05
+      ],
+      "components": [
+        "castle_door.002",
+        "castle_keep.002",
+        "door_shell_trim.002",
+        "roof_finial_0.002",
+        "roof_finial_1.002",
+        "roof_finial_2.002",
+        "roof_finial_3.002",
+        "roof_finial_4.002",
+        "tower_0.002",
+        "tower_1.002",
+        "tower_roof_0.002",
+        "tower_roof_1.002",
+        "tower_window_0_0.002",
+        "tower_window_0_1.002",
+        "tower_window_1_0.002",
+        "tower_window_1_1.002"
+      ]
+    },
+    {
+      "name": "r016_sky_lagoon_castle_towers_castle_tower_02",
+      "role_id": "R016_sky_lagoon_castle_towers",
+      "kind": "castle_tower",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_02.glb",
+      "vertices": 839,
+      "triangles": 1618,
+      "materials": 7,
+      "bounds_min": [
+        -3.256,
+        -1.55,
+        0.0
+      ],
+      "bounds_max": [
+        3.256,
+        1.4,
+        6.05
+      ],
+      "components": [
+        "castle_door.003",
+        "castle_keep.003",
+        "door_shell_trim.003",
+        "roof_finial_0.003",
+        "roof_finial_1.003",
+        "roof_finial_2.003",
+        "roof_finial_3.003",
+        "roof_finial_4.003",
+        "tower_0.003",
+        "tower_1.003",
+        "tower_roof_0.003",
+        "tower_roof_1.003",
+        "tower_window_0_0.003",
+        "tower_window_0_1.003",
+        "tower_window_1_0.003",
+        "tower_window_1_1.003"
+      ]
+    },
+    {
+      "name": "r016_sky_lagoon_castle_towers_castle_tower_03",
+      "role_id": "R016_sky_lagoon_castle_towers",
+      "kind": "castle_tower",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_03.glb",
+      "vertices": 839,
+      "triangles": 1618,
+      "materials": 7,
+      "bounds_min": [
+        -3.256,
+        -1.55,
+        0.0
+      ],
+      "bounds_max": [
+        3.256,
+        1.4,
+        6.05
+      ],
+      "components": [
+        "castle_door.004",
+        "castle_keep.004",
+        "door_shell_trim.004",
+        "roof_finial_0.004",
+        "roof_finial_1.004",
+        "roof_finial_2.004",
+        "roof_finial_3.004",
+        "roof_finial_4.004",
+        "tower_0.004",
+        "tower_1.004",
+        "tower_roof_0.004",
+        "tower_roof_1.004",
+        "tower_window_0_0.004",
+        "tower_window_0_1.004",
+        "tower_window_1_0.004",
+        "tower_window_1_1.004"
+      ]
+    },
+    {
+      "name": "r017_sky_lagoon_cloud_family_cloud_01",
+      "role_id": "R017_sky_lagoon_cloud_family",
+      "kind": "cloud",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_01.glb",
+      "vertices": 994,
+      "triangles": 1892,
+      "materials": 3,
+      "bounds_min": [
+        -2.319,
+        -0.86,
+        0.145
+      ],
+      "bounds_max": [
+        2.2797,
+        0.83,
+        2.7802
+      ],
+      "components": [
+        "cloud_body_shelf.004",
+        "cloud_lobe_0.004",
+        "cloud_lobe_1.004",
+        "cloud_lobe_2.004",
+        "cloud_lobe_3.004",
+        "cloud_lobe_4.004",
+        "cloud_outline_shelf.004",
+        "cloud_shadow_shelf.004",
+        "wind_curl_-1.004",
+        "wind_curl_1.004",
+        "wind_curl_outline_-1.004",
+        "wind_curl_outline_1.004"
+      ]
+    },
+    {
+      "name": "r017_sky_lagoon_cloud_family_cloud_02",
+      "role_id": "R017_sky_lagoon_cloud_family",
+      "kind": "cloud",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_02.glb",
+      "vertices": 1140,
+      "triangles": 2180,
+      "materials": 3,
+      "bounds_min": [
+        -2.4563,
+        -0.86,
+        0.145
+      ],
+      "bounds_max": [
+        2.3863,
+        0.83,
+        2.6064
+      ],
+      "components": [
+        "cloud_body_shelf.005",
+        "cloud_lobe_0.005",
+        "cloud_lobe_1.005",
+        "cloud_lobe_2.005",
+        "cloud_lobe_3.005",
+        "cloud_lobe_4.005",
+        "cloud_lobe_5.002",
+        "cloud_outline_shelf.005",
+        "cloud_shadow_shelf.005",
+        "wind_curl_-1.005",
+        "wind_curl_1.005",
+        "wind_curl_outline_-1.005",
+        "wind_curl_outline_1.005"
+      ]
+    },
+    {
+      "name": "r017_sky_lagoon_cloud_family_cloud_03",
+      "role_id": "R017_sky_lagoon_cloud_family",
+      "kind": "cloud",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_03.glb",
+      "vertices": 994,
+      "triangles": 1892,
+      "materials": 3,
+      "bounds_min": [
+        -2.6,
+        -0.86,
+        0.145
+      ],
+      "bounds_max": [
+        2.6,
+        0.83,
+        2.6959
+      ],
+      "components": [
+        "cloud_body_shelf.006",
+        "cloud_lobe_0.006",
+        "cloud_lobe_1.006",
+        "cloud_lobe_2.006",
+        "cloud_lobe_3.006",
+        "cloud_lobe_4.006",
+        "cloud_outline_shelf.006",
+        "cloud_shadow_shelf.006",
+        "wind_curl_-1.006",
+        "wind_curl_1.006",
+        "wind_curl_outline_-1.006",
+        "wind_curl_outline_1.006"
+      ]
+    },
+    {
+      "name": "r018_sky_lagoon_rainbow_route_rainbow_route",
+      "role_id": "R018_sky_lagoon_rainbow_route",
+      "kind": "rainbow_route",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r018_sky_lagoon_rainbow_route_rainbow_route.glb",
+      "vertices": 432,
+      "triangles": 768,
+      "materials": 7,
+      "bounds_min": [
+        -5.0,
+        -0.55,
+        -0.16
+      ],
+      "bounds_max": [
+        6.76,
+        0.55,
+        3.16
+      ],
+      "components": [
+        "destination_arch",
+        "rainbow_lane_0",
+        "rainbow_lane_1",
+        "rainbow_lane_2",
+        "rainbow_lane_3",
+        "rainbow_lane_4",
+        "rainbow_lane_5"
+      ]
+    },
+    {
+      "name": "r019_sky_lagoon_snow_terrain_snow_01",
+      "role_id": "R019_sky_lagoon_snow_terrain",
+      "kind": "snow",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_01.glb",
+      "vertices": 378,
+      "triangles": 720,
+      "materials": 3,
+      "bounds_min": [
+        -2.0923,
+        -2.2554,
+        -0.9188
+      ],
+      "bounds_max": [
+        2.0923,
+        1.85,
+        3.2014
+      ],
+      "components": [
+        "crag_0",
+        "crag_1",
+        "crag_2",
+        "crag_3",
+        "snow_cap_0",
+        "snow_cap_1",
+        "snow_cap_2",
+        "snow_cap_3",
+        "snow_foot"
+      ]
+    },
+    {
+      "name": "r019_sky_lagoon_snow_terrain_snow_02",
+      "role_id": "R019_sky_lagoon_snow_terrain",
+      "kind": "snow",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_02.glb",
+      "vertices": 378,
+      "triangles": 720,
+      "materials": 3,
+      "bounds_min": [
+        -2.0923,
+        -2.0342,
+        -1.0177
+      ],
+      "bounds_max": [
+        2.0923,
+        1.85,
+        3.4826
+      ],
+      "components": [
+        "crag_0.001",
+        "crag_1.001",
+        "crag_2.001",
+        "crag_3.001",
+        "snow_cap_0.001",
+        "snow_cap_1.001",
+        "snow_cap_2.001",
+        "snow_cap_3.001",
+        "snow_foot.001"
+      ]
+    },
+    {
+      "name": "r019_sky_lagoon_snow_terrain_snow_03",
+      "role_id": "R019_sky_lagoon_snow_terrain",
+      "kind": "snow",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_03.glb",
+      "vertices": 378,
+      "triangles": 720,
+      "materials": 3,
+      "bounds_min": [
+        -2.0923,
+        -2.1353,
+        -1.1608
+      ],
+      "bounds_max": [
+        2.0923,
+        1.85,
+        3.2218
+      ],
+      "components": [
+        "crag_0.002",
+        "crag_1.002",
+        "crag_2.002",
+        "crag_3.002",
+        "snow_cap_0.002",
+        "snow_cap_1.002",
+        "snow_cap_2.002",
+        "snow_cap_3.002",
+        "snow_foot.002"
+      ]
+    },
+    {
+      "name": "r020_sky_lagoon_painting_displays_painting_display",
+      "role_id": "R020_sky_lagoon_painting_displays",
+      "kind": "painting_display",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r020_sky_lagoon_painting_displays_painting_display.glb",
+      "vertices": 756,
+      "triangles": 1476,
+      "materials": 3,
+      "bounds_min": [
+        -3.95,
+        -0.26,
+        0.3
+      ],
+      "bounds_max": [
+        3.95,
+        0.14,
+        3.7882
+      ],
+      "components": [
+        "frame_crest_0",
+        "frame_crest_1",
+        "frame_crest_2",
+        "frame_outer_0",
+        "frame_outer_1",
+        "frame_outer_2",
+        "protected_art_window_0",
+        "protected_art_window_1",
+        "protected_art_window_2"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_01",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_01.glb",
+      "vertices": 944,
+      "triangles": 1876,
+      "materials": 3,
+      "bounds_min": [
+        -1.75,
+        -0.95,
+        -0.02
+      ],
+      "bounds_max": [
+        1.75,
+        0.95,
+        3.15
+      ],
+      "components": [
+        "engine_body",
+        "engine_boiler",
+        "engine_stack",
+        "wheel_-1_-1",
+        "wheel_-1_1",
+        "wheel_1_-1",
+        "wheel_1_1"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_02",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_02.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -0.95,
+        -0.02
+      ],
+      "bounds_max": [
+        1.5,
+        0.95,
+        1.875
+      ],
+      "components": [
+        "tender_body",
+        "wheel_-1_-1.001",
+        "wheel_-1_1.001",
+        "wheel_1_-1.001",
+        "wheel_1_1.001",
+        "window_0",
+        "window_1",
+        "window_2"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_03",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_03.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -0.95,
+        -0.02
+      ],
+      "bounds_max": [
+        1.5,
+        0.95,
+        1.875
+      ],
+      "components": [
+        "coach_body",
+        "wheel_-1_-1.002",
+        "wheel_-1_1.002",
+        "wheel_1_-1.002",
+        "wheel_1_1.002",
+        "window_0.001",
+        "window_1.001",
+        "window_2.001"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_04",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_04.glb",
+      "vertices": 936,
+      "triangles": 1860,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -0.95,
+        -0.02
+      ],
+      "bounds_max": [
+        1.5,
+        0.95,
+        1.94
+      ],
+      "components": [
+        "gondola_body",
+        "gondola_rail_-1",
+        "gondola_rail_1",
+        "wheel_-1_-1.003",
+        "wheel_-1_1.003",
+        "wheel_1_-1.003",
+        "wheel_1_1.003"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_05",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 4,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_05.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -0.95,
+        -0.02
+      ],
+      "bounds_max": [
+        1.5,
+        0.95,
+        1.875
+      ],
+      "components": [
+        "caboose_body",
+        "wheel_-1_-1.004",
+        "wheel_-1_1.004",
+        "wheel_1_-1.004",
+        "wheel_1_1.004",
+        "window_0.002",
+        "window_1.002",
+        "window_2.002"
+      ]
+    },
+    {
+      "name": "r021_sky_lagoon_train_presentation_train_06",
+      "role_id": "R021_sky_lagoon_train_presentation",
+      "kind": "train",
+      "variant": 5,
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_06.glb",
+      "vertices": 322,
+      "triangles": 620,
+      "materials": 4,
+      "bounds_min": [
+        -2.7,
+        -1.1,
+        0.025
+      ],
+      "bounds_max": [
+        2.8561,
+        1.35,
+        4.4798
+      ],
+      "components": [
+        "station_house",
+        "station_platform",
+        "station_roof",
+        "station_window_0",
+        "station_window_1",
+        "station_window_2"
+      ]
+    },
+    {
+      "name": "r022_sky_lagoon_palm_repetition_palm_01",
+      "role_id": "R022_sky_lagoon_palm_repetition",
+      "kind": "palm",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_01.glb",
+      "vertices": 700,
+      "triangles": 1352,
+      "materials": 3,
+      "bounds_min": [
+        -1.8661,
+        -2.3755,
+        -0.0196
+      ],
+      "bounds_max": [
+        2.7658,
+        2.3714,
+        4.4
+      ],
+      "components": [
+        "palm_leaf_0",
+        "palm_leaf_1",
+        "palm_leaf_2",
+        "palm_leaf_3",
+        "palm_leaf_4",
+        "palm_leaf_5",
+        "palm_leaf_6",
+        "trunk_0",
+        "trunk_1",
+        "trunk_2",
+        "trunk_3",
+        "trunk_4"
+      ]
+    },
+    {
+      "name": "r022_sky_lagoon_palm_repetition_palm_02",
+      "role_id": "R022_sky_lagoon_palm_repetition",
+      "kind": "palm",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_02.glb",
+      "vertices": 700,
+      "triangles": 1352,
+      "materials": 3,
+      "bounds_min": [
+        -1.8661,
+        -2.3755,
+        -0.0196
+      ],
+      "bounds_max": [
+        2.7658,
+        2.3714,
+        4.4
+      ],
+      "components": [
+        "palm_leaf_0.001",
+        "palm_leaf_1.001",
+        "palm_leaf_2.001",
+        "palm_leaf_3.001",
+        "palm_leaf_4.001",
+        "palm_leaf_5.001",
+        "palm_leaf_6.001",
+        "trunk_0.001",
+        "trunk_1.001",
+        "trunk_2.001",
+        "trunk_3.001",
+        "trunk_4.001"
+      ]
+    },
+    {
+      "name": "r022_sky_lagoon_palm_repetition_palm_03",
+      "role_id": "R022_sky_lagoon_palm_repetition",
+      "kind": "palm",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_03.glb",
+      "vertices": 700,
+      "triangles": 1352,
+      "materials": 3,
+      "bounds_min": [
+        -1.8661,
+        -2.3755,
+        -0.0196
+      ],
+      "bounds_max": [
+        2.7658,
+        2.3714,
+        4.4
+      ],
+      "components": [
+        "palm_leaf_0.002",
+        "palm_leaf_1.002",
+        "palm_leaf_2.002",
+        "palm_leaf_3.002",
+        "palm_leaf_4.002",
+        "palm_leaf_5.002",
+        "palm_leaf_6.002",
+        "trunk_0.002",
+        "trunk_1.002",
+        "trunk_2.002",
+        "trunk_3.002",
+        "trunk_4.002"
+      ]
+    },
+    {
+      "name": "r023_castle_castle_hall_overall_hall",
+      "role_id": "R023_castle_castle_hall_overall",
+      "kind": "hall",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r023_castle_castle_hall_overall_hall.glb",
+      "vertices": 1832,
+      "triangles": 3604,
+      "materials": 4,
+      "bounds_min": [
+        -6.1,
+        -4.28,
+        -0.15
+      ],
+      "bounds_max": [
+        6.1,
+        4.28,
+        6.3
+      ],
+      "components": [
+        "ceiling_arch_-1",
+        "ceiling_arch_1",
+        "column_capital_-1_0",
+        "column_capital_-1_1",
+        "column_capital_-1_2",
+        "column_capital_1_0",
+        "column_capital_1_1",
+        "column_capital_1_2",
+        "hall_column_-1_0",
+        "hall_column_-1_1",
+        "hall_column_-1_2",
+        "hall_column_1_0",
+        "hall_column_1_1",
+        "hall_column_1_2",
+        "hall_floor"
+      ]
+    },
+    {
+      "name": "r024_castle_wall_modules_wall_modules",
+      "role_id": "R024_castle_wall_modules",
+      "kind": "wall_modules",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r024_castle_wall_modules_wall_modules.glb",
+      "vertices": 912,
+      "triangles": 1800,
+      "materials": 4,
+      "bounds_min": [
+        -5.45,
+        -0.44,
+        0.0
+      ],
+      "bounds_max": [
+        5.45,
+        0.225,
+        3.4
+      ],
+      "components": [
+        "baseboard_0",
+        "baseboard_1",
+        "baseboard_2",
+        "wall_arch_0",
+        "wall_arch_1",
+        "wall_arch_2",
+        "wall_panel_0",
+        "wall_panel_1",
+        "wall_panel_2"
+      ]
+    },
+    {
+      "name": "r025_castle_stairs_stairs",
+      "role_id": "R025_castle_stairs",
+      "kind": "stairs",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r025_castle_stairs_stairs.glb",
+      "vertices": 960,
+      "triangles": 1792,
+      "materials": 2,
+      "bounds_min": [
+        -3.65,
+        -1.74,
+        0.06
+      ],
+      "bounds_max": [
+        3.65,
+        1.68,
+        2.8
+      ],
+      "components": [
+        "stair_rail_0_-1",
+        "stair_rail_0_1",
+        "stair_rail_1_-1",
+        "stair_rail_1_1",
+        "step_0_0",
+        "step_0_1",
+        "step_0_2",
+        "step_0_3",
+        "step_0_4",
+        "step_0_5",
+        "step_0_6",
+        "step_0_7",
+        "step_1_0",
+        "step_1_1",
+        "step_1_2",
+        "step_1_3",
+        "step_1_4",
+        "step_1_5",
+        "step_1_6",
+        "step_1_7"
+      ]
+    },
+    {
+      "name": "r026_castle_columns_columns",
+      "role_id": "R026_castle_columns",
+      "kind": "columns",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r026_castle_columns_columns.glb",
+      "vertices": 1860,
+      "triangles": 3324,
+      "materials": 4,
+      "bounds_min": [
+        -3.24,
+        -0.84,
+        0.13
+      ],
+      "bounds_max": [
+        3.24,
+        0.84,
+        4.02
+      ],
+      "components": [
+        "base_ring_0",
+        "base_ring_1",
+        "base_ring_2",
+        "capital_ring_0",
+        "capital_ring_1",
+        "capital_ring_2",
+        "flute_0_0",
+        "flute_0_1",
+        "flute_0_2",
+        "flute_0_3",
+        "flute_0_4",
+        "flute_0_5",
+        "flute_0_6",
+        "flute_0_7",
+        "flute_1_0",
+        "flute_1_1",
+        "flute_1_2",
+        "flute_1_3",
+        "flute_1_4",
+        "flute_1_5",
+        "flute_1_6",
+        "flute_1_7",
+        "flute_2_0",
+        "flute_2_1",
+        "flute_2_2",
+        "flute_2_3",
+        "flute_2_4",
+        "flute_2_5",
+        "flute_2_6",
+        "flute_2_7",
+        "fluted_column_0",
+        "fluted_column_1",
+        "fluted_column_2"
+      ]
+    },
+    {
+      "name": "r027_castle_doors_doors",
+      "role_id": "R027_castle_doors",
+      "kind": "doors",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r027_castle_doors_doors.glb",
+      "vertices": 900,
+      "triangles": 1776,
+      "materials": 5,
+      "bounds_min": [
+        -4.48,
+        -0.41,
+        0.0
+      ],
+      "bounds_max": [
+        4.48,
+        0.19,
+        3.58
+      ],
+      "components": [
+        "door_0",
+        "door_1",
+        "door_2",
+        "door_frame_0",
+        "door_frame_1",
+        "door_frame_2",
+        "door_knob_0",
+        "door_knob_1",
+        "door_knob_2"
+      ]
+    },
+    {
+      "name": "r028_castle_throne_room_presentation_throne_room",
+      "role_id": "R028_castle_throne_room_presentation",
+      "kind": "throne_room",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r028_castle_throne_room_presentation_throne_room.glb",
+      "vertices": 948,
+      "triangles": 1848,
+      "materials": 5,
+      "bounds_min": [
+        -2.75,
+        -1.1,
+        0.05
+      ],
+      "bounds_max": [
+        2.75,
+        2.1,
+        6.2
+      ],
+      "components": [
+        "canopy_arch",
+        "canopy_column_-1",
+        "canopy_column_1",
+        "canopy_star_0",
+        "canopy_star_1",
+        "canopy_star_2",
+        "canopy_star_3",
+        "canopy_star_4",
+        "dais"
+      ]
+    },
+    {
+      "name": "r029_castle_throne_model_throne",
+      "role_id": "R029_castle_throne_model",
+      "kind": "throne",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r029_castle_throne_model_throne.glb",
+      "vertices": 300,
+      "triangles": 556,
+      "materials": 3,
+      "bounds_min": [
+        -1.2,
+        -0.85,
+        0.775
+      ],
+      "bounds_max": [
+        1.2,
+        0.85,
+        5.0309
+      ],
+      "components": [
+        "throne_arm_-1",
+        "throne_arm_1",
+        "throne_back",
+        "throne_crest",
+        "throne_seat"
+      ]
+    },
+    {
+      "name": "r030_castle_bed_model_bed",
+      "role_id": "R030_castle_bed_model",
+      "kind": "bed",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r030_castle_bed_model_bed.glb",
+      "vertices": 424,
+      "triangles": 824,
+      "materials": 5,
+      "bounds_min": [
+        -1.9,
+        -1.25,
+        0.275
+      ],
+      "bounds_max": [
+        1.9,
+        1.25,
+        3.2
+      ],
+      "components": [
+        "bed_base",
+        "blanket",
+        "headboard",
+        "mattress",
+        "pillow_-1",
+        "pillow_1"
+      ]
+    },
+    {
+      "name": "r031_castle_kitchen_room_kitchen_room",
+      "role_id": "R031_castle_kitchen_room",
+      "kind": "kitchen_room",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r031_castle_kitchen_room_kitchen_room.glb",
+      "vertices": 912,
+      "triangles": 1800,
+      "materials": 5,
+      "bounds_min": [
+        -2.9,
+        0.13,
+        0.1
+      ],
+      "bounds_max": [
+        2.9,
+        2.1,
+        3.77
+      ],
+      "components": [
+        "cabinet_door_0",
+        "cabinet_door_1",
+        "cabinet_door_2",
+        "cabinet_door_3",
+        "counter_run",
+        "counter_top",
+        "hanging_pan_0",
+        "hanging_pan_1",
+        "hanging_pan_2"
+      ]
+    },
+    {
+      "name": "r035_castle_kitchen_stove_stove",
+      "role_id": "R035_castle_kitchen_stove",
+      "kind": "stove",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r035_castle_kitchen_stove_stove.glb",
+      "vertices": 1088,
+      "triangles": 2152,
+      "materials": 4,
+      "bounds_min": [
+        -1.1,
+        -0.99,
+        0.0
+      ],
+      "bounds_max": [
+        1.1,
+        0.85,
+        2.08
+      ],
+      "components": [
+        "burner_-0.55_-0.42",
+        "burner_-0.55_0.42",
+        "burner_0.55_-0.42",
+        "burner_0.55_0.42",
+        "knob_0",
+        "knob_1",
+        "knob_2",
+        "knob_3",
+        "oven_window",
+        "stove_body"
+      ]
+    },
+    {
+      "name": "r036_castle_kitchen_kettle_kettle",
+      "role_id": "R036_castle_kitchen_kettle",
+      "kind": "kettle",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r036_castle_kitchen_kettle_kettle.glb",
+      "vertices": 578,
+      "triangles": 1140,
+      "materials": 4,
+      "bounds_min": [
+        -1.32,
+        -0.82,
+        0.08
+      ],
+      "bounds_max": [
+        1.8274,
+        0.82,
+        2.37
+      ],
+      "components": [
+        "handle",
+        "lid",
+        "lid_knob",
+        "pot_body",
+        "spout"
+      ]
+    },
+    {
+      "name": "r037_castle_kitchen_pans_pans",
+      "role_id": "R037_castle_kitchen_pans",
+      "kind": "pans",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r037_castle_kitchen_pans_pans.glb",
+      "vertices": 876,
+      "triangles": 1692,
+      "materials": 3,
+      "bounds_min": [
+        -1.92,
+        -0.72,
+        0.17
+      ],
+      "bounds_max": [
+        2.45,
+        0.72,
+        0.5
+      ],
+      "components": [
+        "pan_base_0",
+        "pan_base_1",
+        "pan_base_2",
+        "pan_handle_0",
+        "pan_handle_1",
+        "pan_handle_2",
+        "pan_rim_0",
+        "pan_rim_1",
+        "pan_rim_2"
+      ]
+    },
+    {
+      "name": "r038_castle_kitchen_teapot_teapot",
+      "role_id": "R038_castle_kitchen_teapot",
+      "kind": "teapot",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r038_castle_kitchen_teapot_teapot.glb",
+      "vertices": 578,
+      "triangles": 1140,
+      "materials": 4,
+      "bounds_min": [
+        -1.32,
+        -0.82,
+        0.08
+      ],
+      "bounds_max": [
+        1.8274,
+        0.82,
+        2.37
+      ],
+      "components": [
+        "handle.001",
+        "lid.001",
+        "lid_knob.001",
+        "pot_body.001",
+        "spout.001"
+      ]
+    },
+    {
+      "name": "r039_castle_kitchen_table_and_stools_table",
+      "role_id": "R039_castle_kitchen_table_and_stools",
+      "kind": "table",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r039_castle_kitchen_table_and_stools_table.glb",
+      "vertices": 864,
+      "triangles": 1688,
+      "materials": 6,
+      "bounds_min": [
+        -3.2545,
+        -3.27,
+        0.0
+      ],
+      "bounds_max": [
+        3.2545,
+        3.27,
+        1.6
+      ],
+      "components": [
+        "stool_leg_0",
+        "stool_leg_1",
+        "stool_leg_2",
+        "stool_leg_3",
+        "stool_seat_0",
+        "stool_seat_1",
+        "stool_seat_2",
+        "stool_seat_3",
+        "table_pedestal",
+        "table_top"
+      ]
+    },
+    {
+      "name": "r040_stars_dream_star_star",
+      "role_id": "R040_stars_dream_star",
+      "kind": "star",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r040_stars_dream_star_star.glb",
+      "vertices": 468,
+      "triangles": 892,
+      "materials": 5,
+      "bounds_min": [
+        -2.35,
+        -0.45,
+        -1.6916
+      ],
+      "bounds_max": [
+        1.4389,
+        0.23,
+        1.6916
+      ],
+      "components": [
+        "dream_ribbon_-1",
+        "dream_ribbon_1",
+        "star_body",
+        "star_inset",
+        "star_outline"
+      ]
+    },
+    {
+      "name": "r041_stars_crown_star_star",
+      "role_id": "R041_stars_crown_star",
+      "kind": "star",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r041_stars_crown_star_star.glb",
+      "vertices": 716,
+      "triangles": 1404,
+      "materials": 7,
+      "bounds_min": [
+        -1.7781,
+        -0.45,
+        -1.5399
+      ],
+      "bounds_max": [
+        1.7781,
+        0.28,
+        1.5399
+      ],
+      "components": [
+        "crown_band",
+        "crown_jewel_0",
+        "crown_jewel_1",
+        "crown_jewel_2",
+        "star_body.001",
+        "star_inset.001",
+        "star_outline.001"
+      ]
+    },
+    {
+      "name": "r042_stars_star_chamber_focal_star",
+      "role_id": "R042_stars_star_chamber_focal",
+      "kind": "star",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r042_stars_star_chamber_focal_star.glb",
+      "vertices": 1056,
+      "triangles": 2100,
+      "materials": 4,
+      "bounds_min": [
+        -2.385,
+        -0.45,
+        -2.385
+      ],
+      "bounds_max": [
+        2.385,
+        0.245,
+        2.385
+      ],
+      "components": [
+        "chamber_halo_2.08",
+        "chamber_halo_2.32",
+        "star_body.002",
+        "star_inset.002",
+        "star_outline.002"
+      ]
+    },
+    {
+      "name": "r043_butterfly_world_world_overall_butterfly_world",
+      "role_id": "R043_butterfly_world_world_overall",
+      "kind": "butterfly_world",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r043_butterfly_world_world_overall_butterfly_world.glb",
+      "vertices": 1820,
+      "triangles": 3580,
+      "materials": 7,
+      "bounds_min": [
+        -6.0256,
+        -6.02,
+        -5.84
+      ],
+      "bounds_max": [
+        6.4341,
+        6.0472,
+        6.3717
+      ],
+      "components": [
+        "garden_blossom_0",
+        "garden_blossom_1",
+        "garden_blossom_2",
+        "garden_blossom_3",
+        "garden_blossom_4",
+        "garden_blossom_5",
+        "garden_blossom_6",
+        "garden_equator",
+        "garden_patch_0",
+        "garden_patch_1",
+        "garden_patch_2",
+        "garden_patch_3",
+        "garden_patch_4",
+        "garden_patch_5",
+        "garden_patch_6",
+        "garden_path",
+        "garden_planet"
+      ]
+    },
+    {
+      "name": "r045_butterfly_world_home_gate_butterfly_gate",
+      "role_id": "R045_butterfly_world_home_gate",
+      "kind": "butterfly_gate",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r045_butterfly_world_home_gate_butterfly_gate.glb",
+      "vertices": 2036,
+      "triangles": 3868,
+      "materials": 7,
+      "bounds_min": [
+        -3.5574,
+        -0.8065,
+        -3.399
+      ],
+      "bounds_max": [
+        3.5304,
+        0.792,
+        3.399
+      ],
+      "components": [
+        "antenna_-1",
+        "antenna_1",
+        "body",
+        "front_wing_left",
+        "front_wing_motif_left",
+        "front_wing_motif_right",
+        "front_wing_right",
+        "gate_foot_-1",
+        "gate_foot_1",
+        "gate_inlay",
+        "gate_opening",
+        "head",
+        "leg_-1_0.001",
+        "leg_-1_1.001",
+        "leg_-1_2.001",
+        "leg_1_0.001",
+        "leg_1_1.001",
+        "leg_1_2.001",
+        "rear_wing_left",
+        "rear_wing_motif_left",
+        "rear_wing_motif_right",
+        "rear_wing_right",
+        "thorax",
+        "wing_spot_-1_0",
+        "wing_spot_-1_1",
+        "wing_spot_-1_2",
+        "wing_spot_1_0",
+        "wing_spot_1_1",
+        "wing_spot_1_2"
+      ]
+    },
+    {
+      "name": "r046_butterfly_world_inter_world_gate_butterfly_gate",
+      "role_id": "R046_butterfly_world_inter_world_gate",
+      "kind": "butterfly_gate",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r046_butterfly_world_inter_world_gate_butterfly_gate.glb",
+      "vertices": 2036,
+      "triangles": 3868,
+      "materials": 7,
+      "bounds_min": [
+        -3.5283,
+        -0.869,
+        -3.399
+      ],
+      "bounds_max": [
+        3.5304,
+        0.8076,
+        3.399
+      ],
+      "components": [
+        "antenna_-1.001",
+        "antenna_1.001",
+        "body.001",
+        "front_wing_left.001",
+        "front_wing_motif_left.001",
+        "front_wing_motif_right.001",
+        "front_wing_right.001",
+        "gate_foot_-1.001",
+        "gate_foot_1.001",
+        "gate_inlay.001",
+        "gate_opening.001",
+        "head.001",
+        "leg_-1_0.002",
+        "leg_-1_1.002",
+        "leg_-1_2.002",
+        "leg_1_0.002",
+        "leg_1_1.002",
+        "leg_1_2.002",
+        "rear_wing_left.001",
+        "rear_wing_motif_left.001",
+        "rear_wing_motif_right.001",
+        "rear_wing_right.001",
+        "thorax.001",
+        "wing_spot_-1_0.001",
+        "wing_spot_-1_1.001",
+        "wing_spot_-1_2.001",
+        "wing_spot_1_0.001",
+        "wing_spot_1_1.001",
+        "wing_spot_1_2.001"
+      ]
+    },
+    {
+      "name": "r047_butterfly_world_gate_transition_composition_gate_transition",
+      "role_id": "R047_butterfly_world_gate_transition_composition",
+      "kind": "gate_transition",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r047_butterfly_world_gate_transition_composition_gate_transition.glb",
+      "vertices": 4096,
+      "triangles": 7768,
+      "materials": 8,
+      "bounds_min": [
+        -9.0574,
+        -0.869,
+        -3.399
+      ],
+      "bounds_max": [
+        4.0,
+        0.8303,
+        6.099
+      ],
+      "components": [
+        "antenna_-1.002",
+        "antenna_-1.003",
+        "antenna_1.002",
+        "antenna_1.003",
+        "body.002",
+        "body.003",
+        "front_wing_left.002",
+        "front_wing_left.003",
+        "front_wing_motif_left.002",
+        "front_wing_motif_left.003",
+        "front_wing_motif_right.002",
+        "front_wing_motif_right.003",
+        "front_wing_right.002",
+        "front_wing_right.003",
+        "gate_foot_-1.002",
+        "gate_foot_-1.003",
+        "gate_foot_1.002",
+        "gate_foot_1.003",
+        "gate_inlay.002",
+        "gate_inlay.003",
+        "gate_opening.002",
+        "gate_opening.003",
+        "head.002",
+        "head.003",
+        "leg_-1_0.003",
+        "leg_-1_0.004",
+        "leg_-1_1.003",
+        "leg_-1_1.004",
+        "leg_-1_2.003",
+        "leg_-1_2.004",
+        "leg_1_0.003",
+        "leg_1_0.004",
+        "leg_1_1.003",
+        "leg_1_1.004",
+        "leg_1_2.003",
+        "leg_1_2.004",
+        "r047_butterfly_world_gate_transition_composition_gate_transition_gate_-1",
+        "r047_butterfly_world_gate_transition_composition_gate_transition_gate_1",
+        "rear_wing_left.002",
+        "rear_wing_left.003",
+        "rear_wing_motif_left.002",
+        "rear_wing_motif_left.003",
+        "rear_wing_motif_right.002",
+        "rear_wing_motif_right.003",
+        "rear_wing_right.002",
+        "rear_wing_right.003",
+        "thorax.002",
+        "thorax.003",
+        "transition_path_left",
+        "wing_spot_-1_0.002",
+        "wing_spot_-1_0.003",
+        "wing_spot_-1_1.002",
+        "wing_spot_-1_1.003",
+        "wing_spot_-1_2.002",
+        "wing_spot_-1_2.003",
+        "wing_spot_1_0.002",
+        "wing_spot_1_0.003",
+        "wing_spot_1_1.002",
+        "wing_spot_1_1.003",
+        "wing_spot_1_2.002",
+        "wing_spot_1_2.003"
+      ]
+    },
+    {
+      "name": "r048_butterfly_world_butterfly_environment_family_butterfly_01",
+      "role_id": "R048_butterfly_world_butterfly_environment_family",
+      "kind": "butterfly",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_01.glb",
+      "vertices": 1568,
+      "triangles": 2940,
+      "materials": 5,
+      "bounds_min": [
+        -1.6152,
+        -0.25,
+        -1.656
+      ],
+      "bounds_max": [
+        1.6461,
+        0.25,
+        1.656
+      ],
+      "components": [
+        "antenna_-1.004",
+        "antenna_1.004",
+        "body.004",
+        "front_wing_left.004",
+        "front_wing_motif_left.004",
+        "front_wing_motif_right.004",
+        "front_wing_right.004",
+        "head.004",
+        "leg_-1_0.005",
+        "leg_-1_1.005",
+        "leg_-1_2.005",
+        "leg_1_0.005",
+        "leg_1_1.005",
+        "leg_1_2.005",
+        "rear_wing_left.004",
+        "rear_wing_motif_left.004",
+        "rear_wing_motif_right.004",
+        "rear_wing_right.004",
+        "thorax.004",
+        "wing_spot_-1_0.004",
+        "wing_spot_-1_1.004",
+        "wing_spot_-1_2.004",
+        "wing_spot_1_0.004",
+        "wing_spot_1_1.004",
+        "wing_spot_1_2.004"
+      ]
+    },
+    {
+      "name": "r048_butterfly_world_butterfly_environment_family_butterfly_02",
+      "role_id": "R048_butterfly_world_butterfly_environment_family",
+      "kind": "butterfly",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_02.glb",
+      "vertices": 1568,
+      "triangles": 2940,
+      "materials": 5,
+      "bounds_min": [
+        -1.6152,
+        -0.25,
+        -1.656
+      ],
+      "bounds_max": [
+        1.6461,
+        0.25,
+        1.656
+      ],
+      "components": [
+        "antenna_-1.005",
+        "antenna_1.005",
+        "body.005",
+        "front_wing_left.005",
+        "front_wing_motif_left.005",
+        "front_wing_motif_right.005",
+        "front_wing_right.005",
+        "head.005",
+        "leg_-1_0.006",
+        "leg_-1_1.006",
+        "leg_-1_2.006",
+        "leg_1_0.006",
+        "leg_1_1.006",
+        "leg_1_2.006",
+        "rear_wing_left.005",
+        "rear_wing_motif_left.005",
+        "rear_wing_motif_right.005",
+        "rear_wing_right.005",
+        "thorax.005",
+        "wing_spot_-1_0.005",
+        "wing_spot_-1_1.005",
+        "wing_spot_-1_2.005",
+        "wing_spot_1_0.005",
+        "wing_spot_1_1.005",
+        "wing_spot_1_2.005"
+      ]
+    },
+    {
+      "name": "r048_butterfly_world_butterfly_environment_family_butterfly_03",
+      "role_id": "R048_butterfly_world_butterfly_environment_family",
+      "kind": "butterfly",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_03.glb",
+      "vertices": 1568,
+      "triangles": 2940,
+      "materials": 5,
+      "bounds_min": [
+        -1.6152,
+        -0.25,
+        -1.656
+      ],
+      "bounds_max": [
+        1.6461,
+        0.25,
+        1.656
+      ],
+      "components": [
+        "antenna_-1.006",
+        "antenna_1.006",
+        "body.006",
+        "front_wing_left.006",
+        "front_wing_motif_left.006",
+        "front_wing_motif_right.006",
+        "front_wing_right.006",
+        "head.006",
+        "leg_-1_0.007",
+        "leg_-1_1.007",
+        "leg_-1_2.007",
+        "leg_1_0.007",
+        "leg_1_1.007",
+        "leg_1_2.007",
+        "rear_wing_left.006",
+        "rear_wing_motif_left.006",
+        "rear_wing_motif_right.006",
+        "rear_wing_right.006",
+        "thorax.006",
+        "wing_spot_-1_0.006",
+        "wing_spot_-1_1.006",
+        "wing_spot_-1_2.006",
+        "wing_spot_1_0.006",
+        "wing_spot_1_1.006",
+        "wing_spot_1_2.006"
+      ]
+    },
+    {
+      "name": "r048_butterfly_world_butterfly_environment_family_butterfly_04",
+      "role_id": "R048_butterfly_world_butterfly_environment_family",
+      "kind": "butterfly",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_04.glb",
+      "vertices": 1568,
+      "triangles": 2940,
+      "materials": 5,
+      "bounds_min": [
+        -1.6152,
+        -0.25,
+        -1.656
+      ],
+      "bounds_max": [
+        1.6461,
+        0.25,
+        1.656
+      ],
+      "components": [
+        "antenna_-1.007",
+        "antenna_1.007",
+        "body.007",
+        "front_wing_left.007",
+        "front_wing_motif_left.007",
+        "front_wing_motif_right.007",
+        "front_wing_right.007",
+        "head.007",
+        "leg_-1_0.008",
+        "leg_-1_1.008",
+        "leg_-1_2.008",
+        "leg_1_0.008",
+        "leg_1_1.008",
+        "leg_1_2.008",
+        "rear_wing_left.007",
+        "rear_wing_motif_left.007",
+        "rear_wing_motif_right.007",
+        "rear_wing_right.007",
+        "thorax.007",
+        "wing_spot_-1_0.007",
+        "wing_spot_-1_1.007",
+        "wing_spot_-1_2.007",
+        "wing_spot_1_0.007",
+        "wing_spot_1_1.007",
+        "wing_spot_1_2.007"
+      ]
+    },
+    {
+      "name": "r049_dungeon_combat_arena_overall_dungeon_arena",
+      "role_id": "R049_dungeon_combat_arena_overall",
+      "kind": "dungeon_arena",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r049_dungeon_combat_arena_overall_dungeon_arena.glb",
+      "vertices": 1080,
+      "triangles": 2112,
+      "materials": 5,
+      "bounds_min": [
+        -7.1769,
+        -6.7188,
+        -0.3816
+      ],
+      "bounds_max": [
+        7.1455,
+        6.7921,
+        3.0582
+      ],
+      "components": [
+        "arena_ring_0",
+        "arena_ring_1",
+        "arena_ring_2",
+        "wall_shell_0",
+        "wall_shell_1",
+        "wall_shell_10",
+        "wall_shell_11",
+        "wall_shell_2",
+        "wall_shell_3",
+        "wall_shell_4",
+        "wall_shell_5",
+        "wall_shell_6",
+        "wall_shell_7",
+        "wall_shell_8",
+        "wall_shell_9"
+      ]
+    },
+    {
+      "name": "r051_dungeon_arena_walls_dungeon_walls",
+      "role_id": "R051_dungeon_arena_walls",
+      "kind": "dungeon_walls",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r051_dungeon_arena_walls_dungeon_walls.glb",
+      "vertices": 350,
+      "triangles": 660,
+      "materials": 4,
+      "bounds_min": [
+        -5.2724,
+        -1.07,
+        -0.2775
+      ],
+      "bounds_max": [
+        5.2222,
+        0.7014,
+        3.6
+      ],
+      "components": [
+        "coral_buttress_0",
+        "coral_buttress_1",
+        "coral_buttress_2",
+        "coral_buttress_3",
+        "coral_buttress_4",
+        "scallop_wall_0",
+        "scallop_wall_1",
+        "scallop_wall_2",
+        "scallop_wall_3",
+        "scallop_wall_4"
+      ]
+    },
+    {
+      "name": "r052_dungeon_standard_enemies_imp_01",
+      "role_id": "R052_dungeon_standard_enemies",
+      "kind": "imp",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r052_dungeon_standard_enemies_imp_01.glb",
+      "vertices": 566,
+      "triangles": 1036,
+      "materials": 4,
+      "bounds_min": [
+        -0.7,
+        -0.85,
+        -0.25
+      ],
+      "bounds_max": [
+        0.75,
+        0.85,
+        2.6482
+      ],
+      "components": [
+        "arm_-1",
+        "arm_1.001",
+        "eye_-1.003",
+        "eye_1.003",
+        "fin_-1",
+        "fin_1",
+        "horn_-1",
+        "horn_1",
+        "imp_body",
+        "imp_head",
+        "leg_-1",
+        "leg_1"
+      ]
+    },
+    {
+      "name": "r052_dungeon_standard_enemies_imp_02",
+      "role_id": "R052_dungeon_standard_enemies",
+      "kind": "imp",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r052_dungeon_standard_enemies_imp_02.glb",
+      "vertices": 566,
+      "triangles": 1036,
+      "materials": 4,
+      "bounds_min": [
+        -0.7,
+        -0.85,
+        -0.25
+      ],
+      "bounds_max": [
+        0.75,
+        0.85,
+        2.6482
+      ],
+      "components": [
+        "arm_-1.001",
+        "arm_1.002",
+        "eye_-1.004",
+        "eye_1.004",
+        "fin_-1.001",
+        "fin_1.001",
+        "horn_-1.001",
+        "horn_1.001",
+        "imp_body.001",
+        "imp_head.001",
+        "leg_-1.001",
+        "leg_1.001"
+      ]
+    },
+    {
+      "name": "r053_dungeon_boss_dragon_turtle",
+      "role_id": "R053_dungeon_boss",
+      "kind": "dragon_turtle",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r053_dungeon_boss_dragon_turtle.glb",
+      "vertices": 1309,
+      "triangles": 2550,
+      "materials": 7,
+      "bounds_min": [
+        -2.65,
+        -1.6433,
+        0.0848
+      ],
+      "bounds_max": [
+        2.7681,
+        1.6433,
+        2.325
+      ],
+      "components": [
+        "dragon_head",
+        "eye_-1.005",
+        "eye_1.005",
+        "flipper_-1_0",
+        "flipper_-1_1",
+        "flipper_1_0",
+        "flipper_1_1",
+        "shell",
+        "shell_ring_0",
+        "shell_ring_1",
+        "shell_ring_2",
+        "shell_spine_0",
+        "shell_spine_1",
+        "shell_spine_2",
+        "shell_spine_3",
+        "shell_spine_4",
+        "tail"
+      ]
+    },
+    {
+      "name": "r054_dungeon_pepper_projectile_pepper",
+      "role_id": "R054_dungeon_pepper_projectile",
+      "kind": "pepper",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r054_dungeon_pepper_projectile_pepper.glb",
+      "vertices": 626,
+      "triangles": 1216,
+      "materials": 3,
+      "bounds_min": [
+        -0.465,
+        -0.4872,
+        -1.03
+      ],
+      "bounds_max": [
+        0.55,
+        0.4872,
+        1.08
+      ],
+      "components": [
+        "pepper_calyx",
+        "pepper_lobe_0",
+        "pepper_lobe_1",
+        "pepper_lobe_2",
+        "pepper_stem",
+        "pepper_tip"
+      ]
+    },
+    {
+      "name": "r055_dungeon_basket_basket",
+      "role_id": "R055_dungeon_basket",
+      "kind": "basket",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r055_dungeon_basket_basket.glb",
+      "vertices": 4166,
+      "triangles": 8132,
+      "materials": 5,
+      "bounds_min": [
+        -1.231,
+        -1.25,
+        -1.03
+      ],
+      "bounds_max": [
+        1.231,
+        1.25,
+        2.8
+      ],
+      "components": [
+        "basket_body",
+        "basket_handle",
+        "pepper_calyx.001",
+        "pepper_calyx.002",
+        "pepper_calyx.003",
+        "pepper_calyx.004",
+        "pepper_calyx.005",
+        "pepper_lobe_0.001",
+        "pepper_lobe_0.002",
+        "pepper_lobe_0.003",
+        "pepper_lobe_0.004",
+        "pepper_lobe_0.005",
+        "pepper_lobe_1.001",
+        "pepper_lobe_1.002",
+        "pepper_lobe_1.003",
+        "pepper_lobe_1.004",
+        "pepper_lobe_1.005",
+        "pepper_lobe_2.001",
+        "pepper_lobe_2.002",
+        "pepper_lobe_2.003",
+        "pepper_lobe_2.004",
+        "pepper_lobe_2.005",
+        "pepper_stem.001",
+        "pepper_stem.002",
+        "pepper_stem.003",
+        "pepper_stem.004",
+        "pepper_stem.005",
+        "pepper_tip.001",
+        "pepper_tip.002",
+        "pepper_tip.003",
+        "pepper_tip.004",
+        "pepper_tip.005",
+        "r055_dungeon_basket_basket_pepper_0",
+        "r055_dungeon_basket_basket_pepper_1",
+        "r055_dungeon_basket_basket_pepper_2",
+        "r055_dungeon_basket_basket_pepper_3",
+        "r055_dungeon_basket_basket_pepper_4",
+        "weave_ring_0",
+        "weave_ring_1",
+        "weave_ring_2",
+        "weave_ring_3",
+        "weave_ring_4"
+      ]
+    },
+    {
+      "name": "r056_dungeon_puzzle_room_overall_puzzle_room",
+      "role_id": "R056_dungeon_puzzle_room_overall",
+      "kind": "puzzle_room",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r056_dungeon_puzzle_room_overall_puzzle_room.glb",
+      "vertices": 1484,
+      "triangles": 2916,
+      "materials": 5,
+      "bounds_min": [
+        -3.9019,
+        -2.5387,
+        -0.175
+      ],
+      "bounds_max": [
+        3.9019,
+        2.5387,
+        1.1318
+      ],
+      "components": [
+        "pad_symbol_0",
+        "pad_symbol_1",
+        "pad_symbol_2",
+        "pad_symbol_3",
+        "pad_symbol_4",
+        "pad_symbol_5",
+        "puzzle_floor",
+        "puzzle_pad_0",
+        "puzzle_pad_1",
+        "puzzle_pad_2",
+        "puzzle_pad_3",
+        "puzzle_pad_4",
+        "puzzle_pad_5"
+      ]
+    },
+    {
+      "name": "r057_dungeon_puzzle_door_puzzle_door",
+      "role_id": "R057_dungeon_puzzle_door",
+      "kind": "puzzle_door",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r057_dungeon_puzzle_door_puzzle_door.glb",
+      "vertices": 388,
+      "triangles": 768,
+      "materials": 3,
+      "bounds_min": [
+        -1.95,
+        -0.5,
+        0.0
+      ],
+      "bounds_max": [
+        1.95,
+        0.225,
+        4.15
+      ],
+      "components": [
+        "door_leaf",
+        "shell_frame",
+        "star_lock"
+      ]
+    },
+    {
+      "name": "r058_dungeon_crystal_pads_crystal_pad_01",
+      "role_id": "R058_dungeon_crystal_pads",
+      "kind": "crystal_pad",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_01.glb",
+      "vertices": 330,
+      "triangles": 652,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -1.25,
+        0.0
+      ],
+      "bounds_max": [
+        1.25,
+        1.25,
+        2.1
+      ],
+      "components": [
+        "pad_base",
+        "pad_crystal",
+        "pearl_rim"
+      ]
+    },
+    {
+      "name": "r058_dungeon_crystal_pads_crystal_pad_02",
+      "role_id": "R058_dungeon_crystal_pads",
+      "kind": "crystal_pad",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_02.glb",
+      "vertices": 330,
+      "triangles": 652,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -1.25,
+        0.0
+      ],
+      "bounds_max": [
+        1.25,
+        1.25,
+        2.1
+      ],
+      "components": [
+        "pad_base.001",
+        "pad_crystal.001",
+        "pearl_rim.001"
+      ]
+    },
+    {
+      "name": "r058_dungeon_crystal_pads_crystal_pad_03",
+      "role_id": "R058_dungeon_crystal_pads",
+      "kind": "crystal_pad",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_03.glb",
+      "vertices": 330,
+      "triangles": 652,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -1.25,
+        0.0
+      ],
+      "bounds_max": [
+        1.25,
+        1.25,
+        2.1
+      ],
+      "components": [
+        "pad_base.002",
+        "pad_crystal.002",
+        "pearl_rim.002"
+      ]
+    },
+    {
+      "name": "r059_dungeon_puzzle_crystals_crystal_01",
+      "role_id": "R059_dungeon_puzzle_crystals",
+      "kind": "crystal",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_01.glb",
+      "vertices": 78,
+      "triangles": 136,
+      "materials": 2,
+      "bounds_min": [
+        -0.7473,
+        -0.7473,
+        -0.2889
+      ],
+      "bounds_max": [
+        0.7473,
+        0.7473,
+        1.7517
+      ],
+      "components": [
+        "crystal_core",
+        "crystal_shard_0",
+        "crystal_shard_1",
+        "crystal_shard_2",
+        "crystal_shard_3"
+      ]
+    },
+    {
+      "name": "r059_dungeon_puzzle_crystals_crystal_02",
+      "role_id": "R059_dungeon_puzzle_crystals",
+      "kind": "crystal",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_02.glb",
+      "vertices": 78,
+      "triangles": 136,
+      "materials": 2,
+      "bounds_min": [
+        -0.7473,
+        -0.7473,
+        -0.2905
+      ],
+      "bounds_max": [
+        0.7473,
+        0.7473,
+        1.7452
+      ],
+      "components": [
+        "crystal_core.001",
+        "crystal_shard_0.001",
+        "crystal_shard_1.001",
+        "crystal_shard_2.001",
+        "crystal_shard_3.001"
+      ]
+    },
+    {
+      "name": "r059_dungeon_puzzle_crystals_crystal_03",
+      "role_id": "R059_dungeon_puzzle_crystals",
+      "kind": "crystal",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_03.glb",
+      "vertices": 78,
+      "triangles": 136,
+      "materials": 2,
+      "bounds_min": [
+        -0.7473,
+        -0.7473,
+        -0.1928
+      ],
+      "bounds_max": [
+        0.7473,
+        0.7473,
+        1.729
+      ],
+      "components": [
+        "crystal_core.002",
+        "crystal_shard_0.002",
+        "crystal_shard_1.002",
+        "crystal_shard_2.002",
+        "crystal_shard_3.002"
+      ]
+    },
+    {
+      "name": "r060_dungeon_torch_family_torch_01",
+      "role_id": "R060_dungeon_torch_family",
+      "kind": "torch",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r060_dungeon_torch_family_torch_01.glb",
+      "vertices": 546,
+      "triangles": 1064,
+      "materials": 5,
+      "bounds_min": [
+        -0.51,
+        -0.51,
+        0.0
+      ],
+      "bounds_max": [
+        0.51,
+        0.51,
+        3.7629
+      ],
+      "components": [
+        "flame_core",
+        "inner_flame",
+        "outer_flame_0",
+        "outer_flame_1",
+        "outer_flame_2",
+        "torch_cup",
+        "torch_rim",
+        "torch_stem"
+      ]
+    },
+    {
+      "name": "r060_dungeon_torch_family_torch_02",
+      "role_id": "R060_dungeon_torch_family",
+      "kind": "torch",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r060_dungeon_torch_family_torch_02.glb",
+      "vertices": 546,
+      "triangles": 1064,
+      "materials": 5,
+      "bounds_min": [
+        -0.51,
+        -0.51,
+        0.0
+      ],
+      "bounds_max": [
+        0.51,
+        0.51,
+        3.7629
+      ],
+      "components": [
+        "flame_core.001",
+        "inner_flame.001",
+        "outer_flame_0.001",
+        "outer_flame_1.001",
+        "outer_flame_2.001",
+        "torch_cup.001",
+        "torch_rim.001",
+        "torch_stem.001"
+      ]
+    },
+    {
+      "name": "r061_dungeon_shell_props_shell_01",
+      "role_id": "R061_dungeon_shell_props",
+      "kind": "shell",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_01.glb",
+      "vertices": 604,
+      "triangles": 1204,
+      "materials": 4,
+      "bounds_min": [
+        -1.13,
+        -1.13,
+        -0.13
+      ],
+      "bounds_max": [
+        1.13,
+        1.13,
+        1.55
+      ],
+      "components": [
+        "shell_ridge_0",
+        "shell_ridge_1",
+        "shell_ridge_2",
+        "shell_spire"
+      ]
+    },
+    {
+      "name": "r061_dungeon_shell_props_shell_02",
+      "role_id": "R061_dungeon_shell_props",
+      "kind": "shell",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_02.glb",
+      "vertices": 604,
+      "triangles": 1204,
+      "materials": 4,
+      "bounds_min": [
+        -1.13,
+        -1.13,
+        -0.13
+      ],
+      "bounds_max": [
+        1.13,
+        1.13,
+        1.55
+      ],
+      "components": [
+        "shell_ridge_0.001",
+        "shell_ridge_1.001",
+        "shell_ridge_2.001",
+        "shell_spire.001"
+      ]
+    },
+    {
+      "name": "r061_dungeon_shell_props_shell_03",
+      "role_id": "R061_dungeon_shell_props",
+      "kind": "shell",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_03.glb",
+      "vertices": 604,
+      "triangles": 1204,
+      "materials": 4,
+      "bounds_min": [
+        -1.13,
+        -1.13,
+        -0.13
+      ],
+      "bounds_max": [
+        1.13,
+        1.13,
+        1.55
+      ],
+      "components": [
+        "shell_ridge_0.002",
+        "shell_ridge_1.002",
+        "shell_ridge_2.002",
+        "shell_spire.002"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_01",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_01.glb",
+      "vertices": 304,
+      "triangles": 600,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face",
+        "symbol_pearl_0",
+        "symbol_rim"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_02",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_02.glb",
+      "vertices": 408,
+      "triangles": 804,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.001",
+        "symbol_pearl_0.001",
+        "symbol_pearl_1",
+        "symbol_rim.001"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_03",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_03.glb",
+      "vertices": 488,
+      "triangles": 960,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.002",
+        "symbol_pearl_0.002",
+        "symbol_pearl_1.001",
+        "symbol_pearl_2",
+        "symbol_rim.002"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_04",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_04.glb",
+      "vertices": 412,
+      "triangles": 816,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.003",
+        "symbol_pearl_0.003",
+        "symbol_rim.003"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_05",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 4,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_05.glb",
+      "vertices": 492,
+      "triangles": 972,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.004",
+        "symbol_pearl_0.004",
+        "symbol_pearl_1.002",
+        "symbol_rim.004"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_06",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 5,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_06.glb",
+      "vertices": 572,
+      "triangles": 1128,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.005",
+        "symbol_pearl_0.005",
+        "symbol_pearl_1.003",
+        "symbol_pearl_2.001",
+        "symbol_rim.005"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_07",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 6,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_07.glb",
+      "vertices": 304,
+      "triangles": 600,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.006",
+        "symbol_pearl_0.006",
+        "symbol_rim.006"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_08",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 7,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_08.glb",
+      "vertices": 408,
+      "triangles": 804,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.007",
+        "symbol_pearl_0.007",
+        "symbol_pearl_1.004",
+        "symbol_rim.007"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_09",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 8,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_09.glb",
+      "vertices": 488,
+      "triangles": 960,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.008",
+        "symbol_pearl_0.008",
+        "symbol_pearl_1.005",
+        "symbol_pearl_2.002",
+        "symbol_rim.008"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_10",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 9,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_10.glb",
+      "vertices": 412,
+      "triangles": 816,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.009",
+        "symbol_pearl_0.009",
+        "symbol_rim.009"
+      ]
+    },
+    {
+      "name": "r062_dungeon_puzzle_symbols_symbol_11",
+      "role_id": "R062_dungeon_puzzle_symbols",
+      "kind": "symbol",
+      "variant": 10,
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_11.glb",
+      "vertices": 492,
+      "triangles": 972,
+      "materials": 3,
+      "bounds_min": [
+        -1.25,
+        -0.24,
+        -1.25
+      ],
+      "bounds_max": [
+        1.25,
+        0.22,
+        1.25
+      ],
+      "components": [
+        "symbol_face.010",
+        "symbol_pearl_0.010",
+        "symbol_pearl_1.006",
+        "symbol_rim.010"
+      ]
+    },
+    {
+      "name": "r063_kart_kart_world_overall_kart_world",
+      "role_id": "R063_kart_kart_world_overall",
+      "kind": "kart_world",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r063_kart_kart_world_overall_kart_world.glb",
+      "vertices": 888,
+      "triangles": 1740,
+      "materials": 6,
+      "bounds_min": [
+        -9.0,
+        -9.25,
+        -0.7
+      ],
+      "bounds_max": [
+        9.0,
+        7.3,
+        3.5
+      ],
+      "components": [
+        "grandstand_-1",
+        "grandstand_1",
+        "pit_garage",
+        "stand_seat_-1_0",
+        "stand_seat_-1_1",
+        "stand_seat_-1_2",
+        "stand_seat_1_0",
+        "stand_seat_1_1",
+        "stand_seat_1_2",
+        "track_inner_mark",
+        "track_outer"
+      ]
+    },
+    {
+      "name": "r064_kart_vehicle_selection_pads_selection_pad_01",
+      "role_id": "R064_kart_vehicle_selection_pads",
+      "kind": "selection_pad",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_01.glb",
+      "vertices": 452,
+      "triangles": 896,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -1.5,
+        0.0
+      ],
+      "bounds_max": [
+        1.5,
+        1.5,
+        1.2323
+      ],
+      "components": [
+        "pad",
+        "pad_icon",
+        "pad_rim"
+      ]
+    },
+    {
+      "name": "r064_kart_vehicle_selection_pads_selection_pad_02",
+      "role_id": "R064_kart_vehicle_selection_pads",
+      "kind": "selection_pad",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_02.glb",
+      "vertices": 452,
+      "triangles": 896,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -1.5,
+        0.0
+      ],
+      "bounds_max": [
+        1.5,
+        1.5,
+        1.2323
+      ],
+      "components": [
+        "pad.001",
+        "pad_icon.001",
+        "pad_rim.001"
+      ]
+    },
+    {
+      "name": "r064_kart_vehicle_selection_pads_selection_pad_03",
+      "role_id": "R064_kart_vehicle_selection_pads",
+      "kind": "selection_pad",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_03.glb",
+      "vertices": 452,
+      "triangles": 896,
+      "materials": 3,
+      "bounds_min": [
+        -1.5,
+        -1.5,
+        0.0
+      ],
+      "bounds_max": [
+        1.5,
+        1.5,
+        1.2323
+      ],
+      "components": [
+        "pad.002",
+        "pad_icon.002",
+        "pad_rim.002"
+      ]
+    },
+    {
+      "name": "r065_kart_track_barriers_barrier_01",
+      "role_id": "R065_kart_track_barriers",
+      "kind": "barrier",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_01.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -2.425,
+        -0.41,
+        0.125
+      ],
+      "bounds_max": [
+        2.425,
+        0.275,
+        1.21
+      ],
+      "components": [
+        "barrier_segment_0",
+        "barrier_segment_1",
+        "barrier_segment_2",
+        "barrier_segment_3",
+        "barrier_shell_0",
+        "barrier_shell_1",
+        "barrier_shell_2",
+        "barrier_shell_3"
+      ]
+    },
+    {
+      "name": "r065_kart_track_barriers_barrier_02",
+      "role_id": "R065_kart_track_barriers",
+      "kind": "barrier",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_02.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -2.425,
+        -0.41,
+        0.125
+      ],
+      "bounds_max": [
+        2.425,
+        0.275,
+        1.21
+      ],
+      "components": [
+        "barrier_segment_0.001",
+        "barrier_segment_1.001",
+        "barrier_segment_2.001",
+        "barrier_segment_3.001",
+        "barrier_shell_0.001",
+        "barrier_shell_1.001",
+        "barrier_shell_2.001",
+        "barrier_shell_3.001"
+      ]
+    },
+    {
+      "name": "r065_kart_track_barriers_barrier_03",
+      "role_id": "R065_kart_track_barriers",
+      "kind": "barrier",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_03.glb",
+      "vertices": 992,
+      "triangles": 1968,
+      "materials": 3,
+      "bounds_min": [
+        -2.425,
+        -0.41,
+        0.125
+      ],
+      "bounds_max": [
+        2.425,
+        0.275,
+        1.21
+      ],
+      "components": [
+        "barrier_segment_0.002",
+        "barrier_segment_1.002",
+        "barrier_segment_2.002",
+        "barrier_segment_3.002",
+        "barrier_shell_0.002",
+        "barrier_shell_1.002",
+        "barrier_shell_2.002",
+        "barrier_shell_3.002"
+      ]
+    },
+    {
+      "name": "r068_kart_coral_dressing_kart_coral_01",
+      "role_id": "R068_kart_coral_dressing",
+      "kind": "kart_coral",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_01.glb",
+      "vertices": 746,
+      "triangles": 1264,
+      "materials": 3,
+      "bounds_min": [
+        -1.4122,
+        -1.0588,
+        -0.1998
+      ],
+      "bounds_max": [
+        1.4122,
+        0.9212,
+        3.05
+      ],
+      "components": [
+        "antler_fork_0_-1.002",
+        "antler_fork_0_1.002",
+        "antler_fork_1_-1.002",
+        "antler_fork_1_1.002",
+        "antler_fork_2_-1.002",
+        "antler_fork_2_1.002",
+        "antler_fork_3_-1.002",
+        "antler_fork_3_1.002",
+        "antler_tip_0_-1.002",
+        "antler_tip_0_1.002",
+        "antler_tip_1_-1.002",
+        "antler_tip_1_1.002",
+        "antler_tip_2_-1.002",
+        "antler_tip_2_1.002",
+        "antler_tip_3_-1.002",
+        "antler_tip_3_1.002",
+        "antler_trunk_0.002",
+        "antler_trunk_1.002",
+        "antler_trunk_2.002",
+        "antler_trunk_3.002",
+        "coral_base.008"
+      ]
+    },
+    {
+      "name": "r068_kart_coral_dressing_kart_coral_02",
+      "role_id": "R068_kart_coral_dressing",
+      "kind": "kart_coral",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_02.glb",
+      "vertices": 322,
+      "triangles": 416,
+      "materials": 3,
+      "bounds_min": [
+        -1.2839,
+        -1.0,
+        -0.2
+      ],
+      "bounds_max": [
+        1.2839,
+        1.0,
+        2.54
+      ],
+      "components": [
+        "coral_base.009",
+        "fan_branch_0.002",
+        "fan_branch_1.002",
+        "fan_branch_2.002",
+        "fan_branch_3.002",
+        "fan_branch_4.002",
+        "fan_branch_5.002",
+        "fan_branch_6.002",
+        "fan_lattice_0.002",
+        "fan_lattice_1.002",
+        "fan_lattice_2.002",
+        "fan_lattice_3.002",
+        "fan_lattice_4.002",
+        "fan_lattice_5.002",
+        "fan_stem.002"
+      ]
+    },
+    {
+      "name": "r068_kart_coral_dressing_kart_coral_03",
+      "role_id": "R068_kart_coral_dressing",
+      "kind": "kart_coral",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_03.glb",
+      "vertices": 404,
+      "triangles": 720,
+      "materials": 3,
+      "bounds_min": [
+        -1.3034,
+        -1.079,
+        -0.2402
+      ],
+      "bounds_max": [
+        1.3863,
+        1.0041,
+        1.63
+      ],
+      "components": [
+        "brain_groove_0.001",
+        "brain_groove_1.001",
+        "brain_groove_2.001",
+        "brain_groove_3.001",
+        "brain_groove_4.001",
+        "brain_mound.001",
+        "coral_base.010"
+      ]
+    },
+    {
+      "name": "r069_kart_gokart_source_gokart",
+      "role_id": "R069_kart_gokart_source",
+      "kind": "gokart",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r069_kart_gokart_source_gokart.glb",
+      "vertices": 1648,
+      "triangles": 3288,
+      "materials": 4,
+      "bounds_min": [
+        -1.73,
+        -1.14,
+        -0.23
+      ],
+      "bounds_max": [
+        1.73,
+        1.14,
+        1.325
+      ],
+      "components": [
+        "hub_-1.05_-1",
+        "hub_-1.05_1",
+        "hub_1.05_-1",
+        "hub_1.05_1",
+        "vehicle_body",
+        "vehicle_cabin",
+        "wheel_-1.05_-1",
+        "wheel_-1.05_1",
+        "wheel_1.05_-1",
+        "wheel_1.05_1"
+      ]
+    },
+    {
+      "name": "r070_kart_monster_truck_source_monster_truck",
+      "role_id": "R070_kart_monster_truck_source",
+      "kind": "monster_truck",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r070_kart_monster_truck_source_monster_truck.glb",
+      "vertices": 1680,
+      "triangles": 3336,
+      "materials": 5,
+      "bounds_min": [
+        -1.97,
+        -1.14,
+        -0.47
+      ],
+      "bounds_max": [
+        1.97,
+        1.14,
+        2.5
+      ],
+      "components": [
+        "hub_-1.05_-1.001",
+        "hub_-1.05_1.001",
+        "hub_1.05_-1.001",
+        "hub_1.05_1.001",
+        "truck_rollbar",
+        "vehicle_body.001",
+        "vehicle_cabin.001",
+        "wheel_-1.05_-1.001",
+        "wheel_-1.05_1.001",
+        "wheel_1.05_-1.001",
+        "wheel_1.05_1.001"
+      ]
+    },
+    {
+      "name": "r085_development_alpine_interiors_alpine_interior",
+      "role_id": "R085_development_alpine_interiors",
+      "kind": "alpine_interior",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r085_development_alpine_interiors_alpine_interior.glb",
+      "vertices": 476,
+      "triangles": 924,
+      "materials": 5,
+      "bounds_min": [
+        -3.1,
+        -2.5,
+        -0.15
+      ],
+      "bounds_max": [
+        3.1,
+        2.5,
+        2.3
+      ],
+      "components": [
+        "bed_blanket",
+        "bed_frame",
+        "hearth",
+        "room_floor",
+        "stool_0",
+        "stool_1",
+        "stool_2"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_01",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_01.glb",
+      "vertices": 1249,
+      "triangles": 2394,
+      "materials": 9,
+      "bounds_min": [
+        -5.2446,
+        -3.5363,
+        -0.8683
+      ],
+      "bounds_max": [
+        5.205,
+        4.0821,
+        6.05
+      ],
+      "components": [
+        "castle_banner_star_-1",
+        "castle_banner_star_1",
+        "castle_door.005",
+        "castle_keep.005",
+        "castle_snow_island",
+        "castle_winter_banner_-1",
+        "castle_winter_banner_1",
+        "door_shell_trim.005",
+        "r086_development_northern_kingdom_additions_northern_01_ice_castle",
+        "roof_finial_0.005",
+        "roof_finial_1.005",
+        "roof_finial_2.005",
+        "roof_finial_3.005",
+        "roof_finial_4.005",
+        "tower_0.005",
+        "tower_1.005",
+        "tower_roof_0.005",
+        "tower_roof_1.005",
+        "tower_window_0_0.005",
+        "tower_window_0_1.005",
+        "tower_window_1_0.005",
+        "tower_window_1_1.005"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_02",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_02.glb",
+      "vertices": 1648,
+      "triangles": 3184,
+      "materials": 4,
+      "bounds_min": [
+        -2.8902,
+        -1.35,
+        0.375
+      ],
+      "bounds_max": [
+        2.8902,
+        1.35,
+        1.9
+      ],
+      "components": [
+        "dock_plank_0",
+        "dock_plank_1",
+        "dock_plank_2",
+        "dock_plank_3",
+        "dock_plank_4",
+        "dock_plank_5",
+        "dock_plank_6",
+        "dock_plank_7",
+        "dock_post_-1_-2.7",
+        "dock_post_-1_0",
+        "dock_post_-1_2.7",
+        "dock_post_1_-2.7",
+        "dock_post_1_0",
+        "dock_post_1_2.7",
+        "dock_post_snow_-1_-2.7",
+        "dock_post_snow_-1_0",
+        "dock_post_snow_-1_2.7",
+        "dock_post_snow_1_-2.7",
+        "dock_post_snow_1_0",
+        "dock_post_snow_1_2.7",
+        "dock_rope_-1_a",
+        "dock_rope_1_a"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_03",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_03.glb",
+      "vertices": 790,
+      "triangles": 1536,
+      "materials": 6,
+      "bounds_min": [
+        -1.9421,
+        -1.575,
+        0.0
+      ],
+      "bounds_max": [
+        1.9421,
+        1.575,
+        4.56
+      ],
+      "components": [
+        "chimney",
+        "chimney_snow",
+        "door_trim",
+        "house_body",
+        "house_door",
+        "house_roof",
+        "roof_snow_-1",
+        "roof_snow_1",
+        "window_glass_0",
+        "window_glass_1",
+        "window_trim_0",
+        "window_trim_1"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_04",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_04.glb",
+      "vertices": 682,
+      "triangles": 1328,
+      "materials": 6,
+      "bounds_min": [
+        -1.5819,
+        -1.75,
+        0.0
+      ],
+      "bounds_max": [
+        1.5819,
+        1.75,
+        5.3646
+      ],
+      "components": [
+        "door_trim.001",
+        "house_body.001",
+        "house_door.001",
+        "house_roof.001",
+        "roof_snow_-1.001",
+        "roof_snow_1.001",
+        "window_glass_0.001",
+        "window_glass_1.001",
+        "window_trim_0.001",
+        "window_trim_1.001"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_05",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 4,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_05.glb",
+      "vertices": 790,
+      "triangles": 1536,
+      "materials": 6,
+      "bounds_min": [
+        -2.5604,
+        -1.575,
+        0.0
+      ],
+      "bounds_max": [
+        2.5604,
+        1.575,
+        4.21
+      ],
+      "components": [
+        "chimney.001",
+        "chimney_snow.001",
+        "door_trim.002",
+        "house_body.002",
+        "house_door.002",
+        "house_roof.002",
+        "roof_snow_-1.002",
+        "roof_snow_1.002",
+        "window_glass_0.002",
+        "window_glass_2",
+        "window_trim_0.002",
+        "window_trim_2"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_06",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 5,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_06.glb",
+      "vertices": 738,
+      "triangles": 1436,
+      "materials": 7,
+      "bounds_min": [
+        -2.1275,
+        -2.5589,
+        0.0
+      ],
+      "bounds_max": [
+        2.1275,
+        1.75,
+        4.3535
+      ],
+      "components": [
+        "door_trim.003",
+        "house_body.003",
+        "house_door.003",
+        "house_roof.003",
+        "market_awning",
+        "roof_snow_-1.003",
+        "roof_snow_1.003",
+        "window_glass_0.003",
+        "window_glass_1.002",
+        "window_trim_0.003",
+        "window_trim_1.002"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_07",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 6,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_07.glb",
+      "vertices": 790,
+      "triangles": 1536,
+      "materials": 6,
+      "bounds_min": [
+        -2.313,
+        -1.575,
+        0.0
+      ],
+      "bounds_max": [
+        2.313,
+        1.575,
+        4.41
+      ],
+      "components": [
+        "chimney.002",
+        "chimney_snow.002",
+        "door_trim.004",
+        "house_body.004",
+        "house_door.004",
+        "house_roof.004",
+        "roof_snow_-1.004",
+        "roof_snow_1.004",
+        "window_glass_0.004",
+        "window_glass_2.001",
+        "window_trim_0.004",
+        "window_trim_2.001"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_08",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 7,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_08.glb",
+      "vertices": 632,
+      "triangles": 1232,
+      "materials": 5,
+      "bounds_min": [
+        -2.04,
+        -2.04,
+        0.0
+      ],
+      "bounds_max": [
+        2.04,
+        2.04,
+        4.42
+      ],
+      "components": [
+        "door_trim.005",
+        "house_body.005",
+        "house_door.005",
+        "house_roof.005",
+        "roof_snow",
+        "window_glass_0.005",
+        "window_glass_1.003",
+        "window_trim_0.005",
+        "window_trim_1.003"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_09",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 8,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_09.glb",
+      "vertices": 276,
+      "triangles": 524,
+      "materials": 3,
+      "bounds_min": [
+        -2.5261,
+        -0.7541,
+        -0.3275
+      ],
+      "bounds_max": [
+        2.5079,
+        0.695,
+        4.45
+      ],
+      "components": [
+        "arch_curve",
+        "arch_pillar_-1",
+        "arch_pillar_1",
+        "snowflake_crest"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_10",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 9,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_10.glb",
+      "vertices": 294,
+      "triangles": 560,
+      "materials": 3,
+      "bounds_min": [
+        -1.9021,
+        -1.5,
+        -1.944
+      ],
+      "bounds_max": [
+        1.9021,
+        1.5,
+        5.7068
+      ],
+      "components": [
+        "peak_crag_0",
+        "peak_crag_1",
+        "peak_crag_2",
+        "peak_foot",
+        "peak_snow_0",
+        "peak_snow_1",
+        "peak_snow_2"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_11",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 10,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_11.glb",
+      "vertices": 294,
+      "triangles": 560,
+      "materials": 3,
+      "bounds_min": [
+        -1.9021,
+        -1.5,
+        -1.8358
+      ],
+      "bounds_max": [
+        1.9021,
+        1.5,
+        5.9766
+      ],
+      "components": [
+        "peak_crag_0.001",
+        "peak_crag_1.001",
+        "peak_crag_2.001",
+        "peak_foot.001",
+        "peak_snow_0.001",
+        "peak_snow_1.001",
+        "peak_snow_2.001"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_12",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 11,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_12.glb",
+      "vertices": 476,
+      "triangles": 916,
+      "materials": 4,
+      "bounds_min": [
+        -1.7,
+        -1.7,
+        0.0
+      ],
+      "bounds_max": [
+        1.7,
+        1.7,
+        5.2
+      ],
+      "components": [
+        "pine_tier_0",
+        "pine_tier_1",
+        "pine_tier_2",
+        "pine_tier_3",
+        "pine_trunk",
+        "snow_tier_0",
+        "snow_tier_1",
+        "snow_tier_2",
+        "snow_tier_3"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_13",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 12,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_13.glb",
+      "vertices": 476,
+      "triangles": 916,
+      "materials": 4,
+      "bounds_min": [
+        -1.7,
+        -1.7,
+        0.0
+      ],
+      "bounds_max": [
+        1.7,
+        1.7,
+        5.2
+      ],
+      "components": [
+        "pine_tier_0.001",
+        "pine_tier_1.001",
+        "pine_tier_2.001",
+        "pine_tier_3.001",
+        "pine_trunk.001",
+        "snow_tier_0.001",
+        "snow_tier_1.001",
+        "snow_tier_2.001",
+        "snow_tier_3.001"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_14",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 13,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_14.glb",
+      "vertices": 476,
+      "triangles": 916,
+      "materials": 4,
+      "bounds_min": [
+        -1.7,
+        -1.7,
+        0.0
+      ],
+      "bounds_max": [
+        1.7,
+        1.7,
+        5.2
+      ],
+      "components": [
+        "pine_tier_0.002",
+        "pine_tier_1.002",
+        "pine_tier_2.002",
+        "pine_tier_3.002",
+        "pine_trunk.002",
+        "snow_tier_0.002",
+        "snow_tier_1.002",
+        "snow_tier_2.002",
+        "snow_tier_3.002"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_15",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 14,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_15.glb",
+      "vertices": 712,
+      "triangles": 1376,
+      "materials": 3,
+      "bounds_min": [
+        -1.625,
+        -0.77,
+        -0.0152
+      ],
+      "bounds_max": [
+        1.745,
+        0.81,
+        1.64
+      ],
+      "components": [
+        "cap_0",
+        "cap_1",
+        "cap_2",
+        "cap_3",
+        "cap_snow_0",
+        "cap_snow_1",
+        "cap_snow_2",
+        "cap_snow_3",
+        "stem_0",
+        "stem_1",
+        "stem_2",
+        "stem_3"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_16",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 15,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_16.glb",
+      "vertices": 712,
+      "triangles": 1376,
+      "materials": 3,
+      "bounds_min": [
+        -1.625,
+        -0.77,
+        -0.0152
+      ],
+      "bounds_max": [
+        1.745,
+        0.81,
+        1.64
+      ],
+      "components": [
+        "cap_0.001",
+        "cap_1.001",
+        "cap_2.001",
+        "cap_3.001",
+        "cap_snow_0.001",
+        "cap_snow_1.001",
+        "cap_snow_2.001",
+        "cap_snow_3.001",
+        "stem_0.001",
+        "stem_1.001",
+        "stem_2.001",
+        "stem_3.001"
+      ]
+    },
+    {
+      "name": "r086_development_northern_kingdom_additions_northern_17",
+      "role_id": "R086_development_northern_kingdom_additions",
+      "kind": "northern",
+      "variant": 16,
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_17.glb",
+      "vertices": 304,
+      "triangles": 592,
+      "materials": 4,
+      "bounds_min": [
+        -0.8,
+        -0.33,
+        0.0
+      ],
+      "bounds_max": [
+        0.7346,
+        0.12,
+        2.616
+      ],
+      "components": [
+        "wisp_heart",
+        "wisp_inner",
+        "wisp_middle",
+        "wisp_outer"
+      ]
+    },
+    {
+      "name": "r087_development_undersea_additions_undersea_01",
+      "role_id": "R087_development_undersea_additions",
+      "kind": "undersea",
+      "variant": 0,
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_01.glb",
+      "vertices": 1332,
+      "triangles": 2560,
+      "materials": 3,
+      "bounds_min": [
+        -1.4035,
+        -1.1393,
+        -0.1768
+      ],
+      "bounds_max": [
+        1.4022,
+        1.1393,
+        2.3591
+      ],
+      "components": [
+        "coral_base.011",
+        "plate_scallop_0_0.001",
+        "plate_scallop_0_1.001",
+        "plate_scallop_0_2.001",
+        "plate_scallop_0_3.001",
+        "plate_scallop_0_4.001",
+        "plate_scallop_0_5.001",
+        "plate_scallop_0_6.001",
+        "plate_scallop_1_0.001",
+        "plate_scallop_1_1.001",
+        "plate_scallop_1_2.001",
+        "plate_scallop_1_3.001",
+        "plate_scallop_1_4.001",
+        "plate_scallop_1_5.001",
+        "plate_scallop_1_6.001",
+        "plate_scallop_2_0.001",
+        "plate_scallop_2_1.001",
+        "plate_scallop_2_2.001",
+        "plate_scallop_2_3.001",
+        "plate_scallop_2_4.001",
+        "plate_scallop_2_5.001",
+        "plate_scallop_2_6.001",
+        "table_plate_0.001",
+        "table_plate_1.001",
+        "table_plate_2.001",
+        "table_stem.001"
+      ]
+    },
+    {
+      "name": "r087_development_undersea_additions_undersea_02",
+      "role_id": "R087_development_undersea_additions",
+      "kind": "undersea",
+      "variant": 1,
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_02.glb",
+      "vertices": 630,
+      "triangles": 1120,
+      "materials": 3,
+      "bounds_min": [
+        -1.0987,
+        -0.2865,
+        0.0041
+      ],
+      "bounds_max": [
+        1.2362,
+        0.4467,
+        3.6589
+      ],
+      "components": [
+        "kelp_blade_0.003",
+        "kelp_blade_1.003",
+        "kelp_blade_2.003",
+        "kelp_blade_3.003",
+        "kelp_blade_4.003",
+        "kelp_blade_5.003",
+        "kelp_blade_6.003",
+        "kelp_midrib_0.003",
+        "kelp_midrib_1.003",
+        "kelp_midrib_2.003",
+        "kelp_midrib_3.003",
+        "kelp_midrib_4.003",
+        "kelp_midrib_5.003",
+        "kelp_midrib_6.003"
+      ]
+    },
+    {
+      "name": "r087_development_undersea_additions_undersea_03",
+      "role_id": "R087_development_undersea_additions",
+      "kind": "undersea",
+      "variant": 2,
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_03.glb",
+      "vertices": 746,
+      "triangles": 1296,
+      "materials": 2,
+      "bounds_min": [
+        -1.25,
+        -1.25,
+        -1.0
+      ],
+      "bounds_max": [
+        1.25,
+        1.25,
+        2.32
+      ],
+      "components": [
+        "bell.001",
+        "bell_rim.001",
+        "oral_arm_0.001",
+        "oral_arm_1.001",
+        "oral_arm_2.001",
+        "oral_arm_3.001",
+        "tentacle_0.001",
+        "tentacle_1.001",
+        "tentacle_2.001",
+        "tentacle_3.001",
+        "tentacle_4.001",
+        "tentacle_5.001",
+        "tentacle_6.001",
+        "tentacle_7.001"
+      ]
+    },
+    {
+      "name": "r087_development_undersea_additions_undersea_04",
+      "role_id": "R087_development_undersea_additions",
+      "kind": "undersea",
+      "variant": 3,
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_04.glb",
+      "vertices": 632,
+      "triangles": 1232,
+      "materials": 4,
+      "bounds_min": [
+        -2.5433,
+        -0.8405,
+        -1.0309
+      ],
+      "bounds_max": [
+        1.7,
+        0.8405,
+        1.5522
+      ],
+      "components": [
+        "dorsal_fin.001",
+        "eye_-1.006",
+        "eye_1.006",
+        "fish_body.001",
+        "pectoral_fin_-1.001",
+        "pectoral_fin_1.001",
+        "tail_lower.001",
+        "tail_upper.001"
+      ]
+    },
+    {
+      "name": "r087_development_undersea_additions_undersea_05",
+      "role_id": "R087_development_undersea_additions",
+      "kind": "undersea",
+      "variant": 4,
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_05.glb",
+      "vertices": 330,
+      "triangles": 368,
+      "materials": 2,
+      "bounds_min": [
+        -1.3,
+        -1.2803,
+        -0.17
+      ],
+      "bounds_max": [
+        1.3,
+        1.2803,
+        1.27
+      ],
+      "components": [
+        "urchin_body",
+        "urchin_spine_0",
+        "urchin_spine_1",
+        "urchin_spine_10",
+        "urchin_spine_11",
+        "urchin_spine_12",
+        "urchin_spine_13",
+        "urchin_spine_14",
+        "urchin_spine_15",
+        "urchin_spine_16",
+        "urchin_spine_17",
+        "urchin_spine_2",
+        "urchin_spine_3",
+        "urchin_spine_4",
+        "urchin_spine_5",
+        "urchin_spine_6",
+        "urchin_spine_7",
+        "urchin_spine_8",
+        "urchin_spine_9"
+      ]
+    }
+  ]
+}

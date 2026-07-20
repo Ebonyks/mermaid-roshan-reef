@@ -667,7 +667,7 @@ func _process(delta: float) -> void:
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls"):
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
@@ -683,8 +683,11 @@ func _process(delta: float) -> void:
 		turn += 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		turn -= 1.0
-	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
-	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
+	# while a pad holds R1 it is Player 2's — its left stick steers the stuffie
+	# companion (companion.gd), so Roshan must ignore it for that beat
+	var pad_is_p2: bool = "companion_p2" in _m0 and bool(_m0.companion_p2)
+	var jx: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
 		turn -= jx
 	if absf(jy) > 0.2:
@@ -701,9 +704,12 @@ func _process(delta: float) -> void:
 	var m0: Node = get_parent()
 	if "touch_ui" in m0 and m0.touch_ui != null:
 		var tv: Vector2 = m0.touch_ui.stick_vec
-		if absf(tv.x) > 0.15:
+		# 0.10 (was 0.15): the stick now ramps from 0 at its 22px slop edge, so
+		# a 0.15 gate on top would leave the first ~8px past slop dead — the
+		# slop itself is the dead zone now, this only filters jitter
+		if absf(tv.x) > 0.10:
 			turn -= tv.x
-		if absf(tv.y) > 0.15:
+		if absf(tv.y) > 0.10:
 			fwd -= tv.y
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
@@ -740,6 +746,9 @@ func _process(delta: float) -> void:
 			var depth: float = WATER_TOP - position.y
 			if depth < 4.5:
 				vel.y += 34.0 * (1.0 - depth / 4.5) * delta
+			# authored reef currents: stream rides + the breathing geyser lift
+			if "flow_sys" in m0 and m0.flow_sys != null:
+				vel += (m0.flow_sys.accel_at(position) as Vector3) * delta
 	position += vel * delta
 	if free_swim:
 		var now_air: bool = position.y > WATER_TOP
@@ -941,14 +950,24 @@ func _process(delta: float) -> void:
 			var spread: float = 0.65 - 0.22 * streamline
 			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
 			var bend_mul: float = 1.0 - 0.5 * streamline
-			var left_sway: float = sin(arm_ph)
-			var right_sway: float = sin(arm_ph - 0.35)
-			var depth_sway: float = sin(arm_ph - 0.8) * 0.16
-			var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
-			_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
-			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
-			_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
-			_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
+			var carrying: bool = false
+			if "carry_sys" in m0 and m0.carry_sys != null:
+				carrying = bool(m0.carry_sys.is_carrying())
+			if carrying:
+				# both hands raised under the carried toy (positive RIGHT = raise)
+				_rot_bone("armU", Vector3.RIGHT, 1.15 + sin(arm_ph) * 0.05)
+				_rot_bone("armF", Vector3.RIGHT, 0.4)
+				_rot_bone("armU2", Vector3.RIGHT, 1.15 + sin(arm_ph - 0.4) * 0.05)
+				_rot_bone("armF2", Vector3.RIGHT, 0.4)
+			else:
+				var left_sway: float = sin(arm_ph)
+				var right_sway: float = sin(arm_ph - 0.35)
+				var depth_sway: float = sin(arm_ph - 0.8) * 0.16
+				var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
+				_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
+				_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
+				_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
+				_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)

@@ -160,7 +160,8 @@ const BW_PLANET_R := 70.0
 const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
 const BW_DECO_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
-const KART_BARRIER_GLB := "res://assets/art35/kart/soft_barrier.glb"
+# (soft_barrier.glb stays shipped in assets/art35/kart/ but is deliberately
+# unplaced — owner 2026-07-18: no pastel ball chains on the track edges)
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const BW_BUTTERFLY_CARDS := ["butterfly1", "butterfly2"]
@@ -211,7 +212,7 @@ const PAINTS := [
 ]
 
 # Racer roster: deliberately AVOIDS the reef friends (Faron, Harper & Fiona,
-# Gabby, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
+# Daddy Mermaid, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
 # standing in the ocean broke the fiction. These characters live in the toy
 # nursery / story world instead, so they never appear twice at once.
 const RACERS := [
@@ -1016,34 +1017,12 @@ void fragment(){
 	road.material_override = rmat
 	road.position = _origin()
 	add_child(road)
-	# track edge: authored soft-barrier segments when the GLB exists (visual
-	# only, no colliders — steering limits stay in the track math); the
-	# extruded glow rails below remain as the fallback edge treatment
-	var barrier_placed := false
-	if ResourceLoader.exists(KART_BARRIER_GLB):
-		var bscene: PackedScene = load(KART_BARRIER_GLB)
-		if bscene != null:
-			var bspacing: float = 26.0 if _speedy() else 13.0
-			var bs := 0.0
-			while bs < _len:
-				var bf := _frame_at(bs, 0.0)
-				var bfwd: Vector3 = bf[1]
-				var bright: Vector3 = bf[2]
-				for bsgn: float in [1.0, -1.0]:
-					var seg := bscene.instantiate() as Node3D
-					if seg == null:
-						continue
-					_bw_fit(seg, bspacing * 0.85)
-					var holder := Node3D.new()
-					holder.add_child(seg)
-					holder.position = bf[0] + bright * ((_width_at(bs) + 1.4) * bsgn)
-					add_child(holder)
-					holder.look_at(holder.position + bfwd, Vector3.UP)
-					barrier_placed = true
-				bs += bspacing
-	# glowing rails (fallback edge when no authored barrier shipped)
-	var rail_signs: Array = [] if barrier_placed else [1.0, -1.0]
-	for sgn: float in rail_signs:
+	# track edge: the glowing rails. The art-3.5 soft_barrier.glb ball chains
+	# were wired along both edges here on 2026-07-16 and REMOVED by owner
+	# decision 2026-07-18 ("the pink and blue orbs should be gone") — they
+	# buried the road silhouette under ~180 oversized pastel spheres. Do not
+	# re-place soft_barrier.glb on the racing line; the rails ARE the edge.
+	for sgn: float in [1.0, -1.0]:
 		var rail := MeshInstance3D.new()
 		var rst := SurfaceTool.new()
 		rst.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -2446,7 +2425,11 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	var want_fire := fired
 	if float(k["meter"]) >= 0.99 and float(k["boost_t"]) <= 0.0:
 		k["full_t"] = float(k.get("full_t", 0.0)) + delta
-		if float(k["full_t"]) >= 2.5:
+		# TOUCH CO-PILOT (same _touch_t flag as the wall assist): the one thumb
+		# is busy steering, so on touch a full meter fires itself almost at once
+		# (0.2s so the full bar + chime still reads); pad/keyboard players keep
+		# the 2.5s beat to pick their moment
+		if float(k["full_t"]) >= (0.2 if _touch_t > 0.0 else 2.5):
 			want_fire = true
 			_flash_big("TURBO!")
 	else:

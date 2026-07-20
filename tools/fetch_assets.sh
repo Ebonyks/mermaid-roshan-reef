@@ -54,6 +54,18 @@ else
   note "clone failed (host blocked?)"
 fi
 
+# --- 1b. sanitize staging: models only, no third-party instruction files ----
+# The clone above is third-party content. Agent-instruction / config files
+# inside it (CLAUDE.md, AGENTS.md, .claude/, .codex/, .github/, .vscode/)
+# would be loaded as *trusted* context by coding agents that later work in
+# this tree — a prompt-injection path. Keep only the extracted models.
+hr; echo "[1b] Sanitize staging (drop clone + any agent-instruction files)"
+rm -rf "$STAGE/ocean_src"
+find "$STAGE" -depth \( -name 'CLAUDE.md' -o -name 'AGENTS.md' -o -name 'GEMINI.md' \
+  -o -name '.claude' -o -name '.codex' -o -name '.github' -o -name '.vscode' \
+  -o -name '*.sh' -o -name '*.py' -o -name '*.gd' \) \
+  -exec rm -rf {} + 2>/dev/null || true
+
 # --- 2. validate everything we pulled --------------------------------------
 hr; echo "[2] Validate staged GLBs (real glTF vs LFS-pointer/HTML)"
 shopt -s nullglob
