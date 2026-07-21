@@ -1462,6 +1462,9 @@ func _build_grand_hall(o: Vector3) -> void:
 	# complete authored royal sets. The former box beds, cylinder rugs and
 	# generic shelf props failed the 4.5 visual gate and were removed.
 	var bay_x: Array[float] = [-19.0, 0.0, 19.0]
+	# Banners and toy-chest lids retain the former bedroom quilt palette.
+	var quilts: Array[Color] = [Color(0.92, 0.55, 0.68), Color(0.55, 0.75, 0.94),
+		Color(0.72, 0.62, 0.94)]
 	var bedroom_sets: Array[Node3D] = []
 	for bi in range(3):
 		var bx: float = bay_x[bi]
