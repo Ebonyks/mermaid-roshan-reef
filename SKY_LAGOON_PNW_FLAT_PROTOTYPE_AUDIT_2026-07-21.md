@@ -57,8 +57,8 @@ The corrected family matches `sky_lagoon_quality_2026-07-20.png` through:
 - rounded, hand-shaped toy proportions and broad cel-shaded planes;
 - the established mint, aqua, sage, lavender, coral, cream, muted-gold, warm
   wood, and navy-purple palette;
-- one oversized species cue, such as a drooping leader, maple emblem, pale
-  paired trunk, madrone ribbon, flower, tassel, or berry cluster;
+- one oversized species cue, such as a drooping leader, paired samara, pale
+  paired trunk, madrone ribbon, catkin, acorn, flower, or berry cluster;
 - a compact planted base that visually belongs beside the fountain, train,
   playground, castle, and existing meadow plants.
 
@@ -80,11 +80,11 @@ accepted.
 | Sitka spruce | 4.7 | 4.8 | 4.7 | 4.7 |
 | Shore pine | 4.9 | 4.8 | 4.8 | 4.8 |
 | Pacific yew | 4.7 | 4.8 | 4.8 | 4.7 |
-| Bigleaf maple | 4.9 | 4.9 | 4.8 | 4.9 |
+| Bigleaf maple | 4.9 | 4.9 | 4.9 | 4.9 |
 | Red alder | 4.8 | 4.7 | 4.8 | 4.7 |
-| Black cottonwood | 4.7 | 4.7 | 4.7 | 4.6 |
+| Black cottonwood | 4.8 | 4.8 | 4.8 | 4.8 |
 | Pacific madrone | 4.9 | 4.9 | 4.8 | 4.9 |
-| Garry oak | 4.9 | 4.8 | 4.8 | 4.8 |
+| Garry oak | 4.9 | 4.9 | 4.8 | 4.9 |
 | Pacific dogwood | 4.9 | 4.9 | 4.8 | 4.9 |
 | Salal A | 4.8 | 4.8 | 4.8 | 4.8 |
 | Salal B | 4.8 | 4.9 | 4.9 | 4.9 |
@@ -98,6 +98,26 @@ accepted.
 | Salmonberry B | 4.9 | 4.9 | 4.9 | 4.9 |
 | Trailing blackberry A | 4.9 | 4.9 | 4.8 | 4.9 |
 | Trailing blackberry B | 4.9 | 4.9 | 4.9 | 4.9 |
+
+### Tree ornament correction
+
+The owner rejected the oversized leaf badges on trees 7, 9, and 11. Crown
+volumes already communicate foliage; a separate emblem must represent a
+reproductive ornament or other genuine botanical feature, never another leaf.
+Trees 8 and 12 remain the successful grammar anchors.
+
+- 7, bigleaf maple: two sparse, hanging, paired double samaras with warm-tan
+  wings and olive-gold seed bases. Each fruit is a joined V shape. The first
+  edit's berry-like yellow clusters were rejected as botanically wrong.
+- 9, black cottonwood: three restrained hanging coral catkin/seed ornaments on
+  the existing narrow stacked crown, with no isolated heart-shaped leaves.
+- 11, Garry oak: four sparse golden acorns on the existing low broad crown,
+  with no lobed-leaf badges.
+
+Modelers must preserve the crown and trunk silhouettes rather than translating
+painted crown texture into leaf meshes. Samaras, catkins, seed tufts, acorns,
+pinecones, berries, and flowers may become a few large ornaments when they are
+true to the species; decorative leaf symbols may not.
 
 ## Translation and placement gate
 
@@ -133,6 +153,9 @@ and Washington DNR forest guidance:
 - https://green2.kingcounty.gov/gonative/Print.aspx?Act=plantlist
 - https://www.seattle.gov/documents/Departments/ParksAndRecreation/PoliciesPlanning/Vegetation%20Management%20Plans/GreenLakeVMP.pdf
 - https://www.dnr.wa.gov/programs-and-services/forest-resources/habitat-conservation/identifying-mature-and-old-forests
+- https://research.fs.usda.gov/feis/species-reviews/acemac
+- https://landscapeplants.oregonstate.edu/plants/acer-macrophyllum
+- https://extension.wsu.edu/maplesyrup/hobbyist/guide/
 
 Tree reference inputs were `sky_lagoon_quality_2026-07-20.png` (primary) and
 `sky_lagoon_tree_family_gen5_2026-07-20.png` (secondary silhouette reminder).
@@ -162,6 +185,53 @@ The accepted tree generation prompt was:
 > existing rounded castle, fountain, playground, train, alpine pines, and
 > flowers. Maximum visual-design grade target 4.9/5; reject realism and
 > micro-detail.
+
+The owner subsequently rejected the oversized leaf emblems on trees 7, 9, and
+11. The first correction used the original tree sheet as Image 1 and the Sky
+Lagoon quality sheet as Image 2. Its exact prompt was:
+
+```text
+Use case: precise-object-edit.
+Asset type: corrected flat tree model-reference sheet for a mobile Godot storybook game's Sky Lagoon.
+
+Image 1 is the edit target and must remain an exact 4-column by 3-row sheet of the same twelve trees. Image 2 is only the established Sky Lagoon style and palette anchor.
+
+Make a narrowly scoped correction to exactly three trees in Image 1. Tree numbers refer to left-to-right, top-to-bottom positions. Change only tree #7 (row 2 column 3, bigleaf maple), tree #9 (row 3 column 1, black cottonwood), and tree #11 (row 3 column 3, Garry oak). Preserve their existing trunk systems, crown silhouettes, foliage masses, proportions, planted bases, lighting, colors, scale, position, and spacing. Preserve all other nine trees, especially #8 and #12, as closely as possible.
+
+Core rule: trees do not display giant decorative leaf badges on top of their foliage. Remove every oversized isolated leaf-shaped emblem from #7, #9, and #11. The crown masses already communicate leaves. Any extra visible bits must instead be sparse botanical ornaments such as pinecones, berries, flowers, catkins, samaras, seed tufts, or acorns.
+
+Tree #7, bigleaf maple: remove the three large lime maple-leaf badges. In their place, add only three sparse hanging pale-chartreuse flower or paired golden-samara clusters tucked naturally beneath the outer crown edges. Each cluster is a simple rounded ornament, clearly not shaped like a leaf. Keep the broad cloud crown and twisting trunk unchanged.
+
+Tree #9, black cottonwood: remove the three large lime heart/spade leaf badges. Add only three small hanging muted-coral catkin clusters or warm-cream cottony seed-tuft ornaments at different heights near the crown edges. They must read as flowers/seeds, never leaves. Keep the tall narrow stacked crown and straight brown trunk unchanged.
+
+Tree #11, Garry oak: remove all three large lime lobed-leaf badges. Keep its existing golden acorns and add at most two additional small paired acorn ornaments under separate crown lobes. No leaf icons. Keep the low broad crown, powerful branching trunk, and planted base unchanged.
+
+Do not alter #1–6, #8, #10, or #12. Do not add text, numbers, labels, borders, scenery, people, buildings, pots, watermark, or logo. Do not change the deep navy background. No botanical realism, micro-leaves, twig networks, glossy plastic, primitive spheres, new giant symbols, or pasted-on leaf shapes. Maintain the polished rounded toy-diorama rendering, broad cel-shaded planes, mint/aqua/sage/lavender/coral/cream/muted-gold palette, navy-purple accents, and child-readable low-poly modelability. Maximum computer grade target 4.9/5.
+```
+
+That correction removed the leaf badges but gave bigleaf maple berry-like
+clusters, so the maple treatment was rejected. The accepted final edit used
+the first correction as Image 1 and the original tree sheet as Image 2. Its
+exact prompt was:
+
+```text
+Use case: precise-object-edit.
+Asset type: botanically corrected flat tree model-reference sheet for a mobile Godot storybook game's Sky Lagoon.
+
+Image 1 is the edit target. Image 2 is only a structural consistency reference. Make exactly one localized correction to tree #7, counting left-to-right and top-to-bottom: row 2, column 3, the broad-crowned bigleaf maple (Acer macrophyllum).
+
+The current small yellow-green hanging clusters on #7 read like berries and are botanically wrong. Remove them. Replace them with exactly three sparse drooping racemes of mature bigleaf-maple double samaras, positioned naturally under three separate outer crown edges. Each raceme contains only two or three enlarged but simple paired fruits. Every fruit must clearly be two joined seeds with two long wings forming a narrow V or helicopter shape, with slightly fuzzy olive-gold seed bases and matte warm-tan wings. The paired V-shaped wing structure must be unmistakable. They hang downward from short stems. They are seeds/fruits, not flowers, berries, leaves, leaf badges, beads, grapes, catkins, acorns, or pinecones.
+
+Use a coherent late-summer phenophase: full green crown plus mature olive-gold/tan paired samaras. Do not add spring flowers. Keep the ornaments sparse and tucked beneath the foliage so the broad rounded crown remains dominant and phone-readable.
+
+Change nothing else. Preserve #7's exact broad cloud crown, trunk, roots, base, proportions, position, lighting, and color. Preserve trees #1–6 and #8–12 exactly as in Image 1, including the corrected cottonwood catkins/seed ornaments, Garry oak acorns, alder catkins, madrone berries, and dogwood flowers. Keep the exact 4-column by 3-row layout and deep navy background.
+
+No text, numbers, labels, borders, scenery, watermark, giant leaf emblems, isolated leaf icons, botanical micro-detail, or new ornaments on any other tree. Maintain the polished rounded Sky Lagoon toy-diorama style, broad cel-shaded planes, matte pastel palette, and simple low-poly modelability. Maximum computer grade target 4.9/5.
+```
+
+The accepted output contains two especially clean paired-samara ornaments
+rather than forcing a third cluster. Accuracy, sparseness, and silhouette
+clarity take precedence over literal ornament count.
 
 The first shrub generation used the quality-kit sheet plus the accepted tree
 sheet, but its evergreen huckleberry was rejected as redundant with salal. The

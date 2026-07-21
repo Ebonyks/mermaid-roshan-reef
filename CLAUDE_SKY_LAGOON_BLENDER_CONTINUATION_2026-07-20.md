@@ -41,6 +41,15 @@ branches, broad cel planes, and one oversized species cue. Do not create leaf
 cloud algorithms, twig networks, individual needle/leaf clutter, dense bark,
 or literal geometry for every painted scallop, berry, or flower.
 
+Trees 7, 9, and 11 were specifically revised because their first prototypes
+used oversized leaf badges. Do not restore those badges or model separate leaf
+emblems: the crown masses already represent leaves. Tree 7 bigleaf maple uses
+only sparse hanging paired V-shaped double samaras; tree 9 black cottonwood
+uses sparse hanging coral catkin/seed ornaments; tree 11 Garry oak uses sparse
+golden acorns. Trees 8 red alder and 12 Pacific dogwood remain the successful
+ornament grammar anchors. Extra tree details must be genuine reproductive cues
+such as samaras, catkins, seed tufts, acorns, pinecones, berries, or flowers.
+
 Match the prototype palette and value hierarchy. Reject any mesh below 4.5/5
 at 0, 45, or 135 degrees, or below 4.5 in the Godot Mobile scene. The upper
 computer grade remains 4.9. Species realism never overrides the rounded
