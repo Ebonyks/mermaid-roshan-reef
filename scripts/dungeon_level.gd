@@ -2,6 +2,9 @@ class_name DungeonLevel
 extends Node
 # Ten-room adventure dungeon. CombatArena owns battles, DungeonPuzzleRoom owns
 # visual puzzles, and this class owns room order, checkpoints and safe exits.
+# A second dungeon (the Ember Fortress) reuses this sequencer by passing its
+# own room table, checkpoint/done field names and flavor text to start();
+# the defaults keep the original castle dungeon byte-for-byte identical.
 
 const ROOMS := [
 	{"name": "Frozen Foyer", "type": "combat", "kind": "ice", "enemy_count": 4, "layout": "ring", "imp_speed": 1.1, "attack_gap": 3.8, "popcorn_count": 5, "win_spark_gap": 0.4, "floor": Color(0.52, 0.66, 0.84), "trim": Color(0.7, 0.95, 1.0)},
@@ -25,14 +28,29 @@ var hud: CanvasLayer = null
 var progress_label: Label = null
 var room_label: Label = null
 var state := "active"
+var rooms: Array = ROOMS               # room table (a second dungeon passes its own)
+var progress_field := "dungeon_progress"   # int checkpoint property on main
+var done_field := "dungeon_done"           # bool completion property on main
+var flavor := {}                       # optional text overrides (see _flavor())
 
-func start(main: ReefMain, checkpoint: int, done_cb: Callable) -> void:
+func start(main: ReefMain, checkpoint: int, done_cb: Callable, rooms_override: Array = [],
+		progress_override := "", done_override := "", flavor_override := {}) -> void:
 	m = main
 	finish_cb = done_cb
-	room_index = 0 if checkpoint >= ROOMS.size() else clampi(checkpoint, 0, ROOMS.size() - 1)
+	if not rooms_override.is_empty():
+		rooms = rooms_override
+	if progress_override != "":
+		progress_field = progress_override
+	if done_override != "":
+		done_field = done_override
+	flavor = flavor_override
+	room_index = 0 if checkpoint >= rooms.size() else clampi(checkpoint, 0, rooms.size() - 1)
 	_build_hud()
 	_update_hud()
 	call_deferred("_begin_room")
+
+func _flavor(key: String, dflt: String) -> String:
+	return String(flavor.get(key, dflt))
 
 func _build_hud() -> void:
 	hud = CanvasLayer.new()
@@ -89,7 +107,7 @@ func _update_hud() -> void:
 	if progress_label == null:
 		return
 	var marks := ""
-	for i in range(ROOMS.size()):
+	for i in range(rooms.size()):
 		if i < room_index:
 			marks += "★ "
 		elif i == room_index:
@@ -97,14 +115,14 @@ func _update_hud() -> void:
 		else:
 			marks += "◇ "
 	progress_label.text = marks.strip_edges()
-	var room: Dictionary = ROOMS[room_index]
-	room_label.text = "%s\n%d / %d" % [String(room["name"]), room_index + 1, ROOMS.size()]
+	var room: Dictionary = rooms[room_index]
+	room_label.text = "%s\n%d / %d" % [String(room["name"]), room_index + 1, rooms.size()]
 
 func _begin_room() -> void:
 	if state != "active" or arena != null or puzzle != null:
 		return
-	var room: Dictionary = ROOMS[room_index].duplicate()
-	room["room_tag"] = "ROOM %d / %d" % [room_index + 1, ROOMS.size()]
+	var room: Dictionary = rooms[room_index].duplicate()
+	room["room_tag"] = "ROOM %d / %d" % [room_index + 1, rooms.size()]
 	room["win_time"] = 1.4
 	if String(room.get("type", "combat")) == "combat":
 		arena = CombatArena.new()
@@ -114,7 +132,7 @@ func _begin_room() -> void:
 		puzzle = DungeonPuzzleRoom.new()
 		add_child(puzzle)
 		puzzle.start(m, room, Callable(self, "_puzzle_won"))
-	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, ROOMS.size()], "talk")
+	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, rooms.size()], "talk")
 
 func _combat_won(_battle_kind: String) -> void:
 	arena = null
@@ -126,11 +144,11 @@ func _puzzle_won() -> void:
 
 func _room_won() -> void:
 	room_index += 1
-	m.dungeon_progress = maxi(m.dungeon_progress, room_index)
+	m.set(progress_field, maxi(int(m.get(progress_field)), room_index))
 	m.pearl_count += 3
 	m._write_save()
 	m._update_hud()
-	if room_index >= ROOMS.size():
+	if room_index >= rooms.size():
 		_complete_dungeon()
 		return
 	_update_hud()
@@ -138,15 +156,18 @@ func _room_won() -> void:
 
 func _complete_dungeon() -> void:
 	state = "celebrate"
-	if not m.dungeon_done:
-		m.dungeon_done = true
+	if not bool(m.get(done_field)):
+		m.set(done_field, true)
 		m.pearl_count += 50
-	m.dungeon_progress = ROOMS.size()
+	m.set(progress_field, rooms.size())
 	m._write_save()
 	m._update_hud()
-	progress_label.text = "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
-	room_label.text = "DUNGEON\nHERO!"
-	m.show_msg("Roshan", "All ten rooms! The dungeon is sparkling and safe!", "win")
+	var stars := ""
+	for i in range(rooms.size()):
+		stars += "★ "
+	progress_label.text = stars.strip_edges()
+	room_label.text = _flavor("hero_title", "DUNGEON\nHERO!")
+	m.show_msg("Roshan", _flavor("complete_msg", "All ten rooms! The dungeon is sparkling and safe!"), "win")
 	var timer := get_tree().create_timer(3.0)
 	timer.timeout.connect(func(): _finish(true))
 
@@ -167,8 +188,8 @@ func _leave_early() -> void:
 		# checkpoint; an unfinished puzzle is only a neutral exit.
 		puzzle.cancel()
 		puzzle = null
-	var completed: bool = m.dungeon_done
-	m.show_msg("Roshan", "All ten rooms are safe!" if completed else "Checkpoint saved! We can come back to the next room any time.", "win" if completed else "home")
+	var completed: bool = bool(m.get(done_field))
+	m.show_msg("Roshan", _flavor("leave_done_msg", "All ten rooms are safe!") if completed else "Checkpoint saved! We can come back to the next room any time.", "win" if completed else "home")
 	_finish(completed)
 
 func _finish(completed: bool) -> void:
