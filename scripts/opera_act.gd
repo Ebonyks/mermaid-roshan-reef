@@ -295,6 +295,23 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
 
+func _act_prop(fname: String, pos: Vector3, yaw: float = 0.0, parent: Node3D = null) -> Node3D:
+	# authored opera GLBs (tools/build_opera_house_art.py) with null fallback
+	var full := "res://assets/art35/opera/" + fname
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees.y = yaw
+	var target: Node3D = self if parent == null else parent
+	target.add_child(prop)
+	return prop
+
 func _build_theatre() -> void:
 	var floor_col := Color(config.get("floor_col", Color(0.52, 0.4, 0.62)))
 	var trim: Color = Color(config.get("trim", Color(1.0, 0.85, 0.55)))
@@ -1962,18 +1979,26 @@ func _build_boss() -> void:
 	root.position = CENTER + Vector3(0, 1.0, -14.0)
 	add_child(root)
 	if finale:
-		# the Midnight Maestro: a grand conductor silhouette with a gold baton
-		var gown := CylinderMesh.new()
-		gown.top_radius = 0.35
-		gown.bottom_radius = 2.8
-		gown.height = 6.0
-		_mesh(gown, Vector3(0, 3.0, 0), Color(0.13, 0.11, 0.28), 0.12, root)
-		_sphere(Vector3(0, 6.2, 0.7), 1.05, Color(0.9, 0.88, 1.0), 0.25, root)
-		_sphere(Vector3(-0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		var baton := _box(Vector3(2.0, 5.4, 0.8), Vector3(0.18, 2.4, 0.18), Color(1.0, 0.85, 0.4), 0.6, root)
-		baton.rotation_degrees = Vector3(0, 0, -34.0)
-		_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
+		# THE THEATRE STAGE is where the grand finale happens (owner
+		# 2026-07-21): the authored proscenium, swagged curtains and footlit
+		# apron dress the boards for the Maestro's showdown
+		_act_prop("opera_arch.glb", CENTER + Vector3(0, 0.7, -17.0))
+		_act_prop("opera_curtain.glb", CENTER + Vector3(-8.6, 0.7, -18.0))
+		_act_prop("opera_curtain.glb", CENTER + Vector3(8.6, 0.7, -18.0), 180.0)
+		_act_prop("opera_stage_apron.glb", CENTER + Vector3(0, 0.4, 14.4))
+		# the Midnight Maestro: authored conductor puppet, primitive fallback
+		if _act_prop("opera_maestro.glb", Vector3.ZERO, 180.0, root) == null:
+			var gown := CylinderMesh.new()
+			gown.top_radius = 0.35
+			gown.bottom_radius = 2.8
+			gown.height = 6.0
+			_mesh(gown, Vector3(0, 3.0, 0), Color(0.13, 0.11, 0.28), 0.12, root)
+			_sphere(Vector3(0, 6.2, 0.7), 1.05, Color(0.9, 0.88, 1.0), 0.25, root)
+			_sphere(Vector3(-0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			var baton := _box(Vector3(2.0, 5.4, 0.8), Vector3(0.18, 2.4, 0.18), Color(1.0, 0.85, 0.4), 0.6, root)
+			baton.rotation_degrees = Vector3(0, 0, -34.0)
+			_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
 	elif dual:
 		var cone := CylinderMesh.new()
 		cone.top_radius = 0.3

@@ -182,6 +182,24 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
 
+func _lobby_prop(fname: String, pos: Vector3, yaw: float = 0.0, prop_scale: float = 1.0) -> Node3D:
+	# authored opera GLBs (tools/build_opera_house_art.py); callers keep their
+	# primitive builders as the fallback whenever a file is missing
+	var full := "res://assets/art35/opera/" + fname
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees.y = yaw
+	prop.scale = Vector3.ONE * prop_scale
+	lobby_root.add_child(prop)
+	return prop
+
 func _label(text: String, pos: Vector3, size: int, col: Color, parent: Node3D = null) -> Label3D:
 	var lb := Label3D.new()
 	lb.text = text
@@ -248,25 +266,39 @@ func _build_lobby() -> void:
 		_box(L + Vector3(0, fy - 0.25, -17.0), Vector3(78, 0.5, 10.4), Color(0.42, 0.3, 0.46))
 		for lx in [-33.0, 33.0]:
 			_box(L + Vector3(lx, fy - 0.25, -9.0), Vector3(8.5, 0.5, 6.4), Color(0.42, 0.3, 0.46))
-		for ri in range(13):
-			var rx := -36.0 + float(ri) * 6.0
-			_box(L + Vector3(rx, fy + 1.5, -11.9), Vector3(0.35, 3.0, 0.35), gold, 0.1)
-		_box(L + Vector3(0, fy + 3.1, -11.9), Vector3(78, 0.5, 0.45), gold, 0.2)
-	# chandeliers over the open hall
+		var railing_glb := ResourceLoader.exists("res://assets/art35/opera/opera_railing.glb")
+		if railing_glb:
+			for ri in range(12):
+				_lobby_prop("opera_railing.glb", L + Vector3(-33.0 + float(ri) * 6.0, fy, -11.9))
+		else:
+			for ri in range(13):
+				var rx := -36.0 + float(ri) * 6.0
+				_box(L + Vector3(rx, fy + 1.5, -11.9), Vector3(0.35, 3.0, 0.35), gold, 0.1)
+			_box(L + Vector3(0, fy + 3.1, -11.9), Vector3(78, 0.5, 0.45), gold, 0.2)
+	# chandeliers over the open hall (authored GLB with primitive fallback)
 	for cx2 in [-18.0, 18.0]:
-		var ring := TorusMesh.new()
-		ring.inner_radius = 1.7
-		ring.outer_radius = 2.3
-		_mesh(ring, L + Vector3(cx2, 36.0, 8.0), gold, 0.3)
-		_sphere(L + Vector3(cx2, 35.2, 8.0), 1.0, Color(1.0, 0.95, 0.75), 1.0)
+		if _lobby_prop("opera_chandelier.glb", L + Vector3(cx2, 35.2, 8.0)) == null:
+			var ring := TorusMesh.new()
+			ring.inner_radius = 1.7
+			ring.outer_radius = 2.3
+			_mesh(ring, L + Vector3(cx2, 36.0, 8.0), gold, 0.3)
+			_sphere(L + Vector3(cx2, 35.2, 8.0), 1.0, Color(1.0, 0.95, 0.75), 1.0)
+	# the THEATRE'S GRAND STAGE fronts the ground floor (owner 2026-07-21):
+	# a proscenium arch and swagged curtains frame the centre-stage medallion
+	# zone, and the footlit apron marks where the big shows take the boards
+	_lobby_prop("opera_arch.glb", L + Vector3(0, 0, -19.5))
+	_lobby_prop("opera_curtain.glb", L + Vector3(-8.6, 0, -20.6))
+	_lobby_prop("opera_curtain.glb", L + Vector3(8.6, 0, -20.6), 180.0)
+	_lobby_prop("opera_stage_apron.glb", L + Vector3(0, 0, -10.2))
 	# the theatre crest over the top gallery
 	_label("🎭", L + Vector3(0, 41.5, -21.4), 120, Color(1.0, 0.92, 0.7))
 	_label("★", L + Vector3(0, 37.0, -21.4), 64, Color(1.0, 0.88, 0.45))
 	# padded audience benches by the entrance (pure set dressing)
 	for bz in [14.0, 18.5]:
 		for bx in [-22.0, 22.0]:
-			_box(L + Vector3(bx, 1.1, bz), Vector3(10, 1.0, 2.6), crimson)
-			_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
+			if _lobby_prop("opera_bench.glb", L + Vector3(bx, 0.6, bz)) == null:
+				_box(L + Vector3(bx, 1.1, bz), Vector3(10, 1.0, 2.6), crimson)
+				_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
 
 func _build_doors() -> void:
 	# four career doors per floor: ground shows line the side walls, the two
@@ -297,11 +329,13 @@ func _build_doors() -> void:
 		lobby_root.add_child(root)
 		var trim: Color = Color(cfg.get("trim", Color(1.0, 0.85, 0.55)))
 		var curtain: Color = Color(cfg.get("curtain", Color(0.78, 0.24, 0.34)))
-		_box(Vector3(0, 4.6, -0.35), Vector3(5.4, 9.2, 0.5), Color(0.16, 0.1, 0.2), 0.0, root)
-		_box(Vector3(0, 4.3, -0.05), Vector3(4.5, 8.4, 0.3), curtain, 0.06, root)
-		for px in [-2.65, 2.65]:
-			_box(Vector3(px, 4.8, 0.1), Vector3(0.75, 9.6, 0.75), trim, 0.14, root)
-		_box(Vector3(0, 9.7, 0.1), Vector3(6.1, 0.85, 0.85), trim, 0.14, root)
+		var door_glb := _lobby_prop("opera_door.glb", base, rad_to_deg(atan2(face.x, face.z)))
+		if door_glb == null:
+			_box(Vector3(0, 4.6, -0.35), Vector3(5.4, 9.2, 0.5), Color(0.16, 0.1, 0.2), 0.0, root)
+			_box(Vector3(0, 4.3, -0.05), Vector3(4.5, 8.4, 0.3), curtain, 0.06, root)
+			for px in [-2.65, 2.65]:
+				_box(Vector3(px, 4.8, 0.1), Vector3(0.75, 9.6, 0.75), trim, 0.14, root)
+			_box(Vector3(0, 9.7, 0.1), Vector3(6.1, 0.85, 0.85), trim, 0.14, root)
 		_label(String(cfg.get("emoji", "★")), Vector3(0, 11.2, 0.4), 40, Color(1, 1, 1), root)
 		var veil := _box(Vector3(0, 3.6, 0.5), Vector3(3.7, 6.6, 0.2), Color(1.0, 0.78, 0.5), 0.5, root)
 		var vmat := veil.material_override as StandardMaterial3D
@@ -318,8 +352,10 @@ func _build_doors() -> void:
 func _build_boss_spots() -> void:
 	# one centre-stage medallion per floor: dim until the floor's four shows
 	# are starred, then it glows gold and swimming onto it starts the boss
+	# the ground medallion sits ON the grand stage boards, framed by the
+	# proscenium — shows belong on the stage (owner 2026-07-21)
 	var layout: Array = [
-		{"story": 1, "i": 4, "pos": Vector3(0, 0, 2)},
+		{"story": 1, "i": 4, "pos": Vector3(0, 0, -16)},
 		{"story": 2, "i": 9, "pos": Vector3(0, 13.0, -17)},
 		{"story": 3, "i": 14, "pos": Vector3(0, 26.0, -17)},
 	]
@@ -327,7 +363,11 @@ func _build_boss_spots() -> void:
 		var i := int(entry["i"])
 		var cfg: Dictionary = ACTS[i]
 		var pos: Vector3 = L + (entry["pos"] as Vector3)
-		var disc := _cyl(pos + Vector3(0, 0.25, 0), 3.4, 0.5, Color(0.3, 0.22, 0.38), 0.05)
+		var medallion_glb := _lobby_prop("opera_medallion.glb", pos)
+		# the glow disc floats just over the authored relief so the lit/unlit
+		# state stays readable without z-fighting the gold star inlay
+		var disc_y := 0.72 if medallion_glb != null else 0.25
+		var disc := _cyl(pos + Vector3(0, disc_y, 0), 3.4, 0.5, Color(0.3, 0.22, 0.38), 0.05)
 		disc.material_override = (disc.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
 		var ring := TorusMesh.new()
 		ring.inner_radius = 3.3
@@ -346,12 +386,13 @@ func _build_lifts() -> void:
 	# floor (the top gallery ride loops gently back to the ground floor)
 	for lx in [-33.0, 33.0]:
 		var pos := L + Vector3(lx, 0, -9.0)
-		var col := _cyl(pos + Vector3(0, 13.5, 0), 2.7, 30.0, Color(0.6, 0.9, 1.0), 0.35)
-		var cmat := col.material_override as StandardMaterial3D
-		cmat = cmat.duplicate() as StandardMaterial3D
-		cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		cmat.albedo_color = Color(0.6, 0.9, 1.0, 0.22)
-		col.material_override = cmat
+		if _lobby_prop("opera_lift.glb", pos) == null:
+			var col := _cyl(pos + Vector3(0, 13.5, 0), 2.7, 30.0, Color(0.6, 0.9, 1.0), 0.35)
+			var cmat := col.material_override as StandardMaterial3D
+			cmat = cmat.duplicate() as StandardMaterial3D
+			cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			cmat.albedo_color = Color(0.6, 0.9, 1.0, 0.22)
+			col.material_override = cmat
 		for b in range(5):
 			_sphere(pos + Vector3(randf_range(-1.4, 1.4), 2.0 + float(b) * 5.5, randf_range(-1.4, 1.4)), 0.4, Color(0.8, 0.97, 1.0), 0.7)
 		_label("✨", pos + Vector3(0, 5.0, 1.8), 34, Color(0.85, 0.98, 1.0))

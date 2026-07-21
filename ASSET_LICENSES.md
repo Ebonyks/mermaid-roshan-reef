@@ -187,3 +187,9 @@ ambientCG (all CC0).
 - License: project original; not for external redistribution
 - Modifications: none; archived byte-for-byte and excluded from Godot imports
 - Status: unintegrated candidates retained for visual review
+
+## assets/art35/opera/*.glb (10 models: arch, curtain, door, medallion, chandelier, bench, railing, lift, maestro, stage_apron)
+- Source: project-authored, generated procedurally in Blender by
+  tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
+- License: project original
+- Modifications: n/a (original work); flat toon materials, no textures
