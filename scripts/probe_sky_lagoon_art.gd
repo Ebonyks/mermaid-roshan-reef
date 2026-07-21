@@ -190,15 +190,44 @@ func _init() -> void:
 		Vector3(0, 8, 22), Vector3(0, 6, 0), 56.0)
 	await _shot_role("lagoon_35_story_lantern", "lagoon_story_lantern",
 		Vector3(8, 5, 10), Vector3(0, 2.5, 0), 49.0, 1)
+	# Every tree receives its own fixed daylight review. The four original GEN2
+	# sculpts are explicit anchors; the eight extensions must remain individually
+	# legible by silhouette, not merely by palette.
+	await _shot_role("lagoon_36_tree_original_pineround", "tree_pineRoundF",
+		Vector3(18, 11, 23), Vector3(0, 5.0, 0), 52.0)
+	await _shot_role("lagoon_37_tree_original_fall", "tree_default_fall",
+		Vector3(18, 12, 24), Vector3(0, 5.2, 0), 52.0)
+	await _shot_role("lagoon_38_tree_original_fall2", "tree_simple_fall",
+		Vector3(18, 13, 24), Vector3(0, 5.5, 0), 52.0)
+	await _shot_role("lagoon_39_tree_original_fat", "tree_fat",
+		Vector3(18, 10, 23), Vector3(0, 4.8, 0), 52.0)
+	await _shot_role("lagoon_40_tree_ancient_oak", "lagoon_tree_ancient_oak",
+		Vector3(18, 11, 23), Vector3(0, 5.0, 0), 52.0)
+	await _shot_role("lagoon_41_tree_dancing_birch", "lagoon_tree_dancing_birch",
+		Vector3(18, 14, 25), Vector3(0, 6.0, 0), 52.0)
+	await _shot_role("lagoon_42_tree_umbrella", "lagoon_tree_umbrella",
+		Vector3(20, 10, 24), Vector3(0, 4.2, 0), 53.0)
+	await _shot_role("lagoon_43_tree_blossom_cloud", "lagoon_tree_blossom_cloud",
+		Vector3(18, 12, 24), Vector3(0, 5.2, 0), 52.0)
+	await _shot_role("lagoon_44_tree_windswept", "lagoon_tree_windswept",
+		Vector3(20, 10, 24), Vector3(0.8, 4.4, 0), 53.0)
+	await _shot_role("lagoon_45_tree_twinheart", "lagoon_tree_twinheart",
+		Vector3(20, 11, 24), Vector3(0, 4.8, 0), 53.0)
+	await _shot_role("lagoon_46_tree_weeping_willow", "lagoon_tree_weeping_willow",
+		Vector3(20, 11, 25), Vector3(0, 4.5, 0), 53.0)
+	await _shot_role("lagoon_47_tree_celebration_snow", "lagoon_tree_celebration_snow",
+		Vector3(24, 17, 29), Vector3(0, 7.5, 0), 53.0)
+	await _shot("lagoon_48_roshan_stained_glass", o + Vector3(0, 42, -75),
+		o + Vector3(0, 38, -106.95), 42.0)
 	# A smaller Sparkly comparison set catches quality-toggle exposure drift while
 	# keeping the complete phone-default review above as the primary artifact.
 	main._apply_quality("sparkly")
 	await _settle(6)
-	await _shot("lagoon_36_sparkly_arrival", o + Vector3(54, 25, 182),
+	await _shot("lagoon_49_sparkly_arrival", o + Vector3(54, 25, 182),
 		o + Vector3(0, 7, 98), 66.0)
-	await _shot("lagoon_37_sparkly_fairy_pond", main.fairy_pond_pos + Vector3(24, 13, 26),
+	await _shot("lagoon_50_sparkly_fairy_pond", main.fairy_pond_pos + Vector3(24, 13, 26),
 		main.fairy_pond_pos + Vector3(0, -2, 0), 62.0)
-	await _shot("lagoon_38_sparkly_castle", o + Vector3(0, 26, -42),
+	await _shot("lagoon_51_sparkly_castle", o + Vector3(0, 26, -42),
 		o + Vector3(0, 30, -120), 62.0)
 	print("LAGOONSHOT|DONE|", out_dir)
 	quit()

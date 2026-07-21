@@ -1,11 +1,11 @@
 class_name CourtyardTrain
 extends RefCounted
 # The COURTYARD TRAIN: a storybook ride circling Princess Huluu's castle in
-# the Sky Lagoon. Built the same way Chuck was — measured primitives assembled
-# by script (tools/build_train.py holds the matching Blender wireframe/QA
-# setup) — but constructed at runtime from toon-pastel boxes and cylinders so
-# it ships with zero new assets. Phase 7 satellite: logic only, ALL state
-# lives on main in m.g["train"] and the seat toys in m.g["toys"].
+# the Sky Lagoon. Its five authored bodies and shell-canopy station come from
+# the unified Sky Lagoon quality kit; the lightweight runtime chassis keeps the
+# proven wheel animation, smoke, ride anchors, and moving collision contract.
+# Phase 7 satellite: logic only, ALL state lives on main in m.g["train"] and
+# the seat toys in m.g["toys"].
 #
 # Layout (owner 2026-07-14: "much larger"): a GRAND TOUR ring of track,
 # radius 191.5 about local (0,-3.5), circling the whole courtyard — over
@@ -51,6 +51,7 @@ const DWELL_T := 8.0          # station stop, seconds
 const GUARD_DT := 0.25        # clip-guard cadence, seconds
 const BOARD_RAD := 9.0        # hop-on proximity (toys default 6.5)
 const SPD_MAX := 12.0         # cruise speed (owner 2026-07-14: 1.5x the original 8)
+const LAGOON_TRAIN_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
 
 
 func _init(main: ReefMain) -> void:
@@ -173,15 +174,18 @@ func _build_track(o: Vector3) -> void:
 	var ties := MultiMeshInstance3D.new()
 	var mm := MultiMesh.new()
 	mm.transform_format = MultiMesh.TRANSFORM_3D
-	var tie := BoxMesh.new()
-	tie.size = Vector3(4.6, 0.2, 1.1)
-	tie.material = _train_mat(Color(0.50, 0.36, 0.22))
-	mm.mesh = tie
+	var tie_mesh: Mesh = _mesh_from_authored_scene("lagoon_track_tie")
+	if tie_mesh == null:
+		var fallback_tie := BoxMesh.new()
+		fallback_tie.size = Vector3(4.6, 0.2, 1.1)
+		fallback_tie.material = _train_mat(Color(0.50, 0.36, 0.22))
+		tie_mesh = fallback_tie
+	mm.mesh = tie_mesh
 	var tie_n := 240
 	mm.instance_count = tie_n
 	for i in range(tie_n):
 		var a: float = float(i) / float(tie_n) * TAU
-		var p: Vector3 = _track_pt(a) + Vector3(0, -0.28, 0)
+		var p: Vector3 = _track_pt(a) + Vector3(0, -0.68, 0)
 		var perp: Vector3 = _track_perp(a)
 		# right-handed basis (perp x UP = this z), else the box mirrors
 		mm.set_instance_transform(i, Transform3D(Basis(perp, Vector3.UP, Vector3(-perp.z, 0, perp.x)), p))
@@ -189,6 +193,9 @@ func _build_track(o: Vector3) -> void:
 	ties.position = o
 	m.add_child(ties)
 	m.game_nodes.append(ties)
+	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
+	counts["lagoon_track_tie"] = tie_n
+	m.g["lagoon_art_counts"] = counts
 
 
 func _ring_ribbon(o: Vector3, lat: float, half_w: float, y_off: float, skirt: float, col: Color) -> void:
@@ -244,20 +251,38 @@ func _build_station(o: Vector3) -> void:
 		var counts: Dictionary = m.g.get("lagoon_art_counts", {})
 		counts["lagoon_train_station"] = int(counts.get("lagoon_train_station", 0)) + 1
 		m.g["lagoon_art_counts"] = counts
-	m._kit("park/bench", o + c + Vector3(2.2, 0.6, 0), 5.0, PI * 0.5)
-	var st_sign := Label3D.new()
-	st_sign.text = "🚂"
-	st_sign.font_size = 72
-	st_sign.pixel_size = 0.035
-	st_sign.outline_size = 10
-	st_sign.modulate = Color(1.0, 0.92, 0.7)
-	st_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	st_sign.position = o + c + Vector3(0, 8.2, 0)
-	m.add_child(st_sign)
-	m.game_nodes.append(st_sign)
 
 
 # ---------------- car construction ----------------
+
+func _mesh_from_authored_scene(name: String) -> Mesh:
+	var packed: PackedScene = load(LAGOON_TRAIN_KIT_ROOT + name + ".glb") as PackedScene
+	if packed == null:
+		return null
+	var scene_root: Node3D = packed.instantiate() as Node3D
+	var found: Mesh
+	if scene_root is MeshInstance3D:
+		found = (scene_root as MeshInstance3D).mesh
+	else:
+		var mesh_nodes: Array[Node] = scene_root.find_children("*", "MeshInstance3D", true, false)
+		if not mesh_nodes.is_empty():
+			found = (mesh_nodes[0] as MeshInstance3D).mesh
+	scene_root.free()
+	return found
+
+
+func _authored_train_body(parent: Node3D, name: String) -> Node3D:
+	var packed: PackedScene = load(LAGOON_TRAIN_KIT_ROOT + name + ".glb") as PackedScene
+	if packed == null:
+		return null
+	var body: Node3D = packed.instantiate() as Node3D
+	body.set_meta("lagoon_art_role", name)
+	parent.add_child(body)
+	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
+	counts[name] = int(counts.get(name, 0)) + 1
+	m.g["lagoon_art_counts"] = counts
+	return body
+
 
 func _train_mat(col: Color, glow: float = 0.0, metal: float = 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
@@ -337,6 +362,67 @@ func _car_base(o: Vector3, length: float, col: Color, axz: Array, r: float) -> N
 
 
 func _build_engine(o: Vector3) -> Node3D:
+	var car := _car_base(o, 9.0, Color(0.16, 0.18, 0.32), [-1.9, 0.2, 2.3], 1.3)
+	_authored_train_body(car, "lagoon_train_engine")
+	# Smoke and animated side rods stay procedural gameplay accents around the
+	# authored body; neither changes its modeled silhouette or palette.
+	var puff := CPUParticles3D.new()
+	puff.amount = 16
+	puff.lifetime = 2.4
+	puff.preprocess = 1.0
+	puff.direction = Vector3.UP
+	puff.spread = 12.0
+	puff.initial_velocity_min = 2.0
+	puff.initial_velocity_max = 3.6
+	puff.gravity = Vector3(0, 1.2, 0)
+	puff.scale_amount_min = 0.8
+	puff.scale_amount_max = 2.2
+	var pm := SphereMesh.new()
+	pm.radius = 0.55
+	pm.height = 1.1
+	pm.radial_segments = 8
+	pm.rings = 4
+	puff.mesh = pm
+	var pmat := StandardMaterial3D.new()
+	pmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	pmat.albedo_color = Color(0.90, 0.93, 1.0, 0.78)
+	puff.material_override = pmat
+	puff.position = Vector3(0, 7.55, 2.55)
+	car.add_child(puff)
+	car.set_meta("puff", puff)
+	var rods: Array = []
+	for sx: float in [-1.0, 1.0]:
+		rods.append(_tpart(car, Vector3(sx * 2.75, 1.6, 0.2),
+			Vector3(0.22, 0.3, 5.2), Color(0.91, 0.65, 0.25)))
+	car.set_meta("rods", rods)
+	return car
+
+
+func _build_tender(o: Vector3) -> Node3D:
+	var car := _car_base(o, 6.4, Color(0.16, 0.18, 0.32), [-1.8, 1.8], 0.9)
+	_authored_train_body(car, "lagoon_train_tender")
+	return car
+
+
+func _build_coach(o: Vector3) -> Node3D:
+	var car := _car_base(o, 8.8, Color(0.55, 0.47, 0.72), [-2.6, 2.6], 0.9)
+	_authored_train_body(car, "lagoon_train_coach")
+	return car
+
+
+func _build_gondola(o: Vector3) -> Node3D:
+	var car := _car_base(o, 8.0, Color(0.94, 0.76, 0.34), [-2.4, 2.4], 0.9)
+	_authored_train_body(car, "lagoon_train_gondola")
+	return car
+
+
+func _build_caboose(o: Vector3) -> Node3D:
+	var car := _car_base(o, 8.0, Color(0.88, 0.43, 0.45), [-2.4, 2.4], 0.9)
+	_authored_train_body(car, "lagoon_train_caboose")
+	return car
+
+
+func _legacy_build_engine_unused(o: Vector3) -> Node3D:
 	var teal := Color(0.35, 0.75, 0.78)
 	var navy := Color(0.22, 0.22, 0.40)
 	var gold := Color(0.95, 0.80, 0.40)
@@ -392,7 +478,7 @@ func _build_engine(o: Vector3) -> Node3D:
 	return car
 
 
-func _build_tender(o: Vector3) -> Node3D:
+func _legacy_build_tender_unused(o: Vector3) -> Node3D:
 	var car := _car_base(o, 6.4, Color(0.30, 0.55, 0.60), [-1.8, 1.8], 0.9)
 	_tpart(car, Vector3(0, 3.4, 0), Vector3(4.4, 2.2, 6.0), Color(0.35, 0.75, 0.78))
 	var sd := 5
@@ -403,7 +489,7 @@ func _build_tender(o: Vector3) -> Node3D:
 	return car
 
 
-func _build_coach(o: Vector3) -> Node3D:
+func _legacy_build_coach_unused(o: Vector3) -> Node3D:
 	# the passenger coach: open-sided excursion car with a bench INSIDE, so
 	# Roshan is really sitting in the cabin and still fully visible
 	var lav := Color(0.72, 0.65, 0.92)
@@ -426,7 +512,7 @@ func _build_coach(o: Vector3) -> Node3D:
 	return car
 
 
-func _build_gondola(o: Vector3) -> Node3D:
+func _legacy_build_gondola_unused(o: Vector3) -> Node3D:
 	# open-top gondola: low walls all round and a big cushion to plop onto
 	var butter := Color(0.98, 0.85, 0.45)
 	var car := _car_base(o, 8.0, butter, [-2.4, 2.4], 0.9)
@@ -439,7 +525,7 @@ func _build_gondola(o: Vector3) -> Node3D:
 	return car
 
 
-func _build_caboose(o: Vector3) -> Node3D:
+func _legacy_build_caboose_unused(o: Vector3) -> Node3D:
 	# caboose: a little coral house with a cupola and an OPEN back balcony
 	var coral := Color(0.95, 0.55, 0.55)
 	var cream := Color(0.97, 0.93, 0.86)
