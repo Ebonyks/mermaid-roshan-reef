@@ -212,6 +212,12 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 			act.player_pos = act.canvas_pos
 			act._paint_touch()
 			_ck("canvas swipe paints with pot %d" % idx, act.brush_loaded == -1)
+		if int(cfg.get("decorate", 0)) > 0:
+			_ck("last swipe opens the splatter party", act.order_phase == "decorate" and act.state == "play")
+			for spot: Dictionary in act.deco_spots:
+				act.player_pos = (spot["pos"] as Vector3)
+				act._deco_action(int(spot["index"]))
+			_ck("every splat finishes the masterpiece", act.state == "won")
 		return
 	for choice in order:
 		var idx2 := int(choice)
