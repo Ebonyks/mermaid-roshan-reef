@@ -325,6 +325,8 @@ func _init() -> void:
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, false, true)
 	await _shot("lagoon_48_roshan_stained_glass", o + Vector3(0, 42, -75),
 		o + Vector3(0, 38, -106.95), 42.0)
+	await _shot_role_framed("lagoon_52_ember_gateway", "lagoon_ember_gateway",
+		Vector3(1.15, 0.18, 1.35), 50.0)
 	# A smaller Sparkly comparison set catches quality-toggle exposure drift while
 	# keeping the complete phone-default review above as the primary artifact.
 	main._apply_quality("sparkly")

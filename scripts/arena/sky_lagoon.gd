@@ -526,7 +526,12 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# Butterfly World has been saved (dev-mode builds keep it always open).
 	# Swimming in launches the same floating rainbow race, but this time the
 	# road dives DOWN off the rainbow into the volcano planet.
-	var emz: float = legbz - 46.0
+	# Keep the landmark inside the grand-tour railway by a full prop-width. The
+	# original integration put its centre at radius ~188, directly in the
+	# radius-191.5 train corridor; the locomotive and portal could visibly pass
+	# through one another. Twenty-two units beyond the far race arch preserves
+	# the junction sequence while leaving the railway more than 20 units clear.
+	var emz: float = legbz - 22.0
 	if m._ember_open():
 		m.ember_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, emz) + 8.0, emz)
 		_build_ember_gateway(m.ember_portal_pos)
@@ -2429,9 +2434,16 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 
 
 func _build_ember_gateway(pos: Vector3) -> void:
-	# The dark door at the rainbow junction: an obsidian ring wrapped in slow
-	# lava light. Emissive-only (no OmniLight — the lagoon's Speedy light
-	# budget stays untouched); the menace is theatrical, the invitation clear.
+	# The later-world door remains spooky without importing a black/orange art
+	# language into the Lagoon. Deep plum, coral ember, butter-gold trim and
+	# lavender footing stones reuse the courtyard palette; animated emission is
+	# self-contained and adds no OmniLight on the Speedy phone tier.
+	var gateway := Node3D.new()
+	gateway.name = "EmberGateway"
+	gateway.position = pos
+	gateway.set_meta("lagoon_art_role", "lagoon_ember_gateway")
+	m.add_child(gateway)
+	m.game_nodes.append(gateway)
 	var ring := MeshInstance3D.new()
 	var tm := TorusMesh.new()
 	tm.inner_radius = 5.0
@@ -2439,26 +2451,77 @@ func _build_ember_gateway(pos: Vector3) -> void:
 	tm.rings = 24
 	tm.ring_segments = 12
 	ring.mesh = tm
+	ring.rotation.x = PI * 0.5
 	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nvoid fragment(){ float b = fract(UV.x * 6.0 + TIME * 0.15); vec3 rock = vec3(0.12, 0.07, 0.10); vec3 lava = vec3(1.0, 0.36, 0.10); float vein = smoothstep(0.42, 0.5, sin(b * 12.566) * 0.5 + 0.5); ALBEDO = mix(rock, lava, vein); EMISSION = lava * vein * (0.7 + 0.3 * sin(TIME * 2.4)); ROUGHNESS = 0.9; }"
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nvoid fragment(){ float b = fract(UV.x * 6.0 + TIME * 0.12); vec3 plum = vec3(0.18, 0.12, 0.32); vec3 coral = vec3(1.0, 0.42, 0.30); float vein = smoothstep(0.42, 0.52, sin(b * 12.566) * 0.5 + 0.5); ALBEDO = mix(plum, coral, vein); EMISSION = coral * vein * (0.34 + 0.16 * sin(TIME * 2.1)); ROUGHNESS = 0.88; }"
 	var ring_mat := ShaderMaterial.new()
 	ring_mat.shader = sh
 	ring.material_override = ring_mat
-	ring.position = pos
-	m.add_child(ring)
-	m.game_nodes.append(ring)
-	var tw := ring.create_tween().set_loops()
-	tw.tween_property(ring, "rotation:y", TAU, 9.0).from(0.0)
-	var lab := Label3D.new()
-	lab.text = "🌋 Ember Fortress!\nrace the rainbow road DOWN!"
-	lab.font_size = 58
-	lab.pixel_size = 0.03
-	lab.outline_size = 14
-	lab.modulate = Color(1.0, 0.55, 0.3)
-	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.position = pos + Vector3(0, 8.0, 0)
-	m.add_child(lab)
-	m.game_nodes.append(lab)
+	gateway.add_child(ring)
+	# A thin gold inner lip makes the portal read as an authored destination at
+	# child scale instead of a single debug torus.
+	var inner_ring := MeshInstance3D.new()
+	var inner_tm := TorusMesh.new()
+	inner_tm.inner_radius = 4.48
+	inner_tm.outer_radius = 4.88
+	inner_tm.rings = 24
+	inner_tm.ring_segments = 12
+	inner_ring.mesh = inner_tm
+	inner_ring.rotation.x = PI * 0.5
+	inner_ring.position.z = 0.12
+	inner_ring.material_override = m._soft_mat(Color(1.0, 0.78, 0.34), 0.42)
+	gateway.add_child(inner_ring)
+	# Faceted beads and a three-lobe flame crest replace the world-space text.
+	# The proximity voice cue still explains the destination, so the objective
+	# remains non-reading-dependent without labels floating across other art.
+	var bead_points: Array[Vector3] = [
+		Vector3(-5.65, 2.8, 0.18), Vector3(5.65, 2.8, 0.18),
+		Vector3(-4.1, -4.2, 0.18), Vector3(4.1, -4.2, 0.18),
+	]
+	for bead_index in range(bead_points.size()):
+		var bead := MeshInstance3D.new()
+		var bead_mesh := SphereMesh.new()
+		bead_mesh.radius = 0.72
+		bead_mesh.height = 1.34
+		bead_mesh.radial_segments = 8
+		bead_mesh.rings = 4
+		bead.mesh = bead_mesh
+		bead.position = bead_points[bead_index]
+		bead.material_override = m._soft_mat(
+			Color(1.0, 0.68, 0.38) if bead_index % 2 == 0 else Color(0.62, 0.48, 0.88), 0.18)
+		gateway.add_child(bead)
+	var flame_positions: Array[Vector3] = [
+		Vector3(0.0, 7.45, 0.10), Vector3(-1.15, 6.85, 0.08), Vector3(1.15, 6.85, 0.08),
+	]
+	for flame_index in range(flame_positions.size()):
+		var flame := MeshInstance3D.new()
+		var flame_mesh := SphereMesh.new()
+		flame_mesh.radius = 0.8 if flame_index == 0 else 0.64
+		flame_mesh.height = 2.7 if flame_index == 0 else 2.15
+		flame_mesh.radial_segments = 8
+		flame_mesh.rings = 4
+		flame.mesh = flame_mesh
+		flame.position = flame_positions[flame_index]
+		flame.rotation.z = 0.0 if flame_index == 0 else (-0.42 if flame_index == 1 else 0.42)
+		flame.material_override = m._soft_mat(
+			Color(1.0, 0.48, 0.36) if flame_index != 1 else Color(1.0, 0.82, 0.38), 0.34)
+		gateway.add_child(flame)
+	for stone_index in range(4):
+		var stone := MeshInstance3D.new()
+		var stone_mesh := SphereMesh.new()
+		stone_mesh.radius = 1.35
+		stone_mesh.height = 1.2
+		stone_mesh.radial_segments = 8
+		stone_mesh.rings = 4
+		stone.mesh = stone_mesh
+		stone.position = Vector3(-4.4 + float(stone_index) * 2.9, -6.25, 0.25)
+		stone.scale = Vector3(1.25, 0.72, 0.9)
+		stone.material_override = m._soft_mat(
+			Color(0.76, 0.72, 0.92) if stone_index % 2 == 0 else Color(0.72, 0.94, 0.91))
+		gateway.add_child(stone)
+	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
+	counts["lagoon_ember_gateway"] = int(counts.get("lagoon_ember_gateway", 0)) + 1
+	m.g["lagoon_art_counts"] = counts
 
 func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	# fantasy turret: textured stone shaft, gold band, glowing window, conic roof, flag
