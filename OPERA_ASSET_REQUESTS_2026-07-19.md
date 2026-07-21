@@ -42,7 +42,9 @@ Assets
 - Backstage pests are the DUNGEON'S MISCHIEF IMPS reused on purpose (owner
   decision 2026-07-19 — same little demons, they get everywhere): no new
   creature needed. Optional: a tiny bow-tie/usher-cap accessory pass on the
-  existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite
+  existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite.
+  The LAST imp of every brawl is the CAPTAIN: bigger, gold bow accessory,
+  shrugs off the first sparkle with a giggle-dash (two-hit mini-chase)
 - Audience seat bench + a curtain-call confetti burst
 - Theatre marquee door (two placements, one asset): the music-room stage door
   AND the Sky Lagoon courtyard entrance both use `build_opera_gate`'s
@@ -55,10 +57,11 @@ Mechanics wishlist
 - Imps occasionally juggle a stolen act prop (pure flavor)
 - Curtain-call bow pose for Roshan's cutout (verb clip)
 
-## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir finale)
+## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir + toppings)
 Assets: cake layer models ×3 (`PadProp` on `OperaPad0..2`), mixing bowl with
 swirl lid (`OperaGoal`), recipe board art, chef-hat costume prop, oven glow
-backdrop. SFX: plop, whisk-whoosh ×3 rising, cake fanfare.
+backdrop, topping spot pedestals ×3 + cherry models (replaces the decorate
+discs/spheres). SFX: plop, whisk-whoosh ×3 rising, cherry squish, fanfare.
 Mechanics wishlist: frosting squiggle free-draw during the bow (touch-drag).
 
 ## Act 2 — Detective, "The Missing Tiara" (hidden-clue search)
@@ -91,8 +94,8 @@ pumpkin), veggie toss arc sprite, barn backdrop for the finale.
 SFX: oink ×9 pitched, munch, toss-whoosh.
 Mechanics wishlist: a mud puddle piggies hop over (pure animation beat).
 
-## Act 7 boss — "The Curtain Dragon" (roaming peek boss, 10 stars)
-Assets: dragon puppet on a stick (head + curtain slot ×3 spots), sparkle
+## Act 7 boss — "The Curtain Dragon" (roaming peek boss, rising tempo, 9 stars)
+Assets: dragon puppet on a stick (head + curtain slot ×5 spots, outer two for his bold phase), sparkle
 star projectile, bubble-puff. SFX: grumble, puff, tamed-purr.
 Mechanics wishlist: dragon sneezes confetti when popped the final time.
 
