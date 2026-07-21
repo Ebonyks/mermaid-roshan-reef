@@ -130,13 +130,16 @@ func _leave_current_activity() -> void:
 	if m.game == "galaxy" and m.galaxy_game != null:
 		(m.galaxy_game as GalaxyLevel)._teardown(false)
 		return
+	if m.game == "ember" and m.ember_game != null:
+		(m.ember_game as EmberFortressLevel)._teardown(false)
+		return
 	if m.game == "kart" and m.kart_game != null:
 		m.kart_game.call("_quit_race")
 		return
 	if m.game == "combat" and m.combat_game != null:
 		m.combat_game.cancel()
 		return
-	if m.game == "dungeon" and m.dungeon_game != null:
+	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
 		m.dungeon_game._leave_early()
 		return
 	if m.game == "":
