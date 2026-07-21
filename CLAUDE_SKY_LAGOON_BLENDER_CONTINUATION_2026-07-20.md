@@ -22,7 +22,7 @@ twin-heart, weeping willow, and celebration snow pine. The old
 `lagoon_tree_meadow_*`, `coral_*`, `willow_*`, `evergreen`, and `alpine_*`
 experiments are rejected and must not be wired or promoted.
 
-Exact-head run `29816404035` is the final 51-view Mobile evidence set. The
+Targeted-revision run `29816404035` is the accepted 51-view Mobile evidence set. The
 accepted runtime scores are 4.6–4.8/5: ancient oak 4.7, dancing birch 4.7,
 umbrella 4.7, blossom cloud 4.8, windswept 4.8, twin-heart 4.7, weeping
 willow 4.8, and celebration snow pine 4.7. Do not overwrite these with an
