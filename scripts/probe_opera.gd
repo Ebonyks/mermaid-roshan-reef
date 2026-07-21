@@ -151,6 +151,10 @@ func _init() -> void:
 				_drive_fix(act)
 			"press":
 				await _drive_press(act)
+			"box":
+				await _drive_box(act)
+			"sleuth":
+				_drive_sleuth(act)
 			"doctor":
 				await _drive_doctor(act)
 			"scroll":
@@ -308,6 +312,55 @@ func _drive_press(act: OperaAct) -> void:
 			await process_frame
 	_ck("press act does not stall", guard < 900)
 	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
+
+func _drive_box(act: OperaAct) -> void:
+	var waves: Array = (act.config as Dictionary).get("rounds", [3, 4, 5])
+	_ck("the bout opens on round one", act.box_round == 0 and act.imps_left > 0)
+	_ck("the ring answers to PUNCH", act.action_label() == "PUNCH")
+	var guard := 0
+	while act.state == "play" and guard < 900:
+		guard += 1
+		if act.box_wait > 0.0:
+			await process_frame
+			continue
+		var target := {}
+		for g in act.imps:
+			if not bool(g["popped"]):
+				target = g
+				break
+		if target.is_empty():
+			await process_frame
+			continue
+		act.player_pos = (target["pos"] as Vector3)
+		act._punch_action()
+	_ck("box act does not stall", guard < 900)
+	_ck("three rounds win the championship", act.state == "won" and act.box_round >= waves.size())
+
+func _drive_sleuth(act: OperaAct) -> void:
+	_ck("six boxes stand on the stage", act.sleuth_props.size() == 6)
+	var clue_n := 0
+	for prop in act.sleuth_props:
+		if bool(prop["clue"]):
+			clue_n += 1
+	_ck("exactly three boxes hold clues", clue_n == 3)
+	act._sleuth_chest()
+	_ck("chest waits for all three clues", act.state == "play" and not act.chest_ready)
+	var wrong := {}
+	for prop in act.sleuth_props:
+		if not bool(prop["clue"]):
+			wrong = prop
+			break
+	act.player_pos = (wrong["pos"] as Vector3)
+	act._sleuth_action(int(wrong["index"]))
+	_ck("wrong box giggles a silly fish, no fail", act.state == "play" and act.clues_found == 0)
+	for prop in act.sleuth_props:
+		if bool(prop["clue"]):
+			act.player_pos = (prop["pos"] as Vector3)
+			act._sleuth_action(int(prop["index"]))
+	_ck("three clues ready the treasure chest", act.chest_ready)
+	act.player_pos = act.goal.position
+	act._sleuth_chest()
+	_ck("the tiara reveal wins the case", act.state == "won")
 
 func _drive_doctor(act: OperaAct) -> void:
 	_ck("checkup has eight one-touch steps", act.doc_targets.size() == 8)

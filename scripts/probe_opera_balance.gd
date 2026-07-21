@@ -189,6 +189,10 @@ func _drive(act: OperaAct, dt: float) -> void:
 			_drive_shuffle(act, dt)
 		"press":
 			_drive_press(act, dt)
+		"box":
+			_drive_box(act, dt)
+		"sleuth":
+			_drive_sleuth(act, dt)
 		"doctor":
 			_drive_doctor(act, dt)
 		"scroll":
@@ -280,6 +284,44 @@ func _drive_press(act: OperaAct, dt: float) -> void:
 		act._press_action()
 	else:
 		wait_t = 0.0   # keep watching the slider
+
+func _drive_box(act: OperaAct, dt: float) -> void:
+	if act.box_wait > 0.0:
+		return
+	var target := Vector3.ZERO
+	var found := false
+	for g in act.imps:
+		if not bool(g["popped"]):
+			target = g["pos"] as Vector3
+			found = true
+			break
+	if found and _travel(act, target, dt) and _ready_to_act(dt):
+		act._punch_action()
+
+func _drive_sleuth(act: OperaAct, dt: float) -> void:
+	if act.chest_ready:
+		if _travel(act, act.goal.position, dt) and _ready_to_act(dt):
+			act._sleuth_chest()
+		return
+	# a curious child peeks nearest-box-first with no answer knowledge
+	var target := Vector3.ZERO
+	var found := false
+	var best_d := 1e9
+	for prop in act.sleuth_props:
+		if bool(prop["opened"]):
+			continue
+		var d: float = (prop["pos"] as Vector3).distance_to(act.player_pos)
+		if d < best_d:
+			best_d = d
+			target = prop["pos"] as Vector3
+			found = true
+	if not found:
+		return
+	if _travel(act, target, dt) and _ready_to_act(dt):
+		for prop in act.sleuth_props:
+			if not bool(prop["opened"]) and (prop["pos"] as Vector3).distance_to(act.player_pos) < 4.5:
+				act._sleuth_action(int(prop["index"]))
+				break
 
 func _drive_doctor(act: OperaAct, dt: float) -> void:
 	if act.doc_step >= act.doc_targets.size():
