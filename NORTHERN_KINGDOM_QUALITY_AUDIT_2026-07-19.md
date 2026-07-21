@@ -166,6 +166,7 @@ family.
 The runtime loop rejected blank/rear castle framing, exterior-fountain
 occlusion, a buried standing-stone family, nine bedroom-camera framings, an
 over-tall footboard, a reversed-orientation experiment, and the primitive
-bedroom set itself before acceptance. The final exact-HEAD CI run and artifact
-are linked in the task handoff; the stable evidence name remains
-`northern-world-review`.
+bedroom set itself before acceptance. The final exact-HEAD validation is
+[GitHub Actions run 29764110846](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/29764110846)
+for commit `b7ecea03a1b4aa44b5ea7f604aeb4f8c9428e1bd`; it completed successfully.
+The stable runtime-evidence artifact name is `northern-world-review`.
