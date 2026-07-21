@@ -8,19 +8,23 @@ follows the house rules: CC0 sources or original, restyled through the
 _toonify pastel pipeline, ≤1024px / POT textures, one ASSET_LICENSES.md line
 per asset. Book art, family voices and friend cutouts are never modified.
 
-## The Lobby (owner 2026-07-20: Peach Showtime model — explorable hub)
-The opera house is now an explorable two-floor LOBBY: every career is its own
-marquee door, finished doors wear stars, boss doors sit behind a velvet rope
-until their floor's six shows are starred, and glowing bubble lifts carry
-Roshan between the ground floor and the Starlight Balcony. The camera watches
-from the open auditorium side like a dollhouse diorama.
+## The Lobby (owner 2026-07-20/21: Peach Showtime model — explorable hub)
+The opera house is an explorable THREE-floor LOBBY: twelve careers are twelve
+marquee doors (four per floor), finished doors wear stars. Bosses do NOT use
+doors — each floor has a centre-stage MEDALLION that stays dark until the
+floor's four shows are starred, then glows gold; swimming onto it starts the
+boss. Floor 3's medallion is the fifteenth act: the Midnight Maestro's grand
+finale, remixing the lantern-SHINE and curtain-chase-SPARKLE verbs. Bubble
+lifts cycle ground → Starlight Balcony → Grand Gallery → ground. The camera
+watches from the open auditorium side like a dollhouse diorama.
 Assets
 - Grand lobby kit: carpet runner, wainscot, chandeliers ×2, audience benches,
   balcony railing + deck fascia (replaces `_build_lobby` boxes)
 - Career door kit (one frame, per-act curtain color + crest): gold frame,
   curtain inset, glowing walk-in veil, career crest decal (replaces the
-  emoji `Label3D` per door), gold completion star, velvet rope for the two
-  locked boss doors
+  emoji `Label3D` per door), gold completion star
+- Centre-stage medallion ×3 (replaces the `_build_boss_spots` disc + halo):
+  dark inlaid stage circle that ignites gold, boss crest reveal, light pillar
 - Bubble lift: glass column, rising bubble particles, landing pad
 - Lobby crest: the 🎭 masks + star over the balcony
 - SFX: lobby murmur loop, door twinkle on approach, transformation chime,
@@ -126,8 +130,16 @@ Assets: sparkling microphone (`StarMicrophone`), stage-light frame for the
 dance overlay, star glasses costume. (Dance engine content complete.)
 Mechanics wishlist: an encore verse if the first round is all-perfect.
 
-## Act 14 boss — "The Shadow Phantom" (lantern dual boss)
+## Boss — "The Shadow Phantom" (lantern dual boss, floor 2 medallion)
 Assets: shy phantom puppet, stage lanterns ×3 (`OperaLantern*`), spotlight
 beam cone, friendship-bow finale pose. SFX: shy "oooo", lantern fwoom,
 happy squeak.
 Mechanics wishlist: phantom peeks from behind the lantern glass itself.
+
+## Boss — "The Grand Finale: the Midnight Maestro" (act 15, floor 3 medallion)
+Assets: conductor silhouette puppet with gold baton (replaces the primitive
+gown/baton in `_build_boss`), music-stand podium, swirling sheet-music
+particles, grand-finale confetti curtain. SFX: dramatic hum, baton swish,
+full-company fanfare for the win.
+Mechanics wishlist: every earlier career takes a tiny curtain-call cameo
+behind the Maestro's defeat celebration.
