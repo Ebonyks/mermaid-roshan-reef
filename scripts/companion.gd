@@ -221,13 +221,14 @@ func _tick_gift(delta: float) -> void:
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 6.4 + sin(t * 4.0) * 0.5
 	m.companion_gift.rotation.y = sin(t * 1.3) * 0.25
+	var action: bool = _action_down()
+	var tapped: bool = action and not m.companion_action_prev
+	m.companion_action_prev = action   # refresh every frame, even with the picker open
 	if m.companion_layer != null:
 		return
 	var gd: float = m.companion_gift.global_position.distance_to(m.player.position)
-	var action: bool = _action_down()
-	if gd < GIFT_RADIUS and action and not m.companion_action_prev:
+	if gd < GIFT_RADIUS and tapped:
 		open_picker()
-	m.companion_action_prev = action
 
 func _build_gift() -> void:
 	if m.l2_stars.is_empty():
@@ -925,6 +926,12 @@ func after_battle(announce: bool = true) -> void:
 func _tick_care(delta: float) -> void:
 	if not _follow_ctx() or m.companion_node == null or not is_instance_valid(m.companion_node):
 		return
+	# edge-detect THE button up front, every frame this tick runs — updating
+	# the prev flag only inside one branch left it stale and ate real taps
+	# (caught by probe_stuffie: the post-battle bath never got tended)
+	var action: bool = _action_down()
+	var tapped: bool = action and not m.companion_care_action_prev
+	m.companion_care_action_prev = action
 	# reloaded mid-injury (or came back before the queue ran): re-ask kindly
 	if m.companion_bruises > 0 and m.companion_want_queue.is_empty() \
 			and m.companion_want == "" and m.companion_rest_timer < 0.0:
@@ -969,12 +976,9 @@ func _tick_care(delta: float) -> void:
 		bubble.position = m.companion_node.position + Vector3(0, 4.6 + sin(now * 3.0) * 0.35, 0)
 		bubble.scale = Vector3.ONE * (1.0 + sin(now * 5.0) * 0.08)
 	# tend it: swim close and tap THE button
-	var action: bool = _action_down()
-	if action and not m.companion_care_action_prev \
-			and m.companion_node.position.distance_to(m.player.position) < CARE_RADIUS \
+	if tapped and m.companion_node.position.distance_to(m.player.position) < CARE_RADIUS \
 			and m.companion_layer == null:
 		_start_care()
-	m.companion_care_action_prev = action
 
 func _begin_want(id: String) -> void:
 	var w := want_def(id)
