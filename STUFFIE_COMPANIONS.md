@@ -117,15 +117,26 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
   LOOP), one round per visit, saved in `stuffie_wins`; after all rounds,
   visits rotate forever (`_replays`).
 
-## Upgrades — two tracks ("both")
+## Growth — Tamagotchi care (owner 2026-07-20; REPLACES the collectible model)
 
-- **Sparkle-fish tokens** (`fish_tokens`, incremental): 8 golden mini-fish
-  slots scattered in the reef, respawning ~75s after capture. Roshan OR the
-  stuffie swimming near one collects it (+1 level, sparkle, voice). Level →
-  slightly faster attack cooldown and move speed (clamped).
-- **Critter-Book fish** (milestone tiers): `tier()` = real fish catches from
-  `collection_system.gd` (0–6). Tier 1: +0.5s dodge window. Tier 2: +30%
-  attack reach. Tier 3: double-hit bops. Headroom for 4–6 reserved.
+The stuffie grows because she TAKES CARE of it. Every so often (45–75s of
+free-roam) it shows a want bubble: 🍎 hungry · 💤 sleepy · 🫧 bath ·
+❤ cuddle · 🎾 play — with a voice line. Swim close, tap THE button, and a
+short care moment plays (snack flies over and gets munched, Zzz drift up,
+bubble scrub, hug hearts, zoomies) → **+1 care point**, heart, chime.
+
+GENTLE by design — the anti-Tamagotchi rules: one want at a time, wants
+wait forever, nothing decays, nothing gets sick, care is never lost, and a
+want can never fulfil itself (probe-enforced). Care is shared across
+friends: it is HER nurturing that grows, whichever stuffie she carries.
+
+- `care_points` (persisted; legacy `fish_tokens` migrated in on load, the
+  old key still written for save compat)
+- `stage()` = 1 + points/4, shown as ⭐ pips (never numerals) at each
+  level-up celebration (fanfare + rainbow sparkle ring)
+- battle perks ride the stages: speed/cooldown scale with points; tier 1:
+  +0.5s dodge window; tier 2: +30% attack reach; tier 3: double-hit bops;
+  headroom for 4–6 reserved.
 
 ## Casual P2 (co-op)
 

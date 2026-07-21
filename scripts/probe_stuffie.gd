@@ -44,7 +44,7 @@ func _locked_case() -> void:
 	await _settle(10)
 	_ck("fresh save has no companion", main.companion_id == "" and main.companion_node == null)
 	_ck("no den before a stuffie is chosen", main.companion_den == null)
-	_ck("no sparkle-fish before a stuffie is chosen", main.companion_tokens.is_empty())
+	_ck("no want bubble before a stuffie is chosen", main.companion_want == "" and main.companion_want_bubble == null)
 
 func _picker_case() -> void:
 	var comp: CompanionSystem = main._companion_ref()
@@ -81,17 +81,43 @@ func _follower_case() -> void:
 	_ck("follower spawned in the reef", main.companion_node != null and is_instance_valid(main.companion_node))
 	var pd: float = main.companion_node.position.distance_to(main.player.position) if main.companion_node != null else INF
 	_ck("follower stays near Roshan", pd < 40.0)
-	_ck("sparkle-fish tokens spawned", main.companion_tokens.size() == CompanionSystem.TOKEN_TOTAL)
 	_ck("den built near the shipwreck", main.companion_den != null and is_instance_valid(main.companion_den))
-	# collect a token analytically: park Roshan on one
-	var tokens_before: int = main.fish_tokens
-	var row: Dictionary = main.companion_tokens[0]
-	if row["node"] != null:
-		main.player.position = (row["node"] as Node3D).position
-		main.player.vel = Vector3.ZERO
-		await _settle(6)
-	_ck("sparkle fish levels the companion", main.fish_tokens >= tokens_before + 1)
-	_ck("token slot enters respawn countdown", main.companion_tokens[0]["node"] == null and float(main.companion_tokens[0]["timer"]) > 0.0)
+	# TAMAGOTCHI CARE: force a want, park Roshan beside the stuffie, tend it
+	var comp: CompanionSystem = main._companion_ref()
+	var care_before: int = main.care_points
+	comp._begin_want("feed")
+	await _settle(3)
+	_ck("want bubble appears over the stuffie", main.companion_want == "feed"
+		and main.companion_want_bubble != null and is_instance_valid(main.companion_want_bubble))
+	# passive: a want alone can never grow the stuffie (no input, no points)
+	main.touch_ui.stick_vec = Vector2.ZERO
+	main.touch_ui.action_down = false
+	await _settle(30)
+	_ck("wants wait patiently and never self-fulfil", main.companion_want == "feed"
+		and main.care_points == care_before)
+	# tend it: stand close + THE button
+	main.player.position = (main.companion_node as Node3D).position + Vector3(2.0, 0, 0)
+	main.player.vel = Vector3.ZERO
+	main.touch_ui.action_down = true
+	await _settle(3)
+	main.touch_ui.action_down = false
+	await _settle(3)
+	_ck("care moment starts on tap", main.companion_want == "" or main.companion_care_t > 0.0)
+	main.companion_care_t = minf(main.companion_care_t, 0.01)
+	await _settle(4)
+	_ck("tending a want grows the stuffie", main.care_points == care_before + 1
+		and main.companion_want == "")
+	# level-up celebration fires exactly on the stage boundary
+	main.care_points = CompanionSystem.LEVEL_EVERY - 1
+	comp._begin_want("cuddle")
+	await _settle(2)
+	main.touch_ui.action_down = true
+	await _settle(3)
+	main.touch_ui.action_down = false
+	main.companion_care_t = minf(main.companion_care_t, 0.01)
+	await _settle(4)
+	_ck("care stages level the companion", main.care_points == CompanionSystem.LEVEL_EVERY
+		and comp.stage() == 2 and comp.tier() == 1)
 
 func _battle_case() -> void:
 	main._start_stuffie_battle()
@@ -141,7 +167,7 @@ func _save_case() -> void:
 	var doc: Dictionary = main.save_data
 	_ck("save carries companion keys", String(doc.get("companion", "")) == "mewsha"
 		and (doc.get("companion_colors", []) as Array).size() == 3
-		and int(doc.get("fish_tokens", -1)) == main.fish_tokens
+		and int(doc.get("care_points", -1)) == main.care_points
 		and bool((doc.get("stuffie_wins", {}) as Dictionary).get("round1", false)))
 	# roundtrip through a fresh SaveState reader
 	var reread := SaveState.new(main)

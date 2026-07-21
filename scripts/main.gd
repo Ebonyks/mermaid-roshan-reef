@@ -152,7 +152,7 @@ var combat_from := ""
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
 var companion_id := ""                    # chosen stuffie ("" until picked at Huluu's throne)
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
-var fish_tokens := 0                      # sparkle-fish pickups → companion level
+var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
@@ -161,7 +161,13 @@ var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
-var companion_tokens: Array = []          # sparkle-fish rows {base, node, timer, phase}
+# ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
+var care_points := 0                      # fulfilled wants; THE growth track (persisted)
+var companion_want := ""                  # active want id ("" = content)
+var companion_want_bubble: Label3D = null # the emoji thought bubble over the stuffie
+var companion_want_cool := 25.0           # first ask lands soon after adoption
+var companion_care_t := -1.0              # >0 while a care moment animation plays
+var companion_care_action_prev := false
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_pick_id := ""               # picker working state

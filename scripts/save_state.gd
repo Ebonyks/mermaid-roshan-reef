@@ -32,7 +32,7 @@ const KNOWN_KEYS: Array[String] = [
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_done",
 	"stickers", "owned", "animals", "critters",
-	"companion", "companion_colors", "fish_tokens", "stuffie_wins",
+	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 ]
 
 var m: ReefMain
@@ -97,6 +97,9 @@ func load_save() -> void:
 	var saved_companion_colors: Variant = m.save_data.get("companion_colors", [])
 	m.companion_colors = saved_companion_colors if saved_companion_colors is Array else []
 	m.fish_tokens = int(m.save_data.get("fish_tokens", 0))
+	# Tamagotchi care replaced the token collectibles (owner 2026-07-20):
+	# migrate any legacy token progress into care points, never losing growth
+	m.care_points = maxi(int(m.save_data.get("care_points", 0)), m.fish_tokens)
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
 	var saved_medals: Variant = m.save_data.get("medals", {})
@@ -183,6 +186,7 @@ func write_save() -> bool:
 	next_data["companion"] = m.companion_id
 	next_data["companion_colors"] = m.companion_colors
 	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
+	next_data["care_points"] = maxi(m.care_points, 0)
 	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
@@ -419,6 +423,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion"] = _string_or_default(raw, "companion", "")
 	data["companion_colors"] = _array_or_default(raw, "companion_colors")
 	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
+	data["care_points"] = _nonnegative_int_or_default(raw, "care_points", 0)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
