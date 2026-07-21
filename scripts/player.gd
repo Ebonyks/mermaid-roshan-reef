@@ -781,6 +781,23 @@ func _process(delta: float) -> void:
 		vel += dir * fwd * 43.7 * smult * 0.3 * delta
 		vel.y -= 30.0 * delta
 		vel *= pow(0.90, delta)
+	elif land_dry:
+		# LAND medium (ReefPhysics.land_medium, applied inline; land_dry is
+		# last frame's oracle — one frame of lag on the wet/dry switch is
+		# invisible). Real-enough gravity keeps her on the grass between hops
+		# but stays soft enough to hop rivers and reach every dream star; the
+		# repeated jump impulse is deliberately kept, so holding A still
+		# bounce-climbs like it always has. Ground friction bites only when
+		# resting, stick idle AND already slow, so releasing the stick stops
+		# the scoot instead of the old underwater glide — and a probe (or a
+		# player) at commanded speed never feels it.
+		vel += dir * fwd * 43.7 * smult * delta
+		vel.y -= 20.0 * delta
+		vel *= pow(0.15, delta)
+		if land_rest and fwd == 0.0 and turn == 0.0 and vel.length() < 6.0:
+			var gf: float = pow(0.001, delta)
+			vel.x *= gf
+			vel.z *= gf
 	else:
 		vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
 		vel.y -= 13.0 * delta                # 1.3x weight
