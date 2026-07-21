@@ -8,18 +8,18 @@ var main: ReefMain
 var out_dir := ""
 
 const REVIEW_TREE_ROLES := [
-	"tree_pineRoundF",
-	"tree_default_fall",
-	"tree_simple_fall",
-	"tree_fat",
-	"lagoon_tree_ancient_oak",
-	"lagoon_tree_dancing_birch",
-	"lagoon_tree_umbrella",
-	"lagoon_tree_blossom_cloud",
-	"lagoon_tree_windswept",
-	"lagoon_tree_twinheart",
-	"lagoon_tree_weeping_willow",
-	"lagoon_tree_celebration_snow",
+	"lagoon_tree_douglas_fir",
+	"lagoon_tree_western_redcedar",
+	"lagoon_tree_western_hemlock",
+	"lagoon_tree_sitka_spruce",
+	"lagoon_tree_shore_pine",
+	"lagoon_tree_pacific_yew",
+	"lagoon_tree_bigleaf_maple",
+	"lagoon_tree_red_alder",
+	"lagoon_tree_black_cottonwood",
+	"lagoon_tree_pacific_madrone",
+	"lagoon_tree_garry_oak",
+	"lagoon_tree_pacific_dogwood",
 ]
 
 
@@ -214,8 +214,18 @@ func _init() -> void:
 		Vector3(18, 2, 0), Vector3(0, 0, 0), 53.0, 1)
 	await _shot_role_framed("lagoon_04_complete_baby_plant", "lagoon_baby_rosette",
 		Vector3(1.2, 0.72, 1.45), 47.0, 0, true)
-	await _shot_role_framed("lagoon_05_developed_shrub", "lagoon_meadow_shrub",
+	await _shot_role_framed("lagoon_05a_shrub_salal", "lagoon_shrub_salal",
 		Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
+	await _shot_role_framed("lagoon_05b_shrub_oregon_grape", "lagoon_shrub_oregon_grape",
+		Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
+	await _shot_role_framed("lagoon_05c_shrub_red_flowering_currant",
+		"lagoon_shrub_red_flowering_currant", Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
+	await _shot_role_framed("lagoon_05d_shrub_oceanspray", "lagoon_shrub_oceanspray",
+		Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
+	await _shot_role_framed("lagoon_05e_shrub_salmonberry", "lagoon_shrub_salmonberry",
+		Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
+	await _shot_role_framed("lagoon_05f_shrub_evergreen_huckleberry",
+		"lagoon_shrub_evergreen_huckleberry", Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
 	await _shot_role_framed("lagoon_06_flower_cluster_coral", "lagoon_flower_cluster_coral",
 		Vector3(1.2, 0.72, 1.45), 47.0, 0, true)
 	await _shot_role_framed("lagoon_07_flower_cluster_lavender", "lagoon_flower_cluster_lavender",
@@ -296,33 +306,32 @@ func _init() -> void:
 		Vector3(0, 8, 22), Vector3(0, 6, 0), 56.0)
 	await _shot_role("lagoon_35_story_lantern", "lagoon_story_lantern",
 		Vector3(8, 5, 10), Vector3(0, 2.5, 0), 49.0, 1)
-	# Every tree receives its own fixed daylight review. The four original GEN2
-	# sculpts are explicit anchors; the eight extensions must remain individually
-	# legible by silhouette, not merely by palette.
-	await _shot_role_framed("lagoon_36_tree_original_pineround", "tree_pineRoundF",
+	# Every Seattle-area species receives its own fixed daylight review and must
+	# remain individually legible by branch graph, crown profile, and signature cues.
+	await _shot_role_framed("lagoon_36_tree_douglas_fir", "lagoon_tree_douglas_fir",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_37_tree_original_fall", "tree_default_fall",
+	await _shot_role_framed("lagoon_37_tree_western_redcedar", "lagoon_tree_western_redcedar",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_38_tree_original_fall2", "tree_simple_fall",
+	await _shot_role_framed("lagoon_38_tree_western_hemlock", "lagoon_tree_western_hemlock",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_39_tree_original_fat", "tree_fat",
+	await _shot_role_framed("lagoon_39_tree_sitka_spruce", "lagoon_tree_sitka_spruce",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_40_tree_ancient_oak", "lagoon_tree_ancient_oak",
+	await _shot_role_framed("lagoon_40_tree_shore_pine", "lagoon_tree_shore_pine",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_41_tree_dancing_birch", "lagoon_tree_dancing_birch",
+	await _shot_role_framed("lagoon_41_tree_pacific_yew", "lagoon_tree_pacific_yew",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_42_tree_umbrella", "lagoon_tree_umbrella",
+	await _shot_role_framed("lagoon_42_tree_bigleaf_maple", "lagoon_tree_bigleaf_maple",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_43_tree_blossom_cloud", "lagoon_tree_blossom_cloud",
+	await _shot_role_framed("lagoon_43_tree_red_alder", "lagoon_tree_red_alder",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_44_tree_windswept", "lagoon_tree_windswept",
+	await _shot_role_framed("lagoon_44_tree_black_cottonwood", "lagoon_tree_black_cottonwood",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_45_tree_twinheart", "lagoon_tree_twinheart",
+	await _shot_role_framed("lagoon_45_tree_pacific_madrone", "lagoon_tree_pacific_madrone",
 		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
-	await _shot_role_framed("lagoon_46_tree_weeping_willow", "lagoon_tree_weeping_willow",
-		Vector3(1.25, 0.32, 1.45), 49.0, 0, false, true)
-	await _shot_role_framed("lagoon_47_tree_celebration_snow", "lagoon_tree_celebration_snow",
-		Vector3(1.25, 0.32, 1.45), 49.0, 0, false, true)
+	await _shot_role_framed("lagoon_46_tree_garry_oak", "lagoon_tree_garry_oak",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_47_tree_pacific_dogwood", "lagoon_tree_pacific_dogwood",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
 	await _shot("lagoon_48_roshan_stained_glass", o + Vector3(0, 42, -75),
 		o + Vector3(0, 38, -106.95), 42.0)
 	await _shot_role_framed("lagoon_52_ember_gateway", "lagoon_ember_gateway",

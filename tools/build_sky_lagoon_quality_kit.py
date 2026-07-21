@@ -1309,7 +1309,6 @@ def build_cairn() -> bpy.types.Object:
 
 BUILDERS = {
 	"lagoon_baby_rosette": build_rosette,
-	"lagoon_meadow_shrub": build_shrub,
 	"lagoon_flower_cluster_coral": lambda: build_flowers("lagoon_flower_cluster_coral", True),
 	"lagoon_flower_cluster_lavender": lambda: build_flowers("lagoon_flower_cluster_lavender", False),
 	"lagoon_mushroom_cluster": build_mushrooms,
@@ -1361,13 +1360,12 @@ SPECIAL_OUT = {
 	"lagoon_cloud_2": ROOT / "assets" / "art35" / "landmarks" / "cloud_2.glb",
 }
 
-# These sixteen roles predate the full rebuild and are protected by
+# These fifteen roles predate the full rebuild and are protected by
 # audit_sky_lagoon_kit.py. Preserve their semantic extras and 3k-triangle
 # Mobile contract even though their editable Blender sources retain the denser
 # construction geometry used for art iteration.
 AUDITED_ROLES = {
 	"lagoon_baby_rosette": "grounded_baby_plant",
-	"lagoon_meadow_shrub": "developed_meadow_shrub",
 	"lagoon_flower_cluster_coral": "grounded_flowering_cluster",
 	"lagoon_flower_cluster_lavender": "grounded_flowering_cluster",
 	"lagoon_mushroom_cluster": "grounded_mushroom_family",

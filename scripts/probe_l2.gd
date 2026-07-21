@@ -30,21 +30,30 @@ func _init() -> void:
 	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
 		"OK" if river_depth >= 4.0 else "FAIL"])
 	var lagoon: SkyLagoon = main._lagoon_ref()
-	var ecology_ok: bool = (not lagoon._lagoon_plant_allowed("tree_pineRoundF", 150.0, 40.0)
-		and not lagoon._lagoon_plant_allowed("tree_default_fall", -95.0, 70.0)
+	var ecology_ok: bool = (not lagoon._lagoon_plant_allowed("lagoon_tree_douglas_fir", 150.0, 40.0)
+		and not lagoon._lagoon_plant_allowed("lagoon_tree_garry_oak", -95.0, 70.0)
 		and not lagoon._lagoon_plant_allowed("mushroom_red", 55.0, -120.0)
-		and not lagoon._lagoon_plant_allowed("mushroom_tanGroup", -96.0, -180.0)
-		and lagoon._lagoon_plant_allowed("tree_pineRoundF", -72.0, -170.0)
+		and not lagoon._lagoon_plant_allowed("lagoon_mushroom_cluster", -96.0, -180.0)
+		and lagoon._lagoon_plant_allowed("lagoon_tree_douglas_fir", -72.0, -170.0)
 		and not lagoon._lagoon_plant_allowed("plant_bush", 75.0, 91.0)
 		and not lagoon._lagoon_plant_allowed("tree_palm", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("mushroom_red", 130.0, -20.0))
+		and lagoon._lagoon_plant_allowed("lagoon_mushroom_cluster", 130.0, -20.0))
 	print("ECOLOGY|water/snow/sand/climate flora filter: ", "OK" if ecology_ok else "FAIL")
 	var botany_rule_ok: bool = (not lagoon._lagoon_plant_allowed("grass_leafsLarge", 130.0, -20.0)
 		and not lagoon._lagoon_plant_allowed("trop_bigleaf", 130.0, -20.0)
 		and lagoon._lagoon_plant_allowed("lagoon_baby_rosette", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_meadow_shrub", 130.0, -20.0))
+		and lagoon._lagoon_plant_allowed("lagoon_shrub_salal", 130.0, -20.0))
 	var kit_paths: Array[String] = [
-		"lagoon_baby_rosette", "lagoon_meadow_shrub",
+		"lagoon_baby_rosette",
+		"lagoon_shrub_salal", "lagoon_shrub_oregon_grape",
+		"lagoon_shrub_red_flowering_currant", "lagoon_shrub_oceanspray",
+		"lagoon_shrub_salmonberry", "lagoon_shrub_evergreen_huckleberry",
+		"lagoon_tree_douglas_fir", "lagoon_tree_western_redcedar",
+		"lagoon_tree_western_hemlock", "lagoon_tree_sitka_spruce",
+		"lagoon_tree_shore_pine", "lagoon_tree_pacific_yew",
+		"lagoon_tree_bigleaf_maple", "lagoon_tree_red_alder",
+		"lagoon_tree_black_cottonwood", "lagoon_tree_pacific_madrone",
+		"lagoon_tree_garry_oak", "lagoon_tree_pacific_dogwood",
 		"lagoon_flower_cluster_coral", "lagoon_flower_cluster_lavender",
 		"lagoon_mushroom_cluster", "lagoon_pond_reeds", "lagoon_river_stones",
 		"lagoon_story_lantern", "lagoon_memory_frame", "lagoon_rainbow_race_arch",
@@ -62,10 +71,9 @@ func _init() -> void:
 	var grounded_flora_count: int = 0
 	for flora_role: String in lagoon.LAGOON_GROUND_FLORA:
 		grounded_flora_count += int(lagoon_counts.get(flora_role, 0))
-	# The deterministic scatter currently yields 43 complete plants after route,
-	# moat, pond, village, and train clearances. A floor of 40 catches material
-	# vegetation loss without treating those required exclusions as failures.
-	var authored_placement_ok: bool = (grounded_flora_count >= 40
+	# Habitat-specific filters intentionally reduce scatter while six guaranteed
+	# shrub anchors preserve the complete roster. The floor catches material loss.
+	var authored_placement_ok: bool = (grounded_flora_count >= 30
 		and int(lagoon_counts.get("lagoon_pond_reeds", 0)) == 10
 		and int(lagoon_counts.get("lagoon_river_stones", 0)) == 6
 		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
@@ -76,6 +84,10 @@ func _init() -> void:
 		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
 		and fairy_pond_surface_ok
 		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")
+	for tree_role: String in lagoon.LAGOON_MEADOW_TREES:
+		authored_placement_ok = authored_placement_ok and int(lagoon_counts.get(tree_role, 0)) >= 1
+	for shrub_role: String in lagoon.LAGOON_SHRUB_SOURCE_HEIGHT.keys():
+		authored_placement_ok = authored_placement_ok and int(lagoon_counts.get(shrub_role, 0)) >= 1
 	var lagoon_art_ok: bool = botany_rule_ok and kit_resources_ok and authored_placement_ok
 	print("BOTANY|no isolated ground leaf + complete plant kit: ",
 		"OK" if lagoon_art_ok else "FAIL",
