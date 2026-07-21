@@ -27,6 +27,7 @@ func _init() -> void:
 	await _award_case()
 	await _lamma_case()
 	await _zone_case()
+	await _rest_case()
 	print("STUFFIE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
@@ -243,3 +244,77 @@ func _zone_case() -> void:
 	main.game = ""
 	comp.tick(0.016)
 	_ck("zone change snaps the stuffie to her side", near)
+
+func _rest_case() -> void:
+	# THE GENTLE FAILURE (owner 2026-07-21): battle bumps leave boo-boos; the
+	# stuffie asks for its post-battle hug + bath. Tended boo-boos heal;
+	# ignored ones send it home to its Den shelf, and Roshan picks a friend
+	# again at the castle (the same one included). Nothing else is lost.
+	var comp: CompanionSystem = main._companion_ref()
+	var care_before: int = main.care_points
+	var friend_before: String = main.companion_id
+	# --- heal path: get bumped, win anyway, then tend the hug + bath
+	main.stuffie_cool = 0.0
+	main._start_stuffie_battle()
+	await process_frame
+	var battle: StuffieBattle = main.stuffie_game
+	_ck("care-loop battle starts", battle != null and main.game == "stuffie")
+	if battle == null:
+		return
+	battle._bump_pal(battle.pal_pos + Vector3(0, 0, 3.0))
+	_ck("bumps leave boo-boos, never end the battle", battle.bruises == 1
+		and battle.state == "play")
+	for enemy: Dictionary in battle.enemies:
+		while int(enemy["hp"]) > 0 and String(enemy["state"]) == "active":
+			battle._hit_enemy(enemy)
+		enemy["timer"] = 0.0
+	await _settle(4)
+	battle.win_t = 0.0
+	await process_frame
+	await process_frame
+	_ck("boo-boos come home asking for hug + bath", main.companion_bruises >= 1
+		and main.companion_rest_timer > 0.0
+		and (main.companion_want_queue.size() >= 1 or main.companion_want != ""))
+	main.player.position = (main.companion_node as Node3D).position + Vector3(2.0, 0, 0)
+	main.player.vel = Vector3.ZERO
+	for i in range(2):
+		for f in range(60):
+			if main.companion_want != "":
+				break
+			await process_frame
+		main.touch_ui.action_down = true
+		await _settle(3)
+		main.touch_ui.action_down = false
+		main.companion_care_t = minf(main.companion_care_t, 0.01)
+		await _settle(4)
+	_ck("hug + bath heal every boo-boo", main.companion_bruises == 0
+		and main.companion_rest_timer < 0.0 and not main.companion_resting)
+	# --- rest path: hurt again, then let the patience clock run out
+	main.stuffie_cool = 0.0
+	main._start_stuffie_battle()
+	await process_frame
+	battle = main.stuffie_game
+	if battle == null:
+		_ck("rest-path battle starts", false)
+		return
+	battle._bump_pal(battle.pal_pos + Vector3(0, 0, 3.0))
+	battle.cancel()
+	await process_frame
+	await process_frame
+	_ck("leaving early keeps the boo-boo", main.companion_bruises >= 1
+		and main.game == "")
+	main.companion_rest_timer = 0.01
+	await _settle(4)
+	_ck("uncared boo-boos send the stuffie home to rest", main.companion_resting
+		and (main.companion_node == null or not is_instance_valid(main.companion_node)))
+	main._start_stuffie_battle()
+	_ck("no battles while resting", main.stuffie_game == null)
+	_ck("rest loses no progress", main.care_points >= care_before
+		and bool(main.stuffie_wins.get("friend_lamma", false)))
+	# picking again at the Den (the same friend included) wakes it up
+	comp.open_picker(false, friend_before)
+	comp._confirm_pick()
+	await _settle(12)
+	_ck("re-picking at the Den wakes the stuffie", not main.companion_resting
+		and main.companion_id == friend_before
+		and main.companion_node != null and is_instance_valid(main.companion_node))

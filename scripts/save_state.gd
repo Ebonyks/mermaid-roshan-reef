@@ -12,7 +12,7 @@ const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
-	"opera_done",
+	"opera_done", "companion_resting",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -33,6 +33,7 @@ const KNOWN_KEYS: Array[String] = [
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_done",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
+	"companion_resting", "companion_bruises",
 ]
 
 var m: ReefMain
@@ -100,6 +101,8 @@ func load_save() -> void:
 	# Tamagotchi care replaced the token collectibles (owner 2026-07-20):
 	# migrate any legacy token progress into care points, never losing growth
 	m.care_points = maxi(int(m.save_data.get("care_points", 0)), m.fish_tokens)
+	m.companion_resting = bool(m.save_data.get("companion_resting", false))
+	m.companion_bruises = int(m.save_data.get("companion_bruises", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
 	var saved_medals: Variant = m.save_data.get("medals", {})
@@ -187,6 +190,8 @@ func write_save() -> bool:
 	next_data["companion_colors"] = m.companion_colors
 	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
 	next_data["care_points"] = maxi(m.care_points, 0)
+	next_data["companion_resting"] = m.companion_resting
+	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
 	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
@@ -424,6 +429,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_colors"] = _array_or_default(raw, "companion_colors")
 	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
 	data["care_points"] = _nonnegative_int_or_default(raw, "care_points", 0)
+	data["companion_resting"] = _bool_or_default(raw, "companion_resting", false)
+	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)

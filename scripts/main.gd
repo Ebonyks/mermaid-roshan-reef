@@ -168,6 +168,11 @@ var companion_want_bubble: Label3D = null # the emoji thought bubble over the st
 var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
+var companion_resting := false            # went home to rest (persisted) — on its Den shelf until re-picked
+var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
+var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
+var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
+var companion_rest_warned := 0            # escalating "needs care" reminders fired
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_pick_id := ""               # picker working state
@@ -2524,7 +2529,7 @@ func _end_combat(battle_kind: String) -> void:
 func _start_stuffie_battle() -> void:
 	# the sparring-den ladder: one round per visit; once all three are won the
 	# den keeps serving rounds in rotation (replayable, no dead end)
-	if stuffie_game != null or companion_id == "":
+	if stuffie_game != null or companion_id == "" or companion_resting:
 		return
 	var ladder_index := 0
 	for i in range(StuffieBattle.LADDER.size()):
@@ -2571,6 +2576,9 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		player.cam.make_current()
 	if hud_layer != null:
 		hud_layer.visible = true
+	# post-battle care (owner 2026-07-21): a big battle earns a hug + bath;
+	# boo-boos that never get that care send the stuffie home to rest
+	_companion_ref().after_battle()
 
 func _start_dungeon() -> void:
 	_fade_cut(_start_dungeon_now)

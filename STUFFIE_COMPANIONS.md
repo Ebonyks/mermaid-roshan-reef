@@ -108,10 +108,23 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
   Befriend everyone to win. Winning pays pearls and runs `_reward()`.
 - **DODGE QTE**: one opponent at a time telegraphs (puffs + blinks + red
   sparkle) and a **giant pulsing DODGE bubble** appears (~2.2s window). Tap
-  it (or X on a pad) → happy hop with sparkle trail. Miss → a harmless
-  sparkle-bump and encouragement — no health, no damage, no fail state.
+  it (or X on a pad) → happy hop with sparkle trail. Miss → a sparkle-bump.
   Mercy: misses widen the window (+0.6s each, cap +1.8s), and after two
   straight misses ANY button counts as the dodge (mash-proof for age 4).
+- **Boo-boos**: landed bumps never end a battle, but they leave bruises
+  (🩹 pips on the HUD) that ride home with the stuffie.
+- **THE GENTLE FAILURE** (owner 2026-07-21, a deliberate refinement of the
+  no-fail rule — failure comes from NOT CARING, never from the battle):
+  after every big battle the stuffie asks for its **hug + bubble bath**
+  (queued care wants). Tending both heals every boo-boo ("All better!").
+  But an INJURED stuffie whose care never comes (a generous ~2-minute
+  patience clock that only ticks in free-roam, with two spoken reminders)
+  goes home to its Den shelf to rest (`companion_resting`, persisted).
+  Nothing is lost — care points, captures, colours all keep — but the
+  follower is gone and battles pause until Roshan walks back to the
+  castle's Stuffie Den and picks a friend again, **the same one included**
+  (its shelf shows 💤 and it yawns awake). Failure = a nap + a little
+  journey, never a punishment.
 - **Ladder**: round1 (2 imps) → round2 (3 imps) → round3 (dragon-turtle
   friendly rematch) → **boss_lamma** (Lamb-a' capture — see THE CAPTURE
   LOOP), one round per visit, saved in `stuffie_wins`; after all rounds,

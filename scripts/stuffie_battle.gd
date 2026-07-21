@@ -4,10 +4,15 @@ extends Node3D
 # CONTROLS THE CREATURE (not Roshan): stick to scamper, ONE attack button
 # (PECK for the baby eagle, CLAW for Kitty), and a quick-time DODGE — when an
 # opponent telegraphs, a giant pulsing DODGE bubble appears and any tap inside
-# the forgiving window hops the stuffie clear. Getting "hit" is always a
-# harmless sparkle-bump: no health, no damage, no fail state. Opponents get
-# dizzy and BEFRIENDED, never hurt. All motion is analytic (probe-friendly,
-# mobile-renderer budget), same Family-B shape as CombatArena.
+# the forgiving window hops the stuffie clear. Opponents get dizzy and
+# BEFRIENDED, never hurt. The battle itself can never be lost. All motion is
+# analytic (probe-friendly, mobile-renderer budget), same Family-B shape as
+# CombatArena.
+#
+# BOO-BOOS (owner 2026-07-21): landed bumps leave little bruises (🩹 pips on
+# the HUD). They never end the battle — but they come home with the stuffie,
+# who then needs its post-battle hug + bubble bath (companion.gd). An injured
+# stuffie whose care never comes goes home to its Den shelf to rest.
 
 const CENTER := Vector3(0.0, -2400.0, 0.0)
 const RADIUS := 27.0
@@ -60,6 +65,7 @@ var qte_gap := 0.0
 var dodge_success_count := 0
 var miss_count := 0
 var miss_streak := 0        # consecutive misses → mercy widens the window
+var bruises := 0            # landed bumps — boo-boos the stuffie carries home
 var hop_t := -1.0
 var hop_vec := Vector3.ZERO
 var materials := {}
@@ -580,13 +586,17 @@ func _tick_enemy_shots(delta: float) -> void:
 			enemy_shots.remove_at(i)
 
 func _bump_pal(from: Vector3) -> void:
+	if state != "play":
+		return
 	var away: Vector3 = pal_pos - from
 	away.y = 0.0
 	if away.length() < 0.1:
 		away = Vector3.FORWARD
 	pal_pos += away.normalized() * 3.5
 	m._sparkle_burst(pal_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
-	m.show_msg(String(creature_def.get("name", "Stuffie")), "Boing! I'm okay! Tap the big DODGE bubble next time!", "talk")
+	bruises += 1
+	m.show_msg(String(creature_def.get("name", "Stuffie")), "Ouch, a boo-boo! I'll need a hug after this! Tap the big DODGE bubble!", "talk")
+	_update_hud()
 
 # ---------- pointer / HUD / win ----------
 
@@ -613,7 +623,7 @@ func _update_hud() -> void:
 	for enemy in enemies:
 		if String(enemy["state"]) != "friend":
 			active += 1
-	counter.text = "💗  %d" % active
+	counter.text = "💗 %d   %s" % [active, "🩹".repeat(mini(bruises, 5))]
 
 func _win() -> void:
 	if state != "play":
@@ -631,6 +641,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	m.companion_bruises += bruises   # boo-boos ride home for the care loop
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -644,6 +655,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m.companion_bruises += bruises   # leaving early keeps any boo-boos too
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

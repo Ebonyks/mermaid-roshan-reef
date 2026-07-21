@@ -70,6 +70,14 @@ const WANTS := [
 const WANT_GAP_MIN := 45.0        # quiet time between fulfilled want and the next ask
 const WANT_GAP_MAX := 75.0
 const LEVEL_EVERY := 4            # care points per level-up celebration
+# THE GENTLE FAILURE (owner 2026-07-21): a big battle earns a hug + bubble
+# bath. If the stuffie came home with boo-boos and that care never arrives,
+# it eventually goes home to its Den shelf to rest — Roshan walks back to
+# the castle and picks a friend again (the same one included). Nothing else
+# is ever lost: care points, captures and colours all keep.
+const REST_PATIENCE := 120.0      # generous seconds of free-roam before an injured stuffie heads home
+const REST_WARN_1 := 60.0         # first "needs care" reminder
+const REST_WARN_2 := 25.0         # last-chance reminder
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -159,6 +167,8 @@ func tick(delta: float) -> void:
 	_tick_room(delta)
 	if m.companion_id == "":
 		return
+	if m.companion_resting:
+		return   # tuckered out: home on its Den shelf until re-picked there
 	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
 	# context flips (reef ↔ lagoon ↔ castle ↔ north ↔ any engine and back),
 	# snap the stuffie straight to Roshan's side — never left behind, never
@@ -371,13 +381,19 @@ func _confirm_pick() -> void:
 		m.companion_room = null
 		m.companion_room_rows = []
 	# a swap resets any pending want (care progress itself is shared — it is
-	# HER nurturing that grows, whichever friend she carries)
+	# HER nurturing that grows, whichever friend she carries); picking at the
+	# Den also tucks in any hurt friend, so boo-boos never follow a fresh start
 	m.companion_want = ""
 	m.companion_care_t = -1.0
 	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
 		m.companion_want_bubble.queue_free()
 	m.companion_want_bubble = null
 	m.companion_want_cool = 20.0
+	m.companion_want_queue = []
+	m.companion_bruises = 0
+	m.companion_rest_timer = -1.0
+	m.companion_rest_warned = 0
+	m.companion_resting = false   # picking a friend (the same one included) wakes it
 	m.companion_greeted = false
 	m._write_save()
 	m._reward(false)
@@ -602,6 +618,7 @@ func _tick_room(delta: float) -> void:
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
 		if is_instance_valid(heart):
 			heart.visible = mine
+			heart.text = "💤" if (mine and m.companion_resting) else "💗"
 		var dist: float = node.global_position.distance_to(m.player.position)
 		if dist < best_d:
 			best_d = dist
@@ -614,7 +631,9 @@ func _tick_room(delta: float) -> void:
 			m.show_msg("Roshan", "Someone could live on this shelf! Win the toy tournament in the reef and bring a new friend home!", "talk")
 		else:
 			open_picker(false, best_id)
-			if best_id == m.companion_id:
+			if best_id == m.companion_id and m.companion_resting:
+				m.show_msg(String(d["name"]), "*yaaawn* What a good rest! Take me with you again!", "talk")
+			elif best_id == m.companion_id:
 				m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
 			else:
 				m.show_msg(String(d["name"]), "Pick me! I'll come along!", "talk")
@@ -881,9 +900,48 @@ func want_def(id: String) -> Dictionary:
 			return w
 	return {}
 
+func after_battle(announce: bool = true) -> void:
+	# every big battle earns a hug + bubble bath; while boo-boos remain the
+	# patience clock runs — care heals them, silence sends the stuffie home
+	if m.companion_id == "" or m.companion_resting:
+		return
+	m.companion_want = ""
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	m.companion_want_bubble = null
+	m.companion_care_t = -1.0
+	m.companion_want_queue = ["cuddle", "bath"]
+	m.companion_want_cool = 1.5
+	if m.companion_bruises > 0:
+		m.companion_rest_timer = REST_PATIENCE
+		m.companion_rest_warned = 0
+		if announce:
+			var d := active_def()
+			m.show_msg(String(d["name"]), "What a big battle! I have boo-boos... I need a hug and a bubble bath!", "talk")
+	elif announce:
+		var d2 := active_def()
+		m.show_msg(String(d2["name"]), "What a big battle! Can I have a hug and a bubble bath?", "talk")
+
 func _tick_care(delta: float) -> void:
 	if not _follow_ctx() or m.companion_node == null or not is_instance_valid(m.companion_node):
 		return
+	# reloaded mid-injury (or came back before the queue ran): re-ask kindly
+	if m.companion_bruises > 0 and m.companion_want_queue.is_empty() \
+			and m.companion_want == "" and m.companion_rest_timer < 0.0:
+		after_battle(false)
+	# the injured patience clock — only ticks while she can actually help
+	if m.companion_bruises > 0 and m.companion_rest_timer > 0.0 and m.companion_care_t <= 0.0:
+		m.companion_rest_timer -= delta
+		var d := active_def()
+		if m.companion_rest_timer <= REST_WARN_2 and m.companion_rest_warned < 2:
+			m.companion_rest_warned = 2
+			m.show_msg(String(d["name"]), "I'm really hurting... one more minute and I'll go home to rest. Please tap me for care!", "talk")
+		elif m.companion_rest_timer <= REST_WARN_1 and m.companion_rest_warned < 1:
+			m.companion_rest_warned = 1
+			m.show_msg(String(d["name"]), "My boo-boos still hurt... I need my hug and bath, please!", "talk")
+		if m.companion_rest_timer <= 0.0:
+			_go_home_to_rest()
+			return
 	# a care moment in progress owns the stuffie for a beat
 	if m.companion_care_t > 0.0:
 		m.companion_care_t -= delta
@@ -891,12 +949,15 @@ func _tick_care(delta: float) -> void:
 			_finish_care()
 		return
 	if m.companion_want == "":
-		# quiet time, then the next gentle ask (never during the picker)
 		if m.companion_layer != null:
 			return
 		m.companion_want_cool -= delta
 		if m.companion_want_cool <= 0.0:
-			_begin_want(String(WANTS[randi() % WANTS.size()]["id"]))
+			# queued post-battle care first, then the ordinary gentle asks
+			if not m.companion_want_queue.is_empty():
+				_begin_want(String(m.companion_want_queue.pop_front()))
+			else:
+				_begin_want(String(WANTS[randi() % WANTS.size()]["id"]))
 		return
 	# a want is showing: keep the bubble riding above the stuffie
 	var bubble: Label3D = m.companion_want_bubble
@@ -1002,12 +1063,48 @@ func _pal_bounce(peak: float) -> void:
 	tw.tween_property(pal, "scale", base * peak, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(pal, "scale", base, 0.45).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
+func _go_home_to_rest() -> void:
+	# the gentle failure lands: sparkle-poof home to the Den shelf
+	var d := active_def()
+	if m.companion_node != null and is_instance_valid(m.companion_node):
+		m._sparkle_burst(m.companion_node.position + Vector3(0, 2.0, 0), Color(0.75, 0.8, 1.0))
+		m.companion_node.queue_free()
+	m.companion_node = null
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	m.companion_want_bubble = null
+	m.companion_want = ""
+	m.companion_want_queue = []
+	m.companion_care_t = -1.0
+	m.companion_rest_timer = -1.0
+	m.companion_bruises = 0
+	m.companion_resting = true
+	m.show_msg(String(d["name"]), "My boo-boos hurt too much... I'm going home to my shelf to rest. Come get me at the castle!", "talk")
+	m._write_save()
+
 func _finish_care() -> void:
 	var w := want_def(m.companion_want)
 	var d := active_def()
 	m.companion_want = ""
 	m.companion_want_cool = randf_range(WANT_GAP_MIN, WANT_GAP_MAX)
+	if not m.companion_want_queue.is_empty():
+		m.companion_want_cool = 1.2   # the post-battle bath follows the hug right away
 	m.care_points += 1
+	# tending BOTH post-battle wants heals every boo-boo — all better!
+	if m.companion_bruises > 0 and m.companion_want_queue.is_empty():
+		m.companion_bruises = 0
+		m.companion_rest_timer = -1.0
+		m.companion_rest_warned = 0
+		if m.companion_node != null and is_instance_valid(m.companion_node):
+			for i in range(6):
+				var a: float = TAU * float(i) / 6.0
+				m._sparkle_burst(m.companion_node.position + Vector3(cos(a) * 1.8, 1.5, sin(a) * 1.8), Color(0.6, 1.0, 0.75))
+		m.show_msg(String(d["name"]), "All better! My boo-boos are gone! You take such good care of me!", "win")
+		m._write_save()
+		if m.chime != null:
+			m.chime.pitch_scale = 1.4
+			m.chime.play()
+		return
 	if m.chime != null:
 		m.chime.pitch_scale = 1.3
 		m.chime.play()
