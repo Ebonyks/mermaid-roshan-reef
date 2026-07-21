@@ -17,6 +17,7 @@ func _init() -> void:
 	main._skip_intro()
 	# A brand-new save must be able to enter: the opera teaches its own shows.
 	main.opera_progress = 0
+	main.opera_stars = 0
 	main.opera_done = false
 	main.stickers.erase("showtime")
 	main.game = "level2"
@@ -24,7 +25,7 @@ func _init() -> void:
 	main._start_opera()
 	var opera: OperaHouse = main.opera_game
 	_ck("fresh save can enter the opera house", opera != null)
-	await _wait_for_act(opera, 0)
+	await _frames(4)
 	_ck("opera defines fourteen acts", OperaHouse.ACTS.size() == 14)
 	var floor1_shows := 0
 	var floor2_shows := 0
@@ -42,14 +43,41 @@ func _init() -> void:
 	_ck("each floor ends with one boss", floor1_boss == 1 and floor2_boss == 1)
 	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[6]["type"]) == "boss")
 	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[13]["type"]) == "boss")
-	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
-	var act: OperaAct = opera.act
-	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
+	# ---- the explorable lobby (Peach Showtime model, owner 2026-07-20) ----
+	_ck("lobby builds a door for every show", opera.doors.size() == 14)
+	_ck("Roshan spawns in the lobby with no act running", opera.act == null and opera.lobby_y == 0.0)
+	_ck("lobby HUD never blocks touch", opera.star_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	for i in range(30): await process_frame
+	_ck("nothing wins passively in the lobby", opera.act == null and main.opera_stars == 0)
+	# both boss doors start behind the velvet rope
+	opera.lobby_pos = (opera.doors[6]["pos"] as Vector3)
+	await _frames(30)
+	_ck("dragon door waits for six ground-floor stars", opera.act == null)
+	_ck("dragon door reads as locked", opera._boss_locked(opera.doors[6]))
+	_ck("phantom door reads as locked", opera._boss_locked(opera.doors[13]))
+	# the bubble lift carries her up to the balcony and back down
+	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 1.1, 0)
+	var guard := 0
+	while opera.lobby_y < OperaHouse.BALCONY_Y - 0.5 and guard < 400:
+		guard += 1
+		await process_frame
+	_ck("bubble lift carries Roshan to the balcony", opera.lobby_y > OperaHouse.BALCONY_Y - 0.5)
+	opera.lobby_pos = OperaHouse.L + Vector3(0, OperaHouse.BALCONY_Y + 1.1, -18.0)
+	await _frames(10)
+	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, OperaHouse.BALCONY_Y + 1.1, 0)
+	guard = 0
+	while opera.lobby_y > 0.5 and guard < 400:
+		guard += 1
+		await process_frame
+	_ck("bubble lift floats her back down", opera.lobby_y < 0.5)
+	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
+	var act: OperaAct = await _open_door(opera, 0)
+	_ck("act one dresses Roshan in a costume", act != null and act.costume_root != null and act.costume_root.get_child_count() > 0)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
-	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
+	_ck("act one cannot win passively", act.state == "play" and act.stage_phase == "brawl")
 	# a sparkle with no imp near just fizzles — never a fail (probe-only
 	# teleport to centre stage guarantees every imp is out of reach)
 	var far_left: int = act.imps_left
@@ -68,24 +96,33 @@ func _init() -> void:
 	await _drive_order(act, first_cfg)
 	_ck("cake show ends in a win", act.state == "won")
 	act.win_t = 0.0
-	await _wait_for_act(opera, 1)
-	_ck("act one clear saves a checkpoint", main.opera_progress == 1)
+	await _wait_lobby(opera)
+	_ck("finished door wears a gold star", (main.opera_stars & 1) == 1)
+	_ck("one star counts one cleared act", main.opera_progress == 1)
+	# leaving keeps every star; the next visit still shows it
 	opera._leave_early()
 	await process_frame
 	_ck("home icon returns safely", main.game == "level2" and main.opera_game == null)
 	main._start_opera()
 	opera = main.opera_game
-	await _wait_for_act(opera, 1)
-	_ck("next visit resumes at act two", opera.act_index == 1 and opera.act != null)
+	await _frames(4)
+	_ck("stars persist across visits", (main.opera_stars & 1) == 1 and opera.doors.size() == 14)
+	# every remaining door in free-roam order: shows first, then each floor's
+	# boss the moment its six stars unlock the rope
 	for expected in range(1, OperaHouse.ACTS.size()):
-		await _wait_for_act(opera, expected)
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
-		act = opera.act
-		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
+		if expected == 6:
+			_ck("six ground stars unlock the dragon door", not opera._boss_locked(opera.doors[6]))
+		if expected == 13:
+			_ck("six balcony stars unlock the phantom door", not opera._boss_locked(opera.doors[13]))
+		act = await _open_door(opera, expected)
+		_ck("door %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
+		if act == null:
+			continue
 		if bool(cfg2.get("shell", false)):
-			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
+			_ck("door %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)
-			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
+			_ck("door %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
 		match String(cfg2["kind"]):
 			"order":
 				await _drive_order(act, cfg2)
@@ -107,16 +144,17 @@ func _init() -> void:
 				await _drive_dance(act)
 			"boss":
 				await _drive_boss(act, bool(cfg2.get("dual", false)))
-		_ck("act %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
+		_ck("door %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
 		act.win_t = 0.0
-		if expected < OperaHouse.ACTS.size() - 1:
-			await _wait_for_act(opera, expected + 1)
+		await _wait_lobby(opera)
+		_ck("door %d wears its star" % (expected + 1), (main.opera_stars & (1 << expected)) != 0)
 	await process_frame
 	await process_frame
-	_ck("all fourteen checkpoints persist", main.opera_progress == 14)
-	_ck("final act completes the opera", main.opera_done)
+	_ck("all fourteen doors are starred", main.opera_stars == OperaHouse.ALL_STARS)
+	_ck("stars count as fourteen cleared acts", main.opera_progress == 14)
+	_ck("final star completes the opera", main.opera_done)
 	_ck("the Showtime sticker is earned", bool(main.stickers.get("showtime", false)))
-	opera._finish(true)
+	opera._leave_early()
 	await process_frame
 	_ck("completion returns to the castle", main.game == "level2" and main.opera_game == null)
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -329,10 +367,29 @@ func _drive_boss(act: OperaAct, dual: bool) -> void:
 				await process_frame
 		_ck("dragon act does not stall", guard < 900)
 
-func _wait_for_act(opera: OperaHouse, expected: int) -> void:
+func _open_door(opera: OperaHouse, i: int) -> OperaAct:
+	# stand Roshan on the door's welcome mat; the lobby's own proximity flow
+	# (arming, cooldown, transformation) opens the show
+	var door: Dictionary = opera.doors[i]
+	var dpos: Vector3 = door["pos"]
+	opera.lobby_y = OperaHouse.BALCONY_Y if dpos.y - OperaHouse.L.y > 6.0 else 0.0
+	opera.lobby_pos = dpos
 	var guard := 0
-	while opera != null and (opera.act_index != expected or opera.act == null) and guard < 400:
+	while opera.act == null and guard < 500:
 		guard += 1
+		await process_frame
+	_ck("door %d opens from the lobby walk-in" % (i + 1), opera.act != null)
+	return opera.act
+
+func _wait_lobby(opera: OperaHouse) -> void:
+	var guard := 0
+	while opera.act != null and guard < 500:
+		guard += 1
+		await process_frame
+	_ck("show hands Roshan back to the lobby", opera.act == null)
+
+func _frames(n: int):
+	for i in range(n):
 		await process_frame
 
 func _descendants(node: Node) -> int:
