@@ -526,14 +526,16 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# Butterfly World has been saved (dev-mode builds keep it always open).
 	# Swimming in launches the same floating rainbow race, but this time the
 	# road dives DOWN off the rainbow into the volcano planet.
-	# Keep the landmark inside the grand-tour railway by a full prop-width. The
-	# original integration put its centre at radius ~188, directly in the
-	# radius-191.5 train corridor; the locomotive and portal could visibly pass
-	# through one another. Twenty-two units beyond the far race arch preserves
-	# the junction sequence while leaving the railway more than 20 units clear.
-	var emz: float = legbz - 22.0
+	# Keep the landmark on dry meadow inside the grand-tour railway. The original
+	# integration put its centre at radius ~188, directly in the radius-191.5
+	# train corridor; the first inward move then landed inside the castle moat.
+	# This diagonal continuation from the far race arch clears the moat by more
+	# than the complete prop radius and stays about 28 units inside the railway
+	# centreline, so neither water nor the locomotive can intersect the gateway.
+	var emx: float = rb_center.x + 32.0
+	var emz: float = legbz - 16.0
 	if m._ember_open():
-		m.ember_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, emz) + 8.0, emz)
+		m.ember_portal_pos = Vector3(emx, m.lagoon_h(emx, emz) + 8.0, emz)
 		_build_ember_gateway(m.ember_portal_pos)
 	else:
 		m.ember_portal_pos = Vector3.ZERO
