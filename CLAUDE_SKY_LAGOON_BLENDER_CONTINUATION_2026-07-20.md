@@ -9,8 +9,8 @@ or its eighteen GLBs as a base. They are preserved only as rejected history.
 The art-direction source of truth for the next modeling pass is flat image art:
 
 - `assets_src/concepts/sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png`
-- `assets_src/concepts/sky_lagoon_pnw_shrub_prototypes_flat_2026-07-21.png`
-- the eighteen named crop cards under
+- `assets_src/concepts/sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`
+- the twenty-four named crop cards under
   `assets_src/concepts/sky_lagoon_pnw_flat/`
 - `SKY_LAGOON_PNW_FLAT_PROTOTYPE_AUDIT_2026-07-21.md`
 
@@ -18,7 +18,20 @@ The required future roster is twelve trees (Coastal Douglas-fir, western
 redcedar, western hemlock, Sitka spruce, shore pine, Pacific yew, bigleaf
 maple, red alder, black cottonwood, Pacific madrone, Garry oak, and Pacific
 dogwood) plus six shrubs (salal, low Oregon grape, red-flowering currant,
-oceanspray, salmonberry, and evergreen huckleberry).
+oceanspray, salmonberry, and native trailing blackberry). Build both approved
+A/B forms for every shrub, for twelve shrub meshes total. Each B form changes
+the footprint, mass layout, negative space, and stem gesture; do not produce a
+mirror, palette swap, or accent-only variation.
+
+Trailing, creeping, crescent, bridge, cane-arch, and tunnel-like silhouettes
+belong to trailing blackberry only. The other B forms are deliberately salal
+terrace, Oregon-grape spear-fan, currant candelabra, oceanspray tiered wedge,
+and salmonberry clustered tower. Do not reintroduce the rejected repeated-arch
+pattern while translating them.
+
+The old `sky_lagoon_pnw_shrub_prototypes_flat_2026-07-21.png`, all legacy
+no-suffix shrub crop cards, and evergreen huckleberry are superseded and must
+not be modeled or restored.
 
 These references are approved prototypes, not authorization to replace the
 current runtime family. Keep GEN2 plus GEN5 wired as the fallback until every
@@ -39,9 +52,9 @@ Use these habitat constraints during the later scene pass:
   pine only;
 - wet bank: red alder, black cottonwood, or salmonberry;
 - moist ground: western redcedar, western hemlock, Sitka spruce, Pacific yew,
-  bigleaf maple, Pacific dogwood, salal, or evergreen huckleberry;
+  bigleaf maple, Pacific dogwood, salal, salmonberry, or trailing blackberry;
 - dry ground: shore pine, Pacific madrone, Garry oak, low Oregon grape,
-  red-flowering currant, or oceanspray;
+  red-flowering currant, oceanspray, or trailing blackberry;
 - never place a broadleaf, shrub, mushroom, or tropical plant in snow, and
   never grow foliage from open water, path paving, bridge masonry, track, or
   building floors.

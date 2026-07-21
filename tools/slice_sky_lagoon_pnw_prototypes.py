@@ -28,8 +28,23 @@ TREE_NAMES = (
 	"pacific_dogwood",
 )
 
-SHRUB_SHEET = SOURCE / "sky_lagoon_pnw_shrub_prototypes_flat_2026-07-21.png"
+SHRUB_SHEET = SOURCE / "sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png"
 SHRUB_NAMES = (
+	"salal_a",
+	"salal_b",
+	"oregon_grape_a",
+	"oregon_grape_b",
+	"red_flowering_currant_a",
+	"red_flowering_currant_b",
+	"oceanspray_a",
+	"oceanspray_b",
+	"salmonberry_a",
+	"salmonberry_b",
+	"trailing_blackberry_a",
+	"trailing_blackberry_b",
+)
+
+STALE_SHRUB_CARDS = (
 	"salal",
 	"oregon_grape",
 	"red_flowering_currant",
@@ -74,10 +89,16 @@ def main() -> None:
 	OUTPUT.mkdir(parents=True, exist_ok=True)
 	normalize_sheet(TREE_SHEET)
 	normalize_sheet(SHRUB_SHEET)
+	for stale_name in STALE_SHRUB_CARDS:
+		stale_path = OUTPUT / f"lagoon_shrub_{stale_name}.png"
+		stale_path.unlink(missing_ok=True)
 	# The generated tree gallery has clean but intentionally unequal row gaps.
 	# These boundaries preserve every planted base without neighboring artifacts.
 	slice_sheet(TREE_SHEET, TREE_NAMES, 4, 3, "tree", (0, 371, 661, 1024))
-	slice_sheet(SHRUB_SHEET, SHRUB_NAMES, 3, 2, "shrub")
+	# The portrait variant gallery also uses unequal row spacing. Split through
+	# the measured navy gaps so every base stays complete and isolated.
+	slice_sheet(SHRUB_SHEET, SHRUB_NAMES, 2, 6, "shrub",
+		(0, 190, 364, 533, 690, 845, 1024))
 	print(f"SKY_LAGOON_PNW_FLAT|trees={len(TREE_NAMES)}|shrubs={len(SHRUB_NAMES)}")
 
 
