@@ -396,6 +396,7 @@ var first_session := true
 var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
 var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
+var hop_sfx: AudioStreamPlayer     # soft cartoon boing per on-land hop touchdown
 var whale_node: Node3D
 var voice_pool: Array = []
 var voice_i := 0
@@ -570,6 +571,11 @@ func _ready() -> void:
 	chime.bus = "SFX"
 	chime.volume_db = -4.0
 	add_child(chime)
+	hop_sfx = AudioStreamPlayer.new()
+	hop_sfx.stream = load("res://assets/audio/hop_boing.ogg")
+	hop_sfx.bus = "SFX"
+	hop_sfx.volume_db = -12.0   # a scoot is many hops — keep the boing well under the chime
+	add_child(hop_sfx)
 	peng_giggle = AudioStreamPlayer.new()
 	peng_giggle.stream = load("res://assets/audio/penguin_giggle.ogg")
 	peng_giggle.bus = "SFX"
@@ -6684,6 +6690,13 @@ func on_player_jump(pos: Vector3) -> void:
 	if game == "" and pos.y > WATER_TOP - 12.0:
 		_spawn_surf_ring(Vector3(pos.x, WATER_TOP - 0.25, pos.z), 16.0)
 		_sparkle_burst(Vector3(pos.x, minf(pos.y + 2.0, WATER_TOP - 1.0), pos.z), Color(0.75, 0.95, 1.0))
+
+func on_player_hop_land() -> void:
+	# soft cartoon boing per on-land hop touchdown, pitch-wobbled so a scoot
+	# across the meadow reads as boing-boing-boing instead of a metronome
+	if hop_sfx != null:
+		hop_sfx.pitch_scale = 0.9 + randf() * 0.25
+		hop_sfx.play()
 
 func _tick_movers(delta: float) -> void:
 	var t: float = Time.get_ticks_msec() / 1000.0

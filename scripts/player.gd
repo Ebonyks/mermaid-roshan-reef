@@ -61,6 +61,7 @@ var land_blend := 0.0        # 0 = swim pose, 1 = land pose (smoothed)
 var hop_phase := 0.0
 var hop_amp := 0.0           # hop envelope: ramps in only while scooting
 var hop_prev := 0.0          # last frame's hop height, for touchdown detection
+var land_hops := 0           # session touchdown count (gates the one-time giggle line)
 var hop_dust: CPUParticles3D = null
 var _hop_node: Node3D = null       # visual node the hop bounce is applied to
 var _hop_base_y := 0.0
@@ -142,6 +143,18 @@ const VERB_LIB := {
 		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.1], [1.5, -0.1], [2.3, 0.1], [3.4, 0.0]]},
 		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.6, 0.0], [2.4, -0.3], [3.4, 0.0]]},
 	}},
+	"flop": {"len": 3.4, "sig": ["armU", 1.1], "tip": true, "tracks": {
+		# beached-seal intermission (on-land idle): she keels over sideways
+		# (the tip flag drives model_root), flails both arms, wiggles the tail
+		# tip like a landed fish, then pops back upright none the wiser
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
+		"armF": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
+		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.25], [1.4, 0.25], [2.0, -0.2], [2.6, 0.25], [3.4, 0.0]]},
+		"tail5": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.2, 0.1], [1.6, -0.3], [2.0, 0.1], [2.4, -0.3], [3.4, 0.0]]},
+		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.5], [1.2, 0.15], [1.6, -0.5], [2.0, 0.15], [2.4, -0.5], [3.4, 0.0]]},
+	}},
 }
 
 func play_verb(vname: String) -> bool:
@@ -175,6 +188,7 @@ func _apply_verb(delta: float) -> void:
 		verb = ""
 		if model_root != null:
 			model_root.rotation.y = 0.0
+			model_root.rotation.z = 0.0
 		return
 	var w: float = smoothstep(0.0, 0.25, verb_t) * (1.0 - smoothstep(vlen - 0.3, vlen, verb_t))
 	var tracks: Dictionary = spec["tracks"]
@@ -193,6 +207,10 @@ func _apply_verb(delta: float) -> void:
 	if bool(spec.get("spin", false)) and model_root != null:
 		# a full pirouette that always lands facing forward again
 		model_root.rotation.y = TAU * smoothstep(0.0, 1.0, verb_t / vlen)
+	if bool(spec.get("tip", false)) and model_root != null:
+		# seal flop: keel over sideways, lie there wiggling, pop back upright
+		var tp: float = verb_t / vlen
+		model_root.rotation.z = smoothstep(0.05, 0.30, tp) * (1.0 - smoothstep(0.72, 0.92, tp)) * 1.15
 var cam: Camera3D
 # STORYBOOK DIORAMA LENS: longer + narrower than a normal chase cam — the
 # compressed perspective flattens the world toward 2.5D so it reads as a
@@ -1044,6 +1062,10 @@ func _process(delta: float) -> void:
 				# small idle repertoire so a quiet minute stays alive
 				play_verb(["look", "hairtwirl", "hum"][randi() % 3])
 				idle_verb_cool = 15.0
+		elif land_blend > 0.7 and land_rest:
+			# parked on dry land: sometimes she just gives up and flops over
+			play_verb(["flop", "look", "hum"][randi() % 3])
+			idle_verb_cool = 18.0
 
 	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
 	if skin_sprite != null and skin_sprite.visible:
@@ -1128,9 +1150,17 @@ func _apply_land_pose(delta: float, speed: float) -> void:
 	if land_dry and not land_rest:
 		# airborne over land (the big jump): tail springs out, arms fly up
 		hop = maxf(hop, clampf(absf(vel.y) * 0.06, 0.0, 1.0))
-	# touchdown: the bounce comes back down -> dust poof at her tail
-	if hop_prev >= 0.25 and hop < 0.10 and land_rest and hop_dust != null:
-		hop_dust.restart()
+	# touchdown: the bounce comes back down -> dust poof + boing at her tail
+	if hop_prev >= 0.25 and hop < 0.10 and land_rest:
+		if hop_dust != null:
+			hop_dust.restart()
+		var mh: Node = get_parent()
+		if mh != null and mh.has_method("on_player_hop_land"):
+			mh.on_player_hop_land()
+		land_hops += 1
+		if land_hops == 3 and mh != null and mh.has_method("show_msg"):
+			# one giggle line per session, the first time she really scoots
+			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "talk")
 	hop_prev = hop
 	if skel != null:
 		# same swing-axis rule as the swim: in-plane (BACK) on the old flat card
