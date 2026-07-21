@@ -67,6 +67,12 @@ https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-test/ro
 From a computer, `./pull-apk.sh` downloads it and, if a phone is on adb,
 installs it in place (save data kept).
 
+## Backups
+Weekly CI backup (.github/workflows/backup.yml) publishes a verified,
+restore-drilled full-repo git bundle to the `project-backup` release tag;
+`./backup.sh` makes the offline copy and pulls the phone's save file.
+All restore recipes: BACKUP.md.
+
 ## Hard rules
 - Renderer: "mobile" on EVERY platform (owner decision 2026-07-11:
   desktop and phone must look identical — mobile is the dominant

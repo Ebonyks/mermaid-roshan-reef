@@ -30,33 +30,36 @@ Color = tuple[float, float, float, float]
 
 PALETTE: dict[str, Color] = {
 	"ink": (0.10, 0.08, 0.22, 1.0),
-	"leaf": (0.25, 0.61, 0.39, 1.0),
-	"leaf_light": (0.48, 0.80, 0.51, 1.0),
-	"mint": (0.45, 0.80, 0.67, 1.0),
-	"aqua": (0.28, 0.72, 0.76, 1.0),
-	"aqua_light": (0.62, 0.90, 0.88, 1.0),
-	"lavender": (0.67, 0.54, 0.87, 1.0),
-	"lavender_shadow": (0.45, 0.42, 0.69, 1.0),
-	"coral": (0.94, 0.45, 0.52, 1.0),
-	"coral_light": (1.0, 0.67, 0.66, 1.0),
-	"gold": (0.93, 0.69, 0.25, 1.0),
-	"butter": (0.98, 0.84, 0.42, 1.0),
-	"pearl": (0.96, 0.93, 0.84, 1.0),
+	# Lagoon lighting is intentionally high-key. These source values are one
+	# band deeper than the final desired pastels so Mobile does not bleach every
+	# plant, gate, and shell into the terrain.
+	"leaf": (0.12, 0.43, 0.23, 1.0),
+	"leaf_light": (0.27, 0.64, 0.34, 1.0),
+	"mint": (0.27, 0.65, 0.49, 1.0),
+	"aqua": (0.16, 0.55, 0.61, 1.0),
+	"aqua_light": (0.43, 0.74, 0.72, 1.0),
+	"lavender": (0.50, 0.38, 0.75, 1.0),
+	"lavender_shadow": (0.32, 0.28, 0.58, 1.0),
+	"coral": (0.81, 0.29, 0.38, 1.0),
+	"coral_light": (0.91, 0.48, 0.48, 1.0),
+	"gold": (0.82, 0.55, 0.12, 1.0),
+	"butter": (0.88, 0.68, 0.18, 1.0),
+	"pearl": (0.84, 0.80, 0.69, 1.0),
 	"cloud": (0.98, 1.0, 1.0, 1.0),
 	"cloud_warm": (1.0, 0.985, 0.955, 1.0),
 	"cloud_shadow": (0.77, 0.84, 0.94, 1.0),
 	"wood": (0.49, 0.31, 0.23, 1.0),
 	"wood_light": (0.70, 0.48, 0.32, 1.0),
-	"stone": (0.57, 0.66, 0.72, 1.0),
-	"stone_light": (0.72, 0.82, 0.82, 1.0),
-	"snow": (0.90, 0.96, 0.98, 1.0),
+	"stone": (0.41, 0.51, 0.59, 1.0),
+	"stone_light": (0.58, 0.69, 0.70, 1.0),
+	"snow": (0.82, 0.91, 0.95, 1.0),
 	"soil": (0.40, 0.29, 0.28, 1.0),
-	"red": (0.88, 0.27, 0.35, 1.0),
-	"orange": (0.98, 0.53, 0.24, 1.0),
-	"yellow": (0.98, 0.82, 0.25, 1.0),
-	"green": (0.35, 0.72, 0.40, 1.0),
-	"blue": (0.32, 0.60, 0.91, 1.0),
-	"violet": (0.61, 0.43, 0.82, 1.0),
+	"red": (0.72, 0.16, 0.25, 1.0),
+	"orange": (0.85, 0.36, 0.12, 1.0),
+	"yellow": (0.88, 0.64, 0.12, 1.0),
+	"green": (0.18, 0.57, 0.28, 1.0),
+	"blue": (0.20, 0.42, 0.75, 1.0),
+	"violet": (0.45, 0.28, 0.68, 1.0),
 }
 
 
@@ -489,10 +492,10 @@ def butterfly_world_gate() -> Asset:
 	# Four open oval rims preserve the book's butterfly anatomy while leaving a
 	# generous central swim-through opening. No opaque wing panel blocks the view.
 	for center, rx, ry, tilt, material in (
-		((-8.0, 3.5), 4.5, 5.4, -0.16, "lavender"),
-		((8.0, 3.5), 4.5, 5.4, 0.16, "coral_light"),
+		((-8.0, 3.5), 4.5, 5.4, -0.16, "lavender_shadow"),
+		((8.0, 3.5), 4.5, 5.4, 0.16, "coral"),
 		((-6.7, -3.2), 3.3, 3.7, 0.20, "aqua"),
-		((6.7, -3.2), 3.3, 3.7, -0.20, "mint"),
+		((6.7, -3.2), 3.3, 3.7, -0.20, "leaf"),
 	):
 		ellipse_band(a, center, rx, ry, 0.52, 0.82, material, tilt)
 	# Four visible roots tie the open rims to one thorax. They stop short of the

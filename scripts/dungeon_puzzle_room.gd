@@ -34,6 +34,13 @@ var hint: Label = null
 var pointer: Label3D = null
 var clue_pos := CENTER + Vector3(0, 8.0, -12.0)
 var materials := {}
+var idle_t := 0.0
+var remind_stage := 0
+var wrong_streak := 0
+var guided := false
+var clue_symbols: Array[Node3D] = []
+var statue_marks: Array[MeshInstance3D] = []
+var statue_done: Array[bool] = []
 
 func start(main: ReefMain, room_config: Dictionary, done_cb: Callable) -> void:
 	m = main
@@ -150,13 +157,21 @@ func _build_sequence_props() -> void:
 	for i in range(solution.size()):
 		var choice_index := int(solution[i])
 		var kind := _element_kind(choice_index) if puzzle_kind == "elemental" else _sequence_kind(choice_index)
-		DungeonArt.add_pictogram(kind, self, CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 5.0, 7.0, -13.0), 1.25)
+		# The clue row IS the objective for a non-reader: each symbol sits on a
+		# dark disc for contrast, close enough to the camera to read at a glance.
+		var slot := CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 6.5, 8.0, -10.0)
+		var disc := CylinderMesh.new()
+		disc.top_radius = 2.6
+		disc.bottom_radius = 2.6
+		disc.height = 0.3
+		_mesh(disc, slot, Color(0.05, 0.06, 0.16))
+		clue_symbols.append(DungeonArt.add_pictogram(kind, self, slot + Vector3(0, 0.55, 0), 1.8))
 	var default_count := 2 if puzzle_kind == "elemental" else 3
 	var count := int(config.get("choice_count", default_count))
 	for i in range(count):
 		var kind := _element_kind(i) if puzzle_kind == "elemental" else _sequence_kind(i)
 		_add_pad(i, CENTER + Vector3((float(i) - float(count - 1) * 0.5) * 8.0, 0.7, 4.0), kind, _choice_color(i))
-	clue_pos = CENTER + Vector3(0, 11.0, -13.0)
+	clue_pos = CENTER + Vector3(0, 11.0, -10.0)
 
 func _sequence_kind(index: int) -> String:
 	return ["diamond", "orb", "triangle"][index % 3]
@@ -169,14 +184,16 @@ func _build_path_props() -> void:
 	for i in range(solution.size()):
 		var x := -4.5 if int(solution[i]) == 0 else 4.5
 		var stone := DungeonArt.spawn("stone", self, CENTER + Vector3(x, 0.8, 2.0 - float(i) * 5.0))
-		stone.scale = Vector3(0.12, 0.12, 0.12)
+		stone.scale = Vector3(0.3, 0.3, 0.3)
 		reveal_nodes.append(stone)
 	_add_pad(0, CENTER + Vector3(-6.5, 0.7, 11.0), "left", _choice_color(0))
 	_add_pad(1, CENTER + Vector3(6.5, 0.7, 11.0), "right", _choice_color(1))
 	clue_pos = CENTER + Vector3(0, 9.0, -7.0)
 
 func _build_torch_props() -> void:
-	var heights := [5.5, 3.0, 7.0, 4.2]
+	# Same shortest→tallest answer order as before, but every adjacent pair of
+	# lanterns differs enough in height for a four-year-old to compare at sight.
+	var heights := [5.6, 2.4, 7.6, 4.0]
 	for i in range(4):
 		var x := (float(i) - 1.5) * 7.0
 		var pos := CENTER + Vector3(x, 0.5, -6.0)
@@ -190,11 +207,26 @@ func _build_torch_props() -> void:
 
 func _build_shell_props() -> void:
 	values = [0, 0, 0]
+	statue_done = [false, false, false]
+	var gold := Color(1.0, 0.85, 0.3)
 	for i in range(3):
 		var root := DungeonArt.spawn("statue", self, CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0))
 		interactives.append({"index": i, "node": root, "pos": root.position})
-	_sphere(CENTER + Vector3(0, 2.0, 2.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
-	clue_pos = CENTER + Vector3(0, 9.0, 2.0)
+		# The sculpted nose is unreadable from the high camera, so each statue
+		# carries an oversized golden beak that makes its facing obvious.
+		var beak := CylinderMesh.new()
+		beak.top_radius = 0.0
+		beak.bottom_radius = 0.6
+		beak.height = 2.0
+		var nose := _mesh(beak, Vector3(0, 2.4, 2.6), gold, 1.1, root)
+		nose.rotation_degrees.x = 90.0
+		var mark := _sphere(root.position + Vector3(0, 5.6, 0), 0.55, gold, 1.6)
+		mark.visible = false
+		statue_marks.append(mark)
+	DungeonArt.spawn("pedestal", self, CENTER + Vector3(0, 0.7, 3.0))
+	_sphere(CENTER + Vector3(0, 3.6, 3.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
+	clue_pos = CENTER + Vector3(0, 9.0, 3.0)
+	_refresh_statue_marks(false)
 
 func _build_pair_props() -> void:
 	var symbols: Array = config.get("cards", ["☾", "★", "☾", "★"])
@@ -302,6 +334,7 @@ func _process(delta: float) -> void:
 		player_pos.x = CENTER.x + flat.x
 		player_pos.z = CENTER.z + flat.y
 	avatar.position = player_pos + Vector3(0, sin(Time.get_ticks_msec() * 0.004) * 0.12, 0)
+	_tick_guidance(delta)
 	for entry: Dictionary in interactives:
 		(entry["node"] as Node3D).scale = Vector3.ONE
 	var near := _nearest_interactive()
@@ -338,12 +371,13 @@ func _sequence_action(choice: int) -> void:
 	if step >= solution.size():
 		return
 	if choice != int(solution[step]):
-		_gentle_hint()
+		if not _note_wrong():
+			_gentle_hint()
 		return
+	_note_progress()
 	_step_chime(step)
 	if puzzle_kind == "path" and step < reveal_nodes.size():
 		reveal_nodes[step].scale = Vector3.ONE
-		player_pos = CENTER + Vector3(0, 1.1, 17.0)
 	elif puzzle_kind == "torches" and choice < reveal_nodes.size():
 		reveal_nodes[choice].visible = true
 	step += 1
@@ -356,6 +390,8 @@ func _rotate_action(choice: int) -> void:
 	values[choice] = (values[choice] + 1) % 4
 	(interactives[choice]["node"] as Node3D).rotation_degrees.y = float(values[choice]) * 90.0
 	_step_chime(values[choice])
+	idle_t = 0.0
+	_refresh_statue_marks()
 	var targets: Array = config.get("targets", [1, 0, 3])
 	for i in range(values.size()):
 		if values[i] != int(targets[i]):
@@ -369,6 +405,7 @@ func _pair_action(choice: int) -> void:
 	DungeonArt.show_pictogram(card_labels[choice], String(card_root.get_meta("symbol_kind")))
 	if selected < 0:
 		selected = choice
+		idle_t = 0.0
 		_step_chime(0)
 		return
 	var first_root: Node3D = interactives[selected]["node"]
@@ -376,6 +413,7 @@ func _pair_action(choice: int) -> void:
 		solved_pairs.append(selected)
 		solved_pairs.append(choice)
 		selected = -1
+		_note_progress()
 		_step_chime(2)
 		if solved_pairs.size() == card_labels.size():
 			_solve()
@@ -385,7 +423,8 @@ func _pair_action(choice: int) -> void:
 		pair_hide_t = 1.1
 		selected = -1
 		hint.text = "✨  LOOK AT BOTH PICTURES — THEN TRY AGAIN  ✨"
-		m.show_msg("Roshan", "Those are different. Look at both pictures, then try again!", "oops")
+		if not _note_wrong():
+			m.show_msg("Roshan", "Those are different. Look at both pictures, then try again!", "oops")
 
 func _step_chime(index: int) -> void:
 	if m.chime != null:
@@ -409,7 +448,107 @@ func _update_visuals() -> void:
 		"elemental": objective.text = "❄  COPY THE ICE-FIRE DOOR PICTURES  🔥"
 	if not solution.is_empty():
 		hint.text = "◆  %d / %d  ◆" % [mini(step + 1, solution.size()), solution.size()]
-	pointer.position = clue_pos + Vector3(0, sin(Time.get_ticks_msec() * 0.004) * 0.35, 0)
+	for i in range(clue_symbols.size()):
+		clue_symbols[i].scale = Vector3.ONE * (1.1 if i < step else (2.4 if i == step else 1.8))
+
+func _note_progress() -> void:
+	idle_t = 0.0
+	remind_stage = 0
+	wrong_streak = 0
+	guided = false
+
+func _note_wrong() -> bool:
+	idle_t = 0.0
+	wrong_streak += 1
+	if wrong_streak >= 2 and not guided:
+		remind_stage = 2
+		guided = true
+		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+		return true
+	return false
+
+func _tick_guidance(delta: float) -> void:
+	# Escalating stuck help: repeat the spoken objective, then drop into guided
+	# mode where the golden arrow marks the exact next thing to tap. Guidance
+	# only ever points — it never solves, so the win still belongs to the child.
+	idle_t += delta
+	if remind_stage == 0 and idle_t >= 10.0:
+		remind_stage = 1
+		m.show_msg("Roshan", String(config.get("voice", "Follow the pictures and golden sparkle!")), "talk")
+	elif remind_stage == 1 and idle_t >= 20.0:
+		remind_stage = 2
+		guided = true
+		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+	elif remind_stage == 2 and idle_t >= 32.0:
+		idle_t = 20.0
+		m.show_msg("Roshan", "The golden arrow shows the way — tap USE right under it!", "talk")
+	pointer.position = _pointer_anchor() + Vector3(0, sin(Time.get_ticks_msec() * 0.004) * 0.35, 0)
+
+func _pointer_anchor() -> Vector3:
+	# Torch and statue rooms have no picture clue, so their arrow always marks
+	# the next real target; picture rooms teach from the clue first and only
+	# point at the answer pad once the child is stuck.
+	if guided or puzzle_kind in ["torches", "rotate"]:
+		var target := _guided_target()
+		if target != Vector3.INF:
+			return target + Vector3(0, 9.0, 0)
+	match puzzle_kind:
+		"sequence", "elemental":
+			if step < clue_symbols.size():
+				return clue_symbols[step].position + Vector3(0, 2.6, 0)
+		"path":
+			if step < reveal_nodes.size():
+				return reveal_nodes[step].position + Vector3(0, 4.5, 0)
+		"pairs":
+			var idx := _pair_suggestion()
+			for entry: Dictionary in interactives:
+				if int(entry["index"]) == idx:
+					return (entry["pos"] as Vector3) + Vector3(0, 6.0, 0)
+	return clue_pos
+
+func _pair_suggestion() -> int:
+	for i in range(card_labels.size()):
+		if i in solved_pairs or i == selected:
+			continue
+		return i
+	return -1
+
+func _guided_target() -> Vector3:
+	var idx := -1
+	match puzzle_kind:
+		"sequence", "elemental", "path", "torches":
+			var solution: Array = config.get("solution", [])
+			if step < solution.size():
+				idx = int(solution[step])
+		"rotate":
+			var targets: Array = config.get("targets", [1, 0, 3])
+			for i in range(values.size()):
+				if values[i] != int(targets[i]):
+					idx = i
+					break
+		"pairs":
+			if selected >= 0:
+				var want := String((interactives[selected]["node"] as Node3D).get_meta("symbol"))
+				for i in range(interactives.size()):
+					if i != selected and i not in solved_pairs and String((interactives[i]["node"] as Node3D).get_meta("symbol")) == want:
+						idx = i
+						break
+			else:
+				idx = _pair_suggestion()
+	for entry: Dictionary in interactives:
+		if int(entry["index"]) == idx:
+			return entry["pos"]
+	return Vector3.INF
+
+func _refresh_statue_marks(announce: bool = true) -> void:
+	var targets: Array = config.get("targets", [1, 0, 3])
+	for i in range(values.size()):
+		var correct: bool = i < targets.size() and values[i] == int(targets[i])
+		if i < statue_marks.size():
+			statue_marks[i].visible = correct
+		if announce and correct and not statue_done[i]:
+			_step_chime(3)
+		statue_done[i] = correct
 
 func _solve() -> void:
 	if state != "play":

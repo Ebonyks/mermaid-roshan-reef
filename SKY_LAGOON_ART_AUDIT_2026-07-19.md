@@ -27,7 +27,7 @@ human review. Provenance or successful import does not award 5/5.
 |---|---:|---|---|
 | Meadow undergrowth | 1/5 | One enlarged leaf used as a whole bush or grass plant; obvious crossed-card repetition | Replaced by five complete modeled growth habits |
 | Pond edge | 1/5 | Fourteen single spear leaves mislabeled as cattails | Replaced by ten rooted multi-stem reed beds |
-| Fairy Pond flowers | 1/5 | Glowing spheres stood in for flowering plants | Replaced by rooted coral and lavender flower clusters |
+| Fairy Pond | 1/5 | Glowing spheres stood in for flowers, and the entire pond was buried under the rolling terrain | Replaced by rooted flower clusters, seated pond and trigger on terrain height, and reduced the reading-dependent label to a fairy pictogram |
 | Riverbanks | 2/5 | Bare shader boundary with little physical transition | Added restrained modeled bank-stone groups |
 | Grand-path lighting | 2/5 | Box/cylinder lamp construction | Replaced visible side with shell-crested story lanterns; collider and light contract preserved |
 | Protected memory displays | 3/5 | Book art floated in generic generated slabs | Added shell-and-gold architectural surrounds; source art unchanged |
@@ -60,6 +60,31 @@ opaque Butterfly World gate. Iteration two reverses those faces, uses smooth
 normals on rounded masses, and adds an open four-wing gate. Green probes alone
 did not promote the rejected candidate.
 
+Iteration two (`9da8457`) passed every technical and gameplay gate but was also
+rejected by Mobile review: the Fairy Pond was buried under its hill, the high-key
+lighting bleached new materials, one low cloud obscured the castle, and the
+Alpine camera entered a wall. Iteration three seats the pond and trigger on the
+terrain surface, reserves its footprint, deepens source palette bands for the
+actual Lagoon lighting, composes smaller clouds around the island rim, and fixes
+the invalid review camera.
+
+Iteration three (`584d3a0`) passed every technical gate but Mobile review still
+rejected its presentation. The persistent reef sun and the Lagoon sun were both
+lighting the world, so pearl terrain, flowers, water, and new landmarks clipped
+toward white even after source colors were deepened. Iteration four gives Sky
+Lagoon a dedicated contrast grade, uses only its authored courtyard sun while
+the world is active, restores the reef sun on ocean return, and makes Speedy the
+binding full capture tier with Sparkly comparison views.
+
+Iteration four (`046fbcf`) passed import, the full analyzer, every trusted probe,
+the child-paced Level 2 traversal, and Mobile visual review in GitHub Actions run
+`29714300033`. It clears the prior clipping rejection: terrain, water, plants,
+gates, clouds, and castle masonry retain distinct color/value groups in Speedy,
+with the Sparkly comparisons remaining readable. The complete evidence set is
+stored under `assets_src/sky_lagoon/runtime_candidate_046fbcf/` as a 4/5
+owner-review candidate. It is not a 5/5 award, and the train consist/track,
+Alpine construction, and assembled castle exterior remain open P0 families.
+
 ## Acceptance gates
 
 1. `probe_l2.gd` must report the botanical rule, all kit resources, and all fixed
@@ -67,6 +92,8 @@ did not promote the rejected candidate.
 2. The Mobile-render Sky Lagoon capture artifact must include arrival/path,
    complete ground plants, pond reeds, Fairy Pond, riverbanks, both race gates,
    Butterfly gate, castle facade, clouds, Alpine edge, and train station.
+   The complete set is captured in Speedy, with arrival, pond, and castle also
+   captured in Sparkly to expose quality-toggle drift.
 3. Reject any candidate that reads as an isolated leaf, repeated mesh island,
    stone-like cloud, decorative gate that disagrees with its trigger, floating
    prop, or protected art alteration.
