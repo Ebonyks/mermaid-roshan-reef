@@ -12,7 +12,7 @@ const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
-	"opera_done",
+	"opera_done", "ember_found", "ember_done",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -30,7 +30,7 @@ const KNOWN_KEYS: Array[String] = [
 	"schema_version", "won", "found", "finale", "music", "quality",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
-	"dungeon_progress", "dungeon_done", "opera_progress", "opera_done",
+	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins",
 ]
@@ -107,7 +107,14 @@ func load_save() -> void:
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
 	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
 	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 14)
+	m.ember_found = bool(m.save_data.get("ember_found", false))
+	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
+	m.ember_done = bool(m.save_data.get("ember_done", false))
+	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 15)
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 32767)
+	if m.opera_stars < 0:
+		# pre-lobby saves stored a linear checkpoint: the first N doors were done
+		m.opera_stars = (1 << m.opera_progress) - 1
 	m.opera_done = bool(m.save_data.get("opera_done", false))
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
@@ -174,7 +181,11 @@ func write_save() -> bool:
 	next_data["combat_fire"] = m.combat_fire_done
 	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
 	next_data["dungeon_done"] = m.dungeon_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 14)
+	next_data["ember_found"] = m.ember_found
+	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
+	next_data["ember_done"] = m.ember_done
+	next_data["opera_progress"] = clampi(m.opera_progress, 0, 15)
+	next_data["opera_stars"] = clampi(m.opera_stars, 0, 32767)
 	next_data["opera_done"] = m.opera_done
 	next_data["stickers"] = m.stickers
 	next_data["owned"] = m.shop_owned
@@ -358,7 +369,7 @@ func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "opera_progress", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	return true
@@ -373,7 +384,7 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "opera_progress", "plays", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "plays", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	if data.has("quality"):
@@ -410,7 +421,17 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
 	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)
 	data["dungeon_done"] = _bool_or_default(raw, "dungeon_done", false)
-	data["opera_progress"] = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 14)
+	# Ember Fortress keys follow the "critters" precedent: normalised with
+	# defaults but deliberately NOT in KNOWN_KEYS, so a save written by an
+	# older build still counts as schema-complete (save compat: add, never
+	# require).
+	data["ember_found"] = _bool_or_default(raw, "ember_found", false)
+	data["ember_progress"] = clampi(_nonnegative_int_or_default(raw, "ember_progress", 0), 0, 6)
+	data["ember_done"] = _bool_or_default(raw, "ember_done", false)
+	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 15)
+	data["opera_progress"] = opera_prog
+	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
+	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 32767)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")
