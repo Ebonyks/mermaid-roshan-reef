@@ -93,8 +93,8 @@ func load_save() -> void:
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
 	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
 	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 14)
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 16383)
+	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 15)
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 32767)
 	if m.opera_stars < 0:
 		# pre-lobby saves stored a linear checkpoint: the first N doors were done
 		m.opera_stars = (1 << m.opera_progress) - 1
@@ -158,8 +158,8 @@ func write_save() -> bool:
 	next_data["combat_fire"] = m.combat_fire_done
 	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
 	next_data["dungeon_done"] = m.dungeon_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 14)
-	next_data["opera_stars"] = clampi(m.opera_stars, 0, 16383)
+	next_data["opera_progress"] = clampi(m.opera_progress, 0, 15)
+	next_data["opera_stars"] = clampi(m.opera_stars, 0, 32767)
 	next_data["opera_done"] = m.opera_done
 	next_data["stickers"] = m.stickers
 	next_data["owned"] = m.shop_owned
@@ -378,10 +378,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
 	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)
 	data["dungeon_done"] = _bool_or_default(raw, "dungeon_done", false)
-	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 14)
+	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 15)
 	data["opera_progress"] = opera_prog
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
-	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 16383)
+	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 32767)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")
