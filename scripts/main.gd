@@ -152,15 +152,27 @@ var combat_from := ""
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
 var companion_id := ""                    # chosen stuffie ("" until picked at Huluu's throne)
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
-var fish_tokens := 0                      # sparkle-fish pickups → companion level
+var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
 var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
 var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
+var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
-var companion_tokens: Array = []          # sparkle-fish rows {base, node, timer, phase}
+# ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
+var care_points := 0                      # fulfilled wants; THE growth track (persisted)
+var companion_want := ""                  # active want id ("" = content)
+var companion_want_bubble: Label3D = null # the emoji thought bubble over the stuffie
+var companion_want_cool := 25.0           # first ask lands soon after adoption
+var companion_care_t := -1.0              # >0 while a care moment animation plays
+var companion_care_action_prev := false
+var companion_resting := false            # went home to rest (persisted) — on its Den shelf until re-picked
+var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
+var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
+var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
+var companion_rest_warned := 0            # escalating "needs care" reminders fired
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_pick_id := ""               # picker working state
@@ -2550,7 +2562,7 @@ func _end_combat(battle_kind: String) -> void:
 func _start_stuffie_battle() -> void:
 	# the sparring-den ladder: one round per visit; once all three are won the
 	# den keeps serving rounds in rotation (replayable, no dead end)
-	if stuffie_game != null or companion_id == "":
+	if stuffie_game != null or companion_id == "" or companion_resting:
 		return
 	var ladder_index := 0
 	for i in range(StuffieBattle.LADDER.size()):
@@ -2575,6 +2587,16 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		if bool(stuffie_wins.get(round_tag, false)):
 			stuffie_wins["_replays"] = int(stuffie_wins.get("_replays", 0)) + 1
 		stuffie_wins[round_tag] = true
+		# CAPTURE (owner 2026-07-20): befriending a boss stuffie takes it HOME —
+		# it moves onto its Stuffie Den shelf and becomes a carryable companion
+		for cfg in StuffieBattle.LADDER:
+			if String(cfg["tag"]) != round_tag or not cfg.has("award"):
+				continue
+			var friend_key := "friend_" + String(cfg["award"])
+			if not bool(stuffie_wins.get(friend_key, false)):
+				stuffie_wins[friend_key] = true
+				show_msg(String(cfg.get("award_name", "Your new friend")),
+					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Den!", "win")
 		pearl_count += 8
 		_reward(false)
 		_write_save()
@@ -2587,6 +2609,9 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		player.cam.make_current()
 	if hud_layer != null:
 		hud_layer.visible = true
+	# post-battle care (owner 2026-07-21): a big battle earns a hug + bath;
+	# boo-boos that never get that care send the stuffie home to rest
+	_companion_ref().after_battle()
 
 func _start_dungeon() -> void:
 	_fade_cut(_start_dungeon_now)

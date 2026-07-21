@@ -4,20 +4,33 @@ extends Node3D
 # CONTROLS THE CREATURE (not Roshan): stick to scamper, ONE attack button
 # (PECK for the baby eagle, CLAW for Kitty), and a quick-time DODGE — when an
 # opponent telegraphs, a giant pulsing DODGE bubble appears and any tap inside
-# the forgiving window hops the stuffie clear. Getting "hit" is always a
-# harmless sparkle-bump: no health, no damage, no fail state. Opponents get
-# dizzy and BEFRIENDED, never hurt. All motion is analytic (probe-friendly,
-# mobile-renderer budget), same Family-B shape as CombatArena.
+# the forgiving window hops the stuffie clear. Opponents get dizzy and
+# BEFRIENDED, never hurt. The battle itself can never be lost. All motion is
+# analytic (probe-friendly, mobile-renderer budget), same Family-B shape as
+# CombatArena.
+#
+# BOO-BOOS (owner 2026-07-21): landed bumps leave little bruises (🩹 pips on
+# the HUD). They never end the battle — but they come home with the stuffie,
+# who then needs its post-battle hug + bubble bath (companion.gd). An injured
+# stuffie whose care never comes goes home to its Den shelf to rest.
 
 const CENTER := Vector3(0.0, -2400.0, 0.0)
 const RADIUS := 27.0
 
-# The sparring ladder. One round per den visit; after all three are won the
+# The sparring ladder. One round per den visit; after every round is won the
 # den serves them again in rotation, a little livelier each time.
+# CAPTURE ROUNDS (owner 2026-07-20, the core collection loop): a round with an
+# "award" is a boss STUFFIE — befriending it takes it HOME to the Stuffie Den
+# where it becomes a carryable companion for future missions. Future toys
+# (photo-scanned via the Meshy pipeline) are one roster entry + one award
+# round away.
 const LADDER := [
 	{"tag": "round1", "imps": 2, "hp": 2, "attack_gap": 4.6, "telegraph": 2.4, "layout": "ring"},
 	{"tag": "round2", "imps": 3, "hp": 2, "attack_gap": 3.8, "telegraph": 2.2, "layout": "double"},
 	{"tag": "round3", "imps": 0, "boss": true, "hp": 5, "attack_gap": 3.4, "telegraph": 2.0},
+	{"tag": "boss_lamma", "imps": 0, "boss": true, "hp": 6, "attack_gap": 3.2, "telegraph": 2.0,
+		"boss_model": "res://assets/characters/lamb.glb", "boss_scale": 3.6,
+		"award": "lamma", "award_name": "Lamb-a'"},
 ]
 
 var m: ReefMain
@@ -52,6 +65,7 @@ var qte_gap := 0.0
 var dodge_success_count := 0
 var miss_count := 0
 var miss_streak := 0        # consecutive misses → mercy widens the window
+var bruises := 0            # landed bumps — boo-boos the stuffie carries home
 var hop_t := -1.0
 var hop_vec := Vector3.ZERO
 var materials := {}
@@ -230,9 +244,20 @@ func _build_imps() -> void:
 			"timer": 0.0, "attack": 2.5 + float(i) * 1.4, "phase": a, "boss": false})
 
 func _build_boss() -> void:
-	# the dragon-turtle comes back for a FRIENDLY sparring rematch
-	var root := DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
-	root.scale = Vector3.ONE * 1.2
+	# a FRIENDLY sparring boss: capture rounds bring a real stuffie model
+	# (Lamb-a' first); otherwise the dragon-turtle comes back for a rematch
+	var root: Node3D = null
+	if round_cfg.has("boss_model"):
+		var ps: PackedScene = load(String(round_cfg["boss_model"]))
+		if ps != null:
+			root = ps.instantiate() as Node3D
+			if root != null:
+				root.scale = Vector3.ONE * float(round_cfg.get("boss_scale", 3.0))
+				root.position = CENTER + Vector3(0, 1.0, -10.0)
+				add_child(root)
+	if root == null:
+		root = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
+		root.scale = Vector3.ONE * 1.2
 	enemies.append({"node": root, "pos": root.position, "state": "active", "hp": int(round_cfg.get("hp", 5)),
 		"timer": 0.0, "attack": 3.0, "phase": 0.0, "boss": true})
 
@@ -561,13 +586,17 @@ func _tick_enemy_shots(delta: float) -> void:
 			enemy_shots.remove_at(i)
 
 func _bump_pal(from: Vector3) -> void:
+	if state != "play":
+		return
 	var away: Vector3 = pal_pos - from
 	away.y = 0.0
 	if away.length() < 0.1:
 		away = Vector3.FORWARD
 	pal_pos += away.normalized() * 3.5
 	m._sparkle_burst(pal_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
-	m.show_msg(String(creature_def.get("name", "Stuffie")), "Boing! I'm okay! Tap the big DODGE bubble next time!", "talk")
+	bruises += 1
+	m.show_msg(String(creature_def.get("name", "Stuffie")), "Ouch, a boo-boo! I'll need a hug after this! Tap the big DODGE bubble!", "talk")
+	_update_hud()
 
 # ---------- pointer / HUD / win ----------
 
@@ -594,7 +623,7 @@ func _update_hud() -> void:
 	for enemy in enemies:
 		if String(enemy["state"]) != "friend":
 			active += 1
-	counter.text = "💗  %d" % active
+	counter.text = "💗 %d   %s" % [active, "🩹".repeat(mini(bruises, 5))]
 
 func _win() -> void:
 	if state != "play":
@@ -604,10 +633,15 @@ func _win() -> void:
 	_qte_clear()
 	pointer.visible = false
 	_update_hud()
-	m.show_msg(String(creature_def.get("name", "Stuffie")), "We did it! Everyone wants to play with us now!", "win")
+	if round_cfg.has("award"):
+		m.show_msg(String(round_cfg.get("award_name", "Your new friend")),
+			"That was SO fun! Can I come home with you? Pleeease?", "win")
+	else:
+		m.show_msg(String(creature_def.get("name", "Stuffie")), "We did it! Everyone wants to play with us now!", "win")
 
 func _finish() -> void:
 	state = "done"
+	m.companion_bruises += bruises   # boo-boos ride home for the care loop
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -621,6 +655,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m.companion_bruises += bruises   # leaving early keeps any boo-boos too
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

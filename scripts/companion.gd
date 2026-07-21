@@ -2,23 +2,30 @@ class_name CompanionSystem
 extends RefCounted
 # THE STUFFED-FRIEND COMPANION WING (Pokemon-style, no fail states).
 # Phase-7 satellite: ALL mutable state stays on ReefMain (m.companion_*,
-# m.fish_tokens, m.stuffie_wins) — this class owns only roster data, the
+# m.care_points, m.stuffie_wins) — this class owns only roster data, the
 # throne gift + picker flow, the overworld follower, fish-token pickups,
 # and the sparring-den entrance. The battle itself is scripts/stuffie_battle.gd.
 #
 # Flow: reach Princess Huluu at the Pearl Castle throne → a gift box appears
 # beside the Crown Star → pick a stuffie friend + paint its three colours →
-# it follows Roshan through the reef, cheers, guides, and grabs sparkle fish
-# (each fish = +1 level). The sparkle ring near the shipwreck starts the
-# play-battle ladder. A second player can steer the stuffie any time by
+# it follows Roshan through the reef, cheers, guides, and grows through
+# Tamagotchi-style CARE (want bubbles → tap → care moment → +1 point). The
+# sparkle ring near the shipwreck starts the play-battle ladder, where boss
+# stuffies can be befriended and taken home. A second player can steer it by
 # holding R1 on a gamepad (battles read every pad natively, so P2 co-op
 # there needs no mode at all).
 
 var m: ReefMain
 
-# Data-driven roster: a third stuffed friend is one dictionary away.
-# kind → CREATURE_LAYERS/CRAFT_RIGGED key on main (bird = the rigged birdie
-# body doubling as the baby eagle; cat = the rigged kitty).
+# Data-driven roster — THE core collection loop (owner 2026-07-20): battle a
+# boss stuffie, BEFRIEND it, take it HOME to the Stuffie Den, carry it on
+# future missions. Fields:
+#   kind      → CREATURE_LAYERS/CRAFT_RIGGED key on main (paintable pipeline)
+#   model     → direct .glb body instead (photo-scanned toys land this way —
+#               Meshy photo→3D, same as the craft creatures were built)
+#   locked    → stuffie_wins key that frees it ("" / absent = starter friend);
+#               boss rounds set "friend_<id>" on victory (see _end_stuffie_battle)
+#   paintable → false hides the palette (a captured toy comes as it is)
 const ROSTER := [
 	{"id": "eagle", "name": "Baby Eagle", "kind": "bird", "attack": "PECK",
 		"body": Color(0.98, 0.72, 0.55), "accent": Color(1.0, 0.85, 0.40), "third": Color(1.0, 0.92, 0.55),
@@ -28,6 +35,12 @@ const ROSTER := [
 		"body": Color(0.95, 0.70, 0.85), "accent": Color(0.60, 0.40, 0.90), "third": Color(0.97, 0.96, 0.93),
 		"hello": "Mewsha pads along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
+	{"id": "lamma", "name": "Lamb-a'", "kind": "lamb", "attack": "BOUNCE",
+		"model": "res://assets/characters/lamb.glb", "model_scale": 2.6,
+		"emoji": "🐑", "paintable": false, "locked": "friend_lamma",
+		"body": Color(1.0, 0.99, 0.95), "accent": Color(1.0, 0.80, 0.88), "third": Color(0.95, 0.92, 0.97),
+		"hello": "Lamb-a' bounces along beside you now! Baa baa!",
+		"pro": "Big fluffy bounce attacks!"},
 ]
 
 const PALETTE := [
@@ -38,11 +51,33 @@ const PALETTE := [
 const COLOR_SLOTS := ["body", "accent", "third"]
 const SLOT_ICON := ["🎨", "✨", "🤍"]
 
-const TOKEN_TOTAL := 8            # sparkle-fish slots alive in the reef at once
-const TOKEN_RESPAWN := 75.0       # seconds until a caught slot refills
-const TOKEN_RADIUS := 5.5
 const GIFT_RADIUS := 6.5
 const DEN_RADIUS := 9.0
+const CARE_RADIUS := 6.5          # how close Roshan must be to tend a want
+
+# TAMAGOTCHI CARE (owner 2026-07-20: replaces the sparkle-fish collectible
+# model). The stuffie sometimes shows a want bubble; Roshan swims over and
+# taps it; a little care moment plays and it grows (+1 care point). GENTLE
+# by design: one want at a time, wants wait forever, nothing ever decays,
+# gets sick or is lost — an ignored stuffie just keeps asking sweetly.
+const WANTS := [
+	{"id": "feed", "emoji": "🍎", "ask": "%s is hungry! Tap your stuffie to share a snack!", "done": "Munch munch munch! Yummy!"},
+	{"id": "nap", "emoji": "💤", "ask": "%s is sleepy! Tap your stuffie for a little nap!", "done": "Zzz... what a cozy nap!"},
+	{"id": "bath", "emoji": "🫧", "ask": "%s wants a bubble bath! Tap your stuffie to scrub-a-dub!", "done": "All clean and extra fluffy!"},
+	{"id": "cuddle", "emoji": "❤", "ask": "%s wants a cuddle! Tap your stuffie for a big hug!", "done": "Best. Hug. Ever!"},
+	{"id": "play", "emoji": "🎾", "ask": "%s wants to play! Tap your stuffie for zoomies!", "done": "Wheee! That was so fun!"},
+]
+const WANT_GAP_MIN := 45.0        # quiet time between fulfilled want and the next ask
+const WANT_GAP_MAX := 75.0
+const LEVEL_EVERY := 4            # care points per level-up celebration
+# THE GENTLE FAILURE (owner 2026-07-21): a big battle earns a hug + bubble
+# bath. If the stuffie came home with boo-boos and that care never arrives,
+# it eventually goes home to its Den shelf to rest — Roshan walks back to
+# the castle and picks a friend again (the same one included). Nothing else
+# is ever lost: care points, captures and colours all keep.
+const REST_PATIENCE := 120.0      # generous seconds of free-roam before an injured stuffie heads home
+const REST_WARN_1 := 60.0         # first "needs care" reminder
+const REST_WARN_2 := 25.0         # last-chance reminder
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -53,16 +88,36 @@ func def_by_id(id: String) -> Dictionary:
 			return d
 	return {}
 
+func unlocked(id: String) -> bool:
+	var d := def_by_id(id)
+	if d.is_empty():
+		return false
+	var key := String(d.get("locked", ""))
+	return key == "" or bool(m.stuffie_wins.get(key, false))
+
+func unlocked_defs() -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	for d: Dictionary in ROSTER:
+		if unlocked(String(d["id"])):
+			out.append(d)
+	return out
+
 func active_def() -> Dictionary:
 	return def_by_id(m.companion_id)
 
 func level() -> int:
-	# incremental track: every sparkle fish token = +1 level
-	return m.fish_tokens
+	# Tamagotchi track (owner 2026-07-20): every fulfilled want = +1 care
+	# point; care is the ONLY way the stuffie grows (replaces fish tokens —
+	# old token progress was migrated into care_points on first load)
+	return m.care_points
+
+func stage() -> int:
+	# the friendly display level: 1 + a star per LEVEL_EVERY care points
+	return 1 + int(m.care_points / LEVEL_EVERY)
 
 func tier() -> int:
-	# milestone track: real Critter-Book fish catches (0..6) unlock ability tiers
-	return m._collection_ref().caught_count("fish")
+	# battle ability milestones now ride the care stages too (0..6)
+	return clampi(int(m.care_points / LEVEL_EVERY), 0, 6)
 
 func colors() -> Array[Color]:
 	var d := active_def()
@@ -75,12 +130,25 @@ func colors() -> Array[Color]:
 			out.append(defaults[i])
 	return out
 
-func make_creature() -> Node3D:
-	var d := active_def()
+func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:
 	if d.is_empty():
 		return null
-	var c := colors()
+	# photo-scanned / direct-model toys skip the paint pipeline and load as-is
+	if d.has("model"):
+		var ps: PackedScene = load(String(d["model"]))
+		if ps == null:
+			return null
+		var wrap := Node3D.new()
+		var inst: Node3D = ps.instantiate() as Node3D
+		if inst == null:
+			return null
+		inst.scale = Vector3.ONE * float(d.get("model_scale", 2.6))
+		wrap.add_child(inst)
+		return wrap
 	return m._make_creature_node(String(d["kind"]), c[0], c[1], false, false, c[2])
+
+func make_creature() -> Node3D:
+	return creature_for(active_def(), colors())
 
 # ===================== per-frame tick (called from main._process) =====================
 
@@ -99,8 +167,21 @@ func tick(delta: float) -> void:
 	_tick_room(delta)
 	if m.companion_id == "":
 		return
+	if m.companion_resting:
+		return   # tuckered out: home on its Den shelf until re-picked there
+	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
+	# context flips (reef ↔ lagoon ↔ castle ↔ north ↔ any engine and back),
+	# snap the stuffie straight to Roshan's side — never left behind, never
+	# waiting outside a door she came out of somewhere else
+	if m.game != m.companion_zone:
+		m.companion_zone = m.game
+		if _follow_ctx() and m.companion_node != null and is_instance_valid(m.companion_node):
+			var zfwd := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
+			var zright := Vector3(cos(m.player.yaw), 0, -sin(m.player.yaw))
+			m.companion_node.position = m.player.position - zfwd * 4.2 - zright * 2.6 + Vector3(0, 1.0, 0)
+			m._sparkle_burst(m.companion_node.position + Vector3(0, 1.5, 0), Color(1.0, 0.8, 0.6))
 	_tick_follower(delta)
-	_tick_tokens(delta)
+	_tick_care(delta)
 	_tick_den(delta)
 
 # ---------- the throne gift (unlock moment) ----------
@@ -140,13 +221,14 @@ func _tick_gift(delta: float) -> void:
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 6.4 + sin(t * 4.0) * 0.5
 	m.companion_gift.rotation.y = sin(t * 1.3) * 0.25
+	var action: bool = _action_down()
+	var tapped: bool = action and not m.companion_action_prev
+	m.companion_action_prev = action   # refresh every frame, even with the picker open
 	if m.companion_layer != null:
 		return
 	var gd: float = m.companion_gift.global_position.distance_to(m.player.position)
-	var action: bool = _action_down()
-	if gd < GIFT_RADIUS and action and not m.companion_action_prev:
+	if gd < GIFT_RADIUS and tapped:
 		open_picker()
-	m.companion_action_prev = action
 
 func _build_gift() -> void:
 	if m.l2_stars.is_empty():
@@ -299,6 +381,20 @@ func _confirm_pick() -> void:
 		m.companion_room.queue_free()   # rebuilt next tick: heart + coat move shelves
 		m.companion_room = null
 		m.companion_room_rows = []
+	# a swap resets any pending want (care progress itself is shared — it is
+	# HER nurturing that grows, whichever friend she carries); picking at the
+	# Den also tucks in any hurt friend, so boo-boos never follow a fresh start
+	m.companion_want = ""
+	m.companion_care_t = -1.0
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	m.companion_want_bubble = null
+	m.companion_want_cool = 20.0
+	m.companion_want_queue = []
+	m.companion_bruises = 0
+	m.companion_rest_timer = -1.0
+	m.companion_rest_warned = 0
+	m.companion_resting = false   # picking a friend (the same one included) wakes it
 	m.companion_greeted = false
 	m._write_save()
 	m._reward(false)
@@ -337,13 +433,16 @@ func _draw_picker() -> void:
 	close.custom_minimum_size = Vector2(72, 72)
 	close.pressed.connect(close_picker)
 	stage.add_child(close)
-	# friend cards down the left
-	for i in range(ROSTER.size()):
-		var d: Dictionary = ROSTER[i]
+	# friend cards down the left — only friends who already live at home;
+	# captured bosses appear here the moment their battle is won
+	var picks := unlocked_defs()
+	var step: float = minf(250.0, 560.0 / maxf(float(picks.size()), 1.0))
+	for i in range(picks.size()):
+		var d: Dictionary = picks[i]
 		var id := String(d["id"])
 		var card := Button.new()
-		card.position = Vector2(80, 130 + float(i) * 250.0)
-		card.custom_minimum_size = Vector2(330, 225)
+		card.position = Vector2(80, 130 + float(i) * step)
+		card.custom_minimum_size = Vector2(330, step - 25.0)
 		var card_style := StyleBoxFlat.new()
 		card_style.bg_color = Color(0.32, 0.55, 0.62, 0.95) if id == m.companion_pick_id else Color(0.13, 0.15, 0.23, 0.96)
 		card_style.border_color = Color(1.0, 0.9, 0.4) if id == m.companion_pick_id else Color(0.30, 0.34, 0.42)
@@ -354,21 +453,21 @@ func _draw_picker() -> void:
 		card.add_theme_stylebox_override("pressed", card_style)
 		card.pressed.connect(_pick_friend.bind(id))
 		stage.add_child(card)
-		_add_creature_preview(card, String(d["kind"]), Vector2(12, 12), Vector2(150, 200),
+		_add_creature_preview(card, d, Vector2(12, 12), Vector2(150, step - 50.0),
 			(d["body"] as Color), (d["accent"] as Color))
 		var nm := Label.new()
 		nm.text = String(d["name"])
 		nm.add_theme_font_size_override("font_size", 26)
 		nm.add_theme_color_override("font_color", Color(1.0, 0.96, 0.80))
-		nm.position = Vector2(172, 30)
-		nm.size = Vector2(150, 120)
+		nm.position = Vector2(172, 24)
+		nm.size = Vector2(150, step - 100.0)
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.add_child(nm)
 		var atk := Label.new()
 		atk.text = ("🐦 " if String(d["kind"]) == "bird" else "🐾 ") + String(d["attack"])
 		atk.add_theme_font_size_override("font_size", 24)
 		atk.add_theme_color_override("font_color", Color(0.74, 0.96, 0.88))
-		atk.position = Vector2(172, 168)
+		atk.position = Vector2(172, step - 82.0)
 		card.add_child(atk)
 	# big live preview, painted with the picked colours
 	var pick_def := def_by_id(m.companion_pick_id)
@@ -382,9 +481,18 @@ func _draw_picker() -> void:
 	pv_style.set_corner_radius_all(26)
 	preview_panel.add_theme_stylebox_override("panel", pv_style)
 	stage.add_child(preview_panel)
-	_add_creature_preview(preview_panel, String(pick_def["kind"]), Vector2(14, 14), Vector2(302, 302), pc0, pc1)
-	# three colour rows on the right
-	for slot in range(3):
+	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
+	# three colour rows on the right (a captured toy comes exactly as it is)
+	if not bool(pick_def.get("paintable", true)):
+		var asis := Label.new()
+		asis.text = "💕  %s comes just as she is!" % String(pick_def["name"])
+		asis.add_theme_font_size_override("font_size", 27)
+		asis.add_theme_color_override("font_color", Color(1.0, 0.85, 0.92))
+		asis.position = Vector2(830, 240)
+		asis.size = Vector2(400, 120)
+		asis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		stage.add_child(asis)
+	for slot in range(3 if bool(pick_def.get("paintable", true)) else 0):
 		var row_y := 130.0 + float(slot) * 120.0
 		var icon := Label.new()
 		icon.text = SLOT_ICON[slot]
@@ -422,12 +530,27 @@ func _draw_picker() -> void:
 	stage.add_child(go)
 	m._hook_button_taps(stage)
 
-func _add_creature_preview(parent: Control, kind: String, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
+func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
 	# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted —
 	# the same sheets the craft creatures use, so the paint matches in-world.
 	# The sheets are large illustrations: FIT them into the given box (uniform
 	# scale, centered) instead of trusting any fixed scale, and paint in the
 	# in-world order — body first, accent OVER it, ink line on top.
+	# Model-based toys (captured / photo-scanned) have no paint sheets: show
+	# their big friendly emoji instead — the Den shelf carries the real 3D body.
+	parent.clip_contents = true
+	if d.has("model") or not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
+		var face := Label.new()
+		face.text = String(d.get("emoji", "🧸"))
+		face.add_theme_font_size_override("font_size", int(minf(box_size.x, box_size.y) * 0.62))
+		face.position = box_pos
+		face.size = box_size
+		face.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		face.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		parent.add_child(face)
+		return
+	var kind := String(d["kind"])
 	var layer_names: Array = m.CREATURE_LAYERS.get(kind, m.CREATURE_LAYERS["fish"])
 	var draw_order: Array = [1, 0, 2]   # body, accent, line (matches _make_creature_node)
 	var tints: Array[Color] = [body, accent, Color.WHITE]
@@ -488,13 +611,15 @@ func _tick_room(delta: float) -> void:
 		if not is_instance_valid(node):
 			continue
 		var mine: bool = String(row["id"]) == m.companion_id
+		var home: bool = bool(row.get("home", true))
 		var marker: Label3D = row["marker"]
 		var heart: Label3D = row["heart"]
 		if is_instance_valid(marker):
-			marker.visible = not mine
+			marker.visible = home and not mine
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
 		if is_instance_valid(heart):
 			heart.visible = mine
+			heart.text = "💤" if (mine and m.companion_resting) else "💗"
 		var dist: float = node.global_position.distance_to(m.player.position)
 		if dist < best_d:
 			best_d = dist
@@ -502,11 +627,17 @@ func _tick_room(delta: float) -> void:
 	var action: bool = _action_down()
 	if best_id != "" and action and not m.companion_room_action_prev and m.companion_layer == null:
 		var d := def_by_id(best_id)
-		open_picker(false, best_id)
-		if best_id == m.companion_id:
-			m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
+		if not unlocked(best_id):
+			# an empty mystery shelf: point her at the capture loop, no picker
+			m.show_msg("Roshan", "Someone could live on this shelf! Win the toy tournament in the reef and bring a new friend home!", "talk")
 		else:
-			m.show_msg(String(d["name"]), "Pick me! Paint my colors and I'll come along!", "talk")
+			open_picker(false, best_id)
+			if best_id == m.companion_id and m.companion_resting:
+				m.show_msg(String(d["name"]), "*yaaawn* What a good rest! Take me with you again!", "talk")
+			elif best_id == m.companion_id:
+				m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
+			else:
+				m.show_msg(String(d["name"]), "Pick me! I'll come along!", "talk")
 	m.companion_room_action_prev = action
 
 func _room_colors(id: String) -> Array[Color]:
@@ -581,15 +712,28 @@ func _build_room() -> void:
 		shelf.position = Vector3(-1.5, 2.4, shelf_z)
 		shelf.material_override = _room_mat(Color(0.95, 0.8, 0.35), 0.2)
 		root.add_child(shelf)
-		var cols := _room_colors(id)
-		var creature := m._make_creature_node(String(d["kind"]), cols[0], cols[1], false, false, cols[2])
-		if creature != null:
-			creature.scale = Vector3.ONE * 0.75
-			creature.position = Vector3(-1.5, 2.68, shelf_z)
-			creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
-			root.add_child(creature)
+		var is_home := unlocked(id)
+		var creature: Node3D = null
+		if is_home:
+			creature = creature_for(d, _room_colors(id))
+			if creature != null:
+				creature.scale = Vector3.ONE * 0.75
+				creature.position = Vector3(-1.5, 2.68, shelf_z)
+				creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
+				root.add_child(creature)
+		else:
+			# a friend not yet befriended: an empty shelf with a big mystery mark
+			var mystery := Label3D.new()
+			mystery.text = "❓"
+			mystery.font_size = 160
+			mystery.pixel_size = 0.018
+			mystery.outline_size = 16
+			mystery.modulate = Color(0.75, 0.8, 0.95, 0.9)
+			mystery.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			mystery.position = Vector3(-1.5, 4.2, shelf_z)
+			root.add_child(mystery)
 		var name_sign := Label3D.new()
-		name_sign.text = String(d["name"])
+		name_sign.text = String(d["name"]) if is_home else "❓❓❓"
 		name_sign.font_size = 30
 		name_sign.pixel_size = 0.008
 		name_sign.outline_size = 9
@@ -618,7 +762,7 @@ func _build_room() -> void:
 		heart.visible = false
 		root.add_child(heart)
 		m.companion_room_rows.append({"id": id, "node": creature if creature != null else shelf,
-			"marker": marker, "heart": heart, "phase": float(i) * 1.7})
+			"marker": marker, "heart": heart, "phase": float(i) * 1.7, "home": is_home})
 
 func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
@@ -633,7 +777,11 @@ func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 # ---------- the overworld follower ----------
 
 func _tick_follower(delta: float) -> void:
-	if m.companion_node == null or not is_instance_valid(m.companion_node):
+	# a node that something reclaimed (arena teardown, freed parent) counts as
+	# lost — drop the handle so the respawn below brings the stuffie back
+	if m.companion_node != null and (not is_instance_valid(m.companion_node) or not m.companion_node.is_inside_tree()):
+		m.companion_node = null
+	if m.companion_node == null:
 		if not _follow_ctx():
 			return   # spawn in a free-roam world, never mid-engine
 		var fwd0 := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
@@ -745,84 +893,245 @@ func _nearest_unfound_friend() -> Vector3:
 			best = node.position
 	return best
 
-# ---------- sparkle-fish tokens (incremental upgrades) ----------
+# ---------- Tamagotchi care (the leveling system) ----------
 
-func _tick_tokens(delta: float) -> void:
-	if m.game != "":
+func want_def(id: String) -> Dictionary:
+	for w: Dictionary in WANTS:
+		if String(w["id"]) == id:
+			return w
+	return {}
+
+func after_battle(announce: bool = true) -> void:
+	# every big battle earns a hug + bubble bath; while boo-boos remain the
+	# patience clock runs — care heals them, silence sends the stuffie home
+	if m.companion_id == "" or m.companion_resting:
 		return
-	if m.companion_tokens.is_empty():
-		_build_tokens()
-	var now: float = Time.get_ticks_msec() / 1000.0
-	for row_v: Variant in m.companion_tokens:
-		var row: Dictionary = row_v
-		if row["node"] == null:
-			row["timer"] = float(row["timer"]) - delta
-			if float(row["timer"]) <= 0.0:
-				_spawn_token(row)
-			continue
-		var node: Node3D = row["node"]
-		if not is_instance_valid(node):
-			row["node"] = null
-			row["timer"] = TOKEN_RESPAWN
-			continue
-		var base: Vector3 = row["base"]
-		node.position = base + Vector3(0, sin(now * 2.0 + float(row["phase"])) * 0.6, 0)
-		node.rotation.y += delta * 1.5
-		var near_player: bool = node.position.distance_to(m.player.position) < TOKEN_RADIUS
-		var near_pal: bool = m.companion_node != null and is_instance_valid(m.companion_node) \
-			and node.position.distance_to(m.companion_node.position) < TOKEN_RADIUS
-		if near_player or near_pal:
-			_collect_token(row, near_pal and not near_player)
+	m.companion_want = ""
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	m.companion_want_bubble = null
+	m.companion_care_t = -1.0
+	m.companion_want_queue = ["cuddle", "bath"]
+	m.companion_want_cool = 1.5
+	if m.companion_bruises > 0:
+		m.companion_rest_timer = REST_PATIENCE
+		m.companion_rest_warned = 0
+		if announce:
+			var d := active_def()
+			m.show_msg(String(d["name"]), "What a big battle! I have boo-boos... I need a hug and a bubble bath!", "talk")
+	elif announce:
+		var d2 := active_def()
+		m.show_msg(String(d2["name"]), "What a big battle! Can I have a hug and a bubble bath?", "talk")
 
-func _build_tokens() -> void:
-	for i in range(TOKEN_TOTAL):
-		var x: float = ReefMain.hash2(float(i) * 3.7, 21.0) * 190.0 - 95.0
-		var z: float = ReefMain.hash2(float(i) * 5.3, 47.0) * 190.0 - 95.0
-		var base := Vector3(x, ReefMain.seabed_y(x, z) + 3.5 + ReefMain.hash2(float(i), 9.0) * 4.0, z)
-		var row := {"base": base, "node": null, "timer": 0.0, "phase": float(i) * 1.7}
-		_spawn_token(row)
-		m.companion_tokens.append(row)
-
-func _spawn_token(row: Dictionary) -> void:
-	var node := m._make_creature_node("fish", Color(1.0, 0.85, 0.35), Color(1.0, 0.95, 0.7))
-	if node == null:
+func _tick_care(delta: float) -> void:
+	if not _follow_ctx() or m.companion_node == null or not is_instance_valid(m.companion_node):
 		return
-	m.add_child(node)
-	node.scale = Vector3.ONE * 0.55
-	node.position = row["base"]
-	var halo := Label3D.new()
-	halo.text = "✦"
-	halo.font_size = 130
-	halo.pixel_size = 0.02
-	halo.outline_size = 20
-	halo.modulate = Color(1.0, 0.9, 0.4, 0.9)
-	halo.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	halo.no_depth_test = true
-	halo.position = Vector3(0, 4.5, 0)
-	node.add_child(halo)
-	row["node"] = node
-	row["timer"] = 0.0
+	# edge-detect THE button up front, every frame this tick runs — updating
+	# the prev flag only inside one branch left it stale and ate real taps
+	# (caught by probe_stuffie: the post-battle bath never got tended)
+	var action: bool = _action_down()
+	var tapped: bool = action and not m.companion_care_action_prev
+	m.companion_care_action_prev = action
+	# reloaded mid-injury (or came back before the queue ran): re-ask kindly
+	if m.companion_bruises > 0 and m.companion_want_queue.is_empty() \
+			and m.companion_want == "" and m.companion_rest_timer < 0.0:
+		after_battle(false)
+	# the injured patience clock — only ticks while she can actually help
+	if m.companion_bruises > 0 and m.companion_rest_timer > 0.0 and m.companion_care_t <= 0.0:
+		m.companion_rest_timer -= delta
+		var d := active_def()
+		if m.companion_rest_timer <= REST_WARN_2 and m.companion_rest_warned < 2:
+			m.companion_rest_warned = 2
+			m.show_msg(String(d["name"]), "I'm really hurting... one more minute and I'll go home to rest. Please tap me for care!", "talk")
+		elif m.companion_rest_timer <= REST_WARN_1 and m.companion_rest_warned < 1:
+			m.companion_rest_warned = 1
+			m.show_msg(String(d["name"]), "My boo-boos still hurt... I need my hug and bath, please!", "talk")
+		if m.companion_rest_timer <= 0.0:
+			_go_home_to_rest()
+			return
+	# a care moment in progress owns the stuffie for a beat
+	if m.companion_care_t > 0.0:
+		m.companion_care_t -= delta
+		if m.companion_care_t <= 0.0:
+			_finish_care()
+		return
+	if m.companion_want == "":
+		if m.companion_layer != null:
+			return
+		m.companion_want_cool -= delta
+		if m.companion_want_cool <= 0.0:
+			# queued post-battle care first, then the ordinary gentle asks
+			if not m.companion_want_queue.is_empty():
+				_begin_want(String(m.companion_want_queue.pop_front()))
+			else:
+				_begin_want(String(WANTS[randi() % WANTS.size()]["id"]))
+		return
+	# a want is showing: keep the bubble riding above the stuffie
+	var bubble: Label3D = m.companion_want_bubble
+	if bubble == null or not is_instance_valid(bubble):
+		_make_want_bubble()
+		bubble = m.companion_want_bubble
+	if bubble != null and is_instance_valid(bubble):
+		var now: float = Time.get_ticks_msec() / 1000.0
+		bubble.position = m.companion_node.position + Vector3(0, 4.6 + sin(now * 3.0) * 0.35, 0)
+		bubble.scale = Vector3.ONE * (1.0 + sin(now * 5.0) * 0.08)
+	# tend it: swim close and tap THE button
+	if tapped and m.companion_node.position.distance_to(m.player.position) < CARE_RADIUS \
+			and m.companion_layer == null:
+		_start_care()
 
-func _collect_token(row: Dictionary, by_pal: bool) -> void:
-	var node: Node3D = row["node"]
-	row["node"] = null
-	row["timer"] = TOKEN_RESPAWN
-	m.fish_tokens += 1
-	if is_instance_valid(node):
-		m._sparkle_burst(node.position + Vector3(0, 1.0, 0), Color(1.0, 0.9, 0.4))
-		node.queue_free()
+func _begin_want(id: String) -> void:
+	var w := want_def(id)
+	if w.is_empty():
+		return
+	m.companion_want = id
+	_make_want_bubble()
+	var d := active_def()
+	m.show_msg(String(d["name"]), String(w["ask"]) % String(d["name"]), "talk")
+
+func _make_want_bubble() -> void:
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	var w := want_def(m.companion_want)
+	if w.is_empty() or m.companion_node == null or not is_instance_valid(m.companion_node):
+		return
+	var bubble := Label3D.new()
+	bubble.text = String(w["emoji"])
+	bubble.font_size = 150
+	bubble.pixel_size = 0.02
+	bubble.outline_size = 22
+	bubble.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	bubble.no_depth_test = true
+	m.add_child(bubble)
+	m.companion_want_bubble = bubble
+
+func _start_care() -> void:
+	# the care moment: a short, readable animation per want, all analytic
+	m.companion_care_t = 2.0
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+		m.companion_want_bubble = null
+	var pal: Node3D = m.companion_node
+	var pos: Vector3 = pal.position
+	match m.companion_want:
+		"feed":
+			var snack := Label3D.new()
+			snack.text = "🍎"
+			snack.font_size = 110
+			snack.pixel_size = 0.02
+			snack.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			snack.position = m.player.position + Vector3(0, 2.0, 0)
+			m.add_child(snack)
+			var tw: Tween = snack.create_tween()
+			tw.tween_property(snack, "position", pos + Vector3(0, 2.2, 0), 0.7).set_trans(Tween.TRANS_QUAD)
+			tw.tween_property(snack, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+			tw.tween_callback(snack.queue_free)
+			_pal_bounce(1.15)
+		"nap":
+			var zzz := Label3D.new()
+			zzz.text = "💤"
+			zzz.font_size = 120
+			zzz.pixel_size = 0.02
+			zzz.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			zzz.position = pos + Vector3(0.8, 3.6, 0)
+			m.add_child(zzz)
+			var tz: Tween = zzz.create_tween()
+			tz.tween_property(zzz, "position:y", pos.y + 6.0, 1.9)
+			tz.parallel().tween_property(zzz, "modulate:a", 0.0, 1.9)
+			tz.tween_callback(zzz.queue_free)
+			_pal_bounce(0.9)
+		"bath":
+			for i in range(3):
+				m._sparkle_burst(pos + Vector3(randf_range(-1.2, 1.2), 1.5 + float(i), randf_range(-1.2, 1.2)), Color(0.75, 0.92, 1.0))
+			_pal_bounce(1.1)
+		"cuddle":
+			m._greet_heart(pos + Vector3(0, 2.6, 0))
+			if m.player != null and m.player.has_method("play_verb"):
+				m.player.play_verb("cheer")
+			_pal_bounce(1.2)
+		_:
+			# play: happy zoomies — a quick circle dash with a sparkle trail
+			var tw2: Tween = pal.create_tween()
+			for i in range(4):
+				var a: float = TAU * float(i + 1) / 4.0
+				tw2.tween_property(pal, "position", pos + Vector3(cos(a) * 3.0, 0.6, sin(a) * 3.0), 0.35).set_trans(Tween.TRANS_SINE)
+			m._sparkle_burst(pos + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.5))
+	m.companion_cheer_t = 2.0   # rigged bodies play their "happy" clip
+
+func _pal_bounce(peak: float) -> void:
+	var pal: Node3D = m.companion_node
+	if pal == null or not is_instance_valid(pal):
+		return
+	var base: Vector3 = pal.scale
+	var tw: Tween = pal.create_tween()
+	tw.tween_property(pal, "scale", base * peak, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(pal, "scale", base, 0.45).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+
+func _go_home_to_rest() -> void:
+	# the gentle failure lands: sparkle-poof home to the Den shelf
+	var d := active_def()
+	if m.companion_node != null and is_instance_valid(m.companion_node):
+		m._sparkle_burst(m.companion_node.position + Vector3(0, 2.0, 0), Color(0.75, 0.8, 1.0))
+		m.companion_node.queue_free()
+	m.companion_node = null
+	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+		m.companion_want_bubble.queue_free()
+	m.companion_want_bubble = null
+	m.companion_want = ""
+	m.companion_want_queue = []
+	m.companion_care_t = -1.0
+	m.companion_rest_timer = -1.0
+	m.companion_bruises = 0
+	m.companion_resting = true
+	m.show_msg(String(d["name"]), "My boo-boos hurt too much... I'm going home to my shelf to rest. Come get me at the castle!", "talk")
+	m._write_save()
+
+func _finish_care() -> void:
+	var w := want_def(m.companion_want)
+	var d := active_def()
+	m.companion_want = ""
+	m.companion_want_cool = randf_range(WANT_GAP_MIN, WANT_GAP_MAX)
+	if not m.companion_want_queue.is_empty():
+		m.companion_want_cool = 1.2   # the post-battle bath follows the hug right away
+	m.care_points += 1
+	# tending BOTH post-battle wants heals every boo-boo — all better!
+	if m.companion_bruises > 0 and m.companion_want_queue.is_empty():
+		m.companion_bruises = 0
+		m.companion_rest_timer = -1.0
+		m.companion_rest_warned = 0
+		if m.companion_node != null and is_instance_valid(m.companion_node):
+			for i in range(6):
+				var a: float = TAU * float(i) / 6.0
+				m._sparkle_burst(m.companion_node.position + Vector3(cos(a) * 1.8, 1.5, sin(a) * 1.8), Color(0.6, 1.0, 0.75))
+		m.show_msg(String(d["name"]), "All better! My boo-boos are gone! You take such good care of me!", "win")
+		m._write_save()
+		if m.chime != null:
+			m.chime.pitch_scale = 1.4
+			m.chime.play()
+		return
 	if m.chime != null:
 		m.chime.pitch_scale = 1.3
 		m.chime.play()
-	var d := active_def()
-	if by_pal:
-		m.show_msg(String(d["name"]), "Yum, a sparkle fish! I feel stronger! Level %d!" % level(), "talk")
+	if m.companion_node != null and is_instance_valid(m.companion_node):
+		m._greet_heart(m.companion_node.position + Vector3(0, 2.8, 0))
+	if m.care_points % LEVEL_EVERY == 0:
+		# LEVEL UP — a proper celebration: fanfare, sparkle ring, star pips
+		m._reward(false)
 		if m.companion_node != null and is_instance_valid(m.companion_node):
-			m.companion_cheer_t = 1.2
-			m._greet_heart(m.companion_node.position + Vector3(0, 2.4, 0))
-	else:
-		m.show_msg("Roshan", "A sparkle fish for %s! Level %d!" % [String(d["name"]), level()], "talk")
+			for i in range(8):
+				var a: float = TAU * float(i) / 8.0
+				m._sparkle_burst(m.companion_node.position + Vector3(cos(a) * 2.2, 1.2, sin(a) * 2.2), Color.from_hsv(float(i) / 8.0, 0.5, 1.0))
+		m.show_msg(String(d["name"]), "I grew SO big and strong! %s" % _star_pips(), "win")
+	elif not w.is_empty():
+		m.show_msg(String(d["name"]), String(w["done"]), "talk")
 	m._write_save()
+
+func _star_pips() -> String:
+	# non-reader level display: stars, never numerals
+	var stars := ""
+	for i in range(mini(stage(), 8)):
+		stars += "⭐"
+	return stars
 
 # ---------- the sparring den (battle entrance) ----------
 

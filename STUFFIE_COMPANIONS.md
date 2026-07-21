@@ -61,7 +61,9 @@ and a "This way!" voice line. Owner 2026-07-19: it follows **all the time** —
 every free-roam world (reef seabed clamp, lagoon terrain clamp, castle +
 northern kingdom by Roshan's height band); it hides only inside self-driven
 engines (kart, slides, battles, 2D canvas games) so it never photobombs a
-mode's own camera.
+mode's own camera. **Never lost** (owner 2026-07-20): a zone watch snaps the
+stuffie to Roshan's side on every game-context change, and a freed/orphaned
+node is detected and respawned beside her.
 
 ## The Stuffie Den (swap room, owner 2026-07-19)
 
@@ -72,6 +74,27 @@ wears its painted coat and a floating 💗, the rest wear book-art defaults
 and a sparkle ✦. Walk up and tap a shelf friend → the picker opens
 preselected on it (repaint or confirm) — so the stuffie is swappable ANY
 time, and a new roster entry automatically gains a shelf.
+
+## THE CAPTURE LOOP (owner 2026-07-20 — integral to the game)
+
+Most boss battles fought as a stuffie let you take the boss **home**:
+befriend it in the arena (never hurt — dizzy stars and hearts) → it asks to
+come home → it appears on its own shelf in the Stuffie Den → it becomes a
+carryable companion for future missions. **Lamb-a'** is the first capturable
+(the `boss_lamma` ladder round, using the existing `lamb.glb` plushie body).
+Before capture her Den shelf shows a ❓ mystery, seeding anticipation.
+
+Adding a future toy (the owner will photo-scan real stuffed animals via the
+Meshy photo→3D pipeline, as the craft creatures were made):
+1. Drop the scanned `.glb` in assets + a line in ASSET_LICENSES.md.
+2. Add a ROSTER entry in `companion.gd` with `"model"`, `"emoji"`,
+   `"locked": "friend_<id>"` (and `"paintable": false` — a real toy comes
+   exactly as it is).
+3. Add a LADDER round in `stuffie_battle.gd` with `"boss_model"` and
+   `"award": "<id>"`.
+Everything else — Den shelf, picker card, follower body, battle avatar,
+save persistence (a `friend_<id>` key inside the existing `stuffie_wins`
+dict — no schema change) — is automatic.
 
 ## Battles — the sparring den
 
@@ -85,23 +108,48 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
   Befriend everyone to win. Winning pays pearls and runs `_reward()`.
 - **DODGE QTE**: one opponent at a time telegraphs (puffs + blinks + red
   sparkle) and a **giant pulsing DODGE bubble** appears (~2.2s window). Tap
-  it (or X on a pad) → happy hop with sparkle trail. Miss → a harmless
-  sparkle-bump and encouragement — no health, no damage, no fail state.
+  it (or X on a pad) → happy hop with sparkle trail. Miss → a sparkle-bump.
   Mercy: misses widen the window (+0.6s each, cap +1.8s), and after two
   straight misses ANY button counts as the dodge (mash-proof for age 4).
+- **Boo-boos**: landed bumps never end a battle, but they leave bruises
+  (🩹 pips on the HUD) that ride home with the stuffie.
+- **THE GENTLE FAILURE** (owner 2026-07-21, a deliberate refinement of the
+  no-fail rule — failure comes from NOT CARING, never from the battle):
+  after every big battle the stuffie asks for its **hug + bubble bath**
+  (queued care wants). Tending both heals every boo-boo ("All better!").
+  But an INJURED stuffie whose care never comes (a generous ~2-minute
+  patience clock that only ticks in free-roam, with two spoken reminders)
+  goes home to its Den shelf to rest (`companion_resting`, persisted).
+  Nothing is lost — care points, captures, colours all keep — but the
+  follower is gone and battles pause until Roshan walks back to the
+  castle's Stuffie Den and picks a friend again, **the same one included**
+  (its shelf shows 💤 and it yawns awake). Failure = a nap + a little
+  journey, never a punishment.
 - **Ladder**: round1 (2 imps) → round2 (3 imps) → round3 (dragon-turtle
-  friendly rematch), one round per visit, saved in `stuffie_wins`; after all
-  three, visits rotate rounds forever (`_replays`).
+  friendly rematch) → **boss_lamma** (Lamb-a' capture — see THE CAPTURE
+  LOOP), one round per visit, saved in `stuffie_wins`; after all rounds,
+  visits rotate forever (`_replays`).
 
-## Upgrades — two tracks ("both")
+## Growth — Tamagotchi care (owner 2026-07-20; REPLACES the collectible model)
 
-- **Sparkle-fish tokens** (`fish_tokens`, incremental): 8 golden mini-fish
-  slots scattered in the reef, respawning ~75s after capture. Roshan OR the
-  stuffie swimming near one collects it (+1 level, sparkle, voice). Level →
-  slightly faster attack cooldown and move speed (clamped).
-- **Critter-Book fish** (milestone tiers): `tier()` = real fish catches from
-  `collection_system.gd` (0–6). Tier 1: +0.5s dodge window. Tier 2: +30%
-  attack reach. Tier 3: double-hit bops. Headroom for 4–6 reserved.
+The stuffie grows because she TAKES CARE of it. Every so often (45–75s of
+free-roam) it shows a want bubble: 🍎 hungry · 💤 sleepy · 🫧 bath ·
+❤ cuddle · 🎾 play — with a voice line. Swim close, tap THE button, and a
+short care moment plays (snack flies over and gets munched, Zzz drift up,
+bubble scrub, hug hearts, zoomies) → **+1 care point**, heart, chime.
+
+GENTLE by design — the anti-Tamagotchi rules: one want at a time, wants
+wait forever, nothing decays, nothing gets sick, care is never lost, and a
+want can never fulfil itself (probe-enforced). Care is shared across
+friends: it is HER nurturing that grows, whichever stuffie she carries.
+
+- `care_points` (persisted; legacy `fish_tokens` migrated in on load, the
+  old key still written for save compat)
+- `stage()` = 1 + points/4, shown as ⭐ pips (never numerals) at each
+  level-up celebration (fanfare + rainbow sparkle ring)
+- battle perks ride the stages: speed/cooldown scale with points; tier 1:
+  +0.5s dodge window; tier 2: +30% attack reach; tier 3: double-hit bops;
+  headroom for 4–6 reserved.
 
 ## Casual P2 (co-op)
 
