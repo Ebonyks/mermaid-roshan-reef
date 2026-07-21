@@ -3819,6 +3819,29 @@ func lagoon_walk_h(x: float, z: float) -> float:
 			h = maxf(h, 2.2)   # star platform top (12 x 1.4 x 12 box at spot - 3.5)
 	return LEVEL2_POS.y + h
 
+func water_surface_y(x: float, z: float) -> float:
+	# Local waterline for the player: below this height she is in water (swim
+	# rules + swim animation), above it she is on land / in air. 1e18 means
+	# water everywhere (underwater arenas keep their behavior); -1e18 means
+	# bone dry. Mirrors ReefPhysics.World.water_y so a later physics pass can
+	# feed the same oracle straight into the LAND medium.
+	if game == "":
+		return WATER_TOP
+	if lagoon_floor:
+		# dry meadow, except down inside the carved river / moat channels,
+		# whose surfaces sit a couple of units under the bank rim
+		var lx: float = x - LEVEL2_POS.x
+		var lz: float = z - LEVEL2_POS.z
+		var dip: float = _lagoon_river_dip(lx, lz) + _lagoon_moat_dip(lx, lz)
+		if dip <= 2.0:
+			return -1e18
+		return lagoon_h(x, z) + dip - 2.0
+	if northern_floor:
+		return NORTHERN_POS.y - 4.8   # the fjord sheets (see _build_fjords)
+	if game == "level2" and String(g.get("phase", "")) == "hall":
+		return -1e18   # castle interior: dry floors throughout
+	return 1e18
+
 # Phase 7.4b: the 2D picture games live in scripts/games/picture_games.gd
 func _pics_ref() -> PictureGames:
 	return _game_obj("pics", PictureGames)
