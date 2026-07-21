@@ -7,14 +7,14 @@ the accepted runtime family from the rejected procedural tree files.
 
 - `assets_src/blender/sky_lagoon_quality_kit.blend` owns the non-tree Lagoon
   kit and three cloud exports.
-- `assets_src/blender/sky_lagoon_tree_gen4.blend` owns all eight accepted
-  extensions. The GEN3 trial/extensions `.blend` files are rejected iteration
-  evidence only and must not be re-exported over GEN4.
+- `assets_src/blender/sky_lagoon_tree_gen5.blend` owns all eight candidate
+  extensions. The GEN3 trial/extensions sources and the removed GEN4 production
+  files are rejected iterations and must not be re-exported over GEN5.
 - The four shipped GEN2 anchors remain untouched:
   `tree_pineroundf.glb`, `tree_fall.glb`, `tree_fall2.glb`, and
   `tree_fat.glb`.
 - Fixed 0/45/135-degree tree reviews live in
-  `assets_src/blender/qa_sky_lagoon_tree_gen4/`.
+  `assets_src/blender/qa_sky_lagoon_tree_gen5/`.
 
 The runtime roster is exactly twelve tree designs: the four original anchors
 plus ancient oak, dancing birch, umbrella, blossom cloud, windswept,
@@ -29,6 +29,12 @@ three isolated views and in the Godot Mobile scene audit. Use the original four
 trees as the quality floor. Preserve genuinely different trunk graphs, crown
 silhouettes, negative spaces, habitat reads, and height/width ratios; a palette
 swap is not a new tree design.
+
+GEN5 is intentionally hybrid: new tapered trunk/branch/root graphs provide the
+structural variation, while independently posed and Mobile-decimated GEN2 crown
+fragments preserve the approved sculpted cut planes and painted surface rhythm.
+Do not revert to whole-tree warps or simple procedural blobs. The celebration
+tree uses the approved Northern pine sculpt with surface-positioned ornaments.
 
 Keep these placement rules intact:
 
@@ -49,11 +55,12 @@ Run with Blender 4.4.3:
 
 ```text
 blender --background --python tools/build_sky_lagoon_quality_kit.py
-blender --background --python tools/build_sky_lagoon_tree_gen4.py
-blender --background --python tools/render_glb_turntable.py -- assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb assets_src/blender/qa_sky_lagoon_tree_gen4 lagoon_tree_ancient_oak
+blender --background --python tools/build_sky_lagoon_tree_gen5.py
+blender --background --python tools/render_glb_turntable_batch.py -- assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb assets_src/blender/qa_sky_lagoon_tree_gen5 lagoon_tree_ancient_oak
 ```
 
-Repeat the last command for each changed tree GLB and role stem.
+Append additional `GLB OUT_DIR STEM` triples to the last command for every
+changed tree; the batch renderer pays the Eevee startup cost only once.
 
 After any accepted edit, update `ASSET_LICENSES.md`, the Sky Lagoon audit and
 ledger, rerun parser/inference gates, and require green import/probes plus all

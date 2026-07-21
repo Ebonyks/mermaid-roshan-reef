@@ -36,6 +36,15 @@ const LAGOON_GROUND_FLORA := [
 	"lagoon_flower_cluster_lavender",
 	"lagoon_mushroom_cluster",
 ]
+const LAGOON_REVIEW_FLORA := [
+	"lagoon_baby_rosette",
+	"lagoon_meadow_shrub",
+	"lagoon_flower_cluster_coral",
+	"lagoon_flower_cluster_lavender",
+	"lagoon_mushroom_cluster",
+	"lagoon_pond_reeds",
+	"lagoon_river_stones",
+]
 const LAGOON_ORIGINAL_TREES := [
 	"tree_pineRoundF",
 	"tree_default_fall",
@@ -43,14 +52,14 @@ const LAGOON_ORIGINAL_TREES := [
 	"tree_fat",
 ]
 const LAGOON_TREE_SOURCE_HEIGHT := {
-	"lagoon_tree_ancient_oak": 8.70,
-	"lagoon_tree_dancing_birch": 8.85,
-	"lagoon_tree_umbrella": 5.96,
-	"lagoon_tree_blossom_cloud": 8.15,
-	"lagoon_tree_windswept": 6.85,
-	"lagoon_tree_twinheart": 7.35,
-	"lagoon_tree_weeping_willow": 6.47,
-	"lagoon_tree_celebration_snow": 8.62,
+	"lagoon_tree_ancient_oak": 8.099,
+	"lagoon_tree_dancing_birch": 9.159,
+	"lagoon_tree_umbrella": 6.511,
+	"lagoon_tree_blossom_cloud": 8.125,
+	"lagoon_tree_windswept": 6.794,
+	"lagoon_tree_twinheart": 7.293,
+	"lagoon_tree_weeping_willow": 7.942,
+	"lagoon_tree_celebration_snow": 9.201,
 }
 const LAGOON_MEADOW_TREES := [
 	# The four shipped GEN2 sculpts remain untouched as quality anchors.
@@ -90,6 +99,8 @@ func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
 		return null
 	prop.set_meta("lagoon_art_role", name)
 	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
+	if name in LAGOON_REVIEW_FLORA and int(counts.get(name, 0)) == 0:
+		prop.set_meta("lagoon_art_review_anchor", true)
 	counts[name] = int(counts.get(name, 0)) + 1
 	m.g["lagoon_art_counts"] = counts
 	return prop
@@ -98,7 +109,7 @@ func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
 func _lagoon_tree(name: String, pos: Vector3, target_height: float,
 	yaw: float = 0.0) -> Node3D:
 	# Preserve the four superior shipped GEN2 trees through their established
-	# _nature mappings. Each extension records its audited GEN4 source height so
+	# _nature mappings. Each extension records its audited GEN5 source height so
 	# the call contract remains an honest world-space target across silhouettes.
 	if name in LAGOON_ORIGINAL_TREES:
 		var original: Node3D = m._nature(name, pos, target_height, yaw)

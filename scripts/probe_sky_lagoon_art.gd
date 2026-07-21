@@ -213,29 +213,29 @@ func _init() -> void:
 	await _shot_role("lagoon_03_memory_frame", "lagoon_memory_frame",
 		Vector3(18, 2, 0), Vector3(0, 0, 0), 53.0, 1)
 	await _shot_role_framed("lagoon_04_complete_baby_plant", "lagoon_baby_rosette",
-		Vector3(1.2, 0.72, 1.45), 47.0)
+		Vector3(1.2, 0.72, 1.45), 47.0, 0, true)
 	await _shot_role_framed("lagoon_05_developed_shrub", "lagoon_meadow_shrub",
-		Vector3(1.2, 0.62, 1.45), 48.0)
+		Vector3(1.2, 0.62, 1.45), 48.0, 0, true)
 	await _shot_role_framed("lagoon_06_flower_cluster_coral", "lagoon_flower_cluster_coral",
-		Vector3(1.2, 0.72, 1.45), 47.0)
+		Vector3(1.2, 0.72, 1.45), 47.0, 0, true)
 	await _shot_role_framed("lagoon_07_flower_cluster_lavender", "lagoon_flower_cluster_lavender",
-		Vector3(1.2, 0.72, 1.45), 47.0)
+		Vector3(1.2, 0.72, 1.45), 47.0, 0, true)
 	await _shot_role_framed("lagoon_08_mushroom_cluster", "lagoon_mushroom_cluster",
-		Vector3(1.2, 0.68, 1.45), 47.0)
+		Vector3(1.2, 0.68, 1.45), 47.0, 0, true)
 	await _shot_role_framed("lagoon_09_rooted_pond_reeds", "lagoon_pond_reeds",
-		Vector3(1.2, 0.56, 1.45), 49.0, 2)
+		Vector3(1.2, 0.56, 1.45), 49.0, 0, true)
 	await _shot_role_framed("lagoon_10_riverbank_stones", "lagoon_river_stones",
-		Vector3(1.2, 0.72, 1.45), 51.0, 2)
+		Vector3(1.2, 0.72, 1.45), 51.0, 0, true)
 	await _shot("lagoon_11_fairy_pond_near", main.fairy_pond_pos + Vector3(24, 13, 26),
 		main.fairy_pond_pos + Vector3(0, -2, 0), 62.0)
 	await _shot("lagoon_12_fairy_pond_context", main.fairy_pond_pos + Vector3(-34, 24, 38),
 		main.fairy_pond_pos + Vector3(0, 0, 0), 68.0)
 	await _shot("lagoon_13_playground", o + Vector3(120, 36, 125),
 		o + Vector3(74, 7, 92), 64.0)
-	await _shot("lagoon_14_rainbow_race_gate_a", main.kart_legA + Vector3(0, 5, 20),
-		main.kart_legA + Vector3(0, 3, 0), 54.0)
-	await _shot("lagoon_15_rainbow_race_gate_b", main.kart_legB + Vector3(0, 5, -20),
-		main.kart_legB + Vector3(0, 3, 0), 54.0)
+	await _shot_role_framed("lagoon_14_rainbow_race_gate_a", "lagoon_rainbow_race_arch",
+		Vector3(0.35, 0.40, 1.35), 49.0, 0)
+	await _shot_role_framed("lagoon_15_rainbow_race_gate_b", "lagoon_rainbow_race_arch",
+		Vector3(-1.20, 0.42, -1.25), 49.0, 1)
 	await _shot("lagoon_16_butterfly_world_gate", main.bw_portal_pos + Vector3(0, 4, 34),
 		main.bw_portal_pos + Vector3(0, 1, 0), 55.0)
 	await _shot("lagoon_17_castle_approach", o + Vector3(0, 26, -42),

@@ -75,7 +75,7 @@ def audit(path: Path, expected_role: str) -> tuple[int, int]:
 	return triangles, materials
 
 
-def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str]:
+def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str, float]:
 	document = glb_json(path)
 	nodes = document.get("nodes", [])
 	if len(nodes) != 1:
@@ -83,13 +83,18 @@ def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str]:
 	extras = nodes[0].get("extras", {})
 	if extras.get("role") != expected_role:
 		raise ValueError(f"role {extras.get('role')!r} != {expected_role!r}")
-	if extras.get("style_gate") != "sky_lagoon_tree_gen4":
-		raise ValueError("missing GEN4 style-gate metadata")
+	if extras.get("style_gate") != "sky_lagoon_tree_gen5":
+		raise ValueError("missing GEN5 style-gate metadata")
 	triangles = 0
+	minimum_y = 1.0e9
+	maximum_y = -1.0e9
 	for mesh in document.get("meshes", []):
 		for primitive in mesh.get("primitives", []):
 			accessor_index = primitive["indices"]
 			triangles += int(document["accessors"][accessor_index]["count"]) // 3
+			position_accessor = document["accessors"][primitive["attributes"]["POSITION"]]
+			minimum_y = min(minimum_y, float(position_accessor["min"][1]))
+			maximum_y = max(maximum_y, float(position_accessor["max"][1]))
 	materials = len(document.get("materials", []))
 	if triangles < 1000 or triangles > 9000:
 		raise ValueError(f"tree triangle count outside Mobile budget: {triangles}")
@@ -120,7 +125,7 @@ def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str]:
 		if max(width, height) > 1024:
 			raise ValueError(f"tree texture exceeds 1024px: {width}x{height}")
 		image_gate = f"{width}x{height}"
-	return triangles, materials, image_gate
+	return triangles, materials, image_gate, maximum_y - minimum_y
 
 
 def main() -> None:
@@ -136,8 +141,9 @@ def main() -> None:
 	for relative, role in TREE_EXPECTED.items():
 		path = ROOT / relative
 		try:
-			triangles, materials, image_gate = audit_tree(path, role)
-			print(f"SKYTREE|OK|{relative}|tris={triangles}|materials={materials}|texture={image_gate}|role={role}")
+			triangles, materials, image_gate, height = audit_tree(path, role)
+			print(f"SKYTREE|OK|{relative}|tris={triangles}|materials={materials}|"
+				f"texture={image_gate}|height={height:.3f}|role={role}")
 		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, struct.error) as error:
 			failures.append(f"{relative}: {error}")
 			print(f"SKYTREE|FAIL|{relative}|{error}")
