@@ -114,11 +114,12 @@ Assets: dragon puppet on a stick (head + curtain slot ×5 spots, outer two for h
 star projectile, bubble-puff. SFX: grumble, puff, tamed-purr.
 Mechanics wishlist: dragon sneezes confetti when popped the final time.
 
-## Act 8 — Opera Star, "The Moonlight Aria" (echo bells)
-Assets: golden bell trio (`OperaPad*` bells), conductor seahorse cutout on a
-podium, moon backdrop. SFX: authored three-bell chord scale, crowd "la-la"
-echo after each round.
-Mechanics wishlist: audience sways in rhythm during the demo.
+## Act 8 — Boxer, "The Championship Bout" (three friendly rounds)
+Assets: padded toy ring and thick ropes, coral boxing gloves, focus mitt,
+shell bell, three pearl round lamps, friendly mischief-imp peek/bop/bow states,
+championship shell belt, and a bubble-puff impact effect. SFX: soft bell,
+padded bop, imp giggle, and belt fanfare.
+Mechanics wishlist: the final imps bow before the belt presentation.
 
 ## Act 9 — Magician, "The Magic Hat Trick" (shuffle, 3 rounds)
 Assets: magic hats ×3 (`OperaHat*`), BUNNY-FISH character (`BunnyFish`),
