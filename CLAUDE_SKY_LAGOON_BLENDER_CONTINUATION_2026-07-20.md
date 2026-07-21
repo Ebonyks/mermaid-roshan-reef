@@ -7,7 +7,7 @@ the accepted runtime family from the rejected procedural tree files.
 
 - `assets_src/blender/sky_lagoon_quality_kit.blend` owns the non-tree Lagoon
   kit and three cloud exports.
-- `assets_src/blender/sky_lagoon_tree_gen5.blend` owns all eight candidate
+- `assets_src/blender/sky_lagoon_tree_gen5.blend` owns all eight accepted
   extensions. The GEN3 trial/extensions sources and the removed GEN4 production
   files are rejected iterations and must not be re-exported over GEN5.
 - The four shipped GEN2 anchors remain untouched:
@@ -16,11 +16,17 @@ the accepted runtime family from the rejected procedural tree files.
 - Fixed 0/45/135-degree tree reviews live in
   `assets_src/blender/qa_sky_lagoon_tree_gen5/`.
 
-The runtime roster is exactly twelve tree designs: the four original anchors
+The accepted runtime roster is exactly twelve tree designs: the four original anchors
 plus ancient oak, dancing birch, umbrella, blossom cloud, windswept,
 twin-heart, weeping willow, and celebration snow pine. The old
 `lagoon_tree_meadow_*`, `coral_*`, `willow_*`, `evergreen`, and `alpine_*`
 experiments are rejected and must not be wired or promoted.
+
+Exact-head run `29816404035` is the final 51-view Mobile evidence set. The
+accepted runtime scores are 4.6–4.8/5: ancient oak 4.7, dancing birch 4.7,
+umbrella 4.7, blossom cloud 4.8, windswept 4.8, twin-heart 4.7, weeping
+willow 4.8, and celebration snow pine 4.7. Do not overwrite these with an
+older generation or accept a future refinement below the same scene score.
 
 ## Continuation contract
 
