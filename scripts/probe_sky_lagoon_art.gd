@@ -7,6 +7,21 @@ var cam: Camera3D
 var main: ReefMain
 var out_dir := ""
 
+const REVIEW_TREE_ROLES := [
+	"tree_pineRoundF",
+	"tree_default_fall",
+	"tree_simple_fall",
+	"tree_fat",
+	"lagoon_tree_ancient_oak",
+	"lagoon_tree_dancing_birch",
+	"lagoon_tree_umbrella",
+	"lagoon_tree_blossom_cloud",
+	"lagoon_tree_windswept",
+	"lagoon_tree_twinheart",
+	"lagoon_tree_weeping_willow",
+	"lagoon_tree_celebration_snow",
+]
+
 
 func _settle(frames: int) -> void:
 	for frame_index in range(frames):
@@ -38,6 +53,73 @@ func _find_meta(key: String, value: String, occurrence: int = 0) -> Node3D:
 	return null
 
 
+func _find_review_role(role: String, occurrence: int = 0,
+	prefer_anchor: bool = false) -> Node3D:
+	if prefer_anchor:
+		var stack: Array[Node] = [main]
+		while not stack.is_empty():
+			var node: Node = stack.pop_back()
+			if (node is Node3D and node.has_meta("lagoon_art_role")
+					and String(node.get_meta("lagoon_art_role")) == role
+					and bool(node.get_meta("lagoon_art_review_anchor", false))):
+				return node as Node3D
+			for child: Node in node.get_children():
+				stack.append(child)
+	return _find_meta("lagoon_art_role", role, occurrence)
+
+
+func _visual_bounds(node: Node3D) -> AABB:
+	var stack: Array[Node] = [node]
+	var has_point := false
+	var minimum := Vector3.ZERO
+	var maximum := Vector3.ZERO
+	while not stack.is_empty():
+		var current: Node = stack.pop_back()
+		if current is MeshInstance3D:
+			var mesh_instance := current as MeshInstance3D
+			if mesh_instance.mesh != null and mesh_instance.is_visible_in_tree():
+				var local_bounds: AABB = mesh_instance.get_aabb()
+				for endpoint_index in range(8):
+					var point: Vector3 = mesh_instance.global_transform * local_bounds.get_endpoint(endpoint_index)
+					if not has_point:
+						minimum = point
+						maximum = point
+						has_point = true
+					else:
+						minimum = minimum.min(point)
+						maximum = maximum.max(point)
+		for child: Node in current.get_children():
+			stack.append(child)
+	if not has_point:
+		return AABB(node.global_position - Vector3.ONE, Vector3.ONE * 2.0)
+	return AABB(minimum, maximum - minimum)
+
+
+func _hide_tree_audit_occluders(target: Node3D) -> Array[Node3D]:
+	var hidden: Array[Node3D] = []
+	var stack: Array[Node] = [main]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is Node3D:
+			var node_3d := node as Node3D
+			var is_other_tree: bool = (node_3d != target
+				and node_3d.has_meta("lagoon_art_role")
+				and String(node_3d.get_meta("lagoon_art_role")) in REVIEW_TREE_ROLES)
+			var is_smoke: bool = node_3d is GPUParticles3D or node_3d is CPUParticles3D
+			if (is_other_tree or is_smoke) and node_3d.visible:
+				node_3d.visible = false
+				hidden.append(node_3d)
+		for child: Node in node.get_children():
+			stack.append(child)
+	return hidden
+
+
+func _restore_hidden(nodes: Array[Node3D]) -> void:
+	for node: Node3D in nodes:
+		if is_instance_valid(node):
+			node.visible = true
+
+
 func _shot_role(name: String, role: String, offset: Vector3, target_offset: Vector3,
 	fov: float = 56.0, occurrence: int = 0) -> void:
 	var node: Node3D = _find_meta("lagoon_art_role", role, occurrence)
@@ -46,6 +128,30 @@ func _shot_role(name: String, role: String, offset: Vector3, target_offset: Vect
 		return
 	await _shot(name, node.global_position + offset,
 		node.global_position + target_offset, fov)
+
+
+func _shot_role_framed(name: String, role: String, view_direction: Vector3,
+	fov: float = 50.0, occurrence: int = 0, prefer_anchor: bool = false,
+	is_tree: bool = false) -> void:
+	var node: Node3D = _find_review_role(role, occurrence, prefer_anchor)
+	if node == null:
+		print("LAGOONSHOT|", name, "|FAIL missing role ", role)
+		return
+	var hidden: Array[Node3D] = []
+	if is_tree:
+		hidden = _hide_tree_audit_occluders(node)
+	await _settle(2)
+	var bounds: AABB = _visual_bounds(node)
+	var center: Vector3 = bounds.get_center()
+	var horizontal_half: float = maxf(maxf(bounds.size.x, bounds.size.z) * 0.5, 0.65)
+	var vertical_half: float = maxf(bounds.size.y * 0.5, 0.65)
+	var frame_radius: float = sqrt(horizontal_half * horizontal_half
+		+ vertical_half * vertical_half)
+	var distance: float = maxf(3.2,
+		frame_radius / tan(deg_to_rad(fov * 0.5)) * 1.28)
+	var direction: Vector3 = view_direction.normalized()
+	await _shot(name, center + direction * distance, center, fov)
+	_restore_hidden(hidden)
 
 
 func _shot_node_local(name: String, node: Node3D, local_offset: Vector3,
@@ -106,20 +212,20 @@ func _init() -> void:
 		o + Vector3(0, 3, 0), 72.0)
 	await _shot_role("lagoon_03_memory_frame", "lagoon_memory_frame",
 		Vector3(18, 2, 0), Vector3(0, 0, 0), 53.0, 1)
-	await _shot_role("lagoon_04_complete_baby_plant", "lagoon_baby_rosette",
-		Vector3(7, 4, 9), Vector3(0, 1, 0), 49.0)
-	await _shot_role("lagoon_05_developed_shrub", "lagoon_meadow_shrub",
-		Vector3(8, 5, 11), Vector3(0, 1.5, 0), 50.0)
-	await _shot_role("lagoon_06_flower_cluster_coral", "lagoon_flower_cluster_coral",
-		Vector3(8, 5, 10), Vector3(0, 1.2, 0), 49.0)
-	await _shot_role("lagoon_07_flower_cluster_lavender", "lagoon_flower_cluster_lavender",
-		Vector3(8, 5, 10), Vector3(0, 1.2, 0), 49.0)
-	await _shot_role("lagoon_08_mushroom_cluster", "lagoon_mushroom_cluster",
-		Vector3(7, 4, 9), Vector3(0, 1.0, 0), 48.0)
-	await _shot_role("lagoon_09_rooted_pond_reeds", "lagoon_pond_reeds",
-		Vector3(9, 5, 12), Vector3(0, 1.5, 0), 52.0, 2)
-	await _shot_role("lagoon_10_riverbank_stones", "lagoon_river_stones",
-		Vector3(12, 6, 14), Vector3(0, 0.5, 0), 55.0, 2)
+	await _shot_role_framed("lagoon_04_complete_baby_plant", "lagoon_baby_rosette",
+		Vector3(1.2, 0.72, 1.45), 47.0)
+	await _shot_role_framed("lagoon_05_developed_shrub", "lagoon_meadow_shrub",
+		Vector3(1.2, 0.62, 1.45), 48.0)
+	await _shot_role_framed("lagoon_06_flower_cluster_coral", "lagoon_flower_cluster_coral",
+		Vector3(1.2, 0.72, 1.45), 47.0)
+	await _shot_role_framed("lagoon_07_flower_cluster_lavender", "lagoon_flower_cluster_lavender",
+		Vector3(1.2, 0.72, 1.45), 47.0)
+	await _shot_role_framed("lagoon_08_mushroom_cluster", "lagoon_mushroom_cluster",
+		Vector3(1.2, 0.68, 1.45), 47.0)
+	await _shot_role_framed("lagoon_09_rooted_pond_reeds", "lagoon_pond_reeds",
+		Vector3(1.2, 0.56, 1.45), 49.0, 2)
+	await _shot_role_framed("lagoon_10_riverbank_stones", "lagoon_river_stones",
+		Vector3(1.2, 0.72, 1.45), 51.0, 2)
 	await _shot("lagoon_11_fairy_pond_near", main.fairy_pond_pos + Vector3(24, 13, 26),
 		main.fairy_pond_pos + Vector3(0, -2, 0), 62.0)
 	await _shot("lagoon_12_fairy_pond_context", main.fairy_pond_pos + Vector3(-34, 24, 38),
@@ -128,7 +234,7 @@ func _init() -> void:
 		o + Vector3(74, 7, 92), 64.0)
 	await _shot("lagoon_14_rainbow_race_gate_a", main.kart_legA + Vector3(0, 5, 20),
 		main.kart_legA + Vector3(0, 3, 0), 54.0)
-	await _shot("lagoon_15_rainbow_race_gate_b", main.kart_legB + Vector3(0, 5, 20),
+	await _shot("lagoon_15_rainbow_race_gate_b", main.kart_legB + Vector3(0, 5, -20),
 		main.kart_legB + Vector3(0, 3, 0), 54.0)
 	await _shot("lagoon_16_butterfly_world_gate", main.bw_portal_pos + Vector3(0, 4, 34),
 		main.bw_portal_pos + Vector3(0, 1, 0), 55.0)
@@ -193,30 +299,30 @@ func _init() -> void:
 	# Every tree receives its own fixed daylight review. The four original GEN2
 	# sculpts are explicit anchors; the eight extensions must remain individually
 	# legible by silhouette, not merely by palette.
-	await _shot_role("lagoon_36_tree_original_pineround", "tree_pineRoundF",
-		Vector3(18, 11, 23), Vector3(0, 5.0, 0), 52.0)
-	await _shot_role("lagoon_37_tree_original_fall", "tree_default_fall",
-		Vector3(18, 12, 24), Vector3(0, 5.2, 0), 52.0)
-	await _shot_role("lagoon_38_tree_original_fall2", "tree_simple_fall",
-		Vector3(18, 13, 24), Vector3(0, 5.5, 0), 52.0)
-	await _shot_role("lagoon_39_tree_original_fat", "tree_fat",
-		Vector3(18, 10, 23), Vector3(0, 4.8, 0), 52.0)
-	await _shot_role("lagoon_40_tree_ancient_oak", "lagoon_tree_ancient_oak",
-		Vector3(18, 11, 23), Vector3(0, 5.0, 0), 52.0)
-	await _shot_role("lagoon_41_tree_dancing_birch", "lagoon_tree_dancing_birch",
-		Vector3(18, 14, 25), Vector3(0, 6.0, 0), 52.0)
-	await _shot_role("lagoon_42_tree_umbrella", "lagoon_tree_umbrella",
-		Vector3(20, 10, 24), Vector3(0, 4.2, 0), 53.0)
-	await _shot_role("lagoon_43_tree_blossom_cloud", "lagoon_tree_blossom_cloud",
-		Vector3(18, 12, 24), Vector3(0, 5.2, 0), 52.0)
-	await _shot_role("lagoon_44_tree_windswept", "lagoon_tree_windswept",
-		Vector3(20, 10, 24), Vector3(0.8, 4.4, 0), 53.0)
-	await _shot_role("lagoon_45_tree_twinheart", "lagoon_tree_twinheart",
-		Vector3(20, 11, 24), Vector3(0, 4.8, 0), 53.0)
-	await _shot_role("lagoon_46_tree_weeping_willow", "lagoon_tree_weeping_willow",
-		Vector3(20, 11, 25), Vector3(0, 4.5, 0), 53.0)
-	await _shot_role("lagoon_47_tree_celebration_snow", "lagoon_tree_celebration_snow",
-		Vector3(24, 17, 29), Vector3(0, 7.5, 0), 53.0)
+	await _shot_role_framed("lagoon_36_tree_original_pineround", "tree_pineRoundF",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_37_tree_original_fall", "tree_default_fall",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_38_tree_original_fall2", "tree_simple_fall",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_39_tree_original_fat", "tree_fat",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_40_tree_ancient_oak", "lagoon_tree_ancient_oak",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_41_tree_dancing_birch", "lagoon_tree_dancing_birch",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_42_tree_umbrella", "lagoon_tree_umbrella",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_43_tree_blossom_cloud", "lagoon_tree_blossom_cloud",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_44_tree_windswept", "lagoon_tree_windswept",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_45_tree_twinheart", "lagoon_tree_twinheart",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, true, true)
+	await _shot_role_framed("lagoon_46_tree_weeping_willow", "lagoon_tree_weeping_willow",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, false, true)
+	await _shot_role_framed("lagoon_47_tree_celebration_snow", "lagoon_tree_celebration_snow",
+		Vector3(1.25, 0.32, 1.45), 49.0, 0, false, true)
 	await _shot("lagoon_48_roshan_stained_glass", o + Vector3(0, 42, -75),
 		o + Vector3(0, 38, -106.95), 42.0)
 	# A smaller Sparkly comparison set catches quality-toggle exposure drift while

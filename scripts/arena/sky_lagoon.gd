@@ -42,6 +42,16 @@ const LAGOON_ORIGINAL_TREES := [
 	"tree_simple_fall",
 	"tree_fat",
 ]
+const LAGOON_TREE_SOURCE_HEIGHT := {
+	"lagoon_tree_ancient_oak": 8.70,
+	"lagoon_tree_dancing_birch": 8.85,
+	"lagoon_tree_umbrella": 5.96,
+	"lagoon_tree_blossom_cloud": 8.15,
+	"lagoon_tree_windswept": 6.85,
+	"lagoon_tree_twinheart": 7.35,
+	"lagoon_tree_weeping_willow": 6.47,
+	"lagoon_tree_celebration_snow": 8.62,
+}
 const LAGOON_MEADOW_TREES := [
 	# The four shipped GEN2 sculpts remain untouched as quality anchors.
 	"tree_pineRoundF",
@@ -88,8 +98,8 @@ func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
 func _lagoon_tree(name: String, pos: Vector3, target_height: float,
 	yaw: float = 0.0) -> Node3D:
 	# Preserve the four superior shipped GEN2 trees through their established
-	# _nature mappings. Extensions are authored at roughly 6.8 Blender units,
-	# so the same call contract expresses a readable world-space target height.
+	# _nature mappings. Each extension records its audited GEN4 source height so
+	# the call contract remains an honest world-space target across silhouettes.
 	if name in LAGOON_ORIGINAL_TREES:
 		var original: Node3D = m._nature(name, pos, target_height, yaw)
 		if original == null:
@@ -99,7 +109,8 @@ func _lagoon_tree(name: String, pos: Vector3, target_height: float,
 		counts[name] = int(counts.get(name, 0)) + 1
 		m.g["lagoon_art_counts"] = counts
 		return original
-	return _lagoon_prop(name, pos, target_height / 6.8, yaw)
+	var source_height: float = float(LAGOON_TREE_SOURCE_HEIGHT.get(name, 6.8))
+	return _lagoon_prop(name, pos, target_height / source_height, yaw)
 
 
 func _build_lagoon_bank_dressing(o: Vector3) -> void:
@@ -222,9 +233,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 				continue
 			var hero_pos := o + Vector3(hero_x,
 				_lagoon_local(hero_x, hero_z) - 0.35, hero_z)
-			_lagoon_tree(String(trees[tree_index]), hero_pos,
+			var hero_tree: Node3D = _lagoon_tree(String(trees[tree_index]), hero_pos,
 				10.4 + float(tree_index % 3) * 0.5,
 				float(tree_index) * 0.71)
+			if hero_tree != null:
+				hero_tree.set_meta("lagoon_art_review_anchor", true)
 			m._cyl_solid(hero_pos + Vector3(0, 5.4, 0), 1.3, 5.4, 0.6)
 			break
 	# tree CLUSTERS (little groves read as a real forest edge)

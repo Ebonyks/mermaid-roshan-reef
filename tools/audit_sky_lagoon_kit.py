@@ -27,6 +27,16 @@ EXPECTED = {
 	"assets/art35/landmarks/cloud_1.glb": "soft_toon_cloud_family",
 	"assets/art35/landmarks/cloud_2.glb": "soft_toon_cloud_family",
 }
+TREE_EXPECTED = {
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb": "lagoon_tree_ancient_oak",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_dancing_birch.glb": "lagoon_tree_dancing_birch",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_umbrella.glb": "lagoon_tree_umbrella",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_blossom_cloud.glb": "lagoon_tree_blossom_cloud",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_windswept.glb": "lagoon_tree_windswept",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_twinheart.glb": "lagoon_tree_twinheart",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_weeping_willow.glb": "lagoon_tree_weeping_willow",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_celebration_snow.glb": "lagoon_tree_celebration_snow",
+}
 
 
 def glb_json(path: Path) -> dict:
@@ -65,6 +75,54 @@ def audit(path: Path, expected_role: str) -> tuple[int, int]:
 	return triangles, materials
 
 
+def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str]:
+	document = glb_json(path)
+	nodes = document.get("nodes", [])
+	if len(nodes) != 1:
+		raise ValueError(f"expected one authored tree root, got {len(nodes)}")
+	extras = nodes[0].get("extras", {})
+	if extras.get("role") != expected_role:
+		raise ValueError(f"role {extras.get('role')!r} != {expected_role!r}")
+	if extras.get("style_gate") != "sky_lagoon_tree_gen4":
+		raise ValueError("missing GEN4 style-gate metadata")
+	triangles = 0
+	for mesh in document.get("meshes", []):
+		for primitive in mesh.get("primitives", []):
+			accessor_index = primitive["indices"]
+			triangles += int(document["accessors"][accessor_index]["count"]) // 3
+	materials = len(document.get("materials", []))
+	if triangles < 1000 or triangles > 9000:
+		raise ValueError(f"tree triangle count outside Mobile budget: {triangles}")
+	if materials <= 0 or materials > 12:
+		raise ValueError(f"tree material count outside Mobile budget: {materials}")
+	images = document.get("images", [])
+	textures = document.get("textures", [])
+	if len(images) > 1 or len(textures) > 1:
+		raise ValueError(f"tree texture count outside budget: {len(images)} images/{len(textures)} textures")
+	image_gate = "none"
+	if images:
+		image = images[0]
+		if image.get("mimeType") != "image/png" or "bufferView" not in image:
+			raise ValueError("tree texture must be one embedded PNG")
+		data = path.read_bytes()
+		json_length = struct.unpack_from("<I", data, 12)[0]
+		bin_header = 20 + json_length
+		bin_length, bin_type = struct.unpack_from("<I4s", data, bin_header)
+		if bin_type != b"BIN\x00":
+			raise ValueError("tree GLB is missing its binary chunk")
+		binary = data[bin_header + 8:bin_header + 8 + bin_length]
+		view = document["bufferViews"][int(image["bufferView"])]
+		offset = int(view.get("byteOffset", 0))
+		blob = binary[offset:offset + int(view["byteLength"])]
+		if blob[:8] != b"\x89PNG\r\n\x1a\n" or len(blob) < 24:
+			raise ValueError("tree texture is not a valid PNG")
+		width, height = struct.unpack_from(">II", blob, 16)
+		if max(width, height) > 1024:
+			raise ValueError(f"tree texture exceeds 1024px: {width}x{height}")
+		image_gate = f"{width}x{height}"
+	return triangles, materials, image_gate
+
+
 def main() -> None:
 	failures: list[str] = []
 	for relative, role in EXPECTED.items():
@@ -75,9 +133,17 @@ def main() -> None:
 		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
 			failures.append(f"{relative}: {error}")
 			print(f"SKYKIT|FAIL|{relative}|{error}")
+	for relative, role in TREE_EXPECTED.items():
+		path = ROOT / relative
+		try:
+			triangles, materials, image_gate = audit_tree(path, role)
+			print(f"SKYTREE|OK|{relative}|tris={triangles}|materials={materials}|texture={image_gate}|role={role}")
+		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, struct.error) as error:
+			failures.append(f"{relative}: {error}")
+			print(f"SKYTREE|FAIL|{relative}|{error}")
 	if failures:
 		raise SystemExit(1)
-	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}")
+	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}|trees={len(TREE_EXPECTED)}")
 
 
 if __name__ == "__main__":

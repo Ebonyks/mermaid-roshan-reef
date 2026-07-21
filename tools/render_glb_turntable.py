@@ -59,7 +59,11 @@ for obj in meshes:
 		toon.inputs["Size"].default_value = 0.8
 		toon.inputs["Smooth"].default_value = 0.02
 		if bsdf:
-			toon.inputs["Color"].default_value = bsdf.inputs["Base Color"].default_value
+			base_color = bsdf.inputs["Base Color"]
+			toon.inputs["Color"].default_value = base_color.default_value
+			if base_color.is_linked:
+				material.node_tree.links.new(base_color.links[0].from_socket,
+					toon.inputs["Color"])
 		material.node_tree.links.new(toon.outputs[0], material_output.inputs["Surface"])
 	obj.data.materials.append(ink)
 	outline = obj.modifiers.new("turntable_outline", "SOLIDIFY")

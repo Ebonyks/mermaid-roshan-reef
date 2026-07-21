@@ -33,7 +33,7 @@ The placement audit now uses the existing ground/water/path/landmark clearance r
 
 ## Rebuild
 
-The three deterministic Blender builders create 46 Lagoon-kit GLBs plus three cloud-family GLBs and editable `.blend` sources. The palette is shared across every family: navy/plum structure, pearl/cream architecture, lavender and aqua shadows, teal, coral, butter-gold, warm wood, and restrained berry accents. Materials are matte, texture-free, and embedded; no new OmniLights or runtime texture memory are introduced. The sixteen legacy kit roles retain their semantic glTF extras and pass the existing 3,000-triangle/12-material Mobile gate; denser editable construction geometry is reduced only on the runtime export copy, with the current optimized roles at 2,776–2,880 triangles.
+The accepted deterministic Blender builders create 46 Lagoon-kit GLBs plus three cloud-family GLBs and editable `.blend` sources. The palette is shared across every family: navy/plum structure, pearl/cream architecture, lavender and aqua shadows, teal, coral, butter-gold, warm wood, and restrained berry accents. The non-tree kit remains matte and texture-free. The GEN4 tree extensions reuse the approved GEN2 sculpt/UV language with one embedded 1024px texture sheet per textured role and no new external texture files. No new OmniLights are introduced. The sixteen legacy kit roles retain their semantic glTF extras and pass the existing 3,000-triangle/12-material Mobile gate; denser editable construction geometry is reduced only on the runtime export copy, with the current optimized roles at 2,776–2,880 triangles.
 
 The final tree roster contains exactly twelve designs: the four older models the owner identified as the quality anchors, retained unchanged, plus eight new structures:
 
@@ -41,7 +41,7 @@ The final tree roster contains exactly twelve designs: the four older models the
 2. original autumn oak (`tree_default_fall`);
 3. original airy fall tree (`tree_simple_fall`);
 4. original round-canopy tree (`tree_fat`);
-5. ancient hollow oak;
+5. ancient spreading oak;
 6. dancing birch grove;
 7. low umbrella tree;
 8. airy blossom-cloud tree;
@@ -50,7 +50,7 @@ The final tree roster contains exactly twelve designs: the four older models the
 11. domed weeping willow;
 12. tiered celebration snow pine.
 
-Two complete procedural families were rejected after direct owner review because they looked assembled, repeated, and worse than the older GEN2 sculpts. The accepted gen3 method uses fused organic wood volumes, continuous radial roots, renderer-safe volumetric foliage layers, real negative space, smooth toon-safe accents, and three fixed review angles. The ancient oak was held as a one-asset gate until it scored 4.6/5 and was reduced from 36,480 to 16,529 triangles without losing the visual score. The remaining seven range from 2,110 to 5,484 triangles and all score at least 4.5/5 in isolated 0°, 45°, and 135° review. Runtime acceptance still requires the fixed Mobile-render scene captures.
+Three procedural/model families were rejected after direct owner review because they looked assembled, repeated, or weaker than the older GEN2 sculpts. The accepted GEN4 method instead uses those four approved meshes as modeling stock: large mesh-space silhouette warps preserve their hand-cut planes and interior contour rhythm; multi-trunk roles are rebuilt from independently posed and decimated sculpt copies; the willow is reconstructed from separate modeled boughs, a broad cap, and six unequal hanging crown islands; and the celebration tree derives from the approved Northern pine language. These are modeled derivatives rather than palette swaps. The eight extensions range from 4,168 to 8,486 triangles and 3–12 materials. All textured roles embed only a 1024×1024 sheet. Fixed 0°, 45°, and 135° reviews score 4.6–4.8/5 at the isolated iteration gate. Runtime acceptance still requires the fixed Mobile-render scene captures.
 
 ## Mermaid Roshan stained glass preservation
 
@@ -84,8 +84,8 @@ This correction improved the concept silhouettes, but the resulting procedural m
 
 > Use the four approved GEN2 tree renders as the non-negotiable quality and shape-language references. Create eight genuinely different Sky Lagoon trees to join those originals rather than replace or imitate them: an ancient hollow oak with broad root arches and a layered mint crown; a dancing birch grove with three pale trunks and sparse high oval leaves; a low umbrella tree with a bent trunk and flat lateral canopy; an airy blossom-cloud tree with separated coral/rose crowns; a strongly leaning windswept tree with a flag-shaped aqua/lavender crown; a twin-trunk heart orchard with a clear central heart opening; a domed weeping willow with long tapered curtain foliage; and a tiered celebration snow pine with restrained snow, pastel ornaments, and one small gold star. Every design needs a different trunk graph, height/width ratio, crown rhythm, negative-space pattern, and habitat read while sharing warm modeled wood, matte pastel mint/aqua/lavender/coral/butter materials, and navy/plum contour language. Isolated premium 3D concept art on a clean white or studio background; no text, no characters, no palms, no flat cards, no crossed planes, no lollipop primitives, no repeated silhouettes, no photorealism, no clutter, no watermark.
 
-The final runtime meshes use this source only as modeling reference. `tools/build_sky_lagoon_tree_gen3_trial.py` and `tools/build_sky_lagoon_tree_extensions.py` reconstruct the geometry deterministically in Blender and `tools/render_glb_turntable.py` produces the fixed three-angle review evidence.
+The GEN3 runtime meshes made from this source were rejected by the owner. The accepted replacement is rebuilt deterministically by `tools/build_sky_lagoon_tree_gen4.py`, using the four approved GEN2 meshes and the approved Northern pine as modeling stock. `tools/render_glb_turntable.py` preserves embedded base-color textures while producing the fixed three-angle review evidence.
 
 ## Final evidence
 
-Pending the post-integration Mobile-render audit and exact green CI run. Scores and any further reject/regenerate decisions are tracked in `audit/sky_lagoon_quality_ledger_2026-07-20.csv`.
+Run `29806506063` proved the previous branch technically green but its Mobile artifact was visually rejected: several roles were missed or occluded by fixed cameras, and the GEN3 trees remained below the owner quality floor. GEN4 adds bounds-fitted role cameras, deterministic meadow hero anchors, tree-only close-up isolation, and transient particle suppression while retaining the broad contextual views. Pending the new exact-HEAD Mobile-render audit. Scores and any further reject/regenerate decisions are tracked in `audit/sky_lagoon_quality_ledger_2026-07-20.csv`.

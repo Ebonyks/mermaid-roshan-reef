@@ -7,15 +7,14 @@ the accepted runtime family from the rejected procedural tree files.
 
 - `assets_src/blender/sky_lagoon_quality_kit.blend` owns the non-tree Lagoon
   kit and three cloud exports.
-- `assets_src/blender/sky_lagoon_tree_gen3_trial.blend` owns the accepted
-  ancient hollow oak.
-- `assets_src/blender/sky_lagoon_tree_extensions.blend` owns the other seven
-  accepted tree extensions.
+- `assets_src/blender/sky_lagoon_tree_gen4.blend` owns all eight accepted
+  extensions. The GEN3 trial/extensions `.blend` files are rejected iteration
+  evidence only and must not be re-exported over GEN4.
 - The four shipped GEN2 anchors remain untouched:
   `tree_pineroundf.glb`, `tree_fall.glb`, `tree_fall2.glb`, and
   `tree_fat.glb`.
 - Fixed 0/45/135-degree tree reviews live in
-  `assets_src/blender/qa_sky_lagoon_tree_gen3/`.
+  `assets_src/blender/qa_sky_lagoon_tree_gen4/`.
 
 The runtime roster is exactly twelve tree designs: the four original anchors
 plus ancient oak, dancing birch, umbrella, blossom cloud, windswept,
@@ -50,9 +49,8 @@ Run with Blender 4.4.3:
 
 ```text
 blender --background --python tools/build_sky_lagoon_quality_kit.py
-blender --background --python tools/build_sky_lagoon_tree_gen3_trial.py
-blender --background --python tools/build_sky_lagoon_tree_extensions.py
-blender --background --python tools/render_glb_turntable.py -- assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb assets_src/blender/qa_sky_lagoon_tree_gen3 lagoon_tree_ancient_oak
+blender --background --python tools/build_sky_lagoon_tree_gen4.py
+blender --background --python tools/render_glb_turntable.py -- assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb assets_src/blender/qa_sky_lagoon_tree_gen4 lagoon_tree_ancient_oak
 ```
 
 Repeat the last command for each changed tree GLB and role stem.
