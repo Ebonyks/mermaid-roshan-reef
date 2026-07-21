@@ -176,6 +176,7 @@ func build(o: Vector3) -> void:
 	_build_backdrop_peaks(o)
 	_build_magic_forest(o)
 	_build_spirit_clearings(o)
+	_build_forest_pois(o)
 	_build_town(o)
 	_build_castle(o)
 	_build_grand_hall(o)
@@ -744,6 +745,18 @@ func _build_spirit_clearings(o: Vector3) -> void:
 			m._wall_solid(sp + Vector3(0, 3.0, 0), Vector3(2.6, 6.0, 2.1), 0.5)
 			stone_count += 1
 
+		# a little stacked-stone altar marks the circle's heart (the spirit
+		# boss will land here later)
+		var ay: float = _north_local(cc.x, cc.y)
+		for ai in range(3):
+			var stone_w: float = 3.2 - float(ai) * 0.9
+			var altar: MeshInstance3D = m._l2_box(
+				o + Vector3(cc.x, ay + 0.5 + float(ai) * 0.85, cc.y),
+				Vector3(stone_w, 0.9, stone_w * 0.8), Color(0.55, 0.58, 0.70))
+			altar.material_override = m._up_mat("cliff", 0.10, Color(0.58, 0.61, 0.72))
+			altar.rotation.y = float(ai) * 0.5
+		m._cyl_solid(o + Vector3(cc.x, ay + 1.4, cc.y), 1.9, 1.4, 0.4)
+
 		# a soft mote hovers over the circle's heart
 		var heart: MeshInstance3D = MeshInstance3D.new()
 		var hm: SphereMesh = SphereMesh.new()
@@ -760,6 +773,221 @@ func _build_spirit_clearings(o: Vector3) -> void:
 		m.game_nodes.append(heart)
 	m.g["north_stone_count"] = stone_count
 	m.g["north_stone_positions"] = stone_positions
+
+
+func _build_forest_pois(o: Vector3) -> void:
+	# Discrete points of interest every 40-60u so the walk is a chain of
+	# little discoveries at GROUND level — the reason not to fly over the
+	# forest is that everything worth finding lives under the canopy.
+	var pois := 0
+
+	# 1. WATERFALL + POND: the stream tumbles off the pass shoulder into a
+	# splash pool (the bowl is carved in _north_local).
+	var fall_top: Vector3 = o + Vector3(15.0, _north_local(15.0, 278.0) + 1.2, 278.0)
+	var fall_bot: Vector3 = o + Vector3(13.0, _north_local(13.0, 267.0) + 1.0, 267.0)
+	for ci in range(2):
+		var card: MeshInstance3D = m._l2_box(
+			fall_top.lerp(fall_bot, 0.30 + float(ci) * 0.42),
+			Vector3(5.0 - float(ci) * 1.2, 6.5, 0.6), Color(0.92, 0.98, 1.0), 0.7)
+		card.material_override.albedo_texture = null   # pure water sheet, not brick
+		card.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		card.material_override.albedo_color.a = 0.5
+		card.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		card.rotation.x = -0.9
+	for mi2 in range(3):
+		var foam: MeshInstance3D = MeshInstance3D.new()
+		var fs: SphereMesh = SphereMesh.new()
+		fs.radius = 1.0 - float(mi2) * 0.2
+		fs.height = fs.radius * 2.0
+		fs.radial_segments = 7
+		fs.rings = 4
+		foam.mesh = fs
+		foam.material_override = m._soft_mat(Color(0.95, 0.99, 1.0), 0.8)
+		foam.position = fall_bot + Vector3(float(mi2 - 1) * 2.0, 0.4, 1.5)
+		foam.visibility_range_end = 120.0
+		m.add_child(foam)
+		m.game_nodes.append(foam)
+	for rk: Vector2 in [Vector2(8.0, 274.0), Vector2(21.0, 271.0), Vector2(7.0, 261.0)]:
+		var rock: Node3D = m._nature("rock_largeA",
+			o + Vector3(rk.x, _north_local(rk.x, rk.y) - 0.2, rk.y), 4.2, rk.x * 0.7)
+		if rock != null:
+			m._set_vis_range(rock, 120.0)
+	pois += 1
+
+	# 2. FAIRY RING: a mushroom circle with a glow heart — a dance spot.
+	var ring_c := Vector2(-34.0, 214.0)
+	for fi in range(7):
+		var fang: float = TAU * float(fi) / 7.0
+		var fp: Vector3 = o + Vector3(ring_c.x + cos(fang) * 5.0, 0.0,
+			ring_c.y + sin(fang) * 5.0)
+		fp.y = _north_local(fp.x - o.x, fp.z - o.z) - 0.15
+		var shroom: Node3D = _north_prop("mushrooms_red" if fi % 2 == 0
+			else "mushrooms_tan", fp, 2.4, fang)
+		if shroom != null:
+			m._set_vis_range(shroom, 110.0)
+	var ring_heart: MeshInstance3D = MeshInstance3D.new()
+	var rh: SphereMesh = SphereMesh.new()
+	rh.radius = 0.55
+	rh.height = 1.1
+	rh.radial_segments = 8
+	rh.rings = 5
+	ring_heart.mesh = rh
+	ring_heart.material_override = m._soft_mat(Color(0.98, 0.80, 0.45), 1.9)
+	ring_heart.position = o + Vector3(ring_c.x,
+		_north_local(ring_c.x, ring_c.y) + 2.6, ring_c.y)
+	ring_heart.visibility_range_end = 110.0
+	m.add_child(ring_heart)
+	m.game_nodes.append(ring_heart)
+	pois += 1
+
+	# 3. FALLEN-LOG GATE: a mossy log rests on two stumps ACROSS the path —
+	# Roshan swims right under it (solids only on the stumps).
+	var log_z := 128.0
+	var log_x: float = _path_x(log_z)
+	for side: float in [-1.0, 1.0]:
+		var sx2: float = log_x + side * 7.5
+		var sy2: float = _north_local(sx2, log_z)
+		var stump: MeshInstance3D = MeshInstance3D.new()
+		var sm2: CylinderMesh = CylinderMesh.new()
+		sm2.top_radius = 1.6
+		sm2.bottom_radius = 2.0
+		sm2.height = 5.4
+		sm2.radial_segments = 8
+		stump.mesh = sm2
+		stump.material_override = m._castle_mat("wood", 0.14, Color(0.62, 0.46, 0.32))
+		stump.position = o + Vector3(sx2, sy2 + 2.7, log_z)
+		m.add_child(stump)
+		m.game_nodes.append(stump)
+		m._cyl_solid(stump.position, 2.0, 2.7, 0.4)
+	var big_log: MeshInstance3D = MeshInstance3D.new()
+	var blm: CylinderMesh = CylinderMesh.new()
+	blm.top_radius = 1.9
+	blm.bottom_radius = 1.9
+	blm.height = 19.0
+	blm.radial_segments = 9
+	big_log.mesh = blm
+	big_log.material_override = m._castle_mat("wood", 0.12, Color(0.58, 0.42, 0.30))
+	big_log.rotation.z = PI * 0.5
+	big_log.rotation.y = 0.12
+	big_log.position = o + Vector3(log_x, _north_local(log_x, log_z) + 6.6, log_z)
+	m.add_child(big_log)
+	m.game_nodes.append(big_log)
+	for gm in range(3):
+		var moss: MeshInstance3D = m._l2_box(big_log.position
+			+ Vector3(float(gm - 1) * 4.5, 1.6, 0.0),
+			Vector3(2.6, 0.5, 2.2), Color(0.55, 0.80, 0.55))
+		moss.material_override = m._up_mat("grass", 0.14, Color(0.60, 0.85, 0.58))
+	pois += 1
+
+	# 4. CRYSTAL GROTTO: rocks cradling glowing ice shards, cool against the
+	# warm forest — a peek of the castle's ice long before it appears.
+	var gro := Vector2(-30.0, 96.0)
+	for rk2: Vector2 in [Vector2(-4.0, 2.0), Vector2(3.5, -1.5), Vector2(0.5, 4.5)]:
+		var grock: Node3D = m._nature("cliff_block_rock",
+			o + Vector3(gro.x + rk2.x, _north_local(gro.x + rk2.x, gro.y + rk2.y) - 0.3,
+			gro.y + rk2.y), 5.0, rk2.x)
+		if grock != null:
+			m._set_vis_range(grock, 120.0)
+	m._cyl_solid(o + Vector3(gro.x, _north_local(gro.x, gro.y) + 1.5, gro.y), 4.0, 1.5, 0.5)
+	for si2 in range(5):
+		var sang: float = TAU * float(si2) / 5.0
+		var shard: MeshInstance3D = m._l2_box(
+			o + Vector3(gro.x + cos(sang) * 2.4,
+			_north_local(gro.x, gro.y) + 1.6 + float(si2 % 3) * 0.7,
+			gro.y + sin(sang) * 2.4),
+			Vector3(0.9, 2.8 + float(si2 % 2) * 1.3, 0.9),
+			Color(0.62, 0.92, 1.0) if si2 % 2 == 0 else Color(0.90, 0.68, 1.0), 1.1)
+		shard.rotation.z = cos(sang) * 0.35
+		shard.rotation.x = sin(sang) * 0.35
+	pois += 1
+
+	# 5. BUTTERFLY HOLLOW: gen2 butterflies bob over a flower patch (they
+	# ride the wisp ticker so they flutter without their own timer).
+	var hollow := Vector2(30.0, 56.0)
+	var wisps: Array = m.g.get("north_wisps", [])
+	for bfi in range(3):
+		var bpos: Vector3 = o + Vector3(hollow.x + float(bfi - 1) * 3.4,
+			_north_local(hollow.x, hollow.y) + 3.0 + float(bfi) * 0.8,
+			hollow.y + float(bfi % 2) * 2.6)
+		var fly: Node3D = m._gen2_prop("butterfly_story", bpos, 1.7,
+			float(bfi) * 2.1, 0.0)
+		if fly != null:
+			m.game_nodes.append(fly)
+			wisps.append({"node": fly, "base": bpos})
+	m.g["north_wisps"] = wisps
+	for ffi in range(4):
+		var flower: Node3D = m._nature(["flower_redA", "flower_yellowB",
+			"flower_purpleA", "flower_redA"][ffi],
+			o + Vector3(hollow.x - 3.0 + float(ffi) * 2.0,
+			_north_local(hollow.x, hollow.y) + 0.1, hollow.y - 2.0), 1.9, float(ffi))
+		if flower != null:
+			m._set_vis_range(flower, 90.0)
+	pois += 1
+
+	# 6. PICNIC REST: a bench, a lantern and flowers at the halfway mark.
+	var rest := Vector2(8.0, 4.0)
+	var rest_y: float = _north_local(rest.x, rest.y)
+	var bench2: Node3D = m._kit("park/bench", o + Vector3(rest.x, rest_y + 0.1, rest.y),
+		3.2, -PI * 0.5)
+	if bench2 != null:
+		m._set_vis_range(bench2, 110.0)
+	var rl_post: MeshInstance3D = m._l2_box(o + Vector3(rest.x + 2.4, rest_y + 2.2, rest.y),
+		Vector3(0.5, 4.4, 0.5), Color(0.38, 0.26, 0.18))
+	rl_post.material_override = m._castle_mat("wood", 0.2, Color(0.58, 0.42, 0.30))
+	var rl_lamp: MeshInstance3D = MeshInstance3D.new()
+	var rlm: SphereMesh = SphereMesh.new()
+	rlm.radius = 0.6
+	rlm.height = 1.2
+	rlm.radial_segments = 8
+	rlm.rings = 5
+	rl_lamp.mesh = rlm
+	rl_lamp.material_override = m._soft_mat(Color(1.0, 0.88, 0.55), 1.7)
+	rl_lamp.position = o + Vector3(rest.x + 2.4, rest_y + 4.7, rest.y)
+	rl_lamp.visibility_range_end = 120.0
+	m.add_child(rl_lamp)
+	m.game_nodes.append(rl_lamp)
+	pois += 1
+
+	# 7. RUINED GATE: two cracked, leaning pylons where an older kingdom's
+	# road once had a gate — foreshadows the castle ahead.
+	for side2: float in [-1.0, 1.0]:
+		var px3: float = _path_x(-92.0) + side2 * 8.0
+		var py3: float = _north_local(px3, -92.0)
+		var pylon: MeshInstance3D = m._l2_box(o + Vector3(px3, py3 + 3.2, -92.0),
+			Vector3(2.6, 6.4, 2.2), Color(0.52, 0.55, 0.66))
+		pylon.material_override = m._up_mat("cliff", 0.09, Color(0.55, 0.58, 0.68))
+		pylon.rotation.z = side2 * 0.12
+		m._wall_solid(pylon.position, Vector3(2.6, 6.4, 2.2), 0.5)
+	var fallen: MeshInstance3D = m._l2_box(
+		o + Vector3(_path_x(-92.0) + 11.5, _north_local(_path_x(-92.0) + 11.5, -94.0) + 0.6,
+		-94.0), Vector3(6.5, 1.4, 2.0), Color(0.50, 0.53, 0.64))
+	fallen.material_override = m._up_mat("cliff", 0.09, Color(0.53, 0.56, 0.66))
+	fallen.rotation.y = 0.5
+	fallen.rotation.z = 0.1
+	pois += 1
+
+	# 8. LILY POND: pads float on the town river by the dock.
+	for li2 in range(3):
+		var pad2: MeshInstance3D = MeshInstance3D.new()
+		var pdm: CylinderMesh = CylinderMesh.new()
+		pdm.top_radius = 1.3 - float(li2) * 0.25
+		pdm.bottom_radius = pdm.top_radius
+		pdm.height = 0.12
+		pdm.radial_segments = 9
+		pad2.mesh = pdm
+		pad2.material_override = m._up_mat("grass", 0.16, Color(0.42, 0.78, 0.52))
+		pad2.position = o + Vector3(42.0 + float(li2) * 2.6,
+			_north_local(44.0, -162.0) + 1.55, -162.0 - float(li2) * 2.0)
+		pad2.visibility_range_end = 100.0
+		m.add_child(pad2)
+		m.game_nodes.append(pad2)
+	var lily: Node3D = m._nature("flower_purpleA",
+		o + Vector3(42.0, _north_local(44.0, -162.0) + 1.6, -162.0), 1.4, 0.6)
+	if lily != null:
+		m._set_vis_range(lily, 100.0)
+	pois += 1
+
+	m.g["north_poi_count"] = pois
 
 
 func _build_town(o: Vector3) -> void:
@@ -1004,6 +1232,144 @@ func _build_castle(o: Vector3) -> void:
 		slit.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 
 
+	# ---- BUILD-OUT PASS: the palace needs real massing, not four walls ----
+	# Gatehouse: mini turrets + a little balcony crown the grand door.
+	for side: float in [-1.0, 1.0]:
+		var mt: MeshInstance3D = MeshInstance3D.new()
+		var mtm: CylinderMesh = CylinderMesh.new()
+		mtm.top_radius = 1.6
+		mtm.bottom_radius = 1.9
+		mtm.height = 15.0
+		mtm.radial_segments = 8
+		mt.mesh = mtm
+		mt.material_override = m._castle_mat("wall", 0.07, wall_col.lightened(0.06))
+		mt.position = c + Vector3(side * 6.8, 7.5, front_z + 0.6)
+		m.add_child(mt)
+		m.game_nodes.append(mt)
+		var mtc: MeshInstance3D = MeshInstance3D.new()
+		var mtcm: CylinderMesh = CylinderMesh.new()
+		mtcm.top_radius = 0.0
+		mtcm.bottom_radius = 2.3
+		mtcm.height = 4.2
+		mtcm.radial_segments = 8
+		mtc.mesh = mtcm
+		mtc.material_override = m._castle_mat("roof", 0.10, roof_col.lightened(0.12))
+		mtc.position = c + Vector3(side * 6.8, 17.1, front_z + 0.6)
+		m.add_child(mtc)
+		m.game_nodes.append(mtc)
+	var balcony: MeshInstance3D = m._l2_box(c + Vector3(0.0, 13.2, front_z + 1.6),
+		Vector3(10.0, 0.8, 2.6), wall_col.lightened(0.08))
+	balcony.material_override = m._castle_mat("wall", 0.08, wall_col.lightened(0.08))
+	for bp in range(5):
+		var bpost: MeshInstance3D = m._l2_box(
+			c + Vector3(-4.0 + float(bp) * 2.0, 14.4, front_z + 2.6),
+			Vector3(0.35, 1.6, 0.35), wall_col.lightened(0.10))
+		bpost.material_override = m._castle_mat("wall", 0.09, wall_col.lightened(0.10))
+
+	# Facade banners in the bedroom quilt colors.
+	for bside: float in [-1.0, 1.0]:
+		var banner: MeshInstance3D = m._l2_box(
+			c + Vector3(bside * 13.0, 16.0, front_z + 1.5),
+			Vector3(2.4, 5.6, 0.3),
+			Color(0.92, 0.55, 0.68) if bside < 0.0 else Color(0.55, 0.75, 0.94))
+		banner.material_override = m._castle_mat("fabric", 0.15,
+			Color(0.94, 0.62, 0.74) if bside < 0.0 else Color(0.62, 0.80, 0.96))
+		var btip: MeshInstance3D = m._l2_box(
+			c + Vector3(bside * 13.0, 12.9, front_z + 1.5),
+			Vector3(1.4, 0.8, 0.3), Color(1.0, 0.86, 0.44), 0.4)
+		btip.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+	# Buttresses give the long side walls their gothic rhythm.
+	for side3: float in [-1.0, 1.0]:
+		for bz2: float in [14.0, 0.0, -14.0]:
+			var butt: MeshInstance3D = m._l2_box(
+				c + Vector3(side3 * (half_w + 1.8), 5.0, bz2),
+				Vector3(2.4, 11.0, 3.0), wall_col.darkened(0.04))
+			butt.material_override = m._castle_mat("wall", 0.08, wall_col.darkened(0.02))
+			butt.rotation.z = -side3 * 0.16
+
+	# Window rows on the flanks and back so every face glows at dusk.
+	for side4: float in [-1.0, 1.0]:
+		for wz2: float in [12.0, -2.0, -16.0]:
+			var slit2: MeshInstance3D = m._l2_box(
+				c + Vector3(side4 * (half_w + 1.35), 14.0, wz2),
+				Vector3(0.3, 6.0, 2.0), Color(0.55, 0.92, 1.0), 1.0)
+			slit2.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	for wx2: float in [-10.0, 10.0]:
+		var bslit: MeshInstance3D = m._l2_box(c + Vector3(wx2, 15.0, back_z - 1.35),
+			Vector3(2.0, 6.0, 0.3), Color(0.55, 0.92, 1.0), 1.0)
+		bslit.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+	# Crenellated curtain wall: merlons march along the front rampart.
+	for mx in range(-8, 9):
+		var mxf: float = float(mx) * 5.0
+		if absf(mxf) < 8.0:
+			continue
+		var merlon: MeshInstance3D = m._l2_box(c + Vector3(mxf, 15.1, 30.0),
+			Vector3(2.4, 2.2, 3.8), wall_col.lightened(0.04))
+		merlon.material_override = m._castle_mat("wall", 0.08, wall_col.lightened(0.04))
+
+	# The tall REAR KEEP block layers the silhouette the way the reference
+	# palace stacks toward its spires (pure exterior massing, above the
+	# hall's interior ceiling zone).
+	var rear: MeshInstance3D = m._l2_box(c + Vector3(0.0, 30.0, -15.0),
+		Vector3(42.0, 14.0, 20.0), wall_col.lightened(0.03))
+	rear.material_override = m._castle_mat("wall", 0.06, wall_col.lightened(0.03))
+	for side5: float in [-1.0, 1.0]:
+		var rroof: MeshInstance3D = m._l2_box(c + Vector3(side5 * 8.5, 39.4, -15.0),
+			Vector3(21.0, 1.2, 23.0), roof_col)
+		rroof.rotation.z = side5 * 0.5
+		rroof.material_override = m._castle_mat("roof", 0.10, roof_col)
+	for rwx: float in [-13.0, 0.0, 13.0]:
+		var rslit: MeshInstance3D = m._l2_box(c + Vector3(rwx, 30.5, -3.9),
+			Vector3(2.0, 6.5, 0.3), Color(0.55, 0.92, 1.0), 1.0)
+		rslit.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	# satellite spires complete the cluster around the existing central one
+	for sside: float in [-1.0, 1.0]:
+		var sat: MeshInstance3D = MeshInstance3D.new()
+		var satm: CylinderMesh = CylinderMesh.new()
+		satm.top_radius = 1.9
+		satm.bottom_radius = 2.4
+		satm.height = 30.0
+		satm.radial_segments = 9
+		sat.mesh = satm
+		sat.material_override = m._castle_mat("wall", 0.06, wall_col.lightened(0.07))
+		sat.position = c + Vector3(sside * 10.0, 30.0, -24.0)
+		sat.visibility_range_end = 380.0
+		m.add_child(sat)
+		m.game_nodes.append(sat)
+		var satc: MeshInstance3D = MeshInstance3D.new()
+		var satcm: CylinderMesh = CylinderMesh.new()
+		satcm.top_radius = 0.0
+		satcm.bottom_radius = 3.0
+		satcm.height = 8.0
+		satcm.radial_segments = 9
+		satc.mesh = satcm
+		satc.material_override = m._castle_mat("roof", 0.10, roof_col.lightened(0.14))
+		satc.position = c + Vector3(sside * 10.0, 49.0, -24.0)
+		satc.visibility_range_end = 380.0
+		m.add_child(satc)
+		m.game_nodes.append(satc)
+
+	# Ice lanterns line the forecourt walk from the gate to the door.
+	for lz2: float in [26.0, 21.0, 16.0, 11.0]:
+		for lside: float in [-1.0, 1.0]:
+			var lpost2: MeshInstance3D = m._l2_box(c + Vector3(lside * 7.0, 1.6, lz2),
+				Vector3(0.5, 3.2, 0.5), wall_col.darkened(0.06))
+			lpost2.material_override = m._castle_mat("wall", 0.09, wall_col.darkened(0.03))
+			var lorb: MeshInstance3D = MeshInstance3D.new()
+			var lom: SphereMesh = SphereMesh.new()
+			lom.radius = 0.55
+			lom.height = 1.1
+			lom.radial_segments = 8
+			lom.rings = 5
+			lorb.mesh = lom
+			lorb.material_override = m._soft_mat(Color(0.75, 0.94, 1.0), 1.6)
+			lorb.position = c + Vector3(lside * 7.0, 3.6, lz2)
+			lorb.visibility_range_end = 150.0
+			m.add_child(lorb)
+			m.game_nodes.append(lorb)
+
 
 func _build_grand_hall(o: Vector3) -> void:
 	# INSIDE the keep: a tall ice hall. Frozen fountain centerpiece, six
@@ -1159,6 +1525,121 @@ func _build_grand_hall(o: Vector3) -> void:
 	spins.append({"node": chand_root, "axis": "y", "speed": 0.25})
 	m.g["north_spins"] = spins
 
+	# ---- INTERIOR DRESSING PASS: the hall reads royal, not empty ----
+	# Indigo carpet runner from the grand door to the frozen fountain.
+	var carpet: MeshInstance3D = m._l2_box(c + Vector3(0.0, 0.32, 15.5),
+		Vector3(5.2, 0.22, 15.0), Color(0.30, 0.32, 0.58))
+	carpet.material_override = m._castle_mat("fabric", 0.12, Color(0.38, 0.40, 0.66))
+	var carpet2: MeshInstance3D = m._l2_box(c + Vector3(0.0, 0.32, -2.0),
+		Vector3(5.2, 0.22, 8.0), Color(0.30, 0.32, 0.58))
+	carpet2.material_override = m._castle_mat("fabric", 0.12, Color(0.38, 0.40, 0.66))
+
+	# Hanging banners along both side walls.
+	for bside2: float in [-1.0, 1.0]:
+		for bi2 in range(2):
+			var wb: MeshInstance3D = m._l2_box(
+				c + Vector3(bside2 * 28.6, 13.5, -4.0 + float(bi2) * 12.0),
+				Vector3(0.3, 6.4, 2.8), quilts[bi2 if bside2 < 0.0 else 2 - bi2])
+			wb.material_override = m._castle_mat("fabric", 0.14,
+				quilts[bi2 if bside2 < 0.0 else 2 - bi2].lightened(0.1))
+			var wbt: MeshInstance3D = m._l2_box(
+				c + Vector3(bside2 * 28.6, 10.0, -4.0 + float(bi2) * 12.0),
+				Vector3(0.3, 0.7, 1.6), Color(1.0, 0.86, 0.44), 0.4)
+			wbt.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+	# Vault ribs rise from the pillar ring to a glowing boss — the ceiling
+	# reads as a six-fold crystal vault instead of a void.
+	var apex: Vector3 = c + Vector3(0.0, 21.0, 2.0)
+	for ri in range(6):
+		var rang: float = TAU * float(ri) / 6.0
+		var rstart: Vector3 = c + Vector3(cos(rang) * 15.0, 16.0, sin(rang) * 11.0 + 2.0)
+		var rdir: Vector3 = apex - rstart
+		var rib: MeshInstance3D = m._l2_box(rstart + rdir * 0.5,
+			Vector3(0.7, 0.7, rdir.length()), ice_deep)
+		rib.material_override = m._castle_mat("marble", 0.10, Color(0.70, 0.84, 1.0))
+		rib.rotation.y = atan2(rdir.x, rdir.z)
+		rib.rotation.x = -atan2(rdir.y, Vector2(rdir.x, rdir.z).length())
+	var boss: MeshInstance3D = MeshInstance3D.new()
+	var bossm: SphereMesh = SphereMesh.new()
+	bossm.radius = 1.0
+	bossm.height = 2.0
+	bossm.radial_segments = 8
+	bossm.rings = 5
+	boss.mesh = bossm
+	boss.material_override = m._soft_mat(Color(0.85, 0.96, 1.0), 1.6)
+	boss.position = apex
+	m.add_child(boss)
+	m.game_nodes.append(boss)
+
+	# A warm fireplace nook under the mezzanine breaks the ice palette —
+	# the snuggest corner of the palace lives beneath the bedrooms.
+	var fire_c: Vector3 = c + Vector3(-20.0, 0.0, -21.4)
+	var breast: MeshInstance3D = m._l2_box(fire_c + Vector3(0.0, 4.5, 0.0),
+		Vector3(5.4, 9.0, 2.4), Color(0.62, 0.64, 0.74))
+	breast.material_override = m._up_mat("cliff", 0.09, Color(0.66, 0.67, 0.76))
+	m._wall_solid(breast.position, Vector3(5.4, 9.0, 2.4), 0.4)
+	var mantel: MeshInstance3D = m._l2_box(fire_c + Vector3(0.0, 3.4, 0.9),
+		Vector3(4.6, 0.5, 1.4), Color(0.55, 0.57, 0.68))
+	mantel.material_override = m._up_mat("cliff", 0.10, Color(0.60, 0.62, 0.72))
+	var ember2: MeshInstance3D = m._l2_box(fire_c + Vector3(0.0, 1.2, 0.9),
+		Vector3(2.6, 2.0, 0.8), Color(1.0, 0.58, 0.28), 1.5)
+	ember2.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	for st_i in range(2):
+		var stool: MeshInstance3D = m._l2_box(
+			fire_c + Vector3(-1.8 + float(st_i) * 3.6, 0.55, 3.6),
+			Vector3(1.3, 1.1, 1.3), Color(0.60, 0.44, 0.30))
+		stool.material_override = m._castle_mat("wood", 0.16, Color(0.72, 0.54, 0.38))
+
+	# Two little thrones overlook the hall from the mezzanine rail.
+	for tside: float in [-1.0, 1.0]:
+		var tc: Vector3 = c + Vector3(tside * 2.9, mezz_y, -10.2)
+		var seat: MeshInstance3D = m._l2_box(tc + Vector3(0.0, 0.65, 0.0),
+			Vector3(2.3, 1.3, 2.1), Color(0.86, 0.92, 1.0))
+		seat.material_override = m._castle_mat("marble", 0.10, Color(0.88, 0.94, 1.0))
+		var back: MeshInstance3D = m._l2_box(tc + Vector3(0.0, 2.6, -0.85),
+			Vector3(2.3, 3.6, 0.5), Color(0.82, 0.90, 1.0))
+		back.material_override = m._castle_mat("marble", 0.10, Color(0.86, 0.92, 1.0))
+		var finial: MeshInstance3D = MeshInstance3D.new()
+		var fm2: SphereMesh = SphereMesh.new()
+		fm2.radius = 0.4
+		fm2.height = 0.8
+		fm2.radial_segments = 8
+		fm2.rings = 5
+		finial.mesh = fm2
+		finial.material_override = m._soft_mat(Color(1.0, 0.86, 0.44), 1.4)
+		finial.position = tc + Vector3(0.0, 4.7, -0.85)
+		m.add_child(finial)
+		m.game_nodes.append(finial)
+
+	# Newel orbs mark each staircase foot; per-bay windows + toy chests
+	# finish the bedrooms.
+	for nside: float in [-1.0, 1.0]:
+		var newel: MeshInstance3D = MeshInstance3D.new()
+		var nm: SphereMesh = SphereMesh.new()
+		nm.radius = 0.7
+		nm.height = 1.4
+		nm.radial_segments = 8
+		nm.rings = 5
+		newel.mesh = nm
+		newel.material_override = m._soft_mat(Color(0.78, 0.94, 1.0), 1.3)
+		newel.position = c + Vector3(nside * 24.0, 2.2, 19.8)
+		m.add_child(newel)
+		m.game_nodes.append(newel)
+	for bwi in range(3):
+		var bwx: float = bay_x[bwi]
+		var bwin: MeshInstance3D = m._l2_box(
+			c + Vector3(bwx, mezz_y + 4.6, -22.3),
+			Vector3(2.6, 3.8, 0.3), Color(0.62, 0.94, 1.0), 1.1)
+		bwin.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		var chest: MeshInstance3D = m._l2_box(
+			c + Vector3(bwx + 4.6, mezz_y + 0.7, -13.2),
+			Vector3(2.3, 1.4, 1.5), Color(0.58, 0.42, 0.28))
+		chest.material_override = m._castle_mat("wood", 0.16, Color(0.72, 0.54, 0.38))
+		var lid: MeshInstance3D = m._l2_box(
+			c + Vector3(bwx + 4.6, mezz_y + 1.5, -13.2),
+			Vector3(2.4, 0.35, 1.6), quilts[bwi])
+		lid.material_override = m._castle_mat("fabric", 0.15, quilts[bwi])
+
 	# ---------- the y-banded zones that make the hall's stories real
 	# (rects are lx/lz local to NORTHERN_POS; floors/ceils relative to its y)
 	var hall_top: float = HALL_FLOOR + 21.0
@@ -1309,6 +1790,9 @@ func _north_local(lx: float, lz: float) -> float:
 	var sw: float = _stream_w(lz)
 	var depth: float = lerpf(2.4, 3.2, 1.0 - smoothstep(-120.0, -60.0, lz))
 	h -= depth * (1.0 - smoothstep(sw * 0.5, sw + 4.0, sd))
+	# The waterfall pond: a wider bowl where the cascade lands.
+	var pond_d: float = Vector2(lx - 13.0, lz - 266.0).length()
+	h -= 2.0 * (1.0 - smoothstep(4.0, 10.0, pond_d))
 	# The mill island rises back out of the river's east half; the channel
 	# keeps flowing on its west side.
 	h += _bump(lx, lz, 52.0, -218.0, 9.0, 5.0)

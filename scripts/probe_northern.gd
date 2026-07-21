@@ -68,6 +68,8 @@ func _init() -> void:
 			bedroom.rotation.y, -PI, PI)) < 0.01
 	_ck("mezzanine bedrooms exist", int(main.g.get("north_bedroom_count", 0)) == 3
 		and bedrooms_face_hall)
+	_ck("forest POI chain built", int(main.g.get("north_poi_count", 0)) >= 8,
+		"pois=%d" % int(main.g.get("north_poi_count", 0)))
 	_ck("authored northern asset family", int(main.g.get(
 		"north_authored_asset_family_count", 0)) == 25
 		and int(main.g.get("north_authored_asset_instance_count", 0)) >= 75,
