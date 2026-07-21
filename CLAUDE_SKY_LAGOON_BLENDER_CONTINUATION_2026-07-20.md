@@ -1,5 +1,54 @@
 # Sky Lagoon Blender continuation for Claude — 2026-07-20
 
+## 2026-07-21 PNW flat-prototype workorder
+
+The owner rejected the realistic botanical sheets and every procedural PNW
+Blender attempt. Do **not** use branch `codex/sky-lagoon-pnw-trees`, its builder,
+or its eighteen GLBs as a base. They are preserved only as rejected history.
+
+The art-direction source of truth for the next modeling pass is flat image art:
+
+- `assets_src/concepts/sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png`
+- `assets_src/concepts/sky_lagoon_pnw_shrub_prototypes_flat_2026-07-21.png`
+- the eighteen named crop cards under
+  `assets_src/concepts/sky_lagoon_pnw_flat/`
+- `SKY_LAGOON_PNW_FLAT_PROTOTYPE_AUDIT_2026-07-21.md`
+
+The required future roster is twelve trees (Coastal Douglas-fir, western
+redcedar, western hemlock, Sitka spruce, shore pine, Pacific yew, bigleaf
+maple, red alder, black cottonwood, Pacific madrone, Garry oak, and Pacific
+dogwood) plus six shrubs (salal, low Oregon grape, red-flowering currant,
+oceanspray, salmonberry, and evergreen huckleberry).
+
+These references are approved prototypes, not authorization to replace the
+current runtime family. Keep GEN2 plus GEN5 wired as the fallback until every
+new model independently passes. Model the silhouette and primary volumes, not
+the illustration's surface grooves: two to five crown masses, very few thick
+branches, broad cel planes, and one oversized species cue. Do not create leaf
+cloud algorithms, twig networks, individual needle/leaf clutter, dense bark,
+or literal geometry for every painted scallop, berry, or flower.
+
+Match the prototype palette and value hierarchy. Reject any mesh below 4.5/5
+at 0, 45, or 135 degrees, or below 4.5 in the Godot Mobile scene. The upper
+computer grade remains 4.9. Species realism never overrides the rounded
+storybook toy language or phone-scale readability.
+
+Use these habitat constraints during the later scene pass:
+
+- snow: Douglas-fir, western redcedar, western hemlock, Sitka spruce, or shore
+  pine only;
+- wet bank: red alder, black cottonwood, or salmonberry;
+- moist ground: western redcedar, western hemlock, Sitka spruce, Pacific yew,
+  bigleaf maple, Pacific dogwood, salal, or evergreen huckleberry;
+- dry ground: shore pine, Pacific madrone, Garry oak, low Oregon grape,
+  red-flowering currant, or oceanspray;
+- never place a broadleaf, shrub, mushroom, or tropical plant in snow, and
+  never grow foliage from open water, path paving, bridge masonry, track, or
+  building floors.
+
+The Mermaid Roshan stained glass remains protected. Do not alter its image,
+material, plane, opening, or visibility while changing vegetation.
+
 ## Current production baseline
 
 Continue from the editable Blender sources in this branch; do not reconstruct
