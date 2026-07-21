@@ -78,6 +78,11 @@ func _init() -> void:
 		main._skip_intro()
 	# Speedy is the phone default and therefore the binding presentation tier.
 	main._apply_quality("speedy")
+	# Save-state time of day varies on developer machines and previously turned
+	# the full evidence set into a night-only review. Force the binding family
+	# views to daylight so grass-level silhouettes and palette separation remain
+	# scoreable; dedicated comparison frames still cover the alternate tier.
+	main._set_night(false)
 	main.galaxy_unlocked = true
 	main.l2_star_progress = [false, false, false]
 	main._enter_level2()
