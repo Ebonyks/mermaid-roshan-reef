@@ -61,7 +61,9 @@ and a "This way!" voice line. Owner 2026-07-19: it follows **all the time** —
 every free-roam world (reef seabed clamp, lagoon terrain clamp, castle +
 northern kingdom by Roshan's height band); it hides only inside self-driven
 engines (kart, slides, battles, 2D canvas games) so it never photobombs a
-mode's own camera.
+mode's own camera. **Never lost** (owner 2026-07-20): a zone watch snaps the
+stuffie to Roshan's side on every game-context change, and a freed/orphaned
+node is detected and respawned beside her.
 
 ## The Stuffie Den (swap room, owner 2026-07-19)
 
@@ -72,6 +74,27 @@ wears its painted coat and a floating 💗, the rest wear book-art defaults
 and a sparkle ✦. Walk up and tap a shelf friend → the picker opens
 preselected on it (repaint or confirm) — so the stuffie is swappable ANY
 time, and a new roster entry automatically gains a shelf.
+
+## THE CAPTURE LOOP (owner 2026-07-20 — integral to the game)
+
+Most boss battles fought as a stuffie let you take the boss **home**:
+befriend it in the arena (never hurt — dizzy stars and hearts) → it asks to
+come home → it appears on its own shelf in the Stuffie Den → it becomes a
+carryable companion for future missions. **Lamb-a'** is the first capturable
+(the `boss_lamma` ladder round, using the existing `lamb.glb` plushie body).
+Before capture her Den shelf shows a ❓ mystery, seeding anticipation.
+
+Adding a future toy (the owner will photo-scan real stuffed animals via the
+Meshy photo→3D pipeline, as the craft creatures were made):
+1. Drop the scanned `.glb` in assets + a line in ASSET_LICENSES.md.
+2. Add a ROSTER entry in `companion.gd` with `"model"`, `"emoji"`,
+   `"locked": "friend_<id>"` (and `"paintable": false` — a real toy comes
+   exactly as it is).
+3. Add a LADDER round in `stuffie_battle.gd` with `"boss_model"` and
+   `"award": "<id>"`.
+Everything else — Den shelf, picker card, follower body, battle avatar,
+save persistence (a `friend_<id>` key inside the existing `stuffie_wins`
+dict — no schema change) — is automatic.
 
 ## Battles — the sparring den
 
@@ -90,8 +113,9 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
   Mercy: misses widen the window (+0.6s each, cap +1.8s), and after two
   straight misses ANY button counts as the dodge (mash-proof for age 4).
 - **Ladder**: round1 (2 imps) → round2 (3 imps) → round3 (dragon-turtle
-  friendly rematch), one round per visit, saved in `stuffie_wins`; after all
-  three, visits rotate rounds forever (`_replays`).
+  friendly rematch) → **boss_lamma** (Lamb-a' capture — see THE CAPTURE
+  LOOP), one round per visit, saved in `stuffie_wins`; after all rounds,
+  visits rotate forever (`_replays`).
 
 ## Upgrades — two tracks ("both")
 

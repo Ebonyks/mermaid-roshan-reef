@@ -159,6 +159,7 @@ var companion_gift: Node3D = null         # Huluu's gift box beside the Crown St
 var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
 var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
+var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 var companion_tokens: Array = []          # sparkle-fish rows {base, node, timer, phase}
 var companion_layer: CanvasLayer = null   # picker overlay
@@ -2542,6 +2543,16 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		if bool(stuffie_wins.get(round_tag, false)):
 			stuffie_wins["_replays"] = int(stuffie_wins.get("_replays", 0)) + 1
 		stuffie_wins[round_tag] = true
+		# CAPTURE (owner 2026-07-20): befriending a boss stuffie takes it HOME —
+		# it moves onto its Stuffie Den shelf and becomes a carryable companion
+		for cfg in StuffieBattle.LADDER:
+			if String(cfg["tag"]) != round_tag or not cfg.has("award"):
+				continue
+			var friend_key := "friend_" + String(cfg["award"])
+			if not bool(stuffie_wins.get(friend_key, false)):
+				stuffie_wins[friend_key] = true
+				show_msg(String(cfg.get("award_name", "Your new friend")),
+					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Den!", "win")
 		pearl_count += 8
 		_reward(false)
 		_write_save()

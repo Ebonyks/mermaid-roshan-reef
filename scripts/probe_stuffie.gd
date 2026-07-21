@@ -24,6 +24,9 @@ func _init() -> void:
 	await _battle_case()
 	await _save_case()
 	await _switch_case()
+	await _award_case()
+	await _lamma_case()
+	await _zone_case()
 	print("STUFFIE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
@@ -159,3 +162,58 @@ func _switch_case() -> void:
 	_ck("swapped follower respawns as the bird", main.companion_node != null
 		and is_instance_valid(main.companion_node)
 		and String(comp.active_def()["kind"]) == "bird")
+
+func _award_case() -> void:
+	# THE CAPTURE LOOP (owner 2026-07-20): befriend a boss stuffie → it comes
+	# home → it becomes a carryable companion. Lamb-a' is the first.
+	var comp: CompanionSystem = main._companion_ref()
+	_ck("Lamb-a' starts locked", not comp.unlocked("lamma")
+		and comp.unlocked_defs().size() == 2)
+	main.stuffie_wins["round2"] = true
+	main.stuffie_wins["round3"] = true
+	main.stuffie_cool = 0.0
+	main._start_stuffie_battle()
+	await process_frame
+	var battle: StuffieBattle = main.stuffie_game
+	_ck("ladder reaches the Lamb-a' capture round", battle != null
+		and battle.round_tag == "boss_lamma" and battle.enemies.size() == 1)
+	if battle == null:
+		return
+	var boss: Dictionary = battle.enemies[0]
+	while int(boss["hp"]) > 0:
+		battle._hit_enemy(boss)
+	boss["timer"] = 0.0
+	await _settle(4)
+	_ck("boss stuffie is befriended, never hurt", battle.state == "won")
+	battle.win_t = 0.0
+	await process_frame
+	await process_frame
+	_ck("Lamb-a' comes home to the Den", bool(main.stuffie_wins.get("friend_lamma", false))
+		and comp.unlocked("lamma") and comp.unlocked_defs().size() == 3)
+
+func _lamma_case() -> void:
+	var comp: CompanionSystem = main._companion_ref()
+	comp.open_picker(false, "lamma")
+	_ck("captured friend joins the picker", main.companion_pick_id == "lamma"
+		and main.companion_layer != null)
+	comp._confirm_pick()
+	await _settle(15)
+	_ck("Lamb-a' can be carried on missions", main.companion_id == "lamma"
+		and main.companion_node != null and is_instance_valid(main.companion_node))
+
+func _zone_case() -> void:
+	# zone watch: changing worlds always snaps the stuffie back to her side
+	# (drive the satellite directly — no awaits, so the live loop never sees
+	# the borrowed game value)
+	var comp: CompanionSystem = main._companion_ref()
+	if main.companion_node == null or not is_instance_valid(main.companion_node):
+		_ck("zone case needs a follower", false)
+		return
+	main.companion_node.position = main.player.position + Vector3(60.0, 0, 0)
+	main.game = "north"
+	comp.tick(0.016)
+	var near: bool = main.companion_node != null and is_instance_valid(main.companion_node) \
+		and main.companion_node.position.distance_to(main.player.position) < 12.0
+	main.game = ""
+	comp.tick(0.016)
+	_ck("zone change snaps the stuffie to her side", near)

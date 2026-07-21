@@ -12,12 +12,20 @@ extends Node3D
 const CENTER := Vector3(0.0, -2400.0, 0.0)
 const RADIUS := 27.0
 
-# The sparring ladder. One round per den visit; after all three are won the
+# The sparring ladder. One round per den visit; after every round is won the
 # den serves them again in rotation, a little livelier each time.
+# CAPTURE ROUNDS (owner 2026-07-20, the core collection loop): a round with an
+# "award" is a boss STUFFIE — befriending it takes it HOME to the Stuffie Den
+# where it becomes a carryable companion for future missions. Future toys
+# (photo-scanned via the Meshy pipeline) are one roster entry + one award
+# round away.
 const LADDER := [
 	{"tag": "round1", "imps": 2, "hp": 2, "attack_gap": 4.6, "telegraph": 2.4, "layout": "ring"},
 	{"tag": "round2", "imps": 3, "hp": 2, "attack_gap": 3.8, "telegraph": 2.2, "layout": "double"},
 	{"tag": "round3", "imps": 0, "boss": true, "hp": 5, "attack_gap": 3.4, "telegraph": 2.0},
+	{"tag": "boss_lamma", "imps": 0, "boss": true, "hp": 6, "attack_gap": 3.2, "telegraph": 2.0,
+		"boss_model": "res://assets/characters/lamb.glb", "boss_scale": 3.6,
+		"award": "lamma", "award_name": "Lamb-a'"},
 ]
 
 var m: ReefMain
@@ -230,9 +238,20 @@ func _build_imps() -> void:
 			"timer": 0.0, "attack": 2.5 + float(i) * 1.4, "phase": a, "boss": false})
 
 func _build_boss() -> void:
-	# the dragon-turtle comes back for a FRIENDLY sparring rematch
-	var root := DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
-	root.scale = Vector3.ONE * 1.2
+	# a FRIENDLY sparring boss: capture rounds bring a real stuffie model
+	# (Lamb-a' first); otherwise the dragon-turtle comes back for a rematch
+	var root: Node3D = null
+	if round_cfg.has("boss_model"):
+		var ps: PackedScene = load(String(round_cfg["boss_model"]))
+		if ps != null:
+			root = ps.instantiate() as Node3D
+			if root != null:
+				root.scale = Vector3.ONE * float(round_cfg.get("boss_scale", 3.0))
+				root.position = CENTER + Vector3(0, 1.0, -10.0)
+				add_child(root)
+	if root == null:
+		root = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
+		root.scale = Vector3.ONE * 1.2
 	enemies.append({"node": root, "pos": root.position, "state": "active", "hp": int(round_cfg.get("hp", 5)),
 		"timer": 0.0, "attack": 3.0, "phase": 0.0, "boss": true})
 
@@ -604,7 +623,11 @@ func _win() -> void:
 	_qte_clear()
 	pointer.visible = false
 	_update_hud()
-	m.show_msg(String(creature_def.get("name", "Stuffie")), "We did it! Everyone wants to play with us now!", "win")
+	if round_cfg.has("award"):
+		m.show_msg(String(round_cfg.get("award_name", "Your new friend")),
+			"That was SO fun! Can I come home with you? Pleeease?", "win")
+	else:
+		m.show_msg(String(creature_def.get("name", "Stuffie")), "We did it! Everyone wants to play with us now!", "win")
 
 func _finish() -> void:
 	state = "done"

@@ -16,9 +16,15 @@ extends RefCounted
 
 var m: ReefMain
 
-# Data-driven roster: a third stuffed friend is one dictionary away.
-# kind → CREATURE_LAYERS/CRAFT_RIGGED key on main (bird = the rigged birdie
-# body doubling as the baby eagle; cat = the rigged kitty).
+# Data-driven roster — THE core collection loop (owner 2026-07-20): battle a
+# boss stuffie, BEFRIEND it, take it HOME to the Stuffie Den, carry it on
+# future missions. Fields:
+#   kind      → CREATURE_LAYERS/CRAFT_RIGGED key on main (paintable pipeline)
+#   model     → direct .glb body instead (photo-scanned toys land this way —
+#               Meshy photo→3D, same as the craft creatures were built)
+#   locked    → stuffie_wins key that frees it ("" / absent = starter friend);
+#               boss rounds set "friend_<id>" on victory (see _end_stuffie_battle)
+#   paintable → false hides the palette (a captured toy comes as it is)
 const ROSTER := [
 	{"id": "eagle", "name": "Baby Eagle", "kind": "bird", "attack": "PECK",
 		"body": Color(0.98, 0.72, 0.55), "accent": Color(1.0, 0.85, 0.40), "third": Color(1.0, 0.92, 0.55),
@@ -28,6 +34,12 @@ const ROSTER := [
 		"body": Color(0.95, 0.70, 0.85), "accent": Color(0.60, 0.40, 0.90), "third": Color(0.97, 0.96, 0.93),
 		"hello": "Mewsha pads along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
+	{"id": "lamma", "name": "Lamb-a'", "kind": "lamb", "attack": "BOUNCE",
+		"model": "res://assets/characters/lamb.glb", "model_scale": 2.6,
+		"emoji": "🐑", "paintable": false, "locked": "friend_lamma",
+		"body": Color(1.0, 0.99, 0.95), "accent": Color(1.0, 0.80, 0.88), "third": Color(0.95, 0.92, 0.97),
+		"hello": "Lamb-a' bounces along beside you now! Baa baa!",
+		"pro": "Big fluffy bounce attacks!"},
 ]
 
 const PALETTE := [
@@ -53,6 +65,20 @@ func def_by_id(id: String) -> Dictionary:
 			return d
 	return {}
 
+func unlocked(id: String) -> bool:
+	var d := def_by_id(id)
+	if d.is_empty():
+		return false
+	var key := String(d.get("locked", ""))
+	return key == "" or bool(m.stuffie_wins.get(key, false))
+
+func unlocked_defs() -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	for d: Dictionary in ROSTER:
+		if unlocked(String(d["id"])):
+			out.append(d)
+	return out
+
 func active_def() -> Dictionary:
 	return def_by_id(m.companion_id)
 
@@ -75,12 +101,25 @@ func colors() -> Array[Color]:
 			out.append(defaults[i])
 	return out
 
-func make_creature() -> Node3D:
-	var d := active_def()
+func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:
 	if d.is_empty():
 		return null
-	var c := colors()
+	# photo-scanned / direct-model toys skip the paint pipeline and load as-is
+	if d.has("model"):
+		var ps: PackedScene = load(String(d["model"]))
+		if ps == null:
+			return null
+		var wrap := Node3D.new()
+		var inst: Node3D = ps.instantiate() as Node3D
+		if inst == null:
+			return null
+		inst.scale = Vector3.ONE * float(d.get("model_scale", 2.6))
+		wrap.add_child(inst)
+		return wrap
 	return m._make_creature_node(String(d["kind"]), c[0], c[1], false, false, c[2])
+
+func make_creature() -> Node3D:
+	return creature_for(active_def(), colors())
 
 # ===================== per-frame tick (called from main._process) =====================
 
@@ -99,6 +138,17 @@ func tick(delta: float) -> void:
 	_tick_room(delta)
 	if m.companion_id == "":
 		return
+	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
+	# context flips (reef ↔ lagoon ↔ castle ↔ north ↔ any engine and back),
+	# snap the stuffie straight to Roshan's side — never left behind, never
+	# waiting outside a door she came out of somewhere else
+	if m.game != m.companion_zone:
+		m.companion_zone = m.game
+		if _follow_ctx() and m.companion_node != null and is_instance_valid(m.companion_node):
+			var zfwd := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
+			var zright := Vector3(cos(m.player.yaw), 0, -sin(m.player.yaw))
+			m.companion_node.position = m.player.position - zfwd * 4.2 - zright * 2.6 + Vector3(0, 1.0, 0)
+			m._sparkle_burst(m.companion_node.position + Vector3(0, 1.5, 0), Color(1.0, 0.8, 0.6))
 	_tick_follower(delta)
 	_tick_tokens(delta)
 	_tick_den(delta)
@@ -337,13 +387,16 @@ func _draw_picker() -> void:
 	close.custom_minimum_size = Vector2(72, 72)
 	close.pressed.connect(close_picker)
 	stage.add_child(close)
-	# friend cards down the left
-	for i in range(ROSTER.size()):
-		var d: Dictionary = ROSTER[i]
+	# friend cards down the left — only friends who already live at home;
+	# captured bosses appear here the moment their battle is won
+	var picks := unlocked_defs()
+	var step: float = minf(250.0, 560.0 / maxf(float(picks.size()), 1.0))
+	for i in range(picks.size()):
+		var d: Dictionary = picks[i]
 		var id := String(d["id"])
 		var card := Button.new()
-		card.position = Vector2(80, 130 + float(i) * 250.0)
-		card.custom_minimum_size = Vector2(330, 225)
+		card.position = Vector2(80, 130 + float(i) * step)
+		card.custom_minimum_size = Vector2(330, step - 25.0)
 		var card_style := StyleBoxFlat.new()
 		card_style.bg_color = Color(0.32, 0.55, 0.62, 0.95) if id == m.companion_pick_id else Color(0.13, 0.15, 0.23, 0.96)
 		card_style.border_color = Color(1.0, 0.9, 0.4) if id == m.companion_pick_id else Color(0.30, 0.34, 0.42)
@@ -354,21 +407,21 @@ func _draw_picker() -> void:
 		card.add_theme_stylebox_override("pressed", card_style)
 		card.pressed.connect(_pick_friend.bind(id))
 		stage.add_child(card)
-		_add_creature_preview(card, String(d["kind"]), Vector2(12, 12), Vector2(150, 200),
+		_add_creature_preview(card, d, Vector2(12, 12), Vector2(150, step - 50.0),
 			(d["body"] as Color), (d["accent"] as Color))
 		var nm := Label.new()
 		nm.text = String(d["name"])
 		nm.add_theme_font_size_override("font_size", 26)
 		nm.add_theme_color_override("font_color", Color(1.0, 0.96, 0.80))
-		nm.position = Vector2(172, 30)
-		nm.size = Vector2(150, 120)
+		nm.position = Vector2(172, 24)
+		nm.size = Vector2(150, step - 100.0)
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.add_child(nm)
 		var atk := Label.new()
 		atk.text = ("🐦 " if String(d["kind"]) == "bird" else "🐾 ") + String(d["attack"])
 		atk.add_theme_font_size_override("font_size", 24)
 		atk.add_theme_color_override("font_color", Color(0.74, 0.96, 0.88))
-		atk.position = Vector2(172, 168)
+		atk.position = Vector2(172, step - 82.0)
 		card.add_child(atk)
 	# big live preview, painted with the picked colours
 	var pick_def := def_by_id(m.companion_pick_id)
@@ -382,9 +435,18 @@ func _draw_picker() -> void:
 	pv_style.set_corner_radius_all(26)
 	preview_panel.add_theme_stylebox_override("panel", pv_style)
 	stage.add_child(preview_panel)
-	_add_creature_preview(preview_panel, String(pick_def["kind"]), Vector2(14, 14), Vector2(302, 302), pc0, pc1)
-	# three colour rows on the right
-	for slot in range(3):
+	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
+	# three colour rows on the right (a captured toy comes exactly as it is)
+	if not bool(pick_def.get("paintable", true)):
+		var asis := Label.new()
+		asis.text = "💕  %s comes just as she is!" % String(pick_def["name"])
+		asis.add_theme_font_size_override("font_size", 27)
+		asis.add_theme_color_override("font_color", Color(1.0, 0.85, 0.92))
+		asis.position = Vector2(830, 240)
+		asis.size = Vector2(400, 120)
+		asis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		stage.add_child(asis)
+	for slot in range(3 if bool(pick_def.get("paintable", true)) else 0):
 		var row_y := 130.0 + float(slot) * 120.0
 		var icon := Label.new()
 		icon.text = SLOT_ICON[slot]
@@ -422,12 +484,27 @@ func _draw_picker() -> void:
 	stage.add_child(go)
 	m._hook_button_taps(stage)
 
-func _add_creature_preview(parent: Control, kind: String, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
+func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
 	# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted —
 	# the same sheets the craft creatures use, so the paint matches in-world.
 	# The sheets are large illustrations: FIT them into the given box (uniform
 	# scale, centered) instead of trusting any fixed scale, and paint in the
 	# in-world order — body first, accent OVER it, ink line on top.
+	# Model-based toys (captured / photo-scanned) have no paint sheets: show
+	# their big friendly emoji instead — the Den shelf carries the real 3D body.
+	parent.clip_contents = true
+	if d.has("model") or not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
+		var face := Label.new()
+		face.text = String(d.get("emoji", "🧸"))
+		face.add_theme_font_size_override("font_size", int(minf(box_size.x, box_size.y) * 0.62))
+		face.position = box_pos
+		face.size = box_size
+		face.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		face.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		parent.add_child(face)
+		return
+	var kind := String(d["kind"])
 	var layer_names: Array = m.CREATURE_LAYERS.get(kind, m.CREATURE_LAYERS["fish"])
 	var draw_order: Array = [1, 0, 2]   # body, accent, line (matches _make_creature_node)
 	var tints: Array[Color] = [body, accent, Color.WHITE]
@@ -488,10 +565,11 @@ func _tick_room(delta: float) -> void:
 		if not is_instance_valid(node):
 			continue
 		var mine: bool = String(row["id"]) == m.companion_id
+		var home: bool = bool(row.get("home", true))
 		var marker: Label3D = row["marker"]
 		var heart: Label3D = row["heart"]
 		if is_instance_valid(marker):
-			marker.visible = not mine
+			marker.visible = home and not mine
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
 		if is_instance_valid(heart):
 			heart.visible = mine
@@ -502,11 +580,15 @@ func _tick_room(delta: float) -> void:
 	var action: bool = _action_down()
 	if best_id != "" and action and not m.companion_room_action_prev and m.companion_layer == null:
 		var d := def_by_id(best_id)
-		open_picker(false, best_id)
-		if best_id == m.companion_id:
-			m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
+		if not unlocked(best_id):
+			# an empty mystery shelf: point her at the capture loop, no picker
+			m.show_msg("Roshan", "Someone could live on this shelf! Win the toy tournament in the reef and bring a new friend home!", "talk")
 		else:
-			m.show_msg(String(d["name"]), "Pick me! Paint my colors and I'll come along!", "talk")
+			open_picker(false, best_id)
+			if best_id == m.companion_id:
+				m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
+			else:
+				m.show_msg(String(d["name"]), "Pick me! I'll come along!", "talk")
 	m.companion_room_action_prev = action
 
 func _room_colors(id: String) -> Array[Color]:
@@ -581,15 +663,28 @@ func _build_room() -> void:
 		shelf.position = Vector3(-1.5, 2.4, shelf_z)
 		shelf.material_override = _room_mat(Color(0.95, 0.8, 0.35), 0.2)
 		root.add_child(shelf)
-		var cols := _room_colors(id)
-		var creature := m._make_creature_node(String(d["kind"]), cols[0], cols[1], false, false, cols[2])
-		if creature != null:
-			creature.scale = Vector3.ONE * 0.75
-			creature.position = Vector3(-1.5, 2.68, shelf_z)
-			creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
-			root.add_child(creature)
+		var is_home := unlocked(id)
+		var creature: Node3D = null
+		if is_home:
+			creature = creature_for(d, _room_colors(id))
+			if creature != null:
+				creature.scale = Vector3.ONE * 0.75
+				creature.position = Vector3(-1.5, 2.68, shelf_z)
+				creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
+				root.add_child(creature)
+		else:
+			# a friend not yet befriended: an empty shelf with a big mystery mark
+			var mystery := Label3D.new()
+			mystery.text = "❓"
+			mystery.font_size = 160
+			mystery.pixel_size = 0.018
+			mystery.outline_size = 16
+			mystery.modulate = Color(0.75, 0.8, 0.95, 0.9)
+			mystery.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			mystery.position = Vector3(-1.5, 4.2, shelf_z)
+			root.add_child(mystery)
 		var name_sign := Label3D.new()
-		name_sign.text = String(d["name"])
+		name_sign.text = String(d["name"]) if is_home else "❓❓❓"
 		name_sign.font_size = 30
 		name_sign.pixel_size = 0.008
 		name_sign.outline_size = 9
@@ -618,7 +713,7 @@ func _build_room() -> void:
 		heart.visible = false
 		root.add_child(heart)
 		m.companion_room_rows.append({"id": id, "node": creature if creature != null else shelf,
-			"marker": marker, "heart": heart, "phase": float(i) * 1.7})
+			"marker": marker, "heart": heart, "phase": float(i) * 1.7, "home": is_home})
 
 func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
@@ -633,7 +728,11 @@ func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 # ---------- the overworld follower ----------
 
 func _tick_follower(delta: float) -> void:
-	if m.companion_node == null or not is_instance_valid(m.companion_node):
+	# a node that something reclaimed (arena teardown, freed parent) counts as
+	# lost — drop the handle so the respawn below brings the stuffie back
+	if m.companion_node != null and (not is_instance_valid(m.companion_node) or not m.companion_node.is_inside_tree()):
+		m.companion_node = null
+	if m.companion_node == null:
 		if not _follow_ctx():
 			return   # spawn in a free-roam world, never mid-engine
 		var fwd0 := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
