@@ -218,6 +218,13 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 		if _travel(act, act.goal.position, dt) and _ready_to_act(dt):
 			act._stir_action()
 		return
+	if act.order_phase == "decorate":
+		for spot in act.deco_spots:
+			if not bool(spot["done"]):
+				if _travel(act, spot["pos"] as Vector3, dt) and _ready_to_act(dt):
+					act._deco_action(int(spot["index"]))
+				return
+		return
 	if act.order_flow == "carry_paint" and act.brush_loaded >= 0:
 		_travel(act, act.canvas_pos, dt)   # engine paints on proximity
 		return

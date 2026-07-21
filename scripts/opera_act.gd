@@ -48,8 +48,10 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir
+var order_phase := "steps"         # steps | stir | decorate
 var stir_done := 0
+var deco_spots: Array[Dictionary] = []
+var deco_done := 0
 var brush_loaded := -1
 var brush_node: Node3D = null
 var canvas_pos := Vector3.ZERO
@@ -139,7 +141,7 @@ var lantern_i := 0
 var puffs: Array[Dictionary] = []
 var bump_cool := 0.0
 var spotlight: Node3D = null
-var peek_spots: Array[float] = [-12.0, 0.0, 12.0]   # the dragon roams the curtain
+var peek_spots: Array[float] = [-12.0, 0.0, 12.0, -18.0, 18.0]   # the dragon roams the curtain (outer two unlock as he gets bolder)
 var peek_i := 0
 var far_hint_cool := 0.0
 
@@ -351,7 +353,13 @@ func _build_backstage() -> void:
 			_sphere(Vector3(0, 1.2, 0), 0.9, Color(0.55, 0.35, 0.75), 0.3, root)
 			_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
 			_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
-		imps.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
+		# the LAST imp is the captain: bigger, wears a gold bow, and shrugs off
+		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
+		var captain := g == imp_count - 1
+		if captain:
+			root.scale = Vector3.ONE * 1.45
+			_sphere(Vector3(0, 2.4, 0.3), 0.28, Color(1.0, 0.85, 0.4), 0.7, root)
+		imps.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1, "hp": 2 if captain else 1})
 	imps_left = imp_count
 
 func _brawl_action() -> void:
@@ -372,9 +380,25 @@ func _brawl_action() -> void:
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
 		return
 	var imp: Dictionary = imps[best]
+	progress_t = 0.0
+	imp["hp"] = int(imp.get("hp", 1)) - 1
+	if int(imp["hp"]) > 0:
+		# the captain giggles off the first star and dashes down the corridor
+		var gpos0: Vector3 = imp["pos"] as Vector3
+		m._sparkle_burst(gpos0 + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
+		var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
+		var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
+		var dash := Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
+		imp["pos"] = dash
+		(imp["node"] as Node3D).position = dash
+		if m.chime != null:
+			m.chime.pitch_scale = 0.8
+			m.chime.play()
+		m.show_msg("Roshan", "The big imp captain giggled and dashed away — chase him! One more SPARKLE!", "talk")
+		_update_hud()
+		return
 	imp["popped"] = true
 	imps_left -= 1
-	progress_t = 0.0
 	var node := imp["node"] as Node3D
 	var gpos: Vector3 = imp["pos"] as Vector3
 	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
@@ -749,6 +773,48 @@ func _stir_action() -> void:
 		var pop := goal.create_tween()
 		pop.tween_property(goal, "scale", goal.scale * 1.25, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		m._sparkle_burst(goal.position + Vector3(0, 4.5, 0), Color(1.0, 0.75, 0.9))
+		if int(config.get("decorate", 0)) > 0:
+			_open_decorate()
+		else:
+			_win()
+	else:
+		_update_hud()
+
+func _open_decorate() -> void:
+	# the chef's last beat: twinkling topping spots ring the cake — tap each
+	# one to plop a cherry on. A third phase keeps the show building instead
+	# of repeating the same fetch to the end.
+	order_phase = "decorate"
+	progress_t = 0.0
+	var count := int(config.get("decorate", 3))
+	for i in range(count):
+		var a := -0.8 + float(i) * (1.6 / maxf(1.0, float(count - 1)))
+		var pos := goal.position + Vector3(sin(a) * 5.5, 0.0, cos(a) * 5.5)
+		var spot := _cyl(pos + Vector3(0, 0.3, 0), 1.1, 0.4, Color(1.0, 0.6, 0.75), 0.5)
+		deco_spots.append({"index": i, "pos": pos, "done": false, "node": spot,
+			"topping": goal.position + Vector3(-2.2 + float(i) * 2.2, 4.6 + float(i % 2) * 0.5, 0.4)})
+	m.show_msg("Roshan", "Now the toppings! Tap each twinkling spot to plop a cherry on the cake!", "talk")
+	_update_hud()
+
+func _deco_action(idx: int) -> void:
+	if state != "play" or kind != "order" or order_phase != "decorate":
+		return
+	var spot: Dictionary = deco_spots[idx]
+	if bool(spot["done"]):
+		return
+	spot["done"] = true
+	deco_done += 1
+	progress_t = 0.0
+	(spot["node"] as MeshInstance3D).visible = false
+	var cherry := _sphere(spot["topping"] as Vector3, 0.7, Color(0.9, 0.2, 0.3), 0.4)
+	cherry.scale = Vector3.ZERO
+	var tw := cherry.create_tween()
+	tw.tween_property(cherry, "scale", Vector3.ONE, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst((spot["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(1.0, 0.7, 0.8))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.2 * float(deco_done)
+		m.chime.play()
+	if deco_done >= deco_spots.size():
 		_win()
 	else:
 		_update_hud()
@@ -1801,14 +1867,18 @@ func _tick_boss(delta: float) -> void:
 	if phase == "hide":
 		root.position = root.position.lerp(home + Vector3(0, -6.5, 0), delta * 4.0)
 		if float(boss["timer"]) <= 0.0:
-			# whack-a-mole roam: the dragon pops from a DIFFERENT curtain spot
-			# each time, so Roshan chases him along the stage
-			peek_i = (peek_i + 1) % peek_spots.size()
+			# whack-a-mole roam with a RISING TEMPO: every three stars the
+			# dragon gets bolder — quicker peeks and two wider curtain spots
+			# unlock, so the chase escalates instead of repeating flat
+			var max_hp := int(config.get("boss_hp", 3))
+			var tier := clampi((max_hp - int(boss["hp"])) / 3, 0, 2)
+			var spots_n := peek_spots.size() if tier >= 1 else mini(3, peek_spots.size())
+			peek_i = (peek_i + 1) % spots_n
 			var new_home := Vector3(CENTER.x + peek_spots[peek_i], home.y, home.z)
 			boss["home"] = new_home
 			root.position = new_home + Vector3(0, -6.5, 0)
 			boss["phase"] = "peek"
-			boss["timer"] = float(config.get("peek_time", 4.5))
+			boss["timer"] = float(config.get("peek_time", 4.5)) * (1.0 - 0.2 * float(tier))
 			boss["attack"] = 1.0
 			m._sparkle_burst(new_home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
 	elif phase == "peek":
@@ -2007,6 +2077,11 @@ func _process(delta: float) -> void:
 				if order_phase == "stir":
 					if goal.position.distance_to(player_pos) < 5.5:
 						_stir_action()
+				elif order_phase == "decorate":
+					for spot in deco_spots:
+						if not bool(spot["done"]) and (spot["pos"] as Vector3).distance_to(player_pos) < 4.5:
+							_deco_action(int(spot["index"]))
+							break
 				else:
 					var near_pad := _nearest_pad()
 					if near_pad >= 0:
@@ -2147,6 +2222,11 @@ func _pointer_target() -> Vector3:
 		"order":
 			if order_phase == "stir":
 				return goal.position + Vector3(0, 7.5, 0)
+			if order_phase == "decorate":
+				for spot in deco_spots:
+					if not bool(spot["done"]):
+						return (spot["pos"] as Vector3) + Vector3(0, 4.5, 0)
+				return goal.position + Vector3(0, 7.5, 0)
 			if brush_loaded >= 0:
 				return canvas_pos + Vector3(0, 7.5, 0)
 			if step < order_steps.size():
@@ -2216,6 +2296,8 @@ func _update_hud() -> void:
 		"order":
 			if order_phase == "stir":
 				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
+			elif order_phase == "decorate":
+				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:
 				objective.text = tag + "🖌  Swipe the canvas to paint!  %d / %d" % [step, order_steps.size()]
 			else:

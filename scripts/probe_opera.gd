@@ -91,6 +91,14 @@ func _init() -> void:
 	act.player_pos = act.CENTER + Vector3(0.0, 1.1, 14.0)
 	act._brawl_action()
 	_ck("far sparkle fizzles kindly in the brawl", act.imps_left == far_left)
+	# the last imp is the two-sparkle captain with a giggle-dash between hits
+	var captain: Dictionary = act.imps.back()
+	_ck("the last imp is a two-sparkle captain", int(captain.get("hp", 1)) == 2)
+	var captain_pos: Vector3 = captain["pos"] as Vector3
+	act.player_pos = captain_pos
+	act._brawl_action()
+	_ck("the captain shrugs off the first star and dashes",
+		not bool(captain["popped"]) and (captain["pos"] as Vector3).distance_to(captain_pos) > 5.0)
 	_drive_brawl(act)
 	_ck("popped imps open the curtain to the stage", act.stage_phase == "puzzle")
 	# a wrong tap wobbles and re-hints, it never fails or advances
@@ -170,10 +178,19 @@ func _init() -> void:
 	quit()
 
 func _drive_brawl(act: OperaAct) -> void:
-	for g in act.imps:
-		if bool(g["popped"]):
-			continue
-		act.player_pos = (g["pos"] as Vector3)
+	# the captain takes two sparkles and dashes between hits, so chase by
+	# re-reading positions until the curtain opens
+	var guard := 0
+	while act.stage_phase == "brawl" and guard < 40:
+		guard += 1
+		var target := {}
+		for g in act.imps:
+			if not bool(g["popped"]):
+				target = g
+				break
+		if target.is_empty():
+			break
+		act.player_pos = (target["pos"] as Vector3)
 		act._brawl_action()
 	if act.stage_phase == "puzzle":
 		act.player_pos = act.CENTER + Vector3(0, 1.1, 14.0)
@@ -202,11 +219,18 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("order pad %d reachable by proximity" % idx2, act._nearest_pad() == idx2)
 		act._act_action(idx2)
 	if String(cfg.get("finale", "")) == "stir":
-		_ck("three layers open the stirring finale", act.order_phase == "stir" and act.state == "play")
+		_ck("every layer opens the stirring finale", act.order_phase == "stir" and act.state == "play")
 		act.player_pos = act.goal.position
 		for s in range(3):
 			act._stir_action()
-		_ck("three stirs finish the cake", act.state == "won")
+		if int(cfg.get("decorate", 0)) > 0:
+			_ck("three stirs open the topping party", act.order_phase == "decorate" and act.state == "play")
+			for spot: Dictionary in act.deco_spots:
+				act.player_pos = (spot["pos"] as Vector3)
+				act._deco_action(int(spot["index"]))
+			_ck("every plopped topping finishes the cake", act.state == "won")
+		else:
+			_ck("three stirs finish the cake", act.state == "won")
 
 func _drive_echo(act: OperaAct) -> void:
 	var guard := 0
@@ -361,7 +385,7 @@ func _drive_boss(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("sparkles cannot skip the lantern lesson", int(act.boss["hp"]) == hp)
 	else:
 		_ck("dragon opens hiding in the curtains", String(act.boss["phase"]) == "hide" and act.action_label() == "SPARKLE")
-		_ck("dragon roams three curtain spots", act.peek_spots.size() == 3)
+		_ck("dragon roams five curtain spots when bold", act.peek_spots.size() == 5)
 		act._hit_boss()
 		_ck("sparkles fizzle while he hides", int(act.boss["hp"]) == hp)
 	var modes := {}
