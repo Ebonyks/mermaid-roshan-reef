@@ -8,6 +8,26 @@ follows the house rules: CC0 sources or original, restyled through the
 _toonify pastel pipeline, ≤1024px / POT textures, one ASSET_LICENSES.md line
 per asset. Book art, family voices and friend cutouts are never modified.
 
+## The Lobby (owner 2026-07-20: Peach Showtime model — explorable hub)
+The opera house is now an explorable two-floor LOBBY: every career is its own
+marquee door, finished doors wear stars, boss doors sit behind a velvet rope
+until their floor's six shows are starred, and glowing bubble lifts carry
+Roshan between the ground floor and the Starlight Balcony. The camera watches
+from the open auditorium side like a dollhouse diorama.
+Assets
+- Grand lobby kit: carpet runner, wainscot, chandeliers ×2, audience benches,
+  balcony railing + deck fascia (replaces `_build_lobby` boxes)
+- Career door kit (one frame, per-act curtain color + crest): gold frame,
+  curtain inset, glowing walk-in veil, career crest decal (replaces the
+  emoji `Label3D` per door), gold completion star, velvet rope for the two
+  locked boss doors
+- Bubble lift: glass column, rising bubble particles, landing pad
+- Lobby crest: the 🎭 masks + star over the balcony
+- SFX: lobby murmur loop, door twinkle on approach, transformation chime,
+  lift bubble-rise, star-stamp ta-daa
+- Voice lines: lobby welcome, boss-rope hint, star-earned praise, all-stars
+  curtain-call celebration
+
 ## Shared theatre (used by all acts)
 Assets
 - Proscenium arch + stage deck kit (replaces `_build_theatre` boxes)

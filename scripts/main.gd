@@ -147,7 +147,8 @@ var dungeon_game: DungeonLevel = null
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts, 0..14; next visit resumes here
+var opera_progress := 0            # cleared opera acts (star count), 0..14
+var opera_stars := 0               # bitmask of starred doors (lobby model, 14 bits)
 var opera_done := false
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
