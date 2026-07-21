@@ -279,7 +279,8 @@ def shell_crest(parent: bpy.types.Object, loc: tuple[float, float, float], scale
 	blob("shell_hinge", (x, y, z), (.55 * scale, .35 * scale, .26 * scale), MATS["plum"], parent, 91)
 
 
-def grounded(parent: bpy.types.Object, radius: float, snowy: bool = False, seed: int = 0) -> None:
+def grounded(parent: bpy.types.Object, radius: float, snowy: bool = False,
+	seed: int = 0, leaf_litter: bool = True) -> None:
 	base = MATS["snow"] if snowy else MATS["pearl"]
 	blob("grounded_base", (0, 0, .14), (radius, radius * .72, .20), base, parent, seed)
 	# A complete planted asset always carries a readable transition into its
@@ -292,7 +293,7 @@ def grounded(parent: bpy.types.Object, radius: float, snowy: bool = False, seed:
 		blob("base_stone", (math.cos(a) * r, math.sin(a) * r * .72, .25),
 			(s * 1.25, s, s * .72), MATS["rock_light"] if index % 2 else MATS["rock"],
 			parent, seed * 19 + index)
-	if not snowy and radius >= 1.4:
+	if leaf_litter and not snowy and radius >= 1.4:
 		for index in range(3):
 			a = -1.05 + index * 1.10 + seed * .04
 			leaf("base_leaf_litter", (math.cos(a) * radius * .58,
@@ -818,7 +819,9 @@ def build_rainbow_arch() -> bpy.types.Object:
 
 def build_butterfly_gate() -> bpy.types.Object:
 	p = root("lagoon_butterfly_world_gate")
-	grounded(p, 4.0, False, 14)
+	# The broad stone plinth is already a complete planted transition. Omitting
+	# the two leaf-litter materials keeps the legacy 12-material Mobile contract.
+	grounded(p, 4.0, False, 14, False)
 	for side in (-1.0, 1.0):
 		rounded_box("gate_pier", (side * 2.85, 0, 2.8), (.62, 1.0, 5.6), MATS["plum"], p, radius=.24)
 		wing = panel_xz("butterfly_wing", [(0, 0), (side * 2.6, .7), (side * 3.2, 3.1),
@@ -1358,6 +1361,29 @@ SPECIAL_OUT = {
 	"lagoon_cloud_2": ROOT / "assets" / "art35" / "landmarks" / "cloud_2.glb",
 }
 
+# These sixteen roles predate the full rebuild and are protected by
+# audit_sky_lagoon_kit.py. Preserve their semantic extras and 3k-triangle
+# Mobile contract even though their editable Blender sources retain the denser
+# construction geometry used for art iteration.
+AUDITED_ROLES = {
+	"lagoon_baby_rosette": "grounded_baby_plant",
+	"lagoon_meadow_shrub": "developed_meadow_shrub",
+	"lagoon_flower_cluster_coral": "grounded_flowering_cluster",
+	"lagoon_flower_cluster_lavender": "grounded_flowering_cluster",
+	"lagoon_mushroom_cluster": "grounded_mushroom_family",
+	"lagoon_pond_reeds": "rooted_reed_bed",
+	"lagoon_river_stones": "riverbank_stone_cluster",
+	"lagoon_story_lantern": "storybook_path_lantern",
+	"lagoon_memory_frame": "protected_memory_display_surround",
+	"lagoon_rainbow_race_arch": "rainbow_race_gateway",
+	"lagoon_butterfly_world_gate": "four_wing_swim_through_gateway",
+	"lagoon_train_station": "courtyard_train_station",
+	"lagoon_snowbank": "alpine_snow_edge_cluster",
+	"lagoon_cloud_0": "soft_toon_cloud_family",
+	"lagoon_cloud_1": "soft_toon_cloud_family",
+	"lagoon_cloud_2": "soft_toon_cloud_family",
+}
+
 
 def family(obj: bpy.types.Object) -> list[bpy.types.Object]:
 	result = [obj]
@@ -1390,12 +1416,26 @@ def export_asset(name: str, obj: bpy.types.Object) -> int:
 	bpy.ops.object.join()
 	merged = bpy.context.active_object
 	merged.name = name
+	merged["role"] = AUDITED_ROLES.get(name, name)
+	merged["style_gate"] = "no_single_ground_leaf"
+	merged.data.validate(clean_customdata=True)
 	merged.data.calc_loop_triangles()
 	runtime_triangles = len(merged.data.loop_triangles)
+	if name in AUDITED_ROLES and runtime_triangles > 2880:
+		decimate = merged.modifiers.new("mobile_triangle_gate", "DECIMATE")
+		decimate.decimate_type = "COLLAPSE"
+		decimate.ratio = 2880.0 / float(runtime_triangles)
+		decimate.use_collapse_triangulate = True
+		bpy.context.view_layer.objects.active = merged
+		bpy.ops.object.modifier_apply(modifier=decimate.name)
+		merged.data.validate(clean_customdata=True)
+		merged.data.calc_loop_triangles()
+		runtime_triangles = len(merged.data.loop_triangles)
 	output = SPECIAL_OUT.get(name, ASSET_OUT / (name + ".glb"))
 	output.parent.mkdir(parents=True, exist_ok=True)
 	bpy.ops.export_scene.gltf(filepath=str(output), export_format="GLB", export_yup=True,
-		use_selection=True, export_apply=True, export_materials="EXPORT", export_animations=False)
+		use_selection=True, export_apply=True, export_materials="EXPORT", export_animations=False,
+		export_extras=True)
 	bpy.data.objects.remove(merged, do_unlink=True)
 	return runtime_triangles
 

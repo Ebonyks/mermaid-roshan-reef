@@ -33,7 +33,7 @@ The placement audit now uses the existing ground/water/path/landmark clearance r
 
 ## Rebuild
 
-The three deterministic Blender builders create 46 Lagoon-kit GLBs plus three cloud-family GLBs and editable `.blend` sources. The palette is shared across every family: navy/plum structure, pearl/cream architecture, lavender and aqua shadows, teal, coral, butter-gold, warm wood, and restrained berry accents. Materials are matte, texture-free, and embedded; no new OmniLights or runtime texture memory are introduced.
+The three deterministic Blender builders create 46 Lagoon-kit GLBs plus three cloud-family GLBs and editable `.blend` sources. The palette is shared across every family: navy/plum structure, pearl/cream architecture, lavender and aqua shadows, teal, coral, butter-gold, warm wood, and restrained berry accents. Materials are matte, texture-free, and embedded; no new OmniLights or runtime texture memory are introduced. The sixteen legacy kit roles retain their semantic glTF extras and pass the existing 3,000-triangle/12-material Mobile gate; denser editable construction geometry is reduced only on the runtime export copy, with the current optimized roles at 2,776–2,880 triangles.
 
 The final tree roster contains exactly twelve designs: the four older models the owner identified as the quality anchors, retained unchanged, plus eight new structures:
 
