@@ -1646,12 +1646,26 @@ func _dance_closed() -> void:
 # ---------------- "boss" engine (curtain dragon / shadow phantom) ----------------
 
 func _build_boss() -> void:
-	var dual := bool(config.get("dual", false))
+	var finale := bool(config.get("finale", false))
+	var dual := bool(config.get("dual", false)) or finale
 	var root := Node3D.new()
 	root.name = "OperaBoss"
 	root.position = CENTER + Vector3(0, 1.0, -14.0)
 	add_child(root)
-	if dual:
+	if finale:
+		# the Midnight Maestro: a grand conductor silhouette with a gold baton
+		var gown := CylinderMesh.new()
+		gown.top_radius = 0.35
+		gown.bottom_radius = 2.8
+		gown.height = 6.0
+		_mesh(gown, Vector3(0, 3.0, 0), Color(0.13, 0.11, 0.28), 0.12, root)
+		_sphere(Vector3(0, 6.2, 0.7), 1.05, Color(0.9, 0.88, 1.0), 0.25, root)
+		_sphere(Vector3(-0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+		_sphere(Vector3(0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+		var baton := _box(Vector3(2.0, 5.4, 0.8), Vector3(0.18, 2.4, 0.18), Color(1.0, 0.85, 0.4), 0.6, root)
+		baton.rotation_degrees = Vector3(0, 0, -34.0)
+		_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
+	elif dual:
 		var cone := CylinderMesh.new()
 		cone.top_radius = 0.3
 		cone.bottom_radius = 2.4
@@ -1673,7 +1687,8 @@ func _build_boss() -> void:
 		_sphere(Vector3(0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
 	var first_phase := "shadow" if dual else "hide"
 	boss = {"node": root, "home": root.position, "hp": int(config.get("boss_hp", 3)), "phase": first_phase,
-		"timer": float(config.get("hide_time", 2.2)), "attack": 1.6, "dual": dual}
+		"timer": float(config.get("hide_time", 2.2)), "attack": 1.6, "dual": dual,
+		"finale": finale, "mode": "lantern"}
 	root.position = (boss["home"] as Vector3) + Vector3(0, -6.5, 0)
 	if dual:
 		root.position = boss["home"] as Vector3
@@ -1747,7 +1762,23 @@ func _hit_boss() -> void:
 	if int(boss["hp"]) <= 0:
 		_win()
 		return
-	if bool(boss.get("dual", false)):
+	if bool(boss.get("finale", false)):
+		# the grand finale remixes both learned verbs: lantern SHINE cycles
+		# and curtain-chase SPARKLE cycles alternate with every star
+		var lantern_next: bool = String(boss.get("mode", "lantern")) != "lantern"
+		boss["mode"] = "lantern" if lantern_next else "roam"
+		if spotlight != null:
+			spotlight.visible = false
+		if lantern_next:
+			boss["phase"] = "shadow"
+			boss["timer"] = float(config.get("hide_time", 2.0))
+			lantern_i = (lantern_i + 1) % lanterns.size()
+			m.show_msg("Roshan", "He slipped into the shadows! Find the twinkling lantern with SHINE!", "talk")
+		else:
+			boss["phase"] = "hide"
+			boss["timer"] = float(config.get("hide_time", 2.2))
+			m.show_msg("Roshan", "He's dashing along the curtains — SPARKLE when he peeks!", "talk")
+	elif bool(boss.get("dual", false)):
 		boss["phase"] = "shadow"
 		boss["timer"] = float(config.get("hide_time", 2.0))
 		lantern_i = (lantern_i + 1) % lanterns.size()
@@ -1787,8 +1818,12 @@ func _tick_boss(delta: float) -> void:
 			boss["attack"] = 2.0
 			_spawn_puff(root.position + Vector3(0, 4.5, 1.5))
 		if float(boss["timer"]) <= 0.0:
-			if bool(boss.get("dual", false)):
-				# no fail: the shy phantom just re-hides; the same lantern twinkles again
+			# no fail on a missed peek: a lantern cycle re-hides into shadow (the
+			# same lantern twinkles again); a roam cycle just dives back behind
+			# the curtains — the finale keeps whichever mode this cycle is in
+			var relight: bool = (bool(boss.get("dual", false))
+				and (not bool(boss.get("finale", false)) or String(boss.get("mode", "lantern")) == "lantern"))
+			if relight:
 				boss["phase"] = "shadow"
 				boss["timer"] = 1.0
 				if spotlight != null:

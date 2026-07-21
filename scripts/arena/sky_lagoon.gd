@@ -521,6 +521,17 @@ func _build_pearl_castle(o: Vector3) -> void:
 		lockl.position = m.bw_portal_pos + Vector3(0, 4.0, 0)
 		m.add_child(lockl)
 		m.game_nodes.append(lockl)
+	# THE RAINBOW JUNCTION's dark door: past the far rainbow leg smoulders the
+	# gateway to the EMBER FORTRESS — a later world that only appears once the
+	# Butterfly World has been saved (dev-mode builds keep it always open).
+	# Swimming in launches the same floating rainbow race, but this time the
+	# road dives DOWN off the rainbow into the volcano planet.
+	var emz: float = legbz - 46.0
+	if m._ember_open():
+		m.ember_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, emz) + 8.0, emz)
+		_build_ember_gateway(m.ember_portal_pos)
+	else:
+		m.ember_portal_pos = Vector3.ZERO
 	# Two clearly marked, non-reading-dependent home rings: one beside the arrival
 	# meadow and one beside the castle entrance. They use emissive geometry rather
 	# than another OmniLight, keeping the Speedy-tier light budget unchanged.
@@ -2280,6 +2291,25 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Roshan", "To the Butterfly World! Wheee!")
 			m._start_galaxy()
 			return
+	# the EMBER FORTRESS door at the rainbow junction: swimming in launches the
+	# float race with the DOWNWARD ending (same leave-and-return hysteresis as
+	# the galaxy gate above; the shared kart cooldown prevents double-starts)
+	if m.ember_portal_pos != Vector3.ZERO:
+		var em_dist: float = Vector2(m.ember_portal_pos.x - ppos.x, m.ember_portal_pos.z - ppos.z).length()
+		var em_h: float = absf(m.ember_portal_pos.y - ppos.y)
+		if not bool(m.g.get("ember_gate_hint", false)) and em_dist < 30.0 and em_h < 20.0:
+			m.g["ember_gate_hint"] = true
+			m.show_msg("Roshan", "Ooh... a dark spooky door! The go-kart road can dive DOWN to the volcano planet!", "pearl")
+		if not m.ember_gateway_armed:
+			if em_dist > 16.0 or em_h > 16.0:
+				m.ember_gateway_armed = true
+		elif m.kart_cool <= 0.0 and m.bw_cool <= 0.0 and em_dist < 10.0 and em_h < 12.0:
+			m.bw_cool = 10.0
+			m.ember_gateway_armed = false
+			m.kart_float_dest = "ember"
+			m.show_msg("Ember King", "So! You found my dark door... race the rainbow road DOWN to my fortress, if you dare!", "talk")
+			m._start_kart_game(false, "float")
+			return
 	if m.kart_legA != Vector3.ZERO:
 		# horizontal distance + generous height tolerance (same forgiving test as the fairy pond)
 		var dA: float = Vector2(m.kart_legA.x - ppos.x, m.kart_legA.z - ppos.z).length()
@@ -2397,6 +2427,38 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 
 # ============ STAGE 2 MINIGAMES (2D tap overlays, launched from wall pictures) ============
 
+
+func _build_ember_gateway(pos: Vector3) -> void:
+	# The dark door at the rainbow junction: an obsidian ring wrapped in slow
+	# lava light. Emissive-only (no OmniLight — the lagoon's Speedy light
+	# budget stays untouched); the menace is theatrical, the invitation clear.
+	var ring := MeshInstance3D.new()
+	var tm := TorusMesh.new()
+	tm.inner_radius = 5.0
+	tm.outer_radius = 6.5
+	tm.rings = 24
+	tm.ring_segments = 12
+	ring.mesh = tm
+	var sh := Shader.new()
+	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nvoid fragment(){ float b = fract(UV.x * 6.0 + TIME * 0.15); vec3 rock = vec3(0.12, 0.07, 0.10); vec3 lava = vec3(1.0, 0.36, 0.10); float vein = smoothstep(0.42, 0.5, sin(b * 12.566) * 0.5 + 0.5); ALBEDO = mix(rock, lava, vein); EMISSION = lava * vein * (0.7 + 0.3 * sin(TIME * 2.4)); ROUGHNESS = 0.9; }"
+	var ring_mat := ShaderMaterial.new()
+	ring_mat.shader = sh
+	ring.material_override = ring_mat
+	ring.position = pos
+	m.add_child(ring)
+	m.game_nodes.append(ring)
+	var tw := ring.create_tween().set_loops()
+	tw.tween_property(ring, "rotation:y", TAU, 9.0).from(0.0)
+	var lab := Label3D.new()
+	lab.text = "🌋 Ember Fortress!\nrace the rainbow road DOWN!"
+	lab.font_size = 58
+	lab.pixel_size = 0.03
+	lab.outline_size = 14
+	lab.modulate = Color(1.0, 0.55, 0.3)
+	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.position = pos + Vector3(0, 8.0, 0)
+	m.add_child(lab)
+	m.game_nodes.append(lab)
 
 func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
 	# fantasy turret: textured stone shaft, gold band, glowing window, conic roof, flag

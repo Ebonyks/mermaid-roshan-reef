@@ -178,8 +178,20 @@ var stuffie_cool := 0.0
 var dungeon_game: DungeonLevel = null
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
+var ember_game: Node = null        # the Ember Fortress (scripts/ember_fortress.gd)
+var ember_found := false           # Roshan has used the dark gate at the rainbow junction
+var ember_progress := 0            # fortress-dungeon checkpoint, 0..6; resumes here
+var ember_done := false            # the six-room fortress dungeon is solved
+var ember_from := ""               # world to restore after the Ember Fortress ("" ocean / "level2")
+var ember_return_set := false
+var ember_return_pos := Vector3.ZERO
+var ember_level2_open := false
+var ember_portal_pos := Vector3.ZERO   # the dark gateway at the rainbow junction
+var ember_gateway_armed := true        # same leave-before-refire latch as the galaxy gate
+var kart_float_dest := "galaxy"    # where the floating rainbow race lands ("galaxy" | "ember")
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts, 0..14; next visit resumes here
+var opera_progress := 0            # cleared opera acts (star count), 0..15
+var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
 var opera_done := false
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
@@ -202,6 +214,7 @@ const STICKER_DEFS := [
 	{"id": "carrot", "emoji": "🥕", "label": "Snowman Snack", "hint": "Chase the runaway snowman... and EAT him!"},
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
+	{"id": "volcano", "emoji": "🌋", "label": "Fortress Hero", "hint": "Solve the Ember Fortress dungeon!"},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -957,6 +970,18 @@ func _apply_scene_grade(env: Environment, profile: String) -> void:
 			brightness = 0.95
 			full_ambient_cap = 0.82
 			speedy_ambient_cap = 0.72
+		"ember":
+			# The Ember Fortress: dark stone must STAY dark on Mobile while
+			# the lava emission blooms — deeper exposure, harder contrast,
+			# and a low ambient cap so the night-black basalt keeps its dread.
+			full_exposure = 0.85
+			speedy_exposure = 0.76
+			white_point = 1.4
+			saturation = 1.04
+			contrast = 1.18
+			brightness = 0.92
+			full_ambient_cap = 0.55
+			speedy_ambient_cap = 0.48
 		_:
 			pass
 	env.tonemap_white = white_point
@@ -2365,6 +2390,7 @@ func _end_kart_game(place: int) -> void:
 		# node never moves during a race, so restoring the pre-race mode
 		# respawns her exactly where she swam into the portal. The source portal's
 		# armed latch stays false until she deliberately leaves its trigger.
+		kart_float_dest = "galaxy"   # a quit road leads nowhere new
 		if hud_layer != null:
 			hud_layer.visible = true
 		kart_game = null
@@ -2379,7 +2405,14 @@ func _end_kart_game(place: int) -> void:
 	kart_cool = 6.0
 	var suf: String = ["st", "nd", "rd", "th", "th", "th", "th", "th"][clampi(place - 1, 0, 7)]
 	if kart_ground == "float":
-		# LEVEL 3: the rainbow road doesn't end — it soars on into Roshan Galaxy
+		# THE RAINBOW JUNCTION: the floating road doesn't end at the finish
+		# line. Entered through a rainbow leg it soars UP into Roshan Galaxy;
+		# entered through the dark ember gate it dives DOWN to the fortress.
+		if kart_float_dest == "ember":
+			kart_float_dest = "galaxy"
+			show_msg("Rainbow Road", "The rainbow road dives DOWN and DOWN... to the EMBER FORTRESS!")
+			call_deferred("_start_ember")
+			return
 		show_msg("Rainbow Road", "The rainbow road soars on and on... to ROSHAN GALAXY!")
 		call_deferred("_start_galaxy")
 		return
@@ -2585,6 +2618,89 @@ func _end_dungeon(completed: bool) -> void:
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
 	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
+
+func _ember_open() -> bool:
+	# The Ember Fortress is a LATER world to discover: in normal play its dark
+	# gateway only appears at the rainbow junction once the Butterfly World has
+	# been saved (or after any visit). Dev-mode builds keep it always open.
+	return ember_found or ember_done or bwd_done or dev_mode != null
+
+func _start_ember() -> void:
+	# Reached through the rainbow junction's dark gate (via the float race) —
+	# same return-symmetry bookkeeping as the Butterfly World.
+	if not ember_return_set:
+		ember_from = kart_from if game == "kart" else game
+		ember_return_pos = player.position
+		ember_level2_open = l2_open
+		ember_return_set = true
+		if game == "kart":
+			kart_from = ""
+	if hud_layer != null:
+		hud_layer.visible = false   # the fortress draws its own HUD — no overlap
+	if not ember_found:
+		ember_found = true
+		_write_save()
+	game = "ember"
+	hud_game.text = ""
+	player.visible = false   # the fortress has its own avatar
+	_play_music("castle_open")
+	ember_game = EmberFortressLevel.new()
+	add_child(ember_game)
+	(ember_game as EmberFortressLevel).start(self, Callable(self, "_end_ember"))
+
+func _end_ember(_completed: bool) -> void:
+	player.visible = true
+	if hud_layer != null:
+		hud_layer.visible = true
+	ember_game = null
+	game = ""
+	if ember_done:
+		show_msg("Ember King", "Come back and play in my fortress any time, little hero!", "win")
+	else:
+		show_msg("Ember Fortress", "Home again! The Ember King will keep his lanterns warm for you...")
+	_update_hud()
+	var return_world: String = ember_from
+	var return_level2_open: bool = ember_level2_open or level2_done_once
+	var saved_return_pos: Vector3 = ember_return_pos
+	ember_from = ""
+	ember_return_set = false
+	ember_return_pos = Vector3.ZERO
+	ember_level2_open = false
+	if return_world == "level2":
+		call_deferred("_restore_level2_after_trip", return_level2_open, saved_return_pos)
+		return
+	kart_from = ""
+	# defensive ocean restoration, mirroring _end_galaxy's repair path
+	player.position = saved_return_pos
+	player.vel = Vector3.ZERO
+	we_node.environment = world_env
+	_play_music("world")
+
+func _start_ember_dungeon() -> void:
+	# The Great Gate inside the Ember Fortress. Same rule as the castle
+	# dungeon: the rooms teach everything they need — no prerequisites beyond
+	# the five lanterns that opened the gate.
+	if dungeon_game != null or ember_game == null:
+		return
+	game = "emberdun"
+	var ember_level := ember_game as EmberFortressLevel
+	ember_level.visible = false
+	ember_level.process_mode = Node.PROCESS_MODE_DISABLED
+	dungeon_game = DungeonLevel.new()
+	add_child(dungeon_game)
+	dungeon_game.start(self, ember_progress, Callable(self, "_end_ember_dungeon"),
+		EmberFortressLevel.ROOMS, "ember_progress", "ember_done", EmberFortressLevel.FLAVOR)
+
+func _end_ember_dungeon(completed: bool) -> void:
+	dungeon_game = null
+	game = "ember"
+	if completed:
+		award_sticker("volcano")
+	if ember_game != null:
+		var ember_level := ember_game as EmberFortressLevel
+		ember_level.visible = true
+		ember_level.process_mode = Node.PROCESS_MODE_INHERIT
+		ember_level.resume_from_dungeon(completed)
 
 func _start_opera() -> void:
 	_fade_cut(_start_opera_now)
@@ -6106,12 +6222,14 @@ func _process(delta: float) -> void:
 		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
+	elif game == "ember":
+		pass   # the EmberFortressLevel node ticks itself
 	elif game == "combat":
 		pass   # the CombatArena node owns movement, camera and encounter logic
 	elif game == "stuffie":
 		pass   # the StuffieBattle node owns the creature, camera and dodge QTE
-	elif game == "dungeon":
-		pass   # DungeonLevel sequences four CombatArena battles and six visual puzzles
+	elif game == "dungeon" or game == "emberdun":
+		pass   # DungeonLevel sequences the battles and visual puzzles
 	elif game == "opera":
 		pass   # OperaHouse sequences the eight costume acts across two floors
 	elif game != "":
@@ -6204,7 +6322,7 @@ func _process(delta: float) -> void:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
 		elif game == "stuffie" and stuffie_game != null:
 			act_lbl = stuffie_game.action_label()   # PECK / CLAW
-		elif game == "dungeon" and dungeon_game != null:
+		elif (game == "dungeon" or game == "emberdun") and dungeon_game != null:
 			act_lbl = dungeon_game.action_label()
 		elif game == "opera" and opera_game != null:
 			act_lbl = opera_game.action_label()
