@@ -17,6 +17,21 @@ boss. Floor 3's medallion is the fifteenth act: the Midnight Maestro's grand
 finale, remixing the lantern-SHINE and curtain-chase-SPARKLE verbs. Bubble
 lifts cycle ground → Starlight Balcony → Grand Gallery → ground. The camera
 watches from the open auditorium side like a dollhouse diorama.
+
+**2026-07-21 flat prototype pack:** the accepted main-lobby key, 108
+lobby-first reference cards, 64 stage/act cards, scores, and placement rules
+are in `assets_src/concepts/opera_house_flat/`,
+`OPERA_HOUSE_FLAT_ART_AUDIT_2026-07-21.md`, and
+`audit/opera_house_flat_prototype_ledger_2026-07-21.csv`. These are
+model-reference prototypes, not wired runtime replacements. The expansion adds
+ticket/coat/program service, flower and sweets/drinks kiosks, lounge islands,
+clock/mirrors/vitrines, wall/cove modules, carpet/terrazzo junctions, an
+accessible ramp, and wall-bound set dressing. It also defines paired
+stair/landing gates, shell-clasp states, three-pearl progress, dormant/ready
+bubble lifts, floor-color selectors, locked/open portal states, and the brief
+unlock effect. Middle and upper floors remain visually and physically closed
+until the preceding floor boss is complete.
+
 Assets
 - Grand lobby kit: carpet runner, wainscot, chandeliers ×2, audience benches,
   balcony railing + deck fascia (replaces `_build_lobby` boxes)
