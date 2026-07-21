@@ -328,28 +328,42 @@ def grounding_stones(parent: bpy.types.Object, radius: float, count: int, seed: 
 
 def ancient_oak() -> bpy.types.Object:
 	root = new_root("lagoon_tree_ancient_oak")
-	tapered_branch("oak_trunk", [(0.0, 0.0, 0.02, 0.92), (-0.25, 0.08, 1.70, 0.82),
-		(0.02, 0.02, 3.18, 0.68), (-0.08, 0.0, 4.20, 0.52)], root, "bark_light", 10)
+	# A low, heavy bifurcation and exposed root arches keep the oldest tree from
+	# reading as a young trunk with a large crown in the gameplay camera.
+	tapered_branch("oak_trunk", [(0.0, 0.0, 0.02, 1.08), (-0.30, 0.08, 1.20, 0.98),
+		(0.16, -0.04, 2.28, 0.84), (-0.04, 0.0, 3.32, 0.64)], root, "bark_light", 10)
 	for index, points in enumerate((
-		[(-0.05, 0.02, 2.55, 0.62), (-1.35, 0.20, 3.85, 0.43), (-2.55, 0.34, 5.10, 0.20)],
-		[(0.02, 0.02, 2.85, 0.58), (1.38, -0.20, 4.05, 0.42), (2.75, -0.34, 5.18, 0.19)],
-		[(-0.02, 0.0, 3.35, 0.48), (-0.78, -0.18, 4.72, 0.32), (-0.55, -0.34, 5.82, 0.15)],
-		[(0.02, 0.0, 3.42, 0.46), (0.72, 0.22, 4.78, 0.31), (0.48, 0.40, 5.90, 0.14)],
+		[(-0.12, 0.02, 1.72, 0.76), (-1.72, 0.30, 3.22, 0.50), (-3.45, 0.46, 4.82, 0.18)],
+		[(0.02, -0.02, 1.96, 0.72), (1.78, -0.30, 3.36, 0.48), (3.55, -0.46, 4.90, 0.18)],
+		[(-0.08, 0.02, 2.55, 0.58), (-1.20, -0.62, 4.18, 0.36), (-1.62, -0.92, 5.66, 0.13)],
+		[(0.04, 0.02, 2.64, 0.56), (1.12, 0.68, 4.24, 0.34), (1.52, 1.02, 5.72, 0.13)],
+		[(0.0, 0.0, 3.05, 0.48), (0.05, -0.18, 4.72, 0.28), (0.10, -0.12, 6.14, 0.11)],
 	)):
 		tapered_branch("oak_branch_%02d" % index, points, root, "bark", 8)
 	for index, (position, scale, seed) in enumerate((
-		((-3.05, 0.36, 5.72), (1.95, 1.30, 1.02), 0.4),
-		((-1.72, -0.40, 6.38), (2.02, 1.42, 1.14), 1.3),
-		((0.02, 0.25, 6.78), (2.10, 1.48, 1.20), 2.2),
-		((1.72, -0.34, 6.40), (2.00, 1.40, 1.12), 3.1),
-		((3.10, 0.32, 5.76), (1.88, 1.28, 1.02), 4.0),
-		((-0.95, 0.72, 5.76), (1.68, 1.22, 1.02), 5.1),
-		((1.02, -0.78, 5.72), (1.66, 1.20, 1.00), 6.0),
+		((-3.58, 0.42, 5.36), (1.72, 1.24, 0.94), 0.4),
+		((-2.05, -0.64, 6.18), (1.78, 1.34, 1.05), 1.3),
+		((0.04, 0.34, 6.72), (1.84, 1.38, 1.12), 2.2),
+		((2.08, -0.58, 6.18), (1.76, 1.32, 1.04), 3.1),
+		((3.62, 0.40, 5.40), (1.68, 1.22, 0.92), 4.0),
+		((-0.94, 1.12, 5.72), (1.42, 1.08, 0.94), 5.1),
+		((1.08, -1.10, 5.68), (1.40, 1.06, 0.92), 6.0),
 	)):
 		sculpt_canopy("round", "oak_crown_%02d" % index, position, scale,
-			root, crop=0.33, ratio=0.105, rotation=seed * 0.17)
-	root_flare(root, (0.0, 0.0, 0.0), 2.55, 8, "bark_light", 0.17)
-	grounding_stones(root, 2.72, 7, 0.28)
+			root, crop=0.34, ratio=0.102, rotation=seed * 0.17)
+	for index, points in enumerate((
+		[(0.0, -0.10, 0.46, 0.34), (-0.92, -0.26, 0.80, 0.24), (-1.72, -0.18, 0.04, 0.08)],
+		[(0.02, 0.08, 0.42, 0.33), (0.98, 0.26, 0.74, 0.23), (1.82, 0.16, 0.04, 0.08)],
+	)):
+		tapered_branch("oak_root_arch_%02d" % index, points, root, "bark_light", 8)
+	# Two shallow dark facets make the hollow readable from either common
+	# gameplay side without turning the trunk into a flat decal.
+	canopy_blob("oak_hollow_front", (0.02, -0.93, 1.32), (0.38, 0.11, 0.58),
+		("ink", "ink", "ink"), root, 0.8, rings=5, segments=10)
+	canopy_blob("oak_hollow_back", (-0.02, 0.93, 1.32), (0.34, 0.10, 0.52),
+		("ink", "ink", "ink"), root, 1.4, rings=5, segments=10)
+	root_flare(root, (0.0, 0.0, 0.0), 2.82, 9, "bark_light", 0.17)
+	grounding_stones(root, 3.00, 7, 0.28)
 	return root
 
 
@@ -363,14 +377,14 @@ def birch_band(parent: bpy.types.Object, x: float, y: float, z: float,
 def dancing_birch() -> bpy.types.Object:
 	root = new_root("lagoon_tree_dancing_birch")
 	trunks = (
-		(-1.10, -0.06, -0.58, 7.10),
-		(0.00, 0.18, 0.10, 7.85),
-		(1.08, -0.12, 0.62, 6.90),
+		(-1.18, -0.10, -1.12, 7.20),
+		(0.00, 0.22, 0.26, 8.18),
+		(1.16, -0.14, 1.04, 6.78),
 	)
 	for index, (base_x, base_y, lean, height) in enumerate(trunks):
 		path = [(base_x, base_y, 0.02, 0.34),
-			(base_x + lean * 0.18, base_y, 2.35, 0.30),
-			(base_x + lean * 0.52, base_y + 0.08 * (-1) ** index, 4.65, 0.23),
+			(base_x + lean * 0.12, base_y + 0.12 * (-1) ** index, 2.20, 0.30),
+			(base_x + lean * 0.48, base_y - 0.12 * (-1) ** index, 4.42, 0.22),
 			(base_x + lean, base_y, height - 1.0, 0.11)]
 		tapered_branch("birch_trunk_%02d" % index, path, root, "birch", 8)
 		for band_index, z in enumerate((1.15, 2.05, 3.02, 3.92)):
@@ -385,12 +399,14 @@ def dancing_birch() -> bpy.types.Object:
 					(fork_x + direction * 0.62, base_y + direction * 0.18,
 						height - 0.72, 0.07)], root, "birch", 7)
 		sculpt_canopy("fat", "birch_crown_%02d_a" % index,
-			(base_x + lean + (-0.30 if index == 0 else 0.0), base_y, height),
-			(1.20, 0.95, 1.15), root, crop=0.31, ratio=0.12,
+			(base_x + lean + (-0.42 if index == 0 else (0.28 if index == 2 else 0.0)),
+				base_y, height),
+			(1.02, 0.88, 1.06), root, crop=0.31, ratio=0.12,
 			rotation=0.16 * index)
 		sculpt_canopy("fat", "birch_crown_%02d_b" % index,
-			(base_x + lean + (0.72 if index != 2 else -0.68), base_y + 0.18, height - 0.48),
-			(0.95, 0.80, 0.88), root, crop=0.34, ratio=0.10,
+			(base_x + lean + (0.64 if index != 2 else -0.58),
+				base_y + 0.26 * (-1) ** index, height - 0.62),
+			(0.78, 0.70, 0.80), root, crop=0.34, ratio=0.10,
 			rotation=-0.18 * (index + 1))
 	root_flare(root, (0.0, 0.0, 0.0), 1.95, 7, "birch", 0.40)
 	grounding_stones(root, 2.05, 6, 0.68)
@@ -448,23 +464,24 @@ def blossom_cloud() -> bpy.types.Object:
 
 def windswept_tree() -> bpy.types.Object:
 	root = new_root("lagoon_tree_windswept")
-	tapered_branch("windswept_trunk", [(0.0, 0.0, 0.02, 0.74), (-0.52, 0.08, 1.30, 0.66),
-		(-1.15, 0.02, 2.62, 0.54), (-1.32, -0.08, 3.92, 0.40),
-		(-0.72, 0.0, 4.90, 0.24)], root, "bark_light", 9)
+	tapered_branch("windswept_trunk", [(0.0, 0.0, 0.02, 0.78), (-0.66, 0.10, 1.20, 0.70),
+		(-1.42, 0.02, 2.42, 0.58), (-1.86, -0.10, 3.66, 0.43),
+		(-1.42, 0.0, 4.72, 0.24)], root, "bark_light", 9)
 	for index, points in enumerate((
-		[(-1.15, 0.0, 3.10, 0.46), (0.30, 0.32, 4.05, 0.30), (2.05, 0.38, 4.72, 0.11)],
-		[(-1.12, -0.04, 3.65, 0.42), (0.65, -0.36, 4.80, 0.27), (3.12, -0.44, 5.32, 0.10)],
-		[(-0.78, 0.0, 4.38, 0.34), (1.10, 0.12, 5.35, 0.22), (4.02, 0.18, 5.72, 0.08)],
+		[(-1.70, 0.0, 2.96, 0.48), (-0.10, 0.38, 3.90, 0.31), (2.30, 0.46, 4.58, 0.10)],
+		[(-1.72, -0.04, 3.52, 0.43), (0.72, -0.42, 4.52, 0.27), (3.82, -0.50, 5.16, 0.09)],
+		[(-1.40, 0.0, 4.22, 0.34), (1.38, 0.20, 5.12, 0.21), (5.42, 0.24, 5.46, 0.07)],
 	)):
 		tapered_branch("windswept_branch_%02d" % index, points, root, "bark", 8)
 	for index, (position, scale, seed) in enumerate((
-		((0.10, 0.32, 4.72), (1.85, 1.12, 0.78), 0.8),
-		((1.88, -0.38, 5.32), (2.22, 1.20, 0.82), 2.2),
-		((3.92, 0.20, 5.76), (2.05, 1.14, 0.74), 3.6),
-		((5.28, -0.18, 5.48), (1.52, 1.02, 0.66), 5.0),
+		((0.06, 0.38, 4.54), (1.58, 1.12, 0.80), 0.8),
+		((1.92, -0.40, 5.12), (1.78, 1.22, 0.82), 2.2),
+		((3.86, 0.34, 5.48), (1.72, 1.18, 0.74), 3.6),
+		((5.54, -0.26, 5.30), (1.40, 1.04, 0.66), 5.0),
+		((6.78, 0.12, 4.88), (1.08, 0.88, 0.58), 6.2),
 	)):
 		sculpt_canopy("round", "windswept_crown_%02d" % index, position, scale,
-			root, crop=0.37, ratio=0.105, rotation=0.04, drift=0.42)
+			root, crop=0.38, ratio=0.098, rotation=0.04, drift=0.48)
 	root_flare(root, (0.0, 0.0, 0.0), 2.30, 7, "bark_light", 2.62)
 	for index, (position, scale) in enumerate((
 		((-1.55, 0.22, 0.24), (0.65, 0.48, 0.34)),

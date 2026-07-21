@@ -52,11 +52,11 @@ const LAGOON_ORIGINAL_TREES := [
 	"tree_fat",
 ]
 const LAGOON_TREE_SOURCE_HEIGHT := {
-	"lagoon_tree_ancient_oak": 8.099,
-	"lagoon_tree_dancing_birch": 9.159,
+	"lagoon_tree_ancient_oak": 8.113,
+	"lagoon_tree_dancing_birch": 9.379,
 	"lagoon_tree_umbrella": 6.511,
 	"lagoon_tree_blossom_cloud": 8.125,
-	"lagoon_tree_windswept": 6.794,
+	"lagoon_tree_windswept": 6.611,
 	"lagoon_tree_twinheart": 7.293,
 	"lagoon_tree_weeping_willow": 7.942,
 	"lagoon_tree_celebration_snow": 9.201,
@@ -244,9 +244,15 @@ func _build_pearl_castle(o: Vector3) -> void:
 				continue
 			var hero_pos := o + Vector3(hero_x,
 				_lagoon_local(hero_x, hero_z) - 0.35, hero_z)
+			var hero_yaw: float = float(tree_index) * 0.71
+			# The windswept tree's defining flag profile is directional. Present its
+			# guaranteed review specimen broadside; randomized grove copies still
+			# exercise the full range of gameplay rotations.
+			if String(trees[tree_index]) == "lagoon_tree_windswept":
+				hero_yaw = 0.71
 			var hero_tree: Node3D = _lagoon_tree(String(trees[tree_index]), hero_pos,
 				10.4 + float(tree_index % 3) * 0.5,
-				float(tree_index) * 0.71)
+				hero_yaw)
 			if hero_tree != null:
 				hero_tree.set_meta("lagoon_art_review_anchor", true)
 			m._cyl_solid(hero_pos + Vector3(0, 5.4, 0), 1.3, 5.4, 0.6)
