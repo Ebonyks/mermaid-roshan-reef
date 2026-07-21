@@ -28,6 +28,17 @@ umbrella 4.7, blossom cloud 4.8, windswept 4.8, twin-heart 4.7, weeping
 willow 4.8, and celebration snow pine 4.7. Do not overwrite these with an
 older generation or accept a future refinement below the same scene score.
 
+The later-merged Ember Fortress gateway is temporarily code-native in
+`scripts/arena/sky_lagoon.gd`. Its accepted local placement is `(72, -150)`,
+diagonally beyond the far rainbow gate: the complete 6.5-unit prop radius has
+7.5 units of dry-bank clearance from the moat, its centre is 28.26 units
+inside the grand-tour railway centreline, and it is 35.78 units from the race
+gate. When producing its Blender version, preserve the vertical plum/coral
+ring, butter-gold inner lip, three-lobe flame crest, lavender/aqua planted
+stones, no floating text, no OmniLight, and the semantic role
+`lagoon_ember_gateway`. Do not restore the rejected black/orange horizontal
+torus, move it back into the train corridor, or place it inside the moat.
+
 ## Continuation contract
 
 Any future Blender refinement must preserve a score of at least 4.5/5 in all
@@ -70,4 +81,4 @@ changed tree; the batch renderer pays the Eevee startup cost only once.
 
 After any accepted edit, update `ASSET_LICENSES.md`, the Sky Lagoon audit and
 ledger, rerun parser/inference gates, and require green import/probes plus all
-51 fixed scene captures before proposing integration into `dev`.
+52 fixed scene captures before proposing integration into `dev`.
