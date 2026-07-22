@@ -3,8 +3,10 @@
 Generation mode: OpenAI built-in image generation with local project images as
 visual references. Each accepted image used one built-in generation call. Raw
 outputs remain in the external Codex generated-image cache; accepted project
-copies were normalized to 1024 x 1024 and sliced by
-`tools/slice_opera_job_prototypes.py`.
+copies were normalized to 1024 x 1024. The accepted 4 x 4 cells are exported
+as deterministic 1024 x 1024 individual modeling references by
+`tools/slice_opera_job_prototypes.py`. The individual exports preserve the
+accepted sheet art; they are not independent generative reinterpretations.
 
 ## Binding reference set
 

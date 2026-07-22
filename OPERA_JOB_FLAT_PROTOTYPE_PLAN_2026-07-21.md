@@ -6,6 +6,8 @@
 - Twelve playable jobs, three flat prototype sheets per job (36 accepted sheets total).
 - Boss encounters are explicitly deferred: Curtain Dragon, Shadow Phantom, and Midnight Maestro.
 - Every sheet is a strict 4 x 4 grid of sixteen isolated, modelable concepts.
+- Every individual concept is delivered as a 1024 x 1024 PNG card derived
+  deterministically from its accepted sheet cell. Do not reduce these cards.
 - The three-sheet package for every job is:
   1. Roshan outfit and silhouette sheet.
   2. Core one-touch subgame props and mechanical states.

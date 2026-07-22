@@ -14,6 +14,7 @@ SOURCE = ROOT / "assets_src" / "concepts" / "opera_jobs_flat_2026-07-21"
 OUTPUT = SOURCE / "cards"
 LEDGER = ROOT / "audit" / "opera_job_flat_prototype_ledger_2026-07-21.csv"
 CONTACT_SHEET = ROOT / "audit" / "opera_job_flat_contact_sheet_2026-07-21.png"
+CARD_SIZE = (1024, 1024)
 
 OUTFIT_NAMES = (
 	"hero_front_three_quarter",
@@ -209,8 +210,13 @@ def slice_sheet(sheet_path: Path, prefix: str, names: tuple[str, ...]) -> None:
 				round((column + 1) * source.width / 4),
 				round((row + 1) * source.height / 4),
 			)
-			card = source.crop(box)
-			card.save(OUTPUT / f"opera_job_{prefix}_{name}.png", optimize=True)
+			# Each accepted master is a 4 x 4 design sheet, so its native cell is
+			# 256 px.  Export a deterministic 1024 px modeling reference from that
+			# exact cell instead of asking a generator to reinterpret the design.
+			# This preserves composition, color, silhouette, and state continuity.
+			card = source.crop(box).resize(CARD_SIZE, Image.Resampling.LANCZOS)
+			card.save(OUTPUT / f"opera_job_{prefix}_{name}.png", optimize=True,
+				compress_level=9)
 
 
 def build_contact_sheet(sheet_paths: list[Path]) -> None:
@@ -231,7 +237,8 @@ def write_ledger() -> None:
 	with LEDGER.open("w", newline="", encoding="utf-8") as ledger_file:
 		writer = csv.writer(ledger_file)
 		writer.writerow(("asset_id", "job", "sheet_type", "display_name",
-			"score_out_of_5", "status", "prototype_card", "source_sheet"))
+			"score_out_of_5", "status", "pixel_dimensions", "prototype_card",
+			"source_sheet"))
 		for job, spec in JOBS.items():
 			for sheet_type, names, score in (
 				("outfit", OUTFIT_NAMES, spec["scores"][0]),
@@ -243,6 +250,7 @@ def write_ledger() -> None:
 					asset_id = f"opera_job_{job}_{sheet_type}_{name}"
 					writer.writerow((asset_id, job, sheet_type,
 						name.replace("_", " ").title(), f"{score:.1f}", "accepted",
+						f"{CARD_SIZE[0]}x{CARD_SIZE[1]}",
 						f"assets_src/concepts/opera_jobs_flat_2026-07-21/cards/{asset_id}.png",
 						f"assets_src/concepts/opera_jobs_flat_2026-07-21/{sheet_name}"))
 
@@ -266,7 +274,8 @@ def main() -> None:
 			card_count += len(names)
 	write_ledger()
 	build_contact_sheet(accepted_sheets)
-	print(f"OPERA_JOB_FLAT|sheets={len(accepted_sheets)}|cards={card_count}")
+	print(f"OPERA_JOB_FLAT|sheets={len(accepted_sheets)}|cards={card_count}"
+		f"|card_px={CARD_SIZE[0]}x{CARD_SIZE[1]}")
 
 
 if __name__ == "__main__":

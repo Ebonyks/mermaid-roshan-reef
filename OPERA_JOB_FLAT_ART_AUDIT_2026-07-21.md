@@ -10,7 +10,8 @@ prototype package:
 3. Stage dressing, guidance, retry, and completion states.
 
 This is 36 accepted 4 x 4 sheets and 576 individually sliced model-reference
-cards. Every accepted sheet scores at least 4.7/5 against a 4.5 pass threshold;
+cards, each delivered at 1024 x 1024. Every accepted sheet scores at least
+4.7/5 against a 4.5 pass threshold;
 the computer-audit maximum remains 4.9. No boss assets were generated.
 
 The full-set contact sheet is
@@ -116,7 +117,8 @@ are recorded in the batch `PROMPTS.md`.
 
 ## Mobile and 3D translation constraints
 
-- All 36 accepted source sheets are 1024 x 1024; all 576 cards are 256 x 256.
+- All 36 accepted source sheets are 1024 x 1024; all 576 individual cards are
+  also delivered at 1024 x 1024.
 - Prototype rasters are review/model-reference art under `assets_src/.gdignore`,
   not runtime sprite replacements.
 - Prefer instanced shared stage modules and job-specific hero props.
@@ -132,11 +134,21 @@ are recorded in the batch `PROMPTS.md`.
 
 ## Packaging verification
 
+### Resolution correction
+
+An initial packaging pass emitted 256 x 256 cell crops. That reduction was
+withdrawn before integration at the owner's direction. The accepted paths now
+contain 1024 x 1024 PNG cards. Each is a deterministic four-times Lanczos
+render of the exact accepted sheet cell, retaining the approved composition,
+palette, silhouette, and state rather than inventing a near-match through a
+new generation. The 1024 cards are the handoff source; do not downsample them
+in `assets_src`.
+
 `python tools/slice_opera_job_prototypes.py` completed with:
 
 ```text
-OPERA_JOB_FLAT|sheets=36|cards=576
+OPERA_JOB_FLAT|sheets=36|cards=576|card_px=1024x1024
 ```
 
 The generated ledger contains 576 accepted rows, and a dimension audit found
-no source sheet above the repository's 1024-pixel limit.
+all source sheets and all individual cards at exactly 1024 x 1024.
