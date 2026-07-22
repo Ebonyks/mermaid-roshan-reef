@@ -19,7 +19,9 @@ architecture, symbol, UI, music, or terminology.
 3. `audit/ember_visual_inventory_2026-07-22.csv`.
 4. `assets_src/concepts/ember_fortress_claude_2026-07-22/PROMPTS.md`.
 5. `assets_src/concepts/ember_fortress_claude_2026-07-22/CLAUDE_EXPORT_MANIFEST.csv`.
-6. `assets/OBJECT_GENERATION_AUDIT_LOG.md`, especially A17 and R-GOV1–4,
+6. `EMBER_FORTRESS_EXPANSION_40_AUDIT_2026-07-22.md` and
+   `assets_src/concepts/ember_fortress_claude_2026-07-22/expansion_40/CLAUDE_EXPANSION_40_MANIFEST.csv`.
+7. `assets/OBJECT_GENERATION_AUDIT_LOG.md`, especially A17/A18 and R-GOV1–4,
    R-ROLE1–4, R-REP1–3, and R-QA1–8.
 
 Run this first:
@@ -28,9 +30,9 @@ Run this first:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\claude_ember_blender_handoff.ps1 -Strict
 ```
 
-The helper is read-only and validates the six boards, 42 inventory roles, 39
-export rows, board dimensions, branch/status, and absence of premature runtime
-GLBs.
+The helper is read-only and validates the six boards, 40 expansion cards, 42
+baseline inventory roles, 40 enrichment roles, 79 export rows, image dimensions,
+branch/status, and absence of premature runtime GLBs.
 
 ## Authoritative design sources
 
@@ -40,6 +42,9 @@ GLBs.
 - `04_overworld_props.png`: lantern assembly/states and world props.
 - `05_dungeon_kit.png`: room shell, door, puzzle/dressing props.
 - `06_combat_kit.png`: imps, boss states, basket, fire/ice projectiles.
+- `expansion_40/*.png`: forty individual architecture, terrain, interactive,
+  ambient-life, and guidance cards; review them through `contact_1.png` through
+  `contact_4.png` before modeling.
 
 The CSV contracts override any accidental scale text or decorative ambiguity
 inside generated pixels. Treat the boards as shape, palette, construction, and
@@ -52,7 +57,8 @@ or scene dressing.
    assemblies with clean origins, applied transforms, simple embedded Mobile
    materials, and no runtime textures unless separately approved.
 2. **Measured export:** Export each manifest row to
-   `assets/ember_fortress/<export_name>.glb`. Parse dimensions, triangle count,
+   `assets/ember_fortress/<export_name>.glb`. The core and expansion manifests
+   together require 79 exports. Parse dimensions, triangle count,
    mesh islands, materials, textures, and bounds from each GLB; do not trust a
    generator-side manifest.
 3. **Isolated review:** Render front, side, back/three-quarter where applicable,
@@ -67,6 +73,11 @@ or scene dressing.
 Do not batch all 39 exports before reviewing the focal pilot family. The pilot
 order is: planet/plazas, Great Gate/frame/veil, lantern assembly, home ring,
 arena/door, King, boss. A failed focal pilot blocks the remaining family.
+
+After the core focal pilots pass, build the enrichment kit in four ten-object
+families. Respect each row's placement cap and a Speedy runtime cap of 28
+visible enrichment instances in the active camera sector. Do not add OmniLights,
+transparent smoke, full-screen heat refraction, or collision to ambient flora.
 
 ## Non-negotiable design and gameplay contracts
 

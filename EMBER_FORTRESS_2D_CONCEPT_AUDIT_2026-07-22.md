@@ -74,7 +74,8 @@ worlds are outside this restart.
 ## Completion boundary
 
 The work is now at `concept_ready`, not `runtime_pass`. Claude must produce the
-39 exports in `CLAUDE_EXPORT_MANIFEST.csv`, retain editable `.blend` sources,
+39 core exports in `CLAUDE_EXPORT_MANIFEST.csv` plus the 40 enrichment exports
+defined by `EMBER_FORTRESS_EXPANSION_40_AUDIT_2026-07-22.md`, retain editable `.blend` sources,
 provide isolated multi-angle/state renders, and integrate them through an
 Ember-only route without overwriting shared dungeon assets. Only representative
 Forward Mobile captures can make a role eligible for 4/5; only owner review can
