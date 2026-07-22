@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Normalize generated Fairy Pond art for Godot Mobile.
 
-The image-generation masters are kept under assets_src/fairy_v2/concepts.
-This script creates the <=1024px runtime textures after chroma removal.  It is
-deliberately independent of Blender so texture preparation is reproducible in
-the lightweight CI/import environment.
+The V2 subject masters are kept under assets_src/fairy_v2/concepts; the V3
+continuous background masters live under assets_src/fairy_v3/concepts.  This
+script creates the <=1024px runtime textures after chroma removal and delegates
+the three pond plates to process_fairy_background_flow.py.
 
 Usage:
     python tools/process_fairy_art_v2.py
@@ -17,6 +17,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from process_fairy_background_flow import main as build_background_flow
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONCEPT_DIR = ROOT / "assets_src" / "fairy_v2" / "concepts"
@@ -25,12 +27,6 @@ RUNTIME_DIR = ROOT / "assets" / "fairy"
 SUBJECT_DIR = ROOT / "assets_src" / "fairy_v2" / "runtime_textures"
 MAX_EDGE = 1024
 SUBJECT_EDGE = 960
-
-BACKGROUNDS = {
-	"background_dawn.png": "pond_dawn.png",
-	"background_twilight.png": "pond_twilight.png",
-	"background_clearing.png": "pond_boss_clearing.png",
-}
 
 SUBJECTS = {
 	"bug_jewel.png": "bug_jewel.png",
@@ -61,13 +57,6 @@ def _normalize_concepts() -> None:
 		image.save(source, format="PNG", optimize=True)
 
 
-def _save_background(source: Path, target: Path) -> None:
-	image = Image.open(source).convert("RGB")
-	image = _resize(image, MAX_EDGE)
-	target.parent.mkdir(parents=True, exist_ok=True)
-	image.save(target, format="PNG", optimize=True)
-
-
 def _save_subject(source: Path, target: Path) -> None:
 	image = Image.open(source).convert("RGBA")
 	bounds = image.getchannel("A").getbbox()
@@ -91,11 +80,9 @@ def main() -> None:
 	if args.concepts_only:
 		print(f"normalized concept masters in {CONCEPT_DIR}")
 		return
-	for source_name, target_name in BACKGROUNDS.items():
-		_save_background(CONCEPT_DIR / source_name, RUNTIME_DIR / target_name)
+	build_background_flow()
 	for source_name, target_name in SUBJECTS.items():
 		_save_subject(KEYED_DIR / source_name, SUBJECT_DIR / target_name)
-	print(f"wrote {len(BACKGROUNDS)} pond plates to {RUNTIME_DIR}")
 	print(f"wrote {len(SUBJECTS)} relief masters to {SUBJECT_DIR}")
 
 
