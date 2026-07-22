@@ -1,7 +1,8 @@
 extends SceneTree
-# Pearl Opera House regression: fourteen costume acts across two floors (six
-# shows + a boss showdown per floor), no passive wins, wrong answers stay
-# gentle, checkpoint resume, and the completion rewards land exactly once.
+# Pearl Opera House regression: fifteen acts across three lobby floors (four
+# career doors + a centre-stage boss medallion per floor, the fifteenth being
+# the grand finale), no passive wins, wrong answers stay gentle, stars persist
+# across visits, and the completion rewards land exactly once.
 
 var main: ReefMain
 var bad := 0
@@ -17,6 +18,7 @@ func _init() -> void:
 	main._skip_intro()
 	# A brand-new save must be able to enter: the opera teaches its own shows.
 	main.opera_progress = 0
+	main.opera_stars = 0
 	main.opera_done = false
 	main.stickers.erase("showtime")
 	main.game = "level2"
@@ -24,32 +26,65 @@ func _init() -> void:
 	main._start_opera()
 	var opera: OperaHouse = main.opera_game
 	_ck("fresh save can enter the opera house", opera != null)
-	await _wait_for_act(opera, 0)
-	_ck("opera defines fourteen acts", OperaHouse.ACTS.size() == 14)
-	var floor1_shows := 0
-	var floor2_shows := 0
-	var floor1_boss := 0
-	var floor2_boss := 0
+	await _frames(4)
+	_ck("opera defines fifteen acts", OperaHouse.ACTS.size() == 15)
+	var shows := {1: 0, 2: 0, 3: 0}
+	var bosses := {1: 0, 2: 0, 3: 0}
 	for cfg: Dictionary in OperaHouse.ACTS:
 		var story := int(cfg.get("story", 0))
 		if String(cfg.get("type", "show")) == "boss":
-			if story == 1: floor1_boss += 1
-			else: floor2_boss += 1
+			bosses[story] = int(bosses[story]) + 1
 		else:
-			if story == 1: floor1_shows += 1
-			else: floor2_shows += 1
-	_ck("each floor runs six shows", floor1_shows == 6 and floor2_shows == 6)
-	_ck("each floor ends with one boss", floor1_boss == 1 and floor2_boss == 1)
-	_ck("floor one closes with a boss act", String(OperaHouse.ACTS[6]["type"]) == "boss")
-	_ck("floor two closes with a boss act", String(OperaHouse.ACTS[13]["type"]) == "boss")
-	_ck("progress HUD never blocks touch", opera.progress_label.mouse_filter == Control.MOUSE_FILTER_IGNORE and opera.act_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
-	var act: OperaAct = opera.act
-	_ck("act one dresses Roshan in a costume", act.costume_root != null and act.costume_root.get_child_count() > 0)
+			shows[story] = int(shows[story]) + 1
+	_ck("three floors run four shows each", int(shows[1]) == 4 and int(shows[2]) == 4 and int(shows[3]) == 4)
+	_ck("every floor ends with one boss", int(bosses[1]) == 1 and int(bosses[2]) == 1 and int(bosses[3]) == 1)
+	_ck("floor bosses sit at acts five, ten and fifteen",
+		String(OperaHouse.ACTS[4]["type"]) == "boss" and String(OperaHouse.ACTS[9]["type"]) == "boss" and String(OperaHouse.ACTS[14]["type"]) == "boss")
+	_ck("the fifteenth act is the grand finale", bool(OperaHouse.ACTS[14].get("finale", false)))
+	# ---- the explorable lobby: doors for shows, medallions for bosses ----
+	_ck("lobby builds a door for every career show", opera.doors.size() == 12)
+	_ck("every floor has a centre-stage medallion", opera.boss_spots.size() == 3)
+	_ck("Roshan spawns in the lobby with no act running", opera.act == null and opera.lobby_y == 0.0)
+	_ck("lobby HUD never blocks touch", opera.star_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	for i in range(30): await process_frame
+	_ck("nothing wins passively in the lobby", opera.act == null and main.opera_stars == 0)
+	# medallions start dark: standing on one must not start a boss
+	_ck("all three medallions start unlit",
+		not opera._spot_lit(opera.boss_spots[0]) and not opera._spot_lit(opera.boss_spots[1]) and not opera._spot_lit(opera.boss_spots[2]))
+	opera.lobby_pos = (opera.boss_spots[0]["pos"] as Vector3)
+	await _frames(30)
+	_ck("dark medallion does not start the boss", opera.act == null)
+	# the bubble lift cycles ground -> balcony -> gallery -> ground
+	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 1.1, 0)
+	var guard := 0
+	while opera.lobby_y < 12.5 and guard < 400:
+		guard += 1
+		await process_frame
+	_ck("bubble lift carries Roshan to the balcony", absf(opera.lobby_y - 13.0) < 0.5)
+	opera.lobby_pos = OperaHouse.L + Vector3(0, 14.1, -18.0)
+	await _frames(10)
+	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 14.1, 0)
+	guard = 0
+	while opera.lobby_y < 25.5 and guard < 400:
+		guard += 1
+		await process_frame
+	_ck("second ride reaches the top gallery", absf(opera.lobby_y - 26.0) < 0.5)
+	opera.lobby_pos = OperaHouse.L + Vector3(0, 27.1, -18.0)
+	await _frames(10)
+	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 27.1, 0)
+	guard = 0
+	while opera.lobby_y > 0.5 and guard < 400:
+		guard += 1
+		await process_frame
+	_ck("third ride loops home to the ground floor", opera.lobby_y < 0.5)
+	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
+	var act: OperaAct = await _open_door(opera, 0)
+	_ck("act one dresses Roshan in a costume", act != null and act.costume_root != null and act.costume_root.get_child_count() > 0)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
-	_ck("act one cannot win passively", opera.act_index == 0 and act.state == "play" and act.stage_phase == "brawl")
+	_ck("act one cannot win passively", act.state == "play" and act.stage_phase == "brawl")
 	# a sparkle with no imp near just fizzles — never a fail (probe-only
 	# teleport to centre stage guarantees every imp is out of reach)
 	var far_left: int = act.imps_left
@@ -68,20 +103,31 @@ func _init() -> void:
 	await _drive_order(act, first_cfg)
 	_ck("cake show ends in a win", act.state == "won")
 	act.win_t = 0.0
-	await _wait_for_act(opera, 1)
-	_ck("act one clear saves a checkpoint", main.opera_progress == 1)
+	await _wait_lobby(opera)
+	_ck("finished door wears a gold star", (main.opera_stars & 1) == 1)
+	_ck("one star counts one cleared act", main.opera_progress == 1)
+	# leaving keeps every star; the next visit still shows it
 	opera._leave_early()
 	await process_frame
 	_ck("home icon returns safely", main.game == "level2" and main.opera_game == null)
 	main._start_opera()
 	opera = main.opera_game
-	await _wait_for_act(opera, 1)
-	_ck("next visit resumes at act two", opera.act_index == 1 and opera.act != null)
+	await _frames(4)
+	_ck("stars persist across visits", (main.opera_stars & 1) == 1 and opera.doors.size() == 12)
+	# every remaining act: shows through their doors, then each floor's
+	# medallion lights up and its boss takes centre stage
 	for expected in range(1, OperaHouse.ACTS.size()):
-		await _wait_for_act(opera, expected)
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
-		act = opera.act
+		var is_boss := String(cfg2.get("type", "show")) == "boss"
+		if is_boss:
+			var spot_index := {4: 0, 9: 1, 14: 2}[expected] as int
+			_ck("four stars light the floor %d medallion" % int(cfg2["story"]), opera._spot_lit(opera.boss_spots[spot_index]))
+			act = await _open_spot(opera, spot_index)
+		else:
+			act = await _open_door(opera, expected)
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
+		if act == null:
+			continue
 		if bool(cfg2.get("shell", false)):
 			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)
@@ -106,17 +152,18 @@ func _init() -> void:
 			"dance":
 				await _drive_dance(act)
 			"boss":
-				await _drive_boss(act, bool(cfg2.get("dual", false)))
+				await _drive_boss(act, cfg2)
 		_ck("act %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
 		act.win_t = 0.0
-		if expected < OperaHouse.ACTS.size() - 1:
-			await _wait_for_act(opera, expected + 1)
+		await _wait_lobby(opera)
+		_ck("act %d wears its star" % (expected + 1), (main.opera_stars & (1 << expected)) != 0)
 	await process_frame
 	await process_frame
-	_ck("all fourteen checkpoints persist", main.opera_progress == 14)
-	_ck("final act completes the opera", main.opera_done)
+	_ck("all fifteen acts are starred", main.opera_stars == OperaHouse.ALL_STARS)
+	_ck("stars count as fifteen cleared acts", main.opera_progress == 15)
+	_ck("the grand finale completes the opera", main.opera_done)
 	_ck("the Showtime sticker is earned", bool(main.stickers.get("showtime", false)))
-	opera._finish(true)
+	opera._leave_early()
 	await process_frame
 	_ck("completion returns to the castle", main.game == "level2" and main.opera_game == null)
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -303,36 +350,86 @@ func _drive_dance(act: OperaAct) -> void:
 	await process_frame
 	_ck("a happy round takes the pop star's bow", act.state == "won")
 
-func _drive_boss(act: OperaAct, dual: bool) -> void:
+func _drive_boss(act: OperaAct, cfg: Dictionary) -> void:
+	var finale := bool(cfg.get("finale", false))
+	var dual := bool(cfg.get("dual", false)) or finale
 	var hp: int = int(act.boss["hp"])
 	_ck("boss starts with its configured sparkle stars", hp >= 3)
 	if dual:
-		_ck("phantom opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
+		_ck("boss opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
 		act._hit_boss()
 		_ck("sparkles cannot skip the lantern lesson", int(act.boss["hp"]) == hp)
-		for cycle in range(hp):
-			_ck("cycle %d asks for the lantern first" % (cycle + 1), String(act.boss["phase"]) == "shadow")
-			act._light_lantern()
-			_ck("cycle %d lit lantern reveals the phantom" % (cycle + 1), String(act.boss["phase"]) == "peek" and act.action_label() == "SPARKLE")
-			act._hit_boss()
 	else:
 		_ck("dragon opens hiding in the curtains", String(act.boss["phase"]) == "hide" and act.action_label() == "SPARKLE")
 		_ck("dragon roams three curtain spots", act.peek_spots.size() == 3)
 		act._hit_boss()
 		_ck("sparkles fizzle while he hides", int(act.boss["hp"]) == hp)
-		var guard := 0
-		while act.state == "play" and guard < 900:
-			guard += 1
-			if String(act.boss["phase"]) == "peek":
-				act._hit_boss()
-			else:
-				await process_frame
-		_ck("dragon act does not stall", guard < 900)
-
-func _wait_for_act(opera: OperaHouse, expected: int) -> void:
+	var modes := {}
 	var guard := 0
-	while opera != null and (opera.act_index != expected or opera.act == null) and guard < 400:
+	while act.state == "play" and guard < 1500:
 		guard += 1
+		var phase := String(act.boss["phase"])
+		if phase == "shadow":
+			if finale:
+				modes[String(act.boss.get("mode", "lantern"))] = true
+			act._light_lantern()
+			act._hit_boss()
+		elif phase == "peek":
+			if finale:
+				modes[String(act.boss.get("mode", "lantern"))] = true
+			act._hit_boss()
+		else:
+			await process_frame
+	_ck("boss act does not stall", guard < 1500)
+	if finale:
+		_ck("the grand finale remixes lanterns AND curtain chases",
+			bool(modes.get("lantern", false)) and bool(modes.get("roam", false)))
+
+func _open_door(opera: OperaHouse, act_i: int) -> OperaAct:
+	# stand Roshan on the door's welcome mat; the lobby's own proximity flow
+	# (arming, cooldown, transformation) opens the show
+	var door := {}
+	for d in opera.doors:
+		if int(d["i"]) == act_i:
+			door = d
+	var dpos: Vector3 = door["pos"]
+	opera.lobby_y = _floor_of(dpos)
+	opera.lobby_pos = dpos
+	var guard := 0
+	while opera.act == null and guard < 500:
+		guard += 1
+		await process_frame
+	_ck("act %d opens from the lobby walk-in" % (act_i + 1), opera.act != null)
+	return opera.act
+
+func _open_spot(opera: OperaHouse, spot_index: int) -> OperaAct:
+	var spot: Dictionary = opera.boss_spots[spot_index]
+	var spos: Vector3 = spot["pos"]
+	opera.lobby_y = _floor_of(spos)
+	opera.lobby_pos = spos
+	var guard := 0
+	while opera.act == null and guard < 500:
+		guard += 1
+		await process_frame
+	_ck("glowing medallion %d starts its boss" % (spot_index + 1), opera.act != null)
+	return opera.act
+
+func _floor_of(pos: Vector3) -> float:
+	var best := 0.0
+	for fy in OperaHouse.FLOOR_YS:
+		if absf((pos.y - 1.1) - (OperaHouse.L.y + float(fy))) < 3.0:
+			best = float(fy)
+	return best
+
+func _wait_lobby(opera: OperaHouse) -> void:
+	var guard := 0
+	while opera.act != null and guard < 500:
+		guard += 1
+		await process_frame
+	_ck("show hands Roshan back to the lobby", opera.act == null)
+
+func _frames(n: int):
+	for i in range(n):
 		await process_frame
 
 func _descendants(node: Node) -> int:

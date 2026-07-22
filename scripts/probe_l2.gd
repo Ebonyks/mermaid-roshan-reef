@@ -15,6 +15,17 @@ func _init() -> void:
 	main.trophies = 5
 	main._enter_level2()
 	await process_frame
+	var lagoon_light_ok: bool = (main.sun_light != null
+		and not main.sun_light.visible
+		and main.arena_env != null
+		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon"
+		and main.arena_env.ambient_light_energy <= 0.461)
+	print("LIGHTING|single Lagoon sun + contrast grade: %s sun=%s ambient=%.4f profile=%s"
+		% ["OK" if lagoon_light_ok else "FAIL", main.sun_light.visible,
+		main.arena_env.ambient_light_energy,
+		String(main.arena_env.get_meta("scene_grade_profile", ""))])
+	if not lagoon_light_ok:
+		print("FAIL|Sky Lagoon ocean-sun or exposure regression")
 	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
 	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
 		"OK" if river_depth >= 4.0 else "FAIL"])
@@ -45,6 +56,9 @@ func _init() -> void:
 			"res://assets/sky_lagoon/lagoon_kit/" + kit_name + ".glb"))
 	var lagoon_counts: Dictionary = main.g.get("lagoon_art_counts", {})
 	var expected_butterfly_gate_count: int = 1 if main.galaxy_unlocked else 0
+	var fairy_surface_y: float = float(main.g.get("fairy_pond_surface_y", -9999.0))
+	var fairy_pond_surface_ok: bool = (fairy_surface_y > -9000.0
+		and absf(main.fairy_pond_pos.y - fairy_surface_y - 4.0) < 0.1)
 	var grounded_flora_count: int = 0
 	for flora_role: String in lagoon.LAGOON_GROUND_FLORA:
 		grounded_flora_count += int(lagoon_counts.get(flora_role, 0))
@@ -60,6 +74,7 @@ func _init() -> void:
 		and int(lagoon_counts.get("lagoon_butterfly_world_gate", 0)) == expected_butterfly_gate_count
 		and int(lagoon_counts.get("lagoon_train_station", 0)) == 1
 		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
+		and fairy_pond_surface_ok
 		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")
 	var lagoon_art_ok: bool = botany_rule_ok and kit_resources_ok and authored_placement_ok
 	print("BOTANY|no isolated ground leaf + complete plant kit: ",
@@ -237,6 +252,13 @@ func _init() -> void:
 	for l in got_log: print(l)
 	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
 	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "FAIL (STUCK)"), t])
+	main._exit_level2()
+	await process_frame
+	var reef_sun_restored: bool = main.sun_light != null and main.sun_light.visible
+	print("LIGHTING|reef sun restored on Lagoon exit: ",
+		"OK" if reef_sun_restored else "FAIL")
+	if not reef_sun_restored:
+		print("FAIL|Sky Lagoon left the ocean sun disabled")
 	quit()
 
 

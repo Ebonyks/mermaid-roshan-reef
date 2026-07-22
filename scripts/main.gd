@@ -176,7 +176,8 @@ var dungeon_game: DungeonLevel = null
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts, 0..14; next visit resumes here
+var opera_progress := 0            # cleared opera acts (star count), 0..15
+var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
 var opera_done := false
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
@@ -915,6 +916,18 @@ func _apply_scene_grade(env: Environment, profile: String) -> void:
 	var full_ambient_cap: float = env.ambient_light_energy
 	var speedy_ambient_cap: float = env.ambient_light_energy
 	match profile:
+		"sky_lagoon":
+			# The Lagoon has its own daylight and a largely pearl/snow palette.
+			# Keep enough headroom for those pale surfaces to retain their painted
+			# value steps instead of clipping into one white mass on Mobile.
+			full_exposure = 0.72
+			speedy_exposure = 0.66
+			white_point = 1.55
+			saturation = 1.10
+			contrast = 1.16
+			brightness = 0.94
+			full_ambient_cap = 0.46
+			speedy_ambient_cap = 0.42
 		"bright_pastel":
 			full_exposure = 0.88
 			speedy_exposure = 0.78
@@ -3191,6 +3204,10 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 
 func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> void:
 	game = "level2"
+	# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;
+	# stacking both erased nearly all color from pearl, snow, and pastel props.
+	if sun_light != null:
+		sun_light.visible = false
 	# A completed castle is a permanent playground. Never rebuild its three-star
 	# lock on a later visit, even when an older caller omits from_castle.
 	if level2_done_once:
@@ -3241,9 +3258,9 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> v
 	sky.sky_material = psky
 	arena_env.sky = sky
 	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	arena_env.ambient_light_energy = 0.54 if is_night else 0.58
-	_wind_waker_bloom(arena_env, 0.44, 0.05, 1.18)   # retain emitters while pale castle/snow values stay below clipping
-	_apply_scene_grade(arena_env, "bright_pastel")
+	arena_env.ambient_light_energy = 0.42 if is_night else 0.46
+	_wind_waker_bloom(arena_env, 0.36, 0.03, 1.24)   # retain emitters while pale castle/snow values stay below clipping
+	_apply_scene_grade(arena_env, "sky_lagoon")
 	we_node.environment = arena_env
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -4543,7 +4560,9 @@ func _ring_bell(bd: Dictionary) -> void:
 	bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
 	bbtw.tween_property(bn, "position:y", base_y, 0.16)
 	bd["tw"] = bbtw
-	_sparkle_burst(bn.position + Vector3(0, 4, 0), (bn.material_override as StandardMaterial3D).albedo_color)
+	# art pass 3.5 made the bars GLB props — the root Node3D has no
+	# material_override, so the burst color comes from the bell dict
+	_sparkle_burst(bn.position + Vector3(0, 4, 0), Color(bd.get("color", Color(1.0, 0.9, 0.55))))
 
 func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 	if bg2.is_empty():
@@ -5037,6 +5056,8 @@ func _exit_level2_now() -> void:
 	arena_zones.clear()
 	fade_walls.clear()
 	we_node.environment = world_env
+	if sun_light != null:
+		sun_light.visible = true
 	arena_center = ARENA_POS
 	arena_dome = 48.0
 	arena_ceil = 42.0
@@ -5078,6 +5099,8 @@ func _do_finish_level2() -> void:
 	arena_zones.clear()
 	fade_walls.clear()
 	we_node.environment = world_env
+	if sun_light != null:
+		sun_light.visible = true
 	arena_center = ARENA_POS
 	arena_dome = 48.0
 	arena_ceil = 42.0
