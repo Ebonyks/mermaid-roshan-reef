@@ -820,8 +820,9 @@ func _build_order() -> void:
 			_box(Vector3(0, 0.7, 0), Vector3(3.0, 1.4, 2.0), Color(0.62, 0.42, 0.2), 0.0, goal)
 			_box(Vector3(0, 1.5, 0), Vector3(3.0, 0.5, 2.0), Color(1.0, 0.85, 0.4), 0.3, goal)
 		"paint":
-			_box(Vector3(0, 2.6, 0), Vector3(6.4, 4.6, 0.4), Color(0.96, 0.94, 0.88), 0.1, goal)
-			_box(Vector3(0, 0.3, 0.6), Vector3(5.0, 0.6, 0.6), Color(0.55, 0.38, 0.24), 0.0, goal)
+			if _job_art("painter/opera_painter_easel.glb", goal) == null:
+				_box(Vector3(0, 2.6, 0), Vector3(6.4, 4.6, 0.4), Color(0.96, 0.94, 0.88), 0.1, goal)
+				_box(Vector3(0, 0.3, 0.6), Vector3(5.0, 0.6, 0.6), Color(0.55, 0.38, 0.24), 0.0, goal)
 		_:
 			chef_bowl_art = _job_art("pastry_chef/opera_pastry_chef_bowl.glb", goal)
 			if chef_bowl_art != null:
@@ -864,7 +865,9 @@ func _order_colors(theme: String) -> Array[Color]:
 		"clue":
 			return [Color(0.62, 0.45, 0.3), Color(0.55, 0.85, 1.0), Color(1.0, 0.6, 0.8)]
 		"paint":
-			return [Color(1.0, 0.55, 0.3), Color(1.0, 0.85, 0.35), Color(0.6, 0.5, 0.95)]
+			# LOCKED cue palette (handoff continuity): coral / cream / plum,
+			# so the live [2, 0, 1, 2] order reads plum, coral, cream, plum
+			return [Color(0.86, 0.42, 0.38), Color(0.93, 0.87, 0.78), Color(0.55, 0.36, 0.66)]
 		_:
 			# the accepted card palette (vanilla / coral / plum) — the recipe
 			# tokens must match the 3D layer art so a non-reader can pair them
@@ -904,6 +907,9 @@ func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 		# vanilla / coral / plum layer kits on their doily pedestals
 		var layer := _job_art("pastry_chef/opera_pastry_chef_layer_%s.glb" % ["vanilla", "coral", "plum"][i], prop)
 		if layer != null:
+			return prop
+	if theme == "paint":
+		if _job_art("painter/opera_painter_pot_%d.glb" % i, prop) != null:
 			return prop
 	match theme:
 		"clue":
@@ -1330,18 +1336,22 @@ func _build_fix() -> void:
 	tank.name = "BubbleTank"
 	tank.position = CENTER + Vector3(-16.0, 1.0, -12.0)
 	add_child(tank)
-	_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
-	_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
+	if _job_art("astronaut/opera_astronaut_tank.glb", tank) == null:
+		_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
+		_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
 	var rocket := Node3D.new()
 	rocket.name = "StarRocket"
 	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
 	add_child(rocket)
-	_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
-	var nose := CylinderMesh.new()
-	nose.top_radius = 0.1
-	nose.bottom_radius = 1.8
-	nose.height = 2.6
-	_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
+	if _job_art("astronaut/opera_astronaut_rocket.glb", rocket) == null:
+		_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
+		var nose := CylinderMesh.new()
+		nose.top_radius = 0.1
+		nose.bottom_radius = 1.8
+		nose.height = 2.6
+		_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
+	# the live window sphere stays in both cases: the kit frames it with a
+	# brass port ring at the same spot, and the launch glow toggles it
 	rocket_window = _sphere(Vector3(0, 3.6, 1.5), 0.8, Color(0.2, 0.22, 0.4), 0.05, rocket)
 	rocket_window.material_override = rocket_window.material_override.duplicate() as StandardMaterial3D
 	# fixed pipe stubs along the run, with three gaps between them
@@ -1384,12 +1394,16 @@ func _build_fix() -> void:
 	valve.name = "BubbleValve"
 	valve.position = CENTER + Vector3(-16.0, 4.6, -10.4)
 	add_child(valve)
-	var wheel := TorusMesh.new()
-	wheel.inner_radius = 0.5
-	wheel.outer_radius = 1.0
-	var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
-	wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-	_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
+	var valve_kit := _job_art("astronaut/opera_astronaut_valve.glb", valve)
+	if valve_kit != null:
+		valve_kit.position = Vector3(0, -2.0, 0)   # pedestal reaches the deck
+	else:
+		var wheel := TorusMesh.new()
+		wheel.inner_radius = 0.5
+		wheel.outer_radius = 1.0
+		var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
+		wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
+		_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
 
 func _make_pipe_shape(shape: int, col: Color) -> Node3D:
 	# 0 = straight pipe, 1 = elbow pipe, 2 = ring coupler — chunky and distinct
