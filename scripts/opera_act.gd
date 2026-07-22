@@ -1087,7 +1087,12 @@ func _build_echo() -> void:
 			bell.height = 2.2
 			_mesh(bell, Vector3(0, 1.4, 0), palette[i], 0.25, root)
 		else:
-			_cyl(Vector3(0, -0.3, 0), 3.0, 0.6, palette[i], 0.2, root)
+			# ballerina dance tiles: color+icon paired kits from the accepted cards
+			var tile := _job_art("ballerina/opera_ballerina_tile_%d.glb" % i, root)
+			if tile != null:
+				_job_state(tile, "StateActive", false)
+			else:
+				_cyl(Vector3(0, -0.3, 0), 3.0, 0.6, palette[i], 0.2, root)
 		pads.append({"index": i, "node": root, "pos": pos, "lit": false})
 	_echo_start_round()
 
@@ -1105,6 +1110,11 @@ func _echo_start_round() -> void:
 
 func _echo_light(i: int, strong: bool) -> void:
 	var node: Node3D = pads[i]["node"] as Node3D
+	# tile kit: pulse the emissive glow ring with the scale bounce
+	_job_state(node, "StateActive", true)
+	var off := node.create_tween()
+	off.tween_interval(0.4)
+	off.tween_callback(func() -> void: _job_state(node, "StateActive", false))
 	var tw := node.create_tween()
 	tw.tween_property(node, "scale", Vector3(1.25, 1.5, 1.25), 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(node, "scale", Vector3.ONE, 0.22)
