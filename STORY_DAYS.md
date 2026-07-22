@@ -93,17 +93,46 @@ Non-reader rule: the child never reads these names. Every page is a color +
 icon + voiced announcement ("It's Thursday! Snow Day! Let's visit the Great
 North!").
 
-### Day 1 — Monday — Castle Day (owner-specified: the castle itself)
+### Day 1 — Monday — Castle Day (owner-specified 2026-07-22: clean the castle)
 
-The game now *begins at the Pearl Castle*, Roshan's home. Wake up, meet
-Princess Huluu at the throne, and tour the castle as the day's story beat:
-the Grand Hall, the crown star, the **gift box** (choose and paint the
-stuffie companion — the existing picker), the courtyard and its train, the
-Toy Castle playroom, the craft studio and wardrobe. Huluu explains the week:
-"Every morning, the calendar opens a new place. Bring home a Light each day,
-and on Sunday we'll have the Festival of Lights!" The Crown Light is earned
-at the throne after the tour. Day 1 doubles as onboarding — the existing
-three timed first-session hints live here.
+The game now *begins at the Pearl Castle*, Roshan's home — and the castle
+has been asleep all winter: it wakes up dusty, dim, and full of **soot
+sprites** (§5 stand-in — Ghibli likeness, release-candidate critter TBD).
+Princess Huluu asks for help: "The Festival is this Sunday and the castle
+is all sooty! Will you help me get it ready?" Cleaning the castle IS Day
+1's story beat and its minigame:
+
+- **Soot sprites everywhere.** Little round black fuzzballs with big eyes
+  scatter through the Grand Hall, corridors, and courtyard — they giggle,
+  scurry, and hide behind props. Tap one (or swim onto it) and it gets a
+  bubble-scrub: it puffs into sparkles and pops out *clean* — a pastel
+  star-dust puff that floats happily up to the rafters. Nothing is ever
+  squashed or killed; cleaned sprites become the castle's lantern helpers
+  and return as decorations on Festival Day. Sparkle the guide fish and
+  the golden pointer always aim at the nearest remaining sprite.
+- **The "Sparkle Scrub" minigame.** Dirty patches on floors, windows, and
+  the throne shine under a one-finger rub: hold and wiggle (or repeated
+  taps — both work) wipes the grime in fat, satisfying strokes, revealing
+  the glowing surface underneath with a chime per patch. No timer, no
+  score pressure, impossible to fail — the castle simply gets brighter
+  with every patch, and the HUD shows a picture meter (sooty castle →
+  sparkling castle), never a number.
+- **The payoff.** When the last sprite is scrubbed and the last patch
+  shines, the chandelier relights, the castle glows — and that glow *is*
+  the **Crown Light**, the week's first Light, floating down into the
+  lantern ring. Huluu thanks Roshan with the **gift box** (the existing
+  stuffie-companion picker) as the cleaning reward, then explains the
+  week: "Every morning, the calendar opens a new place. Bring home a
+  Light each day, and on Sunday we'll have the Festival of Lights!"
+
+The cleaning tour doubles as onboarding: chasing sprites teaches swimming,
+scrubbing teaches tapping/holding, and the route walks past the courtyard
+train, the Toy Castle playroom, the craft studio, and the wardrobe. The
+existing three timed first-session hints live here. Engine notes: the
+sprite chase reuses the seek/tap pattern and the scrub reuses the picture-
+games touch path (see MINIGAME_ENGINES.md); the day needs its own
+`scripts/games/clean.gd` satellite and probe coverage when it builds
+(§8/§9) — `probe_passive.gd` must clean nothing with zero input.
 
 ### Day 2 — Tuesday — Reef Day
 
@@ -202,6 +231,7 @@ Ground rules while stand-ins are live:
 | Role | Current stand-in | Release-candidate identity |
 |---|---|---|
 | Great North host (Snow Day) | "Elsa" | original snow queen — name TBD (candidates: Queen Noora, Queen Elivi, the Wisp Queen) |
+| Castle dust critters (Day 1 cleaning) | "soot sprites" (Ghibli likeness: round black fuzzballs, big eyes) | original dust critter — TBD (drift ideas: pastel "smudge puffs", pearl-grey "dust bunnies" that wash to star-dust) |
 
 Gabby's removal (2026-07-19) predates this policy and stands — do not
 reintroduce her unless the owner explicitly reopens it.
@@ -212,7 +242,9 @@ All new narrative beats are voice-first (non-reader). Needed set, in
 priority order; each also fires `_say()` + a golden pointer per hard rules:
 
 1. Seven morning announcements ("It's Monday! Castle Day!…" — one per day).
-2. Huluu's Day-1 week-opener (the festival promise) and castle-tour lines.
+2. Huluu's Day-1 lines: the help-me ask ("The castle is all sooty!"),
+   cleaning praise ("You got one!", "Look how shiny!"), the all-clean
+   ta-da, and the week-opener (the festival promise).
 3. Bedtime line ("Sleepy time! Tap the bed…") + page-turn goodnight.
 4. Light-earned fanfare line, one generic + optionally one per day.
 5. Great North host lines (stand-in era, §5: prefer title lines — "the
@@ -268,9 +300,13 @@ Day gating touches the whole map, so the probe contract is explicit:
 - **W3 — first-open gating for fresh saves.** New-game starts at the
   castle on Day 1; lands open by calendar; legacy saves grandfather to day
   8 (§7). Probe updates are the explicit goal of this commit.
-- **W4 — staging and cast.** Day-7 festival dressing on the existing
-  finale, Snow Queen character (post §5 approval), per-day host beats,
-  recorded voice lines as they arrive.
+- **W4 — staging and cast.** The Day-1 Sparkle Scrub build
+  (`scripts/games/clean.gd`, soot sprites, scrub patches, chandelier
+  relight — the first new gameplay of the week structure, and the first
+  thing a fresh save touches, so it gets its own workorder), Day-7
+  festival dressing on the existing finale, the Great North host
+  (stand-in era, §5), per-day host beats, recorded voice lines as they
+  arrive.
 
 ## 10. Open questions for the owner
 
