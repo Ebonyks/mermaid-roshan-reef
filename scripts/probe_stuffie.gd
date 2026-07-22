@@ -21,6 +21,7 @@ func _init() -> void:
 	await _locked_case()
 	await _picker_case()
 	await _follower_case()
+	await _menu_case()
 	await _battle_case()
 	await _save_case()
 	await _switch_case()
@@ -119,6 +120,30 @@ func _follower_case() -> void:
 	await _settle(4)
 	_ck("care stages level the companion", main.care_points == CompanionSystem.LEVEL_EVERY
 		and comp.stage() == 2 and comp.tier() == 1)
+
+func _menu_case() -> void:
+	# the Tamagotchi face: a HUD 🧸 button opens the care panel; asked care
+	# grows the stuffie, unasked care is affection (never wrong, no point)
+	var comp: CompanionSystem = main._companion_ref()
+	_ck("stuffie HUD button appears after adoption", main.companion_hud_btn != null
+		and is_instance_valid(main.companion_hud_btn))
+	comp.open_menu()
+	_ck("care menu opens from the HUD button", main.companion_menu_layer != null
+		and main.companion_menu_stage != null)
+	var pts: int = main.care_points
+	comp._menu_care("bath")
+	await _settle(2)
+	_ck("unasked care is affection, no point", main.care_points == pts
+		and main.companion_menu_layer == null)
+	comp._begin_want("feed")
+	comp.open_menu()
+	comp._menu_care("feed")
+	_ck("menu care tends the asked want remotely", main.companion_care_t > 0.0
+		and main.companion_node.position.distance_to(main.player.position) < 8.0)
+	main.companion_care_t = 0.01
+	await _settle(4)
+	_ck("menu care grows the stuffie", main.care_points == pts + 1
+		and main.companion_want == "")
 
 func _battle_case() -> void:
 	main._start_stuffie_battle()

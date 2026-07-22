@@ -143,6 +143,16 @@ wait forever, nothing decays, nothing gets sick, care is never lost, and a
 want can never fulfil itself (probe-enforced). Care is shared across
 friends: it is HER nurturing that grows, whichever stuffie she carries.
 
+**THE TAMAGOTCHI FACE** (owner 2026-07-21: "not clear how to access it"):
+a 🧸 button sits beside the Critter Book paw on the HUD — its badge IS the
+stuffie's state (the want emoji when it's asking, 🩹 while hurt, 💤 while
+resting; a needy badge breathes). Tapping it opens the care panel:
+portrait, name + ⭐ level, 💗🤍 hearts toward the next star, a feelings
+line, and **five big care buttons** (🍎🫧❤🎾💤) — the asked one glows
+gold with a pointer. Care from the panel is remote: the stuffie scampers
+to Roshan's side and the care moment plays. Unasked care is affection —
+hearts and a giggle, never wrong, no point ("what I REALLY want is 🍎!").
+
 - `care_points` (persisted; legacy `fish_tokens` migrated in on load, the
   old key still written for save compat)
 - `stage()` = 1 + points/4, shown as ⭐ pips (never numerals) at each
