@@ -2419,10 +2419,11 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if bpos.distance_to(ppos) < 9.0:
 			m._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room
 			return
-	if not m.l2_open:
-		m.hud_game.text = "★  %d / 3   ✦ follow the sparkle trail!" % got
-	else:
-		m.hud_game.text = "★ ★ ★   ➜   Castle door!"
+	# owner request 2026-07-21 (UI declutter): free-roam objective banners are
+	# gone — the sparkle trail + voice lines already carry the route. Blanking
+	# per tick keeps the old overwrite semantics (no stale hint can linger).
+	m.hud_game.text = ""
+	if m.l2_open:
 		# magnet toward the fixed doorway (the door itself slides up out of view)
 		var entry: Vector3 = m.g.get("entry", m.l2_door.position)
 		var dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()
