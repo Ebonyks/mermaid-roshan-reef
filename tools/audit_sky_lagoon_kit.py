@@ -11,7 +11,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = {
 	"assets/sky_lagoon/lagoon_kit/lagoon_baby_rosette.glb": "grounded_baby_plant",
-	"assets/sky_lagoon/lagoon_kit/lagoon_meadow_shrub.glb": "developed_meadow_shrub",
 	"assets/sky_lagoon/lagoon_kit/lagoon_flower_cluster_coral.glb": "grounded_flowering_cluster",
 	"assets/sky_lagoon/lagoon_kit/lagoon_flower_cluster_lavender.glb": "grounded_flowering_cluster",
 	"assets/sky_lagoon/lagoon_kit/lagoon_mushroom_cluster.glb": "grounded_mushroom_family",
@@ -27,15 +26,31 @@ EXPECTED = {
 	"assets/art35/landmarks/cloud_1.glb": "soft_toon_cloud_family",
 	"assets/art35/landmarks/cloud_2.glb": "soft_toon_cloud_family",
 }
-TREE_EXPECTED = {
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_ancient_oak.glb": "lagoon_tree_ancient_oak",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_dancing_birch.glb": "lagoon_tree_dancing_birch",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_umbrella.glb": "lagoon_tree_umbrella",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_blossom_cloud.glb": "lagoon_tree_blossom_cloud",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_windswept.glb": "lagoon_tree_windswept",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_twinheart.glb": "lagoon_tree_twinheart",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_weeping_willow.glb": "lagoon_tree_weeping_willow",
-	"assets/sky_lagoon/lagoon_kit/lagoon_tree_celebration_snow.glb": "lagoon_tree_celebration_snow",
+WOODY_EXPECTED = {
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_douglas_fir.glb": "lagoon_tree_douglas_fir",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_western_redcedar.glb": "lagoon_tree_western_redcedar",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_western_hemlock.glb": "lagoon_tree_western_hemlock",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_sitka_spruce.glb": "lagoon_tree_sitka_spruce",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_shore_pine.glb": "lagoon_tree_shore_pine",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_pacific_yew.glb": "lagoon_tree_pacific_yew",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_bigleaf_maple.glb": "lagoon_tree_bigleaf_maple",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_red_alder.glb": "lagoon_tree_red_alder",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_black_cottonwood.glb": "lagoon_tree_black_cottonwood",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_pacific_madrone.glb": "lagoon_tree_pacific_madrone",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_garry_oak.glb": "lagoon_tree_garry_oak",
+	"assets/sky_lagoon/lagoon_kit/lagoon_tree_pacific_dogwood.glb": "lagoon_tree_pacific_dogwood",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_salal_a.glb": "lagoon_shrub_salal_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_salal_b.glb": "lagoon_shrub_salal_b",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_oregon_grape_a.glb": "lagoon_shrub_oregon_grape_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_oregon_grape_b.glb": "lagoon_shrub_oregon_grape_b",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_red_flowering_currant_a.glb": "lagoon_shrub_red_flowering_currant_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_red_flowering_currant_b.glb": "lagoon_shrub_red_flowering_currant_b",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_oceanspray_a.glb": "lagoon_shrub_oceanspray_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_oceanspray_b.glb": "lagoon_shrub_oceanspray_b",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_salmonberry_a.glb": "lagoon_shrub_salmonberry_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_salmonberry_b.glb": "lagoon_shrub_salmonberry_b",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_trailing_blackberry_a.glb": "lagoon_shrub_trailing_blackberry_a",
+	"assets/sky_lagoon/lagoon_kit/lagoon_shrub_trailing_blackberry_b.glb": "lagoon_shrub_trailing_blackberry_b",
 }
 
 
@@ -75,16 +90,19 @@ def audit(path: Path, expected_role: str) -> tuple[int, int]:
 	return triangles, materials
 
 
-def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str, float]:
+def audit_woody(path: Path, expected_role: str) -> tuple[int, int, str, float]:
 	document = glb_json(path)
 	nodes = document.get("nodes", [])
 	if len(nodes) != 1:
-		raise ValueError(f"expected one authored tree root, got {len(nodes)}")
+		raise ValueError(f"expected one authored woody-plant root, got {len(nodes)}")
 	extras = nodes[0].get("extras", {})
 	if extras.get("role") != expected_role:
 		raise ValueError(f"role {extras.get('role')!r} != {expected_role!r}")
-	if extras.get("style_gate") != "sky_lagoon_tree_gen5":
-		raise ValueError("missing GEN5 style-gate metadata")
+	if extras.get("style_gate") != "sky_lagoon_pnw_woody_gen2":
+		raise ValueError("missing PNW woody-plant style-gate metadata")
+	for metadata_key in ("species_common", "species_latin", "habitat"):
+		if not extras.get(metadata_key):
+			raise ValueError(f"missing {metadata_key} metadata")
 	triangles = 0
 	minimum_y = 1.0e9
 	maximum_y = -1.0e9
@@ -96,14 +114,17 @@ def audit_tree(path: Path, expected_role: str) -> tuple[int, int, str, float]:
 			minimum_y = min(minimum_y, float(position_accessor["min"][1]))
 			maximum_y = max(maximum_y, float(position_accessor["max"][1]))
 	materials = len(document.get("materials", []))
-	if triangles < 1000 or triangles > 9000:
-		raise ValueError(f"tree triangle count outside Mobile budget: {triangles}")
-	if materials <= 0 or materials > 12:
-		raise ValueError(f"tree material count outside Mobile budget: {materials}")
+	maximum_triangles = 7500 if expected_role.startswith("lagoon_tree_") else 6500
+	# GEN2 assets follow the flat-card grammar of two to five primary
+	# volumes, so the floor sits far below the GEN1 branch-scaffold builds.
+	if triangles < 500 or triangles > maximum_triangles:
+		raise ValueError(f"woody-plant triangle count outside Mobile budget: {triangles}")
+	if materials <= 0 or materials > 8:
+		raise ValueError(f"woody-plant material count outside Mobile budget: {materials}")
 	images = document.get("images", [])
 	textures = document.get("textures", [])
 	if len(images) > 1 or len(textures) > 1:
-		raise ValueError(f"tree texture count outside budget: {len(images)} images/{len(textures)} textures")
+		raise ValueError(f"woody-plant texture count outside budget: {len(images)} images/{len(textures)} textures")
 	image_gate = "none"
 	if images:
 		image = images[0]
@@ -138,18 +159,18 @@ def main() -> None:
 		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
 			failures.append(f"{relative}: {error}")
 			print(f"SKYKIT|FAIL|{relative}|{error}")
-	for relative, role in TREE_EXPECTED.items():
+	for relative, role in WOODY_EXPECTED.items():
 		path = ROOT / relative
 		try:
-			triangles, materials, image_gate, height = audit_tree(path, role)
-			print(f"SKYTREE|OK|{relative}|tris={triangles}|materials={materials}|"
+			triangles, materials, image_gate, height = audit_woody(path, role)
+			print(f"SKYWOODY|OK|{relative}|tris={triangles}|materials={materials}|"
 				f"texture={image_gate}|height={height:.3f}|role={role}")
 		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, struct.error) as error:
 			failures.append(f"{relative}: {error}")
-			print(f"SKYTREE|FAIL|{relative}|{error}")
+			print(f"SKYWOODY|FAIL|{relative}|{error}")
 	if failures:
 		raise SystemExit(1)
-	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}|trees={len(TREE_EXPECTED)}")
+	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}|woody={len(WOODY_EXPECTED)}")
 
 
 if __name__ == "__main__":

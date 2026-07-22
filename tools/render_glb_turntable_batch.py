@@ -44,7 +44,9 @@ camera_data = bpy.data.cameras.new("turntable_camera")
 camera = bpy.data.objects.new("turntable_camera", camera_data)
 bpy.context.scene.collection.objects.link(camera)
 bpy.context.scene.camera = camera
-for energy, rotation_z in ((4.5, 30), (2.2, 210)):
+# Sun energies sized for the Standard view transform: strong enough to shape
+# form, low enough that pale crown highlights do not clip to white.
+for energy, rotation_z in ((1.7, 30), (0.9, 210)):
 	light_data = bpy.data.lights.new("turntable_sun", "SUN")
 	light_data.energy = energy
 	light = bpy.data.objects.new("turntable_sun", light_data)
@@ -52,12 +54,18 @@ for energy, rotation_z in ((4.5, 30), (2.2, 210)):
 	light.rotation_euler = (math.radians(55), 0.0, math.radians(rotation_z))
 
 scene = bpy.context.scene
-scene.render.engine = "BLENDER_EEVEE_NEXT"
+# Blender 4.x names Eevee "BLENDER_EEVEE_NEXT"; 5.x names it "BLENDER_EEVEE".
+engine_options = scene.render.bl_rna.properties["engine"].enum_items.keys()
+scene.render.engine = ("BLENDER_EEVEE_NEXT" if "BLENDER_EEVEE_NEXT" in engine_options
+	else "BLENDER_EEVEE")
 scene.render.resolution_x = 560
 scene.render.resolution_y = 820
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
+# Standard view transform: AgX desaturates the flat albedo palette far more
+# than the Godot Mobile renderer does, which made every QA read washed-out.
+scene.view_settings.view_transform = "Standard"
 scene.world = bpy.data.worlds.new("turntable_world")
 scene.world.use_nodes = True
 scene.world.node_tree.nodes["Background"].inputs[0].default_value = (0.10, 0.32, 0.45, 1.0)
