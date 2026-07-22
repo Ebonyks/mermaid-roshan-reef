@@ -478,12 +478,19 @@ func set_costume(id: String) -> void:
 	var hand := _costume_anchor(["hand2", "armF2", "hand", "chest"])
 	var chest := _costume_anchor(["chest", "spine1", "root"])
 	var waist := _costume_anchor(["spine1", "root", "chest"])
+	# Offsets are calibrated to the v4 rig's MEASURED rest joints (world units,
+	# model x3.7 + y0.89): head joint sits at EYE level y+2.18 while her crown
+	# is y+4.4 — so hats ride ~+2.2..+3.3 above the head joint, face pieces
+	# (glasses/visor/mirror) push ~-1.1 on Z to clear the face surface, and
+	# eyes sit ~+1.2 above the joint. hand2 rests at (-1.89, +0.41); chest
+	# +0.62, spine1 (waist) +0.28. Re-derive before retuning: the GLB node
+	# translations are the source of truth, not these comments.
 	match id:
 		"chef":
-			_cp_cyl(head, Vector3(0, 0.45, 0), 0.85, 0.9, Color(0.98, 0.97, 0.94), 0.05)
-			_cp_sphere(head, Vector3(0, 1.15, 0), 0.95, Color(1.0, 1.0, 0.98), 0.05)
+			_cp_cyl(head, Vector3(0, 2.4, 0), 0.85, 0.9, Color(0.98, 0.97, 0.94), 0.05)
+			_cp_sphere(head, Vector3(0, 3.05, 0), 0.95, Color(1.0, 1.0, 0.98), 0.05)
 		"detective":
-			_cp_cyl(head, Vector3(0, 0.5, 0), 1.05, 0.5, Color(0.62, 0.45, 0.3))
+			_cp_cyl(head, Vector3(0, 2.35, 0), 1.05, 0.5, Color(0.62, 0.45, 0.3))
 			var lens := TorusMesh.new()
 			lens.inner_radius = 0.34
 			lens.outer_radius = 0.56
@@ -498,15 +505,15 @@ func set_costume(id: String) -> void:
 			var tiara := TorusMesh.new()
 			tiara.inner_radius = 0.5
 			tiara.outer_radius = 0.75
-			_cp_mesh(head, tiara, Vector3(0, 0.55, 0), Color(1.0, 0.87, 0.42), 0.5)
+			_cp_mesh(head, tiara, Vector3(0, 2.3, 0), Color(1.0, 0.87, 0.42), 0.5)
 			_cp_sphere(hand, Vector3(0, 0.35, 0), 0.32, Color(1.0, 0.95, 0.5), 0.9)
 			_cp_box(hand, Vector3(0, -0.25, 0), Vector3(0.14, 1.0, 0.14), Color(1.0, 0.95, 0.5), 0.9)
 		"magician":
-			_cp_cyl(head, Vector3(0, 0.85, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15)
-			_cp_cyl(head, Vector3(0, 0.25, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15)
+			_cp_cyl(head, Vector3(0, 2.85, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15)
+			_cp_cyl(head, Vector3(0, 2.25, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15)
 			_cp_box(hand, Vector3(0, 0.2, 0), Vector3(0.16, 1.2, 0.16), Color(0.95, 0.95, 1.0), 0.4)
 		"painter":
-			var beret := _cp_cyl(head, Vector3(0.2, 0.45, 0), 1.0, 0.35, Color(0.32, 0.5, 0.85), 0.1)
+			var beret := _cp_cyl(head, Vector3(0.2, 2.4, 0), 1.0, 0.35, Color(0.32, 0.5, 0.85), 0.1)
 			beret.rotation_degrees = Vector3(0, 0, -12.0)
 			_cp_box(hand, Vector3(0, 0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.6, 0.4, 0.25))
 			_cp_box(hand, Vector3(0, 0.8, 0), Vector3(0.24, 0.3, 0.24), Color(1.0, 0.45, 0.6), 0.5)
@@ -514,39 +521,40 @@ func set_costume(id: String) -> void:
 			var collar := TorusMesh.new()
 			collar.inner_radius = 0.75
 			collar.outer_radius = 1.05
-			_cp_mesh(head, collar, Vector3(0, -0.35, 0), Color(0.85, 0.88, 0.95), 0.2)
-			# glassy bubble helmet: alpha keeps her painted face readable inside
-			_cp_sphere(head, Vector3(0, 0.25, 0), 1.15, Color(0.8, 0.92, 1.0, 0.32), 0.15)
+			_cp_mesh(head, collar, Vector3(0, -0.6, 0), Color(0.85, 0.88, 0.95), 0.2)
+			# glassy bubble helmet: alpha keeps her painted face readable inside;
+			# r1.25 centred mid-head so the whole head (joint+0.2..+2.2) fits
+			_cp_sphere(head, Vector3(0, 1.2, 0), 1.25, Color(0.8, 0.92, 1.0, 0.32), 0.15)
 			_cp_cyl(chest, Vector3(-0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
 			_cp_cyl(chest, Vector3(0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
 		"candymaker":
-			_cp_cyl(head, Vector3(0, 0.35, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2)
-			_cp_cyl(head, Vector3(0, 0.85, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2)
-			_cp_cyl(head, Vector3(0, 1.35, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2)
+			_cp_cyl(head, Vector3(0, 2.3, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2)
+			_cp_cyl(head, Vector3(0, 2.8, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2)
+			_cp_cyl(head, Vector3(0, 3.3, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2)
 			_cp_cyl(hand, Vector3(0, 0.55, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6)
 			_cp_box(hand, Vector3(0, -0.2, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1)
 		"doctor":
 			var mirror := TorusMesh.new()
 			mirror.inner_radius = 0.55
 			mirror.outer_radius = 0.8
-			_cp_mesh(head, mirror, Vector3(0, 0.4, 0), Color(0.95, 0.97, 1.0), 0.2)
-			_cp_sphere(head, Vector3(0, 0.55, -0.5), 0.3, Color(1.0, 0.9, 0.5), 0.8)
+			_cp_mesh(head, mirror, Vector3(0, 1.7, 0), Color(0.95, 0.97, 1.0), 0.2)
+			_cp_sphere(head, Vector3(0, 1.85, -1.1), 0.3, Color(1.0, 0.9, 0.5), 0.8)
 			var scope := TorusMesh.new()
 			scope.inner_radius = 0.6
 			scope.outer_radius = 0.78
-			_cp_mesh(chest, scope, Vector3(0, 0.15, 0), Color(0.35, 0.4, 0.55), 0.1)
-			_cp_cyl(chest, Vector3(0, -0.5, -0.35), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4)
+			_cp_mesh(chest, scope, Vector3(0, 0.6, 0), Color(0.35, 0.4, 0.55), 0.1)
+			_cp_cyl(chest, Vector3(0, 0.2, -0.9), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4)
 		"racer":
-			_cp_sphere(head, Vector3(0, 0.55, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2)
-			_cp_box(head, Vector3(0, 0.45, -0.75), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4)
+			_cp_sphere(head, Vector3(0, 1.7, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2)
+			_cp_box(head, Vector3(0, 1.5, -1.1), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4)
 			var wheel := TorusMesh.new()
 			wheel.inner_radius = 0.55
 			wheel.outer_radius = 0.85
 			var wheel_mesh := _cp_mesh(hand, wheel, Vector3(0, 0.3, 0), Color(0.25, 0.25, 0.35), 0.1)
 			wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
 		"farmer":
-			_cp_cyl(head, Vector3(0, 0.3, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1)
-			_cp_cyl(head, Vector3(0, 0.7, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1)
+			_cp_cyl(head, Vector3(0, 2.25, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1)
+			_cp_cyl(head, Vector3(0, 2.65, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1)
 			var carrot := CylinderMesh.new()
 			carrot.top_radius = 0.05
 			carrot.bottom_radius = 0.4
@@ -555,9 +563,9 @@ func set_costume(id: String) -> void:
 			carrot_mesh.rotation_degrees = Vector3(180, 0, 0)
 			_cp_sphere(hand, Vector3(0, 0.85, 0), 0.3, Color(0.45, 0.8, 0.4), 0.2)
 		"popstar":
-			_cp_sphere(head, Vector3(-0.42, 0.0, -0.5), 0.35, Color(1.0, 0.85, 0.35), 0.7)
-			_cp_sphere(head, Vector3(0.42, 0.0, -0.5), 0.35, Color(1.0, 0.85, 0.35), 0.7)
-			_cp_box(head, Vector3(0, 0.0, -0.52), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7)
+			_cp_sphere(head, Vector3(-0.42, 1.2, -1.1), 0.35, Color(1.0, 0.85, 0.35), 0.7)
+			_cp_sphere(head, Vector3(0.42, 1.2, -1.1), 0.35, Color(1.0, 0.85, 0.35), 0.7)
+			_cp_box(head, Vector3(0, 1.2, -1.15), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7)
 			_cp_box(hand, Vector3(0, -0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2)
 			_cp_sphere(hand, Vector3(0, 0.65, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6)
 	# an anchor that dressed nothing is dead weight — drop it
