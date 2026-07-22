@@ -1,0 +1,40 @@
+export_name,concept_board,role,source_scale_contract,pilot_order,state_or_child_contract,triangle_budget_max
+ember_planet.glb,01_world_layout.png,"planet shell; lava rivers; north/south plazas","80m diameter centered on analytic origin",1,"single shell; plazas and lava are authored regions",6000
+ember_great_gate.glb,02_citadel_architecture.png,Great Gate frame,9m height,2,"open frame contains no opaque door slab",1800
+ember_gate_veil.glb,02_citadel_architecture.png,Great Gate flame veil,6.2m height,2,"separate opaque modeled veil; hidden on open",1000
+ember_lantern.glb,04_overworld_props.png,overworld lantern body,3.2m assembly,3,"body remains visible in unlit/lit states",1000
+ember_flame.glb,04_overworld_props.png,lantern flame insert,1.65m height,3,"three readable flame layers registered in bowl",800
+ember_beacon.glb,04_overworld_props.png,distant lantern beacon,20m height,3,"lightweight silhouette; no uncapped light",500
+ember_home_ring.glb,04_overworld_props.png,home portal ring,9.5m height,4,"upright and approach-facing",1600
+ember_arena.glb,05_dungeon_kit.png,dungeon arena shell,54m source footprint,5,"floor rays lie in floor plane",3500
+ember_door.glb,05_dungeon_kit.png,dungeon room door,existing doorway footprint,5,"addressable open/closed geometry",1400
+ember_king.glb,03_landmark_turnarounds.png,Ember King,5.8m longest side,6,"original shell-free guardian; detail light optional",3500
+ember_boss.glb,06_combat_kit.png,final guardian boss,existing broad boss footprint,7,"addressable fire-active and ice-shell states",4000
+ember_tower_a.glb,02_citadel_architecture.png,citadel tower A,5.85m height,8,"silhouette distinct from B/C/D",1800
+ember_tower_b.glb,02_citadel_architecture.png,citadel tower B,5.70m height,8,"silhouette distinct from A/C/D",1800
+ember_tower_c.glb,02_citadel_architecture.png,citadel tower C,5.40m height,8,"silhouette distinct from A/B/D",1800
+ember_tower_d.glb,02_citadel_architecture.png,citadel tower D,5.65m height,8,"silhouette distinct from A/B/C",1800
+ember_rampart.glb,02_citadel_architecture.png,citadel rampart,5.6m length,8,"modular ends and ember recesses",1200
+ember_flag.glb,02_citadel_architecture.png,citadel flag,2.4m height,8,"fork-tailed flame silhouette; no logo",600
+ember_sentry.glb,03_landmark_turnarounds.png,gate sentry sculpture,3.4m height,9,"paired original guardian sculpture",1800
+ember_ash_moon.glb,03_landmark_turnarounds.png,ash moon,10m diameter,9,"irregular cratered silhouette",1800
+ember_geyser.glb,04_overworld_props.png,friendly geyser,5.2m height,10,"basalt vent plus soft arcing plume",1200
+ember_crag_a.glb,04_overworld_props.png,basalt crag A,2.6-5.2m family,10,"silhouette distinct from B/C",900
+ember_crag_b.glb,04_overworld_props.png,basalt crag B,2.6-5.2m family,10,"silhouette distinct from A/C",900
+ember_crag_c.glb,04_overworld_props.png,basalt crag C,2.6-5.2m family,10,"silhouette distinct from A/B",900
+ember_crystal_a.glb,04_overworld_props.png,fire crystal A,3m height,10,"silhouette distinct from B/C",700
+ember_crystal_b.glb,04_overworld_props.png,fire crystal B,3m height,10,"silhouette distinct from A/C",700
+ember_crystal_c.glb,04_overworld_props.png,fire crystal C,3m height,10,"silhouette distinct from A/B",700
+ember_pedestal.glb,05_dungeon_kit.png,crystal pedestal,existing pedestal footprint,11,"separate crystal and base if state requires",900
+ember_dungeon_lantern.glb,05_dungeon_kit.png,dungeon wall lantern,existing dressing footprint,11,"wall-facing origin and flame insert",700
+ember_statue.glb,05_dungeon_kit.png,friendly guardian statue,existing dressing footprint,11,"original shell-free guardian",1300
+ember_stepping_stone.glb,05_dungeon_kit.png,path stepping stone,large child-readable footprint,11,"broad top surface; four instances",500
+ember_pictograms.glb,05_dungeon_kit.png,three-symbol pictogram family,existing choice-pad footprint,11,"three individually named/addressable children",900
+ember_clue_plaque.glb,05_dungeon_kit.png,framed clue plaque,5.2m source width,11,"front-facing frame; no baked text",900
+ember_direction_beak.glb,05_dungeon_kit.png,left/right route marker,existing route-marker footprint,11,"thick mirrored left/right child variants",600
+ember_completion_spark.glb,05_dungeon_kit.png,completion spark proxy,existing completion footprint,11,"simple addressable effect proxy",700
+ember_pearl_target.glb,05_dungeon_kit.png,pearl receiver target,existing target footprint,11,"clear receiving slot and face normal",800
+ember_imp.glb,06_combat_kit.png,playful combat imp,existing small enemy footprint,12,"original turnaround; no shell/horns/weapon",1800
+ember_basket.glb,06_combat_kit.png,basket objective,existing basket footprint,12,"wide visible opening",700
+ember_fire_projectile.glb,06_combat_kit.png,fire projectile,existing projectile footprint,12,"shape-readable independent of color",500
+ember_ice_projectile.glb,06_combat_kit.png,ice projectile,existing projectile footprint,12,"shape-readable independent of color",500
