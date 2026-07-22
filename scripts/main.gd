@@ -10,6 +10,11 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 const PEARL_TOTAL := 10
+# Phone builds now open at the authored gatehouse before Pearl Castle. Headless
+# probes keep the legacy ocean bootstrap unless they explicitly enter the hub,
+# so the existing trusted activity probes remain deterministic while the new
+# kingdom probe covers the launch route directly.
+const START_AT_CASTLE_GATE := true
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -77,6 +82,10 @@ var portal_t := 0.0
 var portal_ready := false
 var portal_cool := 0.0
 var portal_armed := false
+var ocean_kingdom := ReefDistricts.KINGDOM_CARIBBEAN
+var ocean_routes_enabled := false
+var ocean_return_gate_armed := false
+var ocean_return_gate_cool := 0.0
 var draining := false
 var drain_t := 0.0
 var level2_done_once := false
@@ -665,6 +674,10 @@ func _ready() -> void:
 	_build_brawl_portal()
 	_build_pause()
 	_load_save()
+	if START_AT_CASTLE_GATE and DisplayServer.get_name() != "headless":
+		# Direct entry happens before the first rendered frame; a fade here would
+		# briefly expose the legacy ocean origin behind the intro overlay.
+		_enter_level2_now(false, false, true)
 	_collection_ref().build()
 	if first_session:
 		_build_intro()
@@ -1804,19 +1817,25 @@ func _build_aquatic_creatures() -> void:
 	# rays, dolphin and squid moved into the Pearl Shop's wall tanks
 	# (ANIMAL_SHOP): they only join the reef once she buys them free, so
 	# their patrol rows live there now and spawn via _spawn_shop_animals().
-	var roster := [
-		["Shark", 130.0, 0.05, 22.0, 4.0],
-		["Hammerhead", 160.0, 0.045, 30.0, 4.0],
-		["Whale", 200.0, 0.02, 40.0, 9.0],
+	var roster: Array[Dictionary] = [
+		{"model": "Shark", "center": Vector2(35.0, 30.0), "rad": 62.0,
+			"spd": 0.05, "y": 22.0, "size": 4.0, "kingdom": ReefDistricts.KINGDOM_CARIBBEAN},
+		{"model": "Hammerhead", "center": Vector2(-40.0, -165.0), "rad": 48.0,
+			"spd": 0.045, "y": 30.0, "size": 4.0, "kingdom": ReefDistricts.KINGDOM_CARIBBEAN},
+		{"model": "Whale", "center": Vector2(140.0, -115.0), "rad": 42.0,
+			"spd": 0.02, "y": 38.0, "size": 9.0, "kingdom": ReefDistricts.KINGDOM_NORWEGIAN},
 	]
-	for entry in roster:
-		var inst := _place_aq(entry[0], Vector3.ZERO, entry[4], true)
+	for entry: Dictionary in roster:
+		var model_name: String = String(entry["model"])
+		var inst := _place_aq(model_name, Vector3.ZERO, float(entry["size"]), true)
 		if inst == null:
 			continue
-		if String(entry[0]) == "Whale":
+		if model_name == "Whale":
 			whale_node = inst
-		aquatic_movers.append({"node": inst, "rad": entry[1], "spd": entry[2], "y": entry[3],
-			"ph": randf() * TAU, "clearance": float(entry[4]) + 1.5})
+		var center: Vector2 = entry["center"]
+		aquatic_movers.append({"node": inst, "rad": entry["rad"], "spd": entry["spd"], "y": entry["y"],
+			"cx": center.x, "cz": center.y, "kingdom": entry["kingdom"],
+			"ph": randf() * TAU, "clearance": float(entry["size"]) + 1.5})
 	# bottom dwellers posed in the groves
 	if cluster_centers.size() >= 4:
 		var oc: Vector3 = cluster_centers[2]
@@ -2060,8 +2079,8 @@ func _tick_aquatic(delta: float) -> void:
 		var node: Node3D = mv["node"]
 		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
 		var rad: float = float(mv["rad"])
-		var px: float = cos(ang) * rad
-		var pz: float = sin(ang) * rad
+		var px: float = float(mv.get("cx", 0.0)) + cos(ang) * rad
+		var pz: float = float(mv.get("cz", 0.0)) + sin(ang) * rad
 		var desired_y: float = float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0
 		# perf (Helio G88): seabed_y costs ~12 sin/sqrt per call — too hot for
 		# every mover every frame. Cache each mover's clamp floor ("_cy") and
@@ -2836,6 +2855,12 @@ func _all_meshes(root: Node) -> Array[MeshInstance3D]:
 func _build_player() -> void:
 	player = preload("res://scripts/player.gd").new()
 	add_child(player)
+	# Spawn ownership belongs to world topology, not the controller. This keeps
+	# old headless/ocean flows byte-for-position compatible and lets display
+	# builds immediately move to the castle gatehouse after save restoration.
+	player.position = Vector3(0.0, 26.0, 0.0)
+	player.vel = Vector3.ZERO
+	player.snap_cam()
 
 func _build_hud() -> void:
 	var cl := CanvasLayer.new()
@@ -3340,12 +3365,14 @@ void fragment(){
 	portal_node = hub
 	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
 
-func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
+func _enter_level2(from_castle: bool = false, from_north: bool = false,
+	at_ocean_gate_hub: bool = false) -> void:
 	# covers every entry: the ocean portal, the _end_game/pause deferred
 	# returns and _restore_level2_after_trip (call_deferred callers unchanged)
-	_fade_cut(_enter_level2_now.bind(from_castle, from_north))
+	_fade_cut(_enter_level2_now.bind(from_castle, from_north, at_ocean_gate_hub))
 
-func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> void:
+func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
+	at_ocean_gate_hub: bool = false) -> void:
 	game = "level2"
 	# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;
 	# stacking both erased nearly all color from pearl, snow, and pastel props.
@@ -3381,6 +3408,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> v
 	l2_stars = []
 	l2_open = false
 	g["phase"] = "court"
+	g["ocean_gate_hub"] = at_ocean_gate_hub
 	arena_env = Environment.new()
 	arena_env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
@@ -3442,7 +3470,10 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> v
 	else:
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
-		show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
+		if at_ocean_gate_hub:
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+		else:
+			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
@@ -5185,7 +5216,12 @@ func _close_stickers() -> void:
 func _exit_level2() -> void:
 	_fade_cut(_exit_level2_now)
 
-func _exit_level2_now() -> void:
+func _enter_ocean_kingdom(kingdom: String) -> void:
+	if kingdom != ReefDistricts.KINGDOM_CARIBBEAN and kingdom != ReefDistricts.KINGDOM_NORWEGIAN:
+		kingdom = ReefDistricts.KINGDOM_CARIBBEAN
+	_fade_cut(_exit_level2_now.bind(kingdom))
+
+func _exit_level2_now(target_kingdom: String = "") -> void:
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
@@ -5206,7 +5242,18 @@ func _exit_level2_now() -> void:
 	arena_ceil = 42.0
 	portal_cool = 8.0
 	portal_armed = false
-	if portal_node != null and is_instance_valid(portal_node):
+	if target_kingdom != "":
+		ocean_kingdom = target_kingdom
+		ocean_routes_enabled = true
+		var entry_xz: Vector2 = ReefDistricts.kingdom_entry_point(ocean_kingdom)
+		var destination_xz: Vector2 = ReefDistricts.kingdom_destination_center(ocean_kingdom)
+		player.position = Vector3(entry_xz.x,
+			seabed_y(entry_xz.x, entry_xz.y) + 6.0, entry_xz.y)
+		var into_kingdom: Vector2 = destination_xz - entry_xz
+		player.yaw = atan2(into_kingdom.x, into_kingdom.y)
+		ocean_return_gate_armed = false
+		ocean_return_gate_cool = 2.5
+	elif portal_node != null and is_instance_valid(portal_node):
 		# beside the seabed portal, resting on the ocean floor (never below it)
 		player.position = portal_node.position + Vector3(22, 0, 22)
 		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
@@ -5215,7 +5262,12 @@ func _exit_level2_now() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Roshan", "Back to the ocean! Wheee!")
+	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
+		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
+	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
+		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+	else:
+		show_msg("Roshan", "Back to the ocean! Wheee!")
 
 func _finish_level2() -> void:
 	_do_finish_level2()
@@ -6105,7 +6157,19 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	_wayfind_t = 2.2
 	var target := Vector3.ZERO
 	if level2_court:
+		if bool(g.get("ocean_gate_hub", false)):
+			var gates: Array = g.get("ocean_kingdom_gates", [])
+			var nearest_gate_distance: float = INF
+			for gate_value: Variant in gates:
+				var gate: Dictionary = gate_value as Dictionary
+				var gate_pos: Vector3 = gate.get("pos", Vector3.ZERO)
+				var gate_distance: float = gate_pos.distance_to(ppos)
+				if gate_distance < nearest_gate_distance:
+					nearest_gate_distance = gate_distance
+					target = gate_pos
 		for sd in l2_stars:
+			if target != Vector3.ZERO:
+				break
 			if not bool(sd["got"]):
 				var star: Node3D = sd["node"]
 				if is_instance_valid(star):
@@ -6125,6 +6189,11 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		if target == Vector3.ZERO:
 			if pearl_count >= 60 and manta != null and is_instance_valid(manta):
 				target = manta.position
+			elif _all_friends_won():
+				var return_xz: Vector2 = ReefDistricts.kingdom_return_gate(
+					ReefDistricts.kingdom_at(Vector2(ppos.x, ppos.z)))
+				target = Vector3(return_xz.x,
+					seabed_y(return_xz.x, return_xz.y) + 6.0, return_xz.y)
 			elif slide_portal_pos != Vector3.ZERO:
 				target = slide_portal_pos
 	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
@@ -6132,6 +6201,36 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	for k in range(3):
 		var tt: float = 0.06 + 0.07 * float(k)
 		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
+
+func _all_friends_won() -> bool:
+	for friend_value: Variant in friends:
+		var friend: Dictionary = friend_value as Dictionary
+		if not bool(friend.get("won", false)):
+			return false
+	return not friends.is_empty()
+
+func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
+	# Both ecosystems reuse an authored landmark as their doorway back to the
+	# castle gatehouse. Leave/re-enter hysteresis prevents arrival bounce.
+	# Legacy headless probes stay on their historical routes until they
+	# explicitly choose a kingdom through the new hub.
+	if not ocean_routes_enabled:
+		return false
+	ocean_return_gate_cool = maxf(0.0, ocean_return_gate_cool - delta)
+	var local_kingdom: String = ReefDistricts.kingdom_at(Vector2(ppos.x, ppos.z))
+	var gate_xz: Vector2 = ReefDistricts.kingdom_return_gate(local_kingdom)
+	var gate_pos := Vector3(gate_xz.x, seabed_y(gate_xz.x, gate_xz.y) + 6.0, gate_xz.y)
+	var distance: float = gate_pos.distance_to(ppos)
+	if not ocean_return_gate_armed:
+		if distance > 17.0:
+			ocean_return_gate_armed = true
+		return false
+	if ocean_return_gate_cool <= 0.0 and distance < 10.0:
+		ocean_return_gate_armed = false
+		ocean_kingdom = local_kingdom
+		_enter_level2(false, false, true)
+		return true
+	return false
 
 func _process(delta: float) -> void:
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
@@ -6187,6 +6286,8 @@ func _process(delta: float) -> void:
 			touch_ui.set_action_label(String(kart_game.action_label()))
 		return
 	if game == "":
+		if _tick_ocean_return_gate(delta, ppos):
+			return
 		_carry_ref().tick(delta, ppos)   # starfish scoop/toss + singing shells
 		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
 		_grotto_ref().tick(delta, ppos)  # push-block grotto
@@ -6596,6 +6697,7 @@ func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_col
 	mmi.multimesh = mm
 	mmi.material_override = mat
 	add_child(mmi)
+	flora_nodes.append(mmi)   # Speedy tier applies its 150u range to mass fields too
 
 func _build_meadows() -> void:
 	# seagrass meadow — HER painted blades (the gen2 seagrass/kelp sprites on
@@ -6706,9 +6808,8 @@ func _build_fish() -> void:
 	fmat.emission_energy_multiplier = 0.5
 	for s2 in range(6):
 		var col: Color = cols[s2]
-		var aa: float = randf() * TAU
-		var rr: float = 50.0 + randf() * 160.0
-		var school := {"cx": cos(aa) * rr, "cz": sin(aa) * rr, "cy": 12.0 + randf() * 22.0,
+		var school_center: Vector3 = _district_ref().scatter_point(ReefDistricts.KINGDOM_CARIBBEAN)
+		var school := {"cx": school_center.x, "cz": school_center.z, "cy": 12.0 + randf() * 22.0,
 			"rad": 12.0 + randf() * 14.0, "spd": 0.2 + randf() * 0.3, "ph": randf() * TAU, "fish": []}
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D
@@ -6724,6 +6825,7 @@ func _build_fish() -> void:
 		mmi.multimesh = mm
 		mmi.material_override = fmat
 		add_child(mmi)
+		flora_nodes.append(mmi)
 		school["mm"] = mm
 		var halo := _halo(Vector3.ZERO, col, 12.0)
 		school["light"] = halo
