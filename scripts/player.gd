@@ -1038,6 +1038,16 @@ func _process(delta: float) -> void:
 		cam.position = CameraKit.resolve(_m0, focus, glide)
 		cam.look_at(focus)
 		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
+		# cornered (boom collapsed against a wall/prop, e.g. perched at the
+		# throne facing the hall): the lens sits against her body — hide her
+		# rather than fill the screen with the inside of her mesh. Hysteresis
+		# stops flicker at the threshold; modes that manage her visibility
+		# themselves early-return before this block ever runs.
+		var boom_len: float = cam.position.distance_to(focus)
+		if visible and boom_len < 2.0:
+			visible = false
+		elif not visible and boom_len > 2.6:
+			visible = true
 
 func snap_cam() -> void:
 	# Place the chase camera at its resolved rest pose INSTANTLY. Call after

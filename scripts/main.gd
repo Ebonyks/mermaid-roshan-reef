@@ -1522,6 +1522,7 @@ func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6) -> void:
 		"cx": center.x, "cz": center.z,
 		"hx": size.x * 0.5 + pad, "hz": size.z * 0.5 + pad,
 		"y0": center.y - size.y * 0.5 - pad, "y1": center.y + size.y * 0.5 + pad,
+		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
 func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> void:
@@ -1530,6 +1531,7 @@ func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> v
 		"box": false,
 		"x": center.x, "z": center.z, "r": r + pad,
 		"y0": center.y - half_h - pad, "y1": center.y + half_h + pad,
+		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
 func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> MeshInstance3D:

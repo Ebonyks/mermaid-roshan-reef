@@ -145,6 +145,12 @@ func build(o: Vector3) -> void:
 	elif authored_throne == null:
 		var throne = m._l2_box(o + Vector3(0, 18.5, -28.0), Vector3(5, 6, 2), Color(0.95, 0.8, 0.4), 0.3)
 		throne.material_override.metallic = 0.7
+	# the throne itself rises ABOVE the dais solid (y16) with nothing
+	# registered — the chase camera glided inside the big shell whenever
+	# Roshan hovered at Huluu height facing the hall (2026-07-21 report:
+	# "camera stuck inside" a wall of pink). One solid over the throne back
+	# covers all three variants; small pad so the Crown Star stays reachable.
+	m._wall_solid(o + Vector3(0, 19.5, -28.6), Vector3(9.0, 8.0, 4.0), 0.6)
 	# Protected book cutout until an owner-approved source-faithful model exists.
 	var huluu := Sprite3D.new()
 	huluu.texture = load("res://assets/characters/friends/huluu.png")
