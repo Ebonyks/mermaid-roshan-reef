@@ -420,6 +420,34 @@ Most frequent failures:
   asset before batch review; then capture arrival, gate closed/open, lantern
   unlit/lit, geyser, home, moon, combat, and puzzle views in Forward Mobile.
 
+### A18 - Ember Fortress forty-role enrichment concepts
+
+- Source and commit: forty individual cards and four contact sheets under
+  `assets_src/concepts/ember_fortress_claude_2026-07-22/expansion_40/`, plus
+  `EMBER_FORTRESS_EXPANSION_40_AUDIT_2026-07-22.md`; commit pending.
+- Scope: ten architecture, ten terrain, ten interactive/dressing, and ten
+  ambient/guidance roles extending the Claude export target from 39 to 79.
+- Evidence class: E1 design proposal only.
+- Findings independently verified: individual one-role cards preserve clearer
+  construction and provenance than a crowded forty-object board. Dense world
+  dressing requires explicit placement, culling, light, transparency, collision,
+  and triangle budgets before Blender production.
+- Findings accepted: the forty concepts match the approved Ember palette and
+  rounded toy-playset construction while avoiding recognizable Nintendo or
+  other protected designs. Numeric manifest contracts override image markings.
+- Findings accepted as proposals only: all forty remain candidates until Claude
+  produces measured GLBs and representative Forward Mobile/Speedy evidence.
+- Findings rejected or superseded: “based on” a branded planet does not permit
+  copied architecture, symbols, enemies, characters, collectibles, or names.
+  Richness does not permit uncapped instances, OmniLights, transparency, or
+  physics bodies.
+- New or changed rule IDs: none; reinforces R-GOV1–4, R-ROLE1–4, R-ID1–4,
+  R-REP1–3, R-MAT1–3, R-PERF1–3, and R-QA1–8.
+- Roles/families affected: Ember Fortress enrichment library only.
+- Required negative-control or runtime test: four family contact reviews,
+  parsed per-export metrics, Speedy 28-visible-instance cap, no new lights,
+  and arrival/traversal/interaction runtime captures.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -713,6 +741,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-22-v10:** Added A18 and forty original enrichment concepts; expanded
+  the Claude Blender target to 79 exports with explicit Speedy placement,
+  transparency, lighting, collision, and triangle budgets.
 - **2026-07-22-v9:** Added A17, the Ember Fortress 2D-first restart; rejected
   the mesh-first Codex chain, made six concept boards authoritative, and
   assigned the 39-export Blender pass to Claude with no runtime score claim.
