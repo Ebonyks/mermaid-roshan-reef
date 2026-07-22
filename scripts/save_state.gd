@@ -77,7 +77,7 @@ func load_save() -> void:
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
-		m.music_btn.text = "Music: On" if m.music_on else "Music: Off"
+		m.music_btn.text = m._pause_ref().music_label()
 	m.pearl_count = int(m.save_data.get("pearls", 0))
 	m.pearls_ever = maxi(m.pearl_count, int(m.save_data.get("pearls_ever", m.pearl_count)))
 	# A completed Level 2 is definitive legacy evidence that the portal opened.
