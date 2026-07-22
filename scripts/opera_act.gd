@@ -191,6 +191,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
 	_build_environment()
 	_build_theatre()
+	_dress_world()
 	if stage_phase == "brawl":
 		_build_backstage()
 	_build_avatar()
@@ -297,6 +298,72 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.height = height
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
+
+# Per-act world dressing from the converted card library (Codex guide:
+# CODEX_ASSET_REQUESTS_2026-07-21.md). Cards are flat cutouts exported lying
+# down; _card() stands them upright facing the audience. Positions hug the
+# backdrop and wings so gameplay props keep the centre stage.
+const DRESS := {
+	"chef": [["style3/fruit_apple", -19.0, -12.0, 2.2], ["style3/fruit_banana", -14.5, -13.0, 2.0],
+		["style3/fruit_melon", 14.5, -13.0, 2.4], ["style3/fruit_orange", 19.0, -12.0, 2.0], ["mg/sun", 0.0, -15.5, 3.0]],
+	"detective": [["style3/crystal_facet", -18.0, -12.5, 2.2], ["mg/star", 18.0, -12.5, 2.4], ["style3/shipwood", 0.0, -15.5, 3.2]],
+	"ballerina": [["mg/flower2", -19.0, -12.5, 2.2], ["mg/flower3", 19.0, -12.5, 2.2],
+		["mg/flower4", -14.0, -14.0, 1.8], ["mg/flower", 14.0, -14.0, 1.8], ["mg/star", 0.0, -15.5, 2.6]],
+	"candymaker": [["mg/orn1", -18.0, -12.5, 2.4], ["mg/orn2", -12.5, -14.0, 2.0], ["mg/orn3", 12.5, -14.0, 2.0],
+		["mg/orn4", 18.0, -12.5, 2.4], ["mg/rainbow_swatch", 0.0, -15.5, 3.0]],
+	"doctor": [["mg/flower", -18.0, -12.5, 2.0], ["mg/butterfly", 18.0, -12.5, 2.0], ["mg/sun", 0.0, -15.5, 2.8]],
+	"boxer": [["mg/star", -18.0, -12.5, 2.6], ["mg/star", 18.0, -12.5, 2.6], ["mg/sun", 0.0, -15.5, 3.0]],
+	"magician": [["mg/star", -18.0, -12.5, 2.4], ["style3/crystal_facet", 18.0, -12.5, 2.2], ["mg/xtree", 0.0, -15.5, 3.0]],
+	"painter": [["mg/rainbow_swatch", -18.0, -12.5, 2.6], ["style3/leaf_broad", 18.0, -12.5, 2.2],
+		["style3/leaf_fern", 13.0, -14.0, 1.9], ["mg/sun", 0.0, -15.5, 2.8]],
+	"astronaut": [["mg/star", -18.0, -12.5, 2.4], ["mg/coal", 18.0, -12.5, 2.0], ["mg/star", 13.0, -14.5, 1.7]],
+	"popstar": [["mg/star", -18.0, -12.5, 2.6], ["mg/rainbow_swatch", 18.0, -12.5, 2.4], ["mg/orn5", 0.0, -15.5, 2.6]],
+	"knight_boss": [["mg/star", -18.0, -12.5, 2.4], ["mg/star", 18.0, -12.5, 2.4]],
+}
+
+func _card(fname: String, pos: Vector3, yaw: float = 0.0, card_scale: float = 2.0, parent: Node3D = null) -> Node3D:
+	var full := "res://assets/art35/cards/" + fname + ".glb"
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees = Vector3(90.0, yaw, 0.0)
+	prop.scale = Vector3.ONE * card_scale
+	var target: Node3D = self if parent == null else parent
+	target.add_child(prop)
+	return prop
+
+func _dress_world() -> void:
+	var key := String(config.get("costume", ""))
+	if key == "" and kind == "boss" and not bool(config.get("dual", false)) and not bool(config.get("finale", false)):
+		key = "knight_boss"
+	if not DRESS.has(key):
+		return
+	for entry: Array in (DRESS[key] as Array):
+		var pos := CENTER + Vector3(float(entry[1]), 0.4 + float(entry[3]), float(entry[2]))
+		_card(String(entry[0]), pos, 0.0, float(entry[3]))
+
+func _act_prop(fname: String, pos: Vector3, yaw: float = 0.0, parent: Node3D = null) -> Node3D:
+	# authored opera GLBs (tools/build_opera_house_art.py) with null fallback
+	var full := "res://assets/art35/opera/" + fname
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees.y = yaw
+	var target: Node3D = self if parent == null else parent
+	target.add_child(prop)
+	return prop
 
 func _build_theatre() -> void:
 	var floor_col := Color(config.get("floor_col", Color(0.52, 0.4, 0.62)))
@@ -643,7 +710,9 @@ func _sleuth_action(idx: int) -> void:
 			m.show_msg("Roshan", "A clue! %d more to find!" % (3 - clues_found), "talk")
 	else:
 		# a silly fish hides in the wrong boxes — a giggle, never a fail
-		var fish := _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
+		var fish: Node3D = _act_prop("opera_silly_fish.glb", (prop["pos"] as Vector3) + Vector3(0, 2.6, 0))
+		if fish == null:
+			fish = _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
 		var ft := fish.create_tween()
 		ft.tween_property(fish, "position:y", fish.position.y + 2.2, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		ft.tween_property(fish, "scale", Vector3.ZERO, 0.3)
@@ -2024,38 +2093,50 @@ func _build_boss() -> void:
 	root.position = CENTER + Vector3(0, 1.0, -14.0)
 	add_child(root)
 	if finale:
-		# the Midnight Maestro: a grand conductor silhouette with a gold baton
-		var gown := CylinderMesh.new()
-		gown.top_radius = 0.35
-		gown.bottom_radius = 2.8
-		gown.height = 6.0
-		_mesh(gown, Vector3(0, 3.0, 0), Color(0.13, 0.11, 0.28), 0.12, root)
-		_sphere(Vector3(0, 6.2, 0.7), 1.05, Color(0.9, 0.88, 1.0), 0.25, root)
-		_sphere(Vector3(-0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		var baton := _box(Vector3(2.0, 5.4, 0.8), Vector3(0.18, 2.4, 0.18), Color(1.0, 0.85, 0.4), 0.6, root)
-		baton.rotation_degrees = Vector3(0, 0, -34.0)
-		_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
+		# THE THEATRE STAGE is where the grand finale happens (owner
+		# 2026-07-21): the authored proscenium, swagged curtains and footlit
+		# apron dress the boards for the Maestro's showdown
+		_act_prop("opera_arch.glb", CENTER + Vector3(0, 0.7, -17.0))
+		_act_prop("opera_curtain.glb", CENTER + Vector3(-8.6, 0.7, -18.0))
+		_act_prop("opera_curtain.glb", CENTER + Vector3(8.6, 0.7, -18.0), 180.0)
+		_act_prop("opera_stage_apron.glb", CENTER + Vector3(0, 0.4, 14.4))
+		# the Midnight Maestro: authored conductor puppet, primitive fallback
+		if _act_prop("opera_maestro.glb", Vector3.ZERO, 180.0, root) == null:
+			var gown := CylinderMesh.new()
+			gown.top_radius = 0.35
+			gown.bottom_radius = 2.8
+			gown.height = 6.0
+			_mesh(gown, Vector3(0, 3.0, 0), Color(0.13, 0.11, 0.28), 0.12, root)
+			_sphere(Vector3(0, 6.2, 0.7), 1.05, Color(0.9, 0.88, 1.0), 0.25, root)
+			_sphere(Vector3(-0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.4, 6.4, 1.5), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			var baton := _box(Vector3(2.0, 5.4, 0.8), Vector3(0.18, 2.4, 0.18), Color(1.0, 0.85, 0.4), 0.6, root)
+			baton.rotation_degrees = Vector3(0, 0, -34.0)
+			_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
 	elif dual:
-		var cone := CylinderMesh.new()
-		cone.top_radius = 0.3
-		cone.bottom_radius = 2.4
-		cone.height = 5.2
-		_mesh(cone, Vector3(0, 2.6, 0), Color(0.16, 0.13, 0.3), 0.1, root)
-		_sphere(Vector3(0, 5.2, 0.8), 1.0, Color(0.94, 0.94, 1.0), 0.25, root)
-		_sphere(Vector3(-0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+		# Codex phantom puppet, primitive fallback
+		if _act_prop("opera_phantom.glb", Vector3.ZERO, 180.0, root) == null:
+			var cone := CylinderMesh.new()
+			cone.top_radius = 0.3
+			cone.bottom_radius = 2.4
+			cone.height = 5.2
+			_mesh(cone, Vector3(0, 2.6, 0), Color(0.16, 0.13, 0.3), 0.1, root)
+			_sphere(Vector3(0, 5.2, 0.8), 1.0, Color(0.94, 0.94, 1.0), 0.25, root)
+			_sphere(Vector3(-0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
 	else:
-		_cyl(Vector3(0, 1.8, 0), 1.1, 3.6, Color(0.35, 0.7, 0.45), 0.1, root)
-		_sphere(Vector3(0, 4.4, 0.6), 1.5, Color(0.4, 0.78, 0.5), 0.15, root)
-		var snout := CylinderMesh.new()
-		snout.top_radius = 0.5
-		snout.bottom_radius = 1.0
-		snout.height = 1.6
-		var sn := _mesh(snout, Vector3(0, 4.1, 2.0), Color(0.55, 0.88, 0.6), 0.15, root)
-		sn.rotation_degrees = Vector3(90, 0, 0)
-		_sphere(Vector3(-0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
+		# Codex dragon puppet-on-stick, primitive fallback
+		if _act_prop("opera_dragon.glb", Vector3.ZERO, 180.0, root) == null:
+			_cyl(Vector3(0, 1.8, 0), 1.1, 3.6, Color(0.35, 0.7, 0.45), 0.1, root)
+			_sphere(Vector3(0, 4.4, 0.6), 1.5, Color(0.4, 0.78, 0.5), 0.15, root)
+			var snout := CylinderMesh.new()
+			snout.top_radius = 0.5
+			snout.bottom_radius = 1.0
+			snout.height = 1.6
+			var sn := _mesh(snout, Vector3(0, 4.1, 2.0), Color(0.55, 0.88, 0.6), 0.15, root)
+			sn.rotation_degrees = Vector3(90, 0, 0)
+			_sphere(Vector3(-0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
 	var first_phase := "shadow" if dual else "hide"
 	boss = {"node": root, "home": root.position, "hp": int(config.get("boss_hp", 3)), "phase": first_phase,
 		"timer": float(config.get("hide_time", 2.2)), "attack": 1.6, "dual": dual,
@@ -2070,7 +2151,10 @@ func _build_boss() -> void:
 			lroot.name = "OperaLantern%d" % i
 			lroot.position = lp
 			add_child(lroot)
-			_box(Vector3(0, 2.0, 0), Vector3(0.4, 4.0, 0.4), Color(0.5, 0.42, 0.3), 0.0, lroot)
+			# Codex lantern post + cage; the glass sphere stays a live primitive
+			# below so the flicker can keep pulsing its private material
+			if _act_prop("opera_lantern.glb", Vector3.ZERO, 0.0, lroot) == null:
+				_box(Vector3(0, 2.0, 0), Vector3(0.4, 4.0, 0.4), Color(0.5, 0.42, 0.3), 0.0, lroot)
 			var glass := _sphere(Vector3(0, 4.4, 0), 0.75, Color(1.0, 0.85, 0.45), 0.25, lroot)
 			# a private material per lantern so the flicker can pulse emission
 			# in place instead of minting cache entries every frame

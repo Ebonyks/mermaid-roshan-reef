@@ -105,6 +105,7 @@ var act_index := -1
 var doors: Array[Dictionary] = []
 var boss_spots: Array[Dictionary] = []
 var lifts: Array[Dictionary] = []
+var gates: Array[Dictionary] = []
 var lobby_root: Node3D = null
 var lobby_pos := Vector3.ZERO
 var lobby_y := 0.0                      # one of FLOOR_YS (tweened by the lifts)
@@ -182,6 +183,24 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
 
+func _lobby_prop(fname: String, pos: Vector3, yaw: float = 0.0, prop_scale: float = 1.0) -> Node3D:
+	# authored opera GLBs (tools/build_opera_house_art.py); callers keep their
+	# primitive builders as the fallback whenever a file is missing
+	var full := "res://assets/art35/opera/" + fname
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees.y = yaw
+	prop.scale = Vector3.ONE * prop_scale
+	lobby_root.add_child(prop)
+	return prop
+
 func _label(text: String, pos: Vector3, size: int, col: Color, parent: Node3D = null) -> Label3D:
 	var lb := Label3D.new()
 	lb.text = text
@@ -248,25 +267,61 @@ func _build_lobby() -> void:
 		_box(L + Vector3(0, fy - 0.25, -17.0), Vector3(78, 0.5, 10.4), Color(0.42, 0.3, 0.46))
 		for lx in [-33.0, 33.0]:
 			_box(L + Vector3(lx, fy - 0.25, -9.0), Vector3(8.5, 0.5, 6.4), Color(0.42, 0.3, 0.46))
-		for ri in range(13):
-			var rx := -36.0 + float(ri) * 6.0
-			_box(L + Vector3(rx, fy + 1.5, -11.9), Vector3(0.35, 3.0, 0.35), gold, 0.1)
-		_box(L + Vector3(0, fy + 3.1, -11.9), Vector3(78, 0.5, 0.45), gold, 0.2)
-	# chandeliers over the open hall
+		var railing_glb := ResourceLoader.exists("res://assets/art35/opera/opera_railing.glb")
+		if railing_glb:
+			for ri in range(12):
+				_lobby_prop("opera_railing.glb", L + Vector3(-33.0 + float(ri) * 6.0, fy, -11.9))
+		else:
+			for ri in range(13):
+				var rx := -36.0 + float(ri) * 6.0
+				_box(L + Vector3(rx, fy + 1.5, -11.9), Vector3(0.35, 3.0, 0.35), gold, 0.1)
+			_box(L + Vector3(0, fy + 3.1, -11.9), Vector3(78, 0.5, 0.45), gold, 0.2)
+	# chandeliers over the open hall (authored GLB with primitive fallback)
 	for cx2 in [-18.0, 18.0]:
-		var ring := TorusMesh.new()
-		ring.inner_radius = 1.7
-		ring.outer_radius = 2.3
-		_mesh(ring, L + Vector3(cx2, 36.0, 8.0), gold, 0.3)
-		_sphere(L + Vector3(cx2, 35.2, 8.0), 1.0, Color(1.0, 0.95, 0.75), 1.0)
+		if _lobby_prop("opera_chandelier.glb", L + Vector3(cx2, 35.2, 8.0)) == null:
+			var ring := TorusMesh.new()
+			ring.inner_radius = 1.7
+			ring.outer_radius = 2.3
+			_mesh(ring, L + Vector3(cx2, 36.0, 8.0), gold, 0.3)
+			_sphere(L + Vector3(cx2, 35.2, 8.0), 1.0, Color(1.0, 0.95, 0.75), 1.0)
+	# the THEATRE'S GRAND STAGE fronts the ground floor (owner 2026-07-21):
+	# a proscenium arch and swagged curtains frame the centre-stage medallion
+	# zone, and the footlit apron marks where the big shows take the boards
+	_lobby_prop("opera_arch.glb", L + Vector3(0, 0, -19.5))
+	_lobby_prop("opera_curtain.glb", L + Vector3(-8.6, 0, -20.6))
+	_lobby_prop("opera_curtain.glb", L + Vector3(8.6, 0, -20.6), 180.0)
+	_lobby_prop("opera_stage_apron.glb", L + Vector3(0, 0, -10.2))
 	# the theatre crest over the top gallery
 	_label("🎭", L + Vector3(0, 41.5, -21.4), 120, Color(1.0, 0.92, 0.7))
 	_label("★", L + Vector3(0, 37.0, -21.4), 64, Color(1.0, 0.88, 0.45))
+	# foyer greenery + poster cards from the converted flat library: coral
+	# planters along the side walls, flower cards by the benches (Codex guide)
+	var foyer_cards: Array = [
+		["gen2/coral1_Image_0_flat", Vector3(-35.0, 2.6, 16.0), 2.2],
+		["gen2/coral3_Image_0_flat", Vector3(35.0, 2.6, 16.0), 2.2],
+		["gen2/coral5_Image_0_flat", Vector3(-35.0, 2.6, 6.0), 2.0],
+		["gen2/coral2_Image_0_flat", Vector3(35.0, 2.6, 6.0), 2.0],
+		["mg/flower2", Vector3(-27.5, 2.2, 16.5), 1.6],
+		["mg/flower3", Vector3(27.5, 2.2, 16.5), 1.6],
+		["mg/star", Vector3(0.0, 5.2, 21.8), 2.0],
+	]
+	for fc: Array in foyer_cards:
+		var cpath := "res://assets/art35/cards/" + String(fc[0]) + ".glb"
+		if ResourceLoader.exists(cpath):
+			var cpacked := load(cpath) as PackedScene
+			if cpacked != null:
+				var cprop := cpacked.instantiate() as Node3D
+				if cprop != null:
+					cprop.position = L + (fc[1] as Vector3)
+					cprop.rotation_degrees = Vector3(90.0, 0.0, 0.0)
+					cprop.scale = Vector3.ONE * float(fc[2])
+					lobby_root.add_child(cprop)
 	# padded audience benches by the entrance (pure set dressing)
 	for bz in [14.0, 18.5]:
 		for bx in [-22.0, 22.0]:
-			_box(L + Vector3(bx, 1.1, bz), Vector3(10, 1.0, 2.6), crimson)
-			_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
+			if _lobby_prop("opera_bench.glb", L + Vector3(bx, 0.6, bz)) == null:
+				_box(L + Vector3(bx, 1.1, bz), Vector3(10, 1.0, 2.6), crimson)
+				_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
 
 func _build_doors() -> void:
 	# four career doors per floor: ground shows line the side walls, the two
@@ -297,11 +352,13 @@ func _build_doors() -> void:
 		lobby_root.add_child(root)
 		var trim: Color = Color(cfg.get("trim", Color(1.0, 0.85, 0.55)))
 		var curtain: Color = Color(cfg.get("curtain", Color(0.78, 0.24, 0.34)))
-		_box(Vector3(0, 4.6, -0.35), Vector3(5.4, 9.2, 0.5), Color(0.16, 0.1, 0.2), 0.0, root)
-		_box(Vector3(0, 4.3, -0.05), Vector3(4.5, 8.4, 0.3), curtain, 0.06, root)
-		for px in [-2.65, 2.65]:
-			_box(Vector3(px, 4.8, 0.1), Vector3(0.75, 9.6, 0.75), trim, 0.14, root)
-		_box(Vector3(0, 9.7, 0.1), Vector3(6.1, 0.85, 0.85), trim, 0.14, root)
+		var door_glb := _lobby_prop("opera_door.glb", base, rad_to_deg(atan2(face.x, face.z)))
+		if door_glb == null:
+			_box(Vector3(0, 4.6, -0.35), Vector3(5.4, 9.2, 0.5), Color(0.16, 0.1, 0.2), 0.0, root)
+			_box(Vector3(0, 4.3, -0.05), Vector3(4.5, 8.4, 0.3), curtain, 0.06, root)
+			for px in [-2.65, 2.65]:
+				_box(Vector3(px, 4.8, 0.1), Vector3(0.75, 9.6, 0.75), trim, 0.14, root)
+			_box(Vector3(0, 9.7, 0.1), Vector3(6.1, 0.85, 0.85), trim, 0.14, root)
 		_label(String(cfg.get("emoji", "★")), Vector3(0, 11.2, 0.4), 40, Color(1, 1, 1), root)
 		var veil := _box(Vector3(0, 3.6, 0.5), Vector3(3.7, 6.6, 0.2), Color(1.0, 0.78, 0.5), 0.5, root)
 		var vmat := veil.material_override as StandardMaterial3D
@@ -318,8 +375,10 @@ func _build_doors() -> void:
 func _build_boss_spots() -> void:
 	# one centre-stage medallion per floor: dim until the floor's four shows
 	# are starred, then it glows gold and swimming onto it starts the boss
+	# the ground medallion sits ON the grand stage boards, framed by the
+	# proscenium — shows belong on the stage (owner 2026-07-21)
 	var layout: Array = [
-		{"story": 1, "i": 4, "pos": Vector3(0, 0, 2)},
+		{"story": 1, "i": 4, "pos": Vector3(0, 0, -16)},
 		{"story": 2, "i": 9, "pos": Vector3(0, 13.0, -17)},
 		{"story": 3, "i": 14, "pos": Vector3(0, 26.0, -17)},
 	]
@@ -327,7 +386,11 @@ func _build_boss_spots() -> void:
 		var i := int(entry["i"])
 		var cfg: Dictionary = ACTS[i]
 		var pos: Vector3 = L + (entry["pos"] as Vector3)
-		var disc := _cyl(pos + Vector3(0, 0.25, 0), 3.4, 0.5, Color(0.3, 0.22, 0.38), 0.05)
+		var medallion_glb := _lobby_prop("opera_medallion.glb", pos)
+		# the glow disc floats just over the authored relief so the lit/unlit
+		# state stays readable without z-fighting the gold star inlay
+		var disc_y := 0.72 if medallion_glb != null else 0.25
+		var disc := _cyl(pos + Vector3(0, disc_y, 0), 3.4, 0.5, Color(0.3, 0.22, 0.38), 0.05)
 		disc.material_override = (disc.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
 		var ring := TorusMesh.new()
 		ring.inner_radius = 3.3
@@ -346,16 +409,27 @@ func _build_lifts() -> void:
 	# floor (the top gallery ride loops gently back to the ground floor)
 	for lx in [-33.0, 33.0]:
 		var pos := L + Vector3(lx, 0, -9.0)
-		var col := _cyl(pos + Vector3(0, 13.5, 0), 2.7, 30.0, Color(0.6, 0.9, 1.0), 0.35)
-		var cmat := col.material_override as StandardMaterial3D
-		cmat = cmat.duplicate() as StandardMaterial3D
-		cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		cmat.albedo_color = Color(0.6, 0.9, 1.0, 0.22)
-		col.material_override = cmat
+		if _lobby_prop("opera_lift.glb", pos) == null:
+			var col := _cyl(pos + Vector3(0, 13.5, 0), 2.7, 30.0, Color(0.6, 0.9, 1.0), 0.35)
+			var cmat := col.material_override as StandardMaterial3D
+			cmat = cmat.duplicate() as StandardMaterial3D
+			cmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			cmat.albedo_color = Color(0.6, 0.9, 1.0, 0.22)
+			col.material_override = cmat
 		for b in range(5):
 			_sphere(pos + Vector3(randf_range(-1.4, 1.4), 2.0 + float(b) * 5.5, randf_range(-1.4, 1.4)), 0.4, Color(0.8, 0.97, 1.0), 0.7)
 		_label("✨", pos + Vector3(0, 5.0, 1.8), 34, Color(0.85, 0.98, 1.0))
 		lifts.append({"pos": pos, "armed": true})
+		# the shell-clasp gate guards each landing (handoff): closed leaves and
+		# three dark pearl sockets at first entry; it swings open — leaves fold
+		# clear of the lane — once the upstairs floor wakes
+		var gate_glb := _lobby_prop("opera_shell_gate.glb", pos + Vector3(0, 0, 3.6))
+		var pearls: Array = []
+		for pi in range(3):
+			var pearl := _sphere(pos + Vector3(-1.1 + float(pi) * 1.1, 5.75, 3.6), 0.26, Color(0.25, 0.2, 0.35), 0.05)
+			pearl.material_override = (pearl.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
+			pearls.append(pearl)
+		gates.append({"glb": gate_glb, "pearls": pearls, "pos": pos + Vector3(0, 0, 3.6), "open": false})
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -428,6 +502,16 @@ func _star_count() -> int:
 			stars += 1
 	return stars
 
+func _floor_unlocked(story: int) -> bool:
+	# handoff contract (CLAUDE_OPERA_HOUSE_3D_CONTINUATION_2026-07-21): the
+	# ground floor is always open; each upper floor opens when the floor
+	# below's BOSS star is earned. Gates, portals, pointer and lifts all
+	# consume this one helper.
+	if story <= 1:
+		return true
+	var prior_boss := 4 if story == 2 else 9
+	return (m.opera_stars & (1 << prior_boss)) != 0
+
 func _floor_shows_starred(story: int) -> bool:
 	for cfg_i in range(ACTS.size()):
 		var cfg: Dictionary = ACTS[cfg_i]
@@ -442,6 +526,12 @@ func _spot_lit(spot: Dictionary) -> bool:
 func _update_stars() -> void:
 	for door in doors:
 		(door["star"] as Label3D).visible = (m.opera_stars & (1 << int(door["i"]))) != 0
+		# portals on a locked floor keep their curtains closed and dim
+		var unlocked := _floor_unlocked(int((door["cfg"] as Dictionary).get("story", 1)))
+		var veil := door["veil"] as MeshInstance3D
+		var dvmat := veil.material_override as StandardMaterial3D
+		dvmat.albedo_color = Color(1.0, 0.78, 0.5, 0.34) if unlocked else Color(0.5, 0.5, 0.58, 0.14)
+		dvmat.emission = Color(1.0, 0.78, 0.5) if unlocked else Color(0.25, 0.25, 0.3)
 	for spot in boss_spots:
 		var lit := _spot_lit(spot)
 		var starred: bool = (m.opera_stars & (1 << int(spot["i"]))) != 0
@@ -459,6 +549,26 @@ func _update_stars() -> void:
 			dmat.albedo_color = Color(0.3, 0.22, 0.38)
 			dmat.emission_energy_multiplier = 0.0
 			hmat.emission_energy_multiplier = 0.12
+	# shell-clasp gates: pearls light and leaves fold aside once the balcony
+	# floor wakes (both landings share the story-2 unlock as the first gate)
+	for gate in gates:
+		var open := _floor_unlocked(2)
+		for pearl_n in (gate["pearls"] as Array):
+			var pmat := (pearl_n as MeshInstance3D).material_override as StandardMaterial3D
+			pmat.albedo_color = Color(1.0, 0.88, 0.5) if open else Color(0.25, 0.2, 0.35)
+			pmat.emission_enabled = open
+			if open:
+				pmat.emission = Color(1.0, 0.88, 0.5)
+				pmat.emission_energy_multiplier = 0.8
+		if open and not bool(gate["open"]) and gate["glb"] != null:
+			gate["open"] = true
+			var glb := gate["glb"] as Node3D
+			for leaf in glb.find_children("*", "Node3D", true, false):
+				var ln := String((leaf as Node).name)
+				if ln.begins_with("leaf_l") or ln.begins_with("leaf_r"):
+					var slide := -2.9 if ln.begins_with("leaf_l") else 2.9
+					var lt := (leaf as Node3D).create_tween()
+					lt.tween_property(leaf, "position:x", (leaf as Node3D).position.x + slide, 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	if star_label != null:
 		star_label.text = "★ %d / %d" % [_star_count(), ACTS.size()]
 
@@ -527,6 +637,12 @@ func _return_to_lobby(finished: int) -> void:
 	if cam != null:
 		cam.make_current()
 	_update_stars()
+	# a floor-boss star wakes the next storey (handoff): burst + invitation
+	if (finished == 4 or finished == 9) and m.opera_stars != ALL_STARS:
+		for lift in lifts:
+			m._sparkle_burst((lift["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.7, 0.95, 1.0))
+		m.show_msg("Roshan", "The whole next floor just woke up! Ride the sparkling bubbles!", "win")
+		return
 	if m.opera_stars == ALL_STARS:
 		m.show_msg("Roshan", "Every show and every big finale — all three floors! Take a bow, Opera Star Roshan!", "win")
 		for i in range(10):
@@ -544,6 +660,11 @@ func _tick_doors(delta: float) -> void:
 		if dist < 3.4 and bool(door["armed"]) and float(door["cool"]) <= 0.0:
 			door["armed"] = false
 			door["cool"] = 5.0
+			if not _floor_unlocked(int((door["cfg"] as Dictionary).get("story", 1))):
+				if float(door["hint_cool"]) <= 0.0:
+					door["hint_cool"] = 8.0
+					m.show_msg("Roshan", "This floor wakes up after the big show downstairs! Follow the golden sparkle!", "hint")
+				continue
 			_enter_door(door)
 			return
 	for spot in boss_spots:
@@ -576,13 +697,31 @@ func _tick_lifts(_delta: float) -> void:
 		if lift_busy or not bool(lift["armed"]) or flat > 2.9:
 			continue
 		lift["armed"] = false
-		lift_busy = true
-		# ride up one floor; from the top gallery the bubbles loop gently home
+		# ride up one floor; from the top gallery the bubbles loop gently home.
+		# A lift stays DORMANT toward locked floors (handoff): the cycle skips
+		# to the next unlocked destination, and if none exists the bubbles
+		# just shimmer with a kindly hint.
 		var fi := 0
 		for k in range(FLOOR_YS.size()):
 			if absf(lobby_y - float(FLOOR_YS[k])) < 3.0:
 				fi = k
-		var to_y := float(FLOOR_YS[(fi + 1) % FLOOR_YS.size()])
+		var to_fi := (fi + 1) % FLOOR_YS.size()
+		while to_fi != fi and not _floor_unlocked(to_fi + 1):
+			to_fi = (to_fi + 1) % FLOOR_YS.size()
+		if to_fi == fi:
+			lift["hint_cool"] = maxf(0.0, float(lift.get("hint_cool", 0.0)))
+			if float(lift["hint_cool"]) <= 0.0:
+				lift["hint_cool"] = 10.0
+				m._sparkle_burst(lp + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
+				# pulse the three pearl sockets on the nearest gate (handoff)
+				for gate in gates:
+					if (gate["pos"] as Vector3).distance_to(lp) < 8.0:
+						for pearl_n in (gate["pearls"] as Array):
+							m._sparkle_burst((pearl_n as MeshInstance3D).position + Vector3(0, 0.8, 0), Color(1.0, 0.88, 0.5))
+				m.show_msg("Roshan", "The bubbles are still sleepy! Win the big centre-stage show first!", "hint")
+			continue
+		lift_busy = true
+		var to_y := float(FLOOR_YS[to_fi])
 		m._sparkle_burst(lobby_pos + Vector3(0, 2.0, 0), Color(0.7, 0.95, 1.0))
 		var tw := create_tween()
 		tw.tween_property(self, "lobby_y", to_y, 1.9 if to_y < lobby_y else 1.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)

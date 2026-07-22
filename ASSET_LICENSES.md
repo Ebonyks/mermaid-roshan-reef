@@ -308,3 +308,20 @@ ambientCG (all CC0).
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_29_32_park_and_rooted_hedges.png — original project-generated 1536x1024 items-29–32 park and rooted-hedge model-reference sheet made with OpenAI built-in image generation; prompt family K in `REGEN_35_PROMPT_PLAN.md`; no external or protected reference image; generated 2026-07-22.
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_33_35_pearl_furniture.png — original project-generated 1536x1024 items-33–35 pearl-furniture model-reference sheet made with OpenAI built-in image generation; prompt family L in `REGEN_35_PROMPT_PLAN.md`; no external or protected reference image; generated 2026-07-22.
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/context_{caribbean_reef_density,norway_kelp_coldwater_coral_zones}.png — original project-generated 1536x1024 context-only ecosystem density/placement boards made with OpenAI built-in image generation; ecological fact sources recorded in `ECOLOGY_SOURCES.md`; no reference images or copied source pixels; not Regen roles and not runtime assets; generated 2026-07-22.
+
+## assets/art35/opera/*.glb (10 models: arch, curtain, door, medallion, chandelier, bench, railing, lift, maestro, stage_apron)
+- Source: project-authored, generated procedurally in Blender by
+  tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
+- License: project original
+- Modifications: n/a (original work); flat toon materials, no textures
+- 2026-07-21 addendum: Codex per-act packs added by the same generator
+  (dragon, phantom, lantern, crate + lid, silly fish, tiara chest) —
+  project original, no textures
+
+## assets/art35/cards/**/*.glb (135 storybook-cutout conversions)
+- Source: the project's own flat card art (assets_src/style_review_*,
+  assets_src/imagegen chroma pass, assets/props/gen2, assets/mg), converted
+  to alpha-clipped extruded cutout GLBs by tools/convert_flat_cards_to_glb.py
+  (Blender); NPOT textures resized to POT <=1024 during conversion
+- License: project original (derivatives of already-licensed project art)
+- Modifications: card mesh + solidify extrusion; texture resize where needed

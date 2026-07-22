@@ -54,29 +54,13 @@ func _init() -> void:
 	opera.lobby_pos = (opera.boss_spots[0]["pos"] as Vector3)
 	await _frames(30)
 	_ck("dark medallion does not start the boss", opera.act == null)
-	# the bubble lift cycles ground -> balcony -> gallery -> ground
+	# handoff floor gating: upper floors and lifts stay locked until the
+	# floor below's BOSS star is earned; the lift must stay dormant now
+	_ck("upper floors start locked", not opera._floor_unlocked(2) and not opera._floor_unlocked(3))
 	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 1.1, 0)
-	var guard := 0
-	while opera.lobby_y < 12.5 and guard < 400:
-		guard += 1
-		await process_frame
-	_ck("bubble lift carries Roshan to the balcony", absf(opera.lobby_y - 13.0) < 0.5)
-	opera.lobby_pos = OperaHouse.L + Vector3(0, 14.1, -18.0)
-	await _frames(10)
-	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 14.1, 0)
-	guard = 0
-	while opera.lobby_y < 25.5 and guard < 400:
-		guard += 1
-		await process_frame
-	_ck("second ride reaches the top gallery", absf(opera.lobby_y - 26.0) < 0.5)
-	opera.lobby_pos = OperaHouse.L + Vector3(0, 27.1, -18.0)
-	await _frames(10)
-	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 27.1, 0)
-	guard = 0
-	while opera.lobby_y > 0.5 and guard < 400:
-		guard += 1
-		await process_frame
-	_ck("third ride loops home to the ground floor", opera.lobby_y < 0.5)
+	await _frames(40)
+	_ck("dormant lift refuses the ride while floors sleep", opera.lobby_y < 0.5 and not opera.lift_busy)
+	_ck("shell-clasp gates guard both landings, closed", opera.gates.size() == 2 and not bool(opera.gates[0]["open"]) and not bool(opera.gates[1]["open"]))
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
 	# costumes are bone-attached to the REAL rigged player (puppet mode), not
@@ -132,6 +116,11 @@ func _init() -> void:
 	# medallion lights up and its boss takes centre stage
 	for expected in range(1, OperaHouse.ACTS.size()):
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
+		if expected == 5:
+			_ck("dragon star unlocks the balcony floor", opera._floor_unlocked(2))
+			_ck("shell gates fold open with the unlock", bool(opera.gates[0]["open"]) and bool(opera.gates[1]["open"]))
+		if expected == 10:
+			_ck("phantom star unlocks the top gallery", opera._floor_unlocked(3))
 		var is_boss := String(cfg2.get("type", "show")) == "boss"
 		if is_boss:
 			var spot_index := {4: 0, 9: 1, 14: 2}[expected] as int
