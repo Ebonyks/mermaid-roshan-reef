@@ -207,6 +207,16 @@ var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
 var skin_t := 0.0
+# opera stage puppet: an OperaAct drives position/yaw and reports her speed;
+# the SAME procedural swim + verb machinery keeps her alive, so every career
+# look reuses the one animation set. Input/physics/camera stay with the act.
+var puppet := false
+var puppet_speed := 0.0
+# career costume (Pearl Opera House): toy-primitive pieces anchored to the
+# ACTIVE skeleton with BoneAttachment3D — same contract as the plushie skins
+# (bone names, not new rigs), so the swim drives every costume for free
+var costume_id := ""
+var costume_nodes: Array = []     # BoneAttachment3D anchors (freed by clear_costume)
 # WW swim wake: ribbon contrail rebuilt each frame from recent tail positions,
 # plus velocity-aligned dash particles that only appear at sprint speed
 var trail_node: MeshInstance3D
@@ -448,6 +458,194 @@ func set_skin(id: String, tex_path: String) -> void:
 	if skin_sparkles != null:
 		skin_sparkles.emitting = on_skin
 
+# ---------------- career costumes (Pearl Opera House) ----------------
+# One costume per career, worn on the SAME rigged Roshan: each piece is a toy
+# primitive parented to a BoneAttachment3D on the active skeleton, so the one
+# procedural swim (plus every verb) animates every career look for free —
+# the same bone-name contract that lets the plushie skins share her swim.
+# Pieces are placed in WORLD space at wear time from the anchor bone's pose
+# (upright, sharing her yaw) and then ride the bone rigidly, so no knowledge
+# of the Meshy rig's rest axes is needed. Offsets use her facing: -Z = front.
+
+func set_costume(id: String) -> void:
+	clear_costume()
+	costume_id = id
+	if id == "" or skel == null or not is_inside_tree():
+		return
+	var head := _costume_anchor(["head", "neck", "chest", "root"])
+	# rig audit 2026-07-15: hand2 (her right) is the well-bound hand; the left
+	# "hand" joint is a tiny underbound stub, so props prefer the right side
+	var hand := _costume_anchor(["hand2", "armF2", "hand", "chest"])
+	var chest := _costume_anchor(["chest", "spine1", "root"])
+	var waist := _costume_anchor(["spine1", "root", "chest"])
+	match id:
+		"chef":
+			_cp_cyl(head, Vector3(0, 0.45, 0), 0.85, 0.9, Color(0.98, 0.97, 0.94), 0.05)
+			_cp_sphere(head, Vector3(0, 1.15, 0), 0.95, Color(1.0, 1.0, 0.98), 0.05)
+		"detective":
+			_cp_cyl(head, Vector3(0, 0.5, 0), 1.05, 0.5, Color(0.62, 0.45, 0.3))
+			var lens := TorusMesh.new()
+			lens.inner_radius = 0.34
+			lens.outer_radius = 0.56
+			_cp_mesh(hand, lens, Vector3(0, 0.35, 0), Color(1.0, 0.85, 0.4), 0.3)
+			_cp_box(hand, Vector3(0, -0.35, 0), Vector3(0.2, 0.9, 0.2), Color(0.5, 0.3, 0.2))
+		"ballerina":
+			var tutu := TorusMesh.new()
+			tutu.inner_radius = 0.55
+			tutu.outer_radius = 1.35
+			_cp_mesh(waist, tutu, Vector3.ZERO, Color(1.0, 0.72, 0.86), 0.15)
+		"singer":
+			var tiara := TorusMesh.new()
+			tiara.inner_radius = 0.5
+			tiara.outer_radius = 0.75
+			_cp_mesh(head, tiara, Vector3(0, 0.55, 0), Color(1.0, 0.87, 0.42), 0.5)
+			_cp_sphere(hand, Vector3(0, 0.35, 0), 0.32, Color(1.0, 0.95, 0.5), 0.9)
+			_cp_box(hand, Vector3(0, -0.25, 0), Vector3(0.14, 1.0, 0.14), Color(1.0, 0.95, 0.5), 0.9)
+		"magician":
+			_cp_cyl(head, Vector3(0, 0.85, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15)
+			_cp_cyl(head, Vector3(0, 0.25, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15)
+			_cp_box(hand, Vector3(0, 0.2, 0), Vector3(0.16, 1.2, 0.16), Color(0.95, 0.95, 1.0), 0.4)
+		"painter":
+			var beret := _cp_cyl(head, Vector3(0.2, 0.45, 0), 1.0, 0.35, Color(0.32, 0.5, 0.85), 0.1)
+			beret.rotation_degrees = Vector3(0, 0, -12.0)
+			_cp_box(hand, Vector3(0, 0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.6, 0.4, 0.25))
+			_cp_box(hand, Vector3(0, 0.8, 0), Vector3(0.24, 0.3, 0.24), Color(1.0, 0.45, 0.6), 0.5)
+		"astronaut":
+			var collar := TorusMesh.new()
+			collar.inner_radius = 0.75
+			collar.outer_radius = 1.05
+			_cp_mesh(head, collar, Vector3(0, -0.35, 0), Color(0.85, 0.88, 0.95), 0.2)
+			# glassy bubble helmet: alpha keeps her painted face readable inside
+			_cp_sphere(head, Vector3(0, 0.25, 0), 1.15, Color(0.8, 0.92, 1.0, 0.32), 0.15)
+			_cp_cyl(chest, Vector3(-0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
+			_cp_cyl(chest, Vector3(0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
+		"candymaker":
+			_cp_cyl(head, Vector3(0, 0.35, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2)
+			_cp_cyl(head, Vector3(0, 0.85, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2)
+			_cp_cyl(head, Vector3(0, 1.35, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2)
+			_cp_cyl(hand, Vector3(0, 0.55, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6)
+			_cp_box(hand, Vector3(0, -0.2, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1)
+		"doctor":
+			var mirror := TorusMesh.new()
+			mirror.inner_radius = 0.55
+			mirror.outer_radius = 0.8
+			_cp_mesh(head, mirror, Vector3(0, 0.4, 0), Color(0.95, 0.97, 1.0), 0.2)
+			_cp_sphere(head, Vector3(0, 0.55, -0.5), 0.3, Color(1.0, 0.9, 0.5), 0.8)
+			var scope := TorusMesh.new()
+			scope.inner_radius = 0.6
+			scope.outer_radius = 0.78
+			_cp_mesh(chest, scope, Vector3(0, 0.15, 0), Color(0.35, 0.4, 0.55), 0.1)
+			_cp_cyl(chest, Vector3(0, -0.5, -0.35), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4)
+		"racer":
+			_cp_sphere(head, Vector3(0, 0.55, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2)
+			_cp_box(head, Vector3(0, 0.45, -0.75), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4)
+			var wheel := TorusMesh.new()
+			wheel.inner_radius = 0.55
+			wheel.outer_radius = 0.85
+			var wheel_mesh := _cp_mesh(hand, wheel, Vector3(0, 0.3, 0), Color(0.25, 0.25, 0.35), 0.1)
+			wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
+		"farmer":
+			_cp_cyl(head, Vector3(0, 0.3, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1)
+			_cp_cyl(head, Vector3(0, 0.7, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1)
+			var carrot := CylinderMesh.new()
+			carrot.top_radius = 0.05
+			carrot.bottom_radius = 0.4
+			carrot.height = 1.2
+			var carrot_mesh := _cp_mesh(hand, carrot, Vector3(0, 0.1, 0), Color(1.0, 0.55, 0.2), 0.3)
+			carrot_mesh.rotation_degrees = Vector3(180, 0, 0)
+			_cp_sphere(hand, Vector3(0, 0.85, 0), 0.3, Color(0.45, 0.8, 0.4), 0.2)
+		"popstar":
+			_cp_sphere(head, Vector3(-0.42, 0.0, -0.5), 0.35, Color(1.0, 0.85, 0.35), 0.7)
+			_cp_sphere(head, Vector3(0.42, 0.0, -0.5), 0.35, Color(1.0, 0.85, 0.35), 0.7)
+			_cp_box(head, Vector3(0, 0.0, -0.52), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7)
+			_cp_box(hand, Vector3(0, -0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2)
+			_cp_sphere(hand, Vector3(0, 0.65, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6)
+	# an anchor that dressed nothing is dead weight — drop it
+	for n in costume_nodes.duplicate():
+		var holder: Node = n
+		if n is BoneAttachment3D and (n as Node).get_child_count() > 0:
+			holder = (n as Node).get_child(0)
+		if holder.get_child_count() == 0:
+			costume_nodes.erase(n)
+			(n as Node).queue_free()
+
+func clear_costume() -> void:
+	costume_id = ""
+	for n in costume_nodes:
+		if is_instance_valid(n):
+			(n as Node).queue_free()
+	costume_nodes = []
+
+func _costume_anchor(cands: Array) -> Node3D:
+	# BoneAttachment3D on the first bone the active skeleton actually has,
+	# plus an upright child anchor placed at the bone's CURRENT world pose —
+	# pieces are authored in plain world units around that point and then
+	# ride the bone rigidly through the swim and every verb.
+	var bname := ""
+	for n in cands:
+		if skel.find_bone(String(n)) >= 0:
+			bname = String(n)
+			break
+	if bname == "":
+		# no such bones at all (defensive): pin near the body centre instead
+		var loose := Node3D.new()
+		add_child(loose)
+		loose.position = Vector3(0, 1.0, 0)
+		costume_nodes.append(loose)
+		return loose
+	var att := BoneAttachment3D.new()
+	att.bone_name = bname
+	skel.add_child(att)
+	costume_nodes.append(att)
+	var anchor := Node3D.new()
+	att.add_child(anchor)
+	# derive the anchor's LOCAL transform from the bone pose itself rather
+	# than att.global_transform — the attachment may not have snapped to the
+	# bone yet on the frame it enters the tree, and a stale global here would
+	# bake every piece offset by one whole bone transform
+	var bi: int = skel.find_bone(bname)
+	var bone_pose: Transform3D = skel.get_bone_global_pose(bi)   # skeleton space
+	var desired_w := Transform3D(Basis(Vector3.UP, rotation.y), (skel.global_transform * bone_pose).origin)
+	var desired_s: Transform3D = skel.global_transform.affine_inverse() * desired_w
+	anchor.transform = bone_pose.affine_inverse() * desired_s
+	return anchor
+
+func _cp_mesh(anchor: Node3D, mesh: Mesh, off: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = col
+	mat.roughness = 0.68
+	if col.a < 1.0:
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	if glow > 0.0:
+		mat.emission_enabled = true
+		mat.emission = Color(col.r, col.g, col.b)
+		mat.emission_energy_multiplier = glow
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.position = off
+	anchor.add_child(mi)
+	return mi
+
+func _cp_cyl(anchor: Node3D, off: Vector3, r: float, h: float, col: Color, glow: float = 0.0) -> MeshInstance3D:
+	var cm := CylinderMesh.new()
+	cm.top_radius = r
+	cm.bottom_radius = r
+	cm.height = h
+	return _cp_mesh(anchor, cm, off, col, glow)
+
+func _cp_sphere(anchor: Node3D, off: Vector3, r: float, col: Color, glow: float = 0.0) -> MeshInstance3D:
+	var sm := SphereMesh.new()
+	sm.radius = r
+	sm.height = r * 2.0
+	return _cp_mesh(anchor, sm, off, col, glow)
+
+func _cp_box(anchor: Node3D, off: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
+	var bm := BoxMesh.new()
+	bm.size = size
+	return _cp_mesh(anchor, bm, off, col, glow)
+
 func _flatten_materials(node: Node) -> void:
 	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
 	# same reasoning as _upgrade_texture (specular/rim streaks read as glitches
@@ -673,6 +871,13 @@ func _process(delta: float) -> void:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))
 		return
+	if puppet:
+		_tick_swim_bones(delta, puppet_speed)
+		_apply_verb(delta)
+		# settle toward idle unless the act keeps reporting movement, so she
+		# never treads water at sprint pace while standing for the applause
+		puppet_speed = lerpf(puppet_speed, 0.0, 1.0 - pow(0.05, delta))
+		return
 	var fwd := 0.0
 	var turn := 0.0
 	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
@@ -896,6 +1101,67 @@ func _process(delta: float) -> void:
 
 	var speed: float = vel.length()
 	_tick_wake(delta, speed)
+	_tick_swim_bones(delta, speed)
+	_apply_verb(delta)
+	# idle life: after a quiet while she looks around; at night she dozes off
+	# (free swim only — verbs never interrupt a minigame)
+	idle_verb_cool = maxf(0.0, idle_verb_cool - delta)
+	if verb == "" and idle_verb_cool <= 0.0 and idle_t > 12.0:
+		var mn: Node = get_parent()
+		if "game" in mn and String(mn.game) == "":
+			if "is_night" in mn and bool(mn.is_night) and idle_t > 25.0:
+				play_verb("sleep")
+				idle_verb_cool = 22.0
+			else:
+				# small idle repertoire so a quiet minute stays alive
+				play_verb(["look", "hairtwirl", "hum"][randi() % 3])
+				idle_verb_cool = 15.0
+
+	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
+	if skin_sprite != null and skin_sprite.visible:
+		skin_t += delta * (2.2 + speed * 0.6)
+		skin_sprite.position.y = 0.6 + sin(skin_t) * 0.3
+		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
+		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
+
+	# right-stick / right-drag / second-finger-drag camera: peek around and up
+	# or down, then drift back behind her once every look input is released
+	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
+	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
+	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	if "touch_ui" in _m0 and _m0.touch_ui != null and _m0.touch_ui.has_method("consume_look"):
+		var tl: Vector2 = _m0.touch_ui.consume_look()
+		mlook_x += tl.x
+		mlook_y += tl.y
+		mlook = mlook or bool(_m0.touch_ui.look_active())
+	if absf(rx) > 0.25:
+		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
+	elif mlook:
+		cam_orbit = clampf(cam_orbit - mlook_x * 0.005, -PI * 0.9, PI * 0.9)
+	else:
+		cam_orbit = lerpf(cam_orbit, 0.0, 1.0 - pow(0.35, delta))
+	if absf(ry) > 0.25:
+		cam_pitch_off = clampf(cam_pitch_off + ry * 9.0 * delta, -4.5, 8.0)
+	elif mlook:
+		cam_pitch_off = clampf(cam_pitch_off + mlook_y * 0.02, -4.5, 8.0)
+	else:
+		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
+
+	if cam != null and cam.is_inside_tree():
+		var cyaw: float = yaw + cam_orbit
+		# WW sail-stretch: the chase distance and lens breathe out a little at
+		# sprint speed, so going fast LOOKS fast (identical at rest)
+		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
+		var back_eff: float = cam_back * (1.0 + 0.10 * cam_spd)
+		var target := position + Vector3(-sin(cyaw) * back_eff, cam_high + cam_pitch_off, -cos(cyaw) * back_eff)
+		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
+		cam.look_at(position + Vector3(0, 1.5, 0))
+		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
+
+func _tick_swim_bones(delta: float, speed: float) -> void:
+	# The whole procedural swim on the ACTIVE skeleton — shared verbatim by
+	# free swim and the opera-stage puppet, so every mode and every costume
+	# reuses the one animation set.
 	swim_phase += delta * (2.2 + speed * 0.9)
 	# Arms keep a separate, deliberately slow water-sweep phase. Tying them to
 	# the tail beat made a sprint look like frantic flapping instead of swimming.
@@ -957,61 +1223,6 @@ func _process(delta: float) -> void:
 	elif not warned:
 		warned = true
 		push_warning("Roshan skeleton not found in roshan.glb - check import")
-	_apply_verb(delta)
-	# idle life: after a quiet while she looks around; at night she dozes off
-	# (free swim only — verbs never interrupt a minigame)
-	idle_verb_cool = maxf(0.0, idle_verb_cool - delta)
-	if verb == "" and idle_verb_cool <= 0.0 and idle_t > 12.0:
-		var mn: Node = get_parent()
-		if "game" in mn and String(mn.game) == "":
-			if "is_night" in mn and bool(mn.is_night) and idle_t > 25.0:
-				play_verb("sleep")
-				idle_verb_cool = 22.0
-			else:
-				# small idle repertoire so a quiet minute stays alive
-				play_verb(["look", "hairtwirl", "hum"][randi() % 3])
-				idle_verb_cool = 15.0
-
-	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
-	if skin_sprite != null and skin_sprite.visible:
-		skin_t += delta * (2.2 + speed * 0.6)
-		skin_sprite.position.y = 0.6 + sin(skin_t) * 0.3
-		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
-		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
-
-	# right-stick / right-drag / second-finger-drag camera: peek around and up
-	# or down, then drift back behind her once every look input is released
-	var rx: float = joy_axis(JOY_AXIS_RIGHT_X)
-	var ry: float = joy_axis(JOY_AXIS_RIGHT_Y)
-	var mlook: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
-	if "touch_ui" in _m0 and _m0.touch_ui != null and _m0.touch_ui.has_method("consume_look"):
-		var tl: Vector2 = _m0.touch_ui.consume_look()
-		mlook_x += tl.x
-		mlook_y += tl.y
-		mlook = mlook or bool(_m0.touch_ui.look_active())
-	if absf(rx) > 0.25:
-		cam_orbit = clampf(cam_orbit - rx * 2.6 * delta, -PI * 0.9, PI * 0.9)
-	elif mlook:
-		cam_orbit = clampf(cam_orbit - mlook_x * 0.005, -PI * 0.9, PI * 0.9)
-	else:
-		cam_orbit = lerpf(cam_orbit, 0.0, 1.0 - pow(0.35, delta))
-	if absf(ry) > 0.25:
-		cam_pitch_off = clampf(cam_pitch_off + ry * 9.0 * delta, -4.5, 8.0)
-	elif mlook:
-		cam_pitch_off = clampf(cam_pitch_off + mlook_y * 0.02, -4.5, 8.0)
-	else:
-		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
-
-	if cam != null and cam.is_inside_tree():
-		var cyaw: float = yaw + cam_orbit
-		# WW sail-stretch: the chase distance and lens breathe out a little at
-		# sprint speed, so going fast LOOKS fast (identical at rest)
-		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
-		var back_eff: float = cam_back * (1.0 + 0.10 * cam_spd)
-		var target := position + Vector3(-sin(cyaw) * back_eff, cam_high + cam_pitch_off, -cos(cyaw) * back_eff)
-		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
-		cam.look_at(position + Vector3(0, 1.5, 0))
-		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
 
 func _tick_wake(delta: float, speed: float) -> void:
 	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
