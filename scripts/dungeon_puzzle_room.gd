@@ -39,14 +39,16 @@ var remind_stage := 0
 var wrong_streak := 0
 var guided := false
 var clue_symbols: Array[Node3D] = []
-var statue_marks: Array[MeshInstance3D] = []
+var statue_marks: Array[Node3D] = []
 var statue_done: Array[bool] = []
+var art_theme := ""
 
 func start(main: ReefMain, room_config: Dictionary, done_cb: Callable) -> void:
 	m = main
 	config = room_config
 	finish_cb = done_cb
 	puzzle_kind = String(config.get("puzzle", "sequence"))
+	art_theme = String(config.get("art_theme", ""))
 	player_pos = CENTER + Vector3(0, 1.1, 17.0)
 	_build_environment()
 	_build_room()
@@ -111,9 +113,9 @@ func _sphere(pos: Vector3, radius: float, col: Color, glow: float = 0.0, parent:
 func _build_room() -> void:
 	var floor_col := Color(config.get("floor", Color(0.32, 0.42, 0.62)))
 	var trim: Color = Color(config.get("trim", Color(0.65, 0.92, 1.0)))
-	var arena := DungeonArt.spawn("arena", self, CENTER)
+	var arena := DungeonArt.spawn("arena", self, CENTER, art_theme)
 	DungeonArt.tint(arena, _mat(floor_col), _mat(trim, 0.15))
-	door = DungeonArt.spawn("door", self, CENTER + Vector3(0, 0, -24.7))
+	door = DungeonArt.spawn("door", self, CENTER + Vector3(0, 0, -24.7), art_theme)
 	DungeonArt.tint(door, _mat(floor_col.darkened(0.2)), _mat(trim))
 
 func _build_avatar() -> void:
@@ -129,9 +131,9 @@ func _add_pad(index: int, pos: Vector3, symbol: String, col: Color, keep_kinds: 
 	var root := Node3D.new()
 	root.position = pos
 	add_child(root)
-	var pedestal := DungeonArt.spawn("pedestal", root)
+	var pedestal := DungeonArt.spawn("pedestal", root, Vector3.ZERO, art_theme)
 	DungeonArt.tint(pedestal, _mat(col.darkened(0.35)), _mat(col, 0.18))
-	var picture := DungeonArt.add_pictogram(symbol, root, Vector3(0, 3.0, 0), 1.15, keep_kinds)
+	var picture := DungeonArt.add_pictogram(symbol, root, Vector3(0, 3.0, 0), 1.15, keep_kinds, art_theme)
 	interactives.append({"index": index, "node": root, "picture": picture, "pos": pos})
 	return root
 
@@ -160,12 +162,15 @@ func _build_sequence_props() -> void:
 		# The clue row IS the objective for a non-reader: each symbol sits on a
 		# dark disc for contrast, close enough to the camera to read at a glance.
 		var slot := CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 6.5, 8.0, -10.0)
-		var disc := CylinderMesh.new()
-		disc.top_radius = 2.6
-		disc.bottom_radius = 2.6
-		disc.height = 0.3
-		_mesh(disc, slot, Color(0.05, 0.06, 0.16))
-		clue_symbols.append(DungeonArt.add_pictogram(kind, self, slot + Vector3(0, 0.55, 0), 1.8))
+		if art_theme == "ember":
+			DungeonArt.spawn("clue_plaque", self, slot, art_theme)
+		else:
+			var disc := CylinderMesh.new()
+			disc.top_radius = 2.6
+			disc.bottom_radius = 2.6
+			disc.height = 0.3
+			_mesh(disc, slot, Color(0.05, 0.06, 0.16))
+		clue_symbols.append(DungeonArt.add_pictogram(kind, self, slot + Vector3(0, 0.55, 0), 1.8, [], art_theme))
 	var default_count := 2 if puzzle_kind == "elemental" else 3
 	var count := int(config.get("choice_count", default_count))
 	for i in range(count):
@@ -183,8 +188,8 @@ func _build_path_props() -> void:
 	var solution: Array = config.get("solution", [0, 1, 0, 0])
 	for i in range(solution.size()):
 		var x := -4.5 if int(solution[i]) == 0 else 4.5
-		var stone := DungeonArt.spawn("stone", self, CENTER + Vector3(x, 0.8, 2.0 - float(i) * 5.0))
-		stone.scale = Vector3(0.3, 0.3, 0.3)
+		var stone := DungeonArt.spawn("stone", self, CENTER + Vector3(x, 0.8, 2.0 - float(i) * 5.0), art_theme)
+		stone.scale = Vector3.ONE * (0.82 if art_theme == "ember" else 0.3)
 		reveal_nodes.append(stone)
 	_add_pad(0, CENTER + Vector3(-6.5, 0.7, 11.0), "left", _choice_color(0))
 	_add_pad(1, CENTER + Vector3(6.5, 0.7, 11.0), "right", _choice_color(1))
@@ -197,7 +202,7 @@ func _build_torch_props() -> void:
 	for i in range(4):
 		var x := (float(i) - 1.5) * 7.0
 		var pos := CENTER + Vector3(x, 0.5, -6.0)
-		var lantern := DungeonArt.spawn("lantern", self, pos)
+		var lantern := DungeonArt.spawn("lantern", self, pos, art_theme)
 		lantern.scale.y = heights[i] / 5.5
 		var flame := DungeonArt.find_part(lantern, "Glow")
 		flame.visible = false
@@ -210,21 +215,33 @@ func _build_shell_props() -> void:
 	statue_done = [false, false, false]
 	var gold := Color(1.0, 0.85, 0.3)
 	for i in range(3):
-		var root := DungeonArt.spawn("statue", self, CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0))
+		var root := DungeonArt.spawn("statue", self, CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0), art_theme)
 		interactives.append({"index": i, "node": root, "pos": root.position})
 		# The sculpted nose is unreadable from the high camera, so each statue
 		# carries an oversized golden beak that makes its facing obvious.
-		var beak := CylinderMesh.new()
-		beak.top_radius = 0.0
-		beak.bottom_radius = 0.6
-		beak.height = 2.0
-		var nose := _mesh(beak, Vector3(0, 2.4, 2.6), gold, 1.1, root)
-		nose.rotation_degrees.x = 90.0
-		var mark := _sphere(root.position + Vector3(0, 5.6, 0), 0.55, gold, 1.6)
+		var nose: Node3D
+		if art_theme == "ember":
+			nose = DungeonArt.spawn("direction_beak", root, Vector3(0, 2.4, 2.6), art_theme)
+		else:
+			var beak := CylinderMesh.new()
+			beak.top_radius = 0.0
+			beak.bottom_radius = 0.6
+			beak.height = 2.0
+			nose = _mesh(beak, Vector3(0, 2.4, 2.6), gold, 1.1, root)
+			nose.rotation_degrees.x = 90.0
+		var mark: Node3D
+		if art_theme == "ember":
+			mark = DungeonArt.spawn("completion_spark", self, root.position + Vector3(0, 5.6, 0), art_theme)
+			mark.scale = Vector3.ONE * 0.55
+		else:
+			mark = _sphere(root.position + Vector3(0, 5.6, 0), 0.55, gold, 1.6)
 		mark.visible = false
 		statue_marks.append(mark)
-	DungeonArt.spawn("pedestal", self, CENTER + Vector3(0, 0.7, 3.0))
-	_sphere(CENTER + Vector3(0, 3.6, 3.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
+	DungeonArt.spawn("pedestal", self, CENTER + Vector3(0, 0.7, 3.0), art_theme)
+	if art_theme == "ember":
+		DungeonArt.spawn("pearl_target", self, CENTER + Vector3(0, 3.6, 3.0), art_theme)
+	else:
+		_sphere(CENTER + Vector3(0, 3.6, 3.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
 	clue_pos = CENTER + Vector3(0, 9.0, 3.0)
 	_refresh_statue_marks(false)
 

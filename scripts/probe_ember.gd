@@ -67,6 +67,20 @@ func _init() -> void:
 	_ck("ambient stays capped for the dark look", env != null and env.ambient_light_energy <= 0.551)
 	_ck("five ember lanterns await", ember._lanterns.size() == 5 and ember._lit == 0)
 	_ck("the Great Gate starts shut", not ember._gate_open)
+	var first_lantern: Dictionary = ember._lanterns[0]
+	var first_vent: Dictionary = ember._vents[0]
+	_ck("planet uses the dedicated Ember shell", ember.find_child("EmberPlanet", true, false) != null)
+	_ck("lantern flames use the exported three-layer model", first_lantern.get("flame") is Node3D and (first_lantern["flame"] as Node3D).find_children("*", "MeshInstance3D", true, false).size() == 3)
+	_ck("ash moon uses the exported cratered model", ember._moon is Node3D and ember._moon.find_child("AshBody", true, false) != null)
+	_ck("geyser vents use authored basalt and flame parts", ember._vents.size() == 3 and first_vent.get("flame") is Node3D)
+	_ck("overworld no longer routes through generic castle art", EmberFortressLevel.GATE_GLB.begins_with(EmberFortressLevel.ART_ROOT) and EmberFortressLevel.TOWER_GLBS.size() == 4)
+	var ember_art_exists := true
+	for path: String in DungeonArt.EMBER_PATHS.values():
+		ember_art_exists = ember_art_exists and ResourceLoader.exists(path)
+	_ck("every Ember dungeon art role resolves", ember_art_exists)
+	main.quality = "speedy"
+	ember._sync_detail_lights()
+	_ck("Speedy disables the King and avatar detail lights", not ember._king_light.visible and not ember._trail_light.visible)
 	# ---- passive safety: nothing lights or opens by itself ----
 	for i in range(30):
 		await process_frame
@@ -75,6 +89,14 @@ func _init() -> void:
 	for i in range(5):
 		ember._light_lantern(i)
 	_ck("all five lanterns burn", ember._lit == 5)
+	var first_dir: Vector3 = first_lantern["dir"]
+	ember._dir = first_dir
+	ember._sync_detail_lights()
+	var visible_lantern_lights := 0
+	for lantern: Dictionary in ember._lanterns:
+		if (lantern["light"] as OmniLight3D).visible:
+			visible_lantern_lights += 1
+	_ck("Speedy shows at most the nearest lantern light", visible_lantern_lights == 1)
 	_ck("lantern checkpoints persist as hidden sticker keys", bool(main.stickers.get("_ember_lantern_0", false)) and bool(main.stickers.get("_ember_lantern_4", false)))
 	_ck("five lanterns open the Great Gate", ember._gate_open)
 	# ---- the six-room fortress dungeon ----
@@ -93,6 +115,7 @@ func _init() -> void:
 	_ck("fortress level pauses underneath", not ember.visible and ember.process_mode == Node.PROCESS_MODE_DISABLED)
 	await _wait_for_room(dungeon, 0)
 	_ck("sequencer runs the fortress room table", dungeon.rooms.size() == 6 and String((dungeon.rooms[0] as Dictionary)["name"]) == "Cinder Gate Imps")
+	_ck("fortress rooms receive the Ember-only art theme", dungeon.arena != null and dungeon.arena.art_theme == "ember" and dungeon.arena.find_child("EmberArena", true, false) != null)
 	for i in range(30):
 		await process_frame
 	_ck("fortress combat cannot win passively", dungeon.room_index == 0 and dungeon.arena != null)
