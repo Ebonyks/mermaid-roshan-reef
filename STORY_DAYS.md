@@ -150,7 +150,10 @@ scrub reuses the seek/tap pattern, and the patch-wipe reuses the picture-
 games touch path (see MINIGAME_ENGINES.md); the day needs its own
 `scripts/games/clean.gd` satellite and probe coverage when it builds
 (§8/§9) — `probe_passive.gd` must pop and clean nothing with zero input,
-and the agency rule holds (helpers stun, only Roshan pops).
+and the agency rule holds (helpers stun, only Roshan pops). The full
+asset and minigame packet is the Codex handoff
+`CLEANING_ASSET_REQUESTS_2026-07-22.md` (critters, grime/reveal layers,
+wall dressing, tools, seven-game roster, audio).
 
 ### Day 2 — Tuesday — Reef Day
 
