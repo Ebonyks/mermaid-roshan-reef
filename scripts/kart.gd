@@ -157,9 +157,9 @@ const SHELL_GEN2 := "spiralshell"
 # meadow planet, crystal castle and butterflies the player lands on in
 # galaxy.gd — instead of circling empty starfield.
 const BW_PLANET_R := 70.0
-const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
-const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
-const BW_DECO_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
+const BW_CASTLE_GLB := "res://assets/props/gen2/crystal_castle.glb"
+const BW_CRYSTALS := ["res://assets/props/gen2/crystal1.glb", "res://assets/props/gen2/crystal2.glb"]
+const BW_DECO_CRYSTALS := ["res://assets/props/gen2/crystal1.glb", "res://assets/props/gen2/crystal2.glb", "res://assets/props/gen2/crystal3.glb"]
 const KART_BARRIER_GLB := "res://assets/art35/kart/soft_barrier.glb"
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
@@ -175,16 +175,20 @@ const VEHICLES := {
 	# bumper king (mass WINS every collision, walls barely slow it).
 	"moto": {
 		"label": "Zoom Cycle", "blurb": "PRO: fastest + super steering / CON: so light, bumps toss it!",
-		"glb": "res://assets/vehicles/motorcycle.glb",
+		"glb": "res://assets/vehicles/motorcycle_story.glb",
+		"legacy_glb": "res://assets/vehicles/motorcycle.glb",
 		"vmax": 1.08, "steer": 30.0, "wall": 0.62, "mass": 0.6,
-		"turbo": 1.2, "slip": 0.45, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
+		"turbo": 1.2, "slip": 0.45, "size": 5.0,
+		"yaw_fix": -PI * 0.5,   # motorcycle_story.glb faces +X — UNVERIFIED render, retune after CI capture
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "PRO: turbo champ - pickups charge extra! / CON: no muscle",
-		"glb": "res://assets/vehicles/gokart.glb",
+		"glb": "res://assets/vehicles/gokart_story.glb",
+		"legacy_glb": "res://assets/vehicles/gokart.glb",
 		"vmax": 1.0, "steer": 22.0, "wall": 0.82, "mass": 1.0, "mcharge": 1.3,
-		"turbo": 1.35, "slip": 0.12, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
+		"turbo": 1.35, "slip": 0.12, "size": 6.0,
+		"yaw_fix": -PI * 0.5,   # gokart_story.glb faces +X — UNVERIFIED render, retune after CI capture
 		"lean": 0.15,
 	},
 	"truck": {

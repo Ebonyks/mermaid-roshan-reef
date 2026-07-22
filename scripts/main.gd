@@ -1386,9 +1386,23 @@ func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
 	for c in node.get_children():
 		_apply_mat(c, mat, overlay)
 
+# Kenney Pirate Kit piece -> painted GEN2 sculpt (strangler-fig fallback)
+const SHIP_GEN2 := {"ship-wreck": "ship_wreck", "chest": "ship_chest",
+	"barrel": "ship_barrel", "ship-ghost": "ship_ghost"}
+
 func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 	if rock_pbr == null:
 		_texture_mats()
+	if SHIP_GEN2.has(model):
+		var gp := "res://assets/props/gen2/" + String(SHIP_GEN2[model]) + ".glb"
+		if ResourceLoader.exists(gp):
+			var ginst: Node3D = (load(gp) as PackedScene).instantiate()
+			_toonify(ginst)
+			ginst.position = pos
+			ginst.scale = Vector3.ONE * scl
+			ginst.rotation.y = yrot
+			add_child(ginst)
+			return ginst
 	if not model_cache.has(model):
 		var base := "res://assets/ship/" if model.begins_with("ship") or model in ["chest", "barrel"] else "res://assets/kenney/"
 		if not ResourceLoader.exists(base + model + ".glb"):
@@ -3575,7 +3589,9 @@ func _terr_v(st: SurfaceTool, lx: float, lz: float, y: float) -> void:
 
 # courtyard trees: pack name -> painted GEN2 sculpt (strangler-fig fallback)
 const NATURE_GEN2 := {"tree_palm": "tree_palm", "tree_default_fall": "tree_fall",
-	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat", "tree_pineRoundF": "tree_pineroundf"}
+	"tree_simple_fall": "tree_fall2", "tree_fat": "tree_fat", "tree_pineRoundF": "tree_pineroundf",
+	"cliff_block_rock": "cliffrock_block", "cliff_large_rock": "cliffrock_large",
+	"rock_largeA": "rock_boulder"}
 
 func _wind_sway(node: Node3D) -> void:
 	# simple living-world animation: a slow base-pinned lean, random phase
@@ -3653,7 +3669,12 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 # playground: kit path -> painted GEN2 sculpt + its ambient toy animation
 const KIT_GEN2 := {"play/slide_A": "play_slide", "play/swing_A_large": "play_swing",
 	"play/merry_go_round": "play_merry", "play/seesaw_large": "play_seesaw",
-	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse"}
+	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse",
+	"castle/tower-square": "kit_tower_square", "castle/flag": "kit_flag",
+	"castle/wall": "kit_wall", "park/bench": "kit_bench", "park/fountain": "kit_fountain",
+	"park/hedge_straight": "kit_hedge", "park/hedge_straight_long": "kit_hedge_long",
+	"furniture/bookcase": "kit_bookcase", "furniture/chair": "kit_chair",
+	"furniture/table": "kit_table"}
 
 func _toy_anim(node: Node3D, name: String) -> void:
 	# simple always-alive toy motion (cosmetic; solids stay where they were)

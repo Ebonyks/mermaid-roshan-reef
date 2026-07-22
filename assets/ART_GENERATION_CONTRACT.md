@@ -10,13 +10,20 @@ candidate pack, `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` at the repo root is
 the current prioritized directive list (P0 QA fixes → P1 promotion → P2
 rework → P3 coverage). Close P0 before generating anything new.
 
-**Queued next (owner directive 2026-07-22):** once P0 above is closed,
-`CC0_REPLACEMENT_WORKORDER_2026-07-22.md` at the repo root is the next
-directive — replace the remaining non-original (CC0/CC-BY/unclear-license)
-world assets with authored ones, following the same two-pipeline split and
-stress-test loop as everything else in this contract. It already separates
-genuinely-live items (real work) from dead code nobody deleted yet (zero
-art needed) — read its Group 2 table before generating anything from it.
+**Queued next (owner directive 2026-07-22):** `CC0_REPLACEMENT_WORKORDER_2026-07-22.md`
+at the repo root replaces the remaining non-original (CC0/CC-BY/unclear-
+license) world assets with authored ones. 24 of its Group 2 items are
+already generated and wired (`tools/build_cc0_replacement_kit.py`,
+`assets/props/gen2/*` + `assets/vehicles/*_story.glb`) — **what's left is
+NOT more generation**, it's the same stress-test loop as everything else in
+this contract: pull CI Mobile-render captures for those 24, verify the two
+new vehicle `yaw_fix` values aren't driving sideways, and get owner
+acceptance before the superseded CC0/CC-BY files are deleted. Separately,
+6 `assets/kits/castle/*` pieces still need their live-call-site status
+confirmed before anyone models them, and `assets/castle/throne.glb` needs a
+wiring check (likely already dead code), not new art. Read the workorder's
+"Group 2", "Item #1", and "Remaining open items" sections before touching
+this queue further.
 
 **Audit memory:** read `assets/OBJECT_GENERATION_AUDIT_LOG.md` before creating
 a generation prompt or Blender generator. It evaluates the source audits,

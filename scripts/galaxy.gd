@@ -31,20 +31,20 @@ const JUMP_V := 17.0
 const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const SHARDS := 7
-const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
+const CRYSTALS := ["res://assets/props/gen2/crystal1.glb", "res://assets/props/gen2/crystal2.glb", "res://assets/props/gen2/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
 # is a greenhouse full of tropical plants, not a pine forest
 const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
 	"trop_fern", "plant_bush", "grass_leafsLarge"]
-const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
+const CASTLE_GLB := "res://assets/props/gen2/crystal_castle.glb"
 const GATE_DIR := Vector3(0.55, 0.84, 0.16)   # separated from the north-pole crystal silhouette
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const FRUIT_ROLES := ["apple", "banana", "orange", "melon"]
-const TRAY_GLB := "res://assets/galaxy/tray.glb"
+const TRAY_GLB := "res://assets/props/gen2/galaxy_tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 const BUG_ROLES := ["beetle", "ladybug"]
