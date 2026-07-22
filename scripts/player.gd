@@ -471,7 +471,8 @@ func set_skin(id: String, tex_path: String) -> void:
 # top-level Piece* nodes mount onto the bone anchors below. Grows one job per
 # art batch; careers without a kit keep their toy-primitive costume.
 const COSTUME_KITS := {"chef": "pastry_chef", "ballerina": "ballerina",
-	"detective": "detective", "candymaker": "candymaker"}
+	"detective": "detective", "candymaker": "candymaker", "doctor": "doctor",
+	"farmer": "farmer", "boxer": "boxer", "magician": "magician"}
 
 func set_costume(id: String) -> void:
 	clear_costume()
