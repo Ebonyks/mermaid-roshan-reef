@@ -235,3 +235,5 @@ ambientCG (all CC0).
 - assets_src/blender/opera_detective_2026-07-22.blend — Blender source for the above, original work.
 - assets/opera/jobs/candymaker/opera_candymaker_press.glb, opera_candymaker_candy_{0..6}.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_candymaker.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
 - assets_src/blender/opera_candymaker_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/{ballerina,detective,candymaker}/opera_*_outfit.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_outfits_floor1.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted outfit cards. Modifications: n/a (new).
+- assets_src/blender/opera_outfits_floor1_2026-07-22.blend — Blender source for the above, original work.

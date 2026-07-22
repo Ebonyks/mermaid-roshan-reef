@@ -470,7 +470,8 @@ func set_skin(id: String, tex_path: String) -> void:
 # card-faithful outfit kits (CLAUDE_OPERA_JOB_3D_CONTINUATION): a GLB whose
 # top-level Piece* nodes mount onto the bone anchors below. Grows one job per
 # art batch; careers without a kit keep their toy-primitive costume.
-const COSTUME_KITS := {"chef": "pastry_chef"}
+const COSTUME_KITS := {"chef": "pastry_chef", "ballerina": "ballerina",
+	"detective": "detective", "candymaker": "candymaker"}
 
 func set_costume(id: String) -> void:
 	clear_costume()
