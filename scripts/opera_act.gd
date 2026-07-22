@@ -188,6 +188,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
 	_build_environment()
 	_build_theatre()
+	_dress_world()
 	if stage_phase == "brawl":
 		_build_backstage()
 	_build_avatar()
@@ -294,6 +295,55 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.height = height
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
+
+# Per-act world dressing from the converted card library (Codex guide:
+# CODEX_ASSET_REQUESTS_2026-07-21.md). Cards are flat cutouts exported lying
+# down; _card() stands them upright facing the audience. Positions hug the
+# backdrop and wings so gameplay props keep the centre stage.
+const DRESS := {
+	"chef": [["style3/fruit_apple", -19.0, -12.0, 2.2], ["style3/fruit_banana", -14.5, -13.0, 2.0],
+		["style3/fruit_melon", 14.5, -13.0, 2.4], ["style3/fruit_orange", 19.0, -12.0, 2.0], ["mg/sun", 0.0, -15.5, 3.0]],
+	"detective": [["style3/crystal_facet", -18.0, -12.5, 2.2], ["mg/star", 18.0, -12.5, 2.4], ["style3/shipwood", 0.0, -15.5, 3.2]],
+	"ballerina": [["mg/flower2", -19.0, -12.5, 2.2], ["mg/flower3", 19.0, -12.5, 2.2],
+		["mg/flower4", -14.0, -14.0, 1.8], ["mg/flower", 14.0, -14.0, 1.8], ["mg/star", 0.0, -15.5, 2.6]],
+	"candymaker": [["mg/orn1", -18.0, -12.5, 2.4], ["mg/orn2", -12.5, -14.0, 2.0], ["mg/orn3", 12.5, -14.0, 2.0],
+		["mg/orn4", 18.0, -12.5, 2.4], ["mg/rainbow_swatch", 0.0, -15.5, 3.0]],
+	"doctor": [["mg/flower", -18.0, -12.5, 2.0], ["mg/butterfly", 18.0, -12.5, 2.0], ["mg/sun", 0.0, -15.5, 2.8]],
+	"boxer": [["mg/star", -18.0, -12.5, 2.6], ["mg/star", 18.0, -12.5, 2.6], ["mg/sun", 0.0, -15.5, 3.0]],
+	"magician": [["mg/star", -18.0, -12.5, 2.4], ["style3/crystal_facet", 18.0, -12.5, 2.2], ["mg/xtree", 0.0, -15.5, 3.0]],
+	"painter": [["mg/rainbow_swatch", -18.0, -12.5, 2.6], ["style3/leaf_broad", 18.0, -12.5, 2.2],
+		["style3/leaf_fern", 13.0, -14.0, 1.9], ["mg/sun", 0.0, -15.5, 2.8]],
+	"astronaut": [["mg/star", -18.0, -12.5, 2.4], ["mg/coal", 18.0, -12.5, 2.0], ["mg/star", 13.0, -14.5, 1.7]],
+	"popstar": [["mg/star", -18.0, -12.5, 2.6], ["mg/rainbow_swatch", 18.0, -12.5, 2.4], ["mg/orn5", 0.0, -15.5, 2.6]],
+	"knight_boss": [["mg/star", -18.0, -12.5, 2.4], ["mg/star", 18.0, -12.5, 2.4]],
+}
+
+func _card(fname: String, pos: Vector3, yaw: float = 0.0, card_scale: float = 2.0, parent: Node3D = null) -> Node3D:
+	var full := "res://assets/art35/cards/" + fname + ".glb"
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees = Vector3(90.0, yaw, 0.0)
+	prop.scale = Vector3.ONE * card_scale
+	var target: Node3D = self if parent == null else parent
+	target.add_child(prop)
+	return prop
+
+func _dress_world() -> void:
+	var key := String(config.get("costume", ""))
+	if key == "" and kind == "boss" and not bool(config.get("dual", false)) and not bool(config.get("finale", false)):
+		key = "knight_boss"
+	if not DRESS.has(key):
+		return
+	for entry: Array in (DRESS[key] as Array):
+		var pos := CENTER + Vector3(float(entry[1]), 0.4 + float(entry[3]), float(entry[2]))
+		_card(String(entry[0]), pos, 0.0, float(entry[3]))
 
 func _act_prop(fname: String, pos: Vector3, yaw: float = 0.0, parent: Node3D = null) -> Node3D:
 	# authored opera GLBs (tools/build_opera_house_art.py) with null fallback

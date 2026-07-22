@@ -293,6 +293,28 @@ func _build_lobby() -> void:
 	# the theatre crest over the top gallery
 	_label("🎭", L + Vector3(0, 41.5, -21.4), 120, Color(1.0, 0.92, 0.7))
 	_label("★", L + Vector3(0, 37.0, -21.4), 64, Color(1.0, 0.88, 0.45))
+	# foyer greenery + poster cards from the converted flat library: coral
+	# planters along the side walls, flower cards by the benches (Codex guide)
+	var foyer_cards: Array = [
+		["gen2/coral1_Image_0_flat", Vector3(-35.0, 2.6, 16.0), 2.2],
+		["gen2/coral3_Image_0_flat", Vector3(35.0, 2.6, 16.0), 2.2],
+		["gen2/coral5_Image_0_flat", Vector3(-35.0, 2.6, 6.0), 2.0],
+		["gen2/coral2_Image_0_flat", Vector3(35.0, 2.6, 6.0), 2.0],
+		["mg/flower2", Vector3(-27.5, 2.2, 16.5), 1.6],
+		["mg/flower3", Vector3(27.5, 2.2, 16.5), 1.6],
+		["mg/star", Vector3(0.0, 5.2, 21.8), 2.0],
+	]
+	for fc: Array in foyer_cards:
+		var cpath := "res://assets/art35/cards/" + String(fc[0]) + ".glb"
+		if ResourceLoader.exists(cpath):
+			var cpacked := load(cpath) as PackedScene
+			if cpacked != null:
+				var cprop := cpacked.instantiate() as Node3D
+				if cprop != null:
+					cprop.position = L + (fc[1] as Vector3)
+					cprop.rotation_degrees = Vector3(90.0, 0.0, 0.0)
+					cprop.scale = Vector3.ONE * float(fc[2])
+					lobby_root.add_child(cprop)
 	# padded audience benches by the entrance (pure set dressing)
 	for bz in [14.0, 18.5]:
 		for bx in [-22.0, 22.0]:
