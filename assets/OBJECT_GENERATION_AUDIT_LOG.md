@@ -351,6 +351,45 @@ Most frequent failures:
 - Required test: Mobile views proving opaque Opera destination depth, wardrobe
   storage identity, pantry silhouette variety, and treated entrance-wall framing.
 
+### A17 - Ember Fortress full visual-role regeneration and runtime correction
+
+- Source and commit: `codex/bowser-world-graphics`, 2026-07-21 candidate;
+  use the live branch HEAD and exact-HEAD probes run rather than a stale hash.
+- Scope: all 42 active visual roles in the Ember Fortress spherical overworld
+  and six-room Ember dungeon; 39 dedicated GLBs plus runtime effects, HUD,
+  pointers, and protected avatar presentation.
+- Evidence class: E3 Godot 4.4.1 Vulkan Forward Mobile frames at Speedy,
+  cross-checked against E2 isolated Blender renders and parsed export metrics.
+- Findings independently verified: a generator can produce valid isolated
+  assets while generic ground alignment shifts a world sphere by one radius;
+  an enclosure outside the camera far plane silently becomes black; a strong
+  gate asset fails when a character blocks its approach; exact imported child
+  names are unstable when Blender adds suffixes; and longitude treatment at a
+  pole can collapse into a distracting triangle fan.
+- Findings accepted: world shells require an explicit origin/analytic-radius
+  contract; sky/enclosure radius belongs in the camera-distance packet;
+  interactive state geometry must be separate and runtime-captured in both
+  states; character staging is part of role readability; imported part lookup
+  must tolerate deterministic suffixes; and polar goals need a quiet authored
+  landing surface rather than converging bands.
+- Findings accepted as proposals only: the current 4/5 score remains below
+  owner acceptance, and Lenovo Tab M11 frame timing remains an APK play-test
+  concern even though texture, triangle, transparency, and Speedy light budgets
+  are bounded.
+- Findings rejected or superseded: source inspection, isolated renders, import
+  success, and a green behavioral probe alone do not prove correct world scale
+  or gameplay composition. A visual shell is not correctly integrated merely
+  because its longest dimension matches the intended diameter.
+- New or changed rule IDs: none; reinforces R-ROLE3, R-ROLE4, R-GOV4, R-FUNC1,
+  R-FUNC3, R-REP3, R-QA4, R-QA5, and R-QA8.
+- Roles/families affected: spherical world shell, sky enclosure, volcanic
+  architecture, gate states, objective lantern family, navigation portal,
+  dungeon arena/actors/items, and pictogram atlas selection.
+- Required negative-control or runtime test: center the authored shell on the
+  analytic origin; show closed/open gate and unlit/lit lantern pairs; show
+  Roshan beside the portal; assert exactly one pictogram child; and capture the
+  full set through the Mobile renderer before any score above 2/5.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
