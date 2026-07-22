@@ -263,7 +263,6 @@ var speed_lines: GPUParticles3D
 var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
-	position = Vector3(0, 26, 0)
 	# THE 3D Roshan. v3 (2026-07-11) is the multi-view Meshy rebuild from the
 	# three-view reference set in "Downloads/Mermaid roshan art base": head
 	# faces her swim direction (the v2/card models baked the illustration's

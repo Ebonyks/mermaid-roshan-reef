@@ -30,6 +30,39 @@ const REGION_CENTERS := {
 	"ice": Vector2(140, -115),
 }
 
+# The open ocean remains one lightweight analytic world, but every district
+# belongs to one of two real ecosystem kingdoms. Keeping the authored
+# coordinates stable preserves friends, pearls, routes and old saves while the
+# ownership layer prevents warm-water scatter and fauna from leaking north.
+const KINGDOM_CARIBBEAN := "caribbean"
+const KINGDOM_NORWEGIAN := "norwegian"
+const KINGDOM_BY_REGION := {
+	"pearl": KINGDOM_CARIBBEAN,
+	"wreck": KINGDOM_CARIBBEAN,
+	"moon": KINGDOM_CARIBBEAN,
+	"rainbow": KINGDOM_CARIBBEAN,
+	"kelp": KINGDOM_NORWEGIAN,
+	"ice": KINGDOM_NORWEGIAN,
+}
+
+# Each kingdom has an existing project-authored landmark that doubles as its
+# return gate to the Pearl Castle gatehouse. Entry points sit outside the
+# trigger radius and face deeper into their kingdom, so arrival never bounces.
+const KINGDOM_RETURN_GATES := {
+	KINGDOM_CARIBBEAN: Vector2(-125.0, 6.0),
+	KINGDOM_NORWEGIAN: Vector2(98.0, -82.0),
+}
+const KINGDOM_ENTRY_POINTS := {
+	KINGDOM_CARIBBEAN: Vector2(-101.0, 6.0),
+	KINGDOM_NORWEGIAN: Vector2(80.0, -65.0),
+}
+const KINGDOM_DESTINATION_CENTERS := {
+	KINGDOM_CARIBBEAN: Vector2(-165.0, 5.0),
+	KINGDOM_NORWEGIAN: Vector2(140.0, -115.0),
+}
+const COLD_WATER_BENTHOS := ["urchin_story", "anemone_story"]
+const FORBIDDEN_NORWEGIAN_FLORA := ["coral", "sponge", "fanshell", "starfish"]
+
 # Friend order matches ReefMain.FRIEND_DEFS. Friends sit at readable gateways;
 # the dense scenic body of each district begins farther out behind them.
 const FRIEND_POSITIONS := [
@@ -54,11 +87,11 @@ const REGIONAL_SCENES := {
 # object families with a role beyond recolouring the same coral or rock.
 const REGION_SIGNATURES := {
 	"pearl": ["shell gardens", "barrel sponges", "pearl-shop ship"],
-	"kelp": ["living kelp threshold", "hanging lantern pods", "tall kelp aisles"],
+	"kelp": ["Norwegian kelp threshold", "hanging lantern pods", "cold-water kelp aisles"],
 	"wreck": ["broken ship", "treasure debris", "ravine shoulders"],
 	"moon": ["eroded shell arch", "pearl shell nest", "anemone bowl"],
 	"rainbow": ["race gateway", "coral bouquets", "starfish flats"],
-	"ice": ["brinicle hummocks", "frozen current sheets", "penguin floe"],
+	"ice": ["fjord crystal hummocks", "frozen current sheets", "cold-water benthos"],
 }
 
 var m: ReefMain
@@ -114,6 +147,21 @@ static func region_at(p: Vector2) -> String:
 			best = key
 	return best
 
+static func kingdom_at(p: Vector2) -> String:
+	return String(KINGDOM_BY_REGION.get(region_at(p), KINGDOM_CARIBBEAN))
+
+static func kingdom_entry_point(kingdom: String) -> Vector2:
+	return KINGDOM_ENTRY_POINTS.get(kingdom,
+		KINGDOM_ENTRY_POINTS[KINGDOM_CARIBBEAN]) as Vector2
+
+static func kingdom_return_gate(kingdom: String) -> Vector2:
+	return KINGDOM_RETURN_GATES.get(kingdom,
+		KINGDOM_RETURN_GATES[KINGDOM_CARIBBEAN]) as Vector2
+
+static func kingdom_destination_center(kingdom: String) -> Vector2:
+	return KINGDOM_DESTINATION_CENTERS.get(kingdom,
+		KINGDOM_DESTINATION_CENTERS[KINGDOM_CARIBBEAN]) as Vector2
+
 static func friend_position(index: int) -> Vector2:
 	return FRIEND_POSITIONS[clampi(index, 0, FRIEND_POSITIONS.size() - 1)]
 
@@ -146,11 +194,19 @@ static func habitat_point_allowed(habitat: String, p: Vector2) -> bool:
 			return false
 	if p.distance_to(Vector2(-5.0, -95.0)) < 18.0:
 		return false
+	for gate_pos_value: Variant in KINGDOM_RETURN_GATES.values():
+		var gate_pos: Vector2 = gate_pos_value as Vector2
+		if p.distance_to(gate_pos) < 14.0:
+			return false
 	var region: String = region_at(p)
 	match habitat:
 		"kelp", "anemone", "pearl", "wreck", "moon", "rainbow", "ice":
 			var expected: String = "moon" if habitat == "anemone" else habitat
 			return region == expected
+		KINGDOM_CARIBBEAN, "mixed":
+			return kingdom_at(p) == KINGDOM_CARIBBEAN
+		KINGDOM_NORWEGIAN:
+			return kingdom_at(p) == KINGDOM_NORWEGIAN
 		"starfish":
 			return region == "pearl" or region == "rainbow"
 		"urchin":
@@ -169,6 +225,10 @@ func scatter_point(habitat: String) -> Vector3:
 			choices = [Vector2(35, 34), Vector2(-22, -138), Vector2(-52, -182)]
 		"urchin":
 			choices = [Vector2(-142, 118), Vector2(-178, 150), Vector2(-174, 0)]
+		KINGDOM_CARIBBEAN, "mixed":
+			choices = [Vector2(38, 38), Vector2(-160, 135), Vector2(-165, 5), Vector2(-40, -165)]
+		KINGDOM_NORWEGIAN:
+			choices = [Vector2(-35, 165), Vector2(140, -115)]
 		_:
 			choices = [Vector2(38, 38), Vector2(-35, 165), Vector2(-160, 135), Vector2(-165, 5), Vector2(-40, -165), Vector2(140, -115)]
 	var p: Vector2 = choices[0]
@@ -203,6 +263,25 @@ func build_macro_structures() -> void:
 	# Ice Current: its two unique families support the floe/shop silhouette.
 	_regional_prop("ice_current", Vector2(98, -82), 15.0, -0.15, false)
 	_regional_prop("ice_crystals", Vector2(155, -135), 14.0, 0.55, true)
+	_kingdom_return_marker(KINGDOM_CARIBBEAN, KINGDOM_RETURN_GATES[KINGDOM_CARIBBEAN] as Vector2)
+	_kingdom_return_marker(KINGDOM_NORWEGIAN, KINGDOM_RETURN_GATES[KINGDOM_NORWEGIAN] as Vector2)
+
+func _kingdom_return_marker(kingdom: String, xz: Vector2) -> void:
+	# The authored arch/current is the gate silhouette; the castle icon and
+	# sparkle halo communicate "home" without requiring a child to read.
+	var pos := Vector3(xz.x, m.seabed_y(xz.x, xz.y) + 9.0, xz.y)
+	var rune := Label3D.new()
+	rune.name = "Kingdom_return_%s" % kingdom
+	rune.text = "🏰"
+	rune.font_size = 96
+	rune.outline_size = 18
+	rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	rune.modulate = Color(1.0, 0.78, 0.42) if kingdom == KINGDOM_CARIBBEAN else Color(0.62, 0.88, 1.0)
+	rune.position = pos
+	m.add_child(rune)
+	m.flora_nodes.append(rune)
+	var halo: Node3D = m._halo(pos - Vector3(0.0, 3.0, 0.0), rune.modulate, 10.0)
+	m.flora_nodes.append(halo)
 
 func _regional_prop(kind: String, xz: Vector2, target: float, yrot: float, solid: bool) -> Node3D:
 	var path: String = REGIONAL_SCENES[kind]
@@ -268,7 +347,7 @@ func build_flora() -> void:
 							kp = kelp_candidate
 							break
 					m._gen2_seagrass(Vector3(kp.x, m.seabed_y(kp.x, kp.y), kp.y), rng.randf_range(5.0, 9.0))
-				_place_family(rng, kind, p, ["coral5", "sponge_tubes"], 2, 3.0, 5.5, 5.0, 14.0)
+				_place_family(rng, kind, p, COLD_WATER_BENTHOS, 3, 2.2, 4.8, 5.0, 14.0)
 			"wreck":
 				_place_family(rng, kind, p, ["urchin_story"], 4, 1.8, 3.4, 5.0, 16.0)
 				_place_family(rng, kind, p, ["sponge_barrel", "sponge_tubes"], 1, 2.5, 4.2, 6.0, 14.0)
@@ -279,8 +358,13 @@ func build_flora() -> void:
 				_place_family(rng, kind, p, ["coral", "coral1", "coral4", "coral6"], 5, 2.8, 5.8, 5.0, 16.0)
 				_place_family(rng, kind, p, ["starfish"], 2, 1.8, 2.8, 4.0, 12.0)
 			"ice":
-				_place_family(rng, kind, p, ["sponge_tubes", "sponge_barrel"], 3, 2.8, 5.2, 5.0, 16.0)
-				_place_family(rng, kind, p, ["smallfanshell", "coral5"], 2, 2.0, 4.2, 5.0, 13.0)
+				for k in range(6):
+					var cold_grass: Vector2 = _around(rng, p, 5.0, 17.0)
+					if habitat_point_allowed(kind, cold_grass):
+						m._gen2_seagrass(Vector3(cold_grass.x,
+							m.seabed_y(cold_grass.x, cold_grass.y), cold_grass.y),
+							rng.randf_range(4.5, 7.5))
+				_place_family(rng, kind, p, COLD_WATER_BENTHOS, 4, 2.0, 4.5, 5.0, 15.0)
 	build_scattered_boulders(rng)
 
 func build_scattered_boulders(rng: RandomNumberGenerator) -> void:

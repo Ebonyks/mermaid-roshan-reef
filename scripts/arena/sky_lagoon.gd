@@ -27,6 +27,14 @@ const ALPINE_HABITAT_SCENES := [
 	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
 ]
 const OPERA_GATE_SPOT := Vector2(-26.0, -30.0)   # local: flat plaza, off the path, clear of moat + Dream Star 3
+const OCEAN_KINGDOM_GATE_DEFS := [
+	{"kingdom": ReefDistricts.KINGDOM_CARIBBEAN, "local": Vector2(-48.0, 178.0),
+		"scene": "res://assets/reef_regions/moon_shell_arch.glb", "target": 18.0,
+		"color": Color(1.0, 0.67, 0.38), "rune": "☀\n🐠"},
+	{"kingdom": ReefDistricts.KINGDOM_NORWEGIAN, "local": Vector2(48.0, 178.0),
+		"scene": "res://assets/reef_regions/ice_current_fan.glb", "target": 18.0,
+		"color": Color(0.48, 0.82, 1.0), "rune": "❄\n🐋"},
+]
 const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
 const FORBIDDEN_GROUND_LEAF_ROLES := ["grass_leafsLarge", "trop_bigleaf"]
 const LAGOON_GROUND_FLORA := [
@@ -216,6 +224,42 @@ func _lagoon_shrub(name: String, pos: Vector3, target_height: float,
 	return _lagoon_prop(name, pos, target_height / source_height, yaw)
 
 
+func _build_ocean_kingdom_gates(o: Vector3) -> void:
+	var gates: Array = []
+	for definition_value: Variant in OCEAN_KINGDOM_GATE_DEFS:
+		var definition: Dictionary = definition_value as Dictionary
+		var local: Vector2 = definition["local"]
+		var gate_color: Color = definition["color"]
+		var pos := o + Vector3(local.x, _lagoon_local(local.x, local.y), local.y)
+		var packed: PackedScene = load(String(definition["scene"])) as PackedScene
+		if packed == null:
+			continue
+		var wrap := Node3D.new()
+		wrap.name = "OceanKingdomGate_%s" % String(definition["kingdom"])
+		var model: Node3D = packed.instantiate() as Node3D
+		m._fit_prop(model, float(definition["target"]))
+		wrap.add_child(model)
+		wrap.position = pos
+		wrap.set_meta("lagoon_art_role", "ocean_kingdom_gate_%s" % String(definition["kingdom"]))
+		m.add_child(wrap)
+		m.game_nodes.append(wrap)
+		var rune := Label3D.new()
+		rune.text = String(definition["rune"])
+		rune.font_size = 92
+		rune.outline_size = 18
+		rune.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		rune.modulate = gate_color
+		rune.position = pos + Vector3(0.0, 11.0, 0.0)
+		m.add_child(rune)
+		m.game_nodes.append(rune)
+		var halo: MeshInstance3D = m._halo(pos + Vector3(0.0, 5.0, 0.0),
+			gate_color, 12.0)
+		m.game_nodes.append(halo)
+		gates.append({"kingdom": definition["kingdom"], "pos": pos + Vector3(0.0, 5.0, 0.0),
+			"armed": true, "rune": rune})
+	m.g["ocean_kingdom_gates"] = gates
+
+
 func _build_lagoon_bank_dressing(o: Vector3) -> void:
 	# A few authored stone groups visually pin each stream into the meadow.
 	# They sit just outside the carved water ribbon and have no collision.
@@ -313,6 +357,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var wx: float = gsgn * 26.0
 		var wy: float = _lagoon_local(wx, gz)
 		m._wall_solid(o + Vector3(wx, wy + 6.0, gz), Vector3(11.0, 12.0, 11.0), 0.8)
+	_build_ocean_kingdom_gates(o)
 	# ---------- authored PNW meadow forest (dense, grounded, species varied) ----------
 	# Each Seattle-area species has its own audited branch graph and target stature.
 	var trees := LAGOON_MEADOW_TREES
@@ -2333,6 +2378,8 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(m.g.get("phase", "court")) == "hall":
 		m._tick_castle_hall(delta, ppos)
 		return
+	if _tick_ocean_kingdom_gates(ppos):
+		return
 	# crafted friends are alive: they scamper around, and run up to nuzzle +
 	# purr when Roshan comes near
 	_tick_crafted(delta, ppos)
@@ -2537,6 +2584,30 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.player.position = m.player.position.lerp(pull, minf(0.75, delta * 1.5 * (1.0 - dd / 36.0)))
 		if dd < 20.0:
 			m._enter_castle_interior()
+
+
+func _tick_ocean_kingdom_gates(ppos: Vector3) -> bool:
+	var gates: Array = m.g.get("ocean_kingdom_gates", [])
+	var nearest_distance: float = INF
+	for gate_value: Variant in gates:
+		var gate: Dictionary = gate_value as Dictionary
+		var pos: Vector3 = gate["pos"]
+		var rune: Label3D = gate["rune"] as Label3D
+		if is_instance_valid(rune):
+			rune.scale = Vector3.ONE * (1.0 + sin(float(m.g.get("t", 0.0)) * 2.6) * 0.08)
+		var distance: float = pos.distance_to(ppos)
+		nearest_distance = minf(nearest_distance, distance)
+		if not bool(gate.get("armed", true)):
+			if distance > 16.0:
+				gate["armed"] = true
+		elif distance < 9.0:
+			gate["armed"] = false
+			m._enter_ocean_kingdom(String(gate["kingdom"]))
+			return true
+	if not bool(m.g.get("ocean_kingdom_hint", false)) and nearest_distance < 42.0:
+		m.g["ocean_kingdom_hint"] = true
+		m.show_msg("Roshan", "Sunny shell for the Caribbean reef, or blue ice for Norway. Pick either sparkling gate!", "intro")
+	return false
 
 # ============ STAGE 2 MINIGAMES (2D tap overlays, launched from wall pictures) ============
 
@@ -2761,6 +2832,10 @@ func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
 		return false
 	for gate_x: float in [-26.0, -15.0, 15.0, 26.0]:
 		if Vector2(lx - gate_x, lz - 164.0).length() < 7.0 + clearance:
+			return false
+	for kingdom_gate_value: Variant in OCEAN_KINGDOM_GATE_DEFS:
+		var kingdom_gate: Dictionary = kingdom_gate_value as Dictionary
+		if Vector2(lx, lz).distance_to(kingdom_gate["local"] as Vector2) < 16.0 + clearance:
 			return false
 	for house_center: Vector2 in [ALPINE_HOUSE_A, ALPINE_HOUSE_B, ALPINE_HOUSE_C]:
 		if Vector2(lx, lz).distance_to(house_center) < 11.0 + clearance:
