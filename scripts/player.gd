@@ -49,6 +49,24 @@ var idle_verb_cool := 0.0
 var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every frame
 var was_airborne := false    # free-swim only: tracks surface crossings for splashes
 
+# ---- land locomotion (comedy dept.) ----
+# A mermaid has no legs, so dry ground is covered in tiny determined hops:
+# tail coiled under her like a pogo spring, T-rex balance arms, dust poof on
+# touchdown. The layer is purely VISUAL — blended over the swim writes with
+# the verb-layer idiom — so the movement physics (and every probe trajectory)
+# stay byte-identical. main.water_surface_y is the wet/dry oracle.
+var land_rest := false       # resting on an arena floor this frame
+var land_dry := false        # that spot is dry land, not water
+var land_blend := 0.0        # 0 = swim pose, 1 = land pose (smoothed)
+var hop_phase := 0.0
+var hop_amp := 0.0           # hop envelope: ramps in only while scooting
+var hop_prev := 0.0          # last frame's hop height, for touchdown detection
+var land_hops := 0           # session touchdown count (gates the one-time giggle line)
+var hop_dust: CPUParticles3D = null
+var _hop_node: Node3D = null       # visual node the hop bounce is applied to
+var _hop_base_y := 0.0
+var _hop_base_scale := Vector3.ONE
+
 const VERB_LIB := {
 	"wave": {"len": 2.6, "sig": ["armU2", 1.2], "tracks": {
 		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 2.8], [2.1, 2.8], [2.6, -0.2]]},
@@ -125,6 +143,18 @@ const VERB_LIB := {
 		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.1], [1.5, -0.1], [2.3, 0.1], [3.4, 0.0]]},
 		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.6, 0.0], [2.4, -0.3], [3.4, 0.0]]},
 	}},
+	"flop": {"len": 3.4, "sig": ["armU", 1.1], "tip": true, "tracks": {
+		# beached-seal intermission (on-land idle): she keels over sideways
+		# (the tip flag drives model_root), flails both arms, wiggles the tail
+		# tip like a landed fish, then pops back upright none the wiser
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
+		"armF": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
+		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.25], [1.4, 0.25], [2.0, -0.2], [2.6, 0.25], [3.4, 0.0]]},
+		"tail5": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.2, 0.1], [1.6, -0.3], [2.0, 0.1], [2.4, -0.3], [3.4, 0.0]]},
+		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.5], [1.2, 0.15], [1.6, -0.5], [2.0, 0.15], [2.4, -0.5], [3.4, 0.0]]},
+	}},
 }
 
 func play_verb(vname: String) -> bool:
@@ -158,6 +188,7 @@ func _apply_verb(delta: float) -> void:
 		verb = ""
 		if model_root != null:
 			model_root.rotation.y = 0.0
+			model_root.rotation.z = 0.0
 		return
 	var w: float = smoothstep(0.0, 0.25, verb_t) * (1.0 - smoothstep(vlen - 0.3, vlen, verb_t))
 	var tracks: Dictionary = spec["tracks"]
@@ -176,6 +207,10 @@ func _apply_verb(delta: float) -> void:
 	if bool(spec.get("spin", false)) and model_root != null:
 		# a full pirouette that always lands facing forward again
 		model_root.rotation.y = TAU * smoothstep(0.0, 1.0, verb_t / vlen)
+	if bool(spec.get("tip", false)) and model_root != null:
+		# seal flop: keel over sideways, lie there wiggling, pop back upright
+		var tp: float = verb_t / vlen
+		model_root.rotation.z = smoothstep(0.05, 0.30, tp) * (1.0 - smoothstep(0.72, 0.92, tp)) * 1.15
 var cam: Camera3D
 # STORYBOOK DIORAMA LENS: longer + narrower than a normal chase cam — the
 # compressed perspective flattens the world toward 2.5D so it reads as a
@@ -303,6 +338,38 @@ func _ready() -> void:
 	skin_sparkles.position = Vector3(0, 1.0, 0)
 	skin_sparkles.emitting = false
 	add_child(skin_sparkles)
+	# landing puffs for the on-land hop (one-shot, restarted per touchdown)
+	hop_dust = CPUParticles3D.new()
+	hop_dust.amount = 9
+	hop_dust.lifetime = 0.45
+	hop_dust.one_shot = true
+	hop_dust.explosiveness = 1.0
+	hop_dust.local_coords = false
+	hop_dust.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+	hop_dust.emission_sphere_radius = 0.9
+	hop_dust.direction = Vector3.UP
+	hop_dust.spread = 75.0
+	hop_dust.gravity = Vector3(0, -1.5, 0)
+	hop_dust.initial_velocity_min = 1.2
+	hop_dust.initial_velocity_max = 3.0
+	hop_dust.scale_amount_min = 0.10
+	hop_dust.scale_amount_max = 0.24
+	var hdm := SphereMesh.new()
+	hdm.radius = 0.5
+	hdm.height = 1.0
+	hdm.radial_segments = 6
+	hdm.rings = 3
+	hop_dust.mesh = hdm
+	var hdmat := StandardMaterial3D.new()
+	hdmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	hdmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	hdmat.albedo_color = Color(0.96, 0.92, 0.80, 0.7)
+	hdmat.disable_receive_shadows = true
+	hop_dust.material_override = hdmat
+	hop_dust.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	hop_dust.position = Vector3(0, -1.7, 0)
+	hop_dust.emitting = false
+	add_child(hop_dust)
 	# wake ribbon (top_level so its points live in world space)
 	trail_mesh = ImmediateMesh.new()
 	trail_node = MeshInstance3D.new()
@@ -976,6 +1043,23 @@ func _process(delta: float) -> void:
 		vel += dir * fwd * 43.7 * smult * 0.3 * delta
 		vel.y -= 30.0 * delta
 		vel *= pow(0.90, delta)
+	elif land_dry:
+		# LAND medium (ReefPhysics.land_medium, applied inline; land_dry is
+		# last frame's oracle — one frame of lag on the wet/dry switch is
+		# invisible). Real-enough gravity keeps her on the grass between hops
+		# but stays soft enough to hop rivers and reach every dream star; the
+		# repeated jump impulse is deliberately kept, so holding A still
+		# bounce-climbs like it always has. Ground friction bites only when
+		# resting, stick idle AND already slow, so releasing the stick stops
+		# the scoot instead of the old underwater glide — and a probe (or a
+		# player) at commanded speed never feels it.
+		vel += dir * fwd * 43.7 * smult * delta
+		vel.y -= 20.0 * delta
+		vel *= pow(0.15, delta)
+		if land_rest and fwd == 0.0 and turn == 0.0 and vel.length() < 6.0:
+			var gf: float = pow(0.001, delta)
+			vel.x *= gf
+			vel.z *= gf
 	else:
 		vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
 		vel.y -= 13.0 * delta                # 1.3x weight
@@ -1091,7 +1175,12 @@ func _process(delta: float) -> void:
 							if vn < -14.0 and bump_verb_cool <= 0.0 and verb == "":
 								play_verb("boing")
 								bump_verb_cool = 2.0
+		# comic-hop oracle: is she resting on this arena floor, and is it dry?
+		land_rest = position.y <= floor_a + 0.08
+		land_dry = m.has_method("water_surface_y") and position.y >= float(m.water_surface_y(position.x, position.z))
 	else:
+		land_rest = false
+		land_dry = false
 		var floor_y: float = m.seabed_y(position.x, position.z) + 3.0
 		if position.y < floor_y:
 			position.y = floor_y
@@ -1142,8 +1231,10 @@ func _process(delta: float) -> void:
 		idle_t += delta
 
 	var speed: float = vel.length()
+	land_blend = move_toward(land_blend, 1.0 if land_dry else 0.0, delta * (4.0 if land_dry else 2.2))
 	_tick_wake(delta, speed)
 	_tick_swim_bones(delta, speed)
+	_apply_land_pose(delta, speed)
 	_apply_verb(delta)
 	# idle life: after a quiet while she looks around; at night she dozes off
 	# (free swim only — verbs never interrupt a minigame)
@@ -1158,11 +1249,16 @@ func _process(delta: float) -> void:
 				# small idle repertoire so a quiet minute stays alive
 				play_verb(["look", "hairtwirl", "hum"][randi() % 3])
 				idle_verb_cool = 15.0
+		elif land_blend > 0.7 and land_rest:
+			# parked on dry land: sometimes she just gives up and flops over
+			play_verb(["flop", "look", "hum"][randi() % 3])
+			idle_verb_cool = 18.0
 
 	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
 	if skin_sprite != null and skin_sprite.visible:
 		skin_t += delta * (2.2 + speed * 0.6)
-		skin_sprite.position.y = 0.6 + sin(skin_t) * 0.3
+		# on dry land the smooth bob becomes a bunny-hop bounce (|sin| arcs)
+		skin_sprite.position.y = 0.6 + lerpf(sin(skin_t) * 0.3, absf(sin(skin_t * 1.6)) * 0.7, land_blend)
 		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
 		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
@@ -1297,12 +1393,101 @@ func snap_cam() -> void:
 	var focus := position + Vector3(0, 1.5, 0)
 	cam.position = CameraKit.resolve(get_parent(), focus, target)
 	cam.look_at(focus)
+func _blend_bone(bname: String, axis: Vector3, ang: float, w: float) -> void:
+	# slerp a bone TOWARD a model-space pose over whatever the swim just wrote —
+	# the verb layer's over-write idiom, with an external weight
+	var bi: int = bone_idx.get(bname, -1)
+	if bi < 0 or not rest.has(bname):
+		return
+	skel.set_bone_pose_rotation(bi, skel.get_bone_pose_rotation(bi).slerp(_model_axis_quat(bname, axis, ang), w))
+
+func _hop_visual_node() -> Node3D:
+	if model_root != null and model_root.visible:
+		return model_root
+	for k in skin_models:
+		var n: Node3D = skin_models[k]
+		if is_instance_valid(n) and n.visible:
+			return n
+	return null
+
+func _apply_land_pose(delta: float, speed: float) -> void:
+	# The on-land hop layer (see the land locomotion vars). Runs after the
+	# swim writes and before _apply_verb, so a wave or cheer still wins on top.
+	if land_blend <= 0.01:
+		hop_phase = 0.0
+		hop_amp = 0.0
+		hop_prev = 0.0
+		if _hop_node != null:
+			if is_instance_valid(_hop_node):
+				_hop_node.position.y = _hop_base_y
+				_hop_node.scale = _hop_base_scale
+			_hop_node = null
+		return
+	var lb: float = land_blend
+	var scooting: bool = land_rest and speed > 2.5
+	hop_amp = move_toward(hop_amp, 1.0 if scooting else 0.0, delta * 5.0)
+	if hop_amp > 0.01:
+		hop_phase += delta * (6.5 + minf(speed * 0.35, 5.0))
+	else:
+		hop_phase = 0.0
+	var hop: float = absf(sin(hop_phase)) * hop_amp
+	if land_dry and not land_rest:
+		# airborne over land (the big jump): tail springs out, arms fly up
+		hop = maxf(hop, clampf(absf(vel.y) * 0.06, 0.0, 1.0))
+	# touchdown: the bounce comes back down -> dust poof + boing at her tail
+	if hop_prev >= 0.25 and hop < 0.10 and land_rest:
+		if hop_dust != null:
+			hop_dust.restart()
+		var mh: Node = get_parent()
+		if mh != null and mh.has_method("on_player_hop_land"):
+			mh.on_player_hop_land()
+		land_hops += 1
+		if land_hops == 3 and mh != null and mh.has_method("show_msg"):
+			# one giggle line per session, the first time she really scoots
+			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "talk")
+	hop_prev = hop
+	if skel != null:
+		# same swing-axis rule as the swim: in-plane (BACK) on the old flat card
+		var A: Vector3 = Vector3.RIGHT if (model_v3 or model_v2) else Vector3.BACK
+		# tail = the pogo spring: coiled at rest, kicks out at the top of each hop
+		var curl: float = 0.85 - hop * 0.6
+		for i in range(8):
+			_blend_bone("tail%d" % (i + 1), A, -curl * (0.10 + 0.55 * float(i) / 7.0), lb)
+		_blend_bone("finTop", A, -curl * 0.35, lb)
+		_blend_bone("finBot", A, -curl * 0.35, lb)
+		# tiny T-rex balance arms, flapping a little harder mid-hop
+		var upper: float = 0.25 + hop * 0.45
+		var bend: float = 0.6
+		var mir: Vector2 = _mirror_arm(upper, bend)
+		_blend_bone("armU", Vector3.RIGHT, upper, lb)
+		_blend_bone("armF", Vector3.RIGHT, bend, lb)
+		_blend_bone("armU2", Vector3.RIGHT, mir.x, lb)
+		_blend_bone("armF2", Vector3.RIGHT, mir.y, lb)
+		# eager lean into the next hop (stays inside the chest motion cage)
+		_blend_bone("chest", A, -0.05 - 0.09 * hop, lb * 0.8)
+		_blend_bone("head", A, 0.06 - 0.12 * hop, lb * 0.6)
+	# the bounce itself lives on the visual model, never on the physics origin
+	var node: Node3D = _hop_visual_node()
+	if node != _hop_node:
+		if _hop_node != null and is_instance_valid(_hop_node):
+			_hop_node.position.y = _hop_base_y
+			_hop_node.scale = _hop_base_scale
+		_hop_node = node
+		if node != null:
+			_hop_base_y = node.position.y
+			_hop_base_scale = node.scale
+	if node != null:
+		node.position.y = _hop_base_y + hop * 1.1 * lb
+		# squash-and-stretch: settled at contact, stretched at the top of the arc
+		var sq: float = 1.0 + (hop - 0.35) * 0.14 * lb
+		node.scale = _hop_base_scale * Vector3(2.0 - sq, sq, 2.0 - sq)
 
 func _tick_wake(delta: float, speed: float) -> void:
 	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
 	var strength: float = clampf((speed - 7.0) / 16.0, 0.0, 1.0)
+	strength *= 1.0 - land_blend   # no water contrail while hopping on dry land
 	if speed_lines != null:
-		var sprinting: bool = trail_enabled and speed > 26.0
+		var sprinting: bool = trail_enabled and speed > 26.0 and land_blend < 0.5
 		speed_lines.emitting = sprinting
 		if sprinting:
 			speed_pm.direction = -vel.normalized()

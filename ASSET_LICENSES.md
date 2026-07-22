@@ -24,6 +24,7 @@
 | assets/audio/music/* (finale + minigame stingers) | synthesized for this project | project original | — | — |
 | assets/audio/ambience_*.ogg, ui_tap.ogg | original numpy synthesis | project original (CC0-equivalent) | — | seamless loops |
 | assets/audio/buy, buzz, chime, fart (.ogg) | synthesized for this project | project original | — | — |
+| assets/audio/hop_boing.ogg | original numpy synthesis (pitch-wobbled decaying twang) | project original | — | 0.5s one-shot, quiet-normalized for per-hop playback |
 | assets/aquatic/*.glb | Riley *Aquatic Animal Models* (itch.io) | **"free use, no redistribution"** — see OPEN QUESTION below | itch.io | integrated as-is; Rock2 re-textured with project nano-banana sheets (tools/bake_nano_wrap.py, 2026-07-12) |
 | assets/terrain/up_*_rgh.jpg (roughness maps only) | ambientCG | **CC0** | ambientcg.com | resized ≤1K |
 | assets/terrain/up_*_col.jpg (all 13 roles) | GEN2 pipeline: family-style painted tiles (Gemini; audit picks; castle re-generated r3 as a proper wall) | © Mermaid Roshan LLC — generated for this project | gen2/generated/terrain_up_*/ | 2048→1024 POT, JPEG q88; matching _nrm.jpg flattened to neutral 64px |
