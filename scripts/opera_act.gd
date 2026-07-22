@@ -1193,20 +1193,24 @@ func _build_shuffle() -> void:
 		root.name = "OperaHat%d" % i
 		root.position = pos
 		add_child(root)
-		_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, Color(0.3, 0.24, 0.45), 0.0, root)
-		var cone := CylinderMesh.new()
-		cone.top_radius = 0.35
-		cone.bottom_radius = 1.7
-		cone.height = 2.6
-		_mesh(cone, Vector3(0, 1.7, 0), Color(0.42, 0.26, 0.62), 0.2, root)
-		_cyl(Vector3(0, 0.45, 0), 2.1, 0.3, Color(0.42, 0.26, 0.62), 0.2, root)
+		# card kits: one shared hat silhouette, coral/teal/cream band colors
+		if _job_art("magician/opera_magician_hat_%d.glb" % i, root) == null:
+			_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, Color(0.3, 0.24, 0.45), 0.0, root)
+			var cone := CylinderMesh.new()
+			cone.top_radius = 0.35
+			cone.bottom_radius = 1.7
+			cone.height = 2.6
+			_mesh(cone, Vector3(0, 1.7, 0), Color(0.42, 0.26, 0.62), 0.2, root)
+			_cyl(Vector3(0, 0.45, 0), 2.1, 0.3, Color(0.42, 0.26, 0.62), 0.2, root)
 		hats.append({"index": i, "node": root, "pos": pos, "home": pos})
 	bunny = Node3D.new()
 	bunny.name = "BunnyFish"
 	add_child(bunny)
-	_sphere(Vector3(0, 0, 0), 0.8, Color(0.95, 0.92, 1.0), 0.2, bunny)
-	_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
-	_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
+	# always a pink FISH with long rabbit ears, never a rabbit body
+	if _job_art("magician/opera_magician_bunnyfish.glb", bunny) == null:
+		_sphere(Vector3(0, 0, 0), 0.8, Color(0.97, 0.62, 0.72), 0.2, bunny)
+		_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
+		_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
 	_shuffle_hide(0)
 
 func _shuffle_hide(target: int) -> void:
