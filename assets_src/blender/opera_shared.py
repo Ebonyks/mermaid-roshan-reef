@@ -116,7 +116,7 @@ def join_group(parent):
     def gather(o, out):
         for c in list(o.children):
             base = c.name.split(".")[0]
-            if c.type == 'EMPTY' and (base.startswith("State") or base.startswith("Door")):
+            if c.type == 'EMPTY' and (base.startswith("State") or base.startswith("Door") or base.startswith("Lid")):
                 continue
             if c.type == 'MESH':
                 out.append(c)
@@ -146,7 +146,7 @@ def flatten_for_export(root):
                 sbase = s.name.split(".")[0]
                 if sbase.startswith("State"):
                     for d in list(s.children):
-                        if d.type == 'EMPTY' and d.name.split(".")[0].startswith("Door"):
+                        if d.type == 'EMPTY' and d.name.split(".")[0].startswith(("Door", "Lid")):
                             join_group(d)       # hinged door: one mesh under its pivot
                     join_group(s)               # rest of the state joins to one mesh
 

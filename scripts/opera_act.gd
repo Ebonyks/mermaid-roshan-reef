@@ -48,7 +48,8 @@ var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
 var order_phase := "steps"         # steps | stir
 var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
-var chef_oven_art: Node3D = null | decorate
+var chef_oven_art: Node3D = null
+var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit | decorate
 var stir_done := 0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
@@ -566,8 +567,13 @@ func _build_sleuth() -> void:
 	goal.name = "TiaraChest"
 	goal.position = CENTER + Vector3(0, 1.0, -12.0)
 	add_child(goal)
-	_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
-	_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
+	sleuth_chest_art = _job_art("detective/opera_detective_chest.glb", goal)
+	if sleuth_chest_art != null:
+		_job_state(sleuth_chest_art, "StateActive", false)
+		_job_state(sleuth_chest_art, "StateComplete", false)
+	else:
+		_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
+		_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
 	var clue_picks: Array[int] = []
 	while clue_picks.size() < clue_count:
 		var pick := randi() % prop_count
@@ -580,8 +586,14 @@ func _build_sleuth() -> void:
 		root.name = "SearchProp%d" % i
 		root.position = pos
 		add_child(root)
-		_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
-		var lid := _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
+		# card kits: six DIFFERENT box silhouettes, each with a tweenable Lid
+		var lid: Node3D = null
+		var kit := _job_art("detective/opera_detective_box_%d.glb" % i, root)
+		if kit != null:
+			lid = kit.find_child("Lid", true, false) as Node3D
+		if lid == null:
+			_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
+			lid = _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
 		var has_clue := clue_picks.has(i)
 		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
@@ -594,7 +606,7 @@ func _sleuth_action(idx: int) -> void:
 		return
 	prop["opened"] = true
 	progress_t = 0.0
-	var lid := prop["lid"] as MeshInstance3D
+	var lid := prop["lid"] as Node3D
 	var lt := lid.create_tween()
 	lt.tween_property(lid, "position:y", lid.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	lt.tween_property(lid, "rotation:z", 0.5, 0.2)
@@ -609,6 +621,7 @@ func _sleuth_action(idx: int) -> void:
 			m.chime.play()
 		if clues_found >= 3:
 			chest_ready = true
+			_job_state(sleuth_chest_art, "StateActive", true)
 			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
 			m.show_msg("Roshan", "All three clues! Now tap the treasure chest to solve the case!", "talk")
 		else:
@@ -632,9 +645,14 @@ func _sleuth_chest() -> void:
 	# the tiara reveal: the chest bursts open in gold
 	m._sparkle_burst(goal.position + Vector3(0, 3.5, 0), Color(1.0, 0.9, 0.4))
 	m._sparkle_burst(goal.position + Vector3(0, 5.0, 0), Color(1.0, 0.75, 0.9))
-	var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
-	var tw := crown.create_tween()
-	tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if sleuth_chest_art != null:
+		# the kit's open lid + risen pearl tiara IS the reveal
+		_job_state(sleuth_chest_art, "StateIdle", false)
+		_job_state(sleuth_chest_art, "StateComplete", true)
+	else:
+		var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
+		var tw := crown.create_tween()
+		tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_win()
 
 func _open_gate() -> void:

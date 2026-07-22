@@ -231,3 +231,5 @@ ambientCG (all CC0).
 - assets/opera/jobs/ballerina/opera_ballerina_tile_{0,1,2,3}.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_batch2.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
 - assets/opera/jobs/pastry_chef/opera_pastry_chef_outfit.glb — original work, same source/tooling as above (chef toque + whisk outfit kit).
 - assets_src/blender/opera_batch2_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/detective/opera_detective_box_{0..5}.glb, opera_detective_chest.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_detective.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_detective_2026-07-22.blend — Blender source for the above, original work.
