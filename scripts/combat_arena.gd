@@ -32,6 +32,7 @@ var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var encounter := {}
 var room_tag := ""
+var art_theme := ""
 var materials := {}
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
@@ -40,6 +41,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	finish_cb = done_cb
 	encounter = config
 	room_tag = String(encounter.get("room_tag", ""))
+	art_theme = String(encounter.get("art_theme", ""))
 	player_pos = CENTER + Vector3(0, 1.1, 8.0)
 	_build_environment()
 	_build_octagon()
@@ -113,7 +115,7 @@ func _build_octagon() -> void:
 	var default_trim := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
 	var floor_col: Color = encounter.get("floor", default_floor)
 	var trim_col: Color = encounter.get("trim", default_trim)
-	var arena := DungeonArt.spawn("arena", self, CENTER)
+	var arena := DungeonArt.spawn("arena", self, CENTER, art_theme)
 	DungeonArt.tint(arena, _mat(floor_col), _mat(trim_col, 0.18))
 
 func _build_avatar() -> void:
@@ -186,13 +188,13 @@ func _build_ice_swarm() -> void:
 		var root := Node3D.new()
 		root.position = pos
 		add_child(root)
-		DungeonArt.spawn("imp", root)
+		DungeonArt.spawn("imp", root, Vector3.ZERO, art_theme)
 		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
 
 func _build_pepper_boss() -> void:
 	# A little basket makes the ability source readable even without text.
-	DungeonArt.spawn("basket", self, CENTER + Vector3(-8.0, 0.7, 10.0))
-	var root := DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
+	DungeonArt.spawn("basket", self, CENTER + Vector3(-8.0, 0.7, 10.0), art_theme)
+	var root := DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0), art_theme)
 	root.scale = Vector3.ONE * 1.3
 	var head := DungeonArt.find_part(root, "Head")
 	var shell := DungeonArt.find_part(root, "Shell")
@@ -281,7 +283,7 @@ func _fire() -> void:
 	dir = dir.normalized()
 	var shot_pos: Vector3 = player_pos + Vector3(0, 2.2, 0) + dir * 1.5
 	var role := "ice_berry_projectile" if power == "ice" else "pepper_projectile"
-	var orb: Node3D = DungeonArt.spawn(role, self, shot_pos)
+	var orb: Node3D = DungeonArt.spawn(role, self, shot_pos, art_theme)
 	if orb.name.begins_with("MissingDungeonArt"):
 		var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
 		orb.queue_free()
@@ -356,7 +358,13 @@ func _pop_imp(enemy: Dictionary) -> void:
 	var corn_count := int(encounter.get("popcorn_count", 7))
 	for i in range(corn_count):
 		var a: float = float(i) * TAU / float(corn_count)
-		var corn := _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
+		var corn: Node3D
+		if art_theme == "ember":
+			corn = DungeonArt.spawn("completion_spark", self,
+				pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
+			corn.scale = Vector3.ONE * 0.34
+		else:
+			corn = _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
 		var tw := corn.create_tween()
 		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
@@ -444,7 +452,12 @@ func _spawn_enemy_shot(from: Vector3, to: Vector3, col: Color) -> void:
 	dir.y = 0.0
 	if dir.length() < 0.1:
 		return
-	var orb := _sphere(self, from, 0.58, col, 1.4)
+	var orb: Node3D
+	if art_theme == "ember":
+		orb = DungeonArt.spawn("pepper_projectile", self, from, art_theme)
+		orb.scale = Vector3.ONE * 0.5
+	else:
+		orb = _sphere(self, from, 0.58, col, 1.4)
 	enemy_shots.append({"node": orb, "vel": dir.normalized() * 10.0, "life": 3.5})
 
 func _tick_enemy_shots(delta: float) -> void:
