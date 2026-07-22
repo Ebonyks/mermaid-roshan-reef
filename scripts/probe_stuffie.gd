@@ -83,8 +83,38 @@ func _follower_case() -> void:
 	var pd: float = main.companion_node.position.distance_to(main.player.position) if main.companion_node != null else INF
 	_ck("follower stays near Roshan", pd < 40.0)
 	_ck("den built near the shipwreck", main.companion_den != null and is_instance_valid(main.companion_den))
-	# TAMAGOTCHI CARE: force a want, park Roshan beside the stuffie, tend it
+	# The stuffie owns an inset upper-hand launcher, leaving the far corner to
+	# Pause, and a complete storybook Tamagotchi sheet behind that one tap.
+	var launcher: Button = main.companion_menu_button
+	_ck("care launcher appears in the inset upper-right hand area",
+		launcher != null and launcher.visible and launcher.position.x >= 900.0
+		and launcher.position.x + launcher.size.x <= 1130.0
+		and launcher.position.y <= 40.0 and launcher.size.x >= 120.0 and launcher.size.y >= 120.0
+		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset")
 	var comp: CompanionSystem = main._companion_ref()
+	comp.open_care_menu()
+	await process_frame
+	var care_back := main.companion_care_stage.find_child("StuffieCareBackButton", true, false) as Control
+	var care_actions: Array[Node] = main.companion_care_stage.find_children("StuffieCareAction_*", "Button", true, false)
+	var actions_big := care_actions.size() == 5
+	for action: Node in care_actions:
+		var control := action as Control
+		actions_big = actions_big and control != null and control.size.x >= 110.0 and control.size.y >= 110.0
+	_ck("Tamagotchi sheet has a neutral back and five large care actions",
+		main.companion_care_layer != null and care_back != null
+		and care_back.size.x >= 110.0 and care_back.size.y >= 110.0 and actions_big)
+	_ck("Tamagotchi sheet shows need, growth, and friend switching",
+		main.companion_care_stage.find_child("StuffieCurrentNeed", true, false) != null
+		and main.companion_care_stage.find_child("StuffieGrowthPips", true, false) != null
+		and main.companion_care_stage.find_child("StuffieSwitchButton", true, false) != null)
+	var menu_care_before: int = main.care_points
+	comp._choose_menu_care("play")
+	_ck("care menu action closes into a real care moment",
+		main.companion_care_layer == null and main.companion_care_t > 0.0)
+	main.companion_care_t = minf(main.companion_care_t, 0.01)
+	await _settle(4)
+	_ck("menu care grows the stuffie", main.care_points == menu_care_before + 1)
+	# TAMAGOTCHI CARE: force a want, park Roshan beside the stuffie, tend it
 	var care_before: int = main.care_points
 	comp._begin_want("feed")
 	await _settle(3)

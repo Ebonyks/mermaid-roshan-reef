@@ -43,7 +43,13 @@ The runtime migration covers:
    finish, and voice feedback when an unlock is short of pearls.
 5. Wardrobe, Sticker Book, Critter Book, and Stuffie picker: shared panels,
    neutral 112px exits, large primary actions, and one active stuffie color row.
-6. Activity navigation: picture games, kart, dungeon, Opera House, and dance
+6. Tamagotchi care: a 128px stuffie launcher occupies the upper-right hand
+   area at x=982, inset from the far-corner Pause control. It opens a shared
+   storybook sheet with the live friend preview, current need, non-reading
+   growth stars, five 126px care actions (feed, nap, bath, cuddle, play),
+   injury/rest state, and friend switching. Menu care runs the same persisted
+   care moments as the in-world thought bubbles; it is not a parallel reward.
+7. Activity navigation: picture games, kart, dungeon, Opera House, and dance
    now use the same neutral back language instead of a small/alarming X.
 
 ## Fable visual-QA brief
@@ -60,7 +66,9 @@ and minimum touch geometry. Then capture these Mobile-renderer states at
 5. Craft body, accent, and detail tabs; locked Kitty/Birdie; completion flight.
 6. Wardrobe classic/fairy locked/unlocked, Sticker Book, and Critter Book.
 7. Stuffie picker with two starter friends and with all three friends unlocked.
-8. Picture game, kart armed-exit state, dungeon, Opera House, and dance exit.
+8. Tamagotchi launcher beside Pause: content, active want, injured, and resting
+   icons; then all five care buttons and the switch-friend path.
+9. Picture game, kart armed-exit state, dungeon, Opera House, and dance exit.
 
 Review at physical phone scale. Required acceptance points:
 

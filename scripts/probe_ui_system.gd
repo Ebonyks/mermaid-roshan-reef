@@ -103,6 +103,24 @@ func _init() -> void:
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "stuffie swatch is at least 110x110")
 	main._companion_ref().close_picker()
 
+	# Tamagotchi care owns an inset upper-right launcher, never the Pause corner,
+	# and exposes all five persisted care verbs through the same storybook sheet.
+	main.companion_id = "mewsha"
+	main._companion_ref().tick(0.0)
+	var launcher := _check_target(main.hud_layer, "StuffieCareMenuButton", "stuffie care launcher is a 128px target", Vector2(128, 128))
+	_check(launcher != null and launcher.position.x >= 900.0
+		and launcher.position.x + launcher.size.x <= 1130.0
+		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset",
+		"stuffie care launcher is inset from the far-corner Pause control")
+	main._companion_ref().open_care_menu()
+	await process_frame
+	_check_target(main.companion_care_layer, "StuffieCareBackButton", "Tamagotchi sheet has a neutral thumb-sized back")
+	_check_target(main.companion_care_layer, "StuffieSwitchButton", "Tamagotchi sheet has a thumb-sized friend switch")
+	_check(_count_named(main.companion_care_layer, "StuffieCareAction_*") == 5, "Tamagotchi sheet exposes five picture care actions")
+	for node: Node in main.companion_care_layer.find_children("StuffieCareAction_*", "", true, false):
+		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "Tamagotchi care action is at least 110x110")
+	main._companion_ref().close_care_menu()
+
 	# Picture games inherit the neutral exit rather than an alarming X.
 	main._mg2d_open("garden")
 	await process_frame

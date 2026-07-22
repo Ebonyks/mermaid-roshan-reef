@@ -176,6 +176,9 @@ var companion_rest_timer := -1.0          # >0 while injured: patience left befo
 var companion_rest_warned := 0            # escalating "needs care" reminders fired
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
+var companion_care_layer: CanvasLayer = null # Tamagotchi care overlay
+var companion_care_stage: Control = null
+var companion_menu_button: Button = null  # inset upper-right HUD launcher
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
 var companion_pick_slot := 0               # one large active paint row at a time
@@ -6025,6 +6028,10 @@ func _overlay_root_for_cursor() -> Node:
 		return stickers_layer
 	if collection_layer != null and is_instance_valid(collection_layer):
 		return collection_layer
+	if companion_care_layer != null and is_instance_valid(companion_care_layer):
+		return companion_care_layer
+	if companion_layer != null and is_instance_valid(companion_layer):
+		return companion_layer
 	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
 		return mg2d_layer
 	return null
@@ -6087,7 +6094,7 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null or companion_layer != null or companion_care_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
@@ -6106,6 +6113,12 @@ func _tick_overlay_pads(delta: float) -> void:
 		elif collection_layer != null:
 			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
 				_collection_ref().close_book()
+		elif companion_care_layer != null:
+			if b and not _pad_prev_b:
+				_companion_ref().close_care_menu()
+		elif companion_layer != null:
+			if b and not _pad_prev_b:
+				_companion_ref().close_picker()
 	_pad_prev_a = a
 	_pad_prev_b = b
 
