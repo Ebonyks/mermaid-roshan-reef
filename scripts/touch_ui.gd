@@ -40,12 +40,18 @@ func _ready() -> void:
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE   # visuals only — never blocks input
 	add_child(_root)
-	_base = _circle(Color(1, 1, 1, 0.12), 105.0)
-	_knob = _circle(Color(1, 1, 1, 0.30), 46.0)
+	# Codex UI handoff 2026-07-19: the stick must explain itself at phone scale —
+	# ~180 px visual, 40-55% fill, high-contrast mint rim (was 210 px at 12%)
+	_base = _circle(Color(0.45, 0.85, 0.95, 0.45), 90.0)
+	var bsb: StyleBoxFlat = _base.get_theme_stylebox("panel") as StyleBoxFlat
+	bsb.border_color = Color(0.55, 1.0, 0.85, 0.95)
+	bsb.set_border_width_all(5)
+	_knob = _circle(Color(1, 1, 1, 0.55), 46.0)
 	_base.visible = false
 	_knob.visible = false
 	_root.add_child(_base)
 	_root.add_child(_knob)
+	call_deferred("_rest_stick")
 	_btn = Button.new()
 	_btn.visible = false
 	_root.add_child(_btn)
@@ -54,10 +60,10 @@ func _ready() -> void:
 	# 4yo needs (see the button, know there's a thing to press), with the
 	# current action name (JUMP / THROW / FIRE) written on it.
 	if wants_touch():
-		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.34), 74.0)
+		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.42), 78.0)
 		_act_vis.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		_act_vis.offset_left = -186.0
-		_act_vis.offset_top = -206.0
+		_act_vis.offset_left = -194.0
+		_act_vis.offset_top = -214.0
 		_act_vis.offset_right = -38.0
 		_act_vis.offset_bottom = -58.0
 		_root.add_child(_act_vis)
@@ -130,6 +136,8 @@ func _press(pos: Vector2, idx: int) -> void:
 	_press_ms = Time.get_ticks_msec()
 	_base.position = _origin - _base.size * 0.5
 	_knob.position = _origin - _knob.size * 0.5
+	_base.modulate.a = 1.0
+	_knob.modulate.a = 1.0
 	_base.visible = true
 	_knob.visible = true
 	stick_vec = Vector2.ZERO
@@ -156,8 +164,44 @@ func _release_stick() -> void:
 		_flash(_origin)   # same confirmation ring the second-finger tap gets
 	_touch_idx = -1
 	stick_vec = Vector2.ZERO
-	_base.visible = false
-	_knob.visible = false
+	_rest_stick()
+
+func _rest_stick() -> void:
+	# Codex UI handoff: when no finger owns the stick it waits half-faded at its
+	# bottom-left home instead of vanishing, so a new player can see where to
+	# put a thumb. Visual affordance only — drag-anywhere input is unchanged.
+	if _base == null or _knob == null:
+		return
+	if not wants_touch():
+		_base.visible = false
+		_knob.visible = false
+		return
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	var c := Vector2(170.0, vs.y - 170.0)
+	_base.position = c - _base.size * 0.5
+	_knob.position = c - _knob.size * 0.5
+	_base.modulate.a = 0.55
+	_knob.modulate.a = 0.55
+	_base.visible = true
+	_knob.visible = true
+
+func rest_zone() -> Rect2:
+	# the corner the resting stick owns (probe contract: HUD cards stay out)
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	return Rect2(Vector2(170.0 - 110.0, vs.y - 170.0 - 110.0), Vector2(220.0, 220.0))
+
+func action_zone() -> Rect2:
+	# the corner the action bubble owns
+	if _act_vis != null:
+		return _act_vis.get_global_rect().grow(10.0)
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	return Rect2(vs - Vector2(214.0, 234.0), Vector2(214.0, 234.0))
 
 func _clear_touch_state() -> void:
 	_touch_idx = -1
@@ -171,10 +215,7 @@ func _clear_touch_state() -> void:
 	_look_dy = 0.0
 	_moved = false
 	_pulse = 0.0
-	if _base != null:
-		_base.visible = false
-	if _knob != null:
-		_knob.visible = false
+	_rest_stick()
 
 func _request_pause() -> void:
 	var m: Node = get_parent()

@@ -18,7 +18,7 @@ extends RefCounted
 # Shorten-instantly / relax-out-smoothly falls out of resolving twice.
 
 const SKIN := 0.5      # keep the lens this far in front of a hit surface
-const MIN_BOOM := 2.0  # never collapse the boom tighter than this
+const MIN_BOOM := 0.15 # cornered: pull nearly first-person rather than clip
 const FLOOR_OFF := 1.2 # lens height above the walk floor / seabed
 const CEIL_OFF := 1.0  # lens clearance under a zone ceiling
 
@@ -34,6 +34,9 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 	var t: float = boom_hit_t(m, focus, want)
 	var keep: float = length
 	if t < 1.0:
+		# when Roshan is cornered against a solid (t near 0) the boom
+		# collapses toward her rather than ever placing the lens in the wall;
+		# MIN_BOOM overshoot stays inside the solid's pad, never its mesh
 		keep = clampf(t * length - SKIN, MIN_BOOM, length)
 	var pos: Vector3 = focus + boom * (keep / length)
 	# ground: sample under the camera AND mid-boom, so a ridge rising between
@@ -50,38 +53,52 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 
 
 static func boom_hit_t(m: Node, focus: Vector3, want: Vector3) -> float:
-	# Fraction t in (0..1] along focus->want where the segment first enters an
-	# arena solid; 1.0 when clear. Same data player.gd's soft-collision reads:
-	# boxes {cx,cz,hx,hz,y0,y1}, columns {x,z,r,y0,y1} (pads already included).
-	# A segment STARTING inside a solid ignores that solid — the pads are
-	# generous, Roshan gets ejected to the padded face, and collapsing the
-	# boom to zero would be worse than one soft wall.
+	# Fraction t in [0..1] along focus->want where the segment first enters an
+	# arena solid; 1.0 when clear, 0.0 when the segment STARTS inside one.
+	#
+	# PAD RULE (castle-stairs bug, 2026-07-21): every solid is stored inflated
+	# by its body-clearance pad — 1.6u of empty AIR around the real mesh. When
+	# Roshan STANDS ON a solid (under-stair blocks, furniture, platforms) the
+	# focus point sits inside that pad ring, and collapsing the boom there
+	# glues the lens inside her body for the whole stair climb. So: a focus
+	# inside the PADDED solid but outside its CORE re-tests entry against the
+	# core — the lens may cross pad air but still never enters mesh. A focus
+	# inside the CORE itself still collapses (the door-arch lesson: a plain
+	# "ignore this solid" exemption lets the lens glide through real geometry).
 	if not ("arena_solids" in m):
 		return 1.0
 	var t: float = 1.0
 	var d: Vector3 = want - focus
 	for s in m.arena_solids:
+		var st: float
+		var pad: float = float(s.get("pad", 0.0))
 		if s.box:
-			t = minf(t, _seg_box_t(focus, d, s))
+			st = _seg_box_t(focus, d, s, 0.0)
+			if st <= 0.0 and pad > 0.0:
+				st = _seg_box_t(focus, d, s, pad)
 		else:
-			t = minf(t, _seg_cyl_t(focus, d, s))
+			st = _seg_cyl_t(focus, d, s, 0.0)
+			if st <= 0.0 and pad > 0.0:
+				st = _seg_cyl_t(focus, d, s, pad)
+		t = minf(t, st)
 	return t
 
 
-static func _seg_box_t(p: Vector3, d: Vector3, s: Dictionary) -> float:
-	# slab test against the AABB {cx±hx, y0..y1, cz±hz}; entry fraction or 1.0
-	var mins: Array = [float(s.cx) - float(s.hx), float(s.y0), float(s.cz) - float(s.hz)]
-	var maxs: Array = [float(s.cx) + float(s.hx), float(s.y1), float(s.cz) + float(s.hz)]
-	var tmin: float = 0.0
-	var tmax: float = 1.0
-	var inside_start: bool = true
+static func _seg_box_t(p: Vector3, d: Vector3, s: Dictionary, shrink: float = 0.0) -> float:
+	# slab test against the AABB {cx±hx, y0..y1, cz±hz}: entry fraction,
+	# 0.0 when starting inside, 1.0 on a miss. shrink deflates the box on all
+	# sides (used to test a solid's CORE inside its stored pad inflation).
+	var mins: Array = [float(s.cx) - float(s.hx) + shrink, float(s.y0) + shrink, float(s.cz) - float(s.hz) + shrink]
+	var maxs: Array = [float(s.cx) + float(s.hx) - shrink, float(s.y1) - shrink, float(s.cz) + float(s.hz) - shrink]
+	if float(mins[0]) >= float(maxs[0]) or float(mins[1]) >= float(maxs[1]) or float(mins[2]) >= float(maxs[2]):
+		return 1.0   # pad bigger than the solid: no core to hit
+	var tmin: float = -1e9
+	var tmax: float = 1e9
 	for ax in range(3):
 		var pa: float = p[ax]
 		var da: float = d[ax]
 		var lo: float = mins[ax]
 		var hi: float = maxs[ax]
-		if pa < lo or pa > hi:
-			inside_start = false
 		if absf(da) < 0.0001:
 			if pa < lo or pa > hi:
 				return 1.0
@@ -96,34 +113,48 @@ static func _seg_box_t(p: Vector3, d: Vector3, s: Dictionary) -> float:
 		tmax = minf(tmax, t2)
 		if tmin > tmax:
 			return 1.0
-	if inside_start or tmin <= 0.0 or tmin > 1.0:
-		return 1.0
+	if tmax <= 0.0 or tmin >= 1.0:
+		return 1.0   # solid lies entirely behind or beyond the boom
+	if tmin <= 0.0:
+		return 0.0   # boom starts inside — collapse
 	return tmin
 
 
-static func _seg_cyl_t(p: Vector3, d: Vector3, s: Dictionary) -> float:
-	# vertical column: 2D ray-vs-circle in xz, then gate the hit by the y band.
-	# Entering through a column's flat top is ignored (columns are tall).
+static func _seg_cyl_t(p: Vector3, d: Vector3, s: Dictionary, shrink: float = 0.0) -> float:
+	# vertical finite cylinder: side-surface roots in xz PLUS the flat caps
+	# (a boom rising into an arch crown or fountain basin enters via a cap).
+	# shrink deflates radius and caps (core-vs-pad test, see boom_hit_t).
 	var ox: float = p.x - float(s.x)
 	var oz: float = p.z - float(s.z)
-	var r: float = float(s.r)
+	var r: float = float(s.r) - shrink
+	var y0: float = float(s.y0) + shrink
+	var y1: float = float(s.y1) - shrink
+	if r <= 0.0 or y0 >= y1:
+		return 1.0   # pad bigger than the solid: no core to hit
+	var in_xz: bool = ox * ox + oz * oz < r * r
+	if in_xz and p.y > y0 and p.y < y1:
+		return 0.0   # boom starts inside — collapse
+	var best: float = 1.0
 	var a: float = d.x * d.x + d.z * d.z
-	if a < 0.000001:
-		return 1.0
-	if ox * ox + oz * oz < r * r:
-		return 1.0   # start inside the padded footprint — ignore (see above)
-	var b: float = 2.0 * (ox * d.x + oz * d.z)
-	var c: float = ox * ox + oz * oz - r * r
-	var disc: float = b * b - 4.0 * a * c
-	if disc < 0.0:
-		return 1.0
-	var t1: float = (-b - sqrt(disc)) / (2.0 * a)
-	if t1 <= 0.0 or t1 > 1.0:
-		return 1.0
-	var hit_y: float = p.y + d.y * t1
-	if hit_y < float(s.y0) or hit_y > float(s.y1):
-		return 1.0
-	return t1
+	if a > 0.000001:
+		var b: float = 2.0 * (ox * d.x + oz * d.z)
+		var c: float = ox * ox + oz * oz - r * r
+		var disc: float = b * b - 4.0 * a * c
+		if disc >= 0.0:
+			var t1: float = (-b - sqrt(disc)) / (2.0 * a)
+			if t1 > 0.0 and t1 < best:
+				var hit_y: float = p.y + d.y * t1
+				if hit_y > y0 and hit_y < y1:
+					best = t1
+	if absf(d.y) > 0.0001:
+		for yc in [y0, y1]:
+			var tc: float = (yc - p.y) / d.y
+			if tc > 0.0 and tc < best:
+				var hx: float = ox + d.x * tc
+				var hz: float = oz + d.z * tc
+				if hx * hx + hz * hz < r * r:
+					best = tc
+	return best
 
 
 static func ground_y(m: Node, p: Vector3) -> float:
