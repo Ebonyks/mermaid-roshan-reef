@@ -222,3 +222,9 @@ ambientCG (all CC0).
 - License: project original; not for external redistribution
 - Modifications: none; archived byte-for-byte and excluded from Godot imports
 - Status: unintegrated candidates retained for visual review
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_vanilla.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_pastry_chef.py, Blender 5.0 bpy) as a 3D interpretation of the project's own accepted flat cards in assets_src/concepts/opera_jobs_flat_2026-07-21/. No external assets. Modifications: n/a (new).
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_coral.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_plum.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_bowl.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_oven.glb — same source/license as above.
+- assets_src/blender/opera_pastry_chef_2026-07-22.blend — Blender source for the above, original work.

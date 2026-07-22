@@ -46,7 +46,9 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir | decorate
+var order_phase := "steps"         # steps | stir
+var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
+var chef_oven_art: Node3D = null | decorate
 var stir_done := 0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
@@ -788,11 +790,22 @@ func _build_order() -> void:
 			_box(Vector3(0, 2.6, 0), Vector3(6.4, 4.6, 0.4), Color(0.96, 0.94, 0.88), 0.1, goal)
 			_box(Vector3(0, 0.3, 0.6), Vector3(5.0, 0.6, 0.6), Color(0.55, 0.38, 0.24), 0.0, goal)
 		_:
-			var bowl := CylinderMesh.new()
-			bowl.top_radius = 2.4
-			bowl.bottom_radius = 1.5
-			bowl.height = 1.6
-			_mesh(bowl, Vector3(0, 0.8, 0), Color(0.85, 0.9, 1.0), 0.1, goal)
+			chef_bowl_art = _job_art("pastry_chef/opera_pastry_chef_bowl.glb", goal)
+			if chef_bowl_art != null:
+				_job_state(chef_bowl_art, "StateActive", false)
+				_job_state(chef_bowl_art, "StateComplete", false)
+				# scenic oven alcove behind the stage (closed until the win)
+				chef_oven_art = _job_art("pastry_chef/opera_pastry_chef_oven.glb", self)
+				if chef_oven_art != null:
+					chef_oven_art.position = CENTER + Vector3(10.5, 1.0, -14.0)
+					chef_oven_art.rotation.y = -0.35
+					_job_state(chef_oven_art, "StateActive", false)
+			else:
+				var bowl := CylinderMesh.new()
+				bowl.top_radius = 2.4
+				bowl.bottom_radius = 1.5
+				bowl.height = 1.6
+				_mesh(bowl, Vector3(0, 0.8, 0), Color(0.85, 0.9, 1.0), 0.1, goal)
 	# the picture recipe: small copies above the goal, left-to-right = the order
 	if not reveal_one:
 		for s in range(order_steps.size()):
@@ -820,13 +833,45 @@ func _order_colors(theme: String) -> Array[Color]:
 		"paint":
 			return [Color(1.0, 0.55, 0.3), Color(1.0, 0.85, 0.35), Color(0.6, 0.5, 0.95)]
 		_:
-			return [Color(0.65, 0.42, 0.25), Color(1.0, 0.62, 0.78), Color(0.98, 0.94, 0.85)]
+			# the accepted card palette (vanilla / coral / plum) — the recipe
+			# tokens must match the 3D layer art so a non-reader can pair them
+			return [Color(0.94, 0.8, 0.52), Color(0.86, 0.42, 0.38), Color(0.55, 0.36, 0.66)]
+
+# ---------------- opera job 3D art (flat-card interpretations) ----------------
+# GLB kits built from the accepted 1024 cards (see
+# CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md). Every hook keeps its
+# primitive fallback so an unfinished batch can never break an act.
+const JOB_ART_DIR := "res://assets/opera/jobs/"
+
+func _job_art(rel: String, parent: Node3D) -> Node3D:
+	var path := JOB_ART_DIR + rel
+	if not ResourceLoader.exists(path):
+		return null
+	var ps := load(path) as PackedScene
+	if ps == null:
+		return null
+	var inst := ps.instantiate() as Node3D
+	parent.add_child(inst)
+	return inst
+
+func _job_state(root: Node3D, state: String, on: bool) -> void:
+	# toggle a named State* group inside a job GLB (visibility-state pattern)
+	if root == null:
+		return
+	var n := root.find_child(state, true, false)
+	if n is Node3D:
+		(n as Node3D).visible = on
 
 func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 	var prop := Node3D.new()
 	prop.name = "PadProp"
 	prop.position = Vector3(0, 0.6, 0)
 	parent.add_child(prop)
+	if theme == "cake":
+		# vanilla / coral / plum layer kits on their doily pedestals
+		var layer := _job_art("pastry_chef/opera_pastry_chef_layer_%s.glb" % ["vanilla", "coral", "plum"][i], prop)
+		if layer != null:
+			return prop
 	match theme:
 		"clue":
 			# paw print / feather / ribbon — chunky clue shapes a non-reader can tell apart
@@ -911,6 +956,10 @@ func _stir_action() -> void:
 		return
 	stir_done += 1
 	progress_t = 0.0
+	if stir_done == 1:
+		# the bowl wakes up: whisk in, batter swirling
+		_job_state(chef_bowl_art, "StateIdle", false)
+		_job_state(chef_bowl_art, "StateActive", true)
 	var tw := goal.create_tween()
 	tw.tween_property(goal, "rotation:y", goal.rotation.y + TAU * float(stir_done), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.6))
@@ -918,6 +967,11 @@ func _stir_action() -> void:
 		m.chime.pitch_scale = 0.85 + 0.25 * float(stir_done)
 		m.chime.play()
 	if stir_done >= 3:
+		# stirred to perfection: calm cream on top, oven glows open backstage
+		_job_state(chef_bowl_art, "StateActive", false)
+		_job_state(chef_bowl_art, "StateComplete", true)
+		_job_state(chef_oven_art, "StateIdle", false)
+		_job_state(chef_oven_art, "StateActive", true)
 		var pop := goal.create_tween()
 		pop.tween_property(goal, "scale", goal.scale * 1.25, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		m._sparkle_burst(goal.position + Vector3(0, 4.5, 0), Color(1.0, 0.75, 0.9))
