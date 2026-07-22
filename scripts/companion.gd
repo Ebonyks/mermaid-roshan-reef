@@ -152,13 +152,16 @@ func make_creature() -> Node3D:
 
 # ===================== per-frame tick (called from main._process) =====================
 
-# the free-roam worlds where the stuffie tags along (owner 2026-07-19: it
-# follows ALL the time) — self-driven modes (kart, slides, battles, 2D
-# canvas games…) still hide it so it never photobombs an engine's camera
-const FOLLOW_GAMES := ["", "level2", "north"]
+# The stuffie follows EVERYWHERE (owner 2026-07-19/21: all of the time —
+# it kept vanishing in levels an allow-list never heard of). Inverted to a
+# HIDE-list mirroring player.gd's self-driven modes: only engines that own
+# the player/camera themselves (racers, stages, battles, room sequencers)
+# park the stuffie, so every new explorable level follows by default.
+const HIDE_GAMES := ["kart", "galaxy", "combat", "stuffie", "dungeon", "emberdun",
+	"opera", "dolls", "slide", "fairyshoot", "brawl"]
 
 func _follow_ctx() -> bool:
-	return m.game in FOLLOW_GAMES
+	return m.game not in HIDE_GAMES
 
 func tick(delta: float) -> void:
 	if m.player == null or m.intro_active:

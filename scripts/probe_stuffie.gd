@@ -269,6 +269,17 @@ func _zone_case() -> void:
 	main.game = ""
 	comp.tick(0.016)
 	_ck("zone change snaps the stuffie to her side", near)
+	# owner 2026-07-21 ("vanishes after ocean"): follow is hide-list based, so
+	# new explorable levels follow by DEFAULT; only camera-owning engines hide
+	main.game = "ember"
+	var follows_ember: bool = comp._follow_ctx()
+	main.game = "treasure"
+	var follows_arena: bool = comp._follow_ctx()
+	main.game = "kart"
+	var hides_kart: bool = not comp._follow_ctx()
+	main.game = ""
+	_ck("follows into new levels and arena games by default", follows_ember and follows_arena)
+	_ck("hides only inside camera-owning engines", hides_kart)
 
 func _rest_case() -> void:
 	# THE GENTLE FAILURE (owner 2026-07-21): battle bumps leave boo-boos; the
