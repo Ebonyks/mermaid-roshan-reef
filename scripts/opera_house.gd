@@ -491,6 +491,16 @@ func _star_count() -> int:
 			stars += 1
 	return stars
 
+func _floor_unlocked(story: int) -> bool:
+	# handoff contract (CLAUDE_OPERA_HOUSE_3D_CONTINUATION_2026-07-21): the
+	# ground floor is always open; each upper floor opens when the floor
+	# below's BOSS star is earned. Gates, portals, pointer and lifts all
+	# consume this one helper.
+	if story <= 1:
+		return true
+	var prior_boss := 4 if story == 2 else 9
+	return (m.opera_stars & (1 << prior_boss)) != 0
+
 func _floor_shows_starred(story: int) -> bool:
 	for cfg_i in range(ACTS.size()):
 		var cfg: Dictionary = ACTS[cfg_i]
@@ -505,6 +515,12 @@ func _spot_lit(spot: Dictionary) -> bool:
 func _update_stars() -> void:
 	for door in doors:
 		(door["star"] as Label3D).visible = (m.opera_stars & (1 << int(door["i"]))) != 0
+		# portals on a locked floor keep their curtains closed and dim
+		var unlocked := _floor_unlocked(int((door["cfg"] as Dictionary).get("story", 1)))
+		var veil := door["veil"] as MeshInstance3D
+		var dvmat := veil.material_override as StandardMaterial3D
+		dvmat.albedo_color = Color(1.0, 0.78, 0.5, 0.34) if unlocked else Color(0.5, 0.5, 0.58, 0.14)
+		dvmat.emission = Color(1.0, 0.78, 0.5) if unlocked else Color(0.25, 0.25, 0.3)
 	for spot in boss_spots:
 		var lit := _spot_lit(spot)
 		var starred: bool = (m.opera_stars & (1 << int(spot["i"]))) != 0
@@ -590,6 +606,12 @@ func _return_to_lobby(finished: int) -> void:
 	if cam != null:
 		cam.make_current()
 	_update_stars()
+	# a floor-boss star wakes the next storey (handoff): burst + invitation
+	if (finished == 4 or finished == 9) and m.opera_stars != ALL_STARS:
+		for lift in lifts:
+			m._sparkle_burst((lift["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.7, 0.95, 1.0))
+		m.show_msg("Roshan", "The whole next floor just woke up! Ride the sparkling bubbles!", "win")
+		return
 	if m.opera_stars == ALL_STARS:
 		m.show_msg("Roshan", "Every show and every big finale — all three floors! Take a bow, Opera Star Roshan!", "win")
 		for i in range(10):
@@ -607,6 +629,11 @@ func _tick_doors(delta: float) -> void:
 		if dist < 3.4 and bool(door["armed"]) and float(door["cool"]) <= 0.0:
 			door["armed"] = false
 			door["cool"] = 5.0
+			if not _floor_unlocked(int((door["cfg"] as Dictionary).get("story", 1))):
+				if float(door["hint_cool"]) <= 0.0:
+					door["hint_cool"] = 8.0
+					m.show_msg("Roshan", "This floor wakes up after the big show downstairs! Follow the golden sparkle!", "hint")
+				continue
 			_enter_door(door)
 			return
 	for spot in boss_spots:
@@ -639,13 +666,26 @@ func _tick_lifts(_delta: float) -> void:
 		if lift_busy or not bool(lift["armed"]) or flat > 2.9:
 			continue
 		lift["armed"] = false
-		lift_busy = true
-		# ride up one floor; from the top gallery the bubbles loop gently home
+		# ride up one floor; from the top gallery the bubbles loop gently home.
+		# A lift stays DORMANT toward locked floors (handoff): the cycle skips
+		# to the next unlocked destination, and if none exists the bubbles
+		# just shimmer with a kindly hint.
 		var fi := 0
 		for k in range(FLOOR_YS.size()):
 			if absf(lobby_y - float(FLOOR_YS[k])) < 3.0:
 				fi = k
-		var to_y := float(FLOOR_YS[(fi + 1) % FLOOR_YS.size()])
+		var to_fi := (fi + 1) % FLOOR_YS.size()
+		while to_fi != fi and not _floor_unlocked(to_fi + 1):
+			to_fi = (to_fi + 1) % FLOOR_YS.size()
+		if to_fi == fi:
+			lift["hint_cool"] = maxf(0.0, float(lift.get("hint_cool", 0.0)))
+			if float(lift["hint_cool"]) <= 0.0:
+				lift["hint_cool"] = 10.0
+				m._sparkle_burst(lp + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
+				m.show_msg("Roshan", "The bubbles are still sleepy! Win the big centre-stage show first!", "hint")
+			continue
+		lift_busy = true
+		var to_y := float(FLOOR_YS[to_fi])
 		m._sparkle_burst(lobby_pos + Vector3(0, 2.0, 0), Color(0.7, 0.95, 1.0))
 		var tw := create_tween()
 		tw.tween_property(self, "lobby_y", to_y, 1.9 if to_y < lobby_y else 1.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
