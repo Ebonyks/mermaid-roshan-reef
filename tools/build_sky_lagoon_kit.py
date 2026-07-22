@@ -560,7 +560,6 @@ def cloud_variant(index: int) -> Asset:
 
 ASSETS: list[tuple[Asset, Path]] = [
 	(baby_rosette(), KIT_OUT / "lagoon_baby_rosette.glb"),
-	(meadow_shrub(), KIT_OUT / "lagoon_meadow_shrub.glb"),
 	(flower_cluster("lagoon_flower_cluster_coral", "coral_light"), KIT_OUT / "lagoon_flower_cluster_coral.glb"),
 	(flower_cluster("lagoon_flower_cluster_lavender", "lavender"), KIT_OUT / "lagoon_flower_cluster_lavender.glb"),
 	(mushroom_cluster(), KIT_OUT / "lagoon_mushroom_cluster.glb"),

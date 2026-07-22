@@ -30,50 +30,148 @@ const OPERA_GATE_SPOT := Vector2(-26.0, -30.0)   # local: flat plaza, off the pa
 const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
 const FORBIDDEN_GROUND_LEAF_ROLES := ["grass_leafsLarge", "trop_bigleaf"]
 const LAGOON_GROUND_FLORA := [
+	"lagoon_shrub_salal_a",
+	"lagoon_shrub_salal_b",
+	"lagoon_shrub_oregon_grape_a",
+	"lagoon_shrub_oregon_grape_b",
+	"lagoon_shrub_red_flowering_currant_a",
+	"lagoon_shrub_red_flowering_currant_b",
+	"lagoon_shrub_oceanspray_a",
+	"lagoon_shrub_oceanspray_b",
+	"lagoon_shrub_salmonberry_a",
+	"lagoon_shrub_salmonberry_b",
+	"lagoon_shrub_trailing_blackberry_a",
+	"lagoon_shrub_trailing_blackberry_b",
 	"lagoon_baby_rosette",
-	"lagoon_meadow_shrub",
 	"lagoon_flower_cluster_coral",
 	"lagoon_flower_cluster_lavender",
 	"lagoon_mushroom_cluster",
 ]
 const LAGOON_REVIEW_FLORA := [
+	"lagoon_shrub_salal_a",
+	"lagoon_shrub_salal_b",
+	"lagoon_shrub_oregon_grape_a",
+	"lagoon_shrub_oregon_grape_b",
+	"lagoon_shrub_red_flowering_currant_a",
+	"lagoon_shrub_red_flowering_currant_b",
+	"lagoon_shrub_oceanspray_a",
+	"lagoon_shrub_oceanspray_b",
+	"lagoon_shrub_salmonberry_a",
+	"lagoon_shrub_salmonberry_b",
+	"lagoon_shrub_trailing_blackberry_a",
+	"lagoon_shrub_trailing_blackberry_b",
 	"lagoon_baby_rosette",
-	"lagoon_meadow_shrub",
 	"lagoon_flower_cluster_coral",
 	"lagoon_flower_cluster_lavender",
 	"lagoon_mushroom_cluster",
 	"lagoon_pond_reeds",
 	"lagoon_river_stones",
 ]
-const LAGOON_ORIGINAL_TREES := [
-	"tree_pineRoundF",
-	"tree_default_fall",
-	"tree_simple_fall",
-	"tree_fat",
-]
 const LAGOON_TREE_SOURCE_HEIGHT := {
-	"lagoon_tree_ancient_oak": 8.113,
-	"lagoon_tree_dancing_birch": 9.379,
-	"lagoon_tree_umbrella": 6.511,
-	"lagoon_tree_blossom_cloud": 8.125,
-	"lagoon_tree_windswept": 6.611,
-	"lagoon_tree_twinheart": 7.293,
-	"lagoon_tree_weeping_willow": 7.942,
-	"lagoon_tree_celebration_snow": 9.201,
+	"lagoon_tree_douglas_fir": 9.701,
+	"lagoon_tree_western_redcedar": 9.370,
+	"lagoon_tree_western_hemlock": 9.620,
+	"lagoon_tree_sitka_spruce": 9.350,
+	"lagoon_tree_shore_pine": 7.152,
+	"lagoon_tree_pacific_yew": 5.820,
+	"lagoon_tree_bigleaf_maple": 8.250,
+	"lagoon_tree_red_alder": 8.670,
+	"lagoon_tree_black_cottonwood": 9.000,
+	"lagoon_tree_pacific_madrone": 7.696,
+	"lagoon_tree_garry_oak": 6.970,
+	"lagoon_tree_pacific_dogwood": 5.209,
+}
+const LAGOON_TREE_TARGET_HEIGHT := {
+	"lagoon_tree_douglas_fir": 12.8,
+	"lagoon_tree_western_redcedar": 12.4,
+	"lagoon_tree_western_hemlock": 11.8,
+	"lagoon_tree_sitka_spruce": 11.8,
+	"lagoon_tree_shore_pine": 8.8,
+	"lagoon_tree_pacific_yew": 6.8,
+	"lagoon_tree_bigleaf_maple": 10.8,
+	"lagoon_tree_red_alder": 11.2,
+	"lagoon_tree_black_cottonwood": 12.6,
+	"lagoon_tree_pacific_madrone": 9.4,
+	"lagoon_tree_garry_oak": 9.8,
+	"lagoon_tree_pacific_dogwood": 7.4,
+}
+const LAGOON_SHRUB_SOURCE_HEIGHT := {
+	"lagoon_shrub_salal_a": 1.570,
+	"lagoon_shrub_salal_b": 2.100,
+	"lagoon_shrub_oregon_grape_a": 1.720,
+	"lagoon_shrub_oregon_grape_b": 2.473,
+	"lagoon_shrub_red_flowering_currant_a": 2.600,
+	"lagoon_shrub_red_flowering_currant_b": 2.290,
+	"lagoon_shrub_oceanspray_a": 2.070,
+	"lagoon_shrub_oceanspray_b": 2.510,
+	"lagoon_shrub_salmonberry_a": 1.980,
+	"lagoon_shrub_salmonberry_b": 2.786,
+	"lagoon_shrub_trailing_blackberry_a": 1.083,
+	"lagoon_shrub_trailing_blackberry_b": 1.823,
+}
+const LAGOON_SHRUB_TARGET_HEIGHT := {
+	"lagoon_shrub_salal_a": 1.55,
+	"lagoon_shrub_salal_b": 2.00,
+	"lagoon_shrub_oregon_grape_a": 1.45,
+	"lagoon_shrub_oregon_grape_b": 1.95,
+	"lagoon_shrub_red_flowering_currant_a": 2.15,
+	"lagoon_shrub_red_flowering_currant_b": 2.05,
+	"lagoon_shrub_oceanspray_a": 2.25,
+	"lagoon_shrub_oceanspray_b": 2.55,
+	"lagoon_shrub_salmonberry_a": 1.75,
+	"lagoon_shrub_salmonberry_b": 2.45,
+	"lagoon_shrub_trailing_blackberry_a": 0.95,
+	"lagoon_shrub_trailing_blackberry_b": 1.60,
 }
 const LAGOON_MEADOW_TREES := [
-	# The four shipped GEN2 sculpts remain untouched as quality anchors.
-	"tree_pineRoundF",
-	"tree_default_fall",
-	"tree_simple_fall",
-	"tree_fat",
-	# Six silhouette-led modeled extensions share their painted mesh language.
-	"lagoon_tree_ancient_oak",
-	"lagoon_tree_dancing_birch",
-	"lagoon_tree_umbrella",
-	"lagoon_tree_blossom_cloud",
-	"lagoon_tree_windswept",
-	"lagoon_tree_twinheart",
+	"lagoon_tree_douglas_fir",
+	"lagoon_tree_western_redcedar",
+	"lagoon_tree_western_hemlock",
+	"lagoon_tree_sitka_spruce",
+	"lagoon_tree_shore_pine",
+	"lagoon_tree_pacific_yew",
+	"lagoon_tree_bigleaf_maple",
+	"lagoon_tree_red_alder",
+	"lagoon_tree_black_cottonwood",
+	"lagoon_tree_pacific_madrone",
+	"lagoon_tree_garry_oak",
+	"lagoon_tree_pacific_dogwood",
+]
+const LAGOON_SNOW_WOODY := [
+	"lagoon_tree_douglas_fir",
+	"lagoon_tree_western_redcedar",
+	"lagoon_tree_western_hemlock",
+	"lagoon_tree_sitka_spruce",
+	"lagoon_tree_shore_pine",
+]
+const LAGOON_WET_BANK_WOODY := [
+	"lagoon_tree_red_alder",
+	"lagoon_tree_black_cottonwood",
+	"lagoon_shrub_salmonberry_a",
+	"lagoon_shrub_salmonberry_b",
+]
+const LAGOON_MOIST_WOODY := [
+	"lagoon_tree_western_redcedar",
+	"lagoon_tree_western_hemlock",
+	"lagoon_tree_sitka_spruce",
+	"lagoon_tree_pacific_yew",
+	"lagoon_tree_bigleaf_maple",
+	"lagoon_tree_pacific_dogwood",
+	"lagoon_shrub_salal_a",
+	"lagoon_shrub_salal_b",
+]
+const LAGOON_DRY_WOODY := [
+	"lagoon_tree_shore_pine",
+	"lagoon_tree_pacific_madrone",
+	"lagoon_tree_garry_oak",
+	"lagoon_shrub_oregon_grape_a",
+	"lagoon_shrub_oregon_grape_b",
+	"lagoon_shrub_red_flowering_currant_a",
+	"lagoon_shrub_red_flowering_currant_b",
+	"lagoon_shrub_oceanspray_a",
+	"lagoon_shrub_oceanspray_b",
+	"lagoon_shrub_trailing_blackberry_a",
+	"lagoon_shrub_trailing_blackberry_b",
 ]
 const ALPINE_CREATURE_KINDS := ["fish", "insect", "bird"]
 const ALPINE_CREATURE_CAGES := ["aquarium", "terrarium", "bird_cage"]
@@ -108,19 +206,13 @@ func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
 
 func _lagoon_tree(name: String, pos: Vector3, target_height: float,
 	yaw: float = 0.0) -> Node3D:
-	# Preserve the four superior shipped GEN2 trees through their established
-	# _nature mappings. Each extension records its audited GEN5 source height so
-	# the call contract remains an honest world-space target across silhouettes.
-	if name in LAGOON_ORIGINAL_TREES:
-		var original: Node3D = m._nature(name, pos, target_height, yaw)
-		if original == null:
-			return null
-		original.set_meta("lagoon_art_role", name)
-		var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-		counts[name] = int(counts.get(name, 0)) + 1
-		m.g["lagoon_art_counts"] = counts
-		return original
-	var source_height: float = float(LAGOON_TREE_SOURCE_HEIGHT.get(name, 6.8))
+	var source_height: float = float(LAGOON_TREE_SOURCE_HEIGHT.get(name, 8.0))
+	return _lagoon_prop(name, pos, target_height / source_height, yaw)
+
+
+func _lagoon_shrub(name: String, pos: Vector3, target_height: float,
+	yaw: float = 0.0) -> Node3D:
+	var source_height: float = float(LAGOON_SHRUB_SOURCE_HEIGHT.get(name, 1.8))
 	return _lagoon_prop(name, pos, target_height / source_height, yaw)
 
 
@@ -221,9 +313,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var wx: float = gsgn * 26.0
 		var wy: float = _lagoon_local(wx, gz)
 		m._wall_solid(o + Vector3(wx, wy + 6.0, gz), Vector3(11.0, 12.0, 11.0), 0.8)
-	# ---------- authored meadow forest (dense, grounded, structurally varied) ----------
-	# Four original GEN2 sculpts and six modeled extensions form the dry-meadow
-	# roster. The weeping willow and celebration tree stay in their own habitats.
+	# ---------- authored PNW meadow forest (dense, grounded, species varied) ----------
+	# Each Seattle-area species has its own audited branch graph and target stature.
 	var trees := LAGOON_MEADOW_TREES
 	var sd := 3
 	# A deterministic hero specimen guarantees that every genuinely different
@@ -245,17 +336,14 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var hero_pos := o + Vector3(hero_x,
 				_lagoon_local(hero_x, hero_z) - 0.35, hero_z)
 			var hero_yaw: float = float(tree_index) * 0.71
-			# The windswept tree's defining flag profile is directional. Present its
-			# guaranteed review specimen broadside; randomized grove copies still
-			# exercise the full range of gameplay rotations.
-			if String(trees[tree_index]) == "lagoon_tree_windswept":
-				hero_yaw = 0.71
-			var hero_tree: Node3D = _lagoon_tree(String(trees[tree_index]), hero_pos,
-				10.4 + float(tree_index % 3) * 0.5,
-				hero_yaw)
+			var tree_name: String = String(trees[tree_index])
+			var hero_height: float = float(LAGOON_TREE_TARGET_HEIGHT.get(tree_name, 9.5))
+			var hero_tree: Node3D = _lagoon_tree(tree_name, hero_pos,
+				hero_height, hero_yaw)
 			if hero_tree != null:
 				hero_tree.set_meta("lagoon_art_review_anchor", true)
-			m._cyl_solid(hero_pos + Vector3(0, 5.4, 0), 1.3, 5.4, 0.6)
+			m._cyl_solid(hero_pos + Vector3(0, hero_height * 0.5, 0),
+				1.3, hero_height * 0.5, 0.6)
 			break
 	# tree CLUSTERS (little groves read as a real forest edge)
 	for grove in range(14):
@@ -288,10 +376,36 @@ func _build_pearl_castle(o: Vector3) -> void:
 			var tname: String = trees[(sd / 11) % trees.size()]
 			if not _lagoon_plant_allowed(tname, gcx + ox, gcz + oz):
 				continue
-			_lagoon_tree(tname, tpos, 9.4 + float(sd % 5) * 0.55,
-				float(sd % 628) / 100.0)
+			var target_height: float = float(LAGOON_TREE_TARGET_HEIGHT.get(tname, 9.5))
+			target_height *= 0.90 + float(sd % 17) * 0.012
+			_lagoon_tree(tname, tpos, target_height, float(sd % 628) / 100.0)
 			# collision audit #1: the whole forest was ghost — trunks are solid now
-			m._cyl_solid(tpos + Vector3(0, 6.0, 0), 1.3, 6.0, 0.6)
+			m._cyl_solid(tpos + Vector3(0, target_height * 0.5, 0),
+				1.3, target_height * 0.5, 0.6)
+	# Guaranteed shrub specimens make all twelve accepted prototype designs
+	# (six species, two variants each) independently scoreable before the
+	# denser undergrowth pass begins.
+	for shrub_index in range(LAGOON_SHRUB_SOURCE_HEIGHT.size()):
+		var shrub_name: String = String(LAGOON_SHRUB_SOURCE_HEIGHT.keys()[shrub_index])
+		for attempt in range(48):
+			var shrub_angle: float = 0.62 + float(shrub_index) * 1.07 + float(attempt) * 0.37
+			var shrub_radius: float = 48.0 + float(attempt % 9) * 15.0
+			var shrub_x: float = cos(shrub_angle) * shrub_radius
+			var shrub_z: float = sin(shrub_angle) * shrub_radius
+			if not _lagoon_plant_allowed(shrub_name, shrub_x, shrub_z):
+				continue
+			var shrub_train_angle: float = atan2(shrub_x, shrub_z + 3.5)
+			if absf(sqrt(shrub_x * shrub_x + (shrub_z + 3.5) * (shrub_z + 3.5))
+					- m._train_ref()._ring_r(shrub_train_angle)) < 13.0:
+				continue
+			var shrub_pos := o + Vector3(shrub_x,
+				_lagoon_local(shrub_x, shrub_z) - 0.14, shrub_z)
+			var shrub_height: float = float(LAGOON_SHRUB_TARGET_HEIGHT.get(shrub_name, 1.8))
+			var review_shrub: Node3D = _lagoon_shrub(shrub_name, shrub_pos,
+				shrub_height, float(shrub_index) * 0.83)
+			if review_shrub != null:
+				review_shrub.set_meta("lagoon_art_review_anchor", true)
+			break
 	# Undergrowth uses complete modeled plants. A single full-size leaf is not a
 	# plant and must never be inserted directly into the terrain.
 	for k in range(90):
@@ -309,31 +423,20 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var u_ta: float = atan2(px, pz + 3.5)
 		if absf(sqrt(px * px + (pz + 3.5) * (pz + 3.5)) - m._train_ref()._ring_r(u_ta)) < 13.0:
 			continue
-		@warning_ignore("integer_division")
-		var pick := (sd / 7) % 10
 		var gp := Vector3(px, _lagoon_local(px, pz) - 0.2, pz)
 		var yr := float(sd % 628) / 100.0
-		var plant_name: String
-		var plant_size: float
-		if pick < 3:
-			plant_name = "lagoon_meadow_shrub"
-			plant_size = 1.30
-		elif pick < 5:
-			plant_name = "lagoon_baby_rosette"
-			plant_size = 1.55
-		elif pick < 6:
-			plant_name = "lagoon_mushroom_cluster"
-			plant_size = 1.70
-		elif pick < 7:
-			plant_name = "lagoon_flower_cluster_lavender"
-			plant_size = 1.45
-		elif pick < 8:
-			plant_name = "lagoon_baby_rosette"
-			plant_size = 1.25
+		@warning_ignore("integer_division")
+		var plant_name: String = LAGOON_GROUND_FLORA[(sd / 7) % LAGOON_GROUND_FLORA.size()]
+		if not _lagoon_plant_allowed(plant_name, px, pz):
+			continue
+		if plant_name.begins_with("lagoon_shrub_"):
+			var shrub_height: float = float(LAGOON_SHRUB_TARGET_HEIGHT.get(plant_name, 1.8))
+			shrub_height *= 0.88 + float(sd % 19) * 0.012
+			_lagoon_shrub(plant_name, o + gp, shrub_height, yr)
 		else:
-			plant_name = "lagoon_flower_cluster_coral"
-			plant_size = 1.45
-		if _lagoon_plant_allowed(plant_name, px, pz):
+			var plant_size: float = 1.70 if plant_name == "lagoon_mushroom_cluster" else 1.45
+			if plant_name == "lagoon_baby_rosette":
+				plant_size = 1.35
 			_lagoon_prop(plant_name, o + gp, plant_size, yr)
 	# a calm pond off to the side, ringed with cattails
 	var pond := MeshInstance3D.new()
@@ -354,12 +457,11 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var cpx: float = -95 + cos(cta) * 36.0
 		var cpz: float = 70 + sin(cta) * 36.0
 		_lagoon_prop("lagoon_pond_reeds", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.18, cpz), 1.28 + float(ct % 3) * 0.08, cta + PI)
-	# Weeping willows are shoreline species. Two rotations frame the pond, but
-	# count as one modeled tree design rather than palette-only variants.
-	_lagoon_tree("lagoon_tree_weeping_willow",
-		o + Vector3(-126.0, _lagoon_local(-126.0, 82.0) - 0.18, 82.0), 10.8, 0.42)
-	_lagoon_tree("lagoon_tree_weeping_willow",
-		o + Vector3(-69.0, _lagoon_local(-69.0, 90.0) - 0.18, 90.0), 9.8, -1.92)
+	# Native wet-bank trees frame the pond from dry soil outside its water disc.
+	_lagoon_tree("lagoon_tree_red_alder",
+		o + Vector3(-133.0, _lagoon_local(-133.0, 84.0) - 0.18, 84.0), 11.4, 0.42)
+	_lagoon_tree("lagoon_tree_black_cottonwood",
+		o + Vector3(-64.0, _lagoon_local(-64.0, 92.0) - 0.18, 92.0), 12.8, -1.92)
 	_build_lagoon_bank_dressing(o)
 	# ---------- Phase 4b: PLAYGROUND corner + park dressing (Tiny Treats, CC0) ----------
 	# a real play-place on the east meadow: slide, swings, merry-go-round,
@@ -1369,8 +1471,8 @@ func _village_house_collectible(base: Vector3, house_index: int) -> void:
 func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
 	var gy: float = _lagoon_local(lp.x, lp.z)
 	var base := o + Vector3(lp.x, gy, lp.z)
-	var pine_name := "lagoon_tree_celebration_snow" if decorated else "tree_pineRoundF"
-	var target_height: float = 14.6 if decorated else 9.6 + sc * 1.8
+	var pine_name := "lagoon_tree_douglas_fir" if decorated else "lagoon_tree_sitka_spruce"
+	var target_height: float = 13.6 if decorated else 9.8 + sc * 1.8
 	_lagoon_tree(pine_name, base - Vector3(0.0, 0.10, 0.0), target_height)
 	m._cyl_solid(base + Vector3(0.0, target_height * 0.5, 0.0),
 		1.25 if not decorated else 1.55, target_height * 0.5, 0.5)
@@ -2664,6 +2766,18 @@ func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
 	return true
 
 
+func _lagoon_water_edge_distance(lx: float, lz: float) -> float:
+	var point := Vector2(lx, lz)
+	var nearest: float = 9999.0
+	for river: Array in m.LAGOON_RIVERS:
+		for segment_index in range(river.size() - 1):
+			nearest = minf(nearest, maxf(0.0,
+				_seg_dist(point, river[segment_index], river[segment_index + 1])
+				- m.LAGOON_RIVER_W))
+	var pond_edge: float = maxf(0.0, point.distance_to(Vector2(-95.0, 70.0)) - 34.0)
+	return minf(nearest, pond_edge)
+
+
 func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
 	# Keep terrestrial flora tied to the same ecological zones painted by the
 	# terrain shader. Authored reed beds and Alpine pines are built separately.
@@ -2678,12 +2792,21 @@ func _lagoon_plant_allowed(role: String, lx: float, lz: float) -> bool:
 	var mountain_d: float = Vector2(lx + 135.0, lz + 165.0).length()
 	var high_snow: float = (1.0 - smoothstep(58.0, 78.0, mountain_d)) * smoothstep(12.0, 27.0, ground_y)
 	if maxf(village_snow, high_snow) > 0.05:
-		return role in ["tree_pineRoundF", "lagoon_tree_celebration_snow"]
+		return role in LAGOON_SNOW_WOODY
 
 	var grass_mix: float = smoothstep(-6.0, 2.5, ground_y)
 	var park_delta := Vector2((lx - 75.0) / 52.0, (lz - 91.0) / 50.0)
 	var park_mix: float = (1.0 - smoothstep(0.72, 1.0, park_delta.length())) * grass_mix * 0.82
 	if park_mix > 0.25:
+		return false
+	var water_edge_distance: float = _lagoon_water_edge_distance(lx, lz)
+	if role in LAGOON_WET_BANK_WOODY and water_edge_distance > 42.0:
+		return false
+	if role in LAGOON_MOIST_WOODY and water_edge_distance > 82.0:
+		return false
+	if role in LAGOON_DRY_WOODY and water_edge_distance < 20.0:
+		return false
+	if role == "lagoon_mushroom_cluster" and water_edge_distance > 68.0:
 		return false
 	# Sky Lagoon is a temperate meadow; tropical palms belong in Butterfly World.
 	return role != "tree_palm"

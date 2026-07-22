@@ -431,11 +431,22 @@ func _mg_tick_snow_chase(delta: float) -> void:
 # ---- GARDEN: tap sprouts to grow them into flowers ----
 
 
+# The plant art (k_sprout + all five flower PNGs) shares one 512x512 layout:
+# the drawing occupies only the middle of the canvas (~54% wide for the sprout,
+# ~44% for flowers, ~72-75% tall) with its stem bottom at 88% of the canvas.
+# Sizing rects by DESIRED VISIBLE height and pinning the stem bottom to the pot
+# soil line is what keeps the growth stages looking planted instead of floating.
+const GARDEN_SOIL_Y := 615.0        # where stems visually enter the pot
+const GARDEN_ART_BOTTOM := 0.881    # stem bottom fraction of the 512px canvas
+const GARDEN_SPROUT_RECT := 148.0   # -> ~105px of visible sprout
+const GARDEN_FLOWER_RECT := 228.0   # -> ~170px of visible flower
+
+
 func _mg_build_garden() -> void:
 	m.mg["grown"] = 0
 	m.mg["stage"] = [0, 0, 0, 0, 0]
 	m.mg["flowers"] = ["k_flower1", "flower", "flower2", "k_flower2", "flower3"]   # each plant ends as a DIFFERENT flower
-	(m.mg["hud"] as Label).text = "Tap each seed to grow it: seed, then sprout, then a FLOWER!"
+	(m.mg["hud"] as Label).text = "Tap each seed to make it grow into a FLOWER!"
 	_mg_sprite("res://assets/mg/sun.png", Vector2(120, 130), Vector2(180, 180))
 	# a soft grassy mound across the bottom
 	var mound := _mg_circle(Vector2(640, 1050), 760.0, Color(0.5, 0.78, 0.45))
@@ -448,19 +459,24 @@ func _mg_build_garden() -> void:
 		potm.size = Vector2(150, 100)
 		potm.position = Vector2(x - 75, 600)
 		# tap forgiveness: the Button (invisible, flat) is 140x140 so near-misses
-		# still count, with the 72px seed art centered inside. Seeds sit 240px
+		# still count, with a small 52px seed resting on the pot rim (a seed must
+		# read SMALLER than the sprout and flower it grows into). Seeds sit 240px
 		# apart, so 140px hit areas can never overlap (100px clear gap).
 		var sp := _mg_artbtn("res://assets/mg/seed.png", Vector2(x, 600), Vector2(140, 140))
 		var seed_tex := sp.get_child(0) as TextureRect
 		seed_tex.set_anchors_preset(Control.PRESET_CENTER)
-		seed_tex.size = Vector2(72, 72)
-		seed_tex.position = (Vector2(140, 140) - Vector2(72, 72)) * 0.5
+		seed_tex.size = Vector2(52, 52)
+		seed_tex.position = Vector2((140.0 - 52.0) * 0.5, 88.0 - 52.0 * 0.5)   # centered, resting on the soil line
 		sp.set_meta("hx", x)
 		var idx := i
 		sp.pressed.connect(func(): _mg_garden_tap(idx, sp))
-	# Roshan watering, watching over the garden
-	_mg_sprite(m.skin_sprite_path(), Vector2(1140, 360), Vector2(180, 230))
-	_mg_sprite("res://assets/mg/wateringcan.png", Vector2(1010, 430), Vector2(150, 130))
+	# Roshan watering, watching over the garden — raised clear of pot 5's
+	# fully-grown flower (rect top 414) and the pink can from the book art
+	# tilted so its rose pours toward her flowers
+	_mg_sprite(m.skin_sprite_path(), Vector2(1150, 295), Vector2(180, 230))
+	var can := _mg_sprite("res://assets/mg/wateringcan.png", Vector2(1022, 362), Vector2(130, 137))
+	can.pivot_offset = can.size * 0.5
+	can.rotation = 0.32
 	# a couple of drifting butterflies
 	for bi in range(3):
 		var bf := _mg_sprite("res://assets/mg/butterfly.png", Vector2(300 + float(bi) * 350, 220), Vector2(90, 90))
@@ -480,18 +496,23 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 	if int(st[i]) == 1:
 		# seed -> seedling (same small sprout for every plant); the art fills the
 		# button again from here on (the seed stage kept it small inside the
-		# oversized 140px hit area)
-		tex.set_anchors_preset(Control.PRESET_FULL_RECT)
+		# oversized 140px hit area). Rect sized so the visible sprout is ~105px
+		# tall with its stem bottom pinned to the pot soil line.
+		# set_anchors_and_offsets_preset, NOT set_anchors_preset: the latter
+		# keeps the current rect (it only rewrites anchors), which left the art
+		# frozen at seed size — the original "seeds bigger than flowers" bug.
+		tex.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		tex.texture = load("res://assets/mg/k_sprout.png")
-		b.size = Vector2(120, 150)
+		b.size = Vector2(GARDEN_SPROUT_RECT, GARDEN_SPROUT_RECT)
 		b.custom_minimum_size = b.size
-		b.position = Vector2(x, 540) - b.size * 0.5
+		b.position = Vector2(x - GARDEN_SPROUT_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_SPROUT_RECT * GARDEN_ART_BOTTOM)
 	else:
-		# seedling -> a distinct flower, with a happy pop
+		# seedling -> a distinct flower, with a happy pop; ~170px of visible
+		# flower rooted on the same soil line (seed < sprout < flower)
 		tex.texture = load("res://assets/mg/" + String((m.mg["flowers"] as Array)[i]) + ".png")
-		b.size = Vector2(175, 205)
+		b.size = Vector2(GARDEN_FLOWER_RECT, GARDEN_FLOWER_RECT)
 		b.custom_minimum_size = b.size
-		b.position = Vector2(x, 495) - b.size * 0.5
+		b.position = Vector2(x - GARDEN_FLOWER_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_FLOWER_RECT * GARDEN_ART_BOTTOM)
 		b.pivot_offset = b.size * 0.5
 		b.disabled = true
 		var tw = m.create_tween()
