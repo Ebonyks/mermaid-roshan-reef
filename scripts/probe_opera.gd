@@ -60,6 +60,7 @@ func _init() -> void:
 	opera.lobby_pos = (opera.lifts[0]["pos"] as Vector3) + Vector3(0, 1.1, 0)
 	await _frames(40)
 	_ck("dormant lift refuses the ride while floors sleep", opera.lobby_y < 0.5 and not opera.lift_busy)
+	_ck("shell-clasp gates guard both landings, closed", opera.gates.size() == 2 and not bool(opera.gates[0]["open"]) and not bool(opera.gates[1]["open"]))
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
 	_ck("act one dresses Roshan in a costume", act != null and act.costume_root != null and act.costume_root.get_child_count() > 0)
@@ -111,6 +112,7 @@ func _init() -> void:
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
 		if expected == 5:
 			_ck("dragon star unlocks the balcony floor", opera._floor_unlocked(2))
+			_ck("shell gates fold open with the unlock", bool(opera.gates[0]["open"]) and bool(opera.gates[1]["open"]))
 		if expected == 10:
 			_ck("phantom star unlocks the top gallery", opera._floor_unlocked(3))
 		var is_boss := String(cfg2.get("type", "show")) == "boss"

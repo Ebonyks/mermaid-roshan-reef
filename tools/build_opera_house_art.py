@@ -451,6 +451,24 @@ def build_sleuth_pack():
     export("opera_tiara_chest.glb")
 
 
+def build_shell_gate():
+    """Upper-access shell-clasp gate (handoff): two shell leaves that swing
+    open, brass posts, gold lintel with three pearl-socket rings. Leaf nodes
+    are named leaf_l / leaf_r so the runtime can swing them."""
+    reset()
+    for sx in (-1, 1):
+        cyl(0.28, 5.2, (sx * 3.3, 0, 2.6), "brass", "post", verts=12, bevel=0)
+        sphere(0.4, (sx * 3.3, 0, 5.4), "gold", "post_pearl", seg=10)
+    cube((7.2, 0.4, 0.55), (0, 0, 5.75), "gold", "lintel")
+    for i in range(3):
+        torus(0.3, 0.09, (-1.1 + i * 1.1, 0, 5.75), "plum", "socket%d" % i, rot=(1.5708, 0, 0))
+    for sx, nm in ((-1, "leaf_l"), (1, "leaf_r")):
+        leaf = cube((3.0, 0.28, 4.6), (sx * 1.55, 0, 2.45), "cream", nm, bevel=0.08)
+        for r in range(3):
+            cube((2.6, 0.1, 0.24), (sx * 1.55, sx * 0.2, 1.1 + r * 1.3), "glass", nm + "_ridge")
+    export("opera_shell_gate.glb")
+
+
 if __name__ == "__main__":
     build_arch()
     build_curtain()
@@ -466,4 +484,5 @@ if __name__ == "__main__":
     build_phantom()
     build_lantern()
     build_sleuth_pack()
+    build_shell_gate()
     print("opera art set complete")

@@ -105,6 +105,7 @@ var act_index := -1
 var doors: Array[Dictionary] = []
 var boss_spots: Array[Dictionary] = []
 var lifts: Array[Dictionary] = []
+var gates: Array[Dictionary] = []
 var lobby_root: Node3D = null
 var lobby_pos := Vector3.ZERO
 var lobby_y := 0.0                      # one of FLOOR_YS (tweened by the lifts)
@@ -419,6 +420,16 @@ func _build_lifts() -> void:
 			_sphere(pos + Vector3(randf_range(-1.4, 1.4), 2.0 + float(b) * 5.5, randf_range(-1.4, 1.4)), 0.4, Color(0.8, 0.97, 1.0), 0.7)
 		_label("✨", pos + Vector3(0, 5.0, 1.8), 34, Color(0.85, 0.98, 1.0))
 		lifts.append({"pos": pos, "armed": true})
+		# the shell-clasp gate guards each landing (handoff): closed leaves and
+		# three dark pearl sockets at first entry; it swings open — leaves fold
+		# clear of the lane — once the upstairs floor wakes
+		var gate_glb := _lobby_prop("opera_shell_gate.glb", pos + Vector3(0, 0, 3.6))
+		var pearls: Array = []
+		for pi in range(3):
+			var pearl := _sphere(pos + Vector3(-1.1 + float(pi) * 1.1, 5.75, 3.6), 0.26, Color(0.25, 0.2, 0.35), 0.05)
+			pearl.material_override = (pearl.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
+			pearls.append(pearl)
+		gates.append({"glb": gate_glb, "pearls": pearls, "pos": pos + Vector3(0, 0, 3.6), "open": false})
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
@@ -538,6 +549,26 @@ func _update_stars() -> void:
 			dmat.albedo_color = Color(0.3, 0.22, 0.38)
 			dmat.emission_energy_multiplier = 0.0
 			hmat.emission_energy_multiplier = 0.12
+	# shell-clasp gates: pearls light and leaves fold aside once the balcony
+	# floor wakes (both landings share the story-2 unlock as the first gate)
+	for gate in gates:
+		var open := _floor_unlocked(2)
+		for pearl_n in (gate["pearls"] as Array):
+			var pmat := (pearl_n as MeshInstance3D).material_override as StandardMaterial3D
+			pmat.albedo_color = Color(1.0, 0.88, 0.5) if open else Color(0.25, 0.2, 0.35)
+			pmat.emission_enabled = open
+			if open:
+				pmat.emission = Color(1.0, 0.88, 0.5)
+				pmat.emission_energy_multiplier = 0.8
+		if open and not bool(gate["open"]) and gate["glb"] != null:
+			gate["open"] = true
+			var glb := gate["glb"] as Node3D
+			for leaf in glb.find_children("*", "Node3D", true, false):
+				var ln := String((leaf as Node).name)
+				if ln.begins_with("leaf_l") or ln.begins_with("leaf_r"):
+					var slide := -2.9 if ln.begins_with("leaf_l") else 2.9
+					var lt := (leaf as Node3D).create_tween()
+					lt.tween_property(leaf, "position:x", (leaf as Node3D).position.x + slide, 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	if star_label != null:
 		star_label.text = "★ %d / %d" % [_star_count(), ACTS.size()]
 
@@ -682,6 +713,11 @@ func _tick_lifts(_delta: float) -> void:
 			if float(lift["hint_cool"]) <= 0.0:
 				lift["hint_cool"] = 10.0
 				m._sparkle_burst(lp + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
+				# pulse the three pearl sockets on the nearest gate (handoff)
+				for gate in gates:
+					if (gate["pos"] as Vector3).distance_to(lp) < 8.0:
+						for pearl_n in (gate["pearls"] as Array):
+							m._sparkle_burst((pearl_n as MeshInstance3D).position + Vector3(0, 0.8, 0), Color(1.0, 0.88, 0.5))
 				m.show_msg("Roshan", "The bubbles are still sleepy! Win the big centre-stage show first!", "hint")
 			continue
 		lift_busy = true
