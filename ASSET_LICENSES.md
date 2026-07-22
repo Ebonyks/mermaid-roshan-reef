@@ -246,3 +246,5 @@ ambientCG (all CC0).
 - assets/opera/jobs/painter/opera_painter_pot_{0,1,2}.glb, opera_painter_easel.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_floor3.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
 - assets/opera/jobs/astronaut/opera_astronaut_{tank,rocket,valve}.glb — original work, same source/tooling as above.
 - assets_src/blender/opera_floor3_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/{painter,astronaut,racer,popstar}/opera_*_outfit.glb, assets/opera/jobs/popstar/opera_popstar_microphone.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_outfits_floor3.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_outfits_floor3_2026-07-22.blend — Blender source for the above, original work.

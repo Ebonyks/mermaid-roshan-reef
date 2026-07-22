@@ -1986,9 +1986,13 @@ func _build_dance() -> void:
 	mic.name = "StarMicrophone"
 	mic.position = CENTER + Vector3(0, 1.0, 2.0)
 	add_child(mic)
-	_cyl(Vector3(0, 0.2, 0), 1.3, 0.4, Color(0.4, 0.36, 0.6), 0.1, mic)
-	_box(Vector3(0, 2.0, 0), Vector3(0.22, 3.6, 0.22), Color(0.8, 0.82, 0.92), 0.15, mic)
-	_sphere(Vector3(0, 4.2, 0), 0.75, Color(1.0, 0.85, 0.4), 0.7, mic)
+	var mic_kit := _job_art("popstar/opera_popstar_microphone.glb", mic)
+	if mic_kit != null:
+		_job_state(mic_kit, "StateActive", false)
+	else:
+		_cyl(Vector3(0, 0.2, 0), 1.3, 0.4, Color(0.4, 0.36, 0.6), 0.1, mic)
+		_box(Vector3(0, 2.0, 0), Vector3(0.22, 3.6, 0.22), Color(0.8, 0.82, 0.92), 0.15, mic)
+		_sphere(Vector3(0, 4.2, 0), 0.75, Color(1.0, 0.85, 0.4), 0.7, mic)
 	_open_dance()
 
 func _open_dance() -> void:
