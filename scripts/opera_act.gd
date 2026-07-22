@@ -46,8 +46,10 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir
+var order_phase := "steps"         # steps | stir | decorate
 var stir_done := 0
+var deco_spots: Array[Dictionary] = []
+var deco_done := 0
 var brush_loaded := -1
 var brush_node: Node3D = null
 var canvas_pos := Vector3.ZERO
@@ -101,6 +103,15 @@ var press_slider: Node3D = null
 var press_zone_box: Node3D = null
 var shelf_candies: Array[Node3D] = []
 
+# ---- "box" engine (boxer: ring combat in rounds) ----
+var box_round := 0
+var box_wait := 0.0
+
+# ---- "sleuth" engine (detective: peek-in-props search) ----
+var sleuth_props: Array[Dictionary] = []
+var clues_found := 0
+var chest_ready := false
+
 # ---- "doctor" engine ----
 var doc_targets: Array[Dictionary] = []
 var doc_step := 0
@@ -137,7 +148,7 @@ var lantern_i := 0
 var puffs: Array[Dictionary] = []
 var bump_cool := 0.0
 var spotlight: Node3D = null
-var peek_spots: Array[float] = [-12.0, 0.0, 12.0]   # the dragon roams the curtain
+var peek_spots: Array[float] = [-12.0, 0.0, 12.0, -18.0, 18.0]   # the dragon roams the curtain (outer two unlock as he gets bolder)
 var peek_i := 0
 var far_hint_cool := 0.0
 
@@ -191,6 +202,10 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_fix()
 		"press":
 			_build_press()
+		"box":
+			_build_box()
+		"sleuth":
+			_build_sleuth()
 		"doctor":
 			_build_doctor()
 		"scroll":
@@ -310,7 +325,7 @@ func _build_theatre() -> void:
 		beam.rotation_degrees = Vector3(0, 0, signf(sx) * -16.0)
 	# the audience: four friend cutouts on toy benches past the apron
 	var seat_col := Color(0.32, 0.26, 0.5)
-	var guests: Array[String] = ["pearl_friend", "two_friends", "gabby", "wacky_chuck"]
+	var guests: Array[String] = ["pearl_friend", "two_friends", "mama_baby", "wacky_chuck"]
 	for i in range(guests.size()):
 		var gx := -13.5 + float(i) * 9.0
 		_box(CENTER + Vector3(gx, 0.9, 21.5), Vector3(6.5, 1.4, 3.2), seat_col)
@@ -340,17 +355,26 @@ func _build_backstage() -> void:
 	imp_count = int(config.get("imps", 4))
 	for g in range(imp_count):
 		var pos := CENTER + Vector3(-48.0 + float(g) * 5.5, 1.0, -1.0 + float(g % 2) * 7.0)
-		var root := Node3D.new()
-		root.name = "MischiefImp%d" % g
-		root.position = pos
-		add_child(root)
-		var imp := DungeonArt.spawn("imp", root)
-		if imp.name.begins_with("MissingDungeonArt"):
-			_sphere(Vector3(0, 1.2, 0), 0.9, Color(0.55, 0.35, 0.75), 0.3, root)
-			_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
-			_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
-		imps.append({"index": g, "node": root, "pos": pos, "popped": false, "phase": float(g) * 2.1})
+		# the LAST imp is the captain: bigger, wears a gold bow, and shrugs off
+		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
+		_spawn_imp(pos, g == imp_count - 1)
 	imps_left = imp_count
+
+func _spawn_imp(pos: Vector3, captain: bool) -> void:
+	var root := Node3D.new()
+	root.name = "MischiefImp%d" % imps.size()
+	root.position = pos
+	add_child(root)
+	var imp := DungeonArt.spawn("imp", root)
+	if imp.name.begins_with("MissingDungeonArt"):
+		_sphere(Vector3(0, 1.2, 0), 0.9, Color(0.55, 0.35, 0.75), 0.3, root)
+		_sphere(Vector3(-0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
+		_sphere(Vector3(0.3, 1.9, 0.5), 0.2, Color(1.0, 0.9, 0.4), 0.8, root)
+	if captain:
+		root.scale = Vector3.ONE * 1.45
+		_sphere(Vector3(0, 2.4, 0.3), 0.28, Color(1.0, 0.85, 0.4), 0.7, root)
+	imps.append({"index": imps.size(), "node": root, "pos": pos, "popped": false,
+		"phase": float(imps.size()) * 2.1, "hp": 2 if captain else 1})
 
 func _brawl_action() -> void:
 	# the brawler verb: a sparkle star pops the nearest imp into confetti.
@@ -370,9 +394,25 @@ func _brawl_action() -> void:
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
 		return
 	var imp: Dictionary = imps[best]
+	progress_t = 0.0
+	imp["hp"] = int(imp.get("hp", 1)) - 1
+	if int(imp["hp"]) > 0:
+		# the captain giggles off the first star and dashes down the corridor
+		var gpos0: Vector3 = imp["pos"] as Vector3
+		m._sparkle_burst(gpos0 + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
+		var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
+		var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
+		var dash := Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
+		imp["pos"] = dash
+		(imp["node"] as Node3D).position = dash
+		if m.chime != null:
+			m.chime.pitch_scale = 0.8
+			m.chime.play()
+		m.show_msg("Roshan", "The big imp captain giggled and dashed away — chase him! One more SPARKLE!", "talk")
+		_update_hud()
+		return
 	imp["popped"] = true
 	imps_left -= 1
-	progress_t = 0.0
 	var node := imp["node"] as Node3D
 	var gpos: Vector3 = imp["pos"] as Vector3
 	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
@@ -391,6 +431,209 @@ func _brawl_action() -> void:
 		_open_gate()
 	else:
 		_update_hud()
+
+# ---------------- "box" engine (boxer: friendly ring combat in rounds) ----------------
+
+func _build_box() -> void:
+	# a toy boxing ring mid-stage: canvas deck, corner posts, gold ropes.
+	# Straightforward combat (owner 2026-07-21): rounds of mischief imps hop
+	# the ropes, Roshan bops them with PUNCH, the bell rings the next round.
+	_box(CENTER + Vector3(0, 0.35, -2.0), Vector3(24, 0.7, 20), Color(0.94, 0.9, 0.82))
+	for cx: float in [-11.0, 11.0]:
+		for cz: float in [-11.0, 7.0]:
+			_cyl(CENTER + Vector3(cx, 2.4, cz), 0.45, 4.8, Color(0.85, 0.3, 0.4), 0.2)
+	for ry: float in [1.7, 3.1]:
+		_box(CENTER + Vector3(0, ry, -12.0), Vector3(22.6, 0.26, 0.26), Color(1.0, 0.85, 0.45), 0.3)
+		_box(CENTER + Vector3(0, ry, 8.0), Vector3(22.6, 0.26, 0.26), Color(1.0, 0.85, 0.45), 0.3)
+		_box(CENTER + Vector3(-11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
+		_box(CENTER + Vector3(11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
+	# the round bell on the front post
+	_sphere(CENTER + Vector3(-11.0, 5.2, 7.0), 0.7, Color(1.0, 0.85, 0.4), 0.5)
+	player_pos = CENTER + Vector3(0, 1.1, 4.0)
+	box_round = 0
+	box_wait = 0.0
+	_box_wave()
+
+func _box_wave() -> void:
+	var waves: Array = config.get("rounds", [3, 4, 5])
+	var count := int(waves[mini(box_round, waves.size() - 1)])
+	imps.clear()
+	var last_round := box_round >= waves.size() - 1
+	for g in range(count):
+		var a := float(g) * TAU / float(count)
+		var pos := CENTER + Vector3(cos(a) * 7.5, 1.0, -2.0 + sin(a) * 6.5)
+		_spawn_imp(pos, last_round and g == count - 1)
+	imps_left = count
+	if m.chime != null:
+		m.chime.pitch_scale = 1.5
+		m.chime.play()
+	m.show_msg("Roshan", "DING DING! Round %d — bop the mischief imps with PUNCH!" % (box_round + 1), "talk")
+	_update_hud()
+
+func _punch_action() -> void:
+	if state != "play" or kind != "box" or box_wait > 0.0:
+		return
+	var best := -1
+	var best_d := 6.5
+	for g in imps:
+		if bool(g["popped"]):
+			continue
+		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
+		if d < best_d:
+			best_d = d
+			best = int(g["index"])
+	if best < 0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+		return
+	var imp: Dictionary = imps[best]
+	progress_t = 0.0
+	imp["hp"] = int(imp.get("hp", 1)) - 1
+	var gpos: Vector3 = imp["pos"] as Vector3
+	if int(imp["hp"]) > 0:
+		# the captain bounces off the ropes and comes back for one more
+		m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
+		var away := gpos - player_pos
+		away.y = 0.0
+		if away.length() < 0.1:
+			away = Vector3.FORWARD
+		var dash := gpos + away.normalized() * 9.0
+		dash.x = clampf(dash.x, CENTER.x - 9.5, CENTER.x + 9.5)
+		dash.z = clampf(dash.z, CENTER.z - 10.5, CENTER.z + 6.5)
+		imp["pos"] = dash
+		(imp["node"] as Node3D).position = dash
+		m.show_msg("Roshan", "The captain bounced off the ropes — one more PUNCH!", "talk")
+		_update_hud()
+		return
+	imp["popped"] = true
+	imps_left -= 1
+	(imp["node"] as Node3D).visible = false
+	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.7, 0.4))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.15 * float(box_round + 1)
+		m.chime.play()
+	if imps_left <= 0:
+		var waves: Array = config.get("rounds", [3, 4, 5])
+		box_round += 1
+		if box_round >= waves.size():
+			_win()
+			return
+		box_wait = 1.6
+		m.show_msg("Roshan", "Round %d won! Shake it out, champ..." % box_round, "talk")
+	_update_hud()
+
+func _tick_box(delta: float) -> void:
+	if box_wait > 0.0:
+		box_wait -= delta
+		if box_wait <= 0.0:
+			_box_wave()
+		return
+	brawl_bump_cool = maxf(0.0, brawl_bump_cool - delta)
+	for g in imps:
+		if bool(g["popped"]):
+			continue
+		var node := g["node"] as Node3D
+		var pos: Vector3 = g["pos"] as Vector3
+		var toward: Vector3 = player_pos - pos
+		toward.y = 0.0
+		if toward.length() > 4.0:
+			pos += toward.normalized() * delta * 2.0
+		g["pos"] = pos
+		node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(g["phase"])) * 0.3, 0)
+		node.rotation.y = sin(elapsed * 2.0 + float(g["phase"])) * 0.4
+		if pos.distance_to(player_pos) < 2.5:
+			var away2: Vector3 = player_pos - pos
+			away2.y = 0.0
+			if away2.length() < 0.1:
+				away2 = Vector3.FORWARD
+			player_pos += away2.normalized() * 2.5
+			m._sparkle_burst(player_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
+			if brawl_bump_cool <= 0.0:
+				brawl_bump_cool = 4.0
+				m.show_msg("Roshan", "My bubble shield! Tap PUNCH to bop those silly imps!", "talk")
+
+# ---------------- "sleuth" engine (detective: peek-in-props search) ----------------
+
+func _build_sleuth() -> void:
+	# six oversized prop boxes hide three clues — peek inside each one. A
+	# wrong box giggles a silly fish out (never a fail); the right ones float
+	# their clue to the tiara chest, and three clues open the case.
+	var prop_count := int(config.get("props_n", 6))
+	var clue_count := int(config.get("clues", 3))
+	var clue_cols := _order_colors("clue")
+	goal = Node3D.new()
+	goal.name = "TiaraChest"
+	goal.position = CENTER + Vector3(0, 1.0, -12.0)
+	add_child(goal)
+	_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
+	_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
+	var clue_picks: Array[int] = []
+	while clue_picks.size() < clue_count:
+		var pick := randi() % prop_count
+		if not clue_picks.has(pick):
+			clue_picks.append(pick)
+	for i in range(prop_count):
+		var px := -18.0 + float(i) * (36.0 / maxf(1.0, float(prop_count - 1)))
+		var pos := CENTER + Vector3(px, 1.0, -7.0 + float(i % 2) * 12.0)
+		var root := Node3D.new()
+		root.name = "SearchProp%d" % i
+		root.position = pos
+		add_child(root)
+		_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
+		var lid := _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
+		var has_clue := clue_picks.has(i)
+		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
+			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
+
+func _sleuth_action(idx: int) -> void:
+	if state != "play" or kind != "sleuth":
+		return
+	var prop: Dictionary = sleuth_props[idx]
+	if bool(prop["opened"]):
+		return
+	prop["opened"] = true
+	progress_t = 0.0
+	var lid := prop["lid"] as MeshInstance3D
+	var lt := lid.create_tween()
+	lt.tween_property(lid, "position:y", lid.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	lt.tween_property(lid, "rotation:z", 0.5, 0.2)
+	if bool(prop["clue"]):
+		clues_found += 1
+		var clue := _sphere((prop["pos"] as Vector3) + Vector3(0, 3.0, 0), 0.65, Color(prop["col"]), 0.7)
+		var ct := clue.create_tween()
+		ct.tween_property(clue, "position", goal.position + Vector3(-1.0 + float(clues_found) * 1.0, 3.2, 0), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+		m._sparkle_burst((prop["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.9, 0.5))
+		if m.chime != null:
+			m.chime.pitch_scale = 1.0 + 0.2 * float(clues_found)
+			m.chime.play()
+		if clues_found >= 3:
+			chest_ready = true
+			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
+			m.show_msg("Roshan", "All three clues! Now tap the treasure chest to solve the case!", "talk")
+		else:
+			m.show_msg("Roshan", "A clue! %d more to find!" % (3 - clues_found), "talk")
+	else:
+		# a silly fish hides in the wrong boxes — a giggle, never a fail
+		var fish := _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
+		var ft := fish.create_tween()
+		ft.tween_property(fish, "position:y", fish.position.y + 2.2, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		ft.tween_property(fish, "scale", Vector3.ZERO, 0.3)
+		ft.tween_callback(fish.queue_free)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.7
+			m.chime.play()
+		m.show_msg("Roshan", "Just a silly fish! Keep looking, detective!", "hint")
+	_update_hud()
+
+func _sleuth_chest() -> void:
+	if state != "play" or kind != "sleuth" or not chest_ready:
+		return
+	# the tiara reveal: the chest bursts open in gold
+	m._sparkle_burst(goal.position + Vector3(0, 3.5, 0), Color(1.0, 0.9, 0.4))
+	m._sparkle_burst(goal.position + Vector3(0, 5.0, 0), Color(1.0, 0.75, 0.9))
+	var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
+	var tw := crown.create_tween()
+	tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_win()
 
 func _open_gate() -> void:
 	stage_phase = "puzzle"
@@ -678,6 +921,65 @@ func _stir_action() -> void:
 		var pop := goal.create_tween()
 		pop.tween_property(goal, "scale", goal.scale * 1.25, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		m._sparkle_burst(goal.position + Vector3(0, 4.5, 0), Color(1.0, 0.75, 0.9))
+		if int(config.get("decorate", 0)) > 0:
+			_open_decorate()
+		else:
+			_win()
+	else:
+		_update_hud()
+
+func _open_decorate() -> void:
+	# the chef's last beat: twinkling topping spots ring the cake — tap each
+	# one to plop a cherry on. A third phase keeps the show building instead
+	# of repeating the same fetch to the end.
+	order_phase = "decorate"
+	progress_t = 0.0
+	var count := int(config.get("decorate", 3))
+	var splatter := String(config.get("decorate_theme", "cherry")) == "splatter"
+	var anchor: Vector3 = canvas_pos if splatter else goal.position
+	for i in range(count):
+		var pos := anchor + Vector3(-4.0 + float(i) * 4.0, 0.0, 4.5)
+		if not splatter:
+			var a := -0.8 + float(i) * (1.6 / maxf(1.0, float(count - 1)))
+			pos = anchor + Vector3(sin(a) * 5.5, 0.0, cos(a) * 5.5)
+		var spot := _cyl(pos + Vector3(0, 0.3, 0), 1.1, 0.4, Color(1.0, 0.6, 0.75), 0.5)
+		var land: Vector3 = anchor + Vector3(-2.2 + float(i) * 2.2, 3.4 + float(i % 2) * 1.4, 0.35) if splatter \
+			else anchor + Vector3(-2.2 + float(i) * 2.2, 4.6 + float(i % 2) * 0.5, 0.4)
+		deco_spots.append({"index": i, "pos": pos, "done": false, "node": spot, "topping": land})
+	if splatter:
+		m.show_msg("Roshan", "Now the fun part! Tap each twinkling spot to SPLAT sparkle paint on your masterpiece!", "talk")
+	else:
+		m.show_msg("Roshan", "Now the toppings! Tap each twinkling spot to plop a cherry on the cake!", "talk")
+	_update_hud()
+
+func _deco_action(idx: int) -> void:
+	if state != "play" or kind != "order" or order_phase != "decorate":
+		return
+	var spot: Dictionary = deco_spots[idx]
+	if bool(spot["done"]):
+		return
+	spot["done"] = true
+	deco_done += 1
+	progress_t = 0.0
+	(spot["node"] as MeshInstance3D).visible = false
+	var splatter := String(config.get("decorate_theme", "cherry")) == "splatter"
+	var splat_cols: Array[Color] = [Color(1.0, 0.55, 0.3), Color(1.0, 0.85, 0.35), Color(0.6, 0.5, 0.95)]
+	var topping: MeshInstance3D
+	if splatter:
+		# a flat paint splat pops onto the canvas in one of the pot colors
+		topping = _sphere(spot["topping"] as Vector3, 0.85, splat_cols[deco_done % splat_cols.size()], 0.5)
+		topping.scale = Vector3(1.0, 1.0, 0.18)
+	else:
+		topping = _sphere(spot["topping"] as Vector3, 0.7, Color(0.9, 0.2, 0.3), 0.4)
+	var final_scale := topping.scale
+	topping.scale = Vector3.ZERO
+	var tw := topping.create_tween()
+	tw.tween_property(topping, "scale", final_scale, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst((spot["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(1.0, 0.7, 0.8))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.2 * float(deco_done)
+		m.chime.play()
+	if deco_done >= deco_spots.size():
 		_win()
 	else:
 		_update_hud()
@@ -700,7 +1002,10 @@ func _paint_touch() -> void:
 	step += 1
 	progress_t = 0.0
 	if step >= order_steps.size():
-		_win()
+		if int(config.get("decorate", 0)) > 0:
+			_open_decorate()
+		else:
+			_win()
 	else:
 		_update_hud()
 
@@ -1730,14 +2035,18 @@ func _tick_boss(delta: float) -> void:
 	if phase == "hide":
 		root.position = root.position.lerp(home + Vector3(0, -6.5, 0), delta * 4.0)
 		if float(boss["timer"]) <= 0.0:
-			# whack-a-mole roam: the dragon pops from a DIFFERENT curtain spot
-			# each time, so Roshan chases him along the stage
-			peek_i = (peek_i + 1) % peek_spots.size()
+			# whack-a-mole roam with a RISING TEMPO: every three stars the
+			# dragon gets bolder — quicker peeks and two wider curtain spots
+			# unlock, so the chase escalates instead of repeating flat
+			var max_hp := int(config.get("boss_hp", 3))
+			var tier := clampi((max_hp - int(boss["hp"])) / 3, 0, 2)
+			var spots_n := peek_spots.size() if tier >= 1 else mini(3, peek_spots.size())
+			peek_i = (peek_i + 1) % spots_n
 			var new_home := Vector3(CENTER.x + peek_spots[peek_i], home.y, home.z)
 			boss["home"] = new_home
 			root.position = new_home + Vector3(0, -6.5, 0)
 			boss["phase"] = "peek"
-			boss["timer"] = float(config.get("peek_time", 4.5))
+			boss["timer"] = float(config.get("peek_time", 4.5)) * (1.0 - 0.2 * float(tier))
 			boss["attack"] = 1.0
 			m._sparkle_burst(new_home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
 	elif phase == "peek":
@@ -1932,6 +2241,11 @@ func _process(delta: float) -> void:
 				if order_phase == "stir":
 					if goal.position.distance_to(player_pos) < 5.5:
 						_stir_action()
+				elif order_phase == "decorate":
+					for spot in deco_spots:
+						if not bool(spot["done"]) and (spot["pos"] as Vector3).distance_to(player_pos) < 4.5:
+							_deco_action(int(spot["index"]))
+							break
 				else:
 					var near_pad := _nearest_pad()
 					if near_pad >= 0:
@@ -1954,6 +2268,23 @@ func _process(delta: float) -> void:
 					_place_piece()
 			"press":
 				_press_action()
+			"box":
+				_punch_action()
+			"sleuth":
+				if chest_ready and goal.position.distance_to(player_pos) < 5.5:
+					_sleuth_chest()
+				else:
+					var near_prop := -1
+					var near_prop_d := 4.5
+					for prop: Dictionary in sleuth_props:
+						if bool(prop["opened"]):
+							continue
+						var pd: float = (prop["pos"] as Vector3).distance_to(player_pos)
+						if pd < near_prop_d:
+							near_prop_d = pd
+							near_prop = int(prop["index"])
+					if near_prop >= 0:
+						_sleuth_action(near_prop)
 			"doctor":
 				var near_doc := _nearest_doc_target()
 				if near_doc >= 0:
@@ -1974,6 +2305,8 @@ func _process(delta: float) -> void:
 				else:
 					_fire_star()
 	match kind:
+		"box":
+			_tick_box(delta)
 		"order":
 			if order_hidden:
 				# the detective search: clues pop out when Roshan swims close
@@ -2069,8 +2402,25 @@ func _pointer_target() -> Vector3:
 			return best + Vector3(0, 5.5, 0)
 		return player_pos + Vector3(0, 7.0, 0)
 	match kind:
+		"box":
+			for g in imps:
+				if not bool(g["popped"]):
+					return (g["pos"] as Vector3) + Vector3(0, 5.0, 0)
+			return CENTER + Vector3(0, 8.0, -2.0)
+		"sleuth":
+			if chest_ready:
+				return goal.position + Vector3(0, 6.0, 0)
+			for prop: Dictionary in sleuth_props:
+				if not bool(prop["opened"]) and bool(prop["clue"]):
+					return (prop["pos"] as Vector3) + Vector3(0, 5.5, 0)
+			return CENTER + Vector3(0, 8.0, 3.0)
 		"order":
 			if order_phase == "stir":
+				return goal.position + Vector3(0, 7.5, 0)
+			if order_phase == "decorate":
+				for spot in deco_spots:
+					if not bool(spot["done"]):
+						return (spot["pos"] as Vector3) + Vector3(0, 4.5, 0)
 				return goal.position + Vector3(0, 7.5, 0)
 			if brush_loaded >= 0:
 				return canvas_pos + Vector3(0, 7.5, 0)
@@ -2121,6 +2471,9 @@ func _tick_pointer() -> void:
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "echo" and echo_phase == "repeat":
 		show = show and progress_t > RESCUE_DELAY
+	elif kind == "sleuth" and not chest_ready:
+		# searching IS the game — the arrow only rescues a stuck detective
+		show = show and progress_t > RESCUE_DELAY
 	pointer.visible = show
 	pointer.position = _pointer_target() + Vector3(0, sin(elapsed * 4.0) * 0.45, 0)
 
@@ -2141,10 +2494,23 @@ func _update_hud() -> void:
 		"order":
 			if order_phase == "stir":
 				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
+			elif order_phase == "decorate":
+				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:
 				objective.text = tag + "🖌  Swipe the canvas to paint!  %d / %d" % [step, order_steps.size()]
 			else:
 				objective.text = tag + "✨  Match the pictures!  %d / %d" % [step, order_steps.size()]
+		"box":
+			if box_wait > 0.0:
+				objective.text = tag + "🥊  Round won! Get ready..."
+			else:
+				var waves: Array = config.get("rounds", [3, 4, 5])
+				objective.text = tag + "🥊  ROUND %d / %d — bop the imps!  %d left" % [box_round + 1, waves.size(), imps_left]
+		"sleuth":
+			if chest_ready:
+				objective.text = tag + "💎  Tap the treasure chest!"
+			else:
+				objective.text = tag + "🔍  Peek in the boxes!  %d / 3 clues" % clues_found
 		"echo":
 			if echo_phase == "show":
 				objective.text = tag + "👀  WATCH the twinkling tiles!"
@@ -2253,6 +2619,10 @@ func action_label() -> String:
 			return "DANCE"
 		"press":
 			return "PRESS"
+		"box":
+			return "PUNCH"
+		"sleuth":
+			return "PEEK"
 		"scroll":
 			return "TOSS"
 		"race":

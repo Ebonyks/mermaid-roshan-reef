@@ -190,6 +190,7 @@ func _craft_done() -> void:
 	m._write_save()
 	if m.chime != null:
 		m.chime.pitch_scale = 1.3; m.chime.play()
+	m._say("roshan", "win", 0.5)   # a real cheer beside the chime when a craft finishes
 	for tn in m.get_tree().get_nodes_in_group("craft_top"):
 		if tn is CanvasItem:
 			(tn as CanvasItem).visible = false   # audit: banner overlapped title/buttons

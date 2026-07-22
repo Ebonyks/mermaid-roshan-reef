@@ -16,14 +16,14 @@ func _build_pause() -> void:
 	m.add_child(m.pause_layer)
 	var gear := Button.new()
 	gear.text = "| |"
-	gear.add_theme_font_size_override("font_size", 26)
-	gear.custom_minimum_size = Vector2(76, 76)
+	gear.add_theme_font_size_override("font_size", 32)
+	gear.custom_minimum_size = Vector2(100, 100)   # frustrated fingers mash here
 	var gsb := StyleBoxFlat.new()
 	gsb.bg_color = Color(0.1, 0.15, 0.3, 0.55)
-	gsb.set_corner_radius_all(38)
+	gsb.set_corner_radius_all(50)
 	gear.add_theme_stylebox_override("normal", gsb)
 	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	gear.position = Vector2(-96, 18)
+	gear.position = Vector2(-120, 18)
 	gear.pressed.connect(toggle_pause)
 	m.pause_layer.add_child(gear)
 	m.pause_panel = Panel.new()
@@ -130,13 +130,19 @@ func _leave_current_activity() -> void:
 	if m.game == "galaxy" and m.galaxy_game != null:
 		(m.galaxy_game as GalaxyLevel)._teardown(false)
 		return
+	if m.game == "ember" and m.ember_game != null:
+		(m.ember_game as EmberFortressLevel)._teardown(false)
+		return
 	if m.game == "kart" and m.kart_game != null:
 		m.kart_game.call("_quit_race")
 		return
 	if m.game == "combat" and m.combat_game != null:
 		m.combat_game.cancel()
 		return
-	if m.game == "dungeon" and m.dungeon_game != null:
+	if m.game == "stuffie" and m.stuffie_game != null:
+		m.stuffie_game.cancel()
+		return
+	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
 		m.dungeon_game._leave_early()
 		return
 	if m.game == "":
@@ -145,6 +151,10 @@ func _leave_current_activity() -> void:
 	var fr: Dictionary = m.g.get("fr", {})
 	var leaving_name: String = String(fr.get("fname", ""))
 	m._leave_arena()
+	# back to free swim at return_pos: shed any banking/pitch tilt frozen by
+	# the arena so she doesn't reappear mid-lean in the reef
+	m.player.rotation.x = 0.0
+	m.player.rotation.z = 0.0
 	if not fr.is_empty():
 		fr["cool"] = 8.0
 	if leaving_game == "fairyshoot":
@@ -155,6 +165,8 @@ func _leave_current_activity() -> void:
 		m.treasure_cool = 14.0
 	elif leaving_name == "Penguin Slide":
 		m.slide_cool = 14.0
+	elif leaving_name == "Toy Castle":
+		m.brawl_cool = 14.0
 	m._clear_game()
 	m._write_save()
 	if leaving_game == "fairyshoot" and m.fairy_from_galaxy:

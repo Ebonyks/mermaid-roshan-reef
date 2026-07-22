@@ -1,0 +1,1519 @@
+{
+  "pack": "full_texture_regen_2026-07-18",
+  "integration_status": "isolated_candidates_not_wired_to_runtime",
+  "score_policy": "Automation caps candidates at 4/5; owner acceptance is required for 5/5.",
+  "northern_kingdom_in_scope": true,
+  "counts": {
+    "audited_roles": 88,
+    "candidate_roles": 85,
+    "candidate_assets": 167,
+    "models": 137,
+    "textures": 30,
+    "accepted_source_generations": 28,
+    "rejected_source_generations": 1
+  },
+  "protected_exclusions": [
+    "R081_picture_games_carrot",
+    "R082_picture_games_watering_can",
+    "R083_picture_games_cat_parts"
+  ],
+  "assets": [
+    {
+      "role_id": "R001_REEF_HUB_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r001_reef_hub_overall_reef_hub.glb",
+      "bytes": 37660,
+      "sha256": "965678fbd3ec8433cba33cde6f85d2ed65ae7d46afb995667c0ac2b06b747db4"
+    },
+    {
+      "role_id": "R002_REEF_PORTAL_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r002_reef_portal_presentation_shell_portal.glb",
+      "bytes": 28508,
+      "sha256": "46e6a8f9be36afe708cf6cfb6ebe1c2d4935061e63bc9bcb851dd4e297e2bcea"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_01.glb",
+      "bytes": 42604,
+      "sha256": "b2789fc3762989e41aa1f7cac9b1cb126c6d90377d5954769348e8b0c0fe044f"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_02.glb",
+      "bytes": 18064,
+      "sha256": "53aa5335e2c94528507abcd1e89ae6d17c0e5945becfe2bdf01cdea59ff2949e"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_03.glb",
+      "bytes": 23544,
+      "sha256": "992f2160b2e9c0c825a2ff97b2fc12416ea1c2d16c121cc1989f18d07a860739"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_04.glb",
+      "bytes": 80488,
+      "sha256": "76bfde1a59eab07e3156678913293718c0f84b0d8d32af88e85fb337bc54b5d9"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_05.glb",
+      "bytes": 13328,
+      "sha256": "4d4221a98dbf7ee750b22ace369d0246a06949823639e5aa9c4bc445548287f2"
+    },
+    {
+      "role_id": "R003_REEF_CORAL_MASS_PLACEMENT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r003_reef_coral_mass_placement_coral_06.glb",
+      "bytes": 35156,
+      "sha256": "44bebcadf50e22525748e1967300c4ff3d20cacfbc0c491ec84b4ea2674814be"
+    },
+    {
+      "role_id": "R004_REEF_KELP_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_01.glb",
+      "bytes": 31108,
+      "sha256": "a4d57c51fe655ef6aa3a36cb26e35f103f3a50f0ef8279d7b8218ccddc11896a"
+    },
+    {
+      "role_id": "R004_REEF_KELP_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_02.glb",
+      "bytes": 31120,
+      "sha256": "aeb90cf540301e1593bde1f5508d5e0e8212a274cbaad46701d97774121e45c8"
+    },
+    {
+      "role_id": "R004_REEF_KELP_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r004_reef_kelp_cards_kelp_03.glb",
+      "bytes": 31120,
+      "sha256": "ec273eb2fad27ed3b5b85adf2cd05f5b957d4a4ef01e3771a025a65da0f00f04"
+    },
+    {
+      "role_id": "R005_REEF_SEAGRASS_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_01.glb",
+      "bytes": 23328,
+      "sha256": "c40d6250eabb5543f95536d8ca3a57cf865f2a1ea4010749fd7f55e067e4d30e"
+    },
+    {
+      "role_id": "R005_REEF_SEAGRASS_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_02.glb",
+      "bytes": 23348,
+      "sha256": "469905e476b4549046fbe69a61c6731db93a09cbe356f73de8bf14015bb087a9"
+    },
+    {
+      "role_id": "R005_REEF_SEAGRASS_CARDS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r005_reef_seagrass_cards_seagrass_03.glb",
+      "bytes": 23344,
+      "sha256": "61201d4f6d2b2f3f04caf074870d41f38cd0061d09063a92ed1cd1a811791028"
+    },
+    {
+      "role_id": "R006_REEF_ROCK_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_01.glb",
+      "bytes": 15488,
+      "sha256": "7bc3486c684be8b5d371ae16c6e5ea82cb8e4ca66d5b210f9d22f484e94c823f"
+    },
+    {
+      "role_id": "R006_REEF_ROCK_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_02.glb",
+      "bytes": 19084,
+      "sha256": "36a31f9981f107c2a132c31b28c7628524fbe27dfb0a34731dd2c859241dc0b5"
+    },
+    {
+      "role_id": "R006_REEF_ROCK_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_03.glb",
+      "bytes": 15492,
+      "sha256": "07d3096425508583c52c47c154bf5987322320dadc40ef607542446f42b4489e"
+    },
+    {
+      "role_id": "R006_REEF_ROCK_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r006_reef_rock_family_rock_04.glb",
+      "bytes": 19084,
+      "sha256": "96f480daf30051dd5f6b073416d2e354c32bc3968dff54fb7c2dac02545f73e2"
+    },
+    {
+      "role_id": "R009_REEF_CORAL_FLOWER_HYBRID",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r009_reef_coral_flower_hybrid_coral_01.glb",
+      "bytes": 42604,
+      "sha256": "c031a46f7bd4ea0de8188966efcbc96cc3c8795b8e0c7ad5108b782476c8d2d7"
+    },
+    {
+      "role_id": "R009_REEF_CORAL_FLOWER_HYBRID",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r009_reef_coral_flower_hybrid_coral_02.glb",
+      "bytes": 18060,
+      "sha256": "511f967f19a85fdd9e501b12d631d4e551a232b1e3414c633874d60de2aabd76"
+    },
+    {
+      "role_id": "R010_REEF_CLOWNFISH_MODEL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r010_reef_clownfish_model_clownfish.glb",
+      "bytes": 54596,
+      "sha256": "3977e9e83fe021662a778ea417f2ae543e401cb1a021b3d715b3feb9e7804035"
+    },
+    {
+      "role_id": "R011_REEF_OCTOPUS_MODEL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r011_reef_octopus_model_octopus.glb",
+      "bytes": 47144,
+      "sha256": "9c4e458fc50180ea81e94e1e3a06261d46858f67463151dee8d4faabf49eb8cf"
+    },
+    {
+      "role_id": "R012_REEF_SHRIMP_ROLE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r012_reef_shrimp_role_shrimp.glb",
+      "bytes": 77768,
+      "sha256": "e326c6b9e082777b1a8056cc15a0d4e7a56c2ceea4d049ecc8f9d185e7ad225c"
+    },
+    {
+      "role_id": "R013_REEF_JELLYFISH_ROLE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r013_reef_jellyfish_role_jellyfish.glb",
+      "bytes": 38108,
+      "sha256": "e6d9edee45d27c65d8f77b61639ff18bd5715a38dc991bc39448b0a4f25d9b1d"
+    },
+    {
+      "role_id": "R014_SKY_LAGOON_WORLD_COMPOSITION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r014_sky_lagoon_world_composition_sky_world.glb",
+      "bytes": 282108,
+      "sha256": "e2c88b6ccd7b77d00fe663e1a826f2141aa563a5e885fb18c1aa7a07bdae3770"
+    },
+    {
+      "role_id": "R015_SKY_LAGOON_MAIN_CASTLE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r015_sky_lagoon_main_castle_sky_castle.glb",
+      "bytes": 52992,
+      "sha256": "be5eaa7c839d006e92bdbc894589638665552d0269f549604dd709e69e8ee642"
+    },
+    {
+      "role_id": "R016_SKY_LAGOON_CASTLE_TOWERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_01.glb",
+      "bytes": 53032,
+      "sha256": "f248543b990d852ab98075daa8227469e33e510e8147520c0d2942153283dfb6"
+    },
+    {
+      "role_id": "R016_SKY_LAGOON_CASTLE_TOWERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_02.glb",
+      "bytes": 53032,
+      "sha256": "89ed0bc9760c841dd75ea1f53b07c3ec25340f4bec4e90c9ca91c527b048649d"
+    },
+    {
+      "role_id": "R016_SKY_LAGOON_CASTLE_TOWERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r016_sky_lagoon_castle_towers_castle_tower_03.glb",
+      "bytes": 53032,
+      "sha256": "df51588868ba025ae307405d7650970fd8057c579ba86fdb483d2ef91ff44c19"
+    },
+    {
+      "role_id": "R017_SKY_LAGOON_CLOUD_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_01.glb",
+      "bytes": 53664,
+      "sha256": "a18db03f59def4beb9ecad936d1fa7558b6b0df4222b07b911c9163078a04bf3"
+    },
+    {
+      "role_id": "R017_SKY_LAGOON_CLOUD_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_02.glb",
+      "bytes": 61312,
+      "sha256": "1cbe7fe36dca6f226546ffe3ac79632e10b377083b2a5b914138ebf68660e691"
+    },
+    {
+      "role_id": "R017_SKY_LAGOON_CLOUD_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r017_sky_lagoon_cloud_family_cloud_03.glb",
+      "bytes": 53664,
+      "sha256": "37e5f10a6a8aedb79e55cd967e5465620ae7a8bc04d8777b09d2cc8fc3c34377"
+    },
+    {
+      "role_id": "R018_SKY_LAGOON_RAINBOW_ROUTE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r018_sky_lagoon_rainbow_route_rainbow_route.glb",
+      "bytes": 25480,
+      "sha256": "9efd453fd13d3a86846df8ab86a66e685519f1ea7d42af01f88c620f13517da6"
+    },
+    {
+      "role_id": "R019_SKY_LAGOON_SNOW_TERRAIN",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_01.glb",
+      "bytes": 23896,
+      "sha256": "f1840dbbf7e2863beb4878e8e25a734fb4eaaa2d0833e14e88bebda649235ce2"
+    },
+    {
+      "role_id": "R019_SKY_LAGOON_SNOW_TERRAIN",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_02.glb",
+      "bytes": 23912,
+      "sha256": "fe5e8baf3c7e2d3613b40d25f54d92e2d67d6ac0ce2cbaabef9503f7594d7b68"
+    },
+    {
+      "role_id": "R019_SKY_LAGOON_SNOW_TERRAIN",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r019_sky_lagoon_snow_terrain_snow_03.glb",
+      "bytes": 23912,
+      "sha256": "f80552e970348c6904d813069af4e2418fcc38259a1d3f7b87cba5fdb0397070"
+    },
+    {
+      "role_id": "R020_SKY_LAGOON_PAINTING_DISPLAYS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r020_sky_lagoon_painting_displays_painting_display.glb",
+      "bytes": 37576,
+      "sha256": "fda83783ae93becfdea41a49b62977055dd0d4913a629b1bb7b3df3cf6c35573"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_01.glb",
+      "bytes": 51596,
+      "sha256": "65a1628e3133421d0885f1a0c5684fedd80110749df133ae8d753c05c7b3481f"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_02.glb",
+      "bytes": 53252,
+      "sha256": "ad853dde13dda1b0a43c220bf64510ebba5f27453c160b4765ea16dedce954aa"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_03.glb",
+      "bytes": 53256,
+      "sha256": "1649ed02d4b139ce249a7c51f81c397de8bcde4df6227b0d84b3ee1fd1a59e8b"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_04.glb",
+      "bytes": 50296,
+      "sha256": "192acee503868bd956bc50eefd52c9b5a03a29f51088f86aacfd25b683b7ed0d"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_05.glb",
+      "bytes": 53252,
+      "sha256": "c484c8afc8add15d2249301da615019d8215bda0d8aca4028c99d0ca63b02861"
+    },
+    {
+      "role_id": "R021_SKY_LAGOON_TRAIN_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r021_sky_lagoon_train_presentation_train_06.glb",
+      "bytes": 20204,
+      "sha256": "8a4bd366010a5e85a005e1d6c341bbdcf8084e2b65323e5177a558ac1b43ba30"
+    },
+    {
+      "role_id": "R022_SKY_LAGOON_PALM_REPETITION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_01.glb",
+      "bytes": 39196,
+      "sha256": "5de2de1299913824b32d794bd8d94e5f453df0ed7a08d637935194c5358d29dc"
+    },
+    {
+      "role_id": "R022_SKY_LAGOON_PALM_REPETITION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_02.glb",
+      "bytes": 39196,
+      "sha256": "3061756ccf3d74f706447361cb25568be787d8630188439b2a1579129ca26fff"
+    },
+    {
+      "role_id": "R022_SKY_LAGOON_PALM_REPETITION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r022_sky_lagoon_palm_repetition_palm_03.glb",
+      "bytes": 39196,
+      "sha256": "2928da08822fec6e0d0db711dae0583249b5162e1bc19cde4d1b6791a735f746"
+    },
+    {
+      "role_id": "R023_CASTLE_CASTLE_HALL_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r023_castle_castle_hall_overall_hall.glb",
+      "bytes": 98588,
+      "sha256": "6af163b1aa8123e95eb7b6389655d4c1da0244194aed824c695292b74188ffa9"
+    },
+    {
+      "role_id": "R024_CASTLE_WALL_MODULES",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r024_castle_wall_modules_wall_modules.glb",
+      "bytes": 50744,
+      "sha256": "f8be19502b14f6fc53d9bc3824c95d8f152474a885d49dd29c726648cc0a494a"
+    },
+    {
+      "role_id": "R025_CASTLE_STAIRS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r025_castle_stairs_stairs.glb",
+      "bytes": 52344,
+      "sha256": "b65e22a90780d760ecf4a6cd2d01f4c42c3c4fe1eb520c0754af4f53c0f2af78"
+    },
+    {
+      "role_id": "R026_CASTLE_COLUMNS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r026_castle_columns_columns.glb",
+      "bytes": 88620,
+      "sha256": "faafc2fc4f1df0d666544f89de4b95025b341bbfb6cdd7d6ec2066c7d104f0ca"
+    },
+    {
+      "role_id": "R027_CASTLE_DOORS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r027_castle_doors_doors.glb",
+      "bytes": 50288,
+      "sha256": "9dad9cace2c94e8d9e61c25d87d59bb3a0d0fc2ea0900dc9dd4eed0c806896c5"
+    },
+    {
+      "role_id": "R028_CASTLE_THRONE_ROOM_PRESENTATION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r028_castle_throne_room_presentation_throne_room.glb",
+      "bytes": 49528,
+      "sha256": "bf10e0230853e0ab71807a2d34235d42b26f103e15b345d04e822c775bc85431"
+    },
+    {
+      "role_id": "R029_CASTLE_THRONE_MODEL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r029_castle_throne_model_throne.glb",
+      "bytes": 17576,
+      "sha256": "41cc8093e266184cb54a78c07295c7cd6cbec3959d57803d2c2bf0189a30ad47"
+    },
+    {
+      "role_id": "R030_CASTLE_BED_MODEL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r030_castle_bed_model_bed.glb",
+      "bytes": 26524,
+      "sha256": "991cf7c3d07e7ca871bbcdb41b4f83809359b748b500caa4a90ed1110072c0cf"
+    },
+    {
+      "role_id": "R031_CASTLE_KITCHEN_ROOM",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r031_castle_kitchen_room_kitchen_room.glb",
+      "bytes": 49488,
+      "sha256": "d0eb26a2ced84eabf4aab71290583d7b561d639fbe46b0dd23b1a8011edefea6"
+    },
+    {
+      "role_id": "R035_CASTLE_KITCHEN_STOVE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r035_castle_kitchen_stove_stove.glb",
+      "bytes": 59644,
+      "sha256": "6519c56fda7c9ff676063c4a4f4966dc6635dd22026c7485dcbf1634ff138612"
+    },
+    {
+      "role_id": "R036_CASTLE_KITCHEN_KETTLE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r036_castle_kitchen_kettle_kettle.glb",
+      "bytes": 35232,
+      "sha256": "7dec380b1f02761245e8ff8ef5bf90831aec37fc6620b6985fec1025ff087acc"
+    },
+    {
+      "role_id": "R037_CASTLE_KITCHEN_PANS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r037_castle_kitchen_pans_pans.glb",
+      "bytes": 48092,
+      "sha256": "6ca52be5d64d9c2b481d4d6a7695436f59486ac2bfc44ba6c1c623484884d4f1"
+    },
+    {
+      "role_id": "R038_CASTLE_KITCHEN_TEAPOT",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r038_castle_kitchen_teapot_teapot.glb",
+      "bytes": 35232,
+      "sha256": "24bf94fc945f4cba241b5219512d47bee87fec2c1ffd00fe53d23d966c8cee49"
+    },
+    {
+      "role_id": "R039_CASTLE_KITCHEN_TABLE_AND_STOOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r039_castle_kitchen_table_and_stools_table.glb",
+      "bytes": 51480,
+      "sha256": "8b9b63e4a104ebd6f9c03e288592c6935a4319977c0bc0853adae667bae79ff2"
+    },
+    {
+      "role_id": "R040_STARS_DREAM_STAR",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r040_stars_dream_star_star.glb",
+      "bytes": 22064,
+      "sha256": "b6a5f74b09e897470755fb4eec22ca750f4398cd8b0a15ccb67ea98012cf274d"
+    },
+    {
+      "role_id": "R041_STARS_CROWN_STAR",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r041_stars_crown_star_star.glb",
+      "bytes": 36612,
+      "sha256": "06aca74b1c360f5ad7f15d0d1e8972fc12f6d19e4d54b3f55c3b1e6c98b01ea1"
+    },
+    {
+      "role_id": "R042_STARS_STAR_CHAMBER_FOCAL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r042_stars_star_chamber_focal_star.glb",
+      "bytes": 50272,
+      "sha256": "9ee9a7d526420856c4d033f9cfcc82a77ddd67093f14ad277c25b410d221968b"
+    },
+    {
+      "role_id": "R043_BUTTERFLY_WORLD_WORLD_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r043_butterfly_world_world_overall_butterfly_world.glb",
+      "bytes": 95492,
+      "sha256": "000dc471c7e729529d54edf892074ebabeb35df6f81d3e23e5961556a59f385e"
+    },
+    {
+      "role_id": "R045_BUTTERFLY_WORLD_HOME_GATE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r045_butterfly_world_home_gate_butterfly_gate.glb",
+      "bytes": 104684,
+      "sha256": "f26e72fc97277c83f2c8d8f59f0580bdb13b1bcc09538dccec7a7d6c7ffe44e9"
+    },
+    {
+      "role_id": "R046_BUTTERFLY_WORLD_INTER_WORLD_GATE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r046_butterfly_world_inter_world_gate_butterfly_gate.glb",
+      "bytes": 104712,
+      "sha256": "557657de68ce1df63503be599422c40210a3f6c08b84a02a57558390c5c6a9e8"
+    },
+    {
+      "role_id": "R047_BUTTERFLY_WORLD_GATE_TRANSITION_COMPOSITION",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r047_butterfly_world_gate_transition_composition_gate_transition.glb",
+      "bytes": 206668,
+      "sha256": "5bb5c8b218f19eda5b0ca680b910659651c66fbdd2d6f97b4edc14fc0a042fa0"
+    },
+    {
+      "role_id": "R048_BUTTERFLY_WORLD_BUTTERFLY_ENVIRONMENT_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_01.glb",
+      "bytes": 75936,
+      "sha256": "55ea28e5c954e84165fb677c520e304f24c3e25f305e84a53ee2a0a3d8d2bdcf"
+    },
+    {
+      "role_id": "R048_BUTTERFLY_WORLD_BUTTERFLY_ENVIRONMENT_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_02.glb",
+      "bytes": 75952,
+      "sha256": "f423c60ee2b7d700c46b51dba0f452a901359987f5c84bbaad47e157b0d05f12"
+    },
+    {
+      "role_id": "R048_BUTTERFLY_WORLD_BUTTERFLY_ENVIRONMENT_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_03.glb",
+      "bytes": 75936,
+      "sha256": "7d7d05bf232b7a3b01b8202e0b3b73d3f0bc2acce912418585fede5d33c04f41"
+    },
+    {
+      "role_id": "R048_BUTTERFLY_WORLD_BUTTERFLY_ENVIRONMENT_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r048_butterfly_world_butterfly_environment_family_butterfly_04.glb",
+      "bytes": 75932,
+      "sha256": "c523a06e97340187d8916fad4809d093d86148b68b9740b89b3049deb8e7122f"
+    },
+    {
+      "role_id": "R049_DUNGEON_COMBAT_ARENA_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r049_dungeon_combat_arena_overall_dungeon_arena.glb",
+      "bytes": 56064,
+      "sha256": "f06d60d7654057f33f0cf2d0ae3d8cf77b49ebe852b7d6513c8387bf76c42bd7"
+    },
+    {
+      "role_id": "R051_DUNGEON_ARENA_WALLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r051_dungeon_arena_walls_dungeon_walls.glb",
+      "bytes": 27820,
+      "sha256": "480e961a9e1afd785e7e4791a391a7591f8ac229cd239dac5b24d3046a2261ce"
+    },
+    {
+      "role_id": "R052_DUNGEON_STANDARD_ENEMIES",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r052_dungeon_standard_enemies_imp_01.glb",
+      "bytes": 33612,
+      "sha256": "efa26663d7ba52bc0515427f4036d17df4fa3c6e758e7802b2888593a3f44ad1"
+    },
+    {
+      "role_id": "R052_DUNGEON_STANDARD_ENEMIES",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r052_dungeon_standard_enemies_imp_02.glb",
+      "bytes": 33612,
+      "sha256": "c92a617e655c2ff8ce4c6e94345a51c8eeee5efd20bee6f89b586369b7b718c7"
+    },
+    {
+      "role_id": "R053_DUNGEON_BOSS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r053_dungeon_boss_dragon_turtle.glb",
+      "bytes": 68964,
+      "sha256": "4f86caf1c143fb8a9a8df145f0dc67c305c02b1e443365b6274fc9e855e7837c"
+    },
+    {
+      "role_id": "R054_DUNGEON_PEPPER_PROJECTILE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r054_dungeon_pepper_projectile_pepper.glb",
+      "bytes": 35496,
+      "sha256": "a64dbf683f6c2580ea19ed69b8b74fa5d5b6ad030f3311ba5aa3469a6fafb5ca"
+    },
+    {
+      "role_id": "R055_DUNGEON_BASKET",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r055_dungeon_basket_basket.glb",
+      "bytes": 217596,
+      "sha256": "8abc03aa8f2cc6d77da3872686fe4aa5634e558c58e81a53b9b0b62f5db19379"
+    },
+    {
+      "role_id": "R056_DUNGEON_PUZZLE_ROOM_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r056_dungeon_puzzle_room_overall_puzzle_room.glb",
+      "bytes": 72980,
+      "sha256": "d20c90b09133797544f181158eb26bab1b1916433bb1e55abdecad54c3844fa5"
+    },
+    {
+      "role_id": "R057_DUNGEON_PUZZLE_DOOR",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r057_dungeon_puzzle_door_puzzle_door.glb",
+      "bytes": 22064,
+      "sha256": "fbfe05f39592c65ad5e2264a6cb57a4843508e5bc6c29297becfde8ec1282041"
+    },
+    {
+      "role_id": "R058_DUNGEON_CRYSTAL_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_01.glb",
+      "bytes": 20768,
+      "sha256": "90759e8c877cdd5097ea7239c76d6be8b49bafd82e4fc11267757dfb28b6c689"
+    },
+    {
+      "role_id": "R058_DUNGEON_CRYSTAL_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_02.glb",
+      "bytes": 20772,
+      "sha256": "730062653fc76122b2464ce9c0545b76c8f5e9b26e3ea813c61c0a338f1c3f4b"
+    },
+    {
+      "role_id": "R058_DUNGEON_CRYSTAL_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r058_dungeon_crystal_pads_crystal_pad_03.glb",
+      "bytes": 20756,
+      "sha256": "6e23508363a9bd8f26d77da0270a2933bd6a69a79ad71718a84ef75c37a5cea8"
+    },
+    {
+      "role_id": "R059_DUNGEON_PUZZLE_CRYSTALS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_01.glb",
+      "bytes": 7452,
+      "sha256": "531dc59d1e6dc6ad7de0cff39e087a8835f9e402e386ec057968cc2e80dd8a01"
+    },
+    {
+      "role_id": "R059_DUNGEON_PUZZLE_CRYSTALS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_02.glb",
+      "bytes": 7448,
+      "sha256": "78a88dfcd8589623d04da03cb325fe5af2c99ef04fdcbab427293a6c9f49a30a"
+    },
+    {
+      "role_id": "R059_DUNGEON_PUZZLE_CRYSTALS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r059_dungeon_puzzle_crystals_crystal_03.glb",
+      "bytes": 7448,
+      "sha256": "b032c8028162f7ba5b66b0dfa8e0c39f91e60ec28ac065fa9f85750261e1b1da"
+    },
+    {
+      "role_id": "R060_DUNGEON_TORCH_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r060_dungeon_torch_family_torch_01.glb",
+      "bytes": 32268,
+      "sha256": "22660fa3fd37cd59470b7f3303ad090a1e2b8a50ddd137414695513bee6cc80f"
+    },
+    {
+      "role_id": "R060_DUNGEON_TORCH_FAMILY",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r060_dungeon_torch_family_torch_02.glb",
+      "bytes": 32268,
+      "sha256": "f34aaa8c28d420923b42d98615875bee748fb1cacbaaaaed146d4d5350a6386b"
+    },
+    {
+      "role_id": "R061_DUNGEON_SHELL_PROPS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_01.glb",
+      "bytes": 30220,
+      "sha256": "4263182ce2440f491f4a411b8bc3a72b8483781630e07454f2b9433cd14a2524"
+    },
+    {
+      "role_id": "R061_DUNGEON_SHELL_PROPS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_02.glb",
+      "bytes": 30220,
+      "sha256": "59ce4c7851b1ff44f622cd36a47e09408f0ecf1605a024c630e55fd6a883d695"
+    },
+    {
+      "role_id": "R061_DUNGEON_SHELL_PROPS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r061_dungeon_shell_props_shell_03.glb",
+      "bytes": 30220,
+      "sha256": "a6078a62550dd4dd315a0574cbcabc4043d1b2d5f5f7477f76141dfbc09f51b5"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_01.glb",
+      "bytes": 18504,
+      "sha256": "e3b899412f51bc2992e5da43b07578f00a71959082e189b8d98edc63b18070f8"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_02.glb",
+      "bytes": 23792,
+      "sha256": "55f72ac8d1cb0eeaa25ec7245387e8165286129fe7f27dd7af9ec4a8ba556180"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_03.glb",
+      "bytes": 28044,
+      "sha256": "4d0bf4ff69bcf59f737c93af360c13092216d4d41f71e3d2152252a3c1db1f2b"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_04.glb",
+      "bytes": 23264,
+      "sha256": "e5e0b90b20d80a44420baec27241c529f9a35b3a7c93f59d0faec8bc381ea339"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_05.glb",
+      "bytes": 27508,
+      "sha256": "f31835341a9c3776e85d5e6a20b959cc625ee28bb7bdcaedfd12b30aa343bada"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_06.glb",
+      "bytes": 31724,
+      "sha256": "594a94d96bd179ce8554be1b80c49e837f815cac37bd1801b257aff31a9a1a53"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_07.glb",
+      "bytes": 18504,
+      "sha256": "32a2ca296e8eec7279c5f4daaa62aeea29aa2558a08c820be0714f2f9f402fc0"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_08.glb",
+      "bytes": 23808,
+      "sha256": "c761060d8bf9c385a47f74f91116cd1597a9e349ca28cfae6e6975a84010790e"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_09.glb",
+      "bytes": 28040,
+      "sha256": "e26035fbf655c524a4dd8712644f678fb59f2b91412ffde67df4d5d24ce4cdb6"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_10.glb",
+      "bytes": 23248,
+      "sha256": "07035e3101255338fc211571355f81a8b04eff49ca896f0b875fca9ffed07d9c"
+    },
+    {
+      "role_id": "R062_DUNGEON_PUZZLE_SYMBOLS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r062_dungeon_puzzle_symbols_symbol_11.glb",
+      "bytes": 27508,
+      "sha256": "b21333dae93e5baf30b93da86177116c1a5ff710b80abcad32c8cea24ea8fde1"
+    },
+    {
+      "role_id": "R063_KART_KART_WORLD_OVERALL",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r063_kart_kart_world_overall_kart_world.glb",
+      "bytes": 50580,
+      "sha256": "7dc8ee64cea07ecfc1b953cf9d2b5378ac1c294fa0b276c8de3877fab4f59072"
+    },
+    {
+      "role_id": "R064_KART_VEHICLE_SELECTION_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_01.glb",
+      "bytes": 25676,
+      "sha256": "d3b46a99ab5bd445c4d3eacad5e5bf4b2cf897f78f5f7ce814c8e671ce93e677"
+    },
+    {
+      "role_id": "R064_KART_VEHICLE_SELECTION_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_02.glb",
+      "bytes": 25692,
+      "sha256": "b2206299646ada6fa79ea697890e151e338fd3a436cdb40354eb3b978f5b6c79"
+    },
+    {
+      "role_id": "R064_KART_VEHICLE_SELECTION_PADS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r064_kart_vehicle_selection_pads_selection_pad_03.glb",
+      "bytes": 25696,
+      "sha256": "6a78b8ce198fee44607501ac20dde060fd656cffc779b3fea3009fa8260b7ce9"
+    },
+    {
+      "role_id": "R065_KART_TRACK_BARRIERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_01.glb",
+      "bytes": 51852,
+      "sha256": "2277e9da5883eb43ac13a19e3b44aad503c53ac4a6fb2619d3056bca3c01d693"
+    },
+    {
+      "role_id": "R065_KART_TRACK_BARRIERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_02.glb",
+      "bytes": 51852,
+      "sha256": "863f989c3c41fca65671b7f30344125650aef7bc119c59a1179cefe98b1cc8dc"
+    },
+    {
+      "role_id": "R065_KART_TRACK_BARRIERS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r065_kart_track_barriers_barrier_03.glb",
+      "bytes": 51852,
+      "sha256": "63780b8f21af3223938dbd726a710f5a6fd8321451ba28d6b9481a39729819a1"
+    },
+    {
+      "role_id": "R068_KART_CORAL_DRESSING",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_01.glb",
+      "bytes": 42672,
+      "sha256": "56b40b842c8c9771e7838c60a088f4ccf0321f3d5f92564bf343907a1e94dcb6"
+    },
+    {
+      "role_id": "R068_KART_CORAL_DRESSING",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_02.glb",
+      "bytes": 18128,
+      "sha256": "1cc209cf351e19a59714a471519405134e73b0159a9290866f476be66e9a0ba9"
+    },
+    {
+      "role_id": "R068_KART_CORAL_DRESSING",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r068_kart_coral_dressing_kart_coral_03.glb",
+      "bytes": 23612,
+      "sha256": "4736478c50497b5e5488baa81812d468ea3229b176ae6bf2756f9a65403d58a1"
+    },
+    {
+      "role_id": "R069_KART_GOKART_SOURCE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r069_kart_gokart_source_gokart.glb",
+      "bytes": 76392,
+      "sha256": "ac73dcd72ed9c917cf47706ccfb210ec4029e9da98c1cb47659c58d5e69e37e2"
+    },
+    {
+      "role_id": "R070_KART_MONSTER_TRUCK_SOURCE",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r070_kart_monster_truck_source_monster_truck.glb",
+      "bytes": 78836,
+      "sha256": "1d4b2ba0bb29808acb718eda41c1ba58a95904c7e97c4f59700cb4cd2c686308"
+    },
+    {
+      "role_id": "R085_DEVELOPMENT_ALPINE_INTERIORS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r085_development_alpine_interiors_alpine_interior.glb",
+      "bytes": 29768,
+      "sha256": "f6155f8973f631ebce100da60151ebfb6f1697d7342cb899c3c73940f68035b6"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_01.glb",
+      "bytes": 73704,
+      "sha256": "3266327ef497b6f07d66ab4a46c60c0132bdf130bcd9f172c46a0b18ae849e89"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_02.glb",
+      "bytes": 97352,
+      "sha256": "fb2da7d3c4d606a1cd2ea268c58e56b702f85112124e06f55db92c22e84ccd0f"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_03.glb",
+      "bytes": 47432,
+      "sha256": "797cdfa1691b635e44b32a57fbfff238c281ba04c041df4a350fad3626ab9c08"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_04.glb",
+      "bytes": 40796,
+      "sha256": "cb65816672c7247e4356207bd30b3a840957f763445fd3058a777ee32370cc69"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_05.glb",
+      "bytes": 47432,
+      "sha256": "3eee7bf772f92d8d145570ee9aa48daf5bf86085a982cda77fd702a276e6c900"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_06.glb",
+      "bytes": 44736,
+      "sha256": "b487897dd58c8e044f95459e0dbbdc7370092bdad99a1a4ea72ea02f03d0e617"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_07.glb",
+      "bytes": 47400,
+      "sha256": "4898c5617da1267d34de4eabe87cb73d4cf92d204d9b89dc811a773425d85ad2"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_08.glb",
+      "bytes": 40156,
+      "sha256": "22185ec915b9d6c843249c48f8fef66ff47096e37e5149ee665bdc829dbd8f9d"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_09.glb",
+      "bytes": 16864,
+      "sha256": "1282843877e2cbac53c3f5844e95f08818594b78fef315ad4d83cdb40aa7a3f8"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_10.glb",
+      "bytes": 19396,
+      "sha256": "893413abb6bfe8f46c2124ef5609db8d5b51575b025ccd1a78e60bf3d6888a9f"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_11.glb",
+      "bytes": 19392,
+      "sha256": "761742884dd7b3e0e268d2bb02e1864b8a76a820e809cc1698b20d8fbe965b51"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_12.glb",
+      "bytes": 32504,
+      "sha256": "7d620acb2c9998a8b2446c55cdcb2a34c2b108b7974669efdb12965cc8f7c28d"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_13.glb",
+      "bytes": 32504,
+      "sha256": "a1a9e0db8dd8eb650d228963d9e07104a6e3f0c5d0698cb83e51702a11f3b5db"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_14.glb",
+      "bytes": 32504,
+      "sha256": "5e2cc2e1cdab5a49d0741cc8d5439a6ba936ed80a221b9bb2e9f8e659591982e"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_15.glb",
+      "bytes": 46040,
+      "sha256": "d69a6fdee4810892aa0e74ae3180ada9612ce016112ec22106fa43801543a66b"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_16.glb",
+      "bytes": 46040,
+      "sha256": "142dc17def9477abd675ad31826827367fcfa18efeff5b7c0d81daac1954d9e3"
+    },
+    {
+      "role_id": "R086_DEVELOPMENT_NORTHERN_KINGDOM_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r086_development_northern_kingdom_additions_northern_17.glb",
+      "bytes": 18704,
+      "sha256": "21a2ac6b7eca7bcfc8211bceb8799a269b7da5ed41d551e9ac58df08230ca16a"
+    },
+    {
+      "role_id": "R087_DEVELOPMENT_UNDERSEA_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_01.glb",
+      "bytes": 80516,
+      "sha256": "3f9db7b6833bcea9a96d52540016ccf4c9784c8c48b75fcab9231b055e69d53b"
+    },
+    {
+      "role_id": "R087_DEVELOPMENT_UNDERSEA_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_02.glb",
+      "bytes": 31140,
+      "sha256": "e37a52803c0de72297f1d217da321457676f90ca4ced94ffa2f1b64600e9c1c7"
+    },
+    {
+      "role_id": "R087_DEVELOPMENT_UNDERSEA_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_03.glb",
+      "bytes": 38120,
+      "sha256": "4599c0c2742e4799924e385bd6061102e2c5232f3a23a3aace1f3e12de08f85c"
+    },
+    {
+      "role_id": "R087_DEVELOPMENT_UNDERSEA_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_04.glb",
+      "bytes": 35532,
+      "sha256": "29fad234a359dea81a86818ea06bff2710de21a8603f8e0cf8649a3b92f8c2d4"
+    },
+    {
+      "role_id": "R087_DEVELOPMENT_UNDERSEA_ADDITIONS",
+      "kind": "model_3d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/models/r087_development_undersea_additions_undersea_05.glb",
+      "bytes": 17056,
+      "sha256": "b5fb4a1775196a104e0a0af904489fe3365a4f83edc14f7e0a89a2741a9bb058"
+    },
+    {
+      "role_id": "R007_REEF_CAUSTIC_GROUND_TREATMENT",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R007_REEF_CAUSTIC_GROUND_TREATMENT__reef_caustics.png",
+      "bytes": 1252632,
+      "sha256": "71d7caf22a9c2674a71e8ff36642e690520bbde67df0e406c07b8a363910c548"
+    },
+    {
+      "role_id": "R008_REEF_BACKDROP_SEAMOUNTS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R008_REEF_BACKDROP_SEAMOUNTS__seamount_backdrop.png",
+      "bytes": 1152836,
+      "sha256": "843829c67fb04a31500ec9619dd55cd6e1ab438f86a0e1e396d57114d1d20fb3"
+    },
+    {
+      "role_id": "R032_CASTLE_KITCHEN_COUNTER_TEXTURE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R032_CASTLE_KITCHEN_COUNTER_TEXTURE__counter_stone.png",
+      "bytes": 1170323,
+      "sha256": "0b763fb2988da8dc2820a9d6b6caceb28ae451653bdea558527d351add0537ea"
+    },
+    {
+      "role_id": "R033_CASTLE_KITCHEN_FLOOR_TEXTURE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R033_CASTLE_KITCHEN_FLOOR_TEXTURE__floor_tiles.png",
+      "bytes": 1428923,
+      "sha256": "500611e2696b36db39e36044c5f30c7c40bb4149eba7f202d58ff08e02b2522b"
+    },
+    {
+      "role_id": "R034_CASTLE_KITCHEN_WOOD_TEXTURE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R034_CASTLE_KITCHEN_WOOD_TEXTURE__painted_wood.png",
+      "bytes": 1103159,
+      "sha256": "47145d8de78d3cb35d76cdd14f46ab0cd5d6aa4557834bc0970f8691227b9b77"
+    },
+    {
+      "role_id": "R044_BUTTERFLY_WORLD_PLANET_SURFACE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R044_BUTTERFLY_WORLD_PLANET_SURFACE__butterfly_meadow_ground.png",
+      "bytes": 1577412,
+      "sha256": "d67739fc2b508dd309eb266a536e4513b9df8d52382a40ccd24ee6a625ebe9d1"
+    },
+    {
+      "role_id": "R044_BUTTERFLY_WORLD_PLANET_SURFACE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R044_BUTTERFLY_WORLD_PLANET_SURFACE__butterfly_meadow_ground_b.png",
+      "bytes": 1557607,
+      "sha256": "2e54f353be819c6551b9ed3b381a403868529beb0a4dac5766de9af20150dec6"
+    },
+    {
+      "role_id": "R044_BUTTERFLY_WORLD_PLANET_SURFACE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R044_BUTTERFLY_WORLD_PLANET_SURFACE__butterfly_meadow_ground_c.png",
+      "bytes": 1544207,
+      "sha256": "d7a35a0479efbc1f2fd1c5cba04d07974f5b2faa119b5a0f25059ece506f1105"
+    },
+    {
+      "role_id": "R050_DUNGEON_ARENA_FLOOR",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R050_DUNGEON_ARENA_FLOOR__dungeon_floor.png",
+      "bytes": 1412218,
+      "sha256": "ee00ee0aaaf89ef33235de7f16361bde641a9123fb1614c92cde8f64c7e1ad08"
+    },
+    {
+      "role_id": "R066_KART_BOOST_RIBBON",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R066_KART_BOOST_RIBBON__boost_ribbon.png",
+      "bytes": 287751,
+      "sha256": "f60e2b0898e02827a053d98285475158f3391cf4cb4d9f36816dee016597319b"
+    },
+    {
+      "role_id": "R067_KART_FINISH_BANNER",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R067_KART_FINISH_BANNER__finish_banner.png",
+      "bytes": 420276,
+      "sha256": "89f21d6eb379ea24085e11ddde9bf2e03966d08760c7e20112722c129a8ee024"
+    },
+    {
+      "role_id": "R071_PICTURE_GAMES_COAL",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R071_PICTURE_GAMES_COAL__coal.png",
+      "bytes": 530611,
+      "sha256": "0f9b222dac8aa60fff8d1a3a57b3682fd6fa61abc0684aaef1a926c810213ab5"
+    },
+    {
+      "role_id": "R072_PICTURE_GAMES_STAR",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R072_PICTURE_GAMES_STAR__star.png",
+      "bytes": 525783,
+      "sha256": "4fefe9b6025c279ea66d6d5e92686426b2845a539529fa1c971ee42b320a7a03"
+    },
+    {
+      "role_id": "R073_PICTURE_GAMES_SUN",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R073_PICTURE_GAMES_SUN__sun.png",
+      "bytes": 852381,
+      "sha256": "0e93177471fe5a491de3f8c3e7dd936e870a29d6877654342af22440e57d2e59"
+    },
+    {
+      "role_id": "R074_PICTURE_GAMES_TREE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R074_PICTURE_GAMES_TREE__tree.png",
+      "bytes": 984323,
+      "sha256": "010010e576c10d37208bc36d6935ad5ba0ab4c14fe9bb43ec146ff7938533531"
+    },
+    {
+      "role_id": "R075_PICTURE_GAMES_CHRISTMAS_TREE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R075_PICTURE_GAMES_CHRISTMAS_TREE__empty_tree.png",
+      "bytes": 669536,
+      "sha256": "dfe96694368b105cd2ec35bb577845a70c889f86e97962fa23b934f6c9775723"
+    },
+    {
+      "role_id": "R076_PICTURE_GAMES_DECORATED_CHRISTMAS_TREE",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R076_PICTURE_GAMES_DECORATED_CHRISTMAS_TREE__completed_tree.png",
+      "bytes": 745209,
+      "sha256": "411e53a0beecd5ae92790cf61a281d9850c7ae5043cfb82380307ee9d63ebed9"
+    },
+    {
+      "role_id": "R077_PICTURE_GAMES_BUSH",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R077_PICTURE_GAMES_BUSH__bush.png",
+      "bytes": 342262,
+      "sha256": "1eb59ce46bd83f71cb8120c6e8dd8eddd24bcedd4249bddfd0e5fc81a1e00ec4"
+    },
+    {
+      "role_id": "R078_PICTURE_GAMES_FISH_BODY",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R078_PICTURE_GAMES_FISH_BODY__body.png",
+      "bytes": 529884,
+      "sha256": "f573c043fdefed853dffce3c1a313b42be8b207aec94ce64905166dbae922ac1"
+    },
+    {
+      "role_id": "R079_PICTURE_GAMES_FISH_FINS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R079_PICTURE_GAMES_FISH_FINS__anal.png",
+      "bytes": 213054,
+      "sha256": "92ae2c5d0c77eb459507bed02447130414064ad9eb7e02a36232ea37f9351492"
+    },
+    {
+      "role_id": "R079_PICTURE_GAMES_FISH_FINS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R079_PICTURE_GAMES_FISH_FINS__caudal.png",
+      "bytes": 247917,
+      "sha256": "0e56c295182012b7ddc5b8d957099d693fea31a8c72c542288947831122b3828"
+    },
+    {
+      "role_id": "R079_PICTURE_GAMES_FISH_FINS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R079_PICTURE_GAMES_FISH_FINS__dorsal.png",
+      "bytes": 301711,
+      "sha256": "034e7d0e92bce3f6b4b9aa3b4cb6b4167a7ee826829afe61c848b730e64697fd"
+    },
+    {
+      "role_id": "R079_PICTURE_GAMES_FISH_FINS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R079_PICTURE_GAMES_FISH_FINS__pectoral.png",
+      "bytes": 447441,
+      "sha256": "0ce268180452b59856b9949f41e631edab4519d6c98ef6a774a6d5e996d959f2"
+    },
+    {
+      "role_id": "R079_PICTURE_GAMES_FISH_FINS",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R079_PICTURE_GAMES_FISH_FINS__pelvic.png",
+      "bytes": 206825,
+      "sha256": "f563bb305ec9d0da6c57f7e4143a71d891ad9802759457d449983e0e3fdf575b"
+    },
+    {
+      "role_id": "R080_PICTURE_GAMES_BUTTERFLY",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R080_PICTURE_GAMES_BUTTERFLY__butterfly.png",
+      "bytes": 832198,
+      "sha256": "d85c6017259d9393093755f3da1f508dfa722c34e237e0c06e58045127c37643"
+    },
+    {
+      "role_id": "R084_PICTURE_GAMES_ORNAMENT_SET",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R084_PICTURE_GAMES_ORNAMENT_SET__aqua_diamond.png",
+      "bytes": 440627,
+      "sha256": "c8bba41ae37972c247115329af1a6863d47ca557a4f047c56ce0304a0552085d"
+    },
+    {
+      "role_id": "R084_PICTURE_GAMES_ORNAMENT_SET",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R084_PICTURE_GAMES_ORNAMENT_SET__coral_round.png",
+      "bytes": 517901,
+      "sha256": "bd1fa5ef7e1849330cb880ca04d6ade42d4c29e44a8efb6a4959b744bc53a897"
+    },
+    {
+      "role_id": "R084_PICTURE_GAMES_ORNAMENT_SET",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R084_PICTURE_GAMES_ORNAMENT_SET__honey_round.png",
+      "bytes": 577471,
+      "sha256": "9ed1f7f1d7736ea89d6dd2253a25f6770bb87d7fad71874dcc16883e7f9575bb"
+    },
+    {
+      "role_id": "R084_PICTURE_GAMES_ORNAMENT_SET",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R084_PICTURE_GAMES_ORNAMENT_SET__lavender_round.png",
+      "bytes": 555238,
+      "sha256": "c93a429d79bffcd43a87844f395cfbc41e8809315ea325e82c14c5a855e76510"
+    },
+    {
+      "role_id": "R084_PICTURE_GAMES_ORNAMENT_SET",
+      "kind": "texture_2d",
+      "candidate_score": "4/5",
+      "path": "assets/full_texture_regen_2026-07-18/textures/R084_PICTURE_GAMES_ORNAMENT_SET__star_topper.png",
+      "bytes": 617812,
+      "sha256": "cb32d752870a4d8264266c869f429cc5be714191b2394ddaca8aec7ec6950af4"
+    }
+  ],
+  "accepted_source_generations": [
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R007_REEF_CAUSTIC_GROUND_TREATMENT__reef_caustics_source.png",
+      "bytes": 1907446,
+      "sha256": "57854a2f7117e0a70cb42177e097615d20df15745e0ad5833377dd2c3a397f43"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R008_REEF_BACKDROP_SEAMOUNTS__seamount_backdrop_source.png",
+      "bytes": 1817918,
+      "sha256": "061619451d785c863cd89f3ea0d06ec3979677ff3a4e580f6e6d87fd1e9a510d"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R032_CASTLE_KITCHEN_COUNTER_TEXTURE__counter_stone_source.png",
+      "bytes": 1784702,
+      "sha256": "2c7ce73e8e3d03ac69cc716152dbf81a9910d3336ddafb95f767b901e4d9795c"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R033_CASTLE_KITCHEN_FLOOR_TEXTURE__floor_tiles_source.png",
+      "bytes": 2223769,
+      "sha256": "6cea643df5ee5757bff513193932ec4945b40363a9b9746a96103588bcb9f7b4"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R034_CASTLE_KITCHEN_WOOD_TEXTURE__painted_wood_source.png",
+      "bytes": 1726540,
+      "sha256": "07bb1d12d11048c1cc114240e7f094f56d6746096838fc7e1030b0b958145cc2"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R044_BUTTERFLY_WORLD_PLANET_SURFACE__ground_source.png",
+      "bytes": 2461615,
+      "sha256": "6bc394106c10de18e82ab999245eb372613f1128a04edaf387d6cbca59f858c7"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R050_DUNGEON_ARENA_FLOOR__floor_source.png",
+      "bytes": 2260163,
+      "sha256": "6992098d445f3c4d9cb92466aba3028d94521e9259ea689b85bd8ec48fe9aaf5"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R066_KART_BOOST_RIBBON__boost_source.png",
+      "bytes": 1303188,
+      "sha256": "d6d4fb919b8df9d7ba084090a0f07f5a7861b6c2c263d070a7971696ee829ae2"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R067_KART_FINISH_BANNER__banner_source.png",
+      "bytes": 1571462,
+      "sha256": "6bd49fb366068d8fd43efa4fe1f5da8c533e8e498417fa8f5e25b723bb8e3c25"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R071_PICTURE_GAMES_COAL__coal_source.png",
+      "bytes": 1268401,
+      "sha256": "ba4d580290129d1898d1d12729b140ef95ded0d71ad110a68bbd111661f6f252"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R072_PICTURE_GAMES_STAR__star_source.png",
+      "bytes": 1372255,
+      "sha256": "3afdcbc17337d4201892c52e6f0891de5fedc106cc369bcf3413a9e0884a70c7"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R073_PICTURE_GAMES_SUN__sun_source.png",
+      "bytes": 1748803,
+      "sha256": "2351787a54e568543fce8d89fe368e1db43a71ba75979e1a9a18897c10d2f03d"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R074_PICTURE_GAMES_TREE__tree_source.png",
+      "bytes": 1788871,
+      "sha256": "5a5ff20cfd68f8fb4c9c01e27c4749d229b9a2314290c1070501261e0e1f00ec"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R075_PICTURE_GAMES_CHRISTMAS_TREE__empty_tree_source.png",
+      "bytes": 1515961,
+      "sha256": "3bae05861de78c32a5158d5f06d94141a4f9f5a8b0bdd31b8e818ceaf582e502"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R076_PICTURE_GAMES_DECORATED_CHRISTMAS_TREE__completed_tree_source.png",
+      "bytes": 1564631,
+      "sha256": "42908eb573b04fb405ddba21d9e1d1e2704675402b494c5602bc2752869abd99"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R077_PICTURE_GAMES_BUSH__bush_source.png",
+      "bytes": 1364367,
+      "sha256": "316aa5cbc0f5fb3461f90dc6e8b0825b7871b66050249d1459dacb61e3d3938e"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R078_PICTURE_GAMES_FISH_BODY__body_source.png",
+      "bytes": 1704847,
+      "sha256": "cdff2d5265395495e5c9b507580e09aa31c2757c3b2394b0271521a129871a5f"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R079_PICTURE_GAMES_FISH_FINS__anal_source.png",
+      "bytes": 1388354,
+      "sha256": "ec104add59aec08aac2b80cf4bf75a9f7159326d4399df0259e02260cf01990f"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R079_PICTURE_GAMES_FISH_FINS__caudal_source.png",
+      "bytes": 1441753,
+      "sha256": "68aaa5a479418b0ce4f690bd2442f106ff372d74cbcc0a08c52902c00d523b97"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R079_PICTURE_GAMES_FISH_FINS__dorsal_source.png",
+      "bytes": 1469430,
+      "sha256": "1f4af55d208ade01d4890c43d3b01c81ed5fc4a5e46cff0b78a7678c8c3263d6"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R079_PICTURE_GAMES_FISH_FINS__pectoral_source.png",
+      "bytes": 1312717,
+      "sha256": "ed6e17680043fa179e96ea03d37eb5f2406bab7695d58923946c1d16749dbbb0"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R079_PICTURE_GAMES_FISH_FINS__pelvic_source.png",
+      "bytes": 1086080,
+      "sha256": "7a2a5b4695814894f270df33b64df0381d612d8e0d72d7873f0b477e87f21392"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R080_PICTURE_GAMES_BUTTERFLY__corrected_source.png",
+      "bytes": 1808853,
+      "sha256": "36b73d2dc919ec9e1089812d9be24c30282b4d6bbb255c416ebb1d640f46474c"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R084_PICTURE_GAMES_ORNAMENT_SET__aqua_diamond_source.png",
+      "bytes": 1366657,
+      "sha256": "288bb70b2459f640deacf4803900b41701d8d8c04583c7eaeb664c7bcaf78796"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R084_PICTURE_GAMES_ORNAMENT_SET__coral_round_source.png",
+      "bytes": 1355831,
+      "sha256": "e0de08c37adb00e01473603ec87763c3a3b64a069ef0eb18d118c9251faa95ae"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R084_PICTURE_GAMES_ORNAMENT_SET__honey_round_source.png",
+      "bytes": 1452452,
+      "sha256": "7b2133de28a78f912c663042ee1dbc57440f37f92ef59c8fd53336b6824cfb45"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R084_PICTURE_GAMES_ORNAMENT_SET__lavender_round_source.png",
+      "bytes": 1465560,
+      "sha256": "7c162599f494b7f7cc82d1c993cf5d88414afda9ebf2d16ad2dc0a5a622dfa7c"
+    },
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/accepted/R084_PICTURE_GAMES_ORNAMENT_SET__star_topper_source.png",
+      "bytes": 1373473,
+      "sha256": "05cfde4455c2d6c91407f2517bfefff0b4ccdaa25a5b2a70ed5e606dd3e7d9dd"
+    }
+  ],
+  "rejected_source_generations": [
+    {
+      "path": "assets/full_texture_regen_2026-07-18/source_generations/rejected/R080_PICTURE_GAMES_BUTTERFLY__rejected_missing_two_legs.png",
+      "bytes": 1699646,
+      "sha256": "af1c80764e2f442acc7a3be83bb8697e1d55ba76d078ec3e9d71e32fe0a3c36f"
+    }
+  ],
+  "editable_sources": [
+    {
+      "path": "assets_src/blender/full_texture_regen_2026-07-18/full_texture_regen.blend",
+      "bytes": 1202487,
+      "sha256": "20e97e725e8327ab39553e5c91b6b77706414637fe2901946d16a08e12294a8b"
+    },
+    {
+      "path": "assets_src/blender/full_texture_regen_2026-07-18/model_manifest.json",
+      "bytes": 122398,
+      "sha256": "9fedfe8b0b4539a81fc14f2ad4a62badc6cb2e6375c6196b574933f1a4817bdc"
+    }
+  ]
+}

@@ -377,6 +377,17 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		nova_pressed = false
 	if nova_pressed:
 		m.g["player_acted"] = true
+	# one-finger auto-assist: steering leaves no thumb for the shield button,
+	# so when a shadow spark drifts close the shield pulses ITSELF (the manual
+	# press above still works). Defensive only — the auto path never sets
+	# player_acted, so a zero-input player still cannot progress
+	# (probe_passive fairy agency: bloom waits for a real verb).
+	if not nova_pressed and float(m.g["nova_cd"]) <= 0.0:
+		for od_a in (m.g["orbs"] as Array):
+			var on_a: Node3D = od_a["node"]
+			if is_instance_valid(on_a) and on_a.position.distance_to(pos) < FS_NOVA_R * 0.8:
+				nova_pressed = true
+				break
 	if nova_pressed and float(m.g["nova_cd"]) <= 0.0:
 		m.g["nova_cd"] = FS_NOVA_CD
 		for k in range(6):
@@ -635,6 +646,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				return
 			m.player.visible = true
 			m.award_sticker("flower")
-			m.fs_fails = 0
+			# _end_game's medal hook reads m.fs_fails for the ranking, so the
+			# retry-kindness counter resets AFTER the win is reported
 			m._end_game(true, fr, "The Fairy Flower blossomed! You did it!")
+			m.fs_fails = 0
 		return

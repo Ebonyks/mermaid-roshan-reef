@@ -76,7 +76,7 @@ func build() -> void:
 	button.add_theme_font_size_override("font_size", 34)
 	button.custom_minimum_size = Vector2(76, 76)
 	button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	button.position = Vector2(-184, 18)
+	button.position = Vector2(-208, 18)   # shifted left of the enlarged 100px pause gear
 	var normal := StyleBoxFlat.new()
 	normal.bg_color = Color(0.18, 0.52, 0.62, 0.82)
 	normal.border_color = Color(0.78, 1.0, 0.86, 0.9)
@@ -382,9 +382,9 @@ func _draw_book() -> void:
 
 	var close := Button.new()
 	close.text = "✕"
-	close.add_theme_font_size_override("font_size", 38)
-	close.position = Vector2(1145, 40)
-	close.custom_minimum_size = Vector2(72, 72)
+	close.add_theme_font_size_override("font_size", 44)
+	close.position = Vector2(1122, 34)   # 100px: frustrated fingers mash here
+	close.custom_minimum_size = Vector2(100, 100)
 	close.pressed.connect(close_book)
 	stage.add_child(close)
 
@@ -393,8 +393,8 @@ func _draw_book() -> void:
 		var tab := Button.new()
 		tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
 		tab.add_theme_font_size_override("font_size", 30)
-		tab.position = Vector2(88 + float(i) * 270.0, 105)
-		tab.custom_minimum_size = Vector2(242, 70)
+		tab.position = Vector2(88 + float(i) * 270.0, 100)   # up 5px so the taller tab clears the cards at y=198
+		tab.custom_minimum_size = Vector2(242, 90)
 		if category == m.collection_category:
 			var active_style := StyleBoxFlat.new()
 			active_style.bg_color = Color(0.32, 0.70, 0.62, 0.95)

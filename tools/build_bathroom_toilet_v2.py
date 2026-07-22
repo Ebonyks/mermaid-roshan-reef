@@ -435,6 +435,29 @@ def tube_curve(
 	return obj
 
 
+def extruded_side_profile(
+	name: str,
+	profile: list[tuple[float, float]],
+	half_width: float,
+	mat: bpy.types.Material,
+	parent: bpy.types.Object,
+	bevel_width: float = 0.08,
+) -> bpy.types.Object:
+	"""Extrude a closed X/Z silhouette across Y for authored ceramic forms."""
+	vertices: list[tuple[float, float, float]] = []
+	faces: list[tuple[int, ...]] = []
+	for y in (-half_width, half_width):
+		vertices.extend((x, y, z) for x, z in profile)
+	count = len(profile)
+	faces.append(tuple(reversed(range(count))))
+	faces.append(tuple(range(count, count * 2)))
+	for index in range(count):
+		next_index = (index + 1) % count
+		faces.append((index, next_index, count + next_index, count + index))
+	obj = mesh_object(name, vertices, faces, mat, parent, smooth=False)
+	return bevel(obj, bevel_width, 3)
+
+
 def shell_badge(parent: bpy.types.Object) -> list[bpy.types.Object]:
 	parts: list[bpy.types.Object] = []
 	# Five small flattened lobes fan across the visible tank side (-Y).
@@ -600,8 +623,9 @@ def build_toilet() -> bpy.types.Object:
 		MATS["porcelain_light"], root, 36, True, True,
 	)
 
-	# The continuously shifting ring centres create the conventional flowing
-	# side silhouette: narrow pedestal, rear S bend, and a full rounded bowl.
+	# The forward loft supplies the rounded bowl and foot. A separate authored
+	# rear skirt below gives the cistern, trap, and pedestal one continuous
+	# ceramic silhouette when the fixture is read from either side.
 	ellipse_loft(
 		"ToiletPorcelain_SculptedPedestalBowl",
 		[
@@ -618,8 +642,45 @@ def build_toilet() -> bpy.types.Object:
 		MATS["porcelain"], root, 36, True, False,
 	)
 
-	# The ring-centre shifts above form the readable S-profile directly in the
-	# pedestal silhouette. No separate hose-like trap applique is added.
+	extruded_side_profile(
+		"ToiletPorcelain_RearSkirtAndTrapBody",
+		[
+			(-1.78, 0.24),
+			(-1.80, 2.73),
+			(-1.38, 2.90),
+			(-0.82, 2.83),
+			(-0.34, 2.54),
+			(-0.18, 2.14),
+			(-0.34, 1.86),
+			(-0.66, 1.66),
+			(-0.58, 1.28),
+			(-0.24, 1.04),
+			(0.02, 0.70),
+			(-0.12, 0.36),
+			(-0.62, 0.22),
+		],
+		0.93, MATS["porcelain"], root, 0.10,
+	)
+	# A broad molded relief follows the actual S bend. The lavender underlay is
+	# only a narrow occlusion edge; the visible center remains pearl ceramic.
+	for side_index, y in enumerate((-0.968, 0.968)):
+		trap_points = [
+			(-1.20, y, 2.35),
+			(-0.72, y, 2.16),
+			(-0.48, y, 1.78),
+			(-0.72, y, 1.40),
+			(-0.38, y, 1.06),
+			(-0.08, y, 0.72),
+		]
+		tube_curve(
+			f"ToiletPorcelain_TrapReliefShadow_{side_index}",
+			trap_points, 0.19, MATS["porcelain_shadow"], root,
+		)
+		tube_curve(
+			f"ToiletPorcelain_TrapReliefPearl_{side_index}",
+			[(x, y + (-0.012 if y < 0.0 else 0.012), z + 0.018) for x, _, z in trap_points],
+			0.135, MATS["porcelain_light"], root,
+		)
 
 	# Thick ceramic rim + nested inner wall + water form a genuinely open bowl.
 	ellipse_annular_prism(

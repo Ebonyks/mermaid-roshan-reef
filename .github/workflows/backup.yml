@@ -1,0 +1,137 @@
+name: Project backup (git bundle)
+
+# Disaster-recovery net for the whole repository — every branch, every tag,
+# all history, including the irreplaceable book art and recorded family
+# voices. Git alone does not survive a bad force-push, a botched history
+# rewrite, or loss of the repository itself; a full-mirror git bundle does.
+#
+# Each run mirror-clones the repo, bundles ALL refs, cryptographically
+# verifies the bundle, performs a real restore drill (clone from the bundle
+# and check the irreplaceable asset folders), and only then publishes it to
+# the `project-backup` release tag. The two newest dated bundles are kept;
+# older ones are pruned so release storage stays bounded.
+#
+# Release assets are used deliberately: the account's Actions artifact quota
+# is 0.5 GB (see cleanup-artifacts.yml) while release assets are free of
+# that quota and allow files up to 2 GiB.
+#
+# ⚠ The weekly schedule only runs once this file is on the DEFAULT branch
+#   (promotion flow: work branch → dev → master). Until then, run it from
+#   the Actions tab (workflow_dispatch). GitHub also pauses cron schedules
+#   after ~60 days without repo activity — re-enable from the Actions tab.
+#
+# Restore instructions live in BACKUP.md.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1" # Mondays 09:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: project-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Mirror-clone every branch and tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git clone --mirror \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" mirror.git
+          git -C mirror.git for-each-ref --format='%(refname)' | head -50
+          echo "total refs: $(git -C mirror.git for-each-ref | wc -l)"
+
+      - name: Create and verify the bundle
+        run: |
+          STAMP=$(date -u +%Y-%m-%d)
+          BUNDLE="roshan-reef-${STAMP}.bundle"
+          echo "BUNDLE=${BUNDLE}" >> "$GITHUB_ENV"
+          echo "STAMP=${STAMP}" >> "$GITHUB_ENV"
+          git -C mirror.git bundle create "${GITHUB_WORKSPACE}/${BUNDLE}" --all
+          git bundle verify "${BUNDLE}"
+          SIZE=$(stat -c%s "${BUNDLE}")
+          echo "bundle size: $((SIZE / 1024 / 1024)) MiB"
+          # GitHub refuses release assets over 2 GiB. Fail loudly with
+          # headroom so the backup never silently stops happening.
+          if [ "$SIZE" -gt $((1900 * 1024 * 1024)) ]; then
+            echo "::error::Bundle is within 100 MiB of the 2 GiB release-asset limit."
+            echo "::error::Split the backup (e.g. one bundle per year via 'git bundle create --since') before the next run."
+            exit 1
+          fi
+          sha256sum "${BUNDLE}" > "${BUNDLE}.sha256"
+
+      - name: Restore drill — clone from the bundle and check the irreplaceable assets
+        run: |
+          git clone --branch master "${BUNDLE}" restore-drill
+          FAIL=0
+          MANIFEST="roshan-reef-${STAMP}.manifest.txt"
+          {
+            echo "Mermaid Roshan: Reef of Light — project backup manifest"
+            echo "date-utc: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "bundle:   ${BUNDLE}"
+            echo "master:   $(git -C mirror.git rev-parse refs/heads/master)"
+            echo "dev:      $(git -C mirror.git rev-parse refs/heads/dev 2>/dev/null || echo '(no dev branch)')"
+            echo "refs:     $(git -C mirror.git for-each-ref | wc -l)"
+          } > "${MANIFEST}"
+          # These folders are irreplaceable (book art, recorded family
+          # voices, friend portraits). An empty one means the backup is NOT
+          # a backup — refuse to publish it.
+          for d in assets/book assets/audio/voices assets/characters/friends; do
+            N=$(find "restore-drill/${d}" -type f 2>/dev/null | wc -l)
+            echo "files in ${d}: ${N}" | tee -a "${MANIFEST}"
+            if [ "$N" -eq 0 ]; then
+              echo "::error::Restore drill found NO files in ${d} — refusing to publish this backup."
+              FAIL=1
+            fi
+          done
+          test -f restore-drill/project.godot || { echo "::error::project.godot missing from restored clone"; FAIL=1; }
+          test -f restore-drill/scenes/main.tscn || { echo "::error::scenes/main.tscn missing from restored clone"; FAIL=1; }
+          exit "$FAIL"
+
+      - name: Publish to the project-backup release tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: project-backup
+          name: Project backup (full git bundles)
+          prerelease: true
+          body: |
+            Full-repository disaster-recovery bundles: every branch, tag, and
+            all history, including the irreplaceable book art and family
+            voice recordings. Verified and restore-drilled before upload.
+            The two newest dated bundles are kept.
+
+            To restore, see BACKUP.md — short version:
+            `git clone --branch master roshan-reef-YYYY-MM-DD.bundle roshan-reef`
+          files: |
+            ${{ env.BUNDLE }}
+            ${{ env.BUNDLE }}.sha256
+            roshan-reef-${{ env.STAMP }}.manifest.txt
+
+      - name: Prune old bundles (keep the two newest dates)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Assets are named roshan-reef-YYYY-MM-DD.* so lexical order is
+          # date order. Keep every asset from the two newest dates.
+          KEEP=$(gh release view project-backup --repo "${GITHUB_REPOSITORY}" \
+              --json assets --jq '.assets[].name' \
+            | grep -oE '^roshan-reef-[0-9]{4}-[0-9]{2}-[0-9]{2}' | sort -u | tail -n 2)
+          echo "keeping dates:"; echo "${KEEP}"
+          gh release view project-backup --repo "${GITHUB_REPOSITORY}" \
+              --json assets --jq '.assets[].name' \
+            | while read -r NAME; do
+              PREFIX=$(echo "${NAME}" | grep -oE '^roshan-reef-[0-9]{4}-[0-9]{2}-[0-9]{2}' || true)
+              [ -n "${PREFIX}" ] || continue
+              if ! echo "${KEEP}" | grep -qx "${PREFIX}"; then
+                echo "pruning ${NAME}"
+                gh release delete-asset project-backup "${NAME}" \
+                  --repo "${GITHUB_REPOSITORY}" --yes
+              fi
+            done

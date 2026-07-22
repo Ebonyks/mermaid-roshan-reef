@@ -17,6 +17,21 @@ boss. Floor 3's medallion is the fifteenth act: the Midnight Maestro's grand
 finale, remixing the lantern-SHINE and curtain-chase-SPARKLE verbs. Bubble
 lifts cycle ground → Starlight Balcony → Grand Gallery → ground. The camera
 watches from the open auditorium side like a dollhouse diorama.
+
+**2026-07-21 flat prototype pack:** the accepted main-lobby key, 108
+lobby-first reference cards, 64 stage/act cards, scores, and placement rules
+are in `assets_src/concepts/opera_house_flat/`,
+`OPERA_HOUSE_FLAT_ART_AUDIT_2026-07-21.md`, and
+`audit/opera_house_flat_prototype_ledger_2026-07-21.csv`. These are
+model-reference prototypes, not wired runtime replacements. The expansion adds
+ticket/coat/program service, flower and sweets/drinks kiosks, lounge islands,
+clock/mirrors/vitrines, wall/cove modules, carpet/terrazzo junctions, an
+accessible ramp, and wall-bound set dressing. It also defines paired
+stair/landing gates, shell-clasp states, three-pearl progress, dormant/ready
+bubble lifts, floor-color selectors, locked/open portal states, and the brief
+unlock effect. Middle and upper floors remain visually and physically closed
+until the preceding floor boss is complete.
+
 Assets
 - Grand lobby kit: carpet runner, wainscot, chandeliers ×2, audience benches,
   balcony railing + deck fascia (replaces `_build_lobby` boxes)
@@ -42,7 +57,9 @@ Assets
 - Backstage pests are the DUNGEON'S MISCHIEF IMPS reused on purpose (owner
   decision 2026-07-19 — same little demons, they get everywhere): no new
   creature needed. Optional: a tiny bow-tie/usher-cap accessory pass on the
-  existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite
+  existing `mischief_imp.glb`, plus a "pop into confetti" burst sprite.
+  The LAST imp of every brawl is the CAPTAIN: bigger, gold bow accessory,
+  shrugs off the first sparkle with a giggle-dash (two-hit mini-chase)
 - Audience seat bench + a curtain-call confetti burst
 - Theatre marquee door (two placements, one asset): the music-room stage door
   AND the Sky Lagoon courtyard entrance both use `build_opera_gate`'s
@@ -66,10 +83,11 @@ Mechanics wishlist
 - Curtain-call bow pose for Roshan (verb clip — she's the rigged player on
   stage now, so a new VERB_LIB entry covers it)
 
-## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir finale)
+## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir + toppings)
 Assets: cake layer models ×3 (`PadProp` on `OperaPad0..2`), mixing bowl with
 swirl lid (`OperaGoal`), recipe board art, chef-hat costume prop, oven glow
-backdrop. SFX: plop, whisk-whoosh ×3 rising, cake fanfare.
+backdrop, topping spot pedestals ×3 + cherry models (replaces the decorate
+discs/spheres). SFX: plop, whisk-whoosh ×3 rising, cherry squish, fanfare.
 Mechanics wishlist: frosting squiggle free-draw during the bow (touch-drag).
 
 ## Act 2 — Detective, "The Missing Tiara" (hidden-clue search)
@@ -102,16 +120,17 @@ pumpkin), veggie toss arc sprite, barn backdrop for the finale.
 SFX: oink ×9 pitched, munch, toss-whoosh.
 Mechanics wishlist: a mud puddle piggies hop over (pure animation beat).
 
-## Act 7 boss — "The Curtain Dragon" (roaming peek boss, 10 stars)
-Assets: dragon puppet on a stick (head + curtain slot ×3 spots), sparkle
+## Act 7 boss — "The Curtain Dragon" (roaming peek boss, rising tempo, 9 stars)
+Assets: dragon puppet on a stick (head + curtain slot ×5 spots, outer two for his bold phase), sparkle
 star projectile, bubble-puff. SFX: grumble, puff, tamed-purr.
 Mechanics wishlist: dragon sneezes confetti when popped the final time.
 
-## Act 8 — Opera Star, "The Moonlight Aria" (echo bells)
-Assets: golden bell trio (`OperaPad*` bells), conductor seahorse cutout on a
-podium, moon backdrop. SFX: authored three-bell chord scale, crowd "la-la"
-echo after each round.
-Mechanics wishlist: audience sways in rhythm during the demo.
+## Act 8 — Boxer, "The Championship Bout" (three friendly rounds)
+Assets: padded toy ring and thick ropes, coral boxing gloves, focus mitt,
+shell bell, three pearl round lamps, friendly mischief-imp peek/bop/bow states,
+championship shell belt, and a bubble-puff impact effect. SFX: soft bell,
+padded bop, imp giggle, and belt fanfare.
+Mechanics wishlist: the final imps bow before the belt presentation.
 
 ## Act 9 — Magician, "The Magic Hat Trick" (shuffle, 3 rounds)
 Assets: magic hats ×3 (`OperaHat*`), BUNNY-FISH character (`BunnyFish`),

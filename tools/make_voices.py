@@ -34,7 +34,6 @@ CHARS = {
     "evie":    ("af_bella",  1.30, 1.06),   # little kid + giggle energy
     "harper":  ("af_sarah",  1.18, 1.04),   # big-sister cheer
     "faron":   ("af_nicole", 1.05, 0.96),   # soft, hushed caregiver
-    "gabby":   ("af_sky",    1.22, 1.05),   # bubbly sing-song
     "wacky":   ("am_santa",  0.98, 0.97),   # grandpa chuckle
     "shop":    ("bm_george", 1.02, 1.00),   # friendly shopkeeper
     "sparkle": ("af_bella",  1.55, 1.12),   # tiny baby-eagle chirp
@@ -82,9 +81,6 @@ LINES = {
     "faron_win":  ("faron", "All the babies are tucked in! Thank you!"),
     "faron_fail": ("faron", "Oh no, the babies! Let's try once more."),
     "faron_miss": ("faron", "Oh NO! The baby! Catch them, catch them!"),
-    "gabby":      ("gabby", "La la laaa! Come catch the rainbow with me!"),
-    "gabby_win":  ("gabby", "You caught the whole rainbow! Amazing!"),
-    "gabby_fail": ("gabby", "The colors got away! One more song!"),
     "wacky":      ("wacky", "Ho ho! Hello there, little mermaid!"),
     "wacky_win":  ("wacky", "Great throwing! Chuck says woof! Ho ho ho!"),
     "wacky_fail": ("wacky", "Ho ho! Chuck got all wet! Try again!"),

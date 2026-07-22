@@ -476,6 +476,9 @@ func set_costume(id: String) -> void:
 	# rig audit 2026-07-15: hand2 (her right) is the well-bound hand; the left
 	# "hand" joint is a tiny underbound stub, so props prefer the right side
 	var hand := _costume_anchor(["hand2", "armF2", "hand", "chest"])
+	# left hand: underbound for SKINNING, but a BoneAttachment3D only needs the
+	# joint itself — rigid props (the boxer's second glove) ride it fine
+	var hand_l := _costume_anchor(["hand", "armF", "chest"])
 	var chest := _costume_anchor(["chest", "spine1", "root"])
 	var waist := _costume_anchor(["spine1", "root", "chest"])
 	# Offsets are calibrated to the v4 rig's MEASURED rest joints (world units,
@@ -501,13 +504,11 @@ func set_costume(id: String) -> void:
 			tutu.inner_radius = 0.55
 			tutu.outer_radius = 1.35
 			_cp_mesh(waist, tutu, Vector3.ZERO, Color(1.0, 0.72, 0.86), 0.15)
-		"singer":
-			var tiara := TorusMesh.new()
-			tiara.inner_radius = 0.5
-			tiara.outer_radius = 0.75
-			_cp_mesh(head, tiara, Vector3(0, 2.3, 0), Color(1.0, 0.87, 0.42), 0.5)
-			_cp_sphere(hand, Vector3(0, 0.35, 0), 0.32, Color(1.0, 0.95, 0.5), 0.9)
-			_cp_box(hand, Vector3(0, -0.25, 0), Vector3(0.14, 1.0, 0.14), Color(1.0, 0.95, 0.5), 0.9)
+		"boxer":
+			# champion of the friendly bout: a glove on EACH hand + the gold belt
+			_cp_sphere(hand, Vector3.ZERO, 0.62, Color(0.9, 0.25, 0.3), 0.15)
+			_cp_sphere(hand_l, Vector3.ZERO, 0.62, Color(0.9, 0.25, 0.3), 0.15)
+			_cp_box(waist, Vector3(0, -0.1, -0.6), Vector3(1.6, 0.4, 0.3), Color(1.0, 0.85, 0.4), 0.3)
 		"magician":
 			_cp_cyl(head, Vector3(0, 2.85, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15)
 			_cp_cyl(head, Vector3(0, 2.25, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15)
@@ -873,7 +874,7 @@ func _process(delta: float) -> void:
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls"):
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
@@ -896,8 +897,11 @@ func _process(delta: float) -> void:
 		turn += 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		turn -= 1.0
-	var jx: float = joy_axis(JOY_AXIS_LEFT_X)
-	var jy: float = joy_axis(JOY_AXIS_LEFT_Y)
+	# while a pad holds R1 it is Player 2's — its left stick steers the stuffie
+	# companion (companion.gd), so Roshan must ignore it for that beat
+	var pad_is_p2: bool = "companion_p2" in _m0 and bool(_m0.companion_p2)
+	var jx: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
 		turn -= jx
 	if absf(jy) > 0.2:
@@ -914,9 +918,12 @@ func _process(delta: float) -> void:
 	var m0: Node = get_parent()
 	if "touch_ui" in m0 and m0.touch_ui != null:
 		var tv: Vector2 = m0.touch_ui.stick_vec
-		if absf(tv.x) > 0.15:
+		# 0.10 (was 0.15): the stick now ramps from 0 at its 22px slop edge, so
+		# a 0.15 gate on top would leave the first ~8px past slop dead — the
+		# slop itself is the dead zone now, this only filters jitter
+		if absf(tv.x) > 0.10:
 			turn -= tv.x
-		if absf(tv.y) > 0.15:
+		if absf(tv.y) > 0.10:
 			fwd -= tv.y
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
@@ -953,6 +960,9 @@ func _process(delta: float) -> void:
 			var depth: float = WATER_TOP - position.y
 			if depth < 4.5:
 				vel.y += 34.0 * (1.0 - depth / 4.5) * delta
+			# authored reef currents: stream rides + the breathing geyser lift
+			if "flow_sys" in m0 and m0.flow_sys != null:
+				vel += (m0.flow_sys.accel_at(position) as Vector3) * delta
 	position += vel * delta
 	if free_swim:
 		var now_air: bool = position.y > WATER_TOP
@@ -1162,8 +1172,15 @@ func _process(delta: float) -> void:
 		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
 		var back_eff: float = cam_back * (1.0 + 0.10 * cam_spd)
 		var target := position + Vector3(-sin(cyaw) * back_eff, cam_high + cam_pitch_off, -cos(cyaw) * back_eff)
-		cam.position = cam.position.lerp(target, 1.0 - pow(0.001, delta))
-		cam.look_at(position + Vector3(0, 1.5, 0))
+		var focus := position + Vector3(0, 1.5, 0)
+		# analytic boom (CAMERA_AUDIT_2026_07 P0): resolve the ideal spot
+		# against walls/terrain/ceilings, glide toward it, then resolve the
+		# glide too — so the boom shortens INSTANTLY when geometry intrudes
+		# but relaxes back out smoothly once it has passed
+		var want := CameraKit.resolve(_m0, focus, target)
+		var glide := cam.position.lerp(want, 1.0 - pow(0.001, delta))
+		cam.position = CameraKit.resolve(_m0, focus, glide)
+		cam.look_at(focus)
 		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
 
 func _tick_swim_bones(delta: float, speed: float) -> void:
@@ -1174,6 +1191,7 @@ func _tick_swim_bones(delta: float, speed: float) -> void:
 	# Arms keep a separate, deliberately slow water-sweep phase. Tying them to
 	# the tail beat made a sprint look like frantic flapping instead of swimming.
 	arm_swim_phase += delta * (1.0 + minf(speed * 0.035, 0.9))
+	var m0: Node = get_parent()   # carry pose below peeks at main's carry_sys
 	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
 	var kick: float = sin(swim_phase)
 	if skel != null:
@@ -1215,14 +1233,24 @@ func _tick_swim_bones(delta: float, speed: float) -> void:
 			var spread: float = 0.65 - 0.22 * streamline
 			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
 			var bend_mul: float = 1.0 - 0.5 * streamline
-			var left_sway: float = sin(arm_ph)
-			var right_sway: float = sin(arm_ph - 0.35)
-			var depth_sway: float = sin(arm_ph - 0.8) * 0.16
-			var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
-			_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
-			_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
-			_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
-			_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
+			var carrying: bool = false
+			if "carry_sys" in m0 and m0.carry_sys != null:
+				carrying = bool(m0.carry_sys.is_carrying())
+			if carrying:
+				# both hands raised under the carried toy (positive RIGHT = raise)
+				_rot_bone("armU", Vector3.RIGHT, 1.15 + sin(arm_ph) * 0.05)
+				_rot_bone("armF", Vector3.RIGHT, 0.4)
+				_rot_bone("armU2", Vector3.RIGHT, 1.15 + sin(arm_ph - 0.4) * 0.05)
+				_rot_bone("armF2", Vector3.RIGHT, 0.4)
+			else:
+				var left_sway: float = sin(arm_ph)
+				var right_sway: float = sin(arm_ph - 0.35)
+				var depth_sway: float = sin(arm_ph - 0.8) * 0.16
+				var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
+				_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
+				_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
+				_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
+				_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
 		else:
 			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
 			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
@@ -1231,6 +1259,20 @@ func _tick_swim_bones(delta: float, speed: float) -> void:
 	elif not warned:
 		warned = true
 		push_warning("Roshan skeleton not found in roshan.glb - check import")
+
+func snap_cam() -> void:
+	# Place the chase camera at its resolved rest pose INSTANTLY. Call after
+	# any teleport or mode handback: the worlds sit thousands of units apart
+	# and the chase lerp would otherwise fly the lens through everything
+	# between them for a full second.
+	if cam == null or not cam.is_inside_tree():
+		return
+	cam_orbit = 0.0
+	cam_pitch_off = 0.0
+	var target := position + Vector3(-sin(yaw) * cam_back, cam_high, -cos(yaw) * cam_back)
+	var focus := position + Vector3(0, 1.5, 0)
+	cam.position = CameraKit.resolve(get_parent(), focus, target)
+	cam.look_at(focus)
 
 func _tick_wake(delta: float, speed: float) -> void:
 	# WW motion language: contrail ribbon from the tail + dash particles at sprint speed
