@@ -539,7 +539,9 @@ func set_skin(id: String, tex_path: String) -> void:
 # art batch; careers without a kit keep their toy-primitive costume.
 const COSTUME_KITS := {"chef": "pastry_chef", "ballerina": "ballerina",
 	"detective": "detective", "candymaker": "candymaker", "doctor": "doctor",
-	"farmer": "farmer", "boxer": "boxer", "magician": "magician"}
+	"farmer": "farmer", "boxer": "boxer", "magician": "magician",
+	"painter": "painter", "astronaut": "astronaut", "racer": "racer",
+	"popstar": "popstar"}
 
 func set_costume(id: String) -> void:
 	clear_costume()
