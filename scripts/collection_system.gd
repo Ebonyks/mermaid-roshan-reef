@@ -102,7 +102,9 @@ func _context() -> String:
 func tick(delta: float, ppos: Vector3) -> void:
 	var context := _context()
 	if m.collection_button_layer != null:
-		m.collection_button_layer.visible = context != "" and not m.intro_active and m.collection_layer == null
+		# also hide while a 2D picture game is open — the paw sits on layer 11
+		# and was covering the minigame's ✕ close button (layer 7)
+		m.collection_button_layer.visible = context != "" and not m.intro_active and m.collection_layer == null and m.mg_kind == ""
 	if context != m.collection_habitat:
 		_spawn_context(context)
 	if context == "" or m.collection_layer != null:
