@@ -1495,11 +1495,16 @@ func _build_press() -> void:
 	machine.name = "CandyPress"
 	machine.position = CENTER + Vector3(0, 1.0, -10.0)
 	add_child(machine)
-	_box(Vector3(-4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_box(Vector3(4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_box(Vector3(0, 7.2, 0), Vector3(9.6, 1.2, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_cyl(Vector3(0, 0.5, 0), 2.0, 1.0, Color(0.95, 0.9, 0.98), 0.1, machine)
-	press_block = _box(Vector3(0, 5.4, 0), Vector3(2.6, 1.6, 2.0), Color(1.0, 0.75, 0.85), 0.2, machine)
+	# card kit: the coral gazebo press with its descending PressBlock stamp
+	var press_kit := _job_art("candymaker/opera_candymaker_press.glb", machine)
+	if press_kit != null:
+		press_block = press_kit.find_child("PressBlock", true, false) as Node3D
+	if press_block == null:
+		_box(Vector3(-4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_box(Vector3(4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_box(Vector3(0, 7.2, 0), Vector3(9.6, 1.2, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_cyl(Vector3(0, 0.5, 0), 2.0, 1.0, Color(0.95, 0.9, 0.98), 0.1, machine)
+		press_block = _box(Vector3(0, 5.4, 0), Vector3(2.6, 1.6, 2.0), Color(1.0, 0.75, 0.85), 0.2, machine)
 	# the timing gauge floats in front: track, sweet-spot glow, sliding star
 	var track_y := 8.9
 	_box(CENTER + Vector3(0, track_y, -8.5), Vector3(11.0, 0.5, 0.5), Color(0.4, 0.34, 0.55), 0.1)
@@ -1515,7 +1520,9 @@ func _candy_next() -> void:
 	candy_node.name = "Candy%d" % candies_done
 	candy_node.position = CENTER + Vector3(0, 2.4, -10.0)
 	add_child(candy_node)
-	_sphere(Vector3.ZERO, 1.3, candy_cols[candies_done % candy_cols.size()], 0.25, candy_node)
+	# seven card-kit candies with different outer silhouettes, in batch order
+	if _job_art("candymaker/opera_candymaker_candy_%d.glb" % (candies_done % 7), candy_node) == null:
+		_sphere(Vector3.ZERO, 1.3, candy_cols[candies_done % candy_cols.size()], 0.25, candy_node)
 	candy_node.scale = Vector3.ZERO
 	var tw := candy_node.create_tween()
 	tw.tween_property(candy_node, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
