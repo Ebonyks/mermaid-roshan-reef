@@ -50,7 +50,8 @@ var order_phase := "steps"         # steps | stir
 var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
 var chef_oven_art: Node3D = null
 var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
-var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit | decorate
+var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit
+var boxer_dressing_art: Node3D = null  # ring dressing GLB kit (lamps, bell, belt) | decorate
 var stir_done := 0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
@@ -451,8 +452,17 @@ func _build_box() -> void:
 		_box(CENTER + Vector3(0, ry, 8.0), Vector3(22.6, 0.26, 0.26), Color(1.0, 0.85, 0.45), 0.3)
 		_box(CENTER + Vector3(-11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
 		_box(CENTER + Vector3(11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
-	# the round bell on the front post
-	_sphere(CENTER + Vector3(-11.0, 5.2, 7.0), 0.7, Color(1.0, 0.85, 0.4), 0.5)
+	# card kit: padded caps, shell bell, progress lamps, belt pedestal —
+	# dressing only, laid over the SAME gameplay-authoritative footprint
+	boxer_dressing_art = _job_art("boxer/opera_boxer_dressing.glb", self)
+	if boxer_dressing_art != null:
+		boxer_dressing_art.position = CENTER
+		for lamp in range(3):
+			_job_state(boxer_dressing_art, "StateLamp%d" % lamp, false)
+		_job_state(boxer_dressing_art, "StateComplete", false)
+	else:
+		# the round bell on the front post
+		_sphere(CENTER + Vector3(-11.0, 5.2, 7.0), 0.7, Color(1.0, 0.85, 0.4), 0.5)
 	player_pos = CENTER + Vector3(0, 1.1, 4.0)
 	box_round = 0
 	box_wait = 0.0
@@ -518,7 +528,11 @@ func _punch_action() -> void:
 	if imps_left <= 0:
 		var waves: Array = config.get("rounds", [3, 4, 5])
 		box_round += 1
+		_job_state(boxer_dressing_art, "StateLamp%d" % (box_round - 1), true)
 		if box_round >= waves.size():
+			# championship: the belt rises off its pedestal in a gold halo
+			_job_state(boxer_dressing_art, "StateIdle", false)
+			_job_state(boxer_dressing_art, "StateComplete", true)
 			_win()
 			return
 		box_wait = 1.6

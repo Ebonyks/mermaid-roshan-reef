@@ -241,3 +241,5 @@ ambientCG (all CC0).
 - assets_src/blender/opera_doctor_2026-07-22.blend — Blender source for the above, original work.
 - assets/opera/jobs/magician/opera_magician_hat_{0,1,2}.glb, opera_magician_bunnyfish.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_magician.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
 - assets_src/blender/opera_magician_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/boxer/opera_boxer_dressing.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_boxer.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_boxer_2026-07-22.blend — Blender source for the above, original work.
