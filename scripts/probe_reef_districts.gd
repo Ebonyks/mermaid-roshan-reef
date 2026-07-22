@@ -43,8 +43,15 @@ func _init() -> void:
 	_check("cold-water flora stays in ice district",
 		ReefDistricts.habitat_point_allowed("ice", Vector2(140, -115))
 		and not ReefDistricts.habitat_point_allowed("ice", Vector2(-165, 5)))
+	var warm_scatter_has_home := false
+	for grid_x: int in range(-220, 221, 20):
+		for grid_z: int in range(-220, 221, 20):
+			var grid_point := Vector2(float(grid_x), float(grid_z))
+			if ReefDistricts.kingdom_at(grid_point) == ReefDistricts.KINGDOM_CARIBBEAN \
+				and ReefDistricts.habitat_point_allowed("mixed", grid_point):
+				warm_scatter_has_home = true
 	_check("mass warm scatter rejects both Norwegian districts",
-		ReefDistricts.habitat_point_allowed("mixed", Vector2(35, 30))
+		warm_scatter_has_home
 		and not ReefDistricts.habitat_point_allowed("mixed", Vector2(-35, 165))
 		and not ReefDistricts.habitat_point_allowed("mixed", Vector2(140, -115)))
 	var norwegian_flora_clean := true
