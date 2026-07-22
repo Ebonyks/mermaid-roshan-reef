@@ -64,3 +64,22 @@ Materials/textures: matte hand-painted skin, simplified authentic species markin
 Constraints: no text or labels; no accessories; no characters; no penguins; no tropical fish; no logos, trademarks or watermark; no copyrighted cartoon-whale resemblance; no photorealism; no extra species; no bubbles or scenery; no cropped fins or tails; no ultra-thin transparent fins; accurate species identity simplified for child readability; clear front/back/side volume cues; high detail and crisp edges
 ```
 
+## Caribbean fauna — accepted ecological correction
+
+The first Caribbean fauna output is quarantined under `rejected/`: its blue
+tang used the black-and-yellow Indo-Pacific regal-tang pattern. The accepted
+`caribbean_fauna_reference.png` was regenerated with this prompt:
+
+```text
+Use case: stylized-concept
+Asset type: high-resolution 2D-to-3D creature modeling reference sheet for a preschool mobile game
+Primary request: create an original Caribbean coral-reef fauna model sheet for Mermaid Roshan: Reef of Light, intended for another artist to reconstruct as efficient low-poly 3D models
+Scene/backdrop: warm neutral off-white studio board, no underwater scene
+Subject: exactly six ecologically Caribbean animals, one species per horizontal row: adult Atlantic blue tang (Acanthurus coeruleus), sergeant major, royal gramma, stoplight parrotfish, queen angelfish, and nurse shark
+Critical species correction: the adult Atlantic blue tang must be a mostly solid cobalt/azure fish with subtle lighter-blue fin edging and a small pale tail-spine accent; it must NOT have a black palette-shaped body marking, black dorsal patch, or bright yellow tail; do not depict an Indo-Pacific regal blue tang
+Style/medium: polished hand-painted 3D concept art; rounded toy-like proportions, friendly but anatomically recognizable silhouettes, restrained navy-purple outline accents, pastel color simplification, completely original designs
+Composition/framing: 4K-style landscape model sheet; each of the six species receives four aligned full-body views in its own row: left side, front, top, three-quarter; consistent scale within each species; generous whitespace; closed-mouth neutral expressions suitable for modeling
+Lighting/mood: bright diffuse studio lighting, cheerful and calm
+Materials/textures: matte hand-painted fish skin, simplified authentic species markings, fins thick enough for robust low-poly geometry
+Constraints: no text or labels; no accessories; no human or mermaid characters; no logos, trademarks or watermark; no resemblance to copyrighted cartoon fish; no photorealism; no extra species; no bubbles or scenery; no cropped fins; no ultra-thin transparent fins; accurate Caribbean species identity simplified for child readability; clear volume cues; high detail and crisp edges
+```

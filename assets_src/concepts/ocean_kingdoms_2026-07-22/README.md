@@ -11,6 +11,11 @@ of an accepted 3D asset, and must not be copied into `assets/` unchanged.
 | `caribbean_fauna_reference.png` | 1536x1024 | blue tang, sergeant major, royal gramma, parrotfish, angelfish, nurse shark |
 | `norwegian_fauna_reference.png` | 1536x1024 | cod, herring, mackerel, salmon, harbor seal, orca |
 
+`rejected/caribbean_fauna_reference_v1.png` is retained for honest provenance
+only. It depicted the blue tang with an Indo-Pacific regal-tang pattern and is
+not approved for modeling or runtime use. The accepted Caribbean sheet replaces
+that row with an adult Atlantic blue tang.
+
 ## Claude reconstruction contract
 
 - Build one modular family at a time. Do not auto-convert the full sheet into a
@@ -34,4 +39,3 @@ of an accepted 3D asset, and must not be copied into `assets/` unchanged.
   establish a 4/5 score.
 
 The exact built-in image-generation prompts are retained in `PROMPTS.md`.
-
