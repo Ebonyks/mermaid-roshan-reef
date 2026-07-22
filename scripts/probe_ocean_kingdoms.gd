@@ -88,6 +88,10 @@ func _run() -> void:
 	_check(ReefDistricts.kingdom_at(norwegian_entry) == ReefDistricts.KINGDOM_NORWEGIAN, "norway_entry_ecology")
 	_check(not main.ocean_return_gate_armed, "norway_return_gate_debounced")
 
+	# The SceneTree coroutine can resume before ReefMain's next _process tick.
+	# Drive the patrol once explicitly so the assertion cannot mistake each
+	# newly-built mover's Vector3.ZERO staging transform for a habitat result.
+	main._tick_aquatic(0.0)
 	var movers: Array = main.aquatic_movers
 	for mover_variant: Variant in movers:
 		var mover: Dictionary = mover_variant as Dictionary
@@ -97,6 +101,9 @@ func _run() -> void:
 		if mover_node == null:
 			continue
 		var mover_point := Vector2(mover_node.position.x, mover_node.position.z)
+		var mover_center := Vector2(float(mover.get("cx", 0.0)), float(mover.get("cz", 0.0)))
+		_check(absf(mover_point.distance_to(mover_center) - float(mover["rad"])) < 0.1,
+			"hero_fauna_patrol_initialized_%s" % String(mover.get("kingdom", "")))
 		_check(ReefDistricts.kingdom_at(mover_point) == String(mover.get("kingdom", "")), "hero_fauna_stays_%s" % String(mover.get("kingdom", "")))
 
 	_finish()
