@@ -1,0 +1,2 @@
+- assets/opera/jobs/{doctor,farmer,boxer,magician}/opera_*_outfit.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_outfits_floor2.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted outfit cards. Modifications: n/a (new).
+- assets_src/blender/opera_outfits_floor2_2026-07-22.blend — Blender source for the above, original work.
