@@ -1792,7 +1792,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		if Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 7.0 and absf(bpv.y - ppos.y) < 8.0:
 			m._begin_sleep()
 			return
-	m.hud_game.text = "Swim up the stairs to Princess Huluu and the Crown Star!"
+	# owner request 2026-07-21 (UI declutter): no free-roam banner text; blank
+	# per tick so nothing set elsewhere can linger (old overwrite semantics).
+	m.hud_game.text = ""
 	# --- the golden stand: glows, then rumbles aside to reveal the basement
 	# stairs. Armed only after Roshan has been >14 away, so the moat-hatch
 	# spawn (right beside it) never fires the reveal mid-greeting.

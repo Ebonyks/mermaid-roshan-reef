@@ -244,7 +244,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 			for k in range(3):
 				var amount: float = 0.07 + float(k) * 0.065
 				m._sparkle_burst(ppos.lerp(flat_target, amount), Color(0.72, 0.96, 1.0))
-	m.hud_game.text = "Follow the glowing forest lights to the castle!"
+	# owner request 2026-07-21 (UI declutter): no text banner — the sparkle
+	# trail above + voice line already carry the route for a non-reader.
+	m.hud_game.text = ""
 
 
 func walk_h(x: float, z: float) -> float:

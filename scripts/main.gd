@@ -631,7 +631,8 @@ func _ready() -> void:
 	_build_hud()
 	_build_fade_cover()
 	_apply_cel_shading()
-	_build_page_frame()
+	# (the storybook page frame — dotted border + corner bubbles — was removed
+	# here, owner request 2026-07-21: the screen was getting too busy)
 	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
 	voice.stream = load("res://assets/audio/voice_yay.mp3")
@@ -3582,66 +3583,6 @@ func _enter_northern_kingdom() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	show_msg("Roshan", "A magical forest! The glowing lights lead to the fjord castle!", "pearl")
-
-func _build_page_frame() -> void:
-	# STORYBOOK DIORAMA FRAMING (fork): every book page has a delicate dotted
-	# border and pastel bubble clusters in the corners — the game view gets the
-	# same, so play always feels like being INSIDE a page of her book
-	var fl := CanvasLayer.new()
-	fl.layer = 2
-	add_child(fl)
-	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	fl.add_child(root)
-	var dot_col := Color(0.35, 0.48, 0.72, 0.30)
-	for i in range(46):   # dotted frame: top + bottom edges
-		var f2: float = float(i) / 46.0
-		for edge in range(2):
-			var d1 := ColorRect.new()
-			d1.color = dot_col
-			d1.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			d1.set_anchors_preset(Control.PRESET_TOP_WIDE if edge == 0 else Control.PRESET_BOTTOM_WIDE)
-			d1.anchor_left = f2
-			d1.anchor_right = f2
-			d1.offset_left = 0.0
-			d1.offset_right = 5.0
-			d1.offset_top = 10.0 if edge == 0 else -15.0
-			d1.offset_bottom = d1.offset_top + 5.0
-			root.add_child(d1)
-	for i in range(24):   # left + right edges
-		var f3: float = float(i + 1) / 25.0
-		for edge in range(2):
-			var d2 := ColorRect.new()
-			d2.color = dot_col
-			d2.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			d2.set_anchors_preset(Control.PRESET_CENTER_LEFT if edge == 0 else Control.PRESET_CENTER_RIGHT)
-			d2.anchor_top = f3
-			d2.anchor_bottom = f3
-			d2.offset_left = 10.0 if edge == 0 else -15.0
-			d2.offset_right = d2.offset_left + 5.0
-			d2.offset_top = 0.0
-			d2.offset_bottom = 5.0
-			root.add_child(d2)
-	# pastel bubble clusters in two corners (like the book's coral vignettes)
-	for ci in range(2):
-		var bottom_left: bool = ci == 0
-		for bi in range(3):
-			var bub := Panel.new()
-			var r: float = 26.0 - float(bi) * 7.0
-			var sb := StyleBoxFlat.new()
-			sb.bg_color = [Color(0.6, 0.85, 0.9, 0.16), Color(0.95, 0.7, 0.8, 0.14), Color(0.75, 0.7, 0.95, 0.15)][bi]
-			sb.set_corner_radius_all(int(r))
-			bub.add_theme_stylebox_override("panel", sb)
-			bub.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			bub.set_anchors_preset(Control.PRESET_BOTTOM_LEFT if bottom_left else Control.PRESET_TOP_RIGHT)
-			var bx: float = 20.0 + float(bi) * 40.0
-			var by: float = 34.0 + float(bi) * 26.0
-			bub.offset_left = bx if bottom_left else -bx - r * 2.0
-			bub.offset_right = bub.offset_left + r * 2.0
-			bub.offset_top = (-by - r * 2.0) if bottom_left else by
-			bub.offset_bottom = bub.offset_top + r * 2.0
-			root.add_child(bub)
 
 func _butterfly_gate(scl: float) -> Node3D:
 	return LandmarkArtFactory.create_butterfly_gate(scl)
