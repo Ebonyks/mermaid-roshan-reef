@@ -168,17 +168,43 @@ completion checklist — medals, opera stars, dungeon rooms, crafts, and
 stuffie battles all continue to progress on their own systems across and
 after the week.
 
-## 5. IP flag — "Elsa" needs an original name and design
+## 5. Character identities — interim IP stand-ins (owner decision 2026-07-22)
 
-The owner's shorthand for the Great North's host is "Elsa". Per the standing
-art-direction rules (Wind Waker precedent; the northern castle's "Elsa
-silhouette" is a *reference only*) and the Gabby precedent (removed on IP
-hold), the shipped character must be an **original snow queen** — original
-name, design, colors, and music. Proposed working names for owner approval:
-**Queen Noora** (of the Northern Lights), **Queen Elivi**, or **the Wisp
-Queen**. Until the owner picks, all code/docs say "Snow Queen"
-(`snow_queen`). No Frozen names, designs, symbols, or songs anywhere in the
-repo — including asset prompts and voice-line scripts.
+OWNER DECISION 2026-07-22 (supersedes this section's first draft, which
+asked for an original name up front): during development, characters
+deliberately wear **pop-culture stand-in identities** — the Great North's
+host *is* "Elsa" for now. Familiar faces are a tool to keep Roshan happy
+and engaged; each stand-in then develops its own identity organically,
+through AI-art iterations and Roshan's interaction with the game, until it
+evolves into its **original release-candidate identity**. The stand-ins
+resemble their pop-culture icons more closely today than they will at
+release; by final release nothing ships under an IP name or recognizable
+likeness (Gabby-precedent endpoint, planned rather than forced).
+
+Ground rules while stand-ins are live:
+
+- Stand-ins are **names + generated-art resemblance only**. Never import
+  actual franchise assets, audio, symbols, or fonts — the house
+  CC0/original-art rules hold throughout.
+- Each art iteration should drift *away* from the icon (palette, costume,
+  silhouette, story role), never closer — every pass is a step toward the
+  release identity.
+- Recorded family voice lines that speak a stand-in name aloud will need
+  re-recording at identity handoff. Where it costs Roshan nothing, prefer
+  title lines ("the Snow Queen!") over name lines so audio survives the
+  rename; where the name is the delight, record it and log the future
+  re-record in §6.
+- Save keys and code identifiers use the *role*, never the stand-in
+  (`snow_queen`, not `elsa`) — saves and probes must survive the rename.
+
+**Stand-in ledger** (keep current — this table is the tracked roster):
+
+| Role | Current stand-in | Release-candidate identity |
+|---|---|---|
+| Great North host (Snow Day) | "Elsa" | original snow queen — name TBD (candidates: Queen Noora, Queen Elivi, the Wisp Queen) |
+
+Gabby's removal (2026-07-19) predates this policy and stands — do not
+reintroduce her unless the owner explicitly reopens it.
 
 ## 6. Voice lines to record (family voices — new sessions needed)
 
@@ -189,7 +215,9 @@ priority order; each also fires `_say()` + a golden pointer per hard rules:
 2. Huluu's Day-1 week-opener (the festival promise) and castle-tour lines.
 3. Bedtime line ("Sleepy time! Tap the bed…") + page-turn goodnight.
 4. Light-earned fanfare line, one generic + optionally one per day.
-5. Snow Queen host lines (record after the §5 name is approved).
+5. Great North host lines (stand-in era, §5: prefer title lines — "the
+   Snow Queen!" — so recordings survive the identity handoff; any line
+   that names the stand-in gets logged here for re-recording later).
 6. Festival Day lines: arrival, countdown, celebration.
 
 Until recordings land, ship with the existing synth/fallback voice path so
@@ -246,7 +274,9 @@ Day gating touches the whole map, so the probe contract is explicit:
 
 ## 10. Open questions for the owner
 
-1. Snow Queen name (§5) — pick or veto the candidates.
+1. ~~Snow Queen name~~ — resolved 2026-07-22 by the §5 stand-in policy:
+   "Elsa" stands in during development; the release-candidate name is
+   chosen when the identity has drifted far enough to need one.
 2. Day 5/6 order: opera on Friday ("Friday show night") and karts/Butterfly
    World on Saturday is the proposal — swap freely; nothing depends on it.
 3. Should the family phone's existing save also get to *play* the week
