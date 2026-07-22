@@ -40,4 +40,3 @@ ground patches. The output resolved that contradiction as turquoise display
 plinths under every prop, so it was rejected and regenerated with the explicit
 no-plinth contract above. The rejected PNG is retained; it is not an accepted
 modeling reference.
-

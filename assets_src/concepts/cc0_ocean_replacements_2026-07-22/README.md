@@ -46,4 +46,3 @@ without a baked ground patch or combined base. Do not model from it.
   file. These sheets are reference-only and establish no 4/5 score.
 
 Exact prompts and the rejected-iteration reason are in `PROMPTS.md`.
-
