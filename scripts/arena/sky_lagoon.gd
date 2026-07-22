@@ -508,10 +508,13 @@ func _build_pearl_castle(o: Vector3) -> void:
 	_lagoon_tree("lagoon_tree_black_cottonwood",
 		o + Vector3(-64.0, _lagoon_local(-64.0, 92.0) - 0.18, 92.0), 12.8, -1.92)
 	_build_lagoon_bank_dressing(o)
-	# ---------- Phase 4b: PLAYGROUND corner + park dressing (Tiny Treats, CC0) ----------
+	# ---------- Phase 4b: PLAYGROUND corner + park dressing ----------
 	# a real play-place on the east meadow: slide, swings, merry-go-round,
-	# seesaw, sandbox and a spring horse. Pure toy, no objectives — and the
-	# sandbox stays non-solid on purpose so Roshan can plop right into it.
+	# seesaw, sandbox and a spring horse — all authored lagoon_play_* models
+	# from tools/build_sky_lagoon_quality_kit.py (the former Tiny Treats CC0
+	# imports were replaced in the accepted 2026-07-20 quality pass). Pure
+	# toy, no objectives — and the sandbox stays non-solid on purpose so
+	# Roshan can plop right into it.
 	# [name, local pos, footprint, y-rot, solid radius, solid half-height]
 	# owner 2026-07-11: toys sized for ROSHAN (she is ~7 units) so riding them
 	# reads true, and each records a play anchor for the play-moments below.
