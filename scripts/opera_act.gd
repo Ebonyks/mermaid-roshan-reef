@@ -25,8 +25,6 @@ var elapsed := 0.0
 var progress_t := 0.0              # seconds since the last happy step (gentle re-hint)
 var prev_env: Environment = null
 var cam: Camera3D = null
-var avatar: Sprite3D = null
-var costume_root: Node3D = null
 var hud: CanvasLayer = null
 var objective: Label = null
 var pointer: Label3D = null
@@ -677,115 +675,42 @@ func _tick_brawl(delta: float) -> void:
 				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly mischief imps!", "talk")
 
 func _build_avatar() -> void:
-	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = tex
-	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
-	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	avatar.position = player_pos
-	add_child(avatar)
-	_build_costume(String(config.get("costume", "")))
+	# The stage Roshan is the REAL rigged 3D player in puppet mode: the act
+	# drives her position/yaw while player.gd's procedural swim keeps her
+	# alive, and the career costume rides her bones (BoneAttachment3D) — so
+	# every career look reuses the one animation set, exactly like the
+	# plushie skins do. The lobby's cutout stays a cutout; walking through a
+	# door is the transformation moment.
+	m.player.visible = true
+	m.player.puppet = true
+	m.player.puppet_speed = 0.0
+	m.player.vel = Vector3.ZERO
+	m.player.rotation = Vector3(0, PI, 0)   # face the audience side (+Z)
+	m.player.position = player_pos
+	m.player.set_costume(String(config.get("costume", "")))
 
-func _build_costume(costume: String) -> void:
-	# Career costumes are oversized toy props floating at hat/waist height beside
-	# the storybook cutout — the illustration itself is never redrawn or re-lit.
-	costume_root = Node3D.new()
-	costume_root.name = "Costume_" + costume
-	add_child(costume_root)
-	match costume:
-		"boxer":
-			_sphere(Vector3(-1.5, 1.5, 0.4), 0.62, Color(0.9, 0.25, 0.3), 0.15, costume_root)
-			_sphere(Vector3(1.5, 1.5, 0.4), 0.62, Color(0.9, 0.25, 0.3), 0.15, costume_root)
-			_box(Vector3(0, 0.2, 0.3), Vector3(1.6, 0.4, 0.3), Color(1.0, 0.85, 0.4), 0.3, costume_root)
-		"chef":
-			_cyl(Vector3(0, 3.6, 0), 0.85, 0.9, Color(0.98, 0.97, 0.94), 0.05, costume_root)
-			_sphere(Vector3(0, 4.35, 0), 0.95, Color(1.0, 1.0, 0.98), 0.05, costume_root)
-		"detective":
-			_cyl(Vector3(0, 3.6, 0), 1.05, 0.5, Color(0.62, 0.45, 0.3), 0.0, costume_root)
-			var lens := TorusMesh.new()
-			lens.inner_radius = 0.34
-			lens.outer_radius = 0.56
-			_mesh(lens, Vector3(1.7, 1.6, 0), Color(1.0, 0.85, 0.4), 0.3, costume_root)
-			_box(Vector3(2.25, 0.95, 0), Vector3(0.2, 0.9, 0.2), Color(0.5, 0.3, 0.2), 0.0, costume_root)
-		"ballerina":
-			var tutu := TorusMesh.new()
-			tutu.inner_radius = 0.55
-			tutu.outer_radius = 1.35
-			_mesh(tutu, Vector3(0, 1.1, 0), Color(1.0, 0.72, 0.86), 0.15, costume_root)
-		"knight":
-			_cyl(Vector3(-1.8, 1.7, 0), 0.85, 0.3, Color(0.65, 0.78, 0.95), 0.25, costume_root)
-			_sphere(Vector3(-1.8, 1.7, 0), 0.35, Color(1.0, 0.85, 0.4), 0.8, costume_root)
-			_sphere(Vector3(0, 3.7, 0), 0.5, Color(1.0, 0.9, 0.4), 0.6, costume_root)
-		"singer":
-			var tiara := TorusMesh.new()
-			tiara.inner_radius = 0.5
-			tiara.outer_radius = 0.75
-			_mesh(tiara, Vector3(0, 3.5, 0), Color(1.0, 0.87, 0.42), 0.5, costume_root)
-			_sphere(Vector3(1.8, 2.6, 0), 0.32, Color(1.0, 0.95, 0.5), 0.9, costume_root)
-			_box(Vector3(2.05, 3.25, 0), Vector3(0.14, 1.0, 0.14), Color(1.0, 0.95, 0.5), 0.9, costume_root)
-		"magician":
-			_cyl(Vector3(0, 3.9, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15, costume_root)
-			_cyl(Vector3(0, 3.3, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15, costume_root)
-			_box(Vector3(1.9, 1.6, 0), Vector3(0.16, 1.2, 0.16), Color(0.95, 0.95, 1.0), 0.4, costume_root)
-		"painter":
-			var beret := _cyl(Vector3(0.2, 3.55, 0), 1.0, 0.35, Color(0.32, 0.5, 0.85), 0.1, costume_root)
-			beret.rotation_degrees = Vector3(0, 0, -12.0)
-			_box(Vector3(1.8, 1.5, 0), Vector3(0.16, 1.1, 0.16), Color(0.6, 0.4, 0.25), 0.0, costume_root)
-			_box(Vector3(1.8, 2.2, 0), Vector3(0.24, 0.3, 0.24), Color(1.0, 0.45, 0.6), 0.5, costume_root)
-		"starcape":
-			var cape := _box(Vector3(0, 1.9, -0.9), Vector3(2.4, 3.4, 0.18), Color(0.16, 0.14, 0.4), 0.1, costume_root)
-			cape.rotation_degrees = Vector3(8.0, 0, 0)
-			_sphere(Vector3(0, 3.8, 0), 0.45, Color(1.0, 0.9, 0.4), 0.8, costume_root)
-		"astronaut":
-			var collar := TorusMesh.new()
-			collar.inner_radius = 0.75
-			collar.outer_radius = 1.05
-			_mesh(collar, Vector3(0, 2.9, 0), Color(0.85, 0.88, 0.95), 0.2, costume_root)
-			_sphere(Vector3(0, 3.7, 0), 1.15, Color(0.92, 0.97, 1.0), 0.15, costume_root)
-			_cyl(Vector3(-0.5, 1.6, -0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2, costume_root)
-			_cyl(Vector3(0.5, 1.6, -0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2, costume_root)
-		"candymaker":
-			_cyl(Vector3(0, 3.4, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2, costume_root)
-			_cyl(Vector3(0, 3.9, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2, costume_root)
-			_cyl(Vector3(0, 4.4, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2, costume_root)
-			_cyl(Vector3(1.9, 2.6, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6, costume_root)
-			_box(Vector3(1.9, 1.6, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1, costume_root)
-		"doctor":
-			var mirror := TorusMesh.new()
-			mirror.inner_radius = 0.55
-			mirror.outer_radius = 0.8
-			_mesh(mirror, Vector3(0, 3.4, 0), Color(0.95, 0.97, 1.0), 0.2, costume_root)
-			_sphere(Vector3(0, 3.75, 0.5), 0.3, Color(1.0, 0.9, 0.5), 0.8, costume_root)
-			var scope := TorusMesh.new()
-			scope.inner_radius = 0.6
-			scope.outer_radius = 0.78
-			_mesh(scope, Vector3(0, 2.5, 0.2), Color(0.35, 0.4, 0.55), 0.1, costume_root)
-			_cyl(Vector3(0, 1.7, 0.55), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4, costume_root)
-		"racer":
-			_sphere(Vector3(0, 3.7, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2, costume_root)
-			_box(Vector3(0, 3.6, 0.75), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4, costume_root)
-			var wheel := TorusMesh.new()
-			wheel.inner_radius = 0.55
-			wheel.outer_radius = 0.85
-			var wheel_mesh := _mesh(wheel, Vector3(1.8, 1.5, 0), Color(0.25, 0.25, 0.35), 0.1, costume_root)
-			wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-		"farmer":
-			_cyl(Vector3(0, 3.35, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1, costume_root)
-			_cyl(Vector3(0, 3.75, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1, costume_root)
-			var carrot := CylinderMesh.new()
-			carrot.top_radius = 0.05
-			carrot.bottom_radius = 0.4
-			carrot.height = 1.2
-			var carrot_mesh := _mesh(carrot, Vector3(1.8, 1.7, 0), Color(1.0, 0.55, 0.2), 0.3, costume_root)
-			carrot_mesh.rotation_degrees = Vector3(180, 0, 0)
-			_sphere(Vector3(1.8, 2.45, 0), 0.3, Color(0.45, 0.8, 0.4), 0.2, costume_root)
-		"popstar":
-			_sphere(Vector3(-0.5, 3.0, 0.6), 0.4, Color(1.0, 0.85, 0.35), 0.7, costume_root)
-			_sphere(Vector3(0.5, 3.0, 0.6), 0.4, Color(1.0, 0.85, 0.35), 0.7, costume_root)
-			_box(Vector3(0, 3.0, 0.62), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7, costume_root)
-			_box(Vector3(1.8, 1.7, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2, costume_root)
-			_sphere(Vector3(1.8, 2.5, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6, costume_root)
-	costume_root.position = player_pos
+func _release_avatar() -> void:
+	# hand Roshan back: costume off, puppet strings cut, hidden again until
+	# the lobby (cutout) or the reef (main._end_opera flips her visible)
+	if m == null or m.player == null or not is_instance_valid(m.player):
+		return
+	m.player.puppet = false
+	m.player.puppet_speed = 0.0
+	m.player.clear_costume()
+	m.player.visible = false
+
+func _place_avatar(delta: float) -> void:
+	# drive the puppet: bob like the old cutout did, face the way she moves,
+	# and report her speed so the tail beat matches the act's pace
+	var target: Vector3 = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
+	var dp: Vector3 = target - m.player.position
+	var planar := Vector2(dp.x, dp.z)
+	# clamped so a stage teleport (brawl warp, probe drive) reads as a dash,
+	# not a one-frame tail scramble
+	m.player.puppet_speed = minf(planar.length() / maxf(delta, 0.001), MOVE_SPEED * 2.0)
+	if planar.length() > 0.04:
+		m.player.rotation.y = lerp_angle(m.player.rotation.y, atan2(planar.x, planar.y) + PI, 1.0 - pow(0.002, delta))
+	m.player.position = target
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -2270,9 +2195,7 @@ func _process(delta: float) -> void:
 			# under Roshan — a pure toy moment with no goal at all
 			var move2 := _move_input()
 			player_pos += Vector3(move2.x, 0, move2.y) * MOVE_SPEED * delta
-			avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-			if costume_root != null:
-				costume_root.position = avatar.position
+			_place_avatar(delta)
 			var on_pad := -1
 			for pad in pads:
 				if (pad["pos"] as Vector3).distance_to(player_pos) < 3.2:
@@ -2300,9 +2223,7 @@ func _process(delta: float) -> void:
 	var move := _move_input()
 	player_pos += Vector3(move.x, 0, move.y) * MOVE_SPEED * delta
 	_clamp_player()
-	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-	if costume_root != null:
-		costume_root.position = avatar.position
+	_place_avatar(delta)
 	for i in range(audience.size()):
 		audience[i].position.y = CENTER.y + 4.0 + sin(elapsed * 2.2 + float(i) * 1.4) * 0.18
 	if stage_phase == "brawl":
@@ -2664,6 +2585,7 @@ func _finish() -> void:
 	if state == "done":
 		return
 	state = "done"
+	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -2677,6 +2599,7 @@ func cancel() -> void:
 		_finish()   # the applause was already earned; leaving skips only the delay
 		return
 	state = "done"
+	_release_avatar()
 	# guest engines clean up their own borrowed state (music, pause) first
 	if kart != null and is_instance_valid(kart):
 		kart.queue_free()
