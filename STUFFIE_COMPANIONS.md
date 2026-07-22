@@ -57,11 +57,13 @@ teleports), rigged gait FSM (idle/walk/run/happy via the wrap's `"ap"` meta —
 the 3D bodies are the existing rigged craft models, birdie built from the
 baby-eagle book art), cheer hearts when she rests, and a **helper beat**:
 every ~22s it dashes toward the nearest unfound friend with a sparkle trail
-and a "This way!" voice line. Owner 2026-07-19: it follows **all the time** —
-every free-roam world (reef seabed clamp, lagoon terrain clamp, castle +
-northern kingdom by Roshan's height band); it hides only inside self-driven
-engines (kart, slides, battles, 2D canvas games) so it never photobombs a
-mode's own camera. **Never lost** (owner 2026-07-20): a zone watch snaps the
+and a "This way!" voice line. Owner 2026-07-19/21: it follows **all the
+time** — the context check is a HIDE-list (`HIDE_GAMES`), not an allow-list,
+so every explorable world follows by default (reef seabed clamp, lagoon
+terrain clamp, everywhere else by Roshan's height band) including arena
+games (fetch/seek/treasure/melody/shop) and any NEW level added later.
+Only camera-owning engines (kart, galaxy, slides, stages, battles, room
+sequencers, opera) park it, so it never photobombs a mode's own camera. **Never lost** (owner 2026-07-20): a zone watch snaps the
 stuffie to Roshan's side on every game-context change, and a freed/orphaned
 node is detected and respawned beside her.
 
@@ -142,6 +144,16 @@ GENTLE by design — the anti-Tamagotchi rules: one want at a time, wants
 wait forever, nothing decays, nothing gets sick, care is never lost, and a
 want can never fulfil itself (probe-enforced). Care is shared across
 friends: it is HER nurturing that grows, whichever stuffie she carries.
+
+**THE TAMAGOTCHI FACE** (owner 2026-07-21: "not clear how to access it"):
+a 🧸 button sits beside the Critter Book paw on the HUD — its badge IS the
+stuffie's state (the want emoji when it's asking, 🩹 while hurt, 💤 while
+resting; a needy badge breathes). Tapping it opens the care panel:
+portrait, name + ⭐ level, 💗🤍 hearts toward the next star, a feelings
+line, and **five big care buttons** (🍎🫧❤🎾💤) — the asked one glows
+gold with a pointer. Care from the panel is remote: the stuffie scampers
+to Roshan's side and the care moment plays. Unasked care is affection —
+hearts and a giggle, never wrong, no point ("what I REALLY want is 🍎!").
 
 - `care_points` (persisted; legacy `fish_tokens` migrated in on load, the
   old key still written for save compat)
