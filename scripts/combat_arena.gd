@@ -13,7 +13,16 @@ var kind := "ice"
 var finish_cb: Callable
 var prev_env: Environment = null
 var cam: Camera3D = null
-var avatar: Sprite3D = null
+var avatar: Node3D = null
+# same rigged Roshan the overworld uses (not the old flat billboard), so the
+# attack she throws here reads as the same character, not a paper cutout
+var avatar_skel: Skeleton3D = null
+var avatar_bones := {}
+var avatar_rest := {}
+var avatar_rest_global := {}
+var attack_t := -1.0   # >= 0 while the tactile bubble-punch is playing
+const AVATAR_ATTACK_LEN := 0.85
+const AVATAR_ATTACK_STRIKE_T := 0.30
 var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
@@ -117,14 +126,136 @@ func _build_octagon() -> void:
 	DungeonArt.tint(arena, _mat(floor_col), _mat(trim_col, 0.18))
 
 func _build_avatar() -> void:
-	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = avatar_tex
-	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
-	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	avatar.no_depth_test = false
-	avatar.position = player_pos
+	# same rig/scale convention as player.gd's v4 branch (1.9-unit model, x3.7,
+	# lifted 0.89) — she needs to look identical here as in free-roam.
+	var glb: PackedScene = null
+	for vpath in ["res://assets/characters/roshan_v4.glb", "res://assets/characters/roshan_v3.glb"]:
+		if ResourceLoader.exists(vpath):
+			glb = load(vpath) as PackedScene
+			if glb != null:
+				break
+	if glb == null:
+		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
+	if glb == null:
+		glb = load("res://assets/characters/roshan.glb") as PackedScene
+	if glb == null:
+		# last-resort fallback so a missing asset never hard-fails the arena
+		avatar = Sprite3D.new()
+		var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
+		(avatar as Sprite3D).texture = avatar_tex
+		(avatar as Sprite3D).pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
+		(avatar as Sprite3D).billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		avatar.position = player_pos
+		add_child(avatar)
+		return
+	avatar = glb.instantiate()
+	avatar.scale = Vector3.ONE * 3.7
+	avatar.position = player_pos + Vector3(0, 0.89, 0)
 	add_child(avatar)
+	if m != null and m.has_method("_toonify"):
+		m._toonify(avatar)
+	avatar_skel = _find_avatar_skeleton(avatar)
+	_map_avatar_bones()
+
+func _find_avatar_skeleton(node: Node) -> Skeleton3D:
+	if node is Skeleton3D:
+		return node
+	for c in node.get_children():
+		var r := _find_avatar_skeleton(c)
+		if r != null:
+			return r
+	return null
+
+func _map_avatar_bones() -> void:
+	avatar_bones = {}
+	avatar_rest = {}
+	avatar_rest_global = {}
+	if avatar_skel == null:
+		return
+	for n in ["chest", "neck", "head", "armU", "armF", "armU2", "armF2",
+			"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
+			"finTop", "finBot"]:
+		var bi: int = avatar_skel.find_bone(n)
+		avatar_bones[n] = bi
+		if bi >= 0:
+			avatar_rest[n] = avatar_skel.get_bone_pose(bi)
+			avatar_rest_global[n] = avatar_skel.get_bone_global_rest(bi)
+
+func _rot_avatar_bone(bname: String, axis: Vector3, angle: float) -> void:
+	var bi: int = avatar_bones.get(bname, -1)
+	if bi < 0 or not avatar_rest.has(bname) or avatar_skel == null:
+		return
+	var rq: Quaternion = (avatar_rest[bname] as Transform3D).basis.get_rotation_quaternion()
+	var global_rq: Quaternion = (avatar_rest_global[bname] as Transform3D).basis.get_rotation_quaternion()
+	var local_axis: Vector3 = (global_rq.inverse() * axis).normalized()
+	avatar_skel.set_bone_pose_rotation(bi, rq * Quaternion(local_axis, angle))
+
+func _sample_avatar_keys(keys: Array, t: float) -> float:
+	if t <= float(keys[0][0]):
+		return float(keys[0][1])
+	for i in range(1, keys.size()):
+		if t <= float(keys[i][0]):
+			var a: Array = keys[i - 1]
+			var b: Array = keys[i]
+			var f: float = (t - float(a[0])) / maxf(float(b[0]) - float(a[0]), 0.001)
+			return lerpf(float(a[1]), float(b[1]), smoothstep(0.0, 1.0, f))
+	return float(keys[-1][1])
+
+# same tactile bubble-punch as player.gd's VERB_LIB["attack"] — kept as a
+# standalone copy since this arena's avatar isn't a full player.gd instance.
+const ATTACK_TRACKS := {
+	"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.18, -0.85], [0.30, 2.35], [0.42, 1.85], [0.6, 1.55], [0.85, -0.2]]},
+	"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.35], [0.30, -0.75], [0.42, -0.35], [0.6, -0.15], [0.85, 0.0]]},
+	"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.18, 0.15], [0.30, 0.45], [0.6, 0.35], [0.85, -0.2]]},
+	"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, -0.14], [0.30, 0.22], [0.45, 0.10], [0.85, 0.0]]},
+	"neck": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.18, 0.10], [0.30, -0.20], [0.5, -0.05], [0.85, 0.0]]},
+	"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.10], [0.30, -0.12], [0.5, -0.03], [0.85, 0.0]]},
+	"tail6": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.12], [0.30, -0.30], [0.55, -0.10], [0.85, 0.0]]},
+	"tail7": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.16], [0.30, -0.42], [0.55, -0.14], [0.85, 0.0]]},
+	"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.20], [0.30, -0.52], [0.55, -0.18], [0.85, 0.0]]},
+}
+var attack_fx_done := false
+
+func _tick_avatar(delta: float, speed: float) -> void:
+	if avatar_skel == null:
+		return
+	avatar.position = player_pos + Vector3(0, 0.89, 0)
+	# same yaw convention as player.gd: dir = (sin(yaw), 0, cos(yaw)) is the
+	# facing vector, and the rig's forward needs the +PI to match it
+	avatar.rotation.y = player_yaw + PI
+	var amp: float = 0.16 + minf(speed * 0.03, 0.3)
+	var phase: float = elapsed * (2.4 + speed * 0.1)
+	for i in range(8):
+		var ph: float = phase - float(i) * 0.45
+		var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.3)
+		_rot_avatar_bone("tail%d" % (i + 1), Vector3.RIGHT, sin(ph) * amp * grow)
+	_rot_avatar_bone("finTop", Vector3.RIGHT, sin(phase - 3.85) * amp * 1.05)
+	_rot_avatar_bone("finBot", Vector3.RIGHT, sin(phase - 4.15) * amp * 1.05)
+	_rot_avatar_bone("chest", Vector3.RIGHT, -sin(phase - 0.4) * amp * 0.15)
+	_rot_avatar_bone("neck", Vector3.RIGHT, sin(phase - 0.7) * amp * 0.08)
+	if attack_t >= 0.0:
+		attack_t += delta
+		if attack_t >= AVATAR_ATTACK_LEN:
+			attack_t = -1.0
+			attack_fx_done = false
+			return
+		if not attack_fx_done and attack_t >= AVATAR_ATTACK_STRIKE_T:
+			attack_fx_done = true
+			m._sparkle_burst(player_pos + Vector3(0, 2.4, 0) + Vector3(sin(player_yaw), 0, cos(player_yaw)) * 2.0, Color(0.55, 0.92, 1.0))
+		var w: float = smoothstep(0.0, 0.12, attack_t) * (1.0 - smoothstep(AVATAR_ATTACK_LEN - 0.2, AVATAR_ATTACK_LEN, attack_t))
+		for bname in ATTACK_TRACKS:
+			var bi: int = avatar_bones.get(bname, -1)
+			if bi < 0 or not avatar_rest.has(bname):
+				continue
+			var tr: Dictionary = ATTACK_TRACKS[bname]
+			var ang: float = _sample_avatar_keys(tr["keys"], attack_t)
+			var rq: Quaternion = (avatar_rest[bname] as Transform3D).basis.get_rotation_quaternion()
+			var global_rq: Quaternion = (avatar_rest_global[bname] as Transform3D).basis.get_rotation_quaternion()
+			var local_axis: Vector3 = (global_rq.inverse() * (tr["axis"] as Vector3)).normalized()
+			var target: Quaternion = rq * Quaternion(local_axis, ang)
+			avatar_skel.set_bone_pose_rotation(bi, avatar_skel.get_bone_pose_rotation(bi).slerp(target, w))
+	else:
+		attack_fx_done = false
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -246,7 +377,10 @@ func _process(delta: float) -> void:
 		player_pos.z = CENTER.z + flat.y
 	if move.length() > 0.08:
 		player_yaw = atan2(move.x, move.y)
-	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
+	if avatar_skel != null:
+		_tick_avatar(delta, move.length() * MOVE_SPEED)
+	else:
+		avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
 	if _action_pressed() and shot_cool <= 0.0:
 		_fire()
 	_tick_shots(delta)
@@ -292,6 +426,9 @@ func _fire() -> void:
 	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)
+	if avatar_skel != null:
+		attack_t = 0.0
+		attack_fx_done = false
 
 func _tick_shots(delta: float) -> void:
 	for i in range(shots.size() - 1, -1, -1):

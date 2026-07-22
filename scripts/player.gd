@@ -47,6 +47,7 @@ var verb := ""
 var verb_t := 0.0
 var idle_verb_cool := 0.0
 var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every frame
+var attack_prev := false    # edge-detect for the free-roam attack trigger
 var was_airborne := false    # free-swim only: tracks surface crossings for splashes
 
 const VERB_LIB := {
@@ -125,13 +126,30 @@ const VERB_LIB := {
 		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.1], [1.5, -0.1], [2.3, 0.1], [3.4, 0.0]]},
 		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.6, 0.0], [2.4, -0.3], [3.4, 0.0]]},
 	}},
+	# tactile bubble-punch: quick wind-up, a hard snap on the strike frame
+	# (~0.30s in — see ATTACK_STRIKE_T), then a short recoil settle. The whole
+	# thing is fast (0.85s) so it reads as a reflexive jab, not a slow flourish.
+	"attack": {"len": 0.85, "sig": ["armU2", 1.4], "tracks": {
+		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.18, -0.85], [0.30, 2.35], [0.42, 1.85], [0.6, 1.55], [0.85, -0.2]]},
+		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.35], [0.30, -0.75], [0.42, -0.35], [0.6, -0.15], [0.85, 0.0]]},
+		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.18, 0.15], [0.30, 0.45], [0.6, 0.35], [0.85, -0.2]]},
+		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, -0.14], [0.30, 0.22], [0.45, 0.10], [0.85, 0.0]]},
+		"neck": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.18, 0.10], [0.30, -0.20], [0.5, -0.05], [0.85, 0.0]]},
+		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.10], [0.30, -0.12], [0.5, -0.03], [0.85, 0.0]]},
+		"tail6": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.12], [0.30, -0.30], [0.55, -0.10], [0.85, 0.0]]},
+		"tail7": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.16], [0.30, -0.42], [0.55, -0.14], [0.85, 0.0]]},
+		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.18, 0.20], [0.30, -0.52], [0.55, -0.18], [0.85, 0.0]]},
+	}},
 }
+const ATTACK_STRIKE_T := 0.30   # verb_t of the "attack" impact frame — fx/hit-reg spawn here
+var _attack_fx_done := false
 
 func play_verb(vname: String) -> bool:
 	if not VERB_LIB.has(vname):
 		return false
 	verb = vname
 	verb_t = 0.0
+	_attack_fx_done = false
 	# A gesture is activity. Reset the idle clock so an explicitly played
 	# "look" cannot finish and immediately auto-start the same idle verb.
 	idle_t = 0.0
@@ -159,6 +177,12 @@ func _apply_verb(delta: float) -> void:
 		if model_root != null:
 			model_root.rotation.y = 0.0
 		return
+	if verb == "attack" and not _attack_fx_done and verb_t >= ATTACK_STRIKE_T:
+		_attack_fx_done = true
+		var mn: Node = get_parent()
+		if mn != null and mn.has_method("_sparkle_burst"):
+			var strike_dir: Vector3 = Vector3(sin(yaw), 0.0, cos(yaw))
+			mn._sparkle_burst(position + Vector3(0, 1.6, 0) + strike_dir * 2.4, Color(0.55, 0.92, 1.0))
 	var w: float = smoothstep(0.0, 0.25, verb_t) * (1.0 - smoothstep(vlen - 0.3, vlen, verb_t))
 	var tracks: Dictionary = spec["tracks"]
 	for bname in tracks:
@@ -715,6 +739,13 @@ func _process(delta: float) -> void:
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
 
+	# tactile attack: a quick bubble-punch jab, free-roam only (combat modes
+	# have already early-returned above, and drive their own attack input).
+	var attack_held: bool = Input.is_physical_key_pressed(KEY_X) or joy_pressed(JOY_BUTTON_X)
+	if attack_held and not attack_prev and verb == "" and skel != null:
+		play_verb("attack")
+	attack_prev = attack_held
+
 	jump_cool -= delta
 	bump_verb_cool = maxf(0.0, bump_verb_cool - delta)
 	var free_swim: bool = String(m0.game) == ""
@@ -893,7 +924,7 @@ func _process(delta: float) -> void:
 	# body language: bank into turns and pitch with climbs/dives — she arcs
 	# like a fish instead of rotating flat (visual only; heading stays yaw)
 	var spd_n: float = clampf(vel.length() / 26.0, 0.0, 1.0)
-	var bank_t: float = clampf(turn, -1.0, 1.0) * (0.10 + 0.30 * spd_n)
+	var bank_t: float = clampf(turn, -1.0, 1.0) * (0.13 + 0.36 * spd_n)
 	var pitch_t: float = clampf(vel.y * 0.020, -0.38, 0.34)
 	rotation.z = lerpf(rotation.z, bank_t, 1.0 - pow(0.02, delta))
 	rotation.x = lerpf(rotation.x, pitch_t, 1.0 - pow(0.03, delta))
@@ -909,7 +940,9 @@ func _process(delta: float) -> void:
 	# Arms keep a separate, deliberately slow water-sweep phase. Tying them to
 	# the tail beat made a sprint look like frantic flapping instead of swimming.
 	arm_swim_phase += delta * (1.0 + minf(speed * 0.035, 0.9))
-	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
+	# punched-up swim: more travel at rest and at speed than the original
+	# (0.10..0.36) so locomotion reads as a deliberate stroke, not a shiver.
+	var amp: float = 0.14 + minf(speed * 0.038, 0.34)
 	var kick: float = sin(swim_phase)
 	if skel != null:
 		# Swing axis depends on the model:
@@ -921,14 +954,15 @@ func _process(delta: float) -> void:
 		var A: Vector3 = Vector3.RIGHT if (model_v3 or model_v2) else Vector3.BACK
 		for i in range(8):
 			var ph: float = swim_phase - float(i) * 0.45
-			var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.5)
+			# whippier tip (lower exponent) so the tail-end snaps instead of gliding
+			var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.3)
 			_rot_bone("tail%d" % (i + 1), A, sin(ph) * amp * grow)
 		var fin_ph: float = swim_phase - 3.6
-		_rot_bone("finTop", A, sin(fin_ph - 0.25) * amp * 0.9)
-		_rot_bone("finBot", A, sin(fin_ph - 0.55) * amp * 0.9)
-		_rot_bone("spine1", A, -kick * amp * 0.16)
-		_rot_bone("chest", A, -sin(swim_phase - 0.4) * amp * 0.12)
-		_rot_bone("neck", A, sin(swim_phase - 0.7) * amp * 0.06)
+		_rot_bone("finTop", A, sin(fin_ph - 0.25) * amp * 1.05)
+		_rot_bone("finBot", A, sin(fin_ph - 0.55) * amp * 1.05)
+		_rot_bone("spine1", A, -kick * amp * 0.20)
+		_rot_bone("chest", A, -sin(swim_phase - 0.4) * amp * 0.15)
+		_rot_bone("neck", A, sin(swim_phase - 0.7) * amp * 0.08)
 		var idle_head: float = 0.0
 		if idle_t > 6.0:
 			idle_head = sin(Time.get_ticks_msec() / 1100.0) * 0.09
@@ -947,8 +981,8 @@ func _process(delta: float) -> void:
 			# sprint streamline: the lateral spread tucks toward her sides and
 			# the idle sway calms as speed rises, so a dash reads as a dash
 			var streamline: float = smoothstep(16.0, 26.0, speed)
-			var spread: float = 0.65 - 0.22 * streamline
-			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
+			var spread: float = 0.70 - 0.22 * streamline
+			var sway_amp: float = 0.19 * (1.0 - 0.7 * streamline)
 			var bend_mul: float = 1.0 - 0.5 * streamline
 			var carrying: bool = false
 			if "carry_sys" in m0 and m0.carry_sys != null:
