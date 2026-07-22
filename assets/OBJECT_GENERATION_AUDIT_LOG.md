@@ -1,6 +1,6 @@
 # Object Generation Audit Log
 
-Last consolidated: 2026-07-18
+Last consolidated: 2026-07-22
 
 Audience: any agent creating, regenerating, reviewing, or promoting world
 objects, textures, sprites, environment kits, and interactive props.
@@ -351,6 +351,37 @@ Most frequent failures:
 - Required test: Mobile views proving opaque Opera destination depth, wardrobe
   storage identity, pantry silhouette variety, and treated entrance-wall framing.
 
+### A17 - Ember Fortress 2D-first Claude Blender restart
+
+- Source and commit: `EMBER_FORTRESS_2D_CONCEPT_AUDIT_2026-07-22.md`, six
+  modeling boards under `assets_src/concepts/ember_fortress_claude_2026-07-22/`,
+  and `audit/ember_visual_inventory_2026-07-22.csv`; concept branch pending.
+- Scope: all 42 Ember Fortress overworld and six-room-dungeon visual roles;
+  39 planned Blender exports plus runtime-only sky, particles, and grade.
+- Evidence class: E1 design proposal. The boards establish shape, scale, state,
+  palette, and production requirements but do not establish runtime quality.
+- Findings independently verified: the rejected work chain created procedural
+  Blender assets before an approved 2D design stage. A clean restart must make
+  the 2D boards authoritative and assign Blender modeling to Claude.
+- Findings accepted: six role-grouped boards cover all failing visual roles;
+  numeric CSV contracts override generated image text; separate state geometry,
+  meter-scale silhouettes, protected-role exclusions, and an IP-safe originality
+  boundary are mandatory.
+- Findings accepted as proposals only: every board and all 39 export rows remain
+  candidates until Claude produces parsed GLBs, isolated multi-state renders,
+  Ember-only runtime integration, and representative Forward Mobile evidence.
+- Findings rejected or superseded: no Codex-generated GLB, `.blend`, procedural
+  mesh builder, isolated render, or score from `codex/bowser-world-graphics` is
+  eligible for reuse or promotion in this chain.
+- New or changed rule IDs: none; reinforces R-GOV1 through R-GOV4, R-ROLE1
+  through R-ROLE4, R-ID1 through R-ID4, R-REP1 through R-REP3, and R-QA1
+  through R-QA8.
+- Roles/families affected: planet/plazas, citadel, landmarks, lanterns and world
+  props, dungeon architecture/puzzles, and combat characters/props.
+- Required negative-control or runtime test: reject a known-bad primitive focal
+  asset before batch review; then capture arrival, gate closed/open, lantern
+  unlit/lit, geyser, home, moon, combat, and puzzle views in Forward Mobile.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -644,6 +675,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-07-22-v9:** Added A17, the Ember Fortress 2D-first restart; rejected
+  the mesh-first Codex chain, made six concept boards authoritative, and
+  assigned the 39-export Blender pass to Claude with no runtime score claim.
 - **2026-07-18-v8:** Recorded the green `ffae3fe` Pearl Castle candidate
   evidence and the green-but-visually-rejected `dec3a2c` entrance experiment;
   reinforced that focal trim must read as authored construction, not floating
