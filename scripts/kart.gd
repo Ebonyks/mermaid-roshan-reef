@@ -2327,7 +2327,7 @@ func _process(delta: float) -> void:
 			_btn_quit.pivot_offset = _btn_quit.size * 0.5
 			_btn_quit.scale = Vector2.ONE * quit_pulse
 		if _quit_arm_t <= 0.0 and _btn_quit != null:
-			_btn_quit.text = "✕"
+			_btn_quit.text = "↩"
 			_btn_quit.modulate = Color.WHITE
 			_btn_quit.scale = Vector2.ONE
 	# rainbow paint: cycle hue on plain materials (renderer-proof)
@@ -3118,25 +3118,18 @@ func _build_hud() -> void:
 	_meter_fill.position = Vector2(3, 3)
 	_meter_fill.size = Vector2(0, 24)
 	_meter_bg.add_child(_meter_fill)
-	# ✕ close (top-right): leave the race and pop back out where you launched
+	# Neutral back (top-right): leave the race and return to the launch spot.
 	# from. A real Button, so it gets first claim on its taps — touch_ui's
 	# stick only ever sees touches nothing else wanted.
 	_btn_quit = Button.new()
-	_btn_quit.text = "✕"
-	_btn_quit.add_theme_font_size_override("font_size", 40)
-	_btn_quit.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
-	var qsb := StyleBoxFlat.new()
-	qsb.bg_color = Color(0.2, 0.15, 0.35, 0.55)
-	qsb.set_corner_radius_all(20)
-	_btn_quit.add_theme_stylebox_override("normal", qsb)
-	_btn_quit.add_theme_stylebox_override("hover", qsb)
-	_btn_quit.add_theme_stylebox_override("pressed", qsb)
+	_btn_quit.name = "KartBackButton"
+	StorybookUI.style_back_button(_btn_quit, "Leave the race")
 	_btn_quit.focus_mode = Control.FOCUS_NONE
 	_btn_quit.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	_btn_quit.offset_left = -140.0
+	_btn_quit.offset_left = -132.0
 	_btn_quit.offset_top = 16.0
 	_btn_quit.offset_right = -20.0
-	_btn_quit.offset_bottom = 92.0
+	_btn_quit.offset_bottom = 128.0
 	_btn_quit.pressed.connect(_quit_race)
 	root.add_child(_btn_quit)
 
@@ -3148,8 +3141,8 @@ func _quit_race() -> void:
 	if _quit_arm_t <= 0.0:
 		_player_acted = true
 		_quit_arm_t = 2.2
-		_btn_quit.text = "✕  ✕"
-		_btn_quit.modulate = Color(1.0, 0.55, 0.55)
+		_btn_quit.text = "↩  ↩"
+		_btn_quit.modulate = Color(1.0, 0.92, 0.55)
 		_chime(0.8)
 		return
 	_commit_payout(0)

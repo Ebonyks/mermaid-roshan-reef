@@ -314,18 +314,12 @@ func open_picker(say_prompt: bool = true, preselect: String = "") -> void:
 	m.companion_layer.add_child(root_control)
 	var dim := ColorRect.new()
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dim.color = Color(0.025, 0.06, 0.12, 0.94)
+	dim.color = StorybookUI.DIM
 	# tap outside the panel = gently close (also keeps the audit bot un-stuck)
 	dim.gui_input.connect(_on_picker_dim_input)
 	root_control.add_child(dim)
-	var stage := Control.new()
-	stage.custom_minimum_size = Vector2(1280, 720)
-	stage.size = Vector2(1280, 720)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
-	var scale_value: float = minf(viewport_size.x / 1280.0, viewport_size.y / 720.0)
-	stage.scale = Vector2.ONE * scale_value
-	stage.position = (viewport_size - Vector2(1280, 720) * scale_value) * 0.5
-	root_control.add_child(stage)
+	var stage := StorybookUI.add_stage(root_control, viewport_size)
 	m.companion_stage = stage
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
@@ -366,6 +360,11 @@ func _pick_color(slot: int, col: Color) -> void:
 	while m.companion_pick_colors.size() < 3:
 		m.companion_pick_colors.append("ffffff")
 	m.companion_pick_colors[slot] = col.to_html(false)
+	m._ui_tap()
+	_draw_picker()
+
+func _pick_color_slot(slot: int) -> void:
+	m.companion_pick_slot = clampi(slot, 0, 2)
 	m._ui_tap()
 	_draw_picker()
 
@@ -411,26 +410,18 @@ func _draw_picker() -> void:
 	var panel := Panel.new()
 	panel.position = Vector2(34, 24)
 	panel.size = Vector2(1212, 672)
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.10, 0.17, 0.30, 0.98)
-	panel_style.border_color = Color(0.95, 0.7, 0.9)
-	panel_style.set_border_width_all(5)
-	panel_style.set_corner_radius_all(28)
+	var panel_style := StorybookUI.panel_style(Color(0.95, 0.70, 0.90), Color(0.91, 0.97, 1.0, 0.99), 48, 5)
 	panel.add_theme_stylebox_override("panel", panel_style)
 	stage.add_child(panel)
 	var title := Label.new()
 	title.text = "🧸  Pick your stuffie friend!"
-	title.add_theme_font_size_override("font_size", 44)
-	title.add_theme_color_override("font_color", Color(1.0, 0.94, 0.66))
-	title.add_theme_color_override("font_outline_color", Color(0.05, 0.07, 0.16))
-	title.add_theme_constant_override("outline_size", 9)
+	StorybookUI.style_label(title, 42, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
 	var close := Button.new()
-	close.text = "✕"
-	close.add_theme_font_size_override("font_size", 38)
-	close.position = Vector2(1145, 40)
-	close.custom_minimum_size = Vector2(72, 72)
+	close.name = "StuffiePickerBackButton"
+	StorybookUI.style_back_button(close, "Back to the castle")
+	close.position = Vector2(1110, 32)
 	close.pressed.connect(close_picker)
 	stage.add_child(close)
 	# friend cards down the left — only friends who already live at home;
@@ -441,6 +432,8 @@ func _draw_picker() -> void:
 		var d: Dictionary = picks[i]
 		var id := String(d["id"])
 		var card := Button.new()
+		card.name = "StuffieCard_" + id
+		card.set_meta("touch_target", true)
 		card.position = Vector2(80, 130 + float(i) * step)
 		card.custom_minimum_size = Vector2(330, step - 25.0)
 		var card_style := StyleBoxFlat.new()
@@ -476,13 +469,11 @@ func _draw_picker() -> void:
 	var preview_panel := Panel.new()
 	preview_panel.position = Vector2(460, 130)
 	preview_panel.size = Vector2(330, 330)
-	var pv_style := StyleBoxFlat.new()
-	pv_style.bg_color = Color(0.16, 0.24, 0.38, 0.96)
-	pv_style.set_corner_radius_all(26)
+	var pv_style := StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.94, 0.97, 1.0, 0.98), 34, 5)
 	preview_panel.add_theme_stylebox_override("panel", pv_style)
 	stage.add_child(preview_panel)
 	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
-	# three colour rows on the right (a captured toy comes exactly as it is)
+	# Three large part selectors, but only one large palette at a time.
 	if not bool(pick_def.get("paintable", true)):
 		var asis := Label.new()
 		asis.text = "💕  %s comes just as she is!" % String(pick_def["name"])
@@ -493,39 +484,41 @@ func _draw_picker() -> void:
 		asis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		stage.add_child(asis)
 	for slot in range(3 if bool(pick_def.get("paintable", true)) else 0):
-		var row_y := 130.0 + float(slot) * 120.0
-		var icon := Label.new()
+		var icon := Button.new()
+		icon.name = "StuffiePart_%d" % slot
 		icon.text = SLOT_ICON[slot]
-		icon.add_theme_font_size_override("font_size", 46)
-		icon.position = Vector2(830, row_y + 18.0)
+		icon.position = Vector2(800.0 + float(slot) * 130.0, 130)
+		icon.custom_minimum_size = Vector2(116, 116)
+		icon.size = Vector2(116, 116)
+		StorybookUI.style_button(icon, "selected" if slot == m.companion_pick_slot else "secondary", 42, 30)
+		icon.pressed.connect(_pick_color_slot.bind(slot))
 		stage.add_child(icon)
+		if slot != m.companion_pick_slot:
+			continue
 		for ci in range(PALETTE.size()):
 			var col: Color = PALETTE[ci]
 			var swatch := Button.new()
-			swatch.position = Vector2(900 + float(ci % 4) * 78.0, row_y + float(ci / 4) * 52.0)
-			swatch.custom_minimum_size = Vector2(64, 44)
+			swatch.name = "StuffieSwatch_%d" % ci
+			swatch.set_meta("touch_target", true)
+			swatch.position = Vector2(800.0 + float(ci % 4) * 112.0, 270.0 + float(ci / 4) * 116.0)
+			swatch.custom_minimum_size = Vector2(110, 110)
+			swatch.size = Vector2(110, 110)
 			var sw_style := StyleBoxFlat.new()
 			sw_style.bg_color = col
 			var chosen: bool = col.to_html(false) == String(m.companion_pick_colors[slot])
 			sw_style.border_color = Color(1.0, 1.0, 1.0) if chosen else Color(0.1, 0.12, 0.2)
 			sw_style.set_border_width_all(5 if chosen else 2)
-			sw_style.set_corner_radius_all(16)
+			sw_style.set_corner_radius_all(30)
 			swatch.add_theme_stylebox_override("normal", sw_style)
 			swatch.add_theme_stylebox_override("hover", sw_style)
 			swatch.add_theme_stylebox_override("pressed", sw_style)
 			swatch.pressed.connect(_pick_color.bind(slot, col))
 			stage.add_child(swatch)
 	var go := Button.new()
-	go.text = "✔  LET'S GO!"
-	go.add_theme_font_size_override("font_size", 40)
-	go.position = Vector2(460, 520)
-	go.custom_minimum_size = Vector2(640, 110)
-	var go_style := StyleBoxFlat.new()
-	go_style.bg_color = Color(0.35, 0.75, 0.5, 0.97)
-	go_style.border_color = Color(0.85, 1.0, 0.9)
-	go_style.set_border_width_all(4)
-	go_style.set_corner_radius_all(30)
-	go.add_theme_stylebox_override("normal", go_style)
+	go.text = "♥  LET'S GO!"
+	go.position = Vector2(460, 500)
+	go.custom_minimum_size = Vector2(330, 150)
+	StorybookUI.style_button(go, "primary", 38, 38)
 	go.pressed.connect(_confirm_pick)
 	stage.add_child(go)
 	m._hook_button_taps(stage)

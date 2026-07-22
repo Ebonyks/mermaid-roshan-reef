@@ -91,6 +91,7 @@ var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
 var craft_fishbox: Control = null
 var craft_kind := "fish"
+var craft_part := "body"              # one active palette row: body / accent / third
 var craft_body_rb := false           # rainbow-cycle toggle for the body layer (ww craft fx)
 var craft_fins_rb := false           # rainbow-cycle toggle for the accent layer
 var craft_c3 := Color(0, 0, 0, 0)    # third zone colour; alpha 0 = the kind's book-art default
@@ -177,6 +178,7 @@ var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
+var companion_pick_slot := 0               # one large active paint row at a time
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
@@ -2841,10 +2843,32 @@ func _build_hud() -> void:
 	var cl := CanvasLayer.new()
 	add_child(cl)
 	hud_layer = cl
-	hud_pearls = _mk_label(cl, Vector2(20, 14), 28)
-	hud_stars = _mk_label(cl, Vector2(20, 52), 24)
-	hud_game = _mk_label(cl, Vector2(20, 90), 24)
-	hud_msg = _mk_label(cl, Vector2(20, 630), 30)
+	var status_panel := Panel.new()
+	status_panel.name = "HudStatusTray"
+	status_panel.position = Vector2(16, 14)
+	status_panel.size = Vector2(280, 146)
+	status_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_panel.add_theme_stylebox_override("panel", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.93, 0.97, 1.0, 0.94), 44, 4))
+	cl.add_child(status_panel)
+	hud_pearls = _mk_label(cl, Vector2(42, 24), 30)
+	hud_pearls.size = Vector2(220, 42)
+	hud_stars = _mk_label(cl, Vector2(42, 65), 22)
+	hud_stars.size = Vector2(230, 84)
+	hud_game = _mk_label(cl, Vector2(430, 20), 23)
+	hud_game.name = "HudPictureObjective"
+	hud_game.size = Vector2(420, 112)
+	hud_game.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_game.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hud_game.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hud_game.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.GOLD, Color(0.94, 0.97, 1.0, 0.94), 30, 4))
+	hud_game.set_meta("picture_objective", true)
+	hud_msg = _mk_label(cl, Vector2(230, 590), 24)
+	hud_msg.name = "HudVoiceCaption"
+	hud_msg.size = Vector2(820, 112)
+	hud_msg.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hud_msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.91, 0.94, 1.0, 0.94), 30, 4))
 	hud_msg.text = "Find the glowing friends in the fairy garden!"
 	_update_hud()
 
@@ -2880,9 +2904,8 @@ func _fade_cut(cb: Callable) -> void:
 func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	var l := Label.new()
 	l.position = pos
-	l.add_theme_font_size_override("font_size", fsize)
-	l.add_theme_color_override("font_outline_color", Color(0.02, 0.05, 0.14, 0.9))
-	l.add_theme_constant_override("outline_size", 6)
+	StorybookUI.style_label(l, fsize, StorybookUI.INK, 3)
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	cl.add_child(l)
 	return l
 
@@ -2893,7 +2916,7 @@ func _pips(filled: int, total: int, emoji: String) -> String:
 	return emoji.repeat(f) + "·".repeat(total - f)
 
 func _update_hud() -> void:
-	hud_pearls.text = "Rainbow pearls: %d" % pearl_count
+	hud_pearls.text = "◉  %d" % pearl_count
 	var stars := 0
 	for f in friends:
 		if f["found"]:
@@ -2903,7 +2926,7 @@ func _update_hud() -> void:
 		if bool(caught_value):
 			critters += 1
 	# critters stay numeric on purpose: 18 pips would wrap the HUD line
-	hud_stars.text = "Friends %s   Trophies %s   Critters: %d / 18" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters] + _medal_ref().hud_suffix()
+	hud_stars.text = "★  %s\n♛  %s    ◇  %d / 18" % [_pips(stars, 5, "●"), _pips(trophies, 5, "●"), critters] + _medal_ref().hud_suffix()
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
@@ -3026,7 +3049,8 @@ func _apply_quality(q: String) -> void:
 		if is_instance_valid(fn):
 			_set_vis_range(fn, 150.0 if speedy else 0.0)
 	if quality_btn != null:
-		quality_btn.text = "Graphics: Speedy" if speedy else "Graphics: Sparkly"
+		quality_btn.text = "≋   SPEEDY" if speedy else "✦   SPARKLY"
+		quality_btn.set_meta("toggle_on", not speedy)
 	# Phase 5: live-retune the reef water when the tier flips (arena water is
 	# rebuilt on entry and picks the tier up itself)
 	if water_node != null and water_node.material_override is ShaderMaterial:
@@ -6153,6 +6177,10 @@ func _process(delta: float) -> void:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
+	if hud_msg != null:
+		hud_msg.visible = hud_msg.text != ""
+	if hud_game != null:
+		hud_game.visible = hud_game.text != ""
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()

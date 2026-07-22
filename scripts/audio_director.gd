@@ -58,6 +58,7 @@ func _speaker_key(who: String) -> String:
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	m.hud_msg.text = txt
+	m.hud_msg.visible = txt != ""
 	m.msg_timer = 5.0
 	if who != "":
 		_say(_speaker_key(who), vo, 0.5)

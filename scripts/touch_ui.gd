@@ -17,6 +17,7 @@ var action_just := false
 var _root: Control
 var _base: Panel
 var _knob: Panel
+var _stick_hint: Panel
 var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
 var _touch_idx := -1      # the finger that owns the stick
 var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
@@ -40,8 +41,26 @@ func _ready() -> void:
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE   # visuals only — never blocks input
 	add_child(_root)
-	_base = _circle(Color(1, 1, 1, 0.12), 105.0)
-	_knob = _circle(Color(1, 1, 1, 0.30), 46.0)
+	# A fixed ghost wheel teaches the bottom-left ownership before the first
+	# drag; the real drag-anywhere stick still appears under the finger.
+	_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)
+	_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_stick_hint.offset_left = 26.0
+	_stick_hint.offset_top = -206.0
+	_stick_hint.offset_right = 206.0
+	_stick_hint.offset_bottom = -26.0
+	_stick_hint.visible = wants_touch()
+	_root.add_child(_stick_hint)
+	var hint_arrows := Label.new()
+	hint_arrows.text = "↕  ↔"
+	hint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(hint_arrows, 34, StorybookUI.MINT, 5)
+	_stick_hint.add_child(hint_arrows)
+	_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)
+	_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)
 	_base.visible = false
 	_knob.visible = false
 	_root.add_child(_base)
@@ -54,7 +73,7 @@ func _ready() -> void:
 	# 4yo needs (see the button, know there's a thing to press), with the
 	# current action name (JUMP / THROW / FIRE) written on it.
 	if wants_touch():
-		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.34), 74.0)
+		_act_vis = _circle(Color(1.0, 0.50, 0.48, 0.86), 74.0, StorybookUI.INK, 5)
 		_act_vis.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 		_act_vis.offset_left = -186.0
 		_act_vis.offset_top = -206.0
@@ -62,8 +81,8 @@ func _ready() -> void:
 		_act_vis.offset_bottom = -58.0
 		_root.add_child(_act_vis)
 		_act_lbl = Label.new()
-		_act_lbl.text = "JUMP"
-		_act_lbl.add_theme_font_size_override("font_size", 34)
+		_act_lbl.text = "✦\nJUMP"
+		_act_lbl.add_theme_font_size_override("font_size", 27)
 		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
 		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
 		_act_lbl.add_theme_constant_override("outline_size", 8)
@@ -99,11 +118,14 @@ func _process(delta: float) -> void:
 		_act_vis.pivot_offset = _act_vis.size * 0.5
 		_act_vis.scale = Vector2(pulse_s, pulse_s) * (0.88 if action_down else 1.0)
 
-func _circle(col: Color, rad: float) -> Panel:
+func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:
 	var p := Panel.new()
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = col
 	sb.set_corner_radius_all(int(rad))
+	if border_width > 0:
+		sb.border_color = outline
+		sb.set_border_width_all(border_width)
 	p.add_theme_stylebox_override("panel", sb)
 	p.size = Vector2(rad * 2.0, rad * 2.0)
 	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -128,6 +150,8 @@ func _press(pos: Vector2, idx: int) -> void:
 	_origin = pos
 	_moved = false
 	_press_ms = Time.get_ticks_msec()
+	if _stick_hint != null:
+		_stick_hint.visible = false
 	_base.position = _origin - _base.size * 0.5
 	_knob.position = _origin - _knob.size * 0.5
 	_base.visible = true
@@ -158,6 +182,8 @@ func _release_stick() -> void:
 	stick_vec = Vector2.ZERO
 	_base.visible = false
 	_knob.visible = false
+	if _stick_hint != null:
+		_stick_hint.visible = wants_touch()
 
 func _clear_touch_state() -> void:
 	_touch_idx = -1
@@ -175,9 +201,15 @@ func _clear_touch_state() -> void:
 		_base.visible = false
 	if _knob != null:
 		_knob.visible = false
+	if _stick_hint != null:
+		_stick_hint.visible = wants_touch()
 
 func _request_pause() -> void:
 	var m: Node = get_parent()
+	# Start advances the always-processing story intro via ReefMain. Do not
+	# also raise the pause sheet over that same press.
+	if m != null and bool(m.get("intro_active")):
+		return
 	if m != null and m.has_method("toggle_pause"):
 		m.toggle_pause()
 
@@ -260,8 +292,8 @@ func _unhandled_input(ev: InputEvent) -> void:
 func set_action_label(t: String) -> void:
 	if _btn != null and _btn.text != t:
 		_btn.text = t
-	if _act_lbl != null and _act_lbl.text != t:
-		_act_lbl.text = t
+	if _act_lbl != null and _act_lbl.text != "✦\n" + t:
+		_act_lbl.text = "✦\n" + t
 
 func consume_action_just() -> bool:
 	var j := action_just

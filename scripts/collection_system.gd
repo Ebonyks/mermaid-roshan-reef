@@ -71,21 +71,10 @@ func build() -> void:
 	m.add_child(layer)
 	m.collection_button_layer = layer
 	var button := Button.new()
-	button.text = "🐾"
-	button.tooltip_text = "Critter Book"
-	button.add_theme_font_size_override("font_size", 34)
-	button.custom_minimum_size = Vector2(76, 76)
+	button.name = "CritterBookCornerButton"
+	StorybookUI.style_icon_button(button, "♧", "secondary", Vector2(112, 112), "Critter Book")
 	button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	button.position = Vector2(-208, 18)   # shifted left of the enlarged 100px pause gear
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.18, 0.52, 0.62, 0.82)
-	normal.border_color = Color(0.78, 1.0, 0.86, 0.9)
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(38)
-	button.add_theme_stylebox_override("normal", normal)
-	var pressed := normal.duplicate() as StyleBoxFlat
-	pressed.bg_color = Color(0.42, 0.74, 0.58, 0.95)
-	button.add_theme_stylebox_override("pressed", pressed)
+	button.position = Vector2(-278, 18)
 	button.pressed.connect(open_book)
 	layer.add_child(button)
 	m.collection_button = button
@@ -324,16 +313,10 @@ func open_book() -> void:
 	m.collection_layer.add_child(root_control)
 	var dim := ColorRect.new()
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dim.color = Color(0.025, 0.06, 0.12, 0.94)
+	dim.color = StorybookUI.DIM
 	root_control.add_child(dim)
-	var stage := Control.new()
-	stage.custom_minimum_size = Vector2(1280, 720)
-	stage.size = Vector2(1280, 720)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
-	var scale_value: float = minf(viewport_size.x / 1280.0, viewport_size.y / 720.0)
-	stage.scale = Vector2.ONE * scale_value
-	stage.position = (viewport_size - Vector2(1280, 720) * scale_value) * 0.5
-	root_control.add_child(stage)
+	var stage := StorybookUI.add_stage(root_control, viewport_size)
 	m.collection_stage = stage
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
@@ -363,11 +346,7 @@ func _draw_book() -> void:
 	var panel := Panel.new()
 	panel.position = Vector2(34, 24)
 	panel.size = Vector2(1212, 672)
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.10, 0.17, 0.30, 0.98)
-	panel_style.border_color = Color(0.48, 0.92, 0.80)
-	panel_style.set_border_width_all(5)
-	panel_style.set_corner_radius_all(28)
+	var panel_style := StorybookUI.panel_style(StorybookUI.MINT, Color(0.91, 0.97, 1.0, 0.99), 48, 5)
 	panel.add_theme_stylebox_override("panel", panel_style)
 	stage.add_child(panel)
 
@@ -381,10 +360,9 @@ func _draw_book() -> void:
 	stage.add_child(title)
 
 	var close := Button.new()
-	close.text = "✕"
-	close.add_theme_font_size_override("font_size", 44)
-	close.position = Vector2(1122, 34)   # 100px: frustrated fingers mash here
-	close.custom_minimum_size = Vector2(100, 100)
+	close.name = "CritterBookBackButton"
+	StorybookUI.style_back_button(close, "Back to the reef")
+	close.position = Vector2(1110, 32)
 	close.pressed.connect(close_book)
 	stage.add_child(close)
 
@@ -393,8 +371,9 @@ func _draw_book() -> void:
 		var tab := Button.new()
 		tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
 		tab.add_theme_font_size_override("font_size", 30)
-		tab.position = Vector2(88 + float(i) * 270.0, 100)   # up 5px so the taller tab clears the cards at y=198
-		tab.custom_minimum_size = Vector2(242, 90)
+		tab.position = Vector2(88 + float(i) * 270.0, 92)
+		tab.custom_minimum_size = Vector2(242, 110)
+		StorybookUI.style_button(tab, "selected" if category == m.collection_category else "secondary", 30, 28)
 		if category == m.collection_category:
 			var active_style := StyleBoxFlat.new()
 			active_style.bg_color = Color(0.32, 0.70, 0.62, 0.95)
@@ -411,7 +390,7 @@ func _draw_book() -> void:
 		var d: Dictionary = visible_defs[i]
 		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
 		var card := Panel.new()
-		card.position = Vector2(82 + float(i % 3) * 388.0, 198 + float(i / 3) * 218.0)
+		card.position = Vector2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0)
 		card.size = Vector2(356, 192)
 		var card_style := StyleBoxFlat.new()
 		var card_color: Color = d["color"]

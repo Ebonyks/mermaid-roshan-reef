@@ -90,18 +90,9 @@ func _build_hud() -> void:
 	room_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.add_child(room_label)
 	var home := Button.new()
-	home.text = "⌂"
+	home.name = "DungeonBackButton"
+	StorybookUI.style_back_button(home, "Save checkpoint and leave")
 	home.position = Vector2(1138, 24)
-	home.size = Vector2(112, 100)
-	home.add_theme_font_size_override("font_size", 58)
-	var home_style := StyleBoxFlat.new()
-	home_style.bg_color = Color(0.2, 0.18, 0.38, 0.94)
-	home_style.border_color = Color(1.0, 0.86, 0.5)
-	home_style.set_border_width_all(4)
-	home_style.set_corner_radius_all(28)
-	home.add_theme_stylebox_override("normal", home_style)
-	home.add_theme_stylebox_override("hover", home_style)
-	home.add_theme_stylebox_override("pressed", home_style)
 	home.pressed.connect(_leave_early)
 	hud.add_child(home)
 
