@@ -110,6 +110,21 @@ is all sooty! Will you help me get it ready?" Cleaning the castle IS Day
   squashed or killed; cleaned sprites become the castle's lantern helpers
   and return as decorations on Festival Day. Sparkle the guide fish and
   the golden pointer always aim at the nearest remaining sprite.
+- **The gremlins made the mess — and they're already designed.** The
+  castle's gremlins are the game's existing **mischief imps**
+  (`assets/dungeon/mischief_imp.glb` + the two dungeon enemy variants —
+  project-original models already shipped in the Toy Castle brawl, the
+  dungeon, and the opera backstage). They snuck in over the winter, and
+  they're the ones scattering the soot: an imp scurrying through a room
+  trails fresh soot sprites behind it. The established verb applies
+  unchanged: gremlins bump and giggle, never hurt, helpers (Huluu, the
+  stuffie companion) can only STUN them, and **only Roshan's tap POPs
+  them** — popped gremlins somersault out a window with a giggle, and
+  some drop a stolen festival decoration (a garland, a lantern) that
+  flies back to its hook. Pop a room's gremlins and that room stops
+  getting sootier; like the cleaned sprites, the gremlins aren't gone
+  for good — they turn up at the Festival on Day 7 as (mostly) reformed
+  party guests. Voice lines call them "the giggly gremlins."
 - **The "Sparkle Scrub" minigame.** Dirty patches on floors, windows, and
   the throne shine under a one-finger rub: hold and wiggle (or repeated
   taps — both work) wipes the grime in fat, satisfying strokes, revealing
@@ -117,22 +132,25 @@ is all sooty! Will you help me get it ready?" Cleaning the castle IS Day
   score pressure, impossible to fail — the castle simply gets brighter
   with every patch, and the HUD shows a picture meter (sooty castle →
   sparkling castle), never a number.
-- **The payoff.** When the last sprite is scrubbed and the last patch
-  shines, the chandelier relights, the castle glows — and that glow *is*
+- **The payoff.** When the last gremlin is popped, the last sprite
+  scrubbed, and the last patch shines, the chandelier relights, the castle glows — and that glow *is*
   the **Crown Light**, the week's first Light, floating down into the
   lantern ring. Huluu thanks Roshan with the **gift box** (the existing
   stuffie-companion picker) as the cleaning reward, then explains the
   week: "Every morning, the calendar opens a new place. Bring home a
   Light each day, and on Sunday we'll have the Festival of Lights!"
 
-The cleaning tour doubles as onboarding: chasing sprites teaches swimming,
-scrubbing teaches tapping/holding, and the route walks past the courtyard
-train, the Toy Castle playroom, the craft studio, and the wardrobe. The
-existing three timed first-session hints live here. Engine notes: the
-sprite chase reuses the seek/tap pattern and the scrub reuses the picture-
+The cleaning tour doubles as onboarding: chasing gremlins and sprites
+teaches swimming, scrubbing teaches tapping/holding, and the route walks
+past the courtyard train, the Toy Castle playroom, the craft studio, and
+the wardrobe. The existing three timed first-session hints live here.
+Engine notes: the gremlin chase/pop reuses the brawl engine's imp verb and
+the shipped `mischief_imp.glb` (no new character asset needed), the sprite
+scrub reuses the seek/tap pattern, and the patch-wipe reuses the picture-
 games touch path (see MINIGAME_ENGINES.md); the day needs its own
 `scripts/games/clean.gd` satellite and probe coverage when it builds
-(§8/§9) — `probe_passive.gd` must clean nothing with zero input.
+(§8/§9) — `probe_passive.gd` must pop and clean nothing with zero input,
+and the agency rule holds (helpers stun, only Roshan pops).
 
 ### Day 2 — Tuesday — Reef Day
 
@@ -242,8 +260,9 @@ All new narrative beats are voice-first (non-reader). Needed set, in
 priority order; each also fires `_say()` + a golden pointer per hard rules:
 
 1. Seven morning announcements ("It's Monday! Castle Day!…" — one per day).
-2. Huluu's Day-1 lines: the help-me ask ("The castle is all sooty!"),
-   cleaning praise ("You got one!", "Look how shiny!"), the all-clean
+2. Huluu's Day-1 lines: the help-me ask ("The castle is all sooty! The
+   giggly gremlins got in!"), cleaning praise ("You got one!", "Look how
+   shiny!"), a gremlin-pop cheer ("Pop! There he goes!"), the all-clean
    ta-da, and the week-opener (the festival promise).
 3. Bedtime line ("Sleepy time! Tap the bed…") + page-turn goodnight.
 4. Light-earned fanfare line, one generic + optionally one per day.
