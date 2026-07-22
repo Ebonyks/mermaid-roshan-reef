@@ -20,10 +20,16 @@ var portal_unlocked := false
 var trophies := 0
 var medals := {}                  # game id -> best tier ever (1 bronze / 2 silver / 3 gold); persisted, upgrade-only (MedalSystem owns logic)
 var hud_layer: CanvasLayer = null
+var hud_tray: Panel = null         # top-left status tray — icons and pips only, no prose (Codex UI handoff 2026-07-19)
 var hud_pearls: Label
 var hud_stars: Label
 var hud_msg: Label
 var hud_game: Label
+var obj_card: Panel = null         # top-center picture-first objective card
+var obj_icon: TextureRect = null   # friend portrait pictogram
+var obj_icon_lbl: Label = null     # emoji pictogram for portal/star goals
+var obj_key := ""                  # current objective identity; card pulses once on change
+var obj_seen_t := 0.0              # seconds on the same target; card calms after comprehension
 var msg_timer := 0.0
 var fade_rect: ColorRect = null   # full-screen black cover (layer 30) — see _fade_cut
 var fade_tween: Tween = null      # active reveal tween; killed on every new cut
@@ -361,6 +367,9 @@ var ring_cool := 0.0
 var flag_sh: Shader = null
 var pause_layer: CanvasLayer
 var pause_panel: Control
+var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
+var pause_gear_btn: Button = null    # top-right pause button (128 hit / 112 visual)
+var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
 var fps_lbl: Label = null
@@ -1561,6 +1570,7 @@ func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6) -> void:
 		"cx": center.x, "cz": center.z,
 		"hx": size.x * 0.5 + pad, "hz": size.z * 0.5 + pad,
 		"y0": center.y - size.y * 0.5 - pad, "y1": center.y + size.y * 0.5 + pad,
+		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
 func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> void:
@@ -1569,6 +1579,7 @@ func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> v
 		"box": false,
 		"x": center.x, "z": center.z, "r": r + pad,
 		"y0": center.y - half_h - pad, "y1": center.y + half_h + pad,
+		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
 func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> MeshInstance3D:
@@ -2280,7 +2291,7 @@ func _build_friends() -> void:
 			orb.material_override = omat
 			add_child(orb)
 			sparks.append(orb)
-		friends.append({"node": spr, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
 			"start_radius": fd.get("start_radius", 8.0),
@@ -2841,12 +2852,102 @@ func _build_hud() -> void:
 	var cl := CanvasLayer.new()
 	add_child(cl)
 	hud_layer = cl
-	hud_pearls = _mk_label(cl, Vector2(20, 14), 28)
-	hud_stars = _mk_label(cl, Vector2(20, 52), 24)
-	hud_game = _mk_label(cl, Vector2(20, 90), 24)
-	hud_msg = _mk_label(cl, Vector2(20, 630), 30)
+	# Codex UI handoff 2026-07-19, gold slice: fixed corner ownership. Progress
+	# lives in a top-left tray of icons and pips; the objective is a top-center
+	# picture card; the caption line is parent-facing backup at bottom-center,
+	# clear of the joystick and action corners.
+	hud_tray = Panel.new()
+	var tsb := StyleBoxFlat.new()
+	tsb.bg_color = Color(0.08, 0.14, 0.3, 0.55)
+	tsb.border_color = Color(0.62, 0.55, 0.95, 0.8)
+	tsb.set_border_width_all(3)
+	tsb.set_corner_radius_all(18)
+	hud_tray.add_theme_stylebox_override("panel", tsb)
+	hud_tray.position = Vector2(14, 12)
+	hud_tray.size = Vector2(252, 176)
+	hud_tray.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	cl.add_child(hud_tray)
+	hud_pearls = _mk_label(cl, Vector2(32, 22), 42)
+	hud_stars = _mk_label(cl, Vector2(32, 80), 28)
+	hud_game = _mk_label(cl, Vector2(320, 596), 24)
+	hud_game.custom_minimum_size = Vector2(640, 0)
+	hud_game.size = Vector2(640, 32)
+	hud_game.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_msg = _mk_label(cl, Vector2(320, 632), 30)
+	hud_msg.custom_minimum_size = Vector2(640, 0)
+	hud_msg.size = Vector2(640, 76)
+	hud_msg.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hud_msg.text = "Find the glowing friends in the fairy garden!"
+	_build_obj_card(cl)
 	_update_hud()
+
+func _build_obj_card(cl: CanvasLayer) -> void:
+	# Picture-first objective card: a big pictogram of WHO/what to find plus the
+	# sparkle-current echo. Reading it is never required — narration and the
+	# in-world helping current carry the same information.
+	obj_card = Panel.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.08, 0.14, 0.3, 0.6)
+	sb.border_color = Color(0.5, 0.9, 0.95, 0.85)
+	sb.set_border_width_all(3)
+	sb.set_corner_radius_all(20)
+	obj_card.add_theme_stylebox_override("panel", sb)
+	obj_card.position = Vector2(528, 12)
+	obj_card.size = Vector2(224, 150)
+	obj_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	obj_card.visible = false
+	cl.add_child(obj_card)
+	obj_icon = TextureRect.new()
+	obj_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	obj_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	obj_icon.position = Vector2(62, 6)
+	obj_icon.size = Vector2(100, 104)
+	obj_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	obj_card.add_child(obj_icon)
+	obj_icon_lbl = Label.new()
+	obj_icon_lbl.add_theme_font_size_override("font_size", 72)
+	obj_icon_lbl.position = Vector2(0, 2)
+	obj_icon_lbl.size = Vector2(224, 108)
+	obj_icon_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	obj_icon_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	obj_icon_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	obj_card.add_child(obj_icon_lbl)
+	var hint := Label.new()
+	hint.text = "✨ ✨ ✨"
+	hint.add_theme_font_size_override("font_size", 24)
+	hint.position = Vector2(0, 112)
+	hint.size = Vector2(224, 34)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	obj_card.add_child(hint)
+
+func _set_objective(key: String, tex: Texture2D, emoji: String) -> void:
+	if obj_card == null:
+		return
+	if key == "":
+		obj_card.visible = false
+		obj_key = ""
+		return
+	if key == obj_key:
+		# same target: after comprehension the card calms down instead of nagging
+		obj_seen_t += 2.2
+		if obj_seen_t > 8.0:
+			obj_card.modulate.a = maxf(0.45, obj_card.modulate.a - 0.12)
+		return
+	obj_key = key
+	obj_seen_t = 0.0
+	obj_card.visible = true
+	obj_card.modulate.a = 1.0
+	obj_icon.texture = tex
+	obj_icon.visible = tex != null
+	obj_icon_lbl.text = emoji
+	obj_icon_lbl.visible = tex == null
+	# one pulse when the target changes, then settle (handoff card contract)
+	obj_card.pivot_offset = obj_card.size * 0.5
+	var tw := create_tween()
+	tw.tween_property(obj_card, "scale", Vector2(1.12, 1.12), 0.18)
+	tw.tween_property(obj_card, "scale", Vector2.ONE, 0.22)
 
 func _build_fade_cover() -> void:
 	# layer 30: above the HUD, pause menu and touch UI — a plain black cover
@@ -2893,7 +2994,10 @@ func _pips(filled: int, total: int, emoji: String) -> String:
 	return emoji.repeat(f) + "·".repeat(total - f)
 
 func _update_hud() -> void:
-	hud_pearls.text = "Rainbow pearls: %d" % pearl_count
+	# icon-led tray rows, no prose (Codex UI handoff): a big pearl count, then
+	# star/trophy pips a non-reader compares by length, then the numeric
+	# critter tally (18 pips would wrap) and the medal glyphs
+	hud_pearls.text = "🫧 %d" % pearl_count
 	var stars := 0
 	for f in friends:
 		if f["found"]:
@@ -2902,8 +3006,12 @@ func _update_hud() -> void:
 	for caught_value: Variant in critter_collection.values():
 		if bool(caught_value):
 			critters += 1
-	# critters stay numeric on purpose: 18 pips would wrap the HUD line
-	hud_stars.text = "Friends %s   Trophies %s   Critters: %d / 18" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters] + _medal_ref().hud_suffix()
+	var msfx: String = _medal_ref().hud_suffix().strip_edges()
+	if msfx != "":
+		msfx = "\n" + msfx   # medals get their own pip row inside the tray
+	hud_stars.text = "%s\n%s\n🐚 %d/18%s" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters, msfx]
+	if hud_tray != null:
+		hud_tray.size.y = 212.0 if msfx != "" else 176.0
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
@@ -2937,15 +3045,17 @@ func _flash_speaker_icon(who: String) -> void:
 		sb.border_color = Color(1.0, 0.85, 0.5)
 		sb.set_border_width_all(3)
 		panel.add_theme_stylebox_override("panel", sb)
-		# sits ABOVE the hud_msg dialogue line (y630+) — audit: they overlapped
-		panel.position = Vector2(24, 370)
-		panel.size = Vector2(190, 230)
+		# Codex UI handoff: between the status tray (ends y188-224) and the
+		# resting joystick corner (starts y~440) — portraits never enter
+		# touch corner zones
+		panel.position = Vector2(24, 228)
+		panel.size = Vector2(190, 208)
 		speech_layer.add_child(panel)
 		speech_portrait = TextureRect.new()
 		speech_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		speech_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-		speech_portrait.position = Vector2(34, 378)
-		speech_portrait.size = Vector2(170, 214)
+		speech_portrait.position = Vector2(34, 236)
+		speech_portrait.size = Vector2(170, 192)
 		speech_layer.add_child(speech_portrait)
 		panel.name = "bubble"
 	var key := _speaker_key(who)
@@ -3026,7 +3136,8 @@ func _apply_quality(q: String) -> void:
 		if is_instance_valid(fn):
 			_set_vis_range(fn, 150.0 if speedy else 0.0)
 	if quality_btn != null:
-		quality_btn.text = "Graphics: Speedy" if speedy else "Graphics: Sparkly"
+		# different silhouettes per state, never color alone (Codex UI handoff)
+		quality_btn.text = "🚀\nSpeedy" if speedy else "✨\nSparkly"
 	# Phase 5: live-retune the reef water when the tier flips (arena water is
 	# rebuilt on entry and picks the tier up itself)
 	if water_node != null and water_node.material_override is ShaderMaterial:
@@ -6096,23 +6207,34 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	var level2_court: bool = (game == "level2"
 		and String(g.get("phase", "court")) == "court")
 	if (game != "" and not level2_court) or mg_kind != "" or intro_active:
+		_set_objective("", null, "")
 		return
 	if _overlay_root_for_cursor() != null:
+		_set_objective("", null, "")
 		return
 	_wayfind_t -= delta
 	if _wayfind_t > 0.0:
 		return
 	_wayfind_t = 2.2
 	var target := Vector3.ZERO
+	# the objective card mirrors the sparkle current as a picture: portrait for
+	# a friend, emoji pictogram for portals/stars (Codex UI handoff)
+	var okey := ""
+	var otex: Texture2D = null
+	var oemj := ""
 	if level2_court:
 		for sd in l2_stars:
 			if not bool(sd["got"]):
 				var star: Node3D = sd["node"]
 				if is_instance_valid(star):
 					target = star.position
+					okey = "l2star"
+					oemj = "⭐"
 				break
 		if target == Vector3.ZERO and l2_open and l2_door != null and is_instance_valid(l2_door):
 			target = g.get("entry", l2_door.position)
+			okey = "l2door"
+			oemj = "🏰"
 	else:
 		var best := 1e9
 		for f in friends:
@@ -6122,13 +6244,23 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 				if d < best:
 					best = d
 					target = p
+					okey = "friend:" + String(f["fname"])
+					var tn: String = String(f.get("tex", ""))
+					otex = _cutout_tex(tn) if tn != "" else null
+					oemj = "⭐"
 		if target == Vector3.ZERO:
 			if pearl_count >= 60 and manta != null and is_instance_valid(manta):
 				target = manta.position
+				okey = "manta"
+				oemj = "🌟"
 			elif slide_portal_pos != Vector3.ZERO:
 				target = slide_portal_pos
+				okey = "slide"
+				oemj = "🐧"
 	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
+		_set_objective("", null, "")
 		return
+	_set_objective(okey, otex, oemj)
 	for k in range(3):
 		var tt: float = 0.06 + 0.07 * float(k)
 		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))

@@ -467,6 +467,15 @@ func set_skin(id: String, tex_path: String) -> void:
 # (upright, sharing her yaw) and then ride the bone rigidly, so no knowledge
 # of the Meshy rig's rest axes is needed. Offsets use her facing: -Z = front.
 
+# card-faithful outfit kits (CLAUDE_OPERA_JOB_3D_CONTINUATION): a GLB whose
+# top-level Piece* nodes mount onto the bone anchors below. Grows one job per
+# art batch; careers without a kit keep their toy-primitive costume.
+const COSTUME_KITS := {"chef": "pastry_chef", "ballerina": "ballerina",
+	"detective": "detective", "candymaker": "candymaker", "doctor": "doctor",
+	"farmer": "farmer", "boxer": "boxer", "magician": "magician",
+	"painter": "painter", "astronaut": "astronaut", "racer": "racer",
+	"popstar": "popstar"}
+
 func set_costume(id: String) -> void:
 	clear_costume()
 	costume_id = id
@@ -481,6 +490,20 @@ func set_costume(id: String) -> void:
 	var hand_l := _costume_anchor(["hand", "armF", "chest"])
 	var chest := _costume_anchor(["chest", "spine1", "root"])
 	var waist := _costume_anchor(["spine1", "root", "chest"])
+	if COSTUME_KITS.has(id):
+		var kp := "res://assets/opera/jobs/%s/opera_%s_outfit.glb" % [COSTUME_KITS[id], COSTUME_KITS[id]]
+		if ResourceLoader.exists(kp):
+			var kit := (load(kp) as PackedScene).instantiate()
+			var mounts := {"PieceHead": head, "PieceHandR": hand, "PieceHandL": hand_l,
+					"PieceChest": chest, "PieceWaist": waist}
+			for pname in mounts:
+				var pc: Node = kit.find_child(String(pname), true, false)
+				if pc != null:
+					pc.get_parent().remove_child(pc)
+					(mounts[pname] as Node3D).add_child(pc)
+			kit.queue_free()
+			_drop_empty_costume_anchors()
+			return
 	# Offsets are calibrated to the v4 rig's MEASURED rest joints (world units,
 	# model x3.7 + y0.89): head joint sits at EYE level y+2.18 while her crown
 	# is y+4.4 — so hats ride ~+2.2..+3.3 above the head joint, face pieces
@@ -569,6 +592,9 @@ func set_costume(id: String) -> void:
 			_cp_box(head, Vector3(0, 1.2, -1.15), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7)
 			_cp_box(hand, Vector3(0, -0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2)
 			_cp_sphere(hand, Vector3(0, 0.65, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6)
+	_drop_empty_costume_anchors()
+
+func _drop_empty_costume_anchors() -> void:
 	# an anchor that dressed nothing is dead weight — drop it
 	for n in costume_nodes.duplicate():
 		var holder: Node = n

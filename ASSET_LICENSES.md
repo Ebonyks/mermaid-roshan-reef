@@ -265,3 +265,29 @@ ambientCG (all CC0).
 - License: project original; not for external redistribution
 - Modifications: none; archived byte-for-byte and excluded from Godot imports
 - Status: unintegrated candidates retained for visual review
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_vanilla.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_pastry_chef.py, Blender 5.0 bpy) as a 3D interpretation of the project's own accepted flat cards in assets_src/concepts/opera_jobs_flat_2026-07-21/. No external assets. Modifications: n/a (new).
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_coral.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_layer_plum.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_bowl.glb — same source/license as above.
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_oven.glb — same source/license as above.
+- assets_src/blender/opera_pastry_chef_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/ballerina/opera_ballerina_tile_{0,1,2,3}.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_batch2.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets/opera/jobs/pastry_chef/opera_pastry_chef_outfit.glb — original work, same source/tooling as above (chef toque + whisk outfit kit).
+- assets_src/blender/opera_batch2_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/detective/opera_detective_box_{0..5}.glb, opera_detective_chest.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_detective.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_detective_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/candymaker/opera_candymaker_press.glb, opera_candymaker_candy_{0..6}.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_candymaker.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_candymaker_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/{ballerina,detective,candymaker}/opera_*_outfit.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_outfits_floor1.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted outfit cards. Modifications: n/a (new).
+- assets_src/blender/opera_outfits_floor1_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/doctor/opera_doctor_{patient,scope,thermo,bandage}.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_doctor.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_doctor_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/magician/opera_magician_hat_{0,1,2}.glb, opera_magician_bunnyfish.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_magician.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_magician_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/boxer/opera_boxer_dressing.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_boxer.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_boxer_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/painter/opera_painter_pot_{0,1,2}.glb, opera_painter_easel.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_floor3.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets/opera/jobs/astronaut/opera_astronaut_{tank,rocket,valve}.glb — original work, same source/tooling as above.
+- assets_src/blender/opera_floor3_2026-07-22.blend — Blender source for the above, original work.
+- assets/opera/jobs/{painter,astronaut,racer,popstar}/opera_*_outfit.glb, assets/opera/jobs/popstar/opera_popstar_microphone.glb — original work (this project), CC0-equivalent. Built programmatically (assets_src/blender/build_opera_outfits_floor3.py + opera_shared.py, Blender 5.0 bpy) from the project's accepted flat cards. Modifications: n/a (new).
+- assets_src/blender/opera_outfits_floor3_2026-07-22.blend — Blender source for the above, original work.

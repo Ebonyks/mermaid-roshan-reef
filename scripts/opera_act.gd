@@ -46,7 +46,12 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir | decorate
+var order_phase := "steps"         # steps | stir
+var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
+var chef_oven_art: Node3D = null
+var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
+var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit
+var boxer_dressing_art: Node3D = null  # ring dressing GLB kit (lamps, bell, belt) | decorate
 var stir_done := 0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
@@ -447,8 +452,17 @@ func _build_box() -> void:
 		_box(CENTER + Vector3(0, ry, 8.0), Vector3(22.6, 0.26, 0.26), Color(1.0, 0.85, 0.45), 0.3)
 		_box(CENTER + Vector3(-11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
 		_box(CENTER + Vector3(11.0, ry, -2.0), Vector3(0.26, 0.26, 20.6), Color(1.0, 0.85, 0.45), 0.3)
-	# the round bell on the front post
-	_sphere(CENTER + Vector3(-11.0, 5.2, 7.0), 0.7, Color(1.0, 0.85, 0.4), 0.5)
+	# card kit: padded caps, shell bell, progress lamps, belt pedestal —
+	# dressing only, laid over the SAME gameplay-authoritative footprint
+	boxer_dressing_art = _job_art("boxer/opera_boxer_dressing.glb", self)
+	if boxer_dressing_art != null:
+		boxer_dressing_art.position = CENTER
+		for lamp in range(3):
+			_job_state(boxer_dressing_art, "StateLamp%d" % lamp, false)
+		_job_state(boxer_dressing_art, "StateComplete", false)
+	else:
+		# the round bell on the front post
+		_sphere(CENTER + Vector3(-11.0, 5.2, 7.0), 0.7, Color(1.0, 0.85, 0.4), 0.5)
 	player_pos = CENTER + Vector3(0, 1.1, 4.0)
 	box_round = 0
 	box_wait = 0.0
@@ -514,7 +528,11 @@ func _punch_action() -> void:
 	if imps_left <= 0:
 		var waves: Array = config.get("rounds", [3, 4, 5])
 		box_round += 1
+		_job_state(boxer_dressing_art, "StateLamp%d" % (box_round - 1), true)
 		if box_round >= waves.size():
+			# championship: the belt rises off its pedestal in a gold halo
+			_job_state(boxer_dressing_art, "StateIdle", false)
+			_job_state(boxer_dressing_art, "StateComplete", true)
 			_win()
 			return
 		box_wait = 1.6
@@ -564,8 +582,13 @@ func _build_sleuth() -> void:
 	goal.name = "TiaraChest"
 	goal.position = CENTER + Vector3(0, 1.0, -12.0)
 	add_child(goal)
-	_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
-	_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
+	sleuth_chest_art = _job_art("detective/opera_detective_chest.glb", goal)
+	if sleuth_chest_art != null:
+		_job_state(sleuth_chest_art, "StateActive", false)
+		_job_state(sleuth_chest_art, "StateComplete", false)
+	else:
+		_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
+		_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
 	var clue_picks: Array[int] = []
 	while clue_picks.size() < clue_count:
 		var pick := randi() % prop_count
@@ -578,8 +601,14 @@ func _build_sleuth() -> void:
 		root.name = "SearchProp%d" % i
 		root.position = pos
 		add_child(root)
-		_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
-		var lid := _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
+		# card kits: six DIFFERENT box silhouettes, each with a tweenable Lid
+		var lid: Node3D = null
+		var kit := _job_art("detective/opera_detective_box_%d.glb" % i, root)
+		if kit != null:
+			lid = kit.find_child("Lid", true, false) as Node3D
+		if lid == null:
+			_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
+			lid = _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
 		var has_clue := clue_picks.has(i)
 		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
@@ -592,7 +621,7 @@ func _sleuth_action(idx: int) -> void:
 		return
 	prop["opened"] = true
 	progress_t = 0.0
-	var lid := prop["lid"] as MeshInstance3D
+	var lid := prop["lid"] as Node3D
 	var lt := lid.create_tween()
 	lt.tween_property(lid, "position:y", lid.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	lt.tween_property(lid, "rotation:z", 0.5, 0.2)
@@ -607,6 +636,7 @@ func _sleuth_action(idx: int) -> void:
 			m.chime.play()
 		if clues_found >= 3:
 			chest_ready = true
+			_job_state(sleuth_chest_art, "StateActive", true)
 			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
 			m.show_msg("Roshan", "All three clues! Now tap the treasure chest to solve the case!", "talk")
 		else:
@@ -630,9 +660,14 @@ func _sleuth_chest() -> void:
 	# the tiara reveal: the chest bursts open in gold
 	m._sparkle_burst(goal.position + Vector3(0, 3.5, 0), Color(1.0, 0.9, 0.4))
 	m._sparkle_burst(goal.position + Vector3(0, 5.0, 0), Color(1.0, 0.75, 0.9))
-	var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
-	var tw := crown.create_tween()
-	tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if sleuth_chest_art != null:
+		# the kit's open lid + risen pearl tiara IS the reveal
+		_job_state(sleuth_chest_art, "StateIdle", false)
+		_job_state(sleuth_chest_art, "StateComplete", true)
+	else:
+		var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
+		var tw := crown.create_tween()
+		tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_win()
 
 func _open_gate() -> void:
@@ -785,14 +820,26 @@ func _build_order() -> void:
 			_box(Vector3(0, 0.7, 0), Vector3(3.0, 1.4, 2.0), Color(0.62, 0.42, 0.2), 0.0, goal)
 			_box(Vector3(0, 1.5, 0), Vector3(3.0, 0.5, 2.0), Color(1.0, 0.85, 0.4), 0.3, goal)
 		"paint":
-			_box(Vector3(0, 2.6, 0), Vector3(6.4, 4.6, 0.4), Color(0.96, 0.94, 0.88), 0.1, goal)
-			_box(Vector3(0, 0.3, 0.6), Vector3(5.0, 0.6, 0.6), Color(0.55, 0.38, 0.24), 0.0, goal)
+			if _job_art("painter/opera_painter_easel.glb", goal) == null:
+				_box(Vector3(0, 2.6, 0), Vector3(6.4, 4.6, 0.4), Color(0.96, 0.94, 0.88), 0.1, goal)
+				_box(Vector3(0, 0.3, 0.6), Vector3(5.0, 0.6, 0.6), Color(0.55, 0.38, 0.24), 0.0, goal)
 		_:
-			var bowl := CylinderMesh.new()
-			bowl.top_radius = 2.4
-			bowl.bottom_radius = 1.5
-			bowl.height = 1.6
-			_mesh(bowl, Vector3(0, 0.8, 0), Color(0.85, 0.9, 1.0), 0.1, goal)
+			chef_bowl_art = _job_art("pastry_chef/opera_pastry_chef_bowl.glb", goal)
+			if chef_bowl_art != null:
+				_job_state(chef_bowl_art, "StateActive", false)
+				_job_state(chef_bowl_art, "StateComplete", false)
+				# scenic oven alcove behind the stage (closed until the win)
+				chef_oven_art = _job_art("pastry_chef/opera_pastry_chef_oven.glb", self)
+				if chef_oven_art != null:
+					chef_oven_art.position = CENTER + Vector3(10.5, 1.0, -14.0)
+					chef_oven_art.rotation.y = -0.35
+					_job_state(chef_oven_art, "StateActive", false)
+			else:
+				var bowl := CylinderMesh.new()
+				bowl.top_radius = 2.4
+				bowl.bottom_radius = 1.5
+				bowl.height = 1.6
+				_mesh(bowl, Vector3(0, 0.8, 0), Color(0.85, 0.9, 1.0), 0.1, goal)
 	# the picture recipe: small copies above the goal, left-to-right = the order
 	if not reveal_one:
 		for s in range(order_steps.size()):
@@ -818,15 +865,52 @@ func _order_colors(theme: String) -> Array[Color]:
 		"clue":
 			return [Color(0.62, 0.45, 0.3), Color(0.55, 0.85, 1.0), Color(1.0, 0.6, 0.8)]
 		"paint":
-			return [Color(1.0, 0.55, 0.3), Color(1.0, 0.85, 0.35), Color(0.6, 0.5, 0.95)]
+			# LOCKED cue palette (handoff continuity): coral / cream / plum,
+			# so the live [2, 0, 1, 2] order reads plum, coral, cream, plum
+			return [Color(0.86, 0.42, 0.38), Color(0.93, 0.87, 0.78), Color(0.55, 0.36, 0.66)]
 		_:
-			return [Color(0.65, 0.42, 0.25), Color(1.0, 0.62, 0.78), Color(0.98, 0.94, 0.85)]
+			# the accepted card palette (vanilla / coral / plum) — the recipe
+			# tokens must match the 3D layer art so a non-reader can pair them
+			return [Color(0.94, 0.8, 0.52), Color(0.86, 0.42, 0.38), Color(0.55, 0.36, 0.66)]
+
+# ---------------- opera job 3D art (flat-card interpretations) ----------------
+# GLB kits built from the accepted 1024 cards (see
+# CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md). Every hook keeps its
+# primitive fallback so an unfinished batch can never break an act.
+const JOB_ART_DIR := "res://assets/opera/jobs/"
+
+func _job_art(rel: String, parent: Node3D) -> Node3D:
+	var path := JOB_ART_DIR + rel
+	if not ResourceLoader.exists(path):
+		return null
+	var ps := load(path) as PackedScene
+	if ps == null:
+		return null
+	var inst := ps.instantiate() as Node3D
+	parent.add_child(inst)
+	return inst
+
+func _job_state(root: Node3D, state: String, on: bool) -> void:
+	# toggle a named State* group inside a job GLB (visibility-state pattern)
+	if root == null:
+		return
+	var n := root.find_child(state, true, false)
+	if n is Node3D:
+		(n as Node3D).visible = on
 
 func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 	var prop := Node3D.new()
 	prop.name = "PadProp"
 	prop.position = Vector3(0, 0.6, 0)
 	parent.add_child(prop)
+	if theme == "cake":
+		# vanilla / coral / plum layer kits on their doily pedestals
+		var layer := _job_art("pastry_chef/opera_pastry_chef_layer_%s.glb" % ["vanilla", "coral", "plum"][i], prop)
+		if layer != null:
+			return prop
+	if theme == "paint":
+		if _job_art("painter/opera_painter_pot_%d.glb" % i, prop) != null:
+			return prop
 	match theme:
 		"clue":
 			# paw print / feather / ribbon — chunky clue shapes a non-reader can tell apart
@@ -911,6 +995,10 @@ func _stir_action() -> void:
 		return
 	stir_done += 1
 	progress_t = 0.0
+	if stir_done == 1:
+		# the bowl wakes up: whisk in, batter swirling
+		_job_state(chef_bowl_art, "StateIdle", false)
+		_job_state(chef_bowl_art, "StateActive", true)
 	var tw := goal.create_tween()
 	tw.tween_property(goal, "rotation:y", goal.rotation.y + TAU * float(stir_done), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.6))
@@ -918,6 +1006,11 @@ func _stir_action() -> void:
 		m.chime.pitch_scale = 0.85 + 0.25 * float(stir_done)
 		m.chime.play()
 	if stir_done >= 3:
+		# stirred to perfection: calm cream on top, oven glows open backstage
+		_job_state(chef_bowl_art, "StateActive", false)
+		_job_state(chef_bowl_art, "StateComplete", true)
+		_job_state(chef_oven_art, "StateIdle", false)
+		_job_state(chef_oven_art, "StateActive", true)
 		var pop := goal.create_tween()
 		pop.tween_property(goal, "scale", goal.scale * 1.25, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		m._sparkle_burst(goal.position + Vector3(0, 4.5, 0), Color(1.0, 0.75, 0.9))
@@ -1033,7 +1126,12 @@ func _build_echo() -> void:
 			bell.height = 2.2
 			_mesh(bell, Vector3(0, 1.4, 0), palette[i], 0.25, root)
 		else:
-			_cyl(Vector3(0, -0.3, 0), 3.0, 0.6, palette[i], 0.2, root)
+			# ballerina dance tiles: color+icon paired kits from the accepted cards
+			var tile := _job_art("ballerina/opera_ballerina_tile_%d.glb" % i, root)
+			if tile != null:
+				_job_state(tile, "StateActive", false)
+			else:
+				_cyl(Vector3(0, -0.3, 0), 3.0, 0.6, palette[i], 0.2, root)
 		pads.append({"index": i, "node": root, "pos": pos, "lit": false})
 	_echo_start_round()
 
@@ -1051,6 +1149,11 @@ func _echo_start_round() -> void:
 
 func _echo_light(i: int, strong: bool) -> void:
 	var node: Node3D = pads[i]["node"] as Node3D
+	# tile kit: pulse the emissive glow ring with the scale bounce
+	_job_state(node, "StateActive", true)
+	var off := node.create_tween()
+	off.tween_interval(0.4)
+	off.tween_callback(func() -> void: _job_state(node, "StateActive", false))
 	var tw := node.create_tween()
 	tw.tween_property(node, "scale", Vector3(1.25, 1.5, 1.25), 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(node, "scale", Vector3.ONE, 0.22)
@@ -1110,20 +1213,24 @@ func _build_shuffle() -> void:
 		root.name = "OperaHat%d" % i
 		root.position = pos
 		add_child(root)
-		_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, Color(0.3, 0.24, 0.45), 0.0, root)
-		var cone := CylinderMesh.new()
-		cone.top_radius = 0.35
-		cone.bottom_radius = 1.7
-		cone.height = 2.6
-		_mesh(cone, Vector3(0, 1.7, 0), Color(0.42, 0.26, 0.62), 0.2, root)
-		_cyl(Vector3(0, 0.45, 0), 2.1, 0.3, Color(0.42, 0.26, 0.62), 0.2, root)
+		# card kits: one shared hat silhouette, coral/teal/cream band colors
+		if _job_art("magician/opera_magician_hat_%d.glb" % i, root) == null:
+			_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, Color(0.3, 0.24, 0.45), 0.0, root)
+			var cone := CylinderMesh.new()
+			cone.top_radius = 0.35
+			cone.bottom_radius = 1.7
+			cone.height = 2.6
+			_mesh(cone, Vector3(0, 1.7, 0), Color(0.42, 0.26, 0.62), 0.2, root)
+			_cyl(Vector3(0, 0.45, 0), 2.1, 0.3, Color(0.42, 0.26, 0.62), 0.2, root)
 		hats.append({"index": i, "node": root, "pos": pos, "home": pos})
 	bunny = Node3D.new()
 	bunny.name = "BunnyFish"
 	add_child(bunny)
-	_sphere(Vector3(0, 0, 0), 0.8, Color(0.95, 0.92, 1.0), 0.2, bunny)
-	_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
-	_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
+	# always a pink FISH with long rabbit ears, never a rabbit body
+	if _job_art("magician/opera_magician_bunnyfish.glb", bunny) == null:
+		_sphere(Vector3(0, 0, 0), 0.8, Color(0.97, 0.62, 0.72), 0.2, bunny)
+		_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
+		_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
 	_shuffle_hide(0)
 
 func _shuffle_hide(target: int) -> void:
@@ -1229,18 +1336,22 @@ func _build_fix() -> void:
 	tank.name = "BubbleTank"
 	tank.position = CENTER + Vector3(-16.0, 1.0, -12.0)
 	add_child(tank)
-	_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
-	_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
+	if _job_art("astronaut/opera_astronaut_tank.glb", tank) == null:
+		_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
+		_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
 	var rocket := Node3D.new()
 	rocket.name = "StarRocket"
 	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
 	add_child(rocket)
-	_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
-	var nose := CylinderMesh.new()
-	nose.top_radius = 0.1
-	nose.bottom_radius = 1.8
-	nose.height = 2.6
-	_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
+	if _job_art("astronaut/opera_astronaut_rocket.glb", rocket) == null:
+		_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
+		var nose := CylinderMesh.new()
+		nose.top_radius = 0.1
+		nose.bottom_radius = 1.8
+		nose.height = 2.6
+		_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
+	# the live window sphere stays in both cases: the kit frames it with a
+	# brass port ring at the same spot, and the launch glow toggles it
 	rocket_window = _sphere(Vector3(0, 3.6, 1.5), 0.8, Color(0.2, 0.22, 0.4), 0.05, rocket)
 	rocket_window.material_override = rocket_window.material_override.duplicate() as StandardMaterial3D
 	# fixed pipe stubs along the run, with three gaps between them
@@ -1283,12 +1394,16 @@ func _build_fix() -> void:
 	valve.name = "BubbleValve"
 	valve.position = CENTER + Vector3(-16.0, 4.6, -10.4)
 	add_child(valve)
-	var wheel := TorusMesh.new()
-	wheel.inner_radius = 0.5
-	wheel.outer_radius = 1.0
-	var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
-	wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-	_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
+	var valve_kit := _job_art("astronaut/opera_astronaut_valve.glb", valve)
+	if valve_kit != null:
+		valve_kit.position = Vector3(0, -2.0, 0)   # pedestal reaches the deck
+	else:
+		var wheel := TorusMesh.new()
+		wheel.inner_radius = 0.5
+		wheel.outer_radius = 1.0
+		var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
+		wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
+		_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
 
 func _make_pipe_shape(shape: int, col: Color) -> Node3D:
 	# 0 = straight pipe, 1 = elbow pipe, 2 = ring coupler — chunky and distinct
@@ -1413,11 +1528,16 @@ func _build_press() -> void:
 	machine.name = "CandyPress"
 	machine.position = CENTER + Vector3(0, 1.0, -10.0)
 	add_child(machine)
-	_box(Vector3(-4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_box(Vector3(4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_box(Vector3(0, 7.2, 0), Vector3(9.6, 1.2, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
-	_cyl(Vector3(0, 0.5, 0), 2.0, 1.0, Color(0.95, 0.9, 0.98), 0.1, machine)
-	press_block = _box(Vector3(0, 5.4, 0), Vector3(2.6, 1.6, 2.0), Color(1.0, 0.75, 0.85), 0.2, machine)
+	# card kit: the coral gazebo press with its descending PressBlock stamp
+	var press_kit := _job_art("candymaker/opera_candymaker_press.glb", machine)
+	if press_kit != null:
+		press_block = press_kit.find_child("PressBlock", true, false) as Node3D
+	if press_block == null:
+		_box(Vector3(-4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_box(Vector3(4.2, 3.5, 0), Vector3(1.2, 7.0, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_box(Vector3(0, 7.2, 0), Vector3(9.6, 1.2, 1.6), Color(0.85, 0.55, 0.75), 0.1, machine)
+		_cyl(Vector3(0, 0.5, 0), 2.0, 1.0, Color(0.95, 0.9, 0.98), 0.1, machine)
+		press_block = _box(Vector3(0, 5.4, 0), Vector3(2.6, 1.6, 2.0), Color(1.0, 0.75, 0.85), 0.2, machine)
 	# the timing gauge floats in front: track, sweet-spot glow, sliding star
 	var track_y := 8.9
 	_box(CENTER + Vector3(0, track_y, -8.5), Vector3(11.0, 0.5, 0.5), Color(0.4, 0.34, 0.55), 0.1)
@@ -1433,7 +1553,9 @@ func _candy_next() -> void:
 	candy_node.name = "Candy%d" % candies_done
 	candy_node.position = CENTER + Vector3(0, 2.4, -10.0)
 	add_child(candy_node)
-	_sphere(Vector3.ZERO, 1.3, candy_cols[candies_done % candy_cols.size()], 0.25, candy_node)
+	# seven card-kit candies with different outer silhouettes, in batch order
+	if _job_art("candymaker/opera_candymaker_candy_%d.glb" % (candies_done % 7), candy_node) == null:
+		_sphere(Vector3.ZERO, 1.3, candy_cols[candies_done % candy_cols.size()], 0.25, candy_node)
 	candy_node.scale = Vector3.ZERO
 	var tw := candy_node.create_tween()
 	tw.tween_property(candy_node, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
@@ -1519,33 +1641,40 @@ func _build_doctor() -> void:
 	patient.name = "PlushPatient"
 	patient.position = CENTER + Vector3(0, 2.6, -2.0)
 	add_child(patient)
-	_sphere(Vector3.ZERO, 1.6, Color(0.78, 0.66, 0.92), 0.1, patient)
-	for i in range(5):
-		var a := float(i) * TAU / 5.0 + 0.3
-		_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.82, 0.7, 0.95), 0.1, patient)
-	_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-	_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+	# species lock: the patient is always the coral five-armed starfish plush
+	doctor_patient_art = _job_art("doctor/opera_doctor_patient.glb", patient)
+	if doctor_patient_art != null:
+		_job_state(doctor_patient_art, "StateComplete", false)
+	else:
+		_sphere(Vector3.ZERO, 1.6, Color(0.95, 0.55, 0.45), 0.1, patient)
+		for i in range(5):
+			var a := float(i) * TAU / 5.0 + 0.3
+			_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.98, 0.68, 0.58), 0.1, patient)
+		_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+		_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
 	# step 0: the stethoscope — listen to the plushy's little heart first
 	var scope := Node3D.new()
 	scope.name = "Stethoscope"
 	scope.position = CENTER + Vector3(-9.0, 1.0, 4.0)
 	add_child(scope)
-	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
-	var ring := TorusMesh.new()
-	ring.inner_radius = 0.55
-	ring.outer_radius = 0.75
-	_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
-	_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
+	if _job_art("doctor/opera_doctor_scope.glb", scope) == null:
+		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
+		var ring := TorusMesh.new()
+		ring.inner_radius = 0.55
+		ring.outer_radius = 0.75
+		_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
+		_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
 	doc_targets.append({"index": 0, "node": scope, "pos": scope.position, "kind": "scope"})
 	# step 1: the thermometer on its little stand
 	var thermo := Node3D.new()
 	thermo.name = "Thermometer"
 	thermo.position = CENTER + Vector3(9.0, 1.0, 4.0)
 	add_child(thermo)
-	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
-	var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
-	stem.rotation_degrees = Vector3(0, 0, 18.0)
-	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
+	if _job_art("doctor/opera_doctor_thermo.glb", thermo) == null:
+		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
+		var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
+		stem.rotation_degrees = Vector3(0, 0, 18.0)
+		_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
 	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
 	# steps 2-6: glowing boo-boos on the plush that become hearts when tended.
 	# The reach points alternate sides so each kiss is a little swim, not a
@@ -1564,10 +1693,11 @@ func _build_doctor() -> void:
 	roll.name = "BandageRoll"
 	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
 	add_child(roll)
-	var loop := TorusMesh.new()
-	loop.inner_radius = 0.4
-	loop.outer_radius = 0.9
-	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
+	if _job_art("doctor/opera_doctor_bandage.glb", roll) == null:
+		var loop := TorusMesh.new()
+		loop.inner_radius = 0.4
+		loop.outer_radius = 0.9
+		_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
 	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
 	band.visible = false
 	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
@@ -1628,6 +1758,9 @@ func _doctor_action(choice: int) -> void:
 		m.chime.play()
 	doc_step += 1
 	if doc_step >= doc_targets.size():
+		# recovered pose: worried face off, happy face + blush on
+		_job_state(doctor_patient_art, "StateIdle", false)
+		_job_state(doctor_patient_art, "StateComplete", true)
 		# magic-kiss finale: a fountain of hearts, then the plush pops up better
 		for h in range(3):
 			m._sparkle_burst(patient.position + Vector3(-1.5 + float(h) * 1.5, 2.5 + float(h) * 0.8, 1.0), Color(1.0, 0.6, 0.8))
@@ -1853,9 +1986,13 @@ func _build_dance() -> void:
 	mic.name = "StarMicrophone"
 	mic.position = CENTER + Vector3(0, 1.0, 2.0)
 	add_child(mic)
-	_cyl(Vector3(0, 0.2, 0), 1.3, 0.4, Color(0.4, 0.36, 0.6), 0.1, mic)
-	_box(Vector3(0, 2.0, 0), Vector3(0.22, 3.6, 0.22), Color(0.8, 0.82, 0.92), 0.15, mic)
-	_sphere(Vector3(0, 4.2, 0), 0.75, Color(1.0, 0.85, 0.4), 0.7, mic)
+	var mic_kit := _job_art("popstar/opera_popstar_microphone.glb", mic)
+	if mic_kit != null:
+		_job_state(mic_kit, "StateActive", false)
+	else:
+		_cyl(Vector3(0, 0.2, 0), 1.3, 0.4, Color(0.4, 0.36, 0.6), 0.1, mic)
+		_box(Vector3(0, 2.0, 0), Vector3(0.22, 3.6, 0.22), Color(0.8, 0.82, 0.92), 0.15, mic)
+		_sphere(Vector3(0, 4.2, 0), 0.75, Color(1.0, 0.85, 0.4), 0.7, mic)
 	_open_dance()
 
 func _open_dance() -> void:
