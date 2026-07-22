@@ -68,9 +68,20 @@ Assets
 - Voice lines (family recordings): backstage intro, curtain-open, act win
   lines per act (scripts already pass distinct `voice`/`win_line` strings)
 
+Costumes (DONE 2026-07-22 — bone-attached, one rig, every career): the stage
+Roshan is now the REAL rigged 3D player in puppet mode (`player.gd puppet`),
+and every career costume is built by `player.set_costume(id)` as toy-primitive
+pieces on `BoneAttachment3D` anchors (head / right hand / chest / waist) of
+the active skeleton — so the one procedural swim + verb set animates all
+twelve looks, exactly like the plushie skins. Authored costume art should
+drop in as replacement pieces under the same anchors in
+`player.gd set_costume`; do NOT ship per-career rigs or re-run auto-rig
+(bone names are the contract: see `_map_bones`).
+
 Mechanics wishlist
 - Imps occasionally juggle a stolen act prop (pure flavor)
-- Curtain-call bow pose for Roshan's cutout (verb clip)
+- Curtain-call bow pose for Roshan (verb clip — she's the rigged player on
+  stage now, so a new VERB_LIB entry covers it)
 
 ## Act 1 — Pastry Chef, "The Great Cake Show" (order + stir + toppings)
 Assets: cake layer models ×3 (`PadProp` on `OperaPad0..2`), mixing bowl with
