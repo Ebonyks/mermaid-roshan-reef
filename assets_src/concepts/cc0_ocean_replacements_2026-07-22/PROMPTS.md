@@ -3,6 +3,11 @@
 Mode: OpenAI built-in image generation. No external or protected reference
 images were supplied. The prompts use `ART_STYLE_GUIDE.md` as written direction.
 
+Scope correction: the initial two sheets covered only `8/35` of the numbered
+Regen list plus the separate three-file live-SeaWeed addendum. Subsequent
+family calls now cover `35/35` plus `3/3`. `REGEN_35_PROMPT_PLAN.md` is the
+numbered manifest and reusable corrected prompt set.
+
 ## Accepted Caribbean nautical sheet
 
 ```text
@@ -40,3 +45,35 @@ ground patches. The output resolved that contradiction as turquoise display
 plinths under every prop, so it was rejected and regenerated with the explicit
 no-plinth contract above. The rejected PNG is retained; it is not an accepted
 modeling reference.
+
+## Completed family-call evidence
+
+The accepted output filenames and their numbered rows are recorded in
+`REGEN_35_PROMPT_PLAN.md`. Its shared production block plus family blocks A–L
+form the corrected prompt set used for the complete handoff.
+
+- The first item-07 crystal-castle generation was rejected because it added
+  freestanding crystal clutter around the foundation. The corrected call
+  required exactly three attached architectural crystal roofs and prohibited
+  every loose crystal cluster.
+- The first items-09–10 butterfly generation was rejected because its closed-
+  wing state and leg anatomy were unreliable. The corrected call required,
+  for each species, open, half-folded, strict closed-profile and three-quarter
+  poses plus the `four wings / six legs / two antennae` anatomy contract.
+- All other new family sheets passed their recorded role-count, silhouette and
+  support-geometry checks on their first retained iteration.
+
+## Ecosystem context prompt set
+
+The Caribbean context prompt requests a wide gameplay-distance reef with an
+open central swim route and abundant independent elkhorn-like, staghorn-like,
+massive star/boulder-coral, sea-fan, tube-sponge and rooted-seagrass families.
+It prohibits Norwegian kelp and forbids fusing habitat to any Regen prop.
+
+The Norwegian context prompt requests two distinct depth panels: shallow rooted
+forests of tangle/stortare, sugar kelp, finger kelp and winged kelp; and deep
+cold-water branching coral, horn-coral/sea-tree and sponge gardens. It prohibits
+tropical coral and forbids mixing shallow kelp with the deep coral families.
+
+Both outputs are context-only density and placement references. They do not add
+Regen IDs or authorize combined habitat meshes.
