@@ -583,8 +583,9 @@ func _build_sleuth() -> void:
 	goal.name = "TiaraChest"
 	goal.position = CENTER + Vector3(0, 1.0, -12.0)
 	add_child(goal)
-	_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
-	_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
+	if _act_prop("opera_tiara_chest.glb", Vector3.ZERO, 0.0, goal) == null:
+		_box(Vector3(0, 0.8, 0), Vector3(3.4, 1.6, 2.2), Color(0.55, 0.38, 0.22), 0.05, goal)
+		_box(Vector3(0, 1.8, -0.6), Vector3(3.4, 0.6, 1.0), Color(0.62, 0.44, 0.26), 0.05, goal)
 	var clue_picks: Array[int] = []
 	while clue_picks.size() < clue_count:
 		var pick := randi() % prop_count
@@ -597,8 +598,12 @@ func _build_sleuth() -> void:
 		root.name = "SearchProp%d" % i
 		root.position = pos
 		add_child(root)
-		_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
-		var lid := _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
+		var lid: Node3D
+		if _act_prop("opera_crate.glb", Vector3.ZERO, 0.0, root) != null:
+			lid = _act_prop("opera_crate_lid.glb", Vector3(0, 2.3, 0), 0.0, root)
+		if lid == null:
+			_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
+			lid = _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
 		var has_clue := clue_picks.has(i)
 		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
@@ -611,7 +616,7 @@ func _sleuth_action(idx: int) -> void:
 		return
 	prop["opened"] = true
 	progress_t = 0.0
-	var lid := prop["lid"] as MeshInstance3D
+	var lid := prop["lid"] as Node3D
 	var lt := lid.create_tween()
 	lt.tween_property(lid, "position:y", lid.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	lt.tween_property(lid, "rotation:z", 0.5, 0.2)
@@ -632,7 +637,9 @@ func _sleuth_action(idx: int) -> void:
 			m.show_msg("Roshan", "A clue! %d more to find!" % (3 - clues_found), "talk")
 	else:
 		# a silly fish hides in the wrong boxes — a giggle, never a fail
-		var fish := _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
+		var fish: Node3D = _act_prop("opera_silly_fish.glb", (prop["pos"] as Vector3) + Vector3(0, 2.6, 0))
+		if fish == null:
+			fish = _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
 		var ft := fish.create_tween()
 		ft.tween_property(fish, "position:y", fish.position.y + 2.2, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		ft.tween_property(fish, "scale", Vector3.ZERO, 0.3)
@@ -2000,25 +2007,29 @@ func _build_boss() -> void:
 			baton.rotation_degrees = Vector3(0, 0, -34.0)
 			_sphere(Vector3(0, 4.4, 1.6), 0.4, Color(1.0, 0.85, 0.4), 0.6, root)
 	elif dual:
-		var cone := CylinderMesh.new()
-		cone.top_radius = 0.3
-		cone.bottom_radius = 2.4
-		cone.height = 5.2
-		_mesh(cone, Vector3(0, 2.6, 0), Color(0.16, 0.13, 0.3), 0.1, root)
-		_sphere(Vector3(0, 5.2, 0.8), 1.0, Color(0.94, 0.94, 1.0), 0.25, root)
-		_sphere(Vector3(-0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+		# Codex phantom puppet, primitive fallback
+		if _act_prop("opera_phantom.glb", Vector3.ZERO, 180.0, root) == null:
+			var cone := CylinderMesh.new()
+			cone.top_radius = 0.3
+			cone.bottom_radius = 2.4
+			cone.height = 5.2
+			_mesh(cone, Vector3(0, 2.6, 0), Color(0.16, 0.13, 0.3), 0.1, root)
+			_sphere(Vector3(0, 5.2, 0.8), 1.0, Color(0.94, 0.94, 1.0), 0.25, root)
+			_sphere(Vector3(-0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.4, 5.4, 1.55), 0.22, Color(0.1, 0.1, 0.25), 0.0, root)
 	else:
-		_cyl(Vector3(0, 1.8, 0), 1.1, 3.6, Color(0.35, 0.7, 0.45), 0.1, root)
-		_sphere(Vector3(0, 4.4, 0.6), 1.5, Color(0.4, 0.78, 0.5), 0.15, root)
-		var snout := CylinderMesh.new()
-		snout.top_radius = 0.5
-		snout.bottom_radius = 1.0
-		snout.height = 1.6
-		var sn := _mesh(snout, Vector3(0, 4.1, 2.0), Color(0.55, 0.88, 0.6), 0.15, root)
-		sn.rotation_degrees = Vector3(90, 0, 0)
-		_sphere(Vector3(-0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
-		_sphere(Vector3(0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
+		# Codex dragon puppet-on-stick, primitive fallback
+		if _act_prop("opera_dragon.glb", Vector3.ZERO, 180.0, root) == null:
+			_cyl(Vector3(0, 1.8, 0), 1.1, 3.6, Color(0.35, 0.7, 0.45), 0.1, root)
+			_sphere(Vector3(0, 4.4, 0.6), 1.5, Color(0.4, 0.78, 0.5), 0.15, root)
+			var snout := CylinderMesh.new()
+			snout.top_radius = 0.5
+			snout.bottom_radius = 1.0
+			snout.height = 1.6
+			var sn := _mesh(snout, Vector3(0, 4.1, 2.0), Color(0.55, 0.88, 0.6), 0.15, root)
+			sn.rotation_degrees = Vector3(90, 0, 0)
+			_sphere(Vector3(-0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
+			_sphere(Vector3(0.6, 5.3, 1.4), 0.28, Color(0.1, 0.1, 0.25), 0.0, root)
 	var first_phase := "shadow" if dual else "hide"
 	boss = {"node": root, "home": root.position, "hp": int(config.get("boss_hp", 3)), "phase": first_phase,
 		"timer": float(config.get("hide_time", 2.2)), "attack": 1.6, "dual": dual,
@@ -2033,7 +2044,10 @@ func _build_boss() -> void:
 			lroot.name = "OperaLantern%d" % i
 			lroot.position = lp
 			add_child(lroot)
-			_box(Vector3(0, 2.0, 0), Vector3(0.4, 4.0, 0.4), Color(0.5, 0.42, 0.3), 0.0, lroot)
+			# Codex lantern post + cage; the glass sphere stays a live primitive
+			# below so the flicker can keep pulsing its private material
+			if _act_prop("opera_lantern.glb", Vector3.ZERO, 0.0, lroot) == null:
+				_box(Vector3(0, 2.0, 0), Vector3(0.4, 4.0, 0.4), Color(0.5, 0.42, 0.3), 0.0, lroot)
 			var glass := _sphere(Vector3(0, 4.4, 0), 0.75, Color(1.0, 0.85, 0.45), 0.25, lroot)
 			# a private material per lantern so the flicker can pulse emission
 			# in place instead of minting cache entries every frame

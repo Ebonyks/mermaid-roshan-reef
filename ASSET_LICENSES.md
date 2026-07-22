@@ -193,3 +193,6 @@ ambientCG (all CC0).
   tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
 - License: project original
 - Modifications: n/a (original work); flat toon materials, no textures
+- 2026-07-21 addendum: Codex per-act packs added by the same generator
+  (dragon, phantom, lantern, crate + lid, silly fish, tiara chest) —
+  project original, no textures

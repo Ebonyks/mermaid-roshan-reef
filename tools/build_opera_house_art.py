@@ -249,6 +249,208 @@ def build_stage_apron():
     export("opera_stage_apron.glb")
 
 
+
+
+
+# ---------------- per-career themed WORLD sets (owner 2026-07-21) ----------------
+# One combined set GLB per act, placed along the stage backdrop. Data-driven:
+# (kind, size/radii, location, material, opts) — kinds: cube, cyl, sph, tor.
+
+SETS = {
+    "chef": [
+        ("cube", (5.0, 3.4, 6.5), (-8.5, -1.0, 3.25), "velvet_dark", {}),        # oven body
+        ("cyl", (1.6, 0.3), (-8.5, -2.75, 3.4), "night", {"rx": 90}),            # oven door
+        ("sph", 0.35, (-8.5, -1.0, 6.9), "gold", {}),                            # chimney knob
+        ("cyl", (2.6, 1.2), (0.0, 0, 0.6), "cream", {}),                         # cake tier 1
+        ("cyl", (1.9, 1.1), (0.0, 0, 1.75), "velvet", {}),                       # tier 2
+        ("cyl", (1.2, 1.0), (0.0, 0, 2.8), "cream", {}),                         # tier 3
+        ("sph", 0.45, (0.0, 0, 3.7), "velvet", {}),                              # cherry
+        ("cyl", (0.18, 5.2), (8.5, 0, 2.6), "brass", {}),                        # whisk handle
+        ("sph", 1.1, (8.5, 0, 5.6), "brass", {}),                                # whisk balloon
+    ],
+    "detective": [
+        ("cyl", (0.3, 8.0), (-10.0, 0, 4.0), "night", {}),                       # lamp post
+        ("sph", 0.9, (-10.0, 0, 8.4), "gold", {}),                               # lamp glow
+        ("cube", (6.5, 0.5, 5.0), (10.0, 0, 5.0), "plum", {}),                   # case board
+        ("cyl", (0.35, 5.0), (10.0, 0.6, 1.2), "night", {}),                     # board legs
+        ("tor", (1.6, 0.35), (0.0, 0, 6.0), "gold", {"rx": 90}),                 # giant magnifier
+        ("cyl", (0.28, 3.4), (1.9, 0, 3.4), "velvet_dark", {"rz": -35}),         # magnifier grip
+    ],
+    "ballerina": [
+        ("cyl", (0.22, 4.2), (-6.0, 0, 2.1), "brass", {}),                       # barre post L
+        ("cyl", (0.22, 4.2), (6.0, 0, 2.1), "brass", {}),                        # barre post R
+        ("cube", (12.6, 0.35, 0.35), (0.0, 0, 4.0), "gold", {}),                 # barre rail
+        ("cube", (7.0, 0.4, 6.5), (0.0, 1.2, 4.0), "glass", {}),                 # mirror
+        ("sph", 1.3, (-9.5, 0, 6.4), "glass", {}),                               # mirror ball
+        ("cyl", (0.18, 6.0), (-9.5, 0, 3.0), "brass", {}),                       # ball stand
+        ("sph", 0.8, (9.5, 0, 1.0), "velvet", {}),                               # rose bouquet
+    ],
+    "candymaker": [
+        ("cyl", (0.3, 7.0), (-8.0, 0, 3.5), "cream", {}),                        # lollipop stick L
+        ("sph", 2.1, (-8.0, 0, 8.0), "velvet", {}),                              # lollipop head L
+        ("cyl", (0.3, 5.6), (8.0, 0, 2.8), "cream", {}),                         # lollipop stick R
+        ("sph", 1.7, (8.0, 0, 6.6), "gold", {}),                                 # lollipop head R
+        ("cyl", (1.5, 2.4), (0.0, 0, 1.2), "cream", {}),                         # gumball base
+        ("sph", 1.9, (0.0, 0, 4.0), "glass", {}),                                # gumball globe
+        ("sph", 0.5, (0.6, 0.7, 3.6), "velvet", {}),                             # gumball
+        ("sph", 0.5, (-0.7, -0.4, 4.3), "gold", {}),                             # gumball
+    ],
+    "doctor": [
+        ("cyl", (0.25, 7.2), (-8.5, 0, 3.6), "cream", {}),                       # exam lamp pole
+        ("cyl", (1.2, 0.8), (-7.6, 0, 7.4), "gold", {"rz": 55}),                 # lamp head
+        ("cube", (5.2, 1.6, 4.2), (8.5, 0, 3.6), "cream", {}),                   # medicine cabinet
+        ("cube", (1.6, 0.2, 1.6), (8.5, -0.85, 4.4), "velvet", {}),              # red cross v
+        ("cube", (0.55, 0.22, 3.4), (8.5, -0.9, 4.4), "velvet", {}),             # red cross h
+        ("sph", 1.5, (0.0, 0, 6.8), "velvet", {}),                               # heart balloon
+        ("cyl", (0.08, 5.4), (0.0, 0, 2.7), "brass", {}),                        # balloon string
+    ],
+    "boxer": [
+        ("cyl", (0.9, 3.8), (-9.0, 0, 5.2), "velvet", {}),                       # punching bag
+        ("cyl", (0.12, 2.4), (-9.0, 0, 8.3), "brass", {}),                       # bag chain
+        ("cube", (3.2, 2.4, 0.6), (9.0, 0, 0.3), "gold", {}),                    # trophy base
+        ("cyl", (1.0, 1.6, 0.35), (9.0, 0, 1.9), "gold", {}),                    # trophy cup
+        ("cyl", (1.4, 0.9), (4.5, 0, 0.45), "plum", {}),                         # corner stool
+        ("cyl", (1.0, 0.7), (-4.5, 0, 0.35), "brass", {}),                       # water bucket
+    ],
+    "magician": [
+        ("cube", (7.0, 0.5, 6.5), (-9.0, 0, 5.5), "night", {}),                  # star backdrop
+        ("sph", 0.5, (-10.8, -0.4, 7.4), "gold", {}),                            # star dot
+        ("sph", 0.35, (-7.4, -0.4, 4.6), "gold", {}),                            # star dot
+        ("cyl", (1.8, 2.6), (9.0, 0, 1.3), "night", {}),                         # giant top hat
+        ("cyl", (2.7, 0.3), (9.0, 0, 0.15), "night", {}),                        # hat brim
+        ("cyl", (0.09, 4.0), (0.0, 0, 2.0), "cream", {"rz": 18}),                # wand
+        ("cyl", (0.11, 1.0), (0.6, 0, 3.9), "gold", {"rz": 18}),                 # wand tip
+    ],
+    "painter": [
+        ("cube", (6.8, 0.5, 5.4), (-9.0, 0, 5.0), "gold", {}),                   # framed picture
+        ("cube", (5.8, 0.3, 4.4), (-9.0, -0.15, 5.0), "glass", {}),              # picture glass
+        ("cube", (4.6, 2.0, 0.5), (9.0, 0, 0.25), "plum", {}),                   # can shelf
+        ("cyl", (0.7, 1.3), (7.8, 0, 1.3), "velvet", {}),                        # paint can
+        ("cyl", (0.7, 1.3), (9.2, 0, 1.3), "gold", {}),                          # paint can
+        ("cyl", (0.7, 1.3), (10.4, 0, 1.3), "glass", {}),                        # paint can
+        ("cyl", (0.22, 7.0), (2.5, 0, 3.5), "brass", {"rz": 12}),                # ladder rail
+        ("cyl", (0.22, 7.0), (4.1, 0, 3.5), "brass", {"rz": 12}),                # ladder rail
+    ],
+    "astronaut": [
+        ("sph", 2.4, (-9.0, 0, 6.0), "plum", {}),                                # planet
+        ("tor", (3.3, 0.25), (-9.0, 0, 6.0), "gold", {"rx": 65}),                # planet ring
+        ("cyl", (0.3, 4.2), (-9.0, 0, 2.1), "brass", {}),                        # planet stand
+        ("cube", (5.0, 2.2, 2.6), (9.0, 0, 1.3), "night", {}),                   # console
+        ("sph", 0.35, (8.0, -1.15, 1.9), "velvet", {}),                          # button
+        ("sph", 0.35, (9.0, -1.15, 1.9), "gold", {}),                            # button
+        ("sph", 0.35, (10.0, -1.15, 1.9), "glass", {}),                          # button
+        ("cyl", (0.8, 3.2), (2.5, 0, 1.6), "glass", {}),                         # oxygen tank
+        ("cyl", (0.8, 3.2), (4.2, 0, 1.6), "cream", {}),                         # oxygen tank
+    ],
+    "popstar": [
+        ("cube", (3.2, 2.6, 3.2), (-9.0, 0, 1.6), "night", {}),                  # speaker low
+        ("cube", (2.6, 2.2, 2.6), (-9.0, 0, 4.5), "plum", {}),                   # speaker top
+        ("cyl", (0.9, 0.3), (-9.0, -1.35, 4.5), "gold", {"rx": 90}),             # speaker cone
+        ("cube", (3.2, 2.6, 3.2), (9.0, 0, 1.6), "night", {}),                   # speaker low R
+        ("cube", (2.6, 2.2, 2.6), (9.0, 0, 4.5), "plum", {}),                    # speaker top R
+        ("cyl", (0.9, 0.3), (9.0, -1.35, 4.5), "gold", {"rx": 90}),              # speaker cone R
+        ("cyl", (0.25, 8.5), (0.0, 0, 4.25), "brass", {}),                       # light truss post
+        ("cyl", (0.7, 1.1), (0.0, 0.5, 8.2), "gold", {"rx": 65}),                # spotlight head
+    ],
+}
+
+
+def build_sets():
+    for name, pieces in SETS.items():
+        reset()
+        for kind, dims, loc, m, opts in pieces:
+            if kind == "cube":
+                o = cube(dims, loc, m)
+            elif kind == "cyl":
+                if len(dims) == 3:
+                    o = cyl(dims[0], dims[2], loc, m, r2=dims[1])
+                else:
+                    o = cyl(dims[0], dims[1], loc, m)
+            elif kind == "sph":
+                o = sphere(dims, loc, m)
+            else:
+                o = torus(dims[0], dims[1], loc, m)
+            if "rx" in opts:
+                o.rotation_euler.x = math.radians(opts["rx"])
+            if "rz" in opts:
+                o.rotation_euler.y = math.radians(opts["rz"])
+        export("opera_set_%s.glb" % name)
+
+
+# ------- Codex per-act packs (CODEX_ASSET_REQUESTS_2026-07-21.md section 4/5) -------
+# Each GLB is named for the placeholder node it replaces, one-for-one.
+
+def build_dragon():
+    """Curtain Dragon puppet-on-stick (Codex boss pack)."""
+    reset()
+    cyl(0.35, 5.0, (0, 0, -2.0), "brass", "stick", verts=10, bevel=0)
+    b = cyl(1.15, 3.6, (0, 0, 1.8), "glass", "body", verts=18, bevel=0)
+    b.data.materials[0].node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.35, 0.7, 0.45, 1)
+    h = sphere(1.5, (0, 0.6, 4.4), "glass", "head", seg=16)
+    h.data.materials[0].node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.4, 0.78, 0.5, 1)
+    s = cyl(1.0, 1.6, (0, 2.0, 4.1), "cream", "snout", verts=12, r2=0.5)
+    s.rotation_euler.x = math.radians(90)
+    for sx in (-1, 1):
+        sphere(0.28, (sx * 0.6, 1.4, 5.3), "night", "eye", seg=8)
+        f = cube((0.5, 0.2, 0.9), (sx * 1.0, -0.3, 5.6), "gold", "horn")
+        f.rotation_euler.y = math.radians(sx * 25)
+    export("opera_dragon.glb")
+
+
+def build_phantom():
+    """Shadow Phantom shy puppet (Codex boss pack)."""
+    reset()
+    g = cyl(2.4, 5.2, (0, 0, 2.6), "night", "gown", verts=20, r2=0.3, bevel=0)
+    g.scale = (1.0, 0.85, 1.0)
+    sphere(1.0, (0, 0.8, 5.2), "skin", "head", seg=16)
+    for sx in (-1, 1):
+        sphere(0.22, (sx * 0.4, 1.55, 5.4), "night", "eye", seg=8)
+    sphere(0.35, (0, 1.2, 3.6), "gold", "bow", seg=8)
+    export("opera_phantom.glb")
+
+
+def build_lantern():
+    """Stage lantern post + cage (glass stays a live primitive for flicker)."""
+    reset()
+    cube((0.5, 0.5, 4.0), (0, 0, 2.0), "brass", "post")
+    for i in range(4):
+        a = i * math.tau / 4
+        cyl(0.07, 1.7, (math.cos(a) * 0.75, math.sin(a) * 0.75, 4.4), "gold", "bar", verts=8, bevel=0)
+    torus(0.8, 0.1, (0, 0, 3.6), "gold", "cage_lo")
+    torus(0.8, 0.1, (0, 0, 5.2), "gold", "cage_hi")
+    sphere(0.2, (0, 0, 5.5), "gold", "cap", seg=8)
+    export("opera_lantern.glb")
+
+
+def build_sleuth_pack():
+    """Search crate + lid, silly fish, tiara chest (Codex sleuth pack)."""
+    reset()
+    cube((2.6, 2.6, 2.2), (0, 0, 1.1), "plum", "crate_body")
+    for i in range(3):
+        cube((2.7, 0.5, 0.4), (0, -1.12, 0.5 + i * 0.8), "brass", "slat")
+    export("opera_crate.glb")
+    reset()
+    cube((2.9, 2.9, 0.5), (0, 0, 0.25), "brass", "lid")
+    cube((0.7, 0.7, 0.4), (0, 0, 0.6), "gold", "handle")
+    export("opera_crate_lid.glb")
+    reset()
+    f = sphere(0.55, (0, 0, 0), "glass", "fish_body", seg=14)
+    f.scale = (1.2, 0.8, 1.0)
+    t = cube((0.5, 0.2, 0.6), (-0.75, 0, 0), "glass", "tail")
+    t.rotation_euler.y = math.radians(35)
+    sphere(0.1, (0.35, 0.35, 0.15), "night", "eye", seg=6)
+    export("opera_silly_fish.glb")
+    reset()
+    cube((3.4, 2.2, 1.6), (0, 0, 0.8), "velvet_dark", "chest_body")
+    c = cyl(1.1, 3.4, (0, 0, 1.8), "brass", "chest_lid", verts=16, bevel=0)
+    c.rotation_euler.z = math.radians(90)
+    c.scale = (1.0, 0.65, 1.0)
+    cube((0.5, 0.3, 0.5), (0, -1.1, 1.0), "gold", "clasp")
+    for i in range(3):
+        cyl(0.1, 0.7, (-0.5 + i * 0.5, 0, 2.6), "gold", "tiara_point", verts=6, bevel=0)
+    export("opera_tiara_chest.glb")
+
+
 if __name__ == "__main__":
     build_arch()
     build_curtain()
@@ -260,4 +462,8 @@ if __name__ == "__main__":
     build_lift()
     build_maestro()
     build_stage_apron()
+    build_dragon()
+    build_phantom()
+    build_lantern()
+    build_sleuth_pack()
     print("opera art set complete")
