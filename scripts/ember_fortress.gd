@@ -27,10 +27,9 @@ class_name EmberFortressLevel
 # Movement is the galaxy vocabulary: stick/arrows = run & turn on the sphere,
 # tap / SPACE / gamepad-A = JUMP (radial, floaty). Gravity is the planet's.
 #
-# Light budget: 7 OmniLights total (5 lanterns + king + avatar trail) — far
-# below the Butterfly World's existing per-scene peak, and this level never
-# coexists with another outdoor world, so no new global maximum. Lava glow
-# leans on emissive materials + the shared bloom, not lights.
+# Light budget: Sparkly may show the five lit lanterns and the nearby King.
+# Speedy shows at most one nearby lantern light; the King and avatar trail are
+# emission-only there. Lava glow is shader emission, never another light.
 # ============================================================================
 
 const PLANET_R := 40.0
@@ -41,16 +40,24 @@ const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const LANTERNS := 5
 const GATE_DIR := Vector3(0.0, 0.92, 0.4)      # the Great Gate, on the fortress hill's south face
-const KING_DIR := Vector3(0.0, 0.985, 0.17)    # the Ember King watches from above his gate
-const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
-const ROCKS := ["res://assets/aquatic/Rock1.glb", "res://assets/aquatic/Rock4.glb", "res://assets/aquatic/Rock7.glb", "res://assets/aquatic/Rock10.glb"]
-const GATE_GLB := "res://assets/art35/castle/dungeon_gate.glb"
-const LANTERN_GLB := "res://assets/dungeon/pepper_lantern.glb"
-const DRAGON_GLB := "res://assets/dungeon/dragon_turtle.glb"
-const STATUE_GLB := "res://assets/dungeon/turtle_statue.glb"
-const TOWER_GLB := "res://assets/kits/castle/tower-square.glb"
-const WALL_GLB := "res://assets/kits/castle/wall.glb"
-const FLAG_GLB := "res://assets/kits/castle/flag.glb"
+const KING_DIR := Vector3(0.26, 0.96, 0.10)    # the Ember King watches beside the gate, clear of its approach
+const ART_ROOT := "res://assets/ember_fortress/"
+const PLANET_GLB := ART_ROOT + "ember_planet.glb"
+const CRYSTALS := [ART_ROOT + "ember_crystal_a.glb", ART_ROOT + "ember_crystal_b.glb", ART_ROOT + "ember_crystal_c.glb"]
+const CRAGS := [ART_ROOT + "ember_crag_a.glb", ART_ROOT + "ember_crag_b.glb", ART_ROOT + "ember_crag_c.glb"]
+const TOWER_GLBS := [ART_ROOT + "ember_tower_a.glb", ART_ROOT + "ember_tower_b.glb", ART_ROOT + "ember_tower_c.glb", ART_ROOT + "ember_tower_d.glb"]
+const GATE_GLB := ART_ROOT + "ember_great_gate.glb"
+const GATE_VEIL_GLB := ART_ROOT + "ember_gate_veil.glb"
+const LANTERN_GLB := ART_ROOT + "ember_lantern.glb"
+const FLAME_GLB := ART_ROOT + "ember_flame.glb"
+const BEACON_GLB := ART_ROOT + "ember_beacon.glb"
+const GEYSER_GLB := ART_ROOT + "ember_geyser.glb"
+const KING_GLB := ART_ROOT + "ember_king.glb"
+const STATUE_GLB := ART_ROOT + "ember_sentry.glb"
+const WALL_GLB := ART_ROOT + "ember_rampart.glb"
+const FLAG_GLB := ART_ROOT + "ember_flag.glb"
+const MOON_GLB := ART_ROOT + "ember_ash_moon.glb"
+const HOME_RING_GLB := ART_ROOT + "ember_home_ring.glb"
 # lantern spots dodge the two lava-river latitude bands (see _lava_mix)
 const LANTERN_DIRS := [
 	Vector3(0.6, 0.55, 0.58), Vector3(-0.8, 0.05, 0.6), Vector3(0.75, -0.05, -0.66),
@@ -110,7 +117,7 @@ var _lit := 0
 var _gate_open := false
 var _gate_cool := 0.0
 var _gate_node: Node3D = null
-var _gate_veil: MeshInstance3D = null
+var _gate_veil: Node3D = null
 var _king: Node3D = null
 var _king_cool := 0.0
 var _blockers: Array = []         # {dir, r, cool} — solid footprints (surface metres)
@@ -119,6 +126,9 @@ var _sizzle_cool := 0.0
 var _sizzle_say := 0.0
 var _moon: Node3D = null
 var _flags: Array = []            # banner nodes for a slow ripple
+var _king_light: OmniLight3D = null
+var _trail_light: OmniLight3D = null
+var _light_cull_t := 0.0
 var _state := "play"              # play -> done
 var _celebrated := false          # first-completion fanfare shown this visit
 
@@ -135,6 +145,9 @@ func joy_pressed(btn: int) -> bool:
 	if m != null and m.has_method("joy_pressed"):
 		return m.joy_pressed(btn)
 	return Input.is_joy_button_pressed(0, btn)
+
+func _speedy() -> bool:
+	return _main != null and "quality" in _main and String(_main.quality) == "speedy"
 
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
@@ -183,22 +196,22 @@ func _build_env_sky() -> void:
 		_prev_env = _main.we_node.environment
 		var e := Environment.new()
 		e.background_mode = Environment.BG_COLOR
-		e.background_color = Color(0.02, 0.008, 0.01)
+		e.background_color = Color(0.075, 0.050, 0.14)
 		e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 		e.ambient_light_color = Color(0.52, 0.36, 0.34)
 		e.ambient_light_energy = 0.6
-		# low bloom threshold so the lava rivers and lantern flames bleed light
-		_main._wind_waker_bloom(e, 0.7, 0.1, 0.95)
+		# Warm effects stay legible without bleaching the basalt on Mobile.
+		_main._wind_waker_bloom(e, 0.62, 0.06, 1.05)
 		_main._apply_scene_grade(e, "ember")
 		_main.we_node.environment = e
 	# a dim smoulder sun + a hot lava rim from below the horizon
 	var sun := DirectionalLight3D.new()
-	sun.light_energy = 0.55
+	sun.light_energy = 0.88
 	sun.light_color = Color(1.0, 0.78, 0.62)
 	sun.rotation_degrees = Vector3(-38, 40, 0)
 	add_child(sun)
 	var rim := DirectionalLight3D.new()
-	rim.light_energy = 0.4
+	rim.light_energy = 0.28
 	rim.light_color = Color(1.0, 0.4, 0.18)
 	rim.rotation_degrees = Vector3(24, 215, 0)
 	add_child(rim)
@@ -206,8 +219,10 @@ func _build_env_sky() -> void:
 	# dark smoke bands, sparse stars, drifting sparks rising past the planet
 	var sky := MeshInstance3D.new()
 	var sm := SphereMesh.new()
-	sm.radius = 750.0
-	sm.height = 1500.0
+	# Keep the enclosure inside the gameplay camera's far plane. At 750 m the
+	# entire sphere was clipped, leaving the Ember world against pure black.
+	sm.radius = 180.0
+	sm.height = 360.0
 	sky.mesh = sm
 	var sh := Shader.new()
 	sh.code = """shader_type spatial;
@@ -220,11 +235,11 @@ float noise2(vec2 p){
 }
 void fragment(){
 	vec2 uv = UV;
-	// deep charcoal space with a smouldering maroon glow low on the sky
-	vec3 col = mix(vec3(0.015, 0.006, 0.010), vec3(0.10, 0.030, 0.022), pow(1.0 - abs(uv.y - 0.42) * 2.0, 3.0));
+	// Indigo-charcoal space separates the skyline from the warmer planet.
+	vec3 col = mix(vec3(0.10, 0.075, 0.22), vec3(0.28, 0.10, 0.075), pow(1.0 - abs(uv.y - 0.42) * 2.0, 3.0));
 	// slow rolling smoke bands
 	float smoke = noise2(vec2(uv.x * 5.0 + TIME * 0.02, uv.y * 9.0));
-	col = mix(col, vec3(0.05, 0.028, 0.032), smoke * 0.5);
+	col = mix(col, vec3(0.18, 0.12, 0.23), smoke * 0.30);
 	// sparse cold stars peeking through the smoke
 	vec2 g1 = uv * vec2(220.0, 120.0);
 	float s1 = step(0.996, h21(floor(g1))) * smoothstep(0.24, 0.0, length(fract(g1) - 0.5));
@@ -234,7 +249,7 @@ void fragment(){
 	float eh = h21(floor(g2));
 	float ember = step(0.988, eh) * smoothstep(0.34, 0.0, length(fract(g2) - 0.5));
 	float pulse = 0.55 + 0.45 * sin(TIME * 3.0 + eh * 40.0);
-	col += vec3(1.0, 0.42, 0.10) * ember * pulse * 0.8;
+	col += vec3(1.0, 0.46, 0.14) * ember * pulse * 0.55;
 	// a distant angry red vortex — the storm that keeps this world alone
 	vec2 gc = (uv - vec2(0.26, 0.60)) * vec2(2.2, 3.8);
 	float r = length(gc);
@@ -242,7 +257,7 @@ void fragment(){
 	float arm = 0.5 + 0.5 * cos(ang * 3.0 - r * 8.0 + TIME * 0.03);
 	col += vec3(0.55, 0.10, 0.06) * exp(-r * 3.4) * (0.3 + 0.7 * arm);
 	ALBEDO = col;
-	EMISSION = col * 0.8;
+	EMISSION = col * 1.18;
 }"""
 	var smat := ShaderMaterial.new()
 	smat.shader = sh
@@ -253,6 +268,16 @@ void fragment(){
 # ---------------------------------------------------------------- planet
 
 func _build_planet() -> void:
+	# The gameplay surface remains the exact analytic PLANET_R sphere; this
+	# shallow authored shell replaces the old engine primitive visually.
+	var authored_planet: Node3D = _authored_prop(PLANET_GLB, self, ORIGIN, PLANET_R * 2.02)
+	if authored_planet != null:
+		# _fit_small() ground-aligns ordinary props. A spherical world must stay
+		# centred on the analytic ORIGIN or every surface placement floats by R.
+		if authored_planet.get_child_count() > 0 and authored_planet.get_child(0) is Node3D:
+			(authored_planet.get_child(0) as Node3D).position = Vector3.ZERO
+		return
+	push_warning("Ember planet kit missing; using the procedural safety fallback")
 	var planet := MeshInstance3D.new()
 	var pm := SphereMesh.new()
 	pm.radius = PLANET_R
@@ -275,23 +300,33 @@ vec3 triplanar(sampler2D t, vec3 p, vec3 n, float s){
 	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y
 			+ texture(t, p.xy * s).rgb * w.z;
 }
+void vertex(){
+	vec3 d = normalize(VERTEX);
+	float broad = sin(d.x * 7.0 + d.z * 3.0) * sin(d.y * 8.0 - d.x * 2.0);
+	float small = sin(d.x * 19.0 - d.y * 13.0 + d.z * 11.0);
+	VERTEX += NORMAL * (broad * 0.48 + small * 0.16);
+	mpos = VERTEX;
+	mnrm = NORMAL;
+}
 void fragment(){
-	// dark toy-basalt with faint warm banding
+	// Cool violet basalt gives the warm objectives a clear value contrast.
 	float band = sin(UV.y * 11.0) * 0.5 + 0.5;
 	vec3 rock = triplanar(rock_tex, mpos, mnrm, 0.05);
-	vec3 col = rock * mix(vec3(0.26, 0.20, 0.24), vec3(0.36, 0.26, 0.26), band);
+	vec3 col = rock * mix(vec3(0.24, 0.22, 0.34), vec3(0.34, 0.25, 0.31), band);
 	// a cobbled parade path ring near the fortress pole
 	float polar = UV.y;
 	float parade = exp(-pow((polar - 0.16) * 26.0, 2.0));
-	vec3 cob = triplanar(cobble_tex, mpos, mnrm, 0.07) * vec3(0.5, 0.42, 0.44);
+	vec3 cob = triplanar(cobble_tex, mpos, mnrm, 0.07) * vec3(0.54, 0.48, 0.60);
 	col = mix(col, cob, clamp(parade, 0.0, 1.0) * 0.85);
 	// two glowing lava rivers circling the planet (mirrored by _lava_mix)
 	float wob = sin(UV.x * 12.566) * 0.03;
 	float lava1 = exp(-pow((UV.y - 0.42 + wob) * 30.0, 2.0));
 	float lava2 = exp(-pow((UV.y - 0.62 - wob) * 30.0, 2.0));
 	float lava = clamp(lava1 + lava2, 0.0, 1.0);
+	float lava_edge = smoothstep(0.015, 0.28, lava) * (1.0 - smoothstep(0.30, 0.76, lava));
 	float flow = 0.75 + 0.25 * sin(UV.x * 40.0 + TIME * 1.6);
 	vec3 lcol = mix(vec3(1.0, 0.36, 0.08), vec3(1.0, 0.78, 0.25), flow * lava);
+	col = mix(col, vec3(0.10, 0.07, 0.13), lava_edge * 0.8);
 	col = mix(col, lcol, lava);
 	// scattered cooling embers on the dark rock
 	vec2 g = UV * vec2(200.0, 110.0);
@@ -299,7 +334,7 @@ void fragment(){
 	float fleck = step(0.99, eh) * smoothstep(0.3, 0.05, length(fract(g) - 0.5));
 	float pulse = 0.5 + 0.5 * sin(TIME * 2.4 + eh * 50.0);
 	ALBEDO = col;
-	EMISSION = lcol * lava * (0.9 + 0.3 * flow) + vec3(1.0, 0.45, 0.12) * fleck * pulse * (1.0 - lava) * 0.7;
+	EMISSION = lcol * lava * (0.58 + 0.16 * flow) + vec3(1.0, 0.45, 0.12) * fleck * pulse * (1.0 - lava) * 0.4;
 	ROUGHNESS = 0.9;
 }"""
 	var mat := ShaderMaterial.new()
@@ -413,6 +448,89 @@ func _dark_stone(root: Node, tint: Color, glow: Color = Color.BLACK, glow_e: flo
 					m.emission_energy_multiplier = glow_e
 				mi.set_surface_override_material(si, m)
 
+func _mesh_tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3) -> void:
+	st.add_vertex(a)
+	st.add_vertex(b)
+	st.add_vertex(c)
+
+func _make_ember_flame_mesh() -> ArrayMesh:
+	# A faceted, leaning teardrop reads as fire instead of a glowing ball.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var rings: Array[Vector2] = [
+		Vector2(0.18, -0.65), Vector2(0.72, -0.30), Vector2(0.52, 0.18),
+		Vector2(0.30, 0.68), Vector2(0.0, 1.20),
+	]
+	var segments := 8
+	for li in range(rings.size() - 1):
+		var lower: Vector2 = rings[li]
+		var upper: Vector2 = rings[li + 1]
+		for si in range(segments):
+			var a0 := TAU * float(si) / float(segments)
+			var a1 := TAU * float(si + 1) / float(segments)
+			var lean0 := maxf(0.0, lower.y) * 0.18
+			var lean1 := maxf(0.0, upper.y) * 0.18
+			var p00 := Vector3(cos(a0) * lower.x + lean0, lower.y, sin(a0) * lower.x)
+			var p01 := Vector3(cos(a1) * lower.x + lean0, lower.y, sin(a1) * lower.x)
+			var p10 := Vector3(cos(a0) * upper.x + lean1, upper.y, sin(a0) * upper.x)
+			var p11 := Vector3(cos(a1) * upper.x + lean1, upper.y, sin(a1) * upper.x)
+			_mesh_tri(st, p00, p11, p10)
+			_mesh_tri(st, p00, p01, p11)
+	st.generate_normals()
+	return st.commit()
+
+func _make_vent_mesh() -> ArrayMesh:
+	# Uneven fused basalt lips replace the perfect engine torus.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var segments := 10
+	for si in range(segments):
+		var a0 := TAU * float(si) / float(segments)
+		var a1 := TAU * float(si + 1) / float(segments)
+		var ro0 := 2.6 + sin(float(si) * 2.7) * 0.34
+		var ro1 := 2.6 + sin(float(si + 1) * 2.7) * 0.34
+		var ri0 := 1.25 + cos(float(si) * 1.9) * 0.18
+		var ri1 := 1.25 + cos(float(si + 1) * 1.9) * 0.18
+		var h0 := 0.20 + 0.34 * (0.5 + 0.5 * sin(float(si) * 2.2))
+		var h1 := 0.20 + 0.34 * (0.5 + 0.5 * sin(float(si + 1) * 2.2))
+		var i0 := Vector3(cos(a0) * ri0, h0, sin(a0) * ri0)
+		var i1 := Vector3(cos(a1) * ri1, h1, sin(a1) * ri1)
+		var o0 := Vector3(cos(a0) * ro0, 0.0, sin(a0) * ro0)
+		var o1 := Vector3(cos(a1) * ro1, 0.0, sin(a1) * ro1)
+		_mesh_tri(st, i0, o1, o0)
+		_mesh_tri(st, i0, i1, o1)
+		var b0 := Vector3(cos(a0) * ri0, -0.34, sin(a0) * ri0)
+		var b1 := Vector3(cos(a1) * ri1, -0.34, sin(a1) * ri1)
+		_mesh_tri(st, i0, b1, i1)
+		_mesh_tri(st, i0, b0, b1)
+	st.generate_normals()
+	return st.commit()
+
+func _make_ash_moon_mesh() -> ArrayMesh:
+	# Low-poly, lopsided and crater-like in silhouette; no perfect sphere.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var rings := 8
+	var segments := 12
+	for li in range(rings - 1):
+		var lat0 := -PI * 0.5 + PI * float(li) / float(rings - 1)
+		var lat1 := -PI * 0.5 + PI * float(li + 1) / float(rings - 1)
+		for si in range(segments):
+			var lon0 := TAU * float(si) / float(segments)
+			var lon1 := TAU * float(si + 1) / float(segments)
+			var n00 := Vector3(cos(lat0) * cos(lon0), sin(lat0), cos(lat0) * sin(lon0))
+			var n01 := Vector3(cos(lat0) * cos(lon1), sin(lat0), cos(lat0) * sin(lon1))
+			var n10 := Vector3(cos(lat1) * cos(lon0), sin(lat1), cos(lat1) * sin(lon0))
+			var n11 := Vector3(cos(lat1) * cos(lon1), sin(lat1), cos(lat1) * sin(lon1))
+			var r00 := 5.0 * (1.0 + 0.07 * sin(float(si) * 2.3 + float(li) * 1.7))
+			var r01 := 5.0 * (1.0 + 0.07 * sin(float(si + 1) * 2.3 + float(li) * 1.7))
+			var r10 := 5.0 * (1.0 + 0.07 * sin(float(si) * 2.3 + float(li + 1) * 1.7))
+			var r11 := 5.0 * (1.0 + 0.07 * sin(float(si + 1) * 2.3 + float(li + 1) * 1.7))
+			_mesh_tri(st, n00 * r00, n11 * r11, n10 * r10)
+			_mesh_tri(st, n00 * r00, n01 * r01, n11 * r11)
+	st.generate_normals()
+	return st.commit()
+
 func _authored_prop(path: String, parent: Node3D, pos: Vector3, target_long: float, yaw: float = 0.0) -> Node3D:
 	if not ResourceLoader.exists(path):
 		return null
@@ -443,66 +561,43 @@ func _build_fortress() -> void:
 	# sink the ring base below the tangent plane so wall corners don't hover
 	fort.position = _surf(Vector3.UP, -1.5)
 	_blockers.append({"dir": Vector3.UP, "r": 8.5, "cool": 0.0})
-	var obsidian := Color(0.16, 0.11, 0.16)
-	var rampart := Color(0.22, 0.15, 0.18)
 	for i in range(4):
 		var ta: float = float(i) / 4.0 * TAU + TAU * 0.125
-		var tower: Node3D = _authored_prop(TOWER_GLB, fort, Vector3(sin(ta) * 8.0, 0.0, cos(ta) * 8.0), 4.2, -ta)
-		if tower != null:
-			_dark_stone(tower, obsidian)
-		var flag: Node3D = _authored_prop(FLAG_GLB, fort, Vector3(sin(ta) * 8.0, 6.4, cos(ta) * 8.0), 2.4, -ta)
+		var tower_size := 5.4 + float(i % 2) * 0.45
+		_authored_prop(TOWER_GLBS[i], fort, Vector3(sin(ta) * 8.2, 0.0, cos(ta) * 8.2), tower_size, -ta)
+		var flag: Node3D = _authored_prop(FLAG_GLB, fort, Vector3(sin(ta) * 8.2, 6.7 + float(i % 2) * 0.7, cos(ta) * 8.2), 2.4, -ta)
 		if flag != null:
-			_dark_stone(flag, Color(0.62, 0.14, 0.10), Color(0.9, 0.2, 0.1), 0.35)
 			_flags.append(flag)
 	for i in range(4):
 		var wa: float = float(i) / 4.0 * TAU
 		if i == 0:
 			continue   # the south face is the Great Gate's wall
-		var wall: Node3D = _authored_prop(WALL_GLB, fort, Vector3(sin(wa) * 8.0, 0.0, cos(wa) * 8.0), 5.6, -wa)
-		if wall != null:
-			_dark_stone(wall, rampart)
+		_authored_prop(WALL_GLB, fort, Vector3(sin(wa) * 8.0, 0.0, cos(wa) * 8.0), 5.6, -wa)
 	# THE GREAT GATE — the authored ten-pearl undercroft gate, giant-sized,
 	# facing down the parade path. Its veil drops when the 5 lanterns burn.
 	var gh := Node3D.new()
 	add_child(gh)
 	_place_on_planet(gh, GATE_DIR.normalized())
 	_gate_node = _authored_prop(GATE_GLB, gh, Vector3.ZERO, 9.0)
-	if _gate_node != null:
-		_dark_stone(_gate_node, Color(0.20, 0.13, 0.15), EMBER_COL, 0.18)
 	_blockers.append({"dir": GATE_DIR.normalized(), "r": 2.6, "cool": 0.0})
-	# the veil: a glowing ember curtain filling the arch while the gate is shut
-	_gate_veil = MeshInstance3D.new()
-	var vq := QuadMesh.new()
-	vq.size = Vector2(5.2, 6.4)
-	_gate_veil.mesh = vq
-	var vmat := StandardMaterial3D.new()
-	vmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	vmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	vmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	vmat.albedo_color = Color(1.0, 0.32, 0.10, 0.5)
-	vmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	_gate_veil.material_override = vmat
-	_gate_veil.position = Vector3(0, 3.4, 0.6)
-	gh.add_child(_gate_veil)
+	# Opaque modeled flame tongues avoid the former full-arch transparent wash.
+	_gate_veil = _authored_prop(GATE_VEIL_GLB, gh, Vector3(0, 0.4, -0.3), 6.2)
 	# two dragon-turtle sentries flank the gate
 	for s in [-1.0, 1.0]:
-		var sentry: Node3D = _authored_prop(STATUE_GLB, gh, Vector3(4.6 * s, 0.0, 1.2), 3.4, PI)
-		if sentry != null:
-			_dark_stone(sentry, Color(0.24, 0.17, 0.19), EMBER_COL, 0.10)
+		_authored_prop(STATUE_GLB, gh, Vector3(4.6 * s, 0.0, 1.2), 3.4, PI)
 	# THE EMBER KING himself: the great dragon-turtle perched above his gate,
 	# huge and theatrical — all growl, zero bite
 	var kh := Node3D.new()
 	add_child(kh)
 	_place_on_planet(kh, KING_DIR.normalized())
-	_king = _authored_prop(DRAGON_GLB, kh, Vector3(0, 4.6, 0), 7.5, PI)
-	if _king != null:
-		_dark_stone(_king, Color(0.30, 0.14, 0.12), Color(1.0, 0.3, 0.1), 0.35)
-	var kl := OmniLight3D.new()
-	kl.light_color = Color(1.0, 0.42, 0.16)
-	kl.light_energy = 2.2
-	kl.omni_range = 26.0
-	kl.position = Vector3(0, 7.0, 0)
-	kh.add_child(kl)
+	_king = _authored_prop(KING_GLB, kh, Vector3(0, 3.8, 0), 5.8, PI)
+	_king_light = OmniLight3D.new()
+	_king_light.light_color = Color(1.0, 0.42, 0.16)
+	_king_light.light_energy = 1.7
+	_king_light.omni_range = 22.0
+	_king_light.position = Vector3(0, 7.0, 0)
+	_king_light.visible = not _speedy()
+	kh.add_child(_king_light)
 
 # ---------------------------------------------------------------- objective
 
@@ -519,45 +614,27 @@ func _build_lanterns() -> void:
 		_blockers.append({"dir": ldir, "r": 1.3, "cool": 0.0})
 		var lant: Node3D = _authored_prop(LANTERN_GLB, lh, Vector3.ZERO, 3.2)
 		if lant != null:
-			_dark_stone(lant, Color(0.26, 0.18, 0.18))
-		# the flame orb above the lantern: grey ash when cold, blazing when lit
-		var flame := MeshInstance3D.new()
-		var fm := SphereMesh.new()
-		fm.radius = 0.7
-		fm.height = 1.4
-		flame.mesh = fm
+			var built_in_glow: Node = lant.find_child("Glow", true, false)
+			if built_in_glow is Node3D:
+				(built_in_glow as Node3D).visible = false
+		# A separate authored flame carries the persistent lit/unlit state.
+		var flame: Node3D = _authored_prop(FLAME_GLB, lh, Vector3(0, 3.15, 0), 1.65)
 		var fmat := StandardMaterial3D.new()
 		fmat.albedo_color = Color(0.35, 0.32, 0.34)
-		flame.material_override = fmat
-		flame.position = Vector3(0, 4.0, 0)
-		lh.add_child(flame)
+		if flame != null:
+			DungeonArt.apply_material(flame, fmat)
 		var ll := OmniLight3D.new()
 		ll.light_color = EMBER_COL
 		ll.light_energy = 0.0
 		ll.omni_range = 15.0
 		ll.position = Vector3(0, 4.4, 0)
+		ll.visible = false
 		lh.add_child(ll)
-		# BEACON: a tall additive pillar so far lanterns show over the horizon
-		var beam := MeshInstance3D.new()
-		var bc := CylinderMesh.new()
-		bc.top_radius = 0.4
-		bc.bottom_radius = 1.4
-		bc.height = 32.0
-		bc.radial_segments = 8
-		beam.mesh = bc
-		var bmt := StandardMaterial3D.new()
-		bmt.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		bmt.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		bmt.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		bmt.albedo_color = Color(1.0, 0.35, 0.12, 0.30)
-		beam.material_override = bmt
-		beam.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		var bup := ldir
-		var bany := Vector3.UP if absf(bup.dot(Vector3.UP)) < 0.95 else Vector3.RIGHT
-		var bt := bany.cross(bup).normalized()
-		beam.transform.basis = Basis(bt, bup, bt.cross(bup).normalized() * -1.0).orthonormalized()
-		beam.position = _surf(ldir, 18.0)
-		add_child(beam)
+		# Three solid diamonds remain readable over the horizon without overdraw.
+		var beam_holder := Node3D.new()
+		add_child(beam_holder)
+		_place_on_planet(beam_holder, ldir, 5.0)
+		var beam: Node3D = _authored_prop(BEACON_GLB, beam_holder, Vector3.ZERO, 20.0)
 		var entry := {"node": lh, "dir": ldir, "lit": false, "flame": flame, "beam": beam, "light": ll, "idx": i}
 		_lanterns.append(entry)
 		if lit:
@@ -568,16 +645,20 @@ func _build_lanterns() -> void:
 
 func _apply_lantern_lit(entry: Dictionary) -> void:
 	entry["lit"] = true
-	var flame: MeshInstance3D = entry["flame"]
+	var flame: Node3D = entry["flame"]
+	if flame == null:
+		return
 	var fmat := StandardMaterial3D.new()
 	fmat.albedo_color = Color(1.0, 0.66, 0.24)
 	fmat.emission_enabled = true
 	fmat.emission = EMBER_COL
 	fmat.emission_energy_multiplier = 2.2
-	flame.material_override = fmat
-	(entry["light"] as OmniLight3D).light_energy = 1.6
+	DungeonArt.apply_material(flame, fmat)
+	(entry["light"] as OmniLight3D).light_energy = 1.35
+	(entry["light"] as OmniLight3D).visible = not _speedy()
 	if entry.get("beam") != null and is_instance_valid(entry["beam"]):
 		(entry["beam"] as Node3D).visible = false
+	_sync_detail_lights()
 
 func _light_lantern(idx: int) -> void:
 	# Deterministic single entry point for lighting lantern `idx`: gameplay
@@ -601,9 +682,6 @@ func _light_lantern(idx: int) -> void:
 		for other in _lanterns:
 			if not bool(other["lit"]) and other.get("beam") != null and is_instance_valid(other["beam"]):
 				(other["beam"] as Node3D).scale = Vector3(3.0, 2.0, 3.0)
-				var bmm: StandardMaterial3D = (other["beam"] as MeshInstance3D).material_override
-				if bmm != null:
-					bmm.albedo_color.a = 0.55
 		if _lbl_hint != null:
 			_lbl_hint.text = "ONE lantern left — follow the GIANT red beacon!"
 	if _lit >= LANTERNS:
@@ -636,11 +714,10 @@ func _build_decor() -> void:
 		var rh := Node3D.new()
 		add_child(rh)
 		_place_on_planet(rh, rdir)
-		var rock: Node3D = _authored_prop(ROCKS[i % ROCKS.size()], rh, Vector3.ZERO, 2.6 + fposmod(float(i) * 1.7, 2.6))
+		var rock: Node3D = _authored_prop(CRAGS[i % CRAGS.size()], rh, Vector3.ZERO, 2.6 + fposmod(float(i) * 1.7, 2.6))
 		if rock == null:
 			rh.queue_free()
 			continue
-		_dark_stone(rock, Color(0.20, 0.15, 0.19))
 		rh.rotate(rdir, fposmod(float(i) * 2.1, TAU))
 		if i % 3 == 0:
 			_blockers.append({"dir": rdir, "r": 1.5, "cool": 0.0})
@@ -656,41 +733,21 @@ func _build_decor() -> void:
 		if crystal == null:
 			ch.queue_free()
 			continue
-		_dark_stone(crystal, Color(0.5, 0.12, 0.10), Color(1.0, 0.25, 0.10), 0.8)
 		_blockers.append({"dir": cdir, "r": 1.4, "cool": 0.0})
 	# LAVA GEYSERS on the rivers: step on one and WHOOSH — a friendly launch
 	for vdir_raw in VENT_DIRS:
 		var vdir: Vector3 = (vdir_raw as Vector3).normalized()
-		var pad := MeshInstance3D.new()
-		var ptm := TorusMesh.new()
-		ptm.inner_radius = 1.8
-		ptm.outer_radius = 3.0
-		pad.mesh = ptm
-		var pmat := StandardMaterial3D.new()
-		pmat.albedo_color = Color(1.0, 0.5, 0.2)
-		pmat.emission_enabled = true
-		pmat.emission = LAVA_COL
-		pmat.emission_energy_multiplier = 1.8
-		pad.material_override = pmat
 		var holder := Node3D.new()
 		add_child(holder)
-		holder.add_child(pad)
-		pad.position = Vector3(0, 0.5, 0)
+		var geyser: Node3D = _authored_prop(GEYSER_GLB, holder, Vector3.ZERO, 5.2)
+		if geyser == null:
+			holder.queue_free()
+			continue
+		var vent_flame: Node3D = geyser.find_child("FriendlyGeyserFlame", true, false) as Node3D
 		_place_on_planet(holder, vdir)
-		_vents.append({"dir": vdir, "cool": 0.0})
+		_vents.append({"dir": vdir, "cool": 0.0, "flame": vent_flame})
 	# one cracked ash moon keeps lonely watch
-	_moon = MeshInstance3D.new()
-	var mm := SphereMesh.new()
-	mm.radius = 5.0
-	mm.height = 10.0
-	(_moon as MeshInstance3D).mesh = mm
-	var mmat := StandardMaterial3D.new()
-	mmat.albedo_color = Color(0.30, 0.24, 0.26)
-	mmat.emission_enabled = true
-	mmat.emission = Color(0.6, 0.25, 0.15)
-	mmat.emission_energy_multiplier = 0.25
-	(_moon as MeshInstance3D).material_override = mmat
-	add_child(_moon)
+	_moon = _authored_prop(MOON_GLB, self, ORIGIN, 10.0)
 	# rising spark motes all around the planet
 	var sparks := CPUParticles3D.new()
 	sparks.amount = 50
@@ -722,18 +779,13 @@ func _build_home_ring() -> void:
 	# the friendly way home at the south pole — the one rainbow-bright thing
 	# on the whole dark planet, unmissable and always available
 	_home_pos = _surf(Vector3.DOWN, 4.0)
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 2.4
-	tm.outer_radius = 3.4
-	ring.mesh = tm
-	if _main != null and _main.has_method("_rainbow_mat"):
-		ring.material_override = _main._rainbow_mat()
 	var holder := Node3D.new()
 	add_child(holder)
-	holder.add_child(ring)
-	ring.position = Vector3(0, 3.2, 0)
-	ring.rotation_degrees = Vector3(90, 0, 0)
+	var ring: Node3D = _authored_prop(HOME_RING_GLB, holder, Vector3(0, 3.2, 0), 9.5)
+	if ring != null:
+		# The source ring lies in its local ground plane; stand it upright so the
+		# child sees a portal silhouette while approaching along the surface.
+		ring.rotation.x = PI * 0.5
 	_place_on_planet(holder, Vector3.DOWN)
 
 # ---------------------------------------------------------------- avatar
@@ -790,12 +842,13 @@ func _build_avatar() -> void:
 				if bi >= 0:
 					_av_bones[bn] = bi
 					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
-	var trail := OmniLight3D.new()
-	trail.light_color = Color(0.6, 0.85, 1.0)   # Roshan's cool glow vs the warm world
-	trail.light_energy = 1.6
-	trail.omni_range = 10.0
-	trail.position = Vector3(0, 2.0, 0)
-	_avatar.add_child(trail)
+	_trail_light = OmniLight3D.new()
+	_trail_light.light_color = Color(0.6, 0.85, 1.0)   # Roshan's cool glow vs the warm world
+	_trail_light.light_energy = 1.35
+	_trail_light.omni_range = 9.0
+	_trail_light.position = Vector3(0, 2.0, 0)
+	_trail_light.visible = not _speedy()
+	_avatar.add_child(_trail_light)
 	_dir = Vector3(0, -0.2, 1).normalized()
 	_fwd = Vector3(1, 0, 0)
 	_project_fwd()
@@ -973,15 +1026,42 @@ func _jump_pressed() -> bool:
 
 # ---------------------------------------------------------------- per-frame
 
+func _sync_detail_lights() -> void:
+	var speedy := _speedy()
+	if _trail_light != null:
+		_trail_light.visible = not speedy
+	if _king_light != null:
+		var king_distance := _dir.angle_to(KING_DIR.normalized()) * PLANET_R
+		_king_light.visible = not speedy and king_distance < 34.0
+	var closest_idx := -1
+	var closest_distance := INF
+	for ld in _lanterns:
+		if not bool(ld["lit"]):
+			continue
+		var distance: float = _dir.angle_to(ld["dir"]) * PLANET_R
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_idx = int(ld["idx"])
+	for ld in _lanterns:
+		var light: OmniLight3D = ld["light"]
+		light.visible = bool(ld["lit"]) and (not speedy or (int(ld["idx"]) == closest_idx and closest_distance < 18.0))
+
 func _process(delta: float) -> void:
 	if _state == "done":
 		return
 	_bob_t += delta
 	var tt: float = Time.get_ticks_msec() / 1000.0
+	_light_cull_t -= delta
+	if _light_cull_t <= 0.0:
+		_light_cull_t = 0.35
+		_sync_detail_lights()
 	# the ash moon on its lonely orbit
 	if _moon != null:
 		var ph: float = tt * 0.12
 		_moon.position = ORIGIN + Vector3(cos(ph) * PLANET_R * 2.2, sin(ph * 0.7) * PLANET_R * 0.5, sin(ph) * PLANET_R * 2.2)
+	if _gate_veil != null and _gate_veil.visible:
+		_gate_veil.scale.y = 1.0 + sin(tt * 4.2) * 0.055
+		_gate_veil.rotation.z = sin(tt * 1.8) * 0.025
 	# battlement banners ripple; lit lantern flames flicker
 	for i in range(_flags.size()):
 		var flag: Node3D = _flags[i]
@@ -990,7 +1070,13 @@ func _process(delta: float) -> void:
 	for ld in _lanterns:
 		if bool(ld["lit"]):
 			var flame: Node3D = ld["flame"]
-			flame.scale = Vector3.ONE * (1.0 + 0.14 * sin(tt * 9.0 + float(ld["idx"]) * 2.0))
+			var flicker := 1.0 + 0.10 * sin(tt * 9.0 + float(ld["idx"]) * 2.0)
+			flame.scale = Vector3(flicker * 0.94, flicker * 1.08, flicker * 0.94)
+	for vent in _vents:
+		var vent_flame: Node3D = vent.get("flame")
+		if is_instance_valid(vent_flame):
+			var phase := tt * 5.2 + float(_vents.find(vent)) * 1.9
+			vent_flame.scale = Vector3(1.18, 1.35 + sin(phase) * 0.12, 1.18)
 	# the Ember King sways and grumbles a greeting when Roshan comes close
 	if _king != null and is_instance_valid(_king):
 		_king.rotation.z = sin(tt * 0.9) * 0.05

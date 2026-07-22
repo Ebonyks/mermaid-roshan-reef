@@ -126,6 +126,8 @@ func _begin_room() -> void:
 	var room: Dictionary = rooms[room_index].duplicate()
 	room["room_tag"] = "ROOM %d / %d" % [room_index + 1, rooms.size()]
 	room["win_time"] = 1.4
+	if progress_field == "ember_progress":
+		room["art_theme"] = "ember"
 	if String(room.get("type", "combat")) == "combat":
 		arena = CombatArena.new()
 		add_child(arena)
