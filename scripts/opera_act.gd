@@ -49,7 +49,8 @@ var order_hidden := false          # clues hide until Roshan is near
 var order_phase := "steps"         # steps | stir
 var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
 var chef_oven_art: Node3D = null
-var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit | decorate
+var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
+var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit | decorate
 var stir_done := 0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
@@ -1608,33 +1609,40 @@ func _build_doctor() -> void:
 	patient.name = "PlushPatient"
 	patient.position = CENTER + Vector3(0, 2.6, -2.0)
 	add_child(patient)
-	_sphere(Vector3.ZERO, 1.6, Color(0.78, 0.66, 0.92), 0.1, patient)
-	for i in range(5):
-		var a := float(i) * TAU / 5.0 + 0.3
-		_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.82, 0.7, 0.95), 0.1, patient)
-	_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-	_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+	# species lock: the patient is always the coral five-armed starfish plush
+	doctor_patient_art = _job_art("doctor/opera_doctor_patient.glb", patient)
+	if doctor_patient_art != null:
+		_job_state(doctor_patient_art, "StateComplete", false)
+	else:
+		_sphere(Vector3.ZERO, 1.6, Color(0.95, 0.55, 0.45), 0.1, patient)
+		for i in range(5):
+			var a := float(i) * TAU / 5.0 + 0.3
+			_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.98, 0.68, 0.58), 0.1, patient)
+		_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
+		_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
 	# step 0: the stethoscope — listen to the plushy's little heart first
 	var scope := Node3D.new()
 	scope.name = "Stethoscope"
 	scope.position = CENTER + Vector3(-9.0, 1.0, 4.0)
 	add_child(scope)
-	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
-	var ring := TorusMesh.new()
-	ring.inner_radius = 0.55
-	ring.outer_radius = 0.75
-	_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
-	_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
+	if _job_art("doctor/opera_doctor_scope.glb", scope) == null:
+		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
+		var ring := TorusMesh.new()
+		ring.inner_radius = 0.55
+		ring.outer_radius = 0.75
+		_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
+		_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
 	doc_targets.append({"index": 0, "node": scope, "pos": scope.position, "kind": "scope"})
 	# step 1: the thermometer on its little stand
 	var thermo := Node3D.new()
 	thermo.name = "Thermometer"
 	thermo.position = CENTER + Vector3(9.0, 1.0, 4.0)
 	add_child(thermo)
-	_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
-	var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
-	stem.rotation_degrees = Vector3(0, 0, 18.0)
-	_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
+	if _job_art("doctor/opera_doctor_thermo.glb", thermo) == null:
+		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
+		var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
+		stem.rotation_degrees = Vector3(0, 0, 18.0)
+		_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
 	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
 	# steps 2-6: glowing boo-boos on the plush that become hearts when tended.
 	# The reach points alternate sides so each kiss is a little swim, not a
@@ -1653,10 +1661,11 @@ func _build_doctor() -> void:
 	roll.name = "BandageRoll"
 	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
 	add_child(roll)
-	var loop := TorusMesh.new()
-	loop.inner_radius = 0.4
-	loop.outer_radius = 0.9
-	_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
+	if _job_art("doctor/opera_doctor_bandage.glb", roll) == null:
+		var loop := TorusMesh.new()
+		loop.inner_radius = 0.4
+		loop.outer_radius = 0.9
+		_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
 	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
 	band.visible = false
 	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
@@ -1717,6 +1726,9 @@ func _doctor_action(choice: int) -> void:
 		m.chime.play()
 	doc_step += 1
 	if doc_step >= doc_targets.size():
+		# recovered pose: worried face off, happy face + blush on
+		_job_state(doctor_patient_art, "StateIdle", false)
+		_job_state(doctor_patient_art, "StateComplete", true)
 		# magic-kiss finale: a fountain of hearts, then the plush pops up better
 		for h in range(3):
 			m._sparkle_burst(patient.position + Vector3(-1.5 + float(h) * 1.5, 2.5 + float(h) * 0.8, 1.0), Color(1.0, 0.6, 0.8))
