@@ -196,3 +196,11 @@ ambientCG (all CC0).
 - 2026-07-21 addendum: Codex per-act packs added by the same generator
   (dragon, phantom, lantern, crate + lid, silly fish, tiara chest) —
   project original, no textures
+
+## assets/art35/cards/**/*.glb (135 storybook-cutout conversions)
+- Source: the project's own flat card art (assets_src/style_review_*,
+  assets_src/imagegen chroma pass, assets/props/gen2, assets/mg), converted
+  to alpha-clipped extruded cutout GLBs by tools/convert_flat_cards_to_glb.py
+  (Blender); NPOT textures resized to POT <=1024 during conversion
+- License: project original (derivatives of already-licensed project art)
+- Modifications: card mesh + solidify extrusion; texture resize where needed
