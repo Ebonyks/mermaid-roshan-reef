@@ -10,6 +10,14 @@ candidate pack, `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` at the repo root is
 the current prioritized directive list (P0 QA fixes → P1 promotion → P2
 rework → P3 coverage). Close P0 before generating anything new.
 
+**Queued next (owner directive 2026-07-22):** once P0 above is closed,
+`CC0_REPLACEMENT_WORKORDER_2026-07-22.md` at the repo root is the next
+directive — replace the remaining non-original (CC0/CC-BY/unclear-license)
+world assets with authored ones, following the same two-pipeline split and
+stress-test loop as everything else in this contract. It already separates
+genuinely-live items (real work) from dead code nobody deleted yet (zero
+art needed) — read its Group 2 table before generating anything from it.
+
 **Audit memory:** read `assets/OBJECT_GENERATION_AUDIT_LOG.md` before creating
 a generation prompt or Blender generator. It evaluates the source audits,
 assigns stable rule IDs, records family-specific failures, and defines the

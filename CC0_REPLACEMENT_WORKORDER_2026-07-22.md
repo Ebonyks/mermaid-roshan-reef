@@ -75,15 +75,20 @@ rule and deserves its own explicit go-ahead.
 
 ## Group 2 — genuinely live, needs a real replacement before deletion
 
-This is the actual Codex handoff list. For each item Codex should produce
-2D concept art (style-guided by `ART_STYLE_GUIDE.md` and, where a similar
-role already shipped, the nearest existing GEN2 reference for palette/silhouette
-consistency); Claude then either models it in Blender (matching
-`tools/build_*.py` precedent) or runs it through the Meshy image-to-3D lane
-(matching `tools/roshan_v2_retarget.py`/NPC workorder precedent), following
-the existing per-asset pipeline: shrink/decimate, embed matte materials,
-`tools/glb_check.py`, ASSET_LICENSES.md line, probes green, then wire via the
-matching `*_GEN2` dict so the old file goes dark before it's deleted.
+This is the actual Codex handoff list. Every item below is a **world/
+environment asset**, which per `assets/ART_GENERATION_CONTRACT.md`'s
+two-pipeline split is Codex's own lane directly: a deterministic Python/
+Blender generator script in `tools/`, flat multi-material texture-free
+geometry, no Meshy and no book-art involved (none of these are book-derived
+characters — that lane is reserved for Roshan/friends and stays untouched).
+Follow the contract's stress-test loop exactly as the Northern Kingdom kit
+and pearl-castle kit did: generate → capture near/mid/gameplay-distance on
+the Mobile renderer via CI → reject on silhouette/material/scale/repetition
+→ regenerate → owner acceptance. Ship each asset with its generator script,
+`assets_src/blender/` source, QA renders, and an `ASSET_LICENSES.md` row in
+the same commit, then wire it through the matching `*_GEN2` dict (or a new
+one, following the `KIT_GEN2`/`NATURE_GEN2` pattern) so the old file goes
+dark before it's deleted in a follow-up commit.
 
 | Item | Current source/license | Live call site(s) | Suggested integration point |
 |---|---|---|---|
@@ -127,15 +132,21 @@ matching `*_GEN2` dict so the old file goes dark before it's deleted.
 
 ## Execution rule for whoever picks this up
 
-1. Codex drafts 2D concept art for one Group 2 item (or a batch), guided by
-   `ART_STYLE_GUIDE.md`.
-2. Claude converts it via Blender (or Meshy where the item suits image-to-3D,
-   per NPC/Roshan-v2 precedent), runs `tools/glb_check.py`, adds the
-   `ASSET_LICENSES.md` line, wires it through the matching `*_GEN2` dict.
-3. Probe suite green on CI for the exact commit.
-4. **Only then**, in a follow-up commit, delete the superseded CC0/CC-BY
+**Gated behind P0:** `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` P0 says "do not
+begin new generation until P0 is closed." This workorder queues behind that
+— check P0's status before starting any Group 2 item.
+
+1. Codex writes/runs the deterministic Blender generator script for one
+   Group 2 item (or a tightly related small batch, e.g. the 3 galaxy
+   crystals), guided by `ART_STYLE_GUIDE.md`.
+2. Runtime capture + stress-test loop per `assets/ART_GENERATION_CONTRACT.md`
+   (near/mid/gameplay Mobile views via CI); iterate until it clears review.
+3. Adds the `ASSET_LICENSES.md` row, wires it through the matching `*_GEN2`
+   dict (or a new dict following that pattern) in the same commit.
+4. Probe suite green on CI for the exact commit; owner acceptance per
+   `ART_SCORING_GOVERNANCE_2026-07-18.md`.
+5. **Only then**, in a follow-up commit, delete the superseded CC0/CC-BY
    file and remove its `ASSET_LICENSES.md` line and any now-dead fallback
    code path.
-5. One asset (or tightly related small group, e.g. the 3 galaxy crystals)
-   per commit — mirrors the `NPC_3D_WORKORDER` and Refactor-rules precedent
-   of small, probed, reversible steps.
+6. One asset (or tightly related small group) per commit — mirrors the
+   Refactor-rules precedent of small, probed, reversible steps.
