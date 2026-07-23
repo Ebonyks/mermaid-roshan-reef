@@ -1,0 +1,172 @@
+{
+  "id": "dirty_castle_cleanup_2d",
+  "version": 1,
+  "asset_only": true,
+  "runtime_integration": "not_wired",
+  "source_dev_commit": "6de38d15c7ecd58b61b4898201b74d5c1f926512",
+  "pool_included": false,
+  "pool_reason": "No Roshan pool feature files or callsites were present on origin/dev when this pack was generated.",
+  "render_contract": {
+    "sprite_size": [512, 512],
+    "sprite_format": "RGBA PNG",
+    "cinematic_size": [1024, 576],
+    "cinematic_format": "RGB PNG",
+    "renderer": "mobile",
+    "lighting": "unshaded_2d_or_unshaded_sprite3d",
+    "new_omni_lights": 0
+  },
+  "targets": [
+    {
+      "id": "dust_bunnies",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_dust_bunnies.png",
+      "verb": "sweep",
+      "preferred_tool": "dustpan_broom",
+      "reuse_rooms": ["grand_hall", "library", "toy_room", "bedroom"]
+    },
+    {
+      "id": "cobweb",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_cobweb.png",
+      "verb": "brush",
+      "preferred_tool": "shell_scrub_brush",
+      "reuse_rooms": ["grand_hall_upper_corner", "library", "undercroft"]
+    },
+    {
+      "id": "muddy_footprints",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_muddy_footprints.png",
+      "verb": "mop",
+      "preferred_tool": "rainbow_mop",
+      "reuse_rooms": ["grand_hall_threshold", "pantry", "undercroft"]
+    },
+    {
+      "id": "floor_scuff",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_floor_scuff.png",
+      "verb": "mop",
+      "preferred_tool": "rainbow_mop",
+      "reuse_rooms": ["grand_hall", "craft_room", "music_room"]
+    },
+    {
+      "id": "sticky_spill",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_sticky_spill.png",
+      "verb": "wipe",
+      "preferred_tool": "star_sponge",
+      "reuse_rooms": ["grand_hall", "pantry", "craft_room"]
+    },
+    {
+      "id": "window_smudge",
+      "path": "res://assets/castle/dirty_cleanup_2d/targets/target_window_smudge.png",
+      "verb": "wipe",
+      "preferred_tool": "star_sponge",
+      "reuse_rooms": ["throne_window", "bedroom_window", "library_window"]
+    }
+  ],
+  "tools": [
+    {
+      "id": "shell_suds_bucket",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_suds_bucket.png",
+      "role": "shared_supply"
+    },
+    {
+      "id": "star_sponge",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "role": "wipe"
+    },
+    {
+      "id": "rainbow_mop",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_rainbow_mop.png",
+      "role": "mop"
+    },
+    {
+      "id": "shell_scrub_brush",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_scrub_brush.png",
+      "role": "brush"
+    },
+    {
+      "id": "shell_spray_bottle",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_spray_bottle.png",
+      "role": "prep_surface"
+    },
+    {
+      "id": "dustpan_broom",
+      "path": "res://assets/castle/dirty_cleanup_2d/tools/tool_dustpan_broom.png",
+      "role": "sweep"
+    }
+  ],
+  "effects": [
+    {
+      "id": "soap_bubbles",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "use": "touch_confirmation"
+    },
+    {
+      "id": "gold_sparkle",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_gold_sparkle.png",
+      "use": "target_complete"
+    },
+    {
+      "id": "wipe_swoosh",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+      "use": "wipe_motion"
+    },
+    {
+      "id": "soap_foam",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_foam.png",
+      "use": "scrub_progress"
+    },
+    {
+      "id": "clean_ring",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+      "use": "pointer_and_completion_ring"
+    },
+    {
+      "id": "all_clean_badge",
+      "path": "res://assets/castle/dirty_cleanup_2d/effects/fx_all_clean_badge.png",
+      "use": "section_complete"
+    }
+  ],
+  "cinematic": [
+    {
+      "order": 1,
+      "id": "arrival_dirty",
+      "path": "res://assets/cinematics/dirty_castle/01_arrival_dirty.png",
+      "voice_intent": "Oh! Our castle needs some love. We can clean it together!"
+    },
+    {
+      "order": 2,
+      "id": "choose_tools",
+      "path": "res://assets/cinematics/dirty_castle/02_choose_tools.png",
+      "voice_intent": "Roshan has the sponge, Daddy has the mop, and Baby Eagle has the brush!"
+    },
+    {
+      "order": 3,
+      "id": "roshan_window",
+      "path": "res://assets/cinematics/dirty_castle/03_roshan_window.png",
+      "voice_intent": "Round and round, Roshan makes the rainbow shine!"
+    },
+    {
+      "order": 4,
+      "id": "daddy_floor",
+      "path": "res://assets/cinematics/dirty_castle/04_daddy_floor.png",
+      "voice_intent": "Swish, swish! Daddy makes the floor sparkle!"
+    },
+    {
+      "order": 5,
+      "id": "eagle_dust",
+      "path": "res://assets/cinematics/dirty_castle/05_eagle_dust.png",
+      "voice_intent": "Baby Eagle brushes the last dusty corner. Flap, flap!"
+    },
+    {
+      "order": 6,
+      "id": "all_clean",
+      "path": "res://assets/cinematics/dirty_castle/06_all_clean.png",
+      "voice_intent": "All clean! We did it together!"
+    }
+  ],
+  "interaction_contract": {
+    "reader_dependency": "none",
+    "input": "one_finger",
+    "fail_state": "none",
+    "progress_loss": "none",
+    "objective_requirements": ["existing_voice_pipeline", "visual_pointer"],
+    "recommended_loop": "Show one large target with a pulsing clean ring, voice its action, accept repeated taps or a forgiving short swipe, play bubbles during progress, dissolve the dirt, show a gold sparkle, save after every target."
+  }
+}
