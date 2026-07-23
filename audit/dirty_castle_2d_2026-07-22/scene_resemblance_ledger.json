@@ -1,0 +1,883 @@
+{
+  "audit_version": 1,
+  "initial_scene_bound_failures": 41,
+  "regenerated": 41,
+  "final_passes": 41,
+  "final_failures": 0,
+  "method": "Exact shipped-GLB render preserved beneath deliberate grime overlays.",
+  "entries": [
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/target_toy_blocks.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/target_toy_blocks.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/target_toy_blocks.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_toy_block_stack.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.039722,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/target_tipped_books.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/target_tipped_books.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/target_tipped_books.png",
+      "references": [
+        "res://assets/art35/castle/royal_bookcase.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.02726,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/target_cloud_cushions.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/target_cloud_cushions.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/target_cloud_cushions.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_cloud_pouf.glb",
+        "res://assets/castle/pearl_kit/pearl_cloud_settee.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.027561,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_dusty_chandelier.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_dusty_chandelier.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_dusty_chandelier.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_shell_chandelier.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.029205,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_crooked_banner.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_crooked_banner.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_crooked_banner.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_shell_banner_a.glb"
+      ],
+      "style": "cobweb",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.020744,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_smudged_throne.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_smudged_throne.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_smudged_throne.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_shell_throne.glb"
+      ],
+      "style": "smudge",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.049656,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_messy_pantry.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_messy_pantry.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_messy_pantry.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_pantry_shelf.glb"
+      ],
+      "style": "crumbs",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.050682,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_messy_craft_table.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_messy_craft_table.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_messy_craft_table.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_craft_table.glb"
+      ],
+      "style": "clutter",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.036449,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/vignettes/vignette_messy_toy_chest.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/vignettes/vignette_messy_toy_chest.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/vignettes/vignette_messy_toy_chest.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_toy_chest.glb"
+      ],
+      "style": "clutter",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.052406,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_puzzle_tiles.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_puzzle_tiles.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_puzzle_tiles.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_shell_hopscotch.glb"
+      ],
+      "style": "scuff",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.037735,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_stacking_rings.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_stacking_rings.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_stacking_rings.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_rainbow_stacker.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.044502,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_shell_tea_set.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_shell_tea_set.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_shell_tea_set.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_shell_drum.glb"
+      ],
+      "style": "smudge",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.054718,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_dressup_pile.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_dressup_pile.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_dressup_pile.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_toy_chest.glb"
+      ],
+      "style": "clutter",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.052406,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_balls_beanbag.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_balls_beanbag.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_balls_beanbag.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_story_cushion.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.056683,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_wheeled_shell_toy.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/playroom/playroom_wheeled_shell_toy.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/playroom/playroom_wheeled_shell_toy.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_toy_sailboat.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.03326,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_fallen_books.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_fallen_books.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_fallen_books.png",
+      "references": [
+        "res://assets/art35/castle/royal_bookcase.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.027256,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_bookmark_ribbons.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_bookmark_ribbons.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_bookmark_ribbons.png",
+      "references": [
+        "res://assets/art35/castle/royal_bookcase.glb"
+      ],
+      "style": "smudge",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.039108,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_story_scrolls.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_story_scrolls.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_story_scrolls.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_library_table.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.043308,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_book_cart.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_book_cart.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_book_cart.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_library_table.glb"
+      ],
+      "style": "clutter",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.047409,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_reading_cushions.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_reading_cushions.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_reading_cushions.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_story_cushion.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.056683,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/library/library_picture_cards.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/library/library_picture_cards.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/library/library_picture_cards.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_library_table.glb"
+      ],
+      "style": "smudge",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.064304,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_sink_plates.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_sink_plates.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_sink_plates.png",
+      "references": [
+        "res://assets/castle/kitchen_sink.glb"
+      ],
+      "style": "water",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.036392,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_counter_flour.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_counter_flour.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_counter_flour.png",
+      "references": [
+        "res://assets/castle/kitchen_counter.glb"
+      ],
+      "style": "flour",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.031597,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_stove_drips.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_stove_drips.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_stove_drips.png",
+      "references": [
+        "res://assets/castle/kitchen_stove.glb"
+      ],
+      "style": "drips",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.039585,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_tipped_cups.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_tipped_cups.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_tipped_cups.png",
+      "references": [
+        "res://assets/art35/castle/kitchen_teapot.glb",
+        "res://assets/art35/castle/kitchen_kettle.glb"
+      ],
+      "style": "water",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.018921,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_crooked_pan.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_crooked_pan.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_crooked_pan.png",
+      "references": [
+        "res://assets/art35/castle/kitchen_pan_set.glb"
+      ],
+      "style": "drips",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.017971,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_cabinet_jars.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/royal_kitchen/kitchen_cabinet_jars.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/royal_kitchen/kitchen_cabinet_jars.png",
+      "references": [
+        "res://assets/castle/kitchen_counter.glb"
+      ],
+      "style": "crumbs",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.021317,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_tub_soap_ring.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/bubble_bath/bath_tub_soap_ring.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/bubble_bath/bath_tub_soap_ring.png",
+      "references": [
+        "res://assets/castle/bathroom_bathtub.glb"
+      ],
+      "style": "soap",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.072277,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_foggy_mirror.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/bubble_bath/bath_foggy_mirror.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/bubble_bath/bath_foggy_mirror.png",
+      "references": [
+        "res://assets/castle/bathroom_sink.glb"
+      ],
+      "style": "smudge",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.038311,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_vanity_droplets.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/bubble_bath/bath_vanity_droplets.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/bubble_bath/bath_vanity_droplets.png",
+      "references": [
+        "res://assets/castle/bathroom_sink.glb"
+      ],
+      "style": "water",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.025978,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_rumpled_towels.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/bubble_bath/bath_rumpled_towels.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/bubble_bath/bath_rumpled_towels.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_towel_stack.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.039368,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_toy_basket.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/bubble_bath/bath_toy_basket.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/bubble_bath/bath_toy_basket.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_bath_duck.glb"
+      ],
+      "style": "water",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.022232,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_toilet_soap_ring.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/basement/loo_toilet_soap_ring.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/basement/loo_toilet_soap_ring.png",
+      "references": [
+        "res://assets/castle/bathroom_toilet.glb"
+      ],
+      "style": "soap",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.045837,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_crooked_paper_rolls.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/basement/loo_crooked_paper_rolls.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/basement/loo_crooked_paper_rolls.png",
+      "references": [
+        "res://assets/castle/bathroom_toilet.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.03315,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/rooms/basement/undercroft_dusty_storage.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/rooms/basement/undercroft_dusty_storage.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/rooms/basement/undercroft_dusty_storage.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_storage_barrel.glb",
+        "res://assets/castle/pearl_kit/pearl_storage_crate.glb",
+        "res://assets/castle/pearl_kit/pearl_storage_cart.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.019032,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_playroom.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_playroom.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_playroom.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_toy_chest.glb",
+        "res://assets/castle/pearl_kit/pearl_rainbow_stacker.glb",
+        "res://assets/castle/pearl_kit/pearl_toy_sailboat.glb"
+      ],
+      "style": "clutter",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.023903,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_library.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_library.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_library.png",
+      "references": [
+        "res://assets/art35/castle/royal_bookcase.glb",
+        "res://assets/castle/pearl_kit/pearl_library_table.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.027531,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_royal_kitchen.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_royal_kitchen.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_royal_kitchen.png",
+      "references": [
+        "res://assets/castle/kitchen_counter.glb",
+        "res://assets/castle/kitchen_sink.glb",
+        "res://assets/castle/kitchen_stove.glb"
+      ],
+      "style": "crumbs",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.02021,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_bubble_bath.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_bubble_bath.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_bubble_bath.png",
+      "references": [
+        "res://assets/castle/bathroom_bathtub.glb",
+        "res://assets/castle/bathroom_sink.glb"
+      ],
+      "style": "soap",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.04023,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_royal_loo.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_royal_loo.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_royal_loo.png",
+      "references": [
+        "res://assets/castle/bathroom_toilet.glb"
+      ],
+      "style": "soap",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.04583,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    },
+    {
+      "output": "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_undercroft.png",
+      "clean_path": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/clean/targets/room_vignettes/room_vignette_undercroft.png",
+      "change_mask": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance/change_masks/targets/room_vignettes/room_vignette_undercroft.png",
+      "references": [
+        "res://assets/castle/pearl_kit/pearl_storage_barrel.glb",
+        "res://assets/castle/pearl_kit/pearl_storage_crate.glb",
+        "res://assets/castle/pearl_kit/pearl_storage_cart.glb"
+      ],
+      "style": "dust",
+      "initial_audit": "FAIL_CONCEPT_REDRAW_NOT_SCENE_LOCKED",
+      "final_score": "5/5",
+      "silhouette_recall": 1.0,
+      "changed_pixel_ratio": 0.01741,
+      "transparent_padding": 32,
+      "criteria": {
+        "live_model_source": true,
+        "exact_render_base": true,
+        "silhouette_recall_100pct": true,
+        "pixels_outside_grime_unchanged": true,
+        "runtime_rgba_padding": true
+      }
+    }
+  ]
+}

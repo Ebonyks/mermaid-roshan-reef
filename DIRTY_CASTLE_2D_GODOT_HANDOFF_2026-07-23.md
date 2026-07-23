@@ -16,6 +16,30 @@ geometry for this sequence.
 library contains 96 transparent 512x512 runtime sprites, including 30
 room-specific object skins and six room-level before-cleaning vignettes.
 
+## Required 5/5 scene binding
+
+Do not bind a dirty skin from its filename or visual resemblance alone. Use the
+exact object-to-GLB record in
+`audit/dirty_castle_2d_2026-07-22/scene_resemblance_ledger.json`.
+
+Forty-one sprites are now built on exact transparent renders of the live
+shipped GLBs. Their object silhouettes and clean pixels are locked; only the
+deliberate grime mask differs. The paired evidence is in
+`audit/dirty_castle_2d_2026-07-22/scene_resemblance_pairs.png`.
+
+Some output filenames predate the strict audit and describe concept props that
+were not actually present in the room. Those paths were retained to avoid
+breaking future consumers, but their visual content now follows the live scene
+vocabulary. Examples:
+
+- the old Playroom tea-set slot is bound to the live shell drum;
+- the old Library cart slot is bound to the live library table;
+- the Kitchen cups slot uses the live teapot and kettle;
+- the Playroom wheeled-toy slot uses the live toy sailboat.
+
+Claude must follow the ledger's `references` field when placing a skin. Do not
+re-introduce the discarded concept-only object design.
+
 ## Rendering contract
 
 Use the PNGs as unshaded 2D skins inside the existing 3D castle. Do not relight
@@ -49,6 +73,8 @@ or color-grade them.
 - Use a non-billboard `Sprite3D` facing the normal room camera direction when
   the illustration includes the fixture itself, such as the kitchen sink,
   stove, bath, vanity, or Royal Loo.
+- Match it to the exact existing fixture node identified by the scene
+  resemblance ledger. A 5/5 bathtub skin is not a generic bathroom card.
 - Treat these as temporary dirty-state overlays. Fade or scale them away when
   cleaned and reveal the existing 3D fixture beneath.
 - The skin must not replace, hide permanently, or duplicate the interactive
