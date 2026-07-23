@@ -26,6 +26,8 @@ The completed pack contains 132 production images:
 - 30 high-detail object skins made for the existing Playroom, Royal Library,
   Royal Kitchen, Bubble Bath, hidden Royal Loo, and undercroft;
 - 6 large before-cleaning room vignettes for those same existing spaces;
+- 5 additional exact-model targets in the Hall and shared castle set, bringing
+  the scene-bound skin total to 41;
 - 36 coherent 16:9 cinematic frames;
 - one machine-readable reuse and sequencing manifest;
 - a room-accurate Godot and Claude implementation handoff;
@@ -33,7 +35,11 @@ The completed pack contains 132 production images:
 - a deterministic processing script for regenerating every runtime image.
 
 The room object skins were completed and reviewed before the 36-frame cinematic
-expansion began.
+expansion began. A later strict resemblance pass rejected all 41 scene-bound
+concept redraws, regenerated them from exact transparent renders of the shipped
+GLBs, and passed all 41 at 5/5. The other 55 runtime sprites are tools,
+characters, grime-only targets, effects, and progress art, so clean-object
+resemblance is not applicable to them.
 
 ## Pool decision
 
@@ -52,6 +58,14 @@ swoosh, clean ring, pearl progress, and bunny celebration poses.
 All 96 interactive/reusable sprites are transparent 512×512 RGBA PNGs. Every
 asset has a large silhouette, phone-readable value grouping, and transparent
 margin for a pointer pulse or tap-scale tween.
+
+For the 41 scene-bound skins, the clean pixels now come directly from 30 shipped
+Godot GLBs rendered by `tools/render_dirty_castle_references.py`. The processor
+adds only a removable grime layer. Legacy filenames remain stable for future
+callers, but the image and `scene_resemblance_ledger.json` are authoritative.
+For example, `playroom_shell_tea_set.png` depicts the real shell drum,
+`playroom_wheeled_shell_toy.png` depicts the real sailboat, and
+`kitchen_tipped_cups.png` depicts the real teapot and kettle.
 
 | Family | Runtime location | Assets | Intended use |
 | --- | --- | ---: | --- |
@@ -187,6 +201,9 @@ section while Roshan is idle.
 - Current Pearl Castle geometry and palette are preserved: cream shell capitals,
   lavender stone, burgundy carpet, aqua, coral, restrained gold, and deep
   navy-purple contour.
+- Scene-bound dirty skins preserve the exact rendered silhouette, materials,
+  proportions, orientation, and clean RGBA pixels of their shipped GLB source.
+  Dirt may add pixels, but it may not repaint or redesign the clean object.
 - Dirt is playful and sparse. There is no mold, rot, garbage, insect, or
   frightening grime.
 - Dust bunnies use lavender spiral curls, pearl paws, round eyes, blush, and
@@ -215,9 +232,22 @@ section while Roshan is idle.
   sprites against a checkerboard.
 - `audit/dirty_castle_2d_2026-07-22/cinematic_contact.png` shows all 36
   normalized runtime frames in story order.
+- `audit/dirty_castle_2d_2026-07-22/scene_reference_objects.png` shows the 30
+  exact transparent renders made from the live GLBs.
+- `audit/dirty_castle_2d_2026-07-22/scene_resemblance_pairs.png` shows every
+  audited clean/dirty pair.
+- `audit/dirty_castle_2d_2026-07-22/scene_resemblance_ledger.json` and `.csv`
+  record the live resource path, dirt style, silhouette recall, changed-pixel
+  ratio, padding check, initial failure, and final 5/5 score for all 41 skins.
+- `DIRTY_CASTLE_SCENE_RESEMBLANCE_AUDIT_2026-07-23.md` defines the five-point
+  gate and the reject/regenerate/re-audit history.
 - The processor validates 512×512 RGBA output, nonempty alpha coverage, and
   transparent corners for every interactive sprite.
-- The manifest enumerates all 96 sprites and all 36 cinematic frames.
+- The processor additionally enforces 100% clean-silhouette recall, unchanged
+  clean pixels outside the recorded grime mask, exact source provenance, and
+  24-pixel transparent padding for every scene-bound skin.
+- The manifest enumerates all 96 sprites and all 36 cinematic frames and may
+  claim skin readiness only while the scene-resemblance result remains 5/5.
 
 These assets form a coherent implementation pack, but the gameplay section
 itself remains unimplemented until a separate runtime change wires the

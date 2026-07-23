@@ -1,18 +1,37 @@
 {
   "id": "dirty_castle_cleanup_2d",
-  "version": 4,
+  "version": 5,
   "asset_only": true,
   "runtime_integration": "not_wired",
   "godot_handoff": "res://DIRTY_CASTLE_2D_GODOT_HANDOFF_2026-07-23.md",
   "narrative_handoff": "res://DIRTY_CASTLE_CINEMATIC_36_2026-07-23.md",
   "storyboard_prompt_record": "res://assets_src/concepts/dirty_castle_cleanup_2026-07-22/STORYBOARD_36_PROMPTS.md",
+  "scene_resemblance_audit": "res://DIRTY_CASTLE_SCENE_RESEMBLANCE_AUDIT_2026-07-23.md",
+  "scene_reference_renderer": "res://tools/render_dirty_castle_references.py",
   "source_dev_commit": "6de38d15c7ecd58b61b4898201b74d5c1f926512",
   "pool_included": false,
   "pool_reason": "No Roshan pool feature files or callsites were present on origin/dev when this pack was generated.",
   "counts": {
     "runtime_sprites": 96,
     "cinematic_frames": 36,
-    "total_runtime_images": 132
+    "total_runtime_images": 132,
+    "exact_scene_bound_skins": 41,
+    "auxiliary_overlay_tool_and_feedback_sprites": 55,
+    "exact_shipped_model_references": 30
+  },
+  "scene_resemblance": {
+    "standard": "5/5 resemblance to the live scene object before a skin can be marked reusable",
+    "scene_bound_skins": 41,
+    "initial_failures": 41,
+    "regenerated_from_shipped_glb_renders": 41,
+    "final_passes": 41,
+    "final_failures": 0,
+    "final_score": "5/5",
+    "auxiliary_not_applicable": 55,
+    "method": "Preserve the exact shipped-GLB render as the clean base and alpha-composite deliberate grime without redrawing, recoloring, or changing the silhouette.",
+    "machine_ledger": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance_ledger.json",
+    "paired_contact_sheet": "res://audit/dirty_castle_2d_2026-07-22/scene_resemblance_pairs.png",
+    "reference_contact_sheet": "res://audit/dirty_castle_2d_2026-07-22/scene_reference_objects.png"
   },
   "render_contract": {
     "sprite_size": [512, 512],

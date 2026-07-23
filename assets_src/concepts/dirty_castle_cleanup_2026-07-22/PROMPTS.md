@@ -10,6 +10,45 @@ edge contraction after edge QA.
 Protected project art was supplied only as an identity, palette, or environment
 reference. The originals were not edited.
 
+## 2026-07-23 exact-scene resemblance correction
+
+The six original room-skin atlases remain in this folder as rejected concept
+history. They were useful for story and mess vocabulary, but every one of the
+41 scene-bound outputs failed the strict object-resemblance gate because the
+objects had been redrawn from prose.
+
+Their runtime replacements are not image-generation redraws. Blender renders
+the exact shipped GLBs into `scene_references/objects/*.png` with
+`tools/render_dirty_castle_references.py`; `tools/process_dirty_castle_2d.py`
+then preserves those clean pixels and composites a separate grime decal. This
+keeps 55 auxiliary sprites from the original generation while ensuring all 41
+skin candidates use the actual game object as their base.
+
+### Reusable grime decal
+
+Built-in image-generation output:
+`scene_references/overlays/grime_cluster_chroma.png`
+
+Locally keyed transparent derivative:
+`scene_references/overlays/grime_cluster_alpha.png`
+
+```text
+Create one square 2D game-art decal sheet containing only cheerful, harmless
+castle-cleaning mess marks on a perfectly flat solid #00ff00 chroma-key
+background. Include exactly three separate soft lavender dust curls, two small
+cream flour-or-soap wipe streaks, and a loose handful of tiny coral, aqua, and
+cream crumbs. Keep every mark isolated with generous clear space, broad
+phone-readable shapes, soft cel-painted pastel shading, and fine navy-purple
+accents matching a cute Mermaid Roshan storybook castle. Mess only: no object,
+furniture, room, tool, character, face, dust bunny, soot sprite, text, logo,
+frame, floor, shadow, glow, transparency, or background variation. Do not use
+#00ff00 inside any mark.
+```
+
+The decal is intentionally not a source of object geometry. Its alpha pixels
+are resized and positioned over the exact GLB render, and the resulting
+difference mask is retained in the audit output.
+
 ## Reference roles
 
 - `gen2/turnarounds/roshan_v2/front.png`: Mermaid Roshan identity reference.
