@@ -4383,7 +4383,11 @@ func water_surface_y(x: float, z: float) -> float:
 	if northern_floor:
 		return NORTHERN_POS.y - 4.8   # the fjord sheets (see _build_fjords)
 	if game == "level2" and String(g.get("phase", "")) == "hall":
-		return -1e18   # castle interior: dry floors throughout
+		var pool_rect: Rect2 = g.get("castle_pool_rect", Rect2()) as Rect2
+		var pool_local := Vector2(x - CASTLE_POS.x, z - CASTLE_POS.z)
+		if pool_rect.has_area() and pool_rect.has_point(pool_local):
+			return CASTLE_POS.y + float(g.get("castle_pool_surface_y", 0.15))
+		return -1e18   # castle interior: dry outside the Royal Natatorium
 	return 1e18
 
 # Phase 7.4b: the 2D picture games live in scripts/games/picture_games.gd
@@ -4586,7 +4590,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	lagoon_floor = false   # the castle hall is flat indoor ground
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 90.0   # covers the bedroom, the new top chambers and the undercroft
+	arena_dome = 102.0   # also covers the east-wing 50 x 25 Royal Natatorium
 	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
 	# warm indoor castle light
 	var ie := Environment.new()

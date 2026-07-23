@@ -3,6 +3,10 @@ extends RefCounted
 
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const PEARL_KIT := "res://assets/castle/pearl_kit/"
+const MERMAID_POOL_ATLAS := preload("res://assets/castle/pool_2d/mermaid_pool_atlas.png")
+const ATLAS_GRID_SIZE := 4
+const POOL_SURFACE_Y := 0.15
+const POOL_RECT := Rect2(43.5, 1.0, 25.0, 50.0)
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
@@ -51,6 +55,49 @@ func _pearl(asset_name: String, pos: Vector3, yaw_degrees: float = 0.0) -> Node3
 		prop.set_meta("pearl_castle_asset", asset_name)
 	return prop
 
+func _atlas_sprite(atlas: Texture2D, cell_index: int, pos: Vector3,
+	target_height: float, horizontal: bool = false, yaw: float = 0.0) -> Sprite3D:
+	@warning_ignore("integer_division")
+	var cell_width: int = atlas.get_width() / ATLAS_GRID_SIZE
+	@warning_ignore("integer_division")
+	var cell_height: int = atlas.get_height() / ATLAS_GRID_SIZE
+	@warning_ignore("integer_division")
+	var cell_row: int = cell_index / ATLAS_GRID_SIZE
+	var cell_column: int = cell_index % ATLAS_GRID_SIZE
+	var atlas_texture: AtlasTexture = AtlasTexture.new()
+	atlas_texture.atlas = atlas
+	atlas_texture.region = Rect2(
+		float(cell_column * cell_width),
+		float(cell_row * cell_height),
+		float(cell_width),
+		float(cell_height),
+	)
+	atlas_texture.filter_clip = true
+	var sprite: Sprite3D = Sprite3D.new()
+	sprite.texture = atlas_texture
+	sprite.pixel_size = target_height / float(cell_height)
+	sprite.position = pos
+	sprite.shaded = false
+	sprite.double_sided = true
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	if horizontal:
+		sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		sprite.rotation_degrees = Vector3(-90.0, rad_to_deg(yaw), 0.0)
+	else:
+		sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.visibility_range_end = 150.0 if m.quality == "speedy" else 0.0
+	sprite.visibility_range_end_margin = 12.0 if m.quality == "speedy" else 0.0
+	sprite.visibility_range_fade_mode = (
+		GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+		if m.quality == "speedy"
+		else GeometryInstance3D.VISIBILITY_RANGE_FADE_DISABLED
+	)
+	m.add_child(sprite)
+	m.game_nodes.append(sprite)
+	m.flora_nodes.append(sprite)
+	return sprite
+
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
 	_touch_reset()
@@ -93,7 +140,14 @@ func build(o: Vector3) -> void:
 	#   crown  y 49..52 — solid band up to the ceiling
 	for sgn in [-1.0, 1.0]:
 		var sx: float = sgn * 35.0
-		m._iwall(o + Vector3(sx, 16.5, 17.5), Vector3(1.5, 33, 57), scol, "castle")   # lower front (z -11..46)
+		if sgn > 0.0:
+			# The east wall opens into the Royal Natatorium. Two wall runs and
+			# one high lintel leave a broad floor-height arch at z 12.5..23.5.
+			m._iwall(o + Vector3(sx, 16.5, 0.75), Vector3(1.5, 33, 23.5), scol, "castle")
+			m._iwall(o + Vector3(sx, 16.5, 34.75), Vector3(1.5, 33, 22.5), scol, "castle")
+			m._iwall(o + Vector3(sx, 25.0, 18.0), Vector3(1.5, 16.0, 11.0), scol, "castle")
+		else:
+			m._iwall(o + Vector3(sx, 16.5, 17.5), Vector3(1.5, 33, 57), scol, "castle")   # lower front (z -11..46)
 		m._iwall(o + Vector3(sx, 16.5, -27.5), Vector3(1.5, 33, 13), scol, "castle")  # lower back (z -34..-21)
 		m._iwall(o + Vector3(sx, 25.5, -16), Vector3(1.5, 15, 10), scol, "castle")    # lintel over the wing door
 		m._iwall(o + Vector3(sx, 41, -27.5), Vector3(1.5, 16, 13), scol, "castle")    # arcade pier (z -34..-21)
@@ -649,6 +703,164 @@ func build_expansion(o: Vector3) -> void:
 	# ceil sits 0.8 BELOW the band top: at the band edge itself a fast upward
 	# swim could cross the whole band in one frame and tunnel out.
 	m.g["stand_zone"] = m.arena_zones[m.arena_zones.size() - 1]
+	build_pool_wing(o)
+
+func build_pool_wing(o: Vector3) -> void:
+	# ============ ROYAL MERMAID NATATORIUM ============
+	# The water footprint is a true 2:1 50 x 25 competition pool. It lives in
+	# its own east wing so no existing room, objective, or one-finger route is
+	# displaced. The basin is analytic geometry only: no rigid bodies and no
+	# new lights, keeping the Speedy tier predictable on the target tablet.
+	var wall_color := Color(0.72, 0.70, 0.84)
+	var tile_color := Color(0.82, 0.90, 0.96)
+	var deck_material: StandardMaterial3D = m._castle_mat(
+		"bathroom_tile", 0.085, Color(0.96, 0.98, 1.0), 0.68)
+	var basin_material: StandardMaterial3D = m._castle_mat(
+		"bathroom_tile", 0.095, Color(0.72, 0.88, 0.94), 0.66)
+
+	# A dry, at-least-7.5-unit perimeter deck wraps the lowered basin.
+	var deck_specs: Array = [
+		[Vector3(39.25, 0.0, 26.0), Vector3(8.5, 1.0, 60.0)],
+		[Vector3(72.25, 0.0, 26.0), Vector3(7.5, 1.0, 60.0)],
+		[Vector3(56.0, 0.0, -1.5), Vector3(25.0, 1.0, 5.0)],
+		[Vector3(56.0, 0.0, 53.5), Vector3(25.0, 1.0, 5.0)],
+	]
+	for deck_spec_value: Variant in deck_specs:
+		var deck_spec: Array = deck_spec_value as Array
+		var deck_piece: MeshInstance3D = m._l2_box(
+			o + (deck_spec[0] as Vector3),
+			deck_spec[1] as Vector3,
+			Color.WHITE,
+		)
+		deck_piece.material_override = deck_material
+
+	# Basin bottom and inner tile faces. These visual faces stay non-solid so a
+	# swimming mermaid can glide naturally over the rim instead of snagging.
+	var basin_floor: MeshInstance3D = m._l2_box(
+		o + Vector3(56.0, -10.0, 26.0), Vector3(25.0, 0.6, 50.0), tile_color)
+	basin_floor.material_override = basin_material
+	for lane_x in [47.0, 51.5, 56.0, 60.5, 65.0]:
+		m._l2_box(
+			o + Vector3(lane_x, -9.64, 26.0),
+			Vector3(0.34, 0.08, 47.0),
+			Color(0.96, 0.78, 0.42),
+			0.08,
+		)
+	for side_x in [43.35, 68.65]:
+		var side_face: MeshInstance3D = m._l2_box(
+			o + Vector3(side_x, -4.8, 26.0),
+			Vector3(0.32, 10.0, 50.0),
+			tile_color,
+		)
+		side_face.material_override = basin_material
+	for end_z in [0.85, 51.15]:
+		var end_face: MeshInstance3D = m._l2_box(
+			o + Vector3(56.0, -4.8, end_z),
+			Vector3(25.0, 10.0, 0.32),
+			tile_color,
+		)
+		end_face.material_override = basin_material
+
+	# Shared graphic water: one thin surface, no reflection viewport and no
+	# physics body. `main.water_surface_y()` supplies the matching wet/dry oracle.
+	var water_surface: MeshInstance3D = m._l2_box(
+		o + Vector3(56.0, POOL_SURFACE_Y, 26.0),
+		Vector3(25.0, 0.22, 50.0),
+		Color(0.30, 0.74, 0.88),
+	)
+	var water_material: ShaderMaterial = m._toon_water_mat(
+		Color(0.24, 0.62, 0.82), Color(0.64, 0.92, 0.96), 0.76, 0.10, 0.05)
+	water_material.set_shader_parameter("foam_width", 1.15)
+	water_surface.material_override = water_material
+	water_surface.set_meta("castle_pool_surface", true)
+
+	# High shell with a cutaway ceiling. The west side reuses the Grand Hall
+	# wall and its new arch; the other three sides close the pool wing.
+	m._iwall(o + Vector3(76.0, 12.0, 26.0), Vector3(1.5, 24.0, 60.0), wall_color, "castle")
+	m._iwall(o + Vector3(56.0, 12.0, -4.0), Vector3(40.0, 24.0, 1.5), wall_color, "castle")
+	m._iwall(o + Vector3(56.0, 12.0, 56.0), Vector3(40.0, 24.0, 1.5), wall_color, "castle")
+	# The Grand Hall east wall ends at z=46, so close the annex's ten-unit
+	# forward overhang while leaving the authored z=12.5..23.5 entry open.
+	m._iwall(o + Vector3(35.0, 12.0, 51.0), Vector3(1.5, 24.0, 10.0), wall_color, "castle")
+	var pool_ceiling: MeshInstance3D = m._l2_box(
+		o + Vector3(56.0, 24.0, 26.0), Vector3(40.0, 1.0, 60.0),
+		Color(0.60, 0.58, 0.70))
+	m.fade_walls.append({
+		"node": pool_ceiling,
+		"c": pool_ceiling.position,
+		"h": (pool_ceiling.mesh as BoxMesh).size * 0.5,
+		"base_a": 1.0,
+		"a": 1.0,
+	})
+	_pearl("pearl_shell_arch", o + Vector3(34.2, 0.5, 18.0), -90.0)
+	for column_pos in [
+		Vector3(39.0, 0.5, -0.5),
+		Vector3(73.0, 0.5, -0.5),
+		Vector3(39.0, 0.5, 52.5),
+		Vector3(73.0, 0.5, 52.5),
+	]:
+		_pearl("pearl_column", o + column_pos)
+	for window_z in [9.0, 26.0, 43.0]:
+		_pearl("pearl_shell_window", o + Vector3(75.3, 8.0, window_z), -90.0)
+
+	# Sixteen independently sliced atlas cells fill the basin with a complete
+	# coral/creature family. Coral stays rooted; creature cards receive only a
+	# tiny deterministic swim bob in `tick()`.
+	var art_specs: Array = [
+		[0, Vector3(47.0, -6.1, 5.5), 7.0],
+		[1, Vector3(65.0, -6.0, 16.0), 7.2],
+		[2, Vector3(47.0, -5.7, 30.0), 7.4],
+		[3, Vector3(65.0, -6.1, 45.5), 7.0],
+		[4, Vector3(50.0, -3.0, 14.0), 5.4],
+		[5, Vector3(62.0, -3.4, 21.0), 5.6],
+		[6, Vector3(53.0, -3.7, 28.0), 6.4],
+		[7, Vector3(62.0, -2.8, 35.0), 6.0],
+		[8, Vector3(49.0, -3.1, 41.0), 6.2],
+		[9, Vector3(63.0, -6.2, 6.5), 5.2],
+		[10, Vector3(47.0, -5.9, 23.0), 5.1],
+		[11, Vector3(64.0, -4.8, 42.0), 5.7],
+		[12, Vector3(51.0, -3.1, 48.0), 5.4],
+		[13, Vector3(59.0, -3.0, 5.0), 5.2],
+		[14, Vector3(47.0, -5.5, 47.5), 6.1],
+		[15, Vector3(57.0, -4.8, 49.0), 8.2],
+	]
+	var animated_cells: Array[int] = [4, 5, 6, 7, 8, 10, 11, 12, 13]
+	var animated_sprites: Array[Dictionary] = []
+	for art_spec_value: Variant in art_specs:
+		var art_spec: Array = art_spec_value as Array
+		var cell_index: int = int(art_spec[0])
+		var base_position: Vector3 = o + (art_spec[1] as Vector3)
+		var sprite: Sprite3D = _atlas_sprite(
+			MERMAID_POOL_ATLAS, cell_index, base_position, float(art_spec[2]))
+		sprite.set_meta("castle_pool_art_index", cell_index)
+		if cell_index in animated_cells:
+			animated_sprites.append({
+				"node": sprite,
+				"base": base_position,
+				"phase": float(cell_index) * 0.73,
+				"speed": 0.65 + float(cell_index % 3) * 0.11,
+				"amp": 0.18 + float(cell_index % 2) * 0.08,
+			})
+	m.g["castle_pool_sprites"] = animated_sprites
+	m.g["castle_pool_2d_count"] = art_specs.size()
+	m.g["castle_pool_rect"] = POOL_RECT
+	m.g["castle_pool_surface_y"] = POOL_SURFACE_Y
+	m.g["castle_pool_dimensions_m"] = Vector2(50.0, 25.0)
+
+	# The outer hall zone caps the roof; the last, lower zone wins inside the
+	# basin so Roshan can dive ten units below the deck.
+	m.arena_zones.append({
+		"rect": Rect2(35.0, -4.0, 41.0, 60.0),
+		"band": Vector2(-0.5, 31.0),
+		"floor": 2.5,
+		"ceil": 22.0,
+	})
+	m.arena_zones.append({
+		"rect": POOL_RECT,
+		"band": Vector2(-12.0, 31.0),
+		"floor": -7.7,
+		"ceil": 22.0,
+	})
 
 func build_dreaming_floor(o: Vector3) -> void:
 	# ============ THE DREAMING FLOOR (owner 2026-07-12) ============
@@ -1778,6 +1990,23 @@ func tick(delta: float, ppos: Vector3) -> void:
 			var hdi: int = hs.find_bone("head")
 			if hdi >= 0:
 				hs.set_bone_pose_rotation(hdi, Quaternion(Vector3.BACK, sin(ht * 0.8) * 0.05))
+	var pool_time: float = float(m.g.get("castle_pool_anim_t", 0.0)) + delta
+	m.g["castle_pool_anim_t"] = pool_time
+	var pool_sprites: Array = m.g.get("castle_pool_sprites", [])
+	for pool_sprite_value: Variant in pool_sprites:
+		var pool_sprite_data: Dictionary = pool_sprite_value as Dictionary
+		var pool_sprite: Sprite3D = pool_sprite_data["node"] as Sprite3D
+		if not is_instance_valid(pool_sprite):
+			continue
+		var pool_base: Vector3 = pool_sprite_data["base"] as Vector3
+		var pool_phase: float = float(pool_sprite_data["phase"])
+		var pool_speed: float = float(pool_sprite_data["speed"])
+		var pool_amp: float = float(pool_sprite_data["amp"])
+		pool_sprite.position = pool_base + Vector3(
+			sin(pool_time * pool_speed + pool_phase) * pool_amp * 0.55,
+			sin(pool_time * pool_speed * 1.35 + pool_phase) * pool_amp,
+			0.0,
+		)
 	if m.wardrobe_layer != null:
 		return   # dressing up — pause all hall triggers
 	if m.sleep_t >= 0.0:

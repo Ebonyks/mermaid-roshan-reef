@@ -325,3 +325,24 @@ ambientCG (all CC0).
   (Blender); NPOT textures resized to POT <=1024 during conversion
 - License: project original (derivatives of already-licensed project art)
 - Modifications: card mesh + solidify extrusion; texture resize where needed
+
+## Royal Natatorium and PNW marsh 2D atlases
+
+- `assets/castle/pool_2d/mermaid_pool_atlas.png` and
+  `assets/sky_lagoon/pnw_marsh_2d/pnw_marsh_atlas.png`
+  - Source: original project art generated with the OpenAI built-in image
+    generation tool from the accepted in-repository Pearl Castle and Sky Lagoon
+    style references; exact prompts and cell manifests are recorded in
+    `assets_src/concepts/roshan_pool_2d/PROMPTS.md`.
+  - License: project original.
+  - URL: n/a (no external source art).
+  - Modifications: normalized to 1024 x 1024, chroma backgrounds removed with
+    soft alpha matte and despill, retained as shared 4 x 4 runtime atlases;
+    generated and processed 2026-07-22.
+- `assets_src/concepts/roshan_pool_2d/*_chroma_2026-07-22.png`
+  - Source: normalized accepted source outputs from the same OpenAI built-in
+    image-generation calls.
+  - License: project original.
+  - URL: n/a (no external source art).
+  - Modifications: resized from 1254 x 1254 to 1024 x 1024 for repository
+    limits; review/provenance only under `assets_src/.gdignore`.

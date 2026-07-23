@@ -265,6 +265,8 @@ func _capture_castle() -> void:
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
 	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
 	await _shot("castle_19_bedroom_wardrobe", o + Vector3(43.0, 8.0, -20.0), o + Vector3(40.0, 6.2, -8.0), 62.0)
+	await _shot("castle_20_pool_entry", o + Vector3(30.0, 12.0, 18.0), o + Vector3(57.0, -1.5, 26.0), 68.0)
+	await _shot("castle_21_royal_natatorium", o + Vector3(66.0, 8.0, 51.0), o + Vector3(55.0, -3.0, 25.0), 70.0)
 
 
 func _run() -> void:
@@ -299,6 +301,42 @@ func _run() -> void:
 	_ck("wardrobe_contract_preserved", main.g.has("wardrobe"), str(main.g.get("wardrobe", Vector3.ZERO)))
 	_ck("craft_contract_preserved", main.g.has("craft_easel"), str(main.g.get("craft_easel", Vector3.ZERO)))
 	_ck("secret_stand_contract_preserved", main.g.has("stand_chest") and main.g.has("stand_lid"), "slide tween roots remain")
+	var pool_texture: Texture2D = load(
+		"res://assets/castle/pool_2d/mermaid_pool_atlas.png") as Texture2D
+	var pool_card_count: int = 0
+	for pool_node_value: Variant in main.find_children("*", "Sprite3D", true, false):
+		var pool_node: Node = pool_node_value as Node
+		if pool_node.has_meta("castle_pool_art_index"):
+			pool_card_count += 1
+	var pool_rect: Rect2 = main.g.get("castle_pool_rect", Rect2()) as Rect2
+	var pool_dimensions: Vector2 = main.g.get(
+		"castle_pool_dimensions_m", Vector2.ZERO) as Vector2
+	var pool_surface: float = main.water_surface_y(
+		main.CASTLE_POS.x + 56.0, main.CASTLE_POS.z + 26.0)
+	var hall_dry_surface: float = main.water_surface_y(
+		main.CASTLE_POS.x, main.CASTLE_POS.z)
+	var pool_zone_ok: bool = false
+	for zone_value: Variant in main.arena_zones:
+		var zone: Dictionary = zone_value as Dictionary
+		if ((zone["rect"] as Rect2).has_point(Vector2(56.0, 26.0))
+				and float(zone.get("floor", 99.0)) < -7.0):
+			pool_zone_ok = true
+	_ck("pool_atlas_runtime", pool_texture != null
+		and pool_texture.get_width() == 1024
+		and pool_texture.get_height() == 1024,
+		"1024px RGBA atlas")
+	_ck("pool_sprite_family", pool_card_count == 16
+		and int(main.g.get("castle_pool_2d_count", 0)) == 16,
+		"runtime=%d state=%d" % [
+			pool_card_count, int(main.g.get("castle_pool_2d_count", 0))])
+	_ck("pool_olympic_footprint", pool_dimensions == Vector2(50.0, 25.0)
+		and is_equal_approx(pool_rect.size.x / pool_rect.size.y, 0.5),
+		"dimensions=%s rect=%s" % [pool_dimensions, pool_rect])
+	_ck("pool_water_oracle", is_equal_approx(
+		pool_surface, main.CASTLE_POS.y + float(main.g.get("castle_pool_surface_y", 0.15)))
+		and hall_dry_surface < -1e17,
+		"pool=%.2f hall=%.2f" % [pool_surface, hall_dry_surface])
+	_ck("pool_lowered_floor_zone", pool_zone_ok, "basin floor below deck")
 	await _capture_castle()
 	print("CASTLE_ART|RESULT=", "FAIL" if checks_failed > 0 else "OK", " checks_failed=", checks_failed)
 	quit(1 if checks_failed > 0 else 0)
