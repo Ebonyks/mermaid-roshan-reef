@@ -761,18 +761,25 @@ func build_pool_wing(o: Vector3) -> void:
 		)
 		end_face.material_override = basin_material
 
-	# Shared graphic water: one thin surface, no reflection viewport and no
-	# physics body. `main.water_surface_y()` supplies the matching wet/dry oracle.
-	var water_surface: MeshInstance3D = m._l2_box(
-		o + Vector3(56.0, POOL_SURFACE_Y, 26.0),
-		Vector3(25.0, 0.22, 50.0),
-		Color(0.30, 0.74, 0.88),
-	)
+	# Shared graphic water: a one-sided plane keeps the depth-foam shader from
+	# sampling a box's own underside and whitening the whole basin. It has no
+	# reflection viewport or physics body; `main.water_surface_y()` supplies the
+	# matching wet/dry oracle.
+	var water_mesh: PlaneMesh = PlaneMesh.new()
+	water_mesh.size = Vector2(25.0, 50.0)
+	water_mesh.subdivide_width = 12
+	water_mesh.subdivide_depth = 24
+	var water_surface: MeshInstance3D = MeshInstance3D.new()
+	water_surface.mesh = water_mesh
+	water_surface.position = o + Vector3(56.0, POOL_SURFACE_Y, 26.0)
 	var water_material: ShaderMaterial = m._toon_water_mat(
-		Color(0.24, 0.62, 0.82), Color(0.64, 0.92, 0.96), 0.76, 0.10, 0.05)
+		Color(0.20, 0.56, 0.82), Color(0.58, 0.90, 0.96), 0.56, 0.10, 0.05)
 	water_material.set_shader_parameter("foam_width", 1.15)
 	water_surface.material_override = water_material
+	water_surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	water_surface.set_meta("castle_pool_surface", true)
+	m.add_child(water_surface)
+	m.game_nodes.append(water_surface)
 
 	# High shell with a cutaway ceiling. The west side reuses the Grand Hall
 	# wall and its new arch; the other three sides close the pool wing.
