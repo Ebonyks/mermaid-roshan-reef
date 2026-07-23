@@ -1,15 +1,18 @@
 {
   "id": "dirty_castle_cleanup_2d",
-  "version": 2,
+  "version": 4,
   "asset_only": true,
   "runtime_integration": "not_wired",
+  "godot_handoff": "res://DIRTY_CASTLE_2D_GODOT_HANDOFF_2026-07-23.md",
+  "narrative_handoff": "res://DIRTY_CASTLE_CINEMATIC_36_2026-07-23.md",
+  "storyboard_prompt_record": "res://assets_src/concepts/dirty_castle_cleanup_2026-07-22/STORYBOARD_36_PROMPTS.md",
   "source_dev_commit": "6de38d15c7ecd58b61b4898201b74d5c1f926512",
   "pool_included": false,
   "pool_reason": "No Roshan pool feature files or callsites were present on origin/dev when this pack was generated.",
   "counts": {
-    "runtime_sprites": 60,
-    "cinematic_frames": 12,
-    "total_runtime_images": 72
+    "runtime_sprites": 96,
+    "cinematic_frames": 36,
+    "total_runtime_images": 132
   },
   "render_contract": {
     "sprite_size": [512, 512],
@@ -18,7 +21,11 @@
     "cinematic_format": "RGB PNG",
     "renderer": "mobile",
     "lighting": "unshaded_2d_or_unshaded_sprite3d",
-    "new_omni_lights": 0
+    "new_omni_lights": 0,
+    "skin_ready": true,
+    "transparent_padding_pixels": 32,
+    "recommended_texture_filter": "linear",
+    "recommended_repeat": "disabled"
   },
   "groups": {
     "dust_bunnies": [
@@ -92,6 +99,54 @@
       "res://assets/castle/dirty_cleanup_2d/progress/badge_tidy_stack.png",
       "res://assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_home.png",
       "res://assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_helper.png"
+    ],
+    "playroom_skins": [
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_puzzle_tiles.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_stacking_rings.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_shell_tea_set.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_dressup_pile.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_balls_beanbag.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/playroom/playroom_wheeled_shell_toy.png"
+    ],
+    "library_skins": [
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_fallen_books.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_bookmark_ribbons.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_story_scrolls.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_book_cart.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_reading_cushions.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/library/library_picture_cards.png"
+    ],
+    "royal_kitchen_skins": [
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_sink_plates.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_counter_flour.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_stove_drips.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_tipped_cups.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_crooked_pan.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/royal_kitchen/kitchen_cabinet_jars.png"
+    ],
+    "bubble_bath_skins": [
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_tub_soap_ring.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_foggy_mirror.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_vanity_droplets.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_rumpled_towels.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_toy_basket.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/bubble_bath/bath_water_droplet_trail.png"
+    ],
+    "basement_skins": [
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_toilet_soap_ring.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_crooked_paper_rolls.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_brush_holder.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/loo_clean_water_splash.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/undercroft_dusty_storage.png",
+      "res://assets/castle/dirty_cleanup_2d/rooms/basement/undercroft_stair_cobweb.png"
+    ],
+    "room_vignettes": [
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_playroom.png",
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_library.png",
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_royal_kitchen.png",
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_bubble_bath.png",
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_royal_loo.png",
+      "res://assets/castle/dirty_cleanup_2d/targets/room_vignettes/room_vignette_undercroft.png"
     ]
   },
   "room_reuse": {
@@ -105,11 +160,14 @@
       "crooked_banner",
       "smudged_throne"
     ],
-    "toy_room": ["toy_blocks", "tipped_books", "buttons_beads", "cloud_cushions", "messy_toy_chest"],
-    "library": ["dust_bunnies", "tipped_books", "dusty_shelf", "window_smudge"],
+    "toy_room": ["playroom_puzzle_tiles", "playroom_stacking_rings", "playroom_shell_tea_set", "playroom_dressup_pile", "playroom_balls_beanbag", "playroom_wheeled_shell_toy", "room_vignette_playroom"],
+    "library": ["library_fallen_books", "library_bookmark_ribbons", "library_story_scrolls", "library_book_cart", "library_reading_cushions", "library_picture_cards", "room_vignette_library"],
     "pantry": ["flour_spill", "leaf_trail", "messy_pantry"],
     "craft_room": ["craft_scraps", "paint_splats", "buttons_beads", "messy_craft_table"],
-    "bath_and_loo": ["cloudy_mirror", "bath_soap_ring", "window_smudge"],
+    "royal_kitchen": ["kitchen_sink_plates", "kitchen_counter_flour", "kitchen_stove_drips", "kitchen_tipped_cups", "kitchen_crooked_pan", "kitchen_cabinet_jars", "room_vignette_royal_kitchen"],
+    "bubble_bath": ["bath_tub_soap_ring", "bath_foggy_mirror", "bath_vanity_droplets", "bath_rumpled_towels", "bath_toy_basket", "bath_water_droplet_trail", "room_vignette_bubble_bath"],
+    "royal_loo": ["loo_toilet_soap_ring", "loo_crooked_paper_rolls", "loo_brush_holder", "loo_clean_water_splash", "room_vignette_royal_loo"],
+    "undercroft": ["undercroft_dusty_storage", "undercroft_stair_cobweb", "room_vignette_undercroft"],
     "bedrooms": ["dust_bunnies", "cloud_cushions", "cloudy_mirror"]
   },
   "cinematic": [
@@ -157,32 +215,176 @@
     },
     {
       "order": 8,
-      "id": "pantry_team",
-      "path": "res://assets/cinematics/dirty_castle/08_pantry_team.png",
-      "voice_intent": "Wipe, stack, carry—everyone has a pantry job!"
+      "id": "hall_clean_reveal",
+      "path": "res://assets/cinematics/dirty_castle/08_hall_clean_reveal.png",
+      "voice_intent": "The hall shines! Now let's see which room needs us next."
     },
     {
       "order": 9,
-      "id": "toy_room_sort",
-      "path": "res://assets/cinematics/dirty_castle/09_toy_room_sort.png",
-      "voice_intent": "Blocks in the box, books in a stack, and cushions in their cozy spot!"
+      "id": "playroom_doorway",
+      "path": "res://assets/cinematics/dirty_castle/09_playroom_doorway.png",
+      "voice_intent": "Oh my, the toys have been playing too! Let's put them home."
     },
     {
       "order": 10,
-      "id": "library_bunny_helpers",
-      "path": "res://assets/cinematics/dirty_castle/10_library_bunny_helpers.png",
-      "voice_intent": "Even the dust bunnies can help the library sparkle."
+      "id": "playroom_before",
+      "path": "res://assets/cinematics/dirty_castle/10_playroom_before.png",
+      "voice_intent": "Puzzle, tea set, dress-up, and toys—three big sorting jobs!"
     },
     {
       "order": 11,
-      "id": "final_inspection",
-      "path": "res://assets/cinematics/dirty_castle/11_final_inspection.png",
-      "voice_intent": "Everything shines, and the dust bunny family has a soft new home."
+      "id": "playroom_sort",
+      "path": "res://assets/cinematics/dirty_castle/11_playroom_sort.png",
+      "voice_intent": "Blocks in the box, books in a stack, and cushions in their cozy spot!"
     },
     {
       "order": 12,
+      "id": "playroom_details",
+      "path": "res://assets/cinematics/dirty_castle/12_playroom_details.png",
+      "voice_intent": "Roshan fits the puzzle while everyone puts one more thing away."
+    },
+    {
+      "order": 13,
+      "id": "playroom_clean",
+      "path": "res://assets/cinematics/dirty_castle/13_playroom_clean.png",
+      "voice_intent": "Every toy has a cozy home. The Playroom is ready!"
+    },
+    {
+      "order": 14,
+      "id": "library_doorway",
+      "path": "res://assets/cinematics/dirty_castle/14_library_doorway.png",
+      "voice_intent": "The Library books and ribbons need our gentle hands next."
+    },
+    {
+      "order": 15,
+      "id": "library_before",
+      "path": "res://assets/cinematics/dirty_castle/15_library_before.png",
+      "voice_intent": "Books to shelves, scrolls to baskets, and cushions in a circle!"
+    },
+    {
+      "order": 16,
+      "id": "library_bunny_helpers",
+      "path": "res://assets/cinematics/dirty_castle/16_library_bunny_helpers.png",
+      "voice_intent": "Even the dust bunnies can help the Library sparkle."
+    },
+    {
+      "order": 17,
+      "id": "library_last_book",
+      "path": "res://assets/cinematics/dirty_castle/17_library_last_book.png",
+      "voice_intent": "One last book, one last ribbon, one last scroll!"
+    },
+    {
+      "order": 18,
+      "id": "library_clean_storytime",
+      "path": "res://assets/cinematics/dirty_castle/18_library_clean_storytime.png",
+      "voice_intent": "The Library is clean. Time for one tiny picture story."
+    },
+    {
+      "order": 19,
+      "id": "basement_descent",
+      "path": "res://assets/cinematics/dirty_castle/19_basement_descent.png",
+      "voice_intent": "Follow the friendly bunnies down the bright shell stairs!"
+    },
+    {
+      "order": 20,
+      "id": "pantry_team",
+      "path": "res://assets/cinematics/dirty_castle/20_pantry_team.png",
+      "voice_intent": "Wipe, stack, carry—everyone has a Pantry job!"
+    },
+    {
+      "order": 21,
+      "id": "kitchen_doorway",
+      "path": "res://assets/cinematics/dirty_castle/21_kitchen_doorway.png",
+      "voice_intent": "The Royal Kitchen has plates, crumbs, cups, and jars to tidy."
+    },
+    {
+      "order": 22,
+      "id": "kitchen_jobs",
+      "path": "res://assets/cinematics/dirty_castle/22_kitchen_jobs.png",
+      "voice_intent": "Roshan has the sink, Daddy has the counter, and Eagle has the cups!"
+    },
+    {
+      "order": 23,
+      "id": "kitchen_sink",
+      "path": "res://assets/cinematics/dirty_castle/23_kitchen_sink.png",
+      "voice_intent": "Bubble, rinse, and stack the bright plates."
+    },
+    {
+      "order": 24,
+      "id": "kitchen_counter_stove",
+      "path": "res://assets/cinematics/dirty_castle/24_kitchen_counter_stove.png",
+      "voice_intent": "The stove is cool. Wipe the drip and put the pan away."
+    },
+    {
+      "order": 25,
+      "id": "kitchen_clean",
+      "path": "res://assets/cinematics/dirty_castle/25_kitchen_clean.png",
+      "voice_intent": "Plates stacked, cups straight, jars in line—the Kitchen shines!"
+    },
+    {
+      "order": 26,
+      "id": "bath_discovery",
+      "path": "res://assets/cinematics/dirty_castle/26_bath_discovery.png",
+      "voice_intent": "The Bubble Bath needs towels, toys, and a shiny mirror."
+    },
+    {
+      "order": 27,
+      "id": "bath_mirror",
+      "path": "res://assets/cinematics/dirty_castle/27_bath_mirror.png",
+      "voice_intent": "Round and round—the foggy mirror clears!"
+    },
+    {
+      "order": 28,
+      "id": "bath_tub_toys",
+      "path": "res://assets/cinematics/dirty_castle/28_bath_tub_toys.png",
+      "voice_intent": "Brush the soap ring, basket the toys, and dry the drops."
+    },
+    {
+      "order": 29,
+      "id": "bath_clean",
+      "path": "res://assets/cinematics/dirty_castle/29_bath_clean.png",
+      "voice_intent": "The Bubble Bath sparkles—and a little hidden door is glowing!"
+    },
+    {
+      "order": 30,
+      "id": "loo_reveal",
+      "path": "res://assets/cinematics/dirty_castle/30_loo_reveal.png",
+      "voice_intent": "A secret Royal Loo! It only needs soap, rolls, and dry tile."
+    },
+    {
+      "order": 31,
+      "id": "loo_team",
+      "path": "res://assets/cinematics/dirty_castle/31_loo_team.png",
+      "voice_intent": "Sponge the soap ring, stack the rolls, and dry the splash."
+    },
+    {
+      "order": 32,
+      "id": "loo_clean",
+      "path": "res://assets/cinematics/dirty_castle/32_loo_clean.png",
+      "voice_intent": "The hidden Royal Loo is clean. One storage room remains!"
+    },
+    {
+      "order": 33,
+      "id": "undercroft_before",
+      "path": "res://assets/cinematics/dirty_castle/33_undercroft_before.png",
+      "voice_intent": "Barrels, crate, cart, and cobweb—three last team jobs."
+    },
+    {
+      "order": 34,
+      "id": "undercroft_clean",
+      "path": "res://assets/cinematics/dirty_castle/34_undercroft_clean.png",
+      "voice_intent": "The undercroft is tidy. Let's carry our bunny friends upstairs!"
+    },
+    {
+      "order": 35,
+      "id": "final_inspection",
+      "path": "res://assets/cinematics/dirty_castle/35_final_inspection.png",
+      "voice_intent": "Everything shines, and the dust bunny family has a soft new home."
+    },
+    {
+      "order": 36,
       "id": "all_clean",
-      "path": "res://assets/cinematics/dirty_castle/12_all_clean.png",
+      "path": "res://assets/cinematics/dirty_castle/36_all_clean.png",
       "voice_intent": "All clean! We did it together!"
     }
   ],

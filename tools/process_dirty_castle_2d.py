@@ -141,6 +141,78 @@ ATLASES = (
 			"vignette_messy_toy_chest.png",
 		),
 	),
+	(
+		PROCESSED / "playroom_clutter_atlas_alpha.png",
+		RUNTIME / "rooms" / "playroom",
+		(
+			"playroom_puzzle_tiles.png",
+			"playroom_stacking_rings.png",
+			"playroom_shell_tea_set.png",
+			"playroom_dressup_pile.png",
+			"playroom_balls_beanbag.png",
+			"playroom_wheeled_shell_toy.png",
+		),
+	),
+	(
+		PROCESSED / "library_clutter_atlas_alpha.png",
+		RUNTIME / "rooms" / "library",
+		(
+			"library_fallen_books.png",
+			"library_bookmark_ribbons.png",
+			"library_story_scrolls.png",
+			"library_book_cart.png",
+			"library_reading_cushions.png",
+			"library_picture_cards.png",
+		),
+	),
+	(
+		PROCESSED / "royal_kitchen_targets_atlas_alpha.png",
+		RUNTIME / "rooms" / "royal_kitchen",
+		(
+			"kitchen_sink_plates.png",
+			"kitchen_counter_flour.png",
+			"kitchen_stove_drips.png",
+			"kitchen_tipped_cups.png",
+			"kitchen_crooked_pan.png",
+			"kitchen_cabinet_jars.png",
+		),
+	),
+	(
+		PROCESSED / "bubble_bath_targets_atlas_alpha.png",
+		RUNTIME / "rooms" / "bubble_bath",
+		(
+			"bath_tub_soap_ring.png",
+			"bath_foggy_mirror.png",
+			"bath_vanity_droplets.png",
+			"bath_rumpled_towels.png",
+			"bath_toy_basket.png",
+			"bath_water_droplet_trail.png",
+		),
+	),
+	(
+		PROCESSED / "royal_loo_undercroft_targets_atlas_alpha.png",
+		RUNTIME / "rooms" / "basement",
+		(
+			"loo_toilet_soap_ring.png",
+			"loo_crooked_paper_rolls.png",
+			"loo_brush_holder.png",
+			"loo_clean_water_splash.png",
+			"undercroft_dusty_storage.png",
+			"undercroft_stair_cobweb.png",
+		),
+	),
+	(
+		PROCESSED / "castle_rooms_vignettes_atlas_alpha.png",
+		RUNTIME / "targets" / "room_vignettes",
+		(
+			"room_vignette_playroom.png",
+			"room_vignette_library.png",
+			"room_vignette_royal_kitchen.png",
+			"room_vignette_bubble_bath.png",
+			"room_vignette_royal_loo.png",
+			"room_vignette_undercroft.png",
+		),
+	),
 )
 
 FRAMES = (
@@ -151,11 +223,35 @@ FRAMES = (
 	("frame_03_roshan_window.png", "05_roshan_window.png"),
 	("frame_04_daddy_floor.png", "06_daddy_floor.png"),
 	("frame_05_eagle_dust.png", "07_eagle_dust.png"),
-	("frame_08_pantry_team.png", "08_pantry_team.png"),
-	("frame_09_toy_room_sort.png", "09_toy_room_sort.png"),
-	("frame_10_library_bunny_helpers.png", "10_library_bunny_helpers.png"),
-	("frame_11_final_inspection.png", "11_final_inspection.png"),
-	("frame_06_all_clean.png", "12_all_clean.png"),
+	("frame_08_hall_clean_reveal.png", "08_hall_clean_reveal.png"),
+	("frame_09_playroom_doorway.png", "09_playroom_doorway.png"),
+	("frame_10_playroom_before.png", "10_playroom_before.png"),
+	("frame_09_toy_room_sort.png", "11_playroom_sort.png"),
+	("frame_12_playroom_details.png", "12_playroom_details.png"),
+	("frame_13_playroom_clean.png", "13_playroom_clean.png"),
+	("frame_14_library_doorway.png", "14_library_doorway.png"),
+	("frame_15_library_before.png", "15_library_before.png"),
+	("frame_10_library_bunny_helpers.png", "16_library_bunny_helpers.png"),
+	("frame_17_library_last_book.png", "17_library_last_book.png"),
+	("frame_18_library_clean_storytime.png", "18_library_clean_storytime.png"),
+	("frame_19_basement_descent.png", "19_basement_descent.png"),
+	("frame_08_pantry_team.png", "20_pantry_team.png"),
+	("frame_21_kitchen_doorway.png", "21_kitchen_doorway.png"),
+	("frame_22_kitchen_jobs.png", "22_kitchen_jobs.png"),
+	("frame_23_kitchen_sink.png", "23_kitchen_sink.png"),
+	("frame_24_kitchen_counter_stove.png", "24_kitchen_counter_stove.png"),
+	("frame_25_kitchen_clean.png", "25_kitchen_clean.png"),
+	("frame_26_bath_discovery.png", "26_bath_discovery.png"),
+	("frame_27_bath_mirror.png", "27_bath_mirror.png"),
+	("frame_28_bath_tub_toys.png", "28_bath_tub_toys.png"),
+	("frame_29_bath_clean.png", "29_bath_clean.png"),
+	("frame_30_loo_reveal.png", "30_loo_reveal.png"),
+	("frame_31_loo_team.png", "31_loo_team.png"),
+	("frame_32_loo_clean.png", "32_loo_clean.png"),
+	("frame_33_undercroft_before.png", "33_undercroft_before.png"),
+	("frame_34_undercroft_clean.png", "34_undercroft_clean.png"),
+	("frame_11_final_inspection.png", "35_final_inspection.png"),
+	("frame_06_all_clean.png", "36_all_clean.png"),
 )
 
 
@@ -175,6 +271,18 @@ def _fit_sprite(cell: Image.Image) -> Image.Image:
 	offset = ((SPRITE_SIZE - size[0]) // 2, (SPRITE_SIZE - size[1]) // 2)
 	canvas.alpha_composite(content, offset)
 	return canvas
+
+
+def _clear_key_green(image: Image.Image) -> Image.Image:
+	pixels = [
+		(0, 0, 0, 0)
+		if opacity > 0 and red < 64 and green > 175 and blue < 80
+		else (red, green, blue, opacity)
+		for red, green, blue, opacity in image.getdata()
+	]
+	cleaned = Image.new("RGBA", image.size, (0, 0, 0, 0))
+	cleaned.putdata(pixels)
+	return cleaned
 
 
 def _split_atlas(source: Path, output_dir: Path, names: tuple[str, ...]) -> list[Path]:
@@ -268,7 +376,7 @@ def _split_atlas(source: Path, output_dir: Path, names: tuple[str, ...]) -> list
 		mask = masks[index].filter(ImageFilter.MaxFilter(3))
 		cell = Image.new("RGBA", image.size, (0, 0, 0, 0))
 		cell.paste(image, (0, 0), mask)
-		sprite = _fit_sprite(cell)
+		sprite = _clear_key_green(_fit_sprite(cell))
 		out = output_dir / name
 		sprite.save(out, optimize=True)
 		outputs.append(out)
@@ -360,8 +468,18 @@ def _validate_sprites(paths: list[Path]) -> None:
 		alpha = image.getchannel("A")
 		if alpha.getpixel((0, 0)) != 0 or alpha.getpixel((SPRITE_SIZE - 1, SPRITE_SIZE - 1)) != 0:
 			raise ValueError(f"{path} does not have transparent corners")
-		if alpha.getbbox() is None:
+		bounds = alpha.getbbox()
+		if bounds is None:
 			raise ValueError(f"{path} is fully transparent")
+		if bounds[0] < 24 or bounds[1] < 24 or bounds[2] > SPRITE_SIZE - 24 or bounds[3] > SPRITE_SIZE - 24:
+			raise ValueError(f"{path} does not preserve touch/pulse padding")
+		key_green_pixels = sum(
+			1
+			for red, green, blue, opacity in image.getdata()
+			if opacity > 8 and red < 64 and green > 175 and blue < 80
+		)
+		if key_green_pixels:
+			raise ValueError(f"{path} retains {key_green_pixels} chroma-key green pixels")
 
 
 def _validate_frames(paths: list[Path]) -> None:
@@ -369,21 +487,31 @@ def _validate_frames(paths: list[Path]) -> None:
 		image = Image.open(path)
 		if image.mode != "RGB" or image.size != FRAME_SIZE:
 			raise ValueError(f"{path} must be a {FRAME_SIZE[0]}x{FRAME_SIZE[1]} RGB PNG")
+	expected = {path.resolve() for path in paths}
+	actual = {path.resolve() for path in CINEMATIC.glob("*.png")}
+	if actual != expected:
+		extra = sorted(str(path) for path in actual - expected)
+		missing = sorted(str(path) for path in expected - actual)
+		raise ValueError(f"cinematic directory mismatch; extra={extra}, missing={missing}")
 
 
 def _validate_manifest() -> None:
 	manifest_path = RUNTIME / "manifest.json"
 	manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+	for key in ("godot_handoff", "narrative_handoff", "storyboard_prompt_record"):
+		handoff_path = ROOT / manifest[key].removeprefix("res://")
+		if not handoff_path.is_file():
+			raise ValueError(f"{key} does not exist: {handoff_path}")
 	sprite_paths = [
 		path
 		for paths in manifest["groups"].values()
 		for path in paths
 	]
 	frame_paths = [item["path"] for item in manifest["cinematic"]]
-	if len(sprite_paths) != 60 or len(set(sprite_paths)) != 60:
-		raise ValueError("manifest must enumerate 60 unique runtime sprites")
-	if len(frame_paths) != 12 or len(set(frame_paths)) != 12:
-		raise ValueError("manifest must enumerate 12 unique cinematic frames")
+	if len(sprite_paths) != 96 or len(set(sprite_paths)) != 96:
+		raise ValueError("manifest must enumerate 96 unique runtime sprites")
+	if len(frame_paths) != 36 or len(set(frame_paths)) != 36:
+		raise ValueError("manifest must enumerate 36 unique cinematic frames")
 	for resource_path in sprite_paths + frame_paths:
 		if not resource_path.startswith("res://"):
 			raise ValueError(f"manifest path is not a Godot resource path: {resource_path}")
@@ -402,17 +530,18 @@ def main() -> None:
 	_contact_sheet(
 		sprites,
 		AUDIT / "sprites_contact.png",
-		columns=10,
-		rows=6,
-		title="Dirty Castle cleanup runtime sprites - 60 transparent 512x512 assets",
+		columns=12,
+		rows=8,
+		title="Dirty Castle cleanup runtime sprites - 96 transparent 512x512 assets",
 		canvas_size=2048,
 	)
 	_contact_sheet(
 		frames,
 		AUDIT / "cinematic_contact.png",
-		columns=3,
-		rows=4,
-		title="Dirty Castle cleanup cinematic - 12 runtime frames at 1024x576",
+		columns=4,
+		rows=9,
+		title="Dirty Castle cleanup cinematic - 36 runtime frames at 1024x576",
+		canvas_size=2048,
 	)
 	print(f"Wrote {len(sprites)} sprites and {len(frames)} cinematic frames")
 

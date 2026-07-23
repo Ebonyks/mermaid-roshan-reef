@@ -322,3 +322,63 @@ Output:
 ```text
 Create one polished 16:9 storybook cinematic frame for Mermaid Roshan: Reef of Light immediately before the supplied final high-five frame. Use the arrival and clean-finale images for exact character, castle, lighting, and costume continuity. The Pearl Castle great hall is now gleaming and orderly. Mermaid Roshan, Daddy Mermaid, and Baby Eagle stand together inspecting their work with proud delighted smiles: Roshan points to the polished floor, Daddy Mermaid holds the empty shell bucket, and Baby Eagle presents a final sparkle. Nearby, the lavender spiral-eared dust bunnies are not thrown away: a happy family of bunnies rests in a cozy aqua cloud-and-pearl-shell home beside a neat bench, while one bunny gives Roshan a tiny wave. Show only one small last lavender dust curl turning into a sparkle, establishing that cleaning transformed the mess into friendship. Strong cinematic composition, soft cel-painted pastel storybook rendering, navy-purple outlines, aqua/lavender shadows, pearl and shell motifs, clean readable silhouettes for a four-year-old. Preserve exact faces, crowns, clothing, rainbow tails, and Baby Eagle design. Dust bunnies are the only living mess creatures. No text, no labels, no UI, no logos, no pool, no danger, no soot sprites, no dark puff creatures, no extra characters.
 ```
+
+## Room skin atlas 11 — Playroom objects
+
+Output:
+`raw/playroom_clutter_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas for Mermaid Roshan's existing Pearl Castle PLAYROOM cleanup section. Use the supplied in-game Playroom capture only for its established toy vocabulary and the supplied cleanup atlas for exact pastel cel-painted rendering style. Exactly six separate put-away targets in a strict 3 columns by 2 rows grid: top-left scattered oversized shell-and-star puzzle tiles; top-center knocked pastel stacking rings with the peg beside them; top-right a pearl shell tea set with a tipped tray, cup, and saucer; bottom-left a dress-up pile with small pearl tiara, folded aqua cape, and coral ribbon; bottom-center two pastel play balls beside a soft cloud beanbag; bottom-right one rounded wheeled shell toy with three chunky blocks. Fine navy-purple outlines, cream/pearl/lavender/aqua/coral/restrained-gold palette, broad phone-readable silhouettes, upbeat and safe for a four-year-old. Uniform saturated chroma green background, generous gutters, no floor or room background, no gradients, no cast shadows, no cell borders, no labels, no text, no logos, no characters, no faces, no living grime, no soot sprites. Exactly one complete isolated target vignette per cell.
+```
+
+## Room skin atlas 12 — Royal Library objects
+
+Output:
+`raw/library_clutter_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas for Mermaid Roshan's existing Pearl Castle ROYAL LIBRARY cleanup section. Use the supplied in-game Royal Library capture only for its established furniture and book vocabulary and the supplied cleanup atlas for exact pastel cel-painted rendering style. Exactly six separate put-away targets in a strict 3 columns by 2 rows grid: top-left a small tumble of oversized pastel picture books with blank shell-icon covers; top-center loose coral, aqua, and lavender bookmark ribbons with pearl clips; top-right three rolled story scrolls tied with shell ribbons and no writing; bottom-left a low pearl-and-gold book cart with several leaning books; bottom-center two round reading cushions and one shell pillow out of place; bottom-right four large blank picture cards showing only simple shell, star, fish, and rainbow icons. Fine navy-purple outlines, cream/pearl/lavender/aqua/coral/restrained-gold palette, broad phone-readable silhouettes, playful and non-reading-dependent. Uniform saturated chroma green background, generous gutters, no floor or room background, no gradients, no cast shadows, no cell borders, no labels, no text, no logos, no characters, no faces, no living grime, no soot sprites. Exactly one complete isolated target vignette per cell.
+```
+
+## Room skin atlas 13 — Existing Royal Kitchen objects
+
+Output:
+`raw/royal_kitchen_targets_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas for Mermaid Roshan's EXISTING ROYAL KITCHEN in the Pearl Castle basement. Use the supplied in-game kitchen capture only for fixture vocabulary and the supplied cleanup atlas for exact pastel cel-painted rendering style. Exactly six separate safe kitchen cleanup targets in a strict 3 columns by 2 rows grid: top-left the existing shell sink with three pastel plates and harmless pale-aqua soap film; top-center the existing white counter with a small flour patch, crumbs, and one wooden spoon; top-right the existing rounded stove shown cool with one coral soup drip beside a burner ring; bottom-left two tipped pastel cups with a small aqua tea puddle; bottom-center a crooked lavender pan and lid with a pale-lavender smudge; bottom-right a short pearl cabinet with three rounded pantry jars out of line. Fine navy-purple outlines, cream/pearl/lavender/aqua/coral/restrained-gold palette, broad phone-readable silhouettes, cheerful rather than gross. Uniform saturated chroma green background, generous gutters, no floor or room background, no gradients, no cast shadows, no cell borders, no labels, no text, no logos, no characters, no faces, no living grime, no mold, no rotten food, no hot flames, no soot sprites. Exactly one complete isolated target vignette per cell.
+```
+
+## Room skin atlas 14 — Existing Bubble Bath objects
+
+Output:
+`raw/bubble_bath_targets_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas for Mermaid Roshan's EXISTING BUBBLE BATH room in the Pearl Castle basement. Use the supplied in-game bath capture only for fixture vocabulary and the supplied cleanup atlas for exact pastel cel-painted rendering style. Exactly six separate upbeat bathroom cleanup targets in a strict 3 columns by 2 rows grid: top-left a pearl bathtub edge with a pale lavender soap ring and a few aqua foam bubbles; top-center an oval shell mirror with gentle fog and two child-sized wipe swirls; top-right the shell vanity sink with one harmless coral soap dab and three water droplets; bottom-left a rumpled pile of three clean pastel towels; bottom-center a tipped pearl bath-toy basket with shell, star, and seahorse toys; bottom-right a short trail of four clear-aqua water droplets on pastel tile. Fine navy-purple outlines, cream/pearl/lavender/aqua/coral/restrained-gold palette, broad phone-readable silhouettes, fresh and funny rather than gross. Uniform saturated chroma green background, generous gutters, no floor or room background, no gradients, no cast shadows, no cell borders, no labels, no text, no logos, no characters, no faces, no living grime, no mold, no hair, no bodily waste. Exactly one complete isolated target vignette per cell.
+```
+
+## Room skin atlas 15 — Existing Royal Loo and undercroft objects
+
+Output:
+`raw/royal_loo_undercroft_targets_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas for Mermaid Roshan's EXISTING HIDDEN ROYAL LOO and nearby UNDERCROFT in the Pearl Castle basement. Use the supplied in-game Royal Loo and undercroft captures only for fixture vocabulary and the supplied cleanup atlas for exact pastel cel-painted rendering style. Exactly six separate safe cleanup targets in a strict 3 columns by 2 rows grid: top-left the rounded pearl toilet with a pale-aqua soap ring and a few clean water spots, no waste; top-center three pearl toilet-paper rolls stacked crooked with lavender bands and no writing; top-right a lavender shell toilet brush and pearl holder sitting out of place; bottom-left a small clear-aqua splash and four clean droplets on pastel tile; bottom-center two dusty shell-stamped storage barrels and one pearl crate; bottom-right a triangular basement stair cobweb beside a short lavender dust trail. Fine navy-purple outlines, cream/pearl/lavender/aqua/coral/restrained-gold palette, broad phone-readable silhouettes, cheerful and non-gross for a four-year-old. Uniform saturated chroma green background, generous gutters, no floor or room background, no gradients, no cast shadows, no cell borders, no labels, no text, no logos, no characters, no faces, no living smoke, no insects, no mold, no brown stains, no bodily waste, no frightening basement. Exactly one complete isolated target vignette per cell.
+```
+
+## Room skin atlas 16 — Six room-level before-cleaning vignettes
+
+Output:
+`raw/castle_rooms_vignettes_atlas_chroma.png`
+
+```text
+Create a square production sprite atlas of six LARGE BEFORE-CLEANING ROOM VIGNETTES for Mermaid Roshan's EXISTING Pearl Castle rooms. Use the supplied playroom, library, Royal Kitchen counter, Bubble Bath, Royal Loo, and undercroft captures only for their established fixtures and layout vocabulary; use the supplied cleanup atlas for exact pastel cel-painted rendering. Strict 3 columns by 2 rows grid: top-left messy Playroom with open aqua shell toy chest, blocks, stacking rings, and cushions; top-center messy Royal Library with tilted pastel shelves, fallen books, ribbons, and reading cushions; top-right messy basement Royal Kitchen vignette combining its white counter, shell sink, rounded stove, cups, and flour crumbs; bottom-left messy Bubble Bath with pearl tub, shell vanity, towels, foggy mirror, and water droplets; bottom-center messy hidden Royal Loo with rounded pearl toilet, crooked paper rolls, brush caddy, and clean water spots only; bottom-right dusty undercroft with shell barrels, pearl crate, little cart, shelf, cobweb, and lavender dust curls. Each is one compact isolated cutout with complete silhouette, simplified mobile-readable detail, fine navy-purple outlines, pearl/lavender/aqua/coral/restrained-gold palette. Uniform saturated chroma green background with generous gutters, no full room background, no gradients, no cast shadows, no borders, no labels, no text, no logos, no characters, no faces, no living grime, no mold, no rot, no bodily waste, no frightening darkness.
+```
+
+## 36-frame cinematic expansion
+
+The 24 added cinematic prompts, reference roles, three rejection/correction
+records, accepted full-resolution source mapping, and final sequencing notes are
+recorded in `STORYBOARD_36_PROMPTS.md`.
