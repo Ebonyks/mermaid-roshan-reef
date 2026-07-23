@@ -125,11 +125,32 @@ def main():
         fs = os.path.abspath(res_to_fs(c.get("asset", "")))
         if not os.path.exists(fs):
             print(f"  [!] {cid}: part asset missing -> {fs}"); continue
+        prev = set(bpy.data.objects)
         bpy.ops.import_scene.gltf(filepath=fs)
-        # TODO(artist): parent imported part to the socket bone via a Bone parent
-        #   constraint and zero its local transform. Left as a marked step because
-        #   the exact part origin depends on how each piece is authored.
-        print(f"  [ok] imported {cid} ({os.path.basename(fs)}) — parent to '{c.get('socket')}' in Blender")
+        new_objs = [o for o in bpy.data.objects if o not in prev]
+        socket = c.get("socket", "")
+        if socket not in bones:
+            print(f"  [!] {cid}: socket bone '{socket}' not in rig — left unparented")
+            continue
+        # Parts are authored at the origin in the socket bone's local space
+        # (see PARTS LIBRARY above), so bone-parent each imported root and
+        # zero its local transform. Blender hangs bone children off the bone
+        # TAIL, so shift back -Y by the bone length to land on the head.
+        bone_len = arm.data.bones[socket].length
+        roots = [o for o in new_objs if o.parent is None or o.parent in prev]
+        for o in roots:
+            o.parent = arm
+            o.parent_type = "BONE"
+            o.parent_bone = socket
+            o.matrix_parent_inverse.identity()
+            o.location = (0.0, -bone_len, 0.0)
+            if o.rotation_mode == "QUATERNION":
+                o.rotation_quaternion = (1.0, 0.0, 0.0, 0.0)
+            else:
+                o.rotation_euler = (0.0, 0.0, 0.0)
+            o.scale = (1.0, 1.0, 1.0)
+        print(f"  [ok] {cid} ({os.path.basename(fs)}): "
+              f"{len(roots)} root(s) bone-parented to '{socket}'")
 
     out = os.path.abspath(args["out"])
     bpy.ops.export_scene.gltf(filepath=out, export_format="GLB")
