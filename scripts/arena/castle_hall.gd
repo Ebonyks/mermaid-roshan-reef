@@ -773,8 +773,13 @@ func build_pool_wing(o: Vector3) -> void:
 	water_surface.mesh = water_mesh
 	water_surface.position = o + Vector3(56.0, POOL_SURFACE_Y, 26.0)
 	var water_material: ShaderMaterial = m._toon_water_mat(
-		Color(0.20, 0.56, 0.82), Color(0.58, 0.90, 0.96), 0.56, 0.10, 0.05)
+		Color(0.16, 0.50, 0.78), Color(0.48, 0.86, 0.96), 0.52, 0.10, 0.05)
 	water_material.set_shader_parameter("foam_width", 1.15)
+	# Indoor depth reads catch the basin art and turn the full rectangle into
+	# shoreline foam. A fixed aqua mix is clearer and keeps desktop/phone equal.
+	water_material.set_shader_parameter("use_depth", false)
+	water_material.set_shader_parameter("sparkle", 0.12)
+	water_material.set_shader_parameter("foam_color", Color(0.38, 0.78, 0.94))
 	water_surface.material_override = water_material
 	water_surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	water_surface.set_meta("castle_pool_surface", true)
