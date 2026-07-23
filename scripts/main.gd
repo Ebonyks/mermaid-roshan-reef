@@ -2406,10 +2406,37 @@ func _end_opera(completed: bool) -> void:
 		hud_layer.visible = true
 	if g.has("opera_gate"):
 		var gate: Dictionary = g["opera_gate"]
-		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
+		# place Roshan aside the door on the first CLEAR spot: authored worlds
+		# (dev's park hedges/benches) can occupy the old fixed offset, and a
+		# solid-ejection there shoved her far from the gate on return
+		var base_pos: Vector3 = gate["pos"] as Vector3
+		var landing := base_pos + Vector3(6.5, 0, 0)
+		for offset: Vector3 in [Vector3(6.5, 0, 0), Vector3(-6.5, 0, 0), Vector3(0, 0, 6.5), Vector3(0, 0, -6.5), Vector3(5.0, 0, 5.0)]:
+			if not _arena_point_blocked_solid(base_pos + offset):
+				landing = base_pos + offset
+				break
+		player.position = landing
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
+
+func _arena_point_blocked_solid(point: Vector3) -> bool:
+	# is this point inside any registered arena solid? (safe-return helper)
+	for value in arena_solids:
+		var solid: Dictionary = value
+		if point.y < float(solid.get("y0", -1e9)) or point.y > float(solid.get("y1", 1e9)):
+			continue
+		if bool(solid.get("box", false)):
+			if (absf(point.x - float(solid["cx"])) <= float(solid["hx"])
+				and absf(point.z - float(solid["cz"])) <= float(solid["hz"])):
+				return true
+		else:
+			var dx: float = point.x - float(solid.get("x", 1e9))
+			var dz: float = point.z - float(solid.get("z", 1e9))
+			var radius: float = float(solid.get("r", 0.0))
+			if dx * dx + dz * dz <= radius * radius:
+				return true
+	return false
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 

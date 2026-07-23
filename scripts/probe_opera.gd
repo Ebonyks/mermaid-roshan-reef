@@ -64,7 +64,9 @@ func _init() -> void:
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
 	_ck("act one dresses Roshan in a costume", act != null and act.costume_root != null and act.costume_root.get_child_count() > 0)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
+	# budget raised for the Codex art pass (dressing cards ~15 nodes) plus
+	# headroom for transient sparkle nodes that vary frame to frame
+	_ck("act one stays inside the mobile node budget", _descendants(act) < 210)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
