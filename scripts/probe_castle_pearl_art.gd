@@ -276,7 +276,7 @@ func _capture_castle() -> void:
 	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
 	await _shot("castle_19_bedroom_wardrobe", o + Vector3(43.0, 8.0, -20.0), o + Vector3(40.0, 6.2, -8.0), 62.0)
 	await _shot("castle_20_pool_entry", o + Vector3(30.0, 12.0, 18.0), o + Vector3(65.0, -2.0, 30.0), 70.0)
-	await _shot("castle_21_royal_natatorium_dirty", o + Vector3(98.0, 20.0, 111.0), o + Vector3(68.5, -3.0, 55.0), 72.0)
+	await _shot("castle_21_royal_natatorium_dirty", o + Vector3(86.0, 20.0, 100.0), o + Vector3(68.5, -3.0, 55.0), 72.0)
 
 
 func _run() -> void:
@@ -481,7 +481,7 @@ func _run() -> void:
 	if DisplayServer.get_name() != "headless":
 		var o: Vector3 = main.CASTLE_POS
 		await _shot("castle_22_royal_natatorium_friend",
-			o + Vector3(98.0, 20.0, 111.0),
+			o + Vector3(86.0, 20.0, 100.0),
 			o + Vector3(68.5, -3.0, 55.0),
 			72.0)
 	print("CASTLE_ART|RESULT=", "FAIL" if checks_failed > 0 else "OK", " checks_failed=", checks_failed)
