@@ -1279,8 +1279,10 @@ func _build_castle(o: Vector3) -> void:
 		roof.material_override = m._castle_mat("roof", 0.11, roof_col)
 		# A roof is NOT a solid, so the boom resolver can never route around it —
 		# fading is the only mechanism that can clear it out of the shot when the
-		# lens ends up above the hall. Half-extents are the tilted slab's AABB.
-		m._fade_add_box(roof, roof_pos, Vector3(12.94, 7.82, 25.0))
+		# lens ends up above the hall. Registered as a true ORIENTED box: its
+		# world AABB is 7.8 units tall against the slab's real 0.7 half-thickness,
+		# which would fade the whole roof for shots that pass nowhere near it.
+		m._fade_add_obb(roof, roof_pos, Vector3(14.5, 0.7, 25.0), roof.transform.basis)
 	# rounded corner towers — the "Elsa" silhouette is cylinders + cones
 	for corner: Vector2 in [Vector2(-half_w, front_z), Vector2(half_w, front_z),
 		Vector2(-half_w, back_z), Vector2(half_w, back_z)]:

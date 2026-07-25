@@ -110,22 +110,33 @@ static func boom_hit_t(m: Node, focus: Vector3, want: Vector3) -> float:
 	# core — the lens may cross pad air but still never enters mesh. A focus
 	# inside the CORE itself still collapses (the door-arch lesson: a plain
 	# "ignore this solid" exemption lets the lens glide through real geometry).
-	if not ("arena_solids" in m):
-		return 1.0
 	var t: float = 1.0
 	var d: Vector3 = want - focus
-	for s in m.arena_solids:
-		var st: float
-		var pad: float = float(s.get("pad", 0.0))
-		if s.box:
-			st = _seg_box_t(focus, d, s, 0.0)
-			if st <= 0.0 and pad > 0.0:
-				st = _seg_box_t(focus, d, s, pad)
-		else:
-			st = _seg_cyl_t(focus, d, s, 0.0)
-			if st <= 0.0 and pad > 0.0:
-				st = _seg_cyl_t(focus, d, s, pad)
-		t = minf(t, st)
+	if "arena_solids" in m:
+		for s in m.arena_solids:
+			var st: float
+			var pad: float = float(s.get("pad", 0.0))
+			if s.box:
+				st = _seg_box_t(focus, d, s, 0.0)
+				if st <= 0.0 and pad > 0.0:
+					st = _seg_box_t(focus, d, s, pad)
+			else:
+				st = _seg_cyl_t(focus, d, s, 0.0)
+				if st <= 0.0 and pad > 0.0:
+					st = _seg_cyl_t(focus, d, s, pad)
+			t = minf(t, st)
+	# FREE SWIM: the reef's rock outcrops, wreck and landmarks live in m.solids
+	# (vertical cylinders), a list this resolver used to ignore completely — so
+	# the open world, where the child spends most of her time, had NO occlusion
+	# handling at all. arena_solids is empty out here, so this is the only pass
+	# that does anything.
+	if String(m.game) == "" and "solids" in m:
+		for s2 in m.solids:
+			var pad2: float = float(s2.get("pad", 0.0))
+			var st2: float = _seg_cyl_t(focus, d, s2, 0.0)
+			if st2 <= 0.0 and pad2 > 0.0:
+				st2 = _seg_cyl_t(focus, d, s2, pad2)
+			t = minf(t, st2)
 	return t
 
 

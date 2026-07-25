@@ -144,7 +144,12 @@ var solids: Array = []
 var arena_solids: Array = []
 var arena_zones: Array = []   # y-banded floor/ceil overrides (castle stories)
 var toy_play := {}                # active playground play-moment (drives the player)
-var fade_walls: Array = []   # interior walls that fade out when they block the camera
+var fade_walls: Array = []   # arena occluders that fade when they block the camera
+# The reef is the persistent base world — its props are never freed and
+# fade_walls is wiped on every arena entry, so open-water faders need their own
+# list. Ticked only while game == "" (in an arena the reef is thousands of
+# units away and cannot occlude anything).
+var world_faders: Array = []
 var mg_cool := 0.0
 var mg2d_layer: CanvasLayer
 var mg2d_root: Control
@@ -1532,11 +1537,23 @@ func _register_solid(node: Node3D, tight: float = 0.85, pad: float = 1.6) -> voi
 		return
 	var box: AABB = acc["box"]
 	var center: Vector3 = box.position + box.size * 0.5
-	var r: float = maxf(box.size.x, box.size.z) * 0.5 * tight + pad
+	var r_vis: float = maxf(box.size.x, box.size.z) * 0.5 * tight
+	var r: float = r_vis + pad
 	solids.append({
 		"x": center.x, "z": center.z, "r": r,
 		"y0": box.position.y - pad, "y1": box.position.y + box.size.y + pad,
+		# CameraKit reads this so the core-vs-pad rule works out here too: the
+		# pad ring is body-clearance AIR, and a lens crossing it must not
+		# collapse the boom the way entering the real mesh does.
+		"pad": pad,
 	})
+	# Open-water occlusion. The reef had NONE — arena_solids is empty in free
+	# swim, so the boom resolver had nothing to resolve against, and no reef
+	# structure was ever registered as a camera fader. Only bodies big enough to
+	# actually hide her are worth a per-frame segment test.
+	if r_vis > 3.0:
+		_fade_add_cyl_world(node, Vector3(center.x, box.position.y + box.size.y * 0.5, center.z),
+			r_vis, box.size.y * 0.5)
 
 func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6, fade_node: Node3D = null) -> void:
 	# axis-aligned box collider for an arena wall (player slides along the faces).
@@ -4589,10 +4606,38 @@ func _collect_fade_meshes(n: Node, out: Array) -> void:
 		_collect_fade_meshes(c, out)
 
 
+func _seg_obb(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3, b: Basis) -> bool:
+	# oriented-box occlusion: bring the segment into the box's own space and
+	# reuse the axis-aligned slab test. A rotated slab (the northern gabled
+	# roof) approximated by its world AABB both over-triggers along the flat
+	# span and under-triggers at the tilted ends.
+	var inv: Basis = b.transposed()   # rotation-only, so transpose == inverse
+	return _seg_box(inv * (p0 - c), inv * (p1 - c), Vector3.ZERO, h)
+
+
 func _fade_add_box(node: Node3D, center: Vector3, half: Vector3) -> void:
 	if node == null:
 		return   # most _wall_solid callers register collision only
 	_fade_add(node, {"kind": 0, "c": center, "h": half})
+
+
+func _fade_add_obb(node: Node3D, center: Vector3, half: Vector3, b: Basis) -> void:
+	if node == null:
+		return
+	_fade_add(node, {"kind": 2, "c": center, "h": half, "b": b})
+
+
+func _fade_add_cyl_world(node: Node3D, center: Vector3, r: float, half_h: float) -> void:
+	# same shape as _fade_add_cyl, but parked on the persistent reef list
+	if node == null:
+		return
+	var meshes: Array = []
+	_collect_fade_meshes(node, meshes)
+	if meshes.is_empty():
+		return
+	world_faders.append({"kind": 1, "cx": center.x, "cz": center.z, "r": r,
+		"y0": center.y - half_h, "y1": center.y + half_h,
+		"meshes": meshes, "a": 0.0, "applied": -1.0})
 
 
 func _fade_add_cyl(node: Node3D, center: Vector3, r: float, half_h: float) -> void:
@@ -4629,15 +4674,25 @@ func _tick_wall_fade(delta: float) -> void:
 	# the old version could only ever handle _iwall boxes, each of which owns a
 	# fresh _castle_mat. Per-instance transparency has no such coupling, so
 	# columns, pillars and whole GLB props can fade too.
-	if fade_walls.is_empty() or player == null or player.cam == null or not player.cam.is_inside_tree():
+	if player == null or player.cam == null or not player.cam.is_inside_tree():
 		return
 	var cam_p: Vector3 = player.cam.global_position
 	var pl_p: Vector3 = player.position + Vector3(0, 1.2, 0)
 	var k: float = 1.0 - pow(0.0015, delta)
-	for w in fade_walls:
+	_tick_fade_list(fade_walls, cam_p, pl_p, k)
+	if game == "":
+		_tick_fade_list(world_faders, cam_p, pl_p, k)
+
+
+func _tick_fade_list(list: Array, cam_p: Vector3, pl_p: Vector3, k: float) -> void:
+	var margin := Vector3(1.0, 1.0, 1.0)
+	for w in list:
 		var occ: bool = false
-		if int(w.get("kind", 0)) == 0:
-			occ = _seg_box(cam_p, pl_p, w["c"], (w["h"] as Vector3) + Vector3(1.0, 1.0, 1.0))
+		var kind: int = int(w.get("kind", 0))
+		if kind == 0:
+			occ = _seg_box(cam_p, pl_p, w["c"], (w["h"] as Vector3) + margin)
+		elif kind == 2:
+			occ = _seg_obb(cam_p, pl_p, w["c"], (w["h"] as Vector3) + margin, w["b"])
 		else:
 			occ = _seg_cyl(cam_p, pl_p, float(w["cx"]), float(w["cz"]),
 				float(w["r"]) + 1.0, float(w["y0"]) - 1.0, float(w["y1"]) + 1.0)

@@ -154,6 +154,39 @@ func _init() -> void:
 		"hidden=%d frac %.3f..%.3f" % [hidden_frames, best_frac, worst_frac])
 	await _stick(Vector2.ZERO, 0.3)
 
+	# ---------- open-water occlusion ----------
+	# The reef keeps its structures in main.solids; arena_solids is empty out
+	# here, so before this both the boom resolver and the fade system were blind
+	# to every rock outcrop, the wreck and the landmarks.
+	_ck("the reef registers open-water faders", main.world_faders.size() > 0,
+		"%d faders" % main.world_faders.size())
+	var reef_seen: bool = false
+	for s in main.solids:
+		var sy: float = (float(s["y0"]) + float(s["y1"])) * 0.5
+		var f0: Vector3 = Vector3(float(s["x"]) - float(s["r"]) - 6.0, sy, float(s["z"]))
+		var f1: Vector3 = Vector3(float(s["x"]) + float(s["r"]) + 6.0, sy, float(s["z"]))
+		if CameraKit.boom_hit_t(main, f0, f1) < 1.0:
+			reef_seen = true
+			break
+	_ck("the boom resolver sees reef structures in free swim", reef_seen,
+		"%d reef solids" % main.solids.size())
+
+	# ---------- oriented-box occlusion ----------
+	# The northern gabled roof is a thin slab tilted ~30 deg. Its world AABB is
+	# 7.82 units tall against a real half-thickness of 0.7, so an AABB fader
+	# blanks the whole roof for shots that pass nowhere near it.
+	var slab_half := Vector3(14.5, 0.7, 25.0)
+	var slab_aabb := Vector3(12.94, 7.82, 25.0)
+	var slab_b: Basis = Basis(Vector3(0, 0, 1), 0.52)
+	var a0 := Vector3(-3.0, 6.0, 0.0)
+	var a1 := Vector3(3.0, 6.0, 0.0)
+	var aabb_says: bool = main._seg_box(a0, a1, Vector3.ZERO, slab_aabb)
+	var obb_says: bool = main._seg_obb(a0, a1, Vector3.ZERO, slab_half, slab_b)
+	_ck("oriented-box occlusion rejects what the world AABB over-triggered on",
+		aabb_says and not obb_says, "aabb=%s obb=%s" % [str(aabb_says), str(obb_says)])
+	_ck("oriented-box occlusion still catches a real crossing",
+		main._seg_obb(Vector3(0, -10, 0), Vector3(0, 10, 0), Vector3.ZERO, slab_half, slab_b))
+
 	# ---------- into the castle ----------
 	main.pearl_count = main.PEARL_TOTAL
 	for f in main.friends:
