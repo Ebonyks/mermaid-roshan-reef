@@ -146,6 +146,14 @@ Built so far:
   rarely goes one way. One full turn of finger travel = one stir, three stirs
   finish the bowl, and a cook still stirring after 26s is helped along.
 
+- **Detective — the magnifier** (`opera_act.gd`): a lens Roshan carries and the
+  child DRAGS over the stage. Clue glints are invisible everywhere except
+  inside it, holding the lens still over a box for 0.7s opens it, and sweeping
+  it onto the readied chest is the tiara reveal. Tapping does nothing in this
+  act at all — there is no second button to find. The lens stays backstage
+  until the brawl's curtain opens, so it never steals the stick from the imp
+  fight.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

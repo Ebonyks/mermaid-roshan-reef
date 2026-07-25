@@ -149,6 +149,18 @@ var box_belt: Node3D = null        # the championship belt (beat 3)
 var sleuth_props: Array[Dictionary] = []
 var clues_found := 0
 var chest_ready := false
+# ---- the magnifier (owner 2026-07-25) ----
+# The defining verb of preschool hidden-object: a lens dragged over the scene,
+# with the clues invisible everywhere except inside it. Roshan carries it, so
+# dragging the lens is also how she moves — one finger, one idea. Holding the
+# lens still over a box opens it; there is no second button to find.
+const LENS_R := 6.5             # world radius the lens illuminates
+const LENS_DWELL := 0.7         # seconds held over a box before it opens
+var lens: Node3D = null
+var lens_pos := Vector3.ZERO
+var lens_dwell_i := -1
+var lens_dwell_t := 0.0
+var lens_drag := false
 
 # ---- "doctor" engine ----
 var doc_targets: Array[Dictionary] = []
@@ -245,6 +257,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_box()
 		"sleuth":
 			_build_sleuth()
+			_build_lens()
 		"doctor":
 			_build_doctor()
 		"scroll":
@@ -1381,8 +1394,102 @@ func _build_sleuth() -> void:
 			_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
 			lid = _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
 		var has_clue := clue_picks.has(i)
-		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
+		var glint := _sphere(Vector3(0, 3.2, 0), 0.6, Color(1.0, 0.95, 0.6), 1.4, root)
+		glint.visible = false
+		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid, "glint": glint,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
+
+func _build_lens() -> void:
+	lens_pos = CENTER + Vector3(0, 0.6, 2.0)
+	lens = Node3D.new()
+	lens.name = "Magnifier"
+	lens.position = lens_pos
+	add_child(lens)
+	var ring := TorusMesh.new()
+	ring.inner_radius = LENS_R * 0.86
+	ring.outer_radius = LENS_R
+	var rim := _mesh(ring, Vector3(0, 0.15, 0), Color(0.95, 0.8, 0.45), 0.55, lens)
+	rim.rotation_degrees = Vector3(0, 0, 0)
+	var glass := CylinderMesh.new()
+	glass.top_radius = LENS_R * 0.86
+	glass.bottom_radius = LENS_R * 0.86
+	glass.height = 0.08
+	var pane := _mesh(glass, Vector3(0, 0.12, 0), Color(1.0, 0.96, 0.8, 0.17), 0.5, lens)
+	var pm := pane.material_override as StandardMaterial3D
+	pm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	# the handle, angled back toward the audience
+	var grip := _cyl(Vector3(0, 0.2, LENS_R + 2.0), 0.32, 4.0, Color(0.62, 0.42, 0.28), 0.1, lens)
+	grip.rotation_degrees = Vector3(90, 0, 0)
+	lens.visible = false     # stays backstage until the curtain opens
+
+func _leave_lens() -> void:
+	lens_drag = false
+	lens_dwell_i = -1
+	lens_dwell_t = 0.0
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _lens_ground(screen: Vector2) -> void:
+	if cam == null:
+		return
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 1, 0), CENTER.y + 0.6)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return
+	var p: Vector3 = hit as Vector3
+	var flat := Vector2(p.x - CENTER.x, p.z - CENTER.z)
+	if flat.length() > RADIUS - 2.0:
+		flat = flat.normalized() * (RADIUS - 2.0)
+	lens_pos = Vector3(CENTER.x + flat.x, CENTER.y + 0.6, CENTER.z + flat.y)
+
+func _tick_lens(delta: float) -> void:
+	# drag the lens; Roshan swims along under it, so the existing proximity
+	# rules (chest reach, rescue pointer) keep working unchanged
+	if lens == null:
+		return
+	if not lens_drag:
+		# first tick of the puzzle phase: the brawl is over, take the finger
+		lens_drag = true
+		lens.visible = true
+		lens_pos = Vector3(player_pos.x, CENTER.y + 0.6, player_pos.z)
+		if m.touch_ui != null:
+			m.touch_ui.set_drag_mode(true)
+		m.show_msg("Roshan", "Detective Roshan! DRAG the big magnifying glass around — the clues only show up inside it!", "talk")
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		_lens_ground(m.touch_ui.drag_pos)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_lens_ground(m.get_viewport().get_mouse_position())
+	lens.position = lens_pos + Vector3(0, sin(elapsed * 2.4) * 0.12, 0)
+	player_pos = player_pos.lerp(Vector3(lens_pos.x, player_pos.y, lens_pos.z), clampf(delta * 4.0, 0.0, 1.0))
+	# only what is UNDER the lens shows itself
+	var over := -1
+	for prop: Dictionary in sleuth_props:
+		var d: float = (prop["pos"] as Vector3).distance_to(lens_pos)
+		var lit := d < LENS_R and not bool(prop["opened"])
+		var glint := prop.get("glint") as Node3D
+		if glint != null:
+			glint.visible = lit and bool(prop["clue"])
+		if lit and d < LENS_R * 0.7:
+			over = int(prop["index"])
+	# hold it still over a box and the box opens itself
+	if over >= 0:
+		if over == lens_dwell_i:
+			lens_dwell_t += delta
+			if lens_dwell_t >= LENS_DWELL:
+				lens_dwell_t = 0.0
+				lens_dwell_i = -1
+				_sleuth_action(over)
+		else:
+			lens_dwell_i = over
+			lens_dwell_t = 0.0
+	else:
+		lens_dwell_i = -1
+		lens_dwell_t = 0.0
+	if chest_ready and goal != null and goal.position.distance_to(lens_pos) < LENS_R:
+		_sleuth_chest()
 
 func _sleuth_action(idx: int) -> void:
 	if state != "play" or kind != "sleuth":
@@ -3392,20 +3499,7 @@ func _process(delta: float) -> void:
 			"box":
 				_punch_action()
 			"sleuth":
-				if chest_ready and goal.position.distance_to(player_pos) < 5.5:
-					_sleuth_chest()
-				else:
-					var near_prop := -1
-					var near_prop_d := 4.5
-					for prop: Dictionary in sleuth_props:
-						if bool(prop["opened"]):
-							continue
-						var pd: float = (prop["pos"] as Vector3).distance_to(player_pos)
-						if pd < near_prop_d:
-							near_prop_d = pd
-							near_prop = int(prop["index"])
-					if near_prop >= 0:
-						_sleuth_action(near_prop)
+				pass   # peeking is a lens HOLD now, not a tap
 			"doctor":
 				var near_doc := _nearest_doc_target()
 				if near_doc >= 0:
@@ -3482,6 +3576,8 @@ func _process(delta: float) -> void:
 					else:
 						dwell_pad = touched
 						pad_dwell = 0.0 if touched != dwell_pad else pad_dwell
+		"sleuth":
+			_tick_lens(delta)
 		"shuffle":
 			_tick_shuffle(delta)
 		"fix":
@@ -3652,7 +3748,7 @@ func _update_hud() -> void:
 			if chest_ready:
 				objective.text = tag + "💎  Tap the treasure chest!"
 			else:
-				objective.text = tag + "🔍  Peek in the boxes!  %d / 3 clues" % clues_found
+				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / 3 clues" % clues_found
 		"echo":
 			if echo_phase == "show":
 				objective.text = tag + "👀  WATCH the twinkling tiles!"
@@ -3729,6 +3825,7 @@ func _finish() -> void:
 	state = "done"
 	_leave_easel()
 	_leave_stir()
+	_leave_lens()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -3739,6 +3836,7 @@ func _finish() -> void:
 func cancel() -> void:
 	_leave_easel()
 	_leave_stir()
+	_leave_lens()
 	if state == "done":
 		return
 	if state == "won":
@@ -3768,7 +3866,7 @@ func action_label() -> String:
 		"box":
 			return "PUNCH"
 		"sleuth":
-			return "PEEK"
+			return "LOOK"
 		"scroll":
 			return "TOSS"
 		"race":

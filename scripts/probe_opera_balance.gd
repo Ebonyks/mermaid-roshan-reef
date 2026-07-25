@@ -332,6 +332,19 @@ func _drive_box(act: OperaAct, dt: float) -> void:
 		act._punch_action()
 
 func _drive_sleuth(act: OperaAct, dt: float) -> void:
+	# the detective drags a magnifier rather than swimming and tapping: the
+	# persona sweeps the lens toward its target at its own hand speed and has
+	# to hold it there, so dwell time is part of the act's real cost
+	if act.lens_drag:
+		var want := act.goal.position if act.chest_ready else _nearest_unopened(act)
+		var arm := want - act.lens_pos
+		arm.y = 0.0
+		var reach := act.MOVE_SPEED * float(persona["speed"]) * dt
+		if arm.length() <= reach:
+			act.lens_pos = Vector3(want.x, act.lens_pos.y, want.z)
+		else:
+			act.lens_pos += arm.normalized() * reach
+		return
 	if act.chest_ready:
 		if _travel(act, act.goal.position, dt) and _ready_to_act(dt):
 			act._sleuth_chest()
@@ -355,6 +368,18 @@ func _drive_sleuth(act: OperaAct, dt: float) -> void:
 			if not bool(prop["opened"]) and (prop["pos"] as Vector3).distance_to(act.player_pos) < 4.5:
 				act._sleuth_action(int(prop["index"]))
 				break
+
+func _nearest_unopened(act: OperaAct) -> Vector3:
+	var best := act.lens_pos
+	var best_d := 1e9
+	for prop in act.sleuth_props:
+		if bool(prop["opened"]):
+			continue
+		var d: float = (prop["pos"] as Vector3).distance_to(act.lens_pos)
+		if d < best_d:
+			best_d = d
+			best = prop["pos"] as Vector3
+	return best
 
 func _drive_doctor(act: OperaAct, dt: float) -> void:
 	if act.doc_step >= act.doc_targets.size():

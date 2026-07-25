@@ -418,6 +418,28 @@ func _drive_sleuth(act: OperaAct) -> void:
 	_ck("exactly three boxes hold clues", clue_n == 3)
 	act._sleuth_chest()
 	_ck("chest waits for all three clues", act.state == "play" and not act.chest_ready)
+	# the magnifier: clues are invisible until the lens is over them
+	act._tick_lens(0.1)
+	_ck("the puzzle phase hands the finger to the magnifier", act.lens_drag and act.lens.visible)
+	var far_clue := {}
+	for prop in act.sleuth_props:
+		if bool(prop["clue"]):
+			far_clue = prop
+			break
+	act.lens_pos = act.CENTER + Vector3(0.0, 0.6, 18.0)   # lens parked far downstage
+	act._tick_lens(0.1)
+	_ck("a clue stays hidden with the lens away from it",
+		not (far_clue["glint"] as Node3D).visible)
+	act.lens_pos = (far_clue["pos"] as Vector3)
+	act._tick_lens(0.1)
+	_ck("the clue glints once the lens is over it", (far_clue["glint"] as Node3D).visible)
+	# holding the lens still is what opens a box — one pass is not enough
+	_ck("a glance does not open the box", not bool(far_clue["opened"]))
+	var dguard := 0
+	while not bool(far_clue["opened"]) and dguard < 60:
+		dguard += 1
+		act._tick_lens(0.1)
+	_ck("holding the lens still opens the box", bool(far_clue["opened"]) and act.clues_found == 1)
 	var wrong := {}
 	for prop in act.sleuth_props:
 		if not bool(prop["clue"]):
@@ -427,12 +449,13 @@ func _drive_sleuth(act: OperaAct) -> void:
 	act._sleuth_action(int(wrong["index"]))
 	_ck("wrong box giggles a silly fish, no fail", act.state == "play" and act.clues_found == 0)
 	for prop in act.sleuth_props:
-		if bool(prop["clue"]):
+		if bool(prop["clue"]) and not bool(prop["opened"]):
 			act.player_pos = (prop["pos"] as Vector3)
 			act._sleuth_action(int(prop["index"]))
 	_ck("three clues ready the treasure chest", act.chest_ready)
-	act.player_pos = act.goal.position
-	act._sleuth_chest()
+	# sweeping the lens onto the chest is the reveal — still no button
+	act.lens_pos = act.goal.position
+	act._tick_lens(0.1)
 	_ck("the tiara reveal wins the case", act.state == "won")
 
 func _drive_doctor(act: OperaAct) -> void:
