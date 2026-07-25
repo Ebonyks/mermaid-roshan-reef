@@ -388,6 +388,18 @@ func _drive_box(act: OperaAct, dt: float) -> void:
 		if act.box_belt != null:
 			_travel(act, act.box_belt.position, dt)
 		return
+	if act.box_phase == "duck":
+		# the glove crosses on its own clock whether or not she reacts, so this
+		# beat costs its DUCK_SWEEP either way — the persona's reaction time
+		# only decides whether she gets the whoosh or the giggle
+		if not act.box_ducked and _ready_to_act(dt) and main.touch_ui != null:
+			main.touch_ui.drag_active = true
+			main.touch_ui.drag_pos = Vector2(640.0, 200.0)
+			act._tick_duck(0.0)
+			main.touch_ui.drag_pos = Vector2(640.0, 200.0 + act.DUCK_SWIPE + 6.0)
+			act._tick_duck(0.0)
+			main.touch_ui.drag_active = false
+		return
 	var target := Vector3.ZERO
 	var found := false
 	for g in act.imps:

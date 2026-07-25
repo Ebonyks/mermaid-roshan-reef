@@ -16,6 +16,19 @@ const OUT_PATH := "res://audit/opera_art_manifest.json"
 # The costume key in OperaHouse.ACTS is not always the asset folder name.
 const DIR_ALIAS := {"chef": "pastry_chef"}
 
+# Beats that are SPECIFIED in OPERA_ACT_REDESIGN_2026-07-25.md but not yet
+# playable. Their art is still wanted — it is simply not the art that unblocks
+# a beat a child can play today, so the manifest marks it and codex can sort
+# by it. Delete a name from here in the same commit that ships its beat.
+const PENDING_BEATS := {
+	"detective": ["case_board"],
+	"ballerina": ["ribbon", "twirl"],
+	"candymaker": ["syrup", "wrap", "parade"],
+	"farmer": ["plant", "mud", "barn"],
+	"magician": ["rope", "cabinet"],
+	"painter": ["sketch", "fill"],
+}
+
 # Every beat a career actually plays, and the objects that beat needs on screen.
 # "states" are the visual states the gesture drives — the rule that generates
 # them: if the child's finger changes what a thing looks like, it needs states.
@@ -106,6 +119,8 @@ func _init() -> void:
 	var total_objects := 0
 	var total_states := 0
 	var total_missing := 0
+	var total_built := 0
+	var total_pending := 0
 	for cfg: Dictionary in OperaHouse.ACTS:
 		var costume := String(cfg.get("costume", ""))
 		if costume == "" or not BEATS.has(costume):
@@ -130,7 +145,19 @@ func _init() -> void:
 				}
 				total_objects += 1
 				total_states += states.size()
-			beats.append({"beat": b["beat"], "gesture": b["gesture"], "objects": objs})
+			var bname := String(b["beat"])
+			var pend: Array = PENDING_BEATS.get(costume, [])
+			var is_built: bool = not pend.has(bname)
+			if is_built:
+				total_built += 1
+			else:
+				total_pending += 1
+			beats.append({
+				"beat": bname,
+				"gesture": b["gesture"],
+				"built": is_built,
+				"objects": objs,
+			})
 		acts[costume] = {
 			"career": String(cfg.get("career", "")),
 			"name": String(cfg.get("name", "")),
@@ -149,6 +176,8 @@ func _init() -> void:
 			"objects": total_objects,
 			"states": total_states,
 			"missing": total_missing,
+			"beats_built": total_built,
+			"beats_pending": total_pending,
 		},
 	}
 	var text := JSON.stringify(manifest, "\t", false)
@@ -160,9 +189,9 @@ func _init() -> void:
 	if f != null:
 		f.store_string(text + "\n")
 		f.close()
-	print("ARTMANIFEST|acts=%d objects=%d states=%d missing=%d fingerprint=%s"
-		% [acts.size(), total_objects, total_states, total_missing,
-			String(manifest["fingerprint"])])
+	print("ARTMANIFEST|acts=%d beats=%d/%d built objects=%d states=%d missing=%d fingerprint=%s"
+		% [acts.size(), total_built, total_built + total_pending, total_objects,
+			total_states, total_missing, String(manifest["fingerprint"])])
 	print("ARTMANIFEST|written %s" % OUT_PATH)
 	print("ARTMANIFEST|done")
 	quit()

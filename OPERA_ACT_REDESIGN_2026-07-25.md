@@ -153,7 +153,7 @@ Already three beats (bag → rounds on the beat → belt). One addition:
 
 | # | Beat | Gesture | Detail |
 |---|---|---|---|
-| 2b | **Duck** | swipe down | between rounds a big glove swings across; swipe to duck under it — the only defensive verb in the opera |
+| 2b | **Duck** | swipe down | *(built)* between rounds a big glove swings across; swipe to duck under it — the only defensive verb in the opera. The glove crosses on its own clock, so a child who never swipes just takes a giggling bonk off the bubble shield and the next round rings in |
 
 ## Racecar Driver / Pop Star
 

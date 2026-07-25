@@ -221,6 +221,8 @@ func _drive_stage_rescue(act: OperaAct) -> void:
 	if act.stage_phase != "rescue":
 		return
 	_ck_once("an on-stage rescue cages captives too", act.captives.size() == 2)
+	_ck_once("the button says SPARKLE during an on-stage rescue",
+		act.action_label() == "SPARKLE")
 	_ck_once("the drag finger is held back during a rescue",
 		main.touch_ui == null or not main.touch_ui.drag_mode)
 	var guard := 0
@@ -546,6 +548,30 @@ func _drive_box(act: OperaAct) -> void:
 			_ck_once("the belt descends for the champion", act.box_belt != null)
 			act.player_pos = act.box_belt.position
 			await process_frame
+			continue
+		if act.box_phase == "duck":
+			# the one DEFENSIVE beat in the opera: a swipe down, not a tap
+			_ck_once("a glove swings across between the rounds", act.box_glove != null)
+			_ck_once("the duck hands the finger to the drag channel",
+				main.touch_ui != null and bool(main.touch_ui.drag_mode))
+			act._punch_action()
+			_ck_once("punching the glove is not a duck", not act.box_ducked)
+			act._tick_duck(0.05)
+			_ck_once("an idle finger never ducks by itself", not act.box_ducked)
+			if main.touch_ui != null:
+				main.touch_ui.drag_active = true
+				main.touch_ui.drag_pos = Vector2(640.0, 200.0)
+				act._tick_duck(0.05)
+				main.touch_ui.drag_pos = Vector2(640.0, 200.0 + act.DUCK_SWIPE + 6.0)
+				act._tick_duck(0.05)
+				main.touch_ui.drag_active = false
+			_ck_once("swiping down ducks under the glove", act.box_ducked)
+			var dguard := 0
+			while act.box_phase == "duck" and dguard < 300:
+				dguard += 1
+				act._tick_duck(0.05)
+			_ck_once("the glove passes and the next round rings in",
+				act.box_phase == "rounds" and act.box_glove == null)
 			continue
 		var target := {}
 		for g in act.imps:

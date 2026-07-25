@@ -67,6 +67,11 @@ shipped object predates a redesign.
 - `beats` are **in play order**. An act is a chain; beat 1 art is seen first
   and sets the act's read.
 - `gesture` is the contract. The art exists to make that gesture legible.
+- `built` says whether a child can play that beat today. `false` means the
+  beat is designed and specified but not yet playable — its art is still
+  wanted, it just isn't what unblocks anything this week. **Sort by `built`
+  first.** A `built: true` beat running on a toon primitive is a beat the
+  child is looking at right now.
 - `states` are the visual states the finger drives. **Every state in that array
   must exist as a togglable child node.** A missing state is a dead beat.
 - `path` is where the file goes. Not "somewhere like this" — exactly this. The
@@ -77,10 +82,11 @@ shipped object predates a redesign.
   of that thing. The gift object must be recognisably the *same object* in the
   rescue beat and in the beat that consumes it — same carrot, same paint pot.
 
-**Current state of the world:** 12 acts, 47 beats, 139 objects, 300 states.
-**136 objects do not exist yet.** The three that do — `pastry_chef_bowl`,
-`pastry_chef_oven`, `astronaut_rocket` — are single-pose gen1 models with no
-state children, so they are rebuilds, not skips.
+**Current state of the world:** 12 acts, 47 beats (35 playable today, 12
+specified and pending), 139 objects, 300 states. **136 objects do not exist
+yet.** The three that do — `pastry_chef_bowl`, `pastry_chef_oven`,
+`astronaut_rocket` — are single-pose gen1 models with no state children, so
+they are rebuilds, not skips.
 
 ---
 

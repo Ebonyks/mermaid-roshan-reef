@@ -206,7 +206,20 @@ var chutes: Array[Dictionary] = []
 # ---- "box" engine (boxer: ring combat in rounds) ----
 var box_round := 0
 var box_wait := 0.0
-var box_phase := "rounds"          # warmup | rounds | belt
+var box_phase := "rounds"          # warmup | rounds | duck | belt
+# ---- the duck (owner pacing standard 2026-07-25) ----
+# Between rounds a big padded glove swings across the ring and the child swipes
+# DOWN to duck under it. It is the only DEFENSIVE verb in the whole opera —
+# every other beat is something she does TO the world. Missing it is a bonk on
+# the bubble shield and a giggle; the round starts either way.
+const DUCK_SWEEP := 2.6         # seconds for the glove to cross the ring
+const DUCK_SWIPE := 48.0        # pixels of downward finger travel = a duck
+var box_glove: Node3D = null
+var box_duck_t := 0.0
+var box_ducked := false
+var box_duck_hit := false
+var duck_y0 := 0.0
+var duck_tracking := false
 # ---- punch to the beat (owner 2026-07-25) ----
 # Fitness Boxing is the genre: the imps bob DOWN and UP on a shared beat and
 # can only be bopped while they are up. The window is deliberately most of the
@@ -1486,6 +1499,10 @@ func _box_on_beat() -> bool:
 func _punch_action() -> void:
 	if state != "play" or kind != "box" or box_wait > 0.0:
 		return
+	if box_phase == "duck":
+		# the duck is a SWIPE, not a punch — a tap here must not stand in for it
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
 	if box_phase == "rounds" and not _box_on_beat():
 		# swung between the beats: the glove whiffs, the imps giggle, no loss
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
@@ -1543,8 +1560,9 @@ func _punch_action() -> void:
 		if box_round >= waves.size():
 			_begin_belt()
 			return
-		box_wait = 1.6
 		m.show_msg("Roshan", "Round %d won! Shake it out, champ..." % box_round, "talk")
+		_begin_duck()
+		return
 	_update_hud()
 
 func _bag_action() -> void:
@@ -1575,6 +1593,84 @@ func _bag_action() -> void:
 		m.show_msg("Roshan", "POW! %d more!" % (box_bag_goal - box_bag_hits), "hint")
 	_update_hud()
 
+func _begin_duck() -> void:
+	# Beat 2b: the glove swings in from stage left. The stick still works, so a
+	# child who does not understand yet can simply swim out of the way — the
+	# swipe is the SKILL, not the requirement.
+	box_phase = "duck"
+	box_duck_t = 0.0
+	box_ducked = false
+	box_duck_hit = false
+	duck_tracking = false
+	box_glove = Node3D.new()
+	box_glove.name = "SwingingGlove"
+	box_glove.position = CENTER + Vector3(-17.0, 3.6, 2.0)
+	add_child(box_glove)
+	_sphere(Vector3.ZERO, 2.2, Color(0.9, 0.36, 0.42), 0.2, box_glove)
+	_sphere(Vector3(0, 1.1, 0.9), 0.9, Color(0.95, 0.5, 0.54), 0.2, box_glove)
+	var cuff := _cyl(Vector3(-2.6, 0, 0), 0.62, 2.2, Color(0.98, 0.95, 0.88), 0.1, box_glove)
+	cuff.rotation_degrees = Vector3(0, 0, 90)
+	_set_drag(true)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+	m.show_msg("Roshan", "Look out — a big swinging glove! SWIPE DOWN to duck under it!", "talk")
+	_update_hud()
+
+func _duck_now() -> void:
+	if box_ducked:
+		return
+	box_ducked = true
+	duck_tracking = false
+	progress_t = 0.0
+	m._sparkle_burst(player_pos + Vector3(0, 1.0, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.3
+		m.chime.play()
+	_update_hud()
+
+func _tick_duck(delta: float) -> void:
+	box_duck_t += delta
+	var t := clampf(box_duck_t / DUCK_SWEEP, 0.0, 1.0)
+	if box_glove != null:
+		box_glove.position.x = CENTER.x + lerpf(-17.0, 17.0, t)
+		box_glove.position.y = CENTER.y + 3.6 + sin(elapsed * 3.0) * 0.25
+		box_glove.rotation.z = sin(elapsed * 5.0) * 0.22
+	# the finger: any downward travel counts, however slow. A four-year-old's
+	# swipe is imprecise, so this measures DISTANCE, never speed.
+	if not box_ducked and m.touch_ui != null and bool(m.touch_ui.drag_mode):
+		if bool(m.touch_ui.drag_active):
+			var y: float = (m.touch_ui.drag_pos as Vector2).y
+			if not duck_tracking:
+				duck_tracking = true
+				duck_y0 = y
+			elif y - duck_y0 >= DUCK_SWIPE:
+				_duck_now()
+		else:
+			duck_tracking = false
+	# the glove arrives: a whoosh overhead, or a soft bonk off the bubble
+	# shield. Both are funny, neither is a loss.
+	if not box_duck_hit and box_glove != null and absf(box_glove.position.x - player_pos.x) < 2.8:
+		box_duck_hit = true
+		if box_ducked:
+			m._sparkle_burst(player_pos + Vector3(0, 4.0, 0), Color(0.85, 0.95, 1.0))
+			m.show_msg("Roshan", "WHOOSH — straight over your head! What a duck, champ!", "talk")
+		else:
+			m._sparkle_burst(player_pos + Vector3(0, 2.2, 0), Color(0.6, 0.92, 1.0))
+			m.show_msg("Roshan", "Boing! It bounced right off your bubble shield — giggle!", "hint")
+	if t >= 1.0:
+		_end_duck()
+
+func _end_duck() -> void:
+	if box_glove != null:
+		var gone := box_glove
+		box_glove = null
+		var fade := gone.create_tween()
+		fade.tween_property(gone, "scale", Vector3.ZERO, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		fade.tween_callback(gone.queue_free)
+	_set_drag(false)
+	_box_wave()
+
 func _begin_belt() -> void:
 	# Beat 3: the belt descends over the ring and Roshan swims up to take it.
 	# A pure victory-lap beat — nothing to get wrong, and nothing to wait on.
@@ -1601,6 +1697,10 @@ func _tick_box(delta: float) -> void:
 			if Vector2(box_belt.position.x - player_pos.x, box_belt.position.z - player_pos.z).length() < 4.5:
 				m._sparkle_burst(box_belt.position, Color(1.0, 0.9, 0.5))
 				_win()
+		return
+	if box_phase == "duck":
+		_tick_duck(delta)
+		_tick_pointer()
 		return
 	if box_phase == "warmup":
 		if box_wait > 0.0:
@@ -4520,6 +4620,8 @@ func _pointer_target() -> Vector3:
 				return box_belt.position + Vector3(0, 2.2, 0)
 			if box_phase == "warmup" and box_bag != null:
 				return box_bag.position + Vector3(0, 7.2, 0)
+			if box_phase == "duck" and box_glove != null:
+				return box_glove.position + Vector3(0, 3.4, 0)
 			for g in imps:
 				if not bool(g["popped"]):
 					return (g["pos"] as Vector3) + Vector3(0, 5.0, 0)
@@ -4657,6 +4759,9 @@ func _update_hud() -> void:
 				objective.text = tag + "🏆  CHAMPION! Swim up and take the belt!"
 			elif box_phase == "warmup":
 				objective.text = tag + "🥊  Warm up on the bag!  %d / %d" % [box_bag_hits, box_bag_goal]
+			elif box_phase == "duck":
+				objective.text = tag + ("🥊  Ducked! Here it comes..." if box_ducked
+					else "🧤  SWIPE DOWN to duck under the big glove!")
 			elif box_wait > 0.0:
 				objective.text = tag + "🥊  Round won! Get ready..."
 			else:
@@ -4823,7 +4928,9 @@ func cancel() -> void:
 	queue_free()
 
 func action_label() -> String:
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
+		# an on-stage rescue is the same verb as the backstage brawl. Without
+		# this the button read SORT or DANCE while she was popping imps.
 		return "SPARKLE"
 	match kind:
 		"echo":
