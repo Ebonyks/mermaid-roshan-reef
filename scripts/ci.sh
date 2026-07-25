@@ -24,12 +24,14 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
+failed_probes=""
 for p in probe_reef_districts probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_react probe_satchel probe_grotto probe_flow probe_skins probe_touch_look probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art; do
-	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
+	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; failed_probes="$failed_probes $p(missing)"; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
 	mkdir -p "$probe_home/data" "$probe_home/config"
 	probe_rc=0
+	probe_bad=0
 	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
 		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
 	if [ "$probe_rc" -ne 0 ]; then
@@ -45,21 +47,29 @@ for p in probe_reef_districts probe_audit probe_passive probe_load probe_rank pr
 			# FAILURE_RE words, so this branch used to fail the gate silently
 			echo "PROBE $p exited $probe_rc with no recognised verdict - last 20 lines:"
 			tail -n 20 "/tmp/$p.out"
-			rc=1
+			probe_bad=1
 		fi
 	fi
 	grep -qE "$FAILURE_RE" "/tmp/$p.out" \
-		&& { echo "PROBE $p reported a failure or runtime script error"; rc=1; }
+		&& { echo "PROBE $p reported a failure or runtime script error"; probe_bad=1; }
 	# a script that cannot compile leaves the probe waiting on a world that
 	# never builds - bail on the whole gate instead of timing out per-probe
 	grep -qE "Parse Error|Compile Error" "/tmp/$p.out" \
 		&& { echo "PROBE $p hit a script compile error - aborting gate"; exit 1; }
 	grep -qE "$RUNTIME_ERROR_RE" "/tmp/$p.out" \
-		&& { echo "PROBE $p reported a resource or property runtime error"; rc=1; }
+		&& { echo "PROBE $p reported a resource or property runtime error"; probe_bad=1; }
 	# positive floor: a probe that exits 0 while printing nothing asserted
 	# nothing - a startup crash swallowed before any output must not pass
 	[ -s "/tmp/$p.out" ] \
-		|| { echo "PROBE $p produced no output - silent no-op treated as failure"; rc=1; }
+		|| { echo "PROBE $p produced no output - silent no-op treated as failure"; probe_bad=1; }
 	rm -rf "$probe_home"
+	if [ "$probe_bad" -eq 1 ]; then rc=1; failed_probes="$failed_probes $p"; fi
 done
+# tail-visible verdict: the same summary CI prints, so a long local run does
+# not need scrolling back to find which probe died
+if [ -n "$failed_probes" ]; then
+	echo "GATE SUMMARY: FAILING PROBES:$failed_probes"
+else
+	echo "GATE SUMMARY: all probes passed"
+fi
 exit $rc

@@ -81,6 +81,7 @@ jobs:
         run: |
           set -o pipefail
           FAILED=0
+          FAILED_PROBES=""
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
           FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
           # NOTE: probe_human_art_audit is a display-only screenshot capture with
@@ -91,6 +92,7 @@ jobs:
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
+              FAILED_PROBES="$FAILED_PROBES $p(missing)"
               continue
             fi
             echo "=== $p ==="
@@ -98,6 +100,7 @@ jobs:
             rm -rf "$PROBE_HOME"
             mkdir -p "$PROBE_HOME/data" "$PROBE_HOME/config"
             PROBE_RC=0
+            PROBE_BAD=0
             XDG_DATA_HOME="$PROBE_HOME/data" XDG_CONFIG_HOME="$PROBE_HOME/config" \
               timeout 8m godot --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
             if [ "$PROBE_RC" -ne 0 ]; then
@@ -117,12 +120,12 @@ jobs:
                 # 450k-char log no longer reached the early ones.
                 echo "PROBE $p exited $PROBE_RC with no recognised verdict - last 20 lines:"
                 tail -n 20 "/tmp/$p.out"
-                FAILED=1
+                PROBE_BAD=1
               fi
             fi
             if grep -qE "$FAILURE_RE" "/tmp/$p.out"; then
               echo "PROBE $p reported a failure or runtime script error"
-              FAILED=1
+              PROBE_BAD=1
             fi
             if grep -qE "Parse Error|Compile Error" "/tmp/$p.out"; then
               echo "PROBE $p hit a script compile error - aborting gate"
@@ -130,15 +133,28 @@ jobs:
             fi
             if grep -qE "$RUNTIME_ERROR_RE" "/tmp/$p.out"; then
               echo "PROBE $p reported a resource or property runtime error"
-              FAILED=1
+              PROBE_BAD=1
             fi
             # positive floor: a probe that exits 0 while printing nothing
             # asserted nothing - silent no-op must not count as a pass
             if [ ! -s "/tmp/$p.out" ]; then
               echo "PROBE $p produced no output - silent no-op treated as failure"
+              PROBE_BAD=1
+            fi
+            if [ "$PROBE_BAD" -eq 1 ]; then
               FAILED=1
+              FAILED_PROBES="$FAILED_PROBES $p"
             fi
           done
+          # TAIL-VISIBLE VERDICT. A full probe step now emits more log than the
+          # API will hand back, and only the TAIL is retrievable — so a failure
+          # named beside an early probe is unreadable after the fact. Restating
+          # it here, last, means the verdict is always in reach.
+          if [ -n "$FAILED_PROBES" ]; then
+            echo "GATE SUMMARY: FAILING PROBES:$FAILED_PROBES"
+          else
+            echo "GATE SUMMARY: all probes passed"
+          fi
           exit $FAILED
 
       # Advisory balance playtest: ten simulated-child runs per opera act
