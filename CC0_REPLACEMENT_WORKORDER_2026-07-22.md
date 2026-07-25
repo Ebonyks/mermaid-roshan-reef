@@ -2,39 +2,44 @@
 
 Owner: "wait until assets are stable, and then remove all cc0 assets in game.
 I want all original art... these cc0 assets are among the weakest in the
-game currently." Refined in-session: **this is a handoff, not a deletion
-pass.** Codex generates 2D concept art per item below; Claude converts each
-to a game-ready 3D asset (Blender, matching the existing GEN2 pipeline) or a
-StoryArtFactory card where that's the established pattern; **the old
-CC0/CC-BY/non-original file is only deleted once its replacement is built,
-wired, and probes are green.** No mass deletion happens in this pass.
+game currently." Refined in-session: this is a staged handoff, not a mass
+deletion — generate real replacements first, wire them in as the primary
+path (old file stays as an inert fallback), and only delete the old
+CC0/CC-BY file once the replacement clears the project's normal review loop.
+Later in the same session, the owner asked for the objects to actually be
+generated, not just queued as tasks — **24 of the confirmed-live items were
+generated for real this pass** (deterministic Blender geometry, exported to
+GLB, wired into the game) using `pip install bpy` in-session rather than
+waiting on a separate Codex/Blender environment. Status below.
 
 ## Key finding — read first
 
-The project already runs a "strangler fig" pattern for exactly this kind of
-swap: a `*_GEN2` lookup dict (or an `assets/aquatic2/` shadow folder) is
-checked before the legacy CC0/CC-BY path, so dropping in a same-role
-replacement and registering it automatically stops the old file from ever
-being reached — zero risk, no behavior change to verify beyond the probe
-suite. See `NATURE_GEN2`, `KIT_GEN2`, `AQ_GEN2`, `CREATURE_GEN2` in
+The project runs a "strangler fig" pattern for this exact kind of swap: a
+`*_GEN2` lookup dict (or an `assets/aquatic2/` shadow folder) is checked
+before the legacy CC0/CC-BY path, so dropping in a same-role replacement and
+registering it automatically stops the old file from ever being reached.
+See `NATURE_GEN2`, `KIT_GEN2`, `AQ_GEN2`, `CREATURE_GEN2`, `SHIP_GEN2` in
 `scripts/main.gd`, and `StoryArtFactory` (`scripts/story_art.gd`) for the
-flat-card variant. **New replacements should be wired the same way.**
+flat-card variant.
 
-Tracing those dicts against actual call sites turned up something the owner
-should know: **a large chunk of the CC0/CC-BY inventory is already dead
-code** — replaced months ago, with nobody circling back to delete the now-
-unreachable original file. That group needs zero Codex/Blender work; it's a
-free deletion once the owner blesses it (Group 0 below). The real regen list
-(Group 2) is much smaller than "every CC0 path in ASSET_LICENSES.md."
+Tracing those dicts (and, critically, the actual call sites — not just
+"is there a dict entry") turned up a lot of CC0/CC-BY inventory that's
+**already dead code**, replaced months ago with nobody circling back to
+delete the orphaned original. That group needs zero art work; it's a free
+deletion once the owner blesses it (Group 0). Verifying call sites also
+caught two items that looked live on a shallower first pass but turned out
+to already be dead too — `assets/castle/bed.glb` (no reference anywhere) and
+`assets/aquatic/SeaWeed{,1,2}.glb` (superseded by the `seagrass.png` card,
+kart.gd:1542) — both corrected into Group 0 below; `assets/galaxy/{butterfly1,
+butterfly2}.glb` likewise turned out to be buried behind two other already-
+shipped replacements (`BUTTERFLY_STORY_GLB` card, then a gen2 sprite card)
+before the raw glb is ever reached, so those moved to Group 0 too.
 
 ## Group 0 — already superseded, dead code, zero regen needed
 
-These files are not reachable by any live code path (confirmed by grep
-against every `*_GEN2`/`*_ART` dict and the raw load call sites). Deleting
-them today would be a no-op visually. **Not deleted in this pass** — flagged
-for a separate owner-approved cleanup commit, since "no replacement needed"
-wasn't explicitly covered by the "don't remove until replacement arrives"
-rule and deserves its own explicit go-ahead.
+Not reachable by any live code path. Deleting these today would be a
+visual no-op. **Not deleted this pass** — flagged for a separate
+owner-approved cleanup commit.
 
 - `assets/nature/{flower_purpleA,flower_redA,flower_yellowB,grass_leafsLarge,
   mushroom_red,mushroom_tanGroup,plant_bush,plant_bushLargeTriangle,
@@ -42,100 +47,119 @@ rule and deserves its own explicit go-ahead.
   tree_pineRoundF}.glb` — 13 of 16 Kenney Nature Kit files; routed through
   `NATURE_GEN2` or `StoryArtFactory.plant()` in `_nature()` (main.gd:3590).
 - `assets/kits/play/*.glb` — all 6 Tiny Treats playground pieces; 100%
-  covered by `KIT_GEN2` (main.gd:3654).
+  covered by `KIT_GEN2`.
 - `assets/galaxy/{fruit_apple,fruit_banana,fruit_melon,fruit_orange,beetle,
-  ladybug,trop_palm1,trop_palm2,trop_fern,trop_monstera,trop_bigleaf}.glb`
-  — 11 files (8 CC-BY, 3 CC0); galaxy.gd never loads these paths directly —
-  fruit/bugs render via `StoryArtFactory.fruit()`/`.bug()` (galaxy.gd:582,
-  819) and tropical foliage via `StoryArtFactory.plant()` (galaxy.gd:526).
+  ladybug,trop_palm1,trop_palm2,trop_fern,trop_monstera,trop_bigleaf,
+  butterfly1,butterfly2}.glb` — 13 files; fruit/bugs render via
+  `StoryArtFactory.fruit()`/`.bug()`, tropical foliage via
+  `StoryArtFactory.plant()`, butterflies via `BUTTERFLY_STORY_GLB` then a
+  gen2 sprite card (galaxy.gd:480-508) before the raw glb array is ever
+  reached.
 - `assets/aquatic/{Coral,Coral1-6,Rock,Rock1-11,FanShell,SmallFanShell,
   SpiralShell,SandDollar,StarFish,ClownFish,Turtle,Dolphin,Shark,Hammerhead,
   Whale,StingRay,Squid,Penguin,Octopus,Lobster,Crab}.glb` — 33 of 44 Riley
-  aquatic-pack files; fully covered by `AQ_GEN2`/`CREATURE_GEN2` in
-  `_place_aq()` (main.gd:1676-1697), or by `assets/aquatic2/` shadow files.
-- `assets/aquatic/{Carp,Dory,Eel,Tuna,Seal}.glb` — 5 files with **no spawn
-  code at all** anymore (main.gd:1791-1792 comment confirms these were
-  retired from the "small darting schools" pass on 2026-07-11; only a dead
-  color-table entry at line 1571-1576 still names them).
-- `assets/vehicles/monstertruck.glb` — already has a shipping replacement
-  (`monstertruck_story.glb`, GEN2-authored); kept only as `legacy_glb` in
-  kart.gd:192-193. Removing it needs no new art, just confirming the story
-  glb is solid, then a one-line kart.gd edit.
+  aquatic-pack files; fully covered by `AQ_GEN2`/`CREATURE_GEN2`.
+- `assets/aquatic/{Carp,Dory,Eel,Tuna,Seal}.glb` — 5 files with no spawn
+  code at all anymore (retired 2026-07-11, main.gd:1791-1792 comment).
+- `assets/aquatic/{SeaWeed,SeaWeed1,SeaWeed2}.glb` — 3 files; kart.gd:1542
+  prefers `assets/props/gen2/seagrass.png` first.
+- `assets/castle/bed.glb` — no reference anywhere in `scripts/`.
+- `assets/vehicles/monstertruck.glb` — already superseded by
+  `monstertruck_story.glb`, kept only as `legacy_glb`.
 
-**Total: 63 files removable with zero art work**, pending owner sign-off.
+**Total: ~70 files removable with zero art work**, pending owner sign-off.
 
 ## Group 1 — already flagged for retirement, no regen needed
 
 - `assets/sky/lagoon_day_2k.hdr`, `assets/sky/lagoon_dusk_2k.hdr` (Poly
-  Haven, CC0) — confirmed **zero script references**; already called out in
-  `ART_GAP_WORKORDER_2026-07-18.md` line 38-39: "scored 2/5 and deliberately
-  unwired — do NOT re-wire; delete or replace with painted panoramas." If a
-  painted sky panorama is ever wanted, that's new original art, not a
-  like-for-like CC0 swap — no action needed for this workorder.
+  Haven, CC0) — zero script references; `ART_GAP_WORKORDER_2026-07-18.md`
+  already says "do NOT re-wire; delete or replace with painted panoramas."
 
-## Group 2 — genuinely live, needs a real replacement before deletion
+## Group 2 — generated and wired this pass (24 items)
 
-This is the actual Codex handoff list. For each item Codex should produce
-2D concept art (style-guided by `ART_STYLE_GUIDE.md` and, where a similar
-role already shipped, the nearest existing GEN2 reference for palette/silhouette
-consistency); Claude then either models it in Blender (matching
-`tools/build_*.py` precedent) or runs it through the Meshy image-to-3D lane
-(matching `tools/roshan_v2_retarget.py`/NPC workorder precedent), following
-the existing per-asset pipeline: shrink/decimate, embed matte materials,
-`tools/glb_check.py`, ASSET_LICENSES.md line, probes green, then wire via the
-matching `*_GEN2` dict so the old file goes dark before it's deleted.
+Built with `tools/build_cc0_replacement_kit.py` (deterministic bpy geometry,
+same technique as the pearl-castle/Northern-Kingdom kits — texture-free flat
+matte materials, bevel-rounded storybook silhouettes). Ran via
+`pip install bpy==4.4.0` directly in this session (no separate Blender app
+needed) since no art-generation CI workflow exists yet. All 24 exported
+clean, none over the 6k-triangle prop budget, and both `gdtoolkit.parser`
+and `tools/lint_inference.py` pass on every edited script.
 
-| Item | Current source/license | Live call site(s) | Suggested integration point |
-|---|---|---|---|
-| `assets/castle/throne.glb` | CC-BY 3.0, Poly by Google | `castle_hall.gd:136-143` (fallback when `pearl_shell_throne` authored piece is absent) | Finish the `pearl_shell_throne` authored piece already referenced at castle_hall.gd:135 — this is furthest along of anything on this list; **highest priority, actively being camera-tuned right now** |
-| `assets/vehicles/gokart.glb` | CC-BY 3.0, Poly by Google | `kart.gd:185` | Add to a `VEHICLE_GEN2`-style override or replace in place like `monstertruck_story.glb` did |
-| `assets/vehicles/motorcycle.glb` | CC0, poly.pizza (AliceCassie) | `kart.gd:178` | Same pattern |
-| `assets/galaxy/crystal1.glb, crystal2.glb, crystal3.glb` | CC0, iPoly3D | `galaxy.gd:34` (`CRYSTALS`), also referenced from kart.gd rainbow-track dressing per `ART_GAP_WORKORDER` | Model 3 crystal variants, swap `CRYSTALS` array to new paths |
-| `assets/galaxy/crystal_castle.glb` | CC0, CreativeTrio | `galaxy.gd:40,610` (`CASTLE_GLB`) | Single landmark model |
-| `assets/galaxy/tray.glb` | CC0, MilkAndBanana | `galaxy.gd:47,569` (`TRAY_GLB`) | Single prop, already re-textured once (nano-banana) — good scale/placement reference |
-| `assets/galaxy/butterfly1.glb, butterfly2.glb` | CC-BY 3.0, Poly by Google | `galaxy.gd:44,502` (`BUTTERFLY_GLBS`) | Two flutter variants |
-| `assets/castle/bed.glb` | CC0, Kenney ("Bed Single") | referenced via castle furniture builders | Same class of work as the already-shipped `pearl_kit` furniture (58 pieces) — this bed is the one holdout |
-| `assets/nature/cliff_block_rock.glb, cliff_large_rock.glb` | CC0, Kenney Nature Kit | `_nature()` fallback, main.gd (world cliff/rock dressing) | Rock-family Blender pass, same family as `assets/props/gen2/rock*.glb` (already exists for aquatic rocks — reuse that toolchain/style) |
-| `assets/nature/rock_largeA.glb` | CC0, Kenney Nature Kit | `_nature()` fallback | Same as above |
-| `assets/ship/barrel.glb, chest.glb, cliff_cave_rock.glb, ship-ghost.glb, ship-wreck.glb` | CC0, Kenney Pirate Kit | main.gd:1393, 6317 (shop/undercroft dressing) | 5-piece nautical prop set |
-| `assets/kits/castle/tower-square.glb, flag.glb, wall.glb` | CC0, Kenney Castle Kit | `sky_lagoon.gd:158-164`, `northern_kingdom.gd:1031,1224,1228` (confirmed live) | Extend `KIT_GEN2` the same way `play/*` was covered |
-| `assets/kits/castle/tower-base.glb, tower-square-base.glb, tower-square-mid.glb, tower-square-top-roof-high.glb, tower-top.glb, wall-narrow-gate.glb` | CC0, Kenney Castle Kit | **no live call site found this pass** — verify with a repo-wide grep before commissioning; may belong in Group 0 | — |
-| `assets/kits/park/bench.glb, fountain.glb, hedge_straight.glb, hedge_straight_long.glb` | CC0, Tiny Treats Pretty Park | `sky_lagoon.gd`, `northern_kingdom.gd`, `courtyard_train.gd`, `main.gd:3728-3730`, `castle_hall.gd` | Extend `KIT_GEN2` |
-| `assets/kits/furniture/bookcase.glb, chair.glb, table.glb` | CC0, Quaternius Ultimate Furniture | `main.gd:3724-3726`, `castle_hall.gd:194-199`, `northern_kingdom.gd:1653` | Pairs naturally with the pearl-castle furniture kit style already shipped |
-| `assets/aquatic/SeaWeed.glb, SeaWeed1.glb, SeaWeed2.glb` | "free use, no redistribution" (Riley pack) | `kart.gd:1545` (kart track scatter) | Reuse the `assets/props/gen2/seagrass.png` art direction already approved for the reef |
+| # | path | replaces | wired via | status |
+|---|---|---|---|---|
+| 1 | `assets/vehicles/gokart_story.glb` | `assets/vehicles/gokart.glb` (CC-BY) | `kart.gd` VEHICLES `"glb"`, old path now `"legacy_glb"` | generated, wired |
+| 2 | `assets/vehicles/motorcycle_story.glb` | `assets/vehicles/motorcycle.glb` (CC0) | `kart.gd` VEHICLES `"glb"`, old path now `"legacy_glb"` | generated, wired |
+| 3-5 | `assets/props/gen2/crystal{1,2,3}.glb` | `assets/galaxy/crystal{1,2,3}.glb` (CC0) | `galaxy.gd` `CRYSTALS`, `kart.gd` `BW_CRYSTALS`/`BW_DECO_CRYSTALS` repointed | generated, wired |
+| 6 | `assets/props/gen2/crystal_castle.glb` | `assets/galaxy/crystal_castle.glb` (CC0) | `galaxy.gd`/`kart.gd` `CASTLE_GLB`/`BW_CASTLE_GLB` repointed | generated, wired |
+| 7 | `assets/props/gen2/galaxy_tray.glb` | `assets/galaxy/tray.glb` (CC0) | `galaxy.gd` `TRAY_GLB` repointed | generated, wired |
+| 8-10 | `assets/props/gen2/{cliffrock_block,cliffrock_large,rock_boulder}.glb` | `assets/nature/{cliff_block_rock,cliff_large_rock,rock_largeA}.glb` (CC0) | new `NATURE_GEN2` entries | generated, wired |
+| 11-14 | `assets/props/gen2/{ship_wreck,ship_chest,ship_barrel,ship_ghost}.glb` | `assets/ship/{ship-wreck,chest,barrel,ship-ghost}.glb` (CC0) | new `SHIP_GEN2` dict + gen2-first check added to `_spawn()` (main.gd) | generated, wired |
+| 15-17 | `assets/props/gen2/kit_{tower_square,flag,wall}.glb` | `assets/kits/castle/{tower-square,flag,wall}.glb` (CC0) | new `KIT_GEN2` entries | generated, wired |
+| 18-21 | `assets/props/gen2/kit_{bench,fountain,hedge,hedge_long}.glb` | `assets/kits/park/{bench,fountain,hedge_straight,hedge_straight_long}.glb` (CC0) | new `KIT_GEN2` entries | generated, wired |
+| 22-24 | `assets/props/gen2/kit_{bookcase,chair,table}.glb` | `assets/kits/furniture/{bookcase,chair,table}.glb` (CC0) | new `KIT_GEN2` entries | generated, wired |
 
-### Special cases (not a straight 2D→3D swap)
+Source: `assets_src/blender/cc0_replacement_kit.blend` (editable) +
+`assets_src/blender/qa_cc0_replacement_kit/*.png` (one isolated render per
+piece, Workbench solid-material captures — this session had no GPU/EGL for a
+full Eevee/Cycles pass). `ASSET_LICENSES.md` rows added.
 
-- **`assets/audio/music/world.ogg, world_night.ogg, level2.ogg, hall.ogg,
-  home.ogg`** (CC0, Juhani Junkala JRPG Packs) — these are *music*, not
-  visual art. If original scores are wanted, that's a composition brief for
-  Codex (mood/tempo/instrumentation per scene), not a Blender pipeline;
-  the project already has precedent for from-scratch audio (numpy synthesis
-  for SFX, Kokoro TTS for voice) but no precedent for original music
-  composition — needs an owner decision on approach before Codex drafts a
-  brief.
-- **`assets/terrain/up_*_rgh.jpg`** (14 files, ambientCG CC0) — these are
-  grayscale roughness utility maps, not illustrated art. They should be
-  regenerated by the existing terrain-tile tooling (matching how `_nrm.jpg`
-  normal maps are already "flattened to neutral" per ASSET_LICENSES.md
-  line 29) rather than a fresh Codex art brief — low priority, mechanical.
+**What's still outstanding before these can be promoted and the old
+CC0/CC-BY files deleted** (this session had no Godot binary, so none of
+this could be done locally — matches CLAUDE.md's known limitation):
+1. **CI Mobile-render capture.** The project's stress-test loop requires
+   near/mid/gameplay-distance views on the actual Mobile renderer, not just
+   an isolated Blender/Workbench render. Push this branch, let
+   `probes.yml` run import + trusted probes, and pull runtime screenshots
+   the way `SKY_LAGOON_ART_AUDIT_2026-07-19.md` and friends did.
+2. **Vehicle orientation is unverified.** `yaw_fix` on both new vehicles was
+   left at a guessed value with an explicit "UNVERIFIED render" comment in
+   kart.gd — the old moto/kart models faced different local axes and the
+   correct fix can only be confirmed by actually seeing the kart drive.
+   Check this first; a wrong yaw means the kart visibly drives sideways.
+3. **Owner visual acceptance** per `ART_SCORING_GOVERNANCE_2026-07-18.md` —
+   no self-awarded score; these are first-draft geometry (a few hundred to
+   ~1,200 triangles each), matching the "two or three rejected iterations
+   is normal" expectation, not finished 5/5 art.
+4. **Only after 1-3 pass**, in follow-up commits: delete the 24 superseded
+   CC0/CC-BY files, their `ASSET_LICENSES.md` rows, and the now-dead
+   `"legacy_glb"` vehicle fallbacks — one asset or tightly related group per
+   commit, per the Refactor-rules precedent.
+
+## Item #1 (throne) — not regenerated; needs a wiring check instead
+
+`assets/castle/throne.glb` (CC-BY, Poly by Google) is **not** a missing-art
+problem the way the rest of this list is. `assets/castle/pearl_kit/
+pearl_shell_throne.glb` already exists, is already committed (from the
+2026-07-18 pearl-castle pass), and `castle_hall.gd:135` already tries it
+first via `_pearl("pearl_shell_throne", ...)`. `_static_prop()`
+(castle_hall.gd:27-46) only returns null if `ResourceLoader.exists()` fails
+or the load/instantiate fails — both should succeed for a committed,
+already-audited GLB. The CC-BY fallback at castle_hall.gd:136-143 is very
+likely already dead code in practice, just like the Group 0 items above —
+but the very last commit before this session (`244dada`, "castle throne no
+longer swallows the chase cam") treats "all three throne variants" as
+live possibilities worth registering collision for, so this needs an actual
+CI/Godot check, not an assumption. **Action: verify whether
+`authored_throne` ever resolves to null in the shipped game; if not, move
+`throne.glb` to Group 0 and delete the dead fallback branch. No new
+modeling needed either way.**
+
+## Special cases (not a Blender-geometry swap)
+
+- **`assets/audio/music/{world,world_night,level2,hall,home}.ogg`** (CC0,
+  Juhani Junkala JRPG Packs) — music, not visual art. Needs an owner
+  decision on approach (composition brief vs. keep) before anyone drafts a
+  brief; no precedent in this repo for original music composition.
+- **`assets/terrain/up_*_rgh.jpg`** (14 files, ambientCG CC0) — grayscale
+  roughness utility maps; regenerate via the existing terrain-tile tooling
+  rather than a fresh art brief — low priority, mechanical.
 - **`assets/shaders/toon_water.gdshader`** (CC0 base, godotshaders.com) —
-  this is code, not an asset; the project has already rewritten it
-  substantially (pastel bands, sparkle, scrolling normals, Speedy toggle).
-  Not part of a 2D-art-to-3D handoff; only relevant if the owner wants the
-  water shader rewritten from a blank page.
+  code, not an asset, already substantially rewritten. Only relevant if the
+  owner wants the water shader rewritten from a blank page.
 
-## Execution rule for whoever picks this up
+## Remaining open items (unverified live call site)
 
-1. Codex drafts 2D concept art for one Group 2 item (or a batch), guided by
-   `ART_STYLE_GUIDE.md`.
-2. Claude converts it via Blender (or Meshy where the item suits image-to-3D,
-   per NPC/Roshan-v2 precedent), runs `tools/glb_check.py`, adds the
-   `ASSET_LICENSES.md` line, wires it through the matching `*_GEN2` dict.
-3. Probe suite green on CI for the exact commit.
-4. **Only then**, in a follow-up commit, delete the superseded CC0/CC-BY
-   file and remove its `ASSET_LICENSES.md` line and any now-dead fallback
-   code path.
-5. One asset (or tightly related small group, e.g. the 3 galaxy crystals)
-   per commit — mirrors the `NPC_3D_WORKORDER` and Refactor-rules precedent
-   of small, probed, reversible steps.
+`assets/kits/castle/{tower-base,tower-square-base,tower-square-mid,
+tower-square-top-roof-high,tower-top,wall-narrow-gate}.glb` — no call site
+found in either audit pass. Confirm with a grep before generating; if dead,
+they belong in Group 0 instead.
