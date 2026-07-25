@@ -219,6 +219,8 @@ func _init() -> void:
 	_ck("interior framing is a third-person frame, not a close-up",
 		worst_frac < FRAME_MAX and best_frac > FRAME_MIN,
 		"frac %.3f..%.3f" % [best_frac, worst_frac])
+	var climb_lo: float = best_frac
+	var climb_hi: float = worst_frac
 	_ck("no invisible hand moved her (position only changed by swimming)",
 		pos_before.distance_to(p.position) < 60.0,
 		"travelled %.1f" % pos_before.distance_to(p.position))
@@ -230,22 +232,21 @@ func _init() -> void:
 		bool(main.g.get("crown_won", false)),
 		"pos=%s" % str(p.position - o))
 
-	# ---- DIAGNOSTIC (prints, never asserts): the interior lens, before vs
-	# after, measured at the SAME spot. The audit's headline number was hand
-	# trigonometry on cam.fov; this is the projected pixel height instead.
-	await _stick(Vector2.ZERO, 0.5)
-	_reset_watch()
-	await _stick(Vector2.ZERO, 0.7)
-	var new_lo: float = best_frac
-	var new_hi: float = worst_frac
+	# ---- DIAGNOSTIC (prints, never asserts): repeat the IDENTICAL stair climb
+	# on the pre-fix lens, so the before/after is the same motion through the
+	# same geometry rather than two different spots. The audit's headline number
+	# was hand trigonometry on cam.fov; this is projected pixel height.
 	p.cam_back = 10.0     # the pre-fix hand-tune
 	p.cam_high = 4.2
+	p.position = o + Vector3(0.0, 4.0, -6.0)
+	p.yaw = PI
+	p.vel = Vector3.ZERO
 	p.snap_cam()
 	await _frames(4)
 	_reset_watch()
-	await _stick(Vector2.ZERO, 0.7)
-	print("NAV|framing diagnostic: interior lens 10.0/4.2 fills %.3f..%.3f of frame height; 18.0/8.0 fills %.3f..%.3f"
-		% [best_frac, worst_frac, new_lo, new_hi])
+	await _stick(Vector2(0.0, -1.0), 4.5)
+	print("NAV|framing diagnostic, same stair climb: lens 10.0/4.2 fills %.3f..%.3f of frame height, boom min %.2f; lens 18.0/8.0 fills %.3f..%.3f"
+		% [best_frac, worst_frac, worst_boom, climb_lo, climb_hi])
 	p.apply_cam_profile(CameraKit.INTERIOR)
 	p.snap_cam()
 	await _frames(4)
