@@ -1538,10 +1538,13 @@ func _register_solid(node: Node3D, tight: float = 0.85, pad: float = 1.6) -> voi
 		"y0": box.position.y - pad, "y1": box.position.y + box.size.y + pad,
 	})
 
-func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6) -> void:
+func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6, fade_node: Node3D = null) -> void:
 	# axis-aligned box collider for an arena wall (player slides along the faces).
 	# y range is gated so flat slabs (floors/ceilings) are NOT passed here — only
 	# upright walls, columns and furniture the player should not swim through.
+	# Pass fade_node to ALSO register the visual as a camera-occlusion fader:
+	# anything solid enough to stop her is solid enough to hide her.
+	_fade_add_box(fade_node, center, size * 0.5)
 	arena_solids.append({
 		"box": true,
 		"cx": center.x, "cz": center.z,
@@ -1550,8 +1553,9 @@ func _wall_solid(center: Vector3, size: Vector3, pad: float = 1.6) -> void:
 		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
-func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> void:
-	# vertical-cylinder collider for an arena column
+func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6, fade_node: Node3D = null) -> void:
+	# vertical-cylinder collider for an arena column (see _wall_solid re fade_node)
+	_fade_add_cyl(fade_node, center, r, half_h)
 	arena_solids.append({
 		"box": false,
 		"x": center.x, "z": center.z, "r": r + pad,
@@ -1567,11 +1571,7 @@ func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> Mes
 		node.material_override = _castle_mat("wall", 0.065, col)
 	elif tex != "":
 		node.material_override = _up_mat(tex, 0.045, col)
-	_wall_solid(center, size)
-	var base_a: float = 1.0
-	if node.material_override is StandardMaterial3D:
-		base_a = (node.material_override as StandardMaterial3D).albedo_color.a
-	fade_walls.append({"node": node, "c": center, "h": size * 0.5, "base_a": base_a, "a": base_a})
+	_wall_solid(center, size, 1.6, node)
 	return node
 
 func _build_garden() -> void:
@@ -4552,31 +4552,108 @@ func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 				return false
 	return true
 
+func _seg_cyl(p0: Vector3, p1: Vector3, cx: float, cz: float, r: float, y0: float, y1: float) -> bool:
+	# does the segment p0->p1 pass through the vertical finite cylinder?
+	# (companion to _seg_box — columns and pillars are cyl_solids, and the fade
+	# system used to have no test for them at all)
+	var d: Vector3 = p1 - p0
+	var ox: float = p0.x - cx
+	var oz: float = p0.z - cz
+	var a: float = d.x * d.x + d.z * d.z
+	if a < 0.000001:
+		# vertical segment: inside the disc, so it only depends on the y overlap
+		if ox * ox + oz * oz > r * r:
+			return false
+		return maxf(p0.y, p1.y) > y0 and minf(p0.y, p1.y) < y1
+	var b: float = 2.0 * (ox * d.x + oz * d.z)
+	var c: float = ox * ox + oz * oz - r * r
+	var disc: float = b * b - 4.0 * a * c
+	if disc < 0.0:
+		return false
+	var sq: float = sqrt(disc)
+	var t_lo: float = maxf((-b - sq) / (2.0 * a), 0.0)
+	var t_hi: float = minf((-b + sq) / (2.0 * a), 1.0)
+	if t_lo > t_hi:
+		return false
+	# the xz overlap runs t_lo..t_hi; the cylinder is hit if the segment's y
+	# over that span crosses the y0..y1 band
+	var ya: float = p0.y + d.y * t_lo
+	var yb: float = p0.y + d.y * t_hi
+	return maxf(ya, yb) > y0 and minf(ya, yb) < y1
+
+
+func _collect_fade_meshes(n: Node, out: Array) -> void:
+	if n is MeshInstance3D:
+		out.append(n)
+	for c in n.get_children():
+		_collect_fade_meshes(c, out)
+
+
+func _fade_add_box(node: Node3D, center: Vector3, half: Vector3) -> void:
+	if node == null:
+		return   # most _wall_solid callers register collision only
+	_fade_add(node, {"kind": 0, "c": center, "h": half})
+
+
+func _fade_add_cyl(node: Node3D, center: Vector3, r: float, half_h: float) -> void:
+	if node == null:
+		return
+	_fade_add(node, {"kind": 1, "cx": center.x, "cz": center.z, "r": r,
+		"y0": center.y - half_h, "y1": center.y + half_h})
+
+
+func _fade_add(node: Node3D, shape: Dictionary) -> void:
+	# Register a camera-occlusion fader. The MESHES are collected once, up
+	# front, so an authored GLB prop (a whole subtree) fades as a unit.
+	if node == null:
+		return
+	var meshes: Array = []
+	_collect_fade_meshes(node, meshes)
+	if meshes.is_empty():
+		return
+	shape["meshes"] = meshes
+	shape["a"] = 0.0
+	shape["applied"] = -1.0
+	fade_walls.append(shape)
+
+
+const FADE_T := 0.84   # instance transparency while occluding (16% opaque)
+
 func _tick_wall_fade(delta: float) -> void:
-	# cut away any interior wall that sits between the chase camera and Roshan
+	# Cut away anything that sits between the chase camera and Roshan.
+	#
+	# The fade is applied through GeometryInstance3D.transparency, NOT by
+	# editing the material. That matters: _toonify caches ONE shared override
+	# per source material (see its comment), so every authored prop sharing a
+	# material would fade together if this touched albedo alpha — which is why
+	# the old version could only ever handle _iwall boxes, each of which owns a
+	# fresh _castle_mat. Per-instance transparency has no such coupling, so
+	# columns, pillars and whole GLB props can fade too.
 	if fade_walls.is_empty() or player == null or player.cam == null or not player.cam.is_inside_tree():
 		return
 	var cam_p: Vector3 = player.cam.global_position
 	var pl_p: Vector3 = player.position + Vector3(0, 1.2, 0)
-	var margin := Vector3(1.0, 1.0, 1.0)
+	var k: float = 1.0 - pow(0.0015, delta)
 	for w in fade_walls:
-		if not is_instance_valid(w["node"]):   # check BEFORE the typed assign below
-			continue
-		var node: MeshInstance3D = w["node"]
-		if not (node.material_override is StandardMaterial3D):
-			continue
-		var base_a: float = w["base_a"]
-		var occ: bool = _seg_box(cam_p, pl_p, w["c"], (w["h"] as Vector3) + margin)
-		var target: float = (base_a * 0.16) if occ else base_a
-		var a: float = lerpf(float(w["a"]), target, 1.0 - pow(0.0015, delta))
-		w["a"] = a
-		var mat: StandardMaterial3D = node.material_override
-		if a < base_a - 0.02:
-			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			mat.albedo_color.a = a
+		var occ: bool = false
+		if int(w.get("kind", 0)) == 0:
+			occ = _seg_box(cam_p, pl_p, w["c"], (w["h"] as Vector3) + Vector3(1.0, 1.0, 1.0))
 		else:
-			mat.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
-			mat.albedo_color.a = base_a
+			occ = _seg_cyl(cam_p, pl_p, float(w["cx"]), float(w["cz"]),
+				float(w["r"]) + 1.0, float(w["y0"]) - 1.0, float(w["y1"]) + 1.0)
+		var a: float = lerpf(float(w["a"]), FADE_T if occ else 0.0, k)
+		if a < 0.01:
+			a = 0.0   # snap: an asymptote would strand the mesh in the
+			          # transparent pipeline forever at 99% opacity
+		w["a"] = a
+		# only push to the servers when it actually moved — most faders are
+		# fully opaque and idle on any given frame
+		if absf(a - float(w["applied"])) < 0.004:
+			continue
+		w["applied"] = a
+		for mi in w["meshes"]:
+			if is_instance_valid(mi):
+				(mi as GeometryInstance3D).transparency = a
 
 func _find_skel(n: Node) -> Skeleton3D:
 	if n is Skeleton3D:

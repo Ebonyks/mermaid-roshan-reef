@@ -251,6 +251,40 @@ func _init() -> void:
 	p.snap_cam()
 	await _frames(4)
 
+	# ---------- camera-occlusion fade ----------
+	# Registration coverage first: the hall used to fade only _iwall boxes, so
+	# every column, prop and slab was invisible to the system.
+	var cyl_faders: int = 0
+	for w in main.fade_walls:
+		if int(w.get("kind", 0)) == 1:
+			cyl_faders += 1
+	_ck("the hall registers box AND cylinder occluders",
+		main.fade_walls.size() > 40 and cyl_faders >= 8,
+		"%d faders, %d cylindrical" % [main.fade_walls.size(), cyl_faders])
+	# Every fader must resolve to at least one real mesh, or it is dead weight
+	# doing a segment test per frame for nothing.
+	var empty_faders: int = 0
+	for w in main.fade_walls:
+		if (w["meshes"] as Array).is_empty():
+			empty_faders += 1
+	_ck("no fader registered without meshes", empty_faders == 0,
+		"%d empty" % empty_faders)
+	# Drive it: stand behind the balcony deck slab looking up through it. The
+	# deck carries no solid, so the boom resolver cannot route around it — the
+	# fade is the only thing that can clear the shot.
+	p.position = o + Vector3(0.0, 20.0, -27.0)
+	p.yaw = 0.0
+	p.vel = Vector3.ZERO
+	p.snap_cam()
+	await _stick(Vector2.ZERO, 1.6)
+	var faded_max: float = 0.0
+	for w in main.fade_walls:
+		faded_max = maxf(faded_max, float(w["a"]))
+	print("NAV|occlusion fade: peak instance transparency %.2f across %d faders"
+		% [faded_max, main.fade_walls.size()])
+	_ck("an occluder actually fades when it blocks the lens", faded_max > 0.3,
+		"peak %.2f" % faded_max)
+
 	# ---------- S2: the entrance facade is solid off-doorway ----------
 	p.position = o + Vector3(24.0, 6.0, 34.0)
 	p.yaw = 0.0

@@ -157,7 +157,10 @@ func build(o: Vector3) -> void:
 	# Roshan hovered at Huluu height facing the hall (2026-07-21 report:
 	# "camera stuck inside" a wall of pink). One solid over the throne back
 	# covers all three variants; small pad so the Crown Star stays reachable.
-	m._wall_solid(o + Vector3(0, 19.5, -28.6), Vector3(9.0, 8.0, 4.0), 0.6)
+	# Fading the shell rather than only blocking the boom: perched at Huluu
+	# facing the hall, the lens sits hard against the throne back, and a fade
+	# is a far better answer there than collapsing the boom into her body.
+	m._wall_solid(o + Vector3(0, 19.5, -28.6), Vector3(9.0, 8.0, 4.0), 0.6, authored_throne)
 	# Protected book cutout until an owner-approved source-faithful model exists.
 	var huluu := Sprite3D.new()
 	huluu.texture = load("res://assets/characters/friends/huluu.png")
@@ -177,8 +180,10 @@ func build(o: Vector3) -> void:
 	# ---------- columns line the hall ----------
 	for cz in [-24.0, -8.0, 8.0, 24.0]:
 		for cx in [-28.0, 28.0]:
-			_pearl("pearl_column", o + Vector3(cx, 0.5, cz))
-			m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0)
+			# the eight columns line the walkable side bays and are the hall's
+			# most frequent camera occluder — fade them like the walls
+			var col_prop: Node3D = _pearl("pearl_column", o + Vector3(cx, 0.5, cz))
+			m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0, 1.6, col_prop)
 			# Wall-mounted shell fixtures cast inward between the column bays.
 			var sc := OmniLight3D.new()
 			sc.light_color = Color(1.0, 0.78, 0.5)
@@ -213,8 +218,8 @@ func build(o: Vector3) -> void:
 	_pearl("pearl_shell_bench", o + Vector3(-20.0, 0.5, 36.0), 180.0)
 	_pearl("pearl_shell_bench", o + Vector3(20.0, 0.5, 36.0), 180.0)
 	for fountain_x in [-18.0, 18.0]:
-		_pearl("pearl_shell_fountain", o + Vector3(fountain_x, 0.5, 14.0))
-		m._cyl_solid(o + Vector3(fountain_x, 4.0, 14.0), 2.85, 3.5, 0.5)
+		var fountain: Node3D = _pearl("pearl_shell_fountain", o + Vector3(fountain_x, 0.5, 14.0))
+		m._cyl_solid(o + Vector3(fountain_x, 4.0, 14.0), 2.85, 3.5, 0.5, fountain)
 	# ---------- hanging chandeliers (mesh + light) ----------
 	for chz in [-12.0, 10.0]:
 		_pearl("pearl_shell_chandelier", o + Vector3(0, 30.0, chz))
@@ -242,7 +247,7 @@ func build(o: Vector3) -> void:
 	brsegs.append(m._l2_box(br + Vector3(0, 0.4, 6.1), Vector3(6.8, 1.0, 9.8), Color(0.86, 0.82, 0.92)))     # front strip
 	for fseg in brsegs:
 		fseg.material_override = m._castle_mat("floor", 0.035, Color(0.72, 0.68, 0.82))
-		m.fade_walls.append({"node": fseg, "c": fseg.position, "h": (fseg.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
+		m._fade_add_box(fseg, fseg.position, (fseg.mesh as BoxMesh).size * 0.5)
 	m._l2_box(br + Vector3(0, 33.0, 0), Vector3(52, 1.5, 22), Color(0.58, 0.54, 0.66))           # ceiling
 	m._iwall(br + Vector3(0, 16, -10.5), Vector3(52, 34, 1.5), Color(0.76, 0.70, 0.84), "castle")          # back wall
 	m._iwall(br + Vector3(-25.5, 16, 0), Vector3(1.5, 34, 22), Color(0.72, 0.67, 0.81), "castle")          # left wall
@@ -428,6 +433,9 @@ func build_expansion(o: Vector3) -> void:
 	# ---------- balcony deck along the raised back wall, above the throne
 	var deck = m._l2_box(o + Vector3(0, 32.4, -27.0), Vector3(52, 1.2, 12), wcol)
 	deck.material_override = m._castle_mat("floor", 0.035, Color(0.88, 0.84, 0.94))
+	# the balcony overhangs the throne: standing at Huluu with the lens swung
+	# high puts this slab straight through the shot, and it carries no solid
+	m._fade_add_box(deck, o + Vector3(0, 32.4, -27.0), Vector3(26, 0.6, 6))
 	for railing_x in [-22.5, -13.5, -4.5, 4.5, 13.5, 22.5]:
 		_pearl("pearl_balustrade", o + Vector3(railing_x, 33.0, -21.4))
 	# twin stone stairs hugging the side walls up to the deck. STEEP flights
@@ -756,10 +764,10 @@ func build_basement_wing(o: Vector3) -> void:
 	for ew in [Vector3(-6.2, -9.5, -44.0), Vector3(6.2, -9.5, -44.0)]:
 		var ewn = m._l2_box(o + ew, Vector3(3.6, 18, 1.5), stone)
 		ewn.material_override = m._castle_mat("wall", 0.045, stone)
-		m.fade_walls.append({"node": ewn, "c": ewn.position, "h": (ewn.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
+		m._fade_add_box(ewn, ewn.position, (ewn.mesh as BoxMesh).size * 0.5)
 	var ewl = m._l2_box(o + Vector3(0, -2.75, -44.0), Vector3(8.8, 4.5, 1.5), stone)
 	ewl.material_override = m._castle_mat("wall", 0.045, stone)
-	m.fade_walls.append({"node": ewl, "c": ewl.position, "h": (ewl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
+	m._fade_add_box(ewl, ewl.position, (ewl.mesh as BoxMesh).size * 0.5)
 	# Warm shell lanterns alternate down the hallway without adding lights.
 	for li2 in range(6):
 		var hallway_lantern_x: float = -7.15 + float(li2 % 2) * 14.3
@@ -779,7 +787,7 @@ func build_basement_wing(o: Vector3) -> void:
 		var floor_tint: Color = Color(rd.get("floor_tint", rd["tint"]))
 		rfl.material_override = m._castle_mat(floor_role, 0.05, floor_tint)
 		var rcl = m._l2_box(o + rc + Vector3(0, -0.9, 0), Vector3(19, 0.8, 17), Color(0.55, 0.52, 0.6))   # ceiling
-		m.fade_walls.append({"node": rcl, "c": rcl.position, "h": (rcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
+		m._fade_add_box(rcl, rcl.position, (rcl.mesh as BoxMesh).size * 0.5)
 		if bool(rd.get("ensuite", false)):
 			# far wall split around the secret privy door (z -32..-24)
 			m._iwall(o + rc + Vector3(sx2 * 9.0, -9.5, -6), Vector3(1.5, 18, 4), stone, "castle")
@@ -956,7 +964,7 @@ func build_basement_wing(o: Vector3) -> void:
 	var lfl = m._l2_box(lc + Vector3(0, -18.6, 0), Vector3(10, 1.2, 12), Color(0.6, 0.56, 0.64))
 	lfl.material_override = m._castle_mat("bathroom_tile", 0.055, Color(0.95, 0.98, 1.0))
 	var lcl = m._l2_box(lc + Vector3(0, -0.9, 0), Vector3(10.5, 0.8, 13), Color(0.55, 0.52, 0.6))   # ceiling
-	m.fade_walls.append({"node": lcl, "c": lcl.position, "h": (lcl.mesh as BoxMesh).size * 0.5, "base_a": 1.0, "a": 1.0})
+	m._fade_add_box(lcl, lcl.position, (lcl.mesh as BoxMesh).size * 0.5)
 	m._iwall(lc + Vector3(-4.75, -9.5, 0), Vector3(1.5, 18, 12), stone, "castle")   # far wall (x -35)
 	m._iwall(lc + Vector3(0, -9.5, -6), Vector3(10, 18, 1.5), stone, "castle")      # back wall
 	m._iwall(lc + Vector3(0, -9.5, 6), Vector3(10, 18, 1.5), stone, "castle")       # front wall

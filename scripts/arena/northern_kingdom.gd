@@ -1273,10 +1273,14 @@ func _build_castle(o: Vector3) -> void:
 	# gabled roof slabs over the hall — wide enough to close the eaves against
 	# the side walls, so no sky gap is visible from inside the hall
 	for side: float in [-1.0, 1.0]:
-		var roof: MeshInstance3D = m._l2_box(c + Vector3(side * 12.0, wall_h + 3.6, 0.0),
-			Vector3(29.0, 1.4, 50.0), roof_col)
+		var roof_pos: Vector3 = c + Vector3(side * 12.0, wall_h + 3.6, 0.0)
+		var roof: MeshInstance3D = m._l2_box(roof_pos, Vector3(29.0, 1.4, 50.0), roof_col)
 		roof.rotation.z = side * 0.52
 		roof.material_override = m._castle_mat("roof", 0.11, roof_col)
+		# A roof is NOT a solid, so the boom resolver can never route around it —
+		# fading is the only mechanism that can clear it out of the shot when the
+		# lens ends up above the hall. Half-extents are the tilted slab's AABB.
+		m._fade_add_box(roof, roof_pos, Vector3(12.94, 7.82, 25.0))
 	# rounded corner towers — the "Elsa" silhouette is cylinders + cones
 	for corner: Vector2 in [Vector2(-half_w, front_z), Vector2(half_w, front_z),
 		Vector2(-half_w, back_z), Vector2(half_w, back_z)]:
@@ -1539,7 +1543,9 @@ func _build_grand_hall(o: Vector3) -> void:
 		pillar.position = pp
 		m.add_child(pillar)
 		m.game_nodes.append(pillar)
-		m._cyl_solid(pp, 1.7, 8.0, 0.4)
+		# six pillars on a hex ring in the middle of the hall floor: the most
+		# frequent occluder in this room, and previously never faded
+		m._cyl_solid(pp, 1.7, 8.0, 0.4, pillar)
 
 	# frozen fountain centerpiece: stacked ice tiers + arrested glow jets
 	var f_c: Vector3 = c + Vector3(0.0, 0.0, 6.0)
@@ -1849,7 +1855,10 @@ func _build_grand_hall(o: Vector3) -> void:
 func _castle_wall(pos: Vector3, size: Vector3, col: Color) -> void:
 	var wall: MeshInstance3D = m._l2_box(pos, size, col)
 	wall.material_override = m._castle_mat("wall", 0.07, col)
-	m._wall_solid(pos, size, 0.65)
+	# NAVIGATION_AUDIT C6/F7: this kingdom registered NO camera faders at all —
+	# it never used _iwall, which is where the castle gets its coverage for
+	# free. One argument here covers every wall of the keep.
+	m._wall_solid(pos, size, 0.65, wall)
 
 
 func _build_wisp_trail(o: Vector3) -> void:

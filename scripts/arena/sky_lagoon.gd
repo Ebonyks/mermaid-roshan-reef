@@ -1141,16 +1141,7 @@ func _village_cottage_wall(center: Vector3, size: Vector3, wall_col: Color) -> v
 func _village_register_fade(node: MeshInstance3D, center: Vector3, size: Vector3) -> void:
 	# These tiny rooms use the shared camera cutaway system: whichever wall or
 	# roof is between Roshan and the chase camera fades, leaving the interior clear.
-	var base_alpha := 1.0
-	if node.material_override is StandardMaterial3D:
-		base_alpha = (node.material_override as StandardMaterial3D).albedo_color.a
-	m.fade_walls.append({
-		"node": node,
-		"c": center,
-		"h": size * 0.5,
-		"base_a": base_alpha,
-		"a": base_alpha,
-	})
+	m._fade_add_box(node, center, size * 0.5)
 
 
 func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -> void:
