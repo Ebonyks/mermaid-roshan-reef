@@ -183,6 +183,30 @@ func _cyl(pos: Vector3, radius: float, height: float, col: Color, glow: float = 
 	mesh.radial_segments = 12
 	return _mesh(mesh, pos, col, glow, parent)
 
+# The architecture family modelled from the approved flat cards
+# (tools/build_opera_house_kit.py, sourced from
+# assets_src/concepts/opera_house_flat/opera_house_architecture_kit_2026-07-21.png).
+# It is additive dressing: the state-carrying props (portal, medallion, lift)
+# stay on their art-3.5 models until a Mobile runtime capture verifies the new
+# ones against the door/boss/lift contracts.
+const HOUSE_KIT := "res://assets/opera/house/"
+
+func _house_prop(stem: String, pos: Vector3, yaw: float = 0.0, prop_scale: float = 1.0) -> Node3D:
+	var full := HOUSE_KIT + stem + ".glb"
+	if not ResourceLoader.exists(full):
+		return null
+	var packed := load(full) as PackedScene
+	if packed == null:
+		return null
+	var prop := packed.instantiate() as Node3D
+	if prop == null:
+		return null
+	prop.position = pos
+	prop.rotation_degrees.y = yaw
+	prop.scale = Vector3.ONE * prop_scale
+	lobby_root.add_child(prop)
+	return prop
+
 func _lobby_prop(fname: String, pos: Vector3, yaw: float = 0.0, prop_scale: float = 1.0) -> Node3D:
 	# authored opera GLBs (tools/build_opera_house_art.py); callers keep their
 	# primitive builders as the fallback whenever a file is missing
@@ -291,6 +315,7 @@ func _build_lobby() -> void:
 	_lobby_prop("opera_curtain.glb", L + Vector3(-8.6, 0, -20.6))
 	_lobby_prop("opera_curtain.glb", L + Vector3(8.6, 0, -20.6), 180.0)
 	_lobby_prop("opera_stage_apron.glb", L + Vector3(0, 0, -10.2))
+	_build_house_architecture()
 	# the theatre crest over the top gallery
 	_label("🎭", L + Vector3(0, 41.5, -21.4), 120, Color(1.0, 0.92, 0.7))
 	_label("★", L + Vector3(0, 37.0, -21.4), 64, Color(1.0, 0.88, 0.45))
@@ -322,6 +347,27 @@ func _build_lobby() -> void:
 			if _lobby_prop("opera_bench.glb", L + Vector3(bx, 0.6, bz)) == null:
 				_box(L + Vector3(bx, 1.1, bz), Vector3(10, 1.0, 2.6), crimson)
 				_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
+
+func _build_house_architecture() -> void:
+	# The flat-card architecture family, placed as pure dressing: side and back
+	# zones only, never across the central lane, a portal face, a medallion, a
+	# lift landing or a stair mouth. No collider, no light, no state.
+	# Bays between the four career portals on every storey get a full column.
+	for fy in FLOOR_YS:
+		for cx in [-18.0, 18.0]:
+			_house_prop("opera_column", L + Vector3(cx, fy, -20.6))
+	# Side walls get flat pilasters on the two lower storeys.
+	for py in [0.0, 13.0]:
+		for pside in [-1.0, 1.0]:
+			for pz in [-12.0, 4.0]:
+				_house_prop("opera_pilaster", L + Vector3(pside * 37.3, py, pz), 90.0 * pside)
+	# One cornice run under the first mezzanine ties the ground storey together.
+	for ci in range(12):
+		_house_prop("opera_cove_cornice", L + Vector3(-33.0 + float(ci) * 6.0, 11.3, -21.9))
+	# The twin split stairs from the master scene key: they climb to the first
+	# mezzanine's front edge and are decorative — Roshan swims, the lifts ride.
+	for sside in [-1.0, 1.0]:
+		_house_prop("opera_split_stair", L + Vector3(sside * 20.5, 0.0, -6.0))
 
 func _build_doors() -> void:
 	# four career doors per floor: ground shows line the side walls, the two
