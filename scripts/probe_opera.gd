@@ -6,6 +6,7 @@ extends SceneTree
 
 var main: ReefMain
 var bad := 0
+var _once_seen := {}
 
 func _init() -> void:
 	seed(20260718)

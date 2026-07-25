@@ -1544,7 +1544,7 @@ func _tick_lens(delta: float) -> void:
 	var over := -1
 	for prop: Dictionary in sleuth_props:
 		var d: float = (prop["pos"] as Vector3).distance_to(lens_pos)
-		var lit := d < LENS_R and not bool(prop["opened"])
+		var lit: bool = d < LENS_R and not bool(prop["opened"])
 		var glint := prop.get("glint") as Node3D
 		if glint != null:
 			glint.visible = lit and bool(prop["clue"])
@@ -1951,7 +1951,7 @@ func _apply_brush_tint(col: Color) -> void:
 func _tick_stir(delta: float) -> void:
 	# hands the finger to the bowl while Roshan stands at it, exactly like the
 	# painter's easel — and hands it straight back the moment she is done
-	var near := goal != null and goal.position.distance_to(player_pos) < 7.0
+	var near: bool = goal != null and goal.position.distance_to(player_pos) < 7.0
 	if near and not stir_drag:
 		stir_drag = true
 		stir_drag_t = 0.0
@@ -2102,7 +2102,7 @@ func _tick_easel(delta: float) -> void:
 	# Standing at the easel with a loaded brush hands the finger over to the
 	# canvas: the stick goes quiet and a drag paints. She can always leave —
 	# the band sets on coverage, and a stuck painter is finished for her.
-	var near := canvas_pos.distance_to(player_pos) < 7.0
+	var near: bool = canvas_pos.distance_to(player_pos) < 7.0
 	if near and not paint_easel:
 		paint_easel = true
 		paint_easel_t = 0.0
@@ -2430,7 +2430,7 @@ func _leave_hide() -> void:
 func _tick_hide(delta: float) -> void:
 	if shuffle_phase != "hide":
 		return
-	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
 	if down:
 		var g := _sort_ground(m.touch_ui.drag_pos)
 		if hide_hat < 0:
@@ -2882,7 +2882,7 @@ func _tick_belt(delta: float) -> void:
 		belt_next = 2.6
 		_belt_spawn()
 	# the finger: grab the nearest candy, carry it, drop it on a chute
-	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
 	if down:
 		sort_pos = _sort_ground(m.touch_ui.drag_pos)
 		if sort_held < 0:
@@ -3340,7 +3340,7 @@ func _tick_farm(delta: float) -> void:
 	if farm_aim.is_empty():
 		_farm_arm()
 	# the slingshot: drag back from Roshan, release to lob
-	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
 	if down:
 		if not farm_pull:
 			farm_pull = true
