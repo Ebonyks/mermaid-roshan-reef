@@ -34,6 +34,10 @@ func _build() -> void:
 		var n: Node3D = m._gen2_prop("starfish", Vector3(sp.x, y, sp.z), 2.6, randf() * TAU, 0.0)
 		if n == null:
 			continue
+		# these four props are OURS: we drive their wrap transform directly, and
+		# a held star sitting in front of Roshan would trip the reactive bump
+		# test every cooldown. Hand them back out of the S1 registry.
+		m._react_ref().release(n)
 		stars.append({"node": n, "state": "idle", "vel": Vector3.ZERO,
 			"seat": Vector3(sp.x, y, sp.z), "spin": randf() * TAU, "fly_t": 0.0,
 			"aim": -1})
@@ -42,6 +46,7 @@ func _build() -> void:
 		var n: Node3D = m._gen2_prop("spiralshell", Vector3(sp.x, y, sp.z), 4.6, randf() * TAU, 0.05)
 		if n == null:
 			continue
+		m._react_ref().release(n)   # singing shells own their own squash
 		# soft lavender pool = the "throw here" pointer (no new OmniLights)
 		var halo: MeshInstance3D = m._halo(Vector3(sp.x, y + 0.4, sp.z), Color(0.75, 0.7, 1.0), 9.0)
 		shells.append({"node": n, "mouth": Vector3(sp.x, y + 2.2, sp.z),

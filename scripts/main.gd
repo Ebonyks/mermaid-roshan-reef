@@ -2923,6 +2923,16 @@ func _grotto_ref() -> GrottoPuzzle:
 		grotto_sys = GrottoPuzzle.new(self)
 	return grotto_sys
 
+# SATCHEL_WORKORDER S1: idle drift + bump reactions for small props. State
+# lives here (Phase 7 rule); ReactiveProps receives main and owns only logic.
+var reactive_props: Array = []
+var react_sys: ReactiveProps = null
+
+func _react_ref() -> ReactiveProps:
+	if react_sys == null:
+		react_sys = ReactiveProps.new(self)
+	return react_sys
+
 var _save_state: SaveState = null
 var _collection_system: CollectionSystem = null
 
@@ -4016,6 +4026,10 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 	wrap.position = pos - Vector3(0.0, h * sink, 0.0)
 	wrap.rotation.y = yrot
 	add_child(wrap)
+	# SATCHEL_WORKORDER S1: whitelisted small props join the reactive registry.
+	# register() ignores every name it does not know, so structural flora,
+	# rocks, trees and creatures are unaffected.
+	_react_ref().register(wrap, inst, name, target)
 	return wrap
 
 func _pastel(c: Color) -> Color:
@@ -6049,6 +6063,7 @@ func _process(delta: float) -> void:
 		_carry_ref().tick(delta, ppos)   # starfish scoop/toss + singing shells
 		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
 		_grotto_ref().tick(delta, ppos)  # push-block grotto
+		_react_ref().tick(delta, ppos)   # idle drift + bump reactions (S1)
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)
