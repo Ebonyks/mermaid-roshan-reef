@@ -53,19 +53,33 @@ second surface so they can never collide with movement:
 
 ## 3. The four verbs
 
-Each verb keeps ONE identity — color, shape, icon, sound family, voice
-cue — across every mode, forever. (Icons are emoji glyphs like the
-existing 🛡 DODGE and 🎈 pips; no text reading required.)
+Each verb keeps ONE identity — color, shape, **motion**, sound family,
+voice cue — across every mode, forever.
 
-### TAP — hot pink, round bubble, ⭐
-One big pulsing bubble; one tap inside the window.
+OWNER FEEDBACK 2026-07-25 — **prompt = demonstration, not symbol.** A
+static glyph is a reading task in disguise; the prompt must PERFORM the
+gesture it asks for, on a loop, until the player mirrors it. Every verb
+bubble ships with a demo animation — a sparkle fingertip / comet acting
+out the motion — and that looping motion IS the verb's identity. Emoji
+glyphs stay only as secondary decoration inside the bubble. The demo
+loops are Control tweens (scale/position/modulate), cheap under the
+mobile renderer, and they run until first correct input, then yield to
+the player's own feedback.
+
+### TAP — hot pink, round bubble
+Demo loop: a sparkle fingertip drops onto the bubble, dimples it with a
+single squash-and-bounce, lifts off — one clear press, over and over.
+One tap inside the window completes it.
 - Window: 2.0–2.4 s telegraph (matches stuffie battle today).
 - Mercy: window widens on a miss streak; after 2 misses, ANY input
   counts (the existing `stuffie_battle.gd` rule, kept verbatim).
 - The stuffie battle's 🛡 DODGE is a themed TAP and migrates onto the
   shared helper unchanged.
 
-### MASH — sunny gold, shaking bubble, 💥
+### MASH — sunny gold, shaking bubble
+Demo loop: the fingertip drums the bubble in rapid-fire — quick mini
+squashes with puff bursts at tap tempo, the bubble jittering like it's
+already being mashed. The animation shows the *rhythm* she should match.
 Rapid multi-tap: every tap bumps a fill ring; burst at N taps.
 - N = 6 base; ring NEVER drains — mashing is guaranteed forward
   progress, pure energy, zero timing skill.
@@ -73,7 +87,10 @@ Rapid multi-tap: every tap bumps a fill ring; burst at N taps.
 - Feedback: bubble shakes harder per tap, pitch climbs per tap, burst is
   the biggest sparkle in the encounter. Voice cue: "Tap tap tap!"
 
-### HOLD — lavender, calm bubble, 🔮
+### HOLD — lavender, calm bubble
+Demo loop: the fingertip presses and STAYS — the bubble slowly inflates
+while a ghost ring fills around it, then bursts; the sustained contact
+is unmistakable next to MASH's drumming.
 Press and hold; a ring fills over 1.2 s with a rising charge sparkle and
 bursts automatically when full.
 - Hold-until-full, NOT release-on-timing — release timing is a skill
@@ -83,10 +100,14 @@ bursts automatically when full.
   anywhere.
 - This is the calm, dramatic verb — finishers, charging the pearl.
 
-### SLICE — aqua, wide ribbon band, 🌊 (the new verb)
+### SLICE — aqua, wide ribbon band (the new verb)
+Demo loop: a comet streak sweeps horizontally across the band, leaving
+a glittering trail, and the slice targets wobble as it passes — the
+swipe literally performed in front of her, direction and extent shown,
+no arrow glyph needed.
 Fruit-Ninja moment: a horizontal ribbon band across mid-screen with 1–3
-slice targets in a row and a dashed ←→ arrow; a sparkle trail follows
-the finger; dragging across the band pops everything the trail crosses.
+slice targets in a row; a sparkle trail follows the finger; dragging
+across the band pops everything the trail crosses.
 - Recognition (generous by design): one touch whose path crosses ≥40%
   of the band's width with net-horizontal motion (|Δx| ≥ 1.5·|Δy|),
   either direction. No speed floor beyond "not a stationary press":
@@ -128,7 +149,8 @@ prompted verb steps → cinematic payoff → next fight phase. On the final
 loop the last step is a HOLD or SLICE finisher.
 
 - Steps appear ONE at a time — prompted, never memorized. Each step:
-  its verb bubble/band + golden pointer + voice cue.
+  its verb bubble/band playing its demo motion + golden pointer + voice
+  cue. The demo keeps looping until her first correct input.
 - A missed window never fails: the boss wiggles, the same step
   re-telegraphs, per-verb mercy escalates. The boss can NEVER escape a
   chain once staggered — slow is fine, stuck is impossible.
