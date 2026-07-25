@@ -28,7 +28,13 @@ var _origin := Vector2.ZERO
 var _moved := false
 var _press_ms := 0
 var _pulse := 0.0         # keeps action_down true briefly after a tap so per-frame readers never miss it
-const R := 78.0   # smaller thumb travel for full deflection — livelier steering on tablets
+# Thumb travel to full deflection, in the 1280x720 stretch space.
+# NAVIGATION_AUDIT_2026-07-25 N4: this was 78, tuned on a tablet ("livelier
+# steering on tablets"), which on the target phone is roughly 7mm from centre to
+# full lock with the first 2mm dead — under 6mm of usable analog band, so every
+# thumb tremor read as full steering input. 140 puts the throw at ~1.2cm, in the
+# range a real virtual stick uses.
+const R := 140.0
 const TAP_SLOP := 22.0    # finger drift allowed for a "tap" (px)
 const TAP_MS := 300       # max press time for a tap
 const JUMP_HOLD_MS := 140 # still second finger older than this = held jump
@@ -40,8 +46,9 @@ func _ready() -> void:
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE   # visuals only — never blocks input
 	add_child(_root)
-	_base = _circle(Color(1, 1, 1, 0.12), 105.0)
-	_knob = _circle(Color(1, 1, 1, 0.30), 46.0)
+	# ring sized to the new R so the knob reads as travelling INSIDE its guide
+	_base = _circle(Color(1, 1, 1, 0.12), 150.0)
+	_knob = _circle(Color(1, 1, 1, 0.30), 42.0)
 	_base.visible = false
 	_knob.visible = false
 	_root.add_child(_base)

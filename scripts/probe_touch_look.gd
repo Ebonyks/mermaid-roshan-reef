@@ -35,8 +35,11 @@ func _init() -> void:
 		return
 
 	# ---- steer with finger 0 (stick sanity)
+	# drag well past TAP_SLOP: the stick ramps 0->1 between slop and R, and R
+	# grew from 78 to 140 (NAVIGATION_AUDIT N4), so a 60px nudge no longer
+	# leaves useful headroom over the 0.3 assertion below
 	_down(0, Vector2(400, 700))
-	_move(0, Vector2(460, 700))
+	_move(0, Vector2(520, 700))
 	await process_frame
 	if (touch.stick_vec as Vector2).length() < 0.3:
 		print("FAIL stick did not engage: %s" % touch.stick_vec)

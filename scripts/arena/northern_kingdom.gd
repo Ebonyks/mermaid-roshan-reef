@@ -206,6 +206,19 @@ func tick(delta: float, ppos: Vector3) -> void:
 		m.g["north_hall_greeted"] = true
 		m.show_msg("Roshan", "The great ice hall! Look at the swirly stairs!", "pearl")
 
+	# NAVIGATION_AUDIT_2026-07-25 C6: the grand hall is a real interior, and this
+	# file used to contain no camera code at all — it ran the full 25-unit
+	# outdoor boom straight through the hall walls. Swap to the interior lens
+	# across the threshold, reusing the exact footprint the hall's ceiling zone
+	# uses. The SWIM stays MOVE_OPEN: the hall is 60x44, nothing like the 11-unit
+	# castle corridors the indoor tuning was solved for.
+	var hall_lx: float = ppos.x - m.NORTHERN_POS.x
+	var hall_lz: float = ppos.z - m.NORTHERN_POS.z
+	var in_hall: bool = absf(hall_lx) < 30.0 and hall_lz > -348.0 and hall_lz < -304.0
+	if in_hall != bool(m.g.get("north_in_hall", false)):
+		m.g["north_in_hall"] = in_hall
+		m._apply_venue(CameraKit.INTERIOR if in_hall else CameraKit.OUTDOOR, m.MOVE_OPEN)
+
 	# A cheap moving pointer supplements the permanent wisp chain. It is visual
 	# and voiced, so the route never depends on reading the HUD.
 	m.g["north_hint_t"] = float(m.g.get("north_hint_t", 0.0)) - delta

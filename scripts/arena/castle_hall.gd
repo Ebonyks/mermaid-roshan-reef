@@ -131,7 +131,14 @@ func build(o: Vector3) -> void:
 	# a ramp-floor zone (see build_expansion) so Roshan rests on and climbs the
 	# steps instead of swimming through them. The old one-box solid covered the
 	# upper flight and would eject her off the new walkable steps.
-	m._wall_solid(o + Vector3(0, 8.0, -27.0), Vector3(14, 16, 6), 0.8)
+	# NAVIGATION_AUDIT S1: the top of this solid used to sit at y 16.8, ABOVE the
+	# dais it represents (visible top y 16.0) and above the royal stairs' ramp
+	# floor (14.9) — and arena_solids eject horizontally only, they have no top
+	# face. So the hall's stated objective ("climb the royal staircase") ended at
+	# an invisible wall 3.8 units short of the throne, with nothing to stand on
+	# even if you cleared it. The solid now stops exactly at the dais surface and
+	# a floor zone (build_expansion) makes that surface standable.
+	m._wall_solid(o + Vector3(0, 7.6, -27.0), Vector3(14, 15.2, 6), 0.8)
 	var authored_throne: Node3D = _pearl("pearl_shell_throne", o + Vector3(0, 15.5, -28.1))
 	if authored_throne == null and ResourceLoader.exists("res://assets/castle/throne.glb"):
 		var tmodel: Node3D = (load("res://assets/castle/throne.glb") as PackedScene).instantiate()
@@ -364,6 +371,15 @@ func build(o: Vector3) -> void:
 	var entrance_lintel: MeshInstance3D = m._l2_box(
 		o + Vector3(0, 42.0, 45.25), Vector3(68.0, 20.0, 0.28), scol)
 	entrance_lintel.material_override = entrance_wall_mat
+	# NAVIGATION_AUDIT S2: the facade above was _l2_box — visual only — and the
+	# hall's side walls stop at z=46, so the entrance had NO collider anywhere.
+	# Outside the exit trigger's 12-unit sphere Roshan swam straight through the
+	# painted wall into the unlit space between the hall and its 90-unit dome,
+	# standing on an invisible plane at arena_center.y+2.5. These solids close
+	# the facade and leave the doorway itself (x -4.4..4.4 after the body pad) open.
+	for entrance_solid_side: float in [-1.0, 1.0]:
+		m._wall_solid(o + Vector3(entrance_solid_side * 20.0, 16.0, 45.25), Vector3(28.0, 32.0, 1.2))
+	m._wall_solid(o + Vector3(0, 42.0, 45.25), Vector3(68.0, 20.0, 1.2))
 	_pearl("pearl_shell_banner_a", o + Vector3(-19.0, 13.4, 44.55))
 	_pearl("pearl_shell_banner_b", o + Vector3(19.0, 13.4, 44.55))
 	# The rainbow frame opens onto graphic water instead of a blank wall.
@@ -582,7 +598,13 @@ func build_expansion(o: Vector3) -> void:
 		# staircase RAMP floors (stairs pass 2026-07-12) — every castle flight is
 		# walkable, not swim-through decor. Royal-stairs band stops below the
 		# balcony deck band (30..50) or it would re-floor the deck airspace.
-		{"rect": Rect2(-8, -24.7, 16, 16.2), "band": Vector2(-0.5, 29.5), "ramp": [2, -10.0, 2.9, -23.2, 14.9]},   # royal stairs to the throne
+		# Royal stairs to the throne. The flight now climbs to 16.4 — the dais
+		# surface — instead of stopping at 14.9 inside the dais collider (S1).
+		{"rect": Rect2(-8, -24.7, 16, 16.2), "band": Vector2(-0.5, 29.5), "ramp": [2, -10.0, 2.9, -23.2, 16.4]},
+		# THE DAIS ITSELF is standable: walk off the top step and stay up there
+		# beside Princess Huluu. Band stops at 29 so it can never fight the
+		# balcony deck's 30..50 capture band directly overhead.
+		{"rect": Rect2(-8, -31, 16, 8), "band": Vector2(14.0, 29.0), "floor": 16.4},
 		{"rect": Rect2(26.5, -34.0, 7.5, 13.5), "band": Vector2(-0.5, 32.0), "ramp": [2, -21.9, 3.85, -32.1, 30.85]},   # balcony stairs, right
 		{"rect": Rect2(-34.0, -34.0, 7.5, 13.5), "band": Vector2(-0.5, 32.0), "ramp": [2, -21.9, 3.85, -32.1, 30.85]},  # balcony stairs, left
 		{"rect": Rect2(-34.5, -33.5, 9, 11), "band": Vector2(-18.0, -1.0), "floor": -17.4, "ceil": -2.0},   # hidden privy behind the Bubble Bath
@@ -1428,13 +1450,14 @@ func tick(delta: float, ppos: Vector3) -> void:
 	# yanked her out of her own castle). The win still counts (level2_done_once
 	# + save); she keeps the castle and leaves by the front door when SHE wants.
 	if not crown_won:
-		# gentle stair helper (not a black hole): only a soft updraft when the player
-		# is in FRONT of the throne and below the crown; retired once the crown is won
+		# NAVIGATION_AUDIT S1: a magnet used to live here, dragging Roshan ~40%/s
+		# toward the Crown Star by writing player.position directly (bypassing
+		# every collider) while the dais solid shoved her back out — a tug-of-war
+		# on the critical path of the hall's main objective. It existed only
+		# because the dais was not standable. It is now: the royal stairs land on
+		# the dais surface and the star sits at its left edge, well inside the
+		# 10-unit pickup radius from anywhere a child can walk to.
 		var d: float = crown.position.distance_to(ppos)
-		var in_front: bool = ppos.z > crown.position.z + 3.0
-		if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
-			m.player.position = m.player.position.lerp(crown.position, minf(0.16, delta * 0.5))
-			m.player.vel.y = maxf(m.player.vel.y, 0.0)
 		# The rebuilt five-unit star sits just left of the throne so it remains
 		# readable beside Huluu. Match its generous child-scale visual footprint.
 		if d < 10.0:

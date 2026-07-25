@@ -483,6 +483,53 @@ extract-don't-rewrite style.
 
 ---
 
+---
+
+# STATUS — implemented 2026-07-25
+
+## Landed
+
+| # | Fix | Where |
+|---|---|---|
+| C1 | Interior boom 10/4.2 → 18/8. Roshan goes from 99 % to ~55 % of frame height indoors. | `camera_kit.gd` `INTERIOR`, `main.gd` `_enter_castle_interior_now` |
+| C3 | `cam_profile` / `move_profile` venue system; boot and all five restores read the same constants, so the 9.0→6.5 drift cannot recur. | `CameraKit.OUTDOOR/INTERIOR`, `main._apply_venue`, `player.apply_cam_profile` |
+| C2 | **Boom-over before boom-in** — the resolver lifts the lens over an obstruction (capped by the zone ceiling) before shortening. Hide thresholds 2.0/2.6 → 1.2/1.8. | `CameraKit.resolve`, `player.gd` chase block |
+| C4 | One `CameraKit.zone_bounds()` with the *body's* semantics, called by both player and lens, plus a floor≤ceil collapse so an overlap can never pin her. | `camera_kit.gd`, `player.gd` |
+| C6 | Northern grand hall switches to the interior lens on its threshold (the file had no camera code at all). | `arena/northern_kingdom.gd` |
+| C7 | `near = 0.3`, per-venue `far` (1200 / 500) instead of 0.05 / 4000. | `player.apply_cam_profile` |
+| C8 | Lagoon toy-ride camera routed through `CameraKit.resolve`; `snap_cam()` on ride exit. | `arena/sky_lagoon.gd` |
+| N1 | **Stick is a direction, not a yaw rate.** All devices fold into one screen-space vector; she slews toward it. Read in a lazily-following lens frame (`cam_yaw`) so absolute control does not degenerate back into rate control. | `player.gd` |
+| N2/N3 | Venue movement constants. Interior: top speed 16 u/s, stop 4.7 u, turning circle 10.0 u (fits the 11.3 u corridor); gravity and jump scale with drag so the fall is 11.8 u/s and a held climb ~12 u/s. | `main.MOVE_OPEN` / `MOVE_INDOOR` |
+| N4 | Touch stick throw `R` 78 → 140 (~1.2 cm), ring resized. | `touch_ui.gd` |
+| N5 | Reverse is gone: a hard reversal eases thrust to 15 % and turns instead. | `player.gd` |
+| S1 | Dais solid capped at the dais surface, royal stairs climb to it, dais floor zone added — **and the position-writing crown magnet is deleted.** | `arena/castle_hall.gd` |
+| S2 | Entrance facade given colliders (doorway stays 8.8 u clear); she now spawns **facing the throne** instead of facing the exit trigger she just came through. | `arena/castle_hall.gd`, `main.gd` |
+| W1/W2 | Wayfinder runs in the castle (Crown Star, then the exit) and places breadcrumbs at fixed 6/10/14 u instead of 6 %/13 %/20 % of the way. | `main._tick_wayfinder` |
+| Tests | `probe_navigation.gd` (new — drives via `touch_ui.stick_vec` only, asserts direction-steering, framing band, `player.visible`, boom length, zone-table non-inversion, stair→dais→crown with no magnet, entrance wall, lens restore). `probe_camera` + `probe_castle_cam` + `probe_navigation` added to `ci.sh` **and** `.github/workflows/probes.yml`. | |
+
+## Deliberately not done, and why
+
+- **S3 zone-table re-authoring.** The shared resolver and the floor≤ceil guard
+  landed, but the "swim up through the treasure-room ceiling into the Star
+  Chamber" shortcut is still open and ceilings still have no colliders. A
+  ceiling cannot simply become an `arena_solids` entry — those eject
+  *horizontally only*, so a slab would squirt her sideways rather than stop her.
+  Sealing the band instead means re-timing the upper-story capture bands, which
+  risks dropping her through the gallery-door threshold where the current
+  30..50 band provides the only floor support. That needs a live editor to
+  validate, not a headless probe. It is a shortcut, not a trap.
+- **A dedicated dive input.** Covered indirectly by the interior gravity/jump
+  rescale (7 s dead drop → 2.3 s). A real down control still wants a second
+  touch affordance, which is a UI decision for the owner.
+- **A separate room-camera profile for interiors under ~20 u.** Boom-over
+  subsumes it: in exactly those rooms the boom lifts and looks down, which is
+  what a room camera would have done, without a second code path.
+- **Northern `fade_walls` registration.** The interior lens landed; wall fading
+  would mean reaching into that file's builders, and other sessions are active
+  there.
+
+---
+
 ## One-paragraph summary for the owner
 
 Navigation feels bad for two independent reasons that compound. First, the

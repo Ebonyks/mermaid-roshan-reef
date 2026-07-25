@@ -181,10 +181,32 @@ var cam: Camera3D
 # compressed perspective flattens the world toward 2.5D so it reads as a
 # toy diorama instead of open 3D. Subject size on screen stays the same
 # (fov 60->38 is ~1.55x zoom; distance grew by the same factor).
-var cam_back := 25.0   # chase distance (reduced indoors so the camera does not clip walls)
-var cam_high := 9.0    # chase height
+# The NUMBERS live in CameraKit.OUTDOOR / CameraKit.INTERIOR and arrive here
+# through apply_cam_profile(); main calls that on every venue change. Nothing
+# outside dev_mode should hand-write cam_back/cam_high any more — three
+# separate restore sites doing exactly that is how the outdoor lens quietly
+# dropped from 9.0 to 6.5 after the first castle visit.
+var cam_back: float = CameraKit.OUTDOOR["back"]   # chase distance
+var cam_high: float = CameraKit.OUTDOOR["high"]   # chase height
+var cam_fov: float = CameraKit.OUTDOOR["fov"]     # base lens (breathes with speed)
 var cam_orbit := 0.0        # right-stick look-around: yaw offset, drifts back behind Roshan
 var cam_pitch_off := 0.0    # right-stick look-around: height offset
+# The LENS's own heading — see the steering block in _process. The stick is read
+# in THIS frame, not in Roshan's, and it follows her only past a dead band.
+var cam_yaw := 0.0
+
+
+func apply_cam_profile(prof: Dictionary) -> void:
+	# One venue -> one lens. Also the only place near/far are set: the default
+	# 0.05/4000 pair is an 80,000:1 depth range on the Mobile renderer, which
+	# z-fights the castle's coplanar slabs.
+	cam_back = float(prof.get("back", CameraKit.OUTDOOR["back"]))
+	cam_high = float(prof.get("high", CameraKit.OUTDOOR["high"]))
+	cam_fov = float(prof.get("fov", CameraKit.OUTDOOR["fov"]))
+	if cam != null:
+		cam.fov = cam_fov
+		cam.near = float(prof.get("near", 0.3))
+		cam.far = float(prof.get("far", 1200.0))
 var skel: Skeleton3D
 var bone_idx := {}
 var rest := {}
@@ -331,7 +353,7 @@ func _ready() -> void:
 	speed_lines.position = Vector3(0, 1.0, 0)
 	add_child(speed_lines)
 	cam = Camera3D.new()
-	cam.fov = 38.0   # diorama lens (see cam_back note)
+	apply_cam_profile(CameraKit.OUTDOOR)   # diorama lens (see cam_back note)
 	get_parent().add_child.call_deferred(cam)
 
 func _map_bones() -> void:
@@ -673,44 +695,63 @@ func _process(delta: float) -> void:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))
 		return
-	var fwd := 0.0
-	var turn := 0.0
+	var m0: Node = get_parent()
+	# ---- venue movement profile (NAVIGATION_AUDIT_2026-07-25 P0/N3) ----
+	# One open-ocean tuning used to run everywhere: 25.5 u/s top speed, a 14.9u
+	# coast-to-stop and a 28.4u turning circle, inside castle rooms 11-13u
+	# across. main.move_profile now hands out per-venue numbers; MOVE_OPEN is
+	# the shipped ocean feel, unchanged.
+	var mprof: Dictionary = {}
+	if "move_profile" in m0:
+		mprof = m0.move_profile
+	var thrust: float = float(mprof.get("thrust", 43.7))
+	var water_drag: float = float(mprof.get("drag", 0.18))
+	var turn_rate: float = float(mprof.get("turn", 1.8))
+	var grav: float = float(mprof.get("gravity", 13.0))
+	var jump_v: float = float(mprof.get("jump", 16.0))
+
+	# ---- input: every device folds into ONE screen-space vector ----
+	# x = screen right, y = screen forward (away from the lens).
+	# NAVIGATION_AUDIT N1: the stick used to be a yaw RATE, so "push left" meant
+	# "start spinning", not "go left" — a vehicle convention a non-reader has
+	# never met, and one that made thrust and steering mutually exclusive. It is
+	# a DIRECTION now: she turns toward wherever the thumb points and swims.
+	var steer := Vector2.ZERO
 	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
-		fwd += 1.0
+		steer.y += 1.0
 	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
-		fwd -= 0.6
+		steer.y -= 1.0
 	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
-		turn += 1.0
+		steer.x -= 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
-		turn -= 1.0
+		steer.x += 1.0
 	# while a pad holds R1 it is Player 2's — its left stick steers the stuffie
 	# companion (companion.gd), so Roshan must ignore it for that beat
 	var pad_is_p2: bool = "companion_p2" in _m0 and bool(_m0.companion_p2)
 	var jx: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_X)
 	var jy: float = 0.0 if pad_is_p2 else joy_axis(JOY_AXIS_LEFT_Y)
 	if absf(jx) > 0.2:
-		turn -= jx
+		steer.x += jx
 	if absf(jy) > 0.2:
-		fwd -= jy
+		steer.y -= jy          # pad Y is +down
 	# D-pad swims too (nice on small pads like the 8BitDo Lite)
 	if joy_pressed(JOY_BUTTON_DPAD_UP):
-		fwd += 1.0
+		steer.y += 1.0
 	if joy_pressed(JOY_BUTTON_DPAD_DOWN):
-		fwd -= 0.6
+		steer.y -= 1.0
 	if joy_pressed(JOY_BUTTON_DPAD_LEFT):
-		turn += 1.0
+		steer.x -= 1.0
 	if joy_pressed(JOY_BUTTON_DPAD_RIGHT):
-		turn -= 1.0
-	var m0: Node = get_parent()
+		steer.x += 1.0
 	if "touch_ui" in m0 and m0.touch_ui != null:
 		var tv: Vector2 = m0.touch_ui.stick_vec
-		# 0.10 (was 0.15): the stick now ramps from 0 at its 22px slop edge, so
-		# a 0.15 gate on top would leave the first ~8px past slop dead — the
-		# slop itself is the dead zone now, this only filters jitter
-		if absf(tv.x) > 0.10:
-			turn -= tv.x
-		if absf(tv.y) > 0.10:
-			fwd -= tv.y
+		# 0.10: the stick ramps from 0 at its slop edge, so the slop IS the dead
+		# zone — this only filters jitter
+		if tv.length() > 0.10:
+			steer.x += tv.x
+			steer.y -= tv.y    # screen Y is +down
+	var mag: float = clampf(steer.length(), 0.0, 1.0)
+
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
@@ -721,11 +762,37 @@ func _process(delta: float) -> void:
 	# no swim-kicks while breached above the surface — she is ballistic in air
 	if jump_held and jump_cool <= 0.0 and not (free_swim and position.y > WATER_TOP):
 		jump_cool = 0.4
-		vel.y = 16.0
+		vel.y = jump_v
 		if m0 != null and m0.has_method("on_player_jump"):
 			m0.on_player_jump(position)   # surface splash ring near WATER_TOP
 
-	yaw += turn * 1.8 * delta
+	# ---- heading: slew toward the direction the thumb is pointing ----
+	var fwd := 0.0
+	var yaw_prev: float = yaw
+	if mag > 0.001:
+		# The stick is read in the LENS's frame (cam_yaw), not Roshan's. Reading
+		# it in her own frame would make the target heading rotate with her and
+		# turn absolute control straight back into a rate control.
+		var sref: float = cam_yaw + cam_orbit
+		var want_yaw: float = atan2(
+			-cos(sref) * steer.x + sin(sref) * steer.y,
+			sin(sref) * steer.x + cos(sref) * steer.y)
+		var dyaw: float = wrapf(want_yaw - yaw, -PI, PI)
+		yaw = wrapf(yaw + clampf(dyaw, -turn_rate * delta, turn_rate * delta), -PI, PI)
+		# thrust eases off while she is still swinging round, so a hard reversal
+		# reads as turn-and-go instead of the old full-speed slide backwards
+		fwd = mag * clampf(1.0 - absf(dyaw) / (PI * 0.6), 0.15, 1.0)
+	# the visual bank wants a signed "how hard is she cornering" number; take it
+	# from the heading she ACTUALLY turned rather than from raw stick x
+	var turn: float = clampf(wrapf(yaw - yaw_prev, -PI, PI) / maxf(turn_rate * delta, 0.0001), -1.0, 1.0)
+	# the lens follows her heading lazily and only past a dead band, so small
+	# corrections do not drag the whole world round with them; with no input the
+	# dead band closes and it glides back behind her
+	var dead: float = 0.5 if mag > 0.001 else 0.0
+	var lens_gap: float = wrapf(yaw - cam_yaw, -PI, PI)
+	var lens_pull: float = signf(lens_gap) * maxf(absf(lens_gap) - dead, 0.0)
+	cam_yaw = wrapf(cam_yaw + lens_pull * (1.0 - pow(0.12, delta)), -PI, PI)
+
 	var dir := Vector3(sin(yaw), 0.0, cos(yaw))
 	var smult := 1.0
 	if "speed_mult" in m0:
@@ -735,13 +802,13 @@ func _process(delta: float) -> void:
 	# authority — and a buoyant band just under the waterline settles her into
 	# a gentle bob instead of the old invisible ceiling clamp.
 	if free_swim and position.y > WATER_TOP:
-		vel += dir * fwd * 43.7 * smult * 0.3 * delta
-		vel.y -= 30.0 * delta
+		vel += dir * fwd * thrust * smult * 0.3 * delta
+		vel.y -= 30.0 * delta                # air is ballistic, not a venue thing
 		vel *= pow(0.90, delta)
 	else:
-		vel += dir * fwd * 43.7 * smult * delta      # 1.15x speed (x2 on beans)
-		vel.y -= 13.0 * delta                # 1.3x weight
-		vel *= pow(0.18, delta)
+		vel += dir * fwd * thrust * smult * delta
+		vel.y -= grav * delta
+		vel *= pow(water_drag, delta)
 		if free_swim:
 			var depth: float = WATER_TOP - position.y
 			if depth < 4.5:
@@ -775,31 +842,14 @@ func _process(delta: float) -> void:
 			# heightfield, with the same forgiving two-unit swim clearance.
 			floor_a = m.northern_walk_h(position.x, position.z) + 2.0
 		var ceil_a: float = ap.y + ceil_h
-		if "arena_zones" in m:
-			# Y-BANDED level zones (castle balcony/top chambers/basement): a
-			# floor override only exists for someone inside its height band,
-			# so a balcony never blocks the throne room underneath it
-			var lx: float = position.x - ap.x
-			var lz: float = position.z - ap.z
-			var ly: float = position.y - ap.y
-			for zz in m.arena_zones:
-				if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
-					continue
-				var band: Vector2 = zz.get("band", Vector2(-1e6, 1e6))
-				if ly < band.x or ly > band.y:
-					continue
-				if zz.has("floor"):
-					floor_a = ap.y + float(zz["floor"])
-				if zz.has("ramp"):
-					# sloped stair floor: [axis (0=x, 2=z), p0, floor0, p1, floor1] —
-					# the floor tracks the staircase so Roshan rests ON the steps
-					# instead of swimming through them
-					var rp: Array = zz["ramp"]
-					var pv: float = lx if int(rp[0]) == 0 else lz
-					var rt: float = clampf((pv - float(rp[1])) / (float(rp[3]) - float(rp[1])), 0.0, 1.0)
-					floor_a = ap.y + lerpf(float(rp[2]), float(rp[4]), rt)
-				if zz.has("ceil"):
-					ceil_a = ap.y + float(zz["ceil"])
+		# Y-BANDED level zones (castle balcony/top chambers/basement): a floor
+		# override only exists for someone inside its height band, so a balcony
+		# never blocks the throne room underneath it. The resolution itself lives
+		# in CameraKit.zone_bounds so the lens reads the world exactly as she
+		# does — the two used to have separate, disagreeing copies (AUDIT C4).
+		var zb: Vector2 = CameraKit.zone_bounds(m, position, floor_a, ceil_a)
+		floor_a = zb.x
+		ceil_a = zb.y
 		if position.y < floor_a:
 			position.y = floor_a
 			vel.y = maxf(0.0, vel.y)
@@ -898,7 +948,7 @@ func _process(delta: float) -> void:
 	rotation.z = lerpf(rotation.z, bank_t, 1.0 - pow(0.02, delta))
 	rotation.x = lerpf(rotation.x, pitch_t, 1.0 - pow(0.03, delta))
 
-	if fwd != 0.0 or turn != 0.0 or jump_held:
+	if mag > 0.001 or jump_held:
 		idle_t = 0.0
 	else:
 		idle_t += delta
@@ -1022,7 +1072,7 @@ func _process(delta: float) -> void:
 		cam_pitch_off = lerpf(cam_pitch_off, 0.0, 1.0 - pow(0.35, delta))
 
 	if cam != null and cam.is_inside_tree():
-		var cyaw: float = yaw + cam_orbit
+		var cyaw: float = cam_yaw + cam_orbit
 		# WW sail-stretch: the chase distance and lens breathe out a little at
 		# sprint speed, so going fast LOOKS fast (identical at rest)
 		var cam_spd: float = clampf(vel.length() / 26.0, 0.0, 1.0)
@@ -1037,16 +1087,17 @@ func _process(delta: float) -> void:
 		var glide := cam.position.lerp(want, 1.0 - pow(0.001, delta))
 		cam.position = CameraKit.resolve(_m0, focus, glide)
 		cam.look_at(focus)
-		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
-		# cornered (boom collapsed against a wall/prop, e.g. perched at the
-		# throne facing the hall): the lens sits against her body — hide her
-		# rather than fill the screen with the inside of her mesh. Hysteresis
-		# stops flicker at the threshold; modes that manage her visibility
-		# themselves early-return before this block ever runs.
+		cam.fov = lerpf(cam.fov, cam_fov + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
+		# cornered (boom collapsed against a wall/prop): the lens sits against her
+		# body — hide her rather than fill the screen with the inside of her mesh.
+		# Thresholds dropped from 2.0/2.6 (AUDIT C2): with BOOM-OVER in
+		# CameraKit.resolve the boom now lifts over most obstructions instead of
+		# collapsing, so this is a genuine-corner backstop again rather than
+		# something that blinked her out every time she backed against a wall.
 		var boom_len: float = cam.position.distance_to(focus)
-		if visible and boom_len < 2.0:
+		if visible and boom_len < 1.2:
 			visible = false
-		elif not visible and boom_len > 2.6:
+		elif not visible and boom_len > 1.8:
 			visible = true
 
 func snap_cam() -> void:
@@ -1058,6 +1109,7 @@ func snap_cam() -> void:
 		return
 	cam_orbit = 0.0
 	cam_pitch_off = 0.0
+	cam_yaw = yaw   # the lazy lens heading must not lag across a teleport
 	var target := position + Vector3(-sin(yaw) * cam_back, cam_high, -cos(yaw) * cam_back)
 	var focus := position + Vector3(0, 1.5, 0)
 	cam.position = CameraKit.resolve(get_parent(), focus, target)

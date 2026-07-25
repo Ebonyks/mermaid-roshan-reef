@@ -72,6 +72,31 @@ const NORTHERN_POS := Vector3(0, -2200, 0)
 var arena_center := Vector3(0, -600, 0)
 var arena_dome := 48.0
 var arena_ceil := 42.0
+# ---- venue profiles (NAVIGATION_AUDIT_2026-07-25 P0) ----
+# thrust / drag-per-second / turn rate / gravity / jump impulse, read every
+# frame by player.gd. OPEN is the shipped ocean tuning, the same constants that
+# used to be inline. INDOOR is solved backwards from the castle's own
+# dimensions: at 16 u/s top speed (thrust 54.4 against drag k = -ln(0.0334) =
+# 3.4/s) the coast-to-stop is 4.7u and the turning circle 2*v/turn is 10.0u,
+# both of which fit the 11.3u basement corridor — the open-ocean numbers needed
+# 14.9u and 28.4u, which is why every interior felt like driving a barge.
+# Gravity and the jump impulse scale WITH the drag, so the fall stays brisk
+# (11.8 u/s terminal instead of 3.8) and a held jump still climbs ~12 u/s
+# through a castle that is 81 units floor-to-attic.
+const MOVE_OPEN := {"thrust": 43.7, "drag": 0.18, "turn": 1.8, "gravity": 13.0, "jump": 16.0}
+const MOVE_INDOOR := {"thrust": 54.4, "drag": 0.0334, "turn": 3.2, "gravity": 40.0, "jump": 32.0}
+var move_profile: Dictionary = MOVE_OPEN
+var cam_profile: Dictionary = CameraKit.OUTDOOR
+
+func _apply_venue(cam_prof: Dictionary, move_prof: Dictionary) -> void:
+	# ONE place decides what a venue feels like. Every enter/exit calls this
+	# instead of hand-writing player.cam_back/cam_high; three sites doing that by
+	# hand is exactly how the outdoor lens drifted from its 9.0 boot height to a
+	# permanent 6.5 after the first castle visit (AUDIT C3).
+	cam_profile = cam_prof
+	move_profile = move_prof
+	if player != null and player.has_method("apply_cam_profile"):
+		player.apply_cam_profile(cam_prof)
 var portal_node: Node3D
 var portal_t := 0.0
 var portal_ready := false
@@ -3206,6 +3231,7 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false) -> void:
 
 func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> void:
 	game = "level2"
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)   # the courtyard is open sky
 	# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;
 	# stacking both erased nearly all color from pearl, snow, and pastel props.
 	if sun_light != null:
@@ -3306,6 +3332,8 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false) -> v
 
 func _enter_northern_kingdom() -> void:
 	game = "north"
+	# open strip; the grand hall swaps to INTERIOR inside _tick_northern
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -4346,8 +4374,12 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	_grade(ie)
 	we_node.environment = ie
 	_build_castle_hall(CASTLE_POS)
-	player.cam_back = 10.0   # pull the chase camera in so it does not clip the hall / back-room walls (diorama lens: 6.5 * ~1.55)
-	player.cam_high = 4.2
+	# Interior lens + interior swim feel. The old hand-tune here was back 10 /
+	# high 4.2, which existed only to stop the boom clipping the hall walls —
+	# CameraKit.resolve has done that analytically since the 2026-07-19 audit,
+	# and at a 38 deg lens a 10-unit boom framed the 7.03u Roshan inside a 7.1u
+	# window: 99% of the screen height was her back (AUDIT C1).
+	_apply_venue(CameraKit.INTERIOR, MOVE_INDOOR)
 	if from_back:
 		# the moat hatch is a SECRET back door: surface inside the treasure room
 		# behind the throne, where Daddy mermaid is waiting
@@ -4367,7 +4399,11 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 		dvo.finished.connect(dvo.queue_free)
 	else:
 		player.position = CASTLE_POS + Vector3(0, 6, 24)
-		player.yaw = 0.0
+		# Face the THRONE (-z), not the front door. She used to arrive facing the
+		# exit she had just walked through, 20 units from its trigger sphere, so
+		# a child who simply pushed "forward" on the message walked straight back
+		# out of the castle (NAVIGATION_AUDIT S2, spawn orientation).
+		player.yaw = PI
 		player.vel = Vector3.ZERO
 		show_msg("Pearl Castle", "The Grand Hall! Princess Huluu is waiting up on the throne - climb the royal staircase!")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -4772,8 +4808,7 @@ func _l2_start_slide() -> void:
 
 func _return_to_courtyard() -> void:
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
-	player.cam_back = 25.0   # diorama lens default
-	player.cam_high = 6.5
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -5045,8 +5080,7 @@ func _exit_level2() -> void:
 	_fade_cut(_exit_level2_now)
 
 func _exit_level2_now() -> void:
-	player.cam_back = 25.0   # diorama lens default
-	player.cam_high = 6.5
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)
 	game = ""
 	g = {}
 	hud_game.text = ""
@@ -5081,8 +5115,7 @@ func _finish_level2() -> void:
 
 func _do_finish_level2() -> void:
 	level2_finishing = false
-	player.cam_back = 25.0   # restore the outdoor diorama lens (tightened for the hall)
-	player.cam_high = 6.5
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)
 	for i in range(10):
 		_sparkle_burst(player.position + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 	level2_done_once = true
@@ -5951,10 +5984,15 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 	# best objective — the "pathfinding" a non-reader can follow. In the reef
 	# this is the nearest friend/shop/slide goal; in the Sky Lagoon it is the
 	# next Dream Star, then the open castle door. Throttled to 3 cheap bursts
-	# every 2.2s and silent during overlays, minigames and castle interiors.
+	# every 2.2s and silent during overlays and minigames.
+	# NAVIGATION_AUDIT W1: this used to bail out of every castle interior, so the
+	# one genuinely maze-like space in the game — four storeys, twelve rooms, no
+	# minimap, no compass and a non-reader at the controls — was the only place
+	# with NO guidance, while the flat open reef had it. The hall gets it too.
 	var level2_court: bool = (game == "level2"
 		and String(g.get("phase", "court")) == "court")
-	if (game != "" and not level2_court) or mg_kind != "" or intro_active:
+	var castle_hall: bool = (game == "level2" and String(g.get("phase", "")) == "hall")
+	if (game != "" and not level2_court and not castle_hall) or mg_kind != "" or intro_active:
 		return
 	if _overlay_root_for_cursor() != null:
 		return
@@ -5963,7 +6001,15 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 		return
 	_wayfind_t = 2.2
 	var target := Vector3.ZERO
-	if level2_court:
+	if castle_hall:
+		# the Crown Star while it is still hers to win, then the way back out
+		if not bool(g.get("crown_won", false)) and l2_stars.size() > 0:
+			var cstar: Node3D = l2_stars[0]["node"]
+			if is_instance_valid(cstar):
+				target = cstar.position
+		if target == Vector3.ZERO and g.has("hall_exit"):
+			target = g["hall_exit"]
+	elif level2_court:
 		for sd in l2_stars:
 			if not bool(sd["got"]):
 				var star: Node3D = sd["node"]
@@ -5986,11 +6032,20 @@ func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
 				target = manta.position
 			elif slide_portal_pos != Vector3.ZERO:
 				target = slide_portal_pos
-	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
+	if target == Vector3.ZERO:
 		return
+	var to_target: Vector3 = target - ppos
+	var t_dist: float = to_target.length()
+	if t_dist < 10.0:
+		return
+	# FIXED-DISTANCE breadcrumbs (6 / 10 / 14 units out, never past the target).
+	# The old version placed them at 6%, 13% and 20% of the way, so for anything
+	# closer than ~70 units all three landed inside Roshan's own silhouette —
+	# which is most of the castle and half the courtyard (AUDIT W2).
+	var to_dir: Vector3 = to_target / t_dist
 	for k in range(3):
-		var tt: float = 0.06 + 0.07 * float(k)
-		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
+		var step: float = minf(6.0 + 4.0 * float(k), t_dist - 1.0)
+		_sparkle_burst(ppos + to_dir * step + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
 
 func _process(delta: float) -> void:
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
@@ -7247,8 +7302,10 @@ func _leave_arena() -> void:
 
 func _leave_arena_now() -> void:
 	we_node.environment = world_env
+	_apply_venue(CameraKit.OUTDOOR, MOVE_OPEN)
 	player.position = return_pos
 	player.vel = Vector3.ZERO
+	player.snap_cam()   # AUDIT C3/F4: never lerp the lens back across the world gap
 	_play_music("world")
 
 func _btn_pressed() -> int:

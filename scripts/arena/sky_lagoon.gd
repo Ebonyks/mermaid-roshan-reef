@@ -1899,8 +1899,14 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 		# keep the play in frame (the player cam chase is dormant right now)
 		var cam: Camera3D = pl.cam
 		if cam != null and cam.is_inside_tree():
-			cam.position = cam.position.lerp(pl.position - face * 20.0 + Vector3(0, 8.0, 0), 1.0 - pow(0.05, delta))
-			cam.look_at(pl.position + Vector3(0, 1.5, 0))
+			# AUDIT C8: this used to place the lens by raw lerp, the one chase
+			# path that never went through the boom resolver, so a toy parked
+			# against a hill filmed the inside of it.
+			var ride_focus: Vector3 = pl.position + Vector3(0, 1.5, 0)
+			var ride_want: Vector3 = pl.position - face * 20.0 + Vector3(0, 8.0, 0)
+			cam.position = CameraKit.resolve(m, ride_focus,
+				cam.position.lerp(CameraKit.resolve(m, ride_focus, ride_want), 1.0 - pow(0.05, delta)))
+			cam.look_at(ride_focus)
 		if tt >= dur:
 			toy["cool"] = 24.0
 			m.toy_play = {}
@@ -1913,6 +1919,10 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 					(tn.get_meta("toy_tw") as Tween).play()   # ambient toy motion resumes
 			if "vel" in pl:
 				pl.vel = Vector3.ZERO
+			# AUDIT C8/F4: hand the chase lens back IN PLACE instead of letting
+			# it swoop across the lagoon from wherever the ride pose left it
+			if pl.has_method("snap_cam"):
+				pl.snap_cam()
 			if pl.has_method("play_verb"):
 				pl.play_verb("cheer" if kind == "slide" else "giggle")
 		return

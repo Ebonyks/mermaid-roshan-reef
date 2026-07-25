@@ -21,6 +21,31 @@ const SKIN := 0.5      # keep the lens this far in front of a hit surface
 const MIN_BOOM := 0.15 # cornered: pull nearly first-person rather than clip
 const FLOOR_OFF := 1.2 # lens height above the walk floor / seabed
 const CEIL_OFF := 1.0  # lens clearance under a zone ceiling
+# BOOM-OVER (NAVIGATION_AUDIT_2026-07-25 C2): before shortening the boom into
+# Roshan's back, try lifting the lens over the obstacle. Most things behind
+# her are waist-high furniture or a wall with open air above it, and looking
+# down over the top keeps her whole body on screen. Only when no lift clears
+# does the boom shorten — which is what used to happen on every heading in a
+# 13-unit basement room, blinking her out of the frame at the same time.
+const LIFTS: Array[float] = [4.0, 9.0]
+
+
+# ---- venue profiles (NAVIGATION_AUDIT_2026-07-25 P0) ----
+# The ONE definition of the chase lens per venue: boot value and every restore
+# site read these, so the framing can no longer drift the way cam_high did
+# (player.gd booted at 9.0 while three separate restores hand-typed 6.5, so the
+# outdoor lens permanently dropped after the first castle visit).
+#
+# INTERIOR is 18/8, not the old hand-tuned 10/4.2. At the 38 deg diorama lens a
+# 10-unit boom frames the 7.03u Roshan inside a 7.1u window - she filled 99% of
+# the screen height indoors against 39% outdoors. That hand-tune existed only to
+# stop wall clipping, which resolve() below has done analytically since the
+# 2026-07-19 camera audit; 18/8 puts her back at ~55% and lets the resolver do
+# its job. far is per-venue: the reef backdrop ring sits at r=340 (so ~610u
+# across the world) and the northern strip spans its 430 dome twice, hence 1200
+# outdoors; an enclosed castle needs nothing past its own 90u dome.
+const OUTDOOR := {"back": 25.0, "high": 9.0, "fov": 38.0, "near": 0.3, "far": 1200.0}
+const INTERIOR := {"back": 18.0, "high": 8.0, "fov": 38.0, "near": 0.3, "far": 500.0}
 
 
 static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
@@ -32,6 +57,23 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 	if length < 0.001:
 		return want
 	var t: float = boom_hit_t(m, focus, want)
+	if t < 1.0:
+		# BOOM-OVER before BOOM-IN: keep the full boom length and raise the lens
+		# instead, if any lift in LIFTS clears the obstruction outright.
+		# Capped by the ceiling of the band the ideal spot sits in — interior
+		# roofs are not solids, so without this the lens would happily rise
+		# through the floor of the room above and film its underside.
+		var lift_cap: float = ceil_y(m, want) - want.y
+		for lift in LIFTS:
+			if lift > lift_cap:
+				break
+			var raised: Vector3 = want + Vector3(0.0, lift, 0.0)
+			if boom_hit_t(m, focus, raised) >= 1.0:
+				want = raised
+				boom = want - focus
+				length = boom.length()
+				t = 1.0
+				break
 	var keep: float = length
 	if t < 1.0:
 		# when Roshan is cornered against a solid (t near 0) the boom
@@ -39,6 +81,12 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 		# MIN_BOOM overshoot stays inside the solid's pad, never its mesh
 		keep = clampf(t * length - SKIN, MIN_BOOM, length)
 	var pos: Vector3 = focus + boom * (keep / length)
+	# ceiling first, ground last: a zone stack can legitimately put the ceiling
+	# right on top of the floor (zone_bounds collapses inversions rather than
+	# pinning), and the lens must never end up buried under the floor.
+	var cy: float = ceil_y(m, pos)
+	if pos.y > cy:
+		pos.y = cy
 	# ground: sample under the camera AND mid-boom, so a ridge rising between
 	# Roshan and the lens lifts the camera over it instead of burying it
 	var gy: float = ground_y(m, pos)
@@ -46,9 +94,6 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 	gy = maxf(gy, ground_y(m, Vector3(mid.x, pos.y, mid.z)))
 	if pos.y < gy:
 		pos.y = gy
-	var cy: float = ceil_y(m, pos)
-	if pos.y > cy:
-		pos.y = cy
 	return pos
 
 
@@ -157,55 +202,71 @@ static func _seg_cyl_t(p: Vector3, d: Vector3, s: Dictionary, shrink: float = 0.
 	return best
 
 
+static func zone_bounds(m: Node, p: Vector3, base_floor: float, base_ceil: float) -> Vector2:
+	# THE resolution of the y-banded m.arena_zones table, in world y.
+	#
+	# NAVIGATION_AUDIT_2026-07-25 C4: player.gd and this file each had their own
+	# copy and they did not agree. The body applied zones IN ORDER (later entries
+	# override earlier ones); the lens took maxf of every floor and minf of every
+	# ceiling. The castle table has 17 deliberately overlapping entries, so
+	# wherever two overlapped and the later one was not the highest, the camera
+	# and the heroine stood on different floors. One function, the BODY's
+	# semantics, both callers.
+	var flr: float = base_floor
+	var ceil_v: float = base_ceil
+	if not ("arena_zones" in m):
+		return Vector2(flr, ceil_v)
+	var ap: Vector3 = m.arena_center
+	var lx: float = p.x - ap.x
+	var lz: float = p.z - ap.z
+	var ly: float = p.y - ap.y
+	for zz in m.arena_zones:
+		if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
+			continue
+		var band: Vector2 = zz.get("band", Vector2(-1e6, 1e6))
+		if ly < band.x or ly > band.y:
+			continue
+		if zz.has("floor"):
+			flr = ap.y + float(zz["floor"])
+		if zz.has("ramp"):
+			# sloped stair floor: [axis (0=x, 2=z), p0, floor0, p1, floor1]
+			var rp: Array = zz["ramp"]
+			var pv: float = lx if int(rp[0]) == 0 else lz
+			var rt: float = clampf((pv - float(rp[1])) / (float(rp[3]) - float(rp[1])), 0.0, 1.0)
+			flr = ap.y + lerpf(float(rp[2]), float(rp[4]), rt)
+		if zz.has("ceil"):
+			ceil_v = ap.y + float(zz["ceil"])
+	# NEVER PIN. Where an overlap leaves the floor above the ceiling (the
+	# undercroft shaft mouth does this for about half a unit of z), the old code
+	# clamped her UP to the floor and straight back DOWN to the ceiling with
+	# vel.y forced to zero every frame - a sticky step you had to wriggle out of.
+	# The floor wins: she stands on something, she is never trapped under it.
+	if ceil_v < flr:
+		ceil_v = flr
+	return Vector2(flr, ceil_v)
+
+
 static func ground_y(m: Node, p: Vector3) -> float:
-	# Lowest y the camera may occupy at (p.x, p.z) — mirrors the player floor
-	# logic (player.gd walk/zone block) so lens and heroine agree on the world.
+	# Lowest y the camera may occupy at (p.x, p.z) — same zone resolution the
+	# body uses, plus the lens's own floor clearance.
 	if String(m.game) == "":
 		return m.seabed_y(p.x, p.z) + FLOOR_OFF
 	var ap: Vector3 = m.arena_center
-	var gy: float = ap.y + 1.5
+	var base: float = ap.y + 1.5 - FLOOR_OFF
 	if "lagoon_floor" in m and m.lagoon_floor:
-		gy = m.lagoon_walk_h(p.x, p.z) + FLOOR_OFF
+		base = m.lagoon_walk_h(p.x, p.z)
 	elif "northern_floor" in m and m.northern_floor:
-		gy = m.northern_walk_h(p.x, p.z) + FLOOR_OFF
-	if "arena_zones" in m:
-		var lx: float = p.x - ap.x
-		var lz: float = p.z - ap.z
-		var ly: float = p.y - ap.y
-		for zz in m.arena_zones:
-			if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
-				continue
-			var band: Vector2 = zz.get("band", Vector2(-1e6, 1e6))
-			if ly < band.x or ly > band.y:
-				continue
-			if zz.has("floor"):
-				gy = maxf(gy, ap.y + float(zz["floor"]) + FLOOR_OFF)
-			if zz.has("ramp"):
-				var rp: Array = zz["ramp"]
-				var pv: float = lx if int(rp[0]) == 0 else lz
-				var rt: float = clampf((pv - float(rp[1])) / (float(rp[3]) - float(rp[1])), 0.0, 1.0)
-				gy = maxf(gy, ap.y + lerpf(float(rp[2]), float(rp[4]), rt) + FLOOR_OFF)
-	return gy
+		base = m.northern_walk_h(p.x, p.z)
+	return zone_bounds(m, p, base, 1e9).x + FLOOR_OFF
 
 
 static func ceil_y(m: Node, p: Vector3) -> float:
 	# Highest y the camera may occupy — interior roofs are NOT solids (only
 	# upright walls are), but every real interior already registers a "ceil"
 	# zone for the player; the camera honours the same bands.
-	if String(m.game) == "" or not ("arena_zones" in m):
+	# NOTE the base is 1e9, never m.arena_ceil: that one is a BODY clamp (it
+	# keeps Roshan under the lowest interior ceiling, 31 in the castle) and would
+	# bury the lens the moment she stepped onto the balcony deck at y 33.4.
+	if String(m.game) == "":
 		return 1e9
-	var ap: Vector3 = m.arena_center
-	var cy: float = 1e9
-	var lx: float = p.x - ap.x
-	var lz: float = p.z - ap.z
-	var ly: float = p.y - ap.y
-	for zz in m.arena_zones:
-		if not zz.has("ceil"):
-			continue
-		if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
-			continue
-		var band: Vector2 = zz.get("band", Vector2(-1e6, 1e6))
-		if ly < band.x or ly > band.y:
-			continue
-		cy = minf(cy, ap.y + float(zz["ceil"]) - CEIL_OFF)
-	return cy
+	return zone_bounds(m, p, -1e9, 1e9).y - CEIL_OFF
