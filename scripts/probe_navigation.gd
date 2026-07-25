@@ -302,9 +302,12 @@ func _init() -> void:
 			empty_faders += 1
 	_ck("no fader registered without meshes", empty_faders == 0,
 		"%d empty" % empty_faders)
-	# Drive it: stand behind the balcony deck slab looking up through it. The
-	# deck carries no solid, so the boom resolver cannot route around it — the
-	# fade is the only thing that can clear the shot.
+	# Drive it: park her where the boom runs through hall geometry and check
+	# that SOMETHING on that line actually fades. This is a mechanism test, not
+	# a test of one particular occluder — with a chase lens pinned behind and
+	# above by a fixed offset, which registered body ends up on the sight line
+	# depends on the spot, and pinning the assertion to a named prop would make
+	# it brittle without making it stronger.
 	p.position = o + Vector3(0.0, 20.0, -27.0)
 	p.yaw = 0.0
 	p.vel = Vector3.ZERO
