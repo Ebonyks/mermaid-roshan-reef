@@ -59,8 +59,23 @@ var deco_spots: Array[Dictionary] = []
 var deco_done := 0
 var brush_loaded := -1
 var brush_node: Node3D = null
+# ---- drag-to-paint canvas (owner 2026-07-25) ----
+# The Painter act is played by actually PAINTING: a loaded brush plus a finger
+# dragged across the canvas, stamping into a live Image. A band "sets" once it
+# is covered enough — coverage, never precision, so it cannot be failed.
+const PAINT_RES := 96
+const PAINT_BRUSH := 7
+var paint_img: Image = null
+var paint_tex: ImageTexture = null
+var paint_canvas: MeshInstance3D = null
+var paint_size := Vector2(11.0, 8.0)
+var paint_hits: PackedByteArray = PackedByteArray()
+var paint_band_done := 0
+var paint_band_need := 0
+var paint_dirty := false
+var paint_easel := false        # at the easel, finger painting instead of swimming
+var paint_easel_t := 0.0
 var canvas_pos := Vector3.ZERO
-var stripes: Array[Node3D] = []
 
 # ---- "echo" engine ----
 var echo_rounds: Array[int] = []
@@ -1601,13 +1616,8 @@ func _build_order() -> void:
 			var ci := order_steps[s]
 			_sphere(goal.position + Vector3((float(s) - float(order_steps.size() - 1) * 0.5) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
 	if order_flow == "carry_paint":
-		canvas_pos = goal.position
-		# three hidden stripes fill the canvas as Roshan swipes each color on
-		var stripe_gap := 3.4 / maxf(1.0, float(order_steps.size() - 1))
-		for s2 in range(order_steps.size()):
-			var stripe := _box(goal.position + Vector3(0, 1.0 + float(s2) * stripe_gap, 0.25), Vector3(5.8, minf(1.2, stripe_gap * 0.85), 0.2), cols[order_steps[s2]], 0.35)
-			stripe.visible = false
-			stripes.append(stripe)
+		canvas_pos = goal.position + Vector3(0, 3.6, 0)
+		_build_paint_canvas()
 		brush_node = Node3D.new()
 		brush_node.name = "PaintBrush"
 		brush_node.visible = false
@@ -1832,15 +1842,145 @@ func _deco_action(idx: int) -> void:
 	else:
 		_update_hud()
 
+func _tick_easel(delta: float) -> void:
+	# Standing at the easel with a loaded brush hands the finger over to the
+	# canvas: the stick goes quiet and a drag paints. She can always leave —
+	# the band sets on coverage, and a stuck painter is finished for her.
+	var near := canvas_pos.distance_to(player_pos) < 7.0
+	if near and not paint_easel:
+		paint_easel = true
+		paint_easel_t = 0.0
+		if m.touch_ui != null:
+			m.touch_ui.set_drag_mode(true)
+		m.show_msg("Roshan", "Now PAINT! Drag your finger across the big canvas!", "talk")
+	elif not near and paint_easel:
+		_leave_easel()
+	if not paint_easel:
+		return
+	paint_easel_t += delta
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		_paint_screen(m.touch_ui.drag_pos)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_paint_screen(m.get_viewport().get_mouse_position())
+	_paint_flush()
+	if paint_easel_t > 28.0 and brush_loaded >= 0:
+		# a gentle rescue, never a fail: the brush finishes the band itself
+		_fill_band_rest()
+		m.show_msg("Roshan", "There it is — what a beautiful colour!", "hint")
+
+func _leave_easel() -> void:
+	paint_easel = false
+	paint_easel_t = 0.0
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _fill_band_rest() -> void:
+	if paint_img == null or step >= order_steps.size():
+		return
+	var cols := _order_colors(String(config.get("props", "cake")))
+	var col: Color = cols[order_steps[step]]
+	var band := _paint_band_rows()
+	for y in range(band.x, band.y):
+		for x in range(PAINT_RES):
+			paint_img.set_pixel(x, y, col)
+			paint_hits[y * PAINT_RES + x] = 1
+	paint_band_done = paint_band_need
+	paint_dirty = true
+	_paint_touch()
+
+func _build_paint_canvas() -> void:
+	# a blank primed canvas on its easel, and the live Image the finger paints
+	paint_img = Image.create(PAINT_RES, PAINT_RES, false, Image.FORMAT_RGBA8)
+	paint_img.fill(Color(0.97, 0.95, 0.9))
+	paint_tex = ImageTexture.create_from_image(paint_img)
+	paint_hits = PackedByteArray()
+	paint_hits.resize(PAINT_RES * PAINT_RES)
+	var quad := QuadMesh.new()
+	quad.size = paint_size
+	paint_canvas = MeshInstance3D.new()
+	paint_canvas.name = "PaintCanvas"
+	paint_canvas.mesh = quad
+	paint_canvas.position = canvas_pos + Vector3(0, 0, 0.3)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = paint_tex
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	paint_canvas.material_override = mat
+	add_child(paint_canvas)
+	# the easel frame around it
+	_box(canvas_pos + Vector3(0, 0, 0.1), Vector3(paint_size.x + 0.9, paint_size.y + 0.9, 0.35), Color(0.72, 0.55, 0.4), 0.06)
+	_band_target()
+
+func _band_target() -> void:
+	# each step paints one horizontal band; a band sets at 55% coverage
+	paint_band_done = 0
+	var rows := int(PAINT_RES / maxi(1, order_steps.size()))
+	paint_band_need = int(float(rows * PAINT_RES) * 0.55)
+
+func _paint_band_rows() -> Vector2i:
+	var rows := int(PAINT_RES / maxi(1, order_steps.size()))
+	# band 0 is the SKY at the top, so paint top-down as the picture builds
+	var y0 := step * rows
+	return Vector2i(y0, mini(PAINT_RES, y0 + rows))
+
+func _paint_stroke_uv(u: float, v: float) -> void:
+	# stamp a soft round brush and count only NEW pixels inside the live band
+	if paint_img == null or brush_loaded < 0 or state != "play":
+		return
+	var cols := _order_colors(String(config.get("props", "cake")))
+	var col: Color = cols[order_steps[step]] if step < order_steps.size() else cols[0]
+	var band := _paint_band_rows()
+	var cx := int(u * float(PAINT_RES))
+	var cy := int(v * float(PAINT_RES))
+	var gained := 0
+	for dy in range(-PAINT_BRUSH, PAINT_BRUSH + 1):
+		for dx in range(-PAINT_BRUSH, PAINT_BRUSH + 1):
+			if dx * dx + dy * dy > PAINT_BRUSH * PAINT_BRUSH:
+				continue
+			var px := cx + dx
+			var py := cy + dy
+			if px < 0 or py < 0 or px >= PAINT_RES or py >= PAINT_RES:
+				continue
+			paint_img.set_pixel(px, py, col)
+			var idx := py * PAINT_RES + px
+			if paint_hits[idx] == 0:
+				paint_hits[idx] = 1
+				if py >= band.x and py < band.y:
+					gained += 1
+	if gained > 0:
+		paint_band_done += gained
+		progress_t = 0.0
+		paint_dirty = true
+	if paint_band_done >= paint_band_need:
+		_paint_touch()
+
+func _paint_flush() -> void:
+	if paint_dirty and paint_tex != null:
+		paint_tex.update(paint_img)
+		paint_dirty = false
+
+func _paint_screen(screen: Vector2) -> void:
+	# project the finger onto the canvas plane and paint where it lands
+	if cam == null or paint_canvas == null:
+		return
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 0, 1), paint_canvas.position.z)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return
+	var local: Vector3 = (hit as Vector3) - paint_canvas.position
+	var u := local.x / paint_size.x + 0.5
+	var v := 0.5 - local.y / paint_size.y
+	if u < 0.0 or u > 1.0 or v < 0.0 or v > 1.0:
+		return
+	_paint_stroke_uv(u, v)
+
 func _paint_touch() -> void:
-	# the painter swipe: a loaded brush near the canvas sweeps a stripe on
+	# a band is covered: it sets, the brush empties, the picture grows
 	if state != "play" or kind != "paint" or brush_loaded < 0:
 		return
-	var stripe := stripes[step]
-	stripe.visible = true
-	stripe.scale = Vector3(0.05, 1.0, 1.0)
-	var tw := stripe.create_tween()
-	tw.tween_property(stripe, "scale", Vector3.ONE, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_paint_flush()
+	_leave_easel()
 	brush_node.visible = false
 	brush_loaded = -1
 	m._sparkle_burst(canvas_pos + Vector3(0, 3.0, 1.0), Color(1.0, 0.9, 0.6))
@@ -1849,6 +1989,8 @@ func _paint_touch() -> void:
 		m.chime.play()
 	step += 1
 	progress_t = 0.0
+	if kind == "paint":
+		_band_target()
 	if step >= order_steps.size():
 		if int(config.get("decorate", 0)) > 0:
 			_open_decorate()
@@ -3232,8 +3374,9 @@ func _process(delta: float) -> void:
 			if order_flow == "carry_paint" and brush_loaded >= 0:
 				brush_node.position = player_pos + Vector3(0, 3.2, 0)
 				brush_node.rotation.z = sin(elapsed * 6.0) * 0.25
-				if canvas_pos.distance_to(player_pos) < 5.5:
-					_paint_touch()
+				_tick_easel(delta)
+			elif paint_easel:
+				_leave_easel()
 		"echo":
 			_tick_echo(delta)
 			if echo_phase == "repeat":
@@ -3408,7 +3551,11 @@ func _update_hud() -> void:
 			elif order_phase == "decorate":
 				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:
-				objective.text = tag + "🖌  Swipe the canvas to paint!  %d / %d" % [step, order_steps.size()]
+				if paint_easel:
+					var pct := int(clampf(float(paint_band_done) / maxf(1.0, float(paint_band_need)), 0.0, 1.0) * 100.0)
+					objective.text = tag + "🖌  DRAG to paint!  %d%%" % pct
+				else:
+					objective.text = tag + "🖌  Carry the brush to the canvas!  %d / %d" % [step, order_steps.size()]
 			else:
 				objective.text = tag + "✨  Match the pictures!  %d / %d" % [step, order_steps.size()]
 		"box":
@@ -3500,6 +3647,7 @@ func _finish() -> void:
 	if state == "done":
 		return
 	state = "done"
+	_leave_easel()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -3508,6 +3656,7 @@ func _finish() -> void:
 	queue_free()
 
 func cancel() -> void:
+	_leave_easel()
 	if state == "done":
 		return
 	if state == "won":

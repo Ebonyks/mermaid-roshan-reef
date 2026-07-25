@@ -216,14 +216,32 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 	var flow := String(cfg.get("flow", "deliver"))
 	var hidden := bool(cfg.get("hide_props", false))
 	if flow == "carry_paint":
+		_ck("the painter gets a real canvas to paint on",
+			act.paint_canvas != null and act.paint_img != null and act.paint_img.get_width() == act.PAINT_RES)
 		for choice in order:
 			var idx := int(choice)
 			act.player_pos = (act.pads[idx]["pos"] as Vector3)
 			act._act_action(idx)
 			_ck("pot %d loads the brush" % idx, act.brush_loaded == idx)
+			# standing at the easel hands the finger to the canvas
 			act.player_pos = act.canvas_pos
-			act._paint_touch()
-			_ck("canvas swipe paints with pot %d" % idx, act.brush_loaded == -1)
+			act._tick_easel(0.1)
+			_ck("the easel takes over the finger for pot %d" % idx, act.paint_easel)
+			# one stroke is not a painted band — coverage has to be earned
+			var band := act._paint_band_rows()
+			var mid := (float(band.x) + float(band.y)) * 0.5 / float(act.PAINT_RES)
+			act._paint_stroke_uv(0.5, mid)
+			_ck("a single dab does not finish the band for pot %d" % idx,
+				act.brush_loaded == idx and act.paint_band_done > 0)
+			# now drag across the band the way a finger would
+			var guard := 0
+			while act.brush_loaded == idx and guard < 400:
+				guard += 1
+				var t := fmod(float(guard) * 0.037, 1.0)
+				var row := lerpf(float(band.x) + 1.0, float(band.y) - 1.0, fmod(float(guard) * 0.11, 1.0))
+				act._paint_stroke_uv(t, row / float(act.PAINT_RES))
+			_ck("dragging across the canvas paints the band for pot %d" % idx, act.brush_loaded == -1)
+			_ck("a finished band releases the finger for pot %d" % idx, not act.paint_easel)
 		if int(cfg.get("decorate", 0)) > 0:
 			_ck("last swipe opens the splatter party", act.order_phase == "decorate" and act.state == "play")
 			for spot: Dictionary in act.deco_spots:

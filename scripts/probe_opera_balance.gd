@@ -229,6 +229,16 @@ func _intent_learned(want: int) -> void:
 	intent_choice = want
 
 func _drive_order(act: OperaAct, dt: float) -> void:
+	# the painter's canvas is painted by dragging, so a simulated child at the
+	# easel sweeps the brush back and forth rather than tapping once
+	if act.paint_easel and act.brush_loaded >= 0:
+		if _ready_to_act(dt):
+			var band := act._paint_band_rows()
+			for i in range(6):
+				var t := randf()
+				var row := randf_range(float(band.x) + 1.0, float(band.y) - 1.0)
+				act._paint_stroke_uv(t, row / float(act.PAINT_RES))
+		return
 	if act.order_phase == "stir":
 		if _travel(act, act.goal.position, dt) and _ready_to_act(dt):
 			act._stir_action()

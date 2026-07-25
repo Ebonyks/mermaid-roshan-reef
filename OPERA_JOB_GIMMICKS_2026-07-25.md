@@ -109,6 +109,36 @@ No two doors on a floor share an archetype.
 
 Difficulty rises only through **speed and quantity**. Precision stays flat.
 
+## Sensor grammars (owner 2026-07-25)
+
+Beyond touch, two device sensors are on the table and each is a whole grammar
+no act can currently claim:
+
+- **Gyroscope / tilt** — `Input.get_gravity()` / `get_accelerometer()`. Free,
+  no permission, and it is the natural fit for *pouring* (Chef), *balancing* a
+  tray, and steering assist. Returns zero on desktop and headless, so every
+  tilt act needs a touch fallback and the probes must drive the fallback.
+- **Microphone** — blow to launch the rocket, sing into the Pop Star's mic,
+  "shhh" to calm the Shadow Phantom. This needs the Android `RECORD_AUDIO`
+  permission in the export preset, which is a real decision on a four-year-old's
+  phone and is the owner's call, not mine. Recommend gating it behind a
+  settings toggle that is OFF by default, with a touch fallback always present
+  so the act is never blocked by a denied permission.
+
+## Status
+
+Built so far:
+- **Drag channel** (`touch_ui.gd`): `set_drag_mode()` hands the first finger to
+  the act as an absolute screen position instead of raising the virtual stick.
+  Second-finger jump and pause are untouched.
+- **Painter — drag-to-paint** (`opera_act.gd`): the canvas is a live 96x96
+  `Image` on a quad. Standing at the easel with a loaded brush enters an easel
+  sub-phase; a finger dragged across the canvas stamps a round brush and a band
+  sets on **55% coverage**. Coverage, never precision. A painter stuck for 28s
+  has the band finished for her with a kind line, and the finger is always
+  handed back — `_leave_easel()` runs on band completion, on leaving the easel,
+  on `_finish()` and on `cancel()`, so the stick can never be left dead.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

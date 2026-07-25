@@ -14,6 +14,17 @@ var stick_vec := Vector2.ZERO
 var action_down := false
 var action_just := false
 
+# ---- drag channel (owner 2026-07-25) ----
+# Some acts are played by DRAGGING a finger across the screen rather than by
+# swimming and tapping — painting, scrubbing, tracing, lens-dragging. While
+# drag_mode is on, the first finger reports its absolute screen position here
+# instead of raising the virtual stick, so the act reads a stroke, not a
+# direction. Everything else (second-finger jump, pause) is untouched.
+var drag_mode := false
+var drag_active := false
+var drag_pos := Vector2.ZERO
+var drag_started := false          # set for one read on touch-down
+
 var _root: Control
 var _base: Panel
 var _knob: Panel
@@ -132,6 +143,13 @@ func _flash(pos: Vector2) -> void:
 func _press(pos: Vector2, idx: int) -> void:
 	_touch_idx = idx
 	_origin = pos
+	if drag_mode:
+		# the finger paints instead of steering — no stick, no tap-to-jump
+		drag_active = true
+		drag_started = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
 	_moved = false
 	_press_ms = Time.get_ticks_msec()
 	_base.position = _origin - _base.size * 0.5
@@ -143,6 +161,11 @@ func _press(pos: Vector2, idx: int) -> void:
 	stick_vec = Vector2.ZERO
 
 func _drag(pos: Vector2) -> void:
+	if drag_mode:
+		drag_active = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
 	var off: Vector2 = pos - _origin
 	if not _moved and off.length() > TAP_SLOP:
 		_moved = true
@@ -158,6 +181,11 @@ func _drag(pos: Vector2) -> void:
 	_knob.position = _origin + off - _knob.size * 0.5
 
 func _release_stick() -> void:
+	if drag_mode:
+		drag_active = false
+		_touch_idx = -1
+		stick_vec = Vector2.ZERO
+		return
 	# a short press with no real drag = TAP -> jump/action
 	if not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
@@ -204,6 +232,8 @@ func action_zone() -> Rect2:
 	return Rect2(vs - Vector2(214.0, 234.0), Vector2(214.0, 234.0))
 
 func _clear_touch_state() -> void:
+	drag_active = false
+	drag_started = false
 	_touch_idx = -1
 	_look_idx = -1
 	_jump_fingers.clear()
@@ -307,6 +337,20 @@ func set_action_label(t: String) -> void:
 func consume_action_just() -> bool:
 	var j := action_just
 	action_just = false
+	return j
+
+func set_drag_mode(on: bool) -> void:
+	drag_mode = on
+	drag_active = false
+	drag_started = false
+	stick_vec = Vector2.ZERO
+	if on:
+		_touch_idx = -1
+		_rest_stick()
+
+func consume_drag_started() -> bool:
+	var j := drag_started
+	drag_started = false
 	return j
 
 func look_active() -> bool:
