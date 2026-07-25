@@ -66,7 +66,7 @@ const ACTS := [
 		"floor_col": Color(0.24, 0.22, 0.42), "trim": Color(0.95, 0.9, 0.6), "curtain": Color(0.16, 0.14, 0.34)},
 	# ---------- FLOOR 3: the Grand Gallery ----------
 	{"name": "Paint the Sunrise", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
-		"kind": "order", "props": "paint", "order": [2, 0, 1, 2], "flow": "carry_paint", "decorate": 3, "decorate_theme": "splatter", "imps": 5, "shell": true,
+		"kind": "paint", "props": "paint", "order": [2, 0, 1, 2], "flow": "carry_paint", "decorate": 3, "decorate_theme": "splatter", "imps": 5, "shell": true,
 		"voice": "Painter Roshan! Dip your brush in the pot the picture shows, swipe the big canvas, then SPLAT some sparkle paint to finish!",
 		"win_line": "The sunrise backdrop is finished! It's a masterpiece!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},

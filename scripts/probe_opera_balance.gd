@@ -97,7 +97,7 @@ func _snapshot(act: OperaAct) -> String:
 			var bphase := String(act.boss.get("phase", "?"))
 			var bdist := ((act.boss["node"] as Node3D).position).distance_to(act.player_pos) if act.boss.has("node") else -1.0
 			return base + " boss=%s hp=%d lant=%d dist=%.1f" % [bphase, int(act.boss.get("hp", -1)), act.lantern_i, bdist]
-		"order":
+		"order", "paint":
 			return base + " order=%s step=%d brush=%d" % [act.order_phase, act.step, act.brush_loaded]
 		"press":
 			return base + " candies=%d busy=%.2f" % [act.candies_done, act.press_busy]
@@ -181,7 +181,7 @@ func _drive(act: OperaAct, dt: float) -> void:
 			act._brawl_action()
 		return
 	match act.kind:
-		"order":
+		"order", "paint":
 			_drive_order(act, dt)
 		"echo":
 			_drive_echo(act, dt)

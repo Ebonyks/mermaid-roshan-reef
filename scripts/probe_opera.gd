@@ -41,6 +41,18 @@ func _init() -> void:
 	_ck("floor bosses sit at acts five, ten and fifteen",
 		String(OperaHouse.ACTS[4]["type"]) == "boss" and String(OperaHouse.ACTS[9]["type"]) == "boss" and String(OperaHouse.ACTS[14]["type"]) == "boss")
 	_ck("the fifteenth act is the grand finale", bool(OperaHouse.ACTS[14].get("finale", false)))
+	# every career is its own minigame on its own stage: no two shows may share
+	# an engine kind, and all twelve costumes must have a STAGE_SETS entry
+	var show_kinds := {}
+	var undressed: Array[String] = []
+	for cfg3: Dictionary in OperaHouse.ACTS:
+		if String(cfg3.get("type", "show")) == "boss":
+			continue
+		show_kinds[String(cfg3["kind"])] = int(show_kinds.get(String(cfg3["kind"]), 0)) + 1
+		if not OperaAct.STAGE_SETS.has(String(cfg3.get("costume", ""))):
+			undressed.append(String(cfg3["career"]))
+	_ck("twelve careers run twelve distinct engines", show_kinds.size() == 12)
+	_ck("every career has its own dressed stage", undressed.is_empty())
 	# ---- the explorable lobby: doors for shows, medallions for bosses ----
 	_ck("lobby builds a door for every career show", opera.doors.size() == 12)
 	_ck("every floor has a centre-stage medallion", opera.boss_spots.size() == 3)
@@ -141,7 +153,7 @@ func _init() -> void:
 			_drive_brawl(act)
 			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
 		match String(cfg2["kind"]):
-			"order":
+			"order", "paint":
 				await _drive_order(act, cfg2)
 			"echo":
 				await _drive_echo(act)

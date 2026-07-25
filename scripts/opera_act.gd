@@ -200,7 +200,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	match kind:
-		"order":
+		"order", "paint":
 			_build_order()
 		"echo":
 			_build_echo()
@@ -456,10 +456,10 @@ func _build_job_stage(spec: Dictionary) -> void:
 	crest.name = "StageCrest"
 	crest.position = CENTER + Vector3(0, 18.3, 12.0)
 	add_child(crest)
-	for i in range(7):
-		var a := lerpf(-1.0, 1.0, float(i) / 6.0)
-		var petal := _sphere(Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0), 1.0 - absf(a) * 0.22, crest_col, 0.25, crest)
-		petal.scale = Vector3(0.8, 1.3, 0.5)
+	for i in range(5):
+		var a := lerpf(-1.0, 1.0, float(i) / 4.0)
+		var petal := _sphere(Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0), 1.15 - absf(a) * 0.26, crest_col, 0.25, crest)
+		petal.scale = Vector3(0.9, 1.3, 0.5)
 	_sphere(Vector3(0, -0.35, 0.4), 0.9, Color(1.0, 0.98, 0.95), 0.45, crest)
 	# the warm light pool the act plays inside (flat, unshaded — no OmniLights)
 	if spec.has("pool"):
@@ -497,9 +497,11 @@ func _build_job_stage(spec: Dictionary) -> void:
 		"starlight_concert":
 			_stage_starlight_concert(spec)
 
-func _footlights(col: Color, n: int = 11) -> void:
+func _footlights(col: Color, n: int = 7) -> void:
 	# the row of gold bulbs along the apron edge — the shared signature of the
 	# dressed sets that draw one in their card (chef, ballerina, magician...)
+	if m.quality == "speedy":
+		return
 	for i in range(n):
 		var fx := -20.0 + float(i) * (40.0 / maxf(1.0, float(n - 1)))
 		_sphere(CENTER + Vector3(fx, 0.75, 15.2), 0.5, col, 1.1)
@@ -593,8 +595,8 @@ func _stage_pastry_kitchen(spec: Dictionary) -> void:
 	var lush := m.quality != "speedy"
 	_backdrop_panel(Color(spec.get("backdrop", Color(0.35, 0.62, 0.72))), 0.1)
 	# coral and kelp painted onto the flat, in front of it
-	for i in range(8 if lush else 4):
-		var cx := -14.0 + float(i) * 4.0
+	for i in range(5 if lush else 2):
+		var cx := -13.0 + float(i) * 6.5
 		var ch := 3.0 + float(i % 3) * 1.6
 		_cyl(CENTER + Vector3(cx, ch * 0.5 + 1.0, -16.7), 0.6, ch,
 			Color(0.95, 0.5, 0.55) if i % 2 == 0 else Color(0.4, 0.75, 0.7), 0.15)
@@ -644,14 +646,14 @@ func _stage_plushy_clinic(spec: Dictionary) -> void:
 	var quilt := Color(spec.get("backdrop", Color(0.25, 0.55, 0.6)))
 	_backdrop_panel(quilt, 0.08)
 	# the quilting: a lattice of raised seams on the panel
-	for i in range(7):
-		_box(CENTER + Vector3(-13.5 + float(i) * 4.5, 8.0, -16.85), Vector3(0.25, 13.0, 0.2), quilt.lightened(0.16), 0.1)
-	for j in range(4):
-		_box(CENTER + Vector3(0, 3.0 + float(j) * 3.4, -16.85), Vector3(33.0, 0.25, 0.2), quilt.lightened(0.16), 0.1)
+	for i in range(5):
+		_box(CENTER + Vector3(-13.0 + float(i) * 6.5, 8.0, -16.85), Vector3(0.25, 13.0, 0.2), quilt.lightened(0.16), 0.1)
+	for j in range(3):
+		_box(CENTER + Vector3(0, 3.4 + float(j) * 4.2, -16.85), Vector3(33.0, 0.25, 0.2), quilt.lightened(0.16), 0.1)
 	# the gold scallop medallion at the centre of the wall
-	for i in range(7):
-		var a := lerpf(-1.0, 1.0, float(i) / 6.0)
-		var petal := _sphere(CENTER + Vector3(a * 3.6, 9.0 - absf(a) * 1.0, -16.5), 1.1 - absf(a) * 0.24,
+	for i in range(5):
+		var a := lerpf(-1.0, 1.0, float(i) / 4.0)
+		var petal := _sphere(CENTER + Vector3(a * 3.6, 9.0 - absf(a) * 1.0, -16.5), 1.25 - absf(a) * 0.28,
 			Color(1.0, 0.9, 0.68), 0.3)
 		petal.scale = Vector3(0.85, 1.3, 0.5)
 	# tool trolley upstage-left, basin upstage-right
@@ -735,8 +737,8 @@ func _stage_conjuring_parlour(spec: Dictionary) -> void:
 	var lush := m.quality != "speedy"
 	_backdrop_panel(Color(spec.get("backdrop", Color(0.42, 0.3, 0.5))), 0.06)
 	# swagged velvet valance across the top of the flat
-	for i in range(7):
-		var vx := -13.5 + float(i) * 4.5
+	for i in range(5 if lush else 3):
+		var vx := -13.0 + float(i) * 6.5
 		var swag := _sphere(CENTER + Vector3(vx, 12.6, -16.7), 2.4, Color(0.5, 0.34, 0.58), 0.1)
 		swag.scale = Vector3(1.0, 0.85, 0.2)
 	# coral and teal seaweed fronds standing in both wings
@@ -1438,7 +1440,15 @@ func _build_hud() -> void:
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(pointer)
 
-# ---------------- "order" engine (chef / detective / painter) ----------------
+# ------- shared pad core: "order" (chef) and "paint" (painter) -------
+# Two distinct acts share this builder because both walk a pictured sequence,
+# but they diverge immediately: chef DELIVERS layers then stirs and tops the
+# cake, painter LOADS a brush then swipes and splatters the canvas. They carry
+# separate kinds so the roster reads one engine per career.
+
+func _is_order_kind() -> bool:
+	return kind == "order" or kind == "paint"
+
 
 func _build_order() -> void:
 	var steps: Array = config.get("order", [0, 1, 2])
@@ -1586,7 +1596,7 @@ func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 	return prop
 
 func _order_action(choice: int) -> void:
-	if state != "play" or kind != "order" or order_phase != "steps" or step >= order_steps.size():
+	if state != "play" or not _is_order_kind() or order_phase != "steps" or step >= order_steps.size():
 		return
 	var want := order_steps[step]
 	var pad: Dictionary = pads[choice]
@@ -1640,7 +1650,7 @@ func _apply_brush_tint(col: Color) -> void:
 
 func _stir_action() -> void:
 	# the chef finale: three big stirs spin the bowl faster and faster
-	if state != "play" or kind != "order" or order_phase != "stir":
+	if state != "play" or not _is_order_kind() or order_phase != "stir":
 		return
 	stir_done += 1
 	progress_t = 0.0
@@ -1695,7 +1705,7 @@ func _open_decorate() -> void:
 	_update_hud()
 
 func _deco_action(idx: int) -> void:
-	if state != "play" or kind != "order" or order_phase != "decorate":
+	if state != "play" or not _is_order_kind() or order_phase != "decorate":
 		return
 	var spot: Dictionary = deco_spots[idx]
 	if bool(spot["done"]):
@@ -1728,7 +1738,7 @@ func _deco_action(idx: int) -> void:
 
 func _paint_touch() -> void:
 	# the painter swipe: a loaded brush near the canvas sweeps a stripe on
-	if state != "play" or kind != "order" or order_flow != "carry_paint" or brush_loaded < 0:
+	if state != "play" or kind != "paint" or brush_loaded < 0:
 		return
 	var stripe := stripes[step]
 	stripe.visible = true
@@ -2975,7 +2985,7 @@ func _nearest_pad() -> int:
 
 func _act_action(choice: int) -> void:
 	match kind:
-		"order":
+		"order", "paint":
 			_order_action(choice)
 		"shuffle":
 			_shuffle_action(choice)
@@ -3038,7 +3048,7 @@ func _process(delta: float) -> void:
 		return
 	if _action_pressed():
 		match kind:
-			"order":
+			"order", "paint":
 				if order_phase == "stir":
 					if goal.position.distance_to(player_pos) < 5.5:
 						_stir_action()
@@ -3108,7 +3118,7 @@ func _process(delta: float) -> void:
 	match kind:
 		"box":
 			_tick_box(delta)
-		"order":
+		"order", "paint":
 			if order_hidden:
 				# the detective search: clues pop out when Roshan swims close
 				for pad in pads:
@@ -3215,7 +3225,7 @@ func _pointer_target() -> Vector3:
 				if not bool(prop["opened"]) and bool(prop["clue"]):
 					return (prop["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 8.0, 3.0)
-		"order":
+		"order", "paint":
 			if order_phase == "stir":
 				return goal.position + Vector3(0, 7.5, 0)
 			if order_phase == "decorate":
@@ -3268,7 +3278,7 @@ func _tick_pointer() -> void:
 	# The brawl arrow is directional, not an answer — always on.
 	if stage_phase == "brawl":
 		pass
-	elif kind == "order" and not order_hidden:
+	elif _is_order_kind() and not order_hidden:
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "echo" and echo_phase == "repeat":
 		show = show and progress_t > RESCUE_DELAY
@@ -3292,7 +3302,7 @@ func _update_hud() -> void:
 		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
 		return
 	match kind:
-		"order":
+		"order", "paint":
 			if order_phase == "stir":
 				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
 			elif order_phase == "decorate":
