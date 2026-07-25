@@ -7,7 +7,11 @@ extends SceneTree
 const MODEL_DIR := "res://assets/full_texture_regen_2026-07-18/models"
 const TEXTURE_DIR := "res://assets/full_texture_regen_2026-07-18/textures"
 const EXPECTED_MODELS := 137
-const EXPECTED_TEXTURES := 30
+# 31 since 4916bb8 (2026-07-18) added the calm Butterfly World meadow base.
+# That commit updated ASSET_LICENSES.md and the pack README but not this
+# count, and the probe was not yet in the CI list, so the drift went unseen
+# until the checkout breakage was cleared and it ran for the first time.
+const EXPECTED_TEXTURES := 31
 const MAX_MODEL_TRIANGLES := 12000
 const MAX_TEXTURE_SIDE := 1024
 
