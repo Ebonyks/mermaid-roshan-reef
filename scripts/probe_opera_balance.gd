@@ -39,6 +39,7 @@ var intent_key := -9999            # sticky wrong/right choice per objective ste
 var intent_choice := -1
 var echo_key := -1                 # sticky echo intent: (round, pos) being danced
 var echo_target := -1
+var farm_pull_t := 0.0             # seconds spent drawing the sling back
 
 func _init() -> void:
 	Engine.time_scale = 8.0
@@ -135,6 +136,7 @@ func _play_act(cfg: Dictionary) -> float:
 	intent_choice = -1
 	echo_key = -1
 	echo_target = -1
+	farm_pull_t = 0.0
 	last_snapshot = ""
 	var act := OperaAct.new()
 	act.process_mode = Node.PROCESS_MODE_DISABLED   # only our manual pumps tick it
@@ -202,6 +204,9 @@ func _drive(act: OperaAct, dt: float) -> void:
 			gap.y = 0.0
 			if gap.length() < 7.0:
 				if _ready_to_act(dt):
+					# close enough that a child would swing: settle onto the imp
+					# so the shield bump cannot shove the tap out of reach
+					act.player_pos = Vector3(target.x, act.player_pos.y, target.z)
 					act._brawl_action()
 			else:
 				_travel(act, target, dt)
@@ -330,8 +335,16 @@ func _drive_press(act: OperaAct, dt: float) -> void:
 	var it: Dictionary = act.belt_items[0]
 	var want: int = int(it["want"])
 	var choice := _intent(act.chutes.size(), want, 7000 + act.candies_done)
+	var node := it["node"] as Node3D
+	var chute: Vector3 = act.chutes[choice]["pos"] as Vector3
+	# carry it there at the persona's hand speed instead of teleporting
 	act.sort_held = 0
-	(it["node"] as Node3D).position = act.chutes[choice]["pos"] as Vector3
+	var step: float = act.MOVE_SPEED * float(persona["speed"]) * dt
+	var to_chute := chute - node.position
+	if to_chute.length() > step:
+		node.position += to_chute.normalized() * step
+		return
+	node.position = chute
 	act._sort_drop()
 	if choice != want:
 		_intent_learned(want)
@@ -434,8 +447,16 @@ func _drive_scroll(act: OperaAct, dt: float) -> void:
 		if sx < best:
 			best = sx
 			target = sx
-	if target < 0.0 or not _ready_to_act(dt):
+	if target < 0.0:
+		farm_pull_t = 0.0
 		return
+	# drawing the sling back is part of the throw, so charge before releasing
+	farm_pull_t += dt
+	if farm_pull_t < 0.45 * float(persona["reaction"]):
+		return
+	if not _ready_to_act(dt):
+		return
+	farm_pull_t = 0.0
 	var power: float = (target - act.FARM_ROSHAN_X) / 780.0
 	power += randf_range(-1.0, 1.0) * float(persona["err"]) * 0.5
 	act._farm_launch(clampf(power, 0.0, 1.0))
