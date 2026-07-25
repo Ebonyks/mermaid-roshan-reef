@@ -200,6 +200,29 @@ func _init() -> void:
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
+func _drive_stage_rescue(act: OperaAct) -> void:
+	# the six acts with no backstage corridor now rescue someone on their own
+	# stage before their game begins
+	if act.stage_phase != "rescue":
+		return
+	_ck_once("an on-stage rescue cages captives too", act.captives.size() == 2)
+	_ck_once("the drag finger is held back during a rescue",
+		main.touch_ui == null or not main.touch_ui.drag_mode)
+	var guard := 0
+	while act.stage_phase == "rescue" and guard < 60:
+		guard += 1
+		var target := {}
+		for g in act.imps:
+			if not bool(g["popped"]):
+				target = g
+				break
+		if target.is_empty():
+			break
+		act.player_pos = (target["pos"] as Vector3)
+		act._brawl_action()
+	_ck_once("the rescue hands the act back its stage", act.stage_phase == "puzzle")
+	_ck_once("freeing them pays the gift", act.gift_given)
+
 func _drive_brawl(act: OperaAct) -> void:
 	# the captain takes two sparkles and dashes between hits, so chase by
 	# re-reading positions until the curtain opens

@@ -32,6 +32,25 @@ The Doctor deliberately has no cages. Its story was already specified: chase the
 imps out, then FIND the hurt animal. Bolting caged nurses onto the front of that
 would be a second rescue in an act that already has one.
 
+## The six acts that could not run the rhythm — barriers found and resolved
+
+Ballerina, Candy Maker, Farmer, Boxer, Racecar and Pop Star have no
+`shell: true`, so they had no way to run rescue → gift → make. Six concrete
+construction barriers, all now cleared:
+
+| # | Barrier | Resolution |
+| --- | --- | --- |
+| 1 | `_build_captives()` was only reachable from `_build_backstage()`, and cage positions were corridor coordinates (`BACKSTAGE_X0`). Acts without a corridor had nowhere to put anyone. | Cages now place relative to the act's own play area when the rescue is on-stage. |
+| 2 | `stage_phase` was binary — nine sites branch on `== "brawl"` (movement, clamp, input routing, HUD, pointer, rescue-arrow). No third state existed. | Added `"rescue"`; every one of those branches now accepts it. |
+| 3 | Ten acts call `set_drag_mode(true)` at BUILD time. A rescue running first would find the stick dead and Roshan unable to swim to the imps — the exact bug that stalled the Magician. | All routed through `_set_drag()`, which records what the act wants and withholds it until the rescue ends. |
+| 4 | Boxer shares the `imps` array between the rescue and its ring waves; `_box_wave()` calls `imps.clear()`. | The rescue completes before the warm-up gate, so the first wave clears an array the rescue is already done with. |
+| 5 | Farmer's game is a 2D `CanvasLayer` that covers the whole screen, hiding any 3D rescue behind it. | `farm_layer` is hidden for the rescue and restored when the stage is handed back. |
+| 6 | Racecar and Pop Star give the entire screen — camera, HUD, input — to KartGame / DanceEngine. No beat can be inserted inside them. | The rescue happens BEFORE the handoff tap; both early-returns are gated on `stage_phase != "rescue"`. |
+
+All six now open with a rescue: dancers → ribbons, sweet-shop mice → sugar,
+farmers → carrots, the ring crew → gloves, pit crew → spare wheels, the band →
+instruments.
+
 ## Done
 
 **Doctor — the Vet Rescue.** find the hurt animal → carry to the fluoroscope →

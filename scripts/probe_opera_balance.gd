@@ -92,7 +92,7 @@ func _snapshot(act: OperaAct) -> String:
 	if not is_instance_valid(act):
 		return "act-freed"
 	var base := "state=%s phase=%s" % [act.state, act.stage_phase]
-	if act.stage_phase == "brawl":
+	if act.stage_phase == "brawl" or act.stage_phase == "rescue":
 		# the six shelled acts keep stalling here; report enough to stop guessing
 		var nearest := -1.0
 		var live := 0
@@ -188,7 +188,7 @@ func _ready_to_act(dt: float) -> bool:
 func _drive(act: OperaAct, dt: float) -> void:
 	if act.state != "play":
 		return
-	if act.stage_phase == "brawl":
+	if act.stage_phase == "brawl" or act.stage_phase == "rescue":
 		var target := Vector3.ZERO
 		var found := false
 		for g in act.imps:

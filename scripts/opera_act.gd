@@ -337,6 +337,8 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	reveal_one = bool(config.get("reveal_one", false))
 	act_tag = String(config.get("act_tag", ""))
 	stage_phase = "brawl" if bool(config.get("shell", false)) else "puzzle"
+	if stage_phase == "puzzle" and String(config.get("rescue", "")) != "":
+		stage_phase = "rescue"   # on-stage rescue: no backstage corridor needed
 	player_pos = CENTER + Vector3(0, 1.1, 14.0)
 	if stage_phase == "brawl":
 		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
@@ -374,6 +376,8 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_dance()
 		"boss":
 			_build_boss()
+	if stage_phase == "rescue":
+		_build_stage_rescue()
 	# the Showtime transformation moment: sparkles + the career announcement.
 	# Shelled acts open with the backstage story instead — the act's own
 	# instructions arrive when the curtain sweeps open in _open_gate().
@@ -1240,12 +1244,48 @@ func _spawn_imp(pos: Vector3, captain: bool) -> void:
 	imps.append({"index": imps.size(), "node": root, "pos": pos, "popped": false,
 		"phase": float(imps.size()) * 2.1, "hp": 2 if captain else 1})
 
+func _set_drag(on: bool) -> void:
+	# Acts arm the drag finger at build time, but an on-stage rescue needs the
+	# STICK so Roshan can swim to the imps. Route every request through here:
+	# it is held back until the rescue is over, then applied.
+	want_drag = on
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(on and stage_phase != "rescue")
+
+func _build_stage_rescue() -> void:
+	# Barrier 1: captives used to live in the backstage corridor, so the six
+	# acts without a shell could not run the rhythm at all. The cages now stand
+	# in the act's OWN play area and the imps guard them there.
+	player_pos = CENTER + Vector3(0, 1.1, 14.0)
+	imp_count = int(config.get("rescue_imps", 4))
+	for g in range(imp_count):
+		var a := float(g) / float(imp_count) * TAU + 0.6
+		_spawn_imp(CENTER + Vector3(cos(a) * 9.0, 1.0, -2.0 + sin(a) * 6.0), g == imp_count - 1)
+	imps_left = imp_count
+	_build_captives()
+	if farm_layer != null:
+		farm_layer.visible = false   # Barrier 6: the 2D meadow would cover this
+	_set_drag(want_drag)             # Barrier 5: hold the drag finger back
+
+func _end_stage_rescue() -> void:
+	_free_captives()
+	stage_phase = "puzzle"
+	progress_t = 0.0
+	if farm_layer != null:
+		farm_layer.visible = true
+	_set_drag(want_drag)             # give the act back whatever finger it wanted
+	m._sparkle_burst(CENTER + Vector3(0, 4.0, 0), Color(1.0, 0.9, 0.6))
+	m.show_msg("Roshan", String(config.get("voice", "On with the show!")), "talk")
+	_update_hud()
+
 func _build_captives() -> void:
 	# two friends in bubble cages at the far end of the corridor, behind the imps
 	var who := String(config.get("rescue", "friends"))
 	var faces: Array[String] = ["pearl_friend", "two_friends", "mama_baby", "wacky_chuck"]
 	for i in range(2):
 		var pos := CENTER + Vector3(BACKSTAGE_X0 + 3.0, 1.4, -2.0 + float(i) * 6.5)
+		if stage_phase == "rescue":
+			pos = CENTER + Vector3(-6.0 + float(i) * 12.0, 1.4, -12.0)
 		var root := Node3D.new()
 		root.name = "Captive%d" % i
 		root.position = pos
@@ -1296,7 +1336,7 @@ func _free_captives() -> void:
 func _brawl_action() -> void:
 	# the brawler verb: a sparkle star pops the nearest imp into confetti.
 	# Out of reach = the star falls short, exactly like the boss fights.
-	if state != "play" or stage_phase != "brawl":
+	if state != "play" or (stage_phase != "brawl" and stage_phase != "rescue"):
 		return
 	var best := -1
 	var best_d := 8.0
@@ -1345,7 +1385,10 @@ func _brawl_action() -> void:
 		m.chime.pitch_scale = 1.0 + 0.2 * float(imp_count - imps_left)
 		m.chime.play()
 	if imps_left <= 0:
-		_open_gate()
+		if stage_phase == "rescue":
+			_end_stage_rescue()
+		else:
+			_open_gate()
 	else:
 		_update_hud()
 
@@ -1657,8 +1700,7 @@ func _leave_lens() -> void:
 	lens_drag = false
 	lens_dwell_i = -1
 	lens_dwell_t = 0.0
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _lens_ground(screen: Vector2) -> void:
 	if cam == null:
@@ -1685,8 +1727,7 @@ func _tick_lens(delta: float) -> void:
 		lens_drag = true
 		lens.visible = true
 		lens_pos = Vector3(player_pos.x, CENTER.y + 0.6, player_pos.z)
-		if m.touch_ui != null:
-			m.touch_ui.set_drag_mode(true)
+		_set_drag(true)
 		m.show_msg("Roshan", "Detective Roshan! DRAG the big magnifying glass around — the clues only show up inside it!", "talk")
 	if m.touch_ui != null and m.touch_ui.drag_active:
 		_lens_ground(m.touch_ui.drag_pos)
@@ -2114,7 +2155,7 @@ func _apply_brush_tint(col: Color) -> void:
 
 func _leave_chef() -> void:
 	if m != null and m.touch_ui != null and (order_phase == "sift" or order_phase == "pipe"):
-		m.touch_ui.set_drag_mode(false)
+		_set_drag(false)
 
 func _begin_sift() -> void:
 	# Beat 1: rub the sieve back and forth; flour snows into the bowl. If the
@@ -2135,8 +2176,7 @@ func _begin_sift() -> void:
 		m.show_msg("Roshan", "The farmers' carrots go in first — a CARROT cake!", "talk")
 	sift_done = 0.0
 	sift_have = false
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	_box(goal.position + Vector3(0, 5.6, 0), Vector3(4.2, 0.5, 3.0), Color(0.86, 0.88, 0.95), 0.2)
 	m.show_msg("Roshan", "First the flour! RUB your finger side to side across the sieve!", "talk")
 	_update_hud()
@@ -2198,7 +2238,7 @@ func _tick_pour(delta: float) -> void:
 	pour_milk.position.y = goal.position.y + 1.2 + f * 0.7
 	if pour_t >= POUR_NEED:
 		if m.touch_ui != null:
-			m.touch_ui.set_drag_mode(false)
+			_set_drag(false)
 		order_phase = "stir"
 		m.show_msg("Roshan", "Perfect! Now STIR — draw big circles round the bowl!", "talk")
 		_update_hud()
@@ -2246,8 +2286,7 @@ func _begin_pipe() -> void:
 	# Beat 5: trace the piping round the cake edge
 	order_phase = "pipe"
 	pipe_trace = 0
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	for i in range(10):
 		var a := float(i) / 10.0 * TAU
 		var dot := _sphere(goal.position + Vector3(cos(a) * 2.6, 2.4, sin(a) * 2.6), 0.3,
@@ -2278,7 +2317,7 @@ func _tick_pipe(delta: float) -> void:
 				m.chime.play()
 	if pipe_trace >= pipe_dots.size():
 		if m.touch_ui != null:
-			m.touch_ui.set_drag_mode(false)
+			_set_drag(false)
 		_open_decorate()
 
 func _tick_stir(delta: float) -> void:
@@ -2290,8 +2329,7 @@ func _tick_stir(delta: float) -> void:
 		stir_drag_t = 0.0
 		stir_accum = 0.0
 		stir_have_ang = false
-		if m.touch_ui != null:
-			m.touch_ui.set_drag_mode(true)
+		_set_drag(true)
 		m.show_msg("Roshan", "Now STIR! Draw big circles round and round the bowl with your finger!", "talk")
 	elif not near and stir_drag:
 		_leave_stir()
@@ -2339,8 +2377,7 @@ func _leave_stir() -> void:
 	stir_drag = false
 	stir_have_ang = false
 	stir_drag_t = 0.0
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _stir_action() -> void:
 	# the chef finale: three big stirs spin the bowl faster and faster
@@ -2442,8 +2479,7 @@ func _tick_easel(delta: float) -> void:
 	if near and not paint_easel:
 		paint_easel = true
 		paint_easel_t = 0.0
-		if m.touch_ui != null:
-			m.touch_ui.set_drag_mode(true)
+		_set_drag(true)
 		m.show_msg("Roshan", "Now PAINT! Drag your finger across the big canvas!", "talk")
 	elif not near and paint_easel:
 		_leave_easel()
@@ -2463,8 +2499,7 @@ func _tick_easel(delta: float) -> void:
 func _leave_easel() -> void:
 	paint_easel = false
 	paint_easel_t = 0.0
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _fill_band_rest() -> void:
 	if paint_img == null or step >= order_steps.size():
@@ -2754,14 +2789,12 @@ func _begin_hide() -> void:
 		var node := h["node"] as Node3D
 		node.position = h["home"] as Vector3
 		h["pos"] = h["home"]
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	m.show_msg("Roshan", "YOUR trick! Drag a magic hat over the bunny-fish to hide it!", "talk")
 	_update_hud()
 
 func _leave_hide() -> void:
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _tick_hide(delta: float) -> void:
 	if shuffle_phase != "hide":
@@ -2934,14 +2967,12 @@ func _build_fix() -> void:
 	_pipe_rebuild_queue()
 	pipe_fuse_t = PIPE_FUSE
 	pipe_flow_cell = -1
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	m.show_msg("Roshan", "Bubble pipes! DRAG the front pipe onto the wall to build a path from the tank to the rocket — hurry, the bubbles are coming!", "talk")
 	_update_hud()
 
 func _leave_pipes() -> void:
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _pipe_roll() -> String:
 	var bag: Array[String] = ["h", "h", "h", "v", "ne", "nw", "se", "sw"]
@@ -3054,7 +3085,7 @@ func _pipe_reached_rocket() -> void:
 	fix_phase = "valve"
 	pipe_leak_t = 0.0
 	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+		_set_drag(false)
 	valve = Node3D.new()
 	valve.name = "BubbleValve"
 	valve.position = CENTER + Vector3(12.0, 2.6, -4.0)
@@ -3155,8 +3186,7 @@ func _begin_launch() -> void:
 	fix_phase = "launch"
 	launch_hold = 0.0
 	launch_on = true
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	# the thrust bar climbing the gantry
 	_box(CENTER + Vector3(12.0, 5.0, -12.0), Vector3(1.6, 10.0, 1.6), Color(0.3, 0.34, 0.5), 0.06)
 	launch_bar = _box(CENTER + Vector3(12.0, 0.4, -12.0), Vector3(1.9, 0.5, 1.9), Color(0.6, 0.95, 1.0), 1.2)
@@ -3165,8 +3195,7 @@ func _begin_launch() -> void:
 
 func _leave_launch() -> void:
 	launch_on = false
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _tick_launch(delta: float) -> void:
 	if not launch_on:
@@ -3241,13 +3270,11 @@ func _build_belt() -> void:
 		_box(pos + Vector3(0, 0.4, 0), Vector3(6.0, 2.6, 4.0), col.darkened(0.25), 0.1)
 		_box(pos + Vector3(0, 1.9, 0), Vector3(6.6, 0.5, 4.6), col, 0.55)
 		chutes.append({"index": i, "pos": pos, "col": col})
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	_belt_spawn()
 
 func _leave_belt() -> void:
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _candy_cols() -> Array[Color]:
 	return [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
@@ -3496,15 +3523,13 @@ func _vet_bone(i: int) -> void:
 	vet_screen.visible = false
 	for b in vet_bones:
 		b.visible = false
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	m._sparkle_burst(vet_scope.position + Vector3(0, 4.2, 0), Color(0.8, 0.95, 1.0))
 	m.show_msg("Roshan", "Found it! Now wrap the soft cast ROUND and ROUND the leg with your finger!", "talk")
 	_update_hud()
 
 func _vet_leave() -> void:
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _vet_wrap_delta(d: float) -> void:
 	# Beats 4 and 5 share the verb — circle the limb — but not the material:
@@ -3650,16 +3675,14 @@ func _build_farm() -> void:
 			"x": 900.0 + float(i) * 560.0, "sx": 900.0 + float(i) * 560.0, "fed": false})
 
 func _farm_arm() -> void:
-	if m.touch_ui != null:
-		m.touch_ui.set_drag_mode(true)
+	_set_drag(true)
 	for i in range(7):
 		var dot := _panel_circle(farm_root, Vector2(-99.0, -99.0), 16.0 - float(i), Color(1.0, 0.95, 0.7, 0.85))
 		dot.visible = false
 		farm_aim.append(dot)
 
 func _leave_farm() -> void:
-	if m != null and m.touch_ui != null:
-		m.touch_ui.set_drag_mode(false)
+	_set_drag(false)
 
 func _farm_power_to_x(power: float) -> float:
 	return FARM_ROSHAN_X + clampf(power, 0.0, 1.0) * 780.0
@@ -4225,11 +4248,11 @@ func _process(delta: float) -> void:
 		if win_t <= 0.0:
 			_finish()
 		return
-	if kind == "race" and kart != null:
+	if kind == "race" and kart != null and stage_phase != "rescue":
 		# KartGame owns the camera, HUD and every input while the race runs —
 		# consuming taps here would steal the TURBO button
 		return
-	if kind == "scroll":
+	if kind == "scroll" and stage_phase != "rescue":
 		_tick_farm(delta)
 		if _action_pressed():
 			_toss_action()
@@ -4243,7 +4266,7 @@ func _process(delta: float) -> void:
 	_place_avatar(delta)
 	for i in range(audience.size()):
 		audience[i].position.y = CENTER.y + 4.0 + sin(elapsed * 2.2 + float(i) * 1.4) * 0.18
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		_tick_brawl(delta)
 		if _action_pressed():
 			_brawl_action()
@@ -4423,7 +4446,7 @@ func _clamp_player() -> void:
 		player_pos.z = CENTER.z + flat.y
 
 func _pointer_target() -> Vector3:
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		var best_d := INF
 		var best := player_pos
 		var any := false
@@ -4521,7 +4544,7 @@ func _tick_pointer() -> void:
 	# guessing games earn a moment without the answer: the arrow is a rescue
 	# that arrives after RESCUE_DELAY without progress (mistakes summon it).
 	# The brawl arrow is directional, not an answer — always on.
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		pass
 	elif _is_order_kind() and not order_hidden:
 		show = show and progress_t > RESCUE_DELAY
@@ -4547,8 +4570,8 @@ func _update_hud() -> void:
 	if objective == null:
 		return
 	var tag := act_tag + "  •  " if act_tag != "" else ""
-	if stage_phase == "brawl":
-		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
+	if stage_phase == "brawl" or stage_phase == "rescue":
+		objective.text = tag + "✨  Free them! Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
 		return
 	match kind:
 		"order", "paint":
