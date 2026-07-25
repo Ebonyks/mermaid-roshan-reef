@@ -296,6 +296,7 @@ var race_prev_track := ""
 # ---- "dance" engine (DanceEngine guest spot) ----
 var dance: CanvasLayer = null
 var mic: Node3D = null
+var dance_encore_done := false     # the freed band buy one extra verse, once
 
 # ---- "boss" engine ----
 var boss: Dictionary = {}
@@ -3832,7 +3833,22 @@ func _launch_race() -> void:
 	var kart_script: GDScript = load("res://scripts/kart.gd") as GDScript
 	kart = kart_script.new() as Node
 	add_child(kart)
-	kart.call("configure", {"name": "Opera Grand Prix", "laps": int(config.get("laps", 1))})
+	# KartGame documents a full reuse API; use it, so the Grand Prix belongs to
+	# THIS opera rather than looking like the generic reef race.
+	var spec := STAGE_SETS.get("racer", {}) as Dictionary
+	var kart_cfg := {
+		"name": String(config.get("name", "Opera Grand Prix")),
+		"laps": int(config.get("laps", 2)),
+		"sky_colors": [Color(spec.get("backdrop", Color(0.2, 0.22, 0.45))),
+			Color(spec.get("pillar", Color(0.85, 0.6, 0.65)))],
+		"shortcut": true,
+		"pearl_payout": false,   # a show, not a pearl farm — the star is the prize
+	}
+	# the pit crew she freed hand over spare wheels, and those wheels are a KART
+	if int(m.opera_pantry.get("spare wheels", 0)) > 0:
+		kart_cfg["vehicles"] = {"kart": KartGame.VEHICLES["kart"]}
+		m.show_msg("Roshan", "The pit crew's spare wheels — they built you a proper race kart!", "talk")
+	kart.call("configure", kart_cfg)
 	kart.call("start", m, Callable(self, "_race_finished"))
 
 func _race_finished(place: int) -> void:
@@ -3884,6 +3900,14 @@ func _dance_closed() -> void:
 	if state != "play":
 		return
 	if dance != null and int(dance.get("happy_hits")) > 0:
+		# The band she freed play behind her, so the concert earns an ENCORE:
+		# one more verse through the engine's own open_demo(), rather than a
+		# property the engine does not have.
+		if not dance_encore_done and int(m.opera_pantry.get("instruments", 0)) > 0:
+			dance_encore_done = true
+			m.show_msg("Roshan", "The band you rescued are playing behind you — ENCORE! One more verse!", "talk")
+			dance.call("open_demo")
+			return
 		_win()
 	else:
 		m.show_msg("Roshan", "The stage is yours whenever you're ready — tap the sparkling microphone!", "talk")

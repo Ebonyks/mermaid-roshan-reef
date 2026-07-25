@@ -656,6 +656,12 @@ func _drive_race(act: OperaAct) -> void:
 		guard += 1
 		await process_frame
 	_ck("kart engine is reused for the Grand Prix", act.kart is KartGame)
+	# the engine is CONFIGURED for this opera, not launched on its defaults
+	var kcfg: Dictionary = (act.kart as KartGame).cfg
+	_ck("the Grand Prix wears the opera's own sky", kcfg.has("sky_colors"))
+	_ck("the Grand Prix is a show, not a pearl farm", not bool(kcfg.get("pearl_payout", true)))
+	_ck("the freed pit crew's wheels became a kart",
+		int(main.opera_pantry.get("spare wheels", 0)) == 0 or kcfg.has("vehicles"))
 	_ck("exhibition race runs the configured two laps",
 		act.kart != null and (act.kart as KartGame)._laps() == int((act.config as Dictionary).get("laps", 1)))
 	# ✕ quitting the race returns to the stage without winning; the internals of
@@ -666,6 +672,12 @@ func _drive_race(act: OperaAct) -> void:
 	_ck("any finishing place wins the act", act.state == "won")
 
 func _drive_dance(act: OperaAct) -> void:
+	# the rescued band buy an encore verse: the first close replays, the second wins
+	if int(main.opera_pantry.get("instruments", 0)) > 0 and not act.dance_encore_done:
+		(act.dance as Object).set("happy_hits", 4)
+		act._dance_closed()
+		_ck("the freed band earn an encore verse",
+			act.dance_encore_done and act.state == "play")
 	var guard := 0
 	while (act.dance == null or not (act.dance as DanceEngine).active) and guard < 240:
 		guard += 1
