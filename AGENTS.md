@@ -160,3 +160,16 @@ CC0 sources only for the world (Tiny Treats, KayKit, Quaternius, Kenney,
 curated OpenGameArt); every import is restyled through the _toonify
 pastel pipeline. Wind Waker is a rendering reference only — no Zelda
 assets, symbols, UI, music, or character designs.
+OWNER DECISION 2026-07-22 (interim stand-in identities): during
+development, new characters may deliberately wear pop-culture stand-in
+names and likeness cues (e.g. the Great North's host is "Elsa" for now)
+because familiar faces keep Roshan engaged. Each stand-in is expected to
+drift — through AI-art iterations and Roshan's own play — into an
+original release-candidate identity; stand-ins resemble their pop-culture
+icons more closely now than they will at release, and nothing ships at
+final release under an IP name or recognizable likeness. Stand-ins are
+names + generated-art resemblance only: never import actual franchise
+assets, audio, or symbols (the CC0/original rules above still apply).
+The live stand-in roster and release-candidate targets are tracked in
+STORY_DAYS.md §5. Gabby's removal (2026-07-19) predates this policy and
+stands unless the owner explicitly reopens it.
