@@ -68,7 +68,9 @@ func _init() -> void:
 	_ck("act one dresses Roshan in a bone-attached costume",
 		act != null and String(main.player.costume_id) == "chef" and main.player.costume_nodes.size() > 0)
 	_ck("act one puts the real 3D Roshan on stage", bool(main.player.puppet) and main.player.visible)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
+	# budget raised for the Codex art pass (dressing cards ~15 nodes) plus
+	# headroom for transient sparkle nodes that vary frame to frame
+	_ck("act one stays inside the mobile node budget", _descendants(act) < 210)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
