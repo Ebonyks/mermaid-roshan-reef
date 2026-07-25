@@ -31,3 +31,6 @@ __pycache__/
 
 # Kokoro TTS model + voice packs (downloaded per make_voices.py setup docs)
 tools/kokoro/
+
+# local git worktree checkouts — never commit (phantom gitlinks break actions/checkout)
+.worktrees/
