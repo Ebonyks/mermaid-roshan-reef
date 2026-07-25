@@ -7,6 +7,13 @@ extends Node3D
 const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
+# MAGIC WORD "FREEZE" (scripts/voice_spells.gd): a short frost cone in front of
+# Roshan. Deliberately small — she has to face the imps for it to catch them —
+# and on a recharge so the shout stays a special move beside the ICE button,
+# never a replacement for it.
+const SPELL_CONE_LEN := 15.0
+const SPELL_CONE_HALF_DEG := 34.0
+const SPELL_COOL := 6.0
 
 var m: ReefMain
 var kind := "ice"
@@ -26,6 +33,7 @@ var elapsed := 0.0
 var state := "play"
 var win_t := 0.0
 var bump_cool := 0.0
+var spell_cool := 0.0
 var enemies: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
@@ -230,6 +238,7 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	shot_cool = maxf(0.0, shot_cool - delta)
 	bump_cool = maxf(0.0, bump_cool - delta)
+	spell_cool = maxf(0.0, spell_cool - delta)
 	if state == "won":
 		win_t -= delta
 		if fmod(win_t, float(encounter.get("win_spark_gap", 0.32))) < delta:
@@ -471,10 +480,80 @@ func _bump_player(from: Vector3) -> void:
 		bump_cool = 4.0
 		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!", "talk")
 
+func cast_freeze() -> bool:
+	# Roshan shouted the magic word. A frost cone puffs out along her facing and
+	# every ACTIVE enemy standing in it freezes at once — same frozen state the
+	# ICE berry produces, so the popcorn finish and the win check are unchanged.
+	# Returns false when the spell is still recharging; the caller says so out
+	# loud instead of leaving the shout unanswered. Never a fail state: missing
+	# with the cone just costs the recharge, and the ICE button always works.
+	if state != "play" or m == null:
+		return false
+	if spell_cool > 0.0:
+		return false
+	spell_cool = SPELL_COOL
+	var dir := Vector3(sin(player_yaw), 0, cos(player_yaw))
+	_spawn_frost_cone(dir)
+	var caught := 0
+	for enemy in enemies:
+		if String(enemy["state"]) != "active":
+			continue
+		if VoiceSpells.in_cone(player_pos, dir, enemy["pos"], SPELL_CONE_LEN, SPELL_CONE_HALF_DEG):
+			_freeze_imp(enemy)
+			caught += 1
+	# the dragon-turtle is a big target, so it counts from a little further out
+	if not boss.is_empty() and VoiceSpells.in_cone(player_pos, dir, boss["pos"], SPELL_CONE_LEN + 4.0, SPELL_CONE_HALF_DEG, 6.0):
+		_hit_boss("ice")
+		caught += 1
+	if caught > 0:
+		m.show_msg("Roshan", "❄  FREEZE! Frozen solid!", "freeze")
+	else:
+		# aimed at nothing: point her at the target rather than tell her off
+		m.show_msg("Roshan", "❄  Frosty puff! Turn toward the golden arrow and shout again!", "freeze")
+	_update_hud()
+	return true
+
+func _spawn_frost_cone(dir: Vector3) -> void:
+	var cone := MeshInstance3D.new()
+	var shape := CylinderMesh.new()
+	shape.bottom_radius = 0.18                                                # apex, at her hands
+	shape.top_radius = tan(deg_to_rad(SPELL_CONE_HALF_DEG)) * SPELL_CONE_LEN  # wide end
+	shape.height = SPELL_CONE_LEN
+	shape.radial_segments = 14
+	shape.rings = 1
+	cone.mesh = shape
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED   # toon fork: never re-lit
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat.albedo_color = Color(0.66, 0.95, 1.0, 0.42)
+	mat.emission_enabled = true
+	mat.emission = Color(0.55, 0.92, 1.0)
+	mat.emission_energy_multiplier = 1.4
+	cone.material_override = mat
+	# CylinderMesh runs along +Y, so build a basis whose Y is her facing
+	var fwd := dir.normalized()
+	var right := Vector3.UP.cross(fwd).normalized()
+	cone.transform = Transform3D(Basis(right, fwd, right.cross(fwd)), player_pos + Vector3(0, 1.8, 0) + fwd * (SPELL_CONE_LEN * 0.5))
+	cone.scale = Vector3(0.25, 0.35, 0.25)
+	add_child(cone)
+	var tw := cone.create_tween()
+	tw.tween_property(cone, "scale", Vector3.ONE, 0.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(mat, "albedo_color:a", 0.0, 0.42)
+	tw.tween_callback(cone.queue_free)
+	m._sparkle_burst(player_pos + Vector3(0, 2.0, 0) + fwd * 3.0, Color(0.62, 0.94, 1.0))
+
 func _tick_pointer() -> void:
 	var target := _nearest_target()
 	pointer.visible = state == "play"
 	pointer.position = target + Vector3(0, 7.2 + sin(elapsed * 4.0) * 0.45, 0)
+
+func _spell_tag() -> String:
+	# icon-only affordance for the magic word — a hollow snowflake while the
+	# spell recharges, a filled one when a shout will land. No reading required.
+	if m == null or not m.spells_on:
+		return ""
+	return "   🗣 ❄" if spell_cool <= 0.0 else "   🗣 ❄(…)"
 
 func _update_hud() -> void:
 	if objective == null:
@@ -483,12 +562,12 @@ func _update_hud() -> void:
 		var left := 0
 		for enemy in enemies:
 			if String(enemy["state"]) != "popped": left += 1
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄" + _spell_tag()
 		counter.text = "❄  %d" % left
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
 		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text + _spell_tag()
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
 func _win() -> void:

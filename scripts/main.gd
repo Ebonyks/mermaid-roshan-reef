@@ -147,6 +147,22 @@ var combat_ice_done := false       # Butterfly Castle ice-berry encounter comple
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_game: CombatArena = null
 var combat_from := ""
+# ---- MAGIC WORDS: shout a spell into the microphone (scripts/voice_spells.gd).
+# ---- State lives here; VoiceSpells receives main by reference and owns the
+# ---- listening/matching logic. OFF until a grown-up turns it on in the pause
+# ---- menu — the microphone is never opened behind the family's back.
+var spells_pref := false                     # saved: "spells" — the family's answer
+var spells_on := false                       # live: is the microphone actually open
+var spells_forgiving := true                 # a 4yo's "FEEEZ!" must still cast
+var spell_mic: AudioStreamPlayer = null      # the live microphone stream
+var spell_capture: AudioEffectCapture = null # tap on the muted Mic bus
+var spell_hud: CanvasLayer = null            # the pulsing 🗣❄ listening bubble
+var spell_bubble: Panel = null
+var spell_meter: ProgressBar = null
+var spell_casts := 0                         # session counter (never saved)
+var spell_last_word := ""
+var spell_last_score := 0.0                  # how well the last shout fit the word
+var spell_last_matched := false              # false = forgiving mode carried it
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
@@ -346,6 +362,7 @@ var sleep_flip_done := false
 var night_nodes: Array = []   # moon/beams/jellies — toggled when time flips at runtime
 var quality_btn: Button
 var music_btn: Button
+var spell_btn: Button
 var guide_fish: Sprite3D
 var finale_done := false
 var finale_t := -1.0
@@ -2948,6 +2965,30 @@ func _medal_ref() -> MedalSystem:
 	if _medal_system == null:
 		_medal_system = MedalSystem.new(self)
 	return _medal_system
+
+# spoken spells ("FREEZE!") live in scripts/voice_spells.gd — state stays here
+var _voice_spells: VoiceSpells = null
+
+func _spells_ref() -> VoiceSpells:
+	if _voice_spells == null:
+		_voice_spells = VoiceSpells.new(self)
+	return _voice_spells
+
+func _toggle_spells() -> void:
+	if spells_on:
+		spells_pref = false
+		_spells_ref().disable()
+	elif not _spells_ref().enable():
+		# permission pending or no microphone — enable() already explained why.
+		# The answer is still remembered so the next launch tries again.
+		spells_pref = true
+		_write_save()
+		return
+	else:
+		spells_pref = true
+	if spell_btn != null:
+		spell_btn.text = "Magic Words: On" if spells_on else "Magic Words: Off"
+	_write_save()
 
 func _load_save() -> void:
 	if _save_state == null:
@@ -6016,6 +6057,8 @@ func _process(delta: float) -> void:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if spells_on:
+		_spells_ref().tick(delta)   # listen for shouted spells everywhere, always
 	if player != null:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)

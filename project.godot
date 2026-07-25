@@ -18,6 +18,16 @@ config/name="Mermaid Roshan Reef of Light"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 
+[audio]
+
+; MAGIC WORDS (scripts/voice_spells.gd): shouting "FREEZE" casts a spell, so
+; the audio driver must be allowed to open an input device. Nothing records or
+; leaves the phone — the mic bus is muted, the samples are read as a loudness
+; envelope in memory and dropped. The stream is only ever STARTED after a
+; grown-up turns Magic Words on in the pause menu, so no permission dialog and
+; no mic indicator appears for families that never switch it on.
+driver/enable_input=true
+
 [display]
 
 window/size/viewport_width=1280

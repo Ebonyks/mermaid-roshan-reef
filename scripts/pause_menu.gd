@@ -72,6 +72,10 @@ func _build_pause() -> void:
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		m.music_btn.text = "Music: On" if m.music_on else "Music: Off"
 		m._write_save())
+	# Shouted spells need the microphone, so a grown-up opts in here — it is
+	# never on by default and the whole game is completable without it.
+	m.spell_btn = _pause_btn(vb, "Magic Words: Off")
+	m.spell_btn.pressed.connect(m._toggle_spells)
 	if m.dev_mode != null:
 		var dev_btn := _pause_btn(vb, "Developer Mode")
 		dev_btn.pressed.connect(func():

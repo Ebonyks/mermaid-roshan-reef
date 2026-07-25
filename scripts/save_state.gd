@@ -12,7 +12,7 @@ const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
-	"opera_done",
+	"opera_done", "spells",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -33,6 +33,7 @@ const KNOWN_KEYS: Array[String] = [
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins",
+	"spells",
 ]
 
 var m: ReefMain
@@ -78,6 +79,14 @@ func load_save() -> void:
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
 		m.music_btn.text = "Music: On" if m.music_on else "Music: Off"
+	# magic words: a saved yes re-opens the microphone quietly. If the device or
+	# the OS permission says no this session, the toggle simply reads Off again
+	# — the preference is restored, never the failure.
+	m.spells_pref = bool(m.save_data.get("spells", false))
+	if m.spells_pref:
+		m._spells_ref().enable(false)
+	if m.spell_btn != null:
+		m.spell_btn.text = "Magic Words: On" if m.spells_on else "Magic Words: Off"
 	m.pearl_count = int(m.save_data.get("pearls", 0))
 	m.pearls_ever = maxi(m.pearl_count, int(m.save_data.get("pearls_ever", m.pearl_count)))
 	# A completed Level 2 is definitive legacy evidence that the portal opened.
@@ -190,6 +199,7 @@ func write_save() -> bool:
 	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
 	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["medals"] = m.medals
+	next_data["spells"] = m.spells_pref   # the family's answer, not this session's luck
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
 	if not _commit_save(normalised):
@@ -428,6 +438,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_colors"] = _array_or_default(raw, "companion_colors")
 	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
+	data["spells"] = _bool_or_default(raw, "spells", false)
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
