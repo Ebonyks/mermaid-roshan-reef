@@ -1,0 +1,122 @@
+# What makes each costume unique — genre analysis and per-job gimmicks
+
+Companion to `OPERA_ACT_PACING_2026-07-25.md`. That doc fixes *length*; this
+one fixes *sameness*.
+
+## The finding: nine of twelve acts are the same verb
+
+Classified by what the child's finger actually does — not by theme:
+
+| Act | Engine | What the finger does | Grammar |
+| --- | --- | --- | --- |
+| Pastry Chef | `order` | swim to a pad, tap | go-to-target + tap |
+| Detective | `sleuth` | swim to a box, tap | go-to-target + tap |
+| Ballerina | `echo` | watch, swim to a tile, tap | go-to-target + tap |
+| Doctor | `doctor` | swim to a tool, tap | go-to-target + tap |
+| Boxer | `box` | swim to an imp, tap | go-to-target + tap |
+| Painter | `paint` | swim to a pot, tap; swim to canvas | go-to-target + tap |
+| Astronaut | `fix` | swim to a piece, tap; carry, tap | go-to-target + tap |
+| Magician | `shuffle` | watch, tap one of three | choose-1-of-N |
+| Candy Maker | `press` | tap when the slider is in the zone | timed tap |
+| Farmer | `scroll` | tap when the piggy is close | timed tap |
+| **Racecar Driver** | `race` | **steer, continuously** | **steering** |
+| **Pop Star** | `dance` | **tap arrows on the beat** | **rhythm** |
+
+Seven acts are literally *swim to the glowing thing and tap it*. Two more are
+*tap when the meter says so*. Only the kart and the dance overlay feel
+different in the hand — and both are borrowed engines, not authored acts.
+
+The twelve stages I built make them **look** distinct. They don't **play**
+distinct. Splitting Painter off `order` fixed the roster label, not the feel.
+
+The grammars we own but never use: **drag**, **hold**, **trace**, **scrub**,
+**drag-and-drop**, **charge-and-release**. Every gimmick below claims one.
+
+## What the genres actually do
+
+- **Doctor** — *Toca Doctor* flies over the patient's body, marks injuries, and
+  each mark opens its own micro-game. The genre's spine is **diagnose, then
+  treat** — finding what's wrong is the game, not following a pointer.
+- **Ballerina** — *Just Dance Kids* scores mimicry to the beat; ballet-class
+  teaching games drill **musicality**: clap the rhythm, hold the line, dance
+  the downbeat. Ballet is sustained, not staccato.
+- **Farmer/pigs** — *Hay Day* / *FarmVille 3* run a **feed → produce** loop;
+  pigs specifically eat, then give something back (bacon, truffles).
+- **Pastry Chef** — *Cooking Mama* is a compilation where **every step is a
+  different gesture** (stir, chop, pour, flip). *Toca Kitchen* is freeform and
+  its noted weakness is that it gets repetitive with no structure.
+- **Detective** — hidden-object/I-Spy for preschoolers, where the **magnifying
+  glass** is the iconic tool and small things must be searched out.
+- **Candy Maker** — the **conveyor belt** is the genre image (Lucy & Ethel);
+  play is sorting or catching items before they run off the end.
+- **Boxer** — *Fitness Boxing* / *Beat Punch*: **punch to the beat**, with
+  cues drifting toward you.
+- **Magician** — cups-and-balls / shell game: **track the marker** through
+  shuffles, with misdirection as the skill.
+- **Painter** — the dominant kids formats are **colour-by-number** and
+  **scratch-to-reveal**, not free drawing.
+- **Astronaut** — kids' rocket apps **assemble from parts**, then pay off with
+  a **countdown and launch** full of sound and light.
+- **Racecar** — *Mario Kart* **Smart Steering / Auto Drive** keeps a small
+  child on the track; it is the reason kindergarteners can play it at all.
+
+Cross-cutting, from preschool app design: one finger only, and the core loop
+should be **cause → immediate surprising effect**. Difficulty must come from
+*speed and quantity*, never from *precision* — precision is where a 4-year-old
+meets a fail state even when you swear there isn't one.
+
+## Per-job gimmicks — 1-2 each
+
+| Act | Gimmick A (primary) | Gimmick B | New grammar |
+| --- | --- | --- | --- |
+| **Doctor** | **Scanner lens** — drag a glowing puck over the plush; only under the lens does the inside show (a stuck button, a sore spot). Diagnose, *then* treat. | Symptom→tool match: the plush shows steam / hearts / a tear and you pick the tool that fits, instead of following a fixed sparkle | drag + masked reveal |
+| **Ballerina** | **Hold the pose** — press and *hold* a tile for a whole musical phrase; a ribbon fills while held. Ballet is sustained line, not taps. | Trace the ribbon: drag along a glowing arc in time with the music | hold / trace |
+| **Farmer** | **Slingshot lob** — drag back and release to arc a veggie to a pig; distance is the skill, not metronome timing | Truffle snuffle: the pig leads, nose to the ground, and Roshan follows where it pulls — the one act where you're not the actor | charge-and-release |
+| **Pastry Chef** | **A different gesture per step** — stir = circular drag, sift = scrub, pour = hold, frost = swipe. The single most on-genre change in the house. | Oven peek: watch it rise through the door, tap when it's golden | drag / scrub / hold |
+| **Detective** | **Magnifier window** — drag a lens around the stage; clue glints are invisible except inside it. The iconic verb of the entire genre. | Case board: drag the three found clues onto the board to open the chest | drag + masked reveal |
+| **Candy Maker** | **Conveyor sort** — candies ride a belt, drag each into its matching chute before the end. Belt speed ramps; that *is* the 2-4 minute curve. | Wrapper twist: a circular drag to twist both ends | drag-and-drop |
+| **Boxer** | **Punch to the beat** — imps bob on the downbeat and you punch in time, with a combo meter (this is the actual genre) | Duck: swipe down under a swinging glove — the only defensive verb in the opera | rhythm + swipe |
+| **Magician** | **Roshan does the trick** — flip the perspective: *she* hides the bunny-fish and shuffles the hats while the audience guesses. She's the magician, not the mark. | A decoy sparkle tries to pull the eye during the shuffle | drag (perspective flip) |
+| **Painter** | **Scratch to reveal** — rub back and forth to uncover the sunrise underneath. A named kids genre, hugely satisfying, structurally incapable of failing. | Colour-by-*shape* (circle/star/heart, since she can't read): tap a pot, then tap every region wearing that shape | scrub |
+| **Astronaut** | **Hold-to-launch** — press and HOLD through the countdown as the thrust bar fills, release on zero. The genre's whole payoff. | Real drag-and-drop assembly with magnetic snap, instead of tap-pick/tap-place | charge-and-release |
+| **Racecar** | Already distinct (steering). Add **two laps** and a Smart-Steering-style rail so she cannot get stuck facing a wall. | Follow the zoom-strip line | — (keep) |
+| **Pop Star** | Already distinct (rhythm). Add **hold-the-note** long arrows and the encore verse. | — | — (keep) |
+
+## Pacing archetypes — so no two neighbours feel alike
+
+Length alone isn't pacing. Four rhythms, spread so each floor has all four:
+
+| Archetype | Feel | Acts |
+| --- | --- | --- |
+| **Metronomic** | locked to a beat, pulse you can hear | Boxer, Pop Star |
+| **Escalating pressure** | starts slow, speeds up, ends fast | Candy Maker, Farmer, Racecar |
+| **Calm exploration** | no clock at all, look and poke | Detective, Painter, Doctor |
+| **Call-and-response** | watch a phrase, then perform it | Ballerina, Magician |
+| **Build-and-payoff** | assemble quietly, then a big bang | Pastry Chef, Astronaut |
+
+Floor 1 — Chef (build), Detective (calm), Ballerina (call), Candy (escalating).
+Floor 2 — Doctor (calm), Farmer (escalating), Boxer (metronomic), Magician (call).
+Floor 3 — Painter (calm), Astronaut (build), Racecar (escalating), Pop Star (metronomic).
+
+No two doors on a floor share an archetype.
+
+## Shape of a 2-4 minute act
+
+1. **Teach** (~40s) — the verb alone, slow, forgiving, one voice line.
+2. **Play** (~80s) — the verb at speed, or with one variation.
+3. **Twist** (~50s) — the same verb used differently; never a new thing to learn.
+4. **Bow** (~15s) — payoff, confetti, the win line.
+
+Difficulty rises only through **speed and quantity**. Precision stays flat.
+
+## Engineering notes
+
+- `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,
+  trace and scrub need new input plumbing in `touch_ui.gd` + `OperaAct`** —
+  that is the prerequisite for most of the table above, and should land as one
+  shared change before any single act is rebuilt.
+- Every new grammar needs its own gentle-failure story: a drag that misses
+  snaps back, a hold released early just refills, a scrub that wanders reveals
+  a little anyway.
+- Both probe drivers must learn a new grammar *before* the act ships it —
+  the six `NEVER-COMPLETED` acts were exactly this mistake made once already.
