@@ -16,7 +16,7 @@ const BOOL_KEYS: Array[String] = [
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
-	"stuffie_wins", "medals",
+	"stuffie_wins", "medals", "clean_done",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors"]
 # FROZEN completeness core — never grow this list. A document carrying these
@@ -105,6 +105,8 @@ func load_save() -> void:
 	m.companion_bruises = int(m.save_data.get("companion_bruises", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
+	var saved_clean: Variant = m.save_data.get("clean_done", {})
+	m.clean_done = saved_clean if saved_clean is Dictionary else {}
 	var saved_medals: Variant = m.save_data.get("medals", {})
 	m.medals = saved_medals if saved_medals is Dictionary else {}
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
@@ -204,6 +206,7 @@ func write_save() -> bool:
 	next_data["companion_resting"] = m.companion_resting
 	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
 	next_data["stuffie_wins"] = m.stuffie_wins
+	next_data["clean_done"] = m.clean_done
 	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
@@ -453,6 +456,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_resting"] = _bool_or_default(raw, "companion_resting", false)
 	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
+	# Cleaning Day target state follows the same add-never-require precedent as
+	# the Ember/critter keys: normalised with a default, deliberately absent
+	# from KNOWN_KEYS/CORE_KEYS so an older save still reads as complete.
+	data["clean_done"] = _dictionary_or_default(raw, "clean_done")
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data

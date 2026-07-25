@@ -169,6 +169,7 @@ var companion_id := ""                    # chosen stuffie ("" until picked at H
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
 var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
+var clean_done := {}                      # Cleaning Day: dirty-castle target id -> true (persisted, add-only)
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
 var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
@@ -4798,9 +4799,23 @@ func _hall_ref() -> CastleHall:
 func _build_castle_hall(o: Vector3) -> void:
 	_hall_ref().build(o)
 	_hall_ref().build_expansion(o)
+	# Cleaning Day skins go on LAST: every one is an unshaded 2D overlay laid
+	# over fixtures the two builders above already placed (see
+	# DIRTY_CASTLE_2D_GODOT_HANDOFF_2026-07-23.md)
+	_clean_ref().build(o)
 
 func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
 	_hall_ref().tick(delta, ppos)
+	_clean_ref().tick(delta, ppos)
+
+# Day 1 "Cleaning Day" lives in scripts/games/clean.gd (state stays here;
+# CastleCleanup receives main by reference)
+var _castle_cleanup: CastleCleanup = null
+
+func _clean_ref() -> CastleCleanup:
+	if _castle_cleanup == null:
+		_castle_cleanup = CastleCleanup.new(self)
+	return _castle_cleanup
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
