@@ -191,6 +191,12 @@ var lens_drag := false
 # ---- "doctor" engine ----
 var doc_targets: Array[Dictionary] = []
 var doc_step := 0
+# ---- diagnose, then treat (owner 2026-07-25) ----
+# Toca Doctor's spine: FINDING what is wrong is the game. The plushy now shows
+# a symptom pictogram and Roshan picks the tool that matches it, in whatever
+# order the patient asks for — not a fixed golden-sparkle conga line.
+var doc_order: Array[int] = []
+var doc_symptom: Label3D = null
 var doc_wait := 0.0                # care moment: taps rest while the plushy reacts
 var patient: Node3D = null
 
@@ -297,6 +303,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_lens()
 		"doctor":
 			_build_doctor()
+			_doc_shuffle()
 		"scroll":
 			_build_farm()
 		"race":
@@ -2955,18 +2962,53 @@ func _build_doctor() -> void:
 	band.visible = false
 	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
 
+func _doc_need() -> int:
+	if doc_step < doc_order.size():
+		return doc_order[doc_step]
+	return doc_step
+
+func _doc_shuffle() -> void:
+	# the patient asks for its care in its own order, and says so in pictures
+	doc_order.clear()
+	var pool: Array[int] = []
+	for i in range(doc_targets.size()):
+		pool.append(i)
+	while not pool.is_empty():
+		doc_order.append(pool.pop_at(randi() % pool.size()))
+	doc_symptom = Label3D.new()
+	doc_symptom.name = "SymptomPictogram"
+	doc_symptom.font_size = 150
+	doc_symptom.pixel_size = 0.02
+	doc_symptom.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	doc_symptom.position = CENTER + Vector3(0, 6.4, -2.0)
+	add_child(doc_symptom)
+	_doc_symptom_show()
+
+func _doc_symptom_show() -> void:
+	if doc_symptom == null:
+		return
+	if doc_step >= doc_order.size():
+		doc_symptom.visible = false
+		return
+	var want: Dictionary = doc_targets[_doc_need()]
+	doc_symptom.text = {"scope": "💗", "thermo": "🌡", "boo": "🩹", "bandage": "🎀"}.get(String(want["kind"]), "✨")
+	doc_symptom.visible = true
+	var tw := doc_symptom.create_tween()
+	tw.tween_property(doc_symptom, "scale", Vector3.ONE * 1.25, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(doc_symptom, "scale", Vector3.ONE, 0.22)
+
 func _doctor_action(choice: int) -> void:
 	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
 		return
 	if doc_wait > 0.0:
 		return   # the plushy is still giggling from the last step — taps rest kindly
 	var target: Dictionary = doc_targets[choice]
-	if choice != doc_step:
+	if choice != _doc_need():
 		_wobble(target["node"] as Node3D)
 		if m.chime != null:
 			m.chime.pitch_scale = 0.55
 			m.chime.play()
-		m.show_msg("Roshan", "Not that one yet, doctor — follow the golden sparkle!", "hint")
+		m.show_msg("Roshan", "Not that one — look at the picture over the plushy and pick the tool that matches!", "hint")
 		return
 	progress_t = 0.0
 	var node: Node3D = target["node"] as Node3D
@@ -3010,6 +3052,7 @@ func _doctor_action(choice: int) -> void:
 		m.chime.pitch_scale = 0.95 + 0.15 * float(doc_step)
 		m.chime.play()
 	doc_step += 1
+	_doc_symptom_show()
 	if doc_step >= doc_targets.size():
 		# recovered pose: worried face off, happy face + blush on
 		_job_state(doctor_patient_art, "StateIdle", false)
@@ -3938,7 +3981,7 @@ func _pointer_target() -> Vector3:
 			return CENTER + Vector3(0, 8.0, BELT_Z)
 		"doctor":
 			if doc_step < doc_targets.size():
-				return (doc_targets[doc_step]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+				return (doc_targets[_doc_need()]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 		"race":
 			if race_flag != null:
 				return race_flag.position + Vector3(0, 7.0, 0)
@@ -3961,6 +4004,9 @@ func _tick_pointer() -> void:
 	elif _is_order_kind() and not order_hidden:
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "echo" and echo_phase == "repeat":
+		show = show and progress_t > RESCUE_DELAY
+	elif kind == "doctor":
+		# reading the pictogram IS the game — the arrow only rescues
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "sleuth" and not chest_ready:
 		# searching IS the game — the arrow only rescues a stuck detective
@@ -4036,7 +4082,7 @@ func _update_hud() -> void:
 		"press":
 			objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
-			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
+			objective.text = tag + "🩺  Match the picture to the right tool!  %d / %d" % [doc_step, doc_targets.size()]
 		"scroll":
 			objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
 		"race":

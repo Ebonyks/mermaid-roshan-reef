@@ -383,13 +383,14 @@ func _nearest_unopened(act: OperaAct) -> Vector3:
 	return best
 
 func _drive_doctor(act: OperaAct, dt: float) -> void:
-	if act.doc_step >= act.doc_targets.size():
+	if act.doc_wait > 0.0:
 		return
-	var choice := _intent(act.doc_targets.size(), act.doc_step, 2000 + act.doc_step)
+	var want: int = act._doc_need()
+	var choice := _intent(act.doc_targets.size(), want, 8000 + act.doc_step)
 	if _travel(act, act.doc_targets[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 		act._doctor_action(choice)
-		if choice != act.doc_step:
-			_intent_learned(act.doc_step)
+		if choice != want:
+			_intent_learned(want)
 
 func _drive_scroll(act: OperaAct, dt: float) -> void:
 	# lobbing: the persona picks the nearest unfed piggy, judges the pull, and

@@ -177,6 +177,13 @@ Built so far:
   the belt speeds up with every success — that ramp is the act's difficulty
   curve, made of speed rather than precision.
 
+- **Doctor — diagnose, then treat** (`opera_act.gd`): the checkup was a fixed
+  conga line with a golden sparkle naming the next tool. The plushy now asks
+  for its care in a shuffled order and says which it wants with a PICTOGRAM
+  over its head (💗 stethoscope, 🌡 thermometer, 🩹 kiss, 🎀 bandage). Reading
+  the picture is the game, so the rescue arrow is demoted to a rescue like the
+  detective's. Non-reader safe — symbols, never words.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

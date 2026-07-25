@@ -489,25 +489,22 @@ func _drive_sleuth(act: OperaAct) -> void:
 	_ck("the tiara reveal wins the case", act.state == "won")
 
 func _drive_doctor(act: OperaAct) -> void:
-	_ck("checkup has eight one-touch steps", act.doc_targets.size() == 8)
-	act._doctor_action(3)
-	_ck("out-of-order tap is gentle (no fail, no step)", act.state == "play" and act.doc_step == 0)
-	for s in range(act.doc_targets.size()):
-		var guard := 0
-		while act.doc_wait > 0.0 and guard < 400:
-			guard += 1
-			await process_frame
-		_ck("care moment rests before step %d" % s, act.doc_wait <= 0.0)
-		var reach: Vector3 = act.doc_targets[act.doc_step]["pos"] as Vector3
-		act.player_pos = reach
-		_ck("checkup step %d reachable by proximity" % s, act._nearest_doc_target() == act.doc_step)
-		act._doctor_action(act.doc_step)
-		if s == 0:
-			_ck("giggling plushy pauses the next tap kindly", act.doc_wait > 0.0)
-			var step_now: int = act.doc_step
-			act._doctor_action(act.doc_step)
-			_ck("tap during the care moment is swallowed gently", act.doc_step == step_now)
-	_ck("every tended step heals the plushy", act.state == "won")
+	# the plushy asks for its care in its own order and says so in a pictogram;
+	# following a fixed conga line no longer works
+	_ck("the plushy shows a symptom pictogram", act.doc_symptom != null and act.doc_symptom.visible)
+	_ck("the care order is shuffled, not fixed", act.doc_order.size() == act.doc_targets.size())
+	var need: int = act._doc_need()
+	var wrong: int = (need + 1) % act.doc_targets.size()
+	act._doctor_action(wrong)
+	_ck("the wrong tool is gentle and does not advance", act.state == "play" and act.doc_step == 0)
+	var guard := 0
+	while act.state == "play" and guard < 400:
+		guard += 1
+		act.doc_wait = 0.0
+		act._doctor_action(act._doc_need())
+		await process_frame
+	_ck("doctor act does not stall", guard < 400)
+	_ck("every matched tool makes the plushy better", act.state == "won")
 
 func _drive_scroll(act: OperaAct) -> void:
 	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
