@@ -31,3 +31,8 @@ __pycache__/
 
 # Kokoro TTS model + voice packs (downloaded per make_voices.py setup docs)
 tools/kokoro/
+
+# git worktree checkouts. 45 of these were once committed as GITLINKS with no
+# .gitmodules (commit bd143ef), which made actions/checkout fail with exit 128
+# on every run — the probe suite never got as far as downloading Godot.
+.worktrees/
