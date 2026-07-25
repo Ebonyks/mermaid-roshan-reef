@@ -551,6 +551,33 @@ const STAGE_SETS := {
 	},
 }
 
+func _multi(mesh: Mesh, spots: Array[Transform3D], col: Color, glow: float = 0.0, tints: Array[Color] = []) -> MultiMeshInstance3D:
+	# Repeated set dressing (footlights, jars, crest petals) as ONE node and one
+	# draw call. The act-one mobile node budget is the reason, and a phone with
+	# a 2016 GPU thanks us for the batching too.
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.mesh = mesh
+	mm.use_colors = not tints.is_empty()
+	mm.instance_count = spots.size()
+	for i in range(spots.size()):
+		mm.set_instance_transform(i, spots[i])
+		if not tints.is_empty():
+			mm.set_instance_color(i, tints[i])
+	var inst := MultiMeshInstance3D.new()
+	inst.multimesh = mm
+	var mat := _mat(col, glow).duplicate() as StandardMaterial3D
+	mat.vertex_color_use_as_albedo = not tints.is_empty()
+	inst.material_override = mat
+	add_child(inst)
+	return inst
+
+func _ball_mesh(radius: float) -> SphereMesh:
+	var sm := SphereMesh.new()
+	sm.radius = radius
+	sm.height = radius * 2.0
+	return sm
+
 func _build_job_stage(spec: Dictionary) -> void:
 	# the gold scallop-shell crest every dressed set wears over its arch
 	var crest_col := Color(spec.get("crest", Color(1.0, 0.9, 0.72)))
@@ -558,10 +585,13 @@ func _build_job_stage(spec: Dictionary) -> void:
 	crest.name = "StageCrest"
 	crest.position = CENTER + Vector3(0, 18.3, 12.0)
 	add_child(crest)
+	var petals: Array[Transform3D] = []
 	for i in range(5):
 		var a := lerpf(-1.0, 1.0, float(i) / 4.0)
-		var petal := _sphere(Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0), 1.15 - absf(a) * 0.26, crest_col, 0.25, crest)
-		petal.scale = Vector3(0.9, 1.3, 0.5)
+		var sc := (1.15 - absf(a) * 0.26)
+		petals.append(Transform3D(Basis().scaled(Vector3(0.9, 1.3, 0.5) * sc),
+			crest.position + Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0)))
+	_multi(_ball_mesh(1.0), petals, crest_col, 0.25)
 	_sphere(Vector3(0, -0.35, 0.4), 0.9, Color(1.0, 0.98, 0.95), 0.45, crest)
 	# the warm light pool the act plays inside (flat, unshaded — no OmniLights)
 	if spec.has("pool"):
@@ -604,9 +634,11 @@ func _footlights(col: Color, n: int = 7) -> void:
 	# dressed sets that draw one in their card (chef, ballerina, magician...)
 	if m.quality == "speedy":
 		return
+	var bulbs: Array[Transform3D] = []
 	for i in range(n):
 		var fx := -20.0 + float(i) * (40.0 / maxf(1.0, float(n - 1)))
-		_sphere(CENTER + Vector3(fx, 0.75, 15.2), 0.5, col, 1.1)
+		bulbs.append(Transform3D(Basis(), CENTER + Vector3(fx, 0.75, 15.2)))
+	_multi(_ball_mesh(0.5), bulbs, col, 1.1)
 
 func _backdrop_panel(col: Color, glow: float = 0.15) -> MeshInstance3D:
 	# a painted flat hung just in front of the back curtain — every set that
@@ -697,21 +729,35 @@ func _stage_pastry_kitchen(spec: Dictionary) -> void:
 	var lush := m.quality != "speedy"
 	_backdrop_panel(Color(spec.get("backdrop", Color(0.35, 0.62, 0.72))), 0.1)
 	# coral and kelp painted onto the flat, in front of it
+	var coral_a: Array[Transform3D] = []
+	var coral_b: Array[Transform3D] = []
 	for i in range(5 if lush else 2):
 		var cx := -13.0 + float(i) * 6.5
 		var ch := 3.0 + float(i % 3) * 1.6
-		_cyl(CENTER + Vector3(cx, ch * 0.5 + 1.0, -16.7), 0.6, ch,
-			Color(0.95, 0.5, 0.55) if i % 2 == 0 else Color(0.4, 0.75, 0.7), 0.15)
+		var xf := Transform3D(Basis().scaled(Vector3(1.0, ch, 1.0)), CENTER + Vector3(cx, ch * 0.5 + 1.0, -16.7))
+		if i % 2 == 0:
+			coral_a.append(xf)
+		else:
+			coral_b.append(xf)
+	var stalk := CylinderMesh.new()
+	stalk.top_radius = 0.6
+	stalk.bottom_radius = 0.6
+	stalk.height = 1.0
+	if not coral_a.is_empty():
+		_multi(stalk, coral_a, Color(0.95, 0.5, 0.55), 0.15)
+	if not coral_b.is_empty():
+		_multi(stalk, coral_b, Color(0.4, 0.75, 0.7), 0.15)
 	# the oven alcove: a warm arch glowing upstage-left
 	_box(CENTER + Vector3(-19.5, 4.0, -15.5), Vector3(6.0, 8.0, 3.0), Color(0.72, 0.55, 0.44), 0.05)
 	_box(CENTER + Vector3(-19.5, 3.4, -14.1), Vector3(4.2, 4.6, 0.4), Color(1.0, 0.72, 0.35), 0.9)
 	# the ingredient shelf upstage-right: flour sacks, bowls, a rolling pin
+	var jars: Array[Transform3D] = []
 	for tier in range(2):
 		var sy := 3.2 + float(tier) * 3.2
 		_box(CENTER + Vector3(19.5, sy, -15.0), Vector3(6.4, 0.45, 3.0), Color(0.8, 0.62, 0.44), 0.06)
 		for i in range(3):
-			_sphere(CENTER + Vector3(17.4 + float(i) * 2.1, sy + 0.9, -15.0), 0.8,
-				[Color(0.98, 0.95, 0.88), Color(0.95, 0.72, 0.55), Color(0.85, 0.6, 0.72)][i], 0.12)
+			jars.append(Transform3D(Basis(), CENTER + Vector3(17.4 + float(i) * 2.1, sy + 0.9, -15.0)))
+	_multi(_ball_mesh(0.8), jars, Color(0.95, 0.86, 0.78), 0.12)
 	_footlights(Color(1.0, 0.88, 0.6))
 
 func _stage_recital_hall(spec: Dictionary) -> void:
@@ -1063,9 +1109,12 @@ func _build_theatre() -> void:
 	_box(CENTER + Vector3(-21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
 	_box(CENTER + Vector3(21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
 	# string lights along the beam (emissive spheres only — zero OmniLights)
+	var string_spots: Array[Transform3D] = []
+	var string_tints: Array[Color] = []
 	for i in range(6):
-		var hue := Color.from_hsv(float(i) / 6.0, 0.4, 1.0)
-		_sphere(CENTER + Vector3(-15.0 + float(i) * 6.0, 15.0, 12.8), 0.55, hue, 1.4)
+		string_spots.append(Transform3D(Basis(), CENTER + Vector3(-15.0 + float(i) * 6.0, 15.0, 12.8)))
+		string_tints.append(Color.from_hsv(float(i) / 6.0, 0.4, 1.0))
+	_multi(_ball_mesh(0.55), string_spots, Color.WHITE, 1.4, string_tints)
 	# two soft spotlight cones aimed at centre stage
 	for sx in [-14.0, 14.0]:
 		var cone := CylinderMesh.new()

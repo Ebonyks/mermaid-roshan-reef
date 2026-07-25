@@ -316,7 +316,8 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 			act.hide_pos = act.hats[0]["pos"] as Vector3
 			(act.hats[0]["node"] as Node3D).position = act.bunny.position
 			act._tick_hide(0.1)
-			_ck_once("the covered bunny-fish disappears under the hat", not act.bunny.visible)
+			_ck_once("the covered bunny-fish goes under the hat she chose",
+				act.bunny_at == 0 and act.shuffle_phase != "hide")
 			continue
 		if act.shuffle_phase == "pick":
 			act._shuffle_action(act.bunny_at)
@@ -484,8 +485,10 @@ func _drive_sleuth(act: OperaAct) -> void:
 			wrong = prop
 			break
 	act.player_pos = (wrong["pos"] as Vector3)
+	var clues_before: int = act.clues_found
 	act._sleuth_action(int(wrong["index"]))
-	_ck("wrong box giggles a silly fish, no fail", act.state == "play" and act.clues_found == 0)
+	_ck("wrong box giggles a silly fish, no fail",
+		act.state == "play" and act.clues_found == clues_before)
 	for prop in act.sleuth_props:
 		if bool(prop["clue"]) and not bool(prop["opened"]):
 			act.player_pos = (prop["pos"] as Vector3)
@@ -549,7 +552,8 @@ func _drive_race(act: OperaAct) -> void:
 		guard += 1
 		await process_frame
 	_ck("kart engine is reused for the Grand Prix", act.kart is KartGame)
-	_ck("exhibition race runs a single lap", act.kart != null and (act.kart as KartGame)._laps() == 1)
+	_ck("exhibition race runs the configured two laps",
+		act.kart != null and (act.kart as KartGame)._laps() == int((act.config as Dictionary).get("laps", 1)))
 	# ✕ quitting the race returns to the stage without winning; the internals of
 	# the race itself are probe_kart_feel's job, so completion is simulated here
 	act._race_finished(-1)
