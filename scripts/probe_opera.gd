@@ -131,6 +131,11 @@ func _init() -> void:
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
 		if act == null:
 			continue
+		# per-job stages: a career listed in STAGE_SETS performs on its own
+		# dressed set; every other career keeps the shared toy proscenium
+		var dressed: bool = OperaAct.STAGE_SETS.has(String(cfg2.get("costume", "")))
+		var has_crest: bool = act.find_child("StageCrest", true, false) != null
+		_ck("act %d stage matches its dressing (%s)" % [expected + 1, "own set" if dressed else "shared"], has_crest == dressed)
 		if bool(cfg2.get("shell", false)):
 			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)

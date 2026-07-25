@@ -8,7 +8,9 @@ extends Node3D
 # slots, then spin the valve), "press" (stamp candy faces when the sliding
 # star crosses the sweet spot) and "boss" (sparkle showdown with a shy stage
 # puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
-# answer. Props are rough primitive demos — authored art swaps in later.
+# answer. Props come from the job GLB kits in assets/opera/jobs/ with primitive
+# fallbacks. Careers listed in STAGE_SETS perform on their OWN dressed stage;
+# the rest share the toy proscenium until their set is built.
 
 const CENTER := Vector3(0.0, -2600.0, 0.0)
 const RADIUS := 22.0
@@ -321,6 +323,141 @@ const DRESS := {
 	"knight_boss": [["mg/star", -18.0, -12.5, 2.4], ["mg/star", 18.0, -12.5, 2.4]],
 }
 
+# Per-job stages. Palettes and scenery come from the accepted stage_states
+# sheets in codex's opera_jobs_flat_2026-07-21 set (see
+# OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md). A career listed here performs on its
+# own dressed set instead of the shared recoloured proscenium; a career left
+# out keeps the shared stage, so this table can be filled in one job at a time.
+# Scenery lives outside the play box (|x| >= 19, z <= -14 or z >= 17) so no
+# dressing can ever sit on top of an act's gameplay props.
+const STAGE_SETS := {
+	"candymaker": {                                  # "the Candy Workshop"
+		"set": "candy_workshop",
+		"deck": Color(0.72, 0.6, 0.75),
+		"pillar": Color(0.42, 0.72, 0.72),           # mint-teal pearl columns
+		"beam": Color(0.98, 0.74, 0.76),             # coral-rose arch band
+		"backdrop": Color(0.5, 0.4, 0.63),           # warm lilac workshop wall
+		"wing": Color(0.86, 0.42, 0.52),
+		"crest": Color(1.0, 0.9, 0.72),
+		"pool": Color(1.0, 0.88, 0.72, 0.13),
+	},
+	"detective": {                                   # "the Prop Library"
+		"set": "prop_library",
+		"deck": Color(0.3, 0.28, 0.45),
+		"pillar": Color(0.86, 0.56, 0.56),           # coral arch legs
+		"beam": Color(0.9, 0.6, 0.62),
+		"backdrop": Color(0.16, 0.18, 0.35),         # deep indigo night library
+		"wing": Color(0.4, 0.3, 0.45),
+		"crest": Color(1.0, 0.88, 0.7),
+		"pool": Color(1.0, 0.86, 0.6, 0.16),         # the searchlight pool
+	},
+}
+
+func _build_job_stage(spec: Dictionary) -> void:
+	# the gold scallop-shell crest every dressed set wears over its arch
+	var crest_col := Color(spec.get("crest", Color(1.0, 0.9, 0.72)))
+	var crest := Node3D.new()
+	crest.name = "StageCrest"
+	crest.position = CENTER + Vector3(0, 18.3, 12.0)
+	add_child(crest)
+	for i in range(7):
+		var a := lerpf(-1.0, 1.0, float(i) / 6.0)
+		var petal := _sphere(Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0), 1.0 - absf(a) * 0.22, crest_col, 0.25, crest)
+		petal.scale = Vector3(0.8, 1.3, 0.5)
+	_sphere(Vector3(0, -0.35, 0.4), 0.9, Color(1.0, 0.98, 0.95), 0.45, crest)
+	# the warm light pool the act plays inside (flat, unshaded — no OmniLights)
+	if spec.has("pool"):
+		var disc := CylinderMesh.new()
+		disc.top_radius = 13.5
+		disc.bottom_radius = 13.5
+		disc.height = 0.12
+		var pool := _mesh(disc, CENTER + Vector3(0, 0.38, -2.0), Color(spec["pool"]), 0.5)
+		var pm := pool.material_override as StandardMaterial3D
+		pm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	match String(spec.get("set", "")):
+		"candy_workshop":
+			_stage_candy_workshop(spec)
+		"prop_library":
+			_stage_prop_library(spec)
+
+func _stage_candy_workshop(_spec: Dictionary) -> void:
+	# Candy Maker's set: a sweet-shop wall of jars upstage, a scalloped mixing
+	# counter in each wing, and swirl lollipops hanging over the gathers.
+	var jar_cols: Array[Color] = [Color(1.0, 0.66, 0.74), Color(0.68, 0.88, 1.0),
+		Color(1.0, 0.88, 0.56), Color(0.8, 0.72, 1.0), Color(0.72, 0.94, 0.78)]
+	var lush := m.quality != "speedy"      # Speedy phones get one jar tier, no pops
+	for tier in range(2 if lush else 1):
+		var sy := 4.2 + float(tier) * 4.4
+		_box(CENTER + Vector3(0, sy - 0.9, -16.4), Vector3(30.0, 0.5, 1.8), Color(0.86, 0.66, 0.58), 0.08)
+		for i in range(7):
+			var jx := -12.6 + float(i) * 4.2
+			var col := jar_cols[(i + tier * 3) % jar_cols.size()]
+			_cyl(CENTER + Vector3(jx, sy + 0.5, -16.4), 1.15, 2.3, Color(0.95, 0.94, 1.0), 0.12)
+			_sphere(CENTER + Vector3(jx, sy + 0.4, -16.4), 0.95, col, 0.3)
+			_sphere(CENTER + Vector3(jx, sy + 1.9, -16.4), 0.5, Color(1.0, 0.93, 0.8), 0.25)
+	for sx: float in [-19.5, 19.5]:
+		# the mixing counter: scalloped skirt, marble top, a pot and a swirl
+		_box(CENTER + Vector3(sx, 1.4, -13.5), Vector3(6.4, 2.8, 4.6), Color(0.86, 0.5, 0.6), 0.06)
+		_box(CENTER + Vector3(sx, 3.0, -13.5), Vector3(7.0, 0.6, 5.2), Color(0.98, 0.95, 1.0), 0.14)
+		for i in range(4):
+			_sphere(CENTER + Vector3(sx - 2.4 + float(i) * 1.6, 0.3, -11.2), 0.85, Color(1.0, 0.86, 0.9), 0.1)
+		_cyl(CENTER + Vector3(sx, 4.2, -13.5), 1.5, 1.8, Color(0.72, 0.5, 0.72), 0.12)
+		_sphere(CENTER + Vector3(sx, 5.4, -13.5), 1.1, Color(1.0, 0.78, 0.86), 0.35)
+	for i in range(6 if lush else 0):
+		# swirl lollipops on their sticks, hung high in the wings
+		var lx := -20.5 if i < 3 else 20.5
+		var ly := 9.0 + float(i % 3) * 3.4
+		_box(CENTER + Vector3(lx, ly - 1.5, -6.0), Vector3(0.28, 3.0, 0.28), Color(0.98, 0.96, 0.92), 0.1)
+		var pop := _cyl(CENTER + Vector3(lx, ly, -6.0), 1.7, 0.4, jar_cols[i % jar_cols.size()], 0.3)
+		pop.rotation_degrees = Vector3(90, 0, 0)
+		_sphere(CENTER + Vector3(lx, ly, -5.7), 0.6, Color(1.0, 0.98, 0.94), 0.35)
+
+func _stage_prop_library(spec: Dictionary) -> void:
+	# Detective's set: the theatre's own prop library after dark — crated
+	# shelves, a leaning ladder, pillar lanterns and a crescent moon window.
+	var crate_col := Color(0.5, 0.42, 0.58)
+	var lid_col := Color(0.62, 0.52, 0.66)
+	var lush := m.quality != "speedy"      # Speedy phones get half the shelving
+	for sx: float in [-19.8, 19.8]:
+		# tall archive shelving stacked with wrapped prop silhouettes
+		_box(CENTER + Vector3(sx, 6.5, -12.0), Vector3(6.6, 13.0, 5.0), Color(0.34, 0.3, 0.48), 0.04)
+		for tier in range(4 if lush else 2):
+			var sy := 2.2 + float(tier) * 3.2
+			_box(CENTER + Vector3(sx, sy, -9.6), Vector3(6.8, 0.4, 0.6), lid_col, 0.08)
+			for i in range(2):
+				var bx := sx - 1.5 + float(i) * 3.0
+				_box(CENTER + Vector3(bx, sy + 1.1, -10.4), Vector3(2.0, 1.8, 2.0), crate_col, 0.05)
+				_box(CENTER + Vector3(bx, sy + 2.1, -10.4), Vector3(2.3, 0.35, 2.3), lid_col, 0.08)
+		# a warm lantern globe on top of each proscenium pillar
+		var lantern_x := -23.0 if sx < 0.0 else 23.0
+		_cyl(CENTER + Vector3(lantern_x, 16.9, 12.0), 0.7, 0.5, Color(0.95, 0.8, 0.55), 0.2)
+		_sphere(CENTER + Vector3(lantern_x, 18.0, 12.0), 1.1, Color(1.0, 0.9, 0.65), 1.5)
+	# stacked crates tucked into the downstage corners
+	for i in range(4):
+		var cx := -20.5 if i < 2 else 20.5
+		var cz := 2.5 + float(i % 2) * 5.5
+		_box(CENTER + Vector3(cx, 1.3, cz), Vector3(3.4, 2.6, 3.4), crate_col, 0.05)
+		_box(CENTER + Vector3(cx, 2.75, cz), Vector3(3.7, 0.4, 3.7), lid_col, 0.08)
+	# the leaning ladder against the upstage-left shelf
+	var ladder := Node3D.new()
+	ladder.name = "LibraryLadder"
+	ladder.position = CENTER + Vector3(-15.5, 4.5, -14.5)
+	ladder.rotation_degrees = Vector3(-14.0, 0, 0)
+	add_child(ladder)
+	for side: float in [-0.9, 0.9]:
+		_box(Vector3(side, 0, 0), Vector3(0.35, 9.5, 0.35), Color(0.78, 0.62, 0.45), 0.05, ladder)
+	for i in range(5):
+		_box(Vector3(0, -3.6 + float(i) * 1.9, 0), Vector3(2.1, 0.28, 0.28), Color(0.86, 0.7, 0.5), 0.05, ladder)
+	# the crescent moon window: a glowing disc bitten by one in the backdrop's
+	# own colour, so the crescent stays cut no matter how the palette is tuned
+	_sphere(CENTER + Vector3(0, 12.0, -17.2), 3.1, Color(1.0, 0.95, 0.78), 1.4)
+	_sphere(CENTER + Vector3(1.5, 12.7, -17.0), 2.7, Color(spec.get("backdrop", Color(0.16, 0.18, 0.35))), 0.0)
+	for i in range(9 if lush else 0):
+		# a scatter of little stars around the window
+		var a := float(i) * 0.7
+		_sphere(CENTER + Vector3(sin(a) * (7.0 + float(i)), 12.0 + cos(a) * 4.5, -17.3), 0.32, Color(1.0, 0.97, 0.85), 1.2)
+
 func _card(fname: String, pos: Vector3, yaw: float = 0.0, card_scale: float = 2.0, parent: Node3D = null) -> Node3D:
 	var full := "res://assets/art35/cards/" + fname + ".glb"
 	if not ResourceLoader.exists(full):
@@ -366,20 +503,29 @@ func _act_prop(fname: String, pos: Vector3, yaw: float = 0.0, parent: Node3D = n
 	return prop
 
 func _build_theatre() -> void:
-	var floor_col := Color(config.get("floor_col", Color(0.52, 0.4, 0.62)))
+	# Owner 2026-07-25: a career listed in STAGE_SETS performs on its OWN set —
+	# the proscenium, backdrop and deck take that job's palette and the job's
+	# scenery is dressed in on top. Every career without an entry keeps the
+	# shared toy theatre exactly as it was, so an undressed act can never break.
+	var spec: Dictionary = STAGE_SETS.get(String(config.get("costume", "")), {})
 	var trim: Color = Color(config.get("trim", Color(1.0, 0.85, 0.55)))
 	var curtain: Color = Color(config.get("curtain", Color(0.78, 0.24, 0.34)))
+	var floor_col := Color(spec.get("deck", config.get("floor_col", Color(0.52, 0.4, 0.62))))
+	var pillar_col := Color(spec.get("pillar", trim))
+	var beam_col := Color(spec.get("beam", trim))
+	var back_col := Color(spec.get("backdrop", curtain))
+	var wing_col := Color(spec.get("wing", curtain.darkened(0.12)))
 	# stage deck + front apron edge
 	_box(CENTER + Vector3(0, -0.3, -2.0), Vector3(52, 1.2, 34), floor_col)
 	_box(CENTER + Vector3(0, 0.15, 15.2), Vector3(52, 0.5, 1.6), trim, 0.2)
 	# proscenium: two gold pillars + top beam
-	_box(CENTER + Vector3(-23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), trim, 0.12)
-	_box(CENTER + Vector3(23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), trim, 0.12)
-	_box(CENTER + Vector3(0, 16.6, 12.0), Vector3(48.2, 2.6, 2.4), trim, 0.12)
+	_box(CENTER + Vector3(-23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), pillar_col, 0.12)
+	_box(CENTER + Vector3(23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), pillar_col, 0.12)
+	_box(CENTER + Vector3(0, 16.6, 12.0), Vector3(48.2, 2.6, 2.4), beam_col, 0.12)
 	# back curtain + gathered side curtains
-	_box(CENTER + Vector3(0, 7.5, -18.0), Vector3(46, 16, 1.4), curtain)
-	_box(CENTER + Vector3(-21.0, 7.5, -3.0), Vector3(2.6, 16, 30), curtain.darkened(0.12))
-	_box(CENTER + Vector3(21.0, 7.5, -3.0), Vector3(2.6, 16, 30), curtain.darkened(0.12))
+	_box(CENTER + Vector3(0, 7.5, -18.0), Vector3(46, 16, 1.4), back_col)
+	_box(CENTER + Vector3(-21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
+	_box(CENTER + Vector3(21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
 	# string lights along the beam (emissive spheres only — zero OmniLights)
 	for i in range(6):
 		var hue := Color.from_hsv(float(i) / 6.0, 0.4, 1.0)
@@ -409,6 +555,8 @@ func _build_theatre() -> void:
 		spr.position = CENTER + Vector3(gx, 4.0, 22.4)
 		add_child(spr)
 		audience.append(spr)
+	if not spec.is_empty():
+		_build_job_stage(spec)
 
 func _build_backstage() -> void:
 	# the corridor: warm wooden boards, prop crates, string lights, and the

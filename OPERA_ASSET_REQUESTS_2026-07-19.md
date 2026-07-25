@@ -47,6 +47,30 @@ Assets
 - Voice lines: lobby welcome, boss-rope hint, star-earned praise, all-stars
   curtain-call celebration
 
+## Per-job stages (owner 2026-07-25)
+
+Every career deserves its own short level, not a recoloured share of one
+stage. `OperaAct.STAGE_SETS` (scripts/opera_act.gd) is the table that does it:
+a career listed there takes its own proscenium palette, backdrop, deck and
+light pool, then dresses in its own scenery. A career left out of the table
+keeps the shared toy theatre exactly as before, so the roster can be filled in
+one job at a time and an undressed act can never break.
+
+Set geometry is built from the accepted `stage_states` sheets in codex's
+`opera_jobs_flat_2026-07-21` set (scored in OPERA_JOB_FLAT_ART_AUDIT_2026-07-21
+.md) — original toy-playset interpretations of the silhouette and palette, not
+traced illustrations. Scenery is confined to |x| ≥ 19 and z ≤ -14 / z ≥ 17 so
+no dressing can ever land on an act's gameplay props. Every dressed set wears
+the gold scallop-shell crest (`StageCrest`) over its arch; probe_opera asserts
+crest presence exactly matches STAGE_SETS membership. Lighting stays emissive
+— no new OmniLights — and each set culls its decorative tiers on Speedy.
+
+| Job | Set | Status |
+| --- | --- | --- |
+| Candy Maker | the Candy Workshop — jar wall, mixing counters, swirl pops | built |
+| Detective | the Prop Library — archive shelving, ladder, crescent window | built |
+| Pastry Chef, Ballerina, Doctor, Farmer, Boxer, Magician, Painter, Astronaut Engineer, Racecar Driver, Pop Star | see each act's `stage_states` sheet | shared stage, pending |
+
 ## Shared theatre (used by all acts)
 Assets
 - Proscenium arch + stage deck kit (replaces `_build_theatre` boxes)
