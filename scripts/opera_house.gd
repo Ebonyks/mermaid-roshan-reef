@@ -315,7 +315,19 @@ func _build_lobby() -> void:
 	_lobby_prop("opera_curtain.glb", L + Vector3(-8.6, 0, -20.6))
 	_lobby_prop("opera_curtain.glb", L + Vector3(8.6, 0, -20.6), 180.0)
 	_lobby_prop("opera_stage_apron.glb", L + Vector3(0, 0, -10.2))
-	_build_house_architecture()
+	# _build_house_architecture() is DELIBERATELY NOT CALLED (2026-07-25).
+	# Wiring the 28-prop dressing turned probe_l2's OPERAGATE return leg red:
+	# blocked/rearm/open/return went true/true/true/true on run 681 to
+	# true/true/true/FALSE on run 682, the only opera change between them.
+	# The lobby is built and torn down inside that leg, and the extra GLB
+	# instancing lengthens the teardown frame enough that one frame of level2
+	# physics drags Roshan past the gate's 9-unit "placed aside" radius.
+	# Per the CLAUDE.md refactor rule the addition is reverted rather than the
+	# probe relaxed. The kit itself (tools/build_opera_house_kit.py, the 15
+	# GLBs and their QA renders) stays: it is stage 2-4 of the pathway and is
+	# ready to wire once a Mobile runtime capture can verify placement AND the
+	# teardown cost is measured.
+	# _build_house_architecture()
 	# the theatre crest over the top gallery
 	_label("🎭", L + Vector3(0, 41.5, -21.4), 120, Color(1.0, 0.92, 0.7))
 	_label("★", L + Vector3(0, 37.0, -21.4), 64, Color(1.0, 0.88, 0.45))

@@ -47,7 +47,7 @@ Counts are live file counts, not doc claims.
 | Sky Lagoon — quality kit | 17 | 61 GLB | E4 (4.5–4.8) | Complete |
 | Sky Lagoon — PNW trees + shrubs | 24 | 24 GLB | E4 | Complete — 12 trees + 12 shrubs all landed |
 | Northern Kingdom | 2 | 25 GLB | E4 (4.50–4.74) | Complete; refinement queue open |
-| **Opera House — lobby + stage** | **185** | 18 GLB (art35-era) | **E1** | **Largest gap in the game** |
+| **Opera House — lobby + stage** | **185** | 18 GLB live + 15 built-unwired | **E2 for 1 of 11 families** | Architecture family modelled; wiring blocked on the OPERAGATE teardown cost |
 | Opera House — 12 job packs | 612 | 53 GLB | E3/E4 partial | 10 of 12 jobs have prop kits |
 | **Ember Fortress** | 51 | 79 GLB | **E3 enrichment + E4 core** | 40 enrichment cards now modelled; the 39 core remain off-pathway |
 | Reef districts / ocean kingdoms | 5 | 7 GLB | E4 | Complete |
@@ -96,6 +96,28 @@ is the owner's own full order for this replacement.
 Rough size: ~172 cards → a realistic modular kit of 40–60 GLBs (many cards are
 state variants of one mesh). This is a multi-session job and the single highest
 -value remaining art task.
+
+**Progress in this pass:** the 12-card architecture family is modelled
+(`tools/build_opera_house_kit.py`, 15 GLBs — the portal and medallion cards
+each carry two states, the carpet card two modules — plus 30 isolated QA
+renders). That is stages 2–4 complete for one family of eleven.
+
+**It is built but NOT wired, and the reason is worth recording.** Wiring 28
+dressing props into `_build_lobby` turned `probe_l2`'s OPERAGATE return leg
+red: `blocked/rearm/open/return` went `true/true/true/true` on run 681 to
+`true/true/true/FALSE` on run 682, with the lobby dressing as the only opera
+change between them. The leg builds and tears the whole lobby down inside a
+single frame, and the extra GLB instancing lengthens that teardown enough that
+one frame of level2 physics drags Roshan past the gate's 9-unit "placed aside"
+radius. Per the CLAUDE.md refactor rule the addition was reverted rather than
+the probe relaxed.
+
+That is a real constraint on the whole Opera continuation, not a one-off: any
+future lobby kit has to account for the cost of building and freeing itself
+inside the OPERAGATE leg. The likely fixes, in order of preference, are to
+build the lobby dressing lazily (or keep it resident across a leave/return
+instead of rebuilding), or to give `_end_opera` a settle that survives a long
+frame. Both are gameplay changes and need to be their own probed commit.
 
 ### 3.3 Ember Fortress: enrichment built, core provenance still open
 
@@ -216,7 +238,10 @@ touches the whole map; the art layer stands alone and additive without them.
 2. **Owner decision — Ember core provenance** (§3.3). The 40 enrichment
    exports are done; only the 39 core exports are still in question.
 3. **Opera House lobby kit** (§3.2). Largest real modelling job; the flat cards,
-   the ledger, the code map and the owner's asset order all already exist.
+   the ledger, the code map and the owner's asset order all already exist. The
+   architecture family is built — the next step is the lobby lifetime change
+   that lets dressing be wired without lengthening the OPERAGATE teardown
+   frame, as its own probed commit.
 4. **CC0 kit finish:** re-render the 24 replacements with a real Eevee pass,
    verify the kart `yaw_fix` values in a Mobile capture, generate the remaining
    15 queued items, then take the Group-0 deletion of 63 dead files to the owner.
