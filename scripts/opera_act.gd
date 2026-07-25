@@ -113,6 +113,11 @@ var shelf_candies: Array[Node3D] = []
 # ---- "box" engine (boxer: ring combat in rounds) ----
 var box_round := 0
 var box_wait := 0.0
+var box_phase := "rounds"          # warmup | rounds | belt
+var box_bag: Node3D = null         # the swinging training bag (beat 1)
+var box_bag_hits := 0
+var box_bag_goal := 0
+var box_belt: Node3D = null        # the championship belt (beat 3)
 
 # ---- "sleuth" engine (detective: peek-in-props search) ----
 var sleuth_props: Array[Dictionary] = []
@@ -1122,9 +1127,27 @@ func _build_box() -> void:
 	player_pos = CENTER + Vector3(0, 1.1, 4.0)
 	box_round = 0
 	box_wait = 0.0
-	_box_wave()
+	# Beat 1 (owner pacing standard 2026-07-25): a training-bag warm-up before
+	# the bell. Different verb from the rounds — the bag never runs away, it
+	# swings back, so this beat is about timing instead of chasing.
+	box_bag_goal = int(config.get("warmup", 0))
+	if box_bag_goal <= 0:
+		box_phase = "rounds"
+		_box_wave()
+		return
+	box_phase = "warmup"
+	box_bag = Node3D.new()
+	box_bag.name = "TrainingBag"
+	box_bag.position = CENTER + Vector3(0, 0, -6.0)
+	add_child(box_bag)
+	_cyl(Vector3(0, 6.2, 0), 0.16, 3.2, Color(0.82, 0.72, 0.52), 0.1, box_bag)
+	_cyl(Vector3(0, 3.0, 0), 1.5, 4.4, Color(0.86, 0.42, 0.44), 0.14, box_bag)
+	_sphere(Vector3(0, 5.1, 0), 1.5, Color(0.92, 0.54, 0.54), 0.16, box_bag)
+	_sphere(Vector3(0, 0.9, 0), 1.5, Color(0.92, 0.54, 0.54), 0.16, box_bag)
+	m.show_msg("Roshan", "Warm up first, champ! Bop the big swinging bag %d times with PUNCH!" % box_bag_goal, "talk")
 
 func _box_wave() -> void:
+	box_phase = "rounds"
 	var waves: Array = config.get("rounds", [3, 4, 5])
 	var count := int(waves[mini(box_round, waves.size() - 1)])
 	imps.clear()
@@ -1142,6 +1165,11 @@ func _box_wave() -> void:
 
 func _punch_action() -> void:
 	if state != "play" or kind != "box" or box_wait > 0.0:
+		return
+	if box_phase == "warmup":
+		_bag_action()
+		return
+	if box_phase == "belt":
 		return
 	var best := -1
 	var best_d := 6.5
@@ -1186,16 +1214,77 @@ func _punch_action() -> void:
 		box_round += 1
 		_job_state(boxer_dressing_art, "StateLamp%d" % (box_round - 1), true)
 		if box_round >= waves.size():
-			# championship: the belt rises off its pedestal in a gold halo
-			_job_state(boxer_dressing_art, "StateIdle", false)
-			_job_state(boxer_dressing_art, "StateComplete", true)
-			_win()
+			_begin_belt()
 			return
 		box_wait = 1.6
 		m.show_msg("Roshan", "Round %d won! Shake it out, champ..." % box_round, "talk")
 	_update_hud()
 
+func _bag_action() -> void:
+	# out of reach = the punch swishes, exactly like every other act's verb
+	if box_bag == null or box_bag.position.distance_to(player_pos) > 8.0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	box_bag_hits += 1
+	progress_t = 0.0
+	var away := signf(box_bag.position.x - player_pos.x)
+	if absf(away) < 0.1:
+		away = 1.0
+	var tw := box_bag.create_tween()
+	tw.tween_property(box_bag, "rotation:z", -0.5 * away, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(box_bag, "rotation:z", 0.22 * away, 0.3)
+	tw.tween_property(box_bag, "rotation:z", 0.0, 0.35)
+	m._sparkle_burst(box_bag.position + Vector3(0, 3.4, 0), Color(1.0, 0.82, 0.5))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.12 * float(box_bag_hits)
+		m.chime.play()
+	if box_bag_hits >= box_bag_goal:
+		box_phase = "rounds"
+		var fade := box_bag.create_tween()
+		fade.tween_property(box_bag, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		m.show_msg("Roshan", "Warmed up and ready! Here comes the bell...", "talk")
+		box_wait = 1.4
+	else:
+		m.show_msg("Roshan", "POW! %d more!" % (box_bag_goal - box_bag_hits), "hint")
+	_update_hud()
+
+func _begin_belt() -> void:
+	# Beat 3: the belt descends over the ring and Roshan swims up to take it.
+	# A pure victory-lap beat — nothing to get wrong, and nothing to wait on.
+	box_phase = "belt"
+	_job_state(boxer_dressing_art, "StateIdle", false)
+	_job_state(boxer_dressing_art, "StateComplete", true)
+	box_belt = Node3D.new()
+	box_belt.name = "ChampionBelt"
+	box_belt.position = CENTER + Vector3(0, 12.0, -2.0)
+	add_child(box_belt)
+	var strap := _cyl(Vector3.ZERO, 1.8, 0.55, Color(0.55, 0.34, 0.3), 0.15, box_belt)
+	strap.rotation_degrees = Vector3(90, 0, 0)
+	_sphere(Vector3(0, 0, 0.6), 1.0, Color(1.0, 0.86, 0.42), 0.9, box_belt)
+	var drop := box_belt.create_tween()
+	drop.tween_property(box_belt, "position", CENTER + Vector3(0, 4.2, -2.0), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	m.show_msg("Roshan", "CHAMPION! Swim up and take your championship belt!", "talk")
+	_update_hud()
+
 func _tick_box(delta: float) -> void:
+	if box_phase == "belt":
+		if box_belt != null:
+			box_belt.rotation.y += delta * 1.2
+			box_belt.position.y = CENTER.y + 4.2 + sin(elapsed * 2.0) * 0.35
+			if Vector2(box_belt.position.x - player_pos.x, box_belt.position.z - player_pos.z).length() < 4.5:
+				m._sparkle_burst(box_belt.position, Color(1.0, 0.9, 0.5))
+				_win()
+		return
+	if box_phase == "warmup":
+		if box_wait > 0.0:
+			box_wait -= delta
+			if box_wait <= 0.0:
+				_box_wave()
+			return
+		if box_bag != null:
+			box_bag.position.y = CENTER.y + sin(elapsed * 1.6) * 0.2
+		_tick_pointer()
+		return
 	if box_wait > 0.0:
 		box_wait -= delta
 		if box_wait <= 0.0:
@@ -3221,6 +3310,10 @@ func _pointer_target() -> Vector3:
 		return player_pos + Vector3(0, 7.0, 0)
 	match kind:
 		"box":
+			if box_phase == "belt" and box_belt != null:
+				return box_belt.position + Vector3(0, 2.2, 0)
+			if box_phase == "warmup" and box_bag != null:
+				return box_bag.position + Vector3(0, 7.2, 0)
 			for g in imps:
 				if not bool(g["popped"]):
 					return (g["pos"] as Vector3) + Vector3(0, 5.0, 0)
@@ -3319,7 +3412,11 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "✨  Match the pictures!  %d / %d" % [step, order_steps.size()]
 		"box":
-			if box_wait > 0.0:
+			if box_phase == "belt":
+				objective.text = tag + "🏆  CHAMPION! Swim up and take the belt!"
+			elif box_phase == "warmup":
+				objective.text = tag + "🥊  Warm up on the bag!  %d / %d" % [box_bag_hits, box_bag_goal]
+			elif box_wait > 0.0:
 				objective.text = tag + "🥊  Round won! Get ready..."
 			else:
 				var waves: Array = config.get("rounds", [3, 4, 5])

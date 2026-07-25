@@ -331,14 +331,38 @@ func _drive_press(act: OperaAct) -> void:
 	_ck("press act does not stall", guard < 900)
 	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
 
+var _once_seen := {}
+
+func _ck_once(label: String, ok: bool) -> void:
+	if _once_seen.has(label):
+		return
+	_once_seen[label] = true
+	_ck(label, ok)
+
 func _drive_box(act: OperaAct) -> void:
+	# three beats now: warm up on the swinging bag, fight the rounds, then swim
+	# up and take the belt. Each beat is a different verb, so drive each one.
 	var waves: Array = (act.config as Dictionary).get("rounds", [3, 4, 5])
-	_ck("the bout opens on round one", act.box_round == 0 and act.imps_left > 0)
+	var warmup: int = int((act.config as Dictionary).get("warmup", 0))
+	_ck("the bout opens on the training bag", act.box_phase == "warmup" and act.box_bag != null)
 	_ck("the ring answers to PUNCH", act.action_label() == "PUNCH")
+	# a swing from across the stage swishes — the bag is never a free hit
+	act.player_pos = act.CENTER + Vector3(0.0, 1.1, 16.0)
+	act._punch_action()
+	_ck("a far punch swishes past the bag", act.box_bag_hits == 0)
 	var guard := 0
-	while act.state == "play" and guard < 900:
+	while act.state == "play" and guard < 1400:
 		guard += 1
 		if act.box_wait > 0.0:
+			await process_frame
+			continue
+		if act.box_phase == "warmup":
+			act.player_pos = act.box_bag.position
+			act._punch_action()
+			continue
+		if act.box_phase == "belt":
+			_ck_once("the belt descends for the champion", act.box_belt != null)
+			act.player_pos = act.box_belt.position
 			await process_frame
 			continue
 		var target := {}
@@ -351,8 +375,10 @@ func _drive_box(act: OperaAct) -> void:
 			continue
 		act.player_pos = (target["pos"] as Vector3)
 		act._punch_action()
-	_ck("box act does not stall", guard < 900)
-	_ck("three rounds win the championship", act.state == "won" and act.box_round >= waves.size())
+	_ck("box act does not stall", guard < 1400)
+	_ck("the warm-up bag takes every bop", act.box_bag_hits >= warmup)
+	_ck("every round then the belt wins the championship",
+		act.state == "won" and act.box_round >= waves.size() and act.box_phase == "belt")
 
 func _drive_sleuth(act: OperaAct) -> void:
 	_ck("six boxes stand on the stage", act.sleuth_props.size() == 6)

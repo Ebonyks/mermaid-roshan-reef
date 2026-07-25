@@ -299,6 +299,14 @@ func _drive_press(act: OperaAct, dt: float) -> void:
 func _drive_box(act: OperaAct, dt: float) -> void:
 	if act.box_wait > 0.0:
 		return
+	if act.box_phase == "warmup":
+		if act.box_bag != null and _travel(act, act.box_bag.position, dt) and _ready_to_act(dt):
+			act._punch_action()
+		return
+	if act.box_phase == "belt":
+		if act.box_belt != null:
+			_travel(act, act.box_belt.position, dt)
+		return
 	var target := Vector3.ZERO
 	var found := false
 	for g in act.imps:
