@@ -435,6 +435,11 @@ func _drive_box(act: OperaAct) -> void:
 			await process_frame
 			continue
 		act.player_pos = (target["pos"] as Vector3)
+		if not act._box_on_beat():
+			# a swing between the beats whiffs — proven once, then wait for the beat
+			_ck_once("a punch between the beats whiffs kindly",
+				act.imps_left == int(target.get("hp", 1)) or act.state == "play")
+			act.box_beat_t = 0.0
 		act._punch_action()
 	_ck("box act does not stall", guard < 1400)
 	_ck("the warm-up bag takes every bop", act.box_bag_hits >= warmup)

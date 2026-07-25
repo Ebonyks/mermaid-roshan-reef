@@ -192,6 +192,33 @@ Built so far:
 - **Racecar Driver** — the exhibition is two laps rather than one, and the lap
   count is read from the act config instead of hard-coded.
 
+- **Boxer — punch to the beat** (`opera_act.gd`): the rounds were the same
+  swim-and-tap as everything else. The imps now duck and rise together on a
+  1.6s bar and can only be bopped while they are UP; a swing between the beats
+  whiffs with a giggle and costs nothing. The window is 72% of the bar, so the
+  rhythm is felt rather than tested — this is the one act with an audible
+  pulse driving the hand.
+
+## Status: all twelve careers now play differently
+
+| Act | Grammar | Verb |
+| --- | --- | --- |
+| Pastry Chef | circular drag | trace circles to stir |
+| Detective | drag + dwell | sweep a magnifier, hold to open |
+| Ballerina | hold | hold the pose while the ribbon winds |
+| Candy Maker | drag-and-drop | sort the belt into colour chutes |
+| Doctor | match | read the pictogram, pick the tool |
+| Farmer | charge-and-release | drag back and lob |
+| Boxer | rhythm | punch on the beat |
+| Magician | drag + track | hide the fish, then follow it |
+| Painter | drag-to-paint | paint the canvas by covering it |
+| Astronaut | hold | hold the countdown to launch |
+| Racecar Driver | steering | two laps of the kart engine |
+| Pop Star | rhythm | dance the arrows |
+
+No two acts share a verb. Boxer and Pop Star are both rhythm but differ in
+posture — one is a chase with a pulse, the other a stationary arrow lane.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

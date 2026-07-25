@@ -173,6 +173,13 @@ var chutes: Array[Dictionary] = []
 var box_round := 0
 var box_wait := 0.0
 var box_phase := "rounds"          # warmup | rounds | belt
+# ---- punch to the beat (owner 2026-07-25) ----
+# Fitness Boxing is the genre: the imps bob DOWN and UP on a shared beat and
+# can only be bopped while they are up. The window is deliberately most of the
+# bar, so the rhythm is felt rather than tested.
+const BOX_BEAT := 1.6
+const BOX_UP := 0.72               # fraction of each bar an imp is bop-able
+var box_beat_t := 0.0
 var box_bag: Node3D = null         # the swinging training bag (beat 1)
 var box_bag_hits := 0
 var box_bag_goal := 0
@@ -1253,8 +1260,18 @@ func _box_wave() -> void:
 	m.show_msg("Roshan", "DING DING! Round %d — bop the mischief imps with PUNCH!" % (box_round + 1), "talk")
 	_update_hud()
 
+func _box_on_beat() -> bool:
+	return fmod(box_beat_t, BOX_BEAT) < BOX_BEAT * BOX_UP
+
 func _punch_action() -> void:
 	if state != "play" or kind != "box" or box_wait > 0.0:
+		return
+	if box_phase == "rounds" and not _box_on_beat():
+		# swung between the beats: the glove whiffs, the imps giggle, no loss
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
 		return
 	if box_phase == "warmup":
 		_bag_action()
@@ -1380,6 +1397,14 @@ func _tick_box(delta: float) -> void:
 		if box_wait <= 0.0:
 			_box_wave()
 		return
+	box_beat_t += delta
+	# the imps duck and rise together — the visible pulse the punch rides
+	var up := _box_on_beat()
+	for g2 in imps:
+		if bool(g2["popped"]):
+			continue
+		var n2 := g2["node"] as Node3D
+		n2.scale = Vector3.ONE * (1.0 if up else 0.72)
 	brawl_bump_cool = maxf(0.0, brawl_bump_cool - delta)
 	for g in imps:
 		if bool(g["popped"]):
@@ -4125,7 +4150,7 @@ func _update_hud() -> void:
 				objective.text = tag + "🥊  Round won! Get ready..."
 			else:
 				var waves: Array = config.get("rounds", [3, 4, 5])
-				objective.text = tag + "🥊  ROUND %d / %d — bop the imps!  %d left" % [box_round + 1, waves.size(), imps_left]
+				objective.text = tag + "🥊  ROUND %d / %d — bop them when they POP UP!  %d left" % [box_round + 1, waves.size(), imps_left]
 		"sleuth":
 			if chest_ready:
 				objective.text = tag + "💎  Tap the treasure chest!"

@@ -340,7 +340,8 @@ func _drive_box(act: OperaAct, dt: float) -> void:
 			found = true
 			break
 	if found and _travel(act, target, dt) and _ready_to_act(dt):
-		act._punch_action()
+		if act._box_on_beat():
+			act._punch_action()
 
 func _drive_sleuth(act: OperaAct, dt: float) -> void:
 	# the detective drags a magnifier rather than swimming and tapping: the
