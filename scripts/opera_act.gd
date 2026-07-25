@@ -351,6 +351,102 @@ const STAGE_SETS := {
 		"crest": Color(1.0, 0.88, 0.7),
 		"pool": Color(1.0, 0.86, 0.6, 0.16),         # the searchlight pool
 	},
+	"chef": {                                        # "the Pastry Kitchen"
+		"set": "pastry_kitchen",
+		"deck": Color(0.85, 0.7, 0.5),               # honey wood boards
+		"pillar": Color(0.93, 0.86, 0.82),           # cream-blush columns
+		"beam": Color(0.96, 0.9, 0.84),
+		"backdrop": Color(0.35, 0.62, 0.72),         # painted reef seascape
+		"wing": Color(0.72, 0.17, 0.23),             # crimson drapes
+		"crest": Color(1.0, 0.9, 0.72),
+		"pool": Color(1.0, 0.9, 0.72, 0.12),
+	},
+	"ballerina": {                                   # "the Recital Hall"
+		"set": "recital_hall",
+		"deck": Color(0.8, 0.76, 0.86),              # pale lilac dance floor
+		"pillar": Color(0.78, 0.5, 0.56),            # dusty rose columns
+		"beam": Color(1.0, 0.86, 0.56),
+		"backdrop": Color(0.9, 0.78, 0.81),          # blush scallop-shell fan
+		"wing": Color(0.35, 0.62, 0.68),             # teal gathers
+		"crest": Color(1.0, 0.88, 0.66),
+		"pool": Color(1.0, 0.92, 0.85, 0.15),
+	},
+	"doctor": {                                      # "the Plushy Clinic"
+		"set": "plushy_clinic",
+		"deck": Color(0.92, 0.87, 0.82),             # clean cream floor
+		"pillar": Color(0.62, 0.55, 0.78),           # lavender columns
+		"beam": Color(1.0, 0.88, 0.62),
+		"backdrop": Color(0.25, 0.55, 0.6),          # quilted teal panel
+		"wing": Color(0.2, 0.45, 0.5),
+		"crest": Color(1.0, 0.9, 0.68),
+		"pool": Color(0.9, 0.95, 1.0, 0.14),
+	},
+	"farmer": {                                      # "the Meadow Flat"
+		"set": "meadow_flat",
+		"deck": Color(0.82, 0.66, 0.46),
+		"pillar": Color(0.94, 0.9, 0.84),            # cream stone arch
+		"beam": Color(0.96, 0.92, 0.86),
+		"backdrop": Color(0.52, 0.72, 0.86),         # painted meadow sky
+		"wing": Color(0.75, 0.25, 0.28),
+		"crest": Color(1.0, 0.9, 0.7),
+	},
+	"boxer": {                                       # "the Toy Ring"
+		"set": "toy_ring",
+		"deck": Color(0.85, 0.62, 0.62),             # blush canvas mat
+		"pillar": Color(0.55, 0.45, 0.62),           # mauve columns
+		"beam": Color(0.66, 0.55, 0.7),
+		"backdrop": Color(0.18, 0.18, 0.32),         # dark hall, string lights
+		"wing": Color(0.8, 0.34, 0.34),
+		"crest": Color(1.0, 0.9, 0.72),
+	},
+	"magician": {                                    # "the Conjuring Parlour"
+		"set": "conjuring_parlour",
+		"deck": Color(0.82, 0.68, 0.5),
+		"pillar": Color(0.85, 0.68, 0.42),           # amber-gold arch
+		"beam": Color(0.9, 0.74, 0.46),
+		"backdrop": Color(0.42, 0.3, 0.5),           # plum velvet
+		"wing": Color(0.36, 0.25, 0.45),
+		"crest": Color(0.95, 0.62, 0.6),             # coral shell crest
+		"pool": Color(1.0, 0.94, 0.8, 0.14),
+	},
+	"painter": {                                     # "the Sunrise Gallery"
+		"set": "sunrise_gallery",
+		"deck": Color(0.86, 0.72, 0.52),
+		"pillar": Color(0.88, 0.88, 0.82),           # cream-sage columns
+		"beam": Color(0.92, 0.92, 0.86),
+		"backdrop": Color(0.95, 0.6, 0.35),          # the sunrise being painted
+		"wing": Color(0.72, 0.18, 0.24),
+		"crest": Color(1.0, 0.9, 0.7),
+	},
+	"astronaut": {                                   # "the Launch Pad"
+		"set": "launch_pad",
+		"deck": Color(0.4, 0.55, 0.62),              # teal launch platform
+		"pillar": Color(0.85, 0.5, 0.45),            # coral columns
+		"beam": Color(0.96, 0.9, 0.78),
+		"backdrop": Color(0.16, 0.2, 0.4),           # starfield with planets
+		"wing": Color(0.45, 0.32, 0.6),
+		"crest": Color(1.0, 0.92, 0.78),
+		"pool": Color(0.75, 0.9, 1.0, 0.12),
+	},
+	"racer": {                                       # "the Grand Prix Circuit"
+		"set": "grand_prix",
+		"deck": Color(0.65, 0.6, 0.78),              # lavender apron
+		"pillar": Color(0.85, 0.6, 0.65),            # coral-pink columns
+		"beam": Color(1.0, 0.86, 0.58),
+		"backdrop": Color(0.2, 0.22, 0.45),          # deep blue swirl night
+		"wing": Color(0.42, 0.3, 0.52),
+		"crest": Color(1.0, 0.9, 0.72),
+	},
+	"popstar": {                                     # "the Starlight Concert"
+		"set": "starlight_concert",
+		"deck": Color(0.55, 0.42, 0.6),              # plum concert platform
+		"pillar": Color(0.9, 0.72, 0.78),            # blush columns
+		"beam": Color(0.95, 0.8, 0.84),
+		"backdrop": Color(0.5, 0.42, 0.68),          # lavender rainbow wall
+		"wing": Color(0.85, 0.5, 0.68),              # pink + teal ribbons
+		"crest": Color(1.0, 0.92, 0.8),
+		"pool": Color(1.0, 0.85, 0.95, 0.16),
+	},
 }
 
 func _build_job_stage(spec: Dictionary) -> void:
@@ -380,6 +476,38 @@ func _build_job_stage(spec: Dictionary) -> void:
 			_stage_candy_workshop(spec)
 		"prop_library":
 			_stage_prop_library(spec)
+		"pastry_kitchen":
+			_stage_pastry_kitchen(spec)
+		"recital_hall":
+			_stage_recital_hall(spec)
+		"plushy_clinic":
+			_stage_plushy_clinic(spec)
+		"meadow_flat":
+			_stage_meadow_flat(spec)
+		"toy_ring":
+			_stage_toy_ring(spec)
+		"conjuring_parlour":
+			_stage_conjuring_parlour(spec)
+		"sunrise_gallery":
+			_stage_sunrise_gallery(spec)
+		"launch_pad":
+			_stage_launch_pad(spec)
+		"grand_prix":
+			_stage_grand_prix(spec)
+		"starlight_concert":
+			_stage_starlight_concert(spec)
+
+func _footlights(col: Color, n: int = 11) -> void:
+	# the row of gold bulbs along the apron edge — the shared signature of the
+	# dressed sets that draw one in their card (chef, ballerina, magician...)
+	for i in range(n):
+		var fx := -20.0 + float(i) * (40.0 / maxf(1.0, float(n - 1)))
+		_sphere(CENTER + Vector3(fx, 0.75, 15.2), 0.5, col, 1.1)
+
+func _backdrop_panel(col: Color, glow: float = 0.15) -> MeshInstance3D:
+	# a painted flat hung just in front of the back curtain — every set that
+	# shows a picture upstage (seascape, meadow, sunrise, starfield) uses one
+	return _box(CENTER + Vector3(0, 8.0, -17.1), Vector3(34.0, 14.0, 0.4), col, glow)
 
 func _stage_candy_workshop(_spec: Dictionary) -> void:
 	# Candy Maker's set: a sweet-shop wall of jars upstage, a scalloped mixing
@@ -458,6 +586,304 @@ func _stage_prop_library(spec: Dictionary) -> void:
 		# a scatter of little stars around the window
 		var a := float(i) * 0.7
 		_sphere(CENTER + Vector3(sin(a) * (7.0 + float(i)), 12.0 + cos(a) * 4.5, -17.3), 0.32, Color(1.0, 0.97, 0.85), 1.2)
+
+func _stage_pastry_kitchen(spec: Dictionary) -> void:
+	# Pastry Chef: a painted reef seascape flat, an ingredient shelf either
+	# side, the oven alcove glowing warm, and gold footlights on the apron.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.35, 0.62, 0.72))), 0.1)
+	# coral and kelp painted onto the flat, in front of it
+	for i in range(8 if lush else 4):
+		var cx := -14.0 + float(i) * 4.0
+		var ch := 3.0 + float(i % 3) * 1.6
+		_cyl(CENTER + Vector3(cx, ch * 0.5 + 1.0, -16.7), 0.6, ch,
+			Color(0.95, 0.5, 0.55) if i % 2 == 0 else Color(0.4, 0.75, 0.7), 0.15)
+	# the oven alcove: a warm arch glowing upstage-left
+	_box(CENTER + Vector3(-19.5, 4.0, -15.5), Vector3(6.0, 8.0, 3.0), Color(0.72, 0.55, 0.44), 0.05)
+	_box(CENTER + Vector3(-19.5, 3.4, -14.1), Vector3(4.2, 4.6, 0.4), Color(1.0, 0.72, 0.35), 0.9)
+	# the ingredient shelf upstage-right: flour sacks, bowls, a rolling pin
+	for tier in range(2):
+		var sy := 3.2 + float(tier) * 3.2
+		_box(CENTER + Vector3(19.5, sy, -15.0), Vector3(6.4, 0.45, 3.0), Color(0.8, 0.62, 0.44), 0.06)
+		for i in range(3):
+			_sphere(CENTER + Vector3(17.4 + float(i) * 2.1, sy + 0.9, -15.0), 0.8,
+				[Color(0.98, 0.95, 0.88), Color(0.95, 0.72, 0.55), Color(0.85, 0.6, 0.72)][i], 0.12)
+	_footlights(Color(1.0, 0.88, 0.6))
+
+func _stage_recital_hall(spec: Dictionary) -> void:
+	# Ballerina: a huge blush scallop fan upstage, a practice barre in each
+	# wing, mirror panels, and a slow mirror-ball above centre stage.
+	var lush := m.quality != "speedy"
+	var fan_col := Color(spec.get("backdrop", Color(0.9, 0.78, 0.81)))
+	# the scallop fan: petals radiating from the backdrop centre
+	for i in range(11 if lush else 6):
+		var ang := lerpf(-1.25, 1.25, float(i) / float((11 if lush else 6) - 1))
+		var petal := _box(CENTER + Vector3(sin(ang) * 9.0, 8.0 + cos(ang) * 5.0, -16.9),
+			Vector3(2.6, 9.0, 0.35), fan_col.lightened(0.06 * float(i % 3)), 0.14)
+		petal.rotation_degrees = Vector3(0, 0, -rad_to_deg(ang))
+	_sphere(CENTER + Vector3(0, 3.4, -16.6), 3.2, Color(1.0, 0.94, 0.9), 0.2)
+	# a practice barre along each wing
+	for sx: float in [-19.5, 19.5]:
+		_box(CENTER + Vector3(sx, 3.4, -4.0), Vector3(0.5, 0.5, 22.0), Color(0.86, 0.68, 0.5), 0.1)
+		for i in range(3):
+			_box(CENTER + Vector3(sx, 1.7, -13.0 + float(i) * 9.0), Vector3(0.4, 3.4, 0.4), Color(0.78, 0.6, 0.45), 0.05)
+		# tall mirror panels behind the barre
+		_box(CENTER + Vector3(sx + (1.6 if sx > 0.0 else -1.6), 6.0, -6.0), Vector3(0.3, 11.0, 16.0),
+			Color(0.82, 0.88, 0.95), 0.22)
+	# the mirror ball, hung over centre stage
+	var ball := _sphere(CENTER + Vector3(0, 13.0, 2.0), 1.6, Color(0.9, 0.94, 1.0), 0.7)
+	ball.name = "MirrorBall"
+	for i in range(10 if lush else 0):
+		var a := float(i) * 0.63
+		_sphere(CENTER + Vector3(sin(a) * 1.5, 13.0 + cos(a) * 1.5, 2.0), 0.3, Color(1.0, 0.95, 0.85), 1.3)
+	_footlights(Color(1.0, 0.9, 0.68))
+
+func _stage_plushy_clinic(spec: Dictionary) -> void:
+	# Doctor: a quilted teal wall with a big gold shell medallion, a tool
+	# trolley, a handwashing basin, and the waiting bench of plush patients.
+	var quilt := Color(spec.get("backdrop", Color(0.25, 0.55, 0.6)))
+	_backdrop_panel(quilt, 0.08)
+	# the quilting: a lattice of raised seams on the panel
+	for i in range(7):
+		_box(CENTER + Vector3(-13.5 + float(i) * 4.5, 8.0, -16.85), Vector3(0.25, 13.0, 0.2), quilt.lightened(0.16), 0.1)
+	for j in range(4):
+		_box(CENTER + Vector3(0, 3.0 + float(j) * 3.4, -16.85), Vector3(33.0, 0.25, 0.2), quilt.lightened(0.16), 0.1)
+	# the gold scallop medallion at the centre of the wall
+	for i in range(7):
+		var a := lerpf(-1.0, 1.0, float(i) / 6.0)
+		var petal := _sphere(CENTER + Vector3(a * 3.6, 9.0 - absf(a) * 1.0, -16.5), 1.1 - absf(a) * 0.24,
+			Color(1.0, 0.9, 0.68), 0.3)
+		petal.scale = Vector3(0.85, 1.3, 0.5)
+	# tool trolley upstage-left, basin upstage-right
+	_box(CENTER + Vector3(-19.0, 2.6, -14.0), Vector3(5.0, 0.4, 3.2), Color(0.95, 0.96, 1.0), 0.16)
+	for i in range(2):
+		_box(CENTER + Vector3(-20.6 + float(i) * 3.2, 1.3, -14.0), Vector3(0.35, 2.6, 0.35), Color(0.7, 0.74, 0.85), 0.08)
+	for i in range(3):
+		_sphere(CENTER + Vector3(-20.4 + float(i) * 1.6, 3.2, -14.0), 0.5,
+			[Color(0.95, 0.6, 0.65), Color(0.7, 0.9, 1.0), Color(1.0, 0.9, 0.6)][i], 0.3)
+	_cyl(CENTER + Vector3(19.0, 2.2, -14.0), 2.0, 1.4, Color(0.95, 0.97, 1.0), 0.18)
+	_cyl(CENTER + Vector3(19.0, 0.9, -14.0), 0.7, 2.0, Color(0.72, 0.78, 0.9), 0.08)
+	_sphere(CENTER + Vector3(19.0, 3.2, -14.0), 0.7, Color(0.8, 0.95, 1.0), 0.5)
+	# the waiting bench: three plush patients queued in the wing
+	_box(CENTER + Vector3(20.0, 1.2, 4.0), Vector3(3.2, 1.6, 11.0), Color(0.75, 0.62, 0.85), 0.06)
+	for i in range(3):
+		_sphere(CENTER + Vector3(20.0, 2.8, 0.0 + float(i) * 4.0), 1.1,
+			[Color(1.0, 0.66, 0.6), Color(0.7, 0.85, 1.0), Color(1.0, 0.88, 0.6)][i], 0.2)
+
+func _stage_meadow_flat(spec: Dictionary) -> void:
+	# Farmer: the 2D picnic plays on a CanvasLayer, so this whole set is the
+	# painted backing it plays against — rolling hills, a red barn, orchard.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.52, 0.72, 0.86))), 0.12)
+	# rolling green hills across the bottom of the flat
+	for i in range(3):
+		var hill := _sphere(CENTER + Vector3(-11.0 + float(i) * 11.0, 1.0, -16.8), 8.0 - float(i) * 0.8,
+			Color(0.45, 0.68, 0.4).lightened(0.07 * float(i)), 0.08)
+		hill.scale = Vector3(1.6, 0.55, 0.12)
+	# the little red barn on the right hill
+	_box(CENTER + Vector3(9.5, 4.4, -16.6), Vector3(4.6, 4.0, 0.5), Color(0.8, 0.28, 0.28), 0.1)
+	_box(CENTER + Vector3(9.5, 7.0, -16.6), Vector3(5.4, 1.6, 0.5), Color(0.65, 0.22, 0.24), 0.1)
+	_box(CENTER + Vector3(9.5, 3.6, -16.4), Vector3(1.6, 2.4, 0.3), Color(0.95, 0.9, 0.82), 0.1)
+	# clouds
+	for i in range(5 if lush else 2):
+		var cl := _sphere(CENTER + Vector3(-14.0 + float(i) * 7.0, 11.5 + float(i % 2) * 1.6, -16.8),
+			2.0 + float(i % 3) * 0.5, Color(1.0, 0.99, 0.96), 0.25)
+		cl.scale = Vector3(1.7, 0.7, 0.15)
+	# orchard trees and flower borders framing the wings
+	for sx: float in [-19.5, 19.5]:
+		for i in range(2):
+			var tz := -13.0 + float(i) * 7.0
+			_cyl(CENTER + Vector3(sx, 2.0, tz), 0.6, 4.0, Color(0.55, 0.4, 0.3), 0.05)
+			_sphere(CENTER + Vector3(sx, 5.4, tz), 2.8, Color(0.42, 0.66, 0.38), 0.12)
+			_sphere(CENTER + Vector3(sx, 6.2, tz + 1.2), 1.9, Color(0.5, 0.74, 0.44), 0.12)
+		for i in range(5 if lush else 0):
+			var fz := -15.0 + float(i) * 4.0
+			_sphere(CENTER + Vector3(sx + (1.6 if sx < 0.0 else -1.6), 0.9, fz), 0.7,
+				[Color(1.0, 0.75, 0.8), Color(1.0, 0.9, 0.55), Color(0.9, 0.7, 1.0)][i % 3], 0.3)
+
+func _stage_toy_ring(spec: Dictionary) -> void:
+	# Boxer: a dark toy hall strung with lights, corner stools, pennants and
+	# the championship belt waiting on its podium. The ring itself is _build_box.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.18, 0.18, 0.32))), 0.05)
+	# strings of warm bulbs swagging across the dark hall
+	for row in range(2 if lush else 1):
+		var ry := 12.5 - float(row) * 2.6
+		for i in range(9):
+			var bx := -16.0 + float(i) * 4.0
+			var sag := sin(float(i) / 8.0 * PI) * 1.3
+			_sphere(CENTER + Vector3(bx, ry - sag, -13.0 + float(row) * 3.0), 0.42,
+				Color.from_hsv(0.08 + 0.02 * float(i % 3), 0.3, 1.0), 1.4)
+	# corner stools, one coral one teal, tucked outside the ring posts
+	_box(CENTER + Vector3(-19.5, 1.1, -13.0), Vector3(3.0, 2.2, 3.0), Color(0.9, 0.45, 0.45), 0.1)
+	_box(CENTER + Vector3(19.5, 1.1, -13.0), Vector3(3.0, 2.2, 3.0), Color(0.4, 0.72, 0.75), 0.1)
+	# pennant bunting over the wings
+	for i in range(10 if lush else 0):
+		var px := -20.0 + float(i) * 4.5
+		var pen := _box(CENTER + Vector3(px, 14.0 - absf(float(i) - 4.5) * 0.35, 10.0), Vector3(1.4, 1.8, 0.15),
+			Color.from_hsv(float(i) / 10.0, 0.45, 1.0), 0.35)
+		pen.rotation_degrees = Vector3(0, 0, 180.0)
+	# the belt on its victory podium, downstage-right
+	_cyl(CENTER + Vector3(20.0, 1.4, 8.0), 2.4, 2.8, Color(0.62, 0.5, 0.7), 0.1)
+	var belt := _cyl(CENTER + Vector3(20.0, 3.1, 8.0), 1.7, 0.5, Color(0.55, 0.35, 0.3), 0.12)
+	belt.rotation_degrees = Vector3(90, 0, 0)
+	_sphere(CENTER + Vector3(20.0, 3.1, 8.6), 0.9, Color(1.0, 0.85, 0.4), 0.9)
+
+func _stage_conjuring_parlour(spec: Dictionary) -> void:
+	# Magician: plum velvet, amber arch, coral and teal fronds in the wings,
+	# a trick cabinet, and a rolling mirror that catches the spotlight.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.42, 0.3, 0.5))), 0.06)
+	# swagged velvet valance across the top of the flat
+	for i in range(7):
+		var vx := -13.5 + float(i) * 4.5
+		var swag := _sphere(CENTER + Vector3(vx, 12.6, -16.7), 2.4, Color(0.5, 0.34, 0.58), 0.1)
+		swag.scale = Vector3(1.0, 0.85, 0.2)
+	# coral and teal seaweed fronds standing in both wings
+	for sx: float in [-19.5, 19.5]:
+		for i in range(3):
+			var fz := -14.0 + float(i) * 5.0
+			var fh := 5.0 + float(i % 2) * 2.2
+			var frond := _cyl(CENTER + Vector3(sx, fh * 0.5 + 0.8, fz), 0.75, fh,
+				Color(0.95, 0.5, 0.5) if i % 2 == 0 else Color(0.4, 0.78, 0.72), 0.16)
+			frond.rotation_degrees = Vector3(0, 0, 7.0 * (1.0 if sx < 0.0 else -1.0))
+	# the trick cabinet upstage-left, star-studded
+	_box(CENTER + Vector3(-16.5, 4.0, -15.2), Vector3(5.0, 8.0, 2.6), Color(0.34, 0.24, 0.44), 0.08)
+	for i in range(4 if lush else 2):
+		_sphere(CENTER + Vector3(-16.5, 2.0 + float(i) * 2.0, -13.8), 0.42, Color(1.0, 0.9, 0.5), 1.2)
+	# the rolling mirror upstage-right on its gold frame
+	_box(CENTER + Vector3(16.5, 5.0, -15.2), Vector3(4.6, 8.4, 0.35), Color(0.88, 0.72, 0.45), 0.2)
+	_box(CENTER + Vector3(16.5, 5.0, -15.0), Vector3(3.6, 7.4, 0.2), Color(0.86, 0.9, 0.98), 0.3)
+	_footlights(Color(1.0, 0.86, 0.55), 9)
+
+func _stage_sunrise_gallery(spec: Dictionary) -> void:
+	# Painter: the backdrop IS the sunrise the act paints — it starts pale and
+	# the act's own canvas stripes fill in. Plus a paint cart and drop cloth.
+	var lush := m.quality != "speedy"
+	var sky := Color(spec.get("backdrop", Color(0.95, 0.6, 0.35)))
+	_backdrop_panel(sky.darkened(0.35), 0.1)
+	# the rising sun and its rays, low on the flat
+	_sphere(CENTER + Vector3(0, 4.5, -16.8), 4.2, Color(1.0, 0.86, 0.42), 0.9)
+	for i in range(9 if lush else 5):
+		var a := lerpf(-1.35, 1.35, float(i) / float((9 if lush else 5) - 1))
+		var ray := _box(CENTER + Vector3(sin(a) * 7.5, 4.5 + cos(a) * 7.5, -16.9), Vector3(0.7, 6.0, 0.2),
+			Color(1.0, 0.78, 0.42), 0.55)
+		ray.rotation_degrees = Vector3(0, 0, -rad_to_deg(a))
+	# the water below the sun, in bands
+	for i in range(3):
+		_box(CENTER + Vector3(0, 1.6 - float(i) * 0.9, -16.85), Vector3(32.0, 0.7, 0.2),
+			Color(0.55, 0.4, 0.72).lightened(0.1 * float(i)), 0.2)
+	# the paint cart in the left wing, the rinse station in the right
+	_box(CENTER + Vector3(-19.5, 2.2, -12.0), Vector3(5.2, 0.5, 3.4), Color(0.72, 0.55, 0.42), 0.06)
+	for i in range(4):
+		_cyl(CENTER + Vector3(-21.2 + float(i) * 1.2, 2.9, -12.0), 0.5, 1.0,
+			[Color(0.6, 0.32, 0.55), Color(0.95, 0.5, 0.45), Color(0.98, 0.94, 0.88), Color(0.4, 0.7, 0.8)][i], 0.25)
+	_cyl(CENTER + Vector3(19.5, 1.6, -12.0), 1.8, 2.4, Color(0.85, 0.9, 0.95), 0.15)
+	_sphere(CENTER + Vector3(19.5, 3.0, -12.0), 1.2, Color(0.55, 0.75, 0.9), 0.35)
+	# the drop cloth under the easel, paint-spattered
+	var cloth := _box(CENTER + Vector3(9.0, 0.42, -12.5), Vector3(12.0, 0.12, 9.0), Color(0.92, 0.9, 0.86), 0.08)
+	cloth.name = "DropCloth"
+	for i in range(7 if lush else 0):
+		var a2 := float(i) * 1.3
+		_sphere(CENTER + Vector3(9.0 + sin(a2) * 4.5, 0.52, -12.5 + cos(a2) * 3.2), 0.45,
+			[Color(0.6, 0.32, 0.55), Color(0.95, 0.5, 0.45), Color(0.98, 0.9, 0.7)][i % 3], 0.2)
+
+func _stage_launch_pad(spec: Dictionary) -> void:
+	# Astronaut Engineer: a starfield with ringed planets, a teal deco skyline,
+	# the circular launch platform and a mobile gantry beside the pipe wall.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.16, 0.2, 0.4))), 0.05)
+	# stars scattered across the flat
+	for i in range(16 if lush else 7):
+		var a := float(i) * 2.399
+		_sphere(CENTER + Vector3(sin(a) * (3.0 + float(i) * 0.95), 4.0 + fmod(float(i) * 4.7, 10.0), -16.85),
+			0.28 + fmod(float(i), 3.0) * 0.07, Color(1.0, 0.98, 0.9), 1.3)
+	# a ringed planet upstage-left and a small moon upstage-right
+	_sphere(CENTER + Vector3(-10.5, 11.0, -16.7), 2.4, Color(0.95, 0.72, 0.5), 0.35)
+	var ring := _cyl(CENTER + Vector3(-10.5, 11.0, -16.6), 4.0, 0.2, Color(0.85, 0.8, 0.95), 0.4)
+	ring.rotation_degrees = Vector3(74, 0, 18)
+	_sphere(CENTER + Vector3(11.5, 12.2, -16.7), 1.5, Color(0.8, 0.88, 1.0), 0.4)
+	# the teal deco skyline along the bottom of the flat
+	for i in range(9 if lush else 5):
+		var bh := 2.4 + fmod(float(i) * 3.1, 4.0)
+		_box(CENTER + Vector3(-14.0 + float(i) * 3.5, bh * 0.5 + 0.9, -16.75), Vector3(2.4, bh, 0.3),
+			Color(0.28, 0.55, 0.6).lightened(0.05 * float(i % 3)), 0.14)
+	# the circular launch platform under centre stage, with its gold ring
+	var pad := _cyl(CENTER + Vector3(0, 0.5, -6.0), 9.0, 0.35, Color(0.34, 0.5, 0.58), 0.12)
+	pad.name = "LaunchPad"
+	var pad_ring := _cyl(CENTER + Vector3(0, 0.66, -6.0), 9.4, 0.18, Color(1.0, 0.88, 0.55), 0.5)
+	pad_ring.name = "LaunchPadRing"
+	# the mobile gantry standing in the right wing
+	for i in range(2):
+		_box(CENTER + Vector3(19.0 + float(i) * 2.4, 5.5, -12.0), Vector3(0.5, 11.0, 0.5), Color(0.75, 0.5, 0.45), 0.08)
+	for i in range(4):
+		_box(CENTER + Vector3(20.2, 1.8 + float(i) * 3.0, -12.0), Vector3(3.0, 0.35, 2.4), Color(0.68, 0.46, 0.42), 0.08)
+
+func _stage_grand_prix(spec: Dictionary) -> void:
+	# Racecar Driver: the kart race takes over, so this set is the start-line
+	# tableau — striped track running upstage, grandstand flats, zoom strips.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.2, 0.22, 0.45))), 0.07)
+	# swirling night sky on the flat
+	for i in range(10 if lush else 4):
+		var a := float(i) * 0.9
+		var sw := _sphere(CENTER + Vector3(sin(a) * (4.0 + float(i)), 9.5 + cos(a) * 3.5, -16.8),
+			1.5 + fmod(float(i), 3.0) * 0.4, Color(0.35, 0.4, 0.68), 0.3)
+		sw.scale = Vector3(1.5, 0.6, 0.12)
+	# the striped track: coral / teal / lavender / cream lanes running upstage
+	var lane_cols: Array[Color] = [Color(0.95, 0.62, 0.62), Color(0.45, 0.78, 0.78),
+		Color(0.72, 0.66, 0.9), Color(0.97, 0.94, 0.88)]
+	for i in range(4):
+		_box(CENTER + Vector3(-4.5 + float(i) * 3.0, 0.42, -6.0), Vector3(2.9, 0.12, 20.0), lane_cols[i], 0.16)
+	# the starting arch over the track
+	for sx: float in [-7.5, 7.5]:
+		_box(CENTER + Vector3(sx, 4.5, 3.0), Vector3(1.0, 9.0, 1.0), Color(0.9, 0.62, 0.66), 0.1)
+	_box(CENTER + Vector3(0, 9.3, 3.0), Vector3(16.0, 1.4, 1.2), Color(1.0, 0.86, 0.58), 0.2)
+	for i in range(8 if lush else 0):
+		_box(CENTER + Vector3(-7.0 + float(i) * 2.0, 8.4, 3.0), Vector3(1.8, 1.2, 0.3),
+			Color(0.12, 0.12, 0.16) if i % 2 == 0 else Color(0.97, 0.96, 0.92), 0.1)
+	# grandstand flats packed into the wings, plus padded barriers
+	for sx: float in [-19.5, 19.5]:
+		for tier in range(3):
+			_box(CENTER + Vector3(sx, 2.0 + float(tier) * 2.0, -6.0), Vector3(5.0, 1.6, 16.0),
+				Color(0.6, 0.52, 0.72).lightened(0.06 * float(tier)), 0.06)
+		for i in range(4 if lush else 0):
+			_sphere(CENTER + Vector3(sx, 6.6, -12.0 + float(i) * 4.5), 0.9,
+				Color.from_hsv(float(i) / 4.0, 0.4, 1.0), 0.3)
+		_box(CENTER + Vector3(sx - (2.9 if sx > 0.0 else -2.9), 1.2, -6.0), Vector3(1.0, 2.0, 16.0),
+			Color(0.95, 0.55, 0.55), 0.12)
+
+func _stage_starlight_concert(spec: Dictionary) -> void:
+	# Pop Star: the dance overlay takes the screen, so this set is the concert
+	# tableau — rainbow wall, speaker stacks, catwalk, glow-stick rails.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.5, 0.42, 0.68))), 0.1)
+	# the rainbow arcs across the flat
+	var bow: Array[Color] = [Color(1.0, 0.62, 0.68), Color(1.0, 0.85, 0.55), Color(0.6, 0.9, 0.7),
+		Color(0.55, 0.8, 1.0), Color(0.78, 0.66, 1.0)]
+	for i in range(bow.size()):
+		var arc := _cyl(CENTER + Vector3(0, 5.0, -16.8), 12.0 - float(i) * 1.7, 0.5, bow[i], 0.45)
+		arc.rotation_degrees = Vector3(90, 0, 0)
+	_box(CENTER + Vector3(0, 1.4, -16.7), Vector3(34.0, 8.0, 0.35), Color(spec.get("backdrop", Color(0.5, 0.42, 0.68))), 0.1)
+	# speaker stacks in both wings
+	for sx: float in [-19.5, 19.5]:
+		for tier in range(3):
+			_box(CENTER + Vector3(sx, 2.0 + float(tier) * 3.6, -11.0), Vector3(5.0, 3.2, 4.0),
+				Color(0.28, 0.24, 0.36), 0.05)
+			_cyl(CENTER + Vector3(sx + (2.1 if sx < 0.0 else -2.1), 2.0 + float(tier) * 3.6, -11.0), 1.1, 0.4,
+				Color(0.6, 0.55, 0.7), 0.15)
+		# the glow-stick rail the crowd waves from
+		_box(CENTER + Vector3(sx, 2.4, 6.0), Vector3(0.5, 0.5, 14.0), Color(0.9, 0.75, 0.85), 0.2)
+		for i in range(6 if lush else 0):
+			_cyl(CENTER + Vector3(sx, 3.6, 0.5 + float(i) * 2.2), 0.22, 1.8,
+				Color.from_hsv(float(i) / 6.0, 0.45, 1.0), 1.4)
+	# the catwalk running downstage into the house
+	var walk := _box(CENTER + Vector3(0, 0.5, 12.0), Vector3(7.0, 0.4, 14.0), Color(0.62, 0.48, 0.68), 0.14)
+	walk.name = "Catwalk"
+	for i in range(7 if lush else 3):
+		_sphere(CENTER + Vector3(-3.2, 0.9, 6.0 + float(i) * 2.0), 0.32, Color(1.0, 0.9, 0.95), 1.2)
+		_sphere(CENTER + Vector3(3.2, 0.9, 6.0 + float(i) * 2.0), 0.32, Color(1.0, 0.9, 0.95), 1.2)
+	_footlights(Color(1.0, 0.8, 0.92))
 
 func _card(fname: String, pos: Vector3, yaw: float = 0.0, card_scale: float = 2.0, parent: Node3D = null) -> Node3D:
 	var full := "res://assets/art35/cards/" + fname + ".glb"

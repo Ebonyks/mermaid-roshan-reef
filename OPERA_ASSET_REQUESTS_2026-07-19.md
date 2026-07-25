@@ -65,11 +65,29 @@ the gold scallop-shell crest (`StageCrest`) over its arch; probe_opera asserts
 crest presence exactly matches STAGE_SETS membership. Lighting stays emissive
 — no new OmniLights — and each set culls its decorative tiers on Speedy.
 
-| Job | Set | Status |
+All twelve careers are dressed — no career is on the shared stage any more.
+The shared build stays in place as the fallback for any career added later.
+
+| Job | Set | From its proscenium card |
 | --- | --- | --- |
-| Candy Maker | the Candy Workshop — jar wall, mixing counters, swirl pops | built |
-| Detective | the Prop Library — archive shelving, ladder, crescent window | built |
-| Pastry Chef, Ballerina, Doctor, Farmer, Boxer, Magician, Painter, Astronaut Engineer, Racecar Driver, Pop Star | see each act's `stage_states` sheet | shared stage, pending |
+| Pastry Chef | the Pastry Kitchen | seascape flat, oven alcove, ingredient shelf, footlights |
+| Detective | the Prop Library | archive shelving, ladder, pillar lanterns, crescent window, searchlight pool |
+| Ballerina | the Recital Hall | blush scallop fan, practice barres, mirror panels, mirror ball |
+| Candy Maker | the Candy Workshop | jar wall, mixing counters, swirl pops |
+| Doctor | the Plushy Clinic | quilted teal wall + gold medallion, tool trolley, basin, waiting bench |
+| Farmer | the Meadow Flat | painted hills, red barn, clouds, orchard wings |
+| Boxer | the Toy Ring | dark hall, swagged bulbs, corner stools, pennants, belt podium |
+| Magician | the Conjuring Parlour | plum velvet valance, coral/teal fronds, trick cabinet, rolling mirror |
+| Painter | the Sunrise Gallery | the sunrise being painted, paint cart, rinse station, drop cloth |
+| Astronaut Engineer | the Launch Pad | starfield, ringed planet, deco skyline, launch platform, gantry |
+| Racecar Driver | the Grand Prix Circuit | swirl sky, striped track, starting arch, grandstands, barriers |
+| Pop Star | the Starlight Concert | rainbow wall, speaker stacks, catwalk, glow-stick rails |
+
+Two helpers are shared by the sets that draw them: `_footlights()` (the apron
+bulb row) and `_backdrop_panel()` (the painted flat hung in front of the back
+curtain). Farmer, Racecar Driver and Pop Star hand their screen to a 2D
+CanvasLayer, the kart engine and the dance engine respectively, so their sets
+are pure tableau — that is deliberate, not an omission.
 
 ## Shared theatre (used by all acts)
 Assets
