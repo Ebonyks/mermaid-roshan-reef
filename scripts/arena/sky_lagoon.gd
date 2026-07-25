@@ -36,6 +36,8 @@ const OCEAN_KINGDOM_GATE_DEFS := [
 		"color": Color(0.48, 0.82, 1.0), "rune": "❄\n🐋"},
 ]
 const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
+const PNW_MARSH_ATLAS := preload("res://assets/sky_lagoon/pnw_marsh_2d/pnw_marsh_atlas.png")
+const MARSH_ATLAS_GRID_SIZE := 4
 const FORBIDDEN_GROUND_LEAF_ROLES := ["grass_leafsLarge", "trop_bigleaf"]
 const LAGOON_GROUND_FLORA := [
 	"lagoon_shrub_salal_a",
@@ -223,6 +225,51 @@ func _lagoon_shrub(name: String, pos: Vector3, target_height: float,
 	var source_height: float = float(LAGOON_SHRUB_SOURCE_HEIGHT.get(name, 1.8))
 	return _lagoon_prop(name, pos, target_height / source_height, yaw)
 
+func _lagoon_marsh_sprite(cell_index: int, pos: Vector3, target_height: float,
+	horizontal: bool = false, yaw: float = 0.0) -> Sprite3D:
+	@warning_ignore("integer_division")
+	var cell_width: int = PNW_MARSH_ATLAS.get_width() / MARSH_ATLAS_GRID_SIZE
+	@warning_ignore("integer_division")
+	var cell_height: int = PNW_MARSH_ATLAS.get_height() / MARSH_ATLAS_GRID_SIZE
+	@warning_ignore("integer_division")
+	var cell_row: int = cell_index / MARSH_ATLAS_GRID_SIZE
+	var cell_column: int = cell_index % MARSH_ATLAS_GRID_SIZE
+	var atlas_texture: AtlasTexture = AtlasTexture.new()
+	atlas_texture.atlas = PNW_MARSH_ATLAS
+	atlas_texture.region = Rect2(
+		float(cell_column * cell_width),
+		float(cell_row * cell_height),
+		float(cell_width),
+		float(cell_height),
+	)
+	atlas_texture.filter_clip = true
+	var sprite: Sprite3D = Sprite3D.new()
+	sprite.texture = atlas_texture
+	sprite.pixel_size = target_height / float(cell_height)
+	sprite.position = pos
+	sprite.shaded = false
+	sprite.double_sided = true
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	if horizontal:
+		sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		sprite.rotation_degrees = Vector3(-90.0, rad_to_deg(yaw), 0.0)
+	else:
+		sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.visibility_range_end = 150.0 if m.quality == "speedy" else 0.0
+	sprite.visibility_range_end_margin = 12.0 if m.quality == "speedy" else 0.0
+	sprite.visibility_range_fade_mode = (
+		GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+		if m.quality == "speedy"
+		else GeometryInstance3D.VISIBILITY_RANGE_FADE_DISABLED
+	)
+	sprite.set_meta("lagoon_marsh_2d_index", cell_index)
+	sprite.set_meta("lagoon_art_role", "lagoon_marsh_2d_%02d" % cell_index)
+	m.add_child(sprite)
+	m.game_nodes.append(sprite)
+	m.flora_nodes.append(sprite)
+	return sprite
+
 
 func _build_ocean_kingdom_gates(o: Vector3) -> void:
 	var gates: Array = []
@@ -280,6 +327,70 @@ func _build_lagoon_bank_dressing(o: Vector3) -> void:
 			_lagoon_prop("lagoon_river_stones",
 				o + Vector3(bank.x, _lagoon_local(bank.x, bank.y) - 0.15, bank.y),
 				1.25 + float(sample_index % 2) * 0.18, atan2(direction.x, direction.y))
+
+func _build_lagoon_marsh_2d(o: Vector3, pond_surface_y: float) -> void:
+	# Sixteen unique ambient cards extend the existing modeled PNW ecology down
+	# to wetland scale. They carry no collision, goals, or lights; alpha scissor
+	# plus the shared quality-range cull keeps transparent overdraw bounded.
+	var target_heights: Array[float] = [
+		4.8, 4.2, 4.0, 4.5,
+		3.6, 3.6, 4.2, 3.8,
+		5.5, 3.0, 5.2, 4.8,
+		4.0, 4.2, 3.4, 4.2,
+	]
+	var placed: int = 0
+	for cell_index in range(12):
+		var target_height: float = target_heights[cell_index]
+		if cell_index == 8:
+			# Water lilies lie flat just inside the calm pond's edge.
+			_lagoon_marsh_sprite(
+				cell_index,
+				o + Vector3(-87.0, pond_surface_y - o.y + 0.18, 65.0),
+				target_height,
+				true,
+				0.35,
+			)
+		else:
+			var angle: float = 0.18 + float(cell_index) / 12.0 * TAU
+			var radius: float = 40.5 + float(cell_index % 3) * 1.7
+			var px: float = -95.0 + cos(angle) * radius
+			var pz: float = 70.0 + sin(angle) * radius
+			var ground_y: float = _lagoon_local(px, pz)
+			_lagoon_marsh_sprite(
+				cell_index,
+				o + Vector3(px, ground_y + target_height * 0.38, pz),
+				target_height,
+			)
+		placed += 1
+
+	# The last row spreads along separate river banks so the wet climate reads
+	# beyond the pond without creating a repeated wall of cards.
+	for river_card in range(4):
+		var river: Array = m.LAGOON_RIVERS[river_card % m.LAGOON_RIVERS.size()]
+		var t: float = 0.24 + float(river_card) * 0.16
+		var segment_value: float = t * float(river.size() - 1)
+		var segment_index: int = mini(int(floor(segment_value)), river.size() - 2)
+		var local_t: float = segment_value - float(segment_index)
+		var a: Vector2 = river[segment_index]
+		var b: Vector2 = river[segment_index + 1]
+		var center: Vector2 = a.lerp(b, local_t)
+		var direction: Vector2 = (b - a).normalized()
+		var bank_normal := Vector2(-direction.y, direction.x)
+		var side: float = -1.0 if river_card % 2 == 0 else 1.0
+		var bank: Vector2 = center + bank_normal * (m.LAGOON_RIVER_W + 4.4) * side
+		var cell_index: int = 12 + river_card
+		var target_height: float = target_heights[cell_index]
+		_lagoon_marsh_sprite(
+			cell_index,
+			o + Vector3(
+				bank.x,
+				_lagoon_local(bank.x, bank.y) + target_height * 0.36,
+				bank.y,
+			),
+			target_height,
+		)
+		placed += 1
+	m.g["lagoon_marsh_2d_count"] = placed
 
 func _build_pearl_castle(o: Vector3) -> void:
 	m.wall_pics = []
@@ -502,6 +613,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var cpx: float = -95 + cos(cta) * 36.0
 		var cpz: float = 70 + sin(cta) * 36.0
 		_lagoon_prop("lagoon_pond_reeds", o + Vector3(cpx, _lagoon_local(cpx, cpz) - 0.18, cpz), 1.28 + float(ct % 3) * 0.08, cta + PI)
+	_build_lagoon_marsh_2d(o, pond.position.y)
 	# Native wet-bank trees frame the pond from dry soil outside its water disc.
 	_lagoon_tree("lagoon_tree_red_alder",
 		o + Vector3(-133.0, _lagoon_local(-133.0, 84.0) - 0.18, 84.0), 11.4, 0.42)
