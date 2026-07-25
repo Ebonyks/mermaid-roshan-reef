@@ -317,6 +317,25 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 func _drive_echo(act: OperaAct, dt: float) -> void:
 	# tiles fire on DWELL now: the persona picks a sticky target per step
 	# (sometimes the wrong tile), swims there and simply stands on it
+	if act.echo_phase == "ribbon":
+		# a trace: the persona sweeps her finger along the arc at her own hand
+		# speed, one dot per ready-tick, so a slower child takes longer
+		if not _ready_to_act(dt) or main.touch_ui == null or act.cam == null:
+			return
+		for d in act.ribbon_dots:
+			if not (d as Node3D).visible:
+				continue
+			main.touch_ui.drag_active = true
+			main.touch_ui.drag_pos = act.cam.unproject_position((d as Node3D).position)
+			act._tick_ribbon(dt)
+			main.touch_ui.drag_active = false
+			return
+		return
+	if act.echo_phase == "twirl":
+		# circles: a quarter-turn of finger travel per ready-tick
+		if _ready_to_act(dt):
+			act._twirl_delta(PI * 0.5)
+		return
 	if act.echo_phase != "repeat" or act.echo_pos >= act.echo_seq.size():
 		echo_key = -1
 		return

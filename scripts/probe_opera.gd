@@ -405,9 +405,48 @@ func _drive_echo(act: OperaAct) -> void:
 				_ck("wrong dance step only replays the tune", act.state == "play" and act.echo_phase == "show")
 				continue
 			act._pad_touch(want)
+		elif act.echo_phase == "ribbon":
+			# beat 3: a TRACE. The tile tap that won the echo must not do this.
+			_ck_once("the echo opens onto the ribbon",
+				act.ribbon_dots.size() == act.RIBBON_DOTS and act.ribbon_trace == 0)
+			_ck_once("the ribbon hands the finger to the drag channel",
+				main.touch_ui != null and bool(main.touch_ui.drag_mode))
+			act._pad_touch(0)
+			act._tick_ribbon(0.05)
+			_ck_once("tapping a tile traces no ribbon", act.ribbon_trace == 0)
+			if main.touch_ui != null and act.cam != null:
+				main.touch_ui.drag_active = true
+				var rg := 0
+				while act.echo_phase == "ribbon" and rg < 60:
+					rg += 1
+					var nxt: Node3D = null
+					for d in act.ribbon_dots:
+						if (d as Node3D).visible:
+							nxt = d as Node3D
+							break
+					if nxt == null:
+						break
+					main.touch_ui.drag_pos = act.cam.unproject_position(nxt.position)
+					act._tick_ribbon(0.05)
+				main.touch_ui.drag_active = false
+			_ck_once("tracing the path flies the ribbon",
+				act.ribbon_trace >= act.RIBBON_DOTS and act.echo_phase == "twirl")
+		elif act.echo_phase == "twirl":
+			# beat 4: circles, not taps — and a straight drag is not a circle
+			_ck_once("the ribbon opens onto the twirl", act.twirl_done == 0)
+			act._pad_touch(0)
+			_ck_once("tapping a tile is not a twirl", act.twirl_done == 0)
+			var tg := 0
+			while act.echo_phase == "twirl" and act.state == "play" and tg < 400:
+				tg += 1
+				act._twirl_delta(0.35)
+			_ck_once("circling three times finishes the recital",
+				act.twirl_done >= act.TWIRL_TURNS and act.state == "won")
 		else:
 			await process_frame
 	_ck("echo act does not stall", guard < 900)
+	_ck("the recital plays all four beats",
+		act.ribbon_trace >= act.RIBBON_DOTS and act.twirl_done >= act.TWIRL_TURNS)
 
 func _drive_shuffle(act: OperaAct, expected: int) -> void:
 	# Roshan performs the trick: every round opens by dragging a hat over the

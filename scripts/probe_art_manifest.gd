@@ -22,7 +22,6 @@ const DIR_ALIAS := {"chef": "pastry_chef"}
 # by it. Delete a name from here in the same commit that ships its beat.
 const PENDING_BEATS := {
 	"detective": ["case_board"],
-	"ballerina": ["ribbon", "twirl"],
 	"candymaker": ["syrup", "wrap", "parade"],
 	"farmer": ["plant", "mud", "barn"],
 	"painter": ["sketch", "fill"],

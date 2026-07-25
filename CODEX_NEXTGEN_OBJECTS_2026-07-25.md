@@ -82,7 +82,7 @@ shipped object predates a redesign.
   of that thing. The gift object must be recognisably the *same object* in the
   rescue beat and in the beat that consumes it — same carrot, same paint pot.
 
-**Current state of the world:** 12 acts, 47 beats (37 playable today, 10
+**Current state of the world:** 12 acts, 47 beats (39 playable today, 8
 specified and pending), 139 objects, 300 states. **136 objects do not exist
 yet.** The three that do — `pastry_chef_bowl`, `pastry_chef_oven`,
 `astronaut_rocket` — are single-pose gen1 models with no state children, so

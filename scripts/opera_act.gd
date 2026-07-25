@@ -109,7 +109,21 @@ var echo_rounds: Array[int] = []
 var echo_round := 0
 var echo_seq: Array[int] = []
 var echo_pos := 0
-var echo_phase := "show"           # show | repeat
+var echo_phase := "show"           # show | repeat | ribbon | twirl
+# ---- the recital finale (owner pacing standard 2026-07-25) ----
+# The barre and the echo are both HOLDS. Two more beats close the recital with
+# gestures the act does not already own: the ribbon is traced, the twirl is
+# drawn in circles.
+const RIBBON_DOTS := 12
+const RIBBON_REACH := 66.0      # pixels: how near the finger must pass a dot
+const TWIRL_TURNS := 3
+var ribbon_dots: Array[Node3D] = []
+var ribbon_trace := 0
+var ribbon_wand: Node3D = null
+var twirl_accum := 0.0
+var twirl_done := 0
+var twirl_have_ang := false
+var twirl_ang := 0.0
 var echo_show_i := 0
 var echo_show_t := 0.0
 var last_pad := -1
@@ -2833,6 +2847,15 @@ func _echo_light(i: int, strong: bool) -> void:
 		m.chime.play()
 
 func _tick_echo(delta: float) -> void:
+	if echo_phase == "ribbon":
+		_tick_ribbon(delta)
+		if ribbon_wand != null:
+			ribbon_wand.position = player_pos + Vector3(0, 2.4, 0.6)
+			ribbon_wand.rotation.z = sin(elapsed * 4.0) * 0.3
+		return
+	if echo_phase == "twirl":
+		_tick_twirl(delta)
+		return
 	if echo_phase != "show":
 		return
 	echo_show_t -= delta
@@ -2867,6 +2890,114 @@ func _pose_ring(pad_i: int, frac: float) -> void:
 		bead.position = Vector3(cos(a) * 2.4, sin(a) * 0.9 + frac * 1.6, sin(a) * 2.4)
 		bead.visible = k < lit
 
+func _begin_ribbon() -> void:
+	# Beat 3: a flowing arc of light hangs in the air. Trace it with a finger
+	# and the ribbon draws itself along behind. A TRACE, where the barre and the
+	# echo were both holds.
+	echo_phase = "ribbon"
+	ribbon_trace = 0
+	ribbon_wand = Node3D.new()
+	ribbon_wand.name = "RibbonWand"
+	ribbon_wand.position = CENTER + Vector3(0, 2.2, 6.0)
+	add_child(ribbon_wand)
+	var grip := _cyl(Vector3.ZERO, 0.18, 2.4, Color(0.98, 0.94, 0.9), 0.15, ribbon_wand)
+	grip.rotation_degrees = Vector3(0, 0, 26)
+	# an S-curve sweeping across the stage: a shape a hand WANTS to follow
+	for i in range(RIBBON_DOTS):
+		var f := float(i) / float(RIBBON_DOTS - 1)
+		var dot := _sphere(CENTER + Vector3(lerpf(-11.0, 11.0, f), 5.0 + sin(f * TAU) * 3.2, -1.0),
+			0.4, Color(1.0, 0.78, 0.9, 0.55), 0.45)
+		ribbon_dots.append(dot)
+	_set_drag(true)
+	m.show_msg("Roshan", "Ribbon time! TRACE the sparkly path with your finger and let it fly!", "talk")
+	_update_hud()
+
+func _tick_ribbon(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		return
+	for d in ribbon_dots:
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) >= RIBBON_REACH:
+			continue
+		d.visible = false
+		ribbon_trace += 1
+		progress_t = 0.0
+		# the ribbon itself: a bright streak left where the finger passed
+		var streak := _sphere(d.position, 0.55, Color(1.0, 0.66, 0.86), 0.7)
+		streak.scale = Vector3.ZERO
+		var pop := streak.create_tween()
+		pop.tween_property(streak, "scale", Vector3.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.85 + 0.05 * float(ribbon_trace)
+			m.chime.play()
+	if ribbon_trace >= ribbon_dots.size():
+		_begin_twirl()
+
+func _begin_twirl() -> void:
+	# Beat 4, the finale: spin. Big circles with the finger, the tutu flares
+	# and petals fall. The drag stays armed — a different shape, same finger.
+	echo_phase = "twirl"
+	twirl_accum = 0.0
+	twirl_done = 0
+	twirl_have_ang = false
+	_set_drag(true)
+	m.show_msg("Roshan", "Now the big finish — draw CIRCLES with your finger and TWIRL!", "talk")
+	_update_hud()
+
+func _twirl_delta(d: float) -> void:
+	# one full turn of finger travel = one twirl (mirrors the chef's stir)
+	if state != "play" or kind != "echo" or echo_phase != "twirl":
+		return
+	twirl_accum += absf(d)
+	progress_t = 0.0
+	if twirl_accum < TAU:
+		return
+	twirl_accum -= TAU
+	twirl_done += 1
+	# petals, one ring per turn
+	for i in range(6):
+		var a := float(i) * TAU / 6.0
+		var petal := _sphere(player_pos + Vector3(cos(a) * 1.2, 2.4, sin(a) * 1.2), 0.34,
+			Color(1.0, 0.72, 0.86), 0.5)
+		var fall := petal.create_tween()
+		fall.tween_property(petal, "position",
+			petal.position + Vector3(cos(a) * 4.0, -2.0, sin(a) * 4.0), 1.1).set_trans(Tween.TRANS_QUAD)
+		fall.tween_property(petal, "scale", Vector3.ZERO, 0.3)
+		fall.tween_callback(petal.queue_free)
+	m._sparkle_burst(player_pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.95))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.16 * float(twirl_done)
+		m.chime.play()
+	if twirl_done >= TWIRL_TURNS:
+		_set_drag(false)
+		m.show_msg("Roshan", "BRAVO! What a beautiful recital!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "Twirl! %d more!" % (TWIRL_TURNS - twirl_done), "hint")
+	_update_hud()
+
+func _tick_twirl(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		twirl_have_ang = false
+		return
+	var pivot := cam.unproject_position(player_pos + Vector3(0, 1.6, 0))
+	var v: Vector2 = (m.touch_ui.drag_pos as Vector2) - pivot
+	if v.length() < 24.0:
+		return   # too near the middle for an angle to mean anything
+	var a := v.angle()
+	if not twirl_have_ang:
+		twirl_have_ang = true
+		twirl_ang = a
+		return
+	var d := wrapf(a - twirl_ang, -PI, PI)
+	twirl_ang = a
+	_twirl_delta(d)
+
 func _pad_touch(i: int) -> void:
 	if state != "play" or kind != "echo" or echo_phase != "repeat":
 		return
@@ -2877,7 +3008,7 @@ func _pad_touch(i: int) -> void:
 		if echo_pos >= echo_seq.size():
 			echo_round += 1
 			if echo_round >= echo_rounds.size():
-				_win()
+				_begin_ribbon()   # the echo is the rehearsal, not the recital
 			else:
 				m.show_msg("Roshan", "Beautiful! Now a longer one — watch closely!", "talk")
 				_echo_start_round()
@@ -4862,6 +4993,13 @@ func _pointer_target() -> Vector3:
 				var pad: Dictionary = pads[order_steps[step]]
 				return (pad["pos"] as Vector3) + Vector3(0, 5.5, 0)
 		"echo":
+			if echo_phase == "ribbon":
+				for d in ribbon_dots:
+					if d.visible:
+						return d.position + Vector3(0, 2.0, 0)
+				return CENTER + Vector3(0, 9.0, 3.0)
+			if echo_phase == "twirl":
+				return player_pos + Vector3(0, 6.0, 0)
 			if echo_phase == "repeat" and echo_pos < echo_seq.size():
 				return (pads[echo_seq[echo_pos]]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 9.0, 3.0)
@@ -4984,7 +5122,11 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / 3 clues" % clues_found
 		"echo":
-			if echo_phase == "show":
+			if echo_phase == "ribbon":
+				objective.text = tag + "🎀  TRACE the sparkly path!  %d / %d" % [ribbon_trace, RIBBON_DOTS]
+			elif echo_phase == "twirl":
+				objective.text = tag + "💫  Draw CIRCLES and TWIRL!  %d / %d" % [twirl_done, TWIRL_TURNS]
+			elif echo_phase == "show":
 				objective.text = tag + "👀  WATCH the twinkling tiles!"
 			else:
 				objective.text = tag + "🩰  YOUR TURN!  %d / %d" % [echo_pos, echo_seq.size()]

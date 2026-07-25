@@ -126,8 +126,8 @@ Currently only the third.*
 |---|---|---|---|
 | 1 | **Barre warm-up** | hold | *(built)* two slow positions, very forgiving |
 | 2 | **The echo** | watch + hold | *(built)* repeat the lit tile phrase |
-| 3 | **The ribbon** | trace | draw a flowing arc along a glowing path in time with the music |
-| 4 | **The twirl** | circular drag | spin fast; the tutu flares and petals fall |
+| 3 | **The ribbon** | trace | *(built)* a 12-dot S-curve hangs in the air; trace it and a bright streak follows the finger |
+| 4 | **The twirl** | circular drag | *(built)* three full turns of finger travel; a ring of petals falls on each one |
 
 ## Candy Maker — "The Candy Parade"
 
