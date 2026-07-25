@@ -49,7 +49,7 @@ Counts are live file counts, not doc claims.
 | Northern Kingdom | 2 | 25 GLB | E4 (4.50–4.74) | Complete; refinement queue open |
 | **Opera House — lobby + stage** | **185** | 18 GLB (art35-era) | **E1** | **Largest gap in the game** |
 | Opera House — 12 job packs | 612 | 53 GLB | E3/E4 partial | 10 of 12 jobs have prop kits |
-| **Ember Fortress** | 51 | 39 GLB | **E4 but off-pathway** | Shipped art comes from the *rejected* chain |
+| **Ember Fortress** | 51 | 79 GLB | **E3 enrichment + E4 core** | 40 enrichment cards now modelled; the 39 core remain off-pathway |
 | Reef districts / ocean kingdoms | 5 | 7 GLB | E4 | Complete |
 | CC0 replacement kit | 18 | 24 GLB | E3 | Wired, isolated renders only |
 | Fairy pond / Butterfly World | 15 | 9 GLB | E4 | Complete, hard-gated in `ci.sh` |
@@ -97,24 +97,31 @@ Rough size: ~172 cards → a realistic modular kit of 40–60 GLBs (many cards a
 state variants of one mesh). This is a multi-session job and the single highest
 -value remaining art task.
 
-### 3.3 Ember Fortress ships art its own governing handoff rejected
+### 3.3 Ember Fortress: enrichment built, core provenance still open
 
-`assets/ember_fortress/` (39 GLB, wired through `DungeonArt.EMBER_PATHS`, with
-`probe_ember` + `probe_ember_art` green and Mobile captures on file) was built
-by `codex/bowser-world-graphics` — the chain that
+`assets/ember_fortress/` originally held 39 GLBs (wired through
+`DungeonArt.EMBER_PATHS`, `probe_ember` + `probe_ember_art` green, Mobile
+captures on file) built by `codex/bowser-world-graphics` — the chain that
 `CLAUDE_EMBER_FORTRESS_BLENDER_HANDOFF_2026-07-22.md` explicitly rejected
-"because it skipped 2D design approval". The approved boards
-(6 core + 40 expansion cards) and their two manifests specify **79 exports Claude
-owns**, of which 0 exist.
+"because it skipped 2D design approval". The approved boards specify **79
+exports Claude owns**: 39 core + 40 enrichment.
 
-This is a governance conflict, not a visual emergency: what ships looks fine and
-is probe-covered. It needs an owner decision, and the audit should say so
-plainly rather than quietly rebuilding 79 models:
+**The 40 enrichment exports are now built** (`tools/build_ember_expansion_kit.py`,
+`assets_src/blender/ember_expansion_kit.blend`) straight from the approved
+expansion cards, every row inside its manifest triangle budget, wired at each
+row's `max_placements` through `_build_enrichment()` with the handoff's Speedy
+sector cap of 28 visible instances, and gated by new checks in `probe_ember`.
+That half of the pack is on-pathway end to end.
 
-- **Option A (cheap):** retro-accept the shipped 39 as grandfathered, mark the
-  2026-07-22 boards as the reference for *future* Ember work only.
-- **Option B (expensive, as written):** rebuild all 79 from the boards, one
-  focal family at a time in the mandated pilot order.
+**The 39 core exports are untouched and still off-pathway.** Rebuilding them
+is a governance call, not a visual emergency — what ships looks fine and is
+probe-covered — so it stays an owner decision:
+
+- **Option A (cheap):** grandfather the shipped 39, and treat the 2026-07-22
+  core boards as the reference for future Ember work only.
+- **Option B (expensive, as written):** rebuild all 39 from the boards, one
+  focal family at a time in the mandated pilot order (planet/plazas, Great
+  Gate/frame/veil, lantern assembly, home ring, arena/door, King, boss).
 
 Nothing else in the project is blocked on this choice.
 
@@ -206,8 +213,8 @@ touches the whole map; the art layer stands alone and additive without them.
 ## 6. Recommended order of remaining work
 
 1. **Owner decision — UI direction** (§3.4). Cheapest, unblocks a merged branch.
-2. **Owner decision — Ember governance** (§3.3). Determines whether 79 models
-   are on the board at all.
+2. **Owner decision — Ember core provenance** (§3.3). The 40 enrichment
+   exports are done; only the 39 core exports are still in question.
 3. **Opera House lobby kit** (§3.2). Largest real modelling job; the flat cards,
    the ledger, the code map and the owner's asset order all already exist.
 4. **CC0 kit finish:** re-render the 24 replacements with a real Eevee pass,

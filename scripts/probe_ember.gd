@@ -78,8 +78,58 @@ func _init() -> void:
 	for path: String in DungeonArt.EMBER_PATHS.values():
 		ember_art_exists = ember_art_exists and ResourceLoader.exists(path)
 	_ck("every Ember dungeon art role resolves", ember_art_exists)
+	# ---- the forty-card enrichment kit --------------------------------------
+	var enrich_missing: Array[String] = []
+	var enrich_over: Array[String] = []
+	for value: Variant in EmberFortressLevel.ENRICH:
+		var row: Dictionary = value
+		var enrich_path: String = EmberFortressLevel.ART_ROOT + String(row["glb"]) + ".glb"
+		if not ResourceLoader.exists(enrich_path):
+			enrich_missing.append(String(row["glb"]))
+			continue
+		var placed_count: int = 0
+		for placed_value: Variant in ember._enrich:
+			var placed_entry: Dictionary = placed_value
+			var placed_node: Node3D = placed_entry["node"] as Node3D
+			if is_instance_valid(placed_node) and placed_node.find_child(String(row["glb"]) + "*", true, false) != null:
+				placed_count += 1
+		if placed_count > int(row["n"]):
+			enrich_over.append("%s=%d>%d" % [String(row["glb"]), placed_count, int(row["n"])])
+	_ck("all forty enrichment exports resolve (missing=%s)" % [enrich_missing], enrich_missing.is_empty())
+	_ck("no family exceeds its manifest placement cap (%s)" % [enrich_over], enrich_over.is_empty())
+	_ck("the enrichment kit actually populates the world", ember._enrich.size() >= 40)
+	var enrich_lights := 0
+	var enrich_bodies := 0
+	for value2: Variant in ember._enrich:
+		var entry2: Dictionary = value2
+		var node2: Node3D = entry2["node"] as Node3D
+		if not is_instance_valid(node2):
+			continue
+		enrich_lights += node2.find_children("*", "Light3D", true, false).size()
+		enrich_bodies += node2.find_children("*", "CollisionObject3D", true, false).size()
+	_ck("enrichment adds no OmniLight", enrich_lights == 0)
+	_ck("enrichment adds no physics body", enrich_bodies == 0)
+	var clear_of_gate := true
+	for value3: Variant in ember._enrich:
+		var entry3: Dictionary = value3
+		var enrich_dir: Vector3 = entry3["dir"]
+		if (enrich_dir.angle_to(EmberFortressLevel.GATE_DIR.normalized()) < 0.45
+				or enrich_dir.angle_to(EmberFortressLevel.KING_DIR.normalized()) < 0.40
+				or enrich_dir.angle_to(Vector3.UP) < 0.62):
+			clear_of_gate = false
+	_ck("enrichment never crowds the gate, the King or the citadel hill", clear_of_gate)
 	main.quality = "speedy"
 	ember._sync_detail_lights()
+	ember._sync_enrichment_cull()
+	var visible_enrich := 0
+	for value4: Variant in ember._enrich:
+		var entry4: Dictionary = value4
+		var node4: Node3D = entry4["node"] as Node3D
+		if is_instance_valid(node4) and node4.visible:
+			visible_enrich += 1
+	_ck("Speedy caps the visible enrichment sector at %d (saw %d)" % [
+		EmberFortressLevel.ENRICH_SPEEDY_VISIBLE, visible_enrich],
+		visible_enrich <= EmberFortressLevel.ENRICH_SPEEDY_VISIBLE)
 	_ck("Speedy disables the King and avatar detail lights", not ember._king_light.visible and not ember._trail_light.visible)
 	# ---- passive safety: nothing lights or opens by itself ----
 	for i in range(30):

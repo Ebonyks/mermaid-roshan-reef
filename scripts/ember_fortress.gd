@@ -59,6 +59,63 @@ const FLAG_GLB := ART_ROOT + "ember_flag.glb"
 const MOON_GLB := ART_ROOT + "ember_ash_moon.glb"
 const HOME_RING_GLB := ART_ROOT + "ember_home_ring.glb"
 # lantern spots dodge the two lava-river latitude bands (see _lava_mix)
+# ---- enrichment kit (the forty expansion cards) -------------------------
+# Built by tools/build_ember_expansion_kit.py from the approved boards in
+# assets_src/concepts/ember_fortress_claude_2026-07-22/expansion_40/ and its
+# CLAUDE_EXPANSION_40_MANIFEST.csv. Each row's "n" is that manifest's
+# max_placements; "size" is the fitted longest edge in world units; "habitat"
+# decides where it may stand:
+#   dry   - away from the lava rivers (lava_mix < 0.22)
+#   bank  - the warm shoulder beside a river (0.22..0.62)
+#   river - on the river itself (>= 0.5)
+#   any   - anywhere off the citadel hill
+# "solid" rows register a blocker; ambient flora never does (handoff rule).
+const ENRICH := [
+	{"glb": "ember_obsidian_bridge", "n": 3, "size": 8.0, "habitat": "river", "solid": false},
+	{"glb": "ember_basalt_archway", "n": 3, "size": 6.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_lava_aqueduct", "n": 2, "size": 10.0, "habitat": "bank", "solid": true},
+	{"glb": "ember_balcony", "n": 2, "size": 5.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_gatehouse_buttress", "n": 4, "size": 4.0, "habitat": "dry", "solid": true},
+	{"glb": "ember_stair_module", "n": 4, "size": 6.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_parapet_corner", "n": 4, "size": 4.0, "habitat": "dry", "solid": true},
+	{"glb": "ember_ash_chimney", "n": 3, "size": 7.0, "habitat": "bank", "solid": true},
+	{"glb": "ember_plaza_brazier", "n": 2, "size": 2.2, "habitat": "dry", "solid": false},
+	{"glb": "ember_lavafall_cliff", "n": 2, "size": 7.0, "habitat": "bank", "solid": true},
+	{"glb": "ember_magma_pool", "n": 2, "size": 5.0, "habitat": "bank", "solid": false},
+	{"glb": "ember_basalt_columns", "n": 5, "size": 4.5, "habitat": "dry", "solid": true},
+	{"glb": "ember_ash_dune", "n": 5, "size": 3.5, "habitat": "dry", "solid": false},
+	{"glb": "ember_vent_cluster", "n": 4, "size": 3.0, "habitat": "bank", "solid": false},
+	{"glb": "ember_obsidian_shards", "n": 3, "size": 4.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_cooled_flow", "n": 4, "size": 8.0, "habitat": "bank", "solid": false},
+	{"glb": "ember_cave_mouth", "n": 2, "size": 6.0, "habitat": "dry", "solid": true},
+	{"glb": "ember_meteor_crater", "n": 2, "size": 6.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_cinder_island", "n": 2, "size": 6.0, "habitat": "dry", "solid": true},
+	{"glb": "ember_chain_anchor", "n": 2, "size": 2.5, "habitat": "dry", "solid": false},
+	{"glb": "ember_crust_slab", "n": 6, "size": 2.8, "habitat": "any", "solid": false},
+	{"glb": "ember_forge_anvil", "n": 1, "size": 1.6, "habitat": "dry", "solid": false},
+	{"glb": "ember_coal_cart", "n": 2, "size": 2.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_urn", "n": 4, "size": 1.5, "habitat": "dry", "solid": false},
+	{"glb": "ember_drum", "n": 2, "size": 1.8, "habitat": "dry", "solid": false},
+	{"glb": "ember_bell", "n": 2, "size": 2.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_magma_lever", "n": 3, "size": 1.4, "habitat": "dry", "solid": false},
+	{"glb": "ember_pressure_plate", "n": 3, "size": 2.5, "habitat": "dry", "solid": false},
+	{"glb": "ember_flame_wheel", "n": 2, "size": 3.0, "habitat": "bank", "solid": false},
+	{"glb": "ember_heat_shield", "n": 2, "size": 1.8, "habitat": "dry", "solid": false},
+	{"glb": "ember_bloom", "n": 8, "size": 1.2, "habitat": "dry", "solid": false},
+	{"glb": "ember_ash_fern", "n": 10, "size": 1.4, "habitat": "dry", "solid": false},
+	{"glb": "ember_glow_moss", "n": 8, "size": 2.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_cinder_fungus", "n": 8, "size": 1.5, "habitat": "dry", "solid": false},
+	{"glb": "ember_moth_cluster", "n": 6, "size": 1.0, "habitat": "dry", "solid": false},
+	{"glb": "ember_smoke_cluster", "n": 4, "size": 2.0, "habitat": "bank", "solid": false},
+	{"glb": "ember_lava_bubbles", "n": 3, "size": 1.8, "habitat": "river", "solid": false},
+	{"glb": "ember_shimmer_totem", "n": 3, "size": 2.6, "habitat": "bank", "solid": false},
+	{"glb": "ember_spark_trail", "n": 5, "size": 1.5, "habitat": "any", "solid": false},
+	{"glb": "ember_comet_beacon", "n": 1, "size": 3.5, "habitat": "dry", "solid": false},
+]
+# Speedy shows at most this many enrichment props in the active camera sector
+# (handoff rule). Sparkly keeps the whole authored set on screen.
+const ENRICH_SPEEDY_VISIBLE := 28
+
 const LANTERN_DIRS := [
 	Vector3(0.6, 0.55, 0.58), Vector3(-0.8, 0.05, 0.6), Vector3(0.75, -0.05, -0.66),
 	Vector3(-0.5, -0.65, -0.57), Vector3(-0.15, 0.5, -0.85),
@@ -97,6 +154,7 @@ var _lbl_big: Label = null
 var _lbl_hint: Label = null
 
 # avatar state on the sphere (same scheme as GalaxyLevel)
+var _enrich: Array = []              # {node, dir} enrichment props, culled on Speedy
 var _dir := Vector3(0, 0, 1)
 var _fwd := Vector3(1, 0, 0)
 var _h := 0.0
@@ -164,6 +222,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_fortress()
 	_build_lanterns()
 	_build_decor()
+	_build_enrichment()
 	_build_home_ring()
 	_build_avatar()
 	_build_camera()
@@ -775,6 +834,137 @@ func _build_decor() -> void:
 
 var _home_pos := Vector3.ZERO
 
+func _enrich_dir(index: int, seed_a: float, seed_b: float) -> Vector3:
+	# a deterministic, well-spread direction on the sphere (no RNG: the world
+	# must look identical on every launch and in every probe run)
+	var t: float = float(index) + seed_a
+	var y: float = clampf(sin(t * 1.113 + seed_b) * 0.94, -0.94, 0.94)
+	var r: float = sqrt(maxf(1.0 - y * y, 0.0))
+	var a: float = fposmod(t * 2.39996 + seed_b * 1.7, TAU)   # golden-angle spread
+	return Vector3(cos(a) * r, y, sin(a) * r).normalized()
+
+func _river_dir(index: int, band: float, offset: float) -> Vector3:
+	# The lava rivers are narrow latitude bands, so uniform sphere sampling
+	# almost never lands on one. Solve for the band directly instead: pick a
+	# longitude, undo _lava_mix's wobble, and read the latitude back out.
+	var u: float = fposmod(float(index) * 0.2739 + offset, 1.0)
+	var wob: float = sin(u * 12.566) * 0.03
+	var v: float = clampf(band - wob * (1.0 if band < 0.5 else -1.0) + offset * 0.02, 0.02, 0.98)
+	var theta: float = u * TAU
+	var y: float = cos(v * PI)
+	var r: float = sqrt(maxf(1.0 - y * y, 0.0))
+	return Vector3(sin(theta) * r, y, cos(theta) * r).normalized()
+
+func _habitat_dir(habitat: String, index: int, placed: int, salt: float) -> Vector3:
+	match habitat:
+		"river":
+			return _river_dir(index, 0.42 if placed % 2 == 0 else 0.62, salt)
+		"bank":
+			# the warm shoulder: just off the band centre, either side
+			var band: float = 0.42 if placed % 2 == 0 else 0.62
+			var side: float = 0.042 if index % 2 == 0 else -0.042
+			return _river_dir(index, band + side, salt)
+		_:
+			return _enrich_dir(index, float(placed) * 3.7, salt)
+
+func _habitat_ok(habitat: String, dir: Vector3) -> bool:
+	var mix: float = _lava_mix(dir)
+	match habitat:
+		"river":
+			return mix >= 0.5
+		"bank":
+			return mix >= 0.22 and mix <= 0.62
+		"dry":
+			return mix < 0.22
+		_:
+			return true
+
+func _enrich_clear(dir: Vector3) -> bool:
+	# keep the citadel hill, the gate approach, the King and the home ring
+	# readable: enrichment never crowds a landmark or a lantern
+	if dir.angle_to(Vector3.UP) < 0.62:
+		return false
+	if dir.angle_to(GATE_DIR.normalized()) < 0.45:
+		return false
+	if dir.angle_to(KING_DIR.normalized()) < 0.40:
+		return false
+	if dir.angle_to(Vector3.DOWN) < 0.40:
+		return false          # the south-pole home-ring plaza stays quiet
+	for ld in _lanterns:
+		if dir.angle_to(ld["dir"] as Vector3) < 0.24:
+			return false
+	for value in _blockers:
+		var blocker: Dictionary = value
+		if dir.angle_to(blocker["dir"] as Vector3) * PLANET_R < float(blocker["r"]) + 2.2:
+			return false
+	for value2 in _enrich:
+		var placed: Dictionary = value2
+		if dir.angle_to(placed["dir"] as Vector3) * PLANET_R < 3.4:
+			return false
+	return true
+
+func _build_enrichment() -> void:
+	# The forty enrichment roles from the approved expansion boards. Purely
+	# additive dressing: no OmniLight, no collision on ambient flora, and each
+	# family capped at the manifest's max_placements. Speedy halves the
+	# authored counts before the per-frame sector cull runs on top.
+	var speedy := _speedy()
+	for value in ENRICH:
+		var row: Dictionary = value
+		var wanted: int = int(row["n"])
+		if speedy:
+			wanted = maxi(1, int(ceil(float(wanted) * 0.5)))
+		var path: String = ART_ROOT + String(row["glb"]) + ".glb"
+		if not ResourceLoader.exists(path):
+			continue
+		var habitat: String = String(row["habitat"])
+		var placed := 0
+		var attempt := 0
+		# bounded search: a habitat can legitimately run out of clear ground,
+		# and an unbounded loop here would hang the arena build
+		while placed < wanted and attempt < 160:
+			var dir: Vector3 = _habitat_dir(habitat, attempt, placed, float(path.hash() % 997) * 0.011)
+			attempt += 1
+			if not _habitat_ok(habitat, dir) or not _enrich_clear(dir):
+				continue
+			var holder := Node3D.new()
+			add_child(holder)
+			_place_on_planet(holder, dir)
+			var prop: Node3D = _authored_prop(path, holder, Vector3.ZERO, float(row["size"]))
+			if prop == null:
+				holder.queue_free()
+				break
+			holder.rotate(dir, fposmod(float(attempt) * 1.37, TAU))
+			_dark_stone(prop, Color(0.30, 0.26, 0.36))
+			_enrich.append({"node": holder, "dir": dir})
+			if bool(row["solid"]):
+				_blockers.append({"dir": dir, "r": maxf(float(row["size"]) * 0.28, 1.2), "cool": 0.0})
+			placed += 1
+
+func _sync_enrichment_cull() -> void:
+	# Speedy budget: at most ENRICH_SPEEDY_VISIBLE enrichment props visible in
+	# the active camera sector. Sparkly keeps them all on.
+	if _enrich.is_empty():
+		return
+	if not _speedy():
+		for value in _enrich:
+			var entry: Dictionary = value
+			var node: Node3D = entry["node"] as Node3D
+			if is_instance_valid(node):
+				node.visible = true
+		return
+	var ranked: Array = []
+	for value2 in _enrich:
+		var entry2: Dictionary = value2
+		var node2: Node3D = entry2["node"] as Node3D
+		if not is_instance_valid(node2):
+			continue
+		ranked.append({"node": node2, "d": _dir.angle_to(entry2["dir"] as Vector3)})
+	ranked.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a["d"]) < float(b["d"]))
+	for i in range(ranked.size()):
+		var ranked_entry: Dictionary = ranked[i]
+		(ranked_entry["node"] as Node3D).visible = i < ENRICH_SPEEDY_VISIBLE
+
 func _build_home_ring() -> void:
 	# the friendly way home at the south pole — the one rainbow-bright thing
 	# on the whole dark planet, unmissable and always available
@@ -1055,6 +1245,7 @@ func _process(delta: float) -> void:
 	if _light_cull_t <= 0.0:
 		_light_cull_t = 0.35
 		_sync_detail_lights()
+		_sync_enrichment_cull()
 	# the ash moon on its lonely orbit
 	if _moon != null:
 		var ph: float = tt * 0.12

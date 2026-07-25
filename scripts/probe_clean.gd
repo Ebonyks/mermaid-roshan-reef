@@ -199,20 +199,22 @@ func _run() -> void:
 			"a stick rub is accepted like a tap")
 
 	# --- room completion ----------------------------------------------------
-	var loo_ids: Array[String] = [
-		"loo_toilet_soap_ring", "loo_clean_water_splash",
-		"loo_crooked_paper_rolls", "loo_brush_holder",
-	]
-	for loo_id: String in loo_ids:
-		var loo_target: Dictionary = _target_by_id(loo_id)
-		if loo_target.is_empty():
+	# The undercroft is the completion leg on purpose: the hidden Royal Loo
+	# sits ON the pepper-battle trigger (castle_hall.gd's "toilet"), so parking
+	# the bot there starts the combat arena instead of cleaning. That is real
+	# game behaviour, not a bug — a room with no trigger is what this check
+	# needs.
+	var cellar_ids: Array[String] = ["undercroft_dusty_storage", "undercroft_stair_cobweb"]
+	for cellar_id: String in cellar_ids:
+		var cellar_target: Dictionary = _target_by_id(cellar_id)
+		if cellar_target.is_empty():
 			continue
-		await _tap_clean(loo_target, CastleCleanup.RUBS_PER_TARGET)
+		await _tap_clean(cellar_target, CastleCleanup.RUBS_PER_TARGET)
 		await _frames(3)
-	var loo_state: Dictionary = (main.g.get("clean_rooms", {}) as Dictionary).get("royal_loo", {})
-	_ck("room_completes", int(loo_state.get("left", 99)) == 0,
-		"royal_loo left=%d" % int(loo_state.get("left", 99)))
-	_ck("room_saved", main.clean_done.size() >= 6, "saved objects=%d" % main.clean_done.size())
+	var cellar_state: Dictionary = (main.g.get("clean_rooms", {}) as Dictionary).get("undercroft", {})
+	_ck("room_completes", int(cellar_state.get("left", 99)) == 0,
+		"undercroft left=%d" % int(cellar_state.get("left", 99)))
+	_ck("room_saved", main.clean_done.size() >= 4, "saved objects=%d" % main.clean_done.size())
 
 	# --- reload restores the exact cleaned set ------------------------------
 	var expected: Array = main.clean_done.keys()
