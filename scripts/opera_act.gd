@@ -147,6 +147,20 @@ var press_block: Node3D = null
 var press_slider: Node3D = null
 var press_zone_box: Node3D = null
 var shelf_candies: Array[Node3D] = []
+# ---- the conveyor sort (owner 2026-07-25) ----
+# The genre image is the belt, not a timing meter (Lucy & Ethel). Candies ride
+# out of the press and have to be DRAGGED into the chute of their own colour
+# before they reach the end. Belt speed ramps — that ramp is the act's curve.
+const SORT_CHUTES := 3
+const BELT_Z := -4.0
+const BELT_X0 := -15.0
+const BELT_X1 := 15.0
+var belt_items: Array[Dictionary] = []
+var belt_speed := 2.4
+var belt_next := 0.0
+var sort_held := -1
+var sort_pos := Vector3.ZERO
+var chutes: Array[Dictionary] = []
 
 # ---- "box" engine (boxer: ring combat in rounds) ----
 var box_round := 0
@@ -2710,7 +2724,136 @@ func _build_press() -> void:
 	press_slider = _sphere(CENTER + Vector3(0, track_y, -8.2), 0.65, Color(1.0, 0.9, 0.4), 1.2)
 	# a little shelf where the finished smiley candies line up
 	_box(CENTER + Vector3(11.0, 1.2, -6.0), Vector3(6.0, 0.5, 3.0), Color(0.6, 0.45, 0.65), 0.1)
-	_candy_next()
+	_build_belt()
+
+func _build_belt() -> void:
+	# the belt deck, and three colour-coded chutes along the front of it
+	_box(CENTER + Vector3(0, 0.55, BELT_Z), Vector3(BELT_X1 - BELT_X0 + 4.0, 0.5, 5.0), Color(0.45, 0.38, 0.5), 0.08)
+	for i in range(SORT_CHUTES):
+		var col := _candy_cols()[i]
+		var cx := lerpf(-10.0, 10.0, float(i) / float(SORT_CHUTES - 1))
+		var pos := CENTER + Vector3(cx, 1.0, BELT_Z + 7.5)
+		_box(pos + Vector3(0, 0.4, 0), Vector3(6.0, 2.6, 4.0), col.darkened(0.25), 0.1)
+		_box(pos + Vector3(0, 1.9, 0), Vector3(6.6, 0.5, 4.6), col, 0.55)
+		chutes.append({"index": i, "pos": pos, "col": col})
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	_belt_spawn()
+
+func _leave_belt() -> void:
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _candy_cols() -> Array[Color]:
+	return [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
+
+func _belt_spawn() -> void:
+	if candies_done + belt_items.size() >= candies_goal:
+		return
+	var want := randi() % SORT_CHUTES
+	var root := Node3D.new()
+	root.name = "BeltCandy%d" % (candies_done + belt_items.size())
+	root.position = CENTER + Vector3(BELT_X0, 1.6, BELT_Z)
+	add_child(root)
+	if _job_art("candymaker/opera_candymaker_candy_%d.glb" % ((candies_done + belt_items.size()) % 7), root) == null:
+		_sphere(Vector3.ZERO, 1.2, _candy_cols()[want], 0.3, root)
+	# a bright collar in the candy's OWN colour, so the match is readable at a glance
+	var collar := TorusMesh.new()
+	collar.inner_radius = 1.25
+	collar.outer_radius = 1.65
+	var ring := _mesh(collar, Vector3(0, -0.9, 0), _candy_cols()[want], 0.7, root)
+	ring.rotation_degrees = Vector3(90, 0, 0)
+	belt_items.append({"node": root, "want": want, "x": BELT_X0})
+
+func _sort_ground(screen: Vector2) -> Vector3:
+	if cam == null:
+		return sort_pos
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 1, 0), CENTER.y + 1.6)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return sort_pos
+	return hit as Vector3
+
+func _tick_belt(delta: float) -> void:
+	belt_next = maxf(0.0, belt_next - delta)
+	if belt_next <= 0.0 and belt_items.size() < 3:
+		belt_next = 2.6
+		_belt_spawn()
+	# the finger: grab the nearest candy, carry it, drop it on a chute
+	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		sort_pos = _sort_ground(m.touch_ui.drag_pos)
+		if sort_held < 0:
+			var best := -1
+			var best_d := 6.0
+			for i in range(belt_items.size()):
+				var d: float = ((belt_items[i]["node"] as Node3D).position).distance_to(sort_pos)
+				if d < best_d:
+					best_d = d
+					best = i
+			sort_held = best
+	elif sort_held >= 0:
+		_sort_drop()
+	for i in range(belt_items.size()):
+		var it: Dictionary = belt_items[i]
+		var node := it["node"] as Node3D
+		if i == sort_held:
+			node.position = node.position.lerp(sort_pos + Vector3(0, 1.2, 0), clampf(delta * 12.0, 0.0, 1.0))
+			continue
+		it["x"] = float(it["x"]) + belt_speed * delta
+		if float(it["x"]) > BELT_X1:
+			# nobody sorted it: it loops back round for another pass, never lost
+			it["x"] = BELT_X0
+		node.position = CENTER + Vector3(float(it["x"]), 1.6 + sin(elapsed * 3.0 + float(i)) * 0.12, BELT_Z)
+
+func _sort_drop() -> void:
+	if sort_held < 0 or sort_held >= belt_items.size():
+		sort_held = -1
+		return
+	var it: Dictionary = belt_items[sort_held]
+	var node := it["node"] as Node3D
+	var want := int(it["want"])
+	var best := -1
+	var best_d := 6.5
+	for c in chutes:
+		var d: float = (c["pos"] as Vector3).distance_to(node.position)
+		if d < best_d:
+			best_d = d
+			best = int(c["index"])
+	sort_held = -1
+	if best < 0:
+		# dropped on the deck: it just rejoins the belt where it fell
+		it["x"] = clampf(node.position.x - CENTER.x, BELT_X0, BELT_X1)
+		return
+	if best != want:
+		# wrong chute spits it back with a giggle — no fail, no loss
+		_wobble(node)
+		it["x"] = BELT_X0
+		if m.chime != null:
+			m.chime.pitch_scale = 0.6
+			m.chime.play()
+		m.show_msg("Roshan", "Oops — that candy wants the %s chute!" % ["pink", "blue", "gold"][want], "hint")
+		return
+	belt_items.remove_at(belt_items.find(it))
+	candies_done += 1
+	progress_t = 0.0
+	belt_speed = 2.4 + 0.42 * float(candies_done)
+	m._sparkle_burst((chutes[best]["pos"] as Vector3) + Vector3(0, 3.0, 0), chutes[best]["col"])
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.1 * float(candies_done)
+		m.chime.play()
+	var drop := node.create_tween()
+	drop.tween_property(node, "position", (chutes[best]["pos"] as Vector3) + Vector3(0, 0.5, 0), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	drop.tween_callback(node.queue_free)
+	shelf_candies.append(node)
+	if candies_done >= candies_goal:
+		_leave_belt()
+		_win()
+	else:
+		_belt_spawn()
+		_update_hud()
 
 func _candy_next() -> void:
 	var candy_cols: Array[Color] = [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
@@ -2726,63 +2869,8 @@ func _candy_next() -> void:
 	tw.tween_property(candy_node, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _press_action() -> void:
-	if state != "play" or kind != "press" or press_busy > 0.0 or candy_node == null:
-		return
-	press_busy = 0.9
-	var stamp_down := press_block.position + Vector3(0, -2.4, 0)
-	var stamp_home := press_block.position
-	var tw := press_block.create_tween()
-	tw.tween_property(press_block, "position", stamp_down, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	tw.tween_property(press_block, "position", stamp_home, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	if absf(press_x) <= press_zone:
-		# every candy gets its own face: dot eyes, then starry eyes, then a
-		# blushing heart-mouth — collecting the trio is half the fun
-		match candies_done:
-			1:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
-				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
-			2:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(-0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
-				_sphere(Vector3(0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
-				_sphere(Vector3(0, -0.3, 1.15), 0.22, Color(0.95, 0.35, 0.5), 0.4, candy_node)
-			_:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
-		shelf_candies.append(candy_node)
-		m._sparkle_burst(candy_node.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
-		if m.chime != null:
-			m.chime.pitch_scale = 1.0 + 0.15 * float(candies_done)
-			m.chime.play()
-		candies_done += 1
-		progress_t = 0.0
-		var done := candy_node
-		var shelf := CENTER + Vector3(8.0 + float(candies_done) * 2.4, 1.9, -6.0)
-		var tw2 := done.create_tween()
-		tw2.tween_interval(0.35)
-		tw2.tween_property(done, "position", shelf, 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-		candy_node = null
-		# the sweet spot narrows a touch each candy, but stays generous
-		press_zone = maxf(0.2, 0.34 - 0.045 * float(candies_done))
-		if press_zone_box != null:
-			press_zone_box.scale.x = press_zone / 0.34
-		if candies_done >= candies_goal:
-			_win()
-		else:
-			press_next_t = 0.8   # timer-driven so headless playtests can pump time
-			_update_hud()
-	else:
-		# a miss just squishes a giggle-wobble — the candy is always fine
-		var squish := candy_node.create_tween()
-		squish.tween_property(candy_node, "scale", Vector3(1.25, 0.7, 1.25), 0.15)
-		squish.tween_property(candy_node, "scale", Vector3.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		if m.chime != null:
-			m.chime.pitch_scale = 0.55
-			m.chime.play()
-		m.show_msg("Roshan", "Squish! Wait until the star slides into the green middle, then PRESS!", "hint")
+	# sorting is a DRAG onto the matching chute now — the button does nothing
+	pass
 
 func _tick_press(delta: float) -> void:
 	press_busy = maxf(0.0, press_busy - delta)
@@ -3758,7 +3846,7 @@ func _process(delta: float) -> void:
 		"fix":
 			_tick_fix(delta)
 		"press":
-			_tick_press(delta)
+			_tick_belt(delta)
 		"boss":
 			_tick_boss(delta)
 	if progress_t > 22.0:
@@ -3845,7 +3933,9 @@ func _pointer_target() -> Vector3:
 				var need := int(slots[fix_step]["need"])
 				return (pieces[need]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 		"press":
-			return CENTER + Vector3(0, 12.5, -8.5)
+			for it in belt_items:
+				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
+			return CENTER + Vector3(0, 8.0, BELT_Z)
 		"doctor":
 			if doc_step < doc_targets.size():
 				return (doc_targets[doc_step]["pos"] as Vector3) + Vector3(0, 5.5, 0)
@@ -3944,7 +4034,7 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
 		"press":
-			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / %d" % [candies_done, candies_goal]
+			objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
 			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
 		"scroll":
@@ -4005,6 +4095,7 @@ func _finish() -> void:
 	_leave_lens()
 	_leave_launch()
 	_leave_farm()
+	_leave_belt()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -4018,6 +4109,7 @@ func cancel() -> void:
 	_leave_lens()
 	_leave_launch()
 	_leave_farm()
+	_leave_belt()
 	if state == "done":
 		return
 	if state == "won":
@@ -4043,7 +4135,7 @@ func action_label() -> String:
 		"echo":
 			return "DANCE"
 		"press":
-			return "PRESS"
+			return "SORT"
 		"box":
 			return "PUNCH"
 		"sleuth":

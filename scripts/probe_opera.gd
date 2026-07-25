@@ -362,22 +362,35 @@ func _drive_fix(act: OperaAct) -> void:
 	_ck("holding through the countdown launches the rocket", act.state == "won")
 
 func _drive_press(act: OperaAct) -> void:
-	# a mistimed press only squishes a giggle — the candy always survives
-	act.press_x = 0.96
+	# the belt: candies ride out of the press and are DRAGGED to the chute of
+	# their own colour. Nothing here is a timed tap any more.
+	_ck("the sorting belt has three colour chutes", act.chutes.size() == 3)
+	_ck("a candy is riding the belt", act.belt_items.size() > 0)
 	act._press_action()
-	_ck("mistimed press is gentle (no fail, no candy)", act.state == "play" and act.candies_done == 0)
+	_ck("the button no longer stamps a candy", act.candies_done == 0)
 	var guard := 0
-	while act.state == "play" and guard < 900:
+	while act.state == "play" and guard < 400:
 		guard += 1
-		if act.press_busy <= 0.0 and act.candy_node != null:
-			act.press_x = 0.0
-			act._press_action()
-		else:
-			await process_frame
-	_ck("press act does not stall", guard < 900)
-	_ck("the full candy batch finishes the show", act.candies_done == act.candies_goal)
-
-var _once_seen := {}
+		if act.belt_items.is_empty():
+			act._belt_spawn()
+			continue
+		var it: Dictionary = act.belt_items[0]
+		var want: int = int(it["want"])
+		if guard == 1:
+			# a candy dropped in the WRONG chute is spat back, never lost
+			var wrong: int = (want + 1) % act.chutes.size()
+			act.sort_held = 0
+			(it["node"] as Node3D).position = act.chutes[wrong]["pos"] as Vector3
+			act._sort_drop()
+			_ck("a wrong chute spits the candy back, no fail",
+				act.state == "play" and act.candies_done == 0 and act.belt_items.size() > 0)
+			continue
+		act.sort_held = 0
+		(it["node"] as Node3D).position = act.chutes[want]["pos"] as Vector3
+		act._sort_drop()
+	_ck("sorting act does not stall", guard < 400)
+	_ck("the full sorted batch finishes the show", act.candies_done == act.candies_goal)
+	_ck("the belt speeds up as the batch grows", act.belt_speed > 2.4)
 
 func _ck_once(label: String, ok: bool) -> void:
 	if _once_seen.has(label):

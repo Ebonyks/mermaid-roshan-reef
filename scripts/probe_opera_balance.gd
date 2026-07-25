@@ -296,19 +296,20 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 			_intent_learned(act.bunny_at)
 
 func _drive_press(act: OperaAct, dt: float) -> void:
-	if act.press_busy > 0.0 or act.candy_node == null:
+	# the persona grabs the front candy, carries it to a chute and drops it,
+	# sometimes into the wrong one
+	if act.belt_items.is_empty():
 		return
 	if not _ready_to_act(dt):
 		return
-	if randf() < float(persona["err"]):
-		mistakes += 1
-		act.press_x = 0.9   # a mistimed jab
-		act._press_action()
-		return
-	if absf(act.press_x) <= act.press_zone * 0.9:
-		act._press_action()
-	else:
-		wait_t = 0.0   # keep watching the slider
+	var it: Dictionary = act.belt_items[0]
+	var want: int = int(it["want"])
+	var choice := _intent(act.chutes.size(), want, 7000 + act.candies_done)
+	act.sort_held = 0
+	(it["node"] as Node3D).position = act.chutes[choice]["pos"] as Vector3
+	act._sort_drop()
+	if choice != want:
+		_intent_learned(want)
 
 func _drive_box(act: OperaAct, dt: float) -> void:
 	if act.box_wait > 0.0:

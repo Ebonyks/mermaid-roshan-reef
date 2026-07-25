@@ -170,6 +170,13 @@ Built so far:
   judging a trotting pig rather than waiting for a beat. A lob that lands in
   the grass bounces; tapping feeds nobody at all now.
 
+- **Candy Maker — the conveyor sort** (`opera_act.gd`): the timing meter is
+  gone. Candies ride out of the press on a belt wearing a collar in their own
+  colour and must be DRAGGED into the matching chute. A wrong chute spits the
+  candy back with a giggle, an unsorted candy loops round for another pass, and
+  the belt speeds up with every success — that ramp is the act's difficulty
+  curve, made of speed rather than precision.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,
