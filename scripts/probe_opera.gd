@@ -100,8 +100,14 @@ func _init() -> void:
 	act._brawl_action()
 	_ck("the captain shrugs off the first star and dashes",
 		not bool(captain["popped"]) and (captain["pos"] as Vector3).distance_to(captain_pos) > 5.0)
+	# the rhythm: the imps are GUARDING someone, and freeing them pays a gift
+	_ck("the imps have captives in bubble cages", act.captives.size() == 2)
+	_ck("nobody is freed while imps still guard them", not act.gift_given)
 	_drive_brawl(act)
 	_ck("popped imps open the curtain to the stage", act.stage_phase == "puzzle")
+	_ck("the rescue frees the captives", act.gift_given)
+	_ck("the freed farmers hand over their carrots",
+		int(main.opera_pantry.get("carrots", 0)) >= 1)
 	# a wrong tap wobbles and re-hints, it never fails or advances
 	var first_cfg: Dictionary = OperaHouse.ACTS[0]
 	var order: Array = first_cfg["order"]

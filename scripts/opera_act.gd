@@ -1219,6 +1219,7 @@ func _build_backstage() -> void:
 		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
 		_spawn_imp(pos, g == imp_count - 1)
 	imps_left = imp_count
+	_build_captives()
 
 func _spawn_imp(pos: Vector3, captain: bool) -> void:
 	var root := Node3D.new()
@@ -1235,6 +1236,59 @@ func _spawn_imp(pos: Vector3, captain: bool) -> void:
 		_sphere(Vector3(0, 2.4, 0.3), 0.28, Color(1.0, 0.85, 0.4), 0.7, root)
 	imps.append({"index": imps.size(), "node": root, "pos": pos, "popped": false,
 		"phase": float(imps.size()) * 2.1, "hp": 2 if captain else 1})
+
+func _build_captives() -> void:
+	# two friends in bubble cages at the far end of the corridor, behind the imps
+	var who := String(config.get("rescue", "friends"))
+	var faces: Array[String] = ["pearl_friend", "two_friends", "mama_baby", "wacky_chuck"]
+	for i in range(2):
+		var pos := CENTER + Vector3(BACKSTAGE_X0 + 3.0, 1.4, -2.0 + float(i) * 6.5)
+		var root := Node3D.new()
+		root.name = "Captive%d" % i
+		root.position = pos
+		add_child(root)
+		var spr := Sprite3D.new()
+		var tex := m._cutout_tex(faces[(i + imp_count) % faces.size()])
+		spr.texture = tex
+		spr.pixel_size = 4.4 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		spr.position = Vector3(0, 1.8, 0)
+		root.add_child(spr)
+		# the bubble cage: a translucent dome that pops when the imps do
+		var dome := _sphere(Vector3(0, 1.8, 0), 2.6, Color(0.72, 0.9, 1.0, 0.3), 0.35, root)
+		var dm := dome.material_override as StandardMaterial3D
+		dm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		dm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		captives.append({"node": root, "dome": dome, "sprite": spr, "pos": pos})
+	m.show_msg("Roshan", "The mischief imps have trapped the %s in bubble cages! Pop the imps to set them free!" % who, "talk")
+
+func _free_captives() -> void:
+	# Beat 2 of the rhythm: the cages pop and the friends hand over the gift
+	if gift_given:
+		return
+	gift_given = true
+	var gift := String(config.get("gift", ""))
+	var who := String(config.get("rescue", "friends"))
+	for c in captives:
+		var dome := c["dome"] as Node3D
+		var pop := dome.create_tween()
+		pop.tween_property(dome, "scale", Vector3.ONE * 1.6, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		pop.tween_property(dome, "scale", Vector3.ZERO, 0.18)
+		m._sparkle_burst((c["pos"] as Vector3) + Vector3(0, 2.0, 0), Color(0.8, 0.95, 1.0))
+		var spr := c["sprite"] as Node3D
+		var hop := spr.create_tween()
+		hop.tween_property(spr, "position:y", spr.position.y + 1.2, 0.22).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hop.tween_property(spr, "position:y", spr.position.y, 0.26).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if gift == "":
+		return
+	m.opera_pantry[gift] = int(m.opera_pantry.get(gift, 0)) + 1
+	# the gift flies to Roshan so the handover is something she SEES
+	var token := _sphere((captives[0]["pos"] as Vector3) + Vector3(0, 2.4, 0), 0.8,
+		Color(1.0, 0.62, 0.3), 0.7)
+	var fly := token.create_tween()
+	fly.tween_property(token, "position", player_pos + Vector3(0, 3.0, 0), 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	fly.tween_property(token, "scale", Vector3.ZERO, 0.2)
+	m.show_msg("Roshan", "The %s are free! \"Thank you, Mermaid Roshan — take these %s for your show!\"" % [who, gift], "win")
 
 func _brawl_action() -> void:
 	# the brawler verb: a sparkle star pops the nearest imp into confetti.
@@ -1724,6 +1778,7 @@ func _sleuth_chest() -> void:
 	_win()
 
 func _open_gate() -> void:
+	_free_captives()
 	stage_phase = "puzzle"
 	progress_t = 0.0
 	if gate_curtain != null:
@@ -2052,8 +2107,22 @@ func _leave_chef() -> void:
 		m.touch_ui.set_drag_mode(false)
 
 func _begin_sift() -> void:
-	# Beat 1: rub the sieve back and forth; flour snows into the bowl
+	# Beat 1: rub the sieve back and forth; flour snows into the bowl. If the
+	# farmers' carrots are in the larder they go in too, and it becomes a
+	# carrot cake — the rescue is not flavour text, it changes the recipe.
 	order_phase = "sift"
+	var uses := String(config.get("uses", ""))
+	if uses != "" and int(m.opera_pantry.get(uses, 0)) > 0:
+		for i in range(3):
+			var carrot := CylinderMesh.new()
+			carrot.top_radius = 0.12
+			carrot.bottom_radius = 0.42
+			carrot.height = 1.8
+			var c := _mesh(carrot, goal.position + Vector3(-1.2 + float(i) * 1.2, 2.2, 0.6),
+				Color(1.0, 0.55, 0.22), 0.2)
+			c.rotation_degrees = Vector3(0, 0, 18.0 - float(i) * 18.0)
+			_sphere(c.position + Vector3(0, 1.1, 0), 0.34, Color(0.45, 0.75, 0.4), 0.15)
+		m.show_msg("Roshan", "The farmers' carrots go in first — a CARROT cake!", "talk")
 	sift_done = 0.0
 	sift_have = false
 	if m.touch_ui != null:
