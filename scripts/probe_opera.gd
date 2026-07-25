@@ -826,9 +826,13 @@ func _drive_dance(act: OperaAct) -> void:
 		await process_frame
 	var de := act.dance as DanceEngine
 	_ck("dance engine opens in guest mode", de != null and de.guest_mode and de.active)
+	# clear the encore's hits first: this check is "she closed WITHOUT singing",
+	# and the 4 hits poked in above would otherwise take the bow here instead
+	de.happy_hits = 0
 	de.close_demo()
 	await process_frame
-	_ck("closing without dancing keeps the mic waiting", act.state == "play")
+	_ck("closing without dancing keeps the mic waiting",
+		act.state == "play" and act.dance != null)
 	act._open_dance()
 	guard = 0
 	while not de.active and guard < 240:
