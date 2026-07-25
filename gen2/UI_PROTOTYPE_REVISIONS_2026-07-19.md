@@ -5,6 +5,20 @@ These files are design evidence for review and later Fable 5 co-construction. Th
 are not runtime textures, do not change Godot behavior, and must not be promoted
 as finished UI without the implementation and device gates below.
 
+## Runtime implementation update - 2026-07-21
+
+The review set was recovered and implemented as Godot-native Controls on
+`codex/menu-system`; the generated images remain review evidence only. Shared
+tokens and component builders live in `scripts/storybook_ui.gd`. The grammar is
+now applied to the exploration HUD and touch affordances, pause sheet, intro,
+craft studio, wardrobe, sticker book, Critter Book, stuffie picker, picture-game
+exit, kart exit, dungeon exit, Opera House exit, and dance overlay. The focused
+`scripts/probe_ui_system.gd` contract is part of `scripts/ci.sh`.
+
+This update raises the implementation beyond the original E1 proposal, but it
+does not claim device evidence: Mobile screenshots, touch latency, clipping,
+and actual-phone review remain required before promotion.
+
 ## Purpose
 
 Apply the same audit-first, image-prototype-first workflow used by the preceding

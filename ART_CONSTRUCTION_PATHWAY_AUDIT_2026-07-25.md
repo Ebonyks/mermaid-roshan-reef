@@ -57,7 +57,7 @@ Counts are live file counts, not doc claims.
 | Kitchen / bathroom props | 0 | 66 GLB | E4 | Shipped; predates the gate |
 | Art pass 3.5 library | 14 | 229 GLB | E4 | Shipped |
 | Full-texture-regen candidate | 61 | 137 GLB | E2 | Deliberately unwired; failed review |
-| **UI / HUD** | 10 | procedural | **E3 divergent** | Two rival implementations |
+| UI / HUD | 10 | procedural | E3 | StorybookUI chosen and merged (owner 2026-07-25) |
 | Characters / NPCs | — | 11 GLB | E4 partial | Cutout fallbacks remain |
 | Stuffie companions | — | protected | n/a | Generation forbidden by policy |
 
@@ -147,20 +147,42 @@ probe-covered — so it stays an owner decision:
 
 Nothing else in the project is blocked on this choice.
 
-### 3.4 The UI prototypes have two rival implementations
+### 3.4 UI: StorybookUI is the direction (owner decision 2026-07-25)
 
-`gen2/ui_prototypes_2026-07-19/` (10 mockups) produced:
+`gen2/ui_prototypes_2026-07-19/` (10 mockups) had produced two rival
+implementations of the same prototypes:
 
 - **On `dev`:** a partial "gold slice" — corner-owned HUD tray, picture
-  objective card, resting joystick — drawn directly in `main.gd` / `touch_ui.gd`.
-- **On `codex/menu-system` (unmerged, 3 commits, 21 files):** a fuller
-  `scripts/storybook_ui.gd` with a shared panel/label style system, a storybook
-  pause menu, a stuffie Tamagotchi care menu, and its own `probe_ui_system.gd`.
+  objective card, resting joystick — drawn directly in `main.gd` /
+  `touch_ui.gd`.
+- **On `codex/menu-system`:** a fuller `scripts/storybook_ui.gd` with a shared
+  panel/label style system, a storybook pause menu, a stuffie Tamagotchi care
+  menu, and its own `probe_ui_system.gd`.
 
-They rewrite the same lines. Merging is not mechanical, and the branch's
-`ci.sh` edit also drops `probe_ocean_kingdoms` and `probe_ui`. **I did not
-merge it** — picking a HUD direction is the owner's call. Once picked, the
-loser's edits should be reverted rather than blended.
+**The owner picked StorybookUI.** It is merged, and every UI conflict was
+resolved to the StorybookUI side rather than blended, as this audit
+recommended. The gold slice's dead `hud_tray` handle was removed with it.
+
+Probe coverage was reconciled rather than dropped. `codex/menu-system` had
+removed `probe_ui` from `ci.sh` (and, because it predates them, also
+`probe_ocean_kingdoms`); the merge keeps the current full trusted list — which
+now carries `probe_ocean_kingdoms` and `probe_clean` — and swaps `probe_ui`
+for `probe_ui_system`.
+
+`probe_ui` itself is retired, not merely unlisted: it calls
+`touch_ui.rest_zone()` / `action_zone()`, which StorybookUI removed, and reads
+`main.hud_tray`, which StorybookUI never assigns. Three of its checks were
+CLAUDE.md hard rules rather than layout details, so they moved into
+`probe_ui_system` instead of dying with it:
+
+1. the status tray carries no prose;
+2. an objective always shows a pictogram, never text alone;
+3. the stick has a visible, thumb-sized resting affordance before the first drag.
+
+One check could **not** be ported and is recorded as lost coverage: the
+corner-ownership test (HUD cards must not overlap the joystick, action or pause
+corners) was expressed through `rest_zone()`/`action_zone()`, which no longer
+exist. If StorybookUI grows an equivalent zone API, that check should come back.
 
 ---
 
@@ -234,7 +256,8 @@ touches the whole map; the art layer stands alone and additive without them.
 
 ## 6. Recommended order of remaining work
 
-1. **Owner decision — UI direction** (§3.4). Cheapest, unblocks a merged branch.
+1. ~~Owner decision — UI direction~~ — **decided 2026-07-25: StorybookUI**, now
+   merged (§3.4). One corner-ownership check is recorded as lost coverage.
 2. **Owner decision — Ember core provenance** (§3.3). The 40 enrichment
    exports are done; only the 39 core exports are still in question.
 3. **Opera House lobby kit** (§3.2). Largest real modelling job; the flat cards,

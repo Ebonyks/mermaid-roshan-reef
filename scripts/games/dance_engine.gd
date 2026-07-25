@@ -81,7 +81,7 @@ func _build_ui() -> void:
 
 	var top_bar := Panel.new()
 	top_bar.position = Vector2(24, 18)
-	top_bar.size = Vector2(1232, 92)
+	top_bar.size = Vector2(1232, 116)
 	var top_style := StyleBoxFlat.new()
 	top_style.bg_color = Color(0.1, 0.16, 0.34, 0.96)
 	top_style.border_color = Color(0.48, 0.86, 1.0, 0.65)
@@ -92,15 +92,15 @@ func _build_ui() -> void:
 
 	var prev_song := Button.new()
 	prev_song.text = "♫  ◀"
-	prev_song.position = Vector2(20, 12)
-	prev_song.size = Vector2(150, 68)
-	prev_song.add_theme_font_size_override("font_size", 30)
+	prev_song.position = Vector2(20, 3)
+	prev_song.size = Vector2(150, 110)
+	StorybookUI.style_button(prev_song, "secondary", 28, 28)
 	prev_song.pressed.connect(_change_song.bind(-1))
 	top_bar.add_child(prev_song)
 
 	song_label = Label.new()
 	song_label.position = Vector2(186, 10)
-	song_label.size = Vector2(860, 72)
+	song_label.size = Vector2(720, 96)
 	song_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	song_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	song_label.add_theme_font_size_override("font_size", 34)
@@ -109,23 +109,22 @@ func _build_ui() -> void:
 
 	var next_song := Button.new()
 	next_song.text = "▶  ♫"
-	next_song.position = Vector2(1062, 12)
-	next_song.size = Vector2(150, 68)
-	next_song.add_theme_font_size_override("font_size", 30)
+	next_song.position = Vector2(930, 3)
+	next_song.size = Vector2(150, 110)
+	StorybookUI.style_button(next_song, "secondary", 28, 28)
 	next_song.pressed.connect(_change_song.bind(1))
 	top_bar.add_child(next_song)
 
 	var close_button := Button.new()
-	close_button.text = "✕"
-	close_button.position = Vector2(1190, 124)
-	close_button.size = Vector2(66, 66)
-	close_button.add_theme_font_size_override("font_size", 30)
+	close_button.name = "DanceBackButton"
+	StorybookUI.style_back_button(close_button, "Back to the opera house")
+	close_button.position = Vector2(1138, 20)
 	close_button.pressed.connect(close_demo)
 	root.add_child(close_button)
 
 	prompt_label = Label.new()
 	prompt_label.text = "Tap the matching arrows!"
-	prompt_label.position = Vector2(180, 116)
+	prompt_label.position = Vector2(180, 140)
 	prompt_label.size = Vector2(920, 52)
 	prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	prompt_label.add_theme_font_size_override("font_size", 28)
@@ -133,7 +132,7 @@ func _build_ui() -> void:
 	root.add_child(prompt_label)
 
 	magic_label = Label.new()
-	magic_label.position = Vector2(180, 164)
+	magic_label.position = Vector2(180, 182)
 	magic_label.size = Vector2(920, 45)
 	magic_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	magic_label.add_theme_font_size_override("font_size", 24)

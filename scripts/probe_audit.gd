@@ -14,6 +14,8 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	var ui_ok: bool = await _audit_storybook_ui()
+	print("AUDIT|Storybook UI contract: ", "OK" if ui_ok else "FAIL")
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await process_frame
@@ -312,6 +314,89 @@ func _init() -> void:
 			print("AUDIT|persisted wins: ", cnt, "/5")
 	print("AUDIT|total wall time: %.1fs" % (float(Time.get_ticks_msec() - t_start) / 1000.0))
 	quit()
+
+func _audit_storybook_ui() -> bool:
+	var ok := true
+	if not main.intro_active:
+		main._build_intro()
+	await process_frame
+	ok = _ui_named_count(main.intro_layer, "IntroNextButton") == 1 and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroNextButton", Vector2(150, 150)) and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroRepeatVoiceButton") and ok
+	var skip := main.intro_layer.find_child("IntroHoldToSkipButton", true, false) as Control
+	ok = skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2 and ok
+	ok = (main.intro_layer.get_meta("page_pips", []) as Array).size() == 4 and ok
+	main._skip_intro()
+	await process_frame
+
+	ok = _ui_target_ok(main.pause_layer, "PauseCornerButton", Vector2(128, 128)) and ok
+	main.toggle_pause()
+	ok = main.pause_layer.layer == 29 and main.get_tree().paused and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseResumeButton", Vector2(300, 140)) and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseStickerButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseMusicButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseQualityButton") and ok
+	var leave := main.pause_panel.find_child("PauseLeaveButton", true, false) as Button
+	ok = leave != null and bool(leave.get_meta("neutral_exit", false)) and ok
+	main.toggle_pause()
+	ok = main.pause_layer.layer == 12 and not main.get_tree().paused and ok
+
+	main._open_craft_studio()
+	await process_frame
+	ok = _ui_target_ok(main.craft_layer, "CraftBackButton") and ok
+	ok = _ui_target_ok(main.craft_layer, "CraftFinishButton", Vector2(150, 150)) and ok
+	ok = _ui_named_count(main.craft_layer, "CraftPart_*") == 3 and ok
+	ok = _ui_named_count(main.craft_layer, "CraftSwatch_*") == 8 and ok
+	ok = _ui_named_count(main.craft_layer, "CraftRainbowSwatch") == 1 and ok
+	main._close_craft()
+
+	main._open_wardrobe()
+	await process_frame
+	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeBackButton") and ok
+	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeFinishButton") and ok
+	main._close_wardrobe()
+	main._open_stickers()
+	await process_frame
+	ok = _ui_target_ok(main.stickers_layer, "StickerBookBackButton") and ok
+	main._close_stickers()
+
+	main._collection_ref().open_book()
+	await process_frame
+	ok = _ui_target_ok(main.collection_layer, "CritterBookBackButton") and ok
+	main._collection_ref().close_book()
+
+	main._companion_ref().open_picker(false)
+	await process_frame
+	ok = _ui_target_ok(main.companion_layer, "StuffiePickerBackButton") and ok
+	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 3 and ok
+	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 8 and ok
+	main._companion_ref().close_picker()
+
+	main._mg2d_open("garden")
+	await process_frame
+	var picture_back := main.mg2d_layer.find_child("PictureGameBackButton", true, false) as Button
+	ok = picture_back != null and _ui_target_ok(main.mg2d_layer, "PictureGameBackButton") and ok
+	ok = picture_back != null and bool(picture_back.get_meta("neutral_exit", false)) and ok
+	main._mg2d_close()
+	main.mg_cool = 0.0
+	return ok
+
+func _ui_named_count(from: Node, pattern: String) -> int:
+	var count := 0
+	for node: Node in from.find_children(pattern, "", true, false):
+		if node is Control:
+			count += 1
+	return count
+
+func _ui_target_ok(from: Node, pattern: String, minimum := Vector2(110, 110)) -> bool:
+	var control := from.find_child(pattern, true, false) as Control
+	if control == null:
+		return false
+	var touch_size := Vector2(
+		maxf(control.size.x, control.custom_minimum_size.x),
+		maxf(control.size.y, control.custom_minimum_size.y)
+	)
+	return touch_size.x >= minimum.x and touch_size.y >= minimum.y
 
 func _stars_got() -> int:
 	var got := 0
