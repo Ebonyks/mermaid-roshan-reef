@@ -251,10 +251,14 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 			_ck("a finished band releases the finger for pot %d" % idx, not act.paint_easel)
 		if int(cfg.get("decorate", 0)) > 0:
 			_ck("last swipe opens the splatter party", act.order_phase == "decorate" and act.state == "play")
+			_ck("the freed painter's paints are in the larder",
+				int(main.opera_pantry.get("paints", 0)) >= 1)
 			for spot: Dictionary in act.deco_spots:
 				act.player_pos = (spot["pos"] as Vector3)
 				act._deco_action(int(spot["index"]))
 			_ck("every splat finishes the masterpiece", act.state == "won")
+			_ck("the finished painting is hung in the gallery",
+				int(main.opera_pantry.get("painting", 0)) >= 1)
 		return
 	for choice in order:
 		var idx2 := int(choice)
@@ -556,7 +560,10 @@ func _drive_sleuth(act: OperaAct) -> void:
 
 func _drive_doctor(act: OperaAct) -> void:
 	# five beats with a story: find the hurt one, carry it in, read the x-ray,
-	# wrap the cast, seal it with coban
+	# wrap the cast, seal it with coban. The rescue in THIS act is the animal
+	# herself, so the brawl frees nobody and hands over no gift.
+	_ck("the vet act cages nobody — the animal is the rescue",
+		act.captives.is_empty() and not act.gift_given)
 	_ck("the ward holds four animals", act.vet_animals.size() == 4)
 	_ck("exactly one of them is hurt", act.vet_hurt >= 0 and bool(act.vet_animals[act.vet_hurt]["hurt"]))
 	_ck("only the hurt one wears an ouch star",

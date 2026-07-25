@@ -13,6 +13,25 @@ set by the Vet Rescue and Pipe Dream rebuilds is different:
 Two acts already meet it. The rest are specified below. Every beat names its
 gesture, and no act repeats a gesture twice.
 
+## The rhythm every shelled act runs
+
+RESCUE (imps are guarding someone) → GIFT (the freed friends hand something
+over) → MAKE (the act runs on exactly that gift). Gifts persist in
+`m.opera_pantry`, saved.
+
+| Act | Rescues | Gift | Used for |
+| --- | --- | --- | --- |
+| Pastry Chef | the farmers | carrots | they go in the bowl — it becomes a carrot cake |
+| Painter | another painter | their paints | the pots she paints with; the finished canvas is then HUNG in the gallery |
+| Detective | stagehands | lanterns | *(to wire: light the dark Prop Library)* |
+| Magician | usher crabs | silk scarves | *(to wire: the rope trick)* |
+| Astronaut | bubble engineers | spare pipes | *(to wire: extra queue pieces)* |
+| **Doctor** | **— none —** | **—** | the rescue in that act is the injured animal herself |
+
+The Doctor deliberately has no cages. Its story was already specified: chase the
+imps out, then FIND the hurt animal. Bolting caged nurses onto the front of that
+would be a second rescue in an act that already has one.
+
 ## Done
 
 **Doctor — the Vet Rescue.** find the hurt animal → carry to the fluoroscope →

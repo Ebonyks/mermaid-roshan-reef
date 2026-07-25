@@ -1219,7 +1219,10 @@ func _build_backstage() -> void:
 		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
 		_spawn_imp(pos, g == imp_count - 1)
 	imps_left = imp_count
-	_build_captives()
+	if String(config.get("rescue", "")) != "":
+		_build_captives()
+	else:
+		m.show_msg("Roshan", "Oh no — mischief imps snuck backstage! Pop them with SPARKLE so the show can start!", "talk")
 
 func _spawn_imp(pos: Vector3, captain: bool) -> void:
 	var root := Node3D.new()
@@ -1264,7 +1267,7 @@ func _build_captives() -> void:
 
 func _free_captives() -> void:
 	# Beat 2 of the rhythm: the cages pop and the friends hand over the gift
-	if gift_given:
+	if gift_given or captives.is_empty():
 		return
 	gift_given = true
 	var gift := String(config.get("gift", ""))
@@ -1964,6 +1967,13 @@ func _build_order() -> void:
 	if order_flow == "carry_paint":
 		canvas_pos = goal.position + Vector3(0, 3.6, 0)
 		_build_paint_canvas()
+		if int(m.opera_pantry.get("paints", 0)) > 0:
+			# the freed painter's own pots, set out beside the easel
+			for i in range(3):
+				var pot := _cyl(canvas_pos + Vector3(-7.0, -2.6 + float(i) * 1.5, 1.0), 0.7, 1.2,
+					_order_colors("paint")[i], 0.3)
+				pot.name = "GiftedPot%d" % i
+			m.show_msg("Roshan", "The painter shared their own paints with you — use every colour!", "talk")
 	elif String(config.get("finale", "")) == "stir":
 		_begin_sift()   # the Cake Show is a gesture chain, not a pad errand
 		brush_node = Node3D.new()
@@ -4635,10 +4645,27 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "✨  Tap SPARKLE when he peeks!  " + hearts
 
+func _hang_painting() -> void:
+	# the creation is USED: it gets a gold frame and flies up onto the gallery
+	# wall, and the larder remembers that a Roshan original hangs there
+	if paint_canvas == null:
+		return
+	_paint_flush()
+	var frame := _box(paint_canvas.position, Vector3(paint_size.x + 1.1, paint_size.y + 1.1, 0.3),
+		Color(1.0, 0.85, 0.45), 0.35)
+	var up := frame.create_tween()
+	up.tween_property(frame, "position", CENTER + Vector3(0, 11.0, -16.8), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	var up2 := paint_canvas.create_tween()
+	up2.tween_property(paint_canvas, "position", CENTER + Vector3(0, 11.0, -16.6), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	m.opera_pantry["painting"] = int(m.opera_pantry.get("painting", 0)) + 1
+	m._sparkle_burst(CENTER + Vector3(0, 11.0, -16.0), Color(1.0, 0.9, 0.6))
+
 func _win() -> void:
 	if state != "play":
 		return
 	state = "won"
+	if kind == "paint":
+		_hang_painting()
 	win_t = 2.6
 	pointer.visible = false
 	objective.text = "🎉  TA-DAAA!  🎉"
