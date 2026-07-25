@@ -89,21 +89,38 @@ func _idle_near(target: Dictionary, seconds: float) -> void:
 		await process_frame
 
 
+func _await_cool(entry: Dictionary, budget_ms: int) -> void:
+	# Headless Godot does NOT run at 60fps, so a frame count is not a clock
+	# (the same trap JOLT_PHYSICS_AUDIT recorded). Wait on the real cooldown
+	# state against a wall-clock budget, holding Roshan on the target so she
+	# cannot drift away while the rub cooldown runs down.
+	var deadline: int = Time.get_ticks_msec() + budget_ms
+	while Time.get_ticks_msec() < deadline:
+		if float(entry.get("cool", 0.0)) <= 0.0:
+			return
+		if int(entry.get("rubs", 0)) >= CastleCleanup.RUBS_PER_TARGET:
+			return
+		_stand_at(entry["pos"] as Vector3)
+		await process_frame
+
+
 func _tap_clean(target: Dictionary, taps: int) -> void:
 	for _index in range(taps):
 		_stand_at(target["pos"] as Vector3)
 		main.touch_ui.action_down = true
 		await process_frame
+		await process_frame
 		main.touch_ui.action_down = false
-		# the rub cooldown is 0.22s; wait it out between accepted inputs
-		await _frames(20)
+		await _await_cool(target, 4000)
 
 
 func _rub_clean(target: Dictionary, strokes: int) -> void:
 	for index in range(strokes):
 		_stand_at(target["pos"] as Vector3)
 		main.touch_ui.stick_vec = Vector2(0.9, 0.0) if index % 2 == 0 else Vector2(-0.9, 0.0)
-		await _frames(20)
+		await process_frame
+		await process_frame
+		await _await_cool(target, 4000)
 	main.touch_ui.stick_vec = Vector2.ZERO
 
 
