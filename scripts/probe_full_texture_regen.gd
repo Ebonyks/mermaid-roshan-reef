@@ -7,7 +7,11 @@ extends SceneTree
 const MODEL_DIR := "res://assets/full_texture_regen_2026-07-18/models"
 const TEXTURE_DIR := "res://assets/full_texture_regen_2026-07-18/textures"
 const EXPECTED_MODELS := 137
-const EXPECTED_TEXTURES := 30
+# 31 since 4916bb8 ("art: add calm Butterfly World meadow base") added
+# R044_..._butterfly_meadow_ground_calm.png. The constant was never bumped with
+# it, and the probe suite has not executed since bd143ef broke actions/checkout,
+# so the mismatch sat unseen. Deliberate asset addition — count follows it.
+const EXPECTED_TEXTURES := 31
 const MAX_MODEL_TRIANGLES := 12000
 const MAX_TEXTURE_SIDE := 1024
 

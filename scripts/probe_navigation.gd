@@ -21,12 +21,12 @@ extends SceneTree
 var main: ReefMain
 var fails := 0
 
-# v3/v4 Roshan is a 1.9-unit GLB at scale 3.7 (player.gd _ready)
-const ROSHAN_H := 7.03
-# framing band: 39% outdoors was the shipped diorama look; 99% indoors was the
-# bug. Anything inside this is a readable third-person frame.
-const FRAME_MIN := 0.22
-const FRAME_MAX := 0.72
+# Fraction of the viewport HEIGHT Roshan may occupy, measured by projection
+# (see _watch). The defect this guards is the interior lens filling the screen
+# with her back; the band is deliberately wide because the diorama look varies
+# with speed and the boom-over lift.
+const FRAME_MIN := 0.10
+const FRAME_MAX := 0.75
 
 
 func _ck(label: String, ok: bool, detail: String = "") -> void:
@@ -63,10 +63,16 @@ func _watch() -> void:
 	var focus: Vector3 = p.position + Vector3(0, 1.5, 0)
 	var d: float = cam.position.distance_to(focus)
 	worst_boom = minf(worst_boom, d)
-	if d > 0.01:
-		# fraction of the frame height Roshan occupies at this boom and lens
-		var vis_h: float = 2.0 * d * tan(deg_to_rad(cam.fov) * 0.5)
-		var frac: float = ROSHAN_H / maxf(vis_h, 0.001)
+	# Subject size by PROJECTION, not by trigonometry on cam.fov. Doing the
+	# arithmetic by hand means guessing Godot's fov/keep_aspect convention and
+	# the model's real extents; unproject_position answers with the pixels the
+	# child actually sees. Roshan's v3/v4 GLB spans about -2.6..+4.4 in
+	# player-local y (1.9u mesh at scale 3.7, child offset +0.89).
+	var head: Vector2 = cam.unproject_position(p.position + Vector3(0, 4.4, 0))
+	var feet: Vector2 = cam.unproject_position(p.position + Vector3(0, -2.6, 0))
+	var view_h: float = float(get_root().get_visible_rect().size.y)
+	if view_h > 1.0 and d > 0.01:
+		var frac: float = absf(head.y - feet.y) / view_h
 		worst_frac = maxf(worst_frac, frac)
 		best_frac = minf(best_frac, frac)
 	if not p.visible:
@@ -144,8 +150,8 @@ func _init() -> void:
 		moved.length() > 3.0 and moved.normalized().dot(right_v) > 0.3,
 		"d=%.1f dot=%.2f" % [moved.length(), moved.normalized().dot(right_v) if moved.length() > 0.01 else 0.0])
 	_ck("open water keeps her in frame",
-		hidden_frames == 0 and worst_frac < FRAME_MAX,
-		"hidden=%d worst_frac=%.2f" % [hidden_frames, worst_frac])
+		hidden_frames == 0 and worst_frac < FRAME_MAX and best_frac > FRAME_MIN,
+		"hidden=%d frac %.3f..%.3f" % [hidden_frames, best_frac, worst_frac])
 	await _stick(Vector2.ZERO, 0.3)
 
 	# ---------- into the castle ----------
@@ -212,7 +218,7 @@ func _init() -> void:
 		worst_boom > 1.8, "min boom %.2f" % worst_boom)
 	_ck("interior framing is a third-person frame, not a close-up",
 		worst_frac < FRAME_MAX and best_frac > FRAME_MIN,
-		"frac %.2f..%.2f" % [best_frac, worst_frac])
+		"frac %.3f..%.3f" % [best_frac, worst_frac])
 	_ck("no invisible hand moved her (position only changed by swimming)",
 		pos_before.distance_to(p.position) < 60.0,
 		"travelled %.1f" % pos_before.distance_to(p.position))
@@ -223,6 +229,26 @@ func _init() -> void:
 	_ck("the Crown Star is won from the dais without a magnet",
 		bool(main.g.get("crown_won", false)),
 		"pos=%s" % str(p.position - o))
+
+	# ---- DIAGNOSTIC (prints, never asserts): the interior lens, before vs
+	# after, measured at the SAME spot. The audit's headline number was hand
+	# trigonometry on cam.fov; this is the projected pixel height instead.
+	await _stick(Vector2.ZERO, 0.5)
+	_reset_watch()
+	await _stick(Vector2.ZERO, 0.7)
+	var new_lo: float = best_frac
+	var new_hi: float = worst_frac
+	p.cam_back = 10.0     # the pre-fix hand-tune
+	p.cam_high = 4.2
+	p.snap_cam()
+	await _frames(4)
+	_reset_watch()
+	await _stick(Vector2.ZERO, 0.7)
+	print("NAV|framing diagnostic: interior lens 10.0/4.2 fills %.3f..%.3f of frame height; 18.0/8.0 fills %.3f..%.3f"
+		% [best_frac, worst_frac, new_lo, new_hi])
+	p.apply_cam_profile(CameraKit.INTERIOR)
+	p.snap_cam()
+	await _frames(4)
 
 	# ---------- S2: the entrance facade is solid off-doorway ----------
 	p.position = o + Vector3(24.0, 6.0, 34.0)
