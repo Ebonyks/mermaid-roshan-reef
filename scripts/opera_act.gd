@@ -324,6 +324,12 @@ const RESCUE_DELAY := 5.0
 const BACKSTAGE_X0 := -58.0        # corridor west wall (relative to CENTER.x)
 const BACKSTAGE_X1 := -26.0        # curtain gate line
 var imp_count := 4                 # config "imps" can tune per act
+# ---- the rescue (owner 2026-07-25) ----
+# The backstage brawl is not a warm-up: the imps are GUARDING someone. Popping
+# them frees the captives, who hand over the gift the act runs on.
+var captives: Array[Dictionary] = []
+var gift_given := false
+var want_drag := false             # what the act WANTS; a rescue can veto it
 var stage_phase := "puzzle"        # brawl | puzzle
 var imps: Array[Dictionary] = []
 var imps_left := 0
@@ -2184,7 +2190,7 @@ func _begin_sift() -> void:
 
 func _tick_sift(delta: float) -> void:
 	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
-	var pos := m.touch_ui.drag_pos if active else Vector2.ZERO
+	var pos: Vector2 = m.touch_ui.drag_pos if active else Vector2.ZERO
 	if not active and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		active = true
 		pos = m.get_viewport().get_mouse_position()
