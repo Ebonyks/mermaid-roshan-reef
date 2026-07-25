@@ -1283,6 +1283,14 @@ func _end_stage_rescue() -> void:
 	_set_drag(want_drag)             # give the act back whatever finger it wanted
 	m._sparkle_burst(CENTER + Vector3(0, 4.0, 0), Color(1.0, 0.9, 0.6))
 	m.show_msg("Roshan", String(config.get("voice", "On with the show!")), "talk")
+	# Barrier 6: the borrowed engines own the whole screen, so they were held
+	# back at build time. Now that the stage is clear, hand it to them — and
+	# with the gift in the larder, so the wheels and instruments count.
+	match kind:
+		"race":
+			_launch_race()
+		"dance":
+			_open_dance()
 	_update_hud()
 
 func _build_captives() -> void:
@@ -1364,9 +1372,17 @@ func _brawl_action() -> void:
 		# the captain giggles off the first star and dashes down the corridor
 		var gpos0: Vector3 = imp["pos"] as Vector3
 		m._sparkle_burst(gpos0 + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
-		var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
-		var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
-		var dash := Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
+		var dash := Vector3.ZERO
+		if stage_phase == "rescue":
+			# an on-stage rescue has no corridor: the corridor coordinates would
+			# fling the captain off the set and out of the child's reach. He
+			# dashes to the far side of the STAGE instead.
+			var dash_sx := CENTER.x + (-9.0 if player_pos.x > CENTER.x else 9.0)
+			dash = Vector3(dash_sx, 1.0, CENTER.z + randf_range(-6.0, 2.0))
+		else:
+			var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
+			var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
+			dash = Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
 		imp["pos"] = dash
 		(imp["node"] as Node3D).position = dash
 		if m.chime != null:
@@ -3834,6 +3850,8 @@ func _build_race() -> void:
 func _launch_race() -> void:
 	if state != "play" or kind != "race" or kart != null:
 		return
+	if stage_phase == "rescue":
+		return   # the pit crew are still caged; the kart takes the whole screen
 	race_prev_track = m.cur_track
 	m._play_music("race")
 	var kart_script: GDScript = load("res://scripts/kart.gd") as GDScript
@@ -3894,6 +3912,8 @@ func _build_dance() -> void:
 func _open_dance() -> void:
 	if state != "play" or kind != "dance":
 		return
+	if stage_phase == "rescue":
+		return   # the band are still caged; the concert owns the whole screen
 	if dance == null:
 		var dance_script: GDScript = load("res://scripts/games/dance_engine.gd") as GDScript
 		dance = dance_script.new(m) as CanvasLayer

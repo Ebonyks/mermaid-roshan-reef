@@ -133,12 +133,16 @@ func _init() -> void:
 		if main.opera_game != null:
 			main.opera_game._leave_early()
 		await process_frame
-		var og_returned: bool = (main.game == "level2" and main.opera_game == null
-			and og_pos.distance_to(player.position) < 9.0)
+		var og_home: bool = main.game == "level2"
+		var og_cleared: bool = main.opera_game == null
+		var og_dist: float = og_pos.distance_to(player.position)
+		var og_returned: bool = og_home and og_cleared and og_dist < 9.0
 		main.l2_cutscene_t = old_cut
 		og_ok = og_blocked and og_rearmed and og_opened and og_returned
-		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s"
-			% [og_blocked, og_rearmed, og_opened, og_returned])
+		# `return` is composite; print its parts so a regression names itself
+		# instead of costing a whole 16-minute CI round to bisect
+		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s (home=%s cleared=%s dist=%.1f)"
+			% [og_blocked, og_rearmed, og_opened, og_returned, og_home, og_cleared, og_dist])
 	if not og_ok:
 		print("FAIL|courtyard opera marquee gate regression")
 	# The Alpine addition must remain one distinct corner, clear of the train,

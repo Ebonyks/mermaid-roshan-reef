@@ -112,15 +112,18 @@ func _init() -> void:
 			continue
 		var dir_name := String(DIR_ALIAS.get(costume, costume))
 		var beats: Array = []
-		for b: Dictionary in BEATS[costume]:
+		var beat_list: Array = BEATS[costume]
+		for b: Dictionary in beat_list:
 			var objs := {}
-			for name: String in (b["objects"] as Dictionary):
-				var states: Array = (b["objects"] as Dictionary)[name]
-				var rel := "assets/opera/jobs/%s/opera_%s_%s.glb" % [dir_name, dir_name, name]
+			var spec: Dictionary = b["objects"]
+			for key in spec.keys():
+				var oname := String(key)
+				var states: Array = spec[key]
+				var rel := "assets/opera/jobs/%s/opera_%s_%s.glb" % [dir_name, dir_name, oname]
 				var have := ResourceLoader.exists("res://" + rel)
 				if not have:
 					total_missing += 1
-				objs[name] = {
+				objs[oname] = {
 					"states": states,
 					"path": rel,
 					"exists": have,

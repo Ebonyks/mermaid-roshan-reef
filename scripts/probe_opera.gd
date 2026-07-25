@@ -108,13 +108,23 @@ func _init() -> void:
 	_ck("the rescue frees the captives", act.gift_given)
 	_ck("the freed farmers hand over their carrots",
 		int(main.opera_pantry.get("carrots", 0)) >= 1)
-	# a wrong tap wobbles and re-hints, it never fails or advances
+	# the pad errand is GONE from the Cake Show — it opens straight onto the
+	# sieve now, and a tap on a layer pad is scenery, not a step
 	var first_cfg: Dictionary = OperaHouse.ACTS[0]
 	var order: Array = first_cfg["order"]
 	var wrong: int = (int(order[0]) + 1) % 3
 	act._act_action(wrong)
-	_ck("wrong cake layer is gentle (no fail, no step)", act.state == "play" and act.step == 0)
-	_ck("a mistake summons the rescue arrow", act.progress_t >= act.RESCUE_DELAY)
+	_ck("tapping a layer pad no longer steps the cake show",
+		act.state == "play" and act.step == 0 and act.order_phase == "sift")
+	# the rescue arrow is still the safety net: it holds back so the child gets
+	# a moment alone with the puzzle, then arrives when she is stuck
+	act.progress_t = 0.0
+	act._tick_pointer()
+	_ck("the arrow waits — the child gets her moment alone", not act.pointer.visible)
+	act.progress_t = act.RESCUE_DELAY + 0.1
+	act._tick_pointer()
+	_ck("a stuck cook is rescued by the arrow", act.pointer.visible)
+	act.progress_t = 0.0
 	await _drive_order(act, first_cfg)
 	_ck("cake show ends in a win", act.state == "won")
 	act.win_t = 0.0
@@ -159,6 +169,11 @@ func _init() -> void:
 			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)
 			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
+		else:
+			# the six acts with no backstage corridor rescue someone on their
+			# own stage first; until that is driven the act's engine is frozen
+			# and every check after it reads a game that never started
+			_drive_stage_rescue(act)
 		match String(cfg2["kind"]):
 			"order", "paint":
 				await _drive_order(act, cfg2)
@@ -339,12 +354,31 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("a golden cake comes out and opens the piping", act.order_phase == "pipe")
 		# piping is a TRACE: every dot on the ring must be passed over
 		_ck("the piping ring is dotted out", act.pipe_dots.size() == 10)
-		for d in act.pipe_dots:
-			(d as Node3D).visible = false
-		act.pipe_trace = act.pipe_dots.size()
+		# drive it the way a finger does: the dot only lights when the DRAG
+		# passes over it. Poking pipe_trace by hand proved nothing and left
+		# _tick_pipe early-returning on an inactive drag, so the act stalled.
+		var has_finger: bool = main.touch_ui != null and bool(main.touch_ui.drag_mode)
+		_ck("the piping ring hands the finger to the drag channel", has_finger)
 		act._tick_pipe(0.1)
+		_ck("an idle finger pipes nothing", act.pipe_trace == 0)
+		if has_finger and act.cam != null:
+			main.touch_ui.drag_active = true
+			var tguard := 0
+			while act.order_phase == "pipe" and tguard < 40:
+				tguard += 1
+				var nxt: Node3D = null
+				for d in act.pipe_dots:
+					if (d as Node3D).visible:
+						nxt = d as Node3D
+						break
+				if nxt == null:
+					break
+				main.touch_ui.drag_pos = act.cam.unproject_position(nxt.position)
+				act._tick_pipe(0.1)
+			main.touch_ui.drag_active = false
+		_ck("tracing the ring pipes the frosting", act.pipe_trace >= act.pipe_dots.size())
 		if int(cfg.get("decorate", 0)) > 0:
-			_ck("three stirs open the topping party", act.order_phase == "decorate" and act.state == "play")
+			_ck("the piped ring opens the topping party", act.order_phase == "decorate" and act.state == "play")
 			for spot: Dictionary in act.deco_spots:
 				act.player_pos = (spot["pos"] as Vector3)
 				act._deco_action(int(spot["index"]))
