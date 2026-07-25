@@ -142,12 +142,24 @@ func _init() -> void:
 		if main.opera_game != null:
 			main.opera_game._leave_early()
 		await process_frame
+		var og_dist: float = og_pos.distance_to(player.position)
 		var og_returned: bool = (main.game == "level2" and main.opera_game == null
-			and og_pos.distance_to(player.position) < 9.0)
+			and og_dist < 9.0)
 		main.l2_cutscene_t = old_cut
 		og_ok = og_blocked and og_rearmed and og_opened and og_returned
 		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s"
 			% [og_blocked, og_rearmed, og_opened, og_returned])
+		# Diagnostics only - no assertion changes. The return leg went red
+		# between runs 681 and 682 and reproduces deterministically, but the
+		# booleans above cannot say WHY: whether the game/opera_game state is
+		# wrong, or the landing simply lands too far. Print the parts.
+		var og_blocked_all: bool = true
+		for offset: Vector3 in [Vector3(6.5, 0, 0), Vector3(-6.5, 0, 0), Vector3(0, 0, 6.5), Vector3(0, 0, -6.5), Vector3(5.0, 0, 5.0)]:
+			if not main._arena_point_blocked_solid(og_pos + offset):
+				og_blocked_all = false
+		print("OPERAGATE_DIAG|game=%s opera_null=%s dist=%.3f gate=%s player=%s all_offsets_blocked=%s solids=%d"
+			% [main.game, main.opera_game == null, og_dist, og_pos, player.position,
+				og_blocked_all, main.arena_solids.size()])
 	if not og_ok:
 		print("FAIL|courtyard opera marquee gate regression")
 	# The Alpine addition must remain one distinct corner, clear of the train,
