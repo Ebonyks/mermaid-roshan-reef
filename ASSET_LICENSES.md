@@ -339,10 +339,38 @@ ambientCG (all CC0).
   - Modifications: normalized to 1024 x 1024, chroma backgrounds removed with
     soft alpha matte and despill, retained as shared 4 x 4 runtime atlases;
     generated and processed 2026-07-22.
-- `assets_src/concepts/roshan_pool_2d/*_chroma_2026-07-22.png`
+- `assets_src/concepts/roshan_pool_2d/mermaid_pool_atlas_chroma_2026-07-22.png`
+  and
+  `assets_src/concepts/roshan_pool_2d/pnw_marsh_atlas_chroma_2026-07-22.png`
   - Source: normalized accepted source outputs from the same OpenAI built-in
     image-generation calls.
   - License: project original.
   - URL: n/a (no external source art).
   - Modifications: resized from 1254 x 1254 to 1024 x 1024 for repository
     limits; review/provenance only under `assets_src/.gdignore`.
+- `assets/castle/pool_2d/poolside_ornaments_atlas.png`,
+  `assets/castle/pool_2d/whale_states_atlas.png`, and
+  `assets/castle/pool_2d/whale_rescue_storyboard.png`
+  - Source: original project art generated with the OpenAI built-in image
+    generation tool; no input or reference images; exact verbatim prompts and
+    cell manifests are recorded in
+    `assets_src/concepts/roshan_pool_2d/PROMPTS.md`.
+  - License: project original.
+  - URL: n/a (no external source art).
+  - Modifications: white generation gutters cropped six source pixels per
+    cell and all cells resampled to exact 256 x 256 runtime regions. The
+    4 x 3 ornament and 4 x 2 whale sheets were converted from chroma green to
+    soft alpha with border sampling, thresholds 12/220, and despill, with a
+    three-pixel transparent guard band per runtime cell. The 3 x 3 storyboard
+    remains opaque. Generated and processed 2026-07-22.
+- `assets_src/concepts/roshan_pool_2d/poolside_ornaments_atlas_chroma_2026-07-22.png`,
+  `assets_src/concepts/roshan_pool_2d/whale_states_atlas_chroma_2026-07-22.png`,
+  and
+  `assets_src/concepts/roshan_pool_2d/whale_rescue_storyboard_2026-07-22.png`
+  - Source: normalized accepted source outputs from the same OpenAI built-in
+    image-generation calls; no input or reference images.
+  - License: project original.
+  - URL: n/a (no external source art).
+  - Modifications: normalized from 1448 x 1086 to 1024 x 768, from
+    1717 x 916 to 1024 x 512, and from 1254 x 1254 to 768 x 768 respectively;
+    review/provenance only under `assets_src/.gdignore`.

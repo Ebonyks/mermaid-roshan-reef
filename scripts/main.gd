@@ -793,7 +793,10 @@ func _unhandled_input(ev: InputEvent) -> void:
 		var kc: int = (ev as InputEventKey).physical_keycode
 		advance = kc == KEY_SPACE or kc == KEY_ENTER
 	if advance:
-		_intro_next()
+		if bool(g.get("pool_story_active", false)):
+			_hall_ref().advance_pool_story()
+		else:
+			_intro_next()
 
 func _tick_roshan_reactions(delta: float, ppos: Vector3) -> void:
 	if game != "" or finale_t >= 0.0 or intro_active:
@@ -4590,7 +4593,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	lagoon_floor = false   # the castle hall is flat indoor ground
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 102.0   # also covers the east-wing 50 x 25 Royal Natatorium
+	arena_dome = 165.0   # also covers the east-wing 100 x 50 Royal Natatorium
 	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
 	# warm indoor castle light
 	var ie := Environment.new()
@@ -6563,7 +6566,19 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if _collection_ref().has_nearby():
+		if (
+			game == "level2"
+			and String(g.get("phase", "")) == "hall"
+			and int(g.get("castle_pool_pump_near", -1)) >= 0
+		):
+			act_lbl = "FIX!"
+		elif (
+			game == "level2"
+			and String(g.get("phase", "")) == "hall"
+			and bool(g.get("castle_pool_whale_near", false))
+		):
+			act_lbl = "STORY"
+		elif _collection_ref().has_nearby():
 			act_lbl = "CATCH!"
 		elif game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"

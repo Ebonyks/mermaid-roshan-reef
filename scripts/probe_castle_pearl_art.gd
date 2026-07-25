@@ -145,6 +145,16 @@ func _frames(count: int) -> void:
 		await process_frame
 
 
+func _close_pool_story() -> void:
+	var guard := 0
+	while bool(main.g.get("pool_story_active", false)) and guard < 12:
+		main._hall_ref().advance_pool_story()
+		guard += 1
+		await process_frame
+	_ck("pool_story_closes", not bool(main.g.get("pool_story_active", false)),
+		"advances=%d" % guard)
+
+
 func _triangle_count(mesh: Mesh) -> int:
 	var triangles := 0
 	for surface_index in range(mesh.get_surface_count()):
@@ -265,8 +275,8 @@ func _capture_castle() -> void:
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
 	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
 	await _shot("castle_19_bedroom_wardrobe", o + Vector3(43.0, 8.0, -20.0), o + Vector3(40.0, 6.2, -8.0), 62.0)
-	await _shot("castle_20_pool_entry", o + Vector3(30.0, 12.0, 18.0), o + Vector3(57.0, -1.5, 26.0), 68.0)
-	await _shot("castle_21_royal_natatorium", o + Vector3(66.0, 8.0, 51.0), o + Vector3(55.0, -3.0, 25.0), 70.0)
+	await _shot("castle_20_pool_entry", o + Vector3(30.0, 12.0, 18.0), o + Vector3(65.0, -2.0, 30.0), 70.0)
+	await _shot("castle_21_royal_natatorium_dirty", o + Vector3(98.0, 20.0, 111.0), o + Vector3(68.5, -3.0, 55.0), 72.0)
 
 
 func _run() -> void:
@@ -276,6 +286,14 @@ func _run() -> void:
 	root.add_child(main)
 	await process_frame
 	main._skip_intro()
+	for rescue_key in [
+		"_castle_pool_whale_met",
+		"_castle_pool_pump_0",
+		"_castle_pool_pump_1",
+		"_castle_pool_pump_2",
+		"_castle_pool_whale_friend",
+	]:
+		main.stickers.erase(rescue_key)
 	main.pearl_count = main.PEARL_TOTAL
 	for friend_value in main.friends:
 		var friend: Dictionary = friend_value
@@ -303,33 +321,57 @@ func _run() -> void:
 	_ck("secret_stand_contract_preserved", main.g.has("stand_chest") and main.g.has("stand_lid"), "slide tween roots remain")
 	var pool_texture: Texture2D = load(
 		"res://assets/castle/pool_2d/mermaid_pool_atlas.png") as Texture2D
+	var ornament_texture: Texture2D = load(
+		"res://assets/castle/pool_2d/poolside_ornaments_atlas.png") as Texture2D
+	var whale_texture: Texture2D = load(
+		"res://assets/castle/pool_2d/whale_states_atlas.png") as Texture2D
+	var storyboard_texture: Texture2D = load(
+		"res://assets/castle/pool_2d/whale_rescue_storyboard.png") as Texture2D
 	var pool_card_count: int = 0
+	var pool_unique_cells: Dictionary = {}
+	var ornament_card_count: int = 0
 	for pool_node_value: Variant in main.find_children("*", "Sprite3D", true, false):
 		var pool_node: Node = pool_node_value as Node
 		if pool_node.has_meta("castle_pool_art_index"):
 			pool_card_count += 1
+			pool_unique_cells[int(pool_node.get_meta("castle_pool_art_index"))] = true
+		if pool_node.has_meta("castle_pool_ornament_index"):
+			ornament_card_count += 1
 	var pool_rect: Rect2 = main.g.get("castle_pool_rect", Rect2()) as Rect2
 	var pool_dimensions: Vector2 = main.g.get(
 		"castle_pool_dimensions_m", Vector2.ZERO) as Vector2
 	var pool_surface: float = main.water_surface_y(
-		main.CASTLE_POS.x + 56.0, main.CASTLE_POS.z + 26.0)
+		main.CASTLE_POS.x + 68.5, main.CASTLE_POS.z + 55.0)
 	var hall_dry_surface: float = main.water_surface_y(
 		main.CASTLE_POS.x, main.CASTLE_POS.z)
 	var pool_zone_ok: bool = false
 	for zone_value: Variant in main.arena_zones:
 		var zone: Dictionary = zone_value as Dictionary
-		if ((zone["rect"] as Rect2).has_point(Vector2(56.0, 26.0))
+		if ((zone["rect"] as Rect2).has_point(Vector2(68.5, 55.0))
 				and float(zone.get("floor", 99.0)) < -7.0):
 			pool_zone_ok = true
+	var pump_rows: Array = main.g.get("castle_pool_pumps", [])
+	var pointer_count := 0
+	for pump_value: Variant in pump_rows:
+		var pump: Dictionary = pump_value as Dictionary
+		var pointer_value: Variant = pump.get("pointer")
+		if pointer_value is Label3D and is_instance_valid(pointer_value):
+			pointer_count += 1
+	var whale_value: Variant = main.g.get("castle_pool_whale")
 	_ck("pool_atlas_runtime", pool_texture != null
 		and pool_texture.get_width() == 1024
 		and pool_texture.get_height() == 1024,
 		"1024px RGBA atlas")
-	_ck("pool_sprite_family", pool_card_count == 16
+	_ck("pool_sprite_family", pool_card_count == 24
+		and pool_unique_cells.size() == 16
 		and int(main.g.get("castle_pool_2d_count", 0)) == 16,
-		"runtime=%d state=%d" % [
-			pool_card_count, int(main.g.get("castle_pool_2d_count", 0))])
-	_ck("pool_olympic_footprint", pool_dimensions == Vector2(50.0, 25.0)
+		"runtime=%d unique=%d state=%d" % [
+			pool_card_count,
+			pool_unique_cells.size(),
+			int(main.g.get("castle_pool_2d_count", 0)),
+		])
+	_ck("pool_olympic_footprint", pool_dimensions == Vector2(100.0, 50.0)
+		and pool_rect.size == Vector2(50.0, 100.0)
 		and is_equal_approx(pool_rect.size.x / pool_rect.size.y, 0.5),
 		"dimensions=%s rect=%s" % [pool_dimensions, pool_rect])
 	_ck("pool_water_oracle", is_equal_approx(
@@ -337,7 +379,111 @@ func _run() -> void:
 		and hall_dry_surface < -1e17,
 		"pool=%.2f hall=%.2f" % [pool_surface, hall_dry_surface])
 	_ck("pool_lowered_floor_zone", pool_zone_ok, "basin floor below deck")
+	_ck("pool_ornament_atlas", ornament_texture != null
+		and ornament_texture.get_width() == 1024
+		and ornament_texture.get_height() == 768,
+		"4x3 atlas=%s" % ornament_texture)
+	_ck("pool_twelve_ornaments", ornament_card_count == 12
+		and int(main.g.get("castle_pool_ornament_count", 0)) == 12,
+		"runtime=%d state=%d" % [
+			ornament_card_count, int(main.g.get("castle_pool_ornament_count", 0))])
+	_ck("pool_three_pumps", pump_rows.size() == 3 and pointer_count == 3,
+		"pumps=%d pointers=%d" % [pump_rows.size(), pointer_count])
+	_ck("pool_whale_atlas", whale_texture != null
+		and whale_texture.get_width() == 1024
+		and whale_texture.get_height() == 512,
+		"4x2 whale states")
+	_ck("pool_sick_whale_runtime", whale_value is Sprite3D
+		and is_instance_valid(whale_value)
+		and int((whale_value as Sprite3D).get_meta("castle_pool_whale_cell", -1)) == 0,
+		"initial generated whale cell")
+	_ck("pool_storyboard_nine", storyboard_texture != null
+		and storyboard_texture.get_width() == 768
+		and storyboard_texture.get_height() == 768
+		and main._hall_ref().pool_story_panel_count() == 9,
+		"3x3 wordless story atlas")
+	_ck("pool_initial_dirty_state", int(main.g.get("castle_pool_rescue_state", -1)) == 0,
+		"state=%d" % int(main.g.get("castle_pool_rescue_state", -1)))
+
+	# Meeting reveals the pointers and three wordless opening panels, but mere
+	# proximity never repairs a pump. Capture this dirty rescue state first.
+	main._hall_ref()._meet_pool_whale()
+	_ck("pool_meeting_saved", bool(main.stickers.get("_castle_pool_whale_met", false)),
+		"whale encounter is persistent")
+	_ck("pool_meeting_no_auto_fix",
+		not bool(main.stickers.get("_castle_pool_pump_0", false))
+		and not bool(main.stickers.get("_castle_pool_pump_1", false))
+		and not bool(main.stickers.get("_castle_pool_pump_2", false)),
+		"meeting only starts the kindness quest")
 	await _capture_castle()
+	await _close_pool_story()
+	main._hall_ref()._replay_pool_story()
+	_ck("pool_meeting_story_replay", bool(main.g.get("pool_story_active", false))
+		and int(main.g.get("pool_story_last_panel", -1)) == 0,
+		"met-but-incomplete story can always be replayed")
+	await _close_pool_story()
+
+	# Agency contract: no input does nothing; a fresh action edge fixes one pump;
+	# a held action cannot repair the next pump until released and pressed again.
+	var hall: CastleHall = main._hall_ref()
+	main.touch_ui.action_down = false
+	var first_pos: Vector3 = (pump_rows[0] as Dictionary)["pos"] as Vector3
+	hall.tick(0.016, first_pos)
+	_ck("pool_pump_zero_input", hall._pool_fixed_count() == 0,
+		"standing beside a pump is safe")
+	main.touch_ui.action_down = true
+	hall.tick(0.016, first_pos)
+	_ck("pool_pump_first_edge", hall._pool_fixed_count() == 1,
+		"one press fixes exactly one")
+	await _close_pool_story()
+	var second_pos: Vector3 = (pump_rows[1] as Dictionary)["pos"] as Vector3
+	hall.tick(0.016, second_pos)
+	_ck("pool_pump_held_edge", hall._pool_fixed_count() == 1,
+		"holding cannot chain repairs")
+	main.touch_ui.action_down = false
+	hall.tick(0.016, second_pos)
+	main.touch_ui.action_down = true
+	hall.tick(0.016, second_pos)
+	_ck("pool_pump_second_edge", hall._pool_fixed_count() == 2,
+		"release and press fixes the second")
+	await _close_pool_story()
+	var third_pos: Vector3 = (pump_rows[2] as Dictionary)["pos"] as Vector3
+	main.touch_ui.action_down = false
+	hall.tick(0.016, third_pos)
+	main.touch_ui.action_down = true
+	hall.tick(0.016, third_pos)
+	_ck("pool_pump_third_edge", hall._pool_fixed_count() == 3,
+		"third deliberate press completes the clean")
+	await _close_pool_story()
+	await _frames(100)
+	hall._apply_pool_rescue_state(false)
+
+	var hidden_pointer_count := 0
+	for pump_value: Variant in pump_rows:
+		var pump: Dictionary = pump_value as Dictionary
+		var pointer_value: Variant = pump.get("pointer")
+		if pointer_value is Label3D and is_instance_valid(pointer_value) \
+				and not (pointer_value as Label3D).visible:
+			hidden_pointer_count += 1
+	_ck("pool_friend_persistent", bool(main.stickers.get("_castle_pool_whale_friend", false))
+		and int(main.g.get("castle_pool_rescue_state", -1)) == 3,
+		"friend=%s state=%d" % [
+			main.stickers.get("_castle_pool_whale_friend", false),
+			int(main.g.get("castle_pool_rescue_state", -1)),
+		])
+	_ck("pool_healthy_whale", int(
+		(whale_value as Sprite3D).get_meta("castle_pool_whale_cell", -1)) == 6,
+		"healthy friendship state")
+	_ck("pool_pointers_complete", hidden_pointer_count == 3,
+		"hidden=%d" % hidden_pointer_count)
+	_ck("pool_all_story_beats_seen", int(main.g.get("pool_story_seen_mask", 0)) == 511,
+		"mask=%d" % int(main.g.get("pool_story_seen_mask", 0)))
+	if DisplayServer.get_name() != "headless":
+		var o: Vector3 = main.CASTLE_POS
+		await _shot("castle_22_royal_natatorium_friend",
+			o + Vector3(98.0, 20.0, 111.0),
+			o + Vector3(68.5, -3.0, 55.0),
+			72.0)
 	print("CASTLE_ART|RESULT=", "FAIL" if checks_failed > 0 else "OK", " checks_failed=", checks_failed)
 	quit(1 if checks_failed > 0 else 0)
 

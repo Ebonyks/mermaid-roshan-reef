@@ -13,6 +13,12 @@ func _init() -> void:
 	sd["custom_fish"] = [[0.9, 0.3, 0.3, 1.0, 0.8, 0.2]]   # one crafted fish in the save
 	sd["animals"] = {"turtle": true}   # one tank friend already set free
 	sd["critters"] = {"coral_clownfish": true}   # one Critter Book discovery
+	var saved_stickers: Dictionary = (
+		sd.get("stickers", {}) if sd.get("stickers", {}) is Dictionary else {})
+	saved_stickers["_castle_pool_whale_met"] = true
+	saved_stickers["_castle_pool_pump_0"] = true
+	saved_stickers["_castle_pool_pump_2"] = true
+	sd["stickers"] = saved_stickers   # mid-rescue progress must survive a relaunch
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -56,4 +62,11 @@ func _init() -> void:
 		print("FAIL: Critter Book discovery missing after reload")
 	else:
 		print("Critter Book restored: coral_clownfish")
+	if (not bool(main.stickers.get("_castle_pool_whale_met", false))
+			or not bool(main.stickers.get("_castle_pool_pump_0", false))
+			or bool(main.stickers.get("_castle_pool_pump_1", false))
+			or not bool(main.stickers.get("_castle_pool_pump_2", false))):
+		print("FAIL: castle pool whale rescue progress missing after reload")
+	else:
+		print("castle pool rescue restored: whale met, pumps 1 and 3 fixed")
 	quit()

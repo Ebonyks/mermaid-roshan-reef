@@ -4,17 +4,36 @@ extends RefCounted
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const PEARL_KIT := "res://assets/castle/pearl_kit/"
 const MERMAID_POOL_ATLAS := preload("res://assets/castle/pool_2d/mermaid_pool_atlas.png")
+const POOL_ORNAMENT_ATLAS := preload("res://assets/castle/pool_2d/poolside_ornaments_atlas.png")
+const POOL_WHALE_ATLAS := preload("res://assets/castle/pool_2d/whale_states_atlas.png")
 const ATLAS_GRID_SIZE := 4
 const POOL_SURFACE_Y := 0.15
-const POOL_RECT := Rect2(43.5, 1.0, 25.0, 50.0)
+const POOL_RECT := Rect2(43.5, 5.0, 50.0, 100.0)
+const POOL_MET_KEY := "_castle_pool_whale_met"
+const POOL_FRIEND_KEY := "_castle_pool_whale_friend"
+const POOL_PUMP_KEYS: Array[String] = [
+	"_castle_pool_pump_0",
+	"_castle_pool_pump_1",
+	"_castle_pool_pump_2",
+]
+const POOL_DIRTY_DEEP := Color(0.24, 0.31, 0.23)
+const POOL_DIRTY_SHALLOW := Color(0.55, 0.57, 0.39)
+const POOL_CLEAN_DEEP := Color(0.16, 0.50, 0.78)
+const POOL_CLEAN_SHALLOW := Color(0.48, 0.86, 0.96)
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
 # this class receives main by reference and owns only the logic.
 
 var m: ReefMain
+var _pool_story: PoolRescueStory = null
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+func _pool_story_ref() -> PoolRescueStory:
+	if _pool_story == null:
+		_pool_story = PoolRescueStory.new(m)
+	return _pool_story
 
 func _dress_static_prop(node: Node, materials: Dictionary) -> void:
 	if node is MeshInstance3D:
@@ -55,15 +74,15 @@ func _pearl(asset_name: String, pos: Vector3, yaw_degrees: float = 0.0) -> Node3
 		prop.set_meta("pearl_castle_asset", asset_name)
 	return prop
 
-func _atlas_sprite(atlas: Texture2D, cell_index: int, pos: Vector3,
-	target_height: float, horizontal: bool = false, yaw: float = 0.0) -> Sprite3D:
+func _atlas_texture(atlas: Texture2D, cell_index: int,
+	grid_columns: int = ATLAS_GRID_SIZE, grid_rows: int = ATLAS_GRID_SIZE) -> AtlasTexture:
 	@warning_ignore("integer_division")
-	var cell_width: int = atlas.get_width() / ATLAS_GRID_SIZE
+	var cell_width: int = atlas.get_width() / grid_columns
 	@warning_ignore("integer_division")
-	var cell_height: int = atlas.get_height() / ATLAS_GRID_SIZE
+	var cell_height: int = atlas.get_height() / grid_rows
 	@warning_ignore("integer_division")
-	var cell_row: int = cell_index / ATLAS_GRID_SIZE
-	var cell_column: int = cell_index % ATLAS_GRID_SIZE
+	var cell_row: int = cell_index / grid_columns
+	var cell_column: int = cell_index % grid_columns
 	var atlas_texture: AtlasTexture = AtlasTexture.new()
 	atlas_texture.atlas = atlas
 	atlas_texture.region = Rect2(
@@ -73,9 +92,16 @@ func _atlas_sprite(atlas: Texture2D, cell_index: int, pos: Vector3,
 		float(cell_height),
 	)
 	atlas_texture.filter_clip = true
+	return atlas_texture
+
+func _atlas_sprite(atlas: Texture2D, cell_index: int, pos: Vector3,
+	target_height: float, horizontal: bool = false, yaw: float = 0.0,
+	grid_columns: int = ATLAS_GRID_SIZE, grid_rows: int = ATLAS_GRID_SIZE) -> Sprite3D:
+	var atlas_texture: AtlasTexture = _atlas_texture(
+		atlas, cell_index, grid_columns, grid_rows)
 	var sprite: Sprite3D = Sprite3D.new()
 	sprite.texture = atlas_texture
-	sprite.pixel_size = target_height / float(cell_height)
+	sprite.pixel_size = target_height / float(atlas_texture.region.size.y)
 	sprite.position = pos
 	sprite.shaded = false
 	sprite.double_sided = true
@@ -707,10 +733,9 @@ func build_expansion(o: Vector3) -> void:
 
 func build_pool_wing(o: Vector3) -> void:
 	# ============ ROYAL MERMAID NATATORIUM ============
-	# The water footprint is a true 2:1 50 x 25 competition pool. It lives in
-	# its own east wing so no existing room, objective, or one-finger route is
-	# displaced. The basin is analytic geometry only: no rigid bodies and no
-	# new lights, keeping the Speedy tier predictable on the target tablet.
+	# Four times the original area: a true 2:1 100 x 50 competition pool in its
+	# own east wing. The basin, ornaments, pumps, whale, and pointers remain
+	# analytic/cards only: no rigid bodies and no new lights on the mobile tier.
 	var wall_color := Color(0.72, 0.70, 0.84)
 	var tile_color := Color(0.82, 0.90, 0.96)
 	var deck_material: StandardMaterial3D = m._castle_mat(
@@ -718,12 +743,12 @@ func build_pool_wing(o: Vector3) -> void:
 	var basin_material: StandardMaterial3D = m._castle_mat(
 		"bathroom_tile", 0.095, Color(0.72, 0.88, 0.94), 0.66)
 
-	# A dry, at-least-7.5-unit perimeter deck wraps the lowered basin.
+	# A dry, at-least-8.5-unit perimeter deck wraps the lowered basin.
 	var deck_specs: Array = [
-		[Vector3(39.25, 0.0, 26.0), Vector3(8.5, 1.0, 60.0)],
-		[Vector3(72.25, 0.0, 26.0), Vector3(7.5, 1.0, 60.0)],
-		[Vector3(56.0, 0.0, -1.5), Vector3(25.0, 1.0, 5.0)],
-		[Vector3(56.0, 0.0, 53.5), Vector3(25.0, 1.0, 5.0)],
+		[Vector3(39.25, 0.0, 55.0), Vector3(8.5, 1.0, 118.0)],
+		[Vector3(97.75, 0.0, 55.0), Vector3(8.5, 1.0, 118.0)],
+		[Vector3(68.5, 0.0, 0.5), Vector3(50.0, 1.0, 9.0)],
+		[Vector3(68.5, 0.0, 109.5), Vector3(50.0, 1.0, 9.0)],
 	]
 	for deck_spec_value: Variant in deck_specs:
 		var deck_spec: Array = deck_spec_value as Array
@@ -737,65 +762,69 @@ func build_pool_wing(o: Vector3) -> void:
 	# Basin bottom and inner tile faces. These visual faces stay non-solid so a
 	# swimming mermaid can glide naturally over the rim instead of snagging.
 	var basin_floor: MeshInstance3D = m._l2_box(
-		o + Vector3(56.0, -10.0, 26.0), Vector3(25.0, 0.6, 50.0), tile_color)
+		o + Vector3(68.5, -10.0, 55.0), Vector3(50.0, 0.6, 100.0), tile_color)
 	basin_floor.material_override = basin_material
-	for lane_x in [47.0, 51.5, 56.0, 60.5, 65.0]:
+	for lane_x in [46.0, 51.0, 56.0, 61.0, 66.0, 71.0, 76.0, 81.0, 86.0, 91.0]:
 		m._l2_box(
-			o + Vector3(lane_x, -9.64, 26.0),
-			Vector3(0.34, 0.08, 47.0),
+			o + Vector3(lane_x, -9.64, 55.0),
+			Vector3(0.34, 0.08, 96.0),
 			Color(0.96, 0.78, 0.42),
 			0.08,
 		)
-	for side_x in [43.35, 68.65]:
+	for side_x in [43.35, 93.65]:
 		var side_face: MeshInstance3D = m._l2_box(
-			o + Vector3(side_x, -4.8, 26.0),
-			Vector3(0.32, 10.0, 50.0),
+			o + Vector3(side_x, -4.8, 55.0),
+			Vector3(0.32, 10.0, 100.0),
 			tile_color,
 		)
 		side_face.material_override = basin_material
-	for end_z in [0.85, 51.15]:
+	for end_z in [4.85, 105.15]:
 		var end_face: MeshInstance3D = m._l2_box(
-			o + Vector3(56.0, -4.8, end_z),
-			Vector3(25.0, 10.0, 0.32),
+			o + Vector3(68.5, -4.8, end_z),
+			Vector3(50.0, 10.0, 0.32),
 			tile_color,
 		)
 		end_face.material_override = basin_material
 
-	# Shared graphic water: a one-sided plane keeps the depth-foam shader from
-	# sampling a box's own underside and whitening the whole basin. It has no
-	# reflection viewport or physics body; `main.water_surface_y()` supplies the
-	# matching wet/dry oracle.
+	# One shared water plane changes from silted olive-aqua to sparkling aqua as
+	# the three pumps are repaired. No second translucent layer is introduced.
 	var water_mesh: PlaneMesh = PlaneMesh.new()
-	water_mesh.size = Vector2(25.0, 50.0)
-	water_mesh.subdivide_width = 12
-	water_mesh.subdivide_depth = 24
+	water_mesh.size = Vector2(50.0, 100.0)
+	water_mesh.subdivide_width = 24
+	water_mesh.subdivide_depth = 48
 	var water_surface: MeshInstance3D = MeshInstance3D.new()
 	water_surface.mesh = water_mesh
-	water_surface.position = o + Vector3(56.0, POOL_SURFACE_Y, 26.0)
+	water_surface.position = o + Vector3(68.5, POOL_SURFACE_Y, 55.0)
+	var rescue_state: int = _pool_fixed_count()
+	var clean_mix: float = float(rescue_state) / 3.0
 	var water_material: ShaderMaterial = m._toon_water_mat(
-		Color(0.16, 0.50, 0.78), Color(0.48, 0.86, 0.96), 0.52, 0.10, 0.05)
+		POOL_DIRTY_DEEP.lerp(POOL_CLEAN_DEEP, clean_mix),
+		POOL_DIRTY_SHALLOW.lerp(POOL_CLEAN_SHALLOW, clean_mix),
+		0.60 - clean_mix * 0.08,
+		0.10,
+		0.05,
+	)
 	water_material.set_shader_parameter("foam_width", 1.15)
-	# Indoor depth reads catch the basin art and turn the full rectangle into
-	# shoreline foam. A fixed aqua mix is clearer and keeps desktop/phone equal.
 	water_material.set_shader_parameter("use_depth", false)
-	water_material.set_shader_parameter("sparkle", 0.12)
+	water_material.set_shader_parameter("sparkle", 0.04 + clean_mix * 0.12)
 	water_material.set_shader_parameter("foam_color", Color(0.38, 0.78, 0.94))
 	water_surface.material_override = water_material
 	water_surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	water_surface.set_meta("castle_pool_surface", true)
 	m.add_child(water_surface)
 	m.game_nodes.append(water_surface)
+	m.g["castle_pool_water_material"] = water_material
 
 	# High shell with a cutaway ceiling. The west side reuses the Grand Hall
 	# wall and its new arch; the other three sides close the pool wing.
-	m._iwall(o + Vector3(76.0, 12.0, 26.0), Vector3(1.5, 24.0, 60.0), wall_color, "castle")
-	m._iwall(o + Vector3(56.0, 12.0, -4.0), Vector3(40.0, 24.0, 1.5), wall_color, "castle")
-	m._iwall(o + Vector3(56.0, 12.0, 56.0), Vector3(40.0, 24.0, 1.5), wall_color, "castle")
-	# The Grand Hall east wall ends at z=46, so close the annex's ten-unit
-	# forward overhang while leaving the authored z=12.5..23.5 entry open.
-	m._iwall(o + Vector3(35.0, 12.0, 51.0), Vector3(1.5, 24.0, 10.0), wall_color, "castle")
+	m._iwall(o + Vector3(102.0, 12.0, 55.0), Vector3(1.5, 24.0, 118.0), wall_color, "castle")
+	m._iwall(o + Vector3(68.5, 12.0, -4.0), Vector3(67.0, 24.0, 1.5), wall_color, "castle")
+	m._iwall(o + Vector3(68.5, 12.0, 114.0), Vector3(67.0, 24.0, 1.5), wall_color, "castle")
+	# The Grand Hall wall covers the near part; this closes only its long north
+	# overhang and preserves the authored z=12.5..23.5 shell-arch entrance.
+	m._iwall(o + Vector3(35.0, 12.0, 80.0), Vector3(1.5, 24.0, 68.0), wall_color, "castle")
 	var pool_ceiling: MeshInstance3D = m._l2_box(
-		o + Vector3(56.0, 24.0, 26.0), Vector3(40.0, 1.0, 60.0),
+		o + Vector3(68.5, 24.0, 55.0), Vector3(67.0, 1.0, 118.0),
 		Color(0.60, 0.58, 0.70))
 	m.fade_walls.append({
 		"node": pool_ceiling,
@@ -806,63 +835,160 @@ func build_pool_wing(o: Vector3) -> void:
 	})
 	_pearl("pearl_shell_arch", o + Vector3(34.2, 0.5, 18.0), -90.0)
 	for column_pos in [
-		Vector3(39.0, 0.5, -0.5),
-		Vector3(73.0, 0.5, -0.5),
-		Vector3(39.0, 0.5, 52.5),
-		Vector3(73.0, 0.5, 52.5),
+		Vector3(39.0, 0.5, 0.0),
+		Vector3(98.0, 0.5, 0.0),
+		Vector3(39.0, 0.5, 109.5),
+		Vector3(98.0, 0.5, 109.5),
 	]:
 		_pearl("pearl_column", o + column_pos)
-	for window_z in [9.0, 26.0, 43.0]:
-		_pearl("pearl_shell_window", o + Vector3(75.3, 8.0, window_z), -90.0)
+	for window_z in [15.0, 35.0, 55.0, 75.0, 95.0]:
+		_pearl("pearl_shell_window", o + Vector3(101.3, 8.0, window_z), -90.0)
 
-	# Sixteen independently sliced atlas cells fill the basin with a complete
-	# coral/creature family. Coral stays rooted; creature cards receive only a
-	# tiny deterministic swim bob in `tick()`.
+	# All sixteen unique coral/creature cells remain represented; eight tasteful
+	# repeats keep the four-times-larger basin lush without another texture.
 	var art_specs: Array = [
-		[0, Vector3(47.0, -6.1, 5.5), 7.0],
-		[1, Vector3(65.0, -6.0, 16.0), 7.2],
-		[2, Vector3(47.0, -5.7, 30.0), 7.4],
-		[3, Vector3(65.0, -6.1, 45.5), 7.0],
-		[4, Vector3(50.0, -3.0, 14.0), 5.4],
-		[5, Vector3(62.0, -3.4, 21.0), 5.6],
-		[6, Vector3(53.0, -3.7, 28.0), 6.4],
-		[7, Vector3(62.0, -2.8, 35.0), 6.0],
-		[8, Vector3(49.0, -3.1, 41.0), 6.2],
-		[9, Vector3(63.0, -6.2, 6.5), 5.2],
-		[10, Vector3(47.0, -5.9, 23.0), 5.1],
-		[11, Vector3(64.0, -4.8, 42.0), 5.7],
-		[12, Vector3(51.0, -3.1, 48.0), 5.4],
-		[13, Vector3(59.0, -3.0, 5.0), 5.2],
-		[14, Vector3(47.0, -5.5, 47.5), 6.1],
-		[15, Vector3(57.0, -4.8, 49.0), 8.2],
+		[0, Vector3(48.0, -6.1, 12.0), 7.0],
+		[1, Vector3(88.0, -6.0, 29.0), 7.2],
+		[2, Vector3(48.0, -5.7, 52.0), 7.4],
+		[3, Vector3(88.0, -6.1, 92.0), 7.0],
+		[4, Vector3(57.0, -3.0, 20.0), 5.4],
+		[5, Vector3(80.0, -3.4, 37.0), 5.6],
+		[6, Vector3(60.0, -3.7, 48.0), 6.4],
+		[7, Vector3(83.0, -2.8, 61.0), 6.0],
+		[8, Vector3(53.0, -3.1, 76.0), 6.2],
+		[9, Vector3(87.0, -6.2, 13.0), 5.2],
+		[10, Vector3(48.0, -5.9, 40.0), 5.1],
+		[11, Vector3(87.0, -4.8, 79.0), 5.7],
+		[12, Vector3(58.0, -3.1, 95.0), 5.4],
+		[13, Vector3(73.0, -3.0, 15.0), 5.2],
+		[14, Vector3(48.0, -5.5, 92.0), 6.1],
+		[15, Vector3(75.0, -4.8, 99.0), 8.2],
+		[0, Vector3(58.0, -6.0, 33.0), 6.2],
+		[1, Vector3(82.0, -6.0, 52.0), 6.4],
+		[2, Vector3(58.0, -5.8, 68.0), 6.6],
+		[3, Vector3(80.0, -6.0, 86.0), 6.2],
+		[4, Vector3(54.0, -3.0, 60.0), 4.8],
+		[5, Vector3(75.0, -3.4, 73.0), 5.0],
+		[7, Vector3(63.0, -2.8, 88.0), 5.3],
+		[8, Vector3(89.0, -3.0, 45.0), 5.4],
 	]
 	var animated_cells: Array[int] = [4, 5, 6, 7, 8, 10, 11, 12, 13]
 	var animated_sprites: Array[Dictionary] = []
-	for art_spec_value: Variant in art_specs:
-		var art_spec: Array = art_spec_value as Array
+	var all_art_sprites: Array[Sprite3D] = []
+	for art_i in range(art_specs.size()):
+		var art_spec: Array = art_specs[art_i] as Array
 		var cell_index: int = int(art_spec[0])
 		var base_position: Vector3 = o + (art_spec[1] as Vector3)
 		var sprite: Sprite3D = _atlas_sprite(
 			MERMAID_POOL_ATLAS, cell_index, base_position, float(art_spec[2]))
 		sprite.set_meta("castle_pool_art_index", cell_index)
+		all_art_sprites.append(sprite)
 		if cell_index in animated_cells:
 			animated_sprites.append({
 				"node": sprite,
 				"base": base_position,
-				"phase": float(cell_index) * 0.73,
+				"phase": float(art_i) * 0.73,
 				"speed": 0.65 + float(cell_index % 3) * 0.11,
 				"amp": 0.18 + float(cell_index % 2) * 0.08,
 			})
 	m.g["castle_pool_sprites"] = animated_sprites
-	m.g["castle_pool_2d_count"] = art_specs.size()
+	m.g["castle_pool_art_nodes"] = all_art_sprites
+	m.g["castle_pool_2d_count"] = 16
+	m.g["castle_pool_2d_instance_count"] = art_specs.size()
+
+	# Twelve generated poolside ornaments: three readable service pumps plus a
+	# bench, towels, safety float, shade, swim toys, fountain, basket, lantern,
+	# and diving hoop. Cards stay on the dry deck and never narrow swim routes.
+	var ornament_specs: Array = [
+		[0, Vector3(39.25, 4.0, 50.0), 7.0],
+		[1, Vector3(97.75, 4.0, 58.0), 7.0],
+		[2, Vector3(68.5, 4.0, 109.5), 7.0],
+		[3, Vector3(39.25, 2.6, 32.0), 4.2],
+		[4, Vector3(39.25, 3.4, 80.0), 5.8],
+		[5, Vector3(97.75, 3.2, 20.0), 5.2],
+		[6, Vector3(97.75, 4.2, 80.0), 7.2],
+		[7, Vector3(62.0, 3.1, 0.5), 5.2],
+		[8, Vector3(80.0, 3.1, 0.5), 5.2],
+		[9, Vector3(39.25, 2.7, 98.0), 4.4],
+		[10, Vector3(97.75, 3.5, 35.0), 5.8],
+		[11, Vector3(87.0, 3.6, 109.5), 6.0],
+	]
+	var ornament_nodes: Array[Sprite3D] = []
+	var pumps: Array[Dictionary] = []
+	for ornament_spec_value: Variant in ornament_specs:
+		var ornament_spec: Array = ornament_spec_value as Array
+		var ornament_index: int = int(ornament_spec[0])
+		var ornament_position: Vector3 = o + (ornament_spec[1] as Vector3)
+		var ornament: Sprite3D = _atlas_sprite(
+			POOL_ORNAMENT_ATLAS,
+			ornament_index,
+			ornament_position,
+			float(ornament_spec[2]),
+			false,
+			0.0,
+			4,
+			3,
+		)
+		ornament.set_meta("castle_pool_ornament_index", ornament_index)
+		ornament_nodes.append(ornament)
+		if ornament_index < 3:
+			var pointer := Label3D.new()
+			pointer.text = "▼"
+			pointer.font_size = 150
+			pointer.pixel_size = 0.022
+			pointer.outline_size = 24
+			pointer.modulate = Color(1.0, 0.94, 0.25)
+			pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			pointer.position = ornament_position + Vector3(0.0, 6.2, 0.0)
+			pointer.visibility_range_end = 150.0 if m.quality == "speedy" else 0.0
+			m.add_child(pointer)
+			m.game_nodes.append(pointer)
+			pumps.append({
+				"index": ornament_index,
+				"node": ornament,
+				"base": ornament_position,
+				"pos": ornament_position,
+				"pointer": pointer,
+				"phase": float(ornament_index) * 1.9,
+			})
+	m.g["castle_pool_ornaments"] = ornament_nodes
+	m.g["castle_pool_ornament_count"] = ornament_nodes.size()
+	m.g["castle_pool_pumps"] = pumps
+
+	# The same generated whale grows brighter through four readable gameplay
+	# states. The full eight-cell sheet remains available for story/cutscene art.
+	var whale_cell: int = _pool_whale_cell(rescue_state)
+	var whale_base := o + Vector3(68.5, -2.8, 55.0)
+	var whale: Sprite3D = _atlas_sprite(
+		POOL_WHALE_ATLAS, whale_cell, whale_base, 17.0, false, 0.0, 4, 2)
+	whale.set_meta("castle_pool_whale_cell", whale_cell)
+	m.g["castle_pool_whale"] = whale
+	m.g["castle_pool_whale_base"] = whale_base
+	var whale_heart := Label3D.new()
+	whale_heart.text = "♥"
+	whale_heart.font_size = 120
+	whale_heart.pixel_size = 0.024
+	whale_heart.outline_size = 22
+	whale_heart.modulate = Color(1.0, 0.56, 0.76)
+	whale_heart.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	whale_heart.position = whale_base + Vector3(0.0, 10.0, 0.0)
+	whale_heart.visible = rescue_state >= 3
+	m.add_child(whale_heart)
+	m.game_nodes.append(whale_heart)
+	m.g["castle_pool_whale_heart"] = whale_heart
+
 	m.g["castle_pool_rect"] = POOL_RECT
 	m.g["castle_pool_surface_y"] = POOL_SURFACE_Y
-	m.g["castle_pool_dimensions_m"] = Vector2(50.0, 25.0)
+	m.g["castle_pool_dimensions_m"] = Vector2(100.0, 50.0)
+	m.g["castle_pool_action_prev"] = false
+	m.g["castle_pool_pump_near"] = -1
+	m.g["castle_pool_whale_near"] = false
+	_apply_pool_rescue_state(false)
 
 	# The outer hall zone caps the roof; the last, lower zone wins inside the
 	# basin so Roshan can dive ten units below the deck.
 	m.arena_zones.append({
-		"rect": Rect2(35.0, -4.0, 41.0, 60.0),
+		"rect": Rect2(35.0, -4.0, 67.0, 118.0),
 		"band": Vector2(-0.5, 31.0),
 		"floor": 2.5,
 		"ceil": 22.0,
@@ -873,6 +999,274 @@ func build_pool_wing(o: Vector3) -> void:
 		"floor": -7.7,
 		"ceil": 22.0,
 	})
+
+func pool_story_panel_count() -> int:
+	return PoolRescueStory.PANEL_COUNT
+
+func advance_pool_story() -> void:
+	_pool_story_ref().advance()
+
+func _pool_fixed_count() -> int:
+	var count := 0
+	for key: String in POOL_PUMP_KEYS:
+		if bool(m.stickers.get(key, false)):
+			count += 1
+	return count
+
+func _pool_whale_cell(rescue_state: int) -> int:
+	match clampi(rescue_state, 0, 3):
+		0:
+			return 0
+		1:
+			return 1
+		2:
+			return 4
+		_:
+			return 6
+
+func _apply_pool_rescue_state(animated: bool) -> void:
+	var rescue_state: int = _pool_fixed_count()
+	m.g["castle_pool_rescue_state"] = rescue_state
+	var clean_mix: float = float(rescue_state) / 3.0
+	var water_value: Variant = m.g.get("castle_pool_water_material")
+	if water_value is ShaderMaterial:
+		var water: ShaderMaterial = water_value
+		var target_deep: Color = POOL_DIRTY_DEEP.lerp(POOL_CLEAN_DEEP, clean_mix)
+		var target_shallow: Color = POOL_DIRTY_SHALLOW.lerp(POOL_CLEAN_SHALLOW, clean_mix)
+		if animated:
+			var from_deep: Color = water.get_shader_parameter("deep_color") as Color
+			var from_shallow: Color = water.get_shader_parameter("shallow_color") as Color
+			var from_sparkle: float = float(water.get_shader_parameter("sparkle"))
+			var from_alpha: float = float(water.get_shader_parameter("alpha_base"))
+			var target_sparkle: float = 0.04 + clean_mix * 0.12
+			var target_alpha: float = 0.60 - clean_mix * 0.08
+			var water_tween: Tween = m.create_tween()
+			water_tween.tween_method(
+				_set_pool_water_blend.bind(
+					water,
+					from_deep,
+					from_shallow,
+					target_deep,
+					target_shallow,
+					from_sparkle,
+					from_alpha,
+					target_sparkle,
+					target_alpha,
+				),
+				0.0,
+				1.0,
+				1.4,
+			)
+		else:
+			water.set_shader_parameter("deep_color", target_deep)
+			water.set_shader_parameter("shallow_color", target_shallow)
+		water.set_shader_parameter("sparkle", 0.04 + clean_mix * 0.12)
+		water.set_shader_parameter("alpha_base", 0.60 - clean_mix * 0.08)
+
+	var art_nodes: Array = m.g.get("castle_pool_art_nodes", [])
+	var art_tint := Color(
+		0.68 + clean_mix * 0.32,
+		0.72 + clean_mix * 0.28,
+		0.70 + clean_mix * 0.30,
+		1.0,
+	)
+	for art_value: Variant in art_nodes:
+		if art_value is Sprite3D and is_instance_valid(art_value):
+			(art_value as Sprite3D).modulate = art_tint
+
+	var whale_value: Variant = m.g.get("castle_pool_whale")
+	if whale_value is Sprite3D and is_instance_valid(whale_value):
+		var whale: Sprite3D = whale_value
+		var whale_cell: int = _pool_whale_cell(rescue_state)
+		whale.texture = _atlas_texture(POOL_WHALE_ATLAS, whale_cell, 4, 2)
+		whale.set_meta("castle_pool_whale_cell", whale_cell)
+		whale.modulate = Color(0.72, 0.76, 0.78).lerp(Color.WHITE, clean_mix)
+
+	var pump_rows: Array = m.g.get("castle_pool_pumps", [])
+	for pump_value: Variant in pump_rows:
+		var pump: Dictionary = pump_value as Dictionary
+		var pump_index: int = int(pump["index"])
+		var fixed: bool = bool(m.stickers.get(POOL_PUMP_KEYS[pump_index], false))
+		pump["fixed"] = fixed
+		var node_value: Variant = pump.get("node")
+		if node_value is Sprite3D and is_instance_valid(node_value):
+			var pump_node: Sprite3D = node_value
+			pump_node.modulate = Color.WHITE if fixed else Color(0.66, 0.70, 0.72)
+			if fixed:
+				pump_node.rotation.z = 0.0
+		var pointer_value: Variant = pump.get("pointer")
+		if pointer_value is Label3D and is_instance_valid(pointer_value):
+			(pointer_value as Label3D).visible = (
+				not fixed and bool(m.stickers.get(POOL_MET_KEY, false)))
+
+	var heart_value: Variant = m.g.get("castle_pool_whale_heart")
+	if heart_value is Label3D and is_instance_valid(heart_value):
+		(heart_value as Label3D).visible = rescue_state >= 3
+
+func _set_pool_water_blend(weight: float, water: ShaderMaterial,
+	from_deep: Color, from_shallow: Color, target_deep: Color,
+	target_shallow: Color, from_sparkle: float, from_alpha: float,
+	target_sparkle: float, target_alpha: float) -> void:
+	if not is_instance_valid(water):
+		return
+	water.set_shader_parameter("deep_color", from_deep.lerp(target_deep, weight))
+	water.set_shader_parameter("shallow_color", from_shallow.lerp(target_shallow, weight))
+	water.set_shader_parameter("sparkle", lerpf(from_sparkle, target_sparkle, weight))
+	water.set_shader_parameter("alpha_base", lerpf(from_alpha, target_alpha, weight))
+
+func _pool_action_down() -> bool:
+	var down := (
+		Input.is_physical_key_pressed(KEY_SPACE)
+		or m.joy_pressed(JOY_BUTTON_A)
+		or m.joy_pressed(JOY_BUTTON_B)
+	)
+	if m.touch_ui != null and bool(m.touch_ui.action_down):
+		down = true
+	return down
+
+func _meet_pool_whale() -> void:
+	if bool(m.stickers.get(POOL_MET_KEY, false)):
+		return
+	# Commit before opening the storybook so a suspended phone never forgets
+	# Roshan met the whale. The three golden pump pointers appear immediately.
+	m.stickers[POOL_MET_KEY] = true
+	m._write_save()
+	_apply_pool_rescue_state(false)
+	var meeting_panels: Array[int] = [0, 1, 2]
+	_pool_story_ref().start_panels(meeting_panels)
+
+func _fix_pool_pump(pump_index: int) -> void:
+	if pump_index < 0 or pump_index >= POOL_PUMP_KEYS.size():
+		return
+	if not bool(m.stickers.get(POOL_MET_KEY, false)):
+		_meet_pool_whale()
+		return
+	var pump_key: String = POOL_PUMP_KEYS[pump_index]
+	if bool(m.stickers.get(pump_key, false)):
+		return
+	# One deliberate action earns exactly one persistent bit. Completion and the
+	# friend flag land in the same transactional save before any celebration.
+	m.stickers[pump_key] = true
+	var fixed_count: int = _pool_fixed_count()
+	if fixed_count >= 3:
+		m.stickers[POOL_FRIEND_KEY] = true
+	m._write_save()
+
+	var pump_rows: Array = m.g.get("castle_pool_pumps", [])
+	for pump_value: Variant in pump_rows:
+		var pump: Dictionary = pump_value as Dictionary
+		if int(pump.get("index", -1)) != pump_index:
+			continue
+		var node_value: Variant = pump.get("node")
+		if node_value is Node3D and is_instance_valid(node_value):
+			var pump_node: Node3D = node_value
+			_touch_wiggle(pump_node, 0.18)
+			_touch_hop(pump_node, 0.65)
+		var pump_pos: Vector3 = pump["pos"] as Vector3
+		m._sparkle_burst(pump_pos + Vector3(0.0, 2.5, 0.0), Color(1.0, 0.84, 0.38))
+		m._sparkle_burst(pump_pos + Vector3(0.0, 5.0, 0.0), Color(0.45, 0.92, 1.0))
+		break
+	_touch_chords(
+		[0.9, 1.15, 1.42, 1.8] if fixed_count >= 3 else [0.95, 1.25, 1.55],
+		0.13,
+		-8.0,
+	)
+	if m.player != null:
+		m.player.play_verb("cheer")
+	_apply_pool_rescue_state(true)
+
+	var story_panels: Array[int] = [3 + pump_index]
+	if fixed_count >= 3:
+		story_panels.append_array([6, 7, 8])
+	_pool_story_ref().start_panels(story_panels)
+
+func _replay_pool_story() -> void:
+	if _pool_fixed_count() < 3:
+		var reminder_panels: Array[int] = [0, 1, 2]
+		_pool_story_ref().start_panels(reminder_panels)
+		return
+	var all_panels: Array[int] = []
+	for panel_index in range(PoolRescueStory.PANEL_COUNT):
+		all_panels.append(panel_index)
+	_pool_story_ref().start_panels(all_panels)
+
+func _tick_pool_rescue(_delta: float, ppos: Vector3, pool_time: float) -> void:
+	var whale_value: Variant = m.g.get("castle_pool_whale")
+	var whale_base: Vector3 = m.g.get("castle_pool_whale_base", Vector3.ZERO)
+	if whale_value is Sprite3D and is_instance_valid(whale_value):
+		var whale: Sprite3D = whale_value
+		var healthy: bool = _pool_fixed_count() >= 3
+		var travel: float = 1.1 if healthy else 0.28
+		whale.position = whale_base + Vector3(
+			sin(pool_time * 0.34) * travel,
+			sin(pool_time * (0.78 if healthy else 0.52)) * (0.42 if healthy else 0.18),
+			cos(pool_time * 0.34) * travel * 0.55,
+		)
+		var heart_value: Variant = m.g.get("castle_pool_whale_heart")
+		if heart_value is Label3D and is_instance_valid(heart_value):
+			(heart_value as Label3D).position = whale.position + Vector3(
+				0.0, 9.8 + sin(pool_time * 2.2) * 0.35, 0.0)
+
+	var pumps: Array = m.g.get("castle_pool_pumps", [])
+	var whale_met: bool = bool(m.stickers.get(POOL_MET_KEY, false))
+	var nearest_index := -1
+	var nearest_distance := 7.0
+	for pump_value: Variant in pumps:
+		var pump: Dictionary = pump_value as Dictionary
+		var pump_index: int = int(pump["index"])
+		var fixed: bool = bool(m.stickers.get(POOL_PUMP_KEYS[pump_index], false))
+		var pump_pos: Vector3 = pump["pos"] as Vector3
+		var node_value: Variant = pump.get("node")
+		if node_value is Sprite3D and is_instance_valid(node_value) and not fixed:
+			(node_value as Sprite3D).rotation.z = sin(
+				pool_time * 2.1 + float(pump["phase"])) * 0.035
+		var pointer_value: Variant = pump.get("pointer")
+		if pointer_value is Label3D and is_instance_valid(pointer_value):
+			var pointer: Label3D = pointer_value
+			pointer.visible = whale_met and not fixed
+			pointer.position = pump_pos + Vector3(
+				0.0,
+				6.2 + sin(pool_time * 3.2 + float(pump["phase"])) * 0.42,
+				0.0,
+			)
+		if fixed or not whale_met:
+			continue
+		var flat_distance: float = Vector2(
+			pump_pos.x - ppos.x, pump_pos.z - ppos.z).length()
+		if flat_distance < nearest_distance and absf(pump_pos.y - ppos.y) < 8.0:
+			nearest_distance = flat_distance
+			nearest_index = pump_index
+
+	var action_down: bool = _pool_action_down()
+	if _pool_story_ref().is_active():
+		m.g["castle_pool_pump_near"] = -1
+		m.g["castle_pool_whale_near"] = false
+		m.g["castle_pool_action_prev"] = action_down
+		return
+
+	if not whale_met and whale_value is Sprite3D and is_instance_valid(whale_value):
+		var whale_position: Vector3 = (whale_value as Sprite3D).position
+		if Vector2(whale_position.x - ppos.x, whale_position.z - ppos.z).length() < 35.0:
+			_meet_pool_whale()
+			m.g["castle_pool_action_prev"] = action_down
+			return
+
+	var whale_near := false
+	if whale_met and whale_value is Sprite3D and is_instance_valid(whale_value):
+		var friend_position: Vector3 = (whale_value as Sprite3D).position
+		whale_near = (
+			Vector2(friend_position.x - ppos.x, friend_position.z - ppos.z).length() < 11.0
+			and absf(friend_position.y - ppos.y) < 10.0
+		)
+	m.g["castle_pool_pump_near"] = nearest_index
+	m.g["castle_pool_whale_near"] = whale_near
+	var previous_action: bool = bool(m.g.get("castle_pool_action_prev", false))
+	if action_down and not previous_action:
+		if nearest_index >= 0:
+			_fix_pool_pump(nearest_index)
+		elif whale_near:
+			_replay_pool_story()
+	m.g["castle_pool_action_prev"] = action_down
 
 func build_dreaming_floor(o: Vector3) -> void:
 	# ============ THE DREAMING FLOOR (owner 2026-07-12) ============
@@ -2023,6 +2417,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		return   # dressing up — pause all hall triggers
 	if m.sleep_t >= 0.0:
 		m._tick_sleep(delta)
+		return
+	_tick_pool_rescue(delta, ppos, pool_time)
+	if _pool_story_ref().is_active():
 		return
 	# bedtime: snuggle onto the bed to sleep the day away (or the night!)
 	m.sleep_cool = maxf(0.0, m.sleep_cool - delta)
