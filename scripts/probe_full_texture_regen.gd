@@ -7,7 +7,11 @@ extends SceneTree
 const MODEL_DIR := "res://assets/full_texture_regen_2026-07-18/models"
 const TEXTURE_DIR := "res://assets/full_texture_regen_2026-07-18/textures"
 const EXPECTED_MODELS := 137
-const EXPECTED_TEXTURES := 30
+# 31 since 4916bb8 ("art: add calm Butterfly World meadow base") accepted
+# R044_BUTTERFLY_WORLD_PLANET_SURFACE__butterfly_meadow_ground_calm.png. That
+# commit licensed the texture in ASSET_LICENSES.md but did not bump this count,
+# so the inventory contract has been failing on master ever since.
+const EXPECTED_TEXTURES := 31
 const MAX_MODEL_TRIANGLES := 12000
 const MAX_TEXTURE_SIDE := 1024
 
