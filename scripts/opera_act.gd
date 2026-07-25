@@ -203,16 +203,31 @@ var lens_dwell_t := 0.0
 var lens_drag := false
 
 # ---- "doctor" engine ----
-var doc_targets: Array[Dictionary] = []
-var doc_step := 0
 # ---- diagnose, then treat (owner 2026-07-25) ----
 # Toca Doctor's spine: FINDING what is wrong is the game. The plushy now shows
 # a symptom pictogram and Roshan picks the tool that matches it, in whatever
 # order the patient asks for — not a fixed golden-sparkle conga line.
-var doc_order: Array[int] = []
-var doc_symptom: Label3D = null
 var doc_wait := 0.0                # care moment: taps rest while the plushy reacts
 var patient: Node3D = null
+# ---- the Vet Rescue (owner 2026-07-25) ----
+# Five beats with a story, not one gesture repeated: fight the imps off, FIND
+# the hurt animal among the well ones, CARRY it to the fluoroscope, read the
+# x-ray to see WHICH limb is cracked, WRAP the cast on with a circular drag,
+# then seal it with a coban band. Each beat is its own verb.
+var vet_phase := "find"            # find | carry | xray | cast | coban | done
+var vet_animals: Array[Dictionary] = []
+var vet_hurt := -1                 # which animal is injured
+var vet_limb := -1                 # which of its four limbs is cracked
+var vet_carry: Node3D = null
+var vet_scope: Node3D = null       # the fluoroscope arch
+var vet_screen: MeshInstance3D = null
+var vet_bones: Array[Node3D] = []
+var vet_wrap := 0.0                # radians of cast wrapped so far
+var vet_wrap_prev := 0.0
+var vet_have_ang := false
+var vet_layers: Array[Node3D] = []
+const VET_WRAP_TURNS := 3.0        # full turns of drag to build the cast
+const VET_COBAN_TURNS := 1.5
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
 const FARM_SPEED := 120.0
@@ -317,7 +332,6 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_lens()
 		"doctor":
 			_build_doctor()
-			_doc_shuffle()
 		"scroll":
 			_build_farm()
 		"race":
@@ -3037,209 +3051,196 @@ func _tick_press(delta: float) -> void:
 # hearts, then the bandage. Taps out of order just wobble and re-point.
 
 func _build_doctor() -> void:
-	_box(CENTER + Vector3(0, 1.2, -2.0), Vector3(7.0, 1.6, 4.4), Color(0.9, 0.93, 0.98), 0.05)
-	_box(CENTER + Vector3(0, 0.4, -2.0), Vector3(5.6, 0.8, 3.4), Color(0.75, 0.8, 0.9), 0.0)
-	patient = Node3D.new()
-	patient.name = "PlushPatient"
-	patient.position = CENTER + Vector3(0, 2.6, -2.0)
-	add_child(patient)
-	# species lock: the patient is always the coral five-armed starfish plush
-	doctor_patient_art = _job_art("doctor/opera_doctor_patient.glb", patient)
-	if doctor_patient_art != null:
-		_job_state(doctor_patient_art, "StateComplete", false)
-	else:
-		_sphere(Vector3.ZERO, 1.6, Color(0.95, 0.55, 0.45), 0.1, patient)
-		for i in range(5):
-			var a := float(i) * TAU / 5.0 + 0.3
-			_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.98, 0.68, 0.58), 0.1, patient)
-		_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-		_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-	# step 0: the stethoscope — listen to the plushy's little heart first
-	var scope := Node3D.new()
-	scope.name = "Stethoscope"
-	scope.position = CENTER + Vector3(-9.0, 1.0, 4.0)
-	add_child(scope)
-	if _job_art("doctor/opera_doctor_scope.glb", scope) == null:
-		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
-		var ring := TorusMesh.new()
-		ring.inner_radius = 0.55
-		ring.outer_radius = 0.75
-		_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
-		_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
-	doc_targets.append({"index": 0, "node": scope, "pos": scope.position, "kind": "scope"})
-	# step 1: the thermometer on its little stand
-	var thermo := Node3D.new()
-	thermo.name = "Thermometer"
-	thermo.position = CENTER + Vector3(9.0, 1.0, 4.0)
-	add_child(thermo)
-	if _job_art("doctor/opera_doctor_thermo.glb", thermo) == null:
-		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
-		var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
-		stem.rotation_degrees = Vector3(0, 0, 18.0)
-		_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
-	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
-	# steps 2-6: glowing boo-boos on the plush that become hearts when tended.
-	# The reach points alternate sides so each kiss is a little swim, not a
-	# stand-still tap chain.
-	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9),
-		Vector3(-0.5, 0.3, 1.25), Vector3(0.9, 0.85, 1.1), Vector3(0.1, 0.3, 1.35)]
-	var boo_reaches: Array[Vector3] = [Vector3(-2.4, 1.0, 1.4), Vector3(2.4, 1.0, 1.4),
-		Vector3(-1.5, 1.0, 2.2), Vector3(1.5, 1.0, 2.2), Vector3(0.0, 1.0, 2.4)]
-	for b in range(boo_spots.size()):
-		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
-		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
-		heart.visible = false
-		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": CENTER + boo_reaches[b], "kind": "boo"})
-	# step 7: the bandage roll, which wraps a soft white band around the plush
-	var roll := Node3D.new()
-	roll.name = "BandageRoll"
-	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
-	add_child(roll)
-	if _job_art("doctor/opera_doctor_bandage.glb", roll) == null:
-		var loop := TorusMesh.new()
-		loop.inner_radius = 0.4
-		loop.outer_radius = 0.9
-		_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
-	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
-	band.visible = false
-	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+	# ---- Beat 1: the ward. Four little animals, one of them hurt. ----
+	vet_phase = "find"
+	var kinds: Array[String] = ["starfish", "seahorse", "turtle", "crab"]
+	var cols: Array[Color] = [Color(0.95, 0.55, 0.45), Color(1.0, 0.78, 0.5),
+		Color(0.55, 0.8, 0.6), Color(0.95, 0.6, 0.72)]
+	vet_hurt = randi() % kinds.size()
+	for i in range(kinds.size()):
+		var a := float(i) / float(kinds.size()) * TAU + 0.4
+		var pos := CENTER + Vector3(cos(a) * 11.0, 1.4, -2.0 + sin(a) * 7.0)
+		var root := Node3D.new()
+		root.name = "WardAnimal%d" % i
+		root.position = pos
+		add_child(root)
+		if i == vet_hurt and _job_art("doctor/opera_doctor_patient.glb", root) != null:
+			doctor_patient_art = root.get_child(root.get_child_count() - 1) as Node3D
+		else:
+			_sphere(Vector3.ZERO, 1.5, cols[i], 0.1, root)
+			_sphere(Vector3(-0.5, 0.9, 0.9), 0.24, Color(0.15, 0.12, 0.2), 0.0, root)
+			_sphere(Vector3(0.5, 0.9, 0.9), 0.24, Color(0.15, 0.12, 0.2), 0.0, root)
+		# only the hurt one wears a hurt-mark: a throbbing ouch star
+		var mark := _sphere(Vector3(0, 2.6, 0), 0.5, Color(1.0, 0.45, 0.5), 1.4, root)
+		mark.visible = (i == vet_hurt)
+		vet_animals.append({"index": i, "node": root, "pos": pos, "mark": mark, "hurt": i == vet_hurt})
+	# ---- the fluoroscope arch, waiting stage-left ----
+	vet_scope = Node3D.new()
+	vet_scope.name = "Fluoroscope"
+	vet_scope.position = CENTER + Vector3(0, 0.0, -13.0)
+	add_child(vet_scope)
+	for sx: float in [-4.6, 4.6]:
+		_cyl(Vector3(sx, 3.4, 0), 0.55, 6.8, Color(0.78, 0.82, 0.95), 0.1, vet_scope)
+	_box(Vector3(0, 7.0, 0), Vector3(10.4, 0.9, 1.4), Color(0.85, 0.88, 1.0), 0.15, vet_scope)
+	_box(Vector3(0, 1.2, 0), Vector3(9.0, 0.5, 4.0), Color(0.92, 0.95, 1.0), 0.12, vet_scope)
+	var pane := QuadMesh.new()
+	pane.size = Vector2(8.4, 5.2)
+	vet_screen = MeshInstance3D.new()
+	vet_screen.mesh = pane
+	vet_screen.position = Vector3(0, 4.2, -0.8)
+	var sm := StandardMaterial3D.new()
+	sm.albedo_color = Color(0.1, 0.16, 0.26)
+	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	vet_screen.material_override = sm
+	vet_scope.add_child(vet_screen)
+	vet_screen.visible = false
+	m.show_msg("Roshan", "Doctor Roshan! Somebody in the ward is hurt — find the one with the red ouch star!", "talk")
+	_update_hud()
 
-func _doc_need() -> int:
-	if doc_step < doc_order.size():
-		return doc_order[doc_step]
-	return doc_step
-
-func _doc_shuffle() -> void:
-	# the patient asks for its care in its own order, and says so in pictures
-	doc_order.clear()
-	var pool: Array[int] = []
-	for i in range(doc_targets.size()):
-		pool.append(i)
-	while not pool.is_empty():
-		doc_order.append(pool.pop_at(randi() % pool.size()))
-	doc_symptom = Label3D.new()
-	doc_symptom.name = "SymptomPictogram"
-	doc_symptom.font_size = 150
-	doc_symptom.pixel_size = 0.02
-	doc_symptom.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	doc_symptom.position = CENTER + Vector3(0, 6.4, -2.0)
-	add_child(doc_symptom)
-	_doc_symptom_show()
-
-func _doc_symptom_show() -> void:
-	if doc_symptom == null:
+func _vet_pick(i: int) -> void:
+	# Beat 1 -> 2: scoop up the hurt animal. A well animal just giggles.
+	if vet_phase != "find":
 		return
-	if doc_step >= doc_order.size():
-		doc_symptom.visible = false
-		return
-	var want: Dictionary = doc_targets[_doc_need()]
-	doc_symptom.text = {"scope": "💗", "thermo": "🌡", "boo": "🩹", "bandage": "🎀"}.get(String(want["kind"]), "✨")
-	doc_symptom.visible = true
-	var tw := doc_symptom.create_tween()
-	tw.tween_property(doc_symptom, "scale", Vector3.ONE * 1.25, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(doc_symptom, "scale", Vector3.ONE, 0.22)
-
-func _doctor_action(choice: int) -> void:
-	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
-		return
-	if doc_wait > 0.0:
-		return   # the plushy is still giggling from the last step — taps rest kindly
-	var target: Dictionary = doc_targets[choice]
-	if choice != _doc_need():
-		_wobble(target["node"] as Node3D)
+	var a: Dictionary = vet_animals[i]
+	if not bool(a["hurt"]):
+		_wobble(a["node"] as Node3D)
 		if m.chime != null:
-			m.chime.pitch_scale = 0.55
+			m.chime.pitch_scale = 1.5
 			m.chime.play()
-		m.show_msg("Roshan", "Not that one — look at the picture over the plushy and pick the tool that matches!", "hint")
+		m.show_msg("Roshan", "This one is all better! Look for the red ouch star.", "hint")
 		return
+	vet_carry = a["node"] as Node3D
+	(a["mark"] as Node3D).visible = false
+	vet_phase = "carry"
 	progress_t = 0.0
-	var node: Node3D = target["node"] as Node3D
-	match String(target["kind"]):
-		"scope":
-			# two soft heart-thumps while the plushy's chest pulses
-			var beat := create_tween()
-			beat.tween_callback(_heart_thump)
-			beat.tween_interval(0.4)
-			beat.tween_callback(_heart_thump)
-			var pulse := patient.create_tween()
-			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
-			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35)
-			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
-			m.show_msg("Roshan", "Bum-bum... bum-bum... a strong little heart! Now the thermometer!", "talk")
-		"thermo":
-			var tw := node.create_tween()
-			tw.tween_property(node, "position", patient.position + Vector3(0, 2.4, 1.2), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			tw.tween_interval(0.4)
-			tw.tween_property(node, "position", target["pos"] as Vector3, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			m.show_msg("Roshan", "Just a tiny fever — the boo-boos need some love!", "talk")
-		"boo":
-			node.visible = false
-			var heart := target["heart"] as Node3D
-			heart.visible = true
-			heart.scale = Vector3.ZERO
-			var tw2 := heart.create_tween()
-			tw2.tween_property(heart, "scale", Vector3.ONE, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		"bandage":
-			var tw3 := node.create_tween()
-			tw3.tween_property(node, "position", patient.position + Vector3(0, 1.0, 0), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			tw3.tween_callback(func() -> void: node.visible = false)
-			var band := target["band"] as Node3D
-			band.visible = true
-			band.scale = Vector3.ZERO
-			var tw4 := band.create_tween()
-			tw4.tween_property(band, "scale", Vector3.ONE, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	m._sparkle_burst((target["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.7, 0.95, 1.0))
-	if m.chime != null:
-		m.chime.pitch_scale = 0.95 + 0.15 * float(doc_step)
-		m.chime.play()
-	doc_step += 1
-	_doc_symptom_show()
-	if doc_step >= doc_targets.size():
-		# recovered pose: worried face off, happy face + blush on
-		_job_state(doctor_patient_art, "StateIdle", false)
-		_job_state(doctor_patient_art, "StateComplete", true)
-		# magic-kiss finale: a fountain of hearts, then the plush pops up better
-		for h in range(3):
-			m._sparkle_burst(patient.position + Vector3(-1.5 + float(h) * 1.5, 2.5 + float(h) * 0.8, 1.0), Color(1.0, 0.6, 0.8))
-		var hop := patient.create_tween()
-		hop.tween_property(patient, "position:y", patient.position.y + 1.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		hop.tween_property(patient, "position:y", patient.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-		_win()
-	else:
-		# let each little animation finish before the next tap counts — the
-		# checkup is a story, not a tap race
-		match String(target["kind"]):
-			"scope":
-				doc_wait = 3.0
-			"thermo":
-				doc_wait = 2.4
-			_:
-				doc_wait = 2.0
-		_update_hud()
+	m._sparkle_burst(vet_carry.position + Vector3(0, 2.0, 0), Color(1.0, 0.8, 0.85))
+	m.show_msg("Roshan", "Oh no, a poorly leg! Carry them over to the big fluoroscope!", "talk")
+	_update_hud()
+
+func _vet_arrive() -> void:
+	# Beat 2 -> 3: the x-ray lights up and the cracked bone shows
+	vet_phase = "xray"
+	progress_t = 0.0
+	vet_carry.position = vet_scope.position + Vector3(0, 2.2, 0)
+	vet_screen.visible = true
+	vet_limb = randi() % 4
+	for i in range(4):
+		var lx := -2.7 + float(i) * 1.8
+		var bone := _box(Vector3(lx, 4.2, -0.7), Vector3(0.55, 3.0, 0.2),
+			Color(0.85, 0.92, 1.0), 0.5, vet_scope)
+		if i == vet_limb:
+			# the crack: a dark break across the middle, plus a red pulse
+			_box(Vector3(lx, 4.2, -0.6), Vector3(0.8, 0.36, 0.2), Color(0.15, 0.18, 0.3), 0.0, vet_scope)
+			_sphere(Vector3(lx, 4.2, -0.4), 0.42, Color(1.0, 0.4, 0.45), 1.5, vet_scope)
+		vet_bones.append(bone)
+	m.show_msg("Roshan", "Look at the x-ray picture — tap the bone with the crack in it!", "talk")
+	_update_hud()
+
+func _vet_bone(i: int) -> void:
+	# Beat 3 -> 4: naming the break opens the cast
+	if vet_phase != "xray":
+		return
+	if i != vet_limb:
+		_wobble(vet_bones[i])
+		if m.chime != null:
+			m.chime.pitch_scale = 0.6
+			m.chime.play()
+		m.show_msg("Roshan", "That bone looks strong! Find the one with the dark crack.", "hint")
+		return
+	vet_phase = "cast"
+	vet_wrap = 0.0
+	vet_have_ang = false
+	progress_t = 0.0
+	vet_screen.visible = false
+	for b in vet_bones:
+		b.visible = false
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	m._sparkle_burst(vet_scope.position + Vector3(0, 4.2, 0), Color(0.8, 0.95, 1.0))
+	m.show_msg("Roshan", "Found it! Now wrap the soft cast ROUND and ROUND the leg with your finger!", "talk")
+	_update_hud()
+
+func _vet_leave() -> void:
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _vet_wrap_delta(d: float) -> void:
+	# Beats 4 and 5 share the verb — circle the limb — but not the material:
+	# soft white padding first, then the bright stretchy coban over the top.
+	if vet_phase != "cast" and vet_phase != "coban":
+		return
+	vet_wrap += absf(d)
+	progress_t = 0.0
+	var turns: float = VET_WRAP_TURNS if vet_phase == "cast" else VET_COBAN_TURNS
+	var want := int(clampf(vet_wrap / TAU, 0.0, turns) * 2.0)
+	while vet_layers.size() < want:
+		var k := vet_layers.size()
+		var col := Color(0.98, 0.97, 0.95) if vet_phase == "cast" else Color(0.4, 0.75, 0.95)
+		var ring := TorusMesh.new()
+		ring.inner_radius = 0.5 + (0.12 if vet_phase == "coban" else 0.0)
+		ring.outer_radius = 0.78 + (0.12 if vet_phase == "coban" else 0.0)
+		var band := _mesh(ring, vet_scope.position + Vector3(0, 1.9 + float(k) * 0.28, 0), col, 0.2)
+		band.rotation_degrees = Vector3(90, 0, 0)
+		vet_layers.append(band)
+		m._sparkle_burst(band.position, col)
+	if vet_wrap >= turns * TAU:
+		if vet_phase == "cast":
+			vet_phase = "coban"
+			vet_wrap = 0.0
+			m.show_msg("Roshan", "Soft padding done! Now the stretchy blue coban over the top — round and round again!", "talk")
+			_update_hud()
+		else:
+			_vet_finish()
+
+func _vet_finish() -> void:
+	vet_phase = "done"
+	_vet_leave()
+	_job_state(doctor_patient_art, "StateIdle", false)
+	_job_state(doctor_patient_art, "StateComplete", true)
+	for h in range(4):
+		m._sparkle_burst(vet_carry.position + Vector3(-1.5 + float(h) * 1.0, 2.5 + float(h) * 0.6, 1.0), Color(1.0, 0.6, 0.8))
+	var hop := vet_carry.create_tween()
+	hop.tween_property(vet_carry, "position:y", vet_carry.position.y + 2.0, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	hop.tween_property(vet_carry, "position:y", vet_carry.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	_win()
+
+func _tick_vet(delta: float) -> void:
+	match vet_phase:
+		"carry":
+			# the patient rides in her arms until the fluoroscope
+			if vet_carry != null:
+				vet_carry.position = player_pos + Vector3(0, 2.6, 0)
+			if vet_scope.position.distance_to(player_pos) < 7.0:
+				_vet_arrive()
+		"cast", "coban":
+			# circle the limb: same grammar as the chef's bowl, different job
+			var active := false
+			var pos := Vector2.ZERO
+			if m.touch_ui != null and m.touch_ui.drag_active:
+				active = true
+				pos = m.touch_ui.drag_pos
+			elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				active = true
+				pos = m.get_viewport().get_mouse_position()
+			if active and cam != null:
+				var hub := cam.unproject_position(vet_scope.position + Vector3(0, 2.4, 0))
+				var arm := pos - hub
+				if arm.length() >= 34.0:
+					var ang := arm.angle()
+					if vet_have_ang:
+						_vet_wrap_delta(angle_difference(vet_wrap_prev, ang))
+					vet_wrap_prev = ang
+					vet_have_ang = true
+				else:
+					vet_have_ang = false
+			else:
+				vet_have_ang = false
 
 func _heart_thump() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 0.45
 		m.chime.play()
 	m._sparkle_burst(patient.position + Vector3(0, 1.5, 1.2), Color(1.0, 0.55, 0.7))
-
-func _nearest_doc_target() -> int:
-	var best := -1
-	var best_d := PAD_REACH
-	for target in doc_targets:
-		var d: float = (target["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
-			best = int(target["index"])
-	return best
-
-# ------------- "scroll" engine (farmer: the 2D piggy-feeding meadow) -------------
-# A one-touch side-scroller played on a flat overlay: the meadow slides past,
-# hungry piggies drift toward Roshan, and a tap tosses a veggie to the nearest
-# one. Unfed piggies loop back around, so every piggy gets fed eventually.
-# ALL piggy/meadow art here is a rough placeholder (circle-panels) — the
-# owner's authored farm art replaces these panels in a later pass.
 
 func _panel_circle(parent: Control, pos: Vector2, size: float, col: Color) -> Panel:
 	var panel := Panel.new()
@@ -3946,9 +3947,22 @@ func _process(delta: float) -> void:
 			"sleuth":
 				pass   # peeking is a lens HOLD now, not a tap
 			"doctor":
-				var near_doc := _nearest_doc_target()
-				if near_doc >= 0:
-					_doctor_action(near_doc)
+				if vet_phase == "find":
+					var best := -1
+					var best_d := 6.0
+					for a in vet_animals:
+						var d: float = (a["pos"] as Vector3).distance_to(player_pos)
+						if d < best_d:
+							best_d = d
+							best = int(a["index"])
+					if best >= 0:
+						_vet_pick(best)
+					else:
+						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+				elif vet_phase == "xray":
+					# the four bones read left-to-right across the screen
+					var lane := int(clampf((player_pos.x - CENTER.x + 5.4) / 2.7, 0.0, 3.0))
+					_vet_bone(lane)
 			"race":
 				if race_flag != null and race_flag.position.distance_to(player_pos) < 5.5:
 					_launch_race()
@@ -4024,6 +4038,8 @@ func _process(delta: float) -> void:
 					else:
 						dwell_pad = touched
 						pad_dwell = 0.0 if touched != dwell_pad else pad_dwell
+		"doctor":
+			_tick_vet(delta)
 		"sleuth":
 			_tick_lens(delta)
 		"shuffle":
@@ -4125,8 +4141,13 @@ func _pointer_target() -> Vector3:
 				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
 			return CENTER + Vector3(0, 8.0, BELT_Z)
 		"doctor":
-			if doc_step < doc_targets.size():
-				return (doc_targets[_doc_need()]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+			if vet_phase == "find" and vet_hurt >= 0:
+				return (vet_animals[vet_hurt]["pos"] as Vector3) + Vector3(0, 4.5, 0)
+			if vet_phase == "carry":
+				return vet_scope.position + Vector3(0, 8.0, 0)
+			if vet_phase == "xray" and vet_limb >= 0:
+				return vet_scope.position + Vector3(-2.7 + float(vet_limb) * 1.8, 6.4, -0.4)
+			return vet_scope.position + Vector3(0, 5.0, 0)
 		"race":
 			if race_flag != null:
 				return race_flag.position + Vector3(0, 7.0, 0)
@@ -4151,8 +4172,9 @@ func _tick_pointer() -> void:
 	elif kind == "echo" and echo_phase == "repeat":
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "doctor":
-		# reading the pictogram IS the game — the arrow only rescues
-		show = show and progress_t > RESCUE_DELAY
+		# spotting the hurt animal and reading the x-ray ARE the game —
+		# the arrow only rescues a stuck vet
+		show = show and (progress_t > RESCUE_DELAY or vet_phase == "carry")
 	elif kind == "sleuth" and not chest_ready:
 		# searching IS the game — the arrow only rescues a stuck detective
 		show = show and progress_t > RESCUE_DELAY
@@ -4229,7 +4251,19 @@ func _update_hud() -> void:
 		"press":
 			objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
-			objective.text = tag + "🩺  Match the picture to the right tool!  %d / %d" % [doc_step, doc_targets.size()]
+			match vet_phase:
+				"find":
+					objective.text = tag + "🔎  Find the animal with the red ouch star!"
+				"carry":
+					objective.text = tag + "🤲  Carry them to the fluoroscope!"
+				"xray":
+					objective.text = tag + "🦴  Tap the bone with the crack!"
+				"cast":
+					objective.text = tag + "🩹  Wrap the soft cast — draw CIRCLES!  %d%%" % int(clampf(vet_wrap / (VET_WRAP_TURNS * TAU), 0.0, 1.0) * 100.0)
+				"coban":
+					objective.text = tag + "💙  Now the stretchy coban — CIRCLES again!  %d%%" % int(clampf(vet_wrap / (VET_COBAN_TURNS * TAU), 0.0, 1.0) * 100.0)
+				_:
+					objective.text = tag + "🩺  All better!"
 		"scroll":
 			objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
 		"race":
@@ -4290,6 +4324,7 @@ func _finish() -> void:
 	_leave_farm()
 	_leave_belt()
 	_leave_hide()
+	_vet_leave()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -4305,6 +4340,7 @@ func cancel() -> void:
 	_leave_farm()
 	_leave_belt()
 	_leave_hide()
+	_vet_leave()
 	if state == "done":
 		return
 	if state == "won":

@@ -121,7 +121,7 @@ func _snapshot(act: OperaAct) -> String:
 		"shuffle":
 			return base + " shuffle=%s round=%d" % [act.shuffle_phase, act.shuffle_round]
 		"doctor":
-			return base + " step=%d" % act.doc_step
+			return base + " vet=%s hurt=%d limb=%d wrap=%.1f" % [act.vet_phase, act.vet_hurt, act.vet_limb, act.vet_wrap]
 		"scroll":
 			return base + " fed=%d" % act.farm_fed
 		"fix":
@@ -422,14 +422,26 @@ func _nearest_unopened(act: OperaAct) -> Vector3:
 	return best
 
 func _drive_doctor(act: OperaAct, dt: float) -> void:
-	if act.doc_wait > 0.0:
-		return
-	var want: int = act._doc_need()
-	var choice := _intent(act.doc_targets.size(), want, 8000 + act.doc_step)
-	if _travel(act, act.doc_targets[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
-		act._doctor_action(choice)
-		if choice != want:
-			_intent_learned(want)
+	match act.vet_phase:
+		"find":
+			# a child looks around the ward before spotting the ouch star
+			var want: int = act.vet_hurt
+			var choice := _intent(act.vet_animals.size(), want, 9000)
+			if _travel(act, act.vet_animals[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
+				act._vet_pick(choice)
+				if choice != want:
+					_intent_learned(want)
+		"carry":
+			_travel(act, act.vet_scope.position, dt)
+		"xray":
+			if not _ready_to_act(dt):
+				return
+			var bone := _intent(4, act.vet_limb, 9100)
+			act._vet_bone(bone)
+			if bone != act.vet_limb:
+				_intent_learned(act.vet_limb)
+		"cast", "coban":
+			act._vet_wrap_delta(dt * lerpf(2.0, 4.2, float(persona["speed"])))
 
 func _drive_scroll(act: OperaAct, dt: float) -> void:
 	# lobbing: the persona picks the nearest unfed piggy, judges the pull, and
