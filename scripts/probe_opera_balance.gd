@@ -91,6 +91,21 @@ func _snapshot(act: OperaAct) -> String:
 	if not is_instance_valid(act):
 		return "act-freed"
 	var base := "state=%s phase=%s" % [act.state, act.stage_phase]
+	if act.stage_phase == "brawl":
+		# the six shelled acts keep stalling here; report enough to stop guessing
+		var nearest := -1.0
+		var live := 0
+		for g in act.imps:
+			if bool(g["popped"]):
+				continue
+			live += 1
+			var gap: Vector3 = (g["pos"] as Vector3) - act.player_pos
+			gap.y = 0.0
+			if nearest < 0.0 or gap.length() < nearest:
+				nearest = gap.length()
+		return base + " imps=%d live=%d left=%d nearest=%.1f pos=(%.1f,%.1f) wait=%.2f" % [
+			act.imps.size(), live, act.imps_left, nearest,
+			act.player_pos.x - act.CENTER.x, act.player_pos.z - act.CENTER.z, wait_t]
 	match act.kind:
 		"echo":
 			return base + " echo=%s round=%d pos=%d dwell=%.2f" % [act.echo_phase, act.echo_round, act.echo_pos, act.pad_dwell]
