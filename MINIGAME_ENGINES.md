@@ -210,6 +210,10 @@ One grammar across every engine, so the player's hand never re-learns:
   under the finger — touch_ui already does this in-world)
 - **tap** = THE button (throw, nova, turbo, hop, buy)
 - nothing else. No gestures, no multi-touch requirements, no reading.
+- AMENDED 2026-07-25 (owner decision, see COMBO_SYSTEM.md): horizontal
+  slice is approved as a fourth verb — encounter-focus states only
+  (movement suspended), never on the free-play field, so it can never
+  be misread as steering. All other gestures remain excluded.
 
 Implementation path: `SideScrollStage.tick()` is the first engine-owned
 composite read. Next mechanical step: lift it into a small static
