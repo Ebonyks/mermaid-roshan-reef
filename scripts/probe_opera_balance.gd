@@ -391,15 +391,26 @@ func _drive_doctor(act: OperaAct, dt: float) -> void:
 			_intent_learned(act.doc_step)
 
 func _drive_scroll(act: OperaAct, dt: float) -> void:
-	if act.farm_toss_cool > 0.0:
+	# lobbing: the persona picks the nearest unfed piggy, judges the pull, and
+	# lets go — with an aim wobble scaled to how careless it is
+	if act.farm_flights.size() > 0:
 		return
-	var near := false
+	var target := -1.0
+	var best := 1e9
 	for pig in act.piggies:
-		if not bool(pig["fed"]) and absf(float(pig["sx"]) - 250.0) < 150.0:
-			near = true
-			break
-	if near and _ready_to_act(dt):
-		act._toss_action()
+		if bool(pig["fed"]):
+			continue
+		var sx: float = float(pig["sx"])
+		if sx < act.FARM_ROSHAN_X or sx > 1030.0:
+			continue
+		if sx < best:
+			best = sx
+			target = sx
+	if target < 0.0 or not _ready_to_act(dt):
+		return
+	var power: float = (target - act.FARM_ROSHAN_X) / 780.0
+	power += randf_range(-1.0, 1.0) * float(persona["err"]) * 0.5
+	act._farm_launch(clampf(power, 0.0, 1.0))
 
 func _drive_fix(act: OperaAct, dt: float) -> void:
 	if act.fix_phase == "launch":

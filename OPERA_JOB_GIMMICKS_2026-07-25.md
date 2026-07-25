@@ -164,6 +164,12 @@ Built so far:
   build the bubble column up a thrust bar; letting go sags the meter rather
   than resetting it, so a slipped finger costs a second, never the act.
 
+- **Farmer — the slingshot** (`opera_act.gd`): feeding was a metronome tap on
+  a scrolling lane. The veggie is now LOBBED — drag back from Roshan, watch the
+  aim dots arc out, let go. Pull length is throw distance, so the skill is
+  judging a trotting pig rather than waiting for a beat. A lob that lands in
+  the grass bounces; tapping feeds nobody at all now.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

@@ -185,6 +185,17 @@ const FARM_SPEED := 120.0
 var farm_layer: CanvasLayer = null
 var farm_t := 0.0
 var farm_fed := 0
+# ---- the slingshot (owner 2026-07-25) ----
+# Feeding used to be a metronome tap. Now the veggie is LOBBED: drag back from
+# Roshan, watch the aim dots arc out, and let go. Pull length is throw
+# distance, so the skill is aiming at a trotting pig, not waiting for a beat.
+const FARM_ROSHAN_X := 250.0
+var farm_root: Control = null
+var farm_pull := false
+var farm_pull_from := Vector2.ZERO
+var farm_pull_to := Vector2.ZERO
+var farm_aim: Array[Control] = []
+var farm_flights: Array[Dictionary] = []
 var farm_toss_cool := 0.0
 var farm_roshan: Control = null
 var piggies: Array[Dictionary] = []
@@ -2977,6 +2988,7 @@ func _build_farm() -> void:
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	farm_layer.add_child(root)
+	farm_root = root
 	var sky := ColorRect.new()
 	sky.color = Color(0.62, 0.85, 0.98)
 	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -3021,7 +3033,100 @@ func _build_farm() -> void:
 		piggies.append({"index": i, "node": pig, "bubble": bubble, "want": want,
 			"x": 900.0 + float(i) * 560.0, "sx": 900.0 + float(i) * 560.0, "fed": false})
 
+func _farm_arm() -> void:
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	for i in range(7):
+		var dot := _panel_circle(farm_root, Vector2(-99.0, -99.0), 16.0 - float(i), Color(1.0, 0.95, 0.7, 0.85))
+		dot.visible = false
+		farm_aim.append(dot)
+
+func _leave_farm() -> void:
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _farm_power_to_x(power: float) -> float:
+	return FARM_ROSHAN_X + clampf(power, 0.0, 1.0) * 780.0
+
+func _farm_aim_show(power: float) -> void:
+	var tx := _farm_power_to_x(power)
+	for i in range(farm_aim.size()):
+		var t := float(i + 1) / float(farm_aim.size() + 1)
+		var ax := lerpf(FARM_ROSHAN_X, tx, t)
+		var ay := lerpf(340.0, 430.0, t) - sin(t * PI) * (120.0 + power * 130.0)
+		farm_aim[i].position = Vector2(ax, ay)
+		farm_aim[i].visible = true
+
+func _farm_aim_hide() -> void:
+	for d in farm_aim:
+		d.visible = false
+
+func _farm_launch(power: float) -> void:
+	# the veggie leaves her hand on an arc; whoever it lands next to gets fed
+	if state != "play" or kind != "scroll":
+		return
+	_farm_aim_hide()
+	var veg := _panel_circle(farm_root, Vector2(FARM_ROSHAN_X, 340.0), 26.0,
+		[Color(1.0, 0.62, 0.35), Color(0.95, 0.35, 0.4), Color(1.0, 0.88, 0.45)][farm_flights.size() % 3])
+	farm_flights.append({"node": veg, "t": 0.0, "tx": _farm_power_to_x(power), "power": power})
+	if farm_roshan != null:
+		var squash := farm_roshan.create_tween()
+		squash.tween_property(farm_roshan, "scale", Vector2(1.18, 0.82), 0.1)
+		squash.tween_property(farm_roshan, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.25
+		m.chime.play()
+
+func _tick_flights(delta: float) -> void:
+	for f in farm_flights.duplicate():
+		f["t"] = float(f["t"]) + delta * 1.7
+		var t: float = float(f["t"])
+		var node := f["node"] as Control
+		if not is_instance_valid(node):
+			farm_flights.erase(f)
+			continue
+		if t >= 1.0:
+			var tx: float = float(f["tx"])
+			node.queue_free()
+			farm_flights.erase(f)
+			_farm_land(tx)
+			continue
+		node.position.x = lerpf(FARM_ROSHAN_X, float(f["tx"]), t)
+		node.position.y = lerpf(340.0, 430.0, t) - sin(t * PI) * (120.0 + float(f["power"]) * 130.0)
+		node.rotation = t * 6.0
+
+func _farm_land(tx: float) -> void:
+	var best := -1
+	var best_d := 170.0
+	for pig in piggies:
+		if bool(pig["fed"]):
+			continue
+		var d: float = absf(float(pig["sx"]) - tx)
+		if d < best_d:
+			best_d = d
+			best = int(pig["index"])
+	if best >= 0:
+		_farm_feed(best)
+	elif m.chime != null:
+		# a veggie that lands in the grass just bounces — never a fail
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+
 func _tick_farm(delta: float) -> void:
+	if farm_aim.is_empty():
+		_farm_arm()
+	# the slingshot: drag back from Roshan, release to lob
+	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		if not farm_pull:
+			farm_pull = true
+			farm_pull_from = m.touch_ui.drag_pos
+		farm_pull_to = m.touch_ui.drag_pos
+		_farm_aim_show(clampf((farm_pull_from - farm_pull_to).length() / 260.0, 0.05, 1.0))
+	elif farm_pull:
+		farm_pull = false
+		_farm_launch(clampf((farm_pull_from - farm_pull_to).length() / 260.0, 0.05, 1.0))
+	_tick_flights(delta)
 	farm_t += delta
 	farm_toss_cool = maxf(0.0, farm_toss_cool - delta)
 	if farm_roshan != null:
@@ -3043,50 +3148,26 @@ func _tick_farm(delta: float) -> void:
 			node.rotation = sin(elapsed * 5.5 + float(pig["index"]) * 1.7) * 0.06   # trotting wiggle
 
 func _toss_action() -> void:
-	if state != "play" or kind != "scroll" or farm_toss_cool > 0.0:
-		return
-	farm_toss_cool = 0.5
-	var best := -1
-	var best_d := 170.0
-	for pig in piggies:
-		if bool(pig["fed"]):
-			continue
-		var d: float = absf(float(pig["sx"]) - 250.0)
-		if d < best_d:
-			best_d = d
-			best = int(pig["index"])
-	if best >= 0:
-		var pig2: Dictionary = piggies[best]
-		pig2["fed"] = true
-		(pig2["want"] as Label).text = "❤"
-		var node := pig2["node"] as Control
-		node.rotation = 0.0
-		var tw := node.create_tween()
-		tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-		if farm_roshan != null:
-			# Roshan does a happy throw-squash so every toss FEELS thrown
-			var squash := farm_roshan.create_tween()
-			squash.tween_property(farm_roshan, "scale", Vector2(1.15, 0.85), 0.12)
-			squash.tween_property(farm_roshan, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		if m.chime != null:
-			m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
-			m.chime.play()
-		farm_fed += 1
-		progress_t = 0.0
-		if farm_fed >= piggies.size():
-			_win()
-		else:
-			_update_hud()
+	pass   # feeding is a slingshot LOB now, not a tap
+
+func _farm_feed(best: int) -> void:
+	var pig2: Dictionary = piggies[best]
+	pig2["fed"] = true
+	(pig2["want"] as Label).text = "❤"
+	var node := pig2["node"] as Control
+	node.rotation = 0.0
+	var tw := node.create_tween()
+	tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
+		m.chime.play()
+	farm_fed += 1
+	progress_t = 0.0
+	if farm_fed >= piggies.size():
+		_win()
 	else:
-		# a toss with nobody close is just a bouncing veggie — never a fail
-		if m.chime != null:
-			m.chime.pitch_scale = 0.6
-			m.chime.play()
-		if farm_roshan != null:
-			var tw2 := farm_roshan.create_tween()
-			tw2.tween_property(farm_roshan, "rotation", 0.12, 0.1)
-			tw2.tween_property(farm_roshan, "rotation", 0.0, 0.15)
+		_update_hud()
 
 # ------------- "race" engine (racecar driver: KartGame exhibition) -------------
 # Real reuse of the kart engine via its documented configure()/start() hooks:
@@ -3867,7 +3948,7 @@ func _update_hud() -> void:
 		"doctor":
 			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
 		"scroll":
-			objective.text = tag + "🐷  TOSS veggies to the hungry piggies!  %d / %d" % [farm_fed, piggies.size()]
+			objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
 		"race":
 			objective.text = tag + "🏁  Race the Opera Grand Prix!"
 		"dance":
@@ -3923,6 +4004,7 @@ func _finish() -> void:
 	_leave_stir()
 	_leave_lens()
 	_leave_launch()
+	_leave_farm()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -3935,6 +4017,7 @@ func cancel() -> void:
 	_leave_stir()
 	_leave_lens()
 	_leave_launch()
+	_leave_farm()
 	if state == "done":
 		return
 	if state == "won":
@@ -3966,7 +4049,7 @@ func action_label() -> String:
 		"sleuth":
 			return "LOOK"
 		"scroll":
-			return "TOSS"
+			return "LOB"
 		"race":
 			if kart != null:
 				return String(kart.call("action_label"))

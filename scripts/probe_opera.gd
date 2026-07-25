@@ -498,13 +498,32 @@ func _drive_doctor(act: OperaAct) -> void:
 
 func _drive_scroll(act: OperaAct) -> void:
 	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
+	# tapping no longer feeds anyone: the veggie has to be LOBBED
 	act._toss_action()
-	_ck("toss with nobody close is gentle (no feed)", act.state == "play" and act.farm_fed == 0)
+	_ck("tapping no longer feeds a piggy", act.state == "play" and act.farm_fed == 0)
+	# a lob that lands in the grass bounces, it never fails
+	for pig in act.piggies:
+		pig["sx"] = 2000.0
+	act._farm_launch(0.2)
+	var fguard := 0
+	while act.farm_flights.size() > 0 and fguard < 60:
+		fguard += 1
+		act._tick_flights(0.1)
+	_ck("a lob into the grass just bounces", act.state == "play" and act.farm_fed == 0)
+	# pull length is throw distance: aim at where the piggy actually is
 	for i in range(act.piggies.size()):
-		act.farm_toss_cool = 0.0
-		act.piggies[i]["sx"] = 250.0
-		act._toss_action()
-	_ck("every fed piggy finishes the picnic", act.state == "won" and act.farm_fed == act.piggies.size())
+		var want: float = 260.0 + float(i) * 55.0
+		act.piggies[i]["sx"] = want
+		var power: float = clampf((want - act.FARM_ROSHAN_X) / 780.0, 0.0, 1.0)
+		act._farm_launch(power)
+		var g2 := 0
+		while act.farm_flights.size() > 0 and g2 < 60:
+			g2 += 1
+			act._tick_flights(0.1)
+		for pig in act.piggies:
+			if not bool(pig["fed"]):
+				pig["sx"] = 2000.0
+	_ck("every lobbed veggie finishes the picnic", act.state == "won" and act.farm_fed == act.piggies.size())
 
 func _drive_race(act: OperaAct) -> void:
 	var guard := 0
