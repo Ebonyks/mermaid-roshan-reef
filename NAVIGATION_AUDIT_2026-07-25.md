@@ -9,8 +9,11 @@
 Indoors the chase camera is set to `cam_back = 10.0 / cam_high = 4.2`
 (`main.gd:4349-4350`) behind a 38° lens. Roshan's model is **7.03 units tall**
 (`player.gd:245-247`: v3/v4 GLB is 1.9u tall × scale 3.7). At that boom the
-visible frame is **7.1 units tall** — she fills **99 % of the screen height**.
-Outdoors, at `25.0 / 9.0`, she fills 39 %. Walking through the castle door
+boom is **10.4 units** against 26.1 outdoors, and she fills **≈ 50 % of the
+screen height** indoors against **≈ 20 %** outdoors — 2.5× larger, exactly the
+boom-distance ratio. (Those percentages are measured; see the CORRECTION note
+under STATUS — the figures first published here, 99 % and 39 %, were my own
+trigonometry and were about 2× too high.) Walking through the castle door
 multiplies her on-screen size by 2.5× and leaves nothing but her back on screen.
 
 **"Something about gameplay?"** — Yes, and this is the *bigger* of the two.
@@ -171,13 +174,16 @@ are framing and the parts of that audit's plan (P1/P2) that were never landed.
 chase camera in so it does not clip the hall / back-room walls"*. That
 mitigation is now **redundant** — `CameraKit.resolve()` (`player.gd:1036-1038`)
 shortens the boom analytically against `arena_solids` — and it is **actively
-harmful**: it is what produces the 99 %-of-frame framing computed above.
+harmful**: it is what produces the half-the-screen framing measured above.
 
-| where | boom | visible frame (H×W) | Roshan fills |
-|---|---|---|---|
-| outdoor, boot value (9.0) | 26.1 u | 18.0 × 32.0 | 39 % |
-| outdoor, after one castle visit (6.5) | 25.5 u | 17.6 × 31.2 | 40 % |
-| **castle interior** | **10.4 u** | **7.1 × 12.7** | **99 %** |
+| where | boom | Roshan fills (of frame height) |
+|---|---|---|
+| outdoor, boot value (9.0) | 26.1 u | 18–21 % |
+| outdoor, after one castle visit (6.5) | 25.5 u | ~21 % |
+| **castle interior** | **10.4 u** | **46–55 %** |
+
+(Measured by `probe_navigation` with `cam.unproject_position()` on her head and
+feet over viewport height, driving the same stair climb on each lens.)
 
 Note the interior boom (10.4 u) is *shorter than the corridor is wide*
 (11.3 u) and *shorter than the side rooms are deep* (11.3 u) — so even at this
@@ -409,7 +415,7 @@ one static three-sparkle Label3D chain toward the Crown Star
 straight line to the target, every 2.2 s, only when the target is > 22 u away.
 It is a straight line, not a path, so it happily points through terrain; and it
 covers only the first 20 % of the distance, most of which is inside Roshan's
-own 39 %-of-frame silhouette.
+own silhouette.
 
 ---
 
@@ -442,8 +448,8 @@ extract-don't-rewrite style.
 1. Delete the interior boom hand-tune (`main.gd:4349-4350`) and introduce a
    single `cam_profile` dictionary on main as the one source of truth for
    `back / high / fov / near / far` (this also fixes C3's 9.0-vs-6.5 drift by
-   construction). Interior starting point: `back 18 / high 8` (Roshan ≈ 55 % of
-   frame), relying on `CameraKit` for clipping.
+   construction). Interior starting point: `back 18 / high 8`, relying on
+   `CameraKit` for clipping.
 2. Add venue movement constants next to `arena_dome/arena_ceil`: interior drag
    `pow(0.033, dt)`, turn 3.2 rad/s, gravity 40. Nothing else in the engine
    reads these values, so the change is contained to `player.gd:728-748`.
@@ -491,7 +497,7 @@ extract-don't-rewrite style.
 
 | # | Fix | Where |
 |---|---|---|
-| C1 | Interior boom 10/4.2 → 18/8. Roshan goes from 99 % to ~55 % of frame height indoors. | `camera_kit.gd` `INTERIOR`, `main.gd` `_enter_castle_interior_now` |
+| C1 | Interior boom 10/4.2 → 18/8. Measured on the same stair climb, Roshan goes from **46–55 %** of frame height to **26–29 %** (open water is 18–21 %). | `camera_kit.gd` `INTERIOR`, `main.gd` `_enter_castle_interior_now` |
 | C3 | `cam_profile` / `move_profile` venue system; boot and all five restores read the same constants, so the 9.0→6.5 drift cannot recur. | `CameraKit.OUTDOOR/INTERIOR`, `main._apply_venue`, `player.apply_cam_profile` |
 | C2 | **Boom-over before boom-in** — the resolver lifts the lens over an obstruction (capped by the zone ceiling) before shortening. Hide thresholds 2.0/2.6 → 1.2/1.8. | `CameraKit.resolve`, `player.gd` chase block |
 | C4 | One `CameraKit.zone_bounds()` with the *body's* semantics, called by both player and lens, plus a floor≤ceil collapse so an overlap can never pin her. | `camera_kit.gd`, `player.gd` |
@@ -506,6 +512,35 @@ extract-don't-rewrite style.
 | S2 | Entrance facade given colliders (doorway stays 8.8 u clear); she now spawns **facing the throne** instead of facing the exit trigger she just came through. | `arena/castle_hall.gd`, `main.gd` |
 | W1/W2 | Wayfinder runs in the castle (Crown Star, then the exit) and places breadcrumbs at fixed 6/10/14 u instead of 6 %/13 %/20 % of the way. | `main._tick_wayfinder` |
 | Tests | `probe_navigation.gd` (new — drives via `touch_ui.stick_vec` only, asserts direction-steering, framing band, `player.visible`, boom length, zone-table non-inversion, stair→dais→crown with no magnet, entrance wall, lens restore). `probe_camera` + `probe_castle_cam` + `probe_navigation` added to `ci.sh` **and** `.github/workflows/probes.yml`. | |
+
+## CORRECTION to this document's framing figures (2026-07-25, after CI run 725)
+
+The first version of this audit stated that the interior lens made Roshan fill
+**99 %** of the screen height against **39 %** outdoors. Those two numbers were
+my own trigonometry — `2·d·tan(fov/2)` — which requires assuming Godot's
+`fov`/`keep_aspect` convention and the model's exact extents. `probe_navigation`
+now measures the real thing with `cam.unproject_position()` on her head and feet
+over viewport height, driving the *same* stair climb on each lens:
+
+| lens | boom | fraction of frame height |
+|---|---|---|
+| interior, pre-fix `10.0 / 4.2` | 10.36 u | **0.456 – 0.553** |
+| interior, post-fix `18.0 / 8.0` | 19.14 u | **0.261 – 0.293** |
+| open water `25.0 / 9.0` | 26.1 u | **0.184 – 0.213** |
+
+So the true severity is about **half** what this document originally claimed:
+she filled roughly half the screen indoors, not all of it. What survives intact
+is the *ratio* and therefore the diagnosis — 0.50 / 0.20 = **2.5×**, which is
+exactly the boom-distance ratio 26.1 / 10.36, and the fix brings the interior
+framing to 1.4× outdoor rather than 2.5×. The defect was real and the remedy is
+unchanged; the headline number was overstated and is corrected here.
+
+(A first attempt at this diagnostic was also wrong in a different way: it held
+still wherever the crown walk had left her — behind the dais, a cornered spot
+where the boom collapses and the character is deliberately hidden — and
+reported 128–151 % for the old lens and a meaningless 261 % peak for the new
+one. Measuring the identical climb on both lenses is what makes the table
+above comparable.)
 
 ## Deliberately not done, and why
 
@@ -534,7 +569,8 @@ extract-don't-rewrite style.
 
 Navigation feels bad for two independent reasons that compound. First, the
 chase camera is set to ten units behind a 38° lens indoors, which makes Roshan
-fill 99 % of the screen — the castle isn't small, the camera is. Second, the
+fill about half the screen height — two and a half times her outdoor size. The
+castle isn't small, the camera is. Second, the
 swimming model is tuned for open ocean everywhere: she coasts fifteen units
 after you let go and needs a twenty-eight-unit circle to turn around, in rooms
 eleven to thirteen units wide, with no way to steer up or down at all. Fix the
