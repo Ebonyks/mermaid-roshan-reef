@@ -62,7 +62,7 @@ const ACTS := [
 		"floor_col": Color(0.55, 0.32, 0.3), "trim": Color(1.0, 0.82, 0.45), "curtain": Color(0.72, 0.2, 0.24)},
 	{"name": "The Magic Hat Trick", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
 		"kind": "shuffle", "rounds": 4, "imps": 5, "shell": true,
-		"rescue": "usher crabs", "gift": "silk scarves",
+		"rescue": "usher crabs", "gift": "silk scarves", "uses": "silk scarves",
 		"voice": "Abracadabra! Watch the bunny-fish hop under a hat, keep your eyes on it, then pick the right one!",
 		"win_line": "Magic! The bunny-fish says you have the sharpest eyes in the sea!",
 		"floor_col": Color(0.36, 0.3, 0.55), "trim": Color(0.85, 0.7, 1.0), "curtain": Color(0.4, 0.22, 0.6)},

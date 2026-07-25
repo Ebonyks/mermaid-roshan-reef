@@ -24,7 +24,7 @@ over) → MAKE (the act runs on exactly that gift). Gifts persist in
 | Pastry Chef | the farmers | carrots | they go in the bowl — it becomes a carrot cake |
 | Painter | another painter | their paints | the pots she paints with; the finished canvas is then HUNG in the gallery |
 | Detective | stagehands | lanterns | *(to wire: light the dark Prop Library)* |
-| Magician | usher crabs | silk scarves | *(to wire: the rope trick)* |
+| Magician | usher crabs | silk scarves | the rope trick — they hold the ends, so every pull is shorter |
 | Astronaut | bubble engineers | spare pipes | *(to wire: extra queue pieces)* |
 | **Doctor** | **— none —** | **—** | the rescue in that act is the injured animal herself |
 
@@ -102,8 +102,8 @@ trick, three times.*
 |---|---|---|---|
 | 1 | **The Vanish** | drag | *(built)* drag a hat over the bunny-fish |
 | 2 | **The Shuffle** | track + tap | *(built)* follow it through the dance |
-| 3 | **The Rope** | pull-apart drag | a knotted rope; drag both ends outward and the knot melts away |
-| 4 | **The Cabinet** | rhythm tap | tap the star wand three times on the beat; the cabinet doors swing and the bunny-fish is now enormous |
+| 3 | **The Rope** | pull-apart drag | *(built)* three knots; drag your finger out wide and each one melts. The usher crabs' silk scarves hold the far ends, so every pull is 45% shorter — the gift is a real helping hand |
+| 4 | **The Cabinet** | rhythm tap | *(built)* tap the star wand three times ON the beat; the doors swing wider each time and the bunny-fish comes out enormous. The wand pulses on the beat, so it plays with the phone muted |
 
 Four tricks, four gestures. Call-and-response pacing.
 

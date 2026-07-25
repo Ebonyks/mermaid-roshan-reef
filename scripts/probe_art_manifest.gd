@@ -25,7 +25,6 @@ const PENDING_BEATS := {
 	"ballerina": ["ribbon", "twirl"],
 	"candymaker": ["syrup", "wrap", "parade"],
 	"farmer": ["plant", "mud", "barn"],
-	"magician": ["rope", "cabinet"],
 	"painter": ["sketch", "fill"],
 }
 

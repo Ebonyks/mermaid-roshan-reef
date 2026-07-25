@@ -127,7 +127,27 @@ var hats: Array[Dictionary] = []
 var bunny: Node3D = null
 var bunny_at := 0
 var shuffle_round := 0
-var shuffle_phase := "watch"       # hide | watch | pick | wait
+var shuffle_phase := "watch"       # hide | watch | pick | wait | rope | cabinet
+# ---- the routine (owner pacing standard 2026-07-25) ----
+# A stage magician performs a ROUTINE of different tricks; the act used to be
+# one trick three times. Two more tricks close it, each with its own gesture:
+# the rope melts under a pull-apart drag, the cabinet opens to rhythm taps.
+const ROPE_KNOTS := 3
+const ROPE_PULL := 240.0        # pixels of outward finger travel per knot
+const CAB_TAPS := 3
+const CAB_BEAT := 1.15          # seconds per cabinet beat
+const CAB_WINDOW := 0.55        # fraction of the beat that counts as "on it"
+var rope_root: Node3D = null
+var rope_knots: Array[Node3D] = []
+var rope_undone := 0
+var rope_x0 := 0.0
+var rope_tracking := false
+var rope_pull_need := ROPE_PULL
+var cab_root: Node3D = null
+var cab_doors: Array[Node3D] = []
+var cab_wand: Node3D = null
+var cab_taps := 0
+var cab_beat_t := 0.0
 # ---- Roshan performs the trick (owner 2026-07-25) ----
 # Perspective flip: she is the MAGICIAN, not the mark. Every round opens with
 # the child dragging a hat over the bunny-fish to hide it; only then do the
@@ -2984,6 +3004,20 @@ func _shuffle_hide(target: int) -> void:
 	_update_hud()
 
 func _tick_shuffle(delta: float) -> void:
+	if shuffle_phase == "rope":
+		_tick_rope(delta)
+		if rope_root != null:
+			rope_root.position.y = CENTER.y + 4.4 + sin(elapsed * 1.8) * 0.2
+		return
+	if shuffle_phase == "cabinet":
+		cab_beat_t += delta
+		if cab_wand != null:
+			# the wand pulses ON the beat: the rhythm must be readable with the
+			# phone muted, so the cue is a size change, not a sound
+			var lit := _cab_on_beat()
+			cab_wand.scale = Vector3.ONE * (1.16 if lit else 0.92)
+			cab_wand.rotation.z = sin(elapsed * 3.0) * 0.12
+		return
 	if shuffle_phase == "wait":
 		shuffle_wait_t -= delta
 		if shuffle_wait_t <= 0.0:
@@ -3021,8 +3055,178 @@ func _tick_shuffle(delta: float) -> void:
 		swap_plan.remove_at(0)
 		shuffle_t = intro   # next segment starts fresh
 
+func _begin_rope() -> void:
+	# Trick 3: a knotted silk rope. Drag your finger OUTWARD and each knot
+	# melts away. A pull, not a tap — the third distinct gesture in the act.
+	shuffle_phase = "rope"
+	rope_undone = 0
+	rope_tracking = false
+	rope_pull_need = ROPE_PULL
+	if bunny != null:
+		bunny.visible = false
+	for h in hats:
+		var hn := h["node"] as Node3D
+		var sink := hn.create_tween()
+		sink.tween_property(hn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	rope_root = Node3D.new()
+	rope_root.name = "KnottedRope"
+	rope_root.position = CENTER + Vector3(0, 4.4, -1.0)
+	add_child(rope_root)
+	var silk: bool = int(m.opera_pantry.get("silk scarves", 0)) > 0
+	var cord_col := Color(0.95, 0.62, 0.85) if silk else Color(0.86, 0.8, 0.68)
+	var cord := _cyl(Vector3.ZERO, 0.28, 13.0, cord_col, 0.25, rope_root)
+	cord.rotation_degrees = Vector3(0, 0, 90)
+	for i in range(ROPE_KNOTS):
+		var kx := -4.0 + float(i) * 4.0
+		var knot := _sphere(Vector3(kx, 0, 0), 0.95, cord_col.darkened(0.15), 0.3, rope_root)
+		rope_knots.append(knot)
+	if silk:
+		# the ushers she freed hold the far ends for her, so every pull is
+		# shorter — the gift is a real mechanical helping hand, not a colour
+		rope_pull_need = ROPE_PULL * 0.55
+		for ex: float in [-7.0, 7.0]:
+			var scarf := _box(Vector3(ex, -0.2, 0.4), Vector3(1.8, 0.14, 1.4),
+				Color(1.0, 0.85, 0.95), 0.35, rope_root)
+			scarf.rotation_degrees = Vector3(0, 0, 12.0 * signf(ex))
+	_set_drag(true)
+	# one line, not two — the second show_msg would simply overwrite the first
+	# and the child would never hear what the scarves did
+	m.show_msg("Roshan", ("The usher crabs tied their silk scarves to the ends and are holding it for you — DRAG your finger out wide to melt the knots away!"
+		if silk else "Trick three — the magic rope! DRAG your finger out wide to melt the knots away!"), "talk")
+	_update_hud()
+
+func _rope_untie() -> void:
+	if rope_undone >= rope_knots.size():
+		return
+	var knot := rope_knots[rope_undone]
+	rope_undone += 1
+	progress_t = 0.0
+	var puff := knot.create_tween()
+	puff.tween_property(knot, "scale", Vector3.ONE * 1.5, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	puff.tween_property(knot, "scale", Vector3.ZERO, 0.22)
+	m._sparkle_burst(rope_root.position + knot.position + Vector3(0, 1.0, 0), Color(1.0, 0.85, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.15 * float(rope_undone)
+		m.chime.play()
+	if rope_undone >= rope_knots.size():
+		_begin_cabinet()
+	else:
+		m.show_msg("Roshan", "One knot gone! %d to go — keep pulling!" % (rope_knots.size() - rope_undone), "hint")
+	_update_hud()
+
+func _tick_rope(_delta: float) -> void:
+	if m.touch_ui == null or not bool(m.touch_ui.drag_mode):
+		return
+	if not bool(m.touch_ui.drag_active):
+		rope_tracking = false
+		return
+	var x: float = (m.touch_ui.drag_pos as Vector2).x
+	if not rope_tracking:
+		rope_tracking = true
+		rope_x0 = x
+		return
+	# outward in EITHER direction counts — she may pull left or right, and a
+	# four-year-old will not reliably choose the one the picture implies
+	if absf(x - rope_x0) >= rope_pull_need:
+		rope_x0 = x
+		_rope_untie()
+
+func _cab_on_beat() -> bool:
+	return fmod(cab_beat_t, CAB_BEAT) < CAB_BEAT * CAB_WINDOW
+
+func _begin_cabinet() -> void:
+	# Trick 4, the finale: tap the star wand ON the beat three times and the
+	# cabinet opens on an enormous bunny-fish. A rhythm tap, not a free tap.
+	shuffle_phase = "cabinet"
+	cab_taps = 0
+	cab_beat_t = 0.0
+	_set_drag(false)
+	if rope_root != null:
+		var gone := rope_root
+		rope_root = null
+		var fade := gone.create_tween()
+		fade.tween_property(gone, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		fade.tween_callback(gone.queue_free)
+	cab_root = Node3D.new()
+	cab_root.name = "TrickCabinet"
+	cab_root.position = CENTER + Vector3(0, 1.0, -8.0)
+	add_child(cab_root)
+	_box(Vector3(0, 4.0, -0.9), Vector3(9.0, 8.0, 1.2), Color(0.36, 0.24, 0.56), 0.08, cab_root)
+	_box(Vector3(0, 8.4, 0), Vector3(9.8, 0.9, 3.0), Color(0.48, 0.32, 0.7), 0.18, cab_root)
+	for side: float in [-1.0, 1.0]:
+		var door := Node3D.new()
+		door.name = "CabinetDoor%s" % ("L" if side < 0.0 else "R")
+		door.position = Vector3(side * 4.4, 0, 0.4)
+		cab_root.add_child(door)
+		var leaf := _box(Vector3(-side * 2.2, 4.0, 0), Vector3(4.4, 7.8, 0.35),
+			Color(0.58, 0.4, 0.82), 0.2, door)
+		_sphere(Vector3(-side * 4.0, 4.0, 0.3), 0.45, Color(1.0, 0.86, 0.45), 0.6, door)
+		leaf.name = "DoorLeaf"
+		cab_doors.append(door)
+	# the wand she taps, floating where the pointer can find it
+	cab_wand = Node3D.new()
+	cab_wand.name = "StarWand"
+	cab_wand.position = CENTER + Vector3(0, 4.0, 1.0)
+	add_child(cab_wand)
+	var stick := _cyl(Vector3.ZERO, 0.2, 3.2, Color(0.98, 0.96, 0.9), 0.15, cab_wand)
+	stick.rotation_degrees = Vector3(0, 0, 22)
+	_sphere(Vector3(0.6, 1.7, 0), 0.85, Color(1.0, 0.88, 0.45), 0.9, cab_wand)
+	m.show_msg("Roshan", "The grand finale! Tap the star wand ON the beat — three times!", "talk")
+	_update_hud()
+
+func _cab_tap() -> void:
+	# out of reach = the tap swishes, exactly like every other act's verb
+	if cab_wand == null or Vector2(cab_wand.position.x - player_pos.x,
+			cab_wand.position.z - player_pos.z).length() > 9.0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	if not _cab_on_beat():
+		# off the beat: the wand fizzles and twinkles. Never a loss, never a
+		# reset — the beat comes round again in barely a second.
+		m._sparkle_burst(cab_wand.position + Vector3(0, 1.0, 0), Color(0.8, 0.85, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		return
+	cab_taps += 1
+	progress_t = 0.0
+	m._sparkle_burst(cab_wand.position + Vector3(0, 1.6, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.95 + 0.16 * float(cab_taps)
+		m.chime.play()
+	for i in range(cab_doors.size()):
+		var door := cab_doors[i]
+		var side := -1.0 if i == 0 else 1.0
+		var swing := door.create_tween()
+		var open_y := side * (0.45 + 0.35 * float(cab_taps))
+		swing.tween_property(door, "rotation:y", open_y, 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		if cab_taps < CAB_TAPS:
+			swing.tween_property(door, "rotation:y", open_y * 0.55, 0.3)
+	if cab_taps >= CAB_TAPS:
+		# the enormous bunny-fish: the same friend, ten times the size
+		if bunny != null:
+			bunny.visible = true
+			bunny.position = cab_root.position + Vector3(0, 4.2, 0.5)
+			var grow := bunny.create_tween()
+			grow.tween_property(bunny, "scale", Vector3.ONE * 3.4, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		m._sparkle_burst(cab_root.position + Vector3(0, 6.0, 0), Color(1.0, 0.8, 1.0))
+		m.show_msg("Roshan", "TA-DAA! The bunny-fish is ENORMOUS! What a show!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "The doors are swinging! %d more on the beat!" % (CAB_TAPS - cab_taps), "hint")
+	_update_hud()
+
 func _shuffle_action(choice: int) -> void:
-	if state != "play" or kind != "shuffle" or shuffle_phase != "pick":
+	if state != "play" or kind != "shuffle":
+		return
+	if shuffle_phase == "cabinet":
+		_cab_tap()
+		return
+	if shuffle_phase == "rope":
+		# the rope is a PULL — a tap on it must not untie anything
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	if shuffle_phase != "pick":
 		return
 	var hat: Node3D = hats[choice]["node"] as Node3D
 	if choice == bunny_at:
@@ -3037,7 +3241,7 @@ func _shuffle_action(choice: int) -> void:
 		shuffle_round += 1
 		progress_t = 0.0
 		if shuffle_round >= int(config.get("rounds", 2)):
-			_win()
+			_begin_rope()   # the hat trick is one number, not the whole show
 		else:
 			m.show_msg("Roshan", "You found him! One more time — watch the hats!", "talk")
 			shuffle_phase = "wait"   # timer-driven pause while the reveal plays out
@@ -4445,9 +4649,12 @@ func _process(delta: float) -> void:
 					if near_pad >= 0:
 						_act_action(near_pad)
 			"shuffle":
-				var near := _nearest_pad()
-				if near >= 0:
-					_act_action(near)
+				if shuffle_phase == "cabinet":
+					_shuffle_action(0)   # the wand, not a hat — it checks reach
+				else:
+					var near := _nearest_pad()
+					if near >= 0:
+						_act_action(near)
 			"fix":
 				if fix_phase == "valve":
 					if valve.position.distance_to(player_pos) < 8.0:
@@ -4659,6 +4866,10 @@ func _pointer_target() -> Vector3:
 				return (pads[echo_seq[echo_pos]]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 9.0, 3.0)
 		"shuffle":
+			if shuffle_phase == "rope" and rope_root != null:
+				return rope_root.position + Vector3(0, 2.4, 0)
+			if shuffle_phase == "cabinet" and cab_wand != null:
+				return cab_wand.position + Vector3(0, 2.8, 0)
 			if shuffle_phase == "watch":
 				return CENTER + Vector3(0, 8.0, 3.0)
 			return player_pos + Vector3(0, 7.0, 0)
@@ -4778,7 +4989,11 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🩰  YOUR TURN!  %d / %d" % [echo_pos, echo_seq.size()]
 		"shuffle":
-			if shuffle_phase == "hide":
+			if shuffle_phase == "rope":
+				objective.text = tag + "🪢  PULL your finger out wide!  %d / %d knots" % [rope_undone, ROPE_KNOTS]
+			elif shuffle_phase == "cabinet":
+				objective.text = tag + "🪄  Tap the wand ON the beat!  %d / %d" % [cab_taps, CAB_TAPS]
+			elif shuffle_phase == "hide":
 				objective.text = tag + "🎩  DRAG a hat over the bunny-fish!"
 			elif shuffle_phase == "watch":
 				objective.text = tag + "👀  WATCH the hats dance!"

@@ -429,9 +429,49 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 		if act.shuffle_phase == "pick":
 			act._shuffle_action(act.bunny_at)
 			continue
+		if act.shuffle_phase == "rope":
+			# trick 3: a PULL, and only a pull
+			_ck_once("the hat trick opens onto the rope", act.rope_root != null and act.rope_undone == 0)
+			_ck_once("the rope hands the finger to the drag channel",
+				main.touch_ui != null and bool(main.touch_ui.drag_mode))
+			act._shuffle_action(0)
+			_ck_once("tapping the rope unties nothing", act.rope_undone == 0)
+			_ck_once("the freed ushers' scarves shorten every pull",
+				int(main.opera_pantry.get("silk scarves", 0)) == 0
+					or act.rope_pull_need < act.ROPE_PULL)
+			if main.touch_ui != null:
+				main.touch_ui.drag_active = true
+				var rguard := 0
+				while act.shuffle_phase == "rope" and rguard < 60:
+					rguard += 1
+					# each pull: plant the finger, then drag it out past the need
+					main.touch_ui.drag_pos = Vector2(640.0, 400.0)
+					act._tick_rope(0.05)
+					main.touch_ui.drag_pos = Vector2(640.0 + act.rope_pull_need + 8.0, 400.0)
+					act._tick_rope(0.05)
+				main.touch_ui.drag_active = false
+			_ck_once("pulling out wide melts every knot",
+				act.rope_undone >= act.ROPE_KNOTS and act.shuffle_phase == "cabinet")
+			continue
+		if act.shuffle_phase == "cabinet":
+			# trick 4: a rhythm tap. Off the beat must not count.
+			_ck_once("the rope opens onto the trick cabinet",
+				act.cab_root != null and act.cab_wand != null and act.cab_taps == 0)
+			act.player_pos = act.cab_wand.position
+			act.cab_beat_t = act.CAB_BEAT * (act.CAB_WINDOW + 0.2)   # off the beat
+			act._shuffle_action(0)
+			_ck_once("a wand tap off the beat only twinkles", act.cab_taps == 0)
+			var cguard := 0
+			while act.shuffle_phase == "cabinet" and act.state == "play" and cguard < 40:
+				cguard += 1
+				act.cab_beat_t = 0.0                                  # on the beat
+				act._shuffle_action(0)
+			_ck_once("three taps on the beat open the cabinet", act.cab_taps >= act.CAB_TAPS)
+			continue
 		await process_frame
 	_ck("shuffle act does not stall", guard < 900)
-	_ck("act %d finishes the hat trick" % (expected + 1), act.state == "won")
+	_ck("act %d finishes the whole routine" % (expected + 1),
+		act.state == "won" and act.rope_undone >= act.ROPE_KNOTS and act.cab_taps >= act.CAB_TAPS)
 
 func _drive_fix(act: OperaAct) -> void:
 	# Pipe Dream: a grid, a queue you cannot reorder, and bubbles on a fuse

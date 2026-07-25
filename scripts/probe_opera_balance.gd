@@ -344,6 +344,24 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 		(act.hats[act.hide_hat]["node"] as Node3D).position = act.bunny.position
 		act._tick_hide(dt)
 		return
+	if act.shuffle_phase == "rope":
+		# the rope waits for a finger forever — unlike the duck it has no clock
+		# of its own, so the persona has to actually pull it or the act stalls
+		if not _ready_to_act(dt) or main.touch_ui == null:
+			return
+		main.touch_ui.drag_active = true
+		main.touch_ui.drag_pos = Vector2(640.0, 400.0)
+		act._tick_rope(dt)
+		main.touch_ui.drag_pos = Vector2(640.0 + act.rope_pull_need + 8.0, 400.0)
+		act._tick_rope(dt)
+		main.touch_ui.drag_active = false
+		return
+	if act.shuffle_phase == "cabinet":
+		# a rhythm beat: she taps when she is ready, and it only counts on the
+		# beat, so the persona's reaction time and the beat both cost time
+		if act.cab_wand != null and _travel(act, act.cab_wand.position, dt) and _ready_to_act(dt):
+			act._shuffle_action(0)
+		return
 	if act.shuffle_phase != "pick":
 		return
 	if not _ready_to_act(dt):
