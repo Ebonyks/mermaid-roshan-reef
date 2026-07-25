@@ -139,6 +139,13 @@ Built so far:
   handed back — `_leave_easel()` runs on band completion, on leaving the easel,
   on `_finish()` and on `cancel()`, so the stick can never be left dead.
 
+- **Pastry Chef — circular-drag stir** (`opera_act.gd`): standing at the bowl
+  hands the finger over the same way the easel does; the stir is now a CIRCLE
+  traced round the bowl, and a tap does nothing. Absolute angle is accumulated
+  so a vigorous back-and-forth scrub counts too — a four-year-old's "stir"
+  rarely goes one way. One full turn of finger travel = one stir, three stirs
+  finish the bowl, and a cook still stirring after 26s is helped along.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

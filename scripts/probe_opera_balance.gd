@@ -240,8 +240,12 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 				act._paint_stroke_uv(t, row / float(act.PAINT_RES))
 		return
 	if act.order_phase == "stir":
-		if _travel(act, act.goal.position, dt) and _ready_to_act(dt):
-			act._stir_action()
+		# stirring is a circular drag: once at the bowl the persona traces
+		# circles at roughly its own hand speed rather than tapping three times
+		if act.stir_drag:
+			act._stir_drag_delta(dt * lerpf(2.2, 4.5, float(persona["speed"])))
+			return
+		_travel(act, act.goal.position, dt)
 		return
 	if act.order_phase == "decorate":
 		for spot in act.deco_spots:

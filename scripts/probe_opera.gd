@@ -261,8 +261,19 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 	if String(cfg.get("finale", "")) == "stir":
 		_ck("every layer opens the stirring finale", act.order_phase == "stir" and act.state == "play")
 		act.player_pos = act.goal.position
-		for s in range(3):
-			act._stir_action()
+		act._tick_stir(0.1)
+		_ck("the bowl takes over the finger", act.stir_drag)
+		# a tap is no longer a stir — the circle is the gesture
+		var before: int = act.stir_done
+		act._act_action(0)
+		_ck("tapping at the bowl does not stir it", act.stir_done == before)
+		# trace circles: a full turn of finger travel is one stir
+		var sguard := 0
+		while act.stir_done < 3 and sguard < 400:
+			sguard += 1
+			act._stir_drag_delta(0.35)
+		_ck("circling the bowl stirs it", act.stir_done >= 3)
+		_ck("a finished bowl releases the finger", not act.stir_drag)
 		if int(cfg.get("decorate", 0)) > 0:
 			_ck("three stirs open the topping party", act.order_phase == "decorate" and act.state == "play")
 			for spot: Dictionary in act.deco_spots:

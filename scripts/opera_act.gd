@@ -55,6 +55,17 @@ var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
 var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit
 var boxer_dressing_art: Node3D = null  # ring dressing GLB kit (lamps, bell, belt) | decorate
 var stir_done := 0
+# ---- circular-drag stir (owner 2026-07-25) ----
+# Cooking Mama's rule: every kitchen step is its own gesture. Stirring is a
+# CIRCLE traced round the bowl, not a tap. Absolute angle is accumulated, so a
+# vigorous back-and-forth scrub counts too — a four-year-old's "stir" rarely
+# goes one way, and none of this is allowed to fail.
+const STIR_MIN_R := 40.0        # px from the bowl before motion counts as stirring
+var stir_drag := false
+var stir_prev_ang := 0.0
+var stir_have_ang := false
+var stir_accum := 0.0
+var stir_drag_t := 0.0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
 var brush_loaded := -1
@@ -1754,6 +1765,67 @@ func _apply_brush_tint(col: Color) -> void:
 	if tip != null:
 		tip.material_override = _mat(col, 0.6)
 
+func _tick_stir(delta: float) -> void:
+	# hands the finger to the bowl while Roshan stands at it, exactly like the
+	# painter's easel — and hands it straight back the moment she is done
+	var near := goal != null and goal.position.distance_to(player_pos) < 7.0
+	if near and not stir_drag:
+		stir_drag = true
+		stir_drag_t = 0.0
+		stir_accum = 0.0
+		stir_have_ang = false
+		if m.touch_ui != null:
+			m.touch_ui.set_drag_mode(true)
+		m.show_msg("Roshan", "Now STIR! Draw big circles round and round the bowl with your finger!", "talk")
+	elif not near and stir_drag:
+		_leave_stir()
+	if not stir_drag:
+		return
+	stir_drag_t += delta
+	var active := false
+	var pos := Vector2.ZERO
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		active = true
+		pos = m.touch_ui.drag_pos
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		active = true
+		pos = m.get_viewport().get_mouse_position()
+	if active and cam != null:
+		var hub := cam.unproject_position(goal.position + Vector3(0, 3.0, 0))
+		var arm := pos - hub
+		if arm.length() >= STIR_MIN_R:
+			var ang := arm.angle()
+			if stir_have_ang:
+				_stir_drag_delta(angle_difference(stir_prev_ang, ang))
+			stir_prev_ang = ang
+			stir_have_ang = true
+		else:
+			stir_have_ang = false
+	else:
+		stir_have_ang = false
+	if stir_drag_t > 26.0:
+		m.show_msg("Roshan", "Round and round — there we go!", "hint")
+		_stir_action()
+
+func _stir_drag_delta(d: float) -> void:
+	# one full turn of finger travel = one big stir
+	if state != "play" or order_phase != "stir":
+		return
+	stir_accum += absf(d)
+	progress_t = 0.0
+	if goal != null:
+		goal.rotation.y += d * 0.6
+	if stir_accum >= TAU:
+		stir_accum -= TAU
+		_stir_action()
+
+func _leave_stir() -> void:
+	stir_drag = false
+	stir_have_ang = false
+	stir_drag_t = 0.0
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
 func _stir_action() -> void:
 	# the chef finale: three big stirs spin the bowl faster and faster
 	if state != "play" or not _is_order_kind() or order_phase != "stir":
@@ -1771,6 +1843,7 @@ func _stir_action() -> void:
 		m.chime.pitch_scale = 0.85 + 0.25 * float(stir_done)
 		m.chime.play()
 	if stir_done >= 3:
+		_leave_stir()
 		# stirred to perfection: calm cream on top, oven glows open backstage
 		_job_state(chef_bowl_art, "StateActive", false)
 		_job_state(chef_bowl_art, "StateComplete", true)
@@ -3288,8 +3361,7 @@ func _process(delta: float) -> void:
 		match kind:
 			"order", "paint":
 				if order_phase == "stir":
-					if goal.position.distance_to(player_pos) < 5.5:
-						_stir_action()
+					pass   # stirring is a circular DRAG now, not a tap
 				elif order_phase == "decorate":
 					for spot in deco_spots:
 						if not bool(spot["done"]) and (spot["pos"] as Vector3).distance_to(player_pos) < 4.5:
@@ -3371,6 +3443,10 @@ func _process(delta: float) -> void:
 						if m.chime != null:
 							m.chime.pitch_scale = 1.25
 							m.chime.play()
+			if order_phase == "stir":
+				_tick_stir(delta)
+			elif stir_drag:
+				_leave_stir()
 			if order_flow == "carry_paint" and brush_loaded >= 0:
 				brush_node.position = player_pos + Vector3(0, 3.2, 0)
 				brush_node.rotation.z = sin(elapsed * 6.0) * 0.25
@@ -3547,7 +3623,11 @@ func _update_hud() -> void:
 	match kind:
 		"order", "paint":
 			if order_phase == "stir":
-				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
+				if stir_drag:
+					var turn := int(clampf(stir_accum / TAU, 0.0, 1.0) * 100.0)
+					objective.text = tag + "🥄  Draw CIRCLES to stir!  %d / 3  (%d%%)" % [stir_done, turn]
+				else:
+					objective.text = tag + "🥄  Swim to the big bowl to stir!  %d / 3" % stir_done
 			elif order_phase == "decorate":
 				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:
@@ -3648,6 +3728,7 @@ func _finish() -> void:
 		return
 	state = "done"
 	_leave_easel()
+	_leave_stir()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -3657,6 +3738,7 @@ func _finish() -> void:
 
 func cancel() -> void:
 	_leave_easel()
+	_leave_stir()
 	if state == "done":
 		return
 	if state == "won":
