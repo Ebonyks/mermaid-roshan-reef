@@ -302,25 +302,27 @@ func _drive_echo(act: OperaAct) -> void:
 	_ck("echo act does not stall", guard < 900)
 
 func _drive_shuffle(act: OperaAct, expected: int) -> void:
+	# Roshan performs the trick: every round opens by dragging a hat over the
+	# bunny-fish, and only then do the hats dance
+	_ck("act %d opens with Roshan hiding the bunny-fish" % (expected + 1),
+		act.shuffle_phase == "hide" and act.bunny.visible)
 	var guard := 0
-	var wrong_tested := false
 	while act.state == "play" and guard < 900:
 		guard += 1
+		if act.shuffle_phase == "hide":
+			# drag a hat onto the fish
+			act.hide_hat = 0
+			act.hide_pos = act.hats[0]["pos"] as Vector3
+			(act.hats[0]["node"] as Node3D).position = act.bunny.position
+			act._tick_hide(0.1)
+			_ck_once("the covered bunny-fish disappears under the hat", not act.bunny.visible)
+			continue
 		if act.shuffle_phase == "pick":
-			if not wrong_tested:
-				wrong_tested = true
-				var empty_hat: int = (act.bunny_at + 1) % 3
-				var round_before: int = act.shuffle_round
-				act.player_pos = (act.hats[empty_hat]["pos"] as Vector3)
-				act._act_action(act._nearest_pad())
-				_ck("act %d empty hat is a mercy peek, not a fail" % (expected + 1), act.state == "play" and act.shuffle_round == round_before)
-				continue
-			act.player_pos = (act.hats[act.bunny_at]["pos"] as Vector3)
-			_ck("bunny hat reachable by proximity", act._nearest_pad() == act.bunny_at)
-			act._act_action(act.bunny_at)
-		else:
-			await process_frame
+			act._shuffle_action(act.bunny_at)
+			continue
+		await process_frame
 	_ck("shuffle act does not stall", guard < 900)
+	_ck("act %d finishes the hat trick" % (expected + 1), act.state == "won")
 
 func _drive_fix(act: OperaAct) -> void:
 	_ck("pipe puzzle has three gaps and three pieces", act.slots.size() == 3 and act.pieces.size() == 3)

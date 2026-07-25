@@ -111,7 +111,14 @@ var hats: Array[Dictionary] = []
 var bunny: Node3D = null
 var bunny_at := 0
 var shuffle_round := 0
-var shuffle_phase := "watch"       # watch | pick | wait
+var shuffle_phase := "watch"       # hide | watch | pick | wait
+# ---- Roshan performs the trick (owner 2026-07-25) ----
+# Perspective flip: she is the MAGICIAN, not the mark. Every round opens with
+# the child dragging a hat over the bunny-fish to hide it; only then do the
+# hats dance. The reveal still asks her to remember where it went, so the
+# tracking survives, but the act now begins with an act of showmanship.
+var hide_hat := -1
+var hide_pos := Vector3.ZERO
 var shuffle_t := 0.0
 var shuffle_wait_t := 0.0          # countdown between rounds (timer-driven)
 var shuffle_next := 0
@@ -2373,7 +2380,68 @@ func _build_shuffle() -> void:
 		_sphere(Vector3(0, 0, 0), 0.8, Color(0.97, 0.62, 0.72), 0.2, bunny)
 		_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
 		_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
-	_shuffle_hide(0)
+	_begin_hide()
+
+func _begin_hide() -> void:
+	# the bunny-fish sits out in the open; drag a hat over it to hide it
+	shuffle_phase = "hide"
+	hide_hat = -1
+	bunny_at = randi() % hats.size()
+	bunny.visible = true
+	bunny.position = CENTER + Vector3(0, 1.0, -5.0)
+	for h in hats:
+		var node := h["node"] as Node3D
+		node.position = h["home"] as Vector3
+		h["pos"] = h["home"]
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	m.show_msg("Roshan", "YOUR trick! Drag a magic hat over the bunny-fish to hide it!", "talk")
+	_update_hud()
+
+func _leave_hide() -> void:
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _tick_hide(delta: float) -> void:
+	if shuffle_phase != "hide":
+		return
+	var down := m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		var g := _sort_ground(m.touch_ui.drag_pos)
+		if hide_hat < 0:
+			var best := -1
+			var best_d := 7.0
+			for h in hats:
+				var d: float = (h["pos"] as Vector3).distance_to(g)
+				if d < best_d:
+					best_d = d
+					best = int(h["index"])
+			hide_hat = best
+			if best >= 0:
+				hide_pos = hats[best]["pos"] as Vector3
+		if hide_hat >= 0:
+			var node := hats[hide_hat]["node"] as Node3D
+			node.position = node.position.lerp(Vector3(g.x, node.position.y, g.z), clampf(delta * 12.0, 0.0, 1.0))
+	elif hide_hat >= 0:
+		var node2 := hats[hide_hat]["node"] as Node3D
+		if node2.position.distance_to(bunny.position) < 6.0:
+			# the hat comes down over the bunny-fish: the trick is set
+			bunny_at = hide_hat
+			var settle := node2.create_tween()
+			settle.tween_property(node2, "position", bunny.position, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			hats[hide_hat]["pos"] = bunny.position
+			bunny.visible = false
+			m._sparkle_burst(bunny.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.5))
+			hide_hat = -1
+			_leave_hide()
+			m.show_msg("Roshan", "Abracadabra! Now watch the hats dance...", "talk")
+			_shuffle_hide(bunny_at)
+			return
+		# not over the fish: the hat drifts kindly back to its spot
+		var back := node2.create_tween()
+		back.tween_property(node2, "position", hide_pos, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hats[hide_hat]["pos"] = hide_pos
+		hide_hat = -1
 
 func _shuffle_hide(target: int) -> void:
 	bunny_at = target
@@ -2399,7 +2467,7 @@ func _tick_shuffle(delta: float) -> void:
 	if shuffle_phase == "wait":
 		shuffle_wait_t -= delta
 		if shuffle_wait_t <= 0.0:
-			_shuffle_hide(shuffle_next)
+			_begin_hide()   # she performs the trick again, every round
 		return
 	if shuffle_phase != "watch":
 		return
@@ -3324,7 +3392,7 @@ func _launch_race() -> void:
 	var kart_script: GDScript = load("res://scripts/kart.gd") as GDScript
 	kart = kart_script.new() as Node
 	add_child(kart)
-	kart.call("configure", {"name": "Opera Grand Prix", "laps": 1})
+	kart.call("configure", {"name": "Opera Grand Prix", "laps": int(config.get("laps", 1))})
 	kart.call("start", m, Callable(self, "_race_finished"))
 
 func _race_finished(place: int) -> void:
@@ -3885,7 +3953,10 @@ func _process(delta: float) -> void:
 		"sleuth":
 			_tick_lens(delta)
 		"shuffle":
-			_tick_shuffle(delta)
+			if shuffle_phase == "hide":
+				_tick_hide(delta)
+			else:
+				_tick_shuffle(delta)
 		"fix":
 			_tick_fix(delta)
 		"press":
@@ -4066,7 +4137,9 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🩰  YOUR TURN!  %d / %d" % [echo_pos, echo_seq.size()]
 		"shuffle":
-			if shuffle_phase == "watch":
+			if shuffle_phase == "hide":
+				objective.text = tag + "🎩  DRAG a hat over the bunny-fish!"
+			elif shuffle_phase == "watch":
 				objective.text = tag + "👀  WATCH the hats dance!"
 			else:
 				objective.text = tag + "🎩  PICK the bunny-fish hat!  %d / %d" % [shuffle_round, int(config.get("rounds", 2))]
@@ -4142,6 +4215,7 @@ func _finish() -> void:
 	_leave_launch()
 	_leave_farm()
 	_leave_belt()
+	_leave_hide()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -4156,6 +4230,7 @@ func cancel() -> void:
 	_leave_launch()
 	_leave_farm()
 	_leave_belt()
+	_leave_hide()
 	if state == "done":
 		return
 	if state == "won":

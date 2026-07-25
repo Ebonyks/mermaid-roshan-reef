@@ -287,13 +287,23 @@ func _drive_echo(act: OperaAct, dt: float) -> void:
 	_travel(act, act.pads[echo_target]["pos"] as Vector3, dt)
 
 func _drive_shuffle(act: OperaAct, dt: float) -> void:
+	if act.shuffle_phase == "hide":
+		# the showmanship beat: carry a hat over to the fish and set it down
+		if not _ready_to_act(dt):
+			return
+		act.hide_hat = randi() % act.hats.size()
+		act.hide_pos = act.hats[act.hide_hat]["pos"] as Vector3
+		(act.hats[act.hide_hat]["node"] as Node3D).position = act.bunny.position
+		act._tick_hide(dt)
+		return
 	if act.shuffle_phase != "pick":
 		return
-	var choice := _intent(act.hats.size(), act.bunny_at, 3000 + act.shuffle_round)
-	if _travel(act, act.hats[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
-		act._act_action(choice)
-		if choice != act.bunny_at:
-			_intent_learned(act.bunny_at)
+	if not _ready_to_act(dt):
+		return
+	var choice := _intent(act.hats.size(), act.bunny_at, 5000 + act.shuffle_round)
+	act._shuffle_action(choice)
+	if choice != act.bunny_at:
+		_intent_learned(act.bunny_at)
 
 func _drive_press(act: OperaAct, dt: float) -> void:
 	# the persona grabs the front candy, carries it to a chute and drops it,

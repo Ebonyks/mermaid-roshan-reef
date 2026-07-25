@@ -184,6 +184,14 @@ Built so far:
   the picture is the game, so the rescue arrow is demoted to a rescue like the
   detective's. Non-reader safe — symbols, never words.
 
+- **Magician — Roshan performs the trick** (`opera_act.gd`): the perspective
+  flip. Every round now OPENS with the child dragging a magic hat over the
+  bunny-fish to hide it; only then do the hats dance and the tracking begin.
+  A hat let go anywhere else drifts kindly back to its spot. She is the
+  magician, not the mark.
+- **Racecar Driver** — the exhibition is two laps rather than one, and the lap
+  count is read from the act config instead of hard-coded.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,
