@@ -151,6 +151,28 @@ jobs:
           XDG_DATA_HOME="$BAL_HOME/data" XDG_CONFIG_HOME="$BAL_HOME/config" \
             timeout 10m godot --headless -s scripts/probe_opera_balance.gd -- --touch 2>&1 | grep -E "^BALANCE\|" || true
 
+      # The art manifest is the machine-readable contract between the acts and
+      # codex's concept art (see CODEX_NEXTGEN_OBJECTS_2026-07-25.md). It is a
+      # generator, not a gate: it derives the per-beat object/state list from
+      # OperaHouse.ACTS so a redesign cannot silently leave the art brief
+      # stale. Published on every run — including red ones — so the brief stays
+      # available while gameplay work is still in flight.
+      - name: Publish opera art manifest (advisory)
+        if: always()
+        continue-on-error: true
+        run: |
+          timeout 5m godot --headless -s scripts/probe_art_manifest.gd 2>&1 \
+            | grep -E "^ARTMANIFEST\|" || true
+
+      - name: Upload opera art manifest
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: opera-art-manifest
+          path: audit/opera_art_manifest.json
+          if-no-files-found: warn
+
       # The screenshot captures below are review aids, not gameplay gates.
       # They are continue-on-error so a flaky Xvfb capture cannot fail this
       # workflow and thereby block the Android APK publish (android.yml
