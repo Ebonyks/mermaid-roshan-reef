@@ -106,9 +106,16 @@ func _pause_btn(txt: String, rect: Rect2, kind: String) -> Button:
 	m.pause_panel.add_child(button)
 	return button
 
+func music_label() -> String:
+	# State shown by silhouette, not colour: a note when on, a struck note when
+	# off. This stays a function because SaveState.load_save() refreshes the
+	# button straight from the loaded save - inlining the string here is what
+	# broke every probe on run 684.
+	return "♫   MUSIC ON" if m.music_on else "♫̸   MUSIC OFF"
+
 func _sync_labels() -> void:
 	if m.music_btn != null:
-		m.music_btn.text = "♫   MUSIC ON" if m.music_on else "♫̸   MUSIC OFF"
+		m.music_btn.text = music_label()
 		m.music_btn.set_meta("toggle_on", m.music_on)
 	if m.quality_btn != null:
 		m.quality_btn.text = "✦   SPARKLY" if m.quality == "sparkly" else "≋   SPEEDY"
