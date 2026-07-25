@@ -2028,6 +2028,15 @@ func _build_order() -> void:
 		for s in range(order_steps.size()):
 			var ci := order_steps[s]
 			_sphere(goal.position + Vector3((float(s) - float(order_steps.size() - 1) * 0.5) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
+	# the carried brush. It belongs to the PAINTER, but the chef refactor left
+	# it being built inside the cake branch, so the painter dereferenced a null
+	# brush on every pot tap, every paint stroke and every frame of _process.
+	brush_node = Node3D.new()
+	brush_node.name = "PaintBrush"
+	brush_node.visible = false
+	add_child(brush_node)
+	_box(Vector3(0, 0, 0), Vector3(0.2, 1.4, 0.2), Color(0.6, 0.4, 0.25), 0.0, brush_node)
+	_box(Vector3(0, 0.9, 0), Vector3(0.32, 0.5, 0.32), Color(0.9, 0.9, 0.95), 0.3, brush_node)
 	if order_flow == "carry_paint":
 		canvas_pos = goal.position + Vector3(0, 3.6, 0)
 		_build_paint_canvas()
@@ -2040,12 +2049,6 @@ func _build_order() -> void:
 			m.show_msg("Roshan", "The painter shared their own paints with you — use every colour!", "talk")
 	elif String(config.get("finale", "")) == "stir":
 		_begin_sift()   # the Cake Show is a gesture chain, not a pad errand
-		brush_node = Node3D.new()
-		brush_node.name = "PaintBrush"
-		brush_node.visible = false
-		add_child(brush_node)
-		_box(Vector3(0, 0, 0), Vector3(0.2, 1.4, 0.2), Color(0.6, 0.4, 0.25), 0.0, brush_node)
-		_box(Vector3(0, 0.9, 0), Vector3(0.32, 0.5, 0.32), Color(0.9, 0.9, 0.95), 0.3, brush_node)
 
 func _order_colors(theme: String) -> Array[Color]:
 	match theme:

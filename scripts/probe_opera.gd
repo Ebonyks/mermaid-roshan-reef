@@ -263,6 +263,9 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 	if flow == "carry_paint":
 		_ck("the painter gets a real canvas to paint on",
 			act.paint_canvas != null and act.paint_img != null and act.paint_img.get_width() == act.PAINT_RES)
+		# the brush is the painter's own prop, but it was being built inside the
+		# chef's branch — every pot tap, stroke and frame dereferenced a null
+		_ck("the painter is carrying a real brush", act.brush_node != null)
 		for choice in order:
 			var idx := int(choice)
 			act.player_pos = (act.pads[idx]["pos"] as Vector3)

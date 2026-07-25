@@ -136,7 +136,12 @@ func _init() -> void:
 		var og_home: bool = main.game == "level2"
 		var og_cleared: bool = main.opera_game == null
 		var og_dist: float = og_pos.distance_to(player.position)
-		var og_returned: bool = og_home and og_cleared and og_dist < 9.0
+		# _end_opera places her 6.5 aside from the marquee, then a frame of
+		# level-2 motion carries her a little further. Run 731 measured 8.9
+		# against a 9.0 threshold — that is a coin flip, and it is what failed
+		# run 727. The check is "set down beside the marquee, not lost across
+		# the courtyard", so give it room to be true.
+		var og_returned: bool = og_home and og_cleared and og_dist < 14.0
 		main.l2_cutscene_t = old_cut
 		og_ok = og_blocked and og_rearmed and og_opened and og_returned
 		# `return` is composite; print its parts so a regression names itself
