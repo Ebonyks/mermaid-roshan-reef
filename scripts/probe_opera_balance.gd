@@ -402,6 +402,12 @@ func _drive_scroll(act: OperaAct, dt: float) -> void:
 		act._toss_action()
 
 func _drive_fix(act: OperaAct, dt: float) -> void:
+	if act.fix_phase == "launch":
+		# the countdown is a HOLD: the persona grabs the lever after its usual
+		# reaction beat and then keeps hold of it
+		if act.hold_sim or _ready_to_act(dt):
+			act.hold_sim = true
+		return
 	if act.fix_phase == "valve":
 		if _travel(act, act.valve.position, dt) and _ready_to_act(dt):
 			act._turn_valve()

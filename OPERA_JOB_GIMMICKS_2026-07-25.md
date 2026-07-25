@@ -154,6 +154,16 @@ Built so far:
   until the brawl's curtain opens, so it never steals the stick from the imp
   fight.
 
+- **Ballerina — hold the pose** (`opera_act.gd`): a step no longer fires after
+  a 0.25s brush past the tile. Roshan must HOLD the pose for 1.1s while a
+  ribbon of beads winds up around her; stepping off drops the ribbon and
+  nothing is lost. Still one finger — the hold is expressed through standing
+  still, not through a second touch.
+- **Astronaut — hold to launch** (`opera_act.gd`): three valve spins no longer
+  win outright. They open a countdown where the finger is pressed and HELD to
+  build the bubble column up a thrust bar; letting go sags the meter rather
+  than resetting it, so a slipped finger costs a second, never the act.
+
 ## Engineering notes
 
 - `_move_input()` / `_action_pressed()` cover tap and stick. **Drag, hold,

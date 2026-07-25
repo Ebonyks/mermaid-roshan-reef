@@ -342,7 +342,24 @@ func _drive_fix(act: OperaAct) -> void:
 	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
 	act._turn_valve()
 	act._turn_valve()
-	_ck("three valve spins launch the rocket", act.state == "won")
+	# three spins no longer win outright: they open the hold-to-launch countdown
+	_ck("three valve spins open the countdown", act.fix_phase == "launch" and act.state == "play")
+	# letting go sags the thrust instead of resetting it — never a fail
+	act.hold_sim = true
+	for i in range(6):
+		act._tick_launch(0.1)
+	var built: float = act.launch_hold
+	act.hold_sim = false
+	act._tick_launch(0.1)
+	_ck("letting go sags the thrust, it never resets",
+		act.launch_hold < built and act.launch_hold > 0.0 and act.state == "play")
+	act.hold_sim = true
+	var lguard := 0
+	while act.state == "play" and lguard < 200:
+		lguard += 1
+		act._tick_launch(0.1)
+	act.hold_sim = false
+	_ck("holding through the countdown launches the rocket", act.state == "won")
 
 func _drive_press(act: OperaAct) -> void:
 	# a mistimed press only squishes a giggle — the candy always survives

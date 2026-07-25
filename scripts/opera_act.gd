@@ -97,7 +97,11 @@ var echo_phase := "show"           # show | repeat
 var echo_show_i := 0
 var echo_show_t := 0.0
 var last_pad := -1
-var dwell_pad := -1                # tile currently being stood on (pre-fire)
+var dwell_pad := -1
+# Ballet is a sustained line, not a tap: a step only counts once Roshan has
+# HELD the pose on the tile long enough for her ribbon to fill.
+const POSE_HOLD := 1.1
+var pose_ring: Node3D = null                # tile currently being stood on (pre-fire)
 var pad_dwell := 0.0               # playtest fix: tiles fire on a short STILL
 var echo_prev_pos := Vector3.ZERO  # dwell — standing nearly still commits a
                                    # tile; swimming across at any speed is free
@@ -121,6 +125,14 @@ var carried := -1
 var fix_phase := "pipes"           # pipes | valve
 var valve: Node3D = null
 var valve_spins := 0
+# The genre's whole payoff: the countdown. Roshan holds the thrust lever down
+# while three-two-one runs and the bubble column builds under the rocket.
+const LAUNCH_HOLD := 3.4
+var launch_hold := 0.0
+var launch_on := false
+var launch_bar: MeshInstance3D = null
+var rocket: Node3D = null
+var rocket_home_y := 0.0
 var rocket_window: MeshInstance3D = null
 
 # ---- "press" engine ----
@@ -2253,6 +2265,27 @@ func _tick_echo(delta: float) -> void:
 		echo_phase = "repeat"
 		_update_hud()
 
+func _pose_ring(pad_i: int, frac: float) -> void:
+	# the ribbon that winds round Roshan while she holds the pose
+	if pose_ring == null:
+		pose_ring = Node3D.new()
+		pose_ring.name = "PoseRibbon"
+		add_child(pose_ring)
+		for k in range(6):
+			var bead := _sphere(Vector3.ZERO, 0.36, Color(1.0, 0.82, 0.92), 1.3, pose_ring)
+			bead.name = "Bead%d" % k
+	if pad_i < 0 or frac <= 0.0:
+		pose_ring.visible = false
+		return
+	pose_ring.visible = true
+	pose_ring.position = (pads[pad_i]["pos"] as Vector3) + Vector3(0, 2.2, 0)
+	var lit := int(clampf(frac, 0.0, 1.0) * 6.0)
+	for k in range(6):
+		var bead := pose_ring.get_child(k) as Node3D
+		var a := float(k) / 6.0 * TAU - PI * 0.5
+		bead.position = Vector3(cos(a) * 2.4, sin(a) * 0.9 + frac * 1.6, sin(a) * 2.4)
+		bead.visible = k < lit
+
 func _pad_touch(i: int) -> void:
 	if state != "play" or kind != "echo" or echo_phase != "repeat":
 		return
@@ -2416,9 +2449,10 @@ func _build_fix() -> void:
 	if _job_art("astronaut/opera_astronaut_tank.glb", tank) == null:
 		_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
 		_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
-	var rocket := Node3D.new()
+	rocket = Node3D.new()
 	rocket.name = "StarRocket"
 	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
+	rocket_home_y = rocket.position.y
 	add_child(rocket)
 	if _job_art("astronaut/opera_astronaut_rocket.glb", rocket) == null:
 		_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
@@ -2584,9 +2618,52 @@ func _turn_valve() -> void:
 		wm.emission = Color(1.0, 0.95, 0.6)
 		wm.emission_enabled = true
 		wm.emission_energy_multiplier = 1.5
-	_win()
+	_begin_launch()
+
+func _begin_launch() -> void:
+	fix_phase = "launch"
+	launch_hold = 0.0
+	launch_on = true
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	# the thrust bar climbing the gantry
+	_box(CENTER + Vector3(12.0, 5.0, -12.0), Vector3(1.6, 10.0, 1.6), Color(0.3, 0.34, 0.5), 0.06)
+	launch_bar = _box(CENTER + Vector3(12.0, 0.4, -12.0), Vector3(1.9, 0.5, 1.9), Color(0.6, 0.95, 1.0), 1.2)
+	m.show_msg("Roshan", "COUNTDOWN! Press and HOLD your finger to build the bubbles — don't let go!", "talk")
+	_update_hud()
+
+func _leave_launch() -> void:
+	launch_on = false
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _tick_launch(delta: float) -> void:
+	if not launch_on:
+		return
+	if _finger_down():
+		launch_hold += delta
+	else:
+		launch_hold = maxf(0.0, launch_hold - delta * 0.45)   # sags, never resets
+	var frac := clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0)
+	if launch_bar != null:
+		launch_bar.position.y = CENTER.y + 0.4 + frac * 9.2
+	if rocket != null:
+		rocket.position.y = rocket_home_y + frac * 1.2
+		if fmod(launch_hold, 0.25) < delta:
+			m._sparkle_burst(rocket.position + Vector3(randf_range(-1.5, 1.5), -1.0, 0), Color(0.75, 0.95, 1.0))
+	if launch_hold >= LAUNCH_HOLD:
+		_leave_launch()
+		if rocket != null:
+			var lift := rocket.create_tween()
+			lift.tween_property(rocket, "position:y", rocket.position.y + 26.0, 1.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		for i in range(8):
+			m._sparkle_burst(CENTER + Vector3(randf_range(-6.0, 6.0), 2.0 + float(i), -12.0), Color(0.8, 0.97, 1.0))
+		_win()
 
 func _tick_fix(_delta: float) -> void:
+	if fix_phase == "launch":
+		_tick_launch(_delta)
+		return
 	if carried >= 0:
 		var node: Node3D = pieces[carried]["node"] as Node3D
 		node.position = player_pos + Vector3(0, 3.4, 0)
@@ -3382,6 +3459,20 @@ func _move_input() -> Vector2:
 		value = m.touch_ui.stick_vec
 	return value.limit_length(1.0)
 
+var hold_sim := false              # probe-only: pretend a finger is on the glass
+
+func _finger_down() -> bool:
+	# "is a finger on the glass" — the hold grammar. In drag mode the painting
+	# finger counts; otherwise the action button / space / mouse do.
+	if hold_sim:
+		return true
+	if m.touch_ui != null:
+		if m.touch_ui.drag_mode:
+			return m.touch_ui.drag_active
+		if m.touch_ui.action_down:
+			return true
+	return Input.is_physical_key_pressed(KEY_SPACE) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
 	var just: bool = held and not fire_prev
@@ -3563,15 +3654,18 @@ func _process(delta: float) -> void:
 					last_pad = -1
 					dwell_pad = -1
 					pad_dwell = 0.0
+					_pose_ring(-1, 0.0)
 				elif touched >= 0 and touched != last_pad:
 					# stand STILL on a tile a beat to dance it — swimming
 					# across the row at any speed never commits a step
 					if touched == dwell_pad and echo_speed < 3.0:
 						pad_dwell += delta
-						if pad_dwell >= 0.25:
+						_pose_ring(touched, pad_dwell / POSE_HOLD)
+						if pad_dwell >= POSE_HOLD:
 							last_pad = touched
 							dwell_pad = -1
 							pad_dwell = 0.0
+							_pose_ring(-1, 0.0)
 							_pad_touch(touched)
 					else:
 						dwell_pad = touched
@@ -3760,7 +3854,9 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🎩  PICK the bunny-fish hat!  %d / %d" % [shuffle_round, int(config.get("rounds", 2))]
 		"fix":
-			if fix_phase == "valve":
+			if fix_phase == "launch":
+				objective.text = tag + "🚀  HOLD to launch!  %d%%" % int(clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0) * 100.0)
+			elif fix_phase == "valve":
 				objective.text = tag + "💨  Spin the big valve — tap USE!  %d / 3" % valve_spins
 			elif carried >= 0:
 				objective.text = tag + "🔧  Carry it to the glowing gap!  %d / %d" % [fix_step, slots.size()]
@@ -3826,6 +3922,7 @@ func _finish() -> void:
 	_leave_easel()
 	_leave_stir()
 	_leave_lens()
+	_leave_launch()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -3837,6 +3934,7 @@ func cancel() -> void:
 	_leave_easel()
 	_leave_stir()
 	_leave_lens()
+	_leave_launch()
 	if state == "done":
 		return
 	if state == "won":
