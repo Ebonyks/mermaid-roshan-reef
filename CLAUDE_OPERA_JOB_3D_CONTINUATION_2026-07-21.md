@@ -1,5 +1,13 @@
 # Claude handoff — Opera House job levels, assets, and outfits
 
+## Access prerequisite
+
+Before modeling, read
+`CLAUDE_START_HERE_OPERA_JOB_ASSET_REGENERATION_2026-07-24.md`. It explains how
+to fetch the repository-tracked 36-sheet/576-card package, recover a stale or
+sparse Claude worktree, and stage native-detail 1024 regeneration safely.
+Do not proceed from inaccessible Codex worktree paths or external cache names.
+
 ## Source of truth
 
 Use `assets_src/concepts/opera_jobs_flat_2026-07-21/` as the visual source of
