@@ -48,8 +48,11 @@ func register(wrap: Node3D, inst: Node3D, pname: String, target: float) -> void:
 		kind = "bob"
 	else:
 		return
+	# `name` and `target` are carried so the Satchel (S2) can put a prop back
+	# into the world exactly as _gen2_prop first built it.
 	m.reactive_props.append({
 		"wrap": wrap, "inst": inst, "kind": kind,
+		"name": pname, "target": target,
 		"base": inst.position, "scale": inst.scale,
 		"phase": randf() * TAU, "r": target * 0.5 + BUMP_PAD,
 		"cool": 0.0, "react": 0.0,

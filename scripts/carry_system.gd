@@ -22,6 +22,7 @@ var m: ReefMain
 var stars: Array = []      # {node, state: idle|held|fly, vel, seat, spin, fly_t}
 var shells: Array = []     # {node, mouth, sing_t, note_i, cool, halo}
 var act_prev := false
+var action_used := false   # this frame's ACTION was spent here (read by Satchel)
 var hinted := false
 
 func _init(main: ReefMain) -> void:
@@ -58,21 +59,30 @@ func is_carrying() -> bool:
 			return true
 	return false
 
-func tick(delta: float, ppos: Vector3) -> void:
-	# ACTION edge — overlays and minigames own the button while they are up
-	var blocked: bool = m.get("wardrobe_layer") != null \
-		or m.get("stickers_layer") != null or m.get("craft_layer") != null \
-		or m.get("collection_layer") != null or m.intro_active
-	var mgv: Variant = m.get("mg_kind")
+static func verbs_blocked(main: ReefMain) -> bool:
+	# ACTION edge gate — overlays and minigames own the button while they are
+	# up. Shared with the Satchel (S2) so the two overworld verbs can never
+	# disagree about when the button belongs to somebody else.
+	var blocked: bool = main.get("wardrobe_layer") != null \
+		or main.get("stickers_layer") != null or main.get("craft_layer") != null \
+		or main.get("collection_layer") != null or main.intro_active
+	var mgv: Variant = main.get("mg_kind")
 	if mgv != null and String(mgv) != "":
 		blocked = true
+	return blocked
+
+func tick(delta: float, ppos: Vector3) -> void:
+	var blocked: bool = verbs_blocked(m)
 	var act: bool = Input.is_physical_key_pressed(KEY_SPACE)
 	if m.has_method("joy_pressed"):
 		act = act or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
 	if m.touch_ui != null and m.touch_ui.action_down:
 		act = true
+	# the Satchel ticks after us and skips the press we already spent, so one
+	# tap can never both toss a starfish and pocket a shell
+	action_used = false
 	if act and not act_prev and not blocked:
-		_action(ppos)
+		action_used = _action(ppos)
 	act_prev = act
 
 	for s in stars:
@@ -152,12 +162,14 @@ func tick(delta: float, ppos: Vector3) -> void:
 				sh["sing_t"] = -1.0
 				pn.scale = Vector3.ONE
 
-func _action(ppos: Vector3) -> void:
-	# throw if holding, otherwise scoop the nearest idle star within reach
+func _action(ppos: Vector3) -> bool:
+	# throw if holding, otherwise scoop the nearest idle star within reach.
+	# Returns whether the press was actually spent, so the Satchel knows to
+	# leave it alone (a press that reached nothing stays available).
 	for s in stars:
 		if String(s["state"]) == "held":
 			_throw(s)
-			return
+			return true
 	var best: Dictionary = {}
 	var best_d: float = PICK_R
 	for s in stars:
@@ -168,7 +180,7 @@ func _action(ppos: Vector3) -> void:
 			best_d = d
 			best = s
 	if best.is_empty():
-		return
+		return false
 	best["state"] = "held"
 	if m.player != null:
 		# this press was a scoop, not a jump (main ticks before the player)
@@ -178,6 +190,7 @@ func _action(ppos: Vector3) -> void:
 	if not hinted:
 		hinted = true
 		m._say("roshan", "")   # her delighted generic line, first scoop only
+	return true
 
 func _throw(s: Dictionary) -> void:
 	var pl: Node3D = m.player

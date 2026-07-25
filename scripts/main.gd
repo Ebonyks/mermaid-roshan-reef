@@ -2933,6 +2933,19 @@ func _react_ref() -> ReactiveProps:
 		react_sys = ReactiveProps.new(self)
 	return react_sys
 
+# SATCHEL_WORKORDER S2: the six-slot hotbar. SESSION-ONLY — deliberately not in
+# the save yet; placement and persistence are S3. State lives here, Satchel
+# receives main and owns only logic.
+var satchel: Array = []          # {name, wrap, target, home}
+var satchel_sel := -1            # index of the slot she is holding, -1 = none
+var satchel_row: Control = null  # the HUD row, parented under hud_layer
+var satchel_sys: Satchel = null
+
+func _satchel_ref() -> Satchel:
+	if satchel_sys == null:
+		satchel_sys = Satchel.new(self)
+	return satchel_sys
+
 var _save_state: SaveState = null
 var _collection_system: CollectionSystem = null
 
@@ -5702,6 +5715,9 @@ func _start_game(fr: Dictionary) -> void:
 	_fade_cut(_start_game_now.bind(fr))
 
 func _start_game_now(fr: Dictionary) -> void:
+	# the satchel only ticks in the overworld, so anything she was holding has
+	# to be stowed here or it would hang in the reef for the whole minigame
+	_satchel_ref().stow()
 	game = String(fr["game"])
 	g = {"fr": fr, "t": 0.0, "timer": -1.0}
 	_enter_arena(game)
@@ -6064,6 +6080,7 @@ func _process(delta: float) -> void:
 		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
 		_grotto_ref().tick(delta, ppos)  # push-block grotto
 		_react_ref().tick(delta, ppos)   # idle drift + bump reactions (S1)
+		_satchel_ref().tick(delta, ppos) # hotbar pick up / put down (S2)
 	for i in range(pearls.size() - 1, -1, -1):
 		var p := pearls[i]
 		p.rotate_y(delta * 0.7)
