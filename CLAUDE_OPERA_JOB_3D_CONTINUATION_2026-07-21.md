@@ -1,5 +1,21 @@
 # Claude handoff — Opera House job levels, assets, and outfits
 
+## 2026-07-24 binding design correction
+
+Read `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` before environment
+modeling. It supersedes this file wherever this file describes regular jobs as
+stage modules, show-room shells, or small sets.
+
+The twelve regular jobs are continuous 2.5D side-scrolling story worlds with
+foreground, playable midground, scenic midground, and parallax backgrounds.
+Small curtain portals may frame entry and exit. Literal stages are reserved
+for the later Curtain Dragon, Shadow Phantom, and Midnight Maestro boss phase;
+boss art remains deferred.
+
+This older guide remains authoritative for outfit breakdowns,
+mechanic-critical implements, state changes, touch targets, continuity locks,
+node naming, and Mobile-renderer performance limits.
+
 ## Access prerequisite
 
 Before modeling, read

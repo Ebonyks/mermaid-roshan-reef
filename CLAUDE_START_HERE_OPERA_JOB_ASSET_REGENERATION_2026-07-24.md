@@ -6,8 +6,8 @@ Date: 2026-07-24
 
 Make the complete accepted Opera House non-boss job-art package available in
 your Claude worktree, then use it to regenerate or promote production-quality
-asset references and build the 3D job levels described in the companion
-handoff.
+asset references and build the continuous 2.5D job worlds described in the
+2026-07-24 companion handoff.
 
 Do not rely on a Codex worktree path, a chat attachment, or an external
 generated-image cache. All usable source material is tracked in this Git
@@ -19,6 +19,21 @@ This handoff covers twelve jobs and excludes all boss fights:
 - Floor 2: Doctor, Farmer, Boxer, Magician.
 - Floor 3: Painter, Astronaut Engineer, Racecar Driver, Pop Star.
 - Deferred: Curtain Dragon, Shadow Phantom, Midnight Maestro.
+
+## Binding spatial correction
+
+The twelve regular jobs are short 2.5D side-scrolling story worlds, not
+mechanics placed on twelve literal theatre stages. Use
+`CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` as the authoritative
+environment and level-layout guide.
+
+The package at `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` supplies one
+wide world key and one large-module/background-texture kit per job. The older
+36-sheet and 576-card package remains authoritative for outfits, implements,
+mechanic states, and close-up modeling detail.
+
+Literal stages are reserved for the future boss phase. This handoff does not
+authorize Curtain Dragon, Shadow Phantom, or Midnight Maestro production.
 
 ## Why the art may have appeared unavailable
 
@@ -94,13 +109,18 @@ Use these paths exactly:
 | Purpose | Repository-relative path |
 | --- | --- |
 | Accepted package root | `assets_src/concepts/opera_jobs_flat_2026-07-21/` |
+| Accepted 2.5D environment package | `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` |
 | Individual 1024 references | `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/` |
 | Exact prompt contracts and cell lists | `assets_src/concepts/opera_jobs_flat_2026-07-21/PROMPTS.md` |
 | Exact 576-item manifest | `audit/opera_job_flat_prototype_ledger_2026-07-21.csv` |
 | 36-sheet contact sheet | `audit/opera_job_flat_contact_sheet_2026-07-21.png` |
 | Accepted scores and corrections | `OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md` |
 | Scope and sheet inventory | `OPERA_JOB_FLAT_PROTOTYPE_PLAN_2026-07-21.md` |
-| Detailed 3D level and implement guide | `CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md` |
+| Authoritative 2.5D world guide | `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` |
+| Older outfit and implement guide | `CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md` |
+| 2.5D environment ledger | `audit/opera_job_2p5d_environment_ledger_2026-07-24.csv` |
+| 2.5D environment contact sheet | `audit/opera_job_2p5d_contact_sheet_2026-07-24.png` |
+| 2.5D art audit | `OPERA_JOB_2P5D_ART_AUDIT_2026-07-24.md` |
 | Existing deterministic card packer | `tools/slice_opera_job_prototypes.py` |
 
 The external `exec-*.png` names in `PROMPTS.md` are provenance records only.
@@ -207,6 +227,8 @@ Reject a result immediately if any of these rules drift:
 
 Every job requires exactly three sheet families. These existing files are the
 accepted family references and the required scope for any regeneration pass.
+Files named `stage_states` remain valid mechanic-state and timing references;
+they are not the spatial layout for the 2.5D worlds.
 
 | Job prefix | Outfit reference | Gameplay reference | Stage/state reference |
 | --- | --- | --- | --- |
@@ -330,14 +352,17 @@ into `dev`. Never push `master`.
 ## Transition to 3D
 
 After accepted references are available locally, continue with
-`CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md`.
+`CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md`.
 
 That guide is binding for:
 
-- lobby as the primary stage;
+- lobby as the primary navigation stage;
 - visible, pictorial upper-floor locks;
 - four career doors per floor;
-- shared show-room shell and job stage packages;
+- continuous left-to-right job districts;
+- foreground, playable midground, scenic midground, and far parallax layers;
+- large route modules, landmarks, background bands, and material textures;
+- literal stages reserved for future boss fights;
 - scale relative to the live Roshan avatar;
 - pivots, node names, materials, touch targets, and collisions;
 - Speedy-tier transparency and particle budgets;
@@ -362,7 +387,9 @@ When the regeneration and 3D handoff phase is complete, report:
 - whether access recovery was required and how it was resolved;
 - number of accepted references reused without regeneration;
 - number regenerated, rejected, and accepted;
-- confirmation that every delivered raster is 1024 x 1024;
+- confirmation that every delivered raster is at most 1024px on its longest
+  side, with environment keys at 1024 x 576 and square cards/kits at
+  1024 x 1024;
 - per-job asset counts;
 - minimum, maximum, and mean audit score;
 - list of promoted repository paths;
