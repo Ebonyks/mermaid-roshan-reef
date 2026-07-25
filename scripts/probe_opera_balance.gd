@@ -125,7 +125,7 @@ func _snapshot(act: OperaAct) -> String:
 		"scroll":
 			return base + " fed=%d" % act.farm_fed
 		"fix":
-			return base + " fix=%s step=%d carried=%d" % [act.fix_phase, act.fix_step, act.carried]
+			return base + " fix=%s flow=%d fuse=%.1f leak=%.1f laid=%d" % [act.fix_phase, act.pipe_flow_cell, act.pipe_fuse_t, act.pipe_leak_t, act.pipe_filled.size()]
 	return base
 
 func _play_act(cfg: Dictionary) -> float:
@@ -475,8 +475,6 @@ func _drive_scroll(act: OperaAct, dt: float) -> void:
 
 func _drive_fix(act: OperaAct, dt: float) -> void:
 	if act.fix_phase == "launch":
-		# the countdown is a HOLD: the persona grabs the lever after its usual
-		# reaction beat and then keeps hold of it
 		if act.hold_sim or _ready_to_act(dt):
 			act.hold_sim = true
 		return
@@ -484,20 +482,31 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 		if _travel(act, act.valve.position, dt) and _ready_to_act(dt):
 			act._turn_valve()
 		return
-	if act.fix_step >= act.slots.size():
+	# Pipe Dream: lay the front piece where the bubbles are heading, or ahead
+	# of them along the middle row. Sometimes into a square that will not help.
+	if not _ready_to_act(dt):
 		return
-	if act.carried >= 0:
-		if _travel(act, act.slots[act.fix_step]["pos"] as Vector3, dt) and _ready_to_act(dt):
-			act._place_piece()
+	var want := act.pipe_flow_cell
+	if want < 0:
+		want = act._pipe_cell_at(act.PIPE_START_ROW, 0)
+	if want < 0 or String(act.pipe_cells[want]["shape"]) != "":
+		# the head is already piped; look along the row for the next gap
+		for c in range(act.PIPE_COLS):
+			var idx: int = act._pipe_cell_at(act.PIPE_START_ROW, c)
+			if idx >= 0 and String(act.pipe_cells[idx]["shape"]) == "":
+				want = idx
+				break
+	if want < 0 or String(act.pipe_cells[want]["shape"]) != "":
 		return
-	var want: int = int(act.slots[act.fix_step]["need"])
-	var choice := _intent(act.pieces.size(), want, 4000 + act.fix_step)
-	if bool(act.pieces[choice]["placed"]):
-		choice = want
-	if _travel(act, act.pieces[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
-		act._pick_piece(choice)
-		if choice != want:
-			_intent_learned(want)
+	# a careless child sometimes lays a corner where a straight was needed
+	if randf() > float(persona["err"]):
+		var spins := 0
+		while act.pipe_queue[0] != "h" and spins < 3:
+			spins += 1
+			act.pipe_queue[0] = act._pipe_roll()
+	else:
+		mistakes += 1
+	act._pipe_place(want)
 
 func _drive_boss(act: OperaAct, dt: float) -> void:
 	var phase := String(act.boss["phase"])

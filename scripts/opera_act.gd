@@ -4,10 +4,9 @@ extends Node3D
 # career costume and performs a little show on a toy theatre stage. Six
 # engines cover all ten acts: "order" (bring props in the pictured order),
 # "echo" (repeat the lit dance/bell sequence), "shuffle" (follow the bunny-fish
-# under the magic hats), "fix" (carry pipe pieces into their shape-matched
-# slots, then spin the valve), "press" (stamp candy faces when the sliding
-# star crosses the sweet spot) and "boss" (sparkle showdown with a shy stage
-# puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
+# under the magic hats), "fix" (Pipe Dream: route the bubbles from tank to
+# rocket, spin the valve, hold the countdown), "press" (drag candies into their
+# colour chutes) and "boss" (sparkle showdown with a shy stage puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
 # answer. Props come from the job GLB kits in assets/opera/jobs/ with primitive
 # fallbacks. Careers listed in STAGE_SETS perform on their OWN dressed stage;
 # the rest share the toy proscenium until their set is built.
@@ -125,11 +124,29 @@ var shuffle_next := 0
 var swap_plan: Array[Dictionary] = []
 
 # ---- "fix" engine ----
-var pieces: Array[Dictionary] = []
-var slots: Array[Dictionary] = []
-var fix_step := 0
-var carried := -1
-var fix_phase := "pipes"           # pipes | valve
+var fix_phase := "pipes"           # pipes | valve | launch
+# ---- Pipe Dream (owner 2026-07-25) ----
+# The real thing: a grid, a queue you cannot reorder, and bubbles that start
+# flowing whether or not the line is finished. Carrying three pieces to three
+# labelled slots was not a puzzle; this is. The fail state is replaced by a
+# LEAK — the bubbles puff, pause, and wait for her to lay the next piece.
+const PIPE_COLS := 4
+const PIPE_ROWS := 3
+const PIPE_SHAPES := {"h": [1, 3], "v": [0, 2], "ne": [0, 1], "nw": [0, 3], "se": [1, 2], "sw": [2, 3]}
+const PIPE_START_ROW := 1
+const PIPE_FLOW_STEP := 2.6        # seconds the bubbles take to cross one cell
+const PIPE_FUSE := 9.0             # head start before the bubbles set off
+var pipe_cells: Array[Dictionary] = []
+var pipe_queue: Array[String] = []
+var pipe_queue_nodes: Array[Node3D] = []
+var pipe_flow_cell := -1
+var pipe_flow_from := 3
+var pipe_flow_t := 0.0
+var pipe_leak_t := 0.0
+var pipe_fuse_t := 0.0
+var pipe_held := -1
+var pipe_drag_pos := Vector3.ZERO
+var pipe_filled: Array[int] = []
 var valve: Node3D = null
 var valve_spins := 0
 # The genre's whole payoff: the countdown. Roshan holds the thrust lever down
@@ -2629,159 +2646,229 @@ func _shuffle_action(choice: int) -> void:
 # ghost shows the same shape, then spins the valve to launch the bubbles.
 
 func _build_fix() -> void:
-	# bubble tank (left) and star rocket (right) joined by a pipe run at the back
-	var tank := Node3D.new()
-	tank.name = "BubbleTank"
-	tank.position = CENTER + Vector3(-16.0, 1.0, -12.0)
-	add_child(tank)
-	if _job_art("astronaut/opera_astronaut_tank.glb", tank) == null:
-		_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
-		_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
+	# ---- Beat 2: Pipe Dream. Grid, queue, and a lit fuse. ----
+	fix_phase = "pipes"
+	var grid_o := CENTER + Vector3(-7.5, 3.2, -9.0)
+	for r in range(PIPE_ROWS):
+		for c in range(PIPE_COLS):
+			var pos := grid_o + Vector3(float(c) * 5.0, float(PIPE_ROWS - 1 - r) * 4.4, 0.0)
+			var frame := _box(pos, Vector3(4.4, 3.9, 0.5), Color(0.26, 0.32, 0.48), 0.05)
+			frame.name = "PipeCell%d_%d" % [r, c]
+			pipe_cells.append({"row": r, "col": c, "pos": pos, "shape": "", "node": null, "frame": frame})
+	# the bubble tank feeds the middle row from the left, the rocket drinks on the right
+	var feed := grid_o + Vector3(-4.4, float(PIPE_ROWS - 1 - PIPE_START_ROW) * 4.4, 0.0)
+	_cyl(feed, 1.6, 4.0, Color(0.55, 0.85, 0.95), 0.25)
+	_sphere(feed + Vector3(0, 2.4, 0), 1.2, Color(0.75, 0.95, 1.0), 0.4)
 	rocket = Node3D.new()
 	rocket.name = "StarRocket"
-	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
+	rocket.position = grid_o + Vector3(float(PIPE_COLS) * 5.0 + 1.0, float(PIPE_ROWS - 1 - PIPE_START_ROW) * 4.4 - 2.0, 0.0)
 	rocket_home_y = rocket.position.y
 	add_child(rocket)
 	if _job_art("astronaut/opera_astronaut_rocket.glb", rocket) == null:
-		_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
+		_cyl(Vector3(0, 3.0, 0), 1.6, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
 		var nose := CylinderMesh.new()
-		nose.top_radius = 0.1
-		nose.bottom_radius = 1.8
-		nose.height = 2.6
-		_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
-	# the live window sphere stays in both cases: the kit frames it with a
-	# brass port ring at the same spot, and the launch glow toggles it
-	rocket_window = _sphere(Vector3(0, 3.6, 1.5), 0.8, Color(0.2, 0.22, 0.4), 0.05, rocket)
-	rocket_window.material_override = rocket_window.material_override.duplicate() as StandardMaterial3D
-	# fixed pipe stubs along the run, with three gaps between them
-	for px in [-12.0, -4.0, 4.0, 12.0]:
-		var stub := _cyl(CENTER + Vector3(px, 3.0, -12.0), 0.55, 2.6, Color(0.75, 0.78, 0.88), 0.1)
-		stub.rotation_degrees = Vector3(0, 0, 90.0)
-	# the three gaps: each slot ghost shows the SHAPE it needs (picture clue)
-	var needs: Array[int] = [2, 0, 1]
+		nose.top_radius = 0.05
+		nose.bottom_radius = 1.6
+		nose.height = 2.4
+		_mesh(nose, Vector3(0, 7.2, 0), Color(0.95, 0.5, 0.5), 0.2, rocket)
+	rocket_window = _sphere(Vector3(0, 4.0, 1.3), 0.75, Color(0.5, 0.62, 0.8), 0.1, rocket)
+	# the queue: three pieces waiting, and she can only take the front one
 	for i in range(3):
-		var sx := -8.0 + float(i) * 8.0
-		var slot_root := Node3D.new()
-		slot_root.name = "PipeSlot%d" % i
-		slot_root.position = CENTER + Vector3(sx, 3.0, -12.0)
-		add_child(slot_root)
-		var ghost := _box(Vector3.ZERO, Vector3(2.6, 2.0, 1.2), Color(0.95, 0.95, 0.6, 0.3), 0.3, slot_root)
-		var gm := ghost.material_override as StandardMaterial3D
-		gm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		var hint := _make_pipe_shape(needs[i], Color(1.0, 0.92, 0.5))
-		hint.scale = Vector3.ONE * 0.45
-		hint.position = Vector3(0, 3.0, 0)
-		slot_root.add_child(hint)
-		slots.append({"index": i, "node": slot_root, "ghost": ghost, "hint": hint,
-			"pos": CENTER + Vector3(sx, 1.0, -12.0), "need": needs[i], "filled": false})
-	# the three loose pieces wait on pads at the front of the stage
-	var piece_cols: Array[Color] = [Color(0.45, 0.85, 1.0), Color(1.0, 0.62, 0.78), Color(0.6, 0.95, 0.65)]
-	for i in range(3):
-		var px2 := -12.0 + float(i) * 12.0
-		var home := CENTER + Vector3(px2, 1.0, 5.0)
-		var pad_root := Node3D.new()
-		pad_root.name = "PiecePad%d" % i
-		pad_root.position = home
-		add_child(pad_root)
-		_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, piece_cols[i].darkened(0.45), 0.0, pad_root)
-		var piece := _make_pipe_shape(i, piece_cols[i])
-		piece.position = home + Vector3(0, 1.4, 0)
-		add_child(piece)
-		pieces.append({"index": i, "node": piece, "home": piece.position, "pos": home, "placed": false})
-	# the valve appears on the tank once every pipe is in place
-	valve = Node3D.new()
-	valve.name = "BubbleValve"
-	valve.position = CENTER + Vector3(-16.0, 4.6, -10.4)
-	add_child(valve)
-	var valve_kit := _job_art("astronaut/opera_astronaut_valve.glb", valve)
-	if valve_kit != null:
-		valve_kit.position = Vector3(0, -2.0, 0)   # pedestal reaches the deck
-	else:
-		var wheel := TorusMesh.new()
-		wheel.inner_radius = 0.5
-		wheel.outer_radius = 1.0
-		var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
-		wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-		_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
-
-func _make_pipe_shape(shape: int, col: Color) -> Node3D:
-	# 0 = straight pipe, 1 = elbow pipe, 2 = ring coupler — chunky and distinct
-	var root := Node3D.new()
-	root.name = "PipePiece%d" % shape
-	match shape:
-		1:
-			var a := _cyl(Vector3(-0.5, 0, 0), 0.55, 1.6, col, 0.25, root)
-			a.rotation_degrees = Vector3(0, 0, 90.0)
-			_cyl(Vector3(0.3, 0.7, 0), 0.55, 1.6, col, 0.25, root)
-		2:
-			var ring := TorusMesh.new()
-			ring.inner_radius = 0.45
-			ring.outer_radius = 1.0
-			_mesh(ring, Vector3.ZERO, col, 0.25, root)
-		_:
-			var straight := _cyl(Vector3.ZERO, 0.55, 2.4, col, 0.25, root)
-			straight.rotation_degrees = Vector3(0, 0, 90.0)
-	return root
-
-func _nearest_piece() -> int:
-	var best := -1
-	var best_d := PAD_REACH
-	for piece in pieces:
-		if bool(piece["placed"]):
-			continue
-		var d: float = (piece["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
-			best = int(piece["index"])
-	return best
-
-func _pick_piece(i: int) -> void:
-	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried >= 0:
-		return
-	if bool(pieces[i]["placed"]):
-		return
-	carried = i
-	progress_t = 0.0
-	m._sparkle_burst(((pieces[i]["node"] as Node3D)).position + Vector3(0, 1.0, 0), Color(0.8, 0.95, 1.0))
-	if m.chime != null:
-		m.chime.pitch_scale = 1.05
-		m.chime.play()
-	m.show_msg("Roshan", "Got it! Now carry it to the glowing pipe gap!", "talk")
+		pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	pipe_fuse_t = PIPE_FUSE
+	pipe_flow_cell = -1
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	m.show_msg("Roshan", "Bubble pipes! DRAG the front pipe onto the wall to build a path from the tank to the rocket — hurry, the bubbles are coming!", "talk")
 	_update_hud()
 
-func _place_piece() -> void:
-	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried < 0:
+func _leave_pipes() -> void:
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+
+func _pipe_roll() -> String:
+	var bag: Array[String] = ["h", "h", "h", "v", "ne", "nw", "se", "sw"]
+	return bag[randi() % bag.size()]
+
+func _pipe_queue_pos(i: int) -> Vector3:
+	return CENTER + Vector3(-16.0, 6.0 - float(i) * 3.4, -4.0)
+
+func _pipe_rebuild_queue() -> void:
+	for n in pipe_queue_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	pipe_queue_nodes.clear()
+	for i in range(pipe_queue.size()):
+		var node := _pipe_piece_node(pipe_queue[i], _pipe_queue_pos(i), i == 0)
+		pipe_queue_nodes.append(node)
+
+func _pipe_piece_node(shape: String, pos: Vector3, front: bool) -> Node3D:
+	var root := Node3D.new()
+	root.position = pos
+	add_child(root)
+	var col := Color(0.72, 0.92, 1.0) if front else Color(0.45, 0.55, 0.7)
+	var glow := 0.55 if front else 0.1
+	# a pipe is drawn as arms reaching from the centre toward each opening
+	_sphere(Vector3.ZERO, 0.85, col, glow, root)
+	for d in (PIPE_SHAPES[shape] as Array):
+		var off := _pipe_dir(int(d)) * 1.35
+		var arm := _cyl(off, 0.62, 2.2, col, glow, root)
+		if int(d) == 1 or int(d) == 3:
+			arm.rotation_degrees = Vector3(0, 0, 90)
+	return root
+
+func _pipe_dir(d: int) -> Vector3:
+	match d:
+		0: return Vector3(0, 1, 0)
+		1: return Vector3(1, 0, 0)
+		2: return Vector3(0, -1, 0)
+	return Vector3(-1, 0, 0)
+
+func _pipe_cell_at(row: int, col: int) -> int:
+	if row < 0 or col < 0 or row >= PIPE_ROWS or col >= PIPE_COLS:
+		return -1
+	return row * PIPE_COLS + col
+
+func _pipe_place(idx: int) -> void:
+	# drop the front piece into an empty cell
+	if idx < 0 or idx >= pipe_cells.size() or pipe_queue.is_empty():
 		return
-	var slot: Dictionary = slots[fix_step]
-	var piece: Dictionary = pieces[carried]
-	var node: Node3D = piece["node"] as Node3D
-	if carried == int(slot["need"]):
-		piece["placed"] = true
-		slot["filled"] = true
-		node.position = (slot["node"] as Node3D).position
-		(slot["ghost"] as Node3D).visible = false
-		(slot["hint"] as Node3D).visible = false
-		carried = -1
-		fix_step += 1
+	var cell: Dictionary = pipe_cells[idx]
+	if String(cell["shape"]) != "":
+		return
+	var shape: String = pipe_queue.pop_front()
+	cell["shape"] = shape
+	cell["node"] = _pipe_piece_node(shape, cell["pos"] as Vector3, true)
+	progress_t = 0.0
+	pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	m._sparkle_burst((cell["pos"] as Vector3), Color(0.8, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.1
+		m.chime.play()
+	# a piece laid onto the cell the bubbles are waiting at un-sticks them
+	if pipe_leak_t > 0.0 and pipe_flow_cell == idx:
+		pipe_leak_t = 0.0
+	_update_hud()
+
+func _pipe_advance() -> void:
+	# walk the bubbles one cell along whatever line she has built
+	if pipe_flow_cell < 0:
+		pipe_flow_cell = _pipe_cell_at(PIPE_START_ROW, 0)
+		pipe_flow_from = 3
+		m.show_msg("Roshan", "Here come the bubbles!", "talk")
+		return
+	var cell: Dictionary = pipe_cells[pipe_flow_cell]
+	var shape: String = String(cell["shape"])
+	if shape == "":
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	var conns: Array = PIPE_SHAPES[shape]
+	if not conns.has(pipe_flow_from):
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	var exit_d := int(conns[0]) if int(conns[0]) != pipe_flow_from else int(conns[1])
+	m._sparkle_burst((cell["pos"] as Vector3) + _pipe_dir(exit_d) * 1.4, Color(0.75, 0.95, 1.0))
+	pipe_filled.append(pipe_flow_cell)
+	var nr := int(cell["row"]) + (1 if exit_d == 2 else (-1 if exit_d == 0 else 0))
+	var nc := int(cell["col"]) + (1 if exit_d == 1 else (-1 if exit_d == 3 else 0))
+	if nc >= PIPE_COLS and nr == PIPE_START_ROW:
+		_pipe_reached_rocket()
+		return
+	var nxt := _pipe_cell_at(nr, nc)
+	if nxt < 0:
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	pipe_flow_cell = nxt
+	pipe_flow_from = (exit_d + 2) % 4
+
+func _pipe_leak(at: Vector3) -> void:
+	# never a fail: the bubbles puff, wait, and give her time to lay the piece
+	pipe_leak_t = 3.0
+	m._sparkle_burst(at + Vector3(0, 1.2, 0), Color(0.9, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+	if progress_t > 4.0:
 		progress_t = 0.0
-		m._sparkle_burst(node.position + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.5))
-		if m.chime != null:
-			m.chime.pitch_scale = 0.95 + 0.18 * float(fix_step)
-			m.chime.play()
-		if fix_step >= slots.size():
-			fix_phase = "valve"
-			m.show_msg("Roshan", "Every pipe is fixed! Now spin the big valve to send the bubbles!", "talk")
-		_update_hud()
-	else:
-		# gentle bounce home: wrong shape never fails, the ghost just wiggles
-		var tw := node.create_tween()
-		tw.tween_property(node, "position", piece["home"] as Vector3, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		carried = -1
-		_wobble(slot["node"] as Node3D)
-		if m.chime != null:
-			m.chime.pitch_scale = 0.55
-			m.chime.play()
-		m.show_msg("Roshan", "That shape doesn't fit this gap — look at the little picture above it!", "hint")
+		m.show_msg("Roshan", "The bubbles are waiting! Put a pipe on the glowing square.", "hint")
+
+func _pipe_reached_rocket() -> void:
+	fix_phase = "valve"
+	pipe_leak_t = 0.0
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
+	valve = Node3D.new()
+	valve.name = "BubbleValve"
+	valve.position = CENTER + Vector3(12.0, 2.6, -4.0)
+	add_child(valve)
+	var wheel := TorusMesh.new()
+	wheel.inner_radius = 1.1
+	wheel.outer_radius = 1.7
+	_mesh(wheel, Vector3.ZERO, Color(0.95, 0.75, 0.45), 0.35, valve)
+	for i in range(4):
+		var spoke := _box(Vector3.ZERO, Vector3(2.9, 0.3, 0.3), Color(0.95, 0.8, 0.5), 0.3, valve)
+		spoke.rotation_degrees = Vector3(0, 0, 45.0 * float(i))
+	m._sparkle_burst(rocket.position + Vector3(0, 3.0, 0), Color(0.8, 0.97, 1.0))
+	m.show_msg("Roshan", "The bubbles made it to the rocket! Now SPIN the big valve to build the pressure!", "talk")
+	_update_hud()
+
+func _tick_pipes(delta: float) -> void:
+	if fix_phase != "pipes":
+		return
+	# the finger carries the front piece onto the wall
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		pipe_drag_pos = _sort_ground_plane(m.touch_ui.drag_pos)
+		if pipe_held < 0 and not pipe_queue_nodes.is_empty():
+			if pipe_queue_nodes[0].position.distance_to(pipe_drag_pos) < 7.0:
+				pipe_held = 0
+		if pipe_held == 0 and not pipe_queue_nodes.is_empty():
+			pipe_queue_nodes[0].position = pipe_drag_pos
+	elif pipe_held == 0:
+		pipe_held = -1
+		var best := -1
+		var best_d := 3.4
+		for i in range(pipe_cells.size()):
+			if String(pipe_cells[i]["shape"]) != "":
+				continue
+			var d: float = ((pipe_cells[i]["pos"] as Vector3)).distance_to(pipe_drag_pos)
+			if d < best_d:
+				best_d = d
+				best = i
+		if best >= 0:
+			_pipe_place(best)
+		else:
+			_pipe_rebuild_queue()
+	# highlight the cell the bubbles are heading for
+	for i in range(pipe_cells.size()):
+		var fr := pipe_cells[i]["frame"] as MeshInstance3D
+		var want: bool = (i == pipe_flow_cell and String(pipe_cells[i]["shape"]) == "")
+		fr.material_override = _mat(Color(1.0, 0.85, 0.5) if want else Color(0.26, 0.32, 0.48), 0.5 if want else 0.05)
+	# the fuse, then the flow
+	if pipe_fuse_t > 0.0:
+		pipe_fuse_t -= delta
+		return
+	if pipe_leak_t > 0.0:
+		pipe_leak_t -= delta
+		return
+	pipe_flow_t += delta
+	if pipe_flow_t >= PIPE_FLOW_STEP:
+		pipe_flow_t = 0.0
+		_pipe_advance()
+
+func _sort_ground_plane(screen: Vector2) -> Vector3:
+	# the pipe wall stands upright, so project onto its plane, not the floor
+	if cam == null:
+		return pipe_drag_pos
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 0, 1), CENTER.z - 9.0)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return pipe_drag_pos
+	return hit as Vector3
 
 func _turn_valve() -> void:
 	# three big spins build the bubble pressure, then the rocket lights up
@@ -2852,17 +2939,16 @@ func _tick_fix(_delta: float) -> void:
 	if fix_phase == "launch":
 		_tick_launch(_delta)
 		return
-	if carried >= 0:
-		var node: Node3D = pieces[carried]["node"] as Node3D
-		node.position = player_pos + Vector3(0, 3.4, 0)
-		node.rotation.y = elapsed * 1.5
+	if fix_phase == "pipes":
+		_tick_pipes(_delta)
+		return
 	if fix_phase == "valve" and valve != null:
 		valve.scale = Vector3.ONE * (1.0 + 0.08 * sin(elapsed * 5.0))
 
-# ------------- "press" engine (candy maker: the face-stamp machine) -------------
-# Rough demo props: a candy press with a sliding star gauge. Tap PRESS when
-# the star crosses the glowing middle and the press stamps a smiley face on
-# the candy. Misses just squish a silly wobble — the candy always survives.
+# ------------- "press" engine (candy maker: the sorting conveyor) -------------
+# Candies ride out of the press wearing a collar in their own colour and are
+# DRAGGED into the matching chute. A wrong chute spits them back, an unsorted
+# candy loops round for another pass, and every success speeds the belt up.
 
 func _build_press() -> void:
 	candies_goal = int(config.get("candies", 4))
@@ -3930,16 +4016,10 @@ func _process(delta: float) -> void:
 					_act_action(near)
 			"fix":
 				if fix_phase == "valve":
-					if valve.position.distance_to(player_pos) < 6.0:
+					if valve.position.distance_to(player_pos) < 8.0:
 						_turn_valve()
 					else:
 						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
-				elif carried < 0:
-					var near_piece := _nearest_piece()
-					if near_piece >= 0:
-						_pick_piece(near_piece)
-				elif fix_step < slots.size() and (slots[fix_step]["pos"] as Vector3).distance_to(player_pos) < 5.0:
-					_place_piece()
 			"press":
 				_press_action()
 			"box":
@@ -4131,11 +4211,11 @@ func _pointer_target() -> Vector3:
 		"fix":
 			if fix_phase == "valve":
 				return valve.position + Vector3(0, 4.5, 0)
-			if carried >= 0 and fix_step < slots.size():
-				return ((slots[fix_step]["node"] as Node3D)).position + Vector3(0, 6.0, 0)
-			if fix_step < slots.size():
-				var need := int(slots[fix_step]["need"])
-				return (pieces[need]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+			if fix_phase == "launch":
+				return rocket.position + Vector3(0, 9.0, 0)
+			if pipe_flow_cell >= 0:
+				return (pipe_cells[pipe_flow_cell]["pos"] as Vector3) + Vector3(0, 3.4, 0)
+			return CENTER + Vector3(-7.5, 9.0, -9.0)
 		"press":
 			for it in belt_items:
 				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
@@ -4244,10 +4324,12 @@ func _update_hud() -> void:
 				objective.text = tag + "🚀  HOLD to launch!  %d%%" % int(clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0) * 100.0)
 			elif fix_phase == "valve":
 				objective.text = tag + "💨  Spin the big valve — tap USE!  %d / 3" % valve_spins
-			elif carried >= 0:
-				objective.text = tag + "🔧  Carry it to the glowing gap!  %d / %d" % [fix_step, slots.size()]
+			elif pipe_fuse_t > 0.0:
+				objective.text = tag + "🫧  Build the pipe path — bubbles in %d!" % int(ceilf(pipe_fuse_t))
+			elif pipe_leak_t > 0.0:
+				objective.text = tag + "🫧  Leak! Put a pipe on the glowing square!"
 			else:
-				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
+				objective.text = tag + "🔧  DRAG the front pipe onto the wall!"
 		"press":
 			objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
@@ -4325,6 +4407,7 @@ func _finish() -> void:
 	_leave_belt()
 	_leave_hide()
 	_vet_leave()
+	_leave_pipes()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -4341,6 +4424,7 @@ func cancel() -> void:
 	_leave_belt()
 	_leave_hide()
 	_vet_leave()
+	_leave_pipes()
 	if state == "done":
 		return
 	if state == "won":

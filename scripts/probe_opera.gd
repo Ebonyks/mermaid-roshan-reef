@@ -327,28 +327,42 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 	_ck("act %d finishes the hat trick" % (expected + 1), act.state == "won")
 
 func _drive_fix(act: OperaAct) -> void:
-	_ck("pipe puzzle has three gaps and three pieces", act.slots.size() == 3 and act.pieces.size() == 3)
-	# a wrong shape bounces home kindly — no fail, no lost progress
-	var need0: int = int(act.slots[0]["need"])
-	var wrong_piece: int = (need0 + 1) % 3
-	act._pick_piece(wrong_piece)
-	_ck("any piece can be picked up", act.carried == wrong_piece)
-	act._place_piece()
-	_ck("wrong pipe shape bounces home gently", act.carried == -1 and act.fix_step == 0 and not bool(act.pieces[wrong_piece]["placed"]))
-	for s in range(3):
-		var need: int = int(act.slots[act.fix_step]["need"])
-		act.player_pos = act.pieces[need]["pos"] as Vector3
-		_ck("pipe piece %d reachable by proximity" % need, act._nearest_piece() == need)
-		act._pick_piece(need)
-		act._place_piece()
-	_ck("three placed pipes reveal the valve", act.fix_phase == "valve")
+	# Pipe Dream: a grid, a queue you cannot reorder, and bubbles on a fuse
+	_ck("the pipe wall is a %dx%d grid" % [act.PIPE_ROWS, act.PIPE_COLS],
+		act.pipe_cells.size() == act.PIPE_ROWS * act.PIPE_COLS)
+	_ck("three pipes wait in the queue", act.pipe_queue.size() == 3)
+	_ck("the bubbles hold on a fuse before setting off", act.pipe_fuse_t > 0.0 and act.pipe_flow_cell < 0)
+	# lay a straight run along the middle row, taking whatever the queue gives
+	for c in range(act.PIPE_COLS):
+		var idx: int = act._pipe_cell_at(act.PIPE_START_ROW, c)
+		# the queue is not reorderable, so keep drawing until a straight shows up
+		var spins := 0
+		while act.pipe_queue[0] != "h" and spins < 40:
+			spins += 1
+			act.pipe_queue[0] = act._pipe_roll()
+		var before: int = act.pipe_queue.size()
+		act._pipe_place(idx)
+		_ck("laying a pipe consumes the front of the queue and refills it",
+			act.pipe_queue.size() == before and String(act.pipe_cells[idx]["shape"]) == "h")
+	# a filled cell refuses a second piece
+	var mid: int = act._pipe_cell_at(act.PIPE_START_ROW, 0)
+	var q_before: String = act.pipe_queue[0]
+	act._pipe_place(mid)
+	_ck("a filled cell cannot be overwritten", act.pipe_queue[0] == q_before)
+	# now let the bubbles run the line
+	act.pipe_fuse_t = 0.0
+	var guard := 0
+	while act.fix_phase == "pipes" and guard < 200:
+		guard += 1
+		act.pipe_leak_t = 0.0
+		act._pipe_advance()
+	_ck("pipe puzzle does not stall", guard < 200)
+	_ck("a finished line carries the bubbles to the rocket", act.fix_phase == "valve")
 	act._turn_valve()
 	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
 	act._turn_valve()
 	act._turn_valve()
-	# three spins no longer win outright: they open the hold-to-launch countdown
 	_ck("three valve spins open the countdown", act.fix_phase == "launch" and act.state == "play")
-	# letting go sags the thrust instead of resetting it — never a fail
 	act.hold_sim = true
 	for i in range(6):
 		act._tick_launch(0.1)
