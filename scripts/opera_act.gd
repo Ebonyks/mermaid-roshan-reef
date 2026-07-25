@@ -433,10 +433,11 @@ func _stage_prop_library(spec: Dictionary) -> void:
 		var lantern_x := -23.0 if sx < 0.0 else 23.0
 		_cyl(CENTER + Vector3(lantern_x, 16.9, 12.0), 0.7, 0.5, Color(0.95, 0.8, 0.55), 0.2)
 		_sphere(CENTER + Vector3(lantern_x, 18.0, 12.0), 1.1, Color(1.0, 0.9, 0.65), 1.5)
-	# stacked crates tucked into the downstage corners
+	# stacked crates tucked into the downstage corners, downstage of the
+	# furthest search box (z = +5) so a clue can never hide behind one
 	for i in range(4):
-		var cx := -20.5 if i < 2 else 20.5
-		var cz := 2.5 + float(i % 2) * 5.5
+		var cx := -21.0 if i < 2 else 21.0
+		var cz := 9.0 + float(i % 2) * 5.0
 		_box(CENTER + Vector3(cx, 1.3, cz), Vector3(3.4, 2.6, 3.4), crate_col, 0.05)
 		_box(CENTER + Vector3(cx, 2.75, cz), Vector3(3.7, 0.4, 3.7), lid_col, 0.08)
 	# the leaning ladder against the upstage-left shelf
@@ -479,6 +480,11 @@ func _dress_world() -> void:
 	var key := String(config.get("costume", ""))
 	if key == "" and kind == "boss" and not bool(config.get("dual", false)) and not bool(config.get("finale", false)):
 		key = "knight_boss"
+	# a career with its own stage brings its own scenery — these generic wing
+	# cards are the stopgap for careers still on the shared proscenium, and
+	# they stand exactly where a dressed set puts its counters and shelving
+	if STAGE_SETS.has(key):
+		return
 	if not DRESS.has(key):
 		return
 	for entry: Array in (DRESS[key] as Array):
