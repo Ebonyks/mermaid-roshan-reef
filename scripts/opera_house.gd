@@ -15,7 +15,7 @@ const ACTS := [
 	# ---------- FLOOR 1: the Lagoon Lights Stage ----------
 	{"name": "The Great Cake Show", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
 		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 3, "imps": 6, "shell": true,
-		"voice": "Chef hat on! Look at the recipe over the bowl — bring the cake layers up in that same order, give it a big stir, then pop the toppings on!",
+		"voice": "Chef hat on! Sift the flour, pour the milk, stir the batter, bake it golden, pipe the frosting and pop the cherries on — a whole cake, step by step!",
 		"win_line": "The show cake is PERFECT! Everybody wants a slice!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Missing Tiara", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",

@@ -260,6 +260,25 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("order pad %d reachable by proximity" % idx2, act._nearest_pad() == idx2)
 		act._act_action(idx2)
 	if String(cfg.get("finale", "")) == "stir":
+		# Cooking Mama chain: sift, pour, stir, bake, pipe, decorate — six
+		# different gestures, and none of them is the pad-tap that came before
+		_ck("the cake show opens on the sieve", act.order_phase == "sift")
+		var sguard0 := 0
+		while act.order_phase == "sift" and sguard0 < 600:
+			sguard0 += 1
+			act.sift_done += 1.0
+			act._tick_sift(0.1)
+		_ck("scrubbing the sieve fills the bowl", act.order_phase == "pour")
+		# pouring is a HOLD: no finger, no milk
+		act._tick_pour(0.5)
+		_ck("the jug does not pour itself", act.order_phase == "pour" and act.pour_t == 0.0)
+		act.hold_sim = true
+		var pguard := 0
+		while act.order_phase == "pour" and pguard < 200:
+			pguard += 1
+			act._tick_pour(0.1)
+		act.hold_sim = false
+		_ck("holding the jug fills to the line", act.order_phase == "stir")
 		_ck("every layer opens the stirring finale", act.order_phase == "stir" and act.state == "play")
 		act.player_pos = act.goal.position
 		act._tick_stir(0.1)
@@ -275,6 +294,22 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 			act._stir_drag_delta(0.35)
 		_ck("circling the bowl stirs it", act.stir_done >= 3)
 		_ck("a finished bowl releases the finger", not act.stir_drag)
+		# the oven: tapping a pale cake is refused, a golden one comes out
+		_ck("a stirred bowl goes into the oven", act.order_phase == "bake")
+		act._bake_action()
+		_ck("a pale cake stays in the oven", act.order_phase == "bake")
+		var bguard := 0
+		while not act.bake_golden and bguard < 400:
+			bguard += 1
+			act._tick_bake(0.1)
+		act._bake_action()
+		_ck("a golden cake comes out and opens the piping", act.order_phase == "pipe")
+		# piping is a TRACE: every dot on the ring must be passed over
+		_ck("the piping ring is dotted out", act.pipe_dots.size() == 10)
+		for d in act.pipe_dots:
+			(d as Node3D).visible = false
+		act.pipe_trace = act.pipe_dots.size()
+		act._tick_pipe(0.1)
 		if int(cfg.get("decorate", 0)) > 0:
 			_ck("three stirs open the topping party", act.order_phase == "decorate" and act.state == "play")
 			for spot: Dictionary in act.deco_spots:

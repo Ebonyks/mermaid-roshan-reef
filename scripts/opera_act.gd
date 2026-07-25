@@ -47,7 +47,24 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir
+var order_phase := "steps"         # steps | sift | pour | stir | bake | pipe | decorate
+# ---- the Cake Show as a Cooking Mama chain (owner 2026-07-25) ----
+# Six beats, six DIFFERENT gestures: scrub the sieve, hold the jug, circle the
+# bowl, time the oven, trace the piping, drag the cherries. No gesture twice.
+const SIFT_NEED := 26.0            # px of scrubbing travel to fill the bowl
+const POUR_NEED := 2.6             # seconds of holding the jug
+var sift_done := 0.0
+var sift_prev := Vector2.ZERO
+var sift_have := false
+var sift_snow: Array[Node3D] = []
+var pour_t := 0.0
+var pour_jug: Node3D = null
+var pour_milk: MeshInstance3D = null
+var bake_t := 0.0
+var bake_golden := false
+var bake_cake: Node3D = null
+var pipe_trace := 0
+var pipe_dots: Array[Node3D] = []
 var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
 var chef_oven_art: Node3D = null
 var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
@@ -1892,6 +1909,8 @@ func _build_order() -> void:
 	if order_flow == "carry_paint":
 		canvas_pos = goal.position + Vector3(0, 3.6, 0)
 		_build_paint_canvas()
+	elif String(config.get("finale", "")) == "stir":
+		_begin_sift()   # the Cake Show is a gesture chain, not a pad errand
 		brush_node = Node3D.new()
 		brush_node.name = "PaintBrush"
 		brush_node.visible = false
@@ -2028,6 +2047,161 @@ func _apply_brush_tint(col: Color) -> void:
 	if tip != null:
 		tip.material_override = _mat(col, 0.6)
 
+func _leave_chef() -> void:
+	if m != null and m.touch_ui != null and (order_phase == "sift" or order_phase == "pipe"):
+		m.touch_ui.set_drag_mode(false)
+
+func _begin_sift() -> void:
+	# Beat 1: rub the sieve back and forth; flour snows into the bowl
+	order_phase = "sift"
+	sift_done = 0.0
+	sift_have = false
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	_box(goal.position + Vector3(0, 5.6, 0), Vector3(4.2, 0.5, 3.0), Color(0.86, 0.88, 0.95), 0.2)
+	m.show_msg("Roshan", "First the flour! RUB your finger side to side across the sieve!", "talk")
+	_update_hud()
+
+func _tick_sift(delta: float) -> void:
+	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	var pos := m.touch_ui.drag_pos if active else Vector2.ZERO
+	if not active and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		active = true
+		pos = m.get_viewport().get_mouse_position()
+	if active:
+		if sift_have:
+			# only sideways travel sifts — a still finger does nothing
+			sift_done += absf(pos.x - sift_prev.x) * 0.12
+			if sift_done > float(sift_snow.size()) * 2.0:
+				var flake := _sphere(goal.position + Vector3(randf_range(-1.6, 1.6), 4.6, randf_range(-1.0, 1.0)),
+					0.26, Color(0.99, 0.98, 0.95), 0.3)
+				sift_snow.append(flake)
+				var fall := flake.create_tween()
+				fall.tween_property(flake, "position:y", goal.position.y + 1.2, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+			progress_t = 0.0
+		sift_prev = pos
+		sift_have = true
+	else:
+		sift_have = false
+	if sift_done >= SIFT_NEED:
+		_begin_pour()
+
+func _begin_pour() -> void:
+	# Beat 2: tip the jug and HOLD until the milk reaches the line
+	order_phase = "pour"
+	pour_t = 0.0
+	pour_jug = Node3D.new()
+	pour_jug.name = "MilkJug"
+	pour_jug.position = goal.position + Vector3(-3.6, 5.0, 0)
+	add_child(pour_jug)
+	_cyl(Vector3.ZERO, 1.1, 2.4, Color(0.96, 0.95, 0.98), 0.15, pour_jug)
+	_box(goal.position + Vector3(0, 2.6, 1.35), Vector3(3.0, 0.12, 0.12), Color(1.0, 0.7, 0.35), 0.7)
+	var milk := CylinderMesh.new()
+	milk.top_radius = 1.5
+	milk.bottom_radius = 1.5
+	milk.height = 1.0
+	pour_milk = _mesh(milk, goal.position + Vector3(0, 1.2, 0), Color(0.99, 0.97, 0.92), 0.12)
+	pour_milk.scale = Vector3(1, 0.05, 1)
+	m.show_msg("Roshan", "Now the milk — press and HOLD to pour until it reaches the orange line!", "talk")
+	_update_hud()
+
+func _tick_pour(delta: float) -> void:
+	if _finger_down():
+		pour_t += delta
+		pour_jug.rotation_degrees.z = lerpf(0.0, -62.0, clampf(pour_t / 0.5, 0.0, 1.0))
+		if fmod(pour_t, 0.2) < delta:
+			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(0.99, 0.97, 0.92))
+		progress_t = 0.0
+	else:
+		pour_jug.rotation_degrees.z = lerpf(pour_jug.rotation_degrees.z, 0.0, clampf(delta * 6.0, 0.0, 1.0))
+	var f := clampf(pour_t / POUR_NEED, 0.0, 1.35)
+	pour_milk.scale.y = 0.05 + f * 1.4
+	pour_milk.position.y = goal.position.y + 1.2 + f * 0.7
+	if pour_t >= POUR_NEED:
+		if m.touch_ui != null:
+			m.touch_ui.set_drag_mode(false)
+		order_phase = "stir"
+		m.show_msg("Roshan", "Perfect! Now STIR — draw big circles round the bowl!", "talk")
+		_update_hud()
+
+func _begin_bake() -> void:
+	# Beat 4: the oven. Watch it rise and tap when it turns golden.
+	order_phase = "bake"
+	bake_t = 0.0
+	bake_golden = false
+	bake_cake = Node3D.new()
+	bake_cake.name = "BakingCake"
+	bake_cake.position = CENTER + Vector3(-19.5, 3.4, -14.1)
+	add_child(bake_cake)
+	_cyl(Vector3.ZERO, 1.9, 1.0, Color(0.92, 0.85, 0.68), 0.1, bake_cake)
+	bake_cake.scale = Vector3(1, 0.4, 1)
+	m.show_msg("Roshan", "Into the oven! Watch it grow through the door and tap when it turns GOLDEN!", "talk")
+	_update_hud()
+
+func _tick_bake(delta: float) -> void:
+	bake_t += delta
+	var rise := clampf(bake_t / 7.0, 0.0, 1.0)
+	bake_cake.scale.y = 0.4 + rise * 1.5
+	if not bake_golden and bake_t >= 7.0:
+		bake_golden = true
+		for c in bake_cake.get_children():
+			var mi := c as MeshInstance3D
+			if mi != null:
+				mi.material_override = _mat(Color(0.95, 0.72, 0.4), 0.35)
+		m._sparkle_burst(bake_cake.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.5))
+		m.show_msg("Roshan", "GOLDEN! Tap now!", "talk")
+	if bake_t > 26.0:
+		_bake_action()   # a distracted cook still gets her cake out
+
+func _bake_action() -> void:
+	if order_phase != "bake":
+		return
+	if not bake_golden:
+		# too early: the cake is still pale, so it goes back in — never a fail
+		m._sparkle_burst(bake_cake.position + Vector3(0, 1.5, 0), Color(0.85, 0.9, 1.0))
+		m.show_msg("Roshan", "Not yet — it's still pale! Wait for it to go golden.", "hint")
+		return
+	_begin_pipe()
+
+func _begin_pipe() -> void:
+	# Beat 5: trace the piping round the cake edge
+	order_phase = "pipe"
+	pipe_trace = 0
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(true)
+	for i in range(10):
+		var a := float(i) / 10.0 * TAU
+		var dot := _sphere(goal.position + Vector3(cos(a) * 2.6, 2.4, sin(a) * 2.6), 0.3,
+			Color(1.0, 0.85, 0.9, 0.5), 0.3)
+		pipe_dots.append(dot)
+	m.show_msg("Roshan", "Frosting time! DRAG your finger round the dotted ring to pipe it on!", "talk")
+	_update_hud()
+
+func _tick_pipe(delta: float) -> void:
+	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if not active or cam == null:
+		return
+	# light each dot the finger passes over, in any order
+	for i in range(pipe_dots.size()):
+		var d := pipe_dots[i]
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) < 62.0:
+			d.visible = false
+			pipe_trace += 1
+			progress_t = 0.0
+			var bead := _sphere(d.position, 0.42, Color(1.0, 0.78, 0.88), 0.4)
+			bead.scale = Vector3.ZERO
+			var pop := bead.create_tween()
+			pop.tween_property(bead, "scale", Vector3.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			if m.chime != null:
+				m.chime.pitch_scale = 0.9 + 0.06 * float(pipe_trace)
+				m.chime.play()
+	if pipe_trace >= pipe_dots.size():
+		if m.touch_ui != null:
+			m.touch_ui.set_drag_mode(false)
+		_open_decorate()
+
 func _tick_stir(delta: float) -> void:
 	# hands the finger to the bowl while Roshan stands at it, exactly like the
 	# painter's easel — and hands it straight back the moment she is done
@@ -2107,6 +2281,9 @@ func _stir_action() -> void:
 		m.chime.play()
 	if stir_done >= 3:
 		_leave_stir()
+		if String(config.get("finale", "")) == "stir":
+			_begin_bake()
+			return
 		# stirred to perfection: calm cream on top, oven glows open backstage
 		_job_state(chef_bowl_art, "StateActive", false)
 		_job_state(chef_bowl_art, "StateComplete", true)
@@ -3999,8 +4176,10 @@ func _process(delta: float) -> void:
 	if _action_pressed():
 		match kind:
 			"order", "paint":
-				if order_phase == "stir":
-					pass   # stirring is a circular DRAG now, not a tap
+				if order_phase == "bake":
+					_bake_action()
+				elif order_phase == "stir" or order_phase == "sift" or order_phase == "pour" or order_phase == "pipe":
+					pass   # each of these beats is its own gesture, not a tap
 				elif order_phase == "decorate":
 					for spot in deco_spots:
 						if not bool(spot["done"]) and (spot["pos"] as Vector3).distance_to(player_pos) < 4.5:
@@ -4076,10 +4255,20 @@ func _process(delta: float) -> void:
 						if m.chime != null:
 							m.chime.pitch_scale = 1.25
 							m.chime.play()
-			if order_phase == "stir":
-				_tick_stir(delta)
-			elif stir_drag:
-				_leave_stir()
+			match order_phase:
+				"sift":
+					_tick_sift(delta)
+				"pour":
+					_tick_pour(delta)
+				"stir":
+					_tick_stir(delta)
+				"bake":
+					_tick_bake(delta)
+				"pipe":
+					_tick_pipe(delta)
+				_:
+					if stir_drag:
+						_leave_stir()
 			if order_flow == "carry_paint" and brush_loaded >= 0:
 				brush_node.position = player_pos + Vector3(0, 3.2, 0)
 				brush_node.rotation.z = sin(elapsed * 6.0) * 0.25
@@ -4188,6 +4377,14 @@ func _pointer_target() -> Vector3:
 					return (prop["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 8.0, 3.0)
 		"order", "paint":
+			if order_phase == "sift":
+				return goal.position + Vector3(0, 8.0, 0)
+			if order_phase == "pour":
+				return goal.position + Vector3(0, 7.0, 0)
+			if order_phase == "bake" and bake_cake != null:
+				return bake_cake.position + Vector3(0, 4.0, 0)
+			if order_phase == "pipe":
+				return goal.position + Vector3(0, 6.0, 0)
 			if order_phase == "stir":
 				return goal.position + Vector3(0, 7.5, 0)
 			if order_phase == "decorate":
@@ -4276,7 +4473,15 @@ func _update_hud() -> void:
 		return
 	match kind:
 		"order", "paint":
-			if order_phase == "stir":
+			if order_phase == "sift":
+				objective.text = tag + "🌾  RUB side to side to sift the flour!  %d%%" % int(clampf(sift_done / SIFT_NEED, 0.0, 1.0) * 100.0)
+			elif order_phase == "pour":
+				objective.text = tag + "🥛  HOLD to pour the milk to the line!  %d%%" % int(clampf(pour_t / POUR_NEED, 0.0, 1.0) * 100.0)
+			elif order_phase == "bake":
+				objective.text = tag + ("🔥  GOLDEN! Tap to take it out!" if bake_golden else "🔥  Baking... watch it rise!")
+			elif order_phase == "pipe":
+				objective.text = tag + "🧁  DRAG round the ring to pipe the frosting!  %d / %d" % [pipe_trace, pipe_dots.size()]
+			elif order_phase == "stir":
 				if stir_drag:
 					var turn := int(clampf(stir_accum / TAU, 0.0, 1.0) * 100.0)
 					objective.text = tag + "🥄  Draw CIRCLES to stir!  %d / 3  (%d%%)" % [stir_done, turn]
@@ -4408,6 +4613,7 @@ func _finish() -> void:
 	_leave_hide()
 	_vet_leave()
 	_leave_pipes()
+	_leave_chef()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -4425,6 +4631,7 @@ func cancel() -> void:
 	_leave_hide()
 	_vet_leave()
 	_leave_pipes()
+	_leave_chef()
 	if state == "done":
 		return
 	if state == "won":

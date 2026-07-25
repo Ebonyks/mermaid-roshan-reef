@@ -115,7 +115,8 @@ func _snapshot(act: OperaAct) -> String:
 			var bdist := ((act.boss["node"] as Node3D).position).distance_to(act.player_pos) if act.boss.has("node") else -1.0
 			return base + " boss=%s hp=%d lant=%d dist=%.1f" % [bphase, int(act.boss.get("hp", -1)), act.lantern_i, bdist]
 		"order", "paint":
-			return base + " order=%s step=%d brush=%d" % [act.order_phase, act.step, act.brush_loaded]
+			return base + " order=%s step=%d brush=%d sift=%.1f pour=%.1f bake=%.1f pipe=%d" % [
+				act.order_phase, act.step, act.brush_loaded, act.sift_done, act.pour_t, act.bake_t, act.pipe_trace]
 		"press":
 			return base + " candies=%d busy=%.2f" % [act.candies_done, act.press_busy]
 		"shuffle":
@@ -259,6 +260,33 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 				var row := randf_range(float(band.x) + 1.0, float(band.y) - 1.0)
 				act._paint_stroke_uv(t, row / float(act.PAINT_RES))
 		return
+	match act.order_phase:
+		"sift":
+			# scrubbing travel, at the persona's hand speed
+			act.sift_done += dt * lerpf(6.0, 13.0, float(persona["speed"]))
+			act._tick_sift(dt)
+			return
+		"pour":
+			if act.hold_sim or _ready_to_act(dt):
+				act.hold_sim = true
+			act._tick_pour(dt)
+			return
+		"bake":
+			act._tick_bake(dt)
+			if act.bake_golden and _ready_to_act(dt):
+				act._bake_action()
+			return
+		"pipe":
+			# tracing the ring: one bead per reaction beat
+			if _ready_to_act(dt):
+				for d in act.pipe_dots:
+					var n := d as Node3D
+					if n.visible:
+						n.visible = false
+						act.pipe_trace += 1
+						break
+				act._tick_pipe(dt)
+			return
 	if act.order_phase == "stir":
 		# stirring is a circular drag: once at the bowl the persona traces
 		# circles at roughly its own hand speed rather than tapping three times
