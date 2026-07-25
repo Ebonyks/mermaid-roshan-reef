@@ -1007,8 +1007,15 @@ func _build_backstage() -> void:
 	# three mischief imps between Roshan and the curtain — the same little
 	# demons from the dungeon, reused on purpose (they get everywhere)
 	imp_count = int(config.get("imps", 4))
+	# Imps must spawn INSIDE the stretch of corridor _clamp_player() lets Roshan
+	# reach (BACKSTAGE_X0 + 2 .. BACKSTAGE_X1 - 1.5). The old fixed 5.5 spacing
+	# put the last two imps of a six-imp act past the far wall, where she could
+	# only ever swat at them from the clamp line.
+	var imp_x0 := BACKSTAGE_X0 + 6.0
+	var imp_x1 := BACKSTAGE_X1 - 4.0
 	for g in range(imp_count):
-		var pos := CENTER + Vector3(-48.0 + float(g) * 5.5, 1.0, -1.0 + float(g % 2) * 7.0)
+		var t := float(g) / maxf(1.0, float(imp_count - 1))
+		var pos := CENTER + Vector3(lerpf(imp_x0, imp_x1, t), 1.0, -1.0 + float(g % 2) * 7.0)
 		# the LAST imp is the captain: bigger, wears a gold bow, and shrugs off
 		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
 		_spawn_imp(pos, g == imp_count - 1)

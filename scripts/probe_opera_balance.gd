@@ -4,14 +4,15 @@ extends SceneTree
 # is played TEN times by simulated children — personas with real reaction
 # delays, travel speeds, wandering and wrong-tap rates — by pumping
 # OperaAct._process() with a fixed timestep. Prints one BALANCE| line per run
-# plus a per-act summary with a verdict against the 55-140s fun band
-# (target: every act is a 1-2 minute performance).
+# plus a per-act summary with a verdict against the 120-240s fun band
+# (owner 2026-07-25: every act is a 2-4 minute performance with its own
+# pacing — the old 55-140s band described a show that was over too fast).
 # This probe is ADVISORY: it prints metrics and never the gate's fail tokens.
 
 const DT := 0.1
-const TIME_CAP := 240.0
-const BAND_LO := 55.0
-const BAND_HI := 140.0
+const TIME_CAP := 360.0
+const BAND_LO := 120.0
+const BAND_HI := 240.0
 
 # Personas are calibrated to a real 4-year-old, not an optimal bot: slow
 # reactions, slower swimming, wandering, and GAWK — the pause to stare at
@@ -177,8 +178,18 @@ func _drive(act: OperaAct, dt: float) -> void:
 				target = g["pos"] as Vector3
 				found = true
 				break
-		if found and _travel(act, target, dt) and _ready_to_act(dt):
-			act._brawl_action()
+		# Imps CHASE Roshan and her bubble shield shoves them off at 2.5, so the
+		# gap oscillates and _travel()'s 3.0 arrival almost never latches. Play
+		# it the way a child does instead: close the distance, then tap as soon
+		# as the imp is inside the sparkle's real 8.0 reach.
+		if found:
+			var gap := target - act.player_pos
+			gap.y = 0.0
+			if gap.length() < 7.0:
+				if _ready_to_act(dt):
+					act._brawl_action()
+			else:
+				_travel(act, target, dt)
 		return
 	match act.kind:
 		"order", "paint":
