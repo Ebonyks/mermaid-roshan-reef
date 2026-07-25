@@ -1,5 +1,9 @@
 # Fairy Pond V2 generated art
 
+The three V2 background concepts are retained as historical sources. Runtime
+pond plates were superseded by the continuous V3 texture family on 2026-07-22;
+the V2 bug, leaf-shield, and flower-growth masters remain current.
+
 The final game art was generated with the built-in OpenAI image-generation
 tool on 2026-07-16, then normalized by `tools/process_fairy_art_v2.py`.
 Chroma-key removal uses the installed Codex `remove_chroma_key.py` helper with

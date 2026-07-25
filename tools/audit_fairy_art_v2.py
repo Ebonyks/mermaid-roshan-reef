@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Static texture and alpha QA for Fairy Pond V2 art."""
+"""Static texture, transition, alpha, and GLB QA for Fairy Pond art."""
 
 from __future__ import annotations
 
 import json
+import math
 import struct
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageStat
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,16 @@ SUBJECTS = [
 	"boss_bloom.png",
 ]
 MODELS = [Path(name).with_suffix(".glb").name for name in SUBJECTS]
+
+
+def _mean_luminance(image: Image.Image) -> float:
+	r, g, b = ImageStat.Stat(image.convert("RGB")).mean
+	return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _mean_rgb(image: Image.Image) -> tuple[float, float, float]:
+	r, g, b = ImageStat.Stat(image.convert("RGB")).mean
+	return r, g, b
 
 
 def _audit_glb(path: Path) -> tuple[bool, str]:
@@ -67,6 +78,7 @@ def _audit_glb(path: Path) -> tuple[bool, str]:
 def main() -> None:
 	bad = 0
 	thumbs: list[tuple[str, Image.Image]] = []
+	background_images: list[tuple[str, Image.Image]] = []
 	for name in BACKGROUNDS + SUBJECTS:
 		path = (SUBJECT_ART if name in SUBJECTS else ART) / name
 		if not path.exists():
@@ -84,7 +96,8 @@ def main() -> None:
 			if any(corners):
 				print(f"FAIL opaque corner {name}: {corners}")
 				bad += 1
-			coverage = sum(1 for value in alpha.get_flattened_data() if value > 12) / float(image.width * image.height)
+			alpha_values = alpha.get_flattened_data() if hasattr(alpha, "get_flattened_data") else alpha.getdata()
+			coverage = sum(1 for value in alpha_values if value > 12) / float(image.width * image.height)
 			if not 0.08 <= coverage <= 0.78:
 				print(f"FAIL implausible coverage {name}: {coverage:.3f}")
 				bad += 1
@@ -94,8 +107,12 @@ def main() -> None:
 			checker.alpha_composite(image)
 			preview = checker.convert("RGB")
 		else:
+			if image.size != (1024, 1024) or image.mode != "RGB":
+				print(f"FAIL background contract {name}: size={image.size} mode={image.mode}")
+				bad += 1
 			print(f"OK {name}: {image.size[0]}x{image.size[1]} {image.mode}")
 			preview = image.convert("RGB")
+			background_images.append((name, preview.copy()))
 		preview.thumbnail((256, 256), Image.Resampling.LANCZOS)
 		thumbs.append((name, preview.copy()))
 
@@ -109,6 +126,25 @@ def main() -> None:
 		y = (index // cols) * cell_h
 		sheet.paste(preview, (x, y))
 		draw.text(((index % cols) * cell_w + 8, y + 262), name, fill=(34, 46, 68))
+	for index in range(len(background_images) - 1):
+		name_a, image_a = background_images[index]
+		name_b, image_b = background_images[index + 1]
+		luminance_a = _mean_luminance(image_a)
+		luminance_b = _mean_luminance(image_b)
+		luminance_delta = abs(luminance_a - luminance_b)
+		rgb_a = _mean_rgb(image_a)
+		rgb_b = _mean_rgb(image_b)
+		palette_delta = math.sqrt(sum((a - b) ** 2 for a, b in zip(rgb_a, rgb_b)))
+		edge_a = image_a.crop((0, image_a.height - 1, image_a.width, image_a.height))
+		edge_b = image_b.crop((0, 0, image_b.width, 1))
+		seam_delta = sum(ImageStat.Stat(ImageChops.difference(edge_a, edge_b)).mean) / 3.0
+		ok = luminance_delta <= 16.0 and palette_delta <= 48.0 and seam_delta <= 2.0
+		print(
+			f"{'OK' if ok else 'FAIL'} flow {name_a}->{name_b}: "
+			f"luminance_delta={luminance_delta:.2f} palette_delta={palette_delta:.2f} seam_delta={seam_delta:.2f}"
+		)
+		if not ok:
+			bad += 1
 	OUT.parent.mkdir(parents=True, exist_ok=True)
 	sheet.save(OUT, format="PNG", optimize=True)
 	print(f"contact sheet: {OUT}")
