@@ -88,13 +88,40 @@ func _bump_case() -> void:
 	await _wait_ms(900)
 	_ck("reaction decays to rest", float(target["react"]) == 0.0 and inst.scale == rest)
 
+func _clean_spots() -> Array:
+	# Props that can be bumped without the TELEPORT ITSELF earning something.
+	# This probe moves Roshan onto each prop, and two unrelated systems pay out
+	# on proximity alone: loose pearls auto-collect within 6 m, and swimming
+	# into the grotto ring can push its blocks far enough to solve it (+5).
+	# Neither is the reactive layer, so filter them out rather than measure
+	# them and blame S1 for the difference.
+	var out: Array = []
+	for it in main.reactive_props:
+		var d: Dictionary = it
+		var w: Node3D = d["wrap"]
+		if not is_instance_valid(w):
+			continue
+		var p: Vector3 = w.position
+		var to_grotto: float = Vector2(p.x - GrottoPuzzle.CENTER.x,
+			p.z - GrottoPuzzle.CENTER.z).length()
+		if to_grotto < GrottoPuzzle.WALL_R + 10.0:
+			continue
+		var near_pearl := false
+		for pe in main.pearls:
+			if is_instance_valid(pe) and pe.position.distance_to(p) < 12.0:
+				near_pearl = true
+				break
+		if not near_pearl:
+			out.append(d)
+	return out
+
 func _no_reward_case() -> void:
 	# swim through a crowd of props: nothing may be earned, won or unlocked
 	var pearls0: int = int(main.pearl_count)
 	var medals0: int = main.medals.size()
 	var won0: int = main.save_data.get("won", {}).size()
 	var n := 0
-	for it in main.reactive_props:
+	for it in _clean_spots():
 		var d: Dictionary = it
 		var w: Node3D = d["wrap"]
 		if not is_instance_valid(w):
