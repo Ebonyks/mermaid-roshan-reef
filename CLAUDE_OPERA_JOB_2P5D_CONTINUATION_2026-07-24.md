@@ -2,30 +2,32 @@
 
 Date: 2026-07-24
 
+## 2026-07-24 hybrid supersession
+
+Read `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` first. It is now the
+authoritative level-flow guide.
+
+The worlds in this file remain binding as Act I teaching districts. Their
+far-right completion destinations now connect through a backstage checkpoint
+to a formal Act II job performance with the recurring floor boss. Statements
+below that reserve stages for a separate future boss phase are superseded.
+
 ## Binding design correction
 
-The twelve regular Opera jobs are not performances confined to twelve literal
-stages. Each job is a short, highly readable 2.5D side-scrolling story world
-entered through its career door in the Opera lobby.
+Act I of each Opera job is not a performance confined to a literal stage. It
+is a short, highly readable 2.5D side-scrolling story world entered through
+its career door in the Opera lobby.
 
 The correct spatial language is:
 
 ```text
 small entry portal -> traversable job district -> mechanic clearings ->
-large scenic landmark -> completion overlook -> return to lobby
+large scenic landmark -> backstage threshold -> Act II stage
 ```
 
 Curtains, footlights, painted flats, and theatrical transitions may connect
-the Opera to each world. They must not enclose every job on one proscenium
-deck.
-
-Reserve literal Opera stages for the later boss-fight phase:
-
-- Curtain Dragon;
-- Shadow Phantom;
-- Midnight Maestro.
-
-This reserves those spaces; it does not authorize boss asset work now.
+the Opera to each world. They must not enclose Act I on one proscenium deck.
+The formal stage belongs after the teaching route as Act II of the same level.
 
 This file supersedes the "shared show-room shell", "job stage package", and
 "small theatrical environment" spatial language in
@@ -203,19 +205,18 @@ rainbow bridge -> illuminated city catwalk -> encore overlook. Mapping is
 plum-left, teal-up, cream-down, coral-right. The catwalk is a traversable city
 street, not a stage. Retain the live `DanceEngine`.
 
-## Lobby and future boss stages
+## Lobby and Act II stages
 
 The lobby remains the primary navigation set. Four career doors belong to
 each floor; upper floors stay visibly desirable but physically locked until
 progression unlocks them.
 
-The lobby may foreshadow three larger formal stage entrances. Until the boss
-phase begins:
-
-- keep them closed or inaccessible;
-- do not create boss silhouettes, props, attacks, or hazards;
-- do not reuse a boss stage as a regular job world;
-- do not move regular mechanics onto those stages.
+Each career door leads through its Act I district and backstage threshold to
+an Act II stage. Use one reusable stage family per floor, with job-specific
+dressing and the recurring floor boss. Do not place boss content inside the
+Act I district, and do not replace the learned mechanic with generic combat.
+Follow `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` for the complete transition,
+finale, and save-migration contract.
 
 ## Blender and Godot implementation
 
@@ -274,7 +275,7 @@ Each world must demonstrate:
   background;
 - at least three large job-specific landmarks;
 - exact continuity counts, orders, species, and states;
-- no boss content;
+- no boss content inside the Act I district;
 - clear entry and completion destinations;
 - phone-readable touch targets and nonverbal guidance;
 - no fail state or reading-dependent objective;

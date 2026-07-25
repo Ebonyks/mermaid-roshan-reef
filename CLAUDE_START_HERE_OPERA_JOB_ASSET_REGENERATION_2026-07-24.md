@@ -4,36 +4,35 @@ Date: 2026-07-24
 
 ## Task
 
-Make the complete accepted Opera House non-boss job-art package available in
-your Claude worktree, then use it to regenerate or promote production-quality
-asset references and build the continuous 2.5D job worlds described in the
-2026-07-24 companion handoff.
+Make the complete accepted Opera House job-art package available in your
+Claude worktree, then use it to build the hybrid career levels described in
+`CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md`.
 
 Do not rely on a Codex worktree path, a chat attachment, or an external
 generated-image cache. All usable source material is tracked in this Git
 repository. Use repository-relative paths only.
 
-This handoff covers twelve jobs and excludes all boss fights:
+This handoff covers twelve hybrid job levels:
 
 - Floor 1: Pastry Chef, Detective, Ballerina, Candy Maker.
 - Floor 2: Doctor, Farmer, Boxer, Magician.
 - Floor 3: Painter, Astronaut Engineer, Racecar Driver, Pop Star.
-- Deferred: Curtain Dragon, Shadow Phantom, Midnight Maestro.
+- Finale partners: Curtain Dragon, Shadow Phantom, Midnight Maestro.
 
-## Binding spatial correction
+## Binding hybrid correction
 
-The twelve regular jobs are short 2.5D side-scrolling story worlds, not
-mechanics placed on twelve literal theatre stages. Use
-`CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` as the authoritative
-environment and level-layout guide.
+Every career is one continuous two-act level. Act I is a short 2.5D
+side-scrolling job world that teaches the mechanic. A backstage threshold then
+leads directly to Act II, where Roshan performs that same job mechanic on a
+formal theater stage with the recurring boss for the floor.
 
 The package at `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` supplies one
-wide world key and one large-module/background-texture kit per job. The older
-36-sheet and 576-card package remains authoritative for outfits, implements,
-mechanic states, and close-up modeling detail.
-
-Literal stages are reserved for the future boss phase. This handoff does not
-authorize Curtain Dragon, Shadow Phantom, or Midnight Maestro production.
+wide Act I world key and one large-module/background-texture kit per job. The
+package at
+`assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/` supplies one wide
+Act II performance-finale key per job. The older 36-sheet and 576-card package
+remains authoritative for outfits, implements, mechanic states, and close-up
+modeling detail.
 
 ## Why the art may have appeared unavailable
 
@@ -83,6 +82,8 @@ the isolated feature worktree or explicitly include these repository paths:
 
 ```text
 assets_src/concepts/opera_jobs_flat_2026-07-21
+assets_src/concepts/opera_jobs_2p5d_2026-07-24
+assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24
 audit
 tools
 ```
@@ -110,17 +111,22 @@ Use these paths exactly:
 | --- | --- |
 | Accepted package root | `assets_src/concepts/opera_jobs_flat_2026-07-21/` |
 | Accepted 2.5D environment package | `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` |
+| Accepted Act II finale package | `assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/` |
 | Individual 1024 references | `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/` |
 | Exact prompt contracts and cell lists | `assets_src/concepts/opera_jobs_flat_2026-07-21/PROMPTS.md` |
 | Exact 576-item manifest | `audit/opera_job_flat_prototype_ledger_2026-07-21.csv` |
 | 36-sheet contact sheet | `audit/opera_job_flat_contact_sheet_2026-07-21.png` |
 | Accepted scores and corrections | `OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md` |
 | Scope and sheet inventory | `OPERA_JOB_FLAT_PROTOTYPE_PLAN_2026-07-21.md` |
-| Authoritative 2.5D world guide | `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` |
+| Authoritative hybrid level guide | `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` |
+| Act I 2.5D world guide | `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` |
 | Older outfit and implement guide | `CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md` |
 | 2.5D environment ledger | `audit/opera_job_2p5d_environment_ledger_2026-07-24.csv` |
 | 2.5D environment contact sheet | `audit/opera_job_2p5d_contact_sheet_2026-07-24.png` |
 | 2.5D art audit | `OPERA_JOB_2P5D_ART_AUDIT_2026-07-24.md` |
+| Act II finale ledger | `audit/opera_job_hybrid_finale_ledger_2026-07-24.csv` |
+| Act II finale contact sheet | `audit/opera_job_hybrid_finale_contact_sheet_2026-07-24.png` |
+| Act II finale audit | `OPERA_JOB_HYBRID_FINALE_ART_AUDIT_2026-07-24.md` |
 | Existing deterministic card packer | `tools/slice_opera_job_prototypes.py` |
 
 The external `exec-*.png` names in `PROMPTS.md` are provenance records only.
@@ -183,7 +189,8 @@ requirements:
 - No words, letters, numbers, logos, or watermarks.
 - No copied franchise symbols, characters, scenery, or UI.
 - No generic star mascot repeated as filler.
-- No boss content in this phase.
+- Finale interaction uses the job's learned mechanic, never generic combat.
+- Bosses are supportive recurring scene partners and join the curtain call.
 - No punitive fail imagery, injury, or frightening response.
 - No clipped objects, repeated filler, malformed anatomy, or micro-detail.
 - Roshan remains a mermaid with her continuous rainbow-scaled tail and split
@@ -308,7 +315,8 @@ Automatically reject:
 
 - score below 4.5;
 - wrong job or mechanic;
-- boss content;
+- boss content in an outfit/implement-only card, or the wrong floor boss in
+  an Act II finale;
 - realistic rendering;
 - changed Roshan identity or anatomy;
 - human legs on Roshan;
@@ -352,17 +360,20 @@ into `dev`. Never push `master`.
 ## Transition to 3D
 
 After accepted references are available locally, continue with
-`CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md`.
+`CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md`.
 
 That guide is binding for:
 
 - lobby as the primary navigation stage;
 - visible, pictorial upper-floor locks;
 - four career doors per floor;
-- continuous left-to-right job districts;
+- continuous left-to-right Act I job districts;
 - foreground, playable midground, scenic midground, and far parallax layers;
 - large route modules, landmarks, background bands, and material textures;
-- literal stages reserved for future boss fights;
+- backstage checkpoints and direct transitions into Act II;
+- formal job-performance stages with the recurring floor boss;
+- shared mechanics between teaching and performance;
+- nonpunitive curtain calls and backward-compatible progress migration;
 - scale relative to the live Roshan avatar;
 - pivots, node names, materials, touch targets, and collisions;
 - Speedy-tier transparency and particle budgets;
@@ -377,7 +388,10 @@ per job in this order:
 4. nonverbal guidance and gentle retry;
 5. completion/reward state;
 6. scenic dressing;
-7. actual Mobile-renderer gameplay-camera review.
+7. backstage threshold;
+8. Act II performance and boss variation;
+9. shared curtain call;
+10. actual Mobile-renderer gameplay-camera review.
 
 ## Required Claude delivery report
 

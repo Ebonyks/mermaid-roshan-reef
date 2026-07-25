@@ -2,11 +2,20 @@
 
 Date: 2026-07-24
 
+## Hybrid supersession
+
+These accepted worlds define Act I of each hybrid career level. Their
+environment-only art remains unchanged. They contain no boss or formal stage
+because the far-right destination connects through backstage to the Act II
+performance keys in
+`assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/`.
+
 ## Purpose
 
-This package corrects the regular Opera job spatial design. The twelve jobs
-are short 2.5D side-scrolling story worlds, not mechanics arranged on twelve
-literal stages. Literal stages are reserved for the later boss-fight phase.
+This package defines the teaching half of the Opera job spatial design. The
+twelve Act I sections are short 2.5D side-scrolling story worlds, not
+mechanics arranged on twelve literal stages. Each is followed by a backstage
+threshold and an Act II formal-stage finale in the same hybrid level.
 
 Every accepted job has:
 

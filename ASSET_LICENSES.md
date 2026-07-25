@@ -321,6 +321,17 @@ ambientCG (all CC0).
 - External reference images: none; established project palette and existing
   project-owned Opera job art were used as the style/continuity contract
 
+## assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/*.png (12 images) and audit/opera_job_hybrid_finale_contact_sheet_2026-07-24.png
+- Source: project-authored concept art generated with OpenAI built-in image
+  generation on 2026-07-24; prompts and generation identifiers are recorded
+  in `assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/PROMPTS.md`
+- License: project original
+- Modifications: accepted source images were high-quality resampled from
+  1672x941 to 1024x576; the contact sheet is a 1024x1024 composite of the
+  twelve accepted images; rejected iterations were not added
+- External reference images: none; only established project-owned Mermaid
+  Roshan, Opera, outfit, implement, and boss art informed continuity
+
 ## assets/art35/opera/*.glb (10 models: arch, curtain, door, medallion, chandelier, bench, railing, lift, maestro, stage_apron)
 - Source: project-authored, generated procedurally in Blender by
   tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
