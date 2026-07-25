@@ -41,6 +41,10 @@ for p in probe_reef_districts probe_audit probe_passive probe_load probe_rank pr
 		if [ "$probe_rc" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then
 			echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
 		else
+			# say which one: a crash exits nonzero while printing none of the
+			# FAILURE_RE words, so this branch used to fail the gate silently
+			echo "PROBE $p exited $probe_rc with no recognised verdict - last 20 lines:"
+			tail -n 20 "/tmp/$p.out"
 			rc=1
 		fi
 	fi

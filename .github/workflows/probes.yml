@@ -111,6 +111,12 @@ jobs:
               if [ "$PROBE_RC" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then
                 echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
               else
+                # SAY WHICH ONE. A crash exits nonzero while printing none of
+                # the FAILURE_RE words, so this branch used to fail the gate in
+                # total silence - the job log named no probe and the tail of a
+                # 450k-char log no longer reached the early ones.
+                echo "PROBE $p exited $PROBE_RC with no recognised verdict - last 20 lines:"
+                tail -n 20 "/tmp/$p.out"
                 FAILED=1
               fi
             fi
