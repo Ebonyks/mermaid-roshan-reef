@@ -57,7 +57,9 @@ func _speaker_key(who: String) -> String:
 
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
-	m.hud_msg.text = txt
+	# every line of dialogue passes through here, so this is where "{player}"
+	# becomes the mermaid's name (main.PLAYER_NAME)
+	m.hud_msg.text = m.player_text(txt)
 	m.msg_timer = 5.0
 	if who != "":
 		_say(_speaker_key(who), vo, 0.5)

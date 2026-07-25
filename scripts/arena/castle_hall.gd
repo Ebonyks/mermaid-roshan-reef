@@ -1403,9 +1403,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 		m.g["huluu_greeted"] = true
 		if m.fairy_skin_unlocked:
 			# the story loops back: Huluu acknowledges the Butterfly World rescue
-			m.show_msg("Princess Huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!", "hero")
+			m.show_msg("Princess Huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid {player}!", "hero")
 		else:
-			m.show_msg("Princess Huluu", "Thank you, Mermaid Roshan, you did a great job! This is now your castle!", "win")
+			m.show_msg("Princess Huluu", "Thank you, Mermaid {player}, you did a great job! This is now your castle!", "win")
 	var crown: Node3D = m.l2_stars[0]["node"]
 	var crown_t: float = float(m.g["t"])
 	crown.rotate_y(delta * 1.4)

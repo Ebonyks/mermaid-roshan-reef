@@ -19,6 +19,19 @@ func _init() -> void:
 	await process_frame
 	player = main.player
 	print("AUDIT|boot OK, seed=", seed_str)
+	# Release seam (2026-07-25): the mermaid's name lives only in
+	# main.PLAYER_NAME. Dialogue carries main.PLAYER_TOKEN and show_msg
+	# substitutes it, so a raw "{player}" must never reach the screen and a
+	# label table must never hardcode a name.
+	main.show_msg("Roshan", "Hello, Mermaid " + main.PLAYER_TOKEN + "!", "talk")
+	await process_frame
+	var msg_txt: String = main.hud_msg.text
+	var skin_lbl: String = String(main._skin_def("classic")["label"])
+	var name_ok: bool = (msg_txt == "Hello, Mermaid %s!" % main.PLAYER_NAME
+		and not (main.PLAYER_TOKEN in msg_txt)
+		and skin_lbl == main.PLAYER_TOKEN)
+	print("AUDIT|Player-name substitution: ",
+		"OK" if name_ok else "FAIL msg='%s' skin_label='%s'" % [msg_txt, skin_lbl])
 	var patrol_x := 140.0
 	var patrol_z := -115.0
 	var patrol_y: float = main._aquatic_patrol_height(patrol_x, patrol_z, -100.0, 4.0)

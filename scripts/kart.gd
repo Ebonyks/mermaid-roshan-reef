@@ -210,12 +210,16 @@ const PAINTS := [
 	{"label": "RAINBOW!", "col": null, "rainbow": true},
 ]
 
+# The player's roster name is the substitution token (ReefMain.PLAYER_TOKEN);
+# _pn() turns it into main.PLAYER_NAME on the floating Label3D.
+const PLAYER_RACER := "{player}"
+
 # Racer roster: deliberately AVOIDS the reef friends (Faron, Harper & Fiona,
 # Daddy Mermaid, Wacky & Chuck, Evie & Lamb-a') — seeing them race past themselves
 # standing in the ocean broke the fiction. These characters live in the toy
 # nursery / story world instead, so they never appear twice at once.
 const RACERS := [
-	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
+	{"name": PLAYER_RACER, "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
 	{"name": "Sparkle", "col": Color(1.0, 0.85, 0.35), "sprite": "res://assets/book/baby_eagle.png"},
 	{"name": "Princess Huluu", "col": Color(0.75, 0.55, 1.0), "sprite": "res://assets/characters/friends/huluu.png"},
 	{"name": "Bunny", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/book/doll_bunny.png"},
@@ -480,6 +484,13 @@ func _kart_frame(s: float, lat: float) -> Array:
 	return [pos, fwd, right, up]
 
 # ------------------------------------------------------------ lifecycle
+func _pn(s: String) -> String:
+	# the mermaid's name (main.PLAYER_NAME) into a label that bypasses show_msg.
+	# main is always set by start() before any racer body is built.
+	if _main != null and _main.has_method("player_text"):
+		return _main.player_text(s)
+	return s
+
 func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> void:
 	_main = main
 	_finish_cb = finish_cb
@@ -2022,7 +2033,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		root.add_child(spr)
 		root.set_meta("driver_spr", spr)
 	var nl := Label3D.new()
-	nl.text = racer_name
+	nl.text = _pn(racer_name)
 	nl.font_size = 54
 	nl.outline_size = 12
 	nl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -2030,7 +2041,7 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	nl.position = Vector3(0, top_h + 3.4, 0)
 	root.add_child(nl)
 	root.set_meta("name_lbl", nl)
-	if racer_name == "Roshan" and not _speedy():
+	if racer_name == PLAYER_RACER and not _speedy():
 		var trail := OmniLight3D.new()
 		trail.light_color = Color(1.0, 0.5, 0.9)
 		trail.light_energy = 2.5

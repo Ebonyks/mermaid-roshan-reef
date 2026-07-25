@@ -7,7 +7,7 @@ extends RefCounted
 const INTRO_PANELS := [
 	{"title": "Princess Huluu", "art": ["huluu"], "vo": "intro1", "text": "Princess Huluu lives in a kingdom in the sky."},
 	{"title": "The Storm", "art": ["huluu"], "vo": "intro2", "text": "A storm swept her down to the sea!"},
-	{"title": "Best Friends", "art": ["roshan"], "vo": "intro3", "text": "Roshan says: I will help you, Huluu!"},
+	{"title": "Best Friends", "art": ["roshan"], "vo": "intro3", "text": "{player} says: I will help you, Huluu!"},
 	{"title": "Go Home Together", "art": ["roshan", "huluu"], "vo": "intro4", "text": "Find the pearls. Open the sky river. Take Huluu home!"}]
 
 var m: ReefMain
@@ -105,7 +105,7 @@ func _intro_tex(key: String) -> Texture2D:
 
 func _intro_show() -> void:
 	var p: Dictionary = INTRO_PANELS[m.intro_idx]
-	m.intro_text.text = String(p["text"])
+	m.intro_text.text = m.player_text(String(p["text"]))
 	m._say("roshan", String(p.get("vo", "")))
 	var arts: Array = p["art"]
 	m.intro_art.texture = _intro_tex(String(arts[0]))

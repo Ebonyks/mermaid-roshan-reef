@@ -20,7 +20,7 @@ const ACTS := [
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Missing Tiara", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
 		"kind": "order", "props": "clue", "order": [1, 0, 2, 0, 1, 2, 0], "reveal_one": true, "hide_props": true, "imps": 6, "shell": true,
-		"voice": "Detective Roshan is on the case! The clues are hiding — swim all around the stage and they'll pop out when you get close!",
+		"voice": "Detective {player} is on the case! The clues are hiding — swim all around the stage and they'll pop out when you get close!",
 		"win_line": "Case closed! The tiara was in the treasure box all along!",
 		"floor_col": Color(0.42, 0.46, 0.62), "trim": Color(0.72, 0.85, 1.0), "curtain": Color(0.3, 0.35, 0.6)},
 	{"name": "The Dance Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
@@ -30,7 +30,7 @@ const ACTS := [
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
 	{"name": "The Candy Parade", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
 		"kind": "press", "candies": 7, "imps": 5, "shell": true,
-		"voice": "Candy Maker Roshan! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
+		"voice": "Candy Maker {player}! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
 		"win_line": "Seven smiley candies! The sweetest show the reef has ever tasted!",
 		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
 	{"name": "The Curtain Dragon", "career": "Curtain Dragon", "costume": "", "emoji": "🐉", "story": 1, "type": "boss",
@@ -41,17 +41,17 @@ const ACTS := [
 	# ---------- FLOOR 2: the Starlight Balcony ----------
 	{"name": "The Plushy Checkup", "career": "Doctor", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
 		"kind": "doctor", "imps": 6, "shell": true,
-		"voice": "Doctor Roshan is here! The plushy starfish has boo-boos — follow the golden sparkle: listen with the stethoscope, take the temperature, kiss the ouchies better, then the bandage!",
+		"voice": "Doctor {player} is here! The plushy starfish has boo-boos — follow the golden sparkle: listen with the stethoscope, take the temperature, kiss the ouchies better, then the bandage!",
 		"win_line": "All better! The plushy starfish feels brand new — best doctor in the sea!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
 	{"name": "The Piggy Picnic", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
 		"kind": "scroll", "piggies": 9,
-		"voice": "Farmer Roshan! The meadow is sliding by and the piggies are SO hungry — tap TOSS when a piggy is close to throw it a yummy veggie!",
+		"voice": "Farmer {player}! The meadow is sliding by and the piggies are SO hungry — tap TOSS when a piggy is close to throw it a yummy veggie!",
 		"win_line": "Nine happy piggies with full tummies! Best picnic the farm has ever had!",
 		"floor_col": Color(0.55, 0.75, 0.5), "trim": Color(0.95, 0.9, 0.55), "curtain": Color(0.4, 0.6, 0.35)},
 	{"name": "The Moonlight Aria", "career": "Opera Star", "costume": "singer", "emoji": "🎵", "story": 2, "type": "show",
 		"kind": "echo", "pads": 3, "rounds": [3, 4, 5], "pitch": 0.9, "props": "bells", "imps": 5, "shell": true,
-		"voice": "Sing, Roshan, sing! Listen to the golden bells, then ring the very same song!",
+		"voice": "Sing, {player}, sing! Listen to the golden bells, then ring the very same song!",
 		"win_line": "Bravissima! That was the prettiest song the opera has ever heard!",
 		"floor_col": Color(0.35, 0.38, 0.66), "trim": Color(1.0, 0.88, 0.5), "curtain": Color(0.28, 0.24, 0.55)},
 	{"name": "The Magic Hat Trick", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
@@ -67,23 +67,23 @@ const ACTS := [
 	# ---------- FLOOR 3: the Grand Gallery ----------
 	{"name": "Paint the Sunrise", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
 		"kind": "order", "props": "paint", "order": [2, 0, 1, 2, 0, 1], "flow": "carry_paint", "imps": 5, "shell": true,
-		"voice": "Painter Roshan! Dip your brush in the pot the picture shows, then swipe it across the big canvas!",
+		"voice": "Painter {player}! Dip your brush in the pot the picture shows, then swipe it across the big canvas!",
 		"win_line": "The sunrise backdrop is finished! It's a masterpiece!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},
 	{"name": "The Bubble Rocket", "career": "Astronaut Engineer", "costume": "astronaut", "emoji": "🚀", "story": 3, "type": "show",
 		"kind": "fix", "imps": 6, "shell": true,
-		"voice": "Astronaut Engineer Roshan! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
+		"voice": "Astronaut Engineer {player}! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
 		"win_line": "The bubbles reached the rocket! Three, two, one — TWINKLE-OFF!",
 		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
 	{"name": "The Opera Grand Prix", "career": "Racecar Driver", "costume": "racer", "emoji": "🏎", "story": 3, "type": "show",
 		"kind": "race",
-		"voice": "Racecar Driver Roshan! One special lap of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
+		"voice": "Racecar Driver {player}! One special lap of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
 		"win_line": "What a race! The whole audience is waving checkered flags!",
 		"floor_col": Color(0.4, 0.4, 0.48), "trim": Color(1.0, 0.95, 0.95), "curtain": Color(0.85, 0.25, 0.3)},
 	{"name": "The Starlight Concert", "career": "Pop Star", "costume": "popstar", "emoji": "🎤", "story": 3, "type": "show",
 		"kind": "dance",
-		"voice": "Pop Star Roshan! Tap the sparkling microphone, then dance the floating arrows to make rainbow magic!",
-		"win_line": "The crowd is singing along! Pop Star Roshan, the reef's biggest star!",
+		"voice": "Pop Star {player}! Tap the sparkling microphone, then dance the floating arrows to make rainbow magic!",
+		"win_line": "The crowd is singing along! Pop Star {player}, the reef's biggest star!",
 		"floor_col": Color(0.5, 0.3, 0.6), "trim": Color(1.0, 0.7, 0.95), "curtain": Color(0.45, 0.2, 0.55)},
 	{"name": "The Grand Finale", "career": "Midnight Maestro", "costume": "", "emoji": "🎼", "story": 3, "type": "boss",
 		"kind": "boss", "finale": true, "boss_hp": 9, "peek_time": 5.0, "hide_time": 3.2,
@@ -478,7 +478,7 @@ func _enter_door(door: Dictionary) -> void:
 	# the Showtime transformation moment at the threshold
 	m._sparkle_burst((door["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(1.0, 0.85, 1.0))
 	m._sparkle_burst((door["pos"] as Vector3) + Vector3(0, 0.8, 0), Color(0.72, 0.95, 1.0))
-	m.show_msg("Roshan", "%s! Costume time — %s Roshan!" % [String(cfg["name"]), String(cfg["career"])], "talk")
+	m.show_msg("Roshan", "%s! Costume time — %s {player}!" % [String(cfg["name"]), String(cfg["career"])], "talk")
 	_start_act(int(door["i"]))
 
 func _enter_spot(spot: Dictionary) -> void:
@@ -528,7 +528,7 @@ func _return_to_lobby(finished: int) -> void:
 		cam.make_current()
 	_update_stars()
 	if m.opera_stars == ALL_STARS:
-		m.show_msg("Roshan", "Every show and every big finale — all three floors! Take a bow, Opera Star Roshan!", "win")
+		m.show_msg("Roshan", "Every show and every big finale — all three floors! Take a bow, Opera Star {player}!", "win")
 		for i in range(10):
 			m._sparkle_burst(L + Vector3(randf_range(-30.0, 30.0), randf_range(3.0, 40.0), randf_range(-18.0, 18.0)), Color.from_hsv(randf(), 0.5, 1.0))
 	else:

@@ -229,3 +229,83 @@ player.add_child(hs); hs.setup(player)` and drop the `hair1/2/3` lines from
 - Tripo (fast, quad topo, no native rig): https://www.tripo3d.ai/content/en/guide/the-best-character-creator-auto-rig-tools
 - AI 3D character/avatar comparison 2026: https://www.3daistudio.com/blog/best-ai-3d-character-and-avatar-generators-2026
 - TRELLIS vs Meshy vs Tripo vs Hitem3D (Hunyuan3D self-hosted): https://trellis2.app/blog/best-ai-3d-model-generator
+
+---
+
+# The rename seam (shipped 2026-07-25)
+
+Owner decision 2026-07-25: **if this is ever released, it stays Roshan's
+story** — her world, her friends, her book art and family voices — but the
+mermaid you play is yours to name and (later) to look like. Another child
+plays as Mermaid Laura in Roshan's reef, the way a child inserts herself into
+any picture book. The alternative (replacing the family with invented
+characters to make a generic mermaid game) was rejected: it would cost the
+exact specificity that makes this game better than its shelf competition.
+
+This section covers **step 1 only — the name**. The avatar work (§4's loadout
+system) is unchanged and unshipped.
+
+## Why the name was done first
+
+The cost of the avatar system is roughly fixed. The cost of the *name* scales
+with content: every new dialogue line and voice clip that hardcodes "Roshan"
+makes the rename bigger. It was cheap on 2026-07-25 and would only get
+dearer, so the seam was cut early — while shipping Roshan's own name
+unchanged.
+
+The surface turned out to be small, because two things were already right:
+
+- `show_msg`'s **speaker argument is not a nameplate.** It is a voice-routing
+  key (`audio_director.gd:64` — "speaker name + portrait intentionally
+  omitted"), so all 93 `show_msg("Roshan", …)` calls needed no change and
+  still resolve `assets/audio/voices/roshan_*.ogg`.
+- Only **six lines in the whole game speak the name aloud** (four Huluu
+  greetings, `huluu_hero`, `rosalina_win`) — and they are Kokoro TTS,
+  regenerable from `tools/make_voices.py`. Roshan never says her own name.
+
+## How it works
+
+| Piece | Where |
+|---|---|
+| The name | `ReefMain.PLAYER_NAME` (`scripts/main.gd`) — the only place it exists |
+| The token | `ReefMain.PLAYER_TOKEN` = `{player}` — write this in any displayed string |
+| Substitution | `ReefMain.player_text()`, called by `show_msg` for **all** dialogue |
+| Bypass labels | intro panels, wardrobe buttons/toasts, galaxy title, kart Label3D — each calls `player_text()` / a local `_pn()` |
+| Spoken lines | `tools/make_voices.py --player-name <name>` (defaults to Roshan) |
+| Gate | `probe_audit.gd` asserts a raw `{player}` never reaches the HUD and that the skin table carries the token, not a name |
+
+**To rename the mermaid:** change `PLAYER_NAME`, then
+`python3 tools/make_voices.py --player-name <name> --only huluu` (plus
+`--only rosalina`). Two steps, no string hunting.
+
+## Deliberately NOT renamed
+
+- **Real family recordings** — `daddy1-3.ogg`, `chuck*.ogg`, `voice_yay.mp3`
+  are SACRED and cannot be regenerated. If any of them speaks the name, a
+  release needs those moments re-recorded or made name-free; the TTS path
+  cannot fix them.
+- **App/branding names** (`project.godot`, `export_presets.cfg`) — that is a
+  release/publishing decision, not a code seam.
+- **`dev_mode.gd`** — developer tooling, never seen by a player.
+- **Internal identifiers** — voice keys, `roshan.glb`, `roshan_sprite.png`,
+  probe prose. Renaming those would break asset paths for no player benefit.
+
+## What step 2 needs (not started)
+
+Per §4, `SKINS` is still mutually-exclusive whole-sprite swapping, so it
+structurally cannot express "brown skin + red hair + purple tail" — and skin
+tone is the axis that decides whether a child sees herself. The cheapest
+high-impact path is **material zones first**: the craft-studio 3-zone paint
+pipeline (`CREATURE_LAYERS`, body/accent/third) is already proven and already
+reused once by `companion.gd` for stuffie colours. Pointing it at the player
+model makes Roshan its third client rather than new architecture. Sockets
+(`attach_bone`, already present and unused) and morphs come after, if earned.
+
+Two guardrails for that work:
+- **Cosmetics unlock by play, never by currency.** A game whose central ethic
+  is "she can never lose" must not teach that looking like yourself is
+  something you buy.
+- **Cosmetic parts need the runtime rejection loop** from
+  `ART_NON5_MAX_POTENTIAL_CRITIQUE_2026-07-18.md`. That pipeline produced 635
+  flaw incidents dominated by semantic contamination; a crown generator that
+  grafts faces onto crowns will do it once per cosmetic.

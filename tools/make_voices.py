@@ -24,6 +24,12 @@ Run:
     python3 tools/make_voices.py                 # all lines
     python3 tools/make_voices.py --only roshan   # one character
     python3 tools/make_voices.py --kokoro /path/to/model/dir
+    python3 tools/make_voices.py --player-name Laura   # rename the mermaid
+
+The mermaid's name is spoken in six lines (Huluu's greetings and Rosalina's
+win). Those lines carry the {player} token instead of a hardcoded name, so a
+rename is: --player-name <name> here, and const PLAYER_NAME in scripts/main.gd.
+Roshan's own build passes nothing and keeps hearing her name.
 """
 import argparse, json, os, subprocess, sys, tempfile
 
@@ -64,13 +70,13 @@ LINES = {
     "roshan_bump":   ("roshan", "Whoooaa! Bumper cars!"),
     "roshan_oops":   ("roshan", "Oopsie!"),
     # ---- Princess Huluu ----
-    "huluu":        ("huluu", "Hello, Mermaid Roshan!"),
-    "huluu_greet":  ("huluu", "Welcome to my castle, Mermaid Roshan!"),
+    "huluu":        ("huluu", "Hello, Mermaid {player}!"),
+    "huluu_greet":  ("huluu", "Welcome to my castle, Mermaid {player}!"),
     "huluu_intro":  ("huluu", "Please help me, brave little mermaid!"),
     "huluu_talk":   ("huluu", "You are my very best friend."),
-    "huluu_thanks": ("huluu", "Thank you, Mermaid Roshan! You did a great job!"),
+    "huluu_thanks": ("huluu", "Thank you, Mermaid {player}! You did a great job!"),
     "huluu_win":    ("huluu", "Hooray! You did it! This is now your castle!"),
-    "huluu_hero":   ("huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid Roshan!"),
+    "huluu_hero":   ("huluu", "You saved Rosalina's butterflies? You're a HERO, Mermaid {player}!"),
     # ---- reef friends ----
     "evie":       ("evie", "Tee hee! You found us! Let's play hide and seek!"),
     "evie_win":   ("evie", "You found Lamb-a' every time! Yay!"),
@@ -92,7 +98,7 @@ LINES = {
     "rosalina_greet":  ("rosalina", "My baby butterflies all escaped! Bring all seven home, and I will open my castle for you!"),
     "rosalina_locked": ("rosalina", "Not yet, little star! Please find all seven of my butterflies first!"),
     "rosalina_open":   ("rosalina", "You found them ALL! My castle is open. Come in, come in!"),
-    "rosalina_win":    ("rosalina", "You saved the Butterfly World! Fairy Roshan is yours now!"),
+    "rosalina_win":    ("rosalina", "You saved the Butterfly World! Fairy {player} is yours now!"),
 }
 
 # "everyone" = three friends cheering together (mixed after generation)
@@ -136,6 +142,8 @@ def main():
     ap.add_argument("--kokoro", default=os.path.join(os.path.dirname(__file__), "kokoro"))
     ap.add_argument("--out", default=os.path.join(os.path.dirname(__file__), "..", "assets", "audio", "voices"))
     ap.add_argument("--only", default="")
+    ap.add_argument("--player-name", default="Roshan",
+                    help="name spoken for the mermaid; must match PLAYER_NAME in scripts/main.gd")
     args = ap.parse_args()
 
     import numpy as np
@@ -176,6 +184,7 @@ def main():
             continue
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as t:
             raw = t.name
+        text = text.replace("{player}", args.player_name)
         tts(char, text, raw)
         polish(raw, os.path.join(args.out, name + ".ogg"), CHARS[char][1])
         os.unlink(raw)

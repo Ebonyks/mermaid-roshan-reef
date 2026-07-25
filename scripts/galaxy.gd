@@ -166,6 +166,13 @@ func joy_pressed(btn: int) -> bool:
 		return m.joy_pressed(btn)
 	return Input.is_joy_button_pressed(0, btn)
 
+func _pn(s: String) -> String:
+	# the mermaid's name (main.PLAYER_NAME) into a label that bypasses show_msg.
+	# main is always set by start() before any label is built.
+	if _main != null and _main.has_method("player_text"):
+		return _main.player_text(s)
+	return s
+
 func start(main: Node, finish_cb: Callable) -> void:
 	_main = main
 	_finish_cb = finish_cb
@@ -183,7 +190,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_avatar()
 	_build_camera()
 	_build_hud()
-	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
+	_lbl_big.text = _pn("🦋 {player}'s Butterfly World 🦋")
 	_lbl_hint.text = "Rosalina's castle is OPEN!  •  rescue 7 lost butterflies or visit the dance floor!"
 	# owner 2026-07-11: the 7-butterfly quest happens ONCE. On return visits
 	# the babies are already home and stay home — the castle is an open

@@ -10,6 +10,19 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 const PEARL_TOTAL := 10
+# ---- PLAYER NAME (release seam, 2026-07-25) ----
+# The mermaid's displayed name lives here and nowhere else. Roshan's build
+# ships her own name, so behaviour is unchanged; a general release changes
+# this one constant and regenerates the six lines that SPEAK the name
+# (tools/make_voices.py --player-name <name>).
+# Never hardcode the name in a displayed string: write PLAYER_TOKEN
+# ("{player}") and it is substituted at the display boundary — show_msg for
+# all dialogue, plus the intro/wardrobe/galaxy/kart labels that bypass it.
+# The show_msg SPEAKER argument stays "Roshan": it is a voice-routing key
+# for assets/audio/voices/roshan_*.ogg, never shown to the player
+# (audio_director.gd:64), so it is unaffected by renaming.
+const PLAYER_NAME := "Roshan"
+const PLAYER_TOKEN := "{player}"
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -360,7 +373,7 @@ var treasure_cool := 0.0
 # "classic" is the default 3D Roshan; others swap her to a full-skin billboard.
 # (The Fairy Mermaid is NOT a wardrobe skin — it is Roshan's look inside the Fairy Pond game.)
 const SKINS := [
-	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
+	{"id": "classic", "label": "{player}", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
@@ -2832,6 +2845,12 @@ func _speaker_key(who: String) -> String:
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	_audio_ref().show_msg(who, txt, vo)
 
+func player_text(s: String) -> String:
+	# Substitute the mermaid's name into any displayed string. show_msg runs
+	# this on every line of dialogue; call it directly for the few labels that
+	# do not go through show_msg (intro panels, wardrobe, galaxy, kart).
+	return s.replace(PLAYER_TOKEN, PLAYER_NAME)
+
 func _fanfare() -> void:
 	_audio_ref()._fanfare()
 
@@ -4355,7 +4374,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 		player.yaw = PI
 		player.vel = Vector3.ZERO
 		g["secret_armed"] = false   # don't fire the treasure-chest surprise on arrival
-		show_msg("", "Pssst... you found my secret door, Roshan! Welcome to the treasure room - Huluu is out on her throne!")
+		show_msg("", "Pssst... you found my secret door, {player}! Welcome to the treasure room - Huluu is out on her throne!")
 		# Daddy's REAL recorded voice: no daddy.ogg base clip exists for the _say
 		# path, so direct-load like the hug cutscene. daddy2 keeps this line
 		# distinct from the hug's clip.
@@ -4812,7 +4831,7 @@ func _play_hug_cutscene() -> void:
 	rosh.position = Vector2(vp.x, vp.y * 0.28)
 	root.add_child(rosh)
 	var lbl := Label.new()
-	lbl.text = "\u2764  I love you, Roshan!  \u2764"
+	lbl.text = player_text("\u2764  I love you, {player}!  \u2764")
 	lbl.add_theme_font_size_override("font_size", int(vp.y * 0.07))
 	lbl.add_theme_color_override("font_color", Color(1, 1, 1))
 	lbl.add_theme_color_override("font_outline_color", Color(0.6, 0.1, 0.3))
@@ -5117,7 +5136,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, {player}! You are the Queen of the Reef now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")
@@ -5278,7 +5297,7 @@ func _begin_finale() -> void:
 	finale_t = 0.0
 	_write_save()
 	_play_music("finale", false)   # one-shot fanfare (42s); _tick_finale brings "world" back at 10s
-	show_msg("Everyone", "Roshan did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
+	show_msg("Everyone", "{player} did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
 
 func _tick_finale(delta: float) -> void:
 	if finale_t < 0.0:

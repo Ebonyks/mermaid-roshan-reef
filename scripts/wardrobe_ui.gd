@@ -72,7 +72,7 @@ func _wardrobe_refresh() -> void:
 		box.set_border_width_all(6 if sel else 0)
 		box.border_color = Color(0.2, 1.0, 0.4)
 		var bt: Button = entry["btn"]
-		bt.text = "🔒 " + String(m._skin_def(eid)["label"]) if locked else ("✔ " if sel else "    ") + String(m._skin_def(eid)["label"])
+		bt.text = m.player_text("🔒 " + String(m._skin_def(eid)["label"]) if locked else ("✔ " if sel else "    ") + String(m._skin_def(eid)["label"]))
 		bt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE
 
 func _wardrobe_pick(id: String) -> void:
@@ -81,7 +81,7 @@ func _wardrobe_pick(id: String) -> void:
 		if m.chime != null:
 			m.chime.pitch_scale = 0.5
 			m.chime.play()
-		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy Roshan!")
+		_wardrobe_toast("🦋 Save the Butterfly World to unlock Fairy {player}!")
 		return
 	m.skin_id = id
 	m._apply_skin()
@@ -160,7 +160,7 @@ func _wardrobe_toast(txt: String) -> void:
 	if not m.wd.has("stage"):
 		return
 	var t := Label.new()
-	t.text = txt
+	t.text = m.player_text(txt)
 	t.add_theme_font_size_override("font_size", 34)
 	t.add_theme_color_override("font_color", Color(1.0, 0.85, 0.5))
 	t.add_theme_color_override("font_outline_color", Color(0.08, 0.05, 0.15))
