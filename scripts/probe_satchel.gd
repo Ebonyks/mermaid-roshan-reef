@@ -167,8 +167,13 @@ func _overflow_case() -> void:
 		var d: Dictionary = it
 		if d["wrap"] == old_wrap:
 			still_bagged = true
-	_ck("the newest prop is in the bag",
-		String((main.satchel[Satchel.SLOTS - 1] as Dictionary)["name"]) == String(extra["name"]))
+	# assert the INVARIANT (the newest thing is bagged and out of the world)
+	# rather than which prop was nearest — several identical shells can sit
+	# within reach of one spot, and the identity is not what matters here
+	var newest: Dictionary = main.satchel[Satchel.SLOTS - 1]
+	var new_wrap: Node3D = newest["wrap"]
+	_ck("the newest prop is bagged and out of the world",
+		is_instance_valid(new_wrap) and not new_wrap.visible)
 	_ck("the evicted prop left the bag", not still_bagged)
 	# the whole point: eviction relocates, it never destroys
 	_ck("the evicted prop still exists", is_instance_valid(old_wrap))
