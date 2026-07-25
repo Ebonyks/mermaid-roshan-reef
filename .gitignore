@@ -31,3 +31,8 @@ __pycache__/
 
 # Kokoro TTS model + voice packs (downloaded per make_voices.py setup docs)
 tools/kokoro/
+
+# git worktree mount points — these were once committed as submodule
+# gitlinks with no .gitmodules, which made actions/checkout die at
+# "git submodule foreach" before any probe could run (see 2026-07-25)
+.worktrees/
