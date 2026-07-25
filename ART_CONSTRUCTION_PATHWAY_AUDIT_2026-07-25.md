@@ -102,22 +102,39 @@ state variants of one mesh). This is a multi-session job and the single highest
 each carry two states, the carpet card two modules — plus 30 isolated QA
 renders). That is stages 2–4 complete for one family of eleven.
 
-**It is built but NOT wired, and the reason is worth recording.** Wiring 28
-dressing props into `_build_lobby` turned `probe_l2`'s OPERAGATE return leg
-red: `blocked/rearm/open/return` went `true/true/true/true` on run 681 to
-`true/true/true/FALSE` on run 682, with the lobby dressing as the only opera
-change between them. The leg builds and tears the whole lobby down inside a
-single frame, and the extra GLB instancing lengthens that teardown enough that
-one frame of level2 physics drags Roshan past the gate's 9-unit "placed aside"
-radius. Per the CLAUDE.md refactor rule the addition was reverted rather than
-the probe relaxed.
+**It is built but not yet wired, and the earlier reason recorded here was
+wrong.** A first pass blamed the dressing for turning `probe_l2`'s OPERAGATE
+return leg red, on the reasoning that it was the only opera change between runs
+681 and 682. That bisect was incorrect: `git merge-base --is-ancestor 72ebe92
+6f910ac` shows the dressing was already live in run 681's commit, and **681
+passed**. The dressing is exonerated.
 
-That is a real constraint on the whole Opera continuation, not a one-off: any
-future lobby kit has to account for the cost of building and freeing itself
-inside the OPERAGATE leg. The likely fixes, in order of preference, are to
-build the lobby dressing lazily (or keep it resident across a leave/return
-instead of rebuilding), or to give `_end_opera` a settle that survives a long
-frame. Both are gameplay changes and need to be their own probed commit.
+The real cause was found by instrumenting the check instead of inferring from
+commit adjacency (run 688):
+
+```
+OPERAGATE_DIAG|game=level2 opera_null=true dist=9.296 all_offsets_blocked=false solids=97
+gate=(-25.4, -1296.2, -30.0)  player=(-19.1986, -1297.582, -36.78627)
+```
+
+The state machine is correct. Roshan lands on the `+x` candidate, then is
+thrown **6.79 units in z and 1.38 down in a single physics step**, ending 9.296
+from the gate against a 9.0 contract — over by 3.3%. A 6.79-unit lateral move
+in one frame is ejection, not settling: the chosen spot is clear according to
+`arena_solids` (97 entries) but *not* to the physics world. `06419b5`'s landing
+search fixed *which* spot is chosen while still consulting an incomplete
+oracle, so it could pick a spot that is clear on paper and occupied in fact.
+
+Fixed by making the landing search require a candidate to be clear to **both**
+oracles — the analytic `arena_solids` table and a real shape query against the
+physics world. That is a genuine player-facing bug: returning from the opera
+was displacing Roshan ~9 units and 1.4 down instead of setting her beside the
+door.
+
+Only ~0.3 units of margin separated pass from fail, which is why the symptom
+looked like it tracked unrelated commits — any change to scene cost moved the
+ejection distance across the threshold. Re-wiring the dressing should wait
+until the fixed landing is confirmed green.
 
 ### 3.3 Ember Fortress: enrichment built, core provenance still open
 

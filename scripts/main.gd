@@ -2821,15 +2821,40 @@ func _end_opera(completed: bool) -> void:
 		# solid-ejection there shoved her far from the gate on return
 		var base_pos: Vector3 = gate["pos"] as Vector3
 		var landing := base_pos + Vector3(6.5, 0, 0)
+		# A candidate must be clear to BOTH oracles. arena_solids alone is an
+		# incomplete picture of the courtyard - authored props carry colliders
+		# it never registered - so 06419b5's search could pick a spot that is
+		# "clear" on paper and still ejects her on the next physics step.
+		# Measured on run 688: she landed at +x, was thrown 6.79 units in z and
+		# 1.38 down, and ended 9.296 from the gate against a 9.0 contract.
 		for offset: Vector3 in [Vector3(6.5, 0, 0), Vector3(-6.5, 0, 0), Vector3(0, 0, 6.5), Vector3(0, 0, -6.5), Vector3(5.0, 0, 5.0)]:
-			if not _arena_point_blocked_solid(base_pos + offset):
-				landing = base_pos + offset
+			var candidate: Vector3 = base_pos + offset
+			if not _arena_point_blocked_solid(candidate) and not _point_blocked_physics(candidate, 1.7):
+				landing = candidate
 				break
 		player.position = landing
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
+
+func _point_blocked_physics(point: Vector3, radius: float) -> bool:
+	# Does a body actually occupy this point? _arena_point_blocked_solid only
+	# knows the analytic arena_solids table; this asks the physics world, which
+	# is what will eject Roshan if we put her somewhere occupied.
+	var world: World3D = get_world_3d()
+	if world == null or world.direct_space_state == null:
+		return false
+	var shape := SphereShape3D.new()
+	shape.radius = radius
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.transform = Transform3D(Basis.IDENTITY, point)
+	query.collide_with_areas = false
+	query.collide_with_bodies = true
+	if player != null:
+		query.exclude = [player.get_rid()] if player is CollisionObject3D else []
+	return not world.direct_space_state.intersect_shape(query, 1).is_empty()
 
 func _arena_point_blocked_solid(point: Vector3) -> bool:
 	# is this point inside any registered arena solid? (safe-return helper)
