@@ -352,7 +352,7 @@ var patient: Node3D = null
 # the hurt animal among the well ones, CARRY it to the fluoroscope, read the
 # x-ray to see WHICH limb is cracked, WRAP the cast on with a circular drag,
 # then seal it with a coban band. Each beat is its own verb.
-var vet_phase := "find"            # find | carry | xray | cast | coban | done
+var vet_phase := "wash"            # wash | find | carry | xray | cast | coban | done
 var vet_animals: Array[Dictionary] = []
 var vet_hurt := -1                 # which animal is injured
 var vet_limb := -1                 # which of its four limbs is cracked
@@ -364,8 +364,14 @@ var vet_wrap := 0.0                # radians of cast wrapped so far
 var vet_wrap_prev := 0.0
 var vet_have_ang := false
 var vet_layers: Array[Node3D] = []
+var vet_basin: Node3D = null       # the washbasin — doctors scrub up first
+var vet_wash_t := 0.0
+var vet_done_n := 0                # patients healed so far
+var vet_goal_n := 1                # the waiting bench holds a QUEUE, not one plush
+var vet_xray_extra: Array[Node3D] = []   # crack + pulse marks, freed per patient
 const VET_WRAP_TURNS := 3.0        # full turns of drag to build the cast
 const VET_COBAN_TURNS := 1.5
+const VET_WASH_HOLD := 2.2         # seconds of HOLD at the basin
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
 const FARM_SPEED := 120.0
@@ -4594,8 +4600,20 @@ func _tick_press(delta: float) -> void:
 # hearts, then the bandage. Taps out of order just wobble and re-point.
 
 func _build_doctor() -> void:
+	# ---- Beat 0: the washbasin. Doctors scrub up before they help. ----
+	vet_phase = "wash"
+	vet_wash_t = 0.0
+	vet_done_n = 0
+	vet_goal_n = int(config.get("patients", 1))
+	vet_basin = Node3D.new()
+	vet_basin.name = "WashBasin"
+	vet_basin.position = CENTER + Vector3(14.0, 1.0, 2.0)
+	add_child(vet_basin)
+	_cyl(Vector3(0, 1.0, 0), 0.8, 2.0, Color(0.85, 0.9, 0.98), 0.1, vet_basin)
+	var bowl := _sphere(Vector3(0, 2.3, 0), 1.4, Color(0.95, 0.98, 1.0), 0.25, vet_basin)
+	bowl.scale = Vector3(1.0, 0.55, 1.0)
+	_sphere(Vector3(0.5, 2.9, 0.3), 0.42, Color(0.75, 0.92, 1.0), 0.8, vet_basin)
 	# ---- Beat 1: the ward. Four little animals, one of them hurt. ----
-	vet_phase = "find"
 	var kinds: Array[String] = ["starfish", "seahorse", "turtle", "crab"]
 	var cols: Array[Color] = [Color(0.95, 0.55, 0.45), Color(1.0, 0.78, 0.5),
 		Color(0.55, 0.8, 0.6), Color(0.95, 0.6, 0.72)]
@@ -4637,8 +4655,33 @@ func _build_doctor() -> void:
 	vet_screen.material_override = sm
 	vet_scope.add_child(vet_screen)
 	vet_screen.visible = false
-	m.show_msg("Roshan", "Doctor Roshan! Somebody in the ward is hurt — find the one with the red ouch star!", "talk")
+	m.show_msg("Roshan", "Doctor Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
 	_update_hud()
+
+func _tick_wash(delta: float) -> void:
+	# Beat 0: a HOLD at the basin, the one hold in the act. Letting go just
+	# drains the bubbles back down — never a fail.
+	if vet_basin == null:
+		return
+	var flat := vet_basin.position - player_pos
+	flat.y = 0.0
+	if flat.length() < 5.5 and _finger_down():
+		vet_wash_t += delta
+		progress_t = 0.0
+		if fmod(vet_wash_t, 0.3) < delta:
+			m._sparkle_burst(vet_basin.position + Vector3(0, 3.2, 0), Color(0.8, 0.95, 1.0))
+		if vet_wash_t >= VET_WASH_HOLD:
+			hold_sim = false
+			vet_phase = "find"
+			progress_t = 0.0
+			if m.chime != null:
+				m.chime.pitch_scale = 1.3
+				m.chime.play()
+			m._sparkle_burst(vet_basin.position + Vector3(0, 3.6, 0), Color(1.0, 0.95, 0.8))
+			m.show_msg("Roshan", "Squeaky clean! Now find the poorly animal — look for the red ouch star!", "talk")
+			_update_hud()
+	else:
+		vet_wash_t = maxf(0.0, vet_wash_t - delta * 1.5)
 
 func _vet_pick(i: int) -> void:
 	# Beat 1 -> 2: scoop up the hurt animal. A well animal just giggles.
@@ -4673,8 +4716,8 @@ func _vet_arrive() -> void:
 			Color(0.85, 0.92, 1.0), 0.5, vet_scope)
 		if i == vet_limb:
 			# the crack: a dark break across the middle, plus a red pulse
-			_box(Vector3(lx, 4.2, -0.6), Vector3(0.8, 0.36, 0.2), Color(0.15, 0.18, 0.3), 0.0, vet_scope)
-			_sphere(Vector3(lx, 4.2, -0.4), 0.42, Color(1.0, 0.4, 0.45), 1.5, vet_scope)
+			vet_xray_extra.append(_box(Vector3(lx, 4.2, -0.6), Vector3(0.8, 0.36, 0.2), Color(0.15, 0.18, 0.3), 0.0, vet_scope))
+			vet_xray_extra.append(_sphere(Vector3(lx, 4.2, -0.4), 0.42, Color(1.0, 0.4, 0.45), 1.5, vet_scope))
 		vet_bones.append(bone)
 	m.show_msg("Roshan", "Look at the x-ray picture — tap the bone with the crack in it!", "talk")
 	_update_hud()
@@ -4734,7 +4777,7 @@ func _vet_wrap_delta(d: float) -> void:
 			_vet_finish()
 
 func _vet_finish() -> void:
-	vet_phase = "done"
+	vet_done_n += 1
 	_vet_leave()
 	_job_state(doctor_patient_art, "StateIdle", false)
 	_job_state(doctor_patient_art, "StateComplete", true)
@@ -4743,10 +4786,59 @@ func _vet_finish() -> void:
 	var hop := vet_carry.create_tween()
 	hop.tween_property(vet_carry, "position:y", vet_carry.position.y + 2.0, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	hop.tween_property(vet_carry, "position:y", vet_carry.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	_win()
+	if vet_done_n >= vet_goal_n:
+		vet_phase = "done"
+		_win()
+	else:
+		_vet_next_patient()
+
+func _vet_next_patient() -> void:
+	# The waiting bench holds a QUEUE: the healed friend hops off to the
+	# recovery corner and the next poorly animal grows an ouch star. Same
+	# caring story, fresh patient, fresh cracked bone.
+	var bench := CENTER + Vector3(16.0, 1.4, -8.0 - 3.4 * float(vet_done_n - 1))
+	var away := vet_carry.create_tween()
+	away.tween_property(vet_carry, "position", bench, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	for a: Dictionary in vet_animals:
+		if a["node"] == vet_carry:
+			a["pos"] = bench
+			a["hurt"] = false
+			a["healed"] = true
+	vet_carry = null
+	# the last x-ray and cast belong to the healed patient — clear the scope
+	for b in vet_bones:
+		if is_instance_valid(b):
+			b.queue_free()
+	vet_bones.clear()
+	for e in vet_xray_extra:
+		if is_instance_valid(e):
+			e.queue_free()
+	vet_xray_extra.clear()
+	for l in vet_layers:
+		if is_instance_valid(l):
+			l.queue_free()
+	vet_layers.clear()
+	vet_wrap = 0.0
+	vet_have_ang = false
+	# promote the next patient among the animals still in the ward
+	var waiting: Array[int] = []
+	for a2: Dictionary in vet_animals:
+		if not bool(a2.get("healed", false)):
+			waiting.append(int(a2["index"]))
+	vet_hurt = waiting[randi() % waiting.size()]
+	var nxt: Dictionary = vet_animals[vet_hurt]
+	nxt["hurt"] = true
+	(nxt["mark"] as Node3D).visible = true
+	vet_phase = "find"
+	progress_t = 0.0
+	m._sparkle_burst((nxt["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.6, 0.6))
+	m.show_msg("Roshan", "All better! But somebody else on the bench has an ouch — find the next red star!", "talk")
+	_update_hud()
 
 func _tick_vet(delta: float) -> void:
 	match vet_phase:
+		"wash":
+			_tick_wash(delta)
 		"carry":
 			# the patient rides in her arms until the fluoroscope
 			if vet_carry != null:
@@ -5990,6 +6082,8 @@ func _pointer_target() -> Vector3:
 				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
 			return CENTER + Vector3(0, 8.0, BELT_Z)
 		"doctor":
+			if vet_phase == "wash" and vet_basin != null:
+				return vet_basin.position + Vector3(0, 5.0, 0)
 			if vet_phase == "find" and vet_hurt >= 0:
 				return (vet_animals[vet_hurt]["pos"] as Vector3) + Vector3(0, 4.5, 0)
 			if vet_phase == "carry":
@@ -6142,8 +6236,10 @@ func _update_hud() -> void:
 					objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
 			match vet_phase:
+				"wash":
+					objective.text = tag + "🫧  HOLD at the basin to wash your hands!  %d%%" % int(clampf(vet_wash_t / VET_WASH_HOLD, 0.0, 1.0) * 100.0)
 				"find":
-					objective.text = tag + "🔎  Find the animal with the red ouch star!"
+					objective.text = tag + "🔎  Find the animal with the red ouch star!  (%d / %d)" % [vet_done_n + 1, vet_goal_n]
 				"carry":
 					objective.text = tag + "🤲  Carry them to the fluoroscope!"
 				"xray":

@@ -603,10 +603,15 @@ func _nearest_unopened(act: OperaAct) -> Vector3:
 
 func _drive_doctor(act: OperaAct, dt: float) -> void:
 	match act.vet_phase:
+		"wash":
+			# swim to the basin and hold; the act drains the meter if she lets go
+			if _travel(act, act.vet_basin.position, dt) and (act.hold_sim or _ready_to_act(dt)):
+				act.hold_sim = true
 		"find":
-			# a child looks around the ward before spotting the ouch star
+			# a child looks around the ward before spotting the ouch star —
+			# keyed per patient, so each new ouch star is its own little search
 			var want: int = act.vet_hurt
-			var choice := _intent(act.vet_animals.size(), want, 9000)
+			var choice := _intent(act.vet_animals.size(), want, 9000 + act.vet_done_n * 20)
 			if _travel(act, act.vet_animals[choice]["pos"] as Vector3, dt) and _ready_to_act(dt):
 				act._vet_pick(choice)
 				if choice != want:
@@ -616,7 +621,7 @@ func _drive_doctor(act: OperaAct, dt: float) -> void:
 		"xray":
 			if not _ready_to_act(dt):
 				return
-			var bone := _intent(4, act.vet_limb, 9100)
+			var bone := _intent(4, act.vet_limb, 9100 + act.vet_done_n * 20)
 			act._vet_bone(bone)
 			if bone != act.vet_limb:
 				_intent_learned(act.vet_limb)

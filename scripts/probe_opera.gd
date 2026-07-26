@@ -894,44 +894,72 @@ func _drive_sleuth(act: OperaAct) -> void:
 		act.state == "won" and act.board_phase == "done")
 
 func _drive_doctor(act: OperaAct) -> void:
-	# five beats with a story: find the hurt one, carry it in, read the x-ray,
-	# wrap the cast, seal it with coban. The rescue in THIS act is the animal
-	# herself, so the brawl frees nobody and hands over no gift.
+	# wash up, then the waiting bench: find the hurt one, carry it in, read
+	# the x-ray, wrap the cast, seal it with coban — once per patient in the
+	# queue. The rescue in THIS act is the animal herself, so the brawl frees
+	# nobody and hands over no gift.
 	_ck("the vet act cages nobody — the animal is the rescue",
 		act.captives.is_empty() and not act.gift_given)
+	_ck("the checkup opens at the washbasin", act.vet_phase == "wash" and act.vet_basin != null)
+	# holding away from the basin does nothing; holding AT it fills the meter
+	act.hold_sim = true
+	act._tick_vet(0.5)
+	_ck("washing needs her at the basin", act.vet_phase == "wash" and act.vet_wash_t == 0.0)
+	act.player_pos = act.vet_basin.position
+	var hguard := 0
+	while act.vet_phase == "wash" and hguard < 80:
+		hguard += 1
+		act._tick_vet(0.1)
+	_ck("holding at the basin scrubs up", act.vet_phase == "find" and not act.hold_sim)
 	_ck("the ward holds four animals", act.vet_animals.size() == 4)
-	_ck("exactly one of them is hurt", act.vet_hurt >= 0 and bool(act.vet_animals[act.vet_hurt]["hurt"]))
-	_ck("only the hurt one wears an ouch star",
-		(act.vet_animals[act.vet_hurt]["mark"] as Node3D).visible)
-	# a well animal giggles and is not scooped up
-	var well: int = (act.vet_hurt + 1) % act.vet_animals.size()
-	act._vet_pick(well)
-	_ck("a well animal is not carried off", act.vet_phase == "find" and act.state == "play")
-	act._vet_pick(act.vet_hurt)
-	_ck("the hurt animal gets scooped up", act.vet_phase == "carry")
-	# carrying it to the fluoroscope lights the x-ray
-	act.player_pos = act.vet_scope.position
-	act._tick_vet(0.1)
-	_ck("the fluoroscope lights up on arrival", act.vet_phase == "xray" and act.vet_screen.visible)
-	_ck("the x-ray shows four bones", act.vet_bones.size() == 4)
-	var sound: int = (act.vet_limb + 1) % 4
-	act._vet_bone(sound)
-	_ck("a sound bone is gently refused", act.vet_phase == "xray")
-	act._vet_bone(act.vet_limb)
-	_ck("naming the crack opens the cast", act.vet_phase == "cast")
-	# wrapping is a circular drag, and it takes real turns
-	act._vet_wrap_delta(0.4)
-	_ck("one flick does not finish a cast", act.vet_phase == "cast" and act.vet_layers.size() >= 0)
-	var wguard := 0
-	while act.vet_phase == "cast" and wguard < 400:
-		wguard += 1
-		act._vet_wrap_delta(0.35)
-	_ck("wrapping enough turns finishes the padding", act.vet_phase == "coban")
-	var cguard := 0
-	while act.vet_phase == "coban" and cguard < 400:
-		cguard += 1
-		act._vet_wrap_delta(0.35)
-	_ck("the coban seals the cast and wins", act.state == "won" and act.vet_phase == "done")
+	var patients := int(act.config.get("patients", 1))
+	_ck("the waiting bench holds a queue", patients >= 2)
+	for p in range(patients):
+		_ck("patient %d: exactly one animal is hurt" % (p + 1),
+			act.vet_hurt >= 0 and bool(act.vet_animals[act.vet_hurt]["hurt"]))
+		_ck("patient %d: only the hurt one wears an ouch star" % (p + 1),
+			(act.vet_animals[act.vet_hurt]["mark"] as Node3D).visible)
+		if p == 0:
+			# a well animal giggles and is not scooped up
+			var well: int = (act.vet_hurt + 1) % act.vet_animals.size()
+			act._vet_pick(well)
+			_ck("a well animal is not carried off", act.vet_phase == "find" and act.state == "play")
+		act._vet_pick(act.vet_hurt)
+		_ck("the hurt animal gets scooped up", act.vet_phase == "carry")
+		# carrying it to the fluoroscope lights the x-ray
+		act.player_pos = act.vet_scope.position
+		act._tick_vet(0.1)
+		_ck("the fluoroscope lights up on arrival", act.vet_phase == "xray" and act.vet_screen.visible)
+		_ck("the x-ray shows four bones", act.vet_bones.size() == 4)
+		if p == 0:
+			var sound: int = (act.vet_limb + 1) % 4
+			act._vet_bone(sound)
+			_ck("a sound bone is gently refused", act.vet_phase == "xray")
+		var treating: int = act.vet_hurt
+		act._vet_bone(act.vet_limb)
+		_ck("naming the crack opens the cast", act.vet_phase == "cast")
+		if p == 0:
+			# wrapping is a circular drag, and it takes real turns
+			act._vet_wrap_delta(0.4)
+			_ck("one flick does not finish a cast", act.vet_phase == "cast" and act.vet_layers.size() >= 0)
+		var wguard := 0
+		while act.vet_phase == "cast" and wguard < 400:
+			wguard += 1
+			act._vet_wrap_delta(0.35)
+		_ck("wrapping enough turns finishes the padding", act.vet_phase == "coban")
+		var cguard := 0
+		while act.vet_phase == "coban" and cguard < 400:
+			cguard += 1
+			act._vet_wrap_delta(0.35)
+		if p < patients - 1:
+			_ck("patient %d hops to recovery and the next ouch star appears" % (p + 1),
+				act.state == "play" and act.vet_phase == "find" and act.vet_done_n == p + 1)
+			_ck("the healed friend is marked healed and picks a different patient",
+				bool(act.vet_animals[treating]["healed"]) and act.vet_hurt != treating)
+			_ck("the scope is cleared for the next x-ray",
+				act.vet_bones.is_empty() and act.vet_layers.is_empty())
+		else:
+			_ck("the last coban seals the cast and wins", act.state == "won" and act.vet_phase == "done")
 
 func _drive_scroll(act: OperaAct) -> void:
 	# beat 1: the planting, a drag-and-drop. The slingshot cannot skip it.

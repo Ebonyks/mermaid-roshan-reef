@@ -44,7 +44,7 @@ const ACTS := [
 		"floor_col": Color(0.45, 0.3, 0.4), "trim": Color(1.0, 0.65, 0.4), "curtain": Color(0.62, 0.2, 0.28)},
 	# ---------- FLOOR 2: the Starlight Balcony ----------
 	{"name": "The Plushy Checkup", "career": "Doctor", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
-		"kind": "doctor", "imps": 6, "shell": true,
+		"kind": "doctor", "imps": 6, "shell": true, "patients": 3,
 		"voice": "Doctor Roshan! Chase the mischief imps out of the ward, then find the poorly animal, carry them to the fluoroscope, see which bone is cracked and wrap the cast on!",
 		"win_line": "The cast is on and the wiggle is back — best vet in the whole sea!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
