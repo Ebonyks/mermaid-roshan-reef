@@ -619,6 +619,8 @@ func _drive_doctor(act: OperaAct, dt: float) -> void:
 		"carry":
 			_travel(act, act.vet_scope.position, dt)
 		"xray":
+			if act.vet_warm > 0.0:
+				return   # the screen is still flickering on — she watches
 			if not _ready_to_act(dt):
 				return
 			var bone := _intent(4, act.vet_limb, 9100 + act.vet_done_n * 20)
@@ -697,11 +699,13 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 	var want := act.pipe_flow_cell
 	if want < 0:
 		want = act._pipe_cell_at(act.PIPE_START_ROW, 0)
-	# bubbles parked at an occupied square means the piece there is WRONG —
-	# the act now allows laying the front piece straight over it, so the
-	# persona does what a real child does: slap a new pipe on the leak
-	var swap: bool = want >= 0 and want == act.pipe_flow_cell \
-		and String(act.pipe_cells[want]["shape"]) != ""
+	# a WRONG piece under the bubbles' nose gets slapped over (the act allows
+	# the swap now) — but a piece the flow can enter is left alone; replacing
+	# good pipe mid-flow is how run 785's bubbles ended up wandering in loops
+	var swap := false
+	if want >= 0 and want == act.pipe_flow_cell and String(act.pipe_cells[want]["shape"]) != "":
+		var conns: Array = act.PIPE_SHAPES[String(act.pipe_cells[want]["shape"])]
+		swap = not conns.has(act.pipe_flow_from)
 	if not swap and (want < 0 or String(act.pipe_cells[want]["shape"]) != ""):
 		# the head is already piped; look along the row for the next gap
 		for c in range(act.PIPE_COLS):
@@ -711,15 +715,40 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 				break
 	if want < 0 or (not swap and String(act.pipe_cells[want]["shape"]) != ""):
 		return
-	# a careless child sometimes lays a corner where a straight was needed
+	# a careless child sometimes lays a corner where a straight was needed;
+	# a careful one reads the ghost hint and bends the flow back toward the
+	# rocket instead of forever laying straights
 	if randf() > float(persona["err"]):
+		var desired := _pipe_shape_toward_rocket(act)
 		var spins := 0
-		while act.pipe_queue[0] != "h" and spins < 3:
+		while act.pipe_queue[0] != desired and spins < 3:
 			spins += 1
 			act.pipe_queue[0] = act._pipe_roll()
 	else:
 		mistakes += 1
 	act._pipe_place(want)
+
+func _pipe_shape_toward_rocket(act: OperaAct) -> String:
+	# which shape carries the flow toward the rocket from here: right along
+	# the feed row, bent back toward it from the outer rows
+	var from := 3
+	var row := act.PIPE_START_ROW
+	if act.pipe_flow_cell >= 0:
+		from = act.pipe_flow_from
+		row = int(act.pipe_cells[act.pipe_flow_cell]["row"])
+	var prefs: Array[int] = [1, 0, 2, 3]
+	if row < act.PIPE_START_ROW:
+		prefs = [2, 1, 3, 0]
+	elif row > act.PIPE_START_ROW:
+		prefs = [0, 1, 3, 2]
+	for exit_d in prefs:
+		if exit_d == from:
+			continue
+		for shape: String in act.PIPE_SHAPES:
+			var conns: Array = act.PIPE_SHAPES[shape]
+			if conns.has(from) and conns.has(exit_d):
+				return String(shape)
+	return "h"
 
 func _drive_boss(act: OperaAct, dt: float) -> void:
 	var phase := String(act.boss["phase"])

@@ -402,7 +402,7 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("tapping at the bowl does not stir it", act.stir_done == before)
 		# trace circles: a full turn of finger travel is one stir
 		var sguard := 0
-		while act.stir_done < 3 and sguard < 400:
+		while act.order_phase == "stir" and sguard < 700:
 			sguard += 1
 			act._stir_drag_delta(0.35)
 		_ck("circling the bowl stirs it", act.stir_done >= 3)
@@ -418,7 +418,7 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		act._bake_action()
 		_ck("a golden cake comes out and opens the piping", act.order_phase == "pipe")
 		# piping is a TRACE: every dot on the ring must be passed over
-		_ck("the piping ring is dotted out", act.pipe_dots.size() == 10)
+		_ck("the piping ring is dotted out", act.pipe_dots.size() == 14)
 		# drive it the way a finger does: the dot only lights when the DRAG
 		# passes over it. Poking pipe_trace by hand proved nothing and left
 		# _tick_pipe early-returning on an inactive drag, so the act stalled.
@@ -626,9 +626,12 @@ func _drive_fix(act: OperaAct) -> void:
 	_ck("a finished line carries the bubbles to the rocket", act.fix_phase == "valve")
 	act._turn_valve()
 	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
-	act._turn_valve()
-	act._turn_valve()
-	_ck("three valve spins open the countdown", act.fix_phase == "launch" and act.state == "play")
+	var vg := 0
+	while act.fix_phase == "valve" and vg < 12:
+		vg += 1
+		act._turn_valve()
+	_ck("enough valve spins open the countdown",
+		act.fix_phase == "launch" and act.state == "play" and act.valve_spins >= 5)
 	act.hold_sim = true
 	for i in range(6):
 		act._tick_launch(0.1)
@@ -714,8 +717,8 @@ func _drive_press(act: OperaAct) -> void:
 	while act.press_phase == "wrap" and wg < 400:
 		wg += 1
 		act._wrap_delta(0.35)
-	_ck("twisting three wrappers rolls out the parade cart",
-		act.wrap_done >= 3 and act.press_phase == "parade" and act.parade_cart != null)
+	_ck("twisting every wrapper rolls out the parade cart",
+		act.wrap_done >= 4 and act.press_phase == "parade" and act.parade_cart != null)
 	# beat 4: the timed tap. Off-centre bounces, under the chute lands.
 	act.parade_cart.position.x = act.CENTER.x + 12.0
 	act._parade_action()
@@ -852,6 +855,11 @@ func _drive_sleuth(act: OperaAct) -> void:
 			act.player_pos = (prop["pos"] as Vector3)
 			act._sleuth_action(int(prop["index"]))
 	_ck("every clue readies the treasure chest", act.chest_ready)
+	# the last clue's celebration plays out before the lens works again
+	var pguard := 0
+	while act.sleuth_pause > 0.0 and pguard < 80:
+		pguard += 1
+		act._tick_lens(0.1)
 	# sweeping the lens onto the chest is the reveal — still no button
 	act.lens_pos = act.goal.position
 	act._tick_lens(0.1)
@@ -946,6 +954,14 @@ func _drive_doctor(act: OperaAct) -> void:
 		act._tick_vet(0.1)
 		_ck("the fluoroscope lights up on arrival", act.vet_phase == "xray" and act.vet_screen.visible)
 		_ck("the x-ray shows four bones", act.vet_bones.size() == 4)
+		if p == 0:
+			act._vet_bone(act.vet_limb)
+			_ck("a warming screen refuses even the right bone",
+				act.vet_phase == "xray" and act.vet_warm > 0.0)
+		var fuzz := 0
+		while act.vet_warm > 0.0 and fuzz < 60:
+			fuzz += 1
+			act._tick_vet(0.1)
 		if p == 0:
 			var sound: int = (act.vet_limb + 1) % 4
 			act._vet_bone(sound)
@@ -1107,8 +1123,12 @@ func _drive_boss(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("boss opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
 		act._hit_boss()
 		_ck("sparkles cannot skip the lantern lesson", int(act.boss["hp"]) == hp)
-		# SHINE is a charge: one tap beside the lantern must NOT light it
+		# SHINE is a charge: one tap beside the lantern must NOT light it.
+		# While the phantom still sweeps, even the charge waits.
 		act.player_pos = act.lanterns[act.lantern_i]["pos"] as Vector3
+		act._lantern_shine_tap()
+		_ck("the sweeping phantom refuses the beam", act.lantern_charge == 0.0)
+		act.boss["timer"] = 0.0
 		act._lantern_shine_tap()
 		_ck("one SHINE tap no longer lights the lantern",
 			String(act.boss["phase"]) == "shadow" and act.lantern_charge > 0.0)
