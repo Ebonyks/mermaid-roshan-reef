@@ -26,6 +26,7 @@ const POOL_CLEAN_SHALLOW := Color(0.48, 0.86, 0.96)
 
 var m: ReefMain
 var _pool_story: PoolRescueStory = null
+var _story_hutch_mesh: ArrayMesh = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -73,6 +74,91 @@ func _pearl(asset_name: String, pos: Vector3, yaw_degrees: float = 0.0) -> Node3
 	if prop != null:
 		prop.set_meta("pearl_castle_asset", asset_name)
 	return prop
+
+func _story_hutch_add_box(surface: SurfaceTool, pos: Vector3, size: Vector3) -> void:
+	var box: BoxMesh = BoxMesh.new()
+	box.size = size
+	surface.append_from(box, 0, Transform3D(Basis.IDENTITY, pos))
+
+func _story_hutch_add_badge(surface: SurfaceTool, pos: Vector3) -> void:
+	var badge: CylinderMesh = CylinderMesh.new()
+	badge.top_radius = 0.28
+	badge.bottom_radius = 0.28
+	badge.height = 0.12
+	badge.radial_segments = 12
+	var face_room: Basis = Basis(Vector3.FORWARD, PI * 0.5)
+	surface.append_from(badge, 0, Transform3D(face_room, pos))
+
+func _story_hutch_shared_mesh() -> ArrayMesh:
+	if _story_hutch_mesh != null:
+		return _story_hutch_mesh
+
+	# One shallow, child-height picture-book hutch replaces the tall shelves.
+	# The shared mesh has no alpha, lights or per-book runtime nodes.
+	var surfaces: Array[SurfaceTool] = []
+	for _surface_index in range(7):
+		var surface: SurfaceTool = SurfaceTool.new()
+		surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+		surfaces.append(surface)
+
+	# Pearl frame and back make one stable cabinet silhouette.
+	_story_hutch_add_box(surfaces[0], Vector3(0.0, 1.65, 0.0), Vector3(0.38, 3.30, 6.40))
+	_story_hutch_add_box(surfaces[0], Vector3(0.66, 1.65, -3.03), Vector3(1.48, 3.30, 0.34))
+	_story_hutch_add_box(surfaces[0], Vector3(0.66, 1.65, 3.03), Vector3(1.48, 3.30, 0.34))
+	_story_hutch_add_box(surfaces[0], Vector3(0.66, 3.14, 0.0), Vector3(1.48, 0.32, 6.40))
+	_story_hutch_add_box(surfaces[1], Vector3(0.66, 0.28, 0.0), Vector3(1.70, 0.56, 6.40))
+	_story_hutch_add_box(surfaces[1], Vector3(0.70, 1.42, 0.0), Vector3(1.58, 0.26, 5.90))
+	_story_hutch_add_box(surfaces[2], Vector3(1.48, 1.68, 0.0), Vector3(0.14, 0.52, 5.90))
+
+	# Two reachable shell-marked cubbies sit at floor level.
+	_story_hutch_add_box(surfaces[3], Vector3(1.10, 0.91, -1.56), Vector3(0.62, 0.84, 2.56))
+	_story_hutch_add_box(surfaces[4], Vector3(1.10, 0.91, 1.56), Vector3(0.62, 0.84, 2.56))
+	_story_hutch_add_badge(surfaces[2], Vector3(1.45, 0.91, -1.56))
+	_story_hutch_add_badge(surfaces[2], Vector3(1.45, 0.91, 1.56))
+
+	# Oversized face-out covers need no words. Each is retained inside the frame.
+	var book_z: Array[float] = [-2.38, -0.80, 0.80, 2.38]
+	var book_heights: Array[float] = [1.18, 1.34, 1.26, 1.14]
+	for book_index in range(4):
+		var book_height: float = book_heights[book_index]
+		_story_hutch_add_box(
+			surfaces[3 + book_index],
+			Vector3(1.36, 1.58 + book_height * 0.5, book_z[book_index]),
+			Vector3(0.30, book_height, 1.12))
+
+	_story_hutch_mesh = ArrayMesh.new()
+	var colors: Array[Color] = [
+		Color(0.90, 0.95, 0.94),
+		Color(0.29, 0.18, 0.42),
+		Color(1.00, 0.78, 0.30),
+		Color(1.00, 0.55, 0.63),
+		Color(0.52, 0.87, 0.78),
+		Color(0.55, 0.76, 0.98),
+		Color(0.78, 0.64, 0.96),
+	]
+	for surface_index in range(surfaces.size()):
+		surfaces[surface_index].commit(_story_hutch_mesh)
+		var role: String = "wood" if surface_index == 1 else "wall"
+		_story_hutch_mesh.surface_set_material(
+			surface_index,
+			m._castle_mat(role, 0.22, colors[surface_index], 0.88))
+	return _story_hutch_mesh
+
+func _story_hutch(pos: Vector3, zone: String, index: int) -> MeshInstance3D:
+	var hutch: MeshInstance3D = MeshInstance3D.new()
+	hutch.name = "StoryHutch_%s_%d" % [zone, index]
+	hutch.mesh = _story_hutch_shared_mesh()
+	hutch.position = pos
+	hutch.set_meta("castle_story_hutch", true)
+	hutch.set_meta("castle_story_hutch_zone", zone)
+	hutch.set_meta("castle_story_hutch_index", index)
+	hutch.set_meta("castle_story_hutch_reach_height", 3.3)
+	hutch.set_meta("castle_story_hutch_depth", 1.7)
+	hutch.set_meta("castle_story_hutch_width", 6.4)
+	hutch.set_meta("castle_story_hutch_analytic_solid", true)
+	m.add_child(hutch)
+	m.game_nodes.append(hutch)
+	return hutch
 
 func _atlas_texture(atlas: Texture2D, cell_index: int,
 	grid_columns: int = ATLAS_GRID_SIZE, grid_rows: int = ATLAS_GRID_SIZE) -> AtlasTexture:
@@ -277,16 +363,24 @@ func build(o: Vector3) -> void:
 			var banner: Node3D = _pearl(banner_name, o + Vector3(sgn * 33.8, 13.4, -20.0 + float(ti) * 24.0), -90.0 * sgn)
 			if banner != null:
 				_touch("tapestry", banner.position + Vector3(0, 5.0, 0), 6.0, {"node": banner})
-	# ---------- Phase 4c: a lived-in reading nook (Quaternius furniture, CC0) ----------
-	# light touch only — the hall keeps its bespoke throne/stairs/columns. A tall
-	# bookcase against the left wall bay and a little tea table with two chairs
-	# in the right bay, all pastel-restyled by _kit() so the dark wood reads soft.
-	m._kit("furniture/bookcase", o + Vector3(-31.5, 0.1, 2.0), 7.0, PI * 0.5)
-	m._wall_solid(o + Vector3(-31.5, 6.0, 2.0), Vector3(2.8, 12.0, 7.4), 0.8)
-	# a little storybook rests against the bookcase — nudge it and it flutters
-	var story_book: MeshInstance3D = m._l2_box(o + Vector3(-29.6, 6.2, 2.0), Vector3(0.5, 1.6, 1.2), Color(0.85, 0.35, 0.45), 0.1)
+	# ---------- Phase 4c: a lived-in reading nook ----------
+	# The former tall bookcase and its oversized invisible blocker are replaced
+	# by a shallow picture-book hutch: stable, reachable and flush to the wall.
+	var hall_hutch: MeshInstance3D = _story_hutch(
+		o + Vector3(-32.6, 0.1, 0.0), "hall", 0)
+	m._wall_solid(
+		hall_hutch.position + Vector3(0.7, 1.65, 0.0),
+		Vector3(1.7, 3.3, 6.4),
+		0.35)
+	# A face-out storybook rests at child height — nudge it and it flutters.
+	var story_book: MeshInstance3D = m._l2_box(
+		o + Vector3(-31.08, 2.62, 0.0),
+		Vector3(0.24, 1.18, 1.08),
+		Color(0.85, 0.35, 0.45),
+		0.1)
 	story_book.rotation_degrees.z = -9.0
-	_touch("bookcase", o + Vector3(-30.0, 4.0, 2.0), 5.5, {"node": story_book})
+	story_book.set_meta("castle_storybook_reachable", true)
+	_touch("bookcase", o + Vector3(-31.0, 2.0, 0.0), 4.0, {"node": story_book})
 	m._kit("furniture/table", o + Vector3(29.0, 0.1, 0.0), 8.0, PI * 0.5)
 	m._cyl_solid(o + Vector3(29.0, 1.5, 0.0), 3.2, 1.5, 0.6)
 	_touch("teatable", o + Vector3(29.0, 3.0, 0.0), 5.0)
@@ -603,11 +697,18 @@ func build_expansion(o: Vector3) -> void:
 			if wing_chandelier != null:
 				wing_chandelier.scale = Vector3.ONE * 0.52
 	# ---------- LEFT WING GALLERY: the ROYAL LIBRARY ----------
-	for sh in range(4):
-		var shz: float = -28.0 + float(sh) * 12.0
-		var shelf: Node3D = _static_prop("res://assets/art35/castle/royal_bookcase.glb", o + Vector3(-51.0, 33.5, shz), {}, 90.0, true)
-		if shelf != null:
-			_touch("library", shelf.position + Vector3(1.5, 3.0, 0), 5.0, {"node": shelf})
+	# Three low, shallow picture-book hutches replace four tall bookcases. The
+	# wider gaps preserve a continuous stair-to-reading-table route.
+	var library_hutch_z: Array[float] = [-22.0, -4.0, 12.0]
+	for sh in range(3):
+		var shz: float = library_hutch_z[sh]
+		var hutch: MeshInstance3D = _story_hutch(
+			o + Vector3(-51.8, 33.6, shz), "library", sh)
+		m._wall_solid(
+			hutch.position + Vector3(0.7, 1.65, 0.0),
+			Vector3(1.7, 3.3, 6.4),
+			0.3)
+		_touch("library", hutch.position + Vector3(1.3, 1.8, 0), 4.0, {"node": hutch})
 	m._l2_box(o + Vector3(-44, 33.9, 2.0), Vector3(12, 0.3, 22), Color(0.55, 0.4, 0.65))              # reading rug
 	var story_cushion: Node3D = _pearl("pearl_story_cushion", o + Vector3(-44, 34.0, 9.0), 180.0)
 	if story_cushion != null:

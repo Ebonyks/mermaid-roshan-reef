@@ -216,6 +216,12 @@ func _collect_runtime_assets(node: Node, counts: Dictionary) -> void:
 	for child in node.get_children():
 		_collect_runtime_assets(child, counts)
 
+func _collect_story_hutches(node: Node, hutches: Array[Node3D]) -> void:
+	if node is Node3D and node.has_meta("castle_story_hutch"):
+		hutches.append(node as Node3D)
+	for child in node.get_children():
+		_collect_story_hutches(child, hutches)
+
 
 func _collect_visible_layers(node: Node, layers: Array[CanvasLayer]) -> void:
 	if node is CanvasLayer:
@@ -319,6 +325,58 @@ func _run() -> void:
 	_ck("wardrobe_contract_preserved", main.g.has("wardrobe"), str(main.g.get("wardrobe", Vector3.ZERO)))
 	_ck("craft_contract_preserved", main.g.has("craft_easel"), str(main.g.get("craft_easel", Vector3.ZERO)))
 	_ck("secret_stand_contract_preserved", main.g.has("stand_chest") and main.g.has("stand_lid"), "slide tween roots remain")
+	var story_hutches: Array[Node3D] = []
+	_collect_story_hutches(main, story_hutches)
+	var hutch_zones: Dictionary = {}
+	var hutches_reachable: bool = true
+	var hutch_mesh_budget_ok: bool = true
+	var shared_hutch_mesh: Mesh = null
+	for story_hutch in story_hutches:
+		var hutch_zone: String = String(story_hutch.get_meta("castle_story_hutch_zone", ""))
+		hutch_zones[hutch_zone] = int(hutch_zones.get(hutch_zone, 0)) + 1
+		hutches_reachable = hutches_reachable \
+			and float(story_hutch.get_meta("castle_story_hutch_reach_height", 99.0)) <= 3.3 \
+			and float(story_hutch.get_meta("castle_story_hutch_depth", 99.0)) <= 1.7 \
+			and float(story_hutch.get_meta("castle_story_hutch_width", 99.0)) <= 6.4 \
+			and bool(story_hutch.get_meta("castle_story_hutch_analytic_solid", false))
+		if not story_hutch is MeshInstance3D:
+			hutch_mesh_budget_ok = false
+			continue
+		var hutch_mesh: Mesh = (story_hutch as MeshInstance3D).mesh
+		if hutch_mesh == null:
+			hutch_mesh_budget_ok = false
+			continue
+		if shared_hutch_mesh == null:
+			shared_hutch_mesh = hutch_mesh
+		var hutch_bounds: AABB = hutch_mesh.get_aabb()
+		hutch_mesh_budget_ok = hutch_mesh_budget_ok \
+			and hutch_mesh == shared_hutch_mesh \
+			and hutch_mesh.get_surface_count() == 7 \
+			and _triangle_count(hutch_mesh) <= 600 \
+			and hutch_bounds.size.x <= 1.71 \
+			and hutch_bounds.size.y <= 3.31 \
+			and hutch_bounds.size.z <= 6.41 \
+			and hutch_bounds.position.y >= -0.01
+	var reachable_storybook_count: int = 0
+	for mesh_value: Variant in main.find_children("*", "MeshInstance3D", true, false):
+		var mesh_node: MeshInstance3D = mesh_value as MeshInstance3D
+		if mesh_node.has_meta("castle_storybook_reachable"):
+			reachable_storybook_count += 1
+			hutches_reachable = hutches_reachable \
+				and mesh_node.position.y <= main.CASTLE_POS.y + 3.3
+	_ck("castle_practical_story_hutches", story_hutches.size() == 4
+		and int(hutch_zones.get("hall", 0)) == 1
+		and int(hutch_zones.get("library", 0)) == 3
+		and reachable_storybook_count == 1
+		and hutches_reachable
+		and hutch_mesh_budget_ok,
+		"count=%d zones=%s storybooks=%d reachable=%s mesh_ok=%s" % [
+			story_hutches.size(),
+			hutch_zones,
+			reachable_storybook_count,
+			hutches_reachable,
+			hutch_mesh_budget_ok,
+		])
 	var pool_texture: Texture2D = load(
 		"res://assets/castle/pool_2d/mermaid_pool_atlas.png") as Texture2D
 	var ornament_texture: Texture2D = load(
