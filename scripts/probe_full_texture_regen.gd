@@ -7,7 +7,12 @@ extends SceneTree
 const MODEL_DIR := "res://assets/full_texture_regen_2026-07-18/models"
 const TEXTURE_DIR := "res://assets/full_texture_regen_2026-07-18/textures"
 const EXPECTED_MODELS := 137
-const EXPECTED_TEXTURES := 30
+# 31 since 4916bb8 ("art: add calm Butterfly World meadow base") added
+# R044_..._calm.png. The constant was never bumped with it, so this probe has
+# been red on master since — masked until now because actions/checkout was
+# failing before any probe ran. The new texture is 1024x1024 POT and passes
+# every other check here; only the count was stale.
+const EXPECTED_TEXTURES := 31
 const MAX_MODEL_TRIANGLES := 12000
 const MAX_TEXTURE_SIDE := 1024
 
