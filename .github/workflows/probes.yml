@@ -100,9 +100,15 @@ jobs:
             PROBE_HOME="/tmp/reef-$p"
             rm -rf "$PROBE_HOME"
             mkdir -p "$PROBE_HOME/data" "$PROBE_HOME/config"
+            TOUCH_TEST_MODE="--classic-touch-test"
+            case "$p" in
+              probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
+                TOUCH_TEST_MODE="--hybrid-touch-test"
+                ;;
+            esac
             PROBE_RC=0
             XDG_DATA_HOME="$PROBE_HOME/data" XDG_CONFIG_HOME="$PROBE_HOME/config" \
-              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
+              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch "$TOUCH_TEST_MODE" 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
             if [ "$PROBE_RC" -ne 0 ]; then
               # Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at
               # EXIT after a probe has already printed its complete verdict —

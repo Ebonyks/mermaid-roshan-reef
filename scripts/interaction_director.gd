@@ -139,8 +139,9 @@ func _validate_focus() -> void:
 		m._tap_move_ref().cancel("focus invalid")
 
 func _position(item: Dictionary) -> Vector3:
-	var node: Node3D = item.get("node") as Node3D
-	if is_instance_valid(node):
+	var node_value: Variant = item.get("node")
+	if node_value != null and is_instance_valid(node_value):
+		var node: Node3D = node_value as Node3D
 		return node.global_position
 	return item.get("pos", Vector3.ZERO) as Vector3
 

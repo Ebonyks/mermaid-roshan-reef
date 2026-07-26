@@ -3325,6 +3325,14 @@ func toggle_pause() -> void:
 # ===================== REVERSIBLE TOUCH-CENTRIC EXPERIMENT =====================
 
 func _init_touch_experiment() -> void:
+	# Trusted legacy probes exercise the preserved Classic contract while the
+	# dedicated touch probes exercise Hybrid. These test-only flags never write
+	# the preference and are not used by Android/desktop game launches.
+	var user_args: PackedStringArray = OS.get_cmdline_user_args()
+	if "--classic-touch-test" in user_args:
+		_set_touch_mode(TOUCH_MODE_CLASSIC, false)
+	elif "--hybrid-touch-test" in user_args:
+		_set_touch_mode(TOUCH_MODE_HYBRID, false)
 	if touch_ui != null:
 		touch_ui.set_mode(touch_mode)
 		if not touch_ui.world_touched.is_connected(_on_touch_world):

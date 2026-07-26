@@ -89,12 +89,24 @@ func _playthrough(run_index: int) -> void:
 	match run_index % 4:
 		0:
 			_check_registry(main, ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl", "reef:kart"], issues)
+			var reef_actions: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl"]
+			main._activate_touch_interactable(reef_actions[run_index % reef_actions.size()])
+			await _frames(4)
+			if main.game == "":
+				issues.append("explicit reef action did not start")
+			else:
+				main._clear_game()
+				await _frames(3)
 		1:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
 			main._populate_touch_interactables()
 			_check_registry(main, ["court:castle", "court:north", "court:kart_a", "court:kart_b"], issues)
+			main._activate_touch_interactable("court:north")
+			await _frames(10)
+			if main.game != "north":
+				issues.append("explicit courtyard route did not enter northern world")
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -104,11 +116,23 @@ func _playthrough(run_index: int) -> void:
 			await _frames(12)
 			main._populate_touch_interactables()
 			_check_registry(main, ["hall:bed", "hall:exit", "hall:craft", "hall:wardrobe", "hall:crown"], issues)
+			main._activate_touch_interactable("hall:crown")
+			await _frames(3)
+			if not bool(main.g.get("crown_won", false)):
+				issues.append("explicit Crown Star did not award")
+			main._activate_touch_interactable("hall:exit")
+			await _frames(10)
+			if main.game != "level2" or String(main.g.get("phase", "")) != "court":
+				issues.append("explicit castle exit did not return to courtyard")
 		3:
 			main._enter_northern_kingdom()
 			await _frames(12)
 			main._populate_touch_interactables()
 			_check_registry(main, ["north:return"], issues)
+			main._activate_touch_interactable("north:return")
+			await _frames(10)
+			if main.game != "level2" or String(main.g.get("phase", "")) != "court":
+				issues.append("explicit northern return did not reach courtyard")
 
 	# Every run crosses the rollback boundary. No Hybrid assist/focus may
 	# survive, and restoring Hybrid must remain possible without a reload.
