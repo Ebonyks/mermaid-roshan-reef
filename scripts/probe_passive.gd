@@ -34,10 +34,18 @@ func _init() -> void:
 		var f: Dictionary = main.friends[fi]
 		var fname := String(f["fname"])
 		var node: Node3D = f["node"]
-		# approach only to START the game (starting is a greeting, not a win)
+		# Proximity advertises in Hybrid but must never launch an activity.
 		player.position = node.position + Vector3(3, 0, 0)
 		player.vel = Vector3.ZERO
 		await _frames(10)
+		if main.touch_uses_explicit_interactions():
+			if main.game != "":
+				print("PASSIVE|", fname, ": FAIL proximity auto-started in Hybrid")
+				bad += 1
+				main._clear_game()
+				await _frames(5)
+			else:
+				print("PASSIVE|", fname, ": OK proximity only advertises")
 		var guard := 0
 		while float(f["cool"]) > 0.0 and guard < 3000:
 			guard += 1
@@ -46,6 +54,9 @@ func _init() -> void:
 			player.position = node.position + Vector3(3, 0, 0)
 			player.vel = Vector3.ZERO
 			await process_frame
+		if main.game == "" and main.touch_uses_explicit_interactions():
+			main._activate_touch_interactable("friend:%d" % fi, fi)
+			await _frames(10)
 		if main.game == "":
 			print("PASSIVE|", fname, ": FAIL (game did not start)")
 			bad += 1

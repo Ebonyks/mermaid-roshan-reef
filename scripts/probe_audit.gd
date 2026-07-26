@@ -63,6 +63,9 @@ func _init() -> void:
 			player.position = node.position + Vector3(3, 0, 0)
 			player.vel = Vector3.ZERO
 			await process_frame
+		if main.game == "" and main.touch_uses_explicit_interactions():
+			main._activate_touch_interactable("friend:%d" % fi, fi)
+			await _frames(10)
 		if main.game == "":
 			print("AUDIT|", fname, ": GAME DID NOT START")
 			continue
@@ -89,6 +92,8 @@ func _init() -> void:
 	main.treasure_cool = 0.0
 	player.position = main.wreck_pos + Vector3(0, 4, 2)
 	player.vel = Vector3.ZERO
+	if main.touch_uses_explicit_interactions():
+		main._activate_touch_interactable("reef:treasure")
 	var waited := 0
 	while main.game == "" and waited < 900:
 		waited += 1
@@ -105,6 +110,8 @@ func _init() -> void:
 	main.brawl_cool = 0.0
 	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
 	player.vel = Vector3.ZERO
+	if main.touch_uses_explicit_interactions():
+		main._activate_touch_interactable("reef:brawl")
 	var bwait := 0
 	while main.game == "" and bwait < 900:
 		bwait += 1

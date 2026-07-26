@@ -1017,6 +1017,19 @@ func _process(delta: float) -> void:
 			turn -= tv.x
 		if absf(tv.y) > 0.10:
 			fwd -= tv.y
+	# Hybrid tap-to-move is an assisted steering source, never a second physics
+	# controller. Any real keyboard/pad/stick intent wins immediately.
+	var manual_move: bool = absf(fwd) > 0.08 or absf(turn) > 0.08
+	if manual_move and m0.has_method("_on_touch_manual_move"):
+		m0._on_touch_manual_move()
+	elif not manual_move and m0.has_method("touch_auto_direction"):
+		var auto_dir: Vector3 = m0.touch_auto_direction()
+		if auto_dir.length() > 0.01:
+			var desired_yaw: float = atan2(auto_dir.x, auto_dir.z)
+			var yaw_error: float = wrapf(desired_yaw - yaw, -PI, PI)
+			turn = clampf(yaw_error * 1.35, -1.0, 1.0)
+			if absf(yaw_error) < 1.25:
+				fwd = clampf(1.0 - absf(yaw_error) / 1.25, 0.22, 1.0)
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
