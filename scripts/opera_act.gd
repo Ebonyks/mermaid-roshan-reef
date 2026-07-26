@@ -91,6 +91,21 @@ var brush_node: Node3D = null
 # dragged across the canvas, stamping into a live Image. A band "sets" once it
 # is covered enough — coverage, never precision, so it cannot be failed.
 const PAINT_RES := 96
+# ---- the painter's first two beats (owner pacing standard 2026-07-25) ----
+# Kids' painting games are three genres: colour-by-number, scratch-reveal and
+# free paint. The act only had free paint. The sketch is a TRACE and the fill
+# is a HOLD — the doc called the fill a tap, but splatter is already a tap and
+# no act may run the same gesture twice. Holding also shows the colour RISING,
+# which is better feedback for a four-year-old than a region blinking on.
+const SKETCH_DOTS := 10
+const FILL_HOLD := 1.1          # seconds of hold to flood one shape panel
+var sketch_dots: Array[Node3D] = []
+var sketch_trace := 0
+var fill_panels: Array[Dictionary] = []
+var fill_want := 0              # which shape is being called for
+var fill_done := 0
+var fill_t := 0.0
+var fill_call: Node3D = null
 const PAINT_BRUSH := 7
 var paint_img: Image = null
 var paint_tex: ImageTexture = null
@@ -2385,6 +2400,7 @@ func _build_order() -> void:
 					_order_colors("paint")[i], 0.3)
 				pot.name = "GiftedPot%d" % i
 			m.show_msg("Roshan", "The painter shared their own paints with you — use every colour!", "talk")
+		_begin_sketch()   # the picture is drawn before it is painted
 	elif String(config.get("finale", "")) == "stir":
 		_begin_sift()   # the Cake Show is a gesture chain, not a pad errand
 
@@ -2965,6 +2981,142 @@ func _paint_screen(screen: Vector2) -> void:
 	if u < 0.0 or u > 1.0 or v < 0.0 or v > 1.0:
 		return
 	_paint_stroke_uv(u, v)
+
+func _begin_sketch() -> void:
+	# Beat 1: the charcoal outline. A dotted guide hangs over the canvas and
+	# the line appears wherever the finger has passed.
+	order_phase = "sketch"
+	sketch_trace = 0
+	for i in range(SKETCH_DOTS):
+		var f := float(i) / float(SKETCH_DOTS - 1)
+		# a simple arch: the sun coming up over the water, drawn left to right
+		var dot := _sphere(canvas_pos + Vector3(lerpf(-4.2, 4.2, f), sin(f * PI) * 2.6 - 0.6, 0.5),
+			0.34, Color(0.4, 0.36, 0.5, 0.6), 0.3)
+		sketch_dots.append(dot)
+	_set_drag(true)
+	m.show_msg("Roshan", "First the drawing! TRACE the dotted line with your finger.", "talk")
+	_update_hud()
+
+func _tick_sketch(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		return
+	for d in sketch_dots:
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) >= 66.0:
+			continue
+		d.visible = false
+		sketch_trace += 1
+		progress_t = 0.0
+		var line := _sphere(d.position, 0.46, Color(0.24, 0.2, 0.32), 0.0)
+		line.scale = Vector3.ZERO
+		var pop := line.create_tween()
+		pop.tween_property(line, "scale", Vector3.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.8 + 0.04 * float(sketch_trace)
+			m.chime.play()
+	if sketch_trace >= sketch_dots.size():
+		_begin_fill()
+
+func _begin_fill() -> void:
+	# Beat 2: colour-by-SHAPE, because she cannot read a number. Three panels
+	# stand across the stage wearing a circle, a star and a heart; the easel
+	# calls one shape at a time and she holds on the panel that matches.
+	order_phase = "fill"
+	fill_done = 0
+	fill_want = 0
+	fill_t = 0.0
+	_set_drag(false)
+	var cols := _order_colors("paint")
+	for i in range(3):
+		var pos := CENTER + Vector3(-10.0 + float(i) * 10.0, 1.0, 1.0)
+		var root := Node3D.new()
+		root.name = "ShapePanel%d" % i
+		root.position = pos
+		add_child(root)
+		_box(Vector3(0, 3.0, 0), Vector3(5.4, 6.0, 0.4), Color(0.97, 0.95, 0.9), 0.1, root)
+		# the shape token, drawn big: a ring, a spiky star, a heart pair
+		match i:
+			0:
+				var ring := TorusMesh.new()
+				ring.inner_radius = 1.1
+				ring.outer_radius = 1.7
+				var rm := _mesh(ring, Vector3(0, 3.2, 0.35), Color(0.3, 0.28, 0.4), 0.15, root)
+				rm.rotation_degrees = Vector3(90, 0, 0)
+			1:
+				for k in range(5):
+					var a := float(k) * TAU / 5.0 - PI * 0.5
+					_sphere(Vector3(cos(a) * 1.5, 3.2 + sin(a) * 1.5, 0.35), 0.5,
+						Color(0.3, 0.28, 0.4), 0.15, root)
+			_:
+				_sphere(Vector3(-0.7, 3.7, 0.35), 0.85, Color(0.3, 0.28, 0.4), 0.15, root)
+				_sphere(Vector3(0.7, 3.7, 0.35), 0.85, Color(0.3, 0.28, 0.4), 0.15, root)
+				_sphere(Vector3(0, 2.5, 0.35), 0.75, Color(0.3, 0.28, 0.4), 0.15, root)
+		# the colour that floods in, hidden until it rises
+		var flood := _box(Vector3(0, 0.2, 0.25), Vector3(5.0, 0.4, 0.3), cols[i], 0.4, root)
+		fill_panels.append({"index": i, "node": root, "pos": pos, "flood": flood,
+			"col": cols[i], "filled": false})
+	# the called shape floats over the easel so there is always an answer on screen
+	fill_call = _sphere(canvas_pos + Vector3(0, 4.4, 0.6), 0.9, Color(1.0, 0.9, 0.5), 0.8)
+	fill_call.name = "ShapeCall"
+	m.show_msg("Roshan", "Colour it in! Swim to the panel with the SAME shape and HOLD to fill it.", "talk")
+	_update_hud()
+
+func _tick_fill(delta: float) -> void:
+	if fill_want >= fill_panels.size():
+		return
+	var want: Dictionary = fill_panels[fill_want]
+	if fill_call != null:
+		fill_call.position = canvas_pos + Vector3(0, 4.4 + sin(elapsed * 2.4) * 0.2, 0.6)
+		var cm := fill_call.material_override as StandardMaterial3D
+		if cm != null:
+			cm.albedo_color = Color(want["col"])
+			cm.emission = Color(want["col"])
+	var near := -1
+	for p: Dictionary in fill_panels:
+		if bool(p["filled"]):
+			continue
+		if (p["pos"] as Vector3).distance_to(player_pos) < 5.0:
+			near = int(p["index"])
+			break
+	if near < 0 or not _finger_down():
+		fill_t = maxf(0.0, fill_t - delta * 1.5)
+		return
+	if near != fill_want:
+		# holding on the wrong shape just wobbles it — no loss, and the called
+		# shape stays on screen so the answer is always visible
+		if fmod(elapsed, 0.8) < delta:
+			_wobble(fill_panels[near]["node"] as Node3D)
+			m.show_msg("Roshan", "Not that shape — look at the one over the easel!", "hint")
+			progress_t = maxf(progress_t, RESCUE_DELAY)
+		return
+	fill_t += delta
+	progress_t = 0.0
+	var f := clampf(fill_t / FILL_HOLD, 0.0, 1.0)
+	var flood := want["flood"] as Node3D
+	flood.scale.y = 0.1 + f * 14.0
+	flood.position.y = 0.2 + f * 2.9
+	if fill_t < FILL_HOLD:
+		return
+	want["filled"] = true
+	fill_done += 1
+	fill_t = 0.0
+	m._sparkle_burst((want["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(want["col"]))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.16 * float(fill_done)
+		m.chime.play()
+	fill_want += 1
+	if fill_want >= fill_panels.size():
+		if fill_call != null:
+			fill_call.queue_free()
+			fill_call = null
+		order_phase = "steps"
+		m.show_msg("Roshan", "All coloured in! Now grab a paint pot and swipe the big canvas!", "talk")
+	else:
+		m.show_msg("Roshan", "Filled! Find the next shape!", "hint")
+	_update_hud()
 
 func _paint_touch() -> void:
 	# a band is covered: it sets, the brush empties, the picture grows
@@ -4972,7 +5124,8 @@ func _process(delta: float) -> void:
 			"order", "paint":
 				if order_phase == "bake":
 					_bake_action()
-				elif order_phase == "stir" or order_phase == "sift" or order_phase == "pour" or order_phase == "pipe":
+				elif (order_phase == "stir" or order_phase == "sift" or order_phase == "pour"
+						or order_phase == "pipe" or order_phase == "sketch" or order_phase == "fill"):
 					pass   # each of these beats is its own gesture, not a tap
 				elif order_phase == "decorate":
 					for spot in deco_spots:
@@ -5068,6 +5221,10 @@ func _process(delta: float) -> void:
 					_tick_bake(delta)
 				"pipe":
 					_tick_pipe(delta)
+				"sketch":
+					_tick_sketch(delta)
+				"fill":
+					_tick_fill(delta)
 				_:
 					if stir_drag:
 						_leave_stir()
@@ -5197,6 +5354,15 @@ func _pointer_target() -> Vector3:
 				return goal.position + Vector3(0, 7.0, 0)
 			if order_phase == "bake" and bake_cake != null:
 				return bake_cake.position + Vector3(0, 4.0, 0)
+			if order_phase == "sketch":
+				for sd in sketch_dots:
+					if sd.visible:
+						return sd.position + Vector3(0, 1.6, 0)
+				return canvas_pos + Vector3(0, 4.0, 0)
+			if order_phase == "fill":
+				if fill_want < fill_panels.size():
+					return (fill_panels[fill_want]["pos"] as Vector3) + Vector3(0, 7.0, 0)
+				return canvas_pos + Vector3(0, 4.0, 0)
 			if order_phase == "pipe":
 				return goal.position + Vector3(0, 6.0, 0)
 			if order_phase == "stir":
@@ -5314,6 +5480,10 @@ func _update_hud() -> void:
 					objective.text = tag + "🥄  Draw CIRCLES to stir!  %d / 3  (%d%%)" % [stir_done, turn]
 				else:
 					objective.text = tag + "🥄  Swim to the big bowl to stir!  %d / 3" % stir_done
+			elif order_phase == "sketch":
+				objective.text = tag + "✏️  TRACE the dotted line!  %d / %d" % [sketch_trace, SKETCH_DOTS]
+			elif order_phase == "fill":
+				objective.text = tag + "🎨  HOLD on the matching shape!  %d / %d" % [fill_done, fill_panels.size()]
 			elif order_phase == "decorate":
 				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:

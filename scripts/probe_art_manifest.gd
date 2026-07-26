@@ -23,7 +23,6 @@ const DIR_ALIAS := {"chef": "pastry_chef"}
 const PENDING_BEATS := {
 	"candymaker": ["syrup", "wrap", "parade"],
 	"farmer": ["plant", "mud", "barn"],
-	"painter": ["sketch", "fill"],
 }
 
 # Every beat a career actually plays, and the objects that beat needs on screen.

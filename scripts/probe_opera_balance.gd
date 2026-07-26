@@ -261,6 +261,28 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 				act._paint_stroke_uv(t, row / float(act.PAINT_RES))
 		return
 	match act.order_phase:
+		"sketch":
+			# a trace: one guide dot per ready-tick, at the persona's hand speed
+			if not _ready_to_act(dt) or main.touch_ui == null or act.cam == null:
+				return
+			for d in act.sketch_dots:
+				if not (d as Node3D).visible:
+					continue
+				main.touch_ui.drag_active = true
+				main.touch_ui.drag_pos = act.cam.unproject_position((d as Node3D).position)
+				act._tick_sketch(dt)
+				main.touch_ui.drag_active = false
+				return
+			return
+		"fill":
+			# swim to the called shape, then hold on it — both cost real time
+			if act.fill_want >= act.fill_panels.size():
+				return
+			var want: Vector3 = act.fill_panels[act.fill_want]["pos"] as Vector3
+			if _travel(act, want, dt) and (act.hold_sim or _ready_to_act(dt)):
+				act.hold_sim = true
+			act._tick_fill(dt)
+			return
 		"sift":
 			# scrubbing travel, at the persona's hand speed
 			act.sift_done += dt * lerpf(6.0, 13.0, float(persona["speed"]))

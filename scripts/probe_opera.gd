@@ -268,6 +268,57 @@ func _drive_order(act: OperaAct, cfg: Dictionary) -> void:
 		# the brush is the painter's own prop, but it was being built inside the
 		# chef's branch — every pot tap, stroke and frame dereferenced a null
 		_ck("the painter is carrying a real brush", act.brush_node != null)
+		# beat 1: the picture is DRAWN before it is painted, and the pot tap
+		# that runs the rest of the act cannot skip it
+		_ck("the gallery opens on the sketch", act.order_phase == "sketch"
+			and act.sketch_dots.size() == act.SKETCH_DOTS)
+		act._act_action(0)
+		act._tick_sketch(0.05)
+		_ck("an idle finger draws nothing", act.sketch_trace == 0
+			and act.brush_loaded < 0 and act.order_phase == "sketch")
+		if main.touch_ui != null and act.cam != null:
+			main.touch_ui.drag_active = true
+			var sg := 0
+			while act.order_phase == "sketch" and sg < 60:
+				sg += 1
+				var nxt: Node3D = null
+				for d in act.sketch_dots:
+					if (d as Node3D).visible:
+						nxt = d as Node3D
+						break
+				if nxt == null:
+					break
+				main.touch_ui.drag_pos = act.cam.unproject_position(nxt.position)
+				act._tick_sketch(0.05)
+			main.touch_ui.drag_active = false
+		_ck("tracing the guide draws the sketch and calls for colour",
+			act.sketch_trace >= act.SKETCH_DOTS and act.order_phase == "fill")
+		# beat 2: colour-by-SHAPE on a HOLD. A tap is not a hold, and the wrong
+		# shape is a wobble rather than a loss.
+		_ck("three shape panels stand out for filling", act.fill_panels.size() == 3)
+		var other: int = (act.fill_want + 1) % act.fill_panels.size()
+		act.player_pos = (act.fill_panels[other]["pos"] as Vector3)
+		act.hold_sim = true
+		var fg0 := 0
+		while fg0 < 40:
+			fg0 += 1
+			act._tick_fill(0.1)
+		_ck("holding the wrong shape fills nothing",
+			act.fill_done == 0 and act.order_phase == "fill")
+		act.hold_sim = false
+		while act.order_phase == "fill":
+			var wi: int = act.fill_want
+			act.player_pos = (act.fill_panels[wi]["pos"] as Vector3)
+			act._tick_fill(0.1)
+			_ck_once("the panel does not fill itself without a finger", act.fill_done == 0)
+			act.hold_sim = true
+			var fg := 0
+			while act.fill_want == wi and fg < 200:
+				fg += 1
+				act._tick_fill(0.1)
+			act.hold_sim = false
+		_ck("holding each matching shape opens the paint pots",
+			act.fill_done == 3 and act.order_phase == "steps")
 		for choice in order:
 			var idx := int(choice)
 			act.player_pos = (act.pads[idx]["pos"] as Vector3)

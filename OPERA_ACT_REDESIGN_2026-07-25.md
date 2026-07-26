@@ -114,8 +114,8 @@ Currently only the third.*
 
 | # | Beat | Gesture | Detail |
 |---|---|---|---|
-| 1 | **Sketch** | trace | follow a dotted outline; the charcoal line appears under the finger |
-| 2 | **Fill** | tap-to-flood | tap a pot, then tap every region wearing that **shape** (circle/star/heart — she cannot read numbers) |
+| 1 | **Sketch** | trace | *(built)* a ten-dot arch hangs over the canvas; the charcoal line sets wherever the finger has passed |
+| 2 | **Fill** | **hold**-to-flood | *(built)* three panels wear a circle, a star and a heart; the easel calls one shape and she holds on the matching panel while the colour rises. Specified as a tap, but splatter is already a tap — and the rising colour is better feedback than a region blinking on |
 | 3 | **Paint** | drag-to-paint | *(built)* the free sky band, coverage-based |
 | 4 | **Splatter** | tap | *(built)* the sparkle-paint finale |
 | 5 | **Frame it** | drag-and-drop | drag the gold frame onto the canvas; the gallery curtain drops and the audience gasps |
