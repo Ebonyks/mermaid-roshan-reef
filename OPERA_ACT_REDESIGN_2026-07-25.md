@@ -25,7 +25,7 @@ over) → MAKE (the act runs on exactly that gift). Gifts persist in
 | Painter | another painter | their paints | the pots she paints with; the finished canvas is then HUNG in the gallery |
 | Detective | stagehands | lanterns | they light the dark Prop Library: the lens dwell drops from 0.7s to 0.45s |
 | Magician | usher crabs | silk scarves | the rope trick — they hold the ends, so every pull is shorter |
-| Astronaut | bubble engineers | spare pipes | *(to wire: extra queue pieces)* |
+| Astronaut | bubble engineers | spare pipes | a FOURTH queue slot — one more piece of lookahead, which is the whole skill of Pipe Dream |
 | **Doctor** | **— none —** | **—** | the rescue in that act is the injured animal herself |
 
 The Doctor deliberately has no cages. Its story was already specified: chase the

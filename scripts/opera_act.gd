@@ -204,6 +204,7 @@ const PIPE_FLOW_STEP := 2.6        # seconds the bubbles take to cross one cell
 const PIPE_FUSE := 9.0             # head start before the bubbles set off
 var pipe_cells: Array[Dictionary] = []
 var pipe_queue: Array[String] = []
+var pipe_queue_depth := 3          # 4 once the freed engineers hand over spares
 var pipe_queue_nodes: Array[Node3D] = []
 var pipe_flow_cell := -1
 var pipe_flow_from := 3
@@ -2263,6 +2264,7 @@ func _open_gate() -> void:
 	_free_captives()
 	stage_phase = "puzzle"
 	progress_t = 0.0
+	_apply_curtain_gifts()
 	if gate_curtain != null:
 		var tw := gate_curtain.create_tween()
 		tw.tween_property(gate_curtain, "position:y", gate_curtain.position.y + 13.0, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
@@ -2271,6 +2273,23 @@ func _open_gate() -> void:
 		m.chime.pitch_scale = 1.4
 		m.chime.play()
 	m.show_msg("Roshan", String(config.get("voice", "The stage is clear — on with the show!")), "talk")
+	_update_hud()
+
+func _apply_curtain_gifts() -> void:
+	# Gifts are paid when the captives are freed, which is AFTER every builder
+	# has run. Anything an act wants to spend a gift on therefore has to be
+	# applied here, at the moment the curtain opens — reading the pantry inside
+	# a _build_* function always reads it one beat too early. That mistake cost
+	# the pit crew's wheels and the stagehands' lanterns; this is the one place
+	# it cannot happen again.
+	if kind != "fix" or int(m.opera_pantry.get("spare pipes", 0)) <= 0:
+		return
+	if pipe_queue_depth >= 4:
+		return
+	pipe_queue_depth = 4
+	pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	m.show_msg("Roshan", "The bubble engineers gave you their spare pipes — now you can see one more coming!", "talk")
 	_update_hud()
 
 func _tick_brawl(delta: float) -> void:
@@ -3840,8 +3859,15 @@ func _build_fix() -> void:
 		nose.height = 2.4
 		_mesh(nose, Vector3(0, 7.2, 0), Color(0.95, 0.5, 0.5), 0.2, rocket)
 	rocket_window = _sphere(Vector3(0, 4.0, 1.3), 0.75, Color(0.5, 0.62, 0.8), 0.1, rocket)
-	# the queue: three pieces waiting, and she can only take the front one
-	for i in range(3):
+	# the queue: three pieces waiting, and she can only take the front one.
+	# The bubble engineers she frees hand over SPARE PIPES, and a spare is a
+	# fourth slot — one more piece of lookahead, which is the whole skill of
+	# Pipe Dream. Read at BUILD time is safe here only because the astronaut is
+	# shelled: _build_fix runs before the rescue pays out, so this reads the
+	# pantry on the NEXT visit... which is exactly the bug the lanterns and the
+	# kart wheels had. Take the queue depth when the puzzle actually starts.
+	pipe_queue_depth = 3
+	for i in range(pipe_queue_depth):
 		pipe_queue.append(_pipe_roll())
 	_pipe_rebuild_queue()
 	pipe_fuse_t = PIPE_FUSE

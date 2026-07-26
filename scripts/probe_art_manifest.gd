@@ -38,8 +38,8 @@ const BEATS := {
 	],
 	"detective": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_stagehand": ["trapped", "freed"], "lantern_gift": ["flying", "landed"]}},
-		{"beat": "search", "gesture": "drag lens + dwell", "objects": {"magnifier": ["held"], "clue_glint": ["hidden", "lit"], "dwell_ring": ["empty", "filling", "full"], "prop_box": ["closed", "wiggling", "open", "fish_surprise"]}},
-		{"beat": "case_board", "gesture": "drag-and-drop", "objects": {"case_board": ["empty", "partial", "complete"], "clue_card": ["loose", "pinned"], "suspect_portrait": ["neutral", "accused", "cleared"]}},
+		{"beat": "search", "gesture": "drag lens + dwell", "objects": {"magnifier": ["held"], "clue_glint": ["hidden", "lit"], "dwell_ring": ["empty", "filling", "full"], "prop_box": ["closed", "wiggling", "open", "fish_surprise"], "gift_lantern": ["dark", "hung_lit"]}},
+		{"beat": "case_board", "gesture": "drag-and-drop", "objects": {"case_board": ["empty", "partial", "complete"], "clue_card": ["loose", "carried", "pinned", "rejected"], "suspect_portrait": ["neutral", "accused", "cleared"], "suspect_colour_bar": ["pink", "blue", "gold"]}},
 	],
 	"ballerina": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_dancer": ["trapped", "freed"], "ribbon_gift": ["flying", "landed"]}},
@@ -50,10 +50,10 @@ const BEATS := {
 	],
 	"candymaker": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_mouse": ["trapped", "freed"], "sugar_gift": ["flying", "landed"]}},
-		{"beat": "syrup", "gesture": "hold", "objects": {"syrup_bottle": ["upright", "tipping"], "vat": ["empty", "filling", "full"]}},
+		{"beat": "syrup", "gesture": "hold", "objects": {"syrup_bottle": ["upright", "tipping", "poured"], "bottle_fill_line": ["under", "reached"], "vat": ["empty", "filling", "full"]}},
 		{"beat": "sort", "gesture": "drag-and-drop", "objects": {"conveyor": ["slow", "fast"], "candy_body": ["riding", "carried", "chuted", "rejected"], "collar_ring": ["pink", "blue", "gold"], "chute": ["idle", "hover", "accept", "reject"]}},
 		{"beat": "wrap", "gesture": "rotational drag", "objects": {"wrapper": ["loose", "twisting", "sealed"]}},
-		{"beat": "parade", "gesture": "drag-and-drop", "objects": {"parade_cart": ["empty", "loading", "full", "rolling"]}},
+		{"beat": "parade", "gesture": "timed tap", "objects": {"parade_cart": ["empty", "loading", "full", "rolling"], "drop_chute": ["idle", "aligned"], "loaded_sweet": ["falling", "stacked", "bounced"]}},
 	],
 	"doctor": [
 		{"beat": "chase", "gesture": "tap", "objects": {"ward_imp": ["mischief", "popped"]}},
@@ -65,10 +65,10 @@ const BEATS := {
 	],
 	"farmer": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_farmer": ["trapped", "freed"], "carrot_gift": ["flying", "landed"]}},
-		{"beat": "plant", "gesture": "drag-and-drop", "objects": {"seed": ["loose", "dropped"], "furrow_hole": ["empty", "sprouting"]}},
+		{"beat": "plant", "gesture": "drag-and-drop", "objects": {"seed": ["loose", "carried", "dropped"], "furrow_hole": ["empty", "sprouting"], "sprout": ["popping", "grown"]}},
 		{"beat": "feed", "gesture": "charge-and-release", "objects": {"sling_pull": ["slack", "drawn"], "aim_dot": ["arc"], "veggie": ["in_flight", "landed", "bounced"], "piggy": ["trot", "hop", "munch", "fed"]}},
 		{"beat": "mud", "gesture": "swipe up", "objects": {"mud_puddle": ["still", "splashed"], "piggy_leap": ["airborne", "landed"]}},
-		{"beat": "barn", "gesture": "drag", "objects": {"barn_gate": ["shut", "open"], "sunset_sky": ["dusk"]}},
+		{"beat": "barn", "gesture": "scrub", "objects": {"barn_gate": ["shut", "swinging", "open"], "sunset_sky": ["dusk"], "herd_home": ["trotting", "home"]}},
 	],
 	"boxer": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_crew": ["trapped", "freed"], "gloves_gift": ["flying", "landed"]}},
@@ -81,20 +81,20 @@ const BEATS := {
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_usher": ["trapped", "freed"], "scarf_gift": ["flying", "landed"]}},
 		{"beat": "vanish", "gesture": "drag", "objects": {"magic_hat": ["idle", "lifted", "settled"], "bunny_fish": ["visible", "hidden"]}},
 		{"beat": "shuffle", "gesture": "track + tap", "objects": {"swap_trail": ["swirling"], "magic_hat": ["dancing"], "reveal_pop": ["burst"]}},
-		{"beat": "rope", "gesture": "pull-apart drag", "objects": {"knotted_rope": ["knotted", "loosening", "straight"]}},
+		{"beat": "rope", "gesture": "pull-apart drag", "objects": {"knotted_rope": ["knotted", "loosening", "straight"], "rope_knot": ["tied", "melting", "gone"], "gift_scarf_tie": ["absent", "tied"]}},
 		{"beat": "cabinet", "gesture": "rhythm tap", "objects": {"trick_cabinet": ["shut", "swinging", "open"], "star_wand": ["idle", "tapped"], "giant_bunny_fish": ["revealed"]}},
 	],
 	"painter": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_painter": ["trapped", "freed"], "paints_gift": ["flying", "landed"]}},
 		{"beat": "sketch", "gesture": "trace", "objects": {"guide_outline": ["dotted", "drawn"], "charcoal_line": ["following"]}},
-		{"beat": "fill", "gesture": "tap-to-flood", "objects": {"shape_region": ["blank", "flooded"], "shape_marker": ["circle", "star", "heart"]}},
+		{"beat": "fill", "gesture": "hold-to-flood", "objects": {"shape_panel": ["blank", "filling", "filled"], "shape_token": ["circle", "star", "heart"], "shape_call": ["circle", "star", "heart"]}},
 		{"beat": "paint", "gesture": "drag-to-paint", "objects": {"brush_stamp": ["soft_round"], "primed_canvas": ["bare", "partial", "covered"], "loaded_brush": ["plum", "coral", "cream"]}},
 		{"beat": "splatter", "gesture": "tap", "objects": {"splat": ["wet"]}},
 		{"beat": "frame", "gesture": "drag-and-drop", "objects": {"gold_frame": ["loose", "fitted"], "gallery_wall": ["empty", "hung"]}},
 	],
 	"astronaut": [
 		{"beat": "rescue", "gesture": "tap", "objects": {"bubble_cage": ["whole", "popping"], "caged_engineer": ["trapped", "freed"], "pipes_gift": ["flying", "landed"]}},
-		{"beat": "pipedream", "gesture": "drag-and-drop", "objects": {"grid_cell": ["empty", "waiting", "piped"], "pipe_piece": ["straight", "upright", "elbow_ne", "elbow_nw", "elbow_se", "elbow_sw"], "queue_slot": ["front", "waiting"], "bubble_flow": ["running", "leaking"], "fuse": ["lit", "burning"]}},
+		{"beat": "pipedream", "gesture": "drag-and-drop", "objects": {"grid_cell": ["empty", "waiting", "piped"], "pipe_piece": ["straight", "upright", "elbow_ne", "elbow_nw", "elbow_se", "elbow_sw"], "queue_slot": ["front", "waiting", "spare"], "bubble_flow": ["running", "leaking"], "fuse": ["lit", "burning"]}},
 		{"beat": "valve", "gesture": "tap", "objects": {"valve_wheel": ["still", "spinning"], "pressure_lamp": ["off", "on"]}},
 		{"beat": "launch", "gesture": "hold", "objects": {"thrust_bar": ["empty", "filling", "sagging", "full"], "rocket": ["idle", "straining", "launched"], "bubble_column": ["growing"]}},
 	],

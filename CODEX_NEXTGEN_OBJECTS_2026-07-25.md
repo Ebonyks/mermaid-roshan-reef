@@ -82,12 +82,34 @@ shipped object predates a redesign.
   of that thing. The gift object must be recognisably the *same object* in the
   rescue beat and in the beat that consumes it — same carrot, same paint pot.
 
-**Current state of the world:** 12 acts, 55 beats (all 55 playable today, 0
-specified and pending), 139 objects, 300 states. *(These figures are a
-snapshot; the `ARTMANIFEST|` line on the newest probes run is the authority.)* **136 objects do not exist
-yet.** The three that do — `pastry_chef_bowl`, `pastry_chef_oven`,
-`astronaut_rocket` — are single-pose gen1 models with no state children, so
-they are rebuilds, not skips.
+**Current state of the world:** 12 acts, 55 beats — **all 55 playable today**,
+nothing pending — 149 objects, 331 visual states. **146 objects do not exist
+yet.** The three that do (`pastry_chef_bowl`, `pastry_chef_oven`,
+`astronaut_rocket`) are single-pose gen1 models with no state children, so they
+are rebuilds, not skips. *(These figures are a snapshot; the `ARTMANIFEST|`
+line on the newest probes run is the authority.)*
+
+### The gift rhythm is fully wired
+
+Every act opens by freeing someone from the imps, and every gift now changes
+how its act PLAYS — none is flavour text. Design the gift object so the same
+thing is recognisable in the rescue beat and in the beat that spends it.
+
+| Act | Freed | Gift | What it actually does |
+| --- | --- | --- | --- |
+| Pastry Chef | farmers | carrots | go into the bowl — it becomes a carrot cake |
+| Detective | stagehands | lanterns | light the dark Prop Library: lens dwell 0.7s → 0.45s |
+| Magician | usher crabs | silk scarves | tied to the rope ends; every pull is 45% shorter |
+| Painter | another painter | paints | the pots she paints with; the canvas is then hung |
+| Astronaut | bubble engineers | spare pipes | a fourth queue slot — one more piece of lookahead |
+| Racecar | pit crew | spare wheels | become the kart she races |
+| Pop Star | the band | instruments | buy an encore verse |
+| Ballerina / Candy / Farmer / Boxer | dancers / mice / farmers / ring crew | ribbons / sugar / carrots / gloves | staged on their own set, ahead of the act |
+| **Doctor** | **— none —** | **—** | the rescue in that act IS the injured animal |
+
+Gifts are paid when the captives are freed, which is **after** every builder has
+run — so an act spends its gift at the curtain, not at build. Three separate
+bugs came from reading it too early.
 
 ---
 

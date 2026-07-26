@@ -576,7 +576,12 @@ func _drive_fix(act: OperaAct) -> void:
 	# Pipe Dream: a grid, a queue you cannot reorder, and bubbles on a fuse
 	_ck("the pipe wall is a %dx%d grid" % [act.PIPE_ROWS, act.PIPE_COLS],
 		act.pipe_cells.size() == act.PIPE_ROWS * act.PIPE_COLS)
-	_ck("three pipes wait in the queue", act.pipe_queue.size() == 3)
+	# the freed engineers' spare pipes are a FOURTH slot — one more piece of
+	# lookahead, which is the whole skill of Pipe Dream
+	var spares: int = int(main.opera_pantry.get("spare pipes", 0))
+	_ck("the queue shows what is coming", act.pipe_queue.size() == act.pipe_queue_depth)
+	_ck("the freed engineers' spare pipes deepen the queue",
+		(spares > 0 and act.pipe_queue_depth == 4) or (spares == 0 and act.pipe_queue_depth == 3))
 	_ck("the bubbles hold on a fuse before setting off", act.pipe_fuse_t > 0.0 and act.pipe_flow_cell < 0)
 	# lay a straight run along the middle row, taking whatever the queue gives
 	for c in range(act.PIPE_COLS):
