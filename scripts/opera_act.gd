@@ -318,7 +318,8 @@ var suspects: Array[Dictionary] = []
 var board_pinned := 0
 var board_drag := -1               # index of the card riding the finger
 var board_culprit := 0
-var lens_dwell_need := 0.7         # the lanterns shorten this (see _build_lens)
+var lens_dwell_need := 0.7         # the lanterns shorten this (_light_the_library)
+var lens_lit := false              # the gifted lanterns are up
 # ---- the magnifier (owner 2026-07-25) ----
 # The defining verb of preschool hidden-object: a lens dragged over the scene,
 # with the clues invisible everywhere except inside it. Roshan carries it, so
@@ -1898,17 +1899,27 @@ func _build_sleuth() -> void:
 		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid, "glint": glint,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
 
+func _light_the_library() -> void:
+	# The stagehands she frees hand over their lanterns, and a lit Prop Library
+	# gives up its clues faster: the dwell drops from 0.7s to 0.45s.
+	#
+	# This runs at the START OF THE SEARCH, not at build. The detective is a
+	# shelled act, so the gift is only paid when the backstage rescue ends —
+	# reading the pantry in _build_lens() always read it one beat too early and
+	# the lanterns never did anything. (Same ordering bug the pit crew's spare
+	# wheels had in _launch_race.)
+	if lens_lit or int(m.opera_pantry.get("lanterns", 0)) <= 0:
+		return
+	lens_lit = true
+	lens_dwell_need = LENS_DWELL * 0.64
+	for lx: float in [-15.0, 15.0]:
+		var post := _cyl(CENTER + Vector3(lx, 3.0, -4.0), 0.25, 6.0, Color(0.62, 0.5, 0.35), 0.05)
+		post.name = "GiftLanternPost"
+		_sphere(CENTER + Vector3(lx, 6.4, -4.0), 1.05, Color(1.0, 0.9, 0.62), 0.95)
+	m.show_msg("Roshan", "The stagehands hung their lanterns up for you — now the clues are much easier to spot!", "talk")
+
 func _build_lens() -> void:
-	# the stagehands she frees hand over their lanterns, and a lit Prop Library
-	# gives up its clues faster: the dwell drops from 0.7s to 0.45s. A real
-	# mechanical help, not a decoration — the gift has to be worth rescuing for.
 	lens_dwell_need = LENS_DWELL
-	if int(m.opera_pantry.get("lanterns", 0)) > 0:
-		lens_dwell_need = LENS_DWELL * 0.64
-		for lx: float in [-15.0, 15.0]:
-			var post := _cyl(CENTER + Vector3(lx, 3.0, -4.0), 0.25, 6.0, Color(0.62, 0.5, 0.35), 0.05)
-			post.name = "GiftLanternPost"
-			_sphere(CENTER + Vector3(lx, 6.4, -4.0), 1.05, Color(1.0, 0.9, 0.62), 0.95)
 	lens_pos = CENTER + Vector3(0, 0.6, 2.0)
 	lens = Node3D.new()
 	lens.name = "Magnifier"
@@ -1962,6 +1973,7 @@ func _tick_lens(delta: float) -> void:
 		# first tick of the puzzle phase: the brawl is over, take the finger
 		lens_drag = true
 		lens.visible = true
+		_light_the_library()
 		lens_pos = Vector3(player_pos.x, CENTER.y + 0.6, player_pos.z)
 		_set_drag(true)
 		m.show_msg("Roshan", "Detective Roshan! DRAG the big magnifying glass around — the clues only show up inside it!", "talk")

@@ -649,8 +649,11 @@ func _drive_press(act: OperaAct) -> void:
 	_ck("a candy is riding the belt", act.belt_items.size() > 0)
 	act._press_action()
 	_ck("the button no longer stamps a candy", act.candies_done == 0)
+	# stop at the END OF THE SORT, not the end of the act: sorting now hands off
+	# to the wrapping bench instead of winning, so `state == "play"` alone spun
+	# this loop against a belt that had already stopped spawning
 	var guard := 0
-	while act.state == "play" and guard < 400:
+	while act.state == "play" and act.press_phase == "sort" and guard < 400:
 		guard += 1
 		if act.belt_items.is_empty():
 			act._belt_spawn()
