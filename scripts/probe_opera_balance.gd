@@ -41,6 +41,7 @@ var echo_key := -1                 # sticky echo intent: (round, pos) being danc
 var echo_target := -1
 var farm_pull_t := 0.0             # seconds spent drawing the sling back
 var barn_dir := 1.0                # which way the shooing hand is sweeping
+var brawl_taps := 0                # sparkles actually thrown this run
 
 func _init() -> void:
 	Engine.time_scale = 8.0
@@ -105,8 +106,17 @@ func _snapshot(act: OperaAct) -> String:
 			gap.y = 0.0
 			if nearest < 0.0 or gap.length() < nearest:
 				nearest = gap.length()
-		return base + " imps=%d live=%d left=%d nearest=%.1f pos=(%.1f,%.1f) wait=%.2f" % [
-			act.imps.size(), live, act.imps_left, nearest,
+		# the survivor's HP and how many sparkles we actually threw: a stall with
+		# hp still full means the taps are not landing, a stall with hp draining
+		# means something is healing it. Guessing between those cost two rounds
+		# earlier, so the snapshot answers it directly.
+		var hp := -1
+		for g2 in act.imps:
+			if not bool(g2["popped"]):
+				hp = int(g2.get("hp", -1))
+				break
+		return base + " imps=%d live=%d left=%d hp=%d taps=%d nearest=%.1f pos=(%.1f,%.1f) wait=%.2f" % [
+			act.imps.size(), live, act.imps_left, hp, brawl_taps, nearest,
 			act.player_pos.x - act.CENTER.x, act.player_pos.z - act.CENTER.z, wait_t]
 	match act.kind:
 		"echo":
@@ -143,6 +153,7 @@ func _play_act(cfg: Dictionary) -> float:
 	echo_target = -1
 	farm_pull_t = 0.0
 	barn_dir = 1.0
+	brawl_taps = 0
 	last_snapshot = ""
 	var act := OperaAct.new()
 	act.process_mode = Node.PROCESS_MODE_DISABLED   # only our manual pumps tick it
@@ -213,6 +224,7 @@ func _drive(act: OperaAct, dt: float) -> void:
 					# close enough that a child would swing: settle onto the imp
 					# so the shield bump cannot shove the tap out of reach
 					act.player_pos = Vector3(target.x, act.player_pos.y, target.z)
+					brawl_taps += 1
 					act._brawl_action()
 			else:
 				_travel(act, target, dt)
