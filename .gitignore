@@ -38,3 +38,8 @@ tools/kokoro/
 
 # Regenerated on every gate run by tools/audit_fairy_art_v2.py (ci.sh step).
 /tmp/fairy_v2/
+
+# git worktree scratch dirs. 45 of these were swept in as submodule gitlinks by
+# a `git add -A` in bd143ef with no .gitmodules, which made actions/checkout
+# fail repo-wide from 2026-07-22. Never track them.
+/.worktrees/
