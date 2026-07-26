@@ -1475,9 +1475,15 @@ func _brawl_action() -> void:
 	for g in imps:
 		if bool(g["popped"]):
 			continue
-		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
+		# reach is measured FLAT. A child aims across the stage, not up and
+		# down, and cannot judge a height difference she did not create — so a
+		# vertical gap must never decide whether her sparkle lands. It also
+		# keeps a stray altitude from turning a miss into an unwinnable act,
+		# which is exactly what the captain's sky-high dash did.
+		var gap: Vector3 = (g["pos"] as Vector3) - player_pos
+		gap.y = 0.0
+		if gap.length() < best_d:
+			best_d = gap.length()
 			best = int(g["index"])
 	if best < 0:
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
@@ -1624,7 +1630,11 @@ func _punch_action() -> void:
 	for g in imps:
 		if bool(g["popped"]):
 			continue
-		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
+		# flat reach, same reason as the sparkle: height is not something a
+		# four-year-old aims with, so it must not decide whether a punch lands
+		var gap: Vector3 = (g["pos"] as Vector3) - player_pos
+		gap.y = 0.0
+		var d: float = gap.length()
 		if d < best_d:
 			best_d = d
 			best = int(g["index"])
