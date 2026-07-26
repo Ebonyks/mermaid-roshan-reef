@@ -904,6 +904,17 @@ func _drive_doctor(act: OperaAct) -> void:
 	_ck("the coban seals the cast and wins", act.state == "won" and act.vet_phase == "done")
 
 func _drive_scroll(act: OperaAct) -> void:
+	# beat 1: the planting, a drag-and-drop. The slingshot cannot skip it.
+	_ck("the picnic opens on the planting",
+		act.farm_phase == "plant" and act.furrows.size() == act.FARM_SEEDS)
+	act._farm_launch(0.5)
+	_ck("the slingshot does not fire before the seeds are in",
+		act.farm_flights.is_empty() and act.farm_phase == "plant")
+	for f: Dictionary in act.furrows:
+		act._plant_grab(int(f["index"]))
+		act._plant_drop(int(f["index"]))
+	_ck("planting every seed brings out the piggies",
+		act.seeds_planted == act.FARM_SEEDS and act.farm_phase == "feed")
 	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
 	# tapping no longer feeds anyone: the veggie has to be LOBBED
 	act._toss_action()
@@ -930,7 +941,37 @@ func _drive_scroll(act: OperaAct) -> void:
 		for pig in act.piggies:
 			if not bool(pig["fed"]):
 				pig["sx"] = 2000.0
-	_ck("every lobbed veggie finishes the picnic", act.state == "won" and act.farm_fed == act.piggies.size())
+	_ck("every lobbed veggie brings the herd to the mud",
+		act.farm_fed == act.piggies.size() and act.farm_phase == "mud")
+	# beat 3: swipe UP. Down is the boxer's duck; it must not hop a piggy.
+	if main.touch_ui != null:
+		main.touch_ui.drag_active = true
+		main.touch_ui.drag_pos = Vector2(640.0, 300.0)
+		act._tick_mud(0.05)
+		main.touch_ui.drag_pos = Vector2(640.0, 420.0)   # downward
+		act._tick_mud(0.05)
+		_ck("swiping DOWN does not hop a piggy", act.mud_leaps == 0)
+		var mg := 0
+		while act.farm_phase == "mud" and mg < 40:
+			mg += 1
+			main.touch_ui.drag_active = false
+			act._tick_mud(0.05)
+			main.touch_ui.drag_active = true
+			main.touch_ui.drag_pos = Vector2(640.0, 460.0)
+			act._tick_mud(0.05)
+			main.touch_ui.drag_pos = Vector2(640.0, 340.0)   # upward
+			act._tick_mud(0.05)
+		main.touch_ui.drag_active = false
+	_ck("swiping up hops every piggy over the mud",
+		act.mud_leaps >= act.MUD_LEAPS and act.farm_phase == "barn")
+	# beat 4: the scrub home. One long pull is not a sweep — it takes both ways.
+	_ck("the barn gate is waiting", act.barn_gate != null and act.barn_scrub == 0.0)
+	var bg := 0
+	while act.farm_phase == "barn" and bg < 400:
+		bg += 1
+		act._barn_sweep(140.0 if bg % 2 == 0 else -140.0)
+	_ck("sweeping the herd home finishes the picnic",
+		act.state == "won" and act.farm_phase == "done")
 
 func _drive_race(act: OperaAct) -> void:
 	var guard := 0

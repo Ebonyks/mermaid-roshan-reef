@@ -142,10 +142,10 @@ Currently only the third.*
 
 | # | Beat | Gesture | Detail |
 |---|---|---|---|
-| 1 | **Plant** | drag-and-drop | drop seeds into the furrow holes; sprouts pop |
+| 1 | **Plant** | drag-and-drop | *(built)* four seeds, four furrow holes; any seed suits any hole, because this beat is about the MOTION, not a matching puzzle. The slingshot does not arm until the field is planted |
 | 2 | **Feed** | charge-and-release | *(built)* slingshot lob to the trotting piggies |
-| 3 | **The mud puddle** | swipe up | pigs reach the mud; swipe to launch each one over it, splat and giggle |
-| 4 | **Home to the barn** | drag | drag the gate open and shoo the herd home at sunset |
+| 3 | **The mud puddle** | swipe up | *(built)* three piggies, three upward flicks. Up only — down is the boxer's duck |
+| 4 | **Home to the barn** | **scrub** | *(built)* sweep back and forth to shoo the herd home; the gate swings wider as the sweeping adds up. Specified as a drag, which the planting already owns |
 
 ## Boxer — "The Championship Bout"
 

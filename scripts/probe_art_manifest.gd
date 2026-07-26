@@ -21,7 +21,6 @@ const DIR_ALIAS := {"chef": "pastry_chef"}
 # a beat a child can play today, so the manifest marks it and codex can sort
 # by it. Delete a name from here in the same commit that ships its beat.
 const PENDING_BEATS := {
-	"farmer": ["plant", "mud", "barn"],
 }
 
 # Every beat a career actually plays, and the objects that beat needs on screen.

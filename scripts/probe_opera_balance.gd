@@ -40,6 +40,7 @@ var intent_choice := -1
 var echo_key := -1                 # sticky echo intent: (round, pos) being danced
 var echo_target := -1
 var farm_pull_t := 0.0             # seconds spent drawing the sling back
+var barn_dir := 1.0                # which way the shooing hand is sweeping
 
 func _init() -> void:
 	Engine.time_scale = 8.0
@@ -118,13 +119,16 @@ func _snapshot(act: OperaAct) -> String:
 			return base + " order=%s step=%d brush=%d sift=%.1f pour=%.1f bake=%.1f pipe=%d" % [
 				act.order_phase, act.step, act.brush_loaded, act.sift_done, act.pour_t, act.bake_t, act.pipe_trace]
 		"press":
-			return base + " candies=%d busy=%.2f" % [act.candies_done, act.press_busy]
+			return base + " press=%s candies=%d syrup=%d wrap=%d parade=%d" % [
+				act.press_phase, act.candies_done, act.syrup_want, act.wrap_done, act.parade_loaded]
 		"shuffle":
-			return base + " shuffle=%s round=%d" % [act.shuffle_phase, act.shuffle_round]
+			return base + " shuffle=%s round=%d knots=%d taps=%d" % [
+				act.shuffle_phase, act.shuffle_round, act.rope_undone, act.cab_taps]
 		"doctor":
 			return base + " vet=%s hurt=%d limb=%d wrap=%.1f" % [act.vet_phase, act.vet_hurt, act.vet_limb, act.vet_wrap]
 		"scroll":
-			return base + " fed=%d" % act.farm_fed
+			return base + " farm=%s planted=%d fed=%d leaps=%d scrub=%.0f" % [
+				act.farm_phase, act.seeds_planted, act.farm_fed, act.mud_leaps, act.barn_scrub]
 		"fix":
 			return base + " fix=%s flow=%d fuse=%.1f leak=%.1f laid=%d" % [act.fix_phase, act.pipe_flow_cell, act.pipe_fuse_t, act.pipe_leak_t, act.pipe_filled.size()]
 	return base
@@ -138,6 +142,7 @@ func _play_act(cfg: Dictionary) -> float:
 	echo_key = -1
 	echo_target = -1
 	farm_pull_t = 0.0
+	barn_dir = 1.0
 	last_snapshot = ""
 	var act := OperaAct.new()
 	act.process_mode = Node.PROCESS_MODE_DISABLED   # only our manual pumps tick it
@@ -583,6 +588,29 @@ func _drive_doctor(act: OperaAct, dt: float) -> void:
 			act._vet_wrap_delta(dt * lerpf(2.0, 4.2, float(persona["speed"])))
 
 func _drive_scroll(act: OperaAct, dt: float) -> void:
+	if act.farm_phase == "plant":
+		# a drag-and-drop: one seed carried into its hole per ready-tick
+		if not _ready_to_act(dt):
+			return
+		for f: Dictionary in act.furrows:
+			if bool(f["planted"]):
+				continue
+			act._plant_grab(int(f["index"]))
+			act._plant_drop(int(f["index"]))
+			return
+		return
+	if act.farm_phase == "mud":
+		if _ready_to_act(dt):
+			act._mud_hop()
+		return
+	if act.farm_phase == "barn":
+		# a scrub: one sweep of the hand per ready-tick, direction alternating
+		if _ready_to_act(dt):
+			barn_dir = -barn_dir
+			act._barn_sweep(220.0 * float(persona["speed"]) * barn_dir)
+		return
+	if act.farm_phase == "done":
+		return
 	# lobbing: the persona picks the nearest unfed piggy, judges the pull, and
 	# lets go — with an aim wobble scaled to how careless it is
 	if act.farm_flights.size() > 0:

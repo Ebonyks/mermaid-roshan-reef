@@ -364,6 +364,26 @@ const FARM_SPEED := 120.0
 var farm_layer: CanvasLayer = null
 var farm_t := 0.0
 var farm_fed := 0
+# ---- the piggy picnic, beats 1, 3 and 4 (owner pacing standard 2026-07-25) ----
+# The act was one slingshot. Planting opens it, a mud puddle interrupts it and
+# shooing the herd home closes it. The barn beat is a SCRUB rather than the
+# doc's plain drag, because planting already owns dragging.
+const FARM_SEEDS := 4
+const MUD_LEAPS := 3
+const BARN_SCRUB := 2200.0      # pixels of back-and-forth to shoo the herd home
+var farm_phase := "feed"        # plant | feed | mud | barn
+var furrows: Array[Dictionary] = []
+var seed_held := -1
+var seeds_planted := 0
+var mud_puddle: Control = null
+var mud_pig: Control = null
+var mud_leaps := 0
+var mud_y0 := 0.0
+var mud_tracking := false
+var barn_gate: Control = null
+var barn_scrub := 0.0
+var barn_last_x := 0.0
+var barn_have_x := false
 # ---- the slingshot (owner 2026-07-25) ----
 # Feeding used to be a metronome tap. Now the veggie is LOBBED: drag back from
 # Roshan, watch the aim dots arc out, and let go. Pull length is throw
@@ -4697,6 +4717,7 @@ func _build_farm() -> void:
 		bubble.add_child(want)
 		piggies.append({"index": i, "node": pig, "bubble": bubble, "want": want,
 			"x": 900.0 + float(i) * 560.0, "sx": 900.0 + float(i) * 560.0, "fed": false})
+	_begin_plant()
 
 func _farm_arm() -> void:
 	_set_drag(true)
@@ -4726,7 +4747,7 @@ func _farm_aim_hide() -> void:
 
 func _farm_launch(power: float) -> void:
 	# the veggie leaves her hand on an arc; whoever it lands next to gets fed
-	if state != "play" or kind != "scroll":
+	if state != "play" or kind != "scroll" or farm_phase != "feed":
 		return
 	_farm_aim_hide()
 	var veg := _panel_circle(farm_root, Vector2(FARM_ROSHAN_X, 340.0), 26.0,
@@ -4775,7 +4796,206 @@ func _farm_land(tx: float) -> void:
 		m.chime.pitch_scale = 0.6
 		m.chime.play()
 
+func _begin_plant() -> void:
+	# Beat 1: four furrow holes across the field and a seed tray. Drag a seed
+	# into a hole and a sprout pops. Drag-and-drop, the act's own first verb.
+	farm_phase = "plant"
+	seeds_planted = 0
+	seed_held = -1
+	for i in range(FARM_SEEDS):
+		var hx := 300.0 + float(i) * 200.0
+		var hole := _panel_circle(farm_root, Vector2(hx, 470.0), 52.0, Color(0.36, 0.26, 0.2))
+		var sprout := _panel_circle(farm_root, Vector2(hx + 12.0, 410.0), 28.0, Color(0.4, 0.78, 0.42))
+		sprout.visible = false
+		var seed := _panel_circle(farm_root, Vector2(160.0 + float(i) * 70.0, 610.0), 26.0,
+			Color(0.92, 0.84, 0.55))
+		furrows.append({"index": i, "hole": hole, "sprout": sprout, "seed": seed,
+			"hx": hx, "home": seed.position, "planted": false})
+	_set_drag(true)
+	m.show_msg("Roshan", "First the planting! DRAG each seed into a hole in the soil.", "talk")
+	_update_hud()
+
+func _plant_grab(i: int) -> void:
+	if farm_phase != "plant" or i < 0 or i >= furrows.size():
+		return
+	if bool(furrows[i]["planted"]):
+		return
+	seed_held = i
+	progress_t = 0.0
+
+func _plant_drop(hole_i: int) -> void:
+	# any empty hole takes any seed: this beat is about the MOTION, not a
+	# matching puzzle, so there is nothing here to get wrong
+	if farm_phase != "plant" or seed_held < 0:
+		return
+	var seed_row: Dictionary = furrows[seed_held]
+	seed_held = -1
+	if hole_i < 0 or hole_i >= furrows.size() or bool(furrows[hole_i]["planted"]):
+		(seed_row["seed"] as Control).position = seed_row["home"] as Vector2
+		return
+	var target: Dictionary = furrows[hole_i]
+	target["planted"] = true
+	seeds_planted += 1
+	progress_t = 0.0
+	(seed_row["seed"] as Control).visible = false
+	var sprout := target["sprout"] as Control
+	sprout.visible = true
+	sprout.scale = Vector2.ZERO
+	var pop := sprout.create_tween()
+	pop.tween_property(sprout, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.14 * float(seeds_planted)
+		m.chime.play()
+	if seeds_planted >= furrows.size():
+		farm_phase = "feed"
+		m.show_msg("Roshan", "All planted! Here come the piggies — PULL BACK and let go to lob them a snack!", "talk")
+	else:
+		m.show_msg("Roshan", "A sprout! %d seed(s) to go!" % (furrows.size() - seeds_planted), "hint")
+	_update_hud()
+
+func _tick_plant(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	var down: bool = bool(m.touch_ui.drag_mode) and bool(m.touch_ui.drag_active)
+	var p: Vector2 = m.touch_ui.drag_pos
+	if down:
+		if seed_held < 0:
+			var best := -1
+			var best_d := 130.0
+			for f: Dictionary in furrows:
+				if bool(f["planted"]):
+					continue
+				var d: float = (f["seed"] as Control).position.distance_to(p)
+				if d < best_d:
+					best_d = d
+					best = int(f["index"])
+			if best >= 0:
+				_plant_grab(best)
+		else:
+			(furrows[seed_held]["seed"] as Control).position = p
+	elif seed_held >= 0:
+		var pick := -1
+		var pick_d := 150.0
+		for f2: Dictionary in furrows:
+			if bool(f2["planted"]):
+				continue
+			var d2: float = (f2["hole"] as Control).position.distance_to(p)
+			if d2 < pick_d:
+				pick_d = d2
+				pick = int(f2["index"])
+		_plant_drop(pick)
+
+func _begin_mud() -> void:
+	# Beat 3: the herd reaches a mud puddle. SWIPE UP to hop each piggy over
+	# it — the only upward flick in the opera, and the splash is the joke.
+	farm_phase = "mud"
+	mud_leaps = 0
+	mud_tracking = false
+	mud_puddle = _panel_circle(farm_root, Vector2(640.0, 500.0), 150.0, Color(0.44, 0.32, 0.24))
+	_panel_circle(mud_puddle, Vector2(40.0, 30.0), 60.0, Color(0.52, 0.38, 0.28))
+	mud_pig = _panel_circle(farm_root, Vector2(420.0, 430.0), 96.0, Color(1.0, 0.72, 0.78))
+	_panel_circle(mud_pig, Vector2(30.0, 34.0), 38.0, Color(0.98, 0.6, 0.68))
+	_set_drag(true)
+	m.show_msg("Roshan", "Mud puddle! SWIPE UP to hop each piggy right over it!", "talk")
+	_update_hud()
+
+func _mud_hop() -> void:
+	if farm_phase != "mud" or mud_pig == null:
+		return
+	mud_leaps += 1
+	progress_t = 0.0
+	mud_tracking = false
+	var jump := mud_pig.create_tween()
+	jump.tween_property(mud_pig, "position", Vector2(760.0, 300.0), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	jump.tween_property(mud_pig, "position", Vector2(900.0, 430.0), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.05 + 0.14 * float(mud_leaps)
+		m.chime.play()
+	if mud_leaps >= MUD_LEAPS:
+		_begin_barn()
+	else:
+		# the next piggy trots up to the edge and waits
+		var back := mud_pig.create_tween()
+		back.tween_interval(0.6)
+		back.tween_property(mud_pig, "position", Vector2(420.0, 430.0), 0.01)
+		m.show_msg("Roshan", "SPLASH — over she goes! %d more piggy(s)!" % (MUD_LEAPS - mud_leaps), "hint")
+	_update_hud()
+
+func _tick_mud(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		mud_tracking = false
+		return
+	var y: float = (m.touch_ui.drag_pos as Vector2).y
+	if not mud_tracking:
+		mud_tracking = true
+		mud_y0 = y
+		return
+	# UPWARD travel only: down is the boxer's duck, up is the piggy's hop
+	if mud_y0 - y >= 48.0:
+		_mud_hop()
+
+func _begin_barn() -> void:
+	# Beat 4: sunset, the barn gate swings wide, and the herd is shooed home
+	# with a back-and-forth SCRUB — a sweeping motion, not another drag.
+	farm_phase = "barn"
+	barn_scrub = 0.0
+	barn_have_x = false
+	if mud_puddle != null:
+		mud_puddle.visible = false
+	if mud_pig != null:
+		mud_pig.visible = false
+	barn_gate = _panel_circle(farm_root, Vector2(1080.0, 420.0), 130.0, Color(0.78, 0.34, 0.32))
+	_panel_circle(barn_gate, Vector2(40.0, 60.0), 70.0, Color(0.94, 0.86, 0.72))
+	_set_drag(true)
+	m.show_msg("Roshan", "Sunset! SWEEP your finger back and forth to shoo everyone home to the barn.", "talk")
+	_update_hud()
+
+func _barn_sweep(d: float) -> void:
+	if farm_phase != "barn":
+		return
+	barn_scrub += absf(d)
+	progress_t = 0.0
+	if barn_gate != null:
+		barn_gate.rotation = clampf(barn_scrub / BARN_SCRUB, 0.0, 1.0) * 0.7
+	if barn_scrub < BARN_SCRUB:
+		return
+	farm_phase = "done"
+	for pig in piggies:
+		var node := pig["node"] as Control
+		var home := node.create_tween()
+		home.tween_property(node, "position", Vector2(1080.0, 420.0), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	m.show_msg("Roshan", "Everyone's home and full of snacks — what a picnic!", "win")
+	_win()
+
+func _tick_barn(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		barn_have_x = false
+		return
+	var x: float = (m.touch_ui.drag_pos as Vector2).x
+	if not barn_have_x:
+		barn_have_x = true
+		barn_last_x = x
+		return
+	var d := x - barn_last_x
+	barn_last_x = x
+	_barn_sweep(d)
+
 func _tick_farm(delta: float) -> void:
+	if farm_phase == "plant":
+		_tick_plant(delta)
+		return
+	if farm_phase == "mud":
+		_tick_mud(delta)
+		return
+	if farm_phase == "barn":
+		_tick_barn(delta)
+		return
+	if farm_phase == "done":
+		return
 	if farm_aim.is_empty():
 		_farm_arm()
 	# the slingshot: drag back from Roshan, release to lob
@@ -4828,7 +5048,7 @@ func _farm_feed(best: int) -> void:
 	farm_fed += 1
 	progress_t = 0.0
 	if farm_fed >= piggies.size():
-		_win()
+		_begin_mud()
 	else:
 		_update_hud()
 
@@ -5796,7 +6016,15 @@ func _update_hud() -> void:
 				_:
 					objective.text = tag + "🩺  All better!"
 		"scroll":
-			objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
+			match farm_phase:
+				"plant":
+					objective.text = tag + "🌱  DRAG each seed into a hole!  %d / %d" % [seeds_planted, furrows.size()]
+				"mud":
+					objective.text = tag + "🐽  SWIPE UP to hop over the mud!  %d / %d" % [mud_leaps, MUD_LEAPS]
+				"barn":
+					objective.text = tag + "🏠  SWEEP back and forth to shoo them home!  %d%%" % int(clampf(barn_scrub / BARN_SCRUB, 0.0, 1.0) * 100.0)
+				_:
+					objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
 		"race":
 			objective.text = tag + "🏁  Race the Opera Grand Prix!"
 		"dance":
@@ -5926,7 +6154,7 @@ func action_label() -> String:
 		"sleuth":
 			return "NAME" if board_phase == "name" else "LOOK"
 		"scroll":
-			return "LOB"
+			return "LOB" if farm_phase == "feed" else "SWIPE"
 		"race":
 			if kart != null:
 				return String(kart.call("action_label"))
