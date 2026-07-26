@@ -155,6 +155,22 @@ sessions. The mandatory human/device pass below owns that claim.
 8. Final independent adversarial re-review found no remaining high- or
    medium-severity touch defect in the diff. Human tablet/child sign-off
    remains outstanding by design.
+9. (2026-07-26) A fourth independent stress test rejected four defects and
+   they are now fixed with dedicated regressions: (a) the pink action button
+   was a plain Control Button, deaf to any second finger while the stick was
+   held — the router now claims raw ScreenTouch presses inside the action
+   zone itself; (b) assisted travel arrived horizontally while readiness
+   weighted vertical offset, wedging elevated targets (Butterfly portal,
+   penguin floe) in a "Tap again!" loop — arrival/stall now share the
+   readiness metric and the swim medium gained a vertical steering assist;
+   (c) pause -> Leave during the tuck-in leaked the "sleep" input block,
+   deadening all touch until app restart — _exit_level2_now unwinds the
+   cutscene; (d) the companion sparring den still auto-started by proximity
+   in Hybrid — it is now a registered "reef:den" tap target and the walk-in
+   start is Classic-only. Known remaining gate caveats, accepted for now:
+   the ALL-25-CLEAR banner is not itself grepped by ci.sh (the per-run FAIL
+   lines are), and most probe activations bypass the real Viewport input
+   path — Control-occlusion class bugs still need the device pass below.
 
 Local desktop validation uses the owner's installed
 `Godot_v4.7-dev2_win64_console.exe`. CI remains the compatibility authority for

@@ -68,10 +68,17 @@ func on_world_touch(screen_pos: Vector2) -> void:
 func mark_ready(interactable_id: String) -> void:
 	if interactable_id != m.touch_focus_id:
 		return
-	m.touch_focus_ready = true
 	var focused: Dictionary = _find(interactable_id)
-	if not focused.is_empty():
-		m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+	if focused.is_empty():
+		return
+	# Arrival and readiness share one metric, but the target may have drifted
+	# while she swam. Never announce a pink button that tick() will disable on
+	# the very next frame — that reads as a broken toy to a four-year-old.
+	if m.player != null and _distance_to(m.player.position, _position(focused)) > float(focused.get("activation_radius", 5.0)):
+		m.show_msg(String(focused.get("label", "Roshan")), "Almost! Use the left circle to get closer!", "hint")
+		return
+	m.touch_focus_ready = true
+	m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
 
 func clear_focus() -> void:
 	m.touch_focus_id = ""
@@ -151,8 +158,9 @@ func _position(item: Dictionary) -> Vector3:
 	return item.get("pos", Vector3.ZERO) as Vector3
 
 func _distance_to(a: Vector3, b: Vector3) -> float:
+	# Shared with TapMoveDirector: arrival must satisfy this exact metric.
 	var horizontal: float = Vector2(a.x - b.x, a.z - b.z).length()
-	var vertical: float = absf(a.y - b.y) * 0.35
+	var vertical: float = absf(a.y - b.y) * TapMoveDirector.VERTICAL_WEIGHT
 	return horizontal + vertical
 
 func _build_visuals() -> void:

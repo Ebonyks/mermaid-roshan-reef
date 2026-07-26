@@ -7,6 +7,11 @@ extends RefCounted
 const ARRIVAL_DISTANCE := 2.8
 const STALL_WINDOW := 1.15
 const MAX_RECOVERIES := 2
+# Readiness in InteractionDirector discounts vertical offset by this weight.
+# Arrival and stall tracking for interactable routes MUST use the same metric,
+# or assisted travel stops at a spot the readiness check rejects and the child
+# is told "Tap again!" forever (the elevated-portal wedge).
+const VERTICAL_WEIGHT := 0.35
 
 var m: ReefMain
 
@@ -22,7 +27,7 @@ func start(target: Vector3, interactable_id: String = "", activation_radius: flo
 	m.touch_auto_waypoint = Vector3.ZERO
 	m.touch_auto_interactable = interactable_id
 	m.touch_auto_activation_radius = maxf(activation_radius, ARRIVAL_DISTANCE)
-	m.touch_auto_last_distance = _horizontal_distance(m.player.position, clamped_target)
+	m.touch_auto_last_distance = _route_distance(m.player.position, clamped_target)
 	m.touch_auto_stall_t = 0.0
 	m.touch_auto_recoveries = 0
 
@@ -60,15 +65,17 @@ func tick(delta: float) -> void:
 	if not m.touch_auto_active or m.player == null:
 		return
 	var target: Vector3 = _steering_target()
-	var distance: float = _horizontal_distance(m.player.position, target)
-	if m.touch_auto_waypoint != Vector3.ZERO and distance <= ARRIVAL_DISTANCE:
+	if m.touch_auto_waypoint != Vector3.ZERO and _horizontal_distance(m.player.position, target) <= ARRIVAL_DISTANCE:
 		m.touch_auto_waypoint = Vector3.ZERO
-		m.touch_auto_last_distance = _horizontal_distance(m.player.position, m.touch_auto_target)
+		m.touch_auto_last_distance = _route_distance(m.player.position, m.touch_auto_target)
 		m.touch_auto_stall_t = 0.0
 		return
+	var distance: float = _route_distance(m.player.position, target)
 	var arrival: float = ARRIVAL_DISTANCE
 	if not m.touch_auto_interactable.is_empty():
-		arrival = maxf(ARRIVAL_DISTANCE, m.touch_auto_activation_radius * 0.72)
+		# 0.9: strictly inside the readiness boundary (weighted distance <=
+		# activation radius), so declaring arrival always yields a live button
+		arrival = maxf(ARRIVAL_DISTANCE, m.touch_auto_activation_radius * 0.9)
 	if m.touch_auto_waypoint == Vector3.ZERO and distance <= arrival:
 		var arrived_id: String = m.touch_auto_interactable
 		m.touch_auto_active = false
@@ -107,8 +114,28 @@ func desired_direction() -> Vector3:
 	direction.y = 0.0
 	return direction.normalized() if direction.length() > 0.01 else Vector3.ZERO
 
+func desired_vertical() -> float:
+	# Vertical steering intention in units/s toward the FINAL target. Elevated
+	# interactables (Butterfly portal, penguin floe) are unreachable by yaw/fwd
+	# steering alone. player.gd applies this only in the swim medium — on dry
+	# land or breached above the surface it is ignored, and a blocked climb
+	# degrades into the normal stall -> recovery -> friendly cancel path.
+	if not m.touch_auto_active or m.player == null or m.touch_auto_interactable.is_empty():
+		return 0.0
+	var dy: float = m.touch_auto_target.y - m.player.position.y
+	if absf(dy) < 1.2:
+		return 0.0
+	return clampf(dy * 0.8, -7.0, 9.0)
+
 func _steering_target() -> Vector3:
 	return m.touch_auto_waypoint if m.touch_auto_waypoint != Vector3.ZERO else m.touch_auto_target
+
+func _route_distance(a: Vector3, b: Vector3) -> float:
+	# Interactable routes progress in the same weighted metric readiness uses;
+	# open-space swims stay purely horizontal (their target y is the tap plane).
+	if m.touch_auto_interactable.is_empty():
+		return _horizontal_distance(a, b)
+	return _horizontal_distance(a, b) + absf(a.y - b.y) * VERTICAL_WEIGHT
 
 func _clamp_target(target: Vector3) -> Vector3:
 	var center := Vector2.ZERO

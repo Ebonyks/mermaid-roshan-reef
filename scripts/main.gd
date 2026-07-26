@@ -2637,6 +2637,9 @@ func _start_stuffie_battle() -> void:
 	# den keeps serving rounds in rotation (replayable, no dead end)
 	if stuffie_game != null or companion_id == "" or companion_resting:
 		return
+	# The battle swaps the mode with no fade, so stale focus/assisted travel
+	# must not survive into (or past) it.
+	_prepare_touch_transition()
 	var ladder_index := 0
 	for i in range(StuffieBattle.LADDER.size()):
 		if not bool(stuffie_wins.get(String(StuffieBattle.LADDER[i]["tag"]), false)):
@@ -3441,6 +3444,11 @@ func touch_auto_direction() -> Vector3:
 		return Vector3.ZERO
 	return _tap_move_ref().desired_direction()
 
+func touch_auto_vertical() -> float:
+	if not touch_uses_explicit_interactions():
+		return 0.0
+	return _tap_move_ref().desired_vertical()
+
 func _touch_add_item(id: String, label: String, pos: Vector3,
 		node: Node3D = null, activation_radius: float = 6.0,
 		discover_radius: float = 32.0, verb: String = "PLAY",
@@ -3486,6 +3494,12 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
+		if companion_den != null and is_instance_valid(companion_den) \
+				and companion_id != "" and not companion_resting \
+				and stuffie_game == null and stuffie_cool <= 0.0:
+			# 9.0 matches companion.gd DEN_RADIUS (the Classic walk-in ring)
+			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
+				companion_den, 9.0, 30.0, "PLAY")
 		if portal_node != null and is_instance_valid(portal_node):
 			_touch_add_item("reef:lagoon", "Rainbow Portal", portal_node.position, portal_node, 9.0, 42.0, "ENTER")
 		if ocean_routes_enabled:
@@ -3627,6 +3641,9 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_start_game(brawl_fr)
 		"reef:kart":
 			_start_kart_game(false, "terrain")
+		"reef:den":
+			stuffie_cool = 14.0
+			_start_stuffie_battle()
 		"reef:lagoon":
 			_enter_level2(level2_done_once)
 		"reef:return":
@@ -5758,6 +5775,21 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	if sleep_t >= 0.0:
+		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
+		# hall, so nothing would ever release the "sleep" input block or the
+		# indigo dream overlay — every touch control stays dead until an app
+		# restart. Unwind the cutscene before tearing the world down.
+		sleep_t = -1.0
+		sleep_cool = 6.0
+		sleep_flip_done = false
+		if sleep_layer != null and is_instance_valid(sleep_layer):
+			sleep_layer.queue_free()
+		sleep_layer = null
+		sleep_overlay = null
+		if player != null:
+			player.rotation_degrees = Vector3.ZERO
+		_set_world_controls_enabled(true, "sleep")
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""

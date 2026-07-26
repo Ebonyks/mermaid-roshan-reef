@@ -62,6 +62,34 @@ func _init() -> void:
 	if bool(main.touch_auto_active):
 		_bad("manual override failed")
 
+	# Fix regression: an ELEVATED target (the penguin floe rides just under the
+	# surface) must become ready through assisted travel. Horizontal-only
+	# steering once stopped short of the vertically-weighted readiness check
+	# and looped "Tap again!" forever.
+	if main.slide_portal_pos == Vector3.ZERO:
+		_bad("penguin floe position unavailable for the elevated approach")
+	else:
+		var floe: Vector3 = main.slide_portal_pos
+		main.player.position = Vector3(floe.x + 9.0, floe.y - 26.0, floe.z)
+		main.player.vel = Vector3.ZERO
+		main._populate_touch_interactables()
+		main.touch_focus_id = "reef:slide"
+		main.touch_focus_ready = false
+		main._tap_move_ref().start(floe, "reef:slide", 14.0)
+		var previous_scale: float = Engine.time_scale
+		Engine.time_scale = 1.0
+		var climb_start_y: float = main.player.position.y
+		var deadline: int = Time.get_ticks_msec() + 12000
+		while Time.get_ticks_msec() < deadline and not main.touch_focus_ready:
+			await process_frame
+		Engine.time_scale = previous_scale
+		if not main.touch_focus_ready:
+			_bad("elevated floe never became ready (vertical approach wedge)")
+		if main.player.position.y - climb_start_y < 4.0:
+			_bad("assisted travel did not climb toward the elevated floe")
+		main._tap_move_ref().cancel("probe")
+		main._interaction_ref().clear_focus()
+
 	# Build the two navigation-heavy zones and assert that each important verb
 	# has a touch target. This catches hidden-floor regressions without relying
 	# on a camera-perfect scripted swim.
@@ -179,6 +207,45 @@ func _init() -> void:
 	if main.fade_rect != null and main.fade_rect.mouse_filter != Control.MOUSE_FILTER_STOP:
 		_bad("fade cover did not claim touches during transition")
 	await _frames(8)
+
+	# Fix regression: leaving the castle mid-tuck-in (pause -> "Leave") must
+	# unwind the sleep cutscene. Its reason-keyed "sleep" input block once
+	# leaked and left every touch control dead until an app restart.
+	main._enter_castle_interior_now(false)
+	await _frames(12)
+	main._begin_sleep()
+	if main.touch_ui.world_controls_enabled:
+		_bad("tuck-in did not take the sleep input block")
+	main._exit_level2_now()
+	await _frames(4)
+	if not main.touch_ui.world_controls_enabled:
+		_bad("leaving mid-sleep left touch controls dead (sleep block leak)")
+	if float(main.sleep_t) >= 0.0 or main.sleep_layer != null:
+		_bad("leaving mid-sleep left cutscene state armed")
+
+	# Fix regression (Hybrid contract): the sparring den may advertise by
+	# proximity but must start ONLY from its explicit tap target.
+	main.companion_id = "eagle"
+	main.companion_resting = false
+	main.stuffie_cool = 0.0
+	await _frames(30)
+	if main.companion_den == null or not is_instance_valid(main.companion_den):
+		_bad("companion den never built for the contract check")
+	else:
+		main.player.position = main.companion_den.position + Vector3(1.0, 1.0, 0.0)
+		main.player.vel = Vector3.ZERO
+		await _frames(20)
+		if main.game != "":
+			_bad("Hybrid proximity auto-started the sparring battle")
+		main._populate_touch_interactables()
+		if not _ids().has("reef:den"):
+			_bad("sparring den is not an explicit touch target in Hybrid")
+		main._activate_touch_interactable("reef:den")
+		await _frames(4)
+		if main.game != "stuffie":
+			_bad("explicit den target did not start the battle")
+		if bool(main.touch_auto_active) or not main.touch_focus_id.is_empty():
+			_bad("battle start kept stale focus/assisted travel")
 
 	main._set_touch_mode("classic", false)
 	if main.touch_uses_explicit_interactions() or main.touch_auto_active:

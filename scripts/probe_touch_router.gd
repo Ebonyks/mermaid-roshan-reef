@@ -59,6 +59,24 @@ func _init() -> void:
 	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
 		_bad("non-transition activation stole held movement")
 
+	# Fix regression: the pink action target must hear a SECOND finger while
+	# the stick is held. A Control Button only receives the first finger
+	# (mouse-from-touch emulation), so the router claims raw ScreenTouch
+	# presses inside the action zone itself.
+	touch.consume_action()
+	var action_center: Vector2 = touch.action_zone().get_center()
+	_down(6, action_center)
+	await process_frame
+	if not bool(touch.action_down) or not bool(touch.action_just):
+		_bad("second-finger action press was dropped while the stick was held")
+	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
+		_bad("second-finger action press stole the held stick")
+	_up(6, action_center)
+	await process_frame
+	if bool(touch.action_down):
+		_bad("action button stayed held after second-finger release")
+	touch.consume_action()
+
 	# A swipe over the world is neither a tap command nor leaked finger state.
 	var tap_count_before_drag: int = taps.size()
 	_down(4, world_pos + Vector2(-40.0, 0.0))

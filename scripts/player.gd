@@ -1033,6 +1033,14 @@ func _process(delta: float) -> void:
 			turn = clampf(yaw_error * 2.0, -2.4, 2.4)
 			if absf(yaw_error) < 2.6:
 				fwd = clampf(1.0 - absf(yaw_error) / 2.6, 0.18, 1.0)
+		# Elevated targets (portals, the penguin floe) need a climb/dive the
+		# yaw/fwd steering above cannot give. Swim medium only: on dry land she
+		# hops and breached in air she is ballistic — both keep their existing
+		# rules, and the stall recovery owns whatever stays unreachable.
+		if m0.has_method("touch_auto_vertical") and not land_dry and not (String(m0.game) == "" and position.y > WATER_TOP):
+			var want_vy: float = m0.touch_auto_vertical()
+			if absf(want_vy) > 0.05:
+				vel.y = move_toward(vel.y, want_vy, 52.0 * delta)
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true

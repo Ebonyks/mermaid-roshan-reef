@@ -35,6 +35,7 @@ var _btn: Button
 var _act_button: Button = null
 var _touch_idx := -1
 var _jump_fingers := {}
+var _action_fingers := {}
 var _pend := {}
 var _world_pend := {}
 var _look_idx := -1
@@ -98,11 +99,16 @@ func _ready() -> void:
 	_btn.visible = false
 	_root.add_child(_btn)
 	# A 176 px real hit target surrounds the 156 px visible action bubble.
-	# Classic mode disables this Control and keeps the original all-screen tap.
+	# Classic mode hides this Control and keeps the original all-screen tap.
+	# The rect is only an anchor/affordance: presses are claimed from raw
+	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
+	# hears the FIRST finger (mouse-from-touch emulation) — a second finger
+	# pressed while the stick is held would otherwise be silently dropped.
 	if wants_touch():
 		_act_button = Button.new()
 		_act_button.flat = true
 		_act_button.focus_mode = Control.FOCUS_NONE
+		_act_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_act_button.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 		_act_button.offset_left = -204.0
 		_act_button.offset_top = -224.0
@@ -111,8 +117,6 @@ func _ready() -> void:
 		var empty := StyleBoxEmpty.new()
 		for style_name: String in ["normal", "hover", "pressed", "focus"]:
 			_act_button.add_theme_stylebox_override(style_name, empty)
-		_act_button.button_down.connect(_on_action_button_down)
-		_act_button.button_up.connect(_on_action_button_up)
 		_root.add_child(_act_button)
 		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.42), 78.0)
 		_act_vis.position = Vector2(10.0, 10.0)
@@ -133,7 +137,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _pulse > 0.0:
 		_pulse -= delta
-		if _pulse <= 0.0 and _jump_fingers.is_empty() and not (_act_button != null and _act_button.button_pressed):
+		if _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():
 			action_down = false
 	# This classification is intentionally Classic-only. Hybrid gives the
 	# right-side action button and the world tap separate ownership.
@@ -272,6 +276,7 @@ func _clear_touch_state() -> void:
 	_touch_idx = -1
 	_look_idx = -1
 	_jump_fingers.clear()
+	_action_fingers.clear()
 	_pend.clear()
 	_world_pend.clear()
 	touch_owners.clear()
@@ -290,7 +295,6 @@ func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.mouse_filter = Control.MOUSE_FILTER_STOP if control_mode == "hybrid" and world_controls_enabled else Control.MOUSE_FILTER_IGNORE
 		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
 
 func set_world_controls_enabled(enabled: bool) -> void:
@@ -302,7 +306,6 @@ func set_world_controls_enabled(enabled: bool) -> void:
 	_clear_touch_state()
 	if _act_button != null:
 		_act_button.visible = enabled and control_mode == "hybrid"
-		_act_button.mouse_filter = Control.MOUSE_FILTER_STOP if enabled and control_mode == "hybrid" else Control.MOUSE_FILTER_IGNORE
 
 func cancel_all_touches() -> void:
 	_clear_touch_state()
@@ -359,11 +362,26 @@ func _unhandled_input(ev: InputEvent) -> void:
 	else:
 		_classic_unhandled_input(ev)
 
+func _action_hit(pos: Vector2) -> bool:
+	return _act_button != null and _act_button.visible and action_zone().has_point(pos)
+
+func _claim_action(finger_index: int) -> void:
+	touch_owners[finger_index] = TouchOwner.ACTION
+	_action_fingers[finger_index] = true
+	_on_action_button_down()
+
+func _release_action(finger_index: int) -> void:
+	_action_fingers.erase(finger_index)
+	if _action_fingers.is_empty():
+		_on_action_button_up()
+
 func _hybrid_unhandled_input(ev: InputEvent) -> void:
 	if ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
 		if touch.pressed:
-			if _touch_idx == -1 and movement_zone().has_point(touch.position):
+			if _action_hit(touch.position):
+				_claim_action(touch.index)
+			elif _touch_idx == -1 and movement_zone().has_point(touch.position):
 				touch_owners[touch.index] = TouchOwner.STICK
 				_press(touch.position, touch.index)
 			else:
@@ -373,6 +391,8 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and touch.index == _touch_idx:
 				_release_stick()
+			elif owner == TouchOwner.ACTION:
+				_release_action(touch.index)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
@@ -395,7 +415,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION or mouse_button.button_index != MOUSE_BUTTON_LEFT:
 			return
 		if mouse_button.pressed:
-			if _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
+			if _action_hit(mouse_button.position):
+				_claim_action(99)
+			elif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
 				touch_owners[99] = TouchOwner.STICK
 				_press(mouse_button.position, 99)
 			else:
@@ -405,6 +427,8 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and _touch_idx == 99:
 				_release_stick()
+			elif owner == TouchOwner.ACTION:
+				_release_action(99)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
