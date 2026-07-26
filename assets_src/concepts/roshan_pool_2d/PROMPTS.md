@@ -23,28 +23,28 @@ Reference images:
 
 Final prompt:
 
-> Use case: stylized-concept  
+> Use case: stylized-concept
 > Asset type: 4-by-4 game sprite atlas for Mermaid Roshan's Olympic swimming
-> pool; 16 independently usable ambient reef and sea-creature cutouts  
+> pool; 16 independently usable ambient reef and sea-creature cutouts
 > Input images: Image 1 is the primary Sky Lagoon shape, palette, and
 > toy-playset style reference; Image 2 is a secondary Pearl Castle
 > Mobile-render palette and cel-outline reference. Use both as style references
-> only; do not copy or edit either image.  
+> only; do not copy or edit either image.
 > Primary request: create exactly sixteen original, child-friendly underwater
 > pool decorations in a strict four-column by four-row grid. Row 1: branching
 > coral cluster, lavender fan coral, aqua-and-gold tube coral, peach brain coral
 > with shells. Row 2: orange clownfish, golden seahorse, turquoise-blue sea
 > turtle, lavender manta ray. Row 3: lilac jellyfish, coral starfish with tiny
 > shells, coral-red crab, violet octopus. Row 4: blue-and-gold angelfish, peach
-> pufferfish, pearl oyster garden, shell-and-coral arch with bubble accents.  
+> pufferfish, pearl oyster garden, shell-and-coral arch with bubble accents.
 > Scene/backdrop: perfectly flat solid #00ff00 chroma-key background for local
-> removal; visible gutters between all sixteen cells.  
+> removal; visible gutters between all sixteen cells.
 > Style/medium: polished storybook game cutouts, rounded toy-like volumes, broad
 > cel bands, thin navy-purple outlines, pastel aqua/lavender/coral/gold palette,
-> matte-to-satin finish, readable at phone size.  
+> matte-to-satin finish, readable at phone size.
 > Composition/framing: exact 4x4 grid; one complete isolated subject centered
 > in each equal square cell; consistent apparent scale; generous padding; every
-> silhouette fully contained; nothing crosses a cell boundary.  
+> silhouette fully contained; nothing crosses a cell boundary.
 > Constraints: background must be one perfectly uniform #00ff00 with no
 > shadows, gradients, texture, reflections, floor plane, vignette, or lighting
 > variation. Do not use #00ff00 or bright green anywhere in any subject. No
@@ -156,13 +156,13 @@ Reference images:
 
 Final prompt:
 
-> Use case: stylized-concept  
+> Use case: stylized-concept
 > Asset type: 4-by-4 game sprite atlas for ambient Pacific Northwest marsh
-> flora and wet-bank details in Sky Lagoon; 16 independently usable cutouts  
+> flora and wet-bank details in Sky Lagoon; 16 independently usable cutouts
 > Input images: Image 1 is the primary Sky Lagoon toy-playset palette,
 > material, and shape-language reference; Image 2 is the accepted PNW
 > flat-prototype silhouette and planted-base reference. Use both as style
-> references only; do not copy or edit either image.  
+> references only; do not copy or edit either image.
 > Primary request: create exactly sixteen original, child-friendly PNW wetland
 > decorations in a strict four-column by four-row grid. Row 1: cattail clump,
 > slough-sedge mound, tufted hairgrass, softstem bulrush cluster. Row 2: western
@@ -170,17 +170,17 @@ Final prompt:
 > water-lily pads with white blossoms, golden marsh-marigold cluster, mossy
 > nurse log, mossy cedar stump. Row 4: rounded river stones with moss, reed
 > seed-head cluster, low bog-cranberry groundcover with red berries, blue
-> western iris cluster.  
+> western iris cluster.
 > Scene/backdrop: perfectly flat solid #ff00ff chroma-key background for local
-> removal; visible gutters between all sixteen cells.  
+> removal; visible gutters between all sixteen cells.
 > Style/medium: polished storybook game cutouts, rounded toy-like volumes, broad
 > cel bands, thin navy-purple outlines, cool jade/teal/sage foliage with warm
 > coral/gold botanical accents, matte-to-satin finish, readable at phone size
-> and coherent with the accepted Sky Lagoon family.  
+> and coherent with the accepted Sky Lagoon family.
 > Composition/framing: exact 4x4 grid; one complete isolated subject centered
 > in each equal square cell; consistent apparent scale; compact grounded bases;
 > generous padding; every silhouette fully contained; nothing crosses a cell
-> boundary.  
+> boundary.
 > Constraints: background must be one perfectly uniform #ff00ff with no
 > shadows, gradients, texture, reflections, floor plane, vignette, or lighting
 > variation. Do not use #ff00ff or hot magenta anywhere in any subject. No cast
