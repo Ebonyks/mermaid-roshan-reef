@@ -2757,6 +2757,13 @@ func _begin_pipe() -> void:
 	_update_hud()
 
 func _tick_pipe(delta: float) -> void:
+	# completion first, outside the drag gate: the last bead may land on the
+	# frame the finger lifts, and the ring must still close
+	if pipe_trace >= pipe_dots.size():
+		if m.touch_ui != null:
+			_set_drag(false)
+		_open_decorate()
+		return
 	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
 	if not active or cam == null:
 		return
@@ -3923,12 +3930,23 @@ func _pipe_cell_at(row: int, col: int) -> int:
 	return row * PIPE_COLS + col
 
 func _pipe_place(idx: int) -> void:
-	# drop the front piece into an empty cell
+	# drop the front piece into an empty cell — or swap out a piece the
+	# bubbles have not flowed through yet. Without the swap, a wrong pipe
+	# laid on the glowing square bricked the path forever (the leak waited
+	# on a cell that could never be re-laid): a fail state wearing a leak's
+	# clothes. Cells the bubbles already filled stay locked.
 	if idx < 0 or idx >= pipe_cells.size() or pipe_queue.is_empty():
 		return
 	var cell: Dictionary = pipe_cells[idx]
 	if String(cell["shape"]) != "":
-		return
+		if pipe_filled.has(idx):
+			_wobble(cell["node"] as Node3D)
+			return
+		var old := cell["node"] as Node3D
+		if old != null:
+			m._sparkle_burst(old.position, Color(0.85, 0.9, 1.0))
+			old.queue_free()
+		cell["node"] = null
 	var shape: String = pipe_queue.pop_front()
 	cell["shape"] = shape
 	cell["node"] = _pipe_piece_node(shape, cell["pos"] as Vector3, true)
@@ -4418,13 +4436,16 @@ func _tick_belt(delta: float) -> void:
 					best_d = d
 					best = i
 			sort_held = best
-	elif sort_held >= 0:
+	elif sort_held >= 0 and not hold_sim:
+		# hold_sim is the probe's finger: while it is down the carry belongs to
+		# the driver, exactly like a real drag — real play never sets it
 		_sort_drop()
 	for i in range(belt_items.size()):
 		var it: Dictionary = belt_items[i]
 		var node := it["node"] as Node3D
 		if i == sort_held:
-			node.position = node.position.lerp(sort_pos + Vector3(0, 1.2, 0), clampf(delta * 12.0, 0.0, 1.0))
+			if not hold_sim:
+				node.position = node.position.lerp(sort_pos + Vector3(0, 1.2, 0), clampf(delta * 12.0, 0.0, 1.0))
 			continue
 		it["x"] = float(it["x"]) + belt_speed * delta
 		if float(it["x"]) > BELT_X1:

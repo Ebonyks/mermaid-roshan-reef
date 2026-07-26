@@ -462,24 +462,31 @@ func _drive_press(act: OperaAct, dt: float) -> void:
 			act._parade_action()
 		return
 	# the persona grabs the front candy, carries it to a chute and drops it,
-	# sometimes into the wrong one
+	# sometimes into the wrong one. The reaction cost is paid at the GRAB;
+	# once the finger is down the drag is continuous, like the stir and the
+	# fill — the old one-step-per-reaction carry could never outrun the belt
+	# for any persona slower than speedy (step 13*speed*dt vs the 1.0 gap
+	# between belt and chute radius), which is exactly what run 761 measured.
 	if act.belt_items.is_empty():
 		return
-	if not _ready_to_act(dt):
-		return
+	if not (act.sort_held >= 0 and act.hold_sim):
+		if not _ready_to_act(dt):
+			return
+		act.sort_held = 0
+		act.hold_sim = true
 	var it: Dictionary = act.belt_items[0]
 	var want: int = int(it["want"])
 	var choice := _intent(act.chutes.size(), want, 7000 + act.candies_done)
 	var node := it["node"] as Node3D
 	var chute: Vector3 = act.chutes[choice]["pos"] as Vector3
 	# carry it there at the persona's hand speed instead of teleporting
-	act.sort_held = 0
 	var step: float = act.MOVE_SPEED * float(persona["speed"]) * dt
 	var to_chute := chute - node.position
 	if to_chute.length() > step:
 		node.position += to_chute.normalized() * step
 		return
 	node.position = chute
+	act.hold_sim = false
 	act._sort_drop()
 	if choice != want:
 		_intent_learned(want)
@@ -679,14 +686,19 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 	var want := act.pipe_flow_cell
 	if want < 0:
 		want = act._pipe_cell_at(act.PIPE_START_ROW, 0)
-	if want < 0 or String(act.pipe_cells[want]["shape"]) != "":
+	# bubbles parked at an occupied square means the piece there is WRONG —
+	# the act now allows laying the front piece straight over it, so the
+	# persona does what a real child does: slap a new pipe on the leak
+	var swap: bool = want >= 0 and want == act.pipe_flow_cell \
+		and String(act.pipe_cells[want]["shape"]) != ""
+	if not swap and (want < 0 or String(act.pipe_cells[want]["shape"]) != ""):
 		# the head is already piped; look along the row for the next gap
 		for c in range(act.PIPE_COLS):
 			var idx: int = act._pipe_cell_at(act.PIPE_START_ROW, c)
 			if idx >= 0 and String(act.pipe_cells[idx]["shape"]) == "":
 				want = idx
 				break
-	if want < 0 or String(act.pipe_cells[want]["shape"]) != "":
+	if want < 0 or (not swap and String(act.pipe_cells[want]["shape"]) != ""):
 		return
 	# a careless child sometimes lays a corner where a straight was needed
 	if randf() > float(persona["err"]):
