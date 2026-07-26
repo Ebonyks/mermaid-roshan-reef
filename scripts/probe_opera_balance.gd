@@ -724,9 +724,14 @@ func _drive_fix(act: OperaAct, dt: float) -> void:
 func _drive_boss(act: OperaAct, dt: float) -> void:
 	var phase := String(act.boss["phase"])
 	if phase == "shadow":
+		# SHINE is a charge now: swim to the lantern and hold the beam full
 		var lant: Dictionary = act.lanterns[act.lantern_i]
-		if _travel(act, lant["pos"] as Vector3, dt) and _ready_to_act(dt):
-			act._light_lantern()
+		if _travel(act, lant["pos"] as Vector3, dt) and (act.hold_sim or _ready_to_act(dt)):
+			act.hold_sim = true
+		return
+	if phase == "roar":
+		# nothing lands during the roar — a child drifts closer and waits
+		_travel(act, (act.boss["node"] as Node3D).position, dt)
 		return
 	if phase == "peek":
 		var bpos: Vector3 = (act.boss["node"] as Node3D).position

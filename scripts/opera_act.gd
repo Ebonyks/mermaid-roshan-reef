@@ -432,6 +432,10 @@ var dance_encore_done := false     # the freed band buy one extra verse, once
 var boss: Dictionary = {}
 var lanterns: Array[Dictionary] = []
 var lantern_i := 0
+# SHINE is a charge, not a tap: hold (or patter-tap) beside the twinkling
+# lantern while the beam fills. "Hold the light steady on him!"
+var lantern_charge := 0.0
+const LANTERN_CHARGE := 1.4
 var puffs: Array[Dictionary] = []
 var bump_cool := 0.0
 var spotlight: Node3D = null
@@ -5444,8 +5448,9 @@ func _build_boss() -> void:
 	if dual:
 		root.position = boss["home"] as Vector3
 		root.scale = Vector3.ONE * 0.85
-		for i in range(3):
-			var lp := CENTER + Vector3(-14.0 + float(i) * 14.0, 1.0, -7.0)
+		var lantern_n := int(config.get("lanterns", 3))
+		for i in range(lantern_n):
+			var lp := CENTER + Vector3(-18.0 + float(i) * (36.0 / maxf(1.0, float(lantern_n - 1))), 1.0, -7.0)
 			var lroot := Node3D.new()
 			lroot.name = "OperaLantern%d" % i
 			lroot.position = lp
@@ -5470,11 +5475,27 @@ func _build_boss() -> void:
 		sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		spotlight.visible = false
 
+func _lantern_shine_tap() -> void:
+	# a SHINE tap is a burst of charge, not the whole light: patter-tapping
+	# and holding both fill the beam, so no finger style is wrong
+	if state != "play" or kind != "boss" or String(boss.get("phase", "")) != "shadow":
+		return
+	var lant: Dictionary = lanterns[lantern_i]
+	if (lant["pos"] as Vector3).distance_to(player_pos) >= 5.5:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+		return
+	lantern_charge += 0.45
+	m._sparkle_burst((lant["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(1.0, 0.92, 0.6))
+	if lantern_charge >= LANTERN_CHARGE:
+		_light_lantern()
+
 func _light_lantern() -> void:
 	if state != "play" or kind != "boss" or not bool(boss.get("dual", false)):
 		return
 	if String(boss["phase"]) != "shadow":
 		return
+	lantern_charge = 0.0
+	hold_sim = false
 	var lant: Dictionary = lanterns[lantern_i]
 	lant["lit"] = true
 	var lit_mat := (lant["glass"] as MeshInstance3D).material_override as StandardMaterial3D
@@ -5535,13 +5556,24 @@ func _hit_boss() -> void:
 	elif bool(boss.get("dual", false)):
 		boss["phase"] = "shadow"
 		boss["timer"] = float(config.get("hide_time", 2.0))
+		lantern_charge = 0.0
 		lantern_i = (lantern_i + 1) % lanterns.size()
 		if spotlight != null:
 			spotlight.visible = false
 		m.show_msg("Roshan", "He slipped back into the shadows! Find the twinkling lantern!", "talk")
 	else:
-		boss["phase"] = "hide"
-		boss["timer"] = float(config.get("hide_time", 2.2))
+		# every fourth star the dragon ROARS: he rears up puffing (watch, you
+		# cannot hit him) and then flops down dizzy for one easy close-up star.
+		# A watch-then-act breath in the whack-a-mole, not more of the same.
+		var stars_done := int(config.get("boss_hp", 3)) - int(boss["hp"])
+		if stars_done > 0 and stars_done % 4 == 0:
+			boss["phase"] = "roar"
+			boss["timer"] = 3.2
+			boss["attack"] = 0.6
+			m.show_msg("Roshan", "Uh oh, a big grumbly ROAR! Wait for him to get dizzy!", "talk")
+		else:
+			boss["phase"] = "hide"
+			boss["timer"] = float(config.get("hide_time", 2.2))
 	_update_hud()
 
 func _tick_boss(delta: float) -> void:
@@ -5569,6 +5601,24 @@ func _tick_boss(delta: float) -> void:
 			boss["timer"] = float(config.get("peek_time", 4.5)) * (1.0 - 0.2 * float(tier))
 			boss["attack"] = 1.0
 			m._sparkle_burst(new_home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
+	elif phase == "roar":
+		# reared tall mid-stage, puffing steadily — sparkles fizzle (the
+		# _hit_boss peek gate already refuses them), so the child WATCHES
+		root.position = root.position.lerp(home + Vector3(0, 2.2, 0), delta * 4.0)
+		root.rotation.y = sin(elapsed * 6.0) * 0.12
+		if float(boss["attack"]) <= 0.0:
+			boss["attack"] = 0.8
+			_spawn_puff(root.position + Vector3(0, 4.5, 1.5))
+		if float(boss["timer"]) <= 0.0:
+			# ...and flops down dizzy at centre stage: one guaranteed close-up
+			var dizzy_home := Vector3(CENTER.x, home.y, CENTER.z - 8.0)
+			boss["home"] = dizzy_home
+			root.position = dizzy_home
+			boss["phase"] = "peek"
+			boss["timer"] = 6.5
+			boss["attack"] = 999.0   # a dizzy dragon does not puff
+			m._sparkle_burst(dizzy_home + Vector3(0, 5.0, 1.0), Color(1.0, 0.9, 0.5))
+			m.show_msg("Roshan", "He's all dizzy — swim close and SPARKLE now!", "talk")
 	elif phase == "peek":
 		root.position = root.position.lerp(home, delta * 5.0)
 		root.rotation.y = sin(elapsed * 1.6) * 0.2
@@ -5591,11 +5641,22 @@ func _tick_boss(delta: float) -> void:
 				boss["phase"] = "hide"
 				boss["timer"] = float(config.get("hide_time", 2.2))
 	else:
-		# "shadow" (dual only): flicker the target lantern until it is lit
+		# "shadow" (dual only): flicker the target lantern until the beam is
+		# CHARGED — a hold beside the glass fills it, letting go drains it
 		root.position = root.position.lerp(home, delta * 4.0)
 		var lant: Dictionary = lanterns[lantern_i]
 		var flicker_mat := (lant["glass"] as MeshInstance3D).material_override as StandardMaterial3D
-		flicker_mat.emission_energy_multiplier = 0.35 + 0.3 * sin(elapsed * 9.0)
+		flicker_mat.emission_energy_multiplier = 0.35 + 0.3 * sin(elapsed * 9.0) + lantern_charge * 0.8
+		var flat := (lant["pos"] as Vector3) - player_pos
+		flat.y = 0.0
+		if flat.length() < 5.5 and _finger_down():
+			lantern_charge += delta
+			if fmod(lantern_charge, 0.35) < delta:
+				m._sparkle_burst((lant["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.7))
+			if lantern_charge >= LANTERN_CHARGE:
+				_light_lantern()
+		else:
+			lantern_charge = maxf(0.0, lantern_charge - delta * 0.7)
 	_tick_puffs(delta)
 	_update_hud()
 
@@ -5838,11 +5899,7 @@ func _process(delta: float) -> void:
 					_open_dance()
 			"boss":
 				if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
-					var lant: Dictionary = lanterns[lantern_i]
-					if (lant["pos"] as Vector3).distance_to(player_pos) < 5.5:
-						_light_lantern()
-					else:
-						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+					_lantern_shine_tap()
 				else:
 					_fire_star()
 	match kind:
@@ -6269,7 +6326,9 @@ func _update_hud() -> void:
 			for i in range(maxi(0, int(boss.get("hp", 0)))):
 				hearts += "★"
 			if bool(boss.get("dual", false)) and String(boss.get("phase", "")) == "shadow":
-				objective.text = tag + "🏮  Find the twinkling lantern — tap SHINE!  " + hearts
+				objective.text = tag + "🏮  HOLD SHINE by the twinkling lantern!  %d%%  " % int(clampf(lantern_charge / LANTERN_CHARGE, 0.0, 1.0) * 100.0) + hearts
+			elif String(boss.get("phase", "")) == "roar":
+				objective.text = tag + "🐉  A big ROAR! Wait for him to get dizzy...  " + hearts
 			else:
 				objective.text = tag + "✨  Tap SPARKLE when he peeks!  " + hearts
 

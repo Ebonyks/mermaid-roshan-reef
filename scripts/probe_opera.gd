@@ -1091,14 +1091,21 @@ func _drive_boss(act: OperaAct, cfg: Dictionary) -> void:
 		_ck("boss opens hidden in shadow", String(act.boss["phase"]) == "shadow" and act.action_label() == "SHINE")
 		act._hit_boss()
 		_ck("sparkles cannot skip the lantern lesson", int(act.boss["hp"]) == hp)
+		# SHINE is a charge: one tap beside the lantern must NOT light it
+		act.player_pos = act.lanterns[act.lantern_i]["pos"] as Vector3
+		act._lantern_shine_tap()
+		_ck("one SHINE tap no longer lights the lantern",
+			String(act.boss["phase"]) == "shadow" and act.lantern_charge > 0.0)
 	else:
 		_ck("dragon opens hiding in the curtains", String(act.boss["phase"]) == "hide" and act.action_label() == "SPARKLE")
 		_ck("dragon roams five curtain spots when bold", act.peek_spots.size() == 5)
 		act._hit_boss()
 		_ck("sparkles fizzle while he hides", int(act.boss["hp"]) == hp)
 	var modes := {}
+	var saw_roar := false
+	var roar_hp := -1
 	var guard := 0
-	while act.state == "play" and guard < 1500:
+	while act.state == "play" and guard < 3000:
 		guard += 1
 		var phase := String(act.boss["phase"])
 		if phase == "shadow":
@@ -1110,12 +1117,21 @@ func _drive_boss(act: OperaAct, cfg: Dictionary) -> void:
 			if finale:
 				modes[String(act.boss.get("mode", "lantern"))] = true
 			act._hit_boss()
+		elif phase == "roar":
+			if not saw_roar:
+				saw_roar = true
+				roar_hp = int(act.boss["hp"])
+				act._hit_boss()
+				_ck("sparkles fizzle against the ROAR", int(act.boss["hp"]) == roar_hp)
+			await process_frame
 		else:
 			await process_frame
-	_ck("boss act does not stall", guard < 1500)
+	_ck("boss act does not stall", guard < 3000)
 	if finale:
 		_ck("the grand finale remixes lanterns AND curtain chases",
 			bool(modes.get("lantern", false)) and bool(modes.get("roam", false)))
+	if not dual:
+		_ck("every fourth star sends the dragon into a roar", saw_roar)
 
 func _open_door(opera: OperaHouse, act_i: int) -> OperaAct:
 	# stand Roshan on the door's welcome mat; the lobby's own proximity flow
