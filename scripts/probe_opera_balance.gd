@@ -549,6 +549,12 @@ func _drive_sleuth(act: OperaAct, dt: float) -> void:
 		if _travel(act, act.suspects[act.board_culprit]["pos"] as Vector3, dt) and _ready_to_act(dt):
 			act._name_action(act.board_culprit)
 		return
+	if act.board_phase == "trail":
+		# the pawprint trail is plain swimming: head for the live print and
+		# let the act light it on proximity
+		if act.trail_i < act.trail_prints.size():
+			_travel(act, act.trail_prints[act.trail_i]["pos"] as Vector3, dt)
+		return
 	if act.lens_drag:
 		var want := act.goal.position if act.chest_ready else _nearest_unopened(act)
 		var arm := want - act.lens_pos

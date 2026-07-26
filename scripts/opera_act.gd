@@ -313,8 +313,14 @@ var chest_ready := false
 # is the one who borrowed the tiara. Pictures matched to pictures: a deduction
 # a non-reader can actually make. There is no villain — she was borrowing it
 # for the show, which is why the ending is a laugh and not a capture.
-var board_phase := ""              # "" | board | name
+var board_phase := ""              # "" | trail | board | name
 var clue_cards: Array[Dictionary] = []
+# The pawprint trail: the clues point somewhere. Between the chest and the
+# case board she FOLLOWS a line of sparkling prints across the stage — the
+# tracking half of the detective genre, and the one beat in this act that
+# uses her plain swim instead of a drag.
+var trail_prints: Array[Dictionary] = []
+var trail_i := 0
 var suspects: Array[Dictionary] = []
 var board_pinned := 0
 var board_drag := -1               # index of the card riding the finger
@@ -2042,13 +2048,14 @@ func _sleuth_action(idx: int) -> void:
 		if m.chime != null:
 			m.chime.pitch_scale = 1.0 + 0.2 * float(clues_found)
 			m.chime.play()
-		if clues_found >= 3:
+		var clue_goal := int(config.get("clues", 3))
+		if clues_found >= clue_goal:
 			chest_ready = true
 			_job_state(sleuth_chest_art, "StateActive", true)
 			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
-			m.show_msg("Roshan", "All three clues! Now tap the treasure chest to solve the case!", "talk")
+			m.show_msg("Roshan", "Every clue found! Now tap the treasure chest to solve the case!", "talk")
 		else:
-			m.show_msg("Roshan", "A clue! %d more to find!" % (3 - clues_found), "talk")
+			m.show_msg("Roshan", "A clue! %d more to find!" % (clue_goal - clues_found), "talk")
 	else:
 		# a silly fish hides in the wrong boxes — a giggle, never a fail
 		var fish: Node3D = _act_prop("opera_silly_fish.glb", (prop["pos"] as Vector3) + Vector3(0, 2.6, 0))
@@ -2065,7 +2072,7 @@ func _sleuth_action(idx: int) -> void:
 	_update_hud()
 
 func _sleuth_chest() -> void:
-	if state != "play" or kind != "sleuth" or not chest_ready:
+	if state != "play" or kind != "sleuth" or not chest_ready or board_phase != "":
 		return
 	# the tiara reveal: the chest bursts open in gold
 	m._sparkle_burst(goal.position + Vector3(0, 3.5, 0), Color(1.0, 0.9, 0.4))
@@ -2078,7 +2085,58 @@ func _sleuth_chest() -> void:
 		var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
 		var tw := crown.create_tween()
 		tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_begin_board()   # the chest holds the CASE, not the answer
+	_begin_trail()   # the chest holds the CASE, not the answer
+
+func _begin_trail() -> void:
+	# Beat 2: whoever borrowed the tiara left sparkly pawprints. FOLLOW them —
+	# only the next print glows, so the trail is its own pointer and a
+	# non-reader can track it print by print round the stage.
+	board_phase = "trail"
+	trail_i = 0
+	progress_t = 0.0
+	if lens != null:
+		lens.visible = false      # the searching is over; she swims the trail
+	lens_drag = false
+	_set_drag(false)
+	var path: Array[Vector3] = [
+		Vector3(5.0, 0.35, -6.0), Vector3(11.0, 0.35, 0.0), Vector3(12.0, 0.35, 8.0),
+		Vector3(4.0, 0.35, 13.0), Vector3(-6.0, 0.35, 11.0), Vector3(-11.0, 0.35, 3.0),
+	]
+	for i in range(path.size()):
+		var pos := CENTER + path[i]
+		var print_node := _sphere(pos, 0.85, Color(0.65, 0.9, 1.0), 0.25)
+		print_node.scale = Vector3(1.0, 0.28, 1.3)
+		print_node.visible = i == 0
+		trail_prints.append({"index": i, "pos": pos, "node": print_node, "lit": false})
+	m.show_msg("Roshan", "Sparkly pawprints! Somebody carried the tiara this way — FOLLOW the glowing prints!", "talk")
+	_update_hud()
+
+func _tick_trail(delta: float) -> void:
+	if board_phase != "trail":
+		return
+	if trail_i < trail_prints.size():
+		# the live print breathes so it reads as THE one to swim to
+		var cur := trail_prints[trail_i]["node"] as Node3D
+		cur.scale = Vector3(1.0, 0.28, 1.3) * (1.0 + 0.18 * sin(elapsed * 5.0))
+		var flat := (trail_prints[trail_i]["pos"] as Vector3) - player_pos
+		flat.y = 0.0
+		if flat.length() < 3.6:
+			trail_prints[trail_i]["lit"] = true
+			cur.scale = Vector3(1.0, 0.28, 1.3)
+			var mi := cur as MeshInstance3D
+			if mi != null:
+				mi.material_override = _mat(Color(1.0, 0.9, 0.55), 0.9)
+			m._sparkle_burst((trail_prints[trail_i]["pos"] as Vector3) + Vector3(0, 1.4, 0), Color(1.0, 0.9, 0.6))
+			if m.chime != null:
+				m.chime.pitch_scale = 0.9 + 0.09 * float(trail_i)
+				m.chime.play()
+			trail_i += 1
+			progress_t = 0.0
+			if trail_i < trail_prints.size():
+				(trail_prints[trail_i]["node"] as Node3D).visible = true
+	if trail_i >= trail_prints.size():
+		m.show_msg("Roshan", "The trail ends right here — time to lay the clues out on the case board!", "talk")
+		_begin_board()
 
 func _begin_board() -> void:
 	# Beat 2: the case board. Three clue cards, three friends, and each card
@@ -2112,11 +2170,14 @@ func _begin_board() -> void:
 		# the colour bar under each friend: the thing the cards are matched to
 		_box(Vector3(0, -2.4, 0.4), Vector3(4.2, 0.8, 0.25), cols[i], 0.45, root)
 		suspects.append({"index": i, "node": root, "pos": pos, "col": cols[i], "cards": 0})
-	# two clues belong to one friend and one to another, so the board can be
-	# COUNTED rather than read: whoever ends up with the most borrowed it
-	var owners: Array[int] = [board_culprit, board_culprit, (board_culprit + 1) % 3]
-	for i in range(3):
-		var pos2 := CENTER + Vector3(-5.0 + float(i) * 5.0, 2.6, -9.0)
+	# two clues belong to one friend and the rest spread out, so the board can
+	# be COUNTED rather than read: whoever ends up with the most borrowed it
+	var card_n := int(config.get("clues", 3))
+	var owners: Array[int] = [board_culprit, board_culprit]
+	while owners.size() < card_n:
+		owners.append((board_culprit + owners.size() - 1) % 3)
+	for i in range(card_n):
+		var pos2 := CENTER + Vector3((float(i) - float(card_n - 1) * 0.5) * 5.0, 2.6, -9.0)
 		var card := Node3D.new()
 		card.name = "ClueCard%d" % i
 		card.position = pos2
@@ -5771,6 +5832,8 @@ func _process(delta: float) -> void:
 		"sleuth":
 			if board_phase == "":
 				_tick_lens(delta)
+			elif board_phase == "trail":
+				_tick_trail(delta)
 			else:
 				_tick_board(delta)
 		"shuffle":
@@ -5844,6 +5907,10 @@ func _pointer_target() -> Vector3:
 		"sleuth":
 			if board_phase == "name":
 				return (suspects[board_culprit]["pos"] as Vector3) + Vector3(0, 4.4, 0)
+			if board_phase == "trail":
+				if trail_i < trail_prints.size():
+					return (trail_prints[trail_i]["pos"] as Vector3) + Vector3(0, 3.0, 0)
+				return CENTER + Vector3(0, 10.0, -11.0)
 			if board_phase == "board":
 				for c: Dictionary in clue_cards:
 					if not bool(c["pinned"]):
@@ -6026,10 +6093,12 @@ func _update_hud() -> void:
 				objective.text = tag + "🕵️  Who has the MOST clues? Tap that friend!"
 			elif board_phase == "board":
 				objective.text = tag + "📌  DRAG each clue to the matching friend!  %d / %d" % [board_pinned, clue_cards.size()]
+			elif board_phase == "trail":
+				objective.text = tag + "🐾  FOLLOW the sparkly pawprints!  %d / %d" % [trail_i, trail_prints.size()]
 			elif chest_ready:
 				objective.text = tag + "💎  Tap the treasure chest!"
 			else:
-				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / 3 clues" % clues_found
+				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / %d clues" % [clues_found, int(config.get("clues", 3))]
 		"echo":
 			if echo_phase == "ribbon":
 				objective.text = tag + "🎀  TRACE the sparkly path!  %d / %d" % [ribbon_trace, RIBBON_DOTS]
@@ -6222,7 +6291,9 @@ func action_label() -> String:
 		"box":
 			return "PUNCH"
 		"sleuth":
-			return "NAME" if board_phase == "name" else "LOOK"
+			if board_phase == "name":
+				return "NAME"
+			return "FOLLOW" if board_phase == "trail" else "LOOK"
 		"scroll":
 			return "LOB" if farm_phase == "feed" else "SWIPE"
 		"race":

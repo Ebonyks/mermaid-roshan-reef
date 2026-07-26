@@ -790,14 +790,16 @@ func _drive_box(act: OperaAct) -> void:
 		act.state == "won" and act.box_round >= waves.size() and act.box_phase == "belt")
 
 func _drive_sleuth(act: OperaAct) -> void:
-	_ck("six boxes stand on the stage", act.sleuth_props.size() == 6)
+	var props_want := int(act.config.get("props_n", 6))
+	var clues_want := int(act.config.get("clues", 3))
+	_ck("the configured boxes stand on the stage", act.sleuth_props.size() == props_want)
 	var clue_n := 0
 	for prop in act.sleuth_props:
 		if bool(prop["clue"]):
 			clue_n += 1
-	_ck("exactly three boxes hold clues", clue_n == 3)
+	_ck("exactly the configured clues hide in boxes", clue_n == clues_want)
 	act._sleuth_chest()
-	_ck("chest waits for all three clues", act.state == "play" and not act.chest_ready)
+	_ck("chest waits for every clue", act.state == "play" and not act.chest_ready)
 	# the magnifier: clues are invisible until the lens is over them
 	act._tick_lens(0.1)
 	_ck("the puzzle phase hands the finger to the magnifier", act.lens_drag and act.lens.visible)
@@ -834,15 +836,26 @@ func _drive_sleuth(act: OperaAct) -> void:
 		if bool(prop["clue"]) and not bool(prop["opened"]):
 			act.player_pos = (prop["pos"] as Vector3)
 			act._sleuth_action(int(prop["index"]))
-	_ck("three clues ready the treasure chest", act.chest_ready)
+	_ck("every clue readies the treasure chest", act.chest_ready)
 	# sweeping the lens onto the chest is the reveal — still no button
 	act.lens_pos = act.goal.position
 	act._tick_lens(0.1)
-	# the chest no longer WINS: finding is half the genre, deducing is the rest
-	_ck("the chest opens the case board, not the case",
-		act.state == "play" and act.board_phase == "board")
-	_ck("the board sets out three clues and three friends",
-		act.clue_cards.size() == 3 and act.suspects.size() == 3)
+	# the chest no longer WINS: the pawprint trail comes first, then the board
+	_ck("the chest opens the pawprint trail, not the case",
+		act.state == "play" and act.board_phase == "trail" and not act.trail_prints.is_empty())
+	_ck("only the first print shows before she follows",
+		(act.trail_prints[0]["node"] as Node3D).visible
+		and not (act.trail_prints[act.trail_prints.size() - 1]["node"] as Node3D).visible)
+	_ck("the trail takes the magnifier away — following is a swim", not act.lens.visible)
+	act._sleuth_chest()
+	_ck("the open chest cannot re-open the case", act.board_phase == "trail")
+	for tp: Dictionary in act.trail_prints.duplicate():
+		act.player_pos = tp["pos"] as Vector3
+		act._tick_trail(0.1)
+	_ck("walking every print opens the case board",
+		act.board_phase == "board" and act.trail_i >= act.trail_prints.size())
+	_ck("the board sets out every clue and three friends",
+		act.clue_cards.size() == clues_want and act.suspects.size() == 3)
 	_ck("the board hands the finger to the drag channel",
 		main.touch_ui != null and bool(main.touch_ui.drag_mode))
 	_ck("the freed stagehands' lanterns light the library",
@@ -865,7 +878,7 @@ func _drive_sleuth(act: OperaAct) -> void:
 		act._board_grab(int(c2["index"]))
 		act._board_drop(int(c2["owner"]))
 	_ck("matching every clue opens the naming beat",
-		act.board_pinned == 3 and act.board_phase == "name")
+		act.board_pinned == clues_want and act.board_phase == "name")
 	_ck("naming is a TAP, and the button says so", act.action_label() == "NAME")
 	# the friend with FEWER clues is the wrong answer, and gently so
 	var innocent := -1

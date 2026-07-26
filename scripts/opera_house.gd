@@ -20,7 +20,7 @@ const ACTS := [
 		"win_line": "The farmers' carrots made it a CARROT cake — the best one the reef has ever tasted!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Missing Tiara", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
-		"kind": "sleuth", "props_n": 6, "clues": 3, "imps": 6, "shell": true,
+		"kind": "sleuth", "props_n": 9, "clues": 4, "imps": 6, "shell": true,
 		"rescue": "stagehands", "gift": "lanterns", "uses": "lanterns",
 		"voice": "Detective Roshan is on the case! Three clues hide inside the big boxes — PEEK in each one, and watch out for silly fish!",
 		"win_line": "Case closed! The tiara was in the treasure box all along!",
