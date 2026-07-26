@@ -2828,6 +2828,10 @@ func _end_opera(completed: bool) -> void:
 		player.position = (gate["pos"] as Vector3) + Vector3(5.5, 0, 0)
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
+		# A child often swims back across the marquee while reorienting toward
+		# the Dream Stars. Prevent an automatic Classic bounce for a while;
+		# Hybrid still permits a deliberate target tap immediately.
+		gate["cool"] = 20.0
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
 
