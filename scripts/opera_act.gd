@@ -231,6 +231,26 @@ var press_zone := 0.34             # sweet-spot half-width (generous, shrinks a 
 var press_busy := 0.0              # stamp animation lockout
 var press_next_t := 0.0            # countdown to the next candy rolling in
 var candies_done := 0
+# ---- the candy parade (owner pacing standard 2026-07-25) ----
+# The act was one belt. It is now a small factory line: mix the syrup, sort the
+# belt, twist the wrappers, load the parade. Four beats, four gestures — the
+# parade is a TIMED tap rather than the doc's second drag-and-drop, because no
+# act may run the same gesture twice.
+const SYRUP_HOLD := 1.0         # seconds of hold per colour bottle
+const WRAP_TWIST := TAU * 0.75  # finger rotation to seal one wrapper
+const PARADE_SPAN := 3.4        # seconds for the cart to cross the stage
+var press_phase := "sort"       # syrup | sort | wrap | parade
+var syrup_bottles: Array[Dictionary] = []
+var syrup_want := 0
+var syrup_t := 0.0
+var wrap_accum := 0.0
+var wrap_done := 0
+var wrap_have_ang := false
+var wrap_ang := 0.0
+var wrap_node: Node3D = null
+var parade_cart: Node3D = null
+var parade_t := 0.0
+var parade_loaded := 0
 var candies_goal := 4
 var candy_node: Node3D = null
 var press_block: Node3D = null
@@ -4075,6 +4095,7 @@ func _build_press() -> void:
 	press_slider = _sphere(CENTER + Vector3(0, track_y, -8.2), 0.65, Color(1.0, 0.9, 0.4), 1.2)
 	# a little shelf where the finished smiley candies line up
 	_box(CENTER + Vector3(11.0, 1.2, -6.0), Vector3(6.0, 0.5, 3.0), Color(0.6, 0.45, 0.65), 0.1)
+	_begin_syrup()
 	_build_belt()
 
 func _build_belt() -> void:
@@ -4087,11 +4108,197 @@ func _build_belt() -> void:
 		_box(pos + Vector3(0, 0.4, 0), Vector3(6.0, 2.6, 4.0), col.darkened(0.25), 0.1)
 		_box(pos + Vector3(0, 1.9, 0), Vector3(6.6, 0.5, 4.6), col, 0.55)
 		chutes.append({"index": i, "pos": pos, "col": col})
-	_set_drag(true)
-	_belt_spawn()
+	_set_drag(press_phase == "sort")
+	if press_phase == "sort":
+		_belt_spawn()
 
 func _leave_belt() -> void:
 	_set_drag(false)
+
+func _begin_syrup() -> void:
+	# Beat 1: three colour bottles over the vat. Stand at one and HOLD until it
+	# reaches its line. The vat colours up as each one goes in.
+	press_phase = "syrup"
+	syrup_want = 0
+	syrup_t = 0.0
+	var cols := _candy_cols()
+	for i in range(3):
+		var pos := CENTER + Vector3(-8.0 + float(i) * 8.0, 1.0, 3.0)
+		var root := Node3D.new()
+		root.name = "SyrupBottle%d" % i
+		root.position = pos
+		add_child(root)
+		var body := _cyl(Vector3(0, 3.4, 0), 1.3, 4.0, cols[i], 0.4, root)
+		_cyl(Vector3(0, 5.8, 0), 0.5, 1.2, Color(0.95, 0.93, 0.98), 0.2, root)
+		var line := _box(Vector3(0, 1.6, 1.35), Vector3(2.8, 0.28, 0.2), Color(1.0, 1.0, 1.0), 0.6, root)
+		syrup_bottles.append({"index": i, "node": root, "pos": pos, "body": body,
+			"line": line, "col": cols[i], "poured": false})
+	m.show_msg("Roshan", "Sweet-shop time! Swim to the first bottle and HOLD to pour the syrup in.", "talk")
+	_update_hud()
+
+func _tick_syrup(delta: float) -> void:
+	if syrup_want >= syrup_bottles.size():
+		return
+	var want: Dictionary = syrup_bottles[syrup_want]
+	var near := -1
+	for b: Dictionary in syrup_bottles:
+		if bool(b["poured"]):
+			continue
+		if (b["pos"] as Vector3).distance_to(player_pos) < 5.0:
+			near = int(b["index"])
+			break
+	if near < 0 or not _finger_down():
+		syrup_t = maxf(0.0, syrup_t - delta * 1.5)
+		return
+	if near != syrup_want:
+		if fmod(elapsed, 0.8) < delta:
+			_wobble(syrup_bottles[near]["node"] as Node3D)
+			m.show_msg("Roshan", "That one's next in a minute — the sparkle shows which bottle!", "hint")
+			progress_t = maxf(progress_t, RESCUE_DELAY)
+		return
+	syrup_t += delta
+	progress_t = 0.0
+	var body := want["body"] as Node3D
+	body.rotation_degrees.z = lerpf(0.0, -54.0, clampf(syrup_t / 0.4, 0.0, 1.0))
+	if fmod(syrup_t, 0.2) < delta:
+		m._sparkle_burst((want["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(want["col"]))
+	if syrup_t < SYRUP_HOLD:
+		return
+	want["poured"] = true
+	syrup_t = 0.0
+	syrup_want += 1
+	var tip := body.create_tween()
+	tip.tween_property(body, "rotation_degrees:z", 0.0, 0.3)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.16 * float(syrup_want)
+		m.chime.play()
+	if syrup_want >= syrup_bottles.size():
+		press_phase = "sort"
+		_set_drag(true)
+		_belt_spawn()
+		m.show_msg("Roshan", "The syrup is ready! Now DRAG each candy into the chute of the same colour!", "talk")
+	else:
+		m.show_msg("Roshan", "In it goes! Next bottle!", "hint")
+	_update_hud()
+
+func _begin_wrap() -> void:
+	# Beat 3: twist the wrappers shut. A rotational drag — the belt was a
+	# drag-and-drop and the parade is a tap, so nothing repeats.
+	press_phase = "wrap"
+	wrap_done = 0
+	wrap_accum = 0.0
+	wrap_have_ang = false
+	wrap_node = Node3D.new()
+	wrap_node.name = "WrapperCandy"
+	wrap_node.position = CENTER + Vector3(0, 5.0, -2.0)
+	add_child(wrap_node)
+	_sphere(Vector3.ZERO, 1.9, Color(1.0, 0.72, 0.82), 0.35, wrap_node)
+	for ex: float in [-1.0, 1.0]:
+		var twist := _cyl(Vector3(ex * 2.6, 0, 0), 0.75, 2.0, Color(0.98, 0.95, 0.88), 0.3, wrap_node)
+		twist.rotation_degrees = Vector3(0, 0, 90)
+	_set_drag(true)
+	m.show_msg("Roshan", "Now TWIST the wrappers shut — draw circles with your finger!", "talk")
+	_update_hud()
+
+func _wrap_delta(d: float) -> void:
+	if state != "play" or kind != "press" or press_phase != "wrap":
+		return
+	wrap_accum += absf(d)
+	progress_t = 0.0
+	if wrap_node != null:
+		wrap_node.rotation.z += d * 0.8
+	if wrap_accum < WRAP_TWIST:
+		return
+	wrap_accum -= WRAP_TWIST
+	wrap_done += 1
+	m._sparkle_burst(wrap_node.position + Vector3(0, 1.4, 0), Color(1.0, 0.9, 0.7))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.15 * float(wrap_done)
+		m.chime.play()
+	if wrap_done >= 3:
+		_begin_parade()
+	else:
+		m.show_msg("Roshan", "Sealed! %d more to twist!" % (3 - wrap_done), "hint")
+	_update_hud()
+
+func _tick_wrap(_delta: float) -> void:
+	if m.touch_ui == null or cam == null or wrap_node == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		wrap_have_ang = false
+		return
+	var pivot := cam.unproject_position(wrap_node.position)
+	var v: Vector2 = (m.touch_ui.drag_pos as Vector2) - pivot
+	if v.length() < 24.0:
+		return
+	var a := v.angle()
+	if not wrap_have_ang:
+		wrap_have_ang = true
+		wrap_ang = a
+		return
+	var d := wrapf(a - wrap_ang, -PI, PI)
+	wrap_ang = a
+	_wrap_delta(d)
+
+func _begin_parade() -> void:
+	# Beat 4, the finale: the parade cart rolls past under the chute and she
+	# taps as it goes by. A TIMED tap — the cart keeps rolling either way, so a
+	# miss is another lap of the stage, never a loss.
+	press_phase = "parade"
+	parade_t = 0.0
+	parade_loaded = 0
+	_set_drag(false)
+	if wrap_node != null:
+		wrap_node.queue_free()
+		wrap_node = null
+	parade_cart = Node3D.new()
+	parade_cart.name = "ParadeCart"
+	parade_cart.position = CENTER + Vector3(-18.0, 1.0, 4.0)
+	add_child(parade_cart)
+	_box(Vector3(0, 1.6, 0), Vector3(6.0, 2.6, 4.0), Color(1.0, 0.78, 0.88), 0.2, parade_cart)
+	_box(Vector3(0, 3.2, 0), Vector3(6.6, 0.4, 4.4), Color(1.0, 0.9, 0.5), 0.5, parade_cart)
+	for wx: float in [-2.0, 2.0]:
+		var wheel := _cyl(Vector3(wx, 0.2, 2.1), 1.0, 0.5, Color(0.55, 0.42, 0.62), 0.1, parade_cart)
+		wheel.rotation_degrees = Vector3(90, 0, 0)
+	m.show_msg("Roshan", "Here comes the parade cart! TAP when it rolls right under the chute!", "talk")
+	_update_hud()
+
+func _parade_action() -> void:
+	if press_phase != "parade" or parade_cart == null or state != "play":
+		return
+	if absf(parade_cart.position.x - CENTER.x) > 3.6:
+		# too early or too late: a candy plops on the deck and bounces. The cart
+		# comes round again, so this costs a moment and nothing else.
+		m._sparkle_burst(CENTER + Vector3(0, 4.0, 4.0), Color(0.85, 0.9, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Whoops — it bounced! Wait for the cart to be right underneath.", "hint")
+		return
+	parade_loaded += 1
+	progress_t = 0.0
+	var sweet := _sphere(parade_cart.position + Vector3(-1.2 + float(parade_loaded) * 1.2, 4.2, 0),
+		0.6, _candy_cols()[parade_loaded % 3], 0.5)
+	var drop := sweet.create_tween()
+	drop.tween_property(sweet, "position:y", parade_cart.position.y + 3.4, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	m._sparkle_burst(parade_cart.position + Vector3(0, 4.4, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.18 * float(parade_loaded)
+		m.chime.play()
+	if parade_loaded >= 3:
+		m.show_msg("Roshan", "The candy parade is rolling! Everyone gets a sweet!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "In it goes! %d more!" % (3 - parade_loaded), "hint")
+	_update_hud()
+
+func _tick_parade(delta: float) -> void:
+	if parade_cart == null:
+		return
+	parade_t = fmod(parade_t + delta, PARADE_SPAN)
+	var f := parade_t / PARADE_SPAN
+	parade_cart.position.x = CENTER.x + lerpf(-18.0, 18.0, f)
+	parade_cart.position.y = CENTER.y + 1.0 + sin(elapsed * 6.0) * 0.08
 
 func _candy_cols() -> Array[Color]:
 	return [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
@@ -4199,7 +4406,7 @@ func _sort_drop() -> void:
 	shelf_candies.append(node)
 	if candies_done >= candies_goal:
 		_leave_belt()
-		_win()
+		_begin_wrap()
 	else:
 		_belt_spawn()
 		_update_hud()
@@ -5143,6 +5350,9 @@ func _process(delta: float) -> void:
 					var near := _nearest_pad()
 					if near >= 0:
 						_act_action(near)
+			"press":
+				if press_phase == "parade":
+					_parade_action()
 			"fix":
 				if fix_phase == "valve":
 					if valve.position.distance_to(player_pos) < 8.0:
@@ -5281,7 +5491,15 @@ func _process(delta: float) -> void:
 		"fix":
 			_tick_fix(delta)
 		"press":
-			_tick_belt(delta)
+			match press_phase:
+				"syrup":
+					_tick_syrup(delta)
+				"wrap":
+					_tick_wrap(delta)
+				"parade":
+					_tick_parade(delta)
+				_:
+					_tick_belt(delta)
 		"boss":
 			_tick_boss(delta)
 	if progress_t > 22.0:
@@ -5405,6 +5623,12 @@ func _pointer_target() -> Vector3:
 				return (pipe_cells[pipe_flow_cell]["pos"] as Vector3) + Vector3(0, 3.4, 0)
 			return CENTER + Vector3(-7.5, 9.0, -9.0)
 		"press":
+			if press_phase == "syrup" and syrup_want < syrup_bottles.size():
+				return (syrup_bottles[syrup_want]["pos"] as Vector3) + Vector3(0, 8.0, 0)
+			if press_phase == "wrap" and wrap_node != null:
+				return wrap_node.position + Vector3(0, 3.4, 0)
+			if press_phase == "parade":
+				return CENTER + Vector3(0, 7.0, 4.0)
 			for it in belt_items:
 				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
 			return CENTER + Vector3(0, 8.0, BELT_Z)
@@ -5548,7 +5772,15 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🔧  DRAG the front pipe onto the wall!"
 		"press":
-			objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
+			match press_phase:
+				"syrup":
+					objective.text = tag + "🍯  HOLD on the sparkling bottle!  %d / %d" % [syrup_want, syrup_bottles.size()]
+				"wrap":
+					objective.text = tag + "🍭  TWIST the wrappers shut!  %d / 3" % wrap_done
+				"parade":
+					objective.text = tag + "🎪  TAP when the cart is underneath!  %d / 3" % parade_loaded
+				_:
+					objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
 			match vet_phase:
 				"find":
@@ -5688,7 +5920,7 @@ func action_label() -> String:
 		"echo":
 			return "DANCE"
 		"press":
-			return "SORT"
+			return "DROP" if press_phase == "parade" else "SORT"
 		"box":
 			return "PUNCH"
 		"sleuth":

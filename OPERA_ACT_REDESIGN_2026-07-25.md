@@ -133,10 +133,10 @@ Currently only the third.*
 
 | # | Beat | Gesture | Detail |
 |---|---|---|---|
-| 1 | **Mix the syrup** | hold | tip three colour bottles into the vat, each to its line |
+| 1 | **Mix the syrup** | hold | *(built)* swim to the sparkling bottle and HOLD; it tips and pours to its line. The belt does not start until all three are in |
 | 2 | **Sort the belt** | drag-and-drop | *(built)* colour chutes, accelerating belt |
-| 3 | **Twist the wrappers** | rotational drag | twist each end of the wrapper closed |
-| 4 | **Load the parade cart** | drag-and-drop | stack the finished candies into the cart, which rolls off through the arch |
+| 3 | **Twist the wrappers** | rotational drag | *(built)* three-quarters of a turn per wrapper, three wrappers |
+| 4 | **Load the parade cart** | **timed tap** | *(built)* the cart rolls back and forth under the chute; tap when it is underneath. Specified as a second drag-and-drop, which the sort already owns — the cart keeps rolling, so a miss is another pass, never a loss |
 
 ## Farmer — "The Piggy Picnic"
 

@@ -413,6 +413,26 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 		_intent_learned(act.bunny_at)
 
 func _drive_press(act: OperaAct, dt: float) -> void:
+	if act.press_phase == "syrup":
+		# swim to the sparkling bottle, then hold on it — both cost real time
+		if act.syrup_want >= act.syrup_bottles.size():
+			return
+		var bpos: Vector3 = act.syrup_bottles[act.syrup_want]["pos"] as Vector3
+		if _travel(act, bpos, dt) and (act.hold_sim or _ready_to_act(dt)):
+			act.hold_sim = true
+		act._tick_syrup(dt)
+		return
+	if act.press_phase == "wrap":
+		# a rotational drag: a quarter-turn of finger travel per ready-tick
+		if _ready_to_act(dt):
+			act._wrap_delta(PI * 0.5)
+		return
+	if act.press_phase == "parade":
+		# a timed tap: the persona taps when it is ready, and only a tap with
+		# the cart underneath counts, so its reaction time is the real cost
+		if _ready_to_act(dt):
+			act._parade_action()
+		return
 	# the persona grabs the front candy, carries it to a chute and drops it,
 	# sometimes into the wrong one
 	if act.belt_items.is_empty():

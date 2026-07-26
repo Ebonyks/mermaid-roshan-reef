@@ -619,6 +619,32 @@ func _drive_fix(act: OperaAct) -> void:
 func _drive_press(act: OperaAct) -> void:
 	# the belt: candies ride out of the press and are DRAGGED to the chute of
 	# their own colour. Nothing here is a timed tap any more.
+	# beat 1: the syrup, on a HOLD. The belt does not exist until it is mixed.
+	_ck("the sweet shop opens on the syrup bottles",
+		act.press_phase == "syrup" and act.syrup_bottles.size() == 3)
+	_ck("the belt waits for the syrup", act.belt_items.is_empty())
+	var other_b: int = (act.syrup_want + 1) % act.syrup_bottles.size()
+	act.player_pos = (act.syrup_bottles[other_b]["pos"] as Vector3)
+	act.hold_sim = true
+	var sy0 := 0
+	while sy0 < 40:
+		sy0 += 1
+		act._tick_syrup(0.1)
+	_ck("holding the wrong bottle pours nothing", act.syrup_want == 0)
+	act.hold_sim = false
+	while act.press_phase == "syrup":
+		var wi: int = act.syrup_want
+		act.player_pos = (act.syrup_bottles[wi]["pos"] as Vector3)
+		act._tick_syrup(0.1)
+		_ck_once("a bottle never pours itself", act.syrup_want == 0)
+		act.hold_sim = true
+		var sg := 0
+		while act.syrup_want == wi and sg < 200:
+			sg += 1
+			act._tick_syrup(0.1)
+		act.hold_sim = false
+	_ck("pouring all three colours starts the belt",
+		act.press_phase == "sort" and act.syrup_want == 3)
 	_ck("the sorting belt has three colour chutes", act.chutes.size() == 3)
 	_ck("a candy is riding the belt", act.belt_items.size() > 0)
 	act._press_action()
@@ -644,8 +670,31 @@ func _drive_press(act: OperaAct) -> void:
 		(it["node"] as Node3D).position = act.chutes[want]["pos"] as Vector3
 		act._sort_drop()
 	_ck("sorting act does not stall", guard < 400)
-	_ck("the full sorted batch finishes the show", act.candies_done == act.candies_goal)
+	_ck("the full sorted batch opens the wrapping", act.candies_done == act.candies_goal)
 	_ck("the belt speeds up as the batch grows", act.belt_speed > 2.4)
+	# beat 3: the wrappers, on a rotational drag — the sort's drag-and-drop and
+	# the parade's tap must not stand in for it
+	_ck("the sorted batch opens the wrapping bench",
+		act.press_phase == "wrap" and act.wrap_node != null and act.wrap_done == 0)
+	act._press_action()
+	_ck("a tap does not twist a wrapper", act.wrap_done == 0)
+	var wg := 0
+	while act.press_phase == "wrap" and wg < 400:
+		wg += 1
+		act._wrap_delta(0.35)
+	_ck("twisting three wrappers rolls out the parade cart",
+		act.wrap_done >= 3 and act.press_phase == "parade" and act.parade_cart != null)
+	# beat 4: the timed tap. Off-centre bounces, under the chute lands.
+	act.parade_cart.position.x = act.CENTER.x + 12.0
+	act._parade_action()
+	_ck("a tap with the cart away only bounces", act.parade_loaded == 0)
+	var pg := 0
+	while act.state == "play" and pg < 40:
+		pg += 1
+		act.parade_cart.position.x = act.CENTER.x
+		act._parade_action()
+	_ck("tapping under the chute loads the parade and wins",
+		act.state == "won" and act.parade_loaded >= 3)
 
 func _ck_once(label: String, ok: bool) -> void:
 	if _once_seen.has(label):
