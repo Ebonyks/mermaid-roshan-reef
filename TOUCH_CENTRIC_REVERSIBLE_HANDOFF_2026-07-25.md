@@ -11,8 +11,9 @@ deleting the shipped controller. The pause menu contains a saved
 **Hybrid Touch / Classic Touch** tile:
 
 - **Hybrid Touch (default):** fixed lower-left analog movement, a real
-  lower-right action target, tap-to-select/tap-to-approach, proximity glow,
-  explicit second tap/action to enter activities, and manual-stick override.
+  lower-right pictogram-plus-word action target, tap-to-select/tap-to-approach,
+  proximity glow, explicit second tap/action to enter activities, and
+  manual-stick override.
 - **Classic Touch (rollback):** the prior drag-anywhere floating stick,
   tap-to-action, second-finger hold, and second-finger camera implementation.
 
@@ -36,6 +37,11 @@ Open-space taps request assisted travel. Two stalled steering recoveries try
 opposite side steps; persistent blockage cancels safely and asks for a small
 manual wiggle. Proximity can still discover friends and collect forgiving
 collectibles, but it cannot start a game or change worlds in Hybrid.
+
+Action presses are frame-bounded edges: pressing and releasing before choosing
+an object cannot activate the next object later. Full-screen overlays suspend
+both world controls and clear every owned finger. Synchronous world rebuilds
+clear focus/assisted travel and make the fade cover claim taps until reveal.
 
 ## Zone coverage
 
@@ -66,7 +72,7 @@ collectibles, but it cannot start a game or change worlds in Hybrid.
 - Front exit, bed, wardrobe, craft easel
 - Golden stand / basement stair reveal
 - Royal loo encounter, dungeon, opera
-- Music bells and touch-and-delight props
+- Explicit Music Star, music bells, and touch-and-delight props
 - Daddy's treasure chest
 - Crown Star
 
@@ -91,23 +97,65 @@ transparent-overdraw budget.
 The trusted gate now includes:
 
 - `probe_touch_router.gd` — touch ownership, simultaneous stick/world input,
-  real action target, lifecycle clearing, and Classic rollback
+  real pictorial action target, action-edge expiry, overlay-held-finger
+  clearing, lifecycle clearing, and Classic rollback
 - `probe_interaction.gd` — advertise/select/approach/act behavior and zone
-  registry completeness
-- `probe_touch_adversary.gd` — 25 fresh-boot adversarial touch playthroughs;
-  every run prints its own feedback and covers randomized child-finger jitter,
-  screen-space misses, manual override, long-route steering, the reef,
-  courtyard, both castle floors, northern return, and both toggle directions
+  registry completeness, explicit Music Star start, picture-game control
+  suspension (including nested overlays), same-frame stale action rejection,
+  playback bell suppression, and rapid transition taps
+- `probe_touch_adversary.gd` — 25 fresh-instance adversarial touch scenarios;
+  every run prints its own feedback and covers routed first taps, randomized
+  child-finger jitter, screen-space misses/control occlusion, real-time
+  physical player travel in all headings, blocked-route recovery, manual
+  override, the reef, courtyard, castle floors, northern return, and both
+  toggle directions
 - updated `probe_passive.gd` — explicitly rejects Hybrid proximity auto-start
 - updated full-game/ranking bots — perform the new explicit activation verb
 - `probe_touch_look.gd` — now explicitly verifies the Classic rollback path
+- `probe_save_recovery.gd` — serializes, reloads, backs up, repairs, and
+  defaults the additive `touch_mode` preference without rolling back progress
 
 The adversarial gate is not complete until it prints:
 
-`TOUCH_ADVERSARY|ALL 25 PLAYTHROUGHS CLEAR`
+`TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR`
 
 Any run printing `FAIL`, any parser/analyzer error, or any trusted probe failure
 blocks acceptance and requires another code/audit cycle.
+
+These are deliberately called *scenario runs*, not complete playthroughs. They
+instantiate the full game 25 times and physically exercise navigation and
+route transitions, but they do not impersonate 25 independent multi-hour child
+sessions. The mandatory human/device pass below owns that claim.
+
+### Iteration record (2026-07-25)
+
+1. The original automated cycle reached 25/25 after fixing transition routing,
+   Opera return placement, and proximity bounce.
+2. Independent adversarial code review rejected that result for stale action
+   edges, proximity-started bells, swallowed overlay releases, action-button
+   overlay occlusion, non-failing probes, and stale transition taps.
+3. The strengthened 25-run cycle rejected undersized castle-prop approach
+   radii; every prop was raised to the child-safe minimum.
+4. The next cycles rejected slow reverse-direction tap movement. The
+   assisted-only turn curve was made more responsive; Classic and analog
+   steering were not changed.
+5. The strengthened cycle reached 25/25, but a second independent review
+   rejected same-frame pre-focus actions, second-finger activation dropping a
+   held stick, direct transitions keeping old targets, nested overlays
+   re-enabling controls, and bell targets that did nothing during playback.
+6. Input edges are now focus-bound, non-transition actions preserve the stick,
+   all world rebuild paths clear/repopulate targets, overlay blocks are
+   reason-keyed, and bells disappear during authored playback. Dedicated
+   regressions passed and the strengthened cycle again reached 25/25.
+7. A third review rejected modal sleep/hug ownership and delayed bell-state
+   registry refresh. Both cutscenes now own and release a named input block,
+   cannot restart while active, and every bell play/echo/idle transition
+   updates targets in the same frame. Their exact regressions pass, and a
+   fresh isolated strengthened cycle again reports 25/25 clear.
+
+Local desktop validation uses the owner's installed
+`Godot_v4.7-dev2_win64_console.exe`. CI remains the compatibility authority for
+the project's declared Godot 4.4 runtime.
 
 ## Mandatory human stress test
 

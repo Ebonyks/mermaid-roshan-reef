@@ -14,6 +14,7 @@ func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide is always the 3D play-place, never the old 2D screen
 		return
+	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
 	m.mg = {"t": 0.0, "btns": []}
 	if m.mg2d_layer == null:
@@ -209,6 +210,7 @@ func _mg2d_close() -> void:
 	m.mg_kind = ""
 	m.mg = {}
 	m.mg_cool = 8.0
+	m._set_world_controls_enabled(true, "picture_game")
 
 # ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
 # ---- watch each ball grow, then stack it and place the face ----

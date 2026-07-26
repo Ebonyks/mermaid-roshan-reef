@@ -26,6 +26,7 @@ var action_down := false
 var action_just := false
 var control_mode := "hybrid"
 var touch_owners: Dictionary = {}
+var world_controls_enabled := true
 
 var _root: Control
 var _base: Panel
@@ -47,11 +48,34 @@ var _pulse := 0.0
 var _act_vis: Panel = null
 var _act_lbl: Label = null
 var _act_t := 0.0
+var _action_edge_frames := 0
 
 const R := 78.0
 const TAP_SLOP := 22.0
 const TAP_MS := 300
 const JUMP_HOLD_MS := 140
+const ACTION_PICTOGRAMS := {
+	"JUMP": "↑",
+	"PLAY": "▶",
+	"SHOP": "◆",
+	"OPEN": "◇",
+	"SLIDE": "↘",
+	"RACE": "⚑",
+	"ENTER": "✦",
+	"SHOW": "♬",
+	"GET": "★",
+	"SLEEP": "☾",
+	"DRESS": "♛",
+	"MAKE": "✂",
+	"RING": "♫",
+	"TOUCH": "✧",
+	"HUG": "♥",
+	"EXIT": "↩",
+	"CATCH!": "✋",
+	"THROW": "➶",
+	"BUY": "◆",
+	"SWIM": "➜",
+}
 
 func _ready() -> void:
 	layer = 9
@@ -94,8 +118,8 @@ func _ready() -> void:
 		_act_vis.position = Vector2(10.0, 10.0)
 		_act_button.add_child(_act_vis)
 		_act_lbl = Label.new()
-		_act_lbl.text = "JUMP"
-		_act_lbl.add_theme_font_size_override("font_size", 34)
+		_act_lbl.text = _action_display("JUMP")
+		_act_lbl.add_theme_font_size_override("font_size", 30)
 		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
 		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
 		_act_lbl.add_theme_constant_override("outline_size", 8)
@@ -119,7 +143,7 @@ func _process(delta: float) -> void:
 			if now - int(_pend[idx]["ms"]) >= JUMP_HOLD_MS:
 				_jump_fingers[idx] = true
 				action_down = true
-				action_just = true
+				_arm_action_edge()
 				_flash(_pend[idx]["pos"])
 				_pend.erase(idx)
 	if _act_vis != null:
@@ -127,6 +151,11 @@ func _process(delta: float) -> void:
 		var pulse_s: float = 1.0 + sin(_act_t * 2.2) * 0.045
 		_act_vis.pivot_offset = _act_vis.size * 0.5
 		_act_vis.scale = Vector2(pulse_s, pulse_s) * (0.88 if action_down else 1.0)
+	if action_just:
+		if _action_edge_frames > 0:
+			_action_edge_frames -= 1
+		else:
+			action_just = false
 
 func _circle(col: Color, rad: float) -> Panel:
 	var panel := Panel.new()
@@ -140,8 +169,15 @@ func _circle(col: Color, rad: float) -> Panel:
 
 func _jump_pulse() -> void:
 	action_down = true
-	action_just = true
+	_arm_action_edge()
 	_pulse = 0.18
+
+func _arm_action_edge() -> void:
+	# action_just is an input edge, not a remembered wish. Two child-process
+	# frames let the parent consume it regardless of scene-tree process order,
+	# then it expires so an old press cannot launch a newly focused activity.
+	action_just = true
+	_action_edge_frames = 2
 
 func _flash(pos: Vector2) -> void:
 	var flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
@@ -195,7 +231,7 @@ func _release_stick() -> void:
 func _rest_stick() -> void:
 	if _base == null or _knob == null:
 		return
-	if not wants_touch():
+	if not wants_touch() or not world_controls_enabled:
 		_base.visible = false
 		_knob.visible = false
 		return
@@ -242,6 +278,7 @@ func _clear_touch_state() -> void:
 	stick_vec = Vector2.ZERO
 	action_down = false
 	action_just = false
+	_action_edge_frames = 0
 	_look_dx = 0.0
 	_look_dy = 0.0
 	_moved = false
@@ -253,13 +290,32 @@ func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.mouse_filter = Control.MOUSE_FILTER_STOP if control_mode == "hybrid" else Control.MOUSE_FILTER_IGNORE
+		_act_button.mouse_filter = Control.MOUSE_FILTER_STOP if control_mode == "hybrid" and world_controls_enabled else Control.MOUSE_FILTER_IGNORE
+		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
+
+func set_world_controls_enabled(enabled: bool) -> void:
+	if world_controls_enabled == enabled:
+		if not enabled:
+			_clear_touch_state()
+		return
+	world_controls_enabled = enabled
+	_clear_touch_state()
+	if _act_button != null:
+		_act_button.visible = enabled and control_mode == "hybrid"
+		_act_button.mouse_filter = Control.MOUSE_FILTER_STOP if enabled and control_mode == "hybrid" else Control.MOUSE_FILTER_IGNORE
+
+func cancel_all_touches() -> void:
+	_clear_touch_state()
+
+func clear_action_edge() -> void:
+	action_just = false
+	_action_edge_frames = 0
 
 func _on_action_button_down() -> void:
-	if control_mode != "hybrid":
+	if control_mode != "hybrid" or not world_controls_enabled:
 		return
 	action_down = true
-	action_just = true
+	_arm_action_edge()
 	_pulse = 0.0
 	_flash(action_zone().get_center())
 
@@ -269,7 +325,7 @@ func _on_action_button_up() -> void:
 
 func consume_action() -> void:
 	action_down = false
-	action_just = false
+	clear_action_edge()
 	_pulse = 0.0
 
 func _request_pause() -> void:
@@ -296,7 +352,7 @@ func _notification(what: int) -> void:
 		_flush_parent_save()
 
 func _unhandled_input(ev: InputEvent) -> void:
-	if not wants_touch():
+	if not wants_touch() or not world_controls_enabled:
 		return
 	if control_mode == "hybrid":
 		_hybrid_unhandled_input(ev)
@@ -403,7 +459,7 @@ func _classic_unhandled_input(ev: InputEvent) -> void:
 				else:
 					_jump_fingers[drag.index] = true
 					action_down = true
-					action_just = true
+					_arm_action_edge()
 		elif drag.index == _look_idx:
 			_look_dx += drag.relative.x
 			_look_dy += drag.relative.y
@@ -423,14 +479,19 @@ func _classic_unhandled_input(ev: InputEvent) -> void:
 		_drag(mouse_motion.position)
 
 func set_action_label(text: String) -> void:
-	if _btn != null and _btn.text != text:
-		_btn.text = text
-	if _act_lbl != null and _act_lbl.text != text:
-		_act_lbl.text = text
+	var display_text: String = _action_display(text)
+	if _btn != null and _btn.text != display_text:
+		_btn.text = display_text
+	if _act_lbl != null and _act_lbl.text != display_text:
+		_act_lbl.text = display_text
+
+func _action_display(text: String) -> String:
+	var pictogram: String = String(ACTION_PICTOGRAMS.get(text, "✦"))
+	return "%s\n%s" % [pictogram, text]
 
 func consume_action_just() -> bool:
 	var just_pressed := action_just
-	action_just = false
+	clear_action_edge()
 	return just_pressed
 
 func look_active() -> bool:

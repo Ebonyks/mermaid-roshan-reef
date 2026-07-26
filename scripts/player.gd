@@ -1027,9 +1027,12 @@ func _process(delta: float) -> void:
 		if auto_dir.length() > 0.01:
 			var desired_yaw: float = atan2(auto_dir.x, auto_dir.z)
 			var yaw_error: float = wrapf(desired_yaw - yaw, -PI, PI)
-			turn = clampf(yaw_error * 1.35, -1.0, 1.0)
-			if absf(yaw_error) < 1.25:
-				fwd = clampf(1.0 - absf(yaw_error) / 1.25, 0.22, 1.0)
+			# A rearward tap used to rotate in place for ~1.7 s before Roshan
+			# moved at all. Assisted steering gets a quicker turn ceiling and a
+			# gentle early arc; the manual stick/keyboard path above is unchanged.
+			turn = clampf(yaw_error * 2.0, -2.4, 2.4)
+			if absf(yaw_error) < 2.6:
+				fwd = clampf(1.0 - absf(yaw_error) / 2.6, 0.18, 1.0)
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true

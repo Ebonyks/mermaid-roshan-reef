@@ -45,6 +45,11 @@ func on_world_touch(screen_pos: Vector2) -> void:
 		return
 	var picked_id: String = String(picked["id"])
 	var was_focused: bool = picked_id == m.touch_focus_id
+	# An action edge belongs to the focus that existed when it was pressed.
+	# Choosing a different target must never inherit a pre-focus button press,
+	# even when both inputs land in the same rendered frame.
+	if not was_focused and m.touch_ui != null:
+		m.touch_ui.clear_action_edge()
 	m.touch_focus_id = picked_id
 	m.touch_focus_ready = _distance_to(m.player.position, _position(picked)) <= float(picked.get("activation_radius", 5.0))
 	m._sparkle_burst(_position(picked) + Vector3(0.0, 1.0, 0.0), Color(1.0, 0.92, 0.48))

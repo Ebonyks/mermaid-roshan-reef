@@ -27,6 +27,7 @@ func _init() -> void:
 	main.plays = 4
 	main.dungeon_progress = 4
 	main.dungeon_done = false
+	main.touch_mode = main.TOUCH_MODE_CLASSIC
 	var state: SaveState = SaveState.new(main, TEST_PATH)
 	state.write_save()
 	_expect(FileAccess.file_exists(TEST_PATH), "primary created")
@@ -34,6 +35,7 @@ func _init() -> void:
 	var first: Dictionary = _read_json(TEST_PATH)
 	_expect(int(first.get("schema_version", 0)) == SaveState.SCHEMA_VERSION, "schema version added")
 	_expect(first.get("future_payload", {}) == {"kept": "yes"}, "unknown dictionary preserved")
+	_expect(String(first.get("touch_mode", "")) == "classic", "Classic touch preference serialized")
 	var future_list: Array = first.get("future_list", [])
 	_expect(future_list.size() == 3 and int(future_list[0]) == 1 and int(future_list[2]) == 3, "unknown array preserved")
 	_expect(int(first.get("dungeon_progress", -1)) == 4 and not bool(first.get("dungeon_done", true)), "dungeon checkpoint serialized")
@@ -41,17 +43,21 @@ func _init() -> void:
 	main.pearl_count = 33
 	main.dungeon_progress = 99   # corrupt/out-of-range runtime state clamps at the ten-room boundary
 	main.dungeon_done = true
+	main.touch_mode = main.TOUCH_MODE_HYBRID
 	state.write_save()
 	var second: Dictionary = _read_json(TEST_PATH)
 	var previous: Dictionary = _read_json(TEST_PATH + ".bak")
 	_expect(int(second.get("pearls", -1)) == 33, "new primary installed")
 	_expect(int(previous.get("pearls", -1)) == 17, "backup retains last known-good primary")
+	_expect(String(second.get("touch_mode", "")) == "hybrid", "Hybrid touch preference serialized")
+	_expect(String(previous.get("touch_mode", "")) == "classic", "touch rollback preference survives in backup")
 	_expect(second.get("future_payload", {}) == {"kept": "yes"}, "unknown key survives another write")
 	_expect(int(second.get("dungeon_progress", -1)) == 10 and bool(second.get("dungeon_done", false)), "dungeon completion serialized and clamped")
 	var reload_state: SaveState = SaveState.new(main, TEST_PATH)
 	var reload_candidate: Dictionary = reload_state._select_load_candidate()
 	var reload_data: Dictionary = reload_candidate.get("data", {})
 	_expect(int(reload_data.get("dungeon_progress", -1)) == 10 and bool(reload_data.get("dungeon_done", false)), "fresh reader reloads dungeon completion")
+	_expect(String(reload_data.get("touch_mode", "")) == "hybrid", "fresh reader reloads touch preference")
 
 	_write_text(TEST_PATH, "{truncated")
 	var recovered: Dictionary = state._select_load_candidate()
@@ -85,11 +91,13 @@ func _init() -> void:
 	var preference_damage: Dictionary = _read_json(TEST_PATH + ".bak")
 	preference_damage["pearls"] = 44
 	preference_damage["quality"] = 123
+	preference_damage["touch_mode"] = 123
 	_write_text(TEST_PATH, JSON.stringify(preference_damage))
 	var preference_recovery: Dictionary = state._select_load_candidate()
 	var preference_data: Dictionary = preference_recovery.get("data", {})
 	_expect(String(preference_recovery.get("path", "")) == TEST_PATH, "noncritical damage keeps newer primary")
 	_expect(int(preference_data.get("pearls", -1)) == 44, "noncritical repair preserves newer progress")
+	_expect(String(preference_data.get("touch_mode", "")) == "hybrid", "invalid touch preference repairs to Hybrid")
 
 	# Opening an N+1 save in N is read-only: unknown data and the schema claim
 	# survive even if gameplay requests a write — and the disabled write must
@@ -147,6 +155,7 @@ func _init() -> void:
 	var trimmed: Dictionary = _read_json(TEST_PATH)
 	trimmed.erase("stickers")   # stands in for any key a later build adds
 	trimmed.erase("critters")   # real case: saves from before the Critter Book
+	trimmed.erase("touch_mode")   # pre-touch-mode save defaults safely
 	_write_text(TEST_PATH, JSON.stringify(trimmed))
 	var older_backup: Dictionary = _read_json(TEST_PATH + ".bak")
 	older_backup["pearls"] = 1   # a demotion to the backup would visibly roll progress back
@@ -157,6 +166,7 @@ func _init() -> void:
 	var core_data: Dictionary = core_candidate.get("data", {})
 	_expect(core_data.get("stickers") is Dictionary, "missing key restored with its default")
 	_expect(core_data.get("critters") is Dictionary, "pre-Critter-Book save defaults critters without demotion")
+	_expect(String(core_data.get("touch_mode", "")) == "hybrid", "pre-touch-mode save defaults to Hybrid")
 	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
 
 	_cleanup()

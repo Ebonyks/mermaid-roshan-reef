@@ -53,6 +53,11 @@ func _init() -> void:
 		_bad("simultaneous world tap was lost or moved")
 	if (touch.stick_vec as Vector2).length() < 0.45:
 		_bad("world tap stole movement ownership")
+	# A second-finger activation that does not change scenes must not cancel
+	# the left-stick owner. (World transitions intentionally clear all input.)
+	main._activate_touch_interactable("court:star:0")
+	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
+		_bad("non-transition activation stole held movement")
 
 	# A swipe over the world is neither a tap command nor leaked finger state.
 	var tap_count_before_drag: int = taps.size()
@@ -78,6 +83,29 @@ func _init() -> void:
 	touch._on_action_button_up()
 	if bool(touch.action_down):
 		_bad("hybrid action button remained held")
+	await _frames(4)
+	if bool(touch.action_just):
+		_bad("released action edge remained armed for a future interaction")
+	touch.set_action_label("PLAY")
+	if touch._act_lbl == null or String(touch._act_lbl.text) == "PLAY" or not "\n" in String(touch._act_lbl.text):
+		_bad("action target is word-only instead of pictogram plus word")
+
+	# A full-screen overlay can swallow the original finger-up. Opening and
+	# closing it must still clear the stick owner and restore neutral controls.
+	_down(5, move_start)
+	_drag(5, move_start + Vector2(76.0, -22.0))
+	main._open_craft_studio()
+	await process_frame
+	if touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("opening overlay stranded held movement state")
+	if touch._act_button != null and touch._act_button.visible:
+		_bad("world action button occludes a full-screen overlay")
+	# The release is intentionally omitted: this simulates a Control consuming
+	# it before the gameplay router sees it.
+	main._close_craft()
+	await process_frame
+	if not touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("closing overlay restored stale held movement")
 
 	# Manual steering cancels assisted travel immediately.
 	main._tap_move_ref().start(main.player.position + Vector3(30.0, 0.0, 0.0))
@@ -138,11 +166,12 @@ func _frames(count: int) -> void:
 
 func _bad(message: String) -> void:
 	failures += 1
-	print("TOUCH_ROUTER|ISSUE ", message)
+	print("TOUCH_ROUTER|FAIL ", message)
 
 func _finish() -> void:
 	if failures == 0:
 		print("TOUCH_ROUTER|ALL OK")
+		quit()
 	else:
-		print("TOUCH_ROUTER|RESULT %d issue(s)" % failures)
-	quit()
+		print("TOUCH_ROUTER|FAIL %d issue(s)" % failures)
+		quit(1)

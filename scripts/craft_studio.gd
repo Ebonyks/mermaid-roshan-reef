@@ -33,6 +33,7 @@ func _craft_build_preview() -> void:
 func _open_craft_studio() -> void:
 	if m.craft_layer != null:
 		return
+	m._set_world_controls_enabled(false, "craft")
 	m.craft_kind = "fish"
 	m.craft_body = Color(0.4, 0.7, 1.0)
 	m.craft_fins = Color(1.0, 0.6, 0.2)
@@ -216,3 +217,4 @@ func _close_craft() -> void:
 	m.craft_layer = null
 	m.craft_fishbox = null
 	m.mg_cool = 10.0
+	m._set_world_controls_enabled(true, "craft")

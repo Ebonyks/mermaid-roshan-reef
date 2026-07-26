@@ -354,6 +354,7 @@ const TOUCH_MODE_HYBRID := "hybrid"
 const TOUCH_MODE_CLASSIC := "classic"
 var touch_mode := TOUCH_MODE_HYBRID
 var touch_mode_btn: Button = null
+var touch_control_blocks: Dictionary = {}
 # Mutable touch experiment state stays on ReefMain. The two RefCounted
 # directors receive this node and own behavior only, matching the extraction
 # rules used by the arena/minigame satellites.
@@ -417,6 +418,7 @@ var sleep_cool := 0.0
 var sleep_layer: CanvasLayer = null
 var sleep_overlay: ColorRect = null
 var sleep_flip_done := false
+var hug_layer: CanvasLayer = null
 var night_nodes: Array = []   # moon/beams/jellies — toggled when time flips at runtime
 var quality_btn: Button
 var music_btn: Button
@@ -2583,8 +2585,10 @@ func _restore_level2_after_trip(was_open: bool, saved_position: Vector3) -> void
 func _start_combat(battle_kind: String) -> void:
 	if combat_game != null or battle_kind not in ["ice", "fire"]:
 		return
+	_prepare_touch_transition()
 	combat_from = game
 	game = "combat"
+	_populate_touch_interactables()
 	if hud_layer != null:
 		hud_layer.visible = false
 	player.visible = false
@@ -2609,6 +2613,7 @@ func _end_combat(battle_kind: String) -> void:
 		_write_save()
 		_update_hud()
 	game = combat_from
+	_populate_touch_interactables()
 	if combat_from == "galaxy" and galaxy_game != null:
 		var galaxy_level := galaxy_game as GalaxyLevel
 		galaxy_level.visible = true
@@ -3036,15 +3041,20 @@ func _fade_cut(cb: Callable) -> void:
 	# and assert state a frame or two later, so cb is never tween-deferred.
 	# Snap the cover to full black, run the build under it in the same frame,
 	# then tween only the reveal. State timing is byte-identical to before.
+	_prepare_touch_transition()
 	if fade_rect == null:
 		cb.call()
+		_finish_touch_transition()
 		return
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	fade_rect.modulate.a = 1.0
 	cb.call()
+	_populate_touch_interactables()
 	if fade_tween != null and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = create_tween()
 	fade_tween.tween_property(fade_rect, "modulate:a", 0.0, 0.25)
+	fade_tween.tween_callback(_finish_touch_transition)
 
 func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	var l := Label.new()
@@ -3326,6 +3336,8 @@ func _build_pause() -> void:
 	_pause_ref()._build_pause()
 
 func toggle_pause() -> void:
+	if touch_ui != null:
+		touch_ui.cancel_all_touches()
 	_pause_ref().toggle_pause()
 
 # ===================== REVERSIBLE TOUCH-CENTRIC EXPERIMENT =====================
@@ -3383,12 +3395,43 @@ func _touch_mode_label() -> String:
 func _on_touch_world(screen_pos: Vector2) -> void:
 	if intro_active or get_tree().paused or mg_kind != "":
 		return
+	if fade_rect != null and fade_rect.modulate.a > 0.02:
+		return
+	if touch_ui != null and not touch_ui.world_controls_enabled:
+		return
 	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
 		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 func _on_touch_manual_move() -> void:
 	_tap_move_ref().cancel("manual")
+
+func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
+	if enabled:
+		touch_control_blocks.erase(reason)
+	else:
+		touch_control_blocks[reason] = true
+	var controls_enabled: bool = touch_control_blocks.is_empty()
+	if touch_ui != null:
+		touch_ui.set_world_controls_enabled(controls_enabled)
+	if not controls_enabled:
+		_tap_move_ref().cancel("overlay")
+		_interaction_ref().clear_focus()
+		touch_interactables.clear()
+	else:
+		_populate_touch_interactables()
+
+func _prepare_touch_transition() -> void:
+	if touch_ui != null:
+		touch_ui.cancel_all_touches()
+	_tap_move_ref().cancel("transition")
+	_interaction_ref().clear_focus()
+	touch_interactables.clear()
+
+func _finish_touch_transition() -> void:
+	if fade_rect != null:
+		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_populate_touch_interactables()
 
 func _touch_interaction_ready(interactable_id: String) -> void:
 	_interaction_ref().mark_ready(interactable_id)
@@ -3506,7 +3549,7 @@ func _populate_courtyard_touch_interactables() -> void:
 		_touch_add_item("court:castle", "Pearl Castle", g["entry"], l2_door, 20.0, 52.0, "ENTER")
 
 func _populate_hall_touch_interactables() -> void:
-	if g.has("bed_pos") and sleep_cool <= 0.0:
+	if g.has("bed_pos") and sleep_cool <= 0.0 and sleep_t < 0.0:
 		_touch_add_item("hall:bed", "Cozy Bed", g["bed_pos"], null, 7.0, 28.0, "SLEEP")
 	if not bool(g.get("stand_open", false)) and g.has("stand_chest"):
 		var stand: Node3D = g["stand_chest"]
@@ -3529,13 +3572,18 @@ func _populate_hall_touch_interactables() -> void:
 		_touch_add_item("hall:craft", "Craft Studio", g["craft_easel"], null, 7.0, 26.0, "MAKE")
 	if g.has("wardrobe") and wardrobe_layer == null:
 		_touch_add_item("hall:wardrobe", "Wardrobe", g["wardrobe"], null, 7.0, 26.0, "DRESS")
+	var bellgame: Dictionary = g.get("bellgame", {})
+	var bell_state: String = String(bellgame.get("state", ""))
+	if bell_state == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and g.has("song_star"):
+		_touch_add_item("hall:bell_song", "Music Star", g["song_star"], null, 7.0, 30.0, "PLAY")
 	var bells: Array = g.get("bells", [])
-	for bell_index in range(bells.size()):
-		var bell: Dictionary = bells[bell_index]
-		var bell_node: Node3D = bell.get("node") as Node3D
-		if is_instance_valid(bell_node):
-			_touch_add_item("hall:bell:%d" % bell_index, "Music Bell", bell_node.position,
-				bell_node, 5.0, 20.0, "RING", bell_index)
+	if bell_state != "play":
+		for bell_index in range(bells.size()):
+			var bell: Dictionary = bells[bell_index]
+			var bell_node: Node3D = bell.get("node") as Node3D
+			if is_instance_valid(bell_node):
+				_touch_add_item("hall:bell:%d" % bell_index, "Music Bell", bell_node.position,
+					bell_node, 5.0, 20.0, "RING", bell_index)
 	if g.has("secret_door") and bool(g.get("stand_open", false)):
 		_touch_add_item("hall:secret", "Daddy's Treasure Chest", g["secret_door"], null, 8.0, 26.0, "HUG")
 	if not bool(g.get("crown_won", false)) and not l2_stars.is_empty():
@@ -3547,12 +3595,16 @@ func _populate_hall_touch_interactables() -> void:
 		var prop: Dictionary = hall_touch[prop_index]
 		var prop_node: Node3D = prop.get("node") as Node3D
 		_touch_add_item("hall:prop:%d" % prop_index, "Magic Castle Toy",
-			prop.get("pos", Vector3.ZERO), prop_node, float(prop.get("r", 4.0)),
+			prop.get("pos", Vector3.ZERO), prop_node, maxf(5.0, float(prop.get("r", 4.0))),
 			maxf(16.0, float(prop.get("r", 4.0)) * 4.0), "TOUCH", prop_index)
 
 func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 	if not touch_uses_explicit_interactions():
 		return
+	if touch_ui != null:
+		# Consume the activating button without stealing a simultaneously held
+		# left-stick finger. Fade-backed activities clear every owner below.
+		touch_ui.consume_action()
 	if id.begins_with("friend:"):
 		var friend_index: int = int(payload)
 		if friend_index >= 0 and friend_index < friends.size():
@@ -3619,6 +3671,9 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_open_craft_studio()
 		"hall:wardrobe":
 			_open_wardrobe()
+		"hall:bell_song":
+			var song_game: Dictionary = g.get("bellgame", {})
+			_start_bellgame(song_game)
 		"hall:secret":
 			_play_hug_cutscene()
 		"hall:crown":
@@ -3967,6 +4022,9 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
+	_fade_cut(_enter_northern_kingdom_now)
+
+func _enter_northern_kingdom_now() -> void:
 	game = "north"
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5197,11 +5255,8 @@ func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 	bg2["cool"] = maxf(0.0, float(bg2["cool"]) - delta)
 	var st := String(bg2["state"])
 	if st == "idle":
-		if float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
-			bg2["round"] = 0
-			bg2["oops"] = 0
-			show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
-			_bellgame_new_round(bg2)
+		if not touch_uses_explicit_interactions() and float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
+			_start_bellgame(bg2)
 	elif st == "play":
 		bg2["t"] = float(bg2["t"]) - delta
 		if float(bg2["t"]) <= 0.0:
@@ -5215,6 +5270,15 @@ func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 				bg2["state"] = "echo"
 				bg2["i"] = 0
 				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
+				_populate_touch_interactables()
+
+func _start_bellgame(bg2: Dictionary) -> void:
+	if bg2.is_empty() or String(bg2.get("state", "")) != "idle" or float(bg2.get("cool", 0.0)) > 0.0:
+		return
+	bg2["round"] = 0
+	bg2["oops"] = 0
+	show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
+	_bellgame_new_round(bg2)
 
 func _bellgame_new_round(bg2: Dictionary) -> void:
 	bg2["round"] = int(bg2["round"]) + 1
@@ -5232,6 +5296,7 @@ func _bellgame_new_round(bg2: Dictionary) -> void:
 	bg2["state"] = "play"
 	bg2["i"] = 0
 	bg2["t"] = 1.1
+	_populate_touch_interactables()
 
 func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 	var seq: Array = bg2["seq"]
@@ -5251,6 +5316,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 				award_sticker("bells")
 				_medal_ref().award_stats("bells", {"oops": int(bg2.get("oops", 0))})
 				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
+				_populate_touch_interactables()
 			else:
 				if chime != null:
 					chime.pitch_scale = 1.4
@@ -5266,10 +5332,14 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 		bg2["state"] = "play"
 		bg2["i"] = 0
 		bg2["t"] = 1.2
+		_populate_touch_interactables()
 
 func _begin_sleep() -> void:
 	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
 	# fades, day flips to night (or night to day), and she wakes refreshed
+	if sleep_t >= 0.0:
+		return
+	_set_world_controls_enabled(false, "sleep")
 	award_sticker("sleepy")
 	_play_music("home")   # A Place I Call Home — the tuck-in lullaby
 	sleep_t = 0.0
@@ -5348,6 +5418,7 @@ func _end_sleep() -> void:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
 		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
 	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
@@ -5406,10 +5477,14 @@ func _return_to_courtyard() -> void:
 	_enter_level2(true)
 
 func _play_hug_cutscene() -> void:
+	if hug_layer != null:
+		return
+	_set_world_controls_enabled(false, "hug")
 	award_sticker("hug")
 	var cl := CanvasLayer.new()
 	cl.layer = 20
 	add_child(cl)
+	hug_layer = cl
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(root)
@@ -5466,9 +5541,17 @@ func _play_hug_cutscene() -> void:
 		ht.tween_property(h, "position:y", vp.y * 0.08, 1.7 + randf()).set_delay(0.5 + randf() * 0.6)
 		ht.tween_property(h, "modulate:a", 0.0, 1.6).set_delay(0.9)
 	get_tree().create_timer(2.7).timeout.connect(func():
+		if not is_instance_valid(root):
+			return
 		var fo := root.create_tween()
 		fo.tween_property(root, "modulate:a", 0.0, 0.45)
-		fo.finished.connect(cl.queue_free))
+		fo.finished.connect(_end_hug_cutscene))
+
+func _end_hug_cutscene() -> void:
+	if hug_layer != null and is_instance_valid(hug_layer):
+		hug_layer.queue_free()
+	hug_layer = null
+	_set_world_controls_enabled(true, "hug")
 
 
 func _mg_noop_ref(_n: Node) -> void:
