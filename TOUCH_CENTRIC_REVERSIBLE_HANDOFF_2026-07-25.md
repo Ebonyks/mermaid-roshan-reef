@@ -152,6 +152,9 @@ sessions. The mandatory human/device pass below owns that claim.
    cannot restart while active, and every bell play/echo/idle transition
    updates targets in the same frame. Their exact regressions pass, and a
    fresh isolated strengthened cycle again reports 25/25 clear.
+8. Final independent adversarial re-review found no remaining high- or
+   medium-severity touch defect in the diff. Human tablet/child sign-off
+   remains outstanding by design.
 
 Local desktop validation uses the owner's installed
 `Godot_v4.7-dev2_win64_console.exe`. CI remains the compatibility authority for
