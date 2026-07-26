@@ -32,7 +32,7 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.4.1-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.1-stable_linux.x86_64   # or `godot` on PATH
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless
