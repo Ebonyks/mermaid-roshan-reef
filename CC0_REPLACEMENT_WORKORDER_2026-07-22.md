@@ -147,6 +147,12 @@ matching `*_GEN2` dict so the old file goes dark before it's deleted.
 | 04-06 | `regen_04_06_crystal_family.png` | `assets/galaxy/gen2/crystal1.glb`, `crystal2.glb`, `crystal3.glb` | `galaxy.gd` `CRYSTALS`; `kart.gd` `BW_CRYSTALS`, `BW_DECO_CRYSTALS`, rainbow-orbit `marks` | shipped 2026-07-26 |
 | 07 | `regen_07_crystal_castle.png` | `assets/galaxy/gen2/crystal_castle.glb` | `galaxy.gd` `CASTLE_GLB`; `kart.gd` `BW_CASTLE_GLB` | shipped 2026-07-26 |
 | 08 | `regen_08_serving_tray.png` | `assets/galaxy/gen2/tray.glb` | `galaxy.gd` `TRAY_GLB` | shipped 2026-07-26 |
+| 29 | `regen_29_32_park_and_rooted_hedges.png` | `assets/props/gen2/park_bench.glb` | `main.gd` `KIT_GEN2["park/bench"]` | shipped 2026-07-26 |
+| 30 | `regen_29_32_park_and_rooted_hedges.png` | `assets/props/gen2/park_fountain.glb` | `main.gd` `KIT_GEN2["park/fountain"]` | shipped 2026-07-26 |
+| 31-32 | `regen_29_32_park_and_rooted_hedges.png` | — | — | **no live call site**: `_kit("park/hedge…")` is never called (the Sky Lagoon dresses hedges from its own authored kit). Reclassified Group 0, not modelled |
+| 33 | `regen_33_35_pearl_furniture.png` | `assets/props/gen2/pearl_bookcase.glb` | `main.gd` `KIT_GEN2["furniture/bookcase"]` | shipped 2026-07-26 |
+| 34 | `regen_33_35_pearl_furniture.png` | `assets/props/gen2/pearl_chair.glb` | `main.gd` `KIT_GEN2["furniture/chair"]` | shipped 2026-07-26 |
+| 35 | `regen_33_35_pearl_furniture.png` | `assets/props/gen2/pearl_table.glb` | `main.gd` `KIT_GEN2["furniture/table"]` | shipped 2026-07-26 |
 
 Built deterministically by `tools/build_cc0_galaxy_kit.py` (Blender 4.5 / pinned
 `bpy` wheel): original low-poly geometry, embedded matte pastel materials, no
@@ -168,8 +174,18 @@ Two runtime notes for whoever picks up the next batch:
   superseded in `ASSET_LICENSES.md`, awaiting the owner-approved cleanup commit
   described in step 4 above.
 
-Still open in Group 2: items 01-03, 09-22 and 29-35 plus the F01-F03 seaweed
-addendum. Item 01 (`pearl_shell_throne`) already has a shipped authored model in
+Batch 2 (park + pearl furniture) is built by `tools/build_cc0_kit_gen2.py` and
+wired through `main.gd`'s existing `KIT_GEN2` strangler dict, so both legacy kit
+folders go dark without touching a single call site. A repo-wide
+`grep '_kit("'` during that batch found only seven live kit pieces in total:
+`park/bench`, `park/fountain`, `furniture/bookcase`, `furniture/chair`,
+`furniture/table`, `castle/tower-square` and `castle/flag`. Items 31-32
+(hedges) and `castle/wall` therefore have no live call site and belong in
+Group 0, not in the regen list.
+
+Still open in Group 2: items 01-03, 09-19, 20-22 (`castle/tower-square` and
+`castle/flag` — `castle/wall` is dead) plus the F01-F03 seaweed addendum.
+Item 01 (`pearl_shell_throne`) already has a shipped authored model in
 `assets/castle/pearl_kit/`; `assets/castle/throne.glb` only survives as the
 `castle_hall.gd` fallback branch, so it is a wiring/cleanup question, not a
 modelling one.

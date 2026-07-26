@@ -3887,7 +3887,13 @@ func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1
 # playground: kit path -> painted GEN2 sculpt + its ambient toy animation
 const KIT_GEN2 := {"play/slide_A": "play_slide", "play/swing_A_large": "play_swing",
 	"play/merry_go_round": "play_merry", "play/seesaw_large": "play_seesaw",
-	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse"}
+	"play/sandbox_round_decorated": "play_sandbox", "play/spring_horse_A": "play_horse",
+	# CC0 replacement batch 2 (Regen 29/30/33-35, tools/build_cc0_kit_gen2.py):
+	# authored art from the accepted Codex concept sheets takes over the last
+	# live Tiny Treats park and Quaternius furniture pieces.
+	"park/bench": "park_bench", "park/fountain": "park_fountain",
+	"furniture/bookcase": "pearl_bookcase", "furniture/chair": "pearl_chair",
+	"furniture/table": "pearl_table"}
 
 func _toy_anim(node: Node3D, name: String) -> void:
 	# simple always-alive toy motion (cosmetic; solids stay where they were)
