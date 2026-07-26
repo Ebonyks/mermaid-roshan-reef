@@ -16,6 +16,12 @@
 >   Daddy to import. Drop it at `assets/characters/friends/daddy.glb`.
 > - The loaders described in step 4 below are now a single shared factory,
 >   `main.character_visual()`, used by all 21 character call sites.
+> - The permanent per-figure source blocker is addressed by
+>   **CODEX_CHARACTER_GENERATION_2026-07-26.md**, which requests each figure
+>   drawn alone and unoccluded as new authored art. That is the only thing that
+>   can unblock Evie / Wacky / Harper & Fiona / Faron, and it replaces the
+>   nano-banana turnaround lane for characters outright rather than mixing with
+>   it.
 
 Owner: "start making Meshy models of all of the game characters and abandon
 the old sprite style… focus on daddy mermaid next." Gabby is removed entirely

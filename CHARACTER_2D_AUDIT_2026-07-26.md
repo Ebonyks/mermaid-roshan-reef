@@ -240,10 +240,14 @@ Per-character knobs live in the `ROSTER` in `tools/build_npc_draft.py`:
 2. **The four `needs_src` tasks** in `NPC_3D_WORKORDER_2026-07-19.md` should be
    closed as won't-do (§1.3) unless you want per-figure turnarounds
    commissioned, which is genuinely new art.
-3. **Codex turnarounds** — if you want a real sculpt lane rather than reliefs,
-   the highest-value request is front/side/back turnaround sheets for the six
-   most-seen characters (Huluu, Evie+Lamb-a', Harper+Fiona, Faron, Wacky+Chuck,
-   Kareem), matching the `gen2/turnarounds/roshan_v2/` layout. Say the word and
-   I will write the per-character prompts.
+3. **Codex turnarounds — written up and ready to hand over.** See
+   **`CODEX_CHARACTER_GENERATION_2026-07-26.md`**: one continuous 60-image
+   batch (20 characters x front/side/back), generated entirely by Codex so the
+   cast never mixes Codex and nano-banana hands. It also **unblocks the four
+   pair-sheet tasks** — Codex drawing Evie alone is authored art, which no crop
+   could ever be (SS1.3). Two owner decisions are flagged in its SS5: whether
+   Daddy is included, and whether Roshan/Rosalina are regenerated (which means
+   a rig retarget, but leaving her out re-creates the exact mixed-provenance
+   problem the batch exists to fix).
 4. **`flower_friend` and `chuck_solo`** now have models but no call site — want
    them placed anywhere?
