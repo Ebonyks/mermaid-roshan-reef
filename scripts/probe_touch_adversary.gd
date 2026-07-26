@@ -102,11 +102,26 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
 			main._populate_touch_interactables()
-			_check_registry(main, ["court:castle", "court:north", "court:kart_a", "court:kart_b"], issues)
-			main._activate_touch_interactable("court:north")
-			await _frames(10)
-			if main.game != "north":
-				issues.append("explicit courtyard route did not enter northern world")
+			_check_registry(main, ["court:castle", "court:north", "court:opera", "court:kart_a", "court:kart_b"], issues)
+			if int(run_index / 4) % 2 == 0:
+				var opera_gate: Dictionary = main.g.get("opera_gate", {})
+				var opera_gate_pos: Vector3 = opera_gate.get("pos", Vector3.ZERO)
+				main._activate_touch_interactable("court:opera")
+				await _frames(4)
+				if main.game != "opera" or main.opera_game == null:
+					issues.append("explicit courtyard Opera target did not open")
+				else:
+					main.opera_game._leave_early()
+					await _frames(4)
+					if main.game != "level2" or String(main.g.get("phase", "")) != "court":
+						issues.append("Opera exit did not restore courtyard")
+					elif opera_gate_pos.distance_to(main.player.position) >= 9.0:
+						issues.append("Opera exit did not return beside touch target")
+			else:
+				main._activate_touch_interactable("court:north")
+				await _frames(10)
+				if main.game != "north":
+					issues.append("explicit courtyard route did not enter northern world")
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)

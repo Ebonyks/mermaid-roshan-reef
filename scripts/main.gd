@@ -2823,7 +2823,9 @@ func _end_opera(completed: bool) -> void:
 		hud_layer.visible = true
 	if g.has("opera_gate"):
 		var gate: Dictionary = g["opera_gate"]
-		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
+		# Stay outside the 4.5 entrance radius but leave enough room for the
+		# analytic wall/terrain correction to remain beside the marquee.
+		player.position = (gate["pos"] as Vector3) + Vector3(5.5, 0, 0)
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop

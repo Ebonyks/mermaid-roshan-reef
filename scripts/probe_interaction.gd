@@ -65,7 +65,7 @@ func _init() -> void:
 	await _frames(24)
 	main._populate_touch_interactables()
 	var court_ids := _ids()
-	for expected: String in ["court:castle", "court:north", "court:kart_a", "court:kart_b"]:
+	for expected: String in ["court:castle", "court:north", "court:opera", "court:kart_a", "court:kart_b"]:
 		if not court_ids.has(expected):
 			_bad("courtyard registry missing %s" % expected)
 
