@@ -1495,11 +1495,11 @@ func _brawl_action() -> void:
 			# fling the captain off the set and out of the child's reach. He
 			# dashes to the far side of the STAGE instead.
 			var dash_sx := CENTER.x + (-9.0 if player_pos.x > CENTER.x else 9.0)
-			dash = Vector3(dash_sx, 1.0, CENTER.z + randf_range(-6.0, 2.0))
+			dash = Vector3(dash_sx, CENTER.y + 1.0, CENTER.z + randf_range(-6.0, 2.0))
 		else:
 			var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
 			var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
-			dash = Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
+			dash = Vector3(dash_x, CENTER.y + 1.0, CENTER.z + randf_range(-1.0, 6.0))
 		imp["pos"] = dash
 		(imp["node"] as Node3D).position = dash
 		if m.chime != null:

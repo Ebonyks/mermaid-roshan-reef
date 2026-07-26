@@ -100,6 +100,11 @@ func _init() -> void:
 	act._brawl_action()
 	_ck("the captain shrugs off the first star and dashes",
 		not bool(captain["popped"]) and (captain["pos"] as Vector3).distance_to(captain_pos) > 5.0)
+	# ...and he must dash somewhere a child can actually swim to. The dash used
+	# to place him at y=1.0 ABSOLUTE while the stage sits at y=-2600, putting
+	# him 2601 units overhead and permanently out of the sparkle's 8.0 reach.
+	_ck("the dashing captain stays at swimming height",
+		absf((captain["pos"] as Vector3).y - (act.CENTER.y + 1.0)) < 2.0)
 	# the rhythm: the imps are GUARDING someone, and freeing them pays a gift
 	_ck("the imps have captives in bubble cages", act.captives.size() == 2)
 	_ck("nobody is freed while imps still guard them", not act.gift_given)
@@ -235,7 +240,10 @@ func _drive_stage_rescue(act: OperaAct) -> void:
 				break
 		if target.is_empty():
 			break
-		act.player_pos = (target["pos"] as Vector3)
+		# keep Roshan's OWN height: teleporting to the imp's exact 3D position
+		# masked a dash that flung the captain 2600 units into the sky
+		var tp: Vector3 = target["pos"] as Vector3
+		act.player_pos = Vector3(tp.x, act.player_pos.y, tp.z)
 		act._brawl_action()
 	_ck_once("the rescue hands the act back its stage", act.stage_phase == "puzzle")
 	_ck_once("freeing them pays the gift", act.gift_given)
@@ -253,7 +261,8 @@ func _drive_brawl(act: OperaAct) -> void:
 				break
 		if target.is_empty():
 			break
-		act.player_pos = (target["pos"] as Vector3)
+		var bp: Vector3 = target["pos"] as Vector3
+		act.player_pos = Vector3(bp.x, act.player_pos.y, bp.z)
 		act._brawl_action()
 	if act.stage_phase == "puzzle":
 		act.player_pos = act.CENTER + Vector3(0, 1.1, 14.0)
