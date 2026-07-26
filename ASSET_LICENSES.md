@@ -309,6 +309,29 @@ ambientCG (all CC0).
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_33_35_pearl_furniture.png — original project-generated 1536x1024 items-33–35 pearl-furniture model-reference sheet made with OpenAI built-in image generation; prompt family L in `REGEN_35_PROMPT_PLAN.md`; no external or protected reference image; generated 2026-07-22.
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/context_{caribbean_reef_density,norway_kelp_coldwater_coral_zones}.png — original project-generated 1536x1024 context-only ecosystem density/placement boards made with OpenAI built-in image generation; ecological fact sources recorded in `ECOLOGY_SOURCES.md`; no reference images or copied source pixels; not Regen roles and not runtime assets; generated 2026-07-22.
 
+## assets_src/concepts/opera_jobs_2p5d_2026-07-24/*.png (24 images) and audit/opera_job_2p5d_contact_sheet_2026-07-24.png
+- Source: project-authored concept art generated with OpenAI built-in image
+  generation on 2026-07-24; prompts and generation identifiers are recorded
+  in `assets_src/concepts/opera_jobs_2p5d_2026-07-24/PROMPTS.md`
+- License: project original
+- Modifications: accepted scene keys were high-quality resampled from
+  1672x941 to 1024x576; accepted environment kits were high-quality resampled
+  from 1254x1254 to 1024x1024; the contact sheet is a 1024x1024 composite of
+  the accepted images; rejected iterations were not added
+- External reference images: none; established project palette and existing
+  project-owned Opera job art were used as the style/continuity contract
+
+## assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/*.png (12 images) and audit/opera_job_hybrid_finale_contact_sheet_2026-07-24.png
+- Source: project-authored concept art generated with OpenAI built-in image
+  generation on 2026-07-24; prompts and generation identifiers are recorded
+  in `assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/PROMPTS.md`
+- License: project original
+- Modifications: accepted source images were high-quality resampled from
+  1672x941 to 1024x576; the contact sheet is a 1024x1024 composite of the
+  twelve accepted images; rejected iterations were not added
+- External reference images: none; only established project-owned Mermaid
+  Roshan, Opera, outfit, implement, and boss art informed continuity
+
 ## assets/art35/opera/*.glb (10 models: arch, curtain, door, medallion, chandelier, bench, railing, lift, maestro, stage_apron)
 - Source: project-authored, generated procedurally in Blender by
   tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
