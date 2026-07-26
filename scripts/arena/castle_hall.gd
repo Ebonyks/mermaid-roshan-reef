@@ -108,7 +108,7 @@ func _story_hutch_shared_mesh() -> ArrayMesh:
 	_story_hutch_add_box(surfaces[0], Vector3(0.66, 3.14, 0.0), Vector3(1.48, 0.32, 6.40))
 	_story_hutch_add_box(surfaces[1], Vector3(0.66, 0.28, 0.0), Vector3(1.70, 0.56, 6.40))
 	_story_hutch_add_box(surfaces[1], Vector3(0.70, 1.42, 0.0), Vector3(1.58, 0.26, 5.90))
-	_story_hutch_add_box(surfaces[2], Vector3(1.48, 1.68, 0.0), Vector3(0.14, 0.52, 5.90))
+	_story_hutch_add_box(surfaces[2], Vector3(1.44, 1.68, 0.0), Vector3(0.14, 0.52, 5.90))
 
 	# Two reachable shell-marked cubbies sit at floor level.
 	_story_hutch_add_box(surfaces[3], Vector3(1.10, 0.91, -1.56), Vector3(0.62, 0.84, 2.56))
