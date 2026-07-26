@@ -4807,10 +4807,11 @@ func _begin_plant() -> void:
 		var hole := _panel_circle(farm_root, Vector2(hx, 470.0), 52.0, Color(0.36, 0.26, 0.2))
 		var sprout := _panel_circle(farm_root, Vector2(hx + 12.0, 410.0), 28.0, Color(0.4, 0.78, 0.42))
 		sprout.visible = false
-		var seed := _panel_circle(farm_root, Vector2(160.0 + float(i) * 70.0, 610.0), 26.0,
+		# NOT named `seed`: that shadows GDScript's global seed() function
+		var pip := _panel_circle(farm_root, Vector2(160.0 + float(i) * 70.0, 610.0), 26.0,
 			Color(0.92, 0.84, 0.55))
-		furrows.append({"index": i, "hole": hole, "sprout": sprout, "seed": seed,
-			"hx": hx, "home": seed.position, "planted": false})
+		furrows.append({"index": i, "hole": hole, "sprout": sprout, "seed": pip,
+			"hx": hx, "home": pip.position, "planted": false})
 	_set_drag(true)
 	m.show_msg("Roshan", "First the planting! DRAG each seed into a hole in the soil.", "talk")
 	_update_hud()
