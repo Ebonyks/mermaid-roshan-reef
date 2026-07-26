@@ -3507,7 +3507,9 @@ func _populate_hall_touch_interactables() -> void:
 	if g.has("opera_gate"):
 		var opera_gate: Dictionary = g["opera_gate"]
 		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 28.0, "SHOW")
-	if g.has("hall_exit") and float(g.get("t", 0.0)) > 2.5:
+	# Unlike a proximity trigger, an explicit target cannot bounce Roshan back
+	# through the entrance accidentally, so it can be discoverable immediately.
+	if g.has("hall_exit"):
 		_touch_add_item("hall:exit", "Castle Courtyard", g["hall_exit"], null, 12.0, 34.0, "EXIT")
 	if g.has("craft_easel") and craft_layer == null:
 		_touch_add_item("hall:craft", "Craft Studio", g["craft_easel"], null, 7.0, 26.0, "MAKE")
@@ -3587,7 +3589,7 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 		"hall:bed":
 			_begin_sleep()
 		"hall:stand":
-			_castle_ref().slide_stand()
+			_hall_ref().slide_stand()
 		"hall:toilet":
 			var toilet: Dictionary = g.get("toilet", {})
 			var toilet_player: AudioStreamPlayer = toilet.get("player") as AudioStreamPlayer
@@ -3606,7 +3608,7 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 		"hall:secret":
 			_play_hug_cutscene()
 		"hall:crown":
-			_touch_award_crown()
+			_hall_ref().award_crown(player.position)
 		_:
 			if id.begins_with("court:ocean:"):
 				var gate_index: int = int(payload)
@@ -3624,12 +3626,19 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 				var bell_index: int = int(payload)
 				var bells: Array = g.get("bells", [])
 				if bell_index >= 0 and bell_index < bells.size():
-					_ring_bell(bells[bell_index])
+					var bellgame: Dictionary = g.get("bellgame", {})
+					var bell_state: String = String(bellgame.get("state", ""))
+					if bell_state != "play":
+						var bell: Dictionary = bells[bell_index]
+						bell["cool"] = 0.12
+						_ring_bell(bell)
+						if bell_state == "echo":
+							_bellgame_echo(bellgame, bell_index)
 			elif id.begins_with("hall:prop:"):
 				var prop_index: int = int(payload)
 				var props: Array = g.get("hall_touch", [])
 				if prop_index >= 0 and prop_index < props.size():
-					_castle_ref()._fire_touch(props[prop_index])
+					_hall_ref()._fire_touch(props[prop_index])
 
 func _touch_open_picture(picture_index: int) -> void:
 	if picture_index < 0 or picture_index >= wall_pics.size():
@@ -3640,17 +3649,6 @@ func _touch_open_picture(picture_index: int) -> void:
 		_l2_start_slide()
 	elif PIC_GAME.has(art_key):
 		_mg2d_open(String(PIC_GAME[art_key]))
-
-func _touch_award_crown() -> void:
-	if bool(g.get("crown_won", false)) or l2_stars.is_empty():
-		return
-	g["crown_won"] = true
-	level2_done_once = true
-	_write_save()
-	var crown: Node3D = (l2_stars[0] as Dictionary).get("node") as Node3D
-	if is_instance_valid(crown):
-		_sparkle_burst(crown.position, Color(1.0, 0.9, 0.4))
-	show_msg("Pearl Castle", "The Crown Star is yours! Explore every room!", "win")
 
 func _leave_current_activity() -> void:
 	_pause_ref()._leave_current_activity()
@@ -6901,6 +6899,9 @@ func _process(delta: float) -> void:
 					kart_ocean_portal_armed = true
 			elif kart_cool <= 0.0 and kd < 12.0 and ky < 14.0:
 				_start_kart_game(false, "terrain")
+	if game == "" and finale_t < 0.0:
+		# Hybrid replaces only the proximity transition. Story progression and
+		# the portal's visual raise/animation must keep ticking in both modes.
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:

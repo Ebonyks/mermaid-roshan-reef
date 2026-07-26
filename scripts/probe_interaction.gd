@@ -69,6 +69,8 @@ func _init() -> void:
 		if not court_ids.has(expected):
 			_bad("courtyard registry missing %s" % expected)
 
+	# Exercise the first-visit Crown Star target, not the already-won keepsake.
+	main.level2_done_once = false
 	main._enter_castle_interior_now(false)
 	await _frames(24)
 	main._populate_touch_interactables()

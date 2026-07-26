@@ -317,9 +317,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and touch.index == _touch_idx:
 				_release_stick()
-			elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(touch.index):
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
-				if not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
 				_world_pend.erase(touch.index)
@@ -349,9 +349,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and _touch_idx == 99:
 				_release_stick()
-			elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(99):
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
-				if not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
 				_world_pend.erase(99)
@@ -360,6 +360,13 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		var mouse_motion := ev as InputEventMouseMotion
 		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
 			_drag(mouse_motion.position)
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
+		var world_motion := ev as InputEventMouseMotion
+		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
+			var world_data: Dictionary = _world_pend[99]
+			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				world_data["moved"] = true
+				touch_owners[99] = TouchOwner.WORLD_MOVE
 
 # Reversible shipped input path. Keep behavioral edits to this method out of the
 # hybrid experiment so selecting Classic is a genuine runtime rollback.

@@ -1962,16 +1962,24 @@ func tick(delta: float, ppos: Vector3) -> void:
 		# The rebuilt five-unit star sits just left of the throne so it remains
 		# readable beside Huluu. Match its generous child-scale visual footprint.
 		if not explicit_touch and d < 10.0:
-			m.g["crown_won"] = true
-			m.level2_done_once = true
-			m._write_save()
-			if m.voice != null:
-				m.voice.pitch_scale = 1.15
-				m.voice.play()
-			for i in range(10):
-				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
-			var ctw: Tween = crown.create_tween()
-			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
-			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
+			award_crown(ppos)
+
+func award_crown(ppos: Vector3) -> void:
+	if bool(m.g.get("crown_won", false)) or m.l2_stars.is_empty():
+		return
+	var crown: Node3D = (m.l2_stars[0] as Dictionary).get("node") as Node3D
+	if not is_instance_valid(crown):
+		return
+	m.g["crown_won"] = true
+	m.level2_done_once = true
+	m._write_save()
+	if m.voice != null:
+		m.voice.pitch_scale = 1.15
+		m.voice.play()
+	for i in range(10):
+		m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
+	var ctw: Tween = crown.create_tween()
+	ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
+	m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 

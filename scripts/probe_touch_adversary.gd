@@ -40,9 +40,9 @@ func _playthrough(run_index: int) -> void:
 		var action: Rect2 = touch.action_zone()
 		if movement.intersects(action):
 			issues.append("thumb zones overlap")
-		var jitter := Vector2(randf_range(-18.0, 18.0), randf_range(-18.0, 18.0))
-		var thumb: Vector2 = Vector2(170.0, 550.0) + jitter
-		if not movement.has_point(thumb):
+		# Validate against the rendered rest ring, not a fixed 1280x720
+		# coordinate: script-mode headless viewports can use desktop dimensions.
+		if not movement.encloses(touch.rest_zone().grow(18.0)):
 			issues.append("normal left-thumb jitter escapes movement bay")
 
 	# Adversarial child behavior: parking on a friend for several frames must
@@ -99,6 +99,7 @@ func _playthrough(run_index: int) -> void:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
 			await _frames(8)
+			main.level2_done_once = false
 			main._enter_castle_interior_now(false)
 			await _frames(12)
 			main._populate_touch_interactables()
