@@ -1,5 +1,22 @@
 # NPC 3D WORKORDER — full cast sprite → Meshy migration (owner directive 2026-07-19)
 
+> **SUPERSEDED IN PART, 2026-07-26.** The whole cast now ships first-draft 3D
+> models built in headless Blender from the book art — see
+> **CHARACTER_2D_AUDIT_2026-07-26.md** and `tools/build_npc_draft.py`. Read that
+> first. What changed here:
+>
+> - `npc_huluu`, `npc_kareem`, `npc_flower_friend` — **done** (drafts landed).
+>   The staged Meshy tasks remain valid as the eventual quality upgrade.
+> - `npc_wacky`, `npc_evie`, `npc_harper_fiona`, `npc_faron` — **closed,
+>   won't-do as specified.** Those four sheets cannot be split: the figures
+>   overlap and occlude each other in the art, so a per-figure crop would mean
+>   painting the hidden halves, which is new original art. Each sheet is now one
+>   3D figure, matching how `FRIEND_DEFS` already treats it.
+> - `npc_daddy` — **on hold at owner request (2026-07-26)**; the owner has a 3D
+>   Daddy to import. Drop it at `assets/characters/friends/daddy.glb`.
+> - The loaders described in step 4 below are now a single shared factory,
+>   `main.character_visual()`, used by all 21 character call sites.
+
 Owner: "start making Meshy models of all of the game characters and abandon
 the old sprite style… focus on daddy mermaid next." Gabby is removed entirely
 (IP hold — see attic/gabby/), not migrated.

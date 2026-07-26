@@ -8,6 +8,16 @@ rigged 3D models. The actual sculpting/texturing is **artist work in Blender**;
 this repo provides the rigs, contracts, validators, and the engine integration
 so the art drops in cleanly.
 
+> **UPDATE 2026-07-26.** §2's "NPC friends are 2D billboards" is no longer
+> true: fourteen characters now ship first-draft 3D models built in headless
+> Blender from the book art (`tools/build_npc_draft.py`), and §4's integration
+> patch is applied and generalised into `main.character_visual()` /
+> `main.roshan_visual()`. The shared 18-bone land rig in §2 was NOT the one
+> used — almost the entire cast is merfolk with tails, so the drafts ride a
+> spine+tail chain instead (`DRAFT_BONES` in `tools/glb_check.py`). Everything
+> below still describes the eventual hand-sculpt lane, which remains the
+> quality target. See CHARACTER_2D_AUDIT_2026-07-26.md.
+
 ## 0. Reality check (read first)
 
 - **Roshan is already a real 3D, rigged, animated character.** `roshan.glb` is a

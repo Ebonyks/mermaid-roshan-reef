@@ -122,7 +122,7 @@ var _trays: Array = []            # fruit feeding trays: {dir: Vector3, cool: fl
 var _idle_t := 0.0                # stand still and a butterfly comes to visit
 var _run_t := 0.0                 # total session time — the butterfly-rescue medal ranks on it
 var _bugs: Array = []             # crawling beetles/ladybugs: {node, axis, dir0, spd, ph, cool}
-var _rosalina: Sprite3D = null
+var _rosalina: Node3D = null
 var _rosa_cool := 0.0
 # ---- Star Hall (castle interior) state ----
 var _mode := "planet"             # "planet" | "hall"
@@ -626,13 +626,30 @@ func _build_decor() -> void:
 	gh_holder.add_child(castle_gate)
 	castle_gate.position = Vector3(0, 3.0, 0)
 	_place_on_planet(gh_holder, GATE_DIR)
-	# Mermaid Rosalina, keeper of the crystal castle
-	var rosa := Sprite3D.new()
-	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
-		var rtex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
-		rosa.texture = rtex
-		rosa.pixel_size = 7.0 / maxf(float(rtex.get_height()), 1.0)
-	rosa.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# Mermaid Rosalina, keeper of the crystal castle — the shipped fairy model
+	# when it is present, the flat skin art otherwise
+	var rosa: Node3D = null
+	if ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
+		rosa = Node3D.new()
+		var rmdl: Node3D = (load("res://assets/characters/fairy_v2.glb") as PackedScene).instantiate() as Node3D
+		rosa.add_child(rmdl)
+		var racc: Array = []
+		_gather_aabbs(rmdl, Transform3D.IDENTITY, racc)
+		if racc.size() > 0:
+			var rbb: AABB = racc[0]
+			for rk in range(1, racc.size()):
+				rbb = rbb.merge(racc[rk])
+			var rsc: float = 7.0 / maxf(rbb.size.y, 0.001)
+			rmdl.scale = Vector3.ONE * rsc
+			rmdl.position = -(rbb.position + rbb.size * 0.5) * rsc
+	else:
+		var rspr := Sprite3D.new()
+		if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
+			var rtex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+			rspr.texture = rtex
+			rspr.pixel_size = 7.0 / maxf(float(rtex.get_height()), 1.0)
+		rspr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		rosa = rspr
 	rosa.position = _surf(Vector3(0.16, 1.0, 0.13).normalized(), 4.0)
 	add_child(rosa)
 	_rosalina = rosa
@@ -945,12 +962,15 @@ func _build_avatar() -> void:
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
 		if sid == "huluu":
-			glb = ""
-			cutout = Sprite3D.new()
-			cutout.texture = load("res://assets/characters/friends/huluu.png")
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 0.011
-			cutout.position = Vector3(0, 2.2, 0)
+			if ResourceLoader.exists("res://assets/characters/friends/huluu.glb"):
+				glb = "res://assets/characters/friends/huluu.glb"
+			else:
+				glb = ""
+				cutout = Sprite3D.new()
+				cutout.texture = load("res://assets/characters/friends/huluu.png")
+				cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+				cutout.pixel_size = 0.011
+				cutout.position = Vector3(0, 2.2, 0)
 		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
 			glb = "res://assets/characters/fairy_v2.glb"
 	if cutout != null:
@@ -1520,12 +1540,29 @@ func _build_hall() -> void:
 	# The Moon Throne now has a shell-back silhouette and a real seat instead
 	# of a single glowing sphere.
 	_authored_prop("res://assets/art35/galaxy/shell_throne.glb", _hall_root, Vector3(0, 0.5, -20.0), 10.0, PI)
-	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
-		var rosa2 := Sprite3D.new()
+	# Rosalina on the Moon Throne: the fairy model when present, skin art otherwise
+	var rosa2: Node3D = null
+	if ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
+		rosa2 = Node3D.new()
+		var r2mdl: Node3D = (load("res://assets/characters/fairy_v2.glb") as PackedScene).instantiate() as Node3D
+		rosa2.add_child(r2mdl)
+		var r2acc: Array = []
+		_gather_aabbs(r2mdl, Transform3D.IDENTITY, r2acc)
+		if r2acc.size() > 0:
+			var r2bb: AABB = r2acc[0]
+			for r2k in range(1, r2acc.size()):
+				r2bb = r2bb.merge(r2acc[r2k])
+			var r2sc: float = 6.5 / maxf(r2bb.size.y, 0.001)
+			r2mdl.scale = Vector3.ONE * r2sc
+			r2mdl.position = -(r2bb.position + r2bb.size * 0.5) * r2sc
+	elif ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
+		var r2spr := Sprite3D.new()
 		var rtex2: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
-		rosa2.texture = rtex2
-		rosa2.pixel_size = 6.5 / maxf(float(rtex2.get_height()), 1.0)
-		rosa2.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		r2spr.texture = rtex2
+		r2spr.pixel_size = 6.5 / maxf(float(rtex2.get_height()), 1.0)
+		r2spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		rosa2 = r2spr
+	if rosa2 != null:
 		rosa2.position = Vector3(0, 5.6, -20.0)
 		_hall_root.add_child(rosa2)
 	# Three authored hanging stars remain independent touch targets.

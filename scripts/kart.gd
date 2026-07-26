@@ -2011,13 +2011,16 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		chassis.material_override = mat
 		chassis.position = Vector3(0, 1.0, 0)
 		root.add_child(chassis)
-	# driver sprite above the vehicle — normalised so every driver is ~3.2 units tall
-	if sprite_path != "" and ResourceLoader.exists(sprite_path):
-		var spr := Sprite3D.new()
-		var tex: Texture2D = load(sprite_path)
-		spr.texture = tex
-		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		spr.pixel_size = 2.5 / maxf(float(tex.get_height()), 1.0)
+	# driver above the vehicle — normalised so every driver is ~2.5 units tall.
+	# Each racer prefers their 3D character model and falls back to the flat
+	# art the roster already names.
+	if sprite_path != "" and _main != null and _main.has_method("character_visual"):
+		var key := sprite_path.get_file().get_basename()
+		var spr: Node3D
+		if key == "roshan_sprite":
+			spr = _main.roshan_visual(2.5)
+		else:
+			spr = _main.character_visual(key, 2.5, sprite_path)
 		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
 		root.set_meta("driver_spr", spr)
@@ -2685,9 +2688,14 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 	if _cam != null and not bool(k["is_player"]):
 		var camd: float = node.position.distance_to(_cam.position)
 		var fade: float = clampf((camd - 10.0) / 8.0, 0.0, 1.0)
-		var dspr: Sprite3D = k["node"].get_meta("driver_spr", null)
+		var dspr: Node3D = k["node"].get_meta("driver_spr", null)
 		if dspr != null and is_instance_valid(dspr):
-			dspr.modulate.a = fade
+			# a cutout driver cross-fades; a 3D driver has no modulate, so it
+			# simply drops out once it would have faded to nothing
+			if dspr is Sprite3D:
+				(dspr as Sprite3D).modulate.a = fade
+			else:
+				dspr.visible = fade > 0.02
 		var nlbl: Label3D = k["node"].get_meta("name_lbl", null)
 		if nlbl != null and is_instance_valid(nlbl):
 			nlbl.modulate.a = fade

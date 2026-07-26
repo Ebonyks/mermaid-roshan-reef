@@ -151,11 +151,9 @@ func build(o: Vector3) -> void:
 	# "camera stuck inside" a wall of pink). One solid over the throne back
 	# covers all three variants; small pad so the Crown Star stays reachable.
 	m._wall_solid(o + Vector3(0, 19.5, -28.6), Vector3(9.0, 8.0, 4.0), 0.6)
-	# Protected book cutout until an owner-approved source-faithful model exists.
-	var huluu := Sprite3D.new()
-	huluu.texture = load("res://assets/characters/friends/huluu.png")
-	huluu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	huluu.pixel_size = 0.011
+	# Huluu on her throne: the 3D character model when one has landed, the
+	# protected book cutout otherwise — same on-screen height either way.
+	var huluu: Node3D = m.character_visual("huluu", m.cutout_height("huluu", 0.011))
 	huluu.position = o + Vector3(0, 21.0, -25.8)
 	m.add_child(huluu)
 	m.game_nodes.append(huluu)
@@ -284,10 +282,7 @@ func build(o: Vector3) -> void:
 	sl2.position = chest.position + Vector3(0, 4, 0); m.add_child(sl2); m.game_nodes.append(sl2)
 	m._register_castle_light(sl2, true)
 	# Daddy mermaid lives in the secret room (his real recorded voice greets Roshan)
-	var daddy := Sprite3D.new()
-	daddy.texture = m._cutout_tex("daddy")
-	daddy.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	daddy.pixel_size = 0.0066
+	var daddy: Node3D = m.character_visual("daddy", m.cutout_height("daddy", 0.0066))
 	daddy.position = br + Vector3(10, 8, -3)
 	m.add_child(daddy); m.game_nodes.append(daddy)
 	var dlt := OmniLight3D.new(); dlt.light_color = Color(1.0, 0.9, 0.8); dlt.light_energy = 0.9; dlt.omni_range = 18.0
@@ -663,10 +658,8 @@ func build_dreaming_floor(o: Vector3) -> void:
 		if dream_window != null:
 			dream_window.scale = Vector3.ONE * 0.72
 		# the character themselves, home at last
-		var spr := Sprite3D.new()
-		spr.texture = m._cutout_tex(rd["tex"])
-		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		spr.pixel_size = 0.0052
+		var bt := String(rd["tex"])
+		var spr: Node3D = m.character_visual(bt, m.cutout_height(bt, 0.0052))
 		spr.position = o + Vector3(cx - 4.0, 53.6, -58.5)
 		m.add_child(spr); m.game_nodes.append(spr)
 		# A physical keepsake tells each story beside the protected cutout.
@@ -690,10 +683,7 @@ func build_dreaming_floor(o: Vector3) -> void:
 	# Wacky & Chuck curl up in a basket at the corridor's end
 	var wb: Vector3 = o + Vector3(48.0, 0, -44.0)
 	_pearl("pearl_pet_basket", wb + Vector3(0, 49.9, 0), 180.0)
-	var wspr := Sprite3D.new()
-	wspr.texture = m._cutout_tex("wacky_chuck")
-	wspr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	wspr.pixel_size = 0.0048
+	var wspr: Node3D = m.character_visual("wacky_chuck", m.cutout_height("wacky_chuck", 0.0048))
 	wspr.position = wb + Vector3(0, 53.0, -1.0)
 	m.add_child(wspr); m.game_nodes.append(wspr)
 	# Low shell chandeliers replace cube-shaped corridor lamps.

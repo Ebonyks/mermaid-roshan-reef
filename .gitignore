@@ -31,3 +31,7 @@ __pycache__/
 
 # Kokoro TTS model + voice packs (downloaded per make_voices.py setup docs)
 tools/kokoro/
+
+# Per-frame turntable renders from tools/build_npc_draft.py --preview.
+# Reviewable contact sheets are committed to art_library/character_drafts_*/.
+/tools/out/npc_draft/

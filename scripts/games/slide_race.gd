@@ -117,13 +117,12 @@ func _build_playplace(origin: Vector3, fr: Dictionary) -> void:
 			rail.look_at_from_position(mid, b2, Vector3.UP)
 			rail.translate_object_local(Vector3(sgn * 1.7, 0.5, 0))
 			m.game_nodes.append(rail)
-	# friend cheering at the slide top (only when this game has a friend sprite — the Rainbow Slide has none)
-	var cheer_node = fr.get("node")
-	if cheer_node != null and is_instance_valid(cheer_node) and cheer_node is Sprite3D:
-		var sis := Sprite3D.new()
-		sis.texture = (cheer_node as Sprite3D).texture
-		sis.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		sis.pixel_size = 0.013
+	# friend cheering at the slide top (only when this game has a friend — the Rainbow Slide has none)
+	var cheer_tex := String(fr.get("tex", ""))
+	if cheer_tex != "":
+		# same factory as the reef: a 3D model when this friend has one,
+		# their cutout when not, at the height the cutout used to occupy
+		var sis: Node3D = m.character_visual(cheer_tex, m.cutout_height(cheer_tex, 0.013))
 		sis.position = path[0] + Vector3(-3.0, 3.0, -2.0)
 		m.add_child(sis)
 		m.game_nodes.append(sis)

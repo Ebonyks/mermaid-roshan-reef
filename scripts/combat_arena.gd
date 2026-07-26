@@ -13,7 +13,7 @@ var kind := "ice"
 var finish_cb: Callable
 var prev_env: Environment = null
 var cam: Camera3D = null
-var avatar: Sprite3D = null
+var avatar: Node3D = null
 var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
@@ -117,12 +117,10 @@ func _build_octagon() -> void:
 	DungeonArt.tint(arena, _mat(floor_col), _mat(trim_col, 0.18))
 
 func _build_avatar() -> void:
-	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = avatar_tex
-	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
-	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	avatar.no_depth_test = false
+	# Roshan on this stage is the real 3D character now (owner 2026-07-26);
+	# roshan_visual falls back to the flat skin art if no model is present,
+	# and keeps the same 6.2-unit height either way so the framing is unchanged.
+	avatar = m.roshan_visual(6.2)
 	avatar.position = player_pos
 	add_child(avatar)
 

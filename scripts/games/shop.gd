@@ -53,12 +53,11 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		m.add_child(bunch)
 		m.game_nodes.append(bunch)
 		(m.g["kelp"] as Array).append({"node": bunch, "yaw": bunch.rotation.y, "ang": Vector2.ZERO, "vel": Vector2.ZERO})
-	# Kareem is the living shopkeeper, a billboard sprite sitting beside his goods
-	var kareem := Sprite3D.new()
-	kareem.texture = load("res://assets/characters/friends/kareem.png")
-	kareem.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	kareem.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	kareem.pixel_size = 0.02
+	# Kareem is the living shopkeeper, sitting beside his goods — the 3D model
+	# when one has landed, his cutout otherwise
+	var kareem: Node3D = m.character_visual("kareem", m.cutout_height("kareem", 0.02))
+	if kareem is Sprite3D:
+		(kareem as Sprite3D).alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	kareem.position = Vector3(origin.x + 9.5, f + 5.5, origin.z - 6.0)
 	m.add_child(kareem)
 	m.game_nodes.append(kareem)

@@ -24,6 +24,14 @@ NPC_BONES = [
     "armUL", "armFL", "handL", "armUR", "armFR", "handR",
     "legUL", "legLL", "footL", "legUR", "legLR", "footR",
 ]
+# First-draft relief characters (tools/build_npc_draft.py): a single spine+tail
+# chain, no limbs. The silhouette is all the source art gives us, so guessing
+# arm bones would be fiction — the names deliberately reuse Roshan's spine/tail
+# vocabulary so a later hand-rig or Meshy retarget maps straight onto them.
+DRAFT_BONES = [
+    "root", "spine1", "chest", "neck", "head",
+    "tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
+]
 # Optional cosmetic socket bones (additive to Roshan's 26; see CHARACTER_CUSTOMIZATION.md §8)
 SOCKET_BONES = ["headTop", "backL", "backR", "earL", "earR", "tailTip", "handHold"]
 
@@ -62,10 +70,16 @@ def main():
     print(f"images      {len(j.get('images', []))}")
 
     base = os.path.basename(p).lower()
-    expect = ROSHAN_BONES if "roshan" in base else (NPC_BONES if joints else None)
+    if "roshan" in base:
+        expect, label = ROSHAN_BONES, "ROSHAN"
+    elif joints and all(b in joints for b in DRAFT_BONES) and not all(b in joints for b in NPC_BONES):
+        expect, label = DRAFT_BONES, "DRAFT"
+    elif joints:
+        expect, label = NPC_BONES, "NPC"
+    else:
+        expect, label = None, ""
     if expect:
         missing = [b for b in expect if b not in joints]
-        label = "ROSHAN" if expect is ROSHAN_BONES else "NPC"
         if missing:
             print(f"[!] {label} rig MISSING bones: {missing}")
             sys.exit(4)

@@ -234,17 +234,16 @@ func brawl_tick(delta: float) -> Dictionary:
 	return {"mx": mx, "mz": mz, "px": x, "pz": z, "tap": tap, "moved": absf(mx) > 0.05 or absf(mz) > 0.05}
 
 # ---- the companion: player 2 as a storybook cutout -------------------------
-func companion_open(tex_path: String, height: float, start: Vector3) -> void:
-	# an illustrated-cutout second hero per the art direction (billboard,
-	# unshaded, idle bob, contact shadow) — never a re-lit 3D model
+func companion_open(tex_key: String, height: float, start: Vector3) -> void:
+	# the second hero: their 3D character model when one has landed, otherwise
+	# the illustrated cutout (billboard, unshaded, idle bob, contact shadow).
+	# Never a re-lit model — character_visual keeps the art unshaded either way.
 	var r := root()
 	if r == null:
 		return
-	var spr := Sprite3D.new()
-	spr.texture = load(tex_path)
-	spr.pixel_size = height / maxf(1.0, float(spr.texture.get_height()))
-	spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	spr.shaded = false
+	var spr: Node3D = m.character_visual(tex_key, height)
+	if spr is Sprite3D:
+		(spr as Sprite3D).shaded = false
 	r.add_child(spr)
 	var shadow := MeshInstance3D.new()
 	var qm := QuadMesh.new()
@@ -271,7 +270,7 @@ func companion_tick(delta: float, want_x: float, want_z: float, speed: float) ->
 	# not", with zero menus.
 	var cfg: Dictionary = m.g.get("ss_cfg", {})
 	var r := root()
-	var spr: Sprite3D = m.g.get("ss_p2") as Sprite3D
+	var spr: Node3D = m.g.get("ss_p2") as Node3D
 	if r == null or spr == null or not is_instance_valid(spr):
 		return {"x": 0.0, "z": 0.0, "tap": false, "human": false}
 	var x: float = float(m.g.get("ss_p2x", 0.0))

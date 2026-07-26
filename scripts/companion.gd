@@ -501,7 +501,8 @@ func _nearest_unfound_friend() -> Vector3:
 	for f in m.friends:
 		if bool(f["found"]):
 			continue
-		var node: Sprite3D = f["node"]
+		# Node3D: a friend is a fitted 3D model when one exists, cutout otherwise
+		var node: Node3D = f["node"]
 		if not is_instance_valid(node):
 			continue
 		var dd: float = node.position.distance_to(m.player.position)

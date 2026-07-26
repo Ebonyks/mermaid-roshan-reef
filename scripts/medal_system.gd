@@ -165,7 +165,9 @@ func refresh_friend_glyphs() -> void:
 			lab.font_size = 150
 			lab.outline_size = 16
 			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			lab.position = (f["node"] as Sprite3D).position + Vector3(0, 5.6, 0)
+			# Node3D, not Sprite3D: a friend is a fitted 3D model whenever
+			# one has landed for them, and a billboard cutout otherwise
+			lab.position = (f["node"] as Node3D).position + Vector3(0, 5.6, 0)
 			m.add_child(lab)
 			f["medal_lab"] = lab
 		lab.text = String(GLYPH[tier])

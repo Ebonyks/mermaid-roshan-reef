@@ -243,7 +243,7 @@ func _stage_open() -> void:
 		r.add_child(gate)
 		(m.g["gates"] as Array).append(gate)
 	# HULUU, player 2: the stuffie herself as an illustrated-cutout hero
-	stage.companion_open("res://assets/characters/friends/huluu.png", 5.5,
+	stage.companion_open("huluu", 5.5,
 		Vector3(-6.0, 0, 3.0))
 
 func _open_gate(seg: int) -> void:

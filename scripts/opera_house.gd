@@ -109,7 +109,7 @@ var lobby_root: Node3D = null
 var lobby_pos := Vector3.ZERO
 var lobby_y := 0.0                      # one of FLOOR_YS (tweened by the lifts)
 var lift_busy := false
-var avatar: Sprite3D = null
+var avatar: Node3D = null
 var cam: Camera3D = null
 var hud: CanvasLayer = null
 var star_label: Label = null
@@ -358,11 +358,10 @@ func _build_lifts() -> void:
 		lifts.append({"pos": pos, "armed": true})
 
 func _build_avatar() -> void:
-	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = tex
-	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
-	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# Roshan on this stage is the real 3D character now (owner 2026-07-26);
+	# roshan_visual falls back to the flat skin art if no model is present,
+	# and keeps the same 6.2-unit height either way so the framing is unchanged.
+	avatar = m.roshan_visual(6.2)
 	avatar.position = lobby_pos
 	lobby_root.add_child(avatar)
 	# the golden usher-sparkle that points to the next open show

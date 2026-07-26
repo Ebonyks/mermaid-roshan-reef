@@ -2171,7 +2171,108 @@ func _cutout_tex(name: String) -> Texture2D:
 	var p := "res://assets/characters/stickers/" + name + ".png"
 	if ResourceLoader.exists(p):
 		return load(p)
-	return load("res://assets/characters/friends/" + name + ".png")
+	# book-art figures (dolls, Sparkle) have no sticker bake and live outside
+	# friends/ — callers pass their real path as character_visual's fallback
+	var q := "res://assets/characters/friends/" + name + ".png"
+	if ResourceLoader.exists(q):
+		return load(q)
+	return null
+
+func _model_aabb(n: Node, xf: Transform3D, acc: Array) -> void:
+	if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+		acc.append(xf * (n as MeshInstance3D).get_aabb())
+	for c in n.get_children():
+		if c is Node3D:
+			_model_aabb(c, xf * (c as Node3D).transform, acc)
+		else:
+			_model_aabb(c, xf, acc)
+
+func fit_model(mdl: Node3D, height: float) -> void:
+	# Scale an imported character to an exact on-screen height and re-centre it
+	# on its own origin. Cutouts are centred Sprite3Ds, so a model that fills
+	# the same box drops into every existing call site without moving anything.
+	var acc: Array = []
+	_model_aabb(mdl, Transform3D.IDENTITY, acc)
+	if acc.is_empty():
+		return
+	var bb: AABB = acc[0]
+	for i in range(1, acc.size()):
+		bb = bb.merge(acc[i])
+	var sc: float = height / maxf(bb.size.y, 0.001)
+	mdl.scale = Vector3.ONE * sc
+	mdl.position = -(bb.position + bb.size * 0.5) * sc
+
+func character_visual(tex_name: String, height: float, fallback_tex: String = "") -> Node3D:
+	# ONE character factory for the whole game (3D migration, owner 2026-07-26).
+	# Prefers assets/characters/friends/<tex>.glb, falls back to the die-cut
+	# sticker billboard, and hands back a node of the same on-screen height
+	# either way — so a character converts by dropping in one .glb, and any
+	# character with no model yet keeps behaving exactly as it does today.
+	var glb := "res://assets/characters/friends/%s.glb" % tex_name
+	if ResourceLoader.exists(glb):
+		var holder := Node3D.new()
+		var mdl: Node3D = (load(glb) as PackedScene).instantiate() as Node3D
+		holder.add_child(mdl)
+		fit_model(mdl, height)
+		var ap := _find_anim(mdl)
+		if ap != null and ap.get_animation_list().size() > 0:
+			var clip: String = ap.get_animation_list()[0]
+			ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+			ap.play(clip)
+		holder.set_meta("character_3d", true)
+		return holder
+	var cut := Sprite3D.new()
+	var tex: Texture2D = _cutout_tex(tex_name)
+	if tex == null and fallback_tex != "" and ResourceLoader.exists(fallback_tex):
+		tex = load(fallback_tex) as Texture2D
+	cut.texture = tex
+	cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	cut.pixel_size = height / maxf(1.0, float(tex.get_height())) if tex != null else 0.01
+	cut.set_meta("character_3d", false)
+	return cut
+
+const ROSHAN_MODELS: Array[String] = ["res://assets/characters/roshan_v4.glb",
+	"res://assets/characters/roshan_v3.glb", "res://assets/characters/roshan.glb"]
+
+func roshan_visual(height: float) -> Node3D:
+	# Roshan herself, wherever a flat stand-in used to be drawn (kart grid,
+	# dungeon and opera stages). She has been a real 3D character all along —
+	# these sites just never asked for her. Follows the wardrobe skin.
+	var path := ""
+	if skin_id == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
+		path = "res://assets/characters/fairy_v2.glb"
+	elif skin_id == "huluu" and ResourceLoader.exists("res://assets/characters/friends/huluu.glb"):
+		path = "res://assets/characters/friends/huluu.glb"
+	else:
+		for candidate: String in ROSHAN_MODELS:
+			if ResourceLoader.exists(candidate):
+				path = candidate
+				break
+	if path != "":
+		var holder := Node3D.new()
+		var mdl: Node3D = (load(path) as PackedScene).instantiate() as Node3D
+		holder.add_child(mdl)
+		fit_model(mdl, height)
+		var ap := _find_anim(mdl)
+		if ap != null and ap.get_animation_list().size() > 0:
+			var clip: String = ap.get_animation_list()[0]
+			ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+			ap.play(clip)
+		holder.set_meta("character_3d", true)
+		return holder
+	var spr := Sprite3D.new()
+	var stex: Texture2D = load(skin_sprite_path())
+	spr.texture = stex
+	spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	spr.pixel_size = height / maxf(1.0, float(stex.get_height())) if stex != null else 0.01
+	spr.set_meta("character_3d", false)
+	return spr
+
+func cutout_height(tex_name: String, pixel_size: float) -> float:
+	# the world height a billboard of this cutout used to occupy — lets a call
+	# site swap to character_visual() without changing what the player sees
+	var tex: Texture2D = _cutout_tex(tex_name)
+	return (float(tex.get_height()) if tex != null else 400.0) * pixel_size
 
 func _build_friends() -> void:
 	for i in range(FRIEND_DEFS.size()):
@@ -2179,32 +2280,15 @@ func _build_friends() -> void:
 		var fp: Vector2 = ReefDistricts.friend_position(i)
 		var x: float = fp.x
 		var z: float = fp.y
-		# 3D migration (owner 2026-07-19): prefer a gen2 model when one has
-		# landed for this character; the sprite cutout remains the fallback so
-		# the cast converts one .glb at a time with zero breakage.
+		# 3D migration (owner 2026-07-19, extended 2026-07-26): prefer the
+		# character model when one has landed; the sticker cutout stays the
+		# fallback so the cast converts one .glb at a time with zero breakage.
+		# The model is fitted to the height the billboard used to occupy, so
+		# converting a friend never moves or resizes them in the reef.
 		var tex_name := String(fd["tex"])
-		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
-		var spr: Node3D
-		if ResourceLoader.exists(glb_path):
-			var fps2: PackedScene = load(glb_path)
-			var mdl: Node3D = fps2.instantiate() as Node3D
-			mdl.scale = Vector3.ONE * 4.0
-			mdl.position = Vector3(x, seabed_y(x, z) + 4.0, z)
-			add_child(mdl)
-			var fap := _find_anim(mdl)
-			if fap != null and fap.get_animation_list().size() > 0:
-				var clip: String = fap.get_animation_list()[0]
-				fap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
-				fap.play(clip)
-			spr = mdl
-		else:
-			var cut := Sprite3D.new()
-			cut.texture = _cutout_tex(tex_name)
-			cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cut.pixel_size = 0.016
-			cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
-			add_child(cut)
-			spr = cut
+		var spr: Node3D = character_visual(tex_name, cutout_height(tex_name, 0.016))
+		spr.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+		add_child(spr)
 		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
@@ -2243,7 +2327,7 @@ func _build_friends() -> void:
 			orb.material_override = omat
 			add_child(orb)
 			sparks.append(orb)
-		friends.append({"node": spr, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+		friends.append({"node": spr, "tex": tex_name, "fname": fd["fname"], "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
 			"start_radius": fd.get("start_radius", 8.0),
@@ -5782,11 +5866,9 @@ func _build_brawl_portal() -> void:
 		roof.position = Vector3(float(tx), 9.2, 0)
 		roof.material_override = _soft_mat(Color(0.78, 0.55, 0.75), 0.16)
 		castle.add_child(roof)
-	var hu := Sprite3D.new()
-	hu.texture = load("res://assets/characters/friends/huluu.png")
-	hu.pixel_size = 5.5 / maxf(1.0, float(hu.texture.get_height()))
-	hu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	hu.shaded = false
+	var hu: Node3D = character_visual("huluu", 5.5)
+	if hu is Sprite3D:
+		(hu as Sprite3D).shaded = false
 	hu.position = brawl_portal_pos + Vector3(3.2, 0.4, 3.0)
 	add_child(hu)
 	_halo(brawl_portal_pos + Vector3(0, 0.6, 0), Color(1.0, 0.8, 0.95), 10.0)

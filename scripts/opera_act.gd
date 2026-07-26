@@ -25,7 +25,7 @@ var elapsed := 0.0
 var progress_t := 0.0              # seconds since the last happy step (gentle re-hint)
 var prev_env: Environment = null
 var cam: Camera3D = null
-var avatar: Sprite3D = null
+var avatar: Node3D = null
 var costume_root: Node3D = null
 var hud: CanvasLayer = null
 var objective: Label = null
@@ -316,11 +316,7 @@ func _build_theatre() -> void:
 	for i in range(guests.size()):
 		var gx := -13.5 + float(i) * 9.0
 		_box(CENTER + Vector3(gx, 0.9, 21.5), Vector3(6.5, 1.4, 3.2), seat_col)
-		var spr := Sprite3D.new()
-		var tex := m._cutout_tex(guests[i])
-		spr.texture = tex
-		spr.pixel_size = 5.4 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
-		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var spr: Node3D = m.character_visual(guests[i], 5.4)
 		spr.position = CENTER + Vector3(gx, 4.0, 22.4)
 		add_child(spr)
 		audience.append(spr)
@@ -434,11 +430,10 @@ func _tick_brawl(delta: float) -> void:
 				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly mischief imps!", "talk")
 
 func _build_avatar() -> void:
-	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = tex
-	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
-	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# Roshan on this stage is the real 3D character now (owner 2026-07-26);
+	# roshan_visual falls back to the flat skin art if no model is present,
+	# and keeps the same 6.2-unit height either way so the framing is unchanged.
+	avatar = m.roshan_visual(6.2)
 	avatar.position = player_pos
 	add_child(avatar)
 	_build_costume(String(config.get("costume", "")))
