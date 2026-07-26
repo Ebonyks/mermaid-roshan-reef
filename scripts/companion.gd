@@ -1373,6 +1373,11 @@ func _tick_den(delta: float) -> void:
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 11.0 + sin(t * 4.0) * 0.6
 	m.stuffie_cool = maxf(0.0, m.stuffie_cool - delta)
+	# Hybrid contract: proximity may advertise, it never starts a game. The
+	# den is a registered tap target there ("reef:den"); walking into the ring
+	# only auto-starts the battle on the Classic path.
+	if m.touch_uses_explicit_interactions():
+		return
 	if m.stuffie_cool <= 0.0 and m.companion_den.position.distance_to(m.player.position) < DEN_RADIUS:
 		m.stuffie_cool = 14.0
 		m._start_stuffie_battle()

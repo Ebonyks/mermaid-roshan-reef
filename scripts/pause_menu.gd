@@ -64,10 +64,10 @@ func _build_pause() -> void:
 	psb.set_border_width_all(3)
 	psb.set_corner_radius_all(24)
 	m.pause_panel.add_theme_stylebox_override("panel", psb)
-	m.pause_panel.custom_minimum_size = Vector2(880, 600)
+	m.pause_panel.custom_minimum_size = Vector2(880, 700)
 	m.pause_panel.set_anchors_preset(Control.PRESET_CENTER)
-	m.pause_panel.position = Vector2(-440, -300)
-	m.pause_panel.size = Vector2(880, 600)
+	m.pause_panel.position = Vector2(-440, -350)
+	m.pause_panel.size = Vector2(880, 700)
 	m.pause_panel.visible = false
 	m.pause_layer.add_child(m.pause_panel)
 	var vb := VBoxContainer.new()
@@ -129,6 +129,11 @@ func _build_pause() -> void:
 	m.quality_btn.pressed.connect(func():
 		m._apply_quality("speedy" if m.quality == "sparkly" else "sparkly")
 		m._write_save())
+	m.touch_mode_btn = _pause_tile(m._touch_mode_label())
+	m.touch_mode_btn.pressed.connect(func():
+		m._set_touch_mode(
+			m.TOUCH_MODE_CLASSIC if m.touch_mode == m.TOUCH_MODE_HYBRID
+			else m.TOUCH_MODE_HYBRID))
 	if m.dev_mode != null:
 		var dev_btn := Button.new()
 		dev_btn.text = "Developer Mode"
@@ -147,7 +152,7 @@ func _pause_tile(txt: String) -> Button:
 	var b := Button.new()
 	b.text = txt
 	b.add_theme_font_size_override("font_size", 30)
-	b.custom_minimum_size = Vector2(388, 150)
+	b.custom_minimum_size = Vector2(388, 132)
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(0.12, 0.18, 0.38, 0.95)

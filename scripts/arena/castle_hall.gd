@@ -1352,7 +1352,7 @@ func _tick_touch(delta: float, ppos: Vector3) -> void:
 		var d: float = (it["pos"] as Vector3).distance_to(ppos)
 		if d > float(it["r"]) + 2.5:
 			it["armed"] = true
-		elif d < float(it["r"]) and bool(it["armed"]) and float(it["cool"]) <= 0.0:
+		elif not m.touch_uses_explicit_interactions() and d < float(it["r"]) and bool(it["armed"]) and float(it["cool"]) <= 0.0:
 			it["armed"] = false
 			it["cool"] = 1.0
 			_fire_touch(it)
@@ -1783,13 +1783,14 @@ func tick(delta: float, ppos: Vector3) -> void:
 	if m.sleep_t >= 0.0:
 		m._tick_sleep(delta)
 		return
+	var explicit_touch: bool = m.touch_uses_explicit_interactions()
 	# bedtime: snuggle onto the bed to sleep the day away (or the night!)
 	m.sleep_cool = maxf(0.0, m.sleep_cool - delta)
 	if m.g.has("bed_pos") and m.sleep_cool <= 0.0 and m.mg_kind == "" and m.craft_layer == null:
 		var bpv: Vector3 = m.g["bed_pos"]
 		# generous: fires the moment Roshan touches the bed from ANY side (the old
 		# 4.0 radius sat entirely inside the collider's eject distance — unreachable)
-		if Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 7.0 and absf(bpv.y - ppos.y) < 8.0:
+		if not explicit_touch and Vector2(bpv.x - ppos.x, bpv.z - ppos.z).length() < 7.0 and absf(bpv.y - ppos.y) < 8.0:
 			m._begin_sleep()
 			return
 	# owner request 2026-07-21 (UI declutter): no free-roam banner text; blank
@@ -1804,7 +1805,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 			var sdist: float = stn.position.distance_to(ppos)
 			if sdist > 14.0:
 				m.g["stand_armed"] = true
-			elif bool(m.g.get("stand_armed", false)) and sdist < 11.0:
+			elif not explicit_touch and bool(m.g.get("stand_armed", false)) and sdist < 11.0:
 				slide_stand()
 	# The royal loo is the hidden doorway to the pepper battle. It still gives
 	# its familiar bubbly toot, then transforms the room into the combat arena.
@@ -1814,7 +1815,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 		var tpp: Vector3 = td["pos"]
 		if tpp.distance_to(ppos) > 7.5:
 			td["armed"] = true
-		elif bool(td.get("armed", false)) and tpp.distance_to(ppos) < 4.5:
+		elif not explicit_touch and bool(td.get("armed", false)) and tpp.distance_to(ppos) < 4.5:
 			td["armed"] = false
 			(td["player"] as AudioStreamPlayer).play()
 			m._sparkle_burst(tpp + Vector3(0, 2.0, 0), Color(0.6, 0.9, 1.0))
@@ -1831,7 +1832,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 		var gate_dist: float = gate_pos.distance_to(ppos)
 		if gate_dist > 8.0:
 			dg["armed"] = true
-		elif gate_dist < 5.0 and bool(dg["armed"]) and float(dg["cool"]) <= 0.0:
+		elif not explicit_touch and gate_dist < 5.0 and bool(dg["armed"]) and float(dg["cool"]) <= 0.0:
 			dg["armed"] = false
 			dg["cool"] = 5.0
 			if m.dungeon_game == null:
@@ -1847,7 +1848,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 		var og_dist: float = og_pos.distance_to(ppos)
 		if og_dist > 7.5:
 			og["armed"] = true
-		elif og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
+		elif not explicit_touch and og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
 			og["armed"] = false
 			og["cool"] = 5.0
 			if m.opera_game == null:
@@ -1860,19 +1861,19 @@ func tick(delta: float, ppos: Vector3) -> void:
 			m.g["hall_exit_armed"] = true
 		# The solid front wall stops Roshan about 11.7 units from this centre point;
 		# catch her on the playable side of the arch instead of behind the blocker.
-		if bool(m.g.get("hall_exit_armed", false)) and hx.distance_to(ppos) < 12.0:
+		if not explicit_touch and bool(m.g.get("hall_exit_armed", false)) and hx.distance_to(ppos) < 12.0:
 			m._return_to_courtyard()
 			return
 	# crafting studio: swim up to the easel to color a fish
 	if m.g.has("craft_easel") and m.craft_layer == null and m.mg_cool <= 0.0 and m.mg_kind == "":
 		var ce: Vector3 = m.g["craft_easel"]
-		if ce.distance_to(ppos) < 7.0:
+		if not explicit_touch and ce.distance_to(ppos) < 7.0:
 			m._open_craft_studio()
 			return
 	# dress-up vanity: swim up to the bedroom wardrobe to pick your outfit
 	if m.g.has("wardrobe") and m.wardrobe_layer == null and m.craft_layer == null and m.mg_cool <= 0.0 and m.mg_kind == "":
 		var wp: Vector3 = m.g["wardrobe"]
-		if wp.distance_to(ppos) < 7.0:
+		if not explicit_touch and wp.distance_to(ppos) < 7.0:
 			m._open_wardrobe()
 			return
 	# music room: swim near a bell to play its note. Short cooldown so rapid
@@ -1894,11 +1895,11 @@ func tick(delta: float, ppos: Vector3) -> void:
 		if String(bg2.get("state", "")) == "echo":
 			# during the echo, a ring fires once per visit (edge-triggered) so
 			# lingering next to a bell can't spam wrong notes
-			if near_b and not was_near:
+			if not explicit_touch and near_b and not was_near:
 				bd["cool"] = 0.12
 				m._ring_bell(bd)
 				m._bellgame_echo(bg2, bi2)
-		elif near_b and float(bd["cool"]) <= 0.0:
+		elif not explicit_touch and near_b and float(bd["cool"]) <= 0.0:
 			bd["cool"] = 0.12
 			m._ring_bell(bd)
 	m._tick_bellgame(bg2, delta, ppos)
@@ -1915,7 +1916,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 		var near: bool = sd.distance_to(ppos) < 8.0
 		if not near:
 			m.g["secret_armed"] = true
-		elif bool(m.g.get("secret_armed", true)):
+		elif not explicit_touch and bool(m.g.get("secret_armed", true)):
 			m.g["secret_armed"] = false
 			m._play_hug_cutscene()
 			return
@@ -1955,22 +1956,30 @@ func tick(delta: float, ppos: Vector3) -> void:
 		# is in FRONT of the throne and below the crown; retired once the crown is won
 		var d: float = crown.position.distance_to(ppos)
 		var in_front: bool = ppos.z > crown.position.z + 3.0
-		if in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
+		if not explicit_touch and in_front and d < 16.0 and ppos.y < crown.position.y - 1.0:
 			m.player.position = m.player.position.lerp(crown.position, minf(0.16, delta * 0.5))
 			m.player.vel.y = maxf(m.player.vel.y, 0.0)
 		# The rebuilt five-unit star sits just left of the throne so it remains
 		# readable beside Huluu. Match its generous child-scale visual footprint.
-		if d < 10.0:
-			m.g["crown_won"] = true
-			m.level2_done_once = true
-			m._write_save()
-			if m.voice != null:
-				m.voice.pitch_scale = 1.15
-				m.voice.play()
-			for i in range(10):
-				m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
-			var ctw: Tween = crown.create_tween()
-			ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
-			m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
+		if not explicit_touch and d < 10.0:
+			award_crown(ppos)
+
+func award_crown(ppos: Vector3) -> void:
+	if bool(m.g.get("crown_won", false)) or m.l2_stars.is_empty():
+		return
+	var crown: Node3D = (m.l2_stars[0] as Dictionary).get("node") as Node3D
+	if not is_instance_valid(crown):
+		return
+	m.g["crown_won"] = true
+	m.level2_done_once = true
+	m._write_save()
+	if m.voice != null:
+		m.voice.pitch_scale = 1.15
+		m.voice.play()
+	for i in range(10):
+		m._sparkle_burst(ppos + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
+	var ctw: Tween = crown.create_tween()
+	ctw.tween_property(crown, "position:y", crown.position.y + 5.0, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	ctw.parallel().tween_property(crown, "scale", Vector3.ONE * 1.15, 0.8)
+	m.show_msg("Pearl Castle", "The Crown Star is yours! This castle is YOURS now - explore every room, and leave by the front door whenever you like!", "win")
 

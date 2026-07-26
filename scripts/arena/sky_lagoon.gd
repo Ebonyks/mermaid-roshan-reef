@@ -2378,6 +2378,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(m.g.get("phase", "court")) == "hall":
 		m._tick_castle_hall(delta, ppos)
 		return
+	var explicit_touch: bool = m.touch_uses_explicit_interactions()
 	if _tick_ocean_kingdom_gates(ppos):
 		return
 	# crafted friends are alive: they scamper around, and run up to nuzzle +
@@ -2403,7 +2404,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if not bool(m.g.get("northern_portal_armed", true)):
 			if north_dist > 16.0:
 				m.g["northern_portal_armed"] = true
-		elif north_dist < 8.0:
+		elif not explicit_touch and north_dist < 8.0:
 			m._enter_northern_kingdom()
 			return
 		if (not bool(m.g.get("northern_portal_hint", false)) and north_dist < 28.0):
@@ -2422,7 +2423,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 			m.show_msg("Roshan", "Ooh, a little stage door! The Pearl Opera House is putting on a show!", "pearl")
 		if og_dist > 7.5:
 			og["armed"] = true
-		elif og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
+		elif not explicit_touch and og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
 			og["armed"] = false
 			og["cool"] = 5.0
 			if m.opera_game == null:
@@ -2443,7 +2444,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if not m.galaxy_gateway_armed:
 			if bw_dist > 13.0 or bw_height > 14.0:
 				m.galaxy_gateway_armed = true
-		elif m.bw_cool <= 0.0 and m.kart_cool <= 0.0 and bw_dist < 9.0 and bw_height < 10.0:
+		elif not explicit_touch and m.bw_cool <= 0.0 and m.kart_cool <= 0.0 and bw_dist < 9.0 and bw_height < 10.0:
 			m.bw_cool = 10.0
 			m.galaxy_gateway_armed = false
 			m.kart_from = "level2"   # Galaxy return routing shares the race-origin state
@@ -2462,7 +2463,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if not m.ember_gateway_armed:
 			if em_dist > 16.0 or em_h > 16.0:
 				m.ember_gateway_armed = true
-		elif m.kart_cool <= 0.0 and m.bw_cool <= 0.0 and em_dist < 10.0 and em_h < 12.0:
+		elif not explicit_touch and m.kart_cool <= 0.0 and m.bw_cool <= 0.0 and em_dist < 10.0 and em_h < 12.0:
 			m.bw_cool = 10.0
 			m.ember_gateway_armed = false
 			m.kart_float_dest = "ember"
@@ -2484,7 +2485,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if not m.kart_float_portals_armed:
 			if a_outside and b_outside:
 				m.kart_float_portals_armed = true
-		elif m.kart_cool <= 0.0:
+		elif not explicit_touch and m.kart_cool <= 0.0:
 			if dA < 14.0 and absf(m.kart_legA.y - ppos.y) < 18.0:
 				m._start_kart_game(false, "float")
 				return
@@ -2547,7 +2548,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# Phase 1: pictures are OPTIONAL play — inert until the castle is open, so
 	# the natural swim line to the Dream Stars can't hijack into a minigame and
 	# wipe star progress. Tight 3.5 radius + 0.6s dwell = deliberate visits only.
-	if m.mg_cool <= 0.0 and m.mg_kind == "" and m.l2_open:
+	if not explicit_touch and m.mg_cool <= 0.0 and m.mg_kind == "" and m.l2_open:
 		var dw: Dictionary = m.g.get("pic_dwell", {})
 		for wp in m.wall_pics:
 			var wpp: Vector3 = wp["pos"]
@@ -2566,7 +2567,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				dw[akey] = 0.0
 		m.g["pic_dwell"] = dw
 	# hidden back door: a secret underwater entrance that works even before the stars
-	if m.g.has("back_entry"):
+	if not explicit_touch and m.g.has("back_entry"):
 		var bpos: Vector3 = m.g["back_entry"]
 		if bpos.distance_to(ppos) < 9.0:
 			m._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room
@@ -2575,7 +2576,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 	# gone — the sparkle trail + voice lines already carry the route. Blanking
 	# per tick keeps the old overwrite semantics (no stale hint can linger).
 	m.hud_game.text = ""
-	if m.l2_open:
+	if m.l2_open and not explicit_touch:
 		# magnet toward the fixed doorway (the door itself slides up out of view)
 		var entry: Vector3 = m.g.get("entry", m.l2_door.position)
 		var dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()
@@ -2600,7 +2601,7 @@ func _tick_ocean_kingdom_gates(ppos: Vector3) -> bool:
 		if not bool(gate.get("armed", true)):
 			if distance > 16.0:
 				gate["armed"] = true
-		elif distance < 9.0:
+		elif not m.touch_uses_explicit_interactions() and distance < 9.0:
 			gate["armed"] = false
 			m._enter_ocean_kingdom(String(gate["kingdom"]))
 			return true

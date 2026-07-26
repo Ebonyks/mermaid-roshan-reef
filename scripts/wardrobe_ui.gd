@@ -13,6 +13,7 @@ func _init(main: ReefMain) -> void:
 func _open_wardrobe() -> void:
 	if m.wardrobe_layer != null:
 		return
+	m._set_world_controls_enabled(false, "wardrobe")
 	m.wardrobe_layer = CanvasLayer.new(); m.wardrobe_layer.layer = 18; m.add_child(m.wardrobe_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.wardrobe_layer.add_child(root)
 	var vp: Vector2 = m.get_viewport().get_visible_rect().size
@@ -96,6 +97,7 @@ func _wardrobe_pick(id: String) -> void:
 func _open_stickers() -> void:
 	if m.stickers_layer != null:
 		return
+	m._set_world_controls_enabled(false, "stickers")
 	m.stickers_layer = CanvasLayer.new(); m.stickers_layer.layer = 18; m.add_child(m.stickers_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.stickers_layer.add_child(root)
 	var vp: Vector2 = m.get_viewport().get_visible_rect().size
@@ -155,6 +157,7 @@ func _close_stickers() -> void:
 	if m.stickers_layer != null and is_instance_valid(m.stickers_layer):
 		m.stickers_layer.queue_free()
 	m.stickers_layer = null
+	m._set_world_controls_enabled(true, "stickers")
 
 func _wardrobe_toast(txt: String) -> void:
 	if not m.wd.has("stage"):
@@ -184,3 +187,4 @@ func _close_wardrobe() -> void:
 	m.wardrobe_layer = null
 	m.wd = {}
 	m.mg_cool = 8.0
+	m._set_world_controls_enabled(true, "wardrobe")

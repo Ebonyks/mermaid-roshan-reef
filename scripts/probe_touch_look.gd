@@ -33,6 +33,9 @@ func _init() -> void:
 		print("FAIL wants_touch() false — probe must run with -- --touch")
 		quit()
 		return
+	# Rollback contract: Classic keeps the shipped two-finger camera/jump split.
+	# Hybrid ownership and world taps are covered by probe_touch_router.gd.
+	main._set_touch_mode("classic", false)
 
 	# ---- steer with finger 0 (stick sanity)
 	_down(0, Vector2(400, 700))

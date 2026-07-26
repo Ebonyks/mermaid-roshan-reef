@@ -318,6 +318,7 @@ func _sweep_net() -> void:
 func open_book() -> void:
 	if m.collection_layer != null:
 		return
+	m._set_world_controls_enabled(false, "collection")
 	m.collection_layer = CanvasLayer.new()
 	m.collection_layer.layer = 25
 	m.add_child(m.collection_layer)
@@ -349,6 +350,7 @@ func close_book() -> void:
 		m.collection_layer.queue_free()
 	m.collection_layer = null
 	m.collection_stage = null
+	m._set_world_controls_enabled(true, "collection")
 
 
 func _switch_category(category: String) -> void:
