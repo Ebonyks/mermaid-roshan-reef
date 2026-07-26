@@ -97,7 +97,7 @@ const PAINT_RES := 96
 # is a HOLD — the doc called the fill a tap, but splatter is already a tap and
 # no act may run the same gesture twice. Holding also shows the colour RISING,
 # which is better feedback for a four-year-old than a region blinking on.
-const SKETCH_DOTS := 10
+const SKETCH_DOTS := 12
 const FILL_HOLD := 1.1          # seconds of hold to flood one shape panel
 var sketch_dots: Array[Node3D] = []
 var sketch_trace := 0
@@ -161,7 +161,7 @@ var shuffle_phase := "watch"       # hide | watch | pick | wait | rope | cabinet
 # A stage magician performs a ROUTINE of different tricks; the act used to be
 # one trick three times. Two more tricks close it, each with its own gesture:
 # the rope melts under a pull-apart drag, the cabinet opens to rhythm taps.
-const ROPE_KNOTS := 3
+const ROPE_KNOTS := 4
 const ROPE_PULL := 240.0        # pixels of outward finger travel per knot
 const CAB_TAPS := 3
 const CAB_BEAT := 1.15          # seconds per cabinet beat
@@ -196,7 +196,7 @@ var fix_phase := "pipes"           # pipes | valve | launch
 # flowing whether or not the line is finished. Carrying three pieces to three
 # labelled slots was not a puzzle; this is. The fail state is replaced by a
 # LEAK — the bubbles puff, pause, and wait for her to lay the next piece.
-const PIPE_COLS := 4
+const PIPE_COLS := 6
 const PIPE_ROWS := 3
 const PIPE_SHAPES := {"h": [1, 3], "v": [0, 2], "ne": [0, 1], "nw": [0, 3], "se": [1, 2], "sw": [2, 3]}
 const PIPE_START_ROW := 1
@@ -383,7 +383,7 @@ var farm_fed := 0
 # shooing the herd home closes it. The barn beat is a SCRUB rather than the
 # doc's plain drag, because planting already owns dragging.
 const FARM_SEEDS := 4
-const MUD_LEAPS := 3
+const MUD_LEAPS := 4
 const BARN_SCRUB := 2200.0      # pixels of back-and-forth to shoo the herd home
 var farm_phase := "feed"        # plant | feed | mud | barn
 var furrows: Array[Dictionary] = []
@@ -3913,7 +3913,7 @@ func _shuffle_action(choice: int) -> void:
 func _build_fix() -> void:
 	# ---- Beat 2: Pipe Dream. Grid, queue, and a lit fuse. ----
 	fix_phase = "pipes"
-	var grid_o := CENTER + Vector3(-7.5, 3.2, -9.0)
+	var grid_o := CENTER + Vector3(-12.5, 3.2, -9.0)
 	for r in range(PIPE_ROWS):
 		for c in range(PIPE_COLS):
 			var pos := grid_o + Vector3(float(c) * 5.0, float(PIPE_ROWS - 1 - r) * 4.4, 0.0)

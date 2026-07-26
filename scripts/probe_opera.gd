@@ -973,7 +973,8 @@ func _drive_scroll(act: OperaAct) -> void:
 		act._plant_drop(int(f["index"]))
 	_ck("planting every seed brings out the piggies",
 		act.seeds_planted == act.FARM_SEEDS and act.farm_phase == "feed")
-	_ck("meadow has nine hungry piggies", act.piggies.size() == 9)
+	_ck("meadow has the configured hungry piggies",
+		act.piggies.size() == int(act.config.get("piggies", 7)))
 	# tapping no longer feeds anyone: the veggie has to be LOBBED
 	act._toss_action()
 	_ck("tapping no longer feeds a piggy", act.state == "play" and act.farm_fed == 0)
