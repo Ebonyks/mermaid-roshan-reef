@@ -42,6 +42,7 @@ var echo_target := -1
 var farm_pull_t := 0.0             # seconds spent drawing the sling back
 var barn_dir := 1.0                # which way the shooing hand is sweeping
 var brawl_taps := 0                # sparkles actually thrown this run
+var hold_key := -1                 # which hold target the finger is currently on
 
 func _init() -> void:
 	Engine.time_scale = 8.0
@@ -154,6 +155,7 @@ func _play_act(cfg: Dictionary) -> float:
 	farm_pull_t = 0.0
 	barn_dir = 1.0
 	brawl_taps = 0
+	hold_key = -1
 	last_snapshot = ""
 	var act := OperaAct.new()
 	act.process_mode = Node.PROCESS_MODE_DISABLED   # only our manual pumps tick it
@@ -292,9 +294,14 @@ func _drive_order(act: OperaAct, dt: float) -> void:
 				return
 			return
 		"fill":
-			# swim to the called shape, then hold on it — both cost real time
+			# swim to the called shape, then hold on it. The finger LIFTS between
+			# panels (hold_key), so every panel costs its own reaction time —
+			# leaving hold_sim latched made the whole beat cost one hold.
 			if act.fill_want >= act.fill_panels.size():
 				return
+			if hold_key != act.fill_want:
+				hold_key = act.fill_want
+				act.hold_sim = false
 			var want: Vector3 = act.fill_panels[act.fill_want]["pos"] as Vector3
 			if _travel(act, want, dt) and (act.hold_sim or _ready_to_act(dt)):
 				act.hold_sim = true
@@ -431,9 +438,13 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 
 func _drive_press(act: OperaAct, dt: float) -> void:
 	if act.press_phase == "syrup":
-		# swim to the sparkling bottle, then hold on it — both cost real time
+		# swim to the sparkling bottle, then hold on it. The finger lifts between
+		# bottles for the same reason it lifts between the painter's panels.
 		if act.syrup_want >= act.syrup_bottles.size():
 			return
+		if hold_key != act.syrup_want:
+			hold_key = act.syrup_want
+			act.hold_sim = false
 		var bpos: Vector3 = act.syrup_bottles[act.syrup_want]["pos"] as Vector3
 		if _travel(act, bpos, dt) and (act.hold_sim or _ready_to_act(dt)):
 			act.hold_sim = true
