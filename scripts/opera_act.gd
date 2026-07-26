@@ -270,6 +270,20 @@ var box_belt: Node3D = null        # the championship belt (beat 3)
 var sleuth_props: Array[Dictionary] = []
 var clues_found := 0
 var chest_ready := false
+# ---- the case board (owner pacing standard 2026-07-25) ----
+# Hidden-object is only half the genre; the other half is DEDUCTION, and the
+# act used to have none — three clues found, chest opens, done. Now the clues
+# go on a board, get matched to their owner, and the friend holding the most
+# is the one who borrowed the tiara. Pictures matched to pictures: a deduction
+# a non-reader can actually make. There is no villain — she was borrowing it
+# for the show, which is why the ending is a laugh and not a capture.
+var board_phase := ""              # "" | board | name
+var clue_cards: Array[Dictionary] = []
+var suspects: Array[Dictionary] = []
+var board_pinned := 0
+var board_drag := -1               # index of the card riding the finger
+var board_culprit := 0
+var lens_dwell_need := 0.7         # the lanterns shorten this (see _build_lens)
 # ---- the magnifier (owner 2026-07-25) ----
 # The defining verb of preschool hidden-object: a lens dragged over the scene,
 # with the clues invisible everywhere except inside it. Roshan carries it, so
@@ -1830,6 +1844,16 @@ func _build_sleuth() -> void:
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
 
 func _build_lens() -> void:
+	# the stagehands she frees hand over their lanterns, and a lit Prop Library
+	# gives up its clues faster: the dwell drops from 0.7s to 0.45s. A real
+	# mechanical help, not a decoration — the gift has to be worth rescuing for.
+	lens_dwell_need = LENS_DWELL
+	if int(m.opera_pantry.get("lanterns", 0)) > 0:
+		lens_dwell_need = LENS_DWELL * 0.64
+		for lx: float in [-15.0, 15.0]:
+			var post := _cyl(CENTER + Vector3(lx, 3.0, -4.0), 0.25, 6.0, Color(0.62, 0.5, 0.35), 0.05)
+			post.name = "GiftLanternPost"
+			_sphere(CENTER + Vector3(lx, 6.4, -4.0), 1.05, Color(1.0, 0.9, 0.62), 0.95)
 	lens_pos = CENTER + Vector3(0, 0.6, 2.0)
 	lens = Node3D.new()
 	lens.name = "Magnifier"
@@ -1906,7 +1930,7 @@ func _tick_lens(delta: float) -> void:
 	if over >= 0:
 		if over == lens_dwell_i:
 			lens_dwell_t += delta
-			if lens_dwell_t >= LENS_DWELL:
+			if lens_dwell_t >= lens_dwell_need:
 				lens_dwell_t = 0.0
 				lens_dwell_i = -1
 				_sleuth_action(over)
@@ -1976,7 +2000,187 @@ func _sleuth_chest() -> void:
 		var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
 		var tw := crown.create_tween()
 		tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_begin_board()   # the chest holds the CASE, not the answer
+
+func _begin_board() -> void:
+	# Beat 2: the case board. Three clue cards, three friends, and each card
+	# belongs to somebody — matched by COLOUR, because she cannot read a name.
+	board_phase = "board"
+	board_pinned = 0
+	board_drag = -1
+	if lens != null:
+		lens.visible = false      # the searching is over; the finger has a new job
+	lens_drag = false
+	var panel := _box(CENTER + Vector3(0, 7.0, -12.4), Vector3(22.0, 9.4, 0.5),
+		Color(0.3, 0.25, 0.42), 0.05)
+	panel.name = "CaseBoard"
+	_box(CENTER + Vector3(0, 11.9, -12.2), Vector3(22.6, 0.6, 0.9), Color(1.0, 0.85, 0.45), 0.3)
+	var cols := _order_colors("clue")
+	var faces: Array[String] = ["pearl_friend", "two_friends", "mama_baby"]
+	board_culprit = randi() % 3
+	for i in range(3):
+		var pos := CENTER + Vector3(-7.5 + float(i) * 7.5, 8.0, -12.0)
+		var root := Node3D.new()
+		root.name = "Suspect%d" % i
+		root.position = pos
+		add_child(root)
+		var spr := Sprite3D.new()
+		var tex := m._cutout_tex(faces[i])
+		spr.texture = tex
+		spr.pixel_size = 4.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		spr.position = Vector3(0, 0.6, 0.4)
+		root.add_child(spr)
+		# the colour bar under each friend: the thing the cards are matched to
+		_box(Vector3(0, -2.4, 0.4), Vector3(4.2, 0.8, 0.25), cols[i], 0.45, root)
+		suspects.append({"index": i, "node": root, "pos": pos, "col": cols[i], "cards": 0})
+	# two clues belong to one friend and one to another, so the board can be
+	# COUNTED rather than read: whoever ends up with the most borrowed it
+	var owners: Array[int] = [board_culprit, board_culprit, (board_culprit + 1) % 3]
+	for i in range(3):
+		var pos2 := CENTER + Vector3(-5.0 + float(i) * 5.0, 2.6, -9.0)
+		var card := Node3D.new()
+		card.name = "ClueCard%d" % i
+		card.position = pos2
+		add_child(card)
+		_box(Vector3.ZERO, Vector3(2.6, 3.2, 0.28), Color(0.98, 0.96, 0.9), 0.18, card)
+		_sphere(Vector3(0, 0.3, 0.24), 0.72, cols[owners[i]], 0.6, card)
+		clue_cards.append({"index": i, "node": card, "owner": owners[i],
+			"pinned": false, "home": pos2})
+	_set_drag(true)
+	m.show_msg("Roshan", "The case board! DRAG each clue up to the friend whose colour matches it!", "talk")
+	_update_hud()
+
+func _board_plane(p: Vector2) -> Vector3:
+	# where the finger is pointing, on the flat plane the cards live in
+	var zp := CENTER.z - 9.0
+	if cam == null:
+		return CENTER + Vector3(0, 4.0, -9.0)
+	var o := cam.project_ray_origin(p)
+	var d := cam.project_ray_normal(p)
+	if absf(d.z) < 0.0001:
+		return Vector3(o.x, o.y, zp)
+	return o + d * ((zp - o.z) / d.z)
+
+func _board_grab(i: int) -> void:
+	if board_phase != "board" or i < 0 or i >= clue_cards.size():
+		return
+	if bool(clue_cards[i]["pinned"]):
+		return
+	board_drag = i
+	progress_t = 0.0
+
+func _board_home() -> void:
+	if board_drag < 0:
+		return
+	var card: Dictionary = clue_cards[board_drag]
+	var node := card["node"] as Node3D
+	var back := node.create_tween()
+	back.tween_property(node, "position", card["home"] as Vector3, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	board_drag = -1
+
+func _board_drop(s: int) -> void:
+	# a wrong pairing slides back with a "hmm?" — never a loss, never a reset
+	if board_phase != "board" or board_drag < 0:
+		return
+	var card: Dictionary = clue_cards[board_drag]
+	if s < 0 or s >= suspects.size() or int(card["owner"]) != s:
+		_wobble(card["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Hmm — that colour doesn't match. Try another friend!", "hint")
+		_board_home()
+		return
+	var sus: Dictionary = suspects[s]
+	sus["cards"] = int(sus["cards"]) + 1
+	card["pinned"] = true
+	board_pinned += 1
+	progress_t = 0.0
+	var node := card["node"] as Node3D
+	var to: Vector3 = (sus["pos"] as Vector3) + Vector3(-1.4 + 2.8 * float(int(sus["cards"]) - 1), -4.4, 0.6)
+	var pin := node.create_tween()
+	pin.tween_property(node, "position", to, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	node.scale = Vector3.ONE * 0.8
+	m._sparkle_burst(to + Vector3(0, 1.6, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.18 * float(board_pinned)
+		m.chime.play()
+	board_drag = -1
+	if board_pinned >= clue_cards.size():
+		_begin_name()
+	else:
+		m.show_msg("Roshan", "Pinned! %d clue(s) still to match!" % (clue_cards.size() - board_pinned), "hint")
+	_update_hud()
+
+func _begin_name() -> void:
+	# Beat 3: the friends come down to the stage so naming one is a plain TAP,
+	# not another drag. Whoever holds the most clues is who borrowed the tiara.
+	board_phase = "name"
+	_set_drag(false)
+	for i in range(suspects.size()):
+		var node := suspects[i]["node"] as Node3D
+		var down := CENTER + Vector3(-8.0 + float(i) * 8.0, 1.8, -3.0)
+		suspects[i]["pos"] = down
+		var drop := node.create_tween()
+		drop.tween_property(node, "position", down, 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	m.show_msg("Roshan", "Look who has the MOST clues — swim over and tap that friend!", "talk")
+	_update_hud()
+
+func _name_action(i: int) -> void:
+	if board_phase != "name" or state != "play":
+		return
+	if i != board_culprit:
+		_wobble(suspects[i]["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Not that one — count the clues! Who has the most?", "hint")
+		progress_t = maxf(progress_t, RESCUE_DELAY)   # summon the arrow now
+		return
+	# the happy ending: no villain. She only borrowed it for the show.
+	board_phase = "done"
+	var node := suspects[i]["node"] as Node3D
+	var hop := node.create_tween()
+	hop.tween_property(node, "position:y", node.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	hop.tween_property(node, "position:y", node.position.y, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst((suspects[i]["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.9, 0.5))
+	m.show_msg("Roshan", "Case closed! She only borrowed the tiara for the show — and now everyone can wear it!", "win")
 	_win()
+
+func _tick_board(_delta: float) -> void:
+	if board_phase != "board" or m.touch_ui == null or cam == null:
+		return
+	if bool(m.touch_ui.drag_mode) and bool(m.touch_ui.drag_active):
+		if board_drag < 0:
+			var best := -1
+			var best_d := 110.0
+			for c: Dictionary in clue_cards:
+				if bool(c["pinned"]):
+					continue
+				var d: float = cam.unproject_position((c["node"] as Node3D).position).distance_to(m.touch_ui.drag_pos)
+				if d < best_d:
+					best_d = d
+					best = int(c["index"])
+			if best >= 0:
+				_board_grab(best)
+		else:
+			(clue_cards[board_drag]["node"] as Node3D).position = _board_plane(m.touch_ui.drag_pos)
+	elif board_drag >= 0:
+		# let go: the nearest friend takes it, or it drifts home
+		var node := clue_cards[board_drag]["node"] as Node3D
+		var here := cam.unproject_position(node.position)
+		var pick := -1
+		var pick_d := 170.0
+		for s: Dictionary in suspects:
+			var d2: float = cam.unproject_position(s["pos"] as Vector3).distance_to(here)
+			if d2 < pick_d:
+				pick_d = d2
+				pick = int(s["index"])
+		if pick >= 0:
+			_board_drop(pick)
+		else:
+			_board_home()
 
 func _open_gate() -> void:
 	_free_captives()
@@ -4797,7 +5001,12 @@ func _process(delta: float) -> void:
 			"box":
 				_punch_action()
 			"sleuth":
-				pass   # peeking is a lens HOLD now, not a tap
+				if board_phase == "name":
+					for sus: Dictionary in suspects:
+						if (sus["pos"] as Vector3).distance_to(player_pos) < 6.0:
+							_name_action(int(sus["index"]))
+							break
+				# else: peeking is a lens HOLD, not a tap
 			"doctor":
 				if vet_phase == "find":
 					var best := -1
@@ -4903,7 +5112,10 @@ func _process(delta: float) -> void:
 		"doctor":
 			_tick_vet(delta)
 		"sleuth":
-			_tick_lens(delta)
+			if board_phase == "":
+				_tick_lens(delta)
+			else:
+				_tick_board(delta)
 		"shuffle":
 			if shuffle_phase == "hide":
 				_tick_hide(delta)
@@ -4965,6 +5177,13 @@ func _pointer_target() -> Vector3:
 					return (g["pos"] as Vector3) + Vector3(0, 5.0, 0)
 			return CENTER + Vector3(0, 8.0, -2.0)
 		"sleuth":
+			if board_phase == "name":
+				return (suspects[board_culprit]["pos"] as Vector3) + Vector3(0, 4.4, 0)
+			if board_phase == "board":
+				for c: Dictionary in clue_cards:
+					if not bool(c["pinned"]):
+						return (suspects[int(c["owner"])]["pos"] as Vector3) + Vector3(0, 3.4, 0)
+				return CENTER + Vector3(0, 10.0, -11.0)
 			if chest_ready:
 				return goal.position + Vector3(0, 6.0, 0)
 			for prop: Dictionary in sleuth_props:
@@ -5058,6 +5277,8 @@ func _tick_pointer() -> void:
 		# spotting the hurt animal and reading the x-ray ARE the game —
 		# the arrow only rescues a stuck vet
 		show = show and (progress_t > RESCUE_DELAY or vet_phase == "carry")
+	elif kind == "sleuth" and board_phase != "" and board_phase != "done":
+		pass   # matching and naming are not guessing games: point the way
 	elif kind == "sleuth" and not chest_ready:
 		# searching IS the game — the arrow only rescues a stuck detective
 		show = show and progress_t > RESCUE_DELAY
@@ -5117,7 +5338,11 @@ func _update_hud() -> void:
 				var waves: Array = config.get("rounds", [3, 4, 5])
 				objective.text = tag + "🥊  ROUND %d / %d — bop them when they POP UP!  %d left" % [box_round + 1, waves.size(), imps_left]
 		"sleuth":
-			if chest_ready:
+			if board_phase == "name":
+				objective.text = tag + "🕵️  Who has the MOST clues? Tap that friend!"
+			elif board_phase == "board":
+				objective.text = tag + "📌  DRAG each clue to the matching friend!  %d / %d" % [board_pinned, clue_cards.size()]
+			elif chest_ready:
 				objective.text = tag + "💎  Tap the treasure chest!"
 			else:
 				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / 3 clues" % clues_found
@@ -5297,7 +5522,7 @@ func action_label() -> String:
 		"box":
 			return "PUNCH"
 		"sleuth":
-			return "LOOK"
+			return "NAME" if board_phase == "name" else "LOOK"
 		"scroll":
 			return "LOB"
 		"race":

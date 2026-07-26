@@ -23,7 +23,7 @@ over) → MAKE (the act runs on exactly that gift). Gifts persist in
 | --- | --- | --- | --- |
 | Pastry Chef | the farmers | carrots | they go in the bowl — it becomes a carrot cake |
 | Painter | another painter | their paints | the pots she paints with; the finished canvas is then HUNG in the gallery |
-| Detective | stagehands | lanterns | *(to wire: light the dark Prop Library)* |
+| Detective | stagehands | lanterns | they light the dark Prop Library: the lens dwell drops from 0.7s to 0.45s |
 | Magician | usher crabs | silk scarves | the rope trick — they hold the ends, so every pull is shorter |
 | Astronaut | bubble engineers | spare pipes | *(to wire: extra queue pieces)* |
 | **Doctor** | **— none —** | **—** | the rescue in that act is the injured animal herself |
@@ -85,9 +85,9 @@ Currently: find three clues, chest opens. Nothing is deduced.*
 | # | Beat | Gesture | Detail |
 |---|---|---|---|
 | 1 | **Search** | drag lens + dwell | *(built)* three clues hide among six boxes |
-| 2 | **Pin the board** | drag-and-drop | drag each clue onto the case board |
-| 3 | **Match to suspect** | drag-and-drop | three friend portraits on the board; each clue belongs to one — a feather to the bird, a paw to the cat, a ribbon to the dancer. Wrong pairing slides back with a "hmm?" |
-| 4 | **Name them** | tap | the friend holding all three clues is who borrowed the tiara — tap them |
+| 2 | **Match to the friend** | drag-and-drop | *(built)* drag each clue card up to the friend whose colour bar matches it; a wrong pairing slides back with a "hmm?" |
+| 3 | *(folded into beat 2)* | — | the original split into "pin" then "match" was two drag-and-drops in a row, which breaks the no-gesture-twice rule. One drag does both. |
+| 4 | **Name them** | tap | *(built)* two clues belong to one friend and one to another, so the board can be COUNTED, not read. The friends come down to the stage and she swims over and taps the one holding the most |
 | 5 | **Happy ending** | — | they were only borrowing it for the show; the tiara comes back and everyone laughs |
 
 Deduction a non-reader can do: pictures matched to pictures. **No villain** —

@@ -452,6 +452,26 @@ func _drive_sleuth(act: OperaAct, dt: float) -> void:
 	# the detective drags a magnifier rather than swimming and tapping: the
 	# persona sweeps the lens toward its target at its own hand speed and has
 	# to hold it there, so dwell time is part of the act's real cost
+	if act.board_phase == "board":
+		# the deduction beat: one card matched per ready-tick, with the persona's
+		# usual sticky wrong reach so a mismatch costs a slide-back like a child's
+		if not _ready_to_act(dt):
+			return
+		for c: Dictionary in act.clue_cards:
+			if bool(c["pinned"]):
+				continue
+			var owner: int = int(c["owner"])
+			var pick := _intent(act.suspects.size(), owner, 9000 + int(c["index"]))
+			act._board_grab(int(c["index"]))
+			act._board_drop(pick)
+			if pick != owner:
+				_intent_learned(owner)
+			return
+		return
+	if act.board_phase == "name":
+		if _travel(act, act.suspects[act.board_culprit]["pos"] as Vector3, dt) and _ready_to_act(dt):
+			act._name_action(act.board_culprit)
+		return
 	if act.lens_drag:
 		var want := act.goal.position if act.chest_ready else _nearest_unopened(act)
 		var arm := want - act.lens_pos

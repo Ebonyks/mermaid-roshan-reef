@@ -721,7 +721,47 @@ func _drive_sleuth(act: OperaAct) -> void:
 	# sweeping the lens onto the chest is the reveal — still no button
 	act.lens_pos = act.goal.position
 	act._tick_lens(0.1)
-	_ck("the tiara reveal wins the case", act.state == "won")
+	# the chest no longer WINS: finding is half the genre, deducing is the rest
+	_ck("the chest opens the case board, not the case",
+		act.state == "play" and act.board_phase == "board")
+	_ck("the board sets out three clues and three friends",
+		act.clue_cards.size() == 3 and act.suspects.size() == 3)
+	_ck("the board hands the finger to the drag channel",
+		main.touch_ui != null and bool(main.touch_ui.drag_mode))
+	_ck("the freed stagehands' lanterns light the library",
+		int(main.opera_pantry.get("lanterns", 0)) == 0 or act.lens_dwell_need < act.LENS_DWELL)
+	# a clue dropped on the WRONG friend slides home — no loss, no reset
+	var mismatch := -1
+	for c: Dictionary in act.clue_cards:
+		for s: Dictionary in act.suspects:
+			if int(s["index"]) != int(c["owner"]):
+				mismatch = int(s["index"])
+				break
+		if mismatch >= 0:
+			act._board_grab(int(c["index"]))
+			act._board_drop(mismatch)
+			_ck("a clue on the wrong friend slides back kindly",
+				act.state == "play" and act.board_pinned == 0 and not bool(c["pinned"]))
+			break
+	# matching every clue to its owner fills the board
+	for c2: Dictionary in act.clue_cards:
+		act._board_grab(int(c2["index"]))
+		act._board_drop(int(c2["owner"]))
+	_ck("matching every clue opens the naming beat",
+		act.board_pinned == 3 and act.board_phase == "name")
+	_ck("naming is a TAP, and the button says so", act.action_label() == "NAME")
+	# the friend with FEWER clues is the wrong answer, and gently so
+	var innocent := -1
+	for s2: Dictionary in act.suspects:
+		if int(s2["index"]) != act.board_culprit:
+			innocent = int(s2["index"])
+			break
+	act._name_action(innocent)
+	_ck("naming the wrong friend only re-hints",
+		act.state == "play" and act.board_phase == "name")
+	act._name_action(act.board_culprit)
+	_ck("naming the friend with the most clues closes the case",
+		act.state == "won" and act.board_phase == "done")
 
 func _drive_doctor(act: OperaAct) -> void:
 	# five beats with a story: find the hurt one, carry it in, read the x-ray,
