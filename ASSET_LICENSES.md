@@ -84,15 +84,16 @@
 | assets/vehicles/motorcycle.glb | "Cartoony Purple Motorcycle" by AliceCassie | **CC0** | poly.pizza/m/j20srJUjpB | — |
 | assets/vehicles/gokart.glb | "Go kart" by Poly by Google | **CC-BY 3.0** (attribution: Google/Poly) | poly.pizza/m/3hkutVs0AAV | — |
 | assets/vehicles/monstertruck.glb | "Rover" by Quaternius | **CC0** | poly.pizza/m/WRd1piJOfh | used as Monster Truck |
-| assets/galaxy/crystal1-3.glb | "Crystal" by iPoly3D | **CC0** | poly.pizza/m/3saqXqoOti +2 | — |
+| assets/galaxy/gen2/crystal1-3.glb, crystal_castle.glb, tray.glb | Project-authored Blender 4.5 reconstructions of the accepted Codex 2D concept sheets (Regen 04-08 of `CC0_REPLACEMENT_WORKORDER_2026-07-22.md`) | **Project-generated art** | tools/build_cc0_galaxy_kit.py; assets_src/concepts/cc0_ocean_replacements_2026-07-22/ | five texture-free Mobile props (272-1,714 triangles) with embedded matte pastel materials; replace the live CC0/CC-BY galaxy crystals, crystal castle and serving tray in galaxy.gd and kart.gd; reference sheets are modelling guides only and are not embedded at runtime; built 2026-07-26 |
+| assets/galaxy/crystal1-3.glb | "Crystal" by iPoly3D | **CC0** | poly.pizza/m/3saqXqoOti +2 | superseded 2026-07-26 by `assets/galaxy/gen2/crystal1-3.glb`; no live call site remains — retained until the owner-approved cleanup commit |
 | assets/galaxy/butterfly1.glb, butterfly2.glb | "Butterfly" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/e9NAQQrCbLu, /m/2ZwYwkTVnfG | — |
 | assets/galaxy/fruit_apple.glb | "Apple" by jeremy | **CC-BY 3.0** | poly.pizza/m/4tOmpD9-xsV | — |
 | assets/galaxy/fruit_banana.glb | "Banana" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/ahOO6wz8sV0 | — |
 | assets/galaxy/fruit_melon.glb | "Watermelon Half" by S. Paul Michael | **CC-BY 3.0** | poly.pizza/m/1exBmBVJHjj | — |
 | assets/galaxy/fruit_orange.glb | "An Orange" by Ivan Kraft | **CC-BY 3.0** | poly.pizza/m/abyCKYOa770 | — |
-| assets/galaxy/tray.glb | "Plate Oval" by MilkAndBanana | **CC0** | poly.pizza/m/06WhCScuAF | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
+| assets/galaxy/tray.glb | "Plate Oval" by MilkAndBanana | **CC0** | poly.pizza/m/06WhCScuAF | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged; superseded 2026-07-26 by `assets/galaxy/gen2/tray.glb` — retained until the owner-approved cleanup commit |
 | assets/galaxy/beetle.glb, ladybug.glb | by Poly by Google | **CC-BY 3.0** | poly.pizza/m/4yufxgZ1QQ2, /m/4K7V5f9ntfu | — |
-| assets/galaxy/crystal_castle.glb | "Castle" by CreativeTrio | **CC0** | poly.pizza/m/4360GdbxRe | — |
+| assets/galaxy/crystal_castle.glb | "Castle" by CreativeTrio | **CC0** | poly.pizza/m/4360GdbxRe | superseded 2026-07-26 by `assets/galaxy/gen2/crystal_castle.glb`; no live call site remains — retained until the owner-approved cleanup commit |
 | assets/galaxy/trop_palm1.glb | "Palm tree" by jeremy | **CC-BY 3.0** | poly.pizza/m/bjGeBbKhAVN | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | assets/galaxy/trop_palm2.glb | "Coconut palm tree" by Poly by Google | **CC-BY 3.0** | poly.pizza/m/bXUTyfiwqBb | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |
 | assets/galaxy/trop_fern.glb | "Fern" by Quaternius | **CC0** | poly.pizza/m/jqcanvH7D6 | re-textured with project nano-banana painted sheets (tools/bake_nano_wrap.py, 2026-07-12); geometry unchanged |

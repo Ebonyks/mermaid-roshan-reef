@@ -139,3 +139,37 @@ matching `*_GEN2` dict so the old file goes dark before it's deleted.
 5. One asset (or tightly related small group, e.g. the 3 galaxy crystals)
    per commit — mirrors the `NPC_3D_WORKORDER` and Refactor-rules precedent
    of small, probed, reversible steps.
+
+## Delivery log (2D concept sheet -> shipped 3D item)
+
+| Regen | Concept sheet | Shipped model | Wired at | Status |
+|---:|---|---|---|---|
+| 04-06 | `regen_04_06_crystal_family.png` | `assets/galaxy/gen2/crystal1.glb`, `crystal2.glb`, `crystal3.glb` | `galaxy.gd` `CRYSTALS`; `kart.gd` `BW_CRYSTALS`, `BW_DECO_CRYSTALS`, rainbow-orbit `marks` | shipped 2026-07-26 |
+| 07 | `regen_07_crystal_castle.png` | `assets/galaxy/gen2/crystal_castle.glb` | `galaxy.gd` `CASTLE_GLB`; `kart.gd` `BW_CASTLE_GLB` | shipped 2026-07-26 |
+| 08 | `regen_08_serving_tray.png` | `assets/galaxy/gen2/tray.glb` | `galaxy.gd` `TRAY_GLB` | shipped 2026-07-26 |
+
+Built deterministically by `tools/build_cc0_galaxy_kit.py` (Blender 4.5 / pinned
+`bpy` wheel): original low-poly geometry, embedded matte pastel materials, no
+sheet pixels baked into the runtime, no display plinth or baked ground patch.
+272-1,714 triangles per model, zero textures, zero animations. Editable source
+`assets_src/blender/cc0_galaxy_kit.blend`, isolated QA renders and the metrics
+CSV in `assets_src/blender/qa_cc0_galaxy_kit/`.
+
+Two runtime notes for whoever picks up the next batch:
+
+- The `StoryArtFactory.apply_triplanar(..., up_crystal_col.png, ...)` calls that
+  used to disguise the CC0 crystals and castle are **removed at those four call
+  sites only** (`galaxy.gd` castle + Star Hall columns, `kart.gd` castle +
+  orbit crystals). The authored models carry their own cel palette; wrapping a
+  tiling crystal texture over them would throw the concept art away. The same
+  helper is untouched everywhere else.
+- Nothing was deleted. `assets/galaxy/crystal1-3.glb`, `crystal_castle.glb` and
+  `tray.glb` are now unreachable from any live call site and are flagged as
+  superseded in `ASSET_LICENSES.md`, awaiting the owner-approved cleanup commit
+  described in step 4 above.
+
+Still open in Group 2: items 01-03, 09-22 and 29-35 plus the F01-F03 seaweed
+addendum. Item 01 (`pearl_shell_throne`) already has a shipped authored model in
+`assets/castle/pearl_kit/`; `assets/castle/throne.glb` only survives as the
+`castle_hall.gd` fallback branch, so it is a wiring/cleanup question, not a
+modelling one.

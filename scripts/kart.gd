@@ -157,9 +157,9 @@ const SHELL_GEN2 := "spiralshell"
 # meadow planet, crystal castle and butterflies the player lands on in
 # galaxy.gd — instead of circling empty starfield.
 const BW_PLANET_R := 70.0
-const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
-const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
-const BW_DECO_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
+const BW_CASTLE_GLB := "res://assets/galaxy/gen2/crystal_castle.glb"
+const BW_CRYSTALS := ["res://assets/galaxy/gen2/crystal1.glb", "res://assets/galaxy/gen2/crystal2.glb"]
+const BW_DECO_CRYSTALS := ["res://assets/galaxy/gen2/crystal1.glb", "res://assets/galaxy/gen2/crystal2.glb", "res://assets/galaxy/gen2/crystal3.glb"]
 # (soft_barrier.glb stays shipped in assets/art35/kart/ but is deliberately
 # unplaced — owner 2026-07-18: no pastel ball chains on the track edges)
 const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
@@ -816,13 +816,14 @@ void fragment(){
 	_bw_spin = Node3D.new()
 	_bw_spin.position = _bw_centre
 	add_child(_bw_spin)
-	# the crystal castle at the north pole, amethyst-tinted like stage 3
+	# the crystal castle at the north pole — the authored pearl-and-crystal
+	# landmark (tools/build_cc0_galaxy_kit.py) ships its own cel palette, so
+	# the triplanar wrap that disguised the old CC0 model is gone
 	var castle := Node3D.new()
 	if ResourceLoader.exists(BW_CASTLE_GLB):
 		var ck: Node3D = (load(BW_CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_bw_fit(ck, 40.0)
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
 	for i in range(BW_CRYSTALS.size()):
 		var path: String = BW_CRYSTALS[i]
 		if not ResourceLoader.exists(path):
@@ -831,7 +832,6 @@ void fragment(){
 		spire.scale = Vector3.ONE * 4.5
 		spire.position = Vector3([-15.0, 15.0][i], 0, 7.0)
 		castle.add_child(spire)
-		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# sunk a little so its base corners don't hover above the curving horizon
 	castle.position = Vector3(0, BW_PLANET_R - 6.0, 0)
 	_bw_spin.add_child(castle)
@@ -842,9 +842,9 @@ void fragment(){
 		{"role": "trop_palm1", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0},
 		{"role": "trop_palm2", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0},
 		{"role": "trop_monstera", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0},
-		{"glb": "res://assets/galaxy/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
-		{"glb": "res://assets/galaxy/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
-		{"glb": "res://assets/galaxy/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
+		{"glb": "res://assets/galaxy/gen2/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
+		{"glb": "res://assets/galaxy/gen2/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
+		{"glb": "res://assets/galaxy/gen2/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
 	]
 	for md in marks:
 		var holder := Node3D.new()
@@ -860,7 +860,6 @@ void fragment(){
 		holder.add_child(prop)
 		if not md.has("role"):
 			_bw_fit(prop, float(md["size"]))
-			StoryArtFactory.apply_triplanar(prop, "res://assets/terrain/up_crystal_col.png", 0.16)
 		_bw_place(holder, md["dir"])
 		_bw_spin.add_child(holder)
 	# the seven butterflies circle their world (they're what stage 3 is about)

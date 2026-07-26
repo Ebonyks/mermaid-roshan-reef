@@ -31,20 +31,20 @@ const JUMP_V := 17.0
 const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const SHARDS := 7
-const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
+const CRYSTALS := ["res://assets/galaxy/gen2/crystal1.glb", "res://assets/galaxy/gen2/crystal2.glb", "res://assets/galaxy/gen2/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
 # is a greenhouse full of tropical plants, not a pine forest
 const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
 	"trop_fern", "plant_bush", "grass_leafsLarge"]
-const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
+const CASTLE_GLB := "res://assets/galaxy/gen2/crystal_castle.glb"
 const GATE_DIR := Vector3(0.55, 0.84, 0.16)   # separated from the north-pole crystal silhouette
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
 const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
 const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const FRUIT_ROLES := ["apple", "banana", "orange", "melon"]
-const TRAY_GLB := "res://assets/galaxy/tray.glb"
+const TRAY_GLB := "res://assets/galaxy/gen2/tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 const BUG_ROLES := ["beetle", "ladybug"]
@@ -603,15 +603,16 @@ func _build_decor() -> void:
 		var d0 := Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()
 		var ax := d0.cross(Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1).normalized()).normalized()
 		_flyers.append({"node": bfly, "axis": ax, "dir0": d0, "alt": 2.2 + randf() * 4.0, "spd": 0.10 + randf() * 0.14, "ph": randf() * TAU, "flap": 12.0 + randf() * 8.0})
-	# CRYSTAL CASTLE at the north pole (real CC0 castle model, crystal-tinted),
-	# flanked by two of the old crystals — Mermaid Rosalina watches over it
+	# CRYSTAL CASTLE at the north pole (authored pearl-and-crystal landmark,
+	# tools/build_cc0_galaxy_kit.py) — Mermaid Rosalina watches over it. The
+	# model ships its own cel palette, so the old triplanar crystal wrap that
+	# hid the CC0 castle's glassy material is no longer applied over it.
 	var castle := Node3D.new()
 	add_child(castle)
 	if ResourceLoader.exists(CASTLE_GLB):
 		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
 		castle.add_child(ck)
 		_fit_small(ck, 28.0)   # landmark scale leaves the authored gate legible nearby
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.84, 0.80, 0.92))
 	_blockers.append({"dir": Vector3.UP, "r": 8.0, "cool": 0.0})
 	_place_on_planet(castle, Vector3.UP)
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
@@ -1505,7 +1506,6 @@ func _build_hall() -> void:
 		_fit_small(col, 3.4)
 		var ca: float = float(i) / 6.0 * TAU + 0.26
 		chh.position = Vector3(sin(ca) * 18.0, 0.5, cos(ca) * 18.0)
-		StoryArtFactory.apply_triplanar(col, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# star chandeliers
 	for i in range(3):
 		var star: Node3D = LandmarkArtFactory.create_star(2.2, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][i])
