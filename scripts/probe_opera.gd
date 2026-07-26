@@ -595,11 +595,18 @@ func _drive_fix(act: OperaAct) -> void:
 		act._pipe_place(idx)
 		_ck("laying a pipe consumes the front of the queue and refills it",
 			act.pipe_queue.size() == before and String(act.pipe_cells[idx]["shape"]) == "h")
-	# a filled cell refuses a second piece
+	# a filled cell the bubbles have NOT reached can be re-laid: a wrong pipe
+	# on the path must never brick it (the old refuse rule was a fail state
+	# wearing a leak's clothes)
 	var mid: int = act._pipe_cell_at(act.PIPE_START_ROW, 0)
-	var q_before: String = act.pipe_queue[0]
+	act.pipe_queue[0] = "v"
 	act._pipe_place(mid)
-	_ck("a filled cell cannot be overwritten", act.pipe_queue[0] == q_before)
+	_ck("an unflooded cell accepts a replacement piece",
+		String(act.pipe_cells[mid]["shape"]) == "v")
+	act.pipe_queue[0] = "h"
+	act._pipe_place(mid)
+	_ck("a wrong piece can be repaired straight back",
+		String(act.pipe_cells[mid]["shape"]) == "h")
 	# now let the bubbles run the line
 	act.pipe_fuse_t = 0.0
 	var guard := 0
@@ -608,6 +615,14 @@ func _drive_fix(act: OperaAct) -> void:
 		act.pipe_leak_t = 0.0
 		act._pipe_advance()
 	_ck("pipe puzzle does not stall", guard < 200)
+	_ck("a cell the bubbles filled is locked for keeps", not act.pipe_filled.is_empty())
+	if not act.pipe_filled.is_empty():
+		var flooded: int = act.pipe_filled[0]
+		var flooded_shape: String = String(act.pipe_cells[flooded]["shape"])
+		act.pipe_queue[0] = "v"
+		act._pipe_place(flooded)
+		_ck("no piece overwrites a flooded cell",
+			String(act.pipe_cells[flooded]["shape"]) == flooded_shape)
 	_ck("a finished line carries the bubbles to the rocket", act.fix_phase == "valve")
 	act._turn_valve()
 	_ck("one spin builds pressure, not launch", act.state == "play" and act.valve_spins == 1)
