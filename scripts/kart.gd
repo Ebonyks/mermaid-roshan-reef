@@ -2021,6 +2021,22 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 func _vehicles_table() -> Dictionary:
 	return _cv("vehicles", VEHICLES)
 
+func _vehicle_keys() -> Array:
+	# configure() documents `vehicles` as overridable, but VEHICLE_ORDER is a
+	# const, so a caller offering a SUBSET (the opera hands Roshan the one kart
+	# her pit crew built) made _build_select and the AI roster index a key the
+	# table does not have. Order by VEHICLE_ORDER where possible, then honour
+	# whatever the table actually holds.
+	var table := _vehicles_table()
+	var keys: Array = []
+	for k: String in VEHICLE_ORDER:
+		if table.has(k):
+			keys.append(k)
+	for k2 in table.keys():
+		if not keys.has(k2):
+			keys.append(k2)
+	return keys if not keys.is_empty() else VEHICLE_ORDER
+
 func _veh(k: Dictionary) -> Dictionary:
 	return _vehicles_table()[String(k["veh"])]
 
@@ -2032,7 +2048,8 @@ func _build_karts(player_vehicle: String, paint: Dictionary = {}) -> void:
 		var is_p: bool = bool(r.get("player", false))
 		var vkey := player_vehicle
 		if not is_p:
-			vkey = VEHICLE_ORDER[idx % VEHICLE_ORDER.size()]
+			var vkeys := _vehicle_keys()
+			vkey = String(vkeys[idx % vkeys.size()])
 		# the driver on the player's kart wears the wardrobe skin (audit: it
 		# was hardcoded classic Roshan no matter what she had dressed up as)
 		var spath := String(r.get("sprite", ""))
@@ -2101,8 +2118,9 @@ func _select_slot_pos(i: int) -> Vector3:
 	return _origin() + Vector3(0, -60.0, 190.0) + Vector3((float(i) - 1.0) * 16.0, 0, 0)
 
 func _build_select() -> void:
-	for i in range(VEHICLE_ORDER.size()):
-		var vkey: String = VEHICLE_ORDER[i]
+	var order := _vehicle_keys()
+	for i in range(order.size()):
+		var vkey: String = order[i]
 		var vd: Dictionary = _vehicles_table()[vkey]
 		var slot := Node3D.new()
 		slot.position = _select_slot_pos(i)
@@ -2214,7 +2232,7 @@ func _tick_select(delta: float) -> void:
 		_select_confirm_queued = false
 	if _sel_phase == "ride":
 		if edge != 0:
-			_sel_idx = clampi(_sel_idx + edge, 0, VEHICLE_ORDER.size() - 1)
+			_sel_idx = clampi(_sel_idx + edge, 0, _vehicle_keys().size() - 1)
 		if confirm or _sel_t > SELECT_TIMEOUT:
 			_sel_phase = "paint"
 			_sel_t = 0.0
@@ -2246,7 +2264,7 @@ func _tick_select(delta: float) -> void:
 		var confirm_hint := "TAP to GO!" if _touch_device() else "SPACE or A to GO!"
 		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint
 	if confirm or _sel_t > SELECT_TIMEOUT:
-		var vkey: String = VEHICLE_ORDER[_sel_idx]
+		var vkey: String = String(_vehicle_keys()[_sel_idx])
 		var paint: Dictionary = PAINTS[_paint_idx]
 		for sn2 in _sel_nodes:
 			(sn2["slot"] as Node3D).queue_free()

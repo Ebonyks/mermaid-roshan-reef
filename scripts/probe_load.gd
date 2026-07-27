@@ -3,6 +3,7 @@ extends SceneTree
 # and that a crafted fish survives a relaunch (it used to vanish: the save
 # loads after the reef builds, so build-time spawning missed it)
 func _init() -> void:
+	# opera_pantry (added 2026-07-25) must survive a save/load round trip
 	var sd: Dictionary = {}
 	if FileAccess.file_exists("user://reef_save.json"):
 		var f := FileAccess.open("user://reef_save.json", FileAccess.READ)
