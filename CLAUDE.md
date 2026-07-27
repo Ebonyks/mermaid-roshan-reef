@@ -129,8 +129,20 @@ patch the probe to match new behavior unless the behavior change was the
 explicit goal of the task.
 
 ## Art direction (graphics fork)
+OWNER DECISION 2026-07-27 (charter: GAME_REDESIGN_2P5D_2026-07-27.md): the
+game is being fundamentally redesigned as a **2.5D promenade world** built
+on the E2 SideScrollStage engine — zone by zone, probe-gated, reversible —
+with **Codex-painted background sprite sets as the primary art channel**
+(specs: CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md); Codex 2D art
+outranks Blender/Meshy 3D in quality and priority. Touch-the-world
+(tap/hold-to-travel + tap targets) is the primary control; the analog
+stick is demoted to an accessibility/pad fallback. The gen2 Meshy 3D
+character migration (2026-07-19) is PAUSED — cutouts/billboards are the
+character medium again; landed .glbs stay until their zone migrates.
+
 Static Mermaid Roshan storybook characters in a cel-shaded, Wind
-Waker-inspired diorama world. OWNER DECISION 2026-07-19: characters are
+Waker-inspired diorama world. SUPERSEDED 2026-07-27 (paused, see above) —
+owner decision 2026-07-19: characters are
 migrating from sprite cutouts to gen2 Meshy 3D models (roster + staging in
 NPC_3D_WORKORDER_2026-07-19.md; Daddy Mermaid first). Until a character's
 .glb lands in assets/characters/friends/, its cutout remains the shipped
