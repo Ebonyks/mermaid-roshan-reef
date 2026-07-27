@@ -46,20 +46,61 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s1_runway.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s2_playground.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s3_castle.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
 	]
 	var assets_ok := true
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
+	var panorama: Texture2D = load(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png")
+	_check("continuous_3_by_1_panorama",
+		panorama != null
+		and panorama.get_width() <= 1024
+		and absf(float(panorama.get_width()) / float(panorama.get_height()) - 3.0) < 0.02)
+	var stage_root: Node3D = main.g.get("ss_root") as Node3D
+	var node_stack: Array[Node] = [stage_root]
+	var sprite_count := 0
+	var mesh_count := 0
+	var canvas_count := 0
+	var shaded_count := 0
+	var bad_scale_count := 0
+	var visible_sprite_count := 0
+	var depth_layers: Dictionary = {}
+	while not node_stack.is_empty():
+		var stage_node: Node = node_stack.pop_back()
+		if stage_node is Sprite3D:
+			var stage_sprite := stage_node as Sprite3D
+			sprite_count += 1
+			visible_sprite_count += 1 if stage_sprite.visible else 0
+			shaded_count += 1 if stage_sprite.shaded else 0
+			bad_scale_count += 1 if stage_sprite.pixel_size <= 0.0 else 0
+			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
+		elif stage_node is MeshInstance3D:
+			mesh_count += 1
+		elif stage_node is CanvasItem:
+			canvas_count += 1
+		for child: Node in stage_node.get_children():
+			node_stack.append(child)
+	_check("world_art_is_unshaded_sprite3d",
+		sprite_count == 21 and mesh_count == 0 and canvas_count == 0
+		and shaded_count == 0 and bad_scale_count == 0,
+		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
+			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
+	_check("real_depth_and_speedy_overdraw",
+		depth_layers.size() >= 4 and visible_sprite_count <= 13,
+		"depth_layers=%d visible_cards=%d" % [
+			depth_layers.size(), visible_sprite_count])
+	_check("roshan_is_sprite_card",
+		not main.player.visible
+		and main.g.get("lagoon_roshan_card") is Sprite3D)
 
 	var targets: Array = main.g.get("lagoon_promenade_targets", [])
 	var ids: Dictionary = {}

@@ -369,15 +369,18 @@ ambientCG (all CC0).
 - `assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png` —
   project-original OpenAI image generation; lavender shell activity frame;
   chroma removed and resized to 1024px.
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s1_runway.png` —
-  project-original OpenAI image generation; PNW runway and blocked-water
-  screen; resized to 1024px.
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s2_playground.png` —
-  project-original OpenAI image generation; PNW meadow playground screen;
-  resized to 1024px.
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s3_castle.png` —
-  project-original OpenAI image generation; PNW castle-terrace and moat
-  screen; resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_roshan.png` — project-original
+  derivative of `assets/characters/roshan_sprite.png`; OpenAI image edit
+  changed only the white background to a flat chroma key, followed by local
+  alpha extraction and resizing to 1024px; used as the unshaded in-world
+  Sprite3D card while the source character art remains unchanged.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png` —
+  project-original OpenAI image generation; one uninterrupted 3:1 PNW
+  panorama flowing from the blocked-water runway shore, through the meadow,
+  to the castle drawbridge terrace and moat; generated from the three earlier
+  screen concepts plus the project PNW tree/shrub sheets, then resized to
+  1024px. The three earlier panel files were removed after this continuous
+  master replaced them.
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.

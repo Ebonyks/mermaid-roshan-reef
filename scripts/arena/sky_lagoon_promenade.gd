@@ -6,8 +6,7 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const PANEL_W := 48.0
-const BACKDROP_SIZE := Vector2(48.0, 27.0)
+const BACKDROP_SIZE := Vector2(144.0, 48.0)
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
 
 var m: ReefMain
@@ -42,12 +41,15 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": 10.0,
 		"cam_follow": 1.0,
 	})
-	_add_backdrop("res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s1_runway.png", -PANEL_W)
-	_add_backdrop("res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s2_playground.png", 0.0)
-	_add_backdrop("res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s3_castle.png", PANEL_W)
+	# One 3x1 painting on one Sprite3D card: the camera can cross both page boundaries
+	# without exposing a seam, gutter, parallax mismatch, or horizon jump.
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
+		0.0)
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
+	_build_roshan_card()
 	var spawn_x := -48.0
 	if from_castle:
 		spawn_x = 48.0
@@ -62,7 +64,9 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
 		return
+	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
+	_sync_roshan_card(m.player.position.x - old_x)
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
@@ -124,22 +128,36 @@ func _build_castle_screen() -> void:
 		Vector3(56.0, 9.1, -5.8), 17.0)
 	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
 
+func _build_roshan_card() -> void:
+	var card := _add_sprite(
+		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		Vector3(0.0, 4.0, 0.2), 7.8)
+	m.g["lagoon_roshan_card"] = card
+	m.player.visible = false
+
+func _sync_roshan_card(delta_x: float = 0.0) -> void:
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	var root_node: Node3D = stage.root()
+	if card == null or not is_instance_valid(card) or root_node == null:
+		return
+	var local_player: Vector3 = m.player.position - root_node.position
+	card.position = Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+	if absf(delta_x) > 0.01:
+		card.flip_h = delta_x < 0.0
+
 func _add_backdrop(path: String, x: float) -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
-	var quad := MeshInstance3D.new()
-	var mesh := QuadMesh.new()
-	mesh.size = BACKDROP_SIZE
-	quad.mesh = mesh
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.albedo_texture = load(path)
-	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	quad.material_override = mat
-	quad.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	quad.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
-	root_node.add_child(quad)
+	var backdrop := Sprite3D.new()
+	backdrop.texture = load(path)
+	backdrop.pixel_size = BACKDROP_SIZE.x / maxf(
+		1.0, float(backdrop.texture.get_width()))
+	backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	backdrop.shaded = false
+	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	backdrop.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
+	root_node.add_child(backdrop)
 
 func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
 	var root_node: Node3D = stage.root()
@@ -269,6 +287,7 @@ func _activate(target: Dictionary) -> void:
 			m.player.play_verb("giggle")
 			m._sparkle_burst(node.global_position, Color(1.0, 0.65, 0.88))
 		"castle":
+			m.player.visible = true
 			m._enter_castle_interior()
 
 func _bounce(node: Node3D, tilt: float) -> void:
@@ -309,3 +328,4 @@ func _set_spawn(x: float) -> void:
 	if m.player.cam != null and m.player.cam.is_inside_tree():
 		m.player.cam.position = root_node.position + Vector3(x, 12.2, 22.5)
 		m.player.cam.look_at(root_node.position + Vector3(x, 10.0, 0.0))
+	_sync_roshan_card()

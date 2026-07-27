@@ -4060,6 +4060,7 @@ func _enter_northern_kingdom() -> void:
 	_fade_cut(_enter_northern_kingdom_now)
 
 func _enter_northern_kingdom_now() -> void:
+	player.visible = true
 	game = "north"
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5044,6 +5045,7 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	_fade_cut(_enter_castle_interior_now.bind(from_back))
 
 func _enter_castle_interior_now(from_back: bool = false) -> void:
+	player.visible = true
 	_play_music("hall")
 	g["l2_fish"] = []
 	for n in game_nodes:
@@ -5802,6 +5804,7 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	player.visible = true
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
 		# hall, so nothing would ever release the "sleep" input block or the
