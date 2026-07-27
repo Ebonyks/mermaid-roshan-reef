@@ -6,7 +6,7 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_SIZE := Vector2(144.0, 48.0)
+const BACKDROP_TILE_SIZE := Vector2(48.0, 48.0)
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
 
 var m: ReefMain
@@ -41,11 +41,14 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": 10.0,
 		"cam_follow": 1.0,
 	})
-	# One 3x1 painting on one Sprite3D card: the camera can cross both page boundaries
-	# without exposing a seam, gutter, parallax mismatch, or horizon jump.
+	# Three native-resolution, lossless tiles reconstruct the exact 2172x724
+	# master at one depth. Their edges meet without overlap or rescaling.
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
-		0.0)
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png", -48.0)
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png", 0.0)
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png", 48.0)
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
@@ -154,13 +157,14 @@ func _add_backdrop(path: String, x: float) -> void:
 	if root_node == null:
 		return
 	var backdrop := Sprite3D.new()
+	backdrop.name = "SkyLagoonBackdrop_%d" % roundi(x)
 	backdrop.texture = load(path)
-	backdrop.pixel_size = BACKDROP_SIZE.x / maxf(
+	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
 		1.0, float(backdrop.texture.get_width()))
 	backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	backdrop.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
+	backdrop.position = Vector3(x, BACKDROP_TILE_SIZE.y * 0.5, -18.0)
 	root_node.add_child(backdrop)
 
 func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:

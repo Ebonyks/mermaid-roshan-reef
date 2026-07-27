@@ -46,7 +46,9 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
@@ -59,12 +61,27 @@ func _init() -> void:
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var panorama: Texture2D = load(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png")
-	_check("continuous_3_by_1_panorama",
-		panorama != null
-		and panorama.get_width() <= 1024
-		and absf(float(panorama.get_width()) / float(panorama.get_height()) - 3.0) < 0.02)
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png"
+	var panorama_master: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(master_path))
+	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
+	if native_master_ok:
+		native_master_ok = (
+			panorama_master.get_width() == 2172
+			and panorama_master.get_height() == 724
+			and panorama_master.get_width() >= 2048
+			and absf(float(panorama_master.get_width())
+				/ float(panorama_master.get_height()) - 3.0) <= 0.000001)
+	_check("native_2k_exact_ratio_master", native_master_ok)
+	var runtime_tiles_ok := true
+	for tile_index: int in range(3):
+		var tile: Texture2D = load(
+			"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_%d.png"
+			% tile_index)
+		runtime_tiles_ok = (
+			runtime_tiles_ok and tile != null
+			and tile.get_size() == Vector2(724, 724))
+	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var node_stack: Array[Node] = [stage_root]
 	var sprite_count := 0
@@ -74,6 +91,7 @@ func _init() -> void:
 	var bad_scale_count := 0
 	var visible_sprite_count := 0
 	var depth_layers: Dictionary = {}
+	var backdrop_positions: Array[Vector3] = []
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -83,6 +101,8 @@ func _init() -> void:
 			shaded_count += 1 if stage_sprite.shaded else 0
 			bad_scale_count += 1 if stage_sprite.pixel_size <= 0.0 else 0
 			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
+			if stage_sprite.name.begins_with("SkyLagoonBackdrop_"):
+				backdrop_positions.append(stage_sprite.position)
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -90,14 +110,23 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 21 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 23 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 13,
+		depth_layers.size() >= 4 and visible_sprite_count <= 14,
 		"depth_layers=%d visible_cards=%d" % [
 			depth_layers.size(), visible_sprite_count])
+	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
+		return a.x < b.x)
+	var seamless_cards_ok := backdrop_positions.size() == 3
+	if seamless_cards_ok:
+		seamless_cards_ok = (
+			backdrop_positions[0] == Vector3(-48.0, 24.0, -18.0)
+			and backdrop_positions[1] == Vector3(0.0, 24.0, -18.0)
+			and backdrop_positions[2] == Vector3(48.0, 24.0, -18.0))
+	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
 	_check("roshan_is_sprite_card",
 		not main.player.visible
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
