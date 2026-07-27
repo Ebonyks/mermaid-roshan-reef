@@ -3,9 +3,9 @@ extends RefCounted
 # Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D rig for "flat
 # stage" minigames. It puts the REAL player node (the rigged 3D Roshan with
 # whatever wardrobe skin she is wearing) on a left/right line in front of a
-# side-on camera, and owns the one-finger composite input read
-# (drag-to-point ∥ virtual stick ∥ arrows/AD ∥ gamepad axis). Games built on
-# it own only their objective logic and set dressing.
+# side-on camera, and owns the composite input read (persistent point-to-move
+# ∥ Classic virtual stick ∥ arrows/AD ∥ gamepad axis). Games built on it own
+# only their objective logic and set dressing.
 #   catch mode:  tick(delta)       — steer left/right under falling things
 #   run mode:    run_tick(delta)   — auto-run + tap-to-hop (Mario-run style
 #                one-touch games; the engine seam is here, no game uses it yet)
@@ -34,6 +34,7 @@ func open(cfg: Dictionary) -> void:
 	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
 	# player.gd) — size stages against HER, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
+	m._pointer_nav_ref().set_context("side_scroll")
 	m.g["ss_bob"] = 0.0
 	m.g["ss_run_x"] = 0.0
 	m.g["ss_run_vy"] = 0.0
@@ -80,6 +81,7 @@ func close() -> void:
 	# when the stage never opened (it runs for every game teardown).
 	if m.player != null:
 		m.player.rotation.z = 0.0
+	m._pointer_nav_ref().clear_context("side_scroll")
 
 # ---- catch mode: steer on a line -------------------------------------------
 func tick(delta: float) -> Dictionary:
@@ -99,20 +101,9 @@ func tick(delta: float) -> Dictionary:
 		mx += jx
 	if m.touch_ui != null and absf((m.touch_ui.stick_vec as Vector2).x) > 0.15:
 		mx += (m.touch_ui.stick_vec as Vector2).x
-	mx = clampf(mx, -1.0, 1.0)
+	mx = m._pointer_nav_ref().axis_x(clampf(mx, -1.0, 1.0), px(), -half_w, half_w)
+	m._pointer_nav_ref().consume_press()
 	var x := px()
-	var pointing := false
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		# point-and-she-swims-there: finger/mouse screen x maps to stage x
-		# (touch reaches here through Godot's emulated mouse, same as the old
-		# 2D catcher's drag control)
-		var vp := m.get_viewport()
-		if vp != null:
-			var vsz: Vector2 = vp.get_visible_rect().size
-			if vsz.x > 1.0:
-				var t: float = clampf(vp.get_mouse_position().x / vsz.x, 0.0, 1.0)
-				x = lerpf(x, (t * 2.0 - 1.0) * half_w * 1.05, 0.2)
-				pointing = true
 	x = clampf(x + mx * float(cfg.get("steer_speed", 24.8)) * delta, -half_w, half_w)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
@@ -122,7 +113,7 @@ func tick(delta: float) -> Dictionary:
 	m.player.rotation.y = PI - mx * 0.45
 	m.player.rotation.z = lerpf(m.player.rotation.z, -mx * 0.22, 1.0 - pow(0.001, delta))
 	_glide_camera(delta, cfg, r, x * float(cfg.get("cam_follow", 0.25)))
-	return {"mx": mx, "px": x, "moved": absf(mx) > 0.05 or pointing}
+	return {"mx": mx, "px": x, "moved": absf(mx) > 0.05}
 
 # ---- run mode: auto-run + tap-to-hop (future Mario-run games) --------------
 func run_tick(delta: float) -> Dictionary:
@@ -168,6 +159,68 @@ func set_bounds(l: float, r: float) -> void:
 	m.g["ss_bl"] = l
 	m.g["ss_br"] = r
 
+func walk_tick(delta: float) -> Dictionary:
+	# Promenade movement: click/touch open ground to set a persistent x/depth
+	# goal; hold and drag retargets it. Keyboard, pad or stick input cancels the
+	# pointer goal immediately and remains fully supported.
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	var r := root()
+	if r == null:
+		return {"mx": 0.0, "mz": 0.0, "px": 0.0, "pz": 0.0, "moved": false}
+	var mx := 0.0
+	var mz := 0.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		mx -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		mx += 1.0
+	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
+		mz -= 1.0
+	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
+		mz += 1.0
+	var jx: float = m.joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = m.joy_axis(JOY_AXIS_LEFT_Y)
+	if absf(jx) > 0.2:
+		mx += jx
+	if absf(jy) > 0.2:
+		mz += jy
+	if m.touch_ui != null:
+		var touch_axis: Vector2 = m.touch_ui.stick_vec
+		if absf(touch_axis.x) > 0.15:
+			mx += touch_axis.x
+		if absf(touch_axis.y) > 0.15:
+			mz += touch_axis.y
+	var half_w: float = float(cfg.get("half_w", 23.2))
+	var half_d: float = float(cfg.get("half_d", 7.0))
+	var left: float = float(m.g.get("ss_bl", -half_w))
+	var right: float = float(m.g.get("ss_br", half_w))
+	var current := Vector2(px(), m.player.position.z - r.position.z)
+	var axis: Vector2 = m._pointer_nav_ref().axis_stage(
+		Vector2(clampf(mx, -1.0, 1.0), clampf(mz, -1.0, 1.0)),
+		current,
+		Rect2(Vector2(left, -half_d), Vector2(right - left, half_d * 2.0)))
+	m._pointer_nav_ref().consume_press()
+	var speed: float = float(cfg.get("steer_speed", 24.8))
+	var x: float = clampf(current.x + axis.x * speed * delta, left, right)
+	var z: float = clampf(current.y + axis.y * speed * 0.8 * delta, -half_d, half_d)
+	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
+	var hover: float = float(cfg.get("hover", 3.0)) \
+		+ sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
+	m.player.position = r.position + Vector3(x, hover, z)
+	m.player.vel = Vector3.ZERO
+	var want_rot := PI
+	if absf(axis.x) > 0.1:
+		want_rot = -PI * 0.5 if axis.x > 0.0 else PI * 0.5
+	m.player.rotation.y = lerp_angle(m.player.rotation.y, want_rot, 1.0 - pow(0.002, delta))
+	m.player.rotation.z = lerpf(m.player.rotation.z, -axis.x * 0.16, 1.0 - pow(0.001, delta))
+	_glide_camera(delta, cfg, r, x * float(cfg.get("cam_follow", 0.25)))
+	return {
+		"mx": axis.x,
+		"mz": axis.y,
+		"px": x,
+		"pz": z,
+		"moved": axis.length() > 0.05,
+	}
+
 func brawl_tick(delta: float) -> Dictionary:
 	# P1 = Roshan: x AND z movement inside a depth band, facing her run,
 	# tap = THE button. Pad reads here are DEVICE 0 ONLY (unlike main.joy_axis's
@@ -202,12 +255,19 @@ func brawl_tick(delta: float) -> Dictionary:
 			mx += tv.x
 		if absf(tv.y) > 0.15:
 			mz += tv.y
-	mx = clampf(mx, -1.0, 1.0)
-	mz = clampf(mz, -1.0, 1.0)
 	var spd: float = float(cfg.get("steer_speed", 24.8))
 	var half_w: float = float(cfg.get("half_w", 23.2))
+	var left: float = float(m.g.get("ss_bl", -half_w))
+	var right: float = float(m.g.get("ss_br", half_w))
+	var current := Vector2(px(), m.player.position.z - r.position.z)
+	var axis: Vector2 = m._pointer_nav_ref().axis_stage(
+		Vector2(clampf(mx, -1.0, 1.0), clampf(mz, -1.0, 1.0)),
+		current,
+		Rect2(Vector2(left, -half_d), Vector2(right - left, half_d * 2.0)))
+	mx = axis.x
+	mz = axis.y
 	var x: float = clampf(px() + mx * spd * delta,
-		float(m.g.get("ss_bl", -half_w)), float(m.g.get("ss_br", half_w)))
+		left, right)
 	var z: float = clampf((m.player.position.z - r.position.z) + mz * spd * 0.8 * delta,
 		-half_d, half_d)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta

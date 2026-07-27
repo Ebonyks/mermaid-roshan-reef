@@ -72,6 +72,7 @@ var materials := {}
 
 func start(main: ReefMain, ladder_index: int, done_cb: Callable) -> void:
 	m = main
+	m._pointer_nav_ref().set_context("fixed_room")
 	finish_cb = done_cb
 	round_cfg = LADDER[clampi(ladder_index, 0, LADDER.size() - 1)]
 	round_tag = String(round_cfg["tag"])
@@ -277,7 +278,7 @@ func _move_input() -> Vector2:
 	if absf(jy) > 0.18: value.y = jy
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
-	return value.limit_length(1.0)
+	return m._pointer_nav_ref().axis_world(value.limit_length(1.0), pal_pos, CENTER.y + 1.2)
 
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -309,6 +310,8 @@ func _process(delta: float) -> void:
 		return
 	_tick_move(delta)
 	var attack_tap := _action_pressed()
+	if _pointer_attack_pressed():
+		attack_tap = true
 	# hidden mercy: after two missed dodges in a row, ANY button counts as the
 	# dodge — mashing the attack bubble still saves the day for little thumbs
 	if attack_tap and qte_t > 0.0 and miss_streak >= 2:
@@ -322,6 +325,27 @@ func _process(delta: float) -> void:
 	_tick_qte(delta)
 	_tick_enemy_shots(delta)
 	_tick_pointer()
+
+func _pointer_attack_pressed() -> bool:
+	if not m._pointer_nav_ref().consume_press():
+		return false
+	var target_pos := Vector3.INF
+	var best_distance := 112.0
+	for enemy: Dictionary in enemies:
+		if String(enemy["state"]) != "active":
+			continue
+		var enemy_pos: Vector3 = enemy["pos"]
+		var screen_distance: float = m._pointer_nav_ref().screen_distance_to(
+			enemy_pos + Vector3(0, 2.5, 0))
+		if screen_distance < best_distance:
+			best_distance = screen_distance
+			target_pos = enemy_pos
+	if target_pos == Vector3.INF:
+		return false
+	if Vector2(target_pos.x - pal_pos.x, target_pos.z - pal_pos.z).length() > 7.0:
+		return false
+	m._pointer_nav_ref().cancel("stuffie target")
+	return true
 
 func _tick_move(delta: float) -> void:
 	var speed: float = 14.0 * (1.0 + minf(float(m._companion_ref().level()) * 0.01, 0.25))
@@ -641,6 +665,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	m.companion_bruises += bruises   # boo-boos ride home for the care loop
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -655,6 +680,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	m.companion_bruises += bruises   # leaving early keeps any boo-boos too
 	if prev_env != null:
 		m.we_node.environment = prev_env

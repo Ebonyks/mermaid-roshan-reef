@@ -45,6 +45,7 @@ var art_theme := ""
 
 func start(main: ReefMain, room_config: Dictionary, done_cb: Callable) -> void:
 	m = main
+	m._pointer_nav_ref().set_context("fixed_room")
 	config = room_config
 	finish_cb = done_cb
 	puzzle_kind = String(config.get("puzzle", "sequence"))
@@ -316,7 +317,7 @@ func _move_input() -> Vector2:
 	if Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN): value.y += 1.0
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
-	return value.limit_length(1.0)
+	return m._pointer_nav_ref().axis_world(value.limit_length(1.0), player_pos, CENTER.y + 1.1)
 
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -360,6 +361,15 @@ func _process(delta: float) -> void:
 		var node: Node3D = entry["node"]
 		node.scale = Vector3.ONE * (1.0 + sin(Time.get_ticks_msec() * 0.006) * 0.05)
 		hint.text = "◆  TAP USE NEAR THE GLOWING PICTURE  ◆"
+	var pointer_choice := -1
+	if m._pointer_nav_ref().consume_press():
+		pointer_choice = _pointer_interactive()
+		if pointer_choice >= 0 and pair_hide_t <= 0.0:
+			var pointer_entry: Dictionary = interactives[pointer_choice]
+			if player_pos.distance_squared_to(pointer_entry["pos"] as Vector3) <= 6.0 * 6.0:
+				m._pointer_nav_ref().cancel("puzzle action")
+				_puzzle_action(int(pointer_entry["index"]))
+				return
 	if _action_pressed() and near >= 0 and pair_hide_t <= 0.0:
 		_puzzle_action(int(interactives[near]["index"]))
 
@@ -371,6 +381,18 @@ func _nearest_interactive() -> int:
 		var dist := player_pos.distance_squared_to(entry["pos"] as Vector3)
 		if dist < best_d:
 			best_d = dist
+			best = i
+	return best
+
+func _pointer_interactive() -> int:
+	var best := -1
+	var best_distance := 104.0
+	for i in range(interactives.size()):
+		var entry: Dictionary = interactives[i]
+		var world_pos: Vector3 = entry["pos"]
+		var distance: float = m._pointer_nav_ref().screen_distance_to(world_pos + Vector3(0, 2.5, 0))
+		if distance < best_distance:
+			best_distance = distance
 			best = i
 	return best
 
@@ -591,6 +613,7 @@ func cancel() -> void:
 	if state == "done" or state == "cancelled":
 		return
 	state = "cancelled"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	_restore_environment()
 	queue_free()
 
@@ -598,6 +621,7 @@ func _finish() -> void:
 	if state == "done":
 		return
 	state = "done"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	_restore_environment()
 	if finish_cb.is_valid():
 		finish_cb.call()

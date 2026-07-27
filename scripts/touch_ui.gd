@@ -1,7 +1,7 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): lower-left movement + a real lower-right action button;
-#   taps on unclaimed world space are emitted for select/approach/move.
+#   HYBRID (default): the whole playfield is point-to-move/select plus a real
+#   lower-right action button. Mouse and touch use this same one-finger route.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
 # Implemented through _unhandled_input so overlays and minigame Controls always
@@ -9,6 +9,9 @@ extends CanvasLayer
 # changes mid-gesture.
 
 signal world_touched(pos: Vector2)
+signal world_pointer_pressed(pos: Vector2)
+signal world_pointer_moved(pos: Vector2)
+signal world_pointer_released(pos: Vector2, dragged: bool)
 signal manual_move_started
 signal manual_move_ended
 
@@ -17,6 +20,7 @@ enum TouchOwner {
 	UI,
 	STICK,
 	ACTION,
+	GESTURE,
 	WORLD_INTERACT,
 	WORLD_MOVE,
 }
@@ -30,14 +34,15 @@ var world_controls_enabled := true
 
 # ---- drag channel (owner 2026-07-25) ----
 # Some acts are played by DRAGGING a finger across the screen rather than by
-# swimming and tapping — painting, scrubbing, tracing, lens-dragging. While
-# drag_mode is on, the first finger reports its absolute screen position here
-# instead of raising the virtual stick, so the act reads a stroke, not a
-# direction. Everything else (second-finger jump, pause) is untouched.
+# point-to-move — painting, scrubbing, tracing, lens-dragging. While drag_mode
+# is on, the first playfield pointer reports its absolute screen position here,
+# so the act reads a stroke rather than a movement goal.
 var drag_mode := false
 var drag_active := false
 var drag_pos := Vector2.ZERO
 var drag_started := false          # set for one read on touch-down
+var pointer_down := false
+var pointer_pos := Vector2.ZERO
 
 var _root: Control
 var _base: Panel
@@ -105,7 +110,7 @@ func _ready() -> void:
 	_stick_hint.offset_top = -206.0
 	_stick_hint.offset_right = 206.0
 	_stick_hint.offset_bottom = -26.0
-	_stick_hint.visible = wants_touch()
+	_stick_hint.visible = wants_touch() and control_mode == "classic"
 	_root.add_child(_stick_hint)
 	var hint_arrows := Label.new()
 	hint_arrows.text = "↕  ↔"
@@ -130,8 +135,10 @@ func _ready() -> void:
 	# The rect is only an anchor/affordance: presses are claimed from raw
 	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
 	# hears the FIRST finger (mouse-from-touch emulation) — a second finger
-	# pressed while the stick is held would otherwise be silently dropped.
-	if wants_touch():
+	# pressed while a world pointer is held would otherwise be silently dropped.
+	# Desktop LMB emulates the same one-finger grammar, so it needs the action
+	# bubble too. The virtual-stick teaching ring remains touch-device only.
+	if control_mode == "hybrid" or wants_touch():
 		_act_button = Button.new()
 		_act_button.flat = true
 		_act_button.focus_mode = Control.FOCUS_NONE
@@ -292,7 +299,8 @@ func _rest_stick() -> void:
 	if _knob != null:
 		_knob.visible = false
 	if _stick_hint != null:
-		_stick_hint.visible = wants_touch() and world_controls_enabled
+		_stick_hint.visible = wants_touch() and world_controls_enabled \
+			and control_mode == "classic"
 
 func rest_zone() -> Rect2:
 	var vs: Vector2 = _root.size
@@ -319,6 +327,8 @@ func action_zone() -> Rect2:
 func _clear_touch_state() -> void:
 	drag_active = false
 	drag_started = false
+	pointer_down = false
+	pointer_pos = Vector2.ZERO
 	_touch_idx = -1
 	_look_idx = -1
 	_jump_fingers.clear()
@@ -406,7 +416,11 @@ func _notification(what: int) -> void:
 		_flush_parent_save()
 
 func _unhandled_input(ev: InputEvent) -> void:
-	if not wants_touch() or not world_controls_enabled:
+	if not world_controls_enabled and not drag_mode:
+		return
+	var physical_mouse: bool = (ev is InputEventMouseButton or ev is InputEventMouseMotion) \
+		and ev.device != InputEvent.DEVICE_ID_EMULATION
+	if not wants_touch() and not physical_mouse:
 		return
 	if control_mode == "hybrid":
 		_hybrid_unhandled_input(ev)
@@ -432,35 +446,46 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		if touch.pressed:
 			if _action_hit(touch.position):
 				_claim_action(touch.index)
-			elif _touch_idx == -1 and movement_zone().has_point(touch.position):
-				touch_owners[touch.index] = TouchOwner.STICK
+			elif drag_mode and _touch_idx == -1:
+				touch_owners[touch.index] = TouchOwner.GESTURE
 				_press(touch.position, touch.index)
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
 				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
+				pointer_down = true
+				pointer_pos = touch.position
+				world_pointer_pressed.emit(touch.position)
 		else:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and touch.index == _touch_idx:
 				_release_stick()
 			elif owner == TouchOwner.ACTION:
 				_release_action(touch.index)
+			elif owner == TouchOwner.GESTURE and touch.index == _touch_idx:
+				_release_stick()
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
+				var dragged: bool = bool(world_data.get("moved", false))
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
+				pointer_down = false
+				pointer_pos = touch.position
+				world_pointer_released.emit(touch.position, dragged)
 				_world_pend.erase(touch.index)
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
 		var drag := ev as InputEventScreenDrag
 		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
-		if owner == TouchOwner.STICK and drag.index == _touch_idx:
+		if (owner == TouchOwner.STICK or owner == TouchOwner.GESTURE) and drag.index == _touch_idx:
 			_drag(drag.position)
-		elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
+		elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(drag.index):
 			var world_data: Dictionary = _world_pend[drag.index]
 			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
 				world_data["moved"] = true
 				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
+			pointer_pos = drag.position
+			world_pointer_moved.emit(drag.position)
 	elif ev is InputEventMouseButton:
 		var mouse_button := ev as InputEventMouseButton
 		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION or mouse_button.button_index != MOUSE_BUTTON_LEFT:
@@ -468,36 +493,51 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		if mouse_button.pressed:
 			if _action_hit(mouse_button.position):
 				_claim_action(99)
-			elif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
-				touch_owners[99] = TouchOwner.STICK
+			elif drag_mode and _touch_idx == -1:
+				touch_owners[99] = TouchOwner.GESTURE
 				_press(mouse_button.position, 99)
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
 				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+				pointer_down = true
+				pointer_pos = mouse_button.position
+				world_pointer_pressed.emit(mouse_button.position)
 		else:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and _touch_idx == 99:
 				_release_stick()
 			elif owner == TouchOwner.ACTION:
 				_release_action(99)
+			elif owner == TouchOwner.GESTURE and _touch_idx == 99:
+				_release_stick()
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
+				var dragged: bool = bool(world_data.get("moved", false))
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
+				pointer_down = false
+				pointer_pos = mouse_button.position
+				world_pointer_released.emit(mouse_button.position, dragged)
 				_world_pend.erase(99)
 			touch_owners.erase(99)
-	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+	elif ev is InputEventMouseMotion and (
+			touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK
+			or touch_owners.get(99, TouchOwner.NONE) == TouchOwner.GESTURE):
 		var mouse_motion := ev as InputEventMouseMotion
 		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
 			_drag(mouse_motion.position)
-	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
+	elif ev is InputEventMouseMotion and (
+			touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT
+			or touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_MOVE):
 		var world_motion := ev as InputEventMouseMotion
 		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
 			var world_data: Dictionary = _world_pend[99]
 			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
 				world_data["moved"] = true
 				touch_owners[99] = TouchOwner.WORLD_MOVE
+			pointer_pos = world_motion.position
+			world_pointer_moved.emit(world_motion.position)
 
 # Reversible shipped input path. Keep behavioral edits to this method out of the
 # hybrid experiment so selecting Classic is a genuine runtime rollback.

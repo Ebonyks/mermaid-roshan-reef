@@ -320,6 +320,7 @@ func _fairy_bloom_start() -> void:
 
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
+	m._pointer_nav_ref().set_context("fairy")
 	_build_fairyshoot(origin)
 	m._play_music("melody")   # dreamy track
 	m.show_msg(fr["fname"], "Fly up the fairy pond! Dodge the sparks and the shadow monsters — your wand zaps ahead all by itself! SPACE / TAP makes a sparkle shield!")
@@ -349,11 +350,17 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if m.touch_ui != null:
 		if absf(m.touch_ui.stick_vec.x) > 0.15: inx += m.touch_ui.stick_vec.x
 		if absf(m.touch_ui.stick_vec.y) > 0.15: iny -= m.touch_ui.stick_vec.y
-	if absf(inx) > 0.15 or absf(iny) > 0.15:
+	var pointer_axis: Vector2 = m._pointer_nav_ref().axis_stage(
+		Vector2(clampf(inx, -1.0, 1.0), -clampf(iny, -1.0, 1.0)),
+		Vector2(-float(m.g["ox"]), -float(m.g["oz"])),
+		Rect2(Vector2(-FS_BX, -FS_BZF), Vector2(FS_BX * 2.0, FS_BZF + FS_BZB)))
+	m._pointer_nav_ref().consume_press()
+	if pointer_axis.length() > 0.15:
 		m.g["player_acted"] = true
-	# x negated so 'right' reads screen-right under the overhead camera
-	var ox: float = clampf(float(m.g["ox"]) - clampf(inx, -1.0, 1.0) * FS_MOVE * delta, -FS_BX, FS_BX)
-	var oz: float = clampf(float(m.g["oz"]) + clampf(iny, -1.0, 1.0) * FS_MOVE * delta, -FS_BZB, FS_BZF)
+	# The overhead camera sees both local axes reversed; the adapter speaks
+	# screen-right/screen-down, then this seam maps back to world offsets.
+	var ox: float = clampf(float(m.g["ox"]) - pointer_axis.x * FS_MOVE * delta, -FS_BX, FS_BX)
+	var oz: float = clampf(float(m.g["oz"]) - pointer_axis.y * FS_MOVE * delta, -FS_BZB, FS_BZF)
 	m.g["ox"] = ox; m.g["oz"] = oz
 	var pos: Vector3 = origin + Vector3(ox, FS_PLANE, fz + oz)
 	m.player.position = pos

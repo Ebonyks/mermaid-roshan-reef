@@ -17,6 +17,8 @@ func _mg2d_open(kind: String) -> void:
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
 	m.mg = {"t": 0.0, "btns": []}
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(kind == "snowman")
 	if m.mg2d_layer == null:
 		m.mg2d_layer = CanvasLayer.new()
 		m.mg2d_layer.layer = 7
@@ -203,6 +205,8 @@ func _mg2d_close() -> void:
 	m.mg_kind = ""
 	m.mg = {}
 	m.mg_cool = 8.0
+	if m.touch_ui != null:
+		m.touch_ui.set_drag_mode(false)
 	m._set_world_controls_enabled(true, "picture_game")
 
 # ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
@@ -214,7 +218,7 @@ func _mg_build_snowman() -> void:
 	m.mg["balls"] = 0
 	m.mg["face"] = 0
 	m.mg["motor_assist"] = false
-	(m.mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
+	(m.mg["hud"] as Label).text = "Draw circles around the snowball!"
 	# ground
 	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
 	m.mg["body"] = []   # stacked balls (centre-right)
@@ -332,6 +336,8 @@ func _mg_snow_chase_phase() -> void:
 	var rosh = _mg_sprite(m.skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
 	m.mg["chaser"] = rosh
 	m.mg["chaser_x"] = 230.0
+	m.mg["pointer_x"] = 230.0
+	m.mg["pointer_active"] = false
 
 
 func _mg_snow_runner_bits() -> Array:
@@ -357,8 +363,15 @@ func _mg_tick_snow_chase(delta: float) -> void:
 		mx += jx
 	if m.touch_ui != null and absf((m.touch_ui.stick_vec as Vector2).x) > 0.15:
 		mx += (m.touch_ui.stick_vec as Vector2).x
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and m.mg2d_stage != null:
-		var tx: float = m.mg2d_stage.get_local_mouse_position().x
+	if absf(mx) > 0.15:
+		m.mg["pointer_active"] = false
+	if m.touch_ui != null and m.touch_ui.drag_active and m.mg2d_stage != null:
+		var local_pointer: Vector2 = m.mg2d_stage.get_global_transform_with_canvas().affine_inverse() \
+			* (m.touch_ui.drag_pos as Vector2)
+		m.mg["pointer_x"] = local_pointer.x
+		m.mg["pointer_active"] = true
+	if bool(m.mg.get("pointer_active", false)):
+		var tx: float = float(m.mg["pointer_x"])
 		mx = clampf((tx - float(m.mg["chaser_x"])) / 120.0, -1.0, 1.0)
 	m.mg["chaser_x"] = clampf(float(m.mg["chaser_x"]) + mx * 540.0 * delta, 90.0, 1190.0)
 	var chaser: TextureRect = m.mg["chaser"]

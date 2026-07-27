@@ -483,6 +483,8 @@ func _kart_frame(s: float, lat: float) -> Array:
 # ------------------------------------------------------------ lifecycle
 func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> void:
 	_main = main
+	if _main.has_method("_pointer_nav_ref"):
+		_main._pointer_nav_ref().set_context("rail")
 	_finish_cb = finish_cb
 	_rev = reversed_track
 	_player_acted = false
@@ -2211,6 +2213,36 @@ func _build_paint_row() -> void:
 		slot.add_child(orb)
 		_paint_orbs.append(orb)
 
+func _pointer_select() -> bool:
+	if _main == null or not _main.has_method("_pointer_nav_ref"):
+		return false
+	var nav: PointerNavigation = _main._pointer_nav_ref()
+	if not nav.consume_press():
+		return false
+	var best := -1
+	var best_distance := 132.0
+	if _sel_phase == "ride":
+		for i in range(_sel_nodes.size()):
+			var slot: Node3D = (_sel_nodes[i] as Dictionary)["slot"]
+			var distance: float = nav.screen_distance_to(slot.global_position + Vector3(0, 4.0, 0))
+			if distance < best_distance:
+				best_distance = distance
+				best = i
+		if best >= 0:
+			_sel_idx = best
+	else:
+		best_distance = 86.0
+		for i in range(_paint_orbs.size()):
+			var orb: Node3D = _paint_orbs[i]
+			var distance: float = nav.screen_distance_to(orb.global_position)
+			if distance < best_distance:
+				best_distance = distance
+				best = i
+		if best >= 0:
+			_paint_idx = best
+	nav.cancel("kart selection")
+	return best >= 0
+
 func _tick_select(delta: float) -> void:
 	_sel_t += delta
 	for i in range(_sel_nodes.size()):
@@ -2224,6 +2256,8 @@ func _tick_select(delta: float) -> void:
 		(sn["slot"] as Node3D).scale = (sn["slot"] as Node3D).scale.lerp(Vector3.ONE * want_s, delta * 8.0)
 	var edge := _sel_move()
 	var confirm := _fire_just()
+	if _pointer_select():
+		confirm = true
 	if confirm and _sel_t < 0.6:
 		_select_confirm_queued = true
 		confirm = false
@@ -2322,6 +2356,10 @@ func _steer_input() -> float:
 			_touch_t = 3.0    # touch is the live input → co-pilot + pickup magnet on
 		if absf(tv.x) > 0.15:
 			steer += tv.x
+	if _main != null and _main.has_method("_pointer_nav_ref") and _pl != null:
+		steer = _main._pointer_nav_ref().axis_x(
+			clampf(steer, -1.0, 1.0), float(_pl["lat"]), -_rhalf(), _rhalf())
+		_main._pointer_nav_ref().consume_press()
 	return clampf(steer, -1.0, 1.0)
 
 func _brake_input() -> bool:
@@ -3304,6 +3342,8 @@ func _teardown(place: int) -> void:
 		_commit_payout(_placement_bonus(place))
 		_commit_completion(place)
 	_state = "done"
+	if _main != null and _main.has_method("_pointer_nav_ref"):
+		_main._pointer_nav_ref().clear_context("rail")
 	for n in _hidden_props:
 		if is_instance_valid(n):
 			(n as Node3D).visible = true

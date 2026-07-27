@@ -373,7 +373,10 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		steer += jx
 	if m.touch_ui != null and absf(m.touch_ui.stick_vec.x) > 0.15:
 		steer += m.touch_ui.stick_vec.x
-	steer = clampf(steer, -1.0, 1.0)
+	var lateral_limit: float = SLIDE_WIDTH * 0.5 - 2.0
+	steer = m._pointer_nav_ref().axis_x(
+		clampf(steer, -1.0, 1.0), -float(m.g["x"]), -lateral_limit, lateral_limit)
+	m._pointer_nav_ref().consume_press()
 	if absf(steer) > 0.15:
 		m.g["steered"] = true
 	# --- along-slope physics: gravity pulls down the gradient, drag caps speed ---
@@ -390,7 +393,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	vx -= steer * SLIDE_STEER * delta
 	vx *= pow(0.02, delta)
 	var x: float = float(m.g["x"]) + vx * delta
-	var lim: float = SLIDE_WIDTH * 0.5 - 2.0
+	var lim: float = lateral_limit
 	if absf(x) > lim:
 		x = clampf(x, -lim, lim)
 		vx *= -0.3                         # gentle bounce off the ice banks
@@ -539,7 +542,7 @@ func _tick_slide(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				m.g["s"] = 0.0
 				m.g["x"] = 0.0
 				m.g["vx"] = 0.0
-				m.show_msg(fr["fname"], "Lean LEFT or RIGHT to join the slide! Take your time.", "hint")
+				m.show_msg(fr["fname"], "Tap a side of the slide to join in! Take your time.", "hint")
 
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
@@ -550,6 +553,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 
 func build_slide(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0   # no countdown — reaching the bottom ends it (~12s run)
+	m._pointer_nav_ref().set_context("slide")
 	var theme: String = String(fr.get("theme", "ice"))
 	var mode: String = String(fr.get("mode", "fish"))
 	m.g["mode"] = mode
@@ -570,7 +574,7 @@ func build_slide(fr: Dictionary, origin: Vector3) -> void:
 				if m.game == "slide" and String(m.g.get("mode", "")) == "chase" and m.beans_t < 0.0:
 					m.show_msg("Roshan", "I sure am hungry... I bet I'd be faster after a good MEAL!", "hungry"))
 	else:
-		m.show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")
+		m.show_msg(fr["fname"], "Whooosh down the ice! Tap where you want to slide and grab all 5 fish!")
 
 func _tick_course(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	m._tick_chains(delta, ppos)

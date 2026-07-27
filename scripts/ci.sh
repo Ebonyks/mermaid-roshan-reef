@@ -24,20 +24,25 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_pointer_mouse probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
 	mkdir -p "$probe_home/data" "$probe_home/config"
 	touch_test_mode="--classic-touch-test"
+	touch_args=(--touch)
 	case "$p" in
 		probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
 			touch_test_mode="--hybrid-touch-test"
 			;;
+		probe_pointer_mouse)
+			touch_test_mode="--hybrid-touch-test"
+			touch_args=()
+			;;
 	esac
 	probe_rc=0
 	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
-		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
+		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- "${touch_args[@]}" "$touch_test_mode" 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
 	if [ "$probe_rc" -ne 0 ]; then
 		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
 		# after a probe printed its complete verdict (seen after kart-heavy

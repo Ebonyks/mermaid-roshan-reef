@@ -37,6 +37,7 @@ var materials := {}
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
+	m._pointer_nav_ref().set_context("fixed_room")
 	kind = battle_kind
 	finish_cb = done_cb
 	encounter = config
@@ -216,7 +217,7 @@ func _move_input() -> Vector2:
 	if absf(jy) > 0.18: value.y = jy
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
-	return value.limit_length(1.0)
+	return m._pointer_nav_ref().axis_world(value.limit_length(1.0), player_pos, CENTER.y + 1.1)
 
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -249,7 +250,9 @@ func _process(delta: float) -> void:
 	if move.length() > 0.08:
 		player_yaw = atan2(move.x, move.y)
 	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-	if _action_pressed() and shot_cool <= 0.0:
+	var pointer_attack: bool = _pointer_target_pressed()
+	var action_attack: bool = _action_pressed()
+	if (pointer_attack or action_attack) and shot_cool <= 0.0:
 		_fire()
 	_tick_shots(delta)
 	_tick_enemy_shots(delta)
@@ -272,6 +275,25 @@ func _nearest_target() -> Vector3:
 			best_d = dist
 			best = enemy["pos"]
 	return best
+
+func _pointer_target_pressed() -> bool:
+	if not m._pointer_nav_ref().consume_press():
+		return false
+	var best_distance := 112.0
+	if not boss.is_empty():
+		var boss_distance: float = m._pointer_nav_ref().screen_distance_to(
+			(boss["pos"] as Vector3) + Vector3(0, 2.5, 0))
+		best_distance = minf(best_distance, boss_distance)
+	for enemy: Dictionary in enemies:
+		if String(enemy["state"]) != "active":
+			continue
+		var enemy_distance: float = m._pointer_nav_ref().screen_distance_to(
+			(enemy["pos"] as Vector3) + Vector3(0, 2.5, 0))
+		best_distance = minf(best_distance, enemy_distance)
+	if best_distance >= 112.0:
+		return false
+	m._pointer_nav_ref().cancel("combat target")
+	return true
 
 func _fire() -> void:
 	var power := action_label().to_lower()
@@ -523,6 +545,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -536,6 +559,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m._pointer_nav_ref().clear_context("fixed_room")
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

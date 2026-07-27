@@ -2008,8 +2008,6 @@ func _tick_lens(delta: float) -> void:
 		m.show_msg("Roshan", "Detective Roshan! DRAG the big magnifying glass around — the clues only show up inside it!", "talk")
 	if m.touch_ui != null and m.touch_ui.drag_active:
 		_lens_ground(m.touch_ui.drag_pos)
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		_lens_ground(m.get_viewport().get_mouse_position())
 	lens.position = lens_pos + Vector3(0, sin(elapsed * 2.4) * 0.12, 0)
 	player_pos = player_pos.lerp(Vector3(lens_pos.x, player_pos.y, lens_pos.z), clampf(delta * 4.0, 0.0, 1.0))
 	if sleuth_pause > 0.0:
@@ -2730,9 +2728,6 @@ func _begin_sift() -> void:
 func _tick_sift(delta: float) -> void:
 	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
 	var pos: Vector2 = m.touch_ui.drag_pos if active else Vector2.ZERO
-	if not active and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		active = true
-		pos = m.get_viewport().get_mouse_position()
 	if active:
 		if sift_have:
 			# only sideways travel sifts — a still finger does nothing
@@ -2894,9 +2889,6 @@ func _tick_stir(delta: float) -> void:
 	if m.touch_ui != null and m.touch_ui.drag_active:
 		active = true
 		pos = m.touch_ui.drag_pos
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		active = true
-		pos = m.get_viewport().get_mouse_position()
 	if active and cam != null:
 		var hub := cam.unproject_position(goal.position + Vector3(0, 3.0, 0))
 		var arm := pos - hub
@@ -3041,8 +3033,6 @@ func _tick_easel(delta: float) -> void:
 	paint_easel_t += delta
 	if m.touch_ui != null and m.touch_ui.drag_active:
 		_paint_screen(m.touch_ui.drag_pos)
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		_paint_screen(m.get_viewport().get_mouse_position())
 	_paint_flush()
 	if paint_easel_t > 28.0 and brush_loaded >= 0:
 		# a gentle rescue, never a fail: the brush finishes the band itself
@@ -4898,9 +4888,6 @@ func _tick_vet(delta: float) -> void:
 			if m.touch_ui != null and m.touch_ui.drag_active:
 				active = true
 				pos = m.touch_ui.drag_pos
-			elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				active = true
-				pos = m.get_viewport().get_mouse_position()
 			if active and cam != null:
 				var hub := cam.unproject_position(vet_scope.position + Vector3(0, 2.4, 0))
 				var arm := pos - hub
@@ -5369,6 +5356,7 @@ func _race_finished(place: int) -> void:
 	if kart != null and is_instance_valid(kart):
 		kart.queue_free()
 	kart = null
+	m._pointer_nav_ref().set_context("opera")
 	if state != "play":
 		return
 	if cam != null:
@@ -5783,7 +5771,7 @@ func _move_input() -> Vector2:
 		value.y = jy
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
-	return value.limit_length(1.0)
+	return m._pointer_nav_ref().axis_world(value.limit_length(1.0), player_pos, CENTER.y + 1.1)
 
 var hold_sim := false              # probe-only: pretend a finger is on the glass
 
@@ -5797,7 +5785,7 @@ func _finger_down() -> bool:
 			return m.touch_ui.drag_active
 		if m.touch_ui.action_down:
 			return true
-	return Input.is_physical_key_pressed(KEY_SPACE) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	return Input.is_physical_key_pressed(KEY_SPACE)
 
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -5805,7 +5793,58 @@ func _action_pressed() -> bool:
 	fire_prev = held
 	if m.touch_ui != null and m.touch_ui.consume_action_just():
 		just = true
+	if m._pointer_nav_ref().consume_press() and _pointer_action_target():
+		just = true
 	return just
+
+func _pointer_action_target() -> bool:
+	# Gesture phases never reach this method: TouchUI owns their pointer from
+	# press through release. In movement phases a visible nearby prop wins over
+	# the ground goal; a far prop keeps the goal so the first click approaches
+	# and the next click performs the verb.
+	if kind == "scroll" or kind == "press":
+		m._pointer_nav_ref().cancel("opera action")
+		return true
+	var candidates: Array[Vector3] = []
+	if stage_phase == "brawl" or stage_phase == "rescue":
+		for imp: Dictionary in imps:
+			var imp_node: Node3D = imp.get("node") as Node3D
+			if is_instance_valid(imp_node):
+				candidates.append(imp_node.position + Vector3(0, 2.0, 0))
+	else:
+		var group: Array[Dictionary] = hats if kind == "shuffle" else pads
+		for entry: Dictionary in group:
+			candidates.append((entry.get("pos", Vector3.ZERO) as Vector3) + Vector3(0, 2.0, 0))
+		for spot: Dictionary in deco_spots:
+			if not bool(spot.get("done", false)):
+				candidates.append((spot.get("pos", Vector3.ZERO) as Vector3) + Vector3(0, 1.0, 0))
+		for suspect: Dictionary in suspects:
+			candidates.append((suspect.get("pos", Vector3.ZERO) as Vector3) + Vector3(0, 2.0, 0))
+		for animal: Dictionary in vet_animals:
+			candidates.append((animal.get("pos", Vector3.ZERO) as Vector3) + Vector3(0, 2.0, 0))
+		if valve != null and is_instance_valid(valve):
+			candidates.append(valve.position + Vector3(0, 2.0, 0))
+		if race_flag != null and is_instance_valid(race_flag):
+			candidates.append(race_flag.position + Vector3(0, 2.0, 0))
+		if mic != null and is_instance_valid(mic):
+			candidates.append(mic.position + Vector3(0, 2.0, 0))
+		if not boss.is_empty():
+			var boss_node: Node3D = boss.get("node") as Node3D
+			if is_instance_valid(boss_node):
+				candidates.append(boss_node.position + Vector3(0, 3.0, 0))
+	var best := Vector3.INF
+	var best_screen := 112.0
+	for candidate: Vector3 in candidates:
+		var screen_distance: float = m._pointer_nav_ref().screen_distance_to(candidate)
+		if screen_distance < best_screen:
+			best_screen = screen_distance
+			best = candidate
+	if best == Vector3.INF:
+		return false
+	if Vector2(best.x - player_pos.x, best.z - player_pos.z).length() > 8.0:
+		return false
+	m._pointer_nav_ref().cancel("opera target")
+	return true
 
 func _nearest_pad() -> int:
 	var group: Array[Dictionary] = hats if kind == "shuffle" else pads

@@ -132,6 +132,7 @@ var materials := {}
 
 func start(main: ReefMain, _checkpoint: int, done_cb: Callable) -> void:
 	m = main
+	m._pointer_nav_ref().set_context("opera")
 	finish_cb = done_cb
 	lobby_pos = L + Vector3(0, 1.1, 16.0)
 	lobby_y = 0.0
@@ -616,6 +617,7 @@ func _act_won() -> void:
 	_return_to_lobby(finished)
 
 func _return_to_lobby(finished: int) -> void:
+	m._pointer_nav_ref().set_context("opera")
 	lobby_root.visible = true
 	var back := lobby_pos
 	var back_y := lobby_y
@@ -779,7 +781,8 @@ func _move_input() -> Vector2:
 		value.y = jy
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
-	return value.limit_length(1.0)
+	return m._pointer_nav_ref().axis_world(
+		value.limit_length(1.0), lobby_pos, L.y + lobby_y + 1.1)
 
 func _process(delta: float) -> void:
 	if m == null or state != "lobby" or act != null:
@@ -788,6 +791,7 @@ func _process(delta: float) -> void:
 	if not lift_busy:
 		var move := _move_input()
 		lobby_pos += Vector3(move.x, 0, move.y) * MOVE_SPEED * delta
+	m._pointer_nav_ref().consume_press()
 	# stay inside the hall; each mezzanine is the back deck plus its two lift
 	# landings at the front corners
 	lobby_pos.x = clampf(lobby_pos.x, L.x - 36.0, L.x + 36.0)
@@ -835,6 +839,7 @@ func _finish(completed: bool) -> void:
 	if state == "done":
 		return
 	state = "done"
+	m._pointer_nav_ref().clear_context("opera")
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():

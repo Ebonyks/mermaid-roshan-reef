@@ -7,6 +7,9 @@ var touch: CanvasLayer
 var taps: Array[Vector2] = []
 var fingers: Dictionary = {}
 var failures := 0
+var pointer_pressed := 0
+var pointer_moved := 0
+var pointer_released := 0
 
 func _init() -> void:
 	var scene: PackedScene = load("res://scenes/main.tscn")
@@ -24,6 +27,9 @@ func _init() -> void:
 		return
 	main._set_touch_mode("hybrid", false)
 	touch.world_touched.connect(_record_tap)
+	touch.world_pointer_pressed.connect(func(_pos: Vector2): pointer_pressed += 1)
+	touch.world_pointer_moved.connect(func(_pos: Vector2): pointer_moved += 1)
+	touch.world_pointer_released.connect(func(_pos: Vector2, _dragged: bool): pointer_released += 1)
 
 	var move_zone: Rect2 = touch.movement_zone()
 	var action_zone: Rect2 = touch.action_zone()
@@ -36,62 +42,49 @@ func _init() -> void:
 		get_root().get_viewport().get_visible_rect().size.x * 0.58,
 		get_root().get_viewport().get_visible_rect().size.y * 0.30)
 
-	# One-finger movement: no action pulse and no accidental world command.
+	# The old lower-left thumb bay is world space in Hybrid: touch and mouse
+	# both use the same point-to-move route.
 	_down(0, move_start)
-	_drag(0, move_start + Vector2(74.0, -40.0))
 	await process_frame
-	if (touch.stick_vec as Vector2).length() < 0.45:
-		_bad("hybrid stick did not engage")
-	if bool(touch.action_just) or not taps.is_empty():
-		_bad("movement leaked into action/world tap")
+	if not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("Hybrid lower-left press still engaged the legacy stick")
+	if pointer_pressed != 1 or not bool(touch.pointer_down):
+		_bad("Hybrid lower-left press did not claim the world pointer")
 
-	# A simultaneous world tap keeps its own owner while movement remains live.
-	_down(1, world_pos)
-	_up(1, world_pos)
-	await process_frame
-	if taps.size() != 1 or taps[0].distance_to(world_pos) > 0.1:
-		_bad("simultaneous world tap was lost or moved")
-	if (touch.stick_vec as Vector2).length() < 0.45:
-		_bad("world tap stole movement ownership")
-	# A second-finger activation that does not change scenes must not cancel
-	# the left-stick owner. (World transitions intentionally clear all input.)
-	main._activate_touch_interactable("court:star:0")
-	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
-		_bad("non-transition activation stole held movement")
-
-	# Fix regression: the pink action target must hear a SECOND finger while
-	# the stick is held. A Control Button only receives the first finger
-	# (mouse-from-touch emulation), so the router claims raw ScreenTouch
-	# presses inside the action zone itself.
+	# The pink action target keeps exclusive ownership even if a world pointer
+	# is already down.
 	touch.consume_action()
 	var action_center: Vector2 = touch.action_zone().get_center()
 	_down(6, action_center)
 	await process_frame
 	if not bool(touch.action_down) or not bool(touch.action_just):
-		_bad("second-finger action press was dropped while the stick was held")
-	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
-		_bad("second-finger action press stole the held stick")
+		_bad("action press was dropped while the world pointer was held")
+	if pointer_pressed != 1 or not touch.touch_owners.has(0):
+		_bad("action press stole or duplicated the held world pointer")
 	_up(6, action_center)
 	await process_frame
 	if bool(touch.action_down):
 		_bad("action button stayed held after second-finger release")
 	touch.consume_action()
+	_up(0, fingers[0])
+	await process_frame
+	if taps.size() != 1 or taps[0].distance_to(move_start) > 0.1:
+		_bad("Hybrid point-to-move tap was lost or moved")
+	if pointer_released != 1 or bool(touch.pointer_down):
+		_bad("Hybrid point-to-move release left pointer ownership active")
 
-	# A swipe over the world is neither a tap command nor leaked finger state.
+	# Holding and sliding retargets continuously but does not add a second tap.
 	var tap_count_before_drag: int = taps.size()
 	_down(4, world_pos + Vector2(-40.0, 0.0))
 	_drag(4, world_pos + Vector2(40.0, 0.0))
 	_up(4, fingers[4])
 	await process_frame
 	if taps.size() != tap_count_before_drag:
-		_bad("world drag leaked a tap-to-move command")
+		_bad("world hold-retarget leaked a second tap command")
+	if pointer_moved < 1 or pointer_released != 2:
+		_bad("world hold-retarget missed move/release edges")
 	if not touch._world_pend.is_empty():
 		_bad("world drag left stale pending touch state")
-
-	_up(0, fingers[0])
-	await process_frame
-	if not (touch.stick_vec as Vector2).is_zero_approx():
-		_bad("stick remained active after release")
 
 	# The visible action bubble is a real press/hold target.
 	touch.consume_action()
@@ -125,18 +118,22 @@ func _init() -> void:
 	if not touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
 		_bad("closing overlay restored stale held movement")
 
-	# Manual steering cancels assisted travel immediately.
+	# Manual steering remains a cancellation seam for WASD and Classic.
 	main._tap_move_ref().start(main.player.position + Vector3(30.0, 0.0, 0.0))
+	main._on_touch_manual_move()
+	if bool(main.touch_auto_active):
+		_bad("manual movement did not cancel assisted movement")
+
+	# Runtime rollback: Classic restores the drag-anywhere stick and tap-action.
+	main._set_touch_mode("classic", false)
+	var tap_count: int = taps.size()
 	_down(2, move_start)
 	_drag(2, move_start + Vector2(80.0, 0.0))
 	await process_frame
-	if bool(main.touch_auto_active):
-		_bad("manual movement did not cancel assisted movement")
+	if (touch.stick_vec as Vector2).length() < 0.45:
+		_bad("Classic rollback did not restore the virtual stick")
 	_up(2, fingers[2])
-
-	# Runtime rollback: Classic produces no world taps and restores tap-action.
-	main._set_touch_mode("classic", false)
-	var tap_count: int = taps.size()
+	await process_frame
 	touch.consume_action()
 	_down(3, world_pos)
 	_up(3, world_pos)

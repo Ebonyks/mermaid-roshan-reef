@@ -6,6 +6,7 @@ const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
+const PointerNavigationLogic = preload("res://scripts/pointer_navigation.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -381,8 +382,17 @@ var touch_auto_activation_radius := 5.0
 var touch_auto_last_distance := 0.0
 var touch_auto_stall_t := 0.0
 var touch_auto_recoveries := 0
+var touch_pointer_target_owned := false
+var pointer_nav_context := ""
+var pointer_nav_goal_active := false
+var pointer_nav_pointer_down := false
+var pointer_nav_goal_screen := Vector2.ZERO
+var pointer_nav_press_edge := false
+var pointer_nav_goal_world := Vector3.ZERO
+var pointer_nav_world_valid := false
 var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
+var _pointer_navigation: PointerNavigation = null
 var quality := "sparkly"
 var music_on := true
 var save_data := {}
@@ -3357,8 +3367,12 @@ func _init_touch_experiment() -> void:
 		_set_touch_mode(TOUCH_MODE_HYBRID, false)
 	if touch_ui != null:
 		touch_ui.set_mode(touch_mode)
-		if not touch_ui.world_touched.is_connected(_on_touch_world):
-			touch_ui.world_touched.connect(_on_touch_world)
+		if not touch_ui.world_pointer_pressed.is_connected(_on_world_pointer_pressed):
+			touch_ui.world_pointer_pressed.connect(_on_world_pointer_pressed)
+		if not touch_ui.world_pointer_moved.is_connected(_on_world_pointer_moved):
+			touch_ui.world_pointer_moved.connect(_on_world_pointer_moved)
+		if not touch_ui.world_pointer_released.is_connected(_on_world_pointer_released):
+			touch_ui.world_pointer_released.connect(_on_world_pointer_released)
 		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
 	_interaction_ref()
@@ -3374,12 +3388,18 @@ func _tap_move_ref() -> TapMoveDirector:
 		_tap_move_director = TapMoveDirectorLogic.new(self)
 	return _tap_move_director
 
+func _pointer_nav_ref() -> PointerNavigation:
+	if _pointer_navigation == null:
+		_pointer_navigation = PointerNavigationLogic.new(self)
+	return _pointer_navigation
+
 func touch_uses_explicit_interactions() -> bool:
-	return touch_mode == TOUCH_MODE_HYBRID and touch_ui != null and touch_ui.wants_touch()
+	return touch_mode == TOUCH_MODE_HYBRID and touch_ui != null
 
 func _set_touch_mode(next_mode: String, persist: bool = true) -> void:
 	touch_mode = TOUCH_MODE_CLASSIC if next_mode == TOUCH_MODE_CLASSIC else TOUCH_MODE_HYBRID
 	touch_auto_active = false
+	_pointer_nav_ref().cancel("mode")
 	touch_focus_id = ""
 	touch_focus_ready = false
 	if touch_discovery_ring != null:
@@ -3394,21 +3414,44 @@ func _set_touch_mode(next_mode: String, persist: bool = true) -> void:
 		_write_save()
 
 func _touch_mode_label() -> String:
-	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
+	return "🖐\nTap to Move" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Stick"
 
 func _on_touch_world(screen_pos: Vector2) -> void:
-	if intro_active or get_tree().paused or mg_kind != "":
-		return
-	if fade_rect != null and fade_rect.modulate.a > 0.02:
-		return
-	if touch_ui != null and not touch_ui.world_controls_enabled:
-		return
-	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+	# Compatibility seam for trusted probes and callers that submit a complete
+	# tap. Runtime pointer input uses the press/move/release methods below.
+	if not _world_pointer_allowed():
 		return
 	_interaction_ref().on_world_touch(screen_pos)
 
+func _on_world_pointer_pressed(screen_pos: Vector2) -> void:
+	if not _world_pointer_allowed():
+		return
+	_interaction_ref().on_pointer_pressed(screen_pos)
+
+func _on_world_pointer_moved(screen_pos: Vector2) -> void:
+	if not _world_pointer_allowed():
+		return
+	_interaction_ref().on_pointer_moved(screen_pos)
+
+func _on_world_pointer_released(screen_pos: Vector2, dragged: bool) -> void:
+	if not _world_pointer_allowed():
+		return
+	_interaction_ref().on_pointer_released(screen_pos, dragged)
+
+func _world_pointer_allowed() -> bool:
+	if intro_active or get_tree().paused or mg_kind != "":
+		return false
+	if fade_rect != null and fade_rect.modulate.a > 0.02:
+		return false
+	if touch_ui != null and not touch_ui.world_controls_enabled:
+		return false
+	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+		return false
+	return true
+
 func _on_touch_manual_move() -> void:
 	_tap_move_ref().cancel("manual")
+	_pointer_nav_ref().cancel("manual")
 
 func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
 	if enabled:
@@ -3420,6 +3463,7 @@ func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> v
 		touch_ui.set_world_controls_enabled(controls_enabled)
 	if not controls_enabled:
 		_tap_move_ref().cancel("overlay")
+		_pointer_nav_ref().cancel("overlay")
 		_interaction_ref().clear_focus()
 		touch_interactables.clear()
 	else:
@@ -3429,6 +3473,7 @@ func _prepare_touch_transition() -> void:
 	if touch_ui != null:
 		touch_ui.cancel_all_touches()
 	_tap_move_ref().cancel("transition")
+	_pointer_nav_ref().cancel("transition")
 	_interaction_ref().clear_focus()
 	touch_interactables.clear()
 
@@ -3453,8 +3498,10 @@ func touch_auto_vertical() -> float:
 func _touch_add_item(id: String, label: String, pos: Vector3,
 		node: Node3D = null, activation_radius: float = 6.0,
 		discover_radius: float = 32.0, verb: String = "PLAY",
-		payload: Variant = null, enabled: bool = true) -> void:
-	touch_interactables.append({
+		payload: Variant = null, enabled: bool = true,
+		approach_pos: Variant = null, screen_radius: float = 104.0,
+		hit_priority: float = 0.0) -> void:
+	var item := {
 		"id": id,
 		"label": label,
 		"pos": pos,
@@ -3464,7 +3511,12 @@ func _touch_add_item(id: String, label: String, pos: Vector3,
 		"verb": verb,
 		"payload": payload,
 		"enabled": enabled,
-	})
+		"screen_radius": screen_radius,
+		"hit_priority": hit_priority,
+	}
+	if approach_pos is Vector3:
+		item["approach_pos"] = approach_pos
+	touch_interactables.append(item)
 
 func _populate_touch_interactables() -> void:
 	touch_interactables.clear()
@@ -4903,13 +4955,14 @@ func _tick_mg2d(delta: float) -> void:
 			ang_ok = true
 			stick_intent = true
 		elif touch_ui != null and (touch_ui.stick_vec as Vector2).length() > 0.35:
-			# The Android virtual stick is the primary control on the target device.
-			# Treat circling it exactly like circling a physical stick.
+			# Classic mode keeps the shipped virtual-stick fallback. Treat
+			# circling it exactly like circling a physical stick.
 			ang = (touch_ui.stick_vec as Vector2).angle()
 			ang_ok = true
 			stick_intent = true
-		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mg2d_stage != null:
-			var mp: Vector2 = mg2d_stage.get_local_mouse_position()
+		elif touch_ui != null and touch_ui.drag_active and mg2d_stage != null:
+			var mp: Vector2 = mg2d_stage.get_global_transform_with_canvas().affine_inverse() \
+				* (touch_ui.drag_pos as Vector2)
 			var off: Vector2 = mp - SNOW_ROLL_C
 			if off.length() > 30.0 and off.length() < 460.0:
 				ang = off.angle()
@@ -6080,6 +6133,7 @@ func _tick_hints(delta: float) -> void:
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
+	_pointer_nav_ref().clear_context()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()

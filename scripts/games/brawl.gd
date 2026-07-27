@@ -103,6 +103,8 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		e["bump_cd"] = maxf(0.0, float(e.get("bump_cd", 0.0)) - delta)
 		en.position.y = 0.4 + absf(sin(float(m.g["t"]) * 4.0 + en.position.x)) * 0.8
 	# Roshan's POP — the deliberate verb; only a fresh tap lands it
+	if _pointer_imp_pressed(float(s["px"]), float(s["pz"]), bop_r):
+		s["tap"] = true
 	if bool(s["tap"]):
 		var hit: Dictionary = _nearest_imp(float(s["px"]), float(s["pz"]), false)
 		if not hit.is_empty():
@@ -156,6 +158,29 @@ func _nearest_imp(x: float, z: float, skip_stunned: bool) -> Dictionary:
 			best_d = d
 			best = e
 	return best
+
+func _pointer_imp_pressed(x: float, z: float, reach: float) -> bool:
+	if not m._pointer_nav_ref().consume_press():
+		return false
+	var picked: Dictionary = {}
+	var best_distance := 112.0
+	for enemy_value: Variant in m.g.get("enemies", []):
+		var enemy: Dictionary = enemy_value as Dictionary
+		var node: Node3D = enemy.get("node") as Node3D
+		if not is_instance_valid(node):
+			continue
+		var screen_distance: float = m._pointer_nav_ref().screen_distance_to(
+			node.global_position + Vector3(0, 2.0, 0))
+		if screen_distance < best_distance:
+			best_distance = screen_distance
+			picked = enemy
+	if picked.is_empty():
+		return false
+	var picked_node: Node3D = picked["node"]
+	if Vector2(picked_node.position.x - x, picked_node.position.z - z).length() >= reach:
+		return false
+	m._pointer_nav_ref().cancel("brawl target")
+	return true
 
 func _spawn_wave(seg: int) -> void:
 	var r := stage.root()
