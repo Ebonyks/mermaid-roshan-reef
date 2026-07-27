@@ -374,6 +374,20 @@ ambientCG (all CC0).
   changed only the white background to a flat chroma key, followed by local
   alpha extraction and resizing to 1024px; used as the unshaded in-world
   Sprite3D card while the source character art remains unchanged.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_tree_douglas_fir.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_shrub_red_flowering_currant_a.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png` —
+  project-original OpenAI image generation matching the approved Sky Lagoon
+  panorama cloud language; generated on a flat chroma key, locally
+  alpha-extracted, and resized to 1024px.
 - `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
   project-original OpenAI image generation; native 2172×724 exact-3:1 master
   flowing from the blocked-water runway shore, through a bounded playground

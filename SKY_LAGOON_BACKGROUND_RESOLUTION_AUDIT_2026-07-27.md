@@ -57,10 +57,14 @@ Each runtime texture has a long edge of 724 pixels.
 - all three 724×724 runtime tiles;
 - three backdrop cards at x = -48, 0, 48, y = 24, z = -18;
 - a shared depth and exact 48-world-unit edge meeting;
-- 23 unshaded Sprite3D world-art cards, zero MeshInstance3D world art,
+- 29 unshaded Sprite3D world-art cards, zero MeshInstance3D world art,
   zero CanvasItem world art, and no invalid pixel scale;
-- at least four real depth layers and no more than 14 simultaneously visible
+- at least four real depth layers and no more than 20 simultaneously visible
   cards for the Speedy-tier overdraw budget;
+- six transform-only ambient cards: two swaying firs, three flowering shrubs,
+  and one drifting/wrapping cloud family;
+- visible plane presence plus transform-only idle movement, with its touch
+  highlight kept aligned;
 - one activity frame in each screen;
 - first touch highlights and second touch launches the minigame;
 - plane, playground, castle, Northern transition, camera follow, and traversal

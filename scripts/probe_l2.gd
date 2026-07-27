@@ -56,6 +56,9 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
 	]
 	var assets_ok := true
 	for path: String in required_assets:
@@ -110,12 +113,12 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 23 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 29 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 14,
+		depth_layers.size() >= 4 and visible_sprite_count <= 20,
 		"depth_layers=%d visible_cards=%d" % [
 			depth_layers.size(), visible_sprite_count])
 	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
@@ -130,6 +133,21 @@ func _init() -> void:
 	_check("roshan_is_sprite_card",
 		not main.player.visible
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
+	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
+	var plane_card: Sprite3D = main.g.get("lagoon_plane_card") as Sprite3D
+	var ambient_before := Vector3.ZERO
+	var plane_before := Vector3.ZERO
+	if ambient_cards.size() == 6:
+		ambient_before = (ambient_cards[0] as Sprite3D).position
+	if plane_card != null:
+		plane_before = plane_card.position
+	main._lagoon_promenade_ref()._tick_ambient_life(0.75)
+	var ambient_moves := (
+		ambient_cards.size() == 6
+		and (ambient_cards[0] as Sprite3D).position != ambient_before
+		and plane_card != null and plane_card.visible
+		and plane_card.position != plane_before)
+	_check("low_cost_ambient_life_and_plane", ambient_moves)
 
 	var targets: Array = main.g.get("lagoon_promenade_targets", [])
 	var ids: Dictionary = {}
