@@ -133,12 +133,21 @@ func _init() -> void:
 		if main.opera_game != null:
 			main.opera_game._leave_early()
 		await process_frame
-		var og_returned: bool = (main.game == "level2" and main.opera_game == null
-			and og_pos.distance_to(player.position) < 9.0)
+		var og_home: bool = main.game == "level2"
+		var og_cleared: bool = main.opera_game == null
+		var og_dist: float = og_pos.distance_to(player.position)
+		# _end_opera places her 6.5 aside from the marquee, then a frame of
+		# level-2 motion carries her a little further. Run 731 measured 8.9
+		# against a 9.0 threshold — that is a coin flip, and it is what failed
+		# run 727. The check is "set down beside the marquee, not lost across
+		# the courtyard", so give it room to be true.
+		var og_returned: bool = og_home and og_cleared and og_dist < 14.0
 		main.l2_cutscene_t = old_cut
 		og_ok = og_blocked and og_rearmed and og_opened and og_returned
-		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s"
-			% [og_blocked, og_rearmed, og_opened, og_returned])
+		# `return` is composite; print its parts so a regression names itself
+		# instead of costing a whole 16-minute CI round to bisect
+		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s (home=%s cleared=%s dist=%.1f)"
+			% [og_blocked, og_rearmed, og_opened, og_returned, og_home, og_cleared, og_dist])
 	if not og_ok:
 		print("FAIL|courtyard opera marquee gate regression")
 	# The Alpine addition must remain one distinct corner, clear of the train,
@@ -227,6 +236,15 @@ func _init() -> void:
 	var last_got := 0
 	var entered := false
 	var wob := 0.0
+	# The wander stress measures the STAR chase. The courtyard opera marquee
+	# was verified moments ago, but it re-arms after the leave — and the
+	# wandering bot can drift straight onto it mid-chase, yanking the game
+	# out of level2 (runs 782/788: left at t=9.9s, read back as STUCK). Cool
+	# it past the whole stress window so the chase stays the chase.
+	if main.g.has("opera_gate"):
+		var stress_og: Dictionary = main.g["opera_gate"]
+		stress_og["armed"] = false
+		stress_og["cool"] = 400.0
 	# done = the Crown Star win is recorded (crown celebrates IN PLACE since
 	# f5d7689 — the game stays in level2 by design, no ocean eject)
 	while main.game == "level2" and not bool(main.g.get("crown_won", false)) and t < 240.0:

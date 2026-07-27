@@ -47,6 +47,48 @@ Assets
 - Voice lines: lobby welcome, boss-rope hint, star-earned praise, all-stars
   curtain-call celebration
 
+## Per-job stages (owner 2026-07-25)
+
+Every career deserves its own short level, not a recoloured share of one
+stage. `OperaAct.STAGE_SETS` (scripts/opera_act.gd) is the table that does it:
+a career listed there takes its own proscenium palette, backdrop, deck and
+light pool, then dresses in its own scenery. A career left out of the table
+keeps the shared toy theatre exactly as before, so the roster can be filled in
+one job at a time and an undressed act can never break.
+
+Set geometry is built from the accepted `stage_states` sheets in codex's
+`opera_jobs_flat_2026-07-21` set (scored in OPERA_JOB_FLAT_ART_AUDIT_2026-07-21
+.md) — original toy-playset interpretations of the silhouette and palette, not
+traced illustrations. Scenery is confined to |x| ≥ 19 and z ≤ -14 / z ≥ 17 so
+no dressing can ever land on an act's gameplay props. Every dressed set wears
+the gold scallop-shell crest (`StageCrest`) over its arch; probe_opera asserts
+crest presence exactly matches STAGE_SETS membership. Lighting stays emissive
+— no new OmniLights — and each set culls its decorative tiers on Speedy.
+
+All twelve careers are dressed — no career is on the shared stage any more.
+The shared build stays in place as the fallback for any career added later.
+
+| Job | Set | From its proscenium card |
+| --- | --- | --- |
+| Pastry Chef | the Pastry Kitchen | seascape flat, oven alcove, ingredient shelf, footlights |
+| Detective | the Prop Library | archive shelving, ladder, pillar lanterns, crescent window, searchlight pool |
+| Ballerina | the Recital Hall | blush scallop fan, practice barres, mirror panels, mirror ball |
+| Candy Maker | the Candy Workshop | jar wall, mixing counters, swirl pops |
+| Doctor | the Plushy Clinic | quilted teal wall + gold medallion, tool trolley, basin, waiting bench |
+| Farmer | the Meadow Flat | painted hills, red barn, clouds, orchard wings |
+| Boxer | the Toy Ring | dark hall, swagged bulbs, corner stools, pennants, belt podium |
+| Magician | the Conjuring Parlour | plum velvet valance, coral/teal fronds, trick cabinet, rolling mirror |
+| Painter | the Sunrise Gallery | the sunrise being painted, paint cart, rinse station, drop cloth |
+| Astronaut Engineer | the Launch Pad | starfield, ringed planet, deco skyline, launch platform, gantry |
+| Racecar Driver | the Grand Prix Circuit | swirl sky, striped track, starting arch, grandstands, barriers |
+| Pop Star | the Starlight Concert | rainbow wall, speaker stacks, catwalk, glow-stick rails |
+
+Two helpers are shared by the sets that draw them: `_footlights()` (the apron
+bulb row) and `_backdrop_panel()` (the painted flat hung in front of the back
+curtain). Farmer, Racecar Driver and Pop Star hand their screen to a 2D
+CanvasLayer, the kart engine and the dance engine respectively, so their sets
+are pure tableau — that is deliberate, not an omission.
+
 ## Shared theatre (used by all acts)
 Assets
 - Proscenium arch + stage deck kit (replaces `_build_theatre` boxes)

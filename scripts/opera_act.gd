@@ -4,11 +4,12 @@ extends Node3D
 # career costume and performs a little show on a toy theatre stage. Six
 # engines cover all ten acts: "order" (bring props in the pictured order),
 # "echo" (repeat the lit dance/bell sequence), "shuffle" (follow the bunny-fish
-# under the magic hats), "fix" (carry pipe pieces into their shape-matched
-# slots, then spin the valve), "press" (stamp candy faces when the sliding
-# star crosses the sweet spot) and "boss" (sparkle showdown with a shy stage
-# puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
-# answer. Props are rough primitive demos — authored art swaps in later.
+# under the magic hats), "fix" (Pipe Dream: route the bubbles from tank to
+# rocket, spin the valve, hold the countdown), "press" (drag candies into their
+# colour chutes) and "boss" (sparkle showdown with a shy stage puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
+# answer. Props come from the job GLB kits in assets/opera/jobs/ with primitive
+# fallbacks. Careers listed in STAGE_SETS perform on their OWN dressed stage;
+# the rest share the toy proscenium until their set is built.
 
 const CENTER := Vector3(0.0, -2600.0, 0.0)
 const RADIUS := 22.0
@@ -46,30 +47,106 @@ var goal: Node3D = null
 var reveal_one := false
 var order_flow := "deliver"        # deliver | carry_paint
 var order_hidden := false          # clues hide until Roshan is near
-var order_phase := "steps"         # steps | stir
+var order_phase := "steps"         # steps | sift | pour | stir | bake | pipe | decorate
+# ---- the Cake Show as a Cooking Mama chain (owner 2026-07-25) ----
+# Six beats, six DIFFERENT gestures: scrub the sieve, hold the jug, circle the
+# bowl, time the oven, trace the piping, drag the cherries. No gesture twice.
+const SIFT_NEED := 40.0            # px of scrubbing travel to fill the bowl
+const POUR_NEED := 4.2             # seconds of holding the jug
+var sift_done := 0.0
+var sift_prev := Vector2.ZERO
+var sift_have := false
+var sift_snow: Array[Node3D] = []
+var pour_t := 0.0
+var pour_jug: Node3D = null
+var pour_milk: MeshInstance3D = null
+var bake_t := 0.0
+var bake_golden := false
+var bake_cake: Node3D = null
+var pipe_trace := 0
+var pipe_dots: Array[Node3D] = []
 var chef_bowl_art: Node3D = null   # pastry-chef GLB kit (null = primitive fallback)
 var chef_oven_art: Node3D = null
 var sleuth_chest_art: Node3D = null  # detective tiara-chest GLB kit
 var doctor_patient_art: Node3D = null  # coral starfish plush GLB kit
 var boxer_dressing_art: Node3D = null  # ring dressing GLB kit (lamps, bell, belt) | decorate
 var stir_done := 0
+# ---- circular-drag stir (owner 2026-07-25) ----
+# Cooking Mama's rule: every kitchen step is its own gesture. Stirring is a
+# CIRCLE traced round the bowl, not a tap. Absolute angle is accumulated, so a
+# vigorous back-and-forth scrub counts too — a four-year-old's "stir" rarely
+# goes one way, and none of this is allowed to fail.
+const STIR_MIN_R := 40.0        # px from the bowl before motion counts as stirring
+var stir_drag := false
+var stir_prev_ang := 0.0
+var stir_have_ang := false
+var stir_accum := 0.0
+var stir_drag_t := 0.0
 var deco_spots: Array[Dictionary] = []
 var deco_done := 0
 var brush_loaded := -1
 var brush_node: Node3D = null
+# ---- drag-to-paint canvas (owner 2026-07-25) ----
+# The Painter act is played by actually PAINTING: a loaded brush plus a finger
+# dragged across the canvas, stamping into a live Image. A band "sets" once it
+# is covered enough — coverage, never precision, so it cannot be failed.
+const PAINT_RES := 96
+# ---- the painter's first two beats (owner pacing standard 2026-07-25) ----
+# Kids' painting games are three genres: colour-by-number, scratch-reveal and
+# free paint. The act only had free paint. The sketch is a TRACE and the fill
+# is a HOLD — the doc called the fill a tap, but splatter is already a tap and
+# no act may run the same gesture twice. Holding also shows the colour RISING,
+# which is better feedback for a four-year-old than a region blinking on.
+const SKETCH_DOTS := 12
+const FILL_HOLD := 1.1          # seconds of hold to flood one shape panel
+var sketch_dots: Array[Node3D] = []
+var sketch_trace := 0
+var fill_panels: Array[Dictionary] = []
+var fill_want := 0              # which shape is being called for
+var fill_done := 0
+var fill_t := 0.0
+var fill_call: Node3D = null
+const PAINT_BRUSH := 7
+var paint_img: Image = null
+var paint_tex: ImageTexture = null
+var paint_canvas: MeshInstance3D = null
+var paint_size := Vector2(11.0, 8.0)
+var paint_hits: PackedByteArray = PackedByteArray()
+var paint_band_done := 0
+var paint_band_need := 0
+var paint_dirty := false
+var paint_easel := false        # at the easel, finger painting instead of swimming
+var paint_easel_t := 0.0
 var canvas_pos := Vector3.ZERO
-var stripes: Array[Node3D] = []
 
 # ---- "echo" engine ----
 var echo_rounds: Array[int] = []
 var echo_round := 0
 var echo_seq: Array[int] = []
 var echo_pos := 0
-var echo_phase := "show"           # show | repeat
+var echo_phase := "show"           # show | repeat | ribbon | twirl
+# ---- the recital finale (owner pacing standard 2026-07-25) ----
+# The barre and the echo are both HOLDS. Two more beats close the recital with
+# gestures the act does not already own: the ribbon is traced, the twirl is
+# drawn in circles.
+const RIBBON_DOTS := 12
+const RIBBON_REACH := 66.0      # pixels: how near the finger must pass a dot
+const TWIRL_TURNS := 3
+var ribbon_dots: Array[Node3D] = []
+var ribbon_trace := 0
+var ribbon_wand: Node3D = null
+var twirl_accum := 0.0
+var twirl_done := 0
+var twirl_have_ang := false
+var twirl_ang := 0.0
 var echo_show_i := 0
 var echo_show_t := 0.0
 var last_pad := -1
-var dwell_pad := -1                # tile currently being stood on (pre-fire)
+var dwell_pad := -1
+# Ballet is a sustained line, not a tap: a step only counts once Roshan has
+# HELD the pose on the tile long enough for her ribbon to fill.
+const POSE_HOLD := 1.1
+var pose_ring: Node3D = null                # tile currently being stood on (pre-fire)
 var pad_dwell := 0.0               # playtest fix: tiles fire on a short STILL
 var echo_prev_pos := Vector3.ZERO  # dwell — standing nearly still commits a
                                    # tile; swimming across at any speed is free
@@ -79,20 +156,74 @@ var hats: Array[Dictionary] = []
 var bunny: Node3D = null
 var bunny_at := 0
 var shuffle_round := 0
-var shuffle_phase := "watch"       # watch | pick | wait
+var shuffle_phase := "watch"       # hide | watch | pick | wait | rope | cabinet
+# ---- the routine (owner pacing standard 2026-07-25) ----
+# A stage magician performs a ROUTINE of different tricks; the act used to be
+# one trick three times. Two more tricks close it, each with its own gesture:
+# the rope melts under a pull-apart drag, the cabinet opens to rhythm taps.
+const ROPE_KNOTS := 5
+const ROPE_PULL := 240.0        # pixels of outward finger travel per knot
+const CAB_TAPS := 4
+const CAB_BEAT := 1.15          # seconds per cabinet beat
+const CAB_WINDOW := 0.55        # fraction of the beat that counts as "on it"
+var rope_root: Node3D = null
+var rope_knots: Array[Node3D] = []
+var rope_undone := 0
+var rope_x0 := 0.0
+var rope_tracking := false
+var rope_pull_need := ROPE_PULL
+var cab_root: Node3D = null
+var cab_doors: Array[Node3D] = []
+var cab_wand: Node3D = null
+var cab_taps := 0
+var cab_beat_t := 0.0
+# ---- Roshan performs the trick (owner 2026-07-25) ----
+# Perspective flip: she is the MAGICIAN, not the mark. Every round opens with
+# the child dragging a hat over the bunny-fish to hide it; only then do the
+# hats dance. The reveal still asks her to remember where it went, so the
+# tracking survives, but the act now begins with an act of showmanship.
+var hide_hat := -1
+var hide_pos := Vector3.ZERO
 var shuffle_t := 0.0
 var shuffle_wait_t := 0.0          # countdown between rounds (timer-driven)
 var shuffle_next := 0
 var swap_plan: Array[Dictionary] = []
 
 # ---- "fix" engine ----
-var pieces: Array[Dictionary] = []
-var slots: Array[Dictionary] = []
-var fix_step := 0
-var carried := -1
-var fix_phase := "pipes"           # pipes | valve
+var fix_phase := "pipes"           # pipes | valve | launch
+# ---- Pipe Dream (owner 2026-07-25) ----
+# The real thing: a grid, a queue you cannot reorder, and bubbles that start
+# flowing whether or not the line is finished. Carrying three pieces to three
+# labelled slots was not a puzzle; this is. The fail state is replaced by a
+# LEAK — the bubbles puff, pause, and wait for her to lay the next piece.
+const PIPE_COLS := 6
+const PIPE_ROWS := 3
+const PIPE_SHAPES := {"h": [1, 3], "v": [0, 2], "ne": [0, 1], "nw": [0, 3], "se": [1, 2], "sw": [2, 3]}
+const PIPE_START_ROW := 1
+const PIPE_FLOW_STEP := 3.2        # seconds the bubbles take to cross one cell
+const PIPE_FUSE := 12.0            # head start before the bubbles set off
+var pipe_cells: Array[Dictionary] = []
+var pipe_queue: Array[String] = []
+var pipe_queue_depth := 3          # 4 once the freed engineers hand over spares
+var pipe_queue_nodes: Array[Node3D] = []
+var pipe_flow_cell := -1
+var pipe_flow_from := 3
+var pipe_flow_t := 0.0
+var pipe_leak_t := 0.0
+var pipe_fuse_t := 0.0
+var pipe_held := -1
+var pipe_drag_pos := Vector3.ZERO
+var pipe_filled: Array[int] = []
 var valve: Node3D = null
 var valve_spins := 0
+# The genre's whole payoff: the countdown. Roshan holds the thrust lever down
+# while three-two-one runs and the bubble column builds under the rocket.
+const LAUNCH_HOLD := 3.4
+var launch_hold := 0.0
+var launch_on := false
+var launch_bar: MeshInstance3D = null
+var rocket: Node3D = null
+var rocket_home_y := 0.0
 var rocket_window: MeshInstance3D = null
 
 # ---- "press" engine ----
@@ -101,33 +232,185 @@ var press_zone := 0.34             # sweet-spot half-width (generous, shrinks a 
 var press_busy := 0.0              # stamp animation lockout
 var press_next_t := 0.0            # countdown to the next candy rolling in
 var candies_done := 0
+# ---- the candy parade (owner pacing standard 2026-07-25) ----
+# The act was one belt. It is now a small factory line: mix the syrup, sort the
+# belt, twist the wrappers, load the parade. Four beats, four gestures — the
+# parade is a TIMED tap rather than the doc's second drag-and-drop, because no
+# act may run the same gesture twice.
+const SYRUP_HOLD := 2.0         # seconds of hold per colour bottle
+const WRAP_TWIST := TAU * 0.75  # finger rotation to seal one wrapper
+const PARADE_SPAN := 3.4        # seconds for the cart to cross the stage
+var press_phase := "sort"       # syrup | sort | wrap | parade
+var syrup_bottles: Array[Dictionary] = []
+var syrup_want := 0
+var syrup_t := 0.0
+var wrap_accum := 0.0
+var wrap_done := 0
+var wrap_have_ang := false
+var wrap_ang := 0.0
+var wrap_node: Node3D = null
+var parade_cart: Node3D = null
+var parade_t := 0.0
+var parade_loaded := 0
 var candies_goal := 4
 var candy_node: Node3D = null
 var press_block: Node3D = null
 var press_slider: Node3D = null
 var press_zone_box: Node3D = null
 var shelf_candies: Array[Node3D] = []
+# ---- the conveyor sort (owner 2026-07-25) ----
+# The genre image is the belt, not a timing meter (Lucy & Ethel). Candies ride
+# out of the press and have to be DRAGGED into the chute of their own colour
+# before they reach the end. Belt speed ramps — that ramp is the act's curve.
+const SORT_CHUTES := 3
+const BELT_Z := -4.0
+const BELT_X0 := -15.0
+const BELT_X1 := 15.0
+var belt_items: Array[Dictionary] = []
+var belt_speed := 2.4
+var belt_next := 0.0
+var sort_held := -1
+var sort_pos := Vector3.ZERO
+var chutes: Array[Dictionary] = []
 
 # ---- "box" engine (boxer: ring combat in rounds) ----
 var box_round := 0
 var box_wait := 0.0
+var box_phase := "rounds"          # warmup | rounds | duck | belt
+# ---- the duck (owner pacing standard 2026-07-25) ----
+# Between rounds a big padded glove swings across the ring and the child swipes
+# DOWN to duck under it. It is the only DEFENSIVE verb in the whole opera —
+# every other beat is something she does TO the world. Missing it is a bonk on
+# the bubble shield and a giggle; the round starts either way.
+const DUCK_SWEEP := 2.6         # seconds for the glove to cross the ring
+const DUCK_SWIPE := 48.0        # pixels of downward finger travel = a duck
+var box_glove: Node3D = null
+var box_duck_t := 0.0
+var box_ducked := false
+var box_duck_hit := false
+var duck_y0 := 0.0
+var duck_tracking := false
+# ---- punch to the beat (owner 2026-07-25) ----
+# Fitness Boxing is the genre: the imps bob DOWN and UP on a shared beat and
+# can only be bopped while they are up. The window is deliberately most of the
+# bar, so the rhythm is felt rather than tested.
+const BOX_BEAT := 1.6
+const BOX_UP := 0.72               # fraction of each bar an imp is bop-able
+var box_beat_t := 0.0
+var box_bag: Node3D = null         # the swinging training bag (beat 1)
+var box_bag_hits := 0
+var box_bag_goal := 0
+var box_belt: Node3D = null        # the championship belt (beat 3)
 
 # ---- "sleuth" engine (detective: peek-in-props search) ----
 var sleuth_props: Array[Dictionary] = []
 var clues_found := 0
 var chest_ready := false
+# ---- the case board (owner pacing standard 2026-07-25) ----
+# Hidden-object is only half the genre; the other half is DEDUCTION, and the
+# act used to have none — three clues found, chest opens, done. Now the clues
+# go on a board, get matched to their owner, and the friend holding the most
+# is the one who borrowed the tiara. Pictures matched to pictures: a deduction
+# a non-reader can actually make. There is no villain — she was borrowing it
+# for the show, which is why the ending is a laugh and not a capture.
+var board_phase := ""              # "" | trail | board | name
+var clue_cards: Array[Dictionary] = []
+# The pawprint trail: the clues point somewhere. Between the chest and the
+# case board she FOLLOWS a line of sparkling prints across the stage — the
+# tracking half of the detective genre, and the one beat in this act that
+# uses her plain swim instead of a drag.
+var trail_prints: Array[Dictionary] = []
+var trail_i := 0
+var sleuth_pause := 0.0            # a found clue gets its little show; the search waits
+var suspects: Array[Dictionary] = []
+var board_pinned := 0
+var board_drag := -1               # index of the card riding the finger
+var board_culprit := 0
+var lens_dwell_need := 0.7         # the lanterns shorten this (_light_the_library)
+var lens_lit := false              # the gifted lanterns are up
+# ---- the magnifier (owner 2026-07-25) ----
+# The defining verb of preschool hidden-object: a lens dragged over the scene,
+# with the clues invisible everywhere except inside it. Roshan carries it, so
+# dragging the lens is also how she moves — one finger, one idea. Holding the
+# lens still over a box opens it; there is no second button to find.
+const LENS_R := 6.5             # world radius the lens illuminates
+const LENS_DWELL := 1.0         # seconds held over a box before it opens
+var lens: Node3D = null
+var lens_pos := Vector3.ZERO
+var lens_dwell_i := -1
+var lens_dwell_t := 0.0
+var lens_drag := false
 
 # ---- "doctor" engine ----
-var doc_targets: Array[Dictionary] = []
-var doc_step := 0
+# ---- diagnose, then treat (owner 2026-07-25) ----
+# Toca Doctor's spine: FINDING what is wrong is the game. The plushy now shows
+# a symptom pictogram and Roshan picks the tool that matches it, in whatever
+# order the patient asks for — not a fixed golden-sparkle conga line.
 var doc_wait := 0.0                # care moment: taps rest while the plushy reacts
 var patient: Node3D = null
+# ---- the Vet Rescue (owner 2026-07-25) ----
+# Five beats with a story, not one gesture repeated: fight the imps off, FIND
+# the hurt animal among the well ones, CARRY it to the fluoroscope, read the
+# x-ray to see WHICH limb is cracked, WRAP the cast on with a circular drag,
+# then seal it with a coban band. Each beat is its own verb.
+var vet_phase := "wash"            # wash | find | carry | xray | cast | coban | done
+var vet_animals: Array[Dictionary] = []
+var vet_hurt := -1                 # which animal is injured
+var vet_limb := -1                 # which of its four limbs is cracked
+var vet_carry: Node3D = null
+var vet_scope: Node3D = null       # the fluoroscope arch
+var vet_screen: MeshInstance3D = null
+var vet_bones: Array[Node3D] = []
+var vet_wrap := 0.0                # radians of cast wrapped so far
+var vet_wrap_prev := 0.0
+var vet_have_ang := false
+var vet_layers: Array[Node3D] = []
+var vet_basin: Node3D = null       # the washbasin — doctors scrub up first
+var vet_wash_t := 0.0
+var vet_warm := 0.0                # the fluoroscope warms up: a watchable flicker
+var vet_done_n := 0                # patients healed so far
+var vet_goal_n := 1                # the waiting bench holds a QUEUE, not one plush
+var vet_xray_extra: Array[Node3D] = []   # crack + pulse marks, freed per patient
+const VET_WRAP_TURNS := 4.0        # full turns of drag to build the cast
+const VET_COBAN_TURNS := 2.5
+const VET_WASH_HOLD := 3.2         # seconds of HOLD at the basin
 
 # ---- "scroll" engine (2D farm overlay; piggy art is a pending art-wing pass) ----
 const FARM_SPEED := 120.0
 var farm_layer: CanvasLayer = null
 var farm_t := 0.0
 var farm_fed := 0
+# ---- the piggy picnic, beats 1, 3 and 4 (owner pacing standard 2026-07-25) ----
+# The act was one slingshot. Planting opens it, a mud puddle interrupts it and
+# shooing the herd home closes it. The barn beat is a SCRUB rather than the
+# doc's plain drag, because planting already owns dragging.
+const FARM_SEEDS := 4
+const MUD_LEAPS := 5
+const BARN_SCRUB := 2900.0      # pixels of back-and-forth to shoo the herd home
+var farm_phase := "feed"        # plant | feed | mud | barn
+var furrows: Array[Dictionary] = []
+var seed_held := -1
+var seeds_planted := 0
+var mud_puddle: Control = null
+var mud_pig: Control = null
+var mud_leaps := 0
+var mud_y0 := 0.0
+var mud_tracking := false
+var barn_gate: Control = null
+var barn_scrub := 0.0
+var barn_last_x := 0.0
+var barn_have_x := false
+# ---- the slingshot (owner 2026-07-25) ----
+# Feeding used to be a metronome tap. Now the veggie is LOBBED: drag back from
+# Roshan, watch the aim dots arc out, and let go. Pull length is throw
+# distance, so the skill is aiming at a trotting pig, not waiting for a beat.
+const FARM_ROSHAN_X := 250.0
+var farm_root: Control = null
+var farm_pull := false
+var farm_pull_from := Vector2.ZERO
+var farm_pull_to := Vector2.ZERO
+var farm_aim: Array[Control] = []
+var farm_flights: Array[Dictionary] = []
 var farm_toss_cool := 0.0
 var farm_roshan: Control = null
 var piggies: Array[Dictionary] = []
@@ -145,11 +428,16 @@ var race_prev_track := ""
 # ---- "dance" engine (DanceEngine guest spot) ----
 var dance: CanvasLayer = null
 var mic: Node3D = null
+var dance_encore_done := false     # the freed band buy one extra verse, once
 
 # ---- "boss" engine ----
 var boss: Dictionary = {}
 var lanterns: Array[Dictionary] = []
 var lantern_i := 0
+# SHINE is a charge, not a tap: hold (or patter-tap) beside the twinkling
+# lantern while the beam fills. "Hold the light steady on him!"
+var lantern_charge := 0.0
+const LANTERN_CHARGE := 2.6
 var puffs: Array[Dictionary] = []
 var bump_cool := 0.0
 var spotlight: Node3D = null
@@ -172,6 +460,12 @@ const RESCUE_DELAY := 5.0
 const BACKSTAGE_X0 := -58.0        # corridor west wall (relative to CENTER.x)
 const BACKSTAGE_X1 := -26.0        # curtain gate line
 var imp_count := 4                 # config "imps" can tune per act
+# ---- the rescue (owner 2026-07-25) ----
+# The backstage brawl is not a warm-up: the imps are GUARDING someone. Popping
+# them frees the captives, who hand over the gift the act runs on.
+var captives: Array[Dictionary] = []
+var gift_given := false
+var want_drag := false             # what the act WANTS; a rescue can veto it
 var stage_phase := "puzzle"        # brawl | puzzle
 var imps: Array[Dictionary] = []
 var imps_left := 0
@@ -186,6 +480,8 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	reveal_one = bool(config.get("reveal_one", false))
 	act_tag = String(config.get("act_tag", ""))
 	stage_phase = "brawl" if bool(config.get("shell", false)) else "puzzle"
+	if stage_phase == "puzzle" and String(config.get("rescue", "")) != "":
+		stage_phase = "rescue"   # on-stage rescue: no backstage corridor needed
 	player_pos = CENTER + Vector3(0, 1.1, 14.0)
 	if stage_phase == "brawl":
 		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
@@ -198,7 +494,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	_build_camera()
 	_build_hud()
 	match kind:
-		"order":
+		"order", "paint":
 			_build_order()
 		"echo":
 			_build_echo()
@@ -212,6 +508,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_box()
 		"sleuth":
 			_build_sleuth()
+			_build_lens()
 		"doctor":
 			_build_doctor()
 		"scroll":
@@ -222,6 +519,8 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_dance()
 		"boss":
 			_build_boss()
+	if stage_phase == "rescue":
+		_build_stage_rescue()
 	# the Showtime transformation moment: sparkles + the career announcement.
 	# Shelled acts open with the backstage story instead — the act's own
 	# instructions arrive when the curtain sweeps open in _open_gate().
@@ -321,6 +620,616 @@ const DRESS := {
 	"knight_boss": [["mg/star", -18.0, -12.5, 2.4], ["mg/star", 18.0, -12.5, 2.4]],
 }
 
+# Per-job stages. Palettes and scenery come from the accepted stage_states
+# sheets in codex's opera_jobs_flat_2026-07-21 set (see
+# OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md). A career listed here performs on its
+# own dressed set instead of the shared recoloured proscenium; a career left
+# out keeps the shared stage, so this table can be filled in one job at a time.
+# Scenery lives outside the play box (|x| >= 19, z <= -14 or z >= 17) so no
+# dressing can ever sit on top of an act's gameplay props.
+const STAGE_SETS := {
+	"candymaker": {                                  # "the Candy Workshop"
+		"set": "candy_workshop",
+		"deck": Color(0.72, 0.6, 0.75),
+		"pillar": Color(0.42, 0.72, 0.72),           # mint-teal pearl columns
+		"beam": Color(0.98, 0.74, 0.76),             # coral-rose arch band
+		"backdrop": Color(0.5, 0.4, 0.63),           # warm lilac workshop wall
+		"wing": Color(0.86, 0.42, 0.52),
+		"crest": Color(1.0, 0.9, 0.72),
+		"pool": Color(1.0, 0.88, 0.72, 0.13),
+	},
+	"detective": {                                   # "the Prop Library"
+		"set": "prop_library",
+		"deck": Color(0.3, 0.28, 0.45),
+		"pillar": Color(0.86, 0.56, 0.56),           # coral arch legs
+		"beam": Color(0.9, 0.6, 0.62),
+		"backdrop": Color(0.16, 0.18, 0.35),         # deep indigo night library
+		"wing": Color(0.4, 0.3, 0.45),
+		"crest": Color(1.0, 0.88, 0.7),
+		"pool": Color(1.0, 0.86, 0.6, 0.16),         # the searchlight pool
+	},
+	"chef": {                                        # "the Pastry Kitchen"
+		"set": "pastry_kitchen",
+		"deck": Color(0.85, 0.7, 0.5),               # honey wood boards
+		"pillar": Color(0.93, 0.86, 0.82),           # cream-blush columns
+		"beam": Color(0.96, 0.9, 0.84),
+		"backdrop": Color(0.35, 0.62, 0.72),         # painted reef seascape
+		"wing": Color(0.72, 0.17, 0.23),             # crimson drapes
+		"crest": Color(1.0, 0.9, 0.72),
+		"pool": Color(1.0, 0.9, 0.72, 0.12),
+	},
+	"ballerina": {                                   # "the Recital Hall"
+		"set": "recital_hall",
+		"deck": Color(0.8, 0.76, 0.86),              # pale lilac dance floor
+		"pillar": Color(0.78, 0.5, 0.56),            # dusty rose columns
+		"beam": Color(1.0, 0.86, 0.56),
+		"backdrop": Color(0.9, 0.78, 0.81),          # blush scallop-shell fan
+		"wing": Color(0.35, 0.62, 0.68),             # teal gathers
+		"crest": Color(1.0, 0.88, 0.66),
+		"pool": Color(1.0, 0.92, 0.85, 0.15),
+	},
+	"doctor": {                                      # "the Plushy Clinic"
+		"set": "plushy_clinic",
+		"deck": Color(0.92, 0.87, 0.82),             # clean cream floor
+		"pillar": Color(0.62, 0.55, 0.78),           # lavender columns
+		"beam": Color(1.0, 0.88, 0.62),
+		"backdrop": Color(0.25, 0.55, 0.6),          # quilted teal panel
+		"wing": Color(0.2, 0.45, 0.5),
+		"crest": Color(1.0, 0.9, 0.68),
+		"pool": Color(0.9, 0.95, 1.0, 0.14),
+	},
+	"farmer": {                                      # "the Meadow Flat"
+		"set": "meadow_flat",
+		"deck": Color(0.82, 0.66, 0.46),
+		"pillar": Color(0.94, 0.9, 0.84),            # cream stone arch
+		"beam": Color(0.96, 0.92, 0.86),
+		"backdrop": Color(0.52, 0.72, 0.86),         # painted meadow sky
+		"wing": Color(0.75, 0.25, 0.28),
+		"crest": Color(1.0, 0.9, 0.7),
+	},
+	"boxer": {                                       # "the Toy Ring"
+		"set": "toy_ring",
+		"deck": Color(0.85, 0.62, 0.62),             # blush canvas mat
+		"pillar": Color(0.55, 0.45, 0.62),           # mauve columns
+		"beam": Color(0.66, 0.55, 0.7),
+		"backdrop": Color(0.18, 0.18, 0.32),         # dark hall, string lights
+		"wing": Color(0.8, 0.34, 0.34),
+		"crest": Color(1.0, 0.9, 0.72),
+	},
+	"magician": {                                    # "the Conjuring Parlour"
+		"set": "conjuring_parlour",
+		"deck": Color(0.82, 0.68, 0.5),
+		"pillar": Color(0.85, 0.68, 0.42),           # amber-gold arch
+		"beam": Color(0.9, 0.74, 0.46),
+		"backdrop": Color(0.42, 0.3, 0.5),           # plum velvet
+		"wing": Color(0.36, 0.25, 0.45),
+		"crest": Color(0.95, 0.62, 0.6),             # coral shell crest
+		"pool": Color(1.0, 0.94, 0.8, 0.14),
+	},
+	"painter": {                                     # "the Sunrise Gallery"
+		"set": "sunrise_gallery",
+		"deck": Color(0.86, 0.72, 0.52),
+		"pillar": Color(0.88, 0.88, 0.82),           # cream-sage columns
+		"beam": Color(0.92, 0.92, 0.86),
+		"backdrop": Color(0.95, 0.6, 0.35),          # the sunrise being painted
+		"wing": Color(0.72, 0.18, 0.24),
+		"crest": Color(1.0, 0.9, 0.7),
+	},
+	"astronaut": {                                   # "the Launch Pad"
+		"set": "launch_pad",
+		"deck": Color(0.4, 0.55, 0.62),              # teal launch platform
+		"pillar": Color(0.85, 0.5, 0.45),            # coral columns
+		"beam": Color(0.96, 0.9, 0.78),
+		"backdrop": Color(0.16, 0.2, 0.4),           # starfield with planets
+		"wing": Color(0.45, 0.32, 0.6),
+		"crest": Color(1.0, 0.92, 0.78),
+		"pool": Color(0.75, 0.9, 1.0, 0.12),
+	},
+	"racer": {                                       # "the Grand Prix Circuit"
+		"set": "grand_prix",
+		"deck": Color(0.65, 0.6, 0.78),              # lavender apron
+		"pillar": Color(0.85, 0.6, 0.65),            # coral-pink columns
+		"beam": Color(1.0, 0.86, 0.58),
+		"backdrop": Color(0.2, 0.22, 0.45),          # deep blue swirl night
+		"wing": Color(0.42, 0.3, 0.52),
+		"crest": Color(1.0, 0.9, 0.72),
+	},
+	"popstar": {                                     # "the Starlight Concert"
+		"set": "starlight_concert",
+		"deck": Color(0.55, 0.42, 0.6),              # plum concert platform
+		"pillar": Color(0.9, 0.72, 0.78),            # blush columns
+		"beam": Color(0.95, 0.8, 0.84),
+		"backdrop": Color(0.5, 0.42, 0.68),          # lavender rainbow wall
+		"wing": Color(0.85, 0.5, 0.68),              # pink + teal ribbons
+		"crest": Color(1.0, 0.92, 0.8),
+		"pool": Color(1.0, 0.85, 0.95, 0.16),
+	},
+}
+
+func _multi(mesh: Mesh, spots: Array[Transform3D], col: Color, glow: float = 0.0, tints: Array[Color] = []) -> MultiMeshInstance3D:
+	# Repeated set dressing (footlights, jars, crest petals) as ONE node and one
+	# draw call. The act-one mobile node budget is the reason, and a phone with
+	# a 2016 GPU thanks us for the batching too.
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.mesh = mesh
+	mm.use_colors = not tints.is_empty()
+	mm.instance_count = spots.size()
+	for i in range(spots.size()):
+		mm.set_instance_transform(i, spots[i])
+		if not tints.is_empty():
+			mm.set_instance_color(i, tints[i])
+	var inst := MultiMeshInstance3D.new()
+	inst.multimesh = mm
+	var mat := _mat(col, glow).duplicate() as StandardMaterial3D
+	mat.vertex_color_use_as_albedo = not tints.is_empty()
+	inst.material_override = mat
+	add_child(inst)
+	return inst
+
+func _ball_mesh(radius: float) -> SphereMesh:
+	var sm := SphereMesh.new()
+	sm.radius = radius
+	sm.height = radius * 2.0
+	return sm
+
+func _build_job_stage(spec: Dictionary) -> void:
+	# the gold scallop-shell crest every dressed set wears over its arch
+	var crest_col := Color(spec.get("crest", Color(1.0, 0.9, 0.72)))
+	var crest := Node3D.new()
+	crest.name = "StageCrest"
+	crest.position = CENTER + Vector3(0, 18.3, 12.0)
+	add_child(crest)
+	var petals: Array[Transform3D] = []
+	for i in range(5):
+		var a := lerpf(-1.0, 1.0, float(i) / 4.0)
+		var sc := (1.15 - absf(a) * 0.26)
+		petals.append(Transform3D(Basis().scaled(Vector3(0.9, 1.3, 0.5) * sc),
+			crest.position + Vector3(a * 3.3, 1.0 - absf(a) * 0.85, 0)))
+	_multi(_ball_mesh(1.0), petals, crest_col, 0.25)
+	_sphere(Vector3(0, -0.35, 0.4), 0.9, Color(1.0, 0.98, 0.95), 0.45, crest)
+	# the warm light pool the act plays inside (flat, unshaded — no OmniLights)
+	if spec.has("pool"):
+		var disc := CylinderMesh.new()
+		disc.top_radius = 13.5
+		disc.bottom_radius = 13.5
+		disc.height = 0.12
+		var pool := _mesh(disc, CENTER + Vector3(0, 0.38, -2.0), Color(spec["pool"]), 0.5)
+		var pm := pool.material_override as StandardMaterial3D
+		pm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	match String(spec.get("set", "")):
+		"candy_workshop":
+			_stage_candy_workshop(spec)
+		"prop_library":
+			_stage_prop_library(spec)
+		"pastry_kitchen":
+			_stage_pastry_kitchen(spec)
+		"recital_hall":
+			_stage_recital_hall(spec)
+		"plushy_clinic":
+			_stage_plushy_clinic(spec)
+		"meadow_flat":
+			_stage_meadow_flat(spec)
+		"toy_ring":
+			_stage_toy_ring(spec)
+		"conjuring_parlour":
+			_stage_conjuring_parlour(spec)
+		"sunrise_gallery":
+			_stage_sunrise_gallery(spec)
+		"launch_pad":
+			_stage_launch_pad(spec)
+		"grand_prix":
+			_stage_grand_prix(spec)
+		"starlight_concert":
+			_stage_starlight_concert(spec)
+
+func _footlights(col: Color, n: int = 7) -> void:
+	# the row of gold bulbs along the apron edge — the shared signature of the
+	# dressed sets that draw one in their card (chef, ballerina, magician...)
+	if m.quality == "speedy":
+		return
+	var bulbs: Array[Transform3D] = []
+	for i in range(n):
+		var fx := -20.0 + float(i) * (40.0 / maxf(1.0, float(n - 1)))
+		bulbs.append(Transform3D(Basis(), CENTER + Vector3(fx, 0.75, 15.2)))
+	_multi(_ball_mesh(0.5), bulbs, col, 1.1)
+
+func _backdrop_panel(col: Color, glow: float = 0.15) -> MeshInstance3D:
+	# a painted flat hung just in front of the back curtain — every set that
+	# shows a picture upstage (seascape, meadow, sunrise, starfield) uses one
+	return _box(CENTER + Vector3(0, 8.0, -17.1), Vector3(34.0, 14.0, 0.4), col, glow)
+
+func _stage_candy_workshop(_spec: Dictionary) -> void:
+	# Candy Maker's set: a sweet-shop wall of jars upstage, a scalloped mixing
+	# counter in each wing, and swirl lollipops hanging over the gathers.
+	var jar_cols: Array[Color] = [Color(1.0, 0.66, 0.74), Color(0.68, 0.88, 1.0),
+		Color(1.0, 0.88, 0.56), Color(0.8, 0.72, 1.0), Color(0.72, 0.94, 0.78)]
+	var lush := m.quality != "speedy"      # Speedy phones get one jar tier, no pops
+	for tier in range(2 if lush else 1):
+		var sy := 4.2 + float(tier) * 4.4
+		_box(CENTER + Vector3(0, sy - 0.9, -16.4), Vector3(30.0, 0.5, 1.8), Color(0.86, 0.66, 0.58), 0.08)
+		for i in range(7):
+			var jx := -12.6 + float(i) * 4.2
+			var col := jar_cols[(i + tier * 3) % jar_cols.size()]
+			_cyl(CENTER + Vector3(jx, sy + 0.5, -16.4), 1.15, 2.3, Color(0.95, 0.94, 1.0), 0.12)
+			_sphere(CENTER + Vector3(jx, sy + 0.4, -16.4), 0.95, col, 0.3)
+			_sphere(CENTER + Vector3(jx, sy + 1.9, -16.4), 0.5, Color(1.0, 0.93, 0.8), 0.25)
+	for sx: float in [-19.5, 19.5]:
+		# the mixing counter: scalloped skirt, marble top, a pot and a swirl
+		_box(CENTER + Vector3(sx, 1.4, -13.5), Vector3(6.4, 2.8, 4.6), Color(0.86, 0.5, 0.6), 0.06)
+		_box(CENTER + Vector3(sx, 3.0, -13.5), Vector3(7.0, 0.6, 5.2), Color(0.98, 0.95, 1.0), 0.14)
+		for i in range(4):
+			_sphere(CENTER + Vector3(sx - 2.4 + float(i) * 1.6, 0.3, -11.2), 0.85, Color(1.0, 0.86, 0.9), 0.1)
+		_cyl(CENTER + Vector3(sx, 4.2, -13.5), 1.5, 1.8, Color(0.72, 0.5, 0.72), 0.12)
+		_sphere(CENTER + Vector3(sx, 5.4, -13.5), 1.1, Color(1.0, 0.78, 0.86), 0.35)
+	for i in range(6 if lush else 0):
+		# swirl lollipops on their sticks, hung high in the wings
+		var lx := -20.5 if i < 3 else 20.5
+		var ly := 9.0 + float(i % 3) * 3.4
+		_box(CENTER + Vector3(lx, ly - 1.5, -6.0), Vector3(0.28, 3.0, 0.28), Color(0.98, 0.96, 0.92), 0.1)
+		var pop := _cyl(CENTER + Vector3(lx, ly, -6.0), 1.7, 0.4, jar_cols[i % jar_cols.size()], 0.3)
+		pop.rotation_degrees = Vector3(90, 0, 0)
+		_sphere(CENTER + Vector3(lx, ly, -5.7), 0.6, Color(1.0, 0.98, 0.94), 0.35)
+
+func _stage_prop_library(spec: Dictionary) -> void:
+	# Detective's set: the theatre's own prop library after dark — crated
+	# shelves, a leaning ladder, pillar lanterns and a crescent moon window.
+	var crate_col := Color(0.5, 0.42, 0.58)
+	var lid_col := Color(0.62, 0.52, 0.66)
+	var lush := m.quality != "speedy"      # Speedy phones get half the shelving
+	for sx: float in [-19.8, 19.8]:
+		# tall archive shelving stacked with wrapped prop silhouettes
+		_box(CENTER + Vector3(sx, 6.5, -12.0), Vector3(6.6, 13.0, 5.0), Color(0.34, 0.3, 0.48), 0.04)
+		for tier in range(4 if lush else 2):
+			var sy := 2.2 + float(tier) * 3.2
+			_box(CENTER + Vector3(sx, sy, -9.6), Vector3(6.8, 0.4, 0.6), lid_col, 0.08)
+			for i in range(2):
+				var bx := sx - 1.5 + float(i) * 3.0
+				_box(CENTER + Vector3(bx, sy + 1.1, -10.4), Vector3(2.0, 1.8, 2.0), crate_col, 0.05)
+				_box(CENTER + Vector3(bx, sy + 2.1, -10.4), Vector3(2.3, 0.35, 2.3), lid_col, 0.08)
+		# a warm lantern globe on top of each proscenium pillar
+		var lantern_x := -23.0 if sx < 0.0 else 23.0
+		_cyl(CENTER + Vector3(lantern_x, 16.9, 12.0), 0.7, 0.5, Color(0.95, 0.8, 0.55), 0.2)
+		_sphere(CENTER + Vector3(lantern_x, 18.0, 12.0), 1.1, Color(1.0, 0.9, 0.65), 1.5)
+	# stacked crates tucked into the downstage corners, downstage of the
+	# furthest search box (z = +5) so a clue can never hide behind one
+	for i in range(4):
+		var cx := -21.0 if i < 2 else 21.0
+		var cz := 9.0 + float(i % 2) * 5.0
+		_box(CENTER + Vector3(cx, 1.3, cz), Vector3(3.4, 2.6, 3.4), crate_col, 0.05)
+		_box(CENTER + Vector3(cx, 2.75, cz), Vector3(3.7, 0.4, 3.7), lid_col, 0.08)
+	# the leaning ladder against the upstage-left shelf
+	var ladder := Node3D.new()
+	ladder.name = "LibraryLadder"
+	ladder.position = CENTER + Vector3(-15.5, 4.5, -14.5)
+	ladder.rotation_degrees = Vector3(-14.0, 0, 0)
+	add_child(ladder)
+	for side: float in [-0.9, 0.9]:
+		_box(Vector3(side, 0, 0), Vector3(0.35, 9.5, 0.35), Color(0.78, 0.62, 0.45), 0.05, ladder)
+	for i in range(5):
+		_box(Vector3(0, -3.6 + float(i) * 1.9, 0), Vector3(2.1, 0.28, 0.28), Color(0.86, 0.7, 0.5), 0.05, ladder)
+	# the crescent moon window: a glowing disc bitten by one in the backdrop's
+	# own colour, so the crescent stays cut no matter how the palette is tuned
+	_sphere(CENTER + Vector3(0, 12.0, -17.2), 3.1, Color(1.0, 0.95, 0.78), 1.4)
+	_sphere(CENTER + Vector3(1.5, 12.7, -17.0), 2.7, Color(spec.get("backdrop", Color(0.16, 0.18, 0.35))), 0.0)
+	for i in range(9 if lush else 0):
+		# a scatter of little stars around the window
+		var a := float(i) * 0.7
+		_sphere(CENTER + Vector3(sin(a) * (7.0 + float(i)), 12.0 + cos(a) * 4.5, -17.3), 0.32, Color(1.0, 0.97, 0.85), 1.2)
+
+func _stage_pastry_kitchen(spec: Dictionary) -> void:
+	# Pastry Chef: a painted reef seascape flat, an ingredient shelf either
+	# side, the oven alcove glowing warm, and gold footlights on the apron.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.35, 0.62, 0.72))), 0.1)
+	# coral and kelp painted onto the flat, in front of it
+	var coral_a: Array[Transform3D] = []
+	var coral_b: Array[Transform3D] = []
+	for i in range(5 if lush else 2):
+		var cx := -13.0 + float(i) * 6.5
+		var ch := 3.0 + float(i % 3) * 1.6
+		var xf := Transform3D(Basis().scaled(Vector3(1.0, ch, 1.0)), CENTER + Vector3(cx, ch * 0.5 + 1.0, -16.7))
+		if i % 2 == 0:
+			coral_a.append(xf)
+		else:
+			coral_b.append(xf)
+	var stalk := CylinderMesh.new()
+	stalk.top_radius = 0.6
+	stalk.bottom_radius = 0.6
+	stalk.height = 1.0
+	if not coral_a.is_empty():
+		_multi(stalk, coral_a, Color(0.95, 0.5, 0.55), 0.15)
+	if not coral_b.is_empty():
+		_multi(stalk, coral_b, Color(0.4, 0.75, 0.7), 0.15)
+	# the oven alcove: a warm arch glowing upstage-left
+	_box(CENTER + Vector3(-19.5, 4.0, -15.5), Vector3(6.0, 8.0, 3.0), Color(0.72, 0.55, 0.44), 0.05)
+	_box(CENTER + Vector3(-19.5, 3.4, -14.1), Vector3(4.2, 4.6, 0.4), Color(1.0, 0.72, 0.35), 0.9)
+	# the ingredient shelf upstage-right: flour sacks, bowls, a rolling pin
+	var jars: Array[Transform3D] = []
+	for tier in range(2):
+		var sy := 3.2 + float(tier) * 3.2
+		_box(CENTER + Vector3(19.5, sy, -15.0), Vector3(6.4, 0.45, 3.0), Color(0.8, 0.62, 0.44), 0.06)
+		for i in range(3):
+			jars.append(Transform3D(Basis(), CENTER + Vector3(17.4 + float(i) * 2.1, sy + 0.9, -15.0)))
+	_multi(_ball_mesh(0.8), jars, Color(0.95, 0.86, 0.78), 0.12)
+	_footlights(Color(1.0, 0.88, 0.6))
+
+func _stage_recital_hall(spec: Dictionary) -> void:
+	# Ballerina: a huge blush scallop fan upstage, a practice barre in each
+	# wing, mirror panels, and a slow mirror-ball above centre stage.
+	var lush := m.quality != "speedy"
+	var fan_col := Color(spec.get("backdrop", Color(0.9, 0.78, 0.81)))
+	# the scallop fan: petals radiating from the backdrop centre
+	for i in range(11 if lush else 6):
+		var ang := lerpf(-1.25, 1.25, float(i) / float((11 if lush else 6) - 1))
+		var petal := _box(CENTER + Vector3(sin(ang) * 9.0, 8.0 + cos(ang) * 5.0, -16.9),
+			Vector3(2.6, 9.0, 0.35), fan_col.lightened(0.06 * float(i % 3)), 0.14)
+		petal.rotation_degrees = Vector3(0, 0, -rad_to_deg(ang))
+	_sphere(CENTER + Vector3(0, 3.4, -16.6), 3.2, Color(1.0, 0.94, 0.9), 0.2)
+	# a practice barre along each wing
+	for sx: float in [-19.5, 19.5]:
+		_box(CENTER + Vector3(sx, 3.4, -4.0), Vector3(0.5, 0.5, 22.0), Color(0.86, 0.68, 0.5), 0.1)
+		for i in range(3):
+			_box(CENTER + Vector3(sx, 1.7, -13.0 + float(i) * 9.0), Vector3(0.4, 3.4, 0.4), Color(0.78, 0.6, 0.45), 0.05)
+		# tall mirror panels behind the barre
+		_box(CENTER + Vector3(sx + (1.6 if sx > 0.0 else -1.6), 6.0, -6.0), Vector3(0.3, 11.0, 16.0),
+			Color(0.82, 0.88, 0.95), 0.22)
+	# the mirror ball, hung over centre stage
+	var ball := _sphere(CENTER + Vector3(0, 13.0, 2.0), 1.6, Color(0.9, 0.94, 1.0), 0.7)
+	ball.name = "MirrorBall"
+	for i in range(10 if lush else 0):
+		var a := float(i) * 0.63
+		_sphere(CENTER + Vector3(sin(a) * 1.5, 13.0 + cos(a) * 1.5, 2.0), 0.3, Color(1.0, 0.95, 0.85), 1.3)
+	_footlights(Color(1.0, 0.9, 0.68))
+
+func _stage_plushy_clinic(spec: Dictionary) -> void:
+	# Doctor: a quilted teal wall with a big gold shell medallion, a tool
+	# trolley, a handwashing basin, and the waiting bench of plush patients.
+	var quilt := Color(spec.get("backdrop", Color(0.25, 0.55, 0.6)))
+	_backdrop_panel(quilt, 0.08)
+	# the quilting: a lattice of raised seams on the panel
+	for i in range(5):
+		_box(CENTER + Vector3(-13.0 + float(i) * 6.5, 8.0, -16.85), Vector3(0.25, 13.0, 0.2), quilt.lightened(0.16), 0.1)
+	for j in range(3):
+		_box(CENTER + Vector3(0, 3.4 + float(j) * 4.2, -16.85), Vector3(33.0, 0.25, 0.2), quilt.lightened(0.16), 0.1)
+	# the gold scallop medallion at the centre of the wall
+	for i in range(5):
+		var a := lerpf(-1.0, 1.0, float(i) / 4.0)
+		var petal := _sphere(CENTER + Vector3(a * 3.6, 9.0 - absf(a) * 1.0, -16.5), 1.25 - absf(a) * 0.28,
+			Color(1.0, 0.9, 0.68), 0.3)
+		petal.scale = Vector3(0.85, 1.3, 0.5)
+	# tool trolley upstage-left, basin upstage-right
+	_box(CENTER + Vector3(-19.0, 2.6, -14.0), Vector3(5.0, 0.4, 3.2), Color(0.95, 0.96, 1.0), 0.16)
+	for i in range(2):
+		_box(CENTER + Vector3(-20.6 + float(i) * 3.2, 1.3, -14.0), Vector3(0.35, 2.6, 0.35), Color(0.7, 0.74, 0.85), 0.08)
+	for i in range(3):
+		_sphere(CENTER + Vector3(-20.4 + float(i) * 1.6, 3.2, -14.0), 0.5,
+			[Color(0.95, 0.6, 0.65), Color(0.7, 0.9, 1.0), Color(1.0, 0.9, 0.6)][i], 0.3)
+	_cyl(CENTER + Vector3(19.0, 2.2, -14.0), 2.0, 1.4, Color(0.95, 0.97, 1.0), 0.18)
+	_cyl(CENTER + Vector3(19.0, 0.9, -14.0), 0.7, 2.0, Color(0.72, 0.78, 0.9), 0.08)
+	_sphere(CENTER + Vector3(19.0, 3.2, -14.0), 0.7, Color(0.8, 0.95, 1.0), 0.5)
+	# the waiting bench: three plush patients queued in the wing
+	_box(CENTER + Vector3(20.0, 1.2, 4.0), Vector3(3.2, 1.6, 11.0), Color(0.75, 0.62, 0.85), 0.06)
+	for i in range(3):
+		_sphere(CENTER + Vector3(20.0, 2.8, 0.0 + float(i) * 4.0), 1.1,
+			[Color(1.0, 0.66, 0.6), Color(0.7, 0.85, 1.0), Color(1.0, 0.88, 0.6)][i], 0.2)
+
+func _stage_meadow_flat(spec: Dictionary) -> void:
+	# Farmer: the 2D picnic plays on a CanvasLayer, so this whole set is the
+	# painted backing it plays against — rolling hills, a red barn, orchard.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.52, 0.72, 0.86))), 0.12)
+	# rolling green hills across the bottom of the flat
+	for i in range(3):
+		var hill := _sphere(CENTER + Vector3(-11.0 + float(i) * 11.0, 1.0, -16.8), 8.0 - float(i) * 0.8,
+			Color(0.45, 0.68, 0.4).lightened(0.07 * float(i)), 0.08)
+		hill.scale = Vector3(1.6, 0.55, 0.12)
+	# the little red barn on the right hill
+	_box(CENTER + Vector3(9.5, 4.4, -16.6), Vector3(4.6, 4.0, 0.5), Color(0.8, 0.28, 0.28), 0.1)
+	_box(CENTER + Vector3(9.5, 7.0, -16.6), Vector3(5.4, 1.6, 0.5), Color(0.65, 0.22, 0.24), 0.1)
+	_box(CENTER + Vector3(9.5, 3.6, -16.4), Vector3(1.6, 2.4, 0.3), Color(0.95, 0.9, 0.82), 0.1)
+	# clouds
+	for i in range(5 if lush else 2):
+		var cl := _sphere(CENTER + Vector3(-14.0 + float(i) * 7.0, 11.5 + float(i % 2) * 1.6, -16.8),
+			2.0 + float(i % 3) * 0.5, Color(1.0, 0.99, 0.96), 0.25)
+		cl.scale = Vector3(1.7, 0.7, 0.15)
+	# orchard trees and flower borders framing the wings
+	for sx: float in [-19.5, 19.5]:
+		for i in range(2):
+			var tz := -13.0 + float(i) * 7.0
+			_cyl(CENTER + Vector3(sx, 2.0, tz), 0.6, 4.0, Color(0.55, 0.4, 0.3), 0.05)
+			_sphere(CENTER + Vector3(sx, 5.4, tz), 2.8, Color(0.42, 0.66, 0.38), 0.12)
+			_sphere(CENTER + Vector3(sx, 6.2, tz + 1.2), 1.9, Color(0.5, 0.74, 0.44), 0.12)
+		for i in range(5 if lush else 0):
+			var fz := -15.0 + float(i) * 4.0
+			_sphere(CENTER + Vector3(sx + (1.6 if sx < 0.0 else -1.6), 0.9, fz), 0.7,
+				[Color(1.0, 0.75, 0.8), Color(1.0, 0.9, 0.55), Color(0.9, 0.7, 1.0)][i % 3], 0.3)
+
+func _stage_toy_ring(spec: Dictionary) -> void:
+	# Boxer: a dark toy hall strung with lights, corner stools, pennants and
+	# the championship belt waiting on its podium. The ring itself is _build_box.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.18, 0.18, 0.32))), 0.05)
+	# strings of warm bulbs swagging across the dark hall
+	for row in range(2 if lush else 1):
+		var ry := 12.5 - float(row) * 2.6
+		for i in range(9):
+			var bx := -16.0 + float(i) * 4.0
+			var sag := sin(float(i) / 8.0 * PI) * 1.3
+			_sphere(CENTER + Vector3(bx, ry - sag, -13.0 + float(row) * 3.0), 0.42,
+				Color.from_hsv(0.08 + 0.02 * float(i % 3), 0.3, 1.0), 1.4)
+	# corner stools, one coral one teal, tucked outside the ring posts
+	_box(CENTER + Vector3(-19.5, 1.1, -13.0), Vector3(3.0, 2.2, 3.0), Color(0.9, 0.45, 0.45), 0.1)
+	_box(CENTER + Vector3(19.5, 1.1, -13.0), Vector3(3.0, 2.2, 3.0), Color(0.4, 0.72, 0.75), 0.1)
+	# pennant bunting over the wings
+	for i in range(10 if lush else 0):
+		var px := -20.0 + float(i) * 4.5
+		var pen := _box(CENTER + Vector3(px, 14.0 - absf(float(i) - 4.5) * 0.35, 10.0), Vector3(1.4, 1.8, 0.15),
+			Color.from_hsv(float(i) / 10.0, 0.45, 1.0), 0.35)
+		pen.rotation_degrees = Vector3(0, 0, 180.0)
+	# the belt on its victory podium, downstage-right
+	_cyl(CENTER + Vector3(20.0, 1.4, 8.0), 2.4, 2.8, Color(0.62, 0.5, 0.7), 0.1)
+	var belt := _cyl(CENTER + Vector3(20.0, 3.1, 8.0), 1.7, 0.5, Color(0.55, 0.35, 0.3), 0.12)
+	belt.rotation_degrees = Vector3(90, 0, 0)
+	_sphere(CENTER + Vector3(20.0, 3.1, 8.6), 0.9, Color(1.0, 0.85, 0.4), 0.9)
+
+func _stage_conjuring_parlour(spec: Dictionary) -> void:
+	# Magician: plum velvet, amber arch, coral and teal fronds in the wings,
+	# a trick cabinet, and a rolling mirror that catches the spotlight.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.42, 0.3, 0.5))), 0.06)
+	# swagged velvet valance across the top of the flat
+	for i in range(5 if lush else 3):
+		var vx := -13.0 + float(i) * 6.5
+		var swag := _sphere(CENTER + Vector3(vx, 12.6, -16.7), 2.4, Color(0.5, 0.34, 0.58), 0.1)
+		swag.scale = Vector3(1.0, 0.85, 0.2)
+	# coral and teal seaweed fronds standing in both wings
+	for sx: float in [-19.5, 19.5]:
+		for i in range(3):
+			var fz := -14.0 + float(i) * 5.0
+			var fh := 5.0 + float(i % 2) * 2.2
+			var frond := _cyl(CENTER + Vector3(sx, fh * 0.5 + 0.8, fz), 0.75, fh,
+				Color(0.95, 0.5, 0.5) if i % 2 == 0 else Color(0.4, 0.78, 0.72), 0.16)
+			frond.rotation_degrees = Vector3(0, 0, 7.0 * (1.0 if sx < 0.0 else -1.0))
+	# the trick cabinet upstage-left, star-studded
+	_box(CENTER + Vector3(-16.5, 4.0, -15.2), Vector3(5.0, 8.0, 2.6), Color(0.34, 0.24, 0.44), 0.08)
+	for i in range(4 if lush else 2):
+		_sphere(CENTER + Vector3(-16.5, 2.0 + float(i) * 2.0, -13.8), 0.42, Color(1.0, 0.9, 0.5), 1.2)
+	# the rolling mirror upstage-right on its gold frame
+	_box(CENTER + Vector3(16.5, 5.0, -15.2), Vector3(4.6, 8.4, 0.35), Color(0.88, 0.72, 0.45), 0.2)
+	_box(CENTER + Vector3(16.5, 5.0, -15.0), Vector3(3.6, 7.4, 0.2), Color(0.86, 0.9, 0.98), 0.3)
+	_footlights(Color(1.0, 0.86, 0.55), 9)
+
+func _stage_sunrise_gallery(spec: Dictionary) -> void:
+	# Painter: the backdrop IS the sunrise the act paints — it starts pale and
+	# the act's own canvas stripes fill in. Plus a paint cart and drop cloth.
+	var lush := m.quality != "speedy"
+	var sky := Color(spec.get("backdrop", Color(0.95, 0.6, 0.35)))
+	_backdrop_panel(sky.darkened(0.35), 0.1)
+	# the rising sun and its rays, low on the flat
+	_sphere(CENTER + Vector3(0, 4.5, -16.8), 4.2, Color(1.0, 0.86, 0.42), 0.9)
+	for i in range(9 if lush else 5):
+		var a := lerpf(-1.35, 1.35, float(i) / float((9 if lush else 5) - 1))
+		var ray := _box(CENTER + Vector3(sin(a) * 7.5, 4.5 + cos(a) * 7.5, -16.9), Vector3(0.7, 6.0, 0.2),
+			Color(1.0, 0.78, 0.42), 0.55)
+		ray.rotation_degrees = Vector3(0, 0, -rad_to_deg(a))
+	# the water below the sun, in bands
+	for i in range(3):
+		_box(CENTER + Vector3(0, 1.6 - float(i) * 0.9, -16.85), Vector3(32.0, 0.7, 0.2),
+			Color(0.55, 0.4, 0.72).lightened(0.1 * float(i)), 0.2)
+	# the paint cart in the left wing, the rinse station in the right
+	_box(CENTER + Vector3(-19.5, 2.2, -12.0), Vector3(5.2, 0.5, 3.4), Color(0.72, 0.55, 0.42), 0.06)
+	for i in range(4):
+		_cyl(CENTER + Vector3(-21.2 + float(i) * 1.2, 2.9, -12.0), 0.5, 1.0,
+			[Color(0.6, 0.32, 0.55), Color(0.95, 0.5, 0.45), Color(0.98, 0.94, 0.88), Color(0.4, 0.7, 0.8)][i], 0.25)
+	_cyl(CENTER + Vector3(19.5, 1.6, -12.0), 1.8, 2.4, Color(0.85, 0.9, 0.95), 0.15)
+	_sphere(CENTER + Vector3(19.5, 3.0, -12.0), 1.2, Color(0.55, 0.75, 0.9), 0.35)
+	# the drop cloth under the easel, paint-spattered
+	var cloth := _box(CENTER + Vector3(9.0, 0.42, -12.5), Vector3(12.0, 0.12, 9.0), Color(0.92, 0.9, 0.86), 0.08)
+	cloth.name = "DropCloth"
+	for i in range(7 if lush else 0):
+		var a2 := float(i) * 1.3
+		_sphere(CENTER + Vector3(9.0 + sin(a2) * 4.5, 0.52, -12.5 + cos(a2) * 3.2), 0.45,
+			[Color(0.6, 0.32, 0.55), Color(0.95, 0.5, 0.45), Color(0.98, 0.9, 0.7)][i % 3], 0.2)
+
+func _stage_launch_pad(spec: Dictionary) -> void:
+	# Astronaut Engineer: a starfield with ringed planets, a teal deco skyline,
+	# the circular launch platform and a mobile gantry beside the pipe wall.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.16, 0.2, 0.4))), 0.05)
+	# stars scattered across the flat
+	for i in range(16 if lush else 7):
+		var a := float(i) * 2.399
+		_sphere(CENTER + Vector3(sin(a) * (3.0 + float(i) * 0.95), 4.0 + fmod(float(i) * 4.7, 10.0), -16.85),
+			0.28 + fmod(float(i), 3.0) * 0.07, Color(1.0, 0.98, 0.9), 1.3)
+	# a ringed planet upstage-left and a small moon upstage-right
+	_sphere(CENTER + Vector3(-10.5, 11.0, -16.7), 2.4, Color(0.95, 0.72, 0.5), 0.35)
+	var ring := _cyl(CENTER + Vector3(-10.5, 11.0, -16.6), 4.0, 0.2, Color(0.85, 0.8, 0.95), 0.4)
+	ring.rotation_degrees = Vector3(74, 0, 18)
+	_sphere(CENTER + Vector3(11.5, 12.2, -16.7), 1.5, Color(0.8, 0.88, 1.0), 0.4)
+	# the teal deco skyline along the bottom of the flat
+	for i in range(9 if lush else 5):
+		var bh := 2.4 + fmod(float(i) * 3.1, 4.0)
+		_box(CENTER + Vector3(-14.0 + float(i) * 3.5, bh * 0.5 + 0.9, -16.75), Vector3(2.4, bh, 0.3),
+			Color(0.28, 0.55, 0.6).lightened(0.05 * float(i % 3)), 0.14)
+	# the circular launch platform under centre stage, with its gold ring
+	var pad := _cyl(CENTER + Vector3(0, 0.5, -6.0), 9.0, 0.35, Color(0.34, 0.5, 0.58), 0.12)
+	pad.name = "LaunchPad"
+	var pad_ring := _cyl(CENTER + Vector3(0, 0.66, -6.0), 9.4, 0.18, Color(1.0, 0.88, 0.55), 0.5)
+	pad_ring.name = "LaunchPadRing"
+	# the mobile gantry standing in the right wing
+	for i in range(2):
+		_box(CENTER + Vector3(19.0 + float(i) * 2.4, 5.5, -12.0), Vector3(0.5, 11.0, 0.5), Color(0.75, 0.5, 0.45), 0.08)
+	for i in range(4):
+		_box(CENTER + Vector3(20.2, 1.8 + float(i) * 3.0, -12.0), Vector3(3.0, 0.35, 2.4), Color(0.68, 0.46, 0.42), 0.08)
+
+func _stage_grand_prix(spec: Dictionary) -> void:
+	# Racecar Driver: the kart race takes over, so this set is the start-line
+	# tableau — striped track running upstage, grandstand flats, zoom strips.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.2, 0.22, 0.45))), 0.07)
+	# swirling night sky on the flat
+	for i in range(10 if lush else 4):
+		var a := float(i) * 0.9
+		var sw := _sphere(CENTER + Vector3(sin(a) * (4.0 + float(i)), 9.5 + cos(a) * 3.5, -16.8),
+			1.5 + fmod(float(i), 3.0) * 0.4, Color(0.35, 0.4, 0.68), 0.3)
+		sw.scale = Vector3(1.5, 0.6, 0.12)
+	# the striped track: coral / teal / lavender / cream lanes running upstage
+	var lane_cols: Array[Color] = [Color(0.95, 0.62, 0.62), Color(0.45, 0.78, 0.78),
+		Color(0.72, 0.66, 0.9), Color(0.97, 0.94, 0.88)]
+	for i in range(4):
+		_box(CENTER + Vector3(-4.5 + float(i) * 3.0, 0.42, -6.0), Vector3(2.9, 0.12, 20.0), lane_cols[i], 0.16)
+	# the starting arch over the track
+	for sx: float in [-7.5, 7.5]:
+		_box(CENTER + Vector3(sx, 4.5, 3.0), Vector3(1.0, 9.0, 1.0), Color(0.9, 0.62, 0.66), 0.1)
+	_box(CENTER + Vector3(0, 9.3, 3.0), Vector3(16.0, 1.4, 1.2), Color(1.0, 0.86, 0.58), 0.2)
+	for i in range(8 if lush else 0):
+		_box(CENTER + Vector3(-7.0 + float(i) * 2.0, 8.4, 3.0), Vector3(1.8, 1.2, 0.3),
+			Color(0.12, 0.12, 0.16) if i % 2 == 0 else Color(0.97, 0.96, 0.92), 0.1)
+	# grandstand flats packed into the wings, plus padded barriers
+	for sx: float in [-19.5, 19.5]:
+		for tier in range(3):
+			_box(CENTER + Vector3(sx, 2.0 + float(tier) * 2.0, -6.0), Vector3(5.0, 1.6, 16.0),
+				Color(0.6, 0.52, 0.72).lightened(0.06 * float(tier)), 0.06)
+		for i in range(4 if lush else 0):
+			_sphere(CENTER + Vector3(sx, 6.6, -12.0 + float(i) * 4.5), 0.9,
+				Color.from_hsv(float(i) / 4.0, 0.4, 1.0), 0.3)
+		_box(CENTER + Vector3(sx - (2.9 if sx > 0.0 else -2.9), 1.2, -6.0), Vector3(1.0, 2.0, 16.0),
+			Color(0.95, 0.55, 0.55), 0.12)
+
+func _stage_starlight_concert(spec: Dictionary) -> void:
+	# Pop Star: the dance overlay takes the screen, so this set is the concert
+	# tableau — rainbow wall, speaker stacks, catwalk, glow-stick rails.
+	var lush := m.quality != "speedy"
+	_backdrop_panel(Color(spec.get("backdrop", Color(0.5, 0.42, 0.68))), 0.1)
+	# the rainbow arcs across the flat
+	var bow: Array[Color] = [Color(1.0, 0.62, 0.68), Color(1.0, 0.85, 0.55), Color(0.6, 0.9, 0.7),
+		Color(0.55, 0.8, 1.0), Color(0.78, 0.66, 1.0)]
+	for i in range(bow.size()):
+		var arc := _cyl(CENTER + Vector3(0, 5.0, -16.8), 12.0 - float(i) * 1.7, 0.5, bow[i], 0.45)
+		arc.rotation_degrees = Vector3(90, 0, 0)
+	_box(CENTER + Vector3(0, 1.4, -16.7), Vector3(34.0, 8.0, 0.35), Color(spec.get("backdrop", Color(0.5, 0.42, 0.68))), 0.1)
+	# speaker stacks in both wings
+	for sx: float in [-19.5, 19.5]:
+		for tier in range(3):
+			_box(CENTER + Vector3(sx, 2.0 + float(tier) * 3.6, -11.0), Vector3(5.0, 3.2, 4.0),
+				Color(0.28, 0.24, 0.36), 0.05)
+			_cyl(CENTER + Vector3(sx + (2.1 if sx < 0.0 else -2.1), 2.0 + float(tier) * 3.6, -11.0), 1.1, 0.4,
+				Color(0.6, 0.55, 0.7), 0.15)
+		# the glow-stick rail the crowd waves from
+		_box(CENTER + Vector3(sx, 2.4, 6.0), Vector3(0.5, 0.5, 14.0), Color(0.9, 0.75, 0.85), 0.2)
+		for i in range(6 if lush else 0):
+			_cyl(CENTER + Vector3(sx, 3.6, 0.5 + float(i) * 2.2), 0.22, 1.8,
+				Color.from_hsv(float(i) / 6.0, 0.45, 1.0), 1.4)
+	# the catwalk running downstage into the house
+	var walk := _box(CENTER + Vector3(0, 0.5, 12.0), Vector3(7.0, 0.4, 14.0), Color(0.62, 0.48, 0.68), 0.14)
+	walk.name = "Catwalk"
+	for i in range(7 if lush else 3):
+		_sphere(CENTER + Vector3(-3.2, 0.9, 6.0 + float(i) * 2.0), 0.32, Color(1.0, 0.9, 0.95), 1.2)
+		_sphere(CENTER + Vector3(3.2, 0.9, 6.0 + float(i) * 2.0), 0.32, Color(1.0, 0.9, 0.95), 1.2)
+	_footlights(Color(1.0, 0.8, 0.92))
+
 func _card(fname: String, pos: Vector3, yaw: float = 0.0, card_scale: float = 2.0, parent: Node3D = null) -> Node3D:
 	var full := "res://assets/art35/cards/" + fname + ".glb"
 	if not ResourceLoader.exists(full):
@@ -342,6 +1251,11 @@ func _dress_world() -> void:
 	var key := String(config.get("costume", ""))
 	if key == "" and kind == "boss" and not bool(config.get("dual", false)) and not bool(config.get("finale", false)):
 		key = "knight_boss"
+	# a career with its own stage brings its own scenery — these generic wing
+	# cards are the stopgap for careers still on the shared proscenium, and
+	# they stand exactly where a dressed set puts its counters and shelving
+	if STAGE_SETS.has(key):
+		return
 	if not DRESS.has(key):
 		return
 	for entry: Array in (DRESS[key] as Array):
@@ -366,24 +1280,36 @@ func _act_prop(fname: String, pos: Vector3, yaw: float = 0.0, parent: Node3D = n
 	return prop
 
 func _build_theatre() -> void:
-	var floor_col := Color(config.get("floor_col", Color(0.52, 0.4, 0.62)))
+	# Owner 2026-07-25: a career listed in STAGE_SETS performs on its OWN set —
+	# the proscenium, backdrop and deck take that job's palette and the job's
+	# scenery is dressed in on top. Every career without an entry keeps the
+	# shared toy theatre exactly as it was, so an undressed act can never break.
+	var spec: Dictionary = STAGE_SETS.get(String(config.get("costume", "")), {})
 	var trim: Color = Color(config.get("trim", Color(1.0, 0.85, 0.55)))
 	var curtain: Color = Color(config.get("curtain", Color(0.78, 0.24, 0.34)))
+	var floor_col := Color(spec.get("deck", config.get("floor_col", Color(0.52, 0.4, 0.62))))
+	var pillar_col := Color(spec.get("pillar", trim))
+	var beam_col := Color(spec.get("beam", trim))
+	var back_col := Color(spec.get("backdrop", curtain))
+	var wing_col := Color(spec.get("wing", curtain.darkened(0.12)))
 	# stage deck + front apron edge
 	_box(CENTER + Vector3(0, -0.3, -2.0), Vector3(52, 1.2, 34), floor_col)
 	_box(CENTER + Vector3(0, 0.15, 15.2), Vector3(52, 0.5, 1.6), trim, 0.2)
 	# proscenium: two gold pillars + top beam
-	_box(CENTER + Vector3(-23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), trim, 0.12)
-	_box(CENTER + Vector3(23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), trim, 0.12)
-	_box(CENTER + Vector3(0, 16.6, 12.0), Vector3(48.2, 2.6, 2.4), trim, 0.12)
+	_box(CENTER + Vector3(-23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), pillar_col, 0.12)
+	_box(CENTER + Vector3(23.0, 8.0, 12.0), Vector3(2.2, 17, 2.2), pillar_col, 0.12)
+	_box(CENTER + Vector3(0, 16.6, 12.0), Vector3(48.2, 2.6, 2.4), beam_col, 0.12)
 	# back curtain + gathered side curtains
-	_box(CENTER + Vector3(0, 7.5, -18.0), Vector3(46, 16, 1.4), curtain)
-	_box(CENTER + Vector3(-21.0, 7.5, -3.0), Vector3(2.6, 16, 30), curtain.darkened(0.12))
-	_box(CENTER + Vector3(21.0, 7.5, -3.0), Vector3(2.6, 16, 30), curtain.darkened(0.12))
+	_box(CENTER + Vector3(0, 7.5, -18.0), Vector3(46, 16, 1.4), back_col)
+	_box(CENTER + Vector3(-21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
+	_box(CENTER + Vector3(21.0, 7.5, -3.0), Vector3(2.6, 16, 30), wing_col)
 	# string lights along the beam (emissive spheres only — zero OmniLights)
+	var string_spots: Array[Transform3D] = []
+	var string_tints: Array[Color] = []
 	for i in range(6):
-		var hue := Color.from_hsv(float(i) / 6.0, 0.4, 1.0)
-		_sphere(CENTER + Vector3(-15.0 + float(i) * 6.0, 15.0, 12.8), 0.55, hue, 1.4)
+		string_spots.append(Transform3D(Basis(), CENTER + Vector3(-15.0 + float(i) * 6.0, 15.0, 12.8)))
+		string_tints.append(Color.from_hsv(float(i) / 6.0, 0.4, 1.0))
+	_multi(_ball_mesh(0.55), string_spots, Color.WHITE, 1.4, string_tints)
 	# two soft spotlight cones aimed at centre stage
 	for sx in [-14.0, 14.0]:
 		var cone := CylinderMesh.new()
@@ -409,6 +1335,8 @@ func _build_theatre() -> void:
 		spr.position = CENTER + Vector3(gx, 4.0, 22.4)
 		add_child(spr)
 		audience.append(spr)
+	if not spec.is_empty():
+		_build_job_stage(spec)
 
 func _build_backstage() -> void:
 	# the corridor: warm wooden boards, prop crates, string lights, and the
@@ -425,12 +1353,23 @@ func _build_backstage() -> void:
 	# three mischief imps between Roshan and the curtain — the same little
 	# demons from the dungeon, reused on purpose (they get everywhere)
 	imp_count = int(config.get("imps", 4))
+	# Imps must spawn INSIDE the stretch of corridor _clamp_player() lets Roshan
+	# reach (BACKSTAGE_X0 + 2 .. BACKSTAGE_X1 - 1.5). The old fixed 5.5 spacing
+	# put the last two imps of a six-imp act past the far wall, where she could
+	# only ever swat at them from the clamp line.
+	var imp_x0 := BACKSTAGE_X0 + 6.0
+	var imp_x1 := BACKSTAGE_X1 - 4.0
 	for g in range(imp_count):
-		var pos := CENTER + Vector3(-48.0 + float(g) * 5.5, 1.0, -1.0 + float(g % 2) * 7.0)
+		var t := float(g) / maxf(1.0, float(imp_count - 1))
+		var pos := CENTER + Vector3(lerpf(imp_x0, imp_x1, t), 1.0, -1.0 + float(g % 2) * 7.0)
 		# the LAST imp is the captain: bigger, wears a gold bow, and shrugs off
 		# the first sparkle with a giggle-dash — every brawl ends on a mini-chase
 		_spawn_imp(pos, g == imp_count - 1)
 	imps_left = imp_count
+	if String(config.get("rescue", "")) != "":
+		_build_captives()
+	else:
+		m.show_msg("Roshan", "Oh no — mischief imps snuck backstage! Pop them with SPARKLE so the show can start!", "talk")
 
 func _spawn_imp(pos: Vector3, captain: bool) -> void:
 	var root := Node3D.new()
@@ -448,19 +1387,122 @@ func _spawn_imp(pos: Vector3, captain: bool) -> void:
 	imps.append({"index": imps.size(), "node": root, "pos": pos, "popped": false,
 		"phase": float(imps.size()) * 2.1, "hp": 2 if captain else 1})
 
+func _set_drag(on: bool) -> void:
+	# Acts arm the drag finger at build time, but an on-stage rescue needs the
+	# STICK so Roshan can swim to the imps. Route every request through here:
+	# it is held back until the rescue is over, then applied.
+	want_drag = on
+	if m != null and m.touch_ui != null:
+		m.touch_ui.set_drag_mode(on and stage_phase != "rescue")
+
+func _build_stage_rescue() -> void:
+	# Barrier 1: captives used to live in the backstage corridor, so the six
+	# acts without a shell could not run the rhythm at all. The cages now stand
+	# in the act's OWN play area and the imps guard them there.
+	player_pos = CENTER + Vector3(0, 1.1, 14.0)
+	imp_count = int(config.get("rescue_imps", 4))
+	for g in range(imp_count):
+		var a := float(g) / float(imp_count) * TAU + 0.6
+		_spawn_imp(CENTER + Vector3(cos(a) * 9.0, 1.0, -2.0 + sin(a) * 6.0), g == imp_count - 1)
+	imps_left = imp_count
+	_build_captives()
+	if farm_layer != null:
+		farm_layer.visible = false   # Barrier 6: the 2D meadow would cover this
+	_set_drag(want_drag)             # Barrier 5: hold the drag finger back
+
+func _end_stage_rescue() -> void:
+	_free_captives()
+	stage_phase = "puzzle"
+	progress_t = 0.0
+	if farm_layer != null:
+		farm_layer.visible = true
+	_set_drag(want_drag)             # give the act back whatever finger it wanted
+	m._sparkle_burst(CENTER + Vector3(0, 4.0, 0), Color(1.0, 0.9, 0.6))
+	m.show_msg("Roshan", String(config.get("voice", "On with the show!")), "talk")
+	# Barrier 6: the borrowed engines own the whole screen, so they were held
+	# back at build time. Now that the stage is clear, hand it to them — and
+	# with the gift in the larder, so the wheels and instruments count.
+	match kind:
+		"race":
+			_launch_race()
+		"dance":
+			_open_dance()
+	_update_hud()
+
+func _build_captives() -> void:
+	# two friends in bubble cages at the far end of the corridor, behind the imps
+	var who := String(config.get("rescue", "friends"))
+	var faces: Array[String] = ["pearl_friend", "two_friends", "mama_baby", "wacky_chuck"]
+	for i in range(2):
+		var pos := CENTER + Vector3(BACKSTAGE_X0 + 3.0, 1.4, -2.0 + float(i) * 6.5)
+		if stage_phase == "rescue":
+			pos = CENTER + Vector3(-6.0 + float(i) * 12.0, 1.4, -12.0)
+		var root := Node3D.new()
+		root.name = "Captive%d" % i
+		root.position = pos
+		add_child(root)
+		var spr := Sprite3D.new()
+		var tex := m._cutout_tex(faces[(i + imp_count) % faces.size()])
+		spr.texture = tex
+		spr.pixel_size = 4.4 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		spr.position = Vector3(0, 1.8, 0)
+		root.add_child(spr)
+		# the bubble cage: a translucent dome that pops when the imps do
+		var dome := _sphere(Vector3(0, 1.8, 0), 2.6, Color(0.72, 0.9, 1.0, 0.3), 0.35, root)
+		var dm := dome.material_override as StandardMaterial3D
+		dm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		dm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		captives.append({"node": root, "dome": dome, "sprite": spr, "pos": pos})
+	m.show_msg("Roshan", "The mischief imps have trapped the %s in bubble cages! Pop the imps to set them free!" % who, "talk")
+
+func _free_captives() -> void:
+	# Beat 2 of the rhythm: the cages pop and the friends hand over the gift
+	if gift_given or captives.is_empty():
+		return
+	gift_given = true
+	var gift := String(config.get("gift", ""))
+	var who := String(config.get("rescue", "friends"))
+	for c in captives:
+		var dome := c["dome"] as Node3D
+		var pop := dome.create_tween()
+		pop.tween_property(dome, "scale", Vector3.ONE * 1.6, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		pop.tween_property(dome, "scale", Vector3.ZERO, 0.18)
+		m._sparkle_burst((c["pos"] as Vector3) + Vector3(0, 2.0, 0), Color(0.8, 0.95, 1.0))
+		var spr := c["sprite"] as Node3D
+		var hop := spr.create_tween()
+		hop.tween_property(spr, "position:y", spr.position.y + 1.2, 0.22).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hop.tween_property(spr, "position:y", spr.position.y, 0.26).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if gift == "":
+		return
+	m.opera_pantry[gift] = int(m.opera_pantry.get(gift, 0)) + 1
+	# the gift flies to Roshan so the handover is something she SEES
+	var token := _sphere((captives[0]["pos"] as Vector3) + Vector3(0, 2.4, 0), 0.8,
+		Color(1.0, 0.62, 0.3), 0.7)
+	var fly := token.create_tween()
+	fly.tween_property(token, "position", player_pos + Vector3(0, 3.0, 0), 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	fly.tween_property(token, "scale", Vector3.ZERO, 0.2)
+	m.show_msg("Roshan", "The %s are free! \"Thank you, Mermaid Roshan — take these %s for your show!\"" % [who, gift], "win")
+
 func _brawl_action() -> void:
 	# the brawler verb: a sparkle star pops the nearest imp into confetti.
 	# Out of reach = the star falls short, exactly like the boss fights.
-	if state != "play" or stage_phase != "brawl":
+	if state != "play" or (stage_phase != "brawl" and stage_phase != "rescue"):
 		return
 	var best := -1
 	var best_d := 8.0
 	for g in imps:
 		if bool(g["popped"]):
 			continue
-		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
+		# reach is measured FLAT. A child aims across the stage, not up and
+		# down, and cannot judge a height difference she did not create — so a
+		# vertical gap must never decide whether her sparkle lands. It also
+		# keeps a stray altitude from turning a miss into an unwinnable act,
+		# which is exactly what the captain's sky-high dash did.
+		var gap: Vector3 = (g["pos"] as Vector3) - player_pos
+		gap.y = 0.0
+		if gap.length() < best_d:
+			best_d = gap.length()
 			best = int(g["index"])
 	if best < 0:
 		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
@@ -472,9 +1514,17 @@ func _brawl_action() -> void:
 		# the captain giggles off the first star and dashes down the corridor
 		var gpos0: Vector3 = imp["pos"] as Vector3
 		m._sparkle_burst(gpos0 + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
-		var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
-		var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
-		var dash := Vector3(dash_x, 1.0, CENTER.z + randf_range(-1.0, 6.0))
+		var dash := Vector3.ZERO
+		if stage_phase == "rescue":
+			# an on-stage rescue has no corridor: the corridor coordinates would
+			# fling the captain off the set and out of the child's reach. He
+			# dashes to the far side of the STAGE instead.
+			var dash_sx := CENTER.x + (-9.0 if player_pos.x > CENTER.x else 9.0)
+			dash = Vector3(dash_sx, CENTER.y + 1.0, CENTER.z + randf_range(-6.0, 2.0))
+		else:
+			var mid := CENTER.x + (BACKSTAGE_X0 + BACKSTAGE_X1) * 0.5
+			var dash_x := CENTER.x + BACKSTAGE_X0 + 7.0 if player_pos.x > mid else CENTER.x + BACKSTAGE_X1 - 7.0
+			dash = Vector3(dash_x, CENTER.y + 1.0, CENTER.z + randf_range(-1.0, 6.0))
 		imp["pos"] = dash
 		(imp["node"] as Node3D).position = dash
 		if m.chime != null:
@@ -500,7 +1550,10 @@ func _brawl_action() -> void:
 		m.chime.pitch_scale = 1.0 + 0.2 * float(imp_count - imps_left)
 		m.chime.play()
 	if imps_left <= 0:
-		_open_gate()
+		if stage_phase == "rescue":
+			_end_stage_rescue()
+		else:
+			_open_gate()
 	else:
 		_update_hud()
 
@@ -533,9 +1586,27 @@ func _build_box() -> void:
 	player_pos = CENTER + Vector3(0, 1.1, 4.0)
 	box_round = 0
 	box_wait = 0.0
-	_box_wave()
+	# Beat 1 (owner pacing standard 2026-07-25): a training-bag warm-up before
+	# the bell. Different verb from the rounds — the bag never runs away, it
+	# swings back, so this beat is about timing instead of chasing.
+	box_bag_goal = int(config.get("warmup", 0))
+	if box_bag_goal <= 0:
+		box_phase = "rounds"
+		_box_wave()
+		return
+	box_phase = "warmup"
+	box_bag = Node3D.new()
+	box_bag.name = "TrainingBag"
+	box_bag.position = CENTER + Vector3(0, 0, -6.0)
+	add_child(box_bag)
+	_cyl(Vector3(0, 6.2, 0), 0.16, 3.2, Color(0.82, 0.72, 0.52), 0.1, box_bag)
+	_cyl(Vector3(0, 3.0, 0), 1.5, 4.4, Color(0.86, 0.42, 0.44), 0.14, box_bag)
+	_sphere(Vector3(0, 5.1, 0), 1.5, Color(0.92, 0.54, 0.54), 0.16, box_bag)
+	_sphere(Vector3(0, 0.9, 0), 1.5, Color(0.92, 0.54, 0.54), 0.16, box_bag)
+	m.show_msg("Roshan", "Warm up first, champ! Bop the big swinging bag %d times with PUNCH!" % box_bag_goal, "talk")
 
 func _box_wave() -> void:
+	box_phase = "rounds"
 	var waves: Array = config.get("rounds", [3, 4, 5])
 	var count := int(waves[mini(box_round, waves.size() - 1)])
 	imps.clear()
@@ -551,15 +1622,38 @@ func _box_wave() -> void:
 	m.show_msg("Roshan", "DING DING! Round %d — bop the mischief imps with PUNCH!" % (box_round + 1), "talk")
 	_update_hud()
 
+func _box_on_beat() -> bool:
+	return fmod(box_beat_t, BOX_BEAT) < BOX_BEAT * BOX_UP
+
 func _punch_action() -> void:
 	if state != "play" or kind != "box" or box_wait > 0.0:
+		return
+	if box_phase == "duck":
+		# the duck is a SWIPE, not a punch — a tap here must not stand in for it
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	if box_phase == "rounds" and not _box_on_beat():
+		# swung between the beats: the glove whiffs, the imps giggle, no loss
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		return
+	if box_phase == "warmup":
+		_bag_action()
+		return
+	if box_phase == "belt":
 		return
 	var best := -1
 	var best_d := 6.5
 	for g in imps:
 		if bool(g["popped"]):
 			continue
-		var d: float = (g["pos"] as Vector3).distance_to(player_pos)
+		# flat reach, same reason as the sparkle: height is not something a
+		# four-year-old aims with, so it must not decide whether a punch lands
+		var gap: Vector3 = (g["pos"] as Vector3) - player_pos
+		gap.y = 0.0
+		var d: float = gap.length()
 		if d < best_d:
 			best_d = d
 			best = int(g["index"])
@@ -597,21 +1691,173 @@ func _punch_action() -> void:
 		box_round += 1
 		_job_state(boxer_dressing_art, "StateLamp%d" % (box_round - 1), true)
 		if box_round >= waves.size():
-			# championship: the belt rises off its pedestal in a gold halo
-			_job_state(boxer_dressing_art, "StateIdle", false)
-			_job_state(boxer_dressing_art, "StateComplete", true)
-			_win()
+			_begin_belt()
 			return
-		box_wait = 1.6
 		m.show_msg("Roshan", "Round %d won! Shake it out, champ..." % box_round, "talk")
+		_begin_duck()
+		return
+	_update_hud()
+
+func _bag_action() -> void:
+	# out of reach = the punch swishes, exactly like every other act's verb
+	if box_bag == null or box_bag.position.distance_to(player_pos) > 8.0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	box_bag_hits += 1
+	progress_t = 0.0
+	var away := signf(box_bag.position.x - player_pos.x)
+	if absf(away) < 0.1:
+		away = 1.0
+	var tw := box_bag.create_tween()
+	tw.tween_property(box_bag, "rotation:z", -0.5 * away, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(box_bag, "rotation:z", 0.22 * away, 0.3)
+	tw.tween_property(box_bag, "rotation:z", 0.0, 0.35)
+	m._sparkle_burst(box_bag.position + Vector3(0, 3.4, 0), Color(1.0, 0.82, 0.5))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.12 * float(box_bag_hits)
+		m.chime.play()
+	if box_bag_hits >= box_bag_goal:
+		box_phase = "rounds"
+		var fade := box_bag.create_tween()
+		fade.tween_property(box_bag, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		m.show_msg("Roshan", "Warmed up and ready! Here comes the bell...", "talk")
+		box_wait = 1.4
+	else:
+		m.show_msg("Roshan", "POW! %d more!" % (box_bag_goal - box_bag_hits), "hint")
+	_update_hud()
+
+func _begin_duck() -> void:
+	# Beat 2b: the glove swings in from stage left. The stick still works, so a
+	# child who does not understand yet can simply swim out of the way — the
+	# swipe is the SKILL, not the requirement.
+	box_phase = "duck"
+	box_duck_t = 0.0
+	box_ducked = false
+	box_duck_hit = false
+	duck_tracking = false
+	box_glove = Node3D.new()
+	box_glove.name = "SwingingGlove"
+	box_glove.position = CENTER + Vector3(-17.0, 3.6, 2.0)
+	add_child(box_glove)
+	_sphere(Vector3.ZERO, 2.2, Color(0.9, 0.36, 0.42), 0.2, box_glove)
+	_sphere(Vector3(0, 1.1, 0.9), 0.9, Color(0.95, 0.5, 0.54), 0.2, box_glove)
+	var cuff := _cyl(Vector3(-2.6, 0, 0), 0.62, 2.2, Color(0.98, 0.95, 0.88), 0.1, box_glove)
+	cuff.rotation_degrees = Vector3(0, 0, 90)
+	_set_drag(true)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+	m.show_msg("Roshan", "Look out — a big swinging glove! SWIPE DOWN to duck under it!", "talk")
+	_update_hud()
+
+func _duck_now() -> void:
+	if box_ducked:
+		return
+	box_ducked = true
+	duck_tracking = false
+	progress_t = 0.0
+	m._sparkle_burst(player_pos + Vector3(0, 1.0, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.3
+		m.chime.play()
+	_update_hud()
+
+func _tick_duck(delta: float) -> void:
+	box_duck_t += delta
+	var t := clampf(box_duck_t / DUCK_SWEEP, 0.0, 1.0)
+	if box_glove != null:
+		box_glove.position.x = CENTER.x + lerpf(-17.0, 17.0, t)
+		box_glove.position.y = CENTER.y + 3.6 + sin(elapsed * 3.0) * 0.25
+		box_glove.rotation.z = sin(elapsed * 5.0) * 0.22
+	# the finger: any downward travel counts, however slow. A four-year-old's
+	# swipe is imprecise, so this measures DISTANCE, never speed.
+	if not box_ducked and m.touch_ui != null and bool(m.touch_ui.drag_mode):
+		if bool(m.touch_ui.drag_active):
+			var y: float = (m.touch_ui.drag_pos as Vector2).y
+			if not duck_tracking:
+				duck_tracking = true
+				duck_y0 = y
+			elif y - duck_y0 >= DUCK_SWIPE:
+				_duck_now()
+		else:
+			duck_tracking = false
+	# the glove arrives: a whoosh overhead, or a soft bonk off the bubble
+	# shield. Both are funny, neither is a loss.
+	if not box_duck_hit and box_glove != null and absf(box_glove.position.x - player_pos.x) < 2.8:
+		box_duck_hit = true
+		if box_ducked:
+			m._sparkle_burst(player_pos + Vector3(0, 4.0, 0), Color(0.85, 0.95, 1.0))
+			m.show_msg("Roshan", "WHOOSH — straight over your head! What a duck, champ!", "talk")
+		else:
+			m._sparkle_burst(player_pos + Vector3(0, 2.2, 0), Color(0.6, 0.92, 1.0))
+			m.show_msg("Roshan", "Boing! It bounced right off your bubble shield — giggle!", "hint")
+	if t >= 1.0:
+		_end_duck()
+
+func _end_duck() -> void:
+	if box_glove != null:
+		var gone := box_glove
+		box_glove = null
+		var fade := gone.create_tween()
+		fade.tween_property(gone, "scale", Vector3.ZERO, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		fade.tween_callback(gone.queue_free)
+	_set_drag(false)
+	_box_wave()
+
+func _begin_belt() -> void:
+	# Beat 3: the belt descends over the ring and Roshan swims up to take it.
+	# A pure victory-lap beat — nothing to get wrong, and nothing to wait on.
+	box_phase = "belt"
+	_job_state(boxer_dressing_art, "StateIdle", false)
+	_job_state(boxer_dressing_art, "StateComplete", true)
+	box_belt = Node3D.new()
+	box_belt.name = "ChampionBelt"
+	box_belt.position = CENTER + Vector3(0, 12.0, -2.0)
+	add_child(box_belt)
+	var strap := _cyl(Vector3.ZERO, 1.8, 0.55, Color(0.55, 0.34, 0.3), 0.15, box_belt)
+	strap.rotation_degrees = Vector3(90, 0, 0)
+	_sphere(Vector3(0, 0, 0.6), 1.0, Color(1.0, 0.86, 0.42), 0.9, box_belt)
+	var drop := box_belt.create_tween()
+	drop.tween_property(box_belt, "position", CENTER + Vector3(0, 4.2, -2.0), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	m.show_msg("Roshan", "CHAMPION! Swim up and take your championship belt!", "talk")
 	_update_hud()
 
 func _tick_box(delta: float) -> void:
+	if box_phase == "belt":
+		if box_belt != null:
+			box_belt.rotation.y += delta * 1.2
+			box_belt.position.y = CENTER.y + 4.2 + sin(elapsed * 2.0) * 0.35
+			if Vector2(box_belt.position.x - player_pos.x, box_belt.position.z - player_pos.z).length() < 4.5:
+				m._sparkle_burst(box_belt.position, Color(1.0, 0.9, 0.5))
+				_win()
+		return
+	if box_phase == "duck":
+		_tick_duck(delta)
+		_tick_pointer()
+		return
+	if box_phase == "warmup":
+		if box_wait > 0.0:
+			box_wait -= delta
+			if box_wait <= 0.0:
+				_box_wave()
+			return
+		if box_bag != null:
+			box_bag.position.y = CENTER.y + sin(elapsed * 1.6) * 0.2
+		_tick_pointer()
+		return
 	if box_wait > 0.0:
 		box_wait -= delta
 		if box_wait <= 0.0:
 			_box_wave()
 		return
+	box_beat_t += delta
+	# the imps duck and rise together — the visible pulse the punch rides
+	var up := _box_on_beat()
+	for g2 in imps:
+		if bool(g2["popped"]):
+			continue
+		var n2 := g2["node"] as Node3D
+		n2.scale = Vector3.ONE * (1.0 if up else 0.72)
 	brawl_bump_cool = maxf(0.0, brawl_bump_cool - delta)
 	for g in imps:
 		if bool(g["popped"]):
@@ -677,8 +1923,128 @@ func _build_sleuth() -> void:
 			_box(Vector3(0, 1.1, 0), Vector3(2.6, 2.2, 2.6), Color(0.72, 0.56, 0.4), 0.05, root)
 			lid = _box(Vector3(0, 2.4, 0), Vector3(2.9, 0.5, 2.9), Color(0.6, 0.44, 0.3), 0.1, root)
 		var has_clue := clue_picks.has(i)
-		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid,
+		var glint := _sphere(Vector3(0, 3.2, 0), 0.6, Color(1.0, 0.95, 0.6), 1.4, root)
+		glint.visible = false
+		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid, "glint": glint,
 			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
+
+func _light_the_library() -> void:
+	# The stagehands she frees hand over their lanterns, and a lit Prop Library
+	# gives up its clues faster: the dwell drops from 0.7s to 0.45s.
+	#
+	# This runs at the START OF THE SEARCH, not at build. The detective is a
+	# shelled act, so the gift is only paid when the backstage rescue ends —
+	# reading the pantry in _build_lens() always read it one beat too early and
+	# the lanterns never did anything. (Same ordering bug the pit crew's spare
+	# wheels had in _launch_race.)
+	if lens_lit or int(m.opera_pantry.get("lanterns", 0)) <= 0:
+		return
+	lens_lit = true
+	lens_dwell_need = LENS_DWELL * 0.64
+	for lx: float in [-15.0, 15.0]:
+		var post := _cyl(CENTER + Vector3(lx, 3.0, -4.0), 0.25, 6.0, Color(0.62, 0.5, 0.35), 0.05)
+		post.name = "GiftLanternPost"
+		_sphere(CENTER + Vector3(lx, 6.4, -4.0), 1.05, Color(1.0, 0.9, 0.62), 0.95)
+	m.show_msg("Roshan", "The stagehands hung their lanterns up for you — now the clues are much easier to spot!", "talk")
+
+func _build_lens() -> void:
+	lens_dwell_need = LENS_DWELL
+	lens_pos = CENTER + Vector3(0, 0.6, 2.0)
+	lens = Node3D.new()
+	lens.name = "Magnifier"
+	lens.position = lens_pos
+	add_child(lens)
+	var ring := TorusMesh.new()
+	ring.inner_radius = LENS_R * 0.86
+	ring.outer_radius = LENS_R
+	var rim := _mesh(ring, Vector3(0, 0.15, 0), Color(0.95, 0.8, 0.45), 0.55, lens)
+	rim.rotation_degrees = Vector3(0, 0, 0)
+	var glass := CylinderMesh.new()
+	glass.top_radius = LENS_R * 0.86
+	glass.bottom_radius = LENS_R * 0.86
+	glass.height = 0.08
+	var pane := _mesh(glass, Vector3(0, 0.12, 0), Color(1.0, 0.96, 0.8, 0.17), 0.5, lens)
+	var pm := pane.material_override as StandardMaterial3D
+	pm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	# the handle, angled back toward the audience
+	var grip := _cyl(Vector3(0, 0.2, LENS_R + 2.0), 0.32, 4.0, Color(0.62, 0.42, 0.28), 0.1, lens)
+	grip.rotation_degrees = Vector3(90, 0, 0)
+	lens.visible = false     # stays backstage until the curtain opens
+
+func _leave_lens() -> void:
+	lens_drag = false
+	lens_dwell_i = -1
+	lens_dwell_t = 0.0
+	_set_drag(false)
+
+func _lens_ground(screen: Vector2) -> void:
+	if cam == null:
+		return
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 1, 0), CENTER.y + 0.6)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return
+	var p: Vector3 = hit as Vector3
+	var flat := Vector2(p.x - CENTER.x, p.z - CENTER.z)
+	if flat.length() > RADIUS - 2.0:
+		flat = flat.normalized() * (RADIUS - 2.0)
+	lens_pos = Vector3(CENTER.x + flat.x, CENTER.y + 0.6, CENTER.z + flat.y)
+
+func _tick_lens(delta: float) -> void:
+	# drag the lens; Roshan swims along under it, so the existing proximity
+	# rules (chest reach, rescue pointer) keep working unchanged
+	if lens == null:
+		return
+	if not lens_drag:
+		# first tick of the puzzle phase: the brawl is over, take the finger
+		lens_drag = true
+		lens.visible = true
+		_light_the_library()
+		lens_pos = Vector3(player_pos.x, CENTER.y + 0.6, player_pos.z)
+		_set_drag(true)
+		m.show_msg("Roshan", "Detective Roshan! DRAG the big magnifying glass around — the clues only show up inside it!", "talk")
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		_lens_ground(m.touch_ui.drag_pos)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_lens_ground(m.get_viewport().get_mouse_position())
+	lens.position = lens_pos + Vector3(0, sin(elapsed * 2.4) * 0.12, 0)
+	player_pos = player_pos.lerp(Vector3(lens_pos.x, player_pos.y, lens_pos.z), clampf(delta * 4.0, 0.0, 1.0))
+	if sleuth_pause > 0.0:
+		# a clue (or a silly fish) is having its moment — the search watches
+		# the celebration before the lens goes back to work
+		sleuth_pause -= delta
+		lens_dwell_i = -1
+		lens_dwell_t = 0.0
+		return
+	# only what is UNDER the lens shows itself
+	var over := -1
+	for prop: Dictionary in sleuth_props:
+		var d: float = (prop["pos"] as Vector3).distance_to(lens_pos)
+		var lit: bool = d < LENS_R and not bool(prop["opened"])
+		var glint := prop.get("glint") as Node3D
+		if glint != null:
+			glint.visible = lit and bool(prop["clue"])
+		if lit and d < LENS_R * 0.7:
+			over = int(prop["index"])
+	# hold it still over a box and the box opens itself
+	if over >= 0:
+		if over == lens_dwell_i:
+			lens_dwell_t += delta
+			if lens_dwell_t >= lens_dwell_need:
+				lens_dwell_t = 0.0
+				lens_dwell_i = -1
+				_sleuth_action(over)
+		else:
+			lens_dwell_i = over
+			lens_dwell_t = 0.0
+	else:
+		lens_dwell_i = -1
+		lens_dwell_t = 0.0
+	if chest_ready and goal != null and goal.position.distance_to(lens_pos) < LENS_R:
+		_sleuth_chest()
 
 func _sleuth_action(idx: int) -> void:
 	if state != "play" or kind != "sleuth":
@@ -694,22 +2060,27 @@ func _sleuth_action(idx: int) -> void:
 	lt.tween_property(lid, "rotation:z", 0.5, 0.2)
 	if bool(prop["clue"]):
 		clues_found += 1
+		sleuth_pause = 4.0   # the clue's little show: fanfare, arc, everyone watches
 		var clue := _sphere((prop["pos"] as Vector3) + Vector3(0, 3.0, 0), 0.65, Color(prop["col"]), 0.7)
 		var ct := clue.create_tween()
-		ct.tween_property(clue, "position", goal.position + Vector3(-1.0 + float(clues_found) * 1.0, 3.2, 0), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+		ct.tween_property(clue, "position", (prop["pos"] as Vector3) + Vector3(0, 5.2, 0), 1.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		ct.tween_property(clue, "position", goal.position + Vector3(-1.5 + float(clues_found) * 0.9, 3.2, 0), 1.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 		m._sparkle_burst((prop["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.9, 0.5))
+		m._sparkle_burst((prop["pos"] as Vector3) + Vector3(0, 4.6, 0), Color(prop["col"]))
 		if m.chime != null:
 			m.chime.pitch_scale = 1.0 + 0.2 * float(clues_found)
 			m.chime.play()
-		if clues_found >= 3:
+		var clue_goal := int(config.get("clues", 3))
+		if clues_found >= clue_goal:
 			chest_ready = true
 			_job_state(sleuth_chest_art, "StateActive", true)
 			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.4))
-			m.show_msg("Roshan", "All three clues! Now tap the treasure chest to solve the case!", "talk")
+			m.show_msg("Roshan", "Every clue found! Now tap the treasure chest to solve the case!", "talk")
 		else:
-			m.show_msg("Roshan", "A clue! %d more to find!" % (3 - clues_found), "talk")
+			m.show_msg("Roshan", "A clue! %d more to find!" % (clue_goal - clues_found), "talk")
 	else:
 		# a silly fish hides in the wrong boxes — a giggle, never a fail
+		sleuth_pause = 2.5   # the fish gets its giggle before the search resumes
 		var fish: Node3D = _act_prop("opera_silly_fish.glb", (prop["pos"] as Vector3) + Vector3(0, 2.6, 0))
 		if fish == null:
 			fish = _sphere((prop["pos"] as Vector3) + Vector3(0, 2.6, 0), 0.55, Color(0.5, 0.85, 1.0), 0.4)
@@ -724,7 +2095,7 @@ func _sleuth_action(idx: int) -> void:
 	_update_hud()
 
 func _sleuth_chest() -> void:
-	if state != "play" or kind != "sleuth" or not chest_ready:
+	if state != "play" or kind != "sleuth" or not chest_ready or board_phase != "":
 		return
 	# the tiara reveal: the chest bursts open in gold
 	m._sparkle_burst(goal.position + Vector3(0, 3.5, 0), Color(1.0, 0.9, 0.4))
@@ -737,11 +2108,248 @@ func _sleuth_chest() -> void:
 		var crown := _sphere(goal.position + Vector3(0, 3.0, 0), 0.8, Color(1.0, 0.88, 0.4), 0.8)
 		var tw := crown.create_tween()
 		tw.tween_property(crown, "position:y", crown.position.y + 2.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_begin_trail()   # the chest holds the CASE, not the answer
+
+func _begin_trail() -> void:
+	# Beat 2: whoever borrowed the tiara left sparkly pawprints. FOLLOW them —
+	# only the next print glows, so the trail is its own pointer and a
+	# non-reader can track it print by print round the stage.
+	board_phase = "trail"
+	trail_i = 0
+	progress_t = 0.0
+	if lens != null:
+		lens.visible = false      # the searching is over; she swims the trail
+	lens_drag = false
+	_set_drag(false)
+	var path: Array[Vector3] = [
+		Vector3(5.0, 0.35, -6.0), Vector3(11.0, 0.35, 0.0), Vector3(14.0, 0.35, 8.0),
+		Vector3(8.0, 0.35, 14.0), Vector3(0.0, 0.35, 11.0), Vector3(-8.0, 0.35, 14.0),
+		Vector3(-14.0, 0.35, 7.0), Vector3(-12.0, 0.35, -1.0), Vector3(-6.0, 0.35, -6.0),
+	]
+	for i in range(path.size()):
+		var pos := CENTER + path[i]
+		var print_node := _sphere(pos, 0.85, Color(0.65, 0.9, 1.0), 0.25)
+		print_node.scale = Vector3(1.0, 0.28, 1.3)
+		print_node.visible = i == 0
+		trail_prints.append({"index": i, "pos": pos, "node": print_node, "lit": false})
+	m.show_msg("Roshan", "Sparkly pawprints! Somebody carried the tiara this way — FOLLOW the glowing prints!", "talk")
+	_update_hud()
+
+func _tick_trail(delta: float) -> void:
+	if board_phase != "trail":
+		return
+	if trail_i < trail_prints.size():
+		# the live print breathes so it reads as THE one to swim to
+		var cur := trail_prints[trail_i]["node"] as Node3D
+		cur.scale = Vector3(1.0, 0.28, 1.3) * (1.0 + 0.18 * sin(elapsed * 5.0))
+		var flat := (trail_prints[trail_i]["pos"] as Vector3) - player_pos
+		flat.y = 0.0
+		if flat.length() < 3.6:
+			trail_prints[trail_i]["lit"] = true
+			cur.scale = Vector3(1.0, 0.28, 1.3)
+			var mi := cur as MeshInstance3D
+			if mi != null:
+				mi.material_override = _mat(Color(1.0, 0.9, 0.55), 0.9)
+			m._sparkle_burst((trail_prints[trail_i]["pos"] as Vector3) + Vector3(0, 1.4, 0), Color(1.0, 0.9, 0.6))
+			if m.chime != null:
+				m.chime.pitch_scale = 0.9 + 0.09 * float(trail_i)
+				m.chime.play()
+			trail_i += 1
+			progress_t = 0.0
+			if trail_i < trail_prints.size():
+				(trail_prints[trail_i]["node"] as Node3D).visible = true
+	if trail_i >= trail_prints.size():
+		m.show_msg("Roshan", "The trail ends right here — time to lay the clues out on the case board!", "talk")
+		_begin_board()
+
+func _begin_board() -> void:
+	# Beat 2: the case board. Three clue cards, three friends, and each card
+	# belongs to somebody — matched by COLOUR, because she cannot read a name.
+	board_phase = "board"
+	board_pinned = 0
+	board_drag = -1
+	if lens != null:
+		lens.visible = false      # the searching is over; the finger has a new job
+	lens_drag = false
+	var panel := _box(CENTER + Vector3(0, 7.0, -12.4), Vector3(22.0, 9.4, 0.5),
+		Color(0.3, 0.25, 0.42), 0.05)
+	panel.name = "CaseBoard"
+	_box(CENTER + Vector3(0, 11.9, -12.2), Vector3(22.6, 0.6, 0.9), Color(1.0, 0.85, 0.45), 0.3)
+	var cols := _order_colors("clue")
+	var faces: Array[String] = ["pearl_friend", "two_friends", "mama_baby"]
+	board_culprit = randi() % 3
+	for i in range(3):
+		var pos := CENTER + Vector3(-7.5 + float(i) * 7.5, 8.0, -12.0)
+		var root := Node3D.new()
+		root.name = "Suspect%d" % i
+		root.position = pos
+		add_child(root)
+		var spr := Sprite3D.new()
+		var tex := m._cutout_tex(faces[i])
+		spr.texture = tex
+		spr.pixel_size = 4.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		spr.position = Vector3(0, 0.6, 0.4)
+		root.add_child(spr)
+		# the colour bar under each friend: the thing the cards are matched to
+		_box(Vector3(0, -2.4, 0.4), Vector3(4.2, 0.8, 0.25), cols[i], 0.45, root)
+		suspects.append({"index": i, "node": root, "pos": pos, "col": cols[i], "cards": 0})
+	# two clues belong to one friend and the rest spread out, so the board can
+	# be COUNTED rather than read: whoever ends up with the most borrowed it
+	var card_n := int(config.get("clues", 3))
+	var owners: Array[int] = [board_culprit, board_culprit]
+	while owners.size() < card_n:
+		owners.append((board_culprit + owners.size() - 1) % 3)
+	for i in range(card_n):
+		var pos2 := CENTER + Vector3((float(i) - float(card_n - 1) * 0.5) * 5.0, 2.6, -9.0)
+		var card := Node3D.new()
+		card.name = "ClueCard%d" % i
+		card.position = pos2
+		add_child(card)
+		_box(Vector3.ZERO, Vector3(2.6, 3.2, 0.28), Color(0.98, 0.96, 0.9), 0.18, card)
+		_sphere(Vector3(0, 0.3, 0.24), 0.72, cols[owners[i]], 0.6, card)
+		clue_cards.append({"index": i, "node": card, "owner": owners[i],
+			"pinned": false, "home": pos2})
+	_set_drag(true)
+	m.show_msg("Roshan", "The case board! DRAG each clue up to the friend whose colour matches it!", "talk")
+	_update_hud()
+
+func _board_plane(p: Vector2) -> Vector3:
+	# where the finger is pointing, on the flat plane the cards live in
+	var zp := CENTER.z - 9.0
+	if cam == null:
+		return CENTER + Vector3(0, 4.0, -9.0)
+	var o := cam.project_ray_origin(p)
+	var d := cam.project_ray_normal(p)
+	if absf(d.z) < 0.0001:
+		return Vector3(o.x, o.y, zp)
+	return o + d * ((zp - o.z) / d.z)
+
+func _board_grab(i: int) -> void:
+	if board_phase != "board" or i < 0 or i >= clue_cards.size():
+		return
+	if bool(clue_cards[i]["pinned"]):
+		return
+	board_drag = i
+	progress_t = 0.0
+
+func _board_home() -> void:
+	if board_drag < 0:
+		return
+	var card: Dictionary = clue_cards[board_drag]
+	var node := card["node"] as Node3D
+	var back := node.create_tween()
+	back.tween_property(node, "position", card["home"] as Vector3, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	board_drag = -1
+
+func _board_drop(s: int) -> void:
+	# a wrong pairing slides back with a "hmm?" — never a loss, never a reset
+	if board_phase != "board" or board_drag < 0:
+		return
+	var card: Dictionary = clue_cards[board_drag]
+	if s < 0 or s >= suspects.size() or int(card["owner"]) != s:
+		_wobble(card["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Hmm — that colour doesn't match. Try another friend!", "hint")
+		_board_home()
+		return
+	var sus: Dictionary = suspects[s]
+	sus["cards"] = int(sus["cards"]) + 1
+	card["pinned"] = true
+	board_pinned += 1
+	progress_t = 0.0
+	var node := card["node"] as Node3D
+	var to: Vector3 = (sus["pos"] as Vector3) + Vector3(-1.4 + 2.8 * float(int(sus["cards"]) - 1), -4.4, 0.6)
+	var pin := node.create_tween()
+	pin.tween_property(node, "position", to, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	node.scale = Vector3.ONE * 0.8
+	m._sparkle_burst(to + Vector3(0, 1.6, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.18 * float(board_pinned)
+		m.chime.play()
+	board_drag = -1
+	if board_pinned >= clue_cards.size():
+		_begin_name()
+	else:
+		m.show_msg("Roshan", "Pinned! %d clue(s) still to match!" % (clue_cards.size() - board_pinned), "hint")
+	_update_hud()
+
+func _begin_name() -> void:
+	# Beat 3: the friends come down to the stage so naming one is a plain TAP,
+	# not another drag. Whoever holds the most clues is who borrowed the tiara.
+	board_phase = "name"
+	_set_drag(false)
+	for i in range(suspects.size()):
+		var node := suspects[i]["node"] as Node3D
+		var down := CENTER + Vector3(-8.0 + float(i) * 8.0, 1.8, -3.0)
+		suspects[i]["pos"] = down
+		var drop := node.create_tween()
+		drop.tween_property(node, "position", down, 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	m.show_msg("Roshan", "Look who has the MOST clues — swim over and tap that friend!", "talk")
+	_update_hud()
+
+func _name_action(i: int) -> void:
+	if board_phase != "name" or state != "play":
+		return
+	if i != board_culprit:
+		_wobble(suspects[i]["node"] as Node3D)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Not that one — count the clues! Who has the most?", "hint")
+		progress_t = maxf(progress_t, RESCUE_DELAY)   # summon the arrow now
+		return
+	# the happy ending: no villain. She only borrowed it for the show.
+	board_phase = "done"
+	var node := suspects[i]["node"] as Node3D
+	var hop := node.create_tween()
+	hop.tween_property(node, "position:y", node.position.y + 1.6, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	hop.tween_property(node, "position:y", node.position.y, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst((suspects[i]["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.9, 0.5))
+	m.show_msg("Roshan", "Case closed! She only borrowed the tiara for the show — and now everyone can wear it!", "win")
 	_win()
 
+func _tick_board(_delta: float) -> void:
+	if board_phase != "board" or m.touch_ui == null or cam == null:
+		return
+	if bool(m.touch_ui.drag_mode) and bool(m.touch_ui.drag_active):
+		if board_drag < 0:
+			var best := -1
+			var best_d := 110.0
+			for c: Dictionary in clue_cards:
+				if bool(c["pinned"]):
+					continue
+				var d: float = cam.unproject_position((c["node"] as Node3D).position).distance_to(m.touch_ui.drag_pos)
+				if d < best_d:
+					best_d = d
+					best = int(c["index"])
+			if best >= 0:
+				_board_grab(best)
+		else:
+			(clue_cards[board_drag]["node"] as Node3D).position = _board_plane(m.touch_ui.drag_pos)
+	elif board_drag >= 0:
+		# let go: the nearest friend takes it, or it drifts home
+		var node := clue_cards[board_drag]["node"] as Node3D
+		var here := cam.unproject_position(node.position)
+		var pick := -1
+		var pick_d := 170.0
+		for s: Dictionary in suspects:
+			var d2: float = cam.unproject_position(s["pos"] as Vector3).distance_to(here)
+			if d2 < pick_d:
+				pick_d = d2
+				pick = int(s["index"])
+		if pick >= 0:
+			_board_drop(pick)
+		else:
+			_board_home()
+
 func _open_gate() -> void:
+	_free_captives()
 	stage_phase = "puzzle"
 	progress_t = 0.0
+	_apply_curtain_gifts()
 	if gate_curtain != null:
 		var tw := gate_curtain.create_tween()
 		tw.tween_property(gate_curtain, "position:y", gate_curtain.position.y + 13.0, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
@@ -750,6 +2358,23 @@ func _open_gate() -> void:
 		m.chime.pitch_scale = 1.4
 		m.chime.play()
 	m.show_msg("Roshan", String(config.get("voice", "The stage is clear — on with the show!")), "talk")
+	_update_hud()
+
+func _apply_curtain_gifts() -> void:
+	# Gifts are paid when the captives are freed, which is AFTER every builder
+	# has run. Anything an act wants to spend a gift on therefore has to be
+	# applied here, at the moment the curtain opens — reading the pantry inside
+	# a _build_* function always reads it one beat too early. That mistake cost
+	# the pit crew's wheels and the stagehands' lanterns; this is the one place
+	# it cannot happen again.
+	if kind != "fix" or int(m.opera_pantry.get("spare pipes", 0)) <= 0:
+		return
+	if pipe_queue_depth >= 4:
+		return
+	pipe_queue_depth = 4
+	pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	m.show_msg("Roshan", "The bubble engineers gave you their spare pipes — now you can see one more coming!", "talk")
 	_update_hud()
 
 func _tick_brawl(delta: float) -> void:
@@ -858,7 +2483,15 @@ func _build_hud() -> void:
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(pointer)
 
-# ---------------- "order" engine (chef / detective / painter) ----------------
+# ------- shared pad core: "order" (chef) and "paint" (painter) -------
+# Two distinct acts share this builder because both walk a pictured sequence,
+# but they diverge immediately: chef DELIVERS layers then stirs and tops the
+# cake, painter LOADS a brush then swipes and splatters the canvas. They carry
+# separate kinds so the roster reads one engine per career.
+
+func _is_order_kind() -> bool:
+	return kind == "order" or kind == "paint"
+
 
 func _build_order() -> void:
 	var steps: Array = config.get("order", [0, 1, 2])
@@ -914,20 +2547,28 @@ func _build_order() -> void:
 		for s in range(order_steps.size()):
 			var ci := order_steps[s]
 			_sphere(goal.position + Vector3((float(s) - float(order_steps.size() - 1) * 0.5) * 3.2, 5.8, 0), 0.8, cols[ci], 0.5)
+	# the carried brush. It belongs to the PAINTER, but the chef refactor left
+	# it being built inside the cake branch, so the painter dereferenced a null
+	# brush on every pot tap, every paint stroke and every frame of _process.
+	brush_node = Node3D.new()
+	brush_node.name = "PaintBrush"
+	brush_node.visible = false
+	add_child(brush_node)
+	_box(Vector3(0, 0, 0), Vector3(0.2, 1.4, 0.2), Color(0.6, 0.4, 0.25), 0.0, brush_node)
+	_box(Vector3(0, 0.9, 0), Vector3(0.32, 0.5, 0.32), Color(0.9, 0.9, 0.95), 0.3, brush_node)
 	if order_flow == "carry_paint":
-		canvas_pos = goal.position
-		# three hidden stripes fill the canvas as Roshan swipes each color on
-		var stripe_gap := 3.4 / maxf(1.0, float(order_steps.size() - 1))
-		for s2 in range(order_steps.size()):
-			var stripe := _box(goal.position + Vector3(0, 1.0 + float(s2) * stripe_gap, 0.25), Vector3(5.8, minf(1.2, stripe_gap * 0.85), 0.2), cols[order_steps[s2]], 0.35)
-			stripe.visible = false
-			stripes.append(stripe)
-		brush_node = Node3D.new()
-		brush_node.name = "PaintBrush"
-		brush_node.visible = false
-		add_child(brush_node)
-		_box(Vector3(0, 0, 0), Vector3(0.2, 1.4, 0.2), Color(0.6, 0.4, 0.25), 0.0, brush_node)
-		_box(Vector3(0, 0.9, 0), Vector3(0.32, 0.5, 0.32), Color(0.9, 0.9, 0.95), 0.3, brush_node)
+		canvas_pos = goal.position + Vector3(0, 3.6, 0)
+		_build_paint_canvas()
+		if int(m.opera_pantry.get("paints", 0)) > 0:
+			# the freed painter's own pots, set out beside the easel
+			for i in range(3):
+				var pot := _cyl(canvas_pos + Vector3(-7.0, -2.6 + float(i) * 1.5, 1.0), 0.7, 1.2,
+					_order_colors("paint")[i], 0.3)
+				pot.name = "GiftedPot%d" % i
+			m.show_msg("Roshan", "The painter shared their own paints with you — use every colour!", "talk")
+		_begin_sketch()   # the picture is drawn before it is painted
+	elif String(config.get("finale", "")) == "stir":
+		_begin_sift()   # the Cake Show is a gesture chain, not a pad errand
 
 func _order_colors(theme: String) -> Array[Color]:
 	match theme:
@@ -1006,7 +2647,7 @@ func _order_prop(theme: String, i: int, col: Color, parent: Node3D) -> Node3D:
 	return prop
 
 func _order_action(choice: int) -> void:
-	if state != "play" or kind != "order" or order_phase != "steps" or step >= order_steps.size():
+	if state != "play" or not _is_order_kind() or order_phase != "steps" or step >= order_steps.size():
 		return
 	var want := order_steps[step]
 	var pad: Dictionary = pads[choice]
@@ -1058,9 +2699,242 @@ func _apply_brush_tint(col: Color) -> void:
 	if tip != null:
 		tip.material_override = _mat(col, 0.6)
 
+func _leave_chef() -> void:
+	if m != null and m.touch_ui != null and (order_phase == "sift" or order_phase == "pipe"):
+		_set_drag(false)
+
+func _begin_sift() -> void:
+	# Beat 1: rub the sieve back and forth; flour snows into the bowl. If the
+	# farmers' carrots are in the larder they go in too, and it becomes a
+	# carrot cake — the rescue is not flavour text, it changes the recipe.
+	order_phase = "sift"
+	var uses := String(config.get("uses", ""))
+	if uses != "" and int(m.opera_pantry.get(uses, 0)) > 0:
+		for i in range(3):
+			var carrot := CylinderMesh.new()
+			carrot.top_radius = 0.12
+			carrot.bottom_radius = 0.42
+			carrot.height = 1.8
+			var c := _mesh(carrot, goal.position + Vector3(-1.2 + float(i) * 1.2, 2.2, 0.6),
+				Color(1.0, 0.55, 0.22), 0.2)
+			c.rotation_degrees = Vector3(0, 0, 18.0 - float(i) * 18.0)
+			_sphere(c.position + Vector3(0, 1.1, 0), 0.34, Color(0.45, 0.75, 0.4), 0.15)
+		m.show_msg("Roshan", "The farmers' carrots go in first — a CARROT cake!", "talk")
+	sift_done = 0.0
+	sift_have = false
+	_set_drag(true)
+	_box(goal.position + Vector3(0, 5.6, 0), Vector3(4.2, 0.5, 3.0), Color(0.86, 0.88, 0.95), 0.2)
+	m.show_msg("Roshan", "First the flour! RUB your finger side to side across the sieve!", "talk")
+	_update_hud()
+
+func _tick_sift(delta: float) -> void:
+	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	var pos: Vector2 = m.touch_ui.drag_pos if active else Vector2.ZERO
+	if not active and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		active = true
+		pos = m.get_viewport().get_mouse_position()
+	if active:
+		if sift_have:
+			# only sideways travel sifts — a still finger does nothing
+			sift_done += absf(pos.x - sift_prev.x) * 0.12
+			if sift_done > float(sift_snow.size()) * 2.0:
+				var flake := _sphere(goal.position + Vector3(randf_range(-1.6, 1.6), 4.6, randf_range(-1.0, 1.0)),
+					0.26, Color(0.99, 0.98, 0.95), 0.3)
+				sift_snow.append(flake)
+				var fall := flake.create_tween()
+				fall.tween_property(flake, "position:y", goal.position.y + 1.2, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+			progress_t = 0.0
+		sift_prev = pos
+		sift_have = true
+	else:
+		sift_have = false
+	if sift_done >= SIFT_NEED:
+		_begin_pour()
+
+func _begin_pour() -> void:
+	# Beat 2: tip the jug and HOLD until the milk reaches the line
+	order_phase = "pour"
+	pour_t = 0.0
+	pour_jug = Node3D.new()
+	pour_jug.name = "MilkJug"
+	pour_jug.position = goal.position + Vector3(-3.6, 5.0, 0)
+	add_child(pour_jug)
+	_cyl(Vector3.ZERO, 1.1, 2.4, Color(0.96, 0.95, 0.98), 0.15, pour_jug)
+	_box(goal.position + Vector3(0, 2.6, 1.35), Vector3(3.0, 0.12, 0.12), Color(1.0, 0.7, 0.35), 0.7)
+	var milk := CylinderMesh.new()
+	milk.top_radius = 1.5
+	milk.bottom_radius = 1.5
+	milk.height = 1.0
+	pour_milk = _mesh(milk, goal.position + Vector3(0, 1.2, 0), Color(0.99, 0.97, 0.92), 0.12)
+	pour_milk.scale = Vector3(1, 0.05, 1)
+	m.show_msg("Roshan", "Now the milk — press and HOLD to pour until it reaches the orange line!", "talk")
+	_update_hud()
+
+func _tick_pour(delta: float) -> void:
+	if _finger_down():
+		pour_t += delta
+		pour_jug.rotation_degrees.z = lerpf(0.0, -62.0, clampf(pour_t / 0.5, 0.0, 1.0))
+		if fmod(pour_t, 0.2) < delta:
+			m._sparkle_burst(goal.position + Vector3(0, 3.0, 0), Color(0.99, 0.97, 0.92))
+		progress_t = 0.0
+	else:
+		pour_jug.rotation_degrees.z = lerpf(pour_jug.rotation_degrees.z, 0.0, clampf(delta * 6.0, 0.0, 1.0))
+	var f := clampf(pour_t / POUR_NEED, 0.0, 1.35)
+	pour_milk.scale.y = 0.05 + f * 1.4
+	pour_milk.position.y = goal.position.y + 1.2 + f * 0.7
+	if pour_t >= POUR_NEED:
+		if m.touch_ui != null:
+			_set_drag(false)
+		order_phase = "stir"
+		m.show_msg("Roshan", "Perfect! Now STIR — draw big circles round the bowl!", "talk")
+		_update_hud()
+
+func _begin_bake() -> void:
+	# Beat 4: the oven. Watch it rise and tap when it turns golden.
+	order_phase = "bake"
+	bake_t = 0.0
+	bake_golden = false
+	bake_cake = Node3D.new()
+	bake_cake.name = "BakingCake"
+	bake_cake.position = CENTER + Vector3(-19.5, 3.4, -14.1)
+	add_child(bake_cake)
+	_cyl(Vector3.ZERO, 1.9, 1.0, Color(0.92, 0.85, 0.68), 0.1, bake_cake)
+	bake_cake.scale = Vector3(1, 0.4, 1)
+	m.show_msg("Roshan", "Into the oven! Watch it grow through the door and tap when it turns GOLDEN!", "talk")
+	_update_hud()
+
+func _tick_bake(delta: float) -> void:
+	bake_t += delta
+	var rise := clampf(bake_t / 12.0, 0.0, 1.0)
+	bake_cake.scale.y = 0.4 + rise * 1.5
+	if not bake_golden and bake_t >= 12.0:
+		bake_golden = true
+		for c in bake_cake.get_children():
+			var mi := c as MeshInstance3D
+			if mi != null:
+				mi.material_override = _mat(Color(0.95, 0.72, 0.4), 0.35)
+		m._sparkle_burst(bake_cake.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.5))
+		m.show_msg("Roshan", "GOLDEN! Tap now!", "talk")
+	if bake_t > 34.0:
+		_bake_action()   # a distracted cook still gets her cake out
+
+func _bake_action() -> void:
+	if order_phase != "bake":
+		return
+	if not bake_golden:
+		# too early: the cake is still pale, so it goes back in — never a fail
+		m._sparkle_burst(bake_cake.position + Vector3(0, 1.5, 0), Color(0.85, 0.9, 1.0))
+		m.show_msg("Roshan", "Not yet — it's still pale! Wait for it to go golden.", "hint")
+		return
+	_begin_pipe()
+
+func _begin_pipe() -> void:
+	# Beat 5: trace the piping round the cake edge
+	order_phase = "pipe"
+	pipe_trace = 0
+	_set_drag(true)
+	for i in range(14):
+		var a := float(i) / 14.0 * TAU
+		var dot := _sphere(goal.position + Vector3(cos(a) * 2.6, 2.4, sin(a) * 2.6), 0.3,
+			Color(1.0, 0.85, 0.9, 0.5), 0.3)
+		pipe_dots.append(dot)
+	m.show_msg("Roshan", "Frosting time! DRAG your finger round the dotted ring to pipe it on!", "talk")
+	_update_hud()
+
+func _tick_pipe(delta: float) -> void:
+	# completion first, outside the drag gate: the last bead may land on the
+	# frame the finger lifts, and the ring must still close
+	if pipe_trace >= pipe_dots.size():
+		if m.touch_ui != null:
+			_set_drag(false)
+		_open_decorate()
+		return
+	var active: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if not active or cam == null:
+		return
+	# light each dot the finger passes over, in any order
+	for i in range(pipe_dots.size()):
+		var d := pipe_dots[i]
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) < 62.0:
+			d.visible = false
+			pipe_trace += 1
+			progress_t = 0.0
+			var bead := _sphere(d.position, 0.42, Color(1.0, 0.78, 0.88), 0.4)
+			bead.scale = Vector3.ZERO
+			var pop := bead.create_tween()
+			pop.tween_property(bead, "scale", Vector3.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			if m.chime != null:
+				m.chime.pitch_scale = 0.9 + 0.06 * float(pipe_trace)
+				m.chime.play()
+	if pipe_trace >= pipe_dots.size():
+		if m.touch_ui != null:
+			_set_drag(false)
+		_open_decorate()
+
+func _tick_stir(delta: float) -> void:
+	# hands the finger to the bowl while Roshan stands at it, exactly like the
+	# painter's easel — and hands it straight back the moment she is done
+	var near: bool = goal != null and goal.position.distance_to(player_pos) < 7.0
+	if near and not stir_drag:
+		stir_drag = true
+		stir_drag_t = 0.0
+		stir_accum = 0.0
+		stir_have_ang = false
+		_set_drag(true)
+		m.show_msg("Roshan", "Now STIR! Draw big circles round and round the bowl with your finger!", "talk")
+	elif not near and stir_drag:
+		_leave_stir()
+	if not stir_drag:
+		return
+	stir_drag_t += delta
+	var active := false
+	var pos := Vector2.ZERO
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		active = true
+		pos = m.touch_ui.drag_pos
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		active = true
+		pos = m.get_viewport().get_mouse_position()
+	if active and cam != null:
+		var hub := cam.unproject_position(goal.position + Vector3(0, 3.0, 0))
+		var arm := pos - hub
+		if arm.length() >= STIR_MIN_R:
+			var ang := arm.angle()
+			if stir_have_ang:
+				_stir_drag_delta(angle_difference(stir_prev_ang, ang))
+			stir_prev_ang = ang
+			stir_have_ang = true
+		else:
+			stir_have_ang = false
+	else:
+		stir_have_ang = false
+	if stir_drag_t > 26.0:
+		m.show_msg("Roshan", "Round and round — there we go!", "hint")
+		_stir_action()
+
+func _stir_drag_delta(d: float) -> void:
+	# one full turn of finger travel = one big stir
+	if state != "play" or order_phase != "stir":
+		return
+	stir_accum += absf(d)
+	progress_t = 0.0
+	if goal != null:
+		goal.rotation.y += d * 0.6
+	if stir_accum >= TAU:
+		stir_accum -= TAU
+		_stir_action()
+
+func _leave_stir() -> void:
+	stir_drag = false
+	stir_have_ang = false
+	stir_drag_t = 0.0
+	_set_drag(false)
+
 func _stir_action() -> void:
 	# the chef finale: three big stirs spin the bowl faster and faster
-	if state != "play" or kind != "order" or order_phase != "stir":
+	if state != "play" or not _is_order_kind() or order_phase != "stir":
 		return
 	stir_done += 1
 	progress_t = 0.0
@@ -1074,7 +2948,11 @@ func _stir_action() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 0.85 + 0.25 * float(stir_done)
 		m.chime.play()
-	if stir_done >= 3:
+	if stir_done >= 5:
+		_leave_stir()
+		if String(config.get("finale", "")) == "stir":
+			_begin_bake()
+			return
 		# stirred to perfection: calm cream on top, oven glows open backstage
 		_job_state(chef_bowl_art, "StateActive", false)
 		_job_state(chef_bowl_art, "StateComplete", true)
@@ -1115,7 +2993,7 @@ func _open_decorate() -> void:
 	_update_hud()
 
 func _deco_action(idx: int) -> void:
-	if state != "play" or kind != "order" or order_phase != "decorate":
+	if state != "play" or not _is_order_kind() or order_phase != "decorate":
 		return
 	var spot: Dictionary = deco_spots[idx]
 	if bool(spot["done"]):
@@ -1146,15 +3024,279 @@ func _deco_action(idx: int) -> void:
 	else:
 		_update_hud()
 
-func _paint_touch() -> void:
-	# the painter swipe: a loaded brush near the canvas sweeps a stripe on
-	if state != "play" or kind != "order" or order_flow != "carry_paint" or brush_loaded < 0:
+func _tick_easel(delta: float) -> void:
+	# Standing at the easel with a loaded brush hands the finger over to the
+	# canvas: the stick goes quiet and a drag paints. She can always leave —
+	# the band sets on coverage, and a stuck painter is finished for her.
+	var near: bool = canvas_pos.distance_to(player_pos) < 7.0
+	if near and not paint_easel:
+		paint_easel = true
+		paint_easel_t = 0.0
+		_set_drag(true)
+		m.show_msg("Roshan", "Now PAINT! Drag your finger across the big canvas!", "talk")
+	elif not near and paint_easel:
+		_leave_easel()
+	if not paint_easel:
 		return
-	var stripe := stripes[step]
-	stripe.visible = true
-	stripe.scale = Vector3(0.05, 1.0, 1.0)
-	var tw := stripe.create_tween()
-	tw.tween_property(stripe, "scale", Vector3.ONE, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	paint_easel_t += delta
+	if m.touch_ui != null and m.touch_ui.drag_active:
+		_paint_screen(m.touch_ui.drag_pos)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_paint_screen(m.get_viewport().get_mouse_position())
+	_paint_flush()
+	if paint_easel_t > 28.0 and brush_loaded >= 0:
+		# a gentle rescue, never a fail: the brush finishes the band itself
+		_fill_band_rest()
+		m.show_msg("Roshan", "There it is — what a beautiful colour!", "hint")
+
+func _leave_easel() -> void:
+	paint_easel = false
+	paint_easel_t = 0.0
+	_set_drag(false)
+
+func _fill_band_rest() -> void:
+	if paint_img == null or step >= order_steps.size():
+		return
+	var cols := _order_colors(String(config.get("props", "cake")))
+	var col: Color = cols[order_steps[step]]
+	var band := _paint_band_rows()
+	for y in range(band.x, band.y):
+		for x in range(PAINT_RES):
+			paint_img.set_pixel(x, y, col)
+			paint_hits[y * PAINT_RES + x] = 1
+	paint_band_done = paint_band_need
+	paint_dirty = true
+	_paint_touch()
+
+func _build_paint_canvas() -> void:
+	# a blank primed canvas on its easel, and the live Image the finger paints
+	paint_img = Image.create(PAINT_RES, PAINT_RES, false, Image.FORMAT_RGBA8)
+	paint_img.fill(Color(0.97, 0.95, 0.9))
+	paint_tex = ImageTexture.create_from_image(paint_img)
+	paint_hits = PackedByteArray()
+	paint_hits.resize(PAINT_RES * PAINT_RES)
+	var quad := QuadMesh.new()
+	quad.size = paint_size
+	paint_canvas = MeshInstance3D.new()
+	paint_canvas.name = "PaintCanvas"
+	paint_canvas.mesh = quad
+	paint_canvas.position = canvas_pos + Vector3(0, 0, 0.3)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = paint_tex
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	paint_canvas.material_override = mat
+	add_child(paint_canvas)
+	# the easel frame around it
+	_box(canvas_pos + Vector3(0, 0, 0.1), Vector3(paint_size.x + 0.9, paint_size.y + 0.9, 0.35), Color(0.72, 0.55, 0.4), 0.06)
+	_band_target()
+
+func _band_target() -> void:
+	# each step paints one horizontal band; a band sets at 55% coverage
+	paint_band_done = 0
+	var rows := int(PAINT_RES / maxi(1, order_steps.size()))
+	paint_band_need = int(float(rows * PAINT_RES) * 0.55)
+
+func _paint_band_rows() -> Vector2i:
+	var rows := int(PAINT_RES / maxi(1, order_steps.size()))
+	# band 0 is the SKY at the top, so paint top-down as the picture builds
+	var y0 := step * rows
+	return Vector2i(y0, mini(PAINT_RES, y0 + rows))
+
+func _paint_stroke_uv(u: float, v: float) -> void:
+	# stamp a soft round brush and count only NEW pixels inside the live band
+	if paint_img == null or brush_loaded < 0 or state != "play":
+		return
+	var cols := _order_colors(String(config.get("props", "cake")))
+	var col: Color = cols[order_steps[step]] if step < order_steps.size() else cols[0]
+	var band := _paint_band_rows()
+	var cx := int(u * float(PAINT_RES))
+	var cy := int(v * float(PAINT_RES))
+	var gained := 0
+	for dy in range(-PAINT_BRUSH, PAINT_BRUSH + 1):
+		for dx in range(-PAINT_BRUSH, PAINT_BRUSH + 1):
+			if dx * dx + dy * dy > PAINT_BRUSH * PAINT_BRUSH:
+				continue
+			var px := cx + dx
+			var py := cy + dy
+			if px < 0 or py < 0 or px >= PAINT_RES or py >= PAINT_RES:
+				continue
+			paint_img.set_pixel(px, py, col)
+			var idx := py * PAINT_RES + px
+			if paint_hits[idx] == 0:
+				paint_hits[idx] = 1
+				if py >= band.x and py < band.y:
+					gained += 1
+	if gained > 0:
+		paint_band_done += gained
+		progress_t = 0.0
+		paint_dirty = true
+	if paint_band_done >= paint_band_need:
+		_paint_touch()
+
+func _paint_flush() -> void:
+	if paint_dirty and paint_tex != null:
+		paint_tex.update(paint_img)
+		paint_dirty = false
+
+func _paint_screen(screen: Vector2) -> void:
+	# project the finger onto the canvas plane and paint where it lands
+	if cam == null or paint_canvas == null:
+		return
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 0, 1), paint_canvas.position.z)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return
+	var local: Vector3 = (hit as Vector3) - paint_canvas.position
+	var u := local.x / paint_size.x + 0.5
+	var v := 0.5 - local.y / paint_size.y
+	if u < 0.0 or u > 1.0 or v < 0.0 or v > 1.0:
+		return
+	_paint_stroke_uv(u, v)
+
+func _begin_sketch() -> void:
+	# Beat 1: the charcoal outline. A dotted guide hangs over the canvas and
+	# the line appears wherever the finger has passed.
+	order_phase = "sketch"
+	sketch_trace = 0
+	for i in range(SKETCH_DOTS):
+		var f := float(i) / float(SKETCH_DOTS - 1)
+		# a simple arch: the sun coming up over the water, drawn left to right
+		var dot := _sphere(canvas_pos + Vector3(lerpf(-4.2, 4.2, f), sin(f * PI) * 2.6 - 0.6, 0.5),
+			0.34, Color(0.4, 0.36, 0.5, 0.6), 0.3)
+		sketch_dots.append(dot)
+	_set_drag(true)
+	m.show_msg("Roshan", "First the drawing! TRACE the dotted line with your finger.", "talk")
+	_update_hud()
+
+func _tick_sketch(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		return
+	for d in sketch_dots:
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) >= 66.0:
+			continue
+		d.visible = false
+		sketch_trace += 1
+		progress_t = 0.0
+		var line := _sphere(d.position, 0.46, Color(0.24, 0.2, 0.32), 0.0)
+		line.scale = Vector3.ZERO
+		var pop := line.create_tween()
+		pop.tween_property(line, "scale", Vector3.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.8 + 0.04 * float(sketch_trace)
+			m.chime.play()
+	if sketch_trace >= sketch_dots.size():
+		_begin_fill()
+
+func _begin_fill() -> void:
+	# Beat 2: colour-by-SHAPE, because she cannot read a number. Three panels
+	# stand across the stage wearing a circle, a star and a heart; the easel
+	# calls one shape at a time and she holds on the panel that matches.
+	order_phase = "fill"
+	fill_done = 0
+	fill_want = 0
+	fill_t = 0.0
+	_set_drag(false)
+	var cols := _order_colors("paint")
+	for i in range(3):
+		var pos := CENTER + Vector3(-10.0 + float(i) * 10.0, 1.0, 1.0)
+		var root := Node3D.new()
+		root.name = "ShapePanel%d" % i
+		root.position = pos
+		add_child(root)
+		_box(Vector3(0, 3.0, 0), Vector3(5.4, 6.0, 0.4), Color(0.97, 0.95, 0.9), 0.1, root)
+		# the shape token, drawn big: a ring, a spiky star, a heart pair
+		match i:
+			0:
+				var ring := TorusMesh.new()
+				ring.inner_radius = 1.1
+				ring.outer_radius = 1.7
+				var rm := _mesh(ring, Vector3(0, 3.2, 0.35), Color(0.3, 0.28, 0.4), 0.15, root)
+				rm.rotation_degrees = Vector3(90, 0, 0)
+			1:
+				for k in range(5):
+					var a := float(k) * TAU / 5.0 - PI * 0.5
+					_sphere(Vector3(cos(a) * 1.5, 3.2 + sin(a) * 1.5, 0.35), 0.5,
+						Color(0.3, 0.28, 0.4), 0.15, root)
+			_:
+				_sphere(Vector3(-0.7, 3.7, 0.35), 0.85, Color(0.3, 0.28, 0.4), 0.15, root)
+				_sphere(Vector3(0.7, 3.7, 0.35), 0.85, Color(0.3, 0.28, 0.4), 0.15, root)
+				_sphere(Vector3(0, 2.5, 0.35), 0.75, Color(0.3, 0.28, 0.4), 0.15, root)
+		# the colour that floods in, hidden until it rises
+		var flood := _box(Vector3(0, 0.2, 0.25), Vector3(5.0, 0.4, 0.3), cols[i], 0.4, root)
+		fill_panels.append({"index": i, "node": root, "pos": pos, "flood": flood,
+			"col": cols[i], "filled": false})
+	# the called shape floats over the easel so there is always an answer on screen
+	fill_call = _sphere(canvas_pos + Vector3(0, 4.4, 0.6), 0.9, Color(1.0, 0.9, 0.5), 0.8)
+	fill_call.name = "ShapeCall"
+	m.show_msg("Roshan", "Colour it in! Swim to the panel with the SAME shape and HOLD to fill it.", "talk")
+	_update_hud()
+
+func _tick_fill(delta: float) -> void:
+	if fill_want >= fill_panels.size():
+		return
+	var want: Dictionary = fill_panels[fill_want]
+	if fill_call != null:
+		fill_call.position = canvas_pos + Vector3(0, 4.4 + sin(elapsed * 2.4) * 0.2, 0.6)
+		var cm := fill_call.material_override as StandardMaterial3D
+		if cm != null:
+			cm.albedo_color = Color(want["col"])
+			cm.emission = Color(want["col"])
+	var near := -1
+	for p: Dictionary in fill_panels:
+		if bool(p["filled"]):
+			continue
+		if (p["pos"] as Vector3).distance_to(player_pos) < 5.0:
+			near = int(p["index"])
+			break
+	if near < 0 or not _finger_down():
+		fill_t = maxf(0.0, fill_t - delta * 1.5)
+		return
+	if near != fill_want:
+		# holding on the wrong shape just wobbles it — no loss, and the called
+		# shape stays on screen so the answer is always visible
+		if fmod(elapsed, 0.8) < delta:
+			_wobble(fill_panels[near]["node"] as Node3D)
+			m.show_msg("Roshan", "Not that shape — look at the one over the easel!", "hint")
+			progress_t = maxf(progress_t, RESCUE_DELAY)
+		return
+	fill_t += delta
+	progress_t = 0.0
+	var f := clampf(fill_t / FILL_HOLD, 0.0, 1.0)
+	var flood := want["flood"] as Node3D
+	flood.scale.y = 0.1 + f * 14.0
+	flood.position.y = 0.2 + f * 2.9
+	if fill_t < FILL_HOLD:
+		return
+	want["filled"] = true
+	fill_done += 1
+	fill_t = 0.0
+	m._sparkle_burst((want["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(want["col"]))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.16 * float(fill_done)
+		m.chime.play()
+	fill_want += 1
+	if fill_want >= fill_panels.size():
+		if fill_call != null:
+			fill_call.queue_free()
+			fill_call = null
+		order_phase = "steps"
+		m.show_msg("Roshan", "All coloured in! Now grab a paint pot and swipe the big canvas!", "talk")
+	else:
+		m.show_msg("Roshan", "Filled! Find the next shape!", "hint")
+	_update_hud()
+
+func _paint_touch() -> void:
+	# a band is covered: it sets, the brush empties, the picture grows
+	if state != "play" or kind != "paint" or brush_loaded < 0:
+		return
+	_paint_flush()
+	_leave_easel()
 	brush_node.visible = false
 	brush_loaded = -1
 	m._sparkle_burst(canvas_pos + Vector3(0, 3.0, 1.0), Color(1.0, 0.9, 0.6))
@@ -1163,6 +3305,8 @@ func _paint_touch() -> void:
 		m.chime.play()
 	step += 1
 	progress_t = 0.0
+	if kind == "paint":
+		_band_target()
 	if step >= order_steps.size():
 		if int(config.get("decorate", 0)) > 0:
 			_open_decorate()
@@ -1232,6 +3376,15 @@ func _echo_light(i: int, strong: bool) -> void:
 		m.chime.play()
 
 func _tick_echo(delta: float) -> void:
+	if echo_phase == "ribbon":
+		_tick_ribbon(delta)
+		if ribbon_wand != null:
+			ribbon_wand.position = player_pos + Vector3(0, 2.4, 0.6)
+			ribbon_wand.rotation.z = sin(elapsed * 4.0) * 0.3
+		return
+	if echo_phase == "twirl":
+		_tick_twirl(delta)
+		return
 	if echo_phase != "show":
 		return
 	echo_show_t -= delta
@@ -1245,6 +3398,135 @@ func _tick_echo(delta: float) -> void:
 		echo_phase = "repeat"
 		_update_hud()
 
+func _pose_ring(pad_i: int, frac: float) -> void:
+	# the ribbon that winds round Roshan while she holds the pose
+	if pose_ring == null:
+		pose_ring = Node3D.new()
+		pose_ring.name = "PoseRibbon"
+		add_child(pose_ring)
+		for k in range(6):
+			var bead := _sphere(Vector3.ZERO, 0.36, Color(1.0, 0.82, 0.92), 1.3, pose_ring)
+			bead.name = "Bead%d" % k
+	if pad_i < 0 or frac <= 0.0:
+		pose_ring.visible = false
+		return
+	pose_ring.visible = true
+	pose_ring.position = (pads[pad_i]["pos"] as Vector3) + Vector3(0, 2.2, 0)
+	var lit := int(clampf(frac, 0.0, 1.0) * 6.0)
+	for k in range(6):
+		var bead := pose_ring.get_child(k) as Node3D
+		var a := float(k) / 6.0 * TAU - PI * 0.5
+		bead.position = Vector3(cos(a) * 2.4, sin(a) * 0.9 + frac * 1.6, sin(a) * 2.4)
+		bead.visible = k < lit
+
+func _begin_ribbon() -> void:
+	# Beat 3: a flowing arc of light hangs in the air. Trace it with a finger
+	# and the ribbon draws itself along behind. A TRACE, where the barre and the
+	# echo were both holds.
+	echo_phase = "ribbon"
+	ribbon_trace = 0
+	ribbon_wand = Node3D.new()
+	ribbon_wand.name = "RibbonWand"
+	ribbon_wand.position = CENTER + Vector3(0, 2.2, 6.0)
+	add_child(ribbon_wand)
+	var grip := _cyl(Vector3.ZERO, 0.18, 2.4, Color(0.98, 0.94, 0.9), 0.15, ribbon_wand)
+	grip.rotation_degrees = Vector3(0, 0, 26)
+	# an S-curve sweeping across the stage: a shape a hand WANTS to follow
+	for i in range(RIBBON_DOTS):
+		var f := float(i) / float(RIBBON_DOTS - 1)
+		var dot := _sphere(CENTER + Vector3(lerpf(-11.0, 11.0, f), 5.0 + sin(f * TAU) * 3.2, -1.0),
+			0.4, Color(1.0, 0.78, 0.9, 0.55), 0.45)
+		ribbon_dots.append(dot)
+	_set_drag(true)
+	m.show_msg("Roshan", "Ribbon time! TRACE the sparkly path with your finger and let it fly!", "talk")
+	_update_hud()
+
+func _tick_ribbon(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		return
+	for d in ribbon_dots:
+		if not d.visible:
+			continue
+		if cam.unproject_position(d.position).distance_to(m.touch_ui.drag_pos) >= RIBBON_REACH:
+			continue
+		d.visible = false
+		ribbon_trace += 1
+		progress_t = 0.0
+		# the ribbon itself: a bright streak left where the finger passed
+		var streak := _sphere(d.position, 0.55, Color(1.0, 0.66, 0.86), 0.7)
+		streak.scale = Vector3.ZERO
+		var pop := streak.create_tween()
+		pop.tween_property(streak, "scale", Vector3.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if m.chime != null:
+			m.chime.pitch_scale = 0.85 + 0.05 * float(ribbon_trace)
+			m.chime.play()
+	if ribbon_trace >= ribbon_dots.size():
+		_begin_twirl()
+
+func _begin_twirl() -> void:
+	# Beat 4, the finale: spin. Big circles with the finger, the tutu flares
+	# and petals fall. The drag stays armed — a different shape, same finger.
+	echo_phase = "twirl"
+	twirl_accum = 0.0
+	twirl_done = 0
+	twirl_have_ang = false
+	_set_drag(true)
+	m.show_msg("Roshan", "Now the big finish — draw CIRCLES with your finger and TWIRL!", "talk")
+	_update_hud()
+
+func _twirl_delta(d: float) -> void:
+	# one full turn of finger travel = one twirl (mirrors the chef's stir)
+	if state != "play" or kind != "echo" or echo_phase != "twirl":
+		return
+	twirl_accum += absf(d)
+	progress_t = 0.0
+	if twirl_accum < TAU:
+		return
+	twirl_accum -= TAU
+	twirl_done += 1
+	# petals, one ring per turn
+	for i in range(6):
+		var a := float(i) * TAU / 6.0
+		var petal := _sphere(player_pos + Vector3(cos(a) * 1.2, 2.4, sin(a) * 1.2), 0.34,
+			Color(1.0, 0.72, 0.86), 0.5)
+		var fall := petal.create_tween()
+		fall.tween_property(petal, "position",
+			petal.position + Vector3(cos(a) * 4.0, -2.0, sin(a) * 4.0), 1.1).set_trans(Tween.TRANS_QUAD)
+		fall.tween_property(petal, "scale", Vector3.ZERO, 0.3)
+		fall.tween_callback(petal.queue_free)
+	m._sparkle_burst(player_pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 0.95))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.16 * float(twirl_done)
+		m.chime.play()
+	if twirl_done >= TWIRL_TURNS:
+		_set_drag(false)
+		m.show_msg("Roshan", "BRAVO! What a beautiful recital!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "Twirl! %d more!" % (TWIRL_TURNS - twirl_done), "hint")
+	_update_hud()
+
+func _tick_twirl(_delta: float) -> void:
+	if m.touch_ui == null or cam == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		twirl_have_ang = false
+		return
+	var pivot := cam.unproject_position(player_pos + Vector3(0, 1.6, 0))
+	var v: Vector2 = (m.touch_ui.drag_pos as Vector2) - pivot
+	if v.length() < 24.0:
+		return   # too near the middle for an angle to mean anything
+	var a := v.angle()
+	if not twirl_have_ang:
+		twirl_have_ang = true
+		twirl_ang = a
+		return
+	var d := wrapf(a - twirl_ang, -PI, PI)
+	twirl_ang = a
+	_twirl_delta(d)
+
 func _pad_touch(i: int) -> void:
 	if state != "play" or kind != "echo" or echo_phase != "repeat":
 		return
@@ -1255,7 +3537,7 @@ func _pad_touch(i: int) -> void:
 		if echo_pos >= echo_seq.size():
 			echo_round += 1
 			if echo_round >= echo_rounds.size():
-				_win()
+				_begin_ribbon()   # the echo is the rehearsal, not the recital
 			else:
 				m.show_msg("Roshan", "Beautiful! Now a longer one — watch closely!", "talk")
 				_echo_start_round()
@@ -1300,7 +3582,66 @@ func _build_shuffle() -> void:
 		_sphere(Vector3(0, 0, 0), 0.8, Color(0.97, 0.62, 0.72), 0.2, bunny)
 		_sphere(Vector3(-0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
 		_sphere(Vector3(0.3, 1.0, 0), 0.28, Color(1.0, 0.75, 0.85), 0.3, bunny)
-	_shuffle_hide(0)
+	_begin_hide()
+
+func _begin_hide() -> void:
+	# the bunny-fish sits out in the open; drag a hat over it to hide it
+	shuffle_phase = "hide"
+	hide_hat = -1
+	bunny_at = randi() % hats.size()
+	bunny.visible = true
+	bunny.position = CENTER + Vector3(0, 1.0, -5.0)
+	for h in hats:
+		var node := h["node"] as Node3D
+		node.position = h["home"] as Vector3
+		h["pos"] = h["home"]
+	_set_drag(true)
+	m.show_msg("Roshan", "YOUR trick! Drag a magic hat over the bunny-fish to hide it!", "talk")
+	_update_hud()
+
+func _leave_hide() -> void:
+	_set_drag(false)
+
+func _tick_hide(delta: float) -> void:
+	if shuffle_phase != "hide":
+		return
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		var g := _sort_ground(m.touch_ui.drag_pos)
+		if hide_hat < 0:
+			var best := -1
+			var best_d := 7.0
+			for h in hats:
+				var d: float = (h["pos"] as Vector3).distance_to(g)
+				if d < best_d:
+					best_d = d
+					best = int(h["index"])
+			hide_hat = best
+			if best >= 0:
+				hide_pos = hats[best]["pos"] as Vector3
+		if hide_hat >= 0:
+			var node := hats[hide_hat]["node"] as Node3D
+			node.position = node.position.lerp(Vector3(g.x, node.position.y, g.z), clampf(delta * 12.0, 0.0, 1.0))
+	elif hide_hat >= 0:
+		var node2 := hats[hide_hat]["node"] as Node3D
+		if node2.position.distance_to(bunny.position) < 6.0:
+			# the hat comes down over the bunny-fish: the trick is set
+			bunny_at = hide_hat
+			var settle := node2.create_tween()
+			settle.tween_property(node2, "position", bunny.position, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			hats[hide_hat]["pos"] = bunny.position
+			bunny.visible = false
+			m._sparkle_burst(bunny.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.5))
+			hide_hat = -1
+			_leave_hide()
+			m.show_msg("Roshan", "Abracadabra! Now watch the hats dance...", "talk")
+			_shuffle_hide(bunny_at)
+			return
+		# not over the fish: the hat drifts kindly back to its spot
+		var back := node2.create_tween()
+		back.tween_property(node2, "position", hide_pos, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hats[hide_hat]["pos"] = hide_pos
+		hide_hat = -1
 
 func _shuffle_hide(target: int) -> void:
 	bunny_at = target
@@ -1323,10 +3664,24 @@ func _shuffle_hide(target: int) -> void:
 	_update_hud()
 
 func _tick_shuffle(delta: float) -> void:
+	if shuffle_phase == "rope":
+		_tick_rope(delta)
+		if rope_root != null:
+			rope_root.position.y = CENTER.y + 4.4 + sin(elapsed * 1.8) * 0.2
+		return
+	if shuffle_phase == "cabinet":
+		cab_beat_t += delta
+		if cab_wand != null:
+			# the wand pulses ON the beat: the rhythm must be readable with the
+			# phone muted, so the cue is a size change, not a sound
+			var lit := _cab_on_beat()
+			cab_wand.scale = Vector3.ONE * (1.16 if lit else 0.92)
+			cab_wand.rotation.z = sin(elapsed * 3.0) * 0.12
+		return
 	if shuffle_phase == "wait":
 		shuffle_wait_t -= delta
 		if shuffle_wait_t <= 0.0:
-			_shuffle_hide(shuffle_next)
+			_begin_hide()   # she performs the trick again, every round
 		return
 	if shuffle_phase != "watch":
 		return
@@ -1360,8 +3715,178 @@ func _tick_shuffle(delta: float) -> void:
 		swap_plan.remove_at(0)
 		shuffle_t = intro   # next segment starts fresh
 
+func _begin_rope() -> void:
+	# Trick 3: a knotted silk rope. Drag your finger OUTWARD and each knot
+	# melts away. A pull, not a tap — the third distinct gesture in the act.
+	shuffle_phase = "rope"
+	rope_undone = 0
+	rope_tracking = false
+	rope_pull_need = ROPE_PULL
+	if bunny != null:
+		bunny.visible = false
+	for h in hats:
+		var hn := h["node"] as Node3D
+		var sink := hn.create_tween()
+		sink.tween_property(hn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	rope_root = Node3D.new()
+	rope_root.name = "KnottedRope"
+	rope_root.position = CENTER + Vector3(0, 4.4, -1.0)
+	add_child(rope_root)
+	var silk: bool = int(m.opera_pantry.get("silk scarves", 0)) > 0
+	var cord_col := Color(0.95, 0.62, 0.85) if silk else Color(0.86, 0.8, 0.68)
+	var cord := _cyl(Vector3.ZERO, 0.28, 13.0, cord_col, 0.25, rope_root)
+	cord.rotation_degrees = Vector3(0, 0, 90)
+	for i in range(ROPE_KNOTS):
+		var kx := -4.0 + float(i) * 4.0
+		var knot := _sphere(Vector3(kx, 0, 0), 0.95, cord_col.darkened(0.15), 0.3, rope_root)
+		rope_knots.append(knot)
+	if silk:
+		# the ushers she freed hold the far ends for her, so every pull is
+		# shorter — the gift is a real mechanical helping hand, not a colour
+		rope_pull_need = ROPE_PULL * 0.55
+		for ex: float in [-7.0, 7.0]:
+			var scarf := _box(Vector3(ex, -0.2, 0.4), Vector3(1.8, 0.14, 1.4),
+				Color(1.0, 0.85, 0.95), 0.35, rope_root)
+			scarf.rotation_degrees = Vector3(0, 0, 12.0 * signf(ex))
+	_set_drag(true)
+	# one line, not two — the second show_msg would simply overwrite the first
+	# and the child would never hear what the scarves did
+	m.show_msg("Roshan", ("The usher crabs tied their silk scarves to the ends and are holding it for you — DRAG your finger out wide to melt the knots away!"
+		if silk else "Trick three — the magic rope! DRAG your finger out wide to melt the knots away!"), "talk")
+	_update_hud()
+
+func _rope_untie() -> void:
+	if rope_undone >= rope_knots.size():
+		return
+	var knot := rope_knots[rope_undone]
+	rope_undone += 1
+	progress_t = 0.0
+	var puff := knot.create_tween()
+	puff.tween_property(knot, "scale", Vector3.ONE * 1.5, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	puff.tween_property(knot, "scale", Vector3.ZERO, 0.22)
+	m._sparkle_burst(rope_root.position + knot.position + Vector3(0, 1.0, 0), Color(1.0, 0.85, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.15 * float(rope_undone)
+		m.chime.play()
+	if rope_undone >= rope_knots.size():
+		_begin_cabinet()
+	else:
+		m.show_msg("Roshan", "One knot gone! %d to go — keep pulling!" % (rope_knots.size() - rope_undone), "hint")
+	_update_hud()
+
+func _tick_rope(_delta: float) -> void:
+	if m.touch_ui == null or not bool(m.touch_ui.drag_mode):
+		return
+	if not bool(m.touch_ui.drag_active):
+		rope_tracking = false
+		return
+	var x: float = (m.touch_ui.drag_pos as Vector2).x
+	if not rope_tracking:
+		rope_tracking = true
+		rope_x0 = x
+		return
+	# outward in EITHER direction counts — she may pull left or right, and a
+	# four-year-old will not reliably choose the one the picture implies
+	if absf(x - rope_x0) >= rope_pull_need:
+		rope_x0 = x
+		_rope_untie()
+
+func _cab_on_beat() -> bool:
+	return fmod(cab_beat_t, CAB_BEAT) < CAB_BEAT * CAB_WINDOW
+
+func _begin_cabinet() -> void:
+	# Trick 4, the finale: tap the star wand ON the beat three times and the
+	# cabinet opens on an enormous bunny-fish. A rhythm tap, not a free tap.
+	shuffle_phase = "cabinet"
+	cab_taps = 0
+	cab_beat_t = 0.0
+	_set_drag(false)
+	if rope_root != null:
+		var gone := rope_root
+		rope_root = null
+		var fade := gone.create_tween()
+		fade.tween_property(gone, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		fade.tween_callback(gone.queue_free)
+	cab_root = Node3D.new()
+	cab_root.name = "TrickCabinet"
+	cab_root.position = CENTER + Vector3(0, 1.0, -8.0)
+	add_child(cab_root)
+	_box(Vector3(0, 4.0, -0.9), Vector3(9.0, 8.0, 1.2), Color(0.36, 0.24, 0.56), 0.08, cab_root)
+	_box(Vector3(0, 8.4, 0), Vector3(9.8, 0.9, 3.0), Color(0.48, 0.32, 0.7), 0.18, cab_root)
+	for side: float in [-1.0, 1.0]:
+		var door := Node3D.new()
+		door.name = "CabinetDoor%s" % ("L" if side < 0.0 else "R")
+		door.position = Vector3(side * 4.4, 0, 0.4)
+		cab_root.add_child(door)
+		var leaf := _box(Vector3(-side * 2.2, 4.0, 0), Vector3(4.4, 7.8, 0.35),
+			Color(0.58, 0.4, 0.82), 0.2, door)
+		_sphere(Vector3(-side * 4.0, 4.0, 0.3), 0.45, Color(1.0, 0.86, 0.45), 0.6, door)
+		leaf.name = "DoorLeaf"
+		cab_doors.append(door)
+	# the wand she taps, floating where the pointer can find it
+	cab_wand = Node3D.new()
+	cab_wand.name = "StarWand"
+	cab_wand.position = CENTER + Vector3(0, 4.0, 1.0)
+	add_child(cab_wand)
+	var stick := _cyl(Vector3.ZERO, 0.2, 3.2, Color(0.98, 0.96, 0.9), 0.15, cab_wand)
+	stick.rotation_degrees = Vector3(0, 0, 22)
+	_sphere(Vector3(0.6, 1.7, 0), 0.85, Color(1.0, 0.88, 0.45), 0.9, cab_wand)
+	m.show_msg("Roshan", "The grand finale! Tap the star wand ON the beat — three times!", "talk")
+	_update_hud()
+
+func _cab_tap() -> void:
+	# out of reach = the tap swishes, exactly like every other act's verb
+	if cab_wand == null or Vector2(cab_wand.position.x - player_pos.x,
+			cab_wand.position.z - player_pos.z).length() > 9.0:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	if not _cab_on_beat():
+		# off the beat: the wand fizzles and twinkles. Never a loss, never a
+		# reset — the beat comes round again in barely a second.
+		m._sparkle_burst(cab_wand.position + Vector3(0, 1.0, 0), Color(0.8, 0.85, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		return
+	cab_taps += 1
+	progress_t = 0.0
+	m._sparkle_burst(cab_wand.position + Vector3(0, 1.6, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.95 + 0.16 * float(cab_taps)
+		m.chime.play()
+	for i in range(cab_doors.size()):
+		var door := cab_doors[i]
+		var side := -1.0 if i == 0 else 1.0
+		var swing := door.create_tween()
+		var open_y := side * (0.45 + 0.35 * float(cab_taps))
+		swing.tween_property(door, "rotation:y", open_y, 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		if cab_taps < CAB_TAPS:
+			swing.tween_property(door, "rotation:y", open_y * 0.55, 0.3)
+	if cab_taps >= CAB_TAPS:
+		# the enormous bunny-fish: the same friend, ten times the size
+		if bunny != null:
+			bunny.visible = true
+			bunny.position = cab_root.position + Vector3(0, 4.2, 0.5)
+			var grow := bunny.create_tween()
+			grow.tween_property(bunny, "scale", Vector3.ONE * 3.4, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		m._sparkle_burst(cab_root.position + Vector3(0, 6.0, 0), Color(1.0, 0.8, 1.0))
+		m.show_msg("Roshan", "TA-DAA! The bunny-fish is ENORMOUS! What a show!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "The doors are swinging! %d more on the beat!" % (CAB_TAPS - cab_taps), "hint")
+	_update_hud()
+
 func _shuffle_action(choice: int) -> void:
-	if state != "play" or kind != "shuffle" or shuffle_phase != "pick":
+	if state != "play" or kind != "shuffle":
+		return
+	if shuffle_phase == "cabinet":
+		_cab_tap()
+		return
+	if shuffle_phase == "rope":
+		# the rope is a PULL — a tap on it must not untie anything
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.85, 0.9, 1.0))
+		return
+	if shuffle_phase != "pick":
 		return
 	var hat: Node3D = hats[choice]["node"] as Node3D
 	if choice == bunny_at:
@@ -1376,7 +3901,7 @@ func _shuffle_action(choice: int) -> void:
 		shuffle_round += 1
 		progress_t = 0.0
 		if shuffle_round >= int(config.get("rounds", 2)):
-			_win()
+			_begin_rope()   # the hat trick is one number, not the whole show
 		else:
 			m.show_msg("Roshan", "You found him! One more time — watch the hats!", "talk")
 			shuffle_phase = "wait"   # timer-driven pause while the reveal plays out
@@ -1400,158 +3925,254 @@ func _shuffle_action(choice: int) -> void:
 # ghost shows the same shape, then spins the valve to launch the bubbles.
 
 func _build_fix() -> void:
-	# bubble tank (left) and star rocket (right) joined by a pipe run at the back
-	var tank := Node3D.new()
-	tank.name = "BubbleTank"
-	tank.position = CENTER + Vector3(-16.0, 1.0, -12.0)
-	add_child(tank)
-	if _job_art("astronaut/opera_astronaut_tank.glb", tank) == null:
-		_cyl(Vector3(0, 2.2, 0), 2.2, 4.4, Color(0.55, 0.85, 0.95), 0.15, tank)
-		_sphere(Vector3(0, 5.0, 0), 1.4, Color(0.75, 0.95, 1.0), 0.3, tank)
-	var rocket := Node3D.new()
+	# ---- Beat 2: Pipe Dream. Grid, queue, and a lit fuse. ----
+	fix_phase = "pipes"
+	var grid_o := CENTER + Vector3(-12.5, 3.2, -9.0)
+	for r in range(PIPE_ROWS):
+		for c in range(PIPE_COLS):
+			var pos := grid_o + Vector3(float(c) * 5.0, float(PIPE_ROWS - 1 - r) * 4.4, 0.0)
+			var frame := _box(pos, Vector3(4.4, 3.9, 0.5), Color(0.26, 0.32, 0.48), 0.05)
+			frame.name = "PipeCell%d_%d" % [r, c]
+			pipe_cells.append({"row": r, "col": c, "pos": pos, "shape": "", "node": null, "frame": frame})
+	# the bubble tank feeds the middle row from the left, the rocket drinks on the right
+	var feed := grid_o + Vector3(-4.4, float(PIPE_ROWS - 1 - PIPE_START_ROW) * 4.4, 0.0)
+	_cyl(feed, 1.6, 4.0, Color(0.55, 0.85, 0.95), 0.25)
+	_sphere(feed + Vector3(0, 2.4, 0), 1.2, Color(0.75, 0.95, 1.0), 0.4)
+	rocket = Node3D.new()
 	rocket.name = "StarRocket"
-	rocket.position = CENTER + Vector3(14.0, 1.0, -12.0)
+	rocket.position = grid_o + Vector3(float(PIPE_COLS) * 5.0 + 1.0, float(PIPE_ROWS - 1 - PIPE_START_ROW) * 4.4 - 2.0, 0.0)
+	rocket_home_y = rocket.position.y
 	add_child(rocket)
 	if _job_art("astronaut/opera_astronaut_rocket.glb", rocket) == null:
-		_cyl(Vector3(0, 3.0, 0), 1.8, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
+		_cyl(Vector3(0, 3.0, 0), 1.6, 6.0, Color(0.92, 0.9, 0.98), 0.1, rocket)
 		var nose := CylinderMesh.new()
-		nose.top_radius = 0.1
-		nose.bottom_radius = 1.8
-		nose.height = 2.6
-		_mesh(nose, Vector3(0, 7.3, 0), Color(1.0, 0.55, 0.5), 0.2, rocket)
-	# the live window sphere stays in both cases: the kit frames it with a
-	# brass port ring at the same spot, and the launch glow toggles it
-	rocket_window = _sphere(Vector3(0, 3.6, 1.5), 0.8, Color(0.2, 0.22, 0.4), 0.05, rocket)
-	rocket_window.material_override = rocket_window.material_override.duplicate() as StandardMaterial3D
-	# fixed pipe stubs along the run, with three gaps between them
-	for px in [-12.0, -4.0, 4.0, 12.0]:
-		var stub := _cyl(CENTER + Vector3(px, 3.0, -12.0), 0.55, 2.6, Color(0.75, 0.78, 0.88), 0.1)
-		stub.rotation_degrees = Vector3(0, 0, 90.0)
-	# the three gaps: each slot ghost shows the SHAPE it needs (picture clue)
-	var needs: Array[int] = [2, 0, 1]
-	for i in range(3):
-		var sx := -8.0 + float(i) * 8.0
-		var slot_root := Node3D.new()
-		slot_root.name = "PipeSlot%d" % i
-		slot_root.position = CENTER + Vector3(sx, 3.0, -12.0)
-		add_child(slot_root)
-		var ghost := _box(Vector3.ZERO, Vector3(2.6, 2.0, 1.2), Color(0.95, 0.95, 0.6, 0.3), 0.3, slot_root)
-		var gm := ghost.material_override as StandardMaterial3D
-		gm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		var hint := _make_pipe_shape(needs[i], Color(1.0, 0.92, 0.5))
-		hint.scale = Vector3.ONE * 0.45
-		hint.position = Vector3(0, 3.0, 0)
-		slot_root.add_child(hint)
-		slots.append({"index": i, "node": slot_root, "ghost": ghost, "hint": hint,
-			"pos": CENTER + Vector3(sx, 1.0, -12.0), "need": needs[i], "filled": false})
-	# the three loose pieces wait on pads at the front of the stage
-	var piece_cols: Array[Color] = [Color(0.45, 0.85, 1.0), Color(1.0, 0.62, 0.78), Color(0.6, 0.95, 0.65)]
-	for i in range(3):
-		var px2 := -12.0 + float(i) * 12.0
-		var home := CENTER + Vector3(px2, 1.0, 5.0)
-		var pad_root := Node3D.new()
-		pad_root.name = "PiecePad%d" % i
-		pad_root.position = home
-		add_child(pad_root)
-		_cyl(Vector3(0, -0.4, 0), 2.4, 0.5, piece_cols[i].darkened(0.45), 0.0, pad_root)
-		var piece := _make_pipe_shape(i, piece_cols[i])
-		piece.position = home + Vector3(0, 1.4, 0)
-		add_child(piece)
-		pieces.append({"index": i, "node": piece, "home": piece.position, "pos": home, "placed": false})
-	# the valve appears on the tank once every pipe is in place
-	valve = Node3D.new()
-	valve.name = "BubbleValve"
-	valve.position = CENTER + Vector3(-16.0, 4.6, -10.4)
-	add_child(valve)
-	var valve_kit := _job_art("astronaut/opera_astronaut_valve.glb", valve)
-	if valve_kit != null:
-		valve_kit.position = Vector3(0, -2.0, 0)   # pedestal reaches the deck
-	else:
-		var wheel := TorusMesh.new()
-		wheel.inner_radius = 0.5
-		wheel.outer_radius = 1.0
-		var wheel_mesh := _mesh(wheel, Vector3.ZERO, Color(1.0, 0.7, 0.3), 0.15, valve)
-		wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-		_box(Vector3.ZERO, Vector3(1.8, 0.3, 0.3), Color(1.0, 0.7, 0.3), 0.15, valve)
-
-func _make_pipe_shape(shape: int, col: Color) -> Node3D:
-	# 0 = straight pipe, 1 = elbow pipe, 2 = ring coupler — chunky and distinct
-	var root := Node3D.new()
-	root.name = "PipePiece%d" % shape
-	match shape:
-		1:
-			var a := _cyl(Vector3(-0.5, 0, 0), 0.55, 1.6, col, 0.25, root)
-			a.rotation_degrees = Vector3(0, 0, 90.0)
-			_cyl(Vector3(0.3, 0.7, 0), 0.55, 1.6, col, 0.25, root)
-		2:
-			var ring := TorusMesh.new()
-			ring.inner_radius = 0.45
-			ring.outer_radius = 1.0
-			_mesh(ring, Vector3.ZERO, col, 0.25, root)
-		_:
-			var straight := _cyl(Vector3.ZERO, 0.55, 2.4, col, 0.25, root)
-			straight.rotation_degrees = Vector3(0, 0, 90.0)
-	return root
-
-func _nearest_piece() -> int:
-	var best := -1
-	var best_d := PAD_REACH
-	for piece in pieces:
-		if bool(piece["placed"]):
-			continue
-		var d: float = (piece["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
-			best = int(piece["index"])
-	return best
-
-func _pick_piece(i: int) -> void:
-	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried >= 0:
-		return
-	if bool(pieces[i]["placed"]):
-		return
-	carried = i
-	progress_t = 0.0
-	m._sparkle_burst(((pieces[i]["node"] as Node3D)).position + Vector3(0, 1.0, 0), Color(0.8, 0.95, 1.0))
-	if m.chime != null:
-		m.chime.pitch_scale = 1.05
-		m.chime.play()
-	m.show_msg("Roshan", "Got it! Now carry it to the glowing pipe gap!", "talk")
+		nose.top_radius = 0.05
+		nose.bottom_radius = 1.6
+		nose.height = 2.4
+		_mesh(nose, Vector3(0, 7.2, 0), Color(0.95, 0.5, 0.5), 0.2, rocket)
+	rocket_window = _sphere(Vector3(0, 4.0, 1.3), 0.75, Color(0.5, 0.62, 0.8), 0.1, rocket)
+	# the queue: three pieces waiting, and she can only take the front one.
+	# The bubble engineers she frees hand over SPARE PIPES, and a spare is a
+	# fourth slot — one more piece of lookahead, which is the whole skill of
+	# Pipe Dream. Read at BUILD time is safe here only because the astronaut is
+	# shelled: _build_fix runs before the rescue pays out, so this reads the
+	# pantry on the NEXT visit... which is exactly the bug the lanterns and the
+	# kart wheels had. Take the queue depth when the puzzle actually starts.
+	pipe_queue_depth = 3
+	for i in range(pipe_queue_depth):
+		pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	pipe_fuse_t = PIPE_FUSE
+	pipe_flow_cell = -1
+	_set_drag(true)
+	m.show_msg("Roshan", "Bubble pipes! DRAG the front pipe onto the wall to build a path from the tank to the rocket — hurry, the bubbles are coming!", "talk")
 	_update_hud()
 
-func _place_piece() -> void:
-	if state != "play" or kind != "fix" or fix_phase != "pipes" or carried < 0:
+func _leave_pipes() -> void:
+	_set_drag(false)
+
+func _pipe_roll() -> String:
+	var bag: Array[String] = ["h", "h", "h", "v", "ne", "nw", "se", "sw"]
+	return bag[randi() % bag.size()]
+
+func _pipe_queue_pos(i: int) -> Vector3:
+	return CENTER + Vector3(-16.0, 6.0 - float(i) * 3.4, -4.0)
+
+func _pipe_rebuild_queue() -> void:
+	for n in pipe_queue_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	pipe_queue_nodes.clear()
+	for i in range(pipe_queue.size()):
+		var node := _pipe_piece_node(pipe_queue[i], _pipe_queue_pos(i), i == 0)
+		pipe_queue_nodes.append(node)
+
+func _pipe_piece_node(shape: String, pos: Vector3, front: bool) -> Node3D:
+	var root := Node3D.new()
+	root.position = pos
+	add_child(root)
+	var col := Color(0.72, 0.92, 1.0) if front else Color(0.45, 0.55, 0.7)
+	var glow := 0.55 if front else 0.1
+	# a pipe is drawn as arms reaching from the centre toward each opening
+	_sphere(Vector3.ZERO, 0.85, col, glow, root)
+	for d in (PIPE_SHAPES[shape] as Array):
+		var off := _pipe_dir(int(d)) * 1.35
+		var arm := _cyl(off, 0.62, 2.2, col, glow, root)
+		if int(d) == 1 or int(d) == 3:
+			arm.rotation_degrees = Vector3(0, 0, 90)
+	return root
+
+func _pipe_dir(d: int) -> Vector3:
+	match d:
+		0: return Vector3(0, 1, 0)
+		1: return Vector3(1, 0, 0)
+		2: return Vector3(0, -1, 0)
+	return Vector3(-1, 0, 0)
+
+func _pipe_cell_at(row: int, col: int) -> int:
+	if row < 0 or col < 0 or row >= PIPE_ROWS or col >= PIPE_COLS:
+		return -1
+	return row * PIPE_COLS + col
+
+func _pipe_place(idx: int) -> void:
+	# drop the front piece into an empty cell — or swap out a piece the
+	# bubbles have not flowed through yet. Without the swap, a wrong pipe
+	# laid on the glowing square bricked the path forever (the leak waited
+	# on a cell that could never be re-laid): a fail state wearing a leak's
+	# clothes. Cells the bubbles already filled stay locked.
+	if idx < 0 or idx >= pipe_cells.size() or pipe_queue.is_empty():
 		return
-	var slot: Dictionary = slots[fix_step]
-	var piece: Dictionary = pieces[carried]
-	var node: Node3D = piece["node"] as Node3D
-	if carried == int(slot["need"]):
-		piece["placed"] = true
-		slot["filled"] = true
-		node.position = (slot["node"] as Node3D).position
-		(slot["ghost"] as Node3D).visible = false
-		(slot["hint"] as Node3D).visible = false
-		carried = -1
-		fix_step += 1
+	var cell: Dictionary = pipe_cells[idx]
+	if String(cell["shape"]) != "":
+		if pipe_filled.has(idx):
+			_wobble(cell["node"] as Node3D)
+			return
+		var old := cell["node"] as Node3D
+		if old != null:
+			m._sparkle_burst(old.position, Color(0.85, 0.9, 1.0))
+			old.queue_free()
+		cell["node"] = null
+	var shape: String = pipe_queue.pop_front()
+	cell["shape"] = shape
+	cell["node"] = _pipe_piece_node(shape, cell["pos"] as Vector3, true)
+	progress_t = 0.0
+	pipe_queue.append(_pipe_roll())
+	_pipe_rebuild_queue()
+	m._sparkle_burst((cell["pos"] as Vector3), Color(0.8, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.1
+		m.chime.play()
+	# a piece laid onto the cell the bubbles are waiting at un-sticks them
+	if pipe_leak_t > 0.0 and pipe_flow_cell == idx:
+		pipe_leak_t = 0.0
+	_update_hud()
+
+func _pipe_advance() -> void:
+	# walk the bubbles one cell along whatever line she has built
+	if pipe_flow_cell < 0:
+		pipe_flow_cell = _pipe_cell_at(PIPE_START_ROW, 0)
+		pipe_flow_from = 3
+		m.show_msg("Roshan", "Here come the bubbles!", "talk")
+		return
+	var cell: Dictionary = pipe_cells[pipe_flow_cell]
+	var shape: String = String(cell["shape"])
+	if shape == "":
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	var conns: Array = PIPE_SHAPES[shape]
+	if not conns.has(pipe_flow_from):
+		# a leak DRAINS the pipe it hit: the cell unlocks so a new piece can
+		# go straight over it. Without the drain, a loop that re-entered a
+		# flooded cell from the wrong side leaked on a square nobody could
+		# ever re-lay — run 785's wandering-bubbles stall.
+		pipe_filled.erase(pipe_flow_cell)
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	var exit_d := int(conns[0]) if int(conns[0]) != pipe_flow_from else int(conns[1])
+	m._sparkle_burst((cell["pos"] as Vector3) + _pipe_dir(exit_d) * 1.4, Color(0.75, 0.95, 1.0))
+	if not pipe_filled.has(pipe_flow_cell):
+		pipe_filled.append(pipe_flow_cell)
+	var nr := int(cell["row"]) + (1 if exit_d == 2 else (-1 if exit_d == 0 else 0))
+	var nc := int(cell["col"]) + (1 if exit_d == 1 else (-1 if exit_d == 3 else 0))
+	if nc >= PIPE_COLS:
+		# the right edge IS the rocket, whichever row the bubbles wander out
+		# on — a wrong-row edge exit used to leak forever with no way home
+		_pipe_reached_rocket()
+		return
+	var nxt := _pipe_cell_at(nr, nc)
+	if nxt < 0:
+		pipe_filled.erase(pipe_flow_cell)
+		_pipe_leak(cell["pos"] as Vector3)
+		return
+	pipe_flow_cell = nxt
+	pipe_flow_from = (exit_d + 2) % 4
+
+func _pipe_leak(at: Vector3) -> void:
+	# never a fail: the bubbles puff, wait, and give her time to lay the piece
+	pipe_leak_t = 3.0
+	m._sparkle_burst(at + Vector3(0, 1.2, 0), Color(0.9, 0.95, 1.0))
+	if m.chime != null:
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+	if progress_t > 4.0:
 		progress_t = 0.0
-		m._sparkle_burst(node.position + Vector3(0, 1.5, 0), Color(1.0, 0.9, 0.5))
-		if m.chime != null:
-			m.chime.pitch_scale = 0.95 + 0.18 * float(fix_step)
-			m.chime.play()
-		if fix_step >= slots.size():
-			fix_phase = "valve"
-			m.show_msg("Roshan", "Every pipe is fixed! Now spin the big valve to send the bubbles!", "talk")
-		_update_hud()
-	else:
-		# gentle bounce home: wrong shape never fails, the ghost just wiggles
-		var tw := node.create_tween()
-		tw.tween_property(node, "position", piece["home"] as Vector3, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		carried = -1
-		_wobble(slot["node"] as Node3D)
-		if m.chime != null:
-			m.chime.pitch_scale = 0.55
-			m.chime.play()
-		m.show_msg("Roshan", "That shape doesn't fit this gap — look at the little picture above it!", "hint")
+		m.show_msg("Roshan", "The bubbles are waiting! Put a pipe on the glowing square.", "hint")
+
+func _pipe_reached_rocket() -> void:
+	fix_phase = "valve"
+	pipe_leak_t = 0.0
+	if m.touch_ui != null:
+		_set_drag(false)
+	valve = Node3D.new()
+	valve.name = "BubbleValve"
+	valve.position = CENTER + Vector3(12.0, 2.6, -4.0)
+	add_child(valve)
+	var wheel := TorusMesh.new()
+	wheel.inner_radius = 1.1
+	wheel.outer_radius = 1.7
+	_mesh(wheel, Vector3.ZERO, Color(0.95, 0.75, 0.45), 0.35, valve)
+	for i in range(4):
+		var spoke := _box(Vector3.ZERO, Vector3(2.9, 0.3, 0.3), Color(0.95, 0.8, 0.5), 0.3, valve)
+		spoke.rotation_degrees = Vector3(0, 0, 45.0 * float(i))
+	m._sparkle_burst(rocket.position + Vector3(0, 3.0, 0), Color(0.8, 0.97, 1.0))
+	m.show_msg("Roshan", "The bubbles made it to the rocket! Now SPIN the big valve to build the pressure!", "talk")
+	_update_hud()
+
+func _tick_pipes(delta: float) -> void:
+	if fix_phase != "pipes":
+		return
+	# the finger carries the front piece onto the wall
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		pipe_drag_pos = _sort_ground_plane(m.touch_ui.drag_pos)
+		if pipe_held < 0 and not pipe_queue_nodes.is_empty():
+			if pipe_queue_nodes[0].position.distance_to(pipe_drag_pos) < 7.0:
+				pipe_held = 0
+		if pipe_held == 0 and not pipe_queue_nodes.is_empty():
+			pipe_queue_nodes[0].position = pipe_drag_pos
+	elif pipe_held == 0:
+		pipe_held = -1
+		var best := -1
+		var best_d := 3.4
+		for i in range(pipe_cells.size()):
+			if String(pipe_cells[i]["shape"]) != "":
+				continue
+			var d: float = ((pipe_cells[i]["pos"] as Vector3)).distance_to(pipe_drag_pos)
+			if d < best_d:
+				best_d = d
+				best = i
+		if best >= 0:
+			_pipe_place(best)
+		else:
+			_pipe_rebuild_queue()
+	# highlight the cell the bubbles are heading for
+	for i in range(pipe_cells.size()):
+		var fr := pipe_cells[i]["frame"] as MeshInstance3D
+		var want: bool = (i == pipe_flow_cell and String(pipe_cells[i]["shape"]) == "")
+		fr.material_override = _mat(Color(1.0, 0.85, 0.5) if want else Color(0.26, 0.32, 0.48), 0.5 if want else 0.05)
+	# the fuse, then the flow
+	if pipe_fuse_t > 0.0:
+		pipe_fuse_t -= delta
+		return
+	if pipe_leak_t > 0.0:
+		pipe_leak_t -= delta
+		return
+	pipe_flow_t += delta
+	if pipe_flow_t >= PIPE_FLOW_STEP:
+		pipe_flow_t = 0.0
+		_pipe_advance()
+
+func _sort_ground_plane(screen: Vector2) -> Vector3:
+	# the pipe wall stands upright, so project onto its plane, not the floor
+	if cam == null:
+		return pipe_drag_pos
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 0, 1), CENTER.z - 9.0)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return pipe_drag_pos
+	return hit as Vector3
 
 func _turn_valve() -> void:
 	# three big spins build the bubble pressure, then the rocket lights up
@@ -1566,7 +4187,7 @@ func _turn_valve() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 0.9 + 0.2 * float(valve_spins)
 		m.chime.play()
-	if valve_spins < 3:
+	if valve_spins < 5:
 		m.show_msg("Roshan", "The bubbles are building — spin it again!", "talk")
 		_update_hud()
 		return
@@ -1576,20 +4197,60 @@ func _turn_valve() -> void:
 		wm.emission = Color(1.0, 0.95, 0.6)
 		wm.emission_enabled = true
 		wm.emission_energy_multiplier = 1.5
-	_win()
+	_begin_launch()
+
+func _begin_launch() -> void:
+	fix_phase = "launch"
+	launch_hold = 0.0
+	launch_on = true
+	_set_drag(true)
+	# the thrust bar climbing the gantry
+	_box(CENTER + Vector3(12.0, 5.0, -12.0), Vector3(1.6, 10.0, 1.6), Color(0.3, 0.34, 0.5), 0.06)
+	launch_bar = _box(CENTER + Vector3(12.0, 0.4, -12.0), Vector3(1.9, 0.5, 1.9), Color(0.6, 0.95, 1.0), 1.2)
+	m.show_msg("Roshan", "COUNTDOWN! Press and HOLD your finger to build the bubbles — don't let go!", "talk")
+	_update_hud()
+
+func _leave_launch() -> void:
+	launch_on = false
+	_set_drag(false)
+
+func _tick_launch(delta: float) -> void:
+	if not launch_on:
+		return
+	if _finger_down():
+		launch_hold += delta
+	else:
+		launch_hold = maxf(0.0, launch_hold - delta * 0.45)   # sags, never resets
+	var frac := clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0)
+	if launch_bar != null:
+		launch_bar.position.y = CENTER.y + 0.4 + frac * 9.2
+	if rocket != null:
+		rocket.position.y = rocket_home_y + frac * 1.2
+		if fmod(launch_hold, 0.25) < delta:
+			m._sparkle_burst(rocket.position + Vector3(randf_range(-1.5, 1.5), -1.0, 0), Color(0.75, 0.95, 1.0))
+	if launch_hold >= LAUNCH_HOLD:
+		_leave_launch()
+		if rocket != null:
+			var lift := rocket.create_tween()
+			lift.tween_property(rocket, "position:y", rocket.position.y + 26.0, 1.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		for i in range(8):
+			m._sparkle_burst(CENTER + Vector3(randf_range(-6.0, 6.0), 2.0 + float(i), -12.0), Color(0.8, 0.97, 1.0))
+		_win()
 
 func _tick_fix(_delta: float) -> void:
-	if carried >= 0:
-		var node: Node3D = pieces[carried]["node"] as Node3D
-		node.position = player_pos + Vector3(0, 3.4, 0)
-		node.rotation.y = elapsed * 1.5
+	if fix_phase == "launch":
+		_tick_launch(_delta)
+		return
+	if fix_phase == "pipes":
+		_tick_pipes(_delta)
+		return
 	if fix_phase == "valve" and valve != null:
 		valve.scale = Vector3.ONE * (1.0 + 0.08 * sin(elapsed * 5.0))
 
-# ------------- "press" engine (candy maker: the face-stamp machine) -------------
-# Rough demo props: a candy press with a sliding star gauge. Tap PRESS when
-# the star crosses the glowing middle and the press stamps a smiley face on
-# the candy. Misses just squish a silly wobble — the candy always survives.
+# ------------- "press" engine (candy maker: the sorting conveyor) -------------
+# Candies ride out of the press wearing a collar in their own colour and are
+# DRAGGED into the matching chute. A wrong chute spits them back, an unsorted
+# candy loops round for another pass, and every success speeds the belt up.
 
 func _build_press() -> void:
 	candies_goal = int(config.get("candies", 4))
@@ -1614,7 +4275,324 @@ func _build_press() -> void:
 	press_slider = _sphere(CENTER + Vector3(0, track_y, -8.2), 0.65, Color(1.0, 0.9, 0.4), 1.2)
 	# a little shelf where the finished smiley candies line up
 	_box(CENTER + Vector3(11.0, 1.2, -6.0), Vector3(6.0, 0.5, 3.0), Color(0.6, 0.45, 0.65), 0.1)
-	_candy_next()
+	_begin_syrup()
+	_build_belt()
+
+func _build_belt() -> void:
+	# the belt deck, and three colour-coded chutes along the front of it
+	_box(CENTER + Vector3(0, 0.55, BELT_Z), Vector3(BELT_X1 - BELT_X0 + 4.0, 0.5, 5.0), Color(0.45, 0.38, 0.5), 0.08)
+	for i in range(SORT_CHUTES):
+		var col := _candy_cols()[i]
+		var cx := lerpf(-10.0, 10.0, float(i) / float(SORT_CHUTES - 1))
+		var pos := CENTER + Vector3(cx, 1.0, BELT_Z + 7.5)
+		_box(pos + Vector3(0, 0.4, 0), Vector3(6.0, 2.6, 4.0), col.darkened(0.25), 0.1)
+		_box(pos + Vector3(0, 1.9, 0), Vector3(6.6, 0.5, 4.6), col, 0.55)
+		chutes.append({"index": i, "pos": pos, "col": col})
+	_set_drag(press_phase == "sort")
+	if press_phase == "sort":
+		_belt_spawn()
+
+func _leave_belt() -> void:
+	_set_drag(false)
+
+func _begin_syrup() -> void:
+	# Beat 1: three colour bottles over the vat. Stand at one and HOLD until it
+	# reaches its line. The vat colours up as each one goes in.
+	press_phase = "syrup"
+	syrup_want = 0
+	syrup_t = 0.0
+	var cols := _candy_cols()
+	for i in range(3):
+		var pos := CENTER + Vector3(-8.0 + float(i) * 8.0, 1.0, 3.0)
+		var root := Node3D.new()
+		root.name = "SyrupBottle%d" % i
+		root.position = pos
+		add_child(root)
+		var body := _cyl(Vector3(0, 3.4, 0), 1.3, 4.0, cols[i], 0.4, root)
+		_cyl(Vector3(0, 5.8, 0), 0.5, 1.2, Color(0.95, 0.93, 0.98), 0.2, root)
+		var line := _box(Vector3(0, 1.6, 1.35), Vector3(2.8, 0.28, 0.2), Color(1.0, 1.0, 1.0), 0.6, root)
+		syrup_bottles.append({"index": i, "node": root, "pos": pos, "body": body,
+			"line": line, "col": cols[i], "poured": false})
+	m.show_msg("Roshan", "Sweet-shop time! Swim to the first bottle and HOLD to pour the syrup in.", "talk")
+	_update_hud()
+
+func _tick_syrup(delta: float) -> void:
+	if syrup_want >= syrup_bottles.size():
+		return
+	var want: Dictionary = syrup_bottles[syrup_want]
+	var near := -1
+	for b: Dictionary in syrup_bottles:
+		if bool(b["poured"]):
+			continue
+		if (b["pos"] as Vector3).distance_to(player_pos) < 5.0:
+			near = int(b["index"])
+			break
+	if near < 0 or not _finger_down():
+		syrup_t = maxf(0.0, syrup_t - delta * 1.5)
+		return
+	if near != syrup_want:
+		if fmod(elapsed, 0.8) < delta:
+			_wobble(syrup_bottles[near]["node"] as Node3D)
+			m.show_msg("Roshan", "That one's next in a minute — the sparkle shows which bottle!", "hint")
+			progress_t = maxf(progress_t, RESCUE_DELAY)
+		return
+	syrup_t += delta
+	progress_t = 0.0
+	var body := want["body"] as Node3D
+	body.rotation_degrees.z = lerpf(0.0, -54.0, clampf(syrup_t / 0.4, 0.0, 1.0))
+	if fmod(syrup_t, 0.2) < delta:
+		m._sparkle_burst((want["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(want["col"]))
+	if syrup_t < SYRUP_HOLD:
+		return
+	want["poured"] = true
+	syrup_t = 0.0
+	syrup_want += 1
+	var tip := body.create_tween()
+	tip.tween_property(body, "rotation_degrees:z", 0.0, 0.3)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.16 * float(syrup_want)
+		m.chime.play()
+	if syrup_want >= syrup_bottles.size():
+		press_phase = "sort"
+		_set_drag(true)
+		_belt_spawn()
+		m.show_msg("Roshan", "The syrup is ready! Now DRAG each candy into the chute of the same colour!", "talk")
+	else:
+		m.show_msg("Roshan", "In it goes! Next bottle!", "hint")
+	_update_hud()
+
+func _begin_wrap() -> void:
+	# Beat 3: twist the wrappers shut. A rotational drag — the belt was a
+	# drag-and-drop and the parade is a tap, so nothing repeats.
+	press_phase = "wrap"
+	wrap_done = 0
+	wrap_accum = 0.0
+	wrap_have_ang = false
+	wrap_node = Node3D.new()
+	wrap_node.name = "WrapperCandy"
+	wrap_node.position = CENTER + Vector3(0, 5.0, -2.0)
+	add_child(wrap_node)
+	_sphere(Vector3.ZERO, 1.9, Color(1.0, 0.72, 0.82), 0.35, wrap_node)
+	for ex: float in [-1.0, 1.0]:
+		var twist := _cyl(Vector3(ex * 2.6, 0, 0), 0.75, 2.0, Color(0.98, 0.95, 0.88), 0.3, wrap_node)
+		twist.rotation_degrees = Vector3(0, 0, 90)
+	_set_drag(true)
+	m.show_msg("Roshan", "Now TWIST the wrappers shut — draw circles with your finger!", "talk")
+	_update_hud()
+
+func _wrap_delta(d: float) -> void:
+	if state != "play" or kind != "press" or press_phase != "wrap":
+		return
+	wrap_accum += absf(d)
+	progress_t = 0.0
+	if wrap_node != null:
+		wrap_node.rotation.z += d * 0.8
+	if wrap_accum < WRAP_TWIST:
+		return
+	wrap_accum -= WRAP_TWIST
+	wrap_done += 1
+	m._sparkle_burst(wrap_node.position + Vector3(0, 1.4, 0), Color(1.0, 0.9, 0.7))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.15 * float(wrap_done)
+		m.chime.play()
+	if wrap_done >= 4:
+		_begin_parade()
+	else:
+		m.show_msg("Roshan", "Sealed! %d more to twist!" % (4 - wrap_done), "hint")
+	_update_hud()
+
+func _tick_wrap(_delta: float) -> void:
+	if m.touch_ui == null or cam == null or wrap_node == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		wrap_have_ang = false
+		return
+	var pivot := cam.unproject_position(wrap_node.position)
+	var v: Vector2 = (m.touch_ui.drag_pos as Vector2) - pivot
+	if v.length() < 24.0:
+		return
+	var a := v.angle()
+	if not wrap_have_ang:
+		wrap_have_ang = true
+		wrap_ang = a
+		return
+	var d := wrapf(a - wrap_ang, -PI, PI)
+	wrap_ang = a
+	_wrap_delta(d)
+
+func _begin_parade() -> void:
+	# Beat 4, the finale: the parade cart rolls past under the chute and she
+	# taps as it goes by. A TIMED tap — the cart keeps rolling either way, so a
+	# miss is another lap of the stage, never a loss.
+	press_phase = "parade"
+	parade_t = 0.0
+	parade_loaded = 0
+	_set_drag(false)
+	if wrap_node != null:
+		wrap_node.queue_free()
+		wrap_node = null
+	parade_cart = Node3D.new()
+	parade_cart.name = "ParadeCart"
+	parade_cart.position = CENTER + Vector3(-18.0, 1.0, 4.0)
+	add_child(parade_cart)
+	_box(Vector3(0, 1.6, 0), Vector3(6.0, 2.6, 4.0), Color(1.0, 0.78, 0.88), 0.2, parade_cart)
+	_box(Vector3(0, 3.2, 0), Vector3(6.6, 0.4, 4.4), Color(1.0, 0.9, 0.5), 0.5, parade_cart)
+	for wx: float in [-2.0, 2.0]:
+		var wheel := _cyl(Vector3(wx, 0.2, 2.1), 1.0, 0.5, Color(0.55, 0.42, 0.62), 0.1, parade_cart)
+		wheel.rotation_degrees = Vector3(90, 0, 0)
+	m.show_msg("Roshan", "Here comes the parade cart! TAP when it rolls right under the chute!", "talk")
+	_update_hud()
+
+func _parade_action() -> void:
+	if press_phase != "parade" or parade_cart == null or state != "play":
+		return
+	if absf(parade_cart.position.x - CENTER.x) > 3.6:
+		# too early or too late: a candy plops on the deck and bounces. The cart
+		# comes round again, so this costs a moment and nothing else.
+		m._sparkle_burst(CENTER + Vector3(0, 4.0, 4.0), Color(0.85, 0.9, 1.0))
+		if m.chime != null:
+			m.chime.pitch_scale = 0.55
+			m.chime.play()
+		m.show_msg("Roshan", "Whoops — it bounced! Wait for the cart to be right underneath.", "hint")
+		return
+	parade_loaded += 1
+	progress_t = 0.0
+	var sweet := _sphere(parade_cart.position + Vector3(-1.2 + float(parade_loaded) * 1.2, 4.2, 0),
+		0.6, _candy_cols()[parade_loaded % 3], 0.5)
+	var drop := sweet.create_tween()
+	drop.tween_property(sweet, "position:y", parade_cart.position.y + 3.4, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	m._sparkle_burst(parade_cart.position + Vector3(0, 4.4, 0), Color(1.0, 0.9, 0.6))
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.18 * float(parade_loaded)
+		m.chime.play()
+	if parade_loaded >= 5:
+		m.show_msg("Roshan", "The candy parade is rolling! Everyone gets a sweet!", "win")
+		_win()
+	else:
+		m.show_msg("Roshan", "In it goes! %d more!" % (3 - parade_loaded), "hint")
+	_update_hud()
+
+func _tick_parade(delta: float) -> void:
+	if parade_cart == null:
+		return
+	parade_t = fmod(parade_t + delta, PARADE_SPAN)
+	var f := parade_t / PARADE_SPAN
+	parade_cart.position.x = CENTER.x + lerpf(-18.0, 18.0, f)
+	parade_cart.position.y = CENTER.y + 1.0 + sin(elapsed * 6.0) * 0.08
+
+func _candy_cols() -> Array[Color]:
+	return [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
+
+func _belt_spawn() -> void:
+	if candies_done + belt_items.size() >= candies_goal:
+		return
+	var want := randi() % SORT_CHUTES
+	var root := Node3D.new()
+	root.name = "BeltCandy%d" % (candies_done + belt_items.size())
+	root.position = CENTER + Vector3(BELT_X0, 1.6, BELT_Z)
+	add_child(root)
+	if _job_art("candymaker/opera_candymaker_candy_%d.glb" % ((candies_done + belt_items.size()) % 7), root) == null:
+		_sphere(Vector3.ZERO, 1.2, _candy_cols()[want], 0.3, root)
+	# a bright collar in the candy's OWN colour, so the match is readable at a glance
+	var collar := TorusMesh.new()
+	collar.inner_radius = 1.25
+	collar.outer_radius = 1.65
+	var ring := _mesh(collar, Vector3(0, -0.9, 0), _candy_cols()[want], 0.7, root)
+	ring.rotation_degrees = Vector3(90, 0, 0)
+	belt_items.append({"node": root, "want": want, "x": BELT_X0})
+
+func _sort_ground(screen: Vector2) -> Vector3:
+	if cam == null:
+		return sort_pos
+	var from := cam.project_ray_origin(screen)
+	var dir := cam.project_ray_normal(screen)
+	var plane := Plane(Vector3(0, 1, 0), CENTER.y + 1.6)
+	var hit: Variant = plane.intersects_ray(from, dir)
+	if hit == null:
+		return sort_pos
+	return hit as Vector3
+
+func _tick_belt(delta: float) -> void:
+	belt_next = maxf(0.0, belt_next - delta)
+	if belt_next <= 0.0 and belt_items.size() < 3:
+		belt_next = 2.6
+		_belt_spawn()
+	# the finger: grab the nearest candy, carry it, drop it on a chute
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		sort_pos = _sort_ground(m.touch_ui.drag_pos)
+		if sort_held < 0:
+			var best := -1
+			var best_d := 6.0
+			for i in range(belt_items.size()):
+				var d: float = ((belt_items[i]["node"] as Node3D).position).distance_to(sort_pos)
+				if d < best_d:
+					best_d = d
+					best = i
+			sort_held = best
+	elif sort_held >= 0 and not hold_sim:
+		# hold_sim is the probe's finger: while it is down the carry belongs to
+		# the driver, exactly like a real drag — real play never sets it
+		_sort_drop()
+	for i in range(belt_items.size()):
+		var it: Dictionary = belt_items[i]
+		var node := it["node"] as Node3D
+		if i == sort_held:
+			if not hold_sim:
+				node.position = node.position.lerp(sort_pos + Vector3(0, 1.2, 0), clampf(delta * 12.0, 0.0, 1.0))
+			continue
+		it["x"] = float(it["x"]) + belt_speed * delta
+		if float(it["x"]) > BELT_X1:
+			# nobody sorted it: it loops back round for another pass, never lost
+			it["x"] = BELT_X0
+		node.position = CENTER + Vector3(float(it["x"]), 1.6 + sin(elapsed * 3.0 + float(i)) * 0.12, BELT_Z)
+
+func _sort_drop() -> void:
+	if sort_held < 0 or sort_held >= belt_items.size():
+		sort_held = -1
+		return
+	var it: Dictionary = belt_items[sort_held]
+	var node := it["node"] as Node3D
+	var want := int(it["want"])
+	var best := -1
+	var best_d := 6.5
+	for c in chutes:
+		var d: float = (c["pos"] as Vector3).distance_to(node.position)
+		if d < best_d:
+			best_d = d
+			best = int(c["index"])
+	sort_held = -1
+	if best < 0:
+		# dropped on the deck: it just rejoins the belt where it fell
+		it["x"] = clampf(node.position.x - CENTER.x, BELT_X0, BELT_X1)
+		return
+	if best != want:
+		# wrong chute spits it back with a giggle — no fail, no loss
+		_wobble(node)
+		it["x"] = BELT_X0
+		if m.chime != null:
+			m.chime.pitch_scale = 0.6
+			m.chime.play()
+		m.show_msg("Roshan", "Oops — that candy wants the %s chute!" % ["pink", "blue", "gold"][want], "hint")
+		return
+	belt_items.remove_at(belt_items.find(it))
+	candies_done += 1
+	progress_t = 0.0
+	belt_speed = 2.4 + 0.42 * float(candies_done)
+	m._sparkle_burst((chutes[best]["pos"] as Vector3) + Vector3(0, 3.0, 0), chutes[best]["col"])
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.1 * float(candies_done)
+		m.chime.play()
+	var drop := node.create_tween()
+	drop.tween_property(node, "position", (chutes[best]["pos"] as Vector3) + Vector3(0, 0.5, 0), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	drop.tween_callback(node.queue_free)
+	shelf_candies.append(node)
+	if candies_done >= candies_goal:
+		_leave_belt()
+		_begin_wrap()
+	else:
+		_belt_spawn()
+		_update_hud()
 
 func _candy_next() -> void:
 	var candy_cols: Array[Color] = [Color(1.0, 0.62, 0.7), Color(0.62, 0.85, 1.0), Color(1.0, 0.85, 0.45)]
@@ -1630,63 +4608,8 @@ func _candy_next() -> void:
 	tw.tween_property(candy_node, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _press_action() -> void:
-	if state != "play" or kind != "press" or press_busy > 0.0 or candy_node == null:
-		return
-	press_busy = 0.9
-	var stamp_down := press_block.position + Vector3(0, -2.4, 0)
-	var stamp_home := press_block.position
-	var tw := press_block.create_tween()
-	tw.tween_property(press_block, "position", stamp_down, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	tw.tween_property(press_block, "position", stamp_home, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	if absf(press_x) <= press_zone:
-		# every candy gets its own face: dot eyes, then starry eyes, then a
-		# blushing heart-mouth — collecting the trio is half the fun
-		match candies_done:
-			1:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.24, Color(1.0, 0.85, 0.35), 0.8, candy_node)
-				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
-			2:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(-0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
-				_sphere(Vector3(0.7, 0.0, 1.0), 0.16, Color(1.0, 0.55, 0.6), 0.3, candy_node)
-				_sphere(Vector3(0, -0.3, 1.15), 0.22, Color(0.95, 0.35, 0.5), 0.4, candy_node)
-			_:
-				_sphere(Vector3(-0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_sphere(Vector3(0.4, 0.35, 1.05), 0.18, Color(0.15, 0.12, 0.25), 0.0, candy_node)
-				_box(Vector3(0, -0.25, 1.15), Vector3(0.7, 0.16, 0.16), Color(0.15, 0.12, 0.25), 0.0, candy_node)
-		shelf_candies.append(candy_node)
-		m._sparkle_burst(candy_node.position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 1.0))
-		if m.chime != null:
-			m.chime.pitch_scale = 1.0 + 0.15 * float(candies_done)
-			m.chime.play()
-		candies_done += 1
-		progress_t = 0.0
-		var done := candy_node
-		var shelf := CENTER + Vector3(8.0 + float(candies_done) * 2.4, 1.9, -6.0)
-		var tw2 := done.create_tween()
-		tw2.tween_interval(0.35)
-		tw2.tween_property(done, "position", shelf, 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-		candy_node = null
-		# the sweet spot narrows a touch each candy, but stays generous
-		press_zone = maxf(0.2, 0.34 - 0.045 * float(candies_done))
-		if press_zone_box != null:
-			press_zone_box.scale.x = press_zone / 0.34
-		if candies_done >= candies_goal:
-			_win()
-		else:
-			press_next_t = 0.8   # timer-driven so headless playtests can pump time
-			_update_hud()
-	else:
-		# a miss just squishes a giggle-wobble — the candy is always fine
-		var squish := candy_node.create_tween()
-		squish.tween_property(candy_node, "scale", Vector3(1.25, 0.7, 1.25), 0.15)
-		squish.tween_property(candy_node, "scale", Vector3.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		if m.chime != null:
-			m.chime.pitch_scale = 0.55
-			m.chime.play()
-		m.show_msg("Roshan", "Squish! Wait until the star slides into the green middle, then PRESS!", "hint")
+	# sorting is a DRAG onto the matching chute now — the button does nothing
+	pass
 
 func _tick_press(delta: float) -> void:
 	press_busy = maxf(0.0, press_busy - delta)
@@ -1704,173 +4627,299 @@ func _tick_press(delta: float) -> void:
 # hearts, then the bandage. Taps out of order just wobble and re-point.
 
 func _build_doctor() -> void:
-	_box(CENTER + Vector3(0, 1.2, -2.0), Vector3(7.0, 1.6, 4.4), Color(0.9, 0.93, 0.98), 0.05)
-	_box(CENTER + Vector3(0, 0.4, -2.0), Vector3(5.6, 0.8, 3.4), Color(0.75, 0.8, 0.9), 0.0)
-	patient = Node3D.new()
-	patient.name = "PlushPatient"
-	patient.position = CENTER + Vector3(0, 2.6, -2.0)
-	add_child(patient)
-	# species lock: the patient is always the coral five-armed starfish plush
-	doctor_patient_art = _job_art("doctor/opera_doctor_patient.glb", patient)
-	if doctor_patient_art != null:
-		_job_state(doctor_patient_art, "StateComplete", false)
-	else:
-		_sphere(Vector3.ZERO, 1.6, Color(0.95, 0.55, 0.45), 0.1, patient)
-		for i in range(5):
-			var a := float(i) * TAU / 5.0 + 0.3
-			_sphere(Vector3(cos(a) * 1.7, 0.2, sin(a) * 1.7), 0.62, Color(0.98, 0.68, 0.58), 0.1, patient)
-		_sphere(Vector3(-0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-		_sphere(Vector3(0.45, 0.8, 1.15), 0.2, Color(0.12, 0.1, 0.25), 0.0, patient)
-	# step 0: the stethoscope — listen to the plushy's little heart first
-	var scope := Node3D.new()
-	scope.name = "Stethoscope"
-	scope.position = CENTER + Vector3(-9.0, 1.0, 4.0)
-	add_child(scope)
-	if _job_art("doctor/opera_doctor_scope.glb", scope) == null:
-		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, scope)
-		var ring := TorusMesh.new()
-		ring.inner_radius = 0.55
-		ring.outer_radius = 0.75
-		_mesh(ring, Vector3(0, 1.5, 0), Color(0.35, 0.4, 0.55), 0.1, scope)
-		_cyl(Vector3(0, 0.7, 0.4), 0.3, 0.16, Color(0.85, 0.9, 0.98), 0.4, scope)
-	doc_targets.append({"index": 0, "node": scope, "pos": scope.position, "kind": "scope"})
-	# step 1: the thermometer on its little stand
-	var thermo := Node3D.new()
-	thermo.name = "Thermometer"
-	thermo.position = CENTER + Vector3(9.0, 1.0, 4.0)
-	add_child(thermo)
-	if _job_art("doctor/opera_doctor_thermo.glb", thermo) == null:
-		_cyl(Vector3(0, 0.2, 0), 1.2, 0.4, Color(0.8, 0.85, 0.92), 0.05, thermo)
-		var stem := _box(Vector3(0, 1.4, 0), Vector3(0.3, 2.2, 0.3), Color(0.95, 0.97, 1.0), 0.3, thermo)
-		stem.rotation_degrees = Vector3(0, 0, 18.0)
-		_sphere(Vector3(-0.35, 0.55, 0), 0.34, Color(1.0, 0.35, 0.3), 0.5, thermo)
-	doc_targets.append({"index": 1, "node": thermo, "pos": thermo.position, "kind": "thermo"})
-	# steps 2-6: glowing boo-boos on the plush that become hearts when tended.
-	# The reach points alternate sides so each kiss is a little swim, not a
-	# stand-still tap chain.
-	var boo_spots: Array[Vector3] = [Vector3(-1.1, 0.9, 0.8), Vector3(1.2, 0.5, 0.9),
-		Vector3(-0.5, 0.3, 1.25), Vector3(0.9, 0.85, 1.1), Vector3(0.1, 0.3, 1.35)]
-	var boo_reaches: Array[Vector3] = [Vector3(-2.4, 1.0, 1.4), Vector3(2.4, 1.0, 1.4),
-		Vector3(-1.5, 1.0, 2.2), Vector3(1.5, 1.0, 2.2), Vector3(0.0, 1.0, 2.4)]
-	for b in range(boo_spots.size()):
-		var boo := _sphere(boo_spots[b], 0.4, Color(1.0, 0.3, 0.25), 0.9, patient)
-		var heart := _sphere(boo_spots[b] + Vector3(0, 0.15, 0.1), 0.42, Color(1.0, 0.55, 0.75), 0.7, patient)
-		heart.visible = false
-		doc_targets.append({"index": 2 + b, "node": boo, "heart": heart, "pos": CENTER + boo_reaches[b], "kind": "boo"})
-	# step 7: the bandage roll, which wraps a soft white band around the plush
-	var roll := Node3D.new()
-	roll.name = "BandageRoll"
-	roll.position = CENTER + Vector3(0.0, 1.0, 6.5)
-	add_child(roll)
-	if _job_art("doctor/opera_doctor_bandage.glb", roll) == null:
-		var loop := TorusMesh.new()
-		loop.inner_radius = 0.4
-		loop.outer_radius = 0.9
-		_mesh(loop, Vector3(0, 0.9, 0), Color(0.97, 0.97, 0.94), 0.15, roll)
-	var band := _box(Vector3(0, 0.1, 0), Vector3(3.6, 0.5, 3.6), Color(0.98, 0.98, 0.95), 0.2, patient)
-	band.visible = false
-	doc_targets.append({"index": 7, "node": roll, "band": band, "pos": roll.position, "kind": "bandage"})
+	# ---- Beat 0: the washbasin. Doctors scrub up before they help. ----
+	vet_phase = "wash"
+	vet_wash_t = 0.0
+	vet_done_n = 0
+	vet_goal_n = int(config.get("patients", 1))
+	vet_basin = Node3D.new()
+	vet_basin.name = "WashBasin"
+	vet_basin.position = CENTER + Vector3(14.0, 1.0, 2.0)
+	add_child(vet_basin)
+	_cyl(Vector3(0, 1.0, 0), 0.8, 2.0, Color(0.85, 0.9, 0.98), 0.1, vet_basin)
+	var bowl := _sphere(Vector3(0, 2.3, 0), 1.4, Color(0.95, 0.98, 1.0), 0.25, vet_basin)
+	bowl.scale = Vector3(1.0, 0.55, 1.0)
+	_sphere(Vector3(0.5, 2.9, 0.3), 0.42, Color(0.75, 0.92, 1.0), 0.8, vet_basin)
+	# ---- Beat 1: the ward. Four little animals, one of them hurt. ----
+	var kinds: Array[String] = ["starfish", "seahorse", "turtle", "crab"]
+	var cols: Array[Color] = [Color(0.95, 0.55, 0.45), Color(1.0, 0.78, 0.5),
+		Color(0.55, 0.8, 0.6), Color(0.95, 0.6, 0.72)]
+	vet_hurt = randi() % kinds.size()
+	for i in range(kinds.size()):
+		var a := float(i) / float(kinds.size()) * TAU + 0.4
+		var pos := CENTER + Vector3(cos(a) * 11.0, 1.4, -2.0 + sin(a) * 7.0)
+		var root := Node3D.new()
+		root.name = "WardAnimal%d" % i
+		root.position = pos
+		add_child(root)
+		if i == vet_hurt and _job_art("doctor/opera_doctor_patient.glb", root) != null:
+			doctor_patient_art = root.get_child(root.get_child_count() - 1) as Node3D
+		else:
+			_sphere(Vector3.ZERO, 1.5, cols[i], 0.1, root)
+			_sphere(Vector3(-0.5, 0.9, 0.9), 0.24, Color(0.15, 0.12, 0.2), 0.0, root)
+			_sphere(Vector3(0.5, 0.9, 0.9), 0.24, Color(0.15, 0.12, 0.2), 0.0, root)
+		# only the hurt one wears a hurt-mark: a throbbing ouch star
+		var mark := _sphere(Vector3(0, 2.6, 0), 0.5, Color(1.0, 0.45, 0.5), 1.4, root)
+		mark.visible = (i == vet_hurt)
+		vet_animals.append({"index": i, "node": root, "pos": pos, "mark": mark, "hurt": i == vet_hurt})
+	# ---- the fluoroscope arch, waiting stage-left ----
+	vet_scope = Node3D.new()
+	vet_scope.name = "Fluoroscope"
+	vet_scope.position = CENTER + Vector3(0, 0.0, -13.0)
+	add_child(vet_scope)
+	for sx: float in [-4.6, 4.6]:
+		_cyl(Vector3(sx, 3.4, 0), 0.55, 6.8, Color(0.78, 0.82, 0.95), 0.1, vet_scope)
+	_box(Vector3(0, 7.0, 0), Vector3(10.4, 0.9, 1.4), Color(0.85, 0.88, 1.0), 0.15, vet_scope)
+	_box(Vector3(0, 1.2, 0), Vector3(9.0, 0.5, 4.0), Color(0.92, 0.95, 1.0), 0.12, vet_scope)
+	var pane := QuadMesh.new()
+	pane.size = Vector2(8.4, 5.2)
+	vet_screen = MeshInstance3D.new()
+	vet_screen.mesh = pane
+	vet_screen.position = Vector3(0, 4.2, -0.8)
+	var sm := StandardMaterial3D.new()
+	sm.albedo_color = Color(0.1, 0.16, 0.26)
+	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	vet_screen.material_override = sm
+	vet_scope.add_child(vet_screen)
+	vet_screen.visible = false
+	m.show_msg("Roshan", "Doctor Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
+	_update_hud()
 
-func _doctor_action(choice: int) -> void:
-	if state != "play" or kind != "doctor" or doc_step >= doc_targets.size():
+func _tick_wash(delta: float) -> void:
+	# Beat 0: a HOLD at the basin, the one hold in the act. Letting go just
+	# drains the bubbles back down — never a fail.
+	if vet_basin == null:
 		return
-	if doc_wait > 0.0:
-		return   # the plushy is still giggling from the last step — taps rest kindly
-	var target: Dictionary = doc_targets[choice]
-	if choice != doc_step:
-		_wobble(target["node"] as Node3D)
+	var flat := vet_basin.position - player_pos
+	flat.y = 0.0
+	if flat.length() < 5.5 and _finger_down():
+		vet_wash_t += delta
+		progress_t = 0.0
+		if fmod(vet_wash_t, 0.3) < delta:
+			m._sparkle_burst(vet_basin.position + Vector3(0, 3.2, 0), Color(0.8, 0.95, 1.0))
+		if vet_wash_t >= VET_WASH_HOLD:
+			hold_sim = false
+			vet_phase = "find"
+			progress_t = 0.0
+			if m.chime != null:
+				m.chime.pitch_scale = 1.3
+				m.chime.play()
+			m._sparkle_burst(vet_basin.position + Vector3(0, 3.6, 0), Color(1.0, 0.95, 0.8))
+			m.show_msg("Roshan", "Squeaky clean! Now find the poorly animal — look for the red ouch star!", "talk")
+			_update_hud()
+	else:
+		vet_wash_t = maxf(0.0, vet_wash_t - delta * 1.5)
+
+func _vet_pick(i: int) -> void:
+	# Beat 1 -> 2: scoop up the hurt animal. A well animal just giggles.
+	if vet_phase != "find":
+		return
+	var a: Dictionary = vet_animals[i]
+	if not bool(a["hurt"]):
+		_wobble(a["node"] as Node3D)
 		if m.chime != null:
-			m.chime.pitch_scale = 0.55
+			m.chime.pitch_scale = 1.5
 			m.chime.play()
-		m.show_msg("Roshan", "Not that one yet, doctor — follow the golden sparkle!", "hint")
+		m.show_msg("Roshan", "This one is all better! Look for the red ouch star.", "hint")
 		return
+	vet_carry = a["node"] as Node3D
+	(a["mark"] as Node3D).visible = false
+	vet_phase = "carry"
 	progress_t = 0.0
-	var node: Node3D = target["node"] as Node3D
-	match String(target["kind"]):
-		"scope":
-			# two soft heart-thumps while the plushy's chest pulses
-			var beat := create_tween()
-			beat.tween_callback(_heart_thump)
-			beat.tween_interval(0.4)
-			beat.tween_callback(_heart_thump)
-			var pulse := patient.create_tween()
-			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
-			pulse.tween_property(patient, "scale", Vector3.ONE * 1.08, 0.35)
-			pulse.tween_property(patient, "scale", Vector3.ONE, 0.35)
-			m.show_msg("Roshan", "Bum-bum... bum-bum... a strong little heart! Now the thermometer!", "talk")
-		"thermo":
-			var tw := node.create_tween()
-			tw.tween_property(node, "position", patient.position + Vector3(0, 2.4, 1.2), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			tw.tween_interval(0.4)
-			tw.tween_property(node, "position", target["pos"] as Vector3, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			m.show_msg("Roshan", "Just a tiny fever — the boo-boos need some love!", "talk")
-		"boo":
-			node.visible = false
-			var heart := target["heart"] as Node3D
-			heart.visible = true
-			heart.scale = Vector3.ZERO
-			var tw2 := heart.create_tween()
-			tw2.tween_property(heart, "scale", Vector3.ONE, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		"bandage":
-			var tw3 := node.create_tween()
-			tw3.tween_property(node, "position", patient.position + Vector3(0, 1.0, 0), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-			tw3.tween_callback(func() -> void: node.visible = false)
-			var band := target["band"] as Node3D
-			band.visible = true
-			band.scale = Vector3.ZERO
-			var tw4 := band.create_tween()
-			tw4.tween_property(band, "scale", Vector3.ONE, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	m._sparkle_burst((target["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.7, 0.95, 1.0))
-	if m.chime != null:
-		m.chime.pitch_scale = 0.95 + 0.15 * float(doc_step)
-		m.chime.play()
-	doc_step += 1
-	if doc_step >= doc_targets.size():
-		# recovered pose: worried face off, happy face + blush on
-		_job_state(doctor_patient_art, "StateIdle", false)
-		_job_state(doctor_patient_art, "StateComplete", true)
-		# magic-kiss finale: a fountain of hearts, then the plush pops up better
-		for h in range(3):
-			m._sparkle_burst(patient.position + Vector3(-1.5 + float(h) * 1.5, 2.5 + float(h) * 0.8, 1.0), Color(1.0, 0.6, 0.8))
-		var hop := patient.create_tween()
-		hop.tween_property(patient, "position:y", patient.position.y + 1.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		hop.tween_property(patient, "position:y", patient.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	m._sparkle_burst(vet_carry.position + Vector3(0, 2.0, 0), Color(1.0, 0.8, 0.85))
+	m.show_msg("Roshan", "Oh no, a poorly leg! Carry them over to the big fluoroscope!", "talk")
+	_update_hud()
+
+func _vet_arrive() -> void:
+	# Beat 2 -> 3: the x-ray warms up with a flicker, then the cracked bone shows
+	vet_phase = "xray"
+	vet_warm = 2.5
+	progress_t = 0.0
+	vet_carry.position = vet_scope.position + Vector3(0, 2.2, 0)
+	vet_screen.visible = true
+	vet_limb = randi() % 4
+	for i in range(4):
+		var lx := -2.7 + float(i) * 1.8
+		var bone := _box(Vector3(lx, 4.2, -0.7), Vector3(0.55, 3.0, 0.2),
+			Color(0.85, 0.92, 1.0), 0.5, vet_scope)
+		if i == vet_limb:
+			# the crack: a dark break across the middle, plus a red pulse
+			vet_xray_extra.append(_box(Vector3(lx, 4.2, -0.6), Vector3(0.8, 0.36, 0.2), Color(0.15, 0.18, 0.3), 0.0, vet_scope))
+			vet_xray_extra.append(_sphere(Vector3(lx, 4.2, -0.4), 0.42, Color(1.0, 0.4, 0.45), 1.5, vet_scope))
+		vet_bones.append(bone)
+	m.show_msg("Roshan", "The fluoroscope is warming up — watch the screen flicker on!", "talk")
+	_update_hud()
+
+func _vet_bone(i: int) -> void:
+	# Beat 3 -> 4: naming the break opens the cast
+	if vet_phase != "xray":
+		return
+	if vet_warm > 0.0:
+		# the screen is still warming — a kindly twinkle, never a wrong answer
+		m._sparkle_burst(vet_scope.position + Vector3(0, 4.2, 0), Color(0.8, 0.9, 1.0))
+		return
+	if i != vet_limb:
+		_wobble(vet_bones[i])
+		if m.chime != null:
+			m.chime.pitch_scale = 0.6
+			m.chime.play()
+		m.show_msg("Roshan", "That bone looks strong! Find the one with the dark crack.", "hint")
+		return
+	vet_phase = "cast"
+	vet_wrap = 0.0
+	vet_have_ang = false
+	progress_t = 0.0
+	vet_screen.visible = false
+	for b in vet_bones:
+		b.visible = false
+	_set_drag(true)
+	m._sparkle_burst(vet_scope.position + Vector3(0, 4.2, 0), Color(0.8, 0.95, 1.0))
+	m.show_msg("Roshan", "Found it! Now wrap the soft cast ROUND and ROUND the leg with your finger!", "talk")
+	_update_hud()
+
+func _vet_leave() -> void:
+	_set_drag(false)
+
+func _vet_wrap_delta(d: float) -> void:
+	# Beats 4 and 5 share the verb — circle the limb — but not the material:
+	# soft white padding first, then the bright stretchy coban over the top.
+	if vet_phase != "cast" and vet_phase != "coban":
+		return
+	vet_wrap += absf(d)
+	progress_t = 0.0
+	var turns: float = VET_WRAP_TURNS if vet_phase == "cast" else VET_COBAN_TURNS
+	var want := int(clampf(vet_wrap / TAU, 0.0, turns) * 2.0)
+	while vet_layers.size() < want:
+		var k := vet_layers.size()
+		var col := Color(0.98, 0.97, 0.95) if vet_phase == "cast" else Color(0.4, 0.75, 0.95)
+		var ring := TorusMesh.new()
+		ring.inner_radius = 0.5 + (0.12 if vet_phase == "coban" else 0.0)
+		ring.outer_radius = 0.78 + (0.12 if vet_phase == "coban" else 0.0)
+		var band := _mesh(ring, vet_scope.position + Vector3(0, 1.9 + float(k) * 0.28, 0), col, 0.2)
+		band.rotation_degrees = Vector3(90, 0, 0)
+		vet_layers.append(band)
+		m._sparkle_burst(band.position, col)
+	if vet_wrap >= turns * TAU:
+		if vet_phase == "cast":
+			vet_phase = "coban"
+			vet_wrap = 0.0
+			m.show_msg("Roshan", "Soft padding done! Now the stretchy blue coban over the top — round and round again!", "talk")
+			_update_hud()
+		else:
+			_vet_finish()
+
+func _vet_finish() -> void:
+	vet_done_n += 1
+	_vet_leave()
+	_job_state(doctor_patient_art, "StateIdle", false)
+	_job_state(doctor_patient_art, "StateComplete", true)
+	for h in range(4):
+		m._sparkle_burst(vet_carry.position + Vector3(-1.5 + float(h) * 1.0, 2.5 + float(h) * 0.6, 1.0), Color(1.0, 0.6, 0.8))
+	var hop := vet_carry.create_tween()
+	hop.tween_property(vet_carry, "position:y", vet_carry.position.y + 2.0, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	hop.tween_property(vet_carry, "position:y", vet_carry.position.y, 0.35).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if vet_done_n >= vet_goal_n:
+		vet_phase = "done"
 		_win()
 	else:
-		# let each little animation finish before the next tap counts — the
-		# checkup is a story, not a tap race
-		match String(target["kind"]):
-			"scope":
-				doc_wait = 3.0
-			"thermo":
-				doc_wait = 2.4
-			_:
-				doc_wait = 2.0
-		_update_hud()
+		_vet_next_patient()
+
+func _vet_next_patient() -> void:
+	# The waiting bench holds a QUEUE: the healed friend hops off to the
+	# recovery corner and the next poorly animal grows an ouch star. Same
+	# caring story, fresh patient, fresh cracked bone.
+	var bench := CENTER + Vector3(16.0, 1.4, -8.0 - 3.4 * float(vet_done_n - 1))
+	var away := vet_carry.create_tween()
+	away.tween_property(vet_carry, "position", bench, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	for a: Dictionary in vet_animals:
+		if a["node"] == vet_carry:
+			a["pos"] = bench
+			a["hurt"] = false
+			a["healed"] = true
+	vet_carry = null
+	# the last x-ray and cast belong to the healed patient — clear the scope
+	for b in vet_bones:
+		if is_instance_valid(b):
+			b.queue_free()
+	vet_bones.clear()
+	for e in vet_xray_extra:
+		if is_instance_valid(e):
+			e.queue_free()
+	vet_xray_extra.clear()
+	for l in vet_layers:
+		if is_instance_valid(l):
+			l.queue_free()
+	vet_layers.clear()
+	vet_wrap = 0.0
+	vet_have_ang = false
+	# promote the next patient among the animals still in the ward
+	var waiting: Array[int] = []
+	for a2: Dictionary in vet_animals:
+		if not bool(a2.get("healed", false)):
+			waiting.append(int(a2["index"]))
+	vet_hurt = waiting[randi() % waiting.size()]
+	var nxt: Dictionary = vet_animals[vet_hurt]
+	nxt["hurt"] = true
+	(nxt["mark"] as Node3D).visible = true
+	vet_phase = "find"
+	progress_t = 0.0
+	m._sparkle_burst((nxt["pos"] as Vector3) + Vector3(0, 3.0, 0), Color(1.0, 0.6, 0.6))
+	m.show_msg("Roshan", "All better! But somebody else on the bench has an ouch — find the next red star!", "talk")
+	_update_hud()
+
+func _tick_vet(delta: float) -> void:
+	match vet_phase:
+		"wash":
+			_tick_wash(delta)
+		"xray":
+			if vet_warm > 0.0:
+				vet_warm -= delta
+				if vet_screen != null:
+					var warm_mat := vet_screen.material_override as StandardMaterial3D
+					warm_mat.albedo_color = Color(0.1, 0.16, 0.26).lerp(
+						Color(0.32, 0.5, 0.72), 0.5 + 0.5 * sin(elapsed * 11.0))
+				if vet_warm <= 0.0:
+					if vet_screen != null:
+						(vet_screen.material_override as StandardMaterial3D).albedo_color = Color(0.16, 0.28, 0.44)
+					if m.chime != null:
+						m.chime.pitch_scale = 1.25
+						m.chime.play()
+					m.show_msg("Roshan", "There's the picture! Tap the bone with the crack in it!", "talk")
+		"carry":
+			# the patient rides in her arms until the fluoroscope
+			if vet_carry != null:
+				vet_carry.position = player_pos + Vector3(0, 2.6, 0)
+			if vet_scope.position.distance_to(player_pos) < 7.0:
+				_vet_arrive()
+		"cast", "coban":
+			# circle the limb: same grammar as the chef's bowl, different job
+			var active := false
+			var pos := Vector2.ZERO
+			if m.touch_ui != null and m.touch_ui.drag_active:
+				active = true
+				pos = m.touch_ui.drag_pos
+			elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				active = true
+				pos = m.get_viewport().get_mouse_position()
+			if active and cam != null:
+				var hub := cam.unproject_position(vet_scope.position + Vector3(0, 2.4, 0))
+				var arm := pos - hub
+				if arm.length() >= 34.0:
+					var ang := arm.angle()
+					if vet_have_ang:
+						_vet_wrap_delta(angle_difference(vet_wrap_prev, ang))
+					vet_wrap_prev = ang
+					vet_have_ang = true
+				else:
+					vet_have_ang = false
+			else:
+				vet_have_ang = false
 
 func _heart_thump() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 0.45
 		m.chime.play()
 	m._sparkle_burst(patient.position + Vector3(0, 1.5, 1.2), Color(1.0, 0.55, 0.7))
-
-func _nearest_doc_target() -> int:
-	var best := -1
-	var best_d := PAD_REACH
-	for target in doc_targets:
-		var d: float = (target["pos"] as Vector3).distance_to(player_pos)
-		if d < best_d:
-			best_d = d
-			best = int(target["index"])
-	return best
-
-# ------------- "scroll" engine (farmer: the 2D piggy-feeding meadow) -------------
-# A one-touch side-scroller played on a flat overlay: the meadow slides past,
-# hungry piggies drift toward Roshan, and a tap tosses a veggie to the nearest
-# one. Unfed piggies loop back around, so every piggy gets fed eventually.
-# ALL piggy/meadow art here is a rough placeholder (circle-panels) — the
-# owner's authored farm art replaces these panels in a later pass.
 
 func _panel_circle(parent: Control, pos: Vector2, size: float, col: Color) -> Panel:
 	var panel := Panel.new()
@@ -1892,6 +4941,7 @@ func _build_farm() -> void:
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	farm_layer.add_child(root)
+	farm_root = root
 	var sky := ColorRect.new()
 	sky.color = Color(0.62, 0.85, 0.98)
 	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -1935,8 +4985,300 @@ func _build_farm() -> void:
 		bubble.add_child(want)
 		piggies.append({"index": i, "node": pig, "bubble": bubble, "want": want,
 			"x": 900.0 + float(i) * 560.0, "sx": 900.0 + float(i) * 560.0, "fed": false})
+	_begin_plant()
+
+func _farm_arm() -> void:
+	_set_drag(true)
+	for i in range(7):
+		var dot := _panel_circle(farm_root, Vector2(-99.0, -99.0), 16.0 - float(i), Color(1.0, 0.95, 0.7, 0.85))
+		dot.visible = false
+		farm_aim.append(dot)
+
+func _leave_farm() -> void:
+	_set_drag(false)
+
+func _farm_power_to_x(power: float) -> float:
+	return FARM_ROSHAN_X + clampf(power, 0.0, 1.0) * 780.0
+
+func _farm_aim_show(power: float) -> void:
+	var tx := _farm_power_to_x(power)
+	for i in range(farm_aim.size()):
+		var t := float(i + 1) / float(farm_aim.size() + 1)
+		var ax := lerpf(FARM_ROSHAN_X, tx, t)
+		var ay := lerpf(340.0, 430.0, t) - sin(t * PI) * (120.0 + power * 130.0)
+		farm_aim[i].position = Vector2(ax, ay)
+		farm_aim[i].visible = true
+
+func _farm_aim_hide() -> void:
+	for d in farm_aim:
+		d.visible = false
+
+func _farm_launch(power: float) -> void:
+	# the veggie leaves her hand on an arc; whoever it lands next to gets fed
+	if state != "play" or kind != "scroll" or farm_phase != "feed":
+		return
+	_farm_aim_hide()
+	var veg := _panel_circle(farm_root, Vector2(FARM_ROSHAN_X, 340.0), 26.0,
+		[Color(1.0, 0.62, 0.35), Color(0.95, 0.35, 0.4), Color(1.0, 0.88, 0.45)][farm_flights.size() % 3])
+	farm_flights.append({"node": veg, "t": 0.0, "tx": _farm_power_to_x(power), "power": power})
+	if farm_roshan != null:
+		var squash := farm_roshan.create_tween()
+		squash.tween_property(farm_roshan, "scale", Vector2(1.18, 0.82), 0.1)
+		squash.tween_property(farm_roshan, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.25
+		m.chime.play()
+
+func _tick_flights(delta: float) -> void:
+	for f in farm_flights.duplicate():
+		f["t"] = float(f["t"]) + delta * 1.7
+		var t: float = float(f["t"])
+		var node := f["node"] as Control
+		if not is_instance_valid(node):
+			farm_flights.erase(f)
+			continue
+		if t >= 1.0:
+			var tx: float = float(f["tx"])
+			node.queue_free()
+			farm_flights.erase(f)
+			_farm_land(tx)
+			continue
+		node.position.x = lerpf(FARM_ROSHAN_X, float(f["tx"]), t)
+		node.position.y = lerpf(340.0, 430.0, t) - sin(t * PI) * (120.0 + float(f["power"]) * 130.0)
+		node.rotation = t * 6.0
+
+func _farm_land(tx: float) -> void:
+	var best := -1
+	var best_d := 170.0
+	for pig in piggies:
+		if bool(pig["fed"]):
+			continue
+		var d: float = absf(float(pig["sx"]) - tx)
+		if d < best_d:
+			best_d = d
+			best = int(pig["index"])
+	if best >= 0:
+		_farm_feed(best)
+	elif m.chime != null:
+		# a veggie that lands in the grass just bounces — never a fail
+		m.chime.pitch_scale = 0.6
+		m.chime.play()
+
+func _begin_plant() -> void:
+	# Beat 1: four furrow holes across the field and a seed tray. Drag a seed
+	# into a hole and a sprout pops. Drag-and-drop, the act's own first verb.
+	farm_phase = "plant"
+	seeds_planted = 0
+	seed_held = -1
+	for i in range(FARM_SEEDS):
+		var hx := 300.0 + float(i) * 200.0
+		var hole := _panel_circle(farm_root, Vector2(hx, 470.0), 52.0, Color(0.36, 0.26, 0.2))
+		var sprout := _panel_circle(farm_root, Vector2(hx + 12.0, 410.0), 28.0, Color(0.4, 0.78, 0.42))
+		sprout.visible = false
+		# NOT named `seed`: that shadows GDScript's global seed() function
+		var pip := _panel_circle(farm_root, Vector2(160.0 + float(i) * 70.0, 610.0), 26.0,
+			Color(0.92, 0.84, 0.55))
+		furrows.append({"index": i, "hole": hole, "sprout": sprout, "seed": pip,
+			"hx": hx, "home": pip.position, "planted": false})
+	_set_drag(true)
+	m.show_msg("Roshan", "First the planting! DRAG each seed into a hole in the soil.", "talk")
+	_update_hud()
+
+func _plant_grab(i: int) -> void:
+	if farm_phase != "plant" or i < 0 or i >= furrows.size():
+		return
+	if bool(furrows[i]["planted"]):
+		return
+	seed_held = i
+	progress_t = 0.0
+
+func _plant_drop(hole_i: int) -> void:
+	# any empty hole takes any seed: this beat is about the MOTION, not a
+	# matching puzzle, so there is nothing here to get wrong
+	if farm_phase != "plant" or seed_held < 0:
+		return
+	var seed_row: Dictionary = furrows[seed_held]
+	seed_held = -1
+	if hole_i < 0 or hole_i >= furrows.size() or bool(furrows[hole_i]["planted"]):
+		(seed_row["seed"] as Control).position = seed_row["home"] as Vector2
+		return
+	var target: Dictionary = furrows[hole_i]
+	target["planted"] = true
+	seeds_planted += 1
+	progress_t = 0.0
+	(seed_row["seed"] as Control).visible = false
+	var sprout := target["sprout"] as Control
+	sprout.visible = true
+	sprout.scale = Vector2.ZERO
+	var pop := sprout.create_tween()
+	pop.tween_property(sprout, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 0.9 + 0.14 * float(seeds_planted)
+		m.chime.play()
+	if seeds_planted >= furrows.size():
+		farm_phase = "feed"
+		m.show_msg("Roshan", "All planted! Here come the piggies — PULL BACK and let go to lob them a snack!", "talk")
+	else:
+		m.show_msg("Roshan", "A sprout! %d seed(s) to go!" % (furrows.size() - seeds_planted), "hint")
+	_update_hud()
+
+func _tick_plant(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	var down: bool = bool(m.touch_ui.drag_mode) and bool(m.touch_ui.drag_active)
+	var p: Vector2 = m.touch_ui.drag_pos
+	if down:
+		if seed_held < 0:
+			var best := -1
+			var best_d := 130.0
+			for f: Dictionary in furrows:
+				if bool(f["planted"]):
+					continue
+				var d: float = (f["seed"] as Control).position.distance_to(p)
+				if d < best_d:
+					best_d = d
+					best = int(f["index"])
+			if best >= 0:
+				_plant_grab(best)
+		else:
+			(furrows[seed_held]["seed"] as Control).position = p
+	elif seed_held >= 0:
+		var pick := -1
+		var pick_d := 150.0
+		for f2: Dictionary in furrows:
+			if bool(f2["planted"]):
+				continue
+			var d2: float = (f2["hole"] as Control).position.distance_to(p)
+			if d2 < pick_d:
+				pick_d = d2
+				pick = int(f2["index"])
+		_plant_drop(pick)
+
+func _begin_mud() -> void:
+	# Beat 3: the herd reaches a mud puddle. SWIPE UP to hop each piggy over
+	# it — the only upward flick in the opera, and the splash is the joke.
+	farm_phase = "mud"
+	mud_leaps = 0
+	mud_tracking = false
+	mud_puddle = _panel_circle(farm_root, Vector2(640.0, 500.0), 150.0, Color(0.44, 0.32, 0.24))
+	_panel_circle(mud_puddle, Vector2(40.0, 30.0), 60.0, Color(0.52, 0.38, 0.28))
+	mud_pig = _panel_circle(farm_root, Vector2(420.0, 430.0), 96.0, Color(1.0, 0.72, 0.78))
+	_panel_circle(mud_pig, Vector2(30.0, 34.0), 38.0, Color(0.98, 0.6, 0.68))
+	_set_drag(true)
+	m.show_msg("Roshan", "Mud puddle! SWIPE UP to hop each piggy right over it!", "talk")
+	_update_hud()
+
+func _mud_hop() -> void:
+	if farm_phase != "mud" or mud_pig == null:
+		return
+	mud_leaps += 1
+	progress_t = 0.0
+	mud_tracking = false
+	var jump := mud_pig.create_tween()
+	jump.tween_property(mud_pig, "position", Vector2(760.0, 300.0), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	jump.tween_property(mud_pig, "position", Vector2(900.0, 430.0), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.05 + 0.14 * float(mud_leaps)
+		m.chime.play()
+	if mud_leaps >= MUD_LEAPS:
+		_begin_barn()
+	else:
+		# the next piggy trots up to the edge and waits
+		var back := mud_pig.create_tween()
+		back.tween_interval(0.6)
+		back.tween_property(mud_pig, "position", Vector2(420.0, 430.0), 0.01)
+		m.show_msg("Roshan", "SPLASH — over she goes! %d more piggy(s)!" % (MUD_LEAPS - mud_leaps), "hint")
+	_update_hud()
+
+func _tick_mud(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		mud_tracking = false
+		return
+	var y: float = (m.touch_ui.drag_pos as Vector2).y
+	if not mud_tracking:
+		mud_tracking = true
+		mud_y0 = y
+		return
+	# UPWARD travel only: down is the boxer's duck, up is the piggy's hop
+	if mud_y0 - y >= 48.0:
+		_mud_hop()
+
+func _begin_barn() -> void:
+	# Beat 4: sunset, the barn gate swings wide, and the herd is shooed home
+	# with a back-and-forth SCRUB — a sweeping motion, not another drag.
+	farm_phase = "barn"
+	barn_scrub = 0.0
+	barn_have_x = false
+	if mud_puddle != null:
+		mud_puddle.visible = false
+	if mud_pig != null:
+		mud_pig.visible = false
+	barn_gate = _panel_circle(farm_root, Vector2(1080.0, 420.0), 130.0, Color(0.78, 0.34, 0.32))
+	_panel_circle(barn_gate, Vector2(40.0, 60.0), 70.0, Color(0.94, 0.86, 0.72))
+	_set_drag(true)
+	m.show_msg("Roshan", "Sunset! SWEEP your finger back and forth to shoo everyone home to the barn.", "talk")
+	_update_hud()
+
+func _barn_sweep(d: float) -> void:
+	if farm_phase != "barn":
+		return
+	barn_scrub += absf(d)
+	progress_t = 0.0
+	if barn_gate != null:
+		barn_gate.rotation = clampf(barn_scrub / BARN_SCRUB, 0.0, 1.0) * 0.7
+	if barn_scrub < BARN_SCRUB:
+		return
+	farm_phase = "done"
+	for pig in piggies:
+		var node := pig["node"] as Control
+		var home := node.create_tween()
+		home.tween_property(node, "position", Vector2(1080.0, 420.0), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	m.show_msg("Roshan", "Everyone's home and full of snacks — what a picnic!", "win")
+	_win()
+
+func _tick_barn(_delta: float) -> void:
+	if m.touch_ui == null:
+		return
+	if not bool(m.touch_ui.drag_mode) or not bool(m.touch_ui.drag_active):
+		barn_have_x = false
+		return
+	var x: float = (m.touch_ui.drag_pos as Vector2).x
+	if not barn_have_x:
+		barn_have_x = true
+		barn_last_x = x
+		return
+	var d := x - barn_last_x
+	barn_last_x = x
+	_barn_sweep(d)
 
 func _tick_farm(delta: float) -> void:
+	if farm_phase == "plant":
+		_tick_plant(delta)
+		return
+	if farm_phase == "mud":
+		_tick_mud(delta)
+		return
+	if farm_phase == "barn":
+		_tick_barn(delta)
+		return
+	if farm_phase == "done":
+		return
+	if farm_aim.is_empty():
+		_farm_arm()
+	# the slingshot: drag back from Roshan, release to lob
+	var down: bool = m.touch_ui != null and m.touch_ui.drag_mode and m.touch_ui.drag_active
+	if down:
+		if not farm_pull:
+			farm_pull = true
+			farm_pull_from = m.touch_ui.drag_pos
+		farm_pull_to = m.touch_ui.drag_pos
+		_farm_aim_show(clampf((farm_pull_from - farm_pull_to).length() / 260.0, 0.05, 1.0))
+	elif farm_pull:
+		farm_pull = false
+		_farm_launch(clampf((farm_pull_from - farm_pull_to).length() / 260.0, 0.05, 1.0))
+	_tick_flights(delta)
 	farm_t += delta
 	farm_toss_cool = maxf(0.0, farm_toss_cool - delta)
 	if farm_roshan != null:
@@ -1958,50 +5300,26 @@ func _tick_farm(delta: float) -> void:
 			node.rotation = sin(elapsed * 5.5 + float(pig["index"]) * 1.7) * 0.06   # trotting wiggle
 
 func _toss_action() -> void:
-	if state != "play" or kind != "scroll" or farm_toss_cool > 0.0:
-		return
-	farm_toss_cool = 0.5
-	var best := -1
-	var best_d := 170.0
-	for pig in piggies:
-		if bool(pig["fed"]):
-			continue
-		var d: float = absf(float(pig["sx"]) - 250.0)
-		if d < best_d:
-			best_d = d
-			best = int(pig["index"])
-	if best >= 0:
-		var pig2: Dictionary = piggies[best]
-		pig2["fed"] = true
-		(pig2["want"] as Label).text = "❤"
-		var node := pig2["node"] as Control
-		node.rotation = 0.0
-		var tw := node.create_tween()
-		tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-		if farm_roshan != null:
-			# Roshan does a happy throw-squash so every toss FEELS thrown
-			var squash := farm_roshan.create_tween()
-			squash.tween_property(farm_roshan, "scale", Vector2(1.15, 0.85), 0.12)
-			squash.tween_property(farm_roshan, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		if m.chime != null:
-			m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
-			m.chime.play()
-		farm_fed += 1
-		progress_t = 0.0
-		if farm_fed >= piggies.size():
-			_win()
-		else:
-			_update_hud()
+	pass   # feeding is a slingshot LOB now, not a tap
+
+func _farm_feed(best: int) -> void:
+	var pig2: Dictionary = piggies[best]
+	pig2["fed"] = true
+	(pig2["want"] as Label).text = "❤"
+	var node := pig2["node"] as Control
+	node.rotation = 0.0
+	var tw := node.create_tween()
+	tw.tween_property(node, "position:y", 390.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(node, "position:y", 420.0, 0.25).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + 0.12 * float(farm_fed)
+		m.chime.play()
+	farm_fed += 1
+	progress_t = 0.0
+	if farm_fed >= piggies.size():
+		_begin_mud()
 	else:
-		# a toss with nobody close is just a bouncing veggie — never a fail
-		if m.chime != null:
-			m.chime.pitch_scale = 0.6
-			m.chime.play()
-		if farm_roshan != null:
-			var tw2 := farm_roshan.create_tween()
-			tw2.tween_property(farm_roshan, "rotation", 0.12, 0.1)
-			tw2.tween_property(farm_roshan, "rotation", 0.0, 0.15)
+		_update_hud()
 
 # ------------- "race" engine (racecar driver: KartGame exhibition) -------------
 # Real reuse of the kart engine via its documented configure()/start() hooks:
@@ -2022,12 +5340,29 @@ func _build_race() -> void:
 func _launch_race() -> void:
 	if state != "play" or kind != "race" or kart != null:
 		return
+	if stage_phase == "rescue":
+		return   # the pit crew are still caged; the kart takes the whole screen
 	race_prev_track = m.cur_track
 	m._play_music("race")
 	var kart_script: GDScript = load("res://scripts/kart.gd") as GDScript
 	kart = kart_script.new() as Node
 	add_child(kart)
-	kart.call("configure", {"name": "Opera Grand Prix", "laps": 1})
+	# KartGame documents a full reuse API; use it, so the Grand Prix belongs to
+	# THIS opera rather than looking like the generic reef race.
+	var spec := STAGE_SETS.get("racer", {}) as Dictionary
+	var kart_cfg := {
+		"name": String(config.get("name", "Opera Grand Prix")),
+		"laps": int(config.get("laps", 2)),
+		"sky_colors": [Color(spec.get("backdrop", Color(0.2, 0.22, 0.45))),
+			Color(spec.get("pillar", Color(0.85, 0.6, 0.65)))],
+		"shortcut": true,
+		"pearl_payout": false,   # a show, not a pearl farm — the star is the prize
+	}
+	# the pit crew she freed hand over spare wheels, and those wheels are a KART
+	if int(m.opera_pantry.get("spare wheels", 0)) > 0:
+		kart_cfg["vehicles"] = {"kart": KartGame.VEHICLES["kart"]}
+		m.show_msg("Roshan", "The pit crew's spare wheels — they built you a proper race kart!", "talk")
+	kart.call("configure", kart_cfg)
 	kart.call("start", m, Callable(self, "_race_finished"))
 
 func _race_finished(place: int) -> void:
@@ -2067,6 +5402,8 @@ func _build_dance() -> void:
 func _open_dance() -> void:
 	if state != "play" or kind != "dance":
 		return
+	if stage_phase == "rescue":
+		return   # the band are still caged; the concert owns the whole screen
 	if dance == null:
 		var dance_script: GDScript = load("res://scripts/games/dance_engine.gd") as GDScript
 		dance = dance_script.new(m) as CanvasLayer
@@ -2079,6 +5416,14 @@ func _dance_closed() -> void:
 	if state != "play":
 		return
 	if dance != null and int(dance.get("happy_hits")) > 0:
+		# The band she freed play behind her, so the concert earns an ENCORE:
+		# one more verse through the engine's own open_demo(), rather than a
+		# property the engine does not have.
+		if not dance_encore_done and int(m.opera_pantry.get("instruments", 0)) > 0:
+			dance_encore_done = true
+			m.show_msg("Roshan", "The band you rescued are playing behind you — ENCORE! One more verse!", "talk")
+			dance.call("open_demo")
+			return
 		_win()
 	else:
 		m.show_msg("Roshan", "The stage is yours whenever you're ready — tap the sparkling microphone!", "talk")
@@ -2145,8 +5490,9 @@ func _build_boss() -> void:
 	if dual:
 		root.position = boss["home"] as Vector3
 		root.scale = Vector3.ONE * 0.85
-		for i in range(3):
-			var lp := CENTER + Vector3(-14.0 + float(i) * 14.0, 1.0, -7.0)
+		var lantern_n := int(config.get("lanterns", 3))
+		for i in range(lantern_n):
+			var lp := CENTER + Vector3(-18.0 + float(i) * (36.0 / maxf(1.0, float(lantern_n - 1))), 1.0, -7.0)
 			var lroot := Node3D.new()
 			lroot.name = "OperaLantern%d" % i
 			lroot.position = lp
@@ -2171,11 +5517,31 @@ func _build_boss() -> void:
 		sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		spotlight.visible = false
 
+func _lantern_shine_tap() -> void:
+	# a SHINE tap is a burst of charge, not the whole light: patter-tapping
+	# and holding both fill the beam, so no finger style is wrong
+	if state != "play" or kind != "boss" or String(boss.get("phase", "")) != "shadow":
+		return
+	if float(boss.get("timer", 0.0)) > 0.0:
+		# he is still sweeping the stage — the tap twinkles kindly and waits
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+		return
+	var lant: Dictionary = lanterns[lantern_i]
+	if (lant["pos"] as Vector3).distance_to(player_pos) >= 5.5:
+		m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+		return
+	lantern_charge += 0.45
+	m._sparkle_burst((lant["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(1.0, 0.92, 0.6))
+	if lantern_charge >= LANTERN_CHARGE:
+		_light_lantern()
+
 func _light_lantern() -> void:
 	if state != "play" or kind != "boss" or not bool(boss.get("dual", false)):
 		return
 	if String(boss["phase"]) != "shadow":
 		return
+	lantern_charge = 0.0
+	hold_sim = false
 	var lant: Dictionary = lanterns[lantern_i]
 	lant["lit"] = true
 	var lit_mat := (lant["glass"] as MeshInstance3D).material_override as StandardMaterial3D
@@ -2236,13 +5602,24 @@ func _hit_boss() -> void:
 	elif bool(boss.get("dual", false)):
 		boss["phase"] = "shadow"
 		boss["timer"] = float(config.get("hide_time", 2.0))
+		lantern_charge = 0.0
 		lantern_i = (lantern_i + 1) % lanterns.size()
 		if spotlight != null:
 			spotlight.visible = false
 		m.show_msg("Roshan", "He slipped back into the shadows! Find the twinkling lantern!", "talk")
 	else:
-		boss["phase"] = "hide"
-		boss["timer"] = float(config.get("hide_time", 2.2))
+		# every fourth star the dragon ROARS: he rears up puffing (watch, you
+		# cannot hit him) and then flops down dizzy for one easy close-up star.
+		# A watch-then-act breath in the whack-a-mole, not more of the same.
+		var stars_done := int(config.get("boss_hp", 3)) - int(boss["hp"])
+		if stars_done > 0 and stars_done % 4 == 0:
+			boss["phase"] = "roar"
+			boss["timer"] = 3.2
+			boss["attack"] = 0.6
+			m.show_msg("Roshan", "Uh oh, a big grumbly ROAR! Wait for him to get dizzy!", "talk")
+		else:
+			boss["phase"] = "hide"
+			boss["timer"] = float(config.get("hide_time", 2.2))
 	_update_hud()
 
 func _tick_boss(delta: float) -> void:
@@ -2270,6 +5647,24 @@ func _tick_boss(delta: float) -> void:
 			boss["timer"] = float(config.get("peek_time", 4.5)) * (1.0 - 0.2 * float(tier))
 			boss["attack"] = 1.0
 			m._sparkle_burst(new_home + Vector3(0, 5.0, 1.0), Color(0.6, 0.95, 0.7))
+	elif phase == "roar":
+		# reared tall mid-stage, puffing steadily — sparkles fizzle (the
+		# _hit_boss peek gate already refuses them), so the child WATCHES
+		root.position = root.position.lerp(home + Vector3(0, 2.2, 0), delta * 4.0)
+		root.rotation.y = sin(elapsed * 6.0) * 0.12
+		if float(boss["attack"]) <= 0.0:
+			boss["attack"] = 0.8
+			_spawn_puff(root.position + Vector3(0, 4.5, 1.5))
+		if float(boss["timer"]) <= 0.0:
+			# ...and flops down dizzy at centre stage: one guaranteed close-up
+			var dizzy_home := Vector3(CENTER.x, home.y, CENTER.z - 8.0)
+			boss["home"] = dizzy_home
+			root.position = dizzy_home
+			boss["phase"] = "peek"
+			boss["timer"] = 6.5
+			boss["attack"] = 999.0   # a dizzy dragon does not puff
+			m._sparkle_burst(dizzy_home + Vector3(0, 5.0, 1.0), Color(1.0, 0.9, 0.5))
+			m.show_msg("Roshan", "He's all dizzy — swim close and SPARKLE now!", "talk")
 	elif phase == "peek":
 		root.position = root.position.lerp(home, delta * 5.0)
 		root.rotation.y = sin(elapsed * 1.6) * 0.2
@@ -2292,11 +5687,27 @@ func _tick_boss(delta: float) -> void:
 				boss["phase"] = "hide"
 				boss["timer"] = float(config.get("hide_time", 2.2))
 	else:
-		# "shadow" (dual only): flicker the target lantern until it is lit
+		# "shadow" (dual only): flicker the target lantern until the beam is
+		# CHARGED — a hold beside the glass fills it, letting go drains it
 		root.position = root.position.lerp(home, delta * 4.0)
 		var lant: Dictionary = lanterns[lantern_i]
 		var flicker_mat := (lant["glass"] as MeshInstance3D).material_override as StandardMaterial3D
-		flicker_mat.emission_energy_multiplier = 0.35 + 0.3 * sin(elapsed * 9.0)
+		flicker_mat.emission_energy_multiplier = 0.35 + 0.3 * sin(elapsed * 9.0) + lantern_charge * 0.8
+		if float(boss["timer"]) > 0.0:
+			# the phantom SWEEPS the stage as a darting silhouette first — a
+			# watch beat: the lantern will not take the beam until he settles
+			root.position.x = home.x + sin(elapsed * 2.6) * 10.0
+		else:
+			var flat := (lant["pos"] as Vector3) - player_pos
+			flat.y = 0.0
+			if flat.length() < 5.5 and _finger_down():
+				lantern_charge += delta
+				if fmod(lantern_charge, 0.35) < delta:
+					m._sparkle_burst((lant["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.7))
+				if lantern_charge >= LANTERN_CHARGE:
+					_light_lantern()
+			else:
+				lantern_charge = maxf(0.0, lantern_charge - delta * 0.7)
 	_tick_puffs(delta)
 	_update_hud()
 
@@ -2374,6 +5785,20 @@ func _move_input() -> Vector2:
 		value = m.touch_ui.stick_vec
 	return value.limit_length(1.0)
 
+var hold_sim := false              # probe-only: pretend a finger is on the glass
+
+func _finger_down() -> bool:
+	# "is a finger on the glass" — the hold grammar. In drag mode the painting
+	# finger counts; otherwise the action button / space / mouse do.
+	if hold_sim:
+		return true
+	if m.touch_ui != null:
+		if m.touch_ui.drag_mode:
+			return m.touch_ui.drag_active
+		if m.touch_ui.action_down:
+			return true
+	return Input.is_physical_key_pressed(KEY_SPACE) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
 	var just: bool = held and not fire_prev
@@ -2395,7 +5820,7 @@ func _nearest_pad() -> int:
 
 func _act_action(choice: int) -> void:
 	match kind:
-		"order":
+		"order", "paint":
 			_order_action(choice)
 		"shuffle":
 			_shuffle_action(choice)
@@ -2429,11 +5854,11 @@ func _process(delta: float) -> void:
 		if win_t <= 0.0:
 			_finish()
 		return
-	if kind == "race" and kart != null:
+	if kind == "race" and kart != null and stage_phase != "rescue":
 		# KartGame owns the camera, HUD and every input while the race runs —
 		# consuming taps here would steal the TURBO button
 		return
-	if kind == "scroll":
+	if kind == "scroll" and stage_phase != "rescue":
 		_tick_farm(delta)
 		if _action_pressed():
 			_toss_action()
@@ -2447,7 +5872,7 @@ func _process(delta: float) -> void:
 	_place_avatar(delta)
 	for i in range(audience.size()):
 		audience[i].position.y = CENTER.y + 4.0 + sin(elapsed * 2.2 + float(i) * 1.4) * 0.18
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		_tick_brawl(delta)
 		if _action_pressed():
 			_brawl_action()
@@ -2458,10 +5883,12 @@ func _process(delta: float) -> void:
 		return
 	if _action_pressed():
 		match kind:
-			"order":
-				if order_phase == "stir":
-					if goal.position.distance_to(player_pos) < 5.5:
-						_stir_action()
+			"order", "paint":
+				if order_phase == "bake":
+					_bake_action()
+				elif (order_phase == "stir" or order_phase == "sift" or order_phase == "pour"
+						or order_phase == "pipe" or order_phase == "sketch" or order_phase == "fill"):
+					pass   # each of these beats is its own gesture, not a tap
 				elif order_phase == "decorate":
 					for spot in deco_spots:
 						if not bool(spot["done"]) and (spot["pos"] as Vector3).distance_to(player_pos) < 4.5:
@@ -2472,44 +5899,49 @@ func _process(delta: float) -> void:
 					if near_pad >= 0:
 						_act_action(near_pad)
 			"shuffle":
-				var near := _nearest_pad()
-				if near >= 0:
-					_act_action(near)
+				if shuffle_phase == "cabinet":
+					_shuffle_action(0)   # the wand, not a hat — it checks reach
+				else:
+					var near := _nearest_pad()
+					if near >= 0:
+						_act_action(near)
+			"press":
+				if press_phase == "parade":
+					_parade_action()
 			"fix":
 				if fix_phase == "valve":
-					if valve.position.distance_to(player_pos) < 6.0:
+					if valve.position.distance_to(player_pos) < 8.0:
 						_turn_valve()
 					else:
 						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
-				elif carried < 0:
-					var near_piece := _nearest_piece()
-					if near_piece >= 0:
-						_pick_piece(near_piece)
-				elif fix_step < slots.size() and (slots[fix_step]["pos"] as Vector3).distance_to(player_pos) < 5.0:
-					_place_piece()
 			"press":
 				_press_action()
 			"box":
 				_punch_action()
 			"sleuth":
-				if chest_ready and goal.position.distance_to(player_pos) < 5.5:
-					_sleuth_chest()
-				else:
-					var near_prop := -1
-					var near_prop_d := 4.5
-					for prop: Dictionary in sleuth_props:
-						if bool(prop["opened"]):
-							continue
-						var pd: float = (prop["pos"] as Vector3).distance_to(player_pos)
-						if pd < near_prop_d:
-							near_prop_d = pd
-							near_prop = int(prop["index"])
-					if near_prop >= 0:
-						_sleuth_action(near_prop)
+				if board_phase == "name":
+					for sus: Dictionary in suspects:
+						if (sus["pos"] as Vector3).distance_to(player_pos) < 6.0:
+							_name_action(int(sus["index"]))
+							break
+				# else: peeking is a lens HOLD, not a tap
 			"doctor":
-				var near_doc := _nearest_doc_target()
-				if near_doc >= 0:
-					_doctor_action(near_doc)
+				if vet_phase == "find":
+					var best := -1
+					var best_d := 6.0
+					for a in vet_animals:
+						var d: float = (a["pos"] as Vector3).distance_to(player_pos)
+						if d < best_d:
+							best_d = d
+							best = int(a["index"])
+					if best >= 0:
+						_vet_pick(best)
+					else:
+						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+				elif vet_phase == "xray":
+					# the four bones read left-to-right across the screen
+					var lane := int(clampf((player_pos.x - CENTER.x + 5.4) / 2.7, 0.0, 3.0))
+					_vet_bone(lane)
 			"race":
 				if race_flag != null and race_flag.position.distance_to(player_pos) < 5.5:
 					_launch_race()
@@ -2518,17 +5950,13 @@ func _process(delta: float) -> void:
 					_open_dance()
 			"boss":
 				if bool(boss.get("dual", false)) and String(boss["phase"]) == "shadow":
-					var lant: Dictionary = lanterns[lantern_i]
-					if (lant["pos"] as Vector3).distance_to(player_pos) < 5.5:
-						_light_lantern()
-					else:
-						m._sparkle_burst(player_pos + Vector3(0, 2.5, 0), Color(0.8, 0.85, 1.0))
+					_lantern_shine_tap()
 				else:
 					_fire_star()
 	match kind:
 		"box":
 			_tick_box(delta)
-		"order":
+		"order", "paint":
 			if order_hidden:
 				# the detective search: clues pop out when Roshan swims close
 				for pad in pads:
@@ -2543,11 +5971,30 @@ func _process(delta: float) -> void:
 						if m.chime != null:
 							m.chime.pitch_scale = 1.25
 							m.chime.play()
+			match order_phase:
+				"sift":
+					_tick_sift(delta)
+				"pour":
+					_tick_pour(delta)
+				"stir":
+					_tick_stir(delta)
+				"bake":
+					_tick_bake(delta)
+				"pipe":
+					_tick_pipe(delta)
+				"sketch":
+					_tick_sketch(delta)
+				"fill":
+					_tick_fill(delta)
+				_:
+					if stir_drag:
+						_leave_stir()
 			if order_flow == "carry_paint" and brush_loaded >= 0:
 				brush_node.position = player_pos + Vector3(0, 3.2, 0)
 				brush_node.rotation.z = sin(elapsed * 6.0) * 0.25
-				if canvas_pos.distance_to(player_pos) < 5.5:
-					_paint_touch()
+				_tick_easel(delta)
+			elif paint_easel:
+				_leave_easel()
 		"echo":
 			_tick_echo(delta)
 			if echo_phase == "repeat":
@@ -2564,25 +6011,48 @@ func _process(delta: float) -> void:
 					last_pad = -1
 					dwell_pad = -1
 					pad_dwell = 0.0
+					_pose_ring(-1, 0.0)
 				elif touched >= 0 and touched != last_pad:
 					# stand STILL on a tile a beat to dance it — swimming
 					# across the row at any speed never commits a step
 					if touched == dwell_pad and echo_speed < 3.0:
 						pad_dwell += delta
-						if pad_dwell >= 0.25:
+						_pose_ring(touched, pad_dwell / POSE_HOLD)
+						if pad_dwell >= POSE_HOLD:
 							last_pad = touched
 							dwell_pad = -1
 							pad_dwell = 0.0
+							_pose_ring(-1, 0.0)
 							_pad_touch(touched)
 					else:
 						dwell_pad = touched
 						pad_dwell = 0.0 if touched != dwell_pad else pad_dwell
+		"doctor":
+			_tick_vet(delta)
+		"sleuth":
+			if board_phase == "":
+				_tick_lens(delta)
+			elif board_phase == "trail":
+				_tick_trail(delta)
+			else:
+				_tick_board(delta)
 		"shuffle":
-			_tick_shuffle(delta)
+			if shuffle_phase == "hide":
+				_tick_hide(delta)
+			else:
+				_tick_shuffle(delta)
 		"fix":
 			_tick_fix(delta)
 		"press":
-			_tick_press(delta)
+			match press_phase:
+				"syrup":
+					_tick_syrup(delta)
+				"wrap":
+					_tick_wrap(delta)
+				"parade":
+					_tick_parade(delta)
+				_:
+					_tick_belt(delta)
 		"boss":
 			_tick_boss(delta)
 	if progress_t > 22.0:
@@ -2607,7 +6077,7 @@ func _clamp_player() -> void:
 		player_pos.z = CENTER.z + flat.y
 
 func _pointer_target() -> Vector3:
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		var best_d := INF
 		var best := player_pos
 		var any := false
@@ -2624,18 +6094,52 @@ func _pointer_target() -> Vector3:
 		return player_pos + Vector3(0, 7.0, 0)
 	match kind:
 		"box":
+			if box_phase == "belt" and box_belt != null:
+				return box_belt.position + Vector3(0, 2.2, 0)
+			if box_phase == "warmup" and box_bag != null:
+				return box_bag.position + Vector3(0, 7.2, 0)
+			if box_phase == "duck" and box_glove != null:
+				return box_glove.position + Vector3(0, 3.4, 0)
 			for g in imps:
 				if not bool(g["popped"]):
 					return (g["pos"] as Vector3) + Vector3(0, 5.0, 0)
 			return CENTER + Vector3(0, 8.0, -2.0)
 		"sleuth":
+			if board_phase == "name":
+				return (suspects[board_culprit]["pos"] as Vector3) + Vector3(0, 4.4, 0)
+			if board_phase == "trail":
+				if trail_i < trail_prints.size():
+					return (trail_prints[trail_i]["pos"] as Vector3) + Vector3(0, 3.0, 0)
+				return CENTER + Vector3(0, 10.0, -11.0)
+			if board_phase == "board":
+				for c: Dictionary in clue_cards:
+					if not bool(c["pinned"]):
+						return (suspects[int(c["owner"])]["pos"] as Vector3) + Vector3(0, 3.4, 0)
+				return CENTER + Vector3(0, 10.0, -11.0)
 			if chest_ready:
 				return goal.position + Vector3(0, 6.0, 0)
 			for prop: Dictionary in sleuth_props:
 				if not bool(prop["opened"]) and bool(prop["clue"]):
 					return (prop["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 8.0, 3.0)
-		"order":
+		"order", "paint":
+			if order_phase == "sift":
+				return goal.position + Vector3(0, 8.0, 0)
+			if order_phase == "pour":
+				return goal.position + Vector3(0, 7.0, 0)
+			if order_phase == "bake" and bake_cake != null:
+				return bake_cake.position + Vector3(0, 4.0, 0)
+			if order_phase == "sketch":
+				for sd in sketch_dots:
+					if sd.visible:
+						return sd.position + Vector3(0, 1.6, 0)
+				return canvas_pos + Vector3(0, 4.0, 0)
+			if order_phase == "fill":
+				if fill_want < fill_panels.size():
+					return (fill_panels[fill_want]["pos"] as Vector3) + Vector3(0, 7.0, 0)
+				return canvas_pos + Vector3(0, 4.0, 0)
+			if order_phase == "pipe":
+				return goal.position + Vector3(0, 6.0, 0)
 			if order_phase == "stir":
 				return goal.position + Vector3(0, 7.5, 0)
 			if order_phase == "decorate":
@@ -2649,26 +6153,52 @@ func _pointer_target() -> Vector3:
 				var pad: Dictionary = pads[order_steps[step]]
 				return (pad["pos"] as Vector3) + Vector3(0, 5.5, 0)
 		"echo":
+			if echo_phase == "ribbon":
+				for d in ribbon_dots:
+					if d.visible:
+						return d.position + Vector3(0, 2.0, 0)
+				return CENTER + Vector3(0, 9.0, 3.0)
+			if echo_phase == "twirl":
+				return player_pos + Vector3(0, 6.0, 0)
 			if echo_phase == "repeat" and echo_pos < echo_seq.size():
 				return (pads[echo_seq[echo_pos]]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 9.0, 3.0)
 		"shuffle":
+			if shuffle_phase == "rope" and rope_root != null:
+				return rope_root.position + Vector3(0, 2.4, 0)
+			if shuffle_phase == "cabinet" and cab_wand != null:
+				return cab_wand.position + Vector3(0, 2.8, 0)
 			if shuffle_phase == "watch":
 				return CENTER + Vector3(0, 8.0, 3.0)
 			return player_pos + Vector3(0, 7.0, 0)
 		"fix":
 			if fix_phase == "valve":
 				return valve.position + Vector3(0, 4.5, 0)
-			if carried >= 0 and fix_step < slots.size():
-				return ((slots[fix_step]["node"] as Node3D)).position + Vector3(0, 6.0, 0)
-			if fix_step < slots.size():
-				var need := int(slots[fix_step]["need"])
-				return (pieces[need]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+			if fix_phase == "launch":
+				return rocket.position + Vector3(0, 9.0, 0)
+			if pipe_flow_cell >= 0:
+				return (pipe_cells[pipe_flow_cell]["pos"] as Vector3) + Vector3(0, 3.4, 0)
+			return CENTER + Vector3(-7.5, 9.0, -9.0)
 		"press":
-			return CENTER + Vector3(0, 12.5, -8.5)
+			if press_phase == "syrup" and syrup_want < syrup_bottles.size():
+				return (syrup_bottles[syrup_want]["pos"] as Vector3) + Vector3(0, 8.0, 0)
+			if press_phase == "wrap" and wrap_node != null:
+				return wrap_node.position + Vector3(0, 3.4, 0)
+			if press_phase == "parade":
+				return CENTER + Vector3(0, 7.0, 4.0)
+			for it in belt_items:
+				return ((it["node"] as Node3D)).position + Vector3(0, 4.0, 0)
+			return CENTER + Vector3(0, 8.0, BELT_Z)
 		"doctor":
-			if doc_step < doc_targets.size():
-				return (doc_targets[doc_step]["pos"] as Vector3) + Vector3(0, 5.5, 0)
+			if vet_phase == "wash" and vet_basin != null:
+				return vet_basin.position + Vector3(0, 5.0, 0)
+			if vet_phase == "find" and vet_hurt >= 0:
+				return (vet_animals[vet_hurt]["pos"] as Vector3) + Vector3(0, 4.5, 0)
+			if vet_phase == "carry":
+				return vet_scope.position + Vector3(0, 8.0, 0)
+			if vet_phase == "xray" and vet_limb >= 0:
+				return vet_scope.position + Vector3(-2.7 + float(vet_limb) * 1.8, 6.4, -0.4)
+			return vet_scope.position + Vector3(0, 5.0, 0)
 		"race":
 			if race_flag != null:
 				return race_flag.position + Vector3(0, 7.0, 0)
@@ -2686,12 +6216,18 @@ func _tick_pointer() -> void:
 	# guessing games earn a moment without the answer: the arrow is a rescue
 	# that arrives after RESCUE_DELAY without progress (mistakes summon it).
 	# The brawl arrow is directional, not an answer — always on.
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
 		pass
-	elif kind == "order" and not order_hidden:
+	elif _is_order_kind() and not order_hidden:
 		show = show and progress_t > RESCUE_DELAY
 	elif kind == "echo" and echo_phase == "repeat":
 		show = show and progress_t > RESCUE_DELAY
+	elif kind == "doctor":
+		# spotting the hurt animal and reading the x-ray ARE the game —
+		# the arrow only rescues a stuck vet
+		show = show and (progress_t > RESCUE_DELAY or vet_phase == "carry")
+	elif kind == "sleuth" and board_phase != "" and board_phase != "done":
+		pass   # matching and naming are not guessing games: point the way
 	elif kind == "sleuth" and not chest_ready:
 		# searching IS the game — the arrow only rescues a stuck detective
 		show = show and progress_t > RESCUE_DELAY
@@ -2708,53 +6244,130 @@ func _update_hud() -> void:
 	if objective == null:
 		return
 	var tag := act_tag + "  •  " if act_tag != "" else ""
-	if stage_phase == "brawl":
-		objective.text = tag + "✨  Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
+	if stage_phase == "brawl" or stage_phase == "rescue":
+		objective.text = tag + "✨  Free them! Pop the mischief imps!  %d / %d" % [imp_count - imps_left, imp_count]
 		return
 	match kind:
-		"order":
-			if order_phase == "stir":
-				objective.text = tag + "🥄  STIR the big bowl!  %d / 3" % stir_done
+		"order", "paint":
+			if order_phase == "sift":
+				objective.text = tag + "🌾  RUB side to side to sift the flour!  %d%%" % int(clampf(sift_done / SIFT_NEED, 0.0, 1.0) * 100.0)
+			elif order_phase == "pour":
+				objective.text = tag + "🥛  HOLD to pour the milk to the line!  %d%%" % int(clampf(pour_t / POUR_NEED, 0.0, 1.0) * 100.0)
+			elif order_phase == "bake":
+				objective.text = tag + ("🔥  GOLDEN! Tap to take it out!" if bake_golden else "🔥  Baking... watch it rise!")
+			elif order_phase == "pipe":
+				objective.text = tag + "🧁  DRAG round the ring to pipe the frosting!  %d / %d" % [pipe_trace, pipe_dots.size()]
+			elif order_phase == "stir":
+				if stir_drag:
+					var turn := int(clampf(stir_accum / TAU, 0.0, 1.0) * 100.0)
+					objective.text = tag + "🥄  Draw CIRCLES to stir!  %d / 3  (%d%%)" % [stir_done, turn]
+				else:
+					objective.text = tag + "🥄  Swim to the big bowl to stir!  %d / 3" % stir_done
+			elif order_phase == "sketch":
+				objective.text = tag + "✏️  TRACE the dotted line!  %d / %d" % [sketch_trace, SKETCH_DOTS]
+			elif order_phase == "fill":
+				objective.text = tag + "🎨  HOLD on the matching shape!  %d / %d" % [fill_done, fill_panels.size()]
 			elif order_phase == "decorate":
 				objective.text = tag + "🍒  Plop the toppings on!  %d / %d" % [deco_done, deco_spots.size()]
 			elif brush_loaded >= 0:
-				objective.text = tag + "🖌  Swipe the canvas to paint!  %d / %d" % [step, order_steps.size()]
+				if paint_easel:
+					var pct := int(clampf(float(paint_band_done) / maxf(1.0, float(paint_band_need)), 0.0, 1.0) * 100.0)
+					objective.text = tag + "🖌  DRAG to paint!  %d%%" % pct
+				else:
+					objective.text = tag + "🖌  Carry the brush to the canvas!  %d / %d" % [step, order_steps.size()]
 			else:
 				objective.text = tag + "✨  Match the pictures!  %d / %d" % [step, order_steps.size()]
 		"box":
-			if box_wait > 0.0:
+			if box_phase == "belt":
+				objective.text = tag + "🏆  CHAMPION! Swim up and take the belt!"
+			elif box_phase == "warmup":
+				objective.text = tag + "🥊  Warm up on the bag!  %d / %d" % [box_bag_hits, box_bag_goal]
+			elif box_phase == "duck":
+				objective.text = tag + ("🥊  Ducked! Here it comes..." if box_ducked
+					else "🧤  SWIPE DOWN to duck under the big glove!")
+			elif box_wait > 0.0:
 				objective.text = tag + "🥊  Round won! Get ready..."
 			else:
 				var waves: Array = config.get("rounds", [3, 4, 5])
-				objective.text = tag + "🥊  ROUND %d / %d — bop the imps!  %d left" % [box_round + 1, waves.size(), imps_left]
+				objective.text = tag + "🥊  ROUND %d / %d — bop them when they POP UP!  %d left" % [box_round + 1, waves.size(), imps_left]
 		"sleuth":
-			if chest_ready:
+			if board_phase == "name":
+				objective.text = tag + "🕵️  Who has the MOST clues? Tap that friend!"
+			elif board_phase == "board":
+				objective.text = tag + "📌  DRAG each clue to the matching friend!  %d / %d" % [board_pinned, clue_cards.size()]
+			elif board_phase == "trail":
+				objective.text = tag + "🐾  FOLLOW the sparkly pawprints!  %d / %d" % [trail_i, trail_prints.size()]
+			elif chest_ready:
 				objective.text = tag + "💎  Tap the treasure chest!"
 			else:
-				objective.text = tag + "🔍  Peek in the boxes!  %d / 3 clues" % clues_found
+				objective.text = tag + "🔍  DRAG the magnifier over the boxes!  %d / %d clues" % [clues_found, int(config.get("clues", 3))]
 		"echo":
-			if echo_phase == "show":
+			if echo_phase == "ribbon":
+				objective.text = tag + "🎀  TRACE the sparkly path!  %d / %d" % [ribbon_trace, RIBBON_DOTS]
+			elif echo_phase == "twirl":
+				objective.text = tag + "💫  Draw CIRCLES and TWIRL!  %d / %d" % [twirl_done, TWIRL_TURNS]
+			elif echo_phase == "show":
 				objective.text = tag + "👀  WATCH the twinkling tiles!"
 			else:
 				objective.text = tag + "🩰  YOUR TURN!  %d / %d" % [echo_pos, echo_seq.size()]
 		"shuffle":
-			if shuffle_phase == "watch":
+			if shuffle_phase == "rope":
+				objective.text = tag + "🪢  PULL your finger out wide!  %d / %d knots" % [rope_undone, ROPE_KNOTS]
+			elif shuffle_phase == "cabinet":
+				objective.text = tag + "🪄  Tap the wand ON the beat!  %d / %d" % [cab_taps, CAB_TAPS]
+			elif shuffle_phase == "hide":
+				objective.text = tag + "🎩  DRAG a hat over the bunny-fish!"
+			elif shuffle_phase == "watch":
 				objective.text = tag + "👀  WATCH the hats dance!"
 			else:
 				objective.text = tag + "🎩  PICK the bunny-fish hat!  %d / %d" % [shuffle_round, int(config.get("rounds", 2))]
 		"fix":
-			if fix_phase == "valve":
-				objective.text = tag + "💨  Spin the big valve — tap USE!  %d / 3" % valve_spins
-			elif carried >= 0:
-				objective.text = tag + "🔧  Carry it to the glowing gap!  %d / %d" % [fix_step, slots.size()]
+			if fix_phase == "launch":
+				objective.text = tag + "🚀  HOLD to launch!  %d%%" % int(clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0) * 100.0)
+			elif fix_phase == "valve":
+				objective.text = tag + "💨  Spin the big valve — tap USE!  %d / 5" % valve_spins
+			elif pipe_fuse_t > 0.0:
+				objective.text = tag + "🫧  Build the pipe path — bubbles in %d!" % int(ceilf(pipe_fuse_t))
+			elif pipe_leak_t > 0.0:
+				objective.text = tag + "🫧  Leak! Put a pipe on the glowing square!"
 			else:
-				objective.text = tag + "🔧  Grab the pipe piece under the arrow!  %d / %d" % [fix_step, slots.size()]
+				objective.text = tag + "🔧  DRAG the front pipe onto the wall!"
 		"press":
-			objective.text = tag + "🍬  PRESS when the star is in the green middle!  %d / %d" % [candies_done, candies_goal]
+			match press_phase:
+				"syrup":
+					objective.text = tag + "🍯  HOLD on the sparkling bottle!  %d / %d" % [syrup_want, syrup_bottles.size()]
+				"wrap":
+					objective.text = tag + "🍭  TWIST the wrappers shut!  %d / 3" % wrap_done
+				"parade":
+					objective.text = tag + "🎪  TAP when the cart is underneath!  %d / 5" % parade_loaded
+				_:
+					objective.text = tag + "🍬  DRAG each candy to its matching chute!  %d / %d" % [candies_done, candies_goal]
 		"doctor":
-			objective.text = tag + "🩺  Help the plushy feel better!  %d / %d" % [doc_step, doc_targets.size()]
+			match vet_phase:
+				"wash":
+					objective.text = tag + "🫧  HOLD at the basin to wash your hands!  %d%%" % int(clampf(vet_wash_t / VET_WASH_HOLD, 0.0, 1.0) * 100.0)
+				"find":
+					objective.text = tag + "🔎  Find the animal with the red ouch star!  (%d / %d)" % [vet_done_n + 1, vet_goal_n]
+				"carry":
+					objective.text = tag + "🤲  Carry them to the fluoroscope!"
+				"xray":
+					objective.text = tag + "🦴  Tap the bone with the crack!"
+				"cast":
+					objective.text = tag + "🩹  Wrap the soft cast — draw CIRCLES!  %d%%" % int(clampf(vet_wrap / (VET_WRAP_TURNS * TAU), 0.0, 1.0) * 100.0)
+				"coban":
+					objective.text = tag + "💙  Now the stretchy coban — CIRCLES again!  %d%%" % int(clampf(vet_wrap / (VET_COBAN_TURNS * TAU), 0.0, 1.0) * 100.0)
+				_:
+					objective.text = tag + "🩺  All better!"
 		"scroll":
-			objective.text = tag + "🐷  TOSS veggies to the hungry piggies!  %d / %d" % [farm_fed, piggies.size()]
+			match farm_phase:
+				"plant":
+					objective.text = tag + "🌱  DRAG each seed into a hole!  %d / %d" % [seeds_planted, furrows.size()]
+				"mud":
+					objective.text = tag + "🐽  SWIPE UP to hop over the mud!  %d / %d" % [mud_leaps, MUD_LEAPS]
+				"barn":
+					objective.text = tag + "🏠  SWEEP back and forth to shoo them home!  %d%%" % int(clampf(barn_scrub / BARN_SCRUB, 0.0, 1.0) * 100.0)
+				_:
+					objective.text = tag + "🐷  DRAG BACK and let go to lob a veggie!  %d / %d" % [farm_fed, piggies.size()]
 		"race":
 			objective.text = tag + "🏁  Race the Opera Grand Prix!"
 		"dance":
@@ -2764,14 +6377,33 @@ func _update_hud() -> void:
 			for i in range(maxi(0, int(boss.get("hp", 0)))):
 				hearts += "★"
 			if bool(boss.get("dual", false)) and String(boss.get("phase", "")) == "shadow":
-				objective.text = tag + "🏮  Find the twinkling lantern — tap SHINE!  " + hearts
+				objective.text = tag + "🏮  HOLD SHINE by the twinkling lantern!  %d%%  " % int(clampf(lantern_charge / LANTERN_CHARGE, 0.0, 1.0) * 100.0) + hearts
+			elif String(boss.get("phase", "")) == "roar":
+				objective.text = tag + "🐉  A big ROAR! Wait for him to get dizzy...  " + hearts
 			else:
 				objective.text = tag + "✨  Tap SPARKLE when he peeks!  " + hearts
+
+func _hang_painting() -> void:
+	# the creation is USED: it gets a gold frame and flies up onto the gallery
+	# wall, and the larder remembers that a Roshan original hangs there
+	if paint_canvas == null:
+		return
+	_paint_flush()
+	var frame := _box(paint_canvas.position, Vector3(paint_size.x + 1.1, paint_size.y + 1.1, 0.3),
+		Color(1.0, 0.85, 0.45), 0.35)
+	var up := frame.create_tween()
+	up.tween_property(frame, "position", CENTER + Vector3(0, 11.0, -16.8), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	var up2 := paint_canvas.create_tween()
+	up2.tween_property(paint_canvas, "position", CENTER + Vector3(0, 11.0, -16.6), 1.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	m.opera_pantry["painting"] = int(m.opera_pantry.get("painting", 0)) + 1
+	m._sparkle_burst(CENTER + Vector3(0, 11.0, -16.0), Color(1.0, 0.9, 0.6))
 
 func _win() -> void:
 	if state != "play":
 		return
 	state = "won"
+	if kind == "paint":
+		_hang_painting()
 	win_t = 2.6
 	pointer.visible = false
 	objective.text = "🎉  TA-DAAA!  🎉"
@@ -2806,6 +6438,16 @@ func _finish() -> void:
 	if state == "done":
 		return
 	state = "done"
+	_leave_easel()
+	_leave_stir()
+	_leave_lens()
+	_leave_launch()
+	_leave_farm()
+	_leave_belt()
+	_leave_hide()
+	_vet_leave()
+	_leave_pipes()
+	_leave_chef()
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -2814,6 +6456,16 @@ func _finish() -> void:
 	queue_free()
 
 func cancel() -> void:
+	_leave_easel()
+	_leave_stir()
+	_leave_lens()
+	_leave_launch()
+	_leave_farm()
+	_leave_belt()
+	_leave_hide()
+	_vet_leave()
+	_leave_pipes()
+	_leave_chef()
 	if state == "done":
 		return
 	if state == "won":
@@ -2833,19 +6485,23 @@ func cancel() -> void:
 	queue_free()
 
 func action_label() -> String:
-	if stage_phase == "brawl":
+	if stage_phase == "brawl" or stage_phase == "rescue":
+		# an on-stage rescue is the same verb as the backstage brawl. Without
+		# this the button read SORT or DANCE while she was popping imps.
 		return "SPARKLE"
 	match kind:
 		"echo":
 			return "DANCE"
 		"press":
-			return "PRESS"
+			return "DROP" if press_phase == "parade" else "SORT"
 		"box":
 			return "PUNCH"
 		"sleuth":
-			return "PEEK"
+			if board_phase == "name":
+				return "NAME"
+			return "FOLLOW" if board_phase == "trail" else "LOOK"
 		"scroll":
-			return "TOSS"
+			return "LOB" if farm_phase == "feed" else "SWIPE"
 		"race":
 			if kart != null:
 				return String(kart.call("action_label"))

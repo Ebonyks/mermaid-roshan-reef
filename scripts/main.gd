@@ -226,6 +226,11 @@ var opera_game: OperaHouse = null
 var opera_progress := 0            # cleared opera acts (star count), 0..15
 var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
 var opera_done := false
+# The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
+# have someone caged backstage — and the freed friends hand Roshan a GIFT that
+# the act then cooks, paints or plays with. Gifts persist, so the carrots the
+# farmers give her on Floor 1 are still in the larder for later shows.
+var opera_pantry: Dictionary = {}
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content
