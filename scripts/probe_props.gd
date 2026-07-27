@@ -30,6 +30,7 @@ func _init() -> void:
 	await _settle_case()
 	await _idle_case()
 	await _push_case()
+	await _swell_case()
 	await _cap_case()
 	await _teardown_case()
 	print("PROPS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -137,6 +138,59 @@ func _push_case() -> void:
 	main.player.vel = Vector3.ZERO
 	var dx: float = target.global_position.x - start_x
 	_ck("contact push shoves the prop away", dx < -0.5)
+
+func _swell_case() -> void:
+	# flip the tide on mid-stage (the opt-in "swell" cfg key), stir one prop
+	# awake through the push coupling, and verify all three swell contracts:
+	# a stirred prop rides the real solver tide; the fade lets the fleet
+	# settle back to sleep (the perf contract survives the wave); a sleeping
+	# prop sways its sprite cosmetically while its body never moves.
+	var cfg: Dictionary = main.g.get("ss_cfg", {})
+	cfg["swell"] = 1.0
+	var target: RigidBody3D = null
+	for p_v in _fleet():
+		var b := p_v as RigidBody3D
+		if b != null and is_instance_valid(b) and not b.axis_lock_angular_z:
+			target = b
+			break
+	if target == null:
+		_ck("a swell target exists", false)
+		return
+	for i in range(8):
+		main.player.position = target.global_position + Vector3(2.2, 0.3, 0.0)
+		main.player.vel = Vector3(-10.0, 0.0, 0.0)
+		stage.props_tick(1.0 / 60.0)
+		await process_frame
+	_park_player_far()
+	var base_x: float = target.global_position.x
+	var moved_peak := 0.0
+	for i in range(50):
+		_park_player_far()
+		stage.props_tick(1.0 / 60.0)
+		moved_peak = maxf(moved_peak, absf(target.global_position.x - base_x))
+		await process_frame
+	_ck("stirred prop rides the solver tide", moved_peak > 0.1)
+	var awake_last := 99
+	for i in range(260):
+		_park_player_far()
+		var s: Dictionary = stage.props_tick(1.0 / 60.0)
+		awake_last = int(s.get("awake", 99))
+		await process_frame
+	_ck("tide fades and the fleet sleeps again", awake_last == 0)
+	var q: MeshInstance3D = target.get_meta("ss_quad", null) as MeshInstance3D
+	var body_x: float = target.global_position.x
+	var sway_peak := 0.0
+	var body_drift := 0.0
+	for i in range(40):
+		_park_player_far()
+		stage.props_tick(1.0 / 60.0)
+		if q != null and is_instance_valid(q):
+			sway_peak = maxf(sway_peak, absf(q.rotation.z))
+		body_drift = maxf(body_drift, absf(target.global_position.x - body_x))
+		await process_frame
+	_ck("sleeping sprite sways with the wave", sway_peak > 0.005)
+	_ck("cosmetic tide never moves the body", body_drift < 0.05)
+	cfg["swell"] = 0.0
 
 func _cap_case() -> void:
 	var extra := 0

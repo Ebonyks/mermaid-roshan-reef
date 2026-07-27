@@ -281,6 +281,10 @@ func walk_tick(delta: float) -> Dictionary:
 				moved = true
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
+	if swell_amp() > 0.0:
+		# Roshan rides the same tide as the props and layers — analytically,
+		# never on a body (her hover just samples the shared wave)
+		hover += sin(swell_phase(x) + 0.9) * 0.35 * swell_amp()
 	m.player.position = r.position + Vector3(x, hover, z)
 	m.player.vel = Vector3.ZERO
 	# face the run: screen-left/right while traveling, the camera when idle
@@ -301,12 +305,19 @@ func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) ->
 	cam.position = cam.position.lerp(goal, 1.0 - pow(0.002, delta))
 	cam.look_at(r.position + Vector3(follow_x, float(cfg.get("look_h", 10.5)), 0))
 	# parallax: locked layers ride the (lerped) camera by their lock factor,
-	# so a lock-1 sky never recedes and a lock-0 skirt stays stage-pinned
+	# so a lock-1 sky never recedes and a lock-0 skirt stays stage-pinned;
+	# under a swell the near layers also breathe with the shared wave (the
+	# lock-1 sky stays fixed — the horizon doesn't ride the current)
+	var sway_x := 0.0
+	if swell_amp() > 0.0:
+		sway_x = swell_sway(0.0).x
 	for e_v in (m.g.get("ss_layers", []) as Array):
 		var e: Dictionary = e_v as Dictionary
 		var holder: Node3D = e.get("node") as Node3D
 		if holder != null and is_instance_valid(holder):
-			holder.position.x = (cam.position.x - r.position.x) * float(e.get("lock", 0.0))
+			var lockf: float = float(e.get("lock", 0.0))
+			holder.position.x = (cam.position.x - r.position.x) * lockf \
+				+ sway_x * (1.0 - lockf) * 0.5
 
 # ---- brawl mode: walk-the-plane with depth (Castle Crashers style) ---------
 func set_bounds(l: float, r: float) -> void:
@@ -358,6 +369,8 @@ func brawl_tick(delta: float) -> Dictionary:
 		-half_d, half_d)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
+	if swell_amp() > 0.0:
+		hover += sin(swell_phase(x) + 0.9) * 0.35 * swell_amp()
 	m.player.position = r.position + Vector3(x, hover, z)
 	m.player.vel = Vector3.ZERO
 	# face the run: screen-left/right while dashing, the camera when idle
@@ -602,6 +615,10 @@ func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary =
 	q.material_override = mat
 	q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	body.add_child(q)
+	# the swell's two channels need handles: the quad for the cosmetic tide
+	# on sleepers, the stir stamp for the fading solver tide on awake bodies
+	body.set_meta("ss_quad", q)
+	body.set_meta("ss_stir", float(m.g.get("ss_swell_t", 0.0)))
 	body.position = Vector3(x,
 		float(cfg.get("floor_y", 0.0)) + size.y * 0.5 + float(cfg.get("drop", 0.0)) + 0.05, z)
 	parent.add_child(body)
@@ -610,17 +627,55 @@ func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary =
 		m.g["ss_props"] = fleet
 	return body
 
+# ---- the swell: one wave, every channel (underwater stages) -----------------
+# A single deterministic traveling wave — pure function of the stage clock
+# and x, no state, no sim — that every motion channel samples so the whole
+# diorama breathes to the same tide: awake props feel it as a real (fading)
+# solver force, sleeping props rock their sprite cosmetically WITHOUT waking
+# (the sleep/perf contract survives), Roshan's hover and the parallax layers
+# add the same phase. Opt-in per stage: cfg "swell" ∈ [0,2], 0 (default) =
+# off — underwater promenades turn it on, interiors stay still. Not a water
+# sim; the oceanfft addon stays dead.
+
+func swell_amp() -> float:
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	return clampf(float(cfg.get("swell", 0.0)), 0.0, 2.0)
+
+func swell_phase(x: float) -> float:
+	# time phase minus x phase: an ~11 s swell rolling visibly across the
+	# frame (wavelength ~105 units, about two stage widths)
+	return float(m.g.get("ss_swell_t", 0.0)) * 0.55 - x * 0.06
+
+func swell_force(x: float) -> Vector3:
+	# the shared field for awake bodies: surge along x, softer lift, zero
+	# net drift (pure oscillation — damping bleeds the energy back out)
+	var ph := swell_phase(x)
+	return Vector3(sin(ph) * 1.8, sin(ph * 1.8 + 1.7) * 0.6, 0.0) * swell_amp()
+
+func swell_sway(x: float) -> Vector2:
+	# the cosmetic channel for sleepers, hover and layers: (x offset,
+	# z rotation) — small on purpose; it reads as current, not motion
+	var ph := swell_phase(x)
+	return Vector2(sin(ph) * 0.22, sin(ph + 0.6) * 0.06) * swell_amp()
+
 func props_tick(delta: float) -> Dictionary:
 	# Roshan -> prop coupling, the promenade cousin of the physlab swim-wake
 	# shove in main._physics_process: a firm contact push plus a softer carry
-	# from her velocity, so walking through the fleet scatters it. Prunes
-	# freed bodies and reports how much of the fleet is awake — the perf
-	# signal; a settled fleet must cost ~nothing. Returns {count, awake}.
+	# from her velocity, so walking through the fleet scatters it. Owns the
+	# swell clock and applies the tide per body: awake bodies get the solver
+	# force, fading over ~6 s since their last disturbance so they can still
+	# settle and SLEEP; sleeping bodies get the cosmetic quad sway and are
+	# never woken by the wave (only Roshan's push wakes a prop, which stamps
+	# it back into the real tide). Prunes freed bodies and reports how much
+	# of the fleet is awake — the perf signal. Returns {count, awake}.
+	m.g["ss_swell_t"] = float(m.g.get("ss_swell_t", 0.0)) + delta
 	var fleet: Array = m.g.get("ss_props", [])
 	if fleet.is_empty():
 		return {"count": 0, "awake": 0}
 	var alive: Array = []
 	var awake := 0
+	var amp := swell_amp()
+	var t: float = float(m.g.get("ss_swell_t", 0.0))
 	var ppos: Vector3 = m.player.global_position
 	var pvel: Vector3 = m.player.vel
 	for p_v in fleet:
@@ -628,19 +683,33 @@ func props_tick(delta: float) -> Dictionary:
 		if b == null or not is_instance_valid(b):
 			continue
 		alive.append(b)
-		if not b.sleeping:
-			awake += 1
 		var d: Vector3 = b.global_position - ppos
 		var dist: float = d.length()
-		if dist > 4.5 or dist < 0.001:
-			continue
-		var flatv := Vector3(d.x, d.y * 0.2, d.z)
-		if flatv.length() < 0.001:
-			flatv = Vector3(pvel.x, 0.0, pvel.z)
-		var imp: Vector3 = flatv.normalized() * (maxf(0.0, 3.2 - dist) * 16.0)
-		imp += pvel * (maxf(0.0, 1.0 - dist / 4.5) * 0.6)
-		if imp.length_squared() > 0.0001:
-			b.apply_central_impulse(imp * delta * b.mass)
+		if dist <= 4.5 and dist >= 0.001:
+			var flatv := Vector3(d.x, d.y * 0.2, d.z)
+			if flatv.length() < 0.001:
+				flatv = Vector3(pvel.x, 0.0, pvel.z)
+			var imp: Vector3 = flatv.normalized() * (maxf(0.0, 3.2 - dist) * 16.0)
+			imp += pvel * (maxf(0.0, 1.0 - dist / 4.5) * 0.6)
+			if imp.length_squared() > 0.0001:
+				b.apply_central_impulse(imp * delta * b.mass)   # wakes it
+				b.set_meta("ss_stir", t)
+		var q: MeshInstance3D = b.get_meta("ss_quad", null) as MeshInstance3D
+		if b.sleeping:
+			if amp > 0.0 and q != null and is_instance_valid(q):
+				var sw := swell_sway(b.global_position.x)
+				q.position.x = sw.x
+				q.rotation.z = sw.y
+		else:
+			awake += 1
+			if amp > 0.0:
+				var fade: float = clampf(1.0 - (t - float(b.get_meta("ss_stir", 0.0))) / 6.0, 0.0, 1.0)
+				if fade > 0.0:
+					b.apply_central_impulse(swell_force(b.global_position.x) * fade * delta * b.mass)
+			if q != null and is_instance_valid(q):
+				# hand the sprite back to the solver smoothly
+				q.position.x *= 0.8
+				q.rotation.z *= 0.8
 	m.g["ss_props"] = alive
 	return {"count": alive.size(), "awake": awake}
 

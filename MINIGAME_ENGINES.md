@@ -317,6 +317,13 @@ stage.prop("", Vector2(2.4, 3.2), 6.0, 1.5, {"tumble": true})
     # ("logic analytic, garnish Jolt"). Probe: probe_props.gd.
 var f := stage.props_tick(delta)  # Roshan->fleet contact push + prune
     # → {"count","awake"} — awake is the perf signal; settled fleet ≈ free
+# "swell": 1.0 in open() cfg = the underwater tide (default 0 = off): ONE
+    # deterministic traveling wave every channel samples — awake props feel
+    # it as a real solver force fading ~6 s after their last disturbance so
+    # they can still sleep; sleeping props rock their sprite cosmetically
+    # and are NEVER woken by the wave; Roshan's walk/brawl hover and the
+    # near parallax layers add the same phase. One clock, whole diorama.
+    # Not a water sim — the oceanfft addon stays dead.
 var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
 stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
 stage.companion_open(tex, height, start)   # player-2 cutout hero
