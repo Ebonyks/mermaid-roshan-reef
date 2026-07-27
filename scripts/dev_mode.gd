@@ -259,7 +259,7 @@ func _set_lab_outfit(id: String, label: String) -> void:
 	if id == "":
 		_status("Outfit off")
 	else:
-		var worn := main.player.costume_nodes.size() > 0
+		var worn: bool = main.player.costume_nodes.size() > 0
 		_status("Outfit: %s%s" % [label, "" if worn else " (no pieces mounted?)"])
 
 # ============================ collect / apply ============================
