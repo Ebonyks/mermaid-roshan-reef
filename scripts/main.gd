@@ -17,6 +17,9 @@ const PEARL_TOTAL := 10
 # so the existing trusted activity probes remain deterministic while the new
 # kingdom probe covers the launch route directly.
 const START_AT_CASTLE_GATE := true
+# Day-one builds keep the adult look lab available on the phone. Its panel
+# starts closed, so child-facing gameplay remains unobstructed.
+const DEV_MODE_DEFAULT := true
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -171,6 +174,7 @@ var companion_id := ""                    # chosen stuffie ("" until picked at H
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
 var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
+var clean_done: Dictionary = {}           # 2D dirty-castle target id -> true
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
 var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
@@ -513,6 +517,9 @@ var animals_owned := {}    # tank friends released into the reef (persisted)
 var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
+var opening_seen := false
+var arrival_imp_seen := false
+var castle_reveal_seen := false
 var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
 var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
@@ -525,6 +532,7 @@ var roshan_spot_cool := 0.0
 var idle_voice_t := 9.0
 var intro_active := false
 var intro_layer: CanvasLayer
+var dirty_castle_layer: CanvasLayer = null
 var intro_idx := 0
 var intro_art: TextureRect
 var intro_art2: TextureRect
@@ -722,7 +730,8 @@ func _ready() -> void:
 		voice_pool.append(ap)
 	touch_ui = preload("res://scripts/touch_ui.gd").new()
 	add_child(touch_ui)
-	if OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args():
+	if DisplayServer.get_name() != "headless" and (DEV_MODE_DEFAULT \
+			or OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args()):
 		dev_mode = preload("res://scripts/dev_mode.gd").new()
 		add_child(dev_mode)
 	_build_guide()
@@ -736,7 +745,7 @@ func _ready() -> void:
 		# briefly expose the legacy ocean origin behind the intro overlay.
 		_enter_level2_now(false, false, true)
 	_collection_ref().build()
-	if first_session:
+	if not opening_seen:
 		_build_intro()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
@@ -798,6 +807,15 @@ func _warm_shaders() -> void:
 	rig.add_child(cp)
 	# a handful of frames is enough for the driver to finish; then vanish
 	get_tree().create_timer(0.5).timeout.connect(rig.queue_free)
+
+# OGV story beats share one full-screen player. The intro wrapper below keeps
+# the long-standing _skip_intro probe/debug surface intact.
+var _cinematic_overlay: CinematicOverlay = null
+
+func _cinematic_ref() -> CinematicOverlay:
+	if _cinematic_overlay == null:
+		_cinematic_overlay = CinematicOverlay.new(self)
+	return _cinematic_overlay
 
 # the storybook intro overlay lives in scripts/intro_overlay.gd
 # (state stays here; IntroOverlay receives main by reference)
@@ -3949,6 +3967,8 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false,
 
 func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	at_ocean_gate_hub: bool = false) -> void:
+	if _dirty_castle_stage != null:
+		_dirty_castle_stage.clear()
 	game = "level2"
 	# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;
 	# stacking both erased nearly all color from pearl, snow, and pastel props.
@@ -4203,6 +4223,7 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 # (state stays here; SkyLagoon receives main by reference)
 var _sky_lagoon: SkyLagoon = null
 var _sky_lagoon_promenade: SkyLagoonPromenade = null
+var _dirty_castle_stage: DirtyCastleStage = null
 
 func _lagoon_ref() -> SkyLagoon:
 	if _sky_lagoon == null:
@@ -4213,6 +4234,11 @@ func _lagoon_promenade_ref() -> SkyLagoonPromenade:
 	if _sky_lagoon_promenade == null:
 		_sky_lagoon_promenade = SkyLagoonPromenade.new(self)
 	return _sky_lagoon_promenade
+
+func _dirty_castle_ref() -> DirtyCastleStage:
+	if _dirty_castle_stage == null:
+		_dirty_castle_stage = DirtyCastleStage.new(self)
+	return _dirty_castle_stage
 
 # The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
@@ -4252,6 +4278,9 @@ func _build_fairy_pond(o: Vector3) -> void:
 	_lagoon_ref()._build_fairy_pond(o)
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
+	if String(g.get("phase", "")) == "dirty_castle":
+		_dirty_castle_ref().tick(delta)
+		return
 	if String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().tick(delta)
 		return
@@ -5040,6 +5069,46 @@ func _tick_cutscene(delta: float) -> void:
 		if cur_track == "castle_open":
 			_play_music(prev_track if prev_track != "" else "finale")
 		show_msg("Roshan", "Wow! Let's go inside!")
+
+const CASTLE_REVEAL_VIDEO := "res://assets/cinematics/dirty_castle/dirty_castle_reveal.ogv"
+const CASTLE_REVEAL_POSTER := "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg"
+
+func _begin_dirty_castle_entry() -> void:
+	if castle_reveal_seen:
+		_enter_dirty_castle()
+		return
+	_cinematic_ref().play(CASTLE_REVEAL_VIDEO, CASTLE_REVEAL_POSTER,
+		_finish_castle_reveal, "CastleReveal")
+
+func _finish_castle_reveal() -> void:
+	castle_reveal_seen = true
+	save_data["castle_reveal_seen"] = true
+	_write_save()
+	_enter_dirty_castle()
+
+func _enter_dirty_castle() -> void:
+	_fade_cut(_enter_dirty_castle_now)
+
+func _enter_dirty_castle_now() -> void:
+	game = "level2"
+	if sun_light != null:
+		sun_light.visible = false
+	for node: Node3D in game_nodes:
+		if is_instance_valid(node):
+			node.queue_free()
+	game_nodes.clear()
+	g = {"t": 0.0, "phase": "dirty_castle"}
+	arena_solids.clear()
+	arena_zones.clear()
+	fade_walls.clear()
+	lagoon_floor = false
+	northern_floor = false
+	arena_center = CASTLE_POS
+	arena_dome = 1.0
+	arena_ceil = 1.0
+	player.vel = Vector3.ZERO
+	_play_music("hall")
+	_dirty_castle_ref().build()
 
 func _enter_castle_interior(from_back: bool = false) -> void:
 	_fade_cut(_enter_castle_interior_now.bind(from_back))
@@ -6904,6 +6973,12 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	# The 2D cleaning stage owns the visible frame and all input. Suspend the
+	# hidden legacy worlds so the phone pays only for the active layer.
+	if game == "level2" and String(g.get("phase", "")) == "dirty_castle":
+		g["t"] = float(g.get("t", 0.0)) + delta
+		_tick_level2(delta, ppos)
+		return
 	if touch_uses_explicit_interactions():
 		_tap_move_ref().tick(delta)
 		_interaction_ref().tick(delta, ppos)

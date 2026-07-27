@@ -384,3 +384,37 @@ ambientCG (all CC0).
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
+## Dirty Castle 2D Control-minigame cutouts (2026-07-22/23; audited 2026-07-26)
+- `assets/castle/dirty_cleanup_2d/**/*.png` — 54 project-original
+  transparent 512x512 PNG cutouts: 6 dust-bunny poses, 12 effects, 6 progress
+  icons, 18 generic cleaning targets, and 12 tools. Source: OpenAI built-in
+  image generation; project storybook palette/continuity only, with no external
+  reference images. Protected project originals were not modified.
+- License: project original.
+- Modifications: local chroma-key removal, alpha cleanup, and high-quality
+  reduction to 512x512. The final runtime pack deliberately excludes the
+  undersized cinematic plates and every historical scene/model-derived room
+  skin and source. Runtime inventory is recorded in
+  `assets/castle/dirty_cleanup_2d/manifest.json`.
+
+## Day One native vector environment masters (2026-07-26)
+- `assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg` and
+  `assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg` —
+  project-authored vector storybook environments, created directly on native
+  2048x1024 canvases. No external or protected reference image was used.
+- License: project original.
+- Modifications: none. The authored SVG is the exact runtime master; no resize,
+  upscale, padding, crop, recompression, or derivative copy. Dimensions and
+  SHA-256 invariance evidence are in
+  `DAY_ONE_2D_RUNTIME_AUDIT_2026-07-26.md`.
+
+## Day One arrival imp sprite (2026-07-26)
+- `assets/sprites/story/arrival_imp.png` — project-original OpenAI built-in
+  image generation. Prompt: friendly child-safe lavender storybook imp,
+  energetic running-away pose facing right, readable navy-purple outline,
+  pastel cel-shaded 2D cutout on a flat green chroma background; no external
+  or protected reference image.
+- License: project original.
+- Modifications: official local chroma-key helper removed the green background;
+  high-quality resize from 1024x1536 to 683x1024 RGBA. No protected source art
+  was changed.

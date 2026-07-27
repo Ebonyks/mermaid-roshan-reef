@@ -1,13 +1,15 @@
 class_name SkyLagoonPromenade
 extends RefCounted
-# The Sky Lagoon's three-page 2.5D promenade. The painted PNW flats and
-# transparent Codex sprites do the visual work; the real Roshan rig walks in
-# one shallow band in front of them. All mutable state remains on ReefMain.
+# The Sky Lagoon's three-page 2.5D promenade. Every visible world element is
+# an unshaded Sprite3D card at audited depth; the hidden player node is only a
+# navigation/camera proxy. All mutable state remains on ReefMain.
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_SIZE := Vector2(144.0, 48.0)
+const BACKDROP_SIZE := Vector2(144.0, 72.0)
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
+const IMP_TEX := "res://assets/sprites/story/arrival_imp.png"
+const IMP_LAUGH := "res://assets/audio/penguin_giggle.ogg"
 
 var m: ReefMain
 var stage: SideScrollStage
@@ -22,6 +24,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_targets"] = []
 	m.g["lagoon_promenade_focus"] = ""
 	m.g["lagoon_promenade_focus_t"] = 0.0
+	m.g["promenade_background_card"] = null
 	m.lagoon_floor = false
 	m.northern_floor = false
 	m.arena_center = m.LEVEL2_POS
@@ -41,15 +44,16 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": 10.0,
 		"cam_follow": 1.0,
 	})
-	# One 3x1 painting on one Sprite3D card: the camera can cross both page boundaries
-	# without exposing a seam, gutter, parallax mismatch, or horizon jump.
+	# One native 2048x1024 master on one background Sprite3D card: the camera
+	# crosses both page boundaries without exposing a seam, gutter, or horizon jump.
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
+		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
 		0.0)
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
 	_build_roshan_card()
+	_build_arrival_imp()
 	var spawn_x := -48.0
 	if from_castle:
 		spawn_x = 48.0
@@ -67,6 +71,7 @@ func tick(delta: float) -> void:
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
 	_sync_roshan_card(m.player.position.x - old_x)
+	_tick_arrival_imp(delta)
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
@@ -132,8 +137,69 @@ func _build_roshan_card() -> void:
 	var card := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
+	card.name = "PromenadeRoshanCard"
+	card.set_meta("depth_role", "foreground")
 	m.g["lagoon_roshan_card"] = card
 	m.player.visible = false
+
+func _build_arrival_imp() -> void:
+	if m.arrival_imp_seen:
+		m.g["arrival_imp"] = {}
+		return
+	var imp := _add_sprite(IMP_TEX, Vector3(-39.0, 5.0, -0.2), 8.5)
+	imp.name = "ArrivalImpCard"
+	imp.set_meta("depth_role", "foreground")
+	m.g["arrival_imp"] = {
+		"node": imp,
+		"time": 0.0,
+		"started": false,
+	}
+
+func _tick_arrival_imp(delta: float) -> void:
+	var state: Dictionary = m.g.get("arrival_imp", {}) as Dictionary
+	if state.is_empty():
+		return
+	var imp: Sprite3D = state.get("node") as Sprite3D
+	if imp == null or not is_instance_valid(imp):
+		m.g["arrival_imp"] = {}
+		return
+	if not bool(state.get("started", false)):
+		state["started"] = true
+		if ResourceLoader.exists(IMP_LAUGH):
+			var laugh := AudioStreamPlayer.new()
+			laugh.stream = load(IMP_LAUGH) as AudioStream
+			laugh.bus = "SFX"
+			laugh.pitch_scale = 0.72
+			stage.root().add_child(laugh)
+			laugh.play()
+			state["laugh"] = laugh
+			state["laugh_repeats"] = 1
+		m.show_msg("Roshan", "That silly imp is running to the castle!", "oops")
+	var elapsed: float = float(state.get("time", 0.0)) + delta
+	state["time"] = elapsed
+	var laugh_player: AudioStreamPlayer = state.get("laugh") as AudioStreamPlayer
+	var laugh_repeats: int = int(state.get("laugh_repeats", 0))
+	if (laugh_player != null and is_instance_valid(laugh_player)
+			and laugh_repeats < 4 and elapsed >= float(laugh_repeats) * 0.9):
+		laugh_player.pitch_scale = 0.68 + 0.07 * float(laugh_repeats % 2)
+		laugh_player.play()
+		laugh_repeats += 1
+		state["laugh_repeats"] = laugh_repeats
+	var amount: float = clampf(elapsed / 4.0, 0.0, 1.0)
+	imp.position.x = lerpf(-39.0, -17.0, ease(amount, 0.35))
+	imp.position.y = 5.0 + absf(sin(elapsed * 8.0)) * 0.58
+	imp.rotation.z = sin(elapsed * 9.0) * 0.08
+	m.g["arrival_imp"] = state
+	if amount < 1.0:
+		return
+	imp.queue_free()
+	if laugh_player != null and is_instance_valid(laugh_player):
+		laugh_player.stop()
+		laugh_player.queue_free()
+	m.g["arrival_imp"] = {}
+	m.arrival_imp_seen = true
+	m.save_data["arrival_imp_seen"] = true
+	m._write_save()
 
 func _sync_roshan_card(delta_x: float = 0.0) -> void:
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
@@ -156,17 +222,24 @@ func _add_backdrop(path: String, x: float) -> void:
 	backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	backdrop.name = "PromenadeBackgroundCard"
+	backdrop.set_meta("source_path", path)
+	backdrop.set_meta("depth_role", "background")
 	backdrop.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
 	root_node.add_child(backdrop)
+	m.g["promenade_background_card"] = backdrop
 
 func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
 	var root_node: Node3D = stage.root()
 	var sprite := Sprite3D.new()
+	sprite.name = path.get_file().get_basename().to_pascal_case() + "Card"
 	sprite.texture = load(path)
 	sprite.pixel_size = height / maxf(1.0, float(sprite.texture.get_height()))
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.shaded = false
 	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sprite.set_meta("source_path", path)
+	sprite.set_meta("depth_role", "midground")
 	sprite.position = pos
 	root_node.add_child(sprite)
 	return sprite
@@ -176,10 +249,14 @@ func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: 
 	if root_node == null:
 		return
 	var holder := Node3D.new()
+	holder.name = id.to_pascal_case() + "Holder"
 	holder.position = pos
 	root_node.add_child(holder)
 	var page := Sprite3D.new()
+	page.name = id.to_pascal_case() + "PageCard"
 	page.texture = load(page_path)
+	page.set_meta("source_path", page_path)
+	page.set_meta("depth_role", "midground")
 	page.pixel_size = 7.25 / maxf(1.0, float(page.texture.get_height()))
 	page.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	page.shaded = false
@@ -187,7 +264,10 @@ func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: 
 	page.position.z = -0.02
 	holder.add_child(page)
 	var frame := Sprite3D.new()
+	frame.name = id.to_pascal_case() + "FrameCard"
 	frame.texture = load(FRAME_TEX)
+	frame.set_meta("source_path", FRAME_TEX)
+	frame.set_meta("depth_role", "midground")
 	frame.pixel_size = 10.4 / maxf(1.0, float(frame.texture.get_height()))
 	frame.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	frame.shaded = false
@@ -221,6 +301,9 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 			glow.position = source.position + Vector3(0, 0, -0.05)
 			var root_node: Node3D = stage.root()
 			root_node.add_child(glow)
+	glow.name = id.to_pascal_case() + "HighlightCard"
+	glow.set_meta("source_path", String(node.get_meta("source_path", FRAME_TEX)))
+	glow.set_meta("depth_role", "midground_fx")
 	glow.scale = Vector3.ONE * highlight_scale
 	glow.visible = false
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
@@ -236,20 +319,35 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 	m.g["lagoon_promenade_targets"] = targets
 
 func _target_at(screen_pos: Vector2) -> Dictionary:
+	# Touches are mapped by a camera ray onto each card's actual depth plane.
+	# This keeps selection correct when foreground and midground cards overlap.
 	var cam: Camera3D = m.player.cam
 	if cam == null or not cam.is_inside_tree():
 		return {}
+	var ray_from: Vector3 = cam.project_ray_origin(screen_pos)
+	var ray_dir: Vector3 = cam.project_ray_normal(screen_pos)
+	if absf(ray_dir.z) <= 0.0001:
+		return {}
 	var best: Dictionary = {}
-	var best_dist := INF
+	var best_ray_t := INF
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var node: Node3D = target.get("node") as Node3D
 		if node == null or not is_instance_valid(node):
 			continue
-		var dist: float = cam.unproject_position(node.global_position).distance_to(screen_pos)
-		if dist <= float(target.get("radius_px", 92.0)) and dist < best_dist:
+		var ray_t: float = (node.global_position.z - ray_from.z) / ray_dir.z
+		if ray_t <= 0.0 or ray_t >= best_ray_t:
+			continue
+		var hit: Vector3 = ray_from + ray_dir * ray_t
+		var center_screen: Vector2 = cam.unproject_position(node.global_position)
+		var right_screen: Vector2 = cam.unproject_position(node.global_position + Vector3.RIGHT)
+		var pixels_per_world: float = maxf(1.0, center_screen.distance_to(right_screen))
+		var radius_world: float = float(target.get("radius_px", 92.0)) / pixels_per_world
+		var card_distance := Vector2(hit.x - node.global_position.x,
+			hit.y - node.global_position.y).length()
+		if card_distance <= radius_world:
 			best = target
-			best_dist = dist
+			best_ray_t = ray_t
 	return best
 
 func _focus(target: Dictionary) -> void:
@@ -288,7 +386,7 @@ func _activate(target: Dictionary) -> void:
 			m._sparkle_burst(node.global_position, Color(1.0, 0.65, 0.88))
 		"castle":
 			m.player.visible = true
-			m._enter_castle_interior()
+			m._begin_dirty_castle_entry()
 
 func _bounce(node: Node3D, tilt: float) -> void:
 	if node == null or not is_instance_valid(node):
