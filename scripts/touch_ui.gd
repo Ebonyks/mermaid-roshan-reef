@@ -31,16 +31,17 @@ var world_controls_enabled := true
 var _root: Control
 var _base: Panel
 var _knob: Panel
-var _btn: Button
+var _stick_hint: Panel    # fixed ghost wheel teaching the bottom-left thumb bay
+var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
 var _act_button: Button = null
-var _touch_idx := -1
-var _jump_fingers := {}
+var _touch_idx := -1      # the finger that owns the stick
+var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
 var _action_fingers := {}
-var _pend := {}
+var _pend := {}           # extra fingers not yet classified: idx -> {"pos", "ms"}
 var _world_pend := {}
-var _look_idx := -1
-var _look_dx := 0.0
-var _look_dy := 0.0
+var _look_idx := -1       # the finger that owns the camera peek
+var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
+var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
 var _origin := Vector2.ZERO
 var _moved := false
 var _manual_emitted := false
@@ -85,11 +86,26 @@ func _ready() -> void:
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_root)
-	_base = _circle(Color(0.45, 0.85, 0.95, 0.45), 90.0)
-	var bsb: StyleBoxFlat = _base.get_theme_stylebox("panel") as StyleBoxFlat
-	bsb.border_color = Color(0.55, 1.0, 0.85, 0.95)
-	bsb.set_border_width_all(5)
-	_knob = _circle(Color(1, 1, 1, 0.55), 46.0)
+	# A fixed ghost wheel teaches the bottom-left ownership before the first
+	# drag; the real drag-anywhere stick still appears under the finger.
+	_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)
+	_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_stick_hint.offset_left = 26.0
+	_stick_hint.offset_top = -206.0
+	_stick_hint.offset_right = 206.0
+	_stick_hint.offset_bottom = -26.0
+	_stick_hint.visible = wants_touch()
+	_root.add_child(_stick_hint)
+	var hint_arrows := Label.new()
+	hint_arrows.text = "↕  ↔"
+	hint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(hint_arrows, 34, StorybookUI.MINT, 5)
+	_stick_hint.add_child(hint_arrows)
+	_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)
+	_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)
 	_base.visible = false
 	_knob.visible = false
 	_root.add_child(_base)
@@ -98,7 +114,7 @@ func _ready() -> void:
 	_btn = Button.new()
 	_btn.visible = false
 	_root.add_child(_btn)
-	# A 176 px real hit target surrounds the 156 px visible action bubble.
+	# A 176 px real hit target surrounds the 148 px visible action bubble.
 	# Classic mode hides this Control and keeps the original all-screen tap.
 	# The rect is only an anchor/affordance: presses are claimed from raw
 	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
@@ -118,12 +134,13 @@ func _ready() -> void:
 		for style_name: String in ["normal", "hover", "pressed", "focus"]:
 			_act_button.add_theme_stylebox_override(style_name, empty)
 		_root.add_child(_act_button)
-		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.42), 78.0)
-		_act_vis.position = Vector2(10.0, 10.0)
+		# Storybook coral bubble: 148 px visible, centred in the 176 px envelope.
+		_act_vis = _circle(Color(1.0, 0.50, 0.48, 0.86), 74.0, StorybookUI.INK, 5)
+		_act_vis.position = Vector2(14.0, 14.0)
 		_act_button.add_child(_act_vis)
 		_act_lbl = Label.new()
 		_act_lbl.text = _action_display("JUMP")
-		_act_lbl.add_theme_font_size_override("font_size", 30)
+		_act_lbl.add_theme_font_size_override("font_size", 27)
 		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
 		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
 		_act_lbl.add_theme_constant_override("outline_size", 8)
@@ -161,15 +178,18 @@ func _process(delta: float) -> void:
 		else:
 			action_just = false
 
-func _circle(col: Color, rad: float) -> Panel:
-	var panel := Panel.new()
+func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:
+	var p := Panel.new()
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = col
 	sb.set_corner_radius_all(int(rad))
-	panel.add_theme_stylebox_override("panel", sb)
-	panel.size = Vector2(rad * 2.0, rad * 2.0)
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	return panel
+	if border_width > 0:
+		sb.border_color = outline
+		sb.set_border_width_all(border_width)
+	p.add_theme_stylebox_override("panel", sb)
+	p.size = Vector2(rad * 2.0, rad * 2.0)
+	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return p
 
 func _jump_pulse() -> void:
 	action_down = true
@@ -197,6 +217,8 @@ func _press(pos: Vector2, idx: int) -> void:
 	_moved = false
 	_manual_emitted = false
 	_press_ms = Time.get_ticks_msec()
+	if _stick_hint != null:
+		_stick_hint.visible = false
 	_base.position = _origin - _base.size * 0.5
 	_knob.position = _origin - _knob.size * 0.5
 	_base.modulate.a = 1.0
@@ -233,22 +255,15 @@ func _release_stick() -> void:
 	_rest_stick()
 
 func _rest_stick() -> void:
-	if _base == null or _knob == null:
-		return
-	if not wants_touch() or not world_controls_enabled:
+	# StorybookUI resting affordance: the real stick only appears under the
+	# finger; the fixed ghost wheel owns the bottom-left teaching role and
+	# hides while world controls are off.
+	if _base != null:
 		_base.visible = false
+	if _knob != null:
 		_knob.visible = false
-		return
-	var vs: Vector2 = _root.size
-	if vs == Vector2.ZERO:
-		vs = get_viewport().get_visible_rect().size
-	var center := Vector2(170.0, vs.y - 170.0)
-	_base.position = center - _base.size * 0.5
-	_knob.position = center - _knob.size * 0.5
-	_base.modulate.a = 0.55
-	_knob.modulate.a = 0.55
-	_base.visible = true
-	_knob.visible = true
+	if _stick_hint != null:
+		_stick_hint.visible = wants_touch() and world_controls_enabled
 
 func rest_zone() -> Rect2:
 	var vs: Vector2 = _root.size
@@ -330,11 +345,16 @@ func consume_action() -> void:
 	action_down = false
 	clear_action_edge()
 	_pulse = 0.0
+	_rest_stick()
 
 func _request_pause() -> void:
-	var main: Node = get_parent()
-	if main != null and main.has_method("toggle_pause"):
-		main.toggle_pause()
+	var m: Node = get_parent()
+	# Start advances the always-processing story intro via ReefMain. Do not
+	# also raise the pause sheet over that same press.
+	if m != null and bool(m.get("intro_active")):
+		return
+	if m != null and m.has_method("toggle_pause"):
+		m.toggle_pause()
 
 func _flush_parent_save() -> void:
 	var main: Node = get_parent()
