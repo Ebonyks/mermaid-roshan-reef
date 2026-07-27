@@ -141,11 +141,22 @@ moving thing uses the cheapest tier that reads:
 - **Tier 2 — paper-doll parts** (new named characters and hero props):
   one character painted as 4–6 pieces, joints tweened by the engine;
   animations are reusable across any character on the same rig. One
-  painting buys unlimited motion.
-- **Tier 3 — flipbooks, last resort**: ≤4 frames, ≤512 px, only the
-  region that changes (a blink card, a splash) — never a full character.
-  One 8-frame 1024² flipbook costs more VRAM than a whole zone's murals;
-  that budget mistake is banned by rule.
+  painting buys unlimited motion. The whole part set fits one 512×512
+  sheet.
+- **Tier 3 — flipbooks, last resort**: ≤4 frames, ≤256 px per frame, only
+  the region that changes (a blink card, a splash) — never a full
+  character. One 8-frame 1024² flipbook costs more VRAM than a whole
+  zone's murals; that budget mistake is banned by rule.
+
+**The resolution split (owner rule 2026-07-27).** The big canvases belong
+to still art only: full mural sizes and the 1024-px standee allowance are
+reserved for **unanimated** background art. Anything animated in-game —
+paper-doll parts, interactive-prop state cards, flipbook frames — ships
+much lower: 256 px is the default, 512 px longest side is the hard
+ceiling, and one item's entire animated set (all parts, states and frames
+together) must fit a single 512×512 sheet. Transform-only motion (Tier
+0/1) doesn't count against this — a swaying kelp standee is still one
+still painting, only the quad moves — so it keeps the static allowance.
 
 Protected friend cutouts and book art stay Tier 0 + sparkle overlays
 (they may never be cut apart or repainted). Roshan herself remains the

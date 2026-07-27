@@ -50,15 +50,26 @@ art:
 - **Standees: one sprite each** (default). The engine bobs/sways them.
   Foliage-class standees should be painted with a clear base/root so
   ground-pivot sway looks right.
+- **Resolution split (owner rule 2026-07-27): full sizes are for still
+  art only.** The mural table below and the 1024-px standee allowance
+  apply to **unanimated** background art. Any texture that participates
+  in animation — doll parts, state cards, flipbook frames — ships at
+  256 px default / 512 px longest-side hard ceiling, and an item's whole
+  animated set must fit one 512×512 sheet. A standee the engine merely
+  bobs/sways is still art (its texture never changes) and keeps the full
+  allowance.
 - **New named characters & hero props: paper-doll part sets** — 4–6
-  pieces (body, head, arm(s), tail/prop) as separate PNGs on one POT
-  sheet or as files, plus a one-line sidecar note giving pivot points.
-  One painted pose; the engine does the acting.
-- **Flipbooks only as a last resort**: ≤4 frames, ≤512 px, only the
-  changing region (blink card, mouth card, splash). Never a full-body
+  pieces (body, head, arm(s), tail/prop) as separate PNGs on one 512×512
+  POT sheet or as files, plus a one-line sidecar note giving pivot
+  points. One painted pose; the engine does the acting.
+- **Flipbooks only as a last resort**: ≤4 frames, ≤256 px per frame, only
+  the changing region (blink card, mouth card, splash). Never a full-body
   frame cycle — one 8-frame 1024² cycle costs more VRAM than an entire
   zone's murals.
-- Opera "states, not poses" rule continues to apply to interactive props.
+- Opera "states, not poses" rule continues to apply to interactive props,
+  but paint states the low-res way: a full-res **static** base standee
+  plus a small overlay card (≤256 px) for the region that changes —
+  don't repaint the whole prop per state.
 
 ## Layer format (every zone uses this)
 
