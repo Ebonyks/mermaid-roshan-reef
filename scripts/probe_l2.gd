@@ -178,6 +178,9 @@ func _init() -> void:
 	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
 		if String((value as Dictionary).get("id", "")) == "slide":
 			slide_card = (value as Dictionary).get("node") as Node3D
+	# the framing sweep teleports her to both ends; disarm the castle doorstep
+	# for it, or arriving at the right-hand end walks her straight indoors
+	main.g["lagoon_castle_armed"] = false
 	var walk_edges: Array[float] = [72.0, -72.0]
 	for edge_x in walk_edges:
 		main.player.position.x = origin.x + edge_x
@@ -193,21 +196,39 @@ func _init() -> void:
 			and cam_y + view.y <= mural_y + mural_half_h + 0.01
 			and cam_y - view.y >= mural_y - mural_half_h - 0.01)
 		if slide_card != null and mural_card != null:
-			# THE anchoring regression: the on-screen gap between a standee and
-			# the painting must not change as the lens pans. When it does, the
-			# set slides across the painted ground and nothing looks nailed down.
-			drift_gaps.append(lens.unproject_position(slide_card.global_position).x
-				- lens.unproject_position(mural_card.global_position).x)
+			# THE anchoring regression: a standee must travel across the screen
+			# at the same rate as the painting behind it. Measured as a RATIO,
+			# not in pixels — the headless viewport is square, so its lens pans
+			# more than twice as far as a phone's and the same geometry shows a
+			# proportionally larger pixel figure.
+			drift_gaps.append(lens.unproject_position(slide_card.global_position).x)
+			drift_gaps.append(lens.unproject_position(mural_card.global_position).x)
 		covered = covered and inside
 		if not inside:
 			worst = "at x=%.0f frame=[%.1f,%.1f]x[%.1f,%.1f]" % [edge_x,
 				cam_x - view.x, cam_x + view.x, cam_y - view.y, cam_y + view.y]
 	_check("mural_fills_the_frame_at_both_ends", covered, worst)
-	var drift: float = 999.0
-	if drift_gaps.size() == 2:
-		drift = absf(drift_gaps[0] - drift_gaps[1])
-	_check("set_does_not_drift_across_the_pan", drift <= 4.0,
-		"standee moved %.1f px against the painting end to end" % drift)
+	var drift: float = 1.0
+	if drift_gaps.size() == 4:
+		var standee_travel: float = absf(drift_gaps[0] - drift_gaps[2])
+		var mural_travel: float = absf(drift_gaps[1] - drift_gaps[3])
+		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
+	# the bug this replaces measured 24%: cards 12 units in front of the mural
+	_check("set_does_not_drift_across_the_pan", drift <= 0.02,
+		"standee travelled %.1f%% differently from the painting" % (drift * 100.0))
+	# THE ROUTE: the promenade is a path, and the path has to end at the door.
+	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])
+	var route_span: Vector2 = promenade.stage.route_span(main.g.get("ss_cfg", {}))
+	var door_walk_x: float = promenade._walk_x(SkyLagoonPromenade.CASTLE_DOOR_X)
+	var reach: float = promenade.stage.keep_on_screen(
+		main.g.get("ss_cfg", {}), door_walk_x)
+	_check("route_runs_the_level_and_ends_at_the_door",
+		route.size() == SkyLagoonPromenade.ROUTE_PAINTED.size()
+		and absf(route_span.y - door_walk_x) <= 0.01
+		and route_span.x < -40.0
+		and absf(reach - door_walk_x) <= 0.01,
+		"waypoints=%d span=%s door=%.1f reachable=%.1f" % [
+			route.size(), route_span, door_walk_x, reach])
 	main.player.position.x = origin.x - 48.0
 	for _i in range(6):
 		promenade.tick(0.5)
@@ -286,7 +307,7 @@ func _init() -> void:
 			castle_target = target
 			break
 	var gate_node: Node3D = castle_target.get("node") as Node3D
-	main.player.position.x = origin.x + 50.0
+	main.player.position.x = origin.x + 40.0
 	for _i in range(6):
 		promenade.tick(0.5)
 	var gate_screen: Vector2 = lens.unproject_position(gate_node.global_position)
@@ -301,6 +322,21 @@ func _init() -> void:
 	await _frames(8)
 	_check("drawbridge_enters_castle",
 		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
+
+	# ...and the other road in: follow the painted way to its end. Rebuild the
+	# promenade, walk to the far end of the route, and she should step inside
+	# without any tap at all ("she won't touch the drawbridge for the castle").
+	main._enter_level2()
+	await _frames(8)
+	var promenade2 := main._lagoon_promenade_ref()
+	var span2: Vector2 = promenade2.stage.route_span(main.g.get("ss_cfg", {}))
+	main.player.position.x = main.LEVEL2_POS.x + span2.y
+	for _i in range(4):
+		promenade2.tick(0.2)
+	await _frames(10)
+	_check("walking_the_path_enters_the_castle",
+		main.game == "level2" and String(main.g.get("phase", "")) == "hall",
+		"phase=%s" % String(main.g.get("phase", "?")))
 
 	if failed:
 		print("FAIL|Sky Lagoon 2.5D promenade regression")

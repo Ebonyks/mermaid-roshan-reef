@@ -280,10 +280,20 @@ func walk_tick(delta: float) -> Dictionary:
 				z = clampf(z + step.y, -half_d, half_d)
 				dx = to.normalized().x
 				moved = true
+	var walk_route: Array = cfg.get("route", [])
+	if walk_route.size() >= 2:
+		# on the spine: the path owns her x range and her depth, so a tap that
+		# lands off the painted way still walks her along it
+		var span: Vector2 = route_span(cfg)
+		x = clampf(x, span.x, span.y)
+		z = 0.0
 	if bool(cfg.get("keep_on_screen", false)):
 		x = keep_on_screen(cfg, x)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
-	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
+	var base_hover: float = float(cfg.get("hover", 3.0))
+	if walk_route.size() >= 2:
+		base_hover = route_y(cfg, x, base_hover)
+	var hover: float = base_hover + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
 	if swell_amp() > 0.0:
 		# Roshan rides the same tide as the props and layers — analytically,
 		# never on a body (her hover just samples the shared wave)
@@ -327,7 +337,12 @@ func plane_goal(screen_pos: Vector2) -> Variant:
 	var band_h: float = maxf(0.01, float(cfg.get("band_h", 6.0)))
 	var gz: float = remap(clampf(hit.y - r.position.y - band_y, 0.0, band_h),
 		0.0, band_h, half_d, -half_d)
-	return Vector2(clampf(hit.x - r.position.x, -half_w, half_w), gz)
+	var gx: float = clampf(hit.x - r.position.x, -half_w, half_w)
+	if (cfg.get("route", []) as Array).size() >= 2:
+		# a press anywhere on the screen resolves ONTO the walkable path
+		var span: Vector2 = route_span(cfg)
+		return Vector2(clampf(gx, span.x, span.y), 0.0)
+	return Vector2(gx, gz)
 
 func view_half_size(cfg: Dictionary, cam: Camera3D, plane_z: float) -> Vector2:
 	# Half (width, height) of the frustum where it crosses a stage-local depth,
@@ -342,6 +357,36 @@ func view_half_size(cfg: Dictionary, cam: Camera3D, plane_z: float) -> Vector2:
 	var dist: float = absf(float(cfg.get("cam_dist", 20.5)) - plane_z)
 	var half_h: float = tan(deg_to_rad(cam.fov * 0.5)) * dist
 	return Vector2(half_h * aspect, half_h)
+
+# ---- the walkable spine ----------------------------------------------------
+# A promenade is a PATH, not an open field. The child may touch anywhere on the
+# screen, but Roshan walks the painted route: cfg "route" is an Array of
+# Vector2 waypoints in stage-local space, (x, avatar y), ordered left to right.
+# Travel clamps to its span and her height follows it, so she stays on the
+# painted way and can walk onto what the picture actually draws - a drawbridge,
+# a jetty - instead of drifting across ground the painting never offered.
+func route_span(cfg: Dictionary) -> Vector2:
+	var route: Array = cfg.get("route", [])
+	if route.size() < 2:
+		return Vector2.ZERO
+	return Vector2((route[0] as Vector2).x, (route[route.size() - 1] as Vector2).x)
+
+func route_y(cfg: Dictionary, x: float, fallback: float) -> float:
+	# avatar height at x, linear between waypoints; flat outside the span
+	var route: Array = cfg.get("route", [])
+	if route.size() < 2:
+		return fallback
+	if x <= (route[0] as Vector2).x:
+		return (route[0] as Vector2).y
+	for i in range(1, route.size()):
+		var b: Vector2 = route[i] as Vector2
+		if x <= b.x:
+			var a: Vector2 = route[i - 1] as Vector2
+			var span: float = b.x - a.x
+			if span <= 0.0001:
+				return b.y
+			return lerpf(a.y, b.y, (x - a.x) / span)
+	return (route[route.size() - 1] as Vector2).y
 
 func keep_on_screen(cfg: Dictionary, x: float) -> float:
 	# Past the mural's pan limit the lens is PINNED, so the avatar keeps

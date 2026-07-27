@@ -43,15 +43,42 @@ const HOLD_TRAVEL_S := 0.20
 # she still passes in front of all of it, exactly as she did at z -5.
 # The small spread keeps the cards sorting against each other; 0.4 units of
 # separation is under 1% of parallax, far below anything the eye reads.
-const DRESS_Z := -17.85      # ambient firs, furthest of the anchored cards
-const CLOUD_Z := -17.90      # sky, behind the treetops
-const LANDMARK_Z := -17.75   # pearl plane, castle gate
-const PLAY_Z := -17.65       # playground standees
-const FRAME_Z := -17.55      # activity frames
-const NEAR_Z := -17.45       # flowering shrubs, nearest of the anchored cards
+const DRESS_Z := -17.90      # ambient firs, furthest of the anchored cards
+const CLOUD_Z := -17.95      # sky, behind the treetops
+const LANDMARK_Z := -17.85   # pearl plane, castle gate
+const PLAY_Z := -17.80       # playground standees
+const FRAME_Z := -17.75      # activity frames
+const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
 # the activity frames stand on the lawn like easels (they used to hang at
 # y 14.5, which put them in the painted sky above the treeline)
 const FRAME_STAND_Y := 4.4
+
+# THE ROUTE THROUGH THE LEVEL (owner request 2026-07-27: "she should have a
+# clear routing path through the level as well"). The promenade is a path, not
+# an open field: the stone way from the pearl-plane dock, along the shore,
+# across the lawn, up the drawbridge, to the castle door. Waypoints are in
+# PAINTED coordinates - (mural x, painted ground y) - because that is where
+# the way visibly is; _walk_x/_walk_y convert them into the plane Roshan
+# actually walks, which is 18 units nearer the lens and therefore does NOT
+# share the painting's x scale once the lens pins at a painted edge.
+# A touch anywhere still works; it resolves onto this line.
+const ROUTE_PAINTED := [
+	Vector2(-68.0, -2.6),    # the stepping stones by the pearl plane
+	Vector2(-58.0, -3.4),    # the shore path
+	Vector2(-40.0, -4.0),    # the path's near edge
+	Vector2(-20.0, -3.6),    # onto the lawn
+	Vector2(0.0, -3.4),      # the playground lawn
+	Vector2(20.0, -3.6),     # the lawn's far side
+	Vector2(34.0, -4.0),     # the way to the castle
+	Vector2(43.0, -2.6),     # the drawbridge deck
+	Vector2(52.5, -2.0),     # the castle doorstep - walking here goes inside
+]
+const CASTLE_DOOR_X := 52.5      # painted x of the door, shared with the gate card
+const DOORSTEP_R := 1.5          # how close counts as arriving at the door
+const DOORSTEP_REARM := 8.0      # walk this far back before it can fire again
+# Roshan's card hangs 1.0 above her node and stands 7.8 tall, so her feet are
+# 2.9 below the node: the offset that turns a painted ground height into hover.
+const FOOT_OFFSET := 2.9
 
 var m: ReefMain
 var stage: SideScrollStage
@@ -108,12 +135,13 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	_build_playground_screen()
 	_build_castle_screen()
 	_build_roshan_card()
-	var spawn_x := -48.0
-	if from_castle:
-		spawn_x = 48.0
-	elif from_north:
-		spawn_x = 48.0
-	_set_spawn(spawn_x)
+	_refresh_route()
+	# returning from the castle must not re-trigger the doorstep on frame one
+	m.g["lagoon_castle_armed"] = not (from_castle or from_north)
+	var spawn_at := -60.0                     # painted: beside the pearl plane
+	if from_castle or from_north:
+		spawn_at = 34.0                       # painted: the way in front of the castle
+	_set_spawn(_walk_x(spawn_at))
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a picture frame once to light it up, then tap it again to play.")
 	else:
@@ -122,11 +150,13 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
 		return
+	_refresh_route()
 	_tick_hold_travel(delta)
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
 	_sync_roshan_card(m.player.position.x - old_x)
 	_tick_ambient_life(delta)
+	_tick_doorstep()
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
@@ -216,7 +246,7 @@ func _build_castle_screen() -> void:
 	# to sit over that entrance so the first tap outlines what the child sees.
 	var gate := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
-		Vector3(52.5, 3.3, LANDMARK_Z), 13.9)
+		Vector3(CASTLE_DOOR_X, 3.3, LANDMARK_Z), 13.9)
 	# The full castle is painted into the panorama. This aligned card is kept
 	# hidden until focus so the first tap can still outline the entrance
 	# without drawing a second gate over the castle facade.
@@ -476,6 +506,65 @@ func _bounce(node: Node3D, tilt: float) -> void:
 	tween.tween_property(node, "rotation:z", tilt, 0.16).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(node, "rotation:z", -tilt * 0.45, 0.18)
 	tween.tween_property(node, "rotation:z", 0.0, 0.16)
+
+func _depth_ratio() -> float:
+	# her plane sits at z 0, the painting at BACKDROP_Z: everything painted is
+	# this much further from the lens than she is
+	return CAM_DIST / (CAM_DIST - BACKDROP_Z)
+
+func _walk_x(mural_x: float) -> float:
+	# Where Roshan must STAND so she appears at a painted spot. While the lens
+	# is free to centre her the two agree exactly; once it pins at a painted
+	# edge they diverge by the depth ratio, which is why the drawbridge sat out
+	# of reach of a straight x = painted_x assumption.
+	var pan: float = stage.screen_pan_limit(m.g.get("ss_cfg", {}), m.player.cam)
+	if pan < 0.0:
+		return mural_x
+	var ratio: float = _depth_ratio()
+	if mural_x > pan:
+		return pan + (mural_x - pan) * ratio
+	if mural_x < -pan:
+		return -pan + (mural_x + pan) * ratio
+	return mural_x
+
+func _walk_y(painted_y: float) -> float:
+	# her hover so that her FEET land on a painted ground height
+	return CAM_H + (painted_y - CAM_H) * _depth_ratio() + FOOT_OFFSET
+
+func _refresh_route() -> void:
+	# the lens pan limit depends on the viewport, so the painted route is
+	# reprojected into walk space every tick rather than baked once
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	if cfg.is_empty():
+		return
+	var route: Array = []
+	for value in ROUTE_PAINTED:
+		var point: Vector2 = value as Vector2
+		route.append(Vector2(_walk_x(point.x), _walk_y(point.y)))
+	cfg["route"] = route
+
+func _tick_doorstep() -> void:
+	# Walk to the end of the way and you are at the castle door, so the child
+	# can simply follow the path in - the two-tap gate stays as the other road.
+	# Armed only after she has walked clear of the door, so stepping back out
+	# of the castle cannot bounce her straight back inside.
+	var root_node: Node3D = stage.root()
+	if root_node == null or m.mg_kind != "":
+		return
+	var door_x: float = _walk_x(CASTLE_DOOR_X)
+	var x: float = m.player.position.x - root_node.position.x
+	if x < door_x - DOORSTEP_REARM:
+		m.g["lagoon_castle_armed"] = true
+		return
+	if not bool(m.g.get("lagoon_castle_armed", false)):
+		return
+	if x < door_x - DOORSTEP_R:
+		return
+	m.g["lagoon_castle_armed"] = false
+	m.g["ss_walk_goal"] = null
+	_clear_focus()
+	m.player.visible = true
+	m._enter_castle_interior()
 
 func _set_walk_goal(screen_pos: Vector2) -> void:
 	# one projection for the whole engine: the stage owns the band window, so
