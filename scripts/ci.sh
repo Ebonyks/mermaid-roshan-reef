@@ -16,6 +16,8 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
+python3 tools/audit_craft_layers.py \
+	|| { echo "CRAFT LAYER FAIL (creature layers must share one canvas)"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"
