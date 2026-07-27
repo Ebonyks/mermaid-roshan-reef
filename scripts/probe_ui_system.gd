@@ -39,17 +39,16 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 
-	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
+	# Intro: full-screen OGV hook, explicit replay/continue, and deliberate hold-skip.
 	if not main.intro_active:
 		main._build_intro()
 	await process_frame
-	_check(_count_named(main.intro_layer, "IntroNextButton") == 1, "picture intro has one obvious next action")
-	_check_target(main.intro_layer, "IntroNextButton", "intro next is a 150px-class target", Vector2(150, 150))
-	_check_target(main.intro_layer, "IntroRepeatVoiceButton", "intro narration repeat is thumb-sized")
-	var skip := _check_target(main.intro_layer, "IntroHoldToSkipButton", "intro skip is thumb-sized")
-	_check(skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2, "intro skip requires a deliberate hold")
-	var intro_pips: Array = main.intro_layer.get_meta("page_pips", [])
-	_check(intro_pips.size() == 4, "intro has four non-reading page pips")
+	_check(_count_named(main.intro_layer, "IntroContinueButton") == 1, "opening movie has one obvious continue action")
+	_check_target(main.intro_layer, "IntroContinueButton", "movie continue is a 150px-class target", Vector2(150, 150))
+	_check_target(main.intro_layer, "IntroReplayButton", "movie replay is thumb-sized")
+	var skip := _check_target(main.intro_layer, "IntroHoldToSkipButton", "movie skip is thumb-sized")
+	_check(skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2, "movie skip requires a deliberate hold")
+	_check(String(main.intro_layer.get_meta("cinematic_video_path", "")) == IntroOverlay.OPENING_VIDEO, "opening movie uses the stable Daddy-and-Roshan OGV hook")
 	main._skip_intro()
 	await process_frame
 

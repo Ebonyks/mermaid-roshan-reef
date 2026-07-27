@@ -46,7 +46,7 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
+		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
@@ -54,17 +54,18 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		"res://assets/sprites/story/arrival_imp.png",
 	]
 	var assets_ok := true
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
 	var panorama: Texture2D = load(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png")
-	_check("continuous_3_by_1_panorama",
+		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg")
+	_check("native_2k_promenade_plate",
 		panorama != null
-		and panorama.get_width() <= 1024
-		and absf(float(panorama.get_width()) / float(panorama.get_height()) - 3.0) < 0.02)
+		and panorama.get_width() == 2048
+		and panorama.get_height() == 1024)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var node_stack: Array[Node] = [stage_root]
 	var sprite_count := 0
@@ -73,6 +74,7 @@ func _init() -> void:
 	var shaded_count := 0
 	var bad_scale_count := 0
 	var visible_sprite_count := 0
+	var missing_card_metadata := 0
 	var depth_layers: Dictionary = {}
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
@@ -82,6 +84,8 @@ func _init() -> void:
 			visible_sprite_count += 1 if stage_sprite.visible else 0
 			shaded_count += 1 if stage_sprite.shaded else 0
 			bad_scale_count += 1 if stage_sprite.pixel_size <= 0.0 else 0
+			missing_card_metadata += 1 if String(stage_sprite.get_meta("source_path", "")) == "" else 0
+			missing_card_metadata += 1 if String(stage_sprite.get_meta("depth_role", "")) == "" else 0
 			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
@@ -90,12 +94,13 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 21 and mesh_count == 0 and canvas_count == 0
-		and shaded_count == 0 and bad_scale_count == 0,
-		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
-			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
+		sprite_count == 22 and mesh_count == 0 and canvas_count == 0
+		and shaded_count == 0 and bad_scale_count == 0 and missing_card_metadata == 0,
+		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d missing_meta=%d" % [
+			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count,
+			missing_card_metadata])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 13,
+		depth_layers.size() >= 4 and visible_sprite_count <= 14,
 		"depth_layers=%d visible_cards=%d" % [
 			depth_layers.size(), visible_sprite_count])
 	_check("roshan_is_sprite_card",
@@ -135,6 +140,9 @@ func _init() -> void:
 	var frame_node: Node3D = runway_frame.get("node") as Node3D
 	var cam: Camera3D = main.player.cam
 	var frame_screen: Vector2 = cam.unproject_position(frame_node.global_position)
+	var ray_target: Dictionary = main._lagoon_promenade_ref()._target_at(frame_screen)
+	_check("camera_ray_hits_card_depth",
+		String(ray_target.get("id", "")) == "runway_frame")
 	main._lagoon_promenade_ref().handle_touch(frame_screen)
 	var first_press_ok: bool = (
 		String(main.g.get("lagoon_promenade_focus", "")) == "runway_frame"
@@ -153,11 +161,18 @@ func _init() -> void:
 		if String(target.get("id", "")) == "castle_gate":
 			castle_target = target
 			break
+	main._lagoon_promenade_ref()._set_walk_goal(Vector2(640, 650))
+	_check("navigation_uses_camera_ray", main.g.get("ss_walk_goal") is Vector2)
 	main._lagoon_promenade_ref()._focus(castle_target)
 	main._lagoon_promenade_ref()._activate(castle_target)
-	await _frames(8)
-	_check("drawbridge_enters_castle",
-		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
+	await _frames(2)
+	_check("drawbridge_starts_stage_three_reveal",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+		and main._cinematic_ref().is_active())
+	main._cinematic_ref().finish()
+	await _frames(2)
+	_check("reveal_enters_control_cleaning_stage",
+		main.game == "level2" and String(main.g.get("phase", "")) == "dirty_castle")
 
 	if failed:
 		print("FAIL|Sky Lagoon 2.5D promenade regression")

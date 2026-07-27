@@ -13,10 +13,11 @@ const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
+	"opening_seen", "arrival_imp_seen", "castle_reveal_seen",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
-	"stuffie_wins", "medals",
+	"stuffie_wins", "medals", "clean_done",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors"]
 # FROZEN completeness core — never grow this list. A document carrying these
@@ -108,6 +109,11 @@ func load_save() -> void:
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
 	var saved_medals: Variant = m.save_data.get("medals", {})
 	m.medals = saved_medals if saved_medals is Dictionary else {}
+	m.opening_seen = bool(m.save_data.get("opening_seen", false))
+	m.arrival_imp_seen = bool(m.save_data.get("arrival_imp_seen", false))
+	m.castle_reveal_seen = bool(m.save_data.get("castle_reveal_seen", false))
+	var saved_clean_done: Variant = m.save_data.get("clean_done", {})
+	m.clean_done = saved_clean_done if saved_clean_done is Dictionary else {}
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
@@ -211,6 +217,10 @@ func write_save() -> bool:
 	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
 	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["medals"] = m.medals
+	next_data["opening_seen"] = m.opening_seen
+	next_data["arrival_imp_seen"] = m.arrival_imp_seen
+	next_data["castle_reveal_seen"] = m.castle_reveal_seen
+	next_data["clean_done"] = m.clean_done.duplicate(true)
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
 	if not _commit_save(normalised):
@@ -467,6 +477,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
 	data["medals"] = _medals_or_default(raw)
+	data["opening_seen"] = _bool_or_default(raw, "opening_seen", false)
+	data["arrival_imp_seen"] = _bool_or_default(raw, "arrival_imp_seen", false)
+	data["castle_reveal_seen"] = _bool_or_default(raw, "castle_reveal_seen", false)
+	data["clean_done"] = _dictionary_or_default(raw, "clean_done")
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
 

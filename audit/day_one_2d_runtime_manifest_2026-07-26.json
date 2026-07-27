@@ -1,0 +1,758 @@
+{
+    "id":  "day_one_2d_runtime_audit_2026_07_26",
+    "date":  "2026-07-26",
+    "result":  "static_pass_pending_godot_ci",
+    "background_plate_contract":  {
+                                      "required":  "native POT 2K",
+                                      "accepted_dimensions":  [
+                                                                  "2048x1024",
+                                                                  "2048x2048",
+                                                                  "1024x2048"
+                                                              ],
+                                      "accepted_runtime_plates":  [
+                                                                      "res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
+                                                                      "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg"
+                                                                  ],
+                                      "processing":  "none; each runtime path is the single native SVG master",
+                                      "rejected_image_generation_attempt":  "1774x887 output was not copied into the repository",
+                                      "undersized_imported_cinematic_plates":  "removed from final tree"
+                                  },
+    "node_inventory":  [
+                           {
+                               "node":  "PromenadeBackgroundCard",
+                               "type":  "Sprite3D",
+                               "role":  "background",
+                               "local_z":  -18,
+                               "shaded":  false,
+                               "touch":  "not interactive"
+                           },
+                           {
+                               "node":  "Plane/Slide/Swing/Seesaw/Castle cards",
+                               "type":  "Sprite3D",
+                               "role":  "midground",
+                               "local_z":  "-5.8 to -5.4",
+                               "shaded":  false,
+                               "touch":  "camera ray to card depth plane"
+                           },
+                           {
+                               "node":  "Three activity Page/Frame/Highlight card sets",
+                               "type":  "Sprite3D",
+                               "role":  "midground",
+                               "local_z":  "-4.84 to -4.8",
+                               "shaded":  false,
+                               "touch":  "camera ray to holder depth plane"
+                           },
+                           {
+                               "node":  "ArrivalImpCard",
+                               "type":  "Sprite3D",
+                               "role":  "foreground",
+                               "local_z":  -0.2,
+                               "shaded":  false,
+                               "touch":  "noninteractive cinematic beat"
+                           },
+                           {
+                               "node":  "PromenadeRoshanCard",
+                               "type":  "Sprite3D",
+                               "role":  "foreground",
+                               "local_z":  0.2,
+                               "shaded":  false,
+                               "touch":  "navigation proxy follows hidden player"
+                           },
+                           {
+                               "node":  "DirtyCastle2DLayer/Control tree",
+                               "type":  "CanvasLayer + Control",
+                               "role":  "full_screen_control_minigame",
+                               "local_z":  "n/a",
+                               "shaded":  "n/a",
+                               "touch":  "Control buttons only; navigable_world=false"
+                           }
+                       ],
+    "world_contract":  {
+                           "art_node_type":  "Sprite3D only",
+                           "shaded":  false,
+                           "depth_order":  "background -18 \u003c midground about -5 \u003c imp -0.2 \u003c Roshan 0.2",
+                           "occlusion":  "nearest positive camera-ray/card-plane intersection wins",
+                           "navigation":  "camera ray intersects promenade walk plane",
+                           "mesh_instances":  0,
+                           "canvas_items_in_stage2_world":  0
+                       },
+    "cleaning_exception":  {
+                               "presentation_kind":  "full_screen_control_minigame",
+                               "navigable_world":  false,
+                               "root_type":  "Control",
+                               "world_Node3D_children":  0,
+                               "completion":  "exactly three explicit presses on the active Control target"
+                           },
+    "files":  [
+                  {
+                      "path":  "res://assets/book/hall/p_garden.jpg",
+                      "role":  "stage2_activity_page_sprite3d",
+                      "width":  514,
+                      "height":  720,
+                      "sha256":  "15ad84db35c564ed44d4395eaac29cad1fcdfb5444646d6d572bb43b9e414ec2",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/book/hall/p_snowman.jpg",
+                      "role":  "stage2_activity_page_sprite3d",
+                      "width":  514,
+                      "height":  720,
+                      "sha256":  "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/book/hall/p_trampoline.jpg",
+                      "role":  "stage2_activity_page_sprite3d",
+                      "width":  514,
+                      "height":  720,
+                      "sha256":  "f1f4c14f5035fb17d5a42434a5e2bc7a019901f56f0f9d50d0c22e2adad77e1d",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_siblings.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "f79c9665f82cf434229aebaf58c9693c825eac3332f75f5cc60ba84022174443",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_all_clean_badge.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "36ae9f713cde322d0a1ae88481242821c2aa4ce1c8128c9ff58f09cf1a726b22",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_cloud_nest.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "268f97a83be468b48dc2f44352a466bef7deb5cfd89fb135dd70b4554f213587",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_friend_heart.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "614c657113ce0dc1c1d9498ad992e531c1f024bfe531ec88a8250eaef8e98a6f",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_hop.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "e412c3259482e438bdff1243808590b9de5ff5fdcfd79244e7db9ea8b435e130",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_peek.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "9d9a8021c27d39d37f23fe68fba78e12512c82f331aed85b69b0627cb71187ff",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_trail.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "e46e03f160d77899a550009b054c7d09a1fd416c76d4abfa8fab57862229630d",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_dust_poof.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "5154fc09decd2b7872d31c3a0e8618fad11fec9a6fb84abe188a24286168af16",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_gold_sparkle.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "a7d2125d773b2dfa081b22f78414232c1e4c0178458bbf7ecc9f77ec01281386",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_foam.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "2303c469100132bbc4045a8957b0e7d9d56e9b8e8754afe91a08bf700d07163e",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "1e58e1ff959f288834d5aa4926b8beef747ca507ca44f95cd5251edbf6b59821",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_helper.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "e733e019e189a5e0e4962f1e27e3a7a5a851eab9622e70b3e67483dcffd3ee8c",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_home.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "9e168cfa0765cf3e9fcf50ed5e620821117b5e3d67c9f0f91cb1d64a6308f245",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/badge_tidy_stack.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "623b4b7d9efae9ae0ba35fea4c473008172c19a590819affa3ac74e31f366a5e",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/progress_one_pearl.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "063bed5f71e052d2bbda5c8e6abfae61d6fc09e1430d0340e8d36369f925779b",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/progress_three_pearls.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "dde790fd3d0d35d06f535d87e746bc9d105ea650c84f9acf0e7e38862a6265e3",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/progress/progress_two_pearls.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "b6e77c1f364e086efb3781f7dddb215547bf20a4c16b99cdb1fb8dc8c39c9959",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "50d4e42028c6d95da5bc400fd8c6a17c30091c4a75b78faa2c0e03c85f253562",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_buttons_beads.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "de8294fa18ce0cea5d732d72051ec61875f3e5b10ccce6ddcf56a31db3b27a0d",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_cloud_cushions.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "5ea5954c581c7390c8ef473d2553f8fd7a51e6b841dbba458254248462c88ff4",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_cloudy_mirror.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "ea696d4d5b06226d5fc4ef7ebec46d058551c7eff6e4944311ff02814811730d",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_cobweb.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "a81bb4c304e56e6cd2d53a23cc633626a93ffa3966a8d95e5d6910509a51549f",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_craft_scraps.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "f97209ec903148a97c73dac9ba609d3d9feefaca31596b6421f9962a0c377d33",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_dust_bunnies.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "f98acf674915ca383ae0942f1f12627e680d4f4acfc4b8d07306674ff17d0850",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_dusty_shelf.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "605b7f2da4e603ad21cc7824f01858a109f72d37529d0794c0ab09ad8c5a563c",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_fireplace_smudge.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "6ed6f947af27d8efbe45d7d024ec7ba3adc1a94aa229c9c869634ea62f7ce51f",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_floor_scuff.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "629ccd46d94dee0e1966455becfaae7fb2c6a528faaad70ca612467255a41bf3",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_flour_spill.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "407a848e501ea722db33dcb35200590fdd15518551a6050a1a2da44c3da70870",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_leaf_trail.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "37a0c9c6afa178286c835245b1f51ccad9e15812c83e29c46d4abcccdb9bf9fd",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_muddy_footprints.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "73e07208fb0ef4cb3471df080a88655aad9bc3f934e094e502cf88b38ebb73ad",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_paint_splats.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "b407232dd5d0e8bad9b4184aeb7c02de75a2148d330b90b9dfc1430f855e9712",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_sticky_spill.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "db82f0407f71b1600328a6f9972f45bd254d20e4d1c3d334104fa8aff02c8f41",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_tipped_books.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "244af997edb5b90ecc6faefdd1331685921c8e33c854951a0d5dfe7a04b44c70",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_toy_blocks.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "6f1ff70f12a385a48c051d2776bac04da7e4d34c24efaebe2b4e32db12da33bb",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/targets/target_window_smudge.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "da757a251e86a500b6a0a16c1db69e9c2ced07551799ae254ed52785a3817b78",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_cleaning_cloths.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "db0717fd9c6676d8c7de5f47ebc1e2680ab5c0ff677c9ca4377206d25288bc89",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_dusting_mitt.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "be1a2993e57c70d454f1020b02692ec0b95c70578a63082d7904b2f540815369",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_dustpan_broom.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "e747b1846e24eb74069fab439aa3a5ccd8fa7cedcfc85789a39ffe7f86cde352",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_rainbow_mop.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "aae8a5893363410318af3f372395ae6396e7a6e3f280e6fffe443c5817c8ddba",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_ribbon_duster.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "86cb5dc7ba8aff0b9cef81c0c5cc865066b2098213a4c57a5dcc2dc2b85bba0c",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_broom.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "b7093f6b26ff808974efd04a02ae9c58329d581b5942597ed37064f05c241dc1",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_scrub_brush.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "ae8641dfe0847ee15d4ef3c132526bcabb6b01f82873feba3ba18a022404479e",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_spray_bottle.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "21ffc36c7d3daa48b343320cce9180621d43b529ee6149849ae599308692660f",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_shell_suds_bucket.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "cf6f558891f26f2b8b502ae5d171fb269844e9bfbafe2feca6c514c77e03f6db",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_sorting_basket.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "0beb864f09297a08b7bf1f3f28e04221830ebbf5b8b8df74890df34ac50f52db",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/castle/dirty_cleanup_2d/tools/tool_window_squeegee.png",
+                      "role":  "cleaning_control_cutout",
+                      "width":  512,
+                      "height":  512,
+                      "sha256":  "2c89b585631f4edab580a378897125c4cb051461a69206d3f8f56fa71af5a8e9",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg",
+                      "role":  "cleaning_control_background",
+                      "width":  2048,
+                      "height":  1024,
+                      "sha256":  "0e90e1e10fb9856a73f08fc9406556ad4a7a0597e049a635dd2520d1b11bf944",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
+                      "role":  "stage2_background_sprite3d",
+                      "width":  2048,
+                      "height":  1024,
+                      "sha256":  "b1e3346d79671f2616b00b53e6bb1b26cd7470adb777bf0ac48039a5f9f71e77",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  731,
+                      "height":  1024,
+                      "sha256":  "5c8eeb8a368bf3c46f58c9f50b45feafb67f17a23e969c9e54f3f4fc2131f8f5",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  1024,
+                      "height":  1024,
+                      "sha256":  "48c1f32bb3162ed78b956161e6c0086883db565d3c15a72f5b1e1df276f9d6fd",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  1024,
+                      "height":  576,
+                      "sha256":  "2670cc9d5a0847ec9b569dfc8f46114fa734ece422de73daeb0d7f7bdeca555c",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  824,
+                      "height":  1024,
+                      "sha256":  "abf0a3ec1caed7d4929756566d5bebfb096d11b22e3c9efa36955e3347fe4e52",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  1024,
+                      "height":  683,
+                      "sha256":  "a9042123293567571ca7a268323951cbe64e4926247fba6e76d2546edab1b51c",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  1024,
+                      "height":  1024,
+                      "sha256":  "e81e387c7297fcbe3467c3fb1563a6e5b0640862a103f5ca3acb5328d5c1ad4a",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
+                      "role":  "stage2_sprite3d_card",
+                      "width":  1024,
+                      "height":  1024,
+                      "sha256":  "ed5a12d1cc73a2ec6f8b20b4966615908543938d2e59e74c071830ed61735836",
+                      "new_in_branch":  false,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  },
+                  {
+                      "path":  "res://assets/sprites/story/arrival_imp.png",
+                      "role":  "stage2_foreground_sprite3d",
+                      "width":  683,
+                      "height":  1024,
+                      "sha256":  "ab1026350656ac43f6c4576d4fec6658b61b702fc0cd7801a9e5ea2cc14174d5",
+                      "new_in_branch":  true,
+                      "exact_runtime_file":  true,
+                      "post_audit_resize_or_pad":  false
+                  }
+              ]
+}

@@ -294,12 +294,12 @@ func _audit_storybook_ui() -> bool:
 	if not main.intro_active:
 		main._build_intro()
 	await process_frame
-	ok = _ui_named_count(main.intro_layer, "IntroNextButton") == 1 and ok
-	ok = _ui_target_ok(main.intro_layer, "IntroNextButton", Vector2(150, 150)) and ok
-	ok = _ui_target_ok(main.intro_layer, "IntroRepeatVoiceButton") and ok
+	ok = _ui_named_count(main.intro_layer, "IntroContinueButton") == 1 and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroContinueButton", Vector2(150, 150)) and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroReplayButton") and ok
 	var skip := main.intro_layer.find_child("IntroHoldToSkipButton", true, false) as Control
 	ok = skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2 and ok
-	ok = (main.intro_layer.get_meta("page_pips", []) as Array).size() == 4 and ok
+	ok = String(main.intro_layer.get_meta("cinematic_video_path", "")) == IntroOverlay.OPENING_VIDEO and ok
 	main._skip_intro()
 	await process_frame
 
