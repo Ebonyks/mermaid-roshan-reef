@@ -109,13 +109,13 @@ func _build_playground_screen() -> void:
 		"res://assets/book/hall/p_garden.jpg", "garden")
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
-		Vector3(-9.0, 7.0, -5.5), 11.8)
+		Vector3(-9.0, 8.4, -5.5), 15.5)
 	var swing := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
-		Vector3(3.0, 7.0, -5.7), 11.6)
+		Vector3(3.0, 8.4, -5.7), 15.0)
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
-		Vector3(15.0, 5.0, -5.4), 7.5)
+		Vector3(15.0, 5.8, -5.4), 9.2)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -126,6 +126,10 @@ func _build_castle_screen() -> void:
 	var gate := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		Vector3(56.0, 9.1, -5.8), 17.0)
+	# The full castle is painted into the panorama. This aligned card is kept
+	# hidden until focus so the first tap can still outline the entrance
+	# without drawing a second gate over the castle facade.
+	gate.visible = false
 	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
 
 func _build_roshan_card() -> void:

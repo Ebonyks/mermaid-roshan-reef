@@ -376,11 +376,12 @@ ambientCG (all CC0).
   Sprite3D card while the source character art remains unchanged.
 - `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png` —
   project-original OpenAI image generation; one uninterrupted 3:1 PNW
-  panorama flowing from the blocked-water runway shore, through the meadow,
-  to the castle drawbridge terrace and moat; generated from the three earlier
-  screen concepts plus the project PNW tree/shrub sheets, then resized to
-  1024px. The three earlier panel files were removed after this continuous
-  master replaced them.
+  panorama flowing from the blocked-water runway shore, through a bounded
+  playground meadow with no false path branch, to a prominent pearl castle
+  and drawbridge backed by layered PNW mountains; regenerated from the prior
+  continuous panorama and project PNW tree/shrub style references with added
+  native flora, then resized to 1024px. The three earlier panel files were
+  removed after this continuous master replaced them.
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
