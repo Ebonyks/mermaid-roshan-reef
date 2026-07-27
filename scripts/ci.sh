@@ -16,6 +16,10 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
+# structural + mesh-orientation gate for the Sky Lagoon kit (already run by
+# .github/workflows/probes.yml; it was missing from the local gate)
+python3 tools/audit_sky_lagoon_kit.py \
+	|| { echo "SKY LAGOON KIT FAIL (role, budget or inside-out mesh)"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"

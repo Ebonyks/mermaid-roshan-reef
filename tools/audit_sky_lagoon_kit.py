@@ -5,10 +5,18 @@ from __future__ import annotations
 
 import json
 import struct
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from audit_glb_shell_orientation import audit as audit_orientation  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# Every GLB the Sky Lagoon ships, not just the role-audited subset: an
+# inside-out shell is invisible in Blender QA and renders black in Godot,
+# so it has to be caught on the file rather than on the review render.
+ORIENTATION_GLOB = "assets/sky_lagoon/lagoon_kit/*.glb"
 EXPECTED = {
 	"assets/sky_lagoon/lagoon_kit/lagoon_baby_rosette.glb": "grounded_baby_plant",
 	"assets/sky_lagoon/lagoon_kit/lagoon_flower_cluster_coral.glb": "grounded_flowering_cluster",
@@ -168,9 +176,25 @@ def main() -> None:
 		except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, struct.error) as error:
 			failures.append(f"{relative}: {error}")
 			print(f"SKYWOODY|FAIL|{relative}|{error}")
+	oriented = 0
+	for path in sorted(ROOT.glob(ORIENTATION_GLOB)):
+		relative = path.relative_to(ROOT).as_posix()
+		try:
+			inward, closed, open_parts = audit_orientation(str(path))
+		except (OSError, KeyError, TypeError, ValueError, struct.error) as error:
+			failures.append(f"{relative}: {error}")
+			print(f"SKYNORMALS|FAIL|{relative}|{error}")
+			continue
+		if inward:
+			failures.append(f"{relative}: {inward} inside-out shell(s) render black in Godot")
+			print(f"SKYNORMALS|FAIL|{relative}|inward={inward}|closed={closed}")
+			continue
+		oriented += 1
+		print(f"SKYNORMALS|OK|{relative}|closed={closed}|open={open_parts}")
 	if failures:
 		raise SystemExit(1)
-	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}|woody={len(WOODY_EXPECTED)}")
+	print(f"SKYKIT|RESULT|OK|assets={len(EXPECTED)}|woody={len(WOODY_EXPECTED)}"
+		f"|oriented={oriented}")
 
 
 if __name__ == "__main__":

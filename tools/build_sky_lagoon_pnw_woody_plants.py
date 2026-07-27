@@ -22,6 +22,7 @@ import math
 from pathlib import Path
 
 import bpy
+import bmesh  # noqa: E402 — bpy must load first to register its bundled modules
 from mathutils import Vector
 
 
@@ -113,7 +114,31 @@ def mesh_object(name: str, vertices: list[tuple[float, float, float]],
     if material_indices is not None:
         for polygon, index in zip(mesh.polygons, material_indices):
             polygon.material_index = index
+    _make_normals_outward(mesh)
     return obj
+
+
+def _make_normals_outward(mesh: bpy.types.Mesh) -> None:
+    """Force every closed shell in `mesh` to face outward.
+
+    from_pydata() takes the winding exactly as written, and Blender's
+    viewport/EEVEE flips shading normals on backfaces — so inside-out
+    geometry looks perfect in the QA turntables and renders BLACK in
+    Godot.  cel.gdshader clamps dot(NORMAL, LIGHT) to zero (no diffuse at
+    all) and its Fresnel rim saturates (white speckle on the silhouette),
+    which is exactly how the whole PNW set shipped: black crowns with
+    white edge fizz, correct trunks (tube() happened to wind outward).
+
+    recalc_face_normals is orientation-only and preserves face order and
+    material_index, so it is safe to run after the material assignment
+    above.  Every volume this module builds is a closed shell.
+    """
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
 
 
 def tube(name: str, points: list[tuple[float, float, float, float]],
@@ -181,21 +206,25 @@ def cloud(name: str, center: tuple[float, float, float],
                 center[0] + local_x * math.cos(rotation) - local_y * math.sin(rotation),
                 center[1] + local_x * math.sin(rotation) + local_y * math.cos(rotation),
                 center[2] + vertical * scale[2]))
+    # Ring 0 is the +Z pole and ring rings-1 the -Z pole, so a quad listed
+    # low-ring-first winds counter-clockwise seen from OUTSIDE and its caps
+    # follow the same hand.  (Reversing these two is what turned every crown
+    # inside out; see _make_normals_outward.)
     faces: list[tuple[int, ...]] = []
     indices: list[int] = []
     for ring in range(rings - 1):
         for segment in range(segments):
             nxt = (segment + 1) % segments
-            faces.append((ring * segments + segment, ring * segments + nxt,
+            faces.append(((ring + 1) * segments + segment,
                           (ring + 1) * segments + nxt,
-                          (ring + 1) * segments + segment))
+                          ring * segments + nxt, ring * segments + segment))
             # Highlight only crowns the top ring; the mid body color
             # dominates so masses keep a clear value identity.
             indices.append(0 if ring == 0 else (2 if ring >= rings - 2 else 1))
-    faces.append(tuple(reversed(range(segments))))
+    faces.append(tuple(range(segments)))
     indices.append(0)
     last = (rings - 1) * segments
-    faces.append(tuple(last + segment for segment in range(segments)))
+    faces.append(tuple(last + segment for segment in reversed(range(segments))))
     indices.append(2)
     return mesh_object(name, vertices, faces, colors, parent, indices)
 
@@ -232,17 +261,19 @@ def skirt_tier(name: str, z: float, radius: float, height: float,
     faces: list[tuple[int, ...]] = []
     indices: list[int] = []
     bands = [band for _f, _dz, band in ring_spec]
+    # Same outward hand as cloud(): the skirt descends from the dome ring to
+    # the closed underside, so quads are listed later-ring-first.
     for ring in range(len(ring_spec) - 1):
         for segment in range(segments):
             nxt = (segment + 1) % segments
-            faces.append((ring * segments + segment, ring * segments + nxt,
+            faces.append(((ring + 1) * segments + segment,
                           (ring + 1) * segments + nxt,
-                          (ring + 1) * segments + segment))
+                          ring * segments + nxt, ring * segments + segment))
             indices.append(bands[ring])
-    faces.append(tuple(reversed(range(segments))))
+    faces.append(tuple(range(segments)))
     indices.append(0)
     last = (len(ring_spec) - 1) * segments
-    faces.append(tuple(last + segment for segment in range(segments)))
+    faces.append(tuple(last + segment for segment in reversed(range(segments))))
     indices.append(2)
     return mesh_object(name, vertices, faces, colors, parent, indices)
 
