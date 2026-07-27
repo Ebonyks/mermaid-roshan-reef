@@ -137,7 +137,11 @@ func _init() -> void:
 	core_hits = 0
 	await _swim(Vector3(7.0, 2.0, 0.0), 150)         # up the dreaming ramp x -20 -> -4
 	print("CASTLECAM|dreaming min_boom=%.2f pos=%s" % [min_boom, player.position - o])
-	_ck("dreaming stairs boom never collapses", min_boom > 1.2, "min=%.2f" % min_boom)
+	# 2026-07-26: the stairwell's contradictory floor/ceil constraints now
+	# SHORTEN the boom to over-shoulder range (bounded ~2.4 before the solid
+	# clamp) instead of oscillating; the ~1.15 wedged rest is deliberate and
+	# near-hide covers everything under 2.0
+	_ck("dreaming stairs boom never collapses", min_boom > 0.9, "min=%.2f" % min_boom)
 	_ck("dreaming stairs cam outside solid cores", core_hits == 0, "hits=%d" % core_hits)
 
 	# ---- cornering must STILL collapse: press into the throne-room back wall ----

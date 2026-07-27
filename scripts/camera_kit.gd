@@ -21,6 +21,7 @@ const SKIN := 0.5      # keep the lens this far in front of a hit surface
 const MIN_BOOM := 0.15 # cornered: pull nearly first-person rather than clip
 const FLOOR_OFF := 1.2 # lens height above the walk floor / seabed
 const CEIL_OFF := 1.0  # lens clearance under a zone ceiling
+const GRAZE := 0.02    # entry-t this small = pressed against the face
 
 
 static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
@@ -40,15 +41,50 @@ static func resolve(m: Node, focus: Vector3, want: Vector3) -> Vector3:
 		keep = clampf(t * length - SKIN, MIN_BOOM, length)
 	var pos: Vector3 = focus + boom * (keep / length)
 	# ground: sample under the camera AND mid-boom, so a ridge rising between
-	# Roshan and the lens lifts the camera over it instead of burying it
-	var gy: float = ground_y(m, pos)
-	var mid: Vector3 = focus.lerp(pos, 0.55)
-	gy = maxf(gy, ground_y(m, Vector3(mid.x, pos.y, mid.z)))
-	if pos.y < gy:
-		pos.y = gy
-	var cy: float = ceil_y(m, pos)
-	if pos.y > cy:
-		pos.y = cy
+	# Roshan and the lens lifts the camera over it instead of burying it.
+	# Heights are selected by the FOCUS's floor band (2026-07-26 audit): the
+	# camera obeys the floor/ceiling of the LEVEL ROSHAN IS ON, not whatever
+	# band its own glide happens to cross — a camera transiting between the
+	# basement and the ground floor used to get contradictory clamps.
+	# On tight stairwells floor and ceiling can CONTRADICT (dreaming stairs:
+	# mid-boom ramp floor 51.4 vs neighbouring slab ceil 47) — then the boom
+	# SHORTENS until the constraints are satisfiable: close behind her the
+	# floor under the boom converges to her own step. Centring in the gap is
+	# the last resort if even a minimal boom stays contradictory.
+	var pre_y: float = pos.y
+	var gy := 0.0
+	var cy := 0.0
+	for attempt in range(4):
+		gy = ground_y(m, pos, focus.y)
+		var mid: Vector3 = focus.lerp(pos, 0.55)
+		gy = maxf(gy, ground_y(m, Vector3(mid.x, pos.y, mid.z), focus.y))
+		cy = ceil_y(m, pos, focus.y)
+		if gy <= cy or attempt == 3:
+			break
+		# pull the lens in and re-evaluate — but never tighter than an
+		# over-shoulder boom: resolve() runs on the GLIDE each frame, so an
+		# unbounded shrink compounds geometrically to zero across frames
+		if (pos - focus).length() * 0.55 < 2.4:
+			pos = focus + (pos - focus).normalized() * minf(2.4, (pos - focus).length())
+			gy = ground_y(m, pos, focus.y)
+			cy = ceil_y(m, pos, focus.y)
+			break
+		pos = focus + (pos - focus) * 0.55
+	if gy > cy:
+		pos.y = (gy + cy) * 0.5
+	else:
+		if pos.y < gy:
+			pos.y = gy
+		if pos.y > cy:
+			pos.y = cy
+	if absf(pos.y - pre_y) > 0.01:
+		# the height clamps moved the lens vertically — that move can shove it
+		# into a wall the original boom cleared (2026-07-26 audit: basement
+		# cameras lifted into the ground-floor slab). Re-test and pull in.
+		var t2: float = boom_hit_t(m, focus, pos)
+		if t2 < 1.0:
+			var l2: float = pos.distance_to(focus)
+			pos = focus + (pos - focus) * (clampf(t2 * l2 - SKIN, MIN_BOOM, l2) / maxf(l2, 0.001))
 	return pos
 
 
@@ -72,13 +108,16 @@ static func boom_hit_t(m: Node, focus: Vector3, want: Vector3) -> float:
 	for s in m.arena_solids:
 		var st: float
 		var pad: float = float(s.get("pad", 0.0))
+		# st <= GRAZE (not just 0): a focus EXACTLY on the padded face — pressed
+		# flat against a column or wall — yields a tiny-positive entry t that
+		# used to bypass the core retest and collapse the boom (2026-07-26)
 		if s.box:
 			st = _seg_box_t(focus, d, s, 0.0)
-			if st <= 0.0 and pad > 0.0:
+			if st <= GRAZE and pad > 0.0:
 				st = _seg_box_t(focus, d, s, pad)
 		else:
 			st = _seg_cyl_t(focus, d, s, 0.0)
-			if st <= 0.0 and pad > 0.0:
+			if st <= GRAZE and pad > 0.0:
 				st = _seg_cyl_t(focus, d, s, pad)
 		t = minf(t, st)
 	return t
@@ -157,21 +196,28 @@ static func _seg_cyl_t(p: Vector3, d: Vector3, s: Dictionary, shrink: float = 0.
 	return best
 
 
-static func ground_y(m: Node, p: Vector3) -> float:
+static func ground_y(m: Node, p: Vector3, ref_y: float = 1e18) -> float:
 	# Lowest y the camera may occupy at (p.x, p.z) — mirrors the player floor
 	# logic (player.gd walk/zone block) so lens and heroine agree on the world.
+	#
+	# ref_y (2026-07-26 audit): the FOCUS height used to pick which floor band
+	# applies. The camera obeys the level the player is on; its own transient
+	# y must not switch it between floors (a lens gliding into the basement
+	# used to be clamped to the GROUND-floor ramp above). 1e18 = legacy: use p.y.
 	if String(m.game) == "":
 		return m.seabed_y(p.x, p.z) + FLOOR_OFF
 	var ap: Vector3 = m.arena_center
-	var gy: float = ap.y + 1.5
+	var base: float = ap.y + 1.5
 	if "lagoon_floor" in m and m.lagoon_floor:
-		gy = m.lagoon_walk_h(p.x, p.z) + FLOOR_OFF
+		base = m.lagoon_walk_h(p.x, p.z) + FLOOR_OFF
 	elif "northern_floor" in m and m.northern_floor:
-		gy = m.northern_walk_h(p.x, p.z) + FLOOR_OFF
+		base = m.northern_walk_h(p.x, p.z) + FLOOR_OFF
+	var gy: float = -1e18
+	var matched := false
 	if "arena_zones" in m:
 		var lx: float = p.x - ap.x
 		var lz: float = p.z - ap.z
-		var ly: float = p.y - ap.y
+		var ly: float = (ref_y if ref_y < 1e17 else p.y) - ap.y
 		for zz in m.arena_zones:
 			if not (zz["rect"] as Rect2).has_point(Vector2(lx, lz)):
 				continue
@@ -179,26 +225,32 @@ static func ground_y(m: Node, p: Vector3) -> float:
 			if ly < band.x or ly > band.y:
 				continue
 			if zz.has("floor"):
+				matched = true
 				gy = maxf(gy, ap.y + float(zz["floor"]) + FLOOR_OFF)
 			if zz.has("ramp"):
 				var rp: Array = zz["ramp"]
 				var pv: float = lx if int(rp[0]) == 0 else lz
 				var rt: float = clampf((pv - float(rp[1])) / (float(rp[3]) - float(rp[1])), 0.0, 1.0)
+				matched = true
 				gy = maxf(gy, ap.y + lerpf(float(rp[2]), float(rp[4]), rt) + FLOOR_OFF)
-	return gy
+	# zones are authoritative where they exist: a matched BASEMENT floor sits
+	# far BELOW the old ap.y+1.5 default, which used to force every
+	# underground camera up into the ground-floor slab
+	return gy if matched else base
 
 
-static func ceil_y(m: Node, p: Vector3) -> float:
+static func ceil_y(m: Node, p: Vector3, ref_y: float = 1e18) -> float:
 	# Highest y the camera may occupy — interior roofs are NOT solids (only
 	# upright walls are), but every real interior already registers a "ceil"
-	# zone for the player; the camera honours the same bands.
+	# zone for the player; the camera honours the same bands. ref_y selects
+	# the band by the FOCUS height (see ground_y).
 	if String(m.game) == "" or not ("arena_zones" in m):
 		return 1e9
 	var ap: Vector3 = m.arena_center
 	var cy: float = 1e9
 	var lx: float = p.x - ap.x
 	var lz: float = p.z - ap.z
-	var ly: float = p.y - ap.y
+	var ly: float = (ref_y if ref_y < 1e17 else p.y) - ap.y
 	for zz in m.arena_zones:
 		if not zz.has("ceil"):
 			continue

@@ -176,8 +176,14 @@ func build(o: Vector3) -> void:
 	# ---------- columns line the hall ----------
 	for cz in [-24.0, -8.0, 8.0, 24.0]:
 		for cx in [-28.0, 28.0]:
-			_pearl("pearl_column", o + Vector3(cx, 0.5, cz))
-			m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0)
+			# NO column in the cz=-24 bay: the balcony stair flights (x 26.5..34
+			# and -34..-26.5, z -34..-20.5) run straight through it — the padded
+			# column solid left a 1.7u squeeze that wedged Roshan mid-flight and
+			# collapsed the chase boom (2026-07-26 full castle camera audit).
+			# The bay keeps its wall sconce + light below.
+			if cz != -24.0:
+				_pearl("pearl_column", o + Vector3(cx, 0.5, cz))
+				m._cyl_solid(o + Vector3(cx, 17.0, cz), 2.6, 17.0)
 			# Wall-mounted shell fixtures cast inward between the column bays.
 			var sc := OmniLight3D.new()
 			sc.light_color = Color(1.0, 0.78, 0.5)
