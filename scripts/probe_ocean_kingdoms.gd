@@ -44,7 +44,19 @@ func _run() -> void:
 	var level2_pos: Vector3 = main.LEVEL2_POS
 	_check(main.game == "level2", "castle_gate_hub_is_level2")
 	_check(bool(state.get("ocean_gate_hub", false)), "castle_gate_hub_flag")
-	_check(player.position.distance_to(level2_pos + Vector3(-48.0, 3.0, 0.0)) < 0.5,
+	# She used to spawn at a fixed x -48; the promenade now has a walkable route
+	# (owner request 2026-07-27) and she starts ON it, beside the pearl plane.
+	# The invariant that matters is that: screen one, standing on the path, not
+	# a magic coordinate that the route's projection legitimately moves.
+	var promenade := main._lagoon_promenade_ref()
+	var promenade_cfg: Dictionary = main.g.get("ss_cfg", {})
+	var spawn_x: float = player.position.x - level2_pos.x
+	var spawn_y: float = player.position.y - level2_pos.y
+	var route_span: Vector2 = promenade.stage.route_span(promenade_cfg)
+	_check(spawn_x < -24.0
+		and spawn_x >= route_span.x - 0.01
+		and absf(spawn_y - promenade.stage.route_y(promenade_cfg, spawn_x, -999.0)) < 0.05
+		and absf(player.position.z - level2_pos.z) < 0.5,
 		"promenade_screen_one_spawn")
 	_check(String(state.get("phase", "")) == "promenade",
 		"castle_gate_hub_uses_promenade")

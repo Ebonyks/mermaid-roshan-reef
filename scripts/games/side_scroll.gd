@@ -409,8 +409,8 @@ func screen_pan_limit(cfg: Dictionary, cam: Camera3D) -> float:
 	# How far the lens may pan before the painted wall runs out. 0 = the mural
 	# is narrower than the frame, so it can only ever be shown dead-centre.
 	var half_w: float = float(cfg.get("screen_half_w", 0.0))
-	if half_w <= 0.0:
-		return -1.0   # no mural declared: the client owns its own framing
+	if half_w <= 0.0 or cam == null or not cam.is_inside_tree():
+		return -1.0   # no mural declared (or no lens yet): the client frames itself
 	return maxf(0.0, half_w - view_half_size(cfg, cam, float(cfg.get("screen_z", -18.0))).x)
 
 func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) -> void:

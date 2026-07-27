@@ -517,7 +517,12 @@ func _walk_x(mural_x: float) -> float:
 	# is free to centre her the two agree exactly; once it pins at a painted
 	# edge they diverge by the depth ratio, which is why the drawbridge sat out
 	# of reach of a straight x = painted_x assumption.
-	var pan: float = stage.screen_pan_limit(m.g.get("ss_cfg", {}), m.player.cam)
+	# the lens is created deferred, so a build that runs on the very first
+	# frames (the ocean-kingdom hub path) can reach here before it exists
+	var cam: Camera3D = m.player.cam
+	if cam == null or not cam.is_inside_tree():
+		return mural_x
+	var pan: float = stage.screen_pan_limit(m.g.get("ss_cfg", {}), cam)
 	if pan < 0.0:
 		return mural_x
 	var ratio: float = _depth_ratio()
@@ -577,7 +582,8 @@ func _set_spawn(x: float) -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
-	m.player.position = root_node.position + Vector3(x, 3.0, 0.0)
+	m.player.position = root_node.position + Vector3(
+		x, stage.route_y(m.g.get("ss_cfg", {}), x, 3.0), 0.0)
 	m.player.vel = Vector3.ZERO
 	m.player.rotation.y = PI
 	var cam: Camera3D = m.player.cam
