@@ -34,11 +34,17 @@ func _init(main: ReefMain) -> void:
 func open(cfg: Dictionary) -> void:
 	# cfg: origin (stage floor center, world), half_w, hover (avatar float
 	# height), cam_h / cam_dist / look_h / cam_follow (side-on framing),
-	# bob_amp, backdrop (texture path, optional), backdrop_size (Vector2),
-	# backdrop_z, run_speed / jump_v / gravity (run mode), layers (parallax
-	# flat stack, back-to-front: [{tex, size, y, z, lock, alpha, tile}] —
-	# lock ∈ [0,1] is the camera-follow factor, 0 = pinned to the stage,
-	# 1 = rides the camera like a sky; tile repeats the quad sideways).
+	# cam_fov (locks the lens for the whole stage — 0/absent leaves whatever
+	# the chase cam last set), bob_amp, backdrop (texture path, optional),
+	# backdrop_size (Vector2), backdrop_z, run_speed / jump_v / gravity (run
+	# mode), layers (parallax flat stack, back-to-front: [{tex, size, y, z,
+	# lock, alpha, tile}] — lock ∈ [0,1] is the camera-follow factor, 0 =
+	# pinned to the stage, 1 = rides the camera like a sky; tile repeats the
+	# quad sideways).
+	# THE MURAL IS THE SCREEN (owner note 2026-07-27): screen_half_w +
+	# screen_z declare the painted wall's half-width and depth, and the camera
+	# glide then REFUSES to pan past its painted edges, so the frame is always
+	# filled by the painting and never by raw environment sky.
 	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
 	# player.gd) — size stages against HER, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
@@ -101,6 +107,9 @@ func open(cfg: Dictionary) -> void:
 	m.player.vel = Vector3.ZERO
 	m.player.rotation.y = PI
 	if m.player.cam != null and m.player.cam.is_inside_tree():
+		var lens: float = float(cfg.get("cam_fov", 0.0))
+		if lens > 0.0:
+			m.player.cam.fov = lens
 		m.player.cam.position = origin + Vector3(0, float(cfg.get("cam_h", 12.0)), float(cfg.get("cam_dist", 20.5)))
 		m.player.cam.look_at(origin + Vector3(0, float(cfg.get("look_h", 10.5)), 0))
 
@@ -247,26 +256,18 @@ func walk_tick(delta: float) -> Dictionary:
 		z = clampf(z + mz * spd * 0.8 * delta, -half_d, half_d)
 		dx = mx
 	else:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			# finger → ray → the vertical stage plane at z 0; height on the
-			# plane maps into the depth band (near the floor = toward the
-			# camera). Touch reaches here through Godot's emulated mouse.
-			var cam: Camera3D = m.player.cam
+		if bool(cfg.get("touch_travel", true)) and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			# finger -> ray -> the stage plane; screen height on that plane maps
+			# into the depth band. Touch reaches here through Godot's emulated
+			# mouse. A stage that routes presses itself (a promenade whose
+			# standees are tappable) sets touch_travel false and calls
+			# plane_goal() for the presses its director judges to be travel.
 			var vp := m.get_viewport()
-			if cam != null and cam.is_inside_tree() and vp != null:
-				var mp: Vector2 = vp.get_mouse_position()
-				var from: Vector3 = cam.project_ray_origin(mp)
-				var dirv: Vector3 = cam.project_ray_normal(mp)
-				if absf(dirv.z) > 0.001:
-					var t: float = (r.position.z - from.z) / dirv.z
-					if t > 0.0:
-						var hit: Vector3 = from + dirv * t
-						var band_h: float = float(cfg.get("band_h", 6.0))
-						var gz: float = remap(clampf(hit.y - r.position.y, 0.0, band_h),
-							0.0, band_h, half_d, -half_d)
-						m.g["ss_walk_goal"] = Vector2(
-							clampf(hit.x - r.position.x, -half_w, half_w), gz)
-						pointing = true
+			if vp != null:
+				var goal_here: Variant = plane_goal(vp.get_mouse_position())
+				if goal_here is Vector2:
+					m.g["ss_walk_goal"] = goal_here
+					pointing = true
 		var goal_v: Variant = m.g.get("ss_walk_goal")
 		if goal_v is Vector2:
 			var goal := goal_v as Vector2
@@ -297,10 +298,70 @@ func walk_tick(delta: float) -> Dictionary:
 	return {"px": x, "pz": z, "moved": moved, "pointing": pointing,
 		"arrived": not (m.g.get("ss_walk_goal") is Vector2)}
 
+func plane_goal(screen_pos: Vector2) -> Variant:
+	# THE promenade projection, in one place: a screen press → the walk band.
+	# The ray is crossed with the vertical stage plane at z 0; the hit's height
+	# is read through the band window (band_y .. band_y + band_h) so the front
+	# of the window is the near edge of the depth band and the back of it the
+	# far edge. Returns a stage-local Vector2(x, z) goal, or null when the press
+	# cannot reach the plane at all. Both the engine's own hold-to-travel and a
+	# client's tap router call this, so the two can never drift apart.
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	var r := root()
+	var cam: Camera3D = m.player.cam
+	if r == null or cam == null or not cam.is_inside_tree():
+		return null
+	var from: Vector3 = cam.project_ray_origin(screen_pos)
+	var dirv: Vector3 = cam.project_ray_normal(screen_pos)
+	if absf(dirv.z) <= 0.001:
+		return null
+	var t: float = (r.position.z - from.z) / dirv.z
+	if t <= 0.0:
+		return null
+	var hit: Vector3 = from + dirv * t
+	var half_w: float = float(cfg.get("half_w", 23.2))
+	var half_d: float = float(cfg.get("half_d", 7.0))
+	var band_y: float = float(cfg.get("band_y", 0.0))
+	var band_h: float = maxf(0.01, float(cfg.get("band_h", 6.0)))
+	var gz: float = remap(clampf(hit.y - r.position.y - band_y, 0.0, band_h),
+		0.0, band_h, half_d, -half_d)
+	return Vector2(clampf(hit.x - r.position.x, -half_w, half_w), gz)
+
+func view_half_size(cfg: Dictionary, cam: Camera3D, plane_z: float) -> Vector2:
+	# Half (width, height) of the frustum where it crosses a stage-local depth,
+	# in world units. Camera3D keeps the VERTICAL fov (KEEP_HEIGHT), so height
+	# is device-independent and width grows with the phone's aspect.
+	var aspect := 16.0 / 9.0
+	var vp := m.get_viewport()
+	if vp != null:
+		var vsz: Vector2 = vp.get_visible_rect().size
+		if vsz.y > 1.0:
+			aspect = vsz.x / vsz.y
+	var dist: float = absf(float(cfg.get("cam_dist", 20.5)) - plane_z)
+	var half_h: float = tan(deg_to_rad(cam.fov * 0.5)) * dist
+	return Vector2(half_h * aspect, half_h)
+
+func screen_pan_limit(cfg: Dictionary, cam: Camera3D) -> float:
+	# How far the lens may pan before the painted wall runs out. 0 = the mural
+	# is narrower than the frame, so it can only ever be shown dead-centre.
+	var half_w: float = float(cfg.get("screen_half_w", 0.0))
+	if half_w <= 0.0:
+		return -1.0   # no mural declared: the client owns its own framing
+	return maxf(0.0, half_w - view_half_size(cfg, cam, float(cfg.get("screen_z", -18.0))).x)
+
 func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) -> void:
 	var cam: Camera3D = m.player.cam
 	if cam == null or not cam.is_inside_tree():
 		return
+	var lens: float = float(cfg.get("cam_fov", 0.0))
+	if lens > 0.0:
+		# hold the stage lens: the free-swim chase cam breathes fov with speed
+		# and would otherwise leave the promenade zoomed at whatever value it
+		# was carrying when the stage opened
+		cam.fov = lens
+	var pan_limit: float = screen_pan_limit(cfg, cam)
+	if pan_limit >= 0.0:
+		follow_x = clampf(follow_x, -pan_limit, pan_limit)
 	var goal: Vector3 = r.position + Vector3(follow_x, float(cfg.get("cam_h", 12.0)), float(cfg.get("cam_dist", 20.5)))
 	cam.position = cam.position.lerp(goal, 1.0 - pow(0.002, delta))
 	cam.look_at(r.position + Vector3(follow_x, float(cfg.get("look_h", 10.5)), 0))

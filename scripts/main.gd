@@ -2947,7 +2947,8 @@ func _build_hud() -> void:
 	hud_pearls = _mk_label(cl, Vector2(42, 24), 30)
 	hud_pearls.size = Vector2(220, 42)
 	hud_stars = _mk_label(cl, Vector2(42, 65), 22)
-	hud_stars.size = Vector2(230, 84)
+	# three lines (stars / crowns+critters / medal tally) inside the 146-tall tray
+	hud_stars.size = Vector2(230, 112)
 	hud_game = _mk_label(cl, Vector2(430, 20), 23)
 	hud_game.name = "HudPictureObjective"
 	hud_game.size = Vector2(420, 112)

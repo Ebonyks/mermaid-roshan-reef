@@ -95,6 +95,7 @@ func _init() -> void:
 	var visible_sprite_count := 0
 	var depth_layers: Dictionary = {}
 	var backdrop_positions: Array[Vector3] = []
+	var billboarded_backdrops := 0
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -106,6 +107,8 @@ func _init() -> void:
 			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
 			if stage_sprite.name.begins_with("SkyLagoonBackdrop_"):
 				backdrop_positions.append(stage_sprite.position)
+				if stage_sprite.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
+					billboarded_backdrops += 1
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -123,13 +126,58 @@ func _init() -> void:
 			depth_layers.size(), visible_sprite_count])
 	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
 		return a.x < b.x)
+	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
 	var seamless_cards_ok := backdrop_positions.size() == 3
 	if seamless_cards_ok:
 		seamless_cards_ok = (
-			backdrop_positions[0] == Vector3(-48.0, 24.0, -18.0)
-			and backdrop_positions[1] == Vector3(0.0, 24.0, -18.0)
-			and backdrop_positions[2] == Vector3(48.0, 24.0, -18.0))
+			backdrop_positions[0] == Vector3(-48.0, mural_y, -18.0)
+			and backdrop_positions[1] == Vector3(0.0, mural_y, -18.0)
+			and backdrop_positions[2] == Vector3(48.0, mural_y, -18.0))
 	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
+	# A billboarded card swings about its own centre, so the three tiles stop
+	# being coplanar the instant the lens is off-centre and the environment sky
+	# shows through the wedges between them. The wall must stay flat.
+	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
+		"billboarded=%d" % billboarded_backdrops)
+
+	# THE MURAL IS THE SCREEN. The promenade — not the free-swim chase cam —
+	# must own the lens, and the frame it holds has to stay inside the painted
+	# rectangle at both ends of the walk.
+	var promenade := main._lagoon_promenade_ref()
+	var stage_cfg: Dictionary = main.g.get("ss_cfg", {})
+	var lens: Camera3D = main.player.cam
+	var origin: Vector3 = main.LEVEL2_POS
+	_check("stage_owns_the_lens",
+		is_equal_approx(lens.fov, SkyLagoonPromenade.CAM_FOV)
+		and absf(lens.position.y - (origin.y + SkyLagoonPromenade.CAM_H)) <= 0.35
+		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
+		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
+			lens.position.y - origin.y, lens.position.z - origin.z])
+	var mural_half_w: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.x * 1.5
+	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
+	var covered := true
+	var worst := ""
+	for edge_x: float in [72.0, -72.0]:
+		main.player.position.x = origin.x + edge_x
+		for _i in range(6):
+			promenade.tick(0.5)
+		var view: Vector2 = promenade.stage.view_half_size(
+			stage_cfg, lens, SkyLagoonPromenade.BACKDROP_Z)
+		var cam_x: float = lens.position.x - origin.x
+		var cam_y: float = lens.position.y - origin.y
+		var inside: bool = (
+			cam_x + view.x <= mural_half_w + 0.01
+			and cam_x - view.x >= -mural_half_w - 0.01
+			and cam_y + view.y <= mural_y + mural_half_h + 0.01
+			and cam_y - view.y >= mural_y - mural_half_h - 0.01)
+		covered = covered and inside
+		if not inside:
+			worst = "at x=%.0f frame=[%.1f,%.1f]x[%.1f,%.1f]" % [edge_x,
+				cam_x - view.x, cam_x + view.x, cam_y - view.y, cam_y + view.y]
+	_check("mural_fills_the_frame_at_both_ends", covered, worst)
+	main.player.position.x = origin.x - 48.0
+	for _i in range(6):
+		promenade.tick(0.5)
 	_check("roshan_is_sprite_card",
 		not main.player.visible
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
@@ -141,7 +189,7 @@ func _init() -> void:
 		ambient_before = (ambient_cards[0] as Sprite3D).position
 	if plane_card != null:
 		plane_before = plane_card.position
-	main._lagoon_promenade_ref()._tick_ambient_life(0.75)
+	promenade._tick_ambient_life(0.75)
 	var ambient_moves := (
 		ambient_cards.size() == 6
 		and (ambient_cards[0] as Sprite3D).position != ambient_before

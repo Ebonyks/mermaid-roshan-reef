@@ -968,6 +968,16 @@ func _process(delta: float) -> void:
 		return   # the icon-led Critter Book is a full-screen touch overlay
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
+	if "g" in _m0 and String((_m0.g as Dictionary).get("phase", "")) == "promenade":
+		# A 2.5D promenade stage (GAME_REDESIGN_2P5D_2026-07-27) owns BOTH the
+		# player and the lens: SideScrollStage.walk_tick places her on the band
+		# and _glide_camera holds the side-on framing. main._process runs before
+		# this node, so without this gate the free-swim chase cam re-aimed the
+		# lens every single frame and the promenade's framing never reached the
+		# screen at all — the painted mural then sat in the top half of the
+		# frame with raw environment sky under it.
+		vel = Vector3.ZERO
+		return
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))

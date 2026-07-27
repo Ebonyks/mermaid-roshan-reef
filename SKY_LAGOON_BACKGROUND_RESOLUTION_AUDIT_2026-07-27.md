@@ -11,6 +11,25 @@ aspect ratio. Runtime reconstruction uses three non-overlapping lossless
 No stretch, crop of the master composition, padding, canvas extension,
 letterbox, or ratio-changing regeneration remains.
 
+## Runtime placement (revised 2026-07-27, screen-layering repair)
+
+The mural is the screen. The reconstruction is unchanged in size and content
+(144 x 48 world units, three 48-unit cards); only its vertical home and the
+lens that frames it changed, so that the painting — never the environment
+sky — fills the frame:
+
+| Property | Was | Now |
+|---|---:|---:|
+| Card centre y | 24.0 | 9.5 |
+| Camera distance / height / look height | 22.5 / 12.2 / 10.0 | 47.0 / 9.5 / 9.5 |
+| Frustum where it crosses the mural | 27.9 tall, centred y 8.2 | 44.8 tall, centred y 9.5 |
+| Lens pan | unbounded (walked off both painted ends) | clamped to the painted edges |
+
+The camera is horizontal (look height equals camera height), so the view
+centre is y 9.5 at every depth; the frustum covers y [-12.9, 31.9] against a
+mural spanning [-14.5, 33.5]. Roshan's card reads ~24% of frame height with
+her feet at ~79% down, standing on the painted lawn (world y -3.9 .. 5.7).
+
 ## Before / after
 
 | Artifact | Dimensions | Ratio | Ratio delta from 3:1 | SHA-256 |
@@ -55,8 +74,13 @@ Each runtime texture has a long edge of 724 pixels.
 
 - the 2172×724 native master and exact 3:1 ratio;
 - all three 724×724 runtime tiles;
-- three backdrop cards at x = -48, 0, 48, y = 24, z = -18;
+- three backdrop cards at x = -48, 0, 48, y = 9.5, z = -18;
 - a shared depth and exact 48-world-unit edge meeting;
+- none of the three cards billboarding (a billboarded card swings about its
+  own centre, so the tiles stop being coplanar the moment the lens is
+  off-centre and environment sky shows through the wedges between them);
+- the frustum staying inside the painted 144x48 rectangle at both ends of the
+  walk, and the promenade — not the free-swim chase cam — owning the lens;
 - 29 unshaded Sprite3D world-art cards, zero MeshInstance3D world art,
   zero CanvasItem world art, and no invalid pixel scale;
 - at least four real depth layers and no more than 20 simultaneously visible

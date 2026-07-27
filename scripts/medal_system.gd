@@ -149,7 +149,9 @@ func hud_suffix() -> String:
 	var c: Dictionary = counts()
 	if int(c[1]) + int(c[2]) + int(c[3]) == 0:
 		return ""
-	return "   🥇 %d  🥈 %d  🥉 %d" % [int(c[3]), int(c[2]), int(c[1])]
+	# its OWN line: appended to the star/crown line it ran past the right edge
+	# of the status tray and spilled the medal glyphs out over the world
+	return "\n🥇 %d  🥈 %d  🥉 %d" % [int(c[3]), int(c[2]), int(c[1])]
 
 func refresh_friend_glyphs() -> void:
 	# a floating medal under each won friend's star — the in-world scoreboard
