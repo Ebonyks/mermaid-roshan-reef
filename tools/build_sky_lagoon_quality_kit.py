@@ -1035,19 +1035,19 @@ def build_slide() -> bpy.types.Object:
 		return outline
 
 	for side in (-1, 1):
-		wall = panel_xz("slide_wall", slide_profile(.62, 0.0), .40,
-			(side * 1.22, 0, 0), MATS["teal"], p)
+		wall = panel_xz("slide_wall", slide_profile(.40, 0.0), .44,
+			(side * 1.36, 0, 0), MATS["teal"], p)
 		wall.rotation_euler.z = math.radians(90)
-	chute = panel_xz("slide_chute", slide_profile(.16, -.22), 2.10, (0, 0, 0),
+	chute = panel_xz("slide_chute", slide_profile(.16, -.22), 2.46, (0, 0, 0),
 		MATS["lavender_light"], p)
 	chute.rotation_euler.z = math.radians(90)
 	# Rolled teal lip curling over the chute head where the ladder meets it.
-	cylinder("slide_head_roll", (0, .92, 5.62), .34, 2.9, MATS["teal"], p, 12,
+	cylinder("slide_head_roll", (0, .92, 5.56), .30, 3.16, MATS["teal"], p, 12,
 		rotation=(0, math.radians(90), 0))
 	# Broad run-out with a raised front lip.
-	rounded_box("slide_runout", (0, -5.12, .30), (2.9, 1.5, .44), MATS["lavender_light"], p,
+	rounded_box("slide_runout", (0, -5.12, .30), (3.16, 1.5, .44), MATS["lavender_light"], p,
 		radius=.14)
-	rounded_box("slide_runout_lip", (0, -5.78, .48), (2.9, .34, .58), MATS["teal"], p,
+	rounded_box("slide_runout_lip", (0, -5.78, .46), (3.16, .34, .54), MATS["teal"], p,
 		radius=.12)
 	return p
 
@@ -1059,21 +1059,22 @@ def build_swing() -> bpy.types.Object:
 	for side in (-1, 1):
 		for y in (-1.75, 1.75):
 			leg_mat = MATS["teal"] if y < 0 else MATS["lavender"]
-			tube("swing_leg", [(side * 2.7, y, .15), (side * 1.95, y * .18, 5.55)], .24, leg_mat, p)
-			gold_collar("swing_leg_band", (side * 2.62, y, 1.05), .29, .30, p)
-			rounded_box("swing_foot", (side * 2.70, y, .24), (.66, .66, .46),
+			tube("swing_leg", [(side * 2.7, y, .15), (side * 1.95, y * .18, 5.55)], .38, leg_mat, p)
+			gold_collar("swing_leg_band", (side * 2.60, y, 1.10), .40, .38, p)
+			rounded_box("swing_foot", (side * 2.70, y, .28), (1.02, 1.02, .56),
 				MATS["lavender_light"] if y < 0 else MATS["lavender"], p, radius=.10)
-		gold_collar("swing_beam_cap", (side * 1.95, 0, 5.66), .44, .82, p,
+		gold_collar("swing_beam_cap", (side * 1.95, 0, 5.68), .56, .96, p,
 			rotation=(0, math.radians(90), 0))
-	rounded_box("swing_beam", (0, 0, 5.7), (4.70, .52, .52), MATS["plum"], p, radius=.18)
+	cylinder("swing_beam", (0, 0, 5.7), .34, 4.70, MATS["plum"], p, 14,
+		rotation=(0, math.radians(90), 0))
 	# One wooden plank seat on two braided ropes, centred under the bar —
 	# exactly where sky_lagoon.gd puts the swing play anchor.
 	for offset in (-.58, .58):
 		gold_collar("swing_rope_ring", (offset, 0, 5.52), .17, .12, p,
 			rotation=(math.radians(90), 0, 0))
 		rope("swing_rope", (offset, 0, 5.44), (offset, 0, 1.80), p)
-	rounded_box("swing_seat", (0, 0, 1.65), (1.62, 1.02, .22), MATS["wood"], p, radius=.16)
-	rounded_box("swing_seat_grain", (0, 0, 1.78), (1.34, .84, .08), MATS["wood_light"], p,
+	rounded_box("swing_seat", (0, 0, 1.65), (2.00, 1.14, .26), MATS["wood_light"], p, radius=.22)
+	rounded_box("swing_seat_grain", (0, 0, 1.80), (1.66, .92, .09), MATS["wood"], p,
 		radius=.05)
 	return p
 
@@ -1084,31 +1085,34 @@ def build_seesaw() -> bpy.types.Object:
 	# round boss on each cheek, as drawn.
 	rounded_box("seesaw_base", (0, 0, .38), (2.60, 1.90, .70), MATS["teal"], p, radius=.16)
 	rounded_box("seesaw_base_trim", (0, 0, .74), (2.20, 1.60, .16), MATS["aqua"], p, radius=.08)
-	fan_plate("seesaw_fulcrum", (0, 0, .90), 1.02, 1.15, MATS["lavender"], p, 7)
+	rounded_box("seesaw_fulcrum_body", (0, 0, 1.20), (1.28, 1.15, 1.16), MATS["lavender"], p,
+		radius=.18)
+	fan_plate("seesaw_fulcrum", (0, 0, 1.76), .64, 1.15, MATS["lavender"], p, 7)
 	for side in (-1, 1):
-		blob("seesaw_boss", (0, side * .60, 1.62), (.34, .16, .34), MATS["lavender_light"], p,
+		blob("seesaw_boss", (0, side * .60, 1.74), (.46, .16, .46), MATS["lavender_light"], p,
 			643 + side)
 	# Slim wooden plank with gold ferrules near both ends.
-	rounded_box("seesaw_beam", (0, 0, 2.0), (7.0, .78, .30), MATS["wood"], p,
-		rotation=(0, math.radians(-7), 0), radius=.10)
-	rounded_box("seesaw_beam_grain", (0, 0, 2.16), (6.6, .52, .08), MATS["wood_light"], p,
-		rotation=(0, math.radians(-7), 0), radius=.04)
+	rounded_box("seesaw_beam", (0, 0, 2.30), (7.4, .74, .30), MATS["wood_light"], p,
+		rotation=(0, math.radians(-7), 0), radius=.09)
+	for seam in (-.20, .20):
+		rounded_box("seesaw_beam_grain", (0, seam, 2.44), (7.0, .06, .07), MATS["wood"], p,
+			rotation=(0, math.radians(-7), 0), radius=.02)
 	for side in (-1, 1):
-		gold_collar("seesaw_ferrule", (side * 2.95, 0, 2.0 - side * .36), .46, .34, p,
+		gold_collar("seesaw_ferrule", (side * 3.02, 0, 2.30 - side * .37), .48, .38, p,
 			rotation=(0, math.radians(83), 0))
 		# Flat teal seat pad ON the plank, plus the grip post beside it.
-		rounded_box("seesaw_seat", (side * 2.30, 0, 2.20 - side * .28), (1.15, .70, .16),
+		rounded_box("seesaw_seat", (side * 2.45, 0, 2.50 - side * .30), (1.25, .62, .15),
 			MATS["aqua"], p, rotation=(0, math.radians(-7), 0), radius=.08)
-		grip_post("seesaw_grip", (side * 1.55, 0, 2.26 - side * .19), 1.30, p, 645 + side)
+		grip_post("seesaw_grip", (side * 1.62, 0, 2.44 - side * .20), 1.55, p, 645 + side)
 	# +x end carries the lavender fan she rides toward; -x stays the open seat
 	# (sky_lagoon.gd: "the OPEN seat is the -left end ... she faces the pivot").
-	fan_plate("seesaw_fan", (3.18, 0, 2.26), 1.00, .38, MATS["lavender"], p, 9)
-	blob("seesaw_fan_boss", (3.18, 0, 2.68), (.26, .22, .26), MATS["lavender_light"], p, 651)
+	fan_plate("seesaw_fan", (3.30, 0, 2.46), .84, .46, MATS["lavender"], p, 9)
+	blob("seesaw_fan_boss", (3.30, 0, 2.80), (.26, .26, .26), MATS["lavender_light"], p, 651)
 	# -x end carries the little pink treat the sheet puts opposite the fan.
-	cone("seesaw_treat_cone", (-3.30, 0, 2.62), .12, .30, .60, MATS["cream"], p, 10)
-	blob("seesaw_treat_scoop_a", (-3.30, 0, 3.06), (.30, .30, .28), MATS["rose"], p, 655)
-	blob("seesaw_treat_scoop_b", (-3.18, 0, 3.42), (.25, .25, .23), MATS["coral"], p, 656)
-	blob("seesaw_treat_scoop_c", (-3.44, 0, 3.40), (.21, .21, .20), MATS["rose"], p, 657)
+	cone("seesaw_treat_cone", (-3.34, 0, 2.92), .14, .36, .72, MATS["cream"], p, 10)
+	blob("seesaw_treat_scoop_a", (-3.34, 0, 3.44), (.36, .36, .34), MATS["rose"], p, 655)
+	blob("seesaw_treat_scoop_b", (-3.20, 0, 3.84), (.30, .30, .28), MATS["coral"], p, 656)
+	blob("seesaw_treat_scoop_c", (-3.50, 0, 3.82), (.26, .26, .24), MATS["rose"], p, 657)
 	return p
 
 
@@ -1123,27 +1127,27 @@ def build_merry() -> bpy.types.Object:
 			(.26, .52, .48), MATS["aqua"] if index % 2 else MATS["gold"], p,
 			rotation=(0, 0, a), radius=.06)
 	cylinder("merry_deck", (0, 0, .86), 3.10, .30, MATS["lavender_light"], p, 20)
-	ring("merry_deck_rim", (0, 0, .86), 3.06, .28, MATS["gold"], p)
-	# Deck top: radial panel seams with small gold star points between them.
+	ring("merry_deck_rim", (0, 0, .92), 3.04, .28, MATS["gold"], p)
+	# Deck top stays lavender; the sheet's only decoration is a ring of small
+	# gold star points, not a gold starburst.
 	for index in range(8):
 		a = math.tau * index / 8.0
-		rounded_box("merry_deck_seam", (math.cos(a) * 1.52, math.sin(a) * 1.52, 1.02),
-			(2.90, .05, .04), MATS["gold"], p, rotation=(0, 0, a), radius=.015)
-		if index % 2 == 0:
-			rounded_box("merry_deck_star", (math.cos(a + .39) * 2.05, math.sin(a + .39) * 2.05, 1.02),
-				(.62, .22, .04), MATS["gold"], p, rotation=(0, 0, a + .39), radius=.015)
+		rounded_box("merry_deck_star", (math.cos(a) * 1.90, math.sin(a) * 1.90, 1.03),
+			(.74, .28, .05), MATS["gold"], p, rotation=(0, 0, a), radius=.02)
+		rounded_box("merry_deck_wedge", (math.cos(a + .39) * 1.85, math.sin(a + .39) * 1.85, 1.01),
+			(2.10, .90, .03), MATS["lavender"], p, rotation=(0, 0, a + .39), radius=.02)
 	cylinder("merry_hub", (0, 0, 1.06), .66, .28, MATS["lavender"], p, 14)
-	cylinder("merry_pole", (0, 0, 1.98), .30, 2.4, MATS["plum"], p, 12)
-	gold_collar("merry_pole_teal", (0, 0, 2.72), .38, .30, p, mat=MATS["aqua"])
-	gold_collar("merry_pole_gold", (0, 0, 3.00), .38, .26, p)
+	cylinder("merry_pole", (0, 0, 2.16), .34, 2.7, MATS["plum"], p, 12)
+	gold_collar("merry_pole_teal", (0, 0, 3.06), .44, .34, p, mat=MATS["aqua"])
+	gold_collar("merry_pole_gold", (0, 0, 3.38), .44, .28, p)
 	# Gold scallop finial, not a plain ball.
 	for index in range(3):
-		blob("merry_finial_lobe", (math.cos(index * 2.1) * .17, math.sin(index * 2.1) * .17, 3.32),
-			(.36, .36, .48), MATS["gold"], p, 668 + index)
-	blob("merry_finial_crown", (0, 0, 3.66), (.30, .30, .30), MATS["gold"], p, 672)
+		blob("merry_finial_lobe", (math.cos(index * 2.1) * .21, math.sin(index * 2.1) * .21, 3.76),
+			(.56, .56, .74), MATS["gold"], p, 668 + index)
+	blob("merry_finial_crown", (0, 0, 4.22), (.40, .40, .40), MATS["gold"], p, 672)
 	# Four square-shouldered grab arches with boot pads on the deck.
 	for index in range(4):
-		rect_arch("merry_arch", .92, 1.72, 1.02, 2.34, .15, p, math.tau * index / 4.0,
+		rect_arch("merry_arch", .98, 2.02, 1.02, 2.92, .20, p, math.tau * index / 4.0,
 			660 + index)
 	return p
 
@@ -1162,20 +1166,20 @@ def build_sandbox() -> bpy.types.Object:
 		wave = math.sin(a * 3.0) * .09
 		px, py = math.cos(a) * rx, math.sin(a) * ry
 		rounded_box("pit_block_low", (px, py, .26 + wave),
-			(1.38, .58, .56), MATS["lavender"] if index % 2 else MATS["lavender_light"], p,
+			(1.38, .72, .62), MATS["lavender"] if index % 2 else MATS["lavender_light"], p,
 			rotation=(0, 0, tangent), radius=.12)
-		rounded_box("pit_block_mid", (px, py, .68 + wave * .5),
-			(1.34, .54, .34), MATS["butter"], p, rotation=(0, 0, tangent), radius=.10)
-		rounded_box("pit_block_top", (px, py, .96 - wave),
-			(1.38, .58, .34), MATS["rose"], p, rotation=(0, 0, tangent), radius=.14)
-	cylinder("pit_floor", (0, 0, .30), 2.60, .34, MATS["cream"], p, 18)
+		rounded_box("pit_block_mid", (px, py, .94 + wave * .5),
+			(1.34, .70, .56), MATS["butter"], p, rotation=(0, 0, tangent), radius=.12)
+		rounded_box("pit_block_top", (px, py, 1.42 - wave),
+			(1.38, .72, .52), MATS["rose"], p, rotation=(0, 0, tangent), radius=.16)
+	cylinder("pit_floor", (0, 0, .44), 2.60, .50, MATS["cream"], p, 18)
 	palette = [MATS["coral"], MATS["aqua"], MATS["lavender_light"], MATS["butter"],
 		MATS["rose"], MATS["teal"], MATS["cream"]]
-	for ring_index, (radius, count, height) in enumerate(((2.05, 8, .82), (1.30, 6, .94), (.45, 3, 1.02))):
+	for ring_index, (radius, count, height) in enumerate(((2.10, 9, 1.16), (1.35, 6, 1.34), (.48, 3, 1.46))):
 		for index in range(count):
 			a = math.tau * index / count + ring_index * .55
 			blob("pit_ball", (math.cos(a) * radius, math.sin(a) * radius * .84, height),
-				(.62, .62, .62), palette[(index + ring_index * 3) % len(palette)], p,
+				(.74, .74, .74), palette[(index + ring_index * 3) % len(palette)], p,
 				640 + ring_index * 10 + index)
 	return p
 

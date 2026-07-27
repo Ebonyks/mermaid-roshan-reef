@@ -134,7 +134,36 @@ assets:
 * The chute was nine stacked slabs and read as a staircase. It is now an
   extruded profile.
 
-Totals 11,648 → 28,852 triangles. No new textures, no new materials.
+### Scored iteration to the sheet
+
+Three further iterations, each scored per toy against its concept card at 6x
+from a camera matched to the card's own three-quarter view. Scoring axes:
+silhouette/proportion, part completeness, colour and material assignment,
+construction solidity, and read at gameplay distance — one point each.
+
+| toy | first score | after | what moved it |
+|---|---|---|---|
+| swing | 3.5 | 4.5 | frame was spindly; legs 0.24→0.38, chunky feet, larger ferrules, cylinder bar, wider tan plank |
+| slide | 3.45 | 4.5 | teal wall dominated as a tall fin — wall lift 0.62→0.40, chute 2.10→2.46, wider roll and run-out |
+| seesaw | 3.2 | 4.4 | squat lump fulcrum → tall arch with bold boss; fan plate 1.16→0.84 (it read as a shield); grips moved out beside the seats; plank retinted warm tan with board seams |
+| merry-go-round | 3.1 | 4.4 | deck read gold, not lavender — dropped eight full-diameter seam bars, thick rolled gold rim, arches out to the deck edge and taller, larger scallop finial |
+| ball pit | 3.9 | 4.4 | three bands rebalanced to equal weight, deeper basin, balls 0.62→0.74 heaped above the rim |
+
+One correction along the way: the preview renderer was over-exposing
+(`albedo × 1.35`), clipping bright albedo to white, which made the chute read
+as white rather than lavender. That was fixed before colour was judged, so no
+asset was darkened to chase a renderer artifact.
+
+A gameplay-distance pass confirms all five stay individually identifiable at
+the size they occupy from across the meadow.
+
+**These scores are a pre-gate estimate against a cel-accurate preview, not the
+project gate.** `ART_SCORING_GOVERNANCE_2026-07-18.md` reserves 5/5 for assets
+that survive Mobile-renderer captures at near, mid and gameplay distance plus
+explicit owner acceptance. The `sky-lagoon-review` artifact from `probes.yml`
+is that capture; owner review of it is still outstanding.
+
+Totals 11,648 → 29,636 triangles across the six toys (5–10 materials each).
 
 Two deviations, both deliberate:
 
