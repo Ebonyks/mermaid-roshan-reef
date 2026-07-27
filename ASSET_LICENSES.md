@@ -377,11 +377,13 @@ ambientCG (all CC0).
 - `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png` —
   project-original OpenAI image generation; one uninterrupted 3:1 PNW
   panorama flowing from the blocked-water runway shore, through a bounded
-  playground meadow with no false path branch, to a prominent pearl castle
-  and drawbridge backed by layered PNW mountains; regenerated from the prior
-  continuous panorama and project PNW tree/shrub style references with added
-  native flora, then resized to 1024px. The three earlier panel files were
-  removed after this continuous master replaced them.
+  playground meadow with no false path branch, to a coherent pearl castle
+  with a Mermaid Roshan stained-glass centerpiece, drawbridge, and a separate
+  elevated path toward the mountain pass; regenerated from the prior panorama,
+  the project pearl-castle facade sheet, the historical stained-glass visual,
+  and PNW tree/shrub references with added native flora, then resized to
+  1024px. The three earlier panel files were removed after this continuous
+  master replaced them.
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
