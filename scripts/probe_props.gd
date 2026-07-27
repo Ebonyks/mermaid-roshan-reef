@@ -48,6 +48,13 @@ func _pump(frames: int) -> void:
 func _fleet() -> Array:
 	return main.g.get("ss_props", [])
 
+func _dt() -> float:
+	# the REAL scaled frame delta: clients pass their process delta, which
+	# time_scale multiplies — the swell clock must advance at the same rate
+	# as the physics sim, or the fade window and the sleep assertions drift
+	# apart (a fixed 1/60 here runs the clock 6x slower than the physics)
+	return maxf(main.get_process_delta_time(), 1.0 / 60.0)
+
 func _park_player_far() -> void:
 	# outside the 4.5-unit coupling radius so props_tick applies no impulse
 	main.player.position = ORIGIN + Vector3(0, 30, 40)
@@ -103,7 +110,7 @@ func _idle_case() -> void:
 	var awake_last := 0
 	for i in range(60):
 		_park_player_far()
-		var s: Dictionary = stage.props_tick(1.0 / 60.0)
+		var s: Dictionary = stage.props_tick(_dt())
 		awake_last = int(s.get("awake", 99))
 		await process_frame
 	var still := true
@@ -133,7 +140,7 @@ func _push_case() -> void:
 		# contact push + velocity carry both point -x
 		main.player.position = target.global_position + Vector3(2.5, 0.3, 0.0)
 		main.player.vel = Vector3(-14.0, 0.0, 0.0)
-		stage.props_tick(1.0 / 60.0)
+		stage.props_tick(_dt())
 		await process_frame
 	main.player.vel = Vector3.ZERO
 	var dx: float = target.global_position.x - start_x
@@ -159,23 +166,27 @@ func _swell_case() -> void:
 	for i in range(8):
 		main.player.position = target.global_position + Vector3(2.2, 0.3, 0.0)
 		main.player.vel = Vector3(-10.0, 0.0, 0.0)
-		stage.props_tick(1.0 / 60.0)
+		stage.props_tick(_dt())
 		await process_frame
 	_park_player_far()
 	var base_x: float = target.global_position.x
 	var moved_peak := 0.0
 	for i in range(50):
 		_park_player_far()
-		stage.props_tick(1.0 / 60.0)
+		stage.props_tick(_dt())
 		moved_peak = maxf(moved_peak, absf(target.global_position.x - base_x))
 		await process_frame
 	_ck("stirred prop rides the solver tide", moved_peak > 0.1)
+	# settle-until-asleep with a generous cap: the fade window is ~6 clock
+	# seconds past the last stir, then damping + sleep take over
 	var awake_last := 99
-	for i in range(260):
+	for i in range(500):
 		_park_player_far()
-		var s: Dictionary = stage.props_tick(1.0 / 60.0)
+		var s: Dictionary = stage.props_tick(_dt())
 		awake_last = int(s.get("awake", 99))
 		await process_frame
+		if awake_last == 0:
+			break
 	_ck("tide fades and the fleet sleeps again", awake_last == 0)
 	var q: MeshInstance3D = target.get_meta("ss_quad", null) as MeshInstance3D
 	var body_x: float = target.global_position.x
@@ -183,7 +194,7 @@ func _swell_case() -> void:
 	var body_drift := 0.0
 	for i in range(40):
 		_park_player_far()
-		stage.props_tick(1.0 / 60.0)
+		stage.props_tick(_dt())
 		if q != null and is_instance_valid(q):
 			sway_peak = maxf(sway_peak, absf(q.rotation.z))
 		body_drift = maxf(body_drift, absf(target.global_position.x - body_x))
@@ -199,7 +210,7 @@ func _cap_case() -> void:
 		last = stage.prop("", PROP_SIZE, -16.0 + float(i) * 3.5, 3.0, {"drop": 1.0})
 		if last != null:
 			extra += 1
-	var s: Dictionary = stage.props_tick(1.0 / 60.0)
+	var s: Dictionary = stage.props_tick(_dt())
 	_ck("fleet cap holds at PROPS_MAX",
 		extra == SideScrollStage.PROPS_MAX - 4 and last == null
 		and int(s.get("count", 0)) == SideScrollStage.PROPS_MAX)

@@ -584,6 +584,13 @@ func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary =
 	body.linear_damp = damp
 	body.angular_damp = damp * 2.2
 	body.can_sleep = true
+	# toy props slide like beach toys, not bricks: the default material's
+	# friction at full gravity eats the gentle push/swell forces entirely
+	# (probe-caught 2026-07-27) — low friction keeps the fleet shovable
+	var pm := PhysicsMaterial.new()
+	pm.friction = float(cfg.get("friction", 0.35))
+	pm.bounce = float(cfg.get("bounce", 0.15))
+	body.physics_material_override = pm
 	# cutouts rotate only in the screen plane (z) — never show their paper
 	# edge (x) or spin to face away (y)
 	body.axis_lock_angular_x = true
