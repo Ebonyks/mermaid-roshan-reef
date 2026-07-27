@@ -226,7 +226,7 @@ func _target_at(screen_pos: Vector2) -> Dictionary:
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var node: Node3D = target.get("node") as Node3D
-		if node == null or not is_instance_valid(node) or cam.is_position_behind(node.global_position):
+		if node == null or not is_instance_valid(node):
 			continue
 		var dist: float = cam.unproject_position(node.global_position).distance_to(screen_pos)
 		if dist <= float(target.get("radius_px", 92.0)) and dist < best_dist:

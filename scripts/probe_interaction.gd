@@ -96,46 +96,20 @@ func _init() -> void:
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
 	await _frames(24)
-	main._populate_touch_interactables()
-	var court_ids := _ids()
-	for expected: String in ["court:castle", "court:north", "court:opera", "court:kart_a", "court:kart_b"]:
-		if not court_ids.has(expected):
-			_bad("courtyard registry missing %s" % expected)
+	var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
+	var promenade_ids: Dictionary = {}
+	for target_value in promenade_targets:
+		var promenade_target: Dictionary = target_value as Dictionary
+		promenade_ids[String(promenade_target.get("id", ""))] = true
+	for expected: String in ["plane", "runway_frame", "slide", "swing",
+			"seesaw", "playground_frame", "castle_frame", "castle_gate"]:
+		if not promenade_ids.has(expected):
+			_bad("promenade interaction missing %s" % expected)
 
 	# Fix regression: with the castle OPEN the door slab is parked ~30 units up
 	# in the sky. court:castle must anchor at the doorway at walk height, and a
 	# real screen-space tap on the ground-level archway must pick the castle —
 	# not the secret back hatch through the walls.
-	var entry: Vector3 = main.g.get("entry", Vector3.ZERO)
-	var castle_item: Dictionary = {}
-	for item_value: Variant in main.touch_interactables:
-		if String((item_value as Dictionary).get("id", "")) == "court:castle":
-			castle_item = item_value as Dictionary
-	if not castle_item.is_empty() and entry != Vector3.ZERO:
-		var anchor: Vector3 = castle_item.get("pos", Vector3.ZERO)
-		if castle_item.get("node") != null:
-			_bad("court:castle tracks a node (the sliding door slab)")
-		var walk_y: float = main.lagoon_walk_h(anchor.x, anchor.z)
-		if absf(anchor.y - walk_y) > 6.0:
-			_bad("court:castle anchor is %.1f units off walk height" % absf(anchor.y - walk_y))
-		main.player.position = entry + Vector3(0.0, 2.0, 55.0)
-		main.player.position.y = walk_y + 2.0
-		main.player.vel = Vector3.ZERO
-		main.player.yaw = PI
-		if main.player.has_method("snap_cam"):
-			main.player.snap_cam()
-		await _frames(6)
-		var court_camera: Camera3D = main.get_viewport().get_camera_3d()
-		if court_camera != null:
-			var doorway := Vector3(entry.x, walk_y + 3.0, entry.z)
-			var door_tap: Vector2 = court_camera.unproject_position(doorway)
-			main._interaction_ref().on_world_touch(door_tap)
-			await process_frame
-			if main.touch_focus_id != "court:castle":
-				_bad("front-door tap picked '%s' instead of the castle" % main.touch_focus_id)
-			main._tap_move_ref().cancel("probe")
-			main._interaction_ref().clear_focus()
-
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	main.level2_done_once = false
 	main._enter_castle_interior_now(false)

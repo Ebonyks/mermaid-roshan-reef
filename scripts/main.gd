@@ -4011,6 +4011,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	we_node.environment = arena_env
 	if String(g.get("phase", "")) == "court":
 		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
+		l2_open = from_castle or level2_done_once
 		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
