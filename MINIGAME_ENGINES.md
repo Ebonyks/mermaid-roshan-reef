@@ -288,9 +288,20 @@ stage.open({
     "backdrop": "res://assets/book/nursery_bg.jpg",  # optional book-page mural
     "backdrop_size": Vector2(36.0, 49.8), "backdrop_z": -28.0,
     "run_speed": 20.0, "jump_v": 30.0, "gravity": 64.0,  # run mode only
+    "layers": [  # parallax flat stack, back-to-front (world redesign P1;
+        # specs: CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md). lock ∈
+        # [0,1] = camera-follow factor (0 stage-pinned, 1 rides the camera);
+        # tile repeats the quad sideways; alpha only where the spec allows
+        {"tex": "res://assets/flats/reef/promenade/flat_reef_promenade_L0_sky.png",
+         "size": Vector2(64, 32), "z": -34.0, "lock": 0.95},
+    ],
 })
 var s := stage.tick(delta)   # catch mode: {"mx", "px", "moved"}
 var r := stage.run_tick(delta)  # run mode: {"x", "y", "grounded", "hopped"}
+var w := stage.walk_tick(delta)  # walk mode (promenade travel — engine seam,
+    # P2 reef pilot is the first client): tap/hold-to-travel projected onto
+    # the stage plane, goal persists to arrival, any manual axis cancels it
+    # → {"px","pz","moved","pointing","arrived"}
 var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
 stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
 stage.companion_open(tex, height, start)   # player-2 cutout hero
