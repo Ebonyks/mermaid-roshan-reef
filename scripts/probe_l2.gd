@@ -157,7 +157,8 @@ func _init() -> void:
 	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
 	var covered := true
 	var worst := ""
-	for edge_x: float in [72.0, -72.0]:
+	var walk_edges: Array[float] = [72.0, -72.0]
+	for edge_x in walk_edges:
 		main.player.position.x = origin.x + edge_x
 		for _i in range(6):
 			promenade.tick(0.5)
