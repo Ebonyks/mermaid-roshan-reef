@@ -108,6 +108,14 @@ const SKY_PRESETS := {
 # ---- Animation Lab (Roshan stress testing) ----
 const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep",
 	"point", "collect", "boing", "hairtwirl", "hum"]
+# the twelve opera career costumes (player.set_costume ids) + bare —
+# lets a tester inspect every outfit kit on the live swimming Roshan
+# without opening a door in the opera house
+const OUTFITS := [["", "None"], ["chef", "Chef"], ["detective", "Detective"],
+	["ballerina", "Ballerina"], ["candymaker", "Candy"], ["doctor", "Doctor"],
+	["farmer", "Farmer"], ["boxer", "Boxer"], ["magician", "Magician"],
+	["painter", "Painter"], ["astronaut", "Astronaut"], ["racer", "Racer"],
+	["popstar", "Pop Star"]]
 var anim_loop := false        # cycle every verb back-to-back (soak test)
 var anim_loop_idx := 0
 var anim_loop_gap := 0.0
@@ -240,6 +248,19 @@ func _play_lab_verb(vname: String) -> void:
 	if main != null and main.player != null:
 		main.player.play_verb(vname)
 		_status("Playing: " + vname)
+
+func _set_lab_outfit(id: String, label: String) -> void:
+	# dress the live player: outfit kits (or primitive fallbacks) mount on
+	# her bone anchors and ride the swim right here in the reef. Dev-only —
+	# entering an opera act sets its own costume, and leaving clears it.
+	if main == null or main.player == null:
+		return
+	main.player.set_costume(id)
+	if id == "":
+		_status("Outfit off")
+	else:
+		var worn: bool = main.player.costume_nodes.size() > 0
+		_status("Outfit: %s%s" % [label, "" if worn else " (no pieces mounted?)"])
 
 # ============================ collect / apply ============================
 
@@ -793,6 +814,22 @@ func _build_ui() -> void:
 		anim_serpentine = on
 		anim_serp_t = 0.0
 		_status("Serpentine " + ("ON - S-turns at speed; watch hair + arms" if on else "off")))
+
+	# ---- outfits ----
+	_section("Outfits (Opera careers)")
+	var oflow := HFlowContainer.new()
+	vb.add_child(oflow)
+	var obg := ButtonGroup.new()
+	for od: Array in OUTFITS:
+		var obtn := Button.new()
+		obtn.text = String(od[1])
+		obtn.toggle_mode = true
+		obtn.button_group = obg
+		obtn.button_pressed = String(od[0]) == ""
+		obtn.add_theme_font_size_override("font_size", 15)
+		obtn.custom_minimum_size = Vector2(0, 42)
+		obtn.pressed.connect(_set_lab_outfit.bind(String(od[0]), String(od[1])))
+		oflow.add_child(obtn)
 
 	# ---- lighting ----
 	_section("Lighting")
