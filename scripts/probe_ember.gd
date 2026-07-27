@@ -47,7 +47,9 @@ func _init() -> void:
 	main.bwd_done = true
 	main._enter_level2()
 	await process_frame
-	_ck("discovered fortress smoulders at the rainbow junction", main.ember_portal_pos != Vector3.ZERO)
+	_ck("promenade retires the 3D junction gate",
+		String(main.g.get("phase", "")) == "promenade"
+		and main.ember_portal_pos == Vector3.ZERO)
 	main.dev_mode = dev_stash
 	# ---- junction routing: the float race dives DOWN to the fortress ----
 	main.game = "kart"

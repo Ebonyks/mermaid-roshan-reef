@@ -31,16 +31,12 @@ func _init() -> void:
 	main.player.set_process(false)
 	# the lagoon's arrival cutscene early-returns _tick_level2 before the
 	# cave-star portal code — skip it so the bot can walk through the star
-	main.l2_cutscene_t = -1.0
-
-	_ck("Alpine cave star is entrance", main.g.has("northern_portal_pos")
-		and main.g.has("alpine_secret_pos")
-		and (main.g["northern_portal_pos"] as Vector3).is_equal_approx(
-			main.g["alpine_secret_pos"] as Vector3))
-	var sky_gate: Vector3 = main.g.get("northern_portal_pos", Vector3.ZERO)
-	main._tick_level2(0.0, sky_gate)
+	_ck("promenade replaces Alpine courtyard portal",
+		String(main.g.get("phase", "")) == "promenade"
+		and not main.g.has("northern_portal_pos"))
+	main._enter_northern_kingdom()
 	await process_frame
-	_ck("cave star enters northern world", main.game == "north" and main.northern_floor)
+	_ck("northern world remains loadable", main.game == "north" and main.northern_floor)
 	_ck("three readable regions", main.g.has("north_forest_center")
 		and main.g.has("north_town_center") and main.g.has("north_castle_center"))
 	var trees: int = int(main.g.get("north_tree_count", 0))
@@ -158,13 +154,10 @@ func _init() -> void:
 	main._tick_northern(0.0, return_gate + Vector3(0.0, 0.0, -24.0))
 	main._tick_northern(0.0, return_gate)
 	await process_frame
-	_ck("return reaches Alpine cave", main.game == "level2"
-		and not bool(main.g.get("northern_portal_armed", true)))
-	var rebuilt_gate: Vector3 = main.g.get("northern_portal_pos", Vector3.ZERO)
-	var cave_mouth: Vector3 = main.g.get("alpine_cave_entrance", Vector3.ZERO)
-	_ck("return spawn clears star at cave mouth",
-		main.player.position.distance_to(rebuilt_gate) >= 15.0
-		and main.player.position.distance_to(cave_mouth) < 4.0)
+	_ck("return reaches castle-side promenade", main.game == "level2"
+		and String(main.g.get("phase", "")) == "promenade")
+	var local_x: float = main.player.position.x - main.LEVEL2_POS.x
+	_ck("return spawn is on screen three", local_x >= 24.0 and local_x < 72.0)
 
 	print("NORTH|RESULT: %s" % ("OK" if ok else "FAIL"))
 	quit(0 if ok else 1)

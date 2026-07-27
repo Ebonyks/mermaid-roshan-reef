@@ -228,62 +228,29 @@ func _init() -> void:
 			main._check_level2_unlock(player.position, 0.1)
 			await process_frame
 		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
-		# --- Phase 1 gate: star progress must survive a slide round-trip ---
-		var sp_f := 0
-		while _stars_got() < 2 and sp_f < 60 * 120 and main.game == "level2":
-			sp_f += 1
-			var tgt2: Node3D = null
-			for sd2 in main.l2_stars:
-				if not bool(sd2["got"]):
-					tgt2 = sd2["node"]
-					break
-			if tgt2 != null:
-				player.position = player.position.lerp(tgt2.position, 0.16)
-				player.vel = Vector3.ZERO
-			await process_frame
-		main._l2_start_slide()
-		await _frames(10)
-		var slide_ok := await _drive_game(main.game, {"won": true})
-		var back_f := 0
-		while main.game != "level2" and back_f < 600:
-			back_f += 1
-			await process_frame
-		print("AUDIT|L2 star persistence: ", ("OK" if _stars_got() == 2 else "FAIL"),
-			" stars=", _stars_got(), " slide_won=", slide_ok)
-		var cf := 0
-		var interceptions := 0
-		while cf < 60 * 240:
-			cf += 1
-			if main.game == "level2" and String(main.g.get("phase","court")) == "court":
-				var tgt: Node3D = null
-				for sd in main.l2_stars:
-					if not bool(sd["got"]):
-						tgt = sd["node"]
-						break
-				if tgt == null and main.l2_door != null:
-					tgt = main.l2_door
-				if tgt != null:
-					player.position = player.position.lerp(tgt.position, 0.16)
-					player.vel = Vector3.ZERO
-			elif main.game == "level2" and String(main.g.get("phase","")) == "hall":
+		var targets: Array = main.g.get("lagoon_promenade_targets", [])
+		var promenade_ok: bool = (
+			String(main.g.get("phase", "")) == "promenade"
+			and targets.size() == 8
+			and is_equal_approx(float((main.g.get("ss_cfg", {}) as Dictionary).get("half_w", 0.0)), 72.0))
+		print("AUDIT|Level 2 three-screen promenade: ",
+			("OK" if promenade_ok else "FAIL"), " targets=", targets.size())
+		# The castle drawbridge is an explicit two-press landmark in the new
+		# promenade. The focused second press enters the existing castle hall.
+		var castle_target: Dictionary = {}
+		for target_value in targets:
+			var target: Dictionary = target_value as Dictionary
+			if String(target.get("id", "")) == "castle_gate":
+				castle_target = target
 				break
-			elif main.mg_kind != "":
-				interceptions += 1
-				main._mg2d_close()
-				await _frames(10)
-			elif main.game == "race" or main.game == "fairy":
-				interceptions += 1
-				var gname2: String = main.game
-				await _drive_game(gname2, {"won": true})
-				await _frames(30)
-			elif main.game == "":
-				await _frames(5)
-			await process_frame
-		print("AUDIT|Level 2 court interceptions: ", interceptions)
+		if not castle_target.is_empty():
+			main._lagoon_promenade_ref()._focus(castle_target)
+			main._lagoon_promenade_ref()._activate(castle_target)
+			await _frames(10)
 		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
 		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
-			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+			" mg_kind=", main.mg_kind)
 		# music room xylophone: ring a bar directly — art pass 3.5 swapped the
 		# bars for GLB props and the strike sparkle once crashed reading
 		# material_override off the prop root (any SCRIPT ERROR here fails CI)

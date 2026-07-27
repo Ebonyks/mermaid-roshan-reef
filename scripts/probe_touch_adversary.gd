@@ -148,29 +148,24 @@ func _playthrough(run_index: int) -> void:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
-			main._populate_touch_interactables()
-			_check_registry(main, _court_required(main), issues)
-			if int(run_index / 4) % 2 == 0:
-				var opera_gate: Dictionary = main.g.get("opera_gate", {})
-				var opera_gate_pos: Vector3 = opera_gate.get("pos", Vector3.ZERO)
-				main._activate_touch_interactable("court:opera")
-				await _frames(4)
-				if main.game != "opera" or main.opera_game == null:
-					issues.append("explicit courtyard Opera target did not open")
-				else:
-					main.opera_game._leave_early()
-					await _frames(4)
-					if main.game != "level2" or String(main.g.get("phase", "")) != "court":
-						issues.append("Opera exit did not restore courtyard")
-					elif opera_gate_pos.distance_to(main.player.position) >= 9.0:
-						issues.append("Opera exit did not return beside touch target")
+			var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
+			if String(main.g.get("phase", "")) != "promenade" \
+					or promenade_targets.size() != 8:
+				issues.append("three-screen promenade interaction roster missing")
 			else:
-				main._activate_touch_interactable("court:north")
-				if _has_registry_prefix(main, "court:"):
-					issues.append("direct northern transition retained courtyard targets")
-				await _frames(10)
-				if main.game != "north":
-					issues.append("explicit courtyard route did not enter northern world")
+				var plane_target: Dictionary = {}
+				for target_value in promenade_targets:
+					var target: Dictionary = target_value as Dictionary
+					if String(target.get("id", "")) == "plane":
+						plane_target = target
+						break
+				main._lagoon_promenade_ref()._focus(plane_target)
+				if String(main.g.get("lagoon_promenade_focus", "")) != "plane":
+					issues.append("promenade first press did not focus")
+				main._lagoon_promenade_ref()._activate(plane_target)
+				await _frames(4)
+				if main.game != "level2":
+					issues.append("plane interaction left the promenade")
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -186,8 +181,8 @@ func _playthrough(run_index: int) -> void:
 				issues.append("explicit Crown Star did not award")
 			main._activate_touch_interactable("hall:exit")
 			await _frames(10)
-			if main.game != "level2" or String(main.g.get("phase", "")) != "court":
-				issues.append("explicit castle exit did not return to courtyard")
+			if main.game != "level2" or String(main.g.get("phase", "")) != "promenade":
+				issues.append("explicit castle exit did not return to promenade")
 		3:
 			main._enter_northern_kingdom()
 			await _frames(12)
@@ -195,8 +190,8 @@ func _playthrough(run_index: int) -> void:
 			_check_registry(main, ["north:return"], issues)
 			main._activate_touch_interactable("north:return")
 			await _frames(10)
-			if main.game != "level2" or String(main.g.get("phase", "")) != "court":
-				issues.append("explicit northern return did not reach courtyard")
+			if main.game != "level2" or String(main.g.get("phase", "")) != "promenade":
+				issues.append("explicit northern return did not reach promenade")
 
 	# Every run crosses the rollback boundary. No Hybrid assist/focus may
 	# survive, and restoring Hybrid must remain possible without a reload.

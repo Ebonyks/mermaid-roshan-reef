@@ -3405,6 +3405,9 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		return
 	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
 		return
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().handle_touch(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 func _on_touch_manual_move() -> void:
@@ -3515,6 +3518,8 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("north:return", "Magic Cave Home", north_return, null, 9.0, 42.0, "ENTER")
 		return
 	if game != "level2":
+		return
+	if String(g.get("phase", "")) == "promenade":
 		return
 	if String(g.get("phase", "court")) == "hall":
 		_populate_hall_touch_interactables()
@@ -4004,6 +4009,9 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	_wind_waker_bloom(arena_env, 0.36, 0.03, 1.24)   # retain emitters while pale castle/snow values stay below clipping
 	_apply_scene_grade(arena_env, "sky_lagoon")
 	we_node.environment = arena_env
+	if String(g.get("phase", "")) == "court":
+		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
+		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
 		_build_lagoon_night(LEVEL2_POS)
@@ -4192,11 +4200,17 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 # Phase 7.3: the Sky Lagoon lives in scripts/arena/sky_lagoon.gd
 # (state stays here; SkyLagoon receives main by reference)
 var _sky_lagoon: SkyLagoon = null
+var _sky_lagoon_promenade: SkyLagoonPromenade = null
 
 func _lagoon_ref() -> SkyLagoon:
 	if _sky_lagoon == null:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
+
+func _lagoon_promenade_ref() -> SkyLagoonPromenade:
+	if _sky_lagoon_promenade == null:
+		_sky_lagoon_promenade = SkyLagoonPromenade.new(self)
+	return _sky_lagoon_promenade
 
 # The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
@@ -4236,6 +4250,9 @@ func _build_fairy_pond(o: Vector3) -> void:
 	_lagoon_ref()._build_fairy_pond(o)
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
+	if String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().tick(delta)
+		return
 	_lagoon_ref()._tick_level2(delta, ppos)
 
 func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:

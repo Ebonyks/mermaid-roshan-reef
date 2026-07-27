@@ -348,3 +348,36 @@ ambientCG (all CC0).
   (Blender); NPOT textures resized to POT <=1024 during conversion
 - License: project original (derivatives of already-licensed project art)
 - Modifications: card mesh + solidify extrusion; texture resize where needed
+
+## Sky Lagoon 2.5D promenade (Codex sprite pass, 2026-07-26)
+- `assets/sprites/sky_lagoon/sky_lagoon_plane.png` — project-original
+  OpenAI image generation; the project-owned pearl plane in
+  `opening_cinematic_test.ogv` was the visual reference; chroma removed and
+  resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_slide.png` — project-original OpenAI
+  image generation; corrected playground design with a separate straight
+  ladder, horizontal rungs, top platform, and unobstructed aqua chute; chroma
+  removed and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_swing.png` — project-original OpenAI
+  image generation; two-seat shell swing; chroma removed and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_seesaw.png` — project-original OpenAI
+  image generation; symmetric shell seesaw; chroma removed and resized to
+  1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png` — project-original
+  OpenAI image generation; pearl castle and lowered drawbridge; chroma removed
+  and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png` —
+  project-original OpenAI image generation; lavender shell activity frame;
+  chroma removed and resized to 1024px.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s1_runway.png` —
+  project-original OpenAI image generation; PNW runway and blocked-water
+  screen; resized to 1024px.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s2_playground.png` —
+  project-original OpenAI image generation; PNW meadow playground screen;
+  resized to 1024px.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_s3_castle.png` —
+  project-original OpenAI image generation; PNW castle-terrace and moat
+  screen; resized to 1024px.
+- Style references for every new asset: project-owned
+  `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
+  `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
