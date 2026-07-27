@@ -9,6 +9,11 @@ extends RefCounted
 #   catch mode:  tick(delta)       — steer left/right under falling things
 #   run mode:    run_tick(delta)   — auto-run + tap-to-hop (Mario-run style
 #                one-touch games; the engine seam is here, no game uses it yet)
+#   walk mode:   walk_tick(delta)  — touch-the-world promenade travel for the
+#                2.5D world redesign (GAME_REDESIGN_2P5D_2026-07-27.md):
+#                tap/hold the world and Roshan travels there; stick/pad/keys
+#                merged as an override. Engine seam — no client yet (P2 is
+#                the reef promenade pilot).
 #   brawl mode:  brawl_tick(delta) — walk-the-plane with DEPTH (Castle
 #                Crashers style): x + z inside a band, sliding stage bounds,
 #                facing the run, tap = the bop. Plus a two-hero companion
@@ -30,7 +35,10 @@ func open(cfg: Dictionary) -> void:
 	# cfg: origin (stage floor center, world), half_w, hover (avatar float
 	# height), cam_h / cam_dist / look_h / cam_follow (side-on framing),
 	# bob_amp, backdrop (texture path, optional), backdrop_size (Vector2),
-	# backdrop_z, run_speed / jump_v / gravity (run mode).
+	# backdrop_z, run_speed / jump_v / gravity (run mode), layers (parallax
+	# flat stack, back-to-front: [{tex, size, y, z, lock, alpha, tile}] —
+	# lock ∈ [0,1] is the camera-follow factor, 0 = pinned to the stage,
+	# 1 = rides the camera like a sky; tile repeats the quad sideways).
 	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
 	# player.gd) — size stages against HER, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
@@ -55,6 +63,38 @@ func open(cfg: Dictionary) -> void:
 		bq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		bq.position = Vector3(0, (qm.size.y as float) * 0.5 + 0.4, float(cfg.get("backdrop_z", -7.0)))
 		rt.add_child(bq)
+	# the parallax flat stack (world redesign P1) — each layer is a holder
+	# node the camera glide slides by its lock factor; tiles repeat sideways
+	# so a wide promenade never runs out of painting
+	var stack: Array = []
+	for ld_v in (cfg.get("layers", []) as Array):
+		var ld: Dictionary = ld_v as Dictionary
+		var lpath: String = String(ld.get("tex", ""))
+		if lpath == "" or not ResourceLoader.exists(lpath):
+			continue
+		var holder := Node3D.new()
+		holder.position = Vector3(0, 0, float(ld.get("z", -20.0)))
+		rt.add_child(holder)
+		var lsize: Vector2 = ld.get("size", Vector2(32, 16)) as Vector2
+		var ltex: Texture2D = load(lpath)
+		var tiles: int = maxi(1, int(ld.get("tile", 1)))
+		for i in tiles:
+			var lq := MeshInstance3D.new()
+			var lqm := QuadMesh.new()
+			lqm.size = lsize
+			lq.mesh = lqm
+			var lm := StandardMaterial3D.new()
+			lm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			lm.albedo_texture = ltex
+			if bool(ld.get("alpha", false)):
+				lm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			lq.material_override = lm
+			lq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			lq.position = Vector3((float(i) - float(tiles - 1) * 0.5) * lsize.x,
+				lsize.y * 0.5 + float(ld.get("y", 0.0)), 0.0)
+			holder.add_child(lq)
+		stack.append({"node": holder, "lock": clampf(float(ld.get("lock", 0.0)), 0.0, 1.0)})
+	m.g["ss_layers"] = stack
 	# park Roshan mid-stage facing the camera, camera snapped side-on
 	var origin: Vector3 = rt.position
 	m.player.position = origin + Vector3(0, float(cfg.get("hover", 1.05)), 0)
@@ -154,6 +194,105 @@ func run_tick(delta: float) -> Dictionary:
 	_glide_camera(delta, cfg, r, x)
 	return {"x": x, "y": y, "grounded": y <= hover + 0.02, "hopped": hopped}
 
+# ---- walk mode: touch-the-world promenade travel (world redesign P1) -------
+func walk_tick(delta: float) -> Dictionary:
+	# The promenade verb (GAME_REDESIGN_2P5D_2026-07-27.md): tap or hold the
+	# world and Roshan travels there — the press is projected through the
+	# real camera onto the vertical stage plane, screen height mapped into
+	# the depth band. A tap's goal persists until arrival (assisted travel,
+	# same contract as Hybrid); any stick/pad/key input cancels the goal
+	# instantly and steers directly (the Hybrid manual-override rule). No
+	# tap-button semantics here — in the world, tap belongs to the
+	# interaction director. Returns {px, pz, moved, pointing, arrived}.
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	var r := root()
+	if r == null:
+		return {"px": 0.0, "pz": 0.0, "moved": false, "pointing": false, "arrived": true}
+	var half_w: float = float(cfg.get("half_w", 23.2))
+	var half_d: float = float(cfg.get("half_d", 7.0))
+	var mx := 0.0
+	var mz := 0.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		mx -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		mx += 1.0
+	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W):
+		mz -= 1.0
+	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S):
+		mz += 1.0
+	var jx: float = m.joy_axis(JOY_AXIS_LEFT_X)
+	var jy: float = m.joy_axis(JOY_AXIS_LEFT_Y)
+	if absf(jx) > 0.2:
+		mx += jx
+	if absf(jy) > 0.2:
+		mz += jy
+	if m.touch_ui != null:
+		var tv: Vector2 = m.touch_ui.stick_vec
+		if absf(tv.x) > 0.15:
+			mx += tv.x
+		if absf(tv.y) > 0.15:
+			mz += tv.y
+	mx = clampf(mx, -1.0, 1.0)
+	mz = clampf(mz, -1.0, 1.0)
+	var spd: float = float(cfg.get("steer_speed", 24.8))
+	var x := px()
+	var z: float = m.player.position.z - r.position.z
+	var manual: bool = absf(mx) > 0.05 or absf(mz) > 0.05
+	var pointing := false
+	var moved := manual
+	var dx := 0.0
+	if manual:
+		m.g["ss_walk_goal"] = null
+		x = clampf(x + mx * spd * delta, -half_w, half_w)
+		z = clampf(z + mz * spd * 0.8 * delta, -half_d, half_d)
+		dx = mx
+	else:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			# finger → ray → the vertical stage plane at z 0; height on the
+			# plane maps into the depth band (near the floor = toward the
+			# camera). Touch reaches here through Godot's emulated mouse.
+			var cam: Camera3D = m.player.cam
+			var vp := m.get_viewport()
+			if cam != null and cam.is_inside_tree() and vp != null:
+				var mp: Vector2 = vp.get_mouse_position()
+				var from: Vector3 = cam.project_ray_origin(mp)
+				var dirv: Vector3 = cam.project_ray_normal(mp)
+				if absf(dirv.z) > 0.001:
+					var t: float = (r.position.z - from.z) / dirv.z
+					if t > 0.0:
+						var hit: Vector3 = from + dirv * t
+						var band_h: float = float(cfg.get("band_h", 6.0))
+						var gz: float = remap(clampf(hit.y - r.position.y, 0.0, band_h),
+							0.0, band_h, half_d, -half_d)
+						m.g["ss_walk_goal"] = Vector2(
+							clampf(hit.x - r.position.x, -half_w, half_w), gz)
+						pointing = true
+		var goal_v: Variant = m.g.get("ss_walk_goal")
+		if goal_v is Vector2:
+			var goal := goal_v as Vector2
+			var to := Vector2(goal.x - x, goal.y - z)
+			if to.length() <= float(cfg.get("arrive_r", 1.2)):
+				m.g["ss_walk_goal"] = null
+			else:
+				var step := to.limit_length(spd * delta)
+				x = clampf(x + step.x, -half_w, half_w)
+				z = clampf(z + step.y, -half_d, half_d)
+				dx = to.normalized().x
+				moved = true
+	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
+	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
+	m.player.position = r.position + Vector3(x, hover, z)
+	m.player.vel = Vector3.ZERO
+	# face the run: screen-left/right while traveling, the camera when idle
+	var want_rot: float = PI
+	if absf(dx) > 0.1:
+		want_rot = -PI * 0.5 if dx > 0.0 else PI * 0.5
+	m.player.rotation.y = lerp_angle(m.player.rotation.y, want_rot, 1.0 - pow(0.002, delta))
+	m.player.rotation.z = lerpf(m.player.rotation.z, -dx * 0.16, 1.0 - pow(0.001, delta))
+	_glide_camera(delta, cfg, r, x * float(cfg.get("cam_follow", 0.25)))
+	return {"px": x, "pz": z, "moved": moved, "pointing": pointing,
+		"arrived": not (m.g.get("ss_walk_goal") is Vector2)}
+
 func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) -> void:
 	var cam: Camera3D = m.player.cam
 	if cam == null or not cam.is_inside_tree():
@@ -161,6 +300,13 @@ func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) ->
 	var goal: Vector3 = r.position + Vector3(follow_x, float(cfg.get("cam_h", 12.0)), float(cfg.get("cam_dist", 20.5)))
 	cam.position = cam.position.lerp(goal, 1.0 - pow(0.002, delta))
 	cam.look_at(r.position + Vector3(follow_x, float(cfg.get("look_h", 10.5)), 0))
+	# parallax: locked layers ride the (lerped) camera by their lock factor,
+	# so a lock-1 sky never recedes and a lock-0 skirt stays stage-pinned
+	for e_v in (m.g.get("ss_layers", []) as Array):
+		var e: Dictionary = e_v as Dictionary
+		var holder: Node3D = e.get("node") as Node3D
+		if holder != null and is_instance_valid(holder):
+			holder.position.x = (cam.position.x - r.position.x) * float(e.get("lock", 0.0))
 
 # ---- brawl mode: walk-the-plane with depth (Castle Crashers style) ---------
 func set_bounds(l: float, r: float) -> void:
