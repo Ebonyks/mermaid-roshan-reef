@@ -151,6 +151,13 @@ func toggle() -> void:
 	open = not open
 	visible = open
 	if open:
+		# adopt the live lens on the way in, so opening the lab never snaps the
+		# camera off whatever the game (or the active stage) is framing with
+		var lens_cam: Camera3D = null
+		if main != null and main.player != null:
+			lens_cam = main.player.cam as Camera3D
+		if lens_cam != null:
+			cam_fov = lens_cam.fov
 		_sync_ui()
 		_status("Changes apply instantly. F1 or ` hides this panel.")
 
@@ -173,8 +180,16 @@ func _process(delta: float) -> void:
 	var cam: Camera3D = p.cam
 	if cam == null or not cam.is_inside_tree():
 		return
-	if cam.fov != cam_fov:
-		cam.fov = cam_fov
+	# The dev lens belongs to the LAB, not to the game. This used to force
+	# cam_fov (60) onto the camera EVERY frame, even with the panel closed and
+	# the camera in chase mode -- so every editor session and every headless
+	# probe run silently rendered at 60 instead of the 38 diorama lens, and a
+	# 2.5D stage that sets its own lens (SideScrollStage cfg cam_fov) had it
+	# overridden a frame later. While the lab is not driving the look, whatever
+	# the game set stands.
+	if open or cam_mode != "chase":
+		if cam.fov != cam_fov:
+			cam.fov = cam_fov
 	if cam_mode == "chase":
 		return
 	# these sequences drive the camera themselves - leave them alone
