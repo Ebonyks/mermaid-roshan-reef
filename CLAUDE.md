@@ -139,6 +139,11 @@ outranks Blender/Meshy 3D in quality and priority. Touch-the-world
 stick is demoted to an accessibility/pad fallback. The gen2 Meshy 3D
 character migration (2026-07-19) is PAUSED — cutouts/billboards are the
 character medium again; landed .glbs stay until their zone migrates.
+Visual north star (owner 2026-07-27): a modernized, happy, preschool
+Curse of Monkey Island staging — painted (never runtime) light,
+atmospheric layer recession, crisp standees over soft murals, stepped
+~10fps cel-feel motion. Reference only: no Monkey Island/LucasArts
+assets, characters, designs, or music.
 
 Static Mermaid Roshan storybook characters in a cel-shaded, Wind
 Waker-inspired diorama world. SUPERSEDED 2026-07-27 (paused, see above) —
