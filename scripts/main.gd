@@ -5071,7 +5071,7 @@ func _tick_cutscene(delta: float) -> void:
 		show_msg("Roshan", "Wow! Let's go inside!")
 
 const CASTLE_REVEAL_VIDEO := "res://assets/cinematics/dirty_castle/dirty_castle_reveal.ogv"
-const CASTLE_REVEAL_POSTER := "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg"
+const CASTLE_REVEAL_POSTER := ""  # Await a native >=2K approved-ratio plate.
 
 func _begin_dirty_castle_entry() -> void:
 	if castle_reveal_seen:

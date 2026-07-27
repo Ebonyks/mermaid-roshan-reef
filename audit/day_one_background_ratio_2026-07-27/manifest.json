@@ -1,0 +1,956 @@
+{
+  "id": "day_one_background_ratio_correction_2026_07_27",
+  "date": "2026-07-27",
+  "result": "static_pass_pending_godot_ci",
+  "canonical_panorama_audit": "SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md",
+  "supersedes": {
+    "rule": "fixed 2048x1024/2048x2048/1024x2048 generated background canvases",
+    "removed": [
+      {
+        "path": "assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
+        "dimensions": [
+          2048,
+          1024
+        ],
+        "ratio": 2.0,
+        "ratio_delta_from_approved": -1.0,
+        "sha256": "b1e3346d79671f2616b00b53e6bb1b26cd7470adb777bf0ac48039a5f9f71e77"
+      },
+      {
+        "path": "assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg",
+        "dimensions": [
+          2048,
+          1024
+        ],
+        "ratio": 2.0,
+        "ratio_delta_from_approved": 0.22316684378320928,
+        "sha256": "0e90e1e10fb9856a73f08fc9406556ad4a7a0597e049a635dd2520d1b11bf944"
+      }
+    ]
+  },
+  "background_master_contract": {
+    "aspect_ratio": "exact approved source ratio with one-pixel rounding tolerance",
+    "native_long_edge_minimum": 2048,
+    "forbidden": [
+      "upscale",
+      "stretch",
+      "crop loss",
+      "padding",
+      "canvas extension",
+      "letterbox",
+      "ratio-changing regeneration",
+      "silent CLI/API fallback"
+    ]
+  },
+  "promenade": {
+    "superseded_reduced_reference": {
+      "dimensions": [
+        1024,
+        341
+      ],
+      "ratio": 3.002932551319648,
+      "ratio_delta_from_native": 0.0029325513196480912,
+      "sha256": "2bd485457797d912ab6719efe88403d824acd9f3e79db9dd6cd6b3a7de677a4d",
+      "one_pixel_rounding_delta_short_edge": 0.3333333333333333,
+      "disposition": "removed"
+    },
+    "preserved_native_master": {
+      "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "ratio": 3.0,
+      "ratio_delta_from_approved_exact_ratio": 0.0,
+      "sha256": "7952b4579c922025a3030b3ddd976247fde138f697f00468b5a08fd5b88d66e3"
+    },
+    "tiles": [
+      {
+        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+        "source_rect": [
+          0,
+          0,
+          724,
+          724
+        ],
+        "sha256": "78b1a33e5487d9dfbb75ab92fea5de84c20f4c1a7164eb5b1e8c8e9dba842703"
+      },
+      {
+        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+        "source_rect": [
+          724,
+          0,
+          724,
+          724
+        ],
+        "sha256": "b32ac8aebab3cbdf5d82a00f7004104981039a487ea0df829a44061b5e110a78"
+      },
+      {
+        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
+        "source_rect": [
+          1448,
+          0,
+          724,
+          724
+        ],
+        "sha256": "ee3477137069b0fe3a5e007d84ca79fbdd52e82c2fa796c8ebbd988dcd159e3a"
+      }
+    ],
+    "tile_reconstruction": {
+      "dimensions": [
+        2172,
+        724
+      ],
+      "max_channel_delta": 0,
+      "nonmatching_pixels": 0,
+      "world_card_centers_x": [
+        -48.0,
+        0.0,
+        48.0
+      ],
+      "world_card_size": [
+        48.0,
+        48.0
+      ],
+      "coherent_z": -18.0,
+      "maximum_allowed_edge_gap": 0.0001,
+      "invariance_overlay": {
+        "path": "audit/sky_lagoon_panorama_content_invariance_overlay.png",
+        "sha256": "b300df1ddb616e873d4c8d3a8d0e0d51eb98d0849a30c9b21266ba48e59f6650"
+      },
+      "seam_capture": {
+        "path": "audit/sky_lagoon_panorama_seam_capture.png",
+        "sha256": "1fa87682faed7114de38ee23648e409cea1cdf038faa19343d5ed724688d0890",
+        "source_rects": [
+          [
+            700,
+            0,
+            48,
+            724
+          ],
+          [
+            1424,
+            0,
+            48,
+            724
+          ]
+        ]
+      }
+    }
+  },
+  "dirty_castle": {
+    "approved_source": {
+      "dimensions": [
+        1672,
+        941
+      ],
+      "ratio": 1.7768331562167907,
+      "ratio_delta_from_16_9": -0.0009446215609869579,
+      "sha256": "0d8256409ae75fa36a2fe1ca734e5a1132120482718bfe13b885aee4f307b3ca",
+      "disposition": "rejected_below_2k_not_in_final_tree"
+    },
+    "built_in_edit_attempt": {
+      "dimensions": [
+        1672,
+        941
+      ],
+      "ratio": 1.7768331562167907,
+      "ratio_delta_from_approved_source": 0.0,
+      "sha256": "ba1f7391fdd50b3e0e3ecf1d9ce94316f7fec2ae2b279beb047ab960ae0cd3e4",
+      "disposition": "rejected_below_2k_not_in_repository"
+    },
+    "earlier_2_to_1_attempt": {
+      "dimensions": [
+        1774,
+        887
+      ],
+      "ratio": 2.0,
+      "ratio_delta_from_promenade_approved": -1.0,
+      "sha256": "465a8d0c26e2bc0c2452fbde308090d6d54579c7e559a00a01bf1a820efba3d7",
+      "disposition": "rejected_below_2k_not_in_repository"
+    },
+    "runtime_generated_background_plate": null,
+    "stage_three_missing_movie_fallback": "neutral_black",
+    "cleaning_background_kind": "code_native_control_color"
+  },
+  "node_inventory": [
+    {
+      "family": "PromenadeBackgroundCard_00..02",
+      "count": 3,
+      "type": "Sprite3D",
+      "depth": -18.0,
+      "shaded": false,
+      "source": "lossless 724x724 tiles"
+    },
+    {
+      "family": "Plane/Slide/Swing/Seesaw/Castle",
+      "count": 5,
+      "type": "Sprite3D",
+      "depth": "-5.8 to -5.4",
+      "shaded": false
+    },
+    {
+      "family": "Interactive highlights",
+      "count": 5,
+      "type": "Sprite3D",
+      "depth": "about -5.85 to -5.45",
+      "shaded": false
+    },
+    {
+      "family": "Three activity Page/Frame/Highlight sets",
+      "count": 9,
+      "type": "Sprite3D",
+      "depth": "-4.84 to -4.8",
+      "shaded": false
+    },
+    {
+      "family": "ArrivalImpCard",
+      "count": 1,
+      "type": "Sprite3D",
+      "depth": -0.2,
+      "shaded": false,
+      "lifetime": "first arrival only"
+    },
+    {
+      "family": "PromenadeRoshanCard",
+      "count": 1,
+      "type": "Sprite3D",
+      "depth": 0.2,
+      "shaded": false
+    },
+    {
+      "family": "DirtyCastle2DLayer/Control tree",
+      "count": 1,
+      "type": "CanvasLayer + Control",
+      "navigable_world": false,
+      "generated_background_plate": null
+    }
+  ],
+  "inventory_totals": {
+    "stage2_first_arrival_sprite3d": 24,
+    "stage2_after_imp_sprite3d": 23,
+    "stage2_mesh_instance3d": 0,
+    "stage2_canvas_world_art": 0
+  },
+  "camera_touch_navigation_evidence": {
+    "touch": "Camera3D ray intersects each candidate card actual z plane; nearest positive intersection wins",
+    "navigation": "Camera3D ray intersects promenade walking plane",
+    "probes": [
+      "probe_l2.gd:camera_ray_hits_card_depth",
+      "probe_l2.gd:navigation_uses_camera_ray",
+      "probe_story_day_one.gd:stage two touch uses camera-ray card intersection"
+    ]
+  },
+  "files": [
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_siblings.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "f79c9665f82cf434229aebaf58c9693c825eac3332f75f5cc60ba84022174443"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_all_clean_badge.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "36ae9f713cde322d0a1ae88481242821c2aa4ce1c8128c9ff58f09cf1a726b22"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_cloud_nest.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "268f97a83be468b48dc2f44352a466bef7deb5cfd89fb135dd70b4554f213587"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_friend_heart.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "614c657113ce0dc1c1d9498ad992e531c1f024bfe531ec88a8250eaef8e98a6f"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_hop.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "e412c3259482e438bdff1243808590b9de5ff5fdcfd79244e7db9ea8b435e130"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_peek.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "9d9a8021c27d39d37f23fe68fba78e12512c82f331aed85b69b0627cb71187ff"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_bunny_trail.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "e46e03f160d77899a550009b054c7d09a1fd416c76d4abfa8fab57862229630d"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_dust_poof.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "5154fc09decd2b7872d31c3a0e8618fad11fec9a6fb84abe188a24286168af16"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_gold_sparkle.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "a7d2125d773b2dfa081b22f78414232c1e4c0178458bbf7ecc9f77ec01281386"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_foam.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "2303c469100132bbc4045a8957b0e7d9d56e9b8e8754afe91a08bf700d07163e"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "1e58e1ff959f288834d5aa4926b8beef747ca507ca44f95cd5251edbf6b59821"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_helper.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "e733e019e189a5e0e4962f1e27e3a7a5a851eab9622e70b3e67483dcffd3ee8c"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/badge_dust_bunny_home.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "9e168cfa0765cf3e9fcf50ed5e620821117b5e3d67c9f0f91cb1d64a6308f245"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/badge_tidy_stack.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "623b4b7d9efae9ae0ba35fea4c473008172c19a590819affa3ac74e31f366a5e"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/progress_one_pearl.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "063bed5f71e052d2bbda5c8e6abfae61d6fc09e1430d0340e8d36369f925779b"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/progress_three_pearls.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "dde790fd3d0d35d06f535d87e746bc9d105ea650c84f9acf0e7e38862a6265e3"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/progress/progress_two_pearls.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "b6e77c1f364e086efb3781f7dddb215547bf20a4c16b99cdb1fb8dc8c39c9959"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "50d4e42028c6d95da5bc400fd8c6a17c30091c4a75b78faa2c0e03c85f253562"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_buttons_beads.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "de8294fa18ce0cea5d732d72051ec61875f3e5b10ccce6ddcf56a31db3b27a0d"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_cloud_cushions.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "5ea5954c581c7390c8ef473d2553f8fd7a51e6b841dbba458254248462c88ff4"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_cloudy_mirror.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "ea696d4d5b06226d5fc4ef7ebec46d058551c7eff6e4944311ff02814811730d"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_cobweb.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "a81bb4c304e56e6cd2d53a23cc633626a93ffa3966a8d95e5d6910509a51549f"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_craft_scraps.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "f97209ec903148a97c73dac9ba609d3d9feefaca31596b6421f9962a0c377d33"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_dust_bunnies.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "f98acf674915ca383ae0942f1f12627e680d4f4acfc4b8d07306674ff17d0850"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_dusty_shelf.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "605b7f2da4e603ad21cc7824f01858a109f72d37529d0794c0ab09ad8c5a563c"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_fireplace_smudge.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "6ed6f947af27d8efbe45d7d024ec7ba3adc1a94aa229c9c869634ea62f7ce51f"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_floor_scuff.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "629ccd46d94dee0e1966455becfaae7fb2c6a528faaad70ca612467255a41bf3"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_flour_spill.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "407a848e501ea722db33dcb35200590fdd15518551a6050a1a2da44c3da70870"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_leaf_trail.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "37a0c9c6afa178286c835245b1f51ccad9e15812c83e29c46d4abcccdb9bf9fd"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_muddy_footprints.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "73e07208fb0ef4cb3471df080a88655aad9bc3f934e094e502cf88b38ebb73ad"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_paint_splats.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "b407232dd5d0e8bad9b4184aeb7c02de75a2148d330b90b9dfc1430f855e9712"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_sticky_spill.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "db82f0407f71b1600328a6f9972f45bd254d20e4d1c3d334104fa8aff02c8f41"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_tipped_books.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "244af997edb5b90ecc6faefdd1331685921c8e33c854951a0d5dfe7a04b44c70"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_toy_blocks.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "6f1ff70f12a385a48c051d2776bac04da7e4d34c24efaebe2b4e32db12da33bb"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_window_smudge.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "da757a251e86a500b6a0a16c1db69e9c2ced07551799ae254ed52785a3817b78"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_cleaning_cloths.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "db0717fd9c6676d8c7de5f47ebc1e2680ab5c0ff677c9ca4377206d25288bc89"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_dusting_mitt.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "be1a2993e57c70d454f1020b02692ec0b95c70578a63082d7904b2f540815369"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_dustpan_broom.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "e747b1846e24eb74069fab439aa3a5ccd8fa7cedcfc85789a39ffe7f86cde352"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_rainbow_mop.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "aae8a5893363410318af3f372395ae6396e7a6e3f280e6fffe443c5817c8ddba"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_ribbon_duster.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "86cb5dc7ba8aff0b9cef81c0c5cc865066b2098213a4c57a5dcc2dc2b85bba0c"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_shell_broom.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "b7093f6b26ff808974efd04a02ae9c58329d581b5942597ed37064f05c241dc1"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_shell_scrub_brush.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "ae8641dfe0847ee15d4ef3c132526bcabb6b01f82873feba3ba18a022404479e"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_shell_spray_bottle.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "21ffc36c7d3daa48b343320cce9180621d43b529ee6149849ae599308692660f"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_shell_suds_bucket.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "cf6f558891f26f2b8b502ae5d171fb269844e9bfbafe2feca6c514c77e03f6db"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_sorting_basket.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "0beb864f09297a08b7bf1f3f28e04221830ebbf5b8b8df74890df34ac50f52db"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_window_squeegee.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "2c89b585631f4edab580a378897125c4cb051461a69206d3f8f56fa71af5a8e9"
+    },
+    {
+      "path": "assets/sprites/story/arrival_imp.png",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "ratio": 0.6669921875,
+      "mode": "RGBA",
+      "sha256": "ab1026350656ac43f6c4576d4fec6658b61b702fc0cd7801a9e5ea2cc14174d5"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane.png",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "ratio": 1.777777777778,
+      "mode": "RGBA",
+      "sha256": "2670cc9d5a0847ec9b569dfc8f46114fa734ece422de73daeb0d7f7bdeca555c"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "e81e387c7297fcbe3467c3fb1563a6e5b0640862a103f5ca3acb5328d5c1ad4a"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_swing.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "ed5a12d1cc73a2ec6f8b20b4966615908543938d2e59e74c071830ed61735836"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
+      "dimensions": [
+        1024,
+        683
+      ],
+      "ratio": 1.499267935578,
+      "mode": "RGBA",
+      "sha256": "a9042123293567571ca7a268323951cbe64e4926247fba6e76d2546edab1b51c"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "48c1f32bb3162ed78b956161e6c0086883db565d3c15a72f5b1e1df276f9d6fd"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
+      "dimensions": [
+        731,
+        1024
+      ],
+      "ratio": 0.7138671875,
+      "mode": "RGBA",
+      "sha256": "5c8eeb8a368bf3c46f58c9f50b45feafb67f17a23e969c9e54f3f4fc2131f8f5"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+      "dimensions": [
+        824,
+        1024
+      ],
+      "ratio": 0.8046875,
+      "mode": "RGBA",
+      "sha256": "abf0a3ec1caed7d4929756566d5bebfb096d11b22e3c9efa36955e3347fe4e52"
+    },
+    {
+      "path": "assets/book/hall/p_garden.jpg",
+      "dimensions": [
+        514,
+        720
+      ],
+      "ratio": 0.713888888889,
+      "mode": "RGB",
+      "sha256": "15ad84db35c564ed44d4395eaac29cad1fcdfb5444646d6d572bb43b9e414ec2"
+    },
+    {
+      "path": "assets/book/hall/p_snowman.jpg",
+      "dimensions": [
+        514,
+        720
+      ],
+      "ratio": 0.713888888889,
+      "mode": "RGB",
+      "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61"
+    },
+    {
+      "path": "assets/book/hall/p_trampoline.jpg",
+      "dimensions": [
+        514,
+        720
+      ],
+      "ratio": 0.713888888889,
+      "mode": "RGB",
+      "sha256": "f1f4c14f5035fb17d5a42434a5e2bc7a019901f56f0f9d50d0c22e2adad77e1d"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "78b1a33e5487d9dfbb75ab92fea5de84c20f4c1a7164eb5b1e8c8e9dba842703"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "b32ac8aebab3cbdf5d82a00f7004104981039a487ea0df829a44061b5e110a78"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "ratio": 1.0,
+      "mode": "RGBA",
+      "sha256": "ee3477137069b0fe3a5e007d84ca79fbdd52e82c2fa796c8ebbd988dcd159e3a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "ratio": 3.0,
+      "mode": "RGB",
+      "sha256": "7952b4579c922025a3030b3ddd976247fde138f697f00468b5a08fd5b88d66e3"
+    },
+    {
+      "path": "audit/sky_lagoon_panorama_content_invariance_overlay.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "ratio": 3.0,
+      "mode": "RGBA",
+      "sha256": "b300df1ddb616e873d4c8d3a8d0e0d51eb98d0849a30c9b21266ba48e59f6650"
+    },
+    {
+      "path": "audit/sky_lagoon_panorama_seam_capture.png",
+      "dimensions": [
+        96,
+        724
+      ],
+      "ratio": 0.132596685083,
+      "mode": "RGBA",
+      "sha256": "1fa87682faed7114de38ee23648e409cea1cdf038faa19343d5ed724688d0890"
+    }
+  ]
+}

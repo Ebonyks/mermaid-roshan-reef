@@ -6,7 +6,18 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_SIZE := Vector2(144.0, 72.0)
+const BACKDROP_SIZE := Vector2(144.0, 48.0)
+const BACKDROP_MASTER_SHA256 := "7952b4579c922025a3030b3ddd976247fde138f697f00468b5a08fd5b88d66e3"
+const BACKDROP_TILES: Array[String] = [
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
+]
+const BACKDROP_TILE_RECTS: Array[Rect2i] = [
+	Rect2i(0, 0, 724, 724),
+	Rect2i(724, 0, 724, 724),
+	Rect2i(1448, 0, 724, 724),
+]
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
 const IMP_TEX := "res://assets/sprites/story/arrival_imp.png"
 const IMP_LAUGH := "res://assets/audio/penguin_giggle.ogg"
@@ -24,7 +35,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_targets"] = []
 	m.g["lagoon_promenade_focus"] = ""
 	m.g["lagoon_promenade_focus_t"] = 0.0
-	m.g["promenade_background_card"] = null
+	m.g["promenade_background_cards"] = []
 	m.lagoon_floor = false
 	m.northern_floor = false
 	m.arena_center = m.LEVEL2_POS
@@ -44,11 +55,9 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": 10.0,
 		"cam_follow": 1.0,
 	})
-	# One native 2048x1024 master on one background Sprite3D card: the camera
-	# crosses both page boundaries without exposing a seam, gutter, or horizon jump.
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
-		0.0)
+	# The canonical approved 2172x724 master is preserved under assets_src.
+	# Three lossless 724x724 crops reconstruct it at one coherent depth.
+	_add_backdrop_tiles()
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
@@ -114,13 +123,13 @@ func _build_playground_screen() -> void:
 		"res://assets/book/hall/p_garden.jpg", "garden")
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
-		Vector3(-9.0, 7.0, -5.5), 11.8)
+		Vector3(-9.0, 8.4, -5.5), 15.5)
 	var swing := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
-		Vector3(3.0, 7.0, -5.7), 11.6)
+		Vector3(3.0, 8.4, -5.7), 15.0)
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
-		Vector3(15.0, 5.0, -5.4), 7.5)
+		Vector3(15.0, 5.8, -5.4), 9.2)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -131,6 +140,10 @@ func _build_castle_screen() -> void:
 	var gate := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		Vector3(56.0, 9.1, -5.8), 17.0)
+	# The full castle is painted into the panorama. This aligned card is kept
+	# hidden until focus so the first tap can still outline the entrance
+	# without drawing a second gate over the castle facade.
+	gate.visible = false
 	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
 
 func _build_roshan_card() -> void:
@@ -211,23 +224,33 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 	if absf(delta_x) > 0.01:
 		card.flip_h = delta_x < 0.0
 
-func _add_backdrop(path: String, x: float) -> void:
+func _add_backdrop_tiles() -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
-	var backdrop := Sprite3D.new()
-	backdrop.texture = load(path)
-	backdrop.pixel_size = BACKDROP_SIZE.x / maxf(
-		1.0, float(backdrop.texture.get_width()))
-	backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	backdrop.shaded = false
-	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	backdrop.name = "PromenadeBackgroundCard"
-	backdrop.set_meta("source_path", path)
-	backdrop.set_meta("depth_role", "background")
-	backdrop.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
-	root_node.add_child(backdrop)
-	m.g["promenade_background_card"] = backdrop
+	var cards: Array[Sprite3D] = []
+	var tile_world_width := BACKDROP_SIZE.x / float(BACKDROP_TILES.size())
+	for index in range(BACKDROP_TILES.size()):
+		var path_value: String = BACKDROP_TILES[index]
+		var backdrop := Sprite3D.new()
+		backdrop.texture = load(path_value)
+		backdrop.pixel_size = BACKDROP_SIZE.y / maxf(
+			1.0, float(backdrop.texture.get_height()))
+		backdrop.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
+		backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		backdrop.shaded = false
+		backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		backdrop.name = "PromenadeBackgroundCard_%02d" % index
+		backdrop.set_meta("source_path", path_value)
+		backdrop.set_meta("source_rect", BACKDROP_TILE_RECTS[index])
+		backdrop.set_meta("master_sha256", BACKDROP_MASTER_SHA256)
+		backdrop.set_meta("depth_role", "background")
+		var center_x := -BACKDROP_SIZE.x * 0.5 + tile_world_width * (
+			float(index) + 0.5)
+		backdrop.position = Vector3(center_x, BACKDROP_SIZE.y * 0.5, -18.0)
+		root_node.add_child(backdrop)
+		cards.append(backdrop)
+	m.g["promenade_background_cards"] = cards
 
 func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
 	var root_node: Node3D = stage.root()

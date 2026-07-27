@@ -4,10 +4,18 @@ extends SceneTree
 var failures := 0
 var main: ReefMain
 
-const PROMENADE_PLATE := "res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg"
-const PROMENADE_SHA256 := "b1e3346d79671f2616b00b53e6bb1b26cd7470adb777bf0ac48039a5f9f71e77"
-const CASTLE_PLATE := "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg"
-const CASTLE_SHA256 := "0e90e1e10fb9856a73f08fc9406556ad4a7a0597e049a635dd2520d1b11bf944"
+const PROMENADE_MASTER := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png"
+const PROMENADE_MASTER_SHA256 := "7952b4579c922025a3030b3ddd976247fde138f697f00468b5a08fd5b88d66e3"
+const PROMENADE_TILE_PATHS: Array[String] = [
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
+]
+const PROMENADE_TILE_SHA256: Array[String] = [
+	"78b1a33e5487d9dfbb75ab92fea5de84c20f4c1a7164eb5b1e8c8e9dba842703",
+	"b32ac8aebab3cbdf5d82a00f7004104981039a487ea0df829a44061b5e110a78",
+	"ee3477137069b0fe3a5e007d84ca79fbdd52e82c2fa796c8ebbd988dcd159e3a",
+]
 const IMP_SHA256 := "ab1026350656ac43f6c4576d4fec6658b61b702fc0cd7801a9e5ea2cc14174d5"
 
 func _check(label: String, ok: bool) -> void:
@@ -24,6 +32,9 @@ func _init() -> void:
 	_check("opening cinematic active", main.intro_active)
 	_check("opening has one continue", main.intro_layer != null
 		and main.intro_layer.find_child("IntroContinueButton", true, false) != null)
+	_check("opening fallback does not stretch a background plate",
+		main.intro_layer != null
+		and String(main.intro_layer.get_meta("cinematic_fallback_art", "x")) == "")
 	main._skip_intro()
 	await process_frame
 	_check("opening completion saved in memory", main.opening_seen)
@@ -34,17 +45,49 @@ func _init() -> void:
 	await process_frame
 	_check("stage two is the 2D promenade", main.game == "level2"
 		and String(main.g.get("phase", "")) == "promenade")
-	var background_card: Sprite3D = main.g.get("promenade_background_card") as Sprite3D
-	var background_texture: Texture2D = background_card.texture if background_card != null else null
-	_check("stage two background is an unshaded native 2K Sprite3D card",
-		background_card != null and not background_card.shaded
-		and background_texture != null and background_texture.get_width() == 2048
-		and background_texture.get_height() == 1024
-		and FileAccess.get_sha256(PROMENADE_PLATE) == PROMENADE_SHA256)
+	var master_image: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(PROMENADE_MASTER))
+	_check("preserved native panorama keeps exact 3 to 1 ratio",
+		master_image != null and master_image.get_width() == 2172
+		and master_image.get_height() == 724
+		and FileAccess.get_sha256(PROMENADE_MASTER) == PROMENADE_MASTER_SHA256)
+	var background_values: Array = main.g.get("promenade_background_cards", []) as Array
+	var background_cards: Array[Sprite3D] = []
+	var tiles_valid := background_values.size() == 3
+	for index in range(background_values.size()):
+		var card := background_values[index] as Sprite3D
+		if card == null:
+			tiles_valid = false
+			continue
+		background_cards.append(card)
+		var texture: Texture2D = card.texture
+		tiles_valid = (tiles_valid and not card.shaded and texture != null
+			and texture.get_width() == 724 and texture.get_height() == 724
+			and is_equal_approx(card.position.z, -18.0)
+			and FileAccess.get_sha256(PROMENADE_TILE_PATHS[index]) == PROMENADE_TILE_SHA256[index]
+			and card.get_meta("source_rect") == SkyLagoonPromenade.BACKDROP_TILE_RECTS[index])
+	_check("three lossless background tiles are unshaded at coherent depth", tiles_valid)
+	var reconstructed: Image = Image.create(2172, 724, false, master_image.get_format())
+	for index in range(PROMENADE_TILE_PATHS.size()):
+		var tile_image: Image = Image.load_from_file(PROMENADE_TILE_PATHS[index])
+		reconstructed.blit_rect(tile_image, Rect2i(0, 0, 724, 724),
+			Vector2i(index * 724, 0))
+	_check("decoded tiles reconstruct every master pixel exactly",
+		reconstructed.get_data() == master_image.get_data())
+	var seam_geometry_ok := background_cards.size() == 3
+	if seam_geometry_ok:
+		for index in range(2):
+			var left: Sprite3D = background_cards[index]
+			var right: Sprite3D = background_cards[index + 1]
+			var left_edge: float = left.position.x + float(left.texture.get_width()) * left.pixel_size * 0.5
+			var right_edge: float = right.position.x - float(right.texture.get_width()) * right.pixel_size * 0.5
+			seam_geometry_ok = seam_geometry_ok and absf(left_edge - right_edge) <= 0.0001
+	_check("background cards reconstruct with zero world-space seam gap", seam_geometry_ok)
+	var background_card: Sprite3D = background_cards[0] if not background_cards.is_empty() else null
 	var imp_state: Dictionary = main.g.get("arrival_imp", {}) as Dictionary
 	var imp_card: Sprite3D = imp_state.get("node") as Sprite3D
 	_check("first arrival imp is an unshaded foreground Sprite3D card",
-		imp_card != null and not imp_card.shaded
+		imp_card != null and background_card != null and not imp_card.shaded
 		and imp_card.position.z > background_card.position.z
 		and FileAccess.get_sha256(SkyLagoonPromenade.IMP_TEX) == IMP_SHA256)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
@@ -53,7 +96,7 @@ func _init() -> void:
 	for stage_node: Node in stage_cards:
 		all_cards_unshaded = all_cards_unshaded and not (stage_node as Sprite3D).shaded
 	_check("stage two world inventory is cards only at real depth",
-		stage_cards.size() == 22 and all_cards_unshaded
+		stage_cards.size() == 24 and all_cards_unshaded
 		and stage_root.find_children("*", "MeshInstance3D", true, false).is_empty()
 		and stage_root.find_children("*", "CanvasItem", true, false).is_empty())
 	var plane_target: Dictionary = (main.g.get("lagoon_promenade_targets", []) as Array)[0] as Dictionary
@@ -72,21 +115,23 @@ func _init() -> void:
 	main._begin_dirty_castle_entry()
 	_check("stage three reveal blocks gameplay", main.intro_active
 		and main._cinematic_ref().is_active())
+	_check("stage three fallback rejects undersized or ratio-changed plates",
+		main.intro_layer != null
+		and String(main.intro_layer.get_meta("cinematic_fallback_art", "x")) == "")
 	main._cinematic_ref().finish()
 	await process_frame
 	_check("reveal completion saved in memory", main.castle_reveal_seen)
 	_check("dirty castle is a 2D gameplay phase", String(main.g.get("phase", "")) == "dirty_castle"
 		and main.dirty_castle_layer != null)
 	var dirty: DirtyCastleStage = main._dirty_castle_ref()
-	var castle_texture: Texture2D = dirty.background.texture if dirty.background != null else null
 	_check("cleaning exception is a non-navigable full-screen Control minigame",
 		String(main.dirty_castle_layer.get_meta("presentation_kind", "")) == "full_screen_control_minigame"
 		and not bool(main.dirty_castle_layer.get_meta("navigable_world", true))
 		and main.dirty_castle_layer.find_children("*", "Node3D", true, false).is_empty())
-	_check("cleaning background is exact native 2K master",
-		castle_texture != null and castle_texture.get_width() == 2048
-		and castle_texture.get_height() == 1024
-		and FileAccess.get_sha256(CASTLE_PLATE) == CASTLE_SHA256)
+	_check("cleaning stage has no generated background plate",
+		dirty.background is ColorRect
+		and String(main.dirty_castle_layer.get_meta("runtime_background_kind", "")) == "code_native_control_color"
+		and String(main.dirty_castle_layer.get_meta("runtime_plate", "x")) == "")
 	var first_target := dirty.current_target_id()
 	var before := dirty.targets_left()
 	for index in range(30):

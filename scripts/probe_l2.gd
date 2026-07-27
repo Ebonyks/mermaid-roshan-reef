@@ -46,7 +46,9 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
@@ -60,12 +62,36 @@ func _init() -> void:
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var panorama: Texture2D = load(
-		"res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg")
-	_check("native_2k_promenade_plate",
-		panorama != null
-		and panorama.get_width() == 2048
-		and panorama.get_height() == 1024)
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png"
+	var master_image: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(master_path))
+	var native_master_ok := master_image != null and not master_image.is_empty()
+	if native_master_ok:
+		native_master_ok = (
+			master_image.get_width() == 2172
+			and master_image.get_height() == 724
+			and master_image.get_width() >= 2048
+			and absf(float(master_image.get_width())
+				/ float(master_image.get_height()) - 3.0) <= 0.000001
+			and FileAccess.get_sha256(master_path)
+				== SkyLagoonPromenade.BACKDROP_MASTER_SHA256)
+	_check("native_2k_exact_ratio_master", native_master_ok)
+	var runtime_tiles_ok := true
+	for tile_path: String in SkyLagoonPromenade.BACKDROP_TILES:
+		var tile: Texture2D = load(tile_path)
+		runtime_tiles_ok = (runtime_tiles_ok and tile != null
+			and tile.get_size() == Vector2(724, 724))
+	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
+	var background_values: Array = main.g.get("promenade_background_cards", []) as Array
+	var seam_geometry_ok := background_values.size() == 3
+	if seam_geometry_ok:
+		for index in range(2):
+			var left := background_values[index] as Sprite3D
+			var right := background_values[index + 1] as Sprite3D
+			var left_edge: float = left.position.x + float(left.texture.get_width()) * left.pixel_size * 0.5
+			var right_edge: float = right.position.x - float(right.texture.get_width()) * right.pixel_size * 0.5
+			seam_geometry_ok = seam_geometry_ok and absf(left_edge - right_edge) <= 0.0001
+	_check("lossless_tile_reconstruction_has_zero_gap", seam_geometry_ok)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var node_stack: Array[Node] = [stage_root]
 	var sprite_count := 0
@@ -76,6 +102,7 @@ func _init() -> void:
 	var visible_sprite_count := 0
 	var missing_card_metadata := 0
 	var depth_layers: Dictionary = {}
+	var backdrop_positions: Array[Vector3] = []
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -87,6 +114,8 @@ func _init() -> void:
 			missing_card_metadata += 1 if String(stage_sprite.get_meta("source_path", "")) == "" else 0
 			missing_card_metadata += 1 if String(stage_sprite.get_meta("depth_role", "")) == "" else 0
 			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
+			if stage_sprite.name.begins_with("PromenadeBackgroundCard_"):
+				backdrop_positions.append(stage_sprite.position)
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -94,15 +123,22 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 22 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 24 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0 and missing_card_metadata == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d missing_meta=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count,
 			missing_card_metadata])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 14,
+		depth_layers.size() >= 4 and visible_sprite_count <= 15,
 		"depth_layers=%d visible_cards=%d" % [
 			depth_layers.size(), visible_sprite_count])
+	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
+		return a.x < b.x)
+	_check("native_tiles_share_depth_and_exact_positions",
+		backdrop_positions.size() == 3
+		and backdrop_positions[0] == Vector3(-48.0, 24.0, -18.0)
+		and backdrop_positions[1] == Vector3(0.0, 24.0, -18.0)
+		and backdrop_positions[2] == Vector3(48.0, 24.0, -18.0))
 	_check("roshan_is_sprite_card",
 		not main.player.visible
 		and main.g.get("lagoon_roshan_card") is Sprite3D)

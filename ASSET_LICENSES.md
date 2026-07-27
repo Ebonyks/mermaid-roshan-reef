@@ -374,17 +374,27 @@ ambientCG (all CC0).
   changed only the white background to a flat chroma key, followed by local
   alpha extraction and resizing to 1024px; used as the unshaded in-world
   Sprite3D card while the source character art remains unchanged.
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png` —
-  project-original OpenAI image generation; one uninterrupted 3:1 PNW
-  panorama flowing from the blocked-water runway shore, through the meadow,
-  to the castle drawbridge terrace and moat; generated from the three earlier
-  screen concepts plus the project PNW tree/shrub sheets, then resized to
-  1024px. The three earlier panel files were removed after this continuous
-  master replaced them.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
+  project-original OpenAI image generation; native 2172×724 exact-3:1 master
+  flowing from the blocked-water runway shore, through a bounded playground
+  meadow, to the coherent pearl castle, Mermaid Roshan stained glass,
+  drawbridge, and elevated mountain-pass path. Generated from the prior
+  panorama, project pearl-castle facade sheet, historical stained-glass
+  visual, and PNW tree/shrub references; preserved without scaling or crop.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png` —
+  project-original lossless crop of the native master, rectangle
+  `(0, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png` —
+  project-original lossless crop of the native master, rectangle
+  `(724, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png` —
+  project-original lossless crop of the native master, rectangle
+  `(1448, 0, 724, 724)`; no scaling, padding, overlap, or content change.
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
-## Dirty Castle 2D Control-minigame cutouts (2026-07-22/23; audited 2026-07-26)
+
+## Dirty Castle 2D Control-minigame cutouts (2026-07-22/23; audited 2026-07-27)
 - `assets/castle/dirty_cleanup_2d/**/*.png` — 54 project-original
   transparent 512x512 PNG cutouts: 6 dust-bunny poses, 12 effects, 6 progress
   icons, 18 generic cleaning targets, and 12 tools. Source: OpenAI built-in
@@ -392,21 +402,15 @@ ambientCG (all CC0).
   reference images. Protected project originals were not modified.
 - License: project original.
 - Modifications: local chroma-key removal, alpha cleanup, and high-quality
-  reduction to 512x512. The final runtime pack deliberately excludes the
-  undersized cinematic plates and every historical scene/model-derived room
-  skin and source. Runtime inventory is recorded in
+  reduction to 512x512. Runtime inventory is recorded in
   `assets/castle/dirty_cleanup_2d/manifest.json`.
 
-## Day One native vector environment masters (2026-07-26)
-- `assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg` and
-  `assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg` —
-  project-authored vector storybook environments, created directly on native
-  2048x1024 canvases. No external or protected reference image was used.
-- License: project original.
-- Modifications: none. The authored SVG is the exact runtime master; no resize,
-  upscale, padding, crop, recompression, or derivative copy. Dimensions and
-  SHA-256 invariance evidence are in
-  `DAY_ONE_2D_RUNTIME_AUDIT_2026-07-26.md`.
+## Day One dirty-castle background rejection (2026-07-27)
+- The approved 1672x941 source and the constrained built-in edit attempt (also
+  1672x941) remain below the corrected 2048px native long-edge requirement.
+  Neither was copied into the repository, upscaled, padded, or sent through a
+  CLI/API fallback. Stage 3 uses neutral black while its OGV is absent; the
+  full-screen cleaning minigame uses code-native Control colors.
 
 ## Day One arrival imp sprite (2026-07-26)
 - `assets/sprites/story/arrival_imp.png` — project-original OpenAI built-in

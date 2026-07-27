@@ -4,7 +4,7 @@ extends RefCounted
 # The final authored movie can be dropped at this stable path without code edits.
 
 const OPENING_VIDEO := "res://assets/cinematics/opening/daddy_roshan_flight.ogv"
-const OPENING_POSTER := "res://assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg"
+const OPENING_POSTER := ""  # No ratio-changing fallback plate.
 
 var m: ReefMain
 

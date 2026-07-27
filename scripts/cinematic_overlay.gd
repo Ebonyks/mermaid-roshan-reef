@@ -1,7 +1,7 @@
 class_name CinematicOverlay
 extends RefCounted
 # One full-screen player for authored OGV story beats. Missing development
-# footage falls back to a still poster, so a branch never boots to black.
+# footage uses a neutral black fallback rather than stretching an invalid plate.
 
 var m: ReefMain
 var layer: CanvasLayer = null
@@ -105,6 +105,7 @@ func play(video_path: String, fallback_art: String, on_finished: Callable,
 	hold_skip.button_down.connect(skip_timer.start)
 	hold_skip.button_up.connect(skip_timer.stop)
 	layer.set_meta("cinematic_video_path", video_path)
+	layer.set_meta("cinematic_fallback_art", fallback_art)
 	layer.set_meta("cinematic_fallback", not loaded_video)
 
 func replay() -> void:

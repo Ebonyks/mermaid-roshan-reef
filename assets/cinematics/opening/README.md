@@ -6,26 +6,25 @@ Place the final Theora/Vorbis cinematic at:
 
 It is Stage 1: Daddy Mermaid and Mermaid Roshan fly in the pearl plane to
 their new kingdom. The runtime plays this file full-screen on the first launch.
-While the edit is absent, it falls back to this exact native master:
-
-`assets/flats/sky_lagoon/main/day_one_promenade_2048x1024.svg`
+While the edit is absent, the cinematic uses a neutral black fallback; it does
+not stretch or crop a background plate.
 
 Delivery contract:
 
-- OGV container, Theora video, Vorbis audio.
-- 1280x720 or 1024x576, 30 fps.
+- OGV container, Theora video, Vorbis audio, 30 fps.
+- Keep the exact native aspect ratio and framing of the approved movie edit.
 - Keep protected family voice recordings in their original files; mix only
   owner-approved masters into the final edit.
 - No 3D renders or 3D source assets.
+
+The Stage 2 world preserves its approved panorama separately. Its native
+2172x724 master is preserved at `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png`, and
+three lossless 724x724 runtime crops reconstruct it with adjacent unshaded
+Sprite3D cards at one coherent depth.
 
 The Stage 3 reveal uses the parallel drop location:
 
 `assets/cinematics/dirty_castle/dirty_castle_reveal.ogv`
 
-Its development fallback is this exact native master:
-
-`assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg`
-
-Neither SVG is resized, padded, cropped, or rewritten after authoring. Their
-SHA-256 hashes and runtime invariance checks are recorded in
-`DAY_ONE_2D_RUNTIME_AUDIT_2026-07-26.md`.
+Its missing-edit fallback is also neutral black until a compliant approved-ratio
+background master with a native long edge of at least 2048 exists.

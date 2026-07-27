@@ -1,16 +1,21 @@
 class_name DirtyCastleStage
 extends RefCounted
 # Day One is a genuine full-screen Control minigame, not a navigable world.
-# Its one native 2K vector master and transparent cutouts are UI presentation;
-# no Node3D, mesh, light, physics body, or passive helper can complete a target.
+# Its background is code-native Control color and its transparent cutouts are UI
+# presentation; no background image, Node3D, mesh, light, physics body, or passive
+# helper can complete a target.
 
 const ART := "res://assets/castle/dirty_cleanup_2d/"
-const BACKGROUND := "res://assets/flats/dirty_castle/day_one_dirty_castle_2048x1024.svg"
 const RUBS_PER_TARGET := 3
+const ROOM_COLORS: Array[Color] = [
+	Color(0.294118, 0.231373, 0.447059), Color(0.352941, 0.274510, 0.490196),
+	Color(0.250980, 0.219608, 0.400000), Color(0.349020, 0.250980, 0.419608),
+	Color(0.239216, 0.345098, 0.458824), Color(0.305882, 0.262745, 0.427451),
+	Color(0.207843, 0.254902, 0.372549),
+]
 const ROOMS := [
 	{
-		"id": "grand_hall", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "grand_hall",
 		"tool": ART + "tools/tool_star_sponge.png",
 		"voice": "The imp left a mess. Tap the glowing spot and make the hall sparkle!",
 		"targets": [
@@ -20,8 +25,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "playroom", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "playroom",
 		"tool": ART + "tools/tool_sorting_basket.png",
 		"voice": "One toy at a time. Tap the glowing toy and put it away!",
 		"targets": [
@@ -31,8 +35,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "library", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "library",
 		"tool": ART + "tools/tool_ribbon_duster.png",
 		"voice": "The books need their homes. Tap the glow and tidy each pile!",
 		"targets": [
@@ -42,8 +45,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "kitchen", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "kitchen",
 		"tool": ART + "tools/tool_shell_scrub_brush.png",
 		"voice": "The stove is cool. Tap each glow and scrub the kitchen shiny!",
 		"targets": [
@@ -53,8 +55,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "bubble_bath", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "bubble_bath",
 		"tool": ART + "tools/tool_window_squeegee.png",
 		"voice": "Sponge, wipe, and sort. Tap the glow to clean the Bubble Bath!",
 		"targets": [
@@ -64,8 +65,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "royal_loo", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "royal_loo",
 		"tool": ART + "tools/tool_star_sponge.png",
 		"voice": "Only soap and clean water. Tap each glow and make it sparkle!",
 		"targets": [
@@ -75,8 +75,7 @@ const ROOMS := [
 		],
 	},
 	{
-		"id": "undercroft", "dirty": BACKGROUND,
-		"clean": BACKGROUND,
+		"id": "undercroft",
 		"tool": ART + "tools/tool_shell_broom.png",
 		"voice": "Last room. Tap the two glows and help the dust bunnies home!",
 		"targets": [
@@ -89,7 +88,7 @@ const ROOMS := [
 var m: ReefMain
 var layer: CanvasLayer = null
 var stage: Control = null
-var background: TextureRect = null
+var background: ColorRect = null
 var target_root: Control = null
 var tool_card: TextureRect = null
 var progress_row: HBoxContainer = null
@@ -112,7 +111,8 @@ func build() -> void:
 	m.dirty_castle_layer = layer
 	layer.set_meta("presentation_kind", "full_screen_control_minigame")
 	layer.set_meta("navigable_world", false)
-	layer.set_meta("runtime_plate", BACKGROUND)
+	layer.set_meta("runtime_background_kind", "code_native_control_color")
+	layer.set_meta("runtime_plate", "")
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	layer.add_child(root)
@@ -121,10 +121,9 @@ func build() -> void:
 	ink.color = Color(0.04, 0.03, 0.12)
 	root.add_child(ink)
 	stage = StorybookUI.add_stage(root, m.get_viewport().get_visible_rect().size)
-	background = TextureRect.new()
+	background = ColorRect.new()
 	background.size = StorybookUI.CANVAS_SIZE
-	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	background.color = ROOM_COLORS[0]
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stage.add_child(background)
 	target_root = Control.new()
@@ -194,8 +193,7 @@ func _show_room(next_index: int) -> void:
 	_clear_targets()
 	continue_button.visible = false
 	var room: Dictionary = ROOMS[room_index]
-	background.texture = load(BACKGROUND) as Texture2D
-	background.modulate = Color(0.80, 0.78, 0.88)
+	background.color = ROOM_COLORS[room_index].darkened(0.08)
 	tool_card.texture = load(String(room["tool"])) as Texture2D
 	var targets: Array = room["targets"]
 	for target_value: Variant in targets:
@@ -316,9 +314,7 @@ func _refresh_progress() -> void:
 		progress_row.add_child(icon)
 
 func _show_room_complete() -> void:
-	var room: Dictionary = ROOMS[room_index]
-	background.texture = load(BACKGROUND) as Texture2D
-	background.modulate = Color.WHITE
+	background.color = ROOM_COLORS[room_index].lightened(0.10)
 	_clear_targets()
 	_refresh_progress()
 	m._fanfare()
@@ -336,8 +332,7 @@ func _continue_to_next_room() -> void:
 
 func _show_finale() -> void:
 	_clear_targets()
-	background.texture = load(BACKGROUND) as Texture2D
-	background.modulate = Color.WHITE
+	background.color = Color(0.419608, 0.352941, 0.568627)
 	var badge := TextureRect.new()
 	badge.name = "DirtyCastleAllCleanBadge"
 	badge.texture = load(ART + "effects/fx_all_clean_badge.png") as Texture2D
