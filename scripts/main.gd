@@ -3560,7 +3560,15 @@ func _populate_courtyard_touch_interactables() -> void:
 	if g.has("back_entry"):
 		_touch_add_item("court:back_entry", "Secret Castle Door", g["back_entry"], null, 9.0, 30.0, "ENTER")
 	if l2_open and g.has("entry"):
-		_touch_add_item("court:castle", "Pearl Castle", g["entry"], l2_door, 20.0, 52.0, "ENTER")
+		# Never track the l2_door NODE here: the slab slides ~30 units up into
+		# the sky when the castle opens, dragging the ring/pick/approach with
+		# it — a front-door tap then misses entirely (and could pick the SECRET
+		# back hatch through the walls instead). Anchor the target on the
+		# doorway itself at walk height, where the child actually taps.
+		var castle_entry: Vector3 = g["entry"]
+		if lagoon_floor:
+			castle_entry.y = lagoon_walk_h(castle_entry.x, castle_entry.z) + 2.0
+		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null, 20.0, 52.0, "ENTER")
 
 func _populate_hall_touch_interactables() -> void:
 	if g.has("bed_pos") and sleep_cool <= 0.0 and sleep_t < 0.0:
