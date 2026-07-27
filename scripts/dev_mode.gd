@@ -787,6 +787,12 @@ func _build_ui() -> void:
 	jspawn.custom_minimum_size = Vector2(0, 42)
 	jspawn.pressed.connect(func(): main._physlab_spawn())
 	vb.add_child(jspawn)
+	var jstand := Button.new()
+	jstand.text = "Spawn 6 physical standees (sprite props)"
+	jstand.add_theme_font_size_override("font_size", 15)
+	jstand.custom_minimum_size = Vector2(0, 42)
+	jstand.pressed.connect(func(): main._physlab_standees())
+	vb.add_child(jstand)
 	var jclear := Button.new()
 	jclear.text = "Clear Jolt props"
 	jclear.add_theme_font_size_override("font_size", 15)

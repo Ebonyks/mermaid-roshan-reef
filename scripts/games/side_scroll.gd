@@ -500,6 +500,150 @@ func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, s
 		holder.add_child(sq)
 	return holder
 
+# ---- physical standees: Jolt-driven sprite props (prototype 2026-07-27) ----
+# prop() puts a flat()-style cutout on a real RigidBody3D so the Jolt engine
+# (project.godot [physics]) is what moves it: settling, tumbling, shoves and
+# bounces come from the solver instead of tween/animation code. The GPU cost
+# of a prop is one alpha-scissor quad; its motion is CPU-side and ~free once
+# the body sleeps. Garnish only, never objective logic — probes must stay
+# deterministic, so nothing win-critical may ride a body ("logic analytic,
+# garnish Jolt", JOLT_PHYSICS_AUDIT_2026-07-18.md). The flat walk band is
+# what makes engine bodies affordable here at all: whole-stage collision is
+# five primitives, versus the procedural free-swim floor that keeps the rest
+# of the game analytic (PHYSICS_ENGINE.md).
+const PROPS_MAX := 12   # sleep-enabled fleet cap per stage (audit F2 budget)
+
+func props_arena() -> void:
+	# the invisible static shell: a floor slab under the walk band plus four
+	# low walls just outside the stage bounds, so bodies settle and stay on
+	# the promenade with zero per-frame containment code
+	var r := root()
+	if r == null:
+		return
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	var half_w: float = float(cfg.get("half_w", 23.2))
+	var half_d: float = float(cfg.get("half_d", 7.0))
+	var span_x: float = half_w * 2.0 + 12.0
+	var span_z: float = half_d * 2.0 + 12.0
+	var shell: Array = [
+		[Vector3(0.0, -0.5, 0.0), Vector3(span_x, 1.0, span_z)],
+		[Vector3(-half_w - 1.6, 5.5, 0.0), Vector3(1.0, 12.0, span_z)],
+		[Vector3(half_w + 1.6, 5.5, 0.0), Vector3(1.0, 12.0, span_z)],
+		[Vector3(0.0, 5.5, -half_d - 1.6), Vector3(span_x, 12.0, 1.0)],
+		[Vector3(0.0, 5.5, half_d + 1.6), Vector3(span_x, 12.0, 1.0)],
+	]
+	for e_v in shell:
+		var pos: Vector3 = e_v[0]
+		var sz: Vector3 = e_v[1]
+		var sb := StaticBody3D.new()
+		sb.collision_layer = 1
+		sb.collision_mask = 0
+		var cs := CollisionShape3D.new()
+		var bx := BoxShape3D.new()
+		bx.size = sz
+		cs.shape = bx
+		sb.add_child(cs)
+		sb.position = pos
+		r.add_child(sb)
+	m.g["ss_props"] = []
+
+func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary = {}) -> RigidBody3D:
+	# A physical standee. cfg keys, all optional: shape ("box"|"ball"),
+	# depth (box thickness), mass, gravity_scale, damp, tumble (may tip in
+	# the screen plane; false = locked upright), drop (spawn height above
+	# the floor), floor_y, color (placeholder tint when tex_path is "" or
+	# absent — the P2 placeholder-flat convention), parent + register:false
+	# (dev-lab spawns outside a stage own their cleanup). Returns null past
+	# the fleet cap — the cap is the perf contract, not a suggestion.
+	var parent: Node3D = cfg.get("parent", root())
+	if parent == null:
+		return null
+	var register: bool = bool(cfg.get("register", true))
+	var fleet: Array = m.g.get("ss_props", [])
+	if register and fleet.size() >= PROPS_MAX:
+		return null
+	var body := RigidBody3D.new()
+	body.collision_layer = 2
+	body.collision_mask = 1 | 2
+	body.mass = float(cfg.get("mass", 1.0))
+	body.gravity_scale = float(cfg.get("gravity_scale", 1.0))
+	var damp: float = float(cfg.get("damp", 0.4))
+	body.linear_damp = damp
+	body.angular_damp = damp * 2.2
+	body.can_sleep = true
+	# cutouts rotate only in the screen plane (z) — never show their paper
+	# edge (x) or spin to face away (y)
+	body.axis_lock_angular_x = true
+	body.axis_lock_angular_y = true
+	body.axis_lock_angular_z = not bool(cfg.get("tumble", true))
+	var cs := CollisionShape3D.new()
+	if String(cfg.get("shape", "box")) == "ball":
+		var sph := SphereShape3D.new()
+		sph.radius = size.x * 0.5
+		cs.shape = sph
+	else:
+		var bx := BoxShape3D.new()
+		bx.size = Vector3(size.x * 0.9, size.y, float(cfg.get("depth", maxf(0.6, size.x * 0.45))))
+		cs.shape = bx
+	body.add_child(cs)
+	var q := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = size
+	q.mesh = qm
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED   # a tumble shows both faces
+	if tex_path != "" and ResourceLoader.exists(tex_path):
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		mat.albedo_texture = load(tex_path)
+	else:
+		var tint: Color = cfg.get("color", Color(0.98, 0.82, 0.90))
+		mat.albedo_color = tint
+	q.material_override = mat
+	q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	body.add_child(q)
+	body.position = Vector3(x,
+		float(cfg.get("floor_y", 0.0)) + size.y * 0.5 + float(cfg.get("drop", 0.0)) + 0.05, z)
+	parent.add_child(body)
+	if register:
+		fleet.append(body)
+		m.g["ss_props"] = fleet
+	return body
+
+func props_tick(delta: float) -> Dictionary:
+	# Roshan -> prop coupling, the promenade cousin of the physlab swim-wake
+	# shove in main._physics_process: a firm contact push plus a softer carry
+	# from her velocity, so walking through the fleet scatters it. Prunes
+	# freed bodies and reports how much of the fleet is awake — the perf
+	# signal; a settled fleet must cost ~nothing. Returns {count, awake}.
+	var fleet: Array = m.g.get("ss_props", [])
+	if fleet.is_empty():
+		return {"count": 0, "awake": 0}
+	var alive: Array = []
+	var awake := 0
+	var ppos: Vector3 = m.player.global_position
+	var pvel: Vector3 = m.player.vel
+	for p_v in fleet:
+		var b := p_v as RigidBody3D
+		if b == null or not is_instance_valid(b):
+			continue
+		alive.append(b)
+		if not b.sleeping:
+			awake += 1
+		var d: Vector3 = b.global_position - ppos
+		var dist: float = d.length()
+		if dist > 4.5 or dist < 0.001:
+			continue
+		var flatv := Vector3(d.x, d.y * 0.2, d.z)
+		if flatv.length() < 0.001:
+			flatv = Vector3(pvel.x, 0.0, pvel.z)
+		var imp: Vector3 = flatv.normalized() * (maxf(0.0, 3.2 - dist) * 16.0)
+		imp += pvel * (maxf(0.0, 1.0 - dist / 4.5) * 0.6)
+		if imp.length_squared() > 0.0001:
+			b.apply_central_impulse(imp * delta * b.mass)
+	m.g["ss_props"] = alive
+	return {"count": alive.size(), "awake": awake}
+
 # ---- shared bits for stage dressing ----------------------------------------
 func glow(col: Color, size: float) -> MeshInstance3D:
 	# unparented additive billboard glow — halo for pickups / fallers

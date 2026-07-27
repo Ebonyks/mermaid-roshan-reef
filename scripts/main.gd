@@ -7167,6 +7167,33 @@ func _physlab_clear() -> void:
 			p.queue_free()
 	jolt_props.clear()
 
+func _physlab_standees() -> void:
+	# Physical standees (2.5D redesign prototype, charter 2026-07-27): the
+	# E2 prop() primitive spawned in the free-swim world — sprite cutouts
+	# riding Jolt bodies, shoved by the same swim-wake coupling as the
+	# barrels above. Dev-gated preview of the promenade prop fleet; the
+	# waterlogged gravity/damp match the barrel feel in the reef.
+	_physlab_clear()
+	if player == null:
+		return
+	var c: Vector3 = player.position
+	var floor_y: float = seabed_y(c.x, c.z)
+	var sb := _jolt_static_box(Vector3(c.x, floor_y - 0.5, c.z), Vector3(60, 1, 60))
+	sb.set_meta("physlab", true)
+	jolt_props.append(sb)
+	var e2 := SideScrollStage.new(self)
+	for i in range(6):
+		var a: float = float(i) / 6.0 * TAU
+		var col := Color.from_hsv(float(i) / 6.0, 0.35, 1.0)
+		var p := e2.prop("", Vector2(2.4, 3.2),
+			c.x + cos(a) * 5.0, c.z + sin(a) * 5.0, {
+				"parent": self, "register": false, "floor_y": floor_y,
+				"drop": 2.0 + float(i) * 0.5, "color": col,
+				"tumble": i % 2 == 0, "gravity_scale": 0.35, "damp": 1.2,
+			})
+		if p != null:
+			jolt_props.append(p)
+
 func _physics_process(delta: float) -> void:
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
 	# at the physics tick so it is frame-rate independent.

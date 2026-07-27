@@ -22,8 +22,10 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
-- scripts/physics.gd — ReefPhysics (analytic). Jolt is ONLY for the
-  dev-mode Physics Lab; mass gameplay/foliage must never become bodies.
+- scripts/physics.gd — ReefPhysics (analytic). Jolt runs the dev-mode
+  Physics Lab and the E2 physical-standee prop fleet (capped garnish,
+  owner direction 2026-07-27 — see MINIGAME_ENGINES.md §8); objectives
+  and mass gameplay/foliage must never become bodies.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
 - assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music

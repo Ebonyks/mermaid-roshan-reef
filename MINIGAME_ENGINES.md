@@ -306,6 +306,17 @@ stage.flat("res://assets/flats/reef/promenade/standee_reef_coral_med.png",
     Vector2(9, 8), -6.0, 2.5)   # standee: a 2D design standing at a real
     # depth so Roshan sorts in front/behind it as she walks (charter §1
     # layering rule); returns the holder Node3D for tap-target registration
+stage.props_arena()   # invisible Jolt shell: floor slab + 4 walls at the
+    # stage bounds — the flat walk band is what makes engine bodies cheap
+stage.prop("", Vector2(2.4, 3.2), 6.0, 1.5, {"tumble": true})
+    # PHYSICAL standee (prototype 2026-07-27): a flat()-style cutout riding
+    # a RigidBody3D — the Jolt solver, not tween/animation code, moves it
+    # (settle, tumble, shove, bounce). Sleep-enabled fleet capped at
+    # PROPS_MAX (12); returns null past the cap. "" texture = placeholder
+    # tint quad. Garnish only — nothing win-critical may ride a body
+    # ("logic analytic, garnish Jolt"). Probe: probe_props.gd.
+var f := stage.props_tick(delta)  # Roshan->fleet contact push + prune
+    # → {"count","awake"} — awake is the perf signal; settled fleet ≈ free
 var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
 stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
 stage.companion_open(tex, height, start)   # player-2 cutout hero
