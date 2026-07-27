@@ -30,6 +30,29 @@ centre is y 9.5 at every depth; the frustum covers y [-12.9, 31.9] against a
 mural spanning [-14.5, 33.5]. Roshan's card reads ~24% of frame height with
 her feet at ~79% down, standing on the painted lawn (world y -3.9 .. 5.7).
 
+### The set is anchored to the painting (2026-07-27, owner report)
+
+The world cards sat at z about -5, twelve units in FRONT of the mural, so they
+parallaxed ~24% faster than the art they stood on: panning the lens slid the
+whole playground across the painted lawn, and the castle-gate tap target
+drifted 237 px away from the painted door, which is why tapping the door never
+entered the castle. Every world card now shares the mural's depth (-17.85 to
+-17.45, a 0.4-unit spread purely for sort order, under 1% of parallax). Each
+card's height and y were rescaled by the depth ratio (47 - z_new)/(47 - z_old),
+so on-screen sizes and the ground line are unchanged; only the castle gate
+moved deliberately, from x 56 to x 52.5, onto the painted door.
+
+Cards remain individual sprites -- tappable, animated, sorted -- as the
+charter's layering rule requires; they are simply co-planar with the mural.
+Roshan's band is ~18 units in front, so she still passes in front of all of
+them, exactly as she did at z -5.
+
+`probe_l2` gates this with `world_cards_anchored_to_the_mural`, a
+`set_does_not_drift_across_the_pan` measurement (the on-screen gap between a
+standee and the mural must not change by more than 4 px end to end), and a
+castle entry driven by two taps at the door's own screen position rather than
+by calling the activation directly.
+
 ## Before / after
 
 | Artifact | Dimensions | Ratio | Ratio delta from 3:1 | SHA-256 |

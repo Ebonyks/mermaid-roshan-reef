@@ -280,6 +280,8 @@ func walk_tick(delta: float) -> Dictionary:
 				z = clampf(z + step.y, -half_d, half_d)
 				dx = to.normalized().x
 				moved = true
+	if bool(cfg.get("keep_on_screen", false)):
+		x = keep_on_screen(cfg, x)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))
 	if swell_amp() > 0.0:
@@ -340,6 +342,23 @@ func view_half_size(cfg: Dictionary, cam: Camera3D, plane_z: float) -> Vector2:
 	var dist: float = absf(float(cfg.get("cam_dist", 20.5)) - plane_z)
 	var half_h: float = tan(deg_to_rad(cam.fov * 0.5)) * dist
 	return Vector2(half_h * aspect, half_h)
+
+func keep_on_screen(cfg: Dictionary, x: float) -> float:
+	# Past the mural's pan limit the lens is PINNED, so the avatar keeps
+	# walking while the frame stands still — hold the stick and she strolls off
+	# the side of the screen, where a 4-year-old cannot find her again. Bound
+	# her to the frame the lens is actually holding, with a margin so she never
+	# even touches the edge. Opt-in per stage (cfg keep_on_screen).
+	var cam: Camera3D = m.player.cam
+	if cam == null or not cam.is_inside_tree():
+		return x
+	var pan: float = screen_pan_limit(cfg, cam)
+	if pan < 0.0:
+		return x
+	var follow: float = clampf(x * float(cfg.get("cam_follow", 0.25)), -pan, pan)
+	var edge: float = maxf(2.0,
+		view_half_size(cfg, cam, 0.0).x - float(cfg.get("edge_margin", 5.0)))
+	return clampf(x, follow - edge, follow + edge)
 
 func screen_pan_limit(cfg: Dictionary, cam: Camera3D) -> float:
 	# How far the lens may pan before the painted wall runs out. 0 = the mural

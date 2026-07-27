@@ -96,6 +96,9 @@ func _init() -> void:
 	var depth_layers: Dictionary = {}
 	var backdrop_positions: Array[Vector3] = []
 	var billboarded_backdrops := 0
+	var mural_card: Sprite3D = null
+	var unanchored := 0
+	var unanchored_worst := ""
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -107,8 +110,20 @@ func _init() -> void:
 			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
 			if stage_sprite.name.begins_with("SkyLagoonBackdrop_"):
 				backdrop_positions.append(stage_sprite.position)
+				mural_card = stage_sprite
 				if stage_sprite.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
 					billboarded_backdrops += 1
+			elif stage_sprite != main.g.get("lagoon_roshan_card"):
+				# every world card must share the mural's depth; a card in front
+				# of it parallaxes faster than the art it stands on, so it slides
+				# across the painted ground and its tap target drifts off the
+				# thing it represents (owner report 2026-07-27)
+				var off: float = absf(stage_sprite.global_position.z
+					- (main.g.get("ss_root") as Node3D).position.z
+					- SkyLagoonPromenade.BACKDROP_Z)
+				if off > 0.7:
+					unanchored += 1
+					unanchored_worst = "%s off by %.1f" % [stage_sprite.name, off]
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -139,6 +154,7 @@ func _init() -> void:
 	# shows through the wedges between them. The wall must stay flat.
 	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
 		"billboarded=%d" % billboarded_backdrops)
+	_check("world_cards_anchored_to_the_mural", unanchored == 0, unanchored_worst)
 
 	# THE MURAL IS THE SCREEN. The promenade — not the free-swim chase cam —
 	# must own the lens, and the frame it holds has to stay inside the painted
@@ -157,6 +173,11 @@ func _init() -> void:
 	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
 	var covered := true
 	var worst := ""
+	var drift_gaps: Array[float] = []
+	var slide_card: Node3D = null
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		if String((value as Dictionary).get("id", "")) == "slide":
+			slide_card = (value as Dictionary).get("node") as Node3D
 	var walk_edges: Array[float] = [72.0, -72.0]
 	for edge_x in walk_edges:
 		main.player.position.x = origin.x + edge_x
@@ -171,11 +192,22 @@ func _init() -> void:
 			and cam_x - view.x >= -mural_half_w - 0.01
 			and cam_y + view.y <= mural_y + mural_half_h + 0.01
 			and cam_y - view.y >= mural_y - mural_half_h - 0.01)
+		if slide_card != null and mural_card != null:
+			# THE anchoring regression: the on-screen gap between a standee and
+			# the painting must not change as the lens pans. When it does, the
+			# set slides across the painted ground and nothing looks nailed down.
+			drift_gaps.append(lens.unproject_position(slide_card.global_position).x
+				- lens.unproject_position(mural_card.global_position).x)
 		covered = covered and inside
 		if not inside:
 			worst = "at x=%.0f frame=[%.1f,%.1f]x[%.1f,%.1f]" % [edge_x,
 				cam_x - view.x, cam_x + view.x, cam_y - view.y, cam_y + view.y]
 	_check("mural_fills_the_frame_at_both_ends", covered, worst)
+	var drift: float = 999.0
+	if drift_gaps.size() == 2:
+		drift = absf(drift_gaps[0] - drift_gaps[1])
+	_check("set_does_not_drift_across_the_pan", drift <= 4.0,
+		"standee moved %.1f px against the painting end to end" % drift)
 	main.player.position.x = origin.x - 48.0
 	for _i in range(6):
 		promenade.tick(0.5)
@@ -243,14 +275,29 @@ func _init() -> void:
 		main._mg2d_close()
 	await _frames(2)
 
+	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at
+	# the door's own place on screen. The old probe called _focus/_activate
+	# directly, so it never noticed that the gate's tap target had drifted
+	# 237 px off the painted door and tapping the door did nothing at all.
 	var castle_target: Dictionary = {}
 	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		if String(target.get("id", "")) == "castle_gate":
 			castle_target = target
 			break
-	main._lagoon_promenade_ref()._focus(castle_target)
-	main._lagoon_promenade_ref()._activate(castle_target)
+	var gate_node: Node3D = castle_target.get("node") as Node3D
+	main.player.position.x = origin.x + 50.0
+	for _i in range(6):
+		promenade.tick(0.5)
+	var gate_screen: Vector2 = lens.unproject_position(gate_node.global_position)
+	var view_rect := Rect2(Vector2.ZERO, main.get_viewport().get_visible_rect().size)
+	_check("castle_door_is_on_screen_from_the_walk", view_rect.has_point(gate_screen),
+		"gate at %s in a %s viewport" % [gate_screen, view_rect.size])
+	promenade.handle_touch(gate_screen)
+	var gate_focus_ok: bool = (
+		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate")
+	_check("castle_door_first_tap_highlights", gate_focus_ok)
+	promenade.handle_touch(gate_screen)
 	await _frames(8)
 	_check("drawbridge_enters_castle",
 		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
