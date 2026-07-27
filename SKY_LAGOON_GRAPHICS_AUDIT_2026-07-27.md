@@ -63,45 +63,83 @@ winding" — but it was never fixed at the source, only re-shot.
 Verified with an engine-accurate preview (cel lighting, no backface flip):
 crowns now band mint-highlight over jade-shadow instead of flat black.
 
-## 2. The codex PNW set *is* wired up — it was invisible, not unused
+## 2. The codex PNW packet was unmerged, not unwired
 
-`scripts/arena/sky_lagoon.gd` already places the full accepted 24-role roster
-as the meadow's primary flora: twelve hero trees, fourteen groves, twelve
-guaranteed shrub specimens and a 90-plant undergrowth pass, all under the
-ecological placement rules (snow admits conifers only, alder/cottonwood/
-salmonberry hold wet banks, madrone/Garry oak/oceanspray keep 20 units from
-water). Nothing needed rewiring. Every one of those plants was simply
-rendering as a black blob, which is why the set read as "not being utilized".
+Two separate things were behind "PNW assets produced by codex that are not
+being utilized".
 
-With the normals corrected the PNW family now reads as the dominant flora it
-was authored to be.
+The **modelled** 24-role woody roster was already wired: `sky_lagoon.gd` places
+twelve hero trees, fourteen groves, twelve guaranteed shrub specimens and a
+90-plant undergrowth pass under the ecological rules. Nothing needed rewiring
+there — every one of those plants was rendering as a black blob, which is why
+the set read as unused.
 
-## 3. Playground rebuilt
+The **2D** packet was genuinely missing. `OPUS_ROSHAN_POOL_PNW_2D_HANDOFF_2026-07-26.md`
+on `origin/codex/roshan-pool-pnw` hands over five painted atlases and their
+runtime integration — 2,132 lines across 22 files — and none of it had reached
+`dev` or `master`.
+
+This pass integrates the Sky Lagoon part of that packet, by owner decision
+(2026-07-27): the marsh only, with the castle pool, whale rescue, storyboard
+and hutches left on the feature branch for their own pass.
+
+- `assets/sky_lagoon/pnw_marsh_2d/pnw_marsh_atlas.png` — 16 rooted PNW wetland
+  cards: cattails, slough sedge, tufted hairgrass, softstem bulrush, sword
+  fern, deer fern, horsetail, skunk cabbage, water lilies, marsh marigold,
+  mossy nurse log, cedar stump, river stones, reed seed heads, bog cranberry,
+  western iris.
+- Runtime and provenance SHA-256 both verified against the packet manifest
+  before integration.
+- `sky_lagoon.gd` gains `_build_lagoon_marsh_2d()` from the handoff branch
+  unchanged: unshaded double-sided alpha-scissor cards, water lilies laid flat
+  inside the pond rim, the rest ringed around the pond with the last four
+  spread along separate river banks. No collision, lights or particles; a
+  150-unit Speedy visibility range bounds the transparent overdraw.
+- `probe_l2.gd` gains the handoff's assertions: atlas present at 1024x1024 and
+  exactly 16 cards placed.
+
+## 3. Playground rebuilt to the concept sheet
 
 The six `lagoon_play_*` toys were bare primitive frames — the swing was **580
-triangles**: four leg rods, one beam and two flat slabs. They read as diagrams
-rather than equipment. Rebuilt in `tools/build_sky_lagoon_quality_kit.py`:
+triangles**: four leg rods, one beam and two flat slabs.
 
-| toy | before | after | added |
+A first rebuild attempt invented equipment: canopies, bunting, cross-bracing, a
+toadstool parasol and a sandcastle. The owner rejected it as "strange
+playground equipment", and correctly — the designs were already drawn, in the
+playground row of `assets_src/concepts/sky_lagoon_quality_2026-07-20.png`,
+which had been in the repository since the 2026-07-20 quality pass and was
+never opened. The sheet is the contract.
+
+Built to the sheet:
+
+| toy | before | after | design |
 |---|---|---|---|
-| slide | 3448 | 7880 | top deck + side walls, scalloped canopy, climbing handrails, chute channel walls, run-out lip, landing cushions, post feet and caps, bunting |
-| swing | 580 | 6636 | A-frame cross-bracing, ground feet, beam trim and end caps, chains with visible links, contoured seats with backrests, bunting, crest |
-| seesaw | 1644 | 4360 | fulcrum cheek plates and pivot bolt, painted plank stripes, twin handle grips, seats with backrests, end bumper cushions |
-| merry-go-round | 2032 | 6516 | pinwheel deck wedges, hub, rim valance, four riding seats, curved grab handles, bunting |
-| sandbox | 2092 | 6192 | wall coping, sandcastle with four towers, sand mounds, bucket and spade, toadstool shade parasol |
-| spring horse | 1852 | 3976 | chest/rump volumes, neck, muzzle, eyes and cheeks, mane and forelock, hooves, saddle skirt, stirrups, grab handle, spring mount plate |
+| swing | 580 | 3964 | teal A-frames with gold collar bands and lavender foot pads, lavender top bar with gold end caps, one wooden plank seat on two twisted gold ropes |
+| slide | 3448 | 5488 | gold ladder with rungs to the chute head, pearl-and-gold post finials, one continuous lavender ramp with teal edge rails and a run-out lip |
+| seesaw | 1644 | 1488 | wooden plank on a lavender wedge over a teal base plate, lavender whale head one end, little pink treat the other, teal seat pads |
+| merry-go-round | 2032 | 4264 | lavender deck with a gold rim and painted gold star, four gold grab arches, gold-banded post under a pearl finial |
+| ball pit | 2092 | 5564 | masonry rim banded stone / butter / rose, packed with pastel balls |
+| spring horse | 1852 | 2764 | no card on the sheet — shipped anatomy kept, finished only to the level the sheet's own whale head sets (rounded volumes, visible eye, contrast muzzle). No invented gear. |
 
-Total 11,648 → 35,560 triangles for the whole playground corner. No new
-textures, no new materials beyond the existing kit palette, no new draw-call
-families.
+Two deviations, both deliberate:
 
-**Every gameplay landmark is unchanged.** `scripts/arena/sky_lagoon.gd` derives
-its play-moment anchors and collision cylinders from post spacing, ladder-foot
-offset, chute run, beam height, seat x-positions, pivot centre, deck radius,
-sandbox rim and saddle height — all of those coordinates are byte-for-position
-identical, so the climb, swing, ride, seat, bounce and dig moments and
-`player.gd`'s calibrated poses still land exactly where they did. The sandbox
-stays non-solid on purpose. The added dressing is outside the solids.
+* The sheet draws a **ball pit**, but `sky_lagoon.gd` runs a dig play-moment
+  with `_sand_puff` over this toy. The rim is built to the sheet and the cream
+  fill stays under the balls, so the pit reads correctly and keeps its
+  animation.
+* The spring horse has no concept card. It needs one before it can be judged
+  against the sheet like the others.
+
+Total 11,648 → 23,532 triangles. No new textures, no new materials.
+
+**Every gameplay landmark is unchanged.** `sky_lagoon.gd` derives its
+play-moment anchors and collision cylinders from post spacing, ladder-foot
+offset, chute run, beam height, pivot centre, deck radius, rim radius and
+saddle height — those coordinates are byte-for-position identical, so the
+climb, swing, ride, seat, bounce and dig moments and `player.gd`'s calibrated
+poses still land where they did. Moving the single swing seat to the centre of
+the bar actually matches the existing anchor better than the two offset seats
+did. The ball pit stays non-solid on purpose.
 
 ## 4. New gate: inside-out meshes now fail CI
 

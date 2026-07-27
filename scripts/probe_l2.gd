@@ -66,6 +66,12 @@ func _init() -> void:
 	for kit_name: String in kit_paths:
 		kit_resources_ok = (kit_resources_ok and ResourceLoader.exists(
 			"res://assets/sky_lagoon/lagoon_kit/" + kit_name + ".glb"))
+	var marsh_texture: Texture2D = load(
+		"res://assets/sky_lagoon/pnw_marsh_2d/pnw_marsh_atlas.png") as Texture2D
+	var marsh_2d_ok: bool = (marsh_texture != null
+		and marsh_texture.get_width() == 1024
+		and marsh_texture.get_height() == 1024
+		and int(main.g.get("lagoon_marsh_2d_count", 0)) == 16)
 	var lagoon_counts: Dictionary = main.g.get("lagoon_art_counts", {})
 	var expected_butterfly_gate_count: int = 1 if main.galaxy_unlocked else 0
 	var fairy_surface_y: float = float(main.g.get("fairy_pond_surface_y", -9999.0))
@@ -78,6 +84,7 @@ func _init() -> void:
 	# guaranteed shrub anchors (six species, two accepted prototype variants
 	# each) preserve the complete roster. The floor catches material loss.
 	var authored_placement_ok: bool = (grounded_flora_count >= 30
+		and marsh_2d_ok
 		and int(lagoon_counts.get("lagoon_pond_reeds", 0)) == 10
 		and int(lagoon_counts.get("lagoon_river_stones", 0)) == 6
 		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
@@ -95,7 +102,9 @@ func _init() -> void:
 	var lagoon_art_ok: bool = botany_rule_ok and kit_resources_ok and authored_placement_ok
 	print("BOTANY|no isolated ground leaf + complete plant kit: ",
 		"OK" if lagoon_art_ok else "FAIL",
-		" flora=", grounded_flora_count, " placements=", lagoon_counts)
+		" flora=", grounded_flora_count,
+		" marsh_2d=", int(main.g.get("lagoon_marsh_2d_count", 0)),
+		" placements=", lagoon_counts)
 	if not lagoon_art_ok:
 		print("FAIL|Sky Lagoon authored flora or landmark placement regression")
 	var footprints_ok: bool = (not lagoon._lagoon_ground_object_allowed("plant", 0.0, 100.0)
