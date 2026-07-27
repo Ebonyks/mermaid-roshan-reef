@@ -339,7 +339,7 @@ func build(o: Vector3) -> void:
 	m.g["stand_label"] = slab
 	# (the royal loo lives down in the basement wing — see build_basement_wing)
 	# just TWO framed memories on the side walls (fewer pictures)
-	# (the swim-through xylophone now lives in the dedicated MUSIC ROOM off the left wall \u2014 see build_music_room)
+	# (the swim-through xylophone is the demoted alcove inside the PEARL OPERA FOYER off the left wall \u2014 see build_opera_foyer)
 	# (the crafting easel now lives in its own dedicated CRAFT ROOM down in the
 	# basement wing — see build_basement_wing; the hall keeps the reading nook)
 	# The Crown Star is authored landmark geometry rather than a font glyph.
@@ -419,8 +419,8 @@ func build(o: Vector3) -> void:
 	# (no ocean ring here — reaching Princess Huluu / the Crown Star at the throne is the link back to the ocean)
 	# a cosy royal bedroom opens off the right-hand wall (doorway at z=-16)
 	build_bedroom(o)
-	# ...and a music room opens off the left-hand wall (doorway at z=-16)
-	build_music_room(o)
+	# ...and the Pearl Opera foyer opens off the left-hand wall (doorway at z=-16)
+	build_opera_foyer(o)
 
 
 func build_expansion(o: Vector3) -> void:
@@ -1052,26 +1052,54 @@ func build_dungeon_gate(ground: Vector3) -> void:
 	m.g["dungeon_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
 
 
-func build_music_room(o: Vector3) -> void:
-	# Roomy music hall off the LEFT wall (doorway x=-35, z=-16).
-	# Footprint x:-52..-35 (width 17), z:-24..+14 (depth 38) — a long room so the
-	# xylophone has space. Interior corners stay inside the dome (r<58).
+func build_opera_foyer(o: Vector3) -> void:
+	# THE PEARL OPERA FOYER off the LEFT wall (doorway x=-35, z=-16).
+	# Footprint x:-52..-35 (width 17), z:-24..+14 (depth 38). Interior corners
+	# stay inside the dome (r<58).
+	#
+	# OWNER DECISION 2026-07-27: the opera house REPLACES the music room here,
+	# for visibility and exposure. The stage door used to hang on this room's
+	# far wall halfway down a room that read, at every glance, as a xylophone
+	# hall — the child had to already know the opera existed to ever find it.
+	# Now the portal owns the entry: it stands on the back wall on the doorway's
+	# own side, lit and carpeted, framed by the shell arch from the Grand Hall
+	# floor. The xylophone survives as a demoted ALCOVE hugging the far wall,
+	# clear of the entry sightline and clear of the portal's approach radius;
+	# the owner relocates the music room to a quieter corner of the castle in a
+	# later pass, at which point everything under "the music alcove" below moves
+	# out wholesale and this room is opera only.
 	var mo: Vector3 = o + Vector3(-43.5, 0, -5)           # room centre
-	var wall := Color(0.62, 0.65, 0.80)                  # cool lilac plaster
+	var wall := Color(0.78, 0.62, 0.70)                  # warm blush theatre plaster
 	# flr + ceiling (no colliders — flr clamp / arena_ceil handle vertical)
-	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
-	mfloor.material_override = m._castle_mat("floor", 0.035, Color(0.58, 0.60, 0.78))
-	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.54, 0.56, 0.68))
+	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.62, 0.47, 0.55))
+	mfloor.material_override = m._castle_mat("floor", 0.035, Color(0.86, 0.76, 0.78))
+	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.66, 0.54, 0.60))
 	# enclosing walls (the right/hall side is the segmented hall wall already built)
 	m._iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall)       # far wall (x=-52.75)
 	m._iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall)      # back wall (z=-24.75)
 	m._iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall)       # front wall (z=+14.75)
-	# A shell arch makes the music room legible from the hall without a glyph.
+	# A shell arch makes the foyer legible from the hall without a glyph.
 	_pearl("pearl_shell_arch", o + Vector3(-34.7, 0.5, -16.0), 90.0)
-	# soft rug by the entrance
-	var rug = m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
-	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.62, 0.58, 0.82))
-	# ---------- the swim-through xylophone (a free-play music toy) ----------
+	# THE APPROACH IS THE SIGN. A red runner leaves the hall's main carpet,
+	# crosses the hall floor to the arch, and continues inside straight to the
+	# stage door — a wordless "this way to the show" the child can follow with
+	# one finger from the middle of the Grand Hall.
+	var hall_spur = m._l2_box(o + Vector3(-22.0, 0.62, -16.0), Vector3(26.0, 0.15, 7.0), Color(0.72, 0.16, 0.22))
+	hall_spur.material_override = m._castle_mat("carpet", 0.055, Color(0.82, 0.72, 0.78))
+	var foyer_run = m._l2_box(mo + Vector3(3.6, 0.95, -12.5), Vector3(9.0, 0.1, 12.0), Color(0.72, 0.16, 0.22))
+	foyer_run.material_override = m._castle_mat("carpet", 0.065, Color(0.82, 0.72, 0.78))
+	# ---------- THE STAGE DOOR: the room's whole purpose ----------
+	# Back wall, on the doorway's side of the room (mo+3.0 x) so it sits square
+	# in the view through the arch. Facing +z, into the foyer.
+	# Approach clearances (the proximity trigger fires inside 4.5):
+	#   hall doorway  (-35, -16) -> 8.4      nearest alcove bell (-48, -18.5) -> 8.7
+	# so neither the entry nor a trip to the bells can pull her in by accident.
+	build_opera_gate(mo + Vector3(3.0, 0.9, -18.0), 0.0)
+	# ---------- the music alcove (a free-play toy, demoted; moves out later) ----------
+	# The row keeps its 4.5 spacing and its rail EXACTLY as authored — it only
+	# slides 4.5 sideways to hug the far wall, off the entry axis. Seven
+	# independent keys remain (probe_castle_pearl_art asserts the contract).
+	var alcove_x := -4.5
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
 	# rainbow per bar for the strike sparkle: the GLB props keep their authored
@@ -1079,9 +1107,9 @@ func build_music_room(o: Vector3) -> void:
 	var bellcols: Array[Color] = [Color(1.0, 0.5, 0.5), Color(1.0, 0.72, 0.42), Color(1.0, 0.95, 0.55),
 		Color(0.6, 0.95, 0.6), Color(0.55, 0.85, 1.0), Color(0.65, 0.6, 1.0), Color(0.9, 0.6, 1.0)]
 	m.g["bells"] = []
-	_pearl("pearl_music_rail", mo + Vector3(0.0, 0.75, 0.0))
+	_pearl("pearl_music_rail", mo + Vector3(alcove_x, 0.75, 0.0))
 	for bi in range(7):
-		var bell: Node3D = _pearl("pearl_music_bar_%d" % bi, mo + Vector3(0.0, 1.70, -13.5 + float(bi) * 4.5))
+		var bell: Node3D = _pearl("pearl_music_bar_%d" % bi, mo + Vector3(alcove_x, 1.70, -13.5 + float(bi) * 4.5))
 		if bell == null:
 			continue
 		var bp := AudioStreamPlayer.new()
@@ -1094,27 +1122,41 @@ func build_music_room(o: Vector3) -> void:
 	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
 	# Simon-says for little ears. Wrong notes just replay the song (no fail);
 	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
-	var song_canopy: Node3D = _pearl("pearl_rainbow_gate", mo + Vector3(0.0, 0.75, -19.0))
+	# The song star used to stand at the back wall — that is the stage door's
+	# spot now, so the whole echo-song cluster moves to the alcove's FAR end,
+	# past the last key, where it cannot compete with the portal on entry.
+	var song_canopy: Node3D = _pearl("pearl_rainbow_gate", mo + Vector3(alcove_x, 0.75, 16.5))
 	if song_canopy != null:
 		song_canopy.scale = Vector3.ONE * 0.58
-	_pearl("pearl_music_mallet_stand", mo + Vector3(-4.7, 0.75, -16.8), -12.0)
-	_static_prop("res://assets/art35/castle/music_song_star.glb", mo + Vector3(0, 0.75, -18.5), {}, 0.0, true)
+	_pearl("pearl_music_mallet_stand", mo + Vector3(alcove_x + 3.7, 0.75, 14.8), -12.0)
+	_static_prop("res://assets/art35/castle/music_song_star.glb", mo + Vector3(alcove_x, 0.75, 16.0), {}, 0.0, true)
 	var ssl := OmniLight3D.new()
 	ssl.light_color = Color(1.0, 0.9, 0.4)
 	ssl.light_energy = 0.9
 	ssl.omni_range = 9.0
-	ssl.position = mo + Vector3(0, 6.5, -18.5)
+	ssl.position = mo + Vector3(alcove_x, 6.5, 16.0)
 	m.add_child(ssl)
 	m.game_nodes.append(ssl)
-	m._register_castle_light(ssl, true)
+	# The song star gives up its speedy-tier slot to the stage door below: the
+	# room's speedy-visible count stays at two, and the one that survives the
+	# cull is now the opera's, not the demoted alcove's. The bell song is still
+	# reachable by its own 30-unit tap ring on the phone's lowest tier.
+	m._register_castle_light(ssl, false)
 	m.g["song_star"] = ssl.position
 	m.g["bellgame"] = {"state": "idle", "seq": [], "i": 0, "t": 0.0, "round": 0, "cool": 0.0}
-	# two warm fill lights down the length
-	for lz in [-12.0, 10.0]:
-		var ml := OmniLight3D.new()
-		ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 0.85; ml.omni_range = 24.0
-		ml.position = mo + Vector3(0, 22, lz); m.add_child(ml); m.game_nodes.append(ml)
-		m._register_castle_light(ml, false)
+	# Two fills, same count as the music room had (the OmniLight budget is
+	# fixed — CLAUDE.md): the first is repurposed as the stage door's warm
+	# marquee glow, the second still washes the alcove.
+	var portal_light := OmniLight3D.new()
+	portal_light.light_color = Color(1.0, 0.84, 0.52); portal_light.light_energy = 1.5; portal_light.omni_range = 22.0
+	portal_light.position = mo + Vector3(3.0, 9.5, -14.5)
+	m.add_child(portal_light); m.game_nodes.append(portal_light)
+	m._register_castle_light(portal_light, true)
+	var ml := OmniLight3D.new()
+	ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 0.85; ml.omni_range = 24.0
+	ml.position = mo + Vector3(alcove_x, 22, 8.0)
+	m.add_child(ml); m.game_nodes.append(ml)
+	m._register_castle_light(ml, false)
 	# Framed cool windows repeat the same vocabulary as the upper galleries.
 	for wz in [-10.0, 10.0]:
 		_pearl("pearl_shell_window", mo + Vector3(-9.0, 16.2, wz), 90.0)
@@ -1128,29 +1170,32 @@ func build_music_room(o: Vector3) -> void:
 	# A framed physical music staff gives the forward wall its own silhouette and
 	# stays readable behind the xylophone from the normal room approach.
 	_static_prop("res://assets/art35/castle/music_wall_panel.glb", mo + Vector3(0.0, 8.0, 19.0), {}, 180.0, true)
-	# cool invite glow at the doorway
+	# warm invite glow at the doorway — theatre gold now, not the music room's
+	# cool blue, so the arch reads as the way to the show from the hall floor
 	var il := OmniLight3D.new()
-	il.light_color = Color(0.6, 0.7, 1.0); il.light_energy = 1.6; il.omni_range = 14.0
+	il.light_color = Color(1.0, 0.82, 0.55); il.light_energy = 1.6; il.omni_range = 14.0
 	il.position = o + Vector3(-34, 7, -16); m.add_child(il); m.game_nodes.append(il)
 	m._register_castle_light(il, true)
-	# the Pearl Opera House stage door opens off the music room's far wall
-	build_opera_gate(mo + Vector3(-6.8, 0.9, 0))
 
-func build_opera_gate(ground: Vector3) -> void:
+func build_opera_gate(ground: Vector3, yaw_degrees: float = 90.0) -> void:
 	# The authored shell-theatre portal replaces the original cube marquee and
 	# billboard glyph. Its modeled opaque vista prevents the wall behind from
 	# flattening the threshold into a painted doorway.
+	# yaw_degrees defaults to the original wall-on-x orientation so existing
+	# callers are untouched; the foyer stands it on the back wall (yaw 0).
 	var root := Node3D.new()
 	root.position = ground
 	m.add_child(root)
 	m.game_nodes.append(root)
-	var gate_art: Node3D = _pearl("pearl_opera_gate", ground, 90.0)
+	var gate_art: Node3D = _pearl("pearl_opera_gate", ground, yaw_degrees)
 	if gate_art != null:
 		gate_art.reparent(root, true)
-	var veil: Node3D = _pearl("pearl_opera_vista", ground, 90.0)
+	var veil: Node3D = _pearl("pearl_opera_vista", ground, yaw_degrees)
 	if veil != null:
 		veil.reparent(root, true)
-	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0.6, 2.9, 0), "armed": true, "cool": 0.0}
+	# the trigger stands just in FRONT of the portal face, whichever way it turns
+	var stand_off: Vector3 = Vector3(0.6, 0.0, 0.0).rotated(Vector3.UP, deg_to_rad(yaw_degrees - 90.0))
+	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + stand_off + Vector3(0, 2.9, 0), "armed": true, "cool": 0.0}
 
 
 func build_bedroom(o: Vector3) -> void:

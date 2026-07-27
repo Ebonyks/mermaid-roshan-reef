@@ -254,7 +254,7 @@ func _capture_castle() -> void:
 	await _shot("castle_06_cloud_lounge", o + Vector3(45, 40, -40), o + Vector3(26, 38, -53), 64.0)
 	await _shot("castle_07_star_chamber", o + Vector3(-45, 41, -40), o + Vector3(-25, 39, -53), 64.0)
 	await _shot("castle_08_royal_bedroom", o + Vector3(37.5, 9.0, -18.0), o + Vector3(50.0, 4.5, -19.0), 68.0)
-	await _shot("castle_09_music_room", o + Vector3(-49, 10, 11), o + Vector3(-44, 6, -6), 68.0)
+	await _shot("castle_09_opera_foyer", o + Vector3(-37.5, 9, -9), o + Vector3(-44, 5, -20), 68.0)
 	await _shot("castle_10_royal_loo", o + Vector3(-27.5, -13.5, -23.5), o + Vector3(-32.0, -15.2, -28.0), 64.0)
 	await _shot("castle_11_back_chamber", o + Vector3(12, 11, -38), o + Vector3(0, 7, -47), 66.0)
 	await _shot("castle_12_royal_library", o + Vector3(-38, 40, 12), o + Vector3(-48, 38, -8), 66.0)
@@ -263,7 +263,7 @@ func _capture_castle() -> void:
 	await _shot("castle_15_pantry", o + Vector3(-10, -9, 4), o + Vector3(-20, -14, -2), 70.0)
 	await _shot("castle_16_craft_room", o + Vector3(10, -9, -22), o + Vector3(20, -14, -28), 70.0)
 	await _shot("castle_17_bubble_bath", o + Vector3(-10, -9, -22), o + Vector3(-18, -14, -28), 70.0)
-	await _shot("castle_18_opera_gate", o + Vector3(-39.0, 8.5, -5.0), o + Vector3(-50.2, 4.5, -5.0), 62.0)
+	await _shot("castle_18_opera_gate", o + Vector3(-40.5, 7.5, -11.0), o + Vector3(-40.5, 4.0, -23.0), 62.0)
 	await _shot("castle_19_bedroom_wardrobe", o + Vector3(43.0, 8.0, -20.0), o + Vector3(40.0, 6.2, -8.0), 62.0)
 
 
