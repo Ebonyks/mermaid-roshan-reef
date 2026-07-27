@@ -108,38 +108,49 @@ toadstool parasol and a sandcastle. The owner rejected it as "strange
 playground equipment", and correctly — the designs were already drawn, in the
 playground row of `assets_src/concepts/sky_lagoon_quality_2026-07-20.png`,
 which had been in the repository since the 2026-07-20 quality pass and was
-never opened. The sheet is the contract.
+never opened.
 
-Built to the sheet:
+A second pass built the right silhouettes but skipped parts. A per-toy audit
+against the sheet at 6x found what was missing:
 
-| toy | before | after | design |
-|---|---|---|---|
-| swing | 580 | 3964 | teal A-frames with gold collar bands and lavender foot pads, lavender top bar with gold end caps, one wooden plank seat on two twisted gold ropes |
-| slide | 3448 | 5488 | gold ladder with rungs to the chute head, pearl-and-gold post finials, one continuous lavender ramp with teal edge rails and a run-out lip |
-| seesaw | 1644 | 1488 | wooden plank on a lavender wedge over a teal base plate, lavender whale head one end, little pink treat the other, teal seat pads |
-| merry-go-round | 2032 | 4264 | lavender deck with a gold rim and painted gold star, four gold grab arches, gold-banded post under a pearl finial |
-| ball pit | 2092 | 5564 | masonry rim banded stone / butter / rose, packed with pastel balls |
-| spring horse | 1852 | 2764 | no card on the sheet — shipped anatomy kept, finished only to the level the sheet's own whale head sets (rounded volumes, visible eye, contrast muzzle). No invented gear. |
+| toy | missing against the sheet |
+|---|---|
+| swing | legs never reached the bar — four posts at y=±1.75 and a beam at y=0, so the frame did not close. Two-tone A-frames (teal front leg, lavender back leg), gold ferrules at the bar junction, gold foot bands, braided rope, rope rings on the bar. |
+| slide | the whole slide **body**: the sheet draws solid teal side walls flaring down the run with the chute inset between them, not a plank on rails. Rolled teal lip over the chute head, stone rungs (not gold), teal collar rings under the pearl finials, broad run-out with a raised lip. |
+| seesaw | **no grip handle at all** — the sheet puts an upright teal-and-gold post beside each seat. Also gold ferrules near both plank ends, flat teal seat pads on the plank, a bossed arch fulcrum on a teal masonry base, and a flat half-round fan plate at the end (it had been modelled as a 3D whale blob). |
+| merry-go-round | gold scallop finial (not a pearl ball), square-shouldered grab arches with boot pads (not floating semicircles), thick gold rim band, radial deck seams with star points, lavender skirt with pads. |
+| ball pit | oval, not circular; wavy band boundaries; balls large and heaped above the rim. |
+| spring horse | no card on the sheet — shipped anatomy kept, finished only to the level the sheet's own animals set. No invented gear. |
+
+Three geometry bugs surfaced doing it, two of them inherited from the shipped
+assets:
+
+* The **swing legs never met the bar** (shipped defect). They now converge in
+  both axes onto the beam ends.
+* The **rim blocks used `rotation=(0,0,a)`**, aiming each block at the centre
+  instead of along the ring, which splayed the pit into a flower (shipped
+  defect). Fixed, then fixed again for the ellipse — the tangent to
+  `(rx·cos a, ry·sin a)` is `(-rx·sin a, ry·cos a)`.
+* The chute was nine stacked slabs and read as a staircase. It is now an
+  extruded profile.
+
+Totals 11,648 → 28,852 triangles. No new textures, no new materials.
 
 Two deviations, both deliberate:
 
 * The sheet draws a **ball pit**, but `sky_lagoon.gd` runs a dig play-moment
-  with `_sand_puff` over this toy. The rim is built to the sheet and the cream
-  fill stays under the balls, so the pit reads correctly and keeps its
-  animation.
-* The spring horse has no concept card. It needs one before it can be judged
-  against the sheet like the others.
-
-Total 11,648 → 23,532 triangles. No new textures, no new materials.
+  with `_sand_puff` over this toy. The rim is built to the sheet and a cream
+  floor stays under the balls, never visible through them.
+* The spring horse has no concept card and needs one before it can be judged
+  like the others.
 
 **Every gameplay landmark is unchanged.** `sky_lagoon.gd` derives its
 play-moment anchors and collision cylinders from post spacing, ladder-foot
 offset, chute run, beam height, pivot centre, deck radius, rim radius and
-saddle height — those coordinates are byte-for-position identical, so the
-climb, swing, ride, seat, bounce and dig moments and `player.gd`'s calibrated
-poses still land where they did. Moving the single swing seat to the centre of
-the bar actually matches the existing anchor better than the two offset seats
-did. The ball pit stays non-solid on purpose.
+saddle height — those are byte-for-position identical, so the climb, swing,
+ride, seat, bounce and dig moments and `player.gd`'s calibrated poses still
+land where they did. Moving the swing to a single centre seat matches the
+existing anchor better than the two offset seats did.
 
 ## 4. New gate: inside-out meshes now fail CI
 
