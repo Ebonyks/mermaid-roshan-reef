@@ -74,6 +74,30 @@ Each promenade is:
   line: off-screen objectives get the existing golden pointer plus a
   screen-edge arrow, and every exit is an oversized, wordless picture.
 
+### The layering rule (owner note, 2026-07-27 — binding on all stage art)
+
+The heart of the look is **clear, intentional layering of 2D designs in 3D
+space**. A stage set is never one painting. Every design is broken down
+into depth-classed pieces, each with a deliberate z home, so that as
+Roshan moves through the walk band her occlusion against the world always
+makes sense:
+
+1. **Background murals** — behind the band, can never overlap Roshan.
+   These are the parallax `layers` (sky/far/mid/skirt).
+2. **Play-band standees** — individual cutout sprites standing at a real
+   depth inside or around the band (a coral head, a market counter, a
+   lamp post, a door card). Roshan passes **in front of or behind** each
+   one depending on her z, sorted by the real depth buffer — this is what
+   makes her interaction with the stage and its objects read true. Engine
+   primitive: `SideScrollStage.flat()` (alpha-scissor, depth-writing,
+   contact shadow).
+3. **Foreground occluders** — past the band, between her and the camera;
+   she always passes behind them. Sparse framing only.
+
+Corollary for all art orders: **anything Roshan can tap, pass, or stand
+behind ships as its own sprite with its own depth — never baked into a
+mural.** A mural that paints a "prop" at band depth is a layering bug.
+
 ### The control grammar (replaces the stick)
 
 One finger, two ideas, nothing else:

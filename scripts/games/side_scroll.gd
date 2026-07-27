@@ -456,6 +456,50 @@ func companion_tick(delta: float, want_x: float, want_z: float, speed: float) ->
 	m.g["ss_p2_tap_prev"] = hdown
 	return {"x": x, "z": z, "tap": human and tap, "human": human}
 
+# ---- standee flats: 2D designs standing IN the 3D stage --------------------
+func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, shadow: bool = true) -> Node3D:
+	# The layering rule (owner note 2026-07-27, charter §1): a stage set is
+	# never one painting — each design is broken into depth-classed pieces.
+	# Murals live in "layers"; anything Roshan can pass IN FRONT OF or BEHIND
+	# is a standee — one cutout sprite standing at a real z inside/around the
+	# walk band, so the depth buffer sorts her against it correctly as she
+	# moves and the interaction reads true. Alpha-scissor keeps depth writes
+	# on (standee-vs-standee sorting) and the outlines storybook-crisp.
+	# Unshaded, never re-lit; bottom edge of the art is the ground line.
+	var r := root()
+	if r == null or not ResourceLoader.exists(tex_path):
+		return null
+	var holder := Node3D.new()
+	holder.position = Vector3(x, 0.0, z)
+	r.add_child(holder)
+	var q := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = size
+	q.mesh = qm
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	mat.albedo_texture = load(tex_path)
+	q.material_override = mat
+	q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	q.position = Vector3(0, size.y * 0.5 + y, 0)
+	holder.add_child(q)
+	if shadow:
+		var sq := MeshInstance3D.new()
+		var sqm := QuadMesh.new()
+		sqm.size = Vector2(size.x * 0.6, size.x * 0.6)
+		sq.mesh = sqm
+		sq.rotation_degrees.x = -90.0
+		var sm := StandardMaterial3D.new()
+		sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		sm.albedo_color = Color(0.16, 0.28, 0.45, 0.28)
+		sq.material_override = sm
+		sq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		sq.position = Vector3(0, 0.12, 0)
+		holder.add_child(sq)
+	return holder
+
 # ---- shared bits for stage dressing ----------------------------------------
 func glow(col: Color, size: float) -> MeshInstance3D:
 	# unparented additive billboard glow — halo for pickups / fallers

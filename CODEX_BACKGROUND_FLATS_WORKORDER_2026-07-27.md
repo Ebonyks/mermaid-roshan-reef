@@ -34,6 +34,31 @@ compression is legal (CLAUDE.md texture rule):
 | L3 | `skirt` | 2048×512 | **opaque** | 0.0 | The floor strip under the play plane: sand, tiles, boardwalk. Pinned to the stage. |
 | L4 | `fore` | 2048×512 | alpha, **sparse** (≤15% painted px) | 0.0 | Optional foreground vignette: a frond, a rope, a shelf edge, framing top/bottom corners. Never mid-screen — it must not occlude Roshan or targets. |
 
+### Standee sprites (the second half of every set — same priority as murals)
+
+Owner note 2026-07-27: the redesign's look is **intentional layering of 2D
+designs in 3D space** — a set is never one painting. Murals (the table
+above) sit strictly behind the walk band and may never overlap Roshan.
+Everything she can pass in front of, pass behind, stand at, or tap ships
+as its own **standee**: an individual cutout sprite the engine stands at a
+real depth in the stage (`SideScrollStage.flat()`), so the depth buffer
+sorts her against it correctly as she moves.
+
+- One PNG per object, alpha, POT (512×512, 512×1024 or 1024×1024), the
+  **bottom edge of the painted art = the ground line** (the engine plants
+  it there).
+- Crisp 2–3 px navy/purple outline per the style guide — standees render
+  alpha-scissor (hard edge), murals may keep soft edges.
+- Per zone, deliver the standee inventory as separate files beside the
+  mural layers: `assets/flats/<zone>/<stage>/standee_<zone>_<thing>.png`.
+- **Nothing at band depth may be baked into a mural.** If a concept paints
+  a counter, rock, or doorway where Roshan walks, that object must be cut
+  out into a standee and the mural healed behind it. A mural "prop" at
+  band depth is a layering bug and fails acceptance.
+- Reef batch-1 standee inventory: market counter, 3 coral heads (small/
+  med/large), kelp column, wreck bow, den mouth, 2 anemone clumps, plus
+  the shared door cards below.
+
 - **Overdraw budget (Mali GPU, hard):** at most TWO alpha layers per stage
   (L2 + L4). L0/L1/L3 must ship opaque. If a zone concept needs a third
   transparent layer, it needs a redesign, not an exception.
@@ -77,11 +102,12 @@ race & brawl doors → rainbow portal.
 - L1 far reef wall silhouette with the castle skyline glowing at the far
   right (the "that way to the castle" landmark — composition should pull
   the eye rightward).
-- L2 identity dressing: giant round coral heads, anemone clusters, the
-  manta's market rock, the tilted wreck hull, kelp columns. Leave clear
-  "sockets" (unpainted low-detail zones) where live targets stand: five
-  friends, shop counter, den mouth, portal — those are cutouts/3D, not
-  background.
+- L2 identity dressing (background depth ONLY): distant coral banks,
+  anemone drifts, the manta's market rock silhouette, the wreck seen
+  behind the band. Leave clear "sockets" (unpainted low-detail zones)
+  where live targets and standees stand: five friends, market counter,
+  den mouth, portal — those are standees/cutouts/3D, never mural paint
+  (see the standee rule above).
 - L3 pale sand skirt with shell/starfish sprinkles at toy scale.
 - L4 one kelp frond top-left, one coral shelf bottom-right.
 - Night variant of L0/L1 only (bioluminescent accents).
