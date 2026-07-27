@@ -154,15 +154,19 @@ func _swell_case() -> void:
 	# prop sways its sprite cosmetically while its body never moves.
 	var cfg: Dictionary = main.g.get("ss_cfg", {})
 	cfg["swell"] = 1.0
-	var target: RigidBody3D = null
-	for p_v in _fleet():
-		var b := p_v as RigidBody3D
-		if b != null and is_instance_valid(b) and not b.axis_lock_angular_z:
-			target = b
-			break
+	# a dedicated WATERLOGGED target mid-stage, per the engine's pairing
+	# rule: buoyant props (low gravity_scale) are the ones the tide can
+	# out-pull friction on — and mid-stage means the stir cannot corner it
+	# against a wall like the push-case survivor (run #841 failure)
+	var target := stage.prop("", PROP_SIZE, 6.0, 0.0,
+		{"drop": 1.0, "gravity_scale": 0.35, "damp": 1.0})
 	if target == null:
 		_ck("a swell target exists", false)
 		return
+	for i in range(30):
+		_park_player_far()
+		stage.props_tick(_dt())
+		await process_frame
 	for i in range(8):
 		main.player.position = target.global_position + Vector3(2.2, 0.3, 0.0)
 		main.player.vel = Vector3(-10.0, 0.0, 0.0)
@@ -204,6 +208,7 @@ func _swell_case() -> void:
 	cfg["swell"] = 0.0
 
 func _cap_case() -> void:
+	var have: int = _fleet().size()
 	var extra := 0
 	var last: RigidBody3D = null
 	for i in range(10):
@@ -212,7 +217,7 @@ func _cap_case() -> void:
 			extra += 1
 	var s: Dictionary = stage.props_tick(_dt())
 	_ck("fleet cap holds at PROPS_MAX",
-		extra == SideScrollStage.PROPS_MAX - 4 and last == null
+		extra == SideScrollStage.PROPS_MAX - have and last == null
 		and int(s.get("count", 0)) == SideScrollStage.PROPS_MAX)
 
 func _teardown_case() -> void:

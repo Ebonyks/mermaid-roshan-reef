@@ -641,8 +641,12 @@ func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary =
 # solver force, sleeping props rock their sprite cosmetically WITHOUT waking
 # (the sleep/perf contract survives), Roshan's hover and the parallax layers
 # add the same phase. Opt-in per stage: cfg "swell" ∈ [0,2], 0 (default) =
-# off — underwater promenades turn it on, interiors stay still. Not a water
-# sim; the oceanfft addon stays dead.
+# off — underwater promenades turn it on, interiors stay still. PAIRING
+# RULE: a swell stage should waterlog its props (gravity_scale ≲ 0.4, damp
+# ~1.0) — friction scales with held-down weight, and the gentle tide only
+# out-pulls friction on buoyant bodies; a full-gravity grounded box will
+# not ride it (by design — deck furniture stays put, sea toys drift). Not
+# a water sim; the oceanfft addon stays dead.
 
 func swell_amp() -> float:
 	var cfg: Dictionary = m.g.get("ss_cfg", {})
