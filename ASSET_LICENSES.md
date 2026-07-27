@@ -374,13 +374,36 @@ ambientCG (all CC0).
   changed only the white background to a flat chroma key, followed by local
   alpha extraction and resizing to 1024px; used as the unshaded in-world
   Sprite3D card while the source character art remains unchanged.
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png` —
-  project-original OpenAI image generation; one uninterrupted 3:1 PNW
-  panorama flowing from the blocked-water runway shore, through the meadow,
-  to the castle drawbridge terrace and moat; generated from the three earlier
-  screen concepts plus the project PNW tree/shrub sheets, then resized to
-  1024px. The three earlier panel files were removed after this continuous
-  master replaced them.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_tree_douglas_fir.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_shrub_red_flowering_currant_a.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png` —
+  project-original OpenAI image generation matching the approved Sky Lagoon
+  panorama cloud language; generated on a flat chroma key, locally
+  alpha-extracted, and resized to 1024px.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
+  project-original OpenAI image generation; native 2172×724 exact-3:1 master
+  flowing from the blocked-water runway shore, through a bounded playground
+  meadow, to the coherent pearl castle, Mermaid Roshan stained glass,
+  drawbridge, and elevated mountain-pass path. Generated from the prior
+  panorama, project pearl-castle facade sheet, historical stained-glass
+  visual, and PNW tree/shrub references; preserved without scaling or crop.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png` —
+  project-original lossless crop of the native master, rectangle
+  `(0, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png` —
+  project-original lossless crop of the native master, rectangle
+  `(724, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png` —
+  project-original lossless crop of the native master, rectangle
+  `(1448, 0, 724, 724)`; no scaling, padding, overlap, or content change.
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.

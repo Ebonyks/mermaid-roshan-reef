@@ -6,7 +6,7 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_SIZE := Vector2(144.0, 48.0)
+const BACKDROP_TILE_SIZE := Vector2(48.0, 48.0)
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
 
 var m: ReefMain
@@ -41,11 +41,15 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": 10.0,
 		"cam_follow": 1.0,
 	})
-	# One 3x1 painting on one Sprite3D card: the camera can cross both page boundaries
-	# without exposing a seam, gutter, parallax mismatch, or horizon jump.
+	# Three native-resolution, lossless tiles reconstruct the exact 2172x724
+	# master at one depth. Their edges meet without overlap or rescaling.
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama.png",
-		0.0)
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png", -48.0)
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png", 0.0)
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png", 48.0)
+	_build_ambient_life()
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
@@ -67,6 +71,7 @@ func tick(delta: float) -> void:
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
 	_sync_roshan_card(m.player.position.x - old_x)
+	_tick_ambient_life(delta)
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
@@ -100,7 +105,12 @@ func _build_runway_screen() -> void:
 	var plane := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
 		Vector3(-57.0, 8.1, -5.8), 11.2)
+	m.g["lagoon_plane_card"] = plane
+	m.g["lagoon_plane_base"] = plane.position
 	_register_target("plane", plane, "plane", "", 118.0, 1.12)
+	var targets: Array = m.g.get("lagoon_promenade_targets", [])
+	var plane_target: Dictionary = targets.back() as Dictionary
+	m.g["lagoon_plane_highlight"] = plane_target.get("highlight")
 	_add_activity_frame("runway_frame", Vector3(-32.0, 14.5, -4.8),
 		"res://assets/book/hall/p_snowman.jpg", "snowman")
 
@@ -109,13 +119,13 @@ func _build_playground_screen() -> void:
 		"res://assets/book/hall/p_garden.jpg", "garden")
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
-		Vector3(-9.0, 7.0, -5.5), 11.8)
+		Vector3(-9.0, 8.4, -5.5), 15.5)
 	var swing := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
-		Vector3(3.0, 7.0, -5.7), 11.6)
+		Vector3(3.0, 8.4, -5.7), 15.0)
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
-		Vector3(15.0, 5.0, -5.4), 7.5)
+		Vector3(15.0, 5.8, -5.4), 9.2)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -126,6 +136,10 @@ func _build_castle_screen() -> void:
 	var gate := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
 		Vector3(56.0, 9.1, -5.8), 17.0)
+	# The full castle is painted into the panorama. This aligned card is kept
+	# hidden until focus so the first tap can still outline the entrance
+	# without drawing a second gate over the castle facade.
+	gate.visible = false
 	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
 
 func _build_roshan_card() -> void:
@@ -145,18 +159,89 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 	if absf(delta_x) > 0.01:
 		card.flip_h = delta_x < 0.0
 
+func _build_ambient_life() -> void:
+	m.g["lagoon_ambient_t"] = 0.0
+	m.g["lagoon_ambient_cards"] = []
+	_add_ambient_card("fir",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		Vector3(-68.0, 8.0, -7.5), 14.0, 0.0, 0.55, 0.018)
+	_add_ambient_card("fir",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		Vector3(23.0, 7.4, -8.2), 12.5, 1.8, 0.48, 0.016)
+	_add_ambient_card("flower",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		Vector3(-24.0, 3.0, -4.2), 5.2, 0.7, 0.72, 0.030)
+	_add_ambient_card("flower",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		Vector3(23.0, 3.0, -4.3), 5.0, 2.4, 0.68, 0.028)
+	_add_ambient_card("flower",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		Vector3(68.0, 3.2, -4.1), 5.4, 4.0, 0.64, 0.032)
+	_add_ambient_card("cloud",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
+		Vector3(-60.0, 34.0, -15.5), 7.0, 1.1, 0.72, 0.0)
+
+func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
+		phase: float, speed: float, amplitude: float) -> void:
+	var card := _add_sprite(path, pos, height)
+	card.name = "SkyLagoonAmbient_%s" % kind
+	card.set_meta("ambient_kind", kind)
+	card.set_meta("ambient_base", pos)
+	card.set_meta("ambient_phase", phase)
+	card.set_meta("ambient_speed", speed)
+	card.set_meta("ambient_amplitude", amplitude)
+	var cards: Array = m.g.get("lagoon_ambient_cards", [])
+	cards.append(card)
+	m.g["lagoon_ambient_cards"] = cards
+
+func _tick_ambient_life(delta: float) -> void:
+	var ambient_t: float = float(m.g.get("lagoon_ambient_t", 0.0)) + delta
+	m.g["lagoon_ambient_t"] = ambient_t
+	for value in (m.g.get("lagoon_ambient_cards", []) as Array):
+		var card := value as Sprite3D
+		if card == null or not is_instance_valid(card):
+			continue
+		var base: Vector3 = card.get_meta("ambient_base", card.position) as Vector3
+		var phase: float = float(card.get_meta("ambient_phase", 0.0))
+		var speed: float = float(card.get_meta("ambient_speed", 0.5))
+		var kind: String = String(card.get_meta("ambient_kind", "flower"))
+		if kind == "cloud":
+			card.position = Vector3(
+				wrapf(base.x + ambient_t * speed, -78.0, 78.0),
+				base.y + sin(ambient_t * 0.32 + phase) * 0.18,
+				base.z)
+			continue
+		var wave: float = sin(ambient_t * speed + phase)
+		var amplitude: float = float(card.get_meta("ambient_amplitude", 0.02))
+		card.rotation.z = wave * amplitude
+		card.position = Vector3(
+			base.x + wave * 0.04,
+			base.y + absf(wave) * 0.025,
+			base.z)
+	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
+	if plane != null and is_instance_valid(plane):
+		var plane_base: Vector3 = m.g.get("lagoon_plane_base", plane.position) as Vector3
+		plane.position = plane_base + Vector3(
+			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
+		plane.rotation.z = sin(ambient_t * 0.72) * 0.010
+		var plane_glow: Sprite3D = m.g.get("lagoon_plane_highlight") as Sprite3D
+		if plane_glow != null and is_instance_valid(plane_glow):
+			plane_glow.position = plane.position + Vector3(0.0, 0.0, -0.05)
+			plane_glow.rotation.z = plane.rotation.z
+
 func _add_backdrop(path: String, x: float) -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
 	var backdrop := Sprite3D.new()
+	backdrop.name = "SkyLagoonBackdrop_%d" % roundi(x)
 	backdrop.texture = load(path)
-	backdrop.pixel_size = BACKDROP_SIZE.x / maxf(
+	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
 		1.0, float(backdrop.texture.get_width()))
 	backdrop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	backdrop.position = Vector3(x, BACKDROP_SIZE.y * 0.5, -18.0)
+	backdrop.position = Vector3(x, BACKDROP_TILE_SIZE.y * 0.5, -18.0)
 	root_node.add_child(backdrop)
 
 func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
