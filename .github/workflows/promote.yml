@@ -54,3 +54,45 @@ jobs:
           fi
           git push origin HEAD:master
           echo "master fast-forwarded to $(git rev-parse HEAD)"
+
+      - name: Promote the dev-channel APK to the stable channel
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The GITHUB_TOKEN push above cannot trigger probes.yml (GitHub
+          # suppresses on:push workflows for GITHUB_TOKEN pushes), so
+          # android.yml never rebuilds for master and the android-test
+          # release went stale after every promotion (observed 2026-07-27:
+          # stable APK was 10 days behind). The dev-channel APK was already
+          # built from this exact commit after green probes, so promotion of
+          # the stable channel is a checksum-verified copy, not a rebuild.
+          SHA=$(git rev-parse HEAD)
+          # android.yml publishes the dev APK a few minutes after probes go
+          # green; if promotion was dispatched immediately, wait for it.
+          for i in $(seq 1 12); do
+            if gh release view android-dev --json body -q .body | grep -q "$SHA"; then
+              break
+            fi
+            echo "android-dev APK for $SHA not published yet (attempt $i/12); waiting 60s"
+            sleep 60
+          done
+          if ! gh release view android-dev --json body -q .body | grep -q "$SHA"; then
+            echo "::warning::android-dev has no APK built from $SHA; stable channel NOT updated. Re-run this workflow once the dev APK build for $SHA finishes."
+            exit 1
+          fi
+          mkdir -p /tmp/apk
+          gh release download android-dev --pattern 'roshan-reef.apk*' --dir /tmp/apk
+          (cd /tmp/apk && sha256sum -c roshan-reef.apk.sha256)
+          gh release upload android-test /tmp/apk/roshan-reef.apk /tmp/apk/roshan-reef.apk.sha256 --clobber
+          cat > /tmp/apk/notes.md <<EOF
+          Debug APK of Mermaid Roshan Reef of Light, built only after the probe suite passed.
+          Commit: $SHA (promoted from the dev channel; checksum-verified copy of the CI build)
+          On the phone: download roshan-reef.apk, open it, and allow "install unknown apps" when prompted.
+
+          Bookmarkable direct link (always the newest build on this channel):
+          https://github.com/${GITHUB_REPOSITORY}/releases/download/android-test/roshan-reef.apk
+
+          From a computer with the phone plugged in: \`./pull-apk.sh\`
+          EOF
+          gh release edit android-test --notes-file /tmp/apk/notes.md
+          echo "stable channel updated to the APK built from $SHA"
