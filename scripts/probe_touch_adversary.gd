@@ -155,9 +155,9 @@ func _playthrough(run_index: int) -> void:
 			else:
 				var plane_target: Dictionary = {}
 				for target_value in promenade_targets:
-					var target: Dictionary = target_value as Dictionary
-					if String(target.get("id", "")) == "plane":
-						plane_target = target
+					var promenade_target: Dictionary = target_value as Dictionary
+					if String(promenade_target.get("id", "")) == "plane":
+						plane_target = promenade_target
 						break
 				main._lagoon_promenade_ref()._focus(plane_target)
 				if String(main.g.get("lagoon_promenade_focus", "")) != "plane":
