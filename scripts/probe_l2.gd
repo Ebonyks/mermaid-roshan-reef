@@ -236,6 +236,15 @@ func _init() -> void:
 	var last_got := 0
 	var entered := false
 	var wob := 0.0
+	# The wander stress measures the STAR chase. The courtyard opera marquee
+	# was verified moments ago, but it re-arms after the leave — and the
+	# wandering bot can drift straight onto it mid-chase, yanking the game
+	# out of level2 (runs 782/788: left at t=9.9s, read back as STUCK). Cool
+	# it past the whole stress window so the chase stays the chase.
+	if main.g.has("opera_gate"):
+		var stress_og: Dictionary = main.g["opera_gate"]
+		stress_og["armed"] = false
+		stress_og["cool"] = 400.0
 	# done = the Crown Star win is recorded (crown celebrates IN PLACE since
 	# f5d7689 — the game stays in level2 by design, no ocean eject)
 	while main.game == "level2" and not bool(main.g.get("crown_won", false)) and t < 240.0:

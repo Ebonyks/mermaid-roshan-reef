@@ -514,7 +514,10 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 	_ck("act %d opens with Roshan hiding the bunny-fish" % (expected + 1),
 		act.shuffle_phase == "hide" and act.bunny.visible)
 	var guard := 0
-	while act.state == "play" and guard < 900:
+	# six escalating rounds are ~46s of watchable swap animation — the guard
+	# counts FRAMES through it, so it scales with the show (900 was measured
+	# at the edge on run 788's runner and one round over it tipped red)
+	while act.state == "play" and guard < 2500:
 		guard += 1
 		if act.shuffle_phase == "hide":
 			# drag a hat onto the fish
@@ -568,7 +571,7 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 			_ck_once("three taps on the beat open the cabinet", act.cab_taps >= act.CAB_TAPS)
 			continue
 		await process_frame
-	_ck("shuffle act does not stall", guard < 900)
+	_ck("shuffle act does not stall", guard < 2500)
 	_ck("act %d finishes the whole routine" % (expected + 1),
 		act.state == "won" and act.rope_undone >= act.ROPE_KNOTS and act.cab_taps >= act.CAB_TAPS)
 
