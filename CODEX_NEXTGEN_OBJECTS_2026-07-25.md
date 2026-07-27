@@ -22,6 +22,10 @@ code and always tells the truth about *which* objects are needed.
         ▼
   .glb dropped at the manifest's own `path`, states as child nodes
         │
+        │  $GODOT --headless -s scripts/probe_continuity.gd -- <the .glb>
+        ▼
+  continuity gate: PASS → hand back    FAIL → fix it before anyone sees it
+        │
         ▼
   probe suite (scripts/ci.sh) → green → next loop
 ```
@@ -256,6 +260,71 @@ box it collides with gameplay props.
 
 ---
 
+## The continuity gate — run it while you build
+
+The game can now tell you, in seconds and without a human, whether a model you
+just exported can ship. Run it the moment a `.glb` exists — during modelling,
+not at handback:
+
+```sh
+$GODOT --headless -s scripts/probe_continuity.gd -- assets/opera/jobs/pastry_chef/opera_pastry_chef_batter.glb
+# several paths at once is fine; no paths = sweep everything under assets/opera/jobs
+```
+
+It reads the `.glb` straight off disk with GLTFDocument — no import pass, so it
+cannot trip the NPOT importer deadlock — prints one `CONTINUITY|` line per
+object, writes `audit/continuity_report.json`, and exits **0 = clean, 1 = at
+least one FAIL**.
+
+Why it exists: whole delivered batches have been beautiful and unusable. Wrong
+saturation for the pastel band, specular materials in a matte toy world, a
+missing state node, a 100× export scale — each invisible in the modelling tool,
+each fatal in the game, each previously caught by a human days later. The gate
+checks two things:
+
+**The contract** (hard FAIL — the machine-checkable half of §1–§4): every
+manifest state present as a `State<Name>` child with exactly one visible by
+default; no lights, skeletons or animation tracks; ≤ 900 tris per state, ≤ 4
+materials, ≤ 40 nodes; textures ≤ 1024 px or power-of-two; sane metre scale
+(a 30 m prop is an unconverted export, not a design choice).
+
+**Belonging — the visitor test**: it extracts the object's area-weighted albedo
+palette (materials × sampled textures) and compares it against two references:
+
+1. *The design language* — the band `_toonify` enforces: matte (roughness ≥
+   0.7, metallic ≤ 0.1, no normal maps), mean saturation and value inside the
+   pastel toy range, albedo never above 1.0 (overbright albedo clips past the
+   tonemap on Android and reads as blown white).
+2. *The neighbours* — every other `.glb` already living in the same job folder.
+   A candidate whose mean saturation or value sits more than ±0.22 from the
+   neighbours' median is a **visitor**: an object that will look imported, not
+   native, next to the set it plays in — no matter how good it is alone.
+
+Reading the verdicts:
+
+- **FAIL** — do not hand it back. The `fail=` reasons name the exact violation.
+- **WARN** — shippable, but look at it: near a band edge, photographic texture
+  detail (`texture_detail` high = the albedo is a photo, not a toy fill),
+  origin at the centre instead of the contact point, or a path the manifest
+  does not know (outfits are fine; a new *beat object* warned this way means
+  you invented a path instead of taking the manifest's).
+- `stage_contrast=` is informational: how far the object's value sits from its
+  act's backdrop. Props must read **against** their stage — near zero on a
+  gameplay object is worth a second look even on a PASS.
+
+Rules of use:
+
+- State checks need `audit/opera_art_manifest.json` — regenerate it with
+  `probe_art_manifest.gd` whenever the fingerprint moves.
+- The thresholds live at the top of `scripts/probe_continuity.gd` and mirror
+  the budgets in this document. Changing one is an owner decision, never a
+  way to get your own asset through.
+- The gate proves *belonging*, not *beauty*. A PASS skips nothing on the
+  handback checklist; it only guarantees the boring failures are already gone.
+- The existing gen1 files (`bowl`, `oven`, `rocket`) FAIL it today — missing
+  states, over budget. That is the rebuild backlog agreeing with this
+  document, not noise.
+
 ## Handback checklist
 
 Before a batch is handed back:
@@ -269,6 +338,8 @@ Before a batch is handed back:
 - [ ] No state depicts failure, damage-as-punishment, or a scolding face.
 - [ ] `ASSET_LICENSES.md` line added in the same commit, with the manifest
       fingerprint built against.
+- [ ] `scripts/probe_continuity.gd` exits 0 on every file in the batch — no
+      FAILs, and every WARN either fixed or explained in the handback note.
 - [ ] `$GODOT --headless --import .` completes (watch for the NPOT deadlock),
       then `scripts/ci.sh` is green.
 
@@ -280,6 +351,8 @@ $GODOT --headless -s scripts/probe_art_manifest.gd
 # → audit/opera_art_manifest.json
 #   ARTMANIFEST|acts=12 objects=139 states=300 missing=136 fingerprint=…
 git diff -- audit/opera_art_manifest.json     # this diff is the work order
+$GODOT --headless -s scripts/probe_continuity.gd -- <each .glb as you cut it>
+# CONTINUITY|obj=… verdict=PASS|WARN|FAIL … — exit 1 means fix before handback
 ```
 
 No Godot handy? Download the `opera-art-manifest` artifact from the newest
