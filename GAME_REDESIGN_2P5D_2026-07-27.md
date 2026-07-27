@@ -98,6 +98,59 @@ Corollary for all art orders: **anything Roshan can tap, pass, or stand
 behind ships as its own sprite with its own depth — never baked into a
 mural.** A mural that paints a "prop" at band depth is a layering bug.
 
+### The visual north star (owner decision 2026-07-27)
+
+**A modernized, happy, 4-year-old Curse of Monkey Island.** CMI is the
+staging and rendering reference for the promenade world — reference only:
+no Monkey Island / LucasArts assets, characters, designs, or music, ever.
+
+What we take from it:
+
+- **Painted light.** Light pools, god rays, glowing windows and lantern
+  warmth are painted into the murals — never runtime lights. (This is the
+  no-new-OmniLights rule wearing a costume.)
+- **Atmospheric recession.** Every layer back gets cooler, hazier, less
+  saturated and softer-edged; saturation and contrast peak exactly at the
+  walk band. The tappable plane is always the most vivid thing on screen —
+  the look rule doubles as the accessibility rule.
+- **Cel-vs-background separation.** Crisp outlined standees and characters
+  pop off soft-edged painterly murals (already enforced by the
+  scissor-vs-alpha split in the layer spec).
+- **Theatrical staging.** Big readable silhouettes, oversized props,
+  walk-behind foreground pieces, one dominant hue per scene with one
+  accent (each Codex batch declares its color script).
+- **Stepped motion.** Transform animation samples a ~10 fps clock
+  (engine: `dress_tick`) so tweened sway and bob read as hand-drawn cel
+  animation instead of screensaver-smooth interpolation. Costs nothing.
+
+What we invert for the four-year-old: grime becomes pastel candy, menace
+becomes cozy, night is bioluminescent-magical rather than gloomy, and
+nothing at child eye level is ever scary. Modernized means clean crisp
+edges at native resolution, generous color, and the existing pastel toy
+palette — CMI's composition and light, never its texture of danger.
+
+### The animation ladder (resource law for all stage art)
+
+Codex paintings are the scarce resource; frames are paintings. Every
+moving thing uses the cheapest tier that reads:
+
+- **Tier 0 — animate the quad** (default for ALL standees): idle bob,
+  pendulum sway, squash-and-stretch on tap. Zero art frames.
+- **Tier 1 — shared shaders**: one vertex-sway material for foliage-class
+  standees, UV-scroll for bubbles/water, emissive pulse. Zero art frames.
+- **Tier 2 — paper-doll parts** (new named characters and hero props):
+  one character painted as 4–6 pieces, joints tweened by the engine;
+  animations are reusable across any character on the same rig. One
+  painting buys unlimited motion.
+- **Tier 3 — flipbooks, last resort**: ≤4 frames, ≤512 px, only the
+  region that changes (a blink card, a splash) — never a full character.
+  One 8-frame 1024² flipbook costs more VRAM than a whole zone's murals;
+  that budget mistake is banned by rule.
+
+Protected friend cutouts and book art stay Tier 0 + sparkle overlays
+(they may never be cut apart or repainted). Roshan herself remains the
+rigged 3D model — the one constant high-quality mover, free of charge.
+
 ### The control grammar (replaces the stick)
 
 One finger, two ideas, nothing else:

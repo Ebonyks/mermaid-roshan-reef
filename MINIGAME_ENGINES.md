@@ -303,9 +303,13 @@ var w := stage.walk_tick(delta)  # walk mode (promenade travel — engine seam,
     # the stage plane, goal persists to arrival, any manual axis cancels it
     # → {"px","pz","moved","pointing","arrived"}
 stage.flat("res://assets/flats/reef/promenade/standee_reef_coral_med.png",
-    Vector2(9, 8), -6.0, 2.5)   # standee: a 2D design standing at a real
-    # depth so Roshan sorts in front/behind it as she walks (charter §1
-    # layering rule); returns the holder Node3D for tap-target registration
+    Vector2(9, 8), -6.0, 2.5, 0.0, true, 0.06)  # standee: a 2D design at a
+    # real depth so Roshan sorts in front/behind it as she walks (charter §1
+    # layering rule); returns the holder Node3D for tap-target registration.
+    # Trailing arg = sway radians for the stepped cel-clock pendulum.
+stage.dress_tick(delta)  # walk-mode clients only: samples standee sway on a
+    # ~10 fps stepped clock ("anim_fps") so motion reads as hand-drawn cel
+    # (charter: the modernized happy Monkey Island north star)
 var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
 stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
 stage.companion_open(tex, height, start)   # player-2 cutout hero

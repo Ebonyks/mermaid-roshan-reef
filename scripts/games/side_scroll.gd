@@ -45,6 +45,8 @@ func open(cfg: Dictionary) -> void:
 	m.g["ss_bob"] = 0.0
 	m.g["ss_run_x"] = 0.0
 	m.g["ss_run_vy"] = 0.0
+	m.g["ss_flats"] = []
+	m.g["ss_dress_t"] = 0.0
 	var rt := Node3D.new()
 	rt.position = cfg.get("origin", m.ARENA_POS)
 	m.add_child(rt)
@@ -457,7 +459,7 @@ func companion_tick(delta: float, want_x: float, want_z: float, speed: float) ->
 	return {"x": x, "z": z, "tap": human and tap, "human": human}
 
 # ---- standee flats: 2D designs standing IN the 3D stage --------------------
-func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, shadow: bool = true) -> Node3D:
+func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, shadow: bool = true, sway: float = 0.0) -> Node3D:
 	# The layering rule (owner note 2026-07-27, charter §1): a stage set is
 	# never one painting — each design is broken into depth-classed pieces.
 	# Murals live in "layers"; anything Roshan can pass IN FRONT OF or BEHIND
@@ -498,7 +500,33 @@ func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, s
 		sq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		sq.position = Vector3(0, 0.12, 0)
 		holder.add_child(sq)
+	# sway (radians of lean, 0 = static): registered for dress_tick's stepped
+	# ground-pivot pendulum — the holder sits at the ground line, so rotation
+	# rocks the standee on its base like a stage flat. Deterministic phase
+	# from x keeps probes replayable.
+	(m.g.get("ss_flats", []) as Array).append({"node": holder, "sway": sway, "phase": x * 0.7})
 	return holder
+
+# ---- dressing animation: the stepped cel clock ------------------------------
+func dress_tick(delta: float) -> void:
+	# Storybook motion is stepped, not silky (charter: the modernized happy
+	# Monkey Island north star) — transform animation samples a ~10 fps clock
+	# ("anim_fps") so tweened sway reads as hand-drawn cel motion, at zero
+	# art cost. Promenade/walk clients call this once per frame; existing
+	# stage games don't, so their probe-frozen positions are untouched.
+	var cfg: Dictionary = m.g.get("ss_cfg", {})
+	var t: float = float(m.g.get("ss_dress_t", 0.0)) + delta
+	m.g["ss_dress_t"] = t
+	var fps: float = maxf(1.0, float(cfg.get("anim_fps", 10.0)))
+	var ts: float = floorf(t * fps) / fps
+	for e_v in (m.g.get("ss_flats", []) as Array):
+		var e: Dictionary = e_v as Dictionary
+		var s: float = float(e.get("sway", 0.0))
+		if s <= 0.0:
+			continue
+		var holder: Node3D = e.get("node") as Node3D
+		if holder != null and is_instance_valid(holder):
+			holder.rotation.z = sin(ts * 1.7 + float(e.get("phase", 0.0))) * s
 
 # ---- shared bits for stage dressing ----------------------------------------
 func glow(col: Color, size: float) -> MeshInstance3D:

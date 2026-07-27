@@ -21,6 +21,45 @@ dropped in behind a config table.
 - One ASSET_LICENSES.md line per file, in the commit that adds it.
 - Never touch assets/book/, assets/audio/voices/, assets/characters/friends/.
 
+## The look (owner decision 2026-07-27, binding on every painting)
+
+**A modernized, happy, 4-year-old Curse of Monkey Island.** Reference
+only — no Monkey Island/LucasArts assets, characters, designs or music.
+Four rendering rules implement it:
+
+1. **Light is paint.** Bake light pools, god rays, window glow and
+   lantern warmth into the murals. Nothing in a flat assumes a runtime
+   light; the renderer will never add one.
+2. **Atmospheric recession.** Per layer going back: roughly −15–20%
+   saturation, lifted value toward the sky haze color, softer edges.
+   Saturation and contrast peak at the walk band (L3 + standees). If a
+   squinted composite doesn't separate into depth bands, it fails.
+3. **Color script.** Each stage declares one dominant hue + one accent in
+   its batch notes (reef: aqua-lavender + coral gold). Every layer of
+   that stage obeys it.
+4. **Happy inversion.** CMI's composition and light, never its grime or
+   menace: pastel candy surfaces, cozy interiors, night as
+   bioluminescent magic. Nothing scary at child eye level (unchanged).
+
+## Animation deliverables (what to paint for motion)
+
+Frames are paintings — the scarce resource. The engine animates
+transforms on a stepped ~10 fps cel clock, so most motion needs NO extra
+art:
+
+- **Standees: one sprite each** (default). The engine bobs/sways them.
+  Foliage-class standees should be painted with a clear base/root so
+  ground-pivot sway looks right.
+- **New named characters & hero props: paper-doll part sets** — 4–6
+  pieces (body, head, arm(s), tail/prop) as separate PNGs on one POT
+  sheet or as files, plus a one-line sidecar note giving pivot points.
+  One painted pose; the engine does the acting.
+- **Flipbooks only as a last resort**: ≤4 frames, ≤512 px, only the
+  changing region (blink card, mouth card, splash). Never a full-body
+  frame cycle — one 8-frame 1024² cycle costs more VRAM than an entire
+  zone's murals.
+- Opera "states, not poses" rule continues to apply to interactive props.
+
 ## Layer format (every zone uses this)
 
 Back-to-front, per stage. PNG. **Power-of-two sizes only** so VRAM
