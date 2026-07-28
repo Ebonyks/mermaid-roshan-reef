@@ -3410,7 +3410,20 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
 		return
+	var arena: CombatArena = _combat_arena_ref()
+	if arena != null:
+		arena.on_world_tap(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
+
+# The live hit-engine client, if a battle is running: a standalone arena
+# (overworld/galaxy encounters) or the arena inside either dungeon.
+func _combat_arena_ref() -> CombatArena:
+	if combat_game != null:
+		return combat_game
+	if dungeon_game != null:
+		return dungeon_game.arena
+	return null
 
 func _on_touch_manual_move() -> void:
 	_living_world_ref().note_activity()

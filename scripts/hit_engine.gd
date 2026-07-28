@@ -1,0 +1,207 @@
+class_name HitEngine
+extends RefCounted
+# The shared enemies-get-hit pipeline. An encounter (CombatArena today;
+# StuffieBattle, BrawlGame, OperaAct by later migration) keeps its enemy
+# dictionaries exactly as before and lends them to this engine, which adds one
+# uniform interface on top:
+#   tap_pick(screen_pos)        -> which enemy a screen tap landed on
+#   hit(enemy, damage, source)  -> the single entry point for ALL damage
+#   play_death(enemy, style)    -> the dying-animation library + disposal
+# The source string is the open seam for future damage kinds — projectiles
+# feed "shot_ice"/"shot_fire" today; COMBO_SYSTEM.md verbs ("mash", "slice")
+# and anything later funnel through the same hit() call.
+# Picking is screen-space unprojection (InteractionDirector's technique):
+# no collision shapes, no raycasts, nothing for Jolt to simulate.
+# No fail states enter through here: the engine only ever acts on enemies.
+
+const SCREEN_HIT_RADIUS := 110.0
+const AIM_HEIGHT := 2.2
+
+var m: ReefMain
+var targets: Array = []            # the encounter's enemy dicts (shared reference)
+var fx_root: Node3D = null         # parent for transient death-FX nodes
+var camera: Camera3D = null        # picking lens (the encounter's own camera)
+var on_hit: Callable = Callable()       # func(enemy, damage: int, source: String)
+var on_defeated: Callable = Callable()  # func(enemy) — fires as a death begins
+var hittable_states: Array = ["active"]
+var materials: Dictionary = {}
+
+func _init(main: ReefMain) -> void:
+	m = main
+
+func hittable(enemy: Dictionary) -> bool:
+	if enemy.is_empty():
+		return false
+	var node_value: Variant = enemy.get("node")
+	if node_value == null or not is_instance_valid(node_value):
+		return false
+	return String(enemy.get("state", "active")) in hittable_states
+
+func aim_point(enemy: Dictionary) -> Vector3:
+	var node: Node3D = enemy["node"]
+	return node.global_position + Vector3(0, float(enemy.get("aim_h", AIM_HEIGHT)), 0)
+
+# Which enemy does a screen tap land on? Nearest hittable target whose
+# projected aim point sits within its screen radius, depth as tiebreaker.
+func tap_pick(screen_pos: Vector2) -> Dictionary:
+	var lens: Camera3D = camera
+	if lens == null or not is_instance_valid(lens):
+		lens = m.get_viewport().get_camera_3d()
+	if lens == null:
+		return {}
+	var best: Dictionary = {}
+	var best_score := INF
+	for enemy_value: Variant in targets:
+		var enemy: Dictionary = enemy_value as Dictionary
+		if not hittable(enemy):
+			continue
+		var pos: Vector3 = aim_point(enemy)
+		if lens.is_position_behind(pos):
+			continue
+		var projected: Vector2 = lens.unproject_position(pos)
+		var screen_distance: float = projected.distance_to(screen_pos)
+		if screen_distance > float(enemy.get("screen_radius", SCREEN_HIT_RADIUS)):
+			continue
+		var score: float = screen_distance + lens.global_position.distance_to(pos) * 0.015
+		if score < best_score:
+			best_score = score
+			best = enemy
+	return best
+
+# Convenience: resolve a tap into a hit. Returns true when it landed.
+func tap(screen_pos: Vector2) -> bool:
+	var enemy: Dictionary = tap_pick(screen_pos)
+	if enemy.is_empty():
+		return false
+	return hit(enemy, 1, "tap")
+
+# The one damage entry point. Every damage source — taps, projectiles,
+# future combo verbs — lands here. When the encounter sets on_hit it owns
+# the response (freeze, phase logic, befriending); otherwise the default
+# hp pipeline runs the enemy's death style when hp reaches zero.
+func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
+	if not hittable(enemy):
+		return false
+	if on_hit.is_valid():
+		on_hit.call(enemy, damage, source)
+		return true
+	enemy["hp"] = maxi(0, int(enemy.get("hp", 1)) - damage)
+	if int(enemy["hp"]) > 0:
+		var node: Node3D = enemy["node"]
+		m._sparkle_burst(node.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
+		return true
+	play_death(enemy)
+	return true
+
+# ---- the dying-animation library -------------------------------------------
+# Styles are cosmetic transitions; the enemy's dict state flips immediately so
+# game logic (win checks, HUD counts) never waits on a tween. Disposal per
+# style: "hide" keeps the node for reuse, "free" removes it, "keep" leaves it.
+func play_death(enemy: Dictionary, style: String = "", cfg: Dictionary = {}) -> void:
+	var node_value: Variant = enemy.get("node")
+	if node_value == null or not is_instance_valid(node_value):
+		return
+	var node: Node3D = node_value
+	var chosen: String = style if style != "" else String(enemy.get("death", "pop"))
+	enemy["state"] = String(cfg.get("end_state", "popped"))
+	if on_defeated.is_valid():
+		on_defeated.call(enemy)
+	match chosen:
+		"pop":
+			_death_pop(enemy, node, cfg)
+		"flop":
+			_death_flop(enemy, node, cfg)
+		_:
+			_death_shrink(enemy, node, cfg)
+
+# The popcorn burst: the arena's beloved imp finale, engine-owned so every
+# encounter can serve it. Matches CombatArena's original tween exactly.
+func _death_pop(enemy: Dictionary, node: Node3D, cfg: Dictionary) -> void:
+	var pos: Vector3 = enemy.get("pos", node.position)
+	node.visible = false
+	var parent: Node3D = fx_root
+	if parent == null:
+		parent = node.get_parent() as Node3D
+	var corn_count: int = int(cfg.get("count", 7))
+	var art_theme: String = String(cfg.get("art_theme", ""))
+	for i in range(corn_count):
+		var a: float = float(i) * TAU / float(corn_count)
+		var corn: Node3D
+		if art_theme == "ember":
+			corn = DungeonArt.spawn("completion_spark", parent,
+				pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
+			corn.scale = Vector3.ONE * 0.34
+		else:
+			corn = _sphere(parent, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
+		var tw: Tween = corn.create_tween()
+		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		tw.tween_callback(corn.queue_free)
+	m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.45))
+	_dispose(node, String(cfg.get("dispose", "hide")))
+
+# The brawler's shrink-away, generalized.
+func _death_shrink(_enemy: Dictionary, node: Node3D, cfg: Dictionary) -> void:
+	var col: Color = cfg.get("color", Color(1.0, 0.75, 0.9))
+	m._sparkle_burst(node.global_position + Vector3(0, 2.0, 0), col)
+	var tw: Tween = node.create_tween()
+	tw.tween_property(node, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
+	_finish_tween(tw, node, String(cfg.get("dispose", "free")))
+
+# The comic keel-over: a little hop, tip sideways like a landed fish (the
+# player's "flop" verb in node form), then shrink out. Never grim.
+func _death_flop(_enemy: Dictionary, node: Node3D, cfg: Dictionary) -> void:
+	var col: Color = cfg.get("color", Color(1.0, 0.85, 0.55))
+	m._sparkle_burst(node.global_position + Vector3(0, 2.0, 0), col)
+	var tw: Tween = node.create_tween()
+	tw.tween_property(node, "position:y", node.position.y + 1.1, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.parallel().tween_property(node, "rotation:z", PI * 0.55, 0.42).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(node, "position:y", node.position.y + 0.2, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tw.tween_interval(0.25)
+	tw.tween_property(node, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
+	_finish_tween(tw, node, String(cfg.get("dispose", "free")))
+
+func _finish_tween(tw: Tween, node: Node3D, dispose: String) -> void:
+	match dispose:
+		"free":
+			tw.tween_callback(node.queue_free)
+		"hide":
+			tw.tween_callback(func() -> void: node.visible = false)
+		_:
+			pass
+
+func _dispose(node: Node3D, dispose: String) -> void:
+	match dispose:
+		"free":
+			node.queue_free()
+		"hide":
+			node.visible = false
+		_:
+			pass
+
+func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
+	var key := "%s:%.2f" % [col.to_html(true), emission]
+	if materials.has(key):
+		return materials[key]
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = col
+	mat.roughness = 0.62
+	if emission > 0.0:
+		mat.emission_enabled = true
+		mat.emission = col
+		mat.emission_energy_multiplier = emission
+	materials[key] = mat
+	return mat
+
+func _sphere(parent: Node3D, pos: Vector3, radius: float, col: Color, emission: float = 0.0) -> MeshInstance3D:
+	var shape := SphereMesh.new()
+	shape.radius = radius
+	shape.height = radius * 2.0
+	shape.radial_segments = 12
+	shape.rings = 6
+	var node := MeshInstance3D.new()
+	node.mesh = shape
+	node.position = pos
+	node.material_override = _mat(col, emission)
+	parent.add_child(node)
+	return node
