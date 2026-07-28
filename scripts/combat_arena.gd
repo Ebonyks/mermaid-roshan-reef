@@ -30,6 +30,7 @@ var enemies: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
+var he: HitEngine = null
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
@@ -48,15 +49,24 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	_build_avatar()
 	_build_camera()
 	_build_hud()
+	# the shared hit pipeline: taps and projectiles both damage through it
+	he = HitEngine.new(m)
+	he.fx_root = self
+	he.camera = cam
+	he.on_hit = Callable(self, "_on_engine_hit")
 	if kind == "ice":
 		_build_ice_swarm()
-		m.show_msg("Roshan", "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!", "talk")
+		var ice_msg := "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!"
+		if m.touch_uses_explicit_interactions():
+			ice_msg += " Or tap an imp right on its nose!"
+		m.show_msg("Roshan", ice_msg, "talk")
 	else:
 		_build_pepper_boss()
 		if kind == "dual":
 			m.show_msg("Roshan", "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!", "talk")
 		else:
 			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
+	he.targets = enemies if kind == "ice" else [boss]
 	_update_hud()
 
 func _build_environment() -> void:
@@ -193,7 +203,7 @@ func _build_pepper_boss() -> void:
 	var shell := DungeonArt.find_part(root, "Shell")
 	var first_phase := "shell" if kind == "dual" else "peek"
 	var first_time := float(encounter.get("shell_time", 4.5)) if kind == "dual" else float(encounter.get("peek_time", 4.5))
-	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position}
+	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position, "aim_h": 3.0, "screen_radius": 170.0}
 	if kind == "dual":
 		head.visible = false
 
@@ -252,6 +262,24 @@ func _process(delta: float) -> void:
 		_tick_boss(delta)
 	_tick_pointer()
 
+# A screen tap from the touch router (Hybrid mode). The engine picks the
+# enemy under the finger and routes it through the shared hit() interface —
+# the same path the projectiles take.
+func on_world_tap(screen_pos: Vector2) -> void:
+	if state != "play" or he == null:
+		return
+	he.tap(screen_pos)
+
+# Every damage source lands here with its origin: "tap", "shot_ice",
+# "shot_fire" today; combo verbs tomorrow. Imps freeze into the popcorn
+# death; the boss keeps its phase rules whatever the source.
+func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
+	if kind == "ice":
+		_freeze_imp(enemy)
+		return
+	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
+	_hit_boss(power)
+
 func _nearest_target() -> Vector3:
 	if kind != "ice" and not boss.is_empty():
 		return boss["pos"]
@@ -298,11 +326,11 @@ func _tick_shots(delta: float) -> void:
 		if kind == "ice":
 			for enemy in enemies:
 				if String(enemy["state"]) == "active" and node.position.distance_to((enemy["pos"] as Vector3) + Vector3(0, 2.2, 0)) < 2.6:
-					_freeze_imp(enemy)
+					he.hit(enemy, 1, "shot_ice")
 					hit = true
 					break
 		elif not boss.is_empty() and node.position.distance_to((boss["pos"] as Vector3) + Vector3(0, 2.5, 0)) < 5.2:
-			_hit_boss(String(shot.get("power", "fire")))
+			he.hit(boss, 1, "shot_" + String(shot.get("power", "fire")))
 			hit = true
 		if hit or float(shot["life"]) <= 0.0:
 			node.queue_free()
@@ -345,24 +373,8 @@ func _tick_imps(delta: float) -> void:
 		_win()
 
 func _pop_imp(enemy: Dictionary) -> void:
-	enemy["state"] = "popped"
-	var pos: Vector3 = enemy["pos"]
-	(enemy["node"] as Node3D).visible = false
-	var corn_count := int(encounter.get("popcorn_count", 7))
-	for i in range(corn_count):
-		var a: float = float(i) * TAU / float(corn_count)
-		var corn: Node3D
-		if art_theme == "ember":
-			corn = DungeonArt.spawn("completion_spark", self,
-				pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
-			corn.scale = Vector3.ONE * 0.34
-		else:
-			corn = _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
-		var tw := corn.create_tween()
-		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		tw.tween_callback(corn.queue_free)
-	m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.45))
+	# the dying animation now lives in the shared engine as the "pop" style
+	he.play_death(enemy, "pop", {"count": int(encounter.get("popcorn_count", 7)), "art_theme": art_theme})
 	_update_hud()
 
 func _hit_boss(power: String = "fire") -> void:
