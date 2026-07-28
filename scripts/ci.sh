@@ -17,21 +17,27 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
-FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
+FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"
 timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 	|| { echo "IMPORT FAIL"; exit 1; }
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_ui probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
 	mkdir -p "$probe_home/data" "$probe_home/config"
+	touch_test_mode="--classic-touch-test"
+	case "$p" in
+		probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
+			touch_test_mode="--hybrid-touch-test"
+			;;
+	esac
 	probe_rc=0
 	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
-		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
+		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
 	if [ "$probe_rc" -ne 0 ]; then
 		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
 		# after a probe printed its complete verdict (seen after kart-heavy

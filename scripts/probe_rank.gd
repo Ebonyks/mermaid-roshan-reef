@@ -104,6 +104,10 @@ func _init() -> void:
 			player.position = node.position + Vector3(3, 0, 0)
 			player.vel = Vector3.ZERO
 			await process_frame
+		if main.game == "" and main.touch_uses_explicit_interactions():
+			var fetch_index: int = main.friends.find(fetch_f)
+			main._activate_touch_interactable("friend:%d" % fetch_index, fetch_index)
+			await _frames(10)
 		if main.game != "fetch":
 			print("RANK|fetch: GAME DID NOT START")
 			bad += 1

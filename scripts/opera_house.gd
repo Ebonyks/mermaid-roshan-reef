@@ -14,79 +14,89 @@ extends Node
 const ACTS := [
 	# ---------- FLOOR 1: the Lagoon Lights Stage ----------
 	{"name": "The Great Cake Show", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
-		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 3, "imps": 6, "shell": true,
-		"voice": "Chef hat on! Look at the recipe over the bowl — bring the cake layers up in that same order, give it a big stir, then pop the toppings on!",
-		"win_line": "The show cake is PERFECT! Everybody wants a slice!",
+		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 4, "imps": 6, "shell": true,
+		"rescue": "farmers", "gift": "carrots", "uses": "carrots",
+		"voice": "Chef hat on! Sift the flour, pour the milk, stir the batter, bake it golden, pipe the frosting and pop the cherries on — a whole cake, step by step!",
+		"win_line": "The farmers' carrots made it a CARROT cake — the best one the reef has ever tasted!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Missing Tiara", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
-		"kind": "sleuth", "props_n": 6, "clues": 3, "imps": 6, "shell": true,
+		"kind": "sleuth", "props_n": 12, "clues": 5, "imps": 6, "shell": true,
+		"rescue": "stagehands", "gift": "lanterns", "uses": "lanterns",
 		"voice": "Detective Roshan is on the case! Three clues hide inside the big boxes — PEEK in each one, and watch out for silly fish!",
 		"win_line": "Case closed! The tiara was in the treasure box all along!",
 		"floor_col": Color(0.42, 0.46, 0.62), "trim": Color(0.72, 0.85, 1.0), "curtain": Color(0.3, 0.35, 0.6)},
 	{"name": "The Dance Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
 		"kind": "echo", "pads": 4, "rounds": [3, 4, 5], "pitch": 0.6,
+		"rescue": "dancers", "gift": "ribbons", "rescue_imps": 4,
 		"voice": "Ballerina twirl! Watch the glowing dance tiles twinkle, then dance the same steps!",
 		"win_line": "What a beautiful dance! The whole reef is clapping!",
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
 	{"name": "The Candy Parade", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
-		"kind": "press", "candies": 7,
+		"kind": "press", "candies": 9,
+		"rescue": "sweet-shop mice", "gift": "sugar", "rescue_imps": 4,
 		"voice": "Candy Maker Roshan! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
-		"win_line": "Seven smiley candies! The sweetest show the reef has ever tasted!",
+		"win_line": "Nine smiley candies! The sweetest show the reef has ever tasted!",
 		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
 	{"name": "The Curtain Dragon", "career": "Curtain Dragon", "costume": "", "emoji": "🐉", "story": 1, "type": "boss",
-		"kind": "boss", "boss_hp": 9, "peek_time": 5.0, "hide_time": 3.5,
+		"kind": "boss", "boss_hp": 15, "peek_time": 5.0, "hide_time": 5.0,
 		"voice": "A grumbly dragon is hiding in the curtains! Be brave — tap SPARKLE when he peeks out!",
 		"win_line": "The dragon isn't grumbly anymore — he just wanted to be in the show!",
 		"floor_col": Color(0.45, 0.3, 0.4), "trim": Color(1.0, 0.65, 0.4), "curtain": Color(0.62, 0.2, 0.28)},
 	# ---------- FLOOR 2: the Starlight Balcony ----------
 	{"name": "The Plushy Checkup", "career": "Doctor", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
-		"kind": "doctor", "imps": 6, "shell": true,
-		"voice": "Doctor Roshan is here! The plushy starfish has boo-boos — follow the golden sparkle: listen with the stethoscope, take the temperature, kiss the ouchies better, then the bandage!",
-		"win_line": "All better! The plushy starfish feels brand new — best doctor in the sea!",
+		"kind": "doctor", "imps": 6, "shell": true, "patients": 4,
+		"voice": "Doctor Roshan! Chase the mischief imps out of the ward, then find the poorly animal, carry them to the fluoroscope, see which bone is cracked and wrap the cast on!",
+		"win_line": "The cast is on and the wiggle is back — best vet in the whole sea!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
 	{"name": "The Piggy Picnic", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
-		"kind": "scroll", "piggies": 9,
+		"kind": "scroll", "piggies": 12,
+		"rescue": "farmers", "gift": "carrots", "rescue_imps": 5,
 		"voice": "Farmer Roshan! The meadow is sliding by and the piggies are SO hungry — tap TOSS when a piggy is close to throw it a yummy veggie!",
-		"win_line": "Nine happy piggies with full tummies! Best picnic the farm has ever had!",
+		"win_line": "Twelve happy piggies with full tummies! Best picnic the farm has ever had!",
 		"floor_col": Color(0.55, 0.75, 0.5), "trim": Color(0.95, 0.9, 0.55), "curtain": Color(0.4, 0.6, 0.35)},
 	{"name": "The Championship Bout", "career": "Boxer", "costume": "boxer", "emoji": "🥊", "story": 2, "type": "show",
-		"kind": "box", "rounds": [3, 4, 5],
-		"voice": "Boxer Roshan, into the ring! Bop the mischief imps with PUNCH — three rounds to win the championship belt!",
+		"kind": "box", "rounds": [3, 4, 5, 5, 6, 7], "warmup": 5,
+		"rescue": "the ring crew", "gift": "gloves", "rescue_imps": 4,
+		"voice": "Boxer Roshan, into the ring! Warm up on the big swinging bag first, then bop the mischief imps with PUNCH — win every round and the championship belt is yours!",
 		"win_line": "And the winner is... ROSHAN! The sparkly championship belt is hers!",
 		"floor_col": Color(0.55, 0.32, 0.3), "trim": Color(1.0, 0.82, 0.45), "curtain": Color(0.72, 0.2, 0.24)},
 	{"name": "The Magic Hat Trick", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
-		"kind": "shuffle", "rounds": 4, "imps": 5, "shell": true,
+		"kind": "shuffle", "rounds": 6, "imps": 5, "shell": true,
+		"rescue": "usher crabs", "gift": "silk scarves", "uses": "silk scarves",
 		"voice": "Abracadabra! Watch the bunny-fish hop under a hat, keep your eyes on it, then pick the right one!",
 		"win_line": "Magic! The bunny-fish says you have the sharpest eyes in the sea!",
 		"floor_col": Color(0.36, 0.3, 0.55), "trim": Color(0.85, 0.7, 1.0), "curtain": Color(0.4, 0.22, 0.6)},
 	{"name": "The Shadow Phantom", "career": "Shadow Phantom", "costume": "", "emoji": "🌙", "story": 2, "type": "boss",
-		"kind": "boss", "dual": true, "boss_hp": 7, "peek_time": 5.0, "hide_time": 3.4,
+		"kind": "boss", "dual": true, "boss_hp": 12, "lanterns": 5, "peek_time": 5.0, "hide_time": 4.0,
 		"voice": "A shy shadow is hiding on the stage! Light the twinkling lantern with SHINE, then tap SPARKLE when he peeks!",
 		"win_line": "The shadow was a lonely little phantom — now he's the star of the curtain call!",
 		"floor_col": Color(0.24, 0.22, 0.42), "trim": Color(0.95, 0.9, 0.6), "curtain": Color(0.16, 0.14, 0.34)},
 	# ---------- FLOOR 3: the Grand Gallery ----------
 	{"name": "Paint the Sunrise", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
-		"kind": "order", "props": "paint", "order": [2, 0, 1, 2], "flow": "carry_paint", "decorate": 3, "decorate_theme": "splatter", "imps": 5, "shell": true,
-		"voice": "Painter Roshan! Dip your brush in the pot the picture shows, swipe the big canvas, then SPLAT some sparkle paint to finish!",
-		"win_line": "The sunrise backdrop is finished! It's a masterpiece!",
+		"kind": "paint", "props": "paint", "order": [2, 0, 1, 2, 0], "flow": "carry_paint", "decorate": 5, "decorate_theme": "splatter", "imps": 5, "shell": true,
+		"rescue": "painter", "gift": "paints", "uses": "paints",
+		"voice": "Painter Roshan! Free the poor painter from the imps — they will share their paints — then paint the big sunrise and we will hang it up for everyone!",
+		"win_line": "Your painting is hanging in the gallery for the whole opera to see!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},
 	{"name": "The Bubble Rocket", "career": "Astronaut Engineer", "costume": "astronaut", "emoji": "🚀", "story": 3, "type": "show",
 		"kind": "fix", "imps": 6, "shell": true,
+		"rescue": "bubble engineers", "gift": "spare pipes", "uses": "spare pipes",
 		"voice": "Astronaut Engineer Roshan! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
 		"win_line": "The bubbles reached the rocket! Three, two, one — TWINKLE-OFF!",
 		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
 	{"name": "The Opera Grand Prix", "career": "Racecar Driver", "costume": "racer", "emoji": "🏎", "story": 3, "type": "show",
-		"kind": "race",
-		"voice": "Racecar Driver Roshan! One special lap of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
+		"kind": "race", "laps": 2,
+		"rescue": "pit crew", "gift": "spare wheels", "rescue_imps": 4,
+		"voice": "Racecar Driver Roshan! TWO laps of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
 		"win_line": "What a race! The whole audience is waving checkered flags!",
 		"floor_col": Color(0.4, 0.4, 0.48), "trim": Color(1.0, 0.95, 0.95), "curtain": Color(0.85, 0.25, 0.3)},
 	{"name": "The Starlight Concert", "career": "Pop Star", "costume": "popstar", "emoji": "🎤", "story": 3, "type": "show",
-		"kind": "dance",
+		"kind": "dance", "rescue": "the band", "gift": "instruments", "rescue_imps": 4,
 		"voice": "Pop Star Roshan! Tap the sparkling microphone, then dance the floating arrows to make rainbow magic!",
 		"win_line": "The crowd is singing along! Pop Star Roshan, the reef's biggest star!",
 		"floor_col": Color(0.5, 0.3, 0.6), "trim": Color(1.0, 0.7, 0.95), "curtain": Color(0.45, 0.2, 0.55)},
 	{"name": "The Grand Finale", "career": "Midnight Maestro", "costume": "", "emoji": "🎼", "story": 3, "type": "boss",
-		"kind": "boss", "finale": true, "boss_hp": 9, "peek_time": 5.0, "hide_time": 3.2,
+		"kind": "boss", "finale": true, "boss_hp": 15, "peek_time": 5.0, "hide_time": 3.2,
 		"voice": "The Midnight Maestro wants to steal the whole show! Use everything you've learned — SHINE the lanterns and SPARKLE when he peeks!",
 		"win_line": "The Maestro just wanted to conduct the grand finale — now the whole opera sings together!",
 		"floor_col": Color(0.16, 0.14, 0.3), "trim": Color(1.0, 0.88, 0.45), "curtain": Color(0.1, 0.09, 0.24)},
@@ -478,18 +488,9 @@ func _build_hud() -> void:
 	star_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	strip.add_child(star_label)
 	var home := Button.new()
-	home.text = "⌂"
+	home.name = "OperaBackButton"
+	StorybookUI.style_back_button(home, "Save stars and leave")
 	home.position = Vector2(1138, 24)
-	home.size = Vector2(112, 100)
-	home.add_theme_font_size_override("font_size", 58)
-	var home_style := StyleBoxFlat.new()
-	home_style.bg_color = Color(0.2, 0.18, 0.38, 0.94)
-	home_style.border_color = Color(1.0, 0.86, 0.5)
-	home_style.set_border_width_all(4)
-	home_style.set_corner_radius_all(28)
-	home.add_theme_stylebox_override("normal", home_style)
-	home.add_theme_stylebox_override("hover", home_style)
-	home.add_theme_stylebox_override("pressed", home_style)
 	home.pressed.connect(_leave_early)
 	hud.add_child(home)
 

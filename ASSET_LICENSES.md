@@ -311,6 +311,29 @@ ambientCG (all CC0).
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_33_35_pearl_furniture.png — original project-generated 1536x1024 items-33–35 pearl-furniture model-reference sheet made with OpenAI built-in image generation; prompt family L in `REGEN_35_PROMPT_PLAN.md`; no external or protected reference image; generated 2026-07-22.
 - assets_src/concepts/cc0_ocean_replacements_2026-07-22/context_{caribbean_reef_density,norway_kelp_coldwater_coral_zones}.png — original project-generated 1536x1024 context-only ecosystem density/placement boards made with OpenAI built-in image generation; ecological fact sources recorded in `ECOLOGY_SOURCES.md`; no reference images or copied source pixels; not Regen roles and not runtime assets; generated 2026-07-22.
 
+## assets_src/concepts/opera_jobs_2p5d_2026-07-24/*.png (24 images) and audit/opera_job_2p5d_contact_sheet_2026-07-24.png
+- Source: project-authored concept art generated with OpenAI built-in image
+  generation on 2026-07-24; prompts and generation identifiers are recorded
+  in `assets_src/concepts/opera_jobs_2p5d_2026-07-24/PROMPTS.md`
+- License: project original
+- Modifications: accepted scene keys were high-quality resampled from
+  1672x941 to 1024x576; accepted environment kits were high-quality resampled
+  from 1254x1254 to 1024x1024; the contact sheet is a 1024x1024 composite of
+  the accepted images; rejected iterations were not added
+- External reference images: none; established project palette and existing
+  project-owned Opera job art were used as the style/continuity contract
+
+## assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/*.png (12 images) and audit/opera_job_hybrid_finale_contact_sheet_2026-07-24.png
+- Source: project-authored concept art generated with OpenAI built-in image
+  generation on 2026-07-24; prompts and generation identifiers are recorded
+  in `assets_src/concepts/opera_jobs_hybrid_finales_2026-07-24/PROMPTS.md`
+- License: project original
+- Modifications: accepted source images were high-quality resampled from
+  1672x941 to 1024x576; the contact sheet is a 1024x1024 composite of the
+  twelve accepted images; rejected iterations were not added
+- External reference images: none; only established project-owned Mermaid
+  Roshan, Opera, outfit, implement, and boss art informed continuity
+
 ## assets/art35/opera/*.glb (10 models: arch, curtain, door, medallion, chandelier, bench, railing, lift, maestro, stage_apron)
 - Source: project-authored, generated procedurally in Blender by
   tools/build_opera_house_art.py (Codex design pass, 2026-07-21)
@@ -327,3 +350,62 @@ ambientCG (all CC0).
   (Blender); NPOT textures resized to POT <=1024 during conversion
 - License: project original (derivatives of already-licensed project art)
 - Modifications: card mesh + solidify extrusion; texture resize where needed
+
+## Sky Lagoon 2.5D promenade (Codex sprite pass, 2026-07-26)
+- `assets/sprites/sky_lagoon/sky_lagoon_plane.png` — project-original
+  OpenAI image generation; the project-owned pearl plane in
+  `opening_cinematic_test.ogv` was the visual reference; chroma removed and
+  resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_slide.png` — project-original OpenAI
+  image generation; corrected playground design with a separate straight
+  ladder, horizontal rungs, top platform, and unobstructed aqua chute; chroma
+  removed and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_swing.png` — project-original OpenAI
+  image generation; two-seat shell swing; chroma removed and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_seesaw.png` — project-original OpenAI
+  image generation; symmetric shell seesaw; chroma removed and resized to
+  1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png` — project-original
+  OpenAI image generation; pearl castle and lowered drawbridge; chroma removed
+  and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png` —
+  project-original OpenAI image generation; lavender shell activity frame;
+  chroma removed and resized to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_roshan.png` — project-original
+  derivative of `assets/characters/roshan_sprite.png`; OpenAI image edit
+  changed only the white background to a flat chroma key, followed by local
+  alpha extraction and resizing to 1024px; used as the unshaded in-world
+  Sprite3D card while the source character art remains unchanged.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_tree_douglas_fir.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png` —
+  project-original derivative of
+  `assets_src/concepts/sky_lagoon_pnw_flat/lagoon_shrub_red_flowering_currant_a.png`;
+  OpenAI image edit replaced only the navy source background with a flat
+  chroma key, followed by local alpha extraction and resizing to 1024px.
+- `assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png` —
+  project-original OpenAI image generation matching the approved Sky Lagoon
+  panorama cloud language; generated on a flat chroma key, locally
+  alpha-extracted, and resized to 1024px.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
+  project-original OpenAI image generation; native 2172×724 exact-3:1 master
+  flowing from the blocked-water runway shore, through a bounded playground
+  meadow, to the coherent pearl castle, Mermaid Roshan stained glass,
+  drawbridge, and elevated mountain-pass path. Generated from the prior
+  panorama, project pearl-castle facade sheet, historical stained-glass
+  visual, and PNW tree/shrub references; preserved without scaling or crop.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png` —
+  project-original lossless crop of the native master, rectangle
+  `(0, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png` —
+  project-original lossless crop of the native master, rectangle
+  `(724, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png` —
+  project-original lossless crop of the native master, rectangle
+  `(1448, 0, 724, 724)`; no scaling, padding, overlap, or content change.
+- Style references for every new asset: project-owned
+  `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
+  `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.

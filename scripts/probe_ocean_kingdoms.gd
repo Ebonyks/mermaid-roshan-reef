@@ -44,23 +44,26 @@ func _run() -> void:
 	var level2_pos: Vector3 = main.LEVEL2_POS
 	_check(main.game == "level2", "castle_gate_hub_is_level2")
 	_check(bool(state.get("ocean_gate_hub", false)), "castle_gate_hub_flag")
-	_check(player.position.distance_to(level2_pos + Vector3(0.0, 8.0, 175.0)) < 0.5, "castle_gate_spawn_position")
-
-	var gates: Array = state.get("ocean_kingdom_gates", []) as Array
-	_check(gates.size() == 2, "two_ocean_kingdom_gates")
-	var seen_caribbean: bool = false
-	var seen_norwegian: bool = false
-	for gate_variant: Variant in gates:
-		var gate: Dictionary = gate_variant as Dictionary
-		var kingdom: String = String(gate.get("kingdom", ""))
-		var gate_pos: Vector3 = gate.get("pos", Vector3.ZERO) as Vector3
-		_check(player.position.distance_to(gate_pos) > 9.0, "%s_gate_not_auto_triggered" % kingdom)
-		if kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-			seen_caribbean = true
-		elif kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
-			seen_norwegian = true
-	_check(seen_caribbean, "caribbean_gate_present")
-	_check(seen_norwegian, "norwegian_gate_present")
+	# She used to spawn at a fixed x -48; the promenade now has a walkable route
+	# (owner request 2026-07-27) and she starts ON it, beside the pearl plane.
+	# The invariant that matters is that: screen one, standing on the path, not
+	# a magic coordinate that the route's projection legitimately moves.
+	var promenade := main._lagoon_promenade_ref()
+	var promenade_cfg: Dictionary = main.g.get("ss_cfg", {})
+	var spawn_x: float = player.position.x - level2_pos.x
+	var spawn_y: float = player.position.y - level2_pos.y
+	var route_span: Vector2 = promenade.stage.route_span(promenade_cfg)
+	_check(spawn_x < -24.0
+		and spawn_x >= route_span.x - 0.01
+		and absf(spawn_y - promenade.stage.route_y(promenade_cfg, spawn_x, -999.0)) < 0.05
+		and absf(player.position.z - level2_pos.z) < 0.5,
+		"promenade_screen_one_spawn")
+	_check(String(state.get("phase", "")) == "promenade",
+		"castle_gate_hub_uses_promenade")
+	_check((state.get("lagoon_promenade_targets", []) as Array).size() == 8,
+		"promenade_interactions_present")
+	_check(not state.has("ocean_kingdom_gates"),
+		"blocked_water_has_no_active_ocean_gate")
 
 	main._exit_level2_now(ReefDistricts.KINGDOM_CARIBBEAN)
 	await process_frame

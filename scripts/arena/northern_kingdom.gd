@@ -212,7 +212,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 	if not bool(m.g.get("north_return_armed", false)):
 		if return_dist > 19.0:
 			m.g["north_return_armed"] = true
-	elif return_dist < 9.0:
+	elif not m.touch_uses_explicit_interactions() and return_dist < 9.0:
 		m._enter_level2(false, true)
 		return
 

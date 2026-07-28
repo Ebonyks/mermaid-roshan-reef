@@ -1,52 +1,122 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   * drag anywhere on EMPTY screen -> a virtual stick appears under your finger
-#   * quick tap (no drag)           -> jump/action
-#   * a SECOND finger: tap or hold  -> jump (held = swim up, as before)
-#                      DRAG         -> camera look-around (peek, drifts back)
-#     which one is decided after TAP_SLOP px of movement or JUMP_HOLD_MS,
-#     whichever comes first — same trick the stick uses to split tap vs steer
-# Implemented via _unhandled_input, so every button / 2D minigame / overlay control
-# (any canvas layer) gets first claim on its taps — the stick only sees touches
-# nothing else wanted. No fixed buttons, no blocking zones.
+#   HYBRID (default): lower-left movement + a real lower-right action button;
+#   taps on unclaimed world space are emitted for select/approach/move.
+#   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
+#   second-finger camera path is retained below.
+# Implemented through _unhandled_input so overlays and minigame Controls always
+# receive first claim. A touch has one owner for its lifetime; ownership never
+# changes mid-gesture.
+
+signal world_touched(pos: Vector2)
+signal manual_move_started
+signal manual_move_ended
+
+enum TouchOwner {
+	NONE,
+	UI,
+	STICK,
+	ACTION,
+	WORLD_INTERACT,
+	WORLD_MOVE,
+}
 
 var stick_vec := Vector2.ZERO
 var action_down := false
 var action_just := false
+var control_mode := "hybrid"
+var touch_owners: Dictionary = {}
+var world_controls_enabled := true
+
+# ---- drag channel (owner 2026-07-25) ----
+# Some acts are played by DRAGGING a finger across the screen rather than by
+# swimming and tapping — painting, scrubbing, tracing, lens-dragging. While
+# drag_mode is on, the first finger reports its absolute screen position here
+# instead of raising the virtual stick, so the act reads a stroke, not a
+# direction. Everything else (second-finger jump, pause) is untouched.
+var drag_mode := false
+var drag_active := false
+var drag_pos := Vector2.ZERO
+var drag_started := false          # set for one read on touch-down
 
 var _root: Control
 var _base: Panel
 var _knob: Panel
+var _stick_hint: Panel    # fixed ghost wheel teaching the bottom-left thumb bay
 var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
+var _act_button: Button = null
 var _touch_idx := -1      # the finger that owns the stick
 var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
+var _action_fingers := {}
 var _pend := {}           # extra fingers not yet classified: idx -> {"pos", "ms"}
+var _world_pend := {}
 var _look_idx := -1       # the finger that owns the camera peek
 var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
 var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
 var _origin := Vector2.ZERO
 var _moved := false
+var _manual_emitted := false
 var _press_ms := 0
-var _pulse := 0.0         # keeps action_down true briefly after a tap so per-frame readers never miss it
-const R := 78.0   # smaller thumb travel for full deflection — livelier steering on tablets
-const TAP_SLOP := 22.0    # finger drift allowed for a "tap" (px)
-const TAP_MS := 300       # max press time for a tap
-const JUMP_HOLD_MS := 140 # still second finger older than this = held jump
+var _pulse := 0.0
+var _act_vis: Panel = null
+var _act_lbl: Label = null
+var _act_t := 0.0
+var _action_edge_frames := 0
+
+const R := 78.0
+const TAP_SLOP := 22.0
+const TAP_MS := 300
+const JUMP_HOLD_MS := 140
+const ACTION_PICTOGRAMS := {
+	"JUMP": "↑",
+	"PLAY": "▶",
+	"SHOP": "◆",
+	"OPEN": "◇",
+	"SLIDE": "↘",
+	"RACE": "⚑",
+	"ENTER": "✦",
+	"SHOW": "♬",
+	"GET": "★",
+	"SLEEP": "☾",
+	"DRESS": "♛",
+	"MAKE": "✂",
+	"RING": "♫",
+	"TOUCH": "✧",
+	"HUG": "♥",
+	"EXIT": "↩",
+	"CATCH!": "✋",
+	"THROW": "➶",
+	"BUY": "◆",
+	"SWIM": "➜",
+}
 
 func _ready() -> void:
 	layer = 9
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_root = Control.new()
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE   # visuals only — never blocks input
+	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_root)
-	# Codex UI handoff 2026-07-19: the stick must explain itself at phone scale —
-	# ~180 px visual, 40-55% fill, high-contrast mint rim (was 210 px at 12%)
-	_base = _circle(Color(0.45, 0.85, 0.95, 0.45), 90.0)
-	var bsb: StyleBoxFlat = _base.get_theme_stylebox("panel") as StyleBoxFlat
-	bsb.border_color = Color(0.55, 1.0, 0.85, 0.95)
-	bsb.set_border_width_all(5)
-	_knob = _circle(Color(1, 1, 1, 0.55), 46.0)
+	# A fixed ghost wheel teaches the bottom-left ownership before the first
+	# drag; the real drag-anywhere stick still appears under the finger.
+	_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)
+	_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_stick_hint.offset_left = 26.0
+	_stick_hint.offset_top = -206.0
+	_stick_hint.offset_right = 206.0
+	_stick_hint.offset_bottom = -26.0
+	_stick_hint.visible = wants_touch()
+	_root.add_child(_stick_hint)
+	var hint_arrows := Label.new()
+	hint_arrows.text = "↕  ↔"
+	hint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(hint_arrows, 34, StorybookUI.MINT, 5)
+	_stick_hint.add_child(hint_arrows)
+	_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)
+	_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)
 	_base.visible = false
 	_knob.visible = false
 	_root.add_child(_base)
@@ -55,21 +125,33 @@ func _ready() -> void:
 	_btn = Button.new()
 	_btn.visible = false
 	_root.add_child(_btn)
-	# STORYBOOK FORK: a big visible action bubble, bottom-right. Tapping
-	# anywhere with a second finger still works — this is the AFFORDANCE a
-	# 4yo needs (see the button, know there's a thing to press), with the
-	# current action name (JUMP / THROW / FIRE) written on it.
+	# A 176 px real hit target surrounds the 148 px visible action bubble.
+	# Classic mode hides this Control and keeps the original all-screen tap.
+	# The rect is only an anchor/affordance: presses are claimed from raw
+	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
+	# hears the FIRST finger (mouse-from-touch emulation) — a second finger
+	# pressed while the stick is held would otherwise be silently dropped.
 	if wants_touch():
-		_act_vis = _circle(Color(1.0, 0.75, 0.88, 0.42), 78.0)
-		_act_vis.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		_act_vis.offset_left = -194.0
-		_act_vis.offset_top = -214.0
-		_act_vis.offset_right = -38.0
-		_act_vis.offset_bottom = -58.0
-		_root.add_child(_act_vis)
+		_act_button = Button.new()
+		_act_button.flat = true
+		_act_button.focus_mode = Control.FOCUS_NONE
+		_act_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_act_button.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		_act_button.offset_left = -204.0
+		_act_button.offset_top = -224.0
+		_act_button.offset_right = -28.0
+		_act_button.offset_bottom = -48.0
+		var empty := StyleBoxEmpty.new()
+		for style_name: String in ["normal", "hover", "pressed", "focus"]:
+			_act_button.add_theme_stylebox_override(style_name, empty)
+		_root.add_child(_act_button)
+		# Storybook coral bubble: 148 px visible, centred in the 176 px envelope.
+		_act_vis = _circle(Color(1.0, 0.50, 0.48, 0.86), 74.0, StorybookUI.INK, 5)
+		_act_vis.position = Vector2(14.0, 14.0)
+		_act_button.add_child(_act_vis)
 		_act_lbl = Label.new()
-		_act_lbl.text = "JUMP"
-		_act_lbl.add_theme_font_size_override("font_size", 34)
+		_act_lbl.text = _action_display("JUMP")
+		_act_lbl.add_theme_font_size_override("font_size", 27)
 		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
 		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
 		_act_lbl.add_theme_constant_override("outline_size", 8)
@@ -78,25 +160,22 @@ func _ready() -> void:
 		_act_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		_act_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_act_vis.add_child(_act_lbl)
-
-var _act_vis: Panel = null
-var _act_lbl: Label = null
-var _act_t := 0.0
+	set_mode(control_mode)
 
 func _process(delta: float) -> void:
 	if _pulse > 0.0:
 		_pulse -= delta
-		if _pulse <= 0.0 and _jump_fingers.is_empty():
+		if _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():
 			action_down = false
-	# a second finger that sat still past the decision window is a HELD jump —
-	# it was only kept pending in case it turned into a camera drag
-	if not _pend.is_empty():
+	# This classification is intentionally Classic-only. Hybrid gives the
+	# right-side action button and the world tap separate ownership.
+	if control_mode == "classic" and not _pend.is_empty():
 		var now := Time.get_ticks_msec()
-		for idx in _pend.keys():
+		for idx: Variant in _pend.keys():
 			if now - int(_pend[idx]["ms"]) >= JUMP_HOLD_MS:
 				_jump_fingers[idx] = true
 				action_down = true
-				action_just = true
+				_arm_action_edge()
 				_flash(_pend[idx]["pos"])
 				_pend.erase(idx)
 	if _act_vis != null:
@@ -104,12 +183,20 @@ func _process(delta: float) -> void:
 		var pulse_s: float = 1.0 + sin(_act_t * 2.2) * 0.045
 		_act_vis.pivot_offset = _act_vis.size * 0.5
 		_act_vis.scale = Vector2(pulse_s, pulse_s) * (0.88 if action_down else 1.0)
+	if action_just:
+		if _action_edge_frames > 0:
+			_action_edge_frames -= 1
+		else:
+			action_just = false
 
-func _circle(col: Color, rad: float) -> Panel:
+func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:
 	var p := Panel.new()
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = col
 	sb.set_corner_radius_all(int(rad))
+	if border_width > 0:
+		sb.border_color = outline
+		sb.set_border_width_all(border_width)
 	p.add_theme_stylebox_override("panel", sb)
 	p.size = Vector2(rad * 2.0, rad * 2.0)
 	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -117,23 +204,39 @@ func _circle(col: Color, rad: float) -> Panel:
 
 func _jump_pulse() -> void:
 	action_down = true
-	action_just = true
+	_arm_action_edge()
 	_pulse = 0.18
 
+func _arm_action_edge() -> void:
+	# action_just is an input edge, not a remembered wish. Two child-process
+	# frames let the parent consume it regardless of scene-tree process order,
+	# then it expires so an old press cannot launch a newly focused activity.
+	action_just = true
+	_action_edge_frames = 2
+
 func _flash(pos: Vector2) -> void:
-	# quick fading ring where a jump finger lands — visible confirmation for little hands
-	var f := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
-	f.position = pos - f.size * 0.5
-	_root.add_child(f)
-	var tw := f.create_tween()
-	tw.tween_property(f, "modulate:a", 0.0, 0.35)
-	tw.tween_callback(f.queue_free)
+	var flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
+	flash.position = pos - flash.size * 0.5
+	_root.add_child(flash)
+	var tw := flash.create_tween()
+	tw.tween_property(flash, "modulate:a", 0.0, 0.35)
+	tw.tween_callback(flash.queue_free)
 
 func _press(pos: Vector2, idx: int) -> void:
 	_touch_idx = idx
 	_origin = pos
+	if drag_mode:
+		# the finger paints instead of steering — no stick, no tap-to-jump
+		drag_active = true
+		drag_started = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
 	_moved = false
+	_manual_emitted = false
 	_press_ms = Time.get_ticks_msec()
+	if _stick_hint != null:
+		_stick_hint.visible = false
 	_base.position = _origin - _base.size * 0.5
 	_knob.position = _origin - _knob.size * 0.5
 	_base.modulate.a = 1.0
@@ -143,89 +246,151 @@ func _press(pos: Vector2, idx: int) -> void:
 	stick_vec = Vector2.ZERO
 
 func _drag(pos: Vector2) -> void:
+	if drag_mode:
+		drag_active = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
 	var off: Vector2 = pos - _origin
 	if not _moved and off.length() > TAP_SLOP:
 		_moved = true
 	if off.length() > R:
 		off = off.normalized() * R
-	# ramp in from the dead zone: magnitude 0 at TAP_SLOP rising linearly to
-	# 1.0 at R, instead of snapping from 0 to ~0.28 the moment slop is crossed
 	if _moved and off.length() > 0.0:
 		var mag := clampf((off.length() - TAP_SLOP) / (R - TAP_SLOP), 0.0, 1.0)
 		stick_vec = off.normalized() * mag
 	else:
 		stick_vec = Vector2.ZERO
 	_knob.position = _origin + off - _knob.size * 0.5
+	if control_mode == "hybrid" and not _manual_emitted and stick_vec.length() > 0.05:
+		_manual_emitted = true
+		manual_move_started.emit()
 
 func _release_stick() -> void:
+	if drag_mode:
+		drag_active = false
+		_touch_idx = -1
+		stick_vec = Vector2.ZERO
+		return
 	# a short press with no real drag = TAP -> jump/action
-	if not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
+	if control_mode == "classic" and not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
-		_flash(_origin)   # same confirmation ring the second-finger tap gets
+		_flash(_origin)
+	if _manual_emitted:
+		manual_move_ended.emit()
 	_touch_idx = -1
+	_manual_emitted = false
 	stick_vec = Vector2.ZERO
 	_rest_stick()
 
 func _rest_stick() -> void:
-	# Codex UI handoff: when no finger owns the stick it waits half-faded at its
-	# bottom-left home instead of vanishing, so a new player can see where to
-	# put a thumb. Visual affordance only — drag-anywhere input is unchanged.
-	if _base == null or _knob == null:
-		return
-	if not wants_touch():
+	# StorybookUI resting affordance: the real stick only appears under the
+	# finger; the fixed ghost wheel owns the bottom-left teaching role and
+	# hides while world controls are off.
+	if _base != null:
 		_base.visible = false
+	if _knob != null:
 		_knob.visible = false
-		return
-	var vs: Vector2 = _root.size
-	if vs == Vector2.ZERO:
-		vs = get_viewport().get_visible_rect().size
-	var c := Vector2(170.0, vs.y - 170.0)
-	_base.position = c - _base.size * 0.5
-	_knob.position = c - _knob.size * 0.5
-	_base.modulate.a = 0.55
-	_knob.modulate.a = 0.55
-	_base.visible = true
-	_knob.visible = true
+	if _stick_hint != null:
+		_stick_hint.visible = wants_touch() and world_controls_enabled
 
 func rest_zone() -> Rect2:
-	# the corner the resting stick owns (probe contract: HUD cards stay out)
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
-	return Rect2(Vector2(170.0 - 110.0, vs.y - 170.0 - 110.0), Vector2(220.0, 220.0))
+	return Rect2(Vector2(60.0, vs.y - 280.0), Vector2(220.0, 220.0))
+
+func movement_zone() -> Rect2:
+	# The whole lower-left thumb bay accepts the stick, while the resting ring
+	# teaches the preferred landing spot. It ends well before the action button.
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	return Rect2(0.0, vs.y * 0.52, maxf(390.0, vs.x * 0.34), vs.y * 0.48)
 
 func action_zone() -> Rect2:
-	# the corner the action bubble owns
-	if _act_vis != null:
-		return _act_vis.get_global_rect().grow(10.0)
+	if _act_button != null:
+		return _act_button.get_global_rect()
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
 	return Rect2(vs - Vector2(214.0, 234.0), Vector2(214.0, 234.0))
 
 func _clear_touch_state() -> void:
+	drag_active = false
+	drag_started = false
 	_touch_idx = -1
 	_look_idx = -1
 	_jump_fingers.clear()
+	_action_fingers.clear()
 	_pend.clear()
+	_world_pend.clear()
+	touch_owners.clear()
 	stick_vec = Vector2.ZERO
 	action_down = false
 	action_just = false
+	_action_edge_frames = 0
 	_look_dx = 0.0
 	_look_dy = 0.0
 	_moved = false
+	_manual_emitted = false
+	_pulse = 0.0
+	_rest_stick()
+
+func set_mode(next_mode: String) -> void:
+	control_mode = "classic" if next_mode == "classic" else "hybrid"
+	_clear_touch_state()
+	if _act_button != null:
+		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
+
+func set_world_controls_enabled(enabled: bool) -> void:
+	if world_controls_enabled == enabled:
+		if not enabled:
+			_clear_touch_state()
+		return
+	world_controls_enabled = enabled
+	_clear_touch_state()
+	if _act_button != null:
+		_act_button.visible = enabled and control_mode == "hybrid"
+
+func cancel_all_touches() -> void:
+	_clear_touch_state()
+
+func clear_action_edge() -> void:
+	action_just = false
+	_action_edge_frames = 0
+
+func _on_action_button_down() -> void:
+	if control_mode != "hybrid" or not world_controls_enabled:
+		return
+	action_down = true
+	_arm_action_edge()
+	_pulse = 0.0
+	_flash(action_zone().get_center())
+
+func _on_action_button_up() -> void:
+	if control_mode == "hybrid":
+		action_down = false
+
+func consume_action() -> void:
+	action_down = false
+	clear_action_edge()
 	_pulse = 0.0
 	_rest_stick()
 
 func _request_pause() -> void:
 	var m: Node = get_parent()
+	# Start advances the always-processing story intro via ReefMain. Do not
+	# also raise the pause sheet over that same press.
+	if m != null and bool(m.get("intro_active")):
+		return
 	if m != null and m.has_method("toggle_pause"):
 		m.toggle_pause()
 
 func _flush_parent_save() -> void:
-	var m: Node = get_parent()
-	if m != null and m.has_method("_write_save"):
-		m.call("_write_save")
+	var main: Node = get_parent()
+	if main != null and main.has_method("_write_save"):
+		main.call("_write_save")
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
@@ -241,84 +406,191 @@ func _notification(what: int) -> void:
 		_flush_parent_save()
 
 func _unhandled_input(ev: InputEvent) -> void:
-	if not wants_touch():
+	if not wants_touch() or not world_controls_enabled:
 		return
+	if control_mode == "hybrid":
+		_hybrid_unhandled_input(ev)
+	else:
+		_classic_unhandled_input(ev)
+
+func _action_hit(pos: Vector2) -> bool:
+	return _act_button != null and _act_button.visible and action_zone().has_point(pos)
+
+func _claim_action(finger_index: int) -> void:
+	touch_owners[finger_index] = TouchOwner.ACTION
+	_action_fingers[finger_index] = true
+	_on_action_button_down()
+
+func _release_action(finger_index: int) -> void:
+	_action_fingers.erase(finger_index)
+	if _action_fingers.is_empty():
+		_on_action_button_up()
+
+func _hybrid_unhandled_input(ev: InputEvent) -> void:
 	if ev is InputEventScreenTouch:
-		var t := ev as InputEventScreenTouch
-		if t.pressed:
-			if _touch_idx == -1:
-				_press(t.position, t.index)          # first finger: stick (or tap-to-jump)
-			elif t.index != _touch_idx:
-				# extra finger: jump OR camera drag — pending until it moves
-				# past TAP_SLOP (camera) or JUMP_HOLD_MS elapses (held jump)
-				_pend[t.index] = {"pos": t.position, "ms": Time.get_ticks_msec()}
+		var touch := ev as InputEventScreenTouch
+		if touch.pressed:
+			if _action_hit(touch.position):
+				_claim_action(touch.index)
+			elif _touch_idx == -1 and movement_zone().has_point(touch.position):
+				touch_owners[touch.index] = TouchOwner.STICK
+				_press(touch.position, touch.index)
+			else:
+				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
+				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
 		else:
-			if t.index == _touch_idx:
+			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
+			if owner == TouchOwner.STICK and touch.index == _touch_idx:
 				_release_stick()
-			elif _pend.has(t.index):
-				# quick second-finger tap, decided on release: jump/action
-				_pend.erase(t.index)
+			elif owner == TouchOwner.ACTION:
+				_release_action(touch.index)
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
+				var world_data: Dictionary = _world_pend[touch.index]
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+					world_touched.emit(touch.position)
+					_flash(touch.position)
+				_world_pend.erase(touch.index)
+			touch_owners.erase(touch.index)
+	elif ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
+		if owner == TouchOwner.STICK and drag.index == _touch_idx:
+			_drag(drag.position)
+		elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
+			var world_data: Dictionary = _world_pend[drag.index]
+			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				world_data["moved"] = true
+				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
+	elif ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION or mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if mouse_button.pressed:
+			if _action_hit(mouse_button.position):
+				_claim_action(99)
+			elif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
+				touch_owners[99] = TouchOwner.STICK
+				_press(mouse_button.position, 99)
+			else:
+				touch_owners[99] = TouchOwner.WORLD_INTERACT
+				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+		else:
+			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
+			if owner == TouchOwner.STICK and _touch_idx == 99:
+				_release_stick()
+			elif owner == TouchOwner.ACTION:
+				_release_action(99)
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
+				var world_data: Dictionary = _world_pend[99]
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+					world_touched.emit(mouse_button.position)
+					_flash(mouse_button.position)
+				_world_pend.erase(99)
+			touch_owners.erase(99)
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
+			_drag(mouse_motion.position)
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
+		var world_motion := ev as InputEventMouseMotion
+		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
+			var world_data: Dictionary = _world_pend[99]
+			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				world_data["moved"] = true
+				touch_owners[99] = TouchOwner.WORLD_MOVE
+
+# Reversible shipped input path. Keep behavioral edits to this method out of the
+# hybrid experiment so selecting Classic is a genuine runtime rollback.
+func _classic_unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		if touch.pressed:
+			if _touch_idx == -1:
+				_press(touch.position, touch.index)
+			elif touch.index != _touch_idx:
+				_pend[touch.index] = {"pos": touch.position, "ms": Time.get_ticks_msec()}
+		else:
+			if touch.index == _touch_idx:
+				_release_stick()
+			elif _pend.has(touch.index):
+				_pend.erase(touch.index)
 				_jump_pulse()
-				_flash(t.position)
-			elif t.index == _look_idx:
+				_flash(touch.position)
+			elif touch.index == _look_idx:
 				_look_idx = -1
-			elif _jump_fingers.has(t.index):
-				_jump_fingers.erase(t.index)
+			elif _jump_fingers.has(touch.index):
+				_jump_fingers.erase(touch.index)
 				if _jump_fingers.is_empty() and _pulse <= 0.0:
 					action_down = false
 	elif ev is InputEventScreenDrag:
-		var d := ev as InputEventScreenDrag
-		if d.index == _touch_idx:
-			_drag(d.position)
-		elif _pend.has(d.index):
-			if (d.position - (_pend[d.index]["pos"] as Vector2)).length() > TAP_SLOP:
-				_pend.erase(d.index)
+		var drag := ev as InputEventScreenDrag
+		if drag.index == _touch_idx:
+			_drag(drag.position)
+		elif _pend.has(drag.index):
+			if (drag.position - (_pend[drag.index]["pos"] as Vector2)).length() > TAP_SLOP:
+				_pend.erase(drag.index)
 				if _look_idx == -1:
-					_look_idx = d.index   # a real drag: this finger drives the camera
+					_look_idx = drag.index
 				else:
-					# a camera finger is already down — treat a third drag as held jump
-					_jump_fingers[d.index] = true
+					_jump_fingers[drag.index] = true
 					action_down = true
-					action_just = true
-		elif d.index == _look_idx:
-			_look_dx += d.relative.x
-			_look_dy += d.relative.y
+					_arm_action_edge()
+		elif drag.index == _look_idx:
+			_look_dx += drag.relative.x
+			_look_dy += drag.relative.y
 	elif ev is InputEventMouseButton:
-		var mb := ev as InputEventMouseButton
-		if mb.device == InputEvent.DEVICE_ID_EMULATION:
-			return   # synthesized from touch — the touch path above already handled it
-		if mb.button_index == MOUSE_BUTTON_LEFT:
-			if mb.pressed and _touch_idx == -1:
-				_press(mb.position, 99)
-			elif not mb.pressed and _touch_idx == 99:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION:
+			return
+		if mouse_button.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_button.pressed and _touch_idx == -1:
+				_press(mouse_button.position, 99)
+			elif not mouse_button.pressed and _touch_idx == 99:
 				_release_stick()
 	elif ev is InputEventMouseMotion and _touch_idx == 99:
-		var mm := ev as InputEventMouseMotion
-		if mm.device == InputEvent.DEVICE_ID_EMULATION:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device == InputEvent.DEVICE_ID_EMULATION:
 			return
-		_drag(mm.position)
+		_drag(mouse_motion.position)
 
-func set_action_label(t: String) -> void:
-	if _btn != null and _btn.text != t:
-		_btn.text = t
-	if _act_lbl != null and _act_lbl.text != t:
-		_act_lbl.text = t
+func set_action_label(text: String) -> void:
+	var display_text: String = _action_display(text)
+	if _btn != null and _btn.text != display_text:
+		_btn.text = display_text
+	if _act_lbl != null and _act_lbl.text != display_text:
+		_act_lbl.text = display_text
+
+func _action_display(text: String) -> String:
+	var pictogram: String = String(ACTION_PICTOGRAMS.get(text, "✦"))
+	return "%s\n%s" % [pictogram, text]
 
 func consume_action_just() -> bool:
-	var j := action_just
-	action_just = false
+	var just_pressed := action_just
+	clear_action_edge()
+	return just_pressed
+
+func set_drag_mode(on: bool) -> void:
+	drag_mode = on
+	drag_active = false
+	drag_started = false
+	stick_vec = Vector2.ZERO
+	if on:
+		_touch_idx = -1
+		_rest_stick()
+
+func consume_drag_started() -> bool:
+	var j := drag_started
+	drag_started = false
 	return j
 
 func look_active() -> bool:
-	return _look_idx != -1
+	return control_mode == "classic" and _look_idx != -1
 
 func consume_look() -> Vector2:
-	# capped so deltas that piled up while no camera was consuming (minigame
-	# handoffs, overlays) nudge the camera instead of snapping it
-	var v := Vector2(clampf(_look_dx, -120.0, 120.0), clampf(_look_dy, -120.0, 120.0))
+	var look := Vector2(clampf(_look_dx, -120.0, 120.0), clampf(_look_dy, -120.0, 120.0))
 	_look_dx = 0.0
 	_look_dy = 0.0
-	return v
+	return look
 
 func _input(ev: InputEvent) -> void:
 	var toggle := false

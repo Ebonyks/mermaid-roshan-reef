@@ -1,356 +1,345 @@
 extends SceneTree
-# Child-paced playtest of Level 2: wandering swim, ~0.6 reaction, no perfect aim.
+# Structural and interaction probe for the three-screen 2.5D Sky Lagoon.
+
+var failed := false
+
+func _check(label: String, ok: bool, detail: String = "") -> void:
+	print("LAGOON25D|%s: %s%s" % [
+		label,
+		"OK" if ok else "FAIL",
+		"" if detail == "" else " " + detail,
+	])
+	if not ok:
+		failed = true
+
+func _frames(count: int) -> void:
+	for _i in range(count):
+		await process_frame
+
 func _init() -> void:
-	Engine.time_scale = 6.0
-	var ms: PackedScene = load("res://scenes/main.tscn")
-	var main: Node = ms.instantiate()
+	var packed: PackedScene = load("res://scenes/main.tscn")
+	var main: ReefMain = packed.instantiate()
 	get_root().add_child(main)
 	await process_frame
-	if main.has_method("_skip_intro"): main._skip_intro()
+	if main.has_method("_skip_intro"):
+		main._skip_intro()
 	await process_frame
-	var player: Node3D = main.player
-	# force unlock + enter level 2
 	main.pearl_count = main.PEARL_TOTAL
-	for f in main.friends: f["found"]=true; f["won"]=true
+	for friend_value in main.friends:
+		var friend: Dictionary = friend_value as Dictionary
+		friend["found"] = true
+		friend["won"] = true
 	main.trophies = 5
 	main._enter_level2()
-	await process_frame
-	var lagoon_light_ok: bool = (main.sun_light != null
-		and not main.sun_light.visible
+	await _frames(8)
+
+	_check("promenade_phase",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade")
+	var cfg: Dictionary = main.g.get("ss_cfg", {})
+	_check("three_screen_width",
+		is_equal_approx(float(cfg.get("half_w", 0.0)), 72.0)
+		and is_equal_approx(float(cfg.get("cam_follow", 0.0)), 1.0))
+	_check("shallow_2_5d_band", float(cfg.get("half_d", 99.0)) <= 2.6)
+	_check("single_lagoon_light",
+		main.sun_light != null and not main.sun_light.visible
 		and main.arena_env != null
-		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon"
-		and main.arena_env.ambient_light_energy <= 0.461)
-	print("LIGHTING|single Lagoon sun + contrast grade: %s sun=%s ambient=%.4f profile=%s"
-		% ["OK" if lagoon_light_ok else "FAIL", main.sun_light.visible,
-		main.arena_env.ambient_light_energy,
-		String(main.arena_env.get_meta("scene_grade_profile", ""))])
-	if not lagoon_light_ok:
-		print("FAIL|Sky Lagoon ocean-sun or exposure regression")
-	var river_depth: float = float(main.g.get("l2_river_min_depth", 0.0))
-	print("STREAMS|minimum swim depth %.1f: %s" % [river_depth,
-		"OK" if river_depth >= 4.0 else "FAIL"])
-	var lagoon: SkyLagoon = main._lagoon_ref()
-	var ecology_ok: bool = (not lagoon._lagoon_plant_allowed("lagoon_tree_douglas_fir", 150.0, 40.0)
-		and not lagoon._lagoon_plant_allowed("lagoon_tree_garry_oak", -95.0, 70.0)
-		and not lagoon._lagoon_plant_allowed("mushroom_red", 55.0, -120.0)
-		and not lagoon._lagoon_plant_allowed("lagoon_mushroom_cluster", -96.0, -180.0)
-		and lagoon._lagoon_plant_allowed("lagoon_tree_douglas_fir", -72.0, -170.0)
-		and not lagoon._lagoon_plant_allowed("plant_bush", 75.0, 91.0)
-		and not lagoon._lagoon_plant_allowed("tree_palm", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_mushroom_cluster", 130.0, -20.0))
-	print("ECOLOGY|water/snow/sand/climate flora filter: ", "OK" if ecology_ok else "FAIL")
-	var botany_rule_ok: bool = (not lagoon._lagoon_plant_allowed("grass_leafsLarge", 130.0, -20.0)
-		and not lagoon._lagoon_plant_allowed("trop_bigleaf", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_baby_rosette", 130.0, -20.0)
-		and lagoon._lagoon_plant_allowed("lagoon_shrub_salal_a", 130.0, -20.0))
-	var kit_paths: Array[String] = [
-		"lagoon_baby_rosette",
-		"lagoon_shrub_salal_a", "lagoon_shrub_salal_b",
-		"lagoon_shrub_oregon_grape_a", "lagoon_shrub_oregon_grape_b",
-		"lagoon_shrub_red_flowering_currant_a", "lagoon_shrub_red_flowering_currant_b",
-		"lagoon_shrub_oceanspray_a", "lagoon_shrub_oceanspray_b",
-		"lagoon_shrub_salmonberry_a", "lagoon_shrub_salmonberry_b",
-		"lagoon_shrub_trailing_blackberry_a", "lagoon_shrub_trailing_blackberry_b",
-		"lagoon_tree_douglas_fir", "lagoon_tree_western_redcedar",
-		"lagoon_tree_western_hemlock", "lagoon_tree_sitka_spruce",
-		"lagoon_tree_shore_pine", "lagoon_tree_pacific_yew",
-		"lagoon_tree_bigleaf_maple", "lagoon_tree_red_alder",
-		"lagoon_tree_black_cottonwood", "lagoon_tree_pacific_madrone",
-		"lagoon_tree_garry_oak", "lagoon_tree_pacific_dogwood",
-		"lagoon_flower_cluster_coral", "lagoon_flower_cluster_lavender",
-		"lagoon_mushroom_cluster", "lagoon_pond_reeds", "lagoon_river_stones",
-		"lagoon_story_lantern", "lagoon_memory_frame", "lagoon_rainbow_race_arch",
-		"lagoon_butterfly_world_gate", "lagoon_train_station", "lagoon_snowbank",
+		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
+
+	var required_assets: Array[String] = [
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
 	]
-	var kit_resources_ok := true
-	for kit_name: String in kit_paths:
-		kit_resources_ok = (kit_resources_ok and ResourceLoader.exists(
-			"res://assets/sky_lagoon/lagoon_kit/" + kit_name + ".glb"))
-	var lagoon_counts: Dictionary = main.g.get("lagoon_art_counts", {})
-	var expected_butterfly_gate_count: int = 1 if main.galaxy_unlocked else 0
-	var fairy_surface_y: float = float(main.g.get("fairy_pond_surface_y", -9999.0))
-	var fairy_pond_surface_ok: bool = (fairy_surface_y > -9000.0
-		and absf(main.fairy_pond_pos.y - fairy_surface_y - 4.0) < 0.1)
-	var grounded_flora_count: int = 0
-	for flora_role: String in lagoon.LAGOON_GROUND_FLORA:
-		grounded_flora_count += int(lagoon_counts.get(flora_role, 0))
-	# Habitat-specific filters intentionally reduce scatter while twelve
-	# guaranteed shrub anchors (six species, two accepted prototype variants
-	# each) preserve the complete roster. The floor catches material loss.
-	var authored_placement_ok: bool = (grounded_flora_count >= 30
-		and int(lagoon_counts.get("lagoon_pond_reeds", 0)) == 10
-		and int(lagoon_counts.get("lagoon_river_stones", 0)) == 6
-		and int(lagoon_counts.get("lagoon_story_lantern", 0)) == 6
-		and int(lagoon_counts.get("lagoon_memory_frame", 0)) == 6
-		and int(lagoon_counts.get("lagoon_rainbow_race_arch", 0)) == 2
-		and int(lagoon_counts.get("lagoon_butterfly_world_gate", 0)) == expected_butterfly_gate_count
-		and int(lagoon_counts.get("lagoon_train_station", 0)) == 1
-		and int(lagoon_counts.get("lagoon_snowbank", 0)) == 7
-		and fairy_pond_surface_ok
-		and String(main.g.get("lagoon_rainbow_route_mode", "")) == "paired_authored_gates")
-	for tree_role: String in lagoon.LAGOON_MEADOW_TREES:
-		authored_placement_ok = authored_placement_ok and int(lagoon_counts.get(tree_role, 0)) >= 1
-	for shrub_role: String in lagoon.LAGOON_SHRUB_SOURCE_HEIGHT.keys():
-		authored_placement_ok = authored_placement_ok and int(lagoon_counts.get(shrub_role, 0)) >= 1
-	var lagoon_art_ok: bool = botany_rule_ok and kit_resources_ok and authored_placement_ok
-	print("BOTANY|no isolated ground leaf + complete plant kit: ",
-		"OK" if lagoon_art_ok else "FAIL",
-		" flora=", grounded_flora_count, " placements=", lagoon_counts)
-	if not lagoon_art_ok:
-		print("FAIL|Sky Lagoon authored flora or landmark placement regression")
-	var footprints_ok: bool = (not lagoon._lagoon_ground_object_allowed("plant", 0.0, 100.0)
-		and not lagoon._lagoon_ground_object_allowed("plant", 0.0, -120.0)
-		and not lagoon._lagoon_ground_object_allowed("plant", -22.0, 95.0)
-		and not lagoon._lagoon_ground_object_allowed("plant", -30.0, 140.0)
-		and not lagoon._lagoon_ground_object_allowed("plant", -92.0, -156.0)
-		and lagoon._lagoon_ground_object_allowed("crafted_friend", 130.0, -20.0))
-	print("CONTINUITY|routes/landmarks/structures reserve footprints: ",
-		"OK" if footprints_ok else "FAIL")
-	var wayfinder_children: int = main.get_child_count()
-	main._wayfind_t = 0.0
-	main._tick_wayfinder(0.1, player.position)
-	var wayfinder_ok: bool = (main._wayfind_t > 2.0
-		and main.get_child_count() >= wayfinder_children + 3)
-	print("WAYFINDER|Level 2 sparkle trail: ", "OK" if wayfinder_ok else "FAIL")
-	_kart_gateway_regressions(main, player)
-	# The courtyard opera marquee (owner 2026-07-19): swim-in entrance with
-	# leave-and-return hysteresis, and the home-safe leave places Roshan aside.
-	var og_ok: bool = main.g.has("opera_gate") and String(main.g.get("phase", "court")) == "court"
-	if og_ok:
-		var old_cut: float = main.l2_cutscene_t
-		main.l2_cutscene_t = -1.0
-		var og: Dictionary = main.g["opera_gate"]
-		var og_pos: Vector3 = og["pos"]
-		og["armed"] = false
-		og["cool"] = 0.0
-		main._tick_level2(0.0, og_pos)
-		var og_blocked: bool = main.opera_game == null
-		main._tick_level2(0.0, og_pos + Vector3(12.0, 0.0, 0.0))
-		var og_rearmed: bool = bool(og["armed"])
-		main._tick_level2(0.0, og_pos)
-		await process_frame   # flush the deferred _start_opera
-		var og_opened: bool = main.opera_game != null and main.game == "opera"
-		if main.opera_game != null:
-			main.opera_game._leave_early()
-		await process_frame
-		var og_returned: bool = (main.game == "level2" and main.opera_game == null
-			and og_pos.distance_to(player.position) < 9.0)
-		main.l2_cutscene_t = old_cut
-		og_ok = og_blocked and og_rearmed and og_opened and og_returned
-		print("OPERAGATE|courtyard marquee blocked/rearm/open/return=%s/%s/%s/%s"
-			% [og_blocked, og_rearmed, og_opened, og_returned])
-	if not og_ok:
-		print("FAIL|courtyard opera marquee gate regression")
-	# The Alpine addition must remain one distinct corner, clear of the train,
-	# with its attached mountain and near-summit secret cave fully built.
-	var alpine_ok: bool = (main.g.has("alpine_village_center")
-		and main.g.has("alpine_mountain_center")
-		and main.g.has("alpine_cave_entrance")
-		and main.g.has("alpine_secret_pos"))
-	if alpine_ok:
-		var village: Vector3 = main.g["alpine_village_center"]
-		var mountain: Vector3 = main.g["alpine_mountain_center"]
-		var secret: Vector3 = main.g["alpine_secret_pos"]
-		var vl: Vector3 = village - main.LEVEL2_POS
-		var ml: Vector3 = mountain - main.LEVEL2_POS
-		var sl: Vector3 = secret - main.LEVEL2_POS
-		var train_clear: bool = Vector2(vl.x, vl.z + 120.0).length() > 90.0
-		var attached: bool = Vector2(vl.x - ml.x, vl.z - ml.z).length() < 80.0
-		alpine_ok = vl.x < -60.0 and vl.z < -140.0 and train_clear and attached and sl.y > 45.0
-	print("ALPINE|corner + mountain + secret cave: ", "OK" if alpine_ok else "FAIL")
-	# All three chalets must expose a clear front-to-centre corridor and place the
-	# Blender habitat beyond the doorway, with its cage and animal separable.
-	var houses_ok: bool = (main.g.has("alpine_house_entries")
-		and main.g.has("alpine_house_bonuses"))
-	var entries: Array = main.g.get("alpine_house_entries", [])
-	var bonuses: Array = main.g.get("alpine_house_bonuses", [])
-	houses_ok = houses_ok and entries.size() == 3 and bonuses.size() == 3
-	var expected_kinds: Array[String] = ["fish", "insect", "bird"]
-	var expected_cages: Array[String] = ["aquarium", "terrarium", "bird_cage"]
-	if houses_ok:
-		for house_index in range(3):
-			var entry_data: Dictionary = entries[house_index]
-			var bonus_data: Dictionary = bonuses[house_index]
-			var entry_pos: Vector3 = entry_data["entry"]
-			var inside_pos: Vector3 = entry_data["inside"]
-			var bonus_pos: Vector3 = bonus_data["pos"]
-			var habitat: Node3D = bonus_data["habitat"] as Node3D
-			var cage: Node3D = bonus_data["cage"] as Node3D
-			var animal: Node3D = bonus_data["node"] as Node3D
-			houses_ok = (houses_ok
-				and float(entry_data["door_width"]) >= 5.0
-				and entry_pos.distance_to(inside_pos) < 7.0
-				and bonus_pos.distance_to(inside_pos) < 6.0
-				and bonus_pos.z < entry_pos.z
-				and String(bonus_data["kind"]) == expected_kinds[house_index]
-				and String(bonus_data["cage_kind"]) == expected_cages[house_index]
-				and is_instance_valid(habitat)
-				and is_instance_valid(cage)
-				and is_instance_valid(animal)
-				and String(animal.name) == "Collectible"
-				and habitat.visible
-				and cage.visible)
-			for sample_index in range(7):
-				var sample_pos: Vector3 = entry_pos.lerp(inside_pos,
-					float(sample_index) / 6.0)
-				if _arena_point_blocked(main, sample_pos):
-					houses_ok = false
-	# Exercise one real rescue twice: the first visit pays exactly once and hides
-	# the animal/pointer, while its aquarium remains; lingering cannot farm pearls.
-	var bonus_once_ok := false
-	if bonuses.size() == 3:
-		var first_bonus: Dictionary = bonuses[0]
-		var first_key: String = first_bonus["key"]
-		var first_node: Node3D = first_bonus["node"] as Node3D
-		var first_halo: Node3D = first_bonus["halo"] as Node3D
-		var first_cage: Node3D = first_bonus["cage"] as Node3D
-		var first_habitat: Node3D = first_bonus["habitat"] as Node3D
-		main.stickers.erase(first_key)
-		first_bonus["claimed"] = false
-		first_node.visible = true
-		first_halo.visible = true
-		var pearls_before: int = main.pearl_count
-		main._lagoon_ref()._tick_alpine_house_bonuses(0.016, first_bonus["pos"])
-		var pearls_after_first: int = main.pearl_count
-		main._lagoon_ref()._tick_alpine_house_bonuses(0.016, first_bonus["pos"])
-		bonus_once_ok = (pearls_after_first == pearls_before + 1
-			and main.pearl_count == pearls_after_first
-			and bool(main.stickers.get(first_key, false))
-			and not first_node.visible
-			and not first_halo.visible
-			and first_cage.visible
-			and first_habitat.visible)
-	print("ALPINE HOUSES|walk-in + fish/insect/bird cages: ",
-		"OK" if houses_ok and bonus_once_ok else "FAIL")
-	var t := 0.0
-	var got_log := []
-	var last_got := 0
-	var entered := false
-	var wob := 0.0
-	# done = the Crown Star win is recorded (crown celebrates IN PLACE since
-	# f5d7689 — the game stays in level2 by design, no ocean eject)
-	while main.game == "level2" and not bool(main.g.get("crown_won", false)) and t < 240.0:
-		t += 1.0/60.0 * Engine.time_scale
-		if main.mg_kind != "":
-			main._mg2d_close()
-			main.mg_cool = 15.0
-			await process_frame
-			continue
-		if int(t) % 30 == 0 and int(t*6)%180==0:
-			print("  dbg t=%.0f phase=%s game=%s" % [t, str(main.g.get("phase","?")), main.game])
-		wob += 1.0/60.0 * Engine.time_scale
-		var phase = String(main.g.get("phase","court"))
-		if phase == "court":
-			var got := 0
-			var tgt: Node3D = null
-			for sd in main.l2_stars:
-				if bool(sd["got"]): got += 1
-				elif tgt == null: tgt = sd["node"]
-			if main.l2_open: tgt = main.l2_door
-			if got != last_got:
-				got_log.append("  star %d at t=%.1fs" % [got, t]); last_got = got
-			if tgt != null:
-				# wandering 4yo: drift toward target with sine wobble, slow speed
-				var dir: Vector3 = (tgt.position - player.position)
-				dir.y = 0
-				if dir.length() > 0.5: dir = dir.normalized()
-				var wb := Vector3(sin(wob*1.3)*0.5, 0, cos(wob*0.9)*0.5)
-				player.vel = (dir + wb).normalized() * 14.0
-		else:
-			if not entered:
-				got_log.append("  entered castle at t=%.1fs" % t); entered = true
-			var cr: Node3D = main.l2_stars[0]["node"]
-			var dir2: Vector3 = (cr.position - player.position)
-			if dir2.length() > 0.5: dir2 = dir2.normalized()
-			player.vel = dir2 * 14.0
-		await process_frame
-	print("=== LEVEL 2 CHILD-PACED STRESS TEST ===")
-	for l in got_log: print(l)
-	var won: bool = main.game == "" or bool(main.g.get("crown_won", false))
-	print("  RESULT: %s in %.1fs sim-time" % [("COMPLETED" if won else "FAIL (STUCK)"), t])
-	main._exit_level2()
+	var assets_ok := true
+	for path: String in required_assets:
+		assets_ok = assets_ok and ResourceLoader.exists(path)
+	_check("codex_sprite_assets", assets_ok)
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png"
+	var panorama_master: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(master_path))
+	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
+	if native_master_ok:
+		native_master_ok = (
+			panorama_master.get_width() == 2172
+			and panorama_master.get_height() == 724
+			and panorama_master.get_width() >= 2048
+			and absf(float(panorama_master.get_width())
+				/ float(panorama_master.get_height()) - 3.0) <= 0.000001)
+	_check("native_2k_exact_ratio_master", native_master_ok)
+	var runtime_tiles_ok := true
+	for tile_index: int in range(3):
+		var tile: Texture2D = load(
+			"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_%d.png"
+			% tile_index)
+		runtime_tiles_ok = (
+			runtime_tiles_ok and tile != null
+			and tile.get_size() == Vector2(724, 724))
+	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
+	var stage_root: Node3D = main.g.get("ss_root") as Node3D
+	var node_stack: Array[Node] = [stage_root]
+	var sprite_count := 0
+	var mesh_count := 0
+	var canvas_count := 0
+	var shaded_count := 0
+	var bad_scale_count := 0
+	var visible_sprite_count := 0
+	var depth_layers: Dictionary = {}
+	var backdrop_positions: Array[Vector3] = []
+	var billboarded_backdrops := 0
+	var mural_card: Sprite3D = null
+	var unanchored := 0
+	var unanchored_worst := ""
+	while not node_stack.is_empty():
+		var stage_node: Node = node_stack.pop_back()
+		if stage_node is Sprite3D:
+			var stage_sprite := stage_node as Sprite3D
+			sprite_count += 1
+			visible_sprite_count += 1 if stage_sprite.visible else 0
+			shaded_count += 1 if stage_sprite.shaded else 0
+			bad_scale_count += 1 if stage_sprite.pixel_size <= 0.0 else 0
+			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
+			if stage_sprite.name.begins_with("SkyLagoonBackdrop_"):
+				backdrop_positions.append(stage_sprite.position)
+				mural_card = stage_sprite
+				if stage_sprite.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
+					billboarded_backdrops += 1
+			elif stage_sprite != main.g.get("lagoon_roshan_card"):
+				# every world card must share the mural's depth; a card in front
+				# of it parallaxes faster than the art it stands on, so it slides
+				# across the painted ground and its tap target drifts off the
+				# thing it represents (owner report 2026-07-27)
+				var off: float = absf(stage_sprite.global_position.z
+					- (main.g.get("ss_root") as Node3D).position.z
+					- SkyLagoonPromenade.BACKDROP_Z)
+				if off > 0.7:
+					unanchored += 1
+					unanchored_worst = "%s off by %.1f" % [stage_sprite.name, off]
+		elif stage_node is MeshInstance3D:
+			mesh_count += 1
+		elif stage_node is CanvasItem:
+			canvas_count += 1
+		for child: Node in stage_node.get_children():
+			node_stack.append(child)
+	_check("world_art_is_unshaded_sprite3d",
+		sprite_count == 29 and mesh_count == 0 and canvas_count == 0
+		and shaded_count == 0 and bad_scale_count == 0,
+		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
+			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
+	_check("real_depth_and_speedy_overdraw",
+		depth_layers.size() >= 4 and visible_sprite_count <= 20,
+		"depth_layers=%d visible_cards=%d" % [
+			depth_layers.size(), visible_sprite_count])
+	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
+		return a.x < b.x)
+	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
+	var seamless_cards_ok := backdrop_positions.size() == 3
+	if seamless_cards_ok:
+		seamless_cards_ok = (
+			backdrop_positions[0] == Vector3(-48.0, mural_y, -18.0)
+			and backdrop_positions[1] == Vector3(0.0, mural_y, -18.0)
+			and backdrop_positions[2] == Vector3(48.0, mural_y, -18.0))
+	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
+	# A billboarded card swings about its own centre, so the three tiles stop
+	# being coplanar the instant the lens is off-centre and the environment sky
+	# shows through the wedges between them. The wall must stay flat.
+	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
+		"billboarded=%d" % billboarded_backdrops)
+	_check("world_cards_anchored_to_the_mural", unanchored == 0, unanchored_worst)
+
+	# THE MURAL IS THE SCREEN. The promenade — not the free-swim chase cam —
+	# must own the lens, and the frame it holds has to stay inside the painted
+	# rectangle at both ends of the walk.
+	var promenade := main._lagoon_promenade_ref()
+	var stage_cfg: Dictionary = main.g.get("ss_cfg", {})
+	var lens: Camera3D = main.player.cam
+	var origin: Vector3 = main.LEVEL2_POS
+	_check("stage_owns_the_lens",
+		is_equal_approx(lens.fov, SkyLagoonPromenade.CAM_FOV)
+		and absf(lens.position.y - (origin.y + SkyLagoonPromenade.CAM_H)) <= 0.35
+		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
+		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
+			lens.position.y - origin.y, lens.position.z - origin.z])
+	var mural_half_w: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.x * 1.5
+	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
+	var covered := true
+	var worst := ""
+	var drift_gaps: Array[float] = []
+	var slide_card: Node3D = null
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		if String((value as Dictionary).get("id", "")) == "slide":
+			slide_card = (value as Dictionary).get("node") as Node3D
+	# the framing sweep teleports her to both ends; disarm the castle doorstep
+	# for it, or arriving at the right-hand end walks her straight indoors
+	main.g["lagoon_castle_armed"] = false
+	var walk_edges: Array[float] = [72.0, -72.0]
+	for edge_x in walk_edges:
+		main.player.position.x = origin.x + edge_x
+		for _i in range(6):
+			promenade.tick(0.5)
+		var view: Vector2 = promenade.stage.view_half_size(
+			stage_cfg, lens, SkyLagoonPromenade.BACKDROP_Z)
+		var cam_x: float = lens.position.x - origin.x
+		var cam_y: float = lens.position.y - origin.y
+		var inside: bool = (
+			cam_x + view.x <= mural_half_w + 0.01
+			and cam_x - view.x >= -mural_half_w - 0.01
+			and cam_y + view.y <= mural_y + mural_half_h + 0.01
+			and cam_y - view.y >= mural_y - mural_half_h - 0.01)
+		if slide_card != null and mural_card != null:
+			# THE anchoring regression: a standee must travel across the screen
+			# at the same rate as the painting behind it. Measured as a RATIO,
+			# not in pixels — the headless viewport is square, so its lens pans
+			# more than twice as far as a phone's and the same geometry shows a
+			# proportionally larger pixel figure.
+			drift_gaps.append(lens.unproject_position(slide_card.global_position).x)
+			drift_gaps.append(lens.unproject_position(mural_card.global_position).x)
+		covered = covered and inside
+		if not inside:
+			worst = "at x=%.0f frame=[%.1f,%.1f]x[%.1f,%.1f]" % [edge_x,
+				cam_x - view.x, cam_x + view.x, cam_y - view.y, cam_y + view.y]
+	_check("mural_fills_the_frame_at_both_ends", covered, worst)
+	var drift: float = 1.0
+	if drift_gaps.size() == 4:
+		var standee_travel: float = absf(drift_gaps[0] - drift_gaps[2])
+		var mural_travel: float = absf(drift_gaps[1] - drift_gaps[3])
+		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
+	# the bug this replaces measured 24%: cards 12 units in front of the mural
+	_check("set_does_not_drift_across_the_pan", drift <= 0.02,
+		"standee travelled %.1f%% differently from the painting" % (drift * 100.0))
+	# THE ROUTE: the promenade is a path, and the path has to end at the door.
+	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])
+	var route_span: Vector2 = promenade.stage.route_span(main.g.get("ss_cfg", {}))
+	var door_walk_x: float = promenade._walk_x(SkyLagoonPromenade.CASTLE_DOOR_X)
+	var reach: float = promenade.stage.keep_on_screen(
+		main.g.get("ss_cfg", {}), door_walk_x)
+	_check("route_runs_the_level_and_ends_at_the_door",
+		route.size() == SkyLagoonPromenade.ROUTE_PAINTED.size()
+		and absf(route_span.y - door_walk_x) <= 0.01
+		and route_span.x < -40.0
+		and absf(reach - door_walk_x) <= 0.01,
+		"waypoints=%d span=%s door=%.1f reachable=%.1f" % [
+			route.size(), route_span, door_walk_x, reach])
+	main.player.position.x = origin.x - 48.0
+	for _i in range(6):
+		promenade.tick(0.5)
+	_check("roshan_is_sprite_card",
+		not main.player.visible
+		and main.g.get("lagoon_roshan_card") is Sprite3D)
+	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
+	var plane_card: Sprite3D = main.g.get("lagoon_plane_card") as Sprite3D
+	var ambient_before := Vector3.ZERO
+	var plane_before := Vector3.ZERO
+	if ambient_cards.size() == 6:
+		ambient_before = (ambient_cards[0] as Sprite3D).position
+	if plane_card != null:
+		plane_before = plane_card.position
+	promenade._tick_ambient_life(0.75)
+	var ambient_moves := (
+		ambient_cards.size() == 6
+		and (ambient_cards[0] as Sprite3D).position != ambient_before
+		and plane_card != null and plane_card.visible
+		and plane_card.position != plane_before)
+	_check("low_cost_ambient_life_and_plane", ambient_moves)
+
+	var targets: Array = main.g.get("lagoon_promenade_targets", [])
+	var ids: Dictionary = {}
+	var frame_screens: Dictionary = {}
+	for value in targets:
+		var target: Dictionary = value as Dictionary
+		var id: String = String(target.get("id", ""))
+		ids[id] = true
+		if String(target.get("kind", "")) == "frame":
+			var node: Node3D = target.get("node") as Node3D
+			var local_x: float = node.position.x
+			var screen_index := 1
+			if local_x >= -24.0 and local_x < 24.0:
+				screen_index = 2
+			elif local_x >= 24.0:
+				screen_index = 3
+			frame_screens[screen_index] = int(frame_screens.get(screen_index, 0)) + 1
+	_check("interactive_roster", targets.size() == 8
+		and ids.has("plane") and ids.has("slide") and ids.has("swing")
+		and ids.has("seesaw") and ids.has("castle_gate"))
+	_check("one_frame_per_screen",
+		int(frame_screens.get(1, 0)) == 1
+		and int(frame_screens.get(2, 0)) == 1
+		and int(frame_screens.get(3, 0)) == 1)
+
+	var runway_frame: Dictionary = {}
+	for value in targets:
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "runway_frame":
+			runway_frame = target
+			break
+	var frame_node: Node3D = runway_frame.get("node") as Node3D
+	var cam: Camera3D = main.player.cam
+	var frame_screen: Vector2 = cam.unproject_position(frame_node.global_position)
+	main._lagoon_promenade_ref().handle_touch(frame_screen)
+	var first_press_ok: bool = (
+		String(main.g.get("lagoon_promenade_focus", "")) == "runway_frame"
+		and main.mg_kind == "")
+	_check("frame_first_press_highlights", first_press_ok)
+	main._lagoon_promenade_ref().handle_touch(frame_screen)
 	await process_frame
-	var reef_sun_restored: bool = main.sun_light != null and main.sun_light.visible
-	print("LIGHTING|reef sun restored on Lagoon exit: ",
-		"OK" if reef_sun_restored else "FAIL")
-	if not reef_sun_restored:
-		print("FAIL|Sky Lagoon left the ocean sun disabled")
+	_check("frame_second_press_opens", main.mg_kind == "snowman")
+	if main.mg_kind != "":
+		main._mg2d_close()
+	await _frames(2)
+
+	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at
+	# the door's own place on screen. The old probe called _focus/_activate
+	# directly, so it never noticed that the gate's tap target had drifted
+	# 237 px off the painted door and tapping the door did nothing at all.
+	var castle_target: Dictionary = {}
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "castle_gate":
+			castle_target = target
+			break
+	var gate_node: Node3D = castle_target.get("node") as Node3D
+	main.player.position.x = origin.x + 40.0
+	for _i in range(6):
+		promenade.tick(0.5)
+	var gate_screen: Vector2 = lens.unproject_position(gate_node.global_position)
+	var view_rect := Rect2(Vector2.ZERO, main.get_viewport().get_visible_rect().size)
+	_check("castle_door_is_on_screen_from_the_walk", view_rect.has_point(gate_screen),
+		"gate at %s in a %s viewport" % [gate_screen, view_rect.size])
+	promenade.handle_touch(gate_screen)
+	var gate_focus_ok: bool = (
+		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate")
+	_check("castle_door_first_tap_highlights", gate_focus_ok)
+	promenade.handle_touch(gate_screen)
+	await _frames(8)
+	_check("drawbridge_enters_castle",
+		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
+
+	# ...and the other road in: follow the painted way to its end. Rebuild the
+	# promenade, walk to the far end of the route, and she should step inside
+	# without any tap at all ("she won't touch the drawbridge for the castle").
+	main._enter_level2()
+	await _frames(8)
+	var promenade2 := main._lagoon_promenade_ref()
+	var span2: Vector2 = promenade2.stage.route_span(main.g.get("ss_cfg", {}))
+	main.player.position.x = main.LEVEL2_POS.x + span2.y
+	for _i in range(4):
+		promenade2.tick(0.2)
+	await _frames(10)
+	_check("walking_the_path_enters_the_castle",
+		main.game == "level2" and String(main.g.get("phase", "")) == "hall",
+		"phase=%s" % String(main.g.get("phase", "?")))
+
+	if failed:
+		print("FAIL|Sky Lagoon 2.5D promenade regression")
+	else:
+		print("LAGOON25D|ALL: OK")
 	quit()
-
-
-func _arena_point_blocked(main: Node, point: Vector3) -> bool:
-	for value in main.arena_solids:
-		var solid: Dictionary = value
-		if point.y < float(solid["y0"]) or point.y > float(solid["y1"]):
-			continue
-		if bool(solid.get("box", false)):
-			if (absf(point.x - float(solid["cx"])) <= float(solid["hx"])
-				and absf(point.z - float(solid["cz"])) <= float(solid["hz"])):
-				return true
-		else:
-			var dx: float = point.x - float(solid["x"])
-			var dz: float = point.z - float(solid["z"])
-			var radius: float = float(solid["r"])
-			if dx * dx + dz * dz <= radius * radius:
-				return true
-	return false
-
-func _kart_gateway_regressions(main: Node, player: Node3D) -> void:
-	# Exercise the real Sky Lagoon portal logic without launching either large
-	# destination. The world is already built for this probe, so this is cheap.
-	var was_processing: bool = main.is_processing()
-	var old_pos: Vector3 = player.position
-	var old_vel: Vector3 = player.vel
-	var old_galaxy: bool = bool(main.galaxy_unlocked)
-	var old_float_armed: bool = bool(main.kart_float_portals_armed)
-	var old_galaxy_armed: bool = bool(main.galaxy_gateway_armed)
-	var old_kart_cool: float = float(main.kart_cool)
-	var old_bw_cool: float = float(main.bw_cool)
-	var old_intro: bool = bool(main.g.get("kart_intro", false))
-	var old_t: float = float(main.g.get("t", 0.0))
-	main.set_process(false)
-	main.g["kart_intro"] = true
-
-	main.kart_float_portals_armed = false
-	main.kart_cool = 0.0
-	main._tick_level2(0.0, main.kart_legA)
-	var float_blocked: bool = main.game == "level2" and main.kart_game == null and not main.kart_float_portals_armed
-	main._tick_level2(0.0, main.kart_legA + Vector3(24.0, 0.0, 0.0))
-	var float_rearmed: bool = bool(main.kart_float_portals_armed)
-
-	main.galaxy_unlocked = true
-	main.galaxy_gateway_armed = false
-	main.bw_cool = 0.0
-	main.kart_cool = 0.0
-	main._tick_level2(0.0, main.bw_portal_pos)
-	var galaxy_blocked: bool = main.game == "level2" and main.galaxy_game == null and not main.galaxy_gateway_armed
-	main._tick_level2(0.0, main.bw_portal_pos + Vector3(16.0, 0.0, 0.0))
-	var galaxy_rearmed: bool = bool(main.galaxy_gateway_armed)
-
-	# main owns the one cooldown decrement; SkyLagoon must not subtract it too.
-	main.galaxy_unlocked = false
-	main.kart_float_portals_armed = false
-	main.galaxy_gateway_armed = false
-	main.kart_cool = 6.0
-	player.position = main.bw_portal_pos + Vector3(60.0, 60.0, 0.0)
-	player.vel = Vector3.ZERO
-	main._process(0.1)
-	var single_cooldown: bool = is_equal_approx(float(main.kart_cool), 5.9)
-	print("KARTGATES|float blocked/rearm=%s/%s galaxy blocked/rearm=%s/%s cooldown=%.1f" % [float_blocked, float_rearmed, galaxy_blocked, galaxy_rearmed, float(main.kart_cool)])
-	if not float_blocked or not float_rearmed:
-		print("FAIL|Sky Lagoon kart gate did not require leave + re-enter")
-	if not galaxy_blocked or not galaxy_rearmed:
-		print("FAIL|Butterfly World gate did not require leave + re-enter")
-	if not single_cooldown:
-		print("FAIL|kart cooldown decremented more than once in one Level 2 frame")
-
-	player.position = old_pos
-	player.vel = old_vel
-	main.galaxy_unlocked = old_galaxy
-	main.kart_float_portals_armed = old_float_armed
-	main.galaxy_gateway_armed = old_galaxy_armed
-	main.kart_cool = old_kart_cool
-	main.bw_cool = old_bw_cool
-	main.g["kart_intro"] = old_intro
-	main.g["t"] = old_t
-	main.set_process(was_processing)

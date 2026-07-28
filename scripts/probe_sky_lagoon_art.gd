@@ -39,6 +39,20 @@ func _shot(name: String, pos: Vector3, target: Vector3, fov: float = 62.0) -> vo
 	print("LAGOONSHOT|", name, "|", "OK" if error == OK else "FAIL")
 
 
+func _promenade_shot(name: String, walk_x: float) -> void:
+	# What the CHILD actually sees: the game's own lens with the promenade's
+	# own framing, not a review camera parked somewhere convenient. These are
+	# the frames that show whether the painted mural fills the screen or
+	# leaves environment sky around it.
+	main.player.position.x = main.LEVEL2_POS.x + walk_x
+	main.g["ss_walk_goal"] = null
+	await _settle(50)   # let the lens glide to its clamped home
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_viewport().get_texture().get_image()
+	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
+	print("LAGOONSHOT|", name, "|", "OK" if error == OK else "FAIL")
+
+
 func _find_meta(key: String, value: String, occurrence: int = 0) -> Node3D:
 	var stack: Array[Node] = [main]
 	var found_count := 0
@@ -199,6 +213,11 @@ func _init() -> void:
 		main.touch_ui.visible = false
 	if main.pause_layer != null:
 		main.pause_layer.visible = false
+	# The promenade set, through the game camera, before the review lens takes
+	# over: left edge, mid-walk and right edge of the painted mural.
+	await _promenade_shot("lagoon_00a_promenade_west_end", -72.0)
+	await _promenade_shot("lagoon_00b_promenade_playground", -6.0)
+	await _promenade_shot("lagoon_00c_promenade_castle_end", 72.0)
 	cam = Camera3D.new()
 	cam.far = 800.0
 	get_root().add_child(cam)

@@ -27,10 +27,10 @@ const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
 # slot became Daddy Mermaid on 2026-07-19 — IP hold, see attic/gabby/).
 const LEGACY_FRIEND_SAVE_KEYS := {"Daddy Mermaid": "Gabby"}
 const KNOWN_KEYS: Array[String] = [
-	"schema_version", "won", "found", "finale", "music", "quality",
+	"schema_version", "won", "found", "finale", "music", "quality", "touch_mode",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
-	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done",
+	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 	"companion_resting", "companion_bruises",
@@ -76,6 +76,7 @@ func load_save() -> void:
 	m.music_on = bool(m.save_data.get("music", true))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
+	m._set_touch_mode(String(m.save_data.get("touch_mode", m.TOUCH_MODE_HYBRID)), false)
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
 		m.music_btn.text = m._pause_ref().music_label()
@@ -122,6 +123,9 @@ func load_save() -> void:
 		# pre-lobby saves stored a linear checkpoint: the first N doors were done
 		m.opera_stars = (1 << m.opera_progress) - 1
 	m.opera_done = bool(m.save_data.get("opera_done", false))
+	# added 2026-07-25 with a {} default — never removed, per save compatibility
+	var pantry_raw: Variant = m.save_data.get("opera_pantry", {})
+	m.opera_pantry = (pantry_raw as Dictionary) if pantry_raw is Dictionary else {}
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
 	m.fairy_skin_unlocked = bool(m.save_data.get("fairyskin", false)) or m.skin_id == "fairy"
@@ -171,6 +175,7 @@ func write_save() -> bool:
 	next_data["finale"] = m.finale_done
 	next_data["music"] = m.music_on
 	next_data["quality"] = m.quality
+	next_data["touch_mode"] = m.touch_mode
 	next_data["pearls"] = maxi(m.pearl_count, 0)
 	next_data["pearls_ever"] = maxi(m.pearls_ever, 0)
 	next_data["portal_unlocked"] = m.portal_unlocked
@@ -193,6 +198,7 @@ func write_save() -> bool:
 	next_data["opera_progress"] = clampi(m.opera_progress, 0, 15)
 	next_data["opera_stars"] = clampi(m.opera_stars, 0, 32767)
 	next_data["opera_done"] = m.opera_done
+	next_data["opera_pantry"] = m.opera_pantry.duplicate()
 	next_data["stickers"] = m.stickers
 	next_data["owned"] = m.shop_owned
 	next_data["animals"] = m.animals_owned
@@ -399,6 +405,9 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 	if data.has("quality"):
 		if typeof(data["quality"]) != TYPE_STRING or not (String(data["quality"]) in ["speedy", "sparkly"]):
 			return false
+	if data.has("touch_mode"):
+		if typeof(data["touch_mode"]) != TYPE_STRING or not (String(data["touch_mode"]) in ["hybrid", "classic"]):
+			return false
 	if data.has("skin") and (typeof(data["skin"]) != TYPE_STRING or String(data["skin"]).is_empty()):
 		return false
 	return true
@@ -413,6 +422,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["finale"] = _bool_or_default(raw, "finale", false)
 	data["music"] = _bool_or_default(raw, "music", true)
 	data["quality"] = _quality_or_default(raw, qdef)
+	var saved_touch_mode: String = _string_or_default(raw, "touch_mode", "hybrid")
+	data["touch_mode"] = saved_touch_mode if saved_touch_mode in ["hybrid", "classic"] else "hybrid"
 	var pearls: int = _nonnegative_int_or_default(raw, "pearls", 0)
 	data["pearls"] = pearls
 	data["pearls_ever"] = maxi(pearls, _nonnegative_int_or_default(raw, "pearls_ever", pearls))
@@ -442,6 +453,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
 	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 32767)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
+	var pantry_in: Variant = raw.get("opera_pantry", {})
+	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")

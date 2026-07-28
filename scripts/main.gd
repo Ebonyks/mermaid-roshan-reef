@@ -4,6 +4,8 @@ extends Node3D
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
+const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
+const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -25,7 +27,6 @@ var portal_unlocked := false
 var trophies := 0
 var medals := {}                  # game id -> best tier ever (1 bronze / 2 silver / 3 gold); persisted, upgrade-only (MedalSystem owns logic)
 var hud_layer: CanvasLayer = null
-var hud_tray: Panel = null         # top-left status tray — icons and pips only, no prose (Codex UI handoff 2026-07-19)
 var hud_pearls: Label
 var hud_stars: Label
 var hud_msg: Label
@@ -106,6 +107,7 @@ var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
 var craft_fishbox: Control = null
 var craft_kind := "fish"
+var craft_part := "body"              # one active palette row: body / accent / third
 var craft_body_rb := false           # rainbow-cycle toggle for the body layer (ww craft fx)
 var craft_fins_rb := false           # rainbow-cycle toggle for the accent layer
 var craft_c3 := Color(0, 0, 0, 0)    # third zone colour; alpha 0 = the kind's book-art default
@@ -194,8 +196,12 @@ var companion_rest_timer := -1.0          # >0 while injured: patience left befo
 var companion_rest_warned := 0            # escalating "needs care" reminders fired
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
+var companion_care_layer: CanvasLayer = null # Tamagotchi care overlay
+var companion_care_stage: Control = null
+var companion_menu_button: Button = null  # inset upper-right HUD launcher
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
+var companion_pick_slot := 0               # one large active paint row at a time
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
@@ -224,6 +230,11 @@ var opera_game: OperaHouse = null
 var opera_progress := 0            # cleared opera acts (star count), 0..15
 var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
 var opera_done := false
+# The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
+# have someone caged backstage — and the freed friends hand Roshan a GIFT that
+# the act then cooks, paints or plays with. Gifts persist, so the carrots the
+# farmers give her on Floor 1 are still in the larder for later shows.
+var opera_pantry: Dictionary = {}
 
 # ---- STICKER BOOK: in-game achievements, tuned for a 4yo (no gamerscore,
 # ---- just a book of shiny stickers). Deliberately rewards the side content
@@ -348,6 +359,30 @@ var _nat_cache := {}
 const SAVE_PATH := "user://reef_save.json"
 const GTA := "res://assets/terrain/"
 var touch_ui: CanvasLayer
+const TOUCH_MODE_HYBRID := "hybrid"
+const TOUCH_MODE_CLASSIC := "classic"
+var touch_mode := TOUCH_MODE_HYBRID
+var touch_mode_btn: Button = null
+var touch_control_blocks: Dictionary = {}
+# Mutable touch experiment state stays on ReefMain. The two RefCounted
+# directors receive this node and own behavior only, matching the extraction
+# rules used by the arena/minigame satellites.
+var touch_interactables: Array = []
+var touch_focus_id := ""
+var touch_focus_ready := false
+var touch_registry_t := 0.0
+var touch_discovery_ring: MeshInstance3D = null
+var touch_focus_ring: MeshInstance3D = null
+var touch_auto_active := false
+var touch_auto_target := Vector3.ZERO
+var touch_auto_waypoint := Vector3.ZERO
+var touch_auto_interactable := ""
+var touch_auto_activation_radius := 5.0
+var touch_auto_last_distance := 0.0
+var touch_auto_stall_t := 0.0
+var touch_auto_recoveries := 0
+var _interaction_director: InteractionDirector = null
+var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
 var music_on := true
 var save_data := {}
@@ -392,6 +427,7 @@ var sleep_cool := 0.0
 var sleep_layer: CanvasLayer = null
 var sleep_overlay: ColorRect = null
 var sleep_flip_done := false
+var hug_layer: CanvasLayer = null
 var night_nodes: Array = []   # moon/beams/jellies — toggled when time flips at runtime
 var quality_btn: Button
 var music_btn: Button
@@ -694,6 +730,7 @@ func _ready() -> void:
 	_build_brawl_portal()
 	_build_pause()
 	_load_save()
+	_init_touch_experiment()
 	if START_AT_CASTLE_GATE and DisplayServer.get_name() != "headless":
 		# Direct entry happens before the first rendered frame; a fade here would
 		# briefly expose the legacy ocean origin behind the intro overlay.
@@ -2557,8 +2594,10 @@ func _restore_level2_after_trip(was_open: bool, saved_position: Vector3) -> void
 func _start_combat(battle_kind: String) -> void:
 	if combat_game != null or battle_kind not in ["ice", "fire"]:
 		return
+	_prepare_touch_transition()
 	combat_from = game
 	game = "combat"
+	_populate_touch_interactables()
 	if hud_layer != null:
 		hud_layer.visible = false
 	player.visible = false
@@ -2583,6 +2622,7 @@ func _end_combat(battle_kind: String) -> void:
 		_write_save()
 		_update_hud()
 	game = combat_from
+	_populate_touch_interactables()
 	if combat_from == "galaxy" and galaxy_game != null:
 		var galaxy_level := galaxy_game as GalaxyLevel
 		galaxy_level.visible = true
@@ -2606,6 +2646,9 @@ func _start_stuffie_battle() -> void:
 	# den keeps serving rounds in rotation (replayable, no dead end)
 	if stuffie_game != null or companion_id == "" or companion_resting:
 		return
+	# The battle swaps the mode with no fade, so stale focus/assisted travel
+	# must not survive into (or past) it.
+	_prepare_touch_transition()
 	var ladder_index := 0
 	for i in range(StuffieBattle.LADDER.size()):
 		if not bool(stuffie_wins.get(String(StuffieBattle.LADDER[i]["tag"]), false)):
@@ -2797,9 +2840,15 @@ func _end_opera(completed: bool) -> void:
 		hud_layer.visible = true
 	if g.has("opera_gate"):
 		var gate: Dictionary = g["opera_gate"]
-		player.position = (gate["pos"] as Vector3) + Vector3(6.5, 0, 0)
+		# Stay outside the 4.5 entrance radius but leave enough room for the
+		# analytic wall/terrain correction to remain beside the marquee.
+		player.position = (gate["pos"] as Vector3) + Vector3(5.5, 0, 0)
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
+		# A child often swims back across the marquee while reorienting toward
+		# the Dream Stars. Prevent an automatic Classic bounce for a while;
+		# Hybrid still permits a deliberate target tap immediately.
+		gate["cool"] = 20.0
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
 
@@ -2888,32 +2937,33 @@ func _build_hud() -> void:
 	var cl := CanvasLayer.new()
 	add_child(cl)
 	hud_layer = cl
-	# Codex UI handoff 2026-07-19, gold slice: fixed corner ownership. Progress
-	# lives in a top-left tray of icons and pips; the objective is a top-center
-	# picture card; the caption line is parent-facing backup at bottom-center,
-	# clear of the joystick and action corners.
-	hud_tray = Panel.new()
-	var tsb := StyleBoxFlat.new()
-	tsb.bg_color = Color(0.08, 0.14, 0.3, 0.55)
-	tsb.border_color = Color(0.62, 0.55, 0.95, 0.8)
-	tsb.set_border_width_all(3)
-	tsb.set_corner_radius_all(18)
-	hud_tray.add_theme_stylebox_override("panel", tsb)
-	hud_tray.position = Vector2(14, 12)
-	hud_tray.size = Vector2(252, 176)
-	hud_tray.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	cl.add_child(hud_tray)
-	hud_pearls = _mk_label(cl, Vector2(32, 22), 42)
-	hud_stars = _mk_label(cl, Vector2(32, 80), 28)
-	hud_game = _mk_label(cl, Vector2(320, 596), 24)
-	hud_game.custom_minimum_size = Vector2(640, 0)
-	hud_game.size = Vector2(640, 32)
+	var status_panel := Panel.new()
+	status_panel.name = "HudStatusTray"
+	status_panel.position = Vector2(16, 14)
+	status_panel.size = Vector2(280, 146)
+	status_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_panel.add_theme_stylebox_override("panel", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.93, 0.97, 1.0, 0.94), 44, 4))
+	cl.add_child(status_panel)
+	hud_pearls = _mk_label(cl, Vector2(42, 24), 30)
+	hud_pearls.size = Vector2(220, 42)
+	hud_stars = _mk_label(cl, Vector2(42, 65), 22)
+	# three lines (stars / crowns+critters / medal tally) inside the 146-tall tray
+	hud_stars.size = Vector2(230, 112)
+	hud_game = _mk_label(cl, Vector2(430, 20), 23)
+	hud_game.name = "HudPictureObjective"
+	hud_game.size = Vector2(420, 112)
 	hud_game.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hud_msg = _mk_label(cl, Vector2(320, 632), 30)
-	hud_msg.custom_minimum_size = Vector2(640, 0)
-	hud_msg.size = Vector2(640, 76)
+	hud_game.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hud_game.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hud_game.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.GOLD, Color(0.94, 0.97, 1.0, 0.94), 30, 4))
+	hud_game.set_meta("picture_objective", true)
+	hud_msg = _mk_label(cl, Vector2(230, 590), 24)
+	hud_msg.name = "HudVoiceCaption"
+	hud_msg.size = Vector2(820, 112)
 	hud_msg.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hud_msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.91, 0.94, 1.0, 0.94), 30, 4))
 	hud_msg.text = "Find the glowing friends in the fairy garden!"
 	_build_obj_card(cl)
 	_update_hud()
@@ -3004,22 +3054,26 @@ func _fade_cut(cb: Callable) -> void:
 	# and assert state a frame or two later, so cb is never tween-deferred.
 	# Snap the cover to full black, run the build under it in the same frame,
 	# then tween only the reveal. State timing is byte-identical to before.
+	_prepare_touch_transition()
 	if fade_rect == null:
 		cb.call()
+		_finish_touch_transition()
 		return
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	fade_rect.modulate.a = 1.0
 	cb.call()
+	_populate_touch_interactables()
 	if fade_tween != null and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = create_tween()
 	fade_tween.tween_property(fade_rect, "modulate:a", 0.0, 0.25)
+	fade_tween.tween_callback(_finish_touch_transition)
 
 func _mk_label(cl: CanvasLayer, pos: Vector2, fsize: int) -> Label:
 	var l := Label.new()
 	l.position = pos
-	l.add_theme_font_size_override("font_size", fsize)
-	l.add_theme_color_override("font_outline_color", Color(0.02, 0.05, 0.14, 0.9))
-	l.add_theme_constant_override("outline_size", 6)
+	StorybookUI.style_label(l, fsize, StorybookUI.INK, 3)
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	cl.add_child(l)
 	return l
 
@@ -3030,10 +3084,7 @@ func _pips(filled: int, total: int, emoji: String) -> String:
 	return emoji.repeat(f) + "·".repeat(total - f)
 
 func _update_hud() -> void:
-	# icon-led tray rows, no prose (Codex UI handoff): a big pearl count, then
-	# star/trophy pips a non-reader compares by length, then the numeric
-	# critter tally (18 pips would wrap) and the medal glyphs
-	hud_pearls.text = "🫧 %d" % pearl_count
+	hud_pearls.text = "◉  %d" % pearl_count
 	var stars := 0
 	for f in friends:
 		if f["found"]:
@@ -3042,12 +3093,8 @@ func _update_hud() -> void:
 	for caught_value: Variant in critter_collection.values():
 		if bool(caught_value):
 			critters += 1
-	var msfx: String = _medal_ref().hud_suffix().strip_edges()
-	if msfx != "":
-		msfx = "\n" + msfx   # medals get their own pip row inside the tray
-	hud_stars.text = "%s\n%s\n🐚 %d/18%s" % [_pips(stars, 5, "⭐"), _pips(trophies, 5, "🏆"), critters, msfx]
-	if hud_tray != null:
-		hud_tray.size.y = 212.0 if msfx != "" else 176.0
+	# critters stay numeric on purpose: 18 pips would wrap the HUD line
+	hud_stars.text = "★  %s\n♛  %s    ◇  %d / 18" % [_pips(stars, 5, "●"), _pips(trophies, 5, "●"), critters] + _medal_ref().hud_suffix()
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
 const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
@@ -3172,8 +3219,8 @@ func _apply_quality(q: String) -> void:
 		if is_instance_valid(fn):
 			_set_vis_range(fn, 150.0 if speedy else 0.0)
 	if quality_btn != null:
-		# different silhouettes per state, never color alone (Codex UI handoff)
-		quality_btn.text = "🚀\nSpeedy" if speedy else "✨\nSparkly"
+		quality_btn.text = "≋   SPEEDY" if speedy else "✦   SPARKLY"
+		quality_btn.set_meta("toggle_on", not speedy)
 	# Phase 5: live-retune the reef water when the tier flips (arena water is
 	# rebuilt on entry and picks the tier up itself)
 	if water_node != null and water_node.material_override is ShaderMaterial:
@@ -3294,7 +3341,415 @@ func _build_pause() -> void:
 	_pause_ref()._build_pause()
 
 func toggle_pause() -> void:
+	if touch_ui != null:
+		touch_ui.cancel_all_touches()
 	_pause_ref().toggle_pause()
+
+# ===================== REVERSIBLE TOUCH-CENTRIC EXPERIMENT =====================
+
+func _init_touch_experiment() -> void:
+	# Trusted legacy probes exercise the preserved Classic contract while the
+	# dedicated touch probes exercise Hybrid. These test-only flags never write
+	# the preference and are not used by Android/desktop game launches.
+	var user_args: PackedStringArray = OS.get_cmdline_user_args()
+	if "--classic-touch-test" in user_args:
+		_set_touch_mode(TOUCH_MODE_CLASSIC, false)
+	elif "--hybrid-touch-test" in user_args:
+		_set_touch_mode(TOUCH_MODE_HYBRID, false)
+	if touch_ui != null:
+		touch_ui.set_mode(touch_mode)
+		if not touch_ui.world_touched.is_connected(_on_touch_world):
+			touch_ui.world_touched.connect(_on_touch_world)
+		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
+			touch_ui.manual_move_started.connect(_on_touch_manual_move)
+	_interaction_ref()
+	_populate_touch_interactables()
+
+func _interaction_ref() -> InteractionDirector:
+	if _interaction_director == null:
+		_interaction_director = InteractionDirectorLogic.new(self)
+	return _interaction_director
+
+func _tap_move_ref() -> TapMoveDirector:
+	if _tap_move_director == null:
+		_tap_move_director = TapMoveDirectorLogic.new(self)
+	return _tap_move_director
+
+func touch_uses_explicit_interactions() -> bool:
+	return touch_mode == TOUCH_MODE_HYBRID and touch_ui != null and touch_ui.wants_touch()
+
+func _set_touch_mode(next_mode: String, persist: bool = true) -> void:
+	touch_mode = TOUCH_MODE_CLASSIC if next_mode == TOUCH_MODE_CLASSIC else TOUCH_MODE_HYBRID
+	touch_auto_active = false
+	touch_focus_id = ""
+	touch_focus_ready = false
+	if touch_discovery_ring != null:
+		touch_discovery_ring.visible = false
+	if touch_focus_ring != null:
+		touch_focus_ring.visible = false
+	if touch_ui != null:
+		touch_ui.set_mode(touch_mode)
+	if touch_mode_btn != null:
+		touch_mode_btn.text = _touch_mode_label()
+	if persist:
+		_write_save()
+
+func _touch_mode_label() -> String:
+	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
+
+func _on_touch_world(screen_pos: Vector2) -> void:
+	if intro_active or get_tree().paused or mg_kind != "":
+		return
+	if fade_rect != null and fade_rect.modulate.a > 0.02:
+		return
+	if touch_ui != null and not touch_ui.world_controls_enabled:
+		return
+	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+		return
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().handle_touch(screen_pos)
+		return
+	_interaction_ref().on_world_touch(screen_pos)
+
+func _on_touch_manual_move() -> void:
+	_tap_move_ref().cancel("manual")
+
+func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
+	if enabled:
+		touch_control_blocks.erase(reason)
+	else:
+		touch_control_blocks[reason] = true
+	var controls_enabled: bool = touch_control_blocks.is_empty()
+	if touch_ui != null:
+		touch_ui.set_world_controls_enabled(controls_enabled)
+	if not controls_enabled:
+		_tap_move_ref().cancel("overlay")
+		_interaction_ref().clear_focus()
+		touch_interactables.clear()
+	else:
+		_populate_touch_interactables()
+
+func _prepare_touch_transition() -> void:
+	if touch_ui != null:
+		touch_ui.cancel_all_touches()
+	_tap_move_ref().cancel("transition")
+	_interaction_ref().clear_focus()
+	touch_interactables.clear()
+
+func _finish_touch_transition() -> void:
+	if fade_rect != null:
+		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_populate_touch_interactables()
+
+func _touch_interaction_ready(interactable_id: String) -> void:
+	_interaction_ref().mark_ready(interactable_id)
+
+func touch_auto_direction() -> Vector3:
+	if not touch_uses_explicit_interactions():
+		return Vector3.ZERO
+	return _tap_move_ref().desired_direction()
+
+func touch_auto_vertical() -> float:
+	if not touch_uses_explicit_interactions():
+		return 0.0
+	return _tap_move_ref().desired_vertical()
+
+func _touch_add_item(id: String, label: String, pos: Vector3,
+		node: Node3D = null, activation_radius: float = 6.0,
+		discover_radius: float = 32.0, verb: String = "PLAY",
+		payload: Variant = null, enabled: bool = true) -> void:
+	touch_interactables.append({
+		"id": id,
+		"label": label,
+		"pos": pos,
+		"node": node,
+		"activation_radius": activation_radius,
+		"discover_radius": discover_radius,
+		"verb": verb,
+		"payload": payload,
+		"enabled": enabled,
+	})
+
+func _populate_touch_interactables() -> void:
+	touch_interactables.clear()
+	if not touch_uses_explicit_interactions() or player == null:
+		return
+	if game == "":
+		for friend_index in range(friends.size()):
+			var friend: Dictionary = friends[friend_index]
+			var friend_node: Node3D = friend.get("node") as Node3D
+			if not is_instance_valid(friend_node):
+				continue
+			_touch_add_item(
+				"friend:%d" % friend_index,
+				String(friend.get("fname", "Friend")),
+				friend_node.position,
+				friend_node,
+				maxf(6.0, float(friend.get("start_radius", 8.0))),
+				maxf(30.0, float(friend.get("linger_radius", 10.0)) * 3.0),
+				"PLAY",
+				friend_index)
+		if manta != null and is_instance_valid(manta):
+			_touch_add_item("reef:shop", "Pearl Shop", manta.position, manta, 17.0, 38.0, "SHOP")
+		if wreck_pos != Vector3.ZERO:
+			_touch_add_item("reef:treasure", "Secret Cave", wreck_pos, null, 13.0, 34.0, "OPEN")
+		if slide_portal_pos != Vector3.ZERO:
+			_touch_add_item("reef:slide", "Penguin Slide", slide_portal_pos, slide_portal_penguin, 14.0, 38.0, "SLIDE")
+		if brawl_portal_pos != Vector3.ZERO:
+			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
+		if kart_portal_pos != Vector3.ZERO:
+			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
+		if companion_den != null and is_instance_valid(companion_den) \
+				and companion_id != "" and not companion_resting \
+				and stuffie_game == null and stuffie_cool <= 0.0:
+			# 9.0 matches companion.gd DEN_RADIUS (the Classic walk-in ring)
+			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
+				companion_den, 9.0, 30.0, "PLAY")
+		if portal_node != null and is_instance_valid(portal_node):
+			_touch_add_item("reef:lagoon", "Rainbow Portal", portal_node.position, portal_node, 9.0, 42.0, "ENTER")
+		if ocean_routes_enabled:
+			var kingdom: String = ReefDistricts.kingdom_at(Vector2(player.position.x, player.position.z))
+			var gate_xz: Vector2 = ReefDistricts.kingdom_return_gate(kingdom)
+			var gate_pos := Vector3(gate_xz.x, seabed_y(gate_xz.x, gate_xz.y) + 6.0, gate_xz.y)
+			_touch_add_item("reef:return", "Castle Gate", gate_pos, null, 10.0, 42.0, "ENTER", kingdom)
+		return
+	if game == "north":
+		var north_return: Vector3 = g.get("north_return_pos", Vector3.ZERO)
+		if north_return != Vector3.ZERO:
+			_touch_add_item("north:return", "Magic Cave Home", north_return, null, 9.0, 42.0, "ENTER")
+		return
+	if game != "level2":
+		return
+	if String(g.get("phase", "")) == "promenade":
+		return
+	if String(g.get("phase", "court")) == "hall":
+		_populate_hall_touch_interactables()
+	else:
+		_populate_courtyard_touch_interactables()
+
+func _populate_courtyard_touch_interactables() -> void:
+	var kingdom_gates: Array = g.get("ocean_kingdom_gates", [])
+	for gate_index in range(kingdom_gates.size()):
+		var gate: Dictionary = kingdom_gates[gate_index]
+		_touch_add_item(
+			"court:ocean:%d" % gate_index,
+			"Ocean Kingdom",
+			gate.get("pos", Vector3.ZERO),
+			gate.get("rune") as Node3D,
+			9.0, 40.0, "ENTER", gate_index)
+	if g.has("northern_portal_pos"):
+		_touch_add_item("court:north", "Magic Cave", g["northern_portal_pos"],
+			g.get("northern_portal_rune") as Node3D, 8.0, 38.0, "ENTER")
+	if g.has("opera_gate"):
+		var opera_gate: Dictionary = g["opera_gate"]
+		_touch_add_item("court:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 34.0, "SHOW")
+	if galaxy_unlocked and bw_portal_pos != Vector3.ZERO:
+		_touch_add_item("court:galaxy", "Butterfly World", bw_portal_pos, null, 9.0, 38.0, "ENTER")
+	if ember_portal_pos != Vector3.ZERO:
+		_touch_add_item("court:ember", "Ember Fortress", ember_portal_pos, null, 10.0, 38.0, "ENTER")
+	if kart_legA != Vector3.ZERO:
+		_touch_add_item("court:kart_a", "Rainbow Race", kart_legA, null, 14.0, 42.0, "RACE")
+		_touch_add_item("court:kart_b", "Reverse Rainbow Race", kart_legB, null, 14.0, 42.0, "RACE")
+	for star_index in range(l2_stars.size()):
+		var star_data: Dictionary = l2_stars[star_index]
+		if bool(star_data.get("got", false)):
+			continue
+		var star_node: Node3D = star_data.get("node") as Node3D
+		if is_instance_valid(star_node):
+			_touch_add_item("court:star:%d" % star_index, "Dream Star", star_node.position,
+				star_node, 14.0, 50.0, "GET", star_index)
+	if l2_open:
+		for picture_index in range(wall_pics.size()):
+			var picture: Dictionary = wall_pics[picture_index]
+			_touch_add_item("court:picture:%d" % picture_index, "Picture Game",
+				picture.get("pos", Vector3.ZERO), picture.get("node") as Node3D,
+				5.0, 24.0, "PLAY", picture_index)
+	if g.has("back_entry"):
+		_touch_add_item("court:back_entry", "Secret Castle Door", g["back_entry"], null, 9.0, 30.0, "ENTER")
+	if l2_open and g.has("entry"):
+		# Never track the l2_door NODE here: the slab slides ~30 units up into
+		# the sky when the castle opens, dragging the ring/pick/approach with
+		# it — a front-door tap then misses entirely (and could pick the SECRET
+		# back hatch through the walls instead). Anchor the target on the
+		# doorway itself at walk height, where the child actually taps.
+		var castle_entry: Vector3 = g["entry"]
+		if lagoon_floor:
+			castle_entry.y = lagoon_walk_h(castle_entry.x, castle_entry.z) + 2.0
+		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null, 20.0, 52.0, "ENTER")
+
+func _populate_hall_touch_interactables() -> void:
+	if g.has("bed_pos") and sleep_cool <= 0.0 and sleep_t < 0.0:
+		_touch_add_item("hall:bed", "Cozy Bed", g["bed_pos"], null, 7.0, 28.0, "SLEEP")
+	if not bool(g.get("stand_open", false)) and g.has("stand_chest"):
+		var stand: Node3D = g["stand_chest"]
+		if is_instance_valid(stand):
+			_touch_add_item("hall:stand", "Golden Star Stand", stand.position, stand, 11.0, 32.0, "OPEN")
+	if g.has("toilet"):
+		var toilet: Dictionary = g["toilet"]
+		_touch_add_item("hall:toilet", "Royal Loo", toilet["pos"], null, 5.0, 24.0, "PLAY")
+	if g.has("dungeon_gate"):
+		var dungeon_gate: Dictionary = g["dungeon_gate"]
+		_touch_add_item("hall:dungeon", "Castle Dungeon", dungeon_gate["pos"], null, 6.0, 28.0, "ENTER")
+	if g.has("opera_gate"):
+		var opera_gate: Dictionary = g["opera_gate"]
+		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 28.0, "SHOW")
+	# Unlike a proximity trigger, an explicit target cannot bounce Roshan back
+	# through the entrance accidentally, so it can be discoverable immediately.
+	if g.has("hall_exit"):
+		_touch_add_item("hall:exit", "Castle Courtyard", g["hall_exit"], null, 12.0, 34.0, "EXIT")
+	if g.has("craft_easel") and craft_layer == null:
+		_touch_add_item("hall:craft", "Craft Studio", g["craft_easel"], null, 7.0, 26.0, "MAKE")
+	if g.has("wardrobe") and wardrobe_layer == null:
+		_touch_add_item("hall:wardrobe", "Wardrobe", g["wardrobe"], null, 7.0, 26.0, "DRESS")
+	var bellgame: Dictionary = g.get("bellgame", {})
+	var bell_state: String = String(bellgame.get("state", ""))
+	if bell_state == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and g.has("song_star"):
+		_touch_add_item("hall:bell_song", "Music Star", g["song_star"], null, 7.0, 30.0, "PLAY")
+	var bells: Array = g.get("bells", [])
+	if bell_state != "play":
+		for bell_index in range(bells.size()):
+			var bell: Dictionary = bells[bell_index]
+			var bell_node: Node3D = bell.get("node") as Node3D
+			if is_instance_valid(bell_node):
+				_touch_add_item("hall:bell:%d" % bell_index, "Music Bell", bell_node.position,
+					bell_node, 5.0, 20.0, "RING", bell_index)
+	if g.has("secret_door") and bool(g.get("stand_open", false)):
+		_touch_add_item("hall:secret", "Daddy's Treasure Chest", g["secret_door"], null, 8.0, 26.0, "HUG")
+	if not bool(g.get("crown_won", false)) and not l2_stars.is_empty():
+		var crown: Node3D = (l2_stars[0] as Dictionary).get("node") as Node3D
+		if is_instance_valid(crown):
+			_touch_add_item("hall:crown", "Crown Star", crown.position, crown, 10.0, 38.0, "GET")
+	var hall_touch: Array = g.get("hall_touch", [])
+	for prop_index in range(hall_touch.size()):
+		var prop: Dictionary = hall_touch[prop_index]
+		var prop_node: Node3D = prop.get("node") as Node3D
+		_touch_add_item("hall:prop:%d" % prop_index, "Magic Castle Toy",
+			prop.get("pos", Vector3.ZERO), prop_node, maxf(5.0, float(prop.get("r", 4.0))),
+			maxf(16.0, float(prop.get("r", 4.0)) * 4.0), "TOUCH", prop_index)
+
+func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
+	if not touch_uses_explicit_interactions():
+		return
+	if touch_ui != null:
+		# Consume the activating button without stealing a simultaneously held
+		# left-stick finger. Fade-backed activities clear every owner below.
+		touch_ui.consume_action()
+	if id.begins_with("friend:"):
+		var friend_index: int = int(payload)
+		if friend_index >= 0 and friend_index < friends.size():
+			var friend: Dictionary = friends[friend_index]
+			friend["cool"] = 0.0
+			_start_game(friend)
+		return
+	match id:
+		"reef:shop":
+			shop_cool = 16.0
+			_start_game(shop_fr)
+		"reef:treasure":
+			treasure_cool = 12.0
+			_start_game(treasure_fr)
+		"reef:slide":
+			slide_cool = 14.0
+			_start_game(slide_fr)
+		"reef:brawl":
+			brawl_cool = 14.0
+			_start_game(brawl_fr)
+		"reef:kart":
+			_start_kart_game(false, "terrain")
+		"reef:den":
+			stuffie_cool = 14.0
+			_start_stuffie_battle()
+		"reef:lagoon":
+			_enter_level2(level2_done_once)
+		"reef:return":
+			ocean_kingdom = String(payload)
+			_enter_level2(false, false, true)
+		"court:north":
+			_enter_northern_kingdom()
+		"north:return":
+			_enter_level2(false, true)
+		"court:opera", "hall:opera":
+			_start_opera()
+		"court:galaxy":
+			kart_from = "level2"
+			_start_galaxy()
+		"court:ember":
+			kart_float_dest = "ember"
+			_start_kart_game(false, "float")
+		"court:kart_a":
+			_start_kart_game(false, "float")
+		"court:kart_b":
+			_start_kart_game(true, "float")
+		"court:back_entry":
+			_enter_castle_interior(true)
+		"court:castle":
+			_enter_castle_interior()
+		"hall:bed":
+			_begin_sleep()
+		"hall:stand":
+			_hall_ref().slide_stand()
+		"hall:toilet":
+			var toilet: Dictionary = g.get("toilet", {})
+			var toilet_player: AudioStreamPlayer = toilet.get("player") as AudioStreamPlayer
+			if is_instance_valid(toilet_player):
+				toilet_player.play()
+			if not combat_fire_done and combat_game == null:
+				_start_combat("fire")
+		"hall:dungeon":
+			_start_dungeon()
+		"hall:exit":
+			_return_to_courtyard()
+		"hall:craft":
+			_open_craft_studio()
+		"hall:wardrobe":
+			_open_wardrobe()
+		"hall:bell_song":
+			var song_game: Dictionary = g.get("bellgame", {})
+			_start_bellgame(song_game)
+		"hall:secret":
+			_play_hug_cutscene()
+		"hall:crown":
+			_hall_ref().award_crown(player.position)
+		_:
+			if id.begins_with("court:ocean:"):
+				var gate_index: int = int(payload)
+				var gates: Array = g.get("ocean_kingdom_gates", [])
+				if gate_index >= 0 and gate_index < gates.size():
+					var gate: Dictionary = gates[gate_index]
+					_enter_ocean_kingdom(String(gate["kingdom"]))
+			elif id.begins_with("court:picture:"):
+				_touch_open_picture(int(payload))
+			elif id.begins_with("court:star:"):
+				# Arrival collection remains the familiar forgiving proximity
+				# reward; the tap supplies navigation, not a second requirement.
+				pass
+			elif id.begins_with("hall:bell:"):
+				var bell_index: int = int(payload)
+				var bells: Array = g.get("bells", [])
+				if bell_index >= 0 and bell_index < bells.size():
+					var bellgame: Dictionary = g.get("bellgame", {})
+					var bell_state: String = String(bellgame.get("state", ""))
+					if bell_state != "play":
+						var bell: Dictionary = bells[bell_index]
+						bell["cool"] = 0.12
+						_ring_bell(bell)
+						if bell_state == "echo":
+							_bellgame_echo(bellgame, bell_index)
+			elif id.begins_with("hall:prop:"):
+				var prop_index: int = int(payload)
+				var props: Array = g.get("hall_touch", [])
+				if prop_index >= 0 and prop_index < props.size():
+					_hall_ref()._fire_touch(props[prop_index])
+
+func _touch_open_picture(picture_index: int) -> void:
+	if picture_index < 0 or picture_index >= wall_pics.size():
+		return
+	var picture: Dictionary = wall_pics[picture_index]
+	var art_key: String = String(picture.get("art", ""))
+	if art_key == "p_slide":
+		_l2_start_slide()
+	elif PIC_GAME.has(art_key):
+		_mg2d_open(String(PIC_GAME[art_key]))
 
 func _leave_current_activity() -> void:
 	_pause_ref()._leave_current_activity()
@@ -3396,7 +3851,7 @@ func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
 		var pdist: float = portal_node.position.distance_to(ppos)
 		if pdist > 13.0:
 			portal_armed = true
-		if portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
+		if not touch_uses_explicit_interactions() and portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
 			portal_armed = false
 			if level2_done_once:
 				l2_star_progress = [true, true, true]
@@ -3555,6 +4010,10 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	_wind_waker_bloom(arena_env, 0.36, 0.03, 1.24)   # retain emitters while pale castle/snow values stay below clipping
 	_apply_scene_grade(arena_env, "sky_lagoon")
 	we_node.environment = arena_env
+	if String(g.get("phase", "")) == "court":
+		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
+		l2_open = from_castle or level2_done_once
+		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
 		_build_lagoon_night(LEVEL2_POS)
@@ -3599,6 +4058,10 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
+	_fade_cut(_enter_northern_kingdom_now)
+
+func _enter_northern_kingdom_now() -> void:
+	player.visible = true
 	game = "north"
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -3740,11 +4203,17 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 # Phase 7.3: the Sky Lagoon lives in scripts/arena/sky_lagoon.gd
 # (state stays here; SkyLagoon receives main by reference)
 var _sky_lagoon: SkyLagoon = null
+var _sky_lagoon_promenade: SkyLagoonPromenade = null
 
 func _lagoon_ref() -> SkyLagoon:
 	if _sky_lagoon == null:
 		_sky_lagoon = SkyLagoon.new(self)
 	return _sky_lagoon
+
+func _lagoon_promenade_ref() -> SkyLagoonPromenade:
+	if _sky_lagoon_promenade == null:
+		_sky_lagoon_promenade = SkyLagoonPromenade.new(self)
+	return _sky_lagoon_promenade
 
 # The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
@@ -3784,6 +4253,9 @@ func _build_fairy_pond(o: Vector3) -> void:
 	_lagoon_ref()._build_fairy_pond(o)
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
+	if String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().tick(delta)
+		return
 	_lagoon_ref()._tick_level2(delta, ppos)
 
 func _l2_tower(pos: Vector3, sc: float = 1.0) -> void:
@@ -4574,6 +5046,7 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	_fade_cut(_enter_castle_interior_now.bind(from_back))
 
 func _enter_castle_interior_now(from_back: bool = false) -> void:
+	player.visible = true
 	_play_music("hall")
 	g["l2_fish"] = []
 	for n in game_nodes:
@@ -4829,11 +5302,8 @@ func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 	bg2["cool"] = maxf(0.0, float(bg2["cool"]) - delta)
 	var st := String(bg2["state"])
 	if st == "idle":
-		if float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
-			bg2["round"] = 0
-			bg2["oops"] = 0
-			show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
-			_bellgame_new_round(bg2)
+		if not touch_uses_explicit_interactions() and float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
+			_start_bellgame(bg2)
 	elif st == "play":
 		bg2["t"] = float(bg2["t"]) - delta
 		if float(bg2["t"]) <= 0.0:
@@ -4847,6 +5317,15 @@ func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
 				bg2["state"] = "echo"
 				bg2["i"] = 0
 				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
+				_populate_touch_interactables()
+
+func _start_bellgame(bg2: Dictionary) -> void:
+	if bg2.is_empty() or String(bg2.get("state", "")) != "idle" or float(bg2.get("cool", 0.0)) > 0.0:
+		return
+	bg2["round"] = 0
+	bg2["oops"] = 0
+	show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
+	_bellgame_new_round(bg2)
 
 func _bellgame_new_round(bg2: Dictionary) -> void:
 	bg2["round"] = int(bg2["round"]) + 1
@@ -4864,6 +5343,7 @@ func _bellgame_new_round(bg2: Dictionary) -> void:
 	bg2["state"] = "play"
 	bg2["i"] = 0
 	bg2["t"] = 1.1
+	_populate_touch_interactables()
 
 func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 	var seq: Array = bg2["seq"]
@@ -4883,6 +5363,7 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 				award_sticker("bells")
 				_medal_ref().award_stats("bells", {"oops": int(bg2.get("oops", 0))})
 				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
+				_populate_touch_interactables()
 			else:
 				if chime != null:
 					chime.pitch_scale = 1.4
@@ -4898,10 +5379,14 @@ func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
 		bg2["state"] = "play"
 		bg2["i"] = 0
 		bg2["t"] = 1.2
+		_populate_touch_interactables()
 
 func _begin_sleep() -> void:
 	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
 	# fades, day flips to night (or night to day), and she wakes refreshed
+	if sleep_t >= 0.0:
+		return
+	_set_world_controls_enabled(false, "sleep")
 	award_sticker("sleepy")
 	_play_music("home")   # A Place I Call Home — the tuck-in lullaby
 	sleep_t = 0.0
@@ -4980,6 +5465,7 @@ func _end_sleep() -> void:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
 		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
 	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
@@ -5038,10 +5524,14 @@ func _return_to_courtyard() -> void:
 	_enter_level2(true)
 
 func _play_hug_cutscene() -> void:
+	if hug_layer != null:
+		return
+	_set_world_controls_enabled(false, "hug")
 	award_sticker("hug")
 	var cl := CanvasLayer.new()
 	cl.layer = 20
 	add_child(cl)
+	hug_layer = cl
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(root)
@@ -5098,9 +5588,17 @@ func _play_hug_cutscene() -> void:
 		ht.tween_property(h, "position:y", vp.y * 0.08, 1.7 + randf()).set_delay(0.5 + randf() * 0.6)
 		ht.tween_property(h, "modulate:a", 0.0, 1.6).set_delay(0.9)
 	get_tree().create_timer(2.7).timeout.connect(func():
+		if not is_instance_valid(root):
+			return
 		var fo := root.create_tween()
 		fo.tween_property(root, "modulate:a", 0.0, 0.45)
-		fo.finished.connect(cl.queue_free))
+		fo.finished.connect(_end_hug_cutscene))
+
+func _end_hug_cutscene() -> void:
+	if hug_layer != null and is_instance_valid(hug_layer):
+		hug_layer.queue_free()
+	hug_layer = null
+	_set_world_controls_enabled(true, "hug")
 
 
 func _mg_noop_ref(_n: Node) -> void:
@@ -5307,6 +5805,22 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	player.visible = true
+	if sleep_t >= 0.0:
+		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
+		# hall, so nothing would ever release the "sleep" input block or the
+		# indigo dream overlay — every touch control stays dead until an app
+		# restart. Unwind the cutscene before tearing the world down.
+		sleep_t = -1.0
+		sleep_cool = 6.0
+		sleep_flip_done = false
+		if sleep_layer != null and is_instance_valid(sleep_layer):
+			sleep_layer.queue_free()
+		sleep_layer = null
+		sleep_overlay = null
+		if player != null:
+			player.rotation_degrees = Vector3.ZERO
+		_set_world_controls_enabled(true, "sleep")
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
@@ -6138,6 +6652,10 @@ func _overlay_root_for_cursor() -> Node:
 		return stickers_layer
 	if collection_layer != null and is_instance_valid(collection_layer):
 		return collection_layer
+	if companion_care_layer != null and is_instance_valid(companion_care_layer):
+		return companion_care_layer
+	if companion_layer != null and is_instance_valid(companion_layer):
+		return companion_layer
 	if mg_kind != "" and mg2d_layer != null and mg2d_layer.visible:
 		return mg2d_layer
 	return null
@@ -6200,7 +6718,7 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null
+	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null or companion_layer != null or companion_care_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
 		if craft_layer != null:
@@ -6219,6 +6737,12 @@ func _tick_overlay_pads(delta: float) -> void:
 		elif collection_layer != null:
 			if (b and not _pad_prev_b) or (a and not _pad_prev_a and not pad_cursor_active):
 				_collection_ref().close_book()
+		elif companion_care_layer != null:
+			if b and not _pad_prev_b:
+				_companion_ref().close_care_menu()
+		elif companion_layer != null:
+			if b and not _pad_prev_b:
+				_companion_ref().close_picker()
 	_pad_prev_a = a
 	_pad_prev_b = b
 
@@ -6331,7 +6855,7 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 		if distance > 17.0:
 			ocean_return_gate_armed = true
 		return false
-	if ocean_return_gate_cool <= 0.0 and distance < 10.0:
+	if not touch_uses_explicit_interactions() and ocean_return_gate_cool <= 0.0 and distance < 10.0:
 		ocean_return_gate_armed = false
 		ocean_kingdom = local_kingdom
 		_enter_level2(false, false, true)
@@ -6358,6 +6882,10 @@ func _process(delta: float) -> void:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
+	if hud_msg != null:
+		hud_msg.visible = hud_msg.text != ""
+	if hud_game != null:
+		hud_game.visible = hud_game.text != ""
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
@@ -6377,6 +6905,9 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	if touch_uses_explicit_interactions():
+		_tap_move_ref().tick(delta)
+		_interaction_ref().tick(delta, ppos)
 	_collection_ref().tick(delta, ppos)
 	if caustics_plane != null:
 		if game == "" and not intro_active and caustics_enabled:
@@ -6459,7 +6990,9 @@ func _process(delta: float) -> void:
 			_update_hud()
 			_queue_save()   # hot path: debounced, flushed by _process/pause/close
 		elif f["found"] and game == "" and dd < linger_radius:
-			if float(f["cool"]) > 0.0:
+			if touch_uses_explicit_interactions():
+				hud_game.text = "Tap the glowing friend to play!"
+			elif float(f["cool"]) > 0.0:
 				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
 			elif dd < start_radius:
 				hud_game.text = ""
@@ -6503,7 +7036,7 @@ func _process(delta: float) -> void:
 	slide_cool = maxf(0.0, slide_cool - delta)
 	brawl_cool = maxf(0.0, brawl_cool - delta)
 	kart_cool = maxf(0.0, kart_cool - delta)
-	if game == "" and finale_t < 0.0:
+	if game == "" and finale_t < 0.0 and not touch_uses_explicit_interactions():
 		if manta != null and shop_cool <= 0.0:
 			if manta.position.distance_to(ppos) < 17.0:
 				shop_cool = 16.0
@@ -6540,6 +7073,9 @@ func _process(delta: float) -> void:
 					kart_ocean_portal_armed = true
 			elif kart_cool <= 0.0 and kd < 12.0 and ky < 14.0:
 				_start_kart_game(false, "terrain")
+	if game == "" and finale_t < 0.0:
+		# Hybrid replaces only the proximity transition. Story progression and
+		# the portal's visual raise/animation must keep ticking in both modes.
 		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:
@@ -6559,7 +7095,13 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if _collection_ref().has_nearby():
+		if touch_uses_explicit_interactions() and touch_focus_ready:
+			for touch_item_value: Variant in touch_interactables:
+				var touch_item: Dictionary = touch_item_value as Dictionary
+				if String(touch_item.get("id", "")) == touch_focus_id:
+					act_lbl = String(touch_item.get("verb", "GO"))
+					break
+		elif _collection_ref().has_nearby():
 			act_lbl = "CATCH!"
 		elif game == "fetch" and String(g.get("phase", "")) == "aim":
 			act_lbl = "THROW"
@@ -6625,6 +7167,33 @@ func _physlab_clear() -> void:
 		if is_instance_valid(p):
 			p.queue_free()
 	jolt_props.clear()
+
+func _physlab_standees() -> void:
+	# Physical standees (2.5D redesign prototype, charter 2026-07-27): the
+	# E2 prop() primitive spawned in the free-swim world — sprite cutouts
+	# riding Jolt bodies, shoved by the same swim-wake coupling as the
+	# barrels above. Dev-gated preview of the promenade prop fleet; the
+	# waterlogged gravity/damp match the barrel feel in the reef.
+	_physlab_clear()
+	if player == null:
+		return
+	var c: Vector3 = player.position
+	var floor_y: float = seabed_y(c.x, c.z)
+	var sb := _jolt_static_box(Vector3(c.x, floor_y - 0.5, c.z), Vector3(60, 1, 60))
+	sb.set_meta("physlab", true)
+	jolt_props.append(sb)
+	var e2 := SideScrollStage.new(self)
+	for i in range(6):
+		var a: float = float(i) / 6.0 * TAU
+		var col := Color.from_hsv(float(i) / 6.0, 0.35, 1.0)
+		var p := e2.prop("", Vector2(2.4, 3.2),
+			c.x + cos(a) * 5.0, c.z + sin(a) * 5.0, {
+				"parent": self, "register": false, "floor_y": floor_y,
+				"drop": 2.0 + float(i) * 0.5, "color": col,
+				"tumble": i % 2 == 0, "gravity_scale": 0.35, "damp": 1.2,
+			})
+		if p != null:
+			jolt_props.append(p)
 
 func _physics_process(delta: float) -> void:
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,

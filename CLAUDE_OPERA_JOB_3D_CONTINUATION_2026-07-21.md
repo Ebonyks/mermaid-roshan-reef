@@ -1,9 +1,41 @@
 # Claude handoff — Opera House job levels, assets, and outfits
 
+## 2026-07-24 hybrid supersession
+
+Read `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` first. Every career is now
+one two-act level: this guide's mechanic and implement details are taught in a
+2.5D job district, then performed on a formal stage with the recurring floor
+boss. Its prior statements that boss work is deferred or separate are
+superseded.
+
+## 2026-07-24 binding design correction
+
+Read `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md` before environment
+modeling. It supersedes this file wherever this file describes regular jobs as
+stage modules, show-room shells, or small sets.
+
+The first half of every career is a continuous 2.5D side-scrolling story
+world with foreground, playable midground, scenic midground, and parallax
+backgrounds. A backstage threshold then connects to a formal stage where the
+same mechanic becomes a performance with the recurring floor boss.
+
+This older guide remains authoritative for outfit breakdowns,
+mechanic-critical implements, state changes, touch targets, continuity locks,
+node naming, and Mobile-renderer performance limits.
+
+## Access prerequisite
+
+Before modeling, read
+`CLAUDE_START_HERE_OPERA_JOB_ASSET_REGENERATION_2026-07-24.md`. It explains how
+to fetch the repository-tracked 36-sheet/576-card package, recover a stale or
+sparse Claude worktree, and stage native-detail 1024 regeneration safely.
+Do not proceed from inaccessible Codex worktree paths or external cache names.
+
 ## Source of truth
 
 Use `assets_src/concepts/opera_jobs_flat_2026-07-21/` as the visual source of
-truth for the twelve non-boss jobs. Each job has three accepted sheets:
+truth for the twelve career outfits, implements, and mechanic states. Each
+job has three accepted sheets:
 
 - `<job>_outfit_sheet_2026-07-21.png`
 - `<job>_gameplay_sheet_2026-07-21.png`
@@ -20,17 +52,18 @@ source library, and do not regenerate a card merely to make it look more
 realistic. The owner accepted the flat designs as shown.
 
 Do not use earlier realistic or mesh-first experiments as style targets. Do
-not modify protected book art, family voices, or friend cutouts. Do not create
-Curtain Dragon, Shadow Phantom, or Midnight Maestro assets in this phase.
+not modify protected book art, family voices, or friend cutouts. Reuse the
+existing Curtain Dragon, Shadow Phantom, and Midnight Maestro designs; do not
+replace them with unrelated bosses.
 
 ## Owner intent and definition of done
 
-Build the complete non-boss Opera experience as a coherent 3D toy-theatre
-system, not twelve unrelated prop drops. The lobby remains the primary stage
-and navigation space. Four career doors belong to each of three floors. A
-career door opens a focused show set assembled from the corresponding cards.
-Upper floors remain visibly desirable but physically inaccessible until the
-existing progression unlocks them. Boss encounters are not part of this work.
+Build the complete Opera experience as a coherent 3D toy-theatre system, not
+twelve unrelated prop drops. The lobby remains the primary navigation space.
+Four career doors belong to each of three floors. A career door opens a
+hybrid level: job-world teaching, backstage transition, then the formal
+performance finale. Upper floors remain visibly desirable but physically
+inaccessible until the existing progression unlocks them.
 
 A job is not complete when its hero object exists. Each job needs:
 
@@ -634,4 +667,6 @@ For each job family:
    a non-reader with one finger.
 5. Run `scripts/ci.sh` and require every trusted probe to pass.
 
-Do not begin boss work until the owner explicitly starts the boss phase.
+Boss-finale work is now authorized only as part of each hybrid career level.
+Follow `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md`; do not rebuild the old
+three separate boss-only acts.

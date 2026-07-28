@@ -108,6 +108,14 @@ const SKY_PRESETS := {
 # ---- Animation Lab (Roshan stress testing) ----
 const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep",
 	"point", "collect", "boing", "hairtwirl", "hum"]
+# the twelve opera career costumes (player.set_costume ids) + bare —
+# lets a tester inspect every outfit kit on the live swimming Roshan
+# without opening a door in the opera house
+const OUTFITS := [["", "None"], ["chef", "Chef"], ["detective", "Detective"],
+	["ballerina", "Ballerina"], ["candymaker", "Candy"], ["doctor", "Doctor"],
+	["farmer", "Farmer"], ["boxer", "Boxer"], ["magician", "Magician"],
+	["painter", "Painter"], ["astronaut", "Astronaut"], ["racer", "Racer"],
+	["popstar", "Pop Star"]]
 var anim_loop := false        # cycle every verb back-to-back (soak test)
 var anim_loop_idx := 0
 var anim_loop_gap := 0.0
@@ -143,6 +151,13 @@ func toggle() -> void:
 	open = not open
 	visible = open
 	if open:
+		# adopt the live lens on the way in, so opening the lab never snaps the
+		# camera off whatever the game (or the active stage) is framing with
+		var lens_cam: Camera3D = null
+		if main != null and main.player != null:
+			lens_cam = main.player.cam as Camera3D
+		if lens_cam != null:
+			cam_fov = lens_cam.fov
 		_sync_ui()
 		_status("Changes apply instantly. F1 or ` hides this panel.")
 
@@ -165,8 +180,16 @@ func _process(delta: float) -> void:
 	var cam: Camera3D = p.cam
 	if cam == null or not cam.is_inside_tree():
 		return
-	if cam.fov != cam_fov:
-		cam.fov = cam_fov
+	# The dev lens belongs to the LAB, not to the game. This used to force
+	# cam_fov (60) onto the camera EVERY frame, even with the panel closed and
+	# the camera in chase mode -- so every editor session and every headless
+	# probe run silently rendered at 60 instead of the 38 diorama lens, and a
+	# 2.5D stage that sets its own lens (SideScrollStage cfg cam_fov) had it
+	# overridden a frame later. While the lab is not driving the look, whatever
+	# the game set stands.
+	if open or cam_mode != "chase":
+		if cam.fov != cam_fov:
+			cam.fov = cam_fov
 	if cam_mode == "chase":
 		return
 	# these sequences drive the camera themselves - leave them alone
@@ -240,6 +263,19 @@ func _play_lab_verb(vname: String) -> void:
 	if main != null and main.player != null:
 		main.player.play_verb(vname)
 		_status("Playing: " + vname)
+
+func _set_lab_outfit(id: String, label: String) -> void:
+	# dress the live player: outfit kits (or primitive fallbacks) mount on
+	# her bone anchors and ride the swim right here in the reef. Dev-only —
+	# entering an opera act sets its own costume, and leaving clears it.
+	if main == null or main.player == null:
+		return
+	main.player.set_costume(id)
+	if id == "":
+		_status("Outfit off")
+	else:
+		var worn: bool = main.player.costume_nodes.size() > 0
+		_status("Outfit: %s%s" % [label, "" if worn else " (no pieces mounted?)"])
 
 # ============================ collect / apply ============================
 
@@ -766,6 +802,12 @@ func _build_ui() -> void:
 	jspawn.custom_minimum_size = Vector2(0, 42)
 	jspawn.pressed.connect(func(): main._physlab_spawn())
 	vb.add_child(jspawn)
+	var jstand := Button.new()
+	jstand.text = "Spawn 6 physical standees (sprite props)"
+	jstand.add_theme_font_size_override("font_size", 15)
+	jstand.custom_minimum_size = Vector2(0, 42)
+	jstand.pressed.connect(func(): main._physlab_standees())
+	vb.add_child(jstand)
 	var jclear := Button.new()
 	jclear.text = "Clear Jolt props"
 	jclear.add_theme_font_size_override("font_size", 15)
@@ -793,6 +835,22 @@ func _build_ui() -> void:
 		anim_serpentine = on
 		anim_serp_t = 0.0
 		_status("Serpentine " + ("ON - S-turns at speed; watch hair + arms" if on else "off")))
+
+	# ---- outfits ----
+	_section("Outfits (Opera careers)")
+	var oflow := HFlowContainer.new()
+	vb.add_child(oflow)
+	var obg := ButtonGroup.new()
+	for od: Array in OUTFITS:
+		var obtn := Button.new()
+		obtn.text = String(od[1])
+		obtn.toggle_mode = true
+		obtn.button_group = obg
+		obtn.button_pressed = String(od[0]) == ""
+		obtn.add_theme_font_size_override("font_size", 15)
+		obtn.custom_minimum_size = Vector2(0, 42)
+		obtn.pressed.connect(_set_lab_outfit.bind(String(od[0]), String(od[1])))
+		oflow.add_child(obtn)
 
 	# ---- lighting ----
 	_section("Lighting")

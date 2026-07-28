@@ -20,10 +20,10 @@ permissions:
   contents: read
 
 env:
-  GODOT_RELEASE: "4.4-stable"
-  # Official value from the 4.4-stable release's SHA512-SUMS.txt, verified
-  # 2026-07-19. A Godot version bump must update this in the same commit.
-  GODOT_ZIP_SHA512: "3d56a7698bdf7027e41e5e0a930b6b93f89a204eb95b9cd0b8ae25180231994029e211984863a5ebb59759b3e602ae1d042e745ab1b7cbbfeda62652c3936f60"
+  GODOT_RELEASE: "4.7.1-stable"
+  # Official value from the 4.7.1-stable release's SHA512-SUMS.txt, verified
+  # 2026-07-26. A Godot version bump must update this in the same commit.
+  GODOT_ZIP_SHA512: "4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9"
 
 jobs:
   probes:
@@ -85,12 +85,12 @@ jobs:
           set -o pipefail
           FAILED=0
           RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
-          FAILURE_RE='FAIL|FAILED|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
+          FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
           # NOTE: probe_human_art_audit is a display-only screenshot capture with
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_look probe_ui probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_full_texture_regen; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_full_texture_regen probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -100,9 +100,15 @@ jobs:
             PROBE_HOME="/tmp/reef-$p"
             rm -rf "$PROBE_HOME"
             mkdir -p "$PROBE_HOME/data" "$PROBE_HOME/config"
+            TOUCH_TEST_MODE="--classic-touch-test"
+            case "$p" in
+              probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
+                TOUCH_TEST_MODE="--hybrid-touch-test"
+                ;;
+            esac
             PROBE_RC=0
             XDG_DATA_HOME="$PROBE_HOME/data" XDG_CONFIG_HOME="$PROBE_HOME/config" \
-              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
+              timeout 8m godot --headless -s "scripts/$p.gd" -- --touch "$TOUCH_TEST_MODE" 2>&1 | tee "/tmp/$p.out" || PROBE_RC=$?
             if [ "$PROBE_RC" -ne 0 ]; then
               # Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at
               # EXIT after a probe has already printed its complete verdict —
@@ -150,6 +156,28 @@ jobs:
           mkdir -p "$BAL_HOME/data" "$BAL_HOME/config"
           XDG_DATA_HOME="$BAL_HOME/data" XDG_CONFIG_HOME="$BAL_HOME/config" \
             timeout 10m godot --headless -s scripts/probe_opera_balance.gd -- --touch 2>&1 | grep -E "^BALANCE\|" || true
+
+      # The art manifest is the machine-readable contract between the acts and
+      # codex's concept art (see CODEX_NEXTGEN_OBJECTS_2026-07-25.md). It is a
+      # generator, not a gate: it derives the per-beat object/state list from
+      # OperaHouse.ACTS so a redesign cannot silently leave the art brief
+      # stale. Published on every run — including red ones — so the brief stays
+      # available while gameplay work is still in flight.
+      - name: Publish opera art manifest (advisory)
+        if: always()
+        continue-on-error: true
+        run: |
+          timeout 5m godot --headless -s scripts/probe_art_manifest.gd 2>&1 \
+            | grep -E "^ARTMANIFEST\|" || true
+
+      - name: Upload opera art manifest
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: opera-art-manifest
+          path: audit/opera_art_manifest.json
+          if-no-files-found: warn
 
       # The screenshot captures below are review aids, not gameplay gates.
       # They are continue-on-error so a flaky Xvfb capture cannot fail this

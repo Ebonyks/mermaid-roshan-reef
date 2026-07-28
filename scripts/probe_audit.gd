@@ -14,6 +14,8 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	var ui_ok: bool = await _audit_storybook_ui()
+	print("AUDIT|Storybook UI contract: ", "OK" if ui_ok else "FAIL")
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await process_frame
@@ -63,6 +65,9 @@ func _init() -> void:
 			player.position = node.position + Vector3(3, 0, 0)
 			player.vel = Vector3.ZERO
 			await process_frame
+		if main.game == "" and main.touch_uses_explicit_interactions():
+			main._activate_touch_interactable("friend:%d" % fi, fi)
+			await _frames(10)
 		if main.game == "":
 			print("AUDIT|", fname, ": GAME DID NOT START")
 			continue
@@ -89,6 +94,8 @@ func _init() -> void:
 	main.treasure_cool = 0.0
 	player.position = main.wreck_pos + Vector3(0, 4, 2)
 	player.vel = Vector3.ZERO
+	if main.touch_uses_explicit_interactions():
+		main._activate_touch_interactable("reef:treasure")
 	var waited := 0
 	while main.game == "" and waited < 900:
 		waited += 1
@@ -105,6 +112,8 @@ func _init() -> void:
 	main.brawl_cool = 0.0
 	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
 	player.vel = Vector3.ZERO
+	if main.touch_uses_explicit_interactions():
+		main._activate_touch_interactable("reef:brawl")
 	var bwait := 0
 	while main.game == "" and bwait < 900:
 		bwait += 1
@@ -219,62 +228,29 @@ func _init() -> void:
 			main._check_level2_unlock(player.position, 0.1)
 			await process_frame
 		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
-		# --- Phase 1 gate: star progress must survive a slide round-trip ---
-		var sp_f := 0
-		while _stars_got() < 2 and sp_f < 60 * 120 and main.game == "level2":
-			sp_f += 1
-			var tgt2: Node3D = null
-			for sd2 in main.l2_stars:
-				if not bool(sd2["got"]):
-					tgt2 = sd2["node"]
-					break
-			if tgt2 != null:
-				player.position = player.position.lerp(tgt2.position, 0.16)
-				player.vel = Vector3.ZERO
-			await process_frame
-		main._l2_start_slide()
-		await _frames(10)
-		var slide_ok := await _drive_game(main.game, {"won": true})
-		var back_f := 0
-		while main.game != "level2" and back_f < 600:
-			back_f += 1
-			await process_frame
-		print("AUDIT|L2 star persistence: ", ("OK" if _stars_got() == 2 else "FAIL"),
-			" stars=", _stars_got(), " slide_won=", slide_ok)
-		var cf := 0
-		var interceptions := 0
-		while cf < 60 * 240:
-			cf += 1
-			if main.game == "level2" and String(main.g.get("phase","court")) == "court":
-				var tgt: Node3D = null
-				for sd in main.l2_stars:
-					if not bool(sd["got"]):
-						tgt = sd["node"]
-						break
-				if tgt == null and main.l2_door != null:
-					tgt = main.l2_door
-				if tgt != null:
-					player.position = player.position.lerp(tgt.position, 0.16)
-					player.vel = Vector3.ZERO
-			elif main.game == "level2" and String(main.g.get("phase","")) == "hall":
+		var targets: Array = main.g.get("lagoon_promenade_targets", [])
+		var promenade_ok: bool = (
+			String(main.g.get("phase", "")) == "promenade"
+			and targets.size() == 8
+			and is_equal_approx(float((main.g.get("ss_cfg", {}) as Dictionary).get("half_w", 0.0)), 72.0))
+		print("AUDIT|Level 2 three-screen promenade: ",
+			("OK" if promenade_ok else "FAIL"), " targets=", targets.size())
+		# The castle drawbridge is an explicit two-press landmark in the new
+		# promenade. The focused second press enters the existing castle hall.
+		var castle_target: Dictionary = {}
+		for target_value in targets:
+			var target: Dictionary = target_value as Dictionary
+			if String(target.get("id", "")) == "castle_gate":
+				castle_target = target
 				break
-			elif main.mg_kind != "":
-				interceptions += 1
-				main._mg2d_close()
-				await _frames(10)
-			elif main.game == "race" or main.game == "fairy":
-				interceptions += 1
-				var gname2: String = main.game
-				await _drive_game(gname2, {"won": true})
-				await _frames(30)
-			elif main.game == "":
-				await _frames(5)
-			await process_frame
-		print("AUDIT|Level 2 court interceptions: ", interceptions)
+		if not castle_target.is_empty():
+			main._lagoon_promenade_ref()._focus(castle_target)
+			main._lagoon_promenade_ref()._activate(castle_target)
+			await _frames(10)
 		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
 		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
-			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+			" mg_kind=", main.mg_kind)
 		# music room xylophone: ring a bar directly — art pass 3.5 swapped the
 		# bars for GLB props and the strike sparkle once crashed reading
 		# material_override off the prop root (any SCRIPT ERROR here fails CI)
@@ -312,6 +288,89 @@ func _init() -> void:
 			print("AUDIT|persisted wins: ", cnt, "/5")
 	print("AUDIT|total wall time: %.1fs" % (float(Time.get_ticks_msec() - t_start) / 1000.0))
 	quit()
+
+func _audit_storybook_ui() -> bool:
+	var ok := true
+	if not main.intro_active:
+		main._build_intro()
+	await process_frame
+	ok = _ui_named_count(main.intro_layer, "IntroNextButton") == 1 and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroNextButton", Vector2(150, 150)) and ok
+	ok = _ui_target_ok(main.intro_layer, "IntroRepeatVoiceButton") and ok
+	var skip := main.intro_layer.find_child("IntroHoldToSkipButton", true, false) as Control
+	ok = skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2 and ok
+	ok = (main.intro_layer.get_meta("page_pips", []) as Array).size() == 4 and ok
+	main._skip_intro()
+	await process_frame
+
+	ok = _ui_target_ok(main.pause_layer, "PauseCornerButton", Vector2(128, 128)) and ok
+	main.toggle_pause()
+	ok = main.pause_layer.layer == 29 and main.get_tree().paused and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseResumeButton", Vector2(300, 140)) and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseStickerButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseMusicButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "PauseQualityButton") and ok
+	var leave := main.pause_panel.find_child("PauseLeaveButton", true, false) as Button
+	ok = leave != null and bool(leave.get_meta("neutral_exit", false)) and ok
+	main.toggle_pause()
+	ok = main.pause_layer.layer == 12 and not main.get_tree().paused and ok
+
+	main._open_craft_studio()
+	await process_frame
+	ok = _ui_target_ok(main.craft_layer, "CraftBackButton") and ok
+	ok = _ui_target_ok(main.craft_layer, "CraftFinishButton", Vector2(150, 150)) and ok
+	ok = _ui_named_count(main.craft_layer, "CraftPart_*") == 3 and ok
+	ok = _ui_named_count(main.craft_layer, "CraftSwatch_*") == 8 and ok
+	ok = _ui_named_count(main.craft_layer, "CraftRainbowSwatch") == 1 and ok
+	main._close_craft()
+
+	main._open_wardrobe()
+	await process_frame
+	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeBackButton") and ok
+	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeFinishButton") and ok
+	main._close_wardrobe()
+	main._open_stickers()
+	await process_frame
+	ok = _ui_target_ok(main.stickers_layer, "StickerBookBackButton") and ok
+	main._close_stickers()
+
+	main._collection_ref().open_book()
+	await process_frame
+	ok = _ui_target_ok(main.collection_layer, "CritterBookBackButton") and ok
+	main._collection_ref().close_book()
+
+	main._companion_ref().open_picker(false)
+	await process_frame
+	ok = _ui_target_ok(main.companion_layer, "StuffiePickerBackButton") and ok
+	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 3 and ok
+	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 8 and ok
+	main._companion_ref().close_picker()
+
+	main._mg2d_open("garden")
+	await process_frame
+	var picture_back := main.mg2d_layer.find_child("PictureGameBackButton", true, false) as Button
+	ok = picture_back != null and _ui_target_ok(main.mg2d_layer, "PictureGameBackButton") and ok
+	ok = picture_back != null and bool(picture_back.get_meta("neutral_exit", false)) and ok
+	main._mg2d_close()
+	main.mg_cool = 0.0
+	return ok
+
+func _ui_named_count(from: Node, pattern: String) -> int:
+	var count := 0
+	for node: Node in from.find_children(pattern, "", true, false):
+		if node is Control:
+			count += 1
+	return count
+
+func _ui_target_ok(from: Node, pattern: String, minimum := Vector2(110, 110)) -> bool:
+	var control := from.find_child(pattern, true, false) as Control
+	if control == null:
+		return false
+	var touch_size := Vector2(
+		maxf(control.size.x, control.custom_minimum_size.x),
+		maxf(control.size.y, control.custom_minimum_size.y)
+	)
+	return touch_size.x >= minimum.x and touch_size.y >= minimum.y
 
 func _stars_got() -> int:
 	var got := 0

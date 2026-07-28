@@ -968,6 +968,16 @@ func _process(delta: float) -> void:
 		return   # the icon-led Critter Book is a full-screen touch overlay
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
+	if "g" in _m0 and String((_m0.g as Dictionary).get("phase", "")) == "promenade":
+		# A 2.5D promenade stage (GAME_REDESIGN_2P5D_2026-07-27) owns BOTH the
+		# player and the lens: SideScrollStage.walk_tick places her on the band
+		# and _glide_camera holds the side-on framing. main._process runs before
+		# this node, so without this gate the free-swim chase cam re-aimed the
+		# lens every single frame and the promenade's framing never reached the
+		# screen at all — the painted mural then sat in the top half of the
+		# frame with raw environment sky under it.
+		vel = Vector3.ZERO
+		return
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
 		if cam != null and cam.is_inside_tree():
 			cam.look_at(position + Vector3(0, 1.5, 0))
@@ -1017,6 +1027,30 @@ func _process(delta: float) -> void:
 			turn -= tv.x
 		if absf(tv.y) > 0.10:
 			fwd -= tv.y
+	# Hybrid tap-to-move is an assisted steering source, never a second physics
+	# controller. Any real keyboard/pad/stick intent wins immediately.
+	var manual_move: bool = absf(fwd) > 0.08 or absf(turn) > 0.08
+	if manual_move and m0.has_method("_on_touch_manual_move"):
+		m0._on_touch_manual_move()
+	elif not manual_move and m0.has_method("touch_auto_direction"):
+		var auto_dir: Vector3 = m0.touch_auto_direction()
+		if auto_dir.length() > 0.01:
+			var desired_yaw: float = atan2(auto_dir.x, auto_dir.z)
+			var yaw_error: float = wrapf(desired_yaw - yaw, -PI, PI)
+			# A rearward tap used to rotate in place for ~1.7 s before Roshan
+			# moved at all. Assisted steering gets a quicker turn ceiling and a
+			# gentle early arc; the manual stick/keyboard path above is unchanged.
+			turn = clampf(yaw_error * 2.0, -2.4, 2.4)
+			if absf(yaw_error) < 2.6:
+				fwd = clampf(1.0 - absf(yaw_error) / 2.6, 0.18, 1.0)
+		# Elevated targets (portals, the penguin floe) need a climb/dive the
+		# yaw/fwd steering above cannot give. Swim medium only: on dry land she
+		# hops and breached in air she is ballistic — both keep their existing
+		# rules, and the stall recovery owns whatever stays unreachable.
+		if m0.has_method("touch_auto_vertical") and not land_dry and not (String(m0.game) == "" and position.y > WATER_TOP):
+			var want_vy: float = m0.touch_auto_vertical()
+			if absf(want_vy) > 0.05:
+				vel.y = move_toward(vel.y, want_vy, 52.0 * delta)
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true

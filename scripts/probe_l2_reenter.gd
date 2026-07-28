@@ -27,16 +27,17 @@ func _init() -> void:
 	main._enter_level2()
 	await _frames(30)
 	var n1: int = get_node_count()
-	var toys1: int = (main.g.get("toys", []) as Array).size()
+	var targets1: int = (main.g.get("lagoon_promenade_targets", []) as Array).size()
 	# the galaxy/kart return path: re-enter WITHOUT any manual teardown
 	main._enter_level2(true)
 	await _frames(30)
 	var n2: int = get_node_count()
-	var toys2: int = (main.g.get("toys", []) as Array).size()
-	print("REENTER|nodes first=%d second=%d toys=%d/%d" % [n1, n2, toys1, toys2])
-	# New courtyard activities may legitimately change the absolute toy count.
-	# Re-entry is safe when the rebuilt level has the same non-zero inventory and
-	# the scene tree stays within the original anti-duplication tolerance.
-	var ok: bool = toys1 > 0 and toys2 == toys1 and n2 <= n1 + int(float(n1) * 0.1)
+	var targets2: int = (main.g.get("lagoon_promenade_targets", []) as Array).size()
+	print("REENTER|nodes first=%d second=%d targets=%d/%d" % [n1, n2, targets1, targets2])
+	# Re-entry is safe when the rebuilt three-screen promenade has the same
+	# interaction roster and the scene tree stays within the original
+	# anti-duplication tolerance.
+	var ok: bool = targets1 == 8 and targets2 == targets1 \
+		and n2 <= n1 + int(float(n1) * 0.1)
 	print("REENTER|no_duplicate_level: ", ("OK" if ok else "FAIL"))
 	quit()

@@ -14,6 +14,7 @@ func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide is always the 3D play-place, never the old 2D screen
 		return
+	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
 	m.mg = {"t": 0.0, "btns": []}
 	if m.mg2d_layer == null:
@@ -54,18 +55,11 @@ func _mg2d_open(kind: String) -> void:
 	m.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
 	m.mg2d_root.add_child(m.mg2d_stage)
 	m.mg["hud"] = _mg_label("", 40, Vector2(40, 26))
-	# a friendly ✕ so ANY config can leave without finishing (controller: B)
+	# A neutral doorway/back affordance so leaving never reads as failure.
 	var xb := Button.new()
-	xb.text = "✕"
-	xb.add_theme_font_size_override("font_size", 48)
-	xb.custom_minimum_size = Vector2(100, 100)   # frustrated fingers mash here
-	xb.position = Vector2(1146, 34)   # ~20px further in from the corner: edge taps miss less
-	var xsb := StyleBoxFlat.new()
-	xsb.bg_color = Color(0.1, 0.12, 0.25, 0.55)
-	xsb.set_corner_radius_all(50)
-	xb.add_theme_stylebox_override("normal", xsb)
-	xb.add_theme_stylebox_override("hover", xsb)
-	xb.add_theme_stylebox_override("pressed", xsb)
+	xb.name = "PictureGameBackButton"
+	StorybookUI.style_back_button(xb, "Back to the castle")
+	xb.position = Vector2(1128, 26)
 	xb.pressed.connect(_mg2d_close)
 	m.mg2d_stage.add_child(xb)
 	m.mg["xbtn"] = xb
@@ -209,6 +203,7 @@ func _mg2d_close() -> void:
 	m.mg_kind = ""
 	m.mg = {}
 	m.mg_cool = 8.0
+	m._set_world_controls_enabled(true, "picture_game")
 
 # ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
 # ---- watch each ball grow, then stack it and place the face ----

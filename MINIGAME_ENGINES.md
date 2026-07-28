@@ -288,9 +288,42 @@ stage.open({
     "backdrop": "res://assets/book/nursery_bg.jpg",  # optional book-page mural
     "backdrop_size": Vector2(36.0, 49.8), "backdrop_z": -28.0,
     "run_speed": 20.0, "jump_v": 30.0, "gravity": 64.0,  # run mode only
+    "layers": [  # parallax flat stack, back-to-front (world redesign P1;
+        # specs: CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md). lock ∈
+        # [0,1] = camera-follow factor (0 stage-pinned, 1 rides the camera);
+        # tile repeats the quad sideways; alpha only where the spec allows
+        {"tex": "res://assets/flats/reef/promenade/flat_reef_promenade_L0_sky.png",
+         "size": Vector2(64, 32), "z": -34.0, "lock": 0.95},
+    ],
 })
 var s := stage.tick(delta)   # catch mode: {"mx", "px", "moved"}
 var r := stage.run_tick(delta)  # run mode: {"x", "y", "grounded", "hopped"}
+var w := stage.walk_tick(delta)  # walk mode (promenade travel — engine seam,
+    # P2 reef pilot is the first client): tap/hold-to-travel projected onto
+    # the stage plane, goal persists to arrival, any manual axis cancels it
+    # → {"px","pz","moved","pointing","arrived"}
+stage.flat("res://assets/flats/reef/promenade/standee_reef_coral_med.png",
+    Vector2(9, 8), -6.0, 2.5)   # standee: a 2D design standing at a real
+    # depth so Roshan sorts in front/behind it as she walks (charter §1
+    # layering rule); returns the holder Node3D for tap-target registration
+stage.props_arena()   # invisible Jolt shell: floor slab + 4 walls at the
+    # stage bounds — the flat walk band is what makes engine bodies cheap
+stage.prop("", Vector2(2.4, 3.2), 6.0, 1.5, {"tumble": true})
+    # PHYSICAL standee (prototype 2026-07-27): a flat()-style cutout riding
+    # a RigidBody3D — the Jolt solver, not tween/animation code, moves it
+    # (settle, tumble, shove, bounce). Sleep-enabled fleet capped at
+    # PROPS_MAX (12); returns null past the cap. "" texture = placeholder
+    # tint quad. Garnish only — nothing win-critical may ride a body
+    # ("logic analytic, garnish Jolt"). Probe: probe_props.gd.
+var f := stage.props_tick(delta)  # Roshan->fleet contact push + prune
+    # → {"count","awake"} — awake is the perf signal; settled fleet ≈ free
+# "swell": 1.0 in open() cfg = the underwater tide (default 0 = off): ONE
+    # deterministic traveling wave every channel samples — awake props feel
+    # it as a real solver force fading ~6 s after their last disturbance so
+    # they can still sleep; sleeping props rock their sprite cosmetically
+    # and are NEVER woken by the wave; Roshan's walk/brawl hover and the
+    # near parallax layers add the same phase. One clock, whole diorama.
+    # Not a water sim — the oceanfft addon stays dead.
 var b := stage.brawl_tick(delta)  # brawl: {"mx","mz","px","pz","tap","moved"}
 stage.set_bounds(l, r)   # brawl: the sliding stage window ("half_d" = depth)
 stage.companion_open(tex, height, start)   # player-2 cutout hero
