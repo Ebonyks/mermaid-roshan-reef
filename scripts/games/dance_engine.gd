@@ -79,16 +79,8 @@ func _build_ui() -> void:
 		band.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		root.add_child(band)
 
-	var top_bar := Panel.new()
-	top_bar.position = Vector2(24, 18)
-	top_bar.size = Vector2(1232, 116)
-	var top_style := StyleBoxFlat.new()
-	top_style.bg_color = Color(0.1, 0.16, 0.34, 0.96)
-	top_style.border_color = Color(0.48, 0.86, 1.0, 0.65)
-	top_style.set_border_width_all(3)
-	top_style.set_corner_radius_all(34)
-	top_bar.add_theme_stylebox_override("panel", top_style)
-	root.add_child(top_bar)
+	var top_bar := StorybookUI.add_panel(root, Rect2(24, 18, 1232, 116), StorybookUI.MINT, Color(0.93, 0.98, 1.0, 0.97), 34)
+	top_bar.name = "DanceSongCard"
 
 	var prev_song := Button.new()
 	prev_song.text = "♫  ◀"
@@ -103,8 +95,7 @@ func _build_ui() -> void:
 	song_label.size = Vector2(720, 96)
 	song_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	song_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	song_label.add_theme_font_size_override("font_size", 34)
-	song_label.add_theme_color_override("font_color", Color(0.92, 0.98, 1.0))
+	StorybookUI.style_label(song_label, 34, StorybookUI.INK, 3)
 	top_bar.add_child(song_label)
 
 	var next_song := Button.new()
@@ -127,16 +118,14 @@ func _build_ui() -> void:
 	prompt_label.position = Vector2(180, 140)
 	prompt_label.size = Vector2(920, 52)
 	prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	prompt_label.add_theme_font_size_override("font_size", 28)
-	prompt_label.add_theme_color_override("font_color", Color(1.0, 0.93, 0.66))
+	StorybookUI.style_label(prompt_label, 28, StorybookUI.INK, 3)
 	root.add_child(prompt_label)
 
 	magic_label = Label.new()
 	magic_label.position = Vector2(180, 182)
 	magic_label.size = Vector2(920, 45)
 	magic_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	magic_label.add_theme_font_size_override("font_size", 24)
-	magic_label.add_theme_color_override("font_color", Color(1.0, 0.62, 0.84))
+	StorybookUI.style_label(magic_label, 24, StorybookUI.INK_SOFT, 2)
 	root.add_child(magic_label)
 
 	# Buttons are deliberately much larger than their art. A four-year-old can

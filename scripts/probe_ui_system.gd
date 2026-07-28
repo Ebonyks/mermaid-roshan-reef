@@ -6,6 +6,22 @@ extends SceneTree
 var failed := false
 var main: ReefMain
 
+const GAMEPLAY_HUD_SURFACES := [
+	"res://scripts/main.gd",
+	"res://scripts/combat_arena.gd",
+	"res://scripts/stuffie_battle.gd",
+	"res://scripts/dungeon_level.gd",
+	"res://scripts/dungeon_puzzle_room.gd",
+	"res://scripts/galaxy.gd",
+	"res://scripts/ember_fortress.gd",
+	"res://scripts/opera_house.gd",
+	"res://scripts/opera_act.gd",
+	"res://scripts/medal_system.gd"]
+const STORYBOOK_MENU_SURFACES := [
+	"res://scripts/collection_system.gd",
+	"res://scripts/companion.gd",
+	"res://scripts/games/dance_engine.gd"]
+
 func _check(ok: bool, label: String) -> void:
 	if ok:
 		print("UI_SYSTEM|OK|", label)
@@ -32,12 +48,25 @@ func _count_named(from: Node, pattern: String) -> int:
 			count += 1
 	return count
 
+func _check_storybook_coverage() -> void:
+	for path: String in GAMEPLAY_HUD_SURFACES:
+		var source: String = FileAccess.get_file_as_string(path)
+		_check(source.contains("StorybookUI.add_hud_panel"), "%s uses a shared Storybook HUD surface" % path.get_file())
+	for path: String in STORYBOOK_MENU_SURFACES:
+		var menu_source: String = FileAccess.get_file_as_string(path)
+		_check(menu_source.contains("StorybookUI.add_panel"), "%s uses shared Storybook menu cards" % path.get_file())
+	var companion_source: String = FileAccess.get_file_as_string("res://scripts/companion.gd")
+	_check(not companion_source.contains("companion_hud_btn")
+		and not companion_source.contains("func open_menu()"),
+		"legacy duplicate Stuffie launcher and care panel stay removed")
+
 func _init() -> void:
 	var packed := load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
 	root.add_child(main)
 	await process_frame
 	await process_frame
+	_check_storybook_coverage()
 
 	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
 	if not main.intro_active:
@@ -108,14 +137,22 @@ func _init() -> void:
 	main.companion_id = "mewsha"
 	main._companion_ref().tick(0.0)
 	var launcher := _check_target(main.hud_layer, "StuffieCareMenuButton", "stuffie care launcher is a 128px target", Vector2(128, 128))
-	_check(launcher != null and launcher.position.x >= 900.0
-		and launcher.position.x + launcher.size.x <= 1130.0
+	_check(launcher != null and launcher.position.x >= 820.0
+		and launcher.position.x + launcher.size.x <= 1000.0
 		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset",
 		"stuffie care launcher is inset from the far-corner Pause control")
+	var critter_button := _find(main, "CritterBookCornerButton") as Control
+	var pause_button := _find(main, "PauseCornerButton") as Control
+	_check(launcher != null and critter_button != null and pause_button != null
+		and launcher.global_position.x + launcher.size.x < critter_button.global_position.x
+		and critter_button.global_position.x + critter_button.size.x < pause_button.global_position.x,
+		"Stuffie, Critter Book, and Pause keep separate upper-hand hit areas")
+	_check(_count_named(main, "StuffieCareMenuButton") == 1, "exactly one Stuffie care launcher exists")
 	main._companion_ref().open_care_menu()
 	await process_frame
 	_check_target(main.companion_care_layer, "StuffieCareBackButton", "Tamagotchi sheet has a neutral thumb-sized back")
 	_check_target(main.companion_care_layer, "StuffieSwitchButton", "Tamagotchi sheet has a thumb-sized friend switch")
+	_check(_find(main.companion_care_layer, "StuffieHeartProgress") != null, "Tamagotchi sheet shows hearts toward the next growth star")
 	_check(_count_named(main.companion_care_layer, "StuffieCareAction_*") == 5, "Tamagotchi sheet exposes five picture care actions")
 	for node: Node in main.companion_care_layer.find_children("StuffieCareAction_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "Tamagotchi care action is at least 110x110")

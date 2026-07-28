@@ -467,22 +467,11 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 16
 	add_child(hud)
-	var strip := Panel.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.05, 0.03, 0.1, 0.9)
-	style.border_color = Color(1.0, 0.82, 0.5)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(20)
-	strip.add_theme_stylebox_override("panel", style)
-	strip.position = Vector2(30, 620)
-	strip.size = Vector2(240, 80)
-	strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_child(strip)
+	var strip := StorybookUI.add_hud_panel(hud, Rect2(18, 18, 240, 96), StorybookUI.GOLD, Color(1.0, 0.97, 0.86, 0.96), 30)
+	strip.name = "OperaProgressCard"
 	star_label = Label.new()
 	star_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	star_label.add_theme_font_size_override("font_size", 34)
-	star_label.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	star_label.add_theme_constant_override("outline_size", 7)
+	StorybookUI.style_hud_label(star_label, 34)
 	star_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	star_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	star_label.mouse_filter = Control.MOUSE_FILTER_IGNORE

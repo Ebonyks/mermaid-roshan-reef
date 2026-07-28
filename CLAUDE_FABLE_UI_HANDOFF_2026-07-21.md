@@ -1,8 +1,8 @@
 # Claude Fable handoff — storybook menu system
 
-Date: 2026-07-21  
-Work branch: `codex/menu-system`  
-Base: fresh `origin/dev` at `203af2e4`  
+Updated: 2026-07-27
+Work branch: `codex/menu-system-wide`
+Base: fresh `origin/dev` at `6ced6749`
 Recovered design source: `75cf9b67` / `gen2/UI_PROTOTYPE_REVISIONS_2026-07-19.md`
 
 ## What was found
@@ -43,14 +43,29 @@ The runtime migration covers:
    finish, and voice feedback when an unlock is short of pearls.
 5. Wardrobe, Sticker Book, Critter Book, and Stuffie picker: shared panels,
    neutral 112px exits, large primary actions, and one active stuffie color row.
-6. Tamagotchi care: a 128px stuffie launcher occupies the upper-right hand
-   area at x=982, inset from the far-corner Pause control. It opens a shared
+6. Tamagotchi care: one 128px stuffie launcher occupies the upper-right hand
+   area at x=858, left of the Critter Book and far-corner Pause controls. The
+   three hit areas have visible gaps and never overlap. It opens a shared
    storybook sheet with the live friend preview, current need, non-reading
-   growth stars, five 126px care actions (feed, nap, bath, cuddle, play),
-   injury/rest state, and friend switching. Menu care runs the same persisted
-   care moments as the in-world thought bubbles; it is not a parallel reward.
-7. Activity navigation: picture games, kart, dungeon, Opera House, and dance
-   now use the same neutral back language instead of a small/alarming X.
+   growth stars, hearts toward the next star, five 126px care actions (feed,
+   nap, bath, cuddle, play), injury/rest state, and friend switching. Matching
+   an active or queued request earns growth; every other choice is affectionate
+   play with no point, failure, or scolding. The obsolete second 76px launcher
+   and dark duplicate care panel have been removed.
+7. Activity navigation: picture games, kart, dungeon, Opera House, dance, and
+   Stuffie battle now use the same neutral/child-safe control language.
+8. Gameplay HUD breadth: combat arenas, Stuffie battle, dungeon progression,
+   dungeon puzzles, Galaxy, Ember Fortress, Opera House, every Opera act,
+   exploration objectives/speaker portraits, medal awards, and trophy moments
+   now consume shared paper, ink, accent, and label helpers. Bottom hints moved
+   into the centre-safe lane rather than the joystick/action corners.
+9. Remaining menu cards: the Critter Book, Stuffie picker, and dance song
+   selector no longer fall back to the old dark custom panel language.
+10. Regression coverage: `probe_ui_system.gd` inventories all of the formerly
+   missed runtime surfaces, requires the shared system, rejects the duplicate
+   Stuffie implementation, checks heart progress and asserts that the three
+   upper-hand buttons do not overlap. `probe_stuffie.gd` verifies both asked
+   remote care and always-welcome unasked affection through the one menu.
 
 ## Fable visual-QA brief
 
@@ -69,6 +84,9 @@ and minimum touch geometry. Then capture these Mobile-renderer states at
 8. Tamagotchi launcher beside Pause: content, active want, injured, and resting
    icons; then all five care buttons and the switch-friend path.
 9. Picture game, kart armed-exit state, dungeon, Opera House, and dance exit.
+10. Combat, Stuffie battle, dungeon/puzzle, Galaxy, Ember, Opera acts, medal,
+    and trophy HUD states; confirm the shared paper/ink language remains clear
+    over each world palette and centre-bottom hints avoid both touch corners.
 
 Review at physical phone scale. Required acceptance points:
 
@@ -83,8 +101,8 @@ Review at physical phone scale. Required acceptance points:
 
 ## Likely iteration points
 
-- `craft_part == "third"` changes the saved third color used by rigged crafted
-  friends, but the current layered 2D preview has only body/accent/line sheets.
+- `craft_part == "third"` changes the saved third color used by layered 2D
+  crafted friends, but the current preview has only body/accent/line sheets.
   Do not recolor the protected line art. If the detail choice is not legible on
   device, add a small native color badge or request a separately-authored mask.
 - The HUD medal suffix can become dense only on a highly completed save. Test a
