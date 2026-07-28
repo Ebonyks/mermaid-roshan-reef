@@ -140,31 +140,24 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 14
 	add_child(hud)
-	var banner := Panel.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.05, 0.08, 0.18, 0.88)
-	style.border_color = Color(0.55, 0.9, 1.0) if kind == "ice" else Color(1.0, 0.55, 0.25)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(22)
-	banner.add_theme_stylebox_override("panel", style)
-	banner.position = Vector2(220, 22)
-	banner.size = Vector2(840, 112)
-	hud.add_child(banner)
+	var accent := StorybookUI.MINT if kind == "ice" else StorybookUI.CORAL
+	var banner := StorybookUI.add_hud_panel(hud, Rect2(220, 22, 840, 112), accent, Color(0.94, 0.98, 1.0, 0.96), 32)
+	banner.name = "CombatObjectiveCard"
 	objective = Label.new()
 	objective.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	objective.add_theme_font_size_override("font_size", 28)
-	objective.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	objective.add_theme_constant_override("outline_size", 8)
+	StorybookUI.style_hud_label(objective, 28)
 	objective.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	objective.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	banner.add_child(objective)
+	var counter_card := StorybookUI.add_hud_panel(hud, Rect2(24, 22, 172, 112), accent, Color(0.94, 0.98, 1.0, 0.96), 32)
+	counter_card.name = "CombatProgressCard"
 	counter = Label.new()
-	counter.position = Vector2(30, 28)
-	counter.add_theme_font_size_override("font_size", 34)
-	counter.add_theme_color_override("font_outline_color", Color(0.05, 0.03, 0.12))
-	counter.add_theme_constant_override("outline_size", 9)
-	hud.add_child(counter)
+	counter.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	counter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	counter.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(counter, 34)
+	counter_card.add_child(counter)
 	pointer = Label3D.new()
 	pointer.text = "▼"
 	pointer.font_size = 150

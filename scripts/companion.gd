@@ -172,7 +172,6 @@ func tick(delta: float) -> void:
 	_tick_room(delta)
 	if m.companion_id == "":
 		return
-	_tick_hud()
 	if m.companion_resting:
 		return   # tuckered out: home on its Den shelf until re-picked there
 	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
@@ -199,8 +198,9 @@ func _ensure_menu_button() -> void:
 		return
 	var button := Button.new()
 	button.name = "StuffieCareMenuButton"
-	# Upper-right hand area, intentionally inset from the pause-owned far corner.
-	button.position = Vector2(982, 22)
+	# Upper-right hand area, intentionally left of both the Critter Book and the
+	# pause-owned far corner; all three targets keep a visible finger-width gap.
+	button.position = Vector2(858, 22)
 	StorybookUI.style_icon_button(button, "🧸", "secondary", Vector2(128, 128), "Care for your stuffie")
 	button.set_meta("hud_zone", "upper_right_inset")
 	button.pressed.connect(open_care_menu)
@@ -211,7 +211,8 @@ func _sync_menu_button() -> void:
 	var button: Button = m.companion_menu_button
 	if button == null or not is_instance_valid(button):
 		return
-	button.visible = m.companion_id != "" and _follow_ctx() and not m.intro_active
+	button.visible = m.companion_id != "" and _follow_ctx() and not m.intro_active \
+		and m.companion_care_layer == null and m.companion_layer == null
 	if not button.visible:
 		return
 	var icon := "🧸"
@@ -227,6 +228,13 @@ func _sync_menu_button() -> void:
 		kind = "gold"
 	if button.text != icon or String(button.get_meta("storybook_kind", "")) != kind:
 		StorybookUI.style_icon_button(button, icon, kind, Vector2(128, 128), "Care for your stuffie")
+	button.pivot_offset = button.size * 0.5
+	if kind != "secondary":
+		var now: float = Time.get_ticks_msec() / 1000.0
+		button.scale = Vector2.ONE * (1.0 + sin(now * 4.0) * 0.08)
+	else:
+		button.scale = Vector2.ONE
+
 
 func open_care_menu() -> void:
 	if m.companion_id == "" or m.companion_care_layer != null or m.companion_layer != null:
@@ -253,6 +261,9 @@ func open_care_menu() -> void:
 	elif m.companion_want != "":
 		var w := want_def(m.companion_want)
 		m.show_msg(String(d["name"]), String(w.get("ask", "Tap what I need!")) % String(d["name"]), "talk")
+	elif not m.companion_want_queue.is_empty():
+		var queued := want_def(String(m.companion_want_queue[0]))
+		m.show_msg(String(d["name"]), String(queued.get("ask", "Tap the glowing care picture!")) % String(d["name"]), "talk")
 	else:
 		m.show_msg(String(d["name"]), "What should we do together?", "talk")
 
@@ -294,15 +305,26 @@ func _draw_care_menu() -> void:
 	var growth := Label.new()
 	growth.name = "StuffieGrowthPips"
 	growth.text = _star_pips()
-	growth.position = Vector2(72, 516)
-	growth.size = Vector2(350, 60)
+	growth.position = Vector2(72, 496)
+	growth.size = Vector2(350, 42)
 	growth.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(growth, 42, StorybookUI.GOLD, 5)
+	StorybookUI.style_label(growth, 36, StorybookUI.GOLD, 4)
 	stage_control.add_child(growth)
+	var heart_text := ""
+	for i in range(LEVEL_EVERY):
+		heart_text += "💗" if i < (m.care_points % LEVEL_EVERY) else "🤍"
+	var hearts := Label.new()
+	hearts.name = "StuffieHeartProgress"
+	hearts.text = heart_text + "  →  ⭐"
+	hearts.position = Vector2(72, 536)
+	hearts.size = Vector2(350, 40)
+	hearts.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	StorybookUI.style_label(hearts, 31, StorybookUI.INK_SOFT, 3)
+	stage_control.add_child(hearts)
 	var swap := Button.new()
 	swap.name = "StuffieSwitchButton"
 	swap.text = "🎨  FRIEND"
-	swap.position = Vector2(92, 566)
+	swap.position = Vector2(92, 576)
 	swap.custom_minimum_size = Vector2(310, 112)
 	swap.size = Vector2(310, 112)
 	StorybookUI.style_button(swap, "secondary", 28, 30)
@@ -310,6 +332,9 @@ func _draw_care_menu() -> void:
 	swap.pressed.connect(_care_open_picker)
 	stage_control.add_child(swap)
 
+	var asked := m.companion_want
+	if asked == "" and not m.companion_want_queue.is_empty():
+		asked = String(m.companion_want_queue[0])
 	var need_panel := StorybookUI.add_panel(stage_control, Rect2(466, 138, 698, 176), StorybookUI.GOLD, Color(1.0, 0.97, 0.86, 0.99), 36)
 	var need := Label.new()
 	need.name = "StuffieCurrentNeed"
@@ -333,6 +358,9 @@ func _draw_care_menu() -> void:
 		var current := want_def(m.companion_want)
 		need_icon = String(current.get("emoji", "♥"))
 		need_text = "This is what I need!"
+	elif asked != "":
+		need_icon = String(want_def(asked).get("emoji", ""))
+		need_text = "This happy care is waiting!"
 	need.text = "%s\n%s" % [need_icon, need_text]
 	StorybookUI.style_label(need, 31, StorybookUI.INK, 4)
 	need_panel.add_child(need)
@@ -343,7 +371,7 @@ func _draw_care_menu() -> void:
 		care.name = "StuffieCareAction_%s" % String(want["id"])
 		care.position = Vector2(466.0 + float(i) * 140.0, 344)
 		StorybookUI.style_icon_button(care, String(want["emoji"]),
-			"primary" if String(want["id"]) == m.companion_want else "secondary",
+			"primary" if String(want["id"]) == asked else "secondary",
 			Vector2(126, 132), String(want["id"]))
 		care.disabled = m.companion_resting or m.companion_care_t > 0.0
 		care.pressed.connect(_choose_menu_care.bind(String(want["id"])))
@@ -366,14 +394,38 @@ func _draw_care_menu() -> void:
 	m._hook_button_taps(stage_control)
 
 func _choose_menu_care(id: String) -> void:
-	if m.companion_resting or m.companion_care_t > 0.0 or want_def(id).is_empty():
+	if m.companion_care_t > 0.0 or want_def(id).is_empty():
 		return
 	close_care_menu()
-	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
-		m.companion_want_bubble.queue_free()
-	m.companion_want_bubble = null
-	m.companion_want = id
-	_start_care()
+	var d := active_def()
+	if m.companion_resting:
+		m.show_msg("Roshan", "%s is resting at the castle! Let's visit the Stuffie Den." % String(d["name"]), "talk")
+		return
+	if not _follow_ctx():
+		m.show_msg(String(d["name"]), "I'll come out to play after this game!", "talk")
+		return
+	if m.companion_node == null or not is_instance_valid(m.companion_node):
+		_tick_follower(0.0)
+	if m.companion_node == null or not is_instance_valid(m.companion_node):
+		return
+	# Menu care is the same persisted care loop as the in-world thought bubble.
+	# A queued or active requested care grows the stuffie; every other choice is
+	# welcome affection with hearts and no point, failure, or scolding.
+	var fwd := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
+	var right := Vector3(cos(m.player.yaw), 0, -sin(m.player.yaw))
+	m.companion_node.position = m.player.position + fwd * 3.5 - right * 1.5 + Vector3(0, 1.0, 0)
+	if m.companion_want == "" and m.companion_want_queue.has(id):
+		m.companion_want_queue.erase(id)
+		m.companion_want = id
+	if m.companion_want == id:
+		_start_care()
+		return
+	_pal_bounce(1.15)
+	m._greet_heart(m.companion_node.position + Vector3(0, 2.6, 0))
+	if m.companion_want != "":
+		m.show_msg(String(d["name"]), "Thank you! I would also love %s!" % String(want_def(m.companion_want).get("emoji", "")), "talk")
+	else:
+		m.show_msg(String(d["name"]), "I love that! You're the best!", "talk")
 
 func _care_open_picker() -> void:
 	if m.companion_resting or m.companion_care_t > 0.0:
@@ -633,49 +685,35 @@ func _draw_picker() -> void:
 		card.set_meta("touch_target", true)
 		card.position = Vector2(80, 130 + float(i) * step)
 		card.custom_minimum_size = Vector2(330, step - 25.0)
-		var card_style := StyleBoxFlat.new()
-		card_style.bg_color = Color(0.32, 0.55, 0.62, 0.95) if id == m.companion_pick_id else Color(0.13, 0.15, 0.23, 0.96)
-		card_style.border_color = Color(1.0, 0.9, 0.4) if id == m.companion_pick_id else Color(0.30, 0.34, 0.42)
-		card_style.set_border_width_all(5)
-		card_style.set_corner_radius_all(24)
-		card.add_theme_stylebox_override("normal", card_style)
-		card.add_theme_stylebox_override("hover", card_style)
-		card.add_theme_stylebox_override("pressed", card_style)
+		StorybookUI.style_button(card, "selected" if id == m.companion_pick_id else "secondary", 24, 24)
 		card.pressed.connect(_pick_friend.bind(id))
 		stage.add_child(card)
 		_add_creature_preview(card, d, Vector2(12, 12), Vector2(150, step - 50.0),
 			(d["body"] as Color), (d["accent"] as Color))
 		var nm := Label.new()
 		nm.text = String(d["name"])
-		nm.add_theme_font_size_override("font_size", 26)
-		nm.add_theme_color_override("font_color", Color(1.0, 0.96, 0.80))
+		StorybookUI.style_label(nm, 26, StorybookUI.INK, 3)
 		nm.position = Vector2(172, 24)
 		nm.size = Vector2(150, step - 100.0)
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.add_child(nm)
 		var atk := Label.new()
 		atk.text = ("🐦 " if String(d["kind"]) == "bird" else "🐾 ") + String(d["attack"])
-		atk.add_theme_font_size_override("font_size", 24)
-		atk.add_theme_color_override("font_color", Color(0.74, 0.96, 0.88))
+		StorybookUI.style_label(atk, 24, StorybookUI.INK_SOFT, 2)
 		atk.position = Vector2(172, step - 82.0)
 		card.add_child(atk)
 	# big live preview, painted with the picked colours
 	var pick_def := def_by_id(m.companion_pick_id)
 	var pc0 := Color.html(String(m.companion_pick_colors[0]))
 	var pc1 := Color.html(String(m.companion_pick_colors[1]))
-	var preview_panel := Panel.new()
-	preview_panel.position = Vector2(460, 130)
-	preview_panel.size = Vector2(330, 330)
-	var pv_style := StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.94, 0.97, 1.0, 0.98), 34, 5)
-	preview_panel.add_theme_stylebox_override("panel", pv_style)
-	stage.add_child(preview_panel)
+	var preview_panel := StorybookUI.add_panel(stage, Rect2(460, 130, 330, 330), StorybookUI.LAVENDER, Color(0.94, 0.97, 1.0, 0.98), 34)
+	preview_panel.name = "StuffiePreviewCard"
 	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
 	# Three large part selectors, but only one large palette at a time.
 	if not bool(pick_def.get("paintable", true)):
 		var asis := Label.new()
 		asis.text = "💕  %s comes just as she is!" % String(pick_def["name"])
-		asis.add_theme_font_size_override("font_size", 27)
-		asis.add_theme_color_override("font_color", Color(1.0, 0.85, 0.92))
+		StorybookUI.style_label(asis, 27, StorybookUI.INK, 3)
 		asis.position = Vector2(830, 240)
 		asis.size = Vector2(400, 120)
 		asis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -1082,228 +1120,6 @@ func _nearest_unfound_friend() -> Vector3:
 			best_d = dd
 			best = node.position
 	return best
-
-# ---------- the stuffie HUD button + care menu (the Tamagotchi face) ----------
-# A 🧸 button beside the Critter Book paw is THE entry point: its badge shows
-# what the stuffie wants right now (🍎/💤/🫧/❤/🎾), 🩹 while hurt, 💤 while
-# resting. Tapping it opens the care panel: portrait, star level, heart
-# progress, and five big care buttons — remote care Tamagotchi-style (the
-# stuffie scampers to Roshan's side when tended from the menu).
-
-func _tick_hud() -> void:
-	if m.companion_hud_btn == null or not is_instance_valid(m.companion_hud_btn):
-		_build_hud_button()
-	if m.companion_hud_layer == null:
-		return
-	m.companion_hud_layer.visible = (_follow_ctx() or m.companion_resting) \
-		and not m.intro_active and m.companion_menu_layer == null and m.companion_layer == null
-	var badge := "🧸"
-	if m.companion_resting:
-		badge = "💤"
-	elif m.companion_want != "":
-		badge = String(want_def(m.companion_want).get("emoji", "🧸"))
-	elif m.companion_bruises > 0:
-		badge = "🩹"
-	if m.companion_hud_btn.text != badge:
-		m.companion_hud_btn.text = badge
-	# a needy badge breathes so the eye finds it without any reading
-	if badge != "🧸":
-		var now: float = Time.get_ticks_msec() / 1000.0
-		m.companion_hud_btn.pivot_offset = m.companion_hud_btn.size * 0.5
-		m.companion_hud_btn.scale = Vector2.ONE * (1.0 + sin(now * 4.0) * 0.08)
-	else:
-		m.companion_hud_btn.scale = Vector2.ONE
-
-func _build_hud_button() -> void:
-	var layer := CanvasLayer.new()
-	layer.layer = 11
-	m.add_child(layer)
-	m.companion_hud_layer = layer
-	var button := Button.new()
-	button.text = "🧸"
-	button.tooltip_text = "My Stuffie"
-	button.add_theme_font_size_override("font_size", 34)
-	button.custom_minimum_size = Vector2(76, 76)
-	button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	button.position = Vector2(-296, 18)   # left of the Critter Book paw (-208) and pause gear (-120)
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.62, 0.42, 0.55, 0.85)
-	normal.border_color = Color(1.0, 0.85, 0.92, 0.9)
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(38)
-	button.add_theme_stylebox_override("normal", normal)
-	var pressed := normal.duplicate() as StyleBoxFlat
-	pressed.bg_color = Color(0.82, 0.55, 0.7, 0.95)
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.pressed.connect(open_menu)
-	layer.add_child(button)
-	m.companion_hud_btn = button
-
-func open_menu() -> void:
-	if m.companion_menu_layer != null or m.companion_id == "":
-		return
-	m.companion_menu_layer = CanvasLayer.new()
-	m.companion_menu_layer.layer = 25
-	m.add_child(m.companion_menu_layer)
-	var root_control := Control.new()
-	root_control.set_anchors_preset(Control.PRESET_FULL_RECT)
-	m.companion_menu_layer.add_child(root_control)
-	var dim := ColorRect.new()
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dim.color = Color(0.025, 0.06, 0.12, 0.94)
-	dim.gui_input.connect(_on_menu_dim_input)
-	root_control.add_child(dim)
-	var stage := Control.new()
-	stage.custom_minimum_size = Vector2(1280, 720)
-	stage.size = Vector2(1280, 720)
-	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
-	var scale_value: float = minf(viewport_size.x / 1280.0, viewport_size.y / 720.0)
-	stage.scale = Vector2.ONE * scale_value
-	stage.position = (viewport_size - Vector2(1280, 720) * scale_value) * 0.5
-	root_control.add_child(stage)
-	m.companion_menu_stage = stage
-	if m.player != null:
-		m.player.vel = Vector3.ZERO
-	_draw_menu()
-
-func _on_menu_dim_input(ev: InputEvent) -> void:
-	if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
-		close_menu()
-
-func close_menu() -> void:
-	if m.companion_menu_layer != null and is_instance_valid(m.companion_menu_layer):
-		m.companion_menu_layer.queue_free()
-	m.companion_menu_layer = null
-	m.companion_menu_stage = null
-
-func _draw_menu() -> void:
-	var stage: Control = m.companion_menu_stage
-	if stage == null or not is_instance_valid(stage):
-		return
-	for child: Node in stage.get_children():
-		child.queue_free()
-	var d := active_def()
-	var panel := Panel.new()
-	panel.position = Vector2(34, 24)
-	panel.size = Vector2(1212, 672)
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.10, 0.17, 0.30, 0.98)
-	panel_style.border_color = Color(1.0, 0.85, 0.92)
-	panel_style.set_border_width_all(5)
-	panel_style.set_corner_radius_all(28)
-	panel.add_theme_stylebox_override("panel", panel_style)
-	stage.add_child(panel)
-	var title := Label.new()
-	title.text = "🧸  %s   %s" % [String(d.get("name", "My Stuffie")), _star_pips()]
-	title.add_theme_font_size_override("font_size", 44)
-	title.add_theme_color_override("font_color", Color(1.0, 0.94, 0.66))
-	title.add_theme_color_override("font_outline_color", Color(0.05, 0.07, 0.16))
-	title.add_theme_constant_override("outline_size", 9)
-	title.position = Vector2(70, 34)
-	stage.add_child(title)
-	var close := Button.new()
-	close.text = "✕"
-	close.add_theme_font_size_override("font_size", 38)
-	close.position = Vector2(1145, 40)
-	close.custom_minimum_size = Vector2(72, 72)
-	close.pressed.connect(close_menu)
-	stage.add_child(close)
-	# portrait
-	var preview_panel := Panel.new()
-	preview_panel.position = Vector2(70, 130)
-	preview_panel.size = Vector2(330, 320)
-	var pv_style := StyleBoxFlat.new()
-	pv_style.bg_color = Color(0.16, 0.24, 0.38, 0.96)
-	pv_style.set_corner_radius_all(26)
-	preview_panel.add_theme_stylebox_override("panel", pv_style)
-	stage.add_child(preview_panel)
-	var cols := colors()
-	_add_creature_preview(preview_panel, d, Vector2(14, 14), Vector2(302, 292), cols[0], cols[1])
-	# hearts toward the next star + how the stuffie feels right now
-	var hearts := ""
-	for i in range(LEVEL_EVERY):
-		hearts += "💗" if i < (m.care_points % LEVEL_EVERY) else "🤍"
-	var hearts_label := Label.new()
-	hearts_label.text = hearts + "  →  ⭐"
-	hearts_label.add_theme_font_size_override("font_size", 46)
-	hearts_label.position = Vector2(450, 150)
-	stage.add_child(hearts_label)
-	var mood := Label.new()
-	if m.companion_resting:
-		mood.text = "💤  Resting on my shelf!\nCome get me in the castle's Stuffie Den."
-	elif m.companion_bruises > 0:
-		mood.text = "%s  I have boo-boos!\nI need my hug and my bubble bath!" % "🩹".repeat(mini(m.companion_bruises, 5))
-	elif m.companion_want != "":
-		mood.text = "%s  I want something!\nTap the big matching button!" % String(want_def(m.companion_want).get("emoji", ""))
-	else:
-		mood.text = "✨  Feeling great!\nHugs are always welcome though..."
-	mood.add_theme_font_size_override("font_size", 32)
-	mood.add_theme_color_override("font_color", Color(0.85, 0.95, 1.0))
-	mood.position = Vector2(450, 240)
-	mood.size = Vector2(700, 180)
-	mood.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	stage.add_child(mood)
-	# the five big care buttons — the asked one glows and breathes
-	var asked := m.companion_want
-	if asked == "" and not m.companion_want_queue.is_empty():
-		asked = String(m.companion_want_queue[0])
-	for i in range(WANTS.size()):
-		var w: Dictionary = WANTS[i]
-		var id := String(w["id"])
-		var care_btn := Button.new()
-		care_btn.text = String(w["emoji"])
-		care_btn.add_theme_font_size_override("font_size", 64)
-		care_btn.position = Vector2(85 + float(i) * 226.0, 480)
-		care_btn.custom_minimum_size = Vector2(190, 150)
-		var bstyle := StyleBoxFlat.new()
-		var is_asked: bool = id == asked and not m.companion_resting
-		bstyle.bg_color = Color(0.35, 0.65, 0.5, 0.97) if is_asked else Color(0.16, 0.24, 0.38, 0.96)
-		bstyle.border_color = Color(1.0, 0.9, 0.4) if is_asked else Color(0.35, 0.42, 0.55)
-		bstyle.set_border_width_all(6 if is_asked else 3)
-		bstyle.set_corner_radius_all(30)
-		care_btn.add_theme_stylebox_override("normal", bstyle)
-		care_btn.add_theme_stylebox_override("hover", bstyle)
-		care_btn.pressed.connect(_menu_care.bind(id))
-		stage.add_child(care_btn)
-		if is_asked:
-			var glow := Label.new()
-			glow.text = "▼"
-			glow.add_theme_font_size_override("font_size", 40)
-			glow.add_theme_color_override("font_color", Color(1.0, 0.94, 0.25))
-			glow.position = care_btn.position + Vector2(75, -50)
-			stage.add_child(glow)
-	m._hook_button_taps(stage)
-
-func _menu_care(id: String) -> void:
-	# remote care from the panel: the stuffie scampers to Roshan's side and
-	# the same care moment plays. Asked care grows it; any other care is
-	# affection — always welcomed, never wrong, no scolding.
-	close_menu()
-	var d := active_def()
-	if m.companion_resting:
-		m.show_msg("Roshan", "%s is resting at the castle! Let's go to the Stuffie Den and wake it up!" % String(d["name"]), "talk")
-		return
-	if not _follow_ctx():
-		m.show_msg(String(d["name"]), "I'll come out to play after this game!", "talk")
-		return
-	if m.companion_node == null or not is_instance_valid(m.companion_node):
-		return
-	var fwd := Vector3(sin(m.player.yaw), 0, cos(m.player.yaw))
-	var right := Vector3(cos(m.player.yaw), 0, -sin(m.player.yaw))
-	m.companion_node.position = m.player.position + fwd * 3.5 - right * 1.5 + Vector3(0, 1.0, 0)
-	if m.companion_want == "" and m.companion_want_queue.has(id):
-		m.companion_want_queue.erase(id)
-		m.companion_want = id
-	if m.companion_want == id:
-		_start_care()
-		return
-	# affection outside the ask: hearts and a happy bounce, no point
-	_pal_bounce(1.15)
-	m._greet_heart(m.companion_node.position + Vector3(0, 2.6, 0))
-	if m.companion_want != "":
-		m.show_msg(String(d["name"]), "Hee hee, thank you! But what I REALLY want is %s!" % String(want_def(m.companion_want).get("emoji", "")), "talk")
-	else:
-		m.show_msg(String(d["name"]), "Hee hee, I love that! You're the best!", "talk")
 
 # ---------- Tamagotchi care (the leveling system) ----------
 

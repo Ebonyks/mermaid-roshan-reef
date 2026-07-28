@@ -172,49 +172,35 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 14
 	add_child(hud)
-	var banner := Panel.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.08, 0.05, 0.18, 0.88)
-	style.border_color = Color(1.0, 0.75, 0.88)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(22)
-	banner.add_theme_stylebox_override("panel", style)
-	banner.position = Vector2(220, 22)
-	banner.size = Vector2(840, 112)
-	hud.add_child(banner)
+	var banner := StorybookUI.add_hud_panel(hud, Rect2(220, 22, 840, 112), StorybookUI.CORAL, Color(1.0, 0.94, 0.98, 0.97), 32)
+	banner.name = "StuffieBattleObjectiveCard"
 	objective = Label.new()
 	objective.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	objective.add_theme_font_size_override("font_size", 28)
-	objective.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	objective.add_theme_constant_override("outline_size", 8)
+	StorybookUI.style_hud_label(objective, 28)
 	objective.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	objective.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	banner.add_child(objective)
 	counter = Label.new()
-	counter.position = Vector2(30, 28)
-	counter.add_theme_font_size_override("font_size", 34)
-	counter.add_theme_color_override("font_outline_color", Color(0.05, 0.03, 0.12))
-	counter.add_theme_constant_override("outline_size", 9)
-	hud.add_child(counter)
+	var counter_card := StorybookUI.add_hud_panel(hud, Rect2(24, 22, 172, 112), StorybookUI.CORAL, Color(1.0, 0.94, 0.98, 0.97), 32)
+	counter_card.name = "StuffieBattleProgressCard"
+	counter.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	counter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	counter.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(counter, 34)
+	counter_card.add_child(counter)
 	# THE dodge bubble: huge, center-low, hot pink, only alive during a telegraph
 	dodge_btn = Button.new()
+	dodge_btn.name = "StuffieDodgeButton"
 	dodge_btn.text = "🛡  DODGE!"
-	dodge_btn.add_theme_font_size_override("font_size", 46)
 	dodge_btn.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	dodge_btn.offset_left = -240.0
 	dodge_btn.offset_right = 240.0
 	dodge_btn.offset_top = -290.0
 	dodge_btn.offset_bottom = -140.0
-	var dstyle := StyleBoxFlat.new()
-	dstyle.bg_color = Color(1.0, 0.30, 0.55, 0.94)
-	dstyle.border_color = Color(1.0, 0.9, 0.95)
-	dstyle.set_border_width_all(6)
-	dstyle.set_corner_radius_all(70)
-	dodge_btn.add_theme_stylebox_override("normal", dstyle)
-	var dpressed := dstyle.duplicate() as StyleBoxFlat
-	dpressed.bg_color = Color(0.55, 0.95, 0.65, 0.96)
-	dodge_btn.add_theme_stylebox_override("pressed", dpressed)
+	dodge_btn.custom_minimum_size = Vector2(480, 150)
+	StorybookUI.style_button(dodge_btn, "action", 46, 70)
+	dodge_btn.set_meta("picture_first", true)
 	dodge_btn.visible = false
 	dodge_btn.pressed.connect(press_dodge)
 	hud.add_child(dodge_btn)
