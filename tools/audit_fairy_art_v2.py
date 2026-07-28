@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Static texture, transition, alpha, and readability QA for Fairy Pond art."""
+"""Static panorama, alpha, and readability QA for Fairy Pond art."""
 
 from __future__ import annotations
 
 import math
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageOps, ImageStat
+from PIL import Image, ImageDraw, ImageStat
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +14,7 @@ ART = ROOT / "assets" / "fairy"
 SUBJECT_ART = ART / "sprites"
 OUT = ROOT / "tmp" / "fairy_v2" / "qa_contact_sheet.png"
 
-BACKGROUNDS = ["pond_dawn.png", "pond_twilight.png", "pond_boss_clearing.png"]
+PANORAMA = "pond_panorama.png"
 SUBJECTS = [
 	"bug_jewel.png",
 	"bug_moth.png",
@@ -27,6 +27,8 @@ SUBJECTS = [
 	"boss_bloom.png",
 	"helpful_flower_gate.png",
 	"danger_thorn_halo.png",
+	"ornament_lily_cluster.png",
+	"ornament_lavender_reeds.png",
 ]
 RETIRED_ARENA_MODELS = [
 	"fairy_bank_0.glb",
@@ -66,15 +68,15 @@ def _alpha_weighted_rgb(image: Image.Image) -> tuple[float, float, float]:
 def main() -> None:
 	bad = 0
 	thumbs: list[tuple[str, Image.Image]] = []
-	background_images: list[tuple[str, Image.Image]] = []
-	for name in BACKGROUNDS + SUBJECTS:
+	panorama_image: Image.Image | None = None
+	for name in [PANORAMA] + SUBJECTS:
 		path = (SUBJECT_ART if name in SUBJECTS else ART) / name
 		if not path.exists():
 			print(f"FAIL missing {path}")
 			bad += 1
 			continue
 		image = Image.open(path)
-		if max(image.size) > 1024:
+		if name in SUBJECTS and max(image.size) > 1024:
 			print(f"FAIL oversize {name}: {image.size}")
 			bad += 1
 		if name in SUBJECTS:
@@ -109,17 +111,17 @@ def main() -> None:
 			checker.alpha_composite(image)
 			preview = checker.convert("RGB")
 		else:
-			if image.size != (1024, 1024) or image.mode != "RGB":
-				print(f"FAIL background contract {name}: size={image.size} mode={image.mode}")
+			if image.size != (4096, 1024) or image.mode != "RGB":
+				print(f"FAIL panorama contract {name}: size={image.size} mode={image.mode}")
 				bad += 1
 			print(f"OK {name}: {image.size[0]}x{image.size[1]} {image.mode}")
 			preview = image.convert("RGB")
-			background_images.append((name, preview.copy()))
-		preview.thumbnail((256, 256), Image.Resampling.LANCZOS)
+			panorama_image = preview.copy()
+		preview.thumbnail((512, 128), Image.Resampling.LANCZOS)
 		thumbs.append((name, preview.copy()))
 
-	cell_w, cell_h = 280, 292
-	cols = 4
+	cell_w, cell_h = 540, 292
+	cols = 3
 	rows = (len(thumbs) + cols - 1) // cols
 	sheet = Image.new("RGB", (cell_w * cols, cell_h * rows), (225, 242, 245))
 	draw = ImageDraw.Draw(sheet)
@@ -128,46 +130,42 @@ def main() -> None:
 		y = (index // cols) * cell_h
 		sheet.paste(preview, (x, y))
 		draw.text(((index % cols) * cell_w + 8, y + 262), name, fill=(34, 46, 68))
-	for index in range(len(background_images) - 1):
-		name_a, image_a = background_images[index]
-		name_b, image_b = background_images[index + 1]
-		luminance_a = _mean_luminance(image_a)
-		luminance_b = _mean_luminance(image_b)
-		luminance_delta = abs(luminance_a - luminance_b)
-		rgb_a = _mean_rgb(image_a)
-		rgb_b = _mean_rgb(image_b)
-		palette_delta = math.sqrt(sum((a - b) ** 2 for a, b in zip(rgb_a, rgb_b)))
-		# Runtime Sprite3D orientation joins the first plate's top image edge
-		# to the second plate's bottom image edge.
-		edge_a = image_a.crop((0, 0, image_a.width, 1))
-		edge_b = image_b.crop((0, image_b.height - 1, image_b.width, image_b.height))
-		seam_delta = sum(ImageStat.Stat(ImageChops.difference(edge_a, edge_b)).mean) / 3.0
-		ok = luminance_delta <= 16.0 and palette_delta <= 48.0 and seam_delta <= 2.0
-		print(
-			f"{'OK' if ok else 'FAIL'} flow {name_a}->{name_b}: "
-			f"luminance_delta={luminance_delta:.2f} palette_delta={palette_delta:.2f} seam_delta={seam_delta:.2f}"
+	if panorama_image is not None:
+		# A dramatic palette journey is intentional, but its low-frequency
+		# samples must stay continuous. One source canvas means there are no
+		# authored seams or image-to-image join rows to hide.
+		sample_count = 12
+		palette_samples = [
+			_mean_rgb(
+				panorama_image.crop(
+					(
+						index * panorama_image.width // sample_count,
+						0,
+						(index + 1) * panorama_image.width // sample_count,
+						panorama_image.height,
+					)
+				)
+			)
+			for index in range(sample_count)
+		]
+		palette_steps = [
+			math.dist(palette_samples[index], palette_samples[index + 1])
+			for index in range(sample_count - 1)
+		]
+		overall_shift = math.dist(palette_samples[0], palette_samples[-1])
+		start_rgb = palette_samples[0]
+		end_rgb = palette_samples[-1]
+		gradient_ok = (
+			max(palette_steps) <= 55.0
+			and overall_shift >= 80.0
+			and start_rgb[1] > start_rgb[0]
+			and end_rgb[2] > end_rgb[1]
 		)
-		if not ok:
-			bad += 1
-	if len(background_images) == 3:
-		stack = Image.new("RGB", (1024, 3072))
-		for index, (_name, image) in enumerate(background_images):
-			stack.paste(ImageOps.flip(image), (0, index * 1024))
-		gradient_samples = [
-			_mean_luminance(stack.crop((0, y, 1024, min(y + 64, stack.height))))
-			for y in range(0, stack.height, 256)
-		]
-		increases = [
-			gradient_samples[index + 1] - gradient_samples[index]
-			for index in range(len(gradient_samples) - 1)
-		]
-		max_jump = max(abs(value) for value in increases)
-		max_increase = max(increases)
-		gradient_ok = max_jump <= 5.0 and max_increase <= 1.5
 		print(
-			f"{'OK' if gradient_ok else 'FAIL'} global_gradient: "
-			f"samples={[round(value, 2) for value in gradient_samples]} "
-			f"max_jump={max_jump:.2f} max_increase={max_increase:.2f}"
+			f"{'OK' if gradient_ok else 'FAIL'} panorama_gradient: "
+			f"overall_shift={overall_shift:.2f} "
+			f"max_local_step={max(palette_steps):.2f} "
+			f"rgb={[tuple(round(value, 1) for value in sample) for sample in palette_samples]}"
 		)
 		if not gradient_ok:
 			bad += 1
@@ -183,6 +181,34 @@ def main() -> None:
 	if arena_models:
 		print(f"FAIL retired Fairy Pond arena models still present: {[path.name for path in arena_models]}")
 		bad += 1
+	for retired_skin in ["fairy.glb", "fairy_v2.glb"]:
+		if (ROOT / "assets" / "characters" / retired_skin).exists():
+			print(f"FAIL retired Fairy skin model still present: {retired_skin}")
+			bad += 1
+	for retired_background in ["pond_dawn.png", "pond_twilight.png", "pond_boss_clearing.png"]:
+		if (ART / retired_background).exists():
+			print(f"FAIL superseded stitched background still present: {retired_background}")
+			bad += 1
+	if (ROOT / "tools" / "process_fairy_background_flow.py").exists():
+		print("FAIL superseded background stitching pipeline still present")
+		bad += 1
+	if (ROOT / "assets_src" / "fairy_v3").exists():
+		print("FAIL superseded multi-plate Fairy V3 sources still present")
+		bad += 1
+	source = (ROOT / "scripts" / "games" / "fairy.gd").read_text(encoding="utf-8")
+	for forbidden in ["MeshInstance3D.new()", "CSG", ".glb"]:
+		if forbidden in source:
+			print(f"FAIL Fairy Pond runtime is not Sprite3D-only: {forbidden}")
+			bad += 1
+	for runtime_source in [
+		ROOT / "scripts" / "player.gd",
+		ROOT / "scripts" / "galaxy.gd",
+		ROOT / "scripts" / "ember_fortress.gd",
+	]:
+		text = runtime_source.read_text(encoding="utf-8")
+		if "assets/characters/fairy_v2.glb" in text or "assets/characters/fairy.glb" in text:
+			print(f"FAIL Fairy skin model reference remains in {runtime_source.relative_to(ROOT)}")
+			bad += 1
 	if bad:
 		raise SystemExit(1)
 

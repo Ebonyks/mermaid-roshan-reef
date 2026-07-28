@@ -816,8 +816,16 @@ func _build_avatar() -> void:
 			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 			cutout.pixel_size = 0.011
 			cutout.position = Vector3(0, 2.2, 0)
-		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
-			glb = "res://assets/characters/fairy_v2.glb"
+		elif sid == "fairy":
+			glb = ""
+			cutout = Sprite3D.new()
+			var fairy_tex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+			cutout.texture = fairy_tex
+			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			cutout.pixel_size = 4.2 / maxf(float(fairy_tex.get_height()), 1.0)
+			cutout.position = Vector3(0, 2.1, 0)
+			cutout.shaded = false
+			cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if cutout != null:
 		_avatar.add_child(cutout)
 	if glb != "" and ResourceLoader.exists(glb):

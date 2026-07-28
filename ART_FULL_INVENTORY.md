@@ -62,7 +62,7 @@ protected voice rule remains in `AGENTS.md` and is unchanged.
 
 ### Score 4: keep, polish when touched
 
-- `assets/characters/roshan_v4.glb` and `fairy_v2.glb` pending Mobile screenshot
+- `assets/characters/roshan_v4.glb` and the fairy Sprite3D skin pending Mobile screenshot
   comparison against their protected references.
 - GEN2 clownfish, shark, hammerhead, squid, octopus, lobster, and crab models.
 - GEN2 coral, rock, shell, sand-dollar, starfish, sponge, playground, and tree

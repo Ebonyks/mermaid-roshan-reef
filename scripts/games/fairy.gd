@@ -58,10 +58,12 @@ const FS_RETRY_GRACE := 6.0 * FS_TIME_SCALE
 const FS_RING_N := 6
 const FS_LEAF_SCALE := 6.5
 const FS_BUG_ART_SCALE := 7.0
-const FS_BACKGROUND_ART := [
-	"res://assets/fairy/pond_dawn.png",
-	"res://assets/fairy/pond_twilight.png",
-	"res://assets/fairy/pond_boss_clearing.png",
+const FS_BACKGROUND_ART := "res://assets/fairy/pond_panorama.png"
+const FS_BACKGROUND_DEPTH := 360.0
+const FS_BACKGROUND_WIDTH := 90.0
+const FS_ORNAMENT_ART := [
+	"res://assets/fairy/sprites/ornament_lily_cluster.png",
+	"res://assets/fairy/sprites/ornament_lavender_reeds.png",
 ]
 const FS_BUG_ART := [
 	"res://assets/fairy/sprites/bug_jewel.png",
@@ -134,26 +136,46 @@ func _fairy_attach_cue(parent: Node3D, path: String, visual_size: float) -> Spri
 	parent.add_child(cue)
 	return cue
 
-func _fairy_background_panel(origin: Vector3, texture_path: String, z_center: float, depth: float) -> void:
-	if not ResourceLoader.exists(texture_path):
+func _fairy_background_panel(origin: Vector3) -> void:
+	if not ResourceLoader.exists(FS_BACKGROUND_ART):
 		return
-	var texture: Texture2D = load(texture_path)
+	var texture: Texture2D = load(FS_BACKGROUND_ART)
 	if texture == null:
 		return
 	var panel := Sprite3D.new()
 	panel.texture = texture
-	panel.pixel_size = depth / maxf(float(texture.get_height()), 1.0)
-	panel.scale = Vector3(90.0 / depth, 1.0, 1.0)
-	# Keep every background card on one shared horizontal plane. Per-card
-	# billboarding tilts adjacent cards toward the camera independently and
-	# turns a pixel-perfect texture join into a visible perspective crease.
-	panel.rotation.x = -PI / 2.0
-	panel.flip_v = true
+	# The source is one horizontal 4:1 panorama. Rotate the card so its long
+	# left-to-right gradient becomes the pond's low-Z to high-Z journey.
+	panel.pixel_size = FS_BACKGROUND_DEPTH / maxf(float(texture.get_width()), 1.0)
+	panel.rotation = Vector3(-PI / 2.0, 0.0, -PI / 2.0)
 	panel.shaded = false
 	panel.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	panel.position = origin + Vector3(0, 0.06, z_center)
+	panel.position = origin + Vector3(
+		0,
+		0.06,
+		(FS_BACKGROUND_DEPTH - 20.0) * 0.5,
+	)
 	m.add_child(panel)
 	m.game_nodes.append(panel)
+
+func _fairy_build_ornaments(origin: Vector3) -> void:
+	# Two motifs lifted from the panorama become independent Sprite3D cards.
+	# They stay behind gameplay and hug alternating banks, adding depth without
+	# turning the quiet central flight lane into more targets.
+	for ornament_index in range(8):
+		var side: float = -1.0 if ornament_index % 2 == 0 else 1.0
+		var z_position: float = 24.0 + float(ornament_index) * 39.0
+		var x_position: float = side * (31.0 + randf() * 4.0)
+		var path: String = String(FS_ORNAMENT_ART[ornament_index % FS_ORNAMENT_ART.size()])
+		var visual_size: float = 8.5 if ornament_index % 2 == 0 else 10.0
+		var ornament: Node3D = _fairy_art_item(
+			path,
+			origin + Vector3(x_position, 0.45, z_position),
+			visual_size,
+			side * (0.05 + randf() * 0.08),
+		)
+		if ornament != null:
+			(m.g["ornaments"] as Array).append(ornament)
 
 func _fairy_set_boss_stage(stage: String) -> Node3D:
 	var current: Node3D = m.g.get("boss_art")
@@ -181,15 +203,13 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	m.g["player_acted"] = false; m.g["awaiting_cheer"] = false
 	m.g["fairy_wait_release"] = false
 	m.g["targets"] = []; m.g["bolts"] = []; m.g["orbs"] = []; m.g["fireflies"] = []; m.g["rings"] = []
-	m.g["hazards"] = []
+	m.g["hazards"] = []; m.g["ornaments"] = []
 	m.g["phase"] = "fly"; m.g["leaves"] = []; m.g["bud"] = null; m.g["petals"] = []
 	m.g["boss_art"] = null; m.g["boss_stage"] = ""
-	# ---- three authored overhead pond plates replace the metallic box, stock
-	# banks, and primitive lily/reed dressing. Their quiet center preserves the
-	# one-finger flight lane while the edge art changes from dawn to twilight to
-	# the circular boss clearing. ----
-	for bg_index in range(FS_BACKGROUND_ART.size()):
-		_fairy_background_panel(origin, String(FS_BACKGROUND_ART[bg_index]), 50.0 + float(bg_index) * 120.0, 120.0)
+	# One authored 4:1 image carries the full dawn-to-twilight-to-boss gradient.
+	# There are no plate boundaries or generated transition strips.
+	_fairy_background_panel(origin)
+	_fairy_build_ornaments(origin)
 	# One visual sentence for "good": large, round mint/gold flower gates.
 	for k in range(6):
 		var z2: float = 40.0 + float(k) * 40.0

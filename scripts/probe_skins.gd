@@ -1,8 +1,7 @@
 extends SceneTree
-# Skin audit: every wardrobe skin binds a live 26-bone skeleton (the V2
-# bodies are canonical — the plushie era must stay gone), the fairy carries
-# wing bones + wing cards, and the fairy-flight force/restore path returns
-# to the skin SHE chose (playtest: some games reverted her to the old look).
+# Skin audit: every wardrobe skin keeps the classic controller skeleton live,
+# alternate looks use illustrated Sprite3D cards, and the fairy-flight
+# force/restore path returns to the skin SHE chose.
 func _init() -> void:
 	var ps: PackedScene = load("res://scenes/main.tscn")
 	root.add_child(ps.instantiate())
@@ -25,14 +24,10 @@ func _init() -> void:
 		if pl.bone_idx.get("tail4", -1) < 0:
 			print("FAIL: skin ", sid, " missing tail bones (not a rigged body)")
 		if sid == "fairy":
-			if pl.skel.find_bone("wingL") < 0:
-				print("FAIL: fairy skin has no wing bones (old plushie loaded?)")
-			var cards := 0
-			for att in pl.skel.get_children():
-				if att is BoneAttachment3D:
-					cards += 1
-			if cards < 2:
-				print("FAIL: fairy wing cards missing (", cards, "/2)")
+			if pl.skin_sprite == null or pl.skin_sprite.texture == null or not pl.skin_sprite.visible:
+				print("FAIL: fairy skin is not using its Sprite3D card")
+			if pl.skin_models.has("fairy"):
+				print("FAIL: retired fairy model was instantiated")
 	# the fairy-flight force/restore round trip must come back to HER choice
 	main.skin_id = "huluu"
 	main._apply_skin()

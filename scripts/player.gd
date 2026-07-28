@@ -231,7 +231,10 @@ var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic"
 # huluu.glb shipped with NO skeleton (0 joints - probe_skins caught it): the
 # "rigged plushie" was a statue and the swim silently never applied. The
 # Huluu skin uses her illustrated cutout billboard instead (doll era: over).
-const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
+# Model-backed alternate skins are retired. The Fairy Pond passes its
+# illustrated fairy_mermaid.png to set_skin(), which displays it on the shared
+# Sprite3D card below.
+const SKIN_MODELS := {}
 var skin_models := {}             # id -> instantiated Node3D
 var _roshan_skel: Skeleton3D = null
 var _roshan_maps: Array = []      # [bone_idx, local rest, global rest] for Roshan
@@ -311,6 +314,8 @@ func _ready() -> void:
 	skin_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	skin_sprite.pixel_size = 0.0100
 	skin_sprite.position = Vector3(0, 0.6, 0)
+	skin_sprite.shaded = false
+	skin_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	skin_sprite.visible = false
 	add_child(skin_sprite)
 	# fairy sparkle trail (only emits while a sparkly skin is worn)
@@ -426,39 +431,6 @@ func _map_bones() -> void:
 			rest[n] = skel.get_bone_pose(bi)
 			rest_global[n] = skel.get_bone_global_rest(bi)
 
-func _attach_wing_cards(mdl: Node3D) -> void:
-	# CARD WINGS: the Meshy sculpt fused its wings into her back (relief, not
-	# separable geometry), so those stay as static painted detail and the
-	# REAL flap is two textured plates on the measured wingL/wingR hinge
-	# bones — a rigid shader rotation around the hinge, like the butterflies.
-	var sk := _find_skeleton(mdl)
-	if sk == null or not ResourceLoader.exists("res://assets/characters/skins/fairy_wing_card.png"):
-		return
-	var tex: Texture2D = load("res://assets/characters/skins/fairy_wing_card.png")
-	for wi in range(2):
-		var bname: String = "wingL" if wi == 0 else "wingR"
-		if sk.find_bone(bname) < 0:
-			continue
-		var att := BoneAttachment3D.new()
-		att.bone_name = bname
-		sk.add_child(att)
-		var mi := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = Vector2(1.6, 2.75)   # wing art aspect 282x489
-		qm.center_offset = Vector3(0.8, 0.0, 0.0)   # hinge edge at the origin
-		mi.mesh = qm
-		# map the quad's outward X onto the bone's along-axis (Y), keep it
-		# upright: columns are the bone-local images of quad X/Y/Z
-		mi.transform.basis = Basis(Vector3(0, 1, 0), Vector3(0, 0, 1), Vector3(1, 0, 0))
-		var wm := ShaderMaterial.new()
-		wm.shader = load("res://assets/shaders/fairy_wing.gdshader")
-		wm.set_shader_parameter("wing_tex", tex)
-		wm.set_shader_parameter("phase", 0.0 if wi == 0 else 0.18)
-		wm.set_shader_parameter("flip", 0.0 if wi == 0 else 1.0)
-		mi.material_override = wm
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		att.add_child(mi)
-
 func set_skin(id: String, tex_path: String) -> void:
 	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
@@ -467,22 +439,8 @@ func set_skin(id: String, tex_path: String) -> void:
 		# bone names, so the procedural swim drives her directly
 		if not skin_models.has(id):
 			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
-			if id == "fairy":
-				# fairy_v2 is exported at Roshan's world size, so it takes
-				# the classic transform, not the plushie one. NO
-				# _upgrade_texture: that helper swaps in the OLD atlas,
-				# which is UV-gibberish on Meshy meshes.
-				mdl.scale = Vector3.ONE * 1.55
-				mdl.position.y = -1.6
-				var mn0: Node = get_parent()
-				if mn0 != null and mn0.has_method("_toonify"):
-					# flat toon response = world lighting reads the same on
-					# her as on everything else
-					mn0._toonify(mdl)
-				_attach_wing_cards(mdl)
-			else:
-				mdl.scale = Vector3.ONE * 3.9
-				mdl.position.y = -3.4
+			mdl.scale = Vector3.ONE * 3.9
+			mdl.position.y = -3.4
 			add_child(mdl)
 			skin_models[id] = mdl
 		for k in skin_models:
@@ -522,7 +480,9 @@ func set_skin(id: String, tex_path: String) -> void:
 		if skin_sprite != null:
 			skin_sprite.visible = false
 	if skin_sparkles != null:
-		skin_sparkles.emitting = on_skin
+		# Fairy Pond uses only illustrated Sprite3D sparkle cards; do not mix
+		# its cutout language with the legacy box-mesh wardrobe trail.
+		skin_sparkles.emitting = on_skin and id != "fairy"
 
 # ---------------- career costumes (Pearl Opera House) ----------------
 # One costume per career, worn on the SAME rigged Roshan: each piece is a toy

@@ -19,6 +19,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 V2_SOURCE = ROOT / "assets_src" / "fairy_v2" / "runtime_textures"
 V4_SOURCE = ROOT / "assets_src" / "fairy_v4" / "runtime_textures"
+V5_SOURCE = ROOT / "assets_src" / "fairy_v5" / "runtime_textures"
 RUNTIME = ROOT / "assets" / "fairy" / "sprites"
 EDGE = 1024
 SUBJECT_EDGE = 960
@@ -35,6 +36,8 @@ SUBJECTS = {
 	"boss_bloom.png": V2_SOURCE / "boss_bloom.png",
 	"helpful_flower_gate.png": V4_SOURCE / "helpful_flower_gate.png",
 	"danger_thorn_halo.png": V4_SOURCE / "danger_thorn_halo.png",
+	"ornament_lily_cluster.png": V5_SOURCE / "ornament_lily_cluster.png",
+	"ornament_lavender_reeds.png": V5_SOURCE / "ornament_lavender_reeds.png",
 }
 
 

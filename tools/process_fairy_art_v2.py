@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Normalize and publish generated Fairy Pond art for Godot Mobile.
 
-The V2 subject masters are kept under assets_src/fairy_v2/concepts; the V3
-continuous background masters live under assets_src/fairy_v3/concepts, and the
-V4 cue masters live under assets_src/fairy_v4. This entry point normalizes the
-source concepts, then delegates the continuous pond and 2D sprite-card builds.
+The V2 subject masters are kept under assets_src/fairy_v2/concepts, the V4 cue
+masters live under assets_src/fairy_v4, and the V5 pond is one continuous 4:1
+panorama. This entry point normalizes the sources, then publishes the panorama,
+ornaments, and remaining 2D sprite-card family.
 
 Usage:
     python tools/process_fairy_art_v2.py
@@ -17,7 +17,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from process_fairy_background_flow import main as build_background_flow
+from process_fairy_panorama import main as build_panorama
 from process_fairy_readability_art import main as build_sprite_cards
 
 
@@ -50,7 +50,7 @@ def main() -> None:
 	if args.concepts_only:
 		print(f"normalized concept masters in {CONCEPT_DIR}")
 		return
-	build_background_flow()
+	build_panorama()
 	build_sprite_cards()
 
 

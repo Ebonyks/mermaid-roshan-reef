@@ -1,15 +1,14 @@
 # Fairy Pond V2 generated art
 
 The three V2 background concepts are retained as historical sources. Runtime
-pond plates were superseded by the continuous V3 texture family on 2026-07-22;
+pond plates were superseded by the single-canvas V5 panorama on 2026-07-27;
 the V2 bug, leaf-shield, and flower-growth masters remain current.
 
 The final game art was generated with the built-in OpenAI image-generation
 tool on 2026-07-16, then normalized by `tools/process_fairy_art_v2.py`.
-Chroma-key removal uses the installed Codex `remove_chroma_key.py` helper with
-a soft matte and despill pass. Pond plates live in `assets/fairy/`; transparent
-relief-build masters live in the export-excluded
-`assets_src/fairy_v2/runtime_textures/` and are embedded into the runtime GLBs.
+Chroma-key removal uses a soft matte and despill pass. Transparent subject
+masters live in the export-excluded `assets_src/fairy_v2/runtime_textures/`
+and publish to 2D Sprite3D cards under `assets/fairy/sprites/`.
 
 All subjects use the project art contract: orthographic top-down camera,
 rounded phone-readable silhouette, thin dark-indigo contour, two or three cel

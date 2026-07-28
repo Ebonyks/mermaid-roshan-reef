@@ -93,8 +93,7 @@ approval. Treat them as protected exceptions, not remediation targets.
 | `assets/characters/roshan_v3.glb` | First fallback | 3 | Strong source palette, but the fused/unrigged left-arm history is a major silhouette and motion mismatch. |
 | `assets/characters/roshan_v2.glb` | Second fallback | 3 | Source-derived, but the over-the-shoulder head twist weakens neutral gameplay readability. |
 | `assets/characters/roshan.glb` | Legacy fallback | 2 | Plush/flat-relief sculpt conflicts with the guide's clean illustrated 3D translation. Keep only as emergency fallback. |
-| `assets/characters/fairy_v2.glb` | Fairy playable skin | 4 | Approved source turnaround, shared rig, strong rainbow/lavender identity. Needs the same in-engine outline and tail-seam confirmation as Roshan V4. |
-| `assets/characters/fairy.glb` | Legacy fallback | 2 | Plush-era model and no longer the preferred skin path. |
+| `assets/characters/skins/fairy_mermaid.png` | Fairy playable Sprite3D skin | 5 | Approved illustrated cutout with strong rainbow/lavender identity; replaces the retired Fairy V2 model. |
 | `assets/characters/huluu.glb` | Castle throne NPC | 2 | Preserves recognizable color, but is a static plush-like statue with no skeleton. This is one of the clearest character-style mismatches in normal play. Use the protected cutout until a source-faithful 3D model exists. |
 | `assets/characters/lamb.glb` | Hide-and-seek Lamb-a' | 3 | Friendly, rounded, and readable, but generic and static compared with the protected paired illustration. |
 | `assets/characters/chuck_poodle_rigged.glb` | Fetch-game Chuck | 3 | Correct subject and useful animation, but the dark furry/model-generated treatment is less flat, bright, and inked than the book-art world. |
@@ -102,7 +101,7 @@ approval. Treat them as protected exceptions, not remediation targets.
 
 Associated extracted atlases such as `roshan_v2_Baked_BaseColor.jpg`,
 `roshan_v3_Baked_BaseColor.jpg`, `roshan_v4_Baked_BaseColor.jpg`,
-`fairy_v2_Image_0.jpg`, and the Chuck texture maps inherit their model score.
+and the Chuck texture maps inherit their model score.
 
 ## Current GEN2 reef art
 
