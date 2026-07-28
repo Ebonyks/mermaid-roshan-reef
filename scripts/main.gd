@@ -3593,8 +3593,12 @@ func _populate_hall_touch_interactables() -> void:
 		var dungeon_gate: Dictionary = g["dungeon_gate"]
 		_touch_add_item("hall:dungeon", "Castle Dungeon", dungeon_gate["pos"], null, 6.0, 28.0, "ENTER")
 	if g.has("opera_gate"):
+		# Owner 2026-07-27: the opera took over the left wing room FOR EXPOSURE,
+		# so its ring must carry the length of the Grand Hall (49 units from the
+		# hall centre to the stage door) instead of only lighting up once she is
+		# already inside the foyer. Same reach the front door gets in the court.
 		var opera_gate: Dictionary = g["opera_gate"]
-		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 28.0, "SHOW")
+		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 9.0, 52.0, "SHOW")
 	# Unlike a proximity trigger, an explicit target cannot bounce Roshan back
 	# through the entrance accidentally, so it can be discoverable immediately.
 	if g.has("hall_exit"):
