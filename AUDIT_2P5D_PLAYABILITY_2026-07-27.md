@@ -144,6 +144,59 @@ no action bubble in play. Castle = 3D again. A 4-year-old crossing a portal now
 has to re-learn how to move, twice per round trip. The charter's whole argument
 is coherence; today's build is the least coherent the game has ever been.
 
+### P1-4 — Scene congruency: the elements do not belong to the same picture
+
+Owner report: there is a visible gap between the background art and the sprites
+standing on it. That gap is now measured rather than asserted —
+`tools/audit_scene_congruency.py` compares every element of a stage against the
+**plate** (the mural it is painted on) across seven criteria, and writes
+`audit/congruency_sky_lagoon.json`. Current result: **0 of 10 elements
+congruent.**
+
+The plate's measured target values (ground band of panorama tile 1):
+`a* −20.8, b* +19.5, median L* 54.2, black point 26.4, white point 72.6,
+key light 142°, specular 0.1%, local contrast 2.49, oversample 0.94×`.
+
+| ID | Criterion | Tolerance | Failing |
+|---|---|---|---|
+| C1 | Lab (a*,b*) centroid distance | ≤ 18 | 8/10 |
+| C2 | key / black point / white point | ≤ 16 / 14 / 14 L* | 9/10 |
+| C3 | key-light direction | ≤ 45° | 8/10 |
+| C4 | specular fraction above plate | ≤ +2.5% | 4/10 |
+| C5 | local RMS contrast ratio | 0.53×–1.9× | 1/10 |
+| C6 | authored px ÷ displayed px | 1.0–2.5×, ≤2× plate's | 10/10 |
+| C7 | contact shadow present | required | 10/10 |
+
+What the numbers say, in plain terms:
+
+1. **C6 is the structural one and it is universal.** The mural is authored at
+   **0.94×** the size it is displayed — very slightly soft. Every standee is
+   authored at **2.6×–5.9×** (Roshan at 5.9×, i.e. **6.3× the plate's detail
+   density**). Three-to-six times the line density arrives on top of a soft
+   painting, which is precisely the "sticker pasted on a photo" read. No amount
+   of recolouring fixes it: the plate must gain resolution (4×1024px tiles across
+   the 144-unit panorama instead of 3×724px, → ~1.33×) and the standees must be
+   authored at the size they actually occupy.
+2. **The props share a palette the landscape never uses.** castle_gate and swing
+   sit at the same point in a*b*; plane and seesaw sit at another. Both pairs are
+   cream-and-gold prop palettes 26–42 units from a cool green plate. The two
+   elements that *do* pass C1 — the fir (4.4) and the currant (13.8) — are the
+   two painted as foliage. **The fir is the style exemplar; everything else
+   should be generated against it.**
+3. **The stage is unlit** (`shaded = false` on every Sprite3D), so baked gloss has
+   nowhere to go: the cloud is 51.5% blown specular and the pearl plane 32.8%,
+   against a plate with 0.1%. They read as plastic toys in front of a painting.
+4. **Two light sources in one frame.** Eight elements disagree with the plate's
+   key by more than 45°; Roshan by 103°, the slide by 96°.
+5. **C7 is a code fix, not an art fix.** All ten fail it because the promenade's
+   own `_add_sprite()` never builds the contact-shadow quad that
+   `SideScrollStage.flat()` already builds. One change clears the criterion for
+   every element — do it before regenerating any art.
+6. **Not measured but visible:** castle_gate and slide are drawn in ¾ isometric
+   with surfaces receding into the picture, while the mural is a straight-on
+   elevation. That is why the gate's bridge could never line up with the painted
+   door. Projection needs to be part of the art brief, not just colour.
+
 ### P2 — Smaller things
 
 - **Night never reaches the lagoon.** `_set_night(true)` (castle bed) flips the
@@ -214,7 +267,43 @@ is coherence; today's build is the least coherent the game has ever been.
 9. **Give the promenade a night mural** (or tint the existing one) so sleeping in
    the castle changes the world she wakes into.
 
-### Fourth — close the gate's blind spot
+### Fourth — close the congruency gap, on a loop
+
+The art half of this audit is exported as a Codex-facing work order artifact
+(criteria, per-asset failures, prescriptions, the loop):
+<https://claude.ai/code/artifact/ec604e78-af2b-45de-896a-edb32f190cca>. Its
+machine-readable half is `--json audit/congruency_sky_lagoon.json`; `audit/` is
+gitignored, so regenerate it on demand or publish it as a workflow artifact
+alongside the opera art manifest.
+
+The loop is deliberately closed — Codex generates against the criteria, the gate
+re-measures, and anything still failing is the next batch. No human judgement in
+the middle:
+
+**L1.** **Fix C7 in code** (`_add_sprite` gains the contact-shadow quad). Free, and it
+   clears one criterion across all ten elements.
+**L2.** **Re-plate before re-standeeing.** The mural moves from 3×724px to 4×1024px
+   tiles. This changes the target every standee is measured against, so doing it
+   second would invalidate any art generated first.
+**L3.** **Generate worst-first**, each prompt carrying the plate's measured values as
+   the target plus that element's authored-pixel budget, with the fir as the
+   style exemplar.
+**L4.** **Re-run `python3 tools/audit_scene_congruency.py`.** It exits non-zero while
+   anything fails and prints the exact criterion and delta per asset — that
+   output *is* the next batch's work list.
+**L5.** **Repeat to 10/10, then lock it** into `scripts/ci.sh` and the probes workflow
+   beside the other static gates. Not before: adding a gate that currently reads
+   0/10 would turn dev red and block the APK. A criterion that isn't enforced is
+   a preference, but a gate that lands red is just a broken build.
+**L6.** **Then judge it with eyes.** Green means the pieces are measurably the same
+   picture; it does not mean the picture is good. The device pass still decides
+   that and the gate never overrides it.
+
+Tolerances live in one `TOL` dict, so tightening them after the first green run
+is a one-line change. New zones are one entry in `SCENES`; sprite world heights
+are parsed out of the stage script so the table cannot drift from the runtime.
+
+### Fifth — close the probe suite's blind spot
 
 10. **Write `probe_promenade.gd`** as the charter specified, and add to it the
     check that is missing everywhere: *for every world the game can reach, assert
@@ -233,8 +322,9 @@ is coherence; today's build is the least coherent the game has ever been.
   lens is the right control model for this child and should be extended to the
   reef next, as the charter originally ordered.
 - **Comprehension: mixed.** The picture is clearer than the 3D world ever was,
-  but the promenade currently instructs in text, and its most inviting objects
-  do nothing.
+  but the promenade currently instructs in text, its most inviting objects do
+  nothing, and nothing standing on the painting measurably belongs to it
+  (0/10 congruent) - the child sees stickers on a landscape.
 - **Amount of game: sharply down.** Two worlds, four rides/races, the fairy pond,
   the level's own star objective and both ocean gates are unreachable. Measured
   end-to-end, a child can do *less* today than a week ago.
