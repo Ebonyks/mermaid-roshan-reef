@@ -51,9 +51,9 @@ func _init() -> void:
 		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_2.png",
 		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
@@ -269,6 +269,14 @@ func _init() -> void:
 		and plane_card != null and plane_card.visible
 		and plane_card.position != plane_before)
 	_check("low_cost_ambient_life_and_plane", ambient_moves)
+	var shore_firs_ok := true
+	for ambient_value in ambient_cards:
+		var ambient_card: Sprite3D = ambient_value as Sprite3D
+		if String(ambient_card.get_meta("ambient_kind", "")) == "fir":
+			var fir_base: Vector3 = ambient_card.get_meta(
+				"ambient_base", ambient_card.position) as Vector3
+			shore_firs_ok = shore_firs_ok and fir_base.x >= -50.0
+	_check("pnw_firs_are_rooted_on_land", shore_firs_ok)
 
 	var targets: Array = main.g.get("lagoon_promenade_targets", [])
 	var ids: Dictionary = {}
@@ -303,6 +311,15 @@ func _init() -> void:
 		var toy_target: Dictionary = value as Dictionary
 		if String(toy_target.get("kind", "")) == "playground":
 			toy_nodes[String(toy_target.get("payload", ""))] = toy_target.get("node")
+	var slide_node: Sprite3D = toy_nodes.get("slide") as Sprite3D
+	var swing_node: Sprite3D = toy_nodes.get("swing") as Sprite3D
+	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
+	var equipment_fits_lawn := (
+		slide_node != null and swing_node != null and compact_seesaw != null
+		and slide_node.texture.get_height() * slide_node.pixel_size <= 13.81
+		and swing_node.texture.get_height() * swing_node.pixel_size <= 13.31
+		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 6.81)
+	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
 	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
 	var idle_texture: Texture2D = roshan_card.texture
 	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)

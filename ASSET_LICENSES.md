@@ -454,3 +454,7 @@ ambientCG (all CC0).
   project-original 256×128 translucent contact-shadow sprite generated locally
   by `tools/prepare_sky_lagoon_congruency_assets.py`; used only on unshaded
   Sprite3D cards.
+- `assets/sprites/sky_lagoon/{sky_lagoon_slide_v3_compact.png,sky_lagoon_swing_v3_compact.png,sky_lagoon_seesaw_v4_compact.png}`
+  — project-original, lossless-alpha compact derivatives of the approved
+  playground sprites; downsampled once to match their smaller Sprite3D display
+  size while preserving the accepted shapes, palette, and transparent bounds.

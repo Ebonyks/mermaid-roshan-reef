@@ -52,7 +52,7 @@ def main() -> None:
 	canvas = Image.open(MASTER).convert("RGBA")
 	# Sky card first, then distant PNW standees.
 	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png", -60.0, 26.6, 7.25)
-	for x, y, height in ((-57.0, 7.7, 16.65), (23.0, 7.05, 14.7)):
+	for x, y, height in ((-41.5, 7.7, 16.65), (23.0, 7.05, 14.7)):
 		shadow(canvas, x, y, height)
 		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png", x, y, height)
 	for x, y, height in ((-24.0, 1.3, 6.55), (23.5, 1.35, 6.3), (62.0, 1.55, 6.8)):
@@ -71,9 +71,9 @@ def main() -> None:
 
 	for path, x, y, height in (
 		("assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png", -58.0, 4.85, 12.0),
-		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png", -9.0, 8.15, 19.1),
-		("assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png", 3.0, 8.15, 18.4),
-		("assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png", 15.0, 4.95, 11.35),
+		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", -8.5, 5.5, 13.8),
+		("assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 4.5, 5.6, 13.3),
+		("assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png", 15.0, 2.675, 6.8),
 	):
 		shadow(canvas, x, y, height)
 		place(canvas, path, x, y, height)

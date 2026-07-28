@@ -17,10 +17,15 @@ exact-coordinate three-screen preview is
 ## Composition and behavior
 
 - West screen: the approved pearl-green airplane, lagoon water, dock/runway,
-  PNW firs and currants, flowers, and the intentionally blocked water edge.
+  land-rooted PNW firs and currants, flowers, and the intentionally blocked
+  water edge.
 - Middle screen: child-scaled two-seat swing, rung-ladder slide, symmetric
   seesaw, dense PNW planting, and a clearly enclosed play lawn rather than an
   unexplained exit.
+- The 2026-07-28 fit correction reduced the slide to 13.8 world units, swing
+  to 13.3, and seesaw to 6.8, preserving each ground contact and rescaling
+  Roshan's equipment-relative animation paths. The west fir moved from the
+  lagoon edge to the planted shoreline at x = -41.5.
 - East screen: readable castle façade, Mermaid Roshan stained glass,
   drawbridge entrance, foreground flora, and a separate upper path framed by
   mountains.
@@ -76,7 +81,7 @@ Master SHA-256:
 The Level 2 probe traverses all four joins and reports four seam checks with
 maximum camera drift of 0.3%, confirming seam-free reconstruction and
 continuous navigation. The preview is also 2172×724 and has SHA-256
-`ade3c48dce0c638f2311cad231eb11a908df390902cd5485bfd33753e214c76b`.
+`41c96ae03c0d40242600dec3aa6d0e168c981d61a1fe1dc0dd735ecee6761025`.
 
 ## Congruency audit
 

@@ -50,6 +50,12 @@ const LANDMARK_Z := -17.85   # pearl plane, castle gate
 const PLAY_Z := -17.80       # playground standees
 const FRAME_Z := -17.75      # activity frames
 const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
+const SLIDE_H := 13.8
+const SWING_H := 13.3
+const SEESAW_H := 6.8
+const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
+const SWING_ANIM_SCALE := SWING_H / 18.4
+const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 # the activity frames stand on the lawn like easels (they used to hang at
 # y 14.5, which put them in the painted sky above the treeline)
 const FRAME_STAND_Y := 4.4
@@ -260,14 +266,14 @@ func _build_playground_screen() -> void:
 		"res://assets/book/hall/p_garden.jpg", "garden")
 	# the open painted lawn runs from about x -22 to +18
 	var slide := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png",
-		Vector3(-9.0, 8.15, PLAY_Z), 19.1)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+		Vector3(-8.5, 5.5, PLAY_Z), SLIDE_H)
 	var swing := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png",
-		Vector3(3.0, 8.15, PLAY_Z), 18.4)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
+		Vector3(4.5, 5.6, PLAY_Z), SWING_H)
 	var seesaw := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png",
-		Vector3(15.0, 4.95, PLAY_Z), 11.35)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png",
+		Vector3(15.0, 2.675, PLAY_Z), SEESAW_H)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -316,7 +322,7 @@ func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_cards"] = []
 	_add_ambient_card("fir",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-		Vector3(-57.0, 7.7, DRESS_Z), 16.65, 0.0, 0.55, 0.018)
+		Vector3(-41.5, 7.7, DRESS_Z), 16.65, 0.0, 0.55, 0.018)
 	_add_ambient_card("fir",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
 		Vector3(23.0, 7.05, DRESS_Z), 14.7, 1.8, 0.48, 0.016)
@@ -620,6 +626,16 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	card.rotation.z = 0.0
 	card.scale = Vector3.ONE
 	_set_play_frame(0)
+	# Snap to the first authored pose immediately, before the next frame. This
+	# keeps Roshan's hands/seat contact aligned after the equipment was resized
+	# and avoids one frame at her prior walking position.
+	match kind:
+		"swing":
+			_tick_swing_animation(card, equipment, 0.0)
+		"slide":
+			_tick_slide_animation(card, equipment, 0.0)
+		"seesaw":
+			_tick_seesaw_animation(card, equipment, 0.0)
 
 func _set_play_frame(frame_index: int) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
@@ -672,8 +688,8 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 		frame_index = 3
 	_set_play_frame(frame_index)
 	card.position = Vector3(
-		swing.position.x + 2.45 + arc * 0.46,
-		swing.position.y - 2.42 + (1.0 - cos(phase)) * 0.18,
+		swing.position.x + (2.45 + arc * 0.46) * SWING_ANIM_SCALE,
+		swing.position.y + (-2.42 + (1.0 - cos(phase)) * 0.18) * SWING_ANIM_SCALE,
 		PLAY_Z + 0.12)
 	card.rotation.z = -arc * 0.055
 
@@ -687,25 +703,31 @@ func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 		var bounce: float = sin(step_phase * PI) * 0.42
 		_set_play_frame(step_i % 2)
 		card.position = Vector3(
-			slide.position.x - 6.2 + float(step_i) * 0.42,
-			slide.position.y - 3.7 + float(step_i) * 1.52 + bounce,
+			slide.position.x + (-6.2 + float(step_i) * 0.42) * SLIDE_ANIM_SCALE,
+			slide.position.y + (-3.7 + float(step_i) * 1.52) * SLIDE_ANIM_SCALE + bounce,
 			PLAY_Z + 0.12)
 		card.rotation.z = -0.03
 	elif t < 3.15:
 		_set_play_frame(2)
 		var settle: float = smoothstep(0.0, 1.0, (t - 2.55) / 0.60)
 		card.position = Vector3(
-			lerpf(slide.position.x - 4.5, slide.position.x - 2.1, settle),
-			lerpf(slide.position.y + 2.5, slide.position.y + 3.9, settle),
+			slide.position.x + lerpf(-4.5, -2.1, settle) * SLIDE_ANIM_SCALE,
+			slide.position.y + lerpf(2.5, 3.9, settle) * SLIDE_ANIM_SCALE,
 			PLAY_Z + 0.12)
 		card.rotation.z = lerpf(-0.03, -0.12, settle)
 	else:
 		_set_play_frame(3)
 		var ride: float = smoothstep(0.0, 1.0, clampf((t - 3.15) / 2.05, 0.0, 1.0))
 		# A quadratic chute path: gently over the lip, then faster down and out.
-		var start := Vector2(slide.position.x - 2.1, slide.position.y + 3.9)
-		var control := Vector2(slide.position.x + 1.8, slide.position.y + 2.6)
-		var finish := Vector2(slide.position.x + 7.1, slide.position.y - 4.2)
+		var start := Vector2(
+			slide.position.x - 2.1 * SLIDE_ANIM_SCALE,
+			slide.position.y + 3.9 * SLIDE_ANIM_SCALE)
+		var control := Vector2(
+			slide.position.x + 1.8 * SLIDE_ANIM_SCALE,
+			slide.position.y + 2.6 * SLIDE_ANIM_SCALE)
+		var finish := Vector2(
+			slide.position.x + 7.1 * SLIDE_ANIM_SCALE,
+			slide.position.y - 4.2 * SLIDE_ANIM_SCALE)
 		var a: Vector2 = start.lerp(control, ride)
 		var b: Vector2 = control.lerp(finish, ride)
 		var point: Vector2 = a.lerp(b, ride)
@@ -730,10 +752,10 @@ func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
 	else:
 		frame_index = 3
 	_set_play_frame(frame_index)
-	var seat_offset := Vector2(-6.05, 1.42).rotated(rock)
+	var seat_offset := (Vector2(-6.05, 1.42) * SEESAW_ANIM_SCALE).rotated(rock)
 	card.position = Vector3(
 		seesaw.position.x + seat_offset.x,
-		seesaw.position.y + seat_offset.y + 0.95,
+		seesaw.position.y + seat_offset.y + 0.95 * SEESAW_ANIM_SCALE,
 		PLAY_Z + 0.12)
 	card.rotation.z = rock
 
