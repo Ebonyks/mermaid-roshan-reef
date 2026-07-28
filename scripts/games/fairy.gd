@@ -8,53 +8,53 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
-# ===================== FAIRY POND — OVERHEAD SCROLLING BULLET HELL =====================
-# A gentle top-down scrolling shooter sized for a 4-year-old: the camera hangs
+# ===================== FAIRY POND — GENTLE OVERHEAD FAIRY FLIGHT =====================
+# A calm top-down scrolling game sized for a 4-year-old: the camera hangs
 # straight above a long pond "track" that glides beneath Roshan (in her fairy
-# form) like a classic overhead shmup. She drifts up the screen on her own; the
+# form). She drifts up the screen on her own; the
 # stick only slides her around the screen window — no jump, no turning, no depth.
-# Shadow bugs wait along the track and lob big slow shadow sparks to dodge, and
-# scary-but-toylike shadow monsters (jellies, urchins, eels) prowl the lane; her
-# wand zaps straight up the screen all by itself. SPACE / the big button pops a
-# sparkle shield that clears the sparks around her. The Fairy Flower boss waits
-# at the end of the track.
+# Mint/gold round cues are always helpful; coral/plum pointed cues are always
+# harmful. Her wand sparkles straight up the screen automatically and the big
+# button raises a sparkle shield. The Fairy Flower waits at the end of the pond.
+const FS_PACE := 0.70          # owner request: world motion and action rates are 30% slower
+const FS_TIME_SCALE := 1.0 / FS_PACE
 const FS_LEN := 280.0          # track length (forward, +Z = up the screen)
-const FS_FWD := 19.0           # auto-scroll speed (~15 s of cruise to the boss)
+const FS_FWD := 19.0 * FS_PACE
 const FS_PLANE := 3.0          # everything gameplay lives at this height (flat = 2D)
 const FS_CAM_H := 58.0         # overhead camera height
 const FS_LOOK := 6.0           # camera looks a touch ahead, shmup-style
-const FS_MOVE := 19.0          # direct steer speed (no momentum)
+const FS_MOVE := 19.0          # steering stays responsive; the world slows around the child
 const FS_BX := 20.0            # half movement bound, across the screen
 const FS_BZB := 12.0           # movement bound, down the screen (hanging back)
 const FS_BZF := 14.0           # movement bound, up the screen (pushing ahead)
-const FS_BOLT := 55.0          # wand bolt speed
+const FS_BOLT := 55.0 * FS_PACE
 const FS_BOLT_FLY := 46.0      # bolt lifetime distance (a bit past the screen top)
-const FS_FIRE_CD := 0.25
+const FS_FIRE_CD := 0.25 * FS_TIME_SCALE
 const FS_HIT_R := 3.4          # forgiving bolt-vs-bug radius
-const FS_BUG_R := 2.2
-const FS_NBUGS := 10           # shadow bugs waiting along the track
+const FS_NBUGS := 7            # calmer visual density than the old ten-bug lane
 const FS_BUG_WAKE := 36.0      # bugs this far up the screen start lobbing sparks
 const FS_HEARTS := 3
-const FS_ORB_SPD := 6.5        # shadow spark speed (slow enough to see coming)
+const FS_ORB_SPD := 6.5 * FS_PACE
 const FS_HAZ_R := 3.2          # shadow-monster touch radius (jelly / urchin)
 const FS_ORB_R := 2.6          # spark-vs-Roshan touch radius
-const FS_ORB_CD_MIN := 3.0     # each awake bug lobs a spark every 3-5 s
-const FS_ORB_CD_MAX := 5.0
-const FS_ORB_MAX := 6          # never more sparks than this on screen
-const FS_HURT_T := 1.6         # sparkle-blink safety time after a bump
-const FS_NOVA_CD := 3.0        # sparkle-shield cooldown
+const FS_ORB_CD_MIN := 3.0 * FS_TIME_SCALE
+const FS_ORB_CD_MAX := 5.0 * FS_TIME_SCALE
+const FS_ORB_MAX := 4          # never crowd the phone view with danger marks
+const FS_HURT_T := 1.6 * FS_TIME_SCALE
+const FS_NOVA_CD := 3.0 * FS_TIME_SCALE
 const FS_NOVA_R := 11.0        # sparkle-shield clear radius
 # ---- final boss: the Fairy Flower at the end of the track ----
 const FS_BOSS_AHEAD := 24.0        # boss sits near the top of the frozen screen
 const FS_BOSS_HIT_R := 5.5         # generous hitboxes
 const FS_LEAVES := 6               # outer leaf shield
 const FS_LEAF_HP := 1              # one blast per leaf
-const FS_LEAF_T := 20.0            # seconds to blast the leaves away
+const FS_LEAF_T := 20.0 * FS_TIME_SCALE
 const FS_LEAF_RING := 9.5          # leaf wreath radius (spins slowly around the bud)
 const FS_BUD_HP := 10
-const FS_BUD_T := 20.0             # seconds to bloom the flower open
-const FS_BLOOM_T := 3.0
-const FS_RING_CD := 4.5            # the flower puffs a slow ring of sparks
+const FS_BUD_T := 20.0 * FS_TIME_SCALE
+const FS_BLOOM_T := 3.0 * FS_TIME_SCALE
+const FS_RING_CD := 4.5 * FS_TIME_SCALE
+const FS_RETRY_GRACE := 6.0 * FS_TIME_SCALE
 const FS_RING_N := 6
 const FS_LEAF_SCALE := 6.5
 const FS_BUG_ART_SCALE := 7.0
@@ -64,16 +64,16 @@ const FS_BACKGROUND_ART := [
 	"res://assets/fairy/pond_boss_clearing.png",
 ]
 const FS_BUG_ART := [
-	"res://assets/fairy/models/bug_jewel.glb",
-	"res://assets/fairy/models/bug_moth.glb",
-	"res://assets/fairy/models/bug_firefly.glb",
+	"res://assets/fairy/sprites/bug_jewel.png",
+	"res://assets/fairy/sprites/bug_moth.png",
+	"res://assets/fairy/sprites/bug_firefly.png",
 ]
 const FS_BOSS_ART := {
-	"seed": "res://assets/fairy/models/boss_seed.glb",
-	"sprout": "res://assets/fairy/models/boss_sprout.glb",
-	"bud": "res://assets/fairy/models/boss_bud.glb",
-	"opening": "res://assets/fairy/models/boss_opening.glb",
-	"bloom": "res://assets/fairy/models/boss_bloom.glb",
+	"seed": "res://assets/fairy/sprites/boss_seed.png",
+	"sprout": "res://assets/fairy/sprites/boss_sprout.png",
+	"bud": "res://assets/fairy/sprites/boss_bud.png",
+	"opening": "res://assets/fairy/sprites/boss_opening.png",
+	"bloom": "res://assets/fairy/sprites/boss_bloom.png",
 }
 const FS_BOSS_STAGE_SCALE := {
 	"seed": 7.0,
@@ -82,24 +82,57 @@ const FS_BOSS_STAGE_SCALE := {
 	"opening": 15.5,
 	"bloom": 20.0,
 }
-const FS_BOSS_LEAF_ART := "res://assets/fairy/models/boss_leaf.glb"
+const FS_BOSS_LEAF_ART := "res://assets/fairy/sprites/boss_leaf.png"
+const FS_HELPFUL_CUE_ART := "res://assets/fairy/sprites/helpful_flower_gate.png"
+const FS_DANGER_CUE_ART := "res://assets/fairy/sprites/danger_thorn_halo.png"
+const FS_SPARK_ART := "res://assets/mg/star.png"
 
-func _fairy_art_item(path: String, pos: Vector3, scl: float, yrot: float = 0.0) -> Node3D:
-	var ps: PackedScene = m._fairy_art_cache.get(path, null)
-	if ps == null:
+func _fairy_art_item(path: String, pos: Vector3, visual_size: float, yrot: float = 0.0) -> Node3D:
+	var cached: Variant = m._fairy_art_cache.get(path, null)
+	var texture: Texture2D = cached as Texture2D
+	if texture == null:
 		if not ResourceLoader.exists(path):
 			return null
-		ps = load(path)
-		m._fairy_art_cache[path] = ps
-	if ps == null:
+		texture = load(path) as Texture2D
+		m._fairy_art_cache[path] = texture
+	if texture == null:
 		return null
-	var item: Node3D = ps.instantiate()
+	var item := Node3D.new()
 	item.position = pos
-	item.scale = Vector3.ONE * scl
-	item.rotation.y = yrot
+	var sprite := Sprite3D.new()
+	sprite.texture = texture
+	sprite.pixel_size = visual_size / maxf(float(texture.get_width()), float(texture.get_height()))
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	sprite.shaded = false
+	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sprite.render_priority = 2
+	sprite.rotation.z = yrot
+	item.add_child(sprite)
 	m.add_child(item)
 	m.game_nodes.append(item)
 	return item
+
+func _fairy_attach_cue(parent: Node3D, path: String, visual_size: float) -> Sprite3D:
+	if parent == null or not ResourceLoader.exists(path):
+		return null
+	var cached: Variant = m._fairy_art_cache.get(path, null)
+	var texture: Texture2D = cached as Texture2D
+	if texture == null:
+		texture = load(path) as Texture2D
+		m._fairy_art_cache[path] = texture
+	if texture == null:
+		return null
+	var cue := Sprite3D.new()
+	cue.texture = texture
+	cue.pixel_size = visual_size / maxf(float(texture.get_width()), float(texture.get_height()))
+	cue.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	cue.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	cue.shaded = false
+	cue.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	cue.render_priority = 1
+	parent.add_child(cue)
+	return cue
 
 func _fairy_background_panel(origin: Vector3, texture_path: String, z_center: float, depth: float) -> void:
 	if not ResourceLoader.exists(texture_path):
@@ -107,17 +140,17 @@ func _fairy_background_panel(origin: Vector3, texture_path: String, z_center: fl
 	var texture: Texture2D = load(texture_path)
 	if texture == null:
 		return
-	var panel := MeshInstance3D.new()
-	var plane := PlaneMesh.new()
-	plane.size = Vector2(90.0, depth)
-	panel.mesh = plane
-	var material := StandardMaterial3D.new()
-	material.albedo_texture = texture
-	material.roughness = 1.0
-	material.metallic = 0.0
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	panel.material_override = material
+	var panel := Sprite3D.new()
+	panel.texture = texture
+	panel.pixel_size = depth / maxf(float(texture.get_height()), 1.0)
+	panel.scale = Vector3(90.0 / depth, 1.0, 1.0)
+	# Keep every background card on one shared horizontal plane. Per-card
+	# billboarding tilts adjacent cards toward the camera independently and
+	# turns a pixel-perfect texture join into a visible perspective crease.
+	panel.rotation.x = -PI / 2.0
+	panel.flip_v = true
+	panel.shaded = false
+	panel.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	panel.position = origin + Vector3(0, 0.06, z_center)
 	m.add_child(panel)
 	m.game_nodes.append(panel)
@@ -157,21 +190,18 @@ func _build_fairyshoot(origin: Vector3) -> void:
 	# the circular boss clearing. ----
 	for bg_index in range(FS_BACKGROUND_ART.size()):
 		_fairy_background_panel(origin, String(FS_BACKGROUND_ART[bg_index]), 50.0 + float(bg_index) * 120.0, 120.0)
-	# Modeled flower arches keep the fly-through goals readable over the
-	# purpose-built Fairy Pond V2 background plates.
+	# One visual sentence for "good": large, round mint/gold flower gates.
 	for k in range(6):
 		var z2: float = 40.0 + float(k) * 40.0
 		var rx: float = randf() * 16.0 - 8.0
-		var ring: Node3D = m._art35_prop("res://assets/art35/arena/fairy_flower_gate.glb", origin + Vector3(rx, 0.8, z2), 1.05)
+		var ring: Node3D = _fairy_art_item(FS_HELPFUL_CUE_ART, origin + Vector3(rx, 0.8, z2), 11.0)
 		(m.g["rings"] as Array).append({"node": ring, "x": rx, "z": z2, "done": false})
 	# ---- drifting fireflies, low over the water (below the flight plane) ----
-	for i in range(24):
-		var ff := MeshInstance3D.new()
-		var fm := SphereMesh.new(); fm.radius = 0.3; fm.height = 0.6
-		ff.mesh = fm
-		ff.material_override = m._soft_mat(Color(1.0, 0.95, 0.6), 3.0)
-		ff.position = origin + Vector3(randf() * 68.0 - 34.0, 1.6, 15.0 + randf() * (FS_LEN + 20.0))
-		m.add_child(ff); m.game_nodes.append(ff)
+	for i in range(14):
+		var ff_pos := origin + Vector3(randf() * 68.0 - 34.0, 1.6, 15.0 + randf() * (FS_LEN + 20.0))
+		var ff: Node3D = _fairy_art_item(FS_SPARK_ART, ff_pos, 0.7)
+		if ff == null:
+			continue
 		(m.g["fireflies"] as Array).append({"node": ff, "ph": randf() * TAU, "base": ff.position})
 	# ---- shadow bugs waiting along the track ----
 	for k in range(FS_NBUGS):
@@ -181,24 +211,14 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		var bug_path: String = String(FS_BUG_ART[k % FS_BUG_ART.size()])
 		var bug: Node3D = _fairy_art_item(bug_path, bpos, FS_BUG_ART_SCALE, randf() * TAU)
 		if bug == null:
-			bug = Node3D.new()
-			var fallback := MeshInstance3D.new()
-			var sm := SphereMesh.new(); sm.radius = FS_BUG_R; sm.height = FS_BUG_R * 2.0
-			fallback.mesh = sm
-			fallback.material_override = m._soft_mat(Color(0.35, 0.12, 0.5), 0.8)
-			bug.add_child(fallback)
-			bug.position = bpos
-			m.add_child(bug); m.game_nodes.append(bug)
+			continue
+		_fairy_attach_cue(bug, FS_DANGER_CUE_ART, FS_BUG_ART_SCALE * 1.45)
 		(m.g["targets"] as Array).append({"node": bug, "base": bpos, "alive": true,
-				"ph": randf() * TAU, "orb_cd": 1.0 + randf() * 2.0})
-	# ---- scary-but-toylike shadow monsters lurking along the track ----
+				"ph": randf() * TAU, "orb_cd": (1.0 + randf() * 2.0) * FS_TIME_SCALE})
+	# ---- clearly marked obstacles lurking along the track ----
 	_fairy_build_hazards(origin)
 	# ---- wand aim guide floating up-screen of Roshan ----
-	var ret := MeshInstance3D.new()
-	var rt := TorusMesh.new(); rt.inner_radius = 1.1; rt.outer_radius = 1.5; rt.rings = 16; rt.ring_segments = 8
-	ret.mesh = rt
-	ret.material_override = m._soft_mat(Color(1.0, 0.9, 0.4), 2.5)
-	m.add_child(ret); m.game_nodes.append(ret)
+	var ret: Node3D = _fairy_art_item(FS_HELPFUL_CUE_ART, origin, 3.6)
 	m.g["reticle"] = ret
 	# ---- Roshan at the start of the track; camera snaps straight overhead ----
 	m.player.position = origin + Vector3(0, FS_PLANE, 0)
@@ -207,70 +227,38 @@ func _build_fairyshoot(origin: Vector3) -> void:
 		m.player.cam.position = origin + Vector3(0, FS_CAM_H, FS_LOOK)
 		m.player.cam.look_at(origin + Vector3(0, 0, FS_LOOK), Vector3(0, 0, 1))
 
-func _fairy_eye(parent: Node3D, off: Vector3) -> void:
-	# a glowing monster eye — reads clearly from straight above
-	var eye := MeshInstance3D.new()
-	var em := SphereMesh.new(); em.radius = 0.38; em.height = 0.76
-	eye.mesh = em
-	eye.material_override = m._soft_mat(Color(1.0, 0.55, 0.2), 2.6)
-	eye.position = off
-	parent.add_child(eye)
-
 func _fairy_build_hazards(origin: Vector3) -> void:
-	# scary-but-toylike shadow monsters to steer around — the wand can't zap
-	# them, so the only answer is to fly around them (all one heart on touch)
-	var shadow := m._soft_mat(Color(0.16, 0.08, 0.26), 0.35)
-	# shadow jellyfish that drift loops around their spot
-	for k in range(4):
-		var jz: float = 55.0 + float(k) * ((FS_LEN - 110.0) / 3.0)
+	# Every obstacle uses the same coral/plum pointed halo as enemy sparks. The
+	# silhouettes vary, but the meaning never does: fly around this shape.
+	for k in range(3):
+		var jz: float = 55.0 + float(k) * ((FS_LEN - 110.0) / 2.0)
 		var jelly_pos: Vector3 = origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 4.0), FS_PLANE, jz)
-		var jelly: Node3D = m._art35_prop("res://assets/art35/arena/fairy_shadow_jellyfish.glb", jelly_pos, 1.32, randf() * TAU)
+		var jelly: Node3D = _fairy_art_item(String(FS_BUG_ART[2]), jelly_pos, 7.2)
 		if jelly == null:
 			continue
+		_fairy_attach_cue(jelly, FS_DANGER_CUE_ART, 10.5)
 		(m.g["hazards"] as Array).append({"node": jelly, "kind": "jelly", "base": jelly.position, "ph": randf() * TAU})
-	# spiky shadow urchins that spin in place
-	for k in range(3):
-		var uz: float = 75.0 + float(k) * ((FS_LEN - 150.0) / 2.0)
-		var upos := origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 6.0), FS_PLANE - 1.4, uz)
-		var urch: Node3D = m._gen2_prop("urchin_story", upos, 5.2, randf() * TAU, 0.0)
-		if urch == null:
-			urch = Node3D.new()
-			var core := MeshInstance3D.new()
-			var cm2 := SphereMesh.new(); cm2.radius = 1.9; cm2.height = 3.8
-			core.mesh = cm2; core.material_override = shadow
-			urch.add_child(core)
-			for s in range(8):
-				var sa: float = float(s) / 8.0 * TAU
-				var spike := MeshInstance3D.new()
-				var spm2 := CylinderMesh.new(); spm2.top_radius = 0.0; spm2.bottom_radius = 0.5; spm2.height = 2.4
-				spike.mesh = spm2; spike.material_override = m._soft_mat(Color(0.8, 0.3, 1.0), 1.2)
-				spike.position = Vector3(cos(sa) * 2.6, 0, sin(sa) * 2.6)
-				spike.rotation = Vector3(0, -sa, -PI / 2.0)
-				urch.add_child(spike)
-			urch.position = upos
-			m.add_child(urch)
-		m.game_nodes.append(urch)
-		(m.g["hazards"] as Array).append({"node": urch, "kind": "urchin", "base": urch.position, "ph": randf() * TAU})
-	# shadow eels sweeping side to side across the lane — time the gap!
+	# Two stationary danger marks make open paths easy to scan.
 	for k in range(2):
-		var ez: float = FS_LEN * (0.4 if k == 0 else 0.75)
-		var eel_pos: Vector3 = origin + Vector3(0, FS_PLANE, ez)
-		var eel: Node3D = m._art35_prop("res://assets/art35/arena/fairy_shadow_eel.glb", eel_pos, 1.25, PI * 0.5)
-		if eel == null:
+		var uz: float = 75.0 + float(k) * (FS_LEN - 150.0)
+		var upos := origin + Vector3((randf() * 2.0 - 1.0) * (FS_BX - 6.0), FS_PLANE - 1.4, uz)
+		var urch: Node3D = _fairy_art_item(String(FS_BUG_ART[0]), upos, 7.4)
+		if urch == null:
 			continue
-		(m.g["hazards"] as Array).append({"node": eel, "kind": "eel", "base": eel.position, "ph": float(k) * PI})
+		_fairy_attach_cue(urch, FS_DANGER_CUE_ART, 10.8)
+		(m.g["hazards"] as Array).append({"node": urch, "kind": "urchin", "base": urch.position, "ph": randf() * TAU})
+	# One slow sweeping obstacle replaces the old pair.
+	var eel_pos: Vector3 = origin + Vector3(0, FS_PLANE, FS_LEN * 0.72)
+	var eel: Node3D = _fairy_art_item(String(FS_BUG_ART[1]), eel_pos, 10.5, PI * 0.5)
+	if eel != null:
+		_fairy_attach_cue(eel, FS_DANGER_CUE_ART, 13.0)
+		(m.g["hazards"] as Array).append({"node": eel, "kind": "eel", "base": eel.position, "ph": 0.0})
 
 func _fairy_spawn_orb(from: Vector3, dirv: Vector3) -> void:
-	# a slow glowing shadow spark — the "bullet" of this bullet hell
-	var orb := MeshInstance3D.new()
-	var om := SphereMesh.new(); om.radius = 1.2; om.height = 2.4
-	orb.mesh = om
-	var omat := StandardMaterial3D.new()
-	omat.albedo_color = Color(0.2, 0.06, 0.28)
-	omat.emission_enabled = true; omat.emission = Color(0.7, 0.3, 1.0); omat.emission_energy_multiplier = 2.2
-	orb.material_override = omat
-	orb.position = from
-	m.add_child(orb); m.game_nodes.append(orb)
+	# Pointed coral/plum is reserved for danger throughout the whole game.
+	var orb: Node3D = _fairy_art_item(FS_DANGER_CUE_ART, from, 3.1)
+	if orb == null:
+		return
 	(m.g["orbs"] as Array).append({"node": orb, "dir": dirv})
 
 func _fairy_clear_orbs() -> void:
@@ -284,11 +272,11 @@ func _fairy_start_boss(origin: Vector3) -> void:
 	var center: Vector3 = origin + Vector3(0, FS_PLANE, float(m.g["fz"]) + FS_BOSS_AHEAD)
 	m.g["boss_center"] = center
 	m.g["phase"] = "boss_leaves"
-	# retry kindness: each earlier fail stretches both boss timers by 6s (max +12)
-	m.g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(m.fs_fails, 2))
+	# Retry kindness scales with the calmer 70% pace too.
+	m.g["phase_t"] = FS_LEAF_T + FS_RETRY_GRACE * float(mini(m.fs_fails, 2))
 	m.g["ring_cd"] = FS_RING_CD
 	_fairy_clear_orbs()   # a clean entrance for the flower
-	# Begin with the small cracked seed; matched reliefs replace it as it grows.
+	# Begin with the small cracked seed; matched 2D cards replace it as it grows.
 	_fairy_set_boss_stage("seed")
 	m.g["bud_hp"] = FS_BUD_HP
 	# Six matching authored leaves orbit slowly so one stays lined up with the wand.
@@ -298,12 +286,11 @@ func _fairy_start_boss(origin: Vector3) -> void:
 		var lp: Vector3 = center + Vector3(cos(a) * FS_LEAF_RING, -1.0, sin(a) * FS_LEAF_RING)
 		var leaf: Node3D = _fairy_art_item(FS_BOSS_LEAF_ART, lp, FS_LEAF_SCALE, PI / 2.0 - a)
 		if leaf == null:
-			var lm := MeshInstance3D.new()
-			var pm := PrismMesh.new(); pm.size = Vector3(5.0, 9.0, 2.0)
-			lm.mesh = pm; lm.material_override = m._soft_mat(Color(0.35, 0.75, 0.4), 0.4)
-			lm.position = lp; m.add_child(lm); m.game_nodes.append(lm); leaf = lm
+			continue
+		_fairy_attach_cue(leaf, FS_HELPFUL_CUE_ART, FS_LEAF_SCALE * 1.35)
 		(m.g["leaves"] as Array).append({"node": leaf, "hp": FS_LEAF_HP, "ang": a})
-	m.show_msg(fr_name_safe(), "The Fairy Flower! Blast the leaves out of the way!")
+	m._say("rosalina", "open", 0.0)
+	m.show_msg(fr_name_safe(), "Sparkle the mint flower rings to help the seed grow!")
 
 func fr_name_safe() -> String:
 	return String((m.g.get("fr", {}) as Dictionary).get("fname", "Fairy Pond"))
@@ -313,21 +300,23 @@ func _fairy_bloom_start() -> void:
 	m.g["bloom_t"] = FS_BLOOM_T
 	_fairy_clear_orbs()   # nothing to dodge during the celebration
 	m.g["petals"] = []
-	# One coherent full-blossom model grows outward for the celebration.
+	# One coherent full-blossom sprite grows outward for the celebration.
 	var bloom: Node3D = _fairy_set_boss_stage("bloom")
 	if bloom != null:
-		bloom.scale = Vector3.ONE * (float(FS_BOSS_STAGE_SCALE["bloom"]) * 0.72)
+		bloom.scale = Vector3.ONE * 0.72
+	m._say("rosalina", "win", 0.0)
 
 func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
 	_build_fairyshoot(origin)
 	m._play_music("melody")   # dreamy track
-	m.show_msg(fr["fname"], "Fly up the fairy pond! Dodge the sparks and the shadow monsters — your wand zaps ahead all by itself! SPACE / TAP makes a sparkle shield!")
+	m._say("rosalina", "greet", 0.0)
+	m.show_msg(fr["fname"], "Follow the round mint flowers. Fly around every pointed coral shadow. Tap for your sparkle shield!")
 
 func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var origin: Vector3 = m.ARENA_POS
 	var phase: String = String(m.g.get("phase", "fly"))
-	var tt: float = float(m.g["t"])
+	var tt: float = float(m.g["t"]) * FS_PACE
 	# ---- the track scrolls on its own; the stick only slides Roshan around ----
 	if phase == "fly":
 		m.g["fz"] = float(m.g["fz"]) + FS_FWD * delta
@@ -412,7 +401,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				m._sparkle_burst(pos, Color(1.0, 0.95, 0.6))
 				if m.chime != null:
 					m.chime.pitch_scale = 1.5; m.chime.play()
-	# ---- shadow bugs bob in place; the ones on screen lob slow sparks ----
+	# ---- danger-marked bugs bob in place; the ones on screen lob slow sparks ----
 	for td in m.g["targets"]:
 		if not td["alive"] or not is_instance_valid(td["node"]):
 			continue
@@ -452,9 +441,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				m.g["hurt_t"] = FS_HURT_T * 2.0
 				m.player.visible = true
 				m.show_msg(fr["fname"], "Sparkle shield! Your fairy light is full again — keep flying!", "encourage")
-	# ---- shadow monsters prowl the track: jellies drift, urchins spin,
-	# eels sweep the whole lane — the wand can't zap them, only flying
-	# around them works (one heart on touch, same sparkle-blink mercy) ----
+	# ---- pointed obstacles prowl the track; the wand cannot zap them, so
+	# flying around every coral/plum halo is the one consistent answer. ----
 	for hd in m.g["hazards"]:
 		var hn: Node3D = hd["node"]
 		if not is_instance_valid(hn):
@@ -494,15 +482,11 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	m.g["fire_cd"] = maxf(0.0, float(m.g["fire_cd"]) - delta)
 	if phase != "boss_bloom" and float(m.g["fire_cd"]) <= 0.0:
 		m.g["fire_cd"] = FS_FIRE_CD
-		var bolt := MeshInstance3D.new()
-		var bsm := SphereMesh.new(); bsm.radius = 0.6; bsm.height = 1.2
-		bolt.mesh = bsm
-		bolt.material_override = m._soft_mat(Color(0.6, 1.0, 0.9), 3.0)
-		bolt.position = pos + Vector3(0, 0, 2.0)
-		m.add_child(bolt); m.game_nodes.append(bolt)
-		(m.g["bolts"] as Array).append({"node": bolt, "fly": 0.0})
-		if m.chime != null:
-			m.chime.pitch_scale = 1.8; m.chime.play()
+		var bolt: Node3D = _fairy_art_item(FS_SPARK_ART, pos + Vector3(0, 0, 2.0), 1.4)
+		if bolt != null:
+			(m.g["bolts"] as Array).append({"node": bolt, "fly": 0.0})
+			if m.chime != null:
+				m.chime.pitch_scale = 1.8; m.chime.play()
 	# ---- advance bolts, check hits ----
 	var bolts: Array = m.g["bolts"]
 	for bi in range(bolts.size() - 1, -1, -1):
@@ -557,7 +541,7 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# ---- phase logic ----
 	var hearts_str: String = "💗".repeat(maxi(0, int(m.g["hearts"])))
 	if phase == "fly":
-		m.hud_game.text = "Fairy Pond!  Shadow bugs zapped: %d / %d   %s" % [int(m.g["hits"]), FS_NBUGS, hearts_str]
+		m.hud_game.text = "Fairy Pond!  Pointed shadows sparkled: %d / %d   %s" % [int(m.g["hits"]), FS_NBUGS, hearts_str]
 		if fz >= FS_LEN:
 			_fairy_start_boss(origin)
 		return
@@ -580,21 +564,21 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			if int(lf["hp"]) > 0:
 				left += 1
 				if is_instance_valid(lf["node"]):
-					lf["ang"] = float(lf["ang"]) + delta * 0.3
+					lf["ang"] = float(lf["ang"]) + delta * 0.3 * FS_PACE
 					(lf["node"] as Node3D).position = center3 + Vector3(cos(float(lf["ang"])) * FS_LEAF_RING, -1.0, sin(float(lf["ang"])) * FS_LEAF_RING)
-					(lf["node"] as Node3D).scale = Vector3.ONE * (FS_LEAF_SCALE * (1.0 + sin(tt * 4.0 + float(lf["ang"])) * 0.06))
+					(lf["node"] as Node3D).scale = Vector3.ONE * (1.0 + sin(tt * 4.0 + float(lf["ang"])) * 0.06)
 		var seed_art: Node3D = m.g.get("boss_art")
 		if seed_art != null and is_instance_valid(seed_art):
-			seed_art.scale = Vector3.ONE * (float(FS_BOSS_STAGE_SCALE["seed"]) * (1.0 + sin(tt * 2.0) * 0.035))
-		m.hud_game.text = "Blast the leaves away!   leaves left: %d   %s" % [left, hearts_str]
+			seed_art.scale = Vector3.ONE * (1.0 + sin(tt * 2.0) * 0.035)
+		m.hud_game.text = "Sparkle the mint rings!   rings left: %d   %s" % [left, hearts_str]
 		if left <= 0:
 			m.g["phase"] = "boss_bud"
-			m.g["phase_t"] = FS_BUD_T + 6.0 * float(mini(m.fs_fails, 2))
+			m.g["phase_t"] = FS_BUD_T + FS_RETRY_GRACE * float(mini(m.fs_fails, 2))
 			_fairy_set_boss_stage("sprout")
-			m.show_msg(fr_name_safe(), "The flower! Keep blasting to make it grow and bloom!")
+			m.show_msg(fr_name_safe(), "The seed sprouted! Keep sending gold sparkles to help it bloom!")
 		elif pt <= 0.0:
 			m.fs_fails += 1
-			m.g["phase_t"] = FS_LEAF_T + 6.0 * float(mini(m.fs_fails, 2))
+			m.g["phase_t"] = FS_LEAF_T + FS_RETRY_GRACE * float(mini(m.fs_fails, 2))
 			m.g["hearts"] = FS_HEARTS
 			m.g["ring_cd"] = FS_RING_CD * 2.0
 			_fairy_clear_orbs()
@@ -611,16 +595,15 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		_fairy_set_boss_stage(growth_stage)
 		var bud: Node3D = m.g.get("bud")
 		if bud != null and is_instance_valid(bud):
-			var stage_scale: float = float(FS_BOSS_STAGE_SCALE[growth_stage])
 			var pulse: float = 1.0 + sin(tt * 8.0) * 0.05
-			bud.scale = Vector3.ONE * (stage_scale * pulse)
+			bud.scale = Vector3.ONE * pulse
 		m.hud_game.text = "Open the flower!   %d hits left   %s" % [maxi(0, hp), hearts_str]
 		if hp <= 0:
 			_fairy_bloom_start()
 			m.show_msg(fr_name_safe(), "It's blooming! 🌸")
 		elif pt <= 0.0:
 			m.fs_fails += 1
-			m.g["phase_t"] = FS_BUD_T + 6.0 * float(mini(m.fs_fails, 2))
+			m.g["phase_t"] = FS_BUD_T + FS_RETRY_GRACE * float(mini(m.fs_fails, 2))
 			m.g["hearts"] = FS_HEARTS
 			m.g["ring_cd"] = FS_RING_CD * 2.0
 			_fairy_clear_orbs()
@@ -633,9 +616,8 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		var center: Vector3 = m.g["boss_center"]
 		var bloom_art: Node3D = m.g.get("boss_art")
 		if bloom_art != null and is_instance_valid(bloom_art):
-			var bloom_scale: float = float(FS_BOSS_STAGE_SCALE["bloom"])
-			bloom_art.scale = Vector3.ONE * (bloom_scale * lerpf(0.72, 1.0, f))
-		if fmod(tt, 0.18) < delta:
+			bloom_art.scale = Vector3.ONE * lerpf(0.72, 1.0, f)
+		if fmod(tt, 0.18) < delta * FS_PACE:
 			m._sparkle_burst(center + Vector3(randf() * 16 - 8, 1.0, randf() * 16 - 8), Color.from_hsv(randf(), 0.4, 1.0))
 		if float(m.g["bloom_t"]) <= 0.0:
 			if not bool(m.g.get("player_acted", false)):

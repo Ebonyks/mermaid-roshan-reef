@@ -21,8 +21,13 @@ SOURCE_DIR = ROOT / "assets_src" / "fairy_v3" / "concepts"
 RUNTIME_DIR = ROOT / "assets" / "fairy"
 EDGE = 1024
 SEAM_HOLD = 128
-SEAM_BLEND = 32
+SEAM_BLEND = 192
 COMMON_TINT = (116, 181, 197)
+GRADIENT_START_LUMINANCE = 184.0
+GRADIENT_END_LUMINANCE = 164.0
+GRADIENT_TOP_TINT = (123, 193, 201)
+GRADIENT_BOTTOM_TINT = (112, 164, 194)
+PROFILE_RADIUS = 48
 
 PLATES = [
 	("background_dawn_master.png", "pond_dawn.png", 182.0, 0.90),
@@ -58,40 +63,87 @@ def _prepare(source: Path, target_luminance: float, saturation: float) -> Image.
 	return _match_luminance(image, target_luminance)
 
 
-def _ramp_palette(continuation: Image.Image, reference: Image.Image) -> Image.Image:
-	continuation_mean = ImageStat.Stat(continuation).mean
-	reference_mean = ImageStat.Stat(reference).mean
-	target_scale = [reference_mean[index] / max(1.0, continuation_mean[index]) for index in range(3)]
-	result = Image.new("RGB", continuation.size)
-	for row_index in range(continuation.height):
-		t = row_index / float(continuation.height - 1)
-		t = t * t * (3.0 - 2.0 * t)
-		scales = [1.0 + (target_scale[index] - 1.0) * t for index in range(3)]
-		luts = [[min(255, round(value * scale)) for value in range(256)] for scale in scales]
-		row = continuation.crop((0, row_index, continuation.width, row_index + 1))
-		result.paste(row.point(luts[0] + luts[1] + luts[2]), (0, row_index))
-	return result
+def _join_runtime_pair(first: Image.Image, second: Image.Image) -> tuple[Image.Image, Image.Image]:
+	"""Feather the edges that touch after Sprite3D's screen-facing orientation.
 
-
-def _join_pair(first: Image.Image, second: Image.Image) -> tuple[Image.Image, Image.Image]:
+	The camera's +Z up vector means the first plate's top image edge touches
+	the second plate's bottom image edge. Continue the first texture across the
+	join for 128px, then spend 192px dissolving into the next stage. This makes
+	bank, ripple, and watercolor-grain direction continuous at the join instead
+	of merely matching one boundary row.
+	"""
 	width, height = first.size
 	continuation_height = SEAM_HOLD + SEAM_BLEND
-	# Mirror the preceding edge across the plane join.  The first row of the
-	# next plate therefore exactly matches the last row of the previous plate,
-	# and bank/ripple shapes remain crisp instead of becoming a double exposure.
-	continuation = ImageOps.flip(first.crop((0, height - continuation_height, width, height)))
-	reference = second.crop((0, 0, width, continuation_height))
-	continuation = _ramp_palette(continuation, reference)
+	# Target rows run from the far side of stage two to its touching edge, so
+	# flip the first stage's near-edge crop into that same image-space order.
+	continuation = ImageOps.flip(first.crop((0, 0, width, continuation_height)))
+	original = second.crop((0, height - continuation_height, width, height))
+	mask_values = [
+		round(255.0 * _smoothstep(row / float(SEAM_BLEND - 1)))
+		for row in range(SEAM_BLEND)
+	] + [255] * SEAM_HOLD
+	mask = Image.new("L", (1, continuation_height))
+	mask.putdata(mask_values)
+	mask = mask.resize((width, continuation_height), Image.Resampling.NEAREST)
+	bridge = Image.composite(continuation, original, mask)
 	joined_second = second.copy()
-	joined_second.paste(continuation.crop((0, 0, width, SEAM_HOLD)), (0, 0))
-	original_blend = second.crop((0, SEAM_HOLD, width, continuation_height))
-	continued_blend = continuation.crop((0, SEAM_HOLD, width, continuation_height))
-	mask = Image.new("L", (1, SEAM_BLEND))
-	mask.putdata([round(255.0 * row / float(SEAM_BLEND - 1)) for row in range(SEAM_BLEND)])
-	mask = mask.resize((width, SEAM_BLEND), Image.Resampling.NEAREST)
-	transition = Image.composite(original_blend, continued_blend, mask)
-	joined_second.paste(transition, (0, SEAM_HOLD))
+	joined_second.paste(bridge, (0, height - continuation_height))
+	# Keep the touching texels identical under linear filtering.
+	joined_second.paste(first.crop((0, 0, width, 1)), (0, height - 1))
 	return first, joined_second
+
+
+def _smoothstep(value: float) -> float:
+	return value * value * (3.0 - 2.0 * value)
+
+
+def _apply_global_gradient(images: list[Image.Image]) -> list[Image.Image]:
+	"""Grade all three plates as one continuous texture ribbon.
+
+	The local watercolor texture remains intact.  Only the low-frequency row
+	profile is corrected, preventing any plate from reading like a separate
+	screenshot while dawn eases gently into the boss clearing.
+	"""
+	# Build the grade in the same low-Z to high-Z orientation the player sees.
+	# Sprite3D displays each source image upside-down along that world axis.
+	stack = Image.new("RGB", (EDGE, EDGE * len(images)))
+	for index, image in enumerate(images):
+		stack.paste(ImageOps.flip(image), (0, index * EDGE))
+	row_luminance = [_mean_luminance(stack.crop((0, y, EDGE, y + 1))) for y in range(stack.height)]
+	prefix = [0.0]
+	for value in row_luminance:
+		prefix.append(prefix[-1] + value)
+	smoothed: list[float] = []
+	for y in range(stack.height):
+		start = max(0, y - PROFILE_RADIUS)
+		end = min(stack.height, y + PROFILE_RADIUS + 1)
+		smoothed.append((prefix[end] - prefix[start]) / float(end - start))
+	graded = Image.new("RGB", stack.size)
+	for y in range(stack.height):
+		t = _smoothstep(y / float(stack.height - 1))
+		target_luminance = (
+			GRADIENT_START_LUMINANCE
+			+ (GRADIENT_END_LUMINANCE - GRADIENT_START_LUMINANCE) * t
+		)
+		tint = tuple(
+			round(GRADIENT_TOP_TINT[channel] + (GRADIENT_BOTTOM_TINT[channel] - GRADIENT_TOP_TINT[channel]) * t)
+			for channel in range(3)
+		)
+		row = stack.crop((0, y, EDGE, y + 1))
+		row = Image.blend(row, Image.new("RGB", row.size, tint), 0.035)
+		factor = max(0.86, min(1.14, target_luminance / max(1.0, smoothed[y])))
+		lut = [min(255, round(value * factor)) for value in range(256)]
+		graded.paste(row.point(lut * 3), (0, y))
+	# Keep each boundary pixel-identical.  The surrounding 320px bridge still
+	# carries the watercolor texture, so this lock is invisible and robust to
+	# linear filtering on adjacent Sprite3D cards.
+	for boundary in range(1, len(images)):
+		y = boundary * EDGE
+		graded.paste(graded.crop((0, y - 1, EDGE, y)), (0, y))
+	return [
+		ImageOps.flip(graded.crop((0, index * EDGE, EDGE, (index + 1) * EDGE)))
+		for index in range(len(images))
+	]
 
 
 def main() -> None:
@@ -101,8 +153,9 @@ def main() -> None:
 		if not source.exists():
 			raise FileNotFoundError(source)
 		images.append(_prepare(source, luminance, saturation))
-	images[0], images[1] = _join_pair(images[0], images[1])
-	images[1], images[2] = _join_pair(images[1], images[2])
+	images[0], images[1] = _join_runtime_pair(images[0], images[1])
+	images[1], images[2] = _join_runtime_pair(images[1], images[2])
+	images = _apply_global_gradient(images)
 	RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 	for image, (_source_name, target_name, _luminance, _saturation) in zip(images, PLATES):
 		target = RUNTIME_DIR / target_name
