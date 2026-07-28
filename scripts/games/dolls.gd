@@ -1,21 +1,29 @@
 class_name DollsGame
 extends RefCounted
 # Phase 7.4 extraction, rebuilt Phase 8 on the SideScrollStage engine: the
-# catch-the-babies game is now a 2.5D nursery diorama — the real 3D Roshan
-# (wardrobe skin and all) slides under a side-on camera catching 3D swaddled
-# babies that drift down in front of the floating nursery book page. Caught
-# babies tuck into a cradle; missed ones land safely on pillows (no fail).
+# catch-the-babies game is now a 2D-sprite nursery diorama. The real player
+# controller slides under a side-on camera while a 2D Roshan catches Faron's
+# three protected baby-doll sprites. Caught babies tuck into a regenerated
+# cradle; missed ones land safely on regenerated pillows (no fail).
 # All state stays on main (m.*); received by reference.
 # Scale: the v4 Roshan is ~7 world units tall — the 2D era's geometry maps
 # at 25 px per unit (1160 px playfield → 46.4 units).
 
-const BLANKETS := [Color(0.62, 0.90, 0.78), Color(1.0, 0.72, 0.82), Color(0.78, 0.72, 0.98)]
 const HALF_W := 23.2       # stage half-width
 const SPAWN_Y := 28.0      # babies drift down from here (stage-local)
 const CATCH_Y := 8.8       # below this they can land in her arms…
 const FLOOR_Y := 1.2       # …and at this height they missed (soft pillow landing)
 const CATCH_W := 5.4       # horizontal catch forgiveness
-const CRADLE_SLOTS := [Vector3(17.8, 3.1, -2), Vector3(20.0, 3.1, -2), Vector3(22.2, 3.1, -2)]
+const CRADLE_SLOTS := [Vector3(11.5, 3.1, -1.0), Vector3(16.0, 3.1, -1.0), Vector3(20.5, 3.1, -1.0)]
+const BABY_SPRITES := [
+	"res://assets/book/baby_doll.png",
+	"res://assets/book/baby_doll2.png",
+	"res://assets/book/baby_doll3.png",
+]
+const BACKGROUND := "res://assets/minigames/dolls/background.png"
+const CRADLE := "res://assets/minigames/dolls/cradle.png"
+const PILLOW_BANK := "res://assets/minigames/dolls/pillow_bank.png"
+const ROSHAN_CATCH := "res://assets/minigames/shared/roshan_catch.png"
 
 var m: ReefMain
 var stage: SideScrollStage
@@ -105,97 +113,30 @@ func _stage_open() -> void:
 		"cam_dist": 20.5,
 		"look_h": 10.5,
 		"cam_follow": 0.25,
-		"backdrop": "res://assets/book/nursery_bg.jpg",
-		"backdrop_size": Vector2(36.0, 49.8),   # the book page at its true portrait aspect
+		"cam_fov": 58.0,
+		"avatar_sprite": ROSHAN_CATCH,
+		"backdrop": BACKGROUND,
+		"backdrop_size": Vector2(56.0, 28.0),
 		"backdrop_z": -28.0,
 	})
-	var r := stage.root()
-	# soft pillow row where missed babies land
-	for i in range(7):
-		var p := MeshInstance3D.new()
-		var pmesh := SphereMesh.new()
-		pmesh.radius = 3.4
-		pmesh.height = 6.8
-		p.mesh = pmesh
-		p.scale = Vector3(1.25, 0.42, 0.9)
-		p.position = Vector3(-21.0 + float(i) * 7.0, 0.5, 0.0)
-		p.material_override = m._soft_mat((BLANKETS[i % BLANKETS.size()] as Color).lightened(0.25), 0.08)
-		r.add_child(p)
-	# the cradle caught babies tuck into (screen right, just behind the play line)
-	var base := MeshInstance3D.new()
-	var bmesh := BoxMesh.new()
-	bmesh.size = Vector3(8.4, 2.0, 4.0)
-	base.mesh = bmesh
-	base.position = Vector3(20.0, 1.0, -2.0)
-	base.material_override = m._soft_mat(Color(0.85, 0.72, 0.58), 0.08)
-	r.add_child(base)
-	for ex in [15.9, 24.1]:
-		var board := MeshInstance3D.new()
-		var bomesh := BoxMesh.new()
-		bomesh.size = Vector3(0.6, 4.0, 4.0)
-		board.mesh = bomesh
-		board.position = Vector3(float(ex), 2.0, -2.0)
-		board.material_override = m._soft_mat(Color(0.85, 0.72, 0.58), 0.08)
-		r.add_child(board)
-	# toy blocks (screen left) + dream sky: moon and stars around the book page
-	for k in range(3):
-		var blk := MeshInstance3D.new()
-		var blmesh := BoxMesh.new()
-		blmesh.size = Vector3.ONE * 2.2
-		blk.mesh = blmesh
-		blk.position = [Vector3(-20.5, 1.1, 0), Vector3(-18.3, 1.1, 1.0), Vector3(-19.5, 3.3, 0.4)][k]
-		blk.rotation.y = float(k) * 0.4
-		blk.material_override = m._soft_mat(BLANKETS[k], 0.14)
-		r.add_child(blk)
-	var moon := stage.glow(Color(1.0, 0.92, 0.7), 12.8)
-	moon.position = Vector3(-26.0, 43.0, -26.5)
-	r.add_child(moon)
-	for sp in [Vector2(-32, 36), Vector2(-26, 49), Vector2(8, 52), Vector2(24, 41), Vector2(34, 30), Vector2(28, 50)]:
-		var star := stage.glow(Color(0.92, 0.9, 1.0), 3.6)
-		star.position = Vector3((sp as Vector2).x, (sp as Vector2).y, -27.0)
-		r.add_child(star)
+	stage.flat(PILLOW_BANK, Vector2(48.0, 8.0), 0.0, -1.0, 0.0, false)
+	stage.flat(CRADLE, Vector2(16.0, 8.0), 16.0, -2.0, 0.0, false)
 
 func _make_baby(idx: int) -> Node3D:
-	# a swaddled 3D baby doll: blanket capsule, head, sleep cap, pompom, halo.
-	# Built at doll-scale then×2.6 so it reads about half Roshan's height,
-	# matching the book-art dolls' proportion in the 2D era.
+	# Faron's babies are the protected originals. They remain separate sprites;
+	# never bake them into a background, redraw, recolor, resize in place, or
+	# route them through generated fallback art.
 	var b := Node3D.new()
-	b.scale = Vector3.ONE * 2.6
-	var blanket: Color = BLANKETS[idx % BLANKETS.size()]
-	var swaddle := MeshInstance3D.new()
-	var cmesh := CapsuleMesh.new()
-	cmesh.radius = 0.34
-	cmesh.height = 0.95
-	swaddle.mesh = cmesh
-	swaddle.material_override = m._soft_mat(blanket, 0.18)
-	b.add_child(swaddle)
-	var head := MeshInstance3D.new()
-	var hmesh := SphereMesh.new()
-	hmesh.radius = 0.24
-	hmesh.height = 0.48
-	head.mesh = hmesh
-	head.position.y = 0.52
-	head.material_override = m._soft_mat(Color(1.0, 0.86, 0.72), 0.10)
-	b.add_child(head)
-	var cap := MeshInstance3D.new()
-	var cymesh := CylinderMesh.new()
-	cymesh.top_radius = 0.03
-	cymesh.bottom_radius = 0.20
-	cymesh.height = 0.26
-	cap.mesh = cymesh
-	cap.position.y = 0.74
-	cap.material_override = m._soft_mat(blanket.darkened(0.25), 0.15)
-	b.add_child(cap)
-	var pom := MeshInstance3D.new()
-	var pommesh := SphereMesh.new()
-	pommesh.radius = 0.06
-	pommesh.height = 0.12
-	pom.mesh = pommesh
-	pom.position.y = 0.89
-	pom.material_override = m._soft_mat(Color(1, 1, 1), 0.5)
-	b.add_child(pom)
+	var tex: Texture2D = load(BABY_SPRITES[idx % BABY_SPRITES.size()])
+	var sprite := Sprite3D.new()
+	sprite.texture = tex
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.shaded = false
+	sprite.pixel_size = 4.2 / maxf(1.0, float(tex.get_height()))
+	sprite.position.y = 2.1
+	b.add_child(sprite)
 	var halo := stage.glow(Color(0.8, 0.75, 1.0), 2.0)
-	halo.position.y = 0.3
+	halo.position.y = 2.0
 	b.add_child(halo)
 	return b
 

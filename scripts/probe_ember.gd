@@ -70,11 +70,26 @@ func _init() -> void:
 	_ck("five ember lanterns await", ember._lanterns.size() == 5 and ember._lit == 0)
 	_ck("the Great Gate starts shut", not ember._gate_open)
 	var first_lantern: Dictionary = ember._lanterns[0]
-	var first_vent: Dictionary = ember._vents[0]
-	_ck("planet uses the dedicated Ember shell", ember.find_child("EmberPlanet", true, false) != null)
-	_ck("lantern flames use the exported three-layer model", first_lantern.get("flame") is Node3D and (first_lantern["flame"] as Node3D).find_children("*", "MeshInstance3D", true, false).size() == 3)
-	_ck("ash moon uses the exported cratered model", ember._moon is Node3D and ember._moon.find_child("AshBody", true, false) != null)
-	_ck("geyser vents use authored basalt and flame parts", ember._vents.size() == 3 and first_vent.get("flame") is Node3D)
+	_ck("fortress uses its tailored storybook background", ember._storybook_background is Sprite3D)
+	_ck("lanterns use five regenerated 2D route sprites",
+		first_lantern.get("story_sprite") is Sprite3D
+		and ember.find_children("EmberLantern2D*", "Sprite3D", true, false).size() == 5)
+	_ck("lantern route uses five regenerated beacon cues",
+		first_lantern.get("story_beacon") is Sprite3D
+		and ember.find_children("EmberBeacon2D*", "Sprite3D", true, false).size() == 5)
+	_ck("fortress power sources use regenerated crystal cutouts",
+		ember.find_children("EmberCrystal2D*", "Sprite3D", true, false).size() >= 2)
+	_ck("ash moon uses the regenerated 2D cutout",
+		ember._moon is Node3D
+		and ember._moon.find_child("EmberAshMoon2D", true, false) is Sprite3D)
+	_ck("three geyser routes use regenerated 2D cutouts",
+		ember._vents.size() == 3
+		and ember.find_children("EmberGeyser2D*", "Sprite3D", true, false).size() == 3)
+	var visible_legacy_meshes := 0
+	for legacy_mesh: MeshInstance3D in ember.find_children("*", "MeshInstance3D", true, false):
+		if legacy_mesh.layers != 0:
+			visible_legacy_meshes += 1
+	_ck("legacy fortress meshes cannot render", visible_legacy_meshes == 0)
 	_ck("overworld no longer routes through generic castle art", EmberFortressLevel.GATE_GLB.begins_with(EmberFortressLevel.ART_ROOT) and EmberFortressLevel.TOWER_GLBS.size() == 4)
 	var ember_art_exists := true
 	for path: String in DungeonArt.EMBER_PATHS.values():
@@ -82,7 +97,9 @@ func _init() -> void:
 	_ck("every Ember dungeon art role resolves", ember_art_exists)
 	main.quality = "speedy"
 	ember._sync_detail_lights()
-	_ck("Speedy disables the King and avatar detail lights", not ember._king_light.visible and not ember._trail_light.visible)
+	_ck("2D fortress disables the King and avatar detail lights",
+		(ember._king_light == null or not ember._king_light.visible)
+		and (ember._trail_light == null or not ember._trail_light.visible))
 	# ---- passive safety: nothing lights or opens by itself ----
 	for i in range(30):
 		await process_frame
@@ -98,7 +115,7 @@ func _init() -> void:
 	for lantern: Dictionary in ember._lanterns:
 		if (lantern["light"] as OmniLight3D).visible:
 			visible_lantern_lights += 1
-	_ck("Speedy shows at most the nearest lantern light", visible_lantern_lights == 1)
+	_ck("2D fortress keeps legacy lantern lights retired", visible_lantern_lights == 0)
 	_ck("lantern checkpoints persist as hidden sticker keys", bool(main.stickers.get("_ember_lantern_0", false)) and bool(main.stickers.get("_ember_lantern_4", false)))
 	_ck("five lanterns open the Great Gate", ember._gate_open)
 	# ---- the six-room fortress dungeon ----
@@ -117,7 +134,11 @@ func _init() -> void:
 	_ck("fortress level pauses underneath", not ember.visible and ember.process_mode == Node.PROCESS_MODE_DISABLED)
 	await _wait_for_room(dungeon, 0)
 	_ck("sequencer runs the fortress room table", dungeon.rooms.size() == 6 and String((dungeon.rooms[0] as Dictionary)["name"]) == "Cinder Gate Imps")
-	_ck("fortress rooms receive the Ember-only art theme", dungeon.arena != null and dungeon.arena.art_theme == "ember" and dungeon.arena.find_child("EmberArena", true, false) != null)
+	_ck("fortress rooms receive the Ember-only 2D art theme",
+		dungeon.arena != null
+		and dungeon.arena.art_theme == "ember"
+		and dungeon.arena.find_child("DungeonArena", true, false) != null
+		and dungeon.arena.find_child("ArenaSprite", true, false) is Sprite3D)
 	for i in range(30):
 		await process_frame
 	_ck("fortress combat cannot win passively", dungeon.room_index == 0 and dungeon.arena != null)

@@ -1,5 +1,8 @@
 class_name OperaHouse
 extends Node
+
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
+const OPERA_ART_ROOT := "res://assets/minigames/opera/"
 # The Pearl Opera House (Peach Showtime model): an explorable THREE-floor
 # theatre lobby. Twelve careers are twelve marquee doors, four per floor —
 # Roshan swims the hall, walks into a door, transforms, and plays that one
@@ -121,6 +124,7 @@ var lobby_pos := Vector3.ZERO
 var lobby_y := 0.0                      # one of FLOOR_YS (tweened by the lifts)
 var lift_busy := false
 var avatar: Sprite3D = null
+var storybook_lobby: Sprite3D = null
 var cam: Camera3D = null
 var hud: CanvasLayer = null
 var star_label: Label = null
@@ -142,6 +146,7 @@ func start(main: ReefMain, _checkpoint: int, done_cb: Callable) -> void:
 	_build_lifts()
 	_build_avatar()
 	_build_camera()
+	_install_storybook_lobby()
 	_build_hud()
 	_update_stars()
 	m._sparkle_burst(lobby_pos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 1.0))
@@ -462,6 +467,15 @@ func _build_camera() -> void:
 	add_child(cam)
 	cam.look_at(lobby_pos + Vector3(0, 2.0, 0), Vector3.UP)
 	cam.make_current()
+
+func _install_storybook_lobby() -> void:
+	storybook_lobby = MinigameArt.world_backdrop(
+		lobby_root,
+		OPERA_ART_ROOT + "lobby.png",
+		47.0,
+		L + Vector3(0, 23.0, -22.0),
+		"PearlOperaLobby2D")
+	MinigameArt.retire_legacy_visuals(lobby_root)
 
 func _build_hud() -> void:
 	hud = CanvasLayer.new()

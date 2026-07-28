@@ -31,7 +31,7 @@ var exit_t := 0.0
 var hud: CanvasLayer = null
 var objective: Label = null
 var hint: Label = null
-var pointer: Label3D = null
+var pointer: Sprite3D = null
 var clue_pos := CENTER + Vector3(0, 8.0, -12.0)
 var materials := {}
 var idle_t := 0.0
@@ -72,12 +72,6 @@ func _build_environment() -> void:
 	env.glow_bloom = 0.1
 	m._speedy_glow_clamp(env)
 	m.we_node.environment = env
-	var sun := DirectionalLight3D.new()
-	sun.light_color = Color(0.82, 0.9, 1.0)
-	sun.light_energy = 1.05
-	sun.shadow_enabled = m.quality != "speedy"
-	sun.rotation_degrees = Vector3(-52, -24, 0)
-	add_child(sun)
 
 func _mat(col: Color, glow: float = 0.0) -> StandardMaterial3D:
 	var key := "%s:%.2f" % [col.to_html(true), glow]
@@ -93,23 +87,6 @@ func _mat(col: Color, glow: float = 0.0) -> StandardMaterial3D:
 	materials[key] = mat
 	return mat
 
-func _mesh(mesh: Mesh, pos: Vector3, col: Color, glow: float = 0.0, parent: Node3D = null) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	node.mesh = mesh
-	node.position = pos
-	node.material_override = _mat(col, glow)
-	var target: Node3D = self if parent == null else parent
-	target.add_child(node)
-	return node
-
-func _sphere(pos: Vector3, radius: float, col: Color, glow: float = 0.0, parent: Node3D = null) -> MeshInstance3D:
-	var mesh := SphereMesh.new()
-	mesh.radius = radius
-	mesh.height = radius * 2.0
-	mesh.radial_segments = 10
-	mesh.rings = 5
-	return _mesh(mesh, pos, col, glow, parent)
-
 func _build_room() -> void:
 	var floor_col := Color(config.get("floor", Color(0.32, 0.42, 0.62)))
 	var trim: Color = Color(config.get("trim", Color(0.65, 0.92, 1.0)))
@@ -120,10 +97,12 @@ func _build_room() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
+	var tex := load("res://assets/minigames/shared/roshan_catch.png") as Texture2D
 	avatar.texture = tex
 	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	avatar.shaded = false
+	avatar.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	avatar.position = player_pos
 	add_child(avatar)
 
@@ -162,14 +141,8 @@ func _build_sequence_props() -> void:
 		# The clue row IS the objective for a non-reader: each symbol sits on a
 		# dark disc for contrast, close enough to the camera to read at a glance.
 		var slot := CENTER + Vector3((float(i) - float(solution.size() - 1) * 0.5) * 6.5, 8.0, -10.0)
-		if art_theme == "ember":
-			DungeonArt.spawn("clue_plaque", self, slot, art_theme)
-		else:
-			var disc := CylinderMesh.new()
-			disc.top_radius = 2.6
-			disc.bottom_radius = 2.6
-			disc.height = 0.3
-			_mesh(disc, slot, Color(0.05, 0.06, 0.16))
+		DungeonArt.spawn("clue_plaque" if art_theme == "ember" else "pedestal",
+			self, slot, art_theme)
 		clue_symbols.append(DungeonArt.add_pictogram(kind, self, slot + Vector3(0, 0.55, 0), 1.8, [], art_theme))
 	var default_count := 2 if puzzle_kind == "elemental" else 3
 	var count := int(config.get("choice_count", default_count))
@@ -213,35 +186,20 @@ func _build_torch_props() -> void:
 func _build_shell_props() -> void:
 	values = [0, 0, 0]
 	statue_done = [false, false, false]
-	var gold := Color(1.0, 0.85, 0.3)
 	for i in range(3):
 		var root := DungeonArt.spawn("statue", self, CENTER + Vector3((float(i) - 1.0) * 9.0, 1.0, -7.0), art_theme)
 		interactives.append({"index": i, "node": root, "pos": root.position})
 		# The sculpted nose is unreadable from the high camera, so each statue
 		# carries an oversized golden beak that makes its facing obvious.
-		var nose: Node3D
-		if art_theme == "ember":
-			nose = DungeonArt.spawn("direction_beak", root, Vector3(0, 2.4, 2.6), art_theme)
-		else:
-			var beak := CylinderMesh.new()
-			beak.top_radius = 0.0
-			beak.bottom_radius = 0.6
-			beak.height = 2.0
-			nose = _mesh(beak, Vector3(0, 2.4, 2.6), gold, 1.1, root)
-			nose.rotation_degrees.x = 90.0
-		var mark: Node3D
-		if art_theme == "ember":
-			mark = DungeonArt.spawn("completion_spark", self, root.position + Vector3(0, 5.6, 0), art_theme)
-			mark.scale = Vector3.ONE * 0.55
-		else:
-			mark = _sphere(root.position + Vector3(0, 5.6, 0), 0.55, gold, 1.6)
+		var nose: Node3D = DungeonArt.spawn(
+			"direction_beak", root, Vector3(0, 2.4, 2.6), art_theme)
+		var mark: Node3D = DungeonArt.spawn(
+			"completion_spark", self, root.position + Vector3(0, 5.6, 0), art_theme)
+		mark.scale = Vector3.ONE * 0.55
 		mark.visible = false
 		statue_marks.append(mark)
 	DungeonArt.spawn("pedestal", self, CENTER + Vector3(0, 0.7, 3.0), art_theme)
-	if art_theme == "ember":
-		DungeonArt.spawn("pearl_target", self, CENTER + Vector3(0, 3.6, 3.0), art_theme)
-	else:
-		_sphere(CENTER + Vector3(0, 3.6, 3.0), 1.6, Color(1.0, 0.88, 0.35), 1.0)
+	DungeonArt.spawn("pearl_target", self, CENTER + Vector3(0, 3.6, 3.0), art_theme)
 	clue_pos = CENTER + Vector3(0, 9.0, 3.0)
 	_refresh_statue_marks(false)
 
@@ -287,13 +245,12 @@ func _build_hud() -> void:
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hint_card.add_child(hint)
-	pointer = Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 145
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 22
-	pointer.modulate = Color(1.0, 0.9, 0.18)
+	pointer = Sprite3D.new()
+	pointer.texture = load("res://assets/minigames/dungeon/shared/pointer.svg")
+	pointer.pixel_size = 3.2 / maxf(1.0, float(pointer.texture.get_height()))
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	pointer.shaded = false
+	pointer.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	pointer.position = clue_pos
 	add_child(pointer)
 

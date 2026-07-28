@@ -1,5 +1,22 @@
 class_name OperaAct
 extends Node3D
+
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
+const OPERA_ART_ROOT := "res://assets/minigames/opera/"
+const CAREER_BACKGROUNDS := {
+	"chef": "pastry_chef",
+	"detective": "detective",
+	"ballerina": "ballerina",
+	"candymaker": "candy_maker",
+	"doctor": "animal_doctor",
+	"farmer": "farmer",
+	"boxer": "boxer",
+	"magician": "magician",
+	"painter": "painter",
+	"astronaut": "astronaut",
+	"racer": "racecar_driver",
+	"popstar": "pop_star",
+}
 # One act of the Pearl Opera House (Peach Showtime-inspired). Roshan puts on a
 # career costume and performs a little show on a toy theatre stage. Six
 # engines cover all ten acts: "order" (bring props in the pictured order),
@@ -29,6 +46,9 @@ var cam: Camera3D = null
 var hud: CanvasLayer = null
 var objective: Label = null
 var pointer: Label3D = null
+var storybook_backdrop: Sprite3D = null
+var storybook_avatar: Sprite3D = null
+var storybook_retire_t := 0.0
 var player_pos := Vector3.ZERO
 var fire_prev := false
 var act_tag := ""
@@ -521,6 +541,7 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_boss()
 	if stage_phase == "rescue":
 		_build_stage_rescue()
+	_install_storybook_stage()
 	# the Showtime transformation moment: sparkles + the career announcement.
 	# Shelled acts open with the backstage story instead — the act's own
 	# instructions arrive when the curtain sweeps open in _open_gate().
@@ -2404,19 +2425,16 @@ func _tick_brawl(delta: float) -> void:
 				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly mischief imps!", "talk")
 
 func _build_avatar() -> void:
-	# The stage Roshan is the REAL rigged 3D player in puppet mode: the act
-	# drives her position/yaw while player.gd's procedural swim keeps her
-	# alive, and the career costume rides her bones (BoneAttachment3D) — so
-	# every career look reuses the one animation set, exactly like the
-	# plushie skins do. The lobby's cutout stays a cutout; walking through a
-	# door is the transformation moment.
-	m.player.visible = true
-	m.player.puppet = true
-	m.player.puppet_speed = 0.0
+	m.player.visible = false
+	m.player.puppet = false
 	m.player.vel = Vector3.ZERO
-	m.player.rotation = Vector3(0, PI, 0)   # face the audience side (+Z)
-	m.player.position = player_pos
-	m.player.set_costume(String(config.get("costume", "")))
+	storybook_avatar = MinigameArt.sprite(
+		self,
+		"res://assets/characters/roshan_sprite.png",
+		6.2,
+		player_pos,
+		true,
+		"OperaRoshan2D")
 
 func _release_avatar() -> void:
 	# hand Roshan back: costume off, puppet strings cut, hidden again until
@@ -2432,14 +2450,13 @@ func _place_avatar(delta: float) -> void:
 	# drive the puppet: bob like the old cutout did, face the way she moves,
 	# and report her speed so the tail beat matches the act's pace
 	var target: Vector3 = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-	var dp: Vector3 = target - m.player.position
+	if storybook_avatar == null:
+		return
+	var dp: Vector3 = target - storybook_avatar.position
 	var planar := Vector2(dp.x, dp.z)
-	# clamped so a stage teleport (brawl warp, probe drive) reads as a dash,
-	# not a one-frame tail scramble
-	m.player.puppet_speed = minf(planar.length() / maxf(delta, 0.001), MOVE_SPEED * 2.0)
 	if planar.length() > 0.04:
-		m.player.rotation.y = lerp_angle(m.player.rotation.y, atan2(planar.x, planar.y) + PI, 1.0 - pow(0.002, delta))
-	m.player.position = target
+		storybook_avatar.flip_h = planar.x < 0.0
+	storybook_avatar.position = target
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -2448,6 +2465,27 @@ func _build_camera() -> void:
 	add_child(cam)
 	cam.look_at(CENTER + Vector3(0, 2.5, -2.0), Vector3.UP)
 	cam.make_current()
+
+func _install_storybook_stage() -> void:
+	var art_path: String
+	if kind == "boss":
+		if bool(config.get("finale", false)):
+			art_path = OPERA_ART_ROOT + "bosses/midnight_maestro.png"
+		elif bool(config.get("dual", false)):
+			art_path = OPERA_ART_ROOT + "bosses/shadow_phantom.png"
+		else:
+			art_path = OPERA_ART_ROOT + "bosses/curtain_dragon.png"
+	else:
+		var costume := String(config.get("costume", ""))
+		var slug := String(CAREER_BACKGROUNDS.get(costume, "pop_star"))
+		art_path = OPERA_ART_ROOT + "careers/" + slug + ".png"
+	storybook_backdrop = MinigameArt.world_backdrop(
+		self,
+		art_path,
+		52.0,
+		CENTER + Vector3(0, 23.0, -18.5),
+		"OperaCareerStage2D")
+	MinigameArt.retire_legacy_visuals(self)
 
 func _build_hud() -> void:
 	hud = CanvasLayer.new()
@@ -5817,6 +5855,10 @@ func _act_action(choice: int) -> void:
 func _process(delta: float) -> void:
 	if m == null or state == "done":
 		return
+	storybook_retire_t -= delta
+	if storybook_retire_t <= 0.0:
+		storybook_retire_t = 0.5
+		MinigameArt.retire_legacy_visuals(self)
 	elapsed += delta
 	progress_t += delta
 	if doc_wait > 0.0:

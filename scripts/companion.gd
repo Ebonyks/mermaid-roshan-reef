@@ -20,24 +20,25 @@ var m: ReefMain
 # Data-driven roster — THE core collection loop (owner 2026-07-20): battle a
 # boss stuffie, BEFRIEND it, take it HOME to the Stuffie Den, carry it on
 # future missions. Fields:
-#   kind      → CREATURE_LAYERS/CRAFT_RIGGED key on main (paintable pipeline)
-#   model     → direct .glb body instead (photo-scanned toys land this way —
-#               Meshy photo→3D, same as the craft creatures were built)
+#   kind      → movement/attack identity
+#   sprite    → tailored storybook stuffed-friend cutout
 #   locked    → stuffie_wins key that frees it ("" / absent = starter friend);
 #               boss rounds set "friend_<id>" on victory (see _end_stuffie_battle)
 #   paintable → false hides the palette (a captured toy comes as it is)
 const ROSTER := [
 	{"id": "eagle", "name": "Baby Eagle", "kind": "bird", "attack": "PECK",
+		"sprite": "res://assets/minigames/stuffie/eagle.png",
 		"body": Color(0.98, 0.72, 0.55), "accent": Color(1.0, 0.85, 0.40), "third": Color(1.0, 0.92, 0.55),
 		"hello": "Baby Eagle flies with you now! Peck peck!",
 		"pro": "Speedy wings and a quick peck!"},
 	{"id": "mewsha", "name": "Mewsha", "kind": "cat", "attack": "CLAW",
+		"sprite": "res://assets/minigames/stuffie/mewsha.png",
 		"body": Color(0.95, 0.70, 0.85), "accent": Color(0.60, 0.40, 0.90), "third": Color(0.97, 0.96, 0.93),
 		"hello": "Mewsha pads along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
 	{"id": "lamma", "name": "Lamb-a'", "kind": "lamb", "attack": "BOUNCE",
-		"model": "res://assets/characters/lamb.glb", "model_scale": 2.6,
-		"emoji": "🐑", "paintable": false, "locked": "friend_lamma",
+		"sprite": "res://assets/minigames/stuffie/lamma.png",
+		"paintable": false, "locked": "friend_lamma",
 		"body": Color(1.0, 0.99, 0.95), "accent": Color(1.0, 0.80, 0.88), "third": Color(0.95, 0.92, 0.97),
 		"hello": "Lamb-a' bounces along beside you now! Baa baa!",
 		"pro": "Big fluffy bounce attacks!"},
@@ -133,19 +134,36 @@ func colors() -> Array[Color]:
 func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:
 	if d.is_empty():
 		return null
-	# photo-scanned / direct-model toys skip the paint pipeline and load as-is
-	if d.has("model"):
-		var ps: PackedScene = load(String(d["model"]))
-		if ps == null:
-			return null
-		var wrap := Node3D.new()
-		var inst: Node3D = ps.instantiate() as Node3D
-		if inst == null:
-			return null
-		inst.scale = Vector3.ONE * float(d.get("model_scale", 2.6))
-		wrap.add_child(inst)
-		return wrap
-	return m._make_creature_node(String(d["kind"]), c[0], c[1], false, false, c[2])
+	var sprite_path := String(d.get("sprite", ""))
+	if sprite_path == "" or not ResourceLoader.exists(sprite_path):
+		return null
+	var wrap := Node3D.new()
+	wrap.name = "Stuffie_%s" % String(d.get("id", "friend"))
+	var card := _sprite_card(sprite_path, 5.4)
+	if bool(d.get("paintable", true)) and not c.is_empty():
+		# The regenerated cutouts keep their authored material detail while the
+		# child's chosen body colour gives the whole plush a gentle fabric wash.
+		card.modulate = Color.WHITE.lerp(c[0], 0.18)
+	card.position.y = 2.7
+	wrap.add_child(card)
+	return wrap
+
+func _sprite_card(path: String, height: float, no_depth: bool = false) -> Sprite3D:
+	var card := Sprite3D.new()
+	card.texture = load(path)
+	card.pixel_size = height / maxf(card.texture.get_height(), 1.0)
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	card.shaded = false
+	card.transparent = true
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.no_depth_test = no_depth
+	return card
+
+func _floor_card(path: String, size: float) -> Sprite3D:
+	var card := _sprite_card(path, size)
+	card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	card.rotation_degrees.x = -90.0
+	return card
 
 func make_creature() -> Node3D:
 	return creature_for(active_def(), colors())
@@ -466,7 +484,7 @@ func _tick_gift(delta: float) -> void:
 	if m.companion_gift == null:
 		return
 	var t: float = Time.get_ticks_msec() / 1000.0
-	var pointer_node: Label3D = m.companion_gift.get_meta("pointer")
+	var pointer_node := m.companion_gift.get_meta("pointer") as Sprite3D
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 6.4 + sin(t * 4.0) * 0.5
 	m.companion_gift.rotation.y = sin(t * 1.3) * 0.25
@@ -490,44 +508,10 @@ func _build_gift() -> void:
 	m.add_child(root)
 	m.game_nodes.append(root)
 	m.companion_gift = root
-	var box := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = Vector3(3.0, 2.4, 3.0)
-	box.mesh = bm
-	box.position = Vector3(0, 1.2, 0)
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.95, 0.6, 0.78)
-	mat.emission_enabled = true
-	mat.emission = Color(0.95, 0.6, 0.78)
-	mat.emission_energy_multiplier = 0.35
-	box.material_override = mat
+	var box := _sprite_card("res://assets/minigames/stuffie/gift.svg", 5.0)
+	box.position = Vector3(0, 2.5, 0)
 	root.add_child(box)
-	var lid := MeshInstance3D.new()
-	var lm := BoxMesh.new()
-	lm.size = Vector3(3.4, 0.7, 3.4)
-	lid.mesh = lm
-	lid.position = Vector3(0, 2.6, 0)
-	var lidmat := StandardMaterial3D.new()
-	lidmat.albedo_color = Color(0.62, 0.55, 0.95)
-	lidmat.emission_enabled = true
-	lidmat.emission = Color(0.62, 0.55, 0.95)
-	lidmat.emission_energy_multiplier = 0.4
-	lid.material_override = lidmat
-	root.add_child(lid)
-	var bow := Label3D.new()
-	bow.text = "🎁"
-	bow.font_size = 180
-	bow.pixel_size = 0.02
-	bow.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	bow.position = Vector3(0, 4.2, 0)
-	root.add_child(bow)
-	var pointer := Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 150
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 24
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	var pointer := _sprite_card("res://assets/minigames/stuffie/pointer.svg", 2.0, true)
 	pointer.position = Vector3(0, 6.4, 0)
 	root.add_child(pointer)
 	root.set_meta("pointer", pointer)
@@ -759,24 +743,22 @@ func _draw_picker() -> void:
 	m._hook_button_taps(stage)
 
 func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
-	# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted —
-	# the same sheets the craft creatures use, so the paint matches in-world.
-	# The sheets are large illustrations: FIT them into the given box (uniform
-	# scale, centered) instead of trusting any fixed scale, and paint in the
-	# in-world order — body first, accent OVER it, ink line on top.
-	# Model-based toys (captured / photo-scanned) have no paint sheets: show
-	# their big friendly emoji instead — the Den shelf carries the real 3D body.
+	# The picker uses the same regenerated cutout as the follower and battle.
 	parent.clip_contents = true
-	if d.has("model") or not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
-		var face := Label.new()
-		face.text = String(d.get("emoji", "🧸"))
-		face.add_theme_font_size_override("font_size", int(minf(box_size.x, box_size.y) * 0.62))
-		face.position = box_pos
-		face.size = box_size
-		face.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		face.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		face.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		parent.add_child(face)
+	var sprite_path := String(d.get("sprite", ""))
+	if sprite_path != "" and ResourceLoader.exists(sprite_path):
+		var preview := TextureRect.new()
+		preview.texture = load(sprite_path)
+		preview.position = box_pos
+		preview.size = box_size
+		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		if bool(d.get("paintable", true)):
+			preview.modulate = Color.WHITE.lerp(body, 0.18)
+		parent.add_child(preview)
+		return
+	if not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
 		return
 	var kind := String(d["kind"])
 	var layer_names: Array = m.CREATURE_LAYERS.get(kind, m.CREATURE_LAYERS["fish"])
@@ -823,7 +805,7 @@ func _tick_room(delta: float) -> void:
 	if m.companion_room == null:
 		return
 	var now: float = Time.get_ticks_msec() / 1000.0
-	var pointer_node: Label3D = m.companion_room.get_meta("pointer")
+	var pointer_node := m.companion_room.get_meta("pointer") as Sprite3D
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 9.4 + sin(now * 4.0) * 0.4
 	# one-time welcome once she wanders into the nook
@@ -840,14 +822,14 @@ func _tick_room(delta: float) -> void:
 			continue
 		var mine: bool = String(row["id"]) == m.companion_id
 		var home: bool = bool(row.get("home", true))
-		var marker: Label3D = row["marker"]
-		var heart: Label3D = row["heart"]
+		var marker: Sprite3D = row["marker"]
+		var heart: Sprite3D = row["heart"]
 		if is_instance_valid(marker):
 			marker.visible = home and not mine
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
 		if is_instance_valid(heart):
 			heart.visible = mine
-			heart.text = "💤" if (mine and m.companion_resting) else "💗"
+			heart.modulate = Color(0.70, 0.67, 0.95) if (mine and m.companion_resting) else Color.WHITE
 		var dist: float = node.global_position.distance_to(m.player.position)
 		if dist < best_d:
 			best_d = dist
@@ -886,59 +868,20 @@ func _build_room() -> void:
 	m.game_nodes.append(root)
 	m.companion_room = root
 	m.companion_room_rows = []
-	# cozy dressing: lavender wall band, pastel rug, a soft emissive lamp
-	var band := MeshInstance3D.new()
-	var band_mesh := BoxMesh.new()
-	band_mesh.size = Vector3(0.35, 7.0, 13.5)
-	band.mesh = band_mesh
-	band.position = Vector3(-3.0, 3.8, 0.0)
-	band.material_override = _room_mat(Color(0.78, 0.68, 0.92), 0.12)
-	root.add_child(band)
-	var rug := MeshInstance3D.new()
-	var rug_mesh := BoxMesh.new()
-	rug_mesh.size = Vector3(6.4, 0.25, 12.8)
-	rug.mesh = rug_mesh
-	rug.position = Vector3(0.8, 0.15, 0.0)
-	rug.material_override = _room_mat(Color(1.0, 0.82, 0.90))
-	root.add_child(rug)
-	var lamp := MeshInstance3D.new()
-	var lamp_mesh := BoxMesh.new()
-	lamp_mesh.size = Vector3(1.1, 1.1, 1.1)
-	lamp.mesh = lamp_mesh
-	lamp.position = Vector3(-2.4, 7.8, 0.0)
-	lamp.material_override = _room_mat(Color(1.0, 0.9, 0.6), 3.0)
-	root.add_child(lamp)
-	var sign := Label3D.new()
-	sign.text = "✨ Stuffie Den ✨"
-	sign.font_size = 44
-	sign.pixel_size = 0.008
-	sign.outline_size = 11
-	sign.modulate = Color(1.0, 0.9, 0.95)
-	sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	sign.position = Vector3(0, 7.4, 0)
-	root.add_child(sign)
-	var pointer := Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 140
-	pointer.pixel_size = 0.02
-	pointer.outline_size = 22
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	pointer.no_depth_test = true
+	var backdrop := _sprite_card("res://assets/minigames/stuffie/room_backdrop.svg", 12.0)
+	backdrop.position = Vector3(-3.2, 6.0, 0.0)
+	root.add_child(backdrop)
+	var pointer := _sprite_card("res://assets/minigames/stuffie/pointer.svg", 1.8, true)
 	pointer.position = Vector3(0, 9.4, 0)
 	root.add_child(pointer)
 	root.set_meta("pointer", pointer)
-	# one wall shelf per stuffed friend, each seated and waiting
+	# One illustrated shelf per stuffed friend, each seated and waiting.
 	for i in range(ROSTER.size()):
 		var d: Dictionary = ROSTER[i]
 		var id := String(d["id"])
-		var shelf_z: float = -3.6 + float(i) * 7.2 - (float(ROSTER.size() - 2) * 3.6)
-		var shelf := MeshInstance3D.new()
-		var shelf_mesh := BoxMesh.new()
-		shelf_mesh.size = Vector3(3.4, 0.5, 3.6)
-		shelf.mesh = shelf_mesh
-		shelf.position = Vector3(-1.5, 2.4, shelf_z)
-		shelf.material_override = _room_mat(Color(0.95, 0.8, 0.35), 0.2)
+		var shelf_z: float = (float(i) - float(ROSTER.size() - 1) * 0.5) * 5.2
+		var shelf := _sprite_card("res://assets/minigames/stuffie/shelf.svg", 2.0)
+		shelf.position = Vector3(-1.5, 1.6, shelf_z)
 		root.add_child(shelf)
 		var is_home := unlocked(id)
 		var creature: Node3D = null
@@ -946,61 +889,21 @@ func _build_room() -> void:
 			creature = creature_for(d, _room_colors(id))
 			if creature != null:
 				creature.scale = Vector3.ONE * 0.75
-				creature.position = Vector3(-1.5, 2.68, shelf_z)
-				creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
+				creature.position = Vector3(-1.5, 1.7, shelf_z)
 				root.add_child(creature)
 		else:
-			# a friend not yet befriended: an empty shelf with a big mystery mark
-			var mystery := Label3D.new()
-			mystery.text = "❓"
-			mystery.font_size = 160
-			mystery.pixel_size = 0.018
-			mystery.outline_size = 16
-			mystery.modulate = Color(0.75, 0.8, 0.95, 0.9)
-			mystery.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			mystery.position = Vector3(-1.5, 4.2, shelf_z)
+			var mystery := _sprite_card("res://assets/minigames/stuffie/mystery.svg", 2.8)
+			mystery.position = Vector3(-1.5, 3.3, shelf_z)
 			root.add_child(mystery)
-		var name_sign := Label3D.new()
-		name_sign.text = String(d["name"]) if is_home else "❓❓❓"
-		name_sign.font_size = 30
-		name_sign.pixel_size = 0.008
-		name_sign.outline_size = 9
-		name_sign.modulate = Color(0.9, 0.95, 1.0)
-		name_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		name_sign.position = Vector3(-1.2, 4.9, shelf_z)
-		root.add_child(name_sign)
-		var marker := Label3D.new()
-		marker.text = "✦"
-		marker.font_size = 120
-		marker.pixel_size = 0.018
-		marker.outline_size = 18
-		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
-		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		marker.no_depth_test = true
+		var marker := _sprite_card("res://assets/minigames/stuffie/sparkle.svg", 1.25, true)
 		marker.position = Vector3(-1.2, 5.9, shelf_z)
 		root.add_child(marker)
-		var heart := Label3D.new()
-		heart.text = "💗"
-		heart.font_size = 100
-		heart.pixel_size = 0.018
-		heart.outline_size = 14
-		heart.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		heart.no_depth_test = true
+		var heart := _sprite_card("res://assets/minigames/stuffie/heart.svg", 1.3, true)
 		heart.position = Vector3(-1.2, 5.9, shelf_z)
 		heart.visible = false
 		root.add_child(heart)
 		m.companion_room_rows.append({"id": id, "node": creature if creature != null else shelf,
 			"marker": marker, "heart": heart, "phase": float(i) * 1.7, "home": is_home})
-
-func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = col
-	mat.roughness = 0.6
-	if emission > 0.0:
-		mat.emission_enabled = true
-		mat.emission = col
-		mat.emission_energy_multiplier = emission
-	return mat
 
 # ---------- the overworld follower ----------
 
@@ -1375,7 +1278,7 @@ func _tick_den(delta: float) -> void:
 	if m.companion_den == null:
 		return
 	var t: float = Time.get_ticks_msec() / 1000.0
-	var pointer_node: Label3D = m.companion_den.get_meta("pointer")
+	var pointer_node := m.companion_den.get_meta("pointer") as Sprite3D
 	if is_instance_valid(pointer_node):
 		pointer_node.position.y = 11.0 + sin(t * 4.0) * 0.6
 	m.stuffie_cool = maxf(0.0, m.stuffie_cool - delta)
@@ -1397,51 +1300,17 @@ func _build_den() -> void:
 	root.position = Vector3(x, ReefMain.seabed_y(x, z) + 1.0, z)
 	m.add_child(root)
 	m.companion_den = root
-	# pastel star-post ring — the "toy tournament" mat
+	var mat_card := _floor_card("res://assets/minigames/stuffie/arena.png", 17.0)
+	mat_card.position.y = 0.15
+	root.add_child(mat_card)
+	# Six stitched star posts make the entrance readable from the reef.
 	for i in range(6):
 		var a: float = float(i) * TAU / 6.0
-		var post := MeshInstance3D.new()
-		var cm := CylinderMesh.new()
-		cm.top_radius = 0.45
-		cm.bottom_radius = 0.6
-		cm.height = 4.0
-		cm.radial_segments = 10
-		post.mesh = cm
-		post.position = Vector3(cos(a) * 7.5, 2.0, sin(a) * 7.5)
-		var pm := StandardMaterial3D.new()
-		pm.albedo_color = Color.from_hsv(float(i) / 6.0, 0.35, 1.0)
-		pm.emission_enabled = true
-		pm.emission = pm.albedo_color
-		pm.emission_energy_multiplier = 0.3
-		post.material_override = pm
+		var post := _sprite_card("res://assets/minigames/stuffie/den_post.svg", 4.8)
+		post.position = Vector3(cos(a) * 7.5, 2.4, sin(a) * 7.5)
+		post.modulate = Color.WHITE.lerp(Color.from_hsv(float(i) / 6.0, 0.22, 1.0), 0.18)
 		root.add_child(post)
-		var star := Label3D.new()
-		star.text = "⭐"
-		star.font_size = 110
-		star.pixel_size = 0.02
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		star.position = post.position + Vector3(0, 3.0, 0)
-		root.add_child(star)
-	var mat_disc := MeshInstance3D.new()
-	var dm := CylinderMesh.new()
-	dm.top_radius = 8.0
-	dm.bottom_radius = 8.0
-	dm.height = 0.4
-	dm.radial_segments = 24
-	mat_disc.mesh = dm
-	mat_disc.position = Vector3(0, 0.2, 0)
-	var dmat := StandardMaterial3D.new()
-	dmat.albedo_color = Color(0.75, 0.62, 0.92)
-	mat_disc.material_override = dmat
-	root.add_child(mat_disc)
-	var pointer := Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 150
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 24
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	pointer.no_depth_test = true
+	var pointer := _sprite_card("res://assets/minigames/stuffie/pointer.svg", 2.0, true)
 	pointer.position = Vector3(0, 11.0, 0)
 	root.add_child(pointer)
 	root.set_meta("pointer", pointer)

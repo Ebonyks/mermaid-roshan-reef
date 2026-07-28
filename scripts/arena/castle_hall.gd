@@ -2,6 +2,7 @@ class_name CastleHall
 extends RefCounted
 
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 const PEARL_KIT := "res://assets/castle/pearl_kit/"
 # Phase 7.2: mechanical extraction of the Grand Hall (build + tick + the
 # music room and bedroom it owns) from main.gd. All state stays on main;
@@ -50,6 +51,20 @@ func _pearl(asset_name: String, pos: Vector3, yaw_degrees: float = 0.0) -> Node3
 	if prop != null:
 		prop.set_meta("pearl_castle_asset", asset_name)
 	return prop
+
+func _music_card(path: String, pos: Vector3, height: float, billboard: bool = true, no_depth: bool = false) -> Sprite3D:
+	var card := Sprite3D.new()
+	card.texture = load(path)
+	card.pixel_size = height / maxf(card.texture.get_height(), 1.0)
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED if billboard else BaseMaterial3D.BILLBOARD_DISABLED
+	card.shaded = false
+	card.transparent = true
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.no_depth_test = no_depth
+	card.position = pos
+	m.add_child(card)
+	m.game_nodes.append(card)
+	return card
 
 func build(o: Vector3) -> void:
 	m.g["castle_detail_lights"] = []
@@ -1022,33 +1037,17 @@ func build_basement_wing(o: Vector3) -> void:
 	build_dungeon_gate(o + Vector3(0, -18.0, 5.0))
 
 func build_dungeon_gate(ground: Vector3) -> void:
-	# The ten-room gate waits at the basement hall entrance. The dungeon itself
-	# teaches ice and fire, so this entrance is open on a fresh save.
-	var root: Node3D = null
-	var packed: PackedScene = load("res://assets/art35/castle/dungeon_gate.glb") as PackedScene
-	if packed != null:
-		root = packed.instantiate() as Node3D
-	if root == null:
-		root = Node3D.new()
+	var root := Node3D.new()
 	root.position = ground
-	m._cel_replace(root, m._gen2_outline_mat())
 	m.add_child(root)
 	m.game_nodes.append(root)
-	var veil := MeshInstance3D.new()
-	var quad := QuadMesh.new()
-	quad.size = Vector2(5.4, 5.6)
-	veil.mesh = quad
-	var veil_mat := StandardMaterial3D.new()
-	veil_mat.albedo_color = Color(1.0, 0.82, 0.45, 0.38)
-	veil_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	veil_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	veil_mat.emission_enabled = true
-	veil_mat.emission = Color(0.75, 0.48, 0.16)
-	veil_mat.emission_energy_multiplier = 0.7
-	veil.material_override = veil_mat
-	veil.position = Vector3(0, 4.0, 0)
-	root.add_child(veil)
-	# Ten colored pearls communicate the ten-room journey without billboard text.
+	var veil := MinigameArt.sprite(
+		root,
+		"res://assets/minigames/shared/crystal_dungeon_gate.svg",
+		10.0,
+		Vector3(0, 4.8, 0),
+		true,
+		"CastleDungeonGate2D")
 	m.g["dungeon_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0, 3.0, 0), "armed": true, "cool": 0.0}
 
 
@@ -1057,33 +1056,20 @@ func build_music_room(o: Vector3) -> void:
 	# Footprint x:-52..-35 (width 17), z:-24..+14 (depth 38) — a long room so the
 	# xylophone has space. Interior corners stay inside the dome (r<58).
 	var mo: Vector3 = o + Vector3(-43.5, 0, -5)           # room centre
-	var wall := Color(0.62, 0.65, 0.80)                  # cool lilac plaster
-	# flr + ceiling (no colliders — flr clamp / arena_ceil handle vertical)
-	var mfloor = m._l2_box(mo + Vector3(0, 0.4, 0), Vector3(19, 1.0, 40), Color(0.5, 0.45, 0.7))
-	mfloor.material_override = m._castle_mat("floor", 0.035, Color(0.58, 0.60, 0.78))
-	m._l2_box(mo + Vector3(0, 33.0, 0), Vector3(19, 1.5, 40), Color(0.54, 0.56, 0.68))
-	# enclosing walls (the right/hall side is the segmented hall wall already built)
-	m._iwall(mo + Vector3(-9.25, 16, 0), Vector3(1.5, 34, 40), wall)       # far wall (x=-52.75)
-	m._iwall(mo + Vector3(0, 16, -19.75), Vector3(19, 34, 1.5), wall)      # back wall (z=-24.75)
-	m._iwall(mo + Vector3(0, 16, 19.75), Vector3(19, 34, 1.5), wall)       # front wall (z=+14.75)
-	# A shell arch makes the music room legible from the hall without a glyph.
-	_pearl("pearl_shell_arch", o + Vector3(-34.7, 0.5, -16.0), 90.0)
-	# soft rug by the entrance
-	var rug = m._l2_box(mo + Vector3(3.0, 0.95, -11.0), Vector3(9, 0.1, 8), Color(0.35, 0.3, 0.6))
-	rug.material_override = m._castle_mat("carpet", 0.065, Color(0.62, 0.58, 0.82))
+	var room_floor := _music_card("res://assets/minigames/echo_bells/floor.svg", mo + Vector3(0, 0.45, 0), 19.0, false)
+	room_floor.rotation_degrees.x = -90.0
+	room_floor.scale.y = 2.1
+	_music_card("res://assets/minigames/echo_bells/backdrop.svg", mo + Vector3(-8.6, 9.0, 0), 16.0)
 	# ---------- the swim-through xylophone (a free-play music toy) ----------
 	# bells run in a spaced row down the length of the room (no overlap)
 	var bellpitch := [0.5, 0.56, 0.63, 0.75, 0.84, 0.94, 1.0]   # warmer, lower octave — gentler for little ears
-	# rainbow per bar for the strike sparkle: the GLB props keep their authored
-	# materials, so the burst color lives here, not on a material_override
 	var bellcols: Array[Color] = [Color(1.0, 0.5, 0.5), Color(1.0, 0.72, 0.42), Color(1.0, 0.95, 0.55),
 		Color(0.6, 0.95, 0.6), Color(0.55, 0.85, 1.0), Color(0.65, 0.6, 1.0), Color(0.9, 0.6, 1.0)]
 	m.g["bells"] = []
-	_pearl("pearl_music_rail", mo + Vector3(0.0, 0.75, 0.0))
 	for bi in range(7):
-		var bell: Node3D = _pearl("pearl_music_bar_%d" % bi, mo + Vector3(0.0, 1.70, -13.5 + float(bi) * 4.5))
-		if bell == null:
-			continue
+		var bell := _music_card("res://assets/minigames/echo_bells/bell.svg",
+			mo + Vector3(0.0, 3.1, -13.5 + float(bi) * 4.5), 4.2 + float(bi) * 0.18)
+		bell.modulate = bellcols[bi]
 		var bp := AudioStreamPlayer.new()
 		bp.stream = load("res://assets/audio/chime.ogg")
 		bp.bus = "SFX"
@@ -1094,62 +1080,24 @@ func build_music_room(o: Vector3) -> void:
 	# ECHO BELLS: the golden song-star starts a copy-me bell song — a gentle
 	# Simon-says for little ears. Wrong notes just replay the song (no fail);
 	# three rounds (2, 3, 4 notes) earn +2 rainbow pearls.
-	var song_canopy: Node3D = _pearl("pearl_rainbow_gate", mo + Vector3(0.0, 0.75, -19.0))
-	if song_canopy != null:
-		song_canopy.scale = Vector3.ONE * 0.58
-	_pearl("pearl_music_mallet_stand", mo + Vector3(-4.7, 0.75, -16.8), -12.0)
-	_static_prop("res://assets/art35/castle/music_song_star.glb", mo + Vector3(0, 0.75, -18.5), {}, 0.0, true)
-	var ssl := OmniLight3D.new()
-	ssl.light_color = Color(1.0, 0.9, 0.4)
-	ssl.light_energy = 0.9
-	ssl.omni_range = 9.0
-	ssl.position = mo + Vector3(0, 6.5, -18.5)
-	m.add_child(ssl)
-	m.game_nodes.append(ssl)
-	m._register_castle_light(ssl, true)
-	m.g["song_star"] = ssl.position
+	var song_star := _music_card("res://assets/minigames/echo_bells/song_star.svg", mo + Vector3(0, 4.0, -18.5), 4.5, true, true)
+	m.g["song_star"] = song_star.position
 	m.g["bellgame"] = {"state": "idle", "seq": [], "i": 0, "t": 0.0, "round": 0, "cool": 0.0}
-	# two warm fill lights down the length
-	for lz in [-12.0, 10.0]:
-		var ml := OmniLight3D.new()
-		ml.light_color = Color(0.85, 0.85, 1.0); ml.light_energy = 0.85; ml.omni_range = 24.0
-		ml.position = mo + Vector3(0, 22, lz); m.add_child(ml); m.game_nodes.append(ml)
-		m._register_castle_light(ml, false)
-	# Framed cool windows repeat the same vocabulary as the upper galleries.
-	for wz in [-10.0, 10.0]:
-		_pearl("pearl_shell_window", mo + Vector3(-9.0, 16.2, wz), 90.0)
-	# Three large authored star bells carry the instrument palette up the blank
-	# wall and visually connect the free-play keys to the room's music purpose.
-	for decor_i in range(3):
-		var wall_bell: Node3D = _static_prop("res://assets/art35/galaxy/star_bell_%d.glb" % decor_i, mo + Vector3(-8.75, 11.0, -10.0 + float(decor_i) * 10.0), {}, 90.0, true)
-		if wall_bell != null:
-			wall_bell.scale = Vector3.ONE * 1.45
-			_touch("gong", wall_bell.position, 5.0, {"node": wall_bell, "pitch": 0.42 + float(decor_i) * 0.09})
-	# A framed physical music staff gives the forward wall its own silhouette and
-	# stays readable behind the xylophone from the normal room approach.
-	_static_prop("res://assets/art35/castle/music_wall_panel.glb", mo + Vector3(0.0, 8.0, 19.0), {}, 180.0, true)
-	# cool invite glow at the doorway
-	var il := OmniLight3D.new()
-	il.light_color = Color(0.6, 0.7, 1.0); il.light_energy = 1.6; il.omni_range = 14.0
-	il.position = o + Vector3(-34, 7, -16); m.add_child(il); m.game_nodes.append(il)
-	m._register_castle_light(il, true)
 	# the Pearl Opera House stage door opens off the music room's far wall
 	build_opera_gate(mo + Vector3(-6.8, 0.9, 0))
 
 func build_opera_gate(ground: Vector3) -> void:
-	# The authored shell-theatre portal replaces the original cube marquee and
-	# billboard glyph. Its modeled opaque vista prevents the wall behind from
-	# flattening the threshold into a painted doorway.
 	var root := Node3D.new()
 	root.position = ground
 	m.add_child(root)
 	m.game_nodes.append(root)
-	var gate_art: Node3D = _pearl("pearl_opera_gate", ground, 90.0)
-	if gate_art != null:
-		gate_art.reparent(root, true)
-	var veil: Node3D = _pearl("pearl_opera_vista", ground, 90.0)
-	if veil != null:
-		veil.reparent(root, true)
+	var veil := MinigameArt.sprite(
+		root,
+		"res://assets/minigames/shared/opera_gate.svg",
+		11.0,
+		Vector3(0, 5.0, 0),
+		true,
+		"PearlOperaGate2D")
 	m.g["opera_gate"] = {"node": root, "veil": veil, "pos": ground + Vector3(0.6, 2.9, 0), "armed": true, "cool": 0.0}
 
 

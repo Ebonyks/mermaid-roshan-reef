@@ -82,6 +82,16 @@ func _init() -> void:
 	var passive_racer_sticker: bool = bool(main.stickers.get("racer", false))
 	main._start_kart_game(false, "terrain")
 	var kg = main.kart_game
+	var kart_legacy_layers := 0
+	for visual: GeometryInstance3D in kg.find_children("*", "GeometryInstance3D", true, false):
+		if (visual is MeshInstance3D or visual is MultiMeshInstance3D) and visual.layers != 0:
+			kart_legacy_layers += 1
+	var kart_sprites: int = kg.find_children("*", "Sprite3D", true, false).size()
+	if not (kg.get("_storybook_background") is Sprite3D and kart_sprites >= 12 and kart_legacy_layers == 0):
+		print("FAIL|storybook kart art missing sprites=%d legacy_layers=%d" % [kart_sprites, kart_legacy_layers])
+		ok = false
+	else:
+		print("FEEL|storybook_2d=sprites:%d legacy_layers:0" % kart_sprites)
 	_force_race_start(kg)
 	var guard := 0.0
 	while main.game == "kart" and guard < 260.0:

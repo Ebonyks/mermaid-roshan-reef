@@ -1,43 +1,77 @@
 class_name DungeonArt
 extends RefCounted
+# Theme-local 2D art factory shared by combat and puzzle rooms.
 
-const ROOT := "res://assets/dungeon/"
-const EMBER_ROOT := "res://assets/ember_fortress/"
+const ROOT := "res://assets/minigames/dungeon/crystal/"
+const EMBER_ROOT := "res://assets/minigames/dungeon/ember/"
+const SHARED_ROOT := "res://assets/minigames/dungeon/shared/"
+
 const PATHS := {
-	"arena": ROOT + "dungeon_arena.glb",
-	"door": ROOT + "dungeon_door.glb",
-	"imp": ROOT + "mischief_imp.glb",
-	"boss": ROOT + "dragon_turtle.glb",
-	"basket": ROOT + "pepper_basket.glb",
-	"pepper_projectile": ROOT + "pepper_projectile.glb",
-	"ice_berry_projectile": ROOT + "ice_berry_projectile.glb",
-	"pedestal": ROOT + "crystal_pedestal.glb",
-	"lantern": ROOT + "pepper_lantern.glb",
-	"statue": ROOT + "turtle_statue.glb",
-	"stone": ROOT + "stepping_stone.glb",
-	"pictograms": ROOT + "dungeon_pictograms.glb",
+	"arena": ROOT + "arena.png",
+	"door": ROOT + "door.svg",
+	"imp": ROOT + "imp.png",
+	"basket": ROOT + "basket.svg",
+	"pepper_projectile": SHARED_ROOT + "pepper.svg",
+	"ice_berry_projectile": SHARED_ROOT + "ice_berry.svg",
+	"pedestal": ROOT + "pedestal.svg",
+	"lantern": ROOT + "lantern.svg",
+	"statue": ROOT + "statue.svg",
+	"stone": ROOT + "pedestal.svg",
+	"completion_spark": SHARED_ROOT + "spark.svg",
+	"enemy_projectile": SHARED_ROOT + "enemy_orb.svg",
+	"direction_beak": SHARED_ROOT + "direction_beak.svg",
+	"pearl_target": SHARED_ROOT + "pearl_target.svg",
 }
 
 const EMBER_PATHS := {
-	"arena": EMBER_ROOT + "ember_arena.glb",
-	"door": EMBER_ROOT + "ember_door.glb",
-	"imp": EMBER_ROOT + "ember_imp.glb",
-	"boss": EMBER_ROOT + "ember_boss.glb",
-	"basket": EMBER_ROOT + "ember_basket.glb",
-	"pepper_projectile": EMBER_ROOT + "ember_fire_projectile.glb",
-	"ice_berry_projectile": EMBER_ROOT + "ember_ice_projectile.glb",
-	"pedestal": EMBER_ROOT + "ember_pedestal.glb",
-	"lantern": EMBER_ROOT + "ember_dungeon_lantern.glb",
-	"statue": EMBER_ROOT + "ember_statue.glb",
-	"stone": EMBER_ROOT + "ember_stepping_stone.glb",
-	"pictograms": EMBER_ROOT + "ember_pictograms.glb",
-	"clue_plaque": EMBER_ROOT + "ember_clue_plaque.glb",
-	"direction_beak": EMBER_ROOT + "ember_direction_beak.glb",
-	"completion_spark": EMBER_ROOT + "ember_completion_spark.glb",
-	"pearl_target": EMBER_ROOT + "ember_pearl_target.glb",
+	"arena": EMBER_ROOT + "arena.png",
+	"door": EMBER_ROOT + "door.svg",
+	"imp": EMBER_ROOT + "imp.png",
+	"basket": EMBER_ROOT + "basket.svg",
+	"pepper_projectile": SHARED_ROOT + "pepper.svg",
+	"ice_berry_projectile": SHARED_ROOT + "ice_berry.svg",
+	"pedestal": EMBER_ROOT + "pedestal.svg",
+	"lantern": EMBER_ROOT + "lantern.svg",
+	"statue": EMBER_ROOT + "statue.svg",
+	"stone": EMBER_ROOT + "pedestal.svg",
+	"clue_plaque": EMBER_ROOT + "pedestal.svg",
+	"direction_beak": SHARED_ROOT + "direction_beak.svg",
+	"completion_spark": SHARED_ROOT + "spark.svg",
+	"pearl_target": SHARED_ROOT + "pearl_target.svg",
+	"enemy_projectile": SHARED_ROOT + "enemy_orb.svg",
 }
 
-const PICTOGRAM_NODES := {
+const ROLE_HEIGHT := {
+	"door": 10.0,
+	"imp": 5.4,
+	"basket": 3.4,
+	"pepper_projectile": 1.5,
+	"ice_berry_projectile": 1.7,
+	"pedestal": 4.2,
+	"lantern": 5.6,
+	"statue": 8.0,
+	"stone": 4.0,
+	"clue_plaque": 4.2,
+	"direction_beak": 2.8,
+	"completion_spark": 2.0,
+	"pearl_target": 3.4,
+	"enemy_projectile": 1.5,
+}
+
+const PICTOGRAM_INDEX := {
+	"diamond": 0,
+	"orb": 1,
+	"triangle": 2,
+	"ice": 3,
+	"flame": 4,
+	"moon": 5,
+	"star": 6,
+	"question": 7,
+	"left": 8,
+	"right": 9,
+	"pepper": 10,
+}
+const PICTOGRAM_NAMES := {
 	"diamond": "Diamond",
 	"orb": "Orb",
 	"triangle": "Triangle",
@@ -51,73 +85,159 @@ const PICTOGRAM_NODES := {
 	"pepper": "Pepper",
 }
 
-static func spawn(role: String, parent: Node3D, position: Vector3 = Vector3.ZERO, theme: String = "") -> Node3D:
+static func _add_sprite(
+		parent: Node3D,
+		path: String,
+		height: float,
+		node_name: String = "Sprite",
+		local_position: Vector3 = Vector3.ZERO) -> Sprite3D:
+	var sprite := Sprite3D.new()
+	sprite.name = node_name
+	var texture: Texture2D = load(path)
+	sprite.texture = texture
+	sprite.pixel_size = height / maxf(1.0, float(texture.get_height()))
+	sprite.position = local_position
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.shaded = false
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	parent.add_child(sprite)
+	return sprite
+
+static func _spawn_arena(path: String, parent: Node3D, position: Vector3) -> Node3D:
+	var root := Node3D.new()
+	root.name = "DungeonArena"
+	root.position = position
+	parent.add_child(root)
+	var floor := _add_sprite(root, path, 58.0, "ArenaSprite")
+	floor.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	floor.rotation.x = -PI * 0.5
+	floor.position.y = 0.04
+	floor.transparent = false
+	return root
+
+static func _spawn_boss(parent: Node3D, position: Vector3, theme: String) -> Node3D:
+	var root := Node3D.new()
+	root.name = "DragonTurtle2D"
+	root.position = position
+	parent.add_child(root)
+	var prefix := EMBER_ROOT if theme == "ember" else ROOT
+	var shell := Node3D.new()
+	shell.name = "Shell"
+	root.add_child(shell)
+	_add_sprite(shell, prefix + "boss_shell.png", 10.5, "ShellSprite")
+	var head := Node3D.new()
+	head.name = "Head"
+	head.position = Vector3(0.0, 0.25, 2.8)
+	root.add_child(head)
+	var head_sprite := _add_sprite(head, prefix + "boss_head.png", 7.2, "HeadSprite")
+	head_sprite.render_priority = 1
+	return root
+
+static func spawn(
+		role: String,
+		parent: Node3D,
+		position: Vector3 = Vector3.ZERO,
+		theme: String = "") -> Node3D:
 	var role_paths: Dictionary = EMBER_PATHS if theme == "ember" else PATHS
-	var path: String = String(role_paths.get(role, ""))
-	var scene: PackedScene = load(path) as PackedScene
-	if scene == null:
-		push_error("Dungeon art role could not be loaded: %s (%s)" % [role, path])
+	if role == "arena":
+		return _spawn_arena(String(role_paths["arena"]), parent, position)
+	if role == "boss":
+		return _spawn_boss(parent, position, theme)
+	var path := String(role_paths.get(role, ""))
+	if path == "" or not ResourceLoader.exists(path):
+		push_error("Dungeon 2D art role could not be loaded: %s (%s)" % [role, path])
 		var missing := Node3D.new()
 		missing.name = "MissingDungeonArt_%s" % role
 		missing.position = position
 		parent.add_child(missing)
 		return missing
-	var node: Node3D = scene.instantiate() as Node3D
-	node.position = position
-	parent.add_child(node)
-	return node
+	var root := Node3D.new()
+	var role_names := {
+		"door": "DungeonDoor",
+		"imp": "MischiefImp",
+		"pedestal": "CrystalPedestal",
+		"lantern": "PepperLantern",
+		"statue": "TurtleStatue",
+		"stone": "SteppingStone",
+	}
+	root.name = String(role_names.get(role, "DungeonSprite_%s" % role))
+	root.position = position
+	parent.add_child(root)
+	_add_sprite(root, path, float(ROLE_HEIGHT.get(role, 4.0)), "Body")
+	if role == "lantern":
+		var glow := Node3D.new()
+		glow.name = "Glow"
+		glow.position = Vector3(0.0, 2.4, 0.0)
+		root.add_child(glow)
+		var spark := _add_sprite(glow, SHARED_ROOT + "spark.svg", 1.5, "GlowSprite")
+		spark.modulate = Color(1.0, 0.9, 0.45)
+	return root
 
-static func tint(root: Node, surface: Material, trim: Material) -> void:
-	if root is MeshInstance3D:
-		var mesh_node := root as MeshInstance3D
-		if mesh_node.name.begins_with("Tint_"):
-			mesh_node.material_override = surface
-		elif mesh_node.name.begins_with("Trim_"):
-			mesh_node.material_override = trim
-	for child in root.get_children():
-		tint(child, surface, trim)
+static func tint(_root: Node, _surface: Material, _trim: Material) -> void:
+	# Authored sprite palettes are already theme-correct and stay untinted.
+	pass
 
 static func apply_material(root: Node, material: Material) -> void:
 	if root == null:
 		return
-	if root is MeshInstance3D:
-		(root as MeshInstance3D).material_override = material
+	if root is Sprite3D and material is StandardMaterial3D:
+		(root as Sprite3D).modulate = (material as StandardMaterial3D).albedo_color
 	for child in root.get_children():
 		apply_material(child, material)
 
 static func find_part(root: Node, part_name: String) -> Node3D:
+	if root == null:
+		return null
 	var found: Node = root.find_child(part_name, true, false)
-	if found == null:
-		var suffixed: Array[Node] = root.find_children(part_name + "*", "Node3D", true, false)
-		if not suffixed.is_empty():
-			found = suffixed[0]
 	return found as Node3D
 
-static func add_pictogram(kind: String, parent: Node3D, position: Vector3, scale: float = 1.0,
-		keep_kinds: Array[String] = [], theme: String = "") -> Node3D:
-	var root := spawn("pictograms", parent, position, theme)
+static func add_pictogram(
+		kind: String,
+		parent: Node3D,
+		position: Vector3,
+		scale: float = 1.0,
+		keep_kinds: Array[String] = [],
+		_theme: String = "") -> Node3D:
+	var root := Node3D.new()
+	root.name = "Pictogram_%s" % kind
+	root.position = position
 	root.scale = Vector3.ONE * scale
-	root.rotation_degrees.x = 90.0
-	var active_name: String = String(PICTOGRAM_NODES.get(kind, "Question"))
-	var keep_names: Array[String] = [active_name]
+	parent.add_child(root)
+	var sprite := Sprite3D.new()
+	sprite.name = "PictogramSprite"
+	sprite.texture = load(SHARED_ROOT + "symbols.svg")
+	sprite.region_enabled = true
+	sprite.pixel_size = 4.4 / 192.0
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.shaded = false
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	root.add_child(sprite)
+	var marker_kinds: Array[String] = [kind]
 	for keep_kind: String in keep_kinds:
-		var keep_name: String = String(PICTOGRAM_NODES.get(keep_kind, "Question"))
-		if keep_name not in keep_names:
-			keep_names.append(keep_name)
-	root.set_meta("pictogram_keep", keep_names)
+		if keep_kind not in marker_kinds:
+			marker_kinds.append(keep_kind)
+	for marker_kind: String in marker_kinds:
+		var marker := Node3D.new()
+		marker.name = String(PICTOGRAM_NAMES[marker_kind])
+		marker.visible = false
+		root.add_child(marker)
+	root.set_meta("pictogram_keep", keep_kinds)
 	show_pictogram(root, kind)
 	return root
 
 static func show_pictogram(root: Node, kind: String) -> void:
-	var active_name: String = String(PICTOGRAM_NODES.get(kind, "Question"))
-	var keep_names: Array = root.get_meta("pictogram_keep", [active_name])
-	for node_name: String in PICTOGRAM_NODES.values():
-		var part: Node = root.find_child(node_name + "*", true, false)
-		if part is Node3D:
-			if node_name == active_name:
-				(part as Node3D).visible = true
-			elif node_name in keep_names:
-				(part as Node3D).visible = false
-			else:
-				part.get_parent().remove_child(part)
-				part.free()
+	if root == null:
+		return
+	var sprite: Sprite3D = root.find_child("PictogramSprite", true, false) as Sprite3D
+	if sprite == null:
+		return
+	var index: int = int(PICTOGRAM_INDEX.get(kind, PICTOGRAM_INDEX["question"]))
+	var column := index % 4
+	var row := index / 4
+	sprite.region_rect = Rect2(float(column * 192), float(row * 192), 192.0, 192.0)
+	sprite.visible = true
+	for marker_kind: String in PICTOGRAM_NAMES:
+		var marker: Node3D = root.find_child(
+			String(PICTOGRAM_NAMES[marker_kind]), false, false) as Node3D
+		if marker != null:
+			marker.visible = marker_kind == kind

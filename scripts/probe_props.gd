@@ -192,7 +192,7 @@ func _swell_case() -> void:
 		if awake_last == 0:
 			break
 	_ck("tide fades and the fleet sleeps again", awake_last == 0)
-	var q: MeshInstance3D = target.get_meta("ss_quad", null) as MeshInstance3D
+	var q: Sprite3D = target.get_meta("ss_quad", null) as Sprite3D
 	var body_x: float = target.global_position.x
 	var sway_peak := 0.0
 	var body_drift := 0.0

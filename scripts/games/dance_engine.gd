@@ -65,17 +65,20 @@ func _build_ui() -> void:
 	root.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(root)
 
-	var bg := ColorRect.new()
+	var bg := TextureRect.new()
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	bg.color = Color(0.035, 0.075, 0.18, 0.97)
+	bg.texture = load("res://assets/minigames/dance/background.png")
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	bg.mouse_filter = Control.MOUSE_FILTER_STOP
 	root.add_child(bg)
 
-	# Pastel lane bands make direction readable even before the arrow glyphs.
+	# Very quiet lane washes preserve note tracking without covering the four
+	# purpose-built shell medallions painted into the dance-floor background.
 	for lane in range(4):
 		var band := ColorRect.new()
 		band.name = "Lane%d" % lane
-		band.color = Color(LANE_COLORS[lane], 0.085)
+		band.color = Color(LANE_COLORS[lane], 0.035)
 		band.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		root.add_child(band)
 

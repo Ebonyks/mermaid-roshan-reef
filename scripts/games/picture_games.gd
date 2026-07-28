@@ -25,26 +25,19 @@ func _mg2d_open(kind: String) -> void:
 	m.mg2d_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.mg2d_layer.add_child(m.mg2d_root)
 	m.mg2d_layer.visible = true
-	# clean themed gradient background (no busy book page behind the toys)
-	var themes := {
-		"snowman": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],
-		"garden": [Color(0.45, 0.78, 0.95), Color(0.7, 0.92, 0.6)],
-		"trampoline": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],
-		"slide": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],
-		"xmas": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}
-	var grad := Gradient.new()
-	grad.set_color(0, themes[kind][0])
-	grad.set_color(1, themes[kind][1])
-	var gt := GradientTexture2D.new()
-	gt.gradient = grad
-	gt.fill_from = Vector2(0, 0)
-	gt.fill_to = Vector2(0, 1)
-	gt.width = 64
-	gt.height = 64
+	# Each picture game owns a purpose-built storybook plate. Interactive pieces
+	# remain separate so their hit areas, animation, and visual state stay honest.
+	var background_paths := {
+		"snowman": "res://assets/minigames/picture/snowman_background.png",
+		"garden": "res://assets/minigames/picture/garden_background.png",
+		"trampoline": "res://assets/minigames/picture/trampoline_background.png",
+		"xmas": "res://assets/minigames/picture/xmas_background.png",
+	}
 	var bg := TextureRect.new()
-	bg.texture = gt
+	bg.texture = load(String(background_paths[kind]))
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.mg2d_root.add_child(bg)
 	# responsive 1280x720 stage, scaled + centred to any screen (fixes landscape)
 	m.mg2d_stage = Control.new()
@@ -215,8 +208,6 @@ func _mg_build_snowman() -> void:
 	m.mg["face"] = 0
 	m.mg["motor_assist"] = false
 	(m.mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
-	# ground
-	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
 	m.mg["body"] = []   # stacked balls (centre-right)
 	# the big flashing call-to-action
 	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 64, Vector2(255, 92))
@@ -442,17 +433,10 @@ func _mg_build_garden() -> void:
 	m.mg["stage"] = [0, 0, 0, 0, 0]
 	m.mg["flowers"] = ["k_flower1", "flower", "flower2", "k_flower2", "flower3"]   # each plant ends as a DIFFERENT flower
 	(m.mg["hud"] as Label).text = "Tap each seed to make it grow into a FLOWER!"
-	_mg_sprite("res://assets/mg/sun.png", Vector2(120, 130), Vector2(180, 180))
-	# a soft grassy mound across the bottom
-	var mound := _mg_circle(Vector2(640, 1050), 760.0, Color(0.5, 0.78, 0.45))
-	mound.size.y = 500.0
-	mound.position = Vector2(-120, 640)
-	# five clay pots, each starting as a SEED
+	# The five empty pot sockets are painted into this game's background. The
+	# live seed/sprout/flower sequence remains separate and touchable.
 	for i in range(5):
 		var x := 180.0 + float(i) * 240.0
-		var potm := _mg_circle(Vector2(x, 640), 64.0, Color(0.78, 0.42, 0.28))
-		potm.size = Vector2(150, 100)
-		potm.position = Vector2(x - 75, 600)
 		# tap forgiveness: the Button (invisible, flat) is 140x140 so near-misses
 		# still count, with a small 52px seed resting on the pot rim (a seed must
 		# read SMALLER than the sprout and flower it grows into). Seeds sit 240px
@@ -525,10 +509,8 @@ func _mg_build_trampoline() -> void:
 	m.mg["star_y"] = 90.0
 	(m.mg["hud"] as Label).text = "Tap JUMP to bounce up and TOUCH the star!"
 	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
-	# trampoline (kept high enough that the JUMP button fits on the 1280x720 stage in landscape)
-	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
-	tramp.size.y = 56.0
-	tramp.position = Vector2(640 - 200, 492)
+	# The padded trampoline and destination halo are authored into this game's
+	# background; Roshan and the star remain live sprites.
 	m.mg["rest_y"] = 430.0
 	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))
 	var b := _mg_roundbtn(Vector2(640, 648), 66.0, Color(0.3, 0.6, 1.0), "JUMP")

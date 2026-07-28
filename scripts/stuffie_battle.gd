@@ -21,17 +21,22 @@ const RADIUS := 27.0
 # den serves them again in rotation, a little livelier each time.
 # CAPTURE ROUNDS (owner 2026-07-20, the core collection loop): a round with an
 # "award" is a boss STUFFIE — befriending it takes it HOME to the Stuffie Den
-# where it becomes a carryable companion for future missions. Future toys
-# (photo-scanned via the Meshy pipeline) are one roster entry + one award
-# round away.
+# where it becomes a carryable companion for future missions.
 const LADDER := [
 	{"tag": "round1", "imps": 2, "hp": 2, "attack_gap": 4.6, "telegraph": 2.4, "layout": "ring"},
 	{"tag": "round2", "imps": 3, "hp": 2, "attack_gap": 3.8, "telegraph": 2.2, "layout": "double"},
 	{"tag": "round3", "imps": 0, "boss": true, "hp": 5, "attack_gap": 3.4, "telegraph": 2.0},
 	{"tag": "boss_lamma", "imps": 0, "boss": true, "hp": 6, "attack_gap": 3.2, "telegraph": 2.0,
-		"boss_model": "res://assets/characters/lamb.glb", "boss_scale": 3.6,
+		"boss_sprite": "res://assets/minigames/stuffie/lamma.png",
 		"award": "lamma", "award_name": "Lamb-a'"},
 ]
+
+const ARENA_ART := "res://assets/minigames/stuffie/arena.png"
+const IMP_ART := "res://assets/minigames/stuffie/imp.png"
+const POINTER_ART := "res://assets/minigames/stuffie/pointer.svg"
+const CLAW_ART := "res://assets/minigames/stuffie/claw.svg"
+const PECK_ART := "res://assets/minigames/stuffie/peck.svg"
+const ENEMY_ORB_ART := "res://assets/minigames/stuffie/enemy_orb.svg"
 
 var m: ReefMain
 var finish_cb: Callable
@@ -45,7 +50,7 @@ var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
 var dodge_btn: Button = null
-var pointer: Label3D = null
+var pointer: Sprite3D = null
 var pal_pos := Vector3.ZERO
 var pal_yaw := PI
 var elapsed := 0.0
@@ -68,7 +73,6 @@ var miss_streak := 0        # consecutive misses → mercy widens the window
 var bruises := 0            # landed bumps — boo-boos the stuffie carries home
 var hop_t := -1.0
 var hop_vec := Vector3.ZERO
-var materials := {}
 
 func start(main: ReefMain, ladder_index: int, done_cb: Callable) -> void:
 	m = main
@@ -113,51 +117,38 @@ func _build_environment() -> void:
 	env.glow_bloom = 0.12
 	m._speedy_glow_clamp(env)
 	m.we_node.environment = env
-	var sun := DirectionalLight3D.new()
-	sun.light_color = Color(1.0, 0.9, 0.8)
-	sun.light_energy = 1.1
-	sun.shadow_enabled = m.quality != "speedy"
-	sun.rotation_degrees = Vector3(-50, -30, 0)
-	add_child(sun)
 
-func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
-	var key := "%s:%.2f" % [col.to_html(true), emission]
-	if materials.has(key):
-		return materials[key]
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = col
-	mat.roughness = 0.62
-	if emission > 0.0:
-		mat.emission_enabled = true
-		mat.emission = col
-		mat.emission_energy_multiplier = emission
-	materials[key] = mat
-	return mat
+func _sprite_card(path: String, height: float, no_depth: bool = false) -> Sprite3D:
+	var card := Sprite3D.new()
+	card.texture = load(path)
+	card.pixel_size = height / maxf(card.texture.get_height(), 1.0)
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	card.shaded = false
+	card.transparent = true
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.no_depth_test = no_depth
+	return card
 
-func _sphere(parent: Node3D, pos: Vector3, radius: float, col: Color, emission: float = 0.0) -> MeshInstance3D:
-	var shape := SphereMesh.new()
-	shape.radius = radius
-	shape.height = radius * 2.0
-	shape.radial_segments = 12
-	shape.rings = 6
-	var node := MeshInstance3D.new()
-	node.mesh = shape
-	node.position = pos
-	node.material_override = _mat(col, emission)
-	parent.add_child(node)
-	return node
+func _floor_card(path: String, size: float) -> Sprite3D:
+	var card := _sprite_card(path, size)
+	card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	card.rotation_degrees.x = -90.0
+	return card
 
 func _build_arena() -> void:
-	# the same proven octagon room, painted as a pastel toy mat
-	var arena := DungeonArt.spawn("arena", self, CENTER)
-	DungeonArt.tint(arena, _mat(Color(0.72, 0.62, 0.90)), _mat(Color(1.0, 0.78, 0.88), 0.2))
+	var arena := _floor_card(ARENA_ART, 56.0)
+	arena.name = "StuffieQuiltArena"
+	arena.position = CENTER + Vector3(0, 0.05, 0)
+	add_child(arena)
 
 func _build_creature() -> void:
 	creature = m._companion_ref().make_creature()
 	if creature == null:
-		creature = _sphere(self, pal_pos, 1.6, Color(1.0, 0.7, 0.8), 0.4)
-	else:
-		add_child(creature)
+		creature = Node3D.new()
+		var fallback := _sprite_card("res://assets/minigames/stuffie/eagle.png", 5.4)
+		fallback.position.y = 2.7
+		creature.add_child(fallback)
+	add_child(creature)
 	creature.position = pal_pos
 
 func _build_camera() -> void:
@@ -204,13 +195,7 @@ func _build_hud() -> void:
 	dodge_btn.visible = false
 	dodge_btn.pressed.connect(press_dodge)
 	hud.add_child(dodge_btn)
-	pointer = Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 150
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 24
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	pointer = _sprite_card(POINTER_ART, 2.0, true)
 	add_child(pointer)
 
 func _build_imps() -> void:
@@ -225,25 +210,20 @@ func _build_imps() -> void:
 		var root := Node3D.new()
 		root.position = pos
 		add_child(root)
-		DungeonArt.spawn("imp", root)
+		var imp := _sprite_card(IMP_ART, 5.4)
+		imp.position.y = 2.7
+		root.add_child(imp)
 		enemies.append({"node": root, "pos": pos, "state": "active", "hp": int(round_cfg.get("hp", 2)),
 			"timer": 0.0, "attack": 2.5 + float(i) * 1.4, "phase": a, "boss": false})
 
 func _build_boss() -> void:
-	# a FRIENDLY sparring boss: capture rounds bring a real stuffie model
-	# (Lamb-a' first); otherwise the dragon-turtle comes back for a rematch
-	var root: Node3D = null
-	if round_cfg.has("boss_model"):
-		var ps: PackedScene = load(String(round_cfg["boss_model"]))
-		if ps != null:
-			root = ps.instantiate() as Node3D
-			if root != null:
-				root.scale = Vector3.ONE * float(round_cfg.get("boss_scale", 3.0))
-				root.position = CENTER + Vector3(0, 1.0, -10.0)
-				add_child(root)
-	if root == null:
-		root = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
-		root.scale = Vector3.ONE * 1.2
+	var root := Node3D.new()
+	root.position = CENTER + Vector3(0, 1.0, -10.0)
+	add_child(root)
+	var boss_path := String(round_cfg.get("boss_sprite", IMP_ART))
+	var boss := _sprite_card(boss_path, 8.6)
+	boss.position.y = 4.3
+	root.add_child(boss)
 	enemies.append({"node": root, "pos": root.position, "state": "active", "hp": int(round_cfg.get("hp", 5)),
 		"timer": 0.0, "attack": 3.0, "phase": 0.0, "boss": true})
 
@@ -370,27 +350,21 @@ func _lunge_land() -> void:
 			_hit_enemy(target)
 
 func _claw_flash(dir: Vector3) -> void:
-	# three pastel swipe streaks arcing in front of Kitty
-	for i in range(3):
-		var streak := MeshInstance3D.new()
-		var bm := BoxMesh.new()
-		bm.size = Vector3(0.25, 0.25, 3.4)
-		streak.mesh = bm
-		streak.material_override = _mat(Color(1.0, 0.85, 0.95), 2.0)
-		var side: Vector3 = Vector3(dir.z, 0, -dir.x) * (float(i) - 1.0) * 1.1
-		streak.position = pal_pos + dir * 2.6 + side + Vector3(0, 2.0, 0)
-		streak.rotation.y = atan2(dir.x, dir.z)
-		add_child(streak)
-		var tw := streak.create_tween()
-		tw.tween_property(streak, "position", streak.position + dir * 2.4, 0.18)
-		tw.parallel().tween_property(streak, "scale", Vector3(0.1, 0.1, 1.4), 0.18)
-		tw.tween_callback(streak.queue_free)
+	var streak := _sprite_card(CLAW_ART, 2.3, true)
+	streak.position = pal_pos + dir * 2.8 + Vector3(0, 2.3, 0)
+	add_child(streak)
+	var tw := streak.create_tween()
+	tw.tween_property(streak, "position", streak.position + dir * 2.4, 0.18)
+	tw.parallel().tween_property(streak, "scale", Vector3(1.35, 1.35, 1.35), 0.18)
+	tw.tween_callback(streak.queue_free)
 	m._sparkle_burst(pal_pos + dir * 3.0 + Vector3(0, 2.0, 0), Color(0.95, 0.7, 0.9))
 
 func _peck_flash(dir: Vector3) -> void:
-	# a golden double-jab spark at the beak
+	# A golden illustrated double-jab at the beak.
 	for i in range(2):
-		var jab := _sphere(self, pal_pos + dir * (2.4 + float(i) * 1.2) + Vector3(0, 2.2, 0), 0.5, Color(1.0, 0.9, 0.4), 2.0)
+		var jab := _sprite_card(PECK_ART, 1.3, true)
+		jab.position = pal_pos + dir * (2.4 + float(i) * 1.2) + Vector3(0, 2.2, 0)
+		add_child(jab)
 		var tw := jab.create_tween()
 		tw.tween_interval(float(i) * 0.08)
 		tw.tween_property(jab, "scale", Vector3.ZERO, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
@@ -555,7 +529,9 @@ func _spawn_enemy_shot(from: Vector3, to: Vector3) -> void:
 	dir.y = 0.0
 	if dir.length() < 0.1:
 		return
-	var orb := _sphere(self, from, 0.58, Color(0.72, 0.34, 0.92), 1.4)
+	var orb := _sprite_card(ENEMY_ORB_ART, 1.25, true)
+	orb.position = from
+	add_child(orb)
 	enemy_shots.append({"node": orb, "vel": dir.normalized() * 11.0, "life": 3.0})
 
 func _tick_enemy_shots(delta: float) -> void:

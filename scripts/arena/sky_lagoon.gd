@@ -2,6 +2,7 @@ class_name SkyLagoon
 extends RefCounted
 
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 # Phase 7.3: mechanical extraction of the Sky Lagoon courtyard from main.gd
 # (pearl-castle build, terrain + rivers + moat math, night dressing, fairy
 # pond, courtyard tick). All state stays on main; main delegates through
@@ -649,8 +650,6 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m.kart_legA = Vector3(rb_center.x, m.lagoon_h(rb_center.x, legaz) + 6.0, legaz)
 	m.kart_legB = Vector3(rb_center.x, m.lagoon_h(rb_center.x, legbz) + 6.0, legbz)
 	m.g["lagoon_rainbow_route_mode"] = "paired_authored_gates"
-	_lagoon_prop("lagoon_rainbow_race_arch", m.kart_legA - Vector3(0, 6.0, 0), 1.0, 0.0)
-	_lagoon_prop("lagoon_rainbow_race_arch", m.kart_legB - Vector3(0, 6.0, 0), 1.0, PI)
 	m._kart_gateway(m.kart_legA, "Rainbow Race!", Color(0.4, 0.85, 1.0), false)
 	m._kart_gateway(m.kart_legB, "Rainbow Race!\n(reverse lap)", Color(1.0, 0.6, 0.95), false)
 	# the door to LEVEL 3 sits between the two race legs. Locked until the
@@ -659,7 +658,6 @@ func _build_pearl_castle(o: Vector3) -> void:
 	m.bw_portal_pos = Vector3(rb_center.x, m.lagoon_h(rb_center.x, bwz) + 14.0, bwz)
 	if m.galaxy_unlocked:
 		m._kart_gateway(m.bw_portal_pos, "🦋 Butterfly World!\nSwim in!", Color(1.0, 0.8, 0.3), false)
-		_lagoon_prop("lagoon_butterfly_world_gate", m.bw_portal_pos, 1.0, 0.0)
 	else:
 		var lockl := Label3D.new()
 		lockl.text = "🦋 Butterfly World\nwin the Rainbow Race to soar there!"
@@ -2614,91 +2612,19 @@ func _tick_ocean_kingdom_gates(ppos: Vector3) -> bool:
 
 
 func _build_ember_gateway(pos: Vector3) -> void:
-	# The later-world door remains spooky without importing a black/orange art
-	# language into the Lagoon. Deep plum, coral ember, butter-gold trim and
-	# lavender footing stones reuse the courtyard palette; animated emission is
-	# self-contained and adds no OmniLight on the Speedy phone tier.
 	var gateway := Node3D.new()
 	gateway.name = "EmberGateway"
 	gateway.position = pos
 	gateway.set_meta("lagoon_art_role", "lagoon_ember_gateway")
 	m.add_child(gateway)
 	m.game_nodes.append(gateway)
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 5.0
-	tm.outer_radius = 6.5
-	tm.rings = 24
-	tm.ring_segments = 12
-	ring.mesh = tm
-	ring.rotation.x = PI * 0.5
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nvoid fragment(){ float b = fract(UV.x * 6.0 + TIME * 0.12); vec3 plum = vec3(0.18, 0.12, 0.32); vec3 coral = vec3(1.0, 0.42, 0.30); float vein = smoothstep(0.42, 0.52, sin(b * 12.566) * 0.5 + 0.5); ALBEDO = mix(plum, coral, vein); EMISSION = coral * vein * (0.34 + 0.16 * sin(TIME * 2.1)); ROUGHNESS = 0.88; }"
-	var ring_mat := ShaderMaterial.new()
-	ring_mat.shader = sh
-	ring.material_override = ring_mat
-	gateway.add_child(ring)
-	# A thin gold inner lip makes the portal read as an authored destination at
-	# child scale instead of a single debug torus.
-	var inner_ring := MeshInstance3D.new()
-	var inner_tm := TorusMesh.new()
-	inner_tm.inner_radius = 4.48
-	inner_tm.outer_radius = 4.88
-	inner_tm.rings = 24
-	inner_tm.ring_segments = 12
-	inner_ring.mesh = inner_tm
-	inner_ring.rotation.x = PI * 0.5
-	inner_ring.position.z = 0.12
-	inner_ring.material_override = m._soft_mat(Color(1.0, 0.78, 0.34), 0.42)
-	gateway.add_child(inner_ring)
-	# Faceted beads and a three-lobe flame crest replace the world-space text.
-	# The proximity voice cue still explains the destination, so the objective
-	# remains non-reading-dependent without labels floating across other art.
-	var bead_points: Array[Vector3] = [
-		Vector3(-5.65, 2.8, 0.18), Vector3(5.65, 2.8, 0.18),
-		Vector3(-4.1, -4.2, 0.18), Vector3(4.1, -4.2, 0.18),
-	]
-	for bead_index in range(bead_points.size()):
-		var bead := MeshInstance3D.new()
-		var bead_mesh := SphereMesh.new()
-		bead_mesh.radius = 0.72
-		bead_mesh.height = 1.34
-		bead_mesh.radial_segments = 8
-		bead_mesh.rings = 4
-		bead.mesh = bead_mesh
-		bead.position = bead_points[bead_index]
-		bead.material_override = m._soft_mat(
-			Color(1.0, 0.68, 0.38) if bead_index % 2 == 0 else Color(0.62, 0.48, 0.88), 0.18)
-		gateway.add_child(bead)
-	var flame_positions: Array[Vector3] = [
-		Vector3(0.0, 7.45, 0.10), Vector3(-1.15, 6.85, 0.08), Vector3(1.15, 6.85, 0.08),
-	]
-	for flame_index in range(flame_positions.size()):
-		var flame := MeshInstance3D.new()
-		var flame_mesh := SphereMesh.new()
-		flame_mesh.radius = 0.8 if flame_index == 0 else 0.64
-		flame_mesh.height = 2.7 if flame_index == 0 else 2.15
-		flame_mesh.radial_segments = 8
-		flame_mesh.rings = 4
-		flame.mesh = flame_mesh
-		flame.position = flame_positions[flame_index]
-		flame.rotation.z = 0.0 if flame_index == 0 else (-0.42 if flame_index == 1 else 0.42)
-		flame.material_override = m._soft_mat(
-			Color(1.0, 0.48, 0.36) if flame_index != 1 else Color(1.0, 0.82, 0.38), 0.34)
-		gateway.add_child(flame)
-	for stone_index in range(4):
-		var stone := MeshInstance3D.new()
-		var stone_mesh := SphereMesh.new()
-		stone_mesh.radius = 1.35
-		stone_mesh.height = 1.2
-		stone_mesh.radial_segments = 8
-		stone_mesh.rings = 4
-		stone.mesh = stone_mesh
-		stone.position = Vector3(-4.4 + float(stone_index) * 2.9, -6.25, 0.25)
-		stone.scale = Vector3(1.25, 0.72, 0.9)
-		stone.material_override = m._soft_mat(
-			Color(0.76, 0.72, 0.92) if stone_index % 2 == 0 else Color(0.72, 0.94, 0.91))
-		gateway.add_child(stone)
+	MinigameArt.sprite(
+		gateway,
+		"res://assets/minigames/ember/great_gate.png",
+		17.0,
+		Vector3(0, 1.0, 0),
+		true,
+		"EmberGateway2D")
 	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
 	counts["lagoon_ember_gateway"] = int(counts.get("lagoon_ember_gateway", 0)) + 1
 	m.g["lagoon_art_counts"] = counts

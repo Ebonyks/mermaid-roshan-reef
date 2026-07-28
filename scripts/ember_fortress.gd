@@ -1,6 +1,7 @@
 extends Node3D
 class_name EmberFortressLevel
 
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 # ============================================================================
 # THE EMBER FORTRESS — the Volcanic Throne Planet. A later-game "scary" world:
 # a small artificial fortress-planet wrapped around volcanic energy, in the
@@ -39,6 +40,7 @@ const JUMP_V := 17.0
 const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const LANTERNS := 5
+const STORY_ART_ROOT := "res://assets/minigames/ember/"
 const GATE_DIR := Vector3(0.0, 0.92, 0.4)      # the Great Gate, on the fortress hill's south face
 const KING_DIR := Vector3(0.26, 0.96, 0.10)    # the Ember King watches beside the gate, clear of its approach
 const ART_ROOT := "res://assets/ember_fortress/"
@@ -95,6 +97,7 @@ var _hud: CanvasLayer = null
 var _lbl_lanterns: Label = null
 var _lbl_big: Label = null
 var _lbl_hint: Label = null
+var _storybook_background: Sprite3D = null
 
 # avatar state on the sphere (same scheme as GalaxyLevel)
 var _dir := Vector3(0, 0, 1)
@@ -167,6 +170,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_home_ring()
 	_build_avatar()
 	_build_camera()
+	_install_storybook_art()
 	_build_hud()
 	var done: bool = "ember_done" in main and bool(main.ember_done)
 	_lbl_big.text = "🌋 The Ember Fortress 🌋"
@@ -645,6 +649,12 @@ func _build_lanterns() -> void:
 
 func _apply_lantern_lit(entry: Dictionary) -> void:
 	entry["lit"] = true
+	var story_sprite: Sprite3D = entry.get("story_sprite") as Sprite3D
+	if story_sprite != null:
+		story_sprite.modulate = Color.WHITE
+	var story_beacon: Sprite3D = entry.get("story_beacon") as Sprite3D
+	if story_beacon != null:
+		story_beacon.visible = false
 	var flame: Node3D = entry["flame"]
 	if flame == null:
 		return
@@ -682,6 +692,9 @@ func _light_lantern(idx: int) -> void:
 		for other in _lanterns:
 			if not bool(other["lit"]) and other.get("beam") != null and is_instance_valid(other["beam"]):
 				(other["beam"] as Node3D).scale = Vector3(3.0, 2.0, 3.0)
+			var remaining_beacon: Sprite3D = other.get("story_beacon") as Sprite3D
+			if not bool(other["lit"]) and remaining_beacon != null and is_instance_valid(remaining_beacon):
+				remaining_beacon.scale = Vector3.ONE * 1.5
 		if _lbl_hint != null:
 			_lbl_hint.text = "ONE lantern left — follow the GIANT red beacon!"
 	if _lit >= LANTERNS:
@@ -796,59 +809,16 @@ var _av_rest := {}
 var _av_run := 0.0
 
 func _build_avatar() -> void:
-	# same wardrobe-aware avatar as GalaxyLevel: v4/v3 mermaid GLB, the huluu
-	# cutout, or the fairy skin — whatever Roshan is wearing travels here too
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	var glb := "res://assets/characters/roshan.glb"
-	var cutout: Sprite3D = null
-	for vpath in ["res://assets/characters/roshan_v4.glb",
-			"res://assets/characters/roshan_v3.glb"]:
-		if ResourceLoader.exists(vpath):
-			glb = vpath
-			break
+	var avatar_path := "res://assets/characters/roshan_sprite.png"
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
 		if sid == "huluu":
-			glb = ""
-			cutout = Sprite3D.new()
-			cutout.texture = load("res://assets/characters/friends/huluu.png")
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 0.011
-			cutout.position = Vector3(0, 2.2, 0)
-		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
-			glb = "res://assets/characters/fairy_v2.glb"
-	if cutout != null:
-		_avatar.add_child(cutout)
-	if glb != "" and ResourceLoader.exists(glb):
-		var inst: Node3D = (load(glb) as PackedScene).instantiate()
-		var acc: Array = []
-		_gather_aabbs(inst, Transform3D.IDENTITY, acc)
-		if acc.size() > 0:
-			var bb: AABB = acc[0]
-			for k in range(1, acc.size()):
-				bb = bb.merge(acc[k])
-			var sc: float = 4.2 / maxf(bb.size.y, 0.001)
-			inst.scale = Vector3.ONE * sc
-			inst.position = Vector3(0, -bb.position.y * sc, 0)
-		_avatar.add_child(inst)
-		_av_skel = _find_av_skel(inst)
-		_av_bones.clear()
-		_av_rest.clear()
-		if _av_skel != null:
-			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
-				var bi := _av_skel.find_bone(bn)
-				if bi >= 0:
-					_av_bones[bn] = bi
-					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
-	_trail_light = OmniLight3D.new()
-	_trail_light.light_color = Color(0.6, 0.85, 1.0)   # Roshan's cool glow vs the warm world
-	_trail_light.light_energy = 1.35
-	_trail_light.omni_range = 9.0
-	_trail_light.position = Vector3(0, 2.0, 0)
-	_trail_light.visible = not _speedy()
-	_avatar.add_child(_trail_light)
+			avatar_path = "res://assets/characters/friends/huluu.png"
+		elif sid == "fairy":
+			avatar_path = "res://assets/characters/skins/fairy_mermaid.png"
+	MinigameArt.sprite(_avatar, avatar_path, 5.2, Vector3(0, 2.6, 0))
 	_dir = Vector3(0, -0.2, 1).normalized()
 	_fwd = Vector3(1, 0, 0)
 	_project_fwd()
@@ -913,6 +883,79 @@ func _build_camera() -> void:
 	_cam.make_current()
 	_cam.position = _surf(_dir, 8.0) - _fwd * 12.0
 	_cam.look_at(_surf(_dir, 2.0), _dir)
+
+func _install_storybook_art() -> void:
+	_storybook_background = MinigameArt.camera_background(_cam, STORY_ART_ROOT + "background.png", 116.0)
+	for i in range(_lanterns.size()):
+		var lantern: Dictionary = _lanterns[i]
+		var lantern_node: Node3D = lantern["node"]
+		var card := MinigameArt.sprite(
+			lantern_node,
+			STORY_ART_ROOT + "lantern_%d.png" % i,
+			6.4,
+			Vector3(0, 3.0, 0),
+			true,
+			"EmberLantern2D%d" % i)
+		card.modulate = Color.WHITE if bool(lantern["lit"]) else Color(0.58, 0.54, 0.66)
+		lantern["story_sprite"] = card
+		var beacon: Sprite3D = MinigameArt.sprite(
+			lantern_node,
+			STORY_ART_ROOT + "beacon.png",
+			5.0,
+			Vector3(0, 8.2, 0),
+			true,
+			"EmberBeacon2D%d" % i)
+		beacon.visible = not bool(lantern["lit"])
+		lantern["story_beacon"] = beacon
+	var gate_holder := Node3D.new()
+	add_child(gate_holder)
+	_place_on_planet(gate_holder, GATE_DIR)
+	MinigameArt.sprite(gate_holder, STORY_ART_ROOT + "great_gate.png", 15.0, Vector3(0, 6.8, 0), true, "EmberGreatGate2D")
+	var king_holder := Node3D.new()
+	add_child(king_holder)
+	_place_on_planet(king_holder, KING_DIR)
+	_king = MinigameArt.sprite(king_holder, STORY_ART_ROOT + "ember_king.png", 9.0, Vector3(0, 4.2, 0), true, "EmberKing2D")
+	var home_holder := Node3D.new()
+	add_child(home_holder)
+	_place_on_planet(home_holder, Vector3.DOWN)
+	MinigameArt.sprite(home_holder, STORY_ART_ROOT + "home_ring.png", 10.0, Vector3(0, 4.0, 0), true, "EmberHomeRing2D")
+	for i in range(_vents.size()):
+		var vent: Dictionary = _vents[i]
+		var vent_holder := Node3D.new()
+		add_child(vent_holder)
+		_place_on_planet(vent_holder, vent["dir"])
+		MinigameArt.sprite(vent_holder, STORY_ART_ROOT + "geyser.png", 6.0, Vector3(0, 2.5, 0), true, "EmberGeyser2D%d" % i)
+	for i in range(6):
+		var crag_dir := Vector3(
+			sin(float(i) * 2.4) * cos(float(i) * 0.83),
+			sin(float(i) * 0.9) * 0.8,
+			cos(float(i) * 2.4) * cos(float(i) * 0.83)).normalized()
+		var crag_holder := Node3D.new()
+		add_child(crag_holder)
+		_place_on_planet(crag_holder, crag_dir)
+		MinigameArt.sprite(crag_holder, STORY_ART_ROOT + "crag_%d.png" % (i % 3), 5.5, Vector3(0, 2.3, 0), true, "EmberCrag2D%d" % i)
+	for i in range(4):
+		var crystal_dir := Vector3(
+			sin(float(i) * 1.7 + 0.8),
+			cos(float(i) * 1.2) * 0.6,
+			cos(float(i) * 1.7 - 0.4)).normalized()
+		if _lava_mix(crystal_dir) > 0.25:
+			continue
+		var crystal_holder := Node3D.new()
+		add_child(crystal_holder)
+		_place_on_planet(crystal_holder, crystal_dir)
+		MinigameArt.sprite(
+			crystal_holder,
+			STORY_ART_ROOT + "crystal_%d.png" % (i % 2),
+			5.0,
+			Vector3(0, 2.2, 0),
+			true,
+			"EmberCrystal2D%d" % i)
+	var moon_holder := Node3D.new()
+	add_child(moon_holder)
+	MinigameArt.sprite(moon_holder, STORY_ART_ROOT + "ash_moon.png", 11.0, Vector3.ZERO, true, "EmberAshMoon2D")
+	_moon = moon_holder
+	MinigameArt.retire_legacy_visuals(self)
 
 func _cam_peek(delta: float) -> void:
 	var mdx: float = _mlook_dx
@@ -1024,6 +1067,16 @@ func _jump_pressed() -> bool:
 # ---------------------------------------------------------------- per-frame
 
 func _sync_detail_lights() -> void:
+	if _storybook_background != null:
+		# The reconstructed fortress is an unshaded 2D storybook set. Keep the
+		# old light nodes as inert gameplay-state handles, never as renderers.
+		if _trail_light != null:
+			_trail_light.visible = false
+		if _king_light != null:
+			_king_light.visible = false
+		for lantern: Dictionary in _lanterns:
+			(lantern["light"] as OmniLight3D).visible = false
+		return
 	var speedy := _speedy()
 	if _trail_light != null:
 		_trail_light.visible = not speedy

@@ -131,9 +131,9 @@ func tick(delta: float, ppos: Vector3) -> void:
 			_flap(row, sin(now * 7.0 + phase) * 0.24)
 
 		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
-		var marker: Label3D = row["marker"]
+		var marker: Sprite3D = row["marker"]
 		marker.visible = not caught
-		var star: Label3D = row["star"]
+		var star: Sprite3D = row["star"]
 		star.visible = caught
 		if not caught:
 			var dist: float = node.position.distance_to(ppos)
@@ -172,14 +172,11 @@ func _spawn_context(context: String) -> void:
 	for d: Dictionary in DEFS:
 		if String(d["context"]) != context:
 			continue
-		var path := "res://assets/collectibles/%s.glb" % String(d["id"])
-		var scene := load(path) as PackedScene
-		if scene == null:
+		var path := "res://assets/minigames/critters/%s.png" % String(d["id"])
+		if not ResourceLoader.exists(path):
 			push_warning("Critter asset missing: " + path)
 			continue
-		var node := scene.instantiate() as Node3D
-		if node == null:
-			continue
+		var node := Node3D.new()
 		node.name = String(d["id"])
 		var scale_value: float = float(d["scale"])
 		node.scale = Vector3.ONE * scale_value
@@ -191,23 +188,13 @@ func _spawn_context(context: String) -> void:
 			base = Vector3(m.LEVEL2_POS.x + authored.x, m.lagoon_h(m.LEVEL2_POS.x + authored.x, m.LEVEL2_POS.z + authored.z) + authored.y, m.LEVEL2_POS.z + authored.z)
 		node.position = base
 		root_node.add_child(node)
-
-		var marker := Label3D.new()
-		marker.text = "✦"
-		marker.font_size = 150
-		marker.outline_size = 22
-		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
-		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		marker.no_depth_test = true
+		var animal := _sprite_card(path, 3.3)
+		animal.position = Vector3(0, 1.65 / scale_value, 0)
+		node.add_child(animal)
+		var marker := _sprite_card("res://assets/minigames/critters/discover.svg", 1.0, true)
 		marker.position = Vector3(0, 3.4 / scale_value, 0)
 		node.add_child(marker)
-		var star := Label3D.new()
-		star.text = "★"
-		star.font_size = 100
-		star.outline_size = 18
-		star.modulate = Color(0.55, 1.0, 0.72, 0.88)
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		star.no_depth_test = true
+		var star := _sprite_card("res://assets/minigames/critters/caught.svg", 1.0, true)
 		star.position = Vector3(0, 3.4 / scale_value, 0)
 		node.add_child(star)
 		var wings: Array[Node3D] = []
@@ -223,6 +210,18 @@ func _spawn_context(context: String) -> void:
 			"wings": wings,
 		})
 		index += 1
+
+
+func _sprite_card(path: String, height: float, no_depth: bool = false) -> Sprite3D:
+	var card := Sprite3D.new()
+	card.texture = load(path)
+	card.pixel_size = height / maxf(card.texture.get_height(), 1.0)
+	card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	card.shaded = false
+	card.transparent = true
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.no_depth_test = no_depth
+	return card
 
 
 func _find_wings(node: Node, out: Array[Node3D]) -> void:
@@ -287,15 +286,9 @@ func _catch(id: String) -> void:
 func _sweep_net() -> void:
 	if m.player == null:
 		return
-	var scene := load("res://assets/collectibles/catch_net.glb") as PackedScene
-	if scene == null:
-		return
-	var net := scene.instantiate() as Node3D
-	if net == null:
-		return
+	var net := _sprite_card("res://assets/minigames/critters/catch_net.svg", 5.0, true)
 	net.position = m.player.position + Vector3(0, 2.0, 0)
-	net.rotation_degrees = Vector3(15, m.player.rotation_degrees.y, -55)
-	net.scale = Vector3.ONE * 1.5
+	net.rotation_degrees.z = -55.0
 	m.add_child(net)
 	var tween := net.create_tween()
 	tween.tween_property(net, "rotation_degrees:z", 58.0, 0.36).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -389,12 +382,14 @@ func _draw_book() -> void:
 		var card_fill: Color = card_color.lightened(0.58) if caught else Color(0.88, 0.90, 0.98, 0.96)
 		var card := StorybookUI.add_panel(stage, Rect2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0, 356, 192), card_color if caught else StorybookUI.LAVENDER, card_fill, 24)
 		card.name = "CritterCard_%s" % String(d["id"])
-		var icon := Label.new()
-		icon.text = String(CATEGORY_ICON[m.collection_category]) if caught else "?"
-		StorybookUI.style_label(icon, 68, StorybookUI.INK, 3)
-		icon.position = Vector2(22, 23)
-		icon.size = Vector2(96, 96)
-		icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		var icon := TextureRect.new()
+		icon.texture = load("res://assets/minigames/critters/%s.png" % String(d["id"]))
+		icon.position = Vector2(10, 10)
+		icon.size = Vector2(126, 120)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.modulate = Color.WHITE if caught else Color(0.24, 0.26, 0.40, 0.38)
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		card.add_child(icon)
 		var name_label := Label.new()
 		name_label.text = String(d["name"]) if caught else "Mystery Friend"

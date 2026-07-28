@@ -70,6 +70,18 @@ func _init() -> void:
 	completed.process_mode = Node.PROCESS_MODE_DISABLED
 	get_root().add_child(completed)
 	completed.start(main, Callable())
+	var galaxy_legacy_layers := 0
+	for visual: GeometryInstance3D in completed.find_children("*", "GeometryInstance3D", true, false):
+		if (visual is MeshInstance3D or visual is MultiMeshInstance3D) and visual.layers != 0:
+			galaxy_legacy_layers += 1
+	_ck("storybook_world_uses_2d_runtime_art",
+		completed._storybook_background is Sprite3D
+		and completed.find_children("*", "Sprite3D", true, false).size() >= 8
+		and galaxy_legacy_layers == 0,
+		"sprites=%d legacy_layers=%d" % [
+			completed.find_children("*", "Sprite3D", true, false).size(),
+			galaxy_legacy_layers,
+		])
 	_ck("completed_world_has_no_quest_rewards",
 		completed._shards_got == GalaxyLevel.SHARDS
 		and completed._shard_nodes.is_empty()

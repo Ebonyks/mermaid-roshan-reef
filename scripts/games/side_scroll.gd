@@ -1,9 +1,10 @@
 class_name SideScrollStage
 extends RefCounted
 # Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D rig for "flat
-# stage" minigames. It puts the REAL player node (the rigged 3D Roshan with
-# whatever wardrobe skin she is wearing) on a left/right line in front of a
-# side-on camera, and owns the one-finger composite input read
+# stage" minigames. It puts the real player CONTROLLER on a left/right line in
+# front of a side-on camera. Clients provide a 2D avatar sprite; the controller
+# stays responsible for movement while its retired model visuals remain hidden.
+# The engine owns the one-finger composite input read
 # (drag-to-point ∥ virtual stick ∥ arrows/AD ∥ gamepad axis). Games built on
 # it own only their objective logic and set dressing.
 #   catch mode:  tick(delta)       — steer left/right under falling things
@@ -26,6 +27,9 @@ extends RefCounted
 # every node is registered in m.game_nodes so _clear_game reclaims it).
 
 var m: ReefMain
+
+const CONTACT_SHADOW := "res://assets/minigames/shared/contact_shadow.svg"
+const FLAT_PLACEHOLDER := "res://assets/minigames/shared/flat_placeholder.svg"
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -51,6 +55,9 @@ func open(cfg: Dictionary) -> void:
 	m.g["ss_bob"] = 0.0
 	m.g["ss_run_x"] = 0.0
 	m.g["ss_run_vy"] = 0.0
+	var avatar_path: String = String(cfg.get("avatar_sprite", ""))
+	if avatar_path != "" and ResourceLoader.exists(avatar_path):
+		m.player.set_skin("__minigame_2d", avatar_path)
 	var rt := Node3D.new()
 	rt.position = cfg.get("origin", m.ARENA_POS)
 	m.add_child(rt)
@@ -58,16 +65,17 @@ func open(cfg: Dictionary) -> void:
 	m.g["ss_root"] = rt
 	var bpath: String = String(cfg.get("backdrop", ""))
 	if bpath != "" and ResourceLoader.exists(bpath):
-		var bq := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = cfg.get("backdrop_size", Vector2(16, 9)) as Vector2
-		bq.mesh = qm
-		var bm := StandardMaterial3D.new()
-		bm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		bm.albedo_texture = load(bpath)
-		bq.material_override = bm
-		bq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		bq.position = Vector3(0, (qm.size.y as float) * 0.5 + 0.4, float(cfg.get("backdrop_z", -7.0)))
+		var bq := Sprite3D.new()
+		var backdrop_texture: Texture2D = load(bpath)
+		var backdrop_size: Vector2 = cfg.get("backdrop_size", Vector2(16, 9)) as Vector2
+		bq.texture = backdrop_texture
+		bq.pixel_size = 1.0 / maxf(1.0, float(backdrop_texture.get_height()))
+		var backdrop_base_width: float = float(backdrop_texture.get_width()) * bq.pixel_size
+		bq.scale = Vector3(backdrop_size.x / backdrop_base_width, backdrop_size.y, 1.0)
+		bq.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		bq.shaded = false
+		bq.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+		bq.position = Vector3(0, backdrop_size.y * 0.5 + 0.4, float(cfg.get("backdrop_z", -7.0)))
 		rt.add_child(bq)
 	# the parallax flat stack (world redesign P1) — each layer is a holder
 	# node the camera glide slides by its lock factor; tiles repeat sideways
@@ -85,17 +93,14 @@ func open(cfg: Dictionary) -> void:
 		var ltex: Texture2D = load(lpath)
 		var tiles: int = maxi(1, int(ld.get("tile", 1)))
 		for i in tiles:
-			var lq := MeshInstance3D.new()
-			var lqm := QuadMesh.new()
-			lqm.size = lsize
-			lq.mesh = lqm
-			var lm := StandardMaterial3D.new()
-			lm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-			lm.albedo_texture = ltex
-			if bool(ld.get("alpha", false)):
-				lm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			lq.material_override = lm
-			lq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			var lq := Sprite3D.new()
+			lq.texture = ltex
+			lq.pixel_size = 1.0 / maxf(1.0, float(ltex.get_height()))
+			var layer_base_width: float = float(ltex.get_width()) * lq.pixel_size
+			lq.scale = Vector3(lsize.x / layer_base_width, lsize.y, 1.0)
+			lq.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+			lq.shaded = false
+			lq.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED if not bool(ld.get("alpha", false)) else SpriteBase3D.ALPHA_CUT_DISCARD
 			lq.position = Vector3((float(i) - float(tiles - 1) * 0.5) * lsize.x,
 				lsize.y * 0.5 + float(ld.get("y", 0.0)), 0.0)
 			holder.add_child(lq)
@@ -129,6 +134,7 @@ func close() -> void:
 	# when the stage never opened (it runs for every game teardown).
 	if m.player != null:
 		m.player.rotation.z = 0.0
+		m._apply_skin()
 
 # ---- catch mode: steer on a line -------------------------------------------
 func tick(delta: float) -> Dictionary:
@@ -530,16 +536,13 @@ func companion_open(tex_path: String, height: float, start: Vector3) -> void:
 	spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	spr.shaded = false
 	r.add_child(spr)
-	var shadow := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = Vector2(height * 0.62, height * 0.62)
-	shadow.mesh = qm
+	var shadow := Sprite3D.new()
+	shadow.texture = load(CONTACT_SHADOW)
+	shadow.pixel_size = (height * 0.62) / maxf(1.0, float(shadow.texture.get_width()))
 	shadow.rotation_degrees.x = -90.0
-	var sm := StandardMaterial3D.new()
-	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	sm.albedo_color = Color(0.16, 0.28, 0.45, 0.28)
-	shadow.material_override = sm
+	shadow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	shadow.shaded = false
+	shadow.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
 	r.add_child(shadow)
 	m.g["ss_p2"] = spr
 	m.g["ss_p2_shadow"] = shadow
@@ -587,7 +590,7 @@ func companion_tick(delta: float, want_x: float, want_z: float, speed: float) ->
 	m.g["ss_p2z"] = z
 	var half_h: float = float(m.g.get("ss_p2h", 5.5)) * 0.5
 	spr.position = Vector3(x, half_h + 0.6 + sin(float(m.g.get("ss_bob", 0.0)) * 2.6 + 1.3) * 0.4, z)
-	var shadow: MeshInstance3D = m.g.get("ss_p2_shadow") as MeshInstance3D
+	var shadow: Sprite3D = m.g.get("ss_p2_shadow") as Sprite3D
 	if shadow != null and is_instance_valid(shadow):
 		shadow.position = Vector3(x, 0.15, z)
 	var tap: bool = hdown and not bool(m.g.get("ss_p2_tap_prev", false))
@@ -610,30 +613,25 @@ func flat(tex_path: String, size: Vector2, x: float, z: float, y: float = 0.0, s
 	var holder := Node3D.new()
 	holder.position = Vector3(x, 0.0, z)
 	r.add_child(holder)
-	var q := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = size
-	q.mesh = qm
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-	mat.albedo_texture = load(tex_path)
-	q.material_override = mat
-	q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var q := Sprite3D.new()
+	var flat_texture: Texture2D = load(tex_path)
+	q.texture = flat_texture
+	q.pixel_size = 1.0 / maxf(1.0, float(flat_texture.get_height()))
+	var flat_base_width: float = float(flat_texture.get_width()) * q.pixel_size
+	q.scale = Vector3(size.x / flat_base_width, size.y, 1.0)
+	q.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	q.shaded = false
+	q.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	q.position = Vector3(0, size.y * 0.5 + y, 0)
 	holder.add_child(q)
 	if shadow:
-		var sq := MeshInstance3D.new()
-		var sqm := QuadMesh.new()
-		sqm.size = Vector2(size.x * 0.6, size.x * 0.6)
-		sq.mesh = sqm
+		var sq := Sprite3D.new()
+		sq.texture = load(CONTACT_SHADOW)
+		sq.pixel_size = (size.x * 0.6) / maxf(1.0, float(sq.texture.get_width()))
 		sq.rotation_degrees.x = -90.0
-		var sm := StandardMaterial3D.new()
-		sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		sm.albedo_color = Color(0.16, 0.28, 0.45, 0.28)
-		sq.material_override = sm
-		sq.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		sq.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		sq.shaded = false
+		sq.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
 		sq.position = Vector3(0, 0.12, 0)
 		holder.add_child(sq)
 	return holder
@@ -731,21 +729,20 @@ func prop(tex_path: String, size: Vector2, x: float, z: float, cfg: Dictionary =
 		bx.size = Vector3(size.x * 0.9, size.y, float(cfg.get("depth", maxf(0.6, size.x * 0.45))))
 		cs.shape = bx
 	body.add_child(cs)
-	var q := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = size
-	q.mesh = qm
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.cull_mode = BaseMaterial3D.CULL_DISABLED   # a tumble shows both faces
+	var q := Sprite3D.new()
+	var prop_texture: Texture2D
 	if tex_path != "" and ResourceLoader.exists(tex_path):
-		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-		mat.albedo_texture = load(tex_path)
+		prop_texture = load(tex_path)
 	else:
-		var tint: Color = cfg.get("color", Color(0.98, 0.82, 0.90))
-		mat.albedo_color = tint
-	q.material_override = mat
-	q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		prop_texture = load(FLAT_PLACEHOLDER)
+		q.modulate = cfg.get("color", Color(0.98, 0.82, 0.90))
+	q.texture = prop_texture
+	q.pixel_size = 1.0 / maxf(1.0, float(prop_texture.get_height()))
+	var prop_base_width: float = float(prop_texture.get_width()) * q.pixel_size
+	q.scale = Vector3(size.x / prop_base_width, size.y, 1.0)
+	q.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	q.shaded = false
+	q.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	body.add_child(q)
 	# the swell's two channels need handles: the quad for the cosmetic tide
 	# on sleepers, the stir stamp for the fading solver tide on awake bodies
@@ -830,7 +827,7 @@ func props_tick(delta: float) -> Dictionary:
 			if imp.length_squared() > 0.0001:
 				b.apply_central_impulse(imp * delta * b.mass)   # wakes it
 				b.set_meta("ss_stir", t)
-		var q: MeshInstance3D = b.get_meta("ss_quad", null) as MeshInstance3D
+		var q: Sprite3D = b.get_meta("ss_quad", null) as Sprite3D
 		if b.sleeping:
 			if amp > 0.0 and q != null and is_instance_valid(q):
 				var sw := swell_sway(b.global_position.x)
@@ -850,9 +847,11 @@ func props_tick(delta: float) -> Dictionary:
 	return {"count": alive.size(), "awake": awake}
 
 # ---- shared bits for stage dressing ----------------------------------------
-func glow(col: Color, size: float) -> MeshInstance3D:
+func glow(col: Color, size: float) -> Sprite3D:
 	# unparented additive billboard glow — halo for pickups / fallers
 	var gt := GradientTexture2D.new()
+	gt.width = 512
+	gt.height = 512
 	gt.fill = GradientTexture2D.FILL_RADIAL
 	gt.fill_from = Vector2(0.5, 0.5)
 	gt.fill_to = Vector2(0.5, 0.0)
@@ -860,16 +859,11 @@ func glow(col: Color, size: float) -> MeshInstance3D:
 	gr.set_color(0, Color(col.r, col.g, col.b, 0.5))
 	gr.set_color(1, Color(col.r, col.g, col.b, 0.0))
 	gt.gradient = gr
-	var qm := QuadMesh.new()
-	qm.size = Vector2(size, size)
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	mat.albedo_texture = gt
-	mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	qm.material = mat
-	var mi := MeshInstance3D.new()
-	mi.mesh = qm
-	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var mi := Sprite3D.new()
+	mi.texture = gt
+	mi.pixel_size = size / 512.0
+	mi.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	mi.shaded = false
+	mi.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+	mi.no_depth_test = true
 	return mi

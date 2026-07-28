@@ -76,11 +76,17 @@ func _init() -> void:
 	_ck("shell-clasp gates guard both landings, closed", opera.gates.size() == 2 and not bool(opera.gates[0]["open"]) and not bool(opera.gates[1]["open"]))
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
-	# costumes are bone-attached to the REAL rigged player (puppet mode), not
-	# floating act props — the act must dress her and put her on stage
-	_ck("act one dresses Roshan in a bone-attached costume",
-		act != null and String(main.player.costume_id) == "chef" and main.player.costume_nodes.size() > 0)
-	_ck("act one puts the real 3D Roshan on stage", bool(main.player.puppet) and main.player.visible)
+	# The 2D migration keeps the gameplay position but retires the rigged
+	# player and costume meshes in favor of one unshaded storybook cutout.
+	_ck("act one uses the 2D Roshan stage cutout",
+		act != null and act.storybook_avatar is Sprite3D)
+	_ck("act one keeps the legacy 3D player offstage",
+		not bool(main.player.puppet) and not main.player.visible)
+	var visible_legacy_meshes := 0
+	for visual: GeometryInstance3D in act.find_children("*", "GeometryInstance3D", true, false):
+		if (visual is MeshInstance3D or visual is MultiMeshInstance3D) and visual.layers != 0:
+			visible_legacy_meshes += 1
+	_ck("act one legacy meshes cannot render", visible_legacy_meshes == 0)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)

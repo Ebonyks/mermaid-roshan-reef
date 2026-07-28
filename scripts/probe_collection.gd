@@ -33,9 +33,15 @@ func _init() -> void:
 	for d: Dictionary in collection.DEFS:
 		var id := String(d["id"])
 		unique[id] = true
-		assets_ok = assets_ok and ResourceLoader.exists("res://assets/collectibles/%s.glb" % id)
+		assets_ok = assets_ok and ResourceLoader.exists("res://assets/minigames/critters/%s.png" % id)
 	_check(unique.size() == 18, "all species ids are unique")
-	_check(assets_ok and ResourceLoader.exists("res://assets/collectibles/catch_net.glb"), "all Blender GLBs import")
+	_check(
+		assets_ok
+		and ResourceLoader.exists("res://assets/minigames/critters/catch_net.svg")
+		and ResourceLoader.exists("res://assets/minigames/critters/discover.svg")
+		and ResourceLoader.exists("res://assets/minigames/critters/caught.svg"),
+		"all tailored 2D critter art imports",
+	)
 
 	# Zero input must never collect anything. The critters wait kindly forever.
 	main.touch_ui.action_down = false

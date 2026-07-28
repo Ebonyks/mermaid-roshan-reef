@@ -3,6 +3,7 @@ extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
@@ -1938,6 +1939,23 @@ func _spawn_crafted_fish() -> void:
 			"spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0,
 			"ph": randf() * TAU, "crafted": true, "clearance": 2.0})
 
+func _shop_pet_sprite(species: String, height: float) -> Sprite3D:
+	var path: String = String(ShopGame.ANIMAL_SPRITES.get(species, ""))
+	if path == "" or not ResourceLoader.exists(path):
+		return null
+	var texture: Texture2D = load(path)
+	if texture == null:
+		return null
+	var sprite := Sprite3D.new()
+	sprite.name = "FreedShopFriend_%s_2D" % species
+	sprite.texture = texture
+	sprite.pixel_size = height / maxf(1.0, float(texture.get_height()))
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.shaded = false
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	add_child(sprite)
+	return sprite
+
 func _spawn_shop_animals() -> void:
 	# put every OWNED tank species in the water: its old patrol rows plus its
 	# school babies. Idempotent via animals_spawned, same shape as
@@ -1950,32 +1968,20 @@ func _spawn_shop_animals() -> void:
 			continue
 		animals_spawned[sp] = true
 		for pat in (it["patrols"] as Array):
-			var inst := _place_aq(String(it["model"]), Vector3.ZERO, float(pat[3]), true)
+			var inst := _shop_pet_sprite(sp, float(pat[3]) * 2.2)
 			if inst == null:
 				continue
 			var mover := {"node": inst, "rad": float(pat[0]), "spd": float(pat[1]),
 				"y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp,
 				"clearance": maxf(2.0, float(pat[3]) * 0.55)}
-			if sp == "turtle":
-				# the freed turtle keeps its tank skeleton: flippers stroke
-				# out in the open reef too, so the purchase payoff is visible
-				var rig := _rig_turtle(inst, 3.0)
-				if not rig.is_empty():
-					mover["rig"] = rig
-					_set_sway(inst, 0.03)
 			aquatic_movers.append(mover)
 		for b in range(int(it["babies"])):
-			var binst := _place_aq(String(it["model"]), Vector3.ZERO, 1.2 + randf() * 1.0, true)
+			var binst := _shop_pet_sprite(sp, 2.4 + randf() * 1.6)
 			if binst == null:
 				continue
 			var bmover := {"node": binst, "rad": 40.0 + randf() * 150.0,
 				"spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0,
 				"ph": randf() * TAU, "shop_pet": sp, "clearance": 2.0}
-			if sp == "turtle":
-				var brig := _rig_turtle(binst, 3.6)
-				if not brig.is_empty():
-					bmover["rig"] = brig
-					_set_sway(binst, 0.03)
 			aquatic_movers.append(bmover)
 
 var _turtle_rig_mesh: ArrayMesh = null   # cage-skinned turtle mesh, built once, shared
@@ -2147,6 +2153,8 @@ func _tick_aquatic(delta: float) -> void:
 		var pos := Vector3(px, clampf(desired_y, float(mv["_cy"]), ceiling), pz)
 		node.position = pos
 		node.rotation.y = -ang + PI * 0.5
+		if node is Sprite3D:
+			(node as Sprite3D).flip_h = cos(ang) < 0.0
 		if mv.has("rig"):
 			_turtle_idle(mv["rig"], t)
 		# a fish SHE made recognises her: heart puff + chirp when she swims by
@@ -2290,32 +2298,15 @@ func _build_friends() -> void:
 		var fp: Vector2 = ReefDistricts.friend_position(i)
 		var x: float = fp.x
 		var z: float = fp.y
-		# 3D migration (owner 2026-07-19): prefer a gen2 model when one has
-		# landed for this character; the sprite cutout remains the fallback so
-		# the cast converts one .glb at a time with zero breakage.
 		var tex_name := String(fd["tex"])
-		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
-		var spr: Node3D
-		if ResourceLoader.exists(glb_path):
-			var fps2: PackedScene = load(glb_path)
-			var mdl: Node3D = fps2.instantiate() as Node3D
-			mdl.scale = Vector3.ONE * 4.0
-			mdl.position = Vector3(x, seabed_y(x, z) + 4.0, z)
-			add_child(mdl)
-			var fap := _find_anim(mdl)
-			if fap != null and fap.get_animation_list().size() > 0:
-				var clip: String = fap.get_animation_list()[0]
-				fap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
-				fap.play(clip)
-			spr = mdl
-		else:
-			var cut := Sprite3D.new()
-			cut.texture = _cutout_tex(tex_name)
-			cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cut.pixel_size = 0.016
-			cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
-			add_child(cut)
-			spr = cut
+		var cut := Sprite3D.new()
+		cut.texture = _cutout_tex(tex_name)
+		cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cut.pixel_size = 0.016
+		cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+		cut.shaded = false
+		add_child(cut)
+		var spr: Node3D = cut
 		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
@@ -2323,6 +2314,7 @@ func _build_friends() -> void:
 		beacon.light_energy = 0.7
 		beacon.omni_range = 15.0
 		beacon.position = spr.position + Vector3(0, 8, 0)
+		beacon.visible = false
 		add_child(beacon)
 		var pil := MeshInstance3D.new()
 		var pm2 := CylinderMesh.new()
@@ -2339,7 +2331,15 @@ func _build_friends() -> void:
 		pil.mesh = pm2
 		pil.material_override = pmat
 		pil.position = Vector3(spr.position.x, spr.position.y + pm2.height * 0.5, spr.position.z)
+		pil.visible = false
 		add_child(pil)
+		var story_marker := MinigameArt.sprite(
+			self,
+			"res://assets/minigames/critters/discover.svg",
+			3.0,
+			spr.position + Vector3(0, 8.5, 0),
+			true,
+			"FriendGameMarker2D")
 		var sparks: Array = []
 		for sk in range(2):
 			var orb := MeshInstance3D.new()
@@ -2352,69 +2352,48 @@ func _build_friends() -> void:
 			omat.emission = bcol
 			omat.emission_energy_multiplier = 1.2
 			orb.material_override = omat
+			orb.visible = false
 			add_child(orb)
 			sparks.append(orb)
 		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
 			"start_radius": fd.get("start_radius", 8.0),
-			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
+			"beacon": beacon, "pillar": pil, "sparks": sparks, "story_marker": story_marker,
+			"bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
 
 func _build_kart_portal() -> void:
-	# the Ocean Race gate: a rainbow ring standing just above the REAL seabed near
-	# spawn — the race track is built over this world's actual ocean floor
-	# open sand flat south of the reef — it used to sit 5 units from Evie's
-	# meadow, which crowded her hide-and-seek spot with a race gate
 	var pos := Vector3(-5.0, seabed_y(-5.0, -95.0) + 9.0, -95.0)
 	kart_portal_pos = pos
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 7.0; tm.outer_radius = 9.0; tm.rings = 32; tm.ring_segments = 16
-	ring.mesh = tm
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
-	var m := ShaderMaterial.new(); m.shader = sh
-	ring.material_override = m
-	ring.position = pos
-	add_child(ring)
+	var gate := MinigameArt.sprite(
+		self,
+		"res://assets/minigames/shared/ocean_race_gate.svg",
+		18.0,
+		pos,
+		true,
+		"OceanRaceGate2D")
 	var lab := Label3D.new()
 	lab.text = "Ocean Race!\nSwim in to RACE!"
 	lab.font_size = 80; lab.outline_size = 16
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.position = pos + Vector3(0, 11.0, 0)
 	add_child(lab)
-	var gl := OmniLight3D.new()
-	gl.light_color = Color(1.0, 0.7, 1.0); gl.light_energy = 3.0; gl.omni_range = 30.0
-	gl.position = pos
-	add_child(gl)
-	var tw := ring.create_tween().set_loops()
-	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
+	var tw := gate.create_tween().set_loops()
+	tw.tween_property(gate, "modulate", Color(1.0, 0.9, 1.0), 1.2)
+	tw.tween_property(gate, "modulate", Color.WHITE, 1.2)
 
-func _kart_gateway(pos: Vector3, label: String, col: Color, show_ring: bool = true) -> void:
-	# a clear, glowing race portal at a rainbow leg
-	if show_ring:
-		var ring := MeshInstance3D.new()
-		var tm := TorusMesh.new()
-		tm.inner_radius = 5.0; tm.outer_radius = 6.5; tm.rings = 24; tm.ring_segments = 12
-		ring.mesh = tm
-		var sh := Shader.new()
-		sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
-		var ring_mat := ShaderMaterial.new(); ring_mat.shader = sh
-		ring.material_override = ring_mat
-		ring.position = pos
-		add_child(ring); game_nodes.append(ring)
-		var tw := ring.create_tween().set_loops()
-		tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
+func _kart_gateway(pos: Vector3, label: String, col: Color, _show_ring: bool = true) -> void:
+	var path := "res://assets/minigames/shared/rainbow_race_gate.svg"
+	if label.contains("Butterfly"):
+		path = "res://assets/minigames/galaxy/home_ring.png"
+	var gate := MinigameArt.sprite(self, path, 14.0, pos, true, "RainbowDestinationGate2D")
+	game_nodes.append(gate)
 	var lab := Label3D.new()
 	lab.text = label; lab.font_size = 64; lab.outline_size = 14
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.modulate = col
 	lab.position = pos + Vector3(0, 8.0, 0)
 	add_child(lab); game_nodes.append(lab)
-	var gl := OmniLight3D.new()
-	gl.light_color = col; gl.light_energy = 3.0; gl.omni_range = 22.0
-	gl.position = pos
-	add_child(gl); game_nodes.append(gl)
 
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
 	_fade_cut(_start_kart_game_now.bind(reversed, ground))
@@ -5446,7 +5425,8 @@ func _end_sleep() -> void:
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
-	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
+	# The rainbow slide uses its own authored 2D soft-play plate and returns to
+	# the courtyard when done.
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -5462,34 +5442,6 @@ func _l2_start_slide() -> void:
 		arena_env.ambient_light_color = Color(0.88, 0.90, 1.0)
 		arena_env.ambient_light_energy = 0.62
 		_apply_scene_grade(arena_env, "bright_pastel")
-	# flashing colored disco lights ringing the play place (this is the RAINBOW slide!)
-	var rbc := [Color(1, 0.2, 0.2), Color(1, 0.6, 0.1), Color(1, 0.9, 0.2), Color(0.2, 0.9, 0.3), Color(0.2, 0.5, 1.0), Color(0.6, 0.3, 0.9)]
-	for li in range(8):
-		var fl := OmniLight3D.new()
-		fl.light_energy = 1.25 if quality == "speedy" else 2.0
-		fl.omni_range = 34.0
-		var ang: float = float(li) / 8.0 * TAU
-		fl.position = ARENA_POS + Vector3(cos(ang) * 17.0, 5.0 + float(li % 4) * 8.0, sin(ang) * 17.0)
-		fl.light_color = rbc[li % rbc.size()]
-		add_child(fl)
-		game_nodes.append(fl)
-		var tw := fl.create_tween().set_loops()
-		for ci in range(rbc.size()):
-			tw.tween_property(fl, "light_color", rbc[(li + ci + 1) % rbc.size()], 0.3)
-	# a couple of rainbow arches over the climb
-	for ai in range(2):
-		var arc := MeshInstance3D.new()
-		var at := TorusMesh.new(); at.inner_radius = 16.0 + float(ai) * 6.0; at.outer_radius = 18.0 + float(ai) * 6.0
-		at.rings = 32; at.ring_segments = 16
-		arc.mesh = at
-		var ash := Shader.new()
-		ash.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=UV.y; vec3 c; if(b<0.16)c=vec3(0.9,0.2,0.3);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.9,0.3);else if(b<0.66)c=vec3(0.3,0.8,0.4);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.6,0.4,0.9); ALBEDO=c; EMISSION=c*0.5; }"
-		var am := ShaderMaterial.new(); am.shader = ash
-		arc.material_override = am
-		arc.position = ARENA_POS + Vector3(0, 24.0 + float(ai) * 6.0, 0)
-		arc.rotation_degrees = Vector3(0, 0, 90)
-		add_child(arc)
-		game_nodes.append(arc)
 
 func _return_to_courtyard() -> void:
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
@@ -5980,19 +5932,30 @@ func _tick_guide(delta: float) -> void:
 		var pil: MeshInstance3D = f.get("pillar")
 		if pil == null or not is_instance_valid(pil):
 			continue
+		var story_marker: Sprite3D = f.get("story_marker") as Sprite3D
 		var pmat2 := pil.material_override as StandardMaterial3D
 		if pmat2 == null:
 			continue
 		var beacon: OmniLight3D = f.get("beacon") as OmniLight3D
 		if bool(f["won"]):
+			if story_marker != null:
+				story_marker.visible = false
 			pmat2.albedo_color.a = 0.012
 			if beacon != null:
 				beacon.light_energy = 0.25
 		elif have and (f["node"] as Node3D).position == target:
+			if story_marker != null:
+				story_marker.visible = true
+				story_marker.modulate = Color(1.0, 0.9 + 0.1 * sin(tt2 * 2.4), 0.58)
+				story_marker.scale = Vector3.ONE * (1.0 + 0.1 * sin(tt2 * 2.4))
 			pmat2.albedo_color.a = 0.12 + 0.07 * (0.5 + 0.5 * sin(tt2 * 2.4))
 			if beacon != null:
 				beacon.light_energy = 1.5 + 0.35 * sin(tt2 * 2.4)
 		else:
+			if story_marker != null:
+				story_marker.visible = true
+				story_marker.modulate = Color(0.82, 0.88, 1.0, 0.72)
+				story_marker.scale = Vector3.ONE
 			# idle floor 0.09: actually visible on a phone in daylight, yet the
 			# nearest-friend pulse (0.12-0.19) still reads clearly brighter
 			pmat2.albedo_color.a = 0.09
@@ -6501,57 +6464,27 @@ func _ice_mat(col: Color, glow: float = 0.18, tex: String = "") -> StandardMater
 	return m
 
 func _build_slide_portal() -> void:
-	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
 	slide_portal_pos = Vector3(48.0, WATER_TOP + 0.5, -42.0)
-	var floe := MeshInstance3D.new()
-	var fm := CylinderMesh.new(); fm.top_radius = 11.0; fm.bottom_radius = 8.5; fm.height = 3.0
-	floe.mesh = fm
-	floe.material_override = _ice_mat(Color(0.95, 1.0, 1.05), 0.08, "snow")
-	floe.position = slide_portal_pos + Vector3(0, -2.0, 0)
-	add_child(floe)
-	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)
-	if peng != null:
-		# face the reef center (gen2 -X face) so Roshan meets his face, not his back
-		peng.rotation.y = atan2(-slide_portal_pos.z, slide_portal_pos.x)
-		_play_clip(peng, "idle")
-	if peng != null:
-		slide_portal_penguin = peng
+	var peng := MinigameArt.sprite(
+		self,
+		"res://assets/minigames/slide_race/penguin.png",
+		10.0,
+		slide_portal_pos + Vector3(0, 3.0, 0),
+		true,
+		"PenguinSlideGate2D")
+	slide_portal_penguin = peng
 
 func _build_brawl_portal() -> void:
-	# Princess Huluu waits by her toy castle on the seabed — swim up to start
-	# the two-hero TOY CASTLE brawler (scripts/games/brawl.gd)
 	var bx := -98.0
 	var bz := 72.0
 	brawl_portal_pos = Vector3(bx, seabed_y(bx, bz) + 4.0, bz)
-	var castle := Node3D.new()
-	castle.position = brawl_portal_pos + Vector3(0, -3.2, -5.0)
-	add_child(castle)
-	var keep := MeshInstance3D.new()
-	var km := BoxMesh.new()
-	km.size = Vector3(7.0, 6.0, 5.0)
-	keep.mesh = km
-	keep.position = Vector3(0, 3.0, 0)
-	keep.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
-	castle.add_child(keep)
-	for tx in [-4.2, 4.2]:
-		var tower := MeshInstance3D.new()
-		var tm := CylinderMesh.new()
-		tm.top_radius = 1.5
-		tm.bottom_radius = 1.7
-		tm.height = 8.0
-		tower.mesh = tm
-		tower.position = Vector3(float(tx), 4.0, 0)
-		tower.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
-		castle.add_child(tower)
-		var roof := MeshInstance3D.new()
-		var rm := CylinderMesh.new()
-		rm.top_radius = 0.05
-		rm.bottom_radius = 1.9
-		rm.height = 2.6
-		roof.mesh = rm
-		roof.position = Vector3(float(tx), 9.2, 0)
-		roof.material_override = _soft_mat(Color(0.78, 0.55, 0.75), 0.16)
-		castle.add_child(roof)
+	MinigameArt.sprite(
+		self,
+		"res://assets/minigames/brawl/gate.png",
+		15.0,
+		brawl_portal_pos + Vector3(0, 3.2, -5.0),
+		true,
+		"ToyCastleGate2D")
 	var hu := Sprite3D.new()
 	hu.texture = load("res://assets/characters/friends/huluu.png")
 	hu.pixel_size = 5.5 / maxf(1.0, float(hu.texture.get_height()))
@@ -6559,11 +6492,6 @@ func _build_brawl_portal() -> void:
 	hu.shaded = false
 	hu.position = brawl_portal_pos + Vector3(3.2, 0.4, 3.0)
 	add_child(hu)
-	_halo(brawl_portal_pos + Vector3(0, 0.6, 0), Color(1.0, 0.8, 0.95), 10.0)
-	_halo(slide_portal_pos + Vector3(0, 3, 0), Color(0.6, 0.9, 1.0), 15.0)
-	var l := OmniLight3D.new()
-	l.light_color = Color(0.7, 0.9, 1.0); l.light_energy = 2.2; l.omni_range = 24.0
-	l.position = slide_portal_pos + Vector3(0, 6, 0); add_child(l)
 	var lab := Label3D.new()
 	lab.text = "🐧 Penguin Slide!"
 	lab.font_size = 64; lab.pixel_size = 0.04; lab.outline_size = 14

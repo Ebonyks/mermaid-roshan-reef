@@ -20,7 +20,10 @@ const HULUU_SPEED := 20.0
 const STUN_T := 3.0                  # Huluu's stun duration
 const STUN_R := 5.0                  # Huluu's stun reach
 const BOP_R := 6.0                   # Roshan's base pop reach (mercy grows it)
-const BANNERS := [Color(1.0, 0.72, 0.82), Color(0.62, 0.90, 0.78), Color(0.78, 0.72, 0.98), Color(1.0, 0.87, 0.55)]
+const BACKGROUND := "res://assets/minigames/brawl/background.png"
+const ROSHAN_BOP := "res://assets/minigames/brawl/roshan_bop.png"
+const IMP_SPRITE := "res://assets/minigames/brawl/imp.png"
+const GATE_SPRITE := "res://assets/minigames/brawl/gate.png"
 
 var m: ReefMain
 var stage: SideScrollStage
@@ -81,7 +84,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			continue
 		e["stun"] = maxf(0.0, float(e.get("stun", 0.0)) - delta)
 		if float(e["stun"]) > 0.0:
-			en.rotation.y += delta * 6.0   # dizzy spin while stunned
+			en.rotation.z += delta * 6.0   # dizzy paper-doll spin while stunned
 			continue
 		var tx: float = float(s["px"])
 		var tz: float = float(s["pz"])
@@ -94,7 +97,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			dv = dv.normalized() * imp_spd * delta
 			en.position.x += dv.x
 			en.position.z += dv.y
-			en.rotation.y = atan2(dv.x, dv.y)
+			en.scale.x = absf(en.scale.x) * (-1.0 if dv.x < 0.0 else 1.0)
 		elif tx == float(s["px"]) and dist < 2.2 and float(e.get("bump_cd", 0.0)) <= 0.0:
 			# a giggly bump: shove the imp back, sparkle, no harm done
 			e["bump_cd"] = 1.4
@@ -161,7 +164,7 @@ func _spawn_wave(seg: int) -> void:
 	var r := stage.root()
 	var left: float = X0 + float(seg) * SEG_W
 	for i in range(int(WAVES[seg])):
-		var imp := DungeonArt.spawn("imp", r,
+		var imp := _standee(IMP_SPRITE, 3.2, r,
 			Vector3(left + SEG_W * 0.45 + randf() * SEG_W * 0.45,
 				0.4, randf_range(-HALF_D + 1.0, HALF_D - 1.0)))
 		imp.scale = Vector3.ONE * 1.6
@@ -180,71 +183,39 @@ func _stage_open() -> void:
 		"cam_dist": 24.0,
 		"look_h": 6.5,
 		"cam_follow": 0.85,
+		"cam_fov": 58.0,
+		"screen_half_w": 65.0,
+		"screen_z": -18.0,
+		"avatar_sprite": ROSHAN_BOP,
+		"backdrop": BACKGROUND,
+		"backdrop_size": Vector2(130.0, 65.0),
+		"backdrop_z": -18.0,
 	})
 	m._play_music("race")   # the energetic track until the castle gets its own
 	var r := stage.root()
-	var total_w: float = SEG_W * float(WAVES.size())
-	# castle wall along the back of the plane, pastel stone + crenellations
-	var wall := MeshInstance3D.new()
-	var wm := BoxMesh.new()
-	wm.size = Vector3(total_w + 22.0, 12.0, 3.0)
-	wall.mesh = wm
-	wall.position = Vector3(X0 + total_w * 0.5, 6.0, -HALF_D - 5.5)
-	wall.material_override = m._soft_mat(Color(0.86, 0.80, 0.88), 0.08)
-	r.add_child(wall)
-	for c in range(int(total_w / 7.0)):
-		var cren := MeshInstance3D.new()
-		var cm := BoxMesh.new()
-		cm.size = Vector3(3.0, 2.4, 3.0)
-		cren.mesh = cm
-		cren.position = Vector3(X0 - 8.0 + float(c) * 7.0, 13.2, -HALF_D - 5.5)
-		cren.material_override = m._soft_mat(Color(0.80, 0.73, 0.84), 0.08)
-		r.add_child(cren)
-	# towers with candy-cone roofs at the ends, banners along the wall
-	for tx in [X0 - 9.0, X0 + total_w + 9.0]:
-		var tower := MeshInstance3D.new()
-		var tm := CylinderMesh.new()
-		tm.top_radius = 4.2
-		tm.bottom_radius = 4.8
-		tm.height = 18.0
-		tower.mesh = tm
-		tower.position = Vector3(float(tx), 9.0, -HALF_D - 5.5)
-		tower.material_override = m._soft_mat(Color(0.86, 0.80, 0.88), 0.08)
-		r.add_child(tower)
-		var roof := MeshInstance3D.new()
-		var rm := CylinderMesh.new()
-		rm.top_radius = 0.1
-		rm.bottom_radius = 5.2
-		rm.height = 6.5
-		roof.mesh = rm
-		roof.position = Vector3(float(tx), 21.2, -HALF_D - 5.5)
-		roof.material_override = m._soft_mat(Color(0.78, 0.55, 0.75), 0.14)
-		r.add_child(roof)
-	for b in range(int(total_w / 12.0)):
-		var ban := MeshInstance3D.new()
-		var bqm := QuadMesh.new()
-		bqm.size = Vector2(2.6, 4.2)
-		ban.mesh = bqm
-		ban.position = Vector3(X0 + 4.0 + float(b) * 12.0, 8.5, -HALF_D - 3.9)
-		ban.material_override = m._soft_mat(BANNERS[b % BANNERS.size()], 0.2)
-		r.add_child(ban)
-	# gates between segments: chunky pastel portcullis bars that lift open
+	# Two separate padded-gate standees remain live so each cleared wave can
+	# visibly open the next chapter of the authored toy courtyard.
 	for gx in range(WAVES.size() - 1):
-		var gate := Node3D.new()
-		gate.position = Vector3(X0 + float(gx + 1) * SEG_W, 0.0, 0.0)
-		for bar in range(5):
-			var bm2 := MeshInstance3D.new()
-			var brm := BoxMesh.new()
-			brm.size = Vector3(0.9, 11.0, 0.9)
-			bm2.mesh = brm
-			bm2.position = Vector3(0, 5.5, -HALF_D + 0.8 + float(bar) * 3.1)
-			bm2.material_override = m._soft_mat(Color(0.94, 0.83, 0.55), 0.16)
-			gate.add_child(bm2)
-		r.add_child(gate)
+		var gate := _standee(GATE_SPRITE, 12.0, r,
+			Vector3(X0 + float(gx + 1) * SEG_W, 0.0, -HALF_D + 0.2))
 		(m.g["gates"] as Array).append(gate)
 	# HULUU, player 2: the stuffie herself as an illustrated-cutout hero
 	stage.companion_open("res://assets/characters/friends/huluu.png", 5.5,
 		Vector3(-6.0, 0, 3.0))
+
+func _standee(tex_path: String, height: float, parent: Node3D, pos: Vector3) -> Node3D:
+	var holder := Node3D.new()
+	holder.position = pos
+	parent.add_child(holder)
+	var sprite := Sprite3D.new()
+	sprite.texture = load(tex_path)
+	sprite.pixel_size = height / maxf(1.0, float(sprite.texture.get_height()))
+	sprite.position.y = height * 0.5
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.shaded = false
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	holder.add_child(sprite)
+	return holder
 
 func _open_gate(seg: int) -> void:
 	var gates: Array = m.g["gates"]

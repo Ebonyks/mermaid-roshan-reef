@@ -3,6 +3,7 @@ class_name GalaxyLevel
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 # ============================================================================
 # LEVEL 3 — ROSHAN'S BUTTERFLY WORLD. A Mario-Galaxy-style mini-planet themed
 # after the book's Milwaukee-museum butterfly vivarium: glass conservatory dome,
@@ -31,6 +32,7 @@ const JUMP_V := 17.0
 const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const SHARDS := 7
+const STORY_ART_ROOT := "res://assets/minigames/galaxy/"
 const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
@@ -59,6 +61,8 @@ var _hud: CanvasLayer = null
 var _lbl_shards: Label = null
 var _lbl_big: Label = null
 var _lbl_hint: Label = null
+var _storybook_background: Sprite3D = null
+var _butterfly_art_i := 0
 
 # avatar state on the sphere
 var _dir := Vector3(0, 0, 1)      # unit vector from planet centre to feet
@@ -182,6 +186,7 @@ func start(main: Node, finish_cb: Callable) -> void:
 	_build_home_ring()
 	_build_avatar()
 	_build_camera()
+	_install_storybook_art()
 	_build_hud()
 	_lbl_big.text = "🦋 Roshan's Butterfly World 🦋"
 	_lbl_hint.text = "Rosalina's castle is OPEN!  •  rescue 7 lost butterflies or visit the dance floor!"
@@ -481,40 +486,10 @@ func _authored_prop(path: String, parent: Node3D, pos: Vector3, target_long: flo
 
 func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
 	var holder := Node3D.new()
-	if ResourceLoader.exists(BUTTERFLY_STORY_GLB):
-		var story: Node3D = (load(BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
-		holder.add_child(story)
-		_fit_small(story, wingspan)
-		_tint_meshes(story, tint, 0.14)
-		holder.set_meta("wing_l", story.find_child("wing_L", true, false))
-		holder.set_meta("wing_r", story.find_child("wing_R", true, false))
-		return holder
-	var card_path := "res://assets/props/gen2/butterfly%d.png" % (1 + randi() % 2)
-	if ResourceLoader.exists(card_path):
-		var tex: Texture2D = load(card_path)
-		var card := Sprite3D.new()
-		card.texture = tex
-		card.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		card.pixel_size = wingspan / maxf(float(tex.get_width()), 1.0)
-		card.modulate = Color.WHITE.lerp(tint, 0.28)
-		holder.add_child(card)
-		return holder
-	var path: String = BUTTERFLY_GLBS[randi() % BUTTERFLY_GLBS.size()]
-	if ResourceLoader.exists(path):
-		var bf: Node3D = (load(path) as PackedScene).instantiate()
-		holder.add_child(bf)
-		_fit_small(bf, wingspan)
-		_tint_meshes(bf, tint, 0.25)
-	else:
-		var q := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = Vector2(wingspan, wingspan * 0.7)
-		q.mesh = qm
-		var m := StandardMaterial3D.new()
-		m.albedo_color = tint
-		m.cull_mode = BaseMaterial3D.CULL_DISABLED
-		q.material_override = m
-		holder.add_child(q)
+	var art_index := _butterfly_art_i % SHARDS
+	_butterfly_art_i += 1
+	var card := MinigameArt.sprite(holder, STORY_ART_ROOT + "baby_%d.png" % art_index, wingspan)
+	card.modulate = Color.WHITE.lerp(tint, 0.08)
 	return holder
 
 # ---------------------------------------------------------------- decor
@@ -899,25 +874,16 @@ func _build_shards() -> void:
 
 func _build_home_ring() -> void:
 	_home_pos = _surf(Vector3.DOWN, 4.0)
-	# Use the same authored landmark at both ends of the world transition.
 	var holder := Node3D.new()
 	add_child(holder)
-	var gate: Node3D = LandmarkArtFactory.create_butterfly_gate(2.4)
-	holder.add_child(gate)
-	gate.position = Vector3(0, 2.4, 0)
+	MinigameArt.sprite(holder, STORY_ART_ROOT + "home_ring.png", 9.5, Vector3(0, 4.4, 0))
 	_place_on_planet(holder, Vector3.DOWN)
 
 func _spawn_grand_star() -> void:
 	_grand_active = true
 	_grand = Node3D.new()
 	add_child(_grand)
-	var star := _make_butterfly(Color(1.0, 0.85, 0.4), 7.5)   # the GREAT golden butterfly
-	_grand.add_child(star)
-	var gl := OmniLight3D.new()
-	gl.light_color = Color(1.0, 0.9, 0.4)
-	gl.light_energy = 5.0
-	gl.omni_range = 50.0
-	_grand.add_child(gl)
+	MinigameArt.sprite(_grand, STORY_ART_ROOT + "grand_butterfly.png", 9.0)
 	_grand.position = _surf(Vector3.UP, 9.0)
 	_lbl_big.text = "The GREAT RAINBOW BUTTERFLY!\nRace to the Butterfly Palace!"
 	var tw := create_tween()
@@ -932,60 +898,14 @@ func _spawn_grand_star() -> void:
 func _build_avatar() -> void:
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
-	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
-	# plushie back every time the rainbow race chained into the galaxy)
-	var glb := "res://assets/characters/roshan.glb"
-	var cutout: Sprite3D = null
-	for vpath in ["res://assets/characters/roshan_v4.glb",
-			"res://assets/characters/roshan_v3.glb"]:
-		if ResourceLoader.exists(vpath):
-			glb = vpath
-			break
+	var avatar_path := "res://assets/characters/roshan_sprite.png"
 	if _main != null and "skin_id" in _main:
 		var sid := String(_main.skin_id)
 		if sid == "huluu":
-			glb = ""
-			cutout = Sprite3D.new()
-			cutout.texture = load("res://assets/characters/friends/huluu.png")
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 0.011
-			cutout.position = Vector3(0, 2.2, 0)
-		elif sid == "fairy" and ResourceLoader.exists("res://assets/characters/fairy_v2.glb"):
-			glb = "res://assets/characters/fairy_v2.glb"
-	if cutout != null:
-		_avatar.add_child(cutout)
-	if glb != "" and ResourceLoader.exists(glb):
-		var inst: Node3D = (load(glb) as PackedScene).instantiate()
-		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
-		var acc: Array = []
-		_gather_aabbs(inst, Transform3D.IDENTITY, acc)
-		if acc.size() > 0:
-			var bb: AABB = acc[0]
-			for k in range(1, acc.size()):
-				bb = bb.merge(acc[k])
-			var sc: float = 4.2 / maxf(bb.size.y, 0.001)
-			inst.scale = Vector3.ONE * sc
-			inst.position = Vector3(0, -bb.position.y * sc, 0)
-		_avatar.add_child(inst)
-		# capture the skeleton so the mermaid actually SWIMS through the air
-		# here instead of standing frozen (audit: bob-only, no animation)
-		_av_skel = _find_av_skel(inst)
-		_av_bones.clear()
-		_av_rest.clear()
-		if _av_skel != null:
-			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
-				var bi := _av_skel.find_bone(bn)
-				if bi >= 0:
-					_av_bones[bn] = bi
-					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
-	var trail := OmniLight3D.new()
-	trail.light_color = Color(1.0, 0.6, 0.9)
-	trail.light_energy = 1.6
-	trail.omni_range = 10.0
-	trail.position = Vector3(0, 2.0, 0)
-	_avatar.add_child(trail)
+			avatar_path = "res://assets/characters/friends/huluu.png"
+		elif sid == "fairy":
+			avatar_path = "res://assets/characters/skins/fairy_mermaid.png"
+	MinigameArt.sprite(_avatar, avatar_path, 5.2, Vector3(0, 2.6, 0))
 	_dir = Vector3(0, -0.2, 1).normalized()
 	_fwd = Vector3(1, 0, 0)
 	_project_fwd()
@@ -1089,6 +1009,29 @@ func _build_camera() -> void:
 	_cam.make_current()
 	_cam.position = _surf(_dir, 8.0) - _fwd * 12.0
 	_cam.look_at(_surf(_dir, 2.0), _dir)
+
+func _install_storybook_art() -> void:
+	_storybook_background = MinigameArt.camera_background(_cam, STORY_ART_ROOT + "background.png", 116.0)
+	var gate_holder := Node3D.new()
+	add_child(gate_holder)
+	_place_on_planet(gate_holder, GATE_DIR)
+	MinigameArt.sprite(gate_holder, STORY_ART_ROOT + "palace_gate.png", 14.0, Vector3(0, 6.5, 0))
+	for tray_raw: Variant in _trays:
+		var tray: Dictionary = tray_raw
+		var tray_node: Node3D = tray["node"]
+		MinigameArt.sprite(tray_node, STORY_ART_ROOT + "fruit_tray.png", 5.4, Vector3(0, 2.4, 0))
+	for i in range(_bugs.size()):
+		var bug: Dictionary = _bugs[i]
+		var bug_node: Node3D = bug["node"]
+		var bug_path := STORY_ART_ROOT + ("beetle.png" if i % 2 == 0 else "ladybug.png")
+		MinigameArt.sprite(bug_node, bug_path, 2.0, Vector3(0, 1.0, 0))
+	for pad_raw: Variant in _pads:
+		var pad: Dictionary = pad_raw
+		var pad_holder := Node3D.new()
+		add_child(pad_holder)
+		_place_on_planet(pad_holder, pad["dir"])
+		MinigameArt.sprite(pad_holder, STORY_ART_ROOT + "bounce_flower.png", 6.5, Vector3(0, 1.4, 0))
+	MinigameArt.retire_legacy_visuals(self)
 
 func _build_hud() -> void:
 	_hud = CanvasLayer.new()
@@ -1201,8 +1144,8 @@ func _process(delta: float) -> void:
 		var vel2: Vector3 = newp - bn.position
 		bn.position = newp
 		_safe_look(bn, vel2, pdir)
-		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
-		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		var wing_l: Node3D = bn.get_meta("wing_l") as Node3D if bn.has_meta("wing_l") else null
+		var wing_r: Node3D = bn.get_meta("wing_r") as Node3D if bn.has_meta("wing_r") else null
 		if wing_l != null and wing_r != null:
 			var flap_angle := deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
 			wing_l.rotation.y = flap_angle
@@ -1627,6 +1570,11 @@ void fragment(){
 		_hall_root.add_child(bf)
 		_hall_flies.append({"node": bf, "r": 6.0 + float(i) * 2.5, "spd": 0.5 + randf() * 0.4, "ph": randf() * TAU, "h": 5.0 + float(i) * 1.4, "visit_t": 0.0})
 	_build_ice_gate()
+	for bell_raw: Variant in _bells:
+		var bell: Dictionary = bell_raw
+		var bell_node: Node3D = bell["node"]
+		MinigameArt.sprite(bell_node, STORY_ART_ROOT + "star_bell.png", 4.8)
+	MinigameArt.retire_legacy_visuals(_hall_root)
 
 func _build_ice_gate() -> void:
 	# An icon-first berry pedestal gives the non-reader a visible destination.
@@ -1634,7 +1582,7 @@ func _build_ice_gate() -> void:
 	_ice_gate = Node3D.new()
 	_ice_gate.position = Vector3(-16.0, 0.8, 8.0)
 	_hall_root.add_child(_ice_gate)
-	_authored_prop("res://assets/art35/galaxy/ice_gate.glb", _ice_gate, Vector3.ZERO, 8.5)
+	MinigameArt.sprite(_ice_gate, STORY_ART_ROOT + "crystal.png", 8.5, Vector3(0, 4.0, 0))
 
 func _enter_hall() -> void:
 	if not _hall_built:

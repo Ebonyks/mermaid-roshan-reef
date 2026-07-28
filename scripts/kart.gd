@@ -3,6 +3,7 @@ class_name KartGame
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const MinigameArt = preload("res://scripts/minigame_storybook_art.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -169,31 +170,27 @@ const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75
 # ------------------------------------------------------------ vehicles
 # handling: vmax (x base), steer (lat u/s), wall (speed kept on scrape),
 # mass (collision shove weight), turbo (x BOOST_MUL), slip (lat drift keep),
-# scale/y_off/yaw_fix (model placement), blurb (select screen)
+# size (sprite footprint), blurb (select screen)
 const VEHICLES := {
 	# tuned by simulation (200k-token stress campaign): each ride has a REAL
 	# identity — moto = raw speed but fragile, kart = turbo economy, truck =
 	# bumper king (mass WINS every collision, walls barely slow it).
 	"moto": {
 		"label": "Zoom Cycle", "blurb": "PRO: fastest + super steering / CON: so light, bumps toss it!",
-		"glb": "res://assets/vehicles/motorcycle.glb",
 		"vmax": 1.08, "steer": 30.0, "wall": 0.62, "mass": 0.6,
-		"turbo": 1.2, "slip": 0.45, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
+		"turbo": 1.2, "slip": 0.45, "size": 5.0,
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "PRO: turbo champ - pickups charge extra! / CON: no muscle",
-		"glb": "res://assets/vehicles/gokart.glb",
 		"vmax": 1.0, "steer": 22.0, "wall": 0.82, "mass": 1.0, "mcharge": 1.3,
-		"turbo": 1.35, "slip": 0.12, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
+		"turbo": 1.35, "slip": 0.12, "size": 6.0,
 		"lean": 0.15,
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
-		"glb": "res://assets/vehicles/monstertruck_story.glb",
-		"legacy_glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
-		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
+		"turbo": 0.9, "slip": 0.0, "size": 7.5,
 		"lean": 0.05,
 	},
 }
@@ -283,6 +280,8 @@ var _bw_planet: MeshInstance3D = null
 var _bw_spin: Node3D = null        # landmark carrier — turns with the planet surface
 var _bw_flyers: Array = []         # orbiting butterflies: {node, axis, dir0, alt, spd, ph, flap}
 var _bw_moons: Array = []          # candy moons: {node, r, spd, ph, tilt}
+var _storybook_background: Sprite3D = null
+var _storybook_retire_t := 0.0
 
 # ------------------------------------------------------------ config access
 
@@ -506,11 +505,26 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_hazards()
 	_build_engine()
 	_build_camera()
+	_build_storybook_background()
 	_build_hud()
 	_build_select()
+	MinigameArt.retire_legacy_visuals(self)
 	_clear_corridor()
 	_state = "select"
 	_sel_t = 0.0
+
+func _build_storybook_background() -> void:
+	if _cam == null:
+		return
+	_storybook_background = Sprite3D.new()
+	var background_path := "res://assets/minigames/kart/rainbow_background.png" if _theme() == "rainbow" else "res://assets/minigames/kart/ocean_background.png"
+	_storybook_background.texture = load(background_path)
+	_storybook_background.pixel_size = 148.0 / maxf(_storybook_background.texture.get_height(), 1.0)
+	_storybook_background.position = Vector3(0, 0, -100.0)
+	_storybook_background.shaded = false
+	_storybook_background.transparent = false
+	_storybook_background.render_priority = -10
+	_cam.add_child(_storybook_background)
 
 func _notification(what: int) -> void:
 	# Android normally sends a pause notification before the process can be
@@ -1247,6 +1261,17 @@ func _build_finish() -> void:
 	var c0: Vector3 = sf[0]
 	var ffwd: Vector3 = sf[1]
 	var fright: Vector3 = sf[2]
+	var gate_path := (
+		"res://assets/minigames/shared/rainbow_race_gate.svg"
+		if _theme() == "rainbow"
+		else "res://assets/minigames/shared/ocean_race_gate.svg")
+	MinigameArt.sprite(
+		self,
+		gate_path,
+		18.0,
+		c0 + Vector3(0, 8.0, 0),
+		true,
+		"KartFinishGate2D")
 	var line := MeshInstance3D.new()
 	var lpm := PlaneMesh.new()
 	lpm.size = Vector2(_rhalf() * 2.0, 4.0)
@@ -1321,6 +1346,14 @@ void fragment(){
 func _build_shortcut() -> void:
 	var gate_fr := _frame_at(SHORTCUT_FROM_U * _len, 0.0)
 	var gate_pos: Vector3 = (gate_fr[0] as Vector3) + (gate_fr[2] as Vector3) * (_rhalf() * 0.78)
+	var story_gate := MinigameArt.sprite(
+		self,
+		"res://assets/minigames/shared/rainbow_race_gate.svg",
+		9.0,
+		gate_pos + Vector3(0, 4.0, 0),
+		true,
+		"KartShortcutGate2D")
+	story_gate.visible = not _rev
 	var ring := MeshInstance3D.new()
 	var tm := TorusMesh.new()
 	tm.inner_radius = 3.5
@@ -1368,6 +1401,13 @@ void fragment(){
 		mi.material_override = mat
 		mi.transform = Transform3D(Basis(right, up, -fwd).orthonormalized(), pos + up * 0.18)
 		add_child(mi)
+		MinigameArt.sprite(
+			self,
+			"res://assets/minigames/shared/boost_chevrons.svg",
+			2.8,
+			pos + up * 2.1,
+			true,
+			"KartBoostStrip2D")
 		_strip_data.append({"pos": pos + up, "len": float(sd["len"])})
 
 func _build_pickups() -> void:
@@ -1379,57 +1419,15 @@ func _build_pickups() -> void:
 		var holder := Node3D.new()
 		holder.position = pos + Vector3(0, 2.6, 0)
 		var kind := String(pd["kind"])
-		var rlab: Label3D = null
-		if kind == "shell":
-			var sm: Node3D = null
-			if ResourceLoader.exists("res://assets/props/gen2/%s.glb" % SHELL_GEN2):
-				sm = _gen2_instance(SHELL_GEN2)
-			elif ResourceLoader.exists(SHELL_GLB):
-				sm = (load(SHELL_GLB) as PackedScene).instantiate()
-			if sm == null:
-				continue
-			sm.scale = Vector3.ONE * 2.4
-			holder.add_child(sm)
-			pass   # shell pickups glow via emission; no per-pickup realtime light
-		elif kind == "bubble":
-			# zoom bubble: translucent glowing sphere — drive through, POP, instant zip
-			var bub := MeshInstance3D.new()
-			var bs := SphereMesh.new()
-			bs.radius = 2.0
-			bs.height = 4.0
-			bub.mesh = bs
-			var bm := StandardMaterial3D.new()
-			bm.albedo_color = Color(0.5, 0.95, 1.0, 0.4)
-			bm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			bm.emission_enabled = true
-			bm.emission = Color(0.4, 0.9, 1.0)
-			bm.emission_energy_multiplier = 1.2
-			bub.material_override = bm
-			holder.add_child(bub)
-			if not _speedy():
-				var gl3 := OmniLight3D.new()
-				gl3.light_color = Color(0.5, 0.95, 1.0)
-				gl3.light_energy = 2.0
-				gl3.omni_range = 9.0
-				holder.add_child(gl3)
-		else:
-			var lab := Label3D.new()
-			lab.text = "★"
-			lab.font_size = 180 if kind == "star" else 220
-			lab.pixel_size = 0.03
-			lab.modulate = Color(1.0, 0.9, 0.3)
-			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			holder.add_child(lab)
-			if kind == "rainbow":
-				rlab = lab   # hue-cycled every frame — the jackpot pickup
-			if not _speedy() and (kind == "star" or kind == "rainbow"):   # Speedy uses emission, no pickup realtime lights
-				var gl2 := OmniLight3D.new()
-				gl2.light_color = lab.modulate
-				gl2.light_energy = 2.4
-				gl2.omni_range = 10.0
-				holder.add_child(gl2)
+		MinigameArt.sprite(
+			holder,
+			"res://assets/minigames/kart/pickup_%s.png" % kind,
+			5.0,
+			Vector3.ZERO,
+			true,
+			"KartPickup2D")
 		add_child(holder)
-		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": kind, "cool": 0.0, "rlab": rlab})
+		_pickups_live.append({"node": holder, "s": s0, "lat": float(pd["lat"]), "kind": kind, "cool": 0.0, "rlab": null})
 
 func _build_ramps() -> void:
 	# golden glowing wedges on the racing line: drive one, FLY, land with a
@@ -1491,6 +1489,21 @@ func _build_hazards() -> void:
 		var holder := Node3D.new()
 		add_child(holder)
 		h["node"] = holder
+		# Gameplay remains spline-based; every live hazard now gets one
+		# theme-local 2D semantic cutout. Legacy geometry below is immediately
+		# retired by MinigameStorybookArt and is kept only as inert state glue.
+		if kind == "kelp":
+			holder.position = _frame_at(s0, 0.0)[0] as Vector3
+		elif kind == "comet":
+			h["side"] = 1.0 if int(s0) % 2 == 0 else -1.0
+		elif kind == "whirl":
+			h["lat"] = w * 0.35 * (1.0 if int(s0) % 2 == 0 else -1.0)
+			var story_whirl_frame := _frame_at(s0, float(h["lat"]))
+			holder.position = (story_whirl_frame[0] as Vector3) + Vector3(0, 0.15, 0)
+		elif kind == "jelly":
+			h["lat"] = w * 0.4 * (1.0 if int(s0) % 2 == 0 else -1.0)
+			var story_jelly_frame := _frame_at(s0, float(h["lat"]))
+			holder.position = story_jelly_frame[0] as Vector3
 		match kind:
 			"crab":
 				var cb: Node3D = null
@@ -1706,6 +1719,14 @@ void fragment(){
 				zz.position = Vector3(0, 3.4, 0)
 				holder.add_child(zz)
 				h["zz"] = zz
+		var story_height := 7.0 if kind in ["kelp", "geyser", "pendulum"] else 5.5
+		MinigameArt.sprite(
+			holder,
+			"res://assets/minigames/kart/hazard_%s.png" % kind,
+			story_height,
+			Vector3(0, story_height * 0.42, 0),
+			true,
+			"KartHazard2D")
 		_hazards_live.append(h)
 
 func _hazard_bonk(k: Dictionary, slow: float, dir: float) -> void:
@@ -1846,31 +1867,18 @@ func _tick_hazards(delta: float) -> void:
 
 func _build_pearls() -> void:
 	var rows: Array = _cv("pearl_rows", PEARL_ROWS)
-	var pearl_mesh := SphereMesh.new()
-	pearl_mesh.radius = 0.9
-	pearl_mesh.height = 1.8
-	var pearl_mats: Array = []
-	var hue_count: int = 3 if _speedy() else 6
-	for i in range(hue_count):
-		var shared_mat := StandardMaterial3D.new()
-		shared_mat.albedo_color = Color.from_hsv(float(i) / float(hue_count), 0.4, 1.0)
-		shared_mat.emission_enabled = true
-		shared_mat.emission = shared_mat.albedo_color
-		shared_mat.emission_energy_multiplier = 0.8 if _speedy() else 1.0
-		shared_mat.metallic = 0.6
-		shared_mat.roughness = 0.2
-		pearl_mats.append(shared_mat)
 	for row in rows:
 		var s0: float = float(row["u"]) * _len
 		for j in range(int(row["n"])):
 			var s := s0 + float(j) * 6.0
 			var fr := _frame_at(s, float(row["lat"]))
-			var p := MeshInstance3D.new()
-			p.mesh = pearl_mesh
-			var hue_i: int = clampi(int(floor(fposmod(s / _len, 1.0) * float(hue_count))), 0, hue_count - 1)
-			p.material_override = pearl_mats[hue_i]
-			p.position = (fr[0] as Vector3) + Vector3(0, 2.0, 0)
-			add_child(p)
+			var p := MinigameArt.sprite(
+				self,
+				"res://assets/minigames/shop/pearl.svg",
+				2.4,
+				(fr[0] as Vector3) + Vector3(0, 2.0, 0),
+				true,
+				"KartPearl2D")
 			_pearls_live.append({"node": p, "got": false})
 
 # ------------------------------------------------------------ paint jobs
@@ -1960,36 +1968,22 @@ func _fit_model(model: Node3D, target_len: float) -> float:
 func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: String, paint: Dictionary = {}) -> Node3D:
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
-	var model: Node3D = null
-	var glb_path: String = String(vd["glb"])
-	if not ResourceLoader.exists(glb_path):
-		glb_path = String(vd.get("legacy_glb", glb_path))
-	if ResourceLoader.exists(glb_path):
-		var ps: PackedScene = load(glb_path)
-		if ps != null:
-			model = ps.instantiate()
-	var top_h := 2.5
-	if model != null:
-		top_h = _fit_model(model, float(vd["size"]))
-		model.rotation = Vector3(0, float(vd["yaw_fix"]), 0)
-		root.add_child(model)
-		if _main != null and _main.has_method("_toonify"):
-			_main._toonify(model)
-		if paint.is_empty():
-			_apply_paint(model, {"col": col.lerp(Color(0.55, 0.86, 0.92), 0.18)})
-		else:
-			_apply_paint(model, paint)
-	else:
-		# fallback: simple coloured box kart (never leaves a racer invisible)
-		var chassis := MeshInstance3D.new()
-		var cm := BoxMesh.new()
-		cm.size = Vector3(3.0, 1.0, 4.4)
-		chassis.mesh = cm
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = col
-		chassis.material_override = mat
-		chassis.position = Vector3(0, 1.0, 0)
-		root.add_child(chassis)
+	var vehicle_path := "res://assets/minigames/kart/%s.png" % vkey
+	var vehicle := Sprite3D.new()
+	vehicle.texture = load(vehicle_path)
+	var vehicle_h: float = maxf(4.0, float(vd["size"]) * 0.78)
+	vehicle.pixel_size = vehicle_h / maxf(vehicle.texture.get_height(), 1.0)
+	vehicle.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	vehicle.shaded = false
+	vehicle.transparent = true
+	vehicle.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	vehicle.position.y = vehicle_h * 0.5
+	if paint.has("col") and paint["col"] is Color:
+		vehicle.modulate = Color.WHITE.lerp(paint["col"] as Color, 0.16)
+	elif paint.is_empty():
+		vehicle.modulate = Color.WHITE.lerp(col, 0.10)
+	root.add_child(vehicle)
+	var top_h := vehicle_h
 	# driver sprite above the vehicle — normalised so every driver is ~3.2 units tall
 	if sprite_path != "" and ResourceLoader.exists(sprite_path):
 		var spr := Sprite3D.new()
@@ -2000,22 +1994,6 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
 		root.set_meta("driver_spr", spr)
-	var nl := Label3D.new()
-	nl.text = racer_name
-	nl.font_size = 54
-	nl.outline_size = 12
-	nl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	nl.modulate = col.lightened(0.4)
-	nl.position = Vector3(0, top_h + 3.4, 0)
-	root.add_child(nl)
-	root.set_meta("name_lbl", nl)
-	if racer_name == "Roshan" and not _speedy():
-		var trail := OmniLight3D.new()
-		trail.light_color = Color(1.0, 0.5, 0.9)
-		trail.light_energy = 2.5
-		trail.omni_range = 14.0
-		trail.position = Vector3(0, 2.0, 2.5)
-		root.add_child(trail)
 	return root
 
 func _vehicles_table() -> Dictionary:
@@ -2188,27 +2166,21 @@ func _sel_move() -> int:
 	return edge
 
 func _build_paint_row() -> void:
-	# swatch orbs floating above the chosen vehicle's podium
 	var slot: Node3D = (_sel_nodes[_sel_idx] as Dictionary)["slot"]
 	for i in range(PAINTS.size()):
 		var pd: Dictionary = PAINTS[i]
-		var orb := MeshInstance3D.new()
-		var sm := SphereMesh.new()
-		sm.radius = 1.1
-		sm.height = 2.2
-		orb.mesh = sm
-		if bool(pd.get("rainbow", false)):
-			orb.material_override = _rainbow_orb_mat()
-		else:
-			var m := StandardMaterial3D.new()
+		var icon := "rainbow" if bool(pd.get("rainbow", false)) else "bubble"
+		var orb := MinigameArt.sprite(
+			slot,
+			"res://assets/minigames/kart/pickup_%s.png" % icon,
+			2.6,
+			Vector3.ZERO,
+			true,
+			"KartPaintSwatch2D")
+		if not bool(pd.get("rainbow", false)):
 			var oc: Color = pd["col"] if pd.get("col") != null else Color(0.75, 0.75, 0.8)
-			m.albedo_color = oc
-			m.emission_enabled = true
-			m.emission = oc
-			m.emission_energy_multiplier = 0.4
-			orb.material_override = m
+			orb.modulate = oc
 		orb.position = Vector3((float(i) - float(PAINTS.size() - 1) * 0.5) * 3.2, 11.5, 0)
-		slot.add_child(orb)
 		_paint_orbs.append(orb)
 
 func _tick_select(delta: float) -> void:
@@ -2337,6 +2309,10 @@ func _brake_input() -> bool:
 func _process(delta: float) -> void:
 	if _state == "done":
 		return
+	_storybook_retire_t -= delta
+	if _storybook_retire_t <= 0.0:
+		_storybook_retire_t = 0.5
+		MinigameArt.retire_legacy_visuals(self)
 	_tick_guide(delta)
 	if _quit_arm_t > 0.0:
 		_quit_arm_t = maxf(0.0, _quit_arm_t - delta)
@@ -2685,7 +2661,7 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 		var dspr: Sprite3D = k["node"].get_meta("driver_spr", null)
 		if dspr != null and is_instance_valid(dspr):
 			dspr.modulate.a = fade
-		var nlbl: Label3D = k["node"].get_meta("name_lbl", null)
+		var nlbl: Label3D = k["node"].get_meta("name_lbl") as Label3D if k["node"].has_meta("name_lbl") else null
 		if nlbl != null and is_instance_valid(nlbl):
 			nlbl.modulate.a = fade
 	# squash & stretch pulse on impacts (bouncy!)

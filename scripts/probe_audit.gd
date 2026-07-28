@@ -74,7 +74,7 @@ func _init() -> void:
 		var gname: String = main.game
 		var cutaway_ok: bool = player.position.distance_to(main.ARENA_POS) <= 120.0
 		if gname == "melody":
-			var stage: Node = main.get_node_or_null("RainbowTheater3D")
+			var stage: Node = main.get_node_or_null("RainbowTheater2D")
 			var stage_ok: bool = stage != null
 			if stage_ok:
 				var required := ["BackWall", "StageDeck", "RainbowArc0", "ProsceniumBulbs", "Runway", "TheaterSeats", "StarPerformer"]
@@ -82,7 +82,7 @@ func _init() -> void:
 					if stage.get_node_or_null(String(child_name)) == null:
 						stage_ok = false
 						break
-			print("AUDIT|Rainbow 3D theater: ", ("OK" if stage_ok else "FAIL"))
+			print("AUDIT|Rainbow 2D pavilion: ", ("OK" if stage_ok else "FAIL"))
 		var f0 := Time.get_ticks_msec()
 		var ok := await _drive_game(gname, f)
 		var secs := float(Time.get_ticks_msec() - f0) / 1000.0
@@ -143,26 +143,26 @@ func _init() -> void:
 		await process_frame
 	var beans_off: bool = main.speed_mult == 1.0 and (main.beans_sfx == null or not main.beans_sfx.playing)
 	print("AUDIT|Can of Beans: ", ("OK" if beans_on and beans_off else "FAIL on=%s off=%s" % [beans_on, beans_off]))
-	# --- tank idle rigs (the turtle skeleton must actually flap) ---
+	# --- tank idle sprites (each tailored cutout must visibly swim) ---
 	main._start_game(main.shop_fr)
 	await _frames(10)
 	var tanks: Array = main.g.get("tanks", [])
-	var turtle_rig: Dictionary = {}
+	var turtle_sprite: Sprite3D = null
+	var sprites_ok := tanks.size() == 4
 	for tk in tanks:
-		if String(tk["id"]) == "turtle":
-			turtle_rig = tk.get("rig", {})
-	var rig_skel: Skeleton3D = turtle_rig.get("skel", null)
-	var flap0 := Quaternion.IDENTITY
-	if rig_skel != null:
-		flap0 = rig_skel.get_bone_pose_rotation(3)
+		var tank_node: Node = (tk as Dictionary).get("node") as Node
+		sprites_ok = sprites_ok and tank_node is Sprite3D
+		if String((tk as Dictionary).get("id", "")) == "turtle":
+			turtle_sprite = tank_node as Sprite3D
+	var turtle_start := Vector3.ZERO
+	if turtle_sprite != null:
+		turtle_start = turtle_sprite.position
 	await _frames(30)
-	var flapped := false
-	if rig_skel != null and is_instance_valid(rig_skel):
-		flapped = rig_skel.get_bone_pose_rotation(3).angle_to(flap0) > 0.02
-	var rig_line: String = "FAIL tanks=%d skel=%s flapped=%s" % [tanks.size(), rig_skel != null, flapped]
-	if tanks.size() == 4 and rig_skel != null and rig_skel.get_bone_count() == 7 and flapped:
-		rig_line = "OK bones=%d flapped=true" % rig_skel.get_bone_count()
-	print("AUDIT|Tank idle rig: ", rig_line)
+	var swam := turtle_sprite != null and is_instance_valid(turtle_sprite) \
+		and turtle_sprite.position.distance_to(turtle_start) > 0.02
+	print("AUDIT|Tank 2D idle animation: ",
+		"OK" if sprites_ok and swam else "FAIL tanks=%d sprites=%s swam=%s" % [
+			tanks.size(), sprites_ok, swam])
 	main._clear_game()
 	await _frames(5)
 	# --- animal tanks (the pearl sink: buy the turtle free, it joins the reef) ---
@@ -170,22 +170,22 @@ func _init() -> void:
 	var movers0: int = main.aquatic_movers.size()
 	main._tank_buy("turtle")
 	var pets := 0
-	var pets_rigged := 0
+	var pets_2d := 0
 	for mv0 in main.aquatic_movers:
 		if String(mv0.get("shop_pet", "")) == "turtle":
 			pets += 1
-			if mv0.has("rig"):
-				pets_rigged += 1
+			if mv0.get("node") is Sprite3D:
+				pets_2d += 1
 	var tank_ok: bool = main.pearl_count == 5 and bool(main.animals_owned.get("turtle", false)) \
-		and main.aquatic_movers.size() > movers0 and pets >= 1 and pets_rigged == pets
+		and main.aquatic_movers.size() > movers0 and pets >= 1 and pets_2d == pets
 	main._tank_buy("turtle")   # already free: must not charge or double-spawn
 	var tank_once: bool = main.pearl_count == 5 and main.aquatic_movers.size() == movers0 + pets
 	main.pearl_count = 3
 	main._tank_buy("dolphin")  # too few pearls: must not sell
 	var tank_poor: bool = main.pearl_count == 3 and not bool(main.animals_owned.get("dolphin", false))
-	var tank_line: String = "OK swimming=%d rigged=%d" % [pets, pets_rigged]
+	var tank_line: String = "OK swimming=%d sprites=%d" % [pets, pets_2d]
 	if not (tank_ok and tank_once and tank_poor):
-		tank_line = "FAIL buy=%s once=%s poor=%s pets=%d rigged=%d" % [tank_ok, tank_once, tank_poor, pets, pets_rigged]
+		tank_line = "FAIL buy=%s once=%s poor=%s pets=%d sprites=%d" % [tank_ok, tank_once, tank_poor, pets, pets_2d]
 	print("AUDIT|Animal tanks: ", tank_line)
 	# --- pearl respawn ---
 	var p1: Node3D = main.pearls[0]

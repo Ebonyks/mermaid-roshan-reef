@@ -17,7 +17,7 @@ var avatar: Sprite3D = null
 var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
-var pointer: Label3D = null
+var pointer: Sprite3D = null
 var player_pos := Vector3.ZERO
 var player_yaw := PI
 var shot_cool := 0.0
@@ -73,12 +73,6 @@ func _build_environment() -> void:
 	env.glow_bloom = 0.12
 	m._speedy_glow_clamp(env)
 	m.we_node.environment = env
-	var sun := DirectionalLight3D.new()
-	sun.light_color = Color(0.72, 0.86, 1.0) if kind == "ice" else Color(1.0, 0.72, 0.45)
-	sun.light_energy = 1.15
-	sun.shadow_enabled = m.quality != "speedy"
-	sun.rotation_degrees = Vector3(-48, -28, 0)
-	add_child(sun)
 
 func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 	var key := "%s:%.2f" % [col.to_html(true), emission]
@@ -94,22 +88,6 @@ func _mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 	materials[key] = mat
 	return mat
 
-func _mesh(parent: Node3D, mesh: Mesh, pos: Vector3, col: Color, emission: float = 0.0) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	node.mesh = mesh
-	node.position = pos
-	node.material_override = _mat(col, emission)
-	parent.add_child(node)
-	return node
-
-func _sphere(parent: Node3D, pos: Vector3, radius: float, col: Color, emission: float = 0.0) -> MeshInstance3D:
-	var shape := SphereMesh.new()
-	shape.radius = radius
-	shape.height = radius * 2.0
-	shape.radial_segments = 12
-	shape.rings = 6
-	return _mesh(parent, shape, pos, col, emission)
-
 func _build_octagon() -> void:
 	var default_floor := Color(0.46, 0.55, 0.78) if kind == "ice" else Color(0.48, 0.25, 0.20)
 	var default_trim := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
@@ -120,10 +98,12 @@ func _build_octagon() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
+	var avatar_tex := load("res://assets/minigames/shared/roshan_catch.png") as Texture2D
 	avatar.texture = avatar_tex
 	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	avatar.shaded = false
+	avatar.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	avatar.no_depth_test = false
 	avatar.position = player_pos
 	add_child(avatar)
@@ -158,13 +138,12 @@ func _build_hud() -> void:
 	counter.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	StorybookUI.style_hud_label(counter, 34)
 	counter_card.add_child(counter)
-	pointer = Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 150
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 24
-	pointer.modulate = Color(1.0, 0.94, 0.25)
+	pointer = Sprite3D.new()
+	pointer.texture = load("res://assets/minigames/dungeon/shared/pointer.svg")
+	pointer.pixel_size = 3.2 / maxf(1.0, float(pointer.texture.get_height()))
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	pointer.shaded = false
+	pointer.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	add_child(pointer)
 
 func _build_ice_swarm() -> void:
@@ -277,13 +256,8 @@ func _fire() -> void:
 	var shot_pos: Vector3 = player_pos + Vector3(0, 2.2, 0) + dir * 1.5
 	var role := "ice_berry_projectile" if power == "ice" else "pepper_projectile"
 	var orb: Node3D = DungeonArt.spawn(role, self, shot_pos, art_theme)
-	if orb.name.begins_with("MissingDungeonArt"):
-		var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
-		orb.queue_free()
-		orb = _sphere(self, shot_pos, 0.65, orb_col, 1.8)
-	else:
-		orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
-		orb.rotation.y = atan2(dir.x, dir.z)
+	orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
+	orb.rotation.z = -atan2(dir.x, dir.z)
 	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)
@@ -351,13 +325,9 @@ func _pop_imp(enemy: Dictionary) -> void:
 	var corn_count := int(encounter.get("popcorn_count", 7))
 	for i in range(corn_count):
 		var a: float = float(i) * TAU / float(corn_count)
-		var corn: Node3D
-		if art_theme == "ember":
-			corn = DungeonArt.spawn("completion_spark", self,
-				pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
-			corn.scale = Vector3.ONE * 0.34
-		else:
-			corn = _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
+		var corn: Node3D = DungeonArt.spawn("completion_spark", self,
+			pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
+		corn.scale = Vector3.ONE * 0.34
 		var tw := corn.create_tween()
 		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
@@ -401,7 +371,7 @@ func _tick_boss(delta: float) -> void:
 	var phase: String = boss["phase"]
 	if phase == "peek":
 		(boss["head"] as Node3D).visible = true
-		root.rotation.y = sin(elapsed * 1.4) * 0.18
+		root.rotation.z = sin(elapsed * 1.4) * 0.10
 		if float(boss["attack"]) <= 0.0:
 			boss["attack"] = float(encounter.get("attack_gap", 1.25))
 			if (boss["pos"] as Vector3).distance_to(player_pos) < 9.0:
@@ -416,7 +386,7 @@ func _tick_boss(delta: float) -> void:
 			boss["attack"] = 0.8
 	else:
 		(boss["head"] as Node3D).visible = false
-		root.rotate_y(delta * 6.0)
+		root.rotate_z(delta * 6.0)
 		var pos: Vector3 = boss["pos"]
 		var chase: Vector3 = player_pos - pos
 		chase.y = 0.0
@@ -440,17 +410,13 @@ func _tick_boss(delta: float) -> void:
 			root.position = back
 	_update_hud()
 
-func _spawn_enemy_shot(from: Vector3, to: Vector3, col: Color) -> void:
+func _spawn_enemy_shot(from: Vector3, to: Vector3, _col: Color) -> void:
 	var dir: Vector3 = to - from
 	dir.y = 0.0
 	if dir.length() < 0.1:
 		return
-	var orb: Node3D
-	if art_theme == "ember":
-		orb = DungeonArt.spawn("pepper_projectile", self, from, art_theme)
-		orb.scale = Vector3.ONE * 0.5
-	else:
-		orb = _sphere(self, from, 0.58, col, 1.4)
+	var orb: Node3D = DungeonArt.spawn("enemy_projectile", self, from, art_theme)
+	orb.scale = Vector3.ONE * 0.72
 	enemy_shots.append({"node": orb, "vel": dir.normalized() * 10.0, "life": 3.5})
 
 func _tick_enemy_shots(delta: float) -> void:

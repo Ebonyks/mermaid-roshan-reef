@@ -419,3 +419,202 @@ ambientCG (all CC0).
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
+
+## Minigame 2D reconstruction (Codex regeneration pass, 2026-07-27)
+
+- `assets/minigames/dolls/background.png` — project-original built-in OpenAI
+  image generation; wide Faron nursery environment; no protected character or
+  baby art embedded; normalized to opaque 2048×1024 PNG.
+- `assets/minigames/dolls/cradle.png` — project-original built-in OpenAI image
+  generation; empty three-slot shell cradle; local chroma extraction and
+  transparent 2048×1024 runtime normalization.
+- `assets/minigames/dolls/pillow_bank.png` — project-original built-in OpenAI
+  image generation; seven-pillow landing bank; local chroma extraction and
+  transparent 2048×1024 runtime normalization.
+- `assets/minigames/shared/roshan_catch.png` — project-original built-in OpenAI
+  image generation using the existing project Roshan image solely as an
+  identity reference; backpack and all third-party marks excluded; strict
+  local chroma extraction and transparent 1024×1024 runtime normalization.
+- `assets_src/minigames/shared/*.png`;
+  `assets_src/minigames/dolls/*.png` — unmodified generated/chroma masters and
+  local alpha intermediates for the assets above; export-excluded source
+  provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/book/baby_doll.png`, `assets/book/baby_doll2.png`, and
+  `assets/book/baby_doll3.png` are protected existing originals, not outputs
+  of this regeneration pass. They are loaded directly and remain unchanged.
+- `assets/minigames/picture/snowman_background.png` — project-original
+  built-in OpenAI image generation; snowy rolling yard with open live-object
+  sockets; normalized to opaque 2048×1024 PNG.
+- `assets/minigames/picture/garden_background.png` — project-original built-in
+  OpenAI image generation; underwater garden workshop with five empty planting
+  sockets; normalized to opaque 2048×1024 PNG.
+- `assets/minigames/picture/trampoline_background.png` — project-original
+  built-in OpenAI image generation; safe cloud-playroom with an authored
+  trampoline and empty destination halo; normalized to opaque 2048×1024 PNG.
+- `assets/minigames/picture/xmas_background.png` — project-original built-in
+  OpenAI image generation; cozy underwater winter room with an empty tree
+  alcove and five ornament dishes; normalized to opaque 2048×1024 PNG.
+- `assets/minigames/dance/background.png` — project-original built-in OpenAI
+  image generation; informal reef dance floor with four empty shell control
+  medallions; normalized to opaque 2048×1024 PNG.
+- `assets_src/minigames/picture/*.png`;
+  `assets_src/minigames/dance/*.png` — unmodified generated masters for the
+  five runtime plates above; export-excluded source provenance. Full prompt
+  record: `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/brawl/background.png`, `imp.png`, `gate.png`, and
+  `roshan_bop.png` — project-original built-in OpenAI image generation for the
+  Toy Castle only; background normalized to opaque 2048×1024, standees locally
+  chroma-extracted and normalized to transparent 1024×1024. Roshan used
+  `assets/characters/roshan_0.png` only as an identity reference.
+- `assets/minigames/fetch/background.png` and `chuck.png` — project-original
+  built-in OpenAI image generation for Chuck's Fetch; background normalized to
+  opaque 2048×1024 and Chuck locally chroma-extracted to transparent
+  1024×1024. `assets/characters/friends/wacky_chuck.png` was used only to
+  identify Chuck; the original remains unchanged.
+- `assets/minigames/fetch/ball.svg` and `aim_arrow.svg` — project-original
+  vector gameplay sprites authored for this reconstruction; no external source.
+- `assets_src/minigames/brawl/*.png`;
+  `assets_src/minigames/fetch/*.png` — unmodified generated/chroma masters and
+  local alpha intermediates for the runtime art above; export-excluded source
+  provenance. Full prompt record: `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/seek/background.png`, `bush.png`, and `lamb.png` —
+  project-original built-in OpenAI image generation for Lamb-a's Seek;
+  background normalized to opaque 2048×1024 and standees locally
+  chroma-extracted to transparent 1024×1024. `assets/characters/lamb_0.png`
+  was used only as an identity reference and remains unchanged.
+- `assets/minigames/treasure/background.png` and `chest.png` —
+  project-original built-in OpenAI image generation for Secret Cave;
+  background normalized to opaque 2048×1024 and chest locally
+  chroma-extracted to transparent 1024×1024.
+- `assets/minigames/treasure/checkpoint.svg` — project-original vector
+  checkpoint sprite authored for this reconstruction; no external source.
+- `assets_src/minigames/seek/*.png`;
+  `assets_src/minigames/treasure/*.png` — unmodified generated/chroma masters
+  and local alpha intermediates for the runtime art above; export-excluded
+  source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/melody/background.png` — project-original built-in OpenAI
+  image generation for Daddy Mermaid's rainbow pavilion; normalized to opaque
+  2048×1024 PNG. The existing Daddy cutout remains unchanged.
+- `assets/minigames/melody/orb.svg` — project-original vector rainbow-target
+  sprite authored for this reconstruction; no external source.
+- `assets/minigames/shop/background.png` — project-original built-in OpenAI
+  image generation for Kareem's Pearl Shop; empty four-window shell-market
+  plate normalized to opaque 2048×1024 PNG.
+- `assets/minigames/shop/turtle.png`, `dolphin.png`, `stingray.png`, and
+  `squid.png` — project-original built-in OpenAI image generation for the shop
+  offers; generated as one chroma sprite sheet, split locally,
+  alpha-extracted, and normalized to transparent 1024×1024 PNG.
+- `assets/minigames/shop/beans.svg`, `pearl.svg`, and `exit.svg` —
+  project-original vector gameplay sprites authored for this reconstruction;
+  no external source.
+- `assets_src/minigames/melody/*.png`;
+  `assets_src/minigames/shop/*.png` — unmodified generated/chroma masters and
+  local alpha intermediates for the runtime art above; export-excluded source
+  provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/slide_race/playplace.png`, `penguin_slide.png`, and
+  `rainbow_slide.png` — three separate project-original built-in OpenAI image
+  generations for the indoor play-place, winter penguin run, and Sky Lagoon
+  rainbow run; each normalized to opaque 2048×1024 PNG.
+- `assets/minigames/slide_race/penguin.png` — project-original built-in OpenAI
+  image generation; local chroma extraction and transparent 1024×1024 runtime
+  normalization.
+- `assets/minigames/slide_race/checkpoint.svg`, `hoop.svg`, `fish.svg`,
+  `snowball.svg`, `track_ice.svg`, and `track_rainbow.svg` — project-original
+  vector gameplay sprites authored for this reconstruction; no external
+  source.
+- `assets_src/minigames/slide_race/*.png` — unmodified generated/chroma masters
+  and local alpha intermediate for the runtime art above; export-excluded
+  source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/fairy/pond_dawn.png`, `pond_twilight.png`, and
+  `boss_clearing.png` — three project-original built-in OpenAI image
+  generations for Fairy Pond's overhead route; normalized respectively to two
+  opaque 512×1024 corridor plates and one opaque 1024×1024 clearing.
+- `assets/minigames/fairy/bug_*.png`, `hazard_*.png`, and `boss_*.png` —
+  project-original built-in OpenAI image generations from two chroma sprite
+  sheets; locally alpha-extracted, split by cell, and normalized to transparent
+  1024×1024 PNGs.
+- `assets/minigames/fairy/flower_ring.svg`, `firefly.svg`, `reticle.svg`,
+  `shadow_orb.svg`, and `wand_bolt.svg` — project-original vector gameplay
+  sprites authored for this reconstruction; no external source.
+- `assets_src/minigames/fairy/*.png` — unmodified generated/chroma masters and
+  local alpha intermediates for the runtime art above; export-excluded source
+  provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/dungeon/crystal/arena.png` and
+  `assets/minigames/dungeon/ember/arena.png` — two distinct project-original
+  built-in OpenAI image generations for the crystal training dungeon and
+  Ember puzzle forge; normalized to opaque 1024×1024 PNGs.
+- `assets/minigames/dungeon/{crystal,ember}/imp.png` and
+  `boss_{shell,head}.png` — project-original built-in OpenAI image generations
+  from two chroma sprite sheets; locally alpha-extracted, split by cell, and
+  normalized to transparent 1024×1024 PNGs.
+- `assets/minigames/dungeon/{crystal,ember}/*.svg` and
+  `assets/minigames/dungeon/shared/*.svg` — project-original vector dungeon
+  props and semantic gameplay sprites authored for this reconstruction; no
+  external source.
+- `assets_src/minigames/dungeon/*.png` — unmodified generated/chroma masters
+  and local alpha intermediates for the runtime art above; export-excluded
+  source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/stuffie/arena.png`, `imp.png`, `eagle.png`, `mewsha.png`,
+  and `lamma.png` — project-original built-in OpenAI image generations for
+  the Stuffie nursery gym; arena normalized to opaque 1024×1024 and the
+  character sheet locally alpha-extracted, split, and normalized to four
+  transparent 1024×1024 runtime cutouts.
+- `assets/minigames/stuffie/*.svg` — project-original vector room, den, gift,
+  interaction, and battle sprites authored for the Stuffie reconstruction;
+  no external source.
+- `assets_src/minigames/stuffie/*.png` — unmodified generated/chroma masters
+  and local alpha intermediates for the runtime art above; export-excluded
+  source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/critters/*.png` — eighteen project-original built-in
+  OpenAI image generations from three chroma sprite sheets; locally
+  alpha-extracted, split, and normalized to transparent 1024×1024 runtime
+  cutouts.
+- `assets/minigames/critters/*.svg` and
+  `assets/minigames/echo_bells/*.svg` — project-original vector collection and
+  Pearl Castle music-room sprites authored for this reconstruction; no
+  external source.
+- `assets_src/minigames/critters/*.png` — unmodified generated/chroma masters
+  and local alpha intermediates for the critter art above; export-excluded
+  source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/kart/{ocean_background,rainbow_background}.png` and
+  `{moto,kart,truck}.png` — project-original built-in OpenAI image generations
+  for two separate race themes and three rear-view vehicle cutouts; plates
+  normalized to opaque 2048×1024 and the chroma vehicle sheet locally
+  alpha-extracted/split to transparent 1024×1024 sprites.
+- `assets_src/minigames/kart/*.png` — unmodified generated/chroma masters and
+  local alpha intermediates for the Kart art above; export-excluded source
+  provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
+- `assets/minigames/kart/hazard_*.png` and `pickup_*.png` —
+  project-original built-in OpenAI image generations for eight race hazards
+  and four semantic pickups; locally alpha-extracted, split, and normalized
+  to transparent 1024×1024 runtime sprites.
+- `assets/minigames/galaxy/*.png` — project-original built-in OpenAI image
+  generations for the Butterfly Galaxy plate and its sixteen actor/landmark
+  cutouts; the plate is an opaque 2048×1024 runtime image and the chroma
+  sheet was locally split into transparent 1024×1024 sprites.
+- `assets/minigames/ember/*.png` — project-original built-in OpenAI image
+  generations for the Ember Fortress plate and its sixteen route/landmark
+  cutouts; the plate is an opaque 2048×1024 runtime image and the chroma
+  sheet was locally split into transparent 1024×1024 sprites.
+- `assets/minigames/opera/lobby.png`,
+  `assets/minigames/opera/careers/*.png`, and
+  `assets/minigames/opera/bosses/*.png` — project-original built-in OpenAI
+  image generations for the Pearl Opera lobby, twelve playable career stages,
+  one unused plumber variant retained with the generated sheet, and three
+  boss stages; normalized to opaque runtime images.
+- `assets/minigames/shared/{ocean_race_gate,rainbow_race_gate,opera_gate,crystal_dungeon_gate,boost_chevrons,contact_shadow,flat_placeholder}.svg`
+  — project-original vector entry, finish, shortcut, and boost landmarks
+  authored for this reconstruction; no external source.
+- `assets_src/minigames/{kart,galaxy,ember,opera}/*.png` — unmodified
+  generated/chroma masters and local alpha intermediates for the runtime art
+  above; export-excluded source provenance. Full prompt record:
+  `assets_src/minigames/GENERATED_ART.md`.
