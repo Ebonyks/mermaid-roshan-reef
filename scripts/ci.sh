@@ -16,6 +16,13 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
+# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). The self-test is a
+# HARD gate - a check that can no longer fail is worse than no check, and that
+# failure is silent by nature. The audit itself is advisory until the
+# 2026-07-28 findings are fixed or waived; flip it to --strict then.
+python3 tools/audit_visual_design.py --stress \
+	|| { echo "VISUAL AUDIT SELF-TEST FAIL (a check can no longer fail)"; exit 1; }
+python3 tools/audit_visual_design.py || true
 python3 tools/audit_scene_congruency.py \
 	|| { echo "SKY LAGOON CONGRUENCY FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
