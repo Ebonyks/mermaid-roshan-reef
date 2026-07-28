@@ -54,6 +54,7 @@ jobs:
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           python3 tools/audit_fairy_art_v2.py
           python3 tools/audit_sky_lagoon_kit.py
+          python3 tools/audit_scene_congruency.py
 
       - name: Import (deadlock-guarded)
         run: |
