@@ -108,3 +108,43 @@ ocean-kingdom return gates, audit/rank save setup, galaxy partial rescue, and
 the verb probe under the local Godot 4.7 Windows runner. The Sky Lagoon
 probes within that run remain green; the repository's pinned Godot 4.7.1 Linux
 CI is the authoritative full-suite result.
+
+## Tree-card and cloud-clearance correction (2026-07-28)
+
+The shoreline tree that read as growing from lagoon water and the two
+duplicate fir cards stacked over painted groves have been removed. Three
+mural columns were selectively repainted at native tile resolution to restore
+sky, mountains, low shrubs, dry ground, and the castle approach. Columns 2,
+3, and 5 remain byte-for-byte unchanged from v3.
+
+Two approved PNW evergreen designs are now visible, unshaded Sprite3D cards
+at real depth. Each includes a planted shrub-and-stone footing. Their opaque
+rectangles are disjoint, remain right of the lagoon-water exclusion, and sit
+on dry vegetation. A third size variant remains runtime-ready but is not
+instantiated, avoiding unnecessary transparent overdraw.
+
+The former three-cloud family card is now one small cloud Sprite3D. Its
+transform wraps only inside the empty upper-center corridor `x=-10..10`,
+`y>=28.5`, so it cannot sweep across painted cloud clusters. Tree sway and
+cloud drift remain transform-only animations.
+
+Updated `probe_l2.gd` inventory:
+
+| Type / property | Count |
+| --- | ---: |
+| Sprite3D world cards | 50 |
+| Visible Sprite3D cards at probe frame | <=40 |
+| Background panorama cards | 12 |
+| Planted tree Sprite3D cards | 2 |
+| Contact-shadow Sprite3D cards | 12 |
+| MeshInstance3D / runtime meshes | 0 |
+| Sprite2D / AnimatedSprite2D / Polygon2D / world CanvasItem art | 0 |
+| Shaded world sprites | 0 |
+
+The current master is
+`assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png`
+(6144x2048, exact 3:1). Runtime reconstruction uses twelve unscaled
+1024x1024 `flat_sky_lagoon_main_panorama_v4_tile_*` Sprite3D cards.
+`audit/sky_lagoon_hd_grid.json` records dimensions, ratio delta, hashes,
+tile rectangles, and numerical seam checks. The exact-coordinate visual is
+`audit/sky_lagoon_congruency_preview_3x1.jpg`.

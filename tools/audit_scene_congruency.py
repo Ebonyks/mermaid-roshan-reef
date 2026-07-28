@@ -23,7 +23,7 @@ from PIL import Image, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png"
+PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
 STAGE = ROOT / "scripts/arena/sky_lagoon_promenade.gd"
 CANVAS_HEIGHT = 720.0
 CAM_DIST = 47.0
@@ -56,7 +56,7 @@ class Element:
 
 
 ELEMENTS = (
-	Element("cloud_family_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png", 7.25, -17.95, "sky", "painted_underside"),
+	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.2, -17.95, "sky", "painted_underside"),
 	Element("activity_frame_v3", "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png", 12.95, -17.75),
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 12.0, -17.85),
 	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 11.0, -17.80),
@@ -65,7 +65,7 @@ ELEMENTS = (
 	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
 	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.2, -17.80),
 	Element("pnw_currant_sway", "assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png", 6.55, -17.70),
-	Element("pnw_fir_sway", "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png", 16.65, -17.90),
+	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 9.5, -17.90, "ground", "painted_underside"),
 )
 
 

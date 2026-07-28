@@ -63,9 +63,11 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
@@ -84,13 +86,13 @@ func _init() -> void:
 		for column: int in range(6):
 			required_assets.append(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
 				% [row, column])
 	var assets_ok := true
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png"
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
 	var panorama_master: Image = Image.load_from_file(
 		ProjectSettings.globalize_path(master_path))
 	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
@@ -107,7 +109,7 @@ func _init() -> void:
 		for column: int in range(6):
 			var tile: Texture2D = load(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
 				% [row, column])
 			runtime_tiles_ok = (
 				runtime_tiles_ok and tile != null
@@ -128,6 +130,8 @@ func _init() -> void:
 	var contact_shadow_count := 0
 	var unanchored := 0
 	var unanchored_worst := ""
+	var tree_cards: Array[Sprite3D] = []
+	var cloud_card: Sprite3D = null
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -145,6 +149,12 @@ func _init() -> void:
 			elif bool(stage_sprite.get_meta("sky_lagoon_contact_shadow", false)):
 				contact_shadow_count += 1
 			elif stage_sprite != main.g.get("lagoon_roshan_card"):
+				var ambient_kind: String = String(
+					stage_sprite.get_meta("ambient_kind", ""))
+				if ambient_kind == "tree":
+					tree_cards.append(stage_sprite)
+				elif ambient_kind == "cloud":
+					cloud_card = stage_sprite
 				# every world card must share the mural's depth; a card in front
 				# of it parallaxes faster than the art it stands on, so it slides
 				# across the painted ground and its tap target drifts off the
@@ -162,15 +172,41 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 52 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 50 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 42
-		and contact_shadow_count == 14,
+		depth_layers.size() >= 4 and visible_sprite_count <= 40
+		and contact_shadow_count == 12,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
 			depth_layers.size(), visible_sprite_count, contact_shadow_count])
+	var tree_placement_ok := tree_cards.size() == 2
+	var tree_detail := "cards=%d" % tree_cards.size()
+	for index: int in range(tree_cards.size()):
+		var tree: Sprite3D = tree_cards[index]
+		var tree_rect: Rect2 = _opaque_world_rect(tree)
+		# The lagoon water is confined to the arrival apron. Every movable tree
+		# belongs on the dry rear lawn, to its right and above the play lane.
+		tree_placement_ok = (
+			tree_placement_ok and tree_rect.position.x > -38.0
+			and tree_rect.position.y > 1.0)
+		for other_index: int in range(index):
+			var other_rect: Rect2 = _opaque_world_rect(tree_cards[other_index])
+			tree_placement_ok = tree_placement_ok and not tree_rect.intersects(other_rect)
+		tree_detail += " %s=%s" % [tree.name, tree_rect]
+	_check("tree_stickers_are_dry_and_non_overlapping", tree_placement_ok, tree_detail)
+	var cloud_clear_ok := cloud_card != null
+	if cloud_card != null:
+		var cloud_probe_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+		for _i in range(90):
+			cloud_probe_promenade.tick(0.5)
+		cloud_clear_ok = (
+			cloud_card.position.x >= SkyLagoonPromenade.CLOUD_DRIFT_MIN_X
+			and cloud_card.position.x <= SkyLagoonPromenade.CLOUD_DRIFT_MAX_X
+			and cloud_card.position.y >= 28.5)
+	_check("single_cloud_uses_clear_sky_corridor", cloud_clear_ok,
+		"position=%s" % (cloud_card.position if cloud_card != null else Vector3.ZERO))
 	var seamless_cards_ok := backdrop_positions.size() == 12
 	for row: int in range(2):
 		for column: int in range(6):

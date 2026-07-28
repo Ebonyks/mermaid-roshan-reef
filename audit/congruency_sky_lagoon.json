@@ -1,50 +1,50 @@
 {
   "scene": "sky_lagoon_promenade",
-  "plate": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png",
+  "plate": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png",
   "plate_metrics": {
     "ground": {
-      "a": -21.788048815900574,
-      "b": 10.555926182993524,
-      "median_l": 50.883620859046474,
-      "black_l": 18.50645288604057,
-      "white_l": 81.05869208784368,
-      "specular": 0.012704253560528993,
-      "contrast": 4.700363724840808,
-      "key_angle": 232.2653065825191,
-      "key_confidence": 0.06871130265109665
+      "a": -21.3484850850989,
+      "b": 10.513844078042078,
+      "median_l": 51.34386607566515,
+      "black_l": 18.54115872044286,
+      "white_l": 82.14290522718089,
+      "specular": 0.012475263065869786,
+      "contrast": 4.762331427139211,
+      "key_angle": 229.90782929504616,
+      "key_confidence": 0.0607231063666369
     },
     "sky": {
-      "a": -26.021383194601288,
-      "b": -18.110459201878303,
-      "median_l": 76.59101297498253,
-      "black_l": 37.73217487369447,
-      "white_l": 90.02342740993723,
-      "specular": 0.007736015536322361,
-      "contrast": 2.710373990725973,
-      "key_angle": 158.89624121221757,
-      "key_confidence": 0.040940515454028034
+      "a": -25.42221567413011,
+      "b": -18.75484826783831,
+      "median_l": 77.86574268426573,
+      "black_l": 47.213997606201524,
+      "white_l": 90.556435018729,
+      "specular": 0.005672412977676882,
+      "contrast": 2.4226605694605623,
+      "key_angle": 128.2788923681669,
+      "key_confidence": 0.04154939000631185
     },
     "castle": {
-      "a": 11.95509812852935,
+      "a": 12.159653180636276,
       "b": -15.61207786040557,
-      "median_l": 60.3533840186663,
-      "black_l": 25.493471351879485,
-      "white_l": 88.6721839193472,
-      "specular": 0.024832840426899833,
-      "contrast": 5.046185845868687,
-      "key_angle": 212.1692352594858,
-      "key_confidence": 0.02618923865810568
+      "median_l": 60.42050927135509,
+      "black_l": 25.255617151514503,
+      "white_l": 88.38191494367857,
+      "specular": 0.024784026021649783,
+      "contrast": 5.053802032382687,
+      "key_angle": 210.4936080790408,
+      "key_confidence": 0.024955405754745634
     },
     "accent": {
-      "a": 12.019471067677756,
-      "b": -4.287371636249371,
-      "median_l": 50.883620859046474,
-      "black_l": 18.50645288604057,
-      "white_l": 81.05869208784368,
-      "specular": 0.012704253560528993,
-      "contrast": 4.700363724840808,
-      "key_angle": 232.2653065825191,
-      "key_confidence": 0.06871130265109665
+      "a": 12.020886285217136,
+      "b": -4.323143789304051,
+      "median_l": 51.34386607566515,
+      "black_l": 18.54115872044286,
+      "white_l": 82.14290522718089,
+      "specular": 0.012475263065869786,
+      "contrast": 4.762331427139211,
+      "key_angle": 229.90782929504616,
+      "key_confidence": 0.0607231063666369
     },
     "authored_to_displayed": 2.6525979097870507
   },
@@ -64,31 +64,31 @@
   "results": [
     {
       "element": {
-        "name": "cloud_family_drift",
-        "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
-        "world_height": 7.25,
+        "name": "cloud_single_drift",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+        "world_height": 3.2,
         "z": -17.95,
         "band": "sky",
         "shadow_mode": "painted_underside",
         "palette_band": ""
       },
       "metrics": {
-        "a": -21.909312262570534,
-        "b": -18.25310396679336,
-        "median_l": 77.63539872595618,
-        "black_l": 50.2836098824809,
-        "white_l": 81.20739139470224,
-        "specular": 0.0008929620491129127,
-        "contrast": 3.7142514427876088,
-        "key_angle": 142.0667453424304,
-        "key_confidence": 0.029948284293169106
+        "a": -21.12595378840265,
+        "b": -18.735609463771176,
+        "median_l": 76.83824301872129,
+        "black_l": 51.447161798813326,
+        "white_l": 80.96593977575,
+        "specular": 0.0010383137784238396,
+        "contrast": 4.116302477564698,
+        "key_angle": 118.76962139834549,
+        "key_confidence": 0.04307749882693108
       },
       "derived": {
-        "delta_lab": 4.114544310006875,
-        "key_delta": 16.829495869787166,
-        "displayed_height": 116.70500986503305,
-        "authored_height": 220,
-        "density": 1.885094738044455,
+        "delta_lab": 4.2963049615147675,
+        "key_delta": 9.509270969821415,
+        "displayed_height": 51.511176768014586,
+        "authored_height": 94,
+        "density": 1.824846681785932,
         "density_max": 2.5
       },
       "criteria": {
@@ -124,8 +124,8 @@
         "key_confidence": 0.1559900430355435
       },
       "derived": {
-        "delta_lab": 11.11246450025044,
-        "key_delta": 147.88834482806595,
+        "delta_lab": 10.670891465882052,
+        "key_delta": 145.53086754059302,
         "displayed_height": 209.1031831926592,
         "authored_height": 390,
         "density": 1.8651079053190205,
@@ -164,8 +164,8 @@
         "key_confidence": 0.08563948498009731
       },
       "derived": {
-        "delta_lab": 14.131081465790169,
-        "key_delta": 7.586565357678694,
+        "delta_lab": 13.793167393982912,
+        "key_delta": 9.944042645151626,
         "displayed_height": 193.46478013199004,
         "authored_height": 360,
         "density": 1.8608038101528994,
@@ -204,8 +204,8 @@
         "key_confidence": 0.08952728679195979
       },
       "derived": {
-        "delta_lab": 10.970061446416583,
-        "key_delta": 152.52357398045228,
+        "delta_lab": 10.81776051454624,
+        "key_delta": 154.88105126792516,
         "displayed_height": 177.4795536357447,
         "authored_height": 398,
         "density": 2.2425118378246927,
@@ -244,8 +244,8 @@
         "key_confidence": 0.012093756345438852
       },
       "derived": {
-        "delta_lab": 16.500894829930704,
-        "key_delta": 149.0702691400394,
+        "delta_lab": 16.343724212692106,
+        "key_delta": 151.42774642751226,
         "displayed_height": 193.6140585117215,
         "authored_height": 412,
         "density": 2.1279446501301313,
@@ -284,8 +284,8 @@
         "key_confidence": 0.039525113214233853
       },
       "derived": {
-        "delta_lab": 15.39071349948582,
-        "key_delta": 135.89481295764068,
+        "delta_lab": 15.191539750332817,
+        "key_delta": 134.21918577719572,
         "displayed_height": 224.09670365288846,
         "authored_height": 420,
         "density": 1.8741908879237834,
@@ -324,8 +324,8 @@
         "key_confidence": 0.029522843646107078
       },
       "derived": {
-        "delta_lab": 4.928723436007684,
-        "key_delta": 160.65980157808028,
+        "delta_lab": 4.964294194643776,
+        "key_delta": 158.30232429060734,
         "displayed_height": 174.25265266054936,
         "authored_height": 320,
         "density": 1.8364139375448814,
@@ -364,8 +364,8 @@
         "key_confidence": 0.02641909682956482
       },
       "derived": {
-        "delta_lab": 4.744835475186703,
-        "key_delta": 16.544277385106938,
+        "delta_lab": 4.731142778781924,
+        "key_delta": 14.186800097634006,
         "displayed_height": 67.76492047910253,
         "authored_height": 168,
         "density": 2.4791588156855897,
@@ -404,8 +404,8 @@
         "key_confidence": 0.11535260137936298
       },
       "derived": {
-        "delta_lab": 15.520431076963625,
-        "key_delta": 16.68448395335733,
+        "delta_lab": 15.521791513070538,
+        "key_delta": 14.327006665884397,
         "displayed_height": 105.84434697928266,
         "authored_height": 195,
         "density": 1.8423279614372616,
@@ -424,31 +424,31 @@
     },
     {
       "element": {
-        "name": "pnw_fir_sway",
-        "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-        "world_height": 16.65,
+        "name": "pnw_tree_sticker_tall",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+        "world_height": 9.5,
         "z": -17.9,
         "band": "ground",
-        "shadow_mode": "card",
+        "shadow_mode": "painted_underside",
         "palette_band": ""
       },
       "metrics": {
-        "a": -22.574665441461693,
-        "b": 15.608877156763867,
-        "median_l": 64.18514335401852,
-        "black_l": 27.16045362983245,
-        "white_l": 86.3271645559015,
-        "specular": 0.015289469163373991,
-        "contrast": 5.33046655765456,
-        "key_angle": 124.9698090450571,
-        "key_confidence": 0.07684319473292509
+        "a": -20.55706039743016,
+        "b": 7.215083492495767,
+        "median_l": 39.47765087067826,
+        "black_l": 17.48215467744676,
+        "white_l": 69.99088268653811,
+        "specular": 0.01373168486778278,
+        "contrast": 8.700294744762045,
+        "key_angle": 148.55809240520853,
+        "key_confidence": 0.019679929432970034
       },
       "derived": {
-        "delta_lab": 5.113812595210723,
-        "key_delta": 107.29549753746198,
-        "displayed_height": 268.22557782417374,
-        "authored_height": 440,
-        "density": 1.6404102978144284,
+        "delta_lab": 3.392370032441244,
+        "key_delta": 81.34973688983763,
+        "displayed_height": 153.0416209807598,
+        "authored_height": 380,
+        "density": 2.4829846780554754,
         "density_max": 2.5
       },
       "criteria": {

@@ -9,7 +9,7 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png"
+MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
 OUT = ROOT / "audit/sky_lagoon_congruency_preview_3x1.jpg"
 WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
@@ -51,10 +51,12 @@ def shadow(canvas: Image.Image, x: float, y: float, object_height: float) -> Non
 def main() -> None:
 	canvas = Image.open(MASTER).convert("RGBA")
 	# Sky card first, then distant PNW standees.
-	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png", -60.0, 26.6, 7.25)
-	for x, y, height in ((-41.5, 7.7, 16.65), (23.0, 7.05, 14.7)):
-		shadow(canvas, x, y, height)
-		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png", x, y, height)
+	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", -10.0, 29.0, 3.2)
+	for path, x, y, height in (
+		("assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 26.0, 6.5, 9.5),
+		("assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png", -27.0, 6.2, 8.5),
+	):
+		place(canvas, path, x, y, height)
 	for x, y, height in ((-24.0, 1.3, 6.55), (23.5, 1.35, 6.3), (62.0, 1.55, 6.8)):
 		shadow(canvas, x, y, height)
 		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png", x, y, height)

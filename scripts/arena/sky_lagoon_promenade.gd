@@ -50,6 +50,8 @@ const HOLD_TRAVEL_S := 0.20
 # separation is under 1% of parallax, far below anything the eye reads.
 const DRESS_Z := -17.90      # ambient firs, furthest of the anchored cards
 const CLOUD_Z := -17.95      # sky, behind the treetops
+const CLOUD_DRIFT_MIN_X := -10.0
+const CLOUD_DRIFT_MAX_X := 10.0
 const LANDMARK_Z := -17.85   # pearl plane, castle gate
 const PLAY_Z := -17.80       # playground standees
 const FRAME_Z := -17.75      # activity frames
@@ -162,7 +164,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		for column: int in range(BACKDROP_COLUMNS):
 			_add_backdrop(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
 				% [row, column],
 				-60.0 + float(column) * BACKDROP_TILE_SIZE.x,
 				21.5 - float(row) * BACKDROP_TILE_SIZE.y,
@@ -327,12 +329,15 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
-	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-		Vector3(-41.5, 7.7, DRESS_Z), 16.65, 0.0, 0.55, 0.018)
-	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-		Vector3(23.0, 7.05, DRESS_Z), 14.7, 1.8, 0.48, 0.016)
+	# These three planted cards replace the two duplicate firs that were
+	# previously stacked over painted trees. Their bases sit on the dry rear
+	# lawn and their alpha footprints leave a full crown-width between cards.
+	_add_ambient_card("tree",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+		Vector3(26.0, 6.5, DRESS_Z), 9.5, 0.0, 0.42, 0.010, false)
+	_add_ambient_card("tree",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png",
+		Vector3(-27.0, 6.2, DRESS_Z), 8.5, 1.8, 0.38, 0.009, false)
 	_add_ambient_card("flower",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(-24.0, 1.3, NEAR_Z), 6.55, 0.7, 0.72, 0.030)
@@ -343,8 +348,8 @@ func _build_ambient_life() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(62.0, 1.55, NEAR_Z), 6.8, 4.0, 0.64, 0.032)
 	_add_ambient_card("cloud",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
-		Vector3(-60.0, 26.6, CLOUD_Z), 7.25, 1.1, 0.72, 0.0, false)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+		Vector3(CLOUD_DRIFT_MIN_X, 29.0, CLOUD_Z), 3.2, 1.1, 0.45, 0.0, false)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
 		phase: float, speed: float, amplitude: float,
@@ -373,7 +378,8 @@ func _tick_ambient_life(delta: float) -> void:
 		var kind: String = String(card.get_meta("ambient_kind", "flower"))
 		if kind == "cloud":
 			card.position = Vector3(
-				wrapf(base.x + ambient_t * speed, -78.0, 78.0),
+				wrapf(base.x + ambient_t * speed,
+					CLOUD_DRIFT_MIN_X, CLOUD_DRIFT_MAX_X),
 				base.y + sin(ambient_t * 0.32 + phase) * 0.18,
 				base.z)
 			continue

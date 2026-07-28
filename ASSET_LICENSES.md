@@ -478,3 +478,25 @@ ambientCG (all CC0).
   density-matched derivative of the approved seesaw cutout, downsampled once
   for its final non-overlapping Sprite3D display size; design and alpha
   silhouette are unchanged.
+
+## Sky Lagoon tree-card and cloud-clearance correction (Codex, 2026-07-28)
+- `assets_src/sky_lagoon/tree_card_rebuild_2026-07-28/*.png` — project-original
+  OpenAI built-in image-generation edit sources. Inputs were approved Sky
+  Lagoon mural tiles and PNW visual language; no external references. Prompts
+  and exact source/output roles are recorded in that directory's README.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png` —
+  project-original 6144x2048 exact-3:1 derivative of the v3 master. Only
+  columns 0, 1, and 4 were selectively repainted to remove water-rooted or
+  duplicate foreground trees and restore occluded scenery. No crop, padding,
+  extension, or ratio change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v4_tile_r{0..1}_c{0..5}.png`
+  — twelve lossless non-overlapping 1024x1024 crops of the v4 master, used as
+  unshaded Sprite3D cards. Tile rectangles and hashes are in
+  `audit/sky_lagoon_hd_grid.json`.
+- `assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_{tall,medium,slender}_v1.png`
+  — project-original OpenAI-generated transparent PNW evergreen card family
+  derived from approved mural trees. Local checker removal, alpha crop,
+  density reduction, and matte/value grading only.
+- `assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png` — project-original
+  lossless-alpha crop of one cloud from the approved
+  `sky_lagoon_cloud_family_v7_hd_grade.png`; no redesign.
