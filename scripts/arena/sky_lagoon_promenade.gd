@@ -52,6 +52,28 @@ const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
 # the activity frames stand on the lawn like easels (they used to hang at
 # y 14.5, which put them in the painted sky above the treeline)
 const FRAME_STAND_Y := 4.4
+const PLAY_ROSHAN_H := 10.2
+const PLAY_FRAME_PATHS := {
+	"swing": [
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+	],
+	"slide": [
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+	],
+	"seesaw": [
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
+	],
+}
+const PLAY_DURATIONS := {"swing": 5.6, "slide": 5.4, "seesaw": 5.8}
 
 # THE ROUTE THROUGH THE LEVEL (owner request 2026-07-27: "she should have a
 # clear routing path through the level as well"). The promenade is a path, not
@@ -93,6 +115,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_targets"] = []
 	m.g["lagoon_promenade_focus"] = ""
 	m.g["lagoon_promenade_focus_t"] = 0.0
+	m.g["lagoon_play_anim"] = {}
 	m.lagoon_floor = false
 	m.northern_floor = false
 	m.arena_center = m.LEVEL2_POS
@@ -151,6 +174,12 @@ func tick(delta: float) -> void:
 	if m.mg_kind != "":
 		return
 	_refresh_route()
+	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		m.g["ss_walk_goal"] = null
+		stage.walk_tick(delta)
+		_tick_playground_animation(delta)
+		_tick_ambient_life(delta)
+		return
 	_tick_hold_travel(delta)
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
@@ -194,6 +223,8 @@ func _tick_hold_travel(delta: float) -> void:
 	_set_walk_goal(press)
 
 func handle_touch(screen_pos: Vector2) -> bool:
+	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		return true
 	var target: Dictionary = _target_at(screen_pos)
 	if target.is_empty():
 		_clear_focus()
@@ -257,7 +288,10 @@ func _build_roshan_card() -> void:
 	var card := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
+	card.name = "SkyLagoonRoshan"
 	m.g["lagoon_roshan_card"] = card
+	m.g["lagoon_roshan_idle_texture"] = card.texture
+	m.g["lagoon_roshan_idle_pixel_size"] = card.pixel_size
 	m.player.visible = false
 
 func _sync_roshan_card(delta_x: float = 0.0) -> void:
@@ -492,8 +526,7 @@ func _activate(target: Dictionary) -> void:
 			m._sparkle_burst(node.global_position, Color(0.65, 0.94, 1.0))
 			m.show_msg("Roshan", "The pearl plane is ready for another sky adventure!")
 		"playground":
-			_bounce(node, 0.12)
-			m.player.play_verb("giggle")
+			_start_playground_animation(String(target.get("payload", "")), node)
 			m._sparkle_burst(node.global_position, Color(1.0, 0.65, 0.88))
 		"castle":
 			m.player.visible = true
@@ -506,6 +539,169 @@ func _bounce(node: Node3D, tilt: float) -> void:
 	tween.tween_property(node, "rotation:z", tilt, 0.16).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(node, "rotation:z", -tilt * 0.45, 0.18)
 	tween.tween_property(node, "rotation:z", 0.0, 0.16)
+
+func _start_playground_animation(kind: String, equipment: Node3D) -> void:
+	if not PLAY_FRAME_PATHS.has(kind) or equipment == null or not is_instance_valid(equipment):
+		return
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	var root_node: Node3D = stage.root()
+	if card == null or not is_instance_valid(card) or root_node == null:
+		return
+	var frames: Array[Texture2D] = []
+	for path_value in PLAY_FRAME_PATHS[kind]:
+		var frame: Texture2D = load(String(path_value)) as Texture2D
+		if frame != null:
+			frames.append(frame)
+	if frames.size() != 4:
+		return
+	m.g["ss_walk_goal"] = null
+	m.player.position.x = root_node.position.x + _walk_x(equipment.position.x)
+	m.g["lagoon_play_anim"] = {
+		"kind": kind,
+		"t": 0.0,
+		"dur": float(PLAY_DURATIONS[kind]),
+		"equipment": equipment,
+		"equipment_rotation": equipment.rotation.z,
+		"frames": frames,
+		"frame_index": -1,
+	}
+	card.visible = true
+	card.flip_h = false
+	card.position.z = PLAY_Z + 0.12
+	card.rotation.z = 0.0
+	card.scale = Vector3.ONE
+	_set_play_frame(0)
+
+func _set_play_frame(frame_index: int) -> void:
+	var play: Dictionary = m.g.get("lagoon_play_anim", {})
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	if play.is_empty() or card == null or not is_instance_valid(card):
+		return
+	var frames: Array = play.get("frames", [])
+	if frame_index < 0 or frame_index >= frames.size():
+		return
+	if int(play.get("frame_index", -1)) == frame_index:
+		return
+	play["frame_index"] = frame_index
+	card.texture = frames[frame_index] as Texture2D
+	card.pixel_size = PLAY_ROSHAN_H / maxf(1.0, float(card.texture.get_height()))
+
+func _tick_playground_animation(delta: float) -> void:
+	var play: Dictionary = m.g.get("lagoon_play_anim", {})
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	var equipment: Node3D = play.get("equipment") as Node3D
+	if play.is_empty() or card == null or not is_instance_valid(card):
+		return
+	if equipment == null or not is_instance_valid(equipment):
+		_finish_playground_animation()
+		return
+	var t: float = float(play.get("t", 0.0)) + delta
+	play["t"] = t
+	var kind: String = String(play.get("kind", ""))
+	match kind:
+		"swing":
+			_tick_swing_animation(card, equipment, t)
+		"slide":
+			_tick_slide_animation(card, equipment, t)
+		"seesaw":
+			_tick_seesaw_animation(card, equipment, t)
+	if t >= float(play.get("dur", 0.0)):
+		_finish_playground_animation()
+
+func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
+	# Three readable pumps. The hands stay near the two painted ropes while
+	# the authored frames supply the lean, tail follow-through and seated pose.
+	var phase: float = t * TAU / 1.72
+	var arc: float = sin(phase)
+	var frame_index := 0
+	if arc > 0.34:
+		frame_index = 1
+	elif arc < -0.34:
+		frame_index = 2
+	elif cos(phase) < 0.0:
+		frame_index = 3
+	_set_play_frame(frame_index)
+	card.position = Vector3(
+		swing.position.x + 2.45 + arc * 0.46,
+		swing.position.y - 2.42 + (1.0 - cos(phase)) * 0.18,
+		PLAY_Z + 0.12)
+	card.rotation.z = -arc * 0.055
+
+func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
+	if t < 2.55:
+		# Five distinct rung landings. Squash and extend alternate instead of
+		# gliding up the ladder, so every stair has a little mermaid-tail hop.
+		var step_f: float = clampf(t / 2.55, 0.0, 1.0) * 5.0
+		var step_i: int = mini(4, floori(step_f))
+		var step_phase: float = step_f - floorf(step_f)
+		var bounce: float = sin(step_phase * PI) * 0.42
+		_set_play_frame(step_i % 2)
+		card.position = Vector3(
+			slide.position.x - 6.2 + float(step_i) * 0.42,
+			slide.position.y - 3.7 + float(step_i) * 1.52 + bounce,
+			PLAY_Z + 0.12)
+		card.rotation.z = -0.03
+	elif t < 3.15:
+		_set_play_frame(2)
+		var settle: float = smoothstep(0.0, 1.0, (t - 2.55) / 0.60)
+		card.position = Vector3(
+			lerpf(slide.position.x - 4.5, slide.position.x - 2.1, settle),
+			lerpf(slide.position.y + 2.5, slide.position.y + 3.9, settle),
+			PLAY_Z + 0.12)
+		card.rotation.z = lerpf(-0.03, -0.12, settle)
+	else:
+		_set_play_frame(3)
+		var ride: float = smoothstep(0.0, 1.0, clampf((t - 3.15) / 2.05, 0.0, 1.0))
+		# A quadratic chute path: gently over the lip, then faster down and out.
+		var start := Vector2(slide.position.x - 2.1, slide.position.y + 3.9)
+		var control := Vector2(slide.position.x + 1.8, slide.position.y + 2.6)
+		var finish := Vector2(slide.position.x + 7.1, slide.position.y - 4.2)
+		var a: Vector2 = start.lerp(control, ride)
+		var b: Vector2 = control.lerp(finish, ride)
+		var point: Vector2 = a.lerp(b, ride)
+		card.position = Vector3(point.x, point.y, PLAY_Z + 0.12)
+		card.rotation.z = lerpf(-0.12, -0.42, ride)
+
+func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
+	# Almost three complete low-high-low rocks. Roshan sits on the left shell
+	# seat and follows its circular arc while her hands stay on its gold hoop.
+	var phase: float = t * TAU / 1.92
+	var rock: float = sin(phase) * 0.105
+	seesaw.rotation.z = float(
+		(m.g.get("lagoon_play_anim", {}) as Dictionary).get(
+			"equipment_rotation", 0.0)) + rock
+	var frame_index := 0
+	if sin(phase) > 0.45:
+		frame_index = 2
+	elif sin(phase) < -0.45:
+		frame_index = 0
+	elif cos(phase) > 0.0:
+		frame_index = 1
+	else:
+		frame_index = 3
+	_set_play_frame(frame_index)
+	var seat_offset := Vector2(-6.05, 1.42).rotated(rock)
+	card.position = Vector3(
+		seesaw.position.x + seat_offset.x,
+		seesaw.position.y + seat_offset.y + 0.95,
+		PLAY_Z + 0.12)
+	card.rotation.z = rock
+
+func _finish_playground_animation() -> void:
+	var play: Dictionary = m.g.get("lagoon_play_anim", {})
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	var equipment: Node3D = play.get("equipment") as Node3D
+	if equipment != null and is_instance_valid(equipment):
+		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
+	m.g["lagoon_play_anim"] = {}
+	if card != null and is_instance_valid(card):
+		card.texture = m.g.get("lagoon_roshan_idle_texture") as Texture2D
+		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
+		card.rotation.z = 0.0
+		card.scale = Vector3.ONE
+		card.flip_h = false
+	_sync_roshan_card()
+	m.player.play_verb("giggle")
 
 func _depth_ratio() -> float:
 	# her plane sits at z 0, the painting at BACKDROP_Z: everything painted is

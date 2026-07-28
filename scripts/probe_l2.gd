@@ -59,6 +59,18 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
 	]
 	var assets_ok := true
 	for path: String in required_assets:
@@ -274,6 +286,71 @@ func _init() -> void:
 		int(frame_screens.get(1, 0)) == 1
 		and int(frame_screens.get(2, 0)) == 1
 		and int(frame_screens.get(3, 0)) == 1)
+
+	# Each playground toy owns a purpose-built four-frame Roshan sequence.
+	# The one existing Roshan Sprite3D swaps textures, so the animation adds
+	# no world cards or overdraw. Exercise the real state machine, including
+	# rung bounce, seated chute frames, and repeated seesaw direction changes.
+	var toy_nodes: Dictionary = {}
+	for value in targets:
+		var toy_target: Dictionary = value as Dictionary
+		if String(toy_target.get("kind", "")) == "playground":
+			toy_nodes[String(toy_target.get("payload", ""))] = toy_target.get("node")
+	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
+	var idle_texture: Texture2D = roshan_card.texture
+	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)
+	var swing_start: Vector3 = roshan_card.position
+	promenade._tick_playground_animation(0.55)
+	var swing_animates: bool = (
+		not (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+		and roshan_card.texture != idle_texture
+		and roshan_card.position != swing_start
+		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z)
+	promenade._finish_playground_animation()
+	_check("swing_has_grip_pose_arc_animation", swing_animates)
+
+	promenade._start_playground_animation("slide", toy_nodes.get("slide") as Node3D)
+	var ladder_start: Vector3 = roshan_card.position
+	promenade._tick_playground_animation(0.30)
+	var rung_bounce_y: float = roshan_card.position.y
+	promenade._tick_playground_animation(0.25)
+	var climbed_step_y: float = roshan_card.position.y
+	promenade._tick_slide_animation(
+		roshan_card, toy_nodes.get("slide") as Node3D, 2.80)
+	var seated_texture: String = roshan_card.texture.resource_path
+	promenade._tick_slide_animation(
+		roshan_card, toy_nodes.get("slide") as Node3D, 3.70)
+	var riding_texture: String = roshan_card.texture.resource_path
+	var slide_animates: bool = (
+		rung_bounce_y > ladder_start.y
+		and climbed_step_y > rung_bounce_y
+		and seated_texture.ends_with("roshan_slide_2.png")
+		and riding_texture.ends_with("roshan_slide_3.png")
+		and roshan_card.rotation.z < -0.1)
+	promenade._finish_playground_animation()
+	_check("slide_has_bouncy_steps_and_seated_ride", slide_animates)
+
+	var seesaw_node: Node3D = toy_nodes.get("seesaw") as Node3D
+	promenade._start_playground_animation("seesaw", seesaw_node)
+	var saw_high := false
+	var saw_low := false
+	var saw_motion_samples := 0
+	var prior_saw_rotation: float = seesaw_node.rotation.z
+	for _sample in range(8):
+		promenade._tick_playground_animation(0.48)
+		saw_high = saw_high or seesaw_node.rotation.z > 0.08
+		saw_low = saw_low or seesaw_node.rotation.z < -0.08
+		if not is_equal_approx(seesaw_node.rotation.z, prior_saw_rotation):
+			saw_motion_samples += 1
+		prior_saw_rotation = seesaw_node.rotation.z
+	var seesaw_animates: bool = (
+		saw_high and saw_low and saw_motion_samples >= 5
+		and roshan_card.texture != idle_texture)
+	promenade._finish_playground_animation()
+	_check("seesaw_rocks_back_and_forth_three_times", seesaw_animates)
+	_check("playground_animation_reuses_one_sprite3d",
+		roshan_card.texture == idle_texture
+		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
 
 	var runway_frame: Dictionary = {}
 	for value in targets:

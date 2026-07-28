@@ -178,15 +178,15 @@ func _celebrate(tier: int) -> void:
 	var cl := CanvasLayer.new()
 	cl.layer = 23
 	m.add_child(cl)
+	var card := StorybookUI.add_hud_panel(cl, Rect2(490, 140, 300, 230), Color(TIER_COLOR[tier]), Color(1.0, 0.97, 0.90, 0.97), 48)
+	card.name = "MedalCelebrationCard"
 	var big := Label.new()
 	big.text = String(GLYPH[tier])
-	big.add_theme_font_size_override("font_size", 96)
-	big.add_theme_constant_override("outline_size", 14)
-	big.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.3))
-	big.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	big.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	StorybookUI.style_hud_label(big, 96, StorybookUI.INK, 8)
 	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	big.offset_top = 180.0
-	cl.add_child(big)
+	big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	card.add_child(big)
 	var col: Color = TIER_COLOR[tier]
 	if m.player != null:
 		for si in range(2 + tier * 2):

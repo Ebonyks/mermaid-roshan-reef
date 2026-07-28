@@ -51,6 +51,16 @@ static func add_panel(parent: Control, rect: Rect2, accent: Color = INK_SOFT, fi
 	parent.add_child(panel)
 	return panel
 
+static func add_hud_panel(parent: Node, rect: Rect2, accent: Color = INK_SOFT, fill: Color = PAPER, radius: int = 30) -> Panel:
+	var panel := Panel.new()
+	panel.position = rect.position
+	panel.size = rect.size
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.add_theme_stylebox_override("panel", panel_style(accent, fill, radius, 4))
+	panel.set_meta("storybook_surface", true)
+	parent.add_child(panel)
+	return panel
+
 static func _button_fill(kind: String) -> Color:
 	match kind:
 		"primary":
@@ -122,6 +132,11 @@ static func style_label(label: Label, font_size: int = 30, color: Color = INK, o
 	label.add_theme_color_override("font_color", color)
 	label.add_theme_color_override("font_outline_color", Color(1.0, 1.0, 1.0, 0.75))
 	label.add_theme_constant_override("outline_size", outline_size)
+
+static func style_hud_label(label: Label, font_size: int = 30, color: Color = INK, outline_size: int = 3) -> void:
+	style_label(label, font_size, color, outline_size)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.set_meta("storybook_hud", true)
 
 static func set_selected(button: Button, selected: bool, locked: bool = false) -> void:
 	style_button(button, "locked" if locked else ("selected" if selected else "secondary"), int(button.get_theme_font_size("font_size")), 28)

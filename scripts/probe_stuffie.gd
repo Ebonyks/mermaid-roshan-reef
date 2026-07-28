@@ -88,11 +88,12 @@ func _follower_case() -> void:
 	# Pause, and a complete storybook Tamagotchi sheet behind that one tap.
 	var launcher: Button = main.companion_menu_button
 	_ck("care launcher appears in the inset upper-right hand area",
-		launcher != null and launcher.visible and launcher.position.x >= 900.0
-		and launcher.position.x + launcher.size.x <= 1130.0
+		launcher != null and launcher.visible and launcher.position.x >= 820.0
+		and launcher.position.x + launcher.size.x <= 1000.0
 		and launcher.position.y <= 40.0 and launcher.size.x >= 120.0 and launcher.size.y >= 120.0
 		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset")
 	var comp: CompanionSystem = main._companion_ref()
+	comp._begin_want("play")
 	comp.open_care_menu()
 	await process_frame
 	var care_back := main.companion_care_stage.find_child("StuffieCareBackButton", true, false) as Control
@@ -107,6 +108,7 @@ func _follower_case() -> void:
 	_ck("Tamagotchi sheet shows need, growth, and friend switching",
 		main.companion_care_stage.find_child("StuffieCurrentNeed", true, false) != null
 		and main.companion_care_stage.find_child("StuffieGrowthPips", true, false) != null
+		and main.companion_care_stage.find_child("StuffieHeartProgress", true, false) != null
 		and main.companion_care_stage.find_child("StuffieSwitchButton", true, false) != null)
 	var menu_care_before: int = main.care_points
 	comp._choose_menu_care("play")
@@ -152,27 +154,27 @@ func _follower_case() -> void:
 		and comp.stage() == 2 and comp.tier() == 1)
 
 func _menu_case() -> void:
-	# the Tamagotchi face: a HUD 🧸 button opens the care panel; asked care
-	# grows the stuffie, unasked care is affection (never wrong, no point)
+	# One inset Storybook launcher owns both asked care and always-welcome affection.
 	var comp: CompanionSystem = main._companion_ref()
-	_ck("stuffie HUD button appears after adoption", main.companion_hud_btn != null
-		and is_instance_valid(main.companion_hud_btn))
-	comp.open_menu()
-	_ck("care menu opens from the HUD button", main.companion_menu_layer != null
-		and main.companion_menu_stage != null)
+	var buttons: Array[Node] = main.find_children("StuffieCareMenuButton", "Button", true, false)
+	_ck("exactly one Stuffie HUD launcher exists after adoption", buttons.size() == 1
+		and main.companion_menu_button != null and is_instance_valid(main.companion_menu_button))
 	var pts: int = main.care_points
-	comp._menu_care("bath")
+	comp.open_care_menu()
+	_ck("the Storybook care menu opens from that launcher", main.companion_care_layer != null
+		and main.companion_care_stage != null)
+	comp._choose_menu_care("bath")
 	await _settle(2)
-	_ck("unasked care is affection, no point", main.care_points == pts
-		and main.companion_menu_layer == null)
+	_ck("unasked care is affection with no growth point", main.care_points == pts
+		and main.companion_care_layer == null)
 	comp._begin_want("feed")
-	comp.open_menu()
-	comp._menu_care("feed")
-	_ck("menu care tends the asked want remotely", main.companion_care_t > 0.0
+	comp.open_care_menu()
+	comp._choose_menu_care("feed")
+	_ck("the same menu tends an asked want remotely", main.companion_care_t > 0.0
 		and main.companion_node.position.distance_to(main.player.position) < 8.0)
 	main.companion_care_t = 0.01
 	await _settle(4)
-	_ck("menu care grows the stuffie", main.care_points == pts + 1
+	_ck("asked menu care grows the stuffie", main.care_points == pts + 1
 		and main.companion_want == "")
 
 func _battle_case() -> void:

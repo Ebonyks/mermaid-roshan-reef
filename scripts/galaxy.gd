@@ -1100,31 +1100,28 @@ func _build_hud() -> void:
 	# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hud.add_child(root)
+	var shard_card := StorybookUI.add_hud_panel(root, Rect2(18, 14, 270, 96), StorybookUI.GOLD, Color(0.94, 0.96, 1.0, 0.95), 30)
+	shard_card.name = "GalaxyProgressCard"
 	_lbl_shards = Label.new()
-	_lbl_shards.position = Vector2(24, 18)
-	_lbl_shards.add_theme_font_size_override("font_size", 40)
-	_lbl_shards.add_theme_color_override("font_color", Color(1.0, 0.95, 0.6))
-	_lbl_shards.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
-	_lbl_shards.add_theme_constant_override("outline_size", 6)
-	root.add_child(_lbl_shards)
+	_lbl_shards.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_lbl_shards.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_lbl_shards.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(_lbl_shards, 40)
+	shard_card.add_child(_lbl_shards)
 	_lbl_big = Label.new()
 	_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_lbl_big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_lbl_big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_lbl_big.add_theme_font_size_override("font_size", 84)
-	_lbl_big.add_theme_color_override("font_color", Color(1, 1, 1))
-	_lbl_big.add_theme_color_override("font_outline_color", Color(0.1, 0.0, 0.2))
-	_lbl_big.add_theme_constant_override("outline_size", 12)
+	StorybookUI.style_hud_label(_lbl_big, 84, StorybookUI.GOLD, 12)
 	root.add_child(_lbl_big)
+	var hint_card := StorybookUI.add_hud_panel(root, Rect2(330, 624, 620, 76), StorybookUI.LAVENDER, Color(0.92, 0.94, 1.0, 0.94), 26)
+	hint_card.name = "GalaxyHintCard"
 	_lbl_hint = Label.new()
-	_lbl_hint.anchor_top = 1.0
-	_lbl_hint.anchor_bottom = 1.0
-	_lbl_hint.position = Vector2(24, -56)
-	_lbl_hint.add_theme_font_size_override("font_size", 26)
-	_lbl_hint.add_theme_color_override("font_color", Color(0.92, 0.9, 1.0))
-	_lbl_hint.add_theme_color_override("font_outline_color", Color(0.10, 0.08, 0.28))
-	_lbl_hint.add_theme_constant_override("outline_size", 5)
-	root.add_child(_lbl_hint)
+	_lbl_hint.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_lbl_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_lbl_hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(_lbl_hint, 26)
+	hint_card.add_child(_lbl_hint)
 	_update_shard_hud()
 
 func _update_shard_hud() -> void:

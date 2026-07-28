@@ -2453,22 +2453,11 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 14
 	add_child(hud)
-	var banner := Panel.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.07, 0.045, 0.14, 0.88)
-	style.border_color = Color(config.get("trim", Color(1.0, 0.85, 0.55)))
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(22)
-	banner.add_theme_stylebox_override("panel", style)
-	banner.position = Vector2(220, 22)
-	banner.size = Vector2(840, 112)
-	banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_child(banner)
+	var banner := StorybookUI.add_hud_panel(hud, Rect2(220, 22, 840, 112), Color(config.get("trim", StorybookUI.GOLD)), Color(0.96, 0.96, 1.0, 0.97), 32)
+	banner.name = "OperaActObjectiveCard"
 	objective = Label.new()
 	objective.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	objective.add_theme_font_size_override("font_size", 28)
-	objective.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	objective.add_theme_constant_override("outline_size", 8)
+	StorybookUI.style_hud_label(objective, 28)
 	objective.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	objective.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

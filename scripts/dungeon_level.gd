@@ -58,37 +58,25 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 16
 	add_child(hud)
-	var strip := Panel.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.035, 0.045, 0.12, 0.9)
-	style.border_color = Color(0.78, 0.66, 1.0)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(20)
-	strip.add_theme_stylebox_override("panel", style)
-	strip.position = Vector2(245, 612)
-	strip.size = Vector2(790, 88)
-	strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_child(strip)
+	var strip := StorybookUI.add_hud_panel(hud, Rect2(245, 612, 790, 88), StorybookUI.LAVENDER, Color(0.94, 0.96, 1.0, 0.95), 28)
+	strip.name = "DungeonProgressCard"
 	progress_label = Label.new()
 	progress_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	progress_label.add_theme_font_size_override("font_size", 31)
-	progress_label.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	progress_label.add_theme_constant_override("outline_size", 7)
+	StorybookUI.style_hud_label(progress_label, 31)
 	progress_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	progress_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	progress_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	strip.add_child(progress_label)
+	var room_card := StorybookUI.add_hud_panel(hud, Rect2(18, 18, 210, 96), StorybookUI.GOLD, Color(1.0, 0.97, 0.86, 0.96), 28)
+	room_card.name = "DungeonRoomCard"
 	room_label = Label.new()
-	room_label.position = Vector2(30, 620)
-	room_label.size = Vector2(205, 70)
-	room_label.add_theme_font_size_override("font_size", 25)
-	room_label.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	room_label.add_theme_constant_override("outline_size", 7)
+	room_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	StorybookUI.style_hud_label(room_label, 25)
 	room_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	room_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	room_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	room_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_child(room_label)
+	room_card.add_child(room_label)
 	var home := Button.new()
 	home.name = "DungeonBackButton"
 	StorybookUI.style_back_button(home, "Save checkpoint and leave")

@@ -186,10 +186,6 @@ var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
 var companion_resting := false            # went home to rest (persisted) — on its Den shelf until re-picked
-var companion_hud_layer: CanvasLayer = null   # the 🧸 button beside the Critter Book paw
-var companion_hud_btn: Button = null          # its badge shows the active want / 🩹 / 💤
-var companion_menu_layer: CanvasLayer = null  # the Tamagotchi care panel
-var companion_menu_stage: Control = null
 var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
 var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
 var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
@@ -2972,18 +2968,9 @@ func _build_obj_card(cl: CanvasLayer) -> void:
 	# Picture-first objective card: a big pictogram of WHO/what to find plus the
 	# sparkle-current echo. Reading it is never required — narration and the
 	# in-world helping current carry the same information.
-	obj_card = Panel.new()
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.08, 0.14, 0.3, 0.6)
-	sb.border_color = Color(0.5, 0.9, 0.95, 0.85)
-	sb.set_border_width_all(3)
-	sb.set_corner_radius_all(20)
-	obj_card.add_theme_stylebox_override("panel", sb)
-	obj_card.position = Vector2(528, 12)
-	obj_card.size = Vector2(224, 150)
-	obj_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	obj_card = StorybookUI.add_hud_panel(cl, Rect2(528, 12, 224, 150), StorybookUI.MINT, Color(0.93, 0.98, 1.0, 0.96), 30)
+	obj_card.name = "HudPictureTargetCard"
 	obj_card.visible = false
-	cl.add_child(obj_card)
 	obj_icon = TextureRect.new()
 	obj_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	obj_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -2992,7 +2979,7 @@ func _build_obj_card(cl: CanvasLayer) -> void:
 	obj_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	obj_card.add_child(obj_icon)
 	obj_icon_lbl = Label.new()
-	obj_icon_lbl.add_theme_font_size_override("font_size", 72)
+	StorybookUI.style_hud_label(obj_icon_lbl, 72)
 	obj_icon_lbl.position = Vector2(0, 2)
 	obj_icon_lbl.size = Vector2(224, 108)
 	obj_icon_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -3001,7 +2988,7 @@ func _build_obj_card(cl: CanvasLayer) -> void:
 	obj_card.add_child(obj_icon_lbl)
 	var hint := Label.new()
 	hint.text = "✨ ✨ ✨"
-	hint.add_theme_font_size_override("font_size", 24)
+	StorybookUI.style_hud_label(hint, 24, StorybookUI.GOLD, 3)
 	hint.position = Vector2(0, 112)
 	hint.size = Vector2(224, 34)
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -3121,26 +3108,17 @@ func _flash_speaker_icon(who: String) -> void:
 		speech_layer = CanvasLayer.new()
 		speech_layer.layer = 8
 		add_child(speech_layer)
-		var panel := Panel.new()
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color(0.06, 0.1, 0.22, 0.85)
-		sb.set_corner_radius_all(8)
-		sb.border_color = Color(1.0, 0.85, 0.5)
-		sb.set_border_width_all(3)
-		panel.add_theme_stylebox_override("panel", sb)
+		var panel := StorybookUI.add_hud_panel(speech_layer, Rect2(24, 228, 190, 208), StorybookUI.GOLD, Color(0.94, 0.97, 1.0, 0.94), 30)
+		panel.name = "HudSpeakerPortraitCard"
 		# Codex UI handoff: between the status tray (ends y188-224) and the
 		# resting joystick corner (starts y~440) — portraits never enter
 		# touch corner zones
-		panel.position = Vector2(24, 228)
-		panel.size = Vector2(190, 208)
-		speech_layer.add_child(panel)
 		speech_portrait = TextureRect.new()
 		speech_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		speech_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 		speech_portrait.position = Vector2(34, 236)
 		speech_portrait.size = Vector2(170, 192)
 		speech_layer.add_child(speech_portrait)
-		panel.name = "bubble"
 	var key := _speaker_key(who)
 	var path := String(SPEAKER_PORTRAIT.get(key, SPEAKER_PORTRAIT["roshan"]))
 	if ResourceLoader.exists(path):
@@ -6186,15 +6164,15 @@ func _celebrate_pose() -> void:
 	var cl3 := CanvasLayer.new()
 	cl3.layer = 22
 	add_child(cl3)
+	var celebration_card := StorybookUI.add_hud_panel(cl3, Rect2(350, 40, 580, 170), StorybookUI.GOLD, Color(1.0, 0.97, 0.88, 0.96), 48)
+	celebration_card.name = "TrophyCelebrationCard"
 	var big := Label.new()
 	big.text = "🏆 ⭐ 🏆"
-	big.add_theme_font_size_override("font_size", 110)
-	big.add_theme_constant_override("outline_size", 16)
-	big.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.3))
-	big.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	StorybookUI.style_hud_label(big, 110, StorybookUI.GOLD, 12)
+	big.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	big.offset_top = 50.0
-	cl3.add_child(big)
+	big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	celebration_card.add_child(big)
 	for ci in range(36):
 		var conf := ColorRect.new()
 		conf.color = Color.from_hsv(randf(), 0.7, 1.0)

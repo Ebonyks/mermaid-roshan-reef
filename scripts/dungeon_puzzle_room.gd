@@ -269,35 +269,24 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 14
 	add_child(hud)
-	var banner := Panel.new()
-	banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.04, 0.05, 0.14, 0.9)
-	style.border_color = Color(1.0, 0.82, 0.25)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(22)
-	banner.add_theme_stylebox_override("panel", style)
-	banner.position = Vector2(250, 20)
-	banner.size = Vector2(780, 94)
-	hud.add_child(banner)
+	var banner := StorybookUI.add_hud_panel(hud, Rect2(250, 20, 780, 94), StorybookUI.GOLD, Color(1.0, 0.97, 0.86, 0.97), 30)
+	banner.name = "PuzzleObjectiveCard"
 	objective = Label.new()
 	objective.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	objective.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	objective.add_theme_font_size_override("font_size", 28)
-	objective.add_theme_color_override("font_outline_color", Color(0.02, 0.02, 0.08))
-	objective.add_theme_constant_override("outline_size", 7)
+	StorybookUI.style_hud_label(objective, 28)
 	objective.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	banner.add_child(objective)
+	var hint_card := StorybookUI.add_hud_panel(hud, Rect2(260, 510, 760, 80), StorybookUI.LAVENDER, Color(0.94, 0.96, 1.0, 0.94), 28)
+	hint_card.name = "PuzzleHintCard"
 	hint = Label.new()
 	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hint.position = Vector2(300, 520)
-	hint.size = Vector2(680, 54)
-	hint.add_theme_font_size_override("font_size", 25)
-	hint.add_theme_color_override("font_outline_color", Color(0.03, 0.02, 0.1))
-	hint.add_theme_constant_override("outline_size", 7)
+	hint.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	StorybookUI.style_hud_label(hint, 25)
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hud.add_child(hint)
+	hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_card.add_child(hint)
 	pointer = Label3D.new()
 	pointer.text = "▼"
 	pointer.font_size = 145

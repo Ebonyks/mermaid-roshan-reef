@@ -391,6 +391,18 @@ ambientCG (all CC0).
   project-original OpenAI image generation matching the approved Sky Lagoon
   panorama cloud language; generated on a flat chroma key, locally
   alpha-extracted, and resized to 1024px.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; centered two-hand grip pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; back-pump seated pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; forward-pump seated pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; high-arc seated pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; compressed ladder-step pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; extended ladder-step pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated-at-lip pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated chute-ride pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; low-seat two-hand pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; rising two-hand pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; high-seat two-hand pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; descending two-hand pose; local chroma extraction and 512px crop.
 - `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
   project-original OpenAI image generation; native 2172×724 exact-3:1 master
   flowing from the blocked-water runway shore, through a bounded playground

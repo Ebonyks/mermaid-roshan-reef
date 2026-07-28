@@ -356,10 +356,7 @@ func _draw_book() -> void:
 
 	var title := Label.new()
 	title.text = "🐚  My Critter Book   %d / %d" % [caught_count(), TOTAL]
-	title.add_theme_font_size_override("font_size", 46)
-	title.add_theme_color_override("font_color", Color(1.0, 0.94, 0.66))
-	title.add_theme_color_override("font_outline_color", Color(0.05, 0.07, 0.16))
-	title.add_theme_constant_override("outline_size", 9)
+	StorybookUI.style_label(title, 46, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
 
@@ -378,11 +375,6 @@ func _draw_book() -> void:
 		tab.position = Vector2(88 + float(i) * 270.0, 92)
 		tab.custom_minimum_size = Vector2(242, 110)
 		StorybookUI.style_button(tab, "selected" if category == m.collection_category else "secondary", 30, 28)
-		if category == m.collection_category:
-			var active_style := StyleBoxFlat.new()
-			active_style.bg_color = Color(0.32, 0.70, 0.62, 0.95)
-			active_style.set_corner_radius_all(22)
-			tab.add_theme_stylebox_override("normal", active_style)
 		tab.pressed.connect(_switch_category.bind(category))
 		stage.add_child(tab)
 
@@ -393,28 +385,20 @@ func _draw_book() -> void:
 	for i in range(visible_defs.size()):
 		var d: Dictionary = visible_defs[i]
 		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
-		var card := Panel.new()
-		card.position = Vector2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0)
-		card.size = Vector2(356, 192)
-		var card_style := StyleBoxFlat.new()
 		var card_color: Color = d["color"]
-		card_style.bg_color = card_color.darkened(0.48) if caught else Color(0.13, 0.15, 0.23, 0.96)
-		card_style.border_color = card_color if caught else Color(0.30, 0.34, 0.42)
-		card_style.set_border_width_all(4)
-		card_style.set_corner_radius_all(24)
-		card.add_theme_stylebox_override("panel", card_style)
-		stage.add_child(card)
+		var card_fill: Color = card_color.lightened(0.58) if caught else Color(0.88, 0.90, 0.98, 0.96)
+		var card := StorybookUI.add_panel(stage, Rect2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0, 356, 192), card_color if caught else StorybookUI.LAVENDER, card_fill, 24)
+		card.name = "CritterCard_%s" % String(d["id"])
 		var icon := Label.new()
 		icon.text = String(CATEGORY_ICON[m.collection_category]) if caught else "?"
-		icon.add_theme_font_size_override("font_size", 68)
+		StorybookUI.style_label(icon, 68, StorybookUI.INK, 3)
 		icon.position = Vector2(22, 23)
 		icon.size = Vector2(96, 96)
 		icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		card.add_child(icon)
 		var name_label := Label.new()
 		name_label.text = String(d["name"]) if caught else "Mystery Friend"
-		name_label.add_theme_font_size_override("font_size", 29 if caught else 25)
-		name_label.add_theme_color_override("font_color", Color(1.0, 0.96, 0.80) if caught else Color(0.67, 0.72, 0.80))
+		StorybookUI.style_label(name_label, 29 if caught else 25, StorybookUI.INK if caught else StorybookUI.MUTED, 2)
 		name_label.position = Vector2(122, 30)
 		name_label.size = Vector2(220, 74)
 		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -422,14 +406,12 @@ func _draw_book() -> void:
 		var habitat := Label.new()
 		var habitat_id := String(d["habitat"])
 		habitat.text = "%s  %s" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]
-		habitat.add_theme_font_size_override("font_size", 22)
-		habitat.add_theme_color_override("font_color", Color(0.74, 0.96, 0.88))
+		StorybookUI.style_label(habitat, 22, StorybookUI.INK_SOFT, 2)
 		habitat.position = Vector2(28, 134)
 		card.add_child(habitat)
 
 	var help := Label.new()
 	help.text = "✦  Swim close to a sparkling critter, then tap CATCH!  ✦"
-	help.add_theme_font_size_override("font_size", 25)
-	help.add_theme_color_override("font_color", Color(0.78, 0.92, 1.0))
+	StorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2)
 	help.position = Vector2(230, 638)
 	stage.add_child(help)
