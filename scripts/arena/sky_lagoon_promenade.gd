@@ -6,13 +6,17 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_TILE_SIZE := Vector2(36.0, 48.0)
+const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
+const BACKDROP_COLUMNS := 6
+const BACKDROP_ROWS := 2
 const BACKDROP_Z := -18.0
 const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png"
 const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
-# THE PAINTING IS THE SCREEN. The four lossless tiles reconstruct one 144x48
-# world-unit mural, and the lens is sized so the frame lands INSIDE it: the
-# camera sits far enough back that the frustum is ~45 units tall where it
+# THE PAINTING IS THE SCREEN. The 6x2 lossless Sprite3D grid reconstructs one
+# native 6144x2048, 144x48-world-unit mural. Each 1024px square is a separate
+# unshaded depth card, retaining the higher detail generated per square.
+# The lens is sized so the frame lands INSIDE it: the camera sits far enough
+# back that the frustum is ~45 units tall where it
 # crosses the mural (1.6 units of painted margin top and bottom) and pans only
 # as far as SideScrollStage.screen_pan_limit allows. Nothing outside the
 # painting can enter frame, so no environment sky is ever visible.
@@ -50,9 +54,9 @@ const LANDMARK_Z := -17.85   # pearl plane, castle gate
 const PLAY_Z := -17.80       # playground standees
 const FRAME_Z := -17.75      # activity frames
 const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
-const SLIDE_H := 13.8
-const SWING_H := 13.3
-const SEESAW_H := 6.8
+const SLIDE_H := 12.0
+const SWING_H := 11.0
+const SEESAW_H := 4.2
 const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
 const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
@@ -144,7 +148,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"cam_fov": CAM_FOV,
 		"cam_follow": 1.0,
 		# the mural the lens may never pan off
-		"screen_half_w": BACKDROP_TILE_SIZE.x * 2.0,
+		"screen_half_w": BACKDROP_TILE_SIZE.x * float(BACKDROP_COLUMNS) * 0.5,
 		"screen_z": BACKDROP_Z,
 		# taps belong to the interaction director below, not to raw travel
 		"touch_travel": false,
@@ -152,16 +156,18 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"keep_on_screen": true,
 		"edge_margin": 5.0,
 	})
-	# Four native-resolution, lossless tiles reconstruct the exact 2172x724
-	# 3:1 master at one depth. Their edges meet without overlap or rescaling.
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_0.png", -54.0)
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_1.png", -18.0)
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_2.png", 18.0)
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_3.png", 54.0)
+	# Twelve native 1024px squares reconstruct the exact 6144x2048, 3:1
+	# master at one depth. They meet without runtime overlap or rescaling.
+	for row: int in range(BACKDROP_ROWS):
+		for column: int in range(BACKDROP_COLUMNS):
+			_add_backdrop(
+				"res://assets/flats/sky_lagoon/main/"
+				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				% [row, column],
+				-60.0 + float(column) * BACKDROP_TILE_SIZE.x,
+				21.5 - float(row) * BACKDROP_TILE_SIZE.y,
+				row,
+				column)
 	_build_ambient_life()
 	_build_runway_screen()
 	_build_playground_screen()
@@ -250,7 +256,7 @@ func handle_touch(screen_pos: Vector2) -> bool:
 
 func _build_runway_screen() -> void:
 	var plane := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		Vector3(-58.0, 4.85, LANDMARK_Z), 12.0)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
@@ -264,16 +270,17 @@ func _build_runway_screen() -> void:
 func _build_playground_screen() -> void:
 	_add_activity_frame("playground_frame", Vector3(-17.5, FRAME_STAND_Y, FRAME_Z),
 		"res://assets/book/hall/p_garden.jpg", "garden")
-	# the open painted lawn runs from about x -22 to +18
+	# Alpha-silhouette placement, not nominal sprite rectangles: there is
+	# visible grass between all three opaque cutouts at their actual scales.
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		Vector3(-8.5, 5.5, PLAY_Z), SLIDE_H)
+		Vector3(-9.5, 5.0, PLAY_Z), SLIDE_H)
 	var swing := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
-		Vector3(4.5, 5.6, PLAY_Z), SWING_H)
+		Vector3(2.5, 5.0, PLAY_Z), SWING_H)
 	var seesaw := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png",
-		Vector3(15.0, 2.675, PLAY_Z), SEESAW_H)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+		Vector3(13.0, 1.85, PLAY_Z), SEESAW_H)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -336,7 +343,7 @@ func _build_ambient_life() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(62.0, 1.55, NEAR_Z), 6.8, 4.0, 0.64, 0.032)
 	_add_ambient_card("cloud",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
 		Vector3(-60.0, 26.6, CLOUD_Z), 7.25, 1.1, 0.72, 0.0, false)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
@@ -390,12 +397,12 @@ func _tick_ambient_life(delta: float) -> void:
 			plane_glow.position = plane.position + Vector3(0.0, 0.0, -0.05)
 			plane_glow.rotation.z = plane.rotation.z
 
-func _add_backdrop(path: String, x: float) -> void:
+func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
 	var backdrop := Sprite3D.new()
-	backdrop.name = "SkyLagoonBackdrop_%d" % roundi(x)
+	backdrop.name = "SkyLagoonBackdrop_r%d_c%d" % [row, column]
 	backdrop.texture = load(path)
 	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
 		1.0, float(backdrop.texture.get_width()))
@@ -412,7 +419,7 @@ func _add_backdrop(path: String, x: float) -> void:
 	backdrop.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	backdrop.position = Vector3(x, BACKDROP_CENTER_Y, BACKDROP_Z)
+	backdrop.position = Vector3(x, y, BACKDROP_Z)
 	root_node.add_child(backdrop)
 
 func _add_sprite(path: String, pos: Vector3, height: float,

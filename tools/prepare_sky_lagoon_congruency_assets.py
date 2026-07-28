@@ -62,6 +62,135 @@ def slice_panorama(source: Path, output_dir: Path, count: int) -> None:
 		)
 
 
+def crop_grid(source: Path, output_dir: Path, columns: int, rows: int) -> None:
+	image = Image.open(source).convert("RGB")
+	if image.width % columns != 0 or image.height % rows != 0:
+		raise ValueError(
+			f"{source} size {image.size} is not divisible by {columns}x{rows}"
+		)
+	tile_width = image.width // columns
+	tile_height = image.height // rows
+	output_dir.mkdir(parents=True, exist_ok=True)
+	for row in range(rows):
+		for column in range(columns):
+			tile = image.crop(
+				(
+					column * tile_width,
+					row * tile_height,
+					(column + 1) * tile_width,
+					(row + 1) * tile_height,
+				)
+			)
+			tile.save(output_dir / f"tile_r{row}_c{column}.png", optimize=True)
+
+
+def edge_mask(size: int, blend_width: int) -> Image.Image:
+	def smoothstep(value: float) -> float:
+		value = max(0.0, min(1.0, value))
+		return value * value * (3.0 - 2.0 * value)
+
+	axis = [
+		round(
+			255.0
+			* smoothstep(
+				min(index, size - 1 - index) / max(1.0, float(blend_width))
+			)
+		)
+		for index in range(size)
+	]
+	values: list[int] = []
+	for y in range(size):
+		values.extend(min(axis[x], axis[y]) for x in range(size))
+	mask = Image.new("L", (size, size))
+	mask.putdata(values)
+	return mask
+
+
+def stitch_grid(
+	source_dir: Path,
+	reference_dir: Path,
+	output: Path,
+	columns: int,
+	rows: int,
+	tile_size: int,
+	edge_blend: int,
+) -> None:
+	mask = edge_mask(tile_size, edge_blend)
+	reference_tiles = [
+		Image.open(reference_dir / f"tile_r{row}_c{column}.png").convert("RGB")
+		for row in range(rows)
+		for column in range(columns)
+	]
+	reference_size = reference_tiles[0].size
+	if any(tile.size != reference_size for tile in reference_tiles):
+		raise ValueError("reference grid tiles do not share one exact size")
+	reference_master = Image.new(
+		"RGB", (reference_size[0] * columns, reference_size[1] * rows)
+	)
+	for row in range(rows):
+		for column in range(columns):
+			reference_master.paste(
+				reference_tiles[row * columns + column],
+				(column * reference_size[0], row * reference_size[1]),
+			)
+	reference_master = reference_master.resize(
+		(tile_size * columns, tile_size * rows), Image.Resampling.LANCZOS
+	)
+	tiles: list[Image.Image] = []
+	for row in range(rows):
+		for column in range(columns):
+			name = f"tile_r{row}_c{column}.png"
+			generated = Image.open(source_dir / name).convert("RGB").resize(
+				(tile_size, tile_size), Image.Resampling.LANCZOS
+			)
+			reference = reference_master.crop(
+				(
+					column * tile_size,
+					row * tile_size,
+					(column + 1) * tile_size,
+					(row + 1) * tile_size,
+				)
+			)
+			tiles.append(Image.composite(generated, reference, mask))
+	canvas = Image.new("RGB", (tile_size * columns, tile_size * rows))
+	for row in range(rows):
+		for column in range(columns):
+			canvas.paste(
+				tiles[row * columns + column],
+				(column * tile_size, row * tile_size),
+			)
+	output.parent.mkdir(parents=True, exist_ok=True)
+	canvas.save(output, optimize=True)
+
+
+def copy_runtime_grid(source: Path, output_dir: Path, columns: int, rows: int) -> None:
+	image = Image.open(source).convert("RGB")
+	if image.width % columns != 0 or image.height % rows != 0:
+		raise ValueError(
+			f"{source} size {image.size} is not divisible by {columns}x{rows}"
+		)
+	tile_width = image.width // columns
+	tile_height = image.height // rows
+	if max(tile_width, tile_height) > 1024:
+		raise ValueError(f"runtime grid tile {tile_width}x{tile_height} exceeds 1024")
+	output_dir.mkdir(parents=True, exist_ok=True)
+	for row in range(rows):
+		for column in range(columns):
+			tile = image.crop(
+				(
+					column * tile_width,
+					row * tile_height,
+					(column + 1) * tile_width,
+					(row + 1) * tile_height,
+				)
+			)
+			tile.save(
+				output_dir
+				/ f"flat_sky_lagoon_main_panorama_v3_tile_r{row}_c{column}.png",
+				optimize=True,
+			)
+
+
 def make_contact_shadow(output: Path) -> None:
 	canvas = Image.new("RGBA", (256, 128))
 	mask = Image.new("L", canvas.size)
@@ -117,6 +246,24 @@ def parser() -> argparse.ArgumentParser:
 	panorama.add_argument("--input", type=Path, required=True)
 	panorama.add_argument("--output-dir", type=Path, required=True)
 	panorama.add_argument("--count", type=int, default=4)
+	grid_crops = subparsers.add_parser("grid-crops")
+	grid_crops.add_argument("--input", type=Path, required=True)
+	grid_crops.add_argument("--output-dir", type=Path, required=True)
+	grid_crops.add_argument("--columns", type=int, default=6)
+	grid_crops.add_argument("--rows", type=int, default=2)
+	grid_stitch = subparsers.add_parser("grid-stitch")
+	grid_stitch.add_argument("--input-dir", type=Path, required=True)
+	grid_stitch.add_argument("--reference-dir", type=Path, required=True)
+	grid_stitch.add_argument("--output", type=Path, required=True)
+	grid_stitch.add_argument("--columns", type=int, default=6)
+	grid_stitch.add_argument("--rows", type=int, default=2)
+	grid_stitch.add_argument("--tile-size", type=int, default=1024)
+	grid_stitch.add_argument("--edge-blend", type=int, default=96)
+	runtime_grid = subparsers.add_parser("runtime-grid")
+	runtime_grid.add_argument("--input", type=Path, required=True)
+	runtime_grid.add_argument("--output-dir", type=Path, required=True)
+	runtime_grid.add_argument("--columns", type=int, default=6)
+	runtime_grid.add_argument("--rows", type=int, default=2)
 	shadow = subparsers.add_parser("shadow")
 	shadow.add_argument("--output", type=Path, required=True)
 	grade = subparsers.add_parser("grade")
@@ -143,6 +290,20 @@ def main() -> None:
 		)
 	elif args.command == "panorama":
 		slice_panorama(args.input, args.output_dir, args.count)
+	elif args.command == "grid-crops":
+		crop_grid(args.input, args.output_dir, args.columns, args.rows)
+	elif args.command == "grid-stitch":
+		stitch_grid(
+			args.input_dir,
+			args.reference_dir,
+			args.output,
+			args.columns,
+			args.rows,
+			args.tile_size,
+			args.edge_blend,
+		)
+	elif args.command == "runtime-grid":
+		copy_runtime_grid(args.input, args.output_dir, args.columns, args.rows)
 	elif args.command == "shadow":
 		make_contact_shadow(args.output)
 	else:

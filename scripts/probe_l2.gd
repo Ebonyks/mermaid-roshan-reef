@@ -16,6 +16,16 @@ func _frames(count: int) -> void:
 	for _i in range(count):
 		await process_frame
 
+func _opaque_world_rect(sprite: Sprite3D) -> Rect2:
+	var image: Image = sprite.texture.get_image()
+	var used: Rect2i = image.get_used_rect()
+	var size := Vector2(image.get_width(), image.get_height())
+	var left: float = sprite.position.x + (float(used.position.x) - size.x * 0.5) * sprite.pixel_size
+	var right: float = sprite.position.x + (float(used.end.x) - size.x * 0.5) * sprite.pixel_size
+	var top: float = sprite.position.y + (size.y * 0.5 - float(used.position.y)) * sprite.pixel_size
+	var bottom: float = sprite.position.y + (size.y * 0.5 - float(used.end.y)) * sprite.pixel_size
+	return Rect2(left, bottom, right - left, top - bottom)
+
 func _init() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = packed.instantiate()
@@ -46,20 +56,16 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_0.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_1.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_2.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_3.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
@@ -74,30 +80,38 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
 	]
+	for row: int in range(2):
+		for column: int in range(6):
+			required_assets.append(
+				"res://assets/flats/sky_lagoon/main/"
+				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				% [row, column])
 	var assets_ok := true
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png"
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png"
 	var panorama_master: Image = Image.load_from_file(
 		ProjectSettings.globalize_path(master_path))
 	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
 	if native_master_ok:
 		native_master_ok = (
-			panorama_master.get_width() == 2172
-			and panorama_master.get_height() == 724
+			panorama_master.get_width() == 6144
+			and panorama_master.get_height() == 2048
 			and panorama_master.get_width() >= 2048
 			and absf(float(panorama_master.get_width())
 				/ float(panorama_master.get_height()) - 3.0) <= 0.000001)
 	_check("native_2k_exact_ratio_master", native_master_ok)
 	var runtime_tiles_ok := true
-	for tile_index: int in range(4):
-		var tile: Texture2D = load(
-			"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_%d.png"
-			% tile_index)
-		runtime_tiles_ok = (
-			runtime_tiles_ok and tile != null
-			and tile.get_size() == Vector2(543, 724))
+	for row: int in range(2):
+		for column: int in range(6):
+			var tile: Texture2D = load(
+				"res://assets/flats/sky_lagoon/main/"
+				+ "flat_sky_lagoon_main_panorama_v3_tile_r%d_c%d.png"
+				% [row, column])
+			runtime_tiles_ok = (
+				runtime_tiles_ok and tile != null
+				and tile.get_size() == Vector2(1024, 1024))
 	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var node_stack: Array[Node] = [stage_root]
@@ -148,27 +162,26 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 44 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 52 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 34
+		depth_layers.size() >= 4 and visible_sprite_count <= 42
 		and contact_shadow_count == 14,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
 			depth_layers.size(), visible_sprite_count, contact_shadow_count])
-	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
-		return a.x < b.x)
-	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
-	var seamless_cards_ok := backdrop_positions.size() == 4
-	if seamless_cards_ok:
-		seamless_cards_ok = (
-			backdrop_positions[0] == Vector3(-54.0, mural_y, -18.0)
-			and backdrop_positions[1] == Vector3(-18.0, mural_y, -18.0)
-			and backdrop_positions[2] == Vector3(18.0, mural_y, -18.0)
-			and backdrop_positions[3] == Vector3(54.0, mural_y, -18.0))
+	var seamless_cards_ok := backdrop_positions.size() == 12
+	for row: int in range(2):
+		for column: int in range(6):
+			seamless_cards_ok = (
+				seamless_cards_ok
+				and backdrop_positions.has(Vector3(
+					-60.0 + float(column) * 24.0,
+					21.5 - float(row) * 24.0,
+					-18.0)))
 	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
-	# A billboarded card swings about its own centre, so the four tiles stop
+	# A billboarded card swings about its own centre, so the mural tiles stop
 	# being coplanar the instant the lens is off-centre and the environment sky
 	# shows through the wedges between them. The wall must stay flat.
 	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
@@ -188,8 +201,13 @@ func _init() -> void:
 		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
 		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
 			lens.position.y - origin.y, lens.position.z - origin.z])
-	var mural_half_w: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.x * 2.0
-	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
+	var mural_half_w: float = (
+		SkyLagoonPromenade.BACKDROP_TILE_SIZE.x
+		* float(SkyLagoonPromenade.BACKDROP_COLUMNS) * 0.5)
+	var mural_half_h: float = (
+		SkyLagoonPromenade.BACKDROP_TILE_SIZE.y
+		* float(SkyLagoonPromenade.BACKDROP_ROWS) * 0.5)
+	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
 	var covered := true
 	var worst := ""
 	var drift_gaps: Array[float] = []
@@ -316,10 +334,20 @@ func _init() -> void:
 	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
 	var equipment_fits_lawn := (
 		slide_node != null and swing_node != null and compact_seesaw != null
-		and slide_node.texture.get_height() * slide_node.pixel_size <= 13.81
-		and swing_node.texture.get_height() * swing_node.pixel_size <= 13.31
-		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 6.81)
+		and slide_node.texture.get_height() * slide_node.pixel_size <= 12.01
+		and swing_node.texture.get_height() * swing_node.pixel_size <= 11.01
+		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.21)
 	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
+	var slide_rect: Rect2 = _opaque_world_rect(slide_node)
+	var swing_rect: Rect2 = _opaque_world_rect(swing_node)
+	var seesaw_rect: Rect2 = _opaque_world_rect(compact_seesaw)
+	var silhouette_gaps_ok := (
+		swing_rect.position.x - slide_rect.end.x >= 0.5
+		and seesaw_rect.position.x - swing_rect.end.x >= 0.5)
+	_check("playground_opaque_silhouettes_do_not_overlap", silhouette_gaps_ok,
+		"slide_swing_gap=%.2f swing_seesaw_gap=%.2f" % [
+			swing_rect.position.x - slide_rect.end.x,
+			seesaw_rect.position.x - swing_rect.end.x])
 	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
 	var idle_texture: Texture2D = roshan_card.texture
 	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)

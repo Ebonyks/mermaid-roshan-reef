@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the exact 3:1 Sky Lagoon stage-art preview from runtime sprites."""
+"""Build the exact high-resolution 3:1 Sky Lagoon preview from runtime art."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png"
+MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png"
 OUT = ROOT / "audit/sky_lagoon_congruency_preview_3x1.jpg"
 WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
@@ -51,7 +51,7 @@ def shadow(canvas: Image.Image, x: float, y: float, object_height: float) -> Non
 def main() -> None:
 	canvas = Image.open(MASTER).convert("RGBA")
 	# Sky card first, then distant PNW standees.
-	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png", -60.0, 26.6, 7.25)
+	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png", -60.0, 26.6, 7.25)
 	for x, y, height in ((-41.5, 7.7, 16.65), (23.0, 7.05, 14.7)):
 		shadow(canvas, x, y, height)
 		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png", x, y, height)
@@ -70,10 +70,10 @@ def main() -> None:
 		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png", x, 4.4, 12.95)
 
 	for path, x, y, height in (
-		("assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png", -58.0, 4.85, 12.0),
-		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", -8.5, 5.5, 13.8),
-		("assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 4.5, 5.6, 13.3),
-		("assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png", 15.0, 2.675, 6.8),
+		("assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", -58.0, 4.85, 12.0),
+		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", -9.5, 5.0, 12.0),
+		("assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 2.5, 5.0, 11.0),
+		("assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 13.0, 1.85, 4.2),
 	):
 		shadow(canvas, x, y, height)
 		place(canvas, path, x, y, height)

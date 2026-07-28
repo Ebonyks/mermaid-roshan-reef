@@ -22,10 +22,12 @@ exact-coordinate three-screen preview is
 - Middle screen: child-scaled two-seat swing, rung-ladder slide, symmetric
   seesaw, dense PNW planting, and a clearly enclosed play lawn rather than an
   unexplained exit.
-- The 2026-07-28 fit correction reduced the slide to 13.8 world units, swing
-  to 13.3, and seesaw to 6.8, preserving each ground contact and rescaling
-  Roshan's equipment-relative animation paths. The west fir moved from the
-  lagoon edge to the planted shoreline at x = -41.5.
+- The final 2026-07-28 silhouette correction measures opaque pixels rather
+  than nominal texture rectangles. It places the slide, swing, and seesaw at
+  12.0, 11.0, and 4.2 world units with at least 0.5 world units of visible
+  grass between neighboring opaque bounds. Roshan's equipment-relative
+  animation paths scale with those cards. The west fir remains rooted on the
+  planted shoreline at x = -41.5.
 - East screen: readable castle façade, Mermaid Roshan stained glass,
   drawbridge entrance, foreground flora, and a separate upper path framed by
   mountains.
@@ -45,43 +47,35 @@ Final `probe_l2.gd` scene inventory:
 
 | Type / property | Count |
 | --- | ---: |
-| Sprite3D world cards | 44 |
-| Visible Sprite3D cards at probe frame | 34 |
-| Background panorama cards | 4 |
+| Sprite3D world cards | 52 |
+| Visible Sprite3D cards at probe frame | 42 |
+| Background panorama cards | 12 |
 | Contact-shadow Sprite3D cards | 14 |
 | Distinct real-depth layers | 5 |
 | MeshInstance3D / runtime meshes | 0 |
 | Sprite2D / AnimatedSprite2D / Polygon2D / world CanvasItem art | 0 |
 | Shaded world sprites | 0 |
 
-The four background tiles occupy one coherent depth plane. Foreground,
+The twelve background tiles occupy one coherent depth plane. Foreground,
 activity props, vegetation, Roshan, and contact shadows occupy separate
 z-depths, preserving parallax and occlusion ordering. Touch targets remain
 world-to-screen projected areas around the corresponding Sprite3D card.
 
 ## Master, aspect ratio, and lossless tiling
 
-The approved master is 2172×724 pixels, exactly 3.000000:1, with a native
-long edge above 2048. The previous approved 3×1 layout was also 2172×724, so
-the aspect-ratio delta is 0.000000. No stretch, crop, padding, letterbox, or
-canvas extension is used. Because the master exceeds the runtime texture
-budget, it is reconstructed from four non-overlapping, unscaled 543×724
-tiles:
+The approved HD master is 6144×2048 pixels, exactly 3.000000:1. Twelve
+independent high-detail repaints were made from a strict 6-column by 2-row
+crop grid of the approved 2172×724 composition. A 96px seam-safe transition
+retains generated detail in each tile interior and returns to the preserved
+source geometry at every boundary. The result is reconstructed at runtime
+from twelve non-overlapping, unscaled 1024×1024 Sprite3D cards.
 
-| Tile | Source rectangle `(x, y, width, height)` | SHA-256 |
-| --- | --- | --- |
-| 0 | `(0, 0, 543, 724)` | `b056cc6e1b5530115f66e5a327af683f208a5100363958abfb9009fe56ee975d` |
-| 1 | `(543, 0, 543, 724)` | `587a32bf2e03b3839f72322f0b4cb4a5576eaa7a1c01275cd3e56a7c3c3cc7ae` |
-| 2 | `(1086, 0, 543, 724)` | `f168302a9debcf404bf6b2cd0a104c9ca76e2c43d131e4320ff2a9f9bcdaab13` |
-| 3 | `(1629, 0, 543, 724)` | `2b7c843c0d21d06fdf412d8e6b74729043232e6c67e1a84856160c9f4bd4c53b` |
-
-Master SHA-256:
-`7b9e09243311d0bcb9960f3898d13fc5873537f92568397e1b951676f223c0af`.
-
-The Level 2 probe traverses all four joins and reports four seam checks with
-maximum camera drift of 0.3%, confirming seam-free reconstruction and
-continuous navigation. The preview is also 2172×724 and has SHA-256
-`41c96ae03c0d40242600dec3aa6d0e168c981d61a1fe1dc0dd735ecee6761025`.
+`audit/sky_lagoon_hd_grid.json` records old/new dimensions, ratio delta,
+master hashes, all twelve tile rectangles and hashes, downsampled content
+delta, and numerical join checks. `audit/sky_lagoon_hd_seam_capture.jpg`
+visually captures all five vertical joins and the horizontal join. Every seam
+check passes. The exact 3:1 composition is preserved without stretch, crop,
+padding, letterbox, or aspect-ratio change.
 
 ## Congruency audit
 

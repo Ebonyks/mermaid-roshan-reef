@@ -1,52 +1,52 @@
 {
   "scene": "sky_lagoon_promenade",
-  "plate": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png",
+  "plate": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png",
   "plate_metrics": {
     "ground": {
-      "a": -21.332216421518723,
-      "b": 8.921664505601468,
-      "median_l": 50.78353561941718,
-      "black_l": 21.289202888251733,
-      "white_l": 79.0584141699425,
-      "specular": 0.01129977138502572,
-      "contrast": 5.924670771529457,
-      "key_angle": 191.39842805921822,
-      "key_confidence": 0.031998151649041816
+      "a": -21.788048815900574,
+      "b": 10.555926182993524,
+      "median_l": 50.883620859046474,
+      "black_l": 18.50645288604057,
+      "white_l": 81.05869208784368,
+      "specular": 0.012704253560528993,
+      "contrast": 4.700363724840808,
+      "key_angle": 232.2653065825191,
+      "key_confidence": 0.06871130265109665
     },
     "sky": {
-      "a": -27.014049701801905,
-      "b": -16.057250862705285,
-      "median_l": 77.57679139130835,
-      "black_l": 38.89624172585363,
-      "white_l": 91.00833619150266,
-      "specular": 0.01504977112978392,
-      "contrast": 4.089303621937224,
-      "key_angle": 114.9685770363622,
-      "key_confidence": 0.13449856582572223
+      "a": -26.021383194601288,
+      "b": -18.110459201878303,
+      "median_l": 76.59101297498253,
+      "black_l": 37.73217487369447,
+      "white_l": 90.02342740993723,
+      "specular": 0.007736015536322361,
+      "contrast": 2.710373990725973,
+      "key_angle": 158.89624121221757,
+      "key_confidence": 0.040940515454028034
     },
     "castle": {
-      "a": 10.693383096324656,
-      "b": -14.346333506685793,
-      "median_l": 61.36747310068526,
-      "black_l": 29.42338228640486,
-      "white_l": 88.91471306100576,
-      "specular": 0.044231319782421986,
-      "contrast": 7.334910517548983,
-      "key_angle": 138.32558466957818,
-      "key_confidence": 0.07331317452125925
+      "a": 11.95509812852935,
+      "b": -15.61207786040557,
+      "median_l": 60.3533840186663,
+      "black_l": 25.493471351879485,
+      "white_l": 88.6721839193472,
+      "specular": 0.024832840426899833,
+      "contrast": 5.046185845868687,
+      "key_angle": 212.1692352594858,
+      "key_confidence": 0.02618923865810568
     },
     "accent": {
-      "a": 11.045718804181925,
-      "b": -4.408093412651892,
-      "median_l": 50.78353561941718,
-      "black_l": 21.289202888251733,
-      "white_l": 79.0584141699425,
-      "specular": 0.01129977138502572,
-      "contrast": 5.924670771529457,
-      "key_angle": 191.39842805921822,
-      "key_confidence": 0.031998151649041816
+      "a": 12.019471067677756,
+      "b": -4.287371636249371,
+      "median_l": 50.883620859046474,
+      "black_l": 18.50645288604057,
+      "white_l": 81.05869208784368,
+      "specular": 0.012704253560528993,
+      "contrast": 4.700363724840808,
+      "key_angle": 232.2653065825191,
+      "key_confidence": 0.06871130265109665
     },
-    "authored_to_displayed": 0.9377348079520629
+    "authored_to_displayed": 2.6525979097870507
   },
   "tolerances": {
     "c1_delta_lab": 18.0,
@@ -65,7 +65,7 @@
     {
       "element": {
         "name": "cloud_family_drift",
-        "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
         "world_height": 7.25,
         "z": -17.95,
         "band": "sky",
@@ -73,23 +73,23 @@
         "palette_band": ""
       },
       "metrics": {
-        "a": -22.81510929386804,
-        "b": -19.0110297079068,
-        "median_l": 81.36300441328399,
-        "black_l": 52.75797630403712,
-        "white_l": 84.92324712761125,
-        "specular": 0.01696627893314534,
-        "contrast": 3.8873034260481765,
-        "key_angle": 140.8435272144994,
-        "key_confidence": 0.029979453605489037
+        "a": -21.909312262570534,
+        "b": -18.25310396679336,
+        "median_l": 77.63539872595618,
+        "black_l": 50.2836098824809,
+        "white_l": 81.20739139470224,
+        "specular": 0.0008929620491129127,
+        "contrast": 3.7142514427876088,
+        "key_angle": 142.0667453424304,
+        "key_confidence": 0.029948284293169106
       },
       "derived": {
-        "delta_lab": 5.133800737829606,
-        "key_delta": 25.874950178137198,
+        "delta_lab": 4.114544310006875,
+        "key_delta": 16.829495869787166,
         "displayed_height": 116.70500986503305,
         "authored_height": 220,
         "density": 1.885094738044455,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -124,12 +124,12 @@
         "key_confidence": 0.1559900430355435
       },
       "derived": {
-        "delta_lab": 10.619225928020345,
-        "key_delta": 107.02146630476507,
+        "delta_lab": 11.11246450025044,
+        "key_delta": 147.88834482806595,
         "displayed_height": 209.1031831926592,
         "authored_height": 390,
         "density": 1.8651079053190205,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -145,7 +145,7 @@
     {
       "element": {
         "name": "plane",
-        "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
         "world_height": 12.0,
         "z": -17.85,
         "band": "ground",
@@ -153,23 +153,23 @@
         "palette_band": ""
       },
       "metrics": {
-        "a": -12.334908888221696,
-        "b": 0.6346654823713438,
-        "median_l": 64.86427121528166,
-        "black_l": 34.52898980626212,
-        "white_l": 80.45269972460405,
-        "specular": 0.007066509273782766,
-        "contrast": 3.6096445219264286,
-        "key_angle": 240.734909128639,
-        "key_confidence": 0.08729057175755837
+        "a": -11.788824640221407,
+        "b": 0.57078826319934,
+        "median_l": 61.28270012640252,
+        "black_l": 32.48688101796479,
+        "white_l": 76.18811258449792,
+        "specular": 0.000848951342960172,
+        "contrast": 3.425354472879067,
+        "key_angle": 239.85187194019778,
+        "key_confidence": 0.08563948498009731
       },
       "derived": {
-        "delta_lab": 12.23216643361839,
-        "key_delta": 49.336481069420785,
+        "delta_lab": 14.131081465790169,
+        "key_delta": 7.586565357678694,
         "displayed_height": 193.46478013199004,
         "authored_height": 360,
         "density": 1.8608038101528994,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -186,7 +186,7 @@
       "element": {
         "name": "swing",
         "path": "assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
-        "world_height": 13.3,
+        "world_height": 11.0,
         "z": -17.8,
         "band": "ground",
         "shadow_mode": "card",
@@ -204,12 +204,12 @@
         "key_confidence": 0.08952728679195979
       },
       "derived": {
-        "delta_lab": 9.273432658537171,
-        "key_delta": 166.60954749624688,
-        "displayed_height": 214.58891485049134,
+        "delta_lab": 10.970061446416583,
+        "key_delta": 152.52357398045228,
+        "displayed_height": 177.4795536357447,
         "authored_height": 398,
-        "density": 1.8547090388023775,
-        "density_max": 1.8754696159041258
+        "density": 2.2425118378246927,
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -226,7 +226,7 @@
       "element": {
         "name": "slide",
         "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-        "world_height": 13.8,
+        "world_height": 12.0,
         "z": -17.8,
         "band": "ground",
         "shadow_mode": "card",
@@ -244,12 +244,12 @@
         "key_confidence": 0.012093756345438852
       },
       "derived": {
-        "delta_lab": 14.804329188542997,
-        "key_delta": 170.06285233665977,
-        "displayed_height": 222.65616728847974,
+        "delta_lab": 16.500894829930704,
+        "key_delta": 149.0702691400394,
+        "displayed_height": 193.6140585117215,
         "authored_height": 412,
-        "density": 1.8503866522870707,
-        "density_max": 1.8754696159041258
+        "density": 2.1279446501301313,
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -284,12 +284,12 @@
         "key_confidence": 0.039525113214233853
       },
       "derived": {
-        "delta_lab": 16.93273434304419,
-        "key_delta": 62.051162367733085,
+        "delta_lab": 15.39071349948582,
+        "key_delta": 135.89481295764068,
         "displayed_height": 224.09670365288846,
         "authored_height": 420,
         "density": 1.8741908879237834,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -324,12 +324,12 @@
         "key_confidence": 0.029522843646107078
       },
       "derived": {
-        "delta_lab": 4.996624699531126,
-        "key_delta": 119.79292305477941,
+        "delta_lab": 4.928723436007684,
+        "key_delta": 160.65980157808028,
         "displayed_height": 174.25265266054936,
         "authored_height": 320,
         "density": 1.8364139375448814,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -345,31 +345,31 @@
     {
       "element": {
         "name": "seesaw",
-        "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4_compact.png",
-        "world_height": 6.8,
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+        "world_height": 4.2,
         "z": -17.8,
         "band": "ground",
         "shadow_mode": "card",
         "palette_band": ""
       },
       "metrics": {
-        "a": -21.941353255607144,
-        "b": 5.874549398124285,
-        "median_l": 53.22374979637925,
-        "black_l": 26.581970198382745,
-        "white_l": 72.20557965421057,
-        "specular": 0.023104243711325106,
-        "contrast": 8.474188730369598,
-        "key_angle": 259.53284106984563,
-        "key_confidence": 0.0334233357170109
+        "a": -21.872840489052304,
+        "b": 5.811848394976726,
+        "median_l": 52.8855492909354,
+        "black_l": 25.980983792627242,
+        "white_l": 71.85791903162124,
+        "specular": 0.018765297797117216,
+        "contrast": 8.754566093923959,
+        "key_angle": 215.72102919741215,
+        "key_confidence": 0.02641909682956482
       },
       "derived": {
-        "delta_lab": 3.1074037653415676,
-        "key_delta": 68.13441301062741,
-        "displayed_height": 109.71463315664218,
-        "authored_height": 204,
-        "density": 1.8593691117641926,
-        "density_max": 1.8754696159041258
+        "delta_lab": 4.744835475186703,
+        "key_delta": 16.544277385106938,
+        "displayed_height": 67.76492047910253,
+        "authored_height": 168,
+        "density": 2.4791588156855897,
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -404,12 +404,12 @@
         "key_confidence": 0.11535260137936298
       },
       "derived": {
-        "delta_lab": 17.108419869663084,
-        "key_delta": 24.18239456994354,
+        "delta_lab": 15.520431076963625,
+        "key_delta": 16.68448395335733,
         "displayed_height": 105.84434697928266,
         "authored_height": 195,
         "density": 1.8423279614372616,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,
@@ -444,12 +444,12 @@
         "key_confidence": 0.07684319473292509
       },
       "derived": {
-        "delta_lab": 6.801653667235909,
-        "key_delta": 66.42861901416111,
+        "delta_lab": 5.113812595210723,
+        "key_delta": 107.29549753746198,
         "displayed_height": 268.22557782417374,
         "authored_height": 440,
         "density": 1.6404102978144284,
-        "density_max": 1.8754696159041258
+        "density_max": 2.5
       },
       "criteria": {
         "C1": true,

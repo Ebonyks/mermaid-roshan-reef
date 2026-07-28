@@ -458,3 +458,23 @@ ambientCG (all CC0).
   — project-original, lossless-alpha compact derivatives of the approved
   playground sprites; downsampled once to match their smaller Sprite3D display
   size while preserving the accepted shapes, palette, and transparent bounds.
+
+## Sky Lagoon 6x2 HD panorama and silhouette-fit pass (Codex, 2026-07-28)
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v3_hd_3x1.png`
+  — project-original 6144×2048 exact-3:1 master assembled from twelve OpenAI
+  built-in image-generation detail repaints. Each repaint used one exact
+  square crop of the approved v2 master as a strict composition reference;
+  a local seam-safe edge blend preserved the approved boundary geometry.
+  License: project original; external references: none.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v3_tile_r{0..1}_c{0..5}.png`
+  — twelve lossless, non-overlapping 1024×1024 runtime crops of the v3 master;
+  no runtime scaling, padding, overlap, or ratio change. Rectangle and hash
+  evidence is recorded in `audit/sky_lagoon_hd_grid.json`.
+- `assets/sprites/sky_lagoon/{sky_lagoon_plane_v5_hd_grade.png,sky_lagoon_cloud_family_v7_hd_grade.png}`
+  — project-original luminance-only derivatives of the approved plane and
+  drifting-cloud cards, adjusted to the new HD plate without changing their
+  silhouettes, composition, or alpha.
+- `assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png` — project-original
+  density-matched derivative of the approved seesaw cutout, downsampled once
+  for its final non-overlapping Sprite3D display size; design and alpha
+  silhouette are unchanged.
