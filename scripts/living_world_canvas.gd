@@ -46,12 +46,12 @@ func _draw() -> void:
 	var slow_sway: float = sin(motion_time * 0.58)
 	var slow_drift: float = sin(motion_time * 0.34 + 1.7)
 	var left_origin := Vector2(
-		52.0 + slow_drift * 9.0,
-		viewport_size.y * 0.68 + slow_sway * 7.0
+		48.0 + slow_drift * 8.0,
+		viewport_size.y * 0.48 + slow_sway * 7.0
 	)
 	var right_origin := Vector2(
-		viewport_size.x - 58.0 + slow_sway * 8.0,
-		viewport_size.y * 0.28 + slow_drift * 10.0
+		viewport_size.x - 50.0 + slow_sway * 7.0,
+		viewport_size.y * 0.58 + slow_drift * 8.0
 	)
 	_draw_at(
 		String(animations[0].get("motif", "sparkle")),
@@ -81,22 +81,22 @@ func _draw_idle_event(viewport_size: Vector2, palette: Array) -> void:
 	var scale := 0.92
 	match motion:
 		"rise":
-			origin = Vector2(viewport_size.x * 0.78, viewport_size.y + 32.0 - envelope * 112.0)
+			origin = Vector2(viewport_size.x * 0.84, viewport_size.y + 32.0 - envelope * 112.0)
 			rotation = sin(p * TAU) * 0.08
 		"cross":
-			origin = Vector2(-55.0 + (viewport_size.x + 110.0) * p, viewport_size.y * 0.20)
+			origin = Vector2(-55.0 + (viewport_size.x + 110.0) * p, viewport_size.y * 0.84)
 			rotation = sin(p * PI) * 0.12
 		"orbit":
 			origin = Vector2(
-				viewport_size.x * 0.5 + cos(p * TAU) * 92.0,
-				viewport_size.y * 0.77 + sin(p * TAU) * 25.0
+				viewport_size.x * 0.12 + cos(p * TAU) * 44.0,
+				viewport_size.y * 0.62 + sin(p * TAU) * 25.0
 			)
 			rotation = p * TAU
 		"bounce":
-			origin = Vector2(viewport_size.x * 0.22, viewport_size.y - 38.0 - absf(sin(p * PI * 2.0)) * 74.0)
+			origin = Vector2(viewport_size.x * 0.16, viewport_size.y - 38.0 - absf(sin(p * PI * 2.0)) * 74.0)
 			rotation = sin(p * TAU) * 0.1
 		"burst":
-			origin = Vector2(viewport_size.x * 0.5, viewport_size.y * 0.28)
+			origin = Vector2(viewport_size.x * 0.88, viewport_size.y * 0.48)
 			scale = 0.55 + envelope * 0.75
 		_:
 			origin = Vector2(viewport_size.x - 25.0 - envelope * 74.0, viewport_size.y * 0.76)
