@@ -6,6 +6,7 @@ const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
+const LivingWorldLogic = preload("res://scripts/living_world.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -60,6 +61,20 @@ var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
 var _reef_districts: ReefDistricts = null
+# ---- LIVING WORLD: mutable runtime state stays on ReefMain; the extracted
+# ---- director only resolves stages and drives one reusable 2D CanvasItem.
+var _living_world: LivingWorldDirector = null
+var living_specs: Dictionary = {}
+var living_layer: CanvasLayer = null
+var living_canvas: LivingWorldCanvas = null
+var living_stage_id := ""
+var living_probe_stage_override := ""
+var living_time := 0.0
+var living_idle_time := 0.0
+var living_cooldown := 0.0
+var living_event_time := -1.0
+var living_event_count := 0
+var living_generation := 0
 var manta: Node3D
 var manta_t := -20.0
 var bloom_t := 25.0
@@ -563,6 +578,7 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	_living_world_ref().note_input(ev)
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
 	if ev is InputEventJoypadMotion:
@@ -651,6 +667,11 @@ func _district_ref() -> ReefDistricts:
 		_reef_districts = ReefDistricts.new(self)
 	return _reef_districts
 
+func _living_world_ref() -> LivingWorldDirector:
+	if _living_world == null:
+		_living_world = LivingWorldLogic.new(self)
+	return _living_world
+
 func _ready() -> void:
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
@@ -676,6 +697,7 @@ func _ready() -> void:
 	_build_player()
 	_build_hud()
 	_build_fade_cover()
+	_living_world_ref().setup()
 	_apply_cel_shading()
 	# (the storybook page frame — dotted border + corner bubbles — was removed
 	# here, owner request 2026-07-21: the screen was getting too busy)
@@ -3376,6 +3398,7 @@ func _touch_mode_label() -> String:
 	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
 
 func _on_touch_world(screen_pos: Vector2) -> void:
+	_living_world_ref().note_activity()
 	if intro_active or get_tree().paused or mg_kind != "":
 		return
 	if fade_rect != null and fade_rect.modulate.a > 0.02:
@@ -3390,6 +3413,7 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	_interaction_ref().on_world_touch(screen_pos)
 
 func _on_touch_manual_move() -> void:
+	_living_world_ref().note_activity()
 	_tap_move_ref().cancel("manual")
 
 func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
@@ -6841,6 +6865,7 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 	return false
 
 func _process(delta: float) -> void:
+	_living_world_ref().tick(delta)
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
