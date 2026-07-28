@@ -422,3 +422,35 @@ ambientCG (all CC0).
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
+
+## Sky Lagoon congruency rebuild (Codex sprite pass, 2026-07-27)
+- `assets_src/sky_lagoon/congruency_rebuild_2026-07-27/*.png` — project-original
+  OpenAI built-in image-generation sources and rejected audit iterations;
+  generation identifiers, reference roles, and rejection reasons are recorded
+  in that directory's `README.md`; license: project original; external
+  references: none.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png` —
+  project-original 2172×724 exact-3:1 native repaint generated from the prior
+  approved project mural; no scaling, crop, padding, extension, letterbox, or
+  aspect-ratio change.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_{0..3}.png`
+  — four project-original lossless non-overlapping crops of the v2 master,
+  rectangles `(0,0,543,724)`, `(543,0,543,724)`, `(1086,0,543,724)`, and
+  `(1629,0,543,724)`; no scaling or overlap.
+- `assets/sprites/sky_lagoon/{sky_lagoon_activity_frame_v3.png,sky_lagoon_castle_gate_v3.png,sky_lagoon_slide_v3.png,sky_lagoon_swing_v3.png,sky_lagoon_plane_v4_audited_360.png,sky_lagoon_seesaw_v4.png,sky_lagoon_cloud_family_v5_audited.png}`
+  — project-original OpenAI-generated matte storybook Sprite3D cutouts;
+  flat chroma removed locally, transparent bounds padded, authored density
+  reduced to the scene-congruency budget, and final luminance/matte grading
+  applied where recorded by the audit.
+- `assets/sprites/sky_lagoon/{sky_lagoon_pnw_fir_sway_v2.png,sky_lagoon_pnw_currant_sway_audited.png}`
+  — project-original derivatives of the existing accepted PNW sprite pack;
+  only authored density plus a small cool/matte grade changed; source sprites
+  remain unchanged.
+- `assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png` —
+  project-original derivative of the existing protected Mermaid Roshan sprite;
+  only downsampling and a non-destructive matte filter reduced oversampling and
+  baked highlights; character design and protected source remain unchanged.
+- `assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png` —
+  project-original 256×128 translucent contact-shadow sprite generated locally
+  by `tools/prepare_sky_lagoon_congruency_assets.py`; used only on unshaded
+  Sprite3D cards.

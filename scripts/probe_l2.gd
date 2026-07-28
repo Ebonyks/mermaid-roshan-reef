@@ -46,19 +46,21 @@ func _init() -> void:
 		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
 
 	var required_assets: Array[String] = [
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png",
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_0.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_1.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_2.png",
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
@@ -76,7 +78,7 @@ func _init() -> void:
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png"
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png"
 	var panorama_master: Image = Image.load_from_file(
 		ProjectSettings.globalize_path(master_path))
 	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
@@ -89,13 +91,13 @@ func _init() -> void:
 				/ float(panorama_master.get_height()) - 3.0) <= 0.000001)
 	_check("native_2k_exact_ratio_master", native_master_ok)
 	var runtime_tiles_ok := true
-	for tile_index: int in range(3):
+	for tile_index: int in range(4):
 		var tile: Texture2D = load(
-			"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_%d.png"
+			"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_%d.png"
 			% tile_index)
 		runtime_tiles_ok = (
 			runtime_tiles_ok and tile != null
-			and tile.get_size() == Vector2(724, 724))
+			and tile.get_size() == Vector2(543, 724))
 	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var node_stack: Array[Node] = [stage_root]
@@ -109,6 +111,7 @@ func _init() -> void:
 	var backdrop_positions: Array[Vector3] = []
 	var billboarded_backdrops := 0
 	var mural_card: Sprite3D = null
+	var contact_shadow_count := 0
 	var unanchored := 0
 	var unanchored_worst := ""
 	while not node_stack.is_empty():
@@ -125,6 +128,8 @@ func _init() -> void:
 				mural_card = stage_sprite
 				if stage_sprite.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
 					billboarded_backdrops += 1
+			elif bool(stage_sprite.get_meta("sky_lagoon_contact_shadow", false)):
+				contact_shadow_count += 1
 			elif stage_sprite != main.g.get("lagoon_roshan_card"):
 				# every world card must share the mural's depth; a card in front
 				# of it parallaxes faster than the art it stands on, so it slides
@@ -143,25 +148,27 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 29 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 44 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 20,
-		"depth_layers=%d visible_cards=%d" % [
-			depth_layers.size(), visible_sprite_count])
+		depth_layers.size() >= 4 and visible_sprite_count <= 34
+		and contact_shadow_count == 14,
+		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
+			depth_layers.size(), visible_sprite_count, contact_shadow_count])
 	backdrop_positions.sort_custom(func(a: Vector3, b: Vector3) -> bool:
 		return a.x < b.x)
 	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
-	var seamless_cards_ok := backdrop_positions.size() == 3
+	var seamless_cards_ok := backdrop_positions.size() == 4
 	if seamless_cards_ok:
 		seamless_cards_ok = (
-			backdrop_positions[0] == Vector3(-48.0, mural_y, -18.0)
-			and backdrop_positions[1] == Vector3(0.0, mural_y, -18.0)
-			and backdrop_positions[2] == Vector3(48.0, mural_y, -18.0))
+			backdrop_positions[0] == Vector3(-54.0, mural_y, -18.0)
+			and backdrop_positions[1] == Vector3(-18.0, mural_y, -18.0)
+			and backdrop_positions[2] == Vector3(18.0, mural_y, -18.0)
+			and backdrop_positions[3] == Vector3(54.0, mural_y, -18.0))
 	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
-	# A billboarded card swings about its own centre, so the three tiles stop
+	# A billboarded card swings about its own centre, so the four tiles stop
 	# being coplanar the instant the lens is off-centre and the environment sky
 	# shows through the wedges between them. The wall must stay flat.
 	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
@@ -181,7 +188,7 @@ func _init() -> void:
 		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
 		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
 			lens.position.y - origin.y, lens.position.z - origin.z])
-	var mural_half_w: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.x * 1.5
+	var mural_half_w: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.x * 2.0
 	var mural_half_h: float = SkyLagoonPromenade.BACKDROP_TILE_SIZE.y * 0.5
 	var covered := true
 	var worst := ""

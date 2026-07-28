@@ -6,10 +6,11 @@ extends RefCounted
 
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_TILE_SIZE := Vector2(48.0, 48.0)
+const BACKDROP_TILE_SIZE := Vector2(36.0, 48.0)
 const BACKDROP_Z := -18.0
-const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
-# THE PAINTING IS THE SCREEN. The three lossless tiles reconstruct one 144x48
+const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png"
+const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
+# THE PAINTING IS THE SCREEN. The four lossless tiles reconstruct one 144x48
 # world-unit mural, and the lens is sized so the frame lands INSIDE it: the
 # camera sits far enough back that the frustum is ~45 units tall where it
 # crosses the mural (1.6 units of painted margin top and bottom) and pans only
@@ -137,7 +138,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"cam_fov": CAM_FOV,
 		"cam_follow": 1.0,
 		# the mural the lens may never pan off
-		"screen_half_w": BACKDROP_TILE_SIZE.x * 1.5,
+		"screen_half_w": BACKDROP_TILE_SIZE.x * 2.0,
 		"screen_z": BACKDROP_Z,
 		# taps belong to the interaction director below, not to raw travel
 		"touch_travel": false,
@@ -145,14 +146,16 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"keep_on_screen": true,
 		"edge_margin": 5.0,
 	})
-	# Three native-resolution, lossless tiles reconstruct the exact 2172x724
-	# master at one depth. Their edges meet without overlap or rescaling.
+	# Four native-resolution, lossless tiles reconstruct the exact 2172x724
+	# 3:1 master at one depth. Their edges meet without overlap or rescaling.
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png", -48.0)
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_0.png", -54.0)
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png", 0.0)
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_1.png", -18.0)
 	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png", 48.0)
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_2.png", 18.0)
+	_add_backdrop(
+		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v2_tile_3.png", 54.0)
 	_build_ambient_life()
 	_build_runway_screen()
 	_build_playground_screen()
@@ -241,8 +244,8 @@ func handle_touch(screen_pos: Vector2) -> bool:
 
 func _build_runway_screen() -> void:
 	var plane := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
-		Vector3(-65.0, 5.7, LANDMARK_Z), 13.7)   # the painted dock and water
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+		Vector3(-58.0, 4.85, LANDMARK_Z), 12.0)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
 	_register_target("plane", plane, "plane", "", 118.0, 1.12)
@@ -257,13 +260,13 @@ func _build_playground_screen() -> void:
 		"res://assets/book/hall/p_garden.jpg", "garden")
 	# the open painted lawn runs from about x -22 to +18
 	var slide := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png",
 		Vector3(-9.0, 8.15, PLAY_Z), 19.1)
 	var swing := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png",
 		Vector3(3.0, 8.15, PLAY_Z), 18.4)
 	var seesaw := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png",
 		Vector3(15.0, 4.95, PLAY_Z), 11.35)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
@@ -276,17 +279,20 @@ func _build_castle_screen() -> void:
 	# x 52.5 with its bridge running left to about x 42, and the card is sized
 	# to sit over that entrance so the first tap outlines what the child sees.
 	var gate := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
 		Vector3(CASTLE_DOOR_X, 3.3, LANDMARK_Z), 13.9)
 	# The full castle is painted into the panorama. This aligned card is kept
 	# hidden until focus so the first tap can still outline the entrance
 	# without drawing a second gate over the castle facade.
 	gate.visible = false
+	var gate_shadow: Sprite3D = gate.get_meta("contact_shadow") as Sprite3D
+	if gate_shadow != null:
+		gate_shadow.visible = false
 	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
 	card.name = "SkyLagoonRoshan"
 	m.g["lagoon_roshan_card"] = card
@@ -301,6 +307,7 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 		return
 	var local_player: Vector3 = m.player.position - root_node.position
 	card.position = Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+	_sync_contact_shadow(card)
 	if absf(delta_x) > 0.01:
 		card.flip_h = delta_x < 0.0
 
@@ -308,27 +315,28 @@ func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
 	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
 		Vector3(-57.0, 7.7, DRESS_Z), 16.65, 0.0, 0.55, 0.018)
 	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
 		Vector3(23.0, 7.05, DRESS_Z), 14.7, 1.8, 0.48, 0.016)
 	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(-24.0, 1.3, NEAR_Z), 6.55, 0.7, 0.72, 0.030)
 	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(23.5, 1.35, NEAR_Z), 6.3, 2.4, 0.68, 0.028)
 	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		Vector3(62.0, 1.55, NEAR_Z), 6.8, 4.0, 0.64, 0.032)
 	_add_ambient_card("cloud",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
-		Vector3(-60.0, 26.6, CLOUD_Z), 7.25, 1.1, 0.72, 0.0)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+		Vector3(-60.0, 26.6, CLOUD_Z), 7.25, 1.1, 0.72, 0.0, false)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
-		phase: float, speed: float, amplitude: float) -> void:
-	var card := _add_sprite(path, pos, height)
+		phase: float, speed: float, amplitude: float,
+		contact_shadow: bool = true) -> void:
+	var card := _add_sprite(path, pos, height, contact_shadow)
 	card.name = "SkyLagoonAmbient_%s" % kind
 	card.set_meta("ambient_kind", kind)
 	card.set_meta("ambient_base", pos)
@@ -363,12 +371,14 @@ func _tick_ambient_life(delta: float) -> void:
 			base.x + wave * 0.04,
 			base.y + absf(wave) * 0.025,
 			base.z)
+		_sync_contact_shadow(card)
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
 	if plane != null and is_instance_valid(plane):
 		var plane_base: Vector3 = m.g.get("lagoon_plane_base", plane.position) as Vector3
 		plane.position = plane_base + Vector3(
 			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
 		plane.rotation.z = sin(ambient_t * 0.72) * 0.010
+		_sync_contact_shadow(plane)
 		var plane_glow: Sprite3D = m.g.get("lagoon_plane_highlight") as Sprite3D
 		if plane_glow != null and is_instance_valid(plane_glow):
 			plane_glow.position = plane.position + Vector3(0.0, 0.0, -0.05)
@@ -399,7 +409,8 @@ func _add_backdrop(path: String, x: float) -> void:
 	backdrop.position = Vector3(x, BACKDROP_CENTER_Y, BACKDROP_Z)
 	root_node.add_child(backdrop)
 
-func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
+func _add_sprite(path: String, pos: Vector3, height: float,
+		contact_shadow: bool = true) -> Sprite3D:
 	var root_node: Node3D = stage.root()
 	var sprite := Sprite3D.new()
 	sprite.texture = load(path)
@@ -412,7 +423,44 @@ func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
 	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	sprite.position = pos
 	root_node.add_child(sprite)
+	if contact_shadow:
+		var shadow := _add_contact_shadow(pos, maxf(1.2, height * 0.62), height)
+		sprite.set_meta("contact_shadow", shadow)
+		sprite.set_meta("contact_shadow_height", height)
 	return sprite
+
+func _add_contact_shadow(pos: Vector3, width: float, height: float) -> Sprite3D:
+	var root_node: Node3D = stage.root()
+	var shadow := Sprite3D.new()
+	shadow.name = "SkyLagoonContactShadow"
+	shadow.set_meta("sky_lagoon_contact_shadow", true)
+	shadow.texture = load(CONTACT_SHADOW_TEX)
+	shadow.pixel_size = width / maxf(1.0, float(shadow.texture.get_width()))
+	shadow.scale.y = 0.22
+	shadow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	shadow.shaded = false
+	shadow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	shadow.position = Vector3(
+		pos.x,
+		pos.y - height * 0.5 + maxf(0.08, height * 0.025),
+		pos.z - 0.035)
+	root_node.add_child(shadow)
+	return shadow
+
+func _sync_contact_shadow(sprite: Sprite3D) -> void:
+	var shadow: Sprite3D = sprite.get_meta("contact_shadow") as Sprite3D
+	if shadow == null or not is_instance_valid(shadow):
+		return
+	if sprite == m.g.get("lagoon_roshan_card") and not (
+			m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		shadow.visible = false
+		return
+	var height: float = float(sprite.get_meta("contact_shadow_height", 1.0))
+	shadow.position = Vector3(
+		sprite.position.x,
+		sprite.position.y - height * 0.5 + maxf(0.08, height * 0.025),
+		sprite.position.z - 0.035)
+	shadow.visible = sprite.visible
 
 func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: String) -> void:
 	var root_node: Node3D = stage.root()
@@ -436,6 +484,7 @@ func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: 
 	frame.shaded = false
 	frame.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	holder.add_child(frame)
+	_add_contact_shadow(pos, 5.8, 12.95)
 	_register_target(id, holder, "frame", minigame, 92.0, 1.08, frame)
 
 func _register_target(id: String, node: Node3D, kind: String, payload: String,
@@ -605,6 +654,7 @@ func _tick_playground_animation(delta: float) -> void:
 			_tick_slide_animation(card, equipment, t)
 		"seesaw":
 			_tick_seesaw_animation(card, equipment, t)
+	_sync_contact_shadow(card)
 	if t >= float(play.get("dur", 0.0)):
 		_finish_playground_animation()
 

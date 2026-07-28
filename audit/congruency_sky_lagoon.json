@@ -1,0 +1,470 @@
+{
+  "scene": "sky_lagoon_promenade",
+  "plate": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png",
+  "plate_metrics": {
+    "ground": {
+      "a": -21.332216421518723,
+      "b": 8.921664505601468,
+      "median_l": 50.78353561941718,
+      "black_l": 21.289202888251733,
+      "white_l": 79.0584141699425,
+      "specular": 0.01129977138502572,
+      "contrast": 5.924670771529457,
+      "key_angle": 191.39842805921822,
+      "key_confidence": 0.031998151649041816
+    },
+    "sky": {
+      "a": -27.014049701801905,
+      "b": -16.057250862705285,
+      "median_l": 77.57679139130835,
+      "black_l": 38.89624172585363,
+      "white_l": 91.00833619150266,
+      "specular": 0.01504977112978392,
+      "contrast": 4.089303621937224,
+      "key_angle": 114.9685770363622,
+      "key_confidence": 0.13449856582572223
+    },
+    "castle": {
+      "a": 10.693383096324656,
+      "b": -14.346333506685793,
+      "median_l": 61.36747310068526,
+      "black_l": 29.42338228640486,
+      "white_l": 88.91471306100576,
+      "specular": 0.044231319782421986,
+      "contrast": 7.334910517548983,
+      "key_angle": 138.32558466957818,
+      "key_confidence": 0.07331317452125925
+    },
+    "accent": {
+      "a": 11.045718804181925,
+      "b": -4.408093412651892,
+      "median_l": 50.78353561941718,
+      "black_l": 21.289202888251733,
+      "white_l": 79.0584141699425,
+      "specular": 0.01129977138502572,
+      "contrast": 5.924670771529457,
+      "key_angle": 191.39842805921822,
+      "key_confidence": 0.031998151649041816
+    },
+    "authored_to_displayed": 0.9377348079520629
+  },
+  "tolerances": {
+    "c1_delta_lab": 18.0,
+    "c2_median_l": 16.0,
+    "c2_black_l": 14.0,
+    "c2_white_l": 14.0,
+    "c3_key_degrees": 45.0,
+    "c4_specular_over_plate": 0.025,
+    "c5_contrast_min": 0.53,
+    "c5_contrast_max": 1.9,
+    "c6_ratio_min": 1.0,
+    "c6_ratio_max": 2.5,
+    "c6_plate_multiplier": 2.0
+  },
+  "results": [
+    {
+      "element": {
+        "name": "cloud_family_drift",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v5_audited.png",
+        "world_height": 7.25,
+        "z": -17.95,
+        "band": "sky",
+        "shadow_mode": "painted_underside",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -22.81510929386804,
+        "b": -19.0110297079068,
+        "median_l": 81.36300441328399,
+        "black_l": 52.75797630403712,
+        "white_l": 84.92324712761125,
+        "specular": 0.01696627893314534,
+        "contrast": 3.8873034260481765,
+        "key_angle": 140.8435272144994,
+        "key_confidence": 0.029979453605489037
+      },
+      "derived": {
+        "delta_lab": 5.133800737829606,
+        "key_delta": 25.874950178137198,
+        "displayed_height": 116.70500986503305,
+        "authored_height": 220,
+        "density": 1.885094738044455,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "activity_frame_v3",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
+        "world_height": 12.95,
+        "z": -17.75,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -10.727718987237733,
+        "b": 9.480765101798116,
+        "median_l": 53.25570385412094,
+        "black_l": 29.123486889939997,
+        "white_l": 70.60510431978031,
+        "specular": 0.014344671503694336,
+        "contrast": 7.075083949212511,
+        "key_angle": 84.37696175445315,
+        "key_confidence": 0.1559900430355435
+      },
+      "derived": {
+        "delta_lab": 10.619225928020345,
+        "key_delta": 107.02146630476507,
+        "displayed_height": 209.1031831926592,
+        "authored_height": 390,
+        "density": 1.8651079053190205,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "plane",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v4_audited_360.png",
+        "world_height": 12.0,
+        "z": -17.85,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -12.334908888221696,
+        "b": 0.6346654823713438,
+        "median_l": 64.86427121528166,
+        "black_l": 34.52898980626212,
+        "white_l": 80.45269972460405,
+        "specular": 0.007066509273782766,
+        "contrast": 3.6096445219264286,
+        "key_angle": 240.734909128639,
+        "key_confidence": 0.08729057175755837
+      },
+      "derived": {
+        "delta_lab": 12.23216643361839,
+        "key_delta": 49.336481069420785,
+        "displayed_height": 193.46478013199004,
+        "authored_height": 360,
+        "density": 1.8608038101528994,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "swing",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_swing_v3.png",
+        "world_height": 18.4,
+        "z": -17.8,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -18.899135849812094,
+        "b": 3.88610439383541e-06,
+        "median_l": 45.5202804859848,
+        "black_l": 28.809460229711775,
+        "white_l": 70.64643515618663,
+        "specular": 0.012806576264193162,
+        "contrast": 5.649734891929143,
+        "key_angle": 1.057208912265171,
+        "key_confidence": 0.0931124159351545
+      },
+      "derived": {
+        "delta_lab": 9.24748123966203,
+        "key_delta": 169.65878085304695,
+        "displayed_height": 296.8748897179729,
+        "authored_height": 550,
+        "density": 1.8526322671563515,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "slide",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3.png",
+        "world_height": 19.1,
+        "z": -17.8,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -17.20818685324962,
+        "b": -5.016639861370459,
+        "median_l": 60.72110440093748,
+        "black_l": 32.19694162645126,
+        "white_l": 79.5630300903333,
+        "specular": 0.020600715533738247,
+        "contrast": 5.432372227943437,
+        "key_angle": 287.63507123488796,
+        "key_confidence": 0.031742808057929596
+      },
+      "derived": {
+        "delta_lab": 14.535609670953143,
+        "key_delta": 96.23664317566977,
+        "displayed_height": 308.16904313115674,
+        "authored_height": 570,
+        "density": 1.849634194948673,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "castle_gate",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+        "world_height": 13.9,
+        "z": -17.85,
+        "band": "castle",
+        "shadow_mode": "card",
+        "palette_band": "castle"
+      },
+      "metrics": {
+        "a": 26.946233139581445,
+        "b": -19.096318538611246,
+        "median_l": 60.3310353787587,
+        "black_l": 37.3374052599443,
+        "white_l": 82.81864693276583,
+        "specular": 0.037335800185013875,
+        "contrast": 6.73216967144832,
+        "key_angle": 76.27442230184509,
+        "key_confidence": 0.039525113214233853
+      },
+      "derived": {
+        "delta_lab": 16.93273434304419,
+        "key_delta": 62.051162367733085,
+        "displayed_height": 224.09670365288846,
+        "authored_height": 420,
+        "density": 1.8741908879237834,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "roshan",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+        "world_height": 7.8,
+        "z": 0.2,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": "accent"
+      },
+      "metrics": {
+        "a": 11.26728168380653,
+        "b": 0.5836165426977735,
+        "median_l": 57.822849655724404,
+        "black_l": 31.131946215137972,
+        "white_l": 84.34034538887303,
+        "specular": 0.018858307849133536,
+        "contrast": 6.18646385153009,
+        "key_angle": 71.60550500443881,
+        "key_confidence": 0.029522843646107078
+      },
+      "derived": {
+        "delta_lab": 4.996624699531126,
+        "key_delta": 119.79292305477941,
+        "displayed_height": 174.25265266054936,
+        "authored_height": 320,
+        "density": 1.8364139375448814,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "seesaw",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v4.png",
+        "world_height": 11.35,
+        "z": -17.8,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -21.96194550391173,
+        "b": 5.901196751374793,
+        "median_l": 53.417568989442316,
+        "black_l": 23.713504835582285,
+        "white_l": 72.8234079380617,
+        "specular": 0.02097866030558958,
+        "contrast": 7.139733697560296,
+        "key_angle": 84.13111121643364,
+        "key_confidence": 0.01692512383653339
+      },
+      "derived": {
+        "delta_lab": 3.0854147487063504,
+        "key_delta": 107.26731684278458,
+        "displayed_height": 183.1266303423366,
+        "authored_height": 340,
+        "density": 1.8566387606455959,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "pnw_currant_sway",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
+        "world_height": 6.55,
+        "z": -17.7,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -20.13685759335043,
+        "b": 25.988273650613337,
+        "median_l": 43.92192526300434,
+        "black_l": 10.378439459170542,
+        "white_l": 69.00724245405722,
+        "specular": 0.0029016657710908113,
+        "contrast": 6.189346752236556,
+        "key_angle": 215.58082262916176,
+        "key_confidence": 0.11535260137936298
+      },
+      "derived": {
+        "delta_lab": 17.108419869663084,
+        "key_delta": 24.18239456994354,
+        "displayed_height": 105.84434697928266,
+        "authored_height": 195,
+        "density": 1.8423279614372616,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    },
+    {
+      "element": {
+        "name": "pnw_fir_sway",
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+        "world_height": 16.65,
+        "z": -17.9,
+        "band": "ground",
+        "shadow_mode": "card",
+        "palette_band": ""
+      },
+      "metrics": {
+        "a": -22.574665441461693,
+        "b": 15.608877156763867,
+        "median_l": 64.18514335401852,
+        "black_l": 27.16045362983245,
+        "white_l": 86.3271645559015,
+        "specular": 0.015289469163373991,
+        "contrast": 5.33046655765456,
+        "key_angle": 124.9698090450571,
+        "key_confidence": 0.07684319473292509
+      },
+      "derived": {
+        "delta_lab": 6.801653667235909,
+        "key_delta": 66.42861901416111,
+        "displayed_height": 268.22557782417374,
+        "authored_height": 440,
+        "density": 1.6404102978144284,
+        "density_max": 1.8754696159041258
+      },
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true,
+        "C7": true
+      },
+      "pass": true
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "total": 10
+  }
+}
