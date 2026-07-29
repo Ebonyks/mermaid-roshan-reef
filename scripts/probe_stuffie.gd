@@ -403,6 +403,10 @@ func _rest_case() -> void:
 	main.player.position = (main.companion_node as Node3D).position + Vector3(2.0, 0, 0)
 	main.player.vel = Vector3.ZERO
 	for i in range(2):
+		# Exercise the queued care transition without tying the probe to runner
+		# frame rate: 60 uncapped CI frames can be shorter than the real 1.2 s
+		# follow-up delay, even though the same sequence passes at local cadence.
+		main.companion_want_cool = 0.0
 		for f in range(60):
 			if main.companion_want != "":
 				break
