@@ -145,6 +145,39 @@ jobs:
           done
           exit $FAILED
 
+      # Display-build boot gate. The area the game opens in is chosen behind
+      # `DisplayServer.get_name() != "headless"`, so NOTHING in the headless
+      # block above can execute it: the phone shipped a boot that dropped
+      # Roshan into the legacy 3D reef while every headless probe stayed green
+      # (owner report 2026-07-29). This runs the real boot under a real
+      # viewport and GATES it — a broken first area must never reach the APK
+      # again. Xvfb flakiness is absorbed with one retry rather than by making
+      # the gate advisory; a run that yields no verdict twice is a failure.
+      - name: Boot gate (real viewport — the area the phone opens in)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          set -o pipefail
+          OUT=/tmp/probe_boot_display.out
+          for attempt in 1 2; do
+            BOOT_HOME="/tmp/reef-boot-$attempt"
+            rm -rf "$BOOT_HOME"
+            mkdir -p "$BOOT_HOME/data" "$BOOT_HOME/config"
+            XDG_DATA_HOME="$BOOT_HOME/data" XDG_CONFIG_HOME="$BOOT_HOME/config" \
+              timeout 6m xvfb-run -a godot --rendering-method mobile \
+              -s scripts/probe_boot_display.gd -- --touch 2>&1 | tee "$OUT" || true
+            grep -q "^RESULT|" "$OUT" && break
+            echo "Boot gate produced no verdict on attempt $attempt (Xvfb flake?); retrying"
+          done
+          if ! grep -q "^RESULT|PASS" "$OUT"; then
+            echo "BOOT GATE FAILED — the game does not open on the promenade"
+            exit 1
+          fi
+          if grep -qE 'BOOTDISPLAY\|.*\|FAIL|SCRIPT ERROR|Parse Error|Compile Error' "$OUT"; then
+            echo "BOOT GATE FAILED — assertion or script error during boot"
+            exit 1
+          fi
+
       # Advisory balance playtest: ten simulated-child runs per opera act
       # (personas with reaction delays, travel, wandering, wrong taps) via
       # manual _process pumping. Prints BALANCE| metrics with a verdict

@@ -92,6 +92,11 @@ var we_node: WorldEnvironment
 var music: AudioStreamPlayer
 var dance_engine: CanvasLayer = null
 var return_pos := Vector3.ZERO
+# The world a minigame was launched FROM, captured beside return_pos so the
+# exit restores where she actually came from instead of assuming the reef.
+# Null/"" mean "nothing captured yet" and fall back to the old reef values.
+var return_env: Environment = null
+var return_track := ""
 const ARENA_POS := Vector3(0, -600, 0)
 const LEVEL2_POS := Vector3(0, -1300, 0)
 const CASTLE_POS := Vector3(500, -1300, 0)
@@ -8015,6 +8020,12 @@ func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0
 
 func _enter_arena(kind: String) -> void:
 	return_pos = player.position
+	# Capture the whole return context, not just the spot. Today every caller
+	# launches from the reef, so these hold world_env/"world" and the exit is
+	# byte-for-byte what it always did; once the reef is gone they are what
+	# lets a game hand her back to the promenade or the castle she came from.
+	return_env = we_node.environment
+	return_track = cur_track
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
@@ -8122,10 +8133,13 @@ func _leave_arena() -> void:
 	_fade_cut(_leave_arena_now)
 
 func _leave_arena_now() -> void:
-	we_node.environment = world_env
+	# Hand her back to the world she came from. The fallbacks keep every
+	# pre-existing caller (and any save restored mid-activity) behaving exactly
+	# as before rather than dropping her into a null environment.
+	we_node.environment = return_env if return_env != null else world_env
 	player.position = return_pos
 	player.vel = Vector3.ZERO
-	_play_music("world")
+	_play_music(return_track if return_track != "" else "world")
 
 func _btn_pressed() -> int:
 	# returns 0..3 for A/B/X/Y edge press, else -1
