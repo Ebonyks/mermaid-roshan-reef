@@ -407,6 +407,37 @@ def mask_position(
         return None
 
 
+def mask_geometry(
+    path: Path,
+    expected_size: tuple[int, int] | None,
+    label: str,
+    errors: list[str],
+) -> dict[str, float] | None:
+    try:
+        with Image.open(path).convert("L") as mask:
+            if expected_size is not None and mask.size != expected_size:
+                errors.append(
+                    f"{label}: mask size {mask.size} does not match frame size "
+                    f"{expected_size}"
+                )
+                return None
+            binary = mask.point(lambda value: 255 if value >= 128 else 0)
+            bounds = binary.getbbox()
+            if bounds is None:
+                errors.append(f"{label}: mask contains no subject pixels")
+                return None
+            left, top, right, bottom = bounds
+            foreground_pixels = binary.histogram()[255]
+            return {
+                "bbox_width": (right - left) / mask.width,
+                "bbox_height": (bottom - top) / mask.height,
+                "coverage": foreground_pixels / (mask.width * mask.height),
+            }
+    except (OSError, ValueError) as error:
+        errors.append(f"{label}: unreadable mask: {error}")
+        return None
+
+
 def image_delta(left: Path, right: Path) -> float:
     with Image.open(left).convert("RGB") as first, Image.open(right).convert("RGB") as second:
         if first.size != second.size:
@@ -751,6 +782,16 @@ def validate_frame_regeneration_manifest(
                 if candidate_mask
                 else None
             )
+            candidate_geometry = (
+                mask_geometry(
+                    candidate_mask,
+                    candidate_size,
+                    f"{subject_label} candidate_mask",
+                    errors,
+                )
+                if candidate_mask
+                else None
+            )
             guide_size = (
                 image_size(guide_path, f"{label} position_guide", errors)
                 if guide_path
@@ -803,6 +844,16 @@ def validate_frame_regeneration_manifest(
                     f"{subject_label}: max_cross_axis_step must be in (0, 1]"
                 )
                 max_cross_axis_step = None
+            max_bbox_height_step = subject.get("max_bbox_height_step")
+            if max_bbox_height_step is not None and (
+                not isinstance(max_bbox_height_step, (int, float))
+                or max_bbox_height_step <= 0
+                or max_bbox_height_step > 1
+            ):
+                errors.append(
+                    f"{subject_label}: max_bbox_height_step must be in (0, 1]"
+                )
+                max_bbox_height_step = None
             position_error = None
             if candidate_position and guide_position:
                 if position_axis == "x":
@@ -822,6 +873,7 @@ def validate_frame_regeneration_manifest(
                     "position_anchor": position_anchor,
                     "position_axis": position_axis,
                     "candidate_position": candidate_position,
+                    "candidate_geometry": candidate_geometry,
                     "guide_position": guide_position,
                     "position_error": round(position_error, 6)
                     if position_error is not None
@@ -830,6 +882,7 @@ def validate_frame_regeneration_manifest(
                     "required_direction": required_direction,
                     "max_step_error": max_step_error,
                     "max_cross_axis_step": max_cross_axis_step,
+                    "max_bbox_height_step": max_bbox_height_step,
                 }
             )
 
@@ -874,6 +927,45 @@ def validate_frame_regeneration_manifest(
             current_candidate = current_subject.get("candidate_position")
             previous_guide = previous_subject.get("guide_position")
             current_guide = current_subject.get("guide_position")
+            previous_geometry = previous_subject.get("candidate_geometry")
+            current_geometry = current_subject.get("candidate_geometry")
+            if isinstance(previous_geometry, dict) and isinstance(
+                current_geometry,
+                dict,
+            ):
+                bbox_height_step = (
+                    current_geometry["bbox_height"]
+                    - previous_geometry["bbox_height"]
+                )
+                current_subject["bbox_height_step_from_previous"] = round(
+                    bbox_height_step,
+                    6,
+                )
+                max_bbox_height_step = current_subject.get(
+                    "max_bbox_height_step"
+                )
+                if max_bbox_height_step is None:
+                    max_bbox_height_step = previous_subject.get(
+                        "max_bbox_height_step"
+                    )
+                elif previous_subject.get("max_bbox_height_step") not in (
+                    None,
+                    max_bbox_height_step,
+                ):
+                    errors.append(
+                        f"subject {subject_id}: max_bbox_height_step changes "
+                        f"between frames {previous_frame} and {current_frame}"
+                    )
+                if (
+                    max_bbox_height_step is not None
+                    and abs(bbox_height_step) > max_bbox_height_step
+                ):
+                    errors.append(
+                        f"subject {subject_id}: frame "
+                        f"{previous_frame}->{current_frame} bbox-height step "
+                        f"{bbox_height_step:.5f} exceeds "
+                        f"{max_bbox_height_step:.5f}"
+                    )
             if not all(
                 isinstance(position, tuple)
                 for position in (

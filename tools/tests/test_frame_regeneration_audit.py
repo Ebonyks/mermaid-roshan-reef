@@ -127,6 +127,7 @@ class FrameRegenerationAuditTests(unittest.TestCase):
             "max_position_error": 0.2,
             "max_step_error": 0.01,
             "max_cross_axis_step": 0.01,
+            "max_bbox_height_step": 0.01,
         })
         previous = {
             **current,
@@ -256,6 +257,18 @@ class FrameRegenerationAuditTests(unittest.TestCase):
         errors, reports = self.validate(candidate)
         self.assertEqual(errors, [])
         self.assertEqual(reports[0]["subjects"][0]["position_error"], 0.0)
+
+    def test_rejects_subject_bbox_height_drift(self):
+        image = Image.new("L", (32, 18), 0)
+        ImageDraw.Draw(image).rectangle((10, 5, 15, 12), fill=255)
+        image.save(self.candidate_mask)
+        candidate = self.motion_manifest()
+        errors, reports = self.validate(candidate)
+        self.assertTrue(any("bbox-height step" in error for error in errors))
+        self.assertGreater(
+            reports[1]["subjects"][0]["bbox_height_step_from_previous"],
+            0.01,
+        )
 
     def test_rejects_material_position_guide_pixel_reuse(self):
         with Image.open(self.candidate).convert("RGB") as image:

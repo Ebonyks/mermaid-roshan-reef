@@ -47,7 +47,7 @@ class CinematicPositionGuideTests(unittest.TestCase):
         self.assertTrue(manifest["position_authority_only"])
         with Image.open(output / "guides" / "frame_000000_guide.png") as image:
             self.assertEqual(image.getpixel((127, 71)), GUIDES.BACKGROUND_COLOR)
-            self.assertIn(GUIDES.GUIDE_COLOR, image.getdata())
+            self.assertIn(GUIDES.GUIDE_COLOR, image.get_flattened_data())
 
     def test_marker_only_guide_contains_no_subject_chroma(self):
         output = self.root / "build" / "markers"
@@ -63,7 +63,7 @@ class CinematicPositionGuideTests(unittest.TestCase):
         )
         self.assertEqual(manifest["guide_mode"], "marker_only")
         with Image.open(output / "guides" / "frame_000000_guide.png") as image:
-            self.assertNotIn(GUIDES.GUIDE_COLOR, image.getdata())
+            self.assertNotIn(GUIDES.GUIDE_COLOR, image.get_flattened_data())
 
 
 if __name__ == "__main__":

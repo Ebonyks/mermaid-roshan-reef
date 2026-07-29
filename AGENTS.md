@@ -77,9 +77,10 @@ generator where an object belongs in a target frame.
 - A generator-facing guide must place its flat chroma footprint and coordinate
   marks on a neutral field. Never include a scene plate, accepted background,
   texture, or other appearance-bearing pixels in the guide.
-- For fine sub-silhouette motion, a neutral-field coordinate/crosshair guide
-  with no subject footprint is preferred when the footprint causes stationary
-  or overshoot modes.
+- A neutral-field coordinate/crosshair guide with no subject footprint may be
+  tested, but it is not presumed superior. The 2026-07-29 opening-plane trial
+  overshot materially; every guide mode must earn acceptance from measured
+  full-frame candidates.
 - The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
   that all appearance comes from the approved image/style references.
 - No pixel from the guide may be copied, composited, keyed, traced, or otherwise
