@@ -150,27 +150,15 @@ func _playthrough(run_index: int) -> void:
 			await _frames(12)
 			main._populate_touch_interactables()
 			_check_registry(main, _court_required(main), issues)
-			if int(run_index / 4) % 2 == 0:
-				var opera_gate: Dictionary = main.g.get("opera_gate", {})
-				var opera_gate_pos: Vector3 = opera_gate.get("pos", Vector3.ZERO)
-				main._activate_touch_interactable("court:opera")
-				await _frames(4)
-				if main.game != "opera" or main.opera_game == null:
-					issues.append("explicit courtyard Opera target did not open")
-				else:
-					main.opera_game._leave_early()
-					await _frames(4)
-					if main.game != "level2" or String(main.g.get("phase", "")) != "court":
-						issues.append("Opera exit did not restore courtyard")
-					elif opera_gate_pos.distance_to(main.player.position) >= 9.0:
-						issues.append("Opera exit did not return beside touch target")
-			else:
-				main._activate_touch_interactable("court:north")
-				if _has_registry_prefix(main, "court:"):
-					issues.append("direct northern transition retained courtyard targets")
-				await _frames(10)
-				if main.game != "north":
-					issues.append("explicit courtyard route did not enter northern world")
+			if main.g.has("opera_gate") \
+					or _has_registry_id(main, "court:opera"):
+				issues.append("retired 3D courtyard Opera route returned")
+			main._activate_touch_interactable("court:north")
+			if _has_registry_prefix(main, "court:"):
+				issues.append("direct northern transition retained courtyard targets")
+			await _frames(10)
+			if main.game != "north":
+				issues.append("explicit courtyard route did not enter northern world")
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -179,15 +167,28 @@ func _playthrough(run_index: int) -> void:
 			main._enter_castle_interior_now(false)
 			await _frames(12)
 			main._populate_touch_interactables()
-			_check_registry(main, _hall_required(main), issues)
-			main._activate_touch_interactable("hall:crown")
+			var rooms: CastleRooms25D = main._castle_rooms_ref()
+			if not rooms.is_open():
+				issues.append("castle Sprite3D stage did not open")
+			if not main.touch_interactables.is_empty():
+				issues.append("retired 3D hall targets were registered")
+			if main.castle_room_buttons.size() != 8 \
+					or not main.castle_room_buttons.has("opera_hall"):
+				issues.append("storybook elevator omitted castle rooms")
+			if main.castle_room_world_root == null \
+					or main.castle_room_camera == null \
+					or main.castle_room_camera.projection \
+						!= Camera3D.PROJECTION_PERSPECTIVE:
+				issues.append("castle lacks perspective Sprite3D stage")
+			rooms.show_room("main_hall", false)
+			rooms.activate_current_room()
 			await _frames(3)
 			if not bool(main.g.get("crown_won", false)):
-				issues.append("explicit Crown Star did not award")
-			main._activate_touch_interactable("hall:exit")
+				issues.append("Main Hall Crown action did not award")
+			rooms._exit_to_courtyard()
 			await _frames(10)
 			if main.game != "level2" or String(main.g.get("phase", "")) != "court":
-				issues.append("explicit castle exit did not return to courtyard")
+				issues.append("castle stage exit did not return to courtyard")
 		3:
 			main._enter_northern_kingdom()
 			await _frames(12)
@@ -238,7 +239,7 @@ func _reef_required(main: Node3D) -> Array[String]:
 	return required
 
 func _court_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["court:north", "court:opera", "court:ember", "court:kart_a", "court:kart_b", "court:back_entry", "court:castle"]
+	var required: Array[String] = ["court:north", "court:ember", "court:kart_a", "court:kart_b", "court:back_entry", "court:castle"]
 	var gates: Array = main.g.get("ocean_kingdom_gates", [])
 	for gate_index in range(gates.size()):
 		required.append("court:ocean:%d" % gate_index)
@@ -250,33 +251,6 @@ func _court_required(main: Node3D) -> Array[String]:
 	for star_index in range(main.l2_stars.size()):
 		if not bool((main.l2_stars[star_index] as Dictionary).get("got", false)):
 			required.append("court:star:%d" % star_index)
-	return required
-
-func _hall_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["hall:exit", "hall:craft", "hall:wardrobe"]
-	if main.g.has("bed_pos") and main.sleep_cool <= 0.0:
-		required.append("hall:bed")
-	if not bool(main.g.get("stand_open", false)) and main.g.has("stand_chest"):
-		required.append("hall:stand")
-	if main.g.has("toilet"):
-		required.append("hall:toilet")
-	if main.g.has("dungeon_gate"):
-		required.append("hall:dungeon")
-	if main.g.has("opera_gate"):
-		required.append("hall:opera")
-	var bellgame: Dictionary = main.g.get("bellgame", {})
-	if String(bellgame.get("state", "")) == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and main.g.has("song_star"):
-		required.append("hall:bell_song")
-	var bells: Array = main.g.get("bells", [])
-	for bell_index in range(bells.size()):
-		required.append("hall:bell:%d" % bell_index)
-	if main.g.has("secret_door") and bool(main.g.get("stand_open", false)):
-		required.append("hall:secret")
-	if not bool(main.g.get("crown_won", false)) and not main.l2_stars.is_empty():
-		required.append("hall:crown")
-	var props: Array = main.g.get("hall_touch", [])
-	for prop_index in range(props.size()):
-		required.append("hall:prop:%d" % prop_index)
 	return required
 
 func _check_registry(main: Node3D, required: Array[String], issues: Array[String]) -> void:
@@ -300,6 +274,13 @@ func _has_registry_prefix(main: Node3D, prefix: String) -> bool:
 	for item_value: Variant in main.touch_interactables:
 		var item: Dictionary = item_value as Dictionary
 		if String(item.get("id", "")).begins_with(prefix):
+			return true
+	return false
+
+func _has_registry_id(main: Node3D, target_id: String) -> bool:
+	for item_value: Variant in main.touch_interactables:
+		var item: Dictionary = item_value as Dictionary
+		if String(item.get("id", "")) == target_id:
 			return true
 	return false
 

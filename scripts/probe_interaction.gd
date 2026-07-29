@@ -98,9 +98,11 @@ func _init() -> void:
 	await _frames(24)
 	main._populate_touch_interactables()
 	var court_ids := _ids()
-	for expected: String in ["court:castle", "court:north", "court:opera", "court:kart_a", "court:kart_b"]:
+	for expected: String in ["court:castle", "court:north", "court:kart_a", "court:kart_b"]:
 		if not court_ids.has(expected):
 			_bad("courtyard registry missing %s" % expected)
+	if court_ids.has("court:opera") or main.g.has("opera_gate"):
+		_bad("retired 3D courtyard Opera route was rebuilt")
 
 	# Fix regression: with the castle OPEN the door slab is parked ~30 units up
 	# in the sky. court:castle must anchor at the doorway at walk height, and a
@@ -136,83 +138,62 @@ func _init() -> void:
 			main._tap_move_ref().cancel("probe")
 			main._interaction_ref().clear_focus()
 
-	# Exercise the first-visit Crown Star target, not the already-won keepsake.
+	# The castle is one picture-first Sprite3D stage, not a second free-roaming
+	# 3D world. Room props use UI hit targets projected over their world cards;
+	# the retired hall registry must therefore remain empty.
 	main.level2_done_once = false
 	main._enter_castle_interior_now(false)
 	await _frames(24)
 	main._populate_touch_interactables()
-	var hall_ids := _ids()
-	for expected: String in ["hall:bed", "hall:stand", "hall:exit", "hall:craft", "hall:wardrobe", "hall:bell_song", "hall:crown"]:
-		if not hall_ids.has(expected):
-			_bad("castle registry missing %s" % expected)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	if not rooms.is_open():
+		_bad("castle Sprite3D room stage did not open")
+	if not _ids().is_empty():
+		_bad("retired 3D hall touch targets were populated")
+	for retired_key: String in [
+		"hall_exit", "bed_pos", "stand_chest", "toilet", "dungeon_gate",
+		"craft_easel", "wardrobe", "song_star", "secret_door", "hall_touch",
+		"bells", "opera_gate"]:
+		if main.g.has(retired_key):
+			_bad("retired 3D hall state rebuilt %s" % retired_key)
+	for room_id: String in [
+		"main_hall", "opera_hall", "kitchen", "library", "playroom",
+		"craft_room", "mermaid_pool", "bubble_bath"]:
+		if not main.castle_room_buttons.has(room_id):
+			_bad("castle elevator missing %s" % room_id)
+	if main.castle_room_world_root == null \
+			or main.castle_room_camera == null \
+			or main.castle_room_camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
+		_bad("castle did not build its perspective Sprite3D stage")
+	if main.touch_ui.world_controls_enabled or main.player.visible:
+		_bad("free-roaming 3D controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
-
-	# Hybrid advertises the music objective at proximity but starts it only
-	# through its explicit Music Star target.
-	var bellgame: Dictionary = main.g.get("bellgame", {})
-	bellgame["state"] = "idle"
-	bellgame["cool"] = 0.0
-	main.player.position = (main.g.get("song_star", main.player.position) as Vector3) + Vector3(2.0, 0.0, 0.0)
-	await _frames(8)
-	if String(bellgame.get("state", "")) != "idle":
-		_bad("Hybrid proximity auto-started the bell objective")
-	main._activate_touch_interactable("hall:bell_song")
+	rooms._toggle_menu()
+	if not main.castle_room_menu_open or not main.castle_room_menu_panel.visible:
+		_bad("storybook elevator did not expand")
+	rooms.show_room("bubble_bath", false)
+	await _frames(2)
+	for prop_id: String in ["bathtub", "sink", "toilet"]:
+		if not main.castle_room_item_sprites.has(prop_id):
+			_bad("bubble bath missing separate Sprite3D prop %s" % prop_id)
+	var toilet_record: Dictionary = main.castle_room_item_sprites.get("toilet", {})
+	var toilet_sprite: Sprite3D = toilet_record.get("sprite") as Sprite3D
+	rooms._activate_room_item("toilet")
 	await process_frame
-	if String(bellgame.get("state", "")) != "play":
-		_bad("explicit Music Star target did not start the bell objective")
-	main._populate_touch_interactables()
-	if _has_id_prefix("hall:bell:"):
-		_bad("bell target remained advertised during song playback")
-	# Playback completion must expose the bells in the exact frame that the
-	# child is told "Your turn."
-	bellgame["i"] = (bellgame.get("seq", []) as Array).size()
-	bellgame["t"] = 0.0
-	main._tick_bellgame(bellgame, 0.1, main.player.position)
-	if String(bellgame.get("state", "")) != "echo" or not _has_id_prefix("hall:bell:"):
-		_bad("play-to-echo transition did not expose bell targets immediately")
-	# A wrong echo restarts playback and must remove those targets immediately.
-	var sequence: Array = bellgame.get("seq", [])
-	var wrong_note: int = (int(sequence[0]) + 1) % 7
-	main._bellgame_echo(bellgame, wrong_note)
-	if String(bellgame.get("state", "")) != "play" or _has_id_prefix("hall:bell:"):
-		_bad("echo-to-play transition left stale bell targets")
-	# The completed third round returns the free-play bells immediately.
-	bellgame["state"] = "echo"
-	bellgame["round"] = 3
-	bellgame["seq"] = [0]
-	bellgame["i"] = 0
-	main._bellgame_echo(bellgame, 0)
-	if String(bellgame.get("state", "")) != "idle" or not _has_id_prefix("hall:bell:"):
-		_bad("bell completion did not restore free-play targets")
-
-	# Modal cutscenes intentionally clear a held movement finger and keep world
-	# controls blocked until their visual layer is gone.
-	main.touch_ui.touch_owners[71] = 2   # TouchOwner.STICK
-	main.touch_ui._press(Vector2(170.0, 550.0), 71)
-	main.touch_ui._drag(Vector2(245.0, 520.0))
-	main._begin_sleep()
-	if main.touch_ui.world_controls_enabled or not main.touch_ui.touch_owners.is_empty() or not (main.touch_ui.stick_vec as Vector2).is_zero_approx():
-		_bad("sleep cutscene retained held movement")
-	main._populate_touch_interactables()
-	if _ids().has("hall:bed"):
-		_bad("sleep target remained restartable during cutscene")
-	main._end_sleep()
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after sleep")
-	main.touch_ui.touch_owners[72] = 2   # TouchOwner.STICK
-	main.touch_ui._press(Vector2(170.0, 550.0), 72)
-	main.touch_ui._drag(Vector2(245.0, 520.0))
-	main._play_hug_cutscene()
-	if main.touch_ui.world_controls_enabled or not main.touch_ui.touch_owners.is_empty():
-		_bad("hug cutscene retained held movement")
-	main._end_hug_cutscene()
+	if toilet_sprite == null or not bool(toilet_sprite.get_meta("busy", false)):
+		_bad("touching the toilet did not animate its Sprite3D card")
+	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
+		_bad("touching a room prop did not attach relevant sound")
+	rooms.show_room("main_hall", false)
+	rooms.activate_current_room()
 	await process_frame
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after hug")
+	if not bool(main.g.get("crown_won", false)):
+		_bad("Main Hall action did not award the Crown Star")
 
-	# Pointer-driven 2D games own the whole screen. World controls must vanish
-	# so the lower-right action bubble cannot cover a picture target.
+	# Pointer-driven activities may temporarily cover the castle, but closing a
+	# nested overlay must return to the room stage rather than resurrecting the
+	# retired free-roaming controls.
 	main._mg2d_open("garden")
 	await process_frame
 	if main.touch_ui.world_controls_enabled or (main.touch_ui._act_button != null and main.touch_ui._act_button.visible):
@@ -227,14 +208,14 @@ func _init() -> void:
 		_bad("closing nested overlay re-enabled controls above picture game")
 	main._mg2d_close()
 	await process_frame
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after picture game")
+	if main.touch_ui.world_controls_enabled:
+		_bad("picture game close enabled 3D controls over castle stage")
 
-	# Synchronous zone rebuilds clear focus/assist immediately and reject taps
-	# until the black reveal finishes.
-	main.touch_focus_id = "hall:bed"
+	# Leaving the picture stage clears stale assisted navigation and restores the
+	# courtyard. The room overlay and its Sprite3D world must be fully released.
+	main.touch_focus_id = "retired:hall"
 	main.touch_auto_active = true
-	main._return_to_courtyard()
+	rooms._exit_to_courtyard()
 	main._on_touch_world(main.get_viewport().get_visible_rect().size * 0.5)
 	if not main.touch_focus_id.is_empty() or main.touch_auto_active:
 		_bad("rapid transition tap retained or created stale navigation")
@@ -242,20 +223,16 @@ func _init() -> void:
 		_bad("fade cover did not claim touches during transition")
 	await _frames(8)
 
-	# Fix regression: leaving the castle mid-tuck-in (pause -> "Leave") must
-	# unwind the sleep cutscene. Its reason-keyed "sleep" input block once
-	# leaked and left every touch control dead until an app restart.
+	# Leaving Level 2 directly from the castle must also tear down both UI and
+	# world-card roots; otherwise the old stage can remain over the reef.
 	main._enter_castle_interior_now(false)
 	await _frames(12)
-	main._begin_sleep()
-	if main.touch_ui.world_controls_enabled:
-		_bad("tuck-in did not take the sleep input block")
 	main._exit_level2_now()
 	await _frames(4)
 	if not main.touch_ui.world_controls_enabled:
-		_bad("leaving mid-sleep left touch controls dead (sleep block leak)")
-	if float(main.sleep_t) >= 0.0 or main.sleep_layer != null:
-		_bad("leaving mid-sleep left cutscene state armed")
+		_bad("leaving the castle left touch controls blocked")
+	if rooms.is_open() or main.castle_room_world_root != null:
+		_bad("leaving Level 2 retained the castle Sprite3D stage")
 
 	# Fix regression (Hybrid contract): the sparring den may advertise by
 	# proximity but must start ONLY from its explicit tap target.

@@ -108,8 +108,8 @@ func _init() -> void:
 	player.rotation.x = 0.0
 	await process_frame
 	# ---- entering the castle must make the train disappear entirely ----
-	# (the hall build frees every courtyard node; _tick_train then drops the
-	# stale g["train"] state). Grab the engine ref BEFORE the teardown —
+	# (the Sprite3D room stage frees every courtyard node; _tick_train then
+	# drops the stale g["train"] state). Grab the engine ref BEFORE teardown —
 	# assigning an already-freed instance to a typed var is a runtime error.
 	var eng: Node3D = (cars[0] as Dictionary)["node"]
 	main._enter_castle_interior()
@@ -117,14 +117,15 @@ func _init() -> void:
 		await process_frame
 	var gone: bool = (not is_instance_valid(eng)) \
 		and (not main.g.has("train") or bool(tr["hidden"]))
-	print("TRAIN|disappears on castle entry (hall phase): ", ("OK" if gone else "FAIL"))
+	print("TRAIN|disappears on castle Sprite3D entry: ", ("OK" if gone else "FAIL"))
 	# ---- and a fresh train is rebuilt when she steps back out ----
-	main._enter_level2(true)
+	main._castle_rooms_ref()._exit_to_courtyard()
 	for k in range(30):
 		await process_frame
 	var tr2: Dictionary = main.g.get("train", {})
 	var back: bool = not tr2.is_empty() and not bool(tr2["hidden"]) \
-		and is_instance_valid(((tr2["cars"] as Array)[0] as Dictionary)["node"])
+		and is_instance_valid(((tr2["cars"] as Array)[0] as Dictionary)["node"]) \
+		and not main._castle_rooms_ref().is_open()
 	print("TRAIN|rebuilt back in the courtyard: ", ("OK" if back else "FAIL"))
 	print("=== TRAIN PROBE DONE ===")
 	quit()

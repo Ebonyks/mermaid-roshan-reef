@@ -1,0 +1,733 @@
+{
+  "clean_fill": "horizontal/vertical scanline interpolation plus nearest unmasked fallback from the same room composite, applied only beneath fully opaque card ownership; antialiased source boundaries are preserved",
+  "owner_native_environment_contract": {
+    "handoff": "FABLE_CASTLE_2K_REGEN_HANDOFF_2026-07-26.md",
+    "low_resolution_reference_dimensions": [
+      1024,
+      576
+    ],
+    "master_power_of_two_required": false,
+    "ratio_rounding_tolerance_pixels": 1.0,
+    "required_minimum_long_edge": 2048,
+    "required_reference_aspect_ratio": [
+      16,
+      9
+    ],
+    "runtime_tile_max_long_edge": 1024,
+    "runtime_tiles_lossless_no_scale": true,
+    "status": "legacy_resolution_nonconforming"
+  },
+  "rooms": {
+    "bubble_bath": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_bubble_bath_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "64466c3f77c05e1aa7cd0bad45041f1803a093d36ad58b6d0424431b4492286a",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 51950,
+          "crop": [
+            76,
+            157,
+            397,
+            355
+          ],
+          "id": "item_bathtub",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 27026,
+          "crop": [
+            440,
+            137,
+            645,
+            310
+          ],
+          "id": "item_sink",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 23457,
+          "crop": [
+            753,
+            154,
+            906,
+            346
+          ],
+          "id": "item_toilet",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 42648,
+          "crop": [
+            0,
+            358,
+            226,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 42471,
+          "crop": [
+            798,
+            358,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 178601,
+      "changed_owned_ratio": 0.952275,
+      "native_master_compliant": false,
+      "owned_background_pixels": 187552,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 9.8e-05,
+      "runtime_tiles": [],
+      "source": "room_bubble_bath.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+    },
+    "craft_room": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_craft_room_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "7e36363147d9a79b861c11ced87fda7d4b8cab667b23c8dbc44fa71553de9b0c",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 39156,
+          "crop": [
+            377,
+            103,
+            647,
+            274
+          ],
+          "id": "item_idea_board",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 17741,
+          "crop": [
+            400,
+            272,
+            624,
+            367
+          ],
+          "id": "item_paint_table",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 69453,
+          "crop": [
+            0,
+            320,
+            304,
+            576
+          ],
+          "id": "item_palette",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 2387,
+          "crop": [
+            0,
+            316,
+            304,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 71618,
+          "crop": [
+            720,
+            316,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 192934,
+      "changed_owned_ratio": 0.962961,
+      "native_master_compliant": false,
+      "owned_background_pixels": 200355,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.016205,
+      "runtime_tiles": [],
+      "source": "room_craft_room.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae"
+    },
+    "kitchen": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_kitchen_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "181d40b659b6ef6c058c4e7369d5be306a43fc5d2ce88a3a8f63a2a31a5d5290",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 55802,
+          "crop": [
+            0,
+            114,
+            285,
+            364
+          ],
+          "id": "item_sink",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 49019,
+          "crop": [
+            294,
+            143,
+            567,
+            361
+          ],
+          "id": "item_soup_pot",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 13241,
+          "crop": [
+            780,
+            165,
+            932,
+            295
+          ],
+          "id": "item_teapot",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 53229,
+          "crop": [
+            0,
+            354,
+            286,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 81230,
+          "crop": [
+            650,
+            324,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 242496,
+      "changed_owned_ratio": 0.9603,
+      "native_master_compliant": false,
+      "owned_background_pixels": 252521,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000203,
+      "runtime_tiles": [],
+      "source": "room_kitchen.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "ea92418db28e8aa5a769cf085e8a843d51d3ae5e92be37c4d51447a1812d6738"
+    },
+    "library": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_library_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "be09640b135a4d3d08a5f4213ac0bfebbfab0b305816ea6aa41c8106cf5013a7",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 13156,
+          "crop": [
+            445,
+            145,
+            582,
+            314
+          ],
+          "id": "item_magic_book",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 19197,
+          "crop": [
+            392,
+            315,
+            634,
+            437
+          ],
+          "id": "item_pearl_table",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 13466,
+          "crop": [
+            0,
+            225,
+            124,
+            371
+          ],
+          "id": "item_pearl_lamp",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 71067,
+          "crop": [
+            0,
+            273,
+            300,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 76972,
+          "crop": [
+            724,
+            273,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 186716,
+      "changed_owned_ratio": 0.963159,
+      "native_master_compliant": false,
+      "owned_background_pixels": 193858,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.017549,
+      "runtime_tiles": [],
+      "source": "room_library.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d"
+    },
+    "main_hall": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_main_hall_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "71e12ffa80bcf2acb2ece316a699eeb9397570a4eceaeac311ff993480fa0c32",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 28338,
+          "crop": [
+            430,
+            150,
+            594,
+            354
+          ],
+          "id": "item_throne",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 19856,
+          "crop": [
+            122,
+            379,
+            268,
+            546
+          ],
+          "id": "item_fountain_left",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 19856,
+          "crop": [
+            756,
+            379,
+            902,
+            546
+          ],
+          "id": "item_fountain_right",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 74772,
+          "crop": [
+            0,
+            0,
+            274,
+            558
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 74314,
+          "crop": [
+            750,
+            0,
+            1024,
+            558
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 209469,
+      "changed_owned_ratio": 0.96469,
+      "native_master_compliant": false,
+      "owned_background_pixels": 217136,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.055372,
+      "runtime_tiles": [],
+      "source": "room_main_hall.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "7b284cd4530faf38ee8b06e3613f5c81dddf40fc73a64aaf943496c98acfe1a0"
+    },
+    "mermaid_pool": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_mermaid_pool_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "a38d6ab23987c1c7a2445daf0aae5411102ac8284db66182702e32f713b6b185",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 32094,
+          "crop": [
+            285,
+            45,
+            466,
+            278
+          ],
+          "id": "item_waterfall",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 7797,
+          "crop": [
+            371,
+            218,
+            512,
+            329
+          ],
+          "id": "item_flower_float",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 12260,
+          "crop": [
+            553,
+            183,
+            711,
+            325
+          ],
+          "id": "item_bubble_fountain",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 33158,
+          "crop": [
+            0,
+            378,
+            205,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 33003,
+          "crop": [
+            819,
+            378,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 126079,
+          "crop": [
+            0,
+            212,
+            1024,
+            382
+          ],
+          "id": "mid_pool",
+          "role": "midground"
+        }
+      ],
+      "changed_owned_pixels": 234881,
+      "changed_owned_ratio": 0.961087,
+      "native_master_compliant": false,
+      "owned_background_pixels": 244391,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.138531,
+      "runtime_tiles": [],
+      "source": "room_mermaid_pool.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "4ed0f6ce0fb79c35cb55f9c18c56518252df1a8e478de1ef8c06d3cf4a9e0e0d"
+    },
+    "opera_hall": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_opera_hall_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "dd5571c16074da732ddc270341b1e54e0c74182a9f3d2c85b6f41dd9ad426d56",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 30071,
+          "crop": [
+            414,
+            100,
+            610,
+            309
+          ],
+          "id": "item_curtains",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 15228,
+          "crop": [
+            418,
+            0,
+            608,
+            126
+          ],
+          "id": "item_chandelier",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 3491,
+          "crop": [
+            463,
+            286,
+            559,
+            361
+          ],
+          "id": "item_stage_star",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 68248,
+          "crop": [
+            0,
+            252,
+            274,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 67922,
+          "crop": [
+            750,
+            252,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 177771,
+      "changed_owned_ratio": 0.961132,
+      "native_master_compliant": false,
+      "owned_background_pixels": 184960,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.008113,
+      "runtime_tiles": [],
+      "source": "room_opera_hall.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf"
+    },
+    "playroom": {
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_playroom_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "1a87b6a39fb9de173636ee9c117c1f162bf028f01b800b97ae60675b94b26966",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_pixels": 42302,
+          "crop": [
+            380,
+            140,
+            646,
+            330
+          ],
+          "id": "item_stuffie_nook",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 14534,
+          "crop": [
+            218,
+            284,
+            350,
+            441
+          ],
+          "id": "item_stacking_toy",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 10157,
+          "crop": [
+            626,
+            320,
+            751,
+            420
+          ],
+          "id": "item_blocks",
+          "role": "item"
+        },
+        {
+          "alpha_pixels": 57885,
+          "crop": [
+            0,
+            319,
+            247,
+            576
+          ],
+          "id": "front_left",
+          "role": "foreground"
+        },
+        {
+          "alpha_pixels": 58415,
+          "crop": [
+            777,
+            319,
+            1024,
+            576
+          ],
+          "id": "front_right",
+          "role": "foreground"
+        }
+      ],
+      "changed_owned_pixels": 175620,
+      "changed_owned_ratio": 0.958138,
+      "native_master_compliant": false,
+      "owned_background_pixels": 183293,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.005257,
+      "runtime_tiles": [],
+      "source": "room_playroom.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f"
+    }
+  },
+  "runtime_node_contract": {
+    "camera": "Camera3D:perspective",
+    "native_master_runtime_note": "Background and any over-1024 layer counts expand only by the minimum lossless non-overlapping tile count.",
+    "reference_steady_sprite3d_inventory": {
+      "background": 1,
+      "contact_shadow": 1,
+      "foreground_max": 2,
+      "midground_max": 1,
+      "player": 1,
+      "touch_props": 3
+    },
+    "ui_only_allowed": [
+      "CanvasLayer",
+      "Control",
+      "Button",
+      "Panel",
+      "Label"
+    ],
+    "world_art_allowed": [
+      "Sprite3D:unshaded"
+    ],
+    "world_art_forbidden": [
+      "Sprite2D",
+      "AnimatedSprite2D",
+      "TextureRect",
+      "Polygon2D",
+      "CanvasItem custom drawing",
+      "MeshInstance3D",
+      "MultiMeshInstance3D",
+      "CSGShape3D",
+      "Decal"
+    ],
+    "world_root": "Node3D"
+  },
+  "schema": 1,
+  "source_policy": "Existing room composite pixels only; no generated or external art"
+}

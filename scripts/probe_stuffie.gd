@@ -50,18 +50,26 @@ func _locked_case() -> void:
 
 func _picker_case() -> void:
 	var comp: CompanionSystem = main._companion_ref()
-	# owner 2026-07-19: meeting Princess Huluu IS the trigger — her greeting
-	# leads straight into "I want you to have a new friend!" and the picker.
-	# Drive the satellite directly with hall state (no awaits, so the live
-	# main loop never sees the borrowed game/g values).
-	main.game = "level2"
-	main.g = {"phase": "hall", "huluu_greeted": true}
-	comp._tick_gift(3.0)
-	_ck("meeting Huluu offers the new friend", main.companion_layer != null
-		and bool(main.g.get("companion_offered", false)))
+	# The picture-first castle keeps the stuffie picker in its Playroom action;
+	# no modeled throne gift or shelf room is constructed.
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _settle(8)
+	main._enter_castle_interior_now(false)
+	await _settle(8)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	rooms.show_room("playroom", false)
+	rooms.activate_current_room()
+	await process_frame
+	_ck("Playroom opens the new-friend picker",
+		main.companion_layer != null
+		and main.castle_room_id == "playroom"
+		and main.game_nodes.is_empty())
 	comp.close_picker()
-	main.game = ""
-	main.g = {}
+	rooms._exit_to_courtyard()
+	await _settle(6)
+	main._exit_level2_now()
+	await _settle(4)
 	comp.open_picker()
 	await process_frame
 	_ck("picker overlay builds", main.companion_layer != null and main.companion_stage != null)

@@ -146,7 +146,7 @@ func _ui_tap() -> void:
 func _hook_button_taps(n: Node) -> void:
 	# every Button anywhere in the game gets the soft bubble tap — one global
 	# hook on node_added instead of wiring hundreds of creation sites
-	if n is Button:
+	if n is Button and not bool(n.get_meta("uses_own_sfx", false)):
 		(n as Button).pressed.connect(m._ui_tap)
 
 

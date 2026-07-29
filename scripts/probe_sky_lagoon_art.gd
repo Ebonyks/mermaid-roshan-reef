@@ -312,10 +312,8 @@ func _init() -> void:
 		cave_entrance + Vector3(-6, 2, 0), 56.0)
 	await _shot("lagoon_33_alpine_pines", o + Vector3(-34, 18, -213),
 		o + Vector3(-68, 7, -188), 58.0)
-	var opera_gate: Dictionary = main.g.get("opera_gate", {})
-	var opera_node: Node3D = opera_gate.get("node") as Node3D
-	await _shot_node_local("lagoon_34_opera_courtyard_gate", opera_node,
-		Vector3(0, 8, 22), Vector3(0, 6, 0), 56.0)
+	print("LAGOONSHOT|lagoon_34_retired_opera_gate|",
+		"OK" if not main.g.has("opera_gate") else "FAIL")
 	await _shot_role("lagoon_35_story_lantern", "lagoon_story_lantern",
 		Vector3(8, 5, 10), Vector3(0, 2.5, 0), 49.0, 1)
 	# Every Seattle-area species receives its own fixed daylight review and must
