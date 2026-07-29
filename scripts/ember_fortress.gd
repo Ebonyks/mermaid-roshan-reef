@@ -800,7 +800,7 @@ func _build_avatar() -> void:
 	# cutout, or the fairy skin — whatever Roshan is wearing travels here too
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	var glb := "res://assets/characters/roshan.glb"
+	var glb := ""   # legacy roshan.glb fallback deleted in the 2026-07-28 purge
 	var cutout: Sprite3D = null
 	for vpath in ["res://assets/characters/roshan_v4.glb",
 			"res://assets/characters/roshan_v3.glb"]:

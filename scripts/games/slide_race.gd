@@ -566,8 +566,11 @@ func build_slide(fr: Dictionary, origin: Vector3) -> void:
 		else:
 			m.show_msg(fr["fname"], "Race the baby penguin! Careful — he's SO speedy!")
 			# non-reader breadcrumb to the beans: Roshan thinks out loud
+			# SceneTree timers outlive this game AND main itself (probes rebuild
+			# the scene) — the lambda must re-check m before touching it
 			m.get_tree().create_timer(3.6).timeout.connect(func():
-				if m.game == "slide" and String(m.g.get("mode", "")) == "chase" and m.beans_t < 0.0:
+				if is_instance_valid(m) and m.game == "slide" \
+						and String(m.g.get("mode", "")) == "chase" and m.beans_t < 0.0:
 					m.show_msg("Roshan", "I sure am hungry... I bet I'd be faster after a good MEAL!", "hungry"))
 	else:
 		m.show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")

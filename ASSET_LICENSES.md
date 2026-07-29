@@ -547,3 +547,5 @@ ambientCG (all CC0).
   46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
   and Lanczos-downsampled from the accepted generated source for use as three
   staggered unshaded Sprite3D cards at the mountain cabin chimney.
+
+<!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->

@@ -269,7 +269,8 @@ func _ready() -> void:
 	# THE 3D Roshan. v3 (2026-07-11) is the multi-view Meshy rebuild from the
 	# three-view reference set in "Downloads/Mermaid roshan art base": head
 	# faces her swim direction (the v2/card models baked the illustration's
-	# over-the-shoulder head twist). roshan_v2/roshan.glb stay as fallbacks.
+	# over-the-shoulder head twist). The v2/roshan.glb fallbacks were deleted
+	# in the 2026-07-28 asset purge — v4 with v3 as the only fallback.
 	var glb: PackedScene = null
 	# v4 (2026-07-11): regenerated from arms-apart refs — BOTH arms rigged
 	# (v3's front ref had clasped hands, so its left arm was fused/unrigged)
@@ -280,11 +281,6 @@ func _ready() -> void:
 			model_v3 = glb != null
 			if glb != null:
 				break
-	if glb == null:
-		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
-		model_v2 = glb != null
-	if glb == null:
-		glb = load("res://assets/characters/roshan.glb") as PackedScene
 	if glb != null:
 		var inst: Node3D = glb.instantiate()
 		if model_v3:
