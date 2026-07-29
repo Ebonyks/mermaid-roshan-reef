@@ -67,6 +67,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 		else:
 			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
 	he.targets = enemies if kind == "ice" else [boss]
+	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	_update_hud()
 
 func _build_environment() -> void:
@@ -528,6 +529,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -541,6 +543,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

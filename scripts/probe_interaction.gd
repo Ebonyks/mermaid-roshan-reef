@@ -101,10 +101,14 @@ func _init() -> void:
 	for target_value in promenade_targets:
 		var promenade_target: Dictionary = target_value as Dictionary
 		promenade_ids[String(promenade_target.get("id", ""))] = true
-	for expected: String in ["plane", "runway_frame", "slide", "swing",
-			"seesaw", "playground_frame", "castle_frame", "castle_gate"]:
+	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
+	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
+		if promenade_ids.has(removed_frame):
+			_bad("removed lawn picture still interactive: %s" % removed_frame)
+	if promenade_targets.size() < 4 or promenade_targets.size() > 5:
+		_bad("promenade roster must be four permanent toys/landmarks plus optional Day One plane")
 
 	# Fix regression: with the castle OPEN the door slab is parked ~30 units up
 	# in the sky. court:castle must anchor at the doorway at walk height, and a

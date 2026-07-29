@@ -18,6 +18,13 @@ const SCREEN_HIT_RADIUS := 110.0
 const AIM_HEIGHT := 2.2
 
 var m: ReefMain
+# ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
+# front of every other tappable thing on stage — a tap that lands on an
+# enemy overlapping a prop/friend/interactable hits the enemy, full stop.
+# Engines listed in main.hit_engines get first refusal on every world tap,
+# before InteractionDirector picks anything. Level design opts a specific
+# encounter out by setting tap_priority = false.
+var tap_priority := true
 var targets: Array = []            # the encounter's enemy dicts (shared reference)
 var fx_root: Node3D = null         # parent for transient death-FX nodes
 var camera: Camera3D = null        # picking lens (the encounter's own camera)

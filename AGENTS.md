@@ -101,6 +101,21 @@ installs it in place (save data kept).
 - No new OmniLights beyond current counts without a Speedy-tier cull path.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.
+- Multi-screen background resolution is measured PER PLAYABLE SCREEN, not
+  across the whole panorama. Every screen must have at least 2048×2048 native
+  background coverage before runtime slicing. A horizontal three-screen 3×1
+  stage therefore requires a native master of at least 6144×2048 and is
+  reconstructed as a 6×2 grid of non-overlapping 1024×1024 Sprite3D cards.
+  A 2048-wide (or similarly sized) three-screen panorama is reference-only
+  and is not runtime-ready, even though its panorama long edge exceeds 2K.
+  Preserve the approved panorama ratio and continuous composition.
+- Do not independently regenerate an object across background-tile
+  boundaries. If a tree, building, cloud, mountain feature, or other readable
+  object sits ambiguously between two generated panels, remove it from the
+  background, preserve/extract that same approved artwork as an unshaded
+  Sprite3D depth card, and heal the background behind it. Reinsert it once at
+  real scene depth. Do not add a second unrelated sticker over a painted copy.
+  Background tiles must join seam-free before the separated cards are added.
 - Every new asset gets a line in ASSET_LICENSES.md (source, license, URL,
   modifications) in the same commit that adds it.
 - No fail states, no reading-dependent objectives: any new objective must

@@ -136,7 +136,7 @@ func _playthrough(run_index: int) -> void:
 	match run_index % 4:
 		0:
 			_check_registry(main, _reef_required(main), issues)
-			var reef_actions: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl"]
+			var reef_actions: Array[String] = ["reef:slide", "reef:brawl"]
 			main._activate_touch_interactable(reef_actions[run_index % reef_actions.size()])
 			await _frames(4)
 			if main.game == "":
@@ -149,23 +149,31 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
 			var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
-			if String(main.g.get("phase", "")) != "promenade" \
-					or promenade_targets.size() != 8:
+			var promenade_ids: Dictionary = {}
+			for target_value in promenade_targets:
+				var promenade_target: Dictionary = target_value as Dictionary
+				promenade_ids[String(promenade_target.get("id", ""))] = true
+			var roster_ok: bool = promenade_targets.size() >= 4 \
+				and promenade_targets.size() <= 5
+			for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+				roster_ok = roster_ok and promenade_ids.has(required_id)
+			if String(main.g.get("phase", "")) != "promenade" or not roster_ok:
 				issues.append("three-screen promenade interaction roster missing")
 			else:
-				var plane_target: Dictionary = {}
+				var focus_target: Dictionary = {}
+				var focus_id: String = "plane" if promenade_ids.has("plane") else "swing"
 				for target_value in promenade_targets:
 					var promenade_target: Dictionary = target_value as Dictionary
-					if String(promenade_target.get("id", "")) == "plane":
-						plane_target = promenade_target
+					if String(promenade_target.get("id", "")) == focus_id:
+						focus_target = promenade_target
 						break
-				main._lagoon_promenade_ref()._focus(plane_target)
-				if String(main.g.get("lagoon_promenade_focus", "")) != "plane":
+				main._lagoon_promenade_ref()._focus(focus_target)
+				if String(main.g.get("lagoon_promenade_focus", "")) != focus_id:
 					issues.append("promenade first press did not focus")
-				main._lagoon_promenade_ref()._activate(plane_target)
+				main._lagoon_promenade_ref()._activate(focus_target)
 				await _frames(4)
 				if main.game != "level2":
-					issues.append("plane interaction left the promenade")
+					issues.append("%s interaction left the promenade" % focus_id)
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -223,7 +231,7 @@ func _touch_tap(touch: CanvasLayer, index: int, pos: Vector2) -> void:
 	touch._unhandled_input(up)
 
 func _reef_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl", "reef:kart"]
+	var required: Array[String] = ["reef:slide", "reef:brawl", "reef:kart"]
 	for friend_index in range(main.friends.size()):
 		required.append("friend:%d" % friend_index)
 	if main.portal_node != null and is_instance_valid(main.portal_node):

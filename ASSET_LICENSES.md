@@ -500,3 +500,52 @@ ambientCG (all CC0).
 - `assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png` — project-original
   lossless-alpha crop of one cloud from the approved
   `sky_lagoon_cloud_family_v7_hd_grade.png`; no redesign.
+
+## Sky Lagoon reductive 6x2 clean-plate rebuild (Codex, 2026-07-28)
+- `assets_src/sky_lagoon/reductive_rebuild_2026-07-28/**` — project-original
+  OpenAI built-in image-generation edit sources, overscan references, prompt
+  ledger, and deterministic assembly inputs derived from the approved Sky
+  Lagoon panorama. `stained_glass_owner_reference.png` is owner-supplied
+  project art copied without modification from the file named in the task.
+  License: project-owned / owner-supplied; external references: none.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png` —
+  project-original 6144x2048 exact-3:1 clean plate assembled from twelve
+  native detail edits with 115px generated overscan. The layout, route,
+  mountain, off-road cabins, shoreline, and playground clearing derive from
+  the approved panorama; only baked-in castle and selected foreground trees
+  were removed for separate Sprite3D depth cards.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r{0..1}_c{0..5}.png`
+  — twelve lossless, non-overlapping 1024x1024 runtime crops of the v5 master.
+  Four cards reconstruct each native 2048x2048 playable screen.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png` —
+  project-original OpenAI built-in extraction of the approved 2D storybook
+  castle and drawbridge. The window contents are the exact owner-supplied
+  stained-glass reference, deterministically fitted inside the existing gold
+  frame with no pixel changes elsewhere on the castle card.
+
+## Sky Lagoon playground fit revision (Codex, 2026-07-29)
+- `assets_src/sky_lagoon/playground_revision_2026-07-29/**` — project-original
+  OpenAI built-in image-generation sources and prompt ledger derived only from
+  project-owned Sky Lagoon and Mermaid Roshan references. License:
+  project-generated art; external references: none.
+- `assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png` —
+  project-original single-seat mermaid swing generated with Codex built-in
+  image generation; chroma removed locally and downsampled once from the
+  preserved 1338×1176 alpha master to a 655×576 mobile runtime Sprite3D card.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`
+  and `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c{0,1}.png`
+  — the approved 6144×2048 panorama and two affected lossless runtime tiles,
+  rebuilt with a project-original localized Codex image edit that removes the
+  oversized conifer stamp at the screen-one/screen-two bush transition.
+
+## Sky Lagoon living-card fireplace smoke (Codex, 2026-07-29)
+- `assets_src/sky_lagoon/living_card_v2_2026-07-29/**` — project-original
+  OpenAI built-in image-generation sources, rejected visual trials, accepted
+  alpha master, exact prompts, dimensions, hashes, and attempt ledger. No
+  external references. License: project original.
+- `assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` — project-original
+  46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
+  and Lanczos-downsampled from the accepted generated source for use as three
+  staggered unshaded Sprite3D cards at the mountain cabin chimney.
+
+<!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->

@@ -90,24 +90,6 @@ func _init() -> void:
 			" cutaway=", cutaway_ok, " wall_s=%.1f" % secs)
 		main._clear_game()
 		await _frames(5)
-	# --- treasure cavern ---
-	main.treasure_cool = 0.0
-	player.position = main.wreck_pos + Vector3(0, 4, 2)
-	player.vel = Vector3.ZERO
-	if main.touch_uses_explicit_interactions():
-		main._activate_touch_interactable("reef:treasure")
-	var waited := 0
-	while main.game == "" and waited < 900:
-		waited += 1
-		player.position = main.wreck_pos + Vector3(0, 4, 2)
-		player.vel = Vector3.ZERO
-		await process_frame
-	if main.game == "treasure":
-		var p0: int = main.pearl_count
-		var ok3 := await _drive_game("treasure", main.treasure_fr)
-		print("AUDIT|Secret Cave [treasure]: ", ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
-	else:
-		print("AUDIT|Secret Cave [treasure]: DID NOT START")
 	# --- toy castle brawler (two heroes: Roshan + AI Huluu) ---
 	main.brawl_cool = 0.0
 	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
@@ -229,9 +211,18 @@ func _init() -> void:
 			await process_frame
 		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
 		var targets: Array = main.g.get("lagoon_promenade_targets", [])
+		var target_ids: Dictionary = {}
+		for target_value in targets:
+			var target: Dictionary = target_value as Dictionary
+			target_ids[String(target.get("id", ""))] = true
+		var core_roster_ok: bool = true
+		for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+			core_roster_ok = core_roster_ok and target_ids.has(required_id)
 		var promenade_ok: bool = (
 			String(main.g.get("phase", "")) == "promenade"
-			and targets.size() == 8
+			and targets.size() >= 4
+			and targets.size() <= 5
+			and core_roster_ok
 			and is_equal_approx(float((main.g.get("ss_cfg", {}) as Dictionary).get("half_w", 0.0)), 72.0))
 		print("AUDIT|Level 2 three-screen promenade: ",
 			("OK" if promenade_ok else "FAIL"), " targets=", targets.size())

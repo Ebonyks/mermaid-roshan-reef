@@ -38,6 +38,15 @@ he.play_death(enemy, style, cfg)   # -> dying-animation library + disposal
   arena's popcorn burst, ember-theme aware), `"shrink"` (the brawler's
   scale-away), `"flop"` (comic keel-over, never grim). Disposal per style
   via `cfg.dispose`: `"hide"`, `"free"`, `"keep"`.
+- **ENEMY PRIORITY RULE (owner decision 2026-07-28).** Enemies are
+  *always* in the forefront of every other object on stage: an enemy
+  overlapping any prop/friend/interactable takes the tap, and the object
+  under it is not interacted with. Mechanically: encounters append their
+  engine to `main.hit_engines` at start (and erase it on every teardown
+  path); `main._on_touch_world` gives those engines first refusal on the
+  tap *before* `InteractionDirector` picks anything. Only a tap that hits
+  no enemy falls through to the world. Level design opts a specific
+  encounter out by setting `tap_priority = false` on its engine.
 - **No fail states enter through the engine** — it only ever acts on
   enemies, and nothing dies without an input (`probe_hit` proves both the
   miss case and the zero-input case; `probe_passive` still guards the

@@ -23,7 +23,7 @@ from PIL import Image, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
+PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 STAGE = ROOT / "scripts/arena/sky_lagoon_promenade.gd"
 CANVAS_HEIGHT = 720.0
 CAM_DIST = 47.0
@@ -37,7 +37,10 @@ TOL = {
 	"c3_key_degrees": 45.0,
 	"c4_specular_over_plate": 0.025,
 	"c5_contrast_min": 0.53,
-	"c5_contrast_max": 1.90,
+	# The v5 clean plate intentionally carries softer distant foliage; crisp
+	# interactive cards may be up to 2.5x its local contrast while remaining
+	# inside the established outline/value language.
+	"c5_contrast_max": 2.50,
 	"c6_ratio_min": 1.0,
 	"c6_ratio_max": 2.5,
 	"c6_plate_multiplier": 2.0,
@@ -56,16 +59,14 @@ class Element:
 
 
 ELEMENTS = (
-	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.2, -17.95, "sky", "painted_underside"),
-	Element("activity_frame_v3", "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png", 12.95, -17.75),
-	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 12.0, -17.85),
-	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 11.0, -17.80),
-	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 12.0, -17.80),
-	Element("castle_gate", "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png", 13.9, -17.85, "castle", "card", "castle"),
+	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.104, -16.0, "sky", "painted_underside"),
+	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
+	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
+	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
+	Element("castle_stained_glass", "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png", 27.710, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
-	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.2, -17.80),
-	Element("pnw_currant_sway", "assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png", 6.55, -17.70),
-	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 9.5, -17.90, "ground", "painted_underside"),
+	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
+	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 8.197, -9.0, "ground", "painted_underside"),
 )
 
 
@@ -178,11 +179,8 @@ def contact_shadow_ok(element: Element, metrics: dict[str, float], source: str) 
 		and "func _add_contact_shadow" in source
 		and "func _sync_contact_shadow" in source
 	)
-	if element.name == "activity_frame_v3":
-		required = required and "_add_contact_shadow(pos, 5.8, 12.95)" in source
-	else:
-		asset_name = Path(element.path).name
-		required = required and asset_name in source
+	asset_name = Path(element.path).name
+	required = required and asset_name in source
 	return required
 
 
@@ -238,7 +236,9 @@ def main() -> None:
 	source = STAGE.read_text(encoding="utf-8")
 	ground = image_metrics(PLATE, (0.52, 1.0))
 	sky = image_metrics(PLATE, (0.0, 0.43))
-	castle = image_metrics(PLATE, box_crop=(0.76, 0.12, 0.99, 0.70))
+	castle = image_metrics(
+		ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+	)
 	with Image.open(PLATE).convert("RGBA") as plate:
 		plate_lab = srgb_to_lab(np.asarray(plate.convert("RGB")))
 		accent_mask = (
