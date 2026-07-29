@@ -26,7 +26,6 @@ const ALPINE_HABITAT_SCENES := [
 	preload("res://assets/props/alpine/alpine_beetle_terrarium.glb"),
 	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
 ]
-const OPERA_GATE_SPOT := Vector2(-26.0, -30.0)   # local: flat plaza, off the path, clear of moat + Dream Star 3
 const OCEAN_KINGDOM_GATE_DEFS := [
 	{"kingdom": ReefDistricts.KINGDOM_CARIBBEAN, "local": Vector2(-48.0, 178.0),
 		"scene": "res://assets/reef_regions/moon_shell_arch.glb", "target": 18.0,
@@ -1101,17 +1100,6 @@ func _build_pearl_castle(o: Vector3) -> void:
 	# seats join g["toys"] and play through the same play-moment system
 	m._train_ref()._build_train(o)
 	_build_fairy_pond(o)
-	# ---------- the Pearl Opera House courtyard door ----------
-	# Owner 2026-07-19: the opera gets an entrance out in the Sky Lagoon too.
-	# Same marquee and the same g["opera_gate"] contract as the music-room door
-	# (castle_hall.build_opera_gate); the court and the hall are never built at
-	# the same time, so the key always points at whichever door exists. It sits
-	# on the flat courtyard plaza beside the bridge spawn, facing the path.
-	var opera_gx: float = o.x + OPERA_GATE_SPOT.x
-	var opera_gz: float = o.z + OPERA_GATE_SPOT.y
-	m._hall_ref().build_opera_gate(Vector3(opera_gx, m.lagoon_h(opera_gx, opera_gz) + 0.9, opera_gz))
-
-
 func _build_christmas_village(o: Vector3) -> void:
 	# A self-contained Alpine corner beyond the rear-left train corridor. The
 	# conforming snowfield, clustered chalets, pines and mountain read as one
@@ -2471,7 +2459,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		m._tick_cutscene(delta)
 		return
 	if String(m.g.get("phase", "court")) == "hall":
-		m._tick_castle_hall(delta, ppos)
+		m._tick_castle_rooms(delta)
 		return
 	var explicit_touch: bool = m.touch_uses_explicit_interactions()
 	if _tick_ocean_kingdom_gates(ppos):
@@ -2505,25 +2493,6 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 		if (not bool(m.g.get("northern_portal_hint", false)) and north_dist < 28.0):
 			m.g["northern_portal_hint"] = true
 			m.show_msg("Roshan", "A magic star! A new world is through there!", "pearl2")
-	# the Pearl Opera House marquee on the courtyard plaza — the same
-	# leave-and-return hysteresis as the music-room door (castle_hall.tick owns
-	# the hall copy); the safe return from _end_opera places Roshan aside
-	if m.g.has("opera_gate"):
-		var og: Dictionary = m.g["opera_gate"]
-		og["cool"] = maxf(0.0, float(og["cool"]) - delta)
-		var og_pos: Vector3 = og["pos"]
-		var og_dist: float = og_pos.distance_to(ppos)
-		if not bool(m.g.get("opera_gate_hint", false)) and og_dist < 30.0:
-			m.g["opera_gate_hint"] = true
-			m.show_msg("Roshan", "Ooh, a little stage door! The Pearl Opera House is putting on a show!", "pearl")
-		if og_dist > 7.5:
-			og["armed"] = true
-		elif not explicit_touch and og_dist < 4.5 and bool(og["armed"]) and float(og["cool"]) <= 0.0:
-			og["armed"] = false
-			og["cool"] = 5.0
-			if m.opera_game == null:
-				m.call_deferred("_start_opera")
-				return
 	# night magic: shooting stars streak over the lagoon after bedtime
 	if m.is_night:
 		m.night_star_t -= delta
@@ -2924,8 +2893,6 @@ func _lagoon_ground_object_allowed(role: String, lx: float, lz: float) -> bool:
 	if Vector2(lx + 30.0, lz - 140.0).length() < 9.0 + clearance:
 		return false
 	# the courtyard opera marquee keeps its doorway and approach clear
-	if Vector2(lx - OPERA_GATE_SPOT.x, lz - OPERA_GATE_SPOT.y).length() < 9.0 + clearance:
-		return false
 	for gate_x: float in [-26.0, -15.0, 15.0, 26.0]:
 		if Vector2(lx - gate_x, lz - 164.0).length() < 7.0 + clearance:
 			return false
