@@ -65,6 +65,7 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
@@ -127,6 +128,7 @@ func _init() -> void:
 	var contact_shadow_count := 0
 	var tree_cards: Array[Sprite3D] = []
 	var cloud_card: Sprite3D = null
+	var smoke_cards: Array[Sprite3D] = []
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
@@ -150,6 +152,8 @@ func _init() -> void:
 					tree_cards.append(stage_sprite)
 				elif ambient_kind == "cloud":
 					cloud_card = stage_sprite
+				elif ambient_kind == "smoke":
+					smoke_cards.append(stage_sprite)
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -157,13 +161,13 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 30 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 34 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 6 and visible_sprite_count <= 25
-		and contact_shadow_count == 5
+		depth_layers.size() >= 6 and visible_sprite_count <= 29
+		and contact_shadow_count == 6
 		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
 		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
@@ -301,13 +305,15 @@ func _init() -> void:
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
 	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
 	var ambient_before := Vector3.ZERO
-	if ambient_cards.size() == 2:
+	if ambient_cards.size() == 5:
 		ambient_before = (ambient_cards[0] as Sprite3D).position
 	promenade._tick_ambient_life(0.75)
 	var ambient_moves := (
-		ambient_cards.size() == 2
+		ambient_cards.size() == 5
 		and (ambient_cards[0] as Sprite3D).position != ambient_before)
-	_check("low_cost_ambient_life", ambient_moves)
+	_check("low_cost_ambient_life",
+		ambient_moves and smoke_cards.size() == 3,
+		"cards=%d smoke_wisps=%d" % [ambient_cards.size(), smoke_cards.size()])
 	var shore_firs_ok := true
 	for ambient_value in ambient_cards:
 		var ambient_card: Sprite3D = ambient_value as Sprite3D

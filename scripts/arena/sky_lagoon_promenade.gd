@@ -11,6 +11,7 @@ const BACKDROP_COLUMNS := 6
 const BACKDROP_ROWS := 2
 const BACKDROP_Z := -18.0
 const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
+const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
 # THE PAINTING IS THE SCREEN. The 6x2 lossless Sprite3D grid reconstructs one
 # native 6144x2048, 144x48-world-unit mural. Each 1024px square is a separate
 # unshaded depth card, retaining the higher detail generated per square.
@@ -46,6 +47,19 @@ const PLAY_Z := -6.0         # playground standees
 const NEAR_Z := -1.5         # near PNW foliage, inside the walk-depth band
 const CLOUD_DRIFT_MIN_X := -10.0
 const CLOUD_DRIFT_MAX_X := 10.0
+const WIND_DIRECTION := 1.0
+const WIND_GUST_PERIOD_S := 24.0
+const WIND_GUST_RISE_AT_S := 16.0
+const WIND_GUST_PEAK_AT_S := 18.0
+const WIND_GUST_FALL_AT_S := 21.0
+# Native mural coordinate (4750, 520) mapped into its 144x48 world card, then
+# perspective-compensated from BACKDROP_Z to LANDMARK_Z so its rendered base
+# lands on the upper mountain cabin's painted chimney.
+const SMOKE_ANCHOR := Vector3(39.328, 20.040, LANDMARK_Z)
+const SMOKE_CARD_HEIGHT := 3.7
+const SMOKE_LIFETIME_S := 6.0
+const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
+const NIGHT_BACKDROP_TINT := Color(0.48, 0.56, 0.82, 1.0)
 const PLANE_DEPARTURE_S := 7.0
 const SLIDE_H := 11.4
 const SWING_H := 11.8
@@ -312,6 +326,8 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
+	m.g["lagoon_wind_gust"] = 1.0
+	m.g["lagoon_wind_distance"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
 	# This approved PNW cutout restores depth where its baked-in counterpart
 	# was removed. The former near tree at x=-27 was deliberately retired:
@@ -319,31 +335,75 @@ func _build_ambient_life() -> void:
 	# screen-two boundary instead of as part of the continuous landscape.
 	_add_ambient_card("tree",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		Vector3(26.0, 6.912, DRESS_Z), 8.197, 0.0, 0.42, 0.010, false)
+		Vector3(26.0, 6.912, DRESS_Z), 8.197, 0.42, 0.010,
+		"foliage_far", "quiet", true)
 	# One cloud in one clear corridor: enough motion to keep the sky alive,
 	# without the overdraw from several translucent cards crossing each other.
 	_add_ambient_card("cloud",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-		Vector3(CLOUD_DRIFT_MIN_X, 28.414, CLOUD_Z), 3.104, 1.1, 0.45, 0.0, false)
+		Vector3(CLOUD_DRIFT_MIN_X, 28.414, CLOUD_Z), 3.104, 0.45, 0.0,
+		"cloud", "quiet", false)
+	# One fireplace column against the upper mountain cabin's actual painted
+	# chimney. The owner rejected round puffs: these are thin, airy wisps.
+	# Three staggered cards read as one quiet loop and stay out of the walk band.
+	for index: int in range(3):
+		_add_ambient_card("smoke", SMOKE_WISP_TEX, SMOKE_ANCHOR, SMOKE_CARD_HEIGHT,
+			0.0, 0.0, "smoke", "quiet", false, index)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
-		phase: float, speed: float, amplitude: float,
-		contact_shadow: bool = true) -> void:
+		speed: float, amplitude: float, motion_class: String,
+		intensity_class: String, contact_shadow: bool = true,
+		cycle_index: int = 0) -> void:
 	var card := _add_sprite(path, pos, height, contact_shadow)
-	card.name = "SkyLagoonAmbient_%s" % kind
+	card.name = "SkyLagoonAmbient_%s_%02d" % [kind, cycle_index]
 	card.set_meta("ambient_kind", kind)
 	card.set_meta("ambient_base", pos)
-	card.set_meta("ambient_phase", phase)
+	card.set_meta("ambient_phase", _phase_token(pos))
 	card.set_meta("ambient_speed", speed)
 	card.set_meta("ambient_amplitude", amplitude)
+	card.set_meta("living_card", true)
+	card.set_meta("motion_class", motion_class)
+	card.set_meta("intensity_class", intensity_class)
+	card.set_meta("source_aspect",
+		float(card.texture.get_width()) / maxf(1.0, float(card.texture.get_height())))
+	card.set_meta("content_height_fraction", 0.992188 if kind == "smoke" else 1.0)
+	card.set_meta("target_world_height", height)
+	card.set_meta("touch_footprint_px", 0.0)
+	card.set_meta("ambient_cycle_index", cycle_index)
+	if kind == "smoke":
+		card.flip_h = cycle_index % 2 == 1
+	card.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
 	var cards: Array = m.g.get("lagoon_ambient_cards", [])
 	cards.append(card)
 	m.g["lagoon_ambient_cards"] = cards
 
+func _phase_token(pos: Vector3) -> float:
+	return wrapf(pos.x * 0.73 + pos.z * 1.31, 0.0, TAU)
+
+func _wind_gust_at(ambient_t: float) -> float:
+	var cycle_t: float = fposmod(ambient_t, WIND_GUST_PERIOD_S)
+	if cycle_t < WIND_GUST_RISE_AT_S:
+		return 1.0
+	if cycle_t < WIND_GUST_PEAK_AT_S:
+		return lerpf(1.0, 1.5, smoothstep(
+			WIND_GUST_RISE_AT_S, WIND_GUST_PEAK_AT_S, cycle_t))
+	if cycle_t < WIND_GUST_FALL_AT_S:
+		return lerpf(1.5, 1.0, smoothstep(
+			WIND_GUST_PEAK_AT_S, WIND_GUST_FALL_AT_S, cycle_t))
+	return 1.0
+
 func _tick_ambient_life(delta: float) -> void:
 	var ambient_t: float = float(m.g.get("lagoon_ambient_t", 0.0)) + delta
 	m.g["lagoon_ambient_t"] = ambient_t
-	for value in (m.g.get("lagoon_ambient_cards", []) as Array):
+	var wind_gust: float = _wind_gust_at(ambient_t)
+	m.g["lagoon_wind_gust"] = wind_gust
+	var wind_distance: float = float(m.g.get("lagoon_wind_distance", 0.0)) \
+		+ delta * wind_gust
+	m.g["lagoon_wind_distance"] = wind_distance
+	if not m.g.has("lagoon_ambient_cards"):
+		return
+	var ambient_cards: Array = m.g["lagoon_ambient_cards"] as Array
+	for value in ambient_cards:
 		var card := value as Sprite3D
 		if card == null or not is_instance_valid(card):
 			continue
@@ -353,14 +413,33 @@ func _tick_ambient_life(delta: float) -> void:
 		var kind: String = String(card.get_meta("ambient_kind", "flower"))
 		if kind == "cloud":
 			card.position = Vector3(
-				wrapf(base.x + ambient_t * speed,
+				wrapf(base.x + wind_distance * speed,
 					CLOUD_DRIFT_MIN_X, CLOUD_DRIFT_MAX_X),
 				base.y + sin(ambient_t * 0.32 + phase) * 0.18,
 				base.z)
 			continue
+		if kind == "smoke":
+			var cycle_index: int = int(card.get_meta("ambient_cycle_index", 0))
+			var life: float = fposmod(
+				ambient_t + float(cycle_index) * SMOKE_LIFETIME_S / 3.0,
+				SMOKE_LIFETIME_S) / SMOKE_LIFETIME_S
+			var fade_in: float = smoothstep(0.0, 0.10, life)
+			var fade_out: float = 1.0 - smoothstep(0.60, 1.0, life)
+			var smoke_scale: float = lerpf(0.50, 0.90, life)
+			card.scale = Vector3.ONE * smoke_scale
+			var target_height: float = float(card.get_meta(
+				"target_world_height", SMOKE_CARD_HEIGHT))
+			card.position = base + Vector3(
+				WIND_DIRECTION * life * 0.35 * wind_gust,
+				target_height * smoke_scale * 0.5 + life * 3.0,
+				0.0)
+			var smoke_tint: Color = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
+			smoke_tint.a = fade_in * fade_out * 0.72
+			card.modulate = smoke_tint
+			continue
 		var wave: float = sin(ambient_t * speed + phase)
 		var amplitude: float = float(card.get_meta("ambient_amplitude", 0.02))
-		card.rotation.z = wave * amplitude
+		card.rotation.z = wave * amplitude * wind_gust
 		card.position = Vector3(
 			base.x + wave * 0.04,
 			base.y + absf(wave) * 0.025,
@@ -379,6 +458,14 @@ func _tick_ambient_life(delta: float) -> void:
 			plane_glow.rotation.z = plane.rotation.z
 		if ambient_t >= PLANE_DEPARTURE_S:
 			_finish_plane_arrival()
+
+func teardown() -> void:
+	# Mutable stage state belongs to ReefMain by project architecture, so the
+	# persistent promenade helper explicitly releases its transient keys.
+	m.g.erase("lagoon_ambient_cards")
+	m.g.erase("lagoon_ambient_t")
+	m.g.erase("lagoon_wind_gust")
+	m.g.erase("lagoon_wind_distance")
 
 func _finish_plane_arrival() -> void:
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
@@ -426,6 +513,7 @@ func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> v
 	backdrop.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	backdrop.modulate = NIGHT_BACKDROP_TINT if m.is_night else Color.WHITE
 	backdrop.position = Vector3(x, y, BACKDROP_Z)
 	root_node.add_child(backdrop)
 
@@ -441,6 +529,7 @@ func _add_sprite(path: String, pos: Vector3, height: float,
 	sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.shaded = false
 	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sprite.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
 	sprite.position = pos
 	root_node.add_child(sprite)
 	if contact_shadow:
