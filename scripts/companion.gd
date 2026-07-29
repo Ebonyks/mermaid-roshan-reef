@@ -18,11 +18,10 @@ extends RefCounted
 var m: ReefMain
 
 # Data-driven roster — THE core collection loop (owner 2026-07-20): battle a
-# boss stuffie, BEFRIEND it, take it HOME to the Stuffie Den, carry it on
+# boss stuffie, BEFRIEND it, take it HOME to the Stuffie Studio, carry it on
 # future missions. Fields:
-#   kind      → CREATURE_LAYERS/CRAFT_RIGGED key on main (paintable pipeline)
-#   model     → direct .glb body instead (photo-scanned toys land this way —
-#               Meshy photo→3D, same as the craft creatures were built)
+#   kind      → CREATURE_LAYERS key on main (paintable 2D layer pipeline)
+#   sprite    → direct 2D cutout for a non-paintable captured friend
 #   locked    → stuffie_wins key that frees it ("" / absent = starter friend);
 #               boss rounds set "friend_<id>" on victory (see _end_stuffie_battle)
 #   paintable → false hides the palette (a captured toy comes as it is)
@@ -36,7 +35,7 @@ const ROSTER := [
 		"hello": "Mewsha pads along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
 	{"id": "lamma", "name": "Lamb-a'", "kind": "lamb", "attack": "BOUNCE",
-		"model": "res://assets/characters/lamb.glb", "model_scale": 2.6,
+		"sprite": "res://assets/sprites/stuffie_studio/lamma.png",
 		"emoji": "🐑", "paintable": false, "locked": "friend_lamma",
 		"body": Color(1.0, 0.99, 0.95), "accent": Color(1.0, 0.80, 0.88), "third": Color(0.95, 0.92, 0.97),
 		"hello": "Lamb-a' bounces along beside you now! Baa baa!",
@@ -72,7 +71,7 @@ const WANT_GAP_MAX := 75.0
 const LEVEL_EVERY := 4            # care points per level-up celebration
 # THE GENTLE FAILURE (owner 2026-07-21): a big battle earns a hug + bubble
 # bath. If the stuffie came home with boo-boos and that care never arrives,
-# it eventually goes home to its Den shelf to rest — Roshan walks back to
+# it eventually goes home to its Studio shelf to rest — Roshan walks back to
 # the castle and picks a friend again (the same one included). Nothing else
 # is ever lost: care points, captures and colours all keep.
 const REST_PATIENCE := 120.0      # generous seconds of free-roam before an injured stuffie heads home
@@ -133,22 +132,56 @@ func colors() -> Array[Color]:
 func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:
 	if d.is_empty():
 		return null
-	# photo-scanned / direct-model toys skip the paint pipeline and load as-is
-	if d.has("model"):
-		var ps: PackedScene = load(String(d["model"]))
-		if ps == null:
-			return null
-		var wrap := Node3D.new()
-		var inst: Node3D = ps.instantiate() as Node3D
-		if inst == null:
-			return null
-		inst.scale = Vector3.ONE * float(d.get("model_scale", 2.6))
-		wrap.add_child(inst)
-		return wrap
-	return m._make_creature_node(String(d["kind"]), c[0], c[1], false, false, c[2])
+	return _stuffie_cutout(d, c, 3.8)
 
 func make_creature() -> Node3D:
 	return creature_for(active_def(), colors())
+
+func _stuffie_cutout(d: Dictionary, c: Array[Color], target_height: float) -> Node3D:
+	# Stuffies are deliberately flat storybook cutouts. This replaces the
+	# retired GLB path for the follower, battle copy, and Studio display.
+	var root := Node3D.new()
+	root.name = "StuffieCutout_" + String(d.get("id", "friend"))
+	var anim := Node3D.new()
+	anim.name = "StorybookBob"
+	root.add_child(anim)
+	if d.has("sprite"):
+		var direct_tex: Texture2D = load(String(d["sprite"]))
+		if direct_tex == null:
+			return null
+		var direct := Sprite3D.new()
+		direct.name = "StorybookSprite"
+		direct.texture = direct_tex
+		direct.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		direct.pixel_size = target_height / maxf(float(direct_tex.get_height()), 1.0)
+		direct.render_priority = 2
+		anim.add_child(direct)
+	else:
+		var kind := String(d.get("kind", ""))
+		if not m.CREATURE_LAYERS.has(kind):
+			return null
+		var layer_names: Array = m.CREATURE_LAYERS[kind]
+		var body_tex: Texture2D = load("res://assets/mg/" + String(layer_names[1]) + ".png")
+		if body_tex == null:
+			return null
+		var pixel: float = target_height / maxf(float(body_tex.get_height()), 1.0)
+		var draw_order: Array = [1, 0, 2]
+		var tints: Array[Color] = [c[0], c[1], Color.WHITE]
+		for i in range(draw_order.size()):
+			var layer_index: int = int(draw_order[i])
+			var tex: Texture2D = load("res://assets/mg/" + String(layer_names[layer_index]) + ".png")
+			if tex == null:
+				continue
+			var layer := Sprite3D.new()
+			layer.name = "StorybookLayer_%d" % i
+			layer.texture = tex
+			layer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			layer.pixel_size = pixel
+			layer.render_priority = i
+			layer.modulate = tints[i]
+			anim.add_child(layer)
+	root.set_meta("storybook_sprite", true)
+	return root
 
 # ===================== per-frame tick (called from main._process) =====================
 
@@ -173,7 +206,7 @@ func tick(delta: float) -> void:
 	if m.companion_id == "":
 		return
 	if m.companion_resting:
-		return   # tuckered out: home on its Den shelf until re-picked there
+		return   # tuckered out: home on its Studio shelf until re-picked there
 	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
 	# context flips (reef ↔ lagoon ↔ castle ↔ north ↔ any engine and back),
 	# snap the stuffie straight to Roshan's side — never left behind, never
@@ -265,7 +298,7 @@ func open_care_menu() -> void:
 		var queued := want_def(String(m.companion_want_queue[0]))
 		m.show_msg(String(d["name"]), String(queued.get("ask", "Tap the glowing care picture!")) % String(d["name"]), "talk")
 	else:
-		m.show_msg(String(d["name"]), "What should we do together?", "talk")
+		m.show_msg(String(d["name"]), "Care and happy play fill my next upgrade star! What should we do together?", "talk")
 
 func _on_care_dim_input(ev: InputEvent) -> void:
 	if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
@@ -287,7 +320,7 @@ func _draw_care_menu() -> void:
 	var panel := StorybookUI.add_panel(stage_control, Rect2(38, 24, 1204, 672), StorybookUI.LAVENDER, Color(0.91, 0.97, 1.0, 0.99), 48)
 	panel.name = "StuffieCareShell"
 	var title := Label.new()
-	title.text = "♥  %s" % String(d["name"])
+	title.text = "♥  ⭐  %s" % String(d["name"])
 	title.position = Vector2(72, 42)
 	title.size = Vector2(720, 70)
 	StorybookUI.style_label(title, 44, StorybookUI.INK, 4)
@@ -321,16 +354,17 @@ func _draw_care_menu() -> void:
 	hearts.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	StorybookUI.style_label(hearts, 31, StorybookUI.INK_SOFT, 3)
 	stage_control.add_child(hearts)
-	var swap := Button.new()
-	swap.name = "StuffieSwitchButton"
-	swap.text = "🎨  FRIEND"
-	swap.position = Vector2(92, 576)
-	swap.custom_minimum_size = Vector2(310, 112)
-	swap.size = Vector2(310, 112)
-	StorybookUI.style_button(swap, "secondary", 28, 30)
-	swap.disabled = m.companion_resting or m.companion_care_t > 0.0
-	swap.pressed.connect(_care_open_picker)
-	stage_control.add_child(swap)
+	var paint := Button.new()
+	paint.name = "StuffieSwitchButton" # stable probe/controller focus contract
+	paint.text = "🎨  CHANGE"
+	paint.position = Vector2(92, 576)
+	paint.custom_minimum_size = Vector2(310, 112)
+	paint.size = Vector2(310, 112)
+	StorybookUI.style_button(paint, "secondary", 28, 30)
+	paint.disabled = m.companion_resting or m.companion_care_t > 0.0 \
+		or not bool(d.get("paintable", true))
+	paint.pressed.connect(_care_open_studio)
+	stage_control.add_child(paint)
 
 	var asked := m.companion_want
 	if asked == "" and not m.companion_want_queue.is_empty():
@@ -399,7 +433,7 @@ func _choose_menu_care(id: String) -> void:
 	close_care_menu()
 	var d := active_def()
 	if m.companion_resting:
-		m.show_msg("Roshan", "%s is resting at the castle! Let's visit the Stuffie Den." % String(d["name"]), "talk")
+		m.show_msg("Roshan", "%s is resting at the castle! Let's visit the Stuffie Studio." % String(d["name"]), "talk")
 		return
 	if not _follow_ctx():
 		m.show_msg(String(d["name"]), "I'll come out to play after this game!", "talk")
@@ -427,11 +461,11 @@ func _choose_menu_care(id: String) -> void:
 	else:
 		m.show_msg(String(d["name"]), "I love that! You're the best!", "talk")
 
-func _care_open_picker() -> void:
+func _care_open_studio() -> void:
 	if m.companion_resting or m.companion_care_t > 0.0:
 		return
 	close_care_menu()
-	open_picker(true, m.companion_id)
+	open_picker(true, m.companion_id, "studio")
 
 # ---------- the throne gift (unlock moment) ----------
 
@@ -544,13 +578,16 @@ func _action_down() -> bool:
 
 # ---------- the picker + colour studio overlay ----------
 
-func open_picker(say_prompt: bool = true, preselect: String = "") -> void:
+func open_picker(say_prompt: bool = true, preselect: String = "", mode: String = "adopt") -> void:
 	# say_prompt=false when Princess Huluu herself makes the offer — her
 	# "I want you to have a new friend!" line owns that moment.
-	# preselect: the Stuffie Den shelves open the picker on the tapped friend.
+	# The toy chest uses swap mode; the worktable uses studio mode.
 	if m.companion_layer != null:
 		return
-	if not def_by_id(preselect).is_empty():
+	m.companion_pick_mode = mode if mode in ["adopt", "swap", "studio"] else "adopt"
+	if m.companion_pick_mode == "studio" and m.companion_id != "":
+		m.companion_pick_id = m.companion_id
+	elif not def_by_id(preselect).is_empty():
 		m.companion_pick_id = preselect
 	else:
 		m.companion_pick_id = String(ROSTER[0]["id"]) if m.companion_id == "" else m.companion_id
@@ -574,7 +611,12 @@ func open_picker(say_prompt: bool = true, preselect: String = "") -> void:
 		m.player.vel = Vector3.ZERO
 	_draw_picker()
 	if say_prompt:
-		m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
+		if m.companion_pick_mode == "studio":
+			m.show_msg("Roshan", "Makeover time! Tap a color, then the big heart to save it!", "talk")
+		elif m.companion_pick_mode == "swap":
+			m.show_msg("Roshan", "Which stuffie comes with me? Tap a friend, then the big heart!", "talk")
+		else:
+			m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
 
 func _on_picker_dim_input(ev: InputEvent) -> void:
 	if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
@@ -618,6 +660,8 @@ func _pick_color_slot(slot: int) -> void:
 	_draw_picker()
 
 func _confirm_pick() -> void:
+	var studio_change: bool = m.companion_pick_mode == "studio" \
+		and m.companion_pick_id == m.companion_id
 	m.companion_id = m.companion_pick_id
 	m.companion_colors = m.companion_pick_colors.duplicate()
 	var d := active_def()
@@ -629,26 +673,30 @@ func _confirm_pick() -> void:
 		m.companion_room.queue_free()   # rebuilt next tick: heart + coat move shelves
 		m.companion_room = null
 		m.companion_room_rows = []
-	# a swap resets any pending want (care progress itself is shared — it is
-	# HER nurturing that grows, whichever friend she carries); picking at the
-	# Den also tucks in any hurt friend, so boo-boos never follow a fresh start
-	m.companion_want = ""
-	m.companion_care_t = -1.0
-	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
-		m.companion_want_bubble.queue_free()
-	m.companion_want_bubble = null
-	m.companion_want_cool = 20.0
-	m.companion_want_queue = []
-	m.companion_bruises = 0
-	m.companion_rest_timer = -1.0
-	m.companion_rest_warned = 0
-	m.companion_resting = false   # picking a friend (the same one included) wakes it
-	m.companion_greeted = false
+	if not studio_change:
+		# A chest swap resets pending wants (care progress itself is shared —
+		# Roshan's nurturing grows whichever friend she carries). Re-picking
+		# the resting friend from the chest wakes it without losing progress.
+		m.companion_want = ""
+		m.companion_care_t = -1.0
+		if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
+			m.companion_want_bubble.queue_free()
+		m.companion_want_bubble = null
+		m.companion_want_cool = 20.0
+		m.companion_want_queue = []
+		m.companion_bruises = 0
+		m.companion_rest_timer = -1.0
+		m.companion_rest_warned = 0
+		m.companion_resting = false
+		m.companion_greeted = false
 	m._write_save()
 	m._reward(false)
 	if m.player != null:
 		m._sparkle_burst(m.player.position + Vector3(0, 2.0, 0), Color(1.0, 0.8, 0.5))
-	m.show_msg(String(d["name"]), String(d["hello"]), "win")
+	if studio_change:
+		m.show_msg(String(d["name"]), "My new colors are beautiful! Thank you!", "win")
+	else:
+		m.show_msg(String(d["name"]), String(d["hello"]), "win")
 
 func _draw_picker() -> void:
 	var stage: Control = m.companion_stage
@@ -663,7 +711,8 @@ func _draw_picker() -> void:
 	panel.add_theme_stylebox_override("panel", panel_style)
 	stage.add_child(panel)
 	var title := Label.new()
-	title.text = "🧸  Pick your stuffie friend!"
+	title.text = "🎨  Stuffie Makeover!" if m.companion_pick_mode == "studio" \
+		else "🧸  Choose a stuffie friend!"
 	StorybookUI.style_label(title, 42, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
@@ -673,9 +722,11 @@ func _draw_picker() -> void:
 	close.position = Vector2(1110, 32)
 	close.pressed.connect(close_picker)
 	stage.add_child(close)
-	# friend cards down the left — only friends who already live at home;
-	# captured bosses appear here the moment their battle is won
-	var picks := unlocked_defs()
+	# The chest lists every friend who lives at home. The worktable deliberately
+	# locks this column to the active friend so choosing and changing are distinct.
+	var picks: Array[Dictionary] = unlocked_defs()
+	if m.companion_pick_mode == "studio":
+		picks = [active_def()]
 	var step: float = minf(250.0, 560.0 / maxf(float(picks.size()), 1.0))
 	for i in range(picks.size()):
 		var d: Dictionary = picks[i]
@@ -710,7 +761,17 @@ func _draw_picker() -> void:
 	preview_panel.name = "StuffiePreviewCard"
 	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
 	# Three large part selectors, but only one large palette at a time.
-	if not bool(pick_def.get("paintable", true)):
+	var show_palette: bool = m.companion_pick_mode != "swap" \
+		and bool(pick_def.get("paintable", true))
+	if m.companion_pick_mode == "swap":
+		var take_hint := Label.new()
+		take_hint.text = "🐾   💗   🧜‍♀️"
+		StorybookUI.style_label(take_hint, 54, StorybookUI.INK, 4)
+		take_hint.position = Vector2(820, 220)
+		take_hint.size = Vector2(370, 150)
+		take_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		stage.add_child(take_hint)
+	elif not bool(pick_def.get("paintable", true)):
 		var asis := Label.new()
 		asis.text = "💕  %s comes just as she is!" % String(pick_def["name"])
 		StorybookUI.style_label(asis, 27, StorybookUI.INK, 3)
@@ -718,7 +779,7 @@ func _draw_picker() -> void:
 		asis.size = Vector2(400, 120)
 		asis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		stage.add_child(asis)
-	for slot in range(3 if bool(pick_def.get("paintable", true)) else 0):
+	for slot in range(3 if show_palette else 0):
 		var icon := Button.new()
 		icon.name = "StuffiePart_%d" % slot
 		icon.text = SLOT_ICON[slot]
@@ -750,7 +811,8 @@ func _draw_picker() -> void:
 			swatch.pressed.connect(_pick_color.bind(slot, col))
 			stage.add_child(swatch)
 	var go := Button.new()
-	go.text = "♥  LET'S GO!"
+	go.text = "🎨  SAVE COLORS!" if m.companion_pick_mode == "studio" \
+		else "♥  TAKE ALONG!"
 	go.position = Vector2(460, 500)
 	go.custom_minimum_size = Vector2(330, 150)
 	StorybookUI.style_button(go, "primary", 38, 38)
@@ -764,10 +826,18 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 	# The sheets are large illustrations: FIT them into the given box (uniform
 	# scale, centered) instead of trusting any fixed scale, and paint in the
 	# in-world order — body first, accent OVER it, ink line on top.
-	# Model-based toys (captured / photo-scanned) have no paint sheets: show
-	# their big friendly emoji instead — the Den shelf carries the real 3D body.
 	parent.clip_contents = true
-	if d.has("model") or not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
+	if d.has("sprite"):
+		var direct := TextureRect.new()
+		direct.texture = load(String(d["sprite"]))
+		direct.position = box_pos
+		direct.size = box_size
+		direct.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		direct.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		direct.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		parent.add_child(direct)
+		return
+	if not m.CREATURE_LAYERS.has(String(d.get("kind", ""))):
 		var face := Label.new()
 		face.text = String(d.get("emoji", "🧸"))
 		face.add_theme_font_size_override("font_size", int(minf(box_size.x, box_size.y) * 0.62))
@@ -806,13 +876,18 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		parent.add_child(tr)
 
-# ---------- the Stuffie Den (owner 2026-07-19: a castle room where every
-# ---------- stuffed friend sits on the wall shelves, swappable any time) ----------
+# ---------- the Stuffie Studio: six display cubbies, a care/upgrade table,
+# ---------- and a separate toy chest for choosing the active friend ----------
 
 const ROOM_LOCAL := Vector3(-49.4, 49.6, -44.0)   # west end of the Dreaming
+const ROOM_SLOT_COUNT := 6
+const ROOM_INTERACT_RADIUS := 6.0
+const ROOM_SHELF_TEXTURE := "res://assets/sprites/stuffie_studio/display_shelf.png"
+const ROOM_TABLE_TEXTURE := "res://assets/sprites/stuffie_studio/worktable.png"
+const ROOM_CHEST_TEXTURE := "res://assets/sprites/stuffie_studio/toy_chest.png"
 # Floor corridor (Wacky & Chuck's basket holds the east end); CASTLE_POS-relative
 
-func _tick_room(delta: float) -> void:
+func _tick_room(_delta: float) -> void:
 	var in_hall: bool = m.game == "level2" and String(m.g.get("phase", "court")) == "hall"
 	if not in_hall:
 		m.companion_room = null   # castle teardown frees the nodes via game_nodes
@@ -823,25 +898,34 @@ func _tick_room(delta: float) -> void:
 	if m.companion_room == null:
 		return
 	var now: float = Time.get_ticks_msec() / 1000.0
-	var pointer_node: Label3D = m.companion_room.get_meta("pointer")
-	if is_instance_valid(pointer_node):
-		pointer_node.position.y = 9.4 + sin(now * 4.0) * 0.4
-	# one-time welcome once she wanders into the nook
+	var pointers_v: Variant = m.companion_room.get_meta("pointers", [])
+	if pointers_v is Array:
+		for i in range((pointers_v as Array).size()):
+			var pointer_node: Label3D = (pointers_v as Array)[i] as Label3D
+			if is_instance_valid(pointer_node):
+				pointer_node.position.y = float(pointer_node.get_meta("base_y", pointer_node.position.y)) \
+					+ sin(now * 4.0 + float(i) * 1.7) * 0.28
+	# Voice and a three-icon tour make the room understandable without reading.
 	if not bool(m.g.get("companion_room_said", false)) \
-			and m.companion_room.global_position.distance_to(m.player.position) < 13.0:
+			and m.companion_room.global_position.distance_to(m.player.position) < 16.0:
 		m.g["companion_room_said"] = true
-		m.show_msg("Roshan", "The Stuffie Den! All my friends live here - tap one to bring it along!", "talk")
+		m.show_msg("Roshan", "The Stuffie Studio! Friends sit on the shelves. The table cares for and changes them. The toy chest chooses who comes with me!", "talk")
+	var best_kind := ""
 	var best_id := ""
-	var best_d := 6.0
+	var best_d := ROOM_INTERACT_RADIUS
 	for row_v: Variant in m.companion_room_rows:
 		var row: Dictionary = row_v
 		var node: Node3D = row["node"]
 		if not is_instance_valid(node):
 			continue
-		var mine: bool = String(row["id"]) == m.companion_id
-		var home: bool = bool(row.get("home", true))
+		var mine: bool = String(row["id"]) != "" and String(row["id"]) == m.companion_id
+		var home: bool = bool(row.get("home", false))
 		var marker: Label3D = row["marker"]
 		var heart: Label3D = row["heart"]
+		var visual: Node3D = row.get("visual") as Node3D
+		if is_instance_valid(visual):
+			visual.position.y = float(row["base_y"]) \
+				+ sin(now * 2.2 + float(row["phase"])) * 0.1
 		if is_instance_valid(marker):
 			marker.visible = home and not mine
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
@@ -851,21 +935,46 @@ func _tick_room(delta: float) -> void:
 		var dist: float = node.global_position.distance_to(m.player.position)
 		if dist < best_d:
 			best_d = dist
+			best_kind = "shelf"
 			best_id = String(row["id"])
+	var table_anchor: Node3D = m.companion_room.get_meta("table_anchor") as Node3D
+	if is_instance_valid(table_anchor):
+		var table_d: float = table_anchor.global_position.distance_to(m.player.position)
+		if table_d < best_d:
+			best_d = table_d
+			best_kind = "table"
+	var chest_anchor: Node3D = m.companion_room.get_meta("chest_anchor") as Node3D
+	if is_instance_valid(chest_anchor):
+		var chest_d: float = chest_anchor.global_position.distance_to(m.player.position)
+		if chest_d < best_d:
+			best_d = chest_d
+			best_kind = "chest"
 	var action: bool = _action_down()
-	if best_id != "" and action and not m.companion_room_action_prev and m.companion_layer == null:
-		var d := def_by_id(best_id)
-		if not unlocked(best_id):
-			# an empty mystery shelf: point her at the capture loop, no picker
-			m.show_msg("Roshan", "Someone could live on this shelf! Win the toy tournament in the reef and bring a new friend home!", "talk")
-		else:
-			open_picker(false, best_id)
-			if best_id == m.companion_id and m.companion_resting:
-				m.show_msg(String(d["name"]), "*yaaawn* What a good rest! Take me with you again!", "talk")
-			elif best_id == m.companion_id:
-				m.show_msg("Roshan", "New colors for %s? Paint away!" % String(d["name"]), "talk")
-			else:
-				m.show_msg(String(d["name"]), "Pick me! I'll come along!", "talk")
+	var overlay_open: bool = m.companion_layer != null or m.companion_care_layer != null
+	if best_kind != "" and action and not m.companion_room_action_prev and not overlay_open:
+		match best_kind:
+			"shelf":
+				if best_id == "":
+					m.show_msg("Roshan", "An empty cubby! A new stuffie friend can live here someday.", "talk")
+				elif not unlocked(best_id):
+					m.show_msg("Roshan", "A mystery friend belongs here! We can befriend them at the toy tournament in the reef.", "talk")
+				else:
+					var shelf_def := def_by_id(best_id)
+					var shelf_line := "I'm waiting on my cozy shelf!"
+					if best_id == m.companion_id:
+						shelf_line = "That's me! My heart shows I'm the active stuffie."
+					m.show_msg(String(shelf_def["name"]), shelf_line, "talk")
+			"table":
+				if m.companion_id == "":
+					m.show_msg("Roshan", "This table changes and upgrades a stuffie. First choose a friend from the toy chest!", "talk")
+				else:
+					open_care_menu()
+			"chest":
+				var preselect: String = m.companion_id
+				if preselect == "":
+					preselect = String(ROSTER[0]["id"])
+				open_picker(false, preselect, "swap")
+				m.show_msg("Roshan", "Toy chest time! Tap the stuffie who comes on the adventure, then tap the big heart!", "talk")
 	m.companion_room_action_prev = action
 
 func _room_colors(id: String) -> Array[Color]:
@@ -881,126 +990,135 @@ func _room_colors(id: String) -> Array[Color]:
 
 func _build_room() -> void:
 	var root := Node3D.new()
+	root.name = "StuffieStudioRoom"
 	root.position = m.CASTLE_POS + ROOM_LOCAL
 	m.add_child(root)
 	m.game_nodes.append(root)
 	m.companion_room = root
 	m.companion_room_rows = []
-	# cozy dressing: lavender wall band, pastel rug, a soft emissive lamp
-	var band := MeshInstance3D.new()
-	var band_mesh := BoxMesh.new()
-	band_mesh.size = Vector3(0.35, 7.0, 13.5)
-	band.mesh = band_mesh
-	band.position = Vector3(-3.0, 3.8, 0.0)
-	band.material_override = _room_mat(Color(0.78, 0.68, 0.92), 0.12)
-	root.add_child(band)
-	var rug := MeshInstance3D.new()
-	var rug_mesh := BoxMesh.new()
-	rug_mesh.size = Vector3(6.4, 0.25, 12.8)
-	rug.mesh = rug_mesh
-	rug.position = Vector3(0.8, 0.15, 0.0)
-	rug.material_override = _room_mat(Color(1.0, 0.82, 0.90))
-	root.add_child(rug)
-	var lamp := MeshInstance3D.new()
-	var lamp_mesh := BoxMesh.new()
-	lamp_mesh.size = Vector3(1.1, 1.1, 1.1)
-	lamp.mesh = lamp_mesh
-	lamp.position = Vector3(-2.4, 7.8, 0.0)
-	lamp.material_override = _room_mat(Color(1.0, 0.9, 0.6), 3.0)
-	root.add_child(lamp)
+	var shelf_art: Sprite3D = _room_sprite(ROOM_SHELF_TEXTURE, Vector3(-2.8, 6.4, 0.0), 13.2, 0)
+	shelf_art.name = "StuffieSixCubbyDisplay"
+	root.add_child(shelf_art)
+	var table_art: Sprite3D = _room_sprite(ROOM_TABLE_TEXTURE, Vector3(-0.4, 2.75, -9.0), 5.3, 0)
+	table_art.name = "StuffieUpgradeTable"
+	root.add_child(table_art)
+	var chest_art: Sprite3D = _room_sprite(ROOM_CHEST_TEXTURE, Vector3(-0.4, 2.9, 9.0), 5.8, 0)
+	chest_art.name = "StuffieActiveToyChest"
+	root.add_child(chest_art)
 	var sign := Label3D.new()
-	sign.text = "✨ Stuffie Den ✨"
+	sign.text = "🧸  STUFFIE STUDIO  ✨"
 	sign.font_size = 44
 	sign.pixel_size = 0.008
 	sign.outline_size = 11
 	sign.modulate = Color(1.0, 0.9, 0.95)
 	sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	sign.position = Vector3(0, 7.4, 0)
+	sign.position = Vector3(-2.4, 13.1, 0)
 	root.add_child(sign)
-	var pointer := Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 140
-	pointer.pixel_size = 0.02
-	pointer.outline_size = 22
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	pointer.no_depth_test = true
-	pointer.position = Vector3(0, 9.4, 0)
-	root.add_child(pointer)
-	root.set_meta("pointer", pointer)
-	# one wall shelf per stuffed friend, each seated and waiting
-	for i in range(ROSTER.size()):
-		var d: Dictionary = ROSTER[i]
-		var id := String(d["id"])
-		var shelf_z: float = -3.6 + float(i) * 7.2 - (float(ROSTER.size() - 2) * 3.6)
-		var shelf := MeshInstance3D.new()
-		var shelf_mesh := BoxMesh.new()
-		shelf_mesh.size = Vector3(3.4, 0.5, 3.6)
-		shelf.mesh = shelf_mesh
-		shelf.position = Vector3(-1.5, 2.4, shelf_z)
-		shelf.material_override = _room_mat(Color(0.95, 0.8, 0.35), 0.2)
-		root.add_child(shelf)
-		var is_home := unlocked(id)
-		var creature: Node3D = null
+	var table_anchor := Node3D.new()
+	table_anchor.name = "StuffieTableAnchor"
+	table_anchor.position = Vector3(1.0, 2.0, -9.0)
+	root.add_child(table_anchor)
+	root.set_meta("table_anchor", table_anchor)
+	var chest_anchor := Node3D.new()
+	chest_anchor.name = "StuffieChestAnchor"
+	chest_anchor.position = Vector3(1.0, 2.0, 9.0)
+	root.add_child(chest_anchor)
+	root.set_meta("chest_anchor", chest_anchor)
+	var pointers: Array[Label3D] = []
+	var table_pointer: Label3D = _room_pointer("♥  ⭐  🎨", Vector3(0.4, 6.4, -9.0))
+	table_pointer.name = "StuffieTablePointer"
+	root.add_child(table_pointer)
+	pointers.append(table_pointer)
+	var chest_pointer: Label3D = _room_pointer("🧸  ↔  🧜‍♀️", Vector3(0.4, 6.6, 9.0))
+	chest_pointer.name = "StuffieChestPointer"
+	root.add_child(chest_pointer)
+	pointers.append(chest_pointer)
+	root.set_meta("pointers", pointers)
+	# The card itself has a 3x2 grid. Runtime friends sit directly inside those
+	# six painted cubbies; future roster slots remain inviting mystery spaces.
+	for i in range(ROOM_SLOT_COUNT):
+		var column: int = i % 3
+		var row_index: int = int(i / 3)
+		var slot_pos := Vector3(-2.45, 6.95 - float(row_index) * 3.35,
+			-3.2 + float(column) * 3.2)
+		var anchor := Node3D.new()
+		anchor.name = "StuffieShelfSlot%d" % (i + 1)
+		anchor.position = slot_pos
+		root.add_child(anchor)
+		var d: Dictionary = ROSTER[i] if i < ROSTER.size() else {}
+		var id := String(d.get("id", ""))
+		var is_home: bool = id != "" and unlocked(id)
+		var display_creature: Node3D = null
 		if is_home:
-			creature = creature_for(d, _room_colors(id))
-			if creature != null:
-				creature.scale = Vector3.ONE * 0.75
-				creature.position = Vector3(-1.5, 2.68, shelf_z)
-				creature.rotation.y = PI   # gen2 face = -X, so PI looks out at the corridor
-				root.add_child(creature)
+			display_creature = _stuffie_cutout(d, _room_colors(id), 2.4)
+			if display_creature != null:
+				display_creature.position = slot_pos + Vector3(0.12, -0.05, 0)
+				root.add_child(display_creature)
+			var name_sign := Label3D.new()
+			name_sign.text = String(d["name"])
+			name_sign.font_size = 24
+			name_sign.pixel_size = 0.007
+			name_sign.outline_size = 8
+			name_sign.modulate = Color(0.96, 0.98, 1.0)
+			name_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			name_sign.position = slot_pos + Vector3(0.2, -1.25, 0)
+			root.add_child(name_sign)
 		else:
-			# a friend not yet befriended: an empty shelf with a big mystery mark
 			var mystery := Label3D.new()
-			mystery.text = "❓"
-			mystery.font_size = 160
-			mystery.pixel_size = 0.018
-			mystery.outline_size = 16
-			mystery.modulate = Color(0.75, 0.8, 0.95, 0.9)
+			mystery.text = "❔"
+			mystery.font_size = 112
+			mystery.pixel_size = 0.014
+			mystery.outline_size = 14
+			mystery.modulate = Color(0.82, 0.86, 1.0, 0.92)
 			mystery.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			mystery.position = Vector3(-1.5, 4.2, shelf_z)
+			mystery.position = slot_pos
 			root.add_child(mystery)
-		var name_sign := Label3D.new()
-		name_sign.text = String(d["name"]) if is_home else "❓❓❓"
-		name_sign.font_size = 30
-		name_sign.pixel_size = 0.008
-		name_sign.outline_size = 9
-		name_sign.modulate = Color(0.9, 0.95, 1.0)
-		name_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		name_sign.position = Vector3(-1.2, 4.9, shelf_z)
-		root.add_child(name_sign)
 		var marker := Label3D.new()
-		marker.text = "✦"
-		marker.font_size = 120
-		marker.pixel_size = 0.018
-		marker.outline_size = 18
+		marker.text = "✨"
+		marker.font_size = 78
+		marker.pixel_size = 0.013
+		marker.outline_size = 13
 		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
 		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		marker.no_depth_test = true
-		marker.position = Vector3(-1.2, 5.9, shelf_z)
+		marker.position = slot_pos + Vector3(0.25, 1.18, 0)
 		root.add_child(marker)
 		var heart := Label3D.new()
 		heart.text = "💗"
-		heart.font_size = 100
-		heart.pixel_size = 0.018
-		heart.outline_size = 14
+		heart.font_size = 78
+		heart.pixel_size = 0.013
+		heart.outline_size = 13
 		heart.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		heart.no_depth_test = true
-		heart.position = Vector3(-1.2, 5.9, shelf_z)
+		heart.position = slot_pos + Vector3(0.25, 1.18, 0)
 		heart.visible = false
 		root.add_child(heart)
-		m.companion_room_rows.append({"id": id, "node": creature if creature != null else shelf,
-			"marker": marker, "heart": heart, "phase": float(i) * 1.7, "home": is_home})
+		m.companion_room_rows.append({"id": id, "node": anchor,
+			"marker": marker, "heart": heart, "visual": display_creature,
+			"base_y": slot_pos.y - 0.05, "phase": float(i) * 1.7, "home": is_home})
 
-func _room_mat(col: Color, emission: float = 0.0) -> StandardMaterial3D:
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = col
-	mat.roughness = 0.6
-	if emission > 0.0:
-		mat.emission_enabled = true
-		mat.emission = col
-		mat.emission_energy_multiplier = emission
-	return mat
+func _room_sprite(path: String, pos: Vector3, target_height: float, priority: int) -> Sprite3D:
+	var sprite := Sprite3D.new()
+	var tex: Texture2D = load(path)
+	sprite.texture = tex
+	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.pixel_size = target_height / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+	sprite.render_priority = priority
+	sprite.position = pos
+	return sprite
+
+func _room_pointer(icon: String, pos: Vector3) -> Label3D:
+	var pointer := Label3D.new()
+	pointer.text = icon
+	pointer.font_size = 72
+	pointer.pixel_size = 0.012
+	pointer.outline_size = 14
+	pointer.modulate = Color(1.0, 0.94, 0.45)
+	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	pointer.no_depth_test = true
+	pointer.position = pos
+	pointer.set_meta("base_y", pos.y)
+	return pointer
 
 # ---------- the overworld follower ----------
 
@@ -1300,7 +1418,7 @@ func _pal_bounce(peak: float) -> void:
 	tw.tween_property(pal, "scale", base, 0.45).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 func _go_home_to_rest() -> void:
-	# the gentle failure lands: sparkle-poof home to the Den shelf
+	# the gentle failure lands: sparkle-poof home to the Studio shelf
 	var d := active_def()
 	if m.companion_node != null and is_instance_valid(m.companion_node):
 		m._sparkle_burst(m.companion_node.position + Vector3(0, 2.0, 0), Color(0.75, 0.8, 1.0))

@@ -188,7 +188,7 @@ var fish_tokens := 0                      # LEGACY sparkle-fish count — kept f
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
-var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
+var companion_room: Node3D = null         # the Stuffie Studio on the castle's Dreaming Floor
 var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
@@ -200,7 +200,7 @@ var companion_want_bubble: Label3D = null # the emoji thought bubble over the st
 var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
-var companion_resting := false            # went home to rest (persisted) — on its Den shelf until re-picked
+var companion_resting := false            # went home to rest (persisted) — on its Studio shelf until re-picked
 var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
 var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
 var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
@@ -213,6 +213,7 @@ var companion_menu_button: Button = null  # inset upper-right HUD launcher
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
 var companion_pick_slot := 0               # one large active paint row at a time
+var companion_pick_mode := "adopt"         # adopt / swap at chest / studio repaint
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
@@ -2691,7 +2692,7 @@ func _end_stuffie_battle(round_tag: String) -> void:
 			stuffie_wins["_replays"] = int(stuffie_wins.get("_replays", 0)) + 1
 		stuffie_wins[round_tag] = true
 		# CAPTURE (owner 2026-07-20): befriending a boss stuffie takes it HOME —
-		# it moves onto its Stuffie Den shelf and becomes a carryable companion
+		# it moves onto its Stuffie Studio shelf and becomes a carryable companion
 		for cfg in StuffieBattle.LADDER:
 			if String(cfg["tag"]) != round_tag or not cfg.has("award"):
 				continue
@@ -2699,7 +2700,7 @@ func _end_stuffie_battle(round_tag: String) -> void:
 			if not bool(stuffie_wins.get(friend_key, false)):
 				stuffie_wins[friend_key] = true
 				show_msg(String(cfg.get("award_name", "Your new friend")),
-					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Den!", "win")
+					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Studio!", "win")
 		pearl_count += 8
 		_reward(false)
 		_write_save()
