@@ -136,7 +136,7 @@ func _playthrough(run_index: int) -> void:
 	match run_index % 4:
 		0:
 			_check_registry(main, _reef_required(main), issues)
-			var reef_actions: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl"]
+			var reef_actions: Array[String] = ["reef:slide", "reef:brawl"]
 			main._activate_touch_interactable(reef_actions[run_index % reef_actions.size()])
 			await _frames(4)
 			if main.game == "":
@@ -231,7 +231,7 @@ func _touch_tap(touch: CanvasLayer, index: int, pos: Vector2) -> void:
 	touch._unhandled_input(up)
 
 func _reef_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl", "reef:kart"]
+	var required: Array[String] = ["reef:slide", "reef:brawl", "reef:kart"]
 	for friend_index in range(main.friends.size()):
 		required.append("friend:%d" % friend_index)
 	if main.portal_node != null and is_instance_valid(main.portal_node):

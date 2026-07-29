@@ -21,6 +21,7 @@ func _init() -> void:
 	await _tap_ice_case()
 	await _tap_boss_case()
 	await _generic_engine_case()
+	await _priority_case()
 	print("HIT|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	# tear the scene down before quitting: the Windows 4.7-dev2 binary can
 	# crash inside exit-time Dictionary teardown when the full game tree is
@@ -46,6 +47,7 @@ func _tap_ice_case() -> void:
 	_ck("arena builds its hit engine", arena != null and arena.he != null)
 	_ck("router finds the live arena", main._combat_arena_ref() == arena)
 	_ck("engine borrows the imp dicts", arena.he.targets.size() == 8)
+	_ck("battle engine holds tap priority", main.hit_engines.has(arena.he) and arena.he.tap_priority)
 	# agency: idle frames defeat nobody
 	for i in range(20):
 		await process_frame
@@ -81,6 +83,7 @@ func _tap_ice_case() -> void:
 	await process_frame
 	await process_frame
 	_ck("tap-won battle saves and returns", main.combat_ice_done and main.combat_game == null)
+	_ck("engine unregisters after victory", main.hit_engines.is_empty())
 
 func _tap_boss_case() -> void:
 	main.game = "level2"
@@ -99,6 +102,7 @@ func _tap_boss_case() -> void:
 	_ck("peeking boss takes tap damage", int(boss["hp"]) == hp_before - 1)
 	arena.cancel(true)
 	await process_frame
+	_ck("engine unregisters after cancel", main.hit_engines.is_empty())
 
 func _generic_engine_case() -> void:
 	# the open interface future encounters use: default hp pipeline + a
@@ -119,3 +123,36 @@ func _generic_engine_case() -> void:
 		await process_frame
 	_ck("flop death disposes the node", not is_instance_valid(dummy))
 	_ck("dead record refuses further hits", not eng.hit(rec, 1, "tap"))
+
+func _priority_case() -> void:
+	# ENEMY PRIORITY RULE: an enemy overlapping any other tappable object
+	# takes the tap; the object under it is not interacted with. Level
+	# design opts out per-engine via tap_priority.
+	main.game = ""
+	var cam: Camera3D = main.get_viewport().get_camera_3d()
+	var eng := HitEngine.new(main)
+	main.hit_engines.append(eng)
+	var dummy := Node3D.new()
+	main.add_child(dummy)
+	dummy.global_position = cam.global_position - cam.global_transform.basis.z * 12.0
+	var rec: Dictionary = {"node": dummy, "state": "active", "hp": 1, "death": "shrink", "aim_h": 0.0}
+	eng.targets = [rec]
+	var spos: Vector2 = cam.unproject_position(dummy.global_position)
+	# a decoy world interactable sits exactly under the enemy
+	main._touch_add_item("probe:decoy", "Decoy", dummy.global_position, null, 6.0, 32.0, "PLAY")
+	main._on_touch_world(spos)
+	_ck("enemy outranks the overlapping interactable", String(rec["state"]) == "popped")
+	_ck("covered interactable is left alone", main.touch_focus_id == "")
+	# opt-out: without priority the router no longer feeds this engine
+	var dummy2 := Node3D.new()
+	main.add_child(dummy2)
+	dummy2.global_position = cam.global_position - cam.global_transform.basis.z * 12.0
+	var rec2: Dictionary = {"node": dummy2, "state": "active", "hp": 1, "death": "shrink", "aim_h": 0.0}
+	eng.targets = [rec2]
+	eng.tap_priority = false
+	main._on_touch_world(cam.unproject_position(dummy2.global_position))
+	_ck("tap_priority opt-out yields the tap", String(rec2["state"]) == "active")
+	main.hit_engines.erase(eng)
+	main.touch_interactables.clear()
+	dummy2.queue_free()
+	await process_frame

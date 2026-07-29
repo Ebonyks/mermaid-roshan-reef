@@ -75,7 +75,7 @@ var living_cooldown := 0.0
 var living_event_time := -1.0
 var living_event_count := 0
 var living_generation := 0
-var manta: Node3D
+var manta: Node3D   # stays null: the ghost-ship pearl shop went with the wreck; all uses are null-guarded
 var manta_t := -20.0
 var bloom_t := 25.0
 var bloom_parts: GPUParticles3D
@@ -379,6 +379,10 @@ var touch_control_blocks: Dictionary = {}
 # directors receive this node and own behavior only, matching the extraction
 # rules used by the arena/minigame satellites.
 var touch_interactables: Array = []
+# Active HitEngine instances (encounters register in start, unregister on
+# teardown). Enemy priority rule: these get first refusal on every world
+# tap, ahead of touch_interactables — see _on_touch_world.
+var hit_engines: Array = []
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
@@ -449,7 +453,7 @@ var hint_idx := 0
 var hint_t := 0.0
 var anim_cull: Array = []
 var cull_timer := 0.0
-var wreck_pos := Vector3.ZERO
+var wreck_pos := Vector3.ZERO   # stays ZERO: the 3D wreck was deleted 2026-07-28 (redesigned); guards below and companion.gd no-op on ZERO
 var shop_cool := 0.0
 var treasure_cool := 0.0
 # Cosmetics are full alternative skins (mutually exclusive), chosen at the bedroom wardrobe.
@@ -689,7 +693,6 @@ func _ready() -> void:
 	_build_meadows()
 	_build_aquatic_flora()
 	_build_aquatic_creatures()
-	_build_wreck()
 	_build_events()
 	_build_pearls()
 	_build_friends()
@@ -1512,30 +1515,6 @@ func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
 			(node as MeshInstance3D).material_override = mat
 	for c in node.get_children():
 		_apply_mat(c, mat, overlay)
-
-func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
-	if rock_pbr == null:
-		_texture_mats()
-	if not model_cache.has(model):
-		var base := "res://assets/ship/" if model.begins_with("ship") or model in ["chest", "barrel"] else "res://assets/kenney/"
-		if not ResourceLoader.exists(base + model + ".glb"):
-			model_cache[model] = null
-		else:
-			model_cache[model] = load(base + model + ".glb")
-	var ps: PackedScene = model_cache[model]
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	_toonify(inst)
-	inst.position = pos
-	inst.scale = Vector3.ONE * scl
-	inst.rotation.y = yrot
-	if model.begins_with("cliff") or model.begins_with("rock"):
-		_apply_mat(inst, rock_pbr, false)            # real rock PBR
-	elif model.begins_with("ship") or model.begins_with("bridge") or model in ["barrel", "chest", "mast", "stump_round", "stump_roundDetailed", "stump_squareDetailed"]:
-		_apply_mat(inst, wood_overlay, true)         # wood grain detail, keeps Kenney colors
-	add_child(inst)
-	return inst
 
 func _halo(pos: Vector3, col: Color, size: float) -> MeshInstance3D:
 	var gt := GradientTexture2D.new()
@@ -3410,6 +3389,19 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
 		return
+	# ENEMY PRIORITY RULE: enemies are always in the forefront of the stage.
+	# Every active hit engine gets first refusal on the tap — an enemy
+	# overlapping any prop/friend/interactable takes the touch, and only a
+	# tap that hits no enemy falls through to the interaction director.
+	# (Level design opts an encounter out via HitEngine.tap_priority.)
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine == null or not engine.tap_priority:
+			continue
+		var enemy: Dictionary = engine.tap_pick(screen_pos)
+		if not enemy.is_empty():
+			engine.hit(enemy, 1, "tap")
+			return
 	var arena: CombatArena = _combat_arena_ref()
 	if arena != null:
 		arena.on_world_tap(screen_pos)
@@ -7067,7 +7059,10 @@ func _process(delta: float) -> void:
 			if manta.position.distance_to(ppos) < 17.0:
 				shop_cool = 16.0
 				_start_game(shop_fr)
-		if treasure_cool <= 0.0 and wreck_pos.distance_to(ppos) < 13.0:
+		if treasure_cool <= 0.0 and wreck_pos != Vector3.ZERO \
+				and wreck_pos.distance_to(ppos) < 13.0:
+			# ZERO guard required: with the wreck deleted (2026-07-28) an
+			# unguarded distance check put this trigger at the world origin
 			treasure_cool = 12.0
 			_start_game(treasure_fr)
 		# the portal penguin is INTERACTIVE: he cheers when Roshan swims near,
@@ -7531,87 +7526,6 @@ func _build_fish() -> void:
 		var halo := _halo(Vector3.ZERO, col, 12.0)
 		school["light"] = halo
 		fish_schools.append(school)
-
-func _build_wreck() -> void:
-	var wx: float = cos(2.4) * 150.0
-	var wz: float = sin(2.4) * 150.0
-	var wy: float = seabed_y(wx, wz)
-	wreck_pos = Vector3(wx, wy + 4.0, wz)
-	var ship := _spawn("ship-wreck", Vector3(wx, wy - 0.5, wz), 9.0, 2.4)
-	if ship != null:
-		ship.rotation_degrees.z = 14.0
-		_toon_tile(ship, "wood", 0.08, Color(0.9, 0.78, 0.7))   # painted timber hull
-		# NOTE: no collider on the wreck — swimming within 13u of it launches the
-		# treasure-dive minigame (see _build_events / treasure trigger). A solid
-		# bubble here would either block that trigger or, given the long hull,
-		# fit it badly. The wreck is an entrance, not a wall.
-	_spawn("chest", Vector3(wx + 10.0, seabed_y(wx + 10.0, wz + 4.0), wz + 4.0), 4.0, 1.0)
-	_spawn("barrel", Vector3(wx - 8.0, seabed_y(wx - 8.0, wz - 5.0), wz - 5.0), 4.0, 0.4)
-	_fairy_light(Vector3(wx, wy + 9.0, wz), Color(0.4, 1.0, 0.8), true)
-	_fairy_light(Vector3(wx + 10.0, seabed_y(wx + 10.0, wz + 4.0) + 3.0, wz + 4.0), Color(1.0, 0.85, 0.4), true)
-	# ghost ship drifting high above — the mystery
-	# nav audit: the shop ship was the game's remotest POI (150m ring). Pull it
-	# to a 100m ring on the OPPOSITE heading from the wreck, same drift/beacon.
-	var gsx: float = -wx * (100.0 / 150.0)
-	var gsz: float = -wz * (100.0 / 150.0)
-	var ghost := _spawn("ship-ghost", Vector3(gsx, WATER_TOP - 10.0, gsz), 7.0, 0.0)
-	if ghost != null:
-		ghost.set_meta("ghost", true)
-		manta = ghost
-		# PEARL SHOP ATTRACTION: the ship IS the shop, but three little lamps
-		# didn't pull anyone in. A golden beacon pillar reaches down into the
-		# reef (visible from anywhere underwater) + an unmissable sign.
-		var spil := MeshInstance3D.new()
-		var spm := CylinderMesh.new()
-		spm.top_radius = 0.7
-		spm.bottom_radius = 2.6
-		spm.height = 46.0
-		spm.radial_segments = 12
-		var spmat := StandardMaterial3D.new()
-		spmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		spmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		spmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		spmat.albedo_color = Color(1.0, 0.85, 0.4, 0.16)
-		spmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		spil.mesh = spm
-		spil.material_override = spmat
-		spil.position = ghost.position + Vector3(0, -24.0, 0)
-		add_child(spil)
-		var ssign := Label3D.new()
-		ssign.text = "🫧 Pearl Shop! 🫧\nswim up to the ship!"
-		ssign.font_size = 72
-		ssign.outline_size = 16
-		ssign.pixel_size = 0.03
-		ssign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		ssign.modulate = Color(1.0, 0.9, 0.55)
-		ssign.position = ghost.position + Vector3(0, -6.5, 0)
-		add_child(ssign)
-		var sglow := OmniLight3D.new()
-		sglow.light_color = Color(1.0, 0.82, 0.4)
-		sglow.light_energy = 3.2
-		sglow.omni_range = 42.0
-		sglow.position = ghost.position + Vector3(0, -8.0, 0)
-		add_child(sglow)
-		for li2 in range(3):
-			var lamp := OmniLight3D.new()
-			lamp.light_color = Color(1.0, 0.78, 0.42)
-			lamp.light_energy = 2.2
-			lamp.omni_range = 34.0
-			lamp.position = Vector3(-0.9 + float(li2) * 0.9, 1.2, 0.35 - float(li2) * 0.3)
-			ghost.add_child(lamp)
-			var bulb := MeshInstance3D.new()
-			var bm2 := SphereMesh.new()
-			bm2.radius = 0.12
-			bm2.height = 0.24
-			bulb.mesh = bm2
-			var bmat := StandardMaterial3D.new()
-			bmat.emission_enabled = true
-			bmat.emission = Color(1.0, 0.8, 0.45)
-			bmat.emission_energy_multiplier = 4.0
-			bulb.material_override = bmat
-			bulb.position = lamp.position
-			ghost.add_child(bulb)
-			pulse_lights.append({"light": lamp, "base": 2.2, "phase": randf() * TAU})
 
 func _build_events() -> void:
 	bloom_parts = GPUParticles3D.new()

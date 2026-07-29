@@ -934,8 +934,9 @@ func _build_avatar() -> void:
 	add_child(_avatar)
 	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
 	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
-	# plushie back every time the rainbow race chained into the galaxy)
-	var glb := "res://assets/characters/roshan.glb"
+	# plushie back every time the rainbow race chained into the galaxy);
+	# roshan.glb itself was deleted in the 2026-07-28 purge
+	var glb := ""
 	var cutout: Sprite3D = null
 	for vpath in ["res://assets/characters/roshan_v4.glb",
 			"res://assets/characters/roshan_v3.glb"]:
