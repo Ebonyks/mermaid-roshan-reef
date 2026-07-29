@@ -42,8 +42,15 @@ func _init() -> void:
 		"OK" if cleanup_ok else "FAIL")
 	main._enter_level2(true)
 	await _frames(8)
+	var rebuilt_targets: Array = main.g.get("lagoon_promenade_targets", [])
+	var rebuilt_ids: Dictionary = {}
+	for target_value in rebuilt_targets:
+		var target: Dictionary = target_value as Dictionary
+		rebuilt_ids[String(target.get("id", ""))] = true
 	var rebuild_ok: bool = String(main.g.get("phase", "")) == "promenade" \
-		and (main.g.get("lagoon_promenade_targets", []) as Array).size() == 8
+		and rebuilt_targets.size() >= 4 and rebuilt_targets.size() <= 5
+	for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+		rebuild_ok = rebuild_ok and rebuilt_ids.has(required_id)
 	print("TRAIN|promenade rebuilds at screen three: ",
 		"OK" if rebuild_ok else "FAIL")
 	if not (phase_ok and travel_ok and cleanup_ok and rebuild_ok):

@@ -149,23 +149,31 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
 			var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
-			if String(main.g.get("phase", "")) != "promenade" \
-					or promenade_targets.size() != 8:
+			var promenade_ids: Dictionary = {}
+			for target_value in promenade_targets:
+				var promenade_target: Dictionary = target_value as Dictionary
+				promenade_ids[String(promenade_target.get("id", ""))] = true
+			var roster_ok: bool = promenade_targets.size() >= 4 \
+				and promenade_targets.size() <= 5
+			for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+				roster_ok = roster_ok and promenade_ids.has(required_id)
+			if String(main.g.get("phase", "")) != "promenade" or not roster_ok:
 				issues.append("three-screen promenade interaction roster missing")
 			else:
-				var plane_target: Dictionary = {}
+				var focus_target: Dictionary = {}
+				var focus_id: String = "plane" if promenade_ids.has("plane") else "swing"
 				for target_value in promenade_targets:
 					var promenade_target: Dictionary = target_value as Dictionary
-					if String(promenade_target.get("id", "")) == "plane":
-						plane_target = promenade_target
+					if String(promenade_target.get("id", "")) == focus_id:
+						focus_target = promenade_target
 						break
-				main._lagoon_promenade_ref()._focus(plane_target)
-				if String(main.g.get("lagoon_promenade_focus", "")) != "plane":
+				main._lagoon_promenade_ref()._focus(focus_target)
+				if String(main.g.get("lagoon_promenade_focus", "")) != focus_id:
 					issues.append("promenade first press did not focus")
-				main._lagoon_promenade_ref()._activate(plane_target)
+				main._lagoon_promenade_ref()._activate(focus_target)
 				await _frames(4)
 				if main.game != "level2":
-					issues.append("plane interaction left the promenade")
+					issues.append("%s interaction left the promenade" % focus_id)
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)

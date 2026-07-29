@@ -60,8 +60,16 @@ func _run() -> void:
 		"promenade_screen_one_spawn")
 	_check(String(state.get("phase", "")) == "promenade",
 		"castle_gate_hub_uses_promenade")
-	_check((state.get("lagoon_promenade_targets", []) as Array).size() == 8,
-		"promenade_interactions_present")
+	var promenade_targets: Array = state.get("lagoon_promenade_targets", [])
+	var promenade_ids: Dictionary = {}
+	for target_value in promenade_targets:
+		var target: Dictionary = target_value as Dictionary
+		promenade_ids[String(target.get("id", ""))] = true
+	var promenade_roster_ok: bool = promenade_targets.size() >= 4 \
+		and promenade_targets.size() <= 5
+	for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+		promenade_roster_ok = promenade_roster_ok and promenade_ids.has(required_id)
+	_check(promenade_roster_ok, "promenade_interactions_present")
 	_check(not state.has("ocean_kingdom_gates"),
 		"blocked_water_has_no_active_ocean_gate")
 
