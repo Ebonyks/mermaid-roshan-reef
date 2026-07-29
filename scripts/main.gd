@@ -379,6 +379,10 @@ var touch_control_blocks: Dictionary = {}
 # directors receive this node and own behavior only, matching the extraction
 # rules used by the arena/minigame satellites.
 var touch_interactables: Array = []
+# Active HitEngine instances (encounters register in start, unregister on
+# teardown). Enemy priority rule: these get first refusal on every world
+# tap, ahead of touch_interactables — see _on_touch_world.
+var hit_engines: Array = []
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
@@ -3410,6 +3414,19 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
 		return
+	# ENEMY PRIORITY RULE: enemies are always in the forefront of the stage.
+	# Every active hit engine gets first refusal on the tap — an enemy
+	# overlapping any prop/friend/interactable takes the touch, and only a
+	# tap that hits no enemy falls through to the interaction director.
+	# (Level design opts an encounter out via HitEngine.tap_priority.)
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine == null or not engine.tap_priority:
+			continue
+		var enemy: Dictionary = engine.tap_pick(screen_pos)
+		if not enemy.is_empty():
+			engine.hit(enemy, 1, "tap")
+			return
 	var arena: CombatArena = _combat_arena_ref()
 	if arena != null:
 		arena.on_world_tap(screen_pos)
