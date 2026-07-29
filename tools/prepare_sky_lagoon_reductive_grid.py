@@ -25,6 +25,9 @@ PLATE = SOURCE_DIR / "sky_lagoon_reductive_reference_plate_3x1.png"
 OBJECT_EDIT_DIR = SOURCE_DIR / "object_removals"
 GRID_REF_DIR = SOURCE_DIR / "grid_references"
 GRID_RAW_DIR = SOURCE_DIR / "grid_raw"
+PLAYGROUND_REVISION_DIR = (
+	ROOT / "assets_src/sky_lagoon/playground_revision_2026-07-29"
+)
 MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 TILE_DIR = ROOT / "assets/flats/sky_lagoon/main"
 REPORT = ROOT / "audit/sky_lagoon_reductive_grid.json"
@@ -44,6 +47,13 @@ TILE_SIZE = 1024
 GRID_COLUMNS = 6
 GRID_ROWS = 2
 RAW_OVERSCAN = (RAW_SIZE - TILE_SIZE) // 2
+
+# Retain the owner-requested screen-one/two cleanup as a local source override
+# instead of overwriting the accepted 2026-07-28 raw. Its 115px overscan is
+# feathered by the same assembly mask as every other cell.
+GRID_RAW_OVERRIDES = {
+	(0, 1): PLAYGROUND_REVISION_DIR / "tile_r0_c1_stamp_removed_raw.png",
+}
 
 # Local square edits.  The generated output is only allowed to replace the
 # interior window; the outer feather returns byte-for-byte to the approved
@@ -205,7 +215,10 @@ def assemble_grid() -> None:
 	mask = _raw_mask()
 	for row in range(GRID_ROWS):
 		for column in range(GRID_COLUMNS):
-			path = GRID_RAW_DIR / f"tile_r{row}_c{column}_raw.png"
+			path = GRID_RAW_OVERRIDES.get(
+				(row, column),
+				GRID_RAW_DIR / f"tile_r{row}_c{column}_raw.png",
+			)
 			if not path.exists():
 				raise FileNotFoundError(path)
 			with Image.open(path) as source:

@@ -59,13 +59,11 @@ func _init() -> void:
 	var required_assets: Array[String] = [
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -159,18 +157,18 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 43 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 30 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 8 and visible_sprite_count <= 35
-		and contact_shadow_count == 8
+		depth_layers.size() >= 6 and visible_sprite_count <= 25
+		and contact_shadow_count == 5
 		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
 		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
 			depth_layers.size(), visible_sprite_count, contact_shadow_count])
-	var tree_placement_ok := tree_cards.size() == 2
+	var tree_placement_ok := tree_cards.size() == 1
 	var tree_detail := "cards=%d" % tree_cards.size()
 	for index: int in range(tree_cards.size()):
 		var tree: Sprite3D = tree_cards[index]
@@ -303,11 +301,11 @@ func _init() -> void:
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
 	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
 	var ambient_before := Vector3.ZERO
-	if ambient_cards.size() == 3:
+	if ambient_cards.size() == 2:
 		ambient_before = (ambient_cards[0] as Sprite3D).position
 	promenade._tick_ambient_life(0.75)
 	var ambient_moves := (
-		ambient_cards.size() == 3
+		ambient_cards.size() == 2
 		and (ambient_cards[0] as Sprite3D).position != ambient_before)
 	_check("low_cost_ambient_life", ambient_moves)
 	var shore_firs_ok := true
@@ -321,27 +319,17 @@ func _init() -> void:
 
 	var targets: Array = main.g.get("lagoon_promenade_targets", [])
 	var ids: Dictionary = {}
-	var frame_screens: Dictionary = {}
 	for value in targets:
 		var target: Dictionary = value as Dictionary
 		var id: String = String(target.get("id", ""))
 		ids[id] = true
-		if String(target.get("kind", "")) == "frame":
-			var node: Node3D = target.get("node") as Node3D
-			var local_x: float = node.position.x
-			var screen_index := 1
-			if local_x >= -24.0 and local_x < 24.0:
-				screen_index = 2
-			elif local_x >= 24.0:
-				screen_index = 3
-			frame_screens[screen_index] = int(frame_screens.get(screen_index, 0)) + 1
-	_check("interactive_roster", targets.size() == 7
+	_check("interactive_roster", targets.size() == 4
 		and not ids.has("plane") and ids.has("slide") and ids.has("swing")
 		and ids.has("seesaw") and ids.has("castle_gate"))
-	_check("one_frame_per_screen",
-		int(frame_screens.get(1, 0)) == 1
-		and int(frame_screens.get(2, 0)) == 1
-		and int(frame_screens.get(3, 0)) == 1)
+	_check("mismatched_lawn_picture_frames_removed",
+		not ids.has("runway_frame")
+		and not ids.has("playground_frame")
+		and not ids.has("castle_frame"))
 
 	# Each playground toy owns a purpose-built four-frame Roshan sequence.
 	# The one existing Roshan Sprite3D swaps textures, so the animation adds
@@ -357,9 +345,9 @@ func _init() -> void:
 	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
 	var equipment_fits_lawn := (
 		slide_node != null and swing_node != null and compact_seesaw != null
-		and slide_node.texture.get_height() * slide_node.pixel_size <= 12.01
-		and swing_node.texture.get_height() * swing_node.pixel_size <= 11.01
-		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.21)
+		and slide_node.texture.get_height() * slide_node.pixel_size <= 11.41
+		and swing_node.texture.get_height() * swing_node.pixel_size <= 11.81
+		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.51)
 	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
 	var slide_rect: Rect2 = _opaque_world_rect(slide_node)
 	var swing_rect: Rect2 = _opaque_world_rect(swing_node)
@@ -380,7 +368,9 @@ func _init() -> void:
 		not (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
 		and roshan_card.texture != idle_texture
 		and roshan_card.position != swing_start
-		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z)
+		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
+		and is_equal_approx(roshan_card.scale.x, 1.38)
+		and absf(roshan_card.position.x - swing_node.position.x) < 0.2)
 	promenade._finish_playground_animation()
 	_check("swing_has_grip_pose_arc_animation", swing_animates)
 
@@ -427,25 +417,18 @@ func _init() -> void:
 		roshan_card.texture == idle_texture
 		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
 
-	var runway_frame: Dictionary = {}
-	for value in targets:
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == "runway_frame":
-			runway_frame = target
-			break
-	var frame_node: Node3D = runway_frame.get("node") as Node3D
-	var cam: Camera3D = main.player.cam
-	var frame_screen: Vector2 = cam.unproject_position(frame_node.global_position)
-	main._lagoon_promenade_ref().handle_touch(frame_screen)
+	var swing_screen: Vector2 = lens.unproject_position(swing_node.global_position)
+	main._lagoon_promenade_ref().handle_touch(swing_screen)
 	var first_press_ok: bool = (
-		String(main.g.get("lagoon_promenade_focus", "")) == "runway_frame"
-		and main.mg_kind == "")
-	_check("frame_first_press_highlights", first_press_ok)
-	main._lagoon_promenade_ref().handle_touch(frame_screen)
+		String(main.g.get("lagoon_promenade_focus", "")) == "swing"
+		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
+	_check("toy_first_press_highlights", first_press_ok)
+	main._lagoon_promenade_ref().handle_touch(swing_screen)
 	await process_frame
-	_check("frame_second_press_opens", main.mg_kind == "snowman")
-	if main.mg_kind != "":
-		main._mg2d_close()
+	_check("toy_second_press_plays",
+		String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
+			"kind", "")) == "swing")
+	promenade._finish_playground_animation()
 	await _frames(2)
 
 	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at

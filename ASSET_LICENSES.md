@@ -522,3 +522,18 @@ ambientCG (all CC0).
   castle and drawbridge. The window contents are the exact owner-supplied
   stained-glass reference, deterministically fitted inside the existing gold
   frame with no pixel changes elsewhere on the castle card.
+
+## Sky Lagoon playground fit revision (Codex, 2026-07-29)
+- `assets_src/sky_lagoon/playground_revision_2026-07-29/**` — project-original
+  OpenAI built-in image-generation sources and prompt ledger derived only from
+  project-owned Sky Lagoon and Mermaid Roshan references. License:
+  project-generated art; external references: none.
+- `assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png` —
+  project-original single-seat mermaid swing generated with Codex built-in
+  image generation; chroma removed locally and downsampled once from the
+  preserved 1338×1176 alpha master to a 655×576 mobile runtime Sprite3D card.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`
+  and `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c{0,1}.png`
+  — the approved 6144×2048 panorama and two affected lossless runtime tiles,
+  rebuilt with a project-original localized Codex image edit that removes the
+  oversized conifer stamp at the screen-one/screen-two bush transition.

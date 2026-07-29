@@ -60,13 +60,12 @@ class Element:
 
 ELEMENTS = (
 	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.104, -16.0, "sky", "painted_underside"),
-	Element("activity_frame_v3", "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png", 10.397, -5.0),
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
-	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 8.997, -6.0),
-	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 9.815, -6.0),
+	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
+	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
 	Element("castle_stained_glass", "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png", 27.710, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
-	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 3.435, -6.0),
+	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
 	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 8.197, -9.0, "ground", "painted_underside"),
 )
 
@@ -180,11 +179,8 @@ def contact_shadow_ok(element: Element, metrics: dict[str, float], source: str) 
 		and "func _add_contact_shadow" in source
 		and "func _sync_contact_shadow" in source
 	)
-	if element.name == "activity_frame_v3":
-		required = required and "_add_contact_shadow(pos, 4.65, FRAME_H)" in source
-	else:
-		asset_name = Path(element.path).name
-		required = required and asset_name in source
+	asset_name = Path(element.path).name
+	required = required and asset_name in source
 	return required
 
 
