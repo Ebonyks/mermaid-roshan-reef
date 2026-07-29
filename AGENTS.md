@@ -8,6 +8,26 @@ The book art and recorded family voices are irreplaceable — never modify,
 recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
+## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
+The project is in art finalization, not open-ended redesign. Conserve the
+generation budget by reusing approved art that already exists whenever it
+can meet the need efficiently.
+
+- Before generating or commissioning new art, inventory the relevant
+  existing assets and source masters in this repository.
+- Prefer direct reuse, shared components, or non-destructive derived
+  variants when existing art already meets the gameplay, storybook-style,
+  child-readability, licensing, technical, and performance requirements.
+- Do not regenerate or redesign approved art merely for novelty, preference,
+  or stylistic exploration. Keep established character and environment
+  designs stable while the artistic design is being finalized.
+- Generate new art only when no suitable reusable asset exists, or when
+  reuse would materially fail the intended purpose or quality bar. Record
+  the specific gap in the task or commit and limit generation to that gap.
+- Reuse never permits destructive edits to protected originals, license or
+  provenance violations, or bypassing the project's asset constraints.
+  Store derived variants at new paths and preserve their source attribution.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (~6.8k lines as of 2026-07-18; still
   the state owner — see Refactor rules. Target <2.5k; remaining bulk is
