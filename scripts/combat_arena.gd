@@ -7,6 +7,7 @@ extends Node3D
 const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
 var kind := "ice"
@@ -130,13 +131,14 @@ func _build_octagon() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = avatar_tex
-	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
+	avatar.pixel_size = 6.2 / 256.0
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.no_depth_test = false
 	avatar.position = player_pos
 	add_child(avatar)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	avatar.add_child(animator)
+	animator.setup_sprite_3d(avatar, false, avatar)
 
 func _build_camera() -> void:
 	cam = Camera3D.new()

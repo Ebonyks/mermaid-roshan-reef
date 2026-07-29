@@ -547,3 +547,27 @@ ambientCG (all CC0).
   46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
   and Lanczos-downsampled from the accepted generated source for use as three
   staggered unshaded Sprite3D cards at the mountain cabin chimney.
+## assets/characters/roshan_25d/*.png
+- Source: project-authored runtime sprite atlases generated with OpenAI
+  built-in image generation on 2026-07-26 from five user-provided Mermaid
+  Roshan multi-view reference PNGs; prompt specifications and generation
+  identifiers are recorded in `assets/characters/roshan_25d/PROMPTS.md` and
+  `assets/characters/roshan_25d/PROMPTS_4X.md`
+- License: project original; reference images supplied by the project owner
+- URL: none (project-local user references and project generation)
+- Modifications: flat green chroma background removed with the Codex
+  image-generation helper using soft matte and despill; accepted atlases
+  resampled with Lanczos to power-of-two 1024x512 or 1024x1024; the
+  256x256 base portrait is a lossless crop of directional frame 0
+
+## assets/props/story/play_swing_{frame,seat}.png
+- Source: project-authored runtime sprite layers generated with OpenAI
+  built-in image generation on 2026-07-28; the owner-provided Mermaid Roshan
+  front-view PNG informed style only. Exact prompts and generation identifiers
+  are recorded in `assets/props/story/play_swing_PROMPT.md`
+- License: project original; style reference supplied by the project owner
+- URL: none (project-local user reference and project generation)
+- Modifications: flat magenta chroma background removed with the Codex
+  image-generation helper using a soft matte and one-pixel edge contraction;
+  cutouts tightly cropped and Lanczos-resampled to 1024x719 (frame) and
+  554x1024 (seat/ropes)

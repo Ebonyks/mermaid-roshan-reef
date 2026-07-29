@@ -134,6 +134,34 @@ func _init() -> void:
 		_bad("manual movement did not cancel assisted movement")
 	_up(2, fingers[2])
 
+	# A selected world point must drive the authored swim loop for the whole
+	# physical approach. Begin during an idle gesture to catch pose-priority
+	# regressions where Roshan slides toward the tap in a held frame.
+	main.player.play_verb("look")
+	var swim_start: Vector3 = main.player.position
+	var swim_forward := Vector3(
+		sin(float(main.player.yaw)), 0.0,
+		cos(float(main.player.yaw)))
+	main._tap_move_ref().start(swim_start + swim_forward * 16.0)
+	var observed_swim_frames: Dictionary = {}
+	for swim_test_frame in range(100):
+		await process_frame
+		var sheet: String = String(main.player.classic_sprite_sheet)
+		if sheet == "swim_front" or sheet == "swim_back":
+			observed_swim_frames[int(main.player.classic_sprite.frame)] = true
+		if not bool(main.touch_auto_active) and swim_test_frame > 12:
+			break
+	var swim_distance: float = Vector2(
+		main.player.position.x - swim_start.x,
+		main.player.position.z - swim_start.z).length()
+	if swim_distance < 1.5:
+		_bad("tap-to-move swim animation test did not physically move Roshan")
+	if observed_swim_frames.size() < 2:
+		_bad("tap-to-move did not display a looping swim atlas: %s" \
+			% observed_swim_frames)
+	main._tap_move_ref().cancel("probe complete")
+	main.player.verb = ""
+
 	# Runtime rollback: Classic produces no world taps and restores tap-action.
 	main._set_touch_mode("classic", false)
 	var tap_count: int = taps.size()

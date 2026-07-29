@@ -76,11 +76,13 @@ func _init() -> void:
 	_ck("shell-clasp gates guard both landings, closed", opera.gates.size() == 2 and not bool(opera.gates[0]["open"]) and not bool(opera.gates[1]["open"]))
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
-	# costumes are bone-attached to the REAL rigged player (puppet mode), not
-	# floating act props — the act must dress her and put her on stage
-	_ck("act one dresses Roshan in a bone-attached costume",
-		act != null and String(main.player.costume_id) == "chef" and main.player.costume_nodes.size() > 0)
-	_ck("act one puts the real 3D Roshan on stage", bool(main.player.puppet) and main.player.visible)
+	# Career ids remain on the real sprite player in puppet mode; no model or
+	# bone attachment may replace the animated Roshan atlas on stage.
+	_ck("act one dresses the primary Roshan sprite",
+		act != null and String(main.player.costume_id) == "chef"
+		and main.player.classic_sprite.visible)
+	_ck("act one puts the real 2.5D Roshan on stage",
+		bool(main.player.puppet) and main.player.visible)
 	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
@@ -137,7 +139,7 @@ func _init() -> void:
 	_ck("finished door wears a gold star", (main.opera_stars & 1) == 1)
 	_ck("one star counts one cleared act", main.opera_progress == 1)
 	_ck("the costume comes off backstage",
-		String(main.player.costume_id) == "" and main.player.costume_nodes.is_empty() and not bool(main.player.puppet))
+		String(main.player.costume_id) == "" and not bool(main.player.puppet))
 	# leaving keeps every star; the next visit still shows it
 	opera._leave_early()
 	await process_frame

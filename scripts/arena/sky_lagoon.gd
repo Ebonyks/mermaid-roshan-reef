@@ -36,6 +36,9 @@ const OCEAN_KINGDOM_GATE_DEFS := [
 		"color": Color(0.48, 0.82, 1.0), "rune": "❄\n🐋"},
 ]
 const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
+const SWING_FRAME_TEXTURE := preload("res://assets/props/story/play_swing_frame.png")
+const SWING_SEAT_TEXTURE := preload("res://assets/props/story/play_swing_seat.png")
+const SWING_ANGULAR_SPEED := 2.5
 const FORBIDDEN_GROUND_LEAF_ROLES := ["grass_leafsLarge", "trop_bigleaf"]
 const LAGOON_GROUND_FLORA := [
 	"lagoon_shrub_salal_a",
@@ -210,6 +213,88 @@ func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
 	counts[name] = int(counts.get(name, 0)) + 1
 	m.g["lagoon_art_counts"] = counts
 	return prop
+
+
+func _swing_sprite(pos: Vector3, target: float, yaw: float) -> Node3D:
+	# The touched legacy swing GLB is retired here: the frame and each hanging
+	# seat are flat storybook cutouts. Separating the rider seat gives the
+	# playground controller one real pivot to share with Roshan's arc.
+	var root := Node3D.new()
+	root.name = "LagoonPlaySwing2D"
+	root.position = pos
+	root.rotation.y = yaw
+	root.set_meta("lagoon_art_role", "lagoon_play_swing")
+
+	var frame := Sprite3D.new()
+	frame.name = "FrameSprite"
+	frame.texture = SWING_FRAME_TEXTURE
+	frame.shaded = false
+	frame.double_sided = true
+	frame.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	frame.pixel_size = 1.0
+	var frame_height: float = target * 0.75
+	frame.scale = Vector3(
+		target / float(SWING_FRAME_TEXTURE.get_width()),
+		frame_height / float(SWING_FRAME_TEXTURE.get_height()),
+		1.0)
+	frame.position = Vector3(0.0, frame_height * 0.5, 0.08)
+	root.add_child(frame)
+
+	var arm: float = target * 0.53
+	var seat_width: float = target * 0.20
+	var seat_offset: float = target * 0.185
+	# The painted sitting surface begins at row 860 of the 1024px layer;
+	# scale to that landmark (not the decorative shell below it) so the
+	# runtime arm endpoint is visibly on the seat.
+	var seat_surface_pixels := 860.0
+	var seat_y_scale: float = arm / seat_surface_pixels
+	var seat_visual_height: float = float(SWING_SEAT_TEXTURE.get_height()) \
+		* seat_y_scale
+	for seat_index in range(2):
+		var pivot := Node3D.new()
+		pivot.name = "RiderSeatPivot" if seat_index == 0 else "OpenSeatPivot"
+		pivot.position = Vector3(
+			seat_offset if seat_index == 0 else -seat_offset,
+			frame_height,
+			0.0)
+		var seat := Sprite3D.new()
+		seat.name = "SeatSprite"
+		seat.texture = SWING_SEAT_TEXTURE
+		seat.shaded = false
+		seat.double_sided = true
+		seat.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		seat.pixel_size = 1.0
+		seat.scale = Vector3(
+			seat_width / float(SWING_SEAT_TEXTURE.get_width()),
+			seat_y_scale,
+			1.0)
+		seat.position = Vector3(0.0, -seat_visual_height * 0.5, 0.02)
+		pivot.add_child(seat)
+		root.add_child(pivot)
+		if seat_index == 0:
+			root.set_meta("swing_rider_pivot", pivot)
+		else:
+			root.set_meta("swing_open_pivot", pivot)
+
+	m.add_child(root)
+	m.game_nodes.append(root)
+	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
+	counts["lagoon_play_swing"] = int(counts.get("lagoon_play_swing", 0)) + 1
+	m.g["lagoon_art_counts"] = counts
+	return root
+
+
+func _set_swing_sprite_angle(swing: Node3D, angle: float) -> void:
+	if swing == null:
+		return
+	var rider_pivot: Node3D = swing.get_meta("swing_rider_pivot", null) as Node3D
+	if is_instance_valid(rider_pivot):
+		# A down-pointing local arm needs -angle to travel along +local Z,
+		# the same fwd direction used by Roshan's pendulum position.
+		rider_pivot.rotation.x = -angle
+	var open_pivot: Node3D = swing.get_meta("swing_open_pivot", null) as Node3D
+	if is_instance_valid(open_pivot):
+		open_pivot.rotation.x = angle * 0.12
 
 
 func _lagoon_tree(name: String, pos: Vector3, target_height: float,
@@ -510,11 +595,10 @@ func _build_pearl_castle(o: Vector3) -> void:
 	_build_lagoon_bank_dressing(o)
 	# ---------- Phase 4b: PLAYGROUND corner + park dressing ----------
 	# a real play-place on the east meadow: slide, swings, merry-go-round,
-	# seesaw, sandbox and a spring horse — all authored lagoon_play_* models
-	# from tools/build_sky_lagoon_quality_kit.py (the former Tiny Treats CC0
-	# imports were replaced in the accepted 2026-07-20 quality pass). Pure
-	# toy, no objectives — and the sandbox stays non-solid on purpose so
-	# Roshan can plop right into it.
+	# seesaw, sandbox and a spring horse. The touched swing is now layered 2D
+	# sprite art; untouched legacy props await their own 2D migrations. Pure
+	# toy, no objectives — and the sandbox stays non-solid so Roshan can plop
+	# right into it.
 	# [name, local pos, footprint, y-rot, solid radius, solid half-height]
 	# owner 2026-07-11: toys sized for ROSHAN (she is ~7 units) so riding them
 	# reads true, and each records a play anchor for the play-moments below.
@@ -538,11 +622,17 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var pgy: float = _lagoon_local(pgx, pgz)
 		var tgt: float = float(row[2])
 		var tyrot: float = float(row[3])
-		var tnode: Node3D = _lagoon_prop(String(row[0]),
-			o + Vector3(pgx, pgy - 0.3, pgz), 1.0, tyrot)
+		var kind: String = String(row[6])
+		var prop_pos := o + Vector3(pgx, pgy - 0.3, pgz)
+		var tnode: Node3D
+		if kind == "swing":
+			# The cutout is ground-aligned already; unlike the old GLB it does
+			# not need the shared 0.3-unit sculpt sink.
+			tnode = _swing_sprite(o + Vector3(pgx, pgy, pgz), tgt, tyrot)
+		else:
+			tnode = _lagoon_prop(String(row[0]), prop_pos, 1.0, tyrot)
 		if float(row[4]) > 0.0:
 			m._cyl_solid(o + Vector3(pgx, pgy + float(row[5]), pgz), float(row[4]), float(row[5]), 0.6)
-		var kind: String = String(row[6])
 		var base := o + Vector3(pgx, pgy, pgz)
 		var fwd := Vector3(sin(tyrot), 0, cos(tyrot))
 		var left := Vector3(cos(tyrot), 0, -sin(tyrot))
@@ -1943,9 +2033,12 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 		match kind:
 			"swing":
 				# a real pendulum about the top bar: the arc pumps up, flies,
-				# then settles before she hops off; the frame rocks in sync
+				# then settles before she hops off. Roshan, the rider seat and
+				# her authored four-frame pose all consume this exact phase.
 				var amp: float = 0.45 * smoothstep(0.0, 1.6, tt) * (1.0 - smoothstep(dur - 1.1, dur - 0.15, tt))
-				var th: float = amp * sin(tt * 2.5)
+				var swing_phase: float = fposmod(
+					tt * SWING_ANGULAR_SPEED, TAU) / TAU
+				var th: float = amp * sin(swing_phase * TAU)
 				# measured: the top bar sits at 0.75 of the footprint (14 units
 				# up), the painted seats hang at 0.22 — a 0.53 rope. She rides
 				# a SEAT (offset from the frame centre), not the empty middle.
@@ -1955,8 +2048,8 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 				lean = th
 				var sw: Node3D = toy["node"]
 				if is_instance_valid(sw):
-					sw.rotation.x = th * 0.05
-				pl.toy_pose("swing", tt, th)
+					_set_swing_sprite_angle(sw, th)
+				pl.toy_pose("swing", tt, swing_phase)
 			"slide":
 				# up the ladder hop by hop, a beat at the top, then down the
 				# chute on a curve that hugs the slope — and a proud landing
@@ -2098,7 +2191,9 @@ func _tick_toys(delta: float, ppos: Vector3) -> void:
 			pl.rotation.x = 0.0
 			var tn: Node3D = toy["node"]
 			if is_instance_valid(tn):
-				if kind == "swing" or kind == "horse":
+				if kind == "swing":
+					_set_swing_sprite_angle(tn, 0.0)
+				elif kind == "horse":
 					tn.rotation.x = 0.0
 				if tn.has_meta("toy_tw"):
 					(tn.get_meta("toy_tw") as Tween).play()   # ambient toy motion resumes

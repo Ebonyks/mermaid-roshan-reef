@@ -453,10 +453,10 @@ var wreck_pos := Vector3.ZERO
 var shop_cool := 0.0
 var treasure_cool := 0.0
 # Cosmetics are full alternative skins (mutually exclusive), chosen at the bedroom wardrobe.
-# "classic" is the default 3D Roshan; others swap her to a full-skin billboard.
+# "classic" is the animated 2.5D Roshan; other looks keep their existing paths.
 # (The Fairy Mermaid is NOT a wardrobe skin — it is Roshan's look inside the Fairy Pond game.)
 const SKINS := [
-	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
+	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_25d/roshan_base.png", "sprite": ""},
 	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": "res://assets/characters/skins/fairy_mermaid.png"},
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
@@ -3112,7 +3112,7 @@ var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
 var speech_t := 0.0
 const SPEAKER_PORTRAIT := {
-	"roshan": "res://assets/characters/roshan_sprite.png",
+	"roshan": "res://assets/characters/roshan_25d/roshan_base.png",
 	"huluu": "res://assets/characters/friends/huluu.png",
 	"evie": "res://assets/characters/friends/mama_baby.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
@@ -3120,10 +3120,10 @@ const SPEAKER_PORTRAIT := {
 	"daddy": "res://assets/characters/friends/daddy.webp",
 	"wacky": "res://assets/characters/friends/wacky_chuck.png",
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
-	"shop": "res://assets/characters/roshan_sprite.png",
+	"shop": "res://assets/characters/roshan_25d/roshan_base.png",
 	"sparkle": "res://assets/book/baby_eagle.png",
 	"rosalina": "res://assets/characters/skins/fairy_mermaid.png",
-	"everyone": "res://assets/characters/roshan_sprite.png"}
+	"everyone": "res://assets/characters/roshan_25d/roshan_base.png"}
 
 func _flash_speaker_icon(who: String) -> void:
 	if speech_layer == null:
@@ -3832,7 +3832,7 @@ func _skin_def(id: String) -> Dictionary:
 	return SKINS[0]
 
 func _apply_skin() -> void:
-	# swap Roshan's whole appearance to the chosen skin (classic = 3D model)
+	# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)
 	if player == null:
 		return
 	var s := _skin_def(skin_id)
@@ -6653,7 +6653,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"   # classic
+	return "res://assets/characters/roshan_25d/roshan_base.png"   # classic
 
 var _pad_prev_a := false
 var _pad_prev_b := false
