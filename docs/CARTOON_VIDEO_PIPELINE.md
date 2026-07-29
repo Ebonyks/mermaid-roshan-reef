@@ -101,37 +101,51 @@ accepted `.ogv` into `assets/` when it is ready to ship. In the same commit:
 
 Do not commit the MP4 review copy unless it has an explicit project purpose.
 
-## Opening-cinematic V2 regeneration
+## Opening-cinematic frame regeneration
 
-The current opening test can be rebuilt non-destructively from its approved 2D
-storyboard art:
+Owner decision 2026-07-29: every defective delivery frame is repaired as a
+complete image using the current approved Codex storybook image-generation
+style. The production sequence may not be repaired with tweening, optical flow,
+morphing, cross-dissolves, sprites, chroma-key composites, rigs, layer
+translation, procedural warps, or duplicated frames that conceal action.
+
+`tools/regenerate_opening_cinematic.py` and its dense/sparse/adaptive pose-reuse
+profiles are historical comparison tools only. Their hold-and-reuse strategy is
+not allowed to create a new review or delivery master.
+
+For each failed frame:
+
+1. lock its timeline index, direction, accepted adjacent full frames, character
+   or object references, and required continuity invariants;
+2. create the prompt and hashed generation-reference job before generation
+   with `tools/create_cinematic_regeneration_job.py`;
+3. generate a new complete frame, never a cutout or partial delivery layer;
+4. record candidate, neighbor, prompt, attempt, and mask hashes in a
+   `cinematic-frame-regeneration-v1` manifest;
+5. complete identity, topology, style, and neighbor-continuity human review;
+6. run the frame-regeneration audit; and
+7. replace only that exact failed timeline frame after it passes.
+
+An ignored sprite/chroma composite may be used as `POSITION_GUIDE_ONLY`. Its
+only authority is normalized object position. It must never supply design,
+anatomy, silhouette, lighting, texture, background, or delivered pixels.
+Generator-facing guides use a neutral field; do not embed the clean plate or an
+accepted scene background in them.
+
+Audit a repair manifest with:
 
 ```powershell
-python tools/regenerate_opening_cinematic.py `
-  build/cartoons/opening_cinematic_test.ogv `
-  build/cartoons/opening_cinematic_v2_frames `
-  --profile adaptive
-
-tools/encode_cartoon.cmd `
-  build/cartoons/opening_cinematic_v2_frames `
-  build/cartoons/opening_cinematic_v2.ogv `
-  -Fps 24 `
-  -NoAudio `
-  -ReviewMp4
+python tools/audit_cinematic.py `
+  build/cartoons/opening_first5_review.ogv `
+  --frame-regeneration-manifest `
+  build/cartoons/opening_first5_frame_regeneration.json `
+  --report build/cartoons/opening_first5_frame_regeneration_report.json
 ```
 
-The script implements the approved 42.5-second rhythm contract, excludes the
-landing-wheel/runway insert and incorrect final hand release, removes production
-labels, withholds the destination in the opening sky, and retains the accepted
-final handhold. It records exact source-frame reuse and derived repairs in
-`provenance.json`. No generator or voice synthesis is involved.
-
-Profiles are intended for review comparisons:
-
-- `dense`: preserves more source poses but also more temporal redraw noise;
-- `sparse`: maximizes calm but omits useful acting information;
-- `adaptive`: preserves the key acting windows and gives anticipation/settle
-  drawings longer holds.
+The audit hard-fails missing or mismatched hashes, non-full-frame generation,
+forbidden temporal techniques, undeclared holds, insufficient human review,
+position-guide pixel reuse, invalid subject masks, and subject-center drift
+past the declared tolerance.
 
 ## Automatic audit evidence
 
@@ -147,10 +161,11 @@ python tools/audit_cinematic.py `
 ```
 
 The analyzer materializes the displayed frame timeline before measuring it.
-This matters for Theora: repeated held drawings can be stored as fewer coded
-packets with timestamp gaps, so `nb_read_frames` is not necessarily the number
-of displayed frames. Production acceptance still requires a completed manifest,
-human scene/passport scores, and target-device playback evidence.
+This matters for Theora: decoded-frame reporting may be shorter than the
+declared constant-rate display timeline. Transition metrics are evidence only;
+they cannot approve a frame-regeneration method. Production acceptance still
+requires the frame-regeneration manifest, scene manifest, human
+scene/passport scores, and target-device playback evidence.
 
 ## References
 

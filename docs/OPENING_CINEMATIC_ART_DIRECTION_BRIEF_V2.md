@@ -476,9 +476,15 @@ parallax, and screen direction faithfully in the production medium.
 
 ## Production-AI staging constraints
 
-### Persistent layers
+### Persistent references (production method superseded 2026-07-29)
 
-Create and version these once:
+The list below remains useful as a consistency-reference inventory only. Do
+not composite these items as sprites or layers into delivery frames. The owner
+requires each defective action frame to be regenerated as a complete flattened
+image in the current polished image-generation style. A neutral-field chroma
+guide may communicate subject position only.
+
+Create and version these references once:
 
 - cabin background plate with exactly two seats;
 - Roshan canonical 2D body, face base, hair, rainbow streak, hands, tail, fluke,

@@ -1,0 +1,9 @@
+Generate cinematic frame {frame06} as a brand-new complete flattened full-frame image in the exact current polished 2D storybook image-generation style and the same landscape aspect ratio.
+
+Reference 1 is accepted frame {previous_frame06}. It is the sole authority for the pearl airplane's design, scale, topology, lavender outlines, teal stripe, shell emblem, three visible round cabin windows, cockpit, wing, lighting, painted cloud-sea background, camera, and overall style.
+
+Reference 2 is explicitly POSITION_GUIDE_ONLY. Use only its target airplane location: the rightmost nose edge should be at approximately x={target_edge} on a {canvas_width}-pixel-wide canvas, at the same height as frame {previous_frame06}. Ignore its green/pink colors, flat silhouette styling, labels, neutral background, and every other visual property.
+
+Advance the airplane smoothly and evenly to screen-right by approximately {delta} pixels from frame {previous_frame06}, whose accepted nose edge is x={previous_edge}. Do not move it vertically, rotate it, change its scale, change its perspective, flex a wing, alter window count, alter the nose, or change the shell emblem. Keep the camera locked. Preserve the same open cloud sea with no island, castle, land, text, border, or production labels.
+
+Generate every pixel as a new coherent full-frame image. Do not return a cutout, sprite, chroma composite, pasted subject, translated layer, tween, warp, optical-flow result, cross-dissolve, duplicated frame, or partial edit.

@@ -8,6 +8,12 @@ animation rather than a sequence of independently attractive images.
 
 It is the companion to `CINEMATIC_DIRECTION_AND_INTENT_PROTOCOL.md`.
 
+Owner decision 2026-07-29: cinematic repair uses complete frame-by-frame Codex
+image regeneration. Tweening, interpolation, sprites, composited cutouts, and
+other temporal production shortcuts are not repair techniques. A disposable
+composite may serve only as a position-only input reference to the image
+generator. `AGENTS.md` is authoritative if older wording conflicts.
+
 - The **Cinematic Direction and Intent Protocol** decides what a scene should
   mean, feel like, show, and hold.
 - This **Temporal Animation Integrity and Quality Gate Protocol** proves that
@@ -292,13 +298,21 @@ The OGV pipeline remains responsible for:
 - audio synchronization, dialogue intelligibility, and loudness; and
 - source integrity and provenance.
 
-Use **24 fps delivery** as the artistic baseline once target-device tests prove
-it is viable. This does not require uniform motion every displayed frame:
+After artistic acceptance, production may apply one whole-canvas resolution,
+padding, pixel-format, and encoding transform to each complete flattened
+generated frame. Preserve each native generation and hash, audit motion in
+normalized coordinates first, and never use production normalization to
+isolate, move, resize, mask, warp, or repair a subject.
 
-- use held or on-twos animation for intentional calm and simple acting;
-- use unique 24 fps motion for camera movement, turns, contacts, close acting,
-  and fast gestures; and
-- never use a lower cadence to conceal temporal instability.
+Use **24 fps delivery** as the artistic baseline once target-device tests prove
+it is viable:
+
+- use an identical accepted frame only for stillness explicitly required by
+  the direction brief, and declare the hold and its purpose in the manifest;
+- use individually accepted complete generated frames for every changed frame
+  in camera movement, turns, contacts, close acting, and gestures; and
+- never use a hold, lower cadence, or derived inbetween to conceal missing
+  motion or temporal instability.
 
 ## Repair protocol
 
@@ -308,12 +322,19 @@ it is viable. This does not require uniform motion every displayed frame:
    Intent Protocol before attempting visual repair.
 3. Otherwise, identify the smallest coherent repair window.
 4. Lock approved boundary frames, camera, background, object IDs, masks, depth
-   ordering, and valid character landmarks.
-5. Repair only the affected layers/objects whenever possible; never regenerate
-   the whole scene merely because one hand, face, or accessory failed.
-6. Re-run frame, triplet, action-window, scene, character-passport, and
+   ordering, valid character landmarks, and the exact target frame index.
+5. Regenerate each failed frame as one complete flattened image in the approved
+   Codex storybook generation style. Do not repair delivery frames by moving,
+   blending, warping, rigging, keying, or compositing layers.
+6. If object placement is uncertain, a disposable sprite/chroma composite may
+   be supplied to the generator as `POSITION_GUIDE_ONLY`. It controls only
+   normalized subject position. It supplies no final pixels or appearance and
+   must be recorded with `used_as_delivery_pixels: false`. Its footprint and
+   coordinate marks must sit on a neutral field; a scene plate or accepted
+   background may not be embedded in the guide.
+7. Re-run frame, triplet, action-window, scene, character-passport, and
    neighboring-transition gates affected by the repair.
-7. Escalate after two failed automated repair attempts. Repeated failure usually
+8. Escalate after two failed automated repair attempts. Repeated failure usually
    means the key pose, layout, model sheet, or direction is wrong.
 
 No repair may silently alter already accepted neighboring frames.
@@ -326,6 +347,12 @@ The implementation must support:
 - scene/shot boundary detection and reviewer overrides;
 - versioned Scene Direction Brief and rhythm-contract input;
 - per-frame landmark, mask, object-ID, camera, and contact annotations;
+- hashes for each full-frame candidate, prompt, accepted neighbors, and any
+  position-only guide;
+- blocking detection of forbidden temporal derivation methods and guide-pixel
+  reuse;
+- candidate and guide subject masks used only to measure normalized position,
+  never to impose the guide's design or silhouette;
 - pair/triplet/action-window temporal comparisons;
 - character-passport contact sheets across all production appearances;
 - defect taxonomy, scores, hard-fail codes, repair windows, and reviewer notes;
