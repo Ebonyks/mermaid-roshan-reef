@@ -239,29 +239,41 @@ func _init() -> void:
 			main._lagoon_promenade_ref()._activate(castle_target)
 			await _frames(10)
 		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
-		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
+		var rooms_a: CastleRooms25D = main._castle_rooms_ref()
+		var stage_ok: bool = hall_ok and rooms_a.is_open() \
+			and main.castle_room_world_root != null \
+			and main.castle_room_camera != null \
+			and main.castle_room_camera.projection \
+				== Camera3D.PROJECTION_PERSPECTIVE \
+			and main.touch_interactables.is_empty()
+		print("AUDIT|Level 2 castle Sprite3D stage: ",
+			("OK" if stage_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
-			" mg_kind=", main.mg_kind)
-		# music room xylophone: ring a bar directly — art pass 3.5 swapped the
-		# bars for GLB props and the strike sparkle once crashed reading
-		# material_override off the prop root (any SCRIPT ERROR here fails CI)
-		var bells_a: Array = main.g.get("bells", [])
-		print("AUDIT|music bells built: ", ("OK" if bells_a.size() == 7 else "FAIL"))
-		if bells_a.size() > 0:
-			main._ring_bell(bells_a[0])
-			await _frames(20)
-			print("AUDIT|music bell rings without error: OK")
-		var hf := 0
-		# the Crown Star celebrates IN PLACE now (owner 2026-07-12: winning
-		# must not eject Roshan from her own castle) — drive to the crown,
-		# then assert the WIN STATE (crown_won + saved level2 flag), not the
-		# old return-to-ocean that the redesign explicitly removed
-		while main.game == "level2" and not bool(main.g.get("crown_won", false)) and hf < 60 * 60:
-			hf += 1
-			var cr: Node3D = main.l2_stars[0]["node"]
-			player.position = player.position.lerp(cr.position, 0.16)
-			player.vel = Vector3.ZERO
-			await process_frame
+			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+		# The hall phase must not construct the retired model-based interior or
+		# its physical navigation/interaction state.
+		var legacy_hall_absent: bool = main.game_nodes.is_empty() \
+			and main.arena_solids.is_empty() \
+			and main.arena_zones.is_empty()
+		for retired_key: String in [
+			"hall_exit", "bed_pos", "stand_chest", "toilet", "dungeon_gate",
+			"craft_easel", "wardrobe", "song_star", "secret_door",
+			"hall_touch", "bells", "opera_gate"]:
+			legacy_hall_absent = legacy_hall_absent \
+				and not main.g.has(retired_key)
+		print("AUDIT|retired 3D castle absent: ",
+			("OK" if legacy_hall_absent else "FAIL"))
+		var elevator_ok: bool = main.castle_room_buttons.size() == 8 \
+			and main.castle_room_buttons.has("opera_hall") \
+			and main.castle_room_buttons.has("bubble_bath")
+		print("AUDIT|castle elevator has all rooms: ",
+			("OK" if elevator_ok else "FAIL"))
+		# The Main Hall action celebrates in place and records the win without
+		# switching back to the free-roaming world.
+		if stage_ok:
+			rooms_a.show_room("main_hall", false)
+			rooms_a.activate_current_room()
+			await _frames(4)
 		print("AUDIT|Level 2 finish: ", ("OK" if bool(main.g.get("crown_won", false)) and bool(main.save_data.get("level2", false)) else "FAIL"))
 	for i2 in range(60):
 		await process_frame

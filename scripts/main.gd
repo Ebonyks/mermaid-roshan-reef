@@ -196,6 +196,30 @@ var companion_gift: Node3D = null         # Huluu's gift box beside the Crown St
 var companion_room: Node3D = null         # the Stuffie Studio on the castle's Dreaming Floor
 var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
+var castle_room_layer: CanvasLayer = null
+var castle_room_stage: Control = null
+var castle_room_world_root: Node3D = null
+var castle_room_camera: Camera3D = null
+var castle_room_background: Sprite3D = null
+var castle_room_background_tiles: Array[Sprite3D] = []
+var castle_room_mid_layer: Node3D = null
+var castle_room_front_layer: Node3D = null
+var castle_room_item_visual_layer: Node3D = null
+var castle_room_item_effect_layer: Node3D = null
+var castle_room_item_hotspot_layer: Control = null
+var castle_room_door_hotspot_layer: Control = null
+var castle_room_door_hotspots: Array[Dictionary] = []
+var castle_room_item_sprites: Dictionary = {}
+var castle_room_light_nodes: Array[Light3D] = []
+var castle_room_light_states: Dictionary = {}
+var castle_room_prop_sfx: AudioStreamPlayer = null
+var castle_room_player_sprite: Sprite3D = null
+var castle_room_player_shadow: Sprite3D = null
+var castle_room_action_button: Button = null
+var castle_room_menu_panel: Panel = null
+var castle_room_buttons: Dictionary = {}
+var castle_room_id := "main_hall"
+var castle_room_menu_open := false
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 # ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
@@ -2841,19 +2865,10 @@ func _end_opera(completed: bool) -> void:
 		player.cam.make_current()
 	if hud_layer != null:
 		hud_layer.visible = true
-	if g.has("opera_gate"):
-		var gate: Dictionary = g["opera_gate"]
-		# Stay outside the 4.5 entrance radius but leave enough room for the
-		# analytic wall/terrain correction to remain beside the marquee.
-		player.position = (gate["pos"] as Vector3) + Vector3(5.5, 0, 0)
-		player.vel = Vector3.ZERO
-		gate["armed"] = false
-		# A child often swims back across the marquee while reorienting toward
-		# the Dream Stars. Prevent an automatic Classic bounce for a while;
-		# Hybrid still permits a deliberate target tap immediately.
-		gate["cool"] = 20.0
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
+	if String(g.get("phase", "")) == "hall":
+		_castle_rooms_ref().resume("opera_hall")
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -3536,7 +3551,9 @@ func _populate_touch_interactables() -> void:
 	if String(g.get("phase", "")) == "promenade":
 		return
 	if String(g.get("phase", "court")) == "hall":
-		_populate_hall_touch_interactables()
+		# The castle room stage owns every interior touch target. Never rebuild
+		# the retired free-roaming hall's world-space interaction list behind it.
+		return
 	else:
 		_populate_courtyard_touch_interactables()
 
@@ -3553,9 +3570,6 @@ func _populate_courtyard_touch_interactables() -> void:
 	if g.has("northern_portal_pos"):
 		_touch_add_item("court:north", "Magic Cave", g["northern_portal_pos"],
 			g.get("northern_portal_rune") as Node3D, 8.0, 38.0, "ENTER")
-	if g.has("opera_gate"):
-		var opera_gate: Dictionary = g["opera_gate"]
-		_touch_add_item("court:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 34.0, "SHOW")
 	if galaxy_unlocked and bw_portal_pos != Vector3.ZERO:
 		_touch_add_item("court:galaxy", "Butterfly World", bw_portal_pos, null, 9.0, 38.0, "ENTER")
 	if ember_portal_pos != Vector3.ZERO:
@@ -3589,60 +3603,6 @@ func _populate_courtyard_touch_interactables() -> void:
 		if lagoon_floor:
 			castle_entry.y = lagoon_walk_h(castle_entry.x, castle_entry.z) + 2.0
 		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null, 20.0, 52.0, "ENTER")
-
-func _populate_hall_touch_interactables() -> void:
-	if g.has("bed_pos") and sleep_cool <= 0.0 and sleep_t < 0.0:
-		_touch_add_item("hall:bed", "Cozy Bed", g["bed_pos"], null, 7.0, 28.0, "SLEEP")
-	if not bool(g.get("stand_open", false)) and g.has("stand_chest"):
-		var stand: Node3D = g["stand_chest"]
-		if is_instance_valid(stand):
-			_touch_add_item("hall:stand", "Golden Star Stand", stand.position, stand, 11.0, 32.0, "OPEN")
-	if g.has("toilet"):
-		var toilet: Dictionary = g["toilet"]
-		_touch_add_item("hall:toilet", "Royal Loo", toilet["pos"], null, 5.0, 24.0, "PLAY")
-	if g.has("dungeon_gate"):
-		var dungeon_gate: Dictionary = g["dungeon_gate"]
-		_touch_add_item("hall:dungeon", "Castle Dungeon", dungeon_gate["pos"], null, 6.0, 28.0, "ENTER")
-	if g.has("opera_gate"):
-		# Owner 2026-07-27: the opera took over the left wing room FOR EXPOSURE,
-		# so its ring must carry the length of the Grand Hall (49 units from the
-		# hall centre to the stage door) instead of only lighting up once she is
-		# already inside the foyer. Same reach the front door gets in the court.
-		var opera_gate: Dictionary = g["opera_gate"]
-		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 9.0, 52.0, "SHOW")
-	# Unlike a proximity trigger, an explicit target cannot bounce Roshan back
-	# through the entrance accidentally, so it can be discoverable immediately.
-	if g.has("hall_exit"):
-		_touch_add_item("hall:exit", "Castle Courtyard", g["hall_exit"], null, 12.0, 34.0, "EXIT")
-	if g.has("craft_easel") and craft_layer == null:
-		_touch_add_item("hall:craft", "Craft Studio", g["craft_easel"], null, 7.0, 26.0, "MAKE")
-	if g.has("wardrobe") and wardrobe_layer == null:
-		_touch_add_item("hall:wardrobe", "Wardrobe", g["wardrobe"], null, 7.0, 26.0, "DRESS")
-	var bellgame: Dictionary = g.get("bellgame", {})
-	var bell_state: String = String(bellgame.get("state", ""))
-	if bell_state == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and g.has("song_star"):
-		_touch_add_item("hall:bell_song", "Music Star", g["song_star"], null, 7.0, 30.0, "PLAY")
-	var bells: Array = g.get("bells", [])
-	if bell_state != "play":
-		for bell_index in range(bells.size()):
-			var bell: Dictionary = bells[bell_index]
-			var bell_node: Node3D = bell.get("node") as Node3D
-			if is_instance_valid(bell_node):
-				_touch_add_item("hall:bell:%d" % bell_index, "Music Bell", bell_node.position,
-					bell_node, 5.0, 20.0, "RING", bell_index)
-	if g.has("secret_door") and bool(g.get("stand_open", false)):
-		_touch_add_item("hall:secret", "Daddy's Treasure Chest", g["secret_door"], null, 8.0, 26.0, "HUG")
-	if not bool(g.get("crown_won", false)) and not l2_stars.is_empty():
-		var crown: Node3D = (l2_stars[0] as Dictionary).get("node") as Node3D
-		if is_instance_valid(crown):
-			_touch_add_item("hall:crown", "Crown Star", crown.position, crown, 10.0, 38.0, "GET")
-	var hall_touch: Array = g.get("hall_touch", [])
-	for prop_index in range(hall_touch.size()):
-		var prop: Dictionary = hall_touch[prop_index]
-		var prop_node: Node3D = prop.get("node") as Node3D
-		_touch_add_item("hall:prop:%d" % prop_index, "Magic Castle Toy",
-			prop.get("pos", Vector3.ZERO), prop_node, maxf(5.0, float(prop.get("r", 4.0))),
-			maxf(16.0, float(prop.get("r", 4.0)) * 4.0), "TOUCH", prop_index)
 
 func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 	if not touch_uses_explicit_interactions():
@@ -3685,8 +3645,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_enter_northern_kingdom()
 		"north:return":
 			_enter_level2(false, true)
-		"court:opera", "hall:opera":
-			_start_opera()
 		"court:galaxy":
 			kart_from = "level2"
 			_start_galaxy()
@@ -3701,32 +3659,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_enter_castle_interior(true)
 		"court:castle":
 			_enter_castle_interior()
-		"hall:bed":
-			_begin_sleep()
-		"hall:stand":
-			_hall_ref().slide_stand()
-		"hall:toilet":
-			var toilet: Dictionary = g.get("toilet", {})
-			var toilet_player: AudioStreamPlayer = toilet.get("player") as AudioStreamPlayer
-			if is_instance_valid(toilet_player):
-				toilet_player.play()
-			if not combat_fire_done and combat_game == null:
-				_start_combat("fire")
-		"hall:dungeon":
-			_start_dungeon()
-		"hall:exit":
-			_return_to_courtyard()
-		"hall:craft":
-			_open_craft_studio()
-		"hall:wardrobe":
-			_open_wardrobe()
-		"hall:bell_song":
-			var song_game: Dictionary = g.get("bellgame", {})
-			_start_bellgame(song_game)
-		"hall:secret":
-			_play_hug_cutscene()
-		"hall:crown":
-			_hall_ref().award_crown(player.position)
 		_:
 			if id.begins_with("court:ocean:"):
 				var gate_index: int = int(payload)
@@ -3740,23 +3672,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 				# Arrival collection remains the familiar forgiving proximity
 				# reward; the tap supplies navigation, not a second requirement.
 				pass
-			elif id.begins_with("hall:bell:"):
-				var bell_index: int = int(payload)
-				var bells: Array = g.get("bells", [])
-				if bell_index >= 0 and bell_index < bells.size():
-					var bellgame: Dictionary = g.get("bellgame", {})
-					var bell_state: String = String(bellgame.get("state", ""))
-					if bell_state != "play":
-						var bell: Dictionary = bells[bell_index]
-						bell["cool"] = 0.12
-						_ring_bell(bell)
-						if bell_state == "echo":
-							_bellgame_echo(bellgame, bell_index)
-			elif id.begins_with("hall:prop:"):
-				var prop_index: int = int(payload)
-				var props: Array = g.get("hall_touch", [])
-				if prop_index >= 0 and prop_index < props.size():
-					_hall_ref()._fire_touch(props[prop_index])
 
 func _touch_open_picture(picture_index: int) -> void:
 	if picture_index < 0 or picture_index >= wall_pics.size():
@@ -5077,51 +4992,23 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
-	lagoon_floor = false   # the castle hall is flat indoor ground
+	lagoon_floor = false
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 90.0   # covers the bedroom, the new top chambers and the undercroft
-	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
-	# warm indoor castle light
-	var ie := Environment.new()
-	ie.background_mode = Environment.BG_COLOR
-	ie.background_color = Color(0.12, 0.10, 0.16)
-	ie.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	ie.ambient_light_color = Color(0.9, 0.82, 0.7)
-	ie.ambient_light_energy = 0.68
-	_wind_waker_bloom(ie, 0.48, 0.14, 1.12)   # the throne/lights bloom; walls and pale floors retain their value steps
-	ie.fog_enabled = true
-	ie.fog_light_color = Color(0.5, 0.42, 0.45)
-	ie.fog_density = 0.002   # 0.006 pink-hazed the whole hall and mushed the floor pattern into "spliced" blotches
-	arena_env = ie
-	_grade(ie)
-	we_node.environment = ie
-	_build_castle_hall(CASTLE_POS)
-	player.cam_back = 10.0   # pull the chase camera in so it does not clip the hall / back-room walls (diorama lens: 6.5 * ~1.55)
-	player.cam_high = 4.2
-	if from_back:
-		# the moat hatch is a SECRET back door: surface inside the treasure room
-		# behind the throne, where Daddy mermaid is waiting
-		player.position = CASTLE_POS + Vector3(4, 6, -44)
-		player.yaw = PI
-		player.vel = Vector3.ZERO
-		g["secret_armed"] = false   # don't fire the treasure-chest surprise on arrival
-		show_msg("", "Pssst... you found my secret door, Roshan! Welcome to the treasure room - Huluu is out on her throne!")
-		# Daddy's REAL recorded voice: no daddy.ogg base clip exists for the _say
-		# path, so direct-load like the hug cutscene. daddy2 keeps this line
-		# distinct from the hug's clip.
-		var dvo := AudioStreamPlayer.new()
-		dvo.stream = load("res://assets/audio/voices/daddy2.ogg")
-		dvo.bus = "Voice"
-		add_child(dvo)
-		dvo.play()
-		dvo.finished.connect(dvo.queue_free)
-	else:
-		player.position = CASTLE_POS + Vector3(0, 6, 24)
-		player.yaw = 0.0
-		player.vel = Vector3.ZERO
-		show_msg("Pearl Castle", "The Grand Hall! Princess Huluu is waiting up on the throne - climb the royal staircase!")
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
+	# The castle interior is exclusively the sprite-card room stage. Keep a
+	# harmless hidden player anchor for save/return continuity, but do not
+	# construct an Environment, meshes, colliders, lights, or the retired hall.
+	arena_dome = 24.0
+	arena_ceil = 12.0
+	player.position = CASTLE_POS + Vector3(0, 6, 24)
+	player.yaw = 0.0
+	player.vel = Vector3.ZERO
+	_castle_rooms_ref().open("main_hall")
+	show_msg("Pearl Castle",
+		"Choose a room in the shell elevator!" if not from_back
+		else "The secret shell door opens into the Main Hall!",
+		"home")
+	_say("roshan", "talk", 0.5)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	# a stained-glass grid of glowing coloured panels (no mermaid)
@@ -5228,21 +5115,20 @@ func _hang_portrait(pos: Vector3, rot_deg: Vector3, art: String) -> void:
 	add_child(pl)
 	game_nodes.append(pl)
 
-# Phase 7.2: the Grand Hall lives in scripts/arena/castle_hall.gd
-# (state stays here; CastleHall receives main by reference)
-var _castle_hall: CastleHall = null
+var _castle_rooms_25d: CastleRooms25D = null
 
-func _hall_ref() -> CastleHall:
-	if _castle_hall == null:
-		_castle_hall = CastleHall.new(self)
-	return _castle_hall
+func _castle_rooms_ref() -> CastleRooms25D:
+	if _castle_rooms_25d == null:
+		_castle_rooms_25d = CastleRooms25D.new(self)
+	return _castle_rooms_25d
 
-func _build_castle_hall(o: Vector3) -> void:
-	_hall_ref().build(o)
-	_hall_ref().build_expansion(o)
-
-func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
-	_hall_ref().tick(delta, ppos)
+func _tick_castle_rooms(delta: float) -> void:
+	# Phase "hall" now means the sprite-card castle exclusively. If an
+	# activity teardown returned without resuming its overlay, restore it here
+	# instead of falling back to the retired free-roaming 3D hall.
+	if not _castle_rooms_ref().is_open():
+		_castle_rooms_ref().open("main_hall")
+	_castle_rooms_ref().tick(delta)
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
@@ -5536,6 +5422,8 @@ func _l2_start_slide() -> void:
 
 func _return_to_courtyard() -> void:
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.close()
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	for n in game_nodes:
@@ -5826,6 +5714,8 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.close()
 	player.visible = true
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the

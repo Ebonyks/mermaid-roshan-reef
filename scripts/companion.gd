@@ -194,6 +194,9 @@ const HIDE_GAMES := ["kart", "galaxy", "combat", "stuffie", "dungeon", "emberdun
 	"opera", "dolls", "slide", "fairyshoot", "brawl"]
 
 func _follow_ctx() -> bool:
+	if m.game == "level2" \
+			and String(m.g.get("phase", "court")) == "hall":
+		return false
 	return m.game not in HIDE_GAMES
 
 func tick(delta: float) -> void:
@@ -201,8 +204,9 @@ func tick(delta: float) -> void:
 	_sync_menu_button()
 	if m.player == null or m.intro_active:
 		return
-	_tick_gift(delta)
-	_tick_room(delta)
+	# The retired free-roaming castle used modeled gift/Stuffie Den builders
+	# here. The picture-first castle exposes the picker from its Playroom
+	# action instead, so no companion world geometry is built in the hall phase.
 	if m.companion_id == "":
 		return
 	if m.companion_resting:
