@@ -3,6 +3,7 @@ class_name GalaxyLevel
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 # ============================================================================
 # LEVEL 3 — ROSHAN'S BUTTERFLY WORLD. A Mario-Galaxy-style mini-planet themed
 # after the book's Milwaukee-museum butterfly vivarium: glass conservatory dome,
@@ -933,37 +934,46 @@ func _build_avatar() -> void:
 	_avatar = Node3D.new()
 	add_child(_avatar)
 	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
-	# v3 preferred (audit 2026-07-11: the hardcoded roshan.glb brought the old
-	# plushie back every time the rainbow race chained into the galaxy);
-	# roshan.glb itself was deleted in the 2026-07-28 purge
+	# Classic Roshan uses the same 2.5D swim atlas as the ocean. Fairy retains
+	# its rigged model and Huluu retains her illustrated cutout.
 	var glb := ""
 	var cutout: Sprite3D = null
-	for vpath in ["res://assets/characters/roshan_v4.glb",
-			"res://assets/characters/roshan_v3.glb"]:
-		if ResourceLoader.exists(vpath):
-			glb = vpath
-			break
+	var sid := "classic"
 	if _main != null and "skin_id" in _main:
-		var sid := String(_main.skin_id)
-		if sid == "huluu":
-			glb = ""
-			cutout = Sprite3D.new()
-			cutout.texture = load("res://assets/characters/friends/huluu.png")
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 0.011
-			cutout.position = Vector3(0, 2.2, 0)
-		elif sid == "fairy":
-			glb = ""
-			cutout = Sprite3D.new()
-			var fairy_tex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
-			cutout.texture = fairy_tex
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 4.2 / maxf(float(fairy_tex.get_height()), 1.0)
-			cutout.position = Vector3(0, 2.1, 0)
-			cutout.shaded = false
-			cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		sid = String(_main.skin_id)
+	if sid == "classic":
+		cutout = Sprite3D.new()
+		cutout.texture = load("res://assets/characters/roshan_25d/roshan_swim_back.png")
+		cutout.hframes = 4
+		cutout.vframes = 4
+		cutout.frame = 0
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 4.6 / 256.0
+		cutout.position = Vector3(0, 2.2, 0)
+		cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		cutout.shaded = false
+		_av_sprite = cutout
+	elif sid == "huluu":
+		cutout = Sprite3D.new()
+		cutout.texture = load("res://assets/characters/friends/huluu.png")
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 0.011
+		cutout.position = Vector3(0, 2.2, 0)
+	elif sid == "fairy":
+		cutout = Sprite3D.new()
+		var fairy_tex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+		cutout.texture = fairy_tex
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 4.2 / maxf(float(fairy_tex.get_height()), 1.0)
+		cutout.position = Vector3(0, 2.1, 0)
+		cutout.shaded = false
+		cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if cutout != null:
 		_avatar.add_child(cutout)
+		if _av_sprite != null:
+			var animator := ROSHAN_SPRITE_LOOP.new()
+			_av_sprite.add_child(animator)
+			animator.setup_sprite_3d(_av_sprite, true, _avatar)
 	if glb != "" and ResourceLoader.exists(glb):
 		var inst: Node3D = (load(glb) as PackedScene).instantiate()
 		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
@@ -1001,6 +1011,7 @@ func _build_avatar() -> void:
 	_update_avatar_transform()
 
 var _av_skel: Skeleton3D = null
+var _av_sprite: Sprite3D = null
 var _av_bones := {}
 var _av_rest := {}   # bone idx -> rest rotation; raw Quaternion writes would erase the v3 rests
 var _av_run := 0.0
@@ -1025,9 +1036,9 @@ func _find_av_skel(n: Node) -> Skeleton3D:
 func _animate_avatar(delta: float, moving: float) -> void:
 	# the same procedural mermaid swim the ocean uses: tail wave + hair sway +
 	# gentle head/spine roll, amplitude scaling with movement
+	_av_run += delta * (2.4 + moving * 4.2)
 	if _av_skel == null:
 		return
-	_av_run += delta * (2.4 + moving * 4.2)
 	var amp: float = 0.10 + moving * 0.17
 	for i in range(8):
 		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))

@@ -3,6 +3,7 @@ class_name KartGame
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -216,7 +217,7 @@ const PAINTS := [
 # standing in the ocean broke the fiction. These characters live in the toy
 # nursery / story world instead, so they never appear twice at once.
 const RACERS := [
-	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true},
+	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_25d/roshan_base.png", "player": true},
 	{"name": "Sparkle", "col": Color(1.0, 0.85, 0.35), "sprite": "res://assets/book/baby_eagle.png"},
 	{"name": "Princess Huluu", "col": Color(0.75, 0.55, 1.0), "sprite": "res://assets/characters/friends/huluu.png"},
 	{"name": "Bunny", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/book/doll_bunny.png"},
@@ -1999,6 +2000,10 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 		spr.pixel_size = 2.5 / maxf(float(tex.get_height()), 1.0)
 		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
+		if sprite_path.ends_with("/roshan_25d/roshan_base.png"):
+			var animator := ROSHAN_SPRITE_LOOP.new()
+			spr.add_child(animator)
+			animator.setup_sprite_3d(spr, true, root)
 		root.set_meta("driver_spr", spr)
 	var nl := Label3D.new()
 	nl.text = racer_name

@@ -7,6 +7,7 @@ extends Node3D
 const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 25.0
 const MOVE_SPEED := 13.0
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
 var finish_cb: Callable
@@ -120,12 +121,13 @@ func _build_room() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = tex
-	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+	avatar.pixel_size = 6.2 / 256.0
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.position = player_pos
 	add_child(avatar)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	avatar.add_child(animator)
+	animator.setup_sprite_3d(avatar, false, avatar)
 
 func _add_pad(index: int, pos: Vector3, symbol: String, col: Color, keep_kinds: Array[String] = []) -> Node3D:
 	var root := Node3D.new()

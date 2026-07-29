@@ -107,7 +107,7 @@ const SKY_PRESETS := {
 
 # ---- Animation Lab (Roshan stress testing) ----
 const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep",
-	"point", "collect", "boing", "hairtwirl", "hum"]
+	"point", "collect", "boing", "hairtwirl", "hum", "flop"]
 # the twelve opera career costumes (player.set_costume ids) + bare —
 # lets a tester inspect every outfit kit on the live swimming Roshan
 # without opening a door in the opera house

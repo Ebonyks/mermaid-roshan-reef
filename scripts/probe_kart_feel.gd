@@ -22,7 +22,7 @@ var _save_was_remapped := false
 var _fallback_save_artifacts: Dictionary = {}
 var _old_custom_user_dir := false
 var _old_custom_user_dir_name := ""
-const SOLO := [{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_sprite.png", "player": true}]
+const SOLO := [{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_25d/roshan_base.png", "player": true}]
 
 func _init() -> void:
 	seed(7)
