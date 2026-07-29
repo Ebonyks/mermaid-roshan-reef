@@ -69,13 +69,13 @@ The project copy was processed with the installed imagegen
 | Type | Total/visible in Main Hall | Role |
 | --- | ---: | --- |
 | Sprite3D background cards | 8 / 8 | shaded, depth-tested light receivers |
-| Sprite3D touch cards | 12 / 12 | six sconces, two tapestries, four lower-lane dust bunnies |
+| Sprite3D touch cards | 11 / 11 | six sconces, one tapestry, four lower-lane dust bunnies |
 | Sprite3D character/contact shadow | 2 / 2 | Roshan and her contact shadow |
 | Light3D | 5 / 3 | one ambient fill plus two visible-half SpotLight3D clusters |
 | Shadowed Light3D on Speedy | 1 | hard mobile cap |
 | Modeled or CanvasItem world art | 0 | conforming |
 
-Maximum visible Sprite3D count is 22, below the revised lighting-stage cap of
+Maximum visible Sprite3D count is 25, below the revised lighting-stage cap of
 26. All runtime textures remain at or below the 1024-long-edge rule. The
 two-screen background still reconstructs from the original lossless tiles;
 no background pixel was stretched, cropped, padded, or replaced in this pass.
@@ -87,17 +87,17 @@ On/off contact:
 SHA-256 `d56e8778d225e692997c3fc110e7c1cc40e11d553f2c630f3f67d578886519a0`.
 
 - lights-on capture: `main_hall.png`, SHA-256
-  `192c3c2e502a9949f0c89951822ed662b08fc652e39a60d54a21705e4a4fa29f`
+  `19aeb10fb70c20a40a9bb3b95ff3529f9acfbcaeb5237e1acae8f1d6d848b772`
 - all Screen A sconces off: `main_hall_lights_off.png`, SHA-256
-  `ec2fdb1459cd9fcc5445398a9aa55b96516cf5fb365401bd92584fc447ab70f1`
+  `0cfd837343439e263ddaed13e27b7ad37d5fe6bcbc152d54f035bf1deba1a7d4`
 - Screen B continuity capture: `main_hall_screen_b.png`, SHA-256
-  `4bc6e4ac86992cc0be162977fbb8c8b73c60671fab3f080a6c63b9c0283dadbf`
+  `eac0d4b56fa966e90198a987dc719f6e66a6d65f7393a41f9b2612907b583ae1`
 
 The Mobile renderer probe reports:
 
 ```text
 all_eight_rooms_sprite3d_only OK
-speedy_visible_card_budget OK maximum visible cards=22
+speedy_visible_card_budget OK maximum visible cards=25
 main_hall_native_2x4_sprite3d_grid OK
 main_hall_mobile_light_pool OK visible=3 shadowed=1
 main_hall_fixture_and_tapestry_continuity OK
@@ -134,3 +134,62 @@ runtime audit passed.
 | Preschool readability | 4.7 / 5 | Pass |
 | Speedy-tier discipline | 4.7 / 5 | Pass |
 | Overall | 4.62 / 5 | Accepted |
+
+## Dramatic glow/bloom amendment
+
+The owner requested stronger theatrical lighting after the discreet fixture
+cleanup. The implementation changes only light/post-process behavior:
+
+| Property | Full | Speedy | Visible-half off |
+| --- | ---: | ---: | ---: |
+| Glow intensity | 1.12 | 0.75 | 0.24 |
+| Bloom | 0.24 | 0.11 | 0.015 |
+| HDR threshold | 0.74 | 0.74 | 0.98 |
+| Cool fill energy | 0.72 | 0.72 | 0.42 |
+| Shadow maps | visible clusters | 1 maximum | 0 |
+
+Every SpotLight3D cluster now has the same maximum energy (`4.6`), range
+(`12.5`), cone (`52` degrees), and warm pearl color. The six existing
+unshaded fixture cards become HDR bloom emitters while on and return to a dim
+lavender state while off. This creates no new Sprite3D card, transparent
+overdraw layer, light, particle system, mesh, texture, or generated art.
+
+The castle Environment is scoped to the room shell and restores the previous
+world Environment on suspend/close. The hard probe checks environment
+activation/restoration, the Speedy glow/shadow clamp, equal cluster energy,
+and the full on/off lighting-envelope delta.
+
+## Final Mobile seam and dramatic-lighting validation
+
+The stronger dark state exposed a one-pixel clear row at the horizontal
+boundary of the otherwise exact 2 x 4 Main Hall grid. Changing transparency
+mode and texture filtering did not solve it and nearest filtering visibly
+reduced texture quality, so both experiments were rejected.
+
+The accepted fix reuses only existing approved pixels:
+
+- the four immutable top sources remain 836 x 470;
+- each render-only top derivative is 836 x 471;
+- rows 0 through 469 match the source top tile pixel-for-pixel;
+- row 470 matches the first row of the approved lower tile pixel-for-pixel;
+- lower sources, logical source rectangles, pixels-per-meter, aspect ratio,
+  card count, depth, navigation, and touch mapping are unchanged;
+- linear filtering and the established opaque prepass are retained.
+
+`tools/build_castle_hall_runtime_bleed.py` reproduces the four files and
+`castle_main_hall_runtime_seam_bleed.json` records every source and derived
+hash. All eight source rectangles are still non-overlapping; only their
+render quads share the single approved boundary row.
+
+Forward Mobile (`NVIDIA GeForce RTX 3060 Ti`) captured the final 2560 x 1369
+on/off states. In `main_hall_lights_off.png`, no image row contains an
+exact-black run 500 pixels or longer. At the former crack row, y=681, the
+longest exact-black run is 27 pixels, confined to painted dark details; the
+previous defect was a 2560-pixel clear run. The final structural probe reports
+all checks green, including the 2 x 4 bleed metadata and texture dimensions.
+
+Additional final hashes:
+
+- seam/bridge capture: `3c850c8df8da806fff7efe0d917e76bac71a5476c7338d355a105bdd3bd57e70`;
+- Screen B capture: `eac0d4b56fa966e90198a987dc719f6e66a6d65f7393a41f9b2612907b583ae1`;
+- Storybook elevator capture: `e8f26f4380a9d84f6a725c7876c4903d57ec45fb6abcc2f87ee30b935840eaf8`.

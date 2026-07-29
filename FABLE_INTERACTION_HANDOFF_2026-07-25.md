@@ -43,13 +43,24 @@ backgrounds to other rooms without a separate Mobile audit. Evidence and the
 node inventory are in
 `audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md`.
 
-The final play-reviewed light treatment is deliberately quiet. Accepted
-background masters retain their architectural lamp housings, while six small
-unshaded pearl-core Sprite3D glints provide the separable touch/animation
-surface. Their invisible hit areas remain preschool-sized. A light tap has no
-star burst and only a 3.5-percent pulse; the important response is the actual
-engine-light energy change and existing chime. Do not replace these glints with
-button plaques, large icons, halos, or persistent interaction badges.
+The final play-reviewed fixtures remain deliberately quiet, but the room
+lighting is now dramatic. Accepted background masters retain their
+architectural lamp housings, while six small unshaded pearl-core Sprite3D
+cards provide the separable touch/animation surface. Their invisible hit areas
+remain preschool-sized. Lit fixture cards use HDR modulation to feed a
+castle-specific Environment glow buffer; the four equal-energy pooled
+SpotLight3D clusters create warm pools against a lower cool lavender fill.
+Turning off the visible half reduces the real lights, fill, glow, and bloom
+together. A light tap still has no star burst and only a 3.5-percent pulse.
+Do not replace these fixtures with button plaques, large icon cards, halo
+sprites, particles, or persistent interaction badges.
+
+The castle Environment is activated only while the Sprite3D room shell owns
+the viewport and restores the prior environment on suspend/close. Full
+quality uses glow `1.12`, bloom `0.24`, and threshold `0.74`; Speedy clamps
+these to `0.75`, `0.11`, and one shadow map. When all fixtures in the visible
+half are off, glow/bloom fall to `0.24`/`0.015`. This state-driven envelope is
+the required feedback contract and does not add an art card or a light node.
 
 At the raw two-screen join, the accepted masters retain a documented material
 and floor-value discontinuity. Runtime repairs it with an alpha-masked,
@@ -993,6 +1004,12 @@ for the broader interaction redesign:
 - Multi-card backgrounds require exact reconstruction checks and a fresh
   Mobile capture. A numerical edge pass alone is insufficient; any visible
   pasted rectangle or blurred transition is rejected.
+- Source tile rectangles remain lossless and non-overlapping. When the Mobile
+  rasterizer exposes a clear row between exactly adjacent Sprite3D cards, a
+  render-only one-pixel edge bleed is permitted only if it duplicates the
+  corresponding approved neighboring source row byte-for-byte, changes no
+  pixels-per-meter value, and is backed by both a hash manifest and a dark
+  Forward Mobile capture.
 
 The focused acceptance probe now covers exact 2K-derived tile grids, object
 bounds, depth diversity, animation/audio hooks, fixture alignment, entrance

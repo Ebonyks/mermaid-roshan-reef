@@ -702,3 +702,13 @@ generator output is present in this directory or connected to runtime art.
   — updated lossless runtime crops of the documented derived Main Hall
   masters. Source rectangles and hashes are in
   `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.
+- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c*_bleed.png`
+  — deterministic render-only derivatives of the four accepted top-row
+  tiles, made by `tools/build_castle_hall_runtime_bleed.py`. Each 836 x 471
+  file preserves its 836 x 470 source body pixel-exactly and appends the first
+  approved pixel row of the corresponding lower tile. This creates a
+  one-pixel Mobile-raster safety overlap without scaling, interpolation,
+  content loss, generated art, or any modification to the accepted source
+  tiles. Exact source/derived hashes and row-equality proofs are recorded in
+  `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
+  remains project original.

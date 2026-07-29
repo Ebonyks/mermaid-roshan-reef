@@ -217,13 +217,74 @@ func _run() -> void:
 		"maximum visible cards=%d" % max_visible_world_cards)
 
 	rooms.show_room("main_hall", false)
+	var castle_environment: Environment = main.castle_room_environment
+	var expected_glow: float = 0.75 if main.quality == "speedy" else 1.12
+	var expected_bloom: float = 0.11 if main.quality == "speedy" else 0.24
+	var glow_on: float = castle_environment.glow_intensity \
+		if castle_environment != null else 0.0
+	var bloom_on: float = castle_environment.glow_bloom \
+		if castle_environment != null else 0.0
+	_ck("main_hall_dramatic_glow_environment",
+		castle_environment != null
+		and main.we_node != null
+		and main.we_node.environment == castle_environment
+		and castle_environment.glow_enabled
+		and castle_environment.glow_blend_mode
+			== Environment.GLOW_BLEND_MODE_SCREEN
+		and is_equal_approx(glow_on, expected_glow)
+		and is_equal_approx(bloom_on, expected_bloom)
+		and castle_environment.glow_hdr_threshold <= 0.75
+		and castle_environment.adjustment_contrast >= 1.19
+		and castle_environment.ambient_light_energy <= 0.23,
+		"quality=%s glow=%.3f bloom=%.3f threshold=%.3f" % [
+			main.quality, glow_on, bloom_on,
+			castle_environment.glow_hdr_threshold
+				if castle_environment != null else 0.0])
+	var original_quality: String = main.quality
+	main.quality = "speedy"
+	rooms._sync_hall_lighting()
+	var speedy_shadow_count := 0
+	for speedy_light: Light3D in main.castle_room_light_nodes:
+		if speedy_light.visible and speedy_light.shadow_enabled:
+			speedy_shadow_count += 1
+	_ck("main_hall_speedy_glow_budget",
+		castle_environment.glow_intensity <= 0.75
+		and castle_environment.glow_bloom <= 0.11
+		and speedy_shadow_count <= 1,
+		"glow=%.3f bloom=%.3f shadows=%d" % [
+			castle_environment.glow_intensity,
+			castle_environment.glow_bloom, speedy_shadow_count])
+	main.quality = original_quality
+	rooms._sync_hall_lighting()
 	var tile_paths_ok := true
+	var tile_index := 0
 	for tile: Sprite3D in main.castle_room_background_tiles:
+		var tile_row: int = tile_index / 4
+		var source_rect: Rect2 = tile.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		var render_rect: Rect2 = tile.get_meta(
+			"render_art_rect", Rect2()) as Rect2
+		var bleed_pixels: int = int(tile.get_meta(
+			"runtime_seam_bleed_pixels", -1))
+		var source_path: String = tile.texture.resource_path
 		tile_paths_ok = tile_paths_ok \
 			and tile.texture != null \
-			and tile.texture.resource_path.contains(
-				"main_hall_2screen/tiles/main_hall_room_led_") \
-			and tile.shaded
+			and source_path.contains("main_hall_2screen/tiles/") \
+			and (
+				source_path.contains("/runtime_bleed/") \
+				and source_path.ends_with("_bleed.png")
+				if tile_row == 0 else
+				not source_path.contains("/runtime_bleed/")
+			) \
+			and tile.texture.get_size() == Vector2(836.0, 471.0) \
+			and source_rect.size == Vector2(
+				836.0, 470.0 if tile_row == 0 else 471.0) \
+			and render_rect.size == Vector2(836.0, 471.0) \
+			and bleed_pixels == (1 if tile_row == 0 else 0) \
+			and tile.shaded and tile.transparent \
+			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_OPAQUE_PREPASS \
+			and tile.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
+		tile_index += 1
 	_ck("main_hall_native_2x4_sprite3d_grid",
 		main.castle_room_background_tiles.size() == 8 and tile_paths_ok)
 	var bridge: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
@@ -257,9 +318,19 @@ func _run() -> void:
 	var light_inventory_ok: bool = main.castle_room_light_nodes.size() == 5
 	var visible_lights := 0
 	var visible_shadow_lights := 0
+	var touch_light_energy_ok := true
+	var fill_on_energy := 0.0
 	for light: Light3D in main.castle_room_light_nodes:
 		light_inventory_ok = light_inventory_ok \
 			and light != null and is_instance_valid(light)
+		var light_role: String = String(light.get_meta(
+			"castle_light_role", ""))
+		if light_role == "ambient_fill":
+			fill_on_energy = light.light_energy
+		elif light_role == "touch_cluster":
+			touch_light_energy_ok = touch_light_energy_ok \
+				and is_equal_approx(float(
+					light.get_meta("max_energy", 0.0)), 4.6)
 		if light.visible:
 			visible_lights += 1
 			if light.shadow_enabled:
@@ -268,10 +339,14 @@ func _run() -> void:
 		light_inventory_ok and visible_lights <= 3
 		and visible_shadow_lights >= 1 and visible_shadow_lights <= 2,
 		"visible=%d shadowed=%d" % [visible_lights, visible_shadow_lights])
+	_ck("main_hall_equal_cluster_energy",
+		touch_light_energy_ok and is_equal_approx(fill_on_energy, 0.72),
+		"fill=%.3f" % fill_on_energy)
 	var fixture_asset_path := ""
 	var fixture_continuity_ok := true
 	var fixture_y: float = -1.0
 	var fixture_height_ok := true
+	var fixture_bloom_emitters_ok := true
 	for fixture_id: String in [
 			"sconce_a0", "sconce_a1", "sconce_a2",
 			"sconce_b0", "sconce_b1", "sconce_b2"]:
@@ -280,7 +355,12 @@ func _run() -> void:
 		var fixture: Sprite3D = fixture_record.get("sprite") as Sprite3D
 		if fixture == null or fixture.texture == null:
 			fixture_continuity_ok = false
+			fixture_bloom_emitters_ok = false
 			continue
+		fixture_bloom_emitters_ok = fixture_bloom_emitters_ok \
+			and bool(fixture.get_meta("castle_bloom_emitter", false)) \
+			and fixture.modulate.r > 1.2 \
+			and is_equal_approx(fixture.modulate.a, 1.0)
 		var path: String = fixture.texture.resource_path
 		if fixture_asset_path == "":
 			fixture_asset_path = path
@@ -310,6 +390,8 @@ func _run() -> void:
 	_ck("main_hall_fixture_height_alignment",
 		fixture_height_ok and is_equal_approx(fixture_y, 215.0),
 		"shared_y=%.1f" % fixture_y)
+	_ck("main_hall_fixture_hdr_bloom_emitters",
+		fixture_bloom_emitters_ok)
 	var hall_door_clearance_ok := true
 	var hall_door_conflicts: Array[String] = []
 	for item_id_value: Variant in main.castle_room_item_sprites:
@@ -362,6 +444,19 @@ func _run() -> void:
 			a_spotlights_visible += 1
 	_ck("main_hall_all_lights_off_affects_engine",
 		a_spotlights_visible == 0)
+	var fill_off_energy := 1.0
+	for light: Light3D in main.castle_room_light_nodes:
+		if String(light.get_meta("castle_light_role", "")) == "ambient_fill":
+			fill_off_energy = light.light_energy
+	var glow_off: float = castle_environment.glow_intensity
+	var bloom_off: float = castle_environment.glow_bloom
+	_ck("main_hall_bloom_tracks_light_state",
+		glow_off <= 0.25 and bloom_off <= 0.02
+		and glow_off < glow_on and bloom_off < bloom_on
+		and fill_off_energy < fill_on_energy,
+		"on=%.3f/%.3f off=%.3f/%.3f fill=%.3f->%.3f" % [
+			glow_on, bloom_on, glow_off, bloom_off,
+			fill_on_energy, fill_off_energy])
 	await _capture("main_hall_lights_off")
 	_ck("main_hall_physical_portal_inventory",
 		main.castle_room_door_hotspots.size() == 8
@@ -417,6 +512,14 @@ func _run() -> void:
 		and String(main.g.get("phase", "")) == "hall"
 		and rooms.is_open()
 		and main.castle_room_id == "opera_hall")
+	var environment_before_suspend: Environment = \
+		main.castle_room_previous_environment
+	rooms.suspend()
+	_ck("castle_environment_restores_on_suspend",
+		main.we_node.environment == environment_before_suspend)
+	rooms.resume()
+	_ck("castle_environment_reactivates_on_resume",
+		main.we_node.environment == main.castle_room_environment)
 
 	print("CASTLE_ART|RESULT=", "FAIL" if checks_failed > 0 else "OK",
 		" checks_failed=", checks_failed)

@@ -851,3 +851,41 @@ Final evidence is in:
 - `audit/castle_sprite3d/CASTLE_SEAM_TONE_OVERLAP_AUDIT_2026-07-29.md`;
 - fresh Mobile captures for all eight rooms in
   `audit/castle_sprite3d/`.
+
+### Dramatic glow and bloom closure — 2026-07-29
+
+The Main Hall now owns a castle-specific `Environment` while its perspective
+camera is active. This is post-processing infrastructure, not world art, and
+does not change the Sprite3D-only node inventory.
+
+- The six aligned shell fixtures keep the same accepted 96 x 128 texture,
+  transforms, depth, and touch rectangles. Lit cards use HDR modulation;
+  there are no halo cards, particles, plaques, meshes, or new art.
+- All four SpotLight3D clusters now share energy `4.6`, range `12.5`, angle
+  `52`, and the same warm pearl color. The cool lavender fill is `0.72` with
+  the visible half lit and `0.42` with it dark.
+- Full quality uses SCREEN glow `1.12`, bloom `0.24`, threshold `0.74`.
+  Speedy clamps glow/bloom to `0.75`/`0.11` and still permits only one shadow
+  map. With all visible-half fixtures off the shared envelope falls to
+  `0.24`/`0.015`.
+- The prior Environment is restored on room suspension or closure and
+  reactivated on return, preventing the castle grade from leaking into Opera,
+  the courtyard, Sky Lagoon, or the reef.
+- The maximum visible Sprite3D inventory remains 25. Background grids,
+  junction seams, pixels-per-meter, entrances, navigation, and object
+  placement are unchanged.
+
+`scripts/probe_castle_pearl_art.gd` now treats the Environment profile,
+equal-energy clusters, HDR fixture state, Speedy clamp, on/off bloom delta,
+and environment restoration as hard gates.
+
+The darker lights-off state exposed one Mobile-raster crack between the two
+otherwise exact Main Hall tile rows. The accepted non-overlapping source
+rectangles remain unchanged. Each top runtime card now uses a deterministic
+836 x 471 derivative whose final row is an exact copy of the first approved
+row beneath it. The resulting one-pixel render overlap changes no composition
+pixel, scale, aspect ratio, depth, card count, navigation, or touch mapping.
+The Forward Mobile lights-off capture contains no full-width clear row; at the
+former boundary, the longest exact-black run is 27 pixels rather than the
+previous 2560-pixel crack. Source/derived hashes and byte-exact row proofs are
+in `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`.

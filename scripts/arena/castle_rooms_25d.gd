@@ -40,14 +40,21 @@ const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
 const HALL_CARD_PIXEL_SIZE := WORLD_WIDTH / HALL_VIEW_SIZE.x
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
-const HALL_FILL_COLOR := Color(0.94, 1.0, 0.98)
-const HALL_FILL_ENERGY := 1.18
-const HALL_SCONCE_COLOR := Color(1.0, 0.92, 0.82)
+const HALL_FILL_COLOR := Color(0.60, 0.52, 0.90)
+const HALL_FILL_ENERGY := 0.72
+const HALL_FILL_OFF_ENERGY := 0.42
+const HALL_SCONCE_COLOR := Color(1.0, 0.74, 0.43)
+const HALL_GLOW_FULL := 1.12
+const HALL_GLOW_SPEEDY := 0.75
+const HALL_BLOOM_FULL := 0.24
+const HALL_BLOOM_SPEEDY := 0.11
+const HALL_GLOW_OFF := 0.24
+const HALL_BLOOM_OFF := 0.015
 const HALL_TILE_FILES: Array[String] = [
-	"main_hall_room_led_r0_c0.png",
-	"main_hall_room_led_r0_c1.png",
-	"main_hall_room_led_r0_c2.png",
-	"main_hall_room_led_r0_c3.png",
+	"runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
+	"runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
+	"runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
+	"runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
 	"main_hall_room_led_r1_c0.png",
 	"main_hall_room_led_r1_c1.png",
 	"main_hall_room_led_r1_c2.png",
@@ -55,13 +62,13 @@ const HALL_TILE_FILES: Array[String] = [
 ]
 const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 	{"id": "a_left", "half": "a", "pos": Vector2(330.0, 335.0),
-		"max_energy": 3.9},
+		"max_energy": 4.6},
 	{"id": "a_right", "half": "a", "pos": Vector2(1320.0, 335.0),
-		"max_energy": 3.9},
+		"max_energy": 4.6},
 	{"id": "b_left", "half": "b", "pos": Vector2(1970.0, 335.0),
-		"max_energy": 2.4},
+		"max_energy": 4.6},
 	{"id": "b_right", "half": "b", "pos": Vector2(2780.0, 335.0),
-		"max_energy": 2.4},
+		"max_energy": 4.6},
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
 	{"id": "screen_join_column", "pos": Vector2(1672.0, 470.5),
@@ -420,6 +427,8 @@ func open(start_room: String = "main_hall") -> void:
 	if m.hud_layer != null:
 		m.hud_layer.visible = false
 	show_room(start_room, false)
+	_activate_castle_environment()
+	_sync_hall_lighting()
 
 func resume(room_id: String = "") -> void:
 	if not is_open():
@@ -430,6 +439,7 @@ func resume(room_id: String = "") -> void:
 		m.castle_room_world_root.visible = true
 	if m.castle_room_camera != null:
 		m.castle_room_camera.make_current()
+	_activate_castle_environment()
 	m._set_world_controls_enabled(false, "castle_rooms")
 	if m.player != null:
 		m.player.visible = false
@@ -439,6 +449,7 @@ func resume(room_id: String = "") -> void:
 		show_room(room_id, false)
 
 func suspend() -> void:
+	_restore_previous_environment()
 	if is_open():
 		m.castle_room_layer.visible = false
 	if m.castle_room_world_root != null:
@@ -448,6 +459,7 @@ func suspend() -> void:
 	m._set_world_controls_enabled(true, "castle_rooms")
 
 func close() -> void:
+	_restore_previous_environment()
 	if is_open():
 		m.castle_room_layer.queue_free()
 	if m.castle_room_camera != null:
@@ -463,6 +475,8 @@ func close() -> void:
 	m.castle_room_background_tiles.clear()
 	m.castle_room_detail_tiles.clear()
 	m.castle_room_light_nodes.clear()
+	m.castle_room_environment = null
+	m.castle_room_previous_environment = null
 	m.castle_room_mid_layer = null
 	m.castle_room_front_layer = null
 	m.castle_room_item_visual_layer = null
@@ -511,6 +525,7 @@ func _build_stage() -> void:
 	m.castle_room_camera.far = 40.0
 	m.castle_room_world_root.add_child(m.castle_room_camera)
 	m.castle_room_camera.make_current()
+	_build_castle_environment()
 
 	m.castle_room_background = _new_card("RoomBackdrop",
 		load(ROOM_ART + "room_main_hall_background_v2.png") as Texture2D)
@@ -638,7 +653,15 @@ func _build_hall_background_tiles() -> void:
 		tile.visible = false
 		tile.set_meta("source_asset_role", "clean_background_tile")
 		tile.set_meta("source_master_grid", "2x4")
-		tile.set_meta("source_art_rect", Rect2(top_left, texture.get_size()))
+		# The approved source rectangles remain exact and non-overlapping.
+		# Top cards append the first approved pixel row from the card beneath
+		# them, producing a one-pixel render overlap that closes a Mobile raster
+		# crack without scaling, interpolation, crop, or generated art.
+		var source_size := Vector2(836.0, 470.0 if row == 0 else 471.0)
+		tile.set_meta("source_art_rect", Rect2(top_left, source_size))
+		tile.set_meta("render_art_rect",
+			Rect2(top_left, texture.get_size()))
+		tile.set_meta("runtime_seam_bleed_pixels", 1 if row == 0 else 0)
 		tile.set_meta("depth_z", BACKGROUND_Z)
 		m.castle_room_world_root.add_child(tile)
 		m.castle_room_background_tiles.append(tile)
@@ -663,17 +686,54 @@ func _build_hall_lighting() -> void:
 		light.light_color = HALL_SCONCE_COLOR
 		light.light_energy = max_energy
 		light.light_indirect_energy = 0.0
-		light.spot_range = 12.0
-		light.spot_angle = 56.0
-		light.spot_angle_attenuation = 0.85
+		light.spot_range = 12.5
+		light.spot_angle = 52.0
+		light.spot_angle_attenuation = 1.05
 		light.shadow_enabled = true
-		light.shadow_bias = 0.055
+		light.shadow_bias = 0.045
 		light.set_meta("castle_light_role", "touch_cluster")
 		light.set_meta("cluster_id", cluster_id)
 		light.set_meta("hall_half", String(cluster_data["half"]))
 		light.set_meta("max_energy", max_energy)
 		m.castle_room_world_root.add_child(light)
 		m.castle_room_light_nodes.append(light)
+
+func _build_castle_environment() -> void:
+	var environment := Environment.new()
+	environment.background_mode = Environment.BG_COLOR
+	environment.background_color = Color(0.055, 0.035, 0.105)
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color(0.45, 0.38, 0.64)
+	environment.ambient_light_energy = 0.22
+	m._wind_waker_bloom(environment, HALL_GLOW_FULL,
+		HALL_BLOOM_FULL, 0.74)
+	m._apply_scene_grade(environment, "warm_pastel")
+	environment.adjustment_saturation = 1.08
+	environment.adjustment_contrast = 1.18
+	environment.adjustment_brightness = 0.91
+	environment.set_meta("castle_glow_profile", "dramatic_storybook")
+	environment.set_meta("castle_glow_full",
+		Vector2(HALL_GLOW_FULL, HALL_BLOOM_FULL))
+	environment.set_meta("castle_glow_speedy",
+		Vector2(HALL_GLOW_SPEEDY, HALL_BLOOM_SPEEDY))
+	m.castle_room_environment = environment
+
+func _activate_castle_environment() -> void:
+	if m.we_node == null or m.castle_room_environment == null:
+		return
+	if m.we_node.environment == m.castle_room_environment:
+		return
+	m.castle_room_previous_environment = m.we_node.environment
+	m.we_node.environment = m.castle_room_environment
+
+func _restore_previous_environment() -> void:
+	if m.we_node == null or m.castle_room_environment == null:
+		return
+	if m.we_node.environment != m.castle_room_environment:
+		return
+	m.we_node.environment = m.castle_room_previous_environment \
+		if m.castle_room_previous_environment != null else m.world_env
+	m.castle_room_previous_environment = null
 
 func _set_hall_background_visible(visible: bool) -> void:
 	for tile: Sprite3D in m.castle_room_background_tiles:
@@ -1140,8 +1200,13 @@ func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 func _apply_sconce_visual(sprite: Sprite3D, is_on: bool) -> void:
 	if sprite == null:
 		return
-	sprite.modulate = Color.WHITE if is_on else Color(0.40, 0.38, 0.46, 0.44)
+	# Values above 1.0 make the pearl itself feed the Environment glow buffer.
+	# The same accepted fixture texture remains on the same card; no button-like
+	# halo sprite, extra transparent card, or per-frame material is introduced.
+	sprite.modulate = Color(1.30, 1.14, 0.90, 1.0) \
+		if is_on else Color(0.36, 0.34, 0.44, 0.48)
 	sprite.set_meta("castle_light_on", is_on)
+	sprite.set_meta("castle_bloom_emitter", is_on)
 
 func _sync_hall_lighting() -> void:
 	if m.castle_room_light_nodes.is_empty():
@@ -1150,6 +1215,25 @@ func _sync_hall_lighting() -> void:
 	var visible_half := "a"
 	if m.castle_room_camera != null and m.castle_room_camera.position.x >= 0.0:
 		visible_half = "b"
+	var half_fixture_count := 0
+	var half_lit_count := 0
+	for item_data: Dictionary in HALL_ITEMS:
+		if not item_data.has("light_cluster"):
+			continue
+		var cluster_half := ""
+		var item_cluster: String = String(item_data["light_cluster"])
+		for cluster_data: Dictionary in HALL_LIGHT_CLUSTERS:
+			if String(cluster_data["id"]) == item_cluster:
+				cluster_half = String(cluster_data["half"])
+				break
+		if cluster_half != visible_half:
+			continue
+		half_fixture_count += 1
+		if bool(m.castle_room_light_states.get(
+				String(item_data["id"]), true)):
+			half_lit_count += 1
+	var half_light_ratio: float = float(half_lit_count) \
+		/ maxf(1.0, float(half_fixture_count))
 	var speedy_shadow_used := false
 	for light: Light3D in m.castle_room_light_nodes:
 		if light == null or not is_instance_valid(light):
@@ -1157,6 +1241,8 @@ func _sync_hall_lighting() -> void:
 		var role: String = String(light.get_meta("castle_light_role", ""))
 		if role == "ambient_fill":
 			light.visible = hall_visible
+			light.light_energy = lerpf(
+				HALL_FILL_OFF_ENERGY, HALL_FILL_ENERGY, half_light_ratio)
 			continue
 		var cluster_id: String = String(light.get_meta("cluster_id", ""))
 		var fixture_count := 0
@@ -1181,6 +1267,39 @@ func _sync_hall_lighting() -> void:
 			speedy_shadow_used = true
 		else:
 			light.shadow_enabled = true
+	_sync_castle_environment(hall_visible, half_light_ratio)
+
+func _sync_castle_environment(hall_visible: bool,
+		half_light_ratio: float) -> void:
+	var environment: Environment = m.castle_room_environment
+	if environment == null:
+		return
+	var speedy: bool = m.quality == "speedy"
+	if hall_visible:
+		var glow_target: float = HALL_GLOW_SPEEDY if speedy else HALL_GLOW_FULL
+		var bloom_target: float = HALL_BLOOM_SPEEDY if speedy \
+			else HALL_BLOOM_FULL
+		environment.glow_intensity = lerpf(
+			HALL_GLOW_OFF, glow_target, half_light_ratio)
+		environment.glow_bloom = lerpf(
+			HALL_BLOOM_OFF, bloom_target, half_light_ratio)
+		environment.glow_hdr_threshold = lerpf(
+			0.98, 0.74, half_light_ratio)
+		environment.ambient_light_energy = lerpf(
+			0.12, 0.22, half_light_ratio)
+		environment.adjustment_contrast = lerpf(
+			1.12, 1.20, half_light_ratio)
+		environment.adjustment_brightness = lerpf(
+			0.84, 0.91, half_light_ratio)
+	else:
+		# Destination rooms keep the castle's warm storybook finish, but their
+		# painted practical lights do not receive the Main Hall's dramatic lift.
+		environment.glow_intensity = 0.48 if speedy else 0.66
+		environment.glow_bloom = 0.055 if speedy else 0.09
+		environment.glow_hdr_threshold = 0.90
+		environment.ambient_light_energy = 0.28
+		environment.adjustment_contrast = 1.10
+		environment.adjustment_brightness = 0.94
 
 func _play_item_sfx(sound_file: String, pitch: float) -> void:
 	if m.castle_room_prop_sfx == null:
