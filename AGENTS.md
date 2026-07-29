@@ -28,6 +28,65 @@ can meet the need efficiently.
   provenance violations, or bypassing the project's asset constraints.
   Store derived variants at new paths and preserve their source attribution.
 
+## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
+
+Authored cinematic delivery frames MUST be complete, flattened images produced
+in the current approved Codex image-generation style. The quality problem is
+the frame audit and regeneration process. It must never be worked around by
+substituting a different animation or production technique. This rule
+supersedes the art-reuse budget above for defective cinematic frames and
+supersedes any cinematic document or tool that recommends temporal shortcuts.
+
+- Repair subject drift frame by frame. Keep an existing frame only when that
+  exact frame passes the audit. Regenerate every failed frame at its exact
+  timeline index as a complete image, using accepted adjacent frames, the
+  direction brief, character/object references, and required continuity data.
+- Final or review-delivery frames MUST NOT be made by tweening, morphing,
+  optical-flow or motion interpolation, cross-dissolving, sprite/cutout
+  animation, chroma-key compositing, skeletal or rig animation, procedural
+  warping, translating a static layer or camera, or duplicating a frame to
+  conceal missing action. These are rejected production shortcuts even if
+  their transition metrics appear smooth.
+- An intentional hold is allowed only when the direction brief calls for
+  stillness. The manifest must identify the held span and its narrative
+  purpose. A hold may not replace motion, acting, contact, or camera action.
+- Every changed frame in an action span must therefore be an individually
+  accepted full-frame generation. A generated frame may use the immediately
+  preceding and following accepted full frames as visual references, but it
+  may not be synthesized by blending their pixels.
+- The required final medium is the established polished 2D storybook image
+  generation seen in the current cinematic work. Do not switch to 3D,
+  sprites, vector animation, procedural animation, or another visual medium
+  to make the sequence easier to produce.
+
+### Position-guide exception
+
+A disposable sprite/chroma-key composite MAY be created only to show the image
+generator where an object belongs in a target frame.
+
+- The guide communicates only normalized object position, bounding box, scale,
+  and orientation. It has no authority over design, anatomy, topology, style,
+  lighting, texture, shading, background, or final pixels.
+- The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
+  that all appearance comes from the approved image/style references.
+- No pixel from the guide may be copied, composited, keyed, traced, or otherwise
+  inserted into a delivered frame. The generator must return a new complete
+  frame, and that full frame must pass audit.
+- Guides stay under an ignored review/build path, never under runtime
+  `assets/`, and never count as production art or an accepted keyframe.
+- The frame-regeneration manifest must record the guide's path and hash,
+  `role: "position_only"`, and `used_as_delivery_pixels: false`.
+
+### Mandatory frame-regeneration evidence
+
+Every regenerated frame must record its timeline index, full-frame candidate
+path and hash, accepted neighboring reference paths and hashes, prompt hash,
+attempt number, generation method, declared action/hold state, subject geometry,
+position-guide metadata when used, and human identity/topology/style review.
+`tools/audit_cinematic.py` is the blocking validator. Missing provenance,
+forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
+failed neighboring-frame comparison is a hard failure.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (~6.8k lines as of 2026-07-18; still
   the state owner — see Refactor rules. Target <2.5k; remaining bulk is

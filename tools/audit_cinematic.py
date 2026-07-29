@@ -12,8 +12,10 @@ the generated tracks and reviews before running the blocking audit.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
+import re
 import shutil
 import statistics
 import subprocess
@@ -35,8 +37,24 @@ THRESHOLD_PROFILES = {
     "animatic": (ANIMATIC_SCENE_FLOOR, ANIMATIC_IDENTITY_FLOOR),
 }
 REQUIRED_SCORES = ("construction", "identity", "motion", "contact", "style", "performance")
+FRAME_REGENERATION_SCORES = ("identity", "topology", "style", "neighbor_continuity")
+FRAME_REGENERATION_FLOOR = 4.9
 ANALYSIS_SIZE = (320, 180)
 BOIL_THRESHOLD = 8
+SHA256_PATTERN = re.compile(r"^[0-9a-fA-F]{64}$")
+FULL_FRAME_GENERATION_METHOD = "full_frame_image_generation"
+FORBIDDEN_TEMPORAL_METHODS = (
+    "chroma",
+    "cross_dissolve",
+    "cutout",
+    "interpolation",
+    "morph",
+    "optical_flow",
+    "procedural_warp",
+    "rig",
+    "sprite",
+    "tween",
+)
 
 
 def fail(message: str) -> None:
@@ -277,6 +295,328 @@ def analyze(video: Path, report_path: Path | None, lattice: int) -> None:
     )
 
 
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def artifact_path(
+    record: Any,
+    label: str,
+    manifest_dir: Path,
+    errors: list[str],
+) -> Path | None:
+    if not isinstance(record, dict):
+        errors.append(f"{label}: requires path and sha256")
+        return None
+    path_value = record.get("path")
+    expected_hash = record.get("sha256")
+    if not isinstance(path_value, str) or not path_value:
+        errors.append(f"{label}: missing path")
+        return None
+    if not isinstance(expected_hash, str) or not SHA256_PATTERN.fullmatch(expected_hash):
+        errors.append(f"{label}: sha256 must be 64 hexadecimal characters")
+        return None
+    path = Path(path_value)
+    if not path.is_absolute():
+        path = manifest_dir / path
+    path = path.resolve()
+    if not path.is_file():
+        errors.append(f"{label}: file does not exist: {path}")
+        return None
+    actual_hash = sha256_file(path)
+    if actual_hash.lower() != expected_hash.lower():
+        errors.append(
+            f"{label}: sha256 mismatch; expected {expected_hash.lower()}, "
+            f"found {actual_hash.lower()}"
+        )
+        return None
+    return path
+
+
+def image_size(path: Path, label: str, errors: list[str]) -> tuple[int, int] | None:
+    try:
+        with Image.open(path) as image:
+            image.load()
+            return image.size
+    except (OSError, ValueError) as error:
+        errors.append(f"{label}: unreadable image: {error}")
+        return None
+
+
+def mask_center(
+    path: Path,
+    expected_size: tuple[int, int] | None,
+    label: str,
+    errors: list[str],
+) -> tuple[float, float] | None:
+    try:
+        with Image.open(path).convert("L") as mask:
+            if expected_size is not None and mask.size != expected_size:
+                errors.append(
+                    f"{label}: mask size {mask.size} does not match frame size "
+                    f"{expected_size}"
+                )
+                return None
+            binary = mask.point(lambda value: 255 if value >= 128 else 0)
+            bounds = binary.getbbox()
+            if bounds is None:
+                errors.append(f"{label}: mask contains no subject pixels")
+                return None
+            left, top, right, bottom = bounds
+            return (
+                (left + right) / (2.0 * mask.width),
+                (top + bottom) / (2.0 * mask.height),
+            )
+    except (OSError, ValueError) as error:
+        errors.append(f"{label}: unreadable mask: {error}")
+        return None
+
+
+def image_delta(left: Path, right: Path) -> float:
+    with Image.open(left).convert("RGB") as first, Image.open(right).convert("RGB") as second:
+        if first.size != second.size:
+            return math.inf
+        difference = ImageChops.difference(first, second)
+        return float(statistics.mean(ImageStat.Stat(difference).mean))
+
+
+def frame_regeneration_score_block(
+    label: str,
+    scores: Any,
+    errors: list[str],
+) -> None:
+    if not isinstance(scores, dict):
+        errors.append(f"{label}: requires human_review")
+        return
+    for criterion in FRAME_REGENERATION_SCORES:
+        value = scores.get(criterion)
+        if not isinstance(value, (int, float)):
+            errors.append(f"{label}: missing human score '{criterion}'")
+        elif value < FRAME_REGENERATION_FLOOR:
+            errors.append(
+                f"{label}: {criterion}={value:g} is below "
+                f"{FRAME_REGENERATION_FLOOR:g}"
+            )
+
+
+def validate_frame_regeneration_manifest(
+    manifest: dict[str, Any],
+    frame_count: int,
+    manifest_dir: Path,
+) -> tuple[list[str], list[dict[str, Any]]]:
+    errors: list[str] = []
+    reports: list[dict[str, Any]] = []
+    if manifest.get("schema") != "cinematic-frame-regeneration-v1":
+        errors.append("frame regeneration manifest requires schema cinematic-frame-regeneration-v1")
+    origin = manifest.get("frame_index_origin")
+    if origin != 0:
+        errors.append("frame regeneration manifest requires frame_index_origin 0")
+        origin = 0
+    frames = manifest.get("frames")
+    if not isinstance(frames, list) or not frames:
+        return errors + ["frame regeneration manifest requires at least one frame"], reports
+
+    last_frame = origin + frame_count - 1
+    seen_frames: set[int] = set()
+    for entry_index, frame in enumerate(frames):
+        if not isinstance(frame, dict):
+            errors.append(f"frame entry {entry_index}: invalid")
+            continue
+        frame_number = frame.get("frame")
+        label = f"frame {frame_number}" if isinstance(frame_number, int) else f"frame entry {entry_index}"
+        if not isinstance(frame_number, int):
+            errors.append(f"{label}: frame must be an integer")
+            continue
+        if frame_number < origin or frame_number > last_frame:
+            errors.append(f"{label}: frame is outside video range {origin}-{last_frame}")
+        if frame_number in seen_frames:
+            errors.append(f"{label}: duplicate frame")
+        seen_frames.add(frame_number)
+
+        method = frame.get("generation_method")
+        if method != FULL_FRAME_GENERATION_METHOD:
+            errors.append(
+                f"{label}: generation_method must be "
+                f"{FULL_FRAME_GENERATION_METHOD}"
+            )
+        method_text = str(method).lower()
+        declared_techniques = frame.get("delivery_techniques")
+        if not isinstance(declared_techniques, list):
+            errors.append(f"{label}: delivery_techniques must be a list")
+            declared_techniques = []
+        technique_text = " ".join(str(value).lower() for value in declared_techniques)
+        for forbidden in FORBIDDEN_TEMPORAL_METHODS:
+            if forbidden in method_text or forbidden in technique_text:
+                errors.append(f"{label}: forbidden delivery technique '{forbidden}'")
+        if frame.get("temporal_derivation") != "none":
+            errors.append(f"{label}: temporal_derivation must be 'none'")
+
+        attempt = frame.get("attempt")
+        if not isinstance(attempt, int) or attempt < 1:
+            errors.append(f"{label}: attempt must be a positive integer")
+        prompt_hash = frame.get("prompt_sha256")
+        if not isinstance(prompt_hash, str) or not SHA256_PATTERN.fullmatch(prompt_hash):
+            errors.append(f"{label}: prompt_sha256 must be 64 hexadecimal characters")
+        action_state = frame.get("action_state")
+        if action_state not in ("motion", "hold"):
+            errors.append(f"{label}: action_state must be 'motion' or 'hold'")
+        elif action_state == "hold" and not frame.get("hold_reason"):
+            errors.append(f"{label}: an intentional hold requires hold_reason")
+        frame_regeneration_score_block(label, frame.get("human_review"), errors)
+
+        candidate = artifact_path(
+            frame.get("candidate"),
+            f"{label} candidate",
+            manifest_dir,
+            errors,
+        )
+        previous = artifact_path(
+            frame.get("previous_reference"),
+            f"{label} previous_reference",
+            manifest_dir,
+            errors,
+        ) if frame_number > origin else None
+        following = artifact_path(
+            frame.get("next_reference"),
+            f"{label} next_reference",
+            manifest_dir,
+            errors,
+        ) if frame_number < last_frame else None
+        candidate_size = image_size(candidate, f"{label} candidate", errors) if candidate else None
+        for reference_name, reference in (
+            ("previous_reference", previous),
+            ("next_reference", following),
+        ):
+            if reference and candidate_size:
+                reference_size = image_size(reference, f"{label} {reference_name}", errors)
+                if reference_size is not None and reference_size != candidate_size:
+                    errors.append(
+                        f"{label}: {reference_name} size {reference_size} does not "
+                        f"match candidate size {candidate_size}"
+                    )
+
+        guide = frame.get("position_guide")
+        guide_path: Path | None = None
+        if guide is not None:
+            if not isinstance(guide, dict):
+                errors.append(f"{label}: position_guide must be an object")
+            else:
+                guide_path = artifact_path(
+                    guide,
+                    f"{label} position_guide",
+                    manifest_dir,
+                    errors,
+                )
+                if guide.get("role") != "position_only":
+                    errors.append(f"{label}: position_guide role must be 'position_only'")
+                if guide.get("used_as_delivery_pixels") is not False:
+                    errors.append(
+                        f"{label}: position_guide used_as_delivery_pixels must be false"
+                    )
+                if candidate and guide_path and sha256_file(candidate) == sha256_file(guide_path):
+                    errors.append(f"{label}: candidate may not reuse position-guide pixels")
+
+        subjects = frame.get("subjects")
+        subject_reports: list[dict[str, Any]] = []
+        if not isinstance(subjects, list) or not subjects:
+            errors.append(f"{label}: requires at least one audited subject")
+            subjects = []
+        for subject_index, subject in enumerate(subjects):
+            if not isinstance(subject, dict):
+                errors.append(f"{label} subject {subject_index}: invalid")
+                continue
+            subject_id = subject.get("id")
+            subject_label = f"{label} subject {subject_id or subject_index}"
+            if not subject_id:
+                errors.append(f"{subject_label}: missing id")
+            candidate_mask = artifact_path(
+                subject.get("candidate_mask"),
+                f"{subject_label} candidate_mask",
+                manifest_dir,
+                errors,
+            )
+            guide_mask = (
+                artifact_path(
+                    subject.get("position_guide_mask"),
+                    f"{subject_label} position_guide_mask",
+                    manifest_dir,
+                    errors,
+                )
+                if guide_path
+                else None
+            )
+            candidate_center = (
+                mask_center(
+                    candidate_mask,
+                    candidate_size,
+                    f"{subject_label} candidate_mask",
+                    errors,
+                )
+                if candidate_mask
+                else None
+            )
+            guide_size = (
+                image_size(guide_path, f"{label} position_guide", errors)
+                if guide_path
+                else candidate_size
+            )
+            guide_center = (
+                mask_center(
+                    guide_mask,
+                    guide_size,
+                    f"{subject_label} position_guide_mask",
+                    errors,
+                )
+                if guide_mask
+                else None
+            )
+            max_center_error = subject.get("max_center_error", 0.015)
+            if (
+                not isinstance(max_center_error, (int, float))
+                or max_center_error <= 0
+                or max_center_error > 1
+            ):
+                errors.append(f"{subject_label}: max_center_error must be in (0, 1]")
+                max_center_error = 0.015
+            center_error = None
+            if candidate_center and guide_center:
+                center_error = math.dist(candidate_center, guide_center)
+                if center_error > max_center_error:
+                    errors.append(
+                        f"{subject_label}: center error {center_error:.5f} exceeds "
+                        f"{max_center_error:.5f}"
+                    )
+            subject_reports.append(
+                {
+                    "id": subject_id,
+                    "candidate_center": candidate_center,
+                    "guide_center": guide_center,
+                    "center_error": round(center_error, 6)
+                    if center_error is not None
+                    else None,
+                    "max_center_error": max_center_error,
+                }
+            )
+
+        reports.append(
+            {
+                "frame": frame_number,
+                "candidate_to_previous_delta": round(image_delta(candidate, previous), 4)
+                if candidate and previous
+                else None,
+                "candidate_to_next_delta": round(image_delta(candidate, following), 4)
+                if candidate and following
+                else None,
+                "subjects": subject_reports,
+            }
+        )
+    return errors, reports
+
+
 def score_block(name: str, scores: dict[str, Any], floor: float, errors: list[str]) -> None:
     for criterion in REQUIRED_SCORES:
         value = scores.get(criterion)
@@ -445,6 +785,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("video", type=Path)
     parser.add_argument("--manifest", type=Path)
+    parser.add_argument(
+        "--frame-regeneration-manifest",
+        type=Path,
+        help="audit full-frame regeneration provenance and position-only guides",
+    )
     parser.add_argument("--bootstrap", type=Path, help="write a review-manifest skeleton")
     parser.add_argument(
         "--analyze",
@@ -467,9 +812,17 @@ def main() -> int:
     parser.add_argument("--scene-floor", type=float, help="override the profile scene-score floor")
     parser.add_argument("--identity-floor", type=float, help="override the profile passport-score floor")
     args = parser.parse_args()
-    action_count = sum((bool(args.manifest), bool(args.bootstrap), args.analyze))
+    action_count = sum((
+        bool(args.manifest),
+        bool(args.frame_regeneration_manifest),
+        bool(args.bootstrap),
+        args.analyze,
+    ))
     if action_count != 1:
-        parser.error("provide exactly one of --manifest, --bootstrap, or --analyze")
+        parser.error(
+            "provide exactly one of --manifest, --frame-regeneration-manifest, "
+            "--bootstrap, or --analyze"
+        )
     if not args.video.is_file():
         parser.error(f"video does not exist: {args.video}")
     if args.lattice < 0:
@@ -480,6 +833,38 @@ def main() -> int:
     if args.bootstrap:
         bootstrap(args.video, args.bootstrap)
         return 0
+    if args.frame_regeneration_manifest:
+        fps, count = video_info(args.video)
+        manifest_path = args.frame_regeneration_manifest.resolve()
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        errors, frame_reports = validate_frame_regeneration_manifest(
+            manifest,
+            count,
+            manifest_path.parent,
+        )
+        report = {
+            "schema": "cinematic-frame-regeneration-report-v1",
+            "video": str(args.video),
+            "fps": fps,
+            "frame_count": count,
+            "passed": not errors,
+            "errors": errors,
+            "frames": frame_reports,
+        }
+        if args.report:
+            args.report.parent.mkdir(parents=True, exist_ok=True)
+            args.report.write_text(
+                json.dumps(report, indent=2) + "\n",
+                encoding="utf-8",
+            )
+        for error in errors:
+            print(f"FRAME_REGENERATION_AUDIT|FAIL|{error}")
+        print(
+            "FRAME_REGENERATION_AUDIT|"
+            f"{'PASS' if not errors else 'FAIL'}|"
+            f"frames={len(frame_reports)}|errors={len(errors)}"
+        )
+        return 0 if not errors else 1
     profile_scene_floor, profile_identity_floor = THRESHOLD_PROFILES[args.profile]
     scene_floor = args.scene_floor if args.scene_floor is not None else profile_scene_floor
     identity_floor = args.identity_floor if args.identity_floor is not None else profile_identity_floor
