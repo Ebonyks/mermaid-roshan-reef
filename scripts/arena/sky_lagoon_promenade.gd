@@ -35,37 +35,32 @@ const BAND_H := 10.0
 # a press has to be held this long on open ground before it becomes follow-the-
 # finger travel; below it the press still belongs to the tap router
 const HOLD_TRAVEL_S := 0.20
-# ANCHOR THE SET TO THE PAINTING (owner report 2026-07-27). A standee standing
-# 12 units in FRONT of the mural parallaxes ~24% faster than the art it stands
-# on, so panning the lens slid the whole playground across the painted lawn -
-# nothing looked nailed down - and the castle-gate tap target drifted 237 px
-# away from the painted door, which is why tapping the door never entered the
-# castle. Every world card now shares the mural's depth: still its own sprite,
-# still tappable, still animated, but welded to the scene it belongs to and
-# with its tap target exactly on the art it represents. Screen sizes and the
-# ground line are unchanged - each height and y was rescaled by the depth
-# ratio (47 - z_new) / (47 - z_old). Roshan's band is ~18 units in front, so
-# she still passes in front of all of it, exactly as she did at z -5.
-# The small spread keeps the cards sorting against each other; 0.4 units of
-# separation is under 1% of parallax, far below anything the eye reads.
-const DRESS_Z := -17.90      # ambient firs, furthest of the anchored cards
-const CLOUD_Z := -17.95      # sky, behind the treetops
+# REAL STORYBOOK DEPTH. The clean v5 plate has the extracted props removed,
+# so every restored card can occupy an intentional plane without doubling a
+# painted copy. Heights and y positions are perspective-compensated for these
+# depths, preserving the approved 720p composition while allowing restrained
+# parallax and correct player occlusion.
+const CLOUD_Z := -16.0       # drifting sky card
+const LANDMARK_Z := -11.0    # pearl plane and castle facade
+const DRESS_Z := -9.0        # rear PNW foliage
+const PLAY_Z := -6.0         # playground standees
+const FRAME_Z := -5.0        # story activity easels
+const NEAR_Z := -1.5         # near PNW foliage, inside the walk-depth band
 const CLOUD_DRIFT_MIN_X := -10.0
 const CLOUD_DRIFT_MAX_X := 10.0
-const LANDMARK_Z := -17.85   # pearl plane, castle gate
-const PLAY_Z := -17.80       # playground standees
-const FRAME_Z := -17.75      # activity frames
-const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
-const SLIDE_H := 12.0
-const SWING_H := 11.0
-const SEESAW_H := 4.2
+const PLANE_DEPARTURE_S := 7.0
+const SLIDE_H := 9.815
+const SWING_H := 8.997
+const SEESAW_H := 3.435
+const FRAME_H := 10.397
+const FRAME_PAGE_H := 7.268
 const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
 const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 # the activity frames stand on the lawn like easels (they used to hang at
 # y 14.5, which put them in the painted sky above the treeline)
-const FRAME_STAND_Y := 4.4
-const PLAY_ROSHAN_H := 10.2
+const FRAME_STAND_Y := 5.405
+const PLAY_ROSHAN_H := 8.34
 const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -164,7 +159,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		for column: int in range(BACKDROP_COLUMNS):
 			_add_backdrop(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
 				% [row, column],
 				-60.0 + float(column) * BACKDROP_TILE_SIZE.x,
 				21.5 - float(row) * BACKDROP_TILE_SIZE.y,
@@ -184,8 +179,10 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	_set_spawn(_walk_x(spawn_at))
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a picture frame once to light it up, then tap it again to play.")
-	else:
+	elif m.g.get("lagoon_plane_card") is Sprite3D:
 		m.show_msg("Roshan", "Our pearl plane landed! Tap the plane or a picture frame to explore.", "intro")
+	else:
+		m.show_msg("Roshan", "The Sky Lagoon is ready! Tap a picture frame once to light it up, then tap it again to play.", "intro")
 
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
@@ -257,9 +254,14 @@ func handle_touch(screen_pos: Vector2) -> bool:
 	return true
 
 func _build_runway_screen() -> void:
+	if bool(m.save_data.get("lagoon_plane_departed", false)):
+		m.g["lagoon_plane_card"] = null
+		_add_activity_frame("runway_frame", Vector3(-34.5, FRAME_STAND_Y, FRAME_Z),
+			"res://assets/book/hall/p_snowman.jpg", "snowman")
+		return
 	var plane := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
-		Vector3(-58.0, 4.85, LANDMARK_Z), 12.0)   # fully inside the painted dock
+		Vector3(-58.0, 5.341, LANDMARK_Z), 10.732)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
 	_register_target("plane", plane, "plane", "", 118.0, 1.12)
@@ -276,13 +278,13 @@ func _build_playground_screen() -> void:
 	# visible grass between all three opaque cutouts at their actual scales.
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		Vector3(-9.5, 5.0, PLAY_Z), SLIDE_H)
+		Vector3(-9.5, 5.819, PLAY_Z), SLIDE_H)
 	var swing := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
-		Vector3(2.5, 5.0, PLAY_Z), SWING_H)
+		Vector3(2.5, 5.819, PLAY_Z), SWING_H)
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		Vector3(13.0, 1.85, PLAY_Z), SEESAW_H)
+		Vector3(13.0, 3.242, PLAY_Z), SEESAW_H)
 	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
@@ -290,20 +292,15 @@ func _build_playground_screen() -> void:
 func _build_castle_screen() -> void:
 	_add_activity_frame("castle_frame", Vector3(33.3, FRAME_STAND_Y, FRAME_Z),
 		"res://assets/book/hall/p_trampoline.jpg", "trampoline")
-	# ON the painted door, not merely near it: the entrance is painted at
-	# x 52.5 with its bridge running left to about x 42, and the card is sized
-	# to sit over that entrance so the first tap outlines what the child sees.
-	var gate := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
-		Vector3(CASTLE_DOOR_X, 3.3, LANDMARK_Z), 13.9)
-	# The full castle is painted into the panorama. This aligned card is kept
-	# hidden until focus so the first tap can still outline the entrance
-	# without drawing a second gate over the castle facade.
-	gate.visible = false
-	var gate_shadow: Sprite3D = gate.get_meta("contact_shadow") as Sprite3D
-	if gate_shadow != null:
-		gate_shadow.visible = false
-	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
+	# The approved castle was lifted out of the background and restored as one
+	# depth card. Its drawbridge and Roshan stained glass therefore remain one
+	# coherent silhouette instead of a second gate pasted over a painted facade.
+	var castle := _add_sprite(
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+		Vector3(53.5, 10.662, LANDMARK_Z), 27.710, false)
+	castle.name = "SkyLagoonCastleStainedGlass"
+	m.g["lagoon_castle_card"] = castle
+	_register_target("castle_gate", castle, "castle", "", 128.0, 1.035)
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
@@ -329,27 +326,20 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
-	# These three planted cards replace the two duplicate firs that were
-	# previously stacked over painted trees. Their bases sit on the dry rear
-	# lawn and their alpha footprints leave a full crown-width between cards.
+	# These are the approved PNW cutouts lifted from the earlier background.
+	# The v5 clean plate removes their baked-in counterparts, so these cards
+	# restore depth without doubling crowns or creating a scrapbook overlap.
 	_add_ambient_card("tree",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		Vector3(26.0, 6.5, DRESS_Z), 9.5, 0.0, 0.42, 0.010, false)
+		Vector3(26.0, 6.912, DRESS_Z), 8.197, 0.0, 0.42, 0.010, false)
 	_add_ambient_card("tree",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png",
-		Vector3(-27.0, 6.2, DRESS_Z), 8.5, 1.8, 0.38, 0.009, false)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
-		Vector3(-24.0, 1.3, NEAR_Z), 6.55, 0.7, 0.72, 0.030)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
-		Vector3(23.5, 1.35, NEAR_Z), 6.3, 2.4, 0.68, 0.028)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
-		Vector3(62.0, 1.55, NEAR_Z), 6.8, 4.0, 0.64, 0.032)
+		Vector3(-27.0, 7.034, NEAR_Z), 6.352, 1.8, 0.38, 0.009, false)
+	# One cloud in one clear corridor: enough motion to keep the sky alive,
+	# without the overdraw from several translucent cards crossing each other.
 	_add_ambient_card("cloud",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-		Vector3(CLOUD_DRIFT_MIN_X, 29.0, CLOUD_Z), 3.2, 1.1, 0.45, 0.0, false)
+		Vector3(CLOUD_DRIFT_MIN_X, 28.414, CLOUD_Z), 3.104, 1.1, 0.45, 0.0, false)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
 		phase: float, speed: float, amplitude: float,
@@ -402,6 +392,30 @@ func _tick_ambient_life(delta: float) -> void:
 		if plane_glow != null and is_instance_valid(plane_glow):
 			plane_glow.position = plane.position + Vector3(0.0, 0.0, -0.05)
 			plane_glow.rotation.z = plane.rotation.z
+		if ambient_t >= PLANE_DEPARTURE_S:
+			_finish_plane_arrival()
+
+func _finish_plane_arrival() -> void:
+	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
+	if plane == null or not is_instance_valid(plane):
+		return
+	var highlight: Sprite3D = m.g.get("lagoon_plane_highlight") as Sprite3D
+	if highlight != null and is_instance_valid(highlight):
+		highlight.queue_free()
+	var plane_shadow: Sprite3D = plane.get_meta("contact_shadow") as Sprite3D
+	if plane_shadow != null and is_instance_valid(plane_shadow):
+		plane_shadow.queue_free()
+	plane.queue_free()
+	m.g["lagoon_plane_card"] = null
+	m.g["lagoon_plane_highlight"] = null
+	var retained: Array = []
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) != "plane":
+			retained.append(target)
+	m.g["lagoon_promenade_targets"] = retained
+	m.save_data["lagoon_plane_departed"] = true
+	m._write_save()
 
 func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> void:
 	var root_node: Node3D = stage.root()
@@ -490,7 +504,7 @@ func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: 
 	root_node.add_child(holder)
 	var page := Sprite3D.new()
 	page.texture = load(page_path)
-	page.pixel_size = 9.05 / maxf(1.0, float(page.texture.get_height()))
+	page.pixel_size = FRAME_PAGE_H / maxf(1.0, float(page.texture.get_height()))
 	page.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	page.shaded = false
 	page.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -498,12 +512,12 @@ func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: 
 	holder.add_child(page)
 	var frame := Sprite3D.new()
 	frame.texture = load(FRAME_TEX)
-	frame.pixel_size = 12.95 / maxf(1.0, float(frame.texture.get_height()))
+	frame.pixel_size = FRAME_H / maxf(1.0, float(frame.texture.get_height()))
 	frame.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	frame.shaded = false
 	frame.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	holder.add_child(frame)
-	_add_contact_shadow(pos, 5.8, 12.95)
+	_add_contact_shadow(pos, 4.65, FRAME_H)
 	_register_target(id, holder, "frame", minigame, 92.0, 1.08, frame)
 
 func _register_target(id: String, node: Node3D, kind: String, payload: String,

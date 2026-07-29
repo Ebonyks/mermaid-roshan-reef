@@ -12,7 +12,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageStat
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png"
-MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
+MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 TILES = ROOT / "assets/flats/sky_lagoon/main"
 REPORT = ROOT / "audit/sky_lagoon_hd_grid.json"
 SEAMS = ROOT / "audit/sky_lagoon_hd_seam_capture.jpg"
@@ -92,7 +92,7 @@ def main() -> None:
 		for column in range(6):
 			path = (
 				TILES
-				/ f"flat_sky_lagoon_main_panorama_v4_tile_r{row}_c{column}.png"
+				/ f"flat_sky_lagoon_main_panorama_v5_tile_r{row}_c{column}.png"
 			)
 			with Image.open(path) as tile:
 				size = tile.size
