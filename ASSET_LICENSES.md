@@ -539,3 +539,13 @@ ambientCG (all CC0).
   — the approved 6144×2048 panorama and two affected lossless runtime tiles,
   rebuilt with a project-original localized Codex image edit that removes the
   oversized conifer stamp at the screen-one/screen-two bush transition.
+
+## Sky Lagoon living-card fireplace smoke (Codex, 2026-07-29)
+- `assets_src/sky_lagoon/living_card_v2_2026-07-29/**` — project-original
+  OpenAI built-in image-generation sources, rejected visual trials, accepted
+  alpha master, exact prompts, dimensions, hashes, and attempt ledger. No
+  external references. License: project original.
+- `assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` — project-original
+  46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
+  and Lanczos-downsampled from the accepted generated source for use as three
+  staggered unshaded Sprite3D cards at the mountain cabin chimney.

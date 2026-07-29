@@ -3987,6 +3987,8 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	# first, stacking a second terrain+castle+playground exactly on top of the
 	# live one (coplanar z-fighting shimmer over the whole level). Same idiom
 	# as _enter_castle_interior; the callers that already pre-free stay no-ops.
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -5068,6 +5070,8 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.visible = true
 	_play_music("hall")
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	g["l2_fish"] = []
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5844,6 +5848,8 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	g = {}
 	hud_game.text = ""
 	for n in game_nodes:
