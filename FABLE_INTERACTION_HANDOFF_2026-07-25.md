@@ -971,3 +971,32 @@ Stop and report instead of broadening scope if:
 The intended result is not “Roshan plays itself.” It is a depth-layered
 Sprite3D storybook world in which the child may either steer freely or touch
 what she means, and the game always responds in the same readable language.
+
+## 18. Castle room-card interaction amendment — 2026-07-29
+
+The Codex Castle implementation establishes the concrete world-card pattern
+for the broader interaction redesign:
+
+- A room background may be reconstructed from several adjacent Sprite3D cards,
+  but the background cards never absorb touch props.
+- Every animated/touchable room object remains its own Sprite3D with a
+  forgiving Control hotspot projected from its authored world rectangle.
+- The visual card may animate discreetly while the hotspot remains large.
+  Shell lights use this separation: the 96 x 128 fixture card pulses subtly,
+  while a 112 x 128 minimum touch target toggles a real light cluster and
+  plays the existing chime.
+- Door and elevator actions share the same room-transition path. The elevator
+  remains fixed Storybook HUD; door art and corridor art remain world-depth
+  Sprite3D cards.
+- A placement audit must reject a prop when its authored rectangle intersects
+  a door approach, even if its hotspot would still technically work.
+- Multi-card backgrounds require exact reconstruction checks and a fresh
+  Mobile capture. A numerical edge pass alone is insufficient; any visible
+  pasted rectangle or blurred transition is rejected.
+
+The focused acceptance probe now covers exact 2K-derived tile grids, object
+bounds, depth diversity, animation/audio hooks, fixture alignment, entrance
+clearance, junction architecture, light toggling, camera travel, and the
+Speedy overdraw cap. Use
+`audit/castle_sprite3d/CASTLE_SEAM_TONE_OVERLAP_AUDIT_2026-07-29.md`
+as the implementation evidence for this pattern.

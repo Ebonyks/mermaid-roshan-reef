@@ -202,6 +202,7 @@ var castle_room_world_root: Node3D = null
 var castle_room_camera: Camera3D = null
 var castle_room_background: Sprite3D = null
 var castle_room_background_tiles: Array[Sprite3D] = []
+var castle_room_detail_tiles: Array[Sprite3D] = []
 var castle_room_mid_layer: Node3D = null
 var castle_room_front_layer: Node3D = null
 var castle_room_item_visual_layer: Node3D = null

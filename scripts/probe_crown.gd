@@ -6,6 +6,7 @@ extends SceneTree
 
 var main: Node
 var checks_failed := 0
+const DEPTH_MANIFEST := "res://FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
 
 func _ck(label: String, ok: bool, detail: String = "") -> void:
 	if not ok:
@@ -25,6 +26,15 @@ func _world_cards_conform(node: Node) -> bool:
 			return false
 		if child is SpriteBase3D:
 			if not child is Sprite3D:
+				return false
+			var sprite := child as Sprite3D
+			var role := String(sprite.get_meta("source_asset_role", ""))
+			if sprite.shaded and role not in [
+				"clean_background_tile",
+				"architectural_join_divider",
+				"architectural_join_inlay",
+				"architectural_bridge",
+			]:
 				return false
 		if not _world_cards_conform(child):
 			return false
@@ -48,6 +58,13 @@ func _all_children_are_unshaded_cards(node: Node3D) -> bool:
 
 func _stage_to_screen(stage: Control, point: Vector2) -> Vector2:
 	return stage.get_global_transform_with_canvas() * point
+
+func _depth_manifest() -> Dictionary:
+	if not FileAccess.file_exists(DEPTH_MANIFEST):
+		return {}
+	var parsed: Variant = JSON.parse_string(
+		FileAccess.get_file_as_string(DEPTH_MANIFEST))
+	return parsed as Dictionary if parsed is Dictionary else {}
 
 func _init() -> void:
 	var ms: PackedScene = load("res://scenes/main.tscn")
@@ -110,13 +127,106 @@ func _init() -> void:
 			"ppm=%.3f" % reference_ppm)
 		_ck("backdrop_aspect_preserved",
 			is_equal_approx(backdrop_size.aspect(), 16.0 / 9.0))
+		var manifest: Dictionary = _depth_manifest()
+		var manifest_rooms: Dictionary = manifest.get("rooms", {}) as Dictionary
+		var clean_plate_manifest_ok: bool = manifest_rooms.size() == 8 \
+			and String(manifest.get("source_policy", "")).begins_with(
+				"Existing approved room composites")
+		for manifest_room_id: String in manifest_rooms:
+			var manifest_room: Dictionary = manifest_rooms[manifest_room_id] \
+				as Dictionary
+			var manifest_cards: Array = manifest_room.get("cards", []) as Array
+			var all_cards_owned := true
+			for manifest_card_value: Variant in manifest_cards:
+				var manifest_card: Dictionary = manifest_card_value as Dictionary
+				all_cards_owned = all_cards_owned \
+					and int(manifest_card.get("alpha_pixels", 0)) > 0
+			clean_plate_manifest_ok = clean_plate_manifest_ok \
+				and String(manifest_room.get("background", "")).ends_with(
+					"_background.png") \
+				and int(manifest_room.get("card_overlap_pixels", -1)) == 0 \
+				and float(manifest_room.get("changed_owned_ratio", 0.0)) > 0.90 \
+				and float(manifest_room.get(
+					"resting_reconstruction_mean_abs_error", 999.0)) < 1.0 \
+				and all_cards_owned
+		_ck("clean_background_unique_pixel_manifest",
+			clean_plate_manifest_ok)
+		var node_contract: Dictionary = manifest.get(
+			"runtime_node_contract", {}) as Dictionary
+		var forbidden_world_types: Array = node_contract.get(
+			"world_art_forbidden", []) as Array
+		_ck("manifest_sprite3d_node_contract",
+			String(node_contract.get("world_root", "")) == "Node3D"
+			and String(node_contract.get("camera", ""))
+				== "Camera3D:perspective"
+			and (node_contract.get("world_art_allowed", []) as Array).has(
+				"Sprite3D:unshaded")
+			and (node_contract.get("world_art_allowed", []) as Array).has(
+				"Sprite3D:shaded lighting receiver")
+			and forbidden_world_types.has("Sprite2D")
+			and forbidden_world_types.has("TextureRect")
+			and forbidden_world_types.has("MeshInstance3D"))
+		var native_contract: Dictionary = manifest.get(
+			"owner_native_environment_contract", {}) as Dictionary
+		var required_ratio: Array = native_contract.get(
+			"required_reference_aspect_ratio", []) as Array
+		var native_2k_ok: bool = String(native_contract.get(
+			"status", "")) == "compliant"
+		native_2k_ok = native_2k_ok \
+			and int(native_contract.get(
+				"required_minimum_long_edge", 0)) >= 2048 \
+			and required_ratio.size() == 2 \
+			and int(required_ratio[0]) == 16 \
+			and int(required_ratio[1]) == 9 \
+			and float(native_contract.get(
+				"ratio_rounding_tolerance_pixels", 99.0)) <= 1.0 \
+			and not bool(native_contract.get(
+				"master_power_of_two_required", true)) \
+			and int(native_contract.get(
+				"runtime_tile_max_long_edge", 9999)) <= 1024 \
+			and bool(native_contract.get(
+				"runtime_tiles_lossless_no_scale", false))
+		for manifest_room_id: String in manifest_rooms:
+			var manifest_room: Dictionary = manifest_rooms[manifest_room_id] \
+				as Dictionary
+			var master_dimensions: Array = manifest_room.get(
+				"master_dimensions", []) as Array
+			var runtime_tiles: Array = manifest_room.get(
+				"runtime_tiles", []) as Array
+			var master_long_edge := 0
+			if master_dimensions.size() == 2:
+				master_long_edge = maxi(
+					int(master_dimensions[0]), int(master_dimensions[1]))
+			var expected_tile_count := 8 if manifest_room_id == "main_hall" \
+				else 4
+			native_2k_ok = native_2k_ok \
+				and bool(manifest_room.get(
+					"native_master_compliant", false)) \
+				and master_long_edge >= 2048 \
+				and float(manifest_room.get(
+					"aspect_ratio_pixel_delta", 99.0)) <= 1.0 \
+				and bool(manifest_room.get(
+					"tile_reconstruction_pixel_exact", false)) \
+				and runtime_tiles.size() == expected_tile_count
+			for tile_value: Variant in runtime_tiles:
+				var tile: Dictionary = tile_value as Dictionary
+				var dimensions: Array = tile.get("dimensions", []) as Array
+				native_2k_ok = native_2k_ok and dimensions.size() == 2 \
+					and maxi(int(dimensions[0]), int(dimensions[1])) <= 1024
+		_ck("native_2k_environment_gate", native_2k_ok,
+			"native >=2K masters reconstruct through exact <=1024 tiles")
 		rooms.show_room("library", false)
 		await _frames(2)
 		_ck("library_mid_layer", main.castle_room_mid_layer.get_child_count() == 0)
 		_ck("library_front_layers", main.castle_room_front_layer.get_child_count() == 2)
 		_ck("library_node_inventory",
-			main.castle_room_item_sprites.size() == 3
-			and main.castle_room_item_hotspot_layer.get_child_count() == 3)
+			main.castle_room_background is Sprite3D
+			and main.castle_room_background_tiles.size() == 8
+			and main.castle_room_detail_tiles.size() == 4
+			and main.castle_room_item_sprites.size() == 3
+			and main.castle_room_front_layer.get_child_count() == 2
+			and main.castle_room_player_sprite is Sprite3D
+			and main.castle_room_player_shadow is Sprite3D)
 		var library_book: Sprite3D = (
 			main.castle_room_item_sprites["magic_book"] as Dictionary
 			).get("sprite") as Sprite3D
@@ -154,7 +264,20 @@ func _init() -> void:
 					and String(item_sprite.get_meta(
 						"source_asset_role", "")) == "unique_object"
 			room_depth_ok = room_depth_ok and item_depths.size() >= 2
+			if room_id == "main_hall":
+				room_depth_ok = room_depth_ok \
+					and main.castle_room_background_tiles.size() == 8 \
+					and main.castle_room_detail_tiles.is_empty()
+			else:
+				room_depth_ok = room_depth_ok \
+					and main.castle_room_detail_tiles.size() == 4 \
+					and String(main.castle_room_background.texture.resource_path
+						).ends_with("_background.png")
 			room_cards_ok = room_cards_ok \
+				and _all_children_are_unshaded_cards(
+					main.castle_room_item_visual_layer) \
+				and _all_children_are_unshaded_cards(
+					main.castle_room_front_layer) \
 				and _world_cards_conform(main.castle_room_world_root)
 			overdraw_budget_ok = overdraw_budget_ok \
 				and _visible_sprite_card_count(

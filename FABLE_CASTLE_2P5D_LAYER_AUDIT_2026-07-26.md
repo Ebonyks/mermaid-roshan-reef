@@ -813,3 +813,41 @@ depth bands, and acceptance gates are in
 `audit/castle_sprite3d/castle_room_led_reference_board.png`, with exact source
 metrics and hashes in
 `audit/castle_sprite3d/castle_room_led_visual_audit.json`.
+
+### Codex resolution, placement, and junction closure — 2026-07-29
+
+This implementation amendment supersedes the older native-master placeholder
+status for the seven destination rooms.
+
+- Opera, Kitchen, Library, Playroom, Craft, Pool, and Bath each preserve their
+  approved 1024 x 576 clean plate and own a 2048 x 1152 derived master.
+- Each master is cut without scaling into four exact 1024 x 576 runtime
+  textures. The runtime displays those four textures as adjacent Sprite3D
+  cards at one coherent background depth. Foregrounds, midgrounds, touch
+  props, Roshan, and contact shadows remain separate real-depth cards.
+- The Main Hall still owns two native 2048 x 1153 masters and eight exact
+  runtime cards. A four-pixel edge ramp eliminates sampling cracks; the
+  visible screen transition is an accepted-pixel portal, pilaster, and carpet
+  inlay at real depth.
+- Six shell-light cards use one 96 x 128 accepted-pixel extraction and share
+  logical center y=215. Their large invisible touch zones do not alter their
+  discreet visual presentation.
+- Every destination-room prop rectangle remains inside its authored canvas.
+  Every Main Hall prop clears every door approach and the fixed elevator.
+- Maximum visible Sprite3D inventory is 25, with three visible lights and one
+  Speedy shadow map. World `CanvasItem` and modeled-art counts remain zero.
+
+The owner explicitly authorized the deterministic room upscaling for this
+pass. Originals are preserved, aspect ratio delta is 0.0, and every 2 x 2
+reconstruction is pixel-exact. Reproduce with
+`tools/build_castle_room_2k_tiles.py` and
+`tools/build_castle_hall_alignment.py`.
+
+Final evidence is in:
+
+- `audit/castle_sprite3d/castle_room_2k_upscale_manifest.json`;
+- `audit/castle_sprite3d/castle_hall_alignment_manifest.json`;
+- `audit/castle_sprite3d/castle_tile_tone_audit_2026-07-29.json`;
+- `audit/castle_sprite3d/CASTLE_SEAM_TONE_OVERLAP_AUDIT_2026-07-29.md`;
+- fresh Mobile captures for all eight rooms in
+  `audit/castle_sprite3d/`.

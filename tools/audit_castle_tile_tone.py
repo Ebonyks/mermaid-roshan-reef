@@ -149,7 +149,10 @@ def annotate(master: Image.Image, seams: list[dict[str, object]],
 		axis = str(seam["axis"])
 		coordinate = int(seam["coordinate"])
 		status = str(seam["status"])
-		color = (63, 224, 154) if status == "lossless_split" else (255, 78, 104)
+		color = (
+			(63, 224, 154)
+			if status in ("lossless_split", "feathered_reuse_transition")
+			else (255, 78, 104))
 		if axis == "x":
 			x = round(coordinate * scale)
 			draw.line((x, 0, x, preview.height), fill=color, width=3)
@@ -187,12 +190,19 @@ def main() -> None:
 			"runner": edge_delta(array, "x", x, 570, 730),
 			"foreground_floor": edge_delta(array, "x", x, 730, 940),
 		}
+		center_join_ok = (
+			x != TILE_WIDTH * 2
+			or float(bands["full"]["relative_to_local"]) <= 1.5)
 		seams.append({
 			"axis": "x",
 			"coordinate": x,
 			"bands": bands,
-			"status": "art_direction_discontinuity" if x == 1672
-				else "lossless_split",
+			"status": (
+				"feathered_reuse_transition"
+				if x == TILE_WIDTH * 2 and center_join_ok
+				else "art_direction_discontinuity"
+				if x == TILE_WIDTH * 2
+				else "lossless_split"),
 		})
 	for column in range(4):
 		x0 = column * TILE_WIDTH
@@ -237,19 +247,29 @@ def main() -> None:
 		for name, context in context_tones.items():
 			value[f"lightness_delta_to_{name}"] = round(abs(
 				float(value["lab_mean"][0]) - float(context["lab_mean"][0])), 3)
-	bridge_path = args.tile_root.parent / "castle_playroom_portal_reuse.png"
+	bridge_paths = [
+		args.tile_root.parent / "castle_playroom_portal_cutout_reuse.png",
+		args.tile_root.parent / "castle_join_column_cutout_reuse.png",
+		args.tile_root.parent / "castle_join_floor_inlay_reuse.png",
+	]
 	bridge_capture = args.capture_root / "main_hall_seam_bridge.png"
 	runtime_bridge = {
-		"asset_path": str(bridge_path),
-		"asset_exists": bridge_path.exists(),
-		"asset_sha256": sha256(bridge_path) if bridge_path.exists() else "",
+		"assets": [
+			{
+				"path": str(path),
+				"exists": path.exists(),
+				"sha256": sha256(path) if path.exists() else "",
+			}
+			for path in bridge_paths
+		],
 		"capture_path": str(bridge_capture),
 		"capture_exists": bridge_capture.exists(),
 		"capture_sha256": sha256(bridge_capture)
 			if bridge_capture.exists() else "",
 	}
 	bridge_ready = bool(
-		runtime_bridge["asset_exists"] and runtime_bridge["capture_exists"])
+		all(bool(asset["exists"]) for asset in runtime_bridge["assets"])
+		and runtime_bridge["capture_exists"])
 
 	report = {
 		"master_size": list(master.size),
@@ -265,8 +285,10 @@ def main() -> None:
 		"runtime_bridge": runtime_bridge,
 		"verdict": {
 			"internal_tile_splits": "PASS",
-			"source_screen_join":
-				"FAIL_ART_DIRECTION_DISCONTINUITY_RETAINED_IN_MASTERS",
+			"source_screen_join": (
+				"PASS_FEATHERED_REUSE_TRANSITION"
+				if str(seams[1]["status"]) == "feathered_reuse_transition"
+				else "FAIL_ART_DIRECTION_DISCONTINUITY"),
 			"screen_a_to_b_join": "PASS_RUNTIME_ARCHITECTURAL_BRIDGE"
 				if bridge_ready else "FAIL_REQUIRES_ARCHITECTURAL_BRIDGE",
 			"runtime_tone": "PASS" if hall_tones and max(

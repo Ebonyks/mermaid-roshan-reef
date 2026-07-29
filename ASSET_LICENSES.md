@@ -660,3 +660,45 @@ generator output is present in this directory or connected to runtime art.
   image-generation helper using a soft matte and one-pixel edge contraction;
   cutouts tightly cropped and Lanczos-resampled to 1024x719 (frame) and
   554x1024 (seat/ropes)
+## Pearl Castle 2K room cards and final junction derivatives (2026-07-29)
+
+- `assets_src/castle/room_backgrounds_2k/room_*_background_2k.png` —
+  seven project-original 2048 x 1152 preservation masters derived from the
+  already licensed 1024 x 576 clean room plates with Pillow Lanczos under the
+  owner's explicit authorization to upscale for this pass. Originals and
+  aspect ratios are preserved; no external source or new object design.
+- `assets/flats/castle/rooms/background_tiles/room_*_background_r*_c*.png`
+  — 28 non-overlapping 1024 x 576 runtime crops of the seven masters above,
+  produced by `tools/build_castle_room_2k_tiles.py`. Every four-card group
+  reconstructs its master pixel-exactly; no scaling occurs during slicing.
+- `assets_src/castle/main_hall_alignment/generated_cleanup_candidate_{a,b}.png`
+  — project-original OpenAI built-in ImageGen precision-removal candidates
+  made from the two already licensed Main Hall masters. The request removed
+  only the three baked fixtures on each screen and restored the same wall;
+  no replacement object was generated. Generator paths, final prompts,
+  dimensions, hashes, and mask evidence are recorded in
+  `audit/castle_sprite3d/castle_hall_alignment_manifest.json`.
+- `assets_src/castle/main_hall_alignment/main_hall_screen_{a,b}_fixture_aligned_master.png`
+  — deterministic same-size composites made by
+  `tools/build_castle_hall_alignment.py`. Candidate pixels are accepted only
+  inside six compact fixture masks; pixels outside are exact to the immutable
+  licensed masters. Screen B also receives a documented global tone correction
+  and a four-pixel exact-edge ramp. License remains project original.
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_integrated_reuse.png`
+  — tight-alpha 96 x 128 extraction of the accepted Screen B shell fixture.
+  No generated, external, or newly painted pixels; reused unchanged for all
+  six unshaded Sprite3D lights.
+- `assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png`
+  — tight-alpha derivative of the already licensed
+  `castle_playroom_portal_reuse.png`; the rectangular wall/floor plate is
+  removed while the accepted arch, corridor, and badge pixels remain.
+- `assets/flats/castle/main_hall_2screen/castle_join_column_cutout_reuse.png`
+  — tight-alpha 190 x 941 extraction of an accepted Screen A shell pilaster;
+  used as the real-depth A/B architectural divider.
+- `assets/flats/castle/main_hall_2screen/castle_join_floor_inlay_reuse.png`
+  — 48 x 321 tapered inlay assembled deterministically by rotating and tiling
+  the accepted Screen A carpet trim; no new painting or external source.
+- `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_*.png`
+  — updated lossless runtime crops of the documented derived Main Hall
+  masters. Source rectangles and hashes are in
+  `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.

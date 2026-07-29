@@ -43,6 +43,14 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 				counts.get("canvas_world", 0)) + 1
 		_audit_world_node(child, counts)
 
+func _room_detail_tile_ready(tile: Sprite3D) -> bool:
+	return (
+		tile.visible
+		and tile.texture != null
+		and tile.texture.get_size() == Vector2(1024.0, 576.0)
+		and tile.texture.resource_path.contains("rooms/background_tiles/")
+	)
+
 func _capture(room_id: String) -> void:
 	if DisplayServer.get_name() == "headless":
 		return
@@ -95,6 +103,8 @@ func _run() -> void:
 	var all_touch_animation_ok := true
 	var all_touch_audio_ok := true
 	var approved_composite_backdrops_ok := true
+	var all_detail_tile_grids_ok := true
+	var all_room_object_bounds_ok := true
 	var max_visible_world_cards := 0
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
@@ -112,8 +122,10 @@ func _run() -> void:
 					return tile.visible and tile.texture != null)
 			and not main.castle_room_background.visible
 		) if hall_mode else (
-			main.castle_room_background.visible
+			not main.castle_room_background.visible
 			and main.castle_room_background.texture != null
+			and main.castle_room_detail_tiles.size() == 4
+			and main.castle_room_detail_tiles.all(_room_detail_tile_ready)
 			and main.castle_room_background_tiles.all(
 				func(tile: Sprite3D) -> bool:
 					return not tile.visible)
@@ -127,7 +139,7 @@ func _run() -> void:
 			and int(counts.get("modeled", 0)) == 0 \
 			and int(counts.get("canvas_world", 0)) == 0 \
 			and int(counts.get("shaded", 0)) \
-				== (9 if hall_mode else 8) \
+				== (11 if hall_mode else 8) \
 			and int(counts.get("missing_texture", 0)) == 0
 		var depths: Dictionary = {}
 		if hall_mode:
@@ -135,7 +147,7 @@ func _run() -> void:
 				main.castle_room_background_tiles[0].position.z, 0.01)] = true
 		else:
 			depths[snappedf(
-				main.castle_room_background.position.z, 0.01)] = true
+				main.castle_room_detail_tiles[0].position.z, 0.01)] = true
 		for item_id_value: Variant in main.castle_room_item_sprites:
 			var record: Dictionary = main.castle_room_item_sprites[
 				item_id_value] as Dictionary
@@ -149,8 +161,28 @@ func _run() -> void:
 		if not hall_mode:
 			approved_composite_backdrops_ok = \
 				approved_composite_backdrops_ok \
-				and not main.castle_room_background.texture.resource_path \
-					.contains("_background")
+				and main.castle_room_background.texture.resource_path \
+					.ends_with("_background.png")
+			var logical_rects: Array[Rect2] = []
+			var logical_area := 0.0
+			for detail_tile: Sprite3D in main.castle_room_detail_tiles:
+				var logical_rect: Rect2 = detail_tile.get_meta(
+					"source_art_rect", Rect2()) as Rect2
+				for prior_rect: Rect2 in logical_rects:
+					all_detail_tile_grids_ok = all_detail_tile_grids_ok \
+						and not logical_rect.intersects(prior_rect)
+				logical_rects.append(logical_rect)
+				logical_area += logical_rect.get_area()
+			all_detail_tile_grids_ok = all_detail_tile_grids_ok \
+				and logical_rects.size() == 4 \
+				and is_equal_approx(logical_area, 1024.0 * 576.0)
+			var canvas_rect := Rect2(0.0, 0.0, 1024.0, 576.0)
+			for item_id_value: Variant in main.castle_room_item_sprites:
+				var item_record: Dictionary = main.castle_room_item_sprites[
+					item_id_value] as Dictionary
+				var art_rect: Rect2 = item_record.get("art_rect", Rect2())
+				all_room_object_bounds_ok = all_room_object_bounds_ok \
+					and canvas_rect.encloses(art_rect)
 		await _capture(room_id)
 		var item_keys: Array = main.castle_room_item_sprites.keys()
 		var first_item_id: String = String(item_keys[0])
@@ -175,6 +207,10 @@ func _run() -> void:
 	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok)
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
 	_ck("approved_room_composites_preserved", approved_composite_backdrops_ok)
+	_ck("all_destination_rooms_use_2k_exact_tile_grids",
+		all_detail_tile_grids_ok)
+	_ck("all_destination_room_objects_within_authored_canvas",
+		all_room_object_bounds_ok)
 	_ck("all_rooms_touch_animation_live", all_touch_animation_ok)
 	_ck("all_rooms_touch_audio_live", all_touch_audio_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 26,
@@ -192,6 +228,10 @@ func _run() -> void:
 		main.castle_room_background_tiles.size() == 8 and tile_paths_ok)
 	var bridge: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
 		"HallStructure_playroom_portal_bridge") as Sprite3D
+	var join_column: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallStructure_screen_join_column") as Sprite3D
+	var join_inlay: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallStructure_screen_join_floor_inlay") as Sprite3D
 	var playroom_marker: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
 		"HallStructure_playroom_portal_marker") as Sprite3D
 	var playroom_portal_ok := false
@@ -205,7 +245,13 @@ func _run() -> void:
 	_ck("main_hall_screen_join_architectural_bridge",
 		bridge != null and bridge.texture != null and bridge.shaded
 		and bridge.texture.resource_path.ends_with(
-			"castle_playroom_portal_reuse.png")
+			"castle_playroom_portal_cutout_reuse.png")
+		and join_column != null and join_column.texture != null
+		and join_column.texture.resource_path.ends_with(
+			"castle_join_column_cutout_reuse.png")
+		and join_inlay != null and join_inlay.texture != null
+		and join_inlay.texture.resource_path.ends_with(
+			"castle_join_floor_inlay_reuse.png")
 		and playroom_marker != null and playroom_marker.texture != null
 		and not playroom_marker.shaded and playroom_portal_ok)
 	var light_inventory_ok: bool = main.castle_room_light_nodes.size() == 5
@@ -224,6 +270,8 @@ func _run() -> void:
 		"visible=%d shadowed=%d" % [visible_lights, visible_shadow_lights])
 	var fixture_asset_path := ""
 	var fixture_continuity_ok := true
+	var fixture_y: float = -1.0
+	var fixture_height_ok := true
 	for fixture_id: String in [
 			"sconce_a0", "sconce_a1", "sconce_a2",
 			"sconce_b0", "sconce_b1", "sconce_b2"]:
@@ -237,10 +285,19 @@ func _run() -> void:
 		if fixture_asset_path == "":
 			fixture_asset_path = path
 			fixture_continuity_ok = fixture_continuity_ok \
-				and path.ends_with("castle_sconce_glow_reuse.png")
+				and path.ends_with(
+					"castle_shell_sconce_integrated_reuse.png")
 		else:
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path == fixture_asset_path
+		var fixture_record_data: Dictionary = fixture_record.get("data", {})
+		var fixture_position: Vector2 = fixture_record_data.get(
+			"pos", Vector2.ZERO)
+		if fixture_y < 0.0:
+			fixture_y = fixture_position.y
+		else:
+			fixture_height_ok = fixture_height_ok \
+				and is_equal_approx(fixture_position.y, fixture_y)
 	for tapestry_id: String in ["tapestry_right"]:
 		var tapestry_record: Dictionary = main.castle_room_item_sprites.get(
 			tapestry_id, {})
@@ -250,6 +307,32 @@ func _run() -> void:
 			and tapestry.texture.resource_path.ends_with(
 				"castle_royal_tapestry_reuse.png")
 	_ck("main_hall_fixture_and_tapestry_continuity", fixture_continuity_ok)
+	_ck("main_hall_fixture_height_alignment",
+		fixture_height_ok and is_equal_approx(fixture_y, 215.0),
+		"shared_y=%.1f" % fixture_y)
+	var hall_door_clearance_ok := true
+	var hall_door_conflicts: Array[String] = []
+	for item_id_value: Variant in main.castle_room_item_sprites:
+		var item_record: Dictionary = main.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		var item_rect: Rect2 = item_record.get("art_rect", Rect2())
+		for portal_index: int in main.castle_room_door_hotspots.size():
+			var portal_record: Dictionary = main.castle_room_door_hotspots[
+				portal_index]
+			var portal_data: Dictionary = portal_record.get("data", {})
+			var portal_rect: Rect2 = portal_data.get("rect", Rect2())
+			var approach_rect := Rect2(
+				portal_rect.position.x,
+				maxf(315.0, portal_rect.position.y),
+				portal_rect.size.x,
+				720.0 - maxf(315.0, portal_rect.position.y))
+			if item_rect.intersects(approach_rect):
+				hall_door_clearance_ok = false
+				hall_door_conflicts.append(
+					"%s:%s:portal_%d" % [
+						String(item_id_value), item_rect, portal_index])
+	_ck("main_hall_objects_clear_all_door_approaches",
+		hall_door_clearance_ok, ",".join(hall_door_conflicts))
 	rooms._position_player_at_foot(Vector2(1672.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)
