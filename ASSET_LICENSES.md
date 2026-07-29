@@ -47,11 +47,8 @@
 | assets/nature/*.glb | Kenney Nature Kit | **CC0** | kenney.nl | pastel-restyled at load (_toonify); plant_bush + grass_leafsLarge re-textured with project nano-banana sheets (tools/bake_nano_wrap.py, 2026-07-12) |
 | assets/ship/*.glb | Kenney Pirate Kit | **CC0** | kenney.nl | pastel-restyled at load |
 | assets/kits/castle/*.glb | Kenney Castle Kit | **CC0** | kenney.nl/assets/castle-kit | colormap embedded per piece (Blender re-export) |
-| assets/kits/play/*.glb | Tiny Treats: Fun Playground (Isa Lousberg) | **CC0** | tinytreats.itch.io/fun-playground | gltf→glb (Blender) |
 | assets/kits/park/*.glb | Tiny Treats: Pretty Park (Isa Lousberg) | **CC0** | tinytreats.itch.io/pretty-park | gltf→glb (Blender) |
 | assets/kits/furniture/*.glb | Quaternius Ultimate Furniture | **CC0** | quaternius.com/packs/ultimatefurniture.html | FBX→glb (Blender) |
-| assets/sky/lagoon_day_2k.hdr | "Qwantani (Pure Sky)", Poly Haven | **CC0** | polyhaven.com/a/qwantani_puresky | none (2K) |
-| assets/sky/lagoon_dusk_2k.hdr | "Qwantani Dusk 2 (Pure Sky)", Poly Haven | **CC0** | polyhaven.com/a/qwantani_dusk_2_puresky | none (2K) |
 | assets/shaders/toon_water.gdshader | based on "Toon Water" (godotshaders) | **CC0** base; project additions | godotshaders.com/shader/toon-water/ | pastel bands, sparkle, scrolling normals, Speedy toggle |
 | assets/shaders/cel.gdshader, cel_post.gdshader, outline.gdshader | written for this project | project original | — | — |
 | assets/characters/stickers/*.png | die-cut sticker bakes generated from the friend cutouts (tools, PIL) | derivative of (c) book art — all rights reserved | — | white vinyl rim + navy drop shadow; originals untouched |
@@ -500,3 +497,5 @@ ambientCG (all CC0).
 - `assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png` — project-original
   lossless-alpha crop of one cloud from the approved
   `sky_lagoon_cloud_family_v7_hd_grade.png`; no redesign.
+
+<!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->
