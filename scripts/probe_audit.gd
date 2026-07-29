@@ -90,24 +90,6 @@ func _init() -> void:
 			" cutaway=", cutaway_ok, " wall_s=%.1f" % secs)
 		main._clear_game()
 		await _frames(5)
-	# --- treasure cavern ---
-	main.treasure_cool = 0.0
-	player.position = main.wreck_pos + Vector3(0, 4, 2)
-	player.vel = Vector3.ZERO
-	if main.touch_uses_explicit_interactions():
-		main._activate_touch_interactable("reef:treasure")
-	var waited := 0
-	while main.game == "" and waited < 900:
-		waited += 1
-		player.position = main.wreck_pos + Vector3(0, 4, 2)
-		player.vel = Vector3.ZERO
-		await process_frame
-	if main.game == "treasure":
-		var p0: int = main.pearl_count
-		var ok3 := await _drive_game("treasure", main.treasure_fr)
-		print("AUDIT|Secret Cave [treasure]: ", ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
-	else:
-		print("AUDIT|Secret Cave [treasure]: DID NOT START")
 	# --- toy castle brawler (two heroes: Roshan + AI Huluu) ---
 	main.brawl_cool = 0.0
 	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)

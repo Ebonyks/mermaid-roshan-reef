@@ -1389,10 +1389,11 @@ func _tick_den(delta: float) -> void:
 		m._start_stuffie_battle()
 
 func _build_den() -> void:
-	if m.wreck_pos == Vector3.ZERO:
-		return
-	var x: float = m.wreck_pos.x + 34.0
-	var z: float = m.wreck_pos.z + 20.0
+	# The den keeps its historical spot (the old wreck at heading 2.4 / r150
+	# plus the 34,20 offset). The 3D wreck itself was deleted 2026-07-28, so
+	# this no longer derives from m.wreck_pos (which now stays ZERO).
+	var x: float = cos(2.4) * 150.0 + 34.0
+	var z: float = sin(2.4) * 150.0 + 20.0
 	var root := Node3D.new()
 	root.position = Vector3(x, ReefMain.seabed_y(x, z) + 1.0, z)
 	m.add_child(root)
