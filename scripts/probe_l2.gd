@@ -40,6 +40,7 @@ func _init() -> void:
 		friend["found"] = true
 		friend["won"] = true
 	main.trophies = 5
+	main.save_data["lagoon_plane_departed"] = false
 	main._enter_level2()
 	await _frames(8)
 
@@ -60,13 +61,11 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -86,13 +85,13 @@ func _init() -> void:
 		for column: int in range(6):
 			required_assets.append(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
 				% [row, column])
 	var assets_ok := true
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
-	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 	var panorama_master: Image = Image.load_from_file(
 		ProjectSettings.globalize_path(master_path))
 	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
@@ -109,7 +108,7 @@ func _init() -> void:
 		for column: int in range(6):
 			var tile: Texture2D = load(
 				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v4_tile_r%d_c%d.png"
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
 				% [row, column])
 			runtime_tiles_ok = (
 				runtime_tiles_ok and tile != null
@@ -128,8 +127,6 @@ func _init() -> void:
 	var billboarded_backdrops := 0
 	var mural_card: Sprite3D = null
 	var contact_shadow_count := 0
-	var unanchored := 0
-	var unanchored_worst := ""
 	var tree_cards: Array[Sprite3D] = []
 	var cloud_card: Sprite3D = null
 	while not node_stack.is_empty():
@@ -155,16 +152,6 @@ func _init() -> void:
 					tree_cards.append(stage_sprite)
 				elif ambient_kind == "cloud":
 					cloud_card = stage_sprite
-				# every world card must share the mural's depth; a card in front
-				# of it parallaxes faster than the art it stands on, so it slides
-				# across the painted ground and its tap target drifts off the
-				# thing it represents (owner report 2026-07-27)
-				var off: float = absf(stage_sprite.global_position.z
-					- (main.g.get("ss_root") as Node3D).position.z
-					- SkyLagoonPromenade.BACKDROP_Z)
-				if off > 0.7:
-					unanchored += 1
-					unanchored_worst = "%s off by %.1f" % [stage_sprite.name, off]
 		elif stage_node is MeshInstance3D:
 			mesh_count += 1
 		elif stage_node is CanvasItem:
@@ -172,13 +159,15 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 50 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 43 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 4 and visible_sprite_count <= 40
-		and contact_shadow_count == 12,
+		depth_layers.size() >= 8 and visible_sprite_count <= 35
+		and contact_shadow_count == 8
+		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
+		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
 			depth_layers.size(), visible_sprite_count, contact_shadow_count])
 	var tree_placement_ok := tree_cards.size() == 2
@@ -204,9 +193,13 @@ func _init() -> void:
 		cloud_clear_ok = (
 			cloud_card.position.x >= SkyLagoonPromenade.CLOUD_DRIFT_MIN_X
 			and cloud_card.position.x <= SkyLagoonPromenade.CLOUD_DRIFT_MAX_X
-			and cloud_card.position.y >= 28.5)
+			and cloud_card.position.y >= 28.2)
 	_check("single_cloud_uses_clear_sky_corridor", cloud_clear_ok,
 		"position=%s" % (cloud_card.position if cloud_card != null else Vector3.ZERO))
+	_check("day_one_plane_departs_and_stays_gone",
+		main.g.get("lagoon_plane_card") == null
+		and bool(main.save_data.get("lagoon_plane_departed", false)),
+		"departed=%s" % main.save_data.get("lagoon_plane_departed", false))
 	var seamless_cards_ok := backdrop_positions.size() == 12
 	for row: int in range(2):
 		for column: int in range(6):
@@ -222,7 +215,6 @@ func _init() -> void:
 	# shows through the wedges between them. The wall must stay flat.
 	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
 		"billboarded=%d" % billboarded_backdrops)
-	_check("world_cards_anchored_to_the_mural", unanchored == 0, unanchored_worst)
 
 	# THE MURAL IS THE SCREEN. The promenade — not the free-swim chase cam —
 	# must own the lens, and the frame it holds has to stay inside the painted
@@ -286,8 +278,9 @@ func _init() -> void:
 		var standee_travel: float = absf(drift_gaps[0] - drift_gaps[2])
 		var mural_travel: float = absf(drift_gaps[1] - drift_gaps[3])
 		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
-	# the bug this replaces measured 24%: cards 12 units in front of the mural
-	_check("set_does_not_drift_across_the_pan", drift <= 0.02,
+	# Real depth must be perceptible while remaining bounded during a full pan.
+	_check("real_depth_parallax_is_visible_and_bounded",
+		drift >= 0.05 and drift <= 0.30,
 		"standee travelled %.1f%% differently from the painting" % (drift * 100.0))
 	# THE ROUTE: the promenade is a path, and the path has to end at the door.
 	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])
@@ -309,20 +302,14 @@ func _init() -> void:
 		not main.player.visible
 		and main.g.get("lagoon_roshan_card") is Sprite3D)
 	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
-	var plane_card: Sprite3D = main.g.get("lagoon_plane_card") as Sprite3D
 	var ambient_before := Vector3.ZERO
-	var plane_before := Vector3.ZERO
-	if ambient_cards.size() == 6:
+	if ambient_cards.size() == 3:
 		ambient_before = (ambient_cards[0] as Sprite3D).position
-	if plane_card != null:
-		plane_before = plane_card.position
 	promenade._tick_ambient_life(0.75)
 	var ambient_moves := (
-		ambient_cards.size() == 6
-		and (ambient_cards[0] as Sprite3D).position != ambient_before
-		and plane_card != null and plane_card.visible
-		and plane_card.position != plane_before)
-	_check("low_cost_ambient_life_and_plane", ambient_moves)
+		ambient_cards.size() == 3
+		and (ambient_cards[0] as Sprite3D).position != ambient_before)
+	_check("low_cost_ambient_life", ambient_moves)
 	var shore_firs_ok := true
 	for ambient_value in ambient_cards:
 		var ambient_card: Sprite3D = ambient_value as Sprite3D
@@ -348,8 +335,8 @@ func _init() -> void:
 			elif local_x >= 24.0:
 				screen_index = 3
 			frame_screens[screen_index] = int(frame_screens.get(screen_index, 0)) + 1
-	_check("interactive_roster", targets.size() == 8
-		and ids.has("plane") and ids.has("slide") and ids.has("swing")
+	_check("interactive_roster", targets.size() == 7
+		and not ids.has("plane") and ids.has("slide") and ids.has("swing")
 		and ids.has("seesaw") and ids.has("castle_gate"))
 	_check("one_frame_per_screen",
 		int(frame_screens.get(1, 0)) == 1

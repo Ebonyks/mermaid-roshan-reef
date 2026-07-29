@@ -500,3 +500,25 @@ ambientCG (all CC0).
 - `assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png` — project-original
   lossless-alpha crop of one cloud from the approved
   `sky_lagoon_cloud_family_v7_hd_grade.png`; no redesign.
+
+## Sky Lagoon reductive 6x2 clean-plate rebuild (Codex, 2026-07-28)
+- `assets_src/sky_lagoon/reductive_rebuild_2026-07-28/**` — project-original
+  OpenAI built-in image-generation edit sources, overscan references, prompt
+  ledger, and deterministic assembly inputs derived from the approved Sky
+  Lagoon panorama. `stained_glass_owner_reference.png` is owner-supplied
+  project art copied without modification from the file named in the task.
+  License: project-owned / owner-supplied; external references: none.
+- `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png` —
+  project-original 6144x2048 exact-3:1 clean plate assembled from twelve
+  native detail edits with 115px generated overscan. The layout, route,
+  mountain, off-road cabins, shoreline, and playground clearing derive from
+  the approved panorama; only baked-in castle and selected foreground trees
+  were removed for separate Sprite3D depth cards.
+- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r{0..1}_c{0..5}.png`
+  — twelve lossless, non-overlapping 1024x1024 runtime crops of the v5 master.
+  Four cards reconstruct each native 2048x2048 playable screen.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png` —
+  project-original OpenAI built-in extraction of the approved 2D storybook
+  castle and drawbridge. The window contents are the exact owner-supplied
+  stained-glass reference, deterministically fitted inside the existing gold
+  frame with no pixel changes elsewhere on the castle card.

@@ -13,6 +13,7 @@ const BOOL_KEYS: Array[String] = [
 	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
+	"lagoon_plane_departed",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -34,6 +35,7 @@ const KNOWN_KEYS: Array[String] = [
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 	"companion_resting", "companion_bruises",
+	"lagoon_plane_departed",
 ]
 
 var m: ReefMain
@@ -209,6 +211,8 @@ func write_save() -> bool:
 	next_data["care_points"] = maxi(m.care_points, 0)
 	next_data["companion_resting"] = m.companion_resting
 	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
+	next_data["lagoon_plane_departed"] = bool(
+		m.save_data.get("lagoon_plane_departed", false))
 	next_data["stuffie_wins"] = m.stuffie_wins
 	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
@@ -465,6 +469,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["care_points"] = _nonnegative_int_or_default(raw, "care_points", 0)
 	data["companion_resting"] = _bool_or_default(raw, "companion_resting", false)
 	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
+	data["lagoon_plane_departed"] = _bool_or_default(
+		raw, "lagoon_plane_departed", false)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)

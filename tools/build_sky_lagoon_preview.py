@@ -9,8 +9,9 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v4_hd_3x1.png"
-OUT = ROOT / "audit/sky_lagoon_congruency_preview_3x1.jpg"
+MASTER = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
+OUT_DAY_ONE = ROOT / "audit/sky_lagoon_preview_day_one_3x1.jpg"
+OUT_REVISIT = ROOT / "audit/sky_lagoon_preview_revisit_3x1.jpg"
 WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
 WORLD_WIDTH = 144.0
@@ -48,7 +49,7 @@ def shadow(canvas: Image.Image, x: float, y: float, object_height: float) -> Non
 	)
 
 
-def main() -> None:
+def build_preview(show_plane: bool) -> Image.Image:
 	canvas = Image.open(MASTER).convert("RGBA")
 	# Sky card first, then distant PNW standees.
 	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", -10.0, 29.0, 3.2)
@@ -57,9 +58,15 @@ def main() -> None:
 		("assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_medium_v1.png", -27.0, 6.2, 8.5),
 	):
 		place(canvas, path, x, y, height)
-	for x, y, height in ((-24.0, 1.3, 6.55), (23.5, 1.35, 6.3), (62.0, 1.55, 6.8)):
-		shadow(canvas, x, y, height)
-		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway_audited.png", x, y, height)
+	# The full stained-glass castle is one extracted depth card; the clean
+	# plate deliberately has no duplicate facade underneath it.
+	place(
+		canvas,
+		"assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+		53.5,
+		10.8,
+		31.0,
+	)
 
 	# Three activity easels, each with its own protected book page.
 	for x, page in (
@@ -72,21 +79,38 @@ def main() -> None:
 		place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v3.png", x, 4.4, 12.95)
 
 	for path, x, y, height in (
-		("assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", -58.0, 4.85, 12.0),
 		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", -9.5, 5.0, 12.0),
 		("assets/sprites/sky_lagoon/sky_lagoon_swing_v3_compact.png", 2.5, 5.0, 11.0),
 		("assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 13.0, 1.85, 4.2),
 	):
 		shadow(canvas, x, y, height)
 		place(canvas, path, x, y, height)
+	if show_plane:
+		shadow(canvas, -58.0, 4.85, 12.0)
+		place(
+			canvas,
+			"assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+			-58.0,
+			4.85,
+			12.0,
+		)
 
 	# Roshan appears once, at the arrival end, as she does on stage entry.
 	shadow(canvas, -55.0, 4.0, 7.8)
 	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", -55.0, 4.0, 7.8)
+	return canvas
 
-	OUT.parent.mkdir(parents=True, exist_ok=True)
-	canvas.convert("RGB").save(OUT, quality=94, subsampling=0, optimize=True)
-	print(OUT)
+
+def main() -> None:
+	OUT_DAY_ONE.parent.mkdir(parents=True, exist_ok=True)
+	build_preview(True).convert("RGB").save(
+		OUT_DAY_ONE, quality=94, subsampling=0, optimize=True
+	)
+	build_preview(False).convert("RGB").save(
+		OUT_REVISIT, quality=94, subsampling=0, optimize=True
+	)
+	print(OUT_DAY_ONE)
+	print(OUT_REVISIT)
 
 
 if __name__ == "__main__":
