@@ -8,6 +8,7 @@ extends RefCounted
 # created or loaded by this satellite.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
+const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
 const ART_TO_STAGE := 1.25
@@ -17,6 +18,9 @@ const WORLD_HEIGHT := 11.25
 const CAMERA_DISTANCE := 18.0
 const CAMERA_FOV := 58.109
 const CARD_PIXEL_SIZE := WORLD_WIDTH / ART_SIZE.x
+const ROOM_TILE_NATIVE_SIZE := Vector2(1024.0, 576.0)
+const ROOM_TILE_LOGICAL_SIZE := Vector2(512.0, 288.0)
+const ROOM_TILE_PIXEL_SIZE := CARD_PIXEL_SIZE * 0.5
 const WORLD_ORIGIN := Vector3(0.0, 2000.0, 0.0)
 const BACKGROUND_Z := 0.0
 const ITEM_Z := 0.55
@@ -60,11 +64,19 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 		"max_energy": 2.4},
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
-	{"id": "playroom_portal_bridge", "pos": Vector2(1760.0, 384.0),
+	{"id": "screen_join_column", "pos": Vector2(1672.0, 470.5),
+		"z": 0.20, "scale": 1.0, "shaded": true,
+		"tex_path": HALL_ART_ROOT + "castle_join_column_cutout_reuse.png",
+		"role": "architectural_join_divider"},
+	{"id": "screen_join_floor_inlay", "pos": Vector2(1672.0, 780.5),
+		"z": 0.21, "scale": 1.0, "shaded": true,
+		"tex_path": HALL_ART_ROOT + "castle_join_floor_inlay_reuse.png",
+		"role": "architectural_join_inlay"},
+	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 384.0),
 		"z": 0.28, "scale": 0.96, "shaded": true,
-		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_reuse.png",
+		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
 		"role": "architectural_bridge"},
-	{"id": "playroom_portal_marker", "pos": Vector2(1760.0, 270.0),
+	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 270.0),
 		"z": 0.68, "scale": 0.15, "shaded": false,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_family.png",
@@ -81,8 +93,8 @@ const HALL_PORTALS: Array[Dictionary] = [
 		"rect": Rect2(1270.0, 315.0, 250.0, 330.0),
 		"foot": Vector2(1395.0, 660.0)},
 	{"id": "playroom", "name": "Stuffie Playroom",
-		"rect": Rect2(1638.0, 236.0, 244.0, 414.0),
-		"foot": Vector2(1760.0, 670.0)},
+		"rect": Rect2(1550.0, 236.0, 244.0, 414.0),
+		"foot": Vector2(1672.0, 670.0)},
 	{"id": "craft_room", "name": "Craft Room",
 		"rect": Rect2(1955.0, 265.0, 280.0, 385.0),
 		"foot": Vector2(2095.0, 670.0)},
@@ -105,38 +117,38 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
 		"pos": Vector2(260.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a1", "name": "Pearl shell light",
 		"pos": Vector2(1012.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a2", "name": "Pearl shell light",
 		"pos": Vector2(1476.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b0", "name": "Pearl shell light",
-		"pos": Vector2(2048.0, 150.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"pos": Vector2(2048.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b1", "name": "Pearl shell light",
-		"pos": Vector2(2415.0, 150.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"pos": Vector2(2415.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b2", "name": "Pearl shell light",
-		"pos": Vector2(2888.0, 150.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_sconce_glow_reuse.png",
-		"scale": 0.19, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"pos": Vector2(2888.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
+		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sleepy_bunny", "name": "Sleepy dust bunny",
@@ -150,7 +162,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"scale": 0.32, "anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.45,
 		"symbol": "*", "color": Color(0.60, 0.92, 1.0)},
 	{"id": "hop_bunny", "name": "Hopping dust bunny",
-		"pos": Vector2(1905.0, 775.0), "z": 2.85,
+		"pos": Vector2(1845.0, 805.0), "z": 2.85,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.32, "anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.7,
 		"symbol": "*", "color": Color(1.0, 0.75, 0.86)},
@@ -164,19 +176,26 @@ const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
 		"tex": "room_main_hall_background_v2.png", "action": "throne", "action_icon": "♛"},
 	{"id": "opera_hall", "name": "Opera Hall", "icon": "🎭",
-		"tex": "room_opera_hall.png", "action": "opera", "action_icon": "🎭"},
+		"tex": "room_opera_hall_background.png", "action": "opera",
+		"action_icon": "🎭"},
 	{"id": "kitchen", "name": "Royal Kitchen", "icon": "🍲",
-		"tex": "room_kitchen.png", "action": "kitchen", "action_icon": "🍲"},
+		"tex": "room_kitchen_background.png", "action": "kitchen",
+		"action_icon": "🍲"},
 	{"id": "library", "name": "Royal Library", "icon": "📚",
-		"tex": "room_library.png", "action": "library", "action_icon": "📚"},
+		"tex": "room_library_background.png", "action": "library",
+		"action_icon": "📚"},
 	{"id": "playroom", "name": "Stuffie Playroom", "icon": "🧸",
-		"tex": "room_playroom.png", "action": "stuffies", "action_icon": "🧸"},
+		"tex": "room_playroom_background.png", "action": "stuffies",
+		"action_icon": "🧸"},
 	{"id": "craft_room", "name": "Craft Room", "icon": "🎨",
-		"tex": "room_craft_room.png", "action": "craft", "action_icon": "🎨"},
+		"tex": "room_craft_room_background.png", "action": "craft",
+		"action_icon": "🎨"},
 	{"id": "mermaid_pool", "name": "Mermaid Pool", "icon": "💦",
-		"tex": "room_mermaid_pool.png", "action": "pool", "action_icon": "💦"},
+		"tex": "room_mermaid_pool_background.png", "action": "pool",
+		"action_icon": "💦"},
 	{"id": "bubble_bath", "name": "Bubble Bath", "icon": "🛁",
-		"tex": "room_bubble_bath.png", "action": "bath", "action_icon": "🫧"},
+		"tex": "room_bubble_bath_background.png", "action": "bath",
+		"action_icon": "🫧"},
 ]
 const ROOM_LAYOUTS := {
 	"main_hall": {
@@ -442,6 +461,7 @@ func close() -> void:
 	m.castle_room_camera = null
 	m.castle_room_background = null
 	m.castle_room_background_tiles.clear()
+	m.castle_room_detail_tiles.clear()
 	m.castle_room_light_nodes.clear()
 	m.castle_room_mid_layer = null
 	m.castle_room_front_layer = null
@@ -612,6 +632,7 @@ func _build_hall_background_tiles() -> void:
 		var center: Vector2 = top_left + texture.get_size() * 0.5
 		tile.position = _hall_art_to_world(center, BACKGROUND_Z)
 		tile.pixel_size = HALL_CARD_PIXEL_SIZE
+		tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 		tile.shaded = true
 		tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		tile.visible = false
@@ -658,10 +679,52 @@ func _set_hall_background_visible(visible: bool) -> void:
 	for tile: Sprite3D in m.castle_room_background_tiles:
 		if tile != null and is_instance_valid(tile):
 			tile.visible = visible
+	for tile: Sprite3D in m.castle_room_detail_tiles:
+		if tile != null and is_instance_valid(tile):
+			tile.visible = not visible
 	if m.castle_room_background != null:
-		m.castle_room_background.visible = not visible
+		m.castle_room_background.visible = false
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
+
+func _clear_room_background_tiles() -> void:
+	for tile: Sprite3D in m.castle_room_detail_tiles:
+		if tile != null and is_instance_valid(tile):
+			tile.free()
+	m.castle_room_detail_tiles.clear()
+
+func _build_room_background_tiles(room_id: String) -> void:
+	_clear_room_background_tiles()
+	for row in range(2):
+		for column in range(2):
+			var file_name := "room_%s_background_r%d_c%d.png" % [
+				room_id, row, column]
+			var texture: Texture2D = load(ROOM_TILE_ROOT + file_name)
+			if texture == null:
+				continue
+			var logical_top_left := Vector2(
+				float(column) * ROOM_TILE_LOGICAL_SIZE.x,
+				float(row) * ROOM_TILE_LOGICAL_SIZE.y)
+			var logical_center := logical_top_left \
+				+ ROOM_TILE_LOGICAL_SIZE * 0.5
+			var tile := _new_card(
+				"RoomTile_%s_r%d_c%d" % [room_id, row, column],
+				texture)
+			tile.position = _art_to_world(logical_center, BACKGROUND_Z)
+			tile.pixel_size = ROOM_TILE_PIXEL_SIZE
+			# Mip edge sampling causes a one-pixel dark hairline where opaque
+			# cards meet. Linear sampling without mipmaps keeps adjacent source
+			# texels continuous at this fixed camera distance.
+			tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
+			tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			tile.set_meta("source_asset_role", "clean_background_tile")
+			tile.set_meta("source_master_grid", "2x2_2k")
+			tile.set_meta("source_art_rect",
+				Rect2(logical_top_left, ROOM_TILE_LOGICAL_SIZE))
+			tile.set_meta("native_texture_size", ROOM_TILE_NATIVE_SIZE)
+			tile.set_meta("depth_z", BACKGROUND_Z)
+			m.castle_room_world_root.add_child(tile)
+			m.castle_room_detail_tiles.append(tile)
 
 func _build_hall_portals() -> void:
 	if m.castle_room_door_hotspot_layer == null:
@@ -715,10 +778,13 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
 	var hall_mode: bool = room_id == "main_hall"
-	_set_hall_background_visible(hall_mode)
 	if not hall_mode:
 		m.castle_room_background.texture = load(ROOM_ART + String(room["tex"]))
 		m.castle_room_camera.position = Vector3(0.0, 0.0, CAMERA_DISTANCE)
+		_build_room_background_tiles(room_id)
+	else:
+		_clear_room_background_tiles()
+	_set_hall_background_visible(hall_mode)
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
 	m.castle_room_action_button.visible = not hall_mode
@@ -736,9 +802,10 @@ func show_room(room_id: String, announce: bool = true) -> void:
 				tile, "modulate:a", 1.0, 0.24)
 	else:
 		var fade := m.create_tween()
-		m.castle_room_background.modulate.a = 0.25
-		fade.tween_property(
-			m.castle_room_background, "modulate:a", 1.0, 0.24)
+		for tile: Sprite3D in m.castle_room_detail_tiles:
+			tile.modulate.a = 0.25
+			fade.parallel().tween_property(
+				tile, "modulate:a", 1.0, 0.24)
 	_center_player()
 	_update_hall_portals()
 	_sync_hall_lighting()

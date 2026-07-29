@@ -17,7 +17,7 @@
         836,
         470
       ],
-      "sha256": "9224698a6889e535b3d0a1ea81f09b888e0006428ee4a4280c7c102fb53a977c"
+      "sha256": "9bbec1583f6e8192bd70edae1c7818aa6c0b44e407a5454562b5eb40b9a9b295"
     },
     {
       "path": "assets\\flats\\castle\\main_hall_2screen\\tiles\\main_hall_room_led_r0_c1.png",
@@ -31,7 +31,7 @@
         836,
         470
       ],
-      "sha256": "f47747c5bacb3223a43db04426cc339a1fe95d3f54195b24c4f442f6509bdbb8"
+      "sha256": "343d3ce3a0e56e87c4d396c1cf7f2a35756a26f92ea9565c9a5deef7e2d99414"
     },
     {
       "path": "assets\\flats\\castle\\main_hall_2screen\\tiles\\main_hall_room_led_r0_c2.png",
@@ -45,7 +45,7 @@
         836,
         470
       ],
-      "sha256": "b49e7a43860047f795da44b34c53d13d6c9dc9de420f111e3af6f184e6b7d7fb"
+      "sha256": "6f94e6ca69300d2871f5310eb719f1958657c9a3ec6685bc49b71d03fb0d7001"
     },
     {
       "path": "assets\\flats\\castle\\main_hall_2screen\\tiles\\main_hall_room_led_r0_c3.png",
@@ -59,7 +59,7 @@
         836,
         470
       ],
-      "sha256": "59b73d7f03028318eba8e25efd5b9bc7c79236c1be534914ca64595290e1ff66"
+      "sha256": "05487a2b4d8517bf7e8b497512522bcac862e5007a11d0eadf09b4d34b1cfb2e"
     },
     {
       "path": "assets\\flats\\castle\\main_hall_2screen\\tiles\\main_hall_room_led_r1_c0.png",
@@ -101,7 +101,7 @@
         836,
         471
       ],
-      "sha256": "f7afe73f58a53d2f32880a2a51234c093186b816a9458f6219021a60cb7ec976"
+      "sha256": "7d611b51f0dad2842b864d4f9abd8d6d26a0e328ca3979e1b8747ae6b46a48fa"
     },
     {
       "path": "assets\\flats\\castle\\main_hall_2screen\\tiles\\main_hall_room_led_r1_c3.png",
@@ -115,7 +115,7 @@
         836,
         471
       ],
-      "sha256": "da7ff7530974823ca43ee1b4b227eb80f529269fce7041e9813a23fdc41c5f89"
+      "sha256": "2c1b18bb1bf22020ee352de9c0104a7ad27a2009abe774b0ea686a0a942e091a"
     }
   ],
   "seams": [
@@ -155,53 +155,53 @@
       "coordinate": 1672,
       "bands": {
         "full": {
-          "mean_abs_rgb": 69.328,
-          "p95_abs_rgb": 149.0,
-          "local_gradient_mean": 8.444,
-          "relative_to_local": 8.2103
+          "mean_abs_rgb": 0.0,
+          "p95_abs_rgb": 0.0,
+          "local_gradient_mean": 10.977,
+          "relative_to_local": 0.0
         },
         "architecture": {
-          "mean_abs_rgb": 72.4362,
-          "p95_abs_rgb": 143.8,
-          "local_gradient_mean": 11.5919,
-          "relative_to_local": 6.2489
+          "mean_abs_rgb": 0.0,
+          "p95_abs_rgb": 0.0,
+          "local_gradient_mean": 11.7693,
+          "relative_to_local": 0.0
         },
         "runner": {
-          "mean_abs_rgb": 81.9479,
-          "p95_abs_rgb": 162.0,
-          "local_gradient_mean": 3.0281,
-          "relative_to_local": 27.0623
+          "mean_abs_rgb": 0.0,
+          "p95_abs_rgb": 0.0,
+          "local_gradient_mean": 12.3313,
+          "relative_to_local": 0.0
         },
         "foreground_floor": {
-          "mean_abs_rgb": 51.1746,
-          "p95_abs_rgb": 84.0,
-          "local_gradient_mean": 5.4706,
-          "relative_to_local": 9.3544
+          "mean_abs_rgb": 0.0,
+          "p95_abs_rgb": 0.0,
+          "local_gradient_mean": 8.1683,
+          "relative_to_local": 0.0
         }
       },
-      "status": "art_direction_discontinuity"
+      "status": "feathered_reuse_transition"
     },
     {
       "axis": "x",
       "coordinate": 2508,
       "bands": {
         "full": {
-          "mean_abs_rgb": 6.2738,
+          "mean_abs_rgb": 6.2735,
           "p95_abs_rgb": 26.0,
-          "local_gradient_mean": 6.344,
-          "relative_to_local": 0.9889
+          "local_gradient_mean": 6.3376,
+          "relative_to_local": 0.9899
         },
         "architecture": {
           "mean_abs_rgb": 9.4809,
           "p95_abs_rgb": 40.8,
-          "local_gradient_mean": 9.1026,
-          "relative_to_local": 1.0416
+          "local_gradient_mean": 9.1016,
+          "relative_to_local": 1.0417
         },
         "runner": {
-          "mean_abs_rgb": 2.5604,
+          "mean_abs_rgb": 2.5583,
           "p95_abs_rgb": 7.0,
-          "local_gradient_mean": 3.5938,
-          "relative_to_local": 0.7125
+          "local_gradient_mean": 3.5594,
+          "relative_to_local": 0.7188
         },
         "foreground_floor": {
           "mean_abs_rgb": 2.3968,
@@ -246,10 +246,10 @@
       "column": 2,
       "bands": {
         "full": {
-          "mean_abs_rgb": 8.2105,
+          "mean_abs_rgb": 8.2018,
           "p95_abs_rgb": 35.0,
-          "local_gradient_mean": 7.8044,
-          "relative_to_local": 1.052
+          "local_gradient_mean": 7.8002,
+          "relative_to_local": 1.0515
         }
       },
       "status": "lossless_split"
@@ -260,10 +260,10 @@
       "column": 3,
       "bands": {
         "full": {
-          "mean_abs_rgb": 6.7727,
+          "mean_abs_rgb": 6.7624,
           "p95_abs_rgb": 31.0,
-          "local_gradient_mean": 6.385,
-          "relative_to_local": 1.0607
+          "local_gradient_mean": 6.3802,
+          "relative_to_local": 1.0599
         }
       },
       "status": "lossless_split"
@@ -284,28 +284,28 @@
           780
         ],
         "rgb_mean": [
-          158.648,
-          130.03,
-          154.836
+          157.988,
+          129.734,
+          155.464
         ],
         "lab_mean": [
-          57.472,
-          17.701,
-          -9.316
+          57.346,
+          17.698,
+          -9.838
         ],
         "lab_median": [
-          63.62,
-          19.363,
-          -14.884
+          63.455,
+          19.358,
+          -15.177
         ],
         "hsv_mean": [
-          146.06,
-          93.3,
-          176.673
+          146.718,
+          92.726,
+          176.212
         ],
-        "delta_e76_to_castle_room_mean": 11.309,
-        "lightness_delta_to_tone_context_sky_lagoon": 31.828,
-        "lightness_delta_to_tone_context_northern_world": 3.518
+        "delta_e76_to_castle_room_mean": 11.562,
+        "lightness_delta_to_tone_context_sky_lagoon": 31.702,
+        "lightness_delta_to_tone_context_northern_world": 3.392
       },
       "main_hall_screen_b": {
         "path": "audit\\castle_sprite3d\\main_hall_screen_b.png",
@@ -320,28 +320,28 @@
           780
         ],
         "rgb_mean": [
-          171.195,
-          149.115,
-          164.843
+          150.942,
+          130.104,
+          154.718
         ],
         "lab_mean": [
-          63.718,
-          12.31,
-          -5.445
+          56.604,
+          14.412,
+          -10.451
         ],
         "lab_median": [
-          64.33,
-          15.645,
-          -10.832
+          55.756,
+          18.748,
+          -18.052
         ],
         "hsv_mean": [
-          142.82,
-          68.932,
-          184.059
+          143.024,
+          87.133,
+          171.185
         ],
-        "delta_e76_to_castle_room_mean": 3.578,
-        "lightness_delta_to_tone_context_sky_lagoon": 38.074,
-        "lightness_delta_to_tone_context_northern_world": 9.764
+        "delta_e76_to_castle_room_mean": 11.305,
+        "lightness_delta_to_tone_context_sky_lagoon": 30.96,
+        "lightness_delta_to_tone_context_northern_world": 2.65
       }
     },
     "castle_rooms": {
@@ -358,24 +358,24 @@
           780
         ],
         "rgb_mean": [
-          170.392,
-          136.101,
-          156.595
+          170.213,
+          135.901,
+          156.508
         ],
         "lab_mean": [
-          60.217,
-          17.411,
-          -6.298
+          60.142,
+          17.454,
+          -6.359
         ],
         "lab_median": [
-          62.868,
-          19.27,
-          -10.159
+          62.907,
+          19.287,
+          -10.171
         ],
         "hsv_mean": [
-          162.112,
-          71.824,
-          175.654
+          162.18,
+          72.143,
+          175.556
         ]
       },
       "kitchen": {
@@ -391,24 +391,24 @@
           780
         ],
         "rgb_mean": [
-          151.177,
-          117.215,
-          112.881
+          151.004,
+          117.015,
+          112.72
         ],
         "lab_mean": [
-          52.782,
-          14.978,
-          8.161
+          52.707,
+          15.008,
+          8.15
         ],
         "lab_median": [
-          53.422,
-          19.635,
-          5.131
+          53.381,
+          19.682,
+          5.056
         ],
         "hsv_mean": [
-          114.301,
-          116.299,
-          161.734
+          114.403,
+          116.745,
+          161.594
         ]
       },
       "library": {
@@ -424,24 +424,24 @@
           780
         ],
         "rgb_mean": [
-          181.743,
-          151.776,
-          165.508
+          181.117,
+          151.127,
+          165.251
         ],
         "lab_mean": [
-          65.428,
-          14.351,
-          -3.328
+          65.18,
+          14.473,
+          -3.549
         ],
         "lab_median": [
-          71.265,
-          13.223,
-          -1.01
+          71.276,
+          13.414,
+          -1.167
         ],
         "hsv_mean": [
-          149.743,
-          65.339,
-          187.004
+          149.96,
+          66.325,
+          186.614
         ]
       },
       "playroom": {
@@ -457,24 +457,24 @@
           780
         ],
         "rgb_mean": [
-          198.174,
-          170.51,
-          169.555
+          197.83,
+          170.13,
+          169.373
         ],
         "lab_mean": [
-          72.066,
-          10.383,
-          4.243
+          71.927,
+          10.452,
+          4.143
         ],
         "lab_median": [
-          74.08,
-          12.787,
-          2.198
+          74.044,
+          12.826,
+          2.021
         ],
         "hsv_mean": [
-          136.499,
-          53.294,
-          200.463
+          137.268,
+          53.736,
+          200.218
         ]
       },
       "craft_room": {
@@ -490,24 +490,24 @@
           780
         ],
         "rgb_mean": [
-          177.683,
-          150.498,
-          154.504
+          177.243,
+          150.053,
+          154.278
         ],
         "lab_mean": [
-          64.528,
-          11.336,
-          1.53
+          64.349,
+          11.403,
+          1.406
         ],
         "lab_median": [
-          67.013,
-          11.837,
-          0.965
+          67.043,
+          11.931,
+          0.903
         ],
         "hsv_mean": [
-          142.394,
-          55.237,
-          179.857
+          142.689,
+          55.863,
+          179.519
         ]
       },
       "mermaid_pool": {
@@ -523,24 +523,24 @@
           780
         ],
         "rgb_mean": [
-          142.041,
-          164.895,
-          185.412
+          142.364,
+          164.623,
+          185.272
         ],
         "lab_mean": [
-          67.871,
-          1.459,
-          -11.267
+          67.805,
+          1.666,
+          -11.287
         ],
         "lab_median": [
-          72.023,
-          3.27,
-          -10.928
+          72.063,
+          3.332,
+          -10.823
         ],
         "hsv_mean": [
-          131.0,
-          107.619,
-          200.657
+          131.005,
+          107.257,
+          200.54
         ]
       },
       "bubble_bath": {
@@ -556,32 +556,32 @@
           780
         ],
         "rgb_mean": [
-          163.799,
-          146.204,
-          165.833
+          163.527,
+          145.997,
+          165.729
         ],
         "lab_mean": [
-          63.912,
-          14.27,
-          -6.201
+          63.847,
+          14.333,
+          -6.244
         ],
         "lab_median": [
-          67.94,
-          13.926,
-          -2.575
+          67.942,
+          13.994,
+          -2.521
         ],
         "hsv_mean": [
-          116.763,
-          106.702,
-          198.232
+          116.586,
+          107.376,
+          198.251
         ]
       }
     },
     "castle_room_reference": {
       "lab_mean": [
-        63.829,
-        12.027,
-        -1.88
+        63.708,
+        12.113,
+        -1.963
       ],
       "rooms": [
         "opera_hall",
@@ -663,16 +663,30 @@
     }
   },
   "runtime_bridge": {
-    "asset_path": "assets\\flats\\castle\\main_hall_2screen\\castle_playroom_portal_reuse.png",
-    "asset_exists": true,
-    "asset_sha256": "2b7e52e0c91778967c88475dfb2eaf045be8c12b7986169323f7619cfb356f2c",
+    "assets": [
+      {
+        "path": "assets\\flats\\castle\\main_hall_2screen\\castle_playroom_portal_cutout_reuse.png",
+        "exists": true,
+        "sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8"
+      },
+      {
+        "path": "assets\\flats\\castle\\main_hall_2screen\\castle_join_column_cutout_reuse.png",
+        "exists": true,
+        "sha256": "fd5c050bf6115a46da89c4013fc3572592d2cdf5e32913cf7f2681d59d3756ab"
+      },
+      {
+        "path": "assets\\flats\\castle\\main_hall_2screen\\castle_join_floor_inlay_reuse.png",
+        "exists": true,
+        "sha256": "237a7d55cd761725ba25a259d2dcd30f89f5d99da67ecfff7b443b4026ead88e"
+      }
+    ],
     "capture_path": "audit\\castle_sprite3d\\main_hall_seam_bridge.png",
     "capture_exists": true,
-    "capture_sha256": "84518f00468d67b17b639748f78efeb94902e73dad6fc76e01f1acbc720bb1eb"
+    "capture_sha256": "c1ccfbc0f18994990305ce130b5c0f3bf554d3ace627f0b99dc4e8de1937a8c0"
   },
   "verdict": {
     "internal_tile_splits": "PASS",
-    "source_screen_join": "FAIL_ART_DIRECTION_DISCONTINUITY_RETAINED_IN_MASTERS",
+    "source_screen_join": "PASS_FEATHERED_REUSE_TRANSITION",
     "screen_a_to_b_join": "PASS_RUNTIME_ARCHITECTURAL_BRIDGE",
     "runtime_tone": "PASS"
   }
