@@ -65,6 +65,27 @@ class CinematicPositionGuideTests(unittest.TestCase):
         with Image.open(output / "guides" / "frame_000000_guide.png") as image:
             self.assertNotIn(GUIDES.GUIDE_COLOR, image.get_flattened_data())
 
+    def test_bounding_box_guide_uses_no_subject_footprint(self):
+        output = self.root / "build" / "boxes"
+        manifest = GUIDES.render_guides(
+            self.source,
+            output,
+            frame_count=2,
+            size=(128, 72),
+            start_center=(0.5, 0.5),
+            end_center=(0.55, 0.5),
+            occupancy_width=0.25,
+            guide_mode="bounding_box",
+        )
+        self.assertEqual(manifest["guide_mode"], "bounding_box")
+        with Image.open(output / "guides" / "frame_000001_guide.png") as image:
+            green_pixels = sum(
+                pixel == GUIDES.GUIDE_COLOR
+                for pixel in image.get_flattened_data()
+            )
+            self.assertGreater(green_pixels, 0)
+            self.assertLess(green_pixels, 800)
+
 
 if __name__ == "__main__":
     unittest.main()

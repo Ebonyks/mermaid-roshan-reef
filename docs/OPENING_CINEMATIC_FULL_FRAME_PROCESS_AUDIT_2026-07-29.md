@@ -41,13 +41,18 @@ zero errors. The 24 fps four-frame OGV proof has:
 The 8% anti-boil target passes in this short window, but four frames are too few
 to approve the complete action.
 
-Frame 4 is not accepted. Thirty retained frame-4 candidates demonstrated
-stationary and overshoot modes. The strongest correction-guide result reduced
-an x=758 overshoot to x=749, then bracketed the x=741 target at x=733 and x=783,
-but did not land inside the motion tolerance. The audit prevented those
-visually plausible images from silently entering the sequence.
+Frame 4 is not accepted. Forty-seven retained frame-4 candidates demonstrated
+stationary, reversal, overshoot, and scale-growth modes. The initial
+correction-guide result reduced an x=758 overshoot to x=749, then bracketed the
+x=741 target at x=733 and x=783. A later no-guide batch collapsed to x=726 or
+jumped to x=751–753. A new neutral-field bounding-box guide produced a first
+x=755 result, then grew and overshot the plane as far as x=801. Its calibrated
+correction batch returned x=712/726 reversals and stalls or x=756/762
+overshoots. None landed inside the full motion, altitude, and scale tolerance.
+The audit prevented those visually plausible images from silently entering the
+sequence.
 
-Across the complete working pool, 87 candidate images are retained under the
+Across the complete working pool, 104 candidate images are retained under the
 ignored build tree. This remains below the owner-authorized ceiling of 200
 attempts. Continuing blind sampling after the repeated frame-4 modes would not
 be evidence-led.
@@ -122,7 +127,8 @@ These remain review artifacts under `build/`; none is approved for runtime
 7. **No automatic guide calibration exists.** A footprint guide produced
    stationary and overshoot modes; a marker-only guide overshot even more.
    Red/green correction guides improved one branch but did not converge
-   reliably.
+   reliably. A bounding-box-only guide briefly narrowed the error, then caused
+   scale growth, larger overshoots, reversals, and stalls.
 8. **Full-frame boil remains coarse.** Whole-frame change includes intended
    plane motion and painterly background redraw. Static-region masks are still
    needed to isolate background instability.

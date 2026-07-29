@@ -81,6 +81,10 @@ generator where an object belongs in a target frame.
   tested, but it is not presumed superior. The 2026-07-29 opening-plane trial
   overshot materially; every guide mode must earn acceptance from measured
   full-frame candidates.
+- A neutral-field bounding-box guide is also experimental, not an approved
+  substitute for measured control. The 2026-07-29 opening-plane trial produced
+  one nearer result followed by material scale growth, stalls, reversals, and
+  overshoots. Never relax audit gates to make a guide mode appear successful.
 - The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
   that all appearance comes from the approved image/style references.
 - No pixel from the guide may be copied, composited, keyed, traced, or otherwise
