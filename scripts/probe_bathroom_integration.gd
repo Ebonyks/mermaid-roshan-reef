@@ -1,7 +1,7 @@
 extends SceneTree
-# Focused live-world audit for the Royal Bathroom. The GLB contract probe owns
-# mesh/material budgets; this probe protects placement, the privy route, and
-# the existing toilet interaction from later room-dressing regressions.
+# Focused live-world audit for the Bubble Bath room. The room is a layered
+# Sprite3D stage: tub, sink, and toilet are separate world cards with projected
+# touch targets, animations, and sounds. No modeled bathroom may be rebuilt.
 
 var main: ReefMain
 var checks_failed := 0
@@ -9,60 +9,26 @@ var checks_failed := 0
 func _ck(label: String, ok: bool, detail: String = "") -> void:
 	if not ok:
 		checks_failed += 1
-	print("BATHROOM_WORLD|", label, ": ", ("OK" if ok else "FAIL"), (" " + detail if detail != "" else ""))
+	print("BATHROOM_WORLD|", label, ": ", ("OK" if ok else "FAIL"),
+		(" " + detail if detail != "" else ""))
 
 func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
 
-func _collect_visible_canvas_layers(node: Node, result: Array[CanvasLayer]) -> void:
-	if node is CanvasLayer:
-		var layer: CanvasLayer = node as CanvasLayer
-		if layer.visible:
-			result.append(layer)
-			layer.visible = false
-	for child in node.get_children():
-		_collect_visible_canvas_layers(child, result)
-
-func _shot(name_value: String, position: Vector3, target: Vector3) -> void:
+func _shot() -> void:
 	if DisplayServer.get_name() == "headless":
 		return
-	var hidden_layers: Array[CanvasLayer] = []
-	_collect_visible_canvas_layers(root, hidden_layers)
-	var camera: Camera3D = Camera3D.new()
-	camera.fov = 68.0
-	root.add_child(camera)
-	camera.position = position
-	camera.look_at(target, Vector3.UP)
-	camera.current = true
-	await process_frame
+	await _frames(3)
 	await RenderingServer.frame_post_draw
-	var qa_dir: String = ProjectSettings.globalize_path("res://assets_src/blender/qa_bathroom_props")
-	DirAccess.make_dir_recursive_absolute(qa_dir)
-	var output_path: String = qa_dir.path_join("in_game_" + name_value + ".png")
-	var save_error: Error = root.get_viewport().get_texture().get_image().save_png(output_path)
-	print("BATHROOM_WORLD|shot saved: ", output_path, " error=", save_error)
-	camera.queue_free()
-	for layer in hidden_layers:
-		if is_instance_valid(layer):
-			layer.visible = true
-
-func _fixture_exists(name_value: String) -> bool:
-	return main.find_child(name_value, true, false) != null
-
-func _route_result(relative_target: Vector3) -> Dictionary:
-	var player: Node3D = main.player as Node3D
-	player.position = main.CASTLE_POS + relative_target
-	player.set("vel", Vector3.ZERO)
-	await _frames(24)
-	var relative_actual: Vector3 = player.position - main.CASTLE_POS
-	var holds: bool = (
-		absf(relative_actual.x - relative_target.x) < 0.8
-		and relative_actual.y >= -17.8
-		and relative_actual.y <= -14.2
-		and absf(relative_actual.z - relative_target.z) < 0.8
-	)
-	return {"holds": holds, "actual": relative_actual}
+	var output_dir := ProjectSettings.globalize_path(
+		"res://audit/castle_sprite3d")
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	var output_path := output_dir.path_join("bubble_bath.png")
+	var save_error: Error = root.get_viewport().get_texture().get_image() \
+		.save_png(output_path)
+	print("BATHROOM_WORLD|shot saved: ", output_path,
+		" error=", save_error)
 
 func _run() -> void:
 	var main_scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
@@ -72,53 +38,69 @@ func _run() -> void:
 	main._skip_intro()
 	await process_frame
 	main.pearl_count = main.PEARL_TOTAL
-	for friend_value in main.friends:
+	for friend_value: Variant in main.friends:
 		var friend: Dictionary = friend_value
 		friend["found"] = true
 		friend["won"] = true
 	main.trophies = 5
-	await _frames(8)
-	main._enter_level2()
-	await _frames(18)
-	main._enter_castle_interior()
-	await _frames(24)
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(16)
 
-	_ck("bathtub instance", _fixture_exists("BathroomBathtub"))
-	_ck("vanity instance", _fixture_exists("BathroomSink"))
-	_ck("toilet instance", _fixture_exists("BathroomToilet"))
-	var bath_route: Dictionary = await _route_result(Vector3(-22.0, -15.5, -28.0))
-	_ck("floor-height route beside tub", bool(bath_route["holds"]), "actual=" + str(bath_route["actual"]))
-	var privy_door: Dictionary = await _route_result(Vector3(-26.5, -15.5, -28.0))
-	_ck("privy doorway return bubble clear", bool(privy_door["holds"]), "actual=" + str(privy_door["actual"]))
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	rooms.show_room("bubble_bath", false)
+	await _frames(3)
+	_ck("sprite stage open", rooms.is_open())
+	_ck("perspective camera",
+		main.castle_room_camera != null
+		and main.castle_room_camera.projection
+			== Camera3D.PROJECTION_PERSPECTIVE)
+	_ck("retired modeled bathroom absent",
+		not main.g.has("toilet")
+		and main.game_nodes.is_empty()
+		and main.arena_solids.is_empty()
+		and main.arena_zones.is_empty())
+	_ck("three separate touch props",
+		main.castle_room_item_sprites.size() == 3
+		and main.castle_room_item_hotspot_layer.get_child_count() == 3)
 
-	_ck("toilet trigger exists", main.g.has("toilet"))
-	if main.g.has("toilet"):
-		var toilet_data: Dictionary = main.g["toilet"] as Dictionary
-		var toilet_pos: Vector3 = toilet_data["pos"]
-		var player: Node3D = main.player as Node3D
-		toilet_data["armed"] = true
-		player.position = toilet_pos + Vector3(1.5, 0.4, 0.0)
-		player.set("vel", Vector3.ZERO)
-		await _frames(30)
-		_ck("toilet proximity interaction", not bool(toilet_data.get("armed", true)))
+	var props_ok := true
+	var depth_ok := true
+	var interaction_ok := true
+	for prop_id: String in ["bathtub", "sink", "toilet"]:
+		var record: Dictionary = main.castle_room_item_sprites.get(prop_id, {})
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var hotspot: Button = record.get("hotspot") as Button
+		props_ok = props_ok and sprite != null and not sprite.shaded \
+			and hotspot != null and hotspot.size.x >= 112.0 \
+			and hotspot.size.y >= 112.0
+		depth_ok = depth_ok and sprite != null \
+			and sprite.position.z > main.castle_room_background.position.z \
+			and sprite.position.z < CastleRooms25D.FOREGROUND_Z
+		if sprite != null:
+			rooms._activate_room_item(prop_id)
+			await process_frame
+			interaction_ok = interaction_ok \
+				and bool(sprite.get_meta("busy", false)) \
+				and main.castle_room_prop_sfx.stream != null
+			await _frames(8)
+	_ck("unshaded Sprite3D fixtures", props_ok)
+	_ck("fixtures occupy real depth", depth_ok)
+	_ck("touch animations and sound", interaction_ok)
+	_ck("foreground occluders",
+		main.castle_room_front_layer.get_child_count() == 2
+		and (main.castle_room_front_layer.get_child(0) as Sprite3D).position.z
+			> main.castle_room_player_sprite.position.z)
+	_ck("free-roaming controls disabled",
+		not main.touch_ui.world_controls_enabled
+		and not main.player.visible
+		and main.touch_interactables.is_empty())
 
-	await _shot(
-		"bubble_bath_overview",
-		main.CASTLE_POS + Vector3(-5.8, -8.5, -27.8),
-		main.CASTLE_POS + Vector3(-18.5, -14.4, -27.5),
-	)
-	await _shot(
-		"vanity_closeup",
-		main.CASTLE_POS + Vector3(-8.8, -10.0, -29.6),
-		main.CASTLE_POS + Vector3(-12.0, -14.0, -34.2),
-	)
-	await _shot(
-		"royal_loo_closeup",
-		main.CASTLE_POS + Vector3(-27.0, -12.0, -24.0),
-		main.CASTLE_POS + Vector3(-32.0, -15.0, -28.0),
-	)
-
-	print("BATHROOM_WORLD|RESULT: ", checks_failed, (" FAIL" if checks_failed > 0 else " OK"))
+	await _shot()
+	print("BATHROOM_WORLD|RESULT: ", checks_failed,
+		(" FAIL" if checks_failed > 0 else " OK"))
 	quit(1 if checks_failed > 0 else 0)
 
 func _init() -> void:
