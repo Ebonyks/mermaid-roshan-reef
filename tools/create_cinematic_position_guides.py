@@ -63,7 +63,7 @@ def render_guides(
 ) -> dict[str, object]:
     if "build" not in {part.lower() for part in output.resolve().parts}:
         raise ValueError("position guides must stay under an ignored build directory")
-    if guide_mode not in {"chroma_footprint", "marker_only"}:
+    if guide_mode not in {"chroma_footprint", "bounding_box", "marker_only"}:
         raise ValueError(f"unsupported guide mode: {guide_mode}")
     output.mkdir(parents=True, exist_ok=False)
     guide_dir = output / "guides"
@@ -87,6 +87,7 @@ def render_guides(
     records: list[dict[str, object]] = []
     previous_mask: Image.Image | None = None
     previous_leading_edge: int | None = None
+    previous_visible_box: tuple[int, int, int, int] | None = None
 
     for frame in range(frame_count):
         fraction = frame / (frame_count - 1) if frame_count > 1 else 0.0
@@ -128,6 +129,14 @@ def render_guides(
         )
         if guide_mode == "chroma_footprint":
             draw.rectangle(visible_box, outline=(255, 255, 255), width=2)
+        elif guide_mode == "bounding_box":
+            if previous_visible_box is not None:
+                draw.rectangle(
+                    previous_visible_box,
+                    outline=(255, 35, 95),
+                    width=4,
+                )
+            draw.rectangle(visible_box, outline=GUIDE_COLOR, width=4)
         leading_edge = min(size[0] - 1, left + target_width - 1)
         draw.line(
             (leading_edge, 0, leading_edge, size[1] - 1),
@@ -165,11 +174,7 @@ def render_guides(
                 fill=(255, 255, 255),
             )
         cross_radius = 14
-        cross_x = (
-            leading_edge
-            if guide_mode == "marker_only"
-            else center_pixels[0]
-        )
+        cross_x = leading_edge if guide_mode == "marker_only" else center_pixels[0]
         cross_color = (
             (255, 220, 0)
             if guide_mode == "marker_only"
@@ -234,6 +239,7 @@ def render_guides(
         )
         previous_mask = mask
         previous_leading_edge = leading_edge
+        previous_visible_box = visible_box
 
     manifest = {
         "schema": "cinematic-position-guides-v1",
@@ -270,10 +276,16 @@ def main() -> int:
     parser.add_argument("--start-center", type=parse_pair, required=True)
     parser.add_argument("--end-center", type=parse_pair, required=True)
     parser.add_argument("--occupancy-width", type=float, default=0.62)
-    parser.add_argument(
+    guide_modes = parser.add_mutually_exclusive_group()
+    guide_modes.add_argument(
         "--marker-only",
         action="store_true",
         help="show only a neutral-field target-edge crosshair, not a footprint",
+    )
+    guide_modes.add_argument(
+        "--bounding-box-only",
+        action="store_true",
+        help="show neutral-field subject bounds without a silhouette footprint",
     )
     args = parser.parse_args()
     if not args.source.is_file():
@@ -293,7 +305,13 @@ def main() -> int:
             args.start_center,
             args.end_center,
             args.occupancy_width,
-            "marker_only" if args.marker_only else "chroma_footprint",
+            (
+                "marker_only"
+                if args.marker_only
+                else "bounding_box"
+                if args.bounding_box_only
+                else "chroma_footprint"
+            ),
         )
     except ValueError as error:
         parser.error(str(error))
