@@ -54,6 +54,13 @@ supersedes any cinematic document or tool that recommends temporal shortcuts.
   accepted full-frame generation. A generated frame may use the immediately
   preceding and following accepted full frames as visual references, but it
   may not be synthesized by blending their pixels.
+- Production-only resolution normalization, padding, pixel-format conversion,
+  and encoding are allowed after acceptance only when the same whole-canvas
+  transform is applied to the complete flattened generated frame. Preserve
+  the native generated frame and hash in provenance. Normalization may not
+  isolate, translate, warp, mask, resize, or otherwise repair a subject or
+  compensate for failed motion; motion is audited in normalized coordinates
+  before the production transform.
 - The required final medium is the established polished 2D storybook image
   generation seen in the current cinematic work. Do not switch to 3D,
   sprites, vector animation, procedural animation, or another visual medium
@@ -67,6 +74,12 @@ generator where an object belongs in a target frame.
 - The guide communicates only normalized object position, bounding box, scale,
   and orientation. It has no authority over design, anatomy, topology, style,
   lighting, texture, shading, background, or final pixels.
+- A generator-facing guide must place its flat chroma footprint and coordinate
+  marks on a neutral field. Never include a scene plate, accepted background,
+  texture, or other appearance-bearing pixels in the guide.
+- For fine sub-silhouette motion, a neutral-field coordinate/crosshair guide
+  with no subject footprint is preferred when the footprint causes stationary
+  or overshoot modes.
 - The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
   that all appearance comes from the approved image/style references.
 - No pixel from the guide may be copied, composited, keyed, traced, or otherwise

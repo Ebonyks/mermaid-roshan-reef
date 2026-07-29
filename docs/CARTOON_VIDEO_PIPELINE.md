@@ -117,16 +117,20 @@ For each failed frame:
 
 1. lock its timeline index, direction, accepted adjacent full frames, character
    or object references, and required continuity invariants;
-2. generate a new complete frame, never a cutout or partial delivery layer;
-3. record candidate, neighbor, prompt, attempt, and mask hashes in a
+2. create the prompt and hashed generation-reference job before generation
+   with `tools/create_cinematic_regeneration_job.py`;
+3. generate a new complete frame, never a cutout or partial delivery layer;
+4. record candidate, neighbor, prompt, attempt, and mask hashes in a
    `cinematic-frame-regeneration-v1` manifest;
-4. complete identity, topology, style, and neighbor-continuity human review;
-5. run the frame-regeneration audit; and
-6. replace only that exact failed timeline frame after it passes.
+5. complete identity, topology, style, and neighbor-continuity human review;
+6. run the frame-regeneration audit; and
+7. replace only that exact failed timeline frame after it passes.
 
 An ignored sprite/chroma composite may be used as `POSITION_GUIDE_ONLY`. Its
 only authority is normalized object position. It must never supply design,
 anatomy, silhouette, lighting, texture, background, or delivered pixels.
+Generator-facing guides use a neutral field; do not embed the clean plate or an
+accepted scene background in them.
 
 Audit a repair manifest with:
 

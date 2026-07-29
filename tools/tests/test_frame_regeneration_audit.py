@@ -25,16 +25,19 @@ def artifact(path):
     return {"path": path.name, "sha256": sha256(path)}
 
 
-def make_rgb(path, subject_left, background):
+def make_rgb(path, subject_left, background, subject=(245, 240, 255)):
     image = Image.new("RGB", (32, 18), background)
     draw = ImageDraw.Draw(image)
-    draw.rectangle((subject_left, 6, subject_left + 5, 11), fill=(245, 240, 255))
+    draw.rectangle((subject_left, 6, subject_left + 5, 11), fill=subject)
     image.save(path)
 
 
-def make_mask(path, subject_left):
+def make_mask(path, subject_left, subject_top=6):
     image = Image.new("L", (32, 18), 0)
-    ImageDraw.Draw(image).rectangle((subject_left, 6, subject_left + 5, 11), fill=255)
+    ImageDraw.Draw(image).rectangle(
+        (subject_left, subject_top, subject_left + 5, subject_top + 5),
+        fill=255,
+    )
     image.save(path)
 
 
@@ -52,12 +55,22 @@ class FrameRegenerationAuditTests(unittest.TestCase):
         self.guide = self.root / "guide.png"
         self.candidate_mask = self.root / "candidate_mask.png"
         self.guide_mask = self.root / "guide_mask.png"
+        self.prompt = self.root / "prompt.txt"
+        self.previous_candidate = self.root / "previous_candidate.png"
+        self.previous_guide = self.root / "previous_guide.png"
+        self.previous_candidate_mask = self.root / "previous_candidate_mask.png"
+        self.previous_guide_mask = self.root / "previous_guide_mask.png"
         make_rgb(self.previous, 8, (30, 90, 150))
         make_rgb(self.candidate, 10, (30, 90, 150))
         make_rgb(self.following, 12, (30, 90, 150))
-        make_rgb(self.guide, 10, (255, 0, 255))
+        make_rgb(self.guide, 10, (255, 0, 255), subject=(0, 255, 0))
         make_mask(self.candidate_mask, 10)
         make_mask(self.guide_mask, 10)
+        make_rgb(self.previous_candidate, 8, (30, 90, 150))
+        make_rgb(self.previous_guide, 8, (255, 0, 255), subject=(0, 255, 0))
+        make_mask(self.previous_candidate_mask, 8)
+        make_mask(self.previous_guide_mask, 8)
+        self.prompt.write_text("Generate the complete next frame.\n", encoding="utf-8")
 
     def tearDown(self):
         self.temporary.cleanup()
@@ -71,13 +84,19 @@ class FrameRegenerationAuditTests(unittest.TestCase):
                 "candidate": artifact(self.candidate),
                 "previous_reference": artifact(self.previous),
                 "next_reference": artifact(self.following),
-                "prompt_sha256": "a" * 64,
+                "prompt": artifact(self.prompt),
+                "prompt_sha256": sha256(self.prompt),
                 "attempt": 1,
                 "generation_method": "full_frame_image_generation",
                 "delivery_techniques": [],
                 "temporal_derivation": "none",
                 "action_state": "motion",
                 "human_review": review(),
+                "generation_references": [{
+                    **artifact(self.previous),
+                    "role": "accepted_neighbor",
+                    "used_as_delivery_pixels": False,
+                }],
                 "position_guide": {
                     **artifact(self.guide),
                     "role": "position_only",
@@ -99,10 +118,40 @@ class FrameRegenerationAuditTests(unittest.TestCase):
             manifest_dir=self.root,
         )
 
+    def motion_manifest(self):
+        candidate = self.manifest()
+        current = candidate["frames"][0]
+        current["subjects"][0].update({
+            "required_direction": "right",
+            "position_axis": "x",
+            "max_position_error": 0.2,
+            "max_step_error": 0.01,
+            "max_cross_axis_step": 0.01,
+        })
+        previous = {
+            **current,
+            "frame": 0,
+            "candidate": artifact(self.previous_candidate),
+            "next_reference": artifact(self.candidate),
+            "position_guide": {
+                **artifact(self.previous_guide),
+                "role": "position_only",
+                "used_as_delivery_pixels": False,
+            },
+            "subjects": [{
+                **current["subjects"][0],
+                "candidate_mask": artifact(self.previous_candidate_mask),
+                "position_guide_mask": artifact(self.previous_guide_mask),
+            }],
+        }
+        previous.pop("previous_reference")
+        candidate["frames"].insert(0, previous)
+        return candidate
+
     def test_accepts_complete_full_frame_regeneration(self):
         errors, reports = self.validate(self.manifest())
         self.assertEqual(errors, [])
-        self.assertEqual(reports[0]["subjects"][0]["center_error"], 0.0)
+        self.assertEqual(reports[0]["subjects"][0]["position_error"], 0.0)
 
     def test_accepts_generation_without_optional_position_guide(self):
         candidate = self.manifest()
@@ -110,7 +159,45 @@ class FrameRegenerationAuditTests(unittest.TestCase):
         candidate["frames"][0]["subjects"][0].pop("position_guide_mask")
         errors, reports = self.validate(candidate)
         self.assertEqual(errors, [])
-        self.assertIsNone(reports[0]["subjects"][0]["center_error"])
+        self.assertIsNone(reports[0]["subjects"][0]["position_error"])
+
+    def test_accepts_uniform_full_canvas_normalization(self):
+        make_rgb(self.following, 12, (30, 90, 150))
+        with Image.open(self.following).convert("RGB") as image:
+            image.resize((33, 18)).save(self.following)
+        candidate = self.manifest()
+        candidate["canvas_policy"] = "uniform_full_canvas_normalization"
+        candidate["delivery_size"] = [1280, 720]
+        candidate["maximum_native_aspect_error"] = 0.04
+        errors, reports = self.validate(candidate)
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            reports[0]["canvas_policy"],
+            "uniform_full_canvas_normalization",
+        )
+
+    def test_rejects_native_canvas_mismatch_without_normalization_policy(self):
+        with Image.open(self.following).convert("RGB") as image:
+            image.resize((33, 18)).save(self.following)
+        candidate = self.manifest()
+        errors, _ = self.validate(candidate)
+        self.assertTrue(any("does not match candidate size" in error for error in errors))
+
+    def test_accepts_right_edge_position_anchor(self):
+        candidate = self.manifest()
+        candidate["frames"][0]["subjects"][0]["position_anchor"] = "bbox_right"
+        errors, reports = self.validate(candidate)
+        self.assertEqual(errors, [])
+        self.assertEqual(reports[0]["subjects"][0]["candidate_position"][0], 0.5)
+
+    def test_accepts_leading_edge_position_anchor(self):
+        candidate = self.manifest()
+        candidate["frames"][0]["subjects"][0][
+            "position_anchor"
+        ] = "leading_edge_right"
+        errors, reports = self.validate(candidate)
+        self.assertEqual(errors, [])
+        self.assertEqual(reports[0]["subjects"][0]["candidate_position"], (0.5, 0.5))
 
     def test_rejects_tween_delivery_technique(self):
         candidate = self.manifest()
@@ -128,8 +215,55 @@ class FrameRegenerationAuditTests(unittest.TestCase):
         make_mask(self.candidate_mask, 18)
         candidate = self.manifest()
         errors, reports = self.validate(candidate)
-        self.assertTrue(any("center error" in error for error in errors))
-        self.assertGreater(reports[0]["subjects"][0]["center_error"], 0.02)
+        self.assertTrue(any("position error" in error for error in errors))
+        self.assertGreater(reports[0]["subjects"][0]["position_error"], 0.02)
+
+    def test_accepts_matching_signed_motion_step(self):
+        errors, reports = self.validate(self.motion_manifest())
+        self.assertEqual(errors, [])
+        subject = reports[1]["subjects"][0]
+        self.assertEqual(subject["step_from_previous"], 0.0625)
+        self.assertEqual(subject["expected_step_from_previous"], 0.0625)
+        self.assertEqual(subject["step_error"], 0.0)
+
+    def test_rejects_wrong_motion_step_magnitude(self):
+        make_mask(self.candidate_mask, 11)
+        candidate = self.motion_manifest()
+        errors, reports = self.validate(candidate)
+        self.assertTrue(any("step error" in error for error in errors))
+        self.assertGreater(reports[1]["subjects"][0]["step_error"], 0.01)
+
+    def test_rejects_wrong_motion_direction(self):
+        make_mask(self.previous_candidate_mask, 12)
+        candidate = self.motion_manifest()
+        errors, _ = self.validate(candidate)
+        self.assertTrue(any("violating required_direction 'right'" in error for error in errors))
+
+    def test_rejects_cross_axis_jitter(self):
+        make_mask(self.candidate_mask, 10, subject_top=8)
+        candidate = self.motion_manifest()
+        errors, reports = self.validate(candidate)
+        self.assertTrue(any("cross-axis step" in error for error in errors))
+        self.assertGreater(
+            reports[1]["subjects"][0]["cross_axis_step_from_previous"],
+            0.01,
+        )
+
+    def test_x_position_axis_ignores_mask_height_change(self):
+        make_mask(self.candidate_mask, 10, subject_top=8)
+        candidate = self.manifest()
+        candidate["frames"][0]["subjects"][0]["position_axis"] = "x"
+        errors, reports = self.validate(candidate)
+        self.assertEqual(errors, [])
+        self.assertEqual(reports[0]["subjects"][0]["position_error"], 0.0)
+
+    def test_rejects_material_position_guide_pixel_reuse(self):
+        with Image.open(self.candidate).convert("RGB") as image:
+            image.putpixel((0, 0), (31, 90, 150))
+            image.save(self.guide)
+        candidate = self.manifest()
+        errors, _ = self.validate(candidate)
+        self.assertTrue(any("exact guide-pixel ratio" in error for error in errors))
 
     def test_rejects_unreviewed_identity(self):
         candidate = self.manifest()

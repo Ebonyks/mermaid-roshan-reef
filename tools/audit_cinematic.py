@@ -347,9 +347,10 @@ def image_size(path: Path, label: str, errors: list[str]) -> tuple[int, int] | N
         return None
 
 
-def mask_center(
+def mask_position(
     path: Path,
     expected_size: tuple[int, int] | None,
+    anchor: str,
     label: str,
     errors: list[str],
 ) -> tuple[float, float] | None:
@@ -367,10 +368,40 @@ def mask_center(
                 errors.append(f"{label}: mask contains no subject pixels")
                 return None
             left, top, right, bottom = bounds
-            return (
-                (left + right) / (2.0 * mask.width),
-                (top + bottom) / (2.0 * mask.height),
-            )
+            center_x = (left + right) / (2.0 * mask.width)
+            center_y = (top + bottom) / (2.0 * mask.height)
+            if anchor == "center":
+                return center_x, center_y
+            if anchor == "bbox_left":
+                return left / mask.width, center_y
+            if anchor == "bbox_right":
+                return right / mask.width, center_y
+            if anchor == "bbox_top":
+                return center_x, top / mask.height
+            if anchor == "bbox_bottom":
+                return center_x, bottom / mask.height
+            if anchor in ("leading_edge_left", "leading_edge_right"):
+                strip_width = max(1, round(mask.width * 0.07))
+                if anchor == "leading_edge_left":
+                    strip_left = left
+                    strip_right = min(right, left + strip_width)
+                    edge_x = left / mask.width
+                else:
+                    strip_left = max(left, right - strip_width)
+                    strip_right = right
+                    edge_x = right / mask.width
+                edge_bounds = binary.crop(
+                    (strip_left, 0, strip_right, mask.height)
+                ).getbbox()
+                if edge_bounds is None:
+                    errors.append(f"{label}: leading-edge strip contains no pixels")
+                    return None
+                edge_center_y = (edge_bounds[1] + edge_bounds[3]) / (
+                    2.0 * mask.height
+                )
+                return edge_x, edge_center_y
+            errors.append(f"{label}: unsupported position_anchor '{anchor}'")
+            return None
     except (OSError, ValueError) as error:
         errors.append(f"{label}: unreadable mask: {error}")
         return None
@@ -379,9 +410,18 @@ def mask_center(
 def image_delta(left: Path, right: Path) -> float:
     with Image.open(left).convert("RGB") as first, Image.open(right).convert("RGB") as second:
         if first.size != second.size:
-            return math.inf
+            second = second.resize(first.size, Image.Resampling.LANCZOS)
         difference = ImageChops.difference(first, second)
         return float(statistics.mean(ImageStat.Stat(difference).mean))
+
+
+def exact_pixel_ratio(left: Path, right: Path) -> float:
+    with Image.open(left).convert("RGB") as first, Image.open(right).convert("RGB") as second:
+        if first.size != second.size:
+            second = second.resize(first.size, Image.Resampling.LANCZOS)
+        difference = ImageChops.difference(first, second)
+        histogram = difference.convert("L").histogram()
+        return histogram[0] / (first.width * first.height)
 
 
 def frame_regeneration_score_block(
@@ -416,6 +456,36 @@ def validate_frame_regeneration_manifest(
     if origin != 0:
         errors.append("frame regeneration manifest requires frame_index_origin 0")
         origin = 0
+    canvas_policy = manifest.get("canvas_policy", "exact_native_size")
+    if canvas_policy not in (
+        "exact_native_size",
+        "uniform_full_canvas_normalization",
+    ):
+        errors.append(
+            "frame regeneration manifest canvas_policy must be "
+            "exact_native_size or uniform_full_canvas_normalization"
+        )
+        canvas_policy = "exact_native_size"
+    delivery_size = manifest.get("delivery_size")
+    maximum_aspect_error = manifest.get("maximum_native_aspect_error", 0.002)
+    if canvas_policy == "uniform_full_canvas_normalization":
+        if (
+            not isinstance(delivery_size, list)
+            or len(delivery_size) != 2
+            or not all(isinstance(value, int) and value > 0 for value in delivery_size)
+        ):
+            errors.append(
+                "uniform_full_canvas_normalization requires positive "
+                "delivery_size [width, height]"
+            )
+            delivery_size = None
+        if (
+            not isinstance(maximum_aspect_error, (int, float))
+            or maximum_aspect_error < 0
+            or maximum_aspect_error > 0.1
+        ):
+            errors.append("maximum_native_aspect_error must be in [0, 0.1]")
+            maximum_aspect_error = 0.002
     frames = manifest.get("frames")
     if not isinstance(frames, list) or not frames:
         return errors + ["frame regeneration manifest requires at least one frame"], reports
@@ -461,6 +531,53 @@ def validate_frame_regeneration_manifest(
         prompt_hash = frame.get("prompt_sha256")
         if not isinstance(prompt_hash, str) or not SHA256_PATTERN.fullmatch(prompt_hash):
             errors.append(f"{label}: prompt_sha256 must be 64 hexadecimal characters")
+        prompt_path = artifact_path(
+            frame.get("prompt"),
+            f"{label} prompt",
+            manifest_dir,
+            errors,
+        )
+        if (
+            prompt_path
+            and isinstance(prompt_hash, str)
+            and SHA256_PATTERN.fullmatch(prompt_hash)
+            and sha256_file(prompt_path).lower() != prompt_hash.lower()
+        ):
+            errors.append(f"{label}: prompt_sha256 does not match prompt artifact")
+        generation_references = frame.get("generation_references")
+        generation_reference_reports: list[dict[str, Any]] = []
+        if not isinstance(generation_references, list) or not generation_references:
+            errors.append(f"{label}: requires generation_references")
+            generation_references = []
+        for reference_index, reference in enumerate(generation_references):
+            reference_label = f"{label} generation_reference {reference_index}"
+            if not isinstance(reference, dict):
+                errors.append(f"{reference_label}: invalid")
+                continue
+            reference_path = artifact_path(
+                reference,
+                reference_label,
+                manifest_dir,
+                errors,
+            )
+            reference_role = reference.get("role")
+            if reference_role not in (
+                "appearance_authority",
+                "accepted_neighbor",
+                "negative_position_example",
+                "position_only",
+            ):
+                errors.append(f"{reference_label}: invalid role")
+            if reference.get("used_as_delivery_pixels") is not False:
+                errors.append(
+                    f"{reference_label}: used_as_delivery_pixels must be false"
+                )
+            generation_reference_reports.append(
+                {
+                    "role": reference_role,
+                    "path": str(reference_path) if reference_path else None,
+                }
+            )
         action_state = frame.get("action_state")
         if action_state not in ("motion", "hold"):
             errors.append(f"{label}: action_state must be 'motion' or 'hold'")
@@ -480,12 +597,17 @@ def validate_frame_regeneration_manifest(
             manifest_dir,
             errors,
         ) if frame_number > origin else None
-        following = artifact_path(
-            frame.get("next_reference"),
-            f"{label} next_reference",
-            manifest_dir,
-            errors,
-        ) if frame_number < last_frame else None
+        following_data = frame.get("next_reference")
+        following = (
+            artifact_path(
+                following_data,
+                f"{label} next_reference",
+                manifest_dir,
+                errors,
+            )
+            if following_data is not None
+            else None
+        )
         candidate_size = image_size(candidate, f"{label} candidate", errors) if candidate else None
         for reference_name, reference in (
             ("previous_reference", previous),
@@ -494,13 +616,31 @@ def validate_frame_regeneration_manifest(
             if reference and candidate_size:
                 reference_size = image_size(reference, f"{label} {reference_name}", errors)
                 if reference_size is not None and reference_size != candidate_size:
-                    errors.append(
-                        f"{label}: {reference_name} size {reference_size} does not "
-                        f"match candidate size {candidate_size}"
-                    )
+                    if canvas_policy == "exact_native_size":
+                        errors.append(
+                            f"{label}: {reference_name} size {reference_size} does not "
+                            f"match candidate size {candidate_size}"
+                        )
+                    elif delivery_size is not None:
+                        delivery_aspect = delivery_size[0] / delivery_size[1]
+                        candidate_aspect_error = abs(
+                            candidate_size[0] / candidate_size[1] / delivery_aspect - 1
+                        )
+                        reference_aspect_error = abs(
+                            reference_size[0] / reference_size[1] / delivery_aspect - 1
+                        )
+                        if max(
+                            candidate_aspect_error,
+                            reference_aspect_error,
+                        ) > maximum_aspect_error:
+                            errors.append(
+                                f"{label}: native canvas aspect error exceeds "
+                                f"{maximum_aspect_error:.6f} for uniform normalization"
+                            )
 
         guide = frame.get("position_guide")
         guide_path: Path | None = None
+        guide_metrics: dict[str, Any] | None = None
         if guide is not None:
             if not isinstance(guide, dict):
                 errors.append(f"{label}: position_guide must be an object")
@@ -519,6 +659,41 @@ def validate_frame_regeneration_manifest(
                     )
                 if candidate and guide_path and sha256_file(candidate) == sha256_file(guide_path):
                     errors.append(f"{label}: candidate may not reuse position-guide pixels")
+                if candidate and guide_path:
+                    guide_delta = image_delta(candidate, guide_path)
+                    guide_exact_ratio = exact_pixel_ratio(candidate, guide_path)
+                    min_guide_delta = guide.get("min_mean_pixel_delta", 2.0)
+                    max_exact_ratio = guide.get("max_exact_pixel_ratio", 0.05)
+                    if not isinstance(min_guide_delta, (int, float)) or min_guide_delta < 0:
+                        errors.append(
+                            f"{label}: position_guide min_mean_pixel_delta must be nonnegative"
+                        )
+                        min_guide_delta = 2.0
+                    if (
+                        not isinstance(max_exact_ratio, (int, float))
+                        or max_exact_ratio < 0
+                        or max_exact_ratio > 1
+                    ):
+                        errors.append(
+                            f"{label}: position_guide max_exact_pixel_ratio must be in [0, 1]"
+                        )
+                        max_exact_ratio = 0.05
+                    if guide_delta < min_guide_delta:
+                        errors.append(
+                            f"{label}: candidate-to-guide mean pixel delta "
+                            f"{guide_delta:.4f} is below {min_guide_delta:.4f}"
+                        )
+                    if guide_exact_ratio > max_exact_ratio:
+                        errors.append(
+                            f"{label}: exact guide-pixel ratio {guide_exact_ratio:.5f} "
+                            f"exceeds {max_exact_ratio:.5f}"
+                        )
+                    guide_metrics = {
+                        "candidate_mean_pixel_delta": round(guide_delta, 4),
+                        "exact_pixel_ratio": round(guide_exact_ratio, 6),
+                        "min_mean_pixel_delta": min_guide_delta,
+                        "max_exact_pixel_ratio": max_exact_ratio,
+                    }
 
         subjects = frame.get("subjects")
         subject_reports: list[dict[str, Any]] = []
@@ -549,10 +724,27 @@ def validate_frame_regeneration_manifest(
                 if guide_path
                 else None
             )
-            candidate_center = (
-                mask_center(
+            position_anchor = subject.get("position_anchor", "center")
+            if position_anchor not in (
+                "center",
+                "bbox_left",
+                "bbox_right",
+                "bbox_top",
+                "bbox_bottom",
+                "leading_edge_left",
+                "leading_edge_right",
+            ):
+                errors.append(f"{subject_label}: invalid position_anchor")
+                position_anchor = "center"
+            position_axis = subject.get("position_axis", "xy")
+            if position_axis not in ("x", "y", "xy"):
+                errors.append(f"{subject_label}: position_axis must be x, y, or xy")
+                position_axis = "xy"
+            candidate_position = (
+                mask_position(
                     candidate_mask,
                     candidate_size,
+                    position_anchor,
                     f"{subject_label} candidate_mask",
                     errors,
                 )
@@ -564,56 +756,214 @@ def validate_frame_regeneration_manifest(
                 if guide_path
                 else candidate_size
             )
-            guide_center = (
-                mask_center(
+            guide_position = (
+                mask_position(
                     guide_mask,
                     guide_size,
+                    position_anchor,
                     f"{subject_label} position_guide_mask",
                     errors,
                 )
                 if guide_mask
                 else None
             )
-            max_center_error = subject.get("max_center_error", 0.015)
+            max_position_error = subject.get(
+                "max_position_error",
+                subject.get("max_center_error", 0.015),
+            )
             if (
-                not isinstance(max_center_error, (int, float))
-                or max_center_error <= 0
-                or max_center_error > 1
+                not isinstance(max_position_error, (int, float))
+                or max_position_error <= 0
+                or max_position_error > 1
             ):
-                errors.append(f"{subject_label}: max_center_error must be in (0, 1]")
-                max_center_error = 0.015
-            center_error = None
-            if candidate_center and guide_center:
-                center_error = math.dist(candidate_center, guide_center)
-                if center_error > max_center_error:
+                errors.append(f"{subject_label}: max_position_error must be in (0, 1]")
+                max_position_error = 0.015
+            required_direction = subject.get("required_direction")
+            if required_direction not in (None, "right", "left", "up", "down", "still"):
+                errors.append(
+                    f"{subject_label}: required_direction must be right, left, up, "
+                    "down, still, or omitted"
+                )
+                required_direction = None
+            max_step_error = subject.get("max_step_error")
+            if max_step_error is not None and (
+                not isinstance(max_step_error, (int, float))
+                or max_step_error <= 0
+                or max_step_error > 1
+            ):
+                errors.append(f"{subject_label}: max_step_error must be in (0, 1]")
+                max_step_error = None
+            max_cross_axis_step = subject.get("max_cross_axis_step")
+            if max_cross_axis_step is not None and (
+                not isinstance(max_cross_axis_step, (int, float))
+                or max_cross_axis_step <= 0
+                or max_cross_axis_step > 1
+            ):
+                errors.append(
+                    f"{subject_label}: max_cross_axis_step must be in (0, 1]"
+                )
+                max_cross_axis_step = None
+            position_error = None
+            if candidate_position and guide_position:
+                if position_axis == "x":
+                    position_error = abs(candidate_position[0] - guide_position[0])
+                elif position_axis == "y":
+                    position_error = abs(candidate_position[1] - guide_position[1])
+                else:
+                    position_error = math.dist(candidate_position, guide_position)
+                if position_error > max_position_error:
                     errors.append(
-                        f"{subject_label}: center error {center_error:.5f} exceeds "
-                        f"{max_center_error:.5f}"
+                        f"{subject_label}: position error {position_error:.5f} exceeds "
+                        f"{max_position_error:.5f}"
                     )
             subject_reports.append(
                 {
                     "id": subject_id,
-                    "candidate_center": candidate_center,
-                    "guide_center": guide_center,
-                    "center_error": round(center_error, 6)
-                    if center_error is not None
+                    "position_anchor": position_anchor,
+                    "position_axis": position_axis,
+                    "candidate_position": candidate_position,
+                    "guide_position": guide_position,
+                    "position_error": round(position_error, 6)
+                    if position_error is not None
                     else None,
-                    "max_center_error": max_center_error,
+                    "max_position_error": max_position_error,
+                    "required_direction": required_direction,
+                    "max_step_error": max_step_error,
+                    "max_cross_axis_step": max_cross_axis_step,
                 }
             )
 
         reports.append(
             {
                 "frame": frame_number,
+                "native_size": list(candidate_size) if candidate_size else None,
+                "canvas_policy": canvas_policy,
+                "delivery_size": delivery_size,
+                "prompt": str(prompt_path) if prompt_path else None,
+                "generation_references": generation_reference_reports,
                 "candidate_to_previous_delta": round(image_delta(candidate, previous), 4)
                 if candidate and previous
                 else None,
                 "candidate_to_next_delta": round(image_delta(candidate, following), 4)
                 if candidate and following
                 else None,
+                "position_guide": guide_metrics,
                 "subjects": subject_reports,
             }
         )
+    subject_sequences: dict[str, list[tuple[int, dict[str, Any]]]] = {}
+    for report in reports:
+        frame_number = report.get("frame")
+        if not isinstance(frame_number, int):
+            continue
+        for subject in report.get("subjects", []):
+            subject_id = subject.get("id")
+            if subject_id:
+                subject_sequences.setdefault(subject_id, []).append(
+                    (frame_number, subject)
+                )
+    for subject_id, sequence in subject_sequences.items():
+        ordered = sorted(sequence, key=lambda item: item[0])
+        for (previous_frame, previous_subject), (
+            current_frame,
+            current_subject,
+        ) in zip(ordered, ordered[1:]):
+            if current_frame != previous_frame + 1:
+                continue
+            previous_candidate = previous_subject.get("candidate_position")
+            current_candidate = current_subject.get("candidate_position")
+            previous_guide = previous_subject.get("guide_position")
+            current_guide = current_subject.get("guide_position")
+            if not all(
+                isinstance(position, tuple)
+                for position in (
+                    previous_candidate,
+                    current_candidate,
+                    previous_guide,
+                    current_guide,
+                )
+            ):
+                continue
+            direction = current_subject.get("required_direction")
+            previous_direction = previous_subject.get("required_direction")
+            if direction is None:
+                direction = previous_direction
+            elif previous_direction not in (None, direction):
+                errors.append(
+                    f"subject {subject_id}: required_direction changes between "
+                    f"frames {previous_frame} and {current_frame}"
+                )
+            axis = 1 if direction in ("up", "down") else 0
+            cross_axis = 0 if axis == 1 else 1
+            actual_step = current_candidate[axis] - previous_candidate[axis]
+            expected_step = current_guide[axis] - previous_guide[axis]
+            max_step_error = current_subject.get("max_step_error")
+            if max_step_error is None:
+                max_step_error = previous_subject.get("max_step_error")
+            elif previous_subject.get("max_step_error") not in (
+                None,
+                max_step_error,
+            ):
+                errors.append(
+                    f"subject {subject_id}: max_step_error changes between "
+                    f"frames {previous_frame} and {current_frame}"
+                )
+            step_error = abs(actual_step - expected_step)
+            current_subject["step_from_previous"] = round(actual_step, 6)
+            current_subject["expected_step_from_previous"] = round(
+                expected_step,
+                6,
+            )
+            current_subject["step_error"] = round(step_error, 6)
+            if max_step_error is not None and step_error > max_step_error:
+                errors.append(
+                    f"subject {subject_id}: frame {previous_frame}->{current_frame} "
+                    f"step error {step_error:.5f} exceeds {max_step_error:.5f}"
+                )
+            max_cross_axis_step = current_subject.get("max_cross_axis_step")
+            if max_cross_axis_step is None:
+                max_cross_axis_step = previous_subject.get("max_cross_axis_step")
+            elif previous_subject.get("max_cross_axis_step") not in (
+                None,
+                max_cross_axis_step,
+            ):
+                errors.append(
+                    f"subject {subject_id}: max_cross_axis_step changes between "
+                    f"frames {previous_frame} and {current_frame}"
+                )
+            cross_axis_step = (
+                current_candidate[cross_axis] - previous_candidate[cross_axis]
+            )
+            current_subject["cross_axis_step_from_previous"] = round(
+                cross_axis_step,
+                6,
+            )
+            if (
+                max_cross_axis_step is not None
+                and abs(cross_axis_step) > max_cross_axis_step
+            ):
+                errors.append(
+                    f"subject {subject_id}: frame {previous_frame}->{current_frame} "
+                    f"cross-axis step {cross_axis_step:.5f} exceeds "
+                    f"{max_cross_axis_step:.5f}"
+                )
+            direction_failed = (
+                (direction == "right" and actual_step <= 0)
+                or (direction == "left" and actual_step >= 0)
+                or (direction == "down" and actual_step <= 0)
+                or (direction == "up" and actual_step >= 0)
+                or (
+                    direction == "still"
+                    and max_step_error is not None
+                    and abs(actual_step) > max_step_error
+                )
+            )
+            if direction_failed:
+                errors.append(
+                    f"subject {subject_id}: frame {previous_frame}->{current_frame} "
+                    f"moves {actual_step:.5f}, violating required_direction "
+                    f"'{direction}'"
+                )
     return errors, reports
 
 

@@ -2,6 +2,14 @@
 
 Date: 2026-07-28
 
+> **Historical animatic only.** Owner decision 2026-07-29 supersedes the
+> pose-reuse, held-frame, layer, inpaint, and compositing production methods
+> described below. The required product remains the current polished
+> full-frame image-generation style. Defective action frames must now be
+> regenerated and accepted individually; the only guide exception is a
+> disposable neutral-field chroma position reference that contributes no
+> delivery pixels or appearance.
+
 Source OGV SHA-256:
 `D01B7B4AB2C24E2AD6626F03007F60C1255ECF507A99BB2D6EF8A4B2CAE8EACE`
 

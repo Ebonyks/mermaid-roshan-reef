@@ -298,6 +298,12 @@ The OGV pipeline remains responsible for:
 - audio synchronization, dialogue intelligibility, and loudness; and
 - source integrity and provenance.
 
+After artistic acceptance, production may apply one whole-canvas resolution,
+padding, pixel-format, and encoding transform to each complete flattened
+generated frame. Preserve each native generation and hash, audit motion in
+normalized coordinates first, and never use production normalization to
+isolate, move, resize, mask, warp, or repair a subject.
+
 Use **24 fps delivery** as the artistic baseline once target-device tests prove
 it is viable:
 
@@ -323,7 +329,9 @@ it is viable:
 6. If object placement is uncertain, a disposable sprite/chroma composite may
    be supplied to the generator as `POSITION_GUIDE_ONLY`. It controls only
    normalized subject position. It supplies no final pixels or appearance and
-   must be recorded with `used_as_delivery_pixels: false`.
+   must be recorded with `used_as_delivery_pixels: false`. Its footprint and
+   coordinate marks must sit on a neutral field; a scene plate or accepted
+   background may not be embedded in the guide.
 7. Re-run frame, triplet, action-window, scene, character-passport, and
    neighboring-transition gates affected by the repair.
 8. Escalate after two failed automated repair attempts. Repeated failure usually
