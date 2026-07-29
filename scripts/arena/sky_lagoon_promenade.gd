@@ -495,11 +495,21 @@ func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> v
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
+	# A tile that fails to load must never take the rest of the promenade down
+	# with it. This used to read backdrop.texture.get_width() unguarded, so one
+	# null texture aborted build() half-way — after _enter_level2_now had
+	# already hidden the reef sun and switched the music — and left Roshan
+	# standing in the legacy reef underneath, unlit (owner report 2026-07-29).
+	# Losing one painted square is a blemish; losing the whole area is the bug.
+	var tex: Texture2D = load(path) as Texture2D
+	if tex == null:
+		push_error("Sky Lagoon mural tile failed to load: %s" % path)
+		return
 	var backdrop := Sprite3D.new()
 	backdrop.name = "SkyLagoonBackdrop_r%d_c%d" % [row, column]
-	backdrop.texture = load(path)
+	backdrop.texture = tex
 	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
-		1.0, float(backdrop.texture.get_width()))
+		1.0, float(tex.get_width()))
 	# NEVER billboard the mural. A billboarded card swings about its OWN centre
 	# to face the lens, so the moment the camera was not dead in front of a
 	# tile the three cards stopped being coplanar, their painted edges pulled
