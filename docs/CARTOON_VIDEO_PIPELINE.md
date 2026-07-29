@@ -101,6 +101,57 @@ accepted `.ogv` into `assets/` when it is ready to ship. In the same commit:
 
 Do not commit the MP4 review copy unless it has an explicit project purpose.
 
+## Opening-cinematic V2 regeneration
+
+The current opening test can be rebuilt non-destructively from its approved 2D
+storyboard art:
+
+```powershell
+python tools/regenerate_opening_cinematic.py `
+  build/cartoons/opening_cinematic_test.ogv `
+  build/cartoons/opening_cinematic_v2_frames `
+  --profile adaptive
+
+tools/encode_cartoon.cmd `
+  build/cartoons/opening_cinematic_v2_frames `
+  build/cartoons/opening_cinematic_v2.ogv `
+  -Fps 24 `
+  -NoAudio `
+  -ReviewMp4
+```
+
+The script implements the approved 42.5-second rhythm contract, excludes the
+landing-wheel/runway insert and incorrect final hand release, removes production
+labels, withholds the destination in the opening sky, and retains the accepted
+final handhold. It records exact source-frame reuse and derived repairs in
+`provenance.json`. No generator or voice synthesis is involved.
+
+Profiles are intended for review comparisons:
+
+- `dense`: preserves more source poses but also more temporal redraw noise;
+- `sparse`: maximizes calm but omits useful acting information;
+- `adaptive`: preserves the key acting windows and gives anticipation/settle
+  drawings longer holds.
+
+## Automatic audit evidence
+
+Generate reproducible transition evidence without claiming human artistic
+approval:
+
+```powershell
+python tools/audit_cinematic.py `
+  build/cartoons/opening_cinematic_v2.ogv `
+  --analyze `
+  --lattice 9 `
+  --report build/cartoons/opening_cinematic_v2_analysis.json
+```
+
+The analyzer materializes the displayed frame timeline before measuring it.
+This matters for Theora: repeated held drawings can be stored as fewer coded
+packets with timestamp gaps, so `nb_read_frames` is not necessarily the number
+of displayed frames. Production acceptance still requires a completed manifest,
+human scene/passport scores, and target-device playback evidence.
+
 ## References
 
 - [Godot 4.4: Playing videos](https://docs.godotengine.org/en/4.4/tutorials/animation/playing_videos.html)

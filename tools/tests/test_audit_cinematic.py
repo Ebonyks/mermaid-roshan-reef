@@ -22,6 +22,7 @@ def manifest():
             "characters": ["child"],
             "tracks": [{"id": "child_head", "character_id": "child", "max_step": 0.5,
                         "samples": [{"frame": 1, "x": 0.1, "y": 0.2}, {"frame": 2, "x": 0.2, "y": 0.2}]}],
+            "contacts": [],
             "review": scores(4.9),
         }],
         "character_passports": {"child": {"reference_image": "child_turnaround.png", "landmarks": ["eyes"],
@@ -69,6 +70,31 @@ class CinematicAuditTests(unittest.TestCase):
         candidate = manifest()
         candidate["scenes"][0]["tracks"] = []
         self.assertTrue(any("no tracked landmark" in error for error in AUDIT.validate_manifest(candidate, 2)))
+
+    def test_accepts_explicit_zero_indexed_manifest(self):
+        candidate = manifest()
+        candidate["frame_index_origin"] = 0
+        scene = candidate["scenes"][0]
+        scene["start_frame"] = 0
+        scene["end_frame"] = 1
+        scene["tracks"][0]["samples"] = [
+            {"frame": 0, "x": 0.1, "y": 0.2},
+            {"frame": 1, "x": 0.2, "y": 0.2},
+        ]
+        self.assertEqual(AUDIT.validate_manifest(candidate, 2), [])
+
+    def test_rejects_duplicate_track_samples(self):
+        candidate = manifest()
+        candidate["scenes"][0]["tracks"][0]["samples"].append(
+            {"frame": 2, "x": 0.2, "y": 0.2}
+        )
+        self.assertTrue(any(
+            "duplicate frame 2" in error for error in AUDIT.validate_manifest(candidate, 2)
+        ))
+
+    def test_parse_rate_handles_ogv_unknown_rate(self):
+        self.assertEqual(AUDIT.parse_rate("0/0"), 0.0)
+        self.assertEqual(AUDIT.parse_rate("24/1"), 24.0)
 
 
 if __name__ == "__main__":
