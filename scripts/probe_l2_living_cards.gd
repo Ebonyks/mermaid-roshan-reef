@@ -110,6 +110,13 @@ func _sprite_coverage(sprite: Sprite3D, camera: Camera3D, viewport_size: Vector2
 	var clipped: Rect2 = bounds.intersection(Rect2(Vector2.ZERO, viewport_size))
 	return clipped.get_area() / maxf(1.0, viewport_size.x * viewport_size.y)
 
+func _promenade_target(target_id: String) -> Sprite3D:
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == target_id:
+			return target.get("node") as Sprite3D
+	return null
+
 
 func _initialize() -> void:
 	call_deferred("_run")
@@ -217,6 +224,36 @@ func _run() -> void:
 
 	var viewport: Viewport = get_root().get_viewport()
 	var camera: Camera3D = viewport.get_camera_3d()
+	var slide: Sprite3D = _promenade_target("slide")
+	var mural_anchor_ok: bool = camera != null and slide != null
+	var mural_anchor_detail: Array[String] = []
+	for player_x: float in [-30.0, 30.0]:
+		main.player.position.x = main.LEVEL2_POS.x + player_x
+		main.g["lagoon_castle_armed"] = false
+		for _index: int in range(6):
+			promenade.tick(0.25)
+		if camera == null or slide == null:
+			mural_anchor_ok = false
+			continue
+		var camera_x: float = camera.position.x - stage_root.position.x
+		var camera_z: float = camera.position.z - stage_root.position.z
+		var backdrop_distance: float = absf(
+			camera_z - SkyLagoonPromenade.BACKDROP_Z)
+		var card_distance: float = absf(camera_z - slide.position.z)
+		var reference_x: float = float(slide.get_meta(
+			"mural_reference_x", slide.position.x))
+		var reference_camera_x: float = float(slide.get_meta(
+			"mural_reference_camera_x", 0.0))
+		var expected_x: float = reference_x \
+			+ (camera_x - reference_camera_x) \
+			* (1.0 - card_distance / backdrop_distance) \
+			* SkyLagoonPromenade.MURAL_SOCKET_LOCK
+		var anchor_delta: float = absf(slide.position.x - expected_x)
+		mural_anchor_ok = mural_anchor_ok and anchor_delta < 0.0001
+		mural_anchor_detail.append("%.0f:%.6f" % [player_x, anchor_delta])
+	_check("playground_mural_anchor_stability", mural_anchor_ok,
+		";".join(mural_anchor_detail))
+
 	var coverage_ok: bool = camera != null
 	var coverage_detail: Array[String] = []
 	for screen_x: float in [-48.0, 0.0, 48.0]:
