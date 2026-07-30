@@ -187,7 +187,7 @@ func _init() -> void:
 	cam.current = true
 	await _capture_lobby()
 	if opera.lobby_2d != null:
-	opera.lobby_2d.hide_lobby()
+		opera.lobby_2d.hide_lobby()
 	await _capture_shared_theatre()
 	await _capture_act_sets()
 	await _remove_current_act()
