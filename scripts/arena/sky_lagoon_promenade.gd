@@ -84,6 +84,26 @@ const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
 const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 const PLAY_ROSHAN_H := 8.34
+# The generated play frames do not share a consistent transparent-canvas
+# origin. Anchor the visible action point instead of the 512x512 canvas centre,
+# or Roshan jumps several world units between poses.
+const SWING_HAND_ANCHORS := [
+	Vector2(264.5, 204.5),
+	Vector2(168.0, 205.0),
+	Vector2(322.5, 186.0),
+	Vector2(186.0, 184.5),
+]
+const SWING_HAND_SOCKET := Vector2(0.0, -1.47)
+const SEESAW_SEAT_ANCHORS := [
+	Vector2(300.0, 420.0),
+	Vector2(225.0, 400.0),
+	Vector2(270.0, 340.0),
+	Vector2(220.0, 360.0),
+]
+# The seesaw pose faces left, so Roshan belongs on the right shell seat facing
+# its inward hoop. Placing this pose on the left seat put her below and outside
+# the beam.
+const SEESAW_RIGHT_SEAT_SOCKET := Vector2(3.84, 0.16)
 const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -977,6 +997,21 @@ func _set_play_frame(frame_index: int) -> void:
 	card.texture = frames[frame_index] as Texture2D
 	card.pixel_size = PLAY_ROSHAN_H / maxf(1.0, float(card.texture.get_height()))
 
+func _play_anchor_local(card: Sprite3D, anchor_pixels: Vector2) -> Vector2:
+	var texture_size: Vector2 = card.texture.get_size()
+	var local := Vector2(
+		(anchor_pixels.x - texture_size.x * 0.5) * card.pixel_size * card.scale.x,
+		(texture_size.y * 0.5 - anchor_pixels.y) * card.pixel_size * card.scale.y)
+	return local.rotated(card.rotation.z)
+
+func _place_play_anchor(card: Sprite3D, equipment: Node3D,
+		anchor_pixels: Vector2, socket_offset: Vector2) -> void:
+	var local_anchor: Vector2 = _play_anchor_local(card, anchor_pixels)
+	card.position = Vector3(
+		equipment.position.x + socket_offset.x - local_anchor.x,
+		equipment.position.y + socket_offset.y - local_anchor.y,
+		PLAY_Z + 0.12)
+
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
@@ -1017,11 +1052,12 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 		frame_index = 3
 	_set_play_frame(frame_index)
 	card.scale = Vector3(1.38, 1.0, 1.0)
-	card.position = Vector3(
-		swing.position.x + arc * 0.08 * SWING_ANIM_SCALE,
-		swing.position.y + (-3.60 + (1.0 - cos(phase)) * 0.12) * SWING_ANIM_SCALE,
-		PLAY_Z + 0.12)
 	card.rotation.z = -arc * 0.055
+	var hand_socket := SWING_HAND_SOCKET + Vector2(
+		arc * 0.08 * SWING_ANIM_SCALE,
+		(1.0 - cos(phase)) * 0.12 * SWING_ANIM_SCALE)
+	_place_play_anchor(
+		card, swing, SWING_HAND_ANCHORS[frame_index], hand_socket)
 
 func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 	if t < 2.55:
@@ -1065,8 +1101,9 @@ func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 		card.rotation.z = lerpf(-0.12, -0.42, ride)
 
 func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
-	# Almost three complete low-high-low rocks. Roshan sits on the left shell
-	# seat and follows its circular arc while her hands stay on its gold hoop.
+	# Almost three complete low-high-low rocks. This pose faces left, so Roshan
+	# sits on the right shell seat and follows its circular arc while her hands
+	# stay on the inward hoop.
 	var phase: float = t * TAU / 1.92
 	var rock: float = sin(phase) * 0.105
 	seesaw.rotation.z = float(
@@ -1082,12 +1119,10 @@ func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
 	else:
 		frame_index = 3
 	_set_play_frame(frame_index)
-	var seat_offset := (Vector2(-6.05, 1.42) * SEESAW_ANIM_SCALE).rotated(rock)
-	card.position = Vector3(
-		seesaw.position.x + seat_offset.x,
-		seesaw.position.y + seat_offset.y + 0.95 * SEESAW_ANIM_SCALE,
-		PLAY_Z + 0.12)
 	card.rotation.z = rock
+	var seat_socket: Vector2 = SEESAW_RIGHT_SEAT_SOCKET.rotated(rock)
+	_place_play_anchor(
+		card, seesaw, SEESAW_SEAT_ANCHORS[frame_index], seat_socket)
 
 func _finish_playground_animation() -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})

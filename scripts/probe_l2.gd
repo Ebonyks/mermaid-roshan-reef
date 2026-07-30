@@ -28,6 +28,14 @@ func _opaque_world_rect(sprite: Sprite3D) -> Rect2:
 	var bottom: float = sprite.position.y + (size.y * 0.5 - float(used.end.y)) * sprite.pixel_size
 	return Rect2(left, bottom, right - left, top - bottom)
 
+func _sprite_pixel_world(sprite: Sprite3D, pixel: Vector2) -> Vector2:
+	var size: Vector2 = sprite.texture.get_size()
+	var local := Vector2(
+		(pixel.x - size.x * 0.5) * sprite.pixel_size * sprite.scale.x,
+		(size.y * 0.5 - pixel.y) * sprite.pixel_size * sprite.scale.y)
+	return Vector2(sprite.position.x, sprite.position.y) + local.rotated(
+		sprite.rotation.z)
+
 func _init() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = packed.instantiate()
@@ -507,15 +515,29 @@ func _init() -> void:
 	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)
 	var swing_start: Vector3 = roshan_card.position
 	promenade._tick_playground_animation(0.55)
+	var swing_play: Dictionary = main.g.get("lagoon_play_anim", {})
+	var swing_frame: int = int(swing_play.get("frame_index", -1))
+	var swing_phase: float = float(swing_play.get("t", 0.0)) * TAU / 1.72
+	var swing_arc: float = sin(swing_phase)
+	var swing_hand_world := _sprite_pixel_world(
+		roshan_card, SkyLagoonPromenade.SWING_HAND_ANCHORS[swing_frame])
+	var expected_swing_hand := Vector2(swing_node.position.x, swing_node.position.y) \
+		+ SkyLagoonPromenade.SWING_HAND_SOCKET \
+		+ Vector2(
+			swing_arc * 0.08 * SkyLagoonPromenade.SWING_ANIM_SCALE,
+			(1.0 - cos(swing_phase)) * 0.12
+				* SkyLagoonPromenade.SWING_ANIM_SCALE)
 	var swing_animates: bool = (
-		not (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+		not swing_play.is_empty()
 		and roshan_card.texture != idle_texture
 		and roshan_card.position != swing_start
 		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
 		and is_equal_approx(roshan_card.scale.x, 1.38)
-		and absf(roshan_card.position.x - swing_node.position.x) < 0.2)
+		and swing_hand_world.distance_to(expected_swing_hand) < 0.02)
 	promenade._finish_playground_animation()
-	_check("swing_has_grip_pose_arc_animation", swing_animates)
+	_check("swing_hands_stay_on_ropes_through_pose_changes", swing_animates,
+		"frame=%d grip_error=%.3f" % [
+			swing_frame, swing_hand_world.distance_to(expected_swing_hand)])
 
 	promenade._start_playground_animation("slide", toy_nodes.get("slide") as Node3D)
 	var ladder_start: Vector3 = roshan_card.position
@@ -540,6 +562,22 @@ func _init() -> void:
 
 	var seesaw_node: Node3D = toy_nodes.get("seesaw") as Node3D
 	promenade._start_playground_animation("seesaw", seesaw_node)
+	var seesaw_play: Dictionary = main.g.get("lagoon_play_anim", {})
+	var initial_seesaw_frame: int = int(seesaw_play.get("frame_index", -1))
+	var initial_seat_world := _sprite_pixel_world(
+		roshan_card,
+		SkyLagoonPromenade.SEESAW_SEAT_ANCHORS[initial_seesaw_frame])
+	var expected_seesaw_seat := Vector2(
+		seesaw_node.position.x, seesaw_node.position.y) \
+		+ SkyLagoonPromenade.SEESAW_RIGHT_SEAT_SOCKET.rotated(
+			roshan_card.rotation.z)
+	_check("seesaw_rider_sits_on_right_shell_seat",
+		roshan_card.position.x > seesaw_node.position.x
+		and initial_seat_world.y > seesaw_node.position.y
+		and initial_seat_world.distance_to(expected_seesaw_seat) < 0.02,
+		"rider_x=%.2f beam_x=%.2f seat_error=%.3f" % [
+			roshan_card.position.x, seesaw_node.position.x,
+			initial_seat_world.distance_to(expected_seesaw_seat)])
 	var saw_high := false
 	var saw_low := false
 	var saw_motion_samples := 0
