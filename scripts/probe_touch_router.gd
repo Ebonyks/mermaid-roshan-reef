@@ -32,6 +32,15 @@ func _init() -> void:
 	if move_zone.size.x < 390.0 or move_zone.size.y < 300.0:
 		_bad("movement thumb bay is too small: %s" % move_zone)
 	var move_start: Vector2 = move_zone.get_center()
+	# The painted cardinal pad is a real pad, not a drag-only illustration:
+	# pressing its right side must move immediately without a motion event.
+	var pad_center: Vector2 = touch._fixed_stick_center()
+	_down(8, pad_center + Vector2(64.0, 0.0))
+	await process_frame
+	if (touch.stick_vec as Vector2).x < 0.45:
+		_bad("tapping the visible right direction did not move immediately")
+	_up(8, pad_center + Vector2(64.0, 0.0))
+	await process_frame
 	var world_pos := Vector2(
 		get_root().get_viewport().get_visible_rect().size.x * 0.58,
 		get_root().get_viewport().get_visible_rect().size.y * 0.30)
@@ -162,6 +171,23 @@ func _init() -> void:
 	main._tap_move_ref().cancel("probe complete")
 	main.player.verb = ""
 
+	# Priority dispatch: fixed controls are claimed in _input before ordinary
+	# GUI routing. Headless display drivers do not forward synthetic mouse
+	# events through a viewport, so exercise that priority handler directly.
+	var pause_center: Vector2 = touch.pause_zone().get_center()
+	_dispatch_mouse(pause_center, true)
+	await process_frame
+	if not main.get_tree().paused or main.pause_panel == null or not main.pause_panel.visible:
+		_bad("screen-dispatched Pause press did not open the pause sheet")
+	_dispatch_mouse(pause_center, false)
+	await process_frame
+	_dispatch_mouse(pause_center, true)
+	await process_frame
+	if main.get_tree().paused:
+		_bad("screen-dispatched Pause press did not resume")
+	_dispatch_mouse(pause_center, false)
+	await process_frame
+
 	# Runtime rollback: Classic produces no world taps and restores tap-action.
 	main._set_touch_mode("classic", false)
 	var tap_count: int = taps.size()
@@ -205,6 +231,14 @@ func _up(index: int, pos: Vector2) -> void:
 	event.position = pos
 	event.pressed = false
 	touch._unhandled_input(event)
+
+func _dispatch_mouse(pos: Vector2, pressed: bool) -> void:
+	var event := InputEventMouseButton.new()
+	event.device = 0
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.position = pos
+	event.pressed = pressed
+	touch._input(event)
 
 func _frames(count: int) -> void:
 	for frame_index in range(count):

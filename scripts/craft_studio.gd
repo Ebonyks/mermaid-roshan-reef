@@ -107,8 +107,10 @@ func _open_craft_studio() -> void:
 		kind_buttons.append({"button": button, "id": kind_id})
 	m.craft_layer.set_meta("kind_buttons", kind_buttons)
 
-	var preview_panel := StorybookUI.add_panel(stage, Rect2(80, 145, 650, 390), StorybookUI.LAVENDER, Color(0.95, 0.97, 1.0, 0.98), 44)
+	var preview_rect := Rect2(80, 145, 650, 390)
+	var preview_panel := StorybookUI.add_panel(stage, preview_rect, StorybookUI.PURPLE, Color(0.95, 0.97, 1.0, 0.98), 44)
 	preview_panel.name = "CraftPreviewPanel"
+	StorybookUI.adorn_panel(stage, preview_rect, "Craft")
 	m.craft_fishbox = Control.new()
 	m.craft_fishbox.size = Vector2(590, 350)
 	m.craft_fishbox.position = Vector2(30, 18)

@@ -262,6 +262,27 @@ func _init() -> void:
 	# rectangle at both ends of the walk.
 	var promenade := main._lagoon_promenade_ref()
 	var stage_cfg: Dictionary = main.g.get("ss_cfg", {})
+	# The lower-right medallion must perform the verb it displays. With no
+	# highlighted prop that verb is JUMP; focus changes it to PLAY/ENTER.
+	promenade._clear_focus()
+	main.touch_ui._arm_action_edge()
+	promenade.tick(1.0 / 60.0)
+	_check("promenade_jump_action_is_real",
+		promenade.action_label() == "JUMP"
+		and float(main.g.get("ss_walk_jump_y", 0.0)) > 0.1,
+		"jump_y=%.3f" % float(main.g.get("ss_walk_jump_y", 0.0)))
+	var play_label_ok := false
+	var enter_label_ok := false
+	for action_target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var action_target: Dictionary = action_target_value as Dictionary
+		if String(action_target.get("id", "")) == "swing":
+			promenade._focus(action_target)
+			play_label_ok = promenade.action_label() == "PLAY"
+		elif String(action_target.get("kind", "")) == "castle":
+			promenade._focus(action_target)
+			enter_label_ok = promenade.action_label() == "ENTER"
+	promenade._clear_focus()
+	_check("promenade_action_label_matches_focus", play_label_ok and enter_label_ok)
 	var lens: Camera3D = main.player.cam
 	var origin: Vector3 = main.LEVEL2_POS
 	_check("stage_owns_the_lens",

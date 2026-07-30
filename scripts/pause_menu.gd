@@ -29,8 +29,10 @@ func _build_pause() -> void:
 	StorybookUI.style_icon_button(gear, "Ⅱ", "secondary", Vector2(128, 128), "Pause")
 	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	gear.position = Vector2(-146, 18)
-	gear.pressed.connect(toggle_pause)
+	# Pause on touch-down: a young child may slide off before lifting.
+	gear.button_down.connect(toggle_pause)
 	m.pause_layer.add_child(gear)
+	StorybookUI.add_shell_crest(gear, Rect2(34, 72, 60, 45), "PauseCornerShell")
 	m.pause_layer.set_meta("corner_button", gear)
 
 	# Full-screen root lets the dim and shell scale together while main keeps
@@ -42,16 +44,10 @@ func _build_pause() -> void:
 	m.pause_layer.add_child(m.pause_panel)
 	var dim := StorybookUI.add_dim(m.pause_panel)
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	var shell := StorybookUI.add_panel(m.pause_panel, Rect2(290, 25, 700, 670), StorybookUI.INK_SOFT, Color(0.86, 0.98, 0.98, 0.99), 62)
+	var shell_rect := Rect2(290, 25, 700, 670)
+	var shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)
 	shell.name = "PauseShell"
-	var crest := Label.new()
-	crest.text = "Ⅱ"
-	crest.position = Vector2(570, 38)
-	crest.size = Vector2(140, 62)
-	crest.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	crest.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(crest, 46, StorybookUI.INK)
-	m.pause_panel.add_child(crest)
+	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Pause")
 
 	m.fps_lbl = Label.new()
 	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)

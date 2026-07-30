@@ -45,8 +45,10 @@ func _build_intro() -> void:
 	tap.pressed.connect(_intro_next)
 	stage.add_child(tap)
 
-	var book := StorybookUI.add_panel(stage, Rect2(150, 90, 980, 470), StorybookUI.INK_SOFT, Color(0.86, 0.97, 1.0, 0.98), 74)
+	var book_rect := Rect2(150, 90, 980, 470)
+	var book := StorybookUI.add_panel(stage, book_rect, StorybookUI.PURPLE, Color(0.86, 0.97, 1.0, 0.98), 74)
 	book.name = "IntroStoryBook"
+	StorybookUI.adorn_panel(stage, book_rect, "Intro")
 	book.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var current := ColorRect.new()
 	current.position = Vector2(626, 125)
