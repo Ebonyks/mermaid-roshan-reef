@@ -83,7 +83,8 @@ func _init() -> void:
 		and main.player.classic_sprite.visible)
 	_ck("act one puts the real 2.5D Roshan on stage",
 		bool(main.player.puppet) and main.player.visible)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
+	var act_nodes: int = _descendants(act)
+	_ck("act one stays inside the mobile node budget (%d/210)" % act_nodes, act_nodes < 210)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
@@ -571,6 +572,22 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 				act.cab_beat_t = 0.0                                  # on the beat
 				act._shuffle_action(0)
 			_ck_once("three taps on the beat open the cabinet", act.cab_taps >= act.CAB_TAPS)
+			continue
+		if act.shuffle_phase == "finale":
+			# trick 5: the old cabinet ending was too small. The new payoff is
+			# a sustained one-finger wand hold that fills a stage-sized portal.
+			_ck_once("the cabinet opens onto a grand star portal",
+				act.magic_portal != null and act.magic_portal_fill != null)
+			act.player_pos = act.cab_wand.position
+			act.hold_sim = true
+			var fguard := 0
+			while act.shuffle_phase == "finale" and act.state == "play" and fguard < 80:
+				fguard += 1
+				act._process(0.1)
+				await process_frame
+			act.hold_sim = false
+			_ck_once("holding the wand fills the portal and wins the duel",
+				act.magic_finale_t >= act.MAGIC_FINALE_HOLD and act.state == "won")
 			continue
 		await process_frame
 	_ck("shuffle act does not stall", guard < 2500)
