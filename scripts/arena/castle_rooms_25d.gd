@@ -689,11 +689,6 @@ func _build_stage() -> void:
 		animator.setup_sprite_3d(
 			m.castle_room_player_sprite, false,
 			m.castle_room_player_sprite)
-	var idle := m.castle_room_player_sprite.create_tween().set_loops()
-	idle.tween_property(m.castle_room_player_sprite, "rotation:z", -0.012,
-		0.85).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	idle.tween_property(m.castle_room_player_sprite, "rotation:z", 0.012,
-		0.85).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	m.castle_room_front_layer = Node3D.new()
 	m.castle_room_front_layer.name = "RoomForeground"
 	m.castle_room_world_root.add_child(m.castle_room_front_layer)
@@ -751,10 +746,6 @@ func _build_stage() -> void:
 	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	elevator_pointer.z_index = 30
 	stage.add_child(elevator_pointer)
-	var point := elevator_pointer.create_tween().set_loops()
-	point.tween_property(elevator_pointer, "position:y", 502.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	point.tween_property(elevator_pointer, "position:y", 490.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
 	m.castle_room_menu_panel = StorybookUI.add_panel(stage,
 		Rect2(348.0, 125.0, 584.0, 470.0), StorybookUI.INK_SOFT,
 		Color(0.94, 0.98, 1.0, 0.98), 42)
@@ -1402,6 +1393,11 @@ func _tick_castle_ambient(delta: float) -> void:
 			or not m.castle_room_layer.visible:
 		return
 	m.castle_room_ambient_time += delta
+	var elevator_pointer: Label = m.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Label
+	if elevator_pointer != null and elevator_pointer.visible:
+		elevator_pointer.position.y = 496.0 + sin(
+			m.castle_room_ambient_time * TAU / 1.1) * 6.0
 	var active_count := 0
 	var card_limit: int = _ambient_card_limit()
 	for card: Sprite3D in m.castle_room_ambient_cards:
