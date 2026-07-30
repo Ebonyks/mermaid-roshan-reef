@@ -4,6 +4,7 @@ extends RefCounted
 # transparent Codex sprites do the visual work; the real Roshan rig walks in
 # one shallow band in front of them. All mutable state remains on ReefMain.
 
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const HALF_W := 72.0
 const HALF_D := 2.6
 const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
@@ -205,6 +206,9 @@ const ROUTE_PAINTED := [
 const CASTLE_DOOR_X := 52.5      # painted x of the door, shared with the gate card
 const DOORSTEP_R := 1.5          # how close counts as arriving at the door
 const DOORSTEP_REARM := 8.0      # walk this far back before it can fire again
+const CASTLE_CARD_SIZE := Vector2(1022.0, 1024.0)
+const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(
+	Vector2(410.0, 557.0), Vector2(199.0, 228.0))
 # Roshan's card hangs 1.0 above her node and stands 7.8 tall, so her feet are
 # 2.9 below the node: the offset that turns a painted ground height into hover.
 const FOOT_OFFSET := 2.9
@@ -303,9 +307,10 @@ func tick(delta: float) -> void:
 		return
 	_tick_hold_travel(delta)
 	var old_x: float = m.player.position.x
-	stage.walk_tick(delta)
+	var walk_result: Dictionary = stage.walk_tick(delta)
 	_sync_target_mural_anchors()
-	_sync_roshan_card(m.player.position.x - old_x)
+	_sync_roshan_card(
+		m.player.position.x - old_x, bool(walk_result.get("moved", false)))
 	_tick_ambient_life(delta)
 	_tick_animals(delta)
 	_tick_doorstep()
@@ -320,8 +325,14 @@ func tick(delta: float) -> void:
 		var selected: bool = String(target.get("id", "")) == focus_id
 		glow.visible = selected
 		if selected:
-			var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
-			glow.scale = Vector3.ONE * pulse
+			if String(target.get("id", "")) == "castle_gate":
+				# The door itself breathes brighter in place. Scaling the full
+				# castle made a loose gold ghost around every tower and window.
+				glow.scale = Vector3.ONE
+				glow.modulate.a = 0.58 + sin(focus_t * 5.2) * 0.12
+			else:
+				var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
+				glow.scale = Vector3.ONE * pulse
 
 func _tick_hold_travel(delta: float) -> void:
 	# The touch grammar, kept honest: a TAP belongs to the tap router
@@ -412,24 +423,46 @@ func _build_castle_screen() -> void:
 	# The four-tower castle remains one neutral, unshaded depth card. Its world
 	# width, waterline and bridge landing are fitted to the approved fallback.
 	var castle := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		Vector3(51.572852, 11.022284, LANDMARK_Z), 28.430568, false)
 	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
-	_register_target("castle_gate", castle, "castle", "", 128.0, 1.035,
-		GROUND_SOCKET_LOCK)
+	_register_mural_socket(castle, GROUND_SOCKET_LOCK)
+	var door_center_px: Vector2 = (
+		CASTLE_DOOR_FOCUS_BOUNDS.position
+		+ CASTLE_DOOR_FOCUS_BOUNDS.size * 0.5)
+	var door_position := castle.position + Vector3(
+		(door_center_px.x - CASTLE_CARD_SIZE.x * 0.5) * castle.pixel_size,
+		(CASTLE_CARD_SIZE.y * 0.5 - door_center_px.y) * castle.pixel_size,
+		0.10)
+	var door_anchor := Node3D.new()
+	door_anchor.name = "SkyLagoonCastleDoorFocus"
+	door_anchor.position = door_position
+	stage.root().add_child(door_anchor)
+	m.g["lagoon_castle_door_focus"] = door_anchor
+	_register_target(
+		"castle_gate", door_anchor, "castle", "", 128.0, 1.0,
+		GROUND_SOCKET_LOCK,
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+		castle.pixel_size)
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		"res://assets/characters/roshan_25d/roshan_base.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
 	card.name = "SkyLagoonRoshan"
+	card.set_meta("walking", false)
+	var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+	animator.name = "AlwaysAliveSpriteLoop"
+	card.add_child(animator)
+	animator.setup_sprite_3d(card, false, card, 2)
 	m.g["lagoon_roshan_card"] = card
+	m.g["lagoon_roshan_animator"] = animator
 	m.g["lagoon_roshan_idle_texture"] = card.texture
 	m.g["lagoon_roshan_idle_pixel_size"] = card.pixel_size
 	m.player.visible = false
 
-func _sync_roshan_card(delta_x: float = 0.0) -> void:
+func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
 	var root_node: Node3D = stage.root()
 	if card == null or not is_instance_valid(card) or root_node == null:
@@ -437,8 +470,14 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 	var local_player: Vector3 = m.player.position - root_node.position
 	card.position = Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
 	_sync_contact_shadow(card)
-	if absf(delta_x) > 0.01:
+	var is_moving: bool = moving or absf(delta_x) > 0.01
+	card.set_meta("walking", is_moving)
+	if is_moving:
 		card.flip_h = delta_x < 0.0
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_moving(is_moving)
 
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
@@ -996,6 +1035,9 @@ func _sync_mural_socket(node: Node3D) -> void:
 		_sync_contact_shadow(node as Sprite3D)
 
 func _sync_target_mural_anchors() -> void:
+	var castle: Node3D = m.g.get("lagoon_castle_card") as Node3D
+	if castle != null and is_instance_valid(castle):
+		_sync_mural_socket(castle)
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var node: Node3D = target.get("node") as Node3D
@@ -1009,11 +1051,22 @@ func _sync_target_mural_anchors() -> void:
 
 func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		radius_px: float, highlight_scale: float,
-		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> void:
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
+		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
 	var glow: Sprite3D
 	glow = Sprite3D.new()
-	if node is Sprite3D:
+	if not highlight_path.is_empty():
+		glow.texture = load(highlight_path)
+		glow.pixel_size = highlight_pixel_size
+		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		glow.shaded = false
+		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.position = node.position + Vector3(0, 0, -0.05)
+		var root_node: Node3D = stage.root()
+		root_node.add_child(glow)
+	elif node is Sprite3D:
 		var source := node as Sprite3D
 		glow.texture = source.texture
 		glow.pixel_size = source.pixel_size
@@ -1125,8 +1178,16 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 		"frames": frames,
 		"frame_index": -1,
 	}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(true)
 	card.visible = true
 	card.flip_h = false
+	card.hframes = 1
+	card.vframes = 1
+	card.frame = 0
+	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0
 	card.scale = Vector3.ONE
@@ -1275,12 +1336,16 @@ func _finish_playground_animation() -> void:
 	if equipment != null and is_instance_valid(equipment):
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
 	m.g["lagoon_play_anim"] = {}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
 	if card != null and is_instance_valid(card):
-		card.texture = m.g.get("lagoon_roshan_idle_texture") as Texture2D
 		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
 		card.rotation.z = 0.0
 		card.scale = Vector3.ONE
 		card.flip_h = false
+		card.set_meta("walking", false)
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(false)
 	_sync_roshan_card()
 	m.player.play_verb("giggle")
 

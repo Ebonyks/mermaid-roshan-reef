@@ -1,6 +1,8 @@
 extends Node3D
 # Roshan player: floaty swim + jump physics with a camera-facing 2.5D sprite.
 
+const ROSHAN_SPRITE_ANCHORS := preload(
+	"res://scripts/roshan_sprite_anchors.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
@@ -316,6 +318,11 @@ func _set_classic_sprite_frame(sheet: String, frame_idx: int, flip: bool = false
 	if classic_sprite_flip != flip:
 		classic_sprite.flip_h = flip
 		classic_sprite_flip = flip
+	if ROSHAN_SPRITE_ANCHORS.has_sheet(sheet):
+		classic_sprite.offset = ROSHAN_SPRITE_ANCHORS.correction(
+			sheet, safe_frame, Vector2(128.0, 116.0), flip)
+	else:
+		classic_sprite.offset = Vector2.ZERO
 
 func _set_classic_sequence(sequence: Array, phase: int, flip: bool = false) -> void:
 	var sheet: String = String(sequence[0])
@@ -418,13 +425,11 @@ func _tick_classic_sprite(speed: float,
 			float(ROSHAN_25D_KEYFRAMES))))
 		_set_classic_sequence(ROSHAN_25D_PLAY["seat"] as Array, seated_phase, flip)
 		return
-	# Underwater "idle" is still living motion: a slower version of the same
-	# complete reach/sweep/glide cycle. This preserves front/back readability
-	# while ensuring there is no static fallback frame in free roam.
-	var idle_phase: int = int(floor(fposmod(
-		swim_phase / TAU * 16.0, 16.0)))
-	var idle_sheet := "swim_back" if cos(view_angle) < -0.15 else "swim_front"
-	_set_classic_sprite_frame(idle_sheet, idle_phase, flip)
+	# Stopping has a readable end: return to the matching directional pose.
+	# AlwaysAliveMotion keeps this pose breathing, so idle is distinct from
+	# locomotion without ever becoming a dead cutout.
+	_set_classic_sprite_frame(
+		"directional", _classic_direction_frame(view_angle), false)
 
 func _tick_always_alive_visual(delta: float, speed: float) -> void:
 	# Atlas frames do most of the acting. A tiny independent breath prevents
