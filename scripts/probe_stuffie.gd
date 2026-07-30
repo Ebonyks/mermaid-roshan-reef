@@ -51,8 +51,8 @@ func _locked_case() -> void:
 
 func _picker_case() -> void:
 	var comp: CompanionSystem = main._companion_ref()
-	# The picture-first castle keeps the stuffie picker in its Playroom action;
-	# no modeled throne gift or shelf room is constructed.
+	# The picture-first castle introduces stuffies through Baby Eagle's rescue:
+	# two real-depth bunny cards clear first, then the focused picker tutorial.
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
 	await _settle(8)
@@ -60,13 +60,112 @@ func _picker_case() -> void:
 	await _settle(8)
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("playroom", false)
+	await _settle(2)
+	var eagle_record: Dictionary = main.castle_room_item_sprites.get(
+		"baby_eagle_rescue", {}) as Dictionary
+	var left_record: Dictionary = main.castle_room_item_sprites.get(
+		"eagle_pin_left", {}) as Dictionary
+	var right_record: Dictionary = main.castle_room_item_sprites.get(
+		"eagle_pin_right", {}) as Dictionary
+	var eagle_sprite: Sprite3D = eagle_record.get("sprite") as Sprite3D
+	var left_sprite: Sprite3D = left_record.get("sprite") as Sprite3D
+	var right_sprite: Sprite3D = right_record.get("sprite") as Sprite3D
+	_ck("Playroom starts with Baby Eagle and two pinning dust bunnies",
+		main.castle_room_item_sprites.size() == 6
+		and main.castle_room_item_hotspot_layer.get_child_count() == 3
+		and eagle_sprite != null
+		and left_sprite != null
+		and right_sprite != null
+		and not eagle_sprite.shaded
+		and not left_sprite.shaded
+		and not right_sprite.shaded
+		and eagle_sprite.position.z < left_sprite.position.z
+		and eagle_sprite.position.z < right_sprite.position.z)
+	_ck("Playroom rescue uses proximity cards instead of flat hotspots",
+		left_record.get("hotspot") == null
+		and right_record.get("hotspot") == null
+		and String(left_sprite.get_meta("dust_bunny_role", ""))
+			== "playroom_pin_left"
+		and String(right_sprite.get_meta("dust_bunny_role", ""))
+			== "playroom_pin_right"
+		and main.castle_room_action_button != null
+		and not main.castle_room_action_button.visible)
 	rooms.activate_current_room()
 	await process_frame
-	_ck("Playroom opens the new-friend picker",
-		main.companion_layer != null
+	_ck("Stuffie picker stays locked until Baby Eagle is rescued",
+		main.companion_layer == null
 		and main.castle_room_id == "playroom"
 		and main.game_nodes.is_empty())
-	comp.close_picker()
+	rooms.tick(0.016)
+	var cleared: Dictionary = main.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	_ck("Standing at the room spawn does not clear either bunny",
+		not bool(cleared.get("eagle_pin_left", false))
+		and not bool(cleared.get("eagle_pin_right", false)))
+	rooms._position_player_at_foot(
+		left_record.get("contact_foot", Vector2.ZERO) as Vector2, false)
+	rooms.tick(0.016)
+	await _settle(2)
+	_ck("One bunny cleared is not enough to finish the rescue",
+		bool((main.g.get(
+			"castle_dust_bunnies_cleared", {}) as Dictionary).get(
+				"eagle_pin_left", false))
+		and bool(main.stuffie_wins.get(
+			"rescued_eagle_pin_left", false))
+		and bool((main.save_data.get(
+			"stuffie_wins", {}) as Dictionary).get(
+				"rescued_eagle_pin_left", false))
+		and not bool(main.stuffie_wins.get("rescued_eagle", false))
+		and main.companion_layer == null)
+	main.g["castle_dust_bunnies_cleared"] = {}
+	rooms.show_room("playroom", false)
+	await _settle(2)
+	right_record = main.castle_room_item_sprites.get(
+		"eagle_pin_right", {}) as Dictionary
+	_ck("Saved half-rescue restores without respawning the first bunny",
+		not main.castle_room_item_sprites.has("eagle_pin_left")
+		and not right_record.is_empty()
+		and not bool(main.stuffie_wins.get("rescued_eagle", false)))
+	rooms._position_player_at_foot(
+		right_record.get("contact_foot", Vector2.ZERO) as Vector2, false)
+	rooms.tick(0.016)
+	_ck("Roshan contact clears the second pinning bunny",
+		bool((main.g.get(
+			"castle_dust_bunnies_cleared", {}) as Dictionary).get(
+				"eagle_pin_right", false))
+		and bool(main.stuffie_wins.get("rescued_eagle", false)))
+	await _settle(60)
+	_ck("Second bunny frees Baby Eagle and opens the focused tutorial",
+		bool(main.stuffie_wins.get("rescued_eagle", false))
+		and main.companion_layer != null
+		and main.companion_pick_id == "eagle"
+		and bool(main.g.get("stuffie_rescue_tutorial", false))
+		and int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 0
+		and main.companion_stage.get_node_or_null(
+			"StuffieRescueTutorialFocus") != null
+		and main.companion_stage.get_node_or_null(
+			"StuffieRescueTutorialPointer") != null
+		and main.companion_stage.find_children(
+			"StuffieCard_*", "Button", true, false).size() == 1)
+	comp._pick_color_slot(1)
+	await process_frame
+	_ck("Tutorial state advances from part to color",
+		int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 1)
+	_ck("Tutorial keeps the color focus visible",
+		main.companion_stage.get_node_or_null(
+			"StuffieRescueTutorialFocus") != null)
+	comp._pick_color(1, Color(0.45, 0.82, 0.95))
+	await process_frame
+	_ck("Tutorial focus advances from color to the heart",
+		int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 2
+		and main.companion_stage.get_node_or_null(
+			"StuffieConfirmButton") != null)
+	comp._confirm_pick()
+	await process_frame
+	_ck("Rescued Baby Eagle becomes the first stuffie friend",
+		main.companion_id == "eagle"
+		and main.companion_layer == null
+		and not main.g.has("stuffie_rescue_tutorial"))
 	rooms._exit_to_courtyard()
 	await _settle(6)
 	main._exit_level2_now()

@@ -261,8 +261,11 @@ func _init() -> void:
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
 			var expected_items: int = 10 if hall_mode else (
-				7 if room_id == "kitchen" else 3)
-			var expected_hotspots: int = 7 if hall_mode else expected_items
+				7 if room_id == "kitchen" else (
+					6 if room_id == "playroom"
+						and not rooms._playroom_rescue_done() else 3))
+			var expected_hotspots: int = 7 if hall_mode else (
+				3 if room_id == "playroom" else expected_items)
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
 				and main.castle_room_item_hotspot_layer.get_child_count() \

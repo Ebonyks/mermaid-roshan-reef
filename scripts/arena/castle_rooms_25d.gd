@@ -199,6 +199,35 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
 		"color": Color(1.0, 0.75, 0.86)},
 ]
+const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
+	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
+		"pos": Vector2(367.0, 85.0), "z": 1.55,
+		"tex_path": "res://assets/book/baby_eagle.png",
+		"scale": 0.42, "rescue_role": "baby_eagle",
+		"proximity_only": true,
+		"color": Color(0.54, 0.91, 1.0)},
+	{"id": "eagle_pin_left", "name": "Left pinning dust bunny",
+		"pos": Vector2(189.0, 109.0), "z": 2.45,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_hop.png",
+		"scale": 0.26, "dust_bunny_role": "playroom_pin_left",
+		"rescue_bunny": true,
+		"contact_foot": Vector2(445.0, 450.0),
+		"contact_radius": Vector2(82.0, 62.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
+		"color": Color(0.86, 0.72, 1.0)},
+	{"id": "eagle_pin_right", "name": "Right pinning dust bunny",
+		"pos": Vector2(323.0, 109.0), "z": 2.50,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_hop.png",
+		"scale": 0.26, "flip_h": true,
+		"dust_bunny_role": "playroom_pin_right",
+		"rescue_bunny": true,
+		"contact_foot": Vector2(579.0, 450.0),
+		"contact_radius": Vector2(82.0, 62.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.72,
+		"color": Color(1.0, 0.75, 0.86)},
+]
 const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
 		"tex": "room_main_hall_background_v2.png", "action": "throne", "action_icon": "♛"},
@@ -924,7 +953,8 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_set_hall_background_visible(hall_mode)
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
-	m.castle_room_action_button.visible = not hall_mode
+	m.castle_room_action_button.visible = not hall_mode \
+		and (room_id != "playroom" or _playroom_rescue_done())
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
 			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
@@ -948,7 +978,12 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_lighting()
 	if announce:
 		m._ui_tap()
-		m.show_msg("Pearl Castle", String(room["name"]), "home")
+		if room_id == "playroom" and not _playroom_rescue_done():
+			m.show_msg("Baby Eagle",
+				"Chirp! Two dust bunnies have me! Swim over and bump both away!",
+				"talk")
+		else:
+			m.show_msg("Pearl Castle", String(room["name"]), "home")
 
 func _room(room_id: String) -> Dictionary:
 	for room: Dictionary in ROOMS:
@@ -988,12 +1023,11 @@ func _on_room_input(event: InputEvent) -> void:
 func _walk_cutout_to(screen_position: Vector2) -> void:
 	if m.castle_room_player_sprite == null:
 		return
-	if _is_wide_hall():
-		var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
-			screen_position)
-		if bunny_foot != Vector2.INF:
-			_position_player_at_foot(bunny_foot, true)
-			return
+	var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
+		screen_position)
+	if bunny_foot != Vector2.INF:
+		_position_player_at_foot(bunny_foot, true)
+		return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
 	if _is_wide_hall():
 		var hall_position: Vector2 = _stage_to_hall_art(local_position)
@@ -1009,7 +1043,7 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	_position_player_at_foot(Vector2(foot_x, foot_y), true)
 
 func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
-	if not _is_wide_hall() or m.castle_room_camera == null:
+	if m.castle_room_camera == null:
 		return Vector2.INF
 	var ray_origin: Vector3 = m.castle_room_camera.project_ray_origin(
 		screen_position)
@@ -1244,7 +1278,12 @@ func _rebuild_touch_items(room_id: String) -> void:
 		items.append_array(HALL_ITEMS)
 		items.append_array(HALL_DUST_BUNNY_SPAWNS)
 	else:
-		items = ROOM_ITEMS.get(room_id, [])
+		var room_items: Array = ROOM_ITEMS.get(room_id, []) as Array
+		items = room_items.duplicate()
+		if room_id == "playroom":
+			_restore_playroom_rescue_clears()
+			if not _playroom_rescue_done():
+				items.append_array(PLAYROOM_RESCUE_ITEMS)
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
@@ -1280,6 +1319,7 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	else:
 		_place_art_card(piece, source_position, item_z)
 		piece.scale = Vector3.ONE * visual_scale
+	piece.flip_h = bool(item_data.get("flip_h", false))
 	piece.set_meta("source_asset_role", "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
 	if bunny_role != "":
@@ -1311,19 +1351,30 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		m.castle_room_item_hotspot_layer.add_child(hotspot)
 	var contact_offset: Vector2 = item_data.get(
 		"contact_offset", Vector2.ZERO) as Vector2
+	var contact_foot: Vector2 = item_data.get(
+		"contact_foot", source_position + contact_offset) as Vector2
+	var contact_radius: Vector2 = item_data.get(
+		"contact_radius", Vector2(120.0, 88.0)) as Vector2
+	if room_id != "main_hall":
+		contact_foot *= ART_TO_STAGE
+		contact_radius *= ART_TO_STAGE
+	var texture_size: Vector2 = texture.get_size()
+	var visual_size: Vector2 = texture_size * visual_scale
+	var visual_center: Vector2 = source_position \
+		if room_id == "main_hall" \
+		else source_position + texture_size * 0.5
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
 		"data": item_data,
-		"contact_foot": source_position + contact_offset,
-		"art_rect": (
-			Rect2(source_position - texture.get_size() * visual_scale * 0.5,
-				texture.get_size() * visual_scale)
-			if room_id == "main_hall"
-			else Rect2(source_position, texture.get_size() * visual_scale)
-		),
+		"contact_foot": contact_foot,
+		"contact_radius": contact_radius,
+		"art_rect": Rect2(
+			visual_center - visual_size * 0.5, visual_size),
 	}
 	_update_touch_hotspot(m.castle_room_item_sprites[item_id])
+	if room_id == "playroom" and item_id == "baby_eagle_rescue":
+		_add_playroom_rescue_pointer()
 
 func _activate_room_item(item_id: String) -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
@@ -1781,7 +1832,7 @@ func _update_dust_bunny_runner(delta: float) -> void:
 	m.castle_room_item_sprites["runner_bunny"] = runner_record
 
 func _check_dust_bunny_contacts() -> void:
-	if not _is_wide_hall() or m.castle_room_player_sprite == null:
+	if m.castle_room_player_sprite == null:
 		return
 	var player_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"current_stage_foot",
@@ -1796,7 +1847,7 @@ func _check_dust_bunny_contacts() -> void:
 			continue
 		var contact_foot: Vector2 = record.get(
 			"contact_foot", Vector2(-10000.0, -10000.0)) as Vector2
-		var contact_radius: Vector2 = item_data.get(
+		var contact_radius: Vector2 = record.get(
 			"contact_radius", Vector2(120.0, 88.0)) as Vector2
 		var contact_delta: Vector2 = player_foot - contact_foot
 		var normalized_distance: float = (
@@ -1849,6 +1900,111 @@ func _explode_dust_bunny(item_id: String) -> void:
 		0.24).set_trans(Tween.TRANS_SINE)
 	vanish.tween_property(sprite, "modulate", fade_color, 0.24)
 	vanish.chain().tween_callback(sprite.queue_free)
+	if bool(item_data.get("rescue_bunny", false)):
+		m.stuffie_wins["rescued_" + item_id] = true
+		_check_playroom_rescue_complete()
+		if not _playroom_rescue_done():
+			m._write_save()
+
+func _playroom_rescue_done() -> bool:
+	return m.companion_id != "" \
+		or bool(m.stuffie_wins.get("rescued_eagle", false))
+
+func _restore_playroom_rescue_clears() -> void:
+	if _playroom_rescue_done():
+		return
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	for item_id: String in ["eagle_pin_left", "eagle_pin_right"]:
+		if bool(m.stuffie_wins.get("rescued_" + item_id, false)):
+			cleared[item_id] = true
+	m.g["castle_dust_bunnies_cleared"] = cleared
+	if bool(cleared.get("eagle_pin_left", false)) \
+			and bool(cleared.get("eagle_pin_right", false)):
+		m.stuffie_wins["rescued_eagle"] = true
+		m._write_save()
+
+func _add_playroom_rescue_pointer() -> void:
+	if m.castle_room_item_effect_layer == null \
+			or m.castle_room_item_effect_layer.get_node_or_null(
+				"BabyEagleRescuePointer") != null:
+		return
+	var star_texture: Texture2D = load("res://assets/mg/star.png")
+	if star_texture == null:
+		return
+	var pointer: Sprite3D = _new_card(
+		"BabyEagleRescuePointer", star_texture)
+	pointer.position = _art_to_world(Vector2(512.0, 210.0), 2.72)
+	pointer.pixel_size = _pixel_size_for_depth(2.72)
+	pointer.scale = Vector3.ONE * 0.052
+	pointer.modulate = Color(1.0, 0.86, 0.32, 0.94)
+	pointer.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	pointer.set_meta("source_asset_role", "tutorial_pointer")
+	pointer.set_meta("source_object_id", "playroom:baby_eagle_pointer")
+	m.castle_room_item_effect_layer.add_child(pointer)
+	var base_position: Vector3 = pointer.position
+	var pulse: Tween = pointer.create_tween().set_loops()
+	pulse.tween_property(pointer, "position:y", base_position.y + 0.28,
+		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.parallel().tween_property(pointer, "scale", Vector3.ONE * 0.060,
+		0.42).set_trans(Tween.TRANS_SINE)
+	pulse.tween_property(pointer, "position:y", base_position.y,
+		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.parallel().tween_property(pointer, "scale", Vector3.ONE * 0.052,
+		0.42).set_trans(Tween.TRANS_SINE)
+
+func _check_playroom_rescue_complete() -> void:
+	if m.castle_room_id != "playroom" or _playroom_rescue_done():
+		return
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	if not bool(cleared.get("eagle_pin_left", false)) \
+			or not bool(cleared.get("eagle_pin_right", false)):
+		return
+	m.stuffie_wins["rescued_eagle"] = true
+	m._write_save()
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = true
+	var pointer: Node = m.castle_room_item_effect_layer.get_node_or_null(
+		"BabyEagleRescuePointer") \
+		if m.castle_room_item_effect_layer != null else null
+	if pointer != null:
+		pointer.queue_free()
+	var eagle_record: Dictionary = m.castle_room_item_sprites.get(
+		"baby_eagle_rescue", {}) as Dictionary
+	var eagle: Sprite3D = eagle_record.get("sprite") as Sprite3D
+	m.castle_room_item_sprites.erase("baby_eagle_rescue")
+	m.show_msg("Baby Eagle",
+		"Chirp! You saved me! Let us learn how stuffie friends come along!",
+		"win")
+	if eagle == null or not is_instance_valid(eagle):
+		_open_playroom_stuffie_tutorial()
+		return
+	_item_burst(eagle.position, Color(0.54, 0.91, 1.0), 16)
+	var target_color: Color = eagle.modulate
+	target_color.a = 0.0
+	var fly: Tween = eagle.create_tween().set_parallel(true)
+	fly.tween_property(eagle, "position:y", eagle.position.y + 1.25,
+		0.72).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	fly.tween_property(eagle, "scale", eagle.scale * 1.12,
+		0.72).set_trans(Tween.TRANS_SINE)
+	fly.tween_property(eagle, "modulate", target_color,
+		0.72).set_delay(0.34)
+	fly.chain().tween_callback(
+		_finish_playroom_eagle_departure.bind(eagle))
+
+func _finish_playroom_eagle_departure(eagle: Sprite3D) -> void:
+	if eagle != null and is_instance_valid(eagle):
+		eagle.queue_free()
+	_open_playroom_stuffie_tutorial()
+
+func _open_playroom_stuffie_tutorial() -> void:
+	if not is_open() or m.castle_room_id != "playroom" \
+			or m.companion_id != "":
+		return
+	m.g["stuffie_rescue_tutorial"] = true
+	m.g["stuffie_rescue_tutorial_step"] = 0
+	m._companion_ref().open_picker(true, "eagle", "adopt")
 
 
 func _update_camera_parallax(delta: float) -> void:
@@ -2129,7 +2285,15 @@ func activate_current_room() -> void:
 		"craft":
 			m._open_craft_studio()
 		"stuffies":
-			m._companion_ref().open_picker(true)
+			if not _playroom_rescue_done():
+				m.show_msg("Baby Eagle",
+					"Bump both dust bunnies away first! I know you can do it!",
+					"talk")
+			elif m.companion_id == "":
+				_open_playroom_stuffie_tutorial()
+			else:
+				m._companion_ref().open_picker(
+					true, m.companion_id, "adopt")
 		"throne":
 			if bool(m.g.get("crown_won", false)):
 				m.show_msg("Roshan", "A royal wave from the throne!", "win")
