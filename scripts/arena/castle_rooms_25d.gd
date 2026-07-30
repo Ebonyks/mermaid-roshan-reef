@@ -11,7 +11,11 @@ const ROOM_ART := "res://assets/flats/castle/rooms/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
+const CASTLE_PORTAL_CUTOUT_SHADER := preload(
+	"res://shaders/castle_portal_cutout.gdshader")
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const CASTLE_FIXTURE_BLOOM_SHADER := preload(
+	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
 const ART_SIZE := Vector2(1024.0, 576.0)
 const WORLD_WIDTH := 20.0
@@ -41,16 +45,20 @@ const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
 const HALL_CARD_PIXEL_SIZE := WORLD_WIDTH / HALL_VIEW_SIZE.x
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
-const HALL_FILL_COLOR := Color(0.60, 0.52, 0.90)
-const HALL_FILL_ENERGY := 0.72
+const HALL_FILL_COLOR := Color(0.78, 0.72, 0.94)
+const HALL_FILL_ENERGY := 0.78
 const HALL_FILL_OFF_ENERGY := 0.42
 const HALL_SCONCE_COLOR := Color(1.0, 0.74, 0.43)
-const HALL_GLOW_FULL := 1.12
-const HALL_GLOW_SPEEDY := 0.75
-const HALL_BLOOM_FULL := 0.24
-const HALL_BLOOM_SPEEDY := 0.11
+const HALL_GLOW_FULL := 1.28
+const HALL_GLOW_SPEEDY := 0.95
+const HALL_BLOOM_FULL := 0.30
+const HALL_BLOOM_SPEEDY := 0.18
 const HALL_GLOW_OFF := 0.24
 const HALL_BLOOM_OFF := 0.015
+const HALL_SCREEN_SOURCE_RECTS: Array[Rect2] = [
+	Rect2(376.0, 212.0, 1672.0, 941.0),
+	Rect2(376.0, 147.0, 1672.0, 941.0),
+]
 const HALL_TILE_FILES: Array[String] = [
 	"runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
 	"runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
@@ -72,19 +80,16 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 		"max_energy": 4.6},
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
-	{"id": "screen_join_column", "pos": Vector2(1672.0, 470.5),
-		"z": 0.20, "scale": 1.0, "shaded": true,
-		"tex_path": HALL_ART_ROOT + "castle_join_column_cutout_reuse.png",
-		"role": "architectural_join_divider"},
 	{"id": "screen_join_floor_inlay", "pos": Vector2(1672.0, 780.5),
 		"z": 0.21, "scale": 1.0, "shaded": true,
 		"tex_path": HALL_ART_ROOT + "castle_join_floor_inlay_reuse.png",
 		"role": "architectural_join_inlay"},
-	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 384.0),
-		"z": 0.28, "scale": 0.96, "shaded": true,
+	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 490.0),
+		"z": 0.28, "scale": 0.96, "shaded": false,
 		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
-		"role": "architectural_bridge"},
-	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 270.0),
+		"shader": "portal_cutout",
+		"role": "transparent_architectural_bridge"},
+	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 376.0),
 		"z": 0.68, "scale": 0.15, "shaded": false,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_family.png",
@@ -125,38 +130,38 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
 		"pos": Vector2(260.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a1", "name": "Pearl shell light",
 		"pos": Vector2(1012.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a2", "name": "Pearl shell light",
 		"pos": Vector2(1476.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b0", "name": "Pearl shell light",
 		"pos": Vector2(2048.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b1", "name": "Pearl shell light",
 		"pos": Vector2(2415.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b2", "name": "Pearl shell light",
 		"pos": Vector2(2888.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_integrated_reuse.png",
-		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
+		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sleepy_bunny", "name": "Sleepy dust bunny",
@@ -667,6 +672,16 @@ func _build_hall_background_tiles() -> void:
 		# crack without scaling, interpolation, crop, or generated art.
 		var source_size := Vector2(836.0, 470.0 if row == 0 else 471.0)
 		tile.set_meta("source_art_rect", Rect2(top_left, source_size))
+		var screen_index: int = column / 2
+		var local_column: int = column % 2
+		var screen_source_rect: Rect2 = HALL_SCREEN_SOURCE_RECTS[
+			screen_index]
+		tile.set_meta("source_screen_id", "a" if screen_index == 0 else "b")
+		tile.set_meta("source_master_rect", Rect2(
+			screen_source_rect.position + Vector2(
+				float(local_column) * 836.0,
+				0.0 if row == 0 else 470.0),
+			source_size))
 		tile.set_meta("render_art_rect",
 			Rect2(top_left, texture.get_size()))
 		tile.set_meta("runtime_seam_bleed_pixels", 1 if row == 0 else 0)
@@ -711,14 +726,18 @@ func _build_castle_environment() -> void:
 	environment.background_mode = Environment.BG_COLOR
 	environment.background_color = Color(0.055, 0.035, 0.105)
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color(0.45, 0.38, 0.64)
-	environment.ambient_light_energy = 0.22
+	environment.ambient_light_color = Color(0.70, 0.62, 0.78)
+	environment.ambient_light_energy = 0.26
 	m._wind_waker_bloom(environment, HALL_GLOW_FULL,
-		HALL_BLOOM_FULL, 0.74)
+		HALL_BLOOM_FULL, 0.58)
+	# The shell cards carry true HDR spatial emission. A higher scale lets the
+	# Mobile renderer spread that energy into the wall while the low-emission
+	# shell body keeps its drawn pink/gold detail.
+	environment.glow_hdr_scale = 4.20
 	m._apply_scene_grade(environment, "warm_pastel")
-	environment.adjustment_saturation = 1.08
-	environment.adjustment_contrast = 1.18
-	environment.adjustment_brightness = 0.91
+	environment.adjustment_saturation = 0.50
+	environment.adjustment_contrast = 1.20
+	environment.adjustment_brightness = 1.12
 	environment.set_meta("castle_glow_profile", "dramatic_storybook")
 	environment.set_meta("castle_glow_full",
 		Vector2(HALL_GLOW_FULL, HALL_BLOOM_FULL))
@@ -1094,6 +1113,12 @@ func _add_hall_structure_piece(piece_data: Dictionary) -> void:
 	piece.scale = Vector3.ONE * float(piece_data.get("scale", 1.0))
 	piece.shaded = bool(piece_data.get("shaded", false))
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	if String(piece_data.get("shader", "")) == "portal_cutout":
+		var portal_material := ShaderMaterial.new()
+		portal_material.shader = CASTLE_PORTAL_CUTOUT_SHADER
+		portal_material.set_shader_parameter("portal_texture", texture)
+		piece.material_override = portal_material
+		piece.set_meta("castle_transparent_portal_cutout", true)
 	piece.set_meta("source_asset_role", String(piece_data["role"]))
 	piece.set_meta("source_object_id",
 		"main_hall:" + String(piece_data["id"]))
@@ -1146,6 +1171,13 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("light_cluster"):
+		piece.shaded = false
+		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var fixture_material := ShaderMaterial.new()
+		fixture_material.shader = CASTLE_FIXTURE_BLOOM_SHADER
+		fixture_material.set_shader_parameter("fixture_texture", texture)
+		piece.material_override = fixture_material
+		piece.set_meta("castle_fixture_material", fixture_material)
 		if not m.castle_room_light_states.has(item_id):
 			m.castle_room_light_states[item_id] = true
 		_apply_sconce_visual(piece, bool(m.castle_room_light_states[item_id]))
@@ -1208,40 +1240,79 @@ func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 func _apply_sconce_visual(sprite: Sprite3D, is_on: bool) -> void:
 	if sprite == null:
 		return
-	# Values above 1.0 make the pearl itself feed the Environment glow buffer.
-	# The same accepted fixture texture remains on the same card; no button-like
-	# halo sprite, extra transparent card, or per-frame material is introduced.
-	sprite.modulate = Color(1.30, 1.14, 0.90, 1.0) \
-		if is_on else Color(0.36, 0.34, 0.44, 0.48)
+	# The Mobile renderer did not reliably carry an HDR Sprite3D modulate into
+	# the Environment glow buffer. A true unshaded spatial emission on this
+	# same fixture card produces localized bloom without a halo/button card.
+	var material: ShaderMaterial = sprite.get_meta(
+		"castle_fixture_material", null) as ShaderMaterial
+	if material != null:
+		material.set_shader_parameter(
+			"fixture_tint",
+			Color(1.0, 0.96, 0.90, 1.0)
+				if is_on else Color(0.48, 0.46, 0.58, 0.78))
+		material.set_shader_parameter(
+			"emission_color", Color(1.0, 0.67, 0.30))
+		material.set_shader_parameter(
+			"emission_energy",
+			5.6 if is_on and m.quality != "speedy"
+				else 4.8 if is_on else 0.0)
+	sprite.modulate = Color.WHITE
 	sprite.set_meta("castle_light_on", is_on)
 	sprite.set_meta("castle_bloom_emitter", is_on)
+	sprite.set_meta(
+		"castle_emission_energy",
+		5.6 if is_on and m.quality != "speedy"
+			else 4.8 if is_on else 0.0)
 
 func _sync_hall_lighting() -> void:
 	if m.castle_room_light_nodes.is_empty():
 		return
 	var hall_visible: bool = is_open() and m.castle_room_id == "main_hall"
-	var visible_half := "a"
-	if m.castle_room_camera != null and m.castle_room_camera.position.x >= 0.0:
-		visible_half = "b"
-	var half_fixture_count := 0
-	var half_lit_count := 0
+	var camera_center_art: float = HALL_LOGICAL_SIZE.x * 0.5
+	if m.castle_room_camera != null:
+		camera_center_art += m.castle_room_camera.position.x \
+			/ HALL_CARD_PIXEL_SIZE
+	# Pick the two nearest authored fixture clusters inside the current camera
+	# neighborhood. At the A/B seam this deliberately selects A-right and
+	# B-left, preventing the former whole-screen hard lighting boundary while
+	# preserving the two-spot Mobile budget.
+	var active_cluster_ids: Array[String] = []
+	var cluster_radius: float = HALL_VIEW_SIZE.x * 0.62
+	for _slot in range(2):
+		var nearest_id := ""
+		var nearest_distance := INF
+		for cluster_data: Dictionary in HALL_LIGHT_CLUSTERS:
+			var cluster_id: String = String(cluster_data["id"])
+			if cluster_id in active_cluster_ids:
+				continue
+			var cluster_position: Vector2 = cluster_data["pos"] as Vector2
+			var distance: float = absf(cluster_position.x - camera_center_art)
+			if distance <= cluster_radius and distance < nearest_distance:
+				nearest_id = cluster_id
+				nearest_distance = distance
+		if nearest_id != "":
+			active_cluster_ids.append(nearest_id)
+	var active_fixture_count := 0
+	var active_lit_count := 0
 	for item_data: Dictionary in HALL_ITEMS:
 		if not item_data.has("light_cluster"):
 			continue
-		var cluster_half := ""
 		var item_cluster: String = String(item_data["light_cluster"])
-		for cluster_data: Dictionary in HALL_LIGHT_CLUSTERS:
-			if String(cluster_data["id"]) == item_cluster:
-				cluster_half = String(cluster_data["half"])
-				break
-		if cluster_half != visible_half:
+		var item_id: String = String(item_data["id"])
+		var item_record: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {})
+		var item_sprite: Sprite3D = item_record.get("sprite") as Sprite3D
+		var item_is_on: bool = bool(m.castle_room_light_states.get(
+			item_id, true))
+		if item_sprite != null:
+			_apply_sconce_visual(item_sprite, item_is_on)
+		if item_cluster not in active_cluster_ids:
 			continue
-		half_fixture_count += 1
-		if bool(m.castle_room_light_states.get(
-				String(item_data["id"]), true)):
-			half_lit_count += 1
-	var half_light_ratio: float = float(half_lit_count) \
-		/ maxf(1.0, float(half_fixture_count))
+		active_fixture_count += 1
+		if item_is_on:
+			active_lit_count += 1
+	var active_light_ratio: float = float(active_lit_count) \
+		/ maxf(1.0, float(active_fixture_count))
 	var speedy_shadow_used := false
 	for light: Light3D in m.castle_room_light_nodes:
 		if light == null or not is_instance_valid(light):
@@ -1250,7 +1321,7 @@ func _sync_hall_lighting() -> void:
 		if role == "ambient_fill":
 			light.visible = hall_visible
 			light.light_energy = lerpf(
-				HALL_FILL_OFF_ENERGY, HALL_FILL_ENERGY, half_light_ratio)
+				HALL_FILL_OFF_ENERGY, HALL_FILL_ENERGY, active_light_ratio)
 			continue
 		var cluster_id: String = String(light.get_meta("cluster_id", ""))
 		var fixture_count := 0
@@ -1263,9 +1334,8 @@ func _sync_hall_lighting() -> void:
 					String(item_data["id"]), true)):
 				lit_count += 1
 		var energy_ratio: float = float(lit_count) / maxf(1.0, float(fixture_count))
-		var half_matches: bool = String(
-			light.get_meta("hall_half", "")) == visible_half
-		light.visible = hall_visible and half_matches and lit_count > 0
+		var cluster_is_active: bool = cluster_id in active_cluster_ids
+		light.visible = hall_visible and cluster_is_active and lit_count > 0
 		var max_energy: float = float(light.get_meta("max_energy", 2.5))
 		light.light_energy = lerpf(0.55, max_energy, energy_ratio)
 		if not light.visible:
@@ -1275,7 +1345,7 @@ func _sync_hall_lighting() -> void:
 			speedy_shadow_used = true
 		else:
 			light.shadow_enabled = true
-	_sync_castle_environment(hall_visible, half_light_ratio)
+	_sync_castle_environment(hall_visible, active_light_ratio)
 
 func _sync_castle_environment(hall_visible: bool,
 		half_light_ratio: float) -> void:
@@ -1292,13 +1362,15 @@ func _sync_castle_environment(hall_visible: bool,
 		environment.glow_bloom = lerpf(
 			HALL_BLOOM_OFF, bloom_target, half_light_ratio)
 		environment.glow_hdr_threshold = lerpf(
-			0.98, 0.74, half_light_ratio)
+			0.98, 0.58, half_light_ratio)
 		environment.ambient_light_energy = lerpf(
-			0.12, 0.22, half_light_ratio)
+			0.12, 0.26, half_light_ratio)
+		environment.adjustment_saturation = lerpf(
+			0.66, 0.50, half_light_ratio)
 		environment.adjustment_contrast = lerpf(
 			1.12, 1.20, half_light_ratio)
 		environment.adjustment_brightness = lerpf(
-			0.84, 0.91, half_light_ratio)
+			0.84, 1.12, half_light_ratio)
 	else:
 		# Destination rooms keep the castle's warm storybook finish, but their
 		# painted practical lights do not receive the Main Hall's dramatic lift.
@@ -1306,6 +1378,7 @@ func _sync_castle_environment(hall_visible: bool,
 		environment.glow_bloom = 0.055 if speedy else 0.09
 		environment.glow_hdr_threshold = 0.90
 		environment.ambient_light_energy = 0.28
+		environment.adjustment_saturation = 1.08
 		environment.adjustment_contrast = 1.10
 		environment.adjustment_brightness = 0.94
 

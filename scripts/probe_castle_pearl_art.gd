@@ -165,7 +165,7 @@ func _run() -> void:
 			and int(counts.get("modeled", 0)) == 0 \
 			and int(counts.get("canvas_world", 0)) == 0 \
 			and int(counts.get("shaded", 0)) \
-				== (11 if hall_mode else 8) \
+				== (9 if hall_mode else 8) \
 			and int(counts.get("missing_texture", 0)) == 0
 		var depths: Dictionary = {}
 		if hall_mode:
@@ -244,8 +244,8 @@ func _run() -> void:
 
 	rooms.show_room("main_hall", false)
 	var castle_environment: Environment = main.castle_room_environment
-	var expected_glow: float = 0.75 if main.quality == "speedy" else 1.12
-	var expected_bloom: float = 0.11 if main.quality == "speedy" else 0.24
+	var expected_glow: float = 0.95 if main.quality == "speedy" else 1.28
+	var expected_bloom: float = 0.18 if main.quality == "speedy" else 0.30
 	var glow_on: float = castle_environment.glow_intensity \
 		if castle_environment != null else 0.0
 	var bloom_on: float = castle_environment.glow_bloom \
@@ -259,9 +259,11 @@ func _run() -> void:
 			== Environment.GLOW_BLEND_MODE_SCREEN
 		and is_equal_approx(glow_on, expected_glow)
 		and is_equal_approx(bloom_on, expected_bloom)
-		and castle_environment.glow_hdr_threshold <= 0.75
-		and castle_environment.adjustment_contrast >= 1.19
-		and castle_environment.ambient_light_energy <= 0.23,
+		and castle_environment.glow_hdr_threshold <= 0.59
+		and castle_environment.glow_hdr_scale >= 4.1
+		and castle_environment.adjustment_contrast >= 1.13
+		and castle_environment.adjustment_brightness >= 1.04
+		and castle_environment.ambient_light_energy <= 0.33,
 		"quality=%s glow=%.3f bloom=%.3f threshold=%.3f" % [
 			main.quality, glow_on, bloom_on,
 			castle_environment.glow_hdr_threshold
@@ -274,8 +276,8 @@ func _run() -> void:
 		if speedy_light.visible and speedy_light.shadow_enabled:
 			speedy_shadow_count += 1
 	_ck("main_hall_speedy_glow_budget",
-		castle_environment.glow_intensity <= 0.75
-		and castle_environment.glow_bloom <= 0.11
+		castle_environment.glow_intensity <= 0.951
+		and castle_environment.glow_bloom <= 0.181
 		and speedy_shadow_count <= 1,
 		"glow=%.3f bloom=%.3f shadows=%d" % [
 			castle_environment.glow_intensity,
@@ -283,11 +285,15 @@ func _run() -> void:
 	main.quality = original_quality
 	rooms._sync_hall_lighting()
 	var tile_paths_ok := true
+	var tile_registration_ok := true
 	var tile_index := 0
 	for tile: Sprite3D in main.castle_room_background_tiles:
 		var tile_row: int = tile_index / 4
+		var tile_column: int = tile_index % 4
 		var source_rect: Rect2 = tile.get_meta(
 			"source_art_rect", Rect2()) as Rect2
+		var master_rect: Rect2 = tile.get_meta(
+			"source_master_rect", Rect2()) as Rect2
 		var render_rect: Rect2 = tile.get_meta(
 			"render_art_rect", Rect2()) as Rect2
 		var bleed_pixels: int = int(tile.get_meta(
@@ -310,9 +316,23 @@ func _run() -> void:
 			and tile.shaded and tile.transparent \
 			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_OPAQUE_PREPASS \
 			and tile.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
+		var expected_master_y: float = (
+			212.0 if tile_column < 2 else 147.0
+		) + (0.0 if tile_row == 0 else 470.0)
+		var expected_master_x: float = 376.0 \
+			+ float(tile_column % 2) * 836.0
+		tile_registration_ok = tile_registration_ok \
+			and master_rect == Rect2(
+				expected_master_x, expected_master_y,
+				836.0, 470.0 if tile_row == 0 else 471.0) \
+			and String(tile.get_meta("source_screen_id", "")) \
+				== ("a" if tile_column < 2 else "b")
 		tile_index += 1
 	_ck("main_hall_native_2x4_sprite3d_grid",
 		main.castle_room_background_tiles.size() == 8 and tile_paths_ok)
+	_ck("main_hall_lossless_screen_registration",
+		tile_registration_ok,
+		"A_y=212 B_y=147 fixture_and_walkway_delta=65")
 	var bridge: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
 		"HallStructure_playroom_portal_bridge") as Sprite3D
 	var join_column: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
@@ -329,13 +349,15 @@ func _run() -> void:
 			playroom_portal_ok = portal_rect.size.x >= 224.0 \
 				and portal_rect.size.y >= 380.0
 			break
-	_ck("main_hall_screen_join_architectural_bridge",
-		bridge != null and bridge.texture != null and bridge.shaded
-		and bridge.texture.resource_path.ends_with(
-			"castle_playroom_portal_cutout_reuse.png")
-		and join_column != null and join_column.texture != null
-		and join_column.texture.resource_path.ends_with(
-			"castle_join_column_cutout_reuse.png")
+	var bridge_material: ShaderMaterial = bridge.material_override \
+		as ShaderMaterial if bridge != null else null
+	_ck("main_hall_screen_join_uses_transparent_portal_cutout",
+		bridge != null and bridge.texture != null and not bridge.shaded
+		and bridge_material != null and bridge_material.shader != null
+		and bridge_material.shader.resource_path.ends_with(
+			"castle_portal_cutout.gdshader")
+		and bool(bridge.get_meta("castle_transparent_portal_cutout", false))
+		and join_column == null
 		and join_inlay != null and join_inlay.texture != null
 		and join_inlay.texture.resource_path.ends_with(
 			"castle_join_floor_inlay_reuse.png")
@@ -366,13 +388,14 @@ func _run() -> void:
 		and visible_shadow_lights >= 1 and visible_shadow_lights <= 2,
 		"visible=%d shadowed=%d" % [visible_lights, visible_shadow_lights])
 	_ck("main_hall_equal_cluster_energy",
-		touch_light_energy_ok and is_equal_approx(fill_on_energy, 0.72),
+		touch_light_energy_ok and is_equal_approx(fill_on_energy, 0.78),
 		"fill=%.3f" % fill_on_energy)
 	var fixture_asset_path := ""
 	var fixture_continuity_ok := true
 	var fixture_y: float = -1.0
 	var fixture_height_ok := true
 	var fixture_bloom_emitters_ok := true
+	var fixture_single_card_ok := true
 	for fixture_id: String in [
 			"sconce_a0", "sconce_a1", "sconce_a2",
 			"sconce_b0", "sconce_b1", "sconce_b2"]:
@@ -382,17 +405,34 @@ func _run() -> void:
 		if fixture == null or fixture.texture == null:
 			fixture_continuity_ok = false
 			fixture_bloom_emitters_ok = false
+			fixture_single_card_ok = false
 			continue
+		var fixture_material: ShaderMaterial = \
+			fixture.material_override as ShaderMaterial
+		var emission_energy: float = float(
+			fixture_material.get_shader_parameter("emission_energy")) \
+			if fixture_material != null else 0.0
 		fixture_bloom_emitters_ok = fixture_bloom_emitters_ok \
 			and bool(fixture.get_meta("castle_bloom_emitter", false)) \
-			and fixture.modulate.r > 1.2 \
-			and is_equal_approx(fixture.modulate.a, 1.0)
+			and emission_energy >= 3.8 \
+			and is_equal_approx(float(fixture.get_meta(
+				"castle_emission_energy", 0.0)), emission_energy) \
+			and fixture_material != null \
+			and fixture_material.shader != null \
+			and fixture_material.shader.resource_path.ends_with(
+				"castle_fixture_bloom.gdshader")
+		fixture_single_card_ok = fixture_single_card_ok \
+			and fixture.get_child_count() == 0 \
+			and fixture.modulate == Color.WHITE \
+			and not fixture.shaded \
+			and fixture.cast_shadow \
+				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var path: String = fixture.texture.resource_path
 		if fixture_asset_path == "":
 			fixture_asset_path = path
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path.ends_with(
-					"castle_shell_sconce_integrated_reuse.png")
+					"castle_shell_sconce_touchable.png")
 		else:
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path == fixture_asset_path
@@ -418,6 +458,8 @@ func _run() -> void:
 		"shared_y=%.1f" % fixture_y)
 	_ck("main_hall_fixture_hdr_bloom_emitters",
 		fixture_bloom_emitters_ok)
+	_ck("main_hall_fixture_single_sprite3d_cards",
+		fixture_single_card_ok)
 	var hall_door_clearance_ok := true
 	var hall_door_conflicts: Array[String] = []
 	for item_id_value: Variant in main.castle_room_item_sprites:
@@ -444,6 +486,20 @@ func _run() -> void:
 	rooms._position_player_at_foot(Vector2(1672.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)
+	var seam_a_lights := 0
+	var seam_b_lights := 0
+	for seam_light: Light3D in main.castle_room_light_nodes:
+		if not seam_light.visible \
+				or String(seam_light.get_meta(
+					"castle_light_role", "")) != "touch_cluster":
+			continue
+		if String(seam_light.get_meta("hall_half", "")) == "a":
+			seam_a_lights += 1
+		elif String(seam_light.get_meta("hall_half", "")) == "b":
+			seam_b_lights += 1
+	_ck("main_hall_seam_uses_cross_screen_lights",
+		seam_a_lights == 1 and seam_b_lights == 1,
+		"A=%d B=%d" % [seam_a_lights, seam_b_lights])
 	await _capture("main_hall_seam_bridge")
 	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
 	await _frames(2)

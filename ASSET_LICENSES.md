@@ -727,3 +727,28 @@ generator output is present in this directory or connected to runtime art.
   tiles. Exact source/derived hashes and row-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
+## Pearl Castle registered Sprite3D bloom correction (2026-07-29)
+
+- `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r{0,1}_c{2,3}.png`
+  and `tiles/runtime_bleed/main_hall_room_led_r0_c{2,3}_bleed.png` ?
+  lossless recrops of the already licensed
+  `assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png`.
+  Screen B now uses source rectangle `(376, 147, 1672, 941)` so its fixture
+  sockets and walkway align with Screen A at runtime Y=215 and Y=634.
+  `tools/build_castle_hall_runtime_registration.py` records dimensions,
+  hashes, master rectangles, exact reconstruction, and the one-pixel
+  source-exact render bleed. No scaling, interpolation, padding, external art,
+  or generated pixels.
+- `shaders/castle_fixture_bloom.gdshader` ? project-authored Godot spatial
+  shader for the existing licensed 1024 x 1024 shell-sconce cutout. It keeps
+  the Sprite3D unshaded, emits HDR light from the pearl/highlights, and derives
+  a restrained aura only from the existing alpha margin. No new texture or
+  external source. License: project code.
+- `shaders/castle_portal_cutout.gdshader` ? project-authored Godot spatial
+  shader for the existing licensed Playroom portal card. It discards the
+  reused source's rectangular wall/floor area geometrically while retaining
+  the same arch and corridor pixels on one unshaded Sprite3D. No new raster,
+  external source, model, or generated art. License: project code.
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
+  reused unchanged for all six interactive fixtures in this correction; SHA-256
+  remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.

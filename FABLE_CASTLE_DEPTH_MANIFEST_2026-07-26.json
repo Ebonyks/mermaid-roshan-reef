@@ -1,4 +1,67 @@
 {
+  "runtime_correction_2026_07_29": {
+    "status": "accepted",
+    "new_raster_art": false,
+    "main_hall_registered_views": {
+      "screen_a": [376, 212, 1672, 941],
+      "screen_b": [376, 147, 1672, 941],
+      "fixture_runtime_y": 215,
+      "walkway_runtime_y": 634,
+      "tile_grid": "2 rows x 4 columns",
+      "tile_reconstruction_pixel_exact": true
+    },
+    "screen_join": {
+      "raw_source_edge": "documented wallpaper-to-brick material transition",
+      "runtime_verdict": "PASS_RUNTIME_OCCLUDED_MATERIAL_TRANSITION",
+      "portal_texture": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "portal_shader": "shaders/castle_portal_cutout.gdshader",
+      "portal_shader_sha256": "608758adf421e3c9bc14a902e67e0465db2e4671bbcc460c2c5ce92c3880e869",
+      "opaque_bridge_loaded": false,
+      "join_column_loaded": false
+    },
+    "interactive_fixture_family": {
+      "count": 6,
+      "node_type": "Sprite3D",
+      "unshaded": true,
+      "texture": "assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png",
+      "texture_sha256": "dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e",
+      "shared_scale": 0.125,
+      "shared_center_y": 215,
+      "bloom_shader": "shaders/castle_fixture_bloom.gdshader",
+      "bloom_shader_sha256": "52177a6e84611c0ea2dae3ee8a2110aa0846f9ed03e40076f4fd53e6ac585851",
+      "extra_halo_cards": 0
+    },
+    "lighting": {
+      "environment_glow_blend": "SCREEN",
+      "environment_hdr_scale": 4.2,
+      "environment_hdr_threshold_on": 0.58,
+      "speedy_glow_bloom": [0.95, 0.18],
+      "full_glow_bloom": [1.28, 0.3],
+      "off_glow_bloom": [0.24, 0.015],
+      "visible_light_nodes": 3,
+      "speedy_shadow_maps": 1,
+      "seam_cluster_selection": ["a_right", "b_left"]
+    },
+    "runtime_inventory": {
+      "maximum_visible_sprite3d": 24,
+      "modeled_world_art": 0,
+      "canvasitem_world_art": 0
+    },
+    "tone_delta_e76": {
+      "screen_a": 10.59,
+      "screen_b": 7.982,
+      "maximum_allowed": 12.0,
+      "status": "PASS"
+    },
+    "evidence": {
+      "registration": "audit/castle_sprite3d/castle_hall_runtime_registration.json",
+      "seam_tone": "audit/castle_sprite3d/castle_tile_tone_audit_2026-07-29.json",
+      "main_hall_capture_sha256": "68f4817ddce37b0ea0ba7971e1d1b22d986c82e3f4ffa21c42477a187103059b",
+      "seam_capture_sha256": "be6220a35a1fa60c0694c3641dbf022ffbd5b9998cbdb61cd94c30a190e8ff74",
+      "probe": "scripts/probe_castle_pearl_art.gd",
+      "probe_result": "RESULT=OK checks_failed=0"
+    }
+  },
   "clean_fill": "horizontal/vertical scanline interpolation plus nearest unmasked fallback from the same room composite, applied only beneath fully opaque card ownership; antialiased source boundaries are preserved",
   "owner_native_environment_contract": {
     "active_master_dimensions": [

@@ -249,7 +249,6 @@ def main() -> None:
 				float(value["lab_mean"][0]) - float(context["lab_mean"][0])), 3)
 	bridge_paths = [
 		args.tile_root.parent / "castle_playroom_portal_cutout_reuse.png",
-		args.tile_root.parent / "castle_join_column_cutout_reuse.png",
 		args.tile_root.parent / "castle_join_floor_inlay_reuse.png",
 	]
 	bridge_capture = args.capture_root / "main_hall_seam_bridge.png"
@@ -288,6 +287,8 @@ def main() -> None:
 			"source_screen_join": (
 				"PASS_FEATHERED_REUSE_TRANSITION"
 				if str(seams[1]["status"]) == "feathered_reuse_transition"
+				else "PASS_RUNTIME_OCCLUDED_MATERIAL_TRANSITION"
+				if bridge_ready
 				else "FAIL_ART_DIRECTION_DISCONTINUITY"),
 			"screen_a_to_b_join": "PASS_RUNTIME_ARCHITECTURAL_BRIDGE"
 				if bridge_ready else "FAIL_REQUIRES_ARCHITECTURAL_BRIDGE",
