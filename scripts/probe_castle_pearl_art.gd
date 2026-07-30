@@ -118,7 +118,7 @@ func _run() -> void:
 		"state=%s offset=%s->%s" % [
 			castle_roshan_loop.animation_state(), idle_offset,
 			castle_roshan.offset])
-	var walk_target := Vector2(1180.0, 835.0)
+	var walk_target := Vector2(500.0, 835.0)
 	rooms._position_player_at_foot(walk_target, true)
 	castle_roshan_loop._process(0.01)
 	var moving_frame: int = castle_roshan.frame
@@ -554,9 +554,12 @@ func _run() -> void:
 		main.castle_room_item_hotspot_layer.get_child_count() == 7)
 	var camera_ray_touch_ok := true
 	for item_id: String in bunny_ids:
-		var record: Dictionary = main.castle_room_item_sprites[item_id] \
+		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {}) \
 			as Dictionary
 		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite == null:
+			camera_ray_touch_ok = false
+			continue
 		var center_screen: Vector2 = main.castle_room_camera.unproject_position(
 			sprite.global_position)
 		var ray_origin: Vector3 = main.castle_room_camera.project_ray_origin(
@@ -595,23 +598,30 @@ func _run() -> void:
 				and not art_rect.intersects(elevator_rect)
 	_ck("main_hall_dust_bunnies_clear_fixed_elevator", elevator_clearance_ok)
 	rooms.tick(0.5)
-	var sleepy_now: Sprite3D = (
-		main.castle_room_item_sprites["sleepy_bunny"] as Dictionary
-	).get("sprite") as Sprite3D
-	var shell_now: Sprite3D = (
-		main.castle_room_item_sprites["shell_bunny"] as Dictionary
-	).get("sprite") as Sprite3D
-	var runner_now: Sprite3D = (
-		main.castle_room_item_sprites["runner_bunny"] as Dictionary
-	).get("sprite") as Sprite3D
-	var sleepy_start: Vector3 = bunny_start_positions["sleepy_bunny"] as Vector3
-	var shell_start: Vector3 = bunny_start_positions["shell_bunny"] as Vector3
-	var runner_start: Vector3 = bunny_start_positions["runner_bunny"] as Vector3
-	_ck("main_hall_two_static_dust_bunnies",
-		sleepy_now.position == sleepy_start
-		and shell_now.position == shell_start)
-	_ck("main_hall_third_dust_bunny_runs",
-		runner_now.position.distance_to(runner_start) > 0.01)
+	var sleepy_record: Dictionary = main.castle_room_item_sprites.get(
+		"sleepy_bunny", {}) as Dictionary
+	var shell_record: Dictionary = main.castle_room_item_sprites.get(
+		"shell_bunny", {}) as Dictionary
+	var runner_record: Dictionary = main.castle_room_item_sprites.get(
+		"runner_bunny", {}) as Dictionary
+	var sleepy_now: Sprite3D = sleepy_record.get("sprite") as Sprite3D
+	var shell_now: Sprite3D = shell_record.get("sprite") as Sprite3D
+	var runner_now: Sprite3D = runner_record.get("sprite") as Sprite3D
+	var static_bunnies_ok: bool = sleepy_now != null and shell_now != null
+	if static_bunnies_ok:
+		var sleepy_start: Vector3 = bunny_start_positions.get(
+			"sleepy_bunny", Vector3.INF) as Vector3
+		var shell_start: Vector3 = bunny_start_positions.get(
+			"shell_bunny", Vector3.INF) as Vector3
+		static_bunnies_ok = sleepy_now.position == sleepy_start \
+			and shell_now.position == shell_start
+	_ck("main_hall_two_static_dust_bunnies", static_bunnies_ok)
+	var runner_moves_ok: bool = runner_now != null
+	if runner_moves_ok:
+		var runner_start: Vector3 = bunny_start_positions.get(
+			"runner_bunny", Vector3.INF) as Vector3
+		runner_moves_ok = runner_now.position.distance_to(runner_start) > 0.01
+	_ck("main_hall_third_dust_bunny_runs", runner_moves_ok)
 	var explosion_effects_before: int = \
 		main.castle_room_item_effect_layer.get_child_count()
 	var one_touch_explosions_ok := true

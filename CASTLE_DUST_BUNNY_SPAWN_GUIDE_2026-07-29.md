@@ -18,11 +18,11 @@ Coordinates are in Main Hall logical art space. `center` positions the visual ca
 
 | ID | Character direction | Asset | Center | Contact foot | Contact ellipse radius | z | Scale | Motion |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| `sleepy_bunny` | sleeping | `dust_bunny_sleepy.png` | `(720,790)` | `(720,864)` | `(132,92)` | `2.65` | `0.34` | static |
-| `shell_bunny` | hiding beneath shell | `dust_bunny_shell_hide.png` | `(1140,790)` | `(1140,864)` | `(132,92)` | `3.05` | `0.32` | static |
-| `runner_bunny` | running | `dust_bunny_hop.png` | `(1820,790)` at start | live center + `(0,74)` | `(142,98)` | `2.85` | `0.32` | triangle patrol from x `1820` to `2580` at `220` logical pixels/second, with a 14-pixel hop |
+| `sleepy_bunny` | sleeping | `dust_bunny_sleepy.png` | `(900,830)` | `(900,890)` | `(132,92)` | `2.65` | `0.34` | static |
+| `shell_bunny` | hiding beneath shell | `dust_bunny_shell_hide.png` | `(1340,830)` | `(1340,890)` | `(132,92)` | `3.05` | `0.32` | static |
+| `runner_bunny` | running | `dust_bunny_hop.png` | `(1850,830)` at start | live center + `(0,60)` | `(142,98)` | `2.85` | `0.32` | triangle patrol from x `1850` to `2550` at `220` logical pixels/second, with a 14-pixel hop |
 
-Normalized against the full 3344×941 logical hall, the centers are approximately `(0.2153,0.8395)`, `(0.3409,0.8395)`, and `(0.5443,0.8395)` at runner start. The initial Roshan foot point `(380,835)` does not overlap any spawn.
+Normalized against the full 3344×941 logical hall, the centers are approximately `(0.2691,0.8820)`, `(0.4007,0.8820)`, and `(0.5532,0.8820)` at runner start. The initial Roshan foot point `(380,835)` does not overlap any spawn.
 
 ## Approved asset inventory
 
@@ -68,7 +68,7 @@ Changing castle rooms rebuilds the Main Hall without respawning cleared bunnies.
 - every bunny clears after one contact, produces twelve effects, and records its cleared ID;
 - a second explosion request has no effect;
 - cleared bunnies remain absent after leaving and returning to the Main Hall;
-- no spawn intersects either fixed elevator region;
+- no spawn intersects a door approach or either fixed elevator region;
 - Sprite3D-only world art, depth layering, camera travel, and mobile visible-card budget remain intact.
 
 `scripts/probe_crown.gd` verifies the Main Hall inventory as seven ordinary touch props plus three dust bunnies (ten item Sprite3D cards total) and only seven UI hotspots.

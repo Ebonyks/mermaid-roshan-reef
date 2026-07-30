@@ -161,31 +161,31 @@ const HALL_ITEMS: Array[Dictionary] = [
 ]
 const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 	{"id": "sleepy_bunny", "name": "Sleeping dust bunny",
-		"pos": Vector2(720.0, 790.0), "z": 2.65,
+		"pos": Vector2(900.0, 830.0), "z": 2.65,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_sleepy.png",
 		"scale": 0.34, "dust_bunny_role": "sleeping_static",
-		"contact_offset": Vector2(0.0, 74.0),
+		"contact_offset": Vector2(0.0, 60.0),
 		"contact_radius": Vector2(132.0, 92.0),
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
 		"color": Color(0.86, 0.72, 1.0)},
 	{"id": "shell_bunny", "name": "Shell-hide dust bunny",
-		"pos": Vector2(1140.0, 790.0), "z": 3.05,
+		"pos": Vector2(1340.0, 830.0), "z": 3.05,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_shell_hide.png",
 		"scale": 0.32, "dust_bunny_role": "shell_static",
-		"contact_offset": Vector2(0.0, 74.0),
+		"contact_offset": Vector2(0.0, 60.0),
 		"contact_radius": Vector2(132.0, 92.0),
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.45,
 		"color": Color(0.60, 0.92, 1.0)},
 	{"id": "runner_bunny", "name": "Running dust bunny",
-		"pos": Vector2(1820.0, 790.0), "z": 2.85,
+		"pos": Vector2(1850.0, 830.0), "z": 2.85,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.32, "dust_bunny_role": "runner",
-		"contact_offset": Vector2(0.0, 74.0),
+		"contact_offset": Vector2(0.0, 60.0),
 		"contact_radius": Vector2(142.0, 98.0),
-		"patrol_x": Vector2(1820.0, 2580.0), "run_speed": 220.0,
+		"patrol_x": Vector2(1850.0, 2550.0), "run_speed": 220.0,
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
 		"color": Color(1.0, 0.75, 0.86)},
 ]
@@ -1626,7 +1626,7 @@ func _update_dust_bunny_runner(delta: float) -> void:
 		"castle_dust_bunny_runner_time", 0.0)) + delta
 	m.g["castle_dust_bunny_runner_time"] = elapsed
 	var patrol_x: Vector2 = runner_data.get(
-		"patrol_x", Vector2(1820.0, 2580.0)) as Vector2
+		"patrol_x", Vector2(1850.0, 2550.0)) as Vector2
 	var run_speed: float = float(runner_data.get("run_speed", 220.0))
 	var segment_length: float = maxf(1.0, patrol_x.y - patrol_x.x)
 	var travel: float = fposmod(elapsed * run_speed, segment_length * 2.0)
@@ -1634,9 +1634,9 @@ func _update_dust_bunny_runner(delta: float) -> void:
 	var runner_x: float = patrol_x.x + travel if moving_right \
 		else patrol_x.y - (travel - segment_length)
 	var source_position: Vector2 = runner_data.get(
-		"pos", Vector2(1820.0, 790.0)) as Vector2
+		"pos", Vector2(1850.0, 830.0)) as Vector2
 	var runner_center := Vector2(
-		runner_x, source_position.y + absf(sin(elapsed * 8.0)) * 14.0)
+		runner_x, source_position.y - absf(sin(elapsed * 8.0)) * 14.0)
 	var depth_z: float = float(runner_data.get("z", 2.85))
 	runner_sprite.position = _hall_art_to_world(runner_center, depth_z)
 	runner_sprite.pixel_size = _pixel_size_for_depth(depth_z)
