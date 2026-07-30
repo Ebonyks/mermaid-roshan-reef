@@ -300,12 +300,12 @@ func _build_playground_screen() -> void:
 	_register_target("seesaw", seesaw, "playground", "seesaw", 112.0, 1.12)
 
 func _build_castle_screen() -> void:
-	# The structurally balanced castle remains one coherent depth card while
-	# retaining the scene's oblique bridge and facade projection.
+	# The four-tower castle remains one neutral, unshaded depth card. Its world
+	# width, waterline and bridge landing are fitted to the approved fallback.
 	var castle := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png",
-		Vector3(53.5, 10.662, LANDMARK_Z), 27.710, false)
-	castle.name = "SkyLagoonCastlePerspective"
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		Vector3(53.272852, 11.022284, LANDMARK_Z), 28.430568, false)
+	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
 	_register_target("castle_gate", castle, "castle", "", 128.0, 1.035)
 

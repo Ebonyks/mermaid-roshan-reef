@@ -61,7 +61,7 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
@@ -90,6 +90,39 @@ func _init() -> void:
 	for path: String in required_assets:
 		assets_ok = assets_ok and ResourceLoader.exists(path)
 	_check("codex_sprite_assets", assets_ok)
+	var castle_card: Sprite3D = main.g.get("lagoon_castle_card") as Sprite3D
+	var castle_fit_ok := castle_card != null
+	var castle_fit_detail := ""
+	if castle_card != null:
+		var castle_image: Image = castle_card.texture.get_image()
+		var castle_world_width := (
+			castle_image.get_width() * castle_card.pixel_size
+		)
+		var castle_base_y := castle_card.position.y - (
+			castle_image.get_height() * castle_card.pixel_size * 0.5
+		)
+		# Interactive depth cards shift slightly as the camera pans so they stay
+		# socketed to their painted mural landmarks. Audit the authored socket,
+		# not the expected runtime parallax offset at this probe's camera x.
+		var castle_reference_x := float(
+			castle_card.get_meta("mural_reference_x", INF)
+		)
+		castle_fit_ok = (
+			not castle_card.shaded
+			and castle_card.cast_shadow
+				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			and not castle_card.has_meta("contact_shadow")
+			and is_equal_approx(castle_reference_x, 53.272852)
+			and is_equal_approx(castle_world_width, 28.37504)
+			and is_equal_approx(castle_base_y, -3.193)
+		)
+		castle_fit_detail = "socket_x=%.5f width=%.5f base=%.5f" % [
+			castle_reference_x,
+			castle_world_width,
+			castle_base_y,
+		]
+	_check("four_tower_castle_neutral_fit_contract",
+		castle_fit_ok, castle_fit_detail)
 	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 	var panorama_master: Image = Image.load_from_file(
 		ProjectSettings.globalize_path(master_path))

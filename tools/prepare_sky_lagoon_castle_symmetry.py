@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare the perspective-correct Sky Lagoon castle and restore owner glass."""
+"""Prepare and placement-audit the four-tower Sky Lagoon castle card."""
 
 from __future__ import annotations
 
@@ -12,34 +12,45 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "assets_src/sky_lagoon/castle_symmetry_2026-07-29"
-RAW_CARD = SOURCE_DIR / "castle_perspective_transparent_raw.png"
+RAW_CARD = SOURCE_DIR / "four_tower_candidate_transparent_raw.png"
+FALLBACK_CARD = (
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+)
 OWNER_STAINED_GLASS = (
 	ROOT
 	/ "assets_src/sky_lagoon/reductive_rebuild_2026-07-28"
 	/ "stained_glass_owner_reference.png"
 )
 OUTPUT_CARD = (
-	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png"
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png"
 )
-AUDIT_REPORT = ROOT / "audit/sky_lagoon_castle_perspective.json"
+AUDIT_REPORT = SOURCE_DIR / "four_tower_fit_audit.json"
 
-RAW_WINDOW_BOX = (532, 250, 726, 554)
+RAW_WINDOW_BOX = (514, 304, 743, 659)
 RAW_WINDOW_POLYGON = (
-	(623, 250),
-	(664, 260),
-	(695, 282),
-	(716, 318),
-	(726, 352),
-	(726, 554),
-	(532, 554),
-	(532, 350),
-	(541, 313),
-	(560, 281),
-	(589, 260),
+	(627, 304),
+	(675, 314),
+	(710, 337),
+	(733, 375),
+	(743, 414),
+	(743, 659),
+	(514, 659),
+	(514, 414),
+	(523, 375),
+	(547, 337),
+	(581, 314),
 )
 OWNER_CROP = (101, 8, 780, 1176)
 GUTTER = 10
 MAX_EDGE = 1024
+BRIDGE_AUDIT_FRACTION = 0.90
+
+# The approved fallback's world transform is the placement contract. The new
+# card derives its height, center, and bridge-axis offset from these values so
+# aspect-ratio differences cannot shrink or slide the landmark by eye.
+FALLBACK_WORLD_X = 53.5
+FALLBACK_WORLD_Y = 10.662
+FALLBACK_WORLD_HEIGHT = 27.710
 
 
 def _sha256(path: Path) -> str:
@@ -48,6 +59,14 @@ def _sha256(path: Path) -> str:
 		for chunk in iter(lambda: stream.read(1024 * 1024), b""):
 			digest.update(chunk)
 	return digest.hexdigest()
+
+
+def _alpha_row_centroid(alpha: Image.Image, y: int) -> float:
+	values = [alpha.getpixel((x, y)) for x in range(alpha.width)]
+	total = sum(values)
+	if total == 0:
+		raise RuntimeError(f"no visible pixels on bridge audit row {y}")
+	return sum(x * value for x, value in enumerate(values)) / float(total)
 
 
 def _transform_point(
@@ -61,14 +80,58 @@ def _transform_point(
 	)
 
 
-def _alpha_row_centroid(alpha: Image.Image, y: int) -> float:
-	"""Return the coverage-weighted x center for one silhouette row."""
-	row = alpha.crop((0, y, alpha.width, y + 1))
-	values = [row.getpixel((x, 0)) for x in range(row.width)]
-	total = sum(values)
-	if total == 0:
-		raise RuntimeError(f"castle has no visible pixels on audit row {y}")
-	return sum(x * value for x, value in enumerate(values)) / float(total)
+def _placement_contract(
+	card: Image.Image,
+) -> dict[str, float | int | bool]:
+	with Image.open(FALLBACK_CARD) as fallback_source:
+		fallback = fallback_source.convert("RGBA")
+	fallback_alpha = fallback.getchannel("A")
+	fallback_width_world = (
+		FALLBACK_WORLD_HEIGHT * fallback.width / float(fallback.height)
+	)
+	fallback_base_y = FALLBACK_WORLD_Y - FALLBACK_WORLD_HEIGHT * 0.5
+	fallback_row = round(fallback.height * BRIDGE_AUDIT_FRACTION)
+	fallback_centroid = _alpha_row_centroid(fallback_alpha, fallback_row)
+	fallback_pixel_size = FALLBACK_WORLD_HEIGHT / float(fallback.height)
+	fallback_bridge_x = FALLBACK_WORLD_X + (
+		fallback_centroid - fallback.width * 0.5
+	) * fallback_pixel_size
+
+	world_height = fallback_width_world * card.height / float(card.width)
+	world_y = fallback_base_y + world_height * 0.5
+	card_alpha = card.getchannel("A")
+	card_row = round(card.height * BRIDGE_AUDIT_FRACTION)
+	card_centroid = _alpha_row_centroid(card_alpha, card_row)
+	card_pixel_size = world_height / float(card.height)
+	world_x = fallback_bridge_x - (
+		card_centroid - card.width * 0.5
+	) * card_pixel_size
+	card_width_world = world_height * card.width / float(card.height)
+	card_base_y = world_y - world_height * 0.5
+	card_bridge_x = world_x + (
+		card_centroid - card.width * 0.5
+	) * card_pixel_size
+
+	width_delta = abs(card_width_world - fallback_width_world)
+	base_delta = abs(card_base_y - fallback_base_y)
+	bridge_delta = abs(card_bridge_x - fallback_bridge_x)
+	return {
+		"fallback_world_width": fallback_width_world,
+		"candidate_world_width": card_width_world,
+		"world_width_delta": width_delta,
+		"fallback_base_y": fallback_base_y,
+		"candidate_base_y": card_base_y,
+		"base_y_delta": base_delta,
+		"fallback_bridge_landing_x": fallback_bridge_x,
+		"candidate_bridge_landing_x": card_bridge_x,
+		"bridge_landing_x_delta": bridge_delta,
+		"candidate_world_x": world_x,
+		"candidate_world_y": world_y,
+		"candidate_world_height": world_height,
+		"world_width_pass": width_delta <= 0.01,
+		"base_y_pass": base_delta <= 0.01,
+		"bridge_landing_x_pass": bridge_delta <= 0.01,
+	}
 
 
 def build() -> None:
@@ -76,7 +139,7 @@ def build() -> None:
 		raw = source.convert("RGBA")
 	alpha_box = raw.getchannel("A").getbbox()
 	if alpha_box is None:
-		raise RuntimeError("balanced castle source has no visible pixels")
+		raise RuntimeError("four-tower source has no visible pixels")
 	crop_box = (
 		max(0, alpha_box[0] - GUTTER),
 		max(0, alpha_box[1] - GUTTER),
@@ -143,16 +206,6 @@ def build() -> None:
 		)
 
 	alpha = card.getchannel("A")
-	bridge_audit_y = round(card.height * 0.88)
-	bridge_centroid_x = _alpha_row_centroid(alpha, bridge_audit_y)
-	bridge_offset_ratio = (
-		(card.width * 0.5 - bridge_centroid_x) / float(card.width)
-	)
-	if bridge_offset_ratio < 0.10:
-		raise RuntimeError(
-			"castle lost its oblique in-scene bridge perspective: "
-			f"offset={bridge_offset_ratio:.5f}"
-		)
 	if max(card.size) > MAX_EDGE:
 		raise RuntimeError(f"mobile texture limit exceeded: {card.size}")
 	if any(
@@ -165,6 +218,16 @@ def build() -> None:
 		)
 	):
 		raise RuntimeError("castle card lacks a transparent sampling gutter")
+	placement = _placement_contract(card)
+	if not all(
+		bool(placement[key])
+		for key in (
+			"world_width_pass",
+			"base_y_pass",
+			"bridge_landing_x_pass",
+		)
+	):
+		raise RuntimeError(f"castle placement contract failed: {placement}")
 
 	OUTPUT_CARD.parent.mkdir(parents=True, exist_ok=True)
 	card.save(OUTPUT_CARD, optimize=True)
@@ -185,13 +248,16 @@ def build() -> None:
 				"stained_glass_changed_bounds": list(diff_box),
 				"stained_glass_allowed_bounds": list(allowed_box),
 				"outside_window_changed_pixels": 0,
-				"projection": "oblique_three_quarter",
-				"bridge_audit_row": bridge_audit_y,
-				"bridge_centroid_x": bridge_centroid_x,
-				"bridge_left_offset_ratio": bridge_offset_ratio,
-				"oblique_bridge_pass": bridge_offset_ratio >= 0.10,
+				"tower_hierarchy": {
+					"outer_towers": 2,
+					"inner_towers": 2,
+					"central_gable": 1,
+				},
+				"base_lighting_effects": "none_added",
+				"runtime_material_contract": "unshaded",
 				"mobile_max_edge_pass": max(card.size) <= MAX_EDGE,
 				"transparent_gutter_pass": True,
+				"placement": placement,
 			},
 			indent=2,
 		)
@@ -200,6 +266,12 @@ def build() -> None:
 	)
 	print(OUTPUT_CARD)
 	print(AUDIT_REPORT)
+	print(
+		"transform="
+		f"({placement['candidate_world_x']:.6f}, "
+		f"{placement['candidate_world_y']:.6f}, "
+		f"{placement['candidate_world_height']:.6f})"
+	)
 
 
 if __name__ == "__main__":

@@ -64,10 +64,10 @@ def build_preview(show_plane: bool) -> Image.Image:
 	# plate deliberately has no duplicate facade underneath it.
 	place(
 		canvas,
-		"assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png",
-		53.5,
-		10.8,
-		31.0,
+		"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		53.272852,
+		11.2025,
+		31.805,
 	)
 
 	for path, x, y, height in (

@@ -1,9 +1,10 @@
 # Sky Lagoon balanced castle correction
 
-Mode: two tightly scoped OpenAI built-in image-generation edits, followed by
+Mode: three tightly scoped OpenAI built-in image-generation edits, followed by
 deterministic local chroma removal, owner-art restoration, cropping, and
-downscaling. The first edit is a front-elevation reference only. The second is
-the production card and retains the established in-scene perspective.
+downscaling. The first two edits are rejected design studies retained only as
+evidence. The third is the accepted four-tower runtime card and retains the
+established in-scene perspective.
 
 ## Reuse inventory and generation gap
 
@@ -74,7 +75,7 @@ resolved the architectural symmetry but flattened the camera, so it is retained
 only as a design reference and is not loaded by the game.
 `castle_balanced_transparent_raw.png` is the local chroma-removal result.
 
-## Production perspective-correction prompt
+## Rejected two-tower perspective-correction prompt
 
 > Use case: precise-object-edit
 >
@@ -131,8 +132,84 @@ only as a design reference and is not loaded by the game.
 > skewed entrance axis, duplicated doors, photorealism, 3D render look, new
 > symbols, new characters, scenery, clouds, mountains, plants, water.
 
-`castle_perspective_chroma_raw.png` is the untouched production built-in
-output. `castle_perspective_transparent_raw.png` is the local chroma-removal
-result. `tools/prepare_sky_lagoon_castle_symmetry.py` creates the runtime card
-and records the oblique-bridge, mobile-size, transparent-gutter, and
-owner-window bounds in `audit/sky_lagoon_castle_perspective.json`.
+`castle_perspective_chroma_raw.png` is the untouched second built-in output,
+and `castle_perspective_transparent_raw.png` is its local chroma-removal
+result. Both are rejected, non-runtime studies: this attempt made the castle
+smaller, omitted the intended tower hierarchy, and weakened its placement in
+the background.
+
+## Accepted four-tower core design
+
+Owner correction after review: the landmark is not a two-tower simplification.
+Its intended hierarchy is two lower outer towers, two taller inner towers, and
+one central stained-glass gable. The production edit therefore completes the
+missing right inner tower while retaining the grand overall mass.
+
+The base card receives no glow, bloom, light pool, color wash, or scene-grade
+effect. Runtime loads it as an unshaded Sprite3D with shadows disabled. Any
+future lighting treatment must remain a separate reversible post layer.
+
+Final edit prompt:
+
+> Use case: precise-object-edit
+>
+> Asset type: preview-only repair candidate for the existing Sky Lagoon castle
+> Sprite3D card
+>
+> Input image: Image 1 is the sole edit target and the sole authority for
+> camera, scale, placement, silhouette, style, door, stained glass, and
+> drawbridge.
+>
+> Primary request: Complete the intended grand four-tower castle design by
+> adding only the missing RIGHT INNER tower. The existing architecture already
+> has, from left to right: a lower left outer tower, a taller left inner tower,
+> the central stained-glass gable, and the right outer tower. Add one taller
+> right inner tower between the central gable and the existing right outer
+> tower, corresponding architecturally to the existing taller left inner tower.
+> It must sit behind the right wing and be naturally foreshortened in the
+> existing oblique perspective. Make the hierarchy read clearly as two lower
+> outer towers plus two taller inner towers flanking the central gable. There
+> must be exactly four purple conical tower roofs total, two on each side, plus
+> the separate central gold shell roof finial.
+>
+> Surgical edit boundary: change only the roof/wall area needed to insert the
+> missing right inner tower and its clean overlap behind the right wing.
+> Preserve every existing element elsewhere: the full left outer tower, full
+> left inner tower, central gable and roof, gold shell finial, pointed gold
+> stained-glass frame and its artwork, coral door, columns, right outer tower,
+> lower walls, shell trim, windows, foundations, entire drawbridge, every
+> bridge post and rail, all transparent padding, and the existing painted
+> perspective.
+>
+> Perspective and placement lock: keep Image 1's exact oblique viewing angle,
+> vanishing directions, castle scale, footprint, image-space position, crop,
+> and overall width/height. Keep the drawbridge exactly the same size and
+> direction, extending diagonally toward the lower-left foreground. Do not
+> recenter, shrink, enlarge, rotate, or move the castle. The output must overlay
+> Image 1 everywhere outside the new right-inner-tower region.
+>
+> Style/medium: match Image 1 exactly—polished 2D storybook painting, lavender
+> masonry, quilted purple roofs, aqua windows, coral/aqua/gold shell ornament,
+> navy-purple outlines, and soft dimensional shading.
+>
+> Scene/backdrop: perfectly flat solid #00FF00 chroma-key background for later
+> removal, with no shadow, gradient, texture, floor, reflection, scenery, text,
+> or watermark.
+>
+> Constraints: four-tower palace, grand child-readable landmark, original
+> overall scale, original bridge landing, exact original stained glass outside
+> the edit region.
+>
+> Avoid: two-tower simplification, three-tower asymmetry, five or more towers,
+> straight-on camera, pixel mirroring, centered vertical bridge, smaller castle,
+> larger castle, changed bridge, changed stained glass, changed door, redesigned
+> facade, new scenery, new symbols, photorealism, 3D-render look.
+
+`four_tower_candidate_chroma_raw.png` is the untouched built-in output and
+`four_tower_candidate_transparent_raw.png` is its local chroma-removal result.
+The deterministic preparation tool restores the owner glass, creates the
+1022×1024 runtime card, and derives its transform from the approved fallback:
+equal world width, equal base waterline, and equal bridge-landing coordinate.
+The measured contract is recorded in `four_tower_fit_audit.json`, and
+`qa_four_tower_fit_2screen.jpg` shows the unchanged playground/castle two-screen
+composition with no added lighting or post effect.
