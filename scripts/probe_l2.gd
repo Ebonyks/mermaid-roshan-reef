@@ -112,7 +112,7 @@ func _init() -> void:
 			and castle_card.cast_shadow
 				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			and not castle_card.has_meta("contact_shadow")
-			and is_equal_approx(castle_reference_x, 53.272852)
+			and is_equal_approx(castle_reference_x, 51.572852)
 			and is_equal_approx(castle_world_width, 28.37504)
 			and is_equal_approx(castle_base_y, -3.193)
 		)
@@ -313,10 +313,12 @@ func _init() -> void:
 		var standee_travel: float = absf(drift_gaps[0] - drift_gaps[2])
 		var mural_travel: float = absf(drift_gaps[1] - drift_gaps[3])
 		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
-	# Real depth must be perceptible while remaining bounded during a full pan.
-	_check("real_depth_parallax_is_visible_and_bounded",
-		drift >= 0.05 and drift <= 0.10,
-		"standee travelled %.1f%% differently from the painting" % (drift * 100.0))
+	# Playground equipment was extracted from exact painted lawn sockets. It
+	# remains a real-depth Sprite3D for occlusion, but may not visibly skate
+	# against those sockets during a full three-page camera pan.
+	_check("playground_cards_stay_on_mural_sockets",
+		drift <= 0.01,
+		"slide travelled %.2f%% differently from the painting" % (drift * 100.0))
 	# THE ROUTE: the promenade is a path, and the path has to end at the door.
 	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])
 	var route_span: Vector2 = promenade.stage.route_span(main.g.get("ss_cfg", {}))
@@ -388,6 +390,14 @@ func _init() -> void:
 		and swing_node.texture.get_height() * swing_node.pixel_size <= 11.81
 		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.51)
 	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
+	_check("playground_cutouts_are_opaque_depth_cards",
+		slide_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and swing_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and compact_seesaw.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and is_equal_approx(float(slide_node.get_meta("mural_socket_lock", 0.0)),
+			SkyLagoonPromenade.GROUND_SOCKET_LOCK)
+		and is_equal_approx(float(swing_node.get_meta("mural_socket_lock", 0.0)),
+			SkyLagoonPromenade.GROUND_SOCKET_LOCK))
 	var slide_rect: Rect2 = _opaque_world_rect(slide_node)
 	var swing_rect: Rect2 = _opaque_world_rect(swing_node)
 	var seesaw_rect: Rect2 = _opaque_world_rect(compact_seesaw)
@@ -496,6 +506,23 @@ func _init() -> void:
 	await _frames(8)
 	_check("drawbridge_enters_castle",
 		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
+	var castle_rooms: CastleRooms25D = main._castle_rooms_ref()
+	_check("drawbridge_opens_visible_2_5d_castle_not_legacy_hall",
+		castle_rooms.is_open()
+		and main.castle_room_world_root != null
+		and main.castle_room_world_root.visible
+		and main.castle_room_camera != null
+		and main.castle_room_camera.current
+		and main.castle_room_background_tiles.size() == 8
+		and main.arena_solids.is_empty()
+		and not main.g.has("hall_exit"),
+		"open=%s world=%s camera=%s tiles=%d solids=%d" % [
+			str(castle_rooms.is_open()),
+			str(main.castle_room_world_root != null
+				and main.castle_room_world_root.visible),
+			str(main.castle_room_camera != null and main.castle_room_camera.current),
+			main.castle_room_background_tiles.size(),
+			main.arena_solids.size()])
 
 	# ...and the other road in: follow the painted way to its end. Rebuild the
 	# promenade, walk to the far end of the route, and she should step inside

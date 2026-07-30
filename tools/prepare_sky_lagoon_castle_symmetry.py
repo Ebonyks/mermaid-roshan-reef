@@ -48,7 +48,7 @@ BRIDGE_AUDIT_FRACTION = 0.90
 # The approved fallback's world transform is the placement contract. The new
 # card derives its height, center, and bridge-axis offset from these values so
 # aspect-ratio differences cannot shrink or slide the landmark by eye.
-FALLBACK_WORLD_X = 53.5
+FALLBACK_WORLD_X = 51.8
 FALLBACK_WORLD_Y = 10.662
 FALLBACK_WORLD_HEIGHT = 27.710
 
