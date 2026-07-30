@@ -45,6 +45,10 @@ const LANDMARK_Z := -11.0    # pearl plane and castle facade
 const DRESS_Z := -9.0        # rear PNW foliage
 const PLAY_Z := -6.0         # playground standees
 const NEAR_Z := -1.5         # near PNW foliage, inside the walk-depth band
+# Retain 35% of the physical depth drift so Sprite3D parallax stays readable,
+# while removing the exaggerated 65% that made grounded props look as if they
+# were sliding loose from the painted lawn on a full three-page camera pan.
+const MURAL_SOCKET_LOCK := 0.65
 const CLOUD_DRIFT_MIN_X := -10.0
 const CLOUD_DRIFT_MAX_X := 10.0
 const WIND_DIRECTION := 1.0
@@ -184,6 +188,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	if from_castle or from_north:
 		spawn_at = 34.0                       # painted: the way in front of the castle
 	_set_spawn(_walk_x(spawn_at))
+	_sync_target_mural_anchors()
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
 	elif m.g.get("lagoon_plane_card") is Sprite3D:
@@ -198,12 +203,14 @@ func tick(delta: float) -> void:
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		m.g["ss_walk_goal"] = null
 		stage.walk_tick(delta)
+		_sync_target_mural_anchors()
 		_tick_playground_animation(delta)
 		_tick_ambient_life(delta)
 		return
 	_tick_hold_travel(delta)
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
+	_sync_target_mural_anchors()
 	_sync_roshan_card(m.player.position.x - old_x)
 	_tick_ambient_life(delta)
 	_tick_doorstep()
@@ -429,7 +436,10 @@ func _tick_ambient_life(delta: float) -> void:
 			card.scale = Vector3.ONE * smoke_scale
 			var target_height: float = float(card.get_meta(
 				"target_world_height", SMOKE_CARD_HEIGHT))
-			card.position = base + Vector3(
+			var smoke_base: Vector3 = base
+			smoke_base.x = _mural_anchored_x(
+				base.x, base.z, _mural_reference_camera_x(base.x))
+			card.position = smoke_base + Vector3(
 				WIND_DIRECTION * life * 0.35 * wind_gust,
 				target_height * smoke_scale * 0.5 + life * 3.0,
 				0.0)
@@ -440,15 +450,20 @@ func _tick_ambient_life(delta: float) -> void:
 		var wave: float = sin(ambient_t * speed + phase)
 		var amplitude: float = float(card.get_meta("ambient_amplitude", 0.02))
 		card.rotation.z = wave * amplitude * wind_gust
+		var grounded_base_x: float = _mural_anchored_x(
+			base.x, base.z, _mural_reference_camera_x(base.x))
 		card.position = Vector3(
-			base.x + wave * 0.04,
+			grounded_base_x + wave * 0.04,
 			base.y + absf(wave) * 0.025,
 			base.z)
 		_sync_contact_shadow(card)
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
 	if plane != null and is_instance_valid(plane):
 		var plane_base: Vector3 = m.g.get("lagoon_plane_base", plane.position) as Vector3
-		plane.position = plane_base + Vector3(
+		var anchored_plane_base: Vector3 = plane_base
+		anchored_plane_base.x = _mural_anchored_x(
+			plane_base.x, plane_base.z, _mural_reference_camera_x(plane_base.x))
+		plane.position = anchored_plane_base + Vector3(
 			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
 		plane.rotation.z = sin(ambient_t * 0.72) * 0.010
 		_sync_contact_shadow(plane)
@@ -495,11 +510,21 @@ func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> v
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
+	# A tile that fails to load must never take the rest of the promenade down
+	# with it. This used to read backdrop.texture.get_width() unguarded, so one
+	# null texture aborted build() half-way — after _enter_level2_now had
+	# already hidden the reef sun and switched the music — and left Roshan
+	# standing in the legacy reef underneath, unlit (owner report 2026-07-29).
+	# Losing one painted square is a blemish; losing the whole area is the bug.
+	var tex: Texture2D = load(path) as Texture2D
+	if tex == null:
+		push_error("Sky Lagoon mural tile failed to load: %s" % path)
+		return
 	var backdrop := Sprite3D.new()
 	backdrop.name = "SkyLagoonBackdrop_r%d_c%d" % [row, column]
-	backdrop.texture = load(path)
+	backdrop.texture = tex
 	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
-		1.0, float(backdrop.texture.get_width()))
+		1.0, float(tex.get_width()))
 	# NEVER billboard the mural. A billboarded card swings about its OWN centre
 	# to face the lens, so the moment the camera was not dead in front of a
 	# tile the three cards stopped being coplanar, their painted edges pulled
@@ -573,8 +598,54 @@ func _sync_contact_shadow(sprite: Sprite3D) -> void:
 		sprite.position.z - 0.035)
 	shadow.visible = sprite.visible
 
+func _mural_reference_camera_x(reference_x: float) -> float:
+	# The approved review framings are the centres of the three 48-unit pages.
+	# Preserve a card exactly in the page where it was placed, then compensate
+	# only as the lens travels away from that authored framing.
+	return clampf(roundf(reference_x / 48.0) * 48.0, -48.0, 48.0)
+
+func _mural_anchored_x(reference_x: float, card_z: float,
+		reference_camera_x: float) -> float:
+	# Extracted cards live in front of the painted plate for real occlusion,
+	# but their roots still belong to specific painted lawn/chimney positions.
+	# Compensate most of the camera-induced horizontal offset: the cards retain
+	# their authored depth, scale, ordering and bounded parallax without sliding
+	# loose from their plate sockets as Roshan crosses the three-screen mural.
+	var root_node: Node3D = stage.root()
+	var cam: Camera3D = m.player.cam
+	if root_node == null or cam == null or not cam.is_inside_tree():
+		return reference_x
+	var camera_x: float = cam.position.x - root_node.position.x
+	var camera_z: float = cam.position.z - root_node.position.z
+	var backdrop_distance: float = maxf(0.001, absf(camera_z - BACKDROP_Z))
+	var card_distance: float = absf(camera_z - card_z)
+	return reference_x + (camera_x - reference_camera_x) \
+		* (1.0 - card_distance / backdrop_distance) * MURAL_SOCKET_LOCK
+
+func _sync_target_mural_anchors() -> void:
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		var node: Node3D = target.get("node") as Node3D
+		if node == null or not is_instance_valid(node):
+			continue
+		var reference_x: float = float(
+			node.get_meta("mural_reference_x", node.position.x))
+		var reference_camera_x: float = float(node.get_meta(
+			"mural_reference_camera_x", _mural_reference_camera_x(reference_x)))
+		node.position.x = _mural_anchored_x(
+			reference_x, node.position.z, reference_camera_x)
+		if node is Sprite3D:
+			_sync_contact_shadow(node as Sprite3D)
+		var glow: Sprite3D = target.get("highlight") as Sprite3D
+		if glow != null and is_instance_valid(glow):
+			glow.position = node.position + Vector3(0.0, 0.0, -0.05)
+			glow.rotation.z = node.rotation.z
+
 func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		radius_px: float, highlight_scale: float) -> void:
+	node.set_meta("mural_reference_x", node.position.x)
+	node.set_meta("mural_reference_camera_x",
+		_mural_reference_camera_x(node.position.x))
 	var glow: Sprite3D
 	glow = Sprite3D.new()
 	if node is Sprite3D:
@@ -677,7 +748,9 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	if frames.size() != 4:
 		return
 	m.g["ss_walk_goal"] = null
-	m.player.position.x = root_node.position.x + _walk_x(equipment.position.x)
+	var equipment_reference_x: float = float(
+		equipment.get_meta("mural_reference_x", equipment.position.x))
+	m.player.position.x = root_node.position.x + _walk_x(equipment_reference_x)
 	m.g["lagoon_play_anim"] = {
 		"kind": kind,
 		"t": 0.0,

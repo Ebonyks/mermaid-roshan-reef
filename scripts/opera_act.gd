@@ -1,5 +1,6 @@
 class_name OperaAct
 extends Node3D
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 # One act of the Pearl Opera House (Peach Showtime-inspired). Roshan puts on a
 # career costume and competes with a job-dressed imp in a living toy-theatre
 # world. Career engines supply the tactile job verbs: "order",
@@ -5539,13 +5540,15 @@ func _build_farm() -> void:
 	ground.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(ground)
 	var roshan := TextureRect.new()
-	roshan.texture = load("res://assets/characters/roshan_sprite.png") as Texture2D
 	roshan.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	roshan.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	roshan.position = Vector2(190, 330)
 	roshan.size = Vector2(150, 190)
 	roshan.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(roshan)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	roshan.add_child(animator)
+	animator.setup_texture_rect(roshan)
 	farm_roshan = roshan
 	for i in range(int(config.get("piggies", 7))):
 		var pig := Control.new()

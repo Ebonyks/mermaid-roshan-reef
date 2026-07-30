@@ -20,6 +20,7 @@ func _init() -> void:
 	await process_frame
 	await _locked_case()
 	await _picker_case()
+	await _studio_room_case()
 	await _follower_case()
 	await _menu_case()
 	await _battle_case()
@@ -50,18 +51,26 @@ func _locked_case() -> void:
 
 func _picker_case() -> void:
 	var comp: CompanionSystem = main._companion_ref()
-	# owner 2026-07-19: meeting Princess Huluu IS the trigger — her greeting
-	# leads straight into "I want you to have a new friend!" and the picker.
-	# Drive the satellite directly with hall state (no awaits, so the live
-	# main loop never sees the borrowed game/g values).
-	main.game = "level2"
-	main.g = {"phase": "hall", "huluu_greeted": true}
-	comp._tick_gift(3.0)
-	_ck("meeting Huluu offers the new friend", main.companion_layer != null
-		and bool(main.g.get("companion_offered", false)))
+	# The picture-first castle keeps the stuffie picker in its Playroom action;
+	# no modeled throne gift or shelf room is constructed.
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _settle(8)
+	main._enter_castle_interior_now(false)
+	await _settle(8)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	rooms.show_room("playroom", false)
+	rooms.activate_current_room()
+	await process_frame
+	_ck("Playroom opens the new-friend picker",
+		main.companion_layer != null
+		and main.castle_room_id == "playroom"
+		and main.game_nodes.is_empty())
 	comp.close_picker()
-	main.game = ""
-	main.g = {}
+	rooms._exit_to_courtyard()
+	await _settle(6)
+	main._exit_level2_now()
+	await _settle(4)
 	comp.open_picker()
 	await process_frame
 	_ck("picker overlay builds", main.companion_layer != null and main.companion_stage != null)
@@ -77,6 +86,55 @@ func _picker_case() -> void:
 	_ck("picker closed after choosing", main.companion_layer == null)
 	var def: Dictionary = comp.active_def()
 	_ck("roster is data-driven", String(def["kind"]) == "cat" and String(def["attack"]) == "CLAW")
+
+func _studio_room_case() -> void:
+	var comp: CompanionSystem = main._companion_ref()
+	comp._build_room()
+	var room: Node3D = main.companion_room
+	_ck("Stuffie Studio builds six clear display cubbies",
+		room != null and main.companion_room_rows.size() == CompanionSystem.ROOM_SLOT_COUNT
+		and room.find_child("StuffieSixCubbyDisplay", true, false) is Sprite3D)
+	_ck("Studio has separate upgrade table and active-friend chest",
+		room.find_child("StuffieUpgradeTable", true, false) is Sprite3D
+		and room.find_child("StuffieActiveToyChest", true, false) is Sprite3D
+		and room.get_meta("table_anchor") is Node3D
+		and room.get_meta("chest_anchor") is Node3D)
+	_ck("Studio room is sprite-only with no legacy mesh furniture",
+		room.find_children("*", "MeshInstance3D", true, false).is_empty())
+	var lamma: Dictionary = comp.def_by_id("lamma")
+	var lamma_colors: Array[Color] = [
+		lamma["body"] as Color, lamma["accent"] as Color, lamma["third"] as Color]
+	var lamma_cutout: Node3D = comp.creature_for(lamma, lamma_colors)
+	_ck("Lamb-a uses a 2D cutout instead of the retired GLB",
+		lamma.has("sprite") and not lamma.has("model")
+		and lamma_cutout != null
+		and not lamma_cutout.find_children("*", "Sprite3D", true, false).is_empty()
+		and lamma_cutout.find_children("*", "MeshInstance3D", true, false).is_empty())
+	if lamma_cutout != null:
+		lamma_cutout.free()
+	comp.open_picker(false, "eagle", "swap")
+	_ck("toy chest opens selection-only mode",
+		main.companion_pick_mode == "swap"
+		and main.companion_stage.find_children("StuffieCard_*", "Button", true, false).size() == 2
+		and main.companion_stage.find_children("StuffieSwatch_*", "Button", true, false).is_empty())
+	comp.close_picker()
+	var want_before := "feed"
+	main.companion_want = want_before
+	comp.open_picker(false, main.companion_id, "studio")
+	_ck("worktable opens one-friend color studio",
+		main.companion_pick_mode == "studio"
+		and main.companion_stage.find_children("StuffieCard_*", "Button", true, false).size() == 1
+		and not main.companion_stage.find_children("StuffieSwatch_*", "Button", true, false).is_empty())
+	comp._pick_color(1, Color(1.0, 0.72, 0.42))
+	comp._confirm_pick()
+	_ck("repainting preserves the active friend's care request",
+		main.companion_id == "mewsha" and main.companion_want == want_before)
+	main.companion_want = ""
+	if room != null and is_instance_valid(room):
+		main.game_nodes.erase(room)
+		room.queue_free()
+	main.companion_room = null
+	main.companion_room_rows = []
 
 func _follower_case() -> void:
 	await _settle(20)
@@ -105,7 +163,7 @@ func _follower_case() -> void:
 	_ck("Tamagotchi sheet has a neutral back and five large care actions",
 		main.companion_care_layer != null and care_back != null
 		and care_back.size.x >= 110.0 and care_back.size.y >= 110.0 and actions_big)
-	_ck("Tamagotchi sheet shows need, growth, and friend switching",
+	_ck("Tamagotchi sheet shows need, growth, and table repainting",
 		main.companion_care_stage.find_child("StuffieCurrentNeed", true, false) != null
 		and main.companion_care_stage.find_child("StuffieGrowthPips", true, false) != null
 		and main.companion_care_stage.find_child("StuffieHeartProgress", true, false) != null
@@ -234,12 +292,11 @@ func _save_case() -> void:
 		and String((loaded as Dictionary).get("companion", "")) == "mewsha")
 
 func _switch_case() -> void:
-	# owner 2026-07-19: the stuffie is swappable ANY time — the Stuffie Den
-	# shelves open the picker preselected on the tapped friend
+	# The Studio toy chest owns active-friend swapping; shelf taps only introduce.
 	var comp: CompanionSystem = main._companion_ref()
-	comp.open_picker(false, "eagle")
-	_ck("den shelf preselects the tapped stuffie", main.companion_pick_id == "eagle"
-		and main.companion_layer != null)
+	comp.open_picker(false, "eagle", "swap")
+	_ck("toy chest preselects the tapped stuffie", main.companion_pick_id == "eagle"
+		and main.companion_layer != null and main.companion_pick_mode == "swap")
 	comp._confirm_pick()
 	_ck("companion swaps to Baby Eagle", main.companion_id == "eagle")
 	await _settle(15)
@@ -272,7 +329,7 @@ func _award_case() -> void:
 	battle.win_t = 0.0
 	await process_frame
 	await process_frame
-	_ck("Lamb-a' comes home to the Den", bool(main.stuffie_wins.get("friend_lamma", false))
+	_ck("Lamb-a' comes home to the Studio", bool(main.stuffie_wins.get("friend_lamma", false))
 		and comp.unlocked("lamma") and comp.unlocked_defs().size() == 3)
 
 func _lamma_case() -> void:
@@ -316,7 +373,7 @@ func _zone_case() -> void:
 func _rest_case() -> void:
 	# THE GENTLE FAILURE (owner 2026-07-21): battle bumps leave boo-boos; the
 	# stuffie asks for its post-battle hug + bath. Tended boo-boos heal;
-	# ignored ones send it home to its Den shelf, and Roshan picks a friend
+	# ignored ones send it home to its Studio shelf, and Roshan picks a friend
 	# again at the castle (the same one included). Nothing else is lost.
 	var comp: CompanionSystem = main._companion_ref()
 	var care_before: int = main.care_points
@@ -346,6 +403,10 @@ func _rest_case() -> void:
 	main.player.position = (main.companion_node as Node3D).position + Vector3(2.0, 0, 0)
 	main.player.vel = Vector3.ZERO
 	for i in range(2):
+		# Exercise the queued care transition without tying the probe to runner
+		# frame rate: 60 uncapped CI frames can be shorter than the real 1.2 s
+		# follow-up delay, even though the same sequence passes at local cadence.
+		main.companion_want_cool = 0.0
 		for f in range(60):
 			if main.companion_want != "":
 				break
@@ -379,10 +440,10 @@ func _rest_case() -> void:
 	_ck("no battles while resting", main.stuffie_game == null)
 	_ck("rest loses no progress", main.care_points >= care_before
 		and bool(main.stuffie_wins.get("friend_lamma", false)))
-	# picking again at the Den (the same friend included) wakes it up
+	# picking again at the Studio (the same friend included) wakes it up
 	comp.open_picker(false, friend_before)
 	comp._confirm_pick()
 	await _settle(12)
-	_ck("re-picking at the Den wakes the stuffie", not main.companion_resting
+	_ck("re-picking at the Studio wakes the stuffie", not main.companion_resting
 		and main.companion_id == friend_before
 		and main.companion_node != null and is_instance_valid(main.companion_node))

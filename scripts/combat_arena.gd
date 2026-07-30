@@ -7,6 +7,7 @@ extends Node3D
 const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
 var kind := "ice"
@@ -67,6 +68,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 		else:
 			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
 	he.targets = enemies if kind == "ice" else [boss]
+	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	_update_hud()
 
 func _build_environment() -> void:
@@ -130,13 +132,14 @@ func _build_octagon() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = avatar_tex
-	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
+	avatar.pixel_size = 6.2 / 256.0
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.no_depth_test = false
 	avatar.position = player_pos
 	add_child(avatar)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	avatar.add_child(animator)
+	animator.setup_sprite_3d(avatar, false, avatar)
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -528,6 +531,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -541,6 +545,7 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

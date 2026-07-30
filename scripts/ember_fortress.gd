@@ -1,5 +1,6 @@
 extends Node3D
 class_name EmberFortressLevel
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 # ============================================================================
 # THE EMBER FORTRESS — the Volcanic Throne Planet. A later-game "scary" world:
@@ -791,6 +792,7 @@ func _build_home_ring() -> void:
 # ---------------------------------------------------------------- avatar
 
 var _av_skel: Skeleton3D = null
+var _av_sprite: Sprite3D = null
 var _av_bones := {}
 var _av_rest := {}
 var _av_run := 0.0
@@ -800,34 +802,44 @@ func _build_avatar() -> void:
 	# cutout, or the fairy skin — whatever Roshan is wearing travels here too
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	var glb := "res://assets/characters/roshan.glb"
+	var glb := ""   # legacy Roshan GLB fallback deleted in the 2026-07-28 purge
 	var cutout: Sprite3D = null
-	for vpath in ["res://assets/characters/roshan_v4.glb",
-			"res://assets/characters/roshan_v3.glb"]:
-		if ResourceLoader.exists(vpath):
-			glb = vpath
-			break
+	var sid := "classic"
 	if _main != null and "skin_id" in _main:
-		var sid := String(_main.skin_id)
-		if sid == "huluu":
-			glb = ""
-			cutout = Sprite3D.new()
-			cutout.texture = load("res://assets/characters/friends/huluu.png")
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 0.011
-			cutout.position = Vector3(0, 2.2, 0)
-		elif sid == "fairy":
-			glb = ""
-			cutout = Sprite3D.new()
-			var fairy_tex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
-			cutout.texture = fairy_tex
-			cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cutout.pixel_size = 4.2 / maxf(float(fairy_tex.get_height()), 1.0)
-			cutout.position = Vector3(0, 2.1, 0)
-			cutout.shaded = false
-			cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		sid = String(_main.skin_id)
+	if sid == "classic":
+		cutout = Sprite3D.new()
+		cutout.texture = load("res://assets/characters/roshan_25d/roshan_swim_back.png")
+		cutout.hframes = 4
+		cutout.vframes = 4
+		cutout.frame = 0
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 4.6 / 256.0
+		cutout.position = Vector3(0, 2.2, 0)
+		cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		cutout.shaded = false
+		_av_sprite = cutout
+	elif sid == "huluu":
+		cutout = Sprite3D.new()
+		cutout.texture = load("res://assets/characters/friends/huluu.png")
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 0.011
+		cutout.position = Vector3(0, 2.2, 0)
+	elif sid == "fairy":
+		cutout = Sprite3D.new()
+		var fairy_tex: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
+		cutout.texture = fairy_tex
+		cutout.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cutout.pixel_size = 4.2 / maxf(float(fairy_tex.get_height()), 1.0)
+		cutout.position = Vector3(0, 2.1, 0)
+		cutout.shaded = false
+		cutout.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if cutout != null:
 		_avatar.add_child(cutout)
+		if _av_sprite != null:
+			var animator := ROSHAN_SPRITE_LOOP.new()
+			_av_sprite.add_child(animator)
+			animator.setup_sprite_3d(_av_sprite, true, _avatar)
 	if glb != "" and ResourceLoader.exists(glb):
 		var inst: Node3D = (load(glb) as PackedScene).instantiate()
 		var acc: Array = []
@@ -876,9 +888,9 @@ func _av_rot(bi: int, axis: Vector3, ang: float) -> void:
 	_av_skel.set_bone_pose_rotation(bi, rq * Quaternion((rq.inverse() * axis).normalized(), ang))
 
 func _animate_avatar(delta: float, moving: float) -> void:
+	_av_run += delta * (2.4 + moving * 4.2)
 	if _av_skel == null:
 		return
-	_av_run += delta * (2.4 + moving * 4.2)
 	var amp: float = 0.10 + moving * 0.17
 	for i in range(8):
 		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))

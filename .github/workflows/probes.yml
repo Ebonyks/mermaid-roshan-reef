@@ -91,7 +91,7 @@ jobs:
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_full_texture_regen probe_props; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -144,6 +144,39 @@ jobs:
             fi
           done
           exit $FAILED
+
+      # Display-build boot gate. The area the game opens in is chosen behind
+      # `DisplayServer.get_name() != "headless"`, so NOTHING in the headless
+      # block above can execute it: the phone shipped a boot that dropped
+      # Roshan into the legacy 3D reef while every headless probe stayed green
+      # (owner report 2026-07-29). This runs the real boot under a real
+      # viewport and GATES it — a broken first area must never reach the APK
+      # again. Xvfb flakiness is absorbed with one retry rather than by making
+      # the gate advisory; a run that yields no verdict twice is a failure.
+      - name: Boot gate (real viewport — the area the phone opens in)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          set -o pipefail
+          OUT=/tmp/probe_boot_display.out
+          for attempt in 1 2; do
+            BOOT_HOME="/tmp/reef-boot-$attempt"
+            rm -rf "$BOOT_HOME"
+            mkdir -p "$BOOT_HOME/data" "$BOOT_HOME/config"
+            XDG_DATA_HOME="$BOOT_HOME/data" XDG_CONFIG_HOME="$BOOT_HOME/config" \
+              timeout 6m xvfb-run -a godot --rendering-method mobile \
+              -s scripts/probe_boot_display.gd -- --touch 2>&1 | tee "$OUT" || true
+            grep -q "^RESULT|" "$OUT" && break
+            echo "Boot gate produced no verdict on attempt $attempt (Xvfb flake?); retrying"
+          done
+          if ! grep -q "^RESULT|PASS" "$OUT"; then
+            echo "BOOT GATE FAILED — the game does not open on the promenade"
+            exit 1
+          fi
+          if grep -qE 'BOOTDISPLAY\|.*\|FAIL|SCRIPT ERROR|Parse Error|Compile Error' "$OUT"; then
+            echo "BOOT GATE FAILED — assertion or script error during boot"
+            exit 1
+          fi
 
       # Advisory balance playtest: ten simulated-child runs per opera act
       # (personas with reaction delays, travel, wandering, wrong taps) via

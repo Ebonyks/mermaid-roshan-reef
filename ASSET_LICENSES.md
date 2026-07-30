@@ -57,6 +57,8 @@
 | assets/characters/stickers/*.png | die-cut sticker bakes generated from the friend cutouts (tools, PIL) | derivative of (c) book art — all rights reserved | — | white vinyl rim + navy drop shadow; originals untouched |
 | gen2/npc_src/*.png | Meshy submit sources derived from the friend cutouts (tools/prep_npc_sources.py, PIL) | derivative of (c) book art — all rights reserved | NPC_3D_WORKORDER_2026-07-19.md | alpha trimmed, white-carded, ≤1024; not imported (gen2 .gdignore) |
 | assets/mg/*.png | drawn/generated for this project (PIL) from book-art motifs | © Mermaid Roshan LLC derivatives / project original | — | craft zone masks, minigame art |
+| assets/sprites/stuffie_studio/display_shelf.png, assets/sprites/stuffie_studio/worktable.png, assets/sprites/stuffie_studio/toy_chest.png | OpenAI built-in image generation guided by the project's 2D storybook castle style | **Project-generated art** | — | isolated pearl-shell furniture cutouts for the six-slot display, care/upgrade table, and active-friend toy chest; chroma-key removed with the bundled ImageGen helper, edge-contracted once, and normalized to ≤1024px; generated 2026-07-28 |
+| assets/sprites/stuffie_studio/lamma.png | OpenAI built-in image edit of the project-owned `assets/characters/lamb_0.png` design | **© Mermaid Roshan LLC derivative / project-generated edit** | assets/characters/lamb_0.png | faithful front-facing 2D runtime cutout replacing Lamb-a's retired GLB use; source left untouched, egg lettering removed, chroma-key removed, and normalized to 949×1024; generated 2026-07-28 |
 | assets/props/gen2/*.glb | GEN2 pipeline: family-style art (Gemini, audited) → 3D (Meshy image-to-3D) | © Mermaid Roshan LLC — generated for this project | gen2/ (workorder, audit) | tools/shrink_glb.py: textures ≤1024, speculars stripped, shadow lift, albedo posterized to 8 flat PNG fills (WW look) |
 | assets/props/gen2/*.png | GEN2 pipeline sprites (Gemini, audited), alpha-cut via tools/polish_sprite.py | © Mermaid Roshan LLC — generated for this project | gen2/ | white bg → alpha, tight crop |
 | assets/props/gen2/seagrass.png | GEN2 pipeline: family-style sea grass sprite (Gemini, aquatic_seaweed2 v1, audit 9/10 clean) | © Mermaid Roshan LLC — generated for this project | gen2/generated/aquatic_seaweed2/ | polish_sprite.py alpha cutout, 892×735 |
@@ -591,3 +593,166 @@ ambientCG (all CC0).
 - `assets_src/concepts/opera_rivals_2026-07-29/rejected/*.png` — rejected,
   review-only generated iterations retained for provenance and excluded from
   runtime loading.
+<!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->
+
+## Pearl Castle 2.5D room references and derived cards (2026-07-26)
+
+The eight 1024×576 composites below are preserved approved references and the
+source of the structurally validated prototype cards. They are not accepted
+native-2K masters under the corrected exact-source-ratio gate; no rejected
+generator output is present in this directory or connected to runtime art.
+- `assets/flats/castle/rooms/room_main_hall.png` — project-authored Pearl Castle presentation render, original project art; resized to 1024×576 for mobile runtime use.
+- `assets/flats/castle/rooms/room_opera_hall.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored opera-gate and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
+- `assets/flats/castle/rooms/room_library.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored library and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
+- `assets/flats/castle/rooms/room_playroom.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored toy-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
+- `assets/flats/castle/rooms/room_craft_room.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored craft-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
+- `assets/flats/castle/rooms/room_kitchen.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle royal kitchen; resized to 1024×576 for mobile runtime use.
+- `assets/flats/castle/rooms/room_mermaid_pool.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle mermaid pool; resized to 1024×576 for mobile runtime use.
+- `assets/flats/castle/rooms/room_bubble_bath.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the Mermaid Pool, Kitchen, and Main Hall style references; authored as a wide room with separated bathtub, sink, and toilet; resized to 1024×576.
+- `assets/flats/castle/rooms/room_*_front_*.png` and `room_*_mid_*.png` — exact-pixel alpha crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
+- `assets/flats/castle/rooms/room_*_item_*.png` — exact-pixel alpha touch-prop crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
+- `assets/flats/castle/rooms/room_*_background.png` — clean architecture plates derived deterministically from the corresponding full room composites by `tools/build_castle_room_layers.py`; card-owned pixels are replaced only by interpolated surrounding pixels from the same licensed source image, with no generated or external artwork.
+- `assets/flats/castle/rooms/room_actor_shadow.png` — project-authored translucent ellipse generated deterministically by `tools/build_castle_room_layers.py`; original project utility art used as an unshaded Sprite3D contact-shadow card.
+- `assets/flats/castle/rooms/room_main_hall_item_fountain_{left,right}_v2.png` — project-original derivatives of the richer shell fountain already painted in `audit/castle_sprite3d/main_hall_screen_b_dressed_preview.png`; tight-alpha extraction and one high-quality downsample to the established 1024-wide runtime scale by `tools/build_castle_item_style_replacements.py`; right instance mirrored; no external or newly generated object design.
+- `assets/flats/castle/rooms/room_main_hall_background_v2.png` — deterministic same-source repair of the existing Main Hall clean plate by `tools/build_castle_item_style_replacements.py`; only the padded alpha silhouettes vacated by the two legacy pedestal fountains are refilled from surrounding pixels in the immutable project-owned room composite; original clean plate preserved; no external or generated art.
+- `audit/castle_sprite3d/main_hall_2x4_max_native_candidates/*.png` and the associated contact, invariance, and seam proofs — project-authored rejected fidelity candidates generated with OpenAI built-in ImageGen on 2026-07-28 from the project-owned Main Hall cell crops and full-screen context; preserved for audit only, never connected to runtime; exact hashes, dimensions, prompts, and rejection evidence are recorded beside them.
+- `audit/castle_sprite3d/main_hall_screen_{a,b}_cleanup_candidate.png` — project-authored OpenAI built-in ImageGen precision edits of the corresponding tightened Main Hall composition proofs; only mixed destination-room furniture and the Screen B fountain obstructing the Stuffie approach were removed, with same-source wall/floor restoration and no replacement prop design; audit-only, below the native-2K runtime gate. `main_hall_screen_{a,b}_clear_preview.png` composites those candidates only inside explicit feathered edit masks, preserving all outside pixels byte-for-byte from the tightened references. `main_hall_2x1_interface_concept_clear.png`, `main_hall_door_clearance_audit.png`, `main_hall_dressing_invariance_audit.png`, the 2×4 preview tiles, and exact reconstructions are deterministic review derivatives made by `tools/audit_castle_hall_dressing.py` and `tools/slice_castle_hall_2x4.py`.
+- `audit/castle_sprite3d/main_hall_screen_{a,b}_polish_candidate.png` and `main_hall_screen_a_foreground_cleanup_candidate.png` — project-authored OpenAI built-in ImageGen precision edits made on 2026-07-28 from the approved project-owned Main Hall screens; used only inside documented sign/banner and old-fountain masks, with no generated replacement prop. `main_hall_screen_{a,b}_polished_base.png`, interaction layers, full-resolution play previews, and the audit board are deterministic composites made by `tools/build_castle_hall_polish_interactions.py`; audit-only and below the native-2K runtime gate.
+- `audit/castle_sprite3d/main_hall_touch_pearl_shell.png` and `main_hall_touch_wishing_star.png` — project-original derivatives made by `tools/build_castle_hall_polish_interactions.py` from the already licensed Main Hall v2 fountain and `assets/mg/star.png`; respectively an exact crop and one high-quality downsample, with no external source art.
+
+## Pearl Castle room-led two-screen Main Hall (2026-07-28)
+
+- `assets/flats/castle/main_hall_2screen/main_hall_screen_{a,b}_room_led_master.png`
+  — project-original 2048x1153 background masters generated with OpenAI
+  built-in ImageGen from the project's approved two-screen Main Hall art and
+  the existing Kitchen, Library, Opera, Playroom, Craft, Pool, and Bath room
+  paintings. No external reference art. The native-detail assembly and repair
+  process used only unscaled native generator pixels; dimensions, hashes,
+  prompts, rejected passes, crop rectangles, and seam evidence are recorded in
+  `audit/castle_sprite3d/room_led_iterations/` and
+  `CASTLE_ROOM_LED_CODEX_IMPLEMENTATION_2026-07-28.md`.
+- `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_*.png`
+  — lossless, non-overlapping runtime crops of the documented seam-free
+  1672x941 view rectangle inside each accepted 2048x1153 master. No scaling,
+  padding, interpolation, or new artwork. Exact source rectangles, hashes, and
+  pixel-exact reconstruction proofs are recorded in
+  `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.
+- `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/{dust_bunny_sleepy,dust_bunny_hop,dust_bunny_shell_hide,dust_bunny_family}.png`
+  — reused project-original transparent 512x512 cutouts from commit
+  `95132b6b310c34aa1d7fba5330d72f36fed9d4d7`; source was OpenAI built-in
+  image generation under project storybook direction, with local alpha cleanup
+  documented by the original Dirty Castle manifest. Reused unchanged as
+  unshaded Sprite3D interaction cards; license remains project original.
+
+## Pearl Castle touch lighting and continuity cards (2026-07-29)
+
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png`
+  — project-original fixture generated with one OpenAI built-in ImageGen call
+  using only the project's accepted Main Hall and Opera fixture art as style
+  references; generated on a flat chroma background, converted locally to
+  alpha with the installed imagegen helper, and downsampled once from
+  1254x1254 to the 1024x1024 runtime limit. License: project original. Exact
+  prompt, dimensions, hashes, and references are recorded in
+  `audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md`.
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_assembly.png`
+  — project-original deterministic derivative of the above sconce; a
+  matching navy/plum, gold, and pearl architectural mount was added by
+  `tools/build_castle_lighting_assets.py` so one identical Sprite3D assembly
+  could cover the two baked fixture families without changing either accepted
+  background master. Retained as a rejected/audit source after play review
+  found that the mount read as a UI button; it is not loaded at runtime.
+  License: project original.
+- `assets/flats/castle/main_hall_2screen/castle_sconce_glow_reuse.png`
+  — deterministic circular crop of the accepted sconce's pearl core by
+  `tools/build_castle_lighting_assets.py`. Used as the discreet unshaded
+  Sprite3D glint over each existing wall fixture; no new painted pixels,
+  external source, or ImageGen call. License remains project original.
+- `assets/flats/castle/main_hall_2screen/castle_royal_tapestry_reuse.png`
+  — exact-alpha extraction of the already licensed royal shell tapestry from
+  the accepted Main Hall 2x4 runtime tiles by
+  `tools/build_castle_lighting_assets.py`; no generated pixels or external
+  source art. License remains project original.
+- `assets/flats/castle/main_hall_2screen/castle_playroom_portal_reuse.png`
+  — exact-pixel, alpha-masked extraction of an approved open Main Hall
+  corridor from the accepted 2x4 runtime tiles by
+  `tools/build_castle_lighting_assets.py`. Reused as a real-depth architectural
+  bridge at the Screen A/B material junction and as the missing physical
+  Playroom entrance; no scaling of source pixels, new painting, external art,
+  or ImageGen call. License remains project original.
+
+## assets/characters/roshan_25d/*.png
+- Source: project-authored runtime sprite atlases generated with OpenAI
+  built-in image generation on 2026-07-26 from five user-provided Mermaid
+  Roshan multi-view reference PNGs; prompt specifications and generation
+  identifiers are recorded in `assets/characters/roshan_25d/PROMPTS.md` and
+  `assets/characters/roshan_25d/PROMPTS_4X.md`
+- License: project original; reference images supplied by the project owner
+- URL: none (project-local user references and project generation)
+- Modifications: flat green chroma background removed with the Codex
+  image-generation helper using soft matte and despill; accepted atlases
+  resampled with Lanczos to power-of-two 1024x512 or 1024x1024; the
+  256x256 base portrait is a lossless crop of directional frame 0
+
+## assets/props/story/play_swing_{frame,seat}.png
+- Source: project-authored runtime sprite layers generated with OpenAI
+  built-in image generation on 2026-07-28; the owner-provided Mermaid Roshan
+  front-view PNG informed style only. Exact prompts and generation identifiers
+  are recorded in `assets/props/story/play_swing_PROMPT.md`
+- License: project original; style reference supplied by the project owner
+- URL: none (project-local user reference and project generation)
+- Modifications: flat magenta chroma background removed with the Codex
+  image-generation helper using a soft matte and one-pixel edge contraction;
+  cutouts tightly cropped and Lanczos-resampled to 1024x719 (frame) and
+  554x1024 (seat/ropes)
+## Pearl Castle 2K room cards and final junction derivatives (2026-07-29)
+
+- `assets_src/castle/room_backgrounds_2k/room_*_background_2k.png` —
+  seven project-original 2048 x 1152 preservation masters derived from the
+  already licensed 1024 x 576 clean room plates with Pillow Lanczos under the
+  owner's explicit authorization to upscale for this pass. Originals and
+  aspect ratios are preserved; no external source or new object design.
+- `assets/flats/castle/rooms/background_tiles/room_*_background_r*_c*.png`
+  — 28 non-overlapping 1024 x 576 runtime crops of the seven masters above,
+  produced by `tools/build_castle_room_2k_tiles.py`. Every four-card group
+  reconstructs its master pixel-exactly; no scaling occurs during slicing.
+- `assets_src/castle/main_hall_alignment/generated_cleanup_candidate_{a,b}.png`
+  — project-original OpenAI built-in ImageGen precision-removal candidates
+  made from the two already licensed Main Hall masters. The request removed
+  only the three baked fixtures on each screen and restored the same wall;
+  no replacement object was generated. Generator paths, final prompts,
+  dimensions, hashes, and mask evidence are recorded in
+  `audit/castle_sprite3d/castle_hall_alignment_manifest.json`.
+- `assets_src/castle/main_hall_alignment/main_hall_screen_{a,b}_fixture_aligned_master.png`
+  — deterministic same-size composites made by
+  `tools/build_castle_hall_alignment.py`. Candidate pixels are accepted only
+  inside six compact fixture masks; pixels outside are exact to the immutable
+  licensed masters. Screen B also receives a documented global tone correction
+  and a four-pixel exact-edge ramp. License remains project original.
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_integrated_reuse.png`
+  — tight-alpha 96 x 128 extraction of the accepted Screen B shell fixture.
+  No generated, external, or newly painted pixels; reused unchanged for all
+  six unshaded Sprite3D lights.
+- `assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png`
+  — tight-alpha derivative of the already licensed
+  `castle_playroom_portal_reuse.png`; the rectangular wall/floor plate is
+  removed while the accepted arch, corridor, and badge pixels remain.
+- `assets/flats/castle/main_hall_2screen/castle_join_column_cutout_reuse.png`
+  — tight-alpha 190 x 941 extraction of an accepted Screen A shell pilaster;
+  used as the real-depth A/B architectural divider.
+- `assets/flats/castle/main_hall_2screen/castle_join_floor_inlay_reuse.png`
+  — 48 x 321 tapered inlay assembled deterministically by rotating and tiling
+  the accepted Screen A carpet trim; no new painting or external source.
+- `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_*.png`
+  — updated lossless runtime crops of the documented derived Main Hall
+  masters. Source rectangles and hashes are in
+  `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.
+- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c*_bleed.png`
+  — deterministic render-only derivatives of the four accepted top-row
+  tiles, made by `tools/build_castle_hall_runtime_bleed.py`. Each 836 x 471
+  file preserves its 836 x 470 source body pixel-exactly and appends the first
+  approved pixel row of the corresponding lower tile. This creates a
+  one-pixel Mobile-raster safety overlap without scaling, interpolation,
+  content loss, generated art, or any modification to the accepted source
+  tiles. Exact source/derived hashes and row-equality proofs are recorded in
+  `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
+  remains project original.

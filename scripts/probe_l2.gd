@@ -282,7 +282,7 @@ func _init() -> void:
 		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
 	# Real depth must be perceptible while remaining bounded during a full pan.
 	_check("real_depth_parallax_is_visible_and_bounded",
-		drift >= 0.05 and drift <= 0.30,
+		drift >= 0.05 and drift <= 0.10,
 		"standee travelled %.1f%% differently from the painting" % (drift * 100.0))
 	# THE ROUTE: the promenade is a path, and the path has to end at the door.
 	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])

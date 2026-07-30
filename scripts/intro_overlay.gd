@@ -135,7 +135,7 @@ func _build_intro() -> void:
 func _intro_tex(key: String) -> Texture2D:
 	if key == "huluu":
 		return load("res://assets/characters/friends/huluu.png")
-	return load("res://assets/characters/roshan_sprite.png")
+	return load("res://assets/characters/roshan_25d/roshan_base.png")
 
 func _intro_show() -> void:
 	var panel: Dictionary = INTRO_PANELS[m.intro_idx]

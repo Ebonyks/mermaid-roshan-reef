@@ -110,6 +110,7 @@ const L := Vector3(0.0, -2650.0, 0.0)   # lobby centre — 50 under the act stag
 const MOVE_SPEED := 13.0
 const FLOOR_YS := [0.0, 13.0, 26.0]     # ground, Starlight Balcony, Grand Gallery
 const ALL_STARS := (1 << 15) - 1
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
 var finish_cb: Callable
@@ -485,12 +486,13 @@ func _build_lifts() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = tex
-	avatar.pixel_size = 6.2 / maxf(float(tex.get_height()), 1.0) if tex != null else 0.01
+	avatar.pixel_size = 6.2 / 256.0
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.position = lobby_pos
 	lobby_root.add_child(avatar)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	avatar.add_child(animator)
+	animator.setup_sprite_3d(avatar, false, avatar)
 	# the golden usher-sparkle that points to the next open show
 	pointer = Node3D.new()
 	lobby_root.add_child(pointer)
