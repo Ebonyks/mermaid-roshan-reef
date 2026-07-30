@@ -42,8 +42,8 @@ func _init() -> void:
 	_ck("floor bosses sit at acts five, ten and fifteen",
 		String(OperaHouse.ACTS[4]["type"]) == "boss" and String(OperaHouse.ACTS[9]["type"]) == "boss" and String(OperaHouse.ACTS[14]["type"]) == "boss")
 	_ck("the fifteenth act is the grand finale", bool(OperaHouse.ACTS[14].get("finale", false)))
-	# every career is its own minigame on its own stage: no two shows may share
-	# an engine kind, and all twelve costumes must have a STAGE_SETS entry
+	# every career is its own minigame in its own competition world: no two
+	# shows may share an engine kind, and all twelve costumes need a dressed set
 	var show_kinds := {}
 	var undressed: Array[String] = []
 	for cfg3: Dictionary in OperaHouse.ACTS:
@@ -81,8 +81,15 @@ func _init() -> void:
 	_ck("act one dresses Roshan in a bone-attached costume",
 		act != null and String(main.player.costume_id) == "chef" and main.player.costume_nodes.size() > 0)
 	_ck("act one puts the real 3D Roshan on stage", bool(main.player.puppet) and main.player.visible)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
+	# The competition layer adds one rival mesh, one work station and a compact
+	# score card. Keep the whole opening world below 210 nodes on Speedy tier.
+	var act_nodes := _descendants(act)
+	_ck("act one stays inside the mobile node budget (%d/210)" % act_nodes, act_nodes < 210)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
+	_ck("act one builds the reusable competition director",
+		act.competition != null and act.competition.career_id == "chef")
+	_ck("act one brings out its dressed rival imp",
+		act.rival_root != null and act.rival_root.name == "CareerRivalImp")
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
 	_ck("act one cannot win passively", act.state == "play" and act.stage_phase == "brawl")
@@ -170,6 +177,12 @@ func _init() -> void:
 		var dressed: bool = OperaAct.STAGE_SETS.has(String(cfg2.get("costume", "")))
 		var has_crest: bool = act.find_child("StageCrest", true, false) != null
 		_ck("act %d stage matches its dressing (%s)" % [expected + 1, "own set" if dressed else "shared"], has_crest == dressed)
+		if not is_boss:
+			_ck("act %d has its job-dressed rival" % (expected + 1),
+				act.competition != null and act.rival_root != null)
+			if String(cfg2.get("costume", "")) == "boxer":
+				_ck("the boxing match uses the purpose-built purple boxer imp",
+					act.rival_root.find_child("MatchReadyBoxerImp", true, false) != null)
 		if bool(cfg2.get("shell", false)):
 			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)
@@ -570,6 +583,22 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 				act._shuffle_action(0)
 			_ck_once("three taps on the beat open the cabinet", act.cab_taps >= act.CAB_TAPS)
 			continue
+		if act.shuffle_phase == "finale":
+			# trick 5: the old cabinet ending was too small. The new payoff is
+			# a sustained one-finger wand hold that fills a stage-sized portal.
+			_ck_once("the cabinet opens onto a grand star portal",
+				act.magic_portal != null and act.magic_portal_fill != null)
+			act.player_pos = act.cab_wand.position
+			act.hold_sim = true
+			var fguard := 0
+			while act.shuffle_phase == "finale" and act.state == "play" and fguard < 80:
+				fguard += 1
+				act._process(0.1)
+				await process_frame
+			act.hold_sim = false
+			_ck_once("holding the wand fills the portal and wins the duel",
+				act.magic_finale_t >= act.MAGIC_FINALE_HOLD and act.state == "won")
+			continue
 		await process_frame
 	_ck("shuffle act does not stall", guard < 2500)
 	_ck("act %d finishes the whole routine" % (expected + 1),
@@ -819,6 +848,26 @@ func _drive_sleuth(act: OperaAct) -> void:
 		if bool(prop["clue"]):
 			clue_n += 1
 	_ck("exactly the configured clues hide in boxes", clue_n == clues_want)
+	_ck("the detective contest uses a 30-45 second rival clock",
+		act.competition != null
+			and float(act.competition.spec.get("par_time", 0.0)) >= 30.0
+			and float(act.competition.spec.get("par_time", 0.0)) <= 45.0)
+	# Force the rare timeout once. The rival reveals the same mystery's clue
+	# boxes, then the round resets without changing their locations.
+	var original_positions: Array[Vector3] = []
+	for prop0: Dictionary in act.sleuth_props:
+		original_positions.append(prop0["pos"] as Vector3)
+	act.competition.round_elapsed = float(act.competition.spec["par_time"]) * 1.2
+	act._tick_competition(0.1)
+	_ck("the rival can solve first and reveal the golden answer",
+		act.detective_retry_t > 0.0 and act.detective_memory.size() == clues_want)
+	act.detective_retry_t = 0.0
+	act._reset_detective_for_guided_retry()
+	var same_mystery := true
+	for p_i in range(act.sleuth_props.size()):
+		same_mystery = same_mystery and (act.sleuth_props[p_i]["pos"] as Vector3).is_equal_approx(original_positions[p_i])
+	_ck("the guided rematch keeps the same mystery and loses no progress",
+		same_mystery and act.competition.retries == 1 and act.state == "play")
 	act._sleuth_chest()
 	_ck("chest waits for every clue", act.state == "play" and not act.chest_ready)
 	# the magnifier: clues are invisible until the lens is over them

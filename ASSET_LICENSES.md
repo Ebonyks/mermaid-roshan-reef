@@ -547,3 +547,47 @@ ambientCG (all CC0).
   46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
   and Lanczos-downsampled from the accepted generated source for use as three
   staggered unshaded Sprite3D cards at the mountain cabin chimney.
+
+## Pearl Opera 2D career worlds and rivals (Codex, 2026-07-29)
+- `assets_src/concepts/opera_rivals_2026-07-29/authoritative_boxer_imp_reference.png`
+  — owner-supplied project character reference, copied byte-for-byte from
+  `Generated image 8 (1).png` for local provenance. External source/license:
+  owner-supplied project art; no public redistribution claim added.
+- `assets_src/concepts/opera_rivals_2026-07-29/opera_rival_boxer_match_master.png`
+  — project-authorized OpenAI image edit of that exact owner-supplied
+  reference. Modifications: preserved face/horns/body identity; replaced the
+  focus mitt with a second glove; removed chest target and pearl belt; plain
+  teal waistband; no shell/pearl/ocean motif.
+- `assets/opera/rivals/opera_rival_boxer_match.png` and
+  `assets/opera/worlds/actors/rival_boxer.png` — non-destructive 1024×1024
+  transparent runtime derivatives of the accepted boxer master, prepared by
+  `assets_src/concepts/opera_rivals_2026-07-29/prepare_boxer_match_asset.py`
+  and `tools/prepare_opera_2d_worlds.py`. Exactly two plain boxing gloves; no
+  focus mitt, target, shell, pearl, badge, crest, logo, or marine emblem.
+- `assets_src/concepts/opera_rivals_2026-07-29/opera_rival_costume_sheet_master.png`
+  — project-original OpenAI image generation based only on the owner-supplied
+  imp identity reference. Eleven fixed costume cells: pastry chef, detective,
+  ballerina, candy maker, doctor, farmer, magician, painter, astronaut
+  engineer, racecar driver, and pop star. Exact constraints and derivation are
+  recorded in the adjacent `README.md`; no external assets; all marine
+  ornament explicitly excluded.
+- `assets/opera/worlds/actors/rival_{chef,detective,ballerina,candymaker,doctor,farmer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent slices of the accepted costume sheet.
+  Neutral checker presentation removed and cells aspect-fitted by
+  `tools/prepare_opera_2d_worlds.py`; no generative reinterpretation.
+- The accepted 1024x576 scene keys remain only in `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` as project-owned composition references. They are intentionally not copied or stretched into runtime because they do not meet the 2048px-per-playable-screen background rule.
+- `assets/opera/worlds/actors/roshan_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent runtime derivatives of the accepted
+  outfit hero cards in
+  `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/`. Modifications:
+  remove only edge-connected navy presentation field/card border, crop, and
+  Lanczos aspect-fit; protected character originals unchanged.
+- `assets/opera/rivals/opera_rival_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.glb`,
+  `assets_src/blender/build_opera_rival_imps.py`, and
+  `assets_src/blender/qa_opera_rivals/*.png` — preserved project-original
+  low-poly fallback/review package derived from
+  `assets/dungeon/mischief_imp.glb`. Normal 2D career-door play does not load
+  these identity-mismatched QA portraits.
+- `assets_src/concepts/opera_rivals_2026-07-29/rejected/*.png` — rejected,
+  review-only generated iterations retained for provenance and excluded from
+  runtime loading.
