@@ -172,7 +172,7 @@ func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 	progress_label.text = "STAR %d / 15" % _star_count()
 	for i in range(3):
 		var unlocked := _floor_unlocked(i)
-		var complete := (stars & (1 << BOSS_INDICES[i])) != 0
+		var complete: bool = (stars & (1 << int(BOSS_INDICES[i]))) != 0
 		var tab := floor_tabs[i]
 		tab.text = ("%d  STAR" % (i + 1)) if complete else ("%d" % (i + 1) if unlocked else "%d  LOCK" % (i + 1))
 		StorybookUI.style_button(tab, "gold" if i == floor_index else ("secondary" if unlocked else "locked"), 24, 24)
