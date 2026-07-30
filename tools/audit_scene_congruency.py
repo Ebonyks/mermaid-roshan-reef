@@ -25,6 +25,9 @@ from PIL import Image, ImageFilter
 ROOT = Path(__file__).resolve().parents[1]
 PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 STAGE = ROOT / "scripts/arena/sky_lagoon_promenade.gd"
+CASTLE_PALETTE_REFERENCE = (
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+)
 CANVAS_HEIGHT = 720.0
 CAM_DIST = 47.0
 CAM_FOV = 38.0
@@ -63,7 +66,7 @@ ELEMENTS = (
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
 	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
 	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
-	Element("castle_stained_glass", "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png", 27.710, -11.0, "castle", "painted_underside", "castle"),
+	Element("castle_four_tower", "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png", 28.431, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
 	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
 	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 8.197, -9.0, "ground", "painted_underside"),
@@ -236,9 +239,10 @@ def main() -> None:
 	source = STAGE.read_text(encoding="utf-8")
 	ground = image_metrics(PLATE, (0.52, 1.0))
 	sky = image_metrics(PLATE, (0.0, 0.43))
-	castle = image_metrics(
-		ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
-	)
+	# Keep the established approved castle as a fixed palette/value baseline.
+	# A replacement castle must be evaluated against it, never grade itself or
+	# silently move the acceptance target for other purple landmark cards.
+	castle = image_metrics(CASTLE_PALETTE_REFERENCE)
 	with Image.open(PLATE).convert("RGBA") as plate:
 		plate_lab = srgb_to_lab(np.asarray(plate.convert("RGB")))
 		accent_mask = (

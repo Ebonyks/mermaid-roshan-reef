@@ -14,6 +14,11 @@ OUT_DAY_ONE = ROOT / "audit/sky_lagoon_congruency_preview_3x1.jpg"
 OUT_REVISIT = ROOT / "audit/sky_lagoon_preview_revisit_3x1.jpg"
 OUT_SCREEN_PATTERN = "sky_lagoon_preview_day_one_screen_%d.jpg"
 OUT_SWING_FIT = ROOT / "audit/sky_lagoon_swing_roshan_fit.jpg"
+OUT_CASTLE_FIT = (
+	ROOT
+	/ "assets_src/sky_lagoon/castle_symmetry_2026-07-29"
+	/ "qa_four_tower_fit_2screen.jpg"
+)
 WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
 WORLD_WIDTH = 144.0
@@ -64,10 +69,10 @@ def build_preview(show_plane: bool) -> Image.Image:
 	# plate deliberately has no duplicate facade underneath it.
 	place(
 		canvas,
-		"assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
-		53.5,
-		10.8,
-		31.0,
+		"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		51.572852,
+		11.2025,
+		31.805,
 	)
 
 	for path, x, y, height in (
@@ -102,6 +107,14 @@ def main() -> None:
 	build_preview(False).convert("RGB").save(
 		OUT_REVISIT, quality=94, subsampling=0, optimize=True
 	)
+	# Review the playground-to-castle join as one continuous two-page frame.
+	# The half-resolution copy is evidence only; runtime continues to use the
+	# native 6144x2048 master and independent 1024px depth cards.
+	day_one.crop((2048, 0, 6144, 2048)).resize(
+		(2048, 1024), Image.Resampling.LANCZOS
+	).convert("RGB").save(
+		OUT_CASTLE_FIT, quality=94, subsampling=0, optimize=True
+	)
 	for screen_index in range(3):
 		left = screen_index * 2048
 		day_one.crop((left, 0, left + 2048, 2048)).convert("RGB").save(
@@ -125,6 +138,7 @@ def main() -> None:
 	print(OUT_DAY_ONE)
 	print(OUT_REVISIT)
 	print(OUT_SWING_FIT)
+	print(OUT_CASTLE_FIT)
 
 
 if __name__ == "__main__":

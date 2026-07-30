@@ -524,6 +524,21 @@ ambientCG (all CC0).
   castle and drawbridge. The window contents are the exact owner-supplied
   stained-glass reference, deterministically fitted inside the existing gold
   frame with no pixel changes elsewhere on the castle card.
+- `assets_src/sky_lagoon/castle_symmetry_2026-07-29/**` — project-original
+  OpenAI built-in castle-design studies using only the approved v1 runtime card
+  and approved pearl-castle turnaround. The two-tower studies were rejected for
+  shrinking the landmark, omitting the intended four-tower hierarchy, and
+  weakening the established scene placement; they are retained outside runtime
+  loading as design evidence. No external references; generated 2026-07-29.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png` —
+  project-original four-tower completion of the approved Sky Lagoon castle,
+  produced with OpenAI built-in image editing from the approved v1 card only.
+  The final card has two lower outer towers, two taller inner towers, the exact
+  owner-supplied stained-glass source restored inside its frame, and no added
+  lighting or post effect. Chroma removal, mobile downscaling, and placement
+  fitting are deterministic in `tools/prepare_sky_lagoon_castle_symmetry.py`;
+  runtime width, waterline, and bridge landing match the approved fallback.
+  No external references; generated and prepared 2026-07-29.
 
 ## Sky Lagoon playground fit revision (Codex, 2026-07-29)
 - `assets_src/sky_lagoon/playground_revision_2026-07-29/**` — project-original

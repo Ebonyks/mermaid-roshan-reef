@@ -318,13 +318,12 @@ func _build_playground_screen() -> void:
 		GROUND_SOCKET_LOCK)
 
 func _build_castle_screen() -> void:
-	# The approved castle was lifted out of the background and restored as one
-	# depth card. Its drawbridge and Roshan stained glass therefore remain one
-	# coherent silhouette instead of a second gate pasted over a painted facade.
+	# The four-tower castle remains one neutral, unshaded depth card. Its world
+	# width, waterline and bridge landing are fitted to the approved fallback.
 	var castle := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
-		Vector3(51.8, 10.662, LANDMARK_Z), 27.710, false)
-	castle.name = "SkyLagoonCastleStainedGlass"
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		Vector3(51.572852, 11.022284, LANDMARK_Z), 28.430568, false)
+	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
 	_register_target("castle_gate", castle, "castle", "", 128.0, 1.035)
 
