@@ -64,7 +64,8 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
@@ -563,6 +564,7 @@ func _init() -> void:
 			castle_target = target
 			break
 	var gate_node: Node3D = castle_target.get("node") as Node3D
+	var gate_highlight: Sprite3D = castle_target.get("highlight") as Sprite3D
 	main.player.position.x = origin.x + 40.0
 	for _i in range(6):
 		promenade.tick(0.5)
@@ -572,8 +574,25 @@ func _init() -> void:
 		"gate at %s in a %s viewport" % [gate_screen, view_rect.size])
 	promenade.handle_touch(gate_screen)
 	var gate_focus_ok: bool = (
-		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate")
+		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate"
+		and gate_highlight != null and gate_highlight.visible)
 	_check("castle_door_first_tap_highlights", gate_focus_ok)
+	var door_only_highlight_ok: bool = (
+		gate_node == main.g.get("lagoon_castle_door_focus")
+		and gate_node != castle_card
+		and gate_highlight != null
+		and gate_highlight.texture != castle_card.texture
+		and gate_highlight.texture.get_size() == Vector2(199, 228)
+		and gate_node.position.y < castle_card.position.y
+		and gate_highlight.scale == Vector3.ONE)
+	_check("castle_focus_is_door_only_not_full_castle",
+		door_only_highlight_ok,
+		"focus_size=%s door_y=%.2f castle_y=%.2f scale=%s" % [
+			gate_highlight.texture.get_size() if gate_highlight != null
+				else Vector2.ZERO,
+			gate_node.position.y,
+			castle_card.position.y,
+			gate_highlight.scale if gate_highlight != null else Vector3.ZERO])
 	promenade.handle_touch(gate_screen)
 	await _frames(8)
 	_check("drawbridge_enters_castle",

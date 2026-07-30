@@ -16,13 +16,22 @@ RAW_CARD = SOURCE_DIR / "four_tower_candidate_transparent_raw.png"
 FALLBACK_CARD = (
 	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
 )
+V3_CARD = (
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png"
+)
+FRAME_REPAIR_SOURCE = (
+	SOURCE_DIR / "frame_restore_ring_source.png"
+)
 OWNER_STAINED_GLASS = (
 	ROOT
 	/ "assets_src/sky_lagoon/reductive_rebuild_2026-07-28"
 	/ "stained_glass_owner_reference.png"
 )
 OUTPUT_CARD = (
-	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png"
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png"
+)
+DOOR_HIGHLIGHT = (
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png"
 )
 AUDIT_REPORT = SOURCE_DIR / "four_tower_fit_audit.json"
 
@@ -44,6 +53,56 @@ OWNER_CROP = (101, 8, 780, 1176)
 GUTTER = 10
 MAX_EDGE = 1024
 BRIDGE_AUDIT_FRACTION = 0.90
+
+# The tightly scoped repair candidate supplies only its clean lavender/gold
+# ring. The owner panel and every other castle pixel remain from the accepted
+# four-tower card; the candidate's changed castle, door, bridge, and glass are
+# explicitly rejected.
+FRAME_REPAIR_SOURCE_BOX = (0, 0, 249, 360)
+RESTORED_FRAME_TARGET_BOX = (396, 225, 629, 560)
+RESTORED_FRAME_ALLOWED_BOX = (395, 223, 631, 563)
+RESTORED_FRAME_POLYGON = (
+	(512, 225),
+	(556, 235),
+	(589, 256),
+	(614, 290),
+	(627, 329),
+	(627, 560),
+	(398, 560),
+	(398, 329),
+	(411, 290),
+	(436, 256),
+	(469, 235),
+)
+GLASS_SAFE_POLYGON = (
+	(512, 257),
+	(546, 264),
+	(572, 281),
+	(589, 309),
+	(597, 339),
+	(597, 527),
+	(427, 527),
+	(427, 339),
+	(435, 309),
+	(452, 281),
+	(478, 264),
+)
+
+# Door mask is intentionally inside the lavender stone arch. It becomes a
+# small cropped focus texture, avoiding a second full-castle transparent quad.
+DOOR_MASK_POLYGON = (
+	(512, 560),
+	(548, 569),
+	(579, 592),
+	(598, 628),
+	(604, 660),
+	(604, 780),
+	(414, 780),
+	(414, 660),
+	(421, 628),
+	(445, 592),
+	(476, 569),
+)
 
 # The approved fallback's world transform is the placement contract. The new
 # card derives its height, center, and bridge-axis offset from these values so
@@ -134,6 +193,60 @@ def _placement_contract(
 	}
 
 
+def _restore_clean_frame(
+	card: Image.Image,
+	_window_polygon: list[tuple[int, int]],
+) -> tuple[Image.Image, tuple[int, ...]]:
+	with Image.open(FRAME_REPAIR_SOURCE) as repair_source:
+		repair = repair_source.convert("RGBA")
+	frame = repair.crop(FRAME_REPAIR_SOURCE_BOX).resize(
+		(
+			RESTORED_FRAME_TARGET_BOX[2] - RESTORED_FRAME_TARGET_BOX[0],
+			RESTORED_FRAME_TARGET_BOX[3] - RESTORED_FRAME_TARGET_BOX[1],
+		),
+		Image.Resampling.LANCZOS,
+	)
+	layer = Image.new("RGBA", card.size)
+	layer.paste(
+		frame,
+		(RESTORED_FRAME_TARGET_BOX[0], RESTORED_FRAME_TARGET_BOX[1]),
+		frame,
+	)
+	outer_mask = Image.new("L", card.size, 0)
+	ImageDraw.Draw(outer_mask).polygon(RESTORED_FRAME_POLYGON, fill=255)
+	inner_mask = Image.new("L", card.size, 0)
+	ImageDraw.Draw(inner_mask).polygon(GLASS_SAFE_POLYGON, fill=255)
+	mask = ImageChops.subtract(outer_mask, inner_mask)
+	mask = mask.filter(ImageFilter.GaussianBlur(0.35))
+	before = card.copy()
+	card = Image.composite(layer, card, mask)
+	diff_box = ImageChops.difference(before, card).getbbox()
+	if diff_box is None:
+		raise RuntimeError("stained-glass frame repair made no change")
+	return card, diff_box
+
+
+def _build_door_highlight(card: Image.Image) -> tuple[Image.Image, tuple[int, ...]]:
+	mask = Image.new("L", card.size, 0)
+	ImageDraw.Draw(mask).polygon(DOOR_MASK_POLYGON, fill=255)
+	mask = ImageChops.multiply(mask, card.getchannel("A"))
+	mask = mask.filter(ImageFilter.GaussianBlur(0.55))
+	bounds = mask.getbbox()
+	if bounds is None:
+		raise RuntimeError("door focus mask is empty")
+	padding = 2
+	bounds = (
+		max(0, bounds[0] - padding),
+		max(0, bounds[1] - padding),
+		min(card.width, bounds[2] + padding),
+		min(card.height, bounds[3] + padding),
+	)
+	cropped_mask = mask.crop(bounds)
+	highlight = Image.new("RGBA", cropped_mask.size, (255, 255, 255, 0))
+	highlight.putalpha(cropped_mask)
+	return highlight, bounds
+
+
 def build() -> None:
 	with Image.open(RAW_CARD) as source:
 		raw = source.convert("RGBA")
@@ -204,6 +317,22 @@ def build() -> None:
 		raise RuntimeError(
 			f"stained-glass restoration escaped its frame: {diff_box}"
 		)
+	card, frame_diff_box = _restore_clean_frame(card, window_polygon)
+	with Image.open(V3_CARD) as v3_source:
+		v3_card = v3_source.convert("RGBA")
+	v3_diff_box = ImageChops.difference(v3_card, card).getbbox()
+	if v3_diff_box is None:
+		raise RuntimeError("v4 stained-glass frame repair made no change")
+	if (
+		v3_diff_box[0] < RESTORED_FRAME_ALLOWED_BOX[0]
+		or v3_diff_box[1] < RESTORED_FRAME_ALLOWED_BOX[1]
+		or v3_diff_box[2] > RESTORED_FRAME_ALLOWED_BOX[2]
+		or v3_diff_box[3] > RESTORED_FRAME_ALLOWED_BOX[3]
+	):
+		raise RuntimeError(
+			f"v4 frame repair escaped its allowed bounds: {v3_diff_box}"
+		)
+	door_highlight, door_bounds = _build_door_highlight(card)
 
 	alpha = card.getchannel("A")
 	if max(card.size) > MAX_EDGE:
@@ -231,6 +360,7 @@ def build() -> None:
 
 	OUTPUT_CARD.parent.mkdir(parents=True, exist_ok=True)
 	card.save(OUTPUT_CARD, optimize=True)
+	door_highlight.save(DOOR_HIGHLIGHT, optimize=True)
 	AUDIT_REPORT.parent.mkdir(parents=True, exist_ok=True)
 	AUDIT_REPORT.write_text(
 		json.dumps(
@@ -248,6 +378,16 @@ def build() -> None:
 				"stained_glass_changed_bounds": list(diff_box),
 				"stained_glass_allowed_bounds": list(allowed_box),
 				"outside_window_changed_pixels": 0,
+				"frame_repair_source": FRAME_REPAIR_SOURCE.relative_to(ROOT).as_posix(),
+				"frame_repair_source_sha256": _sha256(FRAME_REPAIR_SOURCE),
+				"restored_frame_changed_bounds": list(frame_diff_box),
+				"restored_frame_target_bounds": list(RESTORED_FRAME_TARGET_BOX),
+				"v3_to_v4_changed_bounds": list(v3_diff_box),
+				"v3_to_v4_allowed_bounds": list(RESTORED_FRAME_ALLOWED_BOX),
+				"outside_frame_changed_pixels": 0,
+				"door_highlight": DOOR_HIGHLIGHT.relative_to(ROOT).as_posix(),
+				"door_highlight_bounds_in_card": list(door_bounds),
+				"door_highlight_size": list(door_highlight.size),
 				"tower_hierarchy": {
 					"outer_towers": 2,
 					"inner_towers": 2,
@@ -265,6 +405,7 @@ def build() -> None:
 		encoding="utf-8",
 	)
 	print(OUTPUT_CARD)
+	print(DOOR_HIGHLIGHT)
 	print(AUDIT_REPORT)
 	print(
 		"transform="

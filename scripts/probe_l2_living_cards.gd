@@ -118,7 +118,7 @@ func _promenade_target(target_id: String) -> Sprite3D:
 	return null
 
 
-func _socket_error_px(card: Sprite3D, camera: Camera3D,
+func _socket_error_px(card: Node3D, camera: Camera3D,
 		stage_root: Node3D) -> float:
 	if card == null or camera == null or stage_root == null:
 		return INF
@@ -256,11 +256,20 @@ func _run() -> void:
 	var slide: Sprite3D = _promenade_target("slide")
 	var mural_anchor_ok: bool = camera != null and slide != null
 	var mural_anchor_detail: Array[String] = []
-	var exact_socket_cards: Array[Sprite3D] = []
+	var exact_socket_cards: Array[Node3D] = []
 	for target_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
-		var socket_card: Sprite3D = _promenade_target(target_id)
+		var socket_card: Node3D = null
+		for target_value: Variant in (
+				main.g.get("lagoon_promenade_targets", []) as Array):
+			var target: Dictionary = target_value as Dictionary
+			if String(target.get("id", "")) == target_id:
+				socket_card = target.get("node") as Node3D
+				break
 		if socket_card != null:
 			exact_socket_cards.append(socket_card)
+	var castle_card: Node3D = main.g.get("lagoon_castle_card") as Node3D
+	if castle_card != null:
+		exact_socket_cards.append(castle_card)
 	for ambient_value: Variant in cards:
 		var ambient_card: Sprite3D = ambient_value as Sprite3D
 		if ambient_card != null and String(
@@ -275,7 +284,7 @@ func _run() -> void:
 			mural_anchor_ok = false
 			continue
 		var worst_error_px := 0.0
-		for socket_card: Sprite3D in exact_socket_cards:
+		for socket_card: Node3D in exact_socket_cards:
 			worst_error_px = maxf(
 				worst_error_px,
 				_socket_error_px(socket_card, camera, stage_root))
