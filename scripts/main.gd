@@ -6941,6 +6941,8 @@ func _process(delta: float) -> void:
 		pass   # DungeonLevel sequences the battles and visual puzzles
 	elif game == "opera":
 		pass   # OperaHouse sequences the eight costume acts across two floors
+	elif game == "kitchen_cooking":
+		pass   # The fridge portal's OperaAct owns the cooking gesture chain
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -7049,6 +7051,8 @@ func _process(delta: float) -> void:
 			act_lbl = dungeon_game.action_label()
 		elif game == "opera" and opera_game != null:
 			act_lbl = opera_game.action_label()
+		elif game == "kitchen_cooking":
+			act_lbl = _castle_rooms_ref().kitchen_action_label()
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
