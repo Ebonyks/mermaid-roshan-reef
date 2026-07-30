@@ -168,16 +168,19 @@ func _init() -> void:
 			and forbidden_world_types.has("MeshInstance3D"))
 		var native_contract: Dictionary = manifest.get(
 			"owner_native_environment_contract", {}) as Dictionary
-		var required_ratio: Array = native_contract.get(
-			"required_reference_aspect_ratio", []) as Array
-		var native_2k_ok: bool = String(native_contract.get(
-			"status", "")) == "compliant"
-		native_2k_ok = native_2k_ok \
-			and int(native_contract.get(
-				"required_minimum_long_edge", 0)) >= 2048 \
-			and required_ratio.size() == 2 \
-			and int(required_ratio[0]) == 16 \
-			and int(required_ratio[1]) == 9 \
+		var required_coverage: Array = native_contract.get(
+			"required_native_pixels_per_playable_screen", []) as Array
+		var resolution_status_truthful: bool = String(native_contract.get(
+			"status", "")) \
+			== "provisional_reference_only_pending_native_2048x2048_per_screen"
+		resolution_status_truthful = resolution_status_truthful \
+			and required_coverage.size() == 2 \
+			and int(required_coverage[0]) >= 2048 \
+			and int(required_coverage[1]) >= 2048 \
+			and String(native_contract.get("coverage_measurement", "")) \
+				== "each playable screen independently" \
+			and not bool(native_contract.get(
+				"logical_stage_coordinates_are_resolution", true)) \
 			and float(native_contract.get(
 				"ratio_rounding_tolerance_pixels", 99.0)) <= 1.0 \
 			and not bool(native_contract.get(
@@ -193,16 +196,16 @@ func _init() -> void:
 				"master_dimensions", []) as Array
 			var runtime_tiles: Array = manifest_room.get(
 				"runtime_tiles", []) as Array
-			var master_long_edge := 0
-			if master_dimensions.size() == 2:
-				master_long_edge = maxi(
-					int(master_dimensions[0]), int(master_dimensions[1]))
-			var expected_tile_count := 8 if manifest_room_id == "main_hall" \
-				else 4
-			native_2k_ok = native_2k_ok \
-				and bool(manifest_room.get(
-					"native_master_compliant", false)) \
-				and master_long_edge >= 2048 \
+			var expected_tile_count: int = 8 \
+				if manifest_room_id == "main_hall" else 4
+			resolution_status_truthful = resolution_status_truthful \
+				and not bool(manifest_room.get(
+					"native_master_compliant", true)) \
+				and String(manifest_room.get("resolution_status", "")) \
+					== "pending native 2048x2048 coverage per playable screen" \
+				and master_dimensions.size() == 2 \
+				and int(master_dimensions[0]) >= 2048 \
+				and int(master_dimensions[1]) < 2048 \
 				and float(manifest_room.get(
 					"aspect_ratio_pixel_delta", 99.0)) <= 1.0 \
 				and bool(manifest_room.get(
@@ -211,10 +214,13 @@ func _init() -> void:
 			for tile_value: Variant in runtime_tiles:
 				var tile: Dictionary = tile_value as Dictionary
 				var dimensions: Array = tile.get("dimensions", []) as Array
-				native_2k_ok = native_2k_ok and dimensions.size() == 2 \
+				resolution_status_truthful = resolution_status_truthful \
+					and dimensions.size() == 2 \
 					and maxi(int(dimensions[0]), int(dimensions[1])) <= 1024
-		_ck("native_2k_environment_gate", native_2k_ok,
-			"native >=2K masters reconstruct through exact <=1024 tiles")
+		_ck("per_screen_2k_square_resolution_status_truthful",
+			resolution_status_truthful,
+			"current 2048x1152/1153 plates remain provisional under the " \
+			+ "native 2048x2048-per-screen contract")
 		rooms.show_room("library", false)
 		await _frames(2)
 		_ck("library_mid_layer", main.castle_room_mid_layer.get_child_count() == 0)
@@ -249,11 +255,12 @@ func _init() -> void:
 			rooms.show_room(room_id, false)
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
-			var expected_items: int = 11 if hall_mode else 3
+			var expected_items: int = 10 if hall_mode else 3
+			var expected_hotspots: int = 7 if hall_mode else 3
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
 				and main.castle_room_item_hotspot_layer.get_child_count() \
-					== expected_items
+					== expected_hotspots
 			var item_depths: Dictionary = {}
 			for item_id_value: Variant in main.castle_room_item_sprites:
 				var item_record: Dictionary = main.castle_room_item_sprites[

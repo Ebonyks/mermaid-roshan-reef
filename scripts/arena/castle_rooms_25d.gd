@@ -85,9 +85,8 @@ const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
 		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
 		"role": "architectural_bridge"},
 	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 270.0),
-		"z": 0.68, "scale": 0.15, "shaded": false,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
-			+ "dust_bunnies/dust_bunny_family.png",
+		"z": 0.68, "scale": 0.09, "shaded": false,
+		"tex_path": "res://assets/mg/star.png",
 		"role": "playroom_door_marker"},
 ]
 const HALL_PORTALS: Array[Dictionary] = [
@@ -159,26 +158,36 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"scale": 1.15, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sleepy_bunny", "name": "Sleepy dust bunny",
-		"pos": Vector2(140.0, 800.0), "z": 2.65,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
-		"scale": 0.34, "anim": "hover", "sound": "purr.wav", "pitch": 1.8,
-		"symbol": "*", "color": Color(0.86, 0.72, 1.0)},
+]
+const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
+	{"id": "sleepy_bunny", "name": "Sleeping dust bunny",
+		"pos": Vector2(720.0, 790.0), "z": 2.65,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_sleepy.png",
+		"scale": 0.34, "dust_bunny_role": "sleeping_static",
+		"contact_offset": Vector2(0.0, 74.0),
+		"contact_radius": Vector2(132.0, 92.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
+		"color": Color(0.86, 0.72, 1.0)},
 	{"id": "shell_bunny", "name": "Shell-hide dust bunny",
-		"pos": Vector2(1060.0, 805.0), "z": 3.45,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
-		"scale": 0.32, "anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.45,
-		"symbol": "*", "color": Color(0.60, 0.92, 1.0)},
-	{"id": "hop_bunny", "name": "Hopping dust bunny",
-		"pos": Vector2(1845.0, 805.0), "z": 2.85,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
-		"scale": 0.32, "anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.7,
-		"symbol": "*", "color": Color(1.0, 0.75, 0.86)},
-	{"id": "bunny_family", "name": "Dust bunny family",
-		"pos": Vector2(2925.0, 810.0), "z": 3.55,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
-		"scale": 0.34, "anim": "pulse", "sound": "penguin_giggle.ogg", "pitch": 1.55,
-		"symbol": "*", "color": Color(1.0, 0.84, 0.50)},
+		"pos": Vector2(1140.0, 790.0), "z": 3.05,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_shell_hide.png",
+		"scale": 0.32, "dust_bunny_role": "shell_static",
+		"contact_offset": Vector2(0.0, 74.0),
+		"contact_radius": Vector2(132.0, 92.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.45,
+		"color": Color(0.60, 0.92, 1.0)},
+	{"id": "runner_bunny", "name": "Running dust bunny",
+		"pos": Vector2(1820.0, 790.0), "z": 2.85,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_hop.png",
+		"scale": 0.32, "dust_bunny_role": "runner",
+		"contact_offset": Vector2(0.0, 74.0),
+		"contact_radius": Vector2(142.0, 98.0),
+		"patrol_x": Vector2(1820.0, 2580.0), "run_speed": 220.0,
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
+		"color": Color(1.0, 0.75, 0.86)},
 ]
 const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
@@ -409,6 +418,8 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_room_id = start_room
 	m.castle_room_menu_open = false
 	m.castle_room_buttons.clear()
+	m.g["castle_dust_bunnies_cleared"] = {}
+	m.g["castle_dust_bunny_runner_time"] = 0.0
 	m.castle_room_layer = CanvasLayer.new()
 	m.castle_room_layer.layer = 14
 	m.add_child(m.castle_room_layer)
@@ -493,6 +504,8 @@ func close() -> void:
 	m.castle_room_menu_panel = null
 	m.castle_room_buttons.clear()
 	m.castle_room_menu_open = false
+	m.g.erase("castle_dust_bunnies_cleared")
+	m.g.erase("castle_dust_bunny_runner_time")
 	m._set_world_controls_enabled(true, "castle_rooms")
 	if m.player != null:
 		m.player.visible = true
@@ -504,6 +517,8 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	_update_dust_bunny_runner(delta)
+	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
@@ -952,6 +967,8 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var target_sprite_scale := Vector3.ONE * texture_scale * target_scale
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"stage_foot", foot) as Vector2
+	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", old_foot) as Vector2
 	var going_right: bool = foot.x >= old_foot.x
 	m.castle_room_player_sprite.flip_h = not going_right
 	var shadow: Sprite3D = _player_shadow()
@@ -972,9 +989,13 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			shadow.position = shadow_position
 			shadow.scale = shadow_scale
 			shadow.pixel_size = _pixel_size_for_depth(shadow_z)
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
 	var movement_tween := m.create_tween().set_parallel(true)
+	movement_tween.tween_method(
+		_set_player_current_foot, current_foot, foot, duration
+	).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(m.castle_room_player_sprite, "position",
 		target_position, duration).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(m.castle_room_player_sprite, "scale",
@@ -1005,6 +1026,8 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var target_sprite_scale := Vector3.ONE * texture_scale * target_scale
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"stage_foot", foot) as Vector2
+	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", old_foot) as Vector2
 	m.castle_room_player_sprite.flip_h = foot.x < old_foot.x
 	var shadow: Sprite3D = _player_shadow()
 	var shadow_z: float = player_z - 0.04
@@ -1025,9 +1048,13 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			shadow.position = shadow_position
 			shadow.scale = shadow_scale
 			shadow.pixel_size = _pixel_size_for_depth(shadow_z)
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
 	var movement_tween := m.create_tween().set_parallel(true)
+	movement_tween.tween_method(
+		_set_player_current_foot, current_foot, foot, duration
+	).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(
 		m.castle_room_player_sprite, "position", target_position,
 		duration).set_trans(Tween.TRANS_SINE)
@@ -1111,8 +1138,12 @@ func _rebuild_touch_items(room_id: String) -> void:
 		for child: Node in m.castle_room_item_effect_layer.get_children():
 			child.free()
 	m.castle_room_item_sprites.clear()
-	var items: Array = HALL_ITEMS if room_id == "main_hall" \
-		else ROOM_ITEMS.get(room_id, [])
+	var items: Array = []
+	if room_id == "main_hall":
+		items.append_array(HALL_ITEMS)
+		items.append_array(HALL_DUST_BUNNY_SPAWNS)
+	else:
+		items = ROOM_ITEMS.get(room_id, [])
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
@@ -1123,6 +1154,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			or m.castle_room_item_hotspot_layer == null:
 		return
 	var item_id: String = String(item_data["id"])
+	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
+	if bunny_role != "":
+		var cleared: Dictionary = m.g.get(
+			"castle_dust_bunnies_cleared", {}) as Dictionary
+		if bool(cleared.get(item_id, false)):
+			return
 	var texture_file: String = String(item_data.get(
 		"tex", "room_" + room_id + "_item_" + item_id + ".png"))
 	var texture_path: String = String(item_data.get(
@@ -1144,6 +1181,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		piece.scale = Vector3.ONE * visual_scale
 	piece.set_meta("source_asset_role", "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
+	if bunny_role != "":
+		piece.set_meta("dust_bunny_role", bunny_role)
+		piece.set_meta("spawn_guide_id", item_id)
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("light_cluster"):
 		if not m.castle_room_light_states.has(item_id):
@@ -1151,22 +1191,28 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		_apply_sconce_visual(piece, bool(m.castle_room_light_states[item_id]))
 	m.castle_room_item_visual_layer.add_child(piece)
 
-	var hotspot := Button.new()
-	hotspot.name = "Touch_" + item_id
-	hotspot.flat = true
-	hotspot.focus_mode = Control.FOCUS_NONE
-	hotspot.tooltip_text = String(item_data["name"])
-	hotspot.set_meta("uses_own_sfx", true)
-	var hotspot_offset: Vector2 = item_data.get("hotspot_offset", Vector2.ZERO)
-	hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
-	hotspot.size = item_data.get("hotspot_size", Vector2(112.0, 112.0))
-	hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
-	hotspot.pressed.connect(_activate_room_item.bind(item_id))
-	m.castle_room_item_hotspot_layer.add_child(hotspot)
+	var hotspot: Button = null
+	if not bool(item_data.get("proximity_only", false)):
+		hotspot = Button.new()
+		hotspot.name = "Touch_" + item_id
+		hotspot.flat = true
+		hotspot.focus_mode = Control.FOCUS_NONE
+		hotspot.tooltip_text = String(item_data["name"])
+		hotspot.set_meta("uses_own_sfx", true)
+		var hotspot_offset: Vector2 = item_data.get(
+			"hotspot_offset", Vector2.ZERO)
+		hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
+		hotspot.size = item_data.get("hotspot_size", Vector2(112.0, 112.0))
+		hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+		hotspot.pressed.connect(_activate_room_item.bind(item_id))
+		m.castle_room_item_hotspot_layer.add_child(hotspot)
+	var contact_offset: Vector2 = item_data.get(
+		"contact_offset", Vector2.ZERO) as Vector2
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
 		"data": item_data,
+		"contact_foot": source_position + contact_offset,
 		"art_rect": (
 			Rect2(source_position - texture.get_size() * visual_scale * 0.5,
 				texture.get_size() * visual_scale)
@@ -1552,10 +1598,129 @@ func _shadow_scale(depth_scale: float) -> Vector3:
 		desired_art_size.y / maxf(1.0, texture_size.y) * depth_scale,
 		1.0)
 
+func _set_player_current_foot(foot: Vector2) -> void:
+	if m.castle_room_player_sprite != null \
+			and is_instance_valid(m.castle_room_player_sprite):
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+
 func _finish_player_walk() -> void:
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
+		var foot: Vector2 = m.castle_room_player_sprite.get_meta(
+			"stage_foot", Vector2.ZERO) as Vector2
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
+
+func _update_dust_bunny_runner(delta: float) -> void:
+	if not _is_wide_hall() or delta <= 0.0:
+		return
+	var runner_record: Dictionary = m.castle_room_item_sprites.get(
+		"runner_bunny", {}) as Dictionary
+	if runner_record.is_empty():
+		return
+	var runner_sprite: Sprite3D = runner_record.get("sprite") as Sprite3D
+	var runner_data: Dictionary = runner_record.get("data", {}) as Dictionary
+	if runner_sprite == null or not is_instance_valid(runner_sprite):
+		return
+	var elapsed: float = float(m.g.get(
+		"castle_dust_bunny_runner_time", 0.0)) + delta
+	m.g["castle_dust_bunny_runner_time"] = elapsed
+	var patrol_x: Vector2 = runner_data.get(
+		"patrol_x", Vector2(1820.0, 2580.0)) as Vector2
+	var run_speed: float = float(runner_data.get("run_speed", 220.0))
+	var segment_length: float = maxf(1.0, patrol_x.y - patrol_x.x)
+	var travel: float = fposmod(elapsed * run_speed, segment_length * 2.0)
+	var moving_right: bool = travel <= segment_length
+	var runner_x: float = patrol_x.x + travel if moving_right \
+		else patrol_x.y - (travel - segment_length)
+	var source_position: Vector2 = runner_data.get(
+		"pos", Vector2(1820.0, 790.0)) as Vector2
+	var runner_center := Vector2(
+		runner_x, source_position.y + absf(sin(elapsed * 8.0)) * 14.0)
+	var depth_z: float = float(runner_data.get("z", 2.85))
+	runner_sprite.position = _hall_art_to_world(runner_center, depth_z)
+	runner_sprite.pixel_size = _pixel_size_for_depth(depth_z)
+	runner_sprite.flip_h = not moving_right
+	var contact_offset: Vector2 = runner_data.get(
+		"contact_offset", Vector2.ZERO) as Vector2
+	runner_record["contact_foot"] = runner_center + contact_offset
+	var card_size: Vector2 = runner_sprite.texture.get_size() \
+		* float(runner_data.get("scale", 1.0))
+	runner_record["art_rect"] = Rect2(
+		runner_center - card_size * 0.5, card_size)
+	runner_record["runner_direction"] = 1.0 if moving_right else -1.0
+	m.castle_room_item_sprites["runner_bunny"] = runner_record
+
+func _check_dust_bunny_contacts() -> void:
+	if not _is_wide_hall() or m.castle_room_player_sprite == null:
+		return
+	var player_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot",
+		m.castle_room_player_sprite.get_meta("stage_foot", Vector2.ZERO)
+	) as Vector2
+	var touched_ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var item_id: String = String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id] as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		var contact_foot: Vector2 = record.get(
+			"contact_foot", Vector2(-10000.0, -10000.0)) as Vector2
+		var contact_radius: Vector2 = item_data.get(
+			"contact_radius", Vector2(120.0, 88.0)) as Vector2
+		var contact_delta: Vector2 = player_foot - contact_foot
+		var normalized_distance: float = (
+			contact_delta.x * contact_delta.x
+				/ maxf(1.0, contact_radius.x * contact_radius.x)
+			+ contact_delta.y * contact_delta.y
+				/ maxf(1.0, contact_radius.y * contact_radius.y)
+		)
+		if normalized_distance <= 1.0:
+			touched_ids.append(item_id)
+	for item_id: String in touched_ids:
+		_explode_dust_bunny(item_id)
+
+func _explode_dust_bunny(item_id: String) -> void:
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	if record.is_empty():
+		return
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if String(item_data.get("dust_bunny_role", "")) == "":
+		return
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("exploding", false)):
+		return
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	if bool(cleared.get(item_id, false)):
+		return
+	cleared[item_id] = true
+	m.g["castle_dust_bunnies_cleared"] = cleared
+	sprite.set_meta("exploding", true)
+	var hotspot: Button = record.get("hotspot") as Button
+	if hotspot != null and is_instance_valid(hotspot):
+		hotspot.visible = false
+		hotspot.disabled = true
+		hotspot.queue_free()
+	m.castle_room_item_sprites.erase(item_id)
+	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
+		float(item_data.get("pitch", 1.5)))
+	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
+	_item_burst(sprite.position, burst_color, 12)
+	var origin_scale: Vector3 = sprite.scale
+	var fade_color: Color = sprite.modulate
+	fade_color.a = 0.0
+	var vanish := sprite.create_tween().set_parallel(true)
+	vanish.tween_property(sprite, "scale", origin_scale * 1.45,
+		0.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	vanish.tween_property(sprite, "rotation:z", sprite.rotation.z + 0.42,
+		0.24).set_trans(Tween.TRANS_SINE)
+	vanish.tween_property(sprite, "modulate", fade_color, 0.24)
+	vanish.chain().tween_callback(sprite.queue_free)
+
 
 func _update_camera_parallax(delta: float) -> void:
 	if m.castle_room_camera == null or m.castle_room_player_sprite == null:

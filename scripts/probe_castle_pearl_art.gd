@@ -160,7 +160,7 @@ func _run() -> void:
 			and main.castle_room_background is Sprite3D \
 			and not main.castle_room_background.shaded \
 			and main.castle_room_item_sprites.size() \
-				== (11 if hall_mode else 3) \
+				== (10 if hall_mode else 3) \
 			and background_ready \
 			and int(counts.get("modeled", 0)) == 0 \
 			and int(counts.get("canvas_world", 0)) == 0 \
@@ -488,30 +488,127 @@ func _run() -> void:
 		main.castle_room_door_hotspots.size() == 8
 		and main.castle_room_door_hotspot_layer != null
 		and main.castle_room_door_hotspot_layer.visible)
+	var bunny_ids: Array[String] = [
+		"sleepy_bunny", "shell_bunny", "runner_bunny"]
+	var expected_bunny_roles := {
+		"sleepy_bunny": "sleeping_static",
+		"shell_bunny": "shell_static",
+		"runner_bunny": "runner",
+	}
 	var bunny_assets_ok := true
-	for item_id: String in [
-			"sleepy_bunny", "shell_bunny", "hop_bunny", "bunny_family"]:
+	var bunny_start_positions: Dictionary = {}
+	for item_id: String in bunny_ids:
 		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {})
 		var sprite: Sprite3D = record.get("sprite") as Sprite3D
 		bunny_assets_ok = bunny_assets_ok \
 			and sprite != null \
 			and sprite.texture != null \
 			and sprite.texture.resource_path.contains("dust_bunnies/") \
-			and not sprite.shaded
-	_ck("main_hall_lower_lane_interactions", bunny_assets_ok)
+			and not sprite.shaded \
+			and not sprite.no_depth_test \
+			and record.get("hotspot") == null \
+			and String(sprite.get_meta("dust_bunny_role", "")) \
+				== String(expected_bunny_roles[item_id]) \
+			and String(sprite.get_meta("spawn_guide_id", "")) == item_id
+		if sprite != null:
+			bunny_start_positions[item_id] = sprite.position
+	_ck("main_hall_three_depth_card_dust_bunnies", bunny_assets_ok)
+	_ck("main_hall_bunnies_are_proximity_only",
+		main.castle_room_item_hotspot_layer.get_child_count() == 7)
+	var camera_ray_touch_ok := true
+	for item_id: String in bunny_ids:
+		var record: Dictionary = main.castle_room_item_sprites[item_id] \
+			as Dictionary
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var center_screen: Vector2 = main.castle_room_camera.unproject_position(
+			sprite.global_position)
+		var ray_origin: Vector3 = main.castle_room_camera.project_ray_origin(
+			center_screen)
+		var ray_direction: Vector3 = main.castle_room_camera.project_ray_normal(
+			center_screen)
+		var ray_distance: float = (
+			sprite.global_position - ray_origin).dot(ray_direction)
+		var ray_point: Vector3 = ray_origin + ray_direction * ray_distance
+		var mapped_center: Vector2 = rooms._stage_to_hall_art(
+			rooms._screen_to_stage(center_screen))
+		var contact_foot: Vector2 = record.get(
+			"contact_foot", Vector2.ZERO) as Vector2
+		var contact_radius: Vector2 = (record.get("data", {}) as Dictionary).get(
+			"contact_radius", Vector2.ONE) as Vector2
+		var contact_delta: Vector2 = mapped_center - contact_foot
+		var contact_distance: float = (
+			contact_delta.x * contact_delta.x
+				/ (contact_radius.x * contact_radius.x)
+			+ contact_delta.y * contact_delta.y
+				/ (contact_radius.y * contact_radius.y))
+		camera_ray_touch_ok = camera_ray_touch_ok \
+			and ray_point.distance_to(sprite.global_position) <= 0.01 \
+			and contact_distance <= 1.0
+	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok)
 	var elevator_clearance_ok := true
 	var elevator_art_rects: Array[Rect2] = [
 		Rect2(1450.0, 700.0, 200.0, 230.0),
 		Rect2(3122.0, 700.0, 200.0, 230.0),
 	]
-	for item_id: String in [
-			"sleepy_bunny", "shell_bunny", "hop_bunny", "bunny_family"]:
+	for item_id: String in bunny_ids:
 		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {})
 		var art_rect: Rect2 = record.get("art_rect", Rect2())
 		for elevator_rect: Rect2 in elevator_art_rects:
 			elevator_clearance_ok = elevator_clearance_ok \
 				and not art_rect.intersects(elevator_rect)
-	_ck("main_hall_interactions_clear_fixed_elevator", elevator_clearance_ok)
+	_ck("main_hall_dust_bunnies_clear_fixed_elevator", elevator_clearance_ok)
+	rooms.tick(0.5)
+	var sleepy_now: Sprite3D = (
+		main.castle_room_item_sprites["sleepy_bunny"] as Dictionary
+	).get("sprite") as Sprite3D
+	var shell_now: Sprite3D = (
+		main.castle_room_item_sprites["shell_bunny"] as Dictionary
+	).get("sprite") as Sprite3D
+	var runner_now: Sprite3D = (
+		main.castle_room_item_sprites["runner_bunny"] as Dictionary
+	).get("sprite") as Sprite3D
+	var sleepy_start: Vector3 = bunny_start_positions["sleepy_bunny"] as Vector3
+	var shell_start: Vector3 = bunny_start_positions["shell_bunny"] as Vector3
+	var runner_start: Vector3 = bunny_start_positions["runner_bunny"] as Vector3
+	_ck("main_hall_two_static_dust_bunnies",
+		sleepy_now.position == sleepy_start
+		and shell_now.position == shell_start)
+	_ck("main_hall_third_dust_bunny_runs",
+		runner_now.position.distance_to(runner_start) > 0.01)
+	var explosion_effects_before: int = \
+		main.castle_room_item_effect_layer.get_child_count()
+	var one_touch_explosions_ok := true
+	for item_id: String in bunny_ids:
+		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {})
+		var bunny_sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var contact_foot: Vector2 = record.get(
+			"contact_foot", Vector2.ZERO) as Vector2
+		rooms._position_player_at_foot(contact_foot, false)
+		rooms.tick(0.016)
+		one_touch_explosions_ok = one_touch_explosions_ok \
+			and bunny_sprite != null \
+			and bool(bunny_sprite.get_meta("exploding", false)) \
+			and not main.castle_room_item_sprites.has(item_id) \
+			and bool((main.g.get(
+				"castle_dust_bunnies_cleared", {}) as Dictionary).get(
+					item_id, false))
+	_ck("main_hall_one_touch_dust_bunny_explosions",
+		one_touch_explosions_ok \
+		and main.castle_room_item_effect_layer.get_child_count() \
+			>= explosion_effects_before + bunny_ids.size() * 12)
+	var cleared_count_before_repeat: int = (
+		main.g.get("castle_dust_bunnies_cleared", {}) as Dictionary).size()
+	for item_id: String in bunny_ids:
+		rooms._explode_dust_bunny(item_id)
+	_ck("main_hall_dust_bunny_explosions_exactly_once",
+		(main.g.get("castle_dust_bunnies_cleared", {}) as Dictionary).size()
+			== cleared_count_before_repeat
+		and cleared_count_before_repeat == 3)
+	rooms.show_room("library", false)
+	rooms.show_room("main_hall", false)
+	_ck("main_hall_dust_bunnies_do_not_respawn_this_visit",
+		main.castle_room_item_sprites.size() == 7
+		and main.castle_room_item_hotspot_layer.get_child_count() == 7)
 	rooms._position_player_at_foot(Vector2(2500.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)

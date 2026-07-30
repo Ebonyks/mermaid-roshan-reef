@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build authorized 2K Pearl Castle room masters and seam-safe runtime tiles.
+"""Reproduce the historical 2K-long-edge Pearl Castle derived plates.
 
-The owner explicitly authorized deterministic upscaling for the seven legacy
-1024x576 room plates on 2026-07-29. Originals remain untouched. Each clean
-background is enlarged exactly 2x with Lanczos, then split without scaling
-into four 1024x576 runtime tiles. Reconstruction is required to be pixel exact
-to the derived 2048x1152 master.
+The owner authorized deterministic upscaling for the seven legacy 1024x576
+room plates on 2026-07-29. Originals remain untouched and reconstruction is
+pixel exact. These 2048x1152 outputs are now provisional reference runtime
+plates: they do not meet the superseding native 2048x2048 coverage requirement
+for each playable screen.
 """
 
 from __future__ import annotations
@@ -189,8 +189,14 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		"architectural_bridge",
 	]
 	contract = manifest["owner_native_environment_contract"]
+	contract.pop("required_minimum_long_edge", None)
 	contract.update({
-		"status": "compliant",
+		"status": "provisional_reference_only_pending_native_2048x2048_per_screen",
+		"required_native_pixels_per_playable_screen": [2048, 2048],
+		"coverage_measurement": "each playable screen independently",
+		"logical_stage_coordinates_are_resolution": False,
+		"current_runtime_status": (
+			"provisional reference runtime; spawn/navigation geometry remains usable"),
 		"upscale_authorized": True,
 		"upscale_authorization_date": "2026-07-29",
 		"upscale_method": "deterministic 2x Lanczos; no crop or padding",
@@ -200,8 +206,10 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 	for record in records:
 		room = manifest["rooms"][record["room_id"]]
 		room.update({
-			"active_background_system": "2x2 Sprite3D tile grid",
-			"native_master_compliant": True,
+			"active_background_system": "provisional 2x2 Sprite3D tile grid",
+			"native_master_compliant": False,
+			"resolution_status": (
+				"pending native 2048x2048 coverage per playable screen"),
 			"master_dimensions": record["master_dimensions"],
 			"master_aspect_ratio": record["master_ratio"],
 			"aspect_ratio_delta": record["ratio_delta"],
@@ -217,8 +225,10 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 
 	main_hall = manifest["rooms"]["main_hall"]
 	main_hall.update({
-		"active_background_system": "two native >=2K masters / 2x4 Sprite3D grid",
-		"native_master_compliant": True,
+		"active_background_system": "provisional two-screen 2x4 Sprite3D grid",
+		"native_master_compliant": False,
+		"resolution_status": (
+			"pending native 2048x2048 coverage per playable screen"),
 		"master_dimensions": [2048, 1153],
 		"master_aspect_ratio": 2048 / 1153,
 		"aspect_ratio_delta": abs((2048 / 1153) - (1672 / 941)),
@@ -242,7 +252,7 @@ def main() -> None:
 	write_contact(records)
 	report = {
 		"schema": 1,
-		"purpose": "authorized 2K castle-room background derivation",
+		"purpose": "historical 2K-long-edge derivation; provisional under per-screen 2048x2048 contract",
 		"originals_preserved": True,
 		"new_art_generated": False,
 		"source_dimensions": list(SOURCE_SIZE),
@@ -265,8 +275,9 @@ def main() -> None:
 		encoding="utf-8")
 	update_depth_manifest(records)
 	print(
-		"OK: 7 preserved room plates -> 7 2048x1152 masters -> "
-		"28 exact 1024x576 runtime tiles")
+		"OK (PROVISIONAL): 7 preserved room plates -> 7 2048x1152 "
+		"reference masters -> 28 exact 1024x576 runtime tiles; native "
+		"2048x2048 coverage per screen remains pending")
 
 
 if __name__ == "__main__":

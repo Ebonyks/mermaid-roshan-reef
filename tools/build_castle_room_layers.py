@@ -315,7 +315,9 @@ def main() -> None:
 	manifest: dict[str, object] = {
 		"schema": 1,
 		"owner_native_environment_contract": {
-			"required_minimum_long_edge": 2048,
+			"required_native_pixels_per_playable_screen": [2048, 2048],
+			"coverage_measurement": "each playable screen independently",
+			"logical_stage_coordinates_are_resolution": False,
 			"required_reference_aspect_ratio": [16, 9],
 			"ratio_rounding_tolerance_pixels": 1.0,
 			"master_power_of_two_required": False,
@@ -433,7 +435,8 @@ def main() -> None:
 			abs(image.height - image.width / reference_aspect),
 			abs(image.width - image.height * reference_aspect))
 		native_master_compliant: bool = (
-			max(image.size) >= 2048
+			image.width >= 2048
+			and image.height >= 2048
 			and ratio_pixel_delta <= 1.0)
 		manifest["rooms"][room_id] = {
 			"source": source_path.name,
@@ -446,6 +449,9 @@ def main() -> None:
 				abs(source_aspect - reference_aspect), 12),
 			"aspect_ratio_pixel_delta": round(ratio_pixel_delta, 6),
 			"native_master_compliant": native_master_compliant,
+			"resolution_status": (
+				"compliant" if native_master_compliant
+				else "pending native 2048x2048 coverage per playable screen"),
 			"runtime_tiles": [],
 			"source_sha256": _sha256(source_path),
 			"background_sha256": _sha256(background_path),
