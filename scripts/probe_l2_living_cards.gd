@@ -142,6 +142,7 @@ func _run() -> void:
 	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
 	var cards: Array = main.g.get("lagoon_ambient_cards", [])
 	var smoke_count: int = 0
+	var smoke_sockets: Dictionary = {}
 	var living_contract_ok: bool = true
 	var smoke_placement_ok: bool = true
 	var grounded_contract_ok: bool = true
@@ -166,12 +167,25 @@ func _run() -> void:
 				and card.get_meta("contact_shadow") is Sprite3D
 		if card != null and String(card.get_meta("ambient_kind", "")) == "smoke":
 			smoke_count += 1
+			var matched_socket: int = -1
+			for socket_index: int in range(
+					SkyLagoonPromenade.CABIN_SMOKE_ANCHORS.size()):
+				if base.distance_to(
+						SkyLagoonPromenade.CABIN_SMOKE_ANCHORS[socket_index]) < 0.01:
+					matched_socket = socket_index
+					break
+			if matched_socket >= 0:
+				smoke_sockets[matched_socket] = true
 			smoke_placement_ok = smoke_placement_ok \
-				and base.distance_to(SkyLagoonPromenade.SMOKE_ANCHOR) < 0.01 \
+				and matched_socket >= 0 \
 				and base.y > SkyLagoonPromenade.BAND_Y + SkyLagoonPromenade.BAND_H
 	_check("living_card_contract", living_contract_ok, "cards=%d" % cards.size())
-	_check("single_smoke_column", smoke_count == 3, "wisps=%d" % smoke_count)
-	_check("smoke_above_real_chimney_and_walk_band", smoke_placement_ok)
+	_check("one_wisp_per_cabin_chimney",
+		smoke_count == 3 and smoke_sockets.size() == 3,
+		"wisps=%d sockets=%s" % [smoke_count, str(smoke_sockets.keys())])
+	_check("smoke_above_three_chimneys_and_walk_band", smoke_placement_ok)
+	_check("chimneys_remain_baked_into_approved_mural",
+		not main.g.has("lagoon_center_chimney_card"))
 	_check("grounded_cards_have_contact_shadows", grounded_contract_ok)
 	var quiet_budget_ok: bool = true
 	var quiet_detail: Array[String] = []
@@ -180,12 +194,12 @@ func _run() -> void:
 		quiet_budget_ok = quiet_budget_ok and loop_count <= 3
 		quiet_detail.append("s%d=%d" % [screen_index + 1, loop_count])
 	_check("quiet_loop_budget", quiet_budget_ok, ",".join(quiet_detail))
+	var phase_anchor: Vector3 = SkyLagoonPromenade.CABIN_SMOKE_ANCHORS[0]
 	_check("deterministic_phase",
 		is_equal_approx(
-			promenade._phase_token(SkyLagoonPromenade.SMOKE_ANCHOR),
+			promenade._phase_token(phase_anchor),
 			wrapf(
-				SkyLagoonPromenade.SMOKE_ANCHOR.x * 0.73
-				+ SkyLagoonPromenade.SMOKE_ANCHOR.z * 1.31,
+				phase_anchor.x * 0.73 + phase_anchor.z * 1.31,
 				0.0, TAU)))
 	_check("deterministic_gust_envelope",
 		is_equal_approx(promenade._wind_gust_at(0.0), 1.0)
@@ -217,7 +231,7 @@ func _run() -> void:
 	await _capture("final_screen_2_playground")
 	main.g["lagoon_castle_armed"] = false
 	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x + SkyLagoonPromenade.SMOKE_ANCHOR.x
+	main.player.position.x = main.LEVEL2_POS.x + phase_anchor.x
 	await _frames(30)
 	await _capture("attempt_04_cabin_smoke_wisp_day")
 	await _capture("final_screen_3_castle_smoke")
@@ -244,10 +258,12 @@ func _run() -> void:
 			"mural_reference_x", slide.position.x))
 		var reference_camera_x: float = float(slide.get_meta(
 			"mural_reference_camera_x", 0.0))
+		var socket_lock: float = float(slide.get_meta(
+			"mural_socket_lock", 0.0))
 		var expected_x: float = reference_x \
 			+ (camera_x - reference_camera_x) \
 			* (1.0 - card_distance / backdrop_distance) \
-			* SkyLagoonPromenade.MURAL_SOCKET_LOCK
+			* socket_lock
 		var anchor_delta: float = absf(slide.position.x - expected_x)
 		mural_anchor_ok = mural_anchor_ok and anchor_delta < 0.0001
 		mural_anchor_detail.append("%.0f:%.6f" % [player_x, anchor_delta])
@@ -287,7 +303,7 @@ func _run() -> void:
 	_hide_interface()
 	main.g["lagoon_castle_armed"] = false
 	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x + SkyLagoonPromenade.SMOKE_ANCHOR.x
+	main.player.position.x = main.LEVEL2_POS.x + phase_anchor.x
 	main.g["ss_walk_goal"] = null
 	await _frames(30)
 	var night_cards: Array = main.g.get("lagoon_ambient_cards", [])
@@ -327,13 +343,15 @@ func _run() -> void:
 		and not main.g.has("lagoon_ambient_cards")
 		and not main.g.has("lagoon_ambient_t")
 		and not main.g.has("lagoon_wind_gust")
-		and not main.g.has("lagoon_wind_distance"))
+		and not main.g.has("lagoon_wind_distance")
+		and not main.g.has("lagoon_mural_socket_cards"))
 	main.is_night = false
 	main._enter_level2_now(true, false, false)
 	await _frames(20)
 	_check("lifecycle_rebuild",
 		(main.g.get("lagoon_ambient_cards", []) as Array).size() == 5
-		and main.g.has("lagoon_wind_distance"))
+		and main.g.has("lagoon_wind_distance")
+		and not main.g.has("lagoon_center_chimney_card"))
 
 	if failures == 0:
 		print("LIVINGCARD|ALL|OK")
