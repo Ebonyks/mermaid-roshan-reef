@@ -4,6 +4,7 @@ extends RefCounted
 # transparent Codex sprites do the visual work; the real Roshan rig walks in
 # one shallow band in front of them. All mutable state remains on ReefMain.
 
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const HALF_W := 72.0
 const HALF_D := 2.6
 const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
@@ -217,9 +218,10 @@ func tick(delta: float) -> void:
 		return
 	_tick_hold_travel(delta)
 	var old_x: float = m.player.position.x
-	stage.walk_tick(delta)
+	var walk_result: Dictionary = stage.walk_tick(delta)
 	_sync_target_mural_anchors()
-	_sync_roshan_card(m.player.position.x - old_x)
+	_sync_roshan_card(
+		m.player.position.x - old_x, bool(walk_result.get("moved", false)))
 	_tick_ambient_life(delta)
 	_tick_doorstep()
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
@@ -329,15 +331,21 @@ func _build_castle_screen() -> void:
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		"res://assets/characters/roshan_25d/roshan_base.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
 	card.name = "SkyLagoonRoshan"
+	card.set_meta("walking", false)
+	var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+	animator.name = "AlwaysAliveSpriteLoop"
+	card.add_child(animator)
+	animator.setup_sprite_3d(card, false, card, 2)
 	m.g["lagoon_roshan_card"] = card
+	m.g["lagoon_roshan_animator"] = animator
 	m.g["lagoon_roshan_idle_texture"] = card.texture
 	m.g["lagoon_roshan_idle_pixel_size"] = card.pixel_size
 	m.player.visible = false
 
-func _sync_roshan_card(delta_x: float = 0.0) -> void:
+func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
 	var root_node: Node3D = stage.root()
 	if card == null or not is_instance_valid(card) or root_node == null:
@@ -345,8 +353,14 @@ func _sync_roshan_card(delta_x: float = 0.0) -> void:
 	var local_player: Vector3 = m.player.position - root_node.position
 	card.position = Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
 	_sync_contact_shadow(card)
-	if absf(delta_x) > 0.01:
+	var is_moving: bool = moving or absf(delta_x) > 0.01
+	card.set_meta("walking", is_moving)
+	if is_moving:
 		card.flip_h = delta_x < 0.0
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_moving(is_moving)
 
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
@@ -802,8 +816,16 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 		"frames": frames,
 		"frame_index": -1,
 	}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(true)
 	card.visible = true
 	card.flip_h = false
+	card.hframes = 1
+	card.vframes = 1
+	card.frame = 0
+	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0
 	card.scale = Vector3.ONE
@@ -952,12 +974,16 @@ func _finish_playground_animation() -> void:
 	if equipment != null and is_instance_valid(equipment):
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
 	m.g["lagoon_play_anim"] = {}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
 	if card != null and is_instance_valid(card):
-		card.texture = m.g.get("lagoon_roshan_idle_texture") as Texture2D
 		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
 		card.rotation.z = 0.0
 		card.scale = Vector3.ONE
 		card.flip_h = false
+		card.set_meta("walking", false)
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(false)
 	_sync_roshan_card()
 	m.player.play_verb("giggle")
 

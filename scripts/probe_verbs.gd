@@ -88,8 +88,8 @@ func _init() -> void:
 		for i in range(5):
 			await process_frame
 	# With controls suspended by an overlay, Roshan must still visibly breathe
-	# and advance her idle atlas. This exercises the early-return path that used
-	# to freeze on one directional card.
+	# and advance her breathing root. This exercises the early-return path that
+	# used to freeze the entire visible character.
 	pl.verb = ""
 	pl.verb_t = 0.0
 	pl.vel = Vector3.ZERO
@@ -97,16 +97,23 @@ func _init() -> void:
 	pl.land_dry = false
 	pl.classic_toy_pose_until_msec = 0
 	main.intro_active = true
-	var suspended_idle_frames: Dictionary = {}
+	var suspended_idle_min_y := INF
+	var suspended_idle_max_y := -INF
+	var suspended_idle_directional := true
 	var suspended_deadline: int = Time.get_ticks_msec() + 1400
 	while Time.get_ticks_msec() < suspended_deadline:
-		if String(pl.classic_sprite_sheet) in ["swim_front", "swim_back"]:
-			suspended_idle_frames[int(pl.classic_sprite.frame)] = true
+		suspended_idle_directional = suspended_idle_directional \
+			and String(pl.classic_sprite_sheet) == "directional"
+		var life_y: float = pl.classic_motion_root.position.y
+		suspended_idle_min_y = minf(suspended_idle_min_y, life_y)
+		suspended_idle_max_y = maxf(suspended_idle_max_y, life_y)
 		await process_frame
 	main.intro_active = false
-	if suspended_idle_frames.size() < 3:
-		print("FAIL: suspended gameplay froze Roshan's idle loop: ",
-			suspended_idle_frames)
+	if not suspended_idle_directional \
+			or suspended_idle_max_y - suspended_idle_min_y < 0.04:
+		print("FAIL: suspended gameplay froze Roshan's living idle: ",
+			suspended_idle_min_y, "..", suspended_idle_max_y,
+			" sheet=", pl.classic_sprite_sheet)
 	# A dry-land stop is a four-frame seated idle rather than a static view.
 	pl.land_blend = 1.0
 	pl.land_dry = true
@@ -128,13 +135,18 @@ func _init() -> void:
 	var cutaway_loop := ROSHAN_SPRITE_LOOP.new()
 	cutaway_sprite.add_child(cutaway_loop)
 	cutaway_loop.setup_sprite_3d(cutaway_sprite)
-	var cutaway_frames: Dictionary = {}
+	var cutaway_min_y := INF
+	var cutaway_max_y := -INF
 	var cutaway_deadline: int = Time.get_ticks_msec() + 1100
 	while Time.get_ticks_msec() < cutaway_deadline:
-		cutaway_frames[int(cutaway_sprite.frame)] = true
+		cutaway_min_y = minf(cutaway_min_y, cutaway_sprite.offset.y)
+		cutaway_max_y = maxf(cutaway_max_y, cutaway_sprite.offset.y)
 		await process_frame
-	if cutaway_frames.size() < 3:
-		print("FAIL: cutaway Roshan loop froze: ", cutaway_frames)
+	if cutaway_loop.animation_state() != "idle" \
+			or cutaway_max_y - cutaway_min_y < 0.5:
+		print("FAIL: cutaway Roshan living idle froze: ",
+			cutaway_min_y, "..", cutaway_max_y,
+			" state=", cutaway_loop.animation_state())
 	cutaway_sprite.queue_free()
 	# Force each chronological phase through both runtime swim-view branches.
 	pl.verb = ""
