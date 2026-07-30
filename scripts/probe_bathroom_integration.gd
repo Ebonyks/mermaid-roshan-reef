@@ -64,7 +64,8 @@ func _run() -> void:
 		and main.arena_zones.is_empty())
 	_ck("three separate touch props",
 		main.castle_room_item_sprites.size() == 3
-		and main.castle_room_item_hotspot_layer.get_child_count() == 3)
+		and main.castle_room_reaction_hotspots.size() == 2
+		and main.castle_room_item_hotspot_layer.get_child_count() == 5)
 
 	var props_ok := true
 	var depth_ok := true

@@ -128,6 +128,10 @@ func _run() -> void:
 	var all_depth_ok := true
 	var all_touch_animation_ok := true
 	var all_touch_audio_ok := true
+	var all_ambient_life_ok := true
+	var all_reaction_zones_ok := true
+	var all_hotspot_sizes_ok := true
+	var all_repeat_taps_ok := true
 	var approved_composite_backdrops_ok := true
 	var all_detail_tile_grids_ok := true
 	var all_room_object_bounds_ok := true
@@ -167,6 +171,42 @@ func _run() -> void:
 			and int(counts.get("shaded", 0)) \
 				== (11 if hall_mode else 8) \
 			and int(counts.get("missing_texture", 0)) == 0
+		var expected_reaction_count := 0 if hall_mode else 2
+		all_reaction_zones_ok = all_reaction_zones_ok \
+			and main.castle_room_reaction_hotspots.size() \
+				>= expected_reaction_count
+		for hotspot_node: Node in \
+				main.castle_room_item_hotspot_layer.get_children():
+			var hotspot := hotspot_node as Button
+			if hotspot != null:
+				all_hotspot_sizes_ok = all_hotspot_sizes_ok \
+					and hotspot.size.x >= 112.0 \
+					and hotspot.size.y >= 112.0
+		var ambient_card: Sprite3D = null
+		if not main.castle_room_ambient_cards.is_empty():
+			ambient_card = main.castle_room_ambient_cards[0]
+		var ambient_start_position := Vector3.ZERO
+		var ambient_start_scale := Vector3.ZERO
+		var ambient_start_rotation := 0.0
+		var ambient_start_modulate := Color.WHITE
+		if ambient_card != null:
+			ambient_start_position = ambient_card.position
+			ambient_start_scale = ambient_card.scale
+			ambient_start_rotation = ambient_card.rotation.z
+			ambient_start_modulate = ambient_card.modulate
+			rooms._tick_castle_ambient(0.47)
+		all_ambient_life_ok = all_ambient_life_ok \
+			and ambient_card != null \
+			and rooms._active_ambient_count() >= (3 if hall_mode else 2) \
+			and (
+				ambient_card.position.distance_to(
+					ambient_start_position) > 0.00001
+				or ambient_card.scale.distance_to(
+					ambient_start_scale) > 0.00001
+				or absf(ambient_card.rotation.z
+					- ambient_start_rotation) > 0.00001
+				or ambient_card.modulate != ambient_start_modulate
+			)
 		var depths: Dictionary = {}
 		if hall_mode:
 			depths[snappedf(
@@ -210,6 +250,14 @@ func _run() -> void:
 				all_room_object_bounds_ok = all_room_object_bounds_ok \
 					and canvas_rect.encloses(art_rect)
 		await _capture(room_id)
+		if not hall_mode:
+			var effects_before: int = \
+				main.castle_room_item_effect_layer.get_child_count()
+			main.castle_room_reaction_hotspots[0].emit_signal("pressed")
+			all_reaction_zones_ok = all_reaction_zones_ok \
+				and main.castle_room_item_effect_layer.get_child_count() \
+					> effects_before \
+				and main.castle_room_prop_sfx.stream != null
 		var item_keys: Array = main.castle_room_item_sprites.keys()
 		var first_item_id: String = String(item_keys[0])
 		var first_record: Dictionary = main.castle_room_item_sprites[
@@ -219,6 +267,9 @@ func _run() -> void:
 		var start_scale: Vector3 = first_sprite.scale
 		var start_rotation: float = first_sprite.rotation.z
 		rooms._activate_room_item(first_item_id)
+		rooms._activate_room_item(first_item_id)
+		all_repeat_taps_ok = all_repeat_taps_ok \
+			and int(first_sprite.get_meta("tap_combo", 0)) >= 1
 		await _frames(3)
 		all_touch_animation_ok = all_touch_animation_ok \
 			and bool(first_sprite.get_meta("busy", false)) \
@@ -239,8 +290,55 @@ func _run() -> void:
 		all_room_object_bounds_ok)
 	_ck("all_rooms_touch_animation_live", all_touch_animation_ok)
 	_ck("all_rooms_touch_audio_live", all_touch_audio_ok)
+	_ck("all_rooms_ambient_life_live", all_ambient_life_ok)
+	_ck("destination_rooms_expand_painted_scene_reactions",
+		all_reaction_zones_ok)
+	_ck("all_castle_hotspots_keep_toddler_minimum", all_hotspot_sizes_ok)
+	_ck("rapid_repeat_taps_receive_feedback", all_repeat_taps_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 26,
 		"maximum visible cards=%d" % max_visible_world_cards)
+
+	rooms.show_room("mermaid_pool", false)
+	var ambient_quality_before: String = main.quality
+	main.quality = "sparkly"
+	var full_ambient_count: int = rooms._active_ambient_count()
+	main.quality = "speedy"
+	var speedy_ambient_count: int = rooms._active_ambient_count()
+	_ck("speedy_halves_castle_ambient_work",
+		speedy_ambient_count <= ceili(float(full_ambient_count) * 0.5),
+		"full=%d speedy=%d" % [
+			full_ambient_count, speedy_ambient_count])
+	var burst_center := Vector3(0.0, 0.0, 4.35)
+	rooms._item_burst(burst_center, Color.WHITE, 99)
+	_ck("castle_effect_pool_stays_bounded",
+		main.castle_room_item_effect_layer.get_child_count()
+			<= rooms._effect_card_limit(),
+		"effects=%d limit=%d" % [
+			main.castle_room_item_effect_layer.get_child_count(),
+			rooms._effect_card_limit()])
+	main.quality = ambient_quality_before
+	rooms.show_room("library", false)
+	var library_energy_on: float = main.castle_room_environment \
+		.ambient_light_energy
+	rooms._activate_room_item("pearl_lamp")
+	await _frames(3)
+	rooms._sync_hall_lighting()
+	_ck("library_pearl_lamp_is_real_cozy_light",
+		not bool(main.castle_room_light_states.get(
+			"library:pearl_lamp", true))
+		and main.castle_room_environment.ambient_light_energy
+			< library_energy_on)
+	var wordless_moments_ok := true
+	for moment_room: String in [
+			"kitchen", "library", "mermaid_pool", "bubble_bath"]:
+		rooms.show_room(moment_room, false)
+		rooms.activate_current_room()
+		await _frames(2)
+		wordless_moments_ok = wordless_moments_ok \
+			and main.castle_room_moment_busy \
+			and main.castle_room_action_button.disabled
+	_ck("text_only_room_actions_replaced_with_wordless_moments",
+		wordless_moments_ok)
 
 	rooms.show_room("main_hall", false)
 	var castle_environment: Environment = main.castle_room_environment

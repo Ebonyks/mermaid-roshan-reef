@@ -250,10 +250,15 @@ func _init() -> void:
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
 			var expected_items: int = 11 if hall_mode else 3
+			var expected_reactions: int = (
+				CastleRooms25D.ROOM_REACTION_ZONES.get(room_id, []) as Array
+				).size()
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
+				and main.castle_room_reaction_hotspots.size() \
+					== expected_reactions \
 				and main.castle_room_item_hotspot_layer.get_child_count() \
-					== expected_items
+					== expected_items + expected_reactions
 			var item_depths: Dictionary = {}
 			for item_id_value: Variant in main.castle_room_item_sprites:
 				var item_record: Dictionary = main.castle_room_item_sprites[
@@ -348,8 +353,9 @@ func _init() -> void:
 		if toilet_button != null:
 			toilet_button.emit_signal("pressed")
 		await process_frame
-		_ck("toilet_busy_guard",
-			main.castle_room_item_effect_layer.get_child_count() == effect_count)
+		_ck("toilet_repeat_tap_feedback",
+			main.castle_room_item_effect_layer.get_child_count() > effect_count
+			and int(toilet_sprite.get_meta("tap_combo", 0)) >= 1)
 		_ck("decorations_do_not_award",
 			not bool(main.g.get("crown_won", false)))
 		rooms.show_room("library", false)

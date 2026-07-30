@@ -51,6 +51,12 @@ const HALL_BLOOM_FULL := 0.24
 const HALL_BLOOM_SPEEDY := 0.11
 const HALL_GLOW_OFF := 0.24
 const HALL_BLOOM_OFF := 0.015
+const AMBIENT_CARD_LIMIT_FULL := 6
+const AMBIENT_CARD_LIMIT_SPEEDY := 3
+const INVITATION_INTERVAL_FULL := 7.0
+const INVITATION_INTERVAL_SPEEDY := 9.0
+const EFFECT_CARD_LIMIT_FULL := 18
+const EFFECT_CARD_LIMIT_SPEEDY := 10
 const HALL_TILE_FILES: Array[String] = [
 	"runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
 	"runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
@@ -122,6 +128,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"tex_path": HALL_ART_ROOT + "castle_royal_tapestry_reuse.png",
 		"scale": 0.72, "anim": "sway", "sound": "chime.ogg", "pitch": 1.55,
 		"hotspot_size": Vector2(105.0, 190.0),
+		"idle": {"kind": "sway", "speed": 0.78, "amp": 0.6},
 		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
 		"pos": Vector2(260.0, 215.0), "z": LIGHT_FIXTURE_Z,
@@ -163,21 +170,25 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"pos": Vector2(140.0, 800.0), "z": 2.65,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
 		"scale": 0.34, "anim": "hover", "sound": "purr.wav", "pitch": 1.8,
+		"idle": {"kind": "breath", "speed": 0.82, "amp": 0.025},
 		"symbol": "*", "color": Color(0.86, 0.72, 1.0)},
 	{"id": "shell_bunny", "name": "Shell-hide dust bunny",
 		"pos": Vector2(1060.0, 805.0), "z": 3.45,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
 		"scale": 0.32, "anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.45,
+		"idle": {"kind": "bob", "speed": 0.92, "amp": 2.0},
 		"symbol": "*", "color": Color(0.60, 0.92, 1.0)},
 	{"id": "hop_bunny", "name": "Hopping dust bunny",
 		"pos": Vector2(1845.0, 805.0), "z": 2.85,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.32, "anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.7,
+		"idle": {"kind": "bob", "speed": 1.08, "amp": 3.0},
 		"symbol": "*", "color": Color(1.0, 0.75, 0.86)},
 	{"id": "bunny_family", "name": "Dust bunny family",
 		"pos": Vector2(2925.0, 810.0), "z": 3.55,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
 		"scale": 0.34, "anim": "pulse", "sound": "penguin_giggle.ogg", "pitch": 1.55,
+		"idle": {"kind": "sway", "speed": 0.70, "amp": 0.5},
 		"symbol": "*", "color": Color(1.0, 0.84, 0.50)},
 ]
 const ROOMS: Array[Dictionary] = [
@@ -274,124 +285,224 @@ const ROOM_LAYOUTS := {
 	},
 }
 const ROOM_ITEMS := {
-	"main_hall": [
-		{"id": "throne", "name": "Royal throne", "pos": Vector2(430, 150),
-			"z": 0.55,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 1.25,
-			"symbol": "✦", "color": Color(1.0, 0.82, 0.32)},
-		{"id": "fountain_left", "name": "Left fountain", "pos": Vector2(88, 371),
-			"z": 4.15,
-			"tex": "room_main_hall_item_fountain_left_v2.png",
-			"hotspot_offset": Vector2(18, 8),
-			"hotspot_size": Vector2(220, 180),
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 1.8,
-			"symbol": "○", "color": Color(0.50, 0.91, 1.0)},
-		{"id": "fountain_right", "name": "Right fountain", "pos": Vector2(722, 371),
-			"z": 4.15,
-			"tex": "room_main_hall_item_fountain_right_v2.png",
-			"hotspot_offset": Vector2(18, 8),
-			"hotspot_size": Vector2(220, 180),
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.0,
-			"symbol": "○", "color": Color(0.50, 0.91, 1.0)},
-	],
 	"opera_hall": [
 		{"id": "curtains", "name": "Stage curtains", "pos": Vector2(414, 100),
 			"z": 0.65,
 			"anim": "sway", "sound": "purr.wav", "pitch": 1.4,
+			"idle": {"kind": "sway", "speed": 0.68, "amp": 0.35},
 			"symbol": "♪", "color": Color(1.0, 0.67, 0.78)},
 		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 0),
 			"z": 1.10,
 			"anim": "sway", "sound": "chime.ogg", "pitch": 1.7,
+			"idle": {"kind": "sway", "speed": 1.05, "amp": 1.2},
 			"symbol": "✦", "color": Color(1.0, 0.90, 0.44)},
 		{"id": "stage_star", "name": "Stage star", "pos": Vector2(463, 286),
 			"z": 0.75,
 			"anim": "pulse", "sound": "chime.ogg", "pitch": 2.1,
+			"idle": {"kind": "shimmer", "speed": 1.15, "amp": 0.06},
 			"symbol": "★", "color": Color(1.0, 0.82, 0.30)},
 	],
 	"kitchen": [
 		{"id": "sink", "name": "Shell sink", "pos": Vector2(0, 114),
 			"z": 0.75,
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.2,
+			"idle": {"kind": "shimmer", "speed": 0.78, "amp": 0.035},
 			"symbol": "○", "color": Color(0.45, 0.90, 1.0)},
 		{"id": "soup_pot", "name": "Bubbling soup", "pos": Vector2(294, 143),
 			"z": 1.35,
 			"anim": "bounce", "sound": "buzz.ogg", "pitch": 1.65,
+			"idle": {"kind": "breath", "speed": 2.2, "amp": 0.020},
 			"symbol": "●", "color": Color(1.0, 0.58, 0.30)},
 		{"id": "teapot", "name": "Royal teapot", "pos": Vector2(780, 165),
 			"z": 1.10,
 			"anim": "wiggle", "sound": "chime.ogg", "pitch": 1.55,
+			"idle": {"kind": "sway", "speed": 0.82, "amp": 0.8},
 			"symbol": "○", "color": Color(0.61, 0.91, 0.90)},
 	],
 	"library": [
 		{"id": "magic_book", "name": "Magic storybook", "pos": Vector2(445, 145),
 			"z": 0.80,
 			"anim": "hover", "sound": "chime.ogg", "pitch": 1.8,
+			"idle": {"kind": "bob", "speed": 0.76, "amp": 2.5},
 			"symbol": "✦", "color": Color(0.81, 0.66, 1.0)},
 		{"id": "pearl_table", "name": "Reading pearl", "pos": Vector2(392, 315),
 			"z": MIDGROUND_Z,
 			"anim": "pulse", "sound": "purr.wav", "pitch": 1.6,
+			"idle": {"kind": "breath", "speed": 0.70, "amp": 0.020},
 			"symbol": "○", "color": Color(1.0, 0.91, 0.62)},
 		{"id": "pearl_lamp", "name": "Pearl lamp", "pos": Vector2(0, 225),
 			"z": 0.65,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 2.0,
+			"anim": "light", "sound": "chime.ogg", "pitch": 2.0,
+			"room_light": true,
+			"idle": {"kind": "breath", "speed": 0.90, "amp": 0.025},
 			"symbol": "✦", "color": Color(1.0, 0.88, 0.48)},
 	],
 	"playroom": [
 		{"id": "stuffie_nook", "name": "Stuffie friends", "pos": Vector2(380, 140),
 			"z": 0.75,
 			"anim": "bounce", "sound": "penguin_giggle.ogg", "pitch": 1.35,
+			"idle": {"kind": "breath", "speed": 0.72, "amp": 0.020},
 			"symbol": "♡", "color": Color(1.0, 0.58, 0.74)},
 		{"id": "stacking_toy", "name": "Stacking toy", "pos": Vector2(218, 284),
 			"z": MIDGROUND_Z,
 			"anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.25,
+			"idle": {"kind": "sway", "speed": 0.80, "amp": 0.55},
 			"symbol": "★", "color": Color(1.0, 0.79, 0.30)},
 		{"id": "blocks", "name": "Toy blocks", "pos": Vector2(626, 320),
 			"z": MIDGROUND_Z,
 			"anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.55,
+			"idle": {"kind": "breath", "speed": 0.64, "amp": 0.015},
 			"symbol": "✦", "color": Color(0.54, 0.91, 0.78)},
 	],
 	"craft_room": [
 		{"id": "idea_board", "name": "Idea board", "pos": Vector2(377, 103),
 			"z": 0.70,
 			"anim": "pulse", "sound": "chime.ogg", "pitch": 1.7,
+			"idle": {"kind": "sway", "speed": 0.74, "amp": 0.35},
 			"symbol": "✦", "color": Color(1.0, 0.78, 0.45)},
 		{"id": "paint_table", "name": "Paint jars", "pos": Vector2(400, 272),
 			"z": MIDGROUND_Z,
 			"anim": "bounce", "sound": "buy.ogg", "pitch": 1.5,
+			"idle": {"kind": "breath", "speed": 0.92, "amp": 0.018},
 			"symbol": "●", "color": Color(0.60, 0.90, 0.82)},
 		{"id": "palette", "name": "Rainbow palette", "pos": Vector2(0, 320),
 			"z": FOREGROUND_Z,
 			"anim": "wiggle", "sound": "buzz.ogg", "pitch": 1.9,
+			"idle": {"kind": "shimmer", "speed": 0.82, "amp": 0.045},
 			"symbol": "●", "color": Color(1.0, 0.55, 0.72)},
 	],
 	"mermaid_pool": [
 		{"id": "waterfall", "name": "Rainbow waterfall", "pos": Vector2(285, 45),
 			"z": 0.65,
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 1.7,
+			"idle": {"kind": "shimmer", "speed": 2.0, "amp": 0.055},
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
 			"z": MIDGROUND_Z,
 			"anim": "spin", "sound": "chime.ogg", "pitch": 2.0,
+			"idle": {"kind": "bob", "speed": 1.0, "amp": 3.0},
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
 		{"id": "bubble_fountain", "name": "Bubble fountain", "pos": Vector2(553, 183),
 			"z": MIDGROUND_Z,
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.25,
+			"idle": {"kind": "breath", "speed": 1.15, "amp": 0.025},
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
 	],
 	"bubble_bath": [
 		{"id": "bathtub", "name": "Bubble bathtub", "pos": Vector2(76, 157),
 			"z": 1.25,
 			"anim": "splash", "sound": "penguin_giggle.ogg", "pitch": 1.3,
+			"idle": {"kind": "shimmer", "speed": 0.88, "amp": 0.040},
 			"symbol": "○", "color": Color(0.64, 0.92, 1.0)},
 		{"id": "sink", "name": "Shell sink", "pos": Vector2(440, 137),
 			"z": 0.80,
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.3,
+			"idle": {"kind": "shimmer", "speed": 0.72, "amp": 0.035},
 			"symbol": "○", "color": Color(0.52, 0.92, 1.0)},
 		{"id": "toilet", "name": "Royal toilet", "pos": Vector2(753, 154),
 			"z": 1.00,
 			"anim": "wiggle", "sound": "fart.ogg", "pitch": 1.15,
+			"idle": {"kind": "sway", "speed": 0.66, "amp": 0.45},
 			"symbol": "○", "color": Color(1.0, 0.72, 0.86)},
 	],
+}
+const ROOM_REACTION_ZONES := {
+	"opera_hall": [
+		{"id": "left_balcony", "name": "Left audience",
+			"rect": Rect2(0, 250, 280, 260),
+			"sound": "purr.wav", "pitch": 1.35,
+			"color": Color(0.72, 0.94, 1.0)},
+		{"id": "right_balcony", "name": "Right audience",
+			"rect": Rect2(1000, 250, 280, 260),
+			"sound": "purr.wav", "pitch": 1.55,
+			"color": Color(1.0, 0.72, 0.88)},
+	],
+	"kitchen": [
+		{"id": "copper_pans", "name": "Musical copper pans",
+			"rect": Rect2(330, 115, 315, 195),
+			"sound": "chime.ogg", "pitch": 1.35,
+			"color": Color(1.0, 0.68, 0.35)},
+		{"id": "spice_shelf", "name": "Colorful spice shelf",
+			"rect": Rect2(650, 80, 240, 170),
+			"sound": "buy.ogg", "pitch": 1.75,
+			"color": Color(0.72, 0.94, 0.72)},
+	],
+	"library": [
+		{"id": "left_books", "name": "Left storybooks",
+			"rect": Rect2(190, 115, 285, 275),
+			"sound": "chime.ogg", "pitch": 1.35,
+			"color": Color(0.60, 0.88, 1.0)},
+		{"id": "right_books", "name": "Right storybooks",
+			"rect": Rect2(805, 115, 285, 275),
+			"sound": "chime.ogg", "pitch": 1.65,
+			"color": Color(1.0, 0.70, 0.86)},
+	],
+	"playroom": [
+		{"id": "play_tent", "name": "Play tent",
+			"rect": Rect2(130, 245, 220, 210),
+			"sound": "penguin_giggle.ogg", "pitch": 1.45,
+			"color": Color(0.86, 0.72, 1.0)},
+		{"id": "sailboat", "name": "Toy sailboat",
+			"rect": Rect2(690, 205, 190, 155),
+			"sound": "hop_boing.ogg", "pitch": 1.7,
+			"color": Color(0.52, 0.91, 1.0)},
+		{"id": "play_tunnel", "name": "Play tunnel",
+			"rect": Rect2(875, 250, 205, 190),
+			"sound": "hop_boing.ogg", "pitch": 1.4,
+			"color": Color(1.0, 0.72, 0.38)},
+	],
+	"craft_room": [
+		{"id": "left_ribbons", "name": "Left rainbow ribbons",
+			"rect": Rect2(325, 90, 170, 220),
+			"sound": "chime.ogg", "pitch": 1.4,
+			"color": Color(0.58, 0.91, 0.88)},
+		{"id": "right_ribbons", "name": "Right rainbow ribbons",
+			"rect": Rect2(785, 90, 170, 220),
+			"sound": "chime.ogg", "pitch": 1.75,
+			"color": Color(1.0, 0.64, 0.82)},
+	],
+	"mermaid_pool": [
+		{"id": "pool_water", "name": "Mermaid pool water",
+			"rect": Rect2(250, 325, 780, 190),
+			"sound": "ui_tap.ogg", "pitch": 2.25,
+			"color": Color(0.48, 0.92, 1.0)},
+		{"id": "vista_window", "name": "Underwater vista",
+			"rect": Rect2(555, 80, 245, 240),
+			"sound": "chime.ogg", "pitch": 1.85,
+			"color": Color(0.55, 0.90, 0.86)},
+	],
+	"bubble_bath": [
+		{"id": "royal_mirror", "name": "Royal mirror",
+			"rect": Rect2(575, 70, 210, 235),
+			"sound": "chime.ogg", "pitch": 2.2,
+			"color": Color(1.0, 0.86, 0.48)},
+		{"id": "potion_shelf", "name": "Bubble potions",
+			"rect": Rect2(330, 90, 210, 220),
+			"sound": "buy.ogg", "pitch": 1.7,
+			"color": Color(0.86, 0.66, 1.0)},
+	],
+}
+const ROOM_MOMENTS := {
+	"kitchen": {
+		"items": ["soup_pot", "teapot", "sink"],
+		"sound": "penguin_giggle.ogg", "pitch": 1.35,
+		"color": Color(1.0, 0.58, 0.30),
+	},
+	"library": {
+		"items": ["magic_book", "pearl_table"],
+		"sound": "chime.ogg", "pitch": 1.85,
+		"color": Color(0.72, 0.62, 1.0),
+	},
+	"pool": {
+		"items": ["waterfall", "flower_float", "bubble_fountain"],
+		"sound": "penguin_giggle.ogg", "pitch": 1.55,
+		"color": Color(0.45, 0.90, 1.0),
+	},
+	"bath": {
+		"items": ["bathtub", "sink", "toilet"],
+		"sound": "penguin_giggle.ogg", "pitch": 1.45,
+		"color": Color(0.66, 0.92, 1.0),
+	},
 }
 
 var m: ReefMain
@@ -461,6 +572,7 @@ func suspend() -> void:
 
 func close() -> void:
 	_restore_previous_environment()
+	_cancel_room_moment()
 	if is_open():
 		m.castle_room_layer.queue_free()
 	if m.castle_room_camera != null:
@@ -486,6 +598,15 @@ func close() -> void:
 	m.castle_room_door_hotspot_layer = null
 	m.castle_room_door_hotspots.clear()
 	m.castle_room_item_sprites.clear()
+	m.castle_room_reaction_hotspots.clear()
+	m.castle_room_ambient_cards.clear()
+	m.castle_room_ambient_time = 0.0
+	m.castle_room_invitation_elapsed = 0.0
+	m.castle_room_invitation_index = 0
+	m.castle_room_moment_busy = false
+	m.castle_room_moment_serial += 1
+	m.castle_room_moment_tween = null
+	m.castle_room_moment_player_tween = null
 	m.castle_room_prop_sfx = null
 	m.castle_room_player_sprite = null
 	m.castle_room_player_shadow = null
@@ -504,6 +625,7 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	_tick_castle_ambient(delta)
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
@@ -842,6 +964,8 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
+	_cancel_room_moment()
+	_reset_castle_ambient()
 	m.castle_room_id = room_id
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
@@ -878,7 +1002,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_update_hall_portals()
 	_sync_hall_lighting()
 	if announce:
-		m._ui_tap()
 		m.show_msg("Pearl Castle", String(room["name"]), "home")
 
 func _room(room_id: String) -> Dictionary:
@@ -895,7 +1018,6 @@ func _update_selected_buttons() -> void:
 			StorybookUI.set_selected(button, room_id == m.castle_room_id)
 
 func _toggle_menu() -> void:
-	m._ui_tap()
 	m.castle_room_menu_open = not m.castle_room_menu_open
 	var elevator_pointer: Label = m.castle_room_stage.get_node_or_null("ElevatorPointer") as Label
 	if elevator_pointer != null:
@@ -1111,12 +1233,47 @@ func _rebuild_touch_items(room_id: String) -> void:
 		for child: Node in m.castle_room_item_effect_layer.get_children():
 			child.free()
 	m.castle_room_item_sprites.clear()
+	m.castle_room_reaction_hotspots.clear()
+	_add_reaction_zones(room_id)
 	var items: Array = HALL_ITEMS if room_id == "main_hall" \
 		else ROOM_ITEMS.get(room_id, [])
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
 	_update_touch_hotspots()
+
+func _add_reaction_zones(room_id: String) -> void:
+	if m.castle_room_item_hotspot_layer == null:
+		return
+	var zones: Array = ROOM_REACTION_ZONES.get(room_id, [])
+	for zone_value: Variant in zones:
+		var zone: Dictionary = zone_value
+		var zone_rect: Rect2 = zone["rect"]
+		var hotspot := Button.new()
+		hotspot.name = "SceneReaction_" + String(zone["id"])
+		hotspot.flat = true
+		hotspot.focus_mode = Control.FOCUS_NONE
+		hotspot.tooltip_text = String(zone["name"])
+		hotspot.position = zone_rect.position
+		hotspot.size = Vector2(
+			maxf(112.0, zone_rect.size.x),
+			maxf(112.0, zone_rect.size.y))
+		hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+		hotspot.set_meta("uses_own_sfx", true)
+		hotspot.set_meta("castle_reaction_zone", true)
+		hotspot.pressed.connect(_activate_reaction_zone.bind(zone))
+		m.castle_room_item_hotspot_layer.add_child(hotspot)
+		m.castle_room_reaction_hotspots.append(hotspot)
+
+func _activate_reaction_zone(zone: Dictionary) -> void:
+	var zone_rect: Rect2 = zone.get("rect", Rect2())
+	if zone_rect.size == Vector2.ZERO:
+		return
+	_play_item_sfx(String(zone.get("sound", "ui_tap.ogg")),
+		float(zone.get("pitch", 1.0)))
+	var color := Color(zone.get("color", StorybookUI.GOLD))
+	var center: Vector3 = _stage_to_world(zone_rect.get_center(), EFFECT_Z)
+	_item_burst(center, color, 6)
 
 func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if m.castle_room_item_visual_layer == null \
@@ -1144,12 +1301,22 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		piece.scale = Vector3.ONE * visual_scale
 	piece.set_meta("source_asset_role", "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
+	piece.set_meta("tap_combo", 0)
+	piece.set_meta("tap_count", 0)
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("light_cluster"):
 		if not m.castle_room_light_states.has(item_id):
 			m.castle_room_light_states[item_id] = true
 		_apply_sconce_visual(piece, bool(m.castle_room_light_states[item_id]))
+	elif bool(item_data.get("room_light", false)):
+		var room_light_id: String = room_id + ":" + item_id
+		if not m.castle_room_light_states.has(room_light_id):
+			m.castle_room_light_states[room_light_id] = true
+		_apply_room_lamp_visual(piece,
+			bool(m.castle_room_light_states[room_light_id]))
 	m.castle_room_item_visual_layer.add_child(piece)
+	if item_data.has("idle"):
+		_register_ambient_card(piece, item_data["idle"] as Dictionary)
 
 	var hotspot := Button.new()
 	hotspot.name = "Touch_" + item_id
@@ -1176,20 +1343,191 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	}
 	_update_touch_hotspot(m.castle_room_item_sprites[item_id])
 
+func _reset_castle_ambient() -> void:
+	for card: Sprite3D in m.castle_room_ambient_cards:
+		if card != null and is_instance_valid(card):
+			_restore_ambient_card(card)
+	m.castle_room_ambient_cards.clear()
+	m.castle_room_ambient_time = 0.0
+	m.castle_room_invitation_elapsed = (
+		INVITATION_INTERVAL_SPEEDY if m.quality == "speedy"
+		else INVITATION_INTERVAL_FULL) - 1.2
+	m.castle_room_invitation_index = 0
+
+func _register_ambient_card(card: Sprite3D, idle: Dictionary) -> void:
+	if card == null or idle.is_empty():
+		return
+	card.set_meta("ambient_kind", String(idle.get("kind", "sway")))
+	card.set_meta("ambient_speed", float(idle.get("speed", 0.7)))
+	card.set_meta("ambient_amplitude", float(idle.get("amp", 0.02)))
+	card.set_meta("ambient_phase", wrapf(
+		card.position.x * 0.73 + card.position.y * 1.31, 0.0, TAU))
+	card.set_meta("ambient_base_position", card.position)
+	card.set_meta("ambient_base_scale", card.scale)
+	card.set_meta("ambient_base_rotation", card.rotation.z)
+	card.set_meta("ambient_base_modulate", card.modulate)
+	m.castle_room_ambient_cards.append(card)
+
+func _restore_ambient_card(card: Sprite3D) -> void:
+	if card == null or not is_instance_valid(card):
+		return
+	card.position = card.get_meta(
+		"ambient_base_position", card.position) as Vector3
+	card.scale = card.get_meta("ambient_base_scale", card.scale) as Vector3
+	card.rotation.z = float(card.get_meta(
+		"ambient_base_rotation", card.rotation.z))
+	card.modulate = card.get_meta(
+		"ambient_base_modulate", card.modulate) as Color
+
+func _ambient_card_limit() -> int:
+	if m.quality != "speedy":
+		return AMBIENT_CARD_LIMIT_FULL
+	var half_count: int = ceili(
+		float(m.castle_room_ambient_cards.size()) * 0.5)
+	return clampi(half_count, 1, AMBIENT_CARD_LIMIT_SPEEDY)
+
+func _effect_card_limit() -> int:
+	return EFFECT_CARD_LIMIT_SPEEDY if m.quality == "speedy" \
+		else EFFECT_CARD_LIMIT_FULL
+
+func _active_ambient_count() -> int:
+	var valid_count := 0
+	for card: Sprite3D in m.castle_room_ambient_cards:
+		if card != null and is_instance_valid(card):
+			valid_count += 1
+	return mini(valid_count, _ambient_card_limit())
+
+func _tick_castle_ambient(delta: float) -> void:
+	if not is_open() or m.castle_room_layer == null \
+			or not m.castle_room_layer.visible:
+		return
+	m.castle_room_ambient_time += delta
+	var active_count := 0
+	var card_limit: int = _ambient_card_limit()
+	for card: Sprite3D in m.castle_room_ambient_cards:
+		if card == null or not is_instance_valid(card):
+			continue
+		if active_count >= card_limit:
+			if not bool(card.get_meta("busy", false)):
+				_restore_ambient_card(card)
+			continue
+		active_count += 1
+		if bool(card.get_meta("busy", false)):
+			continue
+		_restore_ambient_card(card)
+		var phase: float = float(card.get_meta("ambient_phase", 0.0))
+		var speed: float = float(card.get_meta("ambient_speed", 0.7))
+		var wave: float = sin(m.castle_room_ambient_time * speed + phase)
+		var amplitude: float = float(card.get_meta(
+			"ambient_amplitude", 0.02))
+		var kind: String = String(card.get_meta("ambient_kind", "sway"))
+		var base_position: Vector3 = card.get_meta(
+			"ambient_base_position", card.position) as Vector3
+		var base_scale: Vector3 = card.get_meta(
+			"ambient_base_scale", card.scale) as Vector3
+		match kind:
+			"bob":
+				card.position.y = base_position.y \
+					+ wave * _stage_distance_to_world(
+						amplitude, card.position.z)
+			"breath":
+				card.scale = base_scale * (1.0 + wave * amplitude)
+			"shimmer":
+				var base_color: Color = card.get_meta(
+					"ambient_base_modulate", card.modulate) as Color
+				var brightness: float = 1.0 + wave * amplitude
+				card.modulate = Color(
+					base_color.r * brightness,
+					base_color.g * brightness,
+					base_color.b * brightness,
+					base_color.a)
+			_:
+				var base_rotation: float = float(card.get_meta(
+					"ambient_base_rotation", card.rotation.z))
+				card.rotation.z = base_rotation + deg_to_rad(
+					amplitude) * wave
+	_tick_invitation_glints(delta)
+
+func _tick_invitation_glints(delta: float) -> void:
+	if m.castle_room_moment_busy or m.castle_room_item_sprites.is_empty():
+		return
+	m.castle_room_invitation_elapsed += delta
+	var interval: float = INVITATION_INTERVAL_SPEEDY \
+		if m.quality == "speedy" else INVITATION_INTERVAL_FULL
+	if m.castle_room_invitation_elapsed < interval:
+		return
+	m.castle_room_invitation_elapsed = 0.0
+	var item_ids: Array = m.castle_room_item_sprites.keys()
+	if item_ids.is_empty():
+		return
+	var item_id: String = String(item_ids[
+		m.castle_room_invitation_index % item_ids.size()])
+	m.castle_room_invitation_index += 1
+	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	var item_data: Dictionary = record.get("data", {})
+	if sprite == null or bool(sprite.get_meta("busy", false)):
+		return
+	var glint_position: Vector3 = sprite.position + Vector3(
+		0.0, _stage_distance_to_world(38.0, sprite.position.z), 0.0)
+	_spawn_invitation_glint(glint_position,
+		Color(item_data.get("color", StorybookUI.GOLD)))
+
+func _spawn_invitation_glint(center: Vector3, color: Color) -> void:
+	if m.castle_room_item_effect_layer == null \
+			or m.castle_room_item_effect_layer.get_child_count() \
+				>= _effect_card_limit():
+		return
+	var star_texture: Texture2D = load("res://assets/mg/star.png")
+	var glint: Sprite3D = _new_card("InvitationGlint", star_texture)
+	glint.set_meta("source_asset_role", "invitation_effect")
+	glint.pixel_size = _pixel_size_for_depth(EFFECT_Z)
+	glint.scale = Vector3.ONE * 0.018
+	glint.modulate = Color(color.r, color.g, color.b, 0.0)
+	glint.position = Vector3(center.x, center.y, EFFECT_Z)
+	m.castle_room_item_effect_layer.add_child(glint)
+	var appear := glint.create_tween()
+	appear.tween_property(glint, "modulate:a", 0.86, 0.22)
+	appear.parallel().tween_property(glint, "scale",
+		Vector3.ONE * 0.026, 0.22).set_trans(Tween.TRANS_BACK)
+	appear.tween_property(glint, "modulate:a", 0.0, 0.52)
+	appear.parallel().tween_property(glint, "position:y",
+		glint.position.y + _stage_distance_to_world(16.0, EFFECT_Z), 0.52)
+	appear.tween_callback(glint.queue_free)
+
 func _activate_room_item(item_id: String) -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
 	if record.is_empty():
 		return
 	var sprite: Sprite3D = record.get("sprite") as Sprite3D
 	var item_data: Dictionary = record.get("data", {})
-	if sprite == null or bool(sprite.get_meta("busy", false)):
+	if sprite == null:
+		return
+	var tap_count: int = int(sprite.get_meta("tap_count", 0)) + 1
+	sprite.set_meta("tap_count", tap_count)
+	var base_pitch: float = float(item_data.get("pitch", 1.0))
+	var pitch_offset := 0.0
+	if tap_count % 3 == 2:
+		pitch_offset = 0.08
+	elif tap_count % 3 == 0:
+		pitch_offset = -0.05
+	if bool(sprite.get_meta("busy", false)):
+		var combo: int = mini(3, int(sprite.get_meta("tap_combo", 0)) + 1)
+		sprite.set_meta("tap_combo", combo)
+		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+			base_pitch + pitch_offset + float(combo) * 0.06)
+		_item_burst(sprite.position,
+			Color(item_data.get("color", StorybookUI.GOLD)), 1 + combo)
 		return
 	if item_data.has("light_cluster"):
 		_toggle_hall_sconce(item_id, sprite, item_data)
 		return
+	if bool(item_data.get("room_light", false)):
+		_toggle_room_lamp(item_id, sprite, item_data)
+		return
 	sprite.set_meta("busy", true)
 	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
-		float(item_data.get("pitch", 1.0)))
+		base_pitch + pitch_offset)
 	_item_burst(sprite.position,
 		Color(item_data.get("color", StorybookUI.GOLD)), 6)
 	_animate_item(sprite, String(item_data.get("anim", "pulse")))
@@ -1215,6 +1553,29 @@ func _apply_sconce_visual(sprite: Sprite3D, is_on: bool) -> void:
 		if is_on else Color(0.36, 0.34, 0.44, 0.48)
 	sprite.set_meta("castle_light_on", is_on)
 	sprite.set_meta("castle_bloom_emitter", is_on)
+
+func _toggle_room_lamp(item_id: String, sprite: Sprite3D,
+		item_data: Dictionary) -> void:
+	var light_id: String = m.castle_room_id + ":" + item_id
+	var now_on: bool = not bool(m.castle_room_light_states.get(light_id, true))
+	m.castle_room_light_states[light_id] = now_on
+	sprite.set_meta("busy", true)
+	_apply_room_lamp_visual(sprite, now_on)
+	_play_item_sfx(String(item_data.get("sound", "chime.ogg")),
+		float(item_data.get("pitch", 1.0)) * (1.0 if now_on else 0.82))
+	_item_burst(sprite.position,
+		Color(item_data.get("color", StorybookUI.GOLD)), 6)
+	_animate_item(sprite, "light")
+	_sync_hall_lighting()
+
+func _apply_room_lamp_visual(sprite: Sprite3D, is_on: bool) -> void:
+	if sprite == null:
+		return
+	sprite.modulate = Color(1.16, 1.08, 0.82, 1.0) \
+		if is_on else Color(0.58, 0.60, 0.72, 0.78)
+	sprite.set_meta("castle_room_light_on", is_on)
+	if sprite.has_meta("ambient_base_modulate"):
+		sprite.set_meta("ambient_base_modulate", sprite.modulate)
 
 func _sync_hall_lighting() -> void:
 	if m.castle_room_light_nodes.is_empty():
@@ -1302,12 +1663,17 @@ func _sync_castle_environment(hall_visible: bool,
 	else:
 		# Destination rooms keep the castle's warm storybook finish, but their
 		# painted practical lights do not receive the Main Hall's dramatic lift.
-		environment.glow_intensity = 0.48 if speedy else 0.66
-		environment.glow_bloom = 0.055 if speedy else 0.09
-		environment.glow_hdr_threshold = 0.90
-		environment.ambient_light_energy = 0.28
-		environment.adjustment_contrast = 1.10
-		environment.adjustment_brightness = 0.94
+		var library_lit: bool = bool(m.castle_room_light_states.get(
+			"library:pearl_lamp", true))
+		var cozy_dim: bool = m.castle_room_id == "library" and not library_lit
+		environment.glow_intensity = 0.30 if cozy_dim \
+			else (0.48 if speedy else 0.66)
+		environment.glow_bloom = 0.03 if cozy_dim \
+			else (0.055 if speedy else 0.09)
+		environment.glow_hdr_threshold = 0.94 if cozy_dim else 0.90
+		environment.ambient_light_energy = 0.19 if cozy_dim else 0.28
+		environment.adjustment_contrast = 1.08 if cozy_dim else 1.10
+		environment.adjustment_brightness = 0.89 if cozy_dim else 0.94
 
 func _play_item_sfx(sound_file: String, pitch: float) -> void:
 	if m.castle_room_prop_sfx == null:
@@ -1376,13 +1742,16 @@ func _finish_item_animation(sprite: Sprite3D, origin_position: Vector3,
 	sprite.position = origin_position
 	sprite.scale = origin_scale
 	sprite.rotation.z = origin_rotation
+	sprite.set_meta("tap_combo", 0)
 	sprite.set_meta("busy", false)
 
 func _item_burst(center: Vector3, color: Color, count: int) -> void:
 	if m.castle_room_item_effect_layer == null:
 		return
 	var star_texture: Texture2D = load("res://assets/mg/star.png")
-	for index in range(count):
+	var available: int = maxi(0, _effect_card_limit()
+		- m.castle_room_item_effect_layer.get_child_count())
+	for index in range(mini(count, available)):
 		var mote: Sprite3D = _new_card("TouchSparkle", star_texture)
 		mote.set_meta("source_asset_role", "transient_effect")
 		mote.pixel_size = _pixel_size_for_depth(EFFECT_Z)
@@ -1414,6 +1783,9 @@ func _add_layer_piece(container: Node3D, piece_data: Dictionary,
 	piece.set_meta("source_asset_role",
 		"foreground_region" if depth_z >= FOREGROUND_Z else "midground_region")
 	container.add_child(piece)
+	if String(piece_data["tex"]) == "room_mermaid_pool_mid_pool.png":
+		_register_ambient_card(piece,
+			{"kind": "shimmer", "speed": 0.72, "amp": 0.045})
 
 func _update_depth_sort() -> void:
 	if m.castle_room_player_sprite == null:
@@ -1673,10 +2045,89 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	else:
 		transition.tween_callback(show_room.bind(portal_id, true))
 
+func _cancel_room_moment() -> void:
+	if m.castle_room_moment_tween != null \
+			and m.castle_room_moment_tween.is_valid():
+		m.castle_room_moment_tween.kill()
+	if m.castle_room_moment_player_tween != null \
+			and m.castle_room_moment_player_tween.is_valid():
+		m.castle_room_moment_player_tween.kill()
+	m.castle_room_moment_tween = null
+	m.castle_room_moment_player_tween = null
+	m.castle_room_moment_serial += 1
+	m.castle_room_moment_busy = false
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.disabled = false
+
+func _play_room_moment(action: String) -> void:
+	if m.castle_room_moment_busy:
+		return
+	var config: Dictionary = ROOM_MOMENTS.get(action, {})
+	if config.is_empty():
+		return
+	m.castle_room_moment_busy = true
+	m.castle_room_moment_serial += 1
+	var serial: int = m.castle_room_moment_serial
+	var room_id: String = m.castle_room_id
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.disabled = true
+	var sequence := m.create_tween()
+	m.castle_room_moment_tween = sequence
+	var item_ids: Array = config.get("items", [])
+	for item_id_value: Variant in item_ids:
+		sequence.tween_callback(_room_moment_item.bind(
+			serial, room_id, String(item_id_value)))
+		sequence.tween_interval(0.38)
+	sequence.tween_callback(_room_moment_finale.bind(
+		serial, room_id, config))
+	sequence.tween_interval(1.25)
+	sequence.tween_callback(_finish_room_moment.bind(serial, room_id))
+
+func _room_moment_item(serial: int, room_id: String,
+		item_id: String) -> void:
+	if serial != m.castle_room_moment_serial \
+			or room_id != m.castle_room_id:
+		return
+	_activate_room_item(item_id)
+
+func _room_moment_finale(serial: int, room_id: String,
+		config: Dictionary) -> void:
+	if serial != m.castle_room_moment_serial \
+			or room_id != m.castle_room_id:
+		return
+	var color := Color(config.get("color", StorybookUI.GOLD))
+	_play_item_sfx(String(config.get("sound", "chime.ogg")),
+		float(config.get("pitch", 1.0)))
+	_item_burst(_stage_to_world(Vector2(640.0, 430.0), EFFECT_Z),
+		color, 9)
+	_room_moment_player_hop()
+
+func _room_moment_player_hop() -> void:
+	var player: Sprite3D = m.castle_room_player_sprite
+	if player == null or bool(player.get_meta("walking", false)):
+		return
+	var origin: Vector3 = player.position
+	var hop := player.create_tween()
+	m.castle_room_moment_player_tween = hop
+	hop.tween_property(player, "position:y",
+		origin.y + _stage_distance_to_world(20.0, origin.z),
+		0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	hop.tween_property(player, "position:y", origin.y,
+		0.24).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+func _finish_room_moment(serial: int, room_id: String) -> void:
+	if serial != m.castle_room_moment_serial \
+			or room_id != m.castle_room_id:
+		return
+	m.castle_room_moment_busy = false
+	m.castle_room_moment_tween = null
+	m.castle_room_moment_player_tween = null
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.disabled = false
+
 func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)
 	var action: String = String(room.get("action", ""))
-	m._ui_tap()
 	match action:
 		"opera":
 			suspend()
@@ -1688,21 +2139,14 @@ func activate_current_room() -> void:
 		"throne":
 			if bool(m.g.get("crown_won", false)):
 				m.show_msg("Roshan", "A royal wave from the throne!", "win")
-				_burst("✦", Color(1.0, 0.78, 0.30))
+				_item_burst(_hall_art_to_world(
+					Vector2(3090.0, 360.0), EFFECT_Z),
+					Color(1.0, 0.78, 0.30), 9)
+				_play_item_sfx("chime.ogg", 1.9)
 			else:
 				_award_crown()
-		"kitchen":
-			m.show_msg("Roshan", "Something delicious is bubbling!", "talk")
-			_burst("♡", Color(1.0, 0.50, 0.48))
-		"library":
-			m.show_msg("Roshan", "A whole room of storybooks!", "talk")
-			_burst("✦", Color(0.52, 0.94, 0.78))
-		"pool":
-			m.show_msg("Roshan", "Splash in the mermaid pool!", "win")
-			_burst("○", Color(0.45, 0.90, 1.0))
-		"bath":
-			m.show_msg("Roshan", "Bubble party in the royal bath!", "win")
-			_burst("○", Color(0.66, 0.92, 1.0))
+		"kitchen", "library", "pool", "bath":
+			_play_room_moment(action)
 
 func _award_crown() -> void:
 	if bool(m.g.get("crown_won", false)):
@@ -1725,6 +2169,5 @@ func _burst(_symbol: String, color: Color) -> void:
 		color, 9)
 
 func _exit_to_courtyard() -> void:
-	m._ui_tap()
 	close()
 	m._return_to_courtyard()
