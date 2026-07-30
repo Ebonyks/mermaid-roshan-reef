@@ -353,6 +353,7 @@ func _draw_book() -> void:
 	var panel_style := StorybookUI.panel_style(StorybookUI.MINT, Color(0.91, 0.97, 1.0, 0.99), 48, 5)
 	panel.add_theme_stylebox_override("panel", panel_style)
 	stage.add_child(panel)
+	StorybookUI.adorn_panel(stage, Rect2(34, 24, 1212, 672), "CritterBook")
 
 	var title := Label.new()
 	title.text = "🐚  My Critter Book   %d / %d" % [caught_count(), TOTAL]

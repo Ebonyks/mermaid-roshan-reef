@@ -2964,10 +2964,15 @@ func _build_hud() -> void:
 	status_panel.size = Vector2(280, 146)
 	status_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	status_panel.add_theme_stylebox_override("panel", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.93, 0.97, 1.0, 0.94), 44, 4))
+	# The July 23 owner declutter removed persistent scorekeeping from free roam.
+	# Keep these nodes as hidden compatibility surfaces for probes/save refreshes.
+	status_panel.visible = false
 	cl.add_child(status_panel)
 	hud_pearls = _mk_label(cl, Vector2(42, 24), 30)
 	hud_pearls.size = Vector2(220, 42)
+	hud_pearls.visible = false
 	hud_stars = _mk_label(cl, Vector2(42, 65), 22)
+	hud_stars.visible = false
 	# three lines (stars / crowns+critters / medal tally) inside the 146-tall tray
 	hud_stars.size = Vector2(230, 112)
 	hud_game = _mk_label(cl, Vector2(430, 20), 23)
@@ -2978,6 +2983,7 @@ func _build_hud() -> void:
 	hud_game.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hud_game.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.GOLD, Color(0.94, 0.97, 1.0, 0.94), 30, 4))
 	hud_game.set_meta("picture_objective", true)
+	hud_game.visible = false
 	hud_msg = _mk_label(cl, Vector2(230, 590), 24)
 	hud_msg.name = "HudVoiceCaption"
 	hud_msg.size = Vector2(820, 112)
@@ -2985,7 +2991,7 @@ func _build_hud() -> void:
 	hud_msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hud_msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.91, 0.94, 1.0, 0.94), 30, 4))
-	hud_msg.text = "Find the glowing friends in the fairy garden!"
+	hud_msg.text = ""
 	_build_obj_card(cl)
 	_update_hud()
 
@@ -3028,10 +3034,10 @@ func _set_objective(key: String, tex: Texture2D, emoji: String) -> void:
 		obj_key = ""
 		return
 	if key == obj_key:
-		# same target: after comprehension the card calms down instead of nagging
-		obj_seen_t += 2.2
-		if obj_seen_t > 8.0:
-			obj_card.modulate.a = maxf(0.45, obj_card.modulate.a - 0.12)
+		# Teach a changed picture briefly, then return the scenery to the child.
+		obj_seen_t += get_process_delta_time()
+		if obj_seen_t > 3.5:
+			obj_card.visible = false
 		return
 	obj_key = key
 	obj_seen_t = 0.0
@@ -6802,7 +6808,9 @@ func _process(delta: float) -> void:
 	if hud_msg != null:
 		hud_msg.visible = hud_msg.text != ""
 	if hud_game != null:
-		hud_game.visible = hud_game.text != ""
+		# Activity-specific picture HUDs own their own surfaces; this legacy
+		# free-roam sentence card is intentionally never persistent.
+		hud_game.visible = false
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
@@ -6933,6 +6941,8 @@ func _process(delta: float) -> void:
 		pass   # DungeonLevel sequences the battles and visual puzzles
 	elif game == "opera":
 		pass   # OperaHouse sequences the eight costume acts across two floors
+	elif game == "kitchen_cooking":
+		pass   # The fridge portal's OperaAct owns the cooking gesture chain
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -7015,7 +7025,9 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if touch_uses_explicit_interactions() and touch_focus_ready:
+		if game == "level2" and String(g.get("phase", "")) == "promenade":
+			act_lbl = _lagoon_promenade_ref().action_label()
+		elif touch_uses_explicit_interactions() and touch_focus_ready:
 			for touch_item_value: Variant in touch_interactables:
 				var touch_item: Dictionary = touch_item_value as Dictionary
 				if String(touch_item.get("id", "")) == touch_focus_id:
@@ -7039,6 +7051,8 @@ func _process(delta: float) -> void:
 			act_lbl = dungeon_game.action_label()
 		elif game == "opera" and opera_game != null:
 			act_lbl = opera_game.action_label()
+		elif game == "kitchen_cooking":
+			act_lbl = _castle_rooms_ref().kitchen_action_label()
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================

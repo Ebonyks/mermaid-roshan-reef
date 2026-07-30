@@ -107,8 +107,10 @@ func _open_stickers() -> void:
 	var vp: Vector2 = m.get_viewport().get_visible_rect().size
 	var bg := ColorRect.new(); bg.color = Color(0.08, 0.24, 0.40, 0.98); bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
 	var stage := StorybookUI.add_stage(root, vp)
-	var book_panel := StorybookUI.add_panel(stage, Rect2(28, 18, 1224, 684), StorybookUI.LAVENDER, Color(0.91, 0.95, 1.0, 0.98), 52)
+	var book_rect := Rect2(28, 18, 1224, 684)
+	var book_panel := StorybookUI.add_panel(stage, book_rect, StorybookUI.PURPLE, Color(0.91, 0.95, 1.0, 0.98), 52)
 	book_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.adorn_panel(stage, book_rect, "StickerBook")
 	var got := 0
 	for d in m.STICKER_DEFS:
 		if bool(m.stickers.get(String(d["id"]), false)):

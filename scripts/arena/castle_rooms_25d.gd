@@ -26,6 +26,16 @@ const CARD_PIXEL_SIZE := WORLD_WIDTH / ART_SIZE.x
 const ROOM_TILE_NATIVE_SIZE := Vector2(1024.0, 576.0)
 const ROOM_TILE_LOGICAL_SIZE := Vector2(512.0, 288.0)
 const ROOM_TILE_PIXEL_SIZE := CARD_PIXEL_SIZE * 0.5
+const ROOM_BACKGROUND_GRIDS := {
+	"kitchen": {
+		"rows": 3,
+		"columns": 4,
+		"native_size": Vector2(1024.0, 768.0),
+		"logical_size": Vector2(256.0, 192.0),
+		"pixel_size": CARD_PIXEL_SIZE * 0.25,
+		"source_grid": "3x4_4k",
+	},
+}
 const WORLD_ORIGIN := Vector3(0.0, 2000.0, 0.0)
 const BACKGROUND_Z := 0.0
 const ITEM_Z := 0.55
@@ -164,26 +174,36 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sleepy_bunny", "name": "Sleepy dust bunny",
-		"pos": Vector2(140.0, 800.0), "z": 2.65,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
-		"scale": 0.34, "anim": "hover", "sound": "purr.wav", "pitch": 1.8,
-		"symbol": "*", "color": Color(0.86, 0.72, 1.0)},
+]
+const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
+	{"id": "sleepy_bunny", "name": "Sleeping dust bunny",
+		"pos": Vector2(900.0, 830.0), "z": 2.65,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_sleepy.png",
+		"scale": 0.34, "dust_bunny_role": "sleeping_static",
+		"contact_offset": Vector2(0.0, 60.0),
+		"contact_radius": Vector2(132.0, 92.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
+		"color": Color(0.86, 0.72, 1.0)},
 	{"id": "shell_bunny", "name": "Shell-hide dust bunny",
-		"pos": Vector2(1060.0, 805.0), "z": 3.45,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
-		"scale": 0.32, "anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.45,
-		"symbol": "*", "color": Color(0.60, 0.92, 1.0)},
-	{"id": "hop_bunny", "name": "Hopping dust bunny",
-		"pos": Vector2(1845.0, 805.0), "z": 2.85,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
-		"scale": 0.32, "anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.7,
-		"symbol": "*", "color": Color(1.0, 0.75, 0.86)},
-	{"id": "bunny_family", "name": "Dust bunny family",
-		"pos": Vector2(2925.0, 810.0), "z": 3.55,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
-		"scale": 0.34, "anim": "pulse", "sound": "penguin_giggle.ogg", "pitch": 1.55,
-		"symbol": "*", "color": Color(1.0, 0.84, 0.50)},
+		"pos": Vector2(1340.0, 830.0), "z": 3.05,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_shell_hide.png",
+		"scale": 0.32, "dust_bunny_role": "shell_static",
+		"contact_offset": Vector2(0.0, 60.0),
+		"contact_radius": Vector2(132.0, 92.0),
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.45,
+		"color": Color(0.60, 0.92, 1.0)},
+	{"id": "runner_bunny", "name": "Running dust bunny",
+		"pos": Vector2(1850.0, 830.0), "z": 2.85,
+		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
+			+ "dust_bunnies/dust_bunny_hop.png",
+		"scale": 0.32, "dust_bunny_role": "runner",
+		"contact_offset": Vector2(0.0, 60.0),
+		"contact_radius": Vector2(142.0, 98.0),
+		"patrol_x": Vector2(1850.0, 2550.0), "run_speed": 220.0,
+		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
+		"color": Color(1.0, 0.75, 0.86)},
 ]
 const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
@@ -314,18 +334,37 @@ const ROOM_ITEMS := {
 			"symbol": "★", "color": Color(1.0, 0.82, 0.30)},
 	],
 	"kitchen": [
-		{"id": "sink", "name": "Shell sink", "pos": Vector2(0, 114),
+		{"id": "sink", "name": "Shell sink", "pos": Vector2(62, 176),
 			"z": 0.75,
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.2,
 			"symbol": "○", "color": Color(0.45, 0.90, 1.0)},
-		{"id": "soup_pot", "name": "Bubbling soup", "pos": Vector2(294, 143),
-			"z": 1.35,
-			"anim": "bounce", "sound": "buzz.ogg", "pitch": 1.65,
+		{"id": "pan_1", "name": "Copper pan", "pos": Vector2(300, 132),
+			"z": 0.90,
+			"anim": "sway", "sound": "chime.ogg", "pitch": 1.20,
+			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
+		{"id": "pan_2", "name": "Copper pan", "pos": Vector2(337, 132),
+			"z": 0.92,
+			"anim": "sway", "sound": "chime.ogg", "pitch": 1.34,
+			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
+		{"id": "pan_3", "name": "Copper pan", "pos": Vector2(379, 132),
+			"z": 0.94,
+			"anim": "sway", "sound": "chime.ogg", "pitch": 1.48,
+			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
+		{"id": "pan_4", "name": "Copper pan", "pos": Vector2(418, 132),
+			"z": 0.96,
+			"anim": "sway", "sound": "chime.ogg", "pitch": 1.62,
+			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
+		{"id": "oven", "name": "Warm oven", "pos": Vector2(289, 244),
+			"z": 1.05,
+			"anim": "light", "sound": "buzz.ogg", "pitch": 1.45,
 			"symbol": "●", "color": Color(1.0, 0.58, 0.30)},
-		{"id": "teapot", "name": "Royal teapot", "pos": Vector2(780, 165),
-			"z": 1.10,
-			"anim": "wiggle", "sound": "chime.ogg", "pitch": 1.55,
-			"symbol": "○", "color": Color(0.61, 0.91, 0.90)},
+		{"id": "fridge", "name": "Royal refrigerator", "pos": Vector2(631, 84),
+			"z": 0.95,
+			"hotspot_offset": Vector2(8, 8),
+			"hotspot_size": Vector2(190.0, 300.0),
+			"portal_glow": true,
+			"anim": "wiggle", "sound": "chime.ogg", "pitch": 1.2,
+			"symbol": "✦", "color": Color(0.61, 0.94, 0.90)},
 	],
 	"library": [
 		{"id": "magic_book", "name": "Magic storybook", "pos": Vector2(445, 145),
@@ -399,7 +438,20 @@ const ROOM_ITEMS := {
 	],
 }
 
+const KITCHEN_RECIPES: Array[Dictionary] = [
+	{"id": "pearl_cake", "name": "Pearl Cake", "icon": "🧁", "uses": ""},
+	{"id": "carrot_cake", "name": "Carrot Cake", "icon": "🥕",
+		"uses": "carrots"},
+]
+const KITCHEN_FOOD_ICONS := {
+	"carrots": "🥕",
+	"sugar": "🍬",
+}
+
 var m: ReefMain
+var kitchen_menu_layer: CanvasLayer = null
+var kitchen_menu_stage: Control = null
+var kitchen_act: OperaAct = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -414,6 +466,8 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_room_id = start_room
 	m.castle_room_menu_open = false
 	m.castle_room_buttons.clear()
+	m.g["castle_dust_bunnies_cleared"] = {}
+	m.g["castle_dust_bunny_runner_time"] = 0.0
 	m.castle_room_layer = CanvasLayer.new()
 	m.castle_room_layer.layer = 14
 	m.add_child(m.castle_room_layer)
@@ -455,6 +509,7 @@ func resume(room_id: String = "") -> void:
 		show_room(room_id, false)
 
 func suspend() -> void:
+	_close_kitchen_menu()
 	_restore_previous_environment()
 	if is_open():
 		m.castle_room_layer.visible = false
@@ -465,6 +520,7 @@ func suspend() -> void:
 	m._set_world_controls_enabled(true, "castle_rooms")
 
 func close() -> void:
+	_close_kitchen_menu()
 	_restore_previous_environment()
 	if is_open():
 		m.castle_room_layer.queue_free()
@@ -498,6 +554,8 @@ func close() -> void:
 	m.castle_room_menu_panel = null
 	m.castle_room_buttons.clear()
 	m.castle_room_menu_open = false
+	m.g.erase("castle_dust_bunnies_cleared")
+	m.g.erase("castle_dust_bunny_runner_time")
 	m._set_world_controls_enabled(true, "castle_rooms")
 	if m.player != null:
 		m.player.visible = true
@@ -509,6 +567,8 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	_update_dust_bunny_runner(delta)
+	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
@@ -782,33 +842,43 @@ func _clear_room_background_tiles() -> void:
 
 func _build_room_background_tiles(room_id: String) -> void:
 	_clear_room_background_tiles()
-	for row in range(2):
-		for column in range(2):
+	var grid: Dictionary = ROOM_BACKGROUND_GRIDS.get(room_id, {})
+	var rows: int = int(grid.get("rows", 2))
+	var columns: int = int(grid.get("columns", 2))
+	var native_size: Vector2 = grid.get(
+		"native_size", ROOM_TILE_NATIVE_SIZE)
+	var logical_size: Vector2 = grid.get(
+		"logical_size", ROOM_TILE_LOGICAL_SIZE)
+	var tile_pixel_size: float = float(grid.get(
+		"pixel_size", ROOM_TILE_PIXEL_SIZE))
+	var source_grid: String = String(grid.get("source_grid", "2x2_2k"))
+	for row in range(rows):
+		for column in range(columns):
 			var file_name := "room_%s_background_r%d_c%d.png" % [
 				room_id, row, column]
 			var texture: Texture2D = load(ROOM_TILE_ROOT + file_name)
 			if texture == null:
 				continue
 			var logical_top_left := Vector2(
-				float(column) * ROOM_TILE_LOGICAL_SIZE.x,
-				float(row) * ROOM_TILE_LOGICAL_SIZE.y)
+				float(column) * logical_size.x,
+				float(row) * logical_size.y)
 			var logical_center := logical_top_left \
-				+ ROOM_TILE_LOGICAL_SIZE * 0.5
+				+ logical_size * 0.5
 			var tile := _new_card(
 				"RoomTile_%s_r%d_c%d" % [room_id, row, column],
 				texture)
 			tile.position = _art_to_world(logical_center, BACKGROUND_Z)
-			tile.pixel_size = ROOM_TILE_PIXEL_SIZE
+			tile.pixel_size = tile_pixel_size
 			# Mip edge sampling causes a one-pixel dark hairline where opaque
 			# cards meet. Linear sampling without mipmaps keeps adjacent source
 			# texels continuous at this fixed camera distance.
 			tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 			tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			tile.set_meta("source_asset_role", "clean_background_tile")
-			tile.set_meta("source_master_grid", "2x2_2k")
+			tile.set_meta("source_master_grid", source_grid)
 			tile.set_meta("source_art_rect",
-				Rect2(logical_top_left, ROOM_TILE_LOGICAL_SIZE))
-			tile.set_meta("native_texture_size", ROOM_TILE_NATIVE_SIZE)
+				Rect2(logical_top_left, logical_size))
+			tile.set_meta("native_texture_size", native_size)
 			tile.set_meta("depth_z", BACKGROUND_Z)
 			m.castle_room_world_root.add_child(tile)
 			m.castle_room_detail_tiles.append(tile)
@@ -938,6 +1008,12 @@ func _on_room_input(event: InputEvent) -> void:
 func _walk_cutout_to(screen_position: Vector2) -> void:
 	if m.castle_room_player_sprite == null:
 		return
+	if _is_wide_hall():
+		var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
+			screen_position)
+		if bunny_foot != Vector2.INF:
+			_position_player_at_foot(bunny_foot, true)
+			return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
 	if _is_wide_hall():
 		var hall_position: Vector2 = _stage_to_hall_art(local_position)
@@ -951,6 +1027,47 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	var foot_x: float = clampf(local_position.x, walk.position.x, walk.end.x)
 	var foot_y: float = clampf(local_position.y, walk.position.y, walk.end.y)
 	_position_player_at_foot(Vector2(foot_x, foot_y), true)
+
+func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
+	if not _is_wide_hall() or m.castle_room_camera == null:
+		return Vector2.INF
+	var ray_origin: Vector3 = m.castle_room_camera.project_ray_origin(
+		screen_position)
+	var ray_direction: Vector3 = m.castle_room_camera.project_ray_normal(
+		screen_position)
+	var nearest_distance: float = INF
+	var nearest_foot: Vector2 = Vector2.INF
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
+			as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite == null or sprite.texture == null or not sprite.visible:
+			continue
+		var basis: Basis = sprite.global_transform.basis
+		var normal: Vector3 = basis.z.normalized()
+		var denominator: float = ray_direction.dot(normal)
+		if absf(denominator) <= 0.00001:
+			continue
+		var hit_distance: float = (
+			sprite.global_position - ray_origin).dot(normal) / denominator
+		if hit_distance <= 0.0 or hit_distance >= nearest_distance:
+			continue
+		var hit_point: Vector3 = ray_origin + ray_direction * hit_distance
+		var relative: Vector3 = hit_point - sprite.global_position
+		var texture_size: Vector2 = sprite.texture.get_size()
+		var half_width: float = basis.x.length() \
+			* texture_size.x * sprite.pixel_size * 0.5
+		var half_height: float = basis.y.length() \
+			* texture_size.y * sprite.pixel_size * 0.5
+		if absf(relative.dot(basis.x.normalized())) > half_width \
+				or absf(relative.dot(basis.y.normalized())) > half_height:
+			continue
+		nearest_distance = hit_distance
+		nearest_foot = record.get("contact_foot", Vector2.INF) as Vector2
+	return nearest_foot
 
 func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	if m.castle_room_player_sprite == null:
@@ -971,6 +1088,8 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var target_sprite_scale := Vector3.ONE * texture_scale * target_scale
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"stage_foot", foot) as Vector2
+	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", old_foot) as Vector2
 	var going_right: bool = foot.x >= old_foot.x
 	m.castle_room_player_sprite.flip_h = not going_right
 	var shadow: Sprite3D = _player_shadow()
@@ -991,9 +1110,13 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			shadow.position = shadow_position
 			shadow.scale = shadow_scale
 			shadow.pixel_size = _pixel_size_for_depth(shadow_z)
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
 	var movement_tween := m.create_tween().set_parallel(true)
+	movement_tween.tween_method(
+		_set_player_current_foot, current_foot, foot, duration
+	).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(m.castle_room_player_sprite, "position",
 		target_position, duration).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(m.castle_room_player_sprite, "scale",
@@ -1024,6 +1147,8 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var target_sprite_scale := Vector3.ONE * texture_scale * target_scale
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"stage_foot", foot) as Vector2
+	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", old_foot) as Vector2
 	m.castle_room_player_sprite.flip_h = foot.x < old_foot.x
 	var shadow: Sprite3D = _player_shadow()
 	var shadow_z: float = player_z - 0.04
@@ -1044,9 +1169,13 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			shadow.position = shadow_position
 			shadow.scale = shadow_scale
 			shadow.pixel_size = _pixel_size_for_depth(shadow_z)
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
 	var movement_tween := m.create_tween().set_parallel(true)
+	movement_tween.tween_method(
+		_set_player_current_foot, current_foot, foot, duration
+	).set_trans(Tween.TRANS_SINE)
 	movement_tween.tween_property(
 		m.castle_room_player_sprite, "position", target_position,
 		duration).set_trans(Tween.TRANS_SINE)
@@ -1136,8 +1265,12 @@ func _rebuild_touch_items(room_id: String) -> void:
 		for child: Node in m.castle_room_item_effect_layer.get_children():
 			child.free()
 	m.castle_room_item_sprites.clear()
-	var items: Array = HALL_ITEMS if room_id == "main_hall" \
-		else ROOM_ITEMS.get(room_id, [])
+	var items: Array = []
+	if room_id == "main_hall":
+		items.append_array(HALL_ITEMS)
+		items.append_array(HALL_DUST_BUNNY_SPAWNS)
+	else:
+		items = ROOM_ITEMS.get(room_id, [])
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
@@ -1148,6 +1281,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			or m.castle_room_item_hotspot_layer == null:
 		return
 	var item_id: String = String(item_data["id"])
+	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
+	if bunny_role != "":
+		var cleared: Dictionary = m.g.get(
+			"castle_dust_bunnies_cleared", {}) as Dictionary
+		if bool(cleared.get(item_id, false)):
+			return
 	var texture_file: String = String(item_data.get(
 		"tex", "room_" + room_id + "_item_" + item_id + ".png"))
 	var texture_path: String = String(item_data.get(
@@ -1169,6 +1308,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		piece.scale = Vector3.ONE * visual_scale
 	piece.set_meta("source_asset_role", "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
+	if bunny_role != "":
+		piece.set_meta("dust_bunny_role", bunny_role)
+		piece.set_meta("spawn_guide_id", item_id)
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("light_cluster"):
 		piece.shaded = false
@@ -1182,23 +1324,31 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			m.castle_room_light_states[item_id] = true
 		_apply_sconce_visual(piece, bool(m.castle_room_light_states[item_id]))
 	m.castle_room_item_visual_layer.add_child(piece)
+	if bool(item_data.get("portal_glow", false)):
+		_add_item_portal_glow(piece, texture, room_id, item_id)
 
-	var hotspot := Button.new()
-	hotspot.name = "Touch_" + item_id
-	hotspot.flat = true
-	hotspot.focus_mode = Control.FOCUS_NONE
-	hotspot.tooltip_text = String(item_data["name"])
-	hotspot.set_meta("uses_own_sfx", true)
-	var hotspot_offset: Vector2 = item_data.get("hotspot_offset", Vector2.ZERO)
-	hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
-	hotspot.size = item_data.get("hotspot_size", Vector2(112.0, 112.0))
-	hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
-	hotspot.pressed.connect(_activate_room_item.bind(item_id))
-	m.castle_room_item_hotspot_layer.add_child(hotspot)
+	var hotspot: Button = null
+	if not bool(item_data.get("proximity_only", false)):
+		hotspot = Button.new()
+		hotspot.name = "Touch_" + item_id
+		hotspot.flat = true
+		hotspot.focus_mode = Control.FOCUS_NONE
+		hotspot.tooltip_text = String(item_data["name"])
+		hotspot.set_meta("uses_own_sfx", true)
+		var hotspot_offset: Vector2 = item_data.get(
+			"hotspot_offset", Vector2.ZERO)
+		hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
+		hotspot.size = item_data.get("hotspot_size", Vector2(112.0, 112.0))
+		hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+		hotspot.pressed.connect(_activate_room_item.bind(item_id))
+		m.castle_room_item_hotspot_layer.add_child(hotspot)
+	var contact_offset: Vector2 = item_data.get(
+		"contact_offset", Vector2.ZERO) as Vector2
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
 		"data": item_data,
+		"contact_foot": source_position + contact_offset,
 		"art_rect": (
 			Rect2(source_position - texture.get_size() * visual_scale * 0.5,
 				texture.get_size() * visual_scale)
@@ -1225,6 +1375,28 @@ func _activate_room_item(item_id: String) -> void:
 	_item_burst(sprite.position,
 		Color(item_data.get("color", StorybookUI.GOLD)), 6)
 	_animate_item(sprite, String(item_data.get("anim", "pulse")))
+	if m.castle_room_id == "kitchen" and item_id == "fridge":
+		_open_kitchen_menu()
+
+func _add_item_portal_glow(source: Sprite3D, texture: Texture2D,
+		room_id: String, item_id: String) -> void:
+	var glow: Sprite3D = _new_card("PortalGlow_" + item_id, texture)
+	# The glow is a translucent visual echo, never a depth occluder.
+	glow.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+	glow.position = source.position
+	glow.position.z = source.position.z - 0.035
+	glow.pixel_size = source.pixel_size
+	glow.scale = source.scale * 1.055
+	glow.modulate = Color(0.52, 1.0, 0.92, 0.16)
+	glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	glow.set_meta("source_asset_role", "portal_glow")
+	glow.set_meta("source_object_id", room_id + ":" + item_id + "_glow")
+	m.castle_room_item_visual_layer.add_child(glow)
+	var pulse: Tween = glow.create_tween().set_loops()
+	pulse.tween_property(glow, "modulate:a", 0.30, 0.85).set_trans(
+		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.tween_property(glow, "modulate:a", 0.13, 0.95).set_trans(
+		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 		item_data: Dictionary) -> void:
@@ -1508,7 +1680,11 @@ func _new_card(card_name: String, texture: Texture2D) -> Sprite3D:
 	card.shaded = false
 	card.no_depth_test = false
 	card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	card.alpha_cut = SpriteBase3D.ALPHA_CUT_OPAQUE_PREPASS
+	# Discard below the painted silhouette before depth testing. Opaque prepass
+	# made routing-mask pixels participate in depth and could erase Roshan even
+	# where the card appeared to contain only background.
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.alpha_scissor_threshold = 0.5
 	card.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	card.set_meta("castle_world_sprite3d", true)
 	return card
@@ -1625,10 +1801,129 @@ func _shadow_scale(depth_scale: float) -> Vector3:
 		desired_art_size.y / maxf(1.0, texture_size.y) * depth_scale,
 		1.0)
 
+func _set_player_current_foot(foot: Vector2) -> void:
+	if m.castle_room_player_sprite != null \
+			and is_instance_valid(m.castle_room_player_sprite):
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+
 func _finish_player_walk() -> void:
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
+		var foot: Vector2 = m.castle_room_player_sprite.get_meta(
+			"stage_foot", Vector2.ZERO) as Vector2
+		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
+
+func _update_dust_bunny_runner(delta: float) -> void:
+	if not _is_wide_hall() or delta <= 0.0:
+		return
+	var runner_record: Dictionary = m.castle_room_item_sprites.get(
+		"runner_bunny", {}) as Dictionary
+	if runner_record.is_empty():
+		return
+	var runner_sprite: Sprite3D = runner_record.get("sprite") as Sprite3D
+	var runner_data: Dictionary = runner_record.get("data", {}) as Dictionary
+	if runner_sprite == null or not is_instance_valid(runner_sprite):
+		return
+	var elapsed: float = float(m.g.get(
+		"castle_dust_bunny_runner_time", 0.0)) + delta
+	m.g["castle_dust_bunny_runner_time"] = elapsed
+	var patrol_x: Vector2 = runner_data.get(
+		"patrol_x", Vector2(1850.0, 2550.0)) as Vector2
+	var run_speed: float = float(runner_data.get("run_speed", 220.0))
+	var segment_length: float = maxf(1.0, patrol_x.y - patrol_x.x)
+	var travel: float = fposmod(elapsed * run_speed, segment_length * 2.0)
+	var moving_right: bool = travel <= segment_length
+	var runner_x: float = patrol_x.x + travel if moving_right \
+		else patrol_x.y - (travel - segment_length)
+	var source_position: Vector2 = runner_data.get(
+		"pos", Vector2(1850.0, 830.0)) as Vector2
+	var runner_center := Vector2(
+		runner_x, source_position.y - absf(sin(elapsed * 8.0)) * 14.0)
+	var depth_z: float = float(runner_data.get("z", 2.85))
+	runner_sprite.position = _hall_art_to_world(runner_center, depth_z)
+	runner_sprite.pixel_size = _pixel_size_for_depth(depth_z)
+	runner_sprite.flip_h = not moving_right
+	var contact_offset: Vector2 = runner_data.get(
+		"contact_offset", Vector2.ZERO) as Vector2
+	runner_record["contact_foot"] = runner_center + contact_offset
+	var card_size: Vector2 = runner_sprite.texture.get_size() \
+		* float(runner_data.get("scale", 1.0))
+	runner_record["art_rect"] = Rect2(
+		runner_center - card_size * 0.5, card_size)
+	runner_record["runner_direction"] = 1.0 if moving_right else -1.0
+	m.castle_room_item_sprites["runner_bunny"] = runner_record
+
+func _check_dust_bunny_contacts() -> void:
+	if not _is_wide_hall() or m.castle_room_player_sprite == null:
+		return
+	var player_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot",
+		m.castle_room_player_sprite.get_meta("stage_foot", Vector2.ZERO)
+	) as Vector2
+	var touched_ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var item_id: String = String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id] as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		var contact_foot: Vector2 = record.get(
+			"contact_foot", Vector2(-10000.0, -10000.0)) as Vector2
+		var contact_radius: Vector2 = item_data.get(
+			"contact_radius", Vector2(120.0, 88.0)) as Vector2
+		var contact_delta: Vector2 = player_foot - contact_foot
+		var normalized_distance: float = (
+			contact_delta.x * contact_delta.x
+				/ maxf(1.0, contact_radius.x * contact_radius.x)
+			+ contact_delta.y * contact_delta.y
+				/ maxf(1.0, contact_radius.y * contact_radius.y)
+		)
+		if normalized_distance <= 1.0:
+			touched_ids.append(item_id)
+	for item_id: String in touched_ids:
+		_explode_dust_bunny(item_id)
+
+func _explode_dust_bunny(item_id: String) -> void:
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	if record.is_empty():
+		return
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if String(item_data.get("dust_bunny_role", "")) == "":
+		return
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("exploding", false)):
+		return
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	if bool(cleared.get(item_id, false)):
+		return
+	cleared[item_id] = true
+	m.g["castle_dust_bunnies_cleared"] = cleared
+	sprite.set_meta("exploding", true)
+	var hotspot: Button = record.get("hotspot") as Button
+	if hotspot != null and is_instance_valid(hotspot):
+		hotspot.visible = false
+		hotspot.disabled = true
+		hotspot.queue_free()
+	m.castle_room_item_sprites.erase(item_id)
+	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
+		float(item_data.get("pitch", 1.5)))
+	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
+	_item_burst(sprite.position, burst_color, 12)
+	var origin_scale: Vector3 = sprite.scale
+	var fade_color: Color = sprite.modulate
+	fade_color.a = 0.0
+	var vanish := sprite.create_tween().set_parallel(true)
+	vanish.tween_property(sprite, "scale", origin_scale * 1.45,
+		0.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	vanish.tween_property(sprite, "rotation:z", sprite.rotation.z + 0.42,
+		0.24).set_trans(Tween.TRANS_SINE)
+	vanish.tween_property(sprite, "modulate", fade_color, 0.24)
+	vanish.chain().tween_callback(sprite.queue_free)
+
 
 func _update_camera_parallax(delta: float) -> void:
 	if m.castle_room_camera == null or m.castle_room_player_sprite == null:
@@ -1745,6 +2040,157 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 		transition.tween_callback(activate_current_room)
 	else:
 		transition.tween_callback(show_room.bind(portal_id, true))
+
+func kitchen_action_label() -> String:
+	if kitchen_act != null and is_instance_valid(kitchen_act):
+		return kitchen_act.action_label()
+	return "COOK"
+
+func _open_kitchen_menu() -> void:
+	if kitchen_menu_layer != null or kitchen_act != null:
+		return
+	m._set_world_controls_enabled(false, "kitchen_fridge_menu")
+	kitchen_menu_layer = CanvasLayer.new()
+	kitchen_menu_layer.name = "KitchenFridgeMenu"
+	kitchen_menu_layer.layer = 29
+	m.add_child(kitchen_menu_layer)
+	var root := Control.new()
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_STOP
+	kitchen_menu_layer.add_child(root)
+	var dim := ColorRect.new()
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.color = StorybookUI.DIM
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	root.add_child(dim)
+	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
+	kitchen_menu_stage = StorybookUI.add_stage(root, viewport_size)
+	StorybookUI.add_panel(kitchen_menu_stage,
+		Rect2(52.0, 36.0, 1176.0, 648.0), StorybookUI.MINT,
+		Color(0.94, 0.98, 1.0, 0.99), 44)
+
+	var title := Label.new()
+	title.text = "✨  🧊  What shall we cook?  🍰  ✨"
+	StorybookUI.style_label(title, 45, StorybookUI.INK, 4)
+	title.position = Vector2(105.0, 65.0)
+	title.size = Vector2(980.0, 70.0)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	kitchen_menu_stage.add_child(title)
+
+	var close_button := Button.new()
+	close_button.name = "KitchenFridgeBackButton"
+	StorybookUI.style_back_button(close_button, "Back to the kitchen")
+	close_button.position = Vector2(1090.0, 55.0)
+	close_button.pressed.connect(_close_kitchen_menu)
+	kitchen_menu_stage.add_child(close_button)
+
+	var available: Array[Dictionary] = []
+	for recipe: Dictionary in KITCHEN_RECIPES:
+		var uses: String = String(recipe["uses"])
+		if uses == "" or int(m.opera_pantry.get(uses, 0)) > 0:
+			available.append(recipe)
+	var card_width := 300.0
+	var card_gap := 34.0
+	var cards_width: float = float(available.size()) * card_width \
+		+ float(maxi(0, available.size() - 1)) * card_gap
+	var first_x: float = (1280.0 - cards_width) * 0.5
+	for index in range(available.size()):
+		var recipe: Dictionary = available[index]
+		var recipe_button := Button.new()
+		recipe_button.name = "KitchenRecipe_" + String(recipe["id"])
+		recipe_button.text = "%s\n%s" % [
+			String(recipe["icon"]), String(recipe["name"])]
+		recipe_button.position = Vector2(
+			first_x + float(index) * (card_width + card_gap), 180.0)
+		recipe_button.size = Vector2(card_width, 278.0)
+		recipe_button.add_theme_font_size_override("font_size", 40)
+		recipe_button.set_meta("picture_first", true)
+		recipe_button.set_meta("recipe_id", String(recipe["id"]))
+		StorybookUI.style_button(recipe_button, "gold", 40, 34)
+		recipe_button.pressed.connect(
+			_launch_kitchen_recipe.bind(String(recipe["id"])))
+		kitchen_menu_stage.add_child(recipe_button)
+
+	var pantry_parts: Array[String] = []
+	for food_key_value: Variant in KITCHEN_FOOD_ICONS:
+		var food_key := String(food_key_value)
+		var count: int = int(m.opera_pantry.get(food_key, 0))
+		if count > 0:
+			pantry_parts.append("%s ×%d" % [
+				String(KITCHEN_FOOD_ICONS[food_key]), count])
+	var pantry := Label.new()
+	pantry.name = "KitchenPantryInventory"
+	pantry.text = "🧺  " + (
+		"     ".join(pantry_parts) if not pantry_parts.is_empty()
+		else "✨  🧁")
+	pantry.set_meta("food_counts", m.opera_pantry.duplicate(true))
+	StorybookUI.style_label(pantry, 36, StorybookUI.INK_SOFT, 3)
+	pantry.position = Vector2(150.0, 515.0)
+	pantry.size = Vector2(980.0, 70.0)
+	pantry.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	kitchen_menu_stage.add_child(pantry)
+
+	var pointer := Label.new()
+	pointer.text = "☝"
+	StorybookUI.style_label(pointer, 54, StorybookUI.GOLD, 3)
+	pointer.position = Vector2(first_x + card_width * 0.5 - 32.0, 125.0)
+	kitchen_menu_stage.add_child(pointer)
+	var point: Tween = pointer.create_tween().set_loops()
+	point.tween_property(pointer, "position:y", 138.0, 0.55).set_trans(
+		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	point.tween_property(pointer, "position:y", 125.0, 0.55).set_trans(
+		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	m._say("roshan", "talk", 0.0)
+
+func _close_kitchen_menu() -> void:
+	if kitchen_menu_layer != null and is_instance_valid(kitchen_menu_layer):
+		kitchen_menu_layer.queue_free()
+	kitchen_menu_layer = null
+	kitchen_menu_stage = null
+	m._set_world_controls_enabled(true, "kitchen_fridge_menu")
+
+func _kitchen_recipe(recipe_id: String) -> Dictionary:
+	for recipe: Dictionary in KITCHEN_RECIPES:
+		if String(recipe["id"]) == recipe_id:
+			return recipe
+	return {}
+
+func _launch_kitchen_recipe(recipe_id: String) -> void:
+	var recipe: Dictionary = _kitchen_recipe(recipe_id)
+	if recipe.is_empty() or kitchen_act != null:
+		return
+	var uses: String = String(recipe["uses"])
+	if uses != "" and int(m.opera_pantry.get(uses, 0)) <= 0:
+		return
+	_close_kitchen_menu()
+	suspend()
+	m.game = "kitchen_cooking"
+	var config: Dictionary = (OperaHouse.ACTS[0] as Dictionary).duplicate(true)
+	config["name"] = String(recipe["name"])
+	config["act_tag"] = String(recipe["name"]) + "  "
+	config["shell"] = false
+	config["rescue"] = ""
+	config["gift"] = ""
+	config["uses"] = uses
+	config["voice"] = (
+		"Chef hat on! Let us make the %s together — every step is a "
+		+ "different kitchen gesture!") % String(recipe["name"])
+	config["win_line"] = (
+		"Our %s is ready! Back into the royal kitchen it goes."
+		% String(recipe["name"]))
+	kitchen_act = OperaAct.new()
+	kitchen_act.name = "KitchenCookingPortalAct"
+	m.add_child(kitchen_act)
+	kitchen_act.tree_exited.connect(_finish_kitchen_recipe)
+	kitchen_act.start(m, config, Callable(self, "_finish_kitchen_recipe"))
+
+func _finish_kitchen_recipe() -> void:
+	if kitchen_act == null:
+		return
+	kitchen_act = null
+	m.game = "level2"
+	resume("kitchen")
+	m.show_msg("Roshan", "Something delicious is ready!", "win")
 
 func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)

@@ -19,6 +19,11 @@ OUT_CASTLE_FIT = (
 	/ "assets_src/sky_lagoon/castle_symmetry_2026-07-29"
 	/ "qa_four_tower_fit_2screen.jpg"
 )
+OUT_CASTLE_FOCUS = (
+	ROOT
+	/ "assets_src/sky_lagoon/castle_symmetry_2026-07-29"
+	/ "qa_door_only_focus_2screen.jpg"
+)
 WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
 WORLD_WIDTH = 144.0
@@ -33,12 +38,17 @@ def place(
 	world_height: float,
 	opacity: float = 1.0,
 	width_scale: float = 1.0,
+	tint: tuple[int, int, int] | None = None,
 ) -> None:
 	sprite = Image.open(ROOT / path).convert("RGBA")
 	scale = canvas.height / WORLD_HEIGHT
 	height = max(1, round(world_height * scale))
 	width = max(1, round(sprite.width * height / sprite.height * width_scale))
 	sprite = sprite.resize((width, height), Image.Resampling.LANCZOS)
+	if tint is not None:
+		alpha = sprite.getchannel("A")
+		sprite = Image.new("RGBA", sprite.size, (*tint, 0))
+		sprite.putalpha(alpha)
 	if opacity < 1.0:
 		sprite.putalpha(sprite.getchannel("A").point(lambda value: round(value * opacity)))
 	center_x = round((x - WORLD_LEFT) / WORLD_WIDTH * canvas.width)
@@ -69,10 +79,10 @@ def build_preview(show_plane: bool) -> Image.Image:
 	# plate deliberately has no duplicate facade underneath it.
 	place(
 		canvas,
-		"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		51.572852,
-		11.2025,
-		31.805,
+		11.022284,
+		28.430568,
 	)
 
 	for path, x, y, height in (
@@ -115,6 +125,21 @@ def main() -> None:
 	).convert("RGB").save(
 		OUT_CASTLE_FIT, quality=94, subsampling=0, optimize=True
 	)
+	focused = day_one.copy()
+	place(
+		focused,
+		"assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+		51.5312,
+		6.6083,
+		6.3302,
+		opacity=0.64,
+		tint=(255, 209, 64),
+	)
+	focused.crop((2048, 0, 6144, 2048)).resize(
+		(2048, 1024), Image.Resampling.LANCZOS
+	).convert("RGB").save(
+		OUT_CASTLE_FOCUS, quality=94, subsampling=0, optimize=True
+	)
 	for screen_index in range(3):
 		left = screen_index * 2048
 		day_one.crop((left, 0, left + 2048, 2048)).convert("RGB").save(
@@ -139,6 +164,7 @@ def main() -> None:
 	print(OUT_REVISIT)
 	print(OUT_SWING_FIT)
 	print(OUT_CASTLE_FIT)
+	print(OUT_CASTLE_FOCUS)
 
 
 if __name__ == "__main__":

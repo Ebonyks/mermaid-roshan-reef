@@ -213,3 +213,50 @@ equal world width, equal base waterline, and equal bridge-landing coordinate.
 The measured contract is recorded in `four_tower_fit_audit.json`, and
 `qa_four_tower_fit_2screen.jpg` shows the unchanged playground/castle two-screen
 composition with no added lighting or post effect.
+
+## Stained-glass frame rollback and door-only focus
+
+Owner review rejected the v3 frame's uneven dark band and the runtime
+full-castle duplicate used as touch feedback. The accepted four-tower
+architecture remains the design authority.
+
+Built-in edit prompt:
+
+> Use case: precise-object-edit
+>
+> Asset type: production Sprite3D depth card for the Sky Lagoon castle in a
+> mobile children's storybook game
+>
+> Input images: Image 1 is the edit target and sole authority for the accepted
+> four-tower castle, perspective, scale, silhouette, bridge, door,
+> stained-glass artwork, palette, and all pixels outside the stained-glass
+> surround. Image 2 is the previously accepted castle and is the sole reference
+> for the cleaner stained-glass architectural surround/frame.
+>
+> Primary request: Revert only the sloppy stained-glass architectural surround
+> in Image 1 to the clean, intentional pointed lavender-and-gold surround
+> design from Image 2. Remove the uneven dark charcoal/black dotted band.
+> Preserve the stained-glass picture itself exactly and preserve its size and
+> placement in Image 1.
+>
+> Scene/backdrop: perfectly flat solid #00FF00 chroma-key background.
+>
+> Constraints: Change only the narrow architectural frame/surround immediately
+> bordering the stained-glass panel. Keep every other element unchanged:
+> exactly four towers, all roofs and shell finials, walls, windows, columns,
+> coral door and hardware, bridge and every post/rail, transparent padding,
+> owner stained-glass artwork, lighting, shading, colors, and outlines. No
+> highlight, glow, cast shadow, contact shadow, text, or watermark.
+
+The full returned frame candidate did not pass the preservation audit because
+it changed the camera, door, bridge, and stained-glass rendering. The rejected
+full candidate is not shipped. `frame_restore_ring_source.png` retains only its
+249x360 clean lavender/gold surround crop, and
+`tools/prepare_sky_lagoon_castle_symmetry.py` accepts it only inside
+`restored_frame_target_bounds`; v4 remains exact to the accepted four-tower
+card outside that bounded repair.
+
+The same tool creates `sky_lagoon_castle_door_focus_v1.png` as a small
+door-footprint alpha mask from v4. Runtime holds the castle card unchanged and
+pulses this aligned door mask in place after the first tap. It never scales,
+tints, or duplicates the full castle.
