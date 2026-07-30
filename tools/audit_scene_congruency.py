@@ -63,7 +63,7 @@ ELEMENTS = (
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
 	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
 	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
-	Element("castle_stained_glass", "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png", 27.710, -11.0, "castle", "painted_underside", "castle"),
+	Element("castle_perspective", "assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png", 27.710, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
 	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
 	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 8.197, -9.0, "ground", "painted_underside"),
@@ -237,7 +237,7 @@ def main() -> None:
 	ground = image_metrics(PLATE, (0.52, 1.0))
 	sky = image_metrics(PLATE, (0.0, 0.43))
 	castle = image_metrics(
-		ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+		ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png"
 	)
 	with Image.open(PLATE).convert("RGBA") as plate:
 		plate_lab = srgb_to_lab(np.asarray(plate.convert("RGB")))

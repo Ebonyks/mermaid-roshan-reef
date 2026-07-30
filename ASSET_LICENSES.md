@@ -524,6 +524,16 @@ ambientCG (all CC0).
   castle and drawbridge. The window contents are the exact owner-supplied
   stained-glass reference, deterministically fitted inside the existing gold
   frame with no pixel changes elsewhere on the castle card.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_perspective_v2.png` and
+  `assets_src/sky_lagoon/castle_symmetry_2026-07-29/**` — project-original
+  OpenAI built-in precision edit using only the approved v1 runtime card and
+  approved pearl-castle turnaround. The edit removes the unmatched rear tower
+  and restores the selected two-tower architecture at runtime resolution while
+  retaining the original scene's oblique facade and diagonal drawbridge
+  projection; local post-processing removes chroma and deterministically
+  restores the unchanged owner-supplied stained-glass source inside the new
+  window frame. The straight-on first pass is retained as a non-runtime design
+  reference. No external references; generated and prepared 2026-07-29.
 
 ## Sky Lagoon playground fit revision (Codex, 2026-07-29)
 - `assets_src/sky_lagoon/playground_revision_2026-07-29/**` — project-original
