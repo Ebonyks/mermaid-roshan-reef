@@ -97,6 +97,32 @@ func _run() -> void:
 		and not main.g.has("opera_gate"))
 	_ck("storybook_elevator_inventory",
 		main.castle_room_buttons.size() == ROOM_IDS.size())
+	var castle_roshan: Sprite3D = main.castle_room_player_sprite
+	var castle_roshan_loop: RoshanSpriteLoop = castle_roshan.get_node_or_null(
+		"AlwaysAliveSpriteLoop") as RoshanSpriteLoop
+	var castle_frame_height: float = castle_roshan.texture.get_height() \
+		/ float(maxi(1, castle_roshan.vframes))
+	_ck("castle_roshan_uses_primary_animated_sprite",
+		castle_roshan_loop != null
+		and castle_roshan.texture.resource_path.ends_with(
+			"roshan_swim_front.png")
+		and castle_roshan.hframes == 4
+		and castle_roshan.vframes == 4
+		and is_equal_approx(castle_frame_height, 256.0))
+	var idle_frame: int = castle_roshan.frame
+	castle_roshan_loop._process(0.3)
+	_ck("castle_roshan_idle_never_freezes",
+		castle_roshan.frame != idle_frame,
+		"frame=%d->%d" % [idle_frame, castle_roshan.frame])
+	var walk_target := Vector2(1180.0, 835.0)
+	rooms._position_player_at_foot(walk_target, true)
+	var moving_frame: int = castle_roshan.frame
+	castle_roshan_loop._process(0.3)
+	_ck("castle_roshan_swims_when_moving",
+		bool(castle_roshan.get_meta("walking", false))
+		and castle_roshan.frame != moving_frame,
+		"frame=%d->%d" % [moving_frame, castle_roshan.frame])
+	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
 
 	var all_rooms_ok := true
 	var all_depth_ok := true

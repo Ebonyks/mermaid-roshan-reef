@@ -11,6 +11,7 @@ const ROOM_ART := "res://assets/flats/castle/rooms/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const ART_TO_STAGE := 1.25
 const ART_SIZE := Vector2(1024.0, 576.0)
 const WORLD_WIDTH := 20.0
@@ -559,6 +560,13 @@ func _build_stage() -> void:
 		GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	m.castle_room_player_sprite.set_meta("source_asset_role", "character")
 	m.castle_room_world_root.add_child(m.castle_room_player_sprite)
+	if m.skin_id == "classic":
+		var animator := ROSHAN_SPRITE_LOOP.new()
+		animator.name = "AlwaysAliveSpriteLoop"
+		m.castle_room_player_sprite.add_child(animator)
+		animator.setup_sprite_3d(
+			m.castle_room_player_sprite, false,
+			m.castle_room_player_sprite)
 	var idle := m.castle_room_player_sprite.create_tween().set_loops()
 	idle.tween_property(m.castle_room_player_sprite, "rotation:z", -0.012,
 		0.85).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -1514,8 +1522,11 @@ func _player_texture_scale() -> float:
 	var desired_stage_height: float = HALL_PLAYER_STAGE_HEIGHT \
 		if _is_wide_hall() else PLAYER_STAGE_HEIGHT
 	var desired_art_height: float = desired_stage_height / stage_scale
+	var frame_height: float = \
+		m.castle_room_player_sprite.texture.get_height() \
+		/ float(maxi(1, m.castle_room_player_sprite.vframes))
 	return desired_art_height \
-		/ maxf(1.0, m.castle_room_player_sprite.texture.get_height())
+		/ maxf(1.0, frame_height)
 
 func _player_depth_for_foot(foot_y: float, walk: Rect2,
 		mid_foot_y: float) -> float:
