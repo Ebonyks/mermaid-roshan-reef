@@ -49,7 +49,8 @@ func _init() -> void:
 	var cfg: Dictionary = main.g.get("ss_cfg", {})
 	_check("three_screen_width",
 		is_equal_approx(float(cfg.get("half_w", 0.0)), 72.0)
-		and is_equal_approx(float(cfg.get("cam_follow", 0.0)), 1.0))
+		and is_equal_approx(float(cfg.get("cam_follow", 0.0)), 1.0)
+		and bool(cfg.get("side_on_axis_lock", false)))
 	_check("shallow_2_5d_band", float(cfg.get("half_d", 99.0)) <= 2.6)
 	_check("single_lagoon_light",
 		main.sun_light != null and not main.sun_light.visible
@@ -99,7 +100,9 @@ func _init() -> void:
 		var castle_world_width := (
 			castle_image.get_width() * castle_card.pixel_size
 		)
-		var castle_base_y := castle_card.position.y - (
+		var castle_reference_position: Vector3 = castle_card.get_meta(
+			"mural_reference_position", castle_card.position) as Vector3
+		var castle_base_y := castle_reference_position.y - (
 			castle_image.get_height() * castle_card.pixel_size * 0.5
 		)
 		# Interactive depth cards shift slightly as the camera pans so they stay
@@ -265,6 +268,35 @@ func _init() -> void:
 		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
 		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
 			lens.position.y - origin.y, lens.position.z - origin.z])
+	# Reproduce the owner-reported left-edge bounce from a cold centre frame.
+	# The camera must approach its mural clamp monotonically and keep a
+	# perpendicular optical axis while its position is still easing.
+	var left_edge_stable := lens != null
+	var left_edge_detail := "no camera"
+	if lens != null:
+		lens.position = origin + Vector3(
+			0.0, SkyLagoonPromenade.CAM_H, SkyLagoonPromenade.CAM_DIST)
+		lens.look_at(origin + Vector3(
+			0.0, SkyLagoonPromenade.CAM_H, 0.0))
+		var pan_limit: float = promenade.stage.screen_pan_limit(stage_cfg, lens)
+		var previous_camera_x := 0.0
+		var worst_axis_x := 0.0
+		for _edge_frame: int in range(120):
+			promenade.stage._glide_camera(
+				1.0 / 60.0, stage_cfg, stage_root, -SkyLagoonPromenade.HALF_W)
+			var camera_x: float = lens.position.x - origin.x
+			var camera_forward: Vector3 = -lens.global_transform.basis.z.normalized()
+			worst_axis_x = maxf(worst_axis_x, absf(camera_forward.x))
+			left_edge_stable = left_edge_stable \
+				and camera_x <= previous_camera_x + 0.00001 \
+				and camera_x >= -pan_limit - 0.00001
+			previous_camera_x = camera_x
+		left_edge_stable = left_edge_stable \
+			and absf(previous_camera_x + pan_limit) <= 0.01 \
+			and worst_axis_x <= 0.00001
+		left_edge_detail = "x=%.3f clamp=%.3f axis_x=%.7f" % [
+			previous_camera_x, -pan_limit, worst_axis_x]
+	_check("left_edge_camera_has_no_bounce", left_edge_stable, left_edge_detail)
 	var mural_half_w: float = (
 		SkyLagoonPromenade.BACKDROP_TILE_SIZE.x
 		* float(SkyLagoonPromenade.BACKDROP_COLUMNS) * 0.5)

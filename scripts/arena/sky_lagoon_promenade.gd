@@ -59,14 +59,17 @@ const WIND_GUST_PERIOD_S := 24.0
 const WIND_GUST_RISE_AT_S := 16.0
 const WIND_GUST_PEAK_AT_S := 18.0
 const WIND_GUST_FALL_AT_S := 21.0
-# Three cabin flue mouths measured on the native 6144x2048 mural, then
+# Three cabin roof/flue origins measured on the native 6144x2048 mural at
+# master pixels (4798,419), (4591,581), and (4806,669), then
 # perspective-compensated from BACKDROP_Z to SMOKE_Z at the approved
-# screen-three framing. Each receives one staggered thin-wisp card, preserving
-# the former three-card smoke budget while bringing every cabin to life.
+# screen-three framing. The middle cabin intentionally keeps the roof
+# representation already baked into the approved mural; no chimney sticker is
+# added. Each receives one staggered thin-wisp card, preserving the former
+# three-card smoke budget while bringing every cabin to life.
 const CABIN_SMOKE_ANCHORS := [
-	Vector3(40.982, 21.938, SMOKE_Z),
-	Vector3(36.874, 18.458, SMOKE_Z),
-	Vector3(40.103, 16.296, SMOKE_Z),
+	Vector3(41.323918, 22.043570, SMOKE_Z),
+	Vector3(37.032151, 18.684796, SMOKE_Z),
+	Vector3(41.489784, 16.860276, SMOKE_Z),
 ]
 const SMOKE_CARD_HEIGHT := 2.2
 const SMOKE_LIFETIME_S := 6.0
@@ -166,6 +169,10 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": CAM_H,
 		"cam_fov": CAM_FOV,
 		"cam_follow": 1.0,
+		# Keep the optical axis perpendicular to the mural while camera
+		# position eases. A yawing lens makes different Sprite3D depths skate
+		# against their painted sockets and visibly rebounds at the edge clamp.
+		"side_on_axis_lock": true,
 		# the mural the lens may never pan off
 		"screen_half_w": BACKDROP_TILE_SIZE.x * float(BACKDROP_COLUMNS) * 0.5,
 		"screen_z": BACKDROP_Z,
@@ -334,7 +341,7 @@ func _build_castle_screen() -> void:
 		Vector3(51.572852, 11.022284, LANDMARK_Z), 28.430568, false)
 	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
-	_register_mural_socket(castle)
+	_register_mural_socket(castle, GROUND_SOCKET_LOCK)
 	var door_center_px: Vector2 = (
 		CASTLE_DOOR_FOCUS_BOUNDS.position
 		+ CASTLE_DOOR_FOCUS_BOUNDS.size * 0.5)
@@ -349,7 +356,7 @@ func _build_castle_screen() -> void:
 	m.g["lagoon_castle_door_focus"] = door_anchor
 	_register_target(
 		"castle_gate", door_anchor, "castle", "", 128.0, 1.0,
-		DEFAULT_MURAL_SOCKET_LOCK,
+		GROUND_SOCKET_LOCK,
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
 		castle.pixel_size)
 
@@ -422,8 +429,10 @@ func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
 	card.set_meta("target_world_height", height)
 	card.set_meta("touch_footprint_px", 0.0)
 	card.set_meta("ambient_cycle_index", cycle_index)
-	card.set_meta("mural_socket_lock",
-		GROUND_SOCKET_LOCK if kind == "smoke" else DEFAULT_MURAL_SOCKET_LOCK)
+	var socket_lock: float = GROUND_SOCKET_LOCK \
+		if kind == "smoke" or kind == "tree" \
+		else DEFAULT_MURAL_SOCKET_LOCK
+	_register_mural_socket(card, socket_lock)
 	if kind == "smoke":
 		card.flip_h = cycle_index % 2 == 1
 	card.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
@@ -483,11 +492,13 @@ func _tick_ambient_life(delta: float) -> void:
 			card.scale = Vector3.ONE * smoke_scale
 			var target_height: float = float(card.get_meta(
 				"target_world_height", SMOKE_CARD_HEIGHT))
-			var smoke_base: Vector3 = base
-			smoke_base.x = _mural_anchored_x(
-				base.x, base.z, _mural_reference_camera_x(base.x),
+			var smoke_base: Vector3 = _mural_anchored_position(
+				base,
+				float(card.get_meta("mural_reference_camera_x",
+					_mural_reference_camera_x(base.x))),
 				float(card.get_meta("mural_socket_lock",
 					DEFAULT_MURAL_SOCKET_LOCK)))
+			card.set_meta("mural_socket_world_base", smoke_base)
 			card.position = smoke_base + Vector3(
 				WIND_DIRECTION * life * 0.20 * wind_gust,
 				target_height * smoke_scale * 0.5 + life * 0.45,
@@ -501,22 +512,25 @@ func _tick_ambient_life(delta: float) -> void:
 		var wave: float = sin(ambient_t * speed + phase)
 		var amplitude: float = float(card.get_meta("ambient_amplitude", 0.02))
 		card.rotation.z = wave * amplitude * wind_gust
-		var grounded_base_x: float = _mural_anchored_x(
-			base.x, base.z, _mural_reference_camera_x(base.x),
+		var grounded_base: Vector3 = _mural_anchored_position(
+			base,
+			float(card.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(base.x))),
 			float(card.get_meta("mural_socket_lock",
 				DEFAULT_MURAL_SOCKET_LOCK)))
-		card.position = Vector3(
-			grounded_base_x + wave * 0.04,
-			base.y + absf(wave) * 0.025,
-			base.z)
+		card.set_meta("mural_socket_world_base", grounded_base)
+		card.position = grounded_base + Vector3(
+			wave * 0.04, absf(wave) * 0.025, 0.0)
 		_sync_contact_shadow(card)
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
 	if plane != null and is_instance_valid(plane):
 		var plane_base: Vector3 = m.g.get("lagoon_plane_base", plane.position) as Vector3
-		var anchored_plane_base: Vector3 = plane_base
-		anchored_plane_base.x = _mural_anchored_x(
-			plane_base.x, plane_base.z, _mural_reference_camera_x(plane_base.x),
-			DEFAULT_MURAL_SOCKET_LOCK)
+		var anchored_plane_base: Vector3 = _mural_anchored_position(
+			plane_base,
+			float(plane.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(plane_base.x))),
+			float(plane.get_meta("mural_socket_lock",
+				DEFAULT_MURAL_SOCKET_LOCK)))
 		plane.position = anchored_plane_base + Vector3(
 			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
 		plane.rotation.z = sin(ambient_t * 0.72) * 0.010
@@ -661,44 +675,87 @@ func _mural_reference_camera_x(reference_x: float) -> float:
 func _mural_anchored_x(reference_x: float, card_z: float,
 		reference_camera_x: float,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> float:
-	# Extracted cards live in front of the painted plate for real occlusion,
-	# but their roots still belong to specific painted lawn/chimney positions.
-	# Compensate the per-card share of camera-induced horizontal offset:
-	# landmarks retain restrained physical parallax, while exact sockets use a
-	# full lock and cannot skate loose from the mural.
+	# Compatibility seam for older callers and probes. New placement uses the
+	# exact 2D projection in _mural_anchored_position so both axes stay locked.
+	var reference_position := Vector3(reference_x, CAM_H, card_z)
+	return _mural_anchored_position(
+		reference_position, reference_camera_x, socket_lock).x
+
+func _mural_reference_position(reference_position: Vector3,
+		reference_camera_x: float) -> Vector3:
+	# Recover the point on the painted wall that the authored card centre
+	# covered in its approved page framing. The source cards were composed at
+	# real depth, so their local coordinates already include perspective.
+	var backdrop_distance: float = CAM_DIST - BACKDROP_Z
+	var card_distance: float = maxf(0.001, CAM_DIST - reference_position.z)
+	var depth_scale: float = backdrop_distance / card_distance
+	return Vector3(
+		reference_camera_x
+			+ (reference_position.x - reference_camera_x) * depth_scale,
+		CAM_H + (reference_position.y - CAM_H) * depth_scale,
+		BACKDROP_Z)
+
+func _mural_anchored_position(reference_position: Vector3,
+		reference_camera_x: float,
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> Vector3:
+	# Project the authored mural socket through the CURRENT camera, then
+	# intersect that screen ray with the card's real depth plane. This remains
+	# exact while the camera is moving, at both edge clamps, and on any aspect
+	# ratio. Blending retains restrained parallax for non-socket landmarks.
 	var root_node: Node3D = stage.root()
 	var cam: Camera3D = m.player.cam
 	if root_node == null or cam == null or not cam.is_inside_tree():
-		return reference_x
-	var camera_x: float = cam.position.x - root_node.position.x
-	var camera_z: float = cam.position.z - root_node.position.z
-	var backdrop_distance: float = maxf(0.001, absf(camera_z - BACKDROP_Z))
-	var card_distance: float = absf(camera_z - card_z)
-	return reference_x + (camera_x - reference_camera_x) \
-		* (1.0 - card_distance / backdrop_distance) * socket_lock
+		return reference_position
+	var mural_local: Vector3 = _mural_reference_position(
+		reference_position, reference_camera_x)
+	var mural_global: Vector3 = root_node.to_global(mural_local)
+	if cam.is_position_behind(mural_global):
+		return reference_position
+	var screen_point: Vector2 = cam.unproject_position(mural_global)
+	var ray_origin: Vector3 = cam.project_ray_origin(screen_point)
+	var ray_direction: Vector3 = cam.project_ray_normal(screen_point)
+	if absf(ray_direction.z) <= 0.00001:
+		return reference_position
+	var target_global_z: float = root_node.to_global(
+		Vector3(0.0, 0.0, reference_position.z)).z
+	var ray_t: float = (target_global_z - ray_origin.z) / ray_direction.z
+	if ray_t <= 0.0:
+		return reference_position
+	var exact_local: Vector3 = root_node.to_local(
+		ray_origin + ray_direction * ray_t)
+	exact_local.z = reference_position.z
+	return reference_position.lerp(exact_local, clampf(socket_lock, 0.0, 1.0))
 
 func _register_mural_socket(node: Node3D,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> void:
 	node.set_meta("mural_reference_x", node.position.x)
+	node.set_meta("mural_reference_position", node.position)
 	node.set_meta("mural_reference_camera_x",
 		_mural_reference_camera_x(node.position.x))
 	node.set_meta("mural_socket_lock", socket_lock)
+	node.set_meta("mural_backdrop_reference", _mural_reference_position(
+		node.position, _mural_reference_camera_x(node.position.x)))
 
 func _sync_mural_socket(node: Node3D) -> void:
 	if node == null or not is_instance_valid(node):
 		return
-	var reference_x: float = float(
-		node.get_meta("mural_reference_x", node.position.x))
+	var reference_position: Vector3 = node.get_meta(
+		"mural_reference_position", node.position) as Vector3
 	var reference_camera_x: float = float(node.get_meta(
-		"mural_reference_camera_x", _mural_reference_camera_x(reference_x)))
+		"mural_reference_camera_x",
+		_mural_reference_camera_x(reference_position.x)))
 	var socket_lock: float = float(node.get_meta(
 		"mural_socket_lock", DEFAULT_MURAL_SOCKET_LOCK))
-	node.position.x = _mural_anchored_x(
-		reference_x, node.position.z, reference_camera_x, socket_lock)
+	node.position = _mural_anchored_position(
+		reference_position, reference_camera_x, socket_lock)
+	node.set_meta("mural_socket_world_base", node.position)
 	if node is Sprite3D:
 		_sync_contact_shadow(node as Sprite3D)
 
 func _sync_target_mural_anchors() -> void:
+	var castle: Node3D = m.g.get("lagoon_castle_card") as Node3D
+	if castle != null and is_instance_valid(castle):
+		_sync_mural_socket(castle)
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var node: Node3D = target.get("node") as Node3D

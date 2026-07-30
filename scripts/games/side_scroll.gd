@@ -45,6 +45,10 @@ func open(cfg: Dictionary) -> void:
 	# screen_z declare the painted wall's half-width and depth, and the camera
 	# glide then REFUSES to pan past its painted edges, so the frame is always
 	# filled by the painting and never by raw environment sky.
+	# A mural stage may also set side_on_axis_lock: the camera then keeps its
+	# optical axis perpendicular to the stage while its position eases. Without
+	# that lock, look-at snaps to the goal while position lags, briefly yawing
+	# the lens and making real-depth cards skate against painted sockets.
 	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
 	# player.gd) — size stages against HER, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
@@ -428,7 +432,11 @@ func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) ->
 		follow_x = clampf(follow_x, -pan_limit, pan_limit)
 	var goal: Vector3 = r.position + Vector3(follow_x, float(cfg.get("cam_h", 12.0)), float(cfg.get("cam_dist", 20.5)))
 	cam.position = cam.position.lerp(goal, 1.0 - pow(0.002, delta))
-	cam.look_at(r.position + Vector3(follow_x, float(cfg.get("look_h", 10.5)), 0))
+	var look_x: float = follow_x
+	if bool(cfg.get("side_on_axis_lock", false)):
+		look_x = cam.position.x - r.position.x
+	cam.look_at(r.position + Vector3(
+		look_x, float(cfg.get("look_h", 10.5)), 0))
 	# parallax: locked layers ride the (lerped) camera by their lock factor,
 	# so a lock-1 sky never recedes and a lock-0 skirt stays stage-pinned;
 	# under a swell the near layers also breathe with the shared wave (the
