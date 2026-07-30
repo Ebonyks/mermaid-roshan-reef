@@ -25,6 +25,9 @@ from PIL import Image, ImageFilter
 ROOT = Path(__file__).resolve().parents[1]
 PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 STAGE = ROOT / "scripts/arena/sky_lagoon_promenade.gd"
+CASTLE_PALETTE_REFERENCE = (
+	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+)
 CANVAS_HEIGHT = 720.0
 CAM_DIST = 47.0
 CAM_FOV = 38.0
@@ -236,9 +239,10 @@ def main() -> None:
 	source = STAGE.read_text(encoding="utf-8")
 	ground = image_metrics(PLATE, (0.52, 1.0))
 	sky = image_metrics(PLATE, (0.0, 0.43))
-	castle = image_metrics(
-		ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png"
-	)
+	# Keep the established approved castle as a fixed palette/value baseline.
+	# A replacement castle must be evaluated against it, never grade itself or
+	# silently move the acceptance target for other purple landmark cards.
+	castle = image_metrics(CASTLE_PALETTE_REFERENCE)
 	with Image.open(PLATE).convert("RGBA") as plate:
 		plate_lab = srgb_to_lab(np.asarray(plate.convert("RGB")))
 		accent_mask = (
