@@ -674,7 +674,8 @@ func _return_to_lobby(finished: int) -> void:
 			m.show_msg("Roshan", "Every show and every big finale! Take a bow, Opera Star Roshan!", "win")
 		else:
 			m.show_msg("Roshan", "A gold star for that show! Tap the next sparkling picture!", "win")
-		return	lobby_root.visible = true
+		return
+	lobby_root.visible = true
 	var back := lobby_pos
 	var back_y := lobby_y
 	for door in doors:
