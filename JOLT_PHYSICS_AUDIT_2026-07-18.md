@@ -1,5 +1,10 @@
 # Jolt Physics Audit — 2026-07-18
 
+> **VERDICT SUPERSEDED (owner decision 2026-07-27):** "Do not migrate
+> gameplay onto engine bodies" no longer binds. Jolt physics bodies are
+> now allowed project-wide — see the RULE UPDATE in AGENTS.md. The usage
+> inventory below remains accurate as a historical snapshot.
+
 Scope: (1) where the Jolt physics engine is actually used, (2) what would make
 the overworld (free-swim reef) feel and control better, (3) where cheap
 "basic animation" wins are, using systems the game already has.

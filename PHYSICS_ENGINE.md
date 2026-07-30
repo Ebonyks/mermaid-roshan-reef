@@ -7,6 +7,13 @@ integrators that used to be scattered across `player.gd` and `main.gd`.
 
 ## Why not Godot physics (Jolt)?
 
+> **RULE UPDATE (owner decision 2026-07-27):** the analytic-only
+> restriction below is LIFTED. Jolt is implemented as the project physics
+> engine and gameplay may now use engine bodies wherever they are the
+> simpler tool — see the rule in AGENTS.md. ReefPhysics stays supported
+> as the lightweight analytic option; nothing in this document is
+> deprecated, but its "no engine bodies" argument no longer binds.
+
 The target device is a 3–4-year-old Android phone. The world is procedural
 (analytic heightfields, dict-based solids), so adopting engine bodies would
 mean baking collision shapes for everything and paying the physics-server

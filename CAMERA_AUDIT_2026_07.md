@@ -1,5 +1,11 @@
 # CAMERA AUDIT & REDESIGN — 2026-07-19
 
+> **RULE UPDATE (owner decision 2026-07-27):** the "no physics bodies"
+> constraint woven through this document is LIFTED — Jolt bodies are now
+> allowed project-wide (see AGENTS.md). The analytic boom resolver below
+> remains a valid design, but new camera work may also use raycasts /
+> SpringArm3D against real collision shapes where they exist.
+
 Why this exists: camera-inside-geometry shots are the most common visual failure
 in the game right now. Three representative screenshots from the Northern
 Kingdom (dark void with HUD only; camera inside a mountain peak; camera inside
