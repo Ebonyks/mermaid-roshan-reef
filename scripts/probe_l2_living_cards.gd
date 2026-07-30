@@ -118,6 +118,21 @@ func _promenade_target(target_id: String) -> Sprite3D:
 	return null
 
 
+func _socket_error_px(card: Sprite3D, camera: Camera3D,
+		stage_root: Node3D) -> float:
+	if card == null or camera == null or stage_root == null:
+		return INF
+	var mural_local: Vector3 = card.get_meta(
+		"mural_backdrop_reference", Vector3.ZERO) as Vector3
+	var socket_local: Vector3 = card.get_meta(
+		"mural_socket_world_base", card.position) as Vector3
+	var mural_screen: Vector2 = camera.unproject_position(
+		stage_root.to_global(mural_local))
+	var socket_screen: Vector2 = camera.unproject_position(
+		stage_root.to_global(socket_local))
+	return mural_screen.distance_to(socket_screen)
+
+
 func _initialize() -> void:
 	call_deferred("_run")
 
@@ -241,7 +256,17 @@ func _run() -> void:
 	var slide: Sprite3D = _promenade_target("slide")
 	var mural_anchor_ok: bool = camera != null and slide != null
 	var mural_anchor_detail: Array[String] = []
-	for player_x: float in [-30.0, 30.0]:
+	var exact_socket_cards: Array[Sprite3D] = []
+	for target_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+		var socket_card: Sprite3D = _promenade_target(target_id)
+		if socket_card != null:
+			exact_socket_cards.append(socket_card)
+	for ambient_value: Variant in cards:
+		var ambient_card: Sprite3D = ambient_value as Sprite3D
+		if ambient_card != null and String(
+				ambient_card.get_meta("ambient_kind", "")) in ["smoke", "tree"]:
+			exact_socket_cards.append(ambient_card)
+	for player_x: float in [-60.0, -30.0, 0.0, 30.0, 60.0]:
 		main.player.position.x = main.LEVEL2_POS.x + player_x
 		main.g["lagoon_castle_armed"] = false
 		for _index: int in range(6):
@@ -249,25 +274,17 @@ func _run() -> void:
 		if camera == null or slide == null:
 			mural_anchor_ok = false
 			continue
-		var camera_x: float = camera.position.x - stage_root.position.x
-		var camera_z: float = camera.position.z - stage_root.position.z
-		var backdrop_distance: float = absf(
-			camera_z - SkyLagoonPromenade.BACKDROP_Z)
-		var card_distance: float = absf(camera_z - slide.position.z)
-		var reference_x: float = float(slide.get_meta(
-			"mural_reference_x", slide.position.x))
-		var reference_camera_x: float = float(slide.get_meta(
-			"mural_reference_camera_x", 0.0))
-		var socket_lock: float = float(slide.get_meta(
-			"mural_socket_lock", 0.0))
-		var expected_x: float = reference_x \
-			+ (camera_x - reference_camera_x) \
-			* (1.0 - card_distance / backdrop_distance) \
-			* socket_lock
-		var anchor_delta: float = absf(slide.position.x - expected_x)
-		mural_anchor_ok = mural_anchor_ok and anchor_delta < 0.0001
-		mural_anchor_detail.append("%.0f:%.6f" % [player_x, anchor_delta])
-	_check("playground_mural_anchor_stability", mural_anchor_ok,
+		var worst_error_px := 0.0
+		for socket_card: Sprite3D in exact_socket_cards:
+			worst_error_px = maxf(
+				worst_error_px,
+				_socket_error_px(socket_card, camera, stage_root))
+		mural_anchor_ok = mural_anchor_ok and worst_error_px <= 0.25
+		mural_anchor_detail.append("%.0f:%.3fpx" % [
+			player_x, worst_error_px])
+		await _capture("socket_scroll_%+03d" % roundi(player_x))
+	_check("extracted_cards_stay_on_mural_sockets_during_scroll",
+		mural_anchor_ok,
 		";".join(mural_anchor_detail))
 
 	var coverage_ok: bool = camera != null
