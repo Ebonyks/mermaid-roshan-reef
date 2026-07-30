@@ -539,6 +539,19 @@ ambientCG (all CC0).
   fitting are deterministic in `tools/prepare_sky_lagoon_castle_symmetry.py`;
   runtime width, waterline, and bridge landing match the approved fallback.
   No external references; generated and prepared 2026-07-29.
+- `assets_src/sky_lagoon/castle_symmetry_2026-07-29/frame_restore_ring_source.png`
+  — 249x360 project-original crop from an OpenAI built-in precision-edit
+  candidate derived only from the approved v3 and v1 castle cards. The rejected
+  full candidate is not shipped; only its bounded clean lavender/gold window
+  surround is retained for the deterministic preparation tool.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png` —
+  non-destructive v3 derivative that replaces only the audited stained-glass
+  surround with the bounded clean-frame repair. The four-tower silhouette,
+  door, bridge, placement contract, and neutral base lighting remain unchanged.
+- `assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png` —
+  deterministic 199x228 alpha mask cropped from the v4 castle door footprint;
+  used only for reversible touch feedback so no full-castle duplicate is drawn.
+  No external source or newly painted subject pixels.
 
 ## Sky Lagoon playground fit revision (Codex, 2026-07-29)
 - `assets_src/sky_lagoon/playground_revision_2026-07-29/**` — project-original

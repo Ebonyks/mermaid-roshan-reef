@@ -125,6 +125,9 @@ const ROUTE_PAINTED := [
 const CASTLE_DOOR_X := 52.5      # painted x of the door, shared with the gate card
 const DOORSTEP_R := 1.5          # how close counts as arriving at the door
 const DOORSTEP_REARM := 8.0      # walk this far back before it can fire again
+const CASTLE_CARD_SIZE := Vector2(1022.0, 1024.0)
+const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(
+	Vector2(410.0, 557.0), Vector2(199.0, 228.0))
 # Roshan's card hangs 1.0 above her node and stands 7.8 tall, so her feet are
 # 2.9 below the node: the offset that turns a painted ground height into hover.
 const FOOT_OFFSET := 2.9
@@ -233,8 +236,14 @@ func tick(delta: float) -> void:
 		var selected: bool = String(target.get("id", "")) == focus_id
 		glow.visible = selected
 		if selected:
-			var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
-			glow.scale = Vector3.ONE * pulse
+			if String(target.get("id", "")) == "castle_gate":
+				# The door itself breathes brighter in place. Scaling the full
+				# castle made a loose gold ghost around every tower and window.
+				glow.scale = Vector3.ONE
+				glow.modulate.a = 0.58 + sin(focus_t * 5.2) * 0.12
+			else:
+				var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
+				glow.scale = Vector3.ONE * pulse
 
 func _tick_hold_travel(delta: float) -> void:
 	# The touch grammar, kept honest: a TAP belongs to the tap router
@@ -321,11 +330,28 @@ func _build_castle_screen() -> void:
 	# The four-tower castle remains one neutral, unshaded depth card. Its world
 	# width, waterline and bridge landing are fitted to the approved fallback.
 	var castle := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		Vector3(51.572852, 11.022284, LANDMARK_Z), 28.430568, false)
 	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
-	_register_target("castle_gate", castle, "castle", "", 128.0, 1.035)
+	_register_mural_socket(castle)
+	var door_center_px: Vector2 = (
+		CASTLE_DOOR_FOCUS_BOUNDS.position
+		+ CASTLE_DOOR_FOCUS_BOUNDS.size * 0.5)
+	var door_position := castle.position + Vector3(
+		(door_center_px.x - CASTLE_CARD_SIZE.x * 0.5) * castle.pixel_size,
+		(CASTLE_CARD_SIZE.y * 0.5 - door_center_px.y) * castle.pixel_size,
+		0.10)
+	var door_anchor := Node3D.new()
+	door_anchor.name = "SkyLagoonCastleDoorFocus"
+	door_anchor.position = door_position
+	stage.root().add_child(door_anchor)
+	m.g["lagoon_castle_door_focus"] = door_anchor
+	_register_target(
+		"castle_gate", door_anchor, "castle", "", 128.0, 1.0,
+		DEFAULT_MURAL_SOCKET_LOCK,
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+		castle.pixel_size)
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
@@ -686,11 +712,22 @@ func _sync_target_mural_anchors() -> void:
 
 func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		radius_px: float, highlight_scale: float,
-		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> void:
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
+		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
 	var glow: Sprite3D
 	glow = Sprite3D.new()
-	if node is Sprite3D:
+	if not highlight_path.is_empty():
+		glow.texture = load(highlight_path)
+		glow.pixel_size = highlight_pixel_size
+		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		glow.shaded = false
+		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.position = node.position + Vector3(0, 0, -0.05)
+		var root_node: Node3D = stage.root()
+		root_node.add_child(glow)
+	elif node is Sprite3D:
 		var source := node as Sprite3D
 		glow.texture = source.texture
 		glow.pixel_size = source.pixel_size
