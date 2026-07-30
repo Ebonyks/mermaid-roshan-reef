@@ -9,6 +9,7 @@ const ROOM_IDS: Array[String] = [
 	"main_hall", "opera_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
+const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 
 var main: ReefMain
 var checks_failed := 0
@@ -121,24 +122,60 @@ func _run() -> void:
 	_ck("castle_roshan_uses_primary_animated_sprite",
 		castle_roshan_loop != null
 		and castle_roshan.texture.resource_path.ends_with(
-			"roshan_swim_front.png")
+			"roshan_directional.png")
 		and castle_roshan.hframes == 4
-		and castle_roshan.vframes == 4
+		and castle_roshan.vframes == 2
 		and is_equal_approx(castle_frame_height, 256.0))
-	var idle_frame: int = castle_roshan.frame
+	var idle_offset: Vector2 = castle_roshan.offset
 	castle_roshan_loop._process(0.3)
 	_ck("castle_roshan_idle_never_freezes",
-		castle_roshan.frame != idle_frame,
-		"frame=%d->%d" % [idle_frame, castle_roshan.frame])
+		castle_roshan_loop.animation_state() == "idle"
+		and castle_roshan.offset != idle_offset,
+		"state=%s offset=%s->%s" % [
+			castle_roshan_loop.animation_state(), idle_offset,
+			castle_roshan.offset])
 	var walk_target := Vector2(1180.0, 835.0)
 	rooms._position_player_at_foot(walk_target, true)
+	castle_roshan_loop._process(0.01)
 	var moving_frame: int = castle_roshan.frame
 	castle_roshan_loop._process(0.3)
 	_ck("castle_roshan_swims_when_moving",
 		bool(castle_roshan.get_meta("walking", false))
+		and castle_roshan_loop.animation_state() == "swim"
+		and castle_roshan.texture.resource_path.ends_with(
+			"roshan_swim_front.png")
+		and castle_roshan.vframes == 4
 		and castle_roshan.frame != moving_frame,
-		"frame=%d->%d" % [moving_frame, castle_roshan.frame])
+		"state=%s frame=%d->%d" % [
+			castle_roshan_loop.animation_state(),
+			moving_frame, castle_roshan.frame])
+	castle_roshan.flip_h = false
+	var target_anchor: Vector2 = ROSHAN_ANCHORS.anchor("directional", 0)
+	var max_anchor_drift := 0.0
+	for frame_index: int in range(16):
+		castle_roshan_loop._apply_frame(frame_index)
+		var frame_anchor: Vector2 = ROSHAN_ANCHORS.anchor(
+			"swim_front", frame_index)
+		var frame_offset: Vector2 = castle_roshan.get_meta(
+			"roshan_anchor_offset", Vector2.ZERO) as Vector2
+		var corrected_anchor := Vector2(
+			frame_anchor.x + frame_offset.x,
+			frame_anchor.y - frame_offset.y)
+		max_anchor_drift = maxf(
+			max_anchor_drift, corrected_anchor.distance_to(target_anchor))
+	_ck("castle_roshan_frames_share_anatomical_anchor",
+		max_anchor_drift <= 0.11,
+		"max_torso_drift_px=%.3f" % max_anchor_drift)
 	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
+	castle_roshan_loop._process(0.2)
+	_ck("castle_roshan_swim_finishes_at_arrival",
+		castle_roshan_loop.animation_state() == "idle"
+		and castle_roshan.texture.resource_path.ends_with(
+			"roshan_directional.png")
+		and castle_roshan.vframes == 2,
+		"state=%s texture=%s" % [
+			castle_roshan_loop.animation_state(),
+			castle_roshan.texture.resource_path])
 
 	var all_rooms_ok := true
 	var all_depth_ok := true

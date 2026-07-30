@@ -25,8 +25,12 @@ from PIL import Image, ImageFilter
 ROOT = Path(__file__).resolve().parents[1]
 PLATE = ROOT / "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
 STAGE = ROOT / "scripts/arena/sky_lagoon_promenade.gd"
+ROSHAN_LOOP = ROOT / "scripts/roshan_sprite_loop.gd"
 CASTLE_PALETTE_REFERENCE = (
 	ROOT / "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png"
+)
+ROSHAN_PALETTE_REFERENCE = (
+	ROOT / "assets/characters/roshan_25d/roshan_base.png"
 )
 CANVAS_HEIGHT = 720.0
 CAM_DIST = 47.0
@@ -59,6 +63,7 @@ class Element:
 	band: str = "ground"
 	shadow_mode: str = "card"
 	palette_band: str = ""
+	atlas_rows: int = 1
 
 
 ELEMENTS = (
@@ -67,7 +72,8 @@ ELEMENTS = (
 	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
 	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
 	Element("castle_four_tower", "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png", 28.431, -11.0, "castle", "painted_underside", "castle"),
-	Element("roshan", "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png", 7.8, 0.2, "ground", "card", "accent"),
+	Element("roshan_idle_directional", "assets/characters/roshan_25d/roshan_directional.png", 7.8, 0.2, "roshan", "card", "roshan", 2),
+	Element("roshan_swim_front", "assets/characters/roshan_25d/roshan_swim_front.png", 7.8, 0.2, "roshan", "card", "roshan", 4),
 	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
 	Element("pnw_tree_sticker_tall", "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 8.197, -9.0, "ground", "painted_underside"),
 )
@@ -197,7 +203,7 @@ def evaluate(element: Element, bands: dict[str, dict[str, float]],
 	key_delta = angular_delta(metrics["key_angle"], target["key_angle"])
 	displayed = displayed_height(element)
 	with Image.open(path) as authored:
-		authored_height = authored.height
+		authored_height = authored.height / max(1, element.atlas_rows)
 	density = authored_height / displayed
 	density_max = min(TOL["c6_ratio_max"], plate_ratio * TOL["c6_plate_multiplier"])
 	criteria = {
@@ -236,7 +242,10 @@ def main() -> None:
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--json", type=Path)
 	args = parser.parse_args()
-	source = STAGE.read_text(encoding="utf-8")
+	# The stage owns the contact shadow and the shared animator owns its atlas
+	# paths. Both scripts form the runtime contract for the Sky Lagoon card.
+	source = STAGE.read_text(encoding="utf-8") \
+		+ ROSHAN_LOOP.read_text(encoding="utf-8")
 	ground = image_metrics(PLATE, (0.52, 1.0))
 	sky = image_metrics(PLATE, (0.0, 0.43))
 	# Keep the established approved castle as a fixed palette/value baseline.
@@ -256,7 +265,14 @@ def main() -> None:
 	accent = dict(ground)
 	accent["a"] = float(np.median(accent_lab[:, 1]))
 	accent["b"] = float(np.median(accent_lab[:, 2]))
-	bands = {"ground": ground, "sky": sky, "castle": castle, "accent": accent}
+	roshan = image_metrics(ROSHAN_PALETTE_REFERENCE)
+	bands = {
+		"ground": ground,
+		"sky": sky,
+		"castle": castle,
+		"accent": accent,
+		"roshan": roshan,
+	}
 	plate_displayed = 48.0 * ((CANVAS_HEIGHT * 0.5) / math.tan(math.radians(CAM_FOV * 0.5))) / (CAM_DIST - BACKDROP_Z)
 	with Image.open(PLATE) as plate_image:
 		plate_ratio = plate_image.height / plate_displayed
