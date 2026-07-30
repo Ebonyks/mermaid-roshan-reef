@@ -79,17 +79,33 @@ func _init() -> void:
 	_check(skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2, "intro skip requires a deliberate hold")
 	var intro_pips: Array = main.intro_layer.get_meta("page_pips", [])
 	_check(intro_pips.size() == 4, "intro has four non-reading page pips")
+	_check(_find(main.intro_layer, "IntroShellCrest") != null,
+		"picture intro uses the recovered shell crest")
 	main._skip_intro()
 	await process_frame
 
+	# The gameplay canvas stays action-first: saved totals remain available to
+	# systems, but persistent report-card text is not rendered over the world.
+	var status_tray := _find(main.hud_layer, "HudStatusTray") as Control
+	var objective_sentence := _find(main.hud_layer, "HudPictureObjective") as Control
+	_check(status_tray != null and not status_tray.visible
+		and not main.hud_pearls.visible and not main.hud_stars.visible,
+		"free roam hides irrelevant persistent totals")
+	_check(objective_sentence != null and not objective_sentence.visible,
+		"free roam hides the legacy sentence objective")
+
 	# Pause: raised above overlays only while open; resume dominates the icon grid.
 	_check_target(main.pause_layer, "PauseCornerButton", "pause corner owns a 128px envelope", Vector2(128, 128))
+	_check(_find(main.pause_layer, "PauseCornerShell") != null,
+		"pause control uses the recovered shell crest")
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 29 and main.get_tree().paused, "pause sheet rises above active overlays")
 	_check_target(main.pause_panel, "PauseResumeButton", "resume is the dominant 300x140 action", Vector2(300, 140))
 	_check_target(main.pause_panel, "PauseStickerButton", "sticker tile is thumb-sized")
 	_check_target(main.pause_panel, "PauseMusicButton", "music toggle is thumb-sized")
 	_check_target(main.pause_panel, "PauseQualityButton", "quality toggle is thumb-sized")
+	_check(_find(main.pause_panel, "PauseShellCrest") != null,
+		"pause sheet carries shell-and-pearl adornment")
 	var leave := _find(main.pause_panel, "PauseLeaveButton") as Button
 	_check(leave != null and bool(leave.get_meta("neutral_exit", false)), "activity exit uses neutral-back semantics")
 	main.toggle_pause()
@@ -102,6 +118,8 @@ func _init() -> void:
 	_check_target(main.craft_layer, "CraftFinishButton", "craft finish is a 150px-class primary action", Vector2(150, 150))
 	_check(_count_named(main.craft_layer, "CraftPart_*") == 3, "craft exposes three picture part selectors")
 	_check(_count_named(main.craft_layer, "CraftSwatch_*") == 8 and _count_named(main.craft_layer, "CraftRainbowSwatch") == 1, "craft shows one nine-choice palette row")
+	_check(_find(main.craft_layer, "CraftShellCrest") != null,
+		"craft studio carries the shared shell crest")
 	for node: Node in main.craft_layer.find_children("CraftSwatch_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "craft swatch is at least 110x110")
 	main._close_craft()
@@ -116,14 +134,18 @@ func _init() -> void:
 	main._open_stickers()
 	await process_frame
 	_check_target(main.stickers_layer, "StickerBookBackButton", "sticker book back is thumb-sized")
+	_check(_find(main.stickers_layer, "StickerBookShellCrest") != null,
+		"sticker book carries the shared shell crest")
 	main._close_stickers()
 	main._collection_ref().open_book()
 	await process_frame
 	_check_target(main.collection_layer, "CritterBookBackButton", "critter book back is thumb-sized")
+	_check(_find(main.collection_layer, "CritterBookShellCrest") != null,
+		"critter book carries the shared shell crest")
 	main._collection_ref().close_book()
 
 	# Stuffie paint uses the same one-active-part grammar and 110px swatches.
-	main._companion_ref().open_picker(false)
+	main._companion_ref().open_picker(false, "mewsha")
 	await process_frame
 	_check_target(main.companion_layer, "StuffiePickerBackButton", "stuffie picker back is thumb-sized")
 	_check(_count_named(main.companion_layer, "StuffiePart_*") == 3, "stuffie picker has three picture part selectors")
@@ -148,10 +170,14 @@ func _init() -> void:
 		and critter_button.global_position.x + critter_button.size.x < pause_button.global_position.x,
 		"Stuffie, Critter Book, and Pause keep separate upper-hand hit areas")
 	_check(_count_named(main, "StuffieCareMenuButton") == 1, "exactly one Stuffie care launcher exists")
+	_check(_find(main.hud_layer, "StuffieWatchShell") != null,
+		"Stuffie watch keeps its inset shell treatment")
 	main._companion_ref().open_care_menu()
 	await process_frame
 	_check_target(main.companion_care_layer, "StuffieCareBackButton", "Tamagotchi sheet has a neutral thumb-sized back")
 	_check_target(main.companion_care_layer, "StuffieSwitchButton", "Tamagotchi sheet has a thumb-sized friend switch")
+	_check(_find(main.companion_care_layer, "StuffieCareShellCrest") != null,
+		"Tamagotchi sheet carries the shared shell-and-pearl treatment")
 	_check(_find(main.companion_care_layer, "StuffieHeartProgress") != null, "Tamagotchi sheet shows hearts toward the next growth star")
 	_check(_count_named(main.companion_care_layer, "StuffieCareAction_*") == 5, "Tamagotchi sheet exposes five picture care actions")
 	for node: Node in main.companion_care_layer.find_children("StuffieCareAction_*", "", true, false):

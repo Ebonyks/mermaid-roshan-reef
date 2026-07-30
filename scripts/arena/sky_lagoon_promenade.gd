@@ -223,6 +223,8 @@ func tick(delta: float) -> void:
 		_tick_ambient_life(delta)
 		return
 	_tick_hold_travel(delta)
+	if _handle_action():
+		return
 	var old_x: float = m.player.position.x
 	stage.walk_tick(delta)
 	_sync_target_mural_anchors()
@@ -242,6 +244,32 @@ func tick(delta: float) -> void:
 		if selected:
 			var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
 			glow.scale = Vector3.ONE * pulse
+
+func action_label() -> String:
+	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
+	if focus_id == "":
+		return "JUMP"
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == focus_id:
+			return "ENTER" if String(target.get("kind", "")) == "castle" else "PLAY"
+	return "JUMP"
+
+func _handle_action() -> bool:
+	if m.touch_ui == null or not m.touch_ui.consume_action_just():
+		return false
+	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
+	if focus_id != "":
+		for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+			var target: Dictionary = value as Dictionary
+			if String(target.get("id", "")) == focus_id:
+				_activate(target)
+				_clear_focus()
+				return true
+	# No focused toy owns the action, so the medallion performs the hop it
+	# advertises. SideScrollStage consumes this one-frame request below.
+	m.g["ss_walk_jump_request"] = true
+	return false
 
 func _tick_hold_travel(delta: float) -> void:
 	# The touch grammar, kept honest: a TAP belongs to the tap router

@@ -239,6 +239,7 @@ func _ensure_menu_button() -> void:
 	# pause-owned far corner; all three targets keep a visible finger-width gap.
 	button.position = Vector2(858, 22)
 	StorybookUI.style_icon_button(button, "🧸", "secondary", Vector2(128, 128), "Care for your stuffie")
+	StorybookUI.add_shell_crest(button, Rect2(34, 72, 60, 45), "StuffieWatchShell")
 	button.set_meta("hud_zone", "upper_right_inset")
 	button.pressed.connect(open_care_menu)
 	m.hud_layer.add_child(button)
@@ -321,8 +322,10 @@ func _draw_care_menu() -> void:
 	for child: Node in stage_control.get_children():
 		child.queue_free()
 	var d := active_def()
-	var panel := StorybookUI.add_panel(stage_control, Rect2(38, 24, 1204, 672), StorybookUI.LAVENDER, Color(0.91, 0.97, 1.0, 0.99), 48)
+	var care_rect := Rect2(38, 24, 1204, 672)
+	var panel := StorybookUI.add_panel(stage_control, care_rect, StorybookUI.PURPLE, Color(0.91, 0.97, 1.0, 0.99), 48)
 	panel.name = "StuffieCareShell"
+	StorybookUI.adorn_panel(stage_control, care_rect, "StuffieCare")
 	var title := Label.new()
 	title.text = "♥  ⭐  %s" % String(d["name"])
 	title.position = Vector2(72, 42)
