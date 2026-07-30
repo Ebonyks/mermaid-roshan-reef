@@ -30,8 +30,12 @@ SCORES: dict[tuple[str, str], tuple[float, str]] = {
 	("craft_room", "paint_table"): (4.6, "Consistent rounded furniture and paint palette."),
 	("craft_room", "palette"): (4.6, "Rich craft detail; broad source-pixel ownership is intentional."),
 	("kitchen", "sink"): (4.7, "Shell basin and coral dressing match the castle vocabulary."),
-	("kitchen", "soup_pot"): (4.8, "Strong focal prop with coherent mint, pearl, and copper materials."),
-	("kitchen", "teapot"): (4.6, "Small but clear and fully within the shared color language."),
+	("kitchen", "pan_1"): (4.7, "Distinct copper pan silhouette remains readable at touch scale."),
+	("kitchen", "pan_2"): (4.7, "Distinct copper pan silhouette remains readable at touch scale."),
+	("kitchen", "pan_3"): (4.7, "Distinct copper pan silhouette remains readable at touch scale."),
+	("kitchen", "pan_4"): (4.7, "Distinct copper pan silhouette remains readable at touch scale."),
+	("kitchen", "oven"): (4.8, "Large cream-and-gold oven is a clear child-readable cooking prop."),
+	("kitchen", "fridge"): (4.9, "Mint shell refrigerator is a strong focal portal with coherent materials."),
 	("library", "magic_book"): (4.8, "Excellent magical focal object with restrained glow."),
 	("library", "pearl_lamp"): (4.6, "Shell light and lavender chair fragment remain coherent."),
 	("library", "pearl_table"): (4.7, "Rounded pearl furniture with matching cream/gold edgework."),
@@ -105,7 +109,7 @@ def _asset_record(path: Path) -> dict[str, object]:
 
 def _build_contact(records: list[dict[str, object]]) -> None:
 	columns = 4
-	rows = 6
+	rows = (len(records) + columns - 1) // columns
 	cell_width = 300
 	cell_height = 240
 	title_height = 44
@@ -277,7 +281,7 @@ def main() -> None:
 		"## Verdict",
 		"",
 		(
-			"All 24 effective touch-item sprites now meet the subjective "
+			f"All {len(records)} effective touch-item sprites now meet the subjective "
 			"4.5/5 Pearl Castle style gate. The audit found two legacy "
 			"outliers—the paired Main Hall pedestal fountains—and replaced "
 			"them with existing approved bubble-fountain pixels. The original "

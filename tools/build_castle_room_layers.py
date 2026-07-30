@@ -20,12 +20,21 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
-from scipy.ndimage import distance_transform_edt
+from scipy.ndimage import (
+	binary_fill_holes,
+	distance_transform_edt,
+	label,
+)
+from skimage.filters import sobel
+from skimage.segmentation import watershed
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOM_DIR = ROOT / "assets" / "flats" / "castle" / "rooms"
 AUDIT_PATH = ROOT / "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
+KITCHEN_GENERATED_SOURCE = (
+	ROOT / "assets_src" / "castle" / "room_regenerations"
+	/ "room_kitchen_fullframe_v3_1672x941.png")
 CANVAS = (1024, 576)
 
 
@@ -35,6 +44,9 @@ def _poly(*points: tuple[int, int]) -> tuple[str, tuple[tuple[int, int], ...]]:
 
 def _ellipse(box: tuple[int, int, int, int]) -> tuple[str, tuple[int, int, int, int]]:
 	return ("ellipse", box)
+
+def _rounded_rect(box: tuple[int, int, int, int], radius: int) -> tuple:
+	return ("rounded_rectangle", (box, radius))
 
 
 # Each piece is (output suffix, crop box, mask shapes in 1024x576 coordinates).
@@ -64,7 +76,17 @@ PIECES: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 			_poly((0, 410), (45, 392), (80, 397), (111, 367), (173, 354), (222, 387), (245, 438), (286, 476), (286, 576), (0, 576)),
 		)),
 		("front_right", (650, 324, 1024, 576), (
-			_poly((694, 364), (731, 335), (826, 324), (916, 340), (955, 376), (973, 425), (1024, 442), (1024, 576), (650, 576), (650, 451)),
+			_poly(
+				(694, 364), (731, 335), (826, 324), (916, 340),
+				(955, 376), (982, 413), (1024, 430), (1024, 464),
+				(966, 466), (923, 451), (865, 467), (798, 469),
+				(742, 451), (690, 458), (650, 442), (650, 405)),
+			_ellipse((687, 421, 758, 526)),
+			_ellipse((784, 429, 858, 548)),
+			_ellipse((899, 418, 975, 528)),
+			_poly(
+				(989, 456), (1024, 443), (1024, 576), (982, 576),
+				(976, 519)),
 		)),
 	],
 	"library": [
@@ -139,14 +161,38 @@ ITEMS: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 		)),
 	],
 	"kitchen": [
-		("sink", (0, 114, 285, 364), (
-			_poly((24, 183), (85, 128), (190, 126), (253, 173), (285, 279), (252, 348), (36, 364), (0, 293)),
+		("sink", (62, 176, 263, 300), (
+			_poly((80, 229), (96, 214), (119, 204), (147, 198),
+				(183, 199), (213, 207), (237, 220), (246, 239),
+				(240, 258), (221, 272), (195, 281), (121, 281),
+				(96, 272), (79, 255), (74, 238)),
+			_poly((137, 230), (137, 197), (145, 187), (161, 182),
+				(174, 187), (181, 198), (177, 205), (166, 198),
+				(157, 200), (157, 230)),
 		)),
-		("soup_pot", (294, 143, 567, 361), (
-			_poly((305, 230), (337, 167), (516, 158), (554, 223), (567, 325), (526, 361), (321, 354), (294, 320)),
+		("pan_1", (300, 132, 341, 215), (
+			_poly((319, 136), (325, 136), (326, 169), (320, 169)),
+			_ellipse((302, 164, 340, 208)),
 		)),
-		("teapot", (780, 165, 932, 295), (
-			_poly((786, 214), (827, 178), (876, 178), (906, 202), (930, 232), (914, 274), (849, 295), (797, 272)),
+		("pan_2", (337, 132, 382, 215), (
+			_poly((357, 136), (363, 136), (364, 169), (358, 169)),
+			_ellipse((339, 164, 381, 209)),
+		)),
+		("pan_3", (379, 132, 424, 215), (
+			_poly((399, 136), (405, 136), (406, 169), (400, 169)),
+			_ellipse((381, 164, 423, 209)),
+		)),
+		("pan_4", (418, 132, 449, 215), (
+			_poly((433, 136), (439, 136), (440, 169), (434, 169)),
+			_ellipse((420, 164, 449, 208)),
+		)),
+		("oven", (289, 244, 491, 356), (
+			_poly((296, 270), (484, 270), (491, 279), (491, 331),
+				(476, 351), (452, 356), (321, 356), (296, 346),
+				(289, 326)),
+		)),
+		("fridge", (631, 84, 771, 347), (
+			_rounded_rect((633, 85, 769, 345), 28),
 		)),
 	],
 	"library": [
@@ -210,7 +256,8 @@ ITEMS: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 
 def _normalized_backdrop(room_id: str) -> Image.Image:
 	path = ROOM_DIR / f"room_{room_id}.png"
-	image = Image.open(path).convert("RGB")
+	source_path = KITCHEN_GENERATED_SOURCE if room_id == "kitchen" else path
+	image = Image.open(source_path).convert("RGB")
 	if image.size != CANVAS:
 		image = image.resize(CANVAS, Image.Resampling.LANCZOS)
 		image.save(path, optimize=True)
@@ -223,8 +270,11 @@ def _shape_mask(shapes: tuple) -> Image.Image:
 	for shape_type, geometry in shapes:
 		if shape_type == "polygon":
 			draw.polygon(geometry, fill=255)
-		else:
+		elif shape_type == "ellipse":
 			draw.ellipse(geometry, fill=255)
+		else:
+			box, radius = geometry
+			draw.rounded_rectangle(box, radius=radius, fill=255)
 	return mask.filter(ImageFilter.GaussianBlur(0.65))
 
 
@@ -234,6 +284,65 @@ def _build_piece(image: Image.Image, room_id: str, suffix: str,
 	rgba.putalpha(mask)
 	crop = rgba.crop(crop_box)
 	crop.save(ROOM_DIR / f"room_{room_id}_{suffix}.png", optimize=True)
+
+
+def _refine_mask_to_painted_outline(image: Image.Image,
+		provisional_background: Image.Image, raw_mask: Image.Image,
+		crop_box: tuple[int, int, int, int]) -> Image.Image:
+	"""Contract a routing mask to the painted object's actual outer edge.
+
+	The authored polygons identify which object owns a region, but they are not
+	valid alpha mattes: opaque wall and floor pixels inside those polygons write
+	depth and can hide Roshan. The provisional clean plate supplies a same-scene
+	background estimate. Strong source/plate differences seed the object, close
+	matches seed transparency, and an RGB-edge watershed settles the uncertain
+	band on the illustration's inked outline.
+	"""
+	left, top, right, bottom = crop_box
+	raw_crop = np.asarray(
+		raw_mask.crop(crop_box), dtype=np.float32) / 255.0
+	raw_core = raw_crop >= 0.20
+	if not np.any(raw_core):
+		return Image.new("L", CANVAS, 0)
+
+	source = np.asarray(
+		image.crop(crop_box), dtype=np.float32) / 255.0
+	clean = np.asarray(
+		provisional_background.crop(crop_box), dtype=np.float32) / 255.0
+	difference = np.max(np.abs(source - clean), axis=2) * 255.0
+	edge = np.max(np.stack(
+		[sobel(source[:, :, channel]) for channel in range(3)]), axis=0)
+
+	markers = np.zeros(raw_core.shape, dtype=np.uint8)
+	markers[~raw_core] = 1
+	markers[raw_core & (difference <= 9.0)] = 1
+	strong_foreground = raw_core & (difference >= 48.0)
+	markers[strong_foreground] = 2
+	if not np.any(strong_foreground):
+		return raw_mask
+
+	segmented = watershed(edge, markers) == 2
+	refined = segmented & raw_core
+	components, component_count = label(refined)
+	minimum_component = max(8, int(np.count_nonzero(raw_core) * 0.008))
+	kept = np.zeros(refined.shape, dtype=bool)
+	for component_id in range(1, component_count + 1):
+		component = components == component_id
+		if np.count_nonzero(component) >= minimum_component \
+				and np.any(component & strong_foreground):
+			kept |= component
+	refined = binary_fill_holes(kept) & raw_core
+
+	# A sub-pixel matte keeps the authored antialiasing, while the 50% alpha
+	# threshold remains a true silhouette for mobile depth testing.
+	local_alpha = Image.fromarray(
+		refined.astype(np.uint8) * 255, mode="L").filter(
+			ImageFilter.GaussianBlur(0.55))
+	local_alpha = ImageChops.multiply(
+		local_alpha, raw_mask.crop(crop_box))
+	full_alpha = Image.new("L", CANVAS, 0)
+	full_alpha.paste(local_alpha, (left, top))
+	return full_alpha
 
 
 def _clean_plate(image: Image.Image, owned_mask: Image.Image) -> Image.Image:
@@ -359,8 +468,11 @@ def main() -> None:
 				"Background and any over-1024 layer counts expand only by "
 				"the minimum lossless non-overlapping tile count."),
 		},
-		"source_policy": (
-			"Existing room composite pixels only; no generated or external art"),
+			"source_policy": (
+			"Approved complete room-composite pixels only; Kitchen v3 retains "
+			"the accepted full-frame project ImageGen regeneration and replaces "
+			"only its defective two-spout kettle from a recorded single-object "
+			"generation"),
 		"clean_fill": (
 			"horizontal/vertical scanline interpolation plus nearest unmasked "
 			"fallback from the same room composite, applied only beneath fully "
@@ -382,7 +494,7 @@ def main() -> None:
 
 		claimed = Image.new("L", CANVAS, 0)
 		union = Image.new("L", CANVAS, 0)
-		unique_masks: list[Image.Image] = []
+		raw_unique_masks: list[Image.Image] = []
 		card_records: list[dict[str, object]] = []
 		for role, suffix, crop_box, shapes in specs:
 			raw_mask = _shape_mask(shapes)
@@ -391,19 +503,49 @@ def main() -> None:
 			available = ImageOps.invert(claimed_binary)
 			unique_mask = ImageChops.multiply(raw_mask, available)
 			claimed = ImageChops.lighter(claimed, raw_mask)
-			_build_piece(image, room_id, suffix, crop_box, unique_mask)
-			alpha_pixels = int(np.count_nonzero(
-				np.asarray(unique_mask, dtype=np.uint8)))
-			unique_masks.append(unique_mask)
+			raw_unique_masks.append(unique_mask)
 			card_records.append({
 				"id": suffix,
 				"role": role,
 				"crop": list(crop_box),
-				"alpha_pixels": alpha_pixels,
 			})
 
+		provisional_background = _clean_plate(image, union)
+		unique_masks: list[Image.Image] = []
+		refined_union = Image.new("L", CANVAS, 0)
+		for index, card_record in enumerate(card_records):
+			crop = tuple(int(value) for value in card_record["crop"])
+			if str(card_record["id"]) == "item_stage_star":
+				# This source is already authored as a precise concave star
+				# polygon; watershed would incorrectly contract into its glow.
+				refined_mask = raw_unique_masks[index]
+			else:
+				refined_mask = _refine_mask_to_painted_outline(
+					image, provisional_background, raw_unique_masks[index], crop)
+			if np.count_nonzero(
+					np.asarray(refined_mask, dtype=np.uint8) >= 128) < 64:
+				refined_mask = Image.new("L", CANVAS, 0)
+			unique_masks.append(refined_mask)
+			refined_union = ImageChops.lighter(refined_union, refined_mask)
+			_build_piece(
+				image, room_id, str(card_record["id"]), crop, refined_mask)
+			alpha_array = np.asarray(refined_mask, dtype=np.uint8)
+			card_record["alpha_pixels"] = int(np.count_nonzero(alpha_array))
+			card_record["depth_opaque_pixels"] = int(np.count_nonzero(
+				alpha_array >= 128))
+			raw_alpha_array = np.asarray(
+				raw_unique_masks[index], dtype=np.uint8)
+			card_record["routing_depth_pixels"] = int(np.count_nonzero(
+				raw_alpha_array >= 128))
+			card_record["depth_footprint_reduction_ratio"] = round(
+				1.0 - (
+					int(card_record["depth_opaque_pixels"])
+					/ max(1, int(card_record["routing_depth_pixels"]))),
+				6)
+			card_record["alpha_outline_refined"] = True
+
 		background_path = ROOM_DIR / f"room_{room_id}_background.png"
-		background = _clean_plate(image, union)
+		background = _clean_plate(image, refined_union)
 		background.save(background_path, optimize=True)
 
 		reconstruction = background.convert("RGBA")
@@ -422,7 +564,7 @@ def main() -> None:
 				np.asarray(mask, dtype=np.uint8) > 0).astype(np.uint8)
 		source_array = np.asarray(image, dtype=np.uint8)
 		background_array = np.asarray(background, dtype=np.uint8)
-		owned = np.asarray(union, dtype=np.uint8) > 0
+		owned = np.asarray(refined_union, dtype=np.uint8) > 0
 		changed = np.any(source_array != background_array, axis=2)
 		owned_count = int(np.count_nonzero(owned))
 		changed_count = int(np.count_nonzero(changed & owned))
@@ -435,7 +577,7 @@ def main() -> None:
 		native_master_compliant: bool = (
 			max(image.size) >= 2048
 			and ratio_pixel_delta <= 1.0)
-		manifest["rooms"][room_id] = {
+		room_record: dict[str, object] = {
 			"source": source_path.name,
 			"background": background_path.name,
 			"source_dimensions": list(image.size),
@@ -460,6 +602,23 @@ def main() -> None:
 			"resting_reconstruction_mean_abs_error": round(float(np.abs(
 				reconstruction_array - source_array.astype(np.int16)).mean()), 6),
 		}
+		if room_id == "kitchen":
+			with Image.open(KITCHEN_GENERATED_SOURCE) as generated:
+				room_record.update({
+					"generation_master": KITCHEN_GENERATED_SOURCE.relative_to(
+						ROOT).as_posix(),
+					"generation_master_dimensions": list(generated.size),
+					"generation_master_sha256": _sha256(
+						KITCHEN_GENERATED_SOURCE),
+					"generation_method": (
+						"OpenAI built-in ImageGen complete full-frame "
+						"regeneration plus recorded single-kettle topology "
+						"repair"),
+					"generation_prompt_record": (
+						"assets_src/castle/room_regenerations/"
+						"room_kitchen_fullframe_v3_provenance.md"),
+				})
+		manifest["rooms"][room_id] = room_record
 	_build_actor_shadow()
 	AUDIT_PATH.parent.mkdir(parents=True, exist_ok=True)
 	AUDIT_PATH.write_text(

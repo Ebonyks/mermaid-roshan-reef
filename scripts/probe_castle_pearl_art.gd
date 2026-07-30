@@ -35,6 +35,19 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 			if sprite.texture == null:
 				counts["missing_texture"] = int(
 					counts.get("missing_texture", 0)) + 1
+			if bool(sprite.get_meta("castle_world_sprite3d", false)):
+				var source_role: String = String(sprite.get_meta(
+					"source_asset_role", ""))
+				var alpha_ok: bool = (
+					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
+					if source_role == "portal_glow" else
+					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+					and is_equal_approx(
+						sprite.alpha_scissor_threshold, 0.5)
+				)
+				if not alpha_ok:
+					counts["bad_alpha_depth"] = int(
+						counts.get("bad_alpha_depth", 0)) + 1
 		elif child is MeshInstance3D or child is MultiMeshInstance3D \
 				or child is CSGShape3D or child is Decal:
 			counts["modeled"] = int(counts.get("modeled", 0)) + 1
@@ -44,10 +57,13 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 		_audit_world_node(child, counts)
 
 func _room_detail_tile_ready(tile: Sprite3D) -> bool:
+	var native_size: Vector2 = tile.get_meta(
+		"native_texture_size", Vector2.ZERO) as Vector2
 	return (
 		tile.visible
 		and tile.texture != null
-		and tile.texture.get_size() == Vector2(1024.0, 576.0)
+		and tile.texture.get_size() == native_size
+		and maxf(native_size.x, native_size.y) <= 1024.0
 		and tile.texture.resource_path.contains("rooms/background_tiles/")
 	)
 
@@ -131,6 +147,12 @@ func _run() -> void:
 	var approved_composite_backdrops_ok := true
 	var all_detail_tile_grids_ok := true
 	var all_room_object_bounds_ok := true
+	var kitchen_prop_set_ok := false
+	var kitchen_individual_animation_ok := false
+	var kitchen_fridge_glow_ok := false
+	var kitchen_menu_empty_filter_ok := false
+	var kitchen_menu_inventory_ok := false
+	var kitchen_cooking_portal_ok := false
 	var max_visible_world_cards := 0
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
@@ -141,6 +163,10 @@ func _run() -> void:
 		max_visible_world_cards = maxi(
 			max_visible_world_cards, visible_sprite_count)
 		var hall_mode: bool = room_id == "main_hall"
+		var expected_room_tiles: int = (
+			12 if room_id == "kitchen" else 4)
+		var expected_room_items: int = (
+			7 if room_id == "kitchen" else 3)
 		var background_ready: bool = (
 			main.castle_room_background_tiles.size() == 8
 			and main.castle_room_background_tiles.all(
@@ -150,7 +176,7 @@ func _run() -> void:
 		) if hall_mode else (
 			not main.castle_room_background.visible
 			and main.castle_room_background.texture != null
-			and main.castle_room_detail_tiles.size() == 4
+			and main.castle_room_detail_tiles.size() == expected_room_tiles
 			and main.castle_room_detail_tiles.all(_room_detail_tile_ready)
 			and main.castle_room_background_tiles.all(
 				func(tile: Sprite3D) -> bool:
@@ -160,10 +186,11 @@ func _run() -> void:
 			and main.castle_room_background is Sprite3D \
 			and not main.castle_room_background.shaded \
 			and main.castle_room_item_sprites.size() \
-				== (11 if hall_mode else 3) \
+				== (11 if hall_mode else expected_room_items) \
 			and background_ready \
 			and int(counts.get("modeled", 0)) == 0 \
 			and int(counts.get("canvas_world", 0)) == 0 \
+			and int(counts.get("bad_alpha_depth", 0)) == 0 \
 			and int(counts.get("shaded", 0)) \
 				== (11 if hall_mode else 8) \
 			and int(counts.get("missing_texture", 0)) == 0
@@ -200,7 +227,7 @@ func _run() -> void:
 				logical_rects.append(logical_rect)
 				logical_area += logical_rect.get_area()
 			all_detail_tile_grids_ok = all_detail_tile_grids_ok \
-				and logical_rects.size() == 4 \
+				and logical_rects.size() == expected_room_tiles \
 				and is_equal_approx(logical_area, 1024.0 * 576.0)
 			var canvas_rect := Rect2(0.0, 0.0, 1024.0, 576.0)
 			for item_id_value: Variant in main.castle_room_item_sprites:
@@ -220,16 +247,121 @@ func _run() -> void:
 		var start_rotation: float = first_sprite.rotation.z
 		rooms._activate_room_item(first_item_id)
 		await _frames(3)
-		all_touch_animation_ok = all_touch_animation_ok \
-			and bool(first_sprite.get_meta("busy", false)) \
+		var first_item_animated: bool = \
+			bool(first_sprite.get_meta("busy", false)) \
 			and (
 				first_sprite.position.distance_to(start_position) > 0.0001
 				or first_sprite.scale.distance_to(start_scale) > 0.0001
 				or absf(first_sprite.rotation.z - start_rotation) > 0.0001
 			)
+		all_touch_animation_ok = all_touch_animation_ok \
+			and first_item_animated
 		all_touch_audio_ok = all_touch_audio_ok \
 			and main.castle_room_prop_sfx != null \
 			and main.castle_room_prop_sfx.stream != null
+		if room_id == "kitchen":
+			var kitchen_ids: Array[String] = [
+				"sink", "pan_1", "pan_2", "pan_3", "pan_4", "oven",
+				"fridge",
+			]
+			kitchen_prop_set_ok = kitchen_ids.all(
+				func(kitchen_id: String) -> bool:
+					return main.castle_room_item_sprites.has(kitchen_id))
+			kitchen_individual_animation_ok = first_item_animated
+			var fridge_glow: Sprite3D = \
+				main.castle_room_item_visual_layer.get_node_or_null(
+					"PortalGlow_fridge") as Sprite3D
+			kitchen_fridge_glow_ok = (
+				fridge_glow != null
+				and fridge_glow.texture != null
+				and not fridge_glow.shaded
+				and String(fridge_glow.get_meta(
+					"source_asset_role", "")) == "portal_glow"
+				and fridge_glow.modulate.a >= 0.12
+				and fridge_glow.modulate.a <= 0.31
+			)
+			main.opera_pantry.erase("carrots")
+			main.opera_pantry["sugar"] = 2
+			for kitchen_id: String in kitchen_ids:
+				if kitchen_id == first_item_id:
+					continue
+				var kitchen_record: Dictionary = \
+					main.castle_room_item_sprites[kitchen_id] as Dictionary
+				var kitchen_sprite: Sprite3D = \
+					kitchen_record.get("sprite") as Sprite3D
+				var kitchen_start_position: Vector3 = kitchen_sprite.position
+				var kitchen_start_scale: Vector3 = kitchen_sprite.scale
+				var kitchen_start_rotation: float = kitchen_sprite.rotation.z
+				rooms._activate_room_item(kitchen_id)
+				await _frames(3)
+				kitchen_individual_animation_ok = \
+					kitchen_individual_animation_ok \
+					and bool(kitchen_sprite.get_meta("busy", false)) \
+					and (
+						kitchen_sprite.position.distance_to(
+							kitchen_start_position) > 0.0001
+						or kitchen_sprite.scale.distance_to(
+							kitchen_start_scale) > 0.0001
+						or absf(kitchen_sprite.rotation.z
+							- kitchen_start_rotation) > 0.0001
+					)
+			var empty_pantry_label: Label = \
+				rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenPantryInventory") as Label \
+				if rooms.kitchen_menu_stage != null else null
+			var empty_pantry_counts: Dictionary = empty_pantry_label.get_meta(
+				"food_counts", {}) as Dictionary \
+				if empty_pantry_label != null else {}
+			kitchen_menu_empty_filter_ok = (
+				rooms.kitchen_menu_layer != null
+				and rooms.kitchen_menu_stage != null
+				and rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenRecipe_pearl_cake") != null
+				and rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenRecipe_carrot_cake") == null
+				and int(empty_pantry_counts.get("carrots", 0)) == 0
+				and int(empty_pantry_counts.get("sugar", 0)) == 2
+			)
+			rooms._close_kitchen_menu()
+			await _frames(1)
+			main.opera_pantry["carrots"] = 1
+			rooms._open_kitchen_menu()
+			await _frames(1)
+			var pantry_label: Label = \
+				rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenPantryInventory") as Label \
+				if rooms.kitchen_menu_stage != null else null
+			var pantry_counts: Dictionary = pantry_label.get_meta(
+				"food_counts", {}) as Dictionary \
+				if pantry_label != null else {}
+			kitchen_menu_inventory_ok = (
+				rooms.kitchen_menu_layer != null
+				and rooms.kitchen_menu_stage != null
+				and rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenRecipe_pearl_cake") != null
+				and rooms.kitchen_menu_stage.get_node_or_null(
+					"KitchenRecipe_carrot_cake") != null
+				and int(pantry_counts.get("carrots", 0)) == 1
+				and int(pantry_counts.get("sugar", 0)) == 2
+			)
+			rooms._launch_kitchen_recipe("carrot_cake")
+			await _frames(2)
+			var kitchen_act: OperaAct = rooms.kitchen_act
+			kitchen_cooking_portal_ok = (
+				main.game == "kitchen_cooking"
+				and kitchen_act != null
+				and kitchen_act.kind == "order"
+				and String(kitchen_act.config.get("uses", "")) == "carrots"
+				and kitchen_act.stage_phase == "puzzle"
+			)
+			if kitchen_act != null:
+				kitchen_act.cancel()
+			await _frames(3)
+			kitchen_cooking_portal_ok = kitchen_cooking_portal_ok \
+				and rooms.kitchen_act == null \
+				and main.game == "level2" \
+				and main.castle_room_id == "kitchen" \
+				and main.castle_room_layer.visible
 	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok)
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
 	_ck("approved_room_composites_preserved", approved_composite_backdrops_ok)
@@ -239,6 +371,15 @@ func _run() -> void:
 		all_room_object_bounds_ok)
 	_ck("all_rooms_touch_animation_live", all_touch_animation_ok)
 	_ck("all_rooms_touch_audio_live", all_touch_audio_ok)
+	_ck("kitchen_seven_independent_props", kitchen_prop_set_ok)
+	_ck("kitchen_each_prop_animation_live",
+		kitchen_individual_animation_ok)
+	_ck("kitchen_fridge_subtle_portal_glow", kitchen_fridge_glow_ok)
+	_ck("kitchen_fridge_filters_missing_food",
+		kitchen_menu_empty_filter_ok)
+	_ck("kitchen_fridge_inventory_menu", kitchen_menu_inventory_ok)
+	_ck("kitchen_fridge_launches_cooking_portal",
+		kitchen_cooking_portal_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 26,
 		"maximum visible cards=%d" % max_visible_world_cards)
 
@@ -308,7 +449,8 @@ func _run() -> void:
 			and render_rect.size == Vector2(836.0, 471.0) \
 			and bleed_pixels == (1 if tile_row == 0 else 0) \
 			and tile.shaded and tile.transparent \
-			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_OPAQUE_PREPASS \
+			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD \
+			and is_equal_approx(tile.alpha_scissor_threshold, 0.5) \
 			and tile.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
 		tile_index += 1
 	_ck("main_hall_native_2x4_sprite3d_grid",

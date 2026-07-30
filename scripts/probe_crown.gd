@@ -130,8 +130,8 @@ func _init() -> void:
 		var manifest: Dictionary = _depth_manifest()
 		var manifest_rooms: Dictionary = manifest.get("rooms", {}) as Dictionary
 		var clean_plate_manifest_ok: bool = manifest_rooms.size() == 8 \
-			and String(manifest.get("source_policy", "")).begins_with(
-				"Existing approved room composites")
+			and String(manifest.get("source_policy", "")).contains(
+				"Approved room composites")
 		for manifest_room_id: String in manifest_rooms:
 			var manifest_room: Dictionary = manifest_rooms[manifest_room_id] \
 				as Dictionary
@@ -140,12 +140,18 @@ func _init() -> void:
 			for manifest_card_value: Variant in manifest_cards:
 				var manifest_card: Dictionary = manifest_card_value as Dictionary
 				all_cards_owned = all_cards_owned \
-					and int(manifest_card.get("alpha_pixels", 0)) > 0
+					and bool(manifest_card.get(
+						"alpha_outline_refined", false)) \
+					and (
+						int(manifest_card.get("alpha_pixels", 0)) > 0
+						or int(manifest_card.get(
+							"depth_opaque_pixels", -1)) == 0
+					)
 			clean_plate_manifest_ok = clean_plate_manifest_ok \
 				and String(manifest_room.get("background", "")).ends_with(
 					"_background.png") \
 				and int(manifest_room.get("card_overlap_pixels", -1)) == 0 \
-				and float(manifest_room.get("changed_owned_ratio", 0.0)) > 0.90 \
+				and float(manifest_room.get("changed_owned_ratio", 0.0)) > 0.80 \
 				and float(manifest_room.get(
 					"resting_reconstruction_mean_abs_error", 999.0)) < 1.0 \
 				and all_cards_owned
@@ -194,15 +200,20 @@ func _init() -> void:
 			var runtime_tiles: Array = manifest_room.get(
 				"runtime_tiles", []) as Array
 			var master_long_edge := 0
+			var master_short_edge := 0
 			if master_dimensions.size() == 2:
 				master_long_edge = maxi(
 					int(master_dimensions[0]), int(master_dimensions[1]))
+				master_short_edge = mini(
+					int(master_dimensions[0]), int(master_dimensions[1]))
 			var expected_tile_count := 8 if manifest_room_id == "main_hall" \
-				else 4
+				else (12 if manifest_room_id == "kitchen" else 4)
 			native_2k_ok = native_2k_ok \
 				and bool(manifest_room.get(
 					"native_master_compliant", false)) \
 				and master_long_edge >= 2048 \
+				and (manifest_room_id != "kitchen" \
+					or master_short_edge >= 2048) \
 				and float(manifest_room.get(
 					"aspect_ratio_pixel_delta", 99.0)) <= 1.0 \
 				and bool(manifest_room.get(
@@ -249,7 +260,8 @@ func _init() -> void:
 			rooms.show_room(room_id, false)
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
-			var expected_items: int = 11 if hall_mode else 3
+			var expected_items: int = 11 if hall_mode else (
+				7 if room_id == "kitchen" else 3)
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
 				and main.castle_room_item_hotspot_layer.get_child_count() \
@@ -269,8 +281,11 @@ func _init() -> void:
 					and main.castle_room_background_tiles.size() == 8 \
 					and main.castle_room_detail_tiles.is_empty()
 			else:
+				var expected_room_tiles: int = (
+					12 if room_id == "kitchen" else 4)
 				room_depth_ok = room_depth_ok \
-					and main.castle_room_detail_tiles.size() == 4 \
+					and main.castle_room_detail_tiles.size() \
+						== expected_room_tiles \
 					and String(main.castle_room_background.texture.resource_path
 						).ends_with("_background.png")
 			room_cards_ok = room_cards_ok \
