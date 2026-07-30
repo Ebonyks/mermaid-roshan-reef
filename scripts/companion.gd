@@ -659,16 +659,26 @@ func _pick_color(slot: int, col: Color) -> void:
 		m.companion_pick_colors.append("ffffff")
 	m.companion_pick_colors[slot] = col.to_html(false)
 	m._ui_tap()
+	if bool(m.g.get("stuffie_rescue_tutorial", false)):
+		m.g["stuffie_rescue_tutorial_step"] = 2
+		m.show_msg("Roshan",
+			"Beautiful! Tap the big heart to take Baby Eagle along!",
+			"talk")
 	_draw_picker()
 
 func _pick_color_slot(slot: int) -> void:
 	m.companion_pick_slot = clampi(slot, 0, 2)
 	m._ui_tap()
+	if bool(m.g.get("stuffie_rescue_tutorial", false)):
+		m.g["stuffie_rescue_tutorial_step"] = 1
+		m.show_msg("Roshan", "Now tap any big color!", "talk")
 	_draw_picker()
 
 func _confirm_pick() -> void:
 	var studio_change: bool = m.companion_pick_mode == "studio" \
 		and m.companion_pick_id == m.companion_id
+	m.g.erase("stuffie_rescue_tutorial")
+	m.g.erase("stuffie_rescue_tutorial_step")
 	m.companion_id = m.companion_pick_id
 	m.companion_colors = m.companion_pick_colors.duplicate()
 	var d := active_def()
@@ -710,6 +720,7 @@ func _draw_picker() -> void:
 	if stage == null or not is_instance_valid(stage):
 		return
 	for child: Node in stage.get_children():
+		stage.remove_child(child)
 		child.queue_free()
 	var panel := Panel.new()
 	panel.position = Vector2(34, 24)
@@ -732,6 +743,11 @@ func _draw_picker() -> void:
 	# The chest lists every friend who lives at home. The worktable deliberately
 	# locks this column to the active friend so choosing and changing are distinct.
 	var picks: Array[Dictionary] = unlocked_defs()
+	if bool(m.g.get("stuffie_rescue_tutorial", false)) \
+			and m.companion_pick_mode == "adopt":
+		var eagle: Dictionary = def_by_id("eagle")
+		if not eagle.is_empty():
+			picks = [eagle]
 	if m.companion_pick_mode == "studio":
 		picks = [active_def()]
 	var step: float = minf(250.0, 560.0 / maxf(float(picks.size()), 1.0))
@@ -818,6 +834,7 @@ func _draw_picker() -> void:
 			swatch.pressed.connect(_pick_color.bind(slot, col))
 			stage.add_child(swatch)
 	var go := Button.new()
+	go.name = "StuffieConfirmButton"
 	go.text = "🎨  SAVE COLORS!" if m.companion_pick_mode == "studio" \
 		else "♥  TAKE ALONG!"
 	go.position = Vector2(460, 500)
@@ -825,7 +842,52 @@ func _draw_picker() -> void:
 	StorybookUI.style_button(go, "primary", 38, 38)
 	go.pressed.connect(_confirm_pick)
 	stage.add_child(go)
+	_add_rescue_tutorial_focus(stage)
 	m._hook_button_taps(stage)
+
+func _add_rescue_tutorial_focus(stage: Control) -> void:
+	if not bool(m.g.get("stuffie_rescue_tutorial", false)):
+		return
+	var step: int = clampi(int(m.g.get(
+		"stuffie_rescue_tutorial_step", 0)), 0, 2)
+	var focus_rects: Array[Rect2] = [
+		Rect2(785.0, 114.0, 420.0, 142.0),
+		Rect2(785.0, 254.0, 465.0, 252.0),
+		Rect2(444.0, 484.0, 362.0, 182.0),
+	]
+	var focus_rect: Rect2 = focus_rects[step]
+	var focus := Panel.new()
+	focus.name = "StuffieRescueTutorialFocus"
+	focus.position = focus_rect.position
+	focus.size = focus_rect.size
+	focus.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var focus_style := StyleBoxFlat.new()
+	focus_style.bg_color = Color(1.0, 0.88, 0.32, 0.05)
+	focus_style.border_color = StorybookUI.GOLD
+	focus_style.set_border_width_all(8)
+	focus_style.set_corner_radius_all(34)
+	focus.add_theme_stylebox_override("panel", focus_style)
+	stage.add_child(focus)
+	var pointer := Label.new()
+	pointer.name = "StuffieRescueTutorialPointer"
+	pointer.text = "▼"
+	pointer.position = Vector2(
+		focus_rect.position.x + focus_rect.size.x * 0.5 - 34.0,
+		focus_rect.position.y - 58.0)
+	pointer.size = Vector2(68.0, 62.0)
+	pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(pointer, 52, StorybookUI.GOLD, 5)
+	stage.add_child(pointer)
+	var pulse: Tween = focus.create_tween().set_loops()
+	pulse.tween_property(focus, "modulate:a", 0.50,
+		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.parallel().tween_property(pointer, "position:y",
+		pointer.position.y + 10.0, 0.42).set_trans(Tween.TRANS_SINE)
+	pulse.tween_property(focus, "modulate:a", 1.0,
+		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.parallel().tween_property(pointer, "position:y",
+		pointer.position.y, 0.42).set_trans(Tween.TRANS_SINE)
 
 func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:
 	# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted —

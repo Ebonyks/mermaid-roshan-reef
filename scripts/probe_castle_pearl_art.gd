@@ -190,6 +190,9 @@ func _run() -> void:
 	var kitchen_menu_empty_filter_ok := false
 	var kitchen_menu_inventory_ok := false
 	var kitchen_cooking_portal_ok := false
+	var playroom_rescue_cards_ok := false
+	var playroom_rescue_ray_ok := false
+	var playroom_rescue_route_ok := false
 	var max_visible_world_cards := 0
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
@@ -202,8 +205,9 @@ func _run() -> void:
 		var hall_mode: bool = room_id == "main_hall"
 		var expected_room_tiles: int = (
 			12 if room_id == "kitchen" else 4)
-		var expected_room_items: int = (
-			7 if room_id == "kitchen" else 3)
+		var expected_room_items: int = 7 if room_id == "kitchen" else (
+			6 if room_id == "playroom"
+				and not rooms._playroom_rescue_done() else 3)
 		var background_ready: bool = (
 			main.castle_room_background_tiles.size() == 8
 			and main.castle_room_background_tiles.all(
@@ -273,6 +277,71 @@ func _run() -> void:
 				var art_rect: Rect2 = item_record.get("art_rect", Rect2())
 				all_room_object_bounds_ok = all_room_object_bounds_ok \
 					and canvas_rect.encloses(art_rect)
+		if room_id == "playroom":
+			var eagle_record: Dictionary = main.castle_room_item_sprites.get(
+				"baby_eagle_rescue", {}) as Dictionary
+			var left_record: Dictionary = main.castle_room_item_sprites.get(
+				"eagle_pin_left", {}) as Dictionary
+			var right_record: Dictionary = main.castle_room_item_sprites.get(
+				"eagle_pin_right", {}) as Dictionary
+			var eagle: Sprite3D = eagle_record.get("sprite") as Sprite3D
+			var left_bunny: Sprite3D = left_record.get("sprite") as Sprite3D
+			var right_bunny: Sprite3D = right_record.get("sprite") as Sprite3D
+			var rescue_pointer: Sprite3D = \
+				main.castle_room_item_effect_layer.get_node_or_null(
+					"BabyEagleRescuePointer") as Sprite3D
+			playroom_rescue_cards_ok = (
+				eagle != null
+				and left_bunny != null
+				and right_bunny != null
+				and rescue_pointer != null
+				and not eagle.shaded
+				and not left_bunny.shaded
+				and not right_bunny.shaded
+				and not eagle.no_depth_test
+				and not left_bunny.no_depth_test
+				and not right_bunny.no_depth_test
+				and eagle.position.z < left_bunny.position.z
+				and eagle.position.z < right_bunny.position.z
+				and left_record.get("hotspot") == null
+				and right_record.get("hotspot") == null
+				and String(left_bunny.get_meta(
+					"dust_bunny_role", "")) == "playroom_pin_left"
+				and String(right_bunny.get_meta(
+					"dust_bunny_role", "")) == "playroom_pin_right"
+				and String(eagle.texture.resource_path).ends_with(
+					"assets/book/baby_eagle.png")
+				and String(left_bunny.texture.resource_path).ends_with(
+					"dust_bunnies/dust_bunny_hop.png")
+				and String(right_bunny.texture.resource_path).ends_with(
+					"dust_bunnies/dust_bunny_hop.png")
+				and String(rescue_pointer.get_meta(
+					"source_asset_role", "")) == "tutorial_pointer"
+				and not main.castle_room_action_button.visible
+			)
+			playroom_rescue_ray_ok = true
+			var playroom_walk: Rect2 = (
+				CastleRooms25D.ROOM_LAYOUTS["playroom"] as Dictionary).get(
+					"walk", Rect2()) as Rect2
+			playroom_rescue_route_ok = true
+			for bunny_record: Dictionary in [left_record, right_record]:
+				var bunny: Sprite3D = bunny_record.get("sprite") as Sprite3D
+				if bunny == null:
+					playroom_rescue_ray_ok = false
+					playroom_rescue_route_ok = false
+					continue
+				var screen_center: Vector2 = \
+					main.castle_room_camera.unproject_position(
+						bunny.global_position)
+				var mapped_foot: Vector2 = \
+					rooms._dust_bunny_foot_from_camera_ray(screen_center)
+				var contact_foot: Vector2 = bunny_record.get(
+					"contact_foot", Vector2.INF) as Vector2
+				playroom_rescue_ray_ok = playroom_rescue_ray_ok \
+					and mapped_foot != Vector2.INF \
+					and mapped_foot.distance_to(contact_foot) <= 0.01
+				playroom_rescue_route_ok = playroom_rescue_route_ok \
+					and playroom_walk.has_point(contact_foot)
 		await _capture(room_id)
 		var item_keys: Array = main.castle_room_item_sprites.keys()
 		var first_item_id: String = String(item_keys[0])
@@ -417,6 +486,12 @@ func _run() -> void:
 	_ck("kitchen_fridge_inventory_menu", kitchen_menu_inventory_ok)
 	_ck("kitchen_fridge_launches_cooking_portal",
 		kitchen_cooking_portal_ok)
+	_ck("playroom_baby_eagle_rescue_depth_cards",
+		playroom_rescue_cards_ok)
+	_ck("playroom_bunny_camera_ray_touch_mapping",
+		playroom_rescue_ray_ok)
+	_ck("playroom_bunny_contacts_inside_navigation",
+		playroom_rescue_route_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 26,
 		"maximum visible cards=%d" % max_visible_world_cards)
 
