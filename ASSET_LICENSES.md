@@ -727,3 +727,17 @@ generator output is present in this directory or connected to runtime art.
   tiles. Exact source/derived hashes and row-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
+
+## Sky Lagoon ambient animals - 2026-07-29
+
+- `assets/sprites/sky_lagoon/animals/*_atlas.png` and
+  `assets_src/sky_lagoon/ambient_animals_2026-07-29/**` - five project-original
+  ambient-animal sprite families (summer-coat snowshoe hare, Douglas squirrel,
+  Pacific Northwest raccoon, North American river otter, and Pacific tree frog),
+  generated with OpenAI built-in image generation on 2026-07-29. Source license:
+  project original. The generated 2x2 chroma sheets were converted locally to
+  alpha and downsampled once, whole-canvas, to 512x512 POT runtime atlases. The
+  exact prompts, source/runtime hashes, processing notes, and review contact sheet
+  are preserved in the adjacent source ledger. No external or protected project
+  art was used as delivery pixels; the ranked black-tailed deer fawn option was
+  deliberately excluded from this batch.
