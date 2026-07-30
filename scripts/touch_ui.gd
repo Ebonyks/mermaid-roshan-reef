@@ -604,4 +604,11 @@ func _input(ev: InputEvent) -> void:
 		_request_pause()
 
 static func wants_touch() -> bool:
-	return DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") or "--touch" in OS.get_cmdline_user_args()
+	# Touch-first game: editor/debug desktop runs take the touch path too, so the
+	# mouse drives the same stick/tap code the phone uses. `--no-touch` restores
+	# the bare desktop scheme for probes that need it.
+	if "--no-touch" in OS.get_cmdline_user_args():
+		return false
+	return DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") \
+		or OS.has_feature("pc") or OS.has_feature("editor") or OS.is_debug_build() \
+		or "--touch" in OS.get_cmdline_user_args()
