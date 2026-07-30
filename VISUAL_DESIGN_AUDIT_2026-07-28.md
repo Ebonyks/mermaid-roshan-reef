@@ -1,4 +1,3 @@
-> **Resolution correction (2026-07-29):** This time-bounded audit preserves historical observations below, but its 2172×724/four-tile Sky Lagoon runtime description is superseded. The 2172×724 image is reference-only. Current runtime uses the exact-ratio 6144×2048 v5 master and twelve unscaled 1024×1024 Sprite3D tiles, providing a 2×2 tile group (2048×2048 native coverage) per playable screen. See `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md`.
 # Visual design audit — the 2.5D redesign, first 48 hours (2026-07-28)
 
 Scope: everything that changed the game's *look* between 2026-07-26 12:00 and

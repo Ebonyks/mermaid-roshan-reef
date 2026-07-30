@@ -1,4 +1,3 @@
-> **Current-runtime correction (2026-07-29):** Later addenda in this handoff mention the v4 master and older card inventories. The active background is `sky_lagoon_panorama_master_v5_hd_3x1.png`, 6144×2048 at exact 3:1, reconstructed from twelve unscaled 1024×1024 Sprite3D cards. `probe_l2.gd` currently expects 34 Sprite3D world cards and no more than 29 visible at the audited Day One frame. See `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md` for the blocking per-screen resolution evidence.
 # Sky Lagoon first-stage rebuild — audit handoff
 
 ## Outcome

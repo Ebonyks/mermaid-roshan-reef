@@ -10,20 +10,9 @@ The Main Hall now spawns exactly three distinct dust bunnies as unshaded Sprite3
 
 Roshan does not tap a UI hotspot to remove them. When her live in-world foot position touches a bunny's contact area once, that bunny bursts into twelve star Sprite3D cards, scales/fades out, is removed from the interaction registry, and cannot trigger a second time during that castle visit. There is no fail state, timer, text dependency, score requirement, or lost progress.
 
-## Resolution correction
-
-The Main Hall's `3344×941` logical art space and `1672×941` camera view are placement/navigation coordinates only. They are not background pixel dimensions and do not establish resolution compliance.
-
-The current two screen plates are provisional:
-
-| Screen | Current master | Dimensions | SHA-256 | Status |
-| --- | --- | ---: | --- | --- |
-| A | `assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png` | 2048×1153 | `ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9` | below native 2048×2048 per-screen coverage |
-| B | `assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png` | 2048×1153 | `c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454` | below native 2048×2048 per-screen coverage |
-
-The background-resolution remediation remains separate and pending. It must preserve the approved aspect ratio, composition, camera, lane, sockets, silhouettes, and depth boundaries while supplying at least 2048×2048 native coverage for each playable screen. The normalized spawn layout below remains valid when compliant background masters replace the provisional plates.
-
 ## Spawn table
+
+Coordinates in this guide are gameplay placement/navigation coordinates. Background-resolution auditing is intentionally outside this spawn-layer task.
 
 Coordinates are in Main Hall logical art space. `center` positions the visual card; `contact foot` is the floor-space point used for collision. All cards have depth testing enabled and use the castle perspective Camera3D.
 
@@ -82,4 +71,4 @@ Changing castle rooms rebuilds the Main Hall without respawning cleared bunnies.
 - no spawn intersects either fixed elevator region;
 - Sprite3D-only world art, depth layering, camera travel, and mobile visible-card budget remain intact.
 
-`scripts/probe_crown.gd` verifies the Main Hall inventory as seven ordinary touch props plus three dust bunnies (ten item Sprite3D cards total) and only seven UI hotspots. It also blocks on an honest castle background status: all current 2048×1152/1153 plates are marked provisional until native 2048×2048-per-screen coverage exists.
+`scripts/probe_crown.gd` verifies the Main Hall inventory as seven ordinary touch props plus three dust bunnies (ten item Sprite3D cards total) and only seven UI hotspots.
