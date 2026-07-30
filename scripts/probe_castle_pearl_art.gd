@@ -553,12 +553,16 @@ func _run() -> void:
 	_ck("main_hall_bunnies_are_proximity_only",
 		main.castle_room_item_hotspot_layer.get_child_count() == 7)
 	var camera_ray_touch_ok := true
+	var camera_ray_details: Array[String] = []
+	var backdrop_global_z: float = main.castle_room_world_root.to_global(
+		Vector3(0.0, 0.0, CastleRooms25D.BACKGROUND_Z)).z
 	for item_id: String in bunny_ids:
 		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {}) \
 			as Dictionary
 		var sprite: Sprite3D = record.get("sprite") as Sprite3D
 		if sprite == null:
 			camera_ray_touch_ok = false
+			camera_ray_details.append(item_id + ":missing")
 			continue
 		var center_screen: Vector2 = main.castle_room_camera.unproject_position(
 			sprite.global_position)
@@ -566,11 +570,23 @@ func _run() -> void:
 			center_screen)
 		var ray_direction: Vector3 = main.castle_room_camera.project_ray_normal(
 			center_screen)
-		var ray_distance: float = (
+		var sprite_distance: float = (
 			sprite.global_position - ray_origin).dot(ray_direction)
-		var ray_point: Vector3 = ray_origin + ray_direction * ray_distance
-		var mapped_center: Vector2 = rooms._stage_to_hall_art(
-			rooms._screen_to_stage(center_screen))
+		var sprite_ray_point: Vector3 = \
+			ray_origin + ray_direction * sprite_distance
+		var ray_error: float = sprite_ray_point.distance_to(
+			sprite.global_position)
+		var backdrop_distance: float = (
+			backdrop_global_z - ray_origin.z) / ray_direction.z
+		var backdrop_point: Vector3 = \
+			ray_origin + ray_direction * backdrop_distance
+		var backdrop_local: Vector3 = \
+			main.castle_room_world_root.to_local(backdrop_point)
+		var mapped_center := Vector2(
+			backdrop_local.x / CastleRooms25D.HALL_CARD_PIXEL_SIZE
+				+ CastleRooms25D.HALL_LOGICAL_SIZE.x * 0.5,
+			CastleRooms25D.HALL_VIEW_SIZE.y * 0.5
+				- backdrop_local.y / CastleRooms25D.HALL_CARD_PIXEL_SIZE)
 		var contact_foot: Vector2 = record.get(
 			"contact_foot", Vector2.ZERO) as Vector2
 		var contact_radius: Vector2 = (record.get("data", {}) as Dictionary).get(
@@ -582,9 +598,12 @@ func _run() -> void:
 			+ contact_delta.y * contact_delta.y
 				/ (contact_radius.y * contact_radius.y))
 		camera_ray_touch_ok = camera_ray_touch_ok \
-			and ray_point.distance_to(sprite.global_position) <= 0.01 \
-			and contact_distance <= 1.0
-	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok)
+			and ray_error <= 0.01 and contact_distance <= 1.0
+		camera_ray_details.append(
+			"%s:ray=%.4f contact=%.4f mapped=%s" % [
+				item_id, ray_error, contact_distance, mapped_center])
+	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok,
+		";".join(camera_ray_details))
 	var elevator_clearance_ok := true
 	var elevator_art_rects: Array[Rect2] = [
 		Rect2(1450.0, 700.0, 200.0, 230.0),
