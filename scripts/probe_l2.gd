@@ -1,6 +1,8 @@
 extends SceneTree
 # Structural and interaction probe for the three-screen 2.5D Sky Lagoon.
 
+const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
+
 var failed := false
 
 func _check(label: String, ok: bool, detail: String = "") -> void:
@@ -62,7 +64,8 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
@@ -390,7 +393,45 @@ func _init() -> void:
 		promenade.tick(0.5)
 	_check("roshan_is_sprite_card",
 		not main.player.visible
-		and main.g.get("lagoon_roshan_card") is Sprite3D)
+		and main.g.get("lagoon_roshan_card") is Sprite3D
+		and main.g.get("lagoon_roshan_animator") is RoshanSpriteLoop)
+	var promenade_roshan: Sprite3D = main.g.get(
+		"lagoon_roshan_card") as Sprite3D
+	var promenade_animator: RoshanSpriteLoop = main.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	var idle_offset: Vector2 = promenade_roshan.offset
+	promenade_animator._process(0.3)
+	_check("sky_lagoon_roshan_has_living_idle",
+		promenade_animator.animation_state() == "idle"
+		and promenade_roshan.texture.resource_path.ends_with(
+			"roshan_directional.png")
+		and promenade_roshan.offset != idle_offset)
+	promenade._sync_roshan_card(1.0, true)
+	promenade_animator._process(0.2)
+	var sky_frame_anchor: Vector2 = ROSHAN_ANCHORS.anchor(
+		"swim_front", promenade_roshan.frame)
+	var sky_frame_offset: Vector2 = promenade_roshan.get_meta(
+		"roshan_anchor_offset", Vector2.ZERO) as Vector2
+	var sky_corrected_anchor := Vector2(
+		sky_frame_anchor.x + sky_frame_offset.x,
+		sky_frame_anchor.y - sky_frame_offset.y)
+	var sky_swim_started: bool = (
+		promenade_animator.animation_state() == "swim"
+		and promenade_roshan.texture.resource_path.ends_with(
+			"roshan_swim_front.png")
+		and promenade_roshan.vframes == 4
+		and sky_corrected_anchor.distance_to(
+			ROSHAN_ANCHORS.anchor("directional", 2)) <= 0.11)
+	promenade._sync_roshan_card(0.0, false)
+	promenade_animator._process(0.2)
+	_check("sky_lagoon_swim_starts_and_finishes_with_motion",
+		sky_swim_started
+		and promenade_animator.animation_state() == "idle"
+		and promenade_roshan.texture.resource_path.ends_with(
+			"roshan_directional.png"),
+		"start=%s finish=%s" % [
+			"swim" if sky_swim_started else "missing",
+			promenade_animator.animation_state()])
 	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
 	var ambient_before := Vector3.ZERO
 	if ambient_cards.size() == 5:
@@ -544,6 +585,7 @@ func _init() -> void:
 			castle_target = target
 			break
 	var gate_node: Node3D = castle_target.get("node") as Node3D
+	var gate_highlight: Sprite3D = castle_target.get("highlight") as Sprite3D
 	main.player.position.x = origin.x + 40.0
 	for _i in range(6):
 		promenade.tick(0.5)
@@ -553,8 +595,25 @@ func _init() -> void:
 		"gate at %s in a %s viewport" % [gate_screen, view_rect.size])
 	promenade.handle_touch(gate_screen)
 	var gate_focus_ok: bool = (
-		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate")
+		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate"
+		and gate_highlight != null and gate_highlight.visible)
 	_check("castle_door_first_tap_highlights", gate_focus_ok)
+	var door_only_highlight_ok: bool = (
+		gate_node == main.g.get("lagoon_castle_door_focus")
+		and gate_node != castle_card
+		and gate_highlight != null
+		and gate_highlight.texture != castle_card.texture
+		and gate_highlight.texture.get_size() == Vector2(199, 228)
+		and gate_node.position.y < castle_card.position.y
+		and gate_highlight.scale == Vector3.ONE)
+	_check("castle_focus_is_door_only_not_full_castle",
+		door_only_highlight_ok,
+		"focus_size=%s door_y=%.2f castle_y=%.2f scale=%s" % [
+			gate_highlight.texture.get_size() if gate_highlight != null
+				else Vector2.ZERO,
+			gate_node.position.y,
+			castle_card.position.y,
+			gate_highlight.scale if gate_highlight != null else Vector3.ZERO])
 	promenade.handle_touch(gate_screen)
 	await _frames(8)
 	_check("drawbridge_enters_castle",
