@@ -554,8 +554,6 @@ func _run() -> void:
 		main.castle_room_item_hotspot_layer.get_child_count() == 7)
 	var camera_ray_touch_ok := true
 	var camera_ray_details: Array[String] = []
-	var backdrop_global_z: float = main.castle_room_world_root.to_global(
-		Vector3(0.0, 0.0, CastleRooms25D.BACKGROUND_Z)).z
 	for item_id: String in bunny_ids:
 		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {}) \
 			as Dictionary
@@ -576,32 +574,18 @@ func _run() -> void:
 			ray_origin + ray_direction * sprite_distance
 		var ray_error: float = sprite_ray_point.distance_to(
 			sprite.global_position)
-		var backdrop_distance: float = (
-			backdrop_global_z - ray_origin.z) / ray_direction.z
-		var backdrop_point: Vector3 = \
-			ray_origin + ray_direction * backdrop_distance
-		var backdrop_local: Vector3 = \
-			main.castle_room_world_root.to_local(backdrop_point)
-		var mapped_center := Vector2(
-			backdrop_local.x / CastleRooms25D.HALL_CARD_PIXEL_SIZE
-				+ CastleRooms25D.HALL_LOGICAL_SIZE.x * 0.5,
-			CastleRooms25D.HALL_VIEW_SIZE.y * 0.5
-				- backdrop_local.y / CastleRooms25D.HALL_CARD_PIXEL_SIZE)
 		var contact_foot: Vector2 = record.get(
 			"contact_foot", Vector2.ZERO) as Vector2
-		var contact_radius: Vector2 = (record.get("data", {}) as Dictionary).get(
-			"contact_radius", Vector2.ONE) as Vector2
-		var contact_delta: Vector2 = mapped_center - contact_foot
-		var contact_distance: float = (
-			contact_delta.x * contact_delta.x
-				/ (contact_radius.x * contact_radius.x)
-			+ contact_delta.y * contact_delta.y
-				/ (contact_radius.y * contact_radius.y))
+		var mapped_foot: Vector2 = rooms._dust_bunny_foot_from_camera_ray(
+			center_screen)
+		var foot_error: float = mapped_foot.distance_to(contact_foot)
 		camera_ray_touch_ok = camera_ray_touch_ok \
-			and ray_error <= 0.01 and contact_distance <= 1.0
+			and ray_error <= 0.01 \
+			and mapped_foot != Vector2.INF \
+			and foot_error <= 0.01
 		camera_ray_details.append(
-			"%s:ray=%.4f contact=%.4f mapped=%s" % [
-				item_id, ray_error, contact_distance, mapped_center])
+			"%s:ray=%.4f foot=%.4f mapped=%s" % [
+				item_id, ray_error, foot_error, mapped_foot])
 	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok,
 		";".join(camera_ray_details))
 	var elevator_clearance_ok := true

@@ -934,6 +934,12 @@ func _on_room_input(event: InputEvent) -> void:
 func _walk_cutout_to(screen_position: Vector2) -> void:
 	if m.castle_room_player_sprite == null:
 		return
+	if _is_wide_hall():
+		var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
+			screen_position)
+		if bunny_foot != Vector2.INF:
+			_position_player_at_foot(bunny_foot, true)
+			return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
 	if _is_wide_hall():
 		var hall_position: Vector2 = _stage_to_hall_art(local_position)
@@ -947,6 +953,47 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	var foot_x: float = clampf(local_position.x, walk.position.x, walk.end.x)
 	var foot_y: float = clampf(local_position.y, walk.position.y, walk.end.y)
 	_position_player_at_foot(Vector2(foot_x, foot_y), true)
+
+func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
+	if not _is_wide_hall() or m.castle_room_camera == null:
+		return Vector2.INF
+	var ray_origin: Vector3 = m.castle_room_camera.project_ray_origin(
+		screen_position)
+	var ray_direction: Vector3 = m.castle_room_camera.project_ray_normal(
+		screen_position)
+	var nearest_distance: float = INF
+	var nearest_foot: Vector2 = Vector2.INF
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
+			as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite == null or sprite.texture == null or not sprite.visible:
+			continue
+		var basis: Basis = sprite.global_transform.basis
+		var normal: Vector3 = basis.z.normalized()
+		var denominator: float = ray_direction.dot(normal)
+		if absf(denominator) <= 0.00001:
+			continue
+		var hit_distance: float = (
+			sprite.global_position - ray_origin).dot(normal) / denominator
+		if hit_distance <= 0.0 or hit_distance >= nearest_distance:
+			continue
+		var hit_point: Vector3 = ray_origin + ray_direction * hit_distance
+		var relative: Vector3 = hit_point - sprite.global_position
+		var texture_size: Vector2 = sprite.texture.get_size()
+		var half_width: float = basis.x.length() \
+			* texture_size.x * sprite.pixel_size * 0.5
+		var half_height: float = basis.y.length() \
+			* texture_size.y * sprite.pixel_size * 0.5
+		if absf(relative.dot(basis.x.normalized())) > half_width \
+				or absf(relative.dot(basis.y.normalized())) > half_height:
+			continue
+		nearest_distance = hit_distance
+		nearest_foot = record.get("contact_foot", Vector2.INF) as Vector2
+	return nearest_foot
 
 func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	if m.castle_room_player_sprite == null:

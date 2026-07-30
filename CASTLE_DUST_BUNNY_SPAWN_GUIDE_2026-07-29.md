@@ -48,7 +48,7 @@ Steady-state additions to `CastleItemVisualLayer`:
 
 Each removal creates twelve unshaded Sprite3D star motes in `CastleItemEffectLayer`; they fade and free themselves after 0.72 seconds. The bunny card itself expands, rotates, fades, and frees itself after 0.24 seconds.
 
-Touch movement uses the castle camera's projected stage mapping. During a walk tween, Roshan's `current_stage_foot` is updated continuously. Collision is evaluated in logical hall floor space with an ellipse test, so camera travel and perspective projection cannot separate the touch destination from the world object. Bunnies intentionally have no invisible Button node. The probe projects a ray through each card's visible center, verifies that it intersects that Sprite3D position, intersects the same ray with the coherent background plane, reverses that 3D point into logical hall space, and confirms the resulting destination lies inside the bunny's contact ellipse.
+Touch movement ray-picks the visible Sprite3D bunny cards against their actual planes and routes Roshan to the selected bunny's live logical-floor contact point. During a walk tween, Roshan's `current_stage_foot` is updated continuously. Collision is evaluated in logical hall floor space with an ellipse test, so camera travel and perspective projection cannot separate the touch destination from the world object. Bunnies intentionally have no invisible Button node. The generous card rectangle is the child-friendly touch target; depth ordering selects the nearest intersected bunny card. The probe projects a ray through each visible card center, verifies the ray intersects that Sprite3D position, and confirms the runtime picker returns the same bunny's current contact point.
 
 Main-owned visit state:
 
@@ -63,7 +63,7 @@ Changing castle rooms rebuilds the Main Hall without respawning cleared bunnies.
 
 - exactly three distinct, unshaded, depth-tested Sprite3D bunny cards and zero bunny hotspots;
 - correct semantic roles and spawn-guide IDs;
-- camera-ray intersection and reverse background-plane-to-hall mapping land inside every contact ellipse;
+- camera-ray intersection with every live Sprite3D card plane returns that bunny's current logical-floor contact point;
 - two cards remain fixed while the third changes position;
 - every bunny clears after one contact, produces twelve effects, and records its cleared ID;
 - a second explosion request has no effect;
