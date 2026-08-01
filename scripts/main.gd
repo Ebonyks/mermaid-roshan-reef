@@ -3,6 +3,7 @@ extends Node3D
 
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
+const WaterMotionLogic = preload("res://scripts/water_motion.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
@@ -1480,21 +1481,16 @@ static func _emit_tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, col: 
 		st.set_normal(n)
 		st.add_vertex(p)
 
-func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float, rip_scale: float) -> ShaderMaterial:
+func _toon_water_mat(deep: Color, shallow: Color, alpha: float,
+		wobble_h: float, rip_scale: float,
+		preset: String = WaterMotionLogic.STILL) -> ShaderMaterial:
 	# Phase 5: the one storybook water material (CC0 "Toon Water" base — see
 	# ASSET_LICENSES.md). Depth-fade + shoreline foam on capable tiers; the
 	# Speedy tier (and headless CI) runs it with zero depth-texture reads.
-	var m := ShaderMaterial.new()
-	m.shader = load("res://assets/shaders/toon_water.gdshader")
-	m.set_shader_parameter("deep_color", deep)
-	m.set_shader_parameter("shallow_color", shallow)
-	m.set_shader_parameter("alpha_base", alpha)
-	m.set_shader_parameter("wobble_height", wobble_h)
-	m.set_shader_parameter("ripple_scale", rip_scale)
-	m.set_shader_parameter("ripple", load("res://assets/terrain/up_water_nrm.jpg"))
-	m.set_shader_parameter("caustics", load("res://assets/terrain/caustics.png"))
-	m.set_shader_parameter("use_depth", quality != "speedy" and DisplayServer.get_name() != "headless")
-	return m
+	return WaterMotionLogic.material(deep, shallow, alpha, preset, quality, {
+		"wobble_height": wobble_h,
+		"ripple_scale": rip_scale,
+	})
 
 func _build_water() -> void:
 	var pm := PlaneMesh.new()
@@ -1506,7 +1502,9 @@ func _build_water() -> void:
 	mi.position.y = WATER_TOP
 	# Phase 5: the shared toon water (big soft ocean swell, extra sparkle —
 	# this sheet is mostly seen from below, so it keeps a higher glow)
-	var mat := _toon_water_mat(Color(0.14, 0.46, 0.66), Color(0.42, 0.78, 0.86), 0.52, 0.9, 0.012)
+	var mat := _toon_water_mat(Color(0.14, 0.46, 0.66),
+		Color(0.42, 0.78, 0.86), 0.52, 0.9, 0.012,
+		WaterMotionLogic.ROUGH)
 	mat.set_shader_parameter("sparkle", 0.6)
 	mat.set_shader_parameter("wobble_speed", 0.9)
 	mi.material_override = mat
@@ -2871,7 +2869,7 @@ func _end_opera(completed: bool) -> void:
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
 	if String(g.get("phase", "")) == "hall":
-		_castle_rooms_ref().resume("opera_hall")
+		_castle_rooms_ref().resume("main_hall")
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -3224,11 +3222,9 @@ func _apply_quality(q: String) -> void:
 	if quality_btn != null:
 		quality_btn.text = "≋   SPEEDY" if speedy else "✦   SPARKLY"
 		quality_btn.set_meta("toggle_on", not speedy)
-	# Phase 5: live-retune the reef water when the tier flips (arena water is
-	# rebuilt on entry and picks the tier up itself)
-	if water_node != null and water_node.material_override is ShaderMaterial:
-		var wm := water_node.material_override as ShaderMaterial
-		wm.set_shader_parameter("use_depth", (not speedy) and DisplayServer.get_name() != "headless")
+	# Retune every live water material. Arena surfaces used to keep the old
+	# tier until their next rebuild; the shared water system updates them now.
+	WaterMotionLogic.retune_tree(self, quality)
 
 func _set_vis_range(n: Node, dist: float) -> void:
 	if n is GeometryInstance3D:

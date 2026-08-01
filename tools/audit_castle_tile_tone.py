@@ -16,7 +16,6 @@ TILE_WIDTH = 836
 TOP_HEIGHT = 470
 MASTER_SIZE = (3344, 941)
 ROOM_CAPTURE_NAMES = (
-	"opera_hall",
 	"kitchen",
 	"library",
 	"playroom",

@@ -130,7 +130,7 @@ func _init() -> void:
 		if main.g.has(retired_key):
 			_bad("retired 3D hall state rebuilt %s" % retired_key)
 	for room_id: String in [
-		"main_hall", "opera_hall", "kitchen", "library", "playroom",
+		"main_hall", "opera_lobby", "kitchen", "library", "playroom",
 		"craft_room", "mermaid_pool", "bubble_bath"]:
 		if not main.castle_room_buttons.has(room_id):
 			_bad("castle elevator missing %s" % room_id)

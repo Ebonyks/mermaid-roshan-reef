@@ -41,9 +41,6 @@ SCORES: dict[tuple[str, str], tuple[float, str]] = {
 	("mermaid_pool", "bubble_fountain"): (4.7, "Pearl basin, bubbles, and water treatment match the room set."),
 	("mermaid_pool", "flower_float"): (4.6, "Simple but coherent pastel flower and painted water."),
 	("mermaid_pool", "waterfall"): (4.8, "High-detail shell arch and rainbow water focal object."),
-	("opera_hall", "chandelier"): (4.7, "Gold/pearl lighting motif matches Main Hall architecture."),
-	("opera_hall", "curtains"): (4.8, "Strong rainbow-shell entrance and navy arch language."),
-	("opera_hall", "stage_star"): (4.5, "Minimal prop, but silhouette and gold/navy palette meet the gate."),
 	("playroom", "blocks"): (4.5, "Small readable toy using the room's shell-pastel palette."),
 	("playroom", "stacking_toy"): (4.7, "Rounded silhouette, clear value grouping, child-readable scale."),
 	("playroom", "stuffie_nook"): (4.9, "Best-in-set characterful shell alcove with cohesive stuffies."),
@@ -74,7 +71,6 @@ FOREGROUND_PAIR_SCORES = {
 	"library": 4.7,
 	"main_hall": 4.5,
 	"mermaid_pool": 4.8,
-	"opera_hall": 4.8,
 	"playroom": 4.8,
 }
 

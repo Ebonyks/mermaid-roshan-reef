@@ -109,7 +109,7 @@ func _init() -> void:
 			and not main.player.visible
 			and main.touch_interactables.is_empty())
 		_ck("opera_lives_in_elevator_not_3d_courtyard",
-			main.castle_room_buttons.has("opera_hall")
+			main.castle_room_buttons.has("opera_lobby")
 			and not main.g.has("opera_gate"))
 		_ck("sprite3d_world_root", main.castle_room_world_root is Node3D)
 		_ck("perspective_room_camera",
@@ -129,7 +129,7 @@ func _init() -> void:
 			is_equal_approx(backdrop_size.aspect(), 16.0 / 9.0))
 		var manifest: Dictionary = _depth_manifest()
 		var manifest_rooms: Dictionary = manifest.get("rooms", {}) as Dictionary
-		var clean_plate_manifest_ok: bool = manifest_rooms.size() == 8 \
+		var clean_plate_manifest_ok: bool = manifest_rooms.size() == 7 \
 			and String(manifest.get("source_policy", "")).begins_with(
 				"Existing approved room composites")
 		for manifest_room_id: String in manifest_rooms:
@@ -244,7 +244,7 @@ func _init() -> void:
 		var room_depth_ok := true
 		var overdraw_budget_ok := true
 		for room_id: String in [
-			"main_hall", "opera_hall", "kitchen", "library", "playroom",
+			"main_hall", "kitchen", "library", "playroom",
 			"craft_room", "mermaid_pool", "bubble_bath"]:
 			rooms.show_room(room_id, false)
 			await _frames(2)

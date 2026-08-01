@@ -1,5 +1,6 @@
 class_name CastleRooms25D
 extends RefCounted
+const WaterMotionLogic = preload("res://scripts/water_motion.gd")
 # Picture-first Pearl Castle room shell. Every in-world image is a Sprite3D
 # card at real scene depth. Main Hall background tiles are the sole shaded
 # receiver exception for its touch-controlled light pool; characters, props,
@@ -91,7 +92,7 @@ const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
 		"role": "playroom_door_marker"},
 ]
 const HALL_PORTALS: Array[Dictionary] = [
-	{"id": "opera_hall", "name": "Opera Hall",
+	{"id": "__opera", "name": "Opera Lobby",
 		"rect": Rect2(420.0, 105.0, 420.0, 535.0),
 		"foot": Vector2(630.0, 650.0)},
 	{"id": "library", "name": "Royal Library",
@@ -183,9 +184,8 @@ const HALL_ITEMS: Array[Dictionary] = [
 const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
 		"tex": "room_main_hall_background_v2.png", "action": "throne", "action_icon": "♛"},
-	{"id": "opera_hall", "name": "Opera Hall", "icon": "🎭",
-		"tex": "room_opera_hall_background.png", "action": "opera",
-		"action_icon": "🎭"},
+	{"id": "opera_lobby", "name": "Opera Lobby", "icon": "🎭",
+		"direct_action": "opera"},
 	{"id": "kitchen", "name": "Royal Kitchen", "icon": "🍲",
 		"tex": "room_kitchen_background.png", "action": "kitchen",
 		"action_icon": "🍲"},
@@ -212,14 +212,6 @@ const ROOM_LAYOUTS := {
 		"front": [
 			{"tex": "room_main_hall_front_left.png", "pos": Vector2(0.0, 0.0)},
 			{"tex": "room_main_hall_front_right.png", "pos": Vector2(750.0, 0.0)},
-		],
-	},
-	"opera_hall": {
-		"walk": Rect2(180.0, 455.0, 920.0, 215.0), "mid_foot_y": -1.0,
-		"mid": [],
-		"front": [
-			{"tex": "room_opera_hall_front_left.png", "pos": Vector2(0.0, 252.0)},
-			{"tex": "room_opera_hall_front_right.png", "pos": Vector2(750.0, 252.0)},
 		],
 	},
 	"kitchen": {
@@ -257,7 +249,8 @@ const ROOM_LAYOUTS := {
 	"mermaid_pool": {
 		"walk": Rect2(170.0, 400.0, 940.0, 270.0), "mid_foot_y": 535.0,
 		"mid": [
-			{"tex": "room_mermaid_pool_mid_pool.png", "pos": Vector2(0.0, 212.0)},
+			{"tex": "room_mermaid_pool_mid_pool.png", "pos": Vector2(0.0, 212.0),
+				"water_motion": "still"},
 		],
 		"front": [
 			{"tex": "room_mermaid_pool_front_left.png", "pos": Vector2(0.0, 378.0)},
@@ -293,20 +286,6 @@ const ROOM_ITEMS := {
 			"hotspot_size": Vector2(220, 180),
 			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.0,
 			"symbol": "○", "color": Color(0.50, 0.91, 1.0)},
-	],
-	"opera_hall": [
-		{"id": "curtains", "name": "Stage curtains", "pos": Vector2(414, 100),
-			"z": 0.65,
-			"anim": "sway", "sound": "purr.wav", "pitch": 1.4,
-			"symbol": "♪", "color": Color(1.0, 0.67, 0.78)},
-		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 0),
-			"z": 1.10,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.7,
-			"symbol": "✦", "color": Color(1.0, 0.90, 0.44)},
-		{"id": "stage_star", "name": "Stage star", "pos": Vector2(463, 286),
-			"z": 0.75,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 2.1,
-			"symbol": "★", "color": Color(1.0, 0.82, 0.30)},
 	],
 	"kitchen": [
 		{"id": "sink", "name": "Shell sink", "pos": Vector2(0, 114),
@@ -504,6 +483,7 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	_tick_water_cards(delta)
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
@@ -840,6 +820,9 @@ func _build_room_buttons(panel: Panel) -> void:
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
+	if String(room.get("direct_action", "")) == "opera":
+		_open_opera_lobby()
+		return
 	if room.is_empty() or m.castle_room_background == null:
 		return
 	m.castle_room_id = room_id
@@ -1174,6 +1157,13 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			else Rect2(source_position, texture.get_size() * visual_scale)
 		),
 	}
+	if String(item_data.get("anim", "")) == "splash":
+		var water_preset: String = WaterMotionLogic.ROUGH \
+			if item_id in ["waterfall", "bubble_fountain",
+				"fountain_left", "fountain_right"] \
+			else WaterMotionLogic.STILL
+		WaterMotionLogic.configure_sprite(
+			piece, water_preset, float(item_id.hash() % 17) * 0.31)
 	_update_touch_hotspot(m.castle_room_item_sprites[item_id])
 
 func _activate_room_item(item_id: String) -> void:
@@ -1414,6 +1404,25 @@ func _add_layer_piece(container: Node3D, piece_data: Dictionary,
 	piece.set_meta("source_asset_role",
 		"foreground_region" if depth_z >= FOREGROUND_Z else "midground_region")
 	container.add_child(piece)
+	if piece_data.has("water_motion"):
+		WaterMotionLogic.configure_sprite(
+			piece, String(piece_data["water_motion"]), 0.45)
+
+func _tick_water_cards(delta: float) -> void:
+	var water_time: float = float(m.g.get("castle_water_time", 0.0)) + delta
+	m.g["castle_water_time"] = water_time
+	for container: Node3D in [m.castle_room_mid_layer, m.castle_room_front_layer]:
+		if container == null:
+			continue
+		for child: Node in container.get_children():
+			if child is Sprite3D:
+				WaterMotionLogic.tick_sprite(child as Sprite3D, water_time)
+	for item_value: Variant in m.castle_room_item_sprites.values():
+		var record: Dictionary = item_value
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite != null:
+			WaterMotionLogic.tick_sprite(sprite, water_time)
+
 
 func _update_depth_sort() -> void:
 	if m.castle_room_player_sprite == null:
@@ -1670,17 +1679,25 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	transition.tween_interval(duration + 0.04)
 	if portal_id == "__throne":
 		transition.tween_callback(activate_current_room)
+	elif portal_id == "__opera":
+		transition.tween_callback(_open_opera_lobby.bind(false))
 	else:
 		transition.tween_callback(show_room.bind(portal_id, true))
+
+func _open_opera_lobby(play_tap: bool = true) -> void:
+	if play_tap:
+		m._ui_tap()
+	m.castle_room_menu_open = false
+	if m.castle_room_menu_panel != null:
+		m.castle_room_menu_panel.visible = false
+	suspend()
+	m._start_opera()
 
 func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)
 	var action: String = String(room.get("action", ""))
 	m._ui_tap()
 	match action:
-		"opera":
-			suspend()
-			m._start_opera()
 		"craft":
 			m._open_craft_studio()
 		"stuffies":

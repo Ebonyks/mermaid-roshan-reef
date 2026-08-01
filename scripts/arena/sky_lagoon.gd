@@ -575,7 +575,8 @@ func _build_pearl_castle(o: Vector3) -> void:
 	pondm.height = 0.6
 	pond.mesh = pondm
 	# Phase 5: shared toon water — the pond gets a foam ring right at its rim
-	var pmm = m._toon_water_mat(Color(0.24, 0.55, 0.78), Color(0.5, 0.82, 0.92), 0.82, 0.12, 0.06)
+	var pmm: ShaderMaterial = m._toon_water_mat(Color(0.24, 0.55, 0.78),
+		Color(0.5, 0.82, 0.92), 0.82, 0.12, 0.06, "still")
 	pmm.set_shader_parameter("foam_width", 1.8)
 	pond.material_override = pmm
 	pond.position = o + Vector3(-95, _lagoon_local(-95, 70) + 0.6, 70)
@@ -1764,7 +1765,8 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	var fishkinds := ["ClownFish", "Dory", "Carp", "Tuna", "Eel"]
 	# Phase 5: shared toon water — streams get tight ripples, gentle wobble,
 	# and (on capable tiers) foam edges hugging the carved banks
-	var river_mat = m._toon_water_mat(Color(0.2, 0.55, 0.8), Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05)
+	var river_mat: ShaderMaterial = m._toon_water_mat(Color(0.2, 0.55, 0.8),
+		Color(0.5, 0.82, 0.9), 0.82, 0.25, 0.05, "rough")
 	river_mat.set_shader_parameter("foam_width", 2.6)
 	river_mat.set_shader_parameter("depth_fade", 7.0)
 	river_mat.set_shader_parameter("mesh_edge_foam", true)
@@ -1881,7 +1883,8 @@ func _build_lagoon_terrain(o: Vector3) -> void:
 	moatw.mesh = mst.commit()
 	# Phase 5: shared toon water + GEN2 painted albedo so it reads as WATER
 	# from every angle and on every quality tier
-	var mwmat = m._toon_water_mat(Color(0.16, 0.45, 0.7), Color(0.42, 0.75, 0.88), 0.92, 0.2, 0.04)
+	var mwmat: ShaderMaterial = m._toon_water_mat(Color(0.16, 0.45, 0.7),
+		Color(0.42, 0.75, 0.88), 0.92, 0.2, 0.04, "rough")
 	mwmat.set_shader_parameter("foam_width", 2.4)
 	mwmat.set_shader_parameter("mesh_edge_foam", true)
 	mwmat.set_shader_parameter("mesh_edge_width", 0.10)
@@ -1931,7 +1934,8 @@ func _build_fairy_pond(o: Vector3) -> void:
 	var pond := MeshInstance3D.new()
 	var cm := CylinderMesh.new(); cm.top_radius = 17.0; cm.bottom_radius = 17.0; cm.height = 1.0
 	pond.mesh = cm
-	var pmat = m._toon_water_mat(Color(0.30, 0.42, 0.78), Color(0.62, 0.72, 1.0), 0.92, 0.16, 0.055)
+	var pmat: ShaderMaterial = m._toon_water_mat(Color(0.30, 0.42, 0.78),
+		Color(0.62, 0.72, 1.0), 0.92, 0.16, 0.055, "still")
 	pmat.set_shader_parameter("sparkle", 0.55)
 	pmat.set_shader_parameter("albedo_tex", load("res://assets/terrain/gen2_water_col.jpg"))
 	pmat.set_shader_parameter("albedo_mix", 0.32)

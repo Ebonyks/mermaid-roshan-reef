@@ -497,6 +497,26 @@ func _init() -> void:
 
 	promenade._start_playground_animation("slide", toy_nodes.get("slide") as Node3D)
 	var ladder_start: Vector3 = roshan_card.position
+	var prior_climb_position: Vector3 = ladder_start
+	var dense_climb_ok := true
+	var saw_coil_pose := false
+	var saw_reach_pose := false
+	for frame_i in range(1, 154):
+		var frame_t: float = float(frame_i) / 60.0
+		promenade._tick_slide_animation(roshan_card, slide_node, frame_t)
+		var frame_delta: Vector3 = roshan_card.position - prior_climb_position
+		dense_climb_ok = dense_climb_ok \
+			and frame_delta.y >= -0.0001 \
+			and frame_delta.length() < 0.08
+		var frame_path: String = roshan_card.texture.resource_path
+		saw_coil_pose = saw_coil_pose or frame_path.ends_with("roshan_slide_0.png")
+		saw_reach_pose = saw_reach_pose or (
+			frame_path.ends_with("roshan_slide_1.png")
+			and roshan_card.offset.length() > 1.0)
+		prior_climb_position = roshan_card.position
+	_check("slide_climb_tracks_ladder_frame_by_frame",
+		dense_climb_ok and saw_coil_pose and saw_reach_pose)
+	promenade._tick_slide_animation(roshan_card, slide_node, 0.0)
 	promenade._tick_playground_animation(0.30)
 	var rung_bounce_y: float = roshan_card.position.y
 	promenade._tick_playground_animation(0.25)

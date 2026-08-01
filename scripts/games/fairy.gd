@@ -1,5 +1,6 @@
 class_name FairyGame
 extends RefCounted
+const WaterMotionLogic = preload("res://scripts/water_motion.gd")
 # Phase 7.4: mechanical extraction from main.gd — builder + tick for the
 # fairyshoot minigame. All state stays on main (m.*); received by reference.
 
@@ -155,7 +156,9 @@ func _fairy_background_panel(origin: Vector3) -> void:
 		0.06,
 		(FS_BACKGROUND_DEPTH - 20.0) * 0.5,
 	)
+	WaterMotionLogic.configure_sprite(panel, WaterMotionLogic.STILL, 0.7)
 	m.add_child(panel)
+	m.g["fairy_water_card"] = panel
 	m.game_nodes.append(panel)
 
 func _fairy_build_ornaments(origin: Vector3) -> void:
@@ -337,6 +340,9 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var origin: Vector3 = m.ARENA_POS
 	var phase: String = String(m.g.get("phase", "fly"))
 	var tt: float = float(m.g["t"]) * FS_PACE
+	var water_card: Sprite3D = m.g.get("fairy_water_card") as Sprite3D
+	if water_card != null:
+		WaterMotionLogic.tick_sprite(water_card, tt)
 	# ---- the track scrolls on its own; the stick only slides Roshan around ----
 	if phase == "fly":
 		m.g["fz"] = float(m.g["fz"]) + FS_FWD * delta

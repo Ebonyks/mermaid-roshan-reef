@@ -264,7 +264,7 @@ func _init() -> void:
 		print("AUDIT|retired 3D castle absent: ",
 			("OK" if legacy_hall_absent else "FAIL"))
 		var elevator_ok: bool = main.castle_room_buttons.size() == 8 \
-			and main.castle_room_buttons.has("opera_hall") \
+			and main.castle_room_buttons.has("opera_lobby") \
 			and main.castle_room_buttons.has("bubble_bath")
 		print("AUDIT|castle elevator has all rooms: ",
 			("OK" if elevator_ok else "FAIL"))

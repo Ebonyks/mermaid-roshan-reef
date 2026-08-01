@@ -84,6 +84,12 @@ const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
 const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 const PLAY_ROSHAN_H := 8.34
+const SLIDE_CLIMB_DURATION := 2.55
+const SLIDE_CLIMB_HOPS := 4
+# The extended climb drawing carries its torso left and upward inside the
+# otherwise identical 512px canvas. Compensate that authored silhouette drift
+# inside the card, while the card root itself follows the ladder continuously.
+const SLIDE_REACH_ART_OFFSET := Vector2(0.45, -0.45)
 const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -957,22 +963,30 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 	card.rotation.z = -arc * 0.055
 
 func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
-	if t < 2.55:
-		# Five distinct rung landings. Squash and extend alternate instead of
-		# gliding up the ladder, so every stair has a little mermaid-tail hop.
-		var step_f: float = clampf(t / 2.55, 0.0, 1.0) * 5.0
-		var step_i: int = mini(4, floori(step_f))
-		var step_phase: float = step_f - floorf(step_f)
-		var bounce: float = sin(step_phase * PI) * 0.42
-		_set_play_frame(step_i % 2)
+	if t < SLIDE_CLIMB_DURATION:
+		# Four continuous rung-to-rung hops. The old version bounced in place,
+		# then teleported to the next rung; alternating silhouettes amplified the
+		# jump until Roshan appeared over the chute instead of on the ladder.
+		var climb_f: float = clampf(
+			t / SLIDE_CLIMB_DURATION, 0.0, 0.999999) * float(SLIDE_CLIMB_HOPS)
+		var hop_i: int = mini(SLIDE_CLIMB_HOPS - 1, floori(climb_f))
+		var hop_phase: float = climb_f - float(hop_i)
+		var climb_progress: float = (
+			float(hop_i) + hop_phase) / float(SLIDE_CLIMB_HOPS)
+		var reaching: bool = hop_phase > 0.22 and hop_phase < 0.78
+		_set_play_frame(1 if reaching else 0)
+		card.offset = (SLIDE_REACH_ART_OFFSET / card.pixel_size
+			if reaching else Vector2.ZERO)
 		card.position = Vector3(
-			slide.position.x + (-6.2 + float(step_i) * 0.42) * SLIDE_ANIM_SCALE,
-			slide.position.y + (-3.7 + float(step_i) * 1.52) * SLIDE_ANIM_SCALE + bounce,
+			slide.position.x + lerpf(-6.2, -4.5, climb_progress) * SLIDE_ANIM_SCALE,
+			slide.position.y + lerpf(-3.7, 2.5, climb_progress) * SLIDE_ANIM_SCALE
+				+ sin(hop_phase * PI) * 0.28,
 			PLAY_Z + 0.12)
 		card.rotation.z = -0.03
 	elif t < 3.15:
 		_set_play_frame(2)
 		var settle: float = smoothstep(0.0, 1.0, (t - 2.55) / 0.60)
+		card.offset = Vector2.ZERO
 		card.position = Vector3(
 			slide.position.x + lerpf(-4.5, -2.1, settle) * SLIDE_ANIM_SCALE,
 			slide.position.y + lerpf(2.5, 3.9, settle) * SLIDE_ANIM_SCALE,
@@ -980,6 +994,7 @@ func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 		card.rotation.z = lerpf(-0.03, -0.12, settle)
 	else:
 		_set_play_frame(3)
+		card.offset = Vector2.ZERO
 		var ride: float = smoothstep(0.0, 1.0, clampf((t - 3.15) / 2.05, 0.0, 1.0))
 		# A quadratic chute path: gently over the lip, then faster down and out.
 		var start := Vector2(

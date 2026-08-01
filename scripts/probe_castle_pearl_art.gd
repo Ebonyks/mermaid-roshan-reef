@@ -6,7 +6,7 @@ extends SceneTree
 # SpotLight3D clusters can produce real depth and shadows.
 
 const ROOM_IDS: Array[String] = [
-	"main_hall", "opera_hall", "kitchen", "library", "playroom",
+	"main_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
@@ -97,7 +97,8 @@ func _run() -> void:
 		and not main.g.has("hall_exit")
 		and not main.g.has("opera_gate"))
 	_ck("storybook_elevator_inventory",
-		main.castle_room_buttons.size() == ROOM_IDS.size())
+		main.castle_room_buttons.size() == ROOM_IDS.size() + 1
+		and main.castle_room_buttons.has("opera_lobby"))
 	var castle_roshan: Sprite3D = main.castle_room_player_sprite
 	var castle_roshan_loop: RoshanSpriteLoop = castle_roshan.get_node_or_null(
 		"AlwaysAliveSpriteLoop") as RoshanSpriteLoop
@@ -267,7 +268,7 @@ func _run() -> void:
 		all_touch_audio_ok = all_touch_audio_ok \
 			and main.castle_room_prop_sfx != null \
 			and main.castle_room_prop_sfx.stream != null
-	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok)
+	_ck("all_seven_rooms_sprite3d_only", all_rooms_ok)
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
 	_ck("approved_room_composites_preserved", approved_composite_backdrops_ok)
 	_ck("all_destination_rooms_use_2k_exact_tile_grids",
@@ -560,21 +561,20 @@ func _run() -> void:
 	await _capture("elevator_menu")
 	rooms._toggle_menu()
 
-	# Opera has exactly one route: its room button/action in the elevator. The
-	# activity must return to the same Sprite3D room when it closes.
-	rooms.show_room("opera_hall", false)
-	rooms.activate_current_room()
+	# Opera has exactly one destination: the real lobby, reached directly from
+	# the elevator or Main Hall portal without an intermediate auditorium.
+	rooms.show_room("opera_lobby", true)
 	await _frames(40)
 	var opera_opened: bool = main.game == "opera" and main.opera_game != null
 	_ck("opera_opens_from_elevator", opera_opened)
 	if opera_opened:
 		main.opera_game._leave_early()
 		await _frames(6)
-	_ck("opera_returns_to_sprite_room",
+	_ck("opera_returns_to_main_hall",
 		main.game == "level2"
 		and String(main.g.get("phase", "")) == "hall"
 		and rooms.is_open()
-		and main.castle_room_id == "opera_hall")
+		and main.castle_room_id == "main_hall")
 	var environment_before_suspend: Environment = \
 		main.castle_room_previous_environment
 	rooms.suspend()

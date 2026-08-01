@@ -568,12 +568,11 @@ ambientCG (all CC0).
 
 ## Pearl Castle 2.5D room references and derived cards (2026-07-26)
 
-The eight 1024×576 composites below are preserved approved references and the
+The seven 1024×576 composites below are preserved approved references and the
 source of the structurally validated prototype cards. They are not accepted
 native-2K masters under the corrected exact-source-ratio gate; no rejected
 generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/rooms/room_main_hall.png` — project-authored Pearl Castle presentation render, original project art; resized to 1024×576 for mobile runtime use.
-- `assets/flats/castle/rooms/room_opera_hall.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored opera-gate and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
 - `assets/flats/castle/rooms/room_library.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored library and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
 - `assets/flats/castle/rooms/room_playroom.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored toy-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
 - `assets/flats/castle/rooms/room_craft_room.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored craft-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.

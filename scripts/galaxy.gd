@@ -702,12 +702,10 @@ func _build_decor() -> void:
 	fwc.bottom_radius = 2.6
 	fwc.height = 0.35
 	fwater.mesh = fwc
-	var fwm := StandardMaterial3D.new()
-	fwm.albedo_color = Color(0.5, 0.9, 1.0, 0.75)
-	fwm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	fwm.emission_enabled = true
-	fwm.emission = Color(0.45, 0.85, 1.0)
-	fwm.emission_energy_multiplier = 1.1
+	var fwm: ShaderMaterial = _main._toon_water_mat(
+		Color(0.28, 0.68, 0.82), Color(0.64, 0.94, 1.0),
+		0.82, 0.055, 0.07, "still")
+	fwm.set_shader_parameter("sparkle", 0.52)
 	fwater.material_override = fwm
 	fwater.position = Vector3(0, 3.3, 0)
 	ff.add_child(fwater)

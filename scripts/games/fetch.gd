@@ -38,13 +38,11 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	var lb := BoxMesh.new()
 	lb.size = Vector3(150.0, 0.6, 220.0)
 	lake.mesh = lb
-	var lm := StandardMaterial3D.new()
-	lm.albedo_color = Color(0.38, 0.70, 0.80)
-	lm.metallic = 0.28
-	lm.roughness = 0.24
-	lm.emission_enabled = true
-	lm.emission = Color(0.24, 0.50, 0.62)
-	lm.emission_energy_multiplier = 0.08
+	var lm: ShaderMaterial = m._toon_water_mat(
+		Color(0.20, 0.48, 0.62), Color(0.52, 0.78, 0.84),
+		0.90, 0.12, 0.035, "rough")
+	lm.set_shader_parameter("sparkle", 0.16)
+	lm.set_shader_parameter("surface_variation", 0.055)
 	lake.material_override = lm
 	lake.position = origin + Vector3(82.0, 0.3, 0.0)
 	m.add_child(lake)

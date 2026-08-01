@@ -397,7 +397,7 @@ func _path_v(st: SurfaceTool, x: float, z: float) -> void:
 
 func _build_fjords(o: Vector3) -> void:
 	var water_mat: ShaderMaterial = m._toon_water_mat(Color(0.12, 0.42, 0.63),
-		Color(0.48, 0.80, 0.90), 0.86, 0.18, 0.045)
+		Color(0.48, 0.80, 0.90), 0.86, 0.18, 0.045, "rough")
 	water_mat.set_shader_parameter("foam_width", 2.0)
 	for side: float in [-1.0, 1.0]:
 		var fjord: MeshInstance3D = MeshInstance3D.new()
@@ -415,7 +415,7 @@ func _build_stream(o: Vector3) -> void:
 	# the stepping-stone ford (lz 175) and the log bridge (lz -28), then
 	# swings east and widens into the town river past the mill island.
 	var water_mat: ShaderMaterial = m._toon_water_mat(Color(0.16, 0.46, 0.62),
-		Color(0.55, 0.85, 0.92), 0.82, 0.14, 0.06)
+		Color(0.55, 0.85, 0.92), 0.82, 0.14, 0.06, "rough")
 	var st: SurfaceTool = SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var z_top := 338.0

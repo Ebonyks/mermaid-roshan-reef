@@ -21,6 +21,12 @@ uniform float wobble_speed = 1.1;
 uniform float wobble_height = 0.45;
 uniform float scroll_speed = 0.05;
 uniform float ripple_scale = 0.05;
+uniform float normal_strength = 0.7;
+uniform float wave_mix : hint_range(0.0, 1.0) = 0.6;
+uniform float surface_variation : hint_range(0.0, 0.25) = 0.08;
+uniform float crest_strength : hint_range(0.0, 0.3) = 0.08;
+uniform vec2 wave_direction = vec2(0.82, 0.57);
+uniform vec2 secondary_direction = vec2(-0.38, 0.92);
 uniform float sparkle = 0.35;                             // 0 disables the dot pass
 uniform bool use_depth = true;                            // Speedy tier flips this off
 uniform bool mesh_edge_foam = false;                      // cheap shoreline fallback for authored ribbons/rings
@@ -35,10 +41,19 @@ uniform float albedo_mix : hint_range(0.0, 1.0) = 0.0;
 uniform float albedo_scale = 0.02;   // world-units -> UV tiling for albedo_tex
 
 varying vec2 wxz;
+varying float wave_signal;
 
 void vertex() {
 	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	VERTEX.y += sin(TIME * wobble_speed + wp.x * 0.11 + wp.z * 0.07) * wobble_height;
+	vec2 primary_dir = normalize(wave_direction);
+	vec2 secondary_dir = normalize(secondary_direction);
+	float primary = sin(TIME * wobble_speed + dot(wp.xz, primary_dir) * 0.11);
+	float secondary = sin(
+		TIME * wobble_speed * 1.63
+		+ dot(wp.xz, secondary_dir) * 0.19
+		+ 1.7);
+	wave_signal = mix(primary, primary * 0.68 + secondary * 0.32, wave_mix);
+	VERTEX.y += wave_signal * wobble_height;
 	wxz = wp.xz;
 }
 
@@ -47,7 +62,7 @@ void fragment() {
 	vec2 uv1 = wxz * ripple_scale + vec2(TIME * scroll_speed, TIME * scroll_speed * 0.6);
 	vec2 uv2 = wxz * ripple_scale * 1.7 - vec2(TIME * scroll_speed * 0.8, -TIME * scroll_speed * 0.5);
 	NORMAL_MAP = mix(texture(ripple, uv1).rgb, texture(ripple, uv2).rgb, 0.5);
-	NORMAL_MAP_DEPTH = 0.7;
+	NORMAL_MAP_DEPTH = normal_strength;
 	float shore = 0.0;
 	float shallow = 0.45;
 	if (use_depth) {
@@ -73,12 +88,15 @@ void fragment() {
 	float sp = texture(caustics, uv1 * 2.3).g * texture(caustics, uv2 * 2.1).g;
 	float dots = step(0.34, sp) * sparkle;
 	vec3 base = mix(deep_color, shallow_color, shallow);
+	float moving_tint = wave_signal * 0.5 + 0.5;
+	base = mix(base, shallow_color, moving_tint * surface_variation);
 	if (albedo_mix > 0.001) {
 		// drift the painted water slowly so it reads alive even on Speedy
 		vec3 paint = texture(albedo_tex, wxz * albedo_scale + vec2(TIME * scroll_speed * 0.3)).rgb;
 		base = mix(base, paint, albedo_mix);
 	}
-	base = mix(base, foam_color, clamp(shore + dots, 0.0, 1.0));
+	float crest = smoothstep(0.58, 0.92, wave_signal) * crest_strength;
+	base = mix(base, foam_color, clamp(shore + dots + crest, 0.0, 1.0));
 	ALBEDO = base;
 	EMISSION = base * 0.22 + foam_color * shore * 0.18;
 	ROUGHNESS = 0.12;

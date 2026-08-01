@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build authorized 2K Pearl Castle room masters and seam-safe runtime tiles.
 
-The owner explicitly authorized deterministic upscaling for the seven legacy
+The owner explicitly authorized deterministic upscaling for the six legacy
 1024x576 room plates on 2026-07-29. Originals remain untouched. Each clean
 background is enlarged exactly 2x with Lanczos, then split without scaling
 into four 1024x576 runtime tiles. Reconstruction is required to be pixel exact
@@ -28,7 +28,6 @@ OUTPUT_MANIFEST = AUDIT_ROOT / "castle_room_2k_upscale_manifest.json"
 OUTPUT_CONTACT = AUDIT_ROOT / "castle_room_2k_upscale_contact.png"
 
 ROOM_IDS = (
-	"opera_hall",
 	"kitchen",
 	"library",
 	"playroom",
