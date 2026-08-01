@@ -320,11 +320,13 @@ def build_audit(accepted: int, rejected: int, scores: list[float]) -> None:
   `scripts/opera_career_world_2d.gd`.
 - Godot import: PASS with Godot 4.7.1.
 - `probe_opera_2d`: PASS for all twelve careers, including magician.
-- Full `scripts/ci.sh`: FAIL outside this change's scope. Reported failures are
-  the ocean-kingdom return-gate debounce checks, existing storybook/tank/
-  Level-2 audit checks, three playroom castle-art checks, and the Windows
-  CP1252 console's inability to print box-drawing characters in
-  `audit_visual_design.py`. No Opera 2D assertion failed.
+- Full `scripts/ci.sh` after reconciling `origin/dev`: FAIL outside this
+  change's scope. With UTF-8 console output enabled, current `dev` reports
+  visual-design errors for the Fairy Pond background and Sky Lagoon
+  reversibility/parallax/background hierarchy, followed by stale Castle
+  interaction manifest hashes. The Opera visual-design result is an orphan-art
+  warning only; the dedicated Opera 2D probe passed all twelve careers in the
+  earlier complete wrapper run.
 """, encoding="utf-8")
 
 
