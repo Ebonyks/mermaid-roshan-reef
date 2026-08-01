@@ -76,79 +76,149 @@ const SMOKE_CARD_HEIGHT := 2.2
 const SMOKE_LIFETIME_S := 6.0
 const ANIMAL_ATLAS_COLUMNS := 2
 const ANIMAL_ATLAS_ROWS := 2
-const ANIMAL_IDLE_FRAME_S := 0.42
 const ANIMAL_STARTLE_ALERT_S := 0.24
 const ANIMAL_STARTLE_SQUASH_S := 0.18
 const ANIMAL_STARTLE_HOP_S := 0.24
-const ANIMAL_EXIT_MARGIN := 31.0
-const ANIMAL_RESPAWN_S := 22.0
+const ANIMAL_PAGE_SPAWN_S := 0.70
+const ANIMAL_RESPAWN_S := 5.5
 const ANIMAL_TOUCH_RADIUS_PX := 114.0
+const ANIMAL_EXIT_PAD_PX := 96.0
+const ANIMAL_ROUTE_CLEARANCE := 3.2
+# One pooled animal card is intentional. It keeps the five-species roster in
+# the game without adding ten permanently visible transparent cards to the
+# Speedy scene. Each camera page owns an ecological roster; tapping an animal
+# advances that page to its next species after the animal exits.
+const ANIMAL_PAGE_CENTERS := [-48.0, 0.0, 48.0]
+const ANIMAL_EXCLUSION_RECTS: Array[Dictionary] = [
+	{"id": "screen_1_2_seam", "rect": Rect2(-27.0, -2.0, 6.0, 10.0)},
+	{"id": "screen_2_3_seam", "rect": Rect2(21.0, -2.0, 6.0, 10.0)},
+	{"id": "slide", "rect": Rect2(-17.0, -1.0, 11.0, 14.0)},
+	{"id": "swing", "rect": Rect2(-3.0, -1.0, 12.0, 14.5)},
+	{"id": "seesaw", "rect": Rect2(11.0, -1.5, 12.0, 7.0)},
+	{"id": "drawbridge_and_door", "rect": Rect2(40.0, -2.0, 18.0, 10.0)},
+]
 const ANIMAL_DEFS: Array[Dictionary] = [
 	{
-		"id": "hare",
-		"idle": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
-		"startle": "res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
-		"min_x": -44.0,
-		"max_x": -33.0,
-		"y": 1.78,
-		"z": -1.8,
-		"height": 3.6,
-		"speed": 0.48,
-		"exit_speed": 13.5,
-		"phase": 0.3,
-	},
-	{
 		"id": "otter",
+		"page": 0,
+		"habitat": "arrival_shore",
 		"idle": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
-		"min_x": -63.0,
-		"max_x": -53.0,
-		"y": 1.38,
-		"z": -3.2,
-		"height": 2.8,
-		"speed": 0.40,
+		"path": [
+			Vector3(-62.0, 3.55, -5.8),
+			Vector3(-60.0, 3.82, -5.8),
+			Vector3(-57.8, 3.58, -5.8),
+		],
+		"height": 2.6,
+		"speed": 0.52,
 		"exit_speed": 12.0,
-		"phase": 1.7,
-		"initial_delay": 8.0,
-	},
-	{
-		"id": "squirrel",
-		"idle": "res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
-		"startle": "res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
-		"min_x": -16.0,
-		"max_x": -6.0,
-		"y": 1.68,
-		"z": -3.0,
-		"height": 3.4,
-		"speed": 0.56,
-		"exit_speed": 14.5,
-		"phase": 2.9,
+		"frame_s": 0.26,
+		"dwell_s": 1.4,
+		"bob": 0.045,
+		"locomotion": "waddle",
+		"safe_exit": -1.0,
+		"requires_plane_departed": true,
+		"day_tint": Color(0.92, 1.00, 1.08, 1.0),
+		"night_tint": Color(0.67, 0.79, 1.02, 1.0),
+		"shadow_day": Color(0.38, 0.58, 0.70, 0.34),
+		"shadow_night": Color(0.24, 0.36, 0.58, 0.30),
 	},
 	{
 		"id": "frog",
+		"page": 0,
+		"habitat": "arrival_shore",
 		"idle": "res://assets/sprites/sky_lagoon/animals/frog_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/frog_startle_atlas.png",
-		"min_x": 12.0,
-		"max_x": 20.0,
-		"y": 0.92,
-		"z": -4.0,
-		"height": 1.9,
-		"speed": 0.30,
+		"path": [
+			Vector3(-61.7, 3.25, -6.1),
+			Vector3(-59.8, 3.48, -6.1),
+			Vector3(-58.0, 3.30, -6.1),
+		],
+		"height": 1.65,
+		"speed": 0.72,
 		"exit_speed": 10.5,
-		"phase": 4.1,
+		"frame_s": 0.30,
+		"dwell_s": 1.7,
+		"bob": 0.18,
+		"locomotion": "hop",
+		"safe_exit": -1.0,
+		"requires_plane_departed": true,
+		"day_tint": Color(0.96, 1.06, 1.02, 1.0),
+		"night_tint": Color(0.69, 0.86, 0.98, 1.0),
+		"shadow_day": Color(0.34, 0.55, 0.66, 0.30),
+		"shadow_night": Color(0.22, 0.34, 0.56, 0.28),
+	},
+	{
+		"id": "hare",
+		"page": 1,
+		"habitat": "west_meadow_edge",
+		"idle": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
+		"path": [
+			Vector3(-20.7, 3.42, -4.8),
+			Vector3(-18.9, 3.72, -4.8),
+			Vector3(-17.2, 3.50, -4.8),
+		],
+		"height": 3.1,
+		"speed": 0.66,
+		"exit_speed": 13.5,
+		"frame_s": 0.28,
+		"dwell_s": 1.6,
+		"bob": 0.12,
+		"locomotion": "hop",
+		"safe_exit": -1.0,
+		"day_tint": Color(0.95, 0.99, 1.03, 1.0),
+		"night_tint": Color(0.68, 0.77, 0.99, 1.0),
+		"shadow_day": Color(0.29, 0.34, 0.42, 0.36),
+		"shadow_night": Color(0.20, 0.25, 0.46, 0.30),
+	},
+	{
+		"id": "squirrel",
+		"page": 1,
+		"habitat": "west_meadow_edge",
+		"idle": "res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
+		"path": [
+			Vector3(-20.7, 4.38, -7.2),
+			Vector3(-18.9, 4.70, -7.2),
+			Vector3(-17.2, 4.45, -7.2),
+		],
+		"height": 2.9,
+		"speed": 0.82,
+		"exit_speed": 14.5,
+		"frame_s": 0.22,
+		"dwell_s": 1.25,
+		"bob": 0.055,
+		"locomotion": "scamper",
+		"safe_exit": -1.0,
+		"day_tint": Color(0.84, 0.97, 1.05, 1.0),
+		"night_tint": Color(0.60, 0.74, 0.96, 1.0),
+		"shadow_day": Color(0.27, 0.34, 0.40, 0.34),
+		"shadow_night": Color(0.19, 0.24, 0.44, 0.29),
 	},
 	{
 		"id": "raccoon",
+		"page": 2,
+		"habitat": "castle_shrub_edge",
 		"idle": "res://assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png",
-		"min_x": 29.0,
-		"max_x": 39.0,
-		"y": 1.62,
-		"z": -2.0,
-		"height": 3.3,
-		"speed": 0.44,
+		"path": [
+			Vector3(29.0, 4.15, -7.0),
+			Vector3(31.4, 4.55, -7.0),
+			Vector3(34.0, 4.28, -7.0),
+		],
+		"height": 3.0,
+		"speed": 0.58,
 		"exit_speed": 13.0,
-		"phase": 5.4,
+		"frame_s": 0.29,
+		"dwell_s": 1.8,
+		"bob": 0.035,
+		"locomotion": "amble",
+		"safe_exit": -1.0,
+		"day_tint": Color(1.06, 1.08, 1.12, 1.0),
+		"night_tint": Color(0.76, 0.84, 1.04, 1.0),
+		"shadow_day": Color(0.27, 0.32, 0.40, 0.37),
+		"shadow_night": Color(0.19, 0.24, 0.45, 0.31),
 	},
 ]
 const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
@@ -556,57 +626,41 @@ func _build_ambient_life() -> void:
 			0.0, 0.0, "smoke", "quiet", false, index)
 
 func _build_animals() -> void:
-	var animals: Array = []
-	for definition: Dictionary in ANIMAL_DEFS:
-		var idle_texture: Texture2D = load(String(definition["idle"])) as Texture2D
-		var startle_texture: Texture2D = load(String(definition["startle"])) as Texture2D
-		if idle_texture == null or startle_texture == null:
-			push_error("Sky Lagoon animal atlas failed to load: %s" % String(definition["id"]))
-			continue
-		var min_x: float = float(definition["min_x"])
-		var max_x: float = float(definition["max_x"])
-		var height: float = float(definition["height"])
-		var card: Sprite3D = _add_sprite(String(definition["idle"]), Vector3(
-			(min_x + max_x) * 0.5,
-			float(definition["y"]),
-			float(definition["z"])), height)
-		card.name = "SkyLagoonAnimal_%s" % String(definition["id"])
-		card.hframes = ANIMAL_ATLAS_COLUMNS
-		card.vframes = ANIMAL_ATLAS_ROWS
-		card.frame = 0
-		card.pixel_size = height / maxf(1.0,
-			float(idle_texture.get_height()) / float(ANIMAL_ATLAS_ROWS))
-		card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-		card.set_meta("animal_id", String(definition["id"]))
-		card.set_meta("living_card", true)
-		card.set_meta("ambient_kind", "animal")
-		card.set_meta("motion_class", "ground_wander")
-		card.set_meta("intensity_class", "quiet")
-		card.set_meta("touch_footprint_px", ANIMAL_TOUCH_RADIUS_PX * 2.0)
-		var initial_delay: float = float(definition.get("initial_delay", 0.0))
-		card.visible = initial_delay <= 0.0
-		_sync_contact_shadow(card)
-		var phase: float = float(definition["phase"])
-		animals.append({
-			"id": String(definition["id"]),
-			"node": card,
-			"idle_texture": idle_texture,
-			"startle_texture": startle_texture,
-			"min_x": min_x,
-			"max_x": max_x,
-			"base_y": float(definition["y"]),
-			"speed": float(definition["speed"]),
-			"exit_speed": float(definition["exit_speed"]),
-			"height": height,
-			"phase": phase,
-			"direction": 1.0 if int(floor(phase)) % 2 == 0 else -1.0,
-			"state": "hidden" if initial_delay > 0.0 else "idle",
-			"state_t": phase,
-			"hidden_t": initial_delay,
-			"wait_offscreen": false,
-			"exit_direction": 1.0,
-		})
-	m.g["lagoon_animals"] = animals
+	# All five authored definitions stay available, but one Sprite3D actor is
+	# rebound as the camera enters a habitat. The first pass created ten nodes
+	# and left every off-camera animal processing; this pool keeps the whole
+	# feature to one card and one contact shadow.
+	m.g["lagoon_animals"] = ANIMAL_DEFS.duplicate(true)
+	m.g["lagoon_animal_cycles"] = {0: 0, 1: 0, 2: 0}
+	var first_definition: Dictionary = ANIMAL_DEFS[0]
+	var first_path: Array = first_definition["path"] as Array
+	var card: Sprite3D = _add_sprite(
+		String(first_definition["idle"]), first_path[0] as Vector3,
+		float(first_definition["height"]))
+	card.name = "SkyLagoonAnimalPool"
+	card.hframes = ANIMAL_ATLAS_COLUMNS
+	card.vframes = ANIMAL_ATLAS_ROWS
+	card.frame = 0
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.visible = false
+	card.set_meta("living_card", true)
+	card.set_meta("ambient_kind", "animal")
+	card.set_meta("motion_class", "authored_habitat_path")
+	card.set_meta("intensity_class", "quiet")
+	card.set_meta("touch_footprint_px", ANIMAL_TOUCH_RADIUS_PX * 2.0)
+	_sync_contact_shadow(card)
+	m.g["lagoon_animal_actor"] = {
+		"node": card,
+		"definition": {},
+		"page": -1,
+		"state": "hidden",
+		"state_t": 0.0,
+		"spawn_t": ANIMAL_PAGE_SPAWN_S,
+		"route_position": first_path[0] as Vector3,
+		"path_index": 1,
+		"path_direction": 1,
+		"exit_direction": -1.0,
+	}
 
 func _animal_camera_x() -> float:
 	var root_node: Node3D = stage.root()
@@ -615,35 +669,173 @@ func _animal_camera_x() -> float:
 		return 0.0
 	return root_node.to_local(cam.global_position).x
 
+func _animal_page_index() -> int:
+	return clampi(int(floor((_animal_camera_x() + HALF_W) / 48.0)), 0, 2)
+
+func _animal_definition(animal_id: String) -> Dictionary:
+	for definition: Dictionary in ANIMAL_DEFS:
+		if String(definition["id"]) == animal_id:
+			return definition
+	return {}
+
+func _animal_definitions_for_page(page: int) -> Array[Dictionary]:
+	var definitions: Array[Dictionary] = []
+	for definition: Dictionary in ANIMAL_DEFS:
+		if int(definition["page"]) == page:
+			definitions.append(definition)
+	return definitions
+
+func _animal_distance_to_segment(point: Vector2, start: Vector2,
+		finish: Vector2) -> float:
+	var segment: Vector2 = finish - start
+	var length_squared: float = segment.length_squared()
+	if length_squared <= 0.00001:
+		return point.distance_to(start)
+	var amount: float = clampf((point - start).dot(segment) / length_squared, 0.0, 1.0)
+	return point.distance_to(start + segment * amount)
+
+func _animal_path_is_safe(definition: Dictionary) -> bool:
+	var path: Array = definition.get("path", []) as Array
+	var height: float = float(definition.get("height", 0.0))
+	if path.size() < 2 or height <= 0.0:
+		return false
+	for value: Variant in path:
+		var point: Vector3 = value as Vector3
+		var foot := Vector2(point.x, point.y - height * 0.5)
+		var route_clearance: float = INF
+		for route_index: int in range(ROUTE_PAINTED.size() - 1):
+			route_clearance = minf(route_clearance, _animal_distance_to_segment(
+				foot, ROUTE_PAINTED[route_index], ROUTE_PAINTED[route_index + 1]))
+		if route_clearance < ANIMAL_ROUTE_CLEARANCE:
+			return false
+		for exclusion: Dictionary in ANIMAL_EXCLUSION_RECTS:
+			var rect: Rect2 = exclusion["rect"] as Rect2
+			if rect.has_point(foot):
+				return false
+	return true
+
+func _animal_tint(definition: Dictionary) -> Color:
+	return definition["night_tint"] as Color if m.is_night \
+		else definition["day_tint"] as Color
+
+func _animal_shadow_tint(definition: Dictionary) -> Color:
+	return definition["shadow_night"] as Color if m.is_night \
+		else definition["shadow_day"] as Color
+
+func _sync_animal_shadow(actor: Dictionary) -> void:
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	var definition: Dictionary = actor.get("definition", {}) as Dictionary
+	if node == null or definition.is_empty() or not node.has_meta("contact_shadow"):
+		return
+	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
+	if shadow == null or not is_instance_valid(shadow):
+		return
+	var route_position: Vector3 = actor.get(
+		"route_position", node.position) as Vector3
+	var height: float = float(definition["height"])
+	shadow.position = Vector3(
+		route_position.x,
+		route_position.y - height * 0.5 + maxf(0.08, height * 0.025),
+		route_position.z - 0.035)
+	shadow.visible = node.visible
+	shadow.modulate = _animal_shadow_tint(definition)
+	shadow.pixel_size = maxf(1.0, height * 0.58) / maxf(
+		1.0, float(shadow.texture.get_width()))
+	shadow.scale.y = 0.20 if String(definition["habitat"]) == "arrival_shore" else 0.22
+
+func _hide_animal(actor: Dictionary, delay: float, advance_roster: bool) -> void:
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node != null and is_instance_valid(node):
+		node.visible = false
+	actor["state"] = "hidden"
+	actor["spawn_t"] = delay
+	if advance_roster:
+		var page: int = int(actor.get("page", -1))
+		var cycles: Dictionary = m.g.get("lagoon_animal_cycles", {}) as Dictionary
+		cycles[page] = int(cycles.get(page, 0)) + 1
+		m.g["lagoon_animal_cycles"] = cycles
+	_sync_animal_shadow(actor)
+
+func _bind_animal(definition: Dictionary) -> bool:
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node) or not _animal_path_is_safe(definition):
+		push_error("Sky Lagoon animal path rejected: %s" % String(
+			definition.get("id", "unknown")))
+		return false
+	var idle_texture: Texture2D = load(String(definition["idle"])) as Texture2D
+	var startle_texture: Texture2D = load(String(definition["startle"])) as Texture2D
+	if idle_texture == null or startle_texture == null:
+		push_error("Sky Lagoon animal atlas failed to load: %s" % String(definition["id"]))
+		return false
+	var path: Array = definition["path"] as Array
+	var route_position: Vector3 = path[0] as Vector3
+	var height: float = float(definition["height"])
+	actor["definition"] = definition
+	actor["page"] = int(definition["page"])
+	actor["state"] = "idle"
+	actor["state_t"] = 0.0
+	actor["route_position"] = route_position
+	actor["path_index"] = 1
+	actor["path_direction"] = 1
+	actor["idle_texture"] = idle_texture
+	actor["startle_texture"] = startle_texture
+	actor["exit_direction"] = float(definition["safe_exit"])
+	node.name = "SkyLagoonAnimal_%s" % String(definition["id"])
+	node.texture = idle_texture
+	node.pixel_size = height / maxf(1.0,
+		float(idle_texture.get_height()) / float(ANIMAL_ATLAS_ROWS))
+	node.position = route_position
+	node.frame = 0
+	node.flip_h = false
+	node.scale = Vector3.ONE
+	node.visible = true
+	node.modulate = _animal_tint(definition)
+	node.set_meta("animal_id", String(definition["id"]))
+	node.set_meta("animal_habitat", String(definition["habitat"]))
+	node.set_meta("animal_lighting_profile", "night" if m.is_night else "day")
+	node.set_meta("contact_shadow_height", height)
+	m.g["lagoon_animal_actor"] = actor
+	_sync_animal_shadow(actor)
+	return true
+
+func _bind_animal_id(animal_id: String) -> bool:
+	var definition: Dictionary = _animal_definition(animal_id)
+	return not definition.is_empty() and _bind_animal(definition)
+
+func _bind_next_animal(page: int) -> bool:
+	if page == 0 and m.g.get("lagoon_plane_card") is Sprite3D:
+		return false
+	var definitions: Array[Dictionary] = _animal_definitions_for_page(page)
+	if definitions.is_empty():
+		return false
+	var cycles: Dictionary = m.g.get("lagoon_animal_cycles", {}) as Dictionary
+	var definition: Dictionary = definitions[int(cycles.get(page, 0)) % definitions.size()]
+	return _bind_animal(definition)
+
 func _animal_at(screen_pos: Vector2) -> Dictionary:
 	var cam: Camera3D = m.player.cam
 	if cam == null or not cam.is_inside_tree():
 		return {}
-	var best: Dictionary = {}
-	var best_distance: float = INF
-	for value in (m.g.get("lagoon_animals", []) as Array):
-		var animal: Dictionary = value as Dictionary
-		if String(animal.get("state", "")) != "idle":
-			continue
-		var node: Sprite3D = animal.get("node") as Sprite3D
-		if node == null or not is_instance_valid(node) or not node.visible:
-			continue
-		if cam.is_position_behind(node.global_position):
-			continue
-		var distance: float = cam.unproject_position(node.global_position).distance_to(screen_pos)
-		if distance <= ANIMAL_TOUCH_RADIUS_PX and distance < best_distance:
-			best = animal
-			best_distance = distance
-	return best
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	if String(actor.get("state", "")) not in ["idle", "pause"]:
+		return {}
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node) or not node.visible \
+			or cam.is_position_behind(node.global_position):
+		return {}
+	var distance: float = cam.unproject_position(
+		node.global_position).distance_to(screen_pos)
+	return actor if distance <= ANIMAL_TOUCH_RADIUS_PX else {}
 
 func _startle_animal(animal: Dictionary) -> void:
-	if animal.is_empty() or String(animal.get("state", "")) != "idle":
+	if animal.is_empty() or String(animal.get("state", "")) not in ["idle", "pause"]:
 		return
 	var node: Sprite3D = animal.get("node") as Sprite3D
 	if node == null or not is_instance_valid(node):
 		return
-	var camera_x: float = _animal_camera_x()
-	var exit_direction: float = -1.0 if node.position.x < camera_x else 1.0
+	var definition: Dictionary = animal.get("definition", {}) as Dictionary
+	var exit_direction: float = float(definition.get("safe_exit", -1.0))
 	animal["state"] = "startle"
 	animal["state_t"] = 0.0
 	animal["exit_direction"] = exit_direction
@@ -653,91 +845,118 @@ func _startle_animal(animal: Dictionary) -> void:
 	m.g["ss_walk_goal"] = null
 	_clear_focus()
 	m._sparkle_burst(node.global_position + Vector3(0.0,
-		float(animal["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
+		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
 	m.player.play_verb("giggle")
 
-func _reset_animal(animal: Dictionary) -> void:
-	var node: Sprite3D = animal.get("node") as Sprite3D
-	if node == null or not is_instance_valid(node):
+func _animal_is_offscreen(node: Sprite3D) -> bool:
+	var cam: Camera3D = m.player.cam
+	if cam == null or not cam.is_inside_tree() or cam.is_position_behind(node.global_position):
+		return true
+	var viewport_rect: Rect2 = m.get_viewport().get_visible_rect().grow(
+		ANIMAL_EXIT_PAD_PX)
+	return not viewport_rect.has_point(cam.unproject_position(node.global_position))
+
+func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var path: Array = definition["path"] as Array
+	var state: String = String(actor["state"])
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	if state == "pause":
+		var pause_t: float = maxf(0.0, float(actor.get("pause_t", 0.0)) - delta)
+		actor["pause_t"] = pause_t
+		node.frame = 1 if pause_t > float(definition["dwell_s"]) * 0.45 else 3
+		node.position = actor["route_position"] as Vector3
+		if pause_t <= 0.0:
+			var path_index: int = int(actor["path_index"])
+			var path_direction: int = int(actor["path_direction"])
+			if path_index >= path.size() - 1:
+				path_direction = -1
+			elif path_index <= 0:
+				path_direction = 1
+			actor["path_direction"] = path_direction
+			actor["path_index"] = path_index + path_direction
+			actor["state"] = "idle"
+			actor["state_t"] = 0.0
+		_sync_animal_shadow(actor)
 		return
-	var exit_direction: float = float(animal.get("exit_direction", 1.0))
-	var direction: float = -exit_direction
-	node.position.x = float(animal["min_x"]) if direction > 0.0 else float(animal["max_x"])
-	node.position.y = float(animal["base_y"])
-	node.texture = animal.get("idle_texture") as Texture2D
-	node.frame = 0
+	var route_position: Vector3 = actor["route_position"] as Vector3
+	var target: Vector3 = path[int(actor["path_index"])] as Vector3
+	var direction: float = signf(target.x - route_position.x)
+	route_position = route_position.move_toward(target, float(definition["speed"]) * delta)
+	actor["route_position"] = route_position
+	var frame_s: float = float(definition["frame_s"])
+	node.frame = 2 if int(floor(state_t / frame_s)) % 2 == 0 else 0
 	node.flip_h = direction < 0.0
-	node.scale = Vector3.ONE
-	node.visible = true
-	animal["direction"] = direction
-	animal["state"] = "idle"
-	animal["state_t"] = float(animal["phase"])
-	animal["hidden_t"] = 0.0
-	animal["wait_offscreen"] = false
-	_sync_contact_shadow(node)
+	var bob: float = float(definition["bob"])
+	var locomotion: String = String(definition["locomotion"])
+	var bob_amount: float = absf(sin(state_t * (8.5 if locomotion == "hop" else 5.5))) * bob
+	node.position = route_position + Vector3(0.0, bob_amount, 0.0)
+	if route_position.distance_to(target) <= 0.001:
+		actor["state"] = "pause"
+		actor["pause_t"] = float(definition["dwell_s"])
+		node.frame = 1
+		node.position = route_position
+	_sync_animal_shadow(actor)
+
+func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	var route_position: Vector3 = actor["route_position"] as Vector3
+	var squash_end: float = ANIMAL_STARTLE_ALERT_S + ANIMAL_STARTLE_SQUASH_S
+	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
+	if state_t < ANIMAL_STARTLE_ALERT_S:
+		node.frame = 0
+		node.position = route_position
+	elif state_t < squash_end:
+		node.frame = 1
+		node.position = route_position
+	elif state_t < hop_end:
+		node.frame = 2
+		node.position = route_position + Vector3(0.0,
+			sin((state_t - squash_end) / ANIMAL_STARTLE_HOP_S * PI) * 0.28, 0.0)
+	else:
+		var run_t: float = state_t - hop_end
+		node.frame = 2 + int(floor(run_t / 0.13)) % 2
+		route_position.x += float(actor["exit_direction"]) \
+			* float(definition["exit_speed"]) * delta
+		actor["route_position"] = route_position
+		node.position = route_position + Vector3(0.0,
+			absf(sin(run_t * 10.0)) * 0.12, 0.0)
+		if run_t > 0.35 and _animal_is_offscreen(node):
+			_hide_animal(actor, ANIMAL_RESPAWN_S, true)
+			return
+	_sync_animal_shadow(actor)
 
 func _tick_animals(delta: float) -> void:
-	for value in (m.g.get("lagoon_animals", []) as Array):
-		var animal: Dictionary = value as Dictionary
-		var node: Sprite3D = animal.get("node") as Sprite3D
-		if node == null or not is_instance_valid(node):
-			continue
-		var state: String = String(animal.get("state", "idle"))
-		if state == "hidden":
-			var hidden_t: float = maxf(0.0, float(animal.get("hidden_t", 0.0)) - delta)
-			animal["hidden_t"] = hidden_t
-			if hidden_t > 0.0:
-				continue
-			var habitat_x: float = (float(animal["min_x"]) + float(animal["max_x"])) * 0.5
-			if bool(animal.get("wait_offscreen", false)) \
-					and absf(habitat_x - _animal_camera_x()) < ANIMAL_EXIT_MARGIN:
-				animal["hidden_t"] = 1.0
-				continue
-			_reset_animal(animal)
-			continue
-		var state_t: float = float(animal.get("state_t", 0.0)) + delta
-		animal["state_t"] = state_t
-		if state == "startle":
-			var squash_end: float = ANIMAL_STARTLE_ALERT_S + ANIMAL_STARTLE_SQUASH_S
-			var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
-			if state_t < ANIMAL_STARTLE_ALERT_S:
-				node.frame = 0
-			elif state_t < squash_end:
-				node.frame = 1
-			elif state_t < hop_end:
-				node.frame = 2
-				node.position.y = float(animal["base_y"]) \
-					+ sin((state_t - squash_end) / ANIMAL_STARTLE_HOP_S * PI) * 0.28
-			else:
-				var run_t: float = state_t - hop_end
-				node.frame = 2 + int(floor(run_t / 0.13)) % 2
-				node.position.x += float(animal["exit_direction"]) \
-					* float(animal["exit_speed"]) * delta
-				node.position.y = float(animal["base_y"]) + absf(sin(run_t * 10.0)) * 0.12
-				if absf(node.position.x - _animal_camera_x()) > ANIMAL_EXIT_MARGIN:
-					node.visible = false
-					animal["state"] = "hidden"
-					animal["hidden_t"] = ANIMAL_RESPAWN_S + float(animal["phase"])
-					animal["wait_offscreen"] = true
-					_sync_contact_shadow(node)
-					continue
-			_sync_contact_shadow(node)
-			continue
-		var direction: float = float(animal.get("direction", 1.0))
-		node.position.x += direction * float(animal["speed"]) * delta
-		if node.position.x <= float(animal["min_x"]):
-			node.position.x = float(animal["min_x"])
-			direction = 1.0
-		elif node.position.x >= float(animal["max_x"]):
-			node.position.x = float(animal["max_x"])
-			direction = -1.0
-		animal["direction"] = direction
-		node.flip_h = direction < 0.0
-		node.texture = animal.get("idle_texture") as Texture2D
-		node.frame = int(floor(state_t / ANIMAL_IDLE_FRAME_S)) % 4
-		node.position.y = float(animal["base_y"]) \
-			+ absf(sin(state_t * 2.4 + float(animal["phase"]))) * 0.035
-		_sync_contact_shadow(node)
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node):
+		return
+	var page: int = _animal_page_index()
+	if page != int(actor.get("page", -1)):
+		actor["page"] = page
+		_hide_animal(actor, ANIMAL_PAGE_SPAWN_S, false)
+	if page == 0 and m.g.get("lagoon_plane_card") is Sprite3D:
+		if node.visible:
+			_hide_animal(actor, ANIMAL_PAGE_SPAWN_S, false)
+		actor["spawn_t"] = ANIMAL_PAGE_SPAWN_S
+		return
+	var state: String = String(actor.get("state", "hidden"))
+	if state == "hidden":
+		var spawn_t: float = maxf(0.0, float(actor.get("spawn_t", 0.0)) - delta)
+		actor["spawn_t"] = spawn_t
+		if spawn_t <= 0.0:
+			_bind_next_animal(page)
+		return
+	if state == "startle":
+		_tick_animal_startle(actor, delta)
+	else:
+		_tick_animal_idle(actor, delta)
+
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
 		speed: float, amplitude: float, motion_class: String,
 		intensity_class: String, contact_shadow: bool = true,
@@ -879,6 +1098,8 @@ func teardown() -> void:
 	m.g.erase("lagoon_wind_gust")
 	m.g.erase("lagoon_wind_distance")
 	m.g.erase("lagoon_animals")
+	m.g.erase("lagoon_animal_actor")
+	m.g.erase("lagoon_animal_cycles")
 
 func _finish_plane_arrival() -> void:
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D

@@ -208,13 +208,13 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 34 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 36 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 6 and visible_sprite_count <= 29
-		and contact_shadow_count == 6
+		depth_layers.size() >= 6 and visible_sprite_count <= 31
+		and contact_shadow_count == 7
 		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
 		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [

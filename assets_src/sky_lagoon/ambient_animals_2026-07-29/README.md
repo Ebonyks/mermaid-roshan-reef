@@ -33,4 +33,14 @@ All ten runtime atlases were reviewed at source and runtime scale against the es
 
 ## Runtime behavior
 
-Each animal wanders inside a short habitat corridor at real `Sprite3D` depth with a contact shadow. A single tap immediately switches to its activation sheet: alert, squash, hop, then a looping two-pose run or hop toward the nearest screen edge. It remains absent for a cooldown and respawns only after its habitat is offscreen, except the otter's initial eight-second delay, which lets the arrival plane clear the western shore. No animal can block travel, alter progression, or be lost permanently.
+The five-species roster uses one pooled `Sprite3D` card and one pooled contact shadow. Only the current page's animal is instantiated visually, keeping transparent overdraw inside the Speedy-tier budget. Each page has an ecological roster and authored three-point habitat paths:
+
+- arrival shore: otter and frog at the pond edge, unavailable until the pearl plane departs;
+- west meadow edge: hare and squirrel behind the navigation lane and west of the slide;
+- castle shrub edge: raccoon west of the castle, outside the drawbridge and door approach.
+
+Every path is rejected at runtime if a waypoint enters a toy, screen-seam, drawbridge, or door exclusion rectangle, or comes within 3.2 world units of the painted player route. Species-specific cadence, pauses, bob amplitude, and idle atlas frames produce hops, waddles, scampers, and ambles instead of a shared lateral slide.
+
+A single tap switches to the activation sheet: alert, squash, hop, then a looping two-pose run or hop through the authored safe edge. Animals exit toward cover rather than across the player route, playground equipment, or castle entrance. After a short cooldown the page advances to its next species. No animal can block travel, alter progression, or be lost permanently.
+
+The cards remain unshaded to match the flattened storybook mural, but each species has audited day/night modulation and habitat-colored contact shadows. The reproducible in-game lighting audit is documented in `docs/audits/SKY_LAGOON_ANIMALS_2026-08-01.md`.
