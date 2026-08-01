@@ -16,6 +16,9 @@ extends RefCounted
 
 const SCREEN_HIT_RADIUS := 110.0
 const AIM_HEIGHT := 2.2
+const CHAIN_T := 2.0                     # rolling pop-chain window (COMBO_SYSTEM)
+const SUPER_R := 10.0                    # default SUPER burst radius, world units
+const HITSTOP := [0.04, 0.06, 0.09]      # target-freeze seconds at chain 0/1-2/3
 
 var m: ReefMain
 # ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
@@ -32,9 +35,88 @@ var on_hit: Callable = Callable()       # func(enemy, damage: int, source: Strin
 var on_defeated: Callable = Callable()  # func(enemy) — fires as a death begins
 var hittable_states: Array = ["active"]
 var materials: Dictionary = {}
+# ---- the pop-chain combo (combat wing 2026-08) ------------------------------
+# Defeats earned by the child's own verbs within a rolling window chain
+# 1→2→3; chain 3 arms the NEXT one as a SUPER. Per-encounter because the
+# engine is. Partner supers never call note_pop — chains are hers alone.
+var chain := 0
+var chain_t := 0.0
+var super_armed := false
+var big_taps := 0                  # PartnerAssist grant: +1 damage taps, jumbo feel
+var chain_pips: Label = null       # engine-owned ⭐ pips, built on first pop
+var pips_layer: CanvasLayer = null
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+# Called once per frame by the hosting encounter: the chain window decays
+# here, and a lapsed chain fades silently — no sound, no downgrade sting.
+func tick(delta: float) -> void:
+	if chain_t <= 0.0:
+		return
+	chain_t = maxf(0.0, chain_t - delta)
+	if chain_t <= 0.0:
+		chain = 0
+		super_armed = false
+		_fade_pips()
+
+# A defeat earned by the child's own verb. The default hp path calls this
+# itself; on_hit encounters call it from their response (the arena counts a
+# freeze). Returns the new chain level; level 3 arms the SUPER.
+func note_pop(pos: Vector3) -> int:
+	chain = mini(chain + 1, 3)
+	chain_t = CHAIN_T
+	if chain >= 3:
+		super_armed = true
+		m._sparkle_burst(pos + Vector3(0, 2.5, 0), Color(1.0, 0.95, 0.6))
+	m._audio_ref().pop(chain)
+	Juice.haptic(20)
+	_show_pips()
+	return chain
+
+# The hit AFTER chain 3 is the SUPER: encounters ask-and-consume, then run
+# their own response (the default path bursts nearby fodder itself). The
+# chain resets bright — pop tops the ladder, hand buzzes, camera nudges.
+func consume_super() -> bool:
+	if not super_armed:
+		return false
+	super_armed = false
+	chain = 0
+	chain_t = 0.0
+	m._audio_ref().pop(4)
+	Juice.haptic(40)
+	Juice.shake(camera if camera != null and is_instance_valid(camera) else m.get_viewport().get_camera_3d())
+	_fade_pips()
+	return true
+
+func _show_pips() -> void:
+	if chain_pips == null:
+		pips_layer = CanvasLayer.new()
+		pips_layer.layer = 14
+		m.add_child(pips_layer)
+		chain_pips = Label.new()
+		StorybookUI.style_hud_label(chain_pips, 46)
+		chain_pips.position = Vector2(m.get_viewport().get_visible_rect().size.x * 0.5 - 80.0, 148.0)
+		pips_layer.add_child(chain_pips)
+	chain_pips.text = "⭐".repeat(chain)
+	chain_pips.modulate = Color(1, 1, 1, 1)
+	chain_pips.scale = Vector2(1.25, 1.25)
+	var tw: Tween = chain_pips.create_tween()
+	tw.tween_property(chain_pips, "scale", Vector2.ONE, 0.15)
+
+func _fade_pips() -> void:
+	if chain_pips == null:
+		return
+	var tw: Tween = chain_pips.create_tween()
+	tw.tween_property(chain_pips, "modulate:a", 0.0, 0.6)
+
+# Encounters call this on every teardown path (beside their
+# main.hit_engines.erase) so the pips HUD never outlives its battle.
+func teardown() -> void:
+	if pips_layer != null and is_instance_valid(pips_layer):
+		pips_layer.queue_free()
+	pips_layer = null
+	chain_pips = null
 
 func hittable(enemy: Dictionary) -> bool:
 	if enemy.is_empty():
@@ -89,16 +171,50 @@ func tap(screen_pos: Vector2) -> bool:
 func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 	if not hittable(enemy):
 		return false
+	var node: Node3D = enemy["node"]
+	# partner-granted Big Taps ride the child's own verb: +1 damage, big feel
+	var big: bool = false
+	if big_taps > 0 and source == "tap":
+		big_taps -= 1
+		damage += 1
+		big = true
+	# the universal feel stack — every hit deforms, blinks (sprite targets),
+	# and briefly freezes the target. Cosmetic only; state stays instant.
+	Juice.squash(node, big)
+	Juice.flash(node)
+	enemy["hitstop"] = HITSTOP[clampi(chain, 0, HITSTOP.size() - 1)]
 	if on_hit.is_valid():
 		on_hit.call(enemy, damage, source)
 		return true
 	enemy["hp"] = maxi(0, int(enemy.get("hp", 1)) - damage)
 	if int(enemy["hp"]) > 0:
-		var node: Node3D = enemy["node"]
+		m._audio_ref().pop(maxi(chain, 1))
+		Juice.haptic(20)
 		m._sparkle_burst(node.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
 		return true
+	var pos: Vector3 = node.global_position
+	var super_now: bool = consume_super()
 	play_death(enemy)
+	if super_now:
+		_super_burst(pos)
+	else:
+		note_pop(pos)
 	return true
+
+# The default-path SUPER: burst every hittable target near the arming pop.
+# on_hit encounters own their super response via consume_super() instead.
+func _super_burst(center: Vector3) -> void:
+	m._sparkle_burst(center + Vector3(0, 2.5, 0), Color(1.0, 0.95, 0.6))
+	for enemy_value: Variant in targets.duplicate():
+		var enemy: Dictionary = enemy_value as Dictionary
+		if not hittable(enemy):
+			continue
+		var node: Node3D = enemy["node"]
+		if node.global_position.distance_to(center) > SUPER_R:
+			continue
+		enemy["hp"] = 0
+		play_death(enemy)
+	m._audio_ref()._fanfare()
 
 # ---- the dying-animation library -------------------------------------------
 # Styles are cosmetic transitions; the enemy's dict state flips immediately so

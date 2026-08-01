@@ -238,6 +238,8 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	shot_cool = maxf(0.0, shot_cool - delta)
 	bump_cool = maxf(0.0, bump_cool - delta)
+	if he != null:
+		he.tick(delta)   # pop-chain window decay (a lapsed chain fades silently)
 	if state == "won":
 		win_t -= delta
 		if fmod(win_t, float(encounter.get("win_spark_gap", 0.32))) < delta:
@@ -339,7 +341,7 @@ func _tick_shots(delta: float) -> void:
 			node.queue_free()
 			shots.remove_at(i)
 
-func _freeze_imp(enemy: Dictionary) -> void:
+func _freeze_imp(enemy: Dictionary, from_super: bool = false) -> void:
 	if String(enemy["state"]) != "active":
 		return
 	enemy["state"] = "frozen"
@@ -347,6 +349,17 @@ func _freeze_imp(enemy: Dictionary) -> void:
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
+	# freezes are this arena's "pops": they chain, and the freeze after chain
+	# 3 is the SUPER — the whole nearby swarm freezes with it. Swarm freezes
+	# ride from_super so only the child's own hits ever grow the chain.
+	if not from_super:
+		if he.consume_super():
+			for other in enemies:
+				if String(other["state"]) == "active" and (other["pos"] as Vector3).distance_to(enemy["pos"] as Vector3) < HitEngine.SUPER_R:
+					_freeze_imp(other, true)
+			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
+		else:
+			he.note_pop(enemy["pos"] as Vector3)
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
@@ -397,7 +410,12 @@ func _hit_boss(power: String = "fire") -> void:
 	if phase == "shell" or (kind == "dual" and power != "fire"):
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
-	boss["hp"] = int(boss["hp"]) - 1
+	# damaging hits chain; the hit after chain 3 is a SUPER for double damage
+	var super_bonus: bool = he.consume_super()
+	boss["hp"] = int(boss["hp"]) - (2 if super_bonus else 1)
+	he.note_pop(boss["pos"] as Vector3)
+	if super_bonus:
+		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.6))
 	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 3.0, 3.5), Color(1.0, 0.3, 0.08))
 	if int(boss["hp"]) <= 0:
 		_win()
@@ -411,6 +429,11 @@ func _tick_boss(delta: float) -> void:
 	if boss.is_empty() or state != "play":
 		return
 	var root: Node3D = boss["node"]
+	# hitstop: the engine stamps a beat of stillness on impact (40-90 ms) —
+	# read here so the boss visibly "takes" the hit before phase logic moves
+	boss["hitstop"] = maxf(0.0, float(boss.get("hitstop", 0.0)) - delta)
+	if float(boss["hitstop"]) > 0.0:
+		return
 	boss["timer"] = float(boss["timer"]) - delta
 	boss["attack"] = float(boss["attack"]) - delta
 	var phase: String = boss["phase"]
@@ -532,6 +555,7 @@ func _win() -> void:
 func _finish() -> void:
 	state = "done"
 	m.hit_engines.erase(he)
+	he.teardown()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -546,6 +570,7 @@ func cancel(notify_finish: bool = true) -> void:
 		return
 	state = "done"
 	m.hit_engines.erase(he)
+	he.teardown()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():
