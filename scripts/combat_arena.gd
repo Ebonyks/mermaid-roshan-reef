@@ -32,6 +32,7 @@ var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var he: HitEngine = null
+var pa: PartnerAssist = null
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
@@ -69,6 +70,11 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
 	he.targets = enemies if kind == "ice" else [boss]
 	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
+	# Partner Assist: the following stuffie brings her SPARKLE STAMPEDE super
+	# on a 12 s cooldown (per-partner supers, owner 2026-08-01)
+	if m.companion_id != "":
+		pa = PartnerAssist.new(m)
+		pa.attach("stuffie", Callable(self, "_partner_super"))
 	_update_hud()
 
 func _build_environment() -> void:
@@ -240,6 +246,8 @@ func _process(delta: float) -> void:
 	bump_cool = maxf(0.0, bump_cool - delta)
 	if he != null:
 		he.tick(delta)   # pop-chain window decay (a lapsed chain fades silently)
+	if pa != null:
+		pa.tick(delta)
 	if state == "won":
 		win_t -= delta
 		if fmod(win_t, float(encounter.get("win_spark_gap", 0.32))) < delta:
@@ -352,6 +360,9 @@ func _freeze_imp(enemy: Dictionary, from_super: bool = false) -> void:
 	# freezes are this arena's "pops": they chain, and the freeze after chain
 	# 3 is the SUPER — the whole nearby swarm freezes with it. Swarm freezes
 	# ride from_super so only the child's own hits ever grow the chain.
+	if bool(enemy.get("big_hit", false)):
+		enemy["big_hit"] = false
+		enemy["timer"] = 0.05   # partner Big Tap: the freeze pops almost instantly
 	if not from_super:
 		if he.consume_super():
 			for other in enemies:
@@ -360,6 +371,8 @@ func _freeze_imp(enemy: Dictionary, from_super: bool = false) -> void:
 			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
 		else:
 			he.note_pop(enemy["pos"] as Vector3)
+		if pa != null:
+			pa.note_child_pop()
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
@@ -368,6 +381,12 @@ func _tick_imps(delta: float) -> void:
 		var node: Node3D = enemy["node"]
 		if String(enemy["state"]) == "active":
 			remaining += 1
+			# partner-stunned imps just spin dizzily — no chasing, no shots
+			var stun: float = float(enemy.get("stun_t", 0.0))
+			if stun > 0.0:
+				enemy["stun_t"] = stun - delta
+				node.rotation.y += delta * 6.0
+				continue
 			var pos: Vector3 = enemy["pos"]
 			var toward: Vector3 = player_pos - pos
 			toward.y = 0.0
@@ -393,6 +412,38 @@ func _pop_imp(enemy: Dictionary) -> void:
 	he.play_death(enemy, "pop", {"count": int(encounter.get("popcorn_count", 7)), "art_theme": art_theme})
 	_update_hud()
 
+# The partner SUPER (PartnerAssist fires this only from the child's tap).
+# Stuffie — SPARKLE STAMPEDE: pops the nearest fodder outright, dizzies the
+# rest, and grants Big Taps so her own next freezes pop almost instantly.
+# Boss arenas: never defeats — extends the peek window and chips one point.
+func _partner_super(_partner_kind: String) -> void:
+	if state != "play":
+		return
+	if kind == "ice":
+		var actives: Array[Dictionary] = []
+		for enemy in enemies:
+			if String(enemy["state"]) == "active":
+				actives.append(enemy)
+		actives.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+			return (a["pos"] as Vector3).distance_to(player_pos) < (b["pos"] as Vector3).distance_to(player_pos))
+		for i in range(actives.size()):
+			var enemy: Dictionary = actives[i]
+			if i < PartnerAssist.STAMPEDE_POPS:
+				_freeze_imp(enemy, true)
+				enemy["timer"] = 0.05
+			else:
+				enemy["stun_t"] = PartnerAssist.STUN_T
+			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.95, 0.75, 1.0))
+		he.big_taps = PartnerAssist.BIG_TAPS
+	elif not boss.is_empty():
+		boss["timer"] = float(boss["timer"]) + PartnerAssist.STUN_T
+		if String(boss["phase"]) == "peek":
+			boss["hp"] = maxi(0, int(boss["hp"]) - 1)
+			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.95, 0.75, 1.0))
+			if int(boss["hp"]) <= 0:
+				_win()
+	_update_hud()
+
 func _hit_boss(power: String = "fire") -> void:
 	if state != "play":
 		return
@@ -414,6 +465,8 @@ func _hit_boss(power: String = "fire") -> void:
 	var super_bonus: bool = he.consume_super()
 	boss["hp"] = int(boss["hp"]) - (2 if super_bonus else 1)
 	he.note_pop(boss["pos"] as Vector3)
+	if pa != null:
+		pa.note_child_pop()
 	if super_bonus:
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.6))
 	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 3.0, 3.5), Color(1.0, 0.3, 0.08))
@@ -556,6 +609,8 @@ func _finish() -> void:
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
+	if pa != null:
+		pa.detach()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -571,6 +626,8 @@ func cancel(notify_finish: bool = true) -> void:
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
+	if pa != null:
+		pa.detach()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():

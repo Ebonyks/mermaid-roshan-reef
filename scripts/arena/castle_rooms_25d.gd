@@ -593,6 +593,9 @@ func close() -> void:
 	if m.castle_dust_he != null:
 		m.castle_dust_he.teardown()
 		m.castle_dust_he = null
+	if m.castle_partner != null:
+		m.castle_partner.detach()
+		m.castle_partner = null
 	m._set_world_controls_enabled(true, "castle_rooms")
 	if m.player != null:
 		m.player.visible = true
@@ -606,6 +609,8 @@ func tick(delta: float) -> void:
 		m.player.vel = Vector3.ZERO
 	if m.castle_dust_he != null:
 		m.castle_dust_he.tick(delta)   # pop-chain window decay
+	if m.castle_partner != null:
+		m.castle_partner.tick(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1957,7 +1962,7 @@ func _check_dust_bunny_contacts() -> void:
 	for item_id: String in touched_ids:
 		_explode_dust_bunny(item_id)
 
-func _explode_dust_bunny(item_id: String) -> void:
+func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(
 		item_id, {}) as Dictionary
 	if record.is_empty():
@@ -1988,12 +1993,20 @@ func _explode_dust_bunny(item_id: String) -> void:
 	# reward flow and stay pearl-free.
 	if not bool(item_data.get("rescue_bunny", false)):
 		m.pearl_count += 1
-	if m.castle_dust_he != null:
+	if not partner_pop and m.castle_dust_he != null:
 		var chain_level: int = m.castle_dust_he.note_pop(sprite.global_position)
 		if chain_level >= 3:
 			_item_burst(sprite.position, Color(StorybookUI.GOLD), 16)
 			m._audio_ref()._fanfare()
 			Juice.shake(m.castle_room_camera)
+		if m.castle_partner != null:
+			m.castle_partner.note_child_pop()
+	# Daddy's bubble debuts after her first own pop of the visit (staged
+	# teach): the castle is his home, and his DADDY SPLASH super rests on an
+	# 18 s cooldown between waves of hearts.
+	if not partner_pop and m.castle_partner == null and m.castle_room_id == "main_hall":
+		m.castle_partner = PartnerAssist.new(m)
+		m.castle_partner.attach("daddy", Callable(self, "_daddy_splash"))
 	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
 		float(item_data.get("pitch", 1.5)))
 	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
@@ -2013,6 +2026,30 @@ func _explode_dust_bunny(item_id: String) -> void:
 		_check_playroom_rescue_complete()
 		if not _playroom_rescue_done():
 			m._write_save()
+
+# DADDY SPLASH (PartnerAssist fires this only from the child's tap on his
+# bubble): a wave of hearts pops every ordinary dust bunny in the current
+# room. Rescue pins are deliberately excluded — freeing the Baby Eagle is
+# HER moment ("I know you can do it!"), Daddy never takes it from her.
+func _daddy_splash(_partner_kind: String) -> void:
+	var ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
+			as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		if bool(item_data.get("rescue_bunny", false)):
+			continue
+		ids.append(String(item_id_value))
+	for item_id: String in ids:
+		var record2: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var sprite: Sprite3D = record2.get("sprite") as Sprite3D
+		if sprite != null and is_instance_valid(sprite):
+			_item_burst(sprite.position, Color(0.98, 0.62, 0.78), 10)
+		_explode_dust_bunny(item_id, true)
+	Juice.shake(m.castle_room_camera)
 
 func _playroom_rescue_done() -> bool:
 	return m.companion_id != "" \

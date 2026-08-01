@@ -178,6 +178,7 @@ func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 		big_taps -= 1
 		damage += 1
 		big = true
+		enemy["big_hit"] = true   # on_hit clients read + clear for their own jumbo response
 	# the universal feel stack — every hit deforms, blinks (sprite targets),
 	# and briefly freezes the target. Cosmetic only; state stays instant.
 	Juice.squash(node, big)

@@ -420,6 +420,9 @@ var hit_engines: Array = []
 # hit_engines — the castle owns its own touch path; this instance supplies
 # the pop-chain, pips and feel to the dust-bunny pops there.
 var castle_dust_he: HitEngine = null
+# Daddy Mermaid's castle partner bubble (combat wing): staged in by the
+# child's first bunny pop each visit, torn down with the castle.
+var castle_partner: PartnerAssist = null
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
