@@ -139,13 +139,23 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 						clumsy += 1
 					match mode:
 						"tap":
-							world._on_gesture("tap", 1.0, 1.0)
+							var tap_at := world.surface.tap_point if not miss else Vector2(8, 8)
+							world.surface._press(tap_at)
+							world.surface._release(tap_at)
 						"choice":
 							world._on_gesture("choice", 0.24 if miss else 1.0, 0.0 if miss else 1.0)
 						"timing":
 							world._on_gesture("timing", 0.32 if miss else 1.0, 0.32 if miss else 1.0)
 						"bop":
-							world._on_gesture("bop", 0.12 if miss else 1.0, 0.2 if miss else 1.0)
+							# press a live imp (or a far corner on a clumsy miss)
+							var aim := Vector2(6, 6)
+							if not miss:
+								for target: Dictionary in world.surface.bop_targets:
+									if not bool(target.get("popped", false)):
+										aim = target.get("pos", Vector2.ZERO)
+										break
+							world.surface._press(aim)
+							world.surface._release(aim)
 						_:
 							world._on_gesture("tap", 1.0, 1.0)
 	var done_time := time if act.state != "play" else TIME_CAP

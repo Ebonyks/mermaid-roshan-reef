@@ -203,10 +203,10 @@ func guided_retry() -> void:
 	retries += 1
 	active = true
 	round_elapsed = 0.0
-	player_progress = 0.0
+	# only the RIVAL restarts — the child keeps her bar and score
+	# high-water marks (recognition rematch, never lost progress)
 	rival_progress = 0.0
 	rival_step = 0
-	_last_player_progress = 0.0
 	_rival_finish_sent = false
 	# The revealed layout makes the rematch intentionally slower for the rival.
 	spec["par_time"] = float(spec.get("par_time", 40.0)) + 12.0

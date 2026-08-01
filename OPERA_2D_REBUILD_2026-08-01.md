@@ -96,6 +96,45 @@ stage phases. Racer/popstar/boxer run 6 phases; the rest 7.
 - Bug fixed in passing: `OperaAct._hit_boss` drove `chime.pitch_scale`
   negative for bosses with >3 HP (error spam on every boss star).
 
+## Owner corrections, same day (supersede the sections above where they differ)
+
+1. **The codex career paintings ARE the backdrops.** The twelve accepted
+   1024x576 scene keys in `assets_src/concepts/opera_jobs_2p5d_2026-07-24/`
+   are copied verbatim to `assets/opera/worlds/backdrops/world_<career>.png`
+   and drawn full-bleed (same 16:9 aspect as the 1280x720 viewport; within
+   the 1024px-longest-side texture rule). This supersedes the 07-29 doc's
+   "not loaded or stretched at runtime" demotion. The code-native vector
+   sets remain as fallback only. Native >=2048 masters stay requested in
+   OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md P3.
+2. **The imp battles use the special imp costumes.** Scuffle crews and the
+   captain render with the career's accepted costume slice
+   (`rival_<career>.png`); the captain wears a drawn plain-gold band ring.
+   Hits burst the accepted boxer bubble-puff card (`fx_bop_puff.png`). The
+   captain scuffle happens under the proscenium (stage_mode from the steal
+   phase onward) — the battles have a stage. The basic PIL imps remain
+   fallback only. The costumed rival GLBs stay 3D/boss-path material.
+3. **Every phase now actually speaks.** 81 per-phase lines plus the imp
+   captain and detective-retry lines are Kokoro-rendered
+   (`tools/make_voices.py`, `roshan_op_*` / `imp_op_*` keys wired through
+   each phase's `vo` key and `audio_director._speaker_key`'s new imp voice).
+4. **Playability audit (subagent judge panel, 8 auditors) applied:** frozen
+   choice-target rotation fixed (was an identity at phase index 2 in five
+   careers); choice lanes flash-then-dim so picks use recognition memory;
+   ghost-finger demo acts out every gesture until first touch, and re-runs
+   with the re-spoken prompt after 9 s idle; tap phases aim at a moving
+   target that leaves marks; swipe phases can point down (DUCK); hold/
+   swipe/circle presses fizzle-trickle (no silent dead input); emulated
+   mouse events are ignored (no tablet double-input); panel/root/fill no
+   longer swallow touches; the captain can never be mashed past (his two
+   bops are reserved); the theft is a visible fly-away event; detective's
+   rematch keeps the child's bar and score, shows the true answer steady,
+   and pre-fills the remembered clues; detective NAME is a spotlight-timing
+   reveal; racer LAP TWO is a loop-the-loop circle; timing pace escalates
+   gently with phase index; grind-flagged goals trimmed. Remaining design
+   options recorded by the panel (new gesture grammars: scrub-reveal,
+   charge-and-release, drag-and-drop; per-career widget flavoring) are
+   future polish, not blockers.
+
 ## Save / probe safety
 
 ACTS, star bitmask, floor gating, save keys: untouched. All twelve rebuilt

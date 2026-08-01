@@ -97,9 +97,14 @@ func _init() -> void:
 		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 		_check("%s starts in its job world, off the proscenium" % career,
 			backdrop != null and not backdrop.stage_mode)
+		_check("%s paints the supplied codex career world" % career,
+			backdrop != null and backdrop.painting != null)
+		var captain_stage_seen := false
 		if career == "detective":
 			var original_phase_count := world.phases.size()
 			while world.phase_index < world._finale_start():
+				if world.phase_index == world.steal_index and backdrop != null:
+					captain_stage_seen = captain_stage_seen or backdrop.stage_mode
 				world._on_gesture("probe", 100.0, 1.0)
 				act._process(0.05)
 			_check("detective imp enters only for the final shared mystery",
@@ -121,6 +126,8 @@ func _init() -> void:
 		while act.state == "play" and guard < 60:
 			rival_hid_through_scuffles = rival_hid_through_scuffles \
 				and (world.in_competition_finale() or not world.rival_actor.visible)
+			if world.phase_index == world.steal_index and backdrop != null:
+				captain_stage_seen = captain_stage_seen or backdrop.stage_mode
 			world._on_gesture("probe", 100.0, 1.0)
 			act._process(0.05)
 			await process_frame
@@ -128,6 +135,7 @@ func _init() -> void:
 			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
 		_check("%s brings in the dressed imp for the final level" % career, saw_finale_imp)
 		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
+		_check("%s brawls the captain at the stage door" % career, captain_stage_seen)
 		_check("%s finishes on the proscenium stage" % career,
 			backdrop != null and backdrop.stage_mode)
 		_check("%s can complete through one-finger phases" % career,

@@ -22,14 +22,139 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from collections import deque
 
-from prepare_opera_2d_worlds import _fit_actor, _remove_edge_field
+from PIL import Image, ImageDraw, ImageFilter
+
+from prepare_opera_2d_worlds import _fit_actor
 
 ROOT = Path(__file__).resolve().parents[1]
 CARDS = ROOT / "assets_src/concepts/opera_jobs_flat_2026-07-21/cards"
+KEYS = ROOT / "assets_src/concepts/opera_jobs_2p5d_2026-07-24"
 PROPS_OUT = ROOT / "assets/opera/worlds/props"
 ACTORS_OUT = ROOT / "assets/opera/worlds/actors"
+BACKDROPS_OUT = ROOT / "assets/opera/worlds/backdrops"
+
+# career id -> accepted 2p5d scene key (owner decision 2026-08-01: these
+# paintings ARE the runtime career backdrops; 1024x576 matches the 1280x720
+# viewport aspect exactly and the 1024px-longest-side texture rule)
+BACKDROP_KEYS = {
+    "chef": "pastry_chef_2p5d_scene_key_2026-07-24.png",
+    "detective": "detective_2p5d_scene_key_2026-07-24.png",
+    "ballerina": "ballerina_2p5d_scene_key_2026-07-24.png",
+    "candymaker": "candy_maker_2p5d_scene_key_2026-07-24.png",
+    "doctor": "doctor_2p5d_scene_key_2026-07-24.png",
+    "farmer": "farmer_2p5d_scene_key_2026-07-24.png",
+    "boxer": "boxer_2p5d_scene_key_2026-07-24.png",
+    "magician": "magician_2p5d_scene_key_2026-07-24.png",
+    "painter": "painter_2p5d_scene_key_2026-07-24.png",
+    "astronaut": "astronaut_engineer_2p5d_scene_key_2026-07-24.png",
+    "racer": "racecar_driver_2p5d_scene_key_2026-07-24.png",
+    "popstar": "pop_star_2p5d_scene_key_2026-07-24.png",
+}
+
+# shared bop-hit effect: the accepted boxer bubble-puff impact card
+FX_PUFF_CARD = "opera_job_boxer_gameplay_bubble_puff_impact.png"
+
+
+def _matte_card(source: Path) -> Image.Image:
+    """Prop-card matting, stricter than the actor pipeline.
+
+    1. Crop uniform caption/border bands from the top and bottom (they
+       corrupt the corner field sample — the racer trophy failure).
+    2. Flood the edge-connected navy field with a TIGHT color window so the
+       fill cannot creep through dark costume shadows (the magician
+       chew-hole failure).
+    3. Remove enclosed field-colored pockets that have a solid core, so
+       navy showing through gaps in the artwork goes too (the detective
+       tiara failure) while thin navy outlines survive.
+    """
+    img = Image.open(source).convert("RGBA")
+    px = img.load()
+    w, h = img.size
+
+    def row_uniform(y: int) -> bool:
+        base = px[w // 2, y]
+        hits = sum(
+            1 for x in range(0, w, 8)
+            if sum(abs(px[x, y][c] - base[c]) for c in range(3)) < 42
+        )
+        return hits >= (w // 8) * 0.92
+
+    top = 0
+    while top < h // 4 and row_uniform(top):
+        top += 1
+    bottom = h
+    while bottom > h * 3 // 4 and row_uniform(bottom - 1):
+        bottom -= 1
+    img = img.crop((0, top, w, bottom))
+    px = img.load()
+    w, h = img.size
+
+    corners = [px[6, 6], px[w - 7, 6], px[6, h - 7], px[w - 7, h - 7]]
+    field = tuple(sum(c[i] for c in corners) // 4 for i in range(3))
+
+    def is_field(p: tuple, window: int) -> bool:
+        if max(p[0], p[1], p[2]) >= 94:
+            return False
+        return sum((p[i] - field[i]) ** 2 for i in range(3)) <= window * window
+
+    mask = bytearray(w * h)
+    queue: deque = deque()
+    for x in range(w):
+        for y in (0, h - 1):
+            queue.append((x, y))
+    for y in range(h):
+        for x in (0, w - 1):
+            queue.append((x, y))
+    while queue:
+        x, y = queue.popleft()
+        if x < 0 or y < 0 or x >= w or y >= h or mask[y * w + x]:
+            continue
+        near_edge = x < 26 or y < 26 or x >= w - 26 or y >= h - 26
+        if not (is_field(px[x, y], 58) or (near_edge and is_field(px[x, y], 96))):
+            continue
+        mask[y * w + x] = 1
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                queue.append((x + dx, y + dy))
+
+    # enclosed pockets: field-colored, unremoved, with a 9x9 solid core
+    pocket = [
+        1 if not mask[i] and is_field(px[i % w, i // w], 52) else 0
+        for i in range(w * h)
+    ]
+    for y in range(4, h - 4):
+        for x in range(4, w - 4):
+            if not pocket[y * w + x]:
+                continue
+            core = all(
+                pocket[(y + dy) * w + (x + dx)]
+                for dx in range(-4, 5)
+                for dy in range(-4, 5)
+            )
+            if not core:
+                continue
+            queue.append((x, y))
+            while queue:
+                qx, qy = queue.popleft()
+                if qx < 0 or qy < 0 or qx >= w or qy >= h or mask[qy * w + qx]:
+                    continue
+                if not pocket[qy * w + qx]:
+                    continue
+                mask[qy * w + qx] = 1
+                for dx in (-1, 0, 1):
+                    for dy in (-1, 0, 1):
+                        queue.append((qx + dx, qy + dy))
+
+    alpha = Image.new("L", (w, h), 255)
+    alpha.putdata([0 if m else 255 for m in mask])
+    alpha = alpha.filter(ImageFilter.GaussianBlur(1.1))
+    img.putalpha(alpha)
+    bbox = img.getbbox()
+    if bbox is None:
+        raise SystemExit(f"matting removed everything: {source}")
+    return img.crop(bbox)
 
 # career id -> accepted gameplay card (the act's goal prop)
 PROP_CARDS = {
@@ -108,18 +233,34 @@ def _draw_placeholder_imp(size: int, captain: bool) -> Image.Image:
 def main() -> None:
     PROPS_OUT.mkdir(parents=True, exist_ok=True)
     ACTORS_OUT.mkdir(parents=True, exist_ok=True)
+    BACKDROPS_OUT.mkdir(parents=True, exist_ok=True)
     for career, card in sorted(PROP_CARDS.items()):
         source = CARDS / card
         if not source.is_file():
             raise SystemExit(f"card not found: {source}")
-        prop = _fit_actor(_remove_edge_field(source), 512)
+        prop = _fit_actor(_matte_card(source), 512)
         out = PROPS_OUT / f"goal_{career}.png"
         prop.save(out)
-        print(f"prop  {out.relative_to(ROOT)}")
+        print(f"prop      {out.relative_to(ROOT)}")
+    for career, key in sorted(BACKDROP_KEYS.items()):
+        source = KEYS / key
+        if not source.is_file():
+            raise SystemExit(f"scene key not found: {source}")
+        out = BACKDROPS_OUT / f"world_{career}.png"
+        with Image.open(source) as img:
+            img.save(out)  # verbatim pixels, new runtime path
+        print(f"backdrop  {out.relative_to(ROOT)}")
+    puff_source = CARDS / FX_PUFF_CARD
+    if not puff_source.is_file():
+        raise SystemExit(f"card not found: {puff_source}")
+    puff = _fit_actor(_matte_card(puff_source), 512)
+    puff_out = PROPS_OUT / "fx_bop_puff.png"
+    puff.save(puff_out)
+    print(f"fx        {puff_out.relative_to(ROOT)}")
     for name, captain in (("imp_mischief", False), ("imp_captain", True)):
         out = ACTORS_OUT / f"{name}.png"
         _draw_placeholder_imp(512, captain).save(out)
-        print(f"imp   {out.relative_to(ROOT)} (basic place-in)")
+        print(f"imp       {out.relative_to(ROOT)} (basic place-in fallback)")
 
 
 if __name__ == "__main__":

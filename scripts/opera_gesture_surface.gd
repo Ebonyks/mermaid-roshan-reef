@@ -28,15 +28,65 @@ var bop_captain_texture: Texture2D = null
 var last_bop_pos := Vector2.ZERO
 
 
+## Ghost-finger demo: until the child touches, a glowing dot acts out the
+## expected gesture so no phase ever needs reading to understand.
+var demo_active := true
+var demo_t := 0.0
+var _demo_redraw := 0.0
+## Choice lanes flash gold briefly, then dim so the pick uses recognition
+## memory instead of tap-the-highlight; wrong picks kindly re-flash.
+var choice_flash := 1.4
+## Directional hint for swipe phases (DUCK draws a downward arrow).
+var swipe_dir := Vector2.RIGHT
+## Tap phases aim at a moving point that leaves a happy mark per hit.
+var tap_point := Vector2.ZERO
+var tap_marks: Array = []
+
+
 func configure(next_mode: String, next_accent: Color, choice: int = 1) -> void:
 	mode = next_mode
 	accent = next_accent
 	target_choice = choice
 	held = false
 	have_angle = false
+	demo_active = true
+	demo_t = 0.0
+	choice_flash = 1.4
+	swipe_dir = Vector2.RIGHT
+	tap_marks = []
+	tap_point = size * 0.5
 	if next_mode != "bop":
 		bop_targets = []
 	queue_redraw()
+
+
+func note_input() -> void:
+	demo_active = false
+
+
+func restart_demo() -> void:
+	demo_active = true
+	demo_t = 0.0
+	choice_flash = 1.2
+
+
+func reflash_choice() -> void:
+	choice_flash = 1.2
+	queue_redraw()
+
+
+func _process(delta: float) -> void:
+	if choice_flash > 0.0 and mode == "choice":
+		choice_flash -= delta
+		if choice_flash <= 0.0:
+			queue_redraw()
+	if not demo_active:
+		return
+	demo_t += delta
+	_demo_redraw += delta
+	if _demo_redraw >= 0.05:
+		_demo_redraw = 0.0
+		queue_redraw()
 
 
 func set_bop_targets(targets: Array) -> void:
@@ -66,7 +116,13 @@ func _press(at: Vector2) -> void:
 	have_angle = true
 	match mode:
 		"tap":
-			gesture.emit("tap", 1.0, 1.0)
+			if at.distance_to(tap_point) <= 92.0:
+				tap_marks.append(tap_point)
+				_relocate_tap_point()
+				gesture.emit("tap", 1.0, 1.0)
+			else:
+				# near-misses still sparkle and trickle — no dead ends
+				gesture.emit("tap", 0.3, 0.4)
 		"choice":
 			var lane := clampi(int(at.x / maxf(1.0, size.x) * float(choice_count)), 0, choice_count - 1)
 			gesture.emit("choice", 1.0 if lane == target_choice else 0.24, 1.0 if lane == target_choice else 0.0)
@@ -75,7 +131,20 @@ func _press(at: Vector2) -> void:
 			gesture.emit("timing", quality, quality)
 		"bop":
 			_bop_press(at)
+		"hold":
+			# a tap on the hold circle answers with a small warm trickle
+			gesture.emit("hold", 0.06, 0.6)
+		"swipe", "circle":
+			gesture.emit(mode, 0.05, 0.6)
 	queue_redraw()
+
+
+func _relocate_tap_point() -> void:
+	var n := tap_marks.size()
+	tap_point = Vector2(
+		size.x * 0.5 + sin(float(n) * 2.4 + 0.9) * size.x * 0.3,
+		size.y * 0.5 + cos(float(n) * 1.7 + 0.4) * size.y * 0.26
+	)
 
 
 func _bop_press(at: Vector2) -> void:
@@ -136,12 +205,16 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
 		var button := event as InputEventMouseButton
+		if button.device == InputEvent.DEVICE_ID_EMULATION:
+			return  # already handled as the touch event on tablets
 		if button.pressed:
 			_press(button.position)
 		else:
 			_release(button.position)
 		accept_event()
 	elif event is InputEventMouseMotion and held:
+		if (event as InputEventMouseMotion).device == InputEvent.DEVICE_ID_EMULATION:
+			return
 		_drag((event as InputEventMouseMotion).position)
 		accept_event()
 
@@ -153,21 +226,26 @@ func _draw() -> void:
 	var center := size * 0.5
 	match mode:
 		"tap":
-			draw_circle(center, minf(size.x, size.y) * 0.23, Color(accent, 0.25))
-			draw_arc(center, minf(size.x, size.y) * 0.23, 0.0, TAU, 48, accent, 9.0)
-			draw_circle(center, 18.0, Color.WHITE)
+			for mark: Vector2 in tap_marks:
+				draw_circle(mark, 13.0, Color(accent, 0.85))
+				draw_circle(mark, 6.0, Color.WHITE)
+			draw_circle(tap_point, 64.0, Color(accent, 0.25))
+			draw_arc(tap_point, 64.0, 0.0, TAU, 48, accent, 9.0)
+			draw_circle(tap_point, 18.0, Color.WHITE)
 		"hold":
 			draw_circle(center, minf(size.x, size.y) * 0.25, Color(accent, 0.24))
 			draw_arc(center, minf(size.x, size.y) * 0.25, 0.0, TAU, 48, accent, 10.0)
 			draw_circle(center, 24.0 if held else 16.0, Color.WHITE)
 		"swipe":
-			var left := Vector2(size.x * 0.22, center.y)
-			var right := Vector2(size.x * 0.78, center.y)
-			draw_line(left, right, accent, 16.0, true)
+			var span := minf(size.x, size.y) * 0.42
+			var tail := center - swipe_dir * span
+			var head := center + swipe_dir * span
+			var side := swipe_dir.orthogonal()
+			draw_line(tail, head, accent, 16.0, true)
 			draw_colored_polygon(PackedVector2Array([
-				right + Vector2(0, -34), right + Vector2(58, 0), right + Vector2(0, 34),
+				head + side * 34.0, head + swipe_dir * 58.0, head - side * 34.0,
 			]), accent)
-			draw_circle(left, 22.0, Color.WHITE)
+			draw_circle(tail, 22.0, Color.WHITE)
 		"circle":
 			var radius := minf(size.x, size.y) * 0.26
 			draw_arc(center, radius, -2.7, 2.2, 48, accent, 16.0)
@@ -176,12 +254,14 @@ func _draw() -> void:
 				tip, tip + Vector2(-10, -36), tip + Vector2(30, -14),
 			]), accent)
 		"choice":
+			var show_answer := choice_flash > 0.0 or demo_active
 			for index in range(choice_count):
 				var point := Vector2(size.x * (float(index) + 0.5) / float(choice_count), center.y)
-				var colour := Color(1.0, 0.86, 0.32) if index == target_choice else Color(0.34, 0.42, 0.62)
+				var is_answer := index == target_choice and show_answer
+				var colour := Color(1.0, 0.86, 0.32) if is_answer else Color(0.34, 0.42, 0.62)
 				draw_circle(point, 54.0, Color(colour, 0.34))
 				draw_arc(point, 54.0, 0.0, TAU, 36, colour, 9.0)
-				if index == target_choice:
+				if is_answer:
 					draw_circle(point, 15.0, Color.WHITE)
 		"timing":
 			var bar := Rect2(size.x * 0.12, center.y - 23.0, size.x * 0.76, 46.0)
@@ -197,6 +277,44 @@ func _draw() -> void:
 			for target: Dictionary in bop_targets:
 				if not bool(target.get("popped", false)):
 					_draw_imp(target)
+	if demo_active:
+		_draw_demo_finger()
+
+
+func _draw_demo_finger() -> void:
+	var center := size * 0.5
+	var cycle := fmod(demo_t, 2.4)
+	var pressing := cycle > 1.1
+	var at := center
+	match mode:
+		"swipe":
+			at = Vector2(lerpf(size.x * 0.22, size.x * 0.78, cycle / 2.4), center.y)
+			pressing = true
+		"circle":
+			var radius := minf(size.x, size.y) * 0.26
+			at = center + Vector2.from_angle(-2.7 + cycle * 2.0) * radius
+			pressing = true
+		"choice":
+			var lane := Vector2(size.x * (float(target_choice) + 0.5) / float(choice_count), center.y)
+			at = center.lerp(lane, clampf(cycle / 1.1, 0.0, 1.0))
+		"timing":
+			var bar_x := lerpf(size.x * 0.12, size.x * 0.88, timing_position)
+			at = Vector2(bar_x, center.y + 58.0)
+			pressing = timing_position >= timing_zone.x and timing_position <= timing_zone.y
+		"bop":
+			for target: Dictionary in bop_targets:
+				if not bool(target.get("popped", false)):
+					var pos: Vector2 = target.get("pos", Vector2.ZERO)
+					at = center.lerp(pos, clampf(cycle / 1.1, 0.0, 1.0))
+					break
+		"hold":
+			pressing = true
+	var halo := 30.0 if pressing else 20.0
+	draw_circle(at, halo, Color(1.0, 1.0, 1.0, 0.22))
+	draw_circle(at, 13.0, Color(1.0, 0.98, 0.86, 0.95))
+	if pressing:
+		var ring := 18.0 + fmod(demo_t * 46.0, 26.0)
+		draw_arc(at, ring, 0.0, TAU, 24, Color(1.0, 0.95, 0.6, 0.6), 4.0)
 
 
 func _draw_imp(target: Dictionary) -> void:
@@ -207,6 +325,11 @@ func _draw_imp(target: Dictionary) -> void:
 	if texture != null:
 		var side := radius * 2.4
 		draw_texture_rect(texture, Rect2(pos - Vector2(side, side) * 0.5, Vector2(side, side)), false)
+		if captain:
+			# plain gold band ring marks the captain over the costume sprite
+			draw_arc(pos, radius * 1.16, 0.0, TAU, 36, Color("#e0b34c"), 6.0)
+			if int(target.get("hp", 1)) > 1:
+				draw_arc(pos, radius * 1.3, 0.0, TAU, 36, Color(1.0, 0.9, 0.5, 0.45), 4.0)
 		return
 	# basic place-in imp until the codex mischief-imp sprite set lands
 	var body := Color("#7a4f9a") if not captain else Color("#5f3a85")

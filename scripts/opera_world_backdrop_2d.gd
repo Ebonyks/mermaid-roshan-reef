@@ -28,11 +28,17 @@ var redraw_t := 0.0
 ## footlights and a warmer wash — the finale-on-stage look. Follows the
 ## stage/backstage kit grammar from assets_src/concepts/opera_house_flat/.
 var stage_mode := false
+## The accepted codex career-world painting (owner decision 2026-08-01:
+## the 1024x576 scene keys ARE the career backdrops — same 16:9 aspect as
+## the 1280x720 viewport). The vector set below remains the fallback.
+var painting: Texture2D = null
 
 
 func setup(id: String) -> void:
 	career_id = id
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var path := "res://assets/opera/worlds/backdrops/world_%s.png" % id
+	painting = load(path) as Texture2D if ResourceLoader.exists(path) else null
 	queue_redraw()
 
 
@@ -56,6 +62,12 @@ func _draw() -> void:
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])
 	var accent := Color(palette[2])
+	if painting != null:
+		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
+		_draw_spotlights(accent)
+		if stage_mode:
+			_draw_stage_frame(accent)
+		return
 	draw_rect(Rect2(Vector2.ZERO, size), sky)
 	draw_rect(Rect2(0, size.y * 0.42, size.x, size.y * 0.58), mid.darkened(0.44))
 	draw_polygon(
@@ -67,8 +79,6 @@ func _draw() -> void:
 		PackedColorArray([mid.darkened(0.20)])
 	)
 	_draw_spotlights(accent)
-	if stage_mode:
-		_draw_stage_frame(accent)
 	match career_id:
 		"chef":
 			_draw_chef(mid, accent)
@@ -94,6 +104,9 @@ func _draw() -> void:
 			_draw_racer(mid, accent)
 		"popstar":
 			_draw_popstar(mid, accent)
+	if stage_mode:
+		# curtains and columns occlude the set — theatrically correct layering
+		_draw_stage_frame(accent)
 
 
 func _draw_stage_frame(accent: Color) -> void:

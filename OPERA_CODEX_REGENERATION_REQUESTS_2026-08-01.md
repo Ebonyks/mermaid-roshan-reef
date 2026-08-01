@@ -155,11 +155,13 @@ the same fields.
 
 ## PRIORITY 1 — NEW assets the rebuilt acts load at exact paths
 
-The five-beat rebuild's bop mechanic loads these paths directly
-(`OPERA_2D_REBUILD_2026-08-01.md`, "Mechanics inventory"). Today they hold
-throwaway shape-drawn placeholders emitted by `tools/prepare_opera_2d_props.py`;
-the gesture surface falls back to vector imps when the files are absent, so a
-bad candidate is worse than none — hold to the gate.
+The five-beat rebuild's bop mechanic prefers these paths. Update
+2026-08-01: at runtime the scuffle crews currently wear the career's accepted
+rival costume slice (`assets/opera/worlds/actors/rival_<career>.png`), so these
+two sprites are the crew's dedicated non-costumed upgrade plus the pose
+variants below; `tools/prepare_opera_2d_props.py`'s shape-drawn placeholders
+remain the last fallback. A bad candidate is worse than none — hold to the
+gate.
 
 ### P1-01 — Mischief imp (scuffle crew)
 
