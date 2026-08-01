@@ -26,6 +26,11 @@ func _frames(count: int) -> void:
 		await process_frame
 
 
+func _physics_frames(count: int) -> void:
+	for _index: int in range(count):
+		await physics_frame
+
+
 func _color_values(color: Color) -> Array[float]:
 	return [color.r, color.g, color.b, color.a]
 
@@ -37,6 +42,8 @@ func _capture_pair(label: String, actor: Dictionary,
 		return
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var node: Sprite3D = actor.get("node") as Sprite3D
+	var body: RigidBody3D = actor.get("body") as RigidBody3D
+	var waterline: Sprite3D = actor.get("waterline") as Sprite3D
 	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
 	var old_mode: Node.ProcessMode = main.process_mode
 	main.process_mode = Node.PROCESS_MODE_DISABLED
@@ -48,6 +55,7 @@ func _capture_pair(label: String, actor: Dictionary,
 	_check("capture_%s_with" % label, with_image.save_png(with_path) == OK)
 	node.visible = false
 	shadow.visible = false
+	waterline.visible = false
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var without_image: Image = viewport.get_texture().get_image()
@@ -55,17 +63,42 @@ func _capture_pair(label: String, actor: Dictionary,
 	_check("capture_%s_without" % label,
 		without_image.save_png(without_path) == OK)
 	node.visible = true
-	shadow.visible = true
+	var water_supported: bool = String(definition["support"]) == "water_jolt"
+	shadow.visible = not water_supported
+	waterline.visible = water_supported
 	main.process_mode = old_mode
 	var camera: Camera3D = viewport.get_camera_3d()
 	var screen_point: Vector2 = camera.unproject_position(node.global_position)
+	var support: String = String(definition["support"])
+	var support_rect: Rect2 = SkyLagoonPromenade.ANIMAL_SUPPORT_RECTS[
+		String(definition["support_zone"])] as Rect2
+	var support_point: Vector2 = Vector2(body.position.x, body.position.y) \
+		if support == "water_jolt" else Vector2(body.position.x,
+			body.position.y - float(definition["height"]) * 0.5)
+	var solver_span: float = 0.0
+	if support == "water_jolt":
+		solver_span = float(body.get("max_solver_y")) \
+			- float(body.get("min_solver_y"))
 	capture_manifest.append({
 		"id": String(definition["id"]),
 		"habitat": String(definition["habitat"]),
 		"lighting": "night" if main.is_night else "day",
+		"support": support,
+		"support_zone": String(definition["support_zone"]),
+		"support_point": [support_point.x, support_point.y],
+		"support_rect": [support_rect.position.x, support_rect.position.y,
+			support_rect.size.x, support_rect.size.y],
 		"with": with_path.get_file(),
 		"without": without_path.get_file(),
 		"screen_point": [screen_point.x, screen_point.y],
+		"body_position": [body.position.x, body.position.y, body.position.z],
+		"physics_engine": String(ProjectSettings.get_setting("physics/3d/physics_engine")),
+		"body_frozen": body.freeze,
+		"water_enabled": bool(body.get("water_enabled")),
+		"solver_steps": int(body.get("solver_steps")),
+		"solver_bob_span": solver_span,
+		"waterline_visible": waterline.visible,
+		"shadow_visible": shadow.visible,
 		"world_height": float(definition["height"]),
 		"modulate": _color_values(node.modulate),
 		"shadow_modulate": _color_values(shadow.modulate),
@@ -109,6 +142,19 @@ func _animal_nodes(root: Node) -> Array[Sprite3D]:
 	return result
 
 
+func _animal_water_bodies(root: Node) -> Array[RigidBody3D]:
+	var result: Array[RigidBody3D] = []
+	var stack: Array[Node] = [root]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is RigidBody3D and String(
+				(node as RigidBody3D).get_meta("support_medium", "")) == "water":
+			result.append(node as RigidBody3D)
+		for child: Node in node.get_children():
+			stack.append(child)
+	return result
+
+
 func _validate_roster(promenade: SkyLagoonPromenade) -> void:
 	var definitions: Array = main.g.get("lagoon_animals", [])
 	_check("roster_count", definitions.size() == 5,
@@ -118,6 +164,8 @@ func _validate_roster(promenade: SkyLagoonPromenade) -> void:
 	var paths_safe: bool = true
 	var atlas_contract_ok: bool = true
 	var lighting_authored: bool = true
+	var support_counts := {"water_jolt": 0, "ground": 0}
+	var support_contract_ok: bool = true
 	for value: Variant in definitions:
 		var definition: Dictionary = value as Dictionary
 		var animal_id: String = String(definition.get("id", ""))
@@ -137,6 +185,13 @@ func _validate_roster(promenade: SkyLagoonPromenade) -> void:
 			and definition.get("night_tint") is Color \
 			and definition.get("shadow_day") is Color \
 			and definition.get("shadow_night") is Color
+		var support: String = String(definition.get("support", ""))
+		support_counts[support] = int(support_counts.get(support, 0)) + 1
+		support_contract_ok = support_contract_ok \
+			and SkyLagoonPromenade.ANIMAL_SUPPORT_RECTS.has(
+				String(definition.get("support_zone", ""))) \
+			and (support != "water_jolt" \
+				or definition.get("water_surface_y") is float)
 	_check("expected_roster", ids.has_all(EXPECTED_IDS) and not ids.has("fawn"))
 	_check("ecological_page_rosters",
 		int(page_counts[0]) == 2 and int(page_counts[1]) == 2 \
@@ -144,17 +199,27 @@ func _validate_roster(promenade: SkyLagoonPromenade) -> void:
 	_check("authored_paths_clear_route_props_and_seams", paths_safe)
 	_check("atlas_contract", atlas_contract_ok)
 	_check("authored_day_night_lighting", lighting_authored)
+	_check("support_roster_is_two_water_three_ground",
+		int(support_counts["water_jolt"]) == 2 \
+		and int(support_counts["ground"]) == 3, str(support_counts))
+	_check("support_contract_is_explicit", support_contract_ok)
 
 
 func _validate_day_actor(promenade: SkyLagoonPromenade) -> void:
 	var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
 	var node: Sprite3D = actor.get("node") as Sprite3D
+	var body: RigidBody3D = actor.get("body") as RigidBody3D
+	var waterline: Sprite3D = actor.get("waterline") as Sprite3D
 	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	_check("single_pooled_animal_card", _animal_nodes(stage_root).size() == 1)
+	_check("single_pooled_jolt_water_body",
+		_animal_water_bodies(stage_root).size() == 1 and body != null \
+		and String(body.get_meta("physics_engine", "")) == "Jolt Physics")
 	_check("single_pooled_contact_shadow", shadow != null \
 		and bool(shadow.get_meta("sky_lagoon_contact_shadow", false)))
 	var pooled_id: int = node.get_instance_id()
+	var pooled_body_id: int = body.get_instance_id()
 	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
 		var page: int = int(definition["page"])
 		await _move_to_page(page)
@@ -162,19 +227,56 @@ func _validate_day_actor(promenade: SkyLagoonPromenade) -> void:
 			promenade._bind_animal_id(String(definition["id"])))
 		actor = main.g.get("lagoon_animal_actor", {}) as Dictionary
 		node = actor.get("node") as Sprite3D
+		body = actor.get("body") as RigidBody3D
+		waterline = actor.get("waterline") as Sprite3D
 		shadow = node.get_meta("contact_shadow") as Sprite3D
-		var start: Vector3 = actor["route_position"] as Vector3
-		promenade._tick_animal_idle(actor, 0.6)
+		var start: Vector3 = body.position
+		await _physics_frames(50)
 		var moved: Vector3 = actor["route_position"] as Vector3
 		_check("%s_idle_follows_habitat" % String(definition["id"]),
 			moved.distance_to(start) > 0.05)
 		_check("%s_reuses_pool" % String(definition["id"]),
-			node.get_instance_id() == pooled_id)
+			node.get_instance_id() == pooled_id \
+			and body.get_instance_id() == pooled_body_id)
+		var support: String = String(definition["support"])
+		var support_rect: Rect2 = SkyLagoonPromenade.ANIMAL_SUPPORT_RECTS[
+			String(definition["support_zone"])] as Rect2
+		var foot := Vector2(body.position.x,
+			body.position.y - float(definition["height"]) * 0.5)
+		var support_point := Vector2(body.position.x, body.position.y) \
+			if support == "water_jolt" else foot
+		_check("%s_has_real_support" % String(definition["id"]),
+			support_rect.has_point(support_point) \
+			and String(node.get_meta("animal_support", "")) == support,
+			"point=%s rect=%s" % [support_point, support_rect])
+		if support == "water_jolt":
+			_check("%s_uses_jolt_buoyancy" % String(definition["id"]),
+				String(ProjectSettings.get_setting("physics/3d/physics_engine")) \
+					== "Jolt Physics" \
+				and not body.freeze and bool(body.get("water_enabled")) \
+				and int(body.get("solver_steps")) >= 20 \
+				and absf(body.position.y - float(definition["water_surface_y"])) < 0.24 \
+				and float(body.get("max_solver_y")) \
+					- float(body.get("min_solver_y")) > 0.004,
+				"pos=%s surface=%.3f steps=%d span=%.4f freeze=%s enabled=%s" % [
+					body.position, float(definition["water_surface_y"]),
+					int(body.get("solver_steps")), float(body.get("max_solver_y"))
+						- float(body.get("min_solver_y")), body.freeze,
+					bool(body.get("water_enabled"))])
+			_check("%s_reads_as_in_water" % String(definition["id"]),
+				waterline.visible and not shadow.visible \
+				and String(waterline.get_meta("animal_support_effect", "")) \
+					== "jolt_waterline")
+		else:
+			_check("%s_is_grounded_not_on_foliage" % String(definition["id"]),
+				body.freeze and shadow.visible and not waterline.visible \
+				and foot.y <= 0.0)
 		_check("%s_render_and_lighting" % String(definition["id"]),
 			not node.shaded and node.hframes == 2 and node.vframes == 2 \
 			and node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD \
 			and node.modulate.is_equal_approx(definition["day_tint"] as Color) \
-			and shadow.modulate.is_equal_approx(definition["shadow_day"] as Color) \
+			and (support == "water_jolt" or shadow.modulate.is_equal_approx(
+				definition["shadow_day"] as Color)) \
 			and String(node.get_meta("animal_habitat", "")) \
 				== String(definition["habitat"]))
 		await _capture_pair("day_%s" % String(definition["id"]), actor, definition)
@@ -189,7 +291,9 @@ func _validate_day_actor(promenade: SkyLagoonPromenade) -> void:
 		_check("%s_cute_startle_sequence" % String(definition["id"]),
 			alert_frame == 0 and squash_frame == 1 and hop_frame == 2 \
 			and String(actor["state"]) == "startle" \
-			and float(actor["exit_direction"]) == float(definition["safe_exit"]))
+			and float(actor["exit_direction"]) == float(definition["safe_exit"]) \
+			and (support != "water_jolt" \
+				or bool(body.get("received_escape_impulse"))))
 
 
 func _validate_continuity(promenade: SkyLagoonPromenade) -> void:
@@ -210,12 +314,14 @@ func _validate_continuity(promenade: SkyLagoonPromenade) -> void:
 		String(actor["state"]) in ["idle", "pause"] \
 		and (actor["node"] as Sprite3D).visible)
 	promenade._startle_animal(actor)
-	for _step: int in range(240):
-		promenade._tick_animal_startle(actor, 0.05)
+	for _step: int in range(360):
+		await physics_frame
 		if String(actor["state"]) == "hidden":
 			break
 	_check("activation_exits_toward_safe_edge",
-		String(actor["state"]) == "hidden" and not (actor["node"] as Sprite3D).visible)
+		String(actor["state"]) == "hidden" \
+		and not (actor["node"] as Sprite3D).visible \
+		and bool((actor["body"] as RigidBody3D).get("received_escape_impulse")))
 	actor["spawn_t"] = 0.0
 	promenade._tick_animals(0.05)
 	_check("shore_roster_advances_otter_to_frog",
@@ -231,11 +337,16 @@ func _validate_night(promenade: SkyLagoonPromenade) -> void:
 		promenade._bind_animal_id(String(definition["id"]))
 		var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
 		var node: Sprite3D = actor["node"] as Sprite3D
+		var waterline: Sprite3D = actor["waterline"] as Sprite3D
 		var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
+		var water_supported: bool = String(definition["support"]) == "water_jolt"
+		if water_supported:
+			await _physics_frames(50)
 		_check("%s_night_lighting" % String(definition["id"]),
 			node.modulate.is_equal_approx(definition["night_tint"] as Color) \
-			and shadow.modulate.is_equal_approx(
-				definition["shadow_night"] as Color) \
+			and (water_supported and waterline.visible and not shadow.visible \
+				or not water_supported and shadow.modulate.is_equal_approx(
+					definition["shadow_night"] as Color)) \
 			and String(node.get_meta("animal_lighting_profile", "")) == "night")
 		await _capture_pair("night_%s" % String(definition["id"]), actor, definition)
 

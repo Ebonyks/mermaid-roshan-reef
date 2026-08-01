@@ -1,6 +1,6 @@
 {
-  "capture_manifest": "audit/sky_lagoon_animals_2026-08-01/after_verified/capture_manifest.json",
-  "capture_manifest_sha256": "c7450b9980fb688dcd347deccafe1eed2254101acc30223c93b5f5fee1dc56ec",
+  "capture_manifest": "audit/sky_lagoon_animal_support_2026-08-01/candidate_6/capture_manifest.json",
+  "capture_manifest_sha256": "cdeb46baf3a23065a65d0a8d007044c0cbc6a3e0b27622ac9211139920a5a837",
   "reference_viewport": [
     1280,
     720
@@ -21,406 +21,567 @@
     "night_to_day_luminance_ratio": [
       0.25,
       0.72
-    ]
+    ],
+    "night_saturation_increase_max": 0.12
   },
   "captures": [
     {
       "id": "otter",
       "lighting": "day",
       "habitat": "arrival_shore",
+      "support": "water_jolt",
+      "support_zone": "arrival_water",
+      "support_point": [
+        -59.4733390808105,
+        2.763427734375
+      ],
+      "support_rect": [
+        -60.2000007629395,
+        2.0,
+        3.70000004768372,
+        1.39999997615814
+      ],
       "screen_point_1280x720": [
-        249.36,
-        476.85
+        93.75,
+        493.39
       ],
       "isolated_bbox_pixels": [
-        428,
-        881,
-        519,
-        955
+        119,
+        917,
+        235,
+        966
       ],
-      "isolated_pixels": 2109,
-      "foreground_luminance": 0.0997,
-      "local_background_luminance": 0.2328,
-      "local_luminance_contrast": 0.1331,
-      "mean_silhouette_luminance_change": 0.1823,
-      "p90_silhouette_luminance_change": 0.3208,
-      "foreground_saturation": 0.7072,
-      "local_background_saturation": 0.8504,
-      "saturation_delta": -0.1432,
-      "foreground_warm_cool": 0.1029,
-      "local_background_warm_cool": -0.4566,
-      "warm_cool_delta": 0.5595,
-      "dark_outline_fraction": 0.7065,
+      "isolated_pixels": 3196,
+      "foreground_luminance": 0.2447,
+      "local_background_luminance": 0.3023,
+      "local_luminance_contrast": 0.0576,
+      "mean_silhouette_luminance_change": 0.1659,
+      "p90_silhouette_luminance_change": 0.3489,
+      "foreground_saturation": 0.5642,
+      "local_background_saturation": 0.83,
+      "saturation_delta": -0.2658,
+      "foreground_warm_cool": -0.0824,
+      "local_background_warm_cool": -0.5173,
+      "warm_cool_delta": 0.4349,
+      "dark_outline_fraction": 0.3817,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "jolt_body_active": true,
+        "solver_driven_buoyancy": true,
+        "water_contact_cue": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "ff56224748ec39386d889b2a10ca6c0d6ac62d54a4acbe1c45ef32fb3c9cfda2",
-        "without": "f8d37fc825e9d34d6f7bf9d4e71ced8ffcbf1aec441bbab53cd340d2bcd228b3"
+        "with": "5f8f43f7fbe15a30b591fb6a2b696ac1298bdc900bdc9e9b507d514583bd154d",
+        "without": "a9077f7f3315c60ec70560c46552cd1ba1760963fba8a559e176bd7eba759d6c"
       }
     },
     {
       "id": "frog",
       "lighting": "day",
       "habitat": "arrival_shore",
+      "support": "water_jolt",
+      "support_zone": "arrival_water",
+      "support_point": [
+        -59.1371765136719,
+        2.6204833984375
+      ],
+      "support_rect": [
+        -60.2000007629395,
+        2.0,
+        3.70000004768372,
+        1.39999997615814
+      ],
       "screen_point_1280x720": [
-        193.13,
-        478.76
+        103.3,
+        495.45
       ],
       "isolated_bbox_pixels": [
-        342,
-        887,
-        398,
-        945
+        136,
+        918,
+        255,
+        961
       ],
-      "isolated_pixels": 1161,
-      "foreground_luminance": 0.2359,
-      "local_background_luminance": 0.2504,
-      "local_luminance_contrast": 0.0145,
-      "mean_silhouette_luminance_change": 0.1038,
-      "p90_silhouette_luminance_change": 0.2044,
-      "foreground_saturation": 0.6617,
-      "local_background_saturation": 0.8461,
-      "saturation_delta": -0.1844,
-      "foreground_warm_cool": 0.1676,
-      "local_background_warm_cool": -0.4609,
-      "warm_cool_delta": 0.6285,
-      "dark_outline_fraction": 0.1335,
+      "isolated_pixels": 2555,
+      "foreground_luminance": 0.3406,
+      "local_background_luminance": 0.2927,
+      "local_luminance_contrast": 0.0479,
+      "mean_silhouette_luminance_change": 0.1194,
+      "p90_silhouette_luminance_change": 0.2664,
+      "foreground_saturation": 0.5436,
+      "local_background_saturation": 0.8225,
+      "saturation_delta": -0.2789,
+      "foreground_warm_cool": -0.0981,
+      "local_background_warm_cool": -0.4924,
+      "warm_cool_delta": 0.3943,
+      "dark_outline_fraction": 0.0571,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "jolt_body_active": true,
+        "solver_driven_buoyancy": true,
+        "water_contact_cue": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "c73a1a1bd3a138df2baea358caf9c88cecd3914a9b424c69d6750fa8c537addb",
-        "without": "ccc0e85c1f36021204b3a1ab93e813fb474e9156ae2b4108fdaa3f072657013d"
+        "with": "5a507a6c4a005483af16a1d3505946fc9e99cadbe2b12274450200e6af9d7d2f",
+        "without": "04e408eda1779040b4d0cf3e9004c0ca713665214a3ff868a093c464914323ef"
       }
     },
     {
       "id": "hare",
       "lighting": "day",
-      "habitat": "west_meadow_edge",
+      "habitat": "west_path_shoulder",
+      "support": "ground",
+      "support_zone": "west_path_shoulder_ground",
+      "support_point": [
+        -20.1481266021729,
+        -2.07853817939758
+      ],
+      "support_rect": [
+        -21.2000007629395,
+        -2.40000009536743,
+        4.5,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
-        263.08,
-        479.16
+        266.34,
+        560.63
       ],
       "isolated_bbox_pixels": [
-        457,
-        853,
-        549,
-        974
+        463,
+        1009,
+        555,
+        1107
       ],
-      "isolated_pixels": 4720,
-      "foreground_luminance": 0.2611,
-      "local_background_luminance": 0.1409,
-      "local_luminance_contrast": 0.1202,
-      "mean_silhouette_luminance_change": 0.1754,
-      "p90_silhouette_luminance_change": 0.3883,
-      "foreground_saturation": 0.4851,
-      "local_background_saturation": 0.7646,
-      "saturation_delta": -0.2795,
-      "foreground_warm_cool": 0.2498,
-      "local_background_warm_cool": -0.0489,
-      "warm_cool_delta": 0.2987,
-      "dark_outline_fraction": 0.136,
+      "isolated_pixels": 4560,
+      "foreground_luminance": 0.2638,
+      "local_background_luminance": 0.1892,
+      "local_luminance_contrast": 0.0746,
+      "mean_silhouette_luminance_change": 0.1939,
+      "p90_silhouette_luminance_change": 0.4054,
+      "foreground_saturation": 0.4664,
+      "local_background_saturation": 0.6538,
+      "saturation_delta": -0.1874,
+      "foreground_warm_cool": 0.2764,
+      "local_background_warm_cool": -0.0361,
+      "warm_cool_delta": 0.3125,
+      "dark_outline_fraction": 0.1406,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "a2caeb84b8368f152f00d527dd46af3e3c8afe0afab57535a82917c7ea4d2820",
-        "without": "b05cd3eb458904cdef7c6eb1c4d344e4603bd65087939149c6f238cf683c91fe"
+        "with": "e8fb8e7263b9ac469aaaf030018c80b709833047c47be920e2ba87bbf69fb1cb",
+        "without": "53f7a956f03d8ae5ee755c14e33a2f08896b93061e4a0f240e19723764af97d1"
       }
     },
     {
       "id": "squirrel",
       "lighting": "day",
-      "habitat": "west_meadow_edge",
+      "habitat": "west_path_shoulder",
+      "support": "ground",
+      "support_zone": "west_path_shoulder_ground",
+      "support_point": [
+        -20.0153503417969,
+        -2.09957098960876
+      ],
+      "support_rect": [
+        -21.2000007629395,
+        -2.40000009536743,
+        4.5,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
-        283.04,
-        456.93
+        286.9,
+        554.73
       ],
       "isolated_bbox_pixels": [
-        497,
-        827,
-        586,
-        922
+        508,
+        1022,
+        594,
+        1109
       ],
-      "isolated_pixels": 3913,
-      "foreground_luminance": 0.1433,
-      "local_background_luminance": 0.1632,
-      "local_luminance_contrast": 0.0199,
-      "mean_silhouette_luminance_change": 0.1303,
-      "p90_silhouette_luminance_change": 0.2916,
-      "foreground_saturation": 0.824,
-      "local_background_saturation": 0.728,
-      "saturation_delta": 0.096,
-      "foreground_warm_cool": 0.3825,
-      "local_background_warm_cool": -0.0787,
-      "warm_cool_delta": 0.4612,
-      "dark_outline_fraction": 0.4393,
+      "isolated_pixels": 3968,
+      "foreground_luminance": 0.1474,
+      "local_background_luminance": 0.2284,
+      "local_luminance_contrast": 0.081,
+      "mean_silhouette_luminance_change": 0.1187,
+      "p90_silhouette_luminance_change": 0.2743,
+      "foreground_saturation": 0.8178,
+      "local_background_saturation": 0.6165,
+      "saturation_delta": 0.2013,
+      "foreground_warm_cool": 0.4016,
+      "local_background_warm_cool": -0.0194,
+      "warm_cool_delta": 0.421,
+      "dark_outline_fraction": 0.436,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "de4512eb1d2aea3b73159296053fe50f8edb8fa28e09416bbf2a8f009cdf8990",
-        "without": "d363a52e1af4d9ed78f10b6fef533d4139b0901d7f337873cff96c49924b2c06"
+        "with": "99fe5b5e6133f420270e255bad4b8533c2682e53ed490920e4ef7acda3930e4b",
+        "without": "6c29adc5f401b8a87fe53877cb468b306dd3086dcfe94df1854e2b60a59ecb04"
       }
     },
     {
       "id": "raccoon",
       "lighting": "day",
-      "habitat": "castle_shrub_edge",
+      "habitat": "castle_path_shoulder",
+      "support": "ground",
+      "support_zone": "castle_path_shoulder_ground",
+      "support_point": [
+        27.8885288238525,
+        -2.06743168830872
+      ],
+      "support_rect": [
+        27.2000007629395,
+        -2.40000009536743,
+        3.0,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
-        508.28,
-        462.37
+        628.26,
+        554.24
       ],
       "isolated_bbox_pixels": [
-        919,
-        833,
-        1023,
-        934
+        1147,
+        1007,
+        1251,
+        1110
       ],
-      "isolated_pixels": 3923,
-      "foreground_luminance": 0.1173,
-      "local_background_luminance": 0.1218,
-      "local_luminance_contrast": 0.0045,
-      "mean_silhouette_luminance_change": 0.1028,
-      "p90_silhouette_luminance_change": 0.2632,
-      "foreground_saturation": 0.428,
-      "local_background_saturation": 0.6999,
-      "saturation_delta": -0.2719,
-      "foreground_warm_cool": 0.1079,
-      "local_background_warm_cool": -0.0174,
-      "warm_cool_delta": 0.1253,
-      "dark_outline_fraction": 0.5422,
+      "isolated_pixels": 4028,
+      "foreground_luminance": 0.1216,
+      "local_background_luminance": 0.2226,
+      "local_luminance_contrast": 0.101,
+      "mean_silhouette_luminance_change": 0.116,
+      "p90_silhouette_luminance_change": 0.2945,
+      "foreground_saturation": 0.4336,
+      "local_background_saturation": 0.6062,
+      "saturation_delta": -0.1726,
+      "foreground_warm_cool": 0.124,
+      "local_background_warm_cool": -0.0032,
+      "warm_cool_delta": 0.1272,
+      "dark_outline_fraction": 0.5228,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "e7314804351c63a1ffe871ed84ec7cf99a5d4bc689ad80a19d80a60b14482ef7",
-        "without": "0e060797b5d10621256e520247376d2fc640afb0e58f25f759fcdcd821b2ca69"
+        "with": "b565a774b8b35b42aca3f40fc46b50a8f8ee14dd95a683e85ad15ea006bf2a2c",
+        "without": "37aef1136e8ce641b7167648eef54ed55709050be0d6bd51921f1cf006305da6"
       }
     },
     {
       "id": "otter",
       "lighting": "night",
       "habitat": "arrival_shore",
+      "support": "water_jolt",
+      "support_zone": "arrival_water",
+      "support_point": [
+        -59.4733390808105,
+        2.763427734375
+      ],
+      "support_rect": [
+        -60.2000007629395,
+        2.0,
+        3.70000004768372,
+        1.39999997615814
+      ],
       "screen_point_1280x720": [
-        275.95,
-        477.82
+        93.93,
+        493.39
       ],
       "isolated_bbox_pixels": [
-        479,
-        888,
-        567,
-        956
+        120,
+        917,
+        236,
+        966
       ],
-      "isolated_pixels": 2134,
-      "foreground_luminance": 0.0405,
-      "local_background_luminance": 0.0392,
-      "local_luminance_contrast": 0.0013,
-      "mean_silhouette_luminance_change": 0.05,
-      "p90_silhouette_luminance_change": 0.0965,
-      "foreground_saturation": 0.6585,
-      "local_background_saturation": 0.9188,
-      "saturation_delta": -0.2603,
-      "foreground_warm_cool": -0.0075,
-      "local_background_warm_cool": -0.4019,
-      "warm_cool_delta": 0.3944,
-      "dark_outline_fraction": 0.8693,
+      "isolated_pixels": 3255,
+      "foreground_luminance": 0.1041,
+      "local_background_luminance": 0.0991,
+      "local_luminance_contrast": 0.005,
+      "mean_silhouette_luminance_change": 0.0759,
+      "p90_silhouette_luminance_change": 0.1827,
+      "foreground_saturation": 0.6765,
+      "local_background_saturation": 0.88,
+      "saturation_delta": -0.2035,
+      "foreground_warm_cool": -0.0646,
+      "local_background_warm_cool": -0.4408,
+      "warm_cool_delta": 0.3762,
+      "dark_outline_fraction": 0.6003,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "jolt_body_active": true,
+        "solver_driven_buoyancy": true,
+        "water_contact_cue": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "daafede64d651680eb6ee2c7fe3abccc48ca1bd78fe170ba5e526f879dfb9aba",
-        "without": "84da1ae1bad11e28cc81f551b0b277dd96441d217fd454fcbfbff395bc09868a"
+        "with": "a6a40dc1c0354b092a9118ea33c0b1ee1a95a339f60ce1f8eef5c9ee4a4c5d68",
+        "without": "97ba9add5bde780daa2a55a13f9ef24c09678ceca14d73cf51fd865c9b244118"
       }
     },
     {
       "id": "frog",
       "lighting": "night",
       "habitat": "arrival_shore",
+      "support": "water_jolt",
+      "support_zone": "arrival_water",
+      "support_point": [
+        -59.1371765136719,
+        2.6204833984375
+      ],
+      "support_rect": [
+        -60.2000007629395,
+        2.0,
+        3.70000004768372,
+        1.39999997615814
+      ],
       "screen_point_1280x720": [
-        190.27,
-        483.06
+        103.27,
+        495.45
       ],
       "isolated_bbox_pixels": [
-        338,
-        903,
-        389,
-        948
+        137,
+        918,
+        254,
+        961
       ],
-      "isolated_pixels": 1136,
-      "foreground_luminance": 0.1278,
-      "local_background_luminance": 0.0466,
-      "local_luminance_contrast": 0.0812,
-      "mean_silhouette_luminance_change": 0.096,
-      "p90_silhouette_luminance_change": 0.2226,
-      "foreground_saturation": 0.6844,
-      "local_background_saturation": 0.9034,
-      "saturation_delta": -0.219,
-      "foreground_warm_cool": 0.0692,
-      "local_background_warm_cool": -0.434,
-      "warm_cool_delta": 0.5032,
-      "dark_outline_fraction": 0.4551,
+      "isolated_pixels": 2676,
+      "foreground_luminance": 0.1416,
+      "local_background_luminance": 0.0983,
+      "local_luminance_contrast": 0.0433,
+      "mean_silhouette_luminance_change": 0.0943,
+      "p90_silhouette_luminance_change": 0.2065,
+      "foreground_saturation": 0.64,
+      "local_background_saturation": 0.8815,
+      "saturation_delta": -0.2415,
+      "foreground_warm_cool": -0.1104,
+      "local_background_warm_cool": -0.4253,
+      "warm_cool_delta": 0.3149,
+      "dark_outline_fraction": 0.3871,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "jolt_body_active": true,
+        "solver_driven_buoyancy": true,
+        "water_contact_cue": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "cb48ea685be939e922985eef43957d42dbf62e9ed36aa3ea21c1608f3785a47b",
-        "without": "a3a9d2683b9d31a411e420f664745c33a77e067cad6b27f8af540c6d860d6df4"
+        "with": "0a82508f75d1bcb8d67e38ed10f549f7bff806432932a10b9510379b30159ed5",
+        "without": "1b2a0cf9c11f5960a93a0c40ed9ca75284ac54b20d1ade1768ef5156efab1de0"
       }
     },
     {
       "id": "hare",
       "lighting": "night",
-      "habitat": "west_meadow_edge",
+      "habitat": "west_path_shoulder",
+      "support": "ground",
+      "support_zone": "west_path_shoulder_ground",
+      "support_point": [
+        -20.7000007629395,
+        -2.09999990463257
+      ],
+      "support_rect": [
+        -21.2000007629395,
+        -2.40000009536743,
+        4.5,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
         255.2,
-        482.72
+        562.85
       ],
       "isolated_bbox_pixels": [
         446,
-        867,
+        1020,
         527,
-        975
+        1128
       ],
-      "isolated_pixels": 4268,
-      "foreground_luminance": 0.1161,
-      "local_background_luminance": 0.0127,
-      "local_luminance_contrast": 0.1034,
-      "mean_silhouette_luminance_change": 0.1039,
-      "p90_silhouette_luminance_change": 0.2732,
-      "foreground_saturation": 0.368,
-      "local_background_saturation": 0.8074,
-      "saturation_delta": -0.4394,
-      "foreground_warm_cool": 0.066,
-      "local_background_warm_cool": -0.076,
-      "warm_cool_delta": 0.142,
-      "dark_outline_fraction": 0.4684,
+      "isolated_pixels": 4251,
+      "foreground_luminance": 0.1165,
+      "local_background_luminance": 0.1386,
+      "local_luminance_contrast": 0.0221,
+      "mean_silhouette_luminance_change": 0.1063,
+      "p90_silhouette_luminance_change": 0.269,
+      "foreground_saturation": 0.3624,
+      "local_background_saturation": 0.6364,
+      "saturation_delta": -0.274,
+      "foreground_warm_cool": 0.0636,
+      "local_background_warm_cool": -0.1106,
+      "warm_cool_delta": 0.1742,
+      "dark_outline_fraction": 0.4648,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "7d4fe9788c154a1ed549e542fac51abb99abe366445741a0f4c347c2d8f1d03f",
-        "without": "d1c61ac38e5d57f4bb951d39ea68ddf3e674eaed23d60e67c09b1395d9520278"
+        "with": "7613c72bb91d44e49852a7e1f2595169c82f5d9b9af85014dc2829bdd0c0e1e0",
+        "without": "566a223cf6cff0ac530630d2ea2397747b0071225c745db99fe1e4696e8b8292"
       }
     },
     {
       "id": "squirrel",
       "lighting": "night",
-      "habitat": "west_meadow_edge",
+      "habitat": "west_path_shoulder",
+      "support": "ground",
+      "support_zone": "west_path_shoulder_ground",
+      "support_point": [
+        -20.7000007629395,
+        -2.13000011444092
+      ],
+      "support_rect": [
+        -21.2000007629395,
+        -2.40000009536743,
+        4.5,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
         273.7,
-        458.76
+        556.37
       ],
       "isolated_bbox_pixels": [
         482,
-        840,
+        1026,
         569,
-        924
+        1110
       ],
-      "isolated_pixels": 3787,
-      "foreground_luminance": 0.0506,
-      "local_background_luminance": 0.0169,
-      "local_luminance_contrast": 0.0337,
-      "mean_silhouette_luminance_change": 0.0459,
-      "p90_silhouette_luminance_change": 0.11,
-      "foreground_saturation": 0.7955,
-      "local_background_saturation": 0.8869,
-      "saturation_delta": -0.0914,
-      "foreground_warm_cool": 0.2114,
-      "local_background_warm_cool": -0.1241,
-      "warm_cool_delta": 0.3355,
-      "dark_outline_fraction": 0.8545,
+      "isolated_pixels": 3812,
+      "foreground_luminance": 0.0713,
+      "local_background_luminance": 0.1106,
+      "local_luminance_contrast": 0.0393,
+      "mean_silhouette_luminance_change": 0.0682,
+      "p90_silhouette_luminance_change": 0.1723,
+      "foreground_saturation": 0.816,
+      "local_background_saturation": 0.6729,
+      "saturation_delta": 0.1431,
+      "foreground_warm_cool": 0.2759,
+      "local_background_warm_cool": -0.1137,
+      "warm_cool_delta": 0.3896,
+      "dark_outline_fraction": 0.744,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "1f16dcf5bda2d950b2a619ea4650622f1d883592d4abc1147bbec3671c383d44",
-        "without": "1c6825d31f501eac085659474a44ee6cf6aea45bc426bab0a4ff946e5ed21ab6"
+        "with": "91753cd9a46e742a1fa14b724f00994b5828efda9d1518f42eca77609d25c0d0",
+        "without": "38ead1edaf66ce975b5835d299eeba6151a64182d9a8004caaac2915668dbaef"
       }
     },
     {
       "id": "raccoon",
       "lighting": "night",
-      "habitat": "castle_shrub_edge",
+      "habitat": "castle_path_shoulder",
+      "support": "ground",
+      "support_zone": "castle_path_shoulder_ground",
+      "support_point": [
+        27.3999996185303,
+        -2.09999990463257
+      ],
+      "support_rect": [
+        27.2000007629395,
+        -2.40000009536743,
+        3.0,
+        0.800000011920929
+      ],
       "screen_point_1280x720": [
-        516.14,
-        463.58
+        461.38,
+        555.55
       ],
       "isolated_bbox_pixels": [
-        936,
-        843,
-        1032,
-        936
+        831,
+        1020,
+        927,
+        1111
       ],
-      "isolated_pixels": 3688,
-      "foreground_luminance": 0.0648,
-      "local_background_luminance": 0.0169,
-      "local_luminance_contrast": 0.0479,
-      "mean_silhouette_luminance_change": 0.0622,
-      "p90_silhouette_luminance_change": 0.203,
-      "foreground_saturation": 0.4029,
-      "local_background_saturation": 0.8265,
-      "saturation_delta": -0.4236,
-      "foreground_warm_cool": -0.0171,
-      "local_background_warm_cool": -0.1027,
-      "warm_cool_delta": 0.0856,
-      "dark_outline_fraction": 0.8354,
+      "isolated_pixels": 3814,
+      "foreground_luminance": 0.0643,
+      "local_background_luminance": 0.128,
+      "local_luminance_contrast": 0.0637,
+      "mean_silhouette_luminance_change": 0.0628,
+      "p90_silhouette_luminance_change": 0.187,
+      "foreground_saturation": 0.4087,
+      "local_background_saturation": 0.602,
+      "saturation_delta": -0.1933,
+      "foreground_warm_cool": -0.0242,
+      "local_background_warm_cool": -0.0978,
+      "warm_cool_delta": 0.0736,
+      "dark_outline_fraction": 0.8393,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
         "not_neon_saturated": true,
-        "outline_retained": true
+        "outline_retained": true,
+        "inside_authored_support_zone": true,
+        "ground_body_frozen": true,
+        "path_shoulder_not_foliage": true,
+        "ground_contact_shadow": true
       },
       "passed": true,
       "capture_sha256": {
-        "with": "5f6c8e4db67103e718a0a485e925ad4efec7f08711c19f1802865c873feea523",
-        "without": "5f0ee028e78bdc0da43b6c01c87350980fb7fdc34eaab56b19fc3e4a2a08e56e"
+        "with": "57b0ba5aac2724a065b4ec46165bc00eb8dfa92cd4151789b5cafb3c7e22949e",
+        "without": "2fa5807ad6e004a8e8a317826b0af00cbd12c64689275329da282a39703d3eb4"
       }
     }
   ],
   "lighting_response": [
     {
       "id": "otter",
-      "night_to_day_luminance_ratio": 0.4062,
-      "day_relative_warm_cool": 0.5595,
-      "night_relative_warm_cool": 0.3944,
+      "night_to_day_luminance_ratio": 0.4254,
+      "day_relative_warm_cool": 0.4349,
+      "night_relative_warm_cool": 0.3762,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -431,9 +592,9 @@
     },
     {
       "id": "frog",
-      "night_to_day_luminance_ratio": 0.5418,
-      "day_relative_warm_cool": 0.6285,
-      "night_relative_warm_cool": 0.5032,
+      "night_to_day_luminance_ratio": 0.4157,
+      "day_relative_warm_cool": 0.3943,
+      "night_relative_warm_cool": 0.3149,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -444,9 +605,9 @@
     },
     {
       "id": "hare",
-      "night_to_day_luminance_ratio": 0.4447,
-      "day_relative_warm_cool": 0.2987,
-      "night_relative_warm_cool": 0.142,
+      "night_to_day_luminance_ratio": 0.4416,
+      "day_relative_warm_cool": 0.3125,
+      "night_relative_warm_cool": 0.1742,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -457,9 +618,9 @@
     },
     {
       "id": "squirrel",
-      "night_to_day_luminance_ratio": 0.3531,
-      "day_relative_warm_cool": 0.4612,
-      "night_relative_warm_cool": 0.3355,
+      "night_to_day_luminance_ratio": 0.4837,
+      "day_relative_warm_cool": 0.421,
+      "night_relative_warm_cool": 0.3896,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -470,9 +631,9 @@
     },
     {
       "id": "raccoon",
-      "night_to_day_luminance_ratio": 0.5524,
-      "day_relative_warm_cool": 0.1253,
-      "night_relative_warm_cool": 0.0856,
+      "night_to_day_luminance_ratio": 0.5288,
+      "day_relative_warm_cool": 0.1272,
+      "night_relative_warm_cool": 0.0736,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
