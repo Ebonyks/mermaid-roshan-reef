@@ -577,6 +577,50 @@ ambientCG (all CC0).
   46×256 lossless-alpha thin fireplace-smoke wisp, locally chroma-isolated
   and Lanczos-downsampled from the accepted generated source for use as three
   staggered unshaded Sprite3D cards at the mountain cabin chimney.
+
+## Pearl Opera 2D career worlds and rivals (Codex, 2026-07-29)
+- `assets_src/concepts/opera_rivals_2026-07-29/authoritative_boxer_imp_reference.png`
+  — owner-supplied project character reference, copied byte-for-byte from
+  `Generated image 8 (1).png` for local provenance. External source/license:
+  owner-supplied project art; no public redistribution claim added.
+- `assets_src/concepts/opera_rivals_2026-07-29/opera_rival_boxer_match_master.png`
+  — project-authorized OpenAI image edit of that exact owner-supplied
+  reference. Modifications: preserved face/horns/body identity; replaced the
+  focus mitt with a second glove; removed chest target and pearl belt; plain
+  teal waistband; no shell/pearl/ocean motif.
+- `assets/opera/rivals/opera_rival_boxer_match.png` and
+  `assets/opera/worlds/actors/rival_boxer.png` — non-destructive 1024×1024
+  transparent runtime derivatives of the accepted boxer master, prepared by
+  `assets_src/concepts/opera_rivals_2026-07-29/prepare_boxer_match_asset.py`
+  and `tools/prepare_opera_2d_worlds.py`. Exactly two plain boxing gloves; no
+  focus mitt, target, shell, pearl, badge, crest, logo, or marine emblem.
+- `assets_src/concepts/opera_rivals_2026-07-29/opera_rival_costume_sheet_master.png`
+  — project-original OpenAI image generation based only on the owner-supplied
+  imp identity reference. Eleven fixed costume cells: pastry chef, detective,
+  ballerina, candy maker, doctor, farmer, magician, painter, astronaut
+  engineer, racecar driver, and pop star. Exact constraints and derivation are
+  recorded in the adjacent `README.md`; no external assets; all marine
+  ornament explicitly excluded.
+- `assets/opera/worlds/actors/rival_{chef,detective,ballerina,candymaker,doctor,farmer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent slices of the accepted costume sheet.
+  Neutral checker presentation removed and cells aspect-fitted by
+  `tools/prepare_opera_2d_worlds.py`; no generative reinterpretation.
+- The accepted 1024x576 scene keys remain only in `assets_src/concepts/opera_jobs_2p5d_2026-07-24/` as project-owned composition references. They are intentionally not copied or stretched into runtime because they do not meet the 2048px-per-playable-screen background rule.
+- `assets/opera/worlds/actors/roshan_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent runtime derivatives of the accepted
+  outfit hero cards in
+  `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/`. Modifications:
+  remove only edge-connected navy presentation field/card border, crop, and
+  Lanczos aspect-fit; protected character originals unchanged.
+- `assets/opera/rivals/opera_rival_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.glb`,
+  `assets_src/blender/build_opera_rival_imps.py`, and
+  `assets_src/blender/qa_opera_rivals/*.png` — preserved project-original
+  low-poly fallback/review package derived from
+  `assets/dungeon/mischief_imp.glb`. Normal 2D career-door play does not load
+  these identity-mismatched QA portraits.
+- `assets_src/concepts/opera_rivals_2026-07-29/rejected/*.png` — rejected,
+  review-only generated iterations retained for provenance and excluded from
+  runtime loading.
 <!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->
 
 ## Pearl Castle 2.5D room references and derived cards (2026-07-26)
@@ -590,7 +634,9 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/rooms/room_library.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored library and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
 - `assets/flats/castle/rooms/room_playroom.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored toy-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
 - `assets/flats/castle/rooms/room_craft_room.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the project-authored craft-room and Main Hall references; rebuilt as a wide navigable stage and resized to 1024×576.
-- `assets/flats/castle/rooms/room_kitchen.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle royal kitchen; resized to 1024×576 for mobile runtime use.
+- `assets_src/castle/room_regenerations/room_kitchen_fullframe_v2_1672x941.png` — original complete full-frame OpenAI built-in ImageGen regeneration for Mermaid Roshan: Reef of Light, using the prior Royal Kitchen composite as the composition/style reference; removes the two incompatible ocean-view windows, retains one small opaque shell light inset, and adds the gameplay-critical mint refrigerator; native generation preserved at 1672×941 with SHA-256 `8faa4e15e60503cb0303434b77461fa559a81c3d021eb6c3165e9ed176bfbf3e`; prompt and audit record retained beside it in `room_kitchen_fullframe_v2_provenance.md`; generated 2026-07-29.
+- `assets_src/castle/room_regenerations/room_kitchen_kettle_single_spout_chroma.png`, `room_kitchen_kettle_single_spout.png`, and `room_kitchen_fullframe_v3_1672x941.png` — project-original OpenAI built-in ImageGen single-object correction of the v2 stove-kettle defect; the accepted isolated golden kettle has exactly one right-side spout, was hard-key alpha extracted with despill and one-pixel contraction, and was composited only over the restored old-kettle footprint by `tools/repair_kitchen_kettle.py`; native source, exact prompt, hashes, rejected-method note, and production method are recorded in `room_kitchen_fullframe_v3_provenance.md`; generated and integrated 2026-07-29.
+- `assets/flats/castle/rooms/room_kitchen.png`, `room_kitchen_background.png`, `room_kitchen_front_left.png`, `room_kitchen_front_right.png`, `room_kitchen_item_sink.png`, `room_kitchen_item_oven.png`, `room_kitchen_item_pan_1.png` through `room_kitchen_item_pan_4.png`, `room_kitchen_item_fridge.png`, `assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_kitchen_background_r*_c*.png` — deterministic derivatives of the preserved Kitchen v3 full-frame source; normalized to the 1024×576 logical stage, separated into outline-refined Sprite3D cards, and whole-canvas Lanczos enlarged to a 4096×2304 background master split into twelve non-overlapping 1024×768 runtime tiles; generated 2026-07-29 by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
 - `assets/flats/castle/rooms/room_mermaid_pool.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle mermaid pool; resized to 1024×576 for mobile runtime use.
 - `assets/flats/castle/rooms/room_bubble_bath.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the Mermaid Pool, Kitchen, and Main Hall style references; authored as a wide room with separated bathtub, sink, and toilet; resized to 1024×576.
 - `assets/flats/castle/rooms/room_*_front_*.png` and `room_*_mid_*.png` — exact-pixel alpha crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
@@ -740,7 +786,6 @@ generator output is present in this directory or connected to runtime art.
   tiles. Exact source/derived hashes and row-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
-
 ## Sky Lagoon ambient animals - 2026-07-29
 
 - `assets/sprites/sky_lagoon/animals/*_atlas.png` and
@@ -754,3 +799,29 @@ generator output is present in this directory or connected to runtime art.
   are preserved in the adjacent source ledger. No external or protected project
   art was used as delivery pixels; the ranked black-tailed deer fawn option was
   deliberately excluded from this batch.
+
+## Pearl Castle registered Sprite3D bloom correction (2026-07-29)
+
+- `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r{0,1}_c{2,3}.png`
+  and `tiles/runtime_bleed/main_hall_room_led_r0_c{2,3}_bleed.png` ?
+  lossless recrops of the already licensed
+  `assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png`.
+  Screen B now uses source rectangle `(376, 147, 1672, 941)` so its fixture
+  sockets and walkway align with Screen A at runtime Y=215 and Y=634.
+  `tools/build_castle_hall_runtime_registration.py` records dimensions,
+  hashes, master rectangles, exact reconstruction, and the one-pixel
+  source-exact render bleed. No scaling, interpolation, padding, external art,
+  or generated pixels.
+- `shaders/castle_fixture_bloom.gdshader` ? project-authored Godot spatial
+  shader for the existing licensed 1024 x 1024 shell-sconce cutout. It keeps
+  the Sprite3D unshaded, emits HDR light from the pearl/highlights, and derives
+  a restrained aura only from the existing alpha margin. No new texture or
+  external source. License: project code.
+- `shaders/castle_portal_cutout.gdshader` ? project-authored Godot spatial
+  shader for the existing licensed Playroom portal card. It discards the
+  reused source's rectangular wall/floor area geometrically while retaining
+  the same arch and corridor pixels on one unshaded Sprite3D. No new raster,
+  external source, model, or generated art. License: project code.
+- `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
+  reused unchanged for all six interactive fixtures in this correction; SHA-256
+  remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.

@@ -889,3 +889,37 @@ The Forward Mobile lights-off capture contains no full-width clear row; at the
 former boundary, the longest exact-black run is 27 pixels rather than the
 previous 2560-pixel crack. Source/derived hashes and byte-exact row proofs are
 in `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`.
+### Registered Sprite3D bloom and overlap correction ? 2026-07-29
+
+This amendment supersedes the stale 96 x 128 fixture, visible-half lighting,
+join-column, and HDR-modulate descriptions immediately above.
+
+- Main Hall A uses preserved-master rect `(376, 212, 1672, 941)`; B uses
+  `(376, 147, 1672, 941)`. The 65-pixel correction aligns both fixture sockets
+  at runtime Y=215 and both walkway edges at Y=634. Each screen still
+  reconstructs exactly from four source tiles; no source master was changed.
+- The opaque Playroom wall/floor bridge and join-column card are rejected.
+  The same existing portal texture now passes through
+  `shaders/castle_portal_cutout.gdshader` on one unshaded Sprite3D, exposing
+  only the complete arch/corridor and seating its sill on the shared floor.
+- All six interactive lights reuse the unchanged 1024 x 1024
+  `castle_shell_sconce_touchable.png` at scale 0.125 and Y=215. Static pearl
+  niches and chandeliers remain architectural painting, not button variants.
+- `shaders/castle_fixture_bloom.gdshader` provides real HDR spatial emission
+  and a restrained same-card aura. The Environment supplies SCREEN glow,
+  bloom, and HDR spread. There is no halo child, plaque, star burst, particle,
+  extra transparent card, model, or procedural mesh.
+- At the A/B boundary the two nearest light clusters are A-right and B-left,
+  eliminating the former hard half-screen lighting division. Speedy retains
+  three visible lights total and one shadow map.
+- The Main Hall's shaded base grade is now pale and neutral enough to match the
+  finished rooms while retaining warm pools and shadows. Delta-E76 is 10.590
+  for Screen A and 7.982 for Screen B against the seven-room mean (gate <=12).
+- Final maximum visible Sprite3D count is 24. Modeled and CanvasItem world-art
+  counts remain zero; HUD/elevator Controls are unchanged.
+
+The blocking evidence is
+`audit/castle_sprite3d/castle_hall_runtime_registration.json`,
+`audit/castle_sprite3d/castle_tile_tone_audit_2026-07-29.json`, the final
+Mobile captures, and `scripts/probe_castle_pearl_art.gd` with
+`RESULT=OK checks_failed=0`.

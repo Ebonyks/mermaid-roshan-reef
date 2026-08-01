@@ -2,7 +2,7 @@
 
 ## Verdict
 
-All 24 effective touch-item sprites now meet the subjective 4.5/5 Pearl Castle style gate. The audit found two legacy outliers—the paired Main Hall pedestal fountains—and replaced them with existing approved bubble-fountain pixels. The original fountain files remain preserved.
+All 28 effective touch-item sprites now meet the subjective 4.5/5 Pearl Castle style gate. The audit found two legacy outliers—the paired Main Hall pedestal fountains—and replaced them with existing approved bubble-fountain pixels. The original fountain files remain preserved.
 
 ## Rubric
 
@@ -18,9 +18,13 @@ The score averages palette harmony, outline/edge language, rounded shell/pearl s
 | craft_room | idea_board | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_craft_room_item_idea_board.png` |
 | craft_room | paint_table | 4.6 | reuse | 4.6 | `assets/flats/castle/rooms/room_craft_room_item_paint_table.png` |
 | craft_room | palette | 4.6 | reuse | 4.6 | `assets/flats/castle/rooms/room_craft_room_item_palette.png` |
+| kitchen | fridge | 4.9 | reuse | 4.9 | `assets/flats/castle/rooms/room_kitchen_item_fridge.png` |
+| kitchen | oven | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_kitchen_item_oven.png` |
+| kitchen | pan_1 | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_kitchen_item_pan_1.png` |
+| kitchen | pan_2 | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_kitchen_item_pan_2.png` |
+| kitchen | pan_3 | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_kitchen_item_pan_3.png` |
+| kitchen | pan_4 | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_kitchen_item_pan_4.png` |
 | kitchen | sink | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_kitchen_item_sink.png` |
-| kitchen | soup_pot | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_kitchen_item_soup_pot.png` |
-| kitchen | teapot | 4.6 | reuse | 4.6 | `assets/flats/castle/rooms/room_kitchen_item_teapot.png` |
 | library | magic_book | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_library_item_magic_book.png` |
 | library | pearl_lamp | 4.6 | reuse | 4.6 | `assets/flats/castle/rooms/room_library_item_pearl_lamp.png` |
 | library | pearl_table | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_library_item_pearl_table.png` |
@@ -73,17 +77,3 @@ All 16 foreground Sprite3D card files were inventoried. They are scored as eight
 - Accepted contact sheet: `audit/castle_sprite3d/castle_item_style_accepted_contact.png`
 - Main Hall resting-layer proof: `audit/castle_sprite3d/main_hall_item_style_replacement_composite.png`
 - Exact dimensions, alpha bounds, alpha-pixel counts, and SHA-256 hashes are recorded for every item and foreground card.
-
-## Scene-level qualification — 2026-07-28
-
-The 4.5/5 item result is an individual-card compatibility gate, not a
-scene-composition score. A set of passing objects can still produce a weak
-room when it is evenly spaced, lacks material hierarchy, or occupies only one
-depth band. The current Main Hall foreground row demonstrates that failure and
-is no longer the accepted visual finish.
-
-Castle room composites are now the primary scene-level reference. Their
-clustered activity islands, shell architecture, aqua/coral/teal material
-zones, dark plum anchors, and foreground framing govern the Main Hall
-intervention. See
-`FABLE_CASTLE_VISUAL_POLISH_INTERVENTION_2026-07-28.md`.

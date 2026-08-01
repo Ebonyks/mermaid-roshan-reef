@@ -133,8 +133,8 @@ func _snapshot(act: OperaAct) -> String:
 			return base + " press=%s candies=%d syrup=%d wrap=%d parade=%d" % [
 				act.press_phase, act.candies_done, act.syrup_want, act.wrap_done, act.parade_loaded]
 		"shuffle":
-			return base + " shuffle=%s round=%d knots=%d taps=%d" % [
-				act.shuffle_phase, act.shuffle_round, act.rope_undone, act.cab_taps]
+			return base + " shuffle=%s round=%d knots=%d taps=%d finale=%.1f" % [
+				act.shuffle_phase, act.shuffle_round, act.rope_undone, act.cab_taps, act.magic_finale_t]
 		"doctor":
 			return base + " vet=%s hurt=%d limb=%d wrap=%.1f" % [act.vet_phase, act.vet_hurt, act.vet_limb, act.vet_wrap]
 		"scroll":
@@ -427,8 +427,17 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 		if act.cab_wand != null and _travel(act, act.cab_wand.position, dt) and _ready_to_act(dt):
 			act._shuffle_action(0)
 		return
-	if act.shuffle_phase != "pick":
+	if act.shuffle_phase == "finale":
+		# The finale is intentionally a steady hold rather than another tap.
+		# Travel to the wand, keep one finger down, and let the regular act tick
+		# fill the portal at the persona's real pace.
+		if act.cab_wand != null and _travel(act, act.cab_wand.position, dt):
+			act.hold_sim = true
 		return
+	if act.shuffle_phase != "pick":
+		act.hold_sim = false
+		return
+	act.hold_sim = false
 	if not _ready_to_act(dt):
 		return
 	var choice := _intent(act.hats.size(), act.bunny_at, 5000 + act.shuffle_round)
