@@ -400,7 +400,7 @@ func _build_doors() -> void:
 		{"i": 11, "base": Vector3(-9, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # astronaut
 		{"i": 12, "base": Vector3(9, 26.0, -21.4), "face": Vector3(0, 0, 1)},   # racecar
 		{"i": 13, "base": Vector3(27, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # pop star
-		{"i": 15, "base": Vector3(37.2, 26.0, 8), "face": Vector3(-1, 0, 0)},   # nursery nurse (job 12)
+		{"i": 15, "base": Vector3(37.2, 26.0, -8), "face": Vector3(-1, 0, 0)},  # nursery nurse (job 12)
 	]
 	for spot: Dictionary in spots:
 		var i := int(spot["i"])
