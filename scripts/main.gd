@@ -7,6 +7,8 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
+const DADDY_SPRITE_LOOP := preload("res://scripts/daddy_sprite_loop.gd")
+const DADDY_ANIMATED_PIXEL_SIZE := 0.079
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -2330,7 +2332,18 @@ func _build_friends() -> void:
 		var tex_name := String(fd["tex"])
 		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
 		var spr: Node3D
-		if ResourceLoader.exists(glb_path):
+		var daddy_animator: DaddySpriteLoop = null
+		if tex_name == "daddy":
+			var daddy_sprite := Sprite3D.new()
+			daddy_sprite.name = "DaddyMermaidAnimated"
+			daddy_sprite.pixel_size = DADDY_ANIMATED_PIXEL_SIZE
+			daddy_sprite.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+			add_child(daddy_sprite)
+			daddy_animator = DADDY_SPRITE_LOOP.new()
+			daddy_sprite.add_child(daddy_animator)
+			daddy_animator.setup_sprite_3d(daddy_sprite, daddy_sprite)
+			spr = daddy_sprite
+		elif ResourceLoader.exists(glb_path):
 			var fps2: PackedScene = load(glb_path)
 			var mdl: Node3D = fps2.instantiate() as Node3D
 			mdl.scale = Vector3.ONE * 4.0
@@ -2389,6 +2402,7 @@ func _build_friends() -> void:
 			add_child(orb)
 			sparks.append(orb)
 		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+			"daddy_animator": daddy_animator,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
 			"start_radius": fd.get("start_radius", 8.0),
@@ -6907,6 +6921,10 @@ func _process(delta: float) -> void:
 		var start_radius: float = float(f.get("start_radius", 8.0))
 		if not f["found"] and dd < discover_radius:
 			f["found"] = true
+			var daddy_animator: DaddySpriteLoop = \
+				f.get("daddy_animator") as DaddySpriteLoop
+			if daddy_animator != null and is_instance_valid(daddy_animator):
+				daddy_animator.play_wave()
 			(f["beacon"] as OmniLight3D).light_energy = 1.0
 			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
 			pmat2.albedo_color.a = 0.09
