@@ -811,3 +811,22 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
+
+## Pearl Castle room-selector illustrations (2026-08-01)
+
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/castle_button_*_master.png`
+  - project-generated storybook derivatives based on the project's authored
+  Pearl Castle rooms and approved replacement Opera House concept. Generated
+  with the built-in Codex ImageGen tool; project original, all rights reserved.
+  Exact prompts, references, and SHA-256 hashes are recorded in the adjacent
+  `PROMPTS.md`.
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/references/mermaid_roshan_wisconsonia_cover_reference.jpg`
+  - project-owner-supplied authoritative book cover, copied byte-for-byte and
+  preserved unchanged (SHA-256
+  `3ABEDC5EC0D878CFD7A0E1ABAB18B5C8D61E06275D87ABD29252FEF25CE24CD6`).
+  Used only as a visual reference for the simplified Library button; it was not
+  destructively edited or recompressed.
+- `assets/ui/castle_room_buttons/room_*.png` - project-authored runtime
+  derivatives built by `tools/build_castle_room_button_thumbnails.py` as
+  400 x 224 center-crop/resamples of the registered masters. No external art
+  or additional generated pixels. License remains project original.
