@@ -20,6 +20,12 @@ var pointer_pos := Vector2.ZERO
 var previous_pos := Vector2.ZERO
 var previous_angle := 0.0
 var have_angle := false
+## Friendly imp-scuffle targets for the "bop" combat beats. Each entry:
+## {home: Vector2, pos: Vector2, r: float, hp: int, captain: bool, popped: bool}
+var bop_targets: Array = []
+var bop_texture: Texture2D = null
+var bop_captain_texture: Texture2D = null
+var last_bop_pos := Vector2.ZERO
 
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1) -> void:
@@ -28,7 +34,22 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1) -> void:
 	target_choice = choice
 	held = false
 	have_angle = false
+	if next_mode != "bop":
+		bop_targets = []
 	queue_redraw()
+
+
+func set_bop_targets(targets: Array) -> void:
+	bop_targets = targets
+	queue_redraw()
+
+
+func bop_remaining() -> int:
+	var left := 0
+	for target: Dictionary in bop_targets:
+		if not bool(target.get("popped", false)):
+			left += 1
+	return left
 
 
 func set_timing_position(value: float) -> void:
@@ -52,7 +73,27 @@ func _press(at: Vector2) -> void:
 		"timing":
 			var quality := 1.0 if timing_position >= timing_zone.x and timing_position <= timing_zone.y else 0.32
 			gesture.emit("timing", quality, quality)
+		"bop":
+			_bop_press(at)
 	queue_redraw()
+
+
+func _bop_press(at: Vector2) -> void:
+	for target: Dictionary in bop_targets:
+		if bool(target.get("popped", false)):
+			continue
+		var pos: Vector2 = target.get("pos", Vector2.ZERO)
+		var reach := float(target.get("r", 44.0)) * 1.45
+		if at.distance_to(pos) <= reach:
+			target["hp"] = int(target.get("hp", 1)) - 1
+			last_bop_pos = pos
+			if int(target["hp"]) <= 0:
+				target["popped"] = true
+			gesture.emit("bop", 1.0, 1.0)
+			return
+	# a stray tap fizzles kindly and still trickles a little progress
+	last_bop_pos = at
+	gesture.emit("bop", 0.12, 0.2)
 
 
 func _drag(at: Vector2) -> void:
@@ -152,3 +193,47 @@ func _draw() -> void:
 			draw_rect(good, Color(0.46, 0.94, 0.62), true)
 			var marker_x := lerpf(bar.position.x, bar.end.x, timing_position)
 			draw_line(Vector2(marker_x, bar.position.y - 28.0), Vector2(marker_x, bar.end.y + 28.0), Color.WHITE, 12.0)
+		"bop":
+			for target: Dictionary in bop_targets:
+				if not bool(target.get("popped", false)):
+					_draw_imp(target)
+
+
+func _draw_imp(target: Dictionary) -> void:
+	var pos: Vector2 = target.get("pos", Vector2.ZERO)
+	var radius := float(target.get("r", 44.0))
+	var captain := bool(target.get("captain", false))
+	var texture := bop_captain_texture if captain else bop_texture
+	if texture != null:
+		var side := radius * 2.4
+		draw_texture_rect(texture, Rect2(pos - Vector2(side, side) * 0.5, Vector2(side, side)), false)
+		return
+	# basic place-in imp until the codex mischief-imp sprite set lands
+	var body := Color("#7a4f9a") if not captain else Color("#5f3a85")
+	var belly := Color("#b28ccd")
+	draw_circle(pos, radius * 1.18, Color(1.0, 0.86, 0.4, 0.16))
+	# curled striped horns
+	for side_sign in [-1.0, 1.0]:
+		var horn := pos + Vector2(side_sign * radius * 0.62, -radius * 0.78)
+		draw_arc(horn, radius * 0.34, PI * 0.2, PI * 1.4, 12, Color("#e8d6a8"), 9.0)
+		draw_arc(horn, radius * 0.34, PI * 0.5, PI * 1.1, 8, Color("#a8794f"), 9.0)
+	# curled tail
+	draw_arc(pos + Vector2(radius * 0.95, radius * 0.55), radius * 0.4, -PI * 0.6, PI * 0.7, 10, body.lightened(0.1), 8.0)
+	draw_circle(pos, radius, body)
+	draw_circle(pos + Vector2(0, radius * 0.3), radius * 0.55, belly)
+	# amber eyes and a friendly fanged grin
+	for side_sign in [-1.0, 1.0]:
+		var eye := pos + Vector2(side_sign * radius * 0.34, -radius * 0.22)
+		draw_circle(eye, radius * 0.17, Color("#f4b642"))
+		draw_circle(eye, radius * 0.08, Color("#33203f"))
+	draw_arc(pos + Vector2(0, radius * 0.1), radius * 0.34, 0.35, PI - 0.35, 12, Color("#33203f"), 5.0)
+	for side_sign in [-1.0, 1.0]:
+		var fang := pos + Vector2(side_sign * radius * 0.18, radius * 0.36)
+		draw_colored_polygon(PackedVector2Array([
+			fang + Vector2(-5, 0), fang + Vector2(5, 0), fang + Vector2(0, 10),
+		]), Color.WHITE)
+	if captain:
+		# plain gold waistband marks the captain (no shell or crest motifs)
+		draw_line(pos + Vector2(-radius * 0.8, radius * 0.62), pos + Vector2(radius * 0.8, radius * 0.62), Color("#e0b34c"), 8.0)
+		if int(target.get("hp", 1)) > 1:
+			draw_arc(pos, radius * 1.12, 0.0, TAU, 32, Color("#e0b34c"), 5.0)

@@ -621,6 +621,18 @@ ambientCG (all CC0).
 - `assets_src/concepts/opera_rivals_2026-07-29/rejected/*.png` — rejected,
   review-only generated iterations retained for provenance and excluded from
   runtime loading.
+- `assets/opera/worlds/props/goal_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent runtime derivatives of one accepted
+  gameplay card per career from
+  `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/` (the act's goal
+  prop, 2026-08-01). Modifications by `tools/prepare_opera_2d_props.py`:
+  remove only the edge-connected navy presentation field/card border, crop,
+  and Lanczos aspect-fit; source cards unchanged.
+- `assets/opera/worlds/actors/imp_{mischief,captain}.png` — project-original
+  BASIC placeholder sprites drawn from simple shapes by
+  `tools/prepare_opera_2d_props.py` (2026-08-01) for the career-world imp
+  scuffle beats; scheduled for replacement by codex mischief-imp sprites per
+  OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md. No external sources.
 <!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->
 
 ## Pearl Castle 2.5D room references and derived cards (2026-07-26)

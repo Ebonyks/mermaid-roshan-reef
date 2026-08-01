@@ -6178,7 +6178,9 @@ func _hit_boss() -> void:
 	var bpos: Vector3 = (boss["node"] as Node3D).position
 	m._sparkle_burst(bpos + Vector3(0, 5.0, 1.5), Color(1.0, 0.85, 0.3))
 	if m.chime != null:
-		m.chime.pitch_scale = 1.1 + 0.15 * float(3 - int(boss["hp"]))
+		# rise with every star, clamped: 15-hp bosses used to drive this negative
+		var stars_done := maxi(0, int(config.get("boss_hp", 3)) - int(boss["hp"]))
+		m.chime.pitch_scale = minf(1.9, 1.05 + 0.06 * float(stars_done))
 		m.chime.play()
 	if int(boss["hp"]) <= 0:
 		_win()

@@ -77,6 +77,26 @@ func _init() -> void:
 		_check("%s has a multi-phase job game" % career, world.phases.size() >= 4)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
+		var modes: Array[String] = []
+		for phase_dict: Dictionary in world.phases:
+			modes.append(String(phase_dict.get("mode", "")))
+		_check("%s opens with a friendly imp scuffle" % career,
+			modes.size() > 0 and modes[0] == "bop")
+		var captain_scuffle := -1
+		for mode_i in range(1, modes.size()):
+			if modes[mode_i] == "bop":
+				captain_scuffle = mode_i
+		_check("%s stages a bigger scuffle before the stage door" % career,
+			captain_scuffle > 0 and captain_scuffle < world._finale_start()
+			and float((world.phases[captain_scuffle] as Dictionary).get("goal", 0.0))
+			> float((world.phases[0] as Dictionary).get("goal", 0.0)))
+		var scuffle_free_finale := true
+		for mode_i in range(world._finale_start(), modes.size()):
+			scuffle_free_finale = scuffle_free_finale and modes[mode_i] != "bop"
+		_check("%s keeps the stage finale for the job contest" % career, scuffle_free_finale)
+		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
+		_check("%s starts in its job world, off the proscenium" % career,
+			backdrop != null and not backdrop.stage_mode)
 		if career == "detective":
 			var original_phase_count := world.phases.size()
 			while world.phase_index < world._finale_start():
@@ -96,14 +116,20 @@ func _init() -> void:
 				and act.competition.retries == 1)
 
 		var saw_finale_imp := world.rival_actor.visible and world.in_competition_finale()
+		var rival_hid_through_scuffles := true
 		var guard := 0
-		while act.state == "play" and guard < 40:
+		while act.state == "play" and guard < 60:
+			rival_hid_through_scuffles = rival_hid_through_scuffles \
+				and (world.in_competition_finale() or not world.rival_actor.visible)
 			world._on_gesture("probe", 100.0, 1.0)
 			act._process(0.05)
 			await process_frame
 			guard += 1
 			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
 		_check("%s brings in the dressed imp for the final level" % career, saw_finale_imp)
+		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
+		_check("%s finishes on the proscenium stage" % career,
+			backdrop != null and backdrop.stage_mode)
 		_check("%s can complete through one-finger phases" % career,
 			act.state == "won" and is_equal_approx(act.competition.player_progress, 1.0))
 		_check("%s awards a graded crowd reaction" % career,

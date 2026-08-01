@@ -24,11 +24,22 @@ const PALETTES := {
 var career_id := "chef"
 var elapsed := 0.0
 var redraw_t := 0.0
+## When true the career set is framed by the proscenium: arch, curtain swags,
+## footlights and a warmer wash — the finale-on-stage look. Follows the
+## stage/backstage kit grammar from assets_src/concepts/opera_house_flat/.
+var stage_mode := false
 
 
 func setup(id: String) -> void:
 	career_id = id
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	queue_redraw()
+
+
+func set_stage(on_stage: bool) -> void:
+	if stage_mode == on_stage:
+		return
+	stage_mode = on_stage
 	queue_redraw()
 
 
@@ -56,6 +67,8 @@ func _draw() -> void:
 		PackedColorArray([mid.darkened(0.20)])
 	)
 	_draw_spotlights(accent)
+	if stage_mode:
+		_draw_stage_frame(accent)
 	match career_id:
 		"chef":
 			_draw_chef(mid, accent)
@@ -83,8 +96,41 @@ func _draw() -> void:
 			_draw_popstar(mid, accent)
 
 
+func _draw_stage_frame(accent: Color) -> void:
+	var plum := Color("#58375f")
+	var brass := Color("#c88b3c")
+	# side proscenium columns with brass trim
+	for x in [0.0, size.x - 84.0]:
+		draw_rect(Rect2(x, 0, 84, size.y), plum.darkened(0.25), true)
+		draw_rect(Rect2(x + (66.0 if x == 0.0 else 4.0), 0, 14, size.y), brass, true)
+	# top valance with a scalloped hem of curtain swags
+	draw_rect(Rect2(0, 0, size.x, 96), plum, true)
+	for index in range(9):
+		var cx := 64.0 + float(index) * 144.0
+		draw_circle(Vector2(cx, 96), 46, plum.darkened(0.12))
+	draw_line(Vector2(0, 8), Vector2(size.x, 8), brass, 6.0)
+	# deep side curtains sweeping in from the corners
+	draw_polygon(
+		PackedVector2Array([Vector2(84, 0), Vector2(240, 0), Vector2(120, size.y * 0.62), Vector2(84, size.y * 0.62)]),
+		PackedColorArray([plum.lightened(0.08)])
+	)
+	draw_polygon(
+		PackedVector2Array([Vector2(size.x - 240, 0), Vector2(size.x - 84, 0), Vector2(size.x - 84, size.y * 0.62), Vector2(size.x - 120, size.y * 0.62)]),
+		PackedColorArray([plum.lightened(0.08)])
+	)
+	# footlight apron row with a warm glow — the audience side of the stage
+	var glow := 0.28 + (sin(elapsed * 3.1) + 1.0) * 0.05
+	for index in range(8):
+		var fx := 150.0 + float(index) * 140.0
+		draw_circle(Vector2(fx, size.y - 132.0), 30, Color(accent, glow * 0.5))
+		draw_circle(Vector2(fx, size.y - 132.0), 12, Color("#ffe0a6"))
+	draw_line(Vector2(84, size.y - 108.0), Vector2(size.x - 84, size.y - 108.0), brass, 8.0)
+
+
 func _draw_spotlights(accent: Color) -> void:
 	var pulse := 0.08 + (sin(elapsed * 2.2) + 1.0) * 0.025
+	if stage_mode:
+		pulse += 0.05
 	draw_polygon(
 		PackedVector2Array([Vector2(90, 0), Vector2(310, 0), Vector2(520, 620), Vector2(250, 620)]),
 		PackedColorArray([Color(accent, pulse)])
@@ -125,10 +171,20 @@ func _draw_detective(mid: Color, accent: Color) -> void:
 func _draw_ballerina(mid: Color, accent: Color) -> void:
 	for x in [210.0, 640.0, 1070.0]:
 		draw_arc(Vector2(x, 390), 170, PI, TAU, 28, accent, 14)
+	# recital floor of alternating shell/pearl tiles
+	for i in range(9):
+		var tile_col := mid.lightened(0.22) if i % 2 == 0 else Color("#f6e7c8")
+		draw_rect(Rect2(115 + i * 118, 560, 106, 34), tile_col, true)
 	for i in range(8):
 		var p1 := Vector2(120 + i * 145, 555)
 		var p2 := Vector2(200 + i * 145, 470)
 		draw_line(p1, p2, Color("#f7c3e1"), 7)
+	# slowly turning mirror ball with sparkle points
+	var ball := Vector2(640, 175)
+	draw_circle(ball, 44, mid.lightened(0.3))
+	for i in range(6):
+		var spark := ball + Vector2.from_angle(elapsed * 0.9 + float(i) * TAU / 6.0) * 62.0
+		draw_circle(spark, 5, Color.WHITE)
 	var ribbon := PackedVector2Array()
 	for i in range(25):
 		ribbon.append(Vector2(120 + i * 44, 330 + sin(float(i) * 0.7 + elapsed) * 55))
@@ -155,19 +211,41 @@ func _draw_doctor(mid: Color, accent: Color) -> void:
 	draw_rect(Rect2(475, 195, 330, 220), Color("#1c3551"), true)
 	draw_line(Vector2(560, 250), Vector2(715, 360), Color("#baf5f3"), 10)
 	draw_circle(Vector2(560, 250), 24, Color("#baf5f3"))
+	# gentle heartbeat ripple across the x-ray screen
+	var beat := PackedVector2Array()
+	for i in range(12):
+		var bump := 26.0 if i == 5 else (-20.0 if i == 6 else 0.0)
+		beat.append(Vector2(505 + i * 25, 390 + bump + sin(elapsed * 2.0) * 3.0))
+	draw_polyline(beat, Color("#8ef2c8"), 6)
+	# waiting bench with plushy patients
+	draw_rect(Rect2(430, 545, 420, 26), mid.darkened(0.1), true)
+	for i in range(3):
+		draw_circle(Vector2(505 + i * 135, 528), 26, Color.from_hsv(0.02 + float(i) * 0.1, 0.5, 1.0))
 
 
-func _draw_farmer(_mid: Color, accent: Color) -> void:
+func _draw_farmer(mid: Color, accent: Color) -> void:
+	draw_circle(Vector2(200, 150), 66, Color("#ffe294"))
 	draw_polygon(PackedVector2Array([Vector2(0, 380), Vector2(260, 250), Vector2(520, 390)]), PackedColorArray([Color("#70a865")]))
 	draw_polygon(PackedVector2Array([Vector2(440, 390), Vector2(850, 220), Vector2(1280, 390)]), PackedColorArray([Color("#5c985d")]))
 	draw_rect(Rect2(835, 270, 260, 260), Color("#b34f58"), true)
 	draw_polygon(PackedVector2Array([Vector2(800, 285), Vector2(965, 170), Vector2(1130, 285)]), PackedColorArray([Color("#5b3151")]))
 	draw_rect(Rect2(925, 390, 80, 140), Color("#f0ca82"), true)
+	# picket fence along the meadow edge
+	for i in range(10):
+		draw_rect(Rect2(90 + i * 72, 428, 14, 44), mid.lightened(0.34), true)
+	draw_line(Vector2(84, 444), Vector2(760, 444), mid.lightened(0.2), 8)
 	for row in range(4):
 		draw_line(Vector2(95, 470 + row * 48), Vector2(760, 470 + row * 48), accent.darkened(0.25), 12)
 
 
-func _draw_boxer(_mid: Color, accent: Color) -> void:
+func _draw_boxer(mid: Color, accent: Color) -> void:
+	# festive pennant line above the ring
+	for i in range(9):
+		var px := 190.0 + float(i) * 112.0
+		draw_colored_polygon(PackedVector2Array([
+			Vector2(px, 150), Vector2(px + 44, 150), Vector2(px + 22, 196),
+		]), mid.lightened(0.18) if i % 2 == 0 else accent)
+	draw_line(Vector2(180, 150), Vector2(1100, 150), Color("#efe3c8"), 5)
 	draw_polygon(
 		PackedVector2Array([Vector2(190, 520), Vector2(1090, 520), Vector2(940, 245), Vector2(340, 245)]),
 		PackedColorArray([Color("#e3b7b0")])
@@ -193,8 +271,14 @@ func _draw_magician(mid: Color, accent: Color) -> void:
 		draw_polygon(PackedVector2Array([Vector2(x, 500), Vector2(x + 160, 500), Vector2(x + 80, 420)]), PackedColorArray([Color("#2a183f")]))
 
 
-func _draw_painter(_mid: Color, accent: Color) -> void:
+func _draw_painter(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 220), 145, Color("#ffde81"))
+	# rolling paint cart stacked with pots
+	draw_rect(Rect2(70, 470, 150, 90), mid.darkened(0.2), true)
+	for i in range(3):
+		draw_circle(Vector2(102 + i * 44, 462), 18, Color.from_hsv(0.86 - float(i) * 0.28, 0.5, 0.95))
+	draw_circle(Vector2(100, 572), 16, Color("#51334e"))
+	draw_circle(Vector2(190, 572), 16, Color("#51334e"))
 	for x in [220.0, 510.0, 800.0]:
 		draw_rect(Rect2(x, 250, 250, 220), Color("#fff3d9"), true)
 		draw_rect(Rect2(x + 15, 265, 220, 190), Color.from_hsv(0.02 + x / 1800.0, 0.42, 1.0), true)
@@ -217,7 +301,11 @@ func _draw_astronaut(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 285), 35, Color("#72d9e8"))
 
 
-func _draw_racer(_mid: Color, accent: Color) -> void:
+func _draw_racer(mid: Color, accent: Color) -> void:
+	# grandstand band behind the circuit
+	draw_rect(Rect2(250, 195, 780, 74), mid.lightened(0.1), true)
+	for i in range(12):
+		draw_circle(Vector2(290 + i * 64, 232), 14, Color.from_hsv(float(i) / 12.0, 0.4, 0.98))
 	draw_polygon(
 		PackedVector2Array([Vector2(0, 540), Vector2(320, 315), Vector2(960, 315), Vector2(1280, 540), Vector2(1280, 650), Vector2(930, 410), Vector2(350, 410), Vector2(0, 650)]),
 		PackedColorArray([Color("#303655")])
