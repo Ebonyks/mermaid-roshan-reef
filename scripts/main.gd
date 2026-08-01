@@ -416,6 +416,10 @@ var touch_interactables: Array = []
 # teardown). Enemy priority rule: these get first refusal on every world
 # tap, ahead of touch_interactables — see _on_touch_world.
 var hit_engines: Array = []
+# castle-local chain engine (combat wing 2026-08): deliberately NEVER in
+# hit_engines — the castle owns its own touch path; this instance supplies
+# the pop-chain, pips and feel to the dust-bunny pops there.
+var castle_dust_he: HitEngine = null
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0

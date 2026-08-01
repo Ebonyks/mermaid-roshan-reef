@@ -518,6 +518,11 @@ func open(start_room: String = "main_hall") -> void:
 	show_room(start_room, false)
 	_activate_castle_environment()
 	_sync_hall_lighting()
+	# combat wing 2026-08: the castle's chain engine (pop-chain, pips, pitch
+	# ladder, haptics for bunny pops). Never registered in main.hit_engines —
+	# the castle layer owns its own touch path.
+	m.castle_dust_he = HitEngine.new(m)
+	m.castle_dust_he.camera = m.castle_room_camera
 
 func resume(room_id: String = "") -> void:
 	if not is_open():
@@ -585,6 +590,9 @@ func close() -> void:
 	m.castle_room_menu_open = false
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
+	if m.castle_dust_he != null:
+		m.castle_dust_he.teardown()
+		m.castle_dust_he = null
 	m._set_world_controls_enabled(true, "castle_rooms")
 	if m.player != null:
 		m.player.visible = true
@@ -596,6 +604,8 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	if m.castle_dust_he != null:
+		m.castle_dust_he.tick(delta)   # pop-chain window decay
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1043,10 +1053,12 @@ func _on_room_input(event: InputEvent) -> void:
 func _walk_cutout_to(screen_position: Vector2) -> void:
 	if m.castle_room_player_sprite == null:
 		return
-	var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
-		screen_position)
-	if bunny_foot != Vector2.INF:
-		_position_player_at_foot(bunny_foot, true)
+	# combat wing 2026-08: a tap on a bunny card pops it on the spot — the
+	# game-wide tap-the-creature verb now works here too. Walking into a
+	# bunny still pops it as well (the motor-inclusive floor stays).
+	var bunny_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+	if bunny_id != "":
+		_explode_dust_bunny(bunny_id)
 		return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
 	if _is_wide_hall():
@@ -1062,15 +1074,25 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	var foot_y: float = clampf(local_position.y, walk.position.y, walk.end.y)
 	_position_player_at_foot(Vector2(foot_x, foot_y), true)
 
+# The probe-proven card picker, kept verbatim below but returning the picked
+# bunny's id; the foot variant wraps it for the walking route and the probes.
 func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
-	if m.castle_room_camera == null:
+	var item_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+	if item_id == "":
 		return Vector2.INF
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	return record.get("contact_foot", Vector2.INF) as Vector2
+
+func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
+	if m.castle_room_camera == null:
+		return ""
 	var ray_origin: Vector3 = m.castle_room_camera.project_ray_origin(
 		screen_position)
 	var ray_direction: Vector3 = m.castle_room_camera.project_ray_normal(
 		screen_position)
 	var nearest_distance: float = INF
-	var nearest_foot: Vector2 = Vector2.INF
+	var nearest_id: String = ""
 	for item_id_value: Variant in m.castle_room_item_sprites:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
 			as Dictionary
@@ -1100,8 +1122,8 @@ func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
 				or absf(relative.dot(basis.y.normalized())) > half_height:
 			continue
 		nearest_distance = hit_distance
-		nearest_foot = record.get("contact_foot", Vector2.INF) as Vector2
-	return nearest_foot
+		nearest_id = String(item_id_value)
+	return nearest_id
 
 func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	if m.castle_room_player_sprite == null:
@@ -1960,6 +1982,18 @@ func _explode_dust_bunny(item_id: String) -> void:
 		hotspot.disabled = true
 		hotspot.queue_free()
 	m.castle_room_item_sprites.erase(item_id)
+	# combat wing 2026-08: bunny pops join the shared pop-chain (tap and
+	# walk-contact count equally), pay one pearl, and a quick trio — chain
+	# level 3 — earns a little TRIO celebration. Rescue pins keep their own
+	# reward flow and stay pearl-free.
+	if not bool(item_data.get("rescue_bunny", false)):
+		m.pearl_count += 1
+	if m.castle_dust_he != null:
+		var chain_level: int = m.castle_dust_he.note_pop(sprite.global_position)
+		if chain_level >= 3:
+			_item_burst(sprite.position, Color(StorybookUI.GOLD), 16)
+			m._audio_ref()._fanfare()
+			Juice.shake(m.castle_room_camera)
 	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
 		float(item_data.get("pitch", 1.5)))
 	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
