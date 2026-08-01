@@ -1,0 +1,486 @@
+{
+  "capture_manifest": "audit/sky_lagoon_animals_2026-08-01/after_verified/capture_manifest.json",
+  "capture_manifest_sha256": "c7450b9980fb688dcd347deccafe1eed2254101acc30223c93b5f5fee1dc56ec",
+  "reference_viewport": [
+    1280,
+    720
+  ],
+  "renderer": "Godot Mobile",
+  "gates": {
+    "mean_silhouette_luminance_change": [
+      0.012,
+      0.42
+    ],
+    "p90_silhouette_luminance_change_min": 0.035,
+    "foreground_luminance": [
+      0.03,
+      0.72
+    ],
+    "foreground_saturation_max": 0.85,
+    "dark_outline_fraction_min": 0.025,
+    "night_to_day_luminance_ratio": [
+      0.25,
+      0.72
+    ]
+  },
+  "captures": [
+    {
+      "id": "otter",
+      "lighting": "day",
+      "habitat": "arrival_shore",
+      "screen_point_1280x720": [
+        249.36,
+        476.85
+      ],
+      "isolated_bbox_pixels": [
+        428,
+        881,
+        519,
+        955
+      ],
+      "isolated_pixels": 2109,
+      "foreground_luminance": 0.0997,
+      "local_background_luminance": 0.2328,
+      "local_luminance_contrast": 0.1331,
+      "mean_silhouette_luminance_change": 0.1823,
+      "p90_silhouette_luminance_change": 0.3208,
+      "foreground_saturation": 0.7072,
+      "local_background_saturation": 0.8504,
+      "saturation_delta": -0.1432,
+      "foreground_warm_cool": 0.1029,
+      "local_background_warm_cool": -0.4566,
+      "warm_cool_delta": 0.5595,
+      "dark_outline_fraction": 0.7065,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "ff56224748ec39386d889b2a10ca6c0d6ac62d54a4acbe1c45ef32fb3c9cfda2",
+        "without": "f8d37fc825e9d34d6f7bf9d4e71ced8ffcbf1aec441bbab53cd340d2bcd228b3"
+      }
+    },
+    {
+      "id": "frog",
+      "lighting": "day",
+      "habitat": "arrival_shore",
+      "screen_point_1280x720": [
+        193.13,
+        478.76
+      ],
+      "isolated_bbox_pixels": [
+        342,
+        887,
+        398,
+        945
+      ],
+      "isolated_pixels": 1161,
+      "foreground_luminance": 0.2359,
+      "local_background_luminance": 0.2504,
+      "local_luminance_contrast": 0.0145,
+      "mean_silhouette_luminance_change": 0.1038,
+      "p90_silhouette_luminance_change": 0.2044,
+      "foreground_saturation": 0.6617,
+      "local_background_saturation": 0.8461,
+      "saturation_delta": -0.1844,
+      "foreground_warm_cool": 0.1676,
+      "local_background_warm_cool": -0.4609,
+      "warm_cool_delta": 0.6285,
+      "dark_outline_fraction": 0.1335,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "c73a1a1bd3a138df2baea358caf9c88cecd3914a9b424c69d6750fa8c537addb",
+        "without": "ccc0e85c1f36021204b3a1ab93e813fb474e9156ae2b4108fdaa3f072657013d"
+      }
+    },
+    {
+      "id": "hare",
+      "lighting": "day",
+      "habitat": "west_meadow_edge",
+      "screen_point_1280x720": [
+        263.08,
+        479.16
+      ],
+      "isolated_bbox_pixels": [
+        457,
+        853,
+        549,
+        974
+      ],
+      "isolated_pixels": 4720,
+      "foreground_luminance": 0.2611,
+      "local_background_luminance": 0.1409,
+      "local_luminance_contrast": 0.1202,
+      "mean_silhouette_luminance_change": 0.1754,
+      "p90_silhouette_luminance_change": 0.3883,
+      "foreground_saturation": 0.4851,
+      "local_background_saturation": 0.7646,
+      "saturation_delta": -0.2795,
+      "foreground_warm_cool": 0.2498,
+      "local_background_warm_cool": -0.0489,
+      "warm_cool_delta": 0.2987,
+      "dark_outline_fraction": 0.136,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "a2caeb84b8368f152f00d527dd46af3e3c8afe0afab57535a82917c7ea4d2820",
+        "without": "b05cd3eb458904cdef7c6eb1c4d344e4603bd65087939149c6f238cf683c91fe"
+      }
+    },
+    {
+      "id": "squirrel",
+      "lighting": "day",
+      "habitat": "west_meadow_edge",
+      "screen_point_1280x720": [
+        283.04,
+        456.93
+      ],
+      "isolated_bbox_pixels": [
+        497,
+        827,
+        586,
+        922
+      ],
+      "isolated_pixels": 3913,
+      "foreground_luminance": 0.1433,
+      "local_background_luminance": 0.1632,
+      "local_luminance_contrast": 0.0199,
+      "mean_silhouette_luminance_change": 0.1303,
+      "p90_silhouette_luminance_change": 0.2916,
+      "foreground_saturation": 0.824,
+      "local_background_saturation": 0.728,
+      "saturation_delta": 0.096,
+      "foreground_warm_cool": 0.3825,
+      "local_background_warm_cool": -0.0787,
+      "warm_cool_delta": 0.4612,
+      "dark_outline_fraction": 0.4393,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "de4512eb1d2aea3b73159296053fe50f8edb8fa28e09416bbf2a8f009cdf8990",
+        "without": "d363a52e1af4d9ed78f10b6fef533d4139b0901d7f337873cff96c49924b2c06"
+      }
+    },
+    {
+      "id": "raccoon",
+      "lighting": "day",
+      "habitat": "castle_shrub_edge",
+      "screen_point_1280x720": [
+        508.28,
+        462.37
+      ],
+      "isolated_bbox_pixels": [
+        919,
+        833,
+        1023,
+        934
+      ],
+      "isolated_pixels": 3923,
+      "foreground_luminance": 0.1173,
+      "local_background_luminance": 0.1218,
+      "local_luminance_contrast": 0.0045,
+      "mean_silhouette_luminance_change": 0.1028,
+      "p90_silhouette_luminance_change": 0.2632,
+      "foreground_saturation": 0.428,
+      "local_background_saturation": 0.6999,
+      "saturation_delta": -0.2719,
+      "foreground_warm_cool": 0.1079,
+      "local_background_warm_cool": -0.0174,
+      "warm_cool_delta": 0.1253,
+      "dark_outline_fraction": 0.5422,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "e7314804351c63a1ffe871ed84ec7cf99a5d4bc689ad80a19d80a60b14482ef7",
+        "without": "0e060797b5d10621256e520247376d2fc640afb0e58f25f759fcdcd821b2ca69"
+      }
+    },
+    {
+      "id": "otter",
+      "lighting": "night",
+      "habitat": "arrival_shore",
+      "screen_point_1280x720": [
+        275.95,
+        477.82
+      ],
+      "isolated_bbox_pixels": [
+        479,
+        888,
+        567,
+        956
+      ],
+      "isolated_pixels": 2134,
+      "foreground_luminance": 0.0405,
+      "local_background_luminance": 0.0392,
+      "local_luminance_contrast": 0.0013,
+      "mean_silhouette_luminance_change": 0.05,
+      "p90_silhouette_luminance_change": 0.0965,
+      "foreground_saturation": 0.6585,
+      "local_background_saturation": 0.9188,
+      "saturation_delta": -0.2603,
+      "foreground_warm_cool": -0.0075,
+      "local_background_warm_cool": -0.4019,
+      "warm_cool_delta": 0.3944,
+      "dark_outline_fraction": 0.8693,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "daafede64d651680eb6ee2c7fe3abccc48ca1bd78fe170ba5e526f879dfb9aba",
+        "without": "84da1ae1bad11e28cc81f551b0b277dd96441d217fd454fcbfbff395bc09868a"
+      }
+    },
+    {
+      "id": "frog",
+      "lighting": "night",
+      "habitat": "arrival_shore",
+      "screen_point_1280x720": [
+        190.27,
+        483.06
+      ],
+      "isolated_bbox_pixels": [
+        338,
+        903,
+        389,
+        948
+      ],
+      "isolated_pixels": 1136,
+      "foreground_luminance": 0.1278,
+      "local_background_luminance": 0.0466,
+      "local_luminance_contrast": 0.0812,
+      "mean_silhouette_luminance_change": 0.096,
+      "p90_silhouette_luminance_change": 0.2226,
+      "foreground_saturation": 0.6844,
+      "local_background_saturation": 0.9034,
+      "saturation_delta": -0.219,
+      "foreground_warm_cool": 0.0692,
+      "local_background_warm_cool": -0.434,
+      "warm_cool_delta": 0.5032,
+      "dark_outline_fraction": 0.4551,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "cb48ea685be939e922985eef43957d42dbf62e9ed36aa3ea21c1608f3785a47b",
+        "without": "a3a9d2683b9d31a411e420f664745c33a77e067cad6b27f8af540c6d860d6df4"
+      }
+    },
+    {
+      "id": "hare",
+      "lighting": "night",
+      "habitat": "west_meadow_edge",
+      "screen_point_1280x720": [
+        255.2,
+        482.72
+      ],
+      "isolated_bbox_pixels": [
+        446,
+        867,
+        527,
+        975
+      ],
+      "isolated_pixels": 4268,
+      "foreground_luminance": 0.1161,
+      "local_background_luminance": 0.0127,
+      "local_luminance_contrast": 0.1034,
+      "mean_silhouette_luminance_change": 0.1039,
+      "p90_silhouette_luminance_change": 0.2732,
+      "foreground_saturation": 0.368,
+      "local_background_saturation": 0.8074,
+      "saturation_delta": -0.4394,
+      "foreground_warm_cool": 0.066,
+      "local_background_warm_cool": -0.076,
+      "warm_cool_delta": 0.142,
+      "dark_outline_fraction": 0.4684,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "7d4fe9788c154a1ed549e542fac51abb99abe366445741a0f4c347c2d8f1d03f",
+        "without": "d1c61ac38e5d57f4bb951d39ea68ddf3e674eaed23d60e67c09b1395d9520278"
+      }
+    },
+    {
+      "id": "squirrel",
+      "lighting": "night",
+      "habitat": "west_meadow_edge",
+      "screen_point_1280x720": [
+        273.7,
+        458.76
+      ],
+      "isolated_bbox_pixels": [
+        482,
+        840,
+        569,
+        924
+      ],
+      "isolated_pixels": 3787,
+      "foreground_luminance": 0.0506,
+      "local_background_luminance": 0.0169,
+      "local_luminance_contrast": 0.0337,
+      "mean_silhouette_luminance_change": 0.0459,
+      "p90_silhouette_luminance_change": 0.11,
+      "foreground_saturation": 0.7955,
+      "local_background_saturation": 0.8869,
+      "saturation_delta": -0.0914,
+      "foreground_warm_cool": 0.2114,
+      "local_background_warm_cool": -0.1241,
+      "warm_cool_delta": 0.3355,
+      "dark_outline_fraction": 0.8545,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "1f16dcf5bda2d950b2a619ea4650622f1d883592d4abc1147bbec3671c383d44",
+        "without": "1c6825d31f501eac085659474a44ee6cf6aea45bc426bab0a4ff946e5ed21ab6"
+      }
+    },
+    {
+      "id": "raccoon",
+      "lighting": "night",
+      "habitat": "castle_shrub_edge",
+      "screen_point_1280x720": [
+        516.14,
+        463.58
+      ],
+      "isolated_bbox_pixels": [
+        936,
+        843,
+        1032,
+        936
+      ],
+      "isolated_pixels": 3688,
+      "foreground_luminance": 0.0648,
+      "local_background_luminance": 0.0169,
+      "local_luminance_contrast": 0.0479,
+      "mean_silhouette_luminance_change": 0.0622,
+      "p90_silhouette_luminance_change": 0.203,
+      "foreground_saturation": 0.4029,
+      "local_background_saturation": 0.8265,
+      "saturation_delta": -0.4236,
+      "foreground_warm_cool": -0.0171,
+      "local_background_warm_cool": -0.1027,
+      "warm_cool_delta": 0.0856,
+      "dark_outline_fraction": 0.8354,
+      "checks": {
+        "readable_silhouette": true,
+        "not_luminance_clipped": true,
+        "not_neon_saturated": true,
+        "outline_retained": true
+      },
+      "passed": true,
+      "capture_sha256": {
+        "with": "5f6c8e4db67103e718a0a485e925ad4efec7f08711c19f1802865c873feea523",
+        "without": "5f0ee028e78bdc0da43b6c01c87350980fb7fdc34eaab56b19fc3e4a2a08e56e"
+      }
+    }
+  ],
+  "lighting_response": [
+    {
+      "id": "otter",
+      "night_to_day_luminance_ratio": 0.4062,
+      "day_relative_warm_cool": 0.5595,
+      "night_relative_warm_cool": 0.3944,
+      "checks": {
+        "dims_with_scene": true,
+        "cools_with_scene": true,
+        "saturation_remains_controlled": true,
+        "night_background_is_darker": true
+      },
+      "passed": true
+    },
+    {
+      "id": "frog",
+      "night_to_day_luminance_ratio": 0.5418,
+      "day_relative_warm_cool": 0.6285,
+      "night_relative_warm_cool": 0.5032,
+      "checks": {
+        "dims_with_scene": true,
+        "cools_with_scene": true,
+        "saturation_remains_controlled": true,
+        "night_background_is_darker": true
+      },
+      "passed": true
+    },
+    {
+      "id": "hare",
+      "night_to_day_luminance_ratio": 0.4447,
+      "day_relative_warm_cool": 0.2987,
+      "night_relative_warm_cool": 0.142,
+      "checks": {
+        "dims_with_scene": true,
+        "cools_with_scene": true,
+        "saturation_remains_controlled": true,
+        "night_background_is_darker": true
+      },
+      "passed": true
+    },
+    {
+      "id": "squirrel",
+      "night_to_day_luminance_ratio": 0.3531,
+      "day_relative_warm_cool": 0.4612,
+      "night_relative_warm_cool": 0.3355,
+      "checks": {
+        "dims_with_scene": true,
+        "cools_with_scene": true,
+        "saturation_remains_controlled": true,
+        "night_background_is_darker": true
+      },
+      "passed": true
+    },
+    {
+      "id": "raccoon",
+      "night_to_day_luminance_ratio": 0.5524,
+      "day_relative_warm_cool": 0.1253,
+      "night_relative_warm_cool": 0.0856,
+      "checks": {
+        "dims_with_scene": true,
+        "cools_with_scene": true,
+        "saturation_remains_controlled": true,
+        "night_background_is_darker": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}
