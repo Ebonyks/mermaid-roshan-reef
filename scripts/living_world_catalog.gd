@@ -5,7 +5,7 @@ extends RefCounted
 # quiet continuous accents and one passive-only surprise. The runtime renderer
 # consumes these rows and the trusted probe audits them independently.
 
-const EXPECTED_STAGE_COUNT := 111
+const EXPECTED_STAGE_COUNT := 112
 
 
 static func build() -> Dictionary:
