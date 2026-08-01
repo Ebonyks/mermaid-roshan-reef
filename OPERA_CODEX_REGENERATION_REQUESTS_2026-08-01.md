@@ -461,6 +461,58 @@ playable screen, sliced into non-overlapping 1024x1024 POT cards**.
 
 ---
 
+### P3-04 — Per-career ON-STAGE minigame scene backgrounds (12) — owner drafts reviewed 2026-08-01
+
+The owner supplied five stylized first drafts in review (pastry district v2,
+painter stage, pop-star stage, detective stage, astronaut stage — generated
+at 1672x941, not yet on disk in the repo). They are ACCEPTED DIRECTION for a
+twelve-scene family: the career's finale/stage phases (stage_mode from the
+captain scuffle onward) swap the district painting for an on-stage scene.
+Deliver every draft plus the remaining seven careers into the staging folder.
+
+- **Target paths (after promotion + slicing):**
+  `assets/opera/worlds/backdrops/stage_<career>.png` for
+  chef, detective, ballerina, candymaker, doctor, farmer, boxer, magician,
+  painter, astronaut, racer, popstar. Runtime swap is a three-line change in
+  `opera_world_backdrop_2d.gd` (already structured for it: `set_stage`).
+- **Canvas:** native >=2048x1152 (16:9) master per scene, sliced to 1024x1024
+  POT cards for promotion (AGENTS.md 2048px-per-playable-screen rule). The
+  1672x941 drafts are reference-only.
+- **Shared contract (every scene):** elliptical proscenium + red/plum
+  curtains + shell-and-pearl crest + brass trim + footlight row, matching
+  the reviewed drafts and the stage/backstage kit grammar; audience
+  silhouette band confined to the bottom 15% (the game overlays the real
+  family cutouts there); the CENTER 60% width x middle 55% height must stay
+  low-detail and prop-free — the interaction panel and gesture surface sit
+  there; career stations sit at the horizontal THIRDS (they align with the
+  three choice lanes); stage-right lower area stays clear (the goal-prop
+  card docks there before the steal); NO characters, NO text/numerals, no
+  baked spotlights over the center zone.
+- **Gameplay-fit modifications found in the reviewed drafts:**
+  - *Pop star stage:* the four arrow pads MUST use the canonical mapping
+    coral=LEFT, teal=RIGHT, plum=UP, cream=DOWN (the reviewed draft shows
+    teal up / plum left / red right / cream down — regenerate the pad
+    colors; the rainbow path and rhythm ribbon are approved).
+  - *Painter stage:* pot order plum -> coral -> cream stage-left-to-right is
+    correct in the draft — lock it; space the three pots at the thirds;
+    keep the sunrise backdrop panels behind, splat puddles clear of center.
+  - *Detective stage:* the three curtained arches are the MATCH choice
+    lanes — keep them evenly spaced at the thirds; glowing footprint trail
+    should read left-to-right (the TRAIL swipe direction); magnifier
+    pedestal may stay center-low but under the clear-zone line.
+  - *Astronaut stage:* straight/elbow/ring pipe trio and flower-socket pads
+    at the thirds (choice lanes) — correct in the draft; valve tower with
+    wheel stage-right of center; rocket fully stage-right, above the
+    goal-prop dock; bubbles never flame.
+  - *Pastry district v2:* accepted direction for the P3-02 district-master
+    refresh (giant whisk bowl, shell oven, cake-stand towers, hero-cake
+    stage); keep the mid-band walkway clear where the panel sits.
+  - Remaining seven scenes: follow each career's stage_states sheet props
+    and the continuity locks in this document.
+- **Was wrong / missing:** no on-stage scene art exists at any resolution;
+  the runtime currently draws a code proscenium overlay on the district
+  painting during stage phases.
+
 ## PRIORITY 4 — Housekeeping regenerations
 
 ### P4-01 — Crest card re-slice (all 16) + flat job_crest re-slices

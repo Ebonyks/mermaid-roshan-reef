@@ -135,6 +135,16 @@ stage phases. Racer/popstar/boxer run 6 phases; the rest 7.
    charge-and-release, drag-and-drop; per-career widget flavoring) are
    future polish, not blockers.
 
+## Pending art upgrade
+
+The owner reviewed five stylized first drafts of per-career ON-STAGE scene
+backgrounds (2026-08-01). Their gameplay-fit modifications and the full
+twelve-scene request are logged as P3-04 in
+OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md. Until those land, stage
+phases draw the code proscenium overlay on the district painting;
+`OperaWorldBackdrop2D.set_stage` is already the swap point for
+`stage_<career>.png`.
+
 ## Save / probe safety
 
 ACTS, star bitmask, floor gating, save keys: untouched. All twelve rebuilt
