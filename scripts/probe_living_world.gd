@@ -74,7 +74,7 @@ func _probe_inventory() -> void:
 		"ice_dungeon": 10,
 		"ember_dungeon": 6,
 		"opera_lobby": 3,
-		"opera_act": 15,
+		"opera_act": 16,
 	}
 	var actual_groups: Dictionary = {}
 	var ambient_ids: Dictionary = {}
@@ -123,7 +123,7 @@ func _probe_inventory() -> void:
 		ReefDistricts.REGION_CENTERS.size() == 6
 		and DungeonLevel.ROOMS.size() == 10
 		and EmberFortressLevel.ROOMS.size() == 6
-		and OperaHouse.ACTS.size() == 15)
+		and OperaHouse.ACTS.size() == 16)
 
 
 func _probe_all_stage_runtime() -> void:
@@ -339,6 +339,6 @@ func _expected_stage_ids() -> Array[String]:
 		ids.append("dungeon.ice.%02d" % index)
 	for index in range(6):
 		ids.append("dungeon.ember.%02d" % index)
-	for index in range(15):
+	for index in range(16):
 		ids.append("opera.act.%02d" % index)
 	return ids

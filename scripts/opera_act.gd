@@ -525,10 +525,14 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	# Career doors enter the supplied Canvas worlds in real play. The legacy
 	# 3D engines remain available only to their detailed headless regression
 	# probes while the new 2D integration has a dedicated force flag/probe.
-	use_career_world_2d = kind != "boss" and (
-		DisplayServer.get_name() != "headless"
-		or bool(config.get("force_2d", false))
-		or OS.get_environment("OPERA_FORCE_2D") == "1"
+	# Nursery has no legacy substitute: its falling-baby verb and Faron team
+	# care remain the same Canvas game under headless and shipping runs.
+	use_career_world_2d = kind == "nursery" or (
+		kind != "boss" and (
+			DisplayServer.get_name() != "headless"
+			or bool(config.get("force_2d", false))
+			or OS.get_environment("OPERA_FORCE_2D") == "1"
+		)
 	)
 	if use_career_world_2d:
 		_start_career_world_2d()
@@ -5265,7 +5269,7 @@ func _build_doctor() -> void:
 	vet_screen.material_override = sm
 	vet_scope.add_child(vet_screen)
 	vet_screen.visible = false
-	m.show_msg("Roshan", "Doctor Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
+	m.show_msg("Roshan", "Stuffie Surgeon Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
 	_update_hud()
 
 func _tick_wash(delta: float) -> void:
@@ -7035,7 +7039,10 @@ func _win() -> void:
 			_competition_curtain_call()
 		var world_win_line := String(config.get("win_line", "What a show! Everybody is cheering!"))
 		if not performance_result.is_empty():
-			world_win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))
+			if competition != null and competition.is_cooperative():
+				world_win_line += " %s for the nursery team!" % String(performance_result.get("cheer", "Big cheers"))
+			else:
+				world_win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))
 		m.show_msg("Roshan", world_win_line, "win")
 		return
 	if kind == "paint":

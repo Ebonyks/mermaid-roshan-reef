@@ -5,12 +5,13 @@ extends Node
 
 const Lobby2D := preload("res://scripts/opera_lobby_2d.gd")
 # The Pearl Opera House (Peach Showtime model): an explorable THREE-floor
-# theatre lobby. Twelve careers are twelve marquee doors, four per floor —
+# theatre lobby. Thirteen careers are marquee doors: four on each of the first
+# two floors and five on the Grand Gallery. Nursery Nurse is displayed as job
+# 12, before Pop Star, while its appended save bit keeps old stars compatible.
 # Roshan swims the hall, walks into a door, transforms, and plays that one
-# show. Bosses do NOT use doors (owner 2026-07-21): when a floor's four shows
-# are starred, the centre of that floor's stage lights up and swimming onto
-# the glowing medallion starts the boss. Floor 3's medallion is the fifteenth
-# and final act — the Midnight Maestro's grand finale. Bubble lifts cycle
+# show. Bosses do NOT use doors (owner 2026-07-21): when a floor's shows are
+# starred, the centre of that floor's stage lights up and swimming onto the
+# glowing medallion starts the boss. Bubble lifts cycle
 # ground → balcony → top gallery → ground. OperaAct owns every performance;
 # this class owns the lobby world, door/medallion flow, star checkpoints
 # (m.opera_stars bitmask) and safe exits.
@@ -47,10 +48,10 @@ const ACTS := [
 		"win_line": "The dragon isn't grumbly anymore — he just wanted to be in the show!",
 		"floor_col": Color(0.45, 0.3, 0.4), "trim": Color(1.0, 0.65, 0.4), "curtain": Color(0.62, 0.2, 0.28)},
 	# ---------- FLOOR 2: the Starlight Balcony ----------
-	{"name": "The Plushy Care Relay", "career": "Doctor", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
+	{"name": "The Stuffie Surgeon Relay", "career": "Stuffie Surgeon", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
 		"kind": "doctor", "imps": 6, "shell": true, "patients": 4,
-		"voice": "Doctor Roshan and the doctor imp each have a plushy-care station. Find each ouch, check the X-ray and wrap every soft cast with care!",
-		"win_line": "Every plushy is wiggling again — Roshan wins the care relay!",
+		"voice": "Stuffie Surgeon Roshan and the surgeon imp each have a plushy-care station. Find each ouch, check the X-ray and wrap every soft cast with care!",
+		"win_line": "Every stuffie is wiggling again — Roshan wins the surgeon relay!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
 	{"name": "The Piggy Picnic Challenge", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
 		"kind": "scroll", "piggies": 12,
@@ -104,12 +105,17 @@ const ACTS := [
 		"voice": "The Midnight Maestro wants to steal the whole show! Use everything you've learned — SHINE the lanterns and SPARKLE when he peeks!",
 		"win_line": "The Maestro just wanted to conduct the grand finale — now the whole opera sings together!",
 		"floor_col": Color(0.16, 0.14, 0.3), "trim": Color(1.0, 0.88, 0.45), "curtain": Color(0.1, 0.09, 0.24)},
+	{"name": "The Moonbeam Nursery", "career": "Nursery Nurse", "costume": "nursery", "emoji": "🍼", "story": 3, "type": "show",
+		"kind": "nursery",
+		"voice": "Nursery Nurse Roshan! Work with Nurse Faron to catch the babies, feed them, burp them and tuck every little one into bed!",
+		"win_line": "Roshan and Faron tucked every cozy baby into the Moonbeam Nursery!",
+		"floor_col": Color(0.45, 0.68, 0.66), "trim": Color(1.0, 0.82, 0.70), "curtain": Color(0.48, 0.38, 0.68)},
 ]
 
 const L := Vector3(0.0, -2650.0, 0.0)   # lobby centre — 50 under the act stage, no overlap
 const MOVE_SPEED := 13.0
 const FLOOR_YS := [0.0, 13.0, 26.0]     # ground, Starlight Balcony, Grand Gallery
-const ALL_STARS := (1 << 15) - 1
+const ALL_STARS := (1 << 16) - 1
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
@@ -188,7 +194,8 @@ func _lobby_locked_hint(story: int) -> void:
 	if story <= 1 or _floor_shows_starred(story):
 		m.show_msg("Roshan", "The big floor finale is ready! Tap the glowing finale card!", "hint")
 	else:
-		m.show_msg("Roshan", "Win the four picture shows on this floor, then the big finale lights up!", "hint")
+		var show_count := 5 if story == 3 else 4
+		m.show_msg("Roshan", "Win the %d picture shows on this floor, then the big finale lights up!" % show_count, "hint")
 
 # ---------------- primitive helpers (mirrors OperaAct's toy-set style) ----------------
 
@@ -377,7 +384,7 @@ func _build_lobby() -> void:
 				_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
 
 func _build_doors() -> void:
-	# four career doors per floor: ground shows line the side walls, the two
+	# Four career doors occupy each lower floor; the Grand Gallery has five.
 	# gallery floors line their upper back walls. Bosses have no doors — see
 	# _build_boss_spots for the centre-stage medallions.
 	var spots: Array = [
@@ -393,6 +400,7 @@ func _build_doors() -> void:
 		{"i": 11, "base": Vector3(-9, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # astronaut
 		{"i": 12, "base": Vector3(9, 26.0, -21.4), "face": Vector3(0, 0, 1)},   # racecar
 		{"i": 13, "base": Vector3(27, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # pop star
+		{"i": 15, "base": Vector3(37.2, 26.0, 8), "face": Vector3(-1, 0, 0)},   # nursery nurse (job 12)
 	]
 	for spot: Dictionary in spots:
 		var i := int(spot["i"])
@@ -426,7 +434,7 @@ func _build_doors() -> void:
 			"armed": true, "cool": 0.0, "hint_cool": 0.0})
 
 func _build_boss_spots() -> void:
-	# one centre-stage medallion per floor: dim until the floor's four shows
+	# one centre-stage medallion per floor: dim until all that floor's shows
 	# are starred, then it glows gold and swimming onto it starts the boss
 	# the ground medallion sits ON the grand stage boards, framed by the
 	# proscenium — shows belong on the stage (owner 2026-07-21)
@@ -740,7 +748,7 @@ func _tick_doors(delta: float) -> void:
 				spot["cool"] = 4.0
 				if float(spot["hint_cool"]) <= 0.0:
 					spot["hint_cool"] = 8.0
-					m.show_msg("Roshan", "The centre stage lights up when this floor's four shows have stars! Follow the golden sparkle!", "hint")
+					m.show_msg("Roshan", "The centre stage lights up when every show on this floor has a star! Follow the golden sparkle!", "hint")
 				continue
 			spot["armed"] = false
 			spot["cool"] = 5.0

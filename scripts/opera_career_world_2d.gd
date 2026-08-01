@@ -4,11 +4,12 @@ extends CanvasLayer
 ##
 ## Each career supplies artwork and a phase list, while this class owns the
 ## common living-world language: full-bleed environment painting, Mermaid
-## Roshan and a dressed rival on opposite sides, one-finger job gestures,
-## parallel score/progress, audience energy and a graded curtain call.
+## Roshan and a dressed rival or care partner, one-finger job gestures,
+## parallel/team progress, audience energy and a graded curtain call.
 
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
+const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -22,6 +23,7 @@ const SLUGS := {
 	"painter": "painter",
 	"astronaut": "astronaut",
 	"racer": "racer",
+	"nursery": "nursery",
 	"popstar": "popstar",
 }
 
@@ -54,7 +56,7 @@ const PHASES := {
 		{"name": "PARADE", "icon": "★", "mode": "timing", "goal": 5.0, "voice": "Tap when the parade cart is in the green!"},
 	],
 	"doctor": [
-		{"name": "WASH", "icon": "●", "mode": "hold", "goal": 2.0, "voice": "Hold to wash Doctor Roshan's hands!"},
+		{"name": "WASH", "icon": "●", "mode": "hold", "goal": 2.0, "voice": "Hold to wash Stuffie Surgeon Roshan's hands!"},
 		{"name": "FIND", "icon": "?", "mode": "choice", "goal": 3.0, "voice": "Find the plushy with the glowing ouch!"},
 		{"name": "X-RAY", "icon": "◆", "mode": "choice", "goal": 3.0, "voice": "Tap the glowing cracked bone!"},
 		{"name": "CAST", "icon": "↻", "mode": "circle", "goal": 2.6, "voice": "Draw circles to wrap the soft cast!"},
@@ -101,6 +103,13 @@ const PHASES := {
 		{"name": "LAP TWO", "icon": "↔", "mode": "swipe", "goal": 3.4, "voice": "Second lap! Swipe through the faster turns!"},
 		{"name": "FINISH", "icon": "★", "mode": "timing", "goal": 3.0, "voice": "Hit the final zoom strips and cross the line!"},
 	],
+	"nursery": [
+		{"name": "WASH HANDS", "icon": "●", "mode": "hold", "goal": 2.0, "voice": "Nursery Nurse Roshan! Hold the bubbly basin to wash your hands first!"},
+		{"name": "CATCH BABIES", "icon": "↓", "mode": "catch", "goal": 5.0, "speaker": "Faron", "voice": "Slide the soft cradle under five falling babies! Pillows keep every miss safe."},
+		{"name": "FEED", "icon": "♡", "mode": "hold", "goal": 4.2, "speaker": "Faron", "voice": "Hold the warm bottle while Roshan and Faron feed every baby!"},
+		{"name": "BURP", "icon": "○", "mode": "timing", "goal": 3.0, "voice": "Tap in the green for three gentle burp-pats!"},
+		{"name": "BEDTIME", "icon": "☾", "mode": "swipe", "goal": 3.0, "speaker": "Faron", "voice": "Swipe the blankets down and tuck every sleepy baby into bed!"},
+	],
 	"popstar": [
 		{"name": "SOUND CHECK", "icon": "●", "mode": "hold", "goal": 1.4, "voice": "Hold the microphone for sound check!"},
 		{"name": "DANCE", "icon": "◆", "mode": "choice", "goal": 7.0, "voice": "Tap the glowing dance arrow!"},
@@ -121,6 +130,7 @@ const FINALE_START := {
 	"painter": 2,
 	"astronaut": 2,
 	"racer": 2,
+	"nursery": 1,
 	"popstar": 2,
 }
 var m: ReefMain
@@ -151,6 +161,7 @@ var player_name_label: Label
 var rival_name_label: Label
 var crowd_label: Label
 var surface: OperaGestureSurface
+var nursery_catch: OperaNurseryCatch
 var phase_fill: ProgressBar
 var audience: Array[TextureRect] = []
 var confetti: Array[ColorRect] = []
@@ -247,10 +258,16 @@ func _build_world() -> void:
 	player_actor.position = Vector2(35, 150)
 	player_actor.size = Vector2(420, 460)
 	root.add_child(player_actor)
-	rival_actor = _actor("res://assets/opera/worlds/actors/rival_%s.png" % career_id)
+	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
+	if career_id == "nursery":
+		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
+	rival_actor = _actor(partner_path)
 	rival_actor.position = Vector2(825, 170)
 	rival_actor.size = Vector2(410, 420)
 	root.add_child(rival_actor)
+	if career_id == "nursery":
+		player_name_label.text = "NURSE ROSHAN"
+		rival_name_label.text = "NURSE FARON"
 	_set_finale_visible(false)
 
 	var action_panel := ColorRect.new()
@@ -267,6 +284,15 @@ func _build_world() -> void:
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
 	action_panel.add_child(surface)
+	if career_id == "nursery":
+		nursery_catch = NurseryCatch.new() as OperaNurseryCatch
+		nursery_catch.name = "NurseryCatchSurface"
+		nursery_catch.position = Vector2(24, 78)
+		nursery_catch.size = Vector2(372, 266)
+		nursery_catch.visible = false
+		nursery_catch.baby_caught.connect(_on_nursery_baby_caught)
+		nursery_catch.baby_missed.connect(_on_nursery_baby_missed)
+		action_panel.add_child(nursery_catch)
 	phase_fill = ProgressBar.new()
 	phase_fill.position = Vector2(24, 362)
 	phase_fill.size = Vector2(372, 40)
@@ -309,6 +335,8 @@ func _build_audience() -> void:
 
 func _show_phase() -> void:
 	if phase_index >= phases.size():
+		if nursery_catch != null:
+			nursery_catch.stop()
 		active = false
 		if win_callback.is_valid():
 			win_callback.call()
@@ -322,11 +350,29 @@ func _show_phase() -> void:
 	var phase := phases[phase_index] as Dictionary
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
 	choice_target = (phase_index + int(competition.rival_step)) % 3
-	surface.configure(String(phase.get("mode", "tap")), accent, choice_target)
+	var mode := String(phase.get("mode", "tap"))
+	var is_nursery_catch := career_id == "nursery" and mode == "catch"
+	surface.visible = not is_nursery_catch
+	if nursery_catch != null:
+		nursery_catch.visible = is_nursery_catch
+		if is_nursery_catch:
+			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
+		else:
+			nursery_catch.stop()
+	if not is_nursery_catch:
+		var visual_context := ""
+		if career_id == "nursery":
+			visual_context = String({
+				"WASH HANDS": "nursery_wash",
+				"FEED": "nursery_feed",
+				"BURP": "nursery_burp",
+				"BEDTIME": "nursery_bedtime",
+			}.get(String(phase.get("name", "")), ""))
+		surface.configure(mode, accent, choice_target, visual_context)
 	phase_label.text = "%s   %s" % [String(phase.get("icon", "★")), String(phase.get("name", "PLAY"))]
 	phase_fill.value = 0.0
 	if m != null:
-		m.show_msg("Roshan", String(phase.get("voice", "Follow the golden sparkle!")), "hint")
+		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), "hint")
 
 
 func _finale_start() -> int:
@@ -349,8 +395,9 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	var cooperative := competition != null and competition.is_cooperative()
 	if rival_actor != null:
-		rival_actor.visible = show_finale
+		rival_actor.visible = show_finale or cooperative
 	if player_bar != null:
 		player_bar.visible = show_finale
 	if rival_bar != null:
@@ -370,6 +417,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
 		return
 	var phase := phases[phase_index] as Dictionary
+	if String(phase.get("mode", "")) == "catch":
+		return
 	if quality < 0.5:
 		competition.note_miss()
 	else:
@@ -384,8 +433,39 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		surface.target_choice = choice_target
 		surface.queue_redraw()
 	if phase_progress >= goal:
+		if career_id == "nursery":
+			_bounce_actor(rival_actor, 9.0)
 		phase_index += 1
 		_show_phase()
+
+
+func _on_nursery_baby_caught(quality: float) -> void:
+	if not active or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	if career_id != "nursery" or String(phase.get("mode", "")) != "catch":
+		return
+	competition.note_success(18 if quality >= 0.5 else 8)
+	phase_progress += 1.0
+	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
+	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
+	_bounce_actor(player_actor, 14.0)
+	_bounce_actor(rival_actor, 9.0)
+	if phase_progress >= goal:
+		phase_index += 1
+		_show_phase()
+
+
+func _on_nursery_baby_missed() -> void:
+	if not active or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	if career_id != "nursery" or String(phase.get("mode", "")) != "catch":
+		return
+	_bounce_actor(rival_actor, 14.0)
+	competition.note_miss()
+	if m != null:
+		m._say("faron", "miss", 3.0)
 
 
 func _bounce_actor(actor: Control, height: float) -> void:
@@ -427,7 +507,10 @@ func update_competition() -> void:
 		return
 	player_bar.value = competition.player_progress * 100.0
 	rival_bar.value = competition.rival_progress * 100.0
-	score_label.text = "%03d  ★  %03d" % [competition.player_score, competition.rival_score]
+	if competition.is_cooperative():
+		score_label.text = "TEAM  ♡  %03d" % (competition.player_score + competition.rival_score)
+	else:
+		score_label.text = "%03d  ★  %03d" % [competition.player_score, competition.rival_score]
 	var left := competition.time_left()
 	timer_label.text = "⏳ %02d" % int(ceilf(left)) if left >= 0.0 else ""
 	var energy := competition.audience_energy()
@@ -437,7 +520,10 @@ func update_competition() -> void:
 func celebrate(result: Dictionary) -> void:
 	active = false
 	var tier := int(result.get("tier", 1))
-	title_label.text = "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+	title_label.text = (
+		"THE BABIES ARE COZY!" if competition.is_cooperative()
+		else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+	)
 	crowd_label.text = "★  " + "★  ".repeat(tier * 2 + 1)
 	for index in range(audience.size()):
 		var fan := audience[index]
@@ -488,4 +574,6 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	if nursery_catch != null:
+		nursery_catch.stop()
 	queue_free()

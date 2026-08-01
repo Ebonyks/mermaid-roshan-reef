@@ -1,10 +1,10 @@
 class_name OperaCompetition
 extends RefCounted
-## Shared competition contract for the twelve Pearl Opera career worlds.
+## Shared competition contract for the thirteen Pearl Opera career worlds.
 ##
 ## The career engine still owns its tactile minigames. This director turns
-## those verbs into one readable stage contest: Roshan versus a dressed rival,
-## a live audience meter, a performance score, and a graded curtain call.
+## those verbs into one readable stage performance: Roshan versus a dressed
+## rival, or Roshan and Faron as a team, with audience meter and graded curtain call.
 ## Completing the act always earns the career star. The sole retry is the
 ## Detective's guided rematch: the rival reveals the answer first, so the
 ## second attempt is recognition rather than lost progress.
@@ -44,9 +44,9 @@ const CAREERS := {
 		"accent": Color(1.0, 0.62, 0.72),
 	},
 	"doctor": {
-		"world": "PLUSHY CARE RELAY",
-		"contest": "Help every plushy feel better",
-		"rival_verb": "checks a patient",
+		"world": "STUFFIE SURGEON RELAY",
+		"contest": "Find each ouch, check the X-ray and wrap every stuffie",
+		"rival_verb": "repairs a stuffie",
 		"par_time": 104.0,
 		"rival_cap": 0.80,
 		"accent": Color(0.48, 0.86, 0.92),
@@ -99,6 +99,16 @@ const CAREERS := {
 		"rival_cap": 0.94,
 		"accent": Color(1.0, 0.42, 0.40),
 	},
+	"nursery": {
+		"world": "MOONBEAM NURSERY TEAM",
+		"contest": "Catch, feed, burp and tuck in every baby with Faron",
+		"rival_verb": "helps a sleepy baby",
+		"par_time": 104.0,
+		"rival_cap": 0.82,
+		"cooperative": true,
+		"partner": "Nurse Faron",
+		"accent": Color(0.64, 0.88, 0.82),
+	},
 	"popstar": {
 		"world": "STARLIGHT SOUND-OFF",
 		"contest": "Lift the crowd higher than the rival act",
@@ -148,6 +158,10 @@ func configure(costume: String) -> void:
 
 func is_valid() -> bool:
 	return not spec.is_empty()
+
+
+func is_cooperative() -> bool:
+	return bool(spec.get("cooperative", false))
 
 
 func begin() -> void:
@@ -218,7 +232,12 @@ func complete() -> Dictionary:
 	active = false
 	completed = true
 	player_progress = 1.0
-	player_score = maxi(player_score + 180, rival_score + 40)
+	if is_cooperative():
+		rival_progress = 1.0
+		player_score += 180
+		rival_score = maxi(rival_score, int(round(float(player_score) * 0.72)))
+	else:
+		player_score = maxi(player_score + 180, rival_score + 40)
 	var par_time := maxf(10.0, float(spec.get("par_time", 80.0)))
 	var speed_quality := clampf(1.0 - maxf(0.0, elapsed - par_time * 0.58) / (par_time * 0.9), 0.0, 1.0)
 	var care_quality := clampf(1.0 - float(mistakes) * 0.055 - float(retries) * 0.18, 0.0, 1.0)
@@ -245,6 +264,7 @@ func result() -> Dictionary:
 		"rival_score": rival_score,
 		"elapsed": elapsed,
 		"retries": retries,
+		"cooperative": is_cooperative(),
 	}
 
 

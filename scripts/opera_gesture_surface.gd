@@ -1,6 +1,6 @@
 class_name OperaGestureSurface
 extends Control
-## One-finger input surface shared by all twelve 2D Opera career worlds.
+## One-finger input surface shared by all thirteen 2D Opera career worlds.
 ##
 ## The surrounding world chooses a gesture mode; this node turns mouse and
 ## touchscreen input into normalized progress without owning career state.
@@ -20,12 +20,21 @@ var pointer_pos := Vector2.ZERO
 var previous_pos := Vector2.ZERO
 var previous_angle := 0.0
 var have_angle := false
+var visual_context := ""
+var nursery_textures: Array[Texture2D] = []
 
 
-func configure(next_mode: String, next_accent: Color, choice: int = 1) -> void:
+func configure(next_mode: String, next_accent: Color, choice: int = 1, next_context: String = "") -> void:
 	mode = next_mode
 	accent = next_accent
 	target_choice = choice
+	visual_context = next_context
+	if visual_context.begins_with("nursery") and nursery_textures.is_empty():
+		for index in range(3):
+			var path := "res://assets/opera/worlds/nursery/baby_%d.png" % index
+			var texture := load(path) as Texture2D
+			if texture != null:
+				nursery_textures.append(texture)
 	held = false
 	have_angle = false
 	queue_redraw()
@@ -110,6 +119,9 @@ func _draw() -> void:
 	draw_rect(panel, Color(0.035, 0.04, 0.11, 0.78), true)
 	draw_rect(panel.grow(-4.0), accent.lightened(0.14), false, 5.0)
 	var center := size * 0.5
+	if visual_context.begins_with("nursery"):
+		_draw_nursery_context(center)
+		return
 	match mode:
 		"tap":
 			draw_circle(center, minf(size.x, size.y) * 0.23, Color(accent, 0.25))
@@ -152,3 +164,60 @@ func _draw() -> void:
 			draw_rect(good, Color(0.46, 0.94, 0.62), true)
 			var marker_x := lerpf(bar.position.x, bar.end.x, timing_position)
 			draw_line(Vector2(marker_x, bar.position.y - 28.0), Vector2(marker_x, bar.end.y + 28.0), Color.WHITE, 12.0)
+
+
+func _draw_nursery_baby(texture_index: int, center: Vector2, extent: float) -> void:
+	if nursery_textures.is_empty():
+		draw_circle(center, extent * 0.30, Color("#ffd6bf"))
+		return
+	var texture: Texture2D = nursery_textures[posmod(texture_index, nursery_textures.size())]
+	draw_texture_rect(texture, Rect2(center - Vector2.ONE * extent * 0.5, Vector2.ONE * extent), false)
+
+
+func _draw_nursery_context(center: Vector2) -> void:
+	match visual_context:
+		"nursery_wash":
+			var basin := Rect2(center.x - 92.0, center.y - 12.0, 184.0, 82.0)
+			draw_rect(basin, Color("#78cfd0"), true)
+			draw_arc(Vector2(center.x, basin.position.y), 92.0, 0.0, PI, 32, Color("#ecfbf4"), 10.0)
+			for index in range(7):
+				var bubble := center + Vector2(-70.0 + float(index) * 23.0, -48.0 - float(index % 3) * 17.0)
+				draw_circle(bubble, 9.0 + float(index % 2) * 4.0, Color(0.82, 0.97, 1.0, 0.62))
+			draw_circle(center, 25.0 if held else 17.0, Color.WHITE)
+			draw_arc(center, 58.0, 0.0, TAU, 40, accent, 9.0)
+		"nursery_feed":
+			for index in range(3):
+				_draw_nursery_baby(index, Vector2(86.0 + float(index) * 100.0, center.y + 48.0), 88.0)
+			var bottle_center := Vector2(center.x, center.y - 58.0)
+			draw_rect(Rect2(bottle_center - Vector2(23, 38), Vector2(46, 76)), Color("#edf9ee"), true)
+			draw_rect(Rect2(bottle_center - Vector2(17, 31), Vector2(34, 51)), Color("#ffe7ac"), true)
+			draw_circle(bottle_center + Vector2(0, -44), 12.0, Color("#f1b1a1"))
+			draw_arc(bottle_center, 61.0, 0.0, TAU, 40, accent, 9.0)
+			draw_circle(bottle_center, 22.0 if held else 15.0, Color.WHITE)
+		"nursery_burp":
+			_draw_nursery_baby(1, Vector2(center.x, 70.0), 105.0)
+			var hand := Vector2(center.x + 92.0, 78.0)
+			draw_circle(hand, 28.0, Color("#ffd8bd"))
+			draw_arc(hand, 45.0, -1.2, 1.2, 24, accent, 8.0)
+			var bar := Rect2(size.x * 0.12, size.y - 82.0, size.x * 0.76, 42.0)
+			draw_rect(bar, Color(0.20, 0.23, 0.38), true)
+			var good := Rect2(
+				lerpf(bar.position.x, bar.end.x, timing_zone.x), bar.position.y,
+				bar.size.x * (timing_zone.y - timing_zone.x), bar.size.y
+			)
+			draw_rect(good, Color(0.46, 0.94, 0.62), true)
+			var marker_x := lerpf(bar.position.x, bar.end.x, timing_position)
+			draw_line(Vector2(marker_x, bar.position.y - 22.0), Vector2(marker_x, bar.end.y + 22.0), Color.WHITE, 11.0)
+		"nursery_bedtime":
+			for index in range(3):
+				var crib_center := Vector2(72.0 + float(index) * 114.0, center.y + 20.0)
+				draw_rect(Rect2(crib_center - Vector2(48, 30), Vector2(96, 78)), Color("#f1d2c2"), true)
+				_draw_nursery_baby(index, crib_center - Vector2(0, 10), 74.0)
+				draw_rect(Rect2(crib_center.x - 43.0, crib_center.y + 7.0, 86.0, 37.0), Color(0.52, 0.81, 0.77, 0.94), true)
+			for star in [Vector2(55, 44), Vector2(145, 30), Vector2(235, 50)]:
+				draw_circle(star, 7.0, Color("#ffe483"))
+			var arrow_x := size.x - 24.0
+			draw_line(Vector2(arrow_x, 54.0), Vector2(arrow_x, size.y - 42.0), accent, 13.0, true)
+			draw_colored_polygon(PackedVector2Array([
+				Vector2(arrow_x - 28.0, size.y - 68.0), Vector2(arrow_x + 28.0, size.y - 68.0), Vector2(arrow_x, size.y - 28.0),
+			]), accent)

@@ -2,17 +2,20 @@ class_name OperaLobby2D
 extends CanvasLayer
 ## Touch-first Pearl Opera show picker.
 ##
-## Native Controls provide three direct floor tabs, four picture-first career
-## cards and one finale card per floor. Approved Roshan cutouts carry
-## the identity; the opaque procedural framing stays sharp and inexpensive.
+## Native Controls provide three direct floor tabs, four or five picture-first
+## career cards and one finale card per floor. Nursery Nurse is job #12 on the
+## five-card Grand Gallery while old act-bit indices remain save-compatible.
+## Approved Roshan cutouts carry the identity; the opaque procedural framing
+## stays sharp and inexpensive.
 
 const FLOOR_THEMES := [
 	{"name": "LAGOON LIGHTS", "fill": Color(0.20, 0.12, 0.34), "curtain": Color(0.78, 0.24, 0.42), "accent": Color(1.0, 0.76, 0.35)},
 	{"name": "STARLIGHT BALCONY", "fill": Color(0.10, 0.16, 0.38), "curtain": Color(0.28, 0.38, 0.72), "accent": Color(0.52, 0.90, 1.0)},
 	{"name": "GRAND GALLERY", "fill": Color(0.22, 0.10, 0.36), "curtain": Color(0.52, 0.22, 0.62), "accent": Color(1.0, 0.68, 0.90)},
 ]
-const SHOW_INDICES := [[0, 1, 2, 3], [5, 6, 7, 8], [10, 11, 12, 13]]
+const SHOW_INDICES := [[0, 1, 2, 3], [5, 6, 7, 8], [10, 11, 12, 15, 13]]
 const BOSS_INDICES := [4, 9, 14]
+const MAX_CARDS := 5
 
 var m: ReefMain
 var acts: Array
@@ -101,19 +104,18 @@ func _build() -> void:
 	home.position = Vector2(1144, 14)
 	home.pressed.connect(_leave)
 	root.add_child(home)
-	var xs := [48.0, 350.0, 652.0, 954.0]
-	for slot in range(4):
+	for slot in range(MAX_CARDS):
 		var card := Button.new()
 		card.name = "CareerCard%d" % slot
-		card.position = Vector2(xs[slot], 48)
-		card.size = Vector2(278, 336)
+		card.position = Vector2.ZERO
+		card.size = Vector2(226, 336)
 		card.clip_contents = true
 		card.pressed.connect(_choose_show.bind(slot))
 		lower_stage.add_child(card)
 		card_buttons.append(card)
-		var roshan := _actor_rect("RoshanActor", Rect2(24, 8, 230, 240))
+		var roshan := _actor_rect("RoshanActor", Rect2(18, 8, 190, 240))
 		card.add_child(roshan)
-		var star := _card_label("CompletionStar", "", Rect2(209, 0, 64, 70), 29, StorybookUI.GOLD)
+		var star := _card_label("CompletionStar", "", Rect2(156, 0, 64, 70), 29, StorybookUI.GOLD)
 		card.add_child(star)
 		card_stars.append(star)
 	boss_button = Button.new()
@@ -122,8 +124,8 @@ func _build() -> void:
 	boss_button.size = Vector2(584, 134)
 	boss_button.pressed.connect(_choose_boss)
 	lower_stage.add_child(boss_button)
-	for i in range(4):
-		var mark := _card_label("ShowMark%d" % i, "", Rect2(92 + i * 74, 64, 62, 52), 22, StorybookUI.GOLD)
+	for i in range(MAX_CARDS):
+		var mark := _card_label("ShowMark%d" % i, "", Rect2.ZERO, 22, StorybookUI.GOLD)
 		boss_button.add_child(mark)
 		boss_marks.append(mark)
 
@@ -162,6 +164,36 @@ func _card_label(node_name: String, text: String, rect: Rect2, font_size: int, c
 	return label
 
 
+func _layout_cards(show_count: int) -> void:
+	var count := clampi(show_count, 1, MAX_CARDS)
+	var card_width := 278.0 if count <= 4 else 226.0
+	var gap := 24.0 if count <= 4 else 14.0
+	var left := 48.0 if count <= 4 else 28.0
+	for slot in range(card_buttons.size()):
+		var card := card_buttons[slot]
+		var visible_slot := slot < count
+		card.visible = visible_slot
+		card.disabled = not visible_slot
+		if not visible_slot:
+			continue
+		card.position = Vector2(left + float(slot) * (card_width + gap), 48)
+		card.size = Vector2(card_width, 336)
+		var roshan := card.get_node("RoshanActor") as TextureRect
+		roshan.position = Vector2(18, 8)
+		roshan.size = Vector2(card_width - 36.0, 240)
+		var star := card.get_node("CompletionStar") as Label
+		star.position = Vector2(card_width - 69.0, 0)
+		star.size = Vector2(64, 70)
+	var mark_step := 74.0
+	var mark_width := 62.0
+	var mark_start := (boss_button.size.x - mark_width - float(count - 1) * mark_step) * 0.5
+	for slot in range(boss_marks.size()):
+		var mark := boss_marks[slot]
+		mark.visible = slot < count
+		mark.position = Vector2(mark_start + float(slot) * mark_step, 64)
+		mark.size = Vector2(mark_width, 52)
+
+
 func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 	stars = star_mask
 	if preferred_floor >= 0:
@@ -169,7 +201,7 @@ func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 	if not _floor_unlocked(floor_index):
 		floor_index = _highest_unlocked_floor()
 	_apply_floor_theme()
-	progress_label.text = "STAR %d / 15" % _star_count()
+	progress_label.text = "STAR %d / %d" % [_star_count(), acts.size()]
 	for i in range(3):
 		var unlocked := _floor_unlocked(i)
 		var complete: bool = (stars & (1 << int(BOSS_INDICES[i]))) != 0
@@ -178,7 +210,8 @@ func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 		StorybookUI.style_button(tab, "gold" if i == floor_index else ("secondary" if unlocked else "locked"), 24, 24)
 		tab.set_meta("locked", not unlocked)
 	var show_indices: Array = SHOW_INDICES[floor_index]
-	for slot in range(4):
+	_layout_cards(show_indices.size())
+	for slot in range(show_indices.size()):
 		var act_index: int = int(show_indices[slot])
 		var cfg: Dictionary = acts[act_index]
 		var career := String(cfg.get("career", "SHOW"))
@@ -186,7 +219,7 @@ func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 		var card := card_buttons[slot]
 		card.text = "\n\n\n\n\n\n\n\n" + career.to_upper()
 		card.tooltip_text = "Play %s" % String(cfg.get("name", career))
-		StorybookUI.style_button(card, "gold" if (stars & (1 << act_index)) != 0 else "secondary", 21, 32)
+		StorybookUI.style_button(card, "gold" if (stars & (1 << act_index)) != 0 else "secondary", 18 if show_indices.size() > 4 else 21, 32)
 		card.set_meta("act_index", act_index)
 		card.set_meta("picture_first", true)
 		var roshan := card.get_node("RoshanActor") as TextureRect
@@ -201,10 +234,10 @@ func refresh(star_mask: int, preferred_floor: int = -1) -> void:
 	StorybookUI.style_button(boss_button, "gold" if boss_ready else "locked", 27, 38)
 	boss_button.set_meta("locked", not boss_ready)
 	boss_button.set_meta("act_index", boss_index)
-	for slot in range(4):
+	for slot in range(show_indices.size()):
 		var show_index: int = int(show_indices[slot])
 		boss_marks[slot].text = "STAR" if (stars & (1 << show_index)) != 0 else "o"
-	boss_button.text += "\nSTAR" if boss_done else ("\nGO!" if boss_ready else "\nWIN THE FOUR SHOWS")
+	boss_button.text += "\nSTAR" if boss_done else ("\nGO!" if boss_ready else "\nWIN THE %d SHOWS" % show_indices.size())
 	_update_guide()
 
 
@@ -253,8 +286,12 @@ func _choose_floor(which: int) -> void:
 
 
 func _choose_show(slot: int) -> void:
-	if accepting_input:
-		_start_requested_act(int(SHOW_INDICES[floor_index][slot]))
+	if not accepting_input:
+		return
+	var show_indices: Array = SHOW_INDICES[floor_index]
+	if slot < 0 or slot >= show_indices.size():
+		return
+	_start_requested_act(int(show_indices[slot]))
 
 
 func _choose_boss() -> void:
@@ -299,7 +336,7 @@ func _highest_unlocked_floor() -> int:
 
 func _star_count() -> int:
 	var total := 0
-	for i in range(15):
+	for i in range(acts.size()):
 		if (stars & (1 << i)) != 0:
 			total += 1
 	return total
@@ -308,7 +345,7 @@ func _star_count() -> int:
 func _update_guide() -> void:
 	guide_button = null
 	var show_indices: Array = SHOW_INDICES[floor_index]
-	for slot in range(4):
+	for slot in range(show_indices.size()):
 		if (stars & (1 << int(show_indices[slot]))) == 0:
 			guide_button = card_buttons[slot]
 			return
