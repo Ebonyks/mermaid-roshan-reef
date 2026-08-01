@@ -5,6 +5,8 @@ extends RefCounted
 # one shallow band in front of them. All mutable state remains on ReefMain.
 
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const OPAQUE_STORYBOOK_CUTOUT_SHADER := preload(
+	"res://assets/shaders/opaque_storybook_cutout.gdshader")
 const HALF_W := 72.0
 const HALF_D := 2.6
 const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
@@ -78,12 +80,20 @@ const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
 const NIGHT_BACKDROP_TINT := Color(0.48, 0.56, 0.82, 1.0)
 const PLANE_DEPARTURE_S := 7.0
 const SLIDE_H := 11.4
-const SWING_H := 11.8
+const SWING_H := 10.8
 const SEESAW_H := 4.5
 const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
-const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 const PLAY_ROSHAN_H := 8.34
+const SWING_FRAME_TEX := "res://assets/props/story/play_swing_frame.png"
+const SWING_SEAT_TEX := "res://assets/props/story/play_swing_seat.png"
+const SWING_ARM_H := 7.55
+const SWING_SEAT_W := 4.6
+const SWING_GRIP_ARM := 5.05
+const SWING_SEAT_CONTACT_ANCHOR := Vector2(200.0, 360.0)
+const SWING_PERIOD_S := 1.72
+const SWING_MAX_ANGLE := 0.20
+const OPAQUE_CUTOUT_ALPHA_THRESHOLD := 0.24
 # The generated play frames do not share a consistent transparent-canvas
 # origin. Anchor the visible action point instead of the 512x512 canvas centre,
 # or Roshan jumps several world units between poses.
@@ -93,7 +103,6 @@ const SWING_HAND_ANCHORS := [
 	Vector2(322.5, 186.0),
 	Vector2(186.0, 184.5),
 ]
-const SWING_HAND_SOCKET := Vector2(0.0, -1.47)
 const SEESAW_SEAT_ANCHORS := [
 	Vector2(300.0, 420.0),
 	Vector2(225.0, 400.0),
@@ -363,9 +372,7 @@ func _build_playground_screen() -> void:
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		Vector3(-11.5, 6.61, PLAY_Z), SLIDE_H)
-	var swing := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
-		Vector3(3.0, 6.80, PLAY_Z), SWING_H)
+	var swing := _build_promenade_swing(Vector3(3.0, 6.30, PLAY_Z))
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		Vector3(17.0, 1.20, PLAY_Z), SEESAW_H)
@@ -382,6 +389,66 @@ func _build_playground_screen() -> void:
 		GROUND_SOCKET_LOCK)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 112.0, 1.12,
 		GROUND_SOCKET_LOCK)
+
+func _opaque_storybook_cutout(sprite: Sprite3D) -> void:
+	var material := ShaderMaterial.new()
+	material.shader = OPAQUE_STORYBOOK_CUTOUT_SHADER
+	material.set_shader_parameter("albedo_texture", sprite.texture)
+	material.set_shader_parameter("tint", sprite.modulate)
+	material.set_shader_parameter(
+		"alpha_threshold", OPAQUE_CUTOUT_ALPHA_THRESHOLD)
+	sprite.material_override = material
+	sprite.modulate = Color.WHITE
+	sprite.transparency = 0.0
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+
+func _build_promenade_swing(pos: Vector3) -> Sprite3D:
+	# The former swing was one flattened frame/rope/seat card. Roshan could
+	# change poses, but no part of the equipment could follow a pendulum arc.
+	# Reuse the approved separated playground layers so the ropes and seat own
+	# a real top-bar pivot and Roshan can share that exact motion.
+	var frame := _add_sprite(SWING_FRAME_TEX, pos, SWING_H)
+	frame.name = "SkyLagoonPromenadeSwingFrame"
+	_opaque_storybook_cutout(frame)
+
+	var pivot := Node3D.new()
+	pivot.name = "SwingSeatPivot"
+	pivot.position = Vector3(0.0, SWING_H * 0.5, 0.02)
+	frame.add_child(pivot)
+
+	var seat_texture: Texture2D = load(SWING_SEAT_TEX) as Texture2D
+	var seat := Sprite3D.new()
+	seat.name = "SwingSeatAndRopes"
+	seat.texture = seat_texture
+	seat.pixel_size = 1.0
+	seat.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	seat.shaded = false
+	seat.double_sided = true
+	seat.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	seat.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
+	var seat_y_scale: float = SWING_ARM_H / 860.0
+	var seat_visual_h: float = float(seat_texture.get_height()) * seat_y_scale
+	seat.scale = Vector3(
+		SWING_SEAT_W / float(seat_texture.get_width()), seat_y_scale, 1.0)
+	seat.position = Vector3(0.0, -seat_visual_h * 0.5, 0.03)
+	pivot.add_child(seat)
+	_opaque_storybook_cutout(seat)
+
+	frame.set_meta("swing_seat_pivot", pivot)
+	frame.set_meta("swing_seat_sprite", seat)
+	return frame
+
+func _set_promenade_swing_angle(swing: Node3D, angle: float) -> void:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot != null and is_instance_valid(pivot):
+		pivot.rotation.z = angle
+
+func _swing_grip_socket(swing: Node3D, angle: float) -> Vector2:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot == null or not is_instance_valid(pivot):
+		return Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
+	return Vector2(pivot.position.x, pivot.position.y) \
+		+ Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
 
 func _build_castle_screen() -> void:
 	# The four-tower castle remains one neutral, unshaded depth card. Its world
@@ -1036,13 +1103,12 @@ func _tick_playground_animation(delta: float) -> void:
 		_finish_playground_animation()
 
 func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
-	# Three readable pumps. The hands stay near the two painted ropes while
-	# the authored frames supply the lean, tail follow-through and seated pose.
-	# The purpose-built chair is centered (unlike the old two-seat prop), and a
-	# restrained horizontal pose scale brings the authored fist centers onto
-	# its two inward ropes without making Roshan too tall for the frame.
-	var phase: float = t * TAU / 1.72
+	# Three readable pumps. The separated seat-and-rope layer and Roshan now
+	# share one top-bar pivot; the authored frames add the pumping lean without
+	# pretending that a static chair is moving.
+	var phase: float = t * TAU / SWING_PERIOD_S
 	var arc: float = sin(phase)
+	var angle: float = arc * SWING_MAX_ANGLE
 	var frame_index := 0
 	if arc > 0.34:
 		frame_index = 1
@@ -1052,10 +1118,9 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 		frame_index = 3
 	_set_play_frame(frame_index)
 	card.scale = Vector3(1.38, 1.0, 1.0)
-	card.rotation.z = -arc * 0.055
-	var hand_socket := SWING_HAND_SOCKET + Vector2(
-		arc * 0.08 * SWING_ANIM_SCALE,
-		(1.0 - cos(phase)) * 0.12 * SWING_ANIM_SCALE)
+	card.rotation.z = angle * 0.65
+	_set_promenade_swing_angle(swing, angle)
+	var hand_socket: Vector2 = _swing_grip_socket(swing, angle)
 	_place_play_anchor(
 		card, swing, SWING_HAND_ANCHORS[frame_index], hand_socket)
 
@@ -1130,6 +1195,8 @@ func _finish_playground_animation() -> void:
 	var equipment: Node3D = play.get("equipment") as Node3D
 	if equipment != null and is_instance_valid(equipment):
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
+		if String(play.get("kind", "")) == "swing":
+			_set_promenade_swing_angle(equipment, 0.0)
 	m.g["lagoon_play_anim"] = {}
 	var animator: RoshanSpriteLoop = m.g.get(
 		"lagoon_roshan_animator") as RoshanSpriteLoop
