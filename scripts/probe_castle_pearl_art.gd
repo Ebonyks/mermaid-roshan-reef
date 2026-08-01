@@ -9,6 +9,18 @@ const ROOM_IDS: Array[String] = [
 	"main_hall", "opera_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
+const INTERACTION_MANIFEST := \
+	"res://assets/flats/castle/interactions/castle_interactions.json"
+const EXPECTED_PHYSICAL_ITEM_COUNTS := {
+	"main_hall": 7,
+	"opera_hall": 4,
+	"kitchen": 7,
+	"library": 4,
+	"playroom": 4,
+	"craft_room": 4,
+	"mermaid_pool": 4,
+	"bubble_bath": 4,
+}
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 
 var main: ReefMain
@@ -39,6 +51,9 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 			if bool(sprite.get_meta("castle_world_sprite3d", false)):
 				var source_role: String = String(sprite.get_meta(
 					"source_asset_role", ""))
+				if source_role == "portal_glow":
+					counts["portal_glow"] = int(
+						counts.get("portal_glow", 0)) + 1
 				var alpha_ok: bool = (
 					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
 					if source_role == "portal_glow" else
@@ -68,6 +83,229 @@ func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 		and tile.texture.resource_path.contains("rooms/background_tiles/")
 	)
 
+func _interaction_manifest() -> Dictionary:
+	if not FileAccess.file_exists(INTERACTION_MANIFEST):
+		return {}
+	var parsed: Variant = JSON.parse_string(
+		FileAccess.get_file_as_string(INTERACTION_MANIFEST))
+	return parsed as Dictionary if parsed is Dictionary else {}
+
+func _manifest_assets_by_instance(manifest: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	var assets: Array = manifest.get("assets", []) as Array
+	for asset_value: Variant in assets:
+		var asset: Dictionary = asset_value as Dictionary
+		var room_id: String = String(asset.get("room", ""))
+		var instances: Array = asset.get("instances", []) as Array
+		for instance_value: Variant in instances:
+			var item_id: String = String(instance_value)
+			result[room_id + ":" + item_id] = asset
+	return result
+
+func _atlas_frames_have_clear_border(sprite: Sprite3D,
+		frame_count: int) -> bool:
+	if sprite == null or sprite.texture == null \
+			or sprite.hframes < 1 or sprite.vframes < 1:
+		return false
+	var image: Image = sprite.texture.get_image()
+	if image == null or image.is_empty():
+		return false
+	if image.get_width() % sprite.hframes != 0 \
+			or image.get_height() % sprite.vframes != 0:
+		return false
+	var cell_width: int = image.get_width() / sprite.hframes
+	var cell_height: int = image.get_height() / sprite.vframes
+	for frame_index: int in range(frame_count):
+		var frame_column: int = frame_index % sprite.hframes
+		var frame_row: int = frame_index / sprite.hframes
+		var left: int = frame_column * cell_width
+		var top: int = frame_row * cell_height
+		var right: int = left + cell_width - 1
+		var bottom: int = top + cell_height - 1
+		for x: int in range(left, right + 1):
+			if image.get_pixel(x, top).a > 0.01 \
+					or image.get_pixel(x, bottom).a > 0.01:
+				return false
+		for y: int in range(top, bottom + 1):
+			if image.get_pixel(left, y).a > 0.01 \
+					or image.get_pixel(right, y).a > 0.01:
+				return false
+	return true
+
+func _hotspot_overlap_fraction(first: Button, second: Button) -> float:
+	if first == null or second == null:
+		return 1.0
+	var first_rect := Rect2(first.position, first.size)
+	var second_rect := Rect2(second.position, second.size)
+	var smaller_area: float = minf(
+		first_rect.get_area(), second_rect.get_area())
+	if smaller_area <= 0.0:
+		return 1.0
+	return first_rect.intersection(second_rect).get_area() / smaller_area
+
+func _fixture_uv_matches_frame(sprite: Sprite3D, frame_index: int) -> bool:
+	if sprite == null or sprite.hframes < 1 or sprite.vframes < 1:
+		return false
+	var material: ShaderMaterial = sprite.get_meta(
+		"castle_fixture_material", null) as ShaderMaterial
+	if material == null:
+		return false
+	var frame_column: int = frame_index % sprite.hframes
+	var frame_row: int = int(frame_index / sprite.hframes)
+	var expected_uv := Vector4(
+		float(frame_column) / float(sprite.hframes),
+		float(frame_row) / float(sprite.vframes),
+		float(frame_column + 1) / float(sprite.hframes),
+		float(frame_row + 1) / float(sprite.vframes))
+	var metadata_value: Variant = sprite.get_meta("fixture_uv_rect", null)
+	var shader_value: Variant = material.get_shader_parameter(
+		"fixture_uv_rect")
+	if not metadata_value is Vector4 or not shader_value is Vector4:
+		return false
+	var metadata_uv: Vector4 = metadata_value as Vector4
+	var shader_uv: Vector4 = shader_value as Vector4
+	return metadata_uv.is_equal_approx(expected_uv) \
+		and shader_uv.is_equal_approx(expected_uv) \
+		and shader_uv.is_equal_approx(metadata_uv)
+
+func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
+		item_id: String, manifest_asset: Dictionary) -> Dictionary:
+	var result := {
+		"contract_ok": false,
+		"sequence_ok": false,
+		"transform_ok": false,
+		"sound_ok": false,
+		"busy_guard_ok": false,
+		"fixture_uv_ok": true,
+		"menu_order_ok": true,
+		"detail": "",
+	}
+	var record: Dictionary = main.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if sprite == null or manifest_asset.is_empty():
+		result["detail"] = "missing runtime sprite or manifest asset"
+		return result
+	var frame_count: int = int(manifest_asset.get("frame_count", 0))
+	var cell_size_values: Array = manifest_asset.get("cell_size", []) as Array
+	var expected_atlas_path := "res://" + String(
+		manifest_asset.get("atlas", ""))
+	var expected_sound_path := "res://" + String(
+		manifest_asset.get("sound", ""))
+	var expected_sound_value := expected_sound_path.trim_prefix(
+		"res://assets/audio/")
+	var texture_size: Vector2 = sprite.texture.get_size() \
+		if sprite.texture != null else Vector2.ZERO
+	var expected_texture_size := Vector2.ZERO
+	if cell_size_values.size() == 2:
+		expected_texture_size = Vector2(
+			float(cell_size_values[0]) * sprite.hframes,
+			float(cell_size_values[1]) * sprite.vframes)
+	result["contract_ok"] = (
+		frame_count >= 4 and frame_count <= 12
+		and int(sprite.get_meta("animation_frame_count", 0)) == frame_count
+		and sprite.hframes == int(manifest_asset.get("hframes", 0))
+		and sprite.vframes == int(manifest_asset.get("vframes", 0))
+		and sprite.hframes * sprite.vframes >= frame_count
+		and texture_size == expected_texture_size
+		and maxf(texture_size.x, texture_size.y) <= 1024.0
+		and sprite.texture != null
+		and sprite.texture.resource_path == expected_atlas_path
+		and String(sprite.get_meta("semantic_action", ""))
+			== String(manifest_asset.get("semantic_action", ""))
+		and String(item_data.get("semantic_action", ""))
+			== String(manifest_asset.get("semantic_action", ""))
+		and String(item_data.get("sound", "")) == expected_sound_value
+		and int(item_data.get("sound_frame", -1))
+			== int(manifest_asset.get("sound_frame", -2))
+		and is_equal_approx(float(item_data.get("frame_duration", -1.0)),
+			float(manifest_asset.get("frame_duration_seconds", -2.0)))
+		and bool(sprite.get_meta("fixed_pivot_animation", false))
+		and bool(manifest_asset.get("fixed_pivot", false))
+		and not bool(manifest_asset.get("root_transform_animation", true))
+		and bool(manifest_asset.get("transparent_border", false))
+		and int(manifest_asset.get("unique_frame_count", 0)) >= 4
+		and int(manifest_asset.get("unique_frame_count", 0)) <= frame_count
+		and String(manifest_asset.get("normalized_use_review", ""))
+			== "accepted_visual_review_2026-08-01"
+		and sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and is_equal_approx(sprite.alpha_scissor_threshold, 0.5)
+		and not sprite.no_depth_test
+		and _atlas_frames_have_clear_border(sprite, frame_count)
+		and ResourceLoader.exists(expected_sound_path)
+	)
+	var start_position: Vector3 = sprite.position
+	var start_scale: Vector3 = sprite.scale
+	var start_rotation: Vector3 = sprite.rotation
+	var fixture_uv_before := true
+	if item_data.has("light_cluster"):
+		fixture_uv_before = _fixture_uv_matches_frame(sprite, 0)
+	var effects_before: int = \
+		main.castle_room_item_effect_layer.get_child_count()
+	if main.castle_room_prop_sfx != null:
+		main.castle_room_prop_sfx.stop()
+		main.castle_room_prop_sfx.stream = null
+	if room_id == "kitchen" and item_id == "fridge" \
+			and rooms.kitchen_menu_layer != null:
+		rooms._close_kitchen_menu()
+	rooms._activate_room_item(item_id)
+	var busy_started: bool = bool(sprite.get_meta("busy", false))
+	var menu_hidden_while_busy := true
+	if room_id == "kitchen" and item_id == "fridge":
+		menu_hidden_while_busy = rooms.kitchen_menu_layer == null \
+			or not rooms.kitchen_menu_layer.visible
+	var effects_after_first: int = \
+		main.castle_room_item_effect_layer.get_child_count()
+	rooms._activate_room_item(item_id)
+	result["busy_guard_ok"] = busy_started \
+		and main.castle_room_item_effect_layer.get_child_count() \
+			== effects_after_first \
+		and effects_after_first >= effects_before
+	var transform_ok := true
+	var waited_frames := 0
+	var deadline_ms: int = Time.get_ticks_msec() + 3000
+	while bool(sprite.get_meta("busy", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+		waited_frames += 1
+		transform_ok = transform_ok \
+			and sprite.position.is_equal_approx(start_position) \
+			and sprite.scale.is_equal_approx(start_scale) \
+			and sprite.rotation.is_equal_approx(start_rotation)
+	var visited: Array = sprite.get_meta(
+		"animation_frames_visited", []) as Array
+	var expected_visited: Array[int] = []
+	for frame_index: int in range(frame_count):
+		expected_visited.append(frame_index)
+	result["sequence_ok"] = busy_started \
+		and not bool(sprite.get_meta("busy", true)) \
+		and visited == expected_visited \
+		and sprite.frame == 0 \
+		and Time.get_ticks_msec() < deadline_ms
+	result["transform_ok"] = transform_ok \
+		and sprite.position.is_equal_approx(start_position) \
+		and sprite.scale.is_equal_approx(start_scale) \
+		and sprite.rotation.is_equal_approx(start_rotation)
+	if item_data.has("light_cluster"):
+		result["fixture_uv_ok"] = fixture_uv_before \
+			and sprite.frame == 0 \
+			and _fixture_uv_matches_frame(sprite, 0)
+	var played_stream: AudioStream = main.castle_room_prop_sfx.stream \
+		if main.castle_room_prop_sfx != null else null
+	result["sound_ok"] = played_stream != null \
+		and played_stream.resource_path == expected_sound_path
+	if room_id == "kitchen" and item_id == "fridge":
+		result["menu_order_ok"] = menu_hidden_while_busy \
+			and rooms.kitchen_menu_layer != null \
+			and rooms.kitchen_menu_layer.visible
+		rooms._close_kitchen_menu()
+	result["detail"] = "%s frames=%s/%s sound=%s wait=%d" % [
+		room_id + ":" + item_id, str(visited), str(expected_visited),
+		played_stream.resource_path if played_stream != null else "missing",
+		waited_frames]
+	return result
+
 func _capture(room_id: String) -> void:
 	if DisplayServer.get_name() == "headless":
 		return
@@ -93,6 +331,15 @@ func _run() -> void:
 		var friend: Dictionary = friend_value
 		friend["found"] = true
 		friend["won"] = true
+	# The trusted suite reuses one isolated profile. Earlier probes may complete
+	# this additive rescue, so establish the authored pre-rescue state explicitly
+	# before auditing its three depth cards, camera rays, and navigation contacts.
+	main.companion_id = ""
+	for rescue_key: String in [
+			"rescued_eagle", "rescued_eagle_pin_left",
+			"rescued_eagle_pin_right"]:
+		main.stuffie_wins.erase(rescue_key)
+	main.g["castle_dust_bunnies_cleared"] = {}
 	main.trophies = 5
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
@@ -179,14 +426,23 @@ func _run() -> void:
 
 	var all_rooms_ok := true
 	var all_depth_ok := true
-	var all_touch_animation_ok := true
-	var all_touch_audio_ok := true
+	var all_interaction_contracts_ok := true
+	var all_semantic_sequences_ok := true
+	var all_fixed_pivot_sequences_ok := true
+	var all_item_audio_ok := true
+	var all_busy_guards_ok := true
+	var all_fixture_uv_resets_ok := true
+	var fridge_door_then_menu_ok := false
+	var kitchen_pan_rack_group_ok := false
+	var kitchen_normalized_use_examples_ok := false
 	var approved_composite_backdrops_ok := true
 	var all_detail_tile_grids_ok := true
 	var all_room_object_bounds_ok := true
+	var opera_split_hotspots_ok := false
+	var pool_split_hotspots_ok := false
+	var opera_split_overlap := 1.0
+	var pool_split_overlap := 1.0
 	var kitchen_prop_set_ok := false
-	var kitchen_individual_animation_ok := false
-	var kitchen_fridge_glow_ok := false
 	var kitchen_menu_empty_filter_ok := false
 	var kitchen_menu_inventory_ok := false
 	var kitchen_cooking_portal_ok := false
@@ -194,9 +450,64 @@ func _run() -> void:
 	var playroom_rescue_ray_ok := false
 	var playroom_rescue_route_ok := false
 	var max_visible_world_cards := 0
+	var interaction_failures: Array[String] = []
+	var interaction_manifest: Dictionary = _interaction_manifest()
+	var manifest_assets: Dictionary = _manifest_assets_by_instance(
+		interaction_manifest)
+	var expected_physical_total := 0
+	for expected_count_value: Variant in EXPECTED_PHYSICAL_ITEM_COUNTS.values():
+		expected_physical_total += int(expected_count_value)
+	var delivered_average := float(expected_physical_total) \
+		/ float(EXPECTED_PHYSICAL_ITEM_COUNTS.size())
+	var manifest_rooms: Dictionary = interaction_manifest.get(
+		"rooms", {}) as Dictionary
+	var manifest_frame_contract: Dictionary = interaction_manifest.get(
+		"frame_contract", {}) as Dictionary
+	var manifest_unique_assets: Array = interaction_manifest.get(
+		"assets", []) as Array
+	var interaction_manifest_ok: bool = \
+		int(interaction_manifest.get("schema_version", 0)) >= 1 \
+		and manifest_unique_assets.size() == 33 \
+		and manifest_assets.size() == expected_physical_total \
+		and delivered_average >= 4.0 and delivered_average <= 6.0 \
+		and int(manifest_frame_contract.get("minimum", 0)) == 4 \
+		and int(manifest_frame_contract.get("maximum", 0)) == 12 \
+		and int(manifest_frame_contract.get("delivered", 0)) == 8
+	for expected_room_id: String in EXPECTED_PHYSICAL_ITEM_COUNTS:
+		var manifest_room: Dictionary = manifest_rooms.get(
+			expected_room_id, {}) as Dictionary
+		interaction_manifest_ok = interaction_manifest_ok \
+			and int(manifest_room.get("physical_item_count", -1)) \
+				== int(EXPECTED_PHYSICAL_ITEM_COUNTS[expected_room_id])
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
 		await _frames(2)
+		if room_id == "opera_hall":
+			var stage_star_record: Dictionary = \
+				main.castle_room_item_sprites.get("stage_star", {}) as Dictionary
+			var footlights_record: Dictionary = \
+				main.castle_room_item_sprites.get("footlights", {}) as Dictionary
+			var stage_star_hotspot: Button = \
+				stage_star_record.get("hotspot") as Button
+			var footlights_hotspot: Button = \
+				footlights_record.get("hotspot") as Button
+			opera_split_overlap = _hotspot_overlap_fraction(
+				stage_star_hotspot, footlights_hotspot)
+			opera_split_hotspots_ok = stage_star_hotspot != null \
+				and footlights_hotspot != null \
+				and opera_split_overlap <= 0.20
+		elif room_id == "mermaid_pool":
+			var flower_record: Dictionary = \
+				main.castle_room_item_sprites.get("flower_float", {}) as Dictionary
+			var star_record: Dictionary = \
+				main.castle_room_item_sprites.get("star_float", {}) as Dictionary
+			var flower_hotspot: Button = flower_record.get("hotspot") as Button
+			var star_hotspot: Button = star_record.get("hotspot") as Button
+			pool_split_overlap = _hotspot_overlap_fraction(
+				flower_hotspot, star_hotspot)
+			pool_split_hotspots_ok = flower_hotspot != null \
+				and star_hotspot != null \
+				and pool_split_overlap <= 0.20
 		var counts: Dictionary = {}
 		_audit_world_node(main.castle_room_world_root, counts)
 		var visible_sprite_count := int(counts.get("visible_sprite3d", 0))
@@ -205,9 +516,13 @@ func _run() -> void:
 		var hall_mode: bool = room_id == "main_hall"
 		var expected_room_tiles: int = (
 			12 if room_id == "kitchen" else 4)
-		var expected_room_items: int = 7 if room_id == "kitchen" else (
-			6 if room_id == "playroom"
-				and not rooms._playroom_rescue_done() else 3)
+		var expected_physical_items: int = int(
+			EXPECTED_PHYSICAL_ITEM_COUNTS[room_id])
+		var expected_room_items: int = expected_physical_items
+		if hall_mode:
+			expected_room_items += 3
+		elif room_id == "playroom" and not rooms._playroom_rescue_done():
+			expected_room_items += 3
 		var background_ready: bool = (
 			main.castle_room_background_tiles.size() == 8
 			and main.castle_room_background_tiles.all(
@@ -226,12 +541,15 @@ func _run() -> void:
 		var room_ok: bool = main.castle_room_id == room_id \
 			and main.castle_room_background is Sprite3D \
 			and not main.castle_room_background.shaded \
-			and main.castle_room_item_sprites.size() \
-				== (10 if hall_mode else expected_room_items) \
+			and main.castle_room_item_sprites.size() == expected_room_items \
+			and main.castle_room_item_hotspot_layer.get_child_count() \
+				== (7 if hall_mode else 4 if room_id == "kitchen" \
+					else expected_physical_items) \
 			and background_ready \
 			and int(counts.get("modeled", 0)) == 0 \
 			and int(counts.get("canvas_world", 0)) == 0 \
 			and int(counts.get("bad_alpha_depth", 0)) == 0 \
+			and int(counts.get("portal_glow", 0)) == 0 \
 			and int(counts.get("shaded", 0)) \
 				== (9 if hall_mode else 8) \
 			and int(counts.get("missing_texture", 0)) == 0
@@ -242,12 +560,17 @@ func _run() -> void:
 		else:
 			depths[snappedf(
 				main.castle_room_detail_tiles[0].position.z, 0.01)] = true
+		var semantic_item_ids: Array[String] = []
 		for item_id_value: Variant in main.castle_room_item_sprites:
 			var record: Dictionary = main.castle_room_item_sprites[
 				item_id_value] as Dictionary
 			var sprite: Sprite3D = record.get("sprite") as Sprite3D
 			if sprite != null:
 				depths[snappedf(sprite.position.z, 0.01)] = true
+				if String(sprite.get_meta("semantic_action", "")) != "":
+					semantic_item_ids.append(String(item_id_value))
+		interaction_manifest_ok = interaction_manifest_ok \
+			and semantic_item_ids.size() == expected_physical_items
 		for foreground: Node in main.castle_room_front_layer.get_children():
 			depths[snappedf((foreground as Sprite3D).position.z, 0.01)] = true
 		all_rooms_ok = all_rooms_ok and room_ok
@@ -343,28 +666,45 @@ func _run() -> void:
 				playroom_rescue_route_ok = playroom_rescue_route_ok \
 					and playroom_walk.has_point(contact_foot)
 		await _capture(room_id)
-		var item_keys: Array = main.castle_room_item_sprites.keys()
-		var first_item_id: String = String(item_keys[0])
-		var first_record: Dictionary = main.castle_room_item_sprites[
-			first_item_id] as Dictionary
-		var first_sprite: Sprite3D = first_record.get("sprite") as Sprite3D
-		var start_position: Vector3 = first_sprite.position
-		var start_scale: Vector3 = first_sprite.scale
-		var start_rotation: float = first_sprite.rotation.z
-		rooms._activate_room_item(first_item_id)
-		await _frames(3)
-		var first_item_animated: bool = \
-			bool(first_sprite.get_meta("busy", false)) \
-			and (
-				first_sprite.position.distance_to(start_position) > 0.0001
-				or first_sprite.scale.distance_to(start_scale) > 0.0001
-				or absf(first_sprite.rotation.z - start_rotation) > 0.0001
-			)
-		all_touch_animation_ok = all_touch_animation_ok \
-			and first_item_animated
-		all_touch_audio_ok = all_touch_audio_ok \
-			and main.castle_room_prop_sfx != null \
-			and main.castle_room_prop_sfx.stream != null
+		for semantic_item_id: String in semantic_item_ids:
+			var manifest_key := room_id + ":" + semantic_item_id
+			var manifest_asset: Dictionary = manifest_assets.get(
+				manifest_key, {}) as Dictionary
+			var audit: Dictionary = await _run_semantic_animation(
+				rooms, room_id, semantic_item_id, manifest_asset)
+			all_interaction_contracts_ok = all_interaction_contracts_ok \
+				and bool(audit.get("contract_ok", false))
+			all_semantic_sequences_ok = all_semantic_sequences_ok \
+				and bool(audit.get("sequence_ok", false))
+			all_fixed_pivot_sequences_ok = all_fixed_pivot_sequences_ok \
+				and bool(audit.get("transform_ok", false))
+			all_item_audio_ok = all_item_audio_ok \
+				and bool(audit.get("sound_ok", false))
+			all_busy_guards_ok = all_busy_guards_ok \
+				and bool(audit.get("busy_guard_ok", false))
+			all_fixture_uv_resets_ok = all_fixture_uv_resets_ok \
+				and bool(audit.get("fixture_uv_ok", false))
+			if room_id == "kitchen" and semantic_item_id == "fridge":
+				fridge_door_then_menu_ok = bool(audit.get(
+					"menu_order_ok", false))
+			if not bool(audit.get("contract_ok", false)) \
+					or not bool(audit.get("sequence_ok", false)) \
+					or not bool(audit.get("transform_ok", false)) \
+					or not bool(audit.get("sound_ok", false)) \
+					or not bool(audit.get("busy_guard_ok", false)) \
+					or not bool(audit.get("fixture_uv_ok", false)):
+				interaction_failures.append(String(audit.get("detail", "")))
+		if hall_mode:
+			for semantic_item_id: String in semantic_item_ids:
+				var hall_record: Dictionary = main.castle_room_item_sprites.get(
+					semantic_item_id, {}) as Dictionary
+				var hall_data: Dictionary = hall_record.get("data", {}) as Dictionary
+				if not hall_data.has("light_cluster"):
+					continue
+				var hall_sprite: Sprite3D = hall_record.get("sprite") as Sprite3D
+				main.castle_room_light_states[semantic_item_id] = true
+				rooms._apply_sconce_visual(hall_sprite, true)
+			rooms._sync_hall_lighting()
 		if room_id == "kitchen":
 			var kitchen_ids: Array[String] = [
 				"sink", "pan_1", "pan_2", "pan_3", "pan_4", "oven",
@@ -373,44 +713,46 @@ func _run() -> void:
 			kitchen_prop_set_ok = kitchen_ids.all(
 				func(kitchen_id: String) -> bool:
 					return main.castle_room_item_sprites.has(kitchen_id))
-			kitchen_individual_animation_ok = first_item_animated
-			var fridge_glow: Sprite3D = \
-				main.castle_room_item_visual_layer.get_node_or_null(
-					"PortalGlow_fridge") as Sprite3D
-			kitchen_fridge_glow_ok = (
-				fridge_glow != null
-				and fridge_glow.texture != null
-				and not fridge_glow.shaded
-				and String(fridge_glow.get_meta(
-					"source_asset_role", "")) == "portal_glow"
-				and fridge_glow.modulate.a >= 0.12
-				and fridge_glow.modulate.a <= 0.31
-			)
+			var expected_pan_frames: Array[int] = []
+			for pan_frame: int in range(8):
+				expected_pan_frames.append(pan_frame)
+			kitchen_pan_rack_group_ok = \
+				main.castle_room_item_hotspot_layer.get_node_or_null(
+					"Touch_pan_rack") is Button
+			for pan_id: String in ["pan_1", "pan_2", "pan_3", "pan_4"]:
+				var pan_record: Dictionary = main.castle_room_item_sprites.get(
+					pan_id, {}) as Dictionary
+				var pan_sprite: Sprite3D = pan_record.get("sprite") as Sprite3D
+				var pan_data: Dictionary = pan_record.get("data", {}) as Dictionary
+				kitchen_pan_rack_group_ok = kitchen_pan_rack_group_ok \
+					and pan_sprite != null \
+					and String(pan_data.get("hotspot_group", "")) \
+						== "pan_rack" \
+					and (pan_record.get("hotspot") != null) == (pan_id == "pan_1") \
+					and (pan_sprite.get_meta(
+						"animation_frames_visited", []) as Array) \
+						== expected_pan_frames
+			var kitchen_sink: Sprite3D = (
+				main.castle_room_item_sprites["sink"] as Dictionary
+			).get("sprite") as Sprite3D
+			var kitchen_oven: Sprite3D = (
+				main.castle_room_item_sprites["oven"] as Dictionary
+			).get("sprite") as Sprite3D
+			var kitchen_fridge: Sprite3D = (
+				main.castle_room_item_sprites["fridge"] as Dictionary
+			).get("sprite") as Sprite3D
+			kitchen_normalized_use_examples_ok = kitchen_sink != null \
+				and kitchen_oven != null and kitchen_fridge != null \
+				and String(kitchen_sink.get_meta("semantic_action", "")) \
+					== "turn_faucet_and_run_water" \
+				and String(kitchen_oven.get_meta("semantic_action", "")) \
+					== "open_oven_door_and_warm_fire" \
+				and String(kitchen_fridge.get_meta("semantic_action", "")) \
+					== "unlatch_and_open_fridge_door"
 			main.opera_pantry.erase("carrots")
 			main.opera_pantry["sugar"] = 2
-			for kitchen_id: String in kitchen_ids:
-				if kitchen_id == first_item_id:
-					continue
-				var kitchen_record: Dictionary = \
-					main.castle_room_item_sprites[kitchen_id] as Dictionary
-				var kitchen_sprite: Sprite3D = \
-					kitchen_record.get("sprite") as Sprite3D
-				var kitchen_start_position: Vector3 = kitchen_sprite.position
-				var kitchen_start_scale: Vector3 = kitchen_sprite.scale
-				var kitchen_start_rotation: float = kitchen_sprite.rotation.z
-				rooms._activate_room_item(kitchen_id)
-				await _frames(3)
-				kitchen_individual_animation_ok = \
-					kitchen_individual_animation_ok \
-					and bool(kitchen_sprite.get_meta("busy", false)) \
-					and (
-						kitchen_sprite.position.distance_to(
-							kitchen_start_position) > 0.0001
-						or kitchen_sprite.scale.distance_to(
-							kitchen_start_scale) > 0.0001
-						or absf(kitchen_sprite.rotation.z
-							- kitchen_start_rotation) > 0.0001
-					)
+			rooms._open_kitchen_menu()
+			await _frames(1)
 			var empty_pantry_label: Label = \
 				rooms.kitchen_menu_stage.get_node_or_null(
 					"KitchenPantryInventory") as Label \
@@ -475,12 +817,32 @@ func _run() -> void:
 		all_detail_tile_grids_ok)
 	_ck("all_destination_room_objects_within_authored_canvas",
 		all_room_object_bounds_ok)
-	_ck("all_rooms_touch_animation_live", all_touch_animation_ok)
-	_ck("all_rooms_touch_audio_live", all_touch_audio_ok)
+	_ck("opera_star_and_footlights_hotspots_are_distinct",
+		opera_split_hotspots_ok,
+		"overlap=%.3f of smaller hotspot" % opera_split_overlap)
+	_ck("pool_flower_and_star_hotspots_are_distinct",
+		pool_split_hotspots_ok,
+		"overlap=%.3f of smaller hotspot" % pool_split_overlap)
+	_ck("interaction_manifest_matches_38_runtime_items",
+		interaction_manifest_ok,
+		"count=%d average=%.2f" % [expected_physical_total, delivered_average])
+	_ck("all_interactions_use_4_to_12_frame_semantic_atlases",
+		all_interaction_contracts_ok, ";".join(interaction_failures))
+	_ck("all_interactions_visit_every_frame_and_reset",
+		all_semantic_sequences_ok, ";".join(interaction_failures))
+	_ck("all_item_specific_sequences_keep_fixed_root_transform",
+		all_fixed_pivot_sequences_ok, ";".join(interaction_failures))
+	_ck("all_interactions_play_manifest_castle_audio",
+		all_item_audio_ok, ";".join(interaction_failures))
+	_ck("all_interactions_reject_reentry_while_busy",
+		all_busy_guards_ok, ";".join(interaction_failures))
 	_ck("kitchen_seven_independent_props", kitchen_prop_set_ok)
-	_ck("kitchen_each_prop_animation_live",
-		kitchen_individual_animation_ok)
-	_ck("kitchen_fridge_subtle_portal_glow", kitchen_fridge_glow_ok)
+	_ck("kitchen_pan_rack_one_hotspot_animates_all_four_pans",
+		kitchen_pan_rack_group_ok)
+	_ck("kitchen_sink_oven_and_fridge_use_normalized_actions",
+		kitchen_normalized_use_examples_ok)
+	_ck("kitchen_fridge_opens_menu_after_door_sequence",
+		fridge_door_then_menu_ok)
 	_ck("kitchen_fridge_filters_missing_food",
 		kitchen_menu_empty_filter_ok)
 	_ck("kitchen_fridge_inventory_menu", kitchen_menu_inventory_ok)
@@ -494,6 +856,44 @@ func _run() -> void:
 		playroom_rescue_route_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 26,
 		"maximum visible cards=%d" % max_visible_world_cards)
+	await _frames(60)
+	var repeated_rebuilds_clean := true
+	for room_id: String in ROOM_IDS:
+		rooms.show_room(room_id, false)
+		await _frames(2)
+		var expected_physical_items: int = int(
+			EXPECTED_PHYSICAL_ITEM_COUNTS[room_id])
+		var expected_runtime_items: int = expected_physical_items
+		if room_id == "main_hall":
+			expected_runtime_items += 3
+		elif room_id == "playroom" and not rooms._playroom_rescue_done():
+			expected_runtime_items += 3
+		var expected_hotspots: int = 7 if room_id == "main_hall" else (
+			4 if room_id == "kitchen" else expected_physical_items)
+		var first_visual_count: int = \
+			main.castle_room_item_visual_layer.get_child_count()
+		var first_hotspot_count: int = \
+			main.castle_room_item_hotspot_layer.get_child_count()
+		var first_effect_count: int = \
+			main.castle_room_item_effect_layer.get_child_count()
+		var expected_persistent_effects: int = 1 \
+			if room_id == "playroom" and not rooms._playroom_rescue_done() \
+			else 0
+		rooms.show_room(room_id, false)
+		await _frames(2)
+		repeated_rebuilds_clean = repeated_rebuilds_clean \
+			and main.castle_room_item_sprites.size() == expected_runtime_items \
+			and main.castle_room_item_visual_layer.get_child_count() \
+				== first_visual_count \
+			and first_visual_count == expected_runtime_items \
+			and main.castle_room_item_hotspot_layer.get_child_count() \
+				== first_hotspot_count \
+			and first_hotspot_count == expected_hotspots \
+			and main.castle_room_item_effect_layer.get_child_count() \
+				== first_effect_count \
+			and first_effect_count == expected_persistent_effects
+	_ck("repeated_room_rebuilds_do_not_leak_cards_or_hotspots",
+		repeated_rebuilds_clean)
 
 	rooms.show_room("main_hall", false)
 	var castle_environment: Environment = main.castle_room_environment
@@ -650,6 +1050,7 @@ func _run() -> void:
 	var fixture_height_ok := true
 	var fixture_bloom_emitters_ok := true
 	var fixture_single_card_ok := true
+	var fixture_uv_frame_zero_ok := true
 	for fixture_id: String in [
 			"sconce_a0", "sconce_a1", "sconce_a2",
 			"sconce_b0", "sconce_b1", "sconce_b2"]:
@@ -660,6 +1061,7 @@ func _run() -> void:
 			fixture_continuity_ok = false
 			fixture_bloom_emitters_ok = false
 			fixture_single_card_ok = false
+			fixture_uv_frame_zero_ok = false
 			continue
 		var fixture_material: ShaderMaterial = \
 			fixture.material_override as ShaderMaterial
@@ -681,12 +1083,15 @@ func _run() -> void:
 			and not fixture.shaded \
 			and fixture.cast_shadow \
 				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		fixture_uv_frame_zero_ok = fixture_uv_frame_zero_ok \
+			and fixture.frame == 0 \
+			and _fixture_uv_matches_frame(fixture, 0)
 		var path: String = fixture.texture.resource_path
 		if fixture_asset_path == "":
 			fixture_asset_path = path
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path.ends_with(
-					"castle_shell_sconce_touchable.png")
+					"main_hall_sconce_atlas.png")
 		else:
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path == fixture_asset_path
@@ -705,7 +1110,7 @@ func _run() -> void:
 		fixture_continuity_ok = fixture_continuity_ok \
 			and tapestry != null and tapestry.texture != null \
 			and tapestry.texture.resource_path.ends_with(
-				"castle_royal_tapestry_reuse.png")
+				"main_hall_tapestry_atlas.png")
 	_ck("main_hall_fixture_and_tapestry_continuity", fixture_continuity_ok)
 	_ck("main_hall_fixture_height_alignment",
 		fixture_height_ok and is_equal_approx(fixture_y, 215.0),
@@ -714,6 +1119,8 @@ func _run() -> void:
 		fixture_bloom_emitters_ok)
 	_ck("main_hall_fixture_single_sprite3d_cards",
 		fixture_single_card_ok)
+	_ck("main_hall_fixture_atlas_uv_clamps_and_resets",
+		fixture_uv_frame_zero_ok and all_fixture_uv_resets_ok)
 	var hall_door_clearance_ok := true
 	var hall_door_conflicts: Array[String] = []
 	for item_id_value: Variant in main.castle_room_item_sprites:

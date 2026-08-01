@@ -1,0 +1,2231 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-08-01",
+  "generator": "tools/build_castle_interaction_atlases.py",
+  "frame_contract": {
+    "minimum": 4,
+    "maximum": 12,
+    "delivered": 8
+  },
+  "visual_review_evidence": {
+    "path": "audit/castle_interactions/castle_interaction_frames.png",
+    "sha256": "1ef3e7f2035de3037b3ecc80aa5d1c69d2d3b0b53265249211dac55ebd9ed94f",
+    "reviewed_frame_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "dimensions": [
+      1280,
+      4752
+    ]
+  },
+  "rooms": {
+    "bubble_bath": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "rubber_duck",
+          "asset_id": "bubble_bath_rubber_duck",
+          "semantic_action": "squeak_dive_and_pop_up"
+        },
+        {
+          "id": "bathtub",
+          "asset_id": "bubble_bath_bathtub",
+          "semantic_action": "turn_taps_and_fill_bubbles"
+        },
+        {
+          "id": "sink",
+          "asset_id": "bubble_bath_sink",
+          "semantic_action": "turn_faucet_and_run_water"
+        },
+        {
+          "id": "toilet",
+          "asset_id": "bubble_bath_toilet",
+          "semantic_action": "flap_seat_and_flush"
+        }
+      ]
+    },
+    "craft_room": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "ribbon_rack",
+          "asset_id": "craft_room_ribbon_rack",
+          "semantic_action": "unroll_and_retract_ribbon"
+        },
+        {
+          "id": "idea_board",
+          "asset_id": "craft_room_idea_board",
+          "semantic_action": "flip_idea_notes"
+        },
+        {
+          "id": "paint_table",
+          "asset_id": "craft_room_paint_table",
+          "semantic_action": "stir_paint_with_brush"
+        },
+        {
+          "id": "palette",
+          "asset_id": "craft_room_palette",
+          "semantic_action": "mix_palette_colors"
+        }
+      ]
+    },
+    "kitchen": {
+      "physical_item_count": 7,
+      "instances": [
+        {
+          "id": "sink",
+          "asset_id": "kitchen_sink",
+          "semantic_action": "turn_faucet_and_run_water"
+        },
+        {
+          "id": "pan_1",
+          "asset_id": "kitchen_pan_1",
+          "semantic_action": "swing_pan_on_hook"
+        },
+        {
+          "id": "pan_2",
+          "asset_id": "kitchen_pan_2",
+          "semantic_action": "swing_pan_on_hook"
+        },
+        {
+          "id": "pan_3",
+          "asset_id": "kitchen_pan_3",
+          "semantic_action": "swing_pan_on_hook"
+        },
+        {
+          "id": "pan_4",
+          "asset_id": "kitchen_pan_4",
+          "semantic_action": "swing_pan_on_hook"
+        },
+        {
+          "id": "oven",
+          "asset_id": "kitchen_oven",
+          "semantic_action": "open_oven_door_and_warm_fire"
+        },
+        {
+          "id": "fridge",
+          "asset_id": "kitchen_fridge",
+          "semantic_action": "unlatch_and_open_fridge_door"
+        }
+      ]
+    },
+    "library": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "book_stack",
+          "asset_id": "library_book_stack",
+          "semantic_action": "open_top_book_and_turn_pages"
+        },
+        {
+          "id": "magic_book",
+          "asset_id": "library_magic_book",
+          "semantic_action": "open_book_and_turn_pages"
+        },
+        {
+          "id": "pearl_table",
+          "asset_id": "library_pearl_table",
+          "semantic_action": "wake_reading_pearl"
+        },
+        {
+          "id": "pearl_lamp",
+          "asset_id": "library_pearl_lamp",
+          "semantic_action": "toggle_pearl_lamp"
+        }
+      ]
+    },
+    "main_hall": {
+      "physical_item_count": 7,
+      "instances": [
+        {
+          "id": "tapestry_right",
+          "asset_id": "main_hall_tapestry",
+          "semantic_action": "unfurl_cloth"
+        },
+        {
+          "id": "sconce_a0",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        },
+        {
+          "id": "sconce_a1",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        },
+        {
+          "id": "sconce_a2",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        },
+        {
+          "id": "sconce_b0",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        },
+        {
+          "id": "sconce_b1",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        },
+        {
+          "id": "sconce_b2",
+          "asset_id": "main_hall_sconce",
+          "semantic_action": "toggle_shell_light"
+        }
+      ]
+    },
+    "mermaid_pool": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "star_float",
+          "asset_id": "mermaid_pool_star_float",
+          "semantic_action": "float_and_make_ripples"
+        },
+        {
+          "id": "waterfall",
+          "asset_id": "mermaid_pool_waterfall",
+          "semantic_action": "surge_waterfall_flow"
+        },
+        {
+          "id": "flower_float",
+          "asset_id": "mermaid_pool_flower_float",
+          "semantic_action": "open_flower_and_make_ripples"
+        },
+        {
+          "id": "bubble_fountain",
+          "asset_id": "mermaid_pool_bubble_fountain",
+          "semantic_action": "raise_and_pop_bubbles"
+        }
+      ]
+    },
+    "opera_hall": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "curtains",
+          "asset_id": "opera_hall_curtains",
+          "semantic_action": "open_stage_curtains"
+        },
+        {
+          "id": "chandelier",
+          "asset_id": "opera_hall_chandelier",
+          "semantic_action": "chandelier_light_chase"
+        },
+        {
+          "id": "footlights",
+          "asset_id": "opera_hall_footlights",
+          "semantic_action": "stage_footlight_chase"
+        },
+        {
+          "id": "stage_star",
+          "asset_id": "opera_hall_stage_star",
+          "semantic_action": "marquee_star_light_chase"
+        }
+      ]
+    },
+    "playroom": {
+      "physical_item_count": 4,
+      "instances": [
+        {
+          "id": "play_tent",
+          "asset_id": "playroom_play_tent",
+          "semantic_action": "open_and_close_tent_flap"
+        },
+        {
+          "id": "stuffie_nook",
+          "asset_id": "playroom_stuffie_nook",
+          "semantic_action": "stuffie_friends_wave"
+        },
+        {
+          "id": "stacking_toy",
+          "asset_id": "playroom_stacking_toy",
+          "semantic_action": "lift_and_restack_rings"
+        },
+        {
+          "id": "blocks",
+          "asset_id": "playroom_blocks",
+          "semantic_action": "topple_and_restack_blocks"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "id": "main_hall_tapestry",
+      "room": "main_hall",
+      "item_id": "tapestry",
+      "instances": [
+        "tapestry_right"
+      ],
+      "semantic_action": "unfurl_cloth",
+      "source": "assets/flats/castle/main_hall_2screen/castle_royal_tapestry_reuse.png",
+      "source_sha256": "1bc0809edd3102dd0dcc0e4605a583078d0d91080b5cad5f84786ab743f83833",
+      "atlas": "assets/flats/castle/interactions/main_hall_tapestry_atlas.png",
+      "atlas_sha256": "89fac58f2686f352c22671ece7f806bc07d05f3924142bf18086332c51b705a1",
+      "cell_size": [
+        138,
+        328
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.125,
+      "animation_duration_seconds": 1.0,
+      "frame_sha256": [
+        "410f34ab05d3c971be959bb08e0caa9cd59c3e0ba63bfd92dcef9c1b426b4501",
+        "2c8d649287525cdf3c603eb36746cdb2d349766f637d14cd9642f9a59c2ff0a2",
+        "64bc38ca7a73d296211221d66ce451c52e5765cafa442e65d46eab60b916ad64",
+        "808fb53cbfaefffe0bb2bdbc6eea792f28313b31f5289bc98f943ea53a42eefc",
+        "d2e57698659bbfd98ada65c960a7be662352c95d30cb150424c7ee6f529dced1",
+        "8966712c44761f349f7e6e3d3aa54da8de27d20f03604b06dad2638c9629f83b",
+        "3281ce4af1994d3e31e734eb723fe43fc03980e276b2eb6c73c6c0c1ad4e9215",
+        "431afb3489ae92b7684ba9f0794139a126c3fab877d5979adf72ed1ab4bfe04a"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/curtain_swish.ogg",
+      "sound_duration_seconds": 1.0,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        9,
+        3,
+        129,
+        325
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "main_hall_sconce",
+      "room": "main_hall",
+      "item_id": "sconce",
+      "instances": [
+        "sconce_a0",
+        "sconce_a1",
+        "sconce_a2",
+        "sconce_b0",
+        "sconce_b1",
+        "sconce_b2"
+      ],
+      "semantic_action": "toggle_shell_light",
+      "source": "assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png",
+      "source_sha256": "dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e",
+      "atlas": "assets/flats/castle/interactions/main_hall_sconce_atlas.png",
+      "atlas_sha256": "1ae1732f9a061e6a13f4032cf81a2378d0a57da8be76cd3dcdfa30934f73d536",
+      "cell_size": [
+        160,
+        160
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "ee2d4aabf22d0818097c582d6c0e8e214c8a4f710c9b40f110d0017693062932",
+        "72905629002fbe88981ce9a789b92c710ca59219e30b9a37894077963745aeee",
+        "62e822d5aeda84acea1598a2117df0e9468a31115f61e00e32efb4f79e117a6a",
+        "6a54acc3b735efc2e5402f9c0c6f94caad571a6647aff2b693cab00e8a154336",
+        "ad3a29ba967636ee24ef799bab8d6b9a2ada95a2e8ceaca73924f0e1b308d61e",
+        "85fc4285387b272e1679822e49bf411600494d333bdfb8308c227a7524cd4f8a",
+        "af8c36b9ab3271c19c4b066b9890dcb199737a9124066df6ed08d71be36f6325",
+        "7634c9640370b664497a27f663a113bec25699b7af2ab44dd29499445836a1ff"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        27,
+        3,
+        133,
+        157
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "opera_hall_curtains",
+      "room": "opera_hall",
+      "item_id": "curtains",
+      "instances": [
+        "curtains"
+      ],
+      "semantic_action": "open_stage_curtains",
+      "source": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+      "source_sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+      "atlas": "assets/flats/castle/interactions/opera_hall_curtains_atlas.png",
+      "atlas_sha256": "c4294f0e4880e6928c43d4f00db8886e51b0589659f43c80c842ff1f80f68c8f",
+      "cell_size": [
+        196,
+        209
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.125,
+      "animation_duration_seconds": 1.0,
+      "frame_sha256": [
+        "84351b85634f5d3eee4aefeeb66101a48270007fbab74381daacaf954dc2b385",
+        "38198428793638be1865e2ec51d56db9ceacac566b5eee4d5e2fac1e7dad53e3",
+        "f4a2082587148d64c09b62d0f403a882febbb85955ef15236dfacdd65f139ed5",
+        "152315b08082d2e8010ad0cc2952e7f1d6540d3da57f3e0314cfdbc50b420aa6",
+        "7cf1e163b8f08ca5f6c3776331f927cfec86477bf48826fe3133b5c914dc38b4",
+        "152315b08082d2e8010ad0cc2952e7f1d6540d3da57f3e0314cfdbc50b420aa6",
+        "17baeb8aada29cf245380ee81fe7e6fed5ab49340b97aac59b502b778a24205c",
+        "84351b85634f5d3eee4aefeeb66101a48270007fbab74381daacaf954dc2b385"
+      ],
+      "unique_frame_count": 6,
+      "sound": "assets/audio/castle/curtain_swish.ogg",
+      "sound_duration_seconds": 1.0,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        12,
+        10,
+        182,
+        187
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 24305,
+      "rest_depth_pixels": 24305,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "opera_hall_chandelier",
+      "room": "opera_hall",
+      "item_id": "chandelier",
+      "instances": [
+        "chandelier"
+      ],
+      "semantic_action": "chandelier_light_chase",
+      "source": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+      "source_sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+      "atlas": "assets/flats/castle/interactions/opera_hall_chandelier_atlas.png",
+      "atlas_sha256": "fd268f035be2dea6b92caae6c8a93252fb9a7145ef46686f9f8313c0b3bc7b89",
+      "cell_size": [
+        190,
+        126
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "fd867f3bdf6a43a2317e18323b5f7a533a805779063c84b030aa87b55c671178",
+        "b13d7e426e8187f79eb6b84bcb6ffca04bfb08edb2f9d96b7d9f9b1cf935bdef",
+        "8eb4319abdfb5c46a91a7e48b7dc02b3da298b59ad3d687d3a45402b679a5e8a",
+        "b80e28d1f46e38ad86f44730b211fdb7228f8f0d834d7592784f5c7b6885dac4",
+        "f69e8c1934ae66f74569b4587f5dba63200186edc83ce62bd978e04be14473e4",
+        "e416058cb23a20331cd274968d51d1a3e001b4becb3933f2b60f6c96a3e0e52a",
+        "de0d3eb45e553f2365b6b8c4eb673bce09db9391a8e48edeba563547dbe3b678",
+        "3a8cd1f65c5876c3a6e85f9fabb2d327fa7f061b2f92ec57b2d319a8ee463cfa"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        23,
+        5,
+        165,
+        89
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 8461,
+      "rest_depth_pixels": 8461,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "opera_hall_footlights",
+      "room": "opera_hall",
+      "item_id": "footlights",
+      "instances": [
+        "footlights"
+      ],
+      "semantic_action": "stage_footlight_chase",
+      "source": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+      "source_sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+      "atlas": "assets/flats/castle/interactions/opera_hall_footlights_atlas.png",
+      "atlas_sha256": "578a6917abb9571810f0ffd1cb0c61b5398066845ef71465c928b3399763711d",
+      "cell_size": [
+        196,
+        44
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "f4e003359b16ebd02637938a211e4d968f6bde48e354fbe0e5ed1869d05cf165",
+        "a984c95ba31885bdf46ebf5b86d0fe4e838d83941068b75146ca84c10814835f",
+        "17c569c1ef4d5f00aa63b4f6e49adee17260a164e8e7cca0882c73e33ab59479",
+        "1303fa9af6c265aa05643c3fac73c7b165fca63e53d2ad563e188dd92d27df02",
+        "037b5d53f61d4344eb1436715a4c7d8210effbb968485fac9f489601ca82b609",
+        "48080bda44073dc751a185c9645069bd21f824f1b3b1999e10a303005329a895",
+        "eb61c3399a166f5dc379ba275262bd146ad2f166d74710d16d059c9c86816e4c",
+        "05e173f490311a533a7527de1369b34b9f89d80fe15c9f887dcc3702a4e4308f"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        13,
+        1,
+        181,
+        23
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 2845,
+      "rest_depth_pixels": 2845,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "opera_hall_stage_star",
+      "room": "opera_hall",
+      "item_id": "stage_star",
+      "instances": [
+        "stage_star"
+      ],
+      "semantic_action": "marquee_star_light_chase",
+      "source": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+      "source_sha256": "bd58a67d535a294c41a4b9c13a6d7bbd1e9c3063b8d01301a2fa834e94b7c3d5",
+      "atlas": "assets/flats/castle/interactions/opera_hall_stage_star_atlas.png",
+      "atlas_sha256": "ef698fee887425e350bea9f2b649c7b3a67a70995befbc10ab2e167f378d4424",
+      "cell_size": [
+        44,
+        45
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "17d7e93d9e53bf3a90ffa210ee69f59d82afc55a91fef84abc1813a381e8c9ed",
+        "36c3eaeb93e216471ea12a18688c97e91e799ad1a3303555fc56ca5b059cd357",
+        "e2b06b7ee98822317070b25f2b5befc37fd8f617b2265a5a56abe64b4c0fc334",
+        "61f8a37269630f7e8df7e9416b3e1bc586db4143dbed747589cf4c8e32142397",
+        "e03cd784632d7e62b6b62dae6d8d6b1545325a0cc7380eb80cc974eccdf68c41",
+        "fd3fd49db83ec374baf6bcf4be36686af72da2634b836d36dd41ada56b3b34d1",
+        "6d922ff0778aac8f673647def17695d3f1a63d85c3efb481efd332d53dea016a",
+        "1c0afeef1175534518a6c3d407becb22bc5a2547644fb101edf3fdf7f9d51b1f"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        1,
+        4,
+        43,
+        44
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 1330,
+      "rest_depth_pixels": 1330,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_sink",
+      "room": "kitchen",
+      "item_id": "sink",
+      "instances": [
+        "sink"
+      ],
+      "semantic_action": "turn_faucet_and_run_water",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_sink.png",
+      "source_sha256": "bba1e6e2244451e45011be505d12e0db189b358f6de3ac0e3bf0e26b61e7b89e",
+      "atlas": "assets/flats/castle/interactions/kitchen_sink_atlas.png",
+      "atlas_sha256": "282bfff845d8b2f3e666202241465d36ba3cc3e0a45195c648b04735d2d92dc4",
+      "cell_size": [
+        201,
+        124
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.15,
+      "animation_duration_seconds": 1.2,
+      "frame_sha256": [
+        "799dbe7b97a4a642c00587504313b0470703d3aa44e378bc72619656adcd0883",
+        "de13ad8198f4fe733f5cdef31717047318b0572bd9617c179c2ed471557fec52",
+        "146f436cb2a0d777e77c69a2957e18ea508fbbd3c5e8c34232ee2b69abcc9b00",
+        "42d714adc1da1830a51a4647625c19ba9eb599288e739c0f953598012c87343d",
+        "fd65fe1f649149a4098c900d452aa62f3ad2ffa5254455bebc2cc6280e10f159",
+        "33ffd9cf3e6b1190a23ae6ca8c1536d9c9eb02c084765657477ec6b89d6687c6",
+        "f3f85483dc0c33955e2e6472d638c409c5a862cb5ade88862faf2b0018fd4f0c",
+        "799dbe7b97a4a642c00587504313b0470703d3aa44e378bc72619656adcd0883"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/faucet_water.ogg",
+      "sound_duration_seconds": 1.2,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        15,
+        7,
+        180,
+        101
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 8662,
+      "rest_depth_pixels": 8662,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_pan_1",
+      "room": "kitchen",
+      "item_id": "pan_1",
+      "instances": [
+        "pan_1"
+      ],
+      "semantic_action": "swing_pan_on_hook",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_pan_1.png",
+      "source_sha256": "19f5a340485c9d29ef5a99cf8e2926ba021d4b5e652baea7e5adee0c043f9914",
+      "atlas": "assets/flats/castle/interactions/kitchen_pan_1_atlas.png",
+      "atlas_sha256": "5872fc12071852a41a80aa2dad45474c7ae4d16df10e4786bcc6170d3582e671",
+      "cell_size": [
+        41,
+        83
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.115,
+      "animation_duration_seconds": 0.92,
+      "frame_sha256": [
+        "dda5d374a863c5d21e69accd245fbe7c5e51c9b0c0d2c68adb5876a763a88996",
+        "fb7a2cf4a0c6c0150e5a31b940d8c4d64447d236e14014115e52c8035ee5c012",
+        "af42f849fccbe0cce7a7dd85deafe986d88cb6db857ecf6473b787c886a2ba18",
+        "86e2af98ebc662c6c689fac7fb56c0b8cbbcaf3238d42beb18ce6dad9744e9ba",
+        "534f632c7901ccad111b0888a29a2eb0e2657af878d6b992c385126a915bf7fb",
+        "165e060576e30b66fed5a2d5d03b86abbf753e5e1bc50121fecb5cbbb5a7d015",
+        "28ec575d84faa599b388396d95a352952fbaf20c30d9ca64aea0f2f2ee877ac7",
+        "dda5d374a863c5d21e69accd245fbe7c5e51c9b0c0d2c68adb5876a763a88996"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/pan_clang.ogg",
+      "sound_duration_seconds": 0.92,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        13,
+        40,
+        68
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 816,
+      "rest_depth_pixels": 816,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_pan_2",
+      "room": "kitchen",
+      "item_id": "pan_2",
+      "instances": [
+        "pan_2"
+      ],
+      "semantic_action": "swing_pan_on_hook",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_pan_2.png",
+      "source_sha256": "3c3483f12ebdc42abe24a1fb5b832207f88e839f027004342acb2d27920cbf90",
+      "atlas": "assets/flats/castle/interactions/kitchen_pan_2_atlas.png",
+      "atlas_sha256": "573ff89a49240188a8931bdd96bf2880e3b0368c6c425b3011061818dfd1bb80",
+      "cell_size": [
+        45,
+        83
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.115,
+      "animation_duration_seconds": 0.92,
+      "frame_sha256": [
+        "ff26389ca1b819fa03372cf40a1f03cfbb4b21db95eabf1c7285cf4e0c9a38f1",
+        "ede53b8ff1f60b9f1af584ceb1054da5433f0af46c3f0f4b8134b0d03d5ca261",
+        "4acd6b802a203a6841fc6b7601e34d6e1a7f39889f045acb7c4e50830d31534b",
+        "dd66f1ab01671c605fff2afbc770c2021e361be51fd62939e83bfe1595aeb09c",
+        "19373f1b1d797213adbbb6df7504c99e520944e3e80dc9feb09f112f9b5552c3",
+        "b12ec5a1b62f619e3870b7c31a2c8b1374fb98a4815a756bbdb4dfcb5cd606d5",
+        "beb1a9f53b8b445476a3e0a132ea1c3ee8d69908cff346349cd85d0ec59f8725",
+        "ff26389ca1b819fa03372cf40a1f03cfbb4b21db95eabf1c7285cf4e0c9a38f1"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/pan_clang.ogg",
+      "sound_duration_seconds": 0.92,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        4,
+        4,
+        44,
+        70
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 739,
+      "rest_depth_pixels": 739,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_pan_3",
+      "room": "kitchen",
+      "item_id": "pan_3",
+      "instances": [
+        "pan_3"
+      ],
+      "semantic_action": "swing_pan_on_hook",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_pan_3.png",
+      "source_sha256": "80ec47cc303a05833f585589f3a1ebdeec0627c4e3270fb5d5f3f622af46e2a8",
+      "atlas": "assets/flats/castle/interactions/kitchen_pan_3_atlas.png",
+      "atlas_sha256": "02b4be34a0cabd30eccd160148bd4781b8f03aa749a4005b1c6d06e27581ad9a",
+      "cell_size": [
+        45,
+        83
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.115,
+      "animation_duration_seconds": 0.92,
+      "frame_sha256": [
+        "6a5a9ddd6729362fca61f4c6fb3d8c3ea45c3302e00abbbcee12450dce72a0d3",
+        "bc737cd4381d3ae6ceccf6136942845a8150dd35fa9ead71bedc89a9d673873f",
+        "bf18b4056a1fb3ca9e3f190ba6c21e11deb9fc149f5cff44f6cf3334a4823b49",
+        "bdb3e7f9891b482a6bc8861b42d9dc3ce416305c11ba820d4df59dfd18b1ebc2",
+        "8d57d303a67f0901abdf34113f69ca5d94ff0633881102e61fb0fd93a540f7b0",
+        "c7dc93f0dce6c1cd0b8c932476d585e564f423fd19261c4c3e960b0b99598619",
+        "42abb9480af7fd9bd0c1f3d0153601a01ca4cb6e9ad23c20de77d6c3f4dea2e8",
+        "6a5a9ddd6729362fca61f4c6fb3d8c3ea45c3302e00abbbcee12450dce72a0d3"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/pan_clang.ogg",
+      "sound_duration_seconds": 0.92,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        4,
+        5,
+        44,
+        69
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 940,
+      "rest_depth_pixels": 930,
+      "silhouette_retention": 0.9893617021276596
+    },
+    {
+      "id": "kitchen_pan_4",
+      "room": "kitchen",
+      "item_id": "pan_4",
+      "instances": [
+        "pan_4"
+      ],
+      "semantic_action": "swing_pan_on_hook",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_pan_4.png",
+      "source_sha256": "55dde8889763975219cb39322e77c264665b89957ed672ff79d9cd35547776c9",
+      "atlas": "assets/flats/castle/interactions/kitchen_pan_4_atlas.png",
+      "atlas_sha256": "93e79682b3ea164890319bfb1b032539f050bc33b740883e66b1214c725d7595",
+      "cell_size": [
+        31,
+        83
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.115,
+      "animation_duration_seconds": 0.92,
+      "frame_sha256": [
+        "9e51b2190f89ecb8fee6c987d4c30875889f08ce6948133b335fc826c0f63588",
+        "674f536368b0607aa8bcb6d91ba406f3843dfc99e6315d2efc1e0e653d61a30f",
+        "619ceef2d5a133988259dbe81600de4e616af5d79e81a90d5d23eb4c259b8714",
+        "266f2db516cadf97e1a9c92f12129274f3e9ce2adbe974433483bffb2867499a",
+        "a11f336a8351778594aec5bd4607a1bbd7cafcafc647688860b55e233ec79e35",
+        "89a489d3461a1957c51be6db9adb21ede0163335ba8e65ca92dc52c95b5450ac",
+        "e94d200c427e6f678eb8a4e5fea9eb9b67930b504dbb99db04e8f0dfa302ecd1",
+        "9e51b2190f89ecb8fee6c987d4c30875889f08ce6948133b335fc826c0f63588"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/pan_clang.ogg",
+      "sound_duration_seconds": 0.92,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        6,
+        6,
+        25,
+        68
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 349,
+      "rest_depth_pixels": 349,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_oven",
+      "room": "kitchen",
+      "item_id": "oven",
+      "instances": [
+        "oven"
+      ],
+      "semantic_action": "open_oven_door_and_warm_fire",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_oven.png",
+      "source_sha256": "519fb694752a25121dfeaade574f2ba300372fed61252ba35f9fc927172fcab0",
+      "atlas": "assets/flats/castle/interactions/kitchen_oven_atlas.png",
+      "atlas_sha256": "80e099aa808a7b22b42d06f17bc5e131c3f9e146f5e8007d751cd99697e045f6",
+      "cell_size": [
+        202,
+        112
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1625,
+      "animation_duration_seconds": 1.3,
+      "frame_sha256": [
+        "38521d5e04f132c68f481b7beaa3ad659cb39d569f7cd45ca7e279e36030d564",
+        "33341a8c38066e500277d815f49aeddc4e51043130087370ddaba81a3d20a6fc",
+        "a168b68e98b1608db242c39801559e6ff295f4cb1000c8674aaf5a52ca2fc8ef",
+        "b99a9c6a14115331dde03d12ac38b8673921a6ca7504a61fa6423679e4383f45",
+        "e4b98c8af7a2d6a1bf22e65f82af421f5b7a0a1b61fcca08da69d435235aef42",
+        "1ea2d110632ddb77431c4c2046799fb1a2638ceacc69cc8b355e8ebf1ae2432b",
+        "b011b65352850d03f2f3ee3bdb0e1e56c328b8c69d62f92bee41fa835ddccc7a",
+        "38521d5e04f132c68f481b7beaa3ad659cb39d569f7cd45ca7e279e36030d564"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/oven_door.ogg",
+      "sound_duration_seconds": 1.3,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        6,
+        26,
+        200,
+        110
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 12433,
+      "rest_depth_pixels": 12433,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "kitchen_fridge",
+      "room": "kitchen",
+      "item_id": "fridge",
+      "instances": [
+        "fridge"
+      ],
+      "semantic_action": "unlatch_and_open_fridge_door",
+      "source": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+      "source_sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e",
+      "atlas": "assets/flats/castle/interactions/kitchen_fridge_atlas.png",
+      "atlas_sha256": "decdced86d272acef7b5b2f0ff648c66133997d17c05e0e1fc4f794010162ff1",
+      "cell_size": [
+        140,
+        263
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.145,
+      "animation_duration_seconds": 1.16,
+      "frame_sha256": [
+        "9daadf32983ed01a4a1757ea6a0d3867845d6b9b7e4772223f62515204e133a6",
+        "1dce23e08283309317fe4da19bde024f42ed70cca024512821f1d438c06d1097",
+        "7c7f7ddd73cbb2551a4d51d4849a7bf0af026635b85c628d0c1ed7b639ac0c1b",
+        "fcbd2c59dab2954416f32158cb9de321d9f0ad88da4ce169ecdf0805be25e8d9",
+        "fd552590381233214742d9381c1146696dbed09f10051ef4f1463f9ffab91f0b",
+        "73fb06ad35ca1db7816256e3d830e881c2b37a6d618edde847dd006ca26f7a92",
+        "cc86562672e10d1616b1ffc8289ce6a573375ed33d56aa7498114af26968c080",
+        "9daadf32983ed01a4a1757ea6a0d3867845d6b9b7e4772223f62515204e133a6"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/fridge_door.ogg",
+      "sound_duration_seconds": 1.16,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        2,
+        138,
+        259
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 31271,
+      "rest_depth_pixels": 31271,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "library_book_stack",
+      "room": "library",
+      "item_id": "book_stack",
+      "instances": [
+        "book_stack"
+      ],
+      "semantic_action": "open_top_book_and_turn_pages",
+      "source": "assets/flats/castle/rooms/room_library_item_book_stack.png",
+      "source_sha256": "981ad1ed30b57494afab4eee3080bf40281e79e9742534e5a470d0cc67ef94e7",
+      "atlas": "assets/flats/castle/interactions/library_book_stack_atlas.png",
+      "atlas_sha256": "43c15c1cc2540a4b65f094f5deb40d726cf43b6283369a58d91e9f7953d758c1",
+      "cell_size": [
+        165,
+        211
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.095,
+      "animation_duration_seconds": 0.76,
+      "frame_sha256": [
+        "efc21829d9c43bc13e0d3b4256dd1de25f9fb2df76103bfd4aeffbb5bdc7e30c",
+        "555aee79519e1ca296452765a1110d4812134bfc1df16d44f6227e167fc4bb0c",
+        "bd65d1d50623a05ca13db0db9fd712e86aa39616fa4bfb237e26486b2b4e1b20",
+        "6dc8a74ec64002237754e58ebb2c9a28dabb6e7fc07410f5b86833c1161b6f48",
+        "bd9190f6c87f99f234ea1eae9e23166479a940178a63eaef06df23d14f6818fe",
+        "791b5b2e778e0ee54994e0bd68daeedc89189e1eba431c120ff3dc90c9b41b1d",
+        "825ee8fbc7c6e58b6881a5c4b313d125a0a76fb467b8a2f615e57483dc1fff01",
+        "efc21829d9c43bc13e0d3b4256dd1de25f9fb2df76103bfd4aeffbb5bdc7e30c"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/page_flip.ogg",
+      "sound_duration_seconds": 0.76,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        1,
+        7,
+        163,
+        209
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 24104,
+      "rest_depth_pixels": 24104,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "library_magic_book",
+      "room": "library",
+      "item_id": "magic_book",
+      "instances": [
+        "magic_book"
+      ],
+      "semantic_action": "open_book_and_turn_pages",
+      "source": "assets/flats/castle/rooms/room_library_item_magic_book.png",
+      "source_sha256": "76c8e99cdc68f86cc6d21cd14d1042d42f31888581cc3e2571350d30b338641d",
+      "atlas": "assets/flats/castle/interactions/library_magic_book_atlas.png",
+      "atlas_sha256": "10078f19faea394367f95b0bbcaa6593e86f9155d6dca34ecae4dcedda62b2dc",
+      "cell_size": [
+        137,
+        169
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.095,
+      "animation_duration_seconds": 0.76,
+      "frame_sha256": [
+        "28f6cc372b3665ef3d4eb00d964972af8578906dc5a2f39a45aa48292c9c0625",
+        "194e50fd29d687d83a81d5e548a764e2415d03be9c0b3b61db1ee87faada214e",
+        "20da317eac1e5c13138562053ad9459f9a85b8a0c68088bb04a140785bf57141",
+        "7bae9fb4c139082ef4d93db169186748da067141fafcb38b5dc874616a57c58c",
+        "ed5baf4e76da431bdb93e9211190e0ea191ca982634c05838b53d103e0c7c226",
+        "ee0abd63b87c679ab48e2352cc14da0a8c9d78885b458b102ac696cf2bfbe09c",
+        "2f5dc9d7539dacbd8bdc66f329141f80bc83aa7182495d448bb2c1b4ab8381d1",
+        "28f6cc372b3665ef3d4eb00d964972af8578906dc5a2f39a45aa48292c9c0625"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/page_flip.ogg",
+      "sound_duration_seconds": 0.76,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        16,
+        62,
+        122,
+        165
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 5207,
+      "rest_depth_pixels": 5207,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "library_pearl_table",
+      "room": "library",
+      "item_id": "pearl_table",
+      "instances": [
+        "pearl_table"
+      ],
+      "semantic_action": "wake_reading_pearl",
+      "source": "assets/flats/castle/rooms/room_library_item_pearl_table.png",
+      "source_sha256": "f51e5e20d126e5aa8c0f900e8803c1d3802e6d25705a9f82c21eaf9074f689ea",
+      "atlas": "assets/flats/castle/interactions/library_pearl_table_atlas.png",
+      "atlas_sha256": "5282afe1e40209815b532d7fa85c46d418c182b0ccafa27d5ed33dbb2a04589c",
+      "cell_size": [
+        242,
+        122
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "2c3a986c414173c00fb3a077918ba6669643dc03bcdd5277b88582014e9d0fbb",
+        "665bf6b1ba0d121cc9979b11dab3a5e901211ce1caa9f2022e8b43ee7553b4dc",
+        "91e1e9f006349698230c6e1eba1639bdc129c67421893a55ab230095d14bd2d9",
+        "b5d3f7de57b1863a7432aa6307d7edb3a9f6704c16c18b14a2fbdb598d9c9cfd",
+        "7f7b566b33a33a04029ec46d6e53271490c052bf3ba407b5cf2464787fb622f0",
+        "7ac3bae145b7db7f95e6688fe15dbcc3861aab73758d0b828e2da9e497b7e2d2",
+        "74e7eb02f0c59c4d5e512389a8dc661936863d4d8b26c1d7281b69a35e9b2137",
+        "6c2df013908443bd95e93decd839444b370da2f4162802599e34af4223fd7818"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        34,
+        3,
+        204,
+        111
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 6410,
+      "rest_depth_pixels": 6410,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "library_pearl_lamp",
+      "room": "library",
+      "item_id": "pearl_lamp",
+      "instances": [
+        "pearl_lamp"
+      ],
+      "semantic_action": "toggle_pearl_lamp",
+      "source": "assets/flats/castle/rooms/room_library_item_pearl_lamp.png",
+      "source_sha256": "d4ea3f13022391954c17263317aa9bc85f941490289e05ccfb10bab822965d37",
+      "atlas": "assets/flats/castle/interactions/library_pearl_lamp_atlas.png",
+      "atlas_sha256": "da196952180da93d3e8728c3ea66d637bdcc75d758f73063cd390fa7dcb500bc",
+      "cell_size": [
+        88,
+        80
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1025,
+      "animation_duration_seconds": 0.82,
+      "frame_sha256": [
+        "b3075a39e09a1a474e5da905d9bacc642ffa1a252e9e29b8ccf84d595541e9ec",
+        "f10577f65f0b78545c5dc541d77c016e29ca477e4cb3b0eebe4d9d4eb35c5be1",
+        "aaa0c17912e6da4f616f5235527cfaf8956c93689e2229fc81427c7abec032a7",
+        "c1fa1744869bc33aece42dc15d96132ee44f3306c7c001289bb46ace2f0db078",
+        "b1cde0f6c656137ad7c5606fb13b418822cfb735376e94e579b1c886719ba152",
+        "b7252aa7f868eff52381a6e1482f2104b9b80330f049de5c4b77efc0cd4088d3",
+        "a1ed0ecb5c5ba91428fc4f8454c11ba9e45347320b6e75f3044e5092a4030834",
+        "50868bc156c82fc4a79ac08316860bc540e4b6177303522d7afe0e36d4b65a06"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_duration_seconds": 0.82,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        3,
+        78,
+        71
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 3278,
+      "rest_depth_pixels": 3278,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "playroom_play_tent",
+      "room": "playroom",
+      "item_id": "play_tent",
+      "instances": [
+        "play_tent"
+      ],
+      "semantic_action": "open_and_close_tent_flap",
+      "source": "assets/flats/castle/rooms/room_playroom_item_play_tent.png",
+      "source_sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+      "atlas": "assets/flats/castle/interactions/playroom_play_tent_atlas.png",
+      "atlas_sha256": "ded0253d5d431b7082246f43d1a253b2392ee5fce5a41f81cfbdc70f6317cfb1",
+      "cell_size": [
+        165,
+        131
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.125,
+      "animation_duration_seconds": 1.0,
+      "frame_sha256": [
+        "dcd2ec1674588a9b527706f28dc318333c547efaeb4ed1af38299eae2831c27c",
+        "295b0cd1eb135501b0eedf219d3097b279fe697a8a54df98d6c39e6bda5c0dc7",
+        "b35a373bcc48327a41a5fd142e2f6c13d88d7d6af3f4e172786a8f2b06527f28",
+        "a3152ac3b5914f04ac6b5efad69d2868c30af896dd38f062fba2daefe9bbd5c7",
+        "511195cdb9cd07b64ab759155a7a583a5890b55946636e5ff95a82d544b0c0d6",
+        "5f7a94be9a00ef77338e2b4c8abfb7eb00ef74739727d30cb5b292d2f3af349e",
+        "fba8f780e9e94bed609232c6077be75c5e811238a7c4d23aa8676ee6f6acff62",
+        "dcd2ec1674588a9b527706f28dc318333c547efaeb4ed1af38299eae2831c27c"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/curtain_swish.ogg",
+      "sound_duration_seconds": 1.0,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        12,
+        8,
+        144,
+        129
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 6909,
+      "rest_depth_pixels": 6909,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "playroom_stuffie_nook",
+      "room": "playroom",
+      "item_id": "stuffie_nook",
+      "instances": [
+        "stuffie_nook"
+      ],
+      "semantic_action": "stuffie_friends_wave",
+      "source": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+      "source_sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "atlas": "assets/flats/castle/interactions/playroom_stuffie_nook_atlas.png",
+      "atlas_sha256": "d39efb43604d9e64988cf0245eb8e705289737bd355ca6b41c28e58a7029ccce",
+      "cell_size": [
+        266,
+        190
+      ],
+      "hframes": 3,
+      "vframes": 3,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1375,
+      "animation_duration_seconds": 1.1,
+      "frame_sha256": [
+        "535670d4202fd8e50b90e200df01b13c2c691c4324905b584ec28f1af7f6b679",
+        "7b4d59ed904c0469c94e41e1c69be62d6070cb0f0406e39ba04db5ffde3a19a4",
+        "17de8265729731fc4cf1707b6cf0056f15b486eaf8d0957334bdaf433fa7ef77",
+        "c7917a821b0164e38da0d786469bad40ff1b8317a867961e420cbfd7894e3096",
+        "4ca58fe87770b874fb00f2075f51c03abfaf599c5968e65225d7a91adebf59f0",
+        "535670d4202fd8e50b90e200df01b13c2c691c4324905b584ec28f1af7f6b679",
+        "c5f4ae518edcbfbe7abe59bf750d673377b479b113abf3147139dc76e2bc8baf",
+        "e6d6938f8b21859e072d2d882a5901e0002623b95f5f8560f7245e716536fd1d"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/toy_blocks.ogg",
+      "sound_duration_seconds": 1.1,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        7,
+        14,
+        249,
+        175
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 30881,
+      "rest_depth_pixels": 30881,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "playroom_stacking_toy",
+      "room": "playroom",
+      "item_id": "stacking_toy",
+      "instances": [
+        "stacking_toy"
+      ],
+      "semantic_action": "lift_and_restack_rings",
+      "source": "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+      "source_sha256": "afc488f0e44d9a33ac065e968ead7a8dfcae5ac594ba12f17063c6f467282b87",
+      "atlas": "assets/flats/castle/interactions/playroom_stacking_toy_atlas.png",
+      "atlas_sha256": "4f5548cf8d325b457f4a70edad81880f662336bb749d8211b35c0bef4ae563e8",
+      "cell_size": [
+        132,
+        157
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1375,
+      "animation_duration_seconds": 1.1,
+      "frame_sha256": [
+        "a1d7016b43191cf56c0fd122614fddb00846964f0049488a42773f55310782df",
+        "453d25116f6a85719b8238be99cd4eb54b5bf161057aa4201ef15aef3716e3a0",
+        "1b0c7ff607ebdb3bfecc3b709663f175d3e5ad75a5c8b3c2ba3dade57f997b29",
+        "3a8c4578e168e99e59d50f41557299a843a02eec22653745130e1bc51ce6f74e",
+        "62069a1f6bcb02079cd3e1a206d85539741027e02f9ad773f2a67a42ce23c2d1",
+        "78a6ad95aab2603925dd96f9261d31306216818ba82e216ad53badbbb386e9f6",
+        "a1d7016b43191cf56c0fd122614fddb00846964f0049488a42773f55310782df",
+        "a1d7016b43191cf56c0fd122614fddb00846964f0049488a42773f55310782df"
+      ],
+      "unique_frame_count": 6,
+      "sound": "assets/audio/castle/toy_blocks.ogg",
+      "sound_duration_seconds": 1.1,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        14,
+        10,
+        108,
+        155
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 6578,
+      "rest_depth_pixels": 6578,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "playroom_blocks",
+      "room": "playroom",
+      "item_id": "blocks",
+      "instances": [
+        "blocks"
+      ],
+      "semantic_action": "topple_and_restack_blocks",
+      "source": "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+      "source_sha256": "fbe2910e2d2c8e7782371414534be9312db6f46ef1fce5c23c84ff57b08d0273",
+      "atlas": "assets/flats/castle/interactions/playroom_blocks_atlas.png",
+      "atlas_sha256": "80ccda4246d5c2771c8a0c08abc4efc3040d0596e29ff3f58b4456fe26e4beb5",
+      "cell_size": [
+        125,
+        100
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1375,
+      "animation_duration_seconds": 1.1,
+      "frame_sha256": [
+        "92e6564e1205edc4981c31cb8384fe733e427473cbd5fceab2425c7596c8b83b",
+        "5396ddb6728398b4c3e1366ae59f0795c975ded9102cb1735fb4dbe7bb8f5c10",
+        "a8c5185c227300b73140ff8b13e1d2cd8d7d9c9c4f494b39f0eec2c41c1a0c5c",
+        "00aa841e20bb7a36c4d011e4c97fb3ca20d757a9fdb9336bf6247b1ed702abf1",
+        "83cda67223b7bebe48d85339279ca1ad9a9b76fe4b161a71ced4ccf41b4a5d31",
+        "36fe1892244e5c464341e305c39afb0d12350e3188bb4d3629a4b73167ca6994",
+        "c32fef00269b619bd33ee88a2eac9ff0342f515245357acc7c5e563f0d3da252",
+        "92e6564e1205edc4981c31cb8384fe733e427473cbd5fceab2425c7596c8b83b"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/toy_blocks.ogg",
+      "sound_duration_seconds": 1.1,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        11,
+        20,
+        103,
+        93
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 3758,
+      "rest_depth_pixels": 3758,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "craft_room_ribbon_rack",
+      "room": "craft_room",
+      "item_id": "ribbon_rack",
+      "instances": [
+        "ribbon_rack"
+      ],
+      "semantic_action": "unroll_and_retract_ribbon",
+      "source": "assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png",
+      "source_sha256": "4002123cfe400e35f8fe74a3f9b17607a7dce70410086afe5fa6be63970e8999",
+      "atlas": "assets/flats/castle/interactions/craft_room_ribbon_rack_atlas.png",
+      "atlas_sha256": "9d6a62f0640ba16059dd2571664edc362dd42a7c5859a4c3d1bf4eab2f2ada1f",
+      "cell_size": [
+        126,
+        121
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1325,
+      "animation_duration_seconds": 1.06,
+      "frame_sha256": [
+        "7fbb479b3c978d9b5a645a0d1bfaa26a7b0c0c98d45d43ebf3514066e2716c9b",
+        "62d41e8d8cefea6b9bf139a516968d02358bcfe1fab560c53a15f9155140b6c8",
+        "cece64df43dbfb6718b9c1a084efda525f4279ae61d78147fd488c9d8936d739",
+        "96df752e66c44f0292538ca914427c386450cc817db5a596093bb8d94312e9e4",
+        "2bed0819c17bd2907ef7d835292f3d0f20b0b8eaff102473685c465bd3db94c0",
+        "2e54d92fed88f30e872005a7646225c37e097d1772fbe34936ab68cf164b58d8",
+        "4cf62406cc84d6b85757039ddd295e134a8b67c85cd5494e19b2ad7ecd7ac363",
+        "7fbb479b3c978d9b5a645a0d1bfaa26a7b0c0c98d45d43ebf3514066e2716c9b"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/ribbon_roll.ogg",
+      "sound_duration_seconds": 1.06,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        18,
+        24,
+        103,
+        112
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 5386,
+      "rest_depth_pixels": 5386,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "craft_room_idea_board",
+      "room": "craft_room",
+      "item_id": "idea_board",
+      "instances": [
+        "idea_board"
+      ],
+      "semantic_action": "flip_idea_notes",
+      "source": "assets/flats/castle/rooms/room_craft_room_item_idea_board.png",
+      "source_sha256": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+      "atlas": "assets/flats/castle/interactions/craft_room_idea_board_atlas.png",
+      "atlas_sha256": "d6b55048addd5a68dfa7155b3e30eab62116907ed0deca7938169bb844f7c9a0",
+      "cell_size": [
+        270,
+        171
+      ],
+      "hframes": 3,
+      "vframes": 3,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.095,
+      "animation_duration_seconds": 0.76,
+      "frame_sha256": [
+        "1e394072b2ec3768d4072c1ff8c6ab0fc95191350ef599569d5b30f9c5704244",
+        "8004d83f388ea7b0e0dee2dd6c1257b1b010f3072ec2303c14790058a2044a6d",
+        "b3b71ba7b79d0f57183d90452f9bdc8a5e0899fda821684dda623d371c129565",
+        "9148504b0dbc2f4ed2a37327b804d285773d87e72017c170cb2c98d82042e3c2",
+        "8d604db43b9549741c52eafc76967d728dd97c0e34aa2a08fa65edbe48b65e0a",
+        "28e7a4d6fa83647344b68c1d52234f222fb7accd6b9643665934309c3788118e",
+        "4b54deba9ac4f4d7186856bc1c2d014a7bea82bd8ef6e286c6341ed85e1f4b65",
+        "a05782ef370b92f91e28fec4dfeaf3b142fe65888b89587337970d756c8f6c7f"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/page_flip.ogg",
+      "sound_duration_seconds": 0.76,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        19,
+        10,
+        250,
+        164
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 21940,
+      "rest_depth_pixels": 21940,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "craft_room_paint_table",
+      "room": "craft_room",
+      "item_id": "paint_table",
+      "instances": [
+        "paint_table"
+      ],
+      "semantic_action": "stir_paint_with_brush",
+      "source": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png",
+      "source_sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "atlas": "assets/flats/castle/interactions/craft_room_paint_table_atlas.png",
+      "atlas_sha256": "cf6806741a9a3df3cd3dba3cb8a2ea497d84ab38423b545e25c0d3bc4373d3c9",
+      "cell_size": [
+        224,
+        95
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "animation_duration_seconds": 0.96,
+      "frame_sha256": [
+        "4d366d34dab043a2eb5a39d70ad23af00600c2a7a8898303e919d914ab8db0da",
+        "e1086eb6af60b22dcc913b102bad77f24688554d652448ab4a66fd521c7192c8",
+        "96115ec9823ffbe9f712b364e99ed3f2ebb9265000fdfcbd24f0c835ae8b841d",
+        "96516424cc81766caa6f642b1cda7d39f74b94de2145a67865ccc9bb03d35187",
+        "ba0a692ddc0ce419b1dcd38f647de74518a251369b0d46d615c1bdad84589774",
+        "868bca2c1721a1653a3df2ff03409c69caf9befc1d23912fedf307b07bdd97a1",
+        "e20c5bafa72bb07d60204d57ed32ddb20c4f42f85fbb13908343d52e3bb11d0a",
+        "2bba67de13764249460a317936413b22cdc3b83a8b74bea607b12d347c24c5ee"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/craft_brush.ogg",
+      "sound_duration_seconds": 0.96,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        7,
+        17,
+        217,
+        83
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 6977,
+      "rest_depth_pixels": 6977,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "craft_room_palette",
+      "room": "craft_room",
+      "item_id": "palette",
+      "instances": [
+        "palette"
+      ],
+      "semantic_action": "mix_palette_colors",
+      "source": "assets/flats/castle/rooms/room_craft_room_item_palette.png",
+      "source_sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374",
+      "atlas": "assets/flats/castle/interactions/craft_room_palette_atlas.png",
+      "atlas_sha256": "b8278676e88c0a7aa349cd0c49cd78203ed1ea57e3ccf81cdbcbc4a285b1fbed",
+      "cell_size": [
+        304,
+        256
+      ],
+      "hframes": 3,
+      "vframes": 3,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "animation_duration_seconds": 0.96,
+      "frame_sha256": [
+        "f9c344bf768bd14943e3b9b93e688f5e2935f389dbc59a397bc5d858bbf408d5",
+        "af19dbd73503a0dd366638669d049a08fa209ca91b46815fc7ba0b532f1b0d0d",
+        "d7262e66d53ae7ed0bfad15f644905de664b50a72e81c74412fa95c8fc473a76",
+        "159c2ff937765a45b3598000b921d1655567a18ca8c8b1a420377f9d38913943",
+        "134488790e498ecfb432ec9d0ece3eefb8b44d669f24befcbb704691457b8714",
+        "127438bed4ad993f91817caedf52fd8931ed08b46120e7b4d113187780c4a7ae",
+        "a130f527853d173a8325d84f2f195a1d8855d078fd0776cbcd8d0d3873836d95",
+        "f8c97e8560f6180576f0c3da8f2f9368ee0cb82223c10fa61e6c26817a2d746e"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/craft_brush.ogg",
+      "sound_duration_seconds": 0.96,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        18,
+        2,
+        184,
+        81
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 7764,
+      "rest_depth_pixels": 7764,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "mermaid_pool_star_float",
+      "room": "mermaid_pool",
+      "item_id": "star_float",
+      "instances": [
+        "star_float"
+      ],
+      "semantic_action": "float_and_make_ripples",
+      "source": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+      "source_sha256": "26187cd4b6afd7b03a5559127101c14cd05c95d95ee8d4ccfd8618046db71321",
+      "atlas": "assets/flats/castle/interactions/mermaid_pool_star_float_atlas.png",
+      "atlas_sha256": "f92831ae79c68dd2555e3a20e857b24bd63727e3b1245793228504c9fa17a538",
+      "cell_size": [
+        66,
+        46
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.185,
+      "animation_duration_seconds": 1.48,
+      "frame_sha256": [
+        "929921c78a2a441ac7fa96be401b4c31eed76e9d50a5b0a3dcc727b94fe7a504",
+        "a495eb4a3b765186385c5f1d1838d81983454dcb0e475a90759ed61a7648f35c",
+        "ddd2b9198f207ba7c1924146982d0169ad610f82ad61ad00f34b952a0a335222",
+        "2fb8895232408a5f5c951d65a036cf99418202a3da245f6067a7693d0bf050d5",
+        "3704daec0b332cf9d28040a96ec532b2f88313c1545d3ba17ff172ff371d1e7b",
+        "b385aa7db11c34de05f57e9f6697d95a795345139abbf2a0e1dcc071ed6277cb",
+        "b1d20c77fdb3aa3d33b695c965c2dd22a138a3a9d764dd68ffbff6f84a186c3d",
+        "929921c78a2a441ac7fa96be401b4c31eed76e9d50a5b0a3dcc727b94fe7a504"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_duration_seconds": 1.48,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        1,
+        2,
+        65,
+        44
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 922,
+      "rest_depth_pixels": 922,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "mermaid_pool_waterfall",
+      "room": "mermaid_pool",
+      "item_id": "waterfall",
+      "instances": [
+        "waterfall"
+      ],
+      "semantic_action": "surge_waterfall_flow",
+      "source": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
+      "source_sha256": "55fe651a8bd8de4c87d14c6e6b01122938c8ceaa14a052d5dc7c44876949b11a",
+      "atlas": "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
+      "atlas_sha256": "6385afdeaaba9606239d796712506ebdf76f69503fa874818ca35b0add3d5864",
+      "cell_size": [
+        181,
+        233
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.185,
+      "animation_duration_seconds": 1.48,
+      "frame_sha256": [
+        "7a52465a6bafe2abbc7ee94616d3a301133816de9f8a162cbe60b5f33189841d",
+        "0075509fb40deb8c1be251314c71ff84d0ab41812d843326b03ea00e134e06a1",
+        "989d19685c77155bb3f18634d85d9951858c50d11a276ca0686484c767cc3ff1",
+        "2d295a8b8a998e481d906e1ddcd93c838b4a078432118876fa8dcecdb18403ba",
+        "572233cbbac0ba163ce7a3763264d8bc2bfe3762af5eaff8397293c194a82552",
+        "563461e1a9e4991f894ff1a8d2a5f1455b8095bfcc48b92c968906cbdbc213fa",
+        "5bf2b1a00e5767a84ba6af93f2c6c892876ca97c8f2a43ff7813e7a95f41944a",
+        "e2ce8d7fc6505f51d81bf890c05abd0a4bb09345571ea82470232ade40821057"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_duration_seconds": 1.48,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        38,
+        171,
+        228
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_depth_pixels": 24134,
+      "rest_depth_pixels": 24134,
+      "silhouette_retention": 1.0
+    },
+    {
+      "id": "mermaid_pool_flower_float",
+      "room": "mermaid_pool",
+      "item_id": "flower_float",
+      "instances": [
+        "flower_float"
+      ],
+      "semantic_action": "open_flower_and_make_ripples",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/flower_float_alpha.png",
+      "source_sha256": "ae0a274a486c2efa5324b895b99e7fe94a762effc8f6ed049eb2532ce7bd06b5",
+      "atlas": "assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png",
+      "atlas_sha256": "7e66883f17efb53fb8ca0a5967b0efb0aef5e46449bcadb47491da441cfbb3a6",
+      "cell_size": [
+        141,
+        111
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.185,
+      "animation_duration_seconds": 1.48,
+      "frame_sha256": [
+        "cdc57e54ca1d06452b7b2f314458bc16f2f2c1f797623d805ba89bb5017815e3",
+        "570b4c712476b1d646fa32ea15cead93add3a3cd4804dcd40e1c39f0842227b1",
+        "4e2bfeee82ea87fdb48663006f96bbce2ea53be88894be79fabcf5bd3203cb09",
+        "dc47cb3bbb162aeffdf07d6716d2652e887b17c297ee8f12846ffe22e35203d7",
+        "5973abab999aeff0046c6362e77538117d7f70f0ed32c389f2bc9243100eb2ce",
+        "7f7afe204b6dd07060037a31930276b61456e8473f26642c22959f48e1f7d5d1",
+        "570b4c712476b1d646fa32ea15cead93add3a3cd4804dcd40e1c39f0842227b1",
+        "cdc57e54ca1d06452b7b2f314458bc16f2f2c1f797623d805ba89bb5017815e3"
+      ],
+      "unique_frame_count": 6,
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_duration_seconds": 1.48,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        39,
+        138,
+        108
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "mermaid_pool_bubble_fountain",
+      "room": "mermaid_pool",
+      "item_id": "bubble_fountain",
+      "instances": [
+        "bubble_fountain"
+      ],
+      "semantic_action": "raise_and_pop_bubbles",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/bubble_fountain_alpha.png",
+      "source_sha256": "37020656d12b87c0fac563296b62f905e6a4c2b2debdb5dffb19c477e51eddf9",
+      "atlas": "assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png",
+      "atlas_sha256": "b28f7bcbb10bd99610547cfc8c33c11a286fe16860e640619cd0e8a9adb5f186",
+      "cell_size": [
+        158,
+        142
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.185,
+      "animation_duration_seconds": 1.48,
+      "frame_sha256": [
+        "49293e1b2d770928157215a392d81366b8fa954e24fce87ae67f138f717d9450",
+        "a795675919f0af8b1cad9133c650b4d4a5a3ee08d8a4948d9f5c500d58ab5801",
+        "b00c52a1a90e53fc6ba04d4663b7723bc1a322ecd882f7b421a996396c9dbcc8",
+        "c78b4634798c1c83cc581a8698eb5d82eae01f75344030f9916c02556d1b5af6",
+        "0e400cf1b45a195b021948939b6faee703d04669190c7b046e62a0875680135b",
+        "4d6d8034bce15a2c52786698c6401e18af0235c873bbc15cb0aaee3ab1911ed4",
+        "1f0d2681a62944793e647220799859b0543f3e5fc143af9d9ab99f4ef8ab9ec0",
+        "54108837d7114326b1f829f59fe70f5062eee124d96488501f1097636194595d"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_duration_seconds": 1.48,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        30,
+        3,
+        127,
+        139
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "bubble_bath_rubber_duck",
+      "room": "bubble_bath",
+      "item_id": "rubber_duck",
+      "instances": [
+        "rubber_duck"
+      ],
+      "semantic_action": "squeak_dive_and_pop_up",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/bathtub_alpha.png",
+      "source_sha256": "4e5752d4bdb7fec8fbd8d0d9100eafb3567f885090d05ed7735f28b76203c3d6",
+      "atlas": "assets/flats/castle/interactions/bubble_bath_rubber_duck_atlas.png",
+      "atlas_sha256": "507e3cfd76a6a47e8bba9cdb9eea49cfda4dc6a66eade4a2288781baa05899d6",
+      "cell_size": [
+        41,
+        40
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.0775,
+      "animation_duration_seconds": 0.62,
+      "frame_sha256": [
+        "10ad9a833889bf00745cb31207aef2a00a84842d7a800874dc8b5682731d6f28",
+        "b5db5213acdbbd1ba42391dbe3eae56d4a786acd3be8295ac8ec9fd49eddffda",
+        "0e2973b867f6de6ba40b12ee74dd3e8cf7c158695a8b81cae77646422754cd01",
+        "6e52d39208ed03dec351c400f724917ea74456ecd9ef589d6a0c273595d66527",
+        "7e4dcc7213e4c098625a0d0b54ab27e58db796578d23a9a3cc66c0af1397d9f9",
+        "4ca3c3fc6f61b9edb3242789f9e82e8bb7e74406f341900ddfab525863fa8dbc",
+        "ae657986e8be14cf2f9a97f83ef14632e3094375ae920e1026ef3ad3daf5bc41",
+        "10ad9a833889bf00745cb31207aef2a00a84842d7a800874dc8b5682731d6f28"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/duck_squeak.ogg",
+      "sound_duration_seconds": 0.62,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        3,
+        3,
+        37,
+        37
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "bubble_bath_bathtub",
+      "room": "bubble_bath",
+      "item_id": "bathtub",
+      "instances": [
+        "bathtub"
+      ],
+      "semantic_action": "turn_taps_and_fill_bubbles",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/bathtub_alpha.png",
+      "source_sha256": "4e5752d4bdb7fec8fbd8d0d9100eafb3567f885090d05ed7735f28b76203c3d6",
+      "atlas": "assets/flats/castle/interactions/bubble_bath_bathtub_atlas.png",
+      "atlas_sha256": "e91f83d08ea38924e45ee90512d8cb0b9efdf9eefda595220ea92b92b5ba5b4e",
+      "cell_size": [
+        321,
+        198
+      ],
+      "hframes": 3,
+      "vframes": 3,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.185,
+      "animation_duration_seconds": 1.48,
+      "frame_sha256": [
+        "c560ebeb4fc397ea7a2c1212ca688a4fb401e12ca6d6faf2bb9686c8ab554557",
+        "972d04c4eeae24d3e3b743a3bf95d4f7085c823c19c20243161295bbd475563f",
+        "6c4f02f63feb6129e36fb7502bf37eed6c2c979af1dc873b72973a3be6e385e4",
+        "6001f3b8ffc5207af1247f3efef173b1763b8f77a7d2ed00228684c06adeb7c9",
+        "802902e22c8c207bebd70c535ecbc22975d33bca5a06f6875b0dca0f5994ca7a",
+        "8882c12b8bdc16364144ab3c642258dc6069ceccf7b8b3ae339d9305301f7dcc",
+        "a17fea3779acba24b333569b5b18ea94e7fdd5b1b8bc966b0535ec9c4d337e6d",
+        "67b9a2f5285d00c3c6ae10d2a25b153aa873adefed05c5adbd10dee958170b2b"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_duration_seconds": 1.48,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        4,
+        3,
+        316,
+        195
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "bubble_bath_sink",
+      "room": "bubble_bath",
+      "item_id": "sink",
+      "instances": [
+        "sink"
+      ],
+      "semantic_action": "turn_faucet_and_run_water",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/bathroom_sink_alpha_hard.png",
+      "source_sha256": "8c2378cb073a680afb0d4b4e78f0b8928dcbd56f48e2bf221986a29c639e6eaa",
+      "atlas": "assets/flats/castle/interactions/bubble_bath_sink_atlas.png",
+      "atlas_sha256": "98f58234de49cd168d3a5bf2d5955f92c4474b997df050b8b1240cbeffed4b22",
+      "cell_size": [
+        205,
+        173
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.15,
+      "animation_duration_seconds": 1.2,
+      "frame_sha256": [
+        "6004b7f66ae8f22494b1a89105aabca1f147f82e9b2087d35523b94b59490a01",
+        "394a44ac209f50ce81d93346f82e1e549fc750a31cec71bc8897b38d295d5ae2",
+        "8cfbc75dc5dc94d84892183d52ec9a036db9110f30fff2c3e81c73d8c05099f7",
+        "528dcb7327b3aabf05da46345ab1349c4fc3d5c922e326652558a440f1f0a976",
+        "1eb68dbfa362559a1feacfb6c37e627e2c6eb1b470e501ff9512346cff42cd4f",
+        "bcbe30c71a3dcf50ac1904787da5859c8e0e7b3d2ac5134ccd06e893378478f0",
+        "78cbeb7b8874ffd5e25200db3dba6e8d6de18c8778fa0c7de516bf7782368f01",
+        "6004b7f66ae8f22494b1a89105aabca1f147f82e9b2087d35523b94b59490a01"
+      ],
+      "unique_frame_count": 7,
+      "sound": "assets/audio/castle/faucet_water.ogg",
+      "sound_duration_seconds": 1.2,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        13,
+        3,
+        192,
+        170
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "bubble_bath_toilet",
+      "room": "bubble_bath",
+      "item_id": "toilet",
+      "instances": [
+        "toilet"
+      ],
+      "semantic_action": "flap_seat_and_flush",
+      "source": "assets_src/imagegen/castle_interactions_2026-08-01/toilet_alpha.png",
+      "source_sha256": "fcdc43d489b0c1c5a81cc02a64cf3150220d70f329fd3d82b75c6fdfa639a64e",
+      "atlas": "assets/flats/castle/interactions/bubble_bath_toilet_atlas.png",
+      "atlas_sha256": "a85228fcaf95e931df16cfd0ddf361c6b76ca2322758fb473cc55cf1e540f89f",
+      "cell_size": [
+        153,
+        192
+      ],
+      "hframes": 4,
+      "vframes": 2,
+      "frame_count": 8,
+      "frame_duration_seconds": 0.225,
+      "animation_duration_seconds": 1.8,
+      "frame_sha256": [
+        "b66790b084d7ce5d7f889f73c0ac10366705bc8bf4223f4af0958f41c51febcf",
+        "29cf3c2ddf7e3020206a4d9b8153194b96758007938a4b68ac54ee023edae595",
+        "64ed9ec1341545634fcb4645b33601b84ce90b0fd821fa7ae7c001990c6728d0",
+        "5cea10df5f118460f972b24a845e589f0bbcf66bcd5bb0477c140e64c89edb94",
+        "97f0e09318b87e1982520a82e6e45947ae1c1f4ce80ac0de091292c947042c0a",
+        "7bd246da7f35a7f9ef274898b8c6c9a37b7bf5c95fa026b2c8826302453e27b9",
+        "3d765a92c3cc16ca0cdd383bef32b1944e26d5ef4dda7ef0336e339712b39bd7",
+        "23019a454327182e5368188db99e522696562ebfa7a3914779de6b20c28c8288"
+      ],
+      "unique_frame_count": 8,
+      "sound": "assets/audio/castle/toilet_flush.ogg",
+      "sound_duration_seconds": 1.8,
+      "sound_frame": 0,
+      "timeline_sync": "sound_starts_with_frame_0_and_ends_with_frame_7",
+      "fixed_pivot": true,
+      "root_transform_animation": false,
+      "transparent_border": true,
+      "rest_alpha_bbox": [
+        12,
+        3,
+        141,
+        189
+      ],
+      "normalized_use_review": "accepted_visual_review_2026-08-01",
+      "reviewed_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "summary": {
+    "room_count": 8,
+    "unique_animated_assets": 33,
+    "physical_item_instances": 38,
+    "average_items_per_room": 4.75,
+    "minimum_non_hall_room_items": 4,
+    "character_overlap_gate": "transparent pixels never write prop-card depth"
+  }
+}

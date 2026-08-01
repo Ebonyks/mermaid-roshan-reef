@@ -71,8 +71,8 @@ func _picker_case() -> void:
 	var left_sprite: Sprite3D = left_record.get("sprite") as Sprite3D
 	var right_sprite: Sprite3D = right_record.get("sprite") as Sprite3D
 	_ck("Playroom starts with Baby Eagle and two pinning dust bunnies",
-		main.castle_room_item_sprites.size() == 6
-		and main.castle_room_item_hotspot_layer.get_child_count() == 3
+		main.castle_room_item_sprites.size() == 7
+		and main.castle_room_item_hotspot_layer.get_child_count() == 4
 		and eagle_sprite != null
 		and left_sprite != null
 		and right_sprite != null

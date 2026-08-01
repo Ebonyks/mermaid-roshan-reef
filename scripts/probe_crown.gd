@@ -234,7 +234,7 @@ func _init() -> void:
 			main.castle_room_background is Sprite3D
 			and main.castle_room_background_tiles.size() == 8
 			and main.castle_room_detail_tiles.size() == 4
-			and main.castle_room_item_sprites.size() == 3
+			and main.castle_room_item_sprites.size() == 4
 			and main.castle_room_front_layer.get_child_count() == 2
 			and main.castle_room_player_sprite is Sprite3D
 			and main.castle_room_player_shadow is Sprite3D)
@@ -262,10 +262,10 @@ func _init() -> void:
 			var hall_mode: bool = room_id == "main_hall"
 			var expected_items: int = 10 if hall_mode else (
 				7 if room_id == "kitchen" else (
-					6 if room_id == "playroom"
-						and not rooms._playroom_rescue_done() else 3))
+					7 if room_id == "playroom"
+						and not rooms._playroom_rescue_done() else 4))
 			var expected_hotspots: int = 7 if hall_mode else (
-				3 if room_id == "playroom" else expected_items)
+				4 if room_id == "kitchen" else 4)
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
 				and main.castle_room_item_hotspot_layer.get_child_count() \
@@ -350,25 +350,67 @@ func _init() -> void:
 			requested_foot.distance_to(walk_target) < 0.1)
 		rooms._position_player_at_foot(requested_foot, false)
 		var toilet_texture: Texture2D = toilet_sprite.texture
+		var toilet_data: Dictionary = toilet_record.get("data", {}) as Dictionary
+		var toilet_start_position: Vector3 = toilet_sprite.position
+		var toilet_start_scale: Vector3 = toilet_sprite.scale
+		var toilet_start_rotation: Vector3 = toilet_sprite.rotation
+		main.castle_room_prop_sfx.stop()
+		main.castle_room_prop_sfx.stream = null
 		if toilet_button != null:
 			toilet_button.emit_signal("pressed")
 		await process_frame
-		_ck("toilet_button_animates", toilet_sprite != null
-			and bool(toilet_sprite.get_meta("busy", false)))
-		_ck("toilet_animation_preserves_frame",
-			toilet_sprite.texture == toilet_texture)
+		_ck("toilet_uses_semantic_flush_atlas",
+			toilet_sprite != null
+			and bool(toilet_sprite.get_meta("busy", false))
+			and toilet_sprite.texture == toilet_texture
+			and toilet_texture.resource_path.ends_with(
+				"bubble_bath_toilet_atlas.png")
+			and toilet_sprite.hframes * toilet_sprite.vframes >= 8
+			and int(toilet_sprite.get_meta(
+				"animation_frame_count", 0)) == 8
+			and String(toilet_sprite.get_meta(
+				"semantic_action", "")) == "flap_seat_and_flush"
+			and String(toilet_data.get("sound", ""))
+				== "castle/toilet_flush.ogg")
 		_ck("toilet_button_effects",
 			main.castle_room_item_effect_layer.get_child_count() > 0
 			and _all_children_are_unshaded_cards(
 				main.castle_room_item_effect_layer))
-		_ck("toilet_button_sound", main.castle_room_prop_sfx.stream != null
-			and main.castle_room_prop_sfx.playing)
 		var effect_count: int = main.castle_room_item_effect_layer.get_child_count()
 		if toilet_button != null:
 			toilet_button.emit_signal("pressed")
 		await process_frame
 		_ck("toilet_busy_guard",
 			main.castle_room_item_effect_layer.get_child_count() == effect_count)
+		var toilet_fixed_transform := true
+		var toilet_wait_frames := 0
+		var toilet_deadline_ms: int = Time.get_ticks_msec() + 3000
+		while bool(toilet_sprite.get_meta("busy", false)) \
+				and Time.get_ticks_msec() < toilet_deadline_ms:
+			await process_frame
+			toilet_wait_frames += 1
+			toilet_fixed_transform = toilet_fixed_transform \
+				and toilet_sprite.position.is_equal_approx(
+					toilet_start_position) \
+				and toilet_sprite.scale.is_equal_approx(toilet_start_scale) \
+				and toilet_sprite.rotation.is_equal_approx(
+					toilet_start_rotation)
+		var toilet_expected_frames: Array[int] = []
+		for toilet_frame: int in range(8):
+			toilet_expected_frames.append(toilet_frame)
+		var toilet_visited: Array = toilet_sprite.get_meta(
+			"animation_frames_visited", []) as Array
+		_ck("toilet_seat_flap_flush_sequence_completes",
+			Time.get_ticks_msec() < toilet_deadline_ms
+			and toilet_visited == toilet_expected_frames
+			and toilet_sprite.frame == 0
+			and not bool(toilet_sprite.get_meta("busy", true)))
+		_ck("toilet_animation_keeps_fixture_pivot_fixed",
+			toilet_fixed_transform)
+		_ck("toilet_flush_sound",
+			main.castle_room_prop_sfx.stream != null
+			and main.castle_room_prop_sfx.stream.resource_path \
+				== "res://assets/audio/castle/toilet_flush.ogg")
 		_ck("decorations_do_not_award",
 			not bool(main.g.get("crown_won", false)))
 		rooms.show_room("library", false)
