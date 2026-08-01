@@ -67,9 +67,9 @@ def _colour_distance(a: tuple[int, ...], b: tuple[int, ...]) -> int:
     return sum((int(a[i]) - int(b[i])) ** 2 for i in range(3))
 
 
-def _remove_edge_field(source: Path) -> Image.Image:
+def _remove_edge_field(source: Path | Image.Image) -> Image.Image:
     """Remove the connected dark-navy card field, preserving outlined art."""
-    image = Image.open(source).convert("RGBA")
+    image = source.convert("RGBA") if isinstance(source, Image.Image) else Image.open(source).convert("RGBA")
     width, height = image.size
     pixels = image.load()
     corners = [
@@ -257,7 +257,9 @@ def main() -> None:
             y0 = round(row * rival_sheet.height / 3.0)
             y1 = round((row + 1) * rival_sheet.height / 3.0)
             cell = rival_sheet.crop((x0, y0, x1, y1))
-            _fit_actor(_remove_checker(cell)).save(rival_output, optimize=True)
+            corner = cell.getpixel((0, 0))
+            matte = _remove_edge_field(cell) if max(corner[:3]) < 110 else _remove_checker(cell)
+            _fit_actor(matte).save(rival_output, optimize=True)
         else:
             qa_source = RIVAL_SOURCE / f"opera_rival_{career}_qa.png"
             qa = Image.open(qa_source).convert("RGBA")

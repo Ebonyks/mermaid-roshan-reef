@@ -8,11 +8,8 @@ prepare_opera_2d_worlds.py):
    canvas — written to assets/opera/worlds/props/goal_<career>.png. These are
    the "made thing" each act builds, which the imp captain steals in beat
    four and the stage finale wins back (OPERA_2D_REBUILD_2026-08-01.md).
-2. Two BASIC PLACE-IN imp sprites (imp_mischief.png / imp_captain.png in
-   assets/opera/worlds/actors/) drawn from simple shapes. They are throwaway
-   placeholders: the codex regeneration list requests proper mischief-imp
-   sprites at these exact paths, and the gesture surface falls back to its
-   own vector imps if the files are absent.
+2. Accepted regenerated imp sprites, when present in the dated source batch;
+   otherwise the original BASIC PLACE-IN sprites remain the fallback.
 
 Sources under assets_src/ are never modified. Re-running reproduces
 byte-equivalent output.
@@ -34,6 +31,7 @@ KEYS = ROOT / "assets_src/concepts/opera_jobs_2p5d_2026-07-24"
 PROPS_OUT = ROOT / "assets/opera/worlds/props"
 ACTORS_OUT = ROOT / "assets/opera/worlds/actors"
 BACKDROPS_OUT = ROOT / "assets/opera/worlds/backdrops"
+REGEN_CARDS = ROOT / "assets_src/concepts/opera_regeneration_2026-08-01/cards"
 
 # career id -> accepted 2p5d scene key (owner decision 2026-08-01: these
 # paintings ARE the runtime career backdrops; 1024x576 matches the 1280x720
@@ -165,6 +163,8 @@ PROP_CARDS = {
     "doctor": "opera_job_doctor_gameplay_recovered_starfish.png",
     "farmer": "opera_job_farmer_gameplay_piggy_fed.png",
     "boxer": "opera_job_boxer_gameplay_championship_belt.png",
+    # Owner decision 2026-08-01: this compatibility filename now contains Lamba.
+    # Keep the path stable until Fable completes the voice/legacy-3D migration.
     "magician": "opera_job_magician_gameplay_bunny_fish_reveal.png",
     "painter": "opera_job_painter_gameplay_framed_sunrise.png",
     "astronaut": "opera_job_astronaut_engineer_gameplay_rocket_front.png",
@@ -259,8 +259,13 @@ def main() -> None:
     print(f"fx        {puff_out.relative_to(ROOT)}")
     for name, captain in (("imp_mischief", False), ("imp_captain", True)):
         out = ACTORS_OUT / f"{name}.png"
-        _draw_placeholder_imp(512, captain).save(out)
-        print(f"imp       {out.relative_to(ROOT)} (basic place-in fallback)")
+        accepted = REGEN_CARDS / f"{name}.png"
+        if accepted.is_file():
+            _fit_actor(_matte_card(accepted), 512).save(out)
+            print(f"imp       {out.relative_to(ROOT)} (accepted regeneration)")
+        else:
+            _draw_placeholder_imp(512, captain).save(out)
+            print(f"imp       {out.relative_to(ROOT)} (basic place-in fallback)")
 
 
 if __name__ == "__main__":

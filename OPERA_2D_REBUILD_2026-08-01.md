@@ -56,7 +56,7 @@ steals it.
 | doctor | WASH hold, FIND choice, X-RAY tap | CAST circle, BANDAGE swipe | recovered_starfish |
 | farmer | PLANT choice, FEED timing, MUD HOP hold | HERD swipe, PICNIC tap | piggy_fed |
 | boxer | JAB timing, DUCK swipe | ROUND choice, BELT tap | championship_belt |
-| magician | VANISH hold, TRACK choice, ROPE swipe | CABINET timing, PORTAL circle | bunny_fish_reveal |
+| magician | VANISH hold, TRACK choice, ROPE swipe | CABINET timing, PORTAL circle | Lamba reveal (`bunny_fish_reveal` remains a temporary path alias) |
 | painter | SKETCH swipe, FILL hold, SPLAT tap | STROKES circle, REVEAL choice | framed_sunrise |
 | astronaut | PIPES choice, PATCH tap, VALVE circle | BOOST timing, LAUNCH hold | rocket_front |
 | racer | STEER swipe, TURBO timing | LAP TWO swipe, FINISH tap | shell_trophy |
