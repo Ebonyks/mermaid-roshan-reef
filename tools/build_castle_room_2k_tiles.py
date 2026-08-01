@@ -332,7 +332,7 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 
 	main_hall = manifest["rooms"]["main_hall"]
 	hall_runtime_manifest = (
-		AUDIT_ROOT / "castle_main_hall_2x4_runtime_manifest.json")
+		AUDIT_ROOT / "castle_hall_runtime_registration.json")
 	hall_tiles = (
 		json.loads(hall_runtime_manifest.read_text(encoding="utf-8"))["tiles"]
 		if hall_runtime_manifest.exists() else main_hall_tile_records())
