@@ -19,7 +19,7 @@ func _init() -> void:
 	var config := (OperaHouse.ACTS[15] as Dictionary).duplicate(true)
 	config["force_2d"] = true
 	var touch_before := main.touch_ui.visible if main.touch_ui != null else false
-	var old_save := SaveState.new()._normalise_save({
+	var old_save := SaveState.new(main)._normalise_save({
 		"opera_progress": 15,
 		"opera_stars": (1 << 15) - 1,
 	})
