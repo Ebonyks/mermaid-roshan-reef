@@ -22,6 +22,7 @@ const MUTED := Color(0.38, 0.42, 0.58, 0.92)
 const DIM := Color(0.025, 0.06, 0.16, 0.76)
 const MIN_TOUCH := Vector2(110.0, 110.0)
 const SHELL_ORNAMENT_SCRIPT := preload("res://scripts/shell_ornament.gd")
+const SURFACE_DETAIL_SCRIPT := preload("res://scripts/storybook_surface.gd")
 
 static func add_stage(parent: Control, viewport_size: Vector2) -> Control:
 	var stage := Control.new()
@@ -58,6 +59,11 @@ static func add_panel(parent: Control, rect: Rect2, accent: Color = INK_SOFT, fi
 	panel.size = rect.size
 	panel.add_theme_stylebox_override("panel", panel_style(accent, fill, radius))
 	parent.add_child(panel)
+	# Large sheets receive the rainbow crown; small cards keep quiet pearl
+	# studs so repeated grids remain readable rather than over-decorated.
+	_add_surface_detail(panel, accent, false,
+		rect.size.x >= 540.0 and rect.size.y >= 300.0)
+	panel.set_meta("storybook_surface", true)
 	return panel
 
 static func add_hud_panel(parent: Node, rect: Rect2, accent: Color = INK_SOFT, fill: Color = PAPER, radius: int = 30) -> Panel:
@@ -68,7 +74,16 @@ static func add_hud_panel(parent: Node, rect: Rect2, accent: Color = INK_SOFT, f
 	panel.add_theme_stylebox_override("panel", panel_style(accent, fill, radius, 4))
 	panel.set_meta("storybook_surface", true)
 	parent.add_child(panel)
+	_add_surface_detail(panel, accent, true, false)
 	return panel
+
+static func _add_surface_detail(panel: Panel, accent: Color,
+		compact: bool, rainbow_crest: bool) -> void:
+	var detail: Control = SURFACE_DETAIL_SCRIPT.new()
+	detail.name = "StorybookSurfaceDetail"
+	detail.set_meta("resolution_independent", true)
+	detail.call("configure", accent, compact, rainbow_crest)
+	panel.add_child(detail)
 
 static func add_shell_crest(parent: Node, rect: Rect2, ornament_name: String = "StorybookShellCrest") -> Control:
 	var crest: Control = SHELL_ORNAMENT_SCRIPT.new()
@@ -127,9 +142,12 @@ static func _button_fill(kind: String) -> Color:
 
 static func style_button(button: Button, kind: String = "secondary", font_size: int = 30, radius: int = 28) -> void:
 	var fill: Color = _button_fill(kind)
-	var normal := panel_style(PURPLE, fill, radius, 5)
+	var rim: Color = GOLD if kind == "primary" or kind == "gold" else PURPLE
+	var normal := panel_style(rim, fill, radius, 6)
 	normal.shadow_size = 7
 	normal.shadow_offset = Vector2(0.0, 4.0)
+	normal.content_margin_left = 22.0
+	normal.content_margin_right = 22.0
 	var hover: StyleBoxFlat = normal.duplicate()
 	hover.bg_color = fill.lightened(0.08)
 	hover.border_color = GOLD if kind != "gold" else INK
@@ -160,6 +178,7 @@ static func style_button(button: Button, kind: String = "secondary", font_size: 
 	button.add_theme_constant_override("outline_size", 3)
 	button.set_meta("storybook_kind", kind)
 	button.set_meta("touch_target", true)
+	button.set_meta("high_resolution_style", true)
 
 static func style_icon_button(button: Button, icon: String, kind: String = "secondary", size: Vector2 = MIN_TOUCH, parent_hint: String = "") -> void:
 	button.text = icon

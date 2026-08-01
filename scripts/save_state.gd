@@ -78,7 +78,10 @@ func load_save() -> void:
 	m.music_on = bool(m.save_data.get("music", true))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
-	m._set_touch_mode(String(m.save_data.get("touch_mode", m.TOUCH_MODE_HYBRID)), false)
+	# Keep the legacy key in the schema, but every live session now uses the
+	# single point-to-interact contract. Old "classic" saves must not restore
+	# the retired on-screen movement stick.
+	m._set_touch_mode(m.TOUCH_MODE_HYBRID, false)
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
 		m.music_btn.text = m._pause_ref().music_label()

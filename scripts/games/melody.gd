@@ -5,6 +5,9 @@ extends RefCounted
 
 var m: ReefMain
 var stage_root: Node3D
+var performer_animator: DaddySpriteLoop = null
+
+const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
 
 const NAVY := Color(0.075, 0.065, 0.16)
 const INK := Color(0.12, 0.10, 0.24)
@@ -32,6 +35,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.g["timer"] = -1.0
 	m.g["caught"] = 0
 	m.g["orbs"] = []
+	performer_animator = null
 
 	# Daddy Mermaid's rainbow theater — an original 3D playset: crown
 	# proscenium, rainbow tree, stage wings, sound towers, runway and seating.
@@ -241,8 +245,8 @@ func _build_streamers() -> void:
 
 
 func _add_star_performer() -> void:
-	# Daddy Mermaid on the podium. Sprite cutout today; when the gen2 Meshy
-	# model lands at friends/daddy.glb the loader below upgrades him to 3D.
+	# Daddy Mermaid's atlas acting is part of this game's feedback, so the stage
+	# performer intentionally stays a sprite even if an optional GLB later lands.
 	var podium := CylinderMesh.new()
 	podium.top_radius = 4.8
 	podium.bottom_radius = 5.3
@@ -250,27 +254,16 @@ func _add_star_performer() -> void:
 	podium.radial_segments = 24
 	_mesh("StarPodium", podium, Vector3(0.0, 2.25, -20.5), _mat(PINK, 0.22))
 
-	var glb_path := "res://assets/characters/friends/daddy.glb"
-	if ResourceLoader.exists(glb_path):
-		var ps: PackedScene = load(glb_path)
-		var mdl: Node3D = ps.instantiate() as Node3D
-		mdl.name = "StarPerformer"
-		mdl.scale = Vector3.ONE * 4.0
-		mdl.position = Vector3(0.0, 2.7, -20.5)   # standing on the podium
-		stage_root.add_child(mdl)
-		var ap := m._find_anim(mdl)
-		if ap != null and ap.get_animation_list().size() > 0:
-			var clip: String = ap.get_animation_list()[0]
-			ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
-			ap.play(clip)
-	else:
-		var performer := Sprite3D.new()
-		performer.name = "StarPerformer"
-		performer.texture = m._cutout_tex("daddy")
-		performer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		performer.pixel_size = 0.018
-		performer.position = Vector3(0.0, 10.0, -20.5)
-		stage_root.add_child(performer)
+	var performer := Sprite3D.new()
+	performer.name = "StarPerformer"
+	# Match the prior standee's apparent height after the atlas safety padding.
+	performer.pixel_size = 0.079
+	performer.position = Vector3(0.0, 10.0, -20.5)
+	performer.set_meta("daddy_sprite_authoritative", true)
+	stage_root.add_child(performer)
+	performer_animator = DaddySpriteLoopFactory.new()
+	performer.add_child(performer_animator)
+	performer_animator.setup_sprite_3d(performer, performer)
 
 
 func _build_rainbow_orbs(origin: Vector3) -> void:
@@ -499,6 +492,8 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 		m.g["still_t"] = 0.0
 	if float(m.g.get("still_t", 0.0)) > 8.0 and not bool(m.g.get("hinted", false)):
 		m.g["hinted"] = true
+		if performer_animator != null and is_instance_valid(performer_animator):
+			performer_animator.play_invite()
 		m.show_msg("Daddy Mermaid", "Swim to the colors! They are waiting for YOU!", "hint")
 	for ob in m.g["orbs"]:
 		if bool(ob["caught"]):
@@ -545,3 +540,5 @@ func _tick_melody(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			if caught >= 7:
 				m._end_game(true, fr, "You caught the WHOLE rainbow! Daddy Mermaid cheers for you!")
 				return
+			if performer_animator != null and is_instance_valid(performer_animator):
+				performer_animator.play_clap()

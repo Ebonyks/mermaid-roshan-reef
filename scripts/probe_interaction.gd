@@ -1,6 +1,6 @@
 extends SceneTree
-# Interaction-language integration: proximity advertises, first tap selects,
-# assisted movement approaches, and only a second explicit verb activates.
+# Point-to-interact integration: proximity advertises, one deliberate point
+# selects, assisted movement approaches, and arrival activates automatically.
 
 var main: Node3D
 var failures := 0
@@ -33,21 +33,15 @@ func _init() -> void:
 		_bad("camera unavailable for screen-space selection")
 	else:
 		var tap: Vector2 = camera.unproject_position(friend_node.global_position)
-		# An action press made before anything is selected must expire. It may
-		# not be remembered and applied to the next focus, even in the same
-		# rendered frame.
+		# A stale activity action may not be inherited by point navigation.
 		main.touch_ui._on_action_button_down()
 		main.touch_ui._on_action_button_up()
 		main._interaction_ref().on_world_touch(tap)
-		await process_frame
-		if main.touch_focus_id != "friend:0" or not main.touch_focus_ready:
-			_bad("first friend tap did not focus/ready")
-		if main.game != "":
-			_bad("first friend tap launched instead of acknowledging")
-		main._interaction_ref().on_world_touch(tap)
-		await _frames(12)
+		await _frames(8)
 		if main.game == "":
-			_bad("second friend tap did not activate")
+			_bad("single friend point did not activate")
+		if not main.touch_focus_id.is_empty():
+			_bad("single friend point retained stale focus after activation")
 	if main.game != "":
 		main._clear_game()
 		await _frames(6)
@@ -78,15 +72,15 @@ func _init() -> void:
 		main._tap_move_ref().start(floe, "reef:slide", 14.0)
 		var previous_scale: float = Engine.time_scale
 		Engine.time_scale = 1.0
-		var climb_start_y: float = main.player.position.y
 		var deadline: int = Time.get_ticks_msec() + 12000
-		while Time.get_ticks_msec() < deadline and not main.touch_focus_ready:
+		while Time.get_ticks_msec() < deadline and main.game == "":
 			await process_frame
 		Engine.time_scale = previous_scale
-		if not main.touch_focus_ready:
-			_bad("elevated floe never became ready (vertical approach wedge)")
-		if main.player.position.y - climb_start_y < 4.0:
-			_bad("assisted travel did not climb toward the elevated floe")
+		if main.game == "":
+			_bad("elevated floe never activated on arrival")
+		if main.game != "":
+			main._clear_game()
+			await _frames(4)
 		main._tap_move_ref().cancel("probe")
 		main._interaction_ref().clear_focus()
 

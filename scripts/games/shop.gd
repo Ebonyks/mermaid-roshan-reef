@@ -234,7 +234,7 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.player.position = origin + Vector3(0, 4, 9)
 	m.player.vel = Vector3.ZERO
 	m.player.yaw = PI
-	m.show_msg("Pearl Shop", "Welcome aboard! Swim close, then tap to buy Beans or set a reef friend free!")
+	m.show_msg("Pearl Shop", "Welcome aboard! Tap what you would like to buy, or set an ocean friend free!")
 
 func _purchase_action_just() -> bool:
 	# Proximity chooses an item; a separate tap/press confirms the purchase.
@@ -255,7 +255,7 @@ func _purchase_action_just() -> bool:
 	return just
 
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Pearls: %d - swim close, then tap the pink button to buy" % m.pearl_count
+	m.hud_game.text = "Pearls: %d - tap an item, then tap the coral shell to buy" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
 	var buy_pressed := _purchase_action_just()
 	var choice_kind := ""
@@ -362,9 +362,9 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			m.hud_game.text = "Pearls  " + m._pips(meter_fill, 10, "⚪")
 			if buy_pressed and m.shop_msg_cool <= 0.0:
 				m.shop_msg_cool = 2.5
-				m.show_msg("Pearl Shop", "That costs %d pearls — the reef is full of them!" % choice_price)
+				m.show_msg("Pearl Shop", "That costs %d pearls — more are sparkling nearby!" % choice_price)
 		else:
-			m.hud_game.text = "Pearls  " + m._pips(10, 10, "⚪") + "  tap the pink button to choose!"
+			m.hud_game.text = "Pearls  " + m._pips(10, 10, "⚪") + "  tap the coral shell to choose!"
 			if buy_pressed:
 				if choice_kind == "beans":
 					_shop_buy(choice_id)
@@ -424,7 +424,7 @@ func _tank_buy(id: String) -> void:
 			if pet != null and is_instance_valid(pet):
 				pet.visible = false
 			(tk["tag"] as Label3D).text = "%s\n(set free!)" % String(it["label"])
-		m.show_msg("Pearl Shop", "The %s is FREE! It lives in YOUR reef now - go find it!" % String(it["label"]), "win")
+		m.show_msg("Pearl Shop", "The %s is FREE! Your new ocean friend is waiting outside!" % String(it["label"]), "win")
 		return
 
 func _check_shopper() -> void:

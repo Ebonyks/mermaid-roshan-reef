@@ -44,7 +44,7 @@ func _build_pause() -> void:
 	m.pause_layer.add_child(m.pause_panel)
 	var dim := StorybookUI.add_dim(m.pause_panel)
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	var shell_rect := Rect2(290, 25, 700, 670)
+	var shell_rect := Rect2(270, 42, 740, 620)
 	var shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)
 	shell.name = "PauseShell"
 	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Pause")
@@ -53,47 +53,41 @@ func _build_pause() -> void:
 	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
 	m.fps_lbl.position = Vector2(1030, 686)
 	m.pause_panel.add_child(m.fps_lbl)
-	var resume := _pause_btn("▶   KEEP SWIMMING", Rect2(350, 105, 580, 140), "primary")
+	var resume := _pause_btn("▶   KEEP SWIMMING", Rect2(330, 112, 620, 140), "primary")
 	resume.name = "PauseResumeButton"
 	resume.pressed.connect(toggle_pause)
 	m.pause_resume_btn = resume
 
-	var sticker_btn := _pause_btn("★   STICKERS", Rect2(350, 265, 280, 132), "secondary")
+	var sticker_btn := _pause_btn("★   STICKERS", Rect2(330, 276, 298, 132), "secondary")
 	sticker_btn.name = "PauseStickerButton"
 	sticker_btn.pressed.connect(func():
 		toggle_pause()
 		m._open_stickers())
-	m.quality_btn = _pause_btn("✦   SPARKLY", Rect2(650, 265, 280, 132), "secondary")
+	m.quality_btn = _pause_btn("✦   SPARKLY", Rect2(652, 276, 298, 132), "secondary")
 	m.quality_btn.name = "PauseQualityButton"
 	m.quality_btn.pressed.connect(func():
 		m._apply_quality("speedy" if m.quality == "sparkly" else "sparkly")
 		_sync_labels()
 		m._write_save())
-	m.music_btn = _pause_btn("♫   MUSIC ON", Rect2(350, 420, 280, 132), "secondary")
+	m.music_btn = _pause_btn("♫   MUSIC ON", Rect2(330, 432, 298, 132), "secondary")
 	m.music_btn.name = "PauseMusicButton"
 	m.music_btn.pressed.connect(func():
 		m.music_on = not m.music_on
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		_sync_labels()
 		m._write_save())
-	m.pause_leave_btn = _pause_btn("↩   REEF", Rect2(650, 420, 280, 132), "secondary")
+	m.pause_leave_btn = _pause_btn("↩   LEAVE", Rect2(652, 432, 298, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
 	m.pause_leave_btn.pressed.connect(_leave_current_activity)
-	# Hybrid/Classic touch-mode toggle (dev hybrid navigation, 2026-07-26):
-	# same storybook tile grammar, third row; the mode is shown by the icon
-	# silhouette, never by colour alone.
-	m.touch_mode_btn = _pause_btn(m._touch_mode_label(), Rect2(350, 570, 280, 120), "secondary")
-	m.touch_mode_btn.name = "PauseTouchModeButton"
-	m.touch_mode_btn.pressed.connect(func():
-		m._set_touch_mode(
-			m.TOUCH_MODE_CLASSIC if m.touch_mode == m.TOUCH_MODE_HYBRID
-			else m.TOUCH_MODE_HYBRID))
+	# Navigation is point-to-interact everywhere. The old child-facing
+	# Classic/Hybrid switch and movement-stick teaching step are removed.
+	m.touch_mode_btn = null
 
 	# Parent/debug affordances deliberately sit outside the child icon grid.
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 586, 280, 66), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(500, 578, 280, 66), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -233,4 +227,4 @@ func _leave_current_activity() -> void:
 	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
 		m.call_deferred("_enter_level2", m.l2_open)
 	else:
-		m.show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
+		m.show_msg("Roshan", "Back to your adventure! Pick anything you want to play.")

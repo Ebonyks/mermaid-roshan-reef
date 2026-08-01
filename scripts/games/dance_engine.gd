@@ -9,7 +9,7 @@ signal closed
 const SONGS := [
 	{"track": "melody", "title": "Rainbow Stage", "bpm": 108.0, "offset": 0.18},
 	{"track": "race", "title": "Rainbow Race", "bpm": 126.0, "offset": 0.12},
-	{"track": "finale", "title": "Reef Celebration", "bpm": 116.0, "offset": 0.20},
+	{"track": "finale", "title": "Rainbow Celebration", "bpm": 116.0, "offset": 0.20},
 ]
 const ARROWS := ["←", "↓", "↑", "→"]
 const LANE_COLORS := [

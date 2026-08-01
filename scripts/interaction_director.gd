@@ -2,8 +2,8 @@ class_name InteractionDirector
 extends RefCounted
 # Shared touch interaction language:
 # ambient -> discoverable glow -> focused acknowledgement -> approach -> ready
-# -> explicit second tap/action -> activation. Proximity advertises; it never
-# launches an activity in Hybrid mode.
+# -> automatic activation on arrival. Proximity advertises; a deliberate point
+# selects the destination and replaces the old stick-plus-confirm sequence.
 
 const SCREEN_HIT_RADIUS := 104.0
 const DISCOVERY_DEFAULT := 30.0
@@ -25,14 +25,10 @@ func tick(delta: float, player_pos: Vector3) -> void:
 	_place_ring(m.touch_discovery_ring, discoverable, false, delta)
 	var focused: Dictionary = _find(m.touch_focus_id)
 	_place_ring(m.touch_focus_ring, focused, true, delta)
-	if focused.is_empty():
-		return
-	var distance: float = _distance_to(player_pos, _position(focused))
-	var activation_radius: float = float(focused.get("activation_radius", 5.0))
-	m.touch_focus_ready = distance <= activation_radius
-	if m.touch_focus_ready and m.touch_ui != null and m.touch_ui.action_just:
-		m.touch_ui.consume_action()
-		_activate(focused)
+	if not focused.is_empty():
+		var distance: float = _distance_to(player_pos, _position(focused))
+		var activation_radius: float = float(focused.get("activation_radius", 5.0))
+		m.touch_focus_ready = distance <= activation_radius
 
 func on_world_touch(screen_pos: Vector2) -> void:
 	if not m.touch_uses_explicit_interactions() or m.player == null:
@@ -44,20 +40,16 @@ func on_world_touch(screen_pos: Vector2) -> void:
 			m.show_msg("Roshan", "Swimming there!", "hint")
 		return
 	var picked_id: String = String(picked["id"])
-	var was_focused: bool = picked_id == m.touch_focus_id
 	# An action edge belongs to the focus that existed when it was pressed.
 	# Choosing a different target must never inherit a pre-focus button press,
 	# even when both inputs land in the same rendered frame.
-	if not was_focused and m.touch_ui != null:
+	if picked_id != m.touch_focus_id and m.touch_ui != null:
 		m.touch_ui.clear_action_edge()
 	m.touch_focus_id = picked_id
 	m.touch_focus_ready = _distance_to(m.player.position, _position(picked)) <= float(picked.get("activation_radius", 5.0))
 	m._sparkle_burst(_position(picked) + Vector3(0.0, 1.0, 0.0), Color(1.0, 0.92, 0.48))
-	if m.touch_focus_ready and was_focused:
-		_activate(picked)
-		return
 	if m.touch_focus_ready:
-		m.show_msg(String(picked.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+		_activate(picked)
 		return
 	m._tap_move_ref().start(
 		_position(picked),
@@ -72,13 +64,12 @@ func mark_ready(interactable_id: String) -> void:
 	if focused.is_empty():
 		return
 	# Arrival and readiness share one metric, but the target may have drifted
-	# while she swam. Never announce a pink button that tick() will disable on
-	# the very next frame — that reads as a broken toy to a four-year-old.
+	# while she swam. Never activate until the shared readiness metric agrees.
 	if m.player != null and _distance_to(m.player.position, _position(focused)) > float(focused.get("activation_radius", 5.0)):
-		m.show_msg(String(focused.get("label", "Roshan")), "Almost! Use the left circle to get closer!", "hint")
+		m.show_msg(String(focused.get("label", "Roshan")), "Almost there!", "hint")
 		return
 	m.touch_focus_ready = true
-	m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+	_activate(focused)
 
 func clear_focus() -> void:
 	m.touch_focus_id = ""

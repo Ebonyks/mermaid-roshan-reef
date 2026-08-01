@@ -1,0 +1,165 @@
+*** Begin Patch
+*** Update File: scripts/main.gd
+@@
+ const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
+ const LivingWorldLogic = preload("res://scripts/living_world.gd")
++const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
+@@
+ 		var tex_name := String(fd["tex"])
+ 		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
+ 		var spr: Node3D
+-		if ResourceLoader.exists(glb_path):
++		var daddy_animator: DaddySpriteLoop = null
++		# Daddy's authored atlas actions are part of his gameplay language, so
++		# these callsites remain sprite-authoritative even after his optional GLB
++		# lands. Other friends keep the normal progressive 3D upgrade path.
++		if tex_name == "daddy":
++			var daddy_sprite := Sprite3D.new()
++			daddy_sprite.name = "DaddyMermaidAnimated"
++			daddy_sprite.pixel_size = 0.064
++			daddy_sprite.position = Vector3(x, seabed_y(x, z) + 6.5, z)
++			add_child(daddy_sprite)
++			daddy_animator = DaddySpriteLoopFactory.new()
++			daddy_sprite.add_child(daddy_animator)
++			daddy_animator.setup_sprite_3d(daddy_sprite, daddy_sprite)
++			spr = daddy_sprite
++		elif ResourceLoader.exists(glb_path):
+@@
+ 		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+ 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
+ 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
+ 			"start_radius": fd.get("start_radius", 8.0),
+-			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
++			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU,
++			"animator": daddy_animator})
+@@
+ 		if not f["found"] and dd < discover_radius:
+ 			f["found"] = true
++			var friend_animator: DaddySpriteLoop = f.get("animator") as DaddySpriteLoop
++			if friend_animator != null:
++				friend_animator.play_wave()
+ 			(f["beacon"] as OmniLight3D).light_energy = 1.0
+*** Update File: scripts/games/melody.gd
+@@
+ var m: ReefMain
+ var stage_root: Node3D
++var performer_animator: DaddySpriteLoop = null
++
++const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
+@@
+ func build(fr: Dictionary, origin: Vector3) -> void:
+ 	m.g["timer"] = -1.0
+ 	m.g["caught"] = 0
+ 	m.g["orbs"] = []
++	performer_animator = null
+@@
+ func _add_star_performer() -> void:
+-	# Daddy Mermaid on the podium. Sprite cutout today; when the gen2 Meshy
+-	# model lands at friends/daddy.glb the loader below upgrades him to 3D.
++	# Daddy Mermaid's atlas acting is part of this game's feedback, so the stage
++	# performer intentionally stays a sprite even if an optional GLB later lands.
+ 	var podium := CylinderMesh.new()
+ 	podium.top_radius = 4.8
+ 	podium.bottom_radius = 5.3
+ 	podium.height = 0.9
+ 	podium.radial_segments = 24
+ 	_mesh("StarPodium", podium, Vector3(0.0, 2.25, -20.5), _mat(PINK, 0.22))
+ 
+-	var glb_path := "res://assets/characters/friends/daddy.glb"
+-	if ResourceLoader.exists(glb_path):
+-		var ps: PackedScene = load(glb_path)
+-		var mdl: Node3D = ps.instantiate() as Node3D
+-		mdl.name = "StarPerformer"
+-		mdl.scale = Vector3.ONE * 4.0
+-		mdl.position = Vector3(0.0, 2.7, -20.5)   # standing on the podium
+-		stage_root.add_child(mdl)
+-		var ap := m._find_anim(mdl)
+-		if ap != null and ap.get_animation_list().size() > 0:
+-			var clip: String = ap.get_animation_list()[0]
+-			ap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+-			ap.play(clip)
+-	else:
+-		var performer := Sprite3D.new()
+-		performer.name = "StarPerformer"
+-		performer.texture = m._cutout_tex("daddy")
+-		performer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+-		performer.pixel_size = 0.018
+-		performer.position = Vector3(0.0, 10.0, -20.5)
+-		stage_root.add_child(performer)
++	var performer := Sprite3D.new()
++	performer.name = "StarPerformer"
++	performer.pixel_size = 0.064
++	performer.position = Vector3(0.0, 10.0, -20.5)
++	performer.set_meta("daddy_sprite_authoritative", true)
++	stage_root.add_child(performer)
++	performer_animator = DaddySpriteLoopFactory.new()
++	performer.add_child(performer_animator)
++	performer_animator.setup_sprite_3d(performer, performer)
+@@
+ 	if float(m.g.get("still_t", 0.0)) > 8.0 and not bool(m.g.get("hinted", false)):
+ 		m.g["hinted"] = true
++		if performer_animator != null and is_instance_valid(performer_animator):
++			performer_animator.play_invite()
+ 		m.show_msg("Daddy Mermaid", "Swim to the colors! They are waiting for YOU!", "hint")
+@@
+ 			if caught >= 7:
+ 				m._end_game(true, fr, "You caught the WHOLE rainbow! Daddy Mermaid cheers for you!")
+ 				return
++			if performer_animator != null and is_instance_valid(performer_animator):
++				performer_animator.play_clap()
+*** Update File: scripts/combat_arena.gd
+@@
+ const MOVE_SPEED := 14.0
+ const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
++const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
+@@
+ var pointer: Label3D = null
++var daddy_victory_sprite: Sprite3D = null
++var daddy_victory_animator: DaddySpriteLoop = null
+ var player_pos := Vector3.ZERO
+@@
+ 	_build_octagon()
+ 	_build_avatar()
+ 	_build_camera()
++	_build_daddy_victory_cameo()
+ 	_build_hud()
+@@
+ func _build_avatar() -> void:
+ 	avatar = Sprite3D.new()
+@@
+ 	animator.setup_sprite_3d(avatar, false, avatar)
++
++func _build_daddy_victory_cameo() -> void:
++	daddy_victory_sprite = Sprite3D.new()
++	daddy_victory_sprite.name = "DaddyVictoryCameo"
++	daddy_victory_sprite.pixel_size = 8.5 / 256.0
++	daddy_victory_sprite.no_depth_test = false
++	daddy_victory_sprite.position = CENTER + Vector3(-11.5, 5.2, 1.5)
++	daddy_victory_sprite.visible = false
++	daddy_victory_sprite.set_meta("daddy_sprite_authoritative", true)
++	add_child(daddy_victory_sprite)
++	daddy_victory_animator = DaddySpriteLoopFactory.new()
++	daddy_victory_sprite.add_child(daddy_victory_animator)
++	daddy_victory_animator.setup_sprite_3d(
++		daddy_victory_sprite, daddy_victory_sprite)
+ 
+ func _build_camera() -> void:
+@@
+ func _win() -> void:
+ 	if state != "play":
+ 		return
+ 	state = "won"
+ 	win_t = float(encounter.get("win_time", 3.5))
++	_play_daddy_victory()
+@@
+ 	else:
+ 		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!", "win")
++
++func _play_daddy_victory() -> void:
++	if daddy_victory_sprite == null or not is_instance_valid(daddy_victory_sprite):
++		return
++	daddy_victory_sprite.visible = true
++	daddy_victory_animator.play_victory()
+ 
+ func _finish() -> void:
+*** End Patch

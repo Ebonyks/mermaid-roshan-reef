@@ -8,6 +8,7 @@ extends RefCounted
 # created or loaded by this satellite.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
+const ROOM_BUTTON_ART := "res://assets/ui/castle_room_buttons/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
@@ -236,27 +237,35 @@ const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 ]
 const ROOMS: Array[Dictionary] = [
 	{"id": "main_hall", "name": "Main Hall", "icon": "♛",
-		"tex": "room_main_hall_background_v2.png", "action": "throne", "action_icon": "♛"},
+		"tex": "room_main_hall_background_v2.png",
+		"button_tex": "room_main_hall.png", "action": "throne", "action_icon": "♛"},
 	{"id": "opera_hall", "name": "Opera Hall", "icon": "🎭",
-		"tex": "room_opera_hall_background.png", "action": "opera",
+		"tex": "room_opera_hall_background.png",
+		"button_tex": "room_opera_hall.png", "action": "opera",
 		"action_icon": "🎭"},
 	{"id": "kitchen", "name": "Royal Kitchen", "icon": "🍲",
-		"tex": "room_kitchen_background.png", "action": "kitchen",
+		"tex": "room_kitchen_background.png",
+		"button_tex": "room_kitchen.png", "action": "kitchen",
 		"action_icon": "🍲"},
 	{"id": "library", "name": "Royal Library", "icon": "📚",
-		"tex": "room_library_background.png", "action": "library",
+		"tex": "room_library_background.png",
+		"button_tex": "room_library.png", "action": "library",
 		"action_icon": "📚"},
 	{"id": "playroom", "name": "Stuffie Playroom", "icon": "🧸",
-		"tex": "room_playroom_background.png", "action": "stuffies",
+		"tex": "room_playroom_background.png",
+		"button_tex": "room_playroom.png", "action": "stuffies",
 		"action_icon": "🧸"},
 	{"id": "craft_room", "name": "Craft Room", "icon": "🎨",
-		"tex": "room_craft_room_background.png", "action": "craft",
+		"tex": "room_craft_room_background.png",
+		"button_tex": "room_craft_room.png", "action": "craft",
 		"action_icon": "🎨"},
 	{"id": "mermaid_pool", "name": "Mermaid Pool", "icon": "💦",
-		"tex": "room_mermaid_pool_background.png", "action": "pool",
+		"tex": "room_mermaid_pool_background.png",
+		"button_tex": "room_mermaid_pool.png", "action": "pool",
 		"action_icon": "💦"},
 	{"id": "bubble_bath", "name": "Bubble Bath", "icon": "🛁",
-		"tex": "room_bubble_bath_background.png", "action": "bath",
+		"tex": "room_bubble_bath_background.png",
+		"button_tex": "room_bubble_bath.png", "action": "bath",
 		"action_icon": "🫧"},
 ]
 const ROOM_LAYOUTS := {
@@ -728,10 +737,20 @@ func _build_stage() -> void:
 	point.tween_property(elevator_pointer, "position:y", 490.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	m.castle_room_menu_panel = StorybookUI.add_panel(stage,
-		Rect2(348.0, 125.0, 584.0, 470.0), StorybookUI.INK_SOFT,
-		Color(0.94, 0.98, 1.0, 0.98), 42)
+		Rect2(210.0, 56.0, 860.0, 620.0), StorybookUI.PURPLE,
+		Color(0.94, 0.98, 1.0, 0.98), 58)
 	m.castle_room_menu_panel.z_index = 40
 	m.castle_room_menu_panel.visible = false
+	var room_title := Label.new()
+	room_title.name = "CastleRoomMenuTitle"
+	room_title.text = "WHERE NEXT?"
+	room_title.position = Vector2(230.0, 18.0)
+	room_title.size = Vector2(400.0, 78.0)
+	room_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	room_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	room_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(room_title, 44, StorybookUI.PURPLE_DEEP, 4)
+	m.castle_room_menu_panel.add_child(room_title)
 	_build_room_buttons(m.castle_room_menu_panel)
 
 func _build_hall_background_tiles() -> void:
@@ -938,23 +957,44 @@ func _build_room_buttons(panel: Panel) -> void:
 	for room: Dictionary in ROOMS:
 		var button := Button.new()
 		button.name = "Room_" + String(room["id"])
-		button.position = Vector2(28.0 + float(index % 3) * 176.0,
-			30.0 + float(index / 3) * 140.0)
-		StorybookUI.style_icon_button(button, String(room["icon"]), "secondary",
-			Vector2(144.0, 118.0), String(room["name"]))
+		button.position = Vector2(56.0 + float(index % 3) * 252.0,
+			106.0 + float(index / 3) * 154.0)
+		_style_room_preview_button(button, room)
 		button.pressed.connect(show_room.bind(String(room["id"]), true))
 		panel.add_child(button)
 		m.castle_room_buttons[String(room["id"])] = button
 		index += 1
 	var bedrooms := Button.new()
 	bedrooms.name = "Room_BedroomsFuture"
-	bedrooms.position = Vector2(28.0 + float(index % 3) * 176.0,
-		30.0 + float(index / 3) * 140.0)
+	bedrooms.position = Vector2(56.0 + float(index % 3) * 252.0,
+		106.0 + float(index / 3) * 154.0)
 	StorybookUI.style_icon_button(bedrooms, "☾", "locked",
-		Vector2(144.0, 118.0), "Bedrooms are dreaming")
+		Vector2(220.0, 132.0), "Bedrooms are dreaming")
 	bedrooms.disabled = true
 	bedrooms.focus_mode = Control.FOCUS_NONE
 	panel.add_child(bedrooms)
+
+func _style_room_preview_button(button: Button, room: Dictionary) -> void:
+	button.text = ""
+	button.custom_minimum_size = Vector2(220.0, 132.0)
+	button.size = Vector2(220.0, 132.0)
+	button.tooltip_text = String(room["name"])
+	button.clip_contents = true
+	StorybookUI.style_button(button, "secondary", 18, 42)
+	button.set_meta("picture_first", true)
+	button.set_meta("parent_hint", String(room["name"]))
+	button.set_meta("room_preview_source", String(room["button_tex"]))
+
+	var preview := TextureRect.new()
+	preview.name = "RoomPreview"
+	preview.position = Vector2(10.0, 10.0)
+	preview.size = Vector2(200.0, 112.0)
+	preview.texture = load(ROOM_BUTTON_ART + String(room["button_tex"]))
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(preview)
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)

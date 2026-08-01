@@ -55,6 +55,9 @@
 | assets/shaders/toon_water.gdshader | based on "Toon Water" (godotshaders) | **CC0** base; project additions | godotshaders.com/shader/toon-water/ | pastel bands, sparkle, scrolling normals, Speedy toggle |
 | assets/shaders/cel.gdshader, cel_post.gdshader, outline.gdshader | written for this project | project original | — | — |
 | assets/characters/stickers/*.png | die-cut sticker bakes generated from the friend cutouts (tools, PIL) | derivative of (c) book art — all rights reserved | — | white vinyl rim + navy drop shadow; originals untouched |
+| assets/characters/daddy_25d/daddy_idle.png, daddy_swim.png, daddy_gesture_a.png, daddy_victory.png | OpenAI built-in image generation guided by the protected project-owned Daddy Mermaid canonical art | **© Mermaid Roshan LLC derivative / project-generated edit, all rights reserved** | `assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md` | Complete moving-tail atlas generations; border-connected green matte removed non-destructively, cells normalized to 256 x 256, and approved white-rim/navy-shadow sticker treatment applied; runtime atlases are 1024 px maximum; protected references untouched; generated 2026-08-01 |
+| assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/daddy_idle_chroma.png, daddy_swim_chroma.png, daddy_gesture_a_chroma.png, daddy_victory_chroma.png | OpenAI built-in image generation using `assets_src/daddy_master.png` as canonical identity/design reference | **© Mermaid Roshan LLC derivative / project-generated source art, all rights reserved** | `assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md` | Accepted native full-atlas generations preserved with exact output IDs, dimensions, SHA-256 hashes, prompts, and processing record; flat green sources are not loaded at runtime; generated 2026-08-01 |
+| assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/daddy_{idle,swim,gesture_a,victory}_alpha_{keyed,despill,clean}.png | Deterministic alpha-extraction intermediates derived from the accepted Daddy Mermaid chroma atlases with the bundled ImageGen background-removal helper | **Same © Mermaid Roshan LLC derivative license as source, all rights reserved** | `assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md` | Preserved keyed, despilled, and border-connected clean review intermediates used by the matte recovery pipeline; not loaded at runtime; generated 2026-08-01 |
 | gen2/npc_src/*.png | Meshy submit sources derived from the friend cutouts (tools/prep_npc_sources.py, PIL) | derivative of (c) book art — all rights reserved | NPC_3D_WORKORDER_2026-07-19.md | alpha trimmed, white-carded, ≤1024; not imported (gen2 .gdignore) |
 | assets/mg/*.png | drawn/generated for this project (PIL) from book-art motifs | © Mermaid Roshan LLC derivatives / project original | — | craft zone masks, minigame art |
 | assets/sprites/stuffie_studio/display_shelf.png, assets/sprites/stuffie_studio/worktable.png, assets/sprites/stuffie_studio/toy_chest.png | OpenAI built-in image generation guided by the project's 2D storybook castle style | **Project-generated art** | — | isolated pearl-shell furniture cutouts for the six-slot display, care/upgrade table, and active-friend toy chest; chroma-key removed with the bundled ImageGen helper, edge-contracted once, and normalized to ≤1024px; generated 2026-07-28 |
@@ -811,3 +814,16 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
+
+## Pearl Castle room-button derivatives (2026-08-01)
+
+- `assets/ui/castle_room_buttons/room_*.png` — eight project-original,
+  lossless UI derivatives. Seven use the already licensed assembled room
+  composites in `assets/flats/castle/rooms/room_*.png`, center-cropped from
+  1024 x 576 to 960 x 576. The Main Hall uses the accepted runtime Screen B
+  rectangle from `assets_src/castle/main_hall_alignment/`
+  `main_hall_screen_b_fixture_aligned_master.png`, then a centered 1568 x 941
+  crop containing its current portal gallery and throne. All are
+  Lanczos-resampled to 440 x 264 by
+  `tools/build_castle_room_button_thumbnails.py`. No new or external artwork,
+  replacement objects, color changes, or generated pixels are introduced.

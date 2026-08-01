@@ -114,6 +114,18 @@ func _run() -> void:
 		and not main.g.has("opera_gate"))
 	_ck("storybook_elevator_inventory",
 		main.castle_room_buttons.size() == ROOM_IDS.size())
+	var faithful_preview_count := 0
+	for room_id: String in ROOM_IDS:
+		var room_button: Button = main.castle_room_buttons.get(room_id) as Button
+		var preview: TextureRect = room_button.get_node_or_null(
+			"RoomPreview") as TextureRect if room_button != null else null
+		if preview != null and preview.texture != null \
+				and preview.texture.resource_path == (
+					"res://assets/ui/castle_room_buttons/room_%s.png" % room_id):
+			faithful_preview_count += 1
+	_ck("elevator_uses_authored_room_previews",
+		faithful_preview_count == ROOM_IDS.size(),
+		"faithful=%d/%d" % [faithful_preview_count, ROOM_IDS.size()])
 	var castle_roshan: Sprite3D = main.castle_room_player_sprite
 	var castle_roshan_loop: RoshanSpriteLoop = castle_roshan.get_node_or_null(
 		"AlwaysAliveSpriteLoop") as RoshanSpriteLoop

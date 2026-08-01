@@ -8,6 +8,7 @@ const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
 
 var m: ReefMain
 var kind := "ice"
@@ -19,6 +20,8 @@ var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
 var pointer: Label3D = null
+var daddy_victory_sprite: Sprite3D = null
+var daddy_victory_animator: DaddySpriteLoop = null
 var player_pos := Vector3.ZERO
 var player_yaw := PI
 var shot_cool := 0.0
@@ -49,6 +52,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	_build_octagon()
 	_build_avatar()
 	_build_camera()
+	_build_daddy_victory_cameo()
 	_build_hud()
 	# the shared hit pipeline: taps and projectiles both damage through it
 	he = HitEngine.new(m)
@@ -140,6 +144,21 @@ func _build_avatar() -> void:
 	var animator := ROSHAN_SPRITE_LOOP.new()
 	avatar.add_child(animator)
 	animator.setup_sprite_3d(avatar, false, avatar)
+
+func _build_daddy_victory_cameo() -> void:
+	daddy_victory_sprite = Sprite3D.new()
+	daddy_victory_sprite.name = "DaddyVictoryCameo"
+	# The subject uses 188 px of the padded cell; this reads as an 8.5-unit cameo.
+	daddy_victory_sprite.pixel_size = 10.5 / 256.0
+	daddy_victory_sprite.no_depth_test = false
+	daddy_victory_sprite.position = CENTER + Vector3(-11.5, 5.2, 1.5)
+	daddy_victory_sprite.visible = false
+	daddy_victory_sprite.set_meta("daddy_sprite_authoritative", true)
+	add_child(daddy_victory_sprite)
+	daddy_victory_animator = DaddySpriteLoopFactory.new()
+	daddy_victory_sprite.add_child(daddy_victory_animator)
+	daddy_victory_animator.setup_sprite_3d(
+		daddy_victory_sprite, daddy_victory_sprite)
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -517,6 +536,7 @@ func _win() -> void:
 		return
 	state = "won"
 	win_t = float(encounter.get("win_time", 3.5))
+	_play_daddy_victory()
 	# standalone arena battles rank on time-to-victory; dungeon rooms
 	# (room_tag set) roll into the single "dungeon" medal instead
 	if room_tag == "":
@@ -528,6 +548,12 @@ func _win() -> void:
 		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!", "win")
 	else:
 		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!", "win")
+
+func _play_daddy_victory() -> void:
+	if daddy_victory_sprite == null or not is_instance_valid(daddy_victory_sprite):
+		return
+	daddy_victory_sprite.visible = true
+	daddy_victory_animator.play_victory()
 
 func _finish() -> void:
 	state = "done"

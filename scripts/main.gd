@@ -7,6 +7,7 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
+const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -710,6 +711,10 @@ func _living_world_ref() -> LivingWorldDirector:
 	return _living_world
 
 func _ready() -> void:
+	# Keep the legacy project identity for user:// save continuity while the
+	# visible desktop/export title follows the reef-free Pearl Castle branding.
+	if DisplayServer.get_name() != "headless":
+		DisplayServer.window_set_title("Mermaid Roshan Pearl Castle")
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
 	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
@@ -2306,7 +2311,7 @@ func _respawn_pearls() -> void:
 		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
 		# less than a second ago (the _end_game win message) — never fight it;
 		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the reef!")
+		show_msg("", "New rainbow pearls are shimmering in the ocean!")
 
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
@@ -2330,7 +2335,22 @@ func _build_friends() -> void:
 		var tex_name := String(fd["tex"])
 		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
 		var spr: Node3D
-		if ResourceLoader.exists(glb_path):
+		var daddy_animator: DaddySpriteLoop = null
+		# Daddy's authored atlas actions are part of his gameplay language, so
+		# these callsites remain sprite-authoritative even after his optional GLB
+		# lands. Other friends keep the normal progressive 3D upgrade path.
+		if tex_name == "daddy":
+			var daddy_sprite := Sprite3D.new()
+			daddy_sprite.name = "DaddyMermaidAnimated"
+			# The authored subject occupies 188 px inside its padded 256 px cell.
+			daddy_sprite.pixel_size = 0.079
+			daddy_sprite.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+			add_child(daddy_sprite)
+			daddy_animator = DaddySpriteLoopFactory.new()
+			daddy_sprite.add_child(daddy_animator)
+			daddy_animator.setup_sprite_3d(daddy_sprite, daddy_sprite)
+			spr = daddy_sprite
+		elif ResourceLoader.exists(glb_path):
 			var fps2: PackedScene = load(glb_path)
 			var mdl: Node3D = fps2.instantiate() as Node3D
 			mdl.scale = Vector3.ONE * 4.0
@@ -2392,7 +2412,8 @@ func _build_friends() -> void:
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
 			"start_radius": fd.get("start_radius", 8.0),
-			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
+			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU,
+			"animator": daddy_animator})
 
 func _build_kart_portal() -> void:
 	# the Ocean Race gate: a rainbow ring standing just above the REAL seabed near
@@ -3995,7 +4016,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
 		else:
 			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -5380,7 +5401,7 @@ func _end_sleep() -> void:
 	if is_night:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
@@ -5786,7 +5807,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
 		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+		show_msg("Roshan", "The sunny Caribbean ocean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5831,7 +5852,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Rainbow Queen now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")
@@ -6008,7 +6029,7 @@ func _tick_finale(delta: float) -> void:
 		_play_music("world")
 
 const HINTS := [
-	"Move with the stick - or the arrow keys!",
+	"Tap what you want to visit!",
 	"Press the big button to swim up!",
 	"Swim to the glowing light pillars to find friends!"]
 
@@ -6907,6 +6928,9 @@ func _process(delta: float) -> void:
 		var start_radius: float = float(f.get("start_radius", 8.0))
 		if not f["found"] and dd < discover_radius:
 			f["found"] = true
+			var friend_animator: DaddySpriteLoop = f.get("animator") as DaddySpriteLoop
+			if friend_animator != null:
+				friend_animator.play_wave()
 			(f["beacon"] as OmniLight3D).light_energy = 1.0
 			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
 			pmat2.albedo_color.a = 0.09
@@ -7054,6 +7078,12 @@ func _process(delta: float) -> void:
 		elif game == "kitchen_cooking":
 			act_lbl = _castle_rooms_ref().kitchen_action_label()
 		touch_ui.set_action_label(act_lbl)
+		# Free navigation is point-to-interact, so no permanent movement/action
+		# chrome competes with the world. The coral action shell appears only for
+		# a nearby catch or an activity with a genuine context verb.
+		var navigation_only: bool = game == "" or game == "level2" or game == "north"
+		var catch_visible: bool = game == "" and _collection_ref().has_nearby()
+		touch_ui.set_action_visible(catch_visible or (not navigation_only and act_lbl != "JUMP"))
 
 # ===================== BIOLUMINESCENT LIFE =====================
 # ============== PHYSICS LAB (dev-mode experiment — cleanse later) ==============

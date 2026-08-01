@@ -106,10 +106,15 @@ func _init() -> void:
 	_check_target(main.pause_panel, "PauseQualityButton", "quality toggle is thumb-sized")
 	_check(_find(main.pause_panel, "PauseShellCrest") != null,
 		"pause sheet carries shell-and-pearl adornment")
+	_check(_find(main.pause_panel, "PauseTouchModeButton") == null,
+		"pause sheet has no obsolete navigation-mode choice")
 	var leave := _find(main.pause_panel, "PauseLeaveButton") as Button
 	_check(leave != null and bool(leave.get_meta("neutral_exit", false)), "activity exit uses neutral-back semantics")
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 12 and not main.get_tree().paused, "resume restores normal overlay order")
+	_check(main.touch_ui.movement_zone() == Rect2()
+		and _find(main.touch_ui, "TouchShellPad") == null,
+		"point-to-interact navigation renders no movement stick")
 
 	# Craft: large preview, three part selectors, exactly one large palette row.
 	main._open_craft_studio()

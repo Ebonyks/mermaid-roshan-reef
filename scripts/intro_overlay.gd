@@ -50,10 +50,18 @@ func _build_intro() -> void:
 	book.name = "IntroStoryBook"
 	StorybookUI.adorn_panel(stage, book_rect, "Intro")
 	book.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var left_page := StorybookUI.add_panel(stage, Rect2(178, 118, 436, 414),
+		StorybookUI.GOLD, Color(0.91, 0.98, 1.0, 0.72), 54)
+	left_page.name = "IntroLeftShellPage"
+	left_page.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var right_page := StorybookUI.add_panel(stage, Rect2(666, 118, 436, 414),
+		StorybookUI.LAVENDER, Color(0.93, 0.95, 1.0, 0.72), 54)
+	right_page.name = "IntroRightShellPage"
+	right_page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var current := ColorRect.new()
 	current.position = Vector2(626, 125)
 	current.size = Vector2(12, 390)
-	current.color = Color(0.52, 0.64, 0.86, 0.28)
+	current.color = Color(1.0, 0.78, 0.30, 0.38)
 	current.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stage.add_child(current)
 

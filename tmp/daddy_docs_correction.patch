@@ -1,0 +1,22 @@
+*** Begin Patch
+*** Update File: assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md
+@@
+-Each accepted source is a complete generated atlas on a flat exact `#00ff00`
+-field. Production alpha is derived non-destructively: only the matte connected
+-to the canvas border is removed, so legitimate enclosed greens in the tail,
+-cape, and costume survive. The generated source files and their hashes are
+-preserved here; runtime resizing and sticker treatment happen only in new
+-derived files under `assets/characters/daddy_25d/`.
++Each accepted source is a complete generated atlas prompted on a flat green
++field. Native generator greens vary slightly between sheets, so border-connected
++extraction is measured from each sheet rather than assuming exact `#00ff00`
++pixels. Production alpha is derived non-destructively: only the matte connected
++to the canvas border is removed, so legitimate enclosed greens in the tail,
++cape, and costume survive. The generated source files and their hashes are
++preserved here; runtime resizing and sticker treatment happen only in new
++derived files under `assets/characters/daddy_25d/`.
+*** Update File: ASSET_LICENSES.md
+@@
+-| assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/daddy_{idle,swim,gesture_a,victory}_alpha_{keyed,despill}.png | Deterministic alpha-extraction intermediates derived from the accepted Daddy Mermaid chroma atlases with the bundled ImageGen background-removal helper | **Same © Mermaid Roshan LLC derivative license as source, all rights reserved** | `assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md` | Preserved keyed and despilled review intermediates used by the border-connected matte recovery pipeline; not loaded at runtime; generated 2026-08-01 |
++| assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/daddy_{idle,swim,gesture_a,victory}_alpha_{keyed,despill,clean}.png | Deterministic alpha-extraction intermediates derived from the accepted Daddy Mermaid chroma atlases with the bundled ImageGen background-removal helper | **Same © Mermaid Roshan LLC derivative license as source, all rights reserved** | `assets_src/imagegen/daddy_25d_tailmotion_2026-08-01/PROMPTS.md` | Preserved keyed, despilled, and border-connected clean review intermediates used by the matte recovery pipeline; not loaded at runtime; generated 2026-08-01 |
+*** End Patch

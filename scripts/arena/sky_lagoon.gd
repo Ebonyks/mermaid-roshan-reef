@@ -2671,7 +2671,7 @@ func _tick_ocean_kingdom_gates(ppos: Vector3) -> bool:
 			return true
 	if not bool(m.g.get("ocean_kingdom_hint", false)) and nearest_distance < 42.0:
 		m.g["ocean_kingdom_hint"] = true
-		m.show_msg("Roshan", "Sunny shell for the Caribbean reef, or blue ice for Norway. Pick either sparkling gate!", "intro")
+		m.show_msg("Roshan", "Sunny shell for the Caribbean ocean, or blue ice for Norway. Pick either sparkling gate!", "intro")
 	return false
 
 # ============ STAGE 2 MINIGAMES (2D tap overlays, launched from wall pictures) ============

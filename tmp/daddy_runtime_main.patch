@@ -1,0 +1,42 @@
+*** Begin Patch
+*** Update File: scripts/main.gd
+@@
+ const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
+ const LivingWorldLogic = preload("res://scripts/living_world.gd")
++const DaddySpriteLoopFactory = preload("res://scripts/daddy_sprite_loop.gd")
+@@
+ 		var tex_name := String(fd["tex"])
+ 		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
+ 		var spr: Node3D
+-		if ResourceLoader.exists(glb_path):
++		var daddy_animator: DaddySpriteLoop = null
++		# Daddy's authored atlas actions are part of his gameplay language, so
++		# these callsites remain sprite-authoritative even after his optional GLB
++		# lands. Other friends keep the normal progressive 3D upgrade path.
++		if tex_name == "daddy":
++			var daddy_sprite := Sprite3D.new()
++			daddy_sprite.name = "DaddyMermaidAnimated"
++			daddy_sprite.pixel_size = 0.064
++			daddy_sprite.position = Vector3(x, seabed_y(x, z) + 6.5, z)
++			add_child(daddy_sprite)
++			daddy_animator = DaddySpriteLoopFactory.new()
++			daddy_sprite.add_child(daddy_animator)
++			daddy_animator.setup_sprite_3d(daddy_sprite, daddy_sprite)
++			spr = daddy_sprite
++		elif ResourceLoader.exists(glb_path):
+@@
+ 		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+ 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
+ 			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
+ 			"start_radius": fd.get("start_radius", 8.0),
+-			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
++			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU,
++			"animator": daddy_animator})
+@@
+ 		if not f["found"] and dd < discover_radius:
+ 			f["found"] = true
++			var friend_animator: DaddySpriteLoop = f.get("animator") as DaddySpriteLoop
++			if friend_animator != null:
++				friend_animator.play_wave()
+ 			(f["beacon"] as OmniLight3D).light_energy = 1.0
+*** End Patch

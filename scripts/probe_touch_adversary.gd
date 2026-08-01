@@ -37,17 +37,13 @@ func _playthrough(run_index: int) -> void:
 	if touch == null or not touch.wants_touch():
 		issues.append("touch router unavailable")
 	else:
-		var movement: Rect2 = touch.movement_zone()
-		var action: Rect2 = touch.action_zone()
-		if movement.intersects(action):
-			issues.append("thumb zones overlap")
-		# Validate against the rendered rest ring, not a fixed 1280x720
-		# coordinate: script-mode headless viewports can use desktop dimensions.
-		if not movement.encloses(touch.rest_zone().grow(18.0)):
-			issues.append("normal left-thumb jitter escapes movement bay")
+		if touch.movement_zone().has_area():
+			issues.append("point mode exposes a movement zone")
+		if touch._stick_hint != null or touch._base.visible or touch._knob.visible:
+			issues.append("movement-stick chrome is visible")
 		touch.set_action_label("PLAY")
 		if touch._act_lbl == null or not "\n" in String(touch._act_lbl.text):
-			issues.append("action bubble lacks pictogram-plus-word cue")
+			issues.append("context action lacks pictogram-plus-word cue")
 
 	# Adversarial child behavior: parking on a friend for several frames must
 	# advertise without kidnapping the run into a minigame.
@@ -73,16 +69,14 @@ func _playthrough(run_index: int) -> void:
 		if String(picked.get("id", "")) != "friend:%d" % friend_index:
 			issues.append("child-scale target miss")
 		elif touch != null:
-			if touch.movement_zone().has_point(touch_point) or touch.action_zone().has_point(touch_point):
-				issues.append("friend target is hidden under a thumb control")
+			_touch_tap(touch, run_index + 20, touch_point)
+			await _frames(4)
+			if main.game == "":
+				issues.append("single routed point did not activate nearby friend")
 			else:
-				_touch_tap(touch, run_index + 20, touch_point)
-				await process_frame
-				if main.touch_focus_id != "friend:%d" % friend_index:
-					issues.append("routed first tap did not focus friend")
-				if main.game != "":
-					issues.append("routed first tap launched without confirmation")
-				main._interaction_ref().clear_focus()
+				main._clear_game()
+				await _frames(3)
+			main._interaction_ref().clear_focus()
 
 	# Assisted travel must physically move the existing player controller
 	# toward the request. Different quadrants cover every heading.
@@ -118,10 +112,6 @@ func _playthrough(run_index: int) -> void:
 		issues.append("assisted steering lacked prompt physical response (moved %.1f by 1.7 s)" % early_distance)
 	elif distance_after > distance_before - 4.0:
 		issues.append("physical travel did not reduce route distance (moved %.1f, %.1f→%.1f)" % [travel_distance, distance_before, distance_after])
-	main._tap_move_ref().start(main.player.position + Vector3(cos(angle), 0.0, -sin(angle)) * 22.0)
-	main._on_touch_manual_move()
-	if main.touch_auto_active:
-		issues.append("manual input failed to cancel assist")
 	# An immovable player must use the two side-step recoveries and then stop,
 	# never swim forever against an obstacle.
 	main._tap_move_ref().start(main.player.position + Vector3(32.0, 0.0, 0.0))

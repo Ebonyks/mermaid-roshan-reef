@@ -1,7 +1,7 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): lower-left movement + a real lower-right action button;
-#   taps on unclaimed world space are emitted for select/approach/move.
+#   HYBRID (default): point-to-interact navigation plus a contextual activity
+#   button when a game genuinely needs one. There is no on-screen move stick.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
 # World taps remain in _unhandled_input so overlays receive first claim.
@@ -63,6 +63,7 @@ var _act_vis: Panel = null
 var _act_lbl: Label = null
 var _act_t := 0.0
 var _action_edge_frames := 0
+var _context_action_visible := false
 
 const R := 78.0
 const TAP_SLOP := 22.0
@@ -98,27 +99,10 @@ func _ready() -> void:
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_root)
-	# A fixed ghost wheel teaches the bottom-left ownership before the first
-	# drag; the real drag-anywhere stick still appears under the finger.
-	_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)
-	_stick_hint.name = "TouchShellPad"
-	_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	_stick_hint.offset_left = 26.0
-	_stick_hint.offset_top = -206.0
-	_stick_hint.offset_right = 206.0
-	_stick_hint.offset_bottom = -26.0
-	_stick_hint.visible = wants_touch()
-	_root.add_child(_stick_hint)
-	var hint_arrows := Label.new()
-	hint_arrows.name = "TouchDirectionHints"
-	hint_arrows.text = "▲\n◀   ▶\n▼"
-	hint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	hint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	hint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	StorybookUI.style_label(hint_arrows, 27, StorybookUI.PEARL_BLUE, 6)
-	_stick_hint.add_child(hint_arrows)
-	StorybookUI.add_shell_crest(_stick_hint, Rect2(55, 128, 70, 50), "TouchPadShellCrest")
+	# The former lower-left joystick and teaching ring are deliberately absent.
+	# Legacy nodes remain hidden for injected probe/controller vectors and the
+	# explicit Classic test path; runtime Hybrid never displays them.
+	_stick_hint = null
 	_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)
 	_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)
 	_base.visible = false
@@ -250,8 +234,8 @@ func _press(pos: Vector2, idx: int) -> void:
 	_knob.position = _origin - _knob.size * 0.5
 	_base.modulate.a = 1.0
 	_knob.modulate.a = 1.0
-	_base.visible = true
-	_knob.visible = true
+	_base.visible = control_mode == "classic"
+	_knob.visible = control_mode == "classic"
 	stick_vec = Vector2.ZERO
 	if control_mode == "hybrid":
 		_drag(pos)
@@ -317,8 +301,10 @@ func rest_zone() -> Rect2:
 	return Rect2(Vector2(60.0, vs.y - 280.0), Vector2(220.0, 220.0))
 
 func movement_zone() -> Rect2:
-	# The whole lower-left thumb bay accepts the stick, while the resting ring
-	# teaches the preferred landing spot. It ends well before the action button.
+	# Point-to-interact owns the whole unobscured world. Keep the Classic zone
+	# only for explicit rollback/probe sessions; Hybrid exposes no stick target.
+	if control_mode != "classic":
+		return Rect2()
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
@@ -368,7 +354,8 @@ func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
+		_act_button.visible = control_mode == "hybrid" and world_controls_enabled \
+			and _context_action_visible
 
 func set_world_controls_enabled(enabled: bool) -> void:
 	if world_controls_enabled == enabled:
@@ -378,7 +365,14 @@ func set_world_controls_enabled(enabled: bool) -> void:
 	world_controls_enabled = enabled
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.visible = enabled and control_mode == "hybrid"
+		_act_button.visible = enabled and control_mode == "hybrid" \
+			and _context_action_visible
+
+func set_action_visible(visible: bool) -> void:
+	_context_action_visible = visible
+	if _act_button != null:
+		_act_button.visible = visible and world_controls_enabled \
+			and control_mode == "hybrid"
 
 func cancel_all_touches() -> void:
 	_clear_touch_state()
@@ -460,17 +454,12 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		if touch.pressed:
 			if _action_hit(touch.position):
 				_claim_action(touch.index)
-			elif _touch_idx == -1 and movement_zone().has_point(touch.position):
-				touch_owners[touch.index] = TouchOwner.STICK
-				_press(touch.position, touch.index)
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
 				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
 		else:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
-			if owner == TouchOwner.STICK and touch.index == _touch_idx:
-				_release_stick()
-			elif owner == TouchOwner.ACTION:
+			if owner == TouchOwner.ACTION:
 				_release_action(touch.index)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
@@ -482,9 +471,7 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 	elif ev is InputEventScreenDrag:
 		var drag := ev as InputEventScreenDrag
 		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
-		if owner == TouchOwner.STICK and drag.index == _touch_idx:
-			_drag(drag.position)
-		elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
+		if owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
 			var world_data: Dictionary = _world_pend[drag.index]
 			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
 				world_data["moved"] = true
@@ -496,17 +483,12 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		if mouse_button.pressed:
 			if _action_hit(mouse_button.position):
 				_claim_action(99)
-			elif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
-				touch_owners[99] = TouchOwner.STICK
-				_press(mouse_button.position, 99)
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
 				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
 		else:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
-			if owner == TouchOwner.STICK and _touch_idx == 99:
-				_release_stick()
-			elif owner == TouchOwner.ACTION:
+			if owner == TouchOwner.ACTION:
 				_release_action(99)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
@@ -515,10 +497,6 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 					_flash(mouse_button.position)
 				_world_pend.erase(99)
 			touch_owners.erase(99)
-	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
-		var mouse_motion := ev as InputEventMouseMotion
-		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
-			_drag(mouse_motion.position)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
 		var world_motion := ev as InputEventMouseMotion
 		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
@@ -636,31 +614,13 @@ func _input(ev: InputEvent) -> void:
 					_claim_action(touch.index)
 					get_viewport().set_input_as_handled()
 					return
-				if _touch_idx == -1 and movement_zone().has_point(touch.position):
-					touch_owners[touch.index] = TouchOwner.STICK
-					_press(touch.position, touch.index)
-					get_viewport().set_input_as_handled()
-					return
 			else:
 				var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
-				if owner == TouchOwner.STICK and touch.index == _touch_idx:
-					_release_stick()
-					touch_owners.erase(touch.index)
-					get_viewport().set_input_as_handled()
-					return
 				if owner == TouchOwner.ACTION:
 					_release_action(touch.index)
 					touch_owners.erase(touch.index)
 					get_viewport().set_input_as_handled()
 					return
-	elif wants_touch() and ev is InputEventScreenDrag and control_mode == "hybrid" \
-			and world_controls_enabled:
-		var drag := ev as InputEventScreenDrag
-		if touch_owners.get(drag.index, TouchOwner.NONE) == TouchOwner.STICK \
-				and drag.index == _touch_idx:
-			_drag(drag.position)
-			get_viewport().set_input_as_handled()
-			return
 	elif wants_touch() and ev is InputEventMouseButton:
 		var mouse_button := ev as InputEventMouseButton
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
@@ -674,29 +634,11 @@ func _input(ev: InputEvent) -> void:
 					_claim_action(99)
 					get_viewport().set_input_as_handled()
 					return
-				if mouse_button.pressed and _touch_idx == -1 \
-						and movement_zone().has_point(mouse_button.position):
-					touch_owners[99] = TouchOwner.STICK
-					_press(mouse_button.position, 99)
-					get_viewport().set_input_as_handled()
-					return
-				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
-					_release_stick()
-					touch_owners.erase(99)
-					get_viewport().set_input_as_handled()
-					return
 				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.ACTION:
 					_release_action(99)
 					touch_owners.erase(99)
 					get_viewport().set_input_as_handled()
 					return
-	elif wants_touch() and ev is InputEventMouseMotion and control_mode == "hybrid" \
-			and world_controls_enabled and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
-		var mouse_motion := ev as InputEventMouseMotion
-		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
-			_drag(mouse_motion.position)
-			get_viewport().set_input_as_handled()
-			return
 	var toggle := false
 	if ev is InputEventKey and (ev as InputEventKey).pressed and not (ev as InputEventKey).echo:
 		if (ev as InputEventKey).physical_keycode == KEY_ESCAPE:
@@ -709,7 +651,7 @@ func _input(ev: InputEvent) -> void:
 
 static func wants_touch() -> bool:
 	# Touch-first game: editor/debug desktop runs take the touch path too, so the
-	# mouse drives the same stick/tap code the phone uses. `--no-touch` restores
+	# mouse drives the same point/tap code the phone uses. `--no-touch` restores
 	# the bare desktop scheme for probes that need it.
 	if "--no-touch" in OS.get_cmdline_user_args():
 		return false

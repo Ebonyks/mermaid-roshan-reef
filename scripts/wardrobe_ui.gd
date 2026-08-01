@@ -147,7 +147,7 @@ func _open_stickers() -> void:
 		nm.offset_right = -8.0
 		cell.add_child(nm)
 	var xb := Button.new(); xb.name = "StickerBookBackButton"
-	StorybookUI.style_back_button(xb, "Back to the reef")
+	StorybookUI.style_back_button(xb, "Back to the adventure")
 	xb.position = Vector2(1128, 24)
 	xb.pressed.connect(_close_stickers)
 	stage.add_child(xb)
