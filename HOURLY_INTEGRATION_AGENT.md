@@ -13,6 +13,19 @@ state lives in git and in GitHub Actions, so every run is idempotent: it
 re-derives the world from scratch and picks up whatever the previous run left
 unfinished.
 
+### Where this runbook lives
+
+A fired session gets a fresh clone of the default branch. Until this file has
+been promoted to `master`, read it from the branch that owns it:
+
+```bash
+git fetch origin claude/hourly-branch-completion-agent-0d1nim
+git show origin/claude/hourly-branch-completion-agent-0d1nim:HOURLY_INTEGRATION_AGENT.md
+```
+
+Once it is on `master`, the working-tree copy is authoritative and the fetch is
+unnecessary.
+
 ---
 
 ## Non-negotiable constraints (from CLAUDE.md)
@@ -187,6 +200,27 @@ changed something; a run that changed nothing and found nothing wrong can say
 exactly that in one line.
 
 ---
+
+## Degraded mode — no GitHub MCP tools
+
+Probe status is only readable through the GitHub API, and this environment
+exposes it through the `mcp__github__*` MCP tools (there is no `gh` CLI). At
+the start of a run, confirm they are reachable:
+
+```
+ToolSearch  →  select:mcp__github__actions_list,mcp__github__list_pull_requests
+```
+
+If they are **not** available, the run drops to **report-only**:
+
+- Steps 1 and 2 still work — branch ages and merge-base checks are pure git —
+  so the "is anything still operating" evaluation is still meaningful, using
+  the 90-minute commit-age rule and WIP commit markers alone.
+- Do **not** stage, merge into `dev`, or dispatch `promote.yml`. Probe status
+  is unverifiable, and the gate is green probes, not assumed-green probes.
+- Report the branches that *would* have been integrated, and say plainly that
+  the run was degraded and why, so the owner can re-run it or fix the trigger's
+  tool grants.
 
 ## Safety
 
