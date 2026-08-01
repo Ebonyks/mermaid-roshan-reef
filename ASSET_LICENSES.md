@@ -786,6 +786,20 @@ generator output is present in this directory or connected to runtime art.
   tiles. Exact source/derived hashes and row-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
+## Sky Lagoon ambient animals - 2026-07-29
+
+- `assets/sprites/sky_lagoon/animals/*_atlas.png` and
+  `assets_src/sky_lagoon/ambient_animals_2026-07-29/**` - five project-original
+  ambient-animal sprite families (summer-coat snowshoe hare, Douglas squirrel,
+  Pacific Northwest raccoon, North American river otter, and Pacific tree frog),
+  generated with OpenAI built-in image generation on 2026-07-29. Source license:
+  project original. The generated 2x2 chroma sheets were converted locally to
+  alpha and downsampled once, whole-canvas, to 512x512 POT runtime atlases. The
+  exact prompts, source/runtime hashes, processing notes, and review contact sheet
+  are preserved in the adjacent source ledger. No external or protected project
+  art was used as delivery pixels; the ranked black-tailed deer fawn option was
+  deliberately excluded from this batch.
+
 ## Pearl Castle registered Sprite3D bloom correction (2026-07-29)
 
 - `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r{0,1}_c{2,3}.png`
@@ -902,3 +916,22 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
 - `assets/audio/castle/duck_squeak.ogg` - synthesized rubber-duck squeak cue.
 - `assets/audio/castle/castle_interaction_sfx_manifest.json` - deterministic audio provenance, timing, encoding, and hash manifest.
 - `audit/castle_interactions/castle_interaction_frames.png` - deterministic all-eight-frame-per-item review contact sheet produced by the atlas builder; project audit evidence, not runtime art.
+
+## Pearl Castle room-selector illustrations (2026-08-01)
+
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/castle_button_*_master.png`
+  - project-generated storybook derivatives based on the project's authored
+  Pearl Castle rooms and approved replacement Opera House concept. Generated
+  with the built-in Codex ImageGen tool; project original, all rights reserved.
+  Exact prompts, references, and SHA-256 hashes are recorded in the adjacent
+  `PROMPTS.md`.
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/references/mermaid_roshan_wisconsonia_cover_reference.jpg`
+  - project-owner-supplied authoritative book cover, copied byte-for-byte and
+  preserved unchanged (SHA-256
+  `3ABEDC5EC0D878CFD7A0E1ABAB18B5C8D61E06275D87ABD29252FEF25CE24CD6`).
+  Used only as a visual reference for the simplified Library button; it was not
+  destructively edited or recompressed.
+- `assets/ui/castle_room_buttons/room_*.png` - project-authored runtime
+  derivatives built by `tools/build_castle_room_button_thumbnails.py` as
+  400 x 224 center-crop/resamples of the registered masters. No external art
+  or additional generated pixels. License remains project original.

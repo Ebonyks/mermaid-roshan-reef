@@ -225,12 +225,12 @@ func _run() -> void:
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var inventory: Dictionary = _inventory(stage_root)
 	_check("node_type_inventory",
-		int(inventory["sprites"]) == 31
+		int(inventory["sprites"]) == 33
 		and int(inventory["meshes"]) == 0
 		and int(inventory["canvas"]) == 0
 		and int(inventory["shaded"]) == 0
 		and int(inventory["backdrops"]) == 12
-		and int(inventory["contacts"]) == 5,
+		and int(inventory["contacts"]) == 6,
 		JSON.stringify(inventory))
 
 	main.g["lagoon_castle_armed"] = false

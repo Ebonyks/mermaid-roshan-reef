@@ -9,6 +9,7 @@ extends RefCounted
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
 const INTERACTION_ART := "res://assets/flats/castle/interactions/"
+const ROOM_BUTTON_ART := "res://assets/ui/castle_room_buttons/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
@@ -838,7 +839,7 @@ func _build_stage() -> void:
 	point.tween_property(elevator_pointer, "position:y", 490.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	m.castle_room_menu_panel = StorybookUI.add_panel(stage,
-		Rect2(348.0, 125.0, 584.0, 470.0), StorybookUI.INK_SOFT,
+		Rect2(250.0, 92.0, 780.0, 536.0), StorybookUI.INK_SOFT,
 		Color(0.94, 0.98, 1.0, 0.98), 42)
 	m.castle_room_menu_panel.z_index = 40
 	m.castle_room_menu_panel.visible = false
@@ -1048,23 +1049,45 @@ func _build_room_buttons(panel: Panel) -> void:
 	for room: Dictionary in ROOMS:
 		var button := Button.new()
 		button.name = "Room_" + String(room["id"])
-		button.position = Vector2(28.0 + float(index % 3) * 176.0,
-			30.0 + float(index / 3) * 140.0)
-		StorybookUI.style_icon_button(button, String(room["icon"]), "secondary",
-			Vector2(144.0, 118.0), String(room["name"]))
+		button.position = Vector2(40.0 + float(index % 3) * 240.0,
+			32.0 + float(index / 3) * 166.0)
+		_style_room_preview_button(button, room)
 		button.pressed.connect(show_room.bind(String(room["id"]), true))
 		panel.add_child(button)
 		m.castle_room_buttons[String(room["id"])] = button
 		index += 1
 	var bedrooms := Button.new()
 	bedrooms.name = "Room_BedroomsFuture"
-	bedrooms.position = Vector2(28.0 + float(index % 3) * 176.0,
-		30.0 + float(index / 3) * 140.0)
+	bedrooms.position = Vector2(40.0 + float(index % 3) * 240.0,
+		32.0 + float(index / 3) * 166.0)
 	StorybookUI.style_icon_button(bedrooms, "☾", "locked",
-		Vector2(144.0, 118.0), "Bedrooms are dreaming")
+		Vector2(220.0, 132.0), "Bedrooms are dreaming")
 	bedrooms.disabled = true
 	bedrooms.focus_mode = Control.FOCUS_NONE
 	panel.add_child(bedrooms)
+
+func _style_room_preview_button(button: Button, room: Dictionary) -> void:
+	var room_id: String = String(room["id"])
+	var texture_path := ROOM_BUTTON_ART + "room_" + room_id + ".png"
+	button.text = ""
+	button.custom_minimum_size = Vector2(220.0, 132.0)
+	button.size = Vector2(220.0, 132.0)
+	button.tooltip_text = String(room["name"])
+	button.clip_contents = true
+	StorybookUI.style_button(button, "secondary", 18, 42)
+	button.set_meta("picture_first", true)
+	button.set_meta("parent_hint", String(room["name"]))
+	button.set_meta("room_preview_source", texture_path)
+	var preview := TextureRect.new()
+	preview.name = "RoomPreview"
+	preview.position = Vector2(10.0, 10.0)
+	preview.size = Vector2(200.0, 112.0)
+	preview.texture = load(texture_path) as Texture2D
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(preview)
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
