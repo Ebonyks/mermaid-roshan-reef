@@ -825,3 +825,113 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
+
+## Pearl Castle semantic interaction atlases and sounds (2026-08-01)
+
+All entries below are project original, have no external URL, and remain under
+the project's existing license. Runtime atlases are deterministic derivatives
+of already licensed Pearl Castle room art except where the named preservation
+master is recorded below. Atlas construction, exact source/runtime hashes,
+frame grids, action names, and review state are recorded in
+`assets/flats/castle/interactions/castle_interactions.json`.
+
+- `assets/flats/castle/rooms/room_opera_hall_item_footlights.png` - exact-pixel alpha derivative of the licensed Opera Hall room art by `tools/build_castle_room_layers.py`.
+- `assets/flats/castle/rooms/room_library_item_book_stack.png` - exact-pixel alpha derivative of the licensed Library room art by `tools/build_castle_room_layers.py`.
+- `assets/flats/castle/rooms/room_playroom_item_play_tent.png` - exact-pixel alpha derivative of the licensed Playroom room art by `tools/build_castle_room_layers.py`.
+- `assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png` - exact-pixel alpha derivative of the licensed Craft Room art by `tools/build_castle_room_layers.py`.
+- `assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png` - exact-pixel alpha derivative of the licensed Mermaid Pool art by `tools/build_castle_room_layers.py`.
+- `assets/flats/castle/rooms/room_bubble_bath_item_rubber_duck.png` - exact-pixel alpha derivative of the licensed Bubble Bath art by `tools/build_castle_room_layers.py`.
+
+- `assets/flats/castle/interactions/main_hall_tapestry_atlas.png` - eight-frame fixed-pivot deterministic atlas derived from the licensed reusable tapestry.
+- `assets/flats/castle/interactions/main_hall_sconce_atlas.png` - eight-frame fixed-pivot deterministic atlas derived from the licensed reusable shell sconce.
+- `assets/flats/castle/interactions/opera_hall_curtains_atlas.png` - eight-frame fixed-pivot deterministic stage-curtain atlas.
+- `assets/flats/castle/interactions/opera_hall_chandelier_atlas.png` - eight-frame fixed-pivot deterministic chandelier light-chase atlas.
+- `assets/flats/castle/interactions/opera_hall_footlights_atlas.png` - eight-frame fixed-pivot deterministic footlight-chase atlas.
+- `assets/flats/castle/interactions/opera_hall_stage_star_atlas.png` - eight-frame fixed-pivot deterministic marquee-star atlas.
+- `assets/flats/castle/interactions/kitchen_sink_atlas.png` - eight-frame fixed-pivot deterministic faucet-and-water atlas.
+- `assets/flats/castle/interactions/kitchen_pan_1_atlas.png` - eight-frame fixed-hook deterministic copper-pan atlas.
+- `assets/flats/castle/interactions/kitchen_pan_2_atlas.png` - eight-frame fixed-hook deterministic copper-pan atlas.
+- `assets/flats/castle/interactions/kitchen_pan_3_atlas.png` - eight-frame fixed-hook deterministic copper-pan atlas.
+- `assets/flats/castle/interactions/kitchen_pan_4_atlas.png` - eight-frame fixed-hook deterministic copper-pan atlas.
+- `assets/flats/castle/interactions/kitchen_oven_atlas.png` - eight-frame fixed-pivot deterministic oven-door/fire atlas.
+- `assets/flats/castle/interactions/kitchen_fridge_atlas.png` - eight-frame fixed-pivot deterministic refrigerator-door/interior atlas.
+- `assets/flats/castle/interactions/library_book_stack_atlas.png` - eight-frame fixed-pivot deterministic top-book/page atlas.
+- `assets/flats/castle/interactions/library_magic_book_atlas.png` - eight-frame fixed-pivot deterministic book-opening/page atlas.
+- `assets/flats/castle/interactions/library_pearl_table_atlas.png` - eight-frame fixed-pivot deterministic reading-pearl atlas.
+- `assets/flats/castle/interactions/library_pearl_lamp_atlas.png` - eight-frame fixed-pivot deterministic pearl-lamp atlas.
+- `assets/flats/castle/interactions/playroom_play_tent_atlas.png` - eight-frame fixed-pivot deterministic tent-flap atlas.
+- `assets/flats/castle/interactions/playroom_stuffie_nook_atlas.png` - eight-frame fixed-pivot deterministic friend-wave atlas.
+- `assets/flats/castle/interactions/playroom_stacking_toy_atlas.png` - eight-frame fixed-pivot deterministic ring-restacking atlas.
+- `assets/flats/castle/interactions/playroom_blocks_atlas.png` - eight-frame fixed-pivot deterministic block-topple/restack atlas.
+- `assets/flats/castle/interactions/craft_room_ribbon_rack_atlas.png` - eight-frame fixed-pivot deterministic ribbon-unroll atlas.
+- `assets/flats/castle/interactions/craft_room_idea_board_atlas.png` - eight-frame fixed-pivot deterministic note-flip atlas.
+- `assets/flats/castle/interactions/craft_room_paint_table_atlas.png` - eight-frame fixed-pivot deterministic brush-stir atlas.
+- `assets/flats/castle/interactions/craft_room_palette_atlas.png` - eight-frame fixed-pivot deterministic paint-mixing atlas.
+- `assets/flats/castle/interactions/mermaid_pool_star_float_atlas.png` - eight-frame fixed-pivot deterministic star/ripple atlas.
+- `assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png` - eight-frame fixed-pivot deterministic waterfall-flow atlas.
+- `assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png` - eight-frame fixed-pivot deterministic petal/ripple atlas using the preservation master below.
+- `assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png` - eight-frame fixed-pivot deterministic jet/bubble atlas using the preservation master below.
+- `assets/flats/castle/interactions/bubble_bath_rubber_duck_atlas.png` - eight-frame fixed-pivot deterministic squeak/dive atlas color-isolated from the accepted tub preservation master.
+- `assets/flats/castle/interactions/bubble_bath_bathtub_atlas.png` - eight-frame fixed-pivot deterministic tap/water/bubble atlas using the preservation master below.
+- `assets/flats/castle/interactions/bubble_bath_sink_atlas.png` - eight-frame fixed-pivot deterministic faucet/water atlas using the preservation master below.
+- `assets/flats/castle/interactions/bubble_bath_toilet_atlas.png` - eight-frame fixed-pivot deterministic seat/flush atlas using the preservation master below.
+- `assets/flats/castle/interactions/castle_interactions.json` - project-authored machine-readable atlas, provenance, semantic-action, audio, frame, hash, and review manifest.
+
+The following native preservation masters were made with OpenAI built-in
+ImageGen from only the named approved project-local item crops, on flat chroma,
+then keyed with the installed local helper. Exact prompts, helper settings,
+hashes, dimensions, rejection notes, and human drift reviews are in
+`assets_src/imagegen/castle_interactions_2026-08-01/PROMPTS.md`.
+
+- `assets_src/imagegen/castle_interactions_2026-08-01/bathroom_sink_chroma.png` - native project-original sink extraction generation.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bathroom_sink_alpha_hard.png` - accepted hard-alpha sink preservation master.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bathroom_sink_alpha.png` - rejected soft-matte sink extraction retained only as audit evidence; never loaded or used to build runtime art.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bathtub_chroma.png` - native project-original bathtub extraction generation.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bathtub_alpha.png` - accepted hard-alpha bathtub preservation master.
+- `assets_src/imagegen/castle_interactions_2026-08-01/toilet_chroma.png` - native project-original toilet extraction generation.
+- `assets_src/imagegen/castle_interactions_2026-08-01/toilet_alpha.png` - accepted hard-alpha toilet preservation master.
+- `assets_src/imagegen/castle_interactions_2026-08-01/flower_float_chroma.png` - native project-original flower-float extraction generation.
+- `assets_src/imagegen/castle_interactions_2026-08-01/flower_float_alpha.png` - accepted hard-alpha flower-float preservation master.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bubble_fountain_chroma.png` - native project-original bubble-fountain extraction generation.
+- `assets_src/imagegen/castle_interactions_2026-08-01/bubble_fountain_alpha.png` - accepted hard-alpha bubble-fountain preservation master.
+
+All new audio is project-original deterministic offline synthesis by
+`tools/build_castle_interaction_audio.py`: fixed-seed NumPy/SciPy PCM, mono
+24 kHz, normalized to -3 dBFS, encoded as Ogg Vorbis q4 with the repository's
+pinned FFmpeg. No samples, voices, downloaded media, or external sources were
+used. Exact PCM/file hashes and cue timing are in the audio manifest.
+
+- `assets/audio/castle/faucet_water.ogg` - synthesized faucet-on/water-flow cue.
+- `assets/audio/castle/toilet_flush.ogg` - synthesized seat-tap/flush/water-settle cue.
+- `assets/audio/castle/fridge_door.ogg` - synthesized latch/refrigerator-door cue.
+- `assets/audio/castle/oven_door.ogg` - synthesized oven-door/warm-fire cue.
+- `assets/audio/castle/pan_clang.ogg` - synthesized hanging copper-pan clang cue.
+- `assets/audio/castle/curtain_swish.ogg` - synthesized fabric/curtain cue.
+- `assets/audio/castle/page_flip.ogg` - synthesized book/page cue.
+- `assets/audio/castle/toy_blocks.ogg` - synthesized wooden toy/ring/block cue.
+- `assets/audio/castle/craft_brush.ogg` - synthesized brush/paint cue.
+- `assets/audio/castle/ribbon_roll.ogg` - synthesized ribbon-spool cue.
+- `assets/audio/castle/bubble_water.ogg` - synthesized bubble/pool/water cue.
+- `assets/audio/castle/light_switch.ogg` - synthesized switch/pearl-light cue.
+- `assets/audio/castle/duck_squeak.ogg` - synthesized rubber-duck squeak cue.
+- `assets/audio/castle/castle_interaction_sfx_manifest.json` - deterministic audio provenance, timing, encoding, and hash manifest.
+- `audit/castle_interactions/castle_interaction_frames.png` - deterministic all-eight-frame-per-item review contact sheet produced by the atlas builder; project audit evidence, not runtime art.
+
+## Pearl Castle room-selector illustrations (2026-08-01)
+
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/castle_button_*_master.png`
+  - project-generated storybook derivatives based on the project's authored
+  Pearl Castle rooms and approved replacement Opera House concept. Generated
+  with the built-in Codex ImageGen tool; project original, all rights reserved.
+  Exact prompts, references, and SHA-256 hashes are recorded in the adjacent
+  `PROMPTS.md`.
+- `assets_src/imagegen/castle_room_buttons_2026-08-01/references/mermaid_roshan_wisconsonia_cover_reference.jpg`
+  - project-owner-supplied authoritative book cover, copied byte-for-byte and
+  preserved unchanged (SHA-256
+  `3ABEDC5EC0D878CFD7A0E1ABAB18B5C8D61E06275D87ABD29252FEF25CE24CD6`).
+  Used only as a visual reference for the simplified Library button; it was not
+  destructively edited or recompressed.
+- `assets/ui/castle_room_buttons/room_*.png` - project-authored runtime
+  derivatives built by `tools/build_castle_room_button_thumbnails.py` as
+  400 x 224 center-crop/resamples of the registered masters. No external art
+  or additional generated pixels. License remains project original.

@@ -8,6 +8,8 @@ extends RefCounted
 # created or loaded by this satellite.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
+const INTERACTION_ART := "res://assets/flats/castle/interactions/"
+const ROOM_BUTTON_ART := "res://assets/ui/castle_room_buttons/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
@@ -134,44 +136,65 @@ const HALL_PORTALS: Array[Dictionary] = [
 const HALL_ITEMS: Array[Dictionary] = [
 	{"id": "tapestry_right", "name": "Royal shell tapestry",
 		"pos": Vector2(2612.0, 142.0), "z": MIRROR_INSERT_Z,
-		"tex_path": HALL_ART_ROOT + "castle_royal_tapestry_reuse.png",
-		"scale": 0.72, "anim": "sway", "sound": "chime.ogg", "pitch": 1.55,
+		"tex_path": INTERACTION_ART + "main_hall_tapestry_atlas.png",
+		"scale": 0.72, "semantic_action": "unfurl_cloth",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.125, "sound": "castle/curtain_swish.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(105.0, 190.0),
 		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
 		"pos": Vector2(260.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a1", "name": "Pearl shell light",
 		"pos": Vector2(1012.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a2", "name": "Pearl shell light",
 		"pos": Vector2(1476.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b0", "name": "Pearl shell light",
 		"pos": Vector2(2048.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.65,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b1", "name": "Pearl shell light",
 		"pos": Vector2(2415.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.72,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b2", "name": "Pearl shell light",
 		"pos": Vector2(2888.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": HALL_ART_ROOT + "castle_shell_sconce_touchable.png",
-		"scale": 0.125, "anim": "light", "sound": "chime.ogg", "pitch": 1.78,
+		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
+		"scale": 0.8, "semantic_action": "toggle_shell_light",
+		"frames": 8, "hframes": 4, "vframes": 2,
+		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
+		"sound_frame": 0, "pitch": 1.0,
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 ]
@@ -328,144 +351,232 @@ const ROOM_LAYOUTS := {
 	},
 }
 const ROOM_ITEMS := {
-	"main_hall": [
-		{"id": "throne", "name": "Royal throne", "pos": Vector2(430, 150),
-			"z": 0.55,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 1.25,
-			"symbol": "✦", "color": Color(1.0, 0.82, 0.32)},
-		{"id": "fountain_left", "name": "Left fountain", "pos": Vector2(88, 371),
-			"z": 4.15,
-			"tex": "room_main_hall_item_fountain_left_v2.png",
-			"hotspot_offset": Vector2(18, 8),
-			"hotspot_size": Vector2(220, 180),
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 1.8,
-			"symbol": "○", "color": Color(0.50, 0.91, 1.0)},
-		{"id": "fountain_right", "name": "Right fountain", "pos": Vector2(722, 371),
-			"z": 4.15,
-			"tex": "room_main_hall_item_fountain_right_v2.png",
-			"hotspot_offset": Vector2(18, 8),
-			"hotspot_size": Vector2(220, 180),
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.0,
-			"symbol": "○", "color": Color(0.50, 0.91, 1.0)},
-	],
 	"opera_hall": [
 		{"id": "curtains", "name": "Stage curtains", "pos": Vector2(414, 100),
 			"z": 0.65,
-			"anim": "sway", "sound": "purr.wav", "pitch": 1.4,
 			"symbol": "♪", "color": Color(1.0, 0.67, 0.78)},
 		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 0),
 			"z": 1.10,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.7,
 			"symbol": "✦", "color": Color(1.0, 0.90, 0.44)},
-		{"id": "stage_star", "name": "Stage star", "pos": Vector2(463, 286),
-			"z": 0.75,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 2.1,
+		{"id": "stage_star", "name": "Stage star", "pos": Vector2(490, 309),
+			"z": 0.75, "hotspot_offset": Vector2(-26.0, 6.0),
+			"hotspot_size": Vector2(96.0, 80.0),
 			"symbol": "★", "color": Color(1.0, 0.82, 0.30)},
+		{"id": "footlights", "name": "Stage footlights",
+			"pos": Vector2(414, 286), "z": 0.72,
+			"hotspot_offset": Vector2(0.0, -16.0),
+			"hotspot_size": Vector2(196.0, 45.0),
+			"color": Color(1.0, 0.86, 0.44)},
 	],
 	"kitchen": [
 		{"id": "sink", "name": "Shell sink", "pos": Vector2(62, 176),
 			"z": 0.75,
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.2,
 			"symbol": "○", "color": Color(0.45, 0.90, 1.0)},
 		{"id": "pan_1", "name": "Copper pan", "pos": Vector2(300, 132),
 			"z": 0.90,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.20,
 			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
 		{"id": "pan_2", "name": "Copper pan", "pos": Vector2(337, 132),
 			"z": 0.92,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.34,
 			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
 		{"id": "pan_3", "name": "Copper pan", "pos": Vector2(379, 132),
 			"z": 0.94,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.48,
 			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
 		{"id": "pan_4", "name": "Copper pan", "pos": Vector2(418, 132),
 			"z": 0.96,
-			"anim": "sway", "sound": "chime.ogg", "pitch": 1.62,
 			"symbol": "○", "color": Color(1.0, 0.72, 0.28)},
 		{"id": "oven", "name": "Warm oven", "pos": Vector2(289, 244),
 			"z": 1.05,
-			"anim": "light", "sound": "buzz.ogg", "pitch": 1.45,
 			"symbol": "●", "color": Color(1.0, 0.58, 0.30)},
 		{"id": "fridge", "name": "Royal refrigerator", "pos": Vector2(631, 84),
 			"z": 0.95,
 			"hotspot_offset": Vector2(8, 8),
 			"hotspot_size": Vector2(190.0, 300.0),
-			"portal_glow": true,
-			"anim": "wiggle", "sound": "chime.ogg", "pitch": 1.2,
 			"symbol": "✦", "color": Color(0.61, 0.94, 0.90)},
 	],
 	"library": [
 		{"id": "magic_book", "name": "Magic storybook", "pos": Vector2(445, 145),
 			"z": 0.80,
-			"anim": "hover", "sound": "chime.ogg", "pitch": 1.8,
 			"symbol": "✦", "color": Color(0.81, 0.66, 1.0)},
 		{"id": "pearl_table", "name": "Reading pearl", "pos": Vector2(392, 315),
 			"z": MIDGROUND_Z,
-			"anim": "pulse", "sound": "purr.wav", "pitch": 1.6,
 			"symbol": "○", "color": Color(1.0, 0.91, 0.62)},
-		{"id": "pearl_lamp", "name": "Pearl lamp", "pos": Vector2(0, 225),
-			"z": 0.65,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 2.0,
+		{"id": "pearl_lamp", "name": "Pearl lamp", "pos": Vector2(4, 225),
+			"z": 0.65, "hotspot_offset": Vector2(-8.0, -16.0),
+			"hotspot_size": Vector2(112.0, 112.0),
 			"symbol": "✦", "color": Color(1.0, 0.88, 0.48)},
+		{"id": "book_stack", "name": "Stack of storybooks",
+			"pos": Vector2(0, 365), "z": MIDGROUND_Z,
+			"color": Color(0.81, 0.66, 1.0)},
 	],
 	"playroom": [
 		{"id": "stuffie_nook", "name": "Stuffie friends", "pos": Vector2(380, 140),
 			"z": 0.75,
-			"anim": "bounce", "sound": "penguin_giggle.ogg", "pitch": 1.35,
 			"symbol": "♡", "color": Color(1.0, 0.58, 0.74)},
 		{"id": "stacking_toy", "name": "Stacking toy", "pos": Vector2(218, 284),
 			"z": MIDGROUND_Z,
-			"anim": "wiggle", "sound": "hop_boing.ogg", "pitch": 1.25,
 			"symbol": "★", "color": Color(1.0, 0.79, 0.30)},
 		{"id": "blocks", "name": "Toy blocks", "pos": Vector2(626, 320),
 			"z": MIDGROUND_Z,
-			"anim": "bounce", "sound": "hop_boing.ogg", "pitch": 1.55,
 			"symbol": "✦", "color": Color(0.54, 0.91, 0.78)},
+		{"id": "play_tent", "name": "Play tent",
+			"pos": Vector2(105, 235), "z": 0.72,
+			"color": Color(1.0, 0.72, 0.88)},
 	],
 	"craft_room": [
 		{"id": "idea_board", "name": "Idea board", "pos": Vector2(377, 103),
 			"z": 0.70,
-			"anim": "pulse", "sound": "chime.ogg", "pitch": 1.7,
 			"symbol": "✦", "color": Color(1.0, 0.78, 0.45)},
 		{"id": "paint_table", "name": "Paint jars", "pos": Vector2(400, 272),
 			"z": MIDGROUND_Z,
-			"anim": "bounce", "sound": "buy.ogg", "pitch": 1.5,
 			"symbol": "●", "color": Color(0.60, 0.90, 0.82)},
 		{"id": "palette", "name": "Rainbow palette", "pos": Vector2(0, 320),
 			"z": FOREGROUND_Z,
-			"anim": "wiggle", "sound": "buzz.ogg", "pitch": 1.9,
 			"symbol": "●", "color": Color(1.0, 0.55, 0.72)},
+		{"id": "ribbon_rack", "name": "Ribbon rack",
+			"pos": Vector2(270, 82), "z": 0.76,
+			"color": Color(1.0, 0.62, 0.82)},
 	],
 	"mermaid_pool": [
 		{"id": "waterfall", "name": "Rainbow waterfall", "pos": Vector2(285, 45),
 			"z": 0.65,
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 1.7,
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
-			"z": MIDGROUND_Z,
-			"anim": "spin", "sound": "chime.ogg", "pitch": 2.0,
+			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 12.0),
+			"hotspot_size": Vector2(88.0, 88.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
 		{"id": "bubble_fountain", "name": "Bubble fountain", "pos": Vector2(553, 183),
 			"z": MIDGROUND_Z,
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.25,
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
+		{"id": "star_float", "name": "Star float",
+			"pos": Vector2(468, 260), "z": MIDGROUND_Z + 0.03,
+			"hotspot_offset": Vector2(0.0, -17.5),
+			"hotspot_size": Vector2(80.0, 80.0),
+			"color": Color(1.0, 0.82, 0.40)},
 	],
 	"bubble_bath": [
 		{"id": "bathtub", "name": "Bubble bathtub", "pos": Vector2(76, 157),
 			"z": 1.25,
-			"anim": "splash", "sound": "penguin_giggle.ogg", "pitch": 1.3,
 			"symbol": "○", "color": Color(0.64, 0.92, 1.0)},
 		{"id": "sink", "name": "Shell sink", "pos": Vector2(440, 137),
 			"z": 0.80,
-			"anim": "splash", "sound": "ui_tap.ogg", "pitch": 2.3,
 			"symbol": "○", "color": Color(0.52, 0.92, 1.0)},
 		{"id": "toilet", "name": "Royal toilet", "pos": Vector2(753, 154),
 			"z": 1.00,
-			"anim": "wiggle", "sound": "fart.ogg", "pitch": 1.15,
 			"symbol": "○", "color": Color(1.0, 0.72, 0.86)},
+		{"id": "rubber_duck", "name": "Rubber duck",
+			"pos": Vector2(279, 207), "z": 1.30,
+			"hotspot_offset": Vector2(-35.5, -36.0),
+			"hotspot_size": Vector2(112.0, 112.0),
+			"color": Color(1.0, 0.82, 0.32)},
 	],
 }
+
+const INTERACTION_SPECS := {
+	"opera_hall:curtains": {"semantic_action": "open_stage_curtains",
+		"sound": "castle/curtain_swish.ogg", "frame_duration": 0.125,
+		"sound_frame": 0},
+	"opera_hall:chandelier": {"semantic_action": "chandelier_light_chase",
+		"sound": "castle/light_switch.ogg", "frame_duration": 0.1025,
+		"sound_frame": 0, "pitch": 1.0},
+	"opera_hall:stage_star": {"semantic_action": "marquee_star_light_chase",
+		"sound": "castle/light_switch.ogg", "frame_duration": 0.1025,
+		"sound_frame": 0, "pitch": 1.0},
+	"opera_hall:footlights": {"semantic_action": "stage_footlight_chase",
+		"sound": "castle/light_switch.ogg", "frame_duration": 0.1025,
+		"sound_frame": 0, "pitch": 1.0},
+	"kitchen:sink": {"semantic_action": "turn_faucet_and_run_water",
+		"sound": "castle/faucet_water.ogg", "frame_duration": 0.15,
+		"sound_frame": 0},
+	"kitchen:pan_1": {"semantic_action": "swing_pan_on_hook",
+		"sound": "castle/pan_clang.ogg", "frame_duration": 0.115,
+		"sound_frame": 0, "pitch": 1.0, "hotspot_group": "pan_rack",
+		"hotspot_owner": true, "hotspot_offset": Vector2(-14.0, -14.5),
+		"hotspot_size": Vector2(176.0, 112.0)},
+	"kitchen:pan_2": {"semantic_action": "swing_pan_on_hook",
+		"sound": "castle/pan_clang.ogg", "frame_duration": 0.115,
+		"sound_frame": 0, "pitch": 1.0, "hotspot_group": "pan_rack",
+		"hotspot_owner": false},
+	"kitchen:pan_3": {"semantic_action": "swing_pan_on_hook",
+		"sound": "castle/pan_clang.ogg", "frame_duration": 0.115,
+		"sound_frame": 0, "pitch": 1.0, "hotspot_group": "pan_rack",
+		"hotspot_owner": false},
+	"kitchen:pan_4": {"semantic_action": "swing_pan_on_hook",
+		"sound": "castle/pan_clang.ogg", "frame_duration": 0.115,
+		"sound_frame": 0, "pitch": 1.0, "hotspot_group": "pan_rack",
+		"hotspot_owner": false},
+	"kitchen:oven": {"semantic_action": "open_oven_door_and_warm_fire",
+		"sound": "castle/oven_door.ogg", "frame_duration": 0.1625,
+		"sound_frame": 0},
+	"kitchen:fridge": {"semantic_action": "unlatch_and_open_fridge_door",
+		"sound": "castle/fridge_door.ogg", "frame_duration": 0.145,
+		"sound_frame": 0},
+	"library:magic_book": {"semantic_action": "open_book_and_turn_pages",
+		"sound": "castle/page_flip.ogg", "frame_duration": 0.095,
+		"sound_frame": 0},
+	"library:pearl_table": {"semantic_action": "wake_reading_pearl",
+		"sound": "castle/light_switch.ogg", "frame_duration": 0.1025,
+		"sound_frame": 0, "pitch": 1.0},
+	"library:pearl_lamp": {"semantic_action": "toggle_pearl_lamp",
+		"sound": "castle/light_switch.ogg", "frame_duration": 0.1025,
+		"sound_frame": 0, "pitch": 1.0},
+	"library:book_stack": {"semantic_action": "open_top_book_and_turn_pages",
+		"sound": "castle/page_flip.ogg", "frame_duration": 0.095,
+		"sound_frame": 0, "pitch": 1.0},
+	"playroom:stuffie_nook": {"semantic_action": "stuffie_friends_wave",
+		"sound": "castle/toy_blocks.ogg", "frame_duration": 0.1375,
+		"sound_frame": 0, "pitch": 1.0},
+	"playroom:stacking_toy": {"semantic_action": "lift_and_restack_rings",
+		"sound": "castle/toy_blocks.ogg", "frame_duration": 0.1375,
+		"sound_frame": 0},
+	"playroom:blocks": {"semantic_action": "topple_and_restack_blocks",
+		"sound": "castle/toy_blocks.ogg", "frame_duration": 0.1375,
+		"sound_frame": 0, "pitch": 1.0},
+	"playroom:play_tent": {"semantic_action": "open_and_close_tent_flap",
+		"sound": "castle/curtain_swish.ogg", "frame_duration": 0.125,
+		"sound_frame": 0, "pitch": 1.0},
+	"craft_room:idea_board": {"semantic_action": "flip_idea_notes",
+		"sound": "castle/page_flip.ogg", "frame_duration": 0.095,
+		"sound_frame": 0, "pitch": 1.0},
+	"craft_room:paint_table": {"semantic_action": "stir_paint_with_brush",
+		"sound": "castle/craft_brush.ogg", "frame_duration": 0.12,
+		"sound_frame": 0},
+	"craft_room:palette": {"semantic_action": "mix_palette_colors",
+		"sound": "castle/craft_brush.ogg", "frame_duration": 0.12,
+		"sound_frame": 0, "pitch": 1.0},
+	"craft_room:ribbon_rack": {"semantic_action": "unroll_and_retract_ribbon",
+		"sound": "castle/ribbon_roll.ogg", "frame_duration": 0.1325,
+		"sound_frame": 0},
+	"mermaid_pool:waterfall": {"semantic_action": "surge_waterfall_flow",
+		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
+		"sound_frame": 0},
+	"mermaid_pool:flower_float": {"semantic_action": "open_flower_and_make_ripples",
+		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
+		"sound_frame": 0, "pitch": 1.0},
+	"mermaid_pool:bubble_fountain": {"semantic_action": "raise_and_pop_bubbles",
+		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
+		"sound_frame": 0, "pitch": 1.0},
+	"mermaid_pool:star_float": {"semantic_action": "float_and_make_ripples",
+		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
+		"sound_frame": 0, "pitch": 1.0},
+	"bubble_bath:bathtub": {"semantic_action": "turn_taps_and_fill_bubbles",
+		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
+		"sound_frame": 0},
+	"bubble_bath:sink": {"semantic_action": "turn_faucet_and_run_water",
+		"sound": "castle/faucet_water.ogg", "frame_duration": 0.15,
+		"sound_frame": 0, "pitch": 1.0},
+	"bubble_bath:toilet": {"semantic_action": "flap_seat_and_flush",
+		"sound": "castle/toilet_flush.ogg", "frame_duration": 0.225,
+		"sound_frame": 0},
+	"bubble_bath:rubber_duck": {"semantic_action": "squeak_dive_and_pop_up",
+		"sound": "castle/duck_squeak.ogg", "frame_duration": 0.0775,
+		"sound_frame": 0, "pitch": 1.0},
+}
+const INTERACTION_GRIDS_3X3: Array[String] = [
+	"bubble_bath:bathtub",
+	"craft_room:idea_board",
+	"craft_room:palette",
+	"playroom:stuffie_nook",
+]
 
 const KITCHEN_RECIPES: Array[Dictionary] = [
 	{"id": "pearl_cake", "name": "Pearl Cake", "icon": "🧁", "uses": ""},
@@ -728,7 +839,7 @@ func _build_stage() -> void:
 	point.tween_property(elevator_pointer, "position:y", 490.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	m.castle_room_menu_panel = StorybookUI.add_panel(stage,
-		Rect2(348.0, 125.0, 584.0, 470.0), StorybookUI.INK_SOFT,
+		Rect2(250.0, 92.0, 780.0, 536.0), StorybookUI.INK_SOFT,
 		Color(0.94, 0.98, 1.0, 0.98), 42)
 	m.castle_room_menu_panel.z_index = 40
 	m.castle_room_menu_panel.visible = false
@@ -938,23 +1049,45 @@ func _build_room_buttons(panel: Panel) -> void:
 	for room: Dictionary in ROOMS:
 		var button := Button.new()
 		button.name = "Room_" + String(room["id"])
-		button.position = Vector2(28.0 + float(index % 3) * 176.0,
-			30.0 + float(index / 3) * 140.0)
-		StorybookUI.style_icon_button(button, String(room["icon"]), "secondary",
-			Vector2(144.0, 118.0), String(room["name"]))
+		button.position = Vector2(40.0 + float(index % 3) * 240.0,
+			32.0 + float(index / 3) * 166.0)
+		_style_room_preview_button(button, room)
 		button.pressed.connect(show_room.bind(String(room["id"]), true))
 		panel.add_child(button)
 		m.castle_room_buttons[String(room["id"])] = button
 		index += 1
 	var bedrooms := Button.new()
 	bedrooms.name = "Room_BedroomsFuture"
-	bedrooms.position = Vector2(28.0 + float(index % 3) * 176.0,
-		30.0 + float(index / 3) * 140.0)
+	bedrooms.position = Vector2(40.0 + float(index % 3) * 240.0,
+		32.0 + float(index / 3) * 166.0)
 	StorybookUI.style_icon_button(bedrooms, "☾", "locked",
-		Vector2(144.0, 118.0), "Bedrooms are dreaming")
+		Vector2(220.0, 132.0), "Bedrooms are dreaming")
 	bedrooms.disabled = true
 	bedrooms.focus_mode = Control.FOCUS_NONE
 	panel.add_child(bedrooms)
+
+func _style_room_preview_button(button: Button, room: Dictionary) -> void:
+	var room_id: String = String(room["id"])
+	var texture_path := ROOM_BUTTON_ART + "room_" + room_id + ".png"
+	button.text = ""
+	button.custom_minimum_size = Vector2(220.0, 132.0)
+	button.size = Vector2(220.0, 132.0)
+	button.tooltip_text = String(room["name"])
+	button.clip_contents = true
+	StorybookUI.style_button(button, "secondary", 18, 42)
+	button.set_meta("picture_first", true)
+	button.set_meta("parent_hint", String(room["name"]))
+	button.set_meta("room_preview_source", texture_path)
+	var preview := TextureRect.new()
+	preview.name = "RoomPreview"
+	preview.position = Vector2(10.0, 10.0)
+	preview.size = Vector2(200.0, 112.0)
+	preview.texture = load(texture_path) as Texture2D
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(preview)
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
@@ -1320,6 +1453,17 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			or m.castle_room_item_hotspot_layer == null:
 		return
 	var item_id: String = String(item_data["id"])
+	var interaction_key := room_id + ":" + item_id
+	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
+		interaction_key, {}) as Dictionary
+	if not interaction_spec.is_empty():
+		item_data = item_data.duplicate(true)
+		item_data.merge(interaction_spec, true)
+		item_data["frames"] = 8
+		item_data["hframes"] = 3 if interaction_key in INTERACTION_GRIDS_3X3 else 4
+		item_data["vframes"] = 3 if interaction_key in INTERACTION_GRIDS_3X3 else 2
+		item_data["tex_path"] = INTERACTION_ART + room_id + "_" \
+			+ item_id + "_atlas.png"
 	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
 	if bunny_role != "":
 		var cleared: Dictionary = m.g.get(
@@ -1334,6 +1478,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if texture == null:
 		return
 	var piece: Sprite3D = _new_card("Animated_" + item_id, texture)
+	piece.hframes = int(item_data.get("hframes", 1))
+	piece.vframes = int(item_data.get("vframes", 1))
+	piece.frame = 0
 	var source_position: Vector2 = item_data["pos"]
 	var item_z: float = float(item_data.get("z", ITEM_Z))
 	var visual_scale: float = float(item_data.get("scale", 1.0))
@@ -1348,6 +1495,21 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	piece.flip_h = bool(item_data.get("flip_h", false))
 	piece.set_meta("source_asset_role", "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
+	piece.set_meta("semantic_action", String(item_data.get(
+		"semantic_action", "")))
+	piece.set_meta("frames", int(item_data.get("frames", 1)))
+	piece.set_meta("hframes", piece.hframes)
+	piece.set_meta("vframes", piece.vframes)
+	piece.set_meta("frame_duration", float(item_data.get(
+		"frame_duration", 0.10)))
+	piece.set_meta("sound", String(item_data.get("sound", "")))
+	piece.set_meta("sound_frame", int(item_data.get("sound_frame", 0)))
+	piece.set_meta("animation_frame_count", int(item_data.get("frames", 1)))
+	piece.set_meta("animation_frame_duration", float(item_data.get(
+		"frame_duration", 0.10)))
+	piece.set_meta("animation_frames_visited", [])
+	piece.set_meta("fixed_pivot_animation", not interaction_spec.is_empty()
+		or item_data.has("semantic_action"))
 	if bunny_role != "":
 		piece.set_meta("dust_bunny_role", bunny_role)
 		piece.set_meta("spawn_guide_id", item_id)
@@ -1360,21 +1522,26 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		fixture_material.set_shader_parameter("fixture_texture", texture)
 		piece.material_override = fixture_material
 		piece.set_meta("castle_fixture_material", fixture_material)
+		_sync_sconce_frame_uv(piece)
 		if not m.castle_room_light_states.has(item_id):
 			m.castle_room_light_states[item_id] = true
 		_apply_sconce_visual(piece, bool(m.castle_room_light_states[item_id]))
 	m.castle_room_item_visual_layer.add_child(piece)
-	if bool(item_data.get("portal_glow", false)):
-		_add_item_portal_glow(piece, texture, room_id, item_id)
 
 	var hotspot: Button = null
-	if not bool(item_data.get("proximity_only", false)):
+	var hotspot_group: String = String(item_data.get("hotspot_group", ""))
+	var owns_hotspot: bool = hotspot_group == "" \
+		or bool(item_data.get("hotspot_owner", false))
+	if not bool(item_data.get("proximity_only", false)) and owns_hotspot:
 		hotspot = Button.new()
-		hotspot.name = "Touch_" + item_id
+		hotspot.name = "Touch_" + (
+			hotspot_group if hotspot_group != "" else item_id)
 		hotspot.flat = true
 		hotspot.focus_mode = Control.FOCUS_NONE
-		hotspot.tooltip_text = String(item_data["name"])
+		hotspot.tooltip_text = "Copper pan rack" \
+			if hotspot_group == "pan_rack" else String(item_data["name"])
 		hotspot.set_meta("uses_own_sfx", true)
+		hotspot.set_meta("hotspot_group", hotspot_group)
 		var hotspot_offset: Vector2 = item_data.get(
 			"hotspot_offset", Vector2.ZERO)
 		hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
@@ -1391,17 +1558,24 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if room_id != "main_hall":
 		contact_foot *= ART_TO_STAGE
 		contact_radius *= ART_TO_STAGE
-	var texture_size: Vector2 = texture.get_size()
-	var visual_size: Vector2 = texture_size * visual_scale
+	var frame_size: Vector2 = _sprite_frame_size(piece)
+	var visual_size: Vector2 = frame_size * visual_scale
 	var visual_center: Vector2 = source_position \
 		if room_id == "main_hall" \
-		else source_position + texture_size * 0.5
+		else source_position + frame_size * 0.5
+	var authored_hotspot_size: Vector2 = item_data.get(
+		"hotspot_size", frame_size) as Vector2
+	var authored_hotspot_offset: Vector2 = item_data.get(
+		"hotspot_offset", (frame_size - authored_hotspot_size) * 0.5) as Vector2
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
 		"data": item_data,
 		"contact_foot": contact_foot,
 		"contact_radius": contact_radius,
+		"frame_size": frame_size,
+		"hotspot_size": authored_hotspot_size,
+		"hotspot_offset": authored_hotspot_offset,
 		"art_rect": Rect2(
 			visual_center - visual_size * 0.5, visual_size),
 	}
@@ -1420,49 +1594,81 @@ func _activate_room_item(item_id: String) -> void:
 	if item_data.has("light_cluster"):
 		_toggle_hall_sconce(item_id, sprite, item_data)
 		return
-	sprite.set_meta("busy", true)
-	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
-		float(item_data.get("pitch", 1.0)))
+	var hotspot_group: String = String(item_data.get("hotspot_group", ""))
+	if hotspot_group != "":
+		_activate_item_group(hotspot_group, item_id)
+		return
 	_item_burst(sprite.position,
 		Color(item_data.get("color", StorybookUI.GOLD)), 6)
-	_animate_item(sprite, String(item_data.get("anim", "pulse")))
-	if m.castle_room_id == "kitchen" and item_id == "fridge":
-		_open_kitchen_menu()
+	_play_sprite_atlas_sequence(sprite, item_data, true,
+		m.castle_room_id == "kitchen" and item_id == "fridge")
 
-func _add_item_portal_glow(source: Sprite3D, texture: Texture2D,
-		room_id: String, item_id: String) -> void:
-	var glow: Sprite3D = _new_card("PortalGlow_" + item_id, texture)
-	# The glow is a translucent visual echo, never a depth occluder.
-	glow.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
-	glow.position = source.position
-	glow.position.z = source.position.z - 0.035
-	glow.pixel_size = source.pixel_size
-	glow.scale = source.scale * 1.055
-	glow.modulate = Color(0.52, 1.0, 0.92, 0.16)
-	glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	glow.set_meta("source_asset_role", "portal_glow")
-	glow.set_meta("source_object_id", room_id + ":" + item_id + "_glow")
-	m.castle_room_item_visual_layer.add_child(glow)
-	var pulse: Tween = glow.create_tween().set_loops()
-	pulse.tween_property(glow, "modulate:a", 0.30, 0.85).set_trans(
-		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	pulse.tween_property(glow, "modulate:a", 0.13, 0.95).set_trans(
-		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+func _activate_item_group(hotspot_group: String, owner_item_id: String) -> void:
+	var group_records: Array[Dictionary] = []
+	for record_value: Variant in m.castle_room_item_sprites.values():
+		var record: Dictionary = record_value as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("hotspot_group", "")) != hotspot_group:
+			continue
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite == null or bool(sprite.get_meta("busy", false)):
+			return
+		group_records.append(record)
+	if group_records.is_empty():
+		return
+	var owner_record: Dictionary = m.castle_room_item_sprites.get(
+		owner_item_id, group_records[0]) as Dictionary
+	for record: Dictionary in group_records:
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if bool(item_data.get("hotspot_owner", false)):
+			owner_record = record
+			break
+	var owner_sprite: Sprite3D = owner_record.get("sprite") as Sprite3D
+	var owner_data: Dictionary = owner_record.get("data", {}) as Dictionary
+	if owner_sprite != null:
+		_item_burst(owner_sprite.position,
+			Color(owner_data.get("color", StorybookUI.GOLD)), 8)
+	for record: Dictionary in group_records:
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		_play_sprite_atlas_sequence(
+			sprite, item_data, bool(item_data.get("hotspot_owner", false)), false)
 
 func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 		item_data: Dictionary) -> void:
 	var now_on: bool = not bool(m.castle_room_light_states.get(item_id, true))
 	m.castle_room_light_states[item_id] = now_on
-	sprite.set_meta("busy", true)
 	_apply_sconce_visual(sprite, now_on)
-	_play_item_sfx(String(item_data.get("sound", "chime.ogg")),
-		float(item_data.get("pitch", 1.0)) * (1.0 if now_on else 0.82))
-	_animate_item(sprite, "light")
+	var playback_data: Dictionary = item_data.duplicate(true)
+	playback_data["pitch"] = 1.0
+	_play_sprite_atlas_sequence(sprite, playback_data, true, false)
 	_sync_hall_lighting()
+
+func _sync_sconce_frame_uv(sprite: Sprite3D) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	if not sprite.has_meta("castle_fixture_material"):
+		return
+	var material: ShaderMaterial = sprite.get_meta(
+		"castle_fixture_material", null) as ShaderMaterial
+	if material == null:
+		return
+	var columns: int = maxi(1, sprite.hframes)
+	var rows: int = maxi(1, sprite.vframes)
+	var frame_column: int = sprite.frame % columns
+	var frame_row: int = int(sprite.frame / columns)
+	var frame_uv := Vector4(
+		float(frame_column) / float(columns),
+		float(frame_row) / float(rows),
+		float(frame_column + 1) / float(columns),
+		float(frame_row + 1) / float(rows))
+	material.set_shader_parameter("fixture_uv_rect", frame_uv)
+	sprite.set_meta("fixture_uv_rect", frame_uv)
 
 func _apply_sconce_visual(sprite: Sprite3D, is_on: bool) -> void:
 	if sprite == null:
 		return
+	_sync_sconce_frame_uv(sprite)
 	# The Mobile renderer did not reliably carry an HDR Sprite3D modulate into
 	# the Environment glow buffer. A true unshaded spatial emission on this
 	# same fixture card produces localized bloom without a halo/button card.
@@ -1615,64 +1821,58 @@ func _play_item_sfx(sound_file: String, pitch: float) -> void:
 	m.castle_room_prop_sfx.pitch_scale = pitch
 	m.castle_room_prop_sfx.play()
 
-func _animate_item(sprite: Sprite3D, animation: String) -> void:
-	var origin_position: Vector3 = sprite.position
-	var origin_scale: Vector3 = sprite.scale
-	var origin_rotation: float = sprite.rotation.z
-	var lift: float = _stage_distance_to_world(18.0, sprite.position.z)
-	var tween := sprite.create_tween()
-	match animation:
-		"light":
-			tween.tween_property(sprite, "scale",
-				origin_scale * Vector3(1.035, 1.035, 1.0),
-				0.12).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-			tween.tween_property(sprite, "scale", origin_scale,
-				0.16).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		"wiggle":
-			tween.tween_property(sprite, "rotation:z", origin_rotation - 0.10, 0.10)
-			tween.tween_property(sprite, "rotation:z", origin_rotation + 0.12, 0.16)
-			tween.tween_property(sprite, "rotation:z", origin_rotation, 0.12)
-		"bounce":
-			tween.tween_property(sprite, "position:y", origin_position.y + lift,
-				0.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property(sprite, "position:y", origin_position.y, 0.22).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-		"hover":
-			tween.tween_property(sprite, "position:y",
-				origin_position.y + lift * 0.84, 0.28).set_trans(
-				Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-			tween.tween_property(sprite, "position:y", origin_position.y, 0.34).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		"spin":
-			tween.tween_property(sprite, "rotation:z", origin_rotation + TAU,
-				0.65).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-		"sway":
-			tween.tween_property(sprite, "rotation:z", origin_rotation - 0.055,
-				0.17).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(sprite, "rotation:z", origin_rotation + 0.055,
-				0.28).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(sprite, "rotation:z", origin_rotation,
-				0.17).set_trans(Tween.TRANS_SINE)
-		"splash":
-			tween.tween_property(sprite, "scale",
-				origin_scale * Vector3(1.04, 0.94, 1.0),
-				0.13).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(sprite, "scale",
-				origin_scale * Vector3(0.98, 1.05, 1.0),
-				0.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property(sprite, "scale", origin_scale, 0.18).set_trans(Tween.TRANS_SINE)
-		_:
-			tween.tween_property(sprite, "scale", origin_scale * 1.10, 0.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property(sprite, "scale", origin_scale, 0.22).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(_finish_item_animation.bind(
-		sprite, origin_position, origin_scale, origin_rotation))
-
-func _finish_item_animation(sprite: Sprite3D, origin_position: Vector3,
-		origin_scale: Vector3, origin_rotation: float) -> void:
-	if not is_instance_valid(sprite):
+func _play_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
+		play_sound: bool, open_kitchen_menu_after: bool) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)):
 		return
-	sprite.position = origin_position
-	sprite.scale = origin_scale
-	sprite.rotation.z = origin_rotation
+	var available_frames: int = maxi(1, sprite.hframes * sprite.vframes)
+	var frame_count: int = clampi(
+		int(item_data.get("frames", available_frames)), 1, available_frames)
+	var frame_duration: float = maxf(
+		0.01, float(item_data.get("frame_duration", 0.10)))
+	sprite.set_meta("busy", true)
+	sprite.frame = 0
+	_sync_sconce_frame_uv(sprite)
+	var visited: Array[int] = [0]
+	sprite.set_meta("animation_frames_visited", visited)
+	if play_sound and int(item_data.get("sound_frame", 0)) == 0:
+		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+			float(item_data.get("pitch", 1.0)))
+	if frame_count <= 1:
+		_finish_sprite_atlas_sequence(sprite, open_kitchen_menu_after)
+		return
+	var tween := sprite.create_tween()
+	for frame_index in range(1, frame_count):
+		tween.tween_interval(frame_duration)
+		tween.tween_callback(_show_item_atlas_frame.bind(
+			sprite, item_data, frame_index, play_sound))
+	tween.tween_interval(frame_duration)
+	tween.tween_callback(_finish_sprite_atlas_sequence.bind(
+		sprite, open_kitchen_menu_after))
+
+func _show_item_atlas_frame(sprite: Sprite3D, item_data: Dictionary,
+		frame_index: int, play_sound: bool) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	sprite.frame = frame_index
+	_sync_sconce_frame_uv(sprite)
+	var visited: Array = sprite.get_meta("animation_frames_visited", []) as Array
+	visited.append(frame_index)
+	sprite.set_meta("animation_frames_visited", visited)
+	if play_sound and frame_index == int(item_data.get("sound_frame", 0)):
+		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+			float(item_data.get("pitch", 1.0)))
+
+func _finish_sprite_atlas_sequence(sprite: Sprite3D,
+		open_kitchen_menu_after: bool) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	sprite.frame = 0
+	_sync_sconce_frame_uv(sprite)
 	sprite.set_meta("busy", false)
+	if open_kitchen_menu_after and m.castle_room_id == "kitchen":
+		_open_kitchen_menu()
 
 func _item_burst(center: Vector3, color: Color, count: int) -> void:
 	if m.castle_room_item_effect_layer == null:
@@ -1744,12 +1944,18 @@ func _place_art_card(card: Sprite3D, source_position: Vector2,
 		depth_z: float) -> void:
 	if card == null or card.texture == null:
 		return
-	var texture_size: Vector2 = card.texture.get_size()
-	var center_art: Vector2 = source_position + texture_size * 0.5
+	var frame_size: Vector2 = _sprite_frame_size(card)
+	var center_art: Vector2 = source_position + frame_size * 0.5
 	card.position = _art_to_world(center_art, depth_z)
 	card.pixel_size = _pixel_size_for_depth(depth_z)
-	card.set_meta("source_art_rect", Rect2(source_position, texture_size))
+	card.set_meta("source_art_rect", Rect2(source_position, frame_size))
 	card.set_meta("depth_z", depth_z)
+
+func _sprite_frame_size(sprite: Sprite3D) -> Vector2:
+	if sprite == null or sprite.texture == null:
+		return Vector2.ZERO
+	return sprite.texture.get_size() / Vector2(
+		float(maxi(1, sprite.hframes)), float(maxi(1, sprite.vframes)))
 
 func _pixel_size_for_depth(depth_z: float) -> float:
 	var projection_ratio: float = (CAMERA_DISTANCE - depth_z) / CAMERA_DISTANCE
@@ -2119,23 +2325,37 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 		hotspot.visible = false
 		return
 	hotspot.visible = true
+	var frame_size: Vector2 = record.get(
+		"frame_size", _sprite_frame_size(sprite)) as Vector2
+	var authored_size: Vector2 = record.get(
+		"hotspot_size", frame_size) as Vector2
+	var authored_offset: Vector2 = record.get(
+		"hotspot_offset", (frame_size - authored_size) * 0.5) as Vector2
+	var local_center_pixels: Vector2 = authored_offset + authored_size * 0.5 \
+		- frame_size * 0.5
+	if sprite.flip_h:
+		local_center_pixels.x = -local_center_pixels.x
+	var hotspot_world_center: Vector3 = sprite.global_position \
+		+ sprite.global_transform.basis.x \
+			* (local_center_pixels.x * sprite.pixel_size) \
+		- sprite.global_transform.basis.y \
+			* (local_center_pixels.y * sprite.pixel_size)
 	var center_screen: Vector2 = m.castle_room_camera.unproject_position(
-		sprite.global_position)
-	var texture_size: Vector2 = sprite.texture.get_size()
+		hotspot_world_center)
 	var half_x_world: Vector3 = sprite.global_transform.basis.x \
-		* (texture_size.x * sprite.pixel_size * 0.5)
+		* (authored_size.x * sprite.pixel_size * 0.5)
 	var half_y_world: Vector3 = sprite.global_transform.basis.y \
-		* (texture_size.y * sprite.pixel_size * 0.5)
+		* (authored_size.y * sprite.pixel_size * 0.5)
 	var edge_x_screen: Vector2 = m.castle_room_camera.unproject_position(
-		sprite.global_position + half_x_world)
+		hotspot_world_center + half_x_world)
 	var edge_y_screen: Vector2 = m.castle_room_camera.unproject_position(
-		sprite.global_position + half_y_world)
+		hotspot_world_center + half_y_world)
 	var center_stage: Vector2 = _screen_to_stage(center_screen)
 	var edge_x_stage: Vector2 = _screen_to_stage(edge_x_screen)
 	var edge_y_stage: Vector2 = _screen_to_stage(edge_y_screen)
 	var hit_size := Vector2(
-		maxf(112.0, absf(edge_x_stage.x - center_stage.x) * 2.0 + 34.0),
-		maxf(112.0, absf(edge_y_stage.y - center_stage.y) * 2.0 + 34.0))
+		maxf(88.0, absf(edge_x_stage.x - center_stage.x) * 2.0),
+		maxf(88.0, absf(edge_y_stage.y - center_stage.y) * 2.0))
 	var hit_position: Vector2 = center_stage - hit_size * 0.5
 	hit_position.x = clampf(hit_position.x, 0.0,
 		StorybookUI.CANVAS_SIZE.x - hit_size.x)

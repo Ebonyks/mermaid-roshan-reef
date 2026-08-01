@@ -3,15 +3,25 @@ render_mode unshaded, blend_mix, depth_prepass_alpha, cull_disabled, shadows_dis
 
 uniform sampler2D fixture_texture : source_color, filter_linear_mipmap_anisotropic;
 uniform vec4 fixture_tint : source_color = vec4(1.0);
+uniform vec4 fixture_uv_rect = vec4(0.0, 0.0, 1.0, 1.0);
 uniform vec3 emission_color : source_color = vec3(1.0, 0.72, 0.38);
 uniform float emission_energy : hint_range(0.0, 8.0, 0.05) = 4.0;
 
+vec2 fixture_uv(vec2 uv) {
+	vec2 texel = 1.0 / vec2(textureSize(fixture_texture, 0));
+	return clamp(
+		uv,
+		fixture_uv_rect.xy + texel * 1.5,
+		fixture_uv_rect.zw - texel * 1.5
+	);
+}
+
 float fixture_alpha(vec2 uv) {
-	return texture(fixture_texture, uv).a;
+	return texture(fixture_texture, fixture_uv(uv)).a;
 }
 
 void fragment() {
-	vec4 fixture = texture(fixture_texture, UV);
+	vec4 fixture = texture(fixture_texture, fixture_uv(UV));
 	float highlight = smoothstep(
 		0.52,
 		0.96,
