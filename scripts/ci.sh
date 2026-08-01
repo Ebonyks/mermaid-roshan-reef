@@ -48,6 +48,7 @@ for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive pro
 	esac
 	probe_rc=0
 	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
+		APPDATA="$probe_home/data" \
 		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
 	if [ "$probe_rc" -ne 0 ]; then
 		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
