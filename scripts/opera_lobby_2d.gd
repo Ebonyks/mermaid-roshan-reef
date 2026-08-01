@@ -125,7 +125,7 @@ func _build() -> void:
 	boss_button.pressed.connect(_choose_boss)
 	lower_stage.add_child(boss_button)
 	for i in range(MAX_CARDS):
-		var mark := _card_label("ShowMark%d" % i, "", Rect2.ZERO, 22, StorybookUI.GOLD)
+		var mark := _card_label("ShowMark%d" % i, "", Rect2(), 22, StorybookUI.GOLD)
 		boss_button.add_child(mark)
 		boss_marks.append(mark)
 
