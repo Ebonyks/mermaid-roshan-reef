@@ -20,12 +20,29 @@ const CHAIN_T := 2.0                     # rolling hit-combo window (COMBO_SYSTE
 const SUPER_R := 10.0                    # default SUPER burst radius, world units
 const HITSTOP := [0.04, 0.06, 0.09]      # target-freeze seconds at chain 0/1-2/3
 # THE DAMAGE GRAMMAR (owner decision 2026-08-01) — canon for every encounter:
-#   tap = 1 · slice/slash = 2 · hold (charge, total) = 5 · mash = taps at 1.
-#   Enemy HP tiers: dust bunny 1 · basic imp 3 · advanced/captain 4+ · bosses
-#   phase-ruled. A surviving enemy plays the HARM animation; at 0 it is
-#   eliminated. The 1-2-3 tap combo therefore knocks out exactly a basic imp
-#   (3 × 1) and never an advanced enemy. Partner Big Taps ride as tap + 1.
-const VERB_DAMAGE := {"tap": 1, "mash": 1, "slice": 2, "hold": 5}
+#   tap = 1 · slice/slash = 2 · hold (charge) = STAGED 2/3/5 totals · mash =
+#   taps at 1. Enemy HP tiers: dust bunny 1 · basic imp 3 · advanced/captain
+#   4+ · bosses phase-ruled. A surviving enemy plays the HARM animation; at 0
+#   it is eliminated. The 1-2-3 tap combo therefore knocks out exactly a
+#   basic imp (3 × 1) and never an advanced enemy. Partner Big Taps = tap + 1.
+const VERB_DAMAGE := {"tap": 1, "mash": 1, "slice": 2, "hold": 5}   # hold = stage-3 total
+
+# ---- the three-stage charge attack (owner 2026-08-01) -----------------------
+# Press-and-HOLD on an enemy. The press already landed its tap (1 damage,
+# press-fire), so the charge stages complete the owner's totals of 2/3/5:
+# release at stage 1/2 adds +1/+2, stage 3 fires ITSELF for +4 — hold-until-
+# full, never release timing. A translucent ring grows around the enemy and
+# snaps color per stage (lavender → gold → pink) with a rising chime + tick.
+# The ring is cosmetic; damage is one hit() on release. A finger must be
+# down the whole time — begin/release come only from the touch layer, so a
+# zero-input run can never charge (probe_passive).
+const CHARGE_GRACE := 0.30                   # held this long → the ring appears
+const CHARGE_STAGE_T := [0.55, 1.00, 1.45]   # stage completions, from press
+const CHARGE_RELEASE_DAMAGE := [0, 1, 2, 4]  # extra damage by stage reached
+const CHARGE_COLORS := [Color(0.72, 0.60, 0.95, 0.45), Color(1.0, 0.85, 0.35, 0.52), Color(1.0, 0.45, 0.75, 0.60)]
+const CHARGE_CHIME := [0.9, 1.12, 1.35]      # the fanfare ladder, one note per stage
+const CHARGE_RING_MIN := 0.9
+const CHARGE_RING_MAX := 2.7
 
 var m: ReefMain
 # ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
@@ -53,13 +70,18 @@ var super_armed := false
 var big_taps := 0                  # PartnerAssist grant: +1 damage taps, jumbo feel
 var chain_pips: Label = null       # engine-owned ⭐ pips, built on first pop
 var pips_layer: CanvasLayer = null
+var charge_enemy: Dictionary = {}
+var charge_t := 0.0
+var charge_stage := 0
+var charge_ring: MeshInstance3D = null
 
 func _init(main: ReefMain) -> void:
 	m = main
 
 # Called once per frame by the hosting encounter: the chain window decays
-# here, and a lapsed chain fades silently — no sound, no downgrade sting.
+# here (a lapsed chain fades silently) and a live charge grows its ring.
 func tick(delta: float) -> void:
+	_charge_tick(delta)
 	if chain_t <= 0.0:
 		return
 	chain_t = maxf(0.0, chain_t - delta)
@@ -67,6 +89,102 @@ func tick(delta: float) -> void:
 		chain = 0
 		super_armed = false
 		_fade_pips()
+
+# The touch layer starts a charge the moment a press-fired tap leaves its
+# enemy alive, and releases it when that finger lifts.
+func begin_charge(enemy: Dictionary) -> void:
+	if not hittable(enemy):
+		return
+	_end_charge(false)
+	charge_enemy = enemy
+	charge_t = 0.0
+	charge_stage = 0
+
+func release_charge() -> void:
+	if charge_enemy.is_empty():
+		return
+	var enemy: Dictionary = charge_enemy
+	var stage: int = charge_stage
+	_end_charge(stage > 0)
+	if stage > 0 and hittable(enemy):
+		hit(enemy, int(CHARGE_RELEASE_DAMAGE[mini(stage, 3)]), "hold")
+
+func _charge_tick(delta: float) -> void:
+	if charge_enemy.is_empty():
+		return
+	if not hittable(charge_enemy):
+		_end_charge(false)
+		return
+	charge_t += delta
+	var node: Node3D = charge_enemy["node"]
+	if charge_t >= CHARGE_GRACE and charge_ring == null:
+		_build_charge_ring(node)
+	var stage: int = 0
+	for i in range(CHARGE_STAGE_T.size()):
+		if charge_t >= float(CHARGE_STAGE_T[i]):
+			stage = i + 1
+	if stage > charge_stage:
+		charge_stage = stage
+		_style_charge_ring()
+		if m.chime != null:
+			m.chime.pitch_scale = float(CHARGE_CHIME[stage - 1])
+			m.chime.play()
+		Juice.haptic(15)
+	if charge_ring != null and is_instance_valid(charge_ring):
+		var grow: float = clampf(charge_t / float(CHARGE_STAGE_T[2]), 0.0, 1.0)
+		var radius: float = lerpf(CHARGE_RING_MIN, CHARGE_RING_MAX, grow)
+		charge_ring.scale = Vector3(radius, 1.0, radius)
+		charge_ring.global_position = node.global_position + Vector3(0, 0.15, 0)
+	if charge_stage >= 3:
+		release_charge()   # full charge fires itself — anticipation, not timing
+
+func _build_charge_ring(node: Node3D) -> void:
+	var torus := TorusMesh.new()
+	torus.inner_radius = 0.82
+	torus.outer_radius = 1.0
+	torus.rings = 24
+	torus.ring_segments = 10
+	charge_ring = MeshInstance3D.new()
+	charge_ring.mesh = torus
+	var parent: Node3D = fx_root
+	if parent == null:
+		parent = node.get_parent() as Node3D
+	if parent == null:
+		charge_ring = null
+		return
+	parent.add_child(charge_ring)
+	charge_ring.global_position = node.global_position + Vector3(0, 0.15, 0)
+	_style_charge_ring()
+
+func _style_charge_ring() -> void:
+	if charge_ring == null or not is_instance_valid(charge_ring):
+		return
+	var col: Color = CHARGE_COLORS[clampi(charge_stage - 1, 0, CHARGE_COLORS.size() - 1)]
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.albedo_color = col
+	mat.emission_enabled = true
+	mat.emission = Color(col.r, col.g, col.b)
+	mat.emission_energy_multiplier = 0.6
+	charge_ring.material_override = mat
+
+func _end_charge(fired: bool) -> void:
+	charge_enemy = {}
+	charge_t = 0.0
+	charge_stage = 0
+	if charge_ring == null or not is_instance_valid(charge_ring):
+		charge_ring = null
+		return
+	var ring: MeshInstance3D = charge_ring
+	charge_ring = null
+	var tw: Tween = ring.create_tween()
+	if fired:
+		tw.tween_property(ring, "scale", ring.scale * 1.5, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.parallel().tween_property(ring, "transparency", 1.0, 0.18)
+	else:
+		tw.tween_property(ring, "transparency", 1.0, 0.15)
+	tw.tween_callback(ring.queue_free)
 
 # A hit landed by the child's own verb. The default hp path calls this
 # itself; on_hit encounters call it from their response. Returns the new
@@ -125,6 +243,10 @@ func teardown() -> void:
 		pips_layer.queue_free()
 	pips_layer = null
 	chain_pips = null
+	if charge_ring != null and is_instance_valid(charge_ring):
+		charge_ring.queue_free()
+	charge_ring = null
+	charge_enemy = {}
 
 func hittable(enemy: Dictionary) -> bool:
 	if enemy.is_empty():

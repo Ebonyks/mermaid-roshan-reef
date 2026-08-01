@@ -3379,6 +3379,7 @@ func _init_touch_experiment() -> void:
 		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
 		touch_ui.world_press_probe = Callable(self, "_on_world_press")
+		touch_ui.world_press_release = Callable(self, "_on_world_press_release")
 	_interaction_ref()
 	_populate_touch_interactables()
 
@@ -3444,8 +3445,20 @@ func _on_world_press(screen_pos: Vector2) -> bool:
 		var enemy: Dictionary = engine.tap_pick(screen_pos)
 		if not enemy.is_empty():
 			engine.hit(enemy, 1, "tap")
+			# a surviving enemy invites the three-stage CHARGE: keep holding
+			# and a ring grows around it; the lift (or stage 3) delivers
+			engine.begin_charge(enemy)
 			return true
 	return false
+
+# The finger that press-fired has lifted: any held charge releases now.
+func _on_world_press_release() -> void:
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine != null:
+			engine.release_charge()
+	if castle_dust_he != null:
+		castle_dust_he.release_charge()
 
 func _on_touch_world(screen_pos: Vector2) -> void:
 	_living_world_ref().note_activity()

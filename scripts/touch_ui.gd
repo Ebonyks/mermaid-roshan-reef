@@ -47,6 +47,9 @@ var drag_started := false          # set for one read on touch-down
 # which suppresses the release-side world_touched (no double fire). Hybrid
 # only; Classic has no world-tap concept and stays a genuine rollback.
 var world_press_probe: Callable = Callable()
+# fires when a consumed (press-fired) world touch lifts, so a held CHARGE
+# attack knows to release; also fired defensively on _clear_touch_state
+var world_press_release: Callable = Callable()
 
 var _root: Control
 var _base: Panel
@@ -352,6 +355,8 @@ func pause_zone() -> Rect2:
 	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
 
 func _clear_touch_state() -> void:
+	if world_press_release.is_valid():
+		world_press_release.call()   # a held charge never survives focus loss
 	drag_active = false
 	drag_started = false
 	_touch_idx = -1
@@ -488,6 +493,8 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
 				_world_pend.erase(touch.index)
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
@@ -527,6 +534,8 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
 				_world_pend.erase(99)
 			touch_owners.erase(99)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:

@@ -21,6 +21,7 @@ func _init() -> void:
 	await _tap_ice_case()
 	await _tap_boss_case()
 	await _generic_engine_case()
+	await _charge_case()
 	await _priority_case()
 	print("HIT|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	# tear the scene down before quitting: the Windows 4.7-dev2 binary can
@@ -130,6 +131,36 @@ func _generic_engine_case() -> void:
 		await process_frame
 	_ck("flop death disposes the node", not is_instance_valid(dummy))
 	_ck("dead record refuses further hits", not eng.hit(rec, 1, "tap"))
+
+func _charge_case() -> void:
+	# the three-stage charge (damage grammar): press-tap 1, then release
+	# stages add +1/+2/+4 → owner totals 2/3/5. The ring appears after the
+	# grace, colors per stage, and a full charge fires itself. Charges only
+	# begin/release from the touch layer's calls — never on their own.
+	main.game = ""
+	var eng := HitEngine.new(main)
+	var dummy := Node3D.new()
+	main.add_child(dummy)
+	var rec: Dictionary = {"node": dummy, "state": "active", "hp": 5, "death": "shrink"}
+	eng.targets = [rec]
+	eng.hit(rec, 1, "tap")           # the press-fire half of the hold
+	eng.begin_charge(rec)
+	_ck("charge waits through the grace", eng.charge_ring == null)
+	eng.tick(0.4)
+	_ck("ring appears after the grace", eng.charge_ring != null and int(rec["hp"]) == 4)
+	eng.tick(0.2)
+	_ck("stage one reached", eng.charge_stage == 1)
+	eng.release_charge()
+	_ck("stage-one release totals 2 damage", int(rec["hp"]) == 3 and String(rec["state"]) == "active")
+	eng.hit(rec, 1, "tap")
+	eng.begin_charge(rec)
+	eng.tick(1.05)
+	_ck("stage two colors the ring", eng.charge_stage == 2)
+	eng.tick(0.5)
+	_ck("full charge fires itself", eng.charge_enemy.is_empty())
+	_ck("stage-three charge finishes the enemy", String(rec["state"]) == "popped")
+	await process_frame
+	await process_frame
 
 func _priority_case() -> void:
 	# ENEMY PRIORITY RULE: an enemy overlapping any other tappable object
