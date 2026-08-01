@@ -11,7 +11,7 @@ extends RefCounted
 # Agency: the bubble acts ONLY on a tap — a zero-input run can never fire a
 # super (probe_partner proves it). Supers may defeat FODDER (the child
 # triggered them) but never bosses, and they never touch the pop-chain:
-# note_pop is never called from here — chains are her verbs alone.
+# note_hit is never called from here — the combo is her verbs alone.
 # The super EFFECT belongs to the hosting encounter via on_super(kind), so
 # enemy-shape knowledge stays out of this satellite.
 

@@ -64,19 +64,26 @@ func _tap_ice_case() -> void:
 	var tap_pos: Vector2 = _screen_pos_of(arena, target)
 	_ck("tap picks the imp under the finger", is_same(arena.he.tap_pick(tap_pos), target))
 	main._on_touch_world(tap_pos)
-	_ck("routed tap freezes the imp", String(target["state"]) == "frozen")
+	_ck("first tap harms, never fells (3 hp)",
+		String(target["state"]) == "active" and int(target["hp"]) == 2)
+	main._on_touch_world(_screen_pos_of(arena, target))
+	main._on_touch_world(_screen_pos_of(arena, target))
+	_ck("the 1-2-3 combo fells the basic imp", String(target["state"]) == "frozen")
 	target["timer"] = 0.0
 	await process_frame
 	await process_frame
 	_ck("frozen imp pops into the dying animation", String(target["state"]) == "popped")
 	_ck("popped imp leaves the stage", not (target["node"] as Node3D).visible)
 	_ck("popped imp is no longer hittable", not arena.he.hit(target, 1, "tap"))
-	# pop the rest by tapping each one; the arena win flow is untouched
-	for enemy: Dictionary in arena.enemies:
-		if String(enemy["state"]) == "active":
-			main._on_touch_world(_screen_pos_of(arena, enemy))
-			enemy["timer"] = 0.0
-	await process_frame
+	# fell the rest by tapping; SUPER hits ride along on their own arithmetic
+	for _round in range(8):
+		for enemy: Dictionary in arena.enemies:
+			if String(enemy["state"]) == "active":
+				main._on_touch_world(_screen_pos_of(arena, enemy))
+		for enemy: Dictionary in arena.enemies:
+			if String(enemy["state"]) == "frozen":
+				enemy["timer"] = 0.0
+		await process_frame
 	await process_frame
 	_ck("tapping every imp wins the arena", arena.state == "won")
 	arena.win_t = 0.0

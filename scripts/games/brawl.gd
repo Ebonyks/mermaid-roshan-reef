@@ -110,46 +110,42 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			m._sparkle_burst(en.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
 		e["bump_cd"] = maxf(0.0, float(e.get("bump_cd", 0.0)) - delta)
 		en.position.y = 0.4 + absf(sin(float(m.g["t"]) * 4.0 + en.position.x)) * 0.8
-	# Roshan's POP — the deliberate verb; only a fresh tap lands it.
-	# Pops inside the rolling window chain 1→2→3; chain 3 arms the next
-	# pop as a SUPER POP that bursts every imp near the hit. Only her
-	# taps chain — Huluu's stuns never count (Phase-6 agency rule).
+	# Roshan's BOP — the deliberate verb; only a fresh tap lands it. Every
+	# landed bop chains 1→2→3 (one full combo fells a basic 3-hp imp); the
+	# armed bop after chain 3 is the SUPER POP: +2 damage plus a 1-damage
+	# splash near the hit. Only her taps chain — Huluu's stuns never count
+	# (Phase-6 agency rule).
 	if bool(s["tap"]):
 		var hit: Dictionary = _nearest_imp(float(s["px"]), float(s["pz"]), false)
 		if not hit.is_empty():
 			var hn: Node3D = hit["node"]
 			if Vector2(hn.position.x - float(s["px"]), hn.position.z - float(s["pz"])).length() < bop_r:
-				var pops: Array = [hit]
 				var super_pop: bool = int(m.g.get("chain", 0)) >= 3
+				var dmg := 1
 				if super_pop:
-					for e in enemies:
+					m.g["chain"] = 0
+					dmg = 3
+					m._sparkle_burst(hn.global_position + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
+					m._say("huluu", "hero", 4.0)
+				else:
+					m.g["chain"] = int(m.g["chain"]) + 1
+					if int(m.g["chain"]) == 3:
+						m._say("huluu", "talk", 4.0)   # cheer: next bop is SUPER
+				m.g["chain_t"] = CHAIN_T
+				_damage_imp(hit, dmg)
+				if super_pop:
+					for e in enemies.duplicate():
 						var en3: Node3D = e["node"]
 						if e == hit or not is_instance_valid(en3):
 							continue
 						if Vector2(en3.position.x - hn.position.x, en3.position.z - hn.position.z).length() < SUPER_R:
-							pops.append(e)
-					m._sparkle_burst(hn.global_position + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
-					m._say("huluu", "hero", 4.0)
-					m.g["chain"] = 0
-				else:
-					m.g["chain"] = int(m.g["chain"]) + 1
-					if int(m.g["chain"]) == 3:
-						m._say("huluu", "talk", 4.0)   # cheer: next pop is SUPER
-				m.g["chain_t"] = CHAIN_T
-				for p in pops:
-					var pn: Node3D = p["node"]
-					enemies.erase(p)
-					m.g["bops"] = int(m.g["bops"]) + 1
-					m._sparkle_burst(pn.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.75, 0.9))
-					var tw := pn.create_tween()
-					tw.tween_property(pn, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
-					tw.tween_callback(pn.queue_free)
+							_damage_imp(e, 1)
 				if m.voice != null:
 					# pitch climbs with the chain; the SUPER POP tops the ramp
 					if super_pop:
 						m.voice.pitch_scale = 1.4
 					else:
-						m.voice.pitch_scale = 1.0 + 0.15 * float(int(m.g["chain"]) - 1)
+						m.voice.pitch_scale = 1.0 + 0.15 * float(maxi(int(m.g["chain"]) - 1, 0))
 					m.voice.play()
 	# wave cleared → the gate sparkles open and the courtyard slides forward
 	if enemies.is_empty() and seg < WAVES.size():
@@ -176,6 +172,27 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 func stage_close() -> void:
 	stage.close()
 
+# Harm-or-eliminate (damage grammar, owner 2026-08-01): a surviving imp
+# flinches with a giggle-wobble; an emptied one pops away toward the wave.
+func _damage_imp(e: Dictionary, dmg: int) -> void:
+	var en: Node3D = e["node"]
+	if not is_instance_valid(en):
+		return
+	e["hp"] = maxi(0, int(e.get("hp", 3)) - dmg)
+	if int(e["hp"]) > 0:
+		m._sparkle_burst(en.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
+		var tw := en.create_tween()
+		tw.tween_property(en, "rotation:z", 0.22, 0.07).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(en, "rotation:z", -0.16, 0.09).set_trans(Tween.TRANS_QUAD)
+		tw.tween_property(en, "rotation:z", 0.0, 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		return
+	(m.g["enemies"] as Array).erase(e)
+	m.g["bops"] = int(m.g["bops"]) + 1
+	m._sparkle_burst(en.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.75, 0.9))
+	var tw2 := en.create_tween()
+	tw2.tween_property(en, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
+	tw2.tween_callback(en.queue_free)
+
 func _nearest_imp(x: float, z: float, skip_stunned: bool) -> Dictionary:
 	var best: Dictionary = {}
 	var best_d := 1e9
@@ -200,7 +217,8 @@ func _spawn_wave(seg: int) -> void:
 			Vector3(left + SEG_W * 0.45 + randf() * SEG_W * 0.45,
 				0.4, randf_range(-HALF_D + 1.0, HALF_D - 1.0)))
 		imp.scale = Vector3.ONE * 1.6
-		(m.g["enemies"] as Array).append({"node": imp, "stun": 0.0, "bump_cd": 0.0})
+		# basic imps carry 3 hp (damage grammar, owner 2026-08-01)
+		(m.g["enemies"] as Array).append({"node": imp, "stun": 0.0, "bump_cd": 0.0, "hp": 3})
 
 # ---- the toy castle courtyard ----------------------------------------------
 func _stage_open() -> void:

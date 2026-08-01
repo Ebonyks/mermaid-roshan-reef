@@ -201,7 +201,9 @@ func _build_ice_swarm() -> void:
 		root.position = pos
 		add_child(root)
 		DungeonArt.spawn("imp", root, Vector3.ZERO, art_theme)
-		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
+		# basic imps carry 3 hp (damage grammar, owner 2026-08-01): one full
+		# 1-2-3 tap combo fells one — encounters may tune via imp_hp
+		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a, "hp": int(encounter.get("imp_hp", 3))})
 
 func _build_pepper_boss() -> void:
 	# A little basket makes the ability source readable even without text.
@@ -286,12 +288,37 @@ func on_world_tap(screen_pos: Vector2) -> void:
 # Every damage source lands here with its origin: "tap", "shot_ice",
 # "shot_fire" today; combo verbs tomorrow. Imps freeze into the popcorn
 # death; the boss keeps its phase rules whatever the source.
-func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
+func _on_engine_hit(enemy: Dictionary, damage: int, source: String) -> void:
 	if kind == "ice":
-		_freeze_imp(enemy)
+		# every landed hit chains 1-2-3; the armed hit after chain 3 is the
+		# SUPER: +2 damage (a basic imp is out in one) plus a 1-damage splash
+		# to the nearby swarm — harmed or felled by their own hp
+		var super_now: bool = he.consume_super()
+		if super_now:
+			damage += 2
+		he.note_hit(enemy["pos"] as Vector3)
+		if pa != null:
+			pa.note_child_pop()
+		_damage_imp(enemy, damage)
+		if super_now:
+			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
+			for other in enemies:
+				if other != enemy and String(other["state"]) == "active" and (other["pos"] as Vector3).distance_to(enemy["pos"] as Vector3) < HitEngine.SUPER_R:
+					_damage_imp(other, 1)
 		return
 	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
 	_hit_boss(power)
+
+# The damage grammar's harm-or-eliminate rule: a surviving imp plays the
+# shared harm animation; an emptied one freezes into the popcorn finale.
+func _damage_imp(enemy: Dictionary, damage: int) -> void:
+	if String(enemy["state"]) != "active":
+		return
+	enemy["hp"] = maxi(0, int(enemy.get("hp", 3)) - damage)
+	if int(enemy["hp"]) > 0:
+		he.play_harm(enemy)
+	else:
+		_freeze_imp(enemy)
 
 func _nearest_target() -> Vector3:
 	if kind != "ice" and not boss.is_empty():
@@ -349,7 +376,7 @@ func _tick_shots(delta: float) -> void:
 			node.queue_free()
 			shots.remove_at(i)
 
-func _freeze_imp(enemy: Dictionary, from_super: bool = false) -> void:
+func _freeze_imp(enemy: Dictionary) -> void:
 	if String(enemy["state"]) != "active":
 		return
 	enemy["state"] = "frozen"
@@ -357,22 +384,6 @@ func _freeze_imp(enemy: Dictionary, from_super: bool = false) -> void:
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
-	# freezes are this arena's "pops": they chain, and the freeze after chain
-	# 3 is the SUPER — the whole nearby swarm freezes with it. Swarm freezes
-	# ride from_super so only the child's own hits ever grow the chain.
-	if bool(enemy.get("big_hit", false)):
-		enemy["big_hit"] = false
-		enemy["timer"] = 0.05   # partner Big Tap: the freeze pops almost instantly
-	if not from_super:
-		if he.consume_super():
-			for other in enemies:
-				if String(other["state"]) == "active" and (other["pos"] as Vector3).distance_to(enemy["pos"] as Vector3) < HitEngine.SUPER_R:
-					_freeze_imp(other, true)
-			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
-		else:
-			he.note_pop(enemy["pos"] as Vector3)
-		if pa != null:
-			pa.note_child_pop()
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
@@ -429,7 +440,8 @@ func _partner_super(_partner_kind: String) -> void:
 		for i in range(actives.size()):
 			var enemy: Dictionary = actives[i]
 			if i < PartnerAssist.STAMPEDE_POPS:
-				_freeze_imp(enemy, true)
+				enemy["hp"] = 0
+				_freeze_imp(enemy)
 				enemy["timer"] = 0.05
 			else:
 				enemy["stun_t"] = PartnerAssist.STUN_T
@@ -464,7 +476,7 @@ func _hit_boss(power: String = "fire") -> void:
 	# damaging hits chain; the hit after chain 3 is a SUPER for double damage
 	var super_bonus: bool = he.consume_super()
 	boss["hp"] = int(boss["hp"]) - (2 if super_bonus else 1)
-	he.note_pop(boss["pos"] as Vector3)
+	he.note_hit(boss["pos"] as Vector3)
 	if pa != null:
 		pa.note_child_pop()
 	if super_bonus:

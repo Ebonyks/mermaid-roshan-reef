@@ -1994,7 +1994,7 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	if not bool(item_data.get("rescue_bunny", false)):
 		m.pearl_count += 1
 	if not partner_pop and m.castle_dust_he != null:
-		var chain_level: int = m.castle_dust_he.note_pop(sprite.global_position)
+		var chain_level: int = m.castle_dust_he.note_hit(sprite.global_position)
 		if chain_level >= 3:
 			_item_burst(sprite.position, Color(StorybookUI.GOLD), 16)
 			m._audio_ref()._fanfare()
