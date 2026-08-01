@@ -70,7 +70,9 @@ func _init() -> void:
 	var required_assets: Array[String] = [
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+		"res://assets/props/story/play_swing_frame.png",
+		"res://assets/props/story/play_swing_seat.png",
+		"res://assets/shaders/opaque_storybook_cutout.gdshader",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
@@ -208,13 +210,12 @@ func _init() -> void:
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
 	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 36 and mesh_count == 0 and canvas_count == 0
+		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
 		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
 			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
 	_check("real_depth_and_speedy_overdraw",
-		depth_layers.size() >= 6 and visible_sprite_count <= 31
-		and contact_shadow_count == 7
+		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
 		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
 		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
 		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
@@ -486,15 +487,36 @@ func _init() -> void:
 	var slide_node: Sprite3D = toy_nodes.get("slide") as Sprite3D
 	var swing_node: Sprite3D = toy_nodes.get("swing") as Sprite3D
 	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
+	var swing_pivot: Node3D = null
+	var swing_seat: Sprite3D = null
+	if swing_node != null:
+		swing_pivot = swing_node.get_meta("swing_seat_pivot", null) as Node3D
+		swing_seat = swing_node.get_meta("swing_seat_sprite", null) as Sprite3D
 	var equipment_fits_lawn := (
 		slide_node != null and swing_node != null and compact_seesaw != null
 		and slide_node.texture.get_height() * slide_node.pixel_size <= 11.41
-		and swing_node.texture.get_height() * swing_node.pixel_size <= 11.81
+		and swing_node.texture.get_height() * swing_node.pixel_size <= 10.81
 		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.51)
 	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
+	var swing_frame_material: ShaderMaterial = null
+	var swing_seat_material: ShaderMaterial = null
+	if swing_node != null:
+		swing_frame_material = swing_node.material_override as ShaderMaterial
+	if swing_seat != null:
+		swing_seat_material = swing_seat.material_override as ShaderMaterial
 	_check("playground_cutouts_are_opaque_depth_cards",
 		slide_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
 		and swing_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and is_zero_approx(swing_node.transparency)
+		and swing_frame_material != null
+		and swing_pivot != null and swing_seat != null
+		and swing_seat.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
+		and is_zero_approx(swing_seat.transparency)
+		and swing_seat_material != null
+		and is_equal_approx(float(swing_frame_material.get_shader_parameter(
+			"alpha_threshold")), SkyLagoonPromenade.OPAQUE_CUTOUT_ALPHA_THRESHOLD)
+		and is_equal_approx(float(swing_seat_material.get_shader_parameter(
+			"alpha_threshold")), SkyLagoonPromenade.OPAQUE_CUTOUT_ALPHA_THRESHOLD)
 		and compact_seesaw.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
 		and is_equal_approx(float(slide_node.get_meta("mural_socket_lock", 0.0)),
 			SkyLagoonPromenade.GROUND_SOCKET_LOCK)
@@ -517,27 +539,38 @@ func _init() -> void:
 	promenade._tick_playground_animation(0.55)
 	var swing_play: Dictionary = main.g.get("lagoon_play_anim", {})
 	var swing_frame: int = int(swing_play.get("frame_index", -1))
-	var swing_phase: float = float(swing_play.get("t", 0.0)) * TAU / 1.72
+	var swing_phase: float = float(swing_play.get("t", 0.0)) * TAU \
+		/ SkyLagoonPromenade.SWING_PERIOD_S
 	var swing_arc: float = sin(swing_phase)
+	var swing_angle: float = swing_arc * SkyLagoonPromenade.SWING_MAX_ANGLE
 	var swing_hand_world := _sprite_pixel_world(
 		roshan_card, SkyLagoonPromenade.SWING_HAND_ANCHORS[swing_frame])
 	var expected_swing_hand := Vector2(swing_node.position.x, swing_node.position.y) \
-		+ SkyLagoonPromenade.SWING_HAND_SOCKET \
-		+ Vector2(
-			swing_arc * 0.08 * SkyLagoonPromenade.SWING_ANIM_SCALE,
-			(1.0 - cos(swing_phase)) * 0.12
-				* SkyLagoonPromenade.SWING_ANIM_SCALE)
+		+ Vector2(swing_pivot.position.x, swing_pivot.position.y) \
+		+ Vector2(0.0, -SkyLagoonPromenade.SWING_GRIP_ARM).rotated(swing_angle)
+	var swing_seat_contact_world := _sprite_pixel_world(
+		roshan_card, SkyLagoonPromenade.SWING_SEAT_CONTACT_ANCHOR)
+	var swing_seat_surface := Vector2(swing_node.position.x, swing_node.position.y) \
+		+ Vector2(swing_pivot.position.x, swing_pivot.position.y) \
+		+ Vector2(0.0, -SkyLagoonPromenade.SWING_ARM_H).rotated(swing_angle)
+	var swing_seat_delta: Vector2 = (
+		swing_seat_contact_world - swing_seat_surface).rotated(-swing_angle)
 	var swing_animates: bool = (
 		not swing_play.is_empty()
 		and roshan_card.texture != idle_texture
 		and roshan_card.position != swing_start
 		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
 		and is_equal_approx(roshan_card.scale.x, 1.38)
-		and swing_hand_world.distance_to(expected_swing_hand) < 0.02)
+		and is_equal_approx(swing_pivot.rotation.z, swing_angle)
+		and swing_hand_world.distance_to(expected_swing_hand) < 0.02
+		and swing_frame == 1
+		and absf(swing_seat_delta.y) < 0.18
+		and absf(swing_seat_delta.x) < SkyLagoonPromenade.SWING_SEAT_W * 0.5)
 	promenade._finish_playground_animation()
-	_check("swing_hands_stay_on_ropes_through_pose_changes", swing_animates,
-		"frame=%d grip_error=%.3f" % [
-			swing_frame, swing_hand_world.distance_to(expected_swing_hand)])
+	_check("swing_seat_ropes_and_rider_share_pendulum_pivot",
+		swing_animates and is_zero_approx(swing_pivot.rotation.z),
+		"frame=%d angle=%.3f grip_error=%.3f" % [swing_frame, swing_angle,
+			swing_hand_world.distance_to(expected_swing_hand)])
 
 	promenade._start_playground_animation("slide", toy_nodes.get("slide") as Node3D)
 	var ladder_start: Vector3 = roshan_card.position
