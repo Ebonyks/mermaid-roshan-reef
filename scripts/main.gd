@@ -7901,6 +7901,8 @@ func _tick_movers(delta: float) -> void:
 var ambience: AudioStreamPlayer = null
 @warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
 var _tap_player: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _pop_player: AudioStreamPlayer = null
 
 func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0.06) -> void:
 	var disc := CylinderMesh.new()
