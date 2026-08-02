@@ -179,6 +179,18 @@ visuals at all (the unshipped fleet). Continuity comes from three bindings:
 
 ## 4. Recommended order of work (all probe-gated, one step per commit)
 
+**STATUS 2026-08-02 (later the same day): P0 LANDED — the vocabulary is
+now real art.** Codex delivered all six sheets to spec
+(`assets/sprites/fx_water/`, promoted to master), each POT/RGBA at the
+tabled size with 8 frames used and the trailing 3×3 cell transparent,
+≥6 px edge padding (so the 341.33 px float cell split cannot bleed) and
+1–2 px pivot drift across every splash frame. `fx_water.gd` picks them up
+with no code change; the procedural stand-in is now the fallback path
+only. A probe gate asserts each shipped sheet against the `KINDS` grid and
+that a card really flipbooks the art. The one deliverable with no consumer
+yet is `fx_water_foamline_strip.png` — reserved for the reef-pilot
+waterline (P3), not orphaned.
+
 **STATUS 2026-08-02 (same day, follow-up commit): P1–P4 are INSTITUTED.**
 `scripts/fx_water.gd` is the vocabulary satellite (atlas-ready flipbook,
 styled procedural stand-in until the Codex art lands); consumers wired:

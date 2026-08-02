@@ -232,6 +232,52 @@ func _fx_case() -> void:
 			gone = true
 			break
 	_ck("cards animate out and free themselves", gone and spawned > 0)
+	# ---- the Codex atlas contract (art landed 2026-08-02) -------------------
+	# fx_water.gd's KINDS table hardcodes each sheet's grid, so art whose grid
+	# disagrees would silently mis-slice every frame, and a renamed sheet would
+	# silently drop back to the procedural stand-in with nothing failing. Gate
+	# both: the shipped sheets must match the table, and a card must really
+	# flipbook the atlas rather than draw the placeholder.
+	var absent := 0
+	var grid_bad := 0
+	var flip_spr: Sprite3D = null
+	for kind_v in FxWater.KINDS.keys():
+		var kind := String(kind_v)
+		if not ResourceLoader.exists("res://assets/sprites/fx_water/fx_water_%s_atlas.png" % kind):
+			absent += 1
+			continue
+		var kd: Array = FxWater.KINDS[kind]
+		var holder: Node3D = fx.card(kind, ORIGIN + Vector3(0, 2, 0))
+		var spr: Sprite3D = null
+		if holder != null:
+			for ch in holder.get_children():
+				if ch is Sprite3D:
+					spr = ch as Sprite3D
+		if spr == null or spr.hframes != int(kd[0]) or spr.vframes != int(kd[1]) \
+			or spr.hframes * spr.vframes < int(kd[2]):
+			grid_bad += 1
+		elif flip_spr == null:
+			flip_spr = spr
+	_ck("every shipped atlas matches the KINDS grid", grid_bad == 0)
+	if absent == FxWater.KINDS.size():
+		print("PROPS|atlas contract: SKIP (no sheets on disk; stand-in path is live)")
+	else:
+		var advanced := false
+		if flip_spr != null:
+			var f0: int = flip_spr.frame
+			for i in range(12):
+				await process_frame
+				if not is_instance_valid(flip_spr):
+					advanced = true   # played to the last frame and freed itself
+					break
+				if flip_spr.frame > f0:
+					advanced = true
+					break
+		_ck("a card flipbooks the atlas art", advanced)
+	for i in range(200):
+		await process_frame
+		if main.fxw_cards.is_empty():
+			break
 	# the waterline: a prop dropped through cfg water_y procs on the way down
 	var cfg: Dictionary = main.g.get("ss_cfg", {})
 	cfg["water_y"] = 3.0
