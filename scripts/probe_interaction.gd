@@ -186,9 +186,12 @@ func _init() -> void:
 				item_id, child_id])
 			continue
 		door_hotspot.pressed.emit()
-		await _frames(28)
-		if main.castle_room_id != child_id:
+		var entered_room: bool = await _wait_for_castle_room(child_id)
+		if not entered_room:
 			_bad("dream-house doorway did not enter %s" % child_id)
+			rooms.show_room("family_gallery", false)
+			await _frames(2)
+			continue
 		main.castle_room_back_button.pressed.emit()
 		await _frames(2)
 		if main.castle_room_id != "family_gallery":
@@ -397,6 +400,14 @@ func _has_id_prefix(prefix: String) -> bool:
 		if interactable_id.begins_with(prefix):
 			return true
 	return false
+
+func _wait_for_castle_room(expected_room: String,
+		timeout_ms: int = 1500) -> bool:
+	var deadline: int = Time.get_ticks_msec() + timeout_ms
+	while main.castle_room_id != expected_room \
+			and Time.get_ticks_msec() < deadline:
+		await process_frame
+	return main.castle_room_id == expected_room
 
 func _frames(count: int) -> void:
 	for frame_index in range(count):
