@@ -466,7 +466,7 @@ const ROOM_ITEMS := {
 			"hotspot_size": Vector2(112.0, 112.0),
 			"symbol": "✦", "color": Color(1.0, 0.88, 0.48)},
 		{"id": "book_stack", "name": "Stack of storybooks",
-			"pos": Vector2(0, 365), "z": MIDGROUND_Z,
+			"pos": Vector2(13, 365), "z": MIDGROUND_Z,
 			"color": Color(0.81, 0.66, 1.0)},
 	],
 	"playroom": [
@@ -739,7 +739,8 @@ const INTERACTION_SPECS := {
 		"sound": "castle/oven_door.ogg", "frame_duration": 0.1625,
 		"sound_frame": 0},
 	"kitchen:fridge": {"semantic_action": "unlatch_and_open_fridge_door",
-		"sound": "castle/fridge_door.ogg", "frame_duration": 0.145,
+		"sound": "castle/fridge_open.ogg", "close_sound": "castle/fridge_close.ogg",
+		"frame_duration": 0.145,
 		"sound_frame": 0},
 	"library:magic_book": {"semantic_action": "open_book_and_turn_pages",
 		"sound": "castle/page_flip.ogg", "frame_duration": 0.095,
@@ -820,15 +821,59 @@ const KITCHEN_FOOD_ICONS := {
 }
 
 var m: ReefMain
+var fixture_rigs: CastleFixtureRigs
 var kitchen_menu_layer: CanvasLayer = null
 var kitchen_menu_stage: Control = null
 var kitchen_act: OperaAct = null
+var fridge_close_input_blocker: Control = null
 
 func _init(main: ReefMain) -> void:
 	m = main
+	fixture_rigs = CastleFixtureRigs.new(main)
 
 func is_open() -> bool:
 	return m.castle_room_layer != null and is_instance_valid(m.castle_room_layer)
+
+
+func _fridge_close_is_blocked() -> bool:
+	return (
+		fridge_close_input_blocker != null
+		and is_instance_valid(fridge_close_input_blocker)
+		and fridge_close_input_blocker.visible
+	)
+
+
+func _on_fridge_close_blocker_input(_event: InputEvent) -> void:
+	if not _fridge_close_is_blocked():
+		return
+	fridge_close_input_blocker.accept_event()
+	m.get_viewport().set_input_as_handled()
+
+
+func _set_fridge_close_blocked(blocked: bool) -> void:
+	if not blocked:
+		if (
+				fridge_close_input_blocker != null
+				and is_instance_valid(fridge_close_input_blocker)
+		):
+			fridge_close_input_blocker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			fridge_close_input_blocker.visible = false
+			fridge_close_input_blocker.queue_free()
+		fridge_close_input_blocker = null
+		return
+	if _fridge_close_is_blocked() or m.castle_room_layer == null:
+		return
+	var blocker := Control.new()
+	blocker.name = "FridgeCloseInputBlocker"
+	blocker.mouse_filter = Control.MOUSE_FILTER_STOP
+	blocker.focus_mode = Control.FOCUS_NONE
+	blocker.z_index = 1000
+	blocker.set_meta("castle_fridge_close_input_gate", true)
+	blocker.gui_input.connect(_on_fridge_close_blocker_input)
+	m.castle_room_layer.add_child(blocker)
+	blocker.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	fridge_close_input_blocker = blocker
+
 
 func open(start_room: String = "main_hall") -> void:
 	if is_open():
@@ -887,6 +932,7 @@ func resume(room_id: String = "") -> void:
 
 func suspend() -> void:
 	_close_kitchen_menu()
+	_set_fridge_close_blocked(false)
 	_restore_previous_environment()
 	if is_open():
 		m.castle_room_layer.visible = false
@@ -895,9 +941,12 @@ func suspend() -> void:
 	if m.castle_room_camera != null:
 		m.castle_room_camera.current = false
 	m._set_world_controls_enabled(true, "castle_rooms")
+	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 
 func close() -> void:
 	_close_kitchen_menu()
+	_set_fridge_close_blocked(false)
+	fixture_rigs.teardown()
 	_restore_previous_environment()
 	if bool(m.g.get("castle_roleplay_sleeping", false)):
 		m._set_world_controls_enabled(true, "castle_roleplay_sleep")
@@ -940,6 +989,7 @@ func close() -> void:
 	m.g.erase("castle_bedside_light_on")
 	m.g.erase("castle_roleplay_sleeping")
 	m._set_world_controls_enabled(true, "castle_rooms")
+	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 	if m.player != null:
 		m.player.visible = true
 		if m.player.cam != null:
@@ -950,12 +1000,17 @@ func close() -> void:
 func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
+	fixture_rigs.tick(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
 	_sync_hall_lighting()
+
+func physics_tick(delta: float) -> void:
+	fixture_rigs.physics_tick(delta)
+
 
 func _build_stage() -> void:
 	var stage: Control = m.castle_room_stage
@@ -1296,6 +1351,8 @@ func _rebuild_room_links(_room_id: String) -> void:
 	m.castle_room_link_layer.visible = false
 
 func show_room(room_id: String, announce: bool = true) -> void:
+	if _fridge_close_is_blocked():
+		return
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
@@ -1364,6 +1421,8 @@ func _room(room_id: String) -> Dictionary:
 	return {}
 
 func _on_room_input(event: InputEvent) -> void:
+	if _fridge_close_is_blocked():
+		return
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
 		_walk_cutout_to((event as InputEventMouseButton).position)
 	elif event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
@@ -1618,6 +1677,7 @@ func _add_hall_structure_piece(piece_data: Dictionary) -> void:
 	m.castle_room_mid_layer.add_child(piece)
 
 func _rebuild_touch_items(room_id: String) -> void:
+	fixture_rigs.rebuild_begin()
 	if m.castle_room_item_visual_layer != null:
 		for child: Node in m.castle_room_item_visual_layer.get_children():
 			child.free()
@@ -1652,10 +1712,43 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	var interaction_key := room_id + ":" + item_id
 	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
 		interaction_key, {}) as Dictionary
-	if not interaction_spec.is_empty():
+	var v2_visual: Dictionary = fixture_rigs.visual_spec(room_id, item_id)
+	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
 		item_data.merge(interaction_spec, true)
+	if not v2_visual.is_empty():
+		var grid: Array = v2_visual.get("grid", [1, 1]) as Array
+		item_data["v2_visual"] = v2_visual
+		item_data["semantic_action"] = String(v2_visual.get(
+			"semantic_action", item_data.get("semantic_action", "")))
+		item_data["frames"] = int(v2_visual.get("authored_frame_count", 8))
+		item_data["timeline_sequence"] = v2_visual.get(
+			"timeline_sequence", []) as Array
+		item_data["timeline_frames"] = int(v2_visual.get(
+			"timeline_frame_count", item_data["frames"]))
+		item_data["hframes"] = int(grid[0])
+		item_data["vframes"] = int(grid[1])
+		item_data["tex_path"] = "res://" + String(v2_visual["sheet"])
+		item_data["rest_frame"] = int(v2_visual.get("rest_frame", 0))
+		var manifest_sound: String = String(v2_visual.get("sound", ""))
+		if manifest_sound != "":
+			item_data["sound"] = manifest_sound.trim_prefix("assets/audio/")
+		var manifest_close_sound: String = String(
+			v2_visual.get("close_sound", ""))
+		if manifest_close_sound != "":
+			item_data["close_sound"] = manifest_close_sound.trim_prefix(
+				"assets/audio/")
+		item_data["sound_frame"] = int(v2_visual.get("sound_frame", 0))
+		item_data["pitch"] = float(v2_visual.get("pitch", 1.0))
+		item_data["close_pitch"] = float(v2_visual.get("close_pitch", 1.0))
+		item_data["frame_duration"] = float(v2_visual.get(
+			"frame_duration_seconds", item_data.get("frame_duration", 0.10)))
+		if interaction_key == "kitchen:fridge":
+			item_data["open_hold_step"] = int(
+				v2_visual.get("open_hold_step", 4))
+	elif not interaction_spec.is_empty():
 		item_data["frames"] = 8
+		item_data["timeline_frames"] = 8
 		item_data["hframes"] = 3 if interaction_key in INTERACTION_GRIDS_3X3 else 4
 		item_data["vframes"] = 3 if interaction_key in INTERACTION_GRIDS_3X3 else 2
 		item_data["tex_path"] = INTERACTION_ART + room_id + "_" \
@@ -1674,20 +1767,43 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if texture == null:
 		return
 	var piece: Sprite3D = _new_card("Animated_" + item_id, texture)
+	if not v2_visual.is_empty():
+		piece.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 	piece.hframes = int(item_data.get("hframes", 1))
 	piece.vframes = int(item_data.get("vframes", 1))
-	piece.frame = 0
+	piece.frame = int(item_data.get("rest_frame", 0))
 	var source_position: Vector2 = item_data["pos"]
 	var item_z: float = float(item_data.get("z", ITEM_Z))
-	var visual_scale: float = float(item_data.get("scale", 1.0))
+	var authored_visual_scale: float = float(item_data.get("scale", 1.0))
+	var runtime_scale: float = float(v2_visual.get("runtime_scale", 1.0))
+	var visual_scale := authored_visual_scale * runtime_scale
+	var reference_size := _v2_vector2(
+		v2_visual.get("placement_size", []), _sprite_frame_size(piece))
+	var placement_center: Vector2
 	if room_id == "main_hall":
-		piece.position = _hall_art_to_world(source_position, item_z)
+		var hall_offset := _v2_vector2(
+			v2_visual.get("hall_center_offset", []), Vector2.ZERO)
+		placement_center = source_position \
+			+ hall_offset * authored_visual_scale
+		piece.position = _hall_art_to_world(placement_center, item_z)
 		piece.pixel_size = _pixel_size_for_depth(item_z)
 		piece.scale = Vector3.ONE * visual_scale
 		piece.set_meta("depth_z", item_z)
 	else:
-		_place_art_card(piece, source_position, item_z)
-		piece.scale = Vector3.ONE * visual_scale
+		if not v2_visual.is_empty():
+			var center_offset := _v2_vector2(
+				v2_visual.get("runtime_center_offset", []),
+				reference_size * 0.5)
+			placement_center = source_position + center_offset
+			piece.position = _art_to_world(placement_center, item_z)
+			piece.pixel_size = _pixel_size_for_depth(item_z)
+			piece.set_meta("source_art_rect",
+				Rect2(source_position, reference_size))
+			piece.set_meta("depth_z", item_z)
+		else:
+			_place_art_card(piece, source_position, item_z)
+			placement_center = source_position + reference_size * 0.5
+	piece.scale = Vector3.ONE * visual_scale
 	piece.flip_h = bool(item_data.get("flip_h", false))
 	piece.set_meta("source_asset_role", "physical_room_door"
 		if item_data.has("room_destination") else "unique_object")
@@ -1771,14 +1887,54 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		contact_foot *= ART_TO_STAGE
 		contact_radius *= ART_TO_STAGE
 	var frame_size: Vector2 = _sprite_frame_size(piece)
-	var visual_size: Vector2 = frame_size * visual_scale
+	var visual_size: Vector2 = reference_size * authored_visual_scale
 	var visual_center: Vector2 = source_position \
 		if room_id == "main_hall" \
-		else source_position + frame_size * 0.5
+		else source_position + reference_size * 0.5
+	var visible_frame_rect := Rect2(Vector2.ZERO, frame_size)
+	if not v2_visual.is_empty():
+		var visible_min := Vector2(INF, INF)
+		var visible_max := Vector2(-INF, -INF)
+		var valid_bbox_count := 0
+		for bbox_value: Variant in v2_visual.get("frame_bboxes", []):
+			var bbox: Array = bbox_value as Array
+			if bbox.size() != 4:
+				continue
+			visible_min.x = minf(visible_min.x, float(bbox[0]))
+			visible_min.y = minf(visible_min.y, float(bbox[1]))
+			visible_max.x = maxf(visible_max.x, float(bbox[2]))
+			visible_max.y = maxf(visible_max.y, float(bbox[3]))
+			valid_bbox_count += 1
+		if valid_bbox_count > 0:
+			visible_frame_rect = Rect2(
+				visible_min, visible_max - visible_min)
+	if piece.flip_h:
+		visible_frame_rect.position = Vector2(
+			frame_size.x - visible_frame_rect.end.x,
+			visible_frame_rect.position.y)
+	var rendered_art_rect := Rect2(
+		placement_center + (visible_frame_rect.position
+			- frame_size * 0.5) * visual_scale,
+		visible_frame_rect.size * visual_scale)
 	var authored_hotspot_size: Vector2 = item_data.get(
-		"hotspot_size", frame_size) as Vector2
+		"hotspot_size", reference_size) as Vector2
 	var authored_hotspot_offset: Vector2 = item_data.get(
-		"hotspot_offset", (frame_size - authored_hotspot_size) * 0.5) as Vector2
+		"hotspot_offset",
+		(reference_size - authored_hotspot_size) * 0.5) as Vector2
+	var hotspot_local_center := authored_hotspot_offset \
+		+ authored_hotspot_size * 0.5 - frame_size * 0.5
+	var hotspot_local_size := authored_hotspot_size
+	if not v2_visual.is_empty():
+		var reference_center := source_position \
+			if room_id == "main_hall" \
+			else source_position + reference_size * 0.5
+		var hotspot_reference_center := reference_center \
+			+ (authored_hotspot_offset + authored_hotspot_size * 0.5 \
+				- reference_size * 0.5) * authored_visual_scale
+		hotspot_local_center = (hotspot_reference_center - placement_center) \
+			/ maxf(0.001, visual_scale)
+		hotspot_local_size = authored_hotspot_size \
+			/ maxf(0.001, runtime_scale)
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
@@ -1788,14 +1944,25 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		"frame_size": frame_size,
 		"hotspot_size": authored_hotspot_size,
 		"hotspot_offset": authored_hotspot_offset,
+		"hotspot_local_center_pixels": hotspot_local_center,
+		"hotspot_local_size_pixels": hotspot_local_size,
+		"reference_size": reference_size,
+		"placement_center": placement_center,
 		"art_rect": Rect2(
 			visual_center - visual_size * 0.5, visual_size),
+		"render_art_rect": rendered_art_rect,
 	}
-	_update_touch_hotspot(m.castle_room_item_sprites[item_id])
+	var stored_record: Dictionary = m.castle_room_item_sprites[item_id]
+	stored_record["fixture_rig"] = fixture_rigs.build(
+		interaction_key, piece, item_data, source_position, reference_size,
+		item_z, Callable(self, "_art_to_world"))
+	_update_touch_hotspot(stored_record)
 	if room_id == "playroom" and item_id == "baby_eagle_rescue":
 		_add_playroom_rescue_pointer()
 
 func _activate_room_item(item_id: String) -> void:
+	if _fridge_close_is_blocked():
+		return
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
 	if record.is_empty():
 		return
@@ -1816,8 +1983,8 @@ func _activate_room_item(item_id: String) -> void:
 	if hotspot_group != "":
 		_activate_item_group(hotspot_group, item_id)
 		return
-	_item_burst(sprite.position,
-		Color(item_data.get("color", StorybookUI.GOLD)), 6)
+	var interaction_key := String(sprite.get_meta("source_object_id", ""))
+	fixture_rigs.activate(interaction_key)
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
@@ -2086,7 +2253,7 @@ func _sync_bedside_light() -> void:
 		if bool(m.g.get("castle_bedside_light_on", false)) \
 		else Color(0.64, 0.66, 0.80, 1.0)
 
-func _activate_item_group(hotspot_group: String, owner_item_id: String) -> void:
+func _activate_item_group(hotspot_group: String, _owner_item_id: String) -> void:
 	var group_records: Array[Dictionary] = []
 	for record_value: Variant in m.castle_room_item_sprites.values():
 		var record: Dictionary = record_value as Dictionary
@@ -2099,21 +2266,12 @@ func _activate_item_group(hotspot_group: String, owner_item_id: String) -> void:
 		group_records.append(record)
 	if group_records.is_empty():
 		return
-	var owner_record: Dictionary = m.castle_room_item_sprites.get(
-		owner_item_id, group_records[0]) as Dictionary
-	for record: Dictionary in group_records:
-		var item_data: Dictionary = record.get("data", {}) as Dictionary
-		if bool(item_data.get("hotspot_owner", false)):
-			owner_record = record
-			break
-	var owner_sprite: Sprite3D = owner_record.get("sprite") as Sprite3D
-	var owner_data: Dictionary = owner_record.get("data", {}) as Dictionary
-	if owner_sprite != null:
-		_item_burst(owner_sprite.position,
-			Color(owner_data.get("color", StorybookUI.GOLD)), 8)
 	for record: Dictionary in group_records:
 		var sprite: Sprite3D = record.get("sprite") as Sprite3D
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if sprite != null:
+			fixture_rigs.activate(String(
+				sprite.get_meta("source_object_id", "")))
 		_play_sprite_atlas_sequence(
 			sprite, item_data, bool(item_data.get("hotspot_owner", false)), false)
 
@@ -2123,6 +2281,16 @@ func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 	m.castle_room_light_states[item_id] = now_on
 	_apply_sconce_visual(sprite, now_on)
 	var playback_data: Dictionary = item_data.duplicate(true)
+	var sequence: Array[int] = []
+	if now_on:
+		for frame_index in range(8):
+			sequence.append(frame_index)
+	else:
+		for frame_index in range(7, -1, -1):
+			sequence.append(frame_index)
+	playback_data["timeline_sequence"] = sequence
+	playback_data["timeline_frames"] = sequence.size()
+	playback_data["rest_frame"] = 7 if now_on else 0
 	playback_data["pitch"] = 1.0
 	_play_sprite_atlas_sequence(sprite, playback_data, true, false)
 	_sync_hall_lighting()
@@ -2151,6 +2319,8 @@ func _sync_sconce_frame_uv(sprite: Sprite3D) -> void:
 func _apply_sconce_visual(sprite: Sprite3D, is_on: bool) -> void:
 	if sprite == null:
 		return
+	if not bool(sprite.get_meta("busy", false)):
+		sprite.frame = 7 if is_on else 0
 	_sync_sconce_frame_uv(sprite)
 	# The Mobile renderer did not reliably carry an HDR Sprite3D modulate into
 	# the Environment glow buffer. A true unshaded spatial emission on this
@@ -2297,12 +2467,33 @@ func _sync_castle_environment(hall_visible: bool,
 func _play_item_sfx(sound_file: String, pitch: float) -> void:
 	if m.castle_room_prop_sfx == null:
 		return
-	var path := "res://assets/audio/" + sound_file
+	var path := sound_file
+	if not path.begins_with("res://"):
+		path = "res://" + path if path.begins_with("assets/audio/") 			else "res://assets/audio/" + path
 	if not ResourceLoader.exists(path):
 		return
 	m.castle_room_prop_sfx.stream = load(path)
 	m.castle_room_prop_sfx.pitch_scale = pitch
 	m.castle_room_prop_sfx.play()
+
+func _timeline_sequence(item_data: Dictionary,
+		available_frames: int) -> Array[int]:
+	var sequence: Array[int] = []
+	var raw_sequence: Array = item_data.get("timeline_sequence", []) as Array
+	if raw_sequence.is_empty():
+		var count: int = clampi(int(item_data.get(
+			"timeline_frames", item_data.get("frames", available_frames))), 1, 12)
+		for frame_index in range(count):
+			sequence.append(clampi(frame_index, 0, available_frames - 1))
+	else:
+		for frame_value: Variant in raw_sequence:
+			sequence.append(clampi(int(frame_value), 0, available_frames - 1))
+			if sequence.size() >= 12:
+				break
+	if sequence.is_empty():
+		sequence.append(0)
+	return sequence
+
 
 func _play_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 		play_sound: bool, open_kitchen_menu_after: bool) -> void:
@@ -2310,52 +2501,127 @@ func _play_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 			or bool(sprite.get_meta("busy", false)):
 		return
 	var available_frames: int = maxi(1, sprite.hframes * sprite.vframes)
-	var frame_count: int = clampi(
-		int(item_data.get("frames", available_frames)), 1, available_frames)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var timeline_count: int = sequence.size()
 	var frame_duration: float = maxf(
 		0.01, float(item_data.get("frame_duration", 0.10)))
+	var interaction_key := String(sprite.get_meta("source_object_id", ""))
+	var terminal_step := timeline_count - 1
+	if open_kitchen_menu_after:
+		terminal_step = mini(terminal_step,
+			int(item_data.get("open_hold_step", terminal_step)))
 	sprite.set_meta("busy", true)
-	sprite.frame = 0
+	sprite.frame = sequence[0]
 	_sync_sconce_frame_uv(sprite)
-	var visited: Array[int] = [0]
+	fixture_rigs.apply_frame(interaction_key, 0, timeline_count)
+	var visited: Array[int] = [sequence[0]]
+	var timeline_visited: Array[int] = [0]
 	sprite.set_meta("animation_frames_visited", visited)
+	sprite.set_meta("animation_timeline_steps_visited", timeline_visited)
 	if play_sound and int(item_data.get("sound_frame", 0)) == 0:
 		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 			float(item_data.get("pitch", 1.0)))
-	if frame_count <= 1:
-		_finish_sprite_atlas_sequence(sprite, open_kitchen_menu_after)
+	if terminal_step <= 0:
+		_finish_sprite_atlas_sequence(
+			sprite, item_data, open_kitchen_menu_after, terminal_step)
 		return
 	var tween := sprite.create_tween()
-	for frame_index in range(1, frame_count):
+	for timeline_step in range(1, terminal_step + 1):
 		tween.tween_interval(frame_duration)
 		tween.tween_callback(_show_item_atlas_frame.bind(
-			sprite, item_data, frame_index, play_sound))
+			sprite, item_data, timeline_step, play_sound))
 	tween.tween_interval(frame_duration)
 	tween.tween_callback(_finish_sprite_atlas_sequence.bind(
-		sprite, open_kitchen_menu_after))
+		sprite, item_data, open_kitchen_menu_after, terminal_step))
+
 
 func _show_item_atlas_frame(sprite: Sprite3D, item_data: Dictionary,
-		frame_index: int, play_sound: bool) -> void:
+		timeline_step: int, play_sound: bool) -> void:
 	if sprite == null or not is_instance_valid(sprite):
 		return
-	sprite.frame = frame_index
+	var available_frames: int = maxi(1, sprite.hframes * sprite.vframes)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var step := clampi(timeline_step, 0, sequence.size() - 1)
+	var atlas_frame: int = sequence[step]
+	sprite.frame = atlas_frame
 	_sync_sconce_frame_uv(sprite)
 	var visited: Array = sprite.get_meta("animation_frames_visited", []) as Array
-	visited.append(frame_index)
+	visited.append(atlas_frame)
 	sprite.set_meta("animation_frames_visited", visited)
-	if play_sound and frame_index == int(item_data.get("sound_frame", 0)):
+	var timeline_visited: Array = sprite.get_meta(
+		"animation_timeline_steps_visited", []) as Array
+	timeline_visited.append(step)
+	sprite.set_meta("animation_timeline_steps_visited", timeline_visited)
+	var interaction_key := String(sprite.get_meta("source_object_id", ""))
+	fixture_rigs.apply_frame(interaction_key, step, sequence.size())
+	if play_sound and step == int(item_data.get("sound_frame", 0)):
 		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 			float(item_data.get("pitch", 1.0)))
 
-func _finish_sprite_atlas_sequence(sprite: Sprite3D,
-		open_kitchen_menu_after: bool) -> void:
+
+func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
+		open_kitchen_menu_after: bool, terminal_step: int) -> void:
 	if sprite == null or not is_instance_valid(sprite):
 		return
-	sprite.frame = 0
+	var available_frames: int = maxi(1, sprite.hframes * sprite.vframes)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var interaction_key := String(sprite.get_meta("source_object_id", ""))
+	if open_kitchen_menu_after:
+		var step := clampi(terminal_step, 0, sequence.size() - 1)
+		sprite.frame = sequence[step]
+		fixture_rigs.apply_frame(interaction_key, step, sequence.size())
+	else:
+		var rest_frame: int = int(item_data.get("rest_frame", 0))
+		sprite.frame = clampi(rest_frame, 0, available_frames - 1)
+		fixture_rigs.apply_frame(interaction_key, 0, sequence.size())
+	if sprite.has_meta("active_close_tween"):
+		sprite.remove_meta("active_close_tween")
 	_sync_sconce_frame_uv(sprite)
 	sprite.set_meta("busy", false)
+	if bool(sprite.get_meta(
+			"enable_world_controls_after_close", false)):
+		sprite.remove_meta("enable_world_controls_after_close")
+		_set_fridge_close_blocked(false)
+		m._set_world_controls_enabled(true, "kitchen_fridge_close")
 	if open_kitchen_menu_after and m.castle_room_id == "kitchen":
 		_open_kitchen_menu()
+
+
+func _close_fridge_visual() -> bool:
+	var record: Dictionary = m.castle_room_item_sprites.get("fridge", {})
+	if record.is_empty():
+		return false
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if sprite == null or bool(sprite.get_meta("busy", false)):
+		return false
+	var rest_frame: int = int(item_data.get("rest_frame", 0))
+	if sprite.frame == rest_frame:
+		return false
+	var available_frames: int = maxi(1, sprite.hframes * sprite.vframes)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var start_step: int = clampi(
+		int(item_data.get("open_hold_step", 4)), 0, sequence.size() - 1)
+	var frame_duration: float = maxf(
+		0.01, float(item_data.get("frame_duration", 0.10)))
+	sprite.set_meta("busy", true)
+	sprite.set_meta("enable_world_controls_after_close", true)
+	sprite.set_meta("animation_frames_visited", [sequence[start_step]])
+	sprite.set_meta("animation_timeline_steps_visited", [start_step])
+	_play_item_sfx(String(item_data.get(
+		"close_sound", "castle/fridge_close.ogg")),
+		float(item_data.get("close_pitch", 0.94)))
+	var tween := sprite.create_tween()
+	sprite.set_meta("active_close_tween", tween)
+	for timeline_step in range(start_step + 1, sequence.size()):
+		tween.tween_interval(frame_duration)
+		tween.tween_callback(_show_item_atlas_frame.bind(
+			sprite, item_data, timeline_step, false))
+	tween.tween_interval(frame_duration)
+	tween.tween_callback(_finish_sprite_atlas_sequence.bind(
+		sprite, item_data, false, sequence.size() - 1))
+
+	return true
 
 func _item_burst(center: Vector3, color: Color, count: int) -> void:
 	if m.castle_room_item_effect_layer == null:
@@ -2364,13 +2630,14 @@ func _item_burst(center: Vector3, color: Color, count: int) -> void:
 	for index in range(count):
 		var mote: Sprite3D = _new_card("TouchSparkle", star_texture)
 		mote.set_meta("source_asset_role", "transient_effect")
-		mote.pixel_size = _pixel_size_for_depth(EFFECT_Z)
+		var local_effect_z := center.z + 0.035
+		mote.pixel_size = _pixel_size_for_depth(local_effect_z)
 		mote.scale = Vector3.ONE * randf_range(0.018, 0.032)
 		mote.modulate = color
 		mote.position = Vector3(
 			center.x + randf_range(-0.75, 0.75),
 			center.y + randf_range(-0.20, 0.35),
-			EFFECT_Z)
+			local_effect_z)
 		m.castle_room_item_effect_layer.add_child(mote)
 		var drift := mote.create_tween().set_parallel(true)
 		drift.tween_property(mote, "position", mote.position + Vector3(
@@ -2433,6 +2700,13 @@ func _place_art_card(card: Sprite3D, source_position: Vector2,
 	card.pixel_size = _pixel_size_for_depth(depth_z)
 	card.set_meta("source_art_rect", Rect2(source_position, frame_size))
 	card.set_meta("depth_z", depth_z)
+
+func _v2_vector2(value: Variant, fallback: Vector2) -> Vector2:
+	if value is Array:
+		var values: Array = value as Array
+		if values.size() >= 2:
+			return Vector2(float(values[0]), float(values[1]))
+	return fallback
 
 func _sprite_frame_size(sprite: Sprite3D) -> Vector2:
 	if sprite == null or sprite.texture == null:
@@ -2814,8 +3088,11 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 		"hotspot_size", frame_size) as Vector2
 	var authored_offset: Vector2 = record.get(
 		"hotspot_offset", (frame_size - authored_size) * 0.5) as Vector2
-	var local_center_pixels: Vector2 = authored_offset + authored_size * 0.5 \
-		- frame_size * 0.5
+	var local_center_pixels: Vector2 = record.get(
+		"hotspot_local_center_pixels",
+		authored_offset + authored_size * 0.5 - frame_size * 0.5) as Vector2
+	var local_size_pixels: Vector2 = record.get(
+		"hotspot_local_size_pixels", authored_size) as Vector2
 	if sprite.flip_h:
 		local_center_pixels.x = -local_center_pixels.x
 	var hotspot_world_center: Vector3 = sprite.global_position \
@@ -2826,9 +3103,9 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 	var center_screen: Vector2 = m.castle_room_camera.unproject_position(
 		hotspot_world_center)
 	var half_x_world: Vector3 = sprite.global_transform.basis.x \
-		* (authored_size.x * sprite.pixel_size * 0.5)
+		* (local_size_pixels.x * sprite.pixel_size * 0.5)
 	var half_y_world: Vector3 = sprite.global_transform.basis.y \
-		* (authored_size.y * sprite.pixel_size * 0.5)
+		* (local_size_pixels.y * sprite.pixel_size * 0.5)
 	var edge_x_screen: Vector2 = m.castle_room_camera.unproject_position(
 		hotspot_world_center + half_x_world)
 	var edge_y_screen: Vector2 = m.castle_room_camera.unproject_position(
@@ -2890,6 +3167,8 @@ func _update_hall_portals() -> void:
 			button.size = hit_size
 
 func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
+	if _fridge_close_is_blocked():
+		return
 	if not _is_wide_hall():
 		return
 	m._ui_tap()
@@ -3007,12 +3286,44 @@ func _open_kitchen_menu() -> void:
 		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	m._say("roshan", "talk", 0.0)
 
-func _close_kitchen_menu() -> void:
+func _close_kitchen_menu() -> bool:
+	var closing_fridge: bool = _close_fridge_visual()
 	if kitchen_menu_layer != null and is_instance_valid(kitchen_menu_layer):
 		kitchen_menu_layer.queue_free()
 	kitchen_menu_layer = null
 	kitchen_menu_stage = null
+	if closing_fridge:
+		_set_fridge_close_blocked(true)
+		m._set_world_controls_enabled(false, "kitchen_fridge_close")
 	m._set_world_controls_enabled(true, "kitchen_fridge_menu")
+	return closing_fridge
+
+func _wait_for_fridge_close() -> void:
+	var record: Dictionary = m.castle_room_item_sprites.get("fridge", {})
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite == null:
+		_set_fridge_close_blocked(false)
+		m._set_world_controls_enabled(true, "kitchen_fridge_close")
+		return
+	var deadline_ms: int = Time.get_ticks_msec() + 3000
+	while is_instance_valid(sprite) \
+			and bool(sprite.get_meta("busy", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await m.get_tree().process_frame
+	if not is_instance_valid(sprite):
+		_set_fridge_close_blocked(false)
+		m._set_world_controls_enabled(true, "kitchen_fridge_close")
+		return
+	if bool(sprite.get_meta("busy", false)):
+		var close_tween: Tween = sprite.get_meta(
+			"active_close_tween", null) as Tween
+		if close_tween != null:
+			close_tween.kill()
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		var sequence: Array[int] = _timeline_sequence(
+			item_data, maxi(1, sprite.hframes * sprite.vframes))
+		_finish_sprite_atlas_sequence(
+			sprite, item_data, false, sequence.size() - 1)
 
 func _kitchen_recipe(recipe_id: String) -> Dictionary:
 	for recipe: Dictionary in KITCHEN_RECIPES:
@@ -3027,7 +3338,9 @@ func _launch_kitchen_recipe(recipe_id: String) -> void:
 	var uses: String = String(recipe["uses"])
 	if uses != "" and int(m.opera_pantry.get(uses, 0)) <= 0:
 		return
-	_close_kitchen_menu()
+	var closing_fridge: bool = _close_kitchen_menu()
+	if closing_fridge:
+		await _wait_for_fridge_close()
 	suspend()
 	m.game = "kitchen_cooking"
 	var config: Dictionary = (OperaHouse.ACTS[0] as Dictionary).duplicate(true)
@@ -3058,6 +3371,8 @@ func _finish_kitchen_recipe() -> void:
 	m.show_msg("Roshan", "Something delicious is ready!", "win")
 
 func activate_current_room() -> void:
+	if _fridge_close_is_blocked():
+		return
 	var room: Dictionary = _room(m.castle_room_id)
 	var action: String = String(room.get("action", ""))
 	m._ui_tap()
@@ -3137,6 +3452,8 @@ func _go_back() -> void:
 		show_room(parent_id, true)
 
 func _exit_to_courtyard() -> void:
+	if _fridge_close_is_blocked():
+		return
 	m._ui_tap()
 	close()
 	m._return_to_courtyard()
