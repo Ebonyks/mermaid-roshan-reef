@@ -473,6 +473,13 @@ func _run() -> void:
 
 	var all_rooms_ok := true
 	var all_depth_ok := true
+	# LIGHTING_2P5D_AUDIT_2026-08-02 §E2: depth must be TONAL as well as
+	# geometric. Foreground framing cards are multiplied by the light rig's
+	# near tint so they settle back out of the room's light pool; the
+	# background plate stays the untouched reference. A regression that
+	# silently stops applying the rig leaves every plane at pure white again.
+	var all_depth_tint_ok := true
+	var saw_tinted_foreground := false
 	var all_interaction_contracts_ok := true
 	var all_semantic_sequences_ok := true
 	var all_fixed_pivot_sequences_ok := true
@@ -619,7 +626,26 @@ func _run() -> void:
 		interaction_manifest_ok = interaction_manifest_ok \
 			and semantic_item_ids.size() == expected_physical_items
 		for foreground: Node in main.castle_room_front_layer.get_children():
-			depths[snappedf((foreground as Sprite3D).position.z, 0.01)] = true
+			var front_card := foreground as Sprite3D
+			if front_card == null:
+				continue
+			depths[snappedf(front_card.position.z, 0.01)] = true
+			if main.light_rig().emits_light(front_card):
+				continue
+			# multiply-only: a tint may darken a painting, never brighten it
+			var front_tint: Color = front_card.modulate
+			all_depth_tint_ok = all_depth_tint_ok \
+				and front_tint.r <= 1.001 and front_tint.g <= 1.001 \
+				and front_tint.b <= 1.001
+			if front_tint.r < 0.999 or front_tint.g < 0.999 \
+					or front_tint.b < 0.999:
+				saw_tinted_foreground = true
+		if not hall_mode and main.castle_room_background != null:
+			var back_tint: Color = main.castle_room_background.modulate
+			all_depth_tint_ok = all_depth_tint_ok \
+				and is_equal_approx(back_tint.r, 1.0) \
+				and is_equal_approx(back_tint.g, 1.0) \
+				and is_equal_approx(back_tint.b, 1.0)
 		all_rooms_ok = all_rooms_ok and room_ok
 		all_depth_ok = all_depth_ok and depths.size() >= 3
 		if not hall_mode:
@@ -859,6 +885,10 @@ func _run() -> void:
 				and main.castle_room_layer.visible
 	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok)
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
+	_ck("depth_planes_are_tonally_separated",
+		all_depth_tint_ok and saw_tinted_foreground,
+		"multiply_only=%s saw_tinted_foreground=%s" % [
+			all_depth_tint_ok, saw_tinted_foreground])
 	_ck("approved_room_composites_preserved", approved_composite_backdrops_ok)
 	_ck("all_destination_rooms_use_2k_exact_tile_grids",
 		all_detail_tile_grids_ok)

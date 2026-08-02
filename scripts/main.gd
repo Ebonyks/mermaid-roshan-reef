@@ -5141,6 +5141,19 @@ func _hang_portrait(pos: Vector3, rot_deg: Vector3, art: String) -> void:
 	add_child(pl)
 	game_nodes.append(pl)
 
+var _light_rig: LightRig = null
+
+func light_rig() -> LightRig:
+	# The one place that decides what colour a painted card is multiplied by
+	# (LIGHTING_2P5D_AUDIT_2026-08-02 §E2). Painted flats are drawn unshaded,
+	# so modulate is the only per-card lever the engine has; this keeps every
+	# zone's depth ramp, night wash and accent classes in one table instead of
+	# re-invented inline per satellite. Lazily built, so a headless probe that
+	# never opens a painted zone never pays for it.
+	if _light_rig == null:
+		_light_rig = LightRig.new(self)
+	return _light_rig
+
 var _castle_rooms_25d: CastleRooms25D = null
 
 func _castle_rooms_ref() -> CastleRooms25D:

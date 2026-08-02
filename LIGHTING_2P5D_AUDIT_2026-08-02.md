@@ -462,7 +462,7 @@ Still open: A/B **AgX vs ACES** on the phone in the existing Lighting Lab (W9).
 AgX should visibly help the lavender/teal castle palette; confirm on the real
 panel before committing, per the 07-18 audit's warning.
 
-### E2 — `scripts/light_rig.gd` — one tint rig for every zone *(no new art)*
+### E2 — `scripts/light_rig.gd` — one tint rig for every zone — **PARTIAL**
 
 A small `RefCounted` satellite per CLAUDE.md rules (logic only, `main` by
 reference, all state on `main`). It owns one function:
@@ -480,6 +480,30 @@ wherever a card is created — `castle_rooms_25d._new_card`,
 This single change fixes **W2, W3, W5 (partly), W7** and gives Sky Lagoon's
 proven day/night to every zone for free. Migrate `_animal_tint` into it so
 there is one implementation, not two.
+
+**Landed 2026-08-02:** `scripts/light_rig.gd` with the zone table, the depth
+ramp, the night wash and the `intensity_class` accent — wired into the castle
+rooms only (`castle_rooms_25d._place_art_card`), which is the zone with seven
+declared depth planes and no tonal separation at all. The rig is
+**multiply-only** by construction: a tint can darken and colour-shift a
+painting but never brighten it past what was painted, so it can never
+re-introduce the §E1 clipping. Light fixtures opt out via `emits_light()` —
+a sconce is what the atmosphere is *made of*, so dimming it with distance is
+backwards.
+
+Castle interiors anchor the ramp at the **background** (`far_tint` neutral)
+rather than hazing the far plane: an interior has almost no real aerial
+perspective, so the honest cue is the near end, where framing props sit
+outside the room's light pool. That is already how
+`room_main_hall_front_left/right` are painted; the rig generalises it.
+
+`probe_castle_pearl_art.gd` gains `depth_planes_are_tonally_separated`, which
+asserts the rig actually ran (some foreground card is tinted) and that it
+stayed multiply-only (no channel above 1.0, background untouched).
+
+**Still to migrate:** Sky Lagoon's `_animal_tint` / `NIGHT_WORLD_TINT` into the
+same table (it works today, so it is a consolidation not a fix), the opera
+actors, and `side_scroll`'s parallax layers.
 
 ### E3 — One contact-shadow convention *(no new art)*
 
@@ -613,7 +637,7 @@ flat set is the minority.
 | # | Item | Needs art? | Payoff |
 |---|---|---|---|
 | 1 | **E1** grade retune + headroom gate — **LANDED** | no | castle rooms 21.5 % → 4.1 % clipped; lagoon crush 8.5 % → 2.3 % |
-| 2 | **E2** light rig: depth ramp + zone tint + day/night | no | fixes flat depth, integrates cast, unlocks W3/W7 |
+| 2 | **E2** light rig: depth ramp + zone tint + day/night — **castle landed**, other zones pending | no | fixes flat depth, integrates cast, unlocks W3/W7 |
 | 3 | **E3** one contact-shadow convention | no | removes the double-shadow clash |
 | 4 | **C1** emissive masks | yes | lets E4 fix bloom properly |
 | 5 | **C2/C3** headroom + one key per zone in the standing brief | yes | stops the problem recurring |

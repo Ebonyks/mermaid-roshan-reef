@@ -1881,6 +1881,13 @@ func _place_art_card(card: Sprite3D, source_position: Vector2,
 	card.pixel_size = _pixel_size_for_depth(depth_z)
 	card.set_meta("source_art_rect", Rect2(source_position, frame_size))
 	card.set_meta("depth_z", depth_z)
+	# Depth is geometric here but was never tonal: every plane rendered at pure
+	# white, so a framing prop 4 units in front of the wall read as a sticker on
+	# it (LIGHTING_2P5D_AUDIT_2026-08-02 §W2/§E2). The rig multiplies the card
+	# by its plane's tint — background stays the untouched reference, foreground
+	# settles back. Light fixtures opt themselves out inside the rig.
+	m.light_rig().apply_to_card(card, "castle_room", depth_z,
+		String(card.get_meta("intensity_class", "")))
 
 func _sprite_frame_size(sprite: Sprite3D) -> Vector2:
 	if sprite == null or sprite.texture == null:
