@@ -2,6 +2,7 @@ extends SceneTree
 # Structural and interaction probe for the three-screen 2.5D Sky Lagoon.
 
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
+const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 
 var failed := false
 
@@ -417,8 +418,11 @@ func _init() -> void:
 		and promenade_roshan.offset != idle_offset)
 	promenade._sync_roshan_card(1.0, true)
 	promenade_animator._process(0.2)
+	# Rebase the cell-space anchor onto the corrected sampling window
+	# (RoshanSpriteFrames) before comparing torso positions across frames.
 	var sky_frame_anchor: Vector2 = ROSHAN_ANCHORS.anchor(
-		"swim_front", promenade_roshan.frame)
+		"swim_front", promenade_roshan.frame) \
+		- ROSHAN_FRAMES.shift("swim_front", promenade_roshan.frame)
 	var sky_frame_offset: Vector2 = promenade_roshan.get_meta(
 		"roshan_anchor_offset", Vector2.ZERO) as Vector2
 	var sky_corrected_anchor := Vector2(
