@@ -1219,3 +1219,102 @@ One row per accepted runtime file; all native generations, prompt bindings, hash
 | assets/opera/worlds/props/fx_dust_puff.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
 | assets/opera/worlds/props/fx_stolen_sparkle.png | Non-destructive derivative of approved project art `assets/mg/star.png` | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Uniform whole-star resize and transparent-canvas padding to 128x128; no generated pixels |
 | assets/opera/worlds/props/fx_dizzy_stars.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
+## Pearl Castle dream-house rooms (2026-08-01)
+
+- assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png
+  - project-original composition reference generated with the built-in Codex
+  ImageGen tool from approved Royal Kitchen/Library art and the approved
+  kitchen-table QA render; all rights reserved. It is below the native room
+  requirement and contributes no runtime pixels. The exact method, references,
+  and prompt are recorded in the adjacent PROMPTS.md.
+- assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png
+  - project-authored deterministic 2048 x 2048 room-shell masters composed by
+  tools/build_castle_dream_house_rooms.py from the already-licensed
+  up_castle_col, kitchen_floor_col, castle_floor_col,
+  bathroom_tile_col, and castle_carpet_col project textures. No protected
+  original was modified.
+- assets/flats/castle/rooms/room_family_gallery_background.png
+- assets/flats/castle/rooms/room_dining_room_background.png
+- assets/flats/castle/rooms/room_royal_bedroom_background.png
+- assets/flats/castle/rooms/room_sleepover_bedroom_background.png
+- assets/flats/castle/rooms/room_movie_lounge_background.png
+  - project-original 1024 x 576 review previews derived from the corresponding
+  native masters; not used as delivered world pixels when native tiles exist.
+- assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_dining_room_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r*_c*.png
+  - project-original four-card runtime sets: exact, non-overlapping
+  1024 x 576 crops of each 2048 x 1152 playable master band. Tile hashes and
+  exact reconstruction evidence are recorded in the dream-house manifest.
+- assets/flats/castle/dream_house/dining_table.png
+- assets/flats/castle/dream_house/dining_seat.png
+- assets/flats/castle/dream_house/provisions_hutch.png
+- assets/flats/castle/dream_house/canopy_bed.png
+- assets/flats/castle/dream_house/bedside_table.png
+- assets/flats/castle/dream_house/shell_wardrobe.png
+- assets/flats/castle/dream_house/story_cushion.png
+- assets/flats/castle/dream_house/dream_bed_0.png
+- assets/flats/castle/dream_house/dream_bed_1.png
+- assets/flats/castle/dream_house/dream_bed_2.png
+- assets/flats/castle/dream_house/cloud_settee.png
+- assets/flats/castle/dream_house/cloud_pouf.png
+- assets/flats/castle/dream_house/shell_arch.png
+- assets/flats/castle/dream_house/shell_window.png
+- assets/flats/castle/dream_house/shell_chandelier.png
+  - non-destructive transparent-border crops of the already-licensed
+  project-generated Pearl Castle and art-pass-35 QA renders. Source renders,
+  source hashes, and transformations are recorded per file in the manifest;
+  approved source GLBs and renders remain unchanged.
+- assets/flats/castle/dream_house/family_wing_portal.png
+- assets/flats/castle/dream_house/family_portal_dining.png
+- assets/flats/castle/dream_house/family_portal_royal_bedroom.png
+- assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png
+- assets/flats/castle/dream_house/family_portal_movie_lounge.png
+- assets/flats/castle/dream_house/family_wing_hall_insert.png
+  - non-destructive derivatives of the already-approved project-original
+  castle_playroom_portal_cutout_reuse.png. The portal pixels remain unchanged;
+  project-authored picture crests distinguish the routes, and the Main Hall
+  insert adds only an approved wall-texture surround. All source paths, hashes,
+  and transforms are recorded in the manifest. License remains project
+  original; all rights reserved.
+
+- assets/flats/castle/dream_house/meal_plate.png
+- assets/flats/castle/dream_house/movie_screen_frame.png
+  - new project-original deterministic Pillow drawings in the approved pearl
+  material language; all rights reserved. No external or protected pixels.
+- audit/castle_dream_house/dream_house_room_art_manifest.json
+- audit/castle_dream_house/dream_house_room_shells_contact.png
+- audit/castle_dream_house/dream_house_layout_contact.png
+- audit/castle_dream_house/dream_house_hall_entry_contact.png
+  - deterministic provenance/integrity record, five-room shell review, and
+  physical gallery-layout review; project audit evidence, not runtime art.
+- assets/book/hall/p_slide.jpg, p_trampoline.jpg, p_garden.jpg,
+  p_snowman.jpg, and p_xmas.jpg are displayed directly and unchanged on
+  the movie screen. They remain protected book art under their existing
+  license; no derivative runtime copy is created.
+## Shared water-FX atlas vocabulary (2026-08-02)
+
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_chroma_native.png` ? Source: OpenAI built-in ImageGen using only approved project-local castle water atlas references; License: project original, all rights reserved; URL: N/A (generated in-project); Modifications: none, preserved native flat-chroma small-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_alpha_native.png` ? Source: adjacent project-original small-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small splash as continuity reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma medium-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_alpha_native.png` ? Source: adjacent project-original medium-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small/medium splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma hero-breach generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_alpha_native.png` ? Source: adjacent project-original breach chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma ripple generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_alpha_native.png` ? Source: adjacent project-original ripple chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_chroma_native.png` ? Source: OpenAI built-in ImageGen using approved project-local castle bubbles and the accepted project-original water-FX family as references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma bubble-burst generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_alpha_native.png` ? Source: adjacent project-original bubble-burst chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original water-FX family as reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma foamline generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_alpha_native.png` ? Source: adjacent project-original foamline chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets/sprites/fx_water/fx_water_splash_small_atlas.png` ? Source: accepted project-original small-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, 4?2 packing, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_medium_atlas.png` ? Source: accepted project-original medium-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, reviewed eight-cell selection, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_breach_atlas.png` ? Source: accepted project-original breach alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_ripple_ring_atlas.png` ? Source: accepted project-original ripple alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, uniform 0.94 cell scale, 4?2 packing, and fixed-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_bubble_burst_atlas.png` ? Source: accepted project-original bubble-burst alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512 and 4?2 packing by `tools/build_water_fx_atlases.py`, preserving the drawn rise relative to fixed cell center.
+- `assets/sprites/fx_water/fx_water_foamline_strip.png` ? Source: accepted project-original foamline alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-canvas normalization to 1024?256 and top-edge waterline alignment by `tools/build_water_fx_atlases.py`; no motion painted or synthesized.

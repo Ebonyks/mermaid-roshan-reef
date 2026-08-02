@@ -37,6 +37,7 @@ var encounter := {}
 var room_tag := ""
 var art_theme := ""
 var materials := {}
+var mic_live := false   # microphone armed AND both spells taught
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
@@ -56,18 +57,30 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	he.fx_root = self
 	he.camera = cam
 	he.on_hit = Callable(self, "_on_engine_hit")
+	# Spoken spells are an ADDITION to the buttons, never a replacement: the
+	# hint is only spoken when the microphone is actually listening and the
+	# words have actually been taught (MIC_SPELLS.md).
+	mic_live = _arm_mic()
 	if kind == "ice":
-		_build_ice_swarm()
 		var ice_msg := "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!"
 		if m.touch_uses_explicit_interactions():
 			ice_msg += " Or tap an imp right on its nose!"
+		if mic_live:
+			ice_msg += " Or shout FREEZE!"
+		_build_ice_swarm()
 		m.show_msg("Roshan", ice_msg, "talk")
 	else:
 		_build_pepper_boss()
 		if kind == "dual":
-			m.show_msg("Roshan", "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!", "talk")
+			var dual_msg := "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!"
+			if mic_live:
+				dual_msg += " You can shout FREEZE and FIREBALL too!"
+			m.show_msg("Roshan", dual_msg, "talk")
 		else:
-			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
+			var fire_msg := "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!"
+			if mic_live:
+				fire_msg += " Or shout FIREBALL!"
+			m.show_msg("Roshan", fire_msg, "talk")
 	he.targets = enemies if kind == "ice" else [boss]
 	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	_update_hud()
@@ -247,6 +260,29 @@ func _move_input() -> Vector2:
 		value = m.touch_ui.stick_vec
 	return value.limit_length(1.0)
 
+# Opens the capture device for this battle only. Returns true when a spoken
+# spell can actually land, so callers never promise the child something the
+# permission state or an untaught word cannot deliver.
+func _arm_mic() -> bool:
+	if m == null or not m.mic_on:
+		return false
+	var mic: MicInput = m._mic_ref()
+	mic.arm()
+	return m.mic_state == "listening" and mic.all_words_taught()
+
+# A recognised spell word, mapped to a power this arena can actually cast. A
+# word this battle has no use for is silently dropped — saying FIREBALL at the
+# imps simply does nothing, which is the no-fail-state rule applied to speech.
+func _mic_power() -> String:
+	if state != "play" or not mic_live or m == null or m.mic_sys == null:
+		return ""
+	var word: String = m.mic_sys.poll_word()
+	if word == "":
+		return ""
+	if kind == "dual":
+		return word          # the spoken word chooses the power
+	return word if word == kind else ""
+
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
 	var just: bool = held and not fire_prev
@@ -278,7 +314,10 @@ func _process(delta: float) -> void:
 	if move.length() > 0.08:
 		player_yaw = atan2(move.x, move.y)
 	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-	if _action_pressed() and shot_cool <= 0.0:
+	var spoken: String = _mic_power()
+	if spoken != "" and shot_cool <= 0.0:
+		_fire(spoken)
+	elif _action_pressed() and shot_cool <= 0.0:
 		_fire()
 	_tick_shots(delta)
 	_tick_enemy_shots(delta)
@@ -322,8 +361,10 @@ func _nearest_target() -> Vector3:
 			best = enemy["pos"]
 	return best
 
-func _fire() -> void:
-	var power := action_label().to_lower()
+func _fire(power_override: String = "") -> void:
+	# power_override is set when a spoken spell named the power; otherwise the
+	# button casts whatever this arena's phase logic currently offers.
+	var power: String = power_override if power_override != "" else action_label().to_lower()
 	var target := _nearest_target()
 	var dir: Vector3 = target - player_pos
 	dir.y = 0.0
@@ -620,16 +661,19 @@ func _tick_pointer() -> void:
 func _update_hud() -> void:
 	if objective == null:
 		return
+	# A listening microphone is shown, never assumed: the glyph is the only
+	# promise the child gets that shouting will do anything.
+	var ear: String = "🎤  " if mic_live else ""
 	if kind == "ice":
 		var left := 0
 		for enemy in enemies:
 			if String(enemy["state"]) != "popped": left += 1
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
 		counter.text = "❄  %d" % left
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
 		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + action_text
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
 func _win() -> void:
@@ -651,6 +695,7 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	_disarm_mic()
 	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
@@ -665,12 +710,20 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	_disarm_mic()
 	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():
 		finish_cb.call("")
 	queue_free()
+
+# Closing the arena closes the capture device: the audio HAL is only awake
+# while a battle is running, never for the rest of the session.
+func _disarm_mic() -> void:
+	mic_live = false
+	if m != null and m.mic_sys != null:
+		m.mic_sys.disarm()
 
 func action_label() -> String:
 	if kind == "ice":

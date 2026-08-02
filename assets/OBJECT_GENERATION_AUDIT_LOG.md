@@ -452,7 +452,8 @@ Most frequent failures:
 
 - Source and commit: `CODEX_IMP_ANIMATION_HANDOFF_2026-08-02.md` and the
   generation, prompt, delivery, per-file QA, and runtime-capture records under
-  `assets_src/imagegen/imp_animation_states_2026-08-02/`; commit pending.
+  `assets_src/imagegen/imp_animation_states_2026-08-02/`; generation commit
+  `f1adc11a`.
 - Scope: 179 runtime PNG deliveries: 16 base-imp combat poses, 157 repaired or
   expanded costume-family sprites across twelve rivals, and six reusable
   combat FX. All actor sprites are 512x512 or smaller and all FX are 512x512
