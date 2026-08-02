@@ -1,6 +1,6 @@
 {
-  "capture_manifest": "audit/sky_lagoon_animal_support_2026-08-01/candidate_6/capture_manifest.json",
-  "capture_manifest_sha256": "cdeb46baf3a23065a65d0a8d007044c0cbc6a3e0b27622ac9211139920a5a837",
+  "capture_manifest": "audit/sky_lagoon_animal_refuges_2026-08-01/candidate_1/capture_manifest.json",
+  "capture_manifest_sha256": "a9d7a00f04aa202f6665c89e5939ce0b327eaffe50919fb4d0d8f62889d883b0",
   "reference_viewport": [
     1280,
     720
@@ -32,8 +32,8 @@
       "support": "water_jolt",
       "support_zone": "arrival_water",
       "support_point": [
-        -59.4733390808105,
-        2.763427734375
+        -59.7999992370605,
+        2.72000002861023
       ],
       "support_rect": [
         -60.2000007629395,
@@ -42,28 +42,28 @@
         1.39999997615814
       ],
       "screen_point_1280x720": [
-        93.75,
-        493.39
+        439.34,
+        494.25
       ],
       "isolated_bbox_pixels": [
-        119,
-        917,
-        235,
-        966
+        789,
+        920,
+        877,
+        968
       ],
-      "isolated_pixels": 3196,
-      "foreground_luminance": 0.2447,
-      "local_background_luminance": 0.3023,
-      "local_luminance_contrast": 0.0576,
-      "mean_silhouette_luminance_change": 0.1659,
-      "p90_silhouette_luminance_change": 0.3489,
-      "foreground_saturation": 0.5642,
-      "local_background_saturation": 0.83,
-      "saturation_delta": -0.2658,
-      "foreground_warm_cool": -0.0824,
-      "local_background_warm_cool": -0.5173,
-      "warm_cool_delta": 0.4349,
-      "dark_outline_fraction": 0.3817,
+      "isolated_pixels": 2064,
+      "foreground_luminance": 0.1297,
+      "local_background_luminance": 0.212,
+      "local_luminance_contrast": 0.0823,
+      "mean_silhouette_luminance_change": 0.1091,
+      "p90_silhouette_luminance_change": 0.23,
+      "foreground_saturation": 0.5683,
+      "local_background_saturation": 0.5914,
+      "saturation_delta": -0.0231,
+      "foreground_warm_cool": 0.1021,
+      "local_background_warm_cool": -0.2442,
+      "warm_cool_delta": 0.3463,
+      "dark_outline_fraction": 0.6187,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -76,8 +76,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "5f8f43f7fbe15a30b591fb6a2b696ac1298bdc900bdc9e9b507d514583bd154d",
-        "without": "a9077f7f3315c60ec70560c46552cd1ba1760963fba8a559e176bd7eba759d6c"
+        "with": "822a581fb44a98e0641eaf2df9f8ba50c3c1123bddbe3649ea43a4f4d745176a",
+        "without": "5c66c653d945b8c68edfe254c7f0edef7d2f4c488cdaa119a50b996edca78bd0"
       }
     },
     {
@@ -87,8 +87,8 @@
       "support": "water_jolt",
       "support_zone": "arrival_water",
       "support_point": [
-        -59.1371765136719,
-        2.6204833984375
+        -59.5999984741211,
+        2.54999995231628
       ],
       "support_rect": [
         -60.2000007629395,
@@ -97,28 +97,28 @@
         1.39999997615814
       ],
       "screen_point_1280x720": [
-        103.3,
-        495.45
+        444.6,
+        496.84
       ],
       "isolated_bbox_pixels": [
-        136,
-        918,
-        255,
-        961
+        822,
+        930,
+        873,
+        966
       ],
-      "isolated_pixels": 2555,
-      "foreground_luminance": 0.3406,
-      "local_background_luminance": 0.2927,
-      "local_luminance_contrast": 0.0479,
-      "mean_silhouette_luminance_change": 0.1194,
-      "p90_silhouette_luminance_change": 0.2664,
-      "foreground_saturation": 0.5436,
-      "local_background_saturation": 0.8225,
-      "saturation_delta": -0.2789,
-      "foreground_warm_cool": -0.0981,
-      "local_background_warm_cool": -0.4924,
-      "warm_cool_delta": 0.3943,
-      "dark_outline_fraction": 0.0571,
+      "isolated_pixels": 1104,
+      "foreground_luminance": 0.292,
+      "local_background_luminance": 0.1982,
+      "local_luminance_contrast": 0.0938,
+      "mean_silhouette_luminance_change": 0.1454,
+      "p90_silhouette_luminance_change": 0.3205,
+      "foreground_saturation": 0.5103,
+      "local_background_saturation": 0.5626,
+      "saturation_delta": -0.0523,
+      "foreground_warm_cool": 0.1957,
+      "local_background_warm_cool": -0.2131,
+      "warm_cool_delta": 0.4088,
+      "dark_outline_fraction": 0.0725,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -131,8 +131,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "5a507a6c4a005483af16a1d3505946fc9e99cadbe2b12274450200e6af9d7d2f",
-        "without": "04e408eda1779040b4d0cf3e9004c0ca713665214a3ff868a093c464914323ef"
+        "with": "ffbfb5258451995ea0d34e8f6bfd96ce524f9e52723b01a946d972c7a3532a37",
+        "without": "30ae58fea5b450bdfcc4dbc7de56524b5f222dbd704df6e8f4b9c177810a02c9"
       }
     },
     {
@@ -142,8 +142,8 @@
       "support": "ground",
       "support_zone": "west_path_shoulder_ground",
       "support_point": [
-        -20.1481266021729,
-        -2.07853817939758
+        -20.7000007629395,
+        -2.09999990463257
       ],
       "support_rect": [
         -21.2000007629395,
@@ -152,28 +152,28 @@
         0.800000011920929
       ],
       "screen_point_1280x720": [
-        266.34,
-        560.63
+        255.2,
+        562.85
       ],
       "isolated_bbox_pixels": [
-        463,
-        1009,
-        555,
-        1107
+        446,
+        1020,
+        527,
+        1118
       ],
-      "isolated_pixels": 4560,
-      "foreground_luminance": 0.2638,
-      "local_background_luminance": 0.1892,
-      "local_luminance_contrast": 0.0746,
-      "mean_silhouette_luminance_change": 0.1939,
-      "p90_silhouette_luminance_change": 0.4054,
-      "foreground_saturation": 0.4664,
-      "local_background_saturation": 0.6538,
-      "saturation_delta": -0.1874,
-      "foreground_warm_cool": 0.2764,
-      "local_background_warm_cool": -0.0361,
-      "warm_cool_delta": 0.3125,
-      "dark_outline_fraction": 0.1406,
+      "isolated_pixels": 4327,
+      "foreground_luminance": 0.2667,
+      "local_background_luminance": 0.1668,
+      "local_luminance_contrast": 0.0999,
+      "mean_silhouette_luminance_change": 0.1803,
+      "p90_silhouette_luminance_change": 0.3846,
+      "foreground_saturation": 0.4649,
+      "local_background_saturation": 0.6628,
+      "saturation_delta": -0.1979,
+      "foreground_warm_cool": 0.2791,
+      "local_background_warm_cool": 0.005,
+      "warm_cool_delta": 0.2741,
+      "dark_outline_fraction": 0.1491,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -186,49 +186,49 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "e8fb8e7263b9ac469aaaf030018c80b709833047c47be920e2ba87bbf69fb1cb",
-        "without": "53f7a956f03d8ae5ee755c14e33a2f08896b93061e4a0f240e19723764af97d1"
+        "with": "9ccb6b52bd32997fbf9933f3aefd198f582fac9ef3fd1dd58fdd4c30013fb152",
+        "without": "1320bc0dd7e2f7f588481ddfc6d91fd831b3b478ba36a2ae8fd1344e9f0cd2e8"
       }
     },
     {
       "id": "squirrel",
       "lighting": "day",
-      "habitat": "west_path_shoulder",
+      "habitat": "castle_fir_edge",
       "support": "ground",
-      "support_zone": "west_path_shoulder_ground",
+      "support_zone": "castle_path_shoulder_ground",
       "support_point": [
-        -20.0153503417969,
-        -2.09957098960876
+        27.4500007629395,
+        -2.13000011444092
       ],
       "support_rect": [
-        -21.2000007629395,
+        27.2000007629395,
         -2.40000009536743,
-        4.5,
+        4.30000019073486,
         0.800000011920929
       ],
       "screen_point_1280x720": [
-        286.9,
-        554.73
+        276.59,
+        556.37
       ],
       "isolated_bbox_pixels": [
-        508,
-        1022,
-        594,
-        1109
+        488,
+        1026,
+        575,
+        1098
       ],
-      "isolated_pixels": 3968,
-      "foreground_luminance": 0.1474,
-      "local_background_luminance": 0.2284,
-      "local_luminance_contrast": 0.081,
-      "mean_silhouette_luminance_change": 0.1187,
-      "p90_silhouette_luminance_change": 0.2743,
-      "foreground_saturation": 0.8178,
-      "local_background_saturation": 0.6165,
-      "saturation_delta": 0.2013,
-      "foreground_warm_cool": 0.4016,
-      "local_background_warm_cool": -0.0194,
-      "warm_cool_delta": 0.421,
-      "dark_outline_fraction": 0.436,
+      "isolated_pixels": 3828,
+      "foreground_luminance": 0.1412,
+      "local_background_luminance": 0.1456,
+      "local_luminance_contrast": 0.0044,
+      "mean_silhouette_luminance_change": 0.1173,
+      "p90_silhouette_luminance_change": 0.2739,
+      "foreground_saturation": 0.8343,
+      "local_background_saturation": 0.6318,
+      "saturation_delta": 0.2025,
+      "foreground_warm_cool": 0.4188,
+      "local_background_warm_cool": 0.0067,
+      "warm_cool_delta": 0.4121,
+      "dark_outline_fraction": 0.4491,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -241,8 +241,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "99fe5b5e6133f420270e255bad4b8533c2682e53ed490920e4ef7acda3930e4b",
-        "without": "6c29adc5f401b8a87fe53877cb468b306dd3086dcfe94df1854e2b60a59ecb04"
+        "with": "4dae8cf1303d23093c94d35795b830967e890f53f7f60496318884ab616e0cbe",
+        "without": "3c0c2508bdb46c53a5db04f3281840c558499cedd72cee90a2edf11ffdd043d0"
       }
     },
     {
@@ -252,38 +252,38 @@
       "support": "ground",
       "support_zone": "castle_path_shoulder_ground",
       "support_point": [
-        27.8885288238525,
-        -2.06743168830872
+        28.2999992370605,
+        -2.09999990463257
       ],
       "support_rect": [
         27.2000007629395,
         -2.40000009536743,
-        3.0,
+        4.30000019073486,
         0.800000011920929
       ],
       "screen_point_1280x720": [
-        628.26,
-        554.24
+        291.58,
+        555.55
       ],
       "isolated_bbox_pixels": [
-        1147,
-        1007,
-        1251,
-        1110
+        508,
+        1018,
+        605,
+        1097
       ],
-      "isolated_pixels": 4028,
-      "foreground_luminance": 0.1216,
-      "local_background_luminance": 0.2226,
-      "local_luminance_contrast": 0.101,
-      "mean_silhouette_luminance_change": 0.116,
-      "p90_silhouette_luminance_change": 0.2945,
-      "foreground_saturation": 0.4336,
-      "local_background_saturation": 0.6062,
-      "saturation_delta": -0.1726,
-      "foreground_warm_cool": 0.124,
-      "local_background_warm_cool": -0.0032,
-      "warm_cool_delta": 0.1272,
-      "dark_outline_fraction": 0.5228,
+      "isolated_pixels": 3847,
+      "foreground_luminance": 0.1251,
+      "local_background_luminance": 0.1284,
+      "local_luminance_contrast": 0.0033,
+      "mean_silhouette_luminance_change": 0.1308,
+      "p90_silhouette_luminance_change": 0.3287,
+      "foreground_saturation": 0.4212,
+      "local_background_saturation": 0.681,
+      "saturation_delta": -0.2598,
+      "foreground_warm_cool": 0.1333,
+      "local_background_warm_cool": 0.0038,
+      "warm_cool_delta": 0.1295,
+      "dark_outline_fraction": 0.5472,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -296,8 +296,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "b565a774b8b35b42aca3f40fc46b50a8f8ee14dd95a683e85ad15ea006bf2a2c",
-        "without": "37aef1136e8ce641b7167648eef54ed55709050be0d6bd51921f1cf006305da6"
+        "with": "08b44b0e32a9a6fd423ba634606b6feb2ba686d428ebb4722c78901a2ce2ae85",
+        "without": "16fa080e39bc7997add7cedbb113a8006d2964da0f4b7d1c0a5e74be53505a12"
       }
     },
     {
@@ -307,8 +307,8 @@
       "support": "water_jolt",
       "support_zone": "arrival_water",
       "support_point": [
-        -59.4733390808105,
-        2.763427734375
+        -59.7999992370605,
+        2.72000002861023
       ],
       "support_rect": [
         -60.2000007629395,
@@ -317,28 +317,28 @@
         1.39999997615814
       ],
       "screen_point_1280x720": [
-        93.93,
-        493.39
+        439.34,
+        494.25
       ],
       "isolated_bbox_pixels": [
-        120,
-        917,
-        236,
-        966
+        789,
+        920,
+        877,
+        968
       ],
-      "isolated_pixels": 3255,
-      "foreground_luminance": 0.1041,
-      "local_background_luminance": 0.0991,
-      "local_luminance_contrast": 0.005,
-      "mean_silhouette_luminance_change": 0.0759,
-      "p90_silhouette_luminance_change": 0.1827,
-      "foreground_saturation": 0.6765,
-      "local_background_saturation": 0.88,
-      "saturation_delta": -0.2035,
-      "foreground_warm_cool": -0.0646,
-      "local_background_warm_cool": -0.4408,
-      "warm_cool_delta": 0.3762,
-      "dark_outline_fraction": 0.6003,
+      "isolated_pixels": 2061,
+      "foreground_luminance": 0.0825,
+      "local_background_luminance": 0.0324,
+      "local_luminance_contrast": 0.0501,
+      "mean_silhouette_luminance_change": 0.0531,
+      "p90_silhouette_luminance_change": 0.1977,
+      "foreground_saturation": 0.517,
+      "local_background_saturation": 0.8424,
+      "saturation_delta": -0.3254,
+      "foreground_warm_cool": 0.0276,
+      "local_background_warm_cool": -0.3006,
+      "warm_cool_delta": 0.3282,
+      "dark_outline_fraction": 0.7686,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -351,8 +351,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "a6a40dc1c0354b092a9118ea33c0b1ee1a95a339f60ce1f8eef5c9ee4a4c5d68",
-        "without": "97ba9add5bde780daa2a55a13f9ef24c09678ceca14d73cf51fd865c9b244118"
+        "with": "bbb07534eaf8357ecf54b0d51828156013eded7870995e19a58f80d0762bd73b",
+        "without": "fbc328cdc857a9787bd3570ccddf462f8a315a333f7eb7f43e2a8cb9e0f03608"
       }
     },
     {
@@ -362,8 +362,8 @@
       "support": "water_jolt",
       "support_zone": "arrival_water",
       "support_point": [
-        -59.1371765136719,
-        2.6204833984375
+        -59.5999984741211,
+        2.54999995231628
       ],
       "support_rect": [
         -60.2000007629395,
@@ -372,28 +372,28 @@
         1.39999997615814
       ],
       "screen_point_1280x720": [
-        103.27,
-        495.45
+        444.6,
+        496.84
       ],
       "isolated_bbox_pixels": [
-        137,
-        918,
-        254,
-        961
+        822,
+        930,
+        873,
+        966
       ],
-      "isolated_pixels": 2676,
-      "foreground_luminance": 0.1416,
-      "local_background_luminance": 0.0983,
-      "local_luminance_contrast": 0.0433,
-      "mean_silhouette_luminance_change": 0.0943,
-      "p90_silhouette_luminance_change": 0.2065,
-      "foreground_saturation": 0.64,
-      "local_background_saturation": 0.8815,
-      "saturation_delta": -0.2415,
-      "foreground_warm_cool": -0.1104,
-      "local_background_warm_cool": -0.4253,
-      "warm_cool_delta": 0.3149,
-      "dark_outline_fraction": 0.3871,
+      "isolated_pixels": 1111,
+      "foreground_luminance": 0.1456,
+      "local_background_luminance": 0.0313,
+      "local_luminance_contrast": 0.1143,
+      "mean_silhouette_luminance_change": 0.1029,
+      "p90_silhouette_luminance_change": 0.2177,
+      "foreground_saturation": 0.5085,
+      "local_background_saturation": 0.8336,
+      "saturation_delta": -0.3251,
+      "foreground_warm_cool": 0.1008,
+      "local_background_warm_cool": -0.2772,
+      "warm_cool_delta": 0.378,
+      "dark_outline_fraction": 0.3411,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -406,8 +406,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "0a82508f75d1bcb8d67e38ed10f549f7bff806432932a10b9510379b30159ed5",
-        "without": "1b2a0cf9c11f5960a93a0c40ed9ca75284ac54b20d1ade1768ef5156efab1de0"
+        "with": "320dba53c5f45f177418fefb9ebc9581077b9ba0bedbf1b18ed41ef0857d4332",
+        "without": "78ff830652bed2bec3db94f28b3fbb16ce6937ed65022a33bd63ec199d1e8cef"
       }
     },
     {
@@ -434,21 +434,21 @@
         446,
         1020,
         527,
-        1128
+        1118
       ],
-      "isolated_pixels": 4251,
-      "foreground_luminance": 0.1165,
-      "local_background_luminance": 0.1386,
-      "local_luminance_contrast": 0.0221,
-      "mean_silhouette_luminance_change": 0.1063,
-      "p90_silhouette_luminance_change": 0.269,
-      "foreground_saturation": 0.3624,
-      "local_background_saturation": 0.6364,
-      "saturation_delta": -0.274,
-      "foreground_warm_cool": 0.0636,
-      "local_background_warm_cool": -0.1106,
-      "warm_cool_delta": 0.1742,
-      "dark_outline_fraction": 0.4648,
+      "isolated_pixels": 4243,
+      "foreground_luminance": 0.1167,
+      "local_background_luminance": 0.1085,
+      "local_luminance_contrast": 0.0082,
+      "mean_silhouette_luminance_change": 0.1065,
+      "p90_silhouette_luminance_change": 0.2693,
+      "foreground_saturation": 0.3618,
+      "local_background_saturation": 0.663,
+      "saturation_delta": -0.3012,
+      "foreground_warm_cool": 0.0643,
+      "local_background_warm_cool": -0.1108,
+      "warm_cool_delta": 0.1751,
+      "dark_outline_fraction": 0.4638,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -461,49 +461,49 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "7613c72bb91d44e49852a7e1f2595169c82f5d9b9af85014dc2829bdd0c0e1e0",
-        "without": "566a223cf6cff0ac530630d2ea2397747b0071225c745db99fe1e4696e8b8292"
+        "with": "bb00ab321041b547f92ab4b86a736579c204a269eb260ad78a082dd61195aa44",
+        "without": "8285f6cf5ed09fbcb3d4f8546349ba4250b4643ce75c236b0d69a88f085960f0"
       }
     },
     {
       "id": "squirrel",
       "lighting": "night",
-      "habitat": "west_path_shoulder",
+      "habitat": "castle_fir_edge",
       "support": "ground",
-      "support_zone": "west_path_shoulder_ground",
+      "support_zone": "castle_path_shoulder_ground",
       "support_point": [
-        -20.7000007629395,
+        27.4500007629395,
         -2.13000011444092
       ],
       "support_rect": [
-        -21.2000007629395,
+        27.2000007629395,
         -2.40000009536743,
-        4.5,
+        4.30000019073486,
         0.800000011920929
       ],
       "screen_point_1280x720": [
-        273.7,
+        276.59,
         556.37
       ],
       "isolated_bbox_pixels": [
-        482,
+        488,
         1026,
-        569,
-        1110
+        574,
+        1097
       ],
-      "isolated_pixels": 3812,
-      "foreground_luminance": 0.0713,
-      "local_background_luminance": 0.1106,
-      "local_luminance_contrast": 0.0393,
-      "mean_silhouette_luminance_change": 0.0682,
-      "p90_silhouette_luminance_change": 0.1723,
-      "foreground_saturation": 0.816,
-      "local_background_saturation": 0.6729,
-      "saturation_delta": 0.1431,
-      "foreground_warm_cool": 0.2759,
-      "local_background_warm_cool": -0.1137,
-      "warm_cool_delta": 0.3896,
-      "dark_outline_fraction": 0.744,
+      "isolated_pixels": 3687,
+      "foreground_luminance": 0.078,
+      "local_background_luminance": 0.0519,
+      "local_luminance_contrast": 0.0261,
+      "mean_silhouette_luminance_change": 0.0747,
+      "p90_silhouette_luminance_change": 0.1941,
+      "foreground_saturation": 0.7994,
+      "local_background_saturation": 0.6634,
+      "saturation_delta": 0.136,
+      "foreground_warm_cool": 0.2682,
+      "local_background_warm_cool": -0.1265,
+      "warm_cool_delta": 0.3947,
+      "dark_outline_fraction": 0.7141,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -516,8 +516,8 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "91753cd9a46e742a1fa14b724f00994b5828efda9d1518f42eca77609d25c0d0",
-        "without": "38ead1edaf66ce975b5835d299eeba6151a64182d9a8004caaac2915668dbaef"
+        "with": "4de42d52695e11e5d2b61fc1208379b636f62fc17cf67309d1af12f177c7f202",
+        "without": "289bbc1d3384c4862d8159907769ccd70dd903817d8af57451b4d75b1452bf10"
       }
     },
     {
@@ -527,38 +527,38 @@
       "support": "ground",
       "support_zone": "castle_path_shoulder_ground",
       "support_point": [
-        27.3999996185303,
+        28.2999992370605,
         -2.09999990463257
       ],
       "support_rect": [
         27.2000007629395,
         -2.40000009536743,
-        3.0,
+        4.30000019073486,
         0.800000011920929
       ],
       "screen_point_1280x720": [
-        461.38,
+        291.58,
         555.55
       ],
       "isolated_bbox_pixels": [
-        831,
-        1020,
-        927,
-        1111
+        508,
+        1018,
+        604,
+        1096
       ],
-      "isolated_pixels": 3814,
-      "foreground_luminance": 0.0643,
-      "local_background_luminance": 0.128,
-      "local_luminance_contrast": 0.0637,
-      "mean_silhouette_luminance_change": 0.0628,
-      "p90_silhouette_luminance_change": 0.187,
-      "foreground_saturation": 0.4087,
-      "local_background_saturation": 0.602,
-      "saturation_delta": -0.1933,
-      "foreground_warm_cool": -0.0242,
-      "local_background_warm_cool": -0.0978,
-      "warm_cool_delta": 0.0736,
-      "dark_outline_fraction": 0.8393,
+      "isolated_pixels": 3714,
+      "foreground_luminance": 0.0706,
+      "local_background_luminance": 0.0482,
+      "local_luminance_contrast": 0.0224,
+      "mean_silhouette_luminance_change": 0.0693,
+      "p90_silhouette_luminance_change": 0.2253,
+      "foreground_saturation": 0.383,
+      "local_background_saturation": 0.6731,
+      "saturation_delta": -0.2901,
+      "foreground_warm_cool": -0.0052,
+      "local_background_warm_cool": -0.1162,
+      "warm_cool_delta": 0.111,
+      "dark_outline_fraction": 0.8255,
       "checks": {
         "readable_silhouette": true,
         "not_luminance_clipped": true,
@@ -571,17 +571,17 @@
       },
       "passed": true,
       "capture_sha256": {
-        "with": "57b0ba5aac2724a065b4ec46165bc00eb8dfa92cd4151789b5cafb3c7e22949e",
-        "without": "2fa5807ad6e004a8e8a317826b0af00cbd12c64689275329da282a39703d3eb4"
+        "with": "96e509a6012627999f4c31304008c357840690ec2f40d42401cd727dc60eade9",
+        "without": "5b60e416f670773397e7e1ef6d9ac286b618cedb42174adf43793610934f1667"
       }
     }
   ],
   "lighting_response": [
     {
       "id": "otter",
-      "night_to_day_luminance_ratio": 0.4254,
-      "day_relative_warm_cool": 0.4349,
-      "night_relative_warm_cool": 0.3762,
+      "night_to_day_luminance_ratio": 0.6361,
+      "day_relative_warm_cool": 0.3463,
+      "night_relative_warm_cool": 0.3282,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -592,9 +592,9 @@
     },
     {
       "id": "frog",
-      "night_to_day_luminance_ratio": 0.4157,
-      "day_relative_warm_cool": 0.3943,
-      "night_relative_warm_cool": 0.3149,
+      "night_to_day_luminance_ratio": 0.4986,
+      "day_relative_warm_cool": 0.4088,
+      "night_relative_warm_cool": 0.378,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -605,9 +605,9 @@
     },
     {
       "id": "hare",
-      "night_to_day_luminance_ratio": 0.4416,
-      "day_relative_warm_cool": 0.3125,
-      "night_relative_warm_cool": 0.1742,
+      "night_to_day_luminance_ratio": 0.4376,
+      "day_relative_warm_cool": 0.2741,
+      "night_relative_warm_cool": 0.1751,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -618,9 +618,9 @@
     },
     {
       "id": "squirrel",
-      "night_to_day_luminance_ratio": 0.4837,
-      "day_relative_warm_cool": 0.421,
-      "night_relative_warm_cool": 0.3896,
+      "night_to_day_luminance_ratio": 0.5524,
+      "day_relative_warm_cool": 0.4121,
+      "night_relative_warm_cool": 0.3947,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,
@@ -631,9 +631,9 @@
     },
     {
       "id": "raccoon",
-      "night_to_day_luminance_ratio": 0.5288,
-      "day_relative_warm_cool": 0.1272,
-      "night_relative_warm_cool": 0.0736,
+      "night_to_day_luminance_ratio": 0.5643,
+      "day_relative_warm_cool": 0.1295,
+      "night_relative_warm_cool": 0.111,
       "checks": {
         "dims_with_scene": true,
         "cools_with_scene": true,

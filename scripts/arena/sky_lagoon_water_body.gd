@@ -74,14 +74,20 @@ func set_patrol_target(target_x: float, speed: float) -> void:
 		sleeping = false
 
 
-func apply_escape(direction: float, speed: float) -> void:
+
+func apply_escape_to(target_x: float, speed: float) -> void:
+	# Activation still begins with a real Jolt impulse, but the solver drive is
+	# bounded to the authored shoreline refuge instead of aiming off-screen.
 	if not water_enabled:
 		return
-	patrol_target_x = global_position.x + direction * 80.0
+	var direction: float = signf(target_x - position.x)
+	if is_zero_approx(direction):
+		direction = 1.0
+	patrol_target_x = target_x
 	patrol_speed = speed
 	received_escape_impulse = true
-	apply_central_impulse(Vector3(direction * mass * speed * 0.42,
-		mass * 2.4, 0.0))
+	apply_central_impulse(Vector3(direction * mass * speed * 0.30,
+		mass * 1.8, 0.0))
 	sleeping = false
 
 
