@@ -182,11 +182,77 @@ Audits and workorders against build generations that no longer exist.
   Harmless — `tools/audit_fairy_art_v2.py` recreates `tmp/fairy_v2/` on its next
   gate run and the ignore rule matches again. Fairy tooling is owner-protected and
   was not touched.
-- **`export_presets.cfg`:** both presets gained `decommissioned/*`. Without it the
-  wing would have shipped in the APK — the old filter matched `gen2/*`,
-  `example/*`, `backups/*`, `tmp/*` by literal path.
+- **`export_presets.cfg`:** both presets gained `decommissioned/*`. This is
+  belt-and-braces, not the load-bearing guard — see § "Size accounting".
 
 ---
+
+## Size accounting
+
+Measured 2026-08-02, against the published master APK (378 MB /
+396,331,475 bytes, commit `74c4d58c`).
+
+| Denominator | Wing share |
+| --- | --- |
+| Working tree (3.4 GB) | 898 MB — **26%** |
+| Full checkout incl. `.git` (6.9 GB) | 898 MB — **13%** |
+| Content Godot can see (514 MB) | **0%** |
+| Shipped APK (378 MB) | **0%** |
+
+**Correction to an earlier claim in this file.** The first version said the wing
+would have shipped ~870 MB into the APK without the new `decommissioned/*`
+export filter. That was wrong. Every moved directory except `tmp/pdfs` already
+carried its own `.gdignore` before the move — `gen2/`, `backups/`, `example/`,
+`disabled_addons/`, `audit/`, `assets_src/` all had one — so Godot never saw
+this content and the APK never contained it.
+
+The real exposure created by the move was only the items that lost a *parent*
+`.gdignore` (the parent file didn't travel with the subdirectory):
+
+| Item | Size | Lost cover from |
+| --- | ---: | --- |
+| `style_review_score3/` | 21 MB | `assets_src/.gdignore` |
+| `audit-snapshots/ember_runtime_2026-07-21/` | 6.3 MB | `audit/.gdignore` |
+| `style_review_batch_04/` | 6.3 MB | `assets_src/.gdignore` |
+| `tessarakkt.oceanfft/` | 2.2 MB | `disabled_addons/.gdignore` |
+| `audit-snapshots/runtime_shots_2026-07-16/` | 1.5 MB | `audit/.gdignore` |
+| `reference-pdfs/` | 7.3 MB | never covered (PDFs aren't Godot resources) |
+
+≈37 MB, of which only ~30 MB was importable. `decommissioned/.gdignore` closes
+it. `gen2/` (744 MB), `oceanfft-demo-scene/` (73 MB) and
+`art-rollback-snapshots/` (18 MB) were never exposed at any point.
+
+### What deleting this wing would actually save
+
+- **APK / phone download: 0 bytes.** Already excluded before and after.
+- **Full `git clone`: 0 bytes.** Deleting from HEAD does not shrink history;
+  every blob stays in the pack. `.git` is 3.5 GB. Reclaiming it needs a
+  history rewrite (`git filter-repo`), which changes every SHA — that breaks
+  the fast-forward guarantee the "Promote dev to master" workflow depends on,
+  invalidates existing clones, and requires a fresh backup-restore drill.
+  Not worth it for content that costs the phone nothing.
+- **Shallow clone (`--depth 1`), which is what CI does: −898 MB**, from
+  3.4 GB to ~2.5 GB (−26%). This is the only real saving, and it lands on CI
+  checkout time, not on the family phone.
+
+### If the goal is a smaller APK
+
+The lever is `assets/` (509 MB of source → 378 MB APK), not this wing:
+
+| Directory | Size |
+| --- | ---: |
+| `assets/aquatic2` | 118 MB |
+| `assets/flats` | 100 MB |
+| `assets/art35` | 42 MB |
+| `assets/characters` | 40 MB |
+| `assets/props` | 32 MB |
+| `assets/opera` | 31 MB |
+
+`assets/aquatic2` and `assets/art35` are 3D-era art from the pipeline the
+2026-07-27 redesign paused — plausibly the largest reducible block in the
+shipped game, but that is a **gameplay/art call for the owner**, gated on
+which zones have migrated to 2.5D flats. It is not a cleanup decision and
+nothing there was touched.
 
 ## Cross-references from kept documents
 

@@ -24,10 +24,16 @@ as current guidance.
 | `decommissioned/.gdignore` | Godot's importer skips the whole wing — no import time, no NPOT deadlock risk, no `.godot` cache churn. |
 | `exclude_filter` in `export_presets.cfg` | `decommissioned/*` is stripped from both APK presets, so the phone build does not grow. |
 
-Both guards are required. The previous per-directory exclusions
-(`gen2/*`, `example/*`, `backups/*`, `tmp/*`) were path-matched by name, so
-moving those directories here without adding `decommissioned/*` would have
-silently pulled ~870 MB into the debug APK.
+**Neither guard is what keeps the APK small — this wing was never in it.**
+Every directory moved here except `tmp/pdfs` already carried a `.gdignore`
+before the move, so Godot never saw any of it and the APK never contained it.
+Decommissioning this content therefore saves **0 bytes** on the phone. See
+`MANIFEST.md` § "Size accounting" for the real numbers.
+
+The guards still matter, for a narrower reason: four items lost their *parent*
+`.gdignore` when they were moved out from under `audit/`, `assets_src/` and
+`disabled_addons/` — about 37 MB that would have become importable. The
+wing-level `.gdignore` re-covers them; the export filter is belt-and-braces.
 
 ## What is NOT here (deliberately)
 
