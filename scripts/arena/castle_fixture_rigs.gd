@@ -21,10 +21,10 @@ const MAX_BUOYANT_ANGLE := 0.12
 const MAX_HINGE_DISPLACEMENT := 0.35
 const MAX_BUOYANT_DISPLACEMENT := 0.06
 
-const FLOW_PROFILE := PackedFloat32Array([
+var _flow_profile: PackedFloat32Array = PackedFloat32Array([
 	0.0, 0.18, 0.62, 1.0, 1.0, 0.68, 0.20, 0.0,
 ])
-const VORTEX_PROFILE := PackedFloat32Array([
+var _vortex_profile: PackedFloat32Array = PackedFloat32Array([
 	0.0, 0.08, 0.52, 1.18, 1.72, 0.86, 0.24, 0.0,
 ])
 
@@ -162,8 +162,8 @@ func apply_frame(interaction_key: String, frame_index: int,
 	if rig.is_empty():
 		return
 	var timeline_t := float(frame_index) / float(maxi(1, frame_count - 1))
-	var amount := _sample_profile(FLOW_PROFILE, timeline_t)
-	var vortex := _sample_profile(VORTEX_PROFILE, timeline_t)
+	var amount := _sample_profile(_flow_profile, timeline_t)
+	var vortex := _sample_profile(_vortex_profile, timeline_t)
 	for water_value: Variant in rig.get("water", []):
 		var water: Dictionary = water_value as Dictionary
 		var material: ShaderMaterial = water.get("material") as ShaderMaterial
