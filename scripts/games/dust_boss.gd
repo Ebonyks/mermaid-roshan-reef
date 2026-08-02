@@ -1,9 +1,18 @@
 class_name DustBossGame
 extends RefCounted
 # THE DUST BUNNY BOSS — "Grand Puff", the biggest dust bunny in the Pearl
-# Castle attic. Art: dust_bunny_curl_ears.png, the large front-facing pose
-# from codex's dirty-castle dust-bunny cast (see DUST_BUNNY_BOSS_2026-08-02.md
-# for the character sheet and the AI contract this file implements).
+# Castle attic. See DUST_BUNNY_BOSS_2026-08-02.md for the character sheet and
+# the AI contract this file implements.
+#
+# ART IS A PLACEHOLDER (owner note 2026-08-02). BOSS_TEX currently points at
+# dust_bunny_curl_ears.png, which is a REGULAR member of the dirty-castle
+# dust-bunny cast, not a boss. An exhaustive search of the art database — all
+# branches, the source cast atlas, both cinematics, art_library/ART_INVENTORY
+# and gen2/generated — found no boss-scale dust bunny anywhere, so the boss
+# art has to be made: CODEX_BOSS_ART_HANDOFF_2026-08-02.md §1 orders it as a
+# six-cell mood atlas. Until it lands the cast card stands in, blown up to
+# boss scale, exactly as the project does for every character whose art has
+# not arrived yet. Swap BOSS_TEX and drop BOSS_H back when the real art is in.
 #
 # The one idea of the fight (owner direction 2026-08-02): Grand Puff is NOT
 # hittable whenever you like. He is a ball of dust — taps bounce off him with
@@ -42,7 +51,10 @@ const LEAP_UP := 0.34          # seconds of rise at the top of a leap
 const LEAP_H := 7.6            # hover height while the star flashes
 const REACH := 12.0            # base tap reach during a window (ring units)
 const HOP_H := 2.4             # prowl hop arc height
-const BOSS_H := 11.5           # cutout height — Roshan is ~7 units tall
+const BOSS_H := 16.0           # placeholder scale: Roshan is ~7 units, and a
+                               # boss must not read as one of the hall bunnies
+                               # she already sweeps up. Drop to ~11.5 when the
+                               # real boss art lands (it will carry its own mass)
 const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
 const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
@@ -482,7 +494,8 @@ func _stage_open() -> void:
 		"bob_amp": 0.45,
 		"speed": 24.0,
 		# the frame must hold the whole ring AND the top of a leap plus the
-		# star above his head: LEAP_H + BOSS_H + the icon ≈ 22 units of air
+		# star above his head — it follows BOSS_H, so re-scaling the boss
+		# re-solves the camera instead of cropping him
 		"headroom": LEAP_H + BOSS_H + 3.5,
 		"start": Vector2(0.0, 14.0),
 		"floor_col": Color(0.82, 0.74, 0.68),      # attic boards

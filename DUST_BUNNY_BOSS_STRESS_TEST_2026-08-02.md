@@ -9,6 +9,14 @@ Everything below is measured, not estimated. Raw output:
 `scripts/probe_dust_boss_balance.gd` (advisory), reference frames from
 `scripts/probe_dust_boss_shots.gd`.
 
+> **Art note.** The boss cutout used throughout this test is a **placeholder**
+> — `dust_bunny_curl_ears.png` is a regular cast member, and no boss-scale dust
+> bunny exists in this repository (see `DUST_BUNNY_BOSS_2026-08-02.md` §0). The
+> real art is on the owner's machine and has not landed yet. Every measurement
+> below is about **behaviour, timing and framing**, none of which depends on
+> which cutout is drawn — the audit stands unchanged when the art is swapped,
+> and the capture pass should simply be re-run to re-review legibility.
+
 ---
 
 ## 0. What was run

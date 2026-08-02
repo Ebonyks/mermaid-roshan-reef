@@ -51,6 +51,13 @@ once) → **angry** (bonked twice) → **friends**. In the build, all four are t
 encounter spends 12.4 s in dizzy and 10.2 s in angry — a third of the fight
 each — expressing them with a tint the child probably cannot name.
 
+**Note (2026-08-02):** the owner has a generated boss portrait locally
+(`.codex/generated_images/019fa72e-863a-7911-a68b-21489e3c3c38`). If that is
+the canonical Grand Puff, this atlas becomes *five more poses in that
+character's design* rather than a new character — cell 1 below is then a
+restatement of the art that already exists, and the identity (face, ear
+shape, paw count, palette) must be copied from it exactly, not reinterpreted.
+
 **Ask — one 3×2 atlas, `dust_bunny_boss_moods` (chroma-key, 512 per cell):**
 
 | Cell | Pose | Must read as |

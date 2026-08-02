@@ -15,10 +15,34 @@ Probe: `scripts/probe_dust_boss.gd`.
 
 ---
 
+## 0. ART STATUS — the shipped cutout is a PLACEHOLDER (2026-08-02)
+
+Owner correction: `dust_bunny_curl_ears.png` is a **regular** member of the
+dust-bunny cast, not the boss. An exhaustive search of the art database —
+every branch, the source cast atlas
+(`assets_src/concepts/dirty_castle_cleanup_2026-07-22/processed/dust_bunny_cast_atlas_alpha.png`),
+both dirty-castle cinematics, `art_library/ART_INVENTORY.csv` and
+`gen2/generated/` — found **no boss-scale dust bunny in this repository**. The
+six cast poses (curl-ears, siblings, hop, shell-hide, sleepy, family) are all
+of it.
+
+The owner has boss art locally at
+`C:\Users\Peter\.codex\generated_images\019fa72e-863a-7911-a68b-21489e3c3c38`,
+which this remote container cannot read. **To land it:** drop the file at
+`assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_boss.png`
+(≤1024 px longest side or power-of-two, transparent), add its
+`ASSET_LICENSES.md` line, and point `DustBossGame.BOSS_TEX` at it. Nothing
+else changes — the framing follows `BOSS_H`, so the camera re-solves itself.
+
+Until it lands the cast card stands in at boss scale (`BOSS_H = 16.0`, versus
+Roshan's ~7), the same way every character in this project keeps a cutout
+fallback until its own art arrives. Drop `BOSS_H` back toward 11.5 when the
+real art carries its own mass.
+
 ## 1. Who he is (what the codex branches say)
 
 There is no separate boss character in the codex art database — there is a
-**dust-bunny cast**, and he is its largest member. The cast was generated for
+**dust-bunny cast**, and the boss's own art has to be made (§0). The cast was generated for
 the Pearl Castle cleanup section; the sheet prompt lives in
 `assets_src/concepts/dirty_castle_cleanup_2026-07-22/PROMPTS.md`
 ("Sprite atlas 04 — dust-bunny cast", branch `codex/dirty-castle-2d`) and
@@ -32,14 +56,15 @@ specifies six poses:
 > and fine navy-purple outlines. […] **Dust bunnies are friendly helpers, not
 > pests, monsters, smoke, or realistic dirt.**
 
-The first of those — `dust_bunny_curl_ears.png`, the large front-facing pose
-with the full spiral ears and four pearl paws — is the boss. It is the only
-cast member that was never wired into the runtime: the Main Hall spawns the
-sleepy, shell-hide and hop poses
-(`CASTLE_DUST_BUNNY_SPAWN_GUIDE_2026-07-29.md`), the Playroom rescue reuses
-the hop pose twice (`STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md`), and the
-family card is a hall prop. The big one stayed on `codex/dirty-castle-2d`
-unused. It is brought forward here unchanged (see `ASSET_LICENSES.md`).
+The first of those — `dust_bunny_curl_ears.png`, the front-facing pose with
+the full spiral ears and four pearl paws — is a **regular cast member**, and
+the placeholder this encounter currently borrows (§0). It was simply the only
+pose never wired into the runtime: the Main Hall spawns the sleepy, shell-hide
+and hop poses (`CASTLE_DUST_BUNNY_SPAWN_GUIDE_2026-07-29.md`), the Playroom
+rescue reuses the hop pose twice
+(`STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md`), and the family card is a hall
+prop. It is brought forward unchanged (see `ASSET_LICENSES.md`) and stands in
+at boss scale until the real boss art lands.
 
 Everything else in the branches is supporting material rather than character
 canon: the hall bunnies are the castle's mascots with idle-life animations
@@ -85,7 +110,7 @@ seen before he is ever an opponent.
 `prowl → windup → vuln → prowl` is the loop; a landed hit inserts `struck`.
 
 **Damage exists in exactly one place in the file** (`_tick_vuln`): state is
-`vuln`, the tap is a fresh input edge from `SideScrollStage.brawl_tick`, and
+`vuln`, the tap is a fresh input edge from `OctagonStage.tick`, and
 Roshan is inside `reach()` of him. That is why zero-input play can never
 scratch him (`probe_passive`), and why a tap at any other moment is a poof and
 a giggle rather than a miss.
