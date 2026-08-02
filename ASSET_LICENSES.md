@@ -16,6 +16,8 @@
 | assets/characters/friends/* | book character art (family) | **© Mermaid Roshan LLC, all rights reserved** | — | background removal only — SACRED, never restyle |
 | assets/characters/roshan.glb, huluu.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |
 | assets/characters/roshan_sprite.png, roshan_tex_2k.webp, lamb_0.png, skins/* | book-art derivatives | © Mermaid Roshan LLC, all rights reserved | — | palette/skin variants |
+| assets/ui/boot_splash_mermaid_roshan.png | OpenAI built-in image generation using project-owned Mermaid Roshan character references and approved project environment/style art | **Project-generated derivative of (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Selected Rainbow Bridge candidate; native 1672x941 full frame normalized as one whole canvas to 1024x576 PNG; no protected original modified or overwritten; generated 2026-08-01 |
+| assets_src/imagegen/boot_splash_2026-08-01/** | OpenAI built-in image-generation candidates plus non-destructive project-reference boards and derived review contact sheet | **Project-generated review/source art; protected character sources remain (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/README.md; assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Three native full-frame candidates, selected/rejection audit, exact prompts, hashes, and reference layouts; review/source only under assets_src; no protected original changed; generated 2026-08-01 |
 | assets/audio/voices/daddy1-3.ogg, chuck*.ogg | family recordings (+ Pixabay dog bark, see below) | **© family / Pixabay Content License** | pixabay.com | trim + loudnorm — SACRED |
 | assets/audio/voices/voice_yay.mp3 | floraphonic via Pixabay | Pixabay Content License | pixabay.com | none — SACRED |
 | assets/audio/voices/* (all other lines) | Kokoro-82M neural TTS (Apache-2.0 model), lines written for this project | synthesized output, owned by project | huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX | pitch/tempo/loudnorm per VOICE_MANIFEST.md |
@@ -202,6 +204,8 @@
 
 | assets_src/concepts/opera_house_flat/*.png; assets_src/concepts/opera_house_flat/cards/*.png | Original Pearl Opera House flat prototypes generated with OpenAI built-in image generation under project art direction | **Project-generated review art** | `assets_src/concepts/opera_house_flat/PROMPTS.md`; `OPERA_HOUSE_FLAT_ART_AUDIT_2026-07-21.md`; `tools/slice_opera_house_prototypes.py` | Thirteen accepted sheets and 172 derived cards; normalized to at most 1024 px; review/model-reference only, no runtime path replaced; generated and iterated 2026-07-21. |
 | assets_src/concepts/opera_jobs_flat_2026-07-21/*.png; assets_src/concepts/opera_jobs_flat_2026-07-21/cards/*.png; audit/opera_job_flat_contact_sheet_2026-07-21.png | Original Opera House Roshan outfit, subgame-prop, and stage/state prototypes generated with OpenAI built-in image generation from project-owned Roshan and Opera House visual references | **Project-generated review/model-reference art** | `assets_src/concepts/opera_jobs_flat_2026-07-21/PROMPTS.md`; `OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md`; `tools/slice_opera_job_prototypes.py` | Thirty-six accepted 1024px sheets, 576 deterministic 1024x1024 individual card renders, and one derived audit contact sheet for twelve non-boss jobs; individual cards preserve the accepted sheet cells without a new generative reinterpretation; three failed drafts were regenerated and retained only in external provenance cache; review/model-reference only, no protected or runtime art replaced; generated and iterated 2026-07-21. |
+| assets_src/concepts/opera_nursery_2026-08-01/*.png | Original Nursery Nurse Roshan, Nurse Faron, and three-baby source generations made with OpenAI built-in image generation from project-owned/protected identity references | **Project-generated source art** | `assets_src/concepts/opera_nursery_2026-08-01/GENERATED_ART.md`; `SHA256SUMS` | Three accepted complete isolated storybook generations plus non-destructive alpha masters; protected Roshan/Faron/baby references were read-only and no protected pixels were copied into delivery; generated and accepted 2026-08-01. |
+| assets/opera/worlds/actors/roshan_nursery.png; assets/opera/worlds/actors/faron_nursery.png; assets/opera/worlds/nursery/baby_0.png through baby_2.png | Deterministic lossless-alpha runtime derivatives of the accepted OpenAI nursery sources | **Project-generated art** | `tools/prepare_opera_nursery_art.py`; `assets_src/concepts/opera_nursery_2026-08-01/GENERATED_ART.md` | Whole-subject fits and deliberate equal-lane baby splits only; 512×512 actors and 320×320 baby cards, transparent-corner and chroma-residue audited; created 2026-08-01. |
 | assets_src/concepts/ocean_kingdoms_2026-07-22/**/*.png | Original Caribbean and Norwegian ocean-kingdom environment and fauna reference sheets generated with OpenAI built-in image generation under project art direction | **Project-generated review/model-reference art** | `assets_src/concepts/ocean_kingdoms_2026-07-22/PROMPTS.md`; `assets_src/concepts/ocean_kingdoms_2026-07-22/README.md` | Four accepted and one quarantined 1536x1024 source sheet for Claude's modular low-poly 3D reconstruction lane; first Caribbean fauna draft rejected for an Indo-Pacific regal-tang pattern, accepted revision uses adult Atlantic blue tang identity; no external reference art; reference-only under `assets_src/.gdignore`; no runtime or protected asset replaced; generated 2026-07-22. |
 
 +| assets/ember_fortress/ember_planet.glb | Project-authored deterministic Blender 4.5 geometry | **Project-generated art** | `tools/build_ember_fortress_kit.py`; `assets_src/blender/ember_fortress_kit.blend` | Texture-free Ember Fortress runtime role; generated 2026-07-21. |
@@ -621,6 +625,18 @@ ambientCG (all CC0).
 - `assets_src/concepts/opera_rivals_2026-07-29/rejected/*.png` — rejected,
   review-only generated iterations retained for provenance and excluded from
   runtime loading.
+- `assets/opera/worlds/props/goal_{chef,detective,ballerina,candymaker,doctor,farmer,boxer,magician,painter,astronaut,racer,popstar}.png`
+  — deterministic 512×512 transparent runtime derivatives of one accepted
+  gameplay card per career from
+  `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/` (the act's goal
+  prop, 2026-08-01). Modifications by `tools/prepare_opera_2d_props.py`:
+  remove only the edge-connected navy presentation field/card border, crop,
+  and Lanczos aspect-fit; source cards unchanged.
+- `assets/opera/worlds/actors/imp_{mischief,captain}.png` — project-original
+  BASIC placeholder sprites drawn from simple shapes by
+  `tools/prepare_opera_2d_props.py` (2026-08-01) for the career-world imp
+  scuffle beats; scheduled for replacement by codex mischief-imp sprites per
+  OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md. No external sources.
 <!-- rows removed 2026-07-28 (asset purge, claude/asset-purge-dead-3d): kits/play (Tiny Treats Fun Playground), assets/sky HDRs (Poly Haven Qwantani day/dusk) - files deleted from repo -->
 
 ## Pearl Castle 2.5D room references and derived cards (2026-07-26)
@@ -768,22 +784,25 @@ generator output is present in this directory or connected to runtime art.
   removed while the accepted arch, corridor, and badge pixels remain.
 - `assets/flats/castle/main_hall_2screen/castle_join_column_cutout_reuse.png`
   — tight-alpha 190 x 941 extraction of an accepted Screen A shell pilaster;
-  used as the real-depth A/B architectural divider.
+  retained as a provenance derivative but not used by the repaired runtime
+  join.
 - `assets/flats/castle/main_hall_2screen/castle_join_floor_inlay_reuse.png`
   — 48 x 321 tapered inlay assembled deterministically by rotating and tiling
-  the accepted Screen A carpet trim; no new painting or external source.
+  the accepted Screen A carpet trim; no new painting or external source. It is
+  retained for provenance but retired from runtime because it read as a crack.
 - `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_*.png`
   — updated lossless runtime crops of the documented derived Main Hall
   masters. Source rectangles and hashes are in
   `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.
-- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c*_bleed.png`
-  — deterministic render-only derivatives of the four accepted top-row
-  tiles, made by `tools/build_castle_hall_runtime_bleed.py`. Each 836 x 471
-  file preserves its 836 x 470 source body pixel-exactly and appends the first
-  approved pixel row of the corresponding lower tile. This creates a
-  one-pixel Mobile-raster safety overlap without scaling, interpolation,
-  content loss, generated art, or any modification to the accepted source
-  tiles. Exact source/derived hashes and row-equality proofs are recorded in
+- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r{0,1}_c*_bleed.png`
+  — deterministic render-only derivatives of all eight accepted source tiles,
+  made by `tools/build_castle_hall_runtime_bleed.py`. Each file preserves its
+  836 x 470/471 source body pixel-exactly and, where an interior neighbor
+  exists, appends that approved neighbor's first column and/or row. Derived
+  textures are at most 837 x 471. This creates a one-pixel two-axis
+  Mobile-raster safety overlap without scaling, interpolation, content loss,
+  generated art, or modification to the accepted source tiles. Exact
+  source/derived hashes and edge-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
 ## Sky Lagoon ambient animals - 2026-07-29
@@ -803,7 +822,7 @@ generator output is present in this directory or connected to runtime art.
 ## Pearl Castle registered Sprite3D bloom correction (2026-07-29)
 
 - `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r{0,1}_c{2,3}.png`
-  and `tiles/runtime_bleed/main_hall_room_led_r0_c{2,3}_bleed.png` ?
+  and `tiles/runtime_bleed/main_hall_room_led_r{0,1}_c{2,3}_bleed.png` —
   lossless recrops of the already licensed
   `assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png`.
   Screen B now uses source rectangle `(376, 147, 1672, 941)` so its fixture
@@ -825,6 +844,85 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
+
+<!-- OPERA_REGEN_2026_08_01_START -->
+## Opera regeneration — 2026-08-01
+
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/astronaut_engineer_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7ec20da7-2d87-498b-8ff8-1ce09aac83e9.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/boss_midnight_maestro_friendly.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-be832013-604d-4e17-9931-de89bd13a616.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/boss_shadow_phantom_friendly.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-14223439-45d9-4392-a07f-6757b96f2e34.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/boxer_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-ee9975b1-59e7-4a47-8f29-4f7a8a1d20cb.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/doctor_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-06322a9d-e58b-4f97-9364-5c56235bf118.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/farmer_gameplay_sheet.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-ba2b918e-93ed-4009-a25f-0ad6f7ccde69.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/farmer_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-98b68765-4d64-4120-9273-012ff7b01532.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_captain.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7965759e-156f-4315-bb01-87a9820939b1.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_captain_bopped.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-b8efc220-fe27-450e-b323-b69efa66a4d8.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_captain_bow.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-4cac2c7f-a077-4fc9-859b-91c3c385649e.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_mischief.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-9e92b9fa-b7b5-4a9c-9f2a-e20018bfd8ff.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_mischief_bopped.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-80d9d6fd-c1c6-4340-8578-85784779d49d.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/imp_mischief_bow.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-c06ee44d-9e98-4954-b24b-ae2af4edcf4c.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/magician_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-d81a17c2-6eed-4acc-9b7f-7786dd135470.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_house_audience_kit.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-f1433e5a-7690-494d-b036-0b3171de0300.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_astronaut_engineer_gameplay_rocket_front.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7ec64f23-f8db-443f-9825-698cbc2c007e.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_ballerina_gameplay_music_box.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-4236332a-1094-4976-bba1-4a6d554bd166.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_ballerina_outfit_tertiary_tool_or_accessory.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-73ff7986-680c-44ef-b766-e42629c2c2cf.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_boxer_gameplay_championship_belt.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-a984de05-6eec-4cee-b096-5deffa914881.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_boxer_gameplay_imp_bow_group.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-810207d9-2b60-44b3-b2d8-ef52c21ce90f.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_boxer_stage_states_bop_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-cffd5543-9456-4160-a8e1-c0cabdc624f7.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_boxer_stage_states_gentle_retry.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-d9a22fa6-1c1e-49c2-b548-d36989317590.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_boxer_stage_states_imp_peek_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-f6367beb-4ec3-45df-9511-1604815f64f4.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_candy_maker_gameplay_wrapped_candy_reward.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-3b5632b2-462f-4234-a380-a5f9656848b2.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_candy_maker_stage_states_seven_slot_shelf.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-90f0543a-7011-460d-bef6-646590ded0db.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_candy_maker_stage_states_shelf_complete.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-357d4deb-7e33-414b-a8d8-b8a45fec0700.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_candy_maker_stage_states_timing_pointer.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-f3073d5a-e2d8-4209-9c85-feea39fa9ab0.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_gameplay_magnifier.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-c79a4fbc-83b2-4b03-831f-88a8fb46ba89.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_gameplay_pearl_tiara.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-16885f1a-8e92-49f6-b796-b29ee46925b5.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_stage_states_case_complete_tableau.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-0504f6d2-ad42-4afa-916b-97ff4a110d9b.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_stage_states_chest_pedestal.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-4e244964-dea4-4298-a42e-5c1add1dcdec.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_stage_states_magnifier_pointer.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-f5faed60-669d-406f-b003-f8eabdfe5af7.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_doctor_gameplay_recovered_starfish.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-be9f8a34-354c-41fd-9bc0-4c328e3376ff.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_doctor_outfit_primary_tool_or_accessory.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-6217a596-9d59-44ae-a6f2-d06748b26144.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_doctor_stage_states_four_step_board.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-1ef8b71a-321a-41ff-ace5-861a04032501.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_farmer_gameplay_piggy_fed.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-2518f2b7-e50b-4cc0-b335-b43daea2b38c.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_farmer_stage_states_piggy_finale.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-c4018336-a9dd-406c-b5b1-289671a8d08a.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_gameplay_bunny_fish_peek.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-a053e1f9-2f00-4c44-b237-7b6c40f27a23.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_gameplay_bunny_fish_reveal.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-a03e92fe-c5e6-4414-a6ca-4658311d242a.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_gameplay_bunny_fish_swim.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-d52078dd-65fa-4e9b-b64a-e5f5501a34d0.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_gameplay_pearl_wand.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-ff8c9539-b1b8-48d9-8413-d3586e29eeb5.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_bunny_fish_reveal.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-24f3d0a8-7e09-4837-809a-6f8e43de0100.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_decoy_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7ef67f19-1835-4a86-98e8-caa106211263.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_final_reveal.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-b59b4b99-c335-4bea-a222-c8c1bc8e1f3a.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_selector_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-2fec0f0e-d44f-46a9-9369-52884aa71c4f.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_swap_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-18168f63-7820-4d0e-9a92-5083ba382629.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_magician_stage_states_watch_state.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-51224c38-df5a-48dd-a3ee-ab4eb17ef207.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_painter_gameplay_coral_loaded_brush.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-feb2da7c-514b-447b-b7b5-998345a59f45.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_painter_gameplay_cream_loaded_brush.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-9c822771-b48b-41ae-bd46-deef139a1522.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_painter_gameplay_framed_sunrise.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-77a0271f-082d-46a5-a113-d2abaad695bd.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_painter_gameplay_plum_loaded_brush.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-68c1a323-04e6-48b3-a8c3-ff5773b01b18.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_gameplay_finished_cake.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-1a4bec08-a51f-435a-aacb-b84c1d1fa754.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_stage_states_cake_reveal.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-cbd22830-8f7d-4056-8584-d9cd6face619.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_stage_states_oven_alcove.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-fb5f0099-e706-48a9-8f93-78155de39416.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_stage_states_placement_glows.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-2d3dbef1-12ca-4099-aa26-47fa595350a8.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_stage_states_presentation_cart.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-adcc9dcf-7ea7-474a-a663-ea5e1b00bf49.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pastry_chef_stage_states_topping_pedestals.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-9214e5fa-13c7-4c8e-ab6c-f34c2d17ba22.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pop_star_gameplay_microphone_finale.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-38eee3e2-1d54-4301-96bf-3915be39c51d.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pop_star_gameplay_speaker.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-d8b96a02-1d0a-4689-86cb-e26d653dde18.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pop_star_stage_states_arrow_lane.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-38ef1ad2-1d6e-46c0-a854-300e8babf0d2.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pop_star_stage_states_arrows_complete.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-dc442127-5ada-4f5f-b065-c7bd2c26f914.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_pop_star_stage_states_dance_floor.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-e38212da-b14e-451c-a475-d2cebdb8d7f7.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_racecar_driver_gameplay_shell_trophy.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-ce69b6ab-71f9-4954-842d-5cf340c6b39e.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_racecar_driver_gameplay_zoom_strip_active.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-4728d13d-c787-4302-add5-443eac671728.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_racecar_driver_outfit_secondary_tool_or_accessory.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7f5be543-850b-4780-a3dc-5edf0697f063.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_rival_costume_sheet_master.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-7f0a92a5-29f6-41b6-9bfa-8c3069e84dd1.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_upper_access_floor_selector_full.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-bfa93fef-acd4-4a26-bf38-ad973d00c4a1.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_upper_access_floor_selector_ground.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-1375db52-cfcb-4d59-8353-b5a06a33e3ee.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_upper_access_floor_selector_middle.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-b4d908b7-f05d-4ae5-93b0-7f93007838d5.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/painter_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-15f1f596-8327-4513-8c67-f8c53d9338f3.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/pop_star_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-42d31345-2667-48bc-9852-601c0b9c7a7b.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/racecar_driver_performance_boss_finale_2026-07-24.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-6b2640d6-be6f-4e3c-a43a-4af8446d71dc.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/roshan_doctor_stethoscope.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-af9814f2-16cc-4e7b-96cc-f3e83bff4d67.png`.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/roshan_racer_steering_wheel.png` — OpenAI-generated project concept art; 2026-08-01; native generated master retained, delivery copies may be whole-canvas normalized, matted, or sliced; project-owned; generation `exec-0ce28eb1-87eb-4090-9533-7016cc47cd16.png`.
+<!-- OPERA_REGEN_2026_08_01_END -->
 
 ## Pearl Castle semantic interaction atlases and sounds (2026-08-01)
 
@@ -935,3 +1033,103 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   derivatives built by `tools/build_castle_room_button_thumbnails.py` as
   400 x 224 center-crop/resamples of the registered masters. No external art
   or additional generated pixels. License remains project original.
+
+## Pearl Castle dream-house rooms (2026-08-01)
+
+- assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png
+  - project-original composition reference generated with the built-in Codex
+  ImageGen tool from approved Royal Kitchen/Library art and the approved
+  kitchen-table QA render; all rights reserved. It is below the native room
+  requirement and contributes no runtime pixels. The exact method, references,
+  and prompt are recorded in the adjacent PROMPTS.md.
+- assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png
+  - project-authored deterministic 2048 x 2048 room-shell masters composed by
+  tools/build_castle_dream_house_rooms.py from the already-licensed
+  up_castle_col, kitchen_floor_col, castle_floor_col,
+  bathroom_tile_col, and castle_carpet_col project textures. No protected
+  original was modified.
+- assets/flats/castle/rooms/room_family_gallery_background.png
+- assets/flats/castle/rooms/room_dining_room_background.png
+- assets/flats/castle/rooms/room_royal_bedroom_background.png
+- assets/flats/castle/rooms/room_sleepover_bedroom_background.png
+- assets/flats/castle/rooms/room_movie_lounge_background.png
+  - project-original 1024 x 576 review previews derived from the corresponding
+  native masters; not used as delivered world pixels when native tiles exist.
+- assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_dining_room_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r*_c*.png
+  - project-original four-card runtime sets: exact, non-overlapping
+  1024 x 576 crops of each 2048 x 1152 playable master band. Tile hashes and
+  exact reconstruction evidence are recorded in the dream-house manifest.
+- assets/flats/castle/dream_house/dining_table.png
+- assets/flats/castle/dream_house/dining_seat.png
+- assets/flats/castle/dream_house/provisions_hutch.png
+- assets/flats/castle/dream_house/canopy_bed.png
+- assets/flats/castle/dream_house/bedside_table.png
+- assets/flats/castle/dream_house/shell_wardrobe.png
+- assets/flats/castle/dream_house/story_cushion.png
+- assets/flats/castle/dream_house/dream_bed_0.png
+- assets/flats/castle/dream_house/dream_bed_1.png
+- assets/flats/castle/dream_house/dream_bed_2.png
+- assets/flats/castle/dream_house/cloud_settee.png
+- assets/flats/castle/dream_house/cloud_pouf.png
+- assets/flats/castle/dream_house/shell_arch.png
+- assets/flats/castle/dream_house/shell_window.png
+- assets/flats/castle/dream_house/shell_chandelier.png
+  - non-destructive transparent-border crops of the already-licensed
+  project-generated Pearl Castle and art-pass-35 QA renders. Source renders,
+  source hashes, and transformations are recorded per file in the manifest;
+  approved source GLBs and renders remain unchanged.
+- assets/flats/castle/dream_house/family_wing_portal.png
+- assets/flats/castle/dream_house/family_portal_dining.png
+- assets/flats/castle/dream_house/family_portal_royal_bedroom.png
+- assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png
+- assets/flats/castle/dream_house/family_portal_movie_lounge.png
+- assets/flats/castle/dream_house/family_wing_hall_insert.png
+  - non-destructive derivatives of the already-approved project-original
+  castle_playroom_portal_cutout_reuse.png. The portal pixels remain unchanged;
+  project-authored picture crests distinguish the routes, and the Main Hall
+  insert adds only an approved wall-texture surround. All source paths, hashes,
+  and transforms are recorded in the manifest. License remains project
+  original; all rights reserved.
+
+- assets/flats/castle/dream_house/meal_plate.png
+- assets/flats/castle/dream_house/movie_screen_frame.png
+  - new project-original deterministic Pillow drawings in the approved pearl
+  material language; all rights reserved. No external or protected pixels.
+- audit/castle_dream_house/dream_house_room_art_manifest.json
+- audit/castle_dream_house/dream_house_room_shells_contact.png
+- audit/castle_dream_house/dream_house_layout_contact.png
+- audit/castle_dream_house/dream_house_hall_entry_contact.png
+  - deterministic provenance/integrity record, five-room shell review, and
+  physical gallery-layout review; project audit evidence, not runtime art.
+- assets/book/hall/p_slide.jpg, p_trampoline.jpg, p_garden.jpg,
+  p_snowman.jpg, and p_xmas.jpg are displayed directly and unchanged on
+  the movie screen. They remain protected book art under their existing
+  license; no derivative runtime copy is created.
+## Shared water-FX atlas vocabulary (2026-08-02)
+
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_chroma_native.png` ? Source: OpenAI built-in ImageGen using only approved project-local castle water atlas references; License: project original, all rights reserved; URL: N/A (generated in-project); Modifications: none, preserved native flat-chroma small-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_alpha_native.png` ? Source: adjacent project-original small-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small splash as continuity reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma medium-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_alpha_native.png` ? Source: adjacent project-original medium-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small/medium splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma hero-breach generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_alpha_native.png` ? Source: adjacent project-original breach chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma ripple generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_alpha_native.png` ? Source: adjacent project-original ripple chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_chroma_native.png` ? Source: OpenAI built-in ImageGen using approved project-local castle bubbles and the accepted project-original water-FX family as references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma bubble-burst generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_alpha_native.png` ? Source: adjacent project-original bubble-burst chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original water-FX family as reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma foamline generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_alpha_native.png` ? Source: adjacent project-original foamline chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets/sprites/fx_water/fx_water_splash_small_atlas.png` ? Source: accepted project-original small-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, 4?2 packing, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_medium_atlas.png` ? Source: accepted project-original medium-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, reviewed eight-cell selection, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_breach_atlas.png` ? Source: accepted project-original breach alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_ripple_ring_atlas.png` ? Source: accepted project-original ripple alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, uniform 0.94 cell scale, 4?2 packing, and fixed-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_bubble_burst_atlas.png` ? Source: accepted project-original bubble-burst alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512 and 4?2 packing by `tools/build_water_fx_atlases.py`, preserving the drawn rise relative to fixed cell center.
+- `assets/sprites/fx_water/fx_water_foamline_strip.png` ? Source: accepted project-original foamline alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-canvas normalization to 1024?256 and top-edge waterline alignment by `tools/build_water_fx_atlases.py`; no motion painted or synthesized.

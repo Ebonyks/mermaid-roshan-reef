@@ -263,11 +263,14 @@ func _init() -> void:
 				and not main.g.has(retired_key)
 		print("AUDIT|retired 3D castle absent: ",
 			("OK" if legacy_hall_absent else "FAIL"))
-		var elevator_ok: bool = main.castle_room_buttons.size() == 8 \
+		var room_routes_ok: bool = main.castle_room_buttons.size() == 8 \
+			and main.castle_room_buttons.has("family_gallery") \
 			and main.castle_room_buttons.has("opera_hall") \
-			and main.castle_room_buttons.has("bubble_bath")
-		print("AUDIT|castle elevator has all rooms: ",
-			("OK" if elevator_ok else "FAIL"))
+			and main.castle_room_buttons.has("bubble_bath") \
+			and main.castle_room_back_button != null \
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null
+		print("AUDIT|castle has one physical route per room: ",
+			("OK" if room_routes_ok else "FAIL"))
 		# The Main Hall action celebrates in place and records the win without
 		# switching back to the free-roaming world.
 		if stage_ok:

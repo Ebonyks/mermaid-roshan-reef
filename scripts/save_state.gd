@@ -10,7 +10,7 @@ const BACKUP_SUFFIX := ".bak"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
-	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
+	"finale", "music", "mic", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
 	"lagoon_plane_departed",
@@ -28,7 +28,7 @@ const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
 # slot became Daddy Mermaid on 2026-07-19 — IP hold, see attic/gabby/).
 const LEGACY_FRIEND_SAVE_KEYS := {"Daddy Mermaid": "Gabby"}
 const KNOWN_KEYS: Array[String] = [
-	"schema_version", "won", "found", "finale", "music", "quality", "touch_mode",
+	"schema_version", "won", "found", "finale", "music", "mic", "quality", "touch_mode",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
@@ -76,12 +76,15 @@ func load_save() -> void:
 	m.is_night = (m.plays % 2) == 0
 	m._apply_time_of_day()
 	m.music_on = bool(m.save_data.get("music", true))
+	m.mic_on = bool(m.save_data.get("mic", m.MIC_DEFAULT_ON))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
 	m._set_touch_mode(String(m.save_data.get("touch_mode", m.TOUCH_MODE_HYBRID)), false)
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
 		m.music_btn.text = m._pause_ref().music_label()
+	if m.mic_btn != null:
+		m.mic_btn.text = m._pause_ref().mic_label()
 	m.pearl_count = int(m.save_data.get("pearls", 0))
 	m.pearls_ever = maxi(m.pearl_count, int(m.save_data.get("pearls_ever", m.pearl_count)))
 	# A completed Level 2 is definitive legacy evidence that the portal opened.
@@ -119,8 +122,8 @@ func load_save() -> void:
 	m.ember_found = bool(m.save_data.get("ember_found", false))
 	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
 	m.ember_done = bool(m.save_data.get("ember_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 15)
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 32767)
+	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 16)
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 65535)
 	if m.opera_stars < 0:
 		# pre-lobby saves stored a linear checkpoint: the first N doors were done
 		m.opera_stars = (1 << m.opera_progress) - 1
@@ -176,6 +179,7 @@ func write_save() -> bool:
 	next_data["found"] = found_d
 	next_data["finale"] = m.finale_done
 	next_data["music"] = m.music_on
+	next_data["mic"] = m.mic_on
 	next_data["quality"] = m.quality
 	next_data["touch_mode"] = m.touch_mode
 	next_data["pearls"] = maxi(m.pearl_count, 0)
@@ -197,8 +201,8 @@ func write_save() -> bool:
 	next_data["ember_found"] = m.ember_found
 	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
 	next_data["ember_done"] = m.ember_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 15)
-	next_data["opera_stars"] = clampi(m.opera_stars, 0, 32767)
+	next_data["opera_progress"] = clampi(m.opera_progress, 0, 16)
+	next_data["opera_stars"] = clampi(m.opera_stars, 0, 65535)
 	next_data["opera_done"] = m.opera_done
 	next_data["opera_pantry"] = m.opera_pantry.duplicate()
 	next_data["stickers"] = m.stickers
@@ -425,6 +429,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["found"] = _dictionary_or_default(raw, "found")
 	data["finale"] = _bool_or_default(raw, "finale", false)
 	data["music"] = _bool_or_default(raw, "music", true)
+	data["mic"] = _bool_or_default(raw, "mic", m.MIC_DEFAULT_ON)
 	data["quality"] = _quality_or_default(raw, qdef)
 	var saved_touch_mode: String = _string_or_default(raw, "touch_mode", "hybrid")
 	data["touch_mode"] = saved_touch_mode if saved_touch_mode in ["hybrid", "classic"] else "hybrid"
@@ -452,10 +457,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["ember_found"] = _bool_or_default(raw, "ember_found", false)
 	data["ember_progress"] = clampi(_nonnegative_int_or_default(raw, "ember_progress", 0), 0, 6)
 	data["ember_done"] = _bool_or_default(raw, "ember_done", false)
-	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 15)
+	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)
 	data["opera_progress"] = opera_prog
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
-	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 32767)
+	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 65535)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	var pantry_in: Variant = raw.get("opera_pantry", {})
 	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}

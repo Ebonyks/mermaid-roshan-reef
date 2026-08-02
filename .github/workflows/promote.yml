@@ -1,10 +1,11 @@
 name: Promote dev to master
 
-# The only way master moves. Run from the Actions tab (workflow_dispatch).
-# Master is the release branch the phone's stable APK bookmark tracks;
-# this promotion fast-forwards it to dev's tested HEAD and refuses to run
-# unless the probe suite is green for that exact commit, so master history
-# is always identical to probed history.
+# The only way master moves. Dispatch from the Actions tab or with:
+# gh workflow run promote.yml --ref dev
+# It follows the latest dev head while probes are running, fast-forwards only
+# after that exact dev commit is green, and promotes its checksum-verified APK.
+# Master history therefore stays identical to probed history while an owner
+# request remains a single command.
 
 on:
   workflow_dispatch:
@@ -22,6 +23,7 @@ concurrency:
 jobs:
   promote:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       # persist-credentials stays ON here: the fast-forward push below is the
       # one legitimate git write in the whole pipeline
@@ -30,30 +32,69 @@ jobs:
           ref: dev
           fetch-depth: 0
 
-      - name: Verify probe suite is green for dev HEAD
+      - name: Resolve latest green dev HEAD
+        id: green_dev
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          SHA=$(git rev-parse HEAD)
-          echo "dev HEAD: $SHA"
-          CONCLUSION=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/probes.yml/runs?head_sha=$SHA&per_page=1" \
-            | python3 -c "import json,sys; r=json.load(sys.stdin)['workflow_runs']; print(r[0]['conclusion'] if r else 'no-run')")
-          echo "probe suite conclusion for $SHA: $CONCLUSION"
-          if [ "$CONCLUSION" != "success" ]; then
-            echo "Refusing to promote: probes for dev HEAD are '$CONCLUSION', not success."
-            exit 1
-          fi
+          # One owner command is enough even when probes are still queued or
+          # another agent advances dev while this workflow is waiting.
+          for generation in $(seq 1 20); do
+            git fetch --quiet origin dev
+            SHA=$(git rev-parse origin/dev)
+            CURRENT="$SHA"
+            echo "candidate dev HEAD: $SHA (generation $generation/20)"
+            for attempt in $(seq 1 100); do
+              git fetch --quiet origin dev
+              CURRENT=$(git rev-parse origin/dev)
+              if [ "$CURRENT" != "$SHA" ]; then
+                echo "dev advanced from $SHA to $CURRENT; following the new head"
+                break
+              fi
+              STATE=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/probes.yml/runs?head_sha=$SHA&per_page=20" \
+                | python3 -c "import json,sys; runs=[r for r in json.load(sys.stdin)['workflow_runs'] if r.get('head_branch') == 'dev']; print('success' if any(r.get('conclusion') == 'success' for r in runs) else ('pending' if not runs or any(r.get('status') != 'completed' for r in runs) else (runs[0].get('conclusion') or 'unknown')))")
+              echo "dev probe state for $SHA: $STATE (attempt $attempt/100)"
+              case "$STATE" in
+                success)
+                  git fetch --quiet origin dev
+                  CURRENT=$(git rev-parse origin/dev)
+                  if [ "$CURRENT" != "$SHA" ]; then
+                    echo "dev advanced after the green check; following $CURRENT"
+                    break
+                  fi
+                  echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+                  exit 0
+                  ;;
+                failure|timed_out|action_required|startup_failure|skipped)
+                  echo "::error::Refusing to promote: dev probes for $SHA concluded '$STATE'."
+                  exit 1
+                  ;;
+              esac
+              sleep 20
+            done
+            if [ "$CURRENT" = "$SHA" ]; then
+              echo "::error::Timed out waiting for dev probes on $SHA."
+              exit 1
+            fi
+          done
+          echo "::error::dev changed too many times while promotion was waiting."
+          exit 1
 
       - name: Fast-forward master to dev
         run: |
-          git fetch origin master
-          if ! git merge-base --is-ancestor origin/master HEAD; then
+          SHA="${{ steps.green_dev.outputs.sha }}"
+          git fetch origin dev master
+          if [ "$(git rev-parse origin/dev)" != "$SHA" ]; then
+            echo "::error::dev advanced after its green check. Dispatch promotion once more."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor origin/master "$SHA"; then
             echo "master has commits that are not on dev. Merge origin/master into dev first, let probes go green, then re-run."
             exit 1
           fi
-          git push origin HEAD:master
-          echo "master fast-forwarded to $(git rev-parse HEAD)"
+          git push origin "${SHA}:master"
+          echo "master fast-forwarded to $SHA"
 
       - name: Promote the dev-channel APK to the stable channel
         env:
@@ -66,14 +107,14 @@ jobs:
           # stable APK was 10 days behind). The dev-channel APK was already
           # built from this exact commit after green probes, so promotion of
           # the stable channel is a checksum-verified copy, not a rebuild.
-          SHA=$(git rev-parse HEAD)
+          SHA="${{ steps.green_dev.outputs.sha }}"
           # android.yml publishes the dev APK a few minutes after probes go
           # green; if promotion was dispatched immediately, wait for it.
-          for i in $(seq 1 12); do
+          for i in $(seq 1 30); do
             if gh release view android-dev --json body -q .body | grep -q "$SHA"; then
               break
             fi
-            echo "android-dev APK for $SHA not published yet (attempt $i/12); waiting 60s"
+            echo "android-dev APK for $SHA not published yet (attempt $i/30); waiting 60s"
             sleep 60
           done
           if ! gh release view android-dev --json body -q .body | grep -q "$SHA"; then

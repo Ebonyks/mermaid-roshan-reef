@@ -31,13 +31,21 @@ func _init() -> void:
 		var lobby := house.lobby_2d
 		_check("2D lobby has no 3D navigation children", house.find_children("*", "Node3D", true, false).is_empty())
 		_check("2D lobby exposes three direct floor tabs", lobby.floor_tabs.size() == 3)
-		_check("2D lobby shows four large job cards", lobby.card_buttons.size() == 4)
+		_check("2D lobby shows four large job cards on floor one",
+			lobby.card_buttons.size() == 5 and _visible_card_count(lobby.card_buttons) == 4)
 		var roshan_only := true
 		for card: Button in lobby.card_buttons:
 			roshan_only = roshan_only and card.get_node_or_null("RoshanActor") != null
 			roshan_only = roshan_only and card.get_node_or_null("RivalActor") == null
 		_check("job cards show Roshan only, never imp matchup cards", roshan_only)
 		_check("floor finale is gated by the four job stars", bool(lobby.boss_button.get_meta("locked", false)))
+		lobby.refresh((1 << 4) | (1 << 9), 2)
+		_check("Grand Gallery expands to five direct job cards", _visible_card_count(lobby.card_buttons) == 5)
+		_check("Nursery Nurse is displayed as job twelve before Pop Star",
+			int(lobby.card_buttons[3].get_meta("act_index", -1)) == 15
+			and int(lobby.card_buttons[4].get_meta("act_index", -1)) == 13)
+		_check("five Grand Gallery jobs gate the finale", bool(lobby.boss_button.get_meta("locked", false)))
+		lobby.refresh(0, 0)
 	house._leave_early()
 	await process_frame
 	OS.set_environment("OPERA_FORCE_2D_LOBBY", "0")
@@ -68,18 +76,49 @@ func _init() -> void:
 			world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") is OperaWorldBackdrop2D)
 		_check("%s loads Mermaid Roshan's outfit actor" % career,
 			world.player_actor != null and world.player_actor.texture != null)
-		_check("%s loads the dressed rival for its finale" % career,
+		_check("%s loads its dressed rival or care partner" % career,
 			world.rival_actor != null and world.rival_actor.texture != null)
-		_check("%s keeps the rival hidden during earlier minigames" % career,
-			not world.rival_actor.visible and not world.in_competition_finale())
+		var cooperative := act.competition != null and act.competition.is_cooperative()
+		if cooperative:
+			_check("%s keeps its care partner beside Roshan from the first beat" % career,
+				world.rival_actor.visible)
+		else:
+			_check("%s keeps the rival hidden during earlier minigames" % career,
+				not world.rival_actor.visible and not world.in_competition_finale())
 		_check("%s pauses competition scoring before the finale" % career,
 			not act.competition.active)
 		_check("%s has a multi-phase job game" % career, world.phases.size() >= 4)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
+		var modes: Array[String] = []
+		for phase_dict: Dictionary in world.phases:
+			modes.append(String(phase_dict.get("mode", "")))
+		_check("%s opens with a friendly imp scuffle" % career,
+			modes.size() > 0 and modes[0] == "bop")
+		var captain_scuffle := -1
+		for mode_i in range(1, modes.size()):
+			if modes[mode_i] == "bop":
+				captain_scuffle = mode_i
+		_check("%s stages a bigger scuffle before the stage door" % career,
+			captain_scuffle > 0 and captain_scuffle < world._finale_start()
+			and float((world.phases[captain_scuffle] as Dictionary).get("goal", 0.0))
+			> float((world.phases[0] as Dictionary).get("goal", 0.0)))
+		var scuffle_free_finale := true
+		for mode_i in range(world._finale_start(), modes.size()):
+			scuffle_free_finale = scuffle_free_finale and modes[mode_i] != "bop"
+		_check("%s keeps the stage finale for the job contest" % career, scuffle_free_finale)
+		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
+		_check("%s starts in its job world, off the proscenium" % career,
+			backdrop != null and not backdrop.stage_mode)
+		if career != "nursery":
+			_check("%s paints the supplied codex career world" % career,
+				backdrop != null and backdrop.painting != null)
+		var captain_stage_seen := false
 		if career == "detective":
 			var original_phase_count := world.phases.size()
 			while world.phase_index < world._finale_start():
+				if world.phase_index == world.steal_index and backdrop != null:
+					captain_stage_seen = captain_stage_seen or backdrop.stage_mode
 				world._on_gesture("probe", 100.0, 1.0)
 				act._process(0.05)
 			_check("detective imp enters only for the final shared mystery",
@@ -96,14 +135,26 @@ func _init() -> void:
 				and act.competition.retries == 1)
 
 		var saw_finale_imp := world.rival_actor.visible and world.in_competition_finale()
+		var rival_hid_through_scuffles := true
 		var guard := 0
-		while act.state == "play" and guard < 40:
+		while act.state == "play" and guard < 80:
+			rival_hid_through_scuffles = rival_hid_through_scuffles \
+				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
+			if world.phase_index == world.steal_index and backdrop != null:
+				captain_stage_seen = captain_stage_seen or backdrop.stage_mode
 			world._on_gesture("probe", 100.0, 1.0)
 			act._process(0.05)
 			await process_frame
 			guard += 1
 			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
-		_check("%s brings in the dressed imp for the final level" % career, saw_finale_imp)
+		_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
+		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
+		_check("%s brawls the captain at the stage door" % career, captain_stage_seen)
+		if career == "nursery":
+			_check("nursery curtain call records cooperative care",
+				bool(act.performance_result.get("cooperative", false)))
+		_check("%s finishes on the proscenium stage" % career,
+			backdrop != null and backdrop.stage_mode)
 		_check("%s can complete through one-finger phases" % career,
 			act.state == "won" and is_equal_approx(act.competition.player_progress, 1.0))
 		_check("%s awards a graded crowd reaction" % career,
@@ -116,13 +167,21 @@ func _init() -> void:
 			_check("%s restores the touch layer on exit" % career,
 				main.touch_ui.visible == touch_before)
 
-	_check("all twelve career jobs were exercised", show_count == 12)
+	_check("all thirteen career jobs were exercised", show_count == 13)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
 	else:
 		print("OPERA2D|result: %d FAIL" % bad)
 		quit(1)
+
+
+func _visible_card_count(cards: Array) -> int:
+	var count := 0
+	for card: Button in cards:
+		if card.visible:
+			count += 1
+	return count
 
 
 func _check(label: String, condition: bool) -> void:

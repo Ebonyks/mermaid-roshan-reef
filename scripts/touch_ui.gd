@@ -1,6 +1,6 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): lower-left movement + a real lower-right action button;
+#   HYBRID (default): point-to-interact + a contextual lower-right action button;
 #   taps on unclaimed world space are emitted for select/approach/move.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
@@ -107,7 +107,7 @@ func _ready() -> void:
 	_stick_hint.offset_top = -206.0
 	_stick_hint.offset_right = 206.0
 	_stick_hint.offset_bottom = -26.0
-	_stick_hint.visible = wants_touch()
+	_stick_hint.visible = false
 	_root.add_child(_stick_hint)
 	var hint_arrows := Label.new()
 	hint_arrows.name = "TouchDirectionHints"
@@ -250,8 +250,8 @@ func _press(pos: Vector2, idx: int) -> void:
 	_knob.position = _origin - _knob.size * 0.5
 	_base.modulate.a = 1.0
 	_knob.modulate.a = 1.0
-	_base.visible = true
-	_knob.visible = true
+	_base.visible = false
+	_knob.visible = false
 	stick_vec = Vector2.ZERO
 	if control_mode == "hybrid":
 		_drag(pos)
@@ -300,15 +300,14 @@ func _release_stick() -> void:
 	_rest_stick()
 
 func _rest_stick() -> void:
-	# StorybookUI resting affordance: the real stick only appears under the
-	# finger; the fixed ghost wheel owns the bottom-left teaching role and
-	# hides while world controls are off.
+	# Point-to-interact keeps the screen clear. Gesture steering remains available
+	# to legacy movement activities without drawing a virtual stick.
 	if _base != null:
 		_base.visible = false
 	if _knob != null:
 		_knob.visible = false
 	if _stick_hint != null:
-		_stick_hint.visible = wants_touch() and world_controls_enabled
+		_stick_hint.visible = false
 
 func rest_zone() -> Rect2:
 	var vs: Vector2 = _root.size
@@ -636,11 +635,7 @@ func _input(ev: InputEvent) -> void:
 					_claim_action(touch.index)
 					get_viewport().set_input_as_handled()
 					return
-				if _touch_idx == -1 and movement_zone().has_point(touch.position):
-					touch_owners[touch.index] = TouchOwner.STICK
-					_press(touch.position, touch.index)
-					get_viewport().set_input_as_handled()
-					return
+
 			else:
 				var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 				if owner == TouchOwner.STICK and touch.index == _touch_idx:
@@ -672,12 +667,6 @@ func _input(ev: InputEvent) -> void:
 			if control_mode == "hybrid" and world_controls_enabled:
 				if mouse_button.pressed and _action_hit(mouse_button.position):
 					_claim_action(99)
-					get_viewport().set_input_as_handled()
-					return
-				if mouse_button.pressed and _touch_idx == -1 \
-						and movement_zone().has_point(mouse_button.position):
-					touch_owners[99] = TouchOwner.STICK
-					_press(mouse_button.position, 99)
 					get_viewport().set_input_as_handled()
 					return
 				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:

@@ -140,6 +140,13 @@ func _snapshot(act: OperaAct) -> String:
 		"scroll":
 			return base + " farm=%s planted=%d fed=%d leaps=%d scrub=%.0f" % [
 				act.farm_phase, act.seeds_planted, act.farm_fed, act.mud_leaps, act.barn_scrub]
+		"nursery":
+			var world := act.career_world_2d
+			if world == null:
+				return base + " nursery=missing"
+			var catch_state := "off"
+			if world.nursery_catch != null: catch_state = "%d/%d miss=%d" % [world.nursery_catch.caught, world.nursery_catch.goal, world.nursery_catch.missed]
+			return base + " nursery_phase=%d catch=%s" % [world.phase_index, catch_state]
 		"fix":
 			return base + " fix=%s flow=%d fuse=%.1f leak=%.1f laid=%d" % [act.fix_phase, act.pipe_flow_cell, act.pipe_fuse_t, act.pipe_leak_t, act.pipe_filled.size()]
 	return base
@@ -252,8 +259,40 @@ func _drive(act: OperaAct, dt: float) -> void:
 			_drive_fix(act, dt)
 		"boss":
 			_drive_boss(act, dt)
+		"nursery":
+			_drive_nursery(act, dt)
+
+func _drive_nursery(act: OperaAct, dt: float) -> void:
+	var world := act.career_world_2d
+	if world == null or not world.active or world.phase_index >= world.phases.size():
+		return
+	if world.nursery_catch != null and world.nursery_catch.active:
+		var target := world.nursery_catch.lowest_baby_x()
+		if target >= 0.0:
+			var error := 0.0
+			if randf() < float(persona["err"]) * dt:
+				error = randf_range(-0.22, 0.22)
+				mistakes += 1
+			world.nursery_catch.steer_to(clampf(target + error, 0.1, 0.9))
+		elif _ready_to_act(dt):
+			world.nursery_catch.steer_to(0.5)
+		world.nursery_catch._process(dt)
+		return
+	var phase := world.phases[world.phase_index] as Dictionary
+	var mode := String(phase.get("mode", "tap"))
+	if mode == "hold":
+		if wait_t <= 0.0:
+			world._on_gesture("hold", dt, 1.0)
+		else:
+			wait_t -= dt
+	elif _ready_to_act(dt):
+		var quality := 0.32 if randf() < float(persona["err"]) else 1.0
+		if quality < 0.5:
+			mistakes += 1
+		world._on_gesture(mode, 1.0, quality)
 
 func _intent(count: int, want: int, key: int) -> int:
+
 	# one sticky decision per objective step: usually right, sometimes a
 	# wrong reach (rolled ONCE, not per tick). After the engine's gentle
 	# bounce the persona learns and goes for the right thing.
