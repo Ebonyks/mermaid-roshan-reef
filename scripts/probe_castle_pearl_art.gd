@@ -26,6 +26,7 @@ const EXPECTED_PHYSICAL_ITEM_COUNTS := {
 	"bubble_bath": 4,
 }
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
+const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 
 var main: ReefMain
 var checks_failed := 0
@@ -841,8 +842,13 @@ func _run() -> void:
 	var max_anchor_drift := 0.0
 	for frame_index: int in range(16):
 		castle_roshan_loop._apply_frame(frame_index)
+		# Anchors are measured in nominal cell space, but the sampled window is
+		# nudged onto the figure so the lower rows keep her whole head
+		# (RoshanSpriteFrames). Rebase the anchor onto that window before
+		# checking that every frame still shares one torso point.
 		var frame_anchor: Vector2 = ROSHAN_ANCHORS.anchor(
-			"swim_front", frame_index)
+			"swim_front", frame_index) \
+			- ROSHAN_FRAMES.shift("swim_front", frame_index)
 		var frame_offset: Vector2 = castle_roshan.get_meta(
 			"roshan_anchor_offset", Vector2.ZERO) as Vector2
 		var corrected_anchor := Vector2(
