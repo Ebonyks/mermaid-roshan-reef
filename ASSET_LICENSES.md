@@ -419,3 +419,60 @@ ambientCG (all CC0).
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
+
+## Animated dust-bunny enemy (Codex sprite pass, 2026-07-27)
+
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/references/*.png` —
+  exact lossless copies of the project-original dust-bunny `curl_ears` and
+  `hop` sprites recovered from commit `32eba2ea` on
+  `origin/codex/dirty-castle-2d`; no modification.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/chroma/*.png` —
+  project-original OpenAI built-in image generations derived only from those
+  approved project references and generated dust-bunny atlas continuity;
+  six-frame idle, hop, and accepted cleaning-poof atlases normalized to
+  768x512; rejected soft-dissolve iteration retained under `rejected/`;
+  exact prompts retained beside the sources.
+- `assets/sprites/dust_bunnies/*.png` — locally chroma-keyed transparent
+  derivatives of those generated atlases; three mobile runtime textures,
+  768x512 with six 256x256 frames each.
+- `assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png` — exact lossless
+  copy of project-original
+  `assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png` recovered from
+  commit `32eba2ea` on `origin/codex/dirty-castle-2d`; used as the unshaded
+  CLEAN projectile in the live Pearl Castle dungeon encounter; no modification.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/rainbow_dust_bunny_concept.png`
+  — project-original OpenAI built-in image generation derived only from the
+  approved project curl-ear dust-bunny identity; pastel rainbow color-variant
+  concept with prismatic forehead sparkle, locally resized to 1024x1024; exact
+  prompt retained beside the source; not used by the runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept.png`
+  — project-original OpenAI built-in image generation derived only from the
+  approved project curl-ear dust-bunny identity; large grey-purple first-boss
+  concept with layered storm-cloud curls, oversized spiral ears, and a
+  lavender curl-crest sparkle, locally resized to 1024x1024; exact prompt
+  retained beside the source; not used by the runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept_v2_teeth.png`
+  — project-original OpenAI built-in image edit of the grey-purple first-boss
+  concept; preserves the complete boss design while adding a compact plum grin
+  with exactly two short pointed pearl teeth, locally resized to 1024x1024;
+  exact prompt retained beside the source; preferred concept, not used by the
+  runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/boss_chroma/*.png`
+  - project-original OpenAI built-in image generations derived only from the
+  approved grey-purple toothed dust-bunny boss and the same generated animation
+  continuity; five four-frame sheets (jump, vulnerable laugh, flinch, angry,
+  implosion) normalized to mobile-safe 1024x1024; exact prompts and frame intent
+  retained in `BOSS_ANIMATION_DESIGN.md`.
+- `assets/sprites/dust_bunnies/boss/*.png` - locally chroma-keyed transparent
+  RGBA derivatives of the five boss animation sheets; 1024x1024 with four
+  512x512 frames each; used only by the unshaded `DustBunnyBossSprite` 2D card.
+- `DustBunnyBossSprite.angry_jump_final` - project-original runtime-only atlas
+  sequence assembled without new pixels from approved angry frames 3-4 and
+  jump frames 2 and 4. It is the more powerful final-round jump presentation;
+  no new generated source, external asset, duplicated texture, or additional
+  license applies.
+- `tools/process_dust_bunny_boss_animation.py` - project-original deterministic
+  source normalization and alpha-validation utility for those sheets; no
+  external assets or code.
+- License: project original derivative art for this personal game,
+  CC0-equivalent.
