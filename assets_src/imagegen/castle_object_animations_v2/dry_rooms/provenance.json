@@ -1,0 +1,893 @@
+{
+  "schema_version": 1,
+  "batch_id": "castle_object_animations_v2/dry_rooms",
+  "created_utc": "2026-08-02T06:21:23Z",
+  "generation_policy": {
+    "sheet_layout": "4 columns x 2 rows; exactly 8 authored full-object states",
+    "background": "flat #FF00FF with no grid, labels, text, floor, detached shadow, or scene background",
+    "animation": "actual object-part motion only; no generic overlays, whole-object bounce, static cutout rotation, or detached effects",
+    "source_preservation": "Accepted native outputs remain unchanged at the recorded generated_images paths; repository chroma masters are declared whole-canvas derivatives.",
+    "runtime_status": "Recorded runtime paths and hashes are the current pre-normalization 1024x1024 sheets.",
+    "alpha": "Soft edge matte/despill with opaque interiors prevents Roshan or room art showing through colored fixture pixels."
+  },
+  "assets": [
+    {
+      "id": "main_hall_tapestry",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and viewpoint authority for the tall royal shell tapestry.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact tapestry physically unfurling from its unchanged triangular wooden top mount.\nFrame order: left-to-right top row, then left-to-right bottom row. State 1 has the cloth tightly rolled beneath the fixed top mount; states 2-6 progressively unroll the real navy-purple cloth downward with coherent folds; state 7 has one gentle underwater fabric follow-through; state 8 is fully unfurled and settled, exactly matching the reference's long pointed banner, gold trim, pearl shell emblem and three aqua wave marks.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, dark navy-purple outline, painted texture and highlights from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical object scale and fixed top-mount pivot in every cell; generous padding; no cropping. The triangular mount stays at exactly the same pixel-relative anchor in every state.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field in every cell and between cells.\nConstraints: redraw the complete tapestry as a coherent physical object in every state; actual cloth folds and silhouette change, not a static object with lines, warps, glow or decals placed over it. Preserve all ornament identity. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the object. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "22f58a2e134817d92583950e0b6fc540a6b82df73c02166a961ba8e61840c6dd",
+      "design_reference": {
+        "path": "assets/flats/castle/main_hall_2screen/castle_royal_tapestry_reuse.png",
+        "sha256": "1bc0809edd3102dd0dcc0e4605a583078d0d91080b5cad5f84786ab743f83833",
+        "dimensions": [
+          130,
+          320
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/main_hall_2screen/castle_royal_tapestry_reuse.png",
+        "sha256": "1bc0809edd3102dd0dcc0e4605a583078d0d91080b5cad5f84786ab743f83833",
+        "dimensions": [
+          130,
+          320
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Royal cloth physically unfurls from the fixed triangular mount and settles."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-0e91b195-0e93-4355-85f6-b22e5b1a7bd3.png",
+        "sha256": "7ae9399f3ca0566fad617a670efd2dafd29f9f11eba5259da8f37fb712992777",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_tapestry_sheet_chroma.png",
+        "sha256": "b8de9fccaa0c21962bf0e507bff9086f8e090bf45ff63436c47c6b70cfa4e090",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png",
+        "sha256": "4ad7eb336208169565d4c4af00e1de93be6288727c3abb03c001ad8ab7f3b2a8",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 782588,
+          "partial": 10311,
+          "opaque": 255677,
+          "visible_coverage": 0.253666,
+          "opaque_fraction_of_visible": 0.961235,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 56,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Royal cloth physically unfurls from the fixed triangular mount and settles.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "main_hall_sconce",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and viewpoint authority for the pearl shell wall sconce.\nPrimary request: Create one 4 columns by 2 rows animation sheet with exactly eight sequential full-object states. The exact scalloped pink shell fixture begins closed and dim, then its real lower shell shutters/petals physically hinge open around the central pearl, revealing more of the pearl in each state; the pearl warms from unlit ivory to internally illuminated gold only after the shutters open. The aqua teardrop pendant and gold scrollwork remain attached and coherent.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, blush shell texture, gold trim and aqua pendant from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical fixture scale, center and wall-mount pivot in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout.\nConstraints: redraw the complete fixture in every state. Actual shell shutters and central pearl change; do not place detached glow circles, halo cards, sparks or decals over a static fixture. Illumination stays contained inside the pearl and shell highlights with no background halo. Preserve the exact shell silhouette and ornament identity. No cell borders, grid lines, labels, numbers, text, floor, shadow, reflection, scenery or watermark. Background has zero texture, gradient or lighting variation. Do not use #FF00FF in the fixture. Exactly eight states, no extra objects.",
+      "accepted_prompt_sha256": "316e2fb867c28cbf7a145b06680a64af1d099d8ca2b56491e4efe5413f8cb24d",
+      "design_reference": {
+        "path": "assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png",
+        "sha256": "dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png",
+        "sha256": "dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Attached shell shutters hinge open around the real pearl; contained illumination warms."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-cbcb75b4-933f-4579-82b6-3a73fa694b2b.png",
+        "sha256": "cfd7db537630b97463f4a0a91463816043b5a9ad8e11ed48c4340751717f58e3",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_sconce_sheet_chroma.png",
+        "sha256": "77fdbc239de3caf4d5b190987c140fd4a8b646b462ca31a3b4ea321a9658813d",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+        "sha256": "4ada693de123c4841e6b9ea0262198afe9f0efe35d17d633d6cf2c670e3f1beb",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 677035,
+          "partial": 10344,
+          "opaque": 361197,
+          "visible_coverage": 0.354329,
+          "opaque_fraction_of_visible": 0.972159,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 0,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Attached shell shutters hinge open around the real pearl; contained illumination warms.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "opera_hall_curtains",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and frontal viewpoint authority for the small Opera Hall arched curtain fixture with dark plum arch, cream star crown, concentric aqua arch bands, peach-pink paired curtain panels, gold round tieback discs, and white shell ornament.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact fixture physically opening its real paired peach curtain panels. The dark plum arched frame, cream star crown, aqua arch bands, shell ornament, overall scale, and top-center mounting pivot remain fixed. State 1 is fully closed exactly like the reference. States 2-6 show the left and right actual fabric panels progressively sliding and gathering outward with increasingly coherent vertical folds around their attached gold tieback discs, revealing a deep navy-purple empty stage aperture behind them. State 7 is fully open with a small natural fabric overshoot; state 8 is fully open and settled with symmetrical gathered curtains.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, cream and aqua painted trim, peach fabric texture, and child-readable geometry from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete fixture scale, center and fixed arch pivot in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the entire coherent fixture in every state. The real curtain panels and their folds must change; do not place detached swooshes, arrows, glow, motion lines, black rectangles, or effect cards over a static fixture. The revealed stage aperture is contained strictly inside the arch opening and never replaces the chroma backdrop outside the fixture. Preserve every ornament and trim band. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the fixture. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "87c2a6e1b7cb83bf7f36fa26f910cc7b6060f93a2f68f79a12b5030adb23e1ca",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+        "sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+        "dimensions": [
+          196,
+          209
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+        "sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+        "dimensions": [
+          196,
+          209
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Paired fabric panels gather around attached tiebacks, exposing the contained stage aperture."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-c72ce885-76bc-49dc-9be9-b19a607b4403.png",
+        "sha256": "7f777261698a94591b486c4f4f60c8d77ee9390edc0e95a0059c02d70fb4ed3c",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_curtains_sheet_chroma.png",
+        "sha256": "c7b4160ff21a80fd50ae689553c396f0ad0587ca7d9c700a76e315c6b7b20d86",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+        "sha256": "8f6dea9ccb776e0ba3f39b1544cb5a7377ca4fa92c3b86a2c0d000ac11989420",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 577926,
+          "partial": 8836,
+          "opaque": 461814,
+          "visible_coverage": 0.448847,
+          "opaque_fraction_of_visible": 0.981226,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 456,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Paired fabric panels gather around attached tiebacks, exposing the contained stage aperture.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "opera_hall_chandelier",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, silhouette, palette, material, outline, proportions, scale, and frontal viewpoint authority for the Opera Hall ceiling chandelier: a dark plum oval crown, gold crisscross cage and trim, pale aqua central jewel, attached lower gold lamp rail, and hanging aqua teardrop crystals.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact chandelier performing its normal switch-on response. The top oval crown remains perfectly fixed to the ceiling pivot. State 1 is unlit with all attached lower lamp cups closed and the three real hanging teardrop crystals vertical. In states 2-5, the chandelier's actual little lower gold lamp cups hinge open in sequence from left to right and their contained pearl bulbs illuminate from warm ivory to gold. The mechanical opening gives the hanging teardrop crystals a small believable pendulum response at individually different angles while every crystal stays attached to its short gold link. States 6-7 show the real open cups fully lit and the crystal pendulums reversing gently; state 8 is illuminated and settled, all cups open and all drops vertical.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, dark navy-purple outline, warm gold cage, aqua glass jewels, painted highlights, and child-readable geometry from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete fixture scale, horizontal center, and fixed top mounting pivot in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete chandelier in every state. Actual attached lamp cups, contained pearl bulbs, and linked crystal pendants change; do not rotate or translate the entire static fixture, and do not add detached glow discs, halo cards, sparks, motion lines, or effect sprites. Light is contained inside each real bulb and its own glass highlight with no background halo. Preserve the exact oval cage and all attached components. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the fixture. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "3218833ca567d9e42586b9a33738895e9318cbe4d6f7ee89231c9d657dc663e4",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+        "sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+        "dimensions": [
+          190,
+          126
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+        "sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+        "dimensions": [
+          190,
+          126
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Attached lamp cups open and linked crystals respond as pendulums."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-c99443da-f905-48db-9ed1-7842d85e0e4c.png",
+        "sha256": "19a88cc3be7a5cc3bd79e61059571c48db102d4f11d3810cc8324e4eb15ed59d",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_chandelier_sheet_chroma.png",
+        "sha256": "7b1fce7e8910e8d5c0fe47858ca4fee29f68593ada85d9c2bffa2b20f408e08e",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+        "sha256": "c197d34c795331be5d9c39134c38f974c8d2107413596741f417442d4e43f292",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 854419,
+          "partial": 9436,
+          "opaque": 184721,
+          "visible_coverage": 0.185163,
+          "opaque_fraction_of_visible": 0.9514,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 0,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Attached lamp cups open and linked crystals respond as pendulums.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "opera_hall_footlights",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, silhouette, palette, material, outline, proportions, scale, and straight-on viewpoint authority for the Opera Hall footlight bar: one long low warm-gold trapezoid housing with dark plum edge and six evenly spaced round pastel lamp lenses alternating blush pink and pale aqua.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact footlight bar switching on mechanically. State 1 matches the reference: all six attached round pastel lens covers closed and dim. In states 2-6, the real lens covers flip upward one group at a time on tiny attached top hinges, revealing warm ivory pearl bulbs seated inside the bar; the revealed real bulbs illuminate progressively left-to-right. State 7 has all six covers open with a subtle hinge follow-through; state 8 has all six open, bulbs lit, and mechanisms settled. The long gold housing remains rigid and perfectly fixed in every state.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, warm gold housing, alternating blush/aqua lens identity, painted highlights, and child-readable geometry from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete bar width, scale, horizontal center, and bottom anchor in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete bar in every state. Actual attached circular lens covers visibly hinge and actual contained pearl bulbs are revealed; do not place floating dots, detached flames, glow circles, rays, sparkles, motion lines, or effect cards over a static bar. Illumination is contained within each physical bulb with no background halo. Preserve exactly six evenly spaced lamp mechanisms and the exact trapezoid housing. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the fixture. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "8b94bcdf770c5249311cab044552a0e4a657a8624a21cd0d21416091251cdc72",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+        "sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+        "dimensions": [
+          196,
+          44
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+        "sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+        "dimensions": [
+          196,
+          44
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Six attached lens covers hinge upward to expose contained pearl bulbs."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-6abd008b-ee6f-4a2f-bea3-8141e65544ab.png",
+        "sha256": "84f3afe3f03d07d6b432915eff40268e66bcfce2e0132382de8a1317ea2d07b3",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_footlights_sheet_chroma.png",
+        "sha256": "94fa47e825f7bb17e0dd29ff0a15b01ba929992864d17f8fa0eab63c47fefafa",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+        "sha256": "62d8d5a797409d8bf8298baa0f9b9fdf180dd39a575d5a5e649bbe66c965ab03",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 939277,
+          "partial": 6066,
+          "opaque": 103233,
+          "visible_coverage": 0.104236,
+          "opaque_fraction_of_visible": 0.944501,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 354,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Six attached lens covers hinge upward to expose contained pearl bulbs.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "opera_hall_stage_star",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, silhouette, palette, material, outline, scale, and viewpoint authority for the small Opera Hall marquee star fixture.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact star fixture performing a physical marquee-light sequence. Preserve the purple mounting plaque and gold star. The actual star bulbs/inlaid points illuminate clockwise around the star and the center jewel brightens in the final states; the fixture remains a coherent object, not a static star with detached circles or glow decals.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: exact polished pastel storybook cel-shaded illustration from Image 1 with navy-purple outline, warm gold star, subtle painted texture.\nComposition: eight equal conceptual cells on a square sheet; exact identical fixture scale, center, and mounting pivot in all cells; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field in every cell and between cells.\nConstraints: redraw the complete fixture in each state; illumination must be contained within the star and its own jewel/bulbs, with no floating effects or background halo. No cell borders, no grid lines, no labels, no numbers, no text, no floor, no shadow, no reflection, no scenery, no watermark. Background has zero texture, gradient, or lighting variation. Do not use #FF00FF in the fixture. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "80d70c17b917e8f049792093c1b8229c8ac15621371adc3ccdcf5950911af97c",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+        "sha256": "bd58a67d535a294c41a4b9c13a6d7bbd1e9c3063b8d01301a2fa834e94b7c3d5",
+        "dimensions": [
+          44,
+          45
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+        "sha256": "bd58a67d535a294c41a4b9c13a6d7bbd1e9c3063b8d01301a2fa834e94b7c3d5",
+        "dimensions": [
+          44,
+          45
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Inlaid marquee points illuminate clockwise around the attached gold star."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-b53e8ede-44ec-4696-9772-803f69163b36.png",
+        "sha256": "f00447275ad96bc7fb7eff7983c6e1f086c452c3cee3e69e6d73a6a5498a282c",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_stage_star_sheet_chroma.png",
+        "sha256": "49a656cb90c2547d081cc28919913ff073e94f73be42437ded02e03a277b7b90",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+        "sha256": "200dd4ce94abfc11dca09b61208431416339d31f3088aa65aea61de45947551e",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 869186,
+          "partial": 8325,
+          "opaque": 171065,
+          "visible_coverage": 0.17108,
+          "opaque_fraction_of_visible": 0.953593,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 0,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (Inlaid marquee points illuminate clockwise around the attached gold star.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "library_magic_book",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and frontal three-quarter viewpoint authority for the Library magic-book fixture: one closed blush-pink hardback with layered cream page block, gold corner trim and white shell emblem, poised above its separate but attached-looking pale coral scrollwork cradle with a central pearl.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact book fixture being opened and read. The coral scrollwork cradle and its central pearl remain fixed at the bottom anchor in every state. State 1 is the exact closed book. State 2 shows the real front cover beginning to hinge upward from the existing spine. State 3 opens farther and exposes the real cream page block. States 4-6 show one actual paper leaf lifting from the right, arcing through the hinge, and landing on the left while the covers remain coherently attached. State 7 has a small natural page-settle follow-through. State 8 is a fully open, stable book on the same fixed cradle, with the shell motif printed subtly on the visible page.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, dark navy-purple outline, blush cover texture, cream-gold page edges, shell emblem, coral cradle and pearl from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete fixture scale, center, book-spine pivot, and cradle bottom anchor in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete coherent book-and-cradle fixture in every state. Actual covers and paper leaves change shape at their real spine; do not use a rotating static cutout, detached duplicate pages, floating glyphs, glow cards, sparkles, motion lines, or effect sprites. Any shell motif is ink printed on the physical page only. Preserve the exact book ornaments and cradle. No cell borders, grid lines, labels, numbers, readable text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the fixture. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "4fd4d0e69eb4699a6dbead30fcd3f66023d082947ce7a04107d555a936a8519e",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_magic_book.png",
+        "sha256": "76c8e99cdc68f86cc6d21cd14d1042d42f31888581cc3e2571350d30b338641d",
+        "dimensions": [
+          137,
+          169
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_magic_book.png",
+        "sha256": "76c8e99cdc68f86cc6d21cd14d1042d42f31888581cc3e2571350d30b338641d",
+        "dimensions": [
+          137,
+          169
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "The real cover hinges and a physical paper leaf turns before settling open."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-5dce4920-06ec-4d9d-8725-b0fa3d9ef080.png",
+        "sha256": "2238907350621a3d6e805e4063d2f2dadccff2ec7f0d8dadbec45301dc972bad",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_magic_book_sheet_chroma.png",
+        "sha256": "a4c87cc8462b7665f7c0b89e975a734956f65a56199c217dff1b270bb4cb2e50",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+        "sha256": "a284fc841c157fae8d791ec9ba16948fbdabb7dcbe5189d2925a5b31ff3eb7d2",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 818117,
+          "partial": 11275,
+          "opaque": 219184,
+          "visible_coverage": 0.219783,
+          "opaque_fraction_of_visible": 0.951076,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 34,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (The real cover hinges and a physical paper leaf turns before settling open.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "library_book_stack",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and frontal three-quarter viewpoint authority for the Library book-stack fixture: one tall irregular left stack of thick blush, lavender, aqua and cream hardbacks, a shorter right stack, and the attached pale pearl bookmark orb nestled between them.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of a normal browse-and-return action on this exact stack. State 1 matches the reference exactly. In states 2-3, the real uppermost blush hardback on the tall left stack slides horizontally a short distance to the right while staying supported by the books beneath it; all other books and the pearl orb remain perfectly fixed. In state 4 its real front cover hinges upward from its existing spine. State 5 shows one actual cream paper leaf turning at the spine. State 6 shows the cover closing. State 7 shows the same complete book sliding back into its exact original aligned position. State 8 is the exact settled closed stack again.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outlines, painted paper and cloth-cover textures, varied pastel book colors, page-edge highlights, irregular stack silhouette, and pearl orb from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete two-stack scale, center, and bottom anchor in every cell; generous padding for the temporary top-book extension; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete coherent two-stack fixture in every state. Only the selected physical top hardback, its attached cover, and its real paper leaf move; do not bob, rotate, or translate the whole stack, and do not add detached duplicate books, floating pages, glyphs, glow cards, sparkles, motion lines, or effect sprites. Preserve every other book's exact relative position and the pearl bookmark orb. No cell borders, grid lines, labels, numbers, readable text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the books. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "06e862d364f110e0942126a67f17703901eff3351b675a304d8c75591192daed",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_book_stack.png",
+        "sha256": "981ad1ed30b57494afab4eee3080bf40281e79e9742534e5a470d0cc67ef94e7",
+        "dimensions": [
+          165,
+          211
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_book_stack.png",
+        "sha256": "981ad1ed30b57494afab4eee3080bf40281e79e9742534e5a470d0cc67ef94e7",
+        "dimensions": [
+          165,
+          211
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "The top hardback slides, opens, turns a page, closes, and returns."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-e0452460-440a-4133-89d0-1a9c5fcf0f0c.png",
+        "sha256": "127be6cd20ae5a598e29d827753242fccd7bdb85bdf31a02cea67287aee9f12c",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_book_stack_sheet_chroma.png",
+        "sha256": "3c3b4b90b17d419591939bec608539c8c367cfd8441f14d030cf45c87f3b26ee",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+        "sha256": "4007402b282f9afb49a2f7c6257db4279be052bc1ce0136d551ea90ae12de454",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 559650,
+          "partial": 10241,
+          "opaque": 478685,
+          "visible_coverage": 0.466276,
+          "opaque_fraction_of_visible": 0.979054,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 1044,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (The top hardback slides, opens, turns a page, closes, and returns.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "library_pearl_table",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and frontal viewpoint authority for the Library pearl table: a low cream-and-gold scalloped oval tabletop, pale lavender shell pedestal with mint foot, and one large blush pearl seated in a small open shell centerpiece on top.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact table's physical pearl-safe mechanism. The complete tabletop, scalloped apron, shell pedestal, mint foot, scale, and bottom anchor remain perfectly fixed. State 1 matches the reference with the centerpiece shell open and pearl fully visible. State 2 shows the real pearl lowering a little into its physical shell cup. States 3-4 show the centerpiece's actual rear and front shell halves hinging together around the pearl until it is safely enclosed in a compact closed clam. States 5-6 reverse the real hinges and reopen the clam. State 7 shows the pearl rising back into its exact seat with a tiny physical settle; state 8 matches the original open centerpiece and table.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, cream-gold scalloped edge, painted lavender shell facets, mint base, blush pearl, and child-readable geometry from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete table scale, center, tabletop plane, and fixed bottom anchor in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete coherent table in every state. Only the real attached centerpiece shell halves and the pearl seated inside them move; do not bounce, rotate, squash, or translate the whole table, and do not add detached circles, halo cards, sparkles, bubbles, motion lines, or effect sprites. Preserve the exact table and pedestal silhouette. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the table. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "6b7870e6076842410a8d719d94a5c7ed3a6aacaffa5e68f057ff479c899b0644",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_pearl_table.png",
+        "sha256": "f51e5e20d126e5aa8c0f900e8803c1d3802e6d25705a9f82c21eaf9074f689ea",
+        "dimensions": [
+          242,
+          122
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_pearl_table.png",
+        "sha256": "f51e5e20d126e5aa8c0f900e8803c1d3802e6d25705a9f82c21eaf9074f689ea",
+        "dimensions": [
+          242,
+          122
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "The attached centerpiece shell encloses its pearl and reopens."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-a3613bb2-43f8-4f15-94d1-d20c5ea06443.png",
+        "sha256": "71564fcd262d0d693a24f419c0e787206f6b83c6e6449f99b49b1b724e467041",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_table_sheet_chroma.png",
+        "sha256": "2b780d1d06f69bc0ee3323a27bed4288ca9702a7df717d7f646d6d86395b3a55",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+        "sha256": "49267ae3189d18be04ab76488d7a69e46ed108be33991610bc580f7f33546ba2",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 877179,
+          "partial": 6756,
+          "opaque": 164641,
+          "visible_coverage": 0.163457,
+          "opaque_fraction_of_visible": 0.960583,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 0,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (The attached centerpiece shell encloses its pearl and reopens.), no generic overlay effects, and clean alpha delivery."
+    },
+    {
+      "id": "library_pearl_lamp",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, silhouette, palette, material, outline, proportions, scale, and frontal viewpoint authority for the Library pearl lamp: one compact pale-lavender open scallop shell with a layered lower shell socket and one round ivory pearl bulb seated at the center.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact lamp's built-in push switch. State 1 matches the reference exactly: shell open, pearl bulb dim ivory. In state 2, the actual pearl depresses a small distance straight down into the real lower shell socket. State 3 shows the pearl fully depressed while the lower shell's attached front lip closes slightly around its base like a spring collar. State 4 shows the physical switch bottoming out. States 5-6 show the collar reopening and the same pearl rising on-axis from its socket. State 7 has one tiny vertical spring overshoot while still seated. State 8 is settled in the exact original position, now internally warm-gold and lit. The upper shell shade remains attached and fixed; the lower shell base remains fixed.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, lavender shell facets, blush shadows, ivory pearl, painted highlights, compact silhouette, and child-readable geometry from Image 1.\nComposition: eight equal conceptual cells on a square sheet; identical complete lamp scale, horizontal center, shell hinge, and bottom anchor in every cell; generous padding; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete coherent lamp in every state. The actual pearl push button and its attached shell socket/collar move; do not bob, rotate, squash, or translate the whole lamp, and do not add chains, detached glow discs, background halos, rays, sparkles, bubbles, motion lines, or effect sprites. Illumination stays entirely inside the pearl and its own painted highlight; do not cast light on the shell or chroma field. The lower edge of the shell base is the exact object boundary: immediately beneath it must be pure #FF00FF with absolutely no dark stroke, grounding line, contact shadow, reflection, or stray pixels. No cell borders, grid lines, labels, numbers, text, floor, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the lamp. Exactly eight states and no extra objects.",
+      "accepted_prompt_sha256": "0f0a023fb5667b08ffe0838934463c75246ad7e97c77731341694b892ece3e1e",
+      "design_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_pearl_lamp.png",
+        "sha256": "d4ea3f13022391954c17263317aa9bc85f941490289e05ccfb10bab822965d37",
+        "dimensions": [
+          88,
+          80
+        ]
+      },
+      "placement_reference": {
+        "path": "assets/flats/castle/rooms/room_library_item_pearl_lamp.png",
+        "sha256": "d4ea3f13022391954c17263317aa9bc85f941490289e05ccfb10bab822965d37",
+        "dimensions": [
+          88,
+          80
+        ],
+        "note": "The approved isolated cutout was also the scale, viewpoint, and pivot authority supplied as Image 1."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "canonical cutout rendered inline as a conversation image and supplied with num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 2,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "The real pearl depresses into its shell socket, rebounds, and lights."
+      },
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-1137d5a4-413f-4c4a-84b7-de093f43702e.png",
+        "sha256": "47d8e3a2ed9344789c734e9dd085b46256ae550497eea10ca27f4bab7f037677",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "raw_chroma": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_lamp_sheet_chroma.png",
+        "sha256": "6b16224e4377612265b65b5c5437adc056a90f7e5dcc375e62a566b3e930f601",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "sampled_border_key": "#ff00ff",
+        "byte_identical_to_native": false,
+        "derivation": "Whole-canvas Lanczos downscale 1254x1254 to 1024x1024; connected outer field normalized to exact #FF00FF; exact 4px sheet border. No frame rearrangement, tweening, warp, or composited delivery pixels. Per-cell 8-connected foreground analysis removed only disconnected smaller non-object shadow fragments; the largest coherent lamp component was retained."
+      },
+      "current_pre_normalization_runtime": {
+        "path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+        "sha256": "bb462abf3ac356ef4ad07523680598d6ef10e7d577c490eca1eff1fcec3a0833",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            512
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 777616,
+          "partial": 7406,
+          "opaque": 263554,
+          "visible_coverage": 0.258408,
+          "opaque_fraction_of_visible": 0.972668,
+          "unique_frame_pixel_hashes": 8,
+          "all_cells_occupied": true,
+          "cell_edge_nonzero_alpha": 24,
+          "sheet_border_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "visible_exact_ff00ff_pixels": 0,
+          "longest_side_at_most_1024": true
+        },
+        "conversion": "remove_chroma_key.py auto border key, soft matte, transparent threshold 12, opaque threshold 64, despill; then 3x3-eroded visible-mask interior restored to alpha 255 while retaining a one-pixel soft edge; RGB cleared under alpha 0."
+      },
+      "attempt_notes": [
+        "Attempt 1 rejected for a detached dark grounding stroke and insufficient shade motion.",
+        "Attempt 2 accepted with an intrinsic pearl push-switch."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after full-sheet/contact review for preserved identity and topology, eight readable authored states, fixed pivot, item-specific physical motion (The real pearl depresses into its shell socket, rebounds, and lights.), no generic overlay effects, and clean alpha delivery.",
+      "rejected_attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit\nAsset type: Godot 2.5D game object animation sheet\nInput image: Image 1 is the sole identity, design, palette, material, outline, proportions, scale, and frontal viewpoint authority for the Library pearl lamp: one compact pale lavender open scallop shell on a layered shell base with a central round ivory pearl bulb.\nPrimary request: Create one 4 columns by 2 rows animation sheet containing exactly eight sequential full-object states of this exact lamp being switched on by an attached control. State 1 matches the reference, with the shell open and pearl bulb dim ivory. Add only one tiny functional gold pull-chain permanently attached to the right inner hinge of the shell, ending in a miniature pearl bead. In state 2 the real linked chain is pulled downward and taut. In states 3-5 the shell's actual upper fluted shade opens a few degrees wider at its real bottom hinge while the physical pearl bulb changes internally from dim ivory to warm golden light. States 6-7 show the attached chain rebounding upward in a small damped curve while the shade stays open and bulb stays lit. State 8 is the fully lit lamp settled, shade open, chain hanging vertically from its attachment.\nFrame order: left-to-right top row, then left-to-right bottom row.\nStyle/medium: preserve the exact polished pastel storybook cel-shaded illustration, navy-purple outline, lavender shell facets, blush shadows, ivory pearl, painted highlights, compact silhouette, and child-readable geometry from Image 1; the small gold chain must match the existing trim style.\nComposition: eight equal conceptual cells on a square sheet; identical complete lamp scale, center, real shell-hinge pivot, and bottom anchor in every cell; generous padding for the attached chain; no cropping.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field throughout and between cells.\nConstraints: redraw the complete coherent lamp in every state. The actual linked pull-chain, hinged shell shade, and contained pearl bulb change; do not bob, rotate, squash, or translate the whole lamp, and do not add a detached glow disc, background halo, rays, sparkles, bubbles, motion lines, or effect sprites. Illumination stays entirely inside the pearl and its painted highlight with no light cast on the chroma field. The chain must remain visibly attached in every state. No cell borders, grid lines, labels, numbers, text, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Do not use #FF00FF in the lamp. Exactly eight states and no extra objects.",
+          "prompt_sha256": "4983139d8b46b9dfa4df39b65e61072e12eb8eaa18bd2ae481880854d6309db1",
+          "native_output": {
+            "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc019-063a-7520-9f60-7358e054d353\\exec-a0e76ebc-f300-4db4-aa29-719e55dc3894.png",
+            "sha256": "3568e9ec84a7efc6ccf7523c6ab9b327ca9237be15c05bea500dfc5248379e9f",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "rejection_reason": "Detached dark grounding/contact-shadow stroke remained below the shell base and the shade motion was too subtle; chain/light changes did not meet the actual-object-motion bar.",
+          "used_as_delivery_pixels": false
+        }
+      ]
+    }
+  ]
+}

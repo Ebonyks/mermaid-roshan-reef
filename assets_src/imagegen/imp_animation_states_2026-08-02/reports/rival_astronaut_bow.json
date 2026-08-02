@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bow",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    18,
+    114,
+    499,
+    503
+  ],
+  "visible_bbox": [
+    18,
+    114,
+    499,
+    503
+  ],
+  "solid_height": 390,
+  "gaps": {
+    "left": 18,
+    "right": 12,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 22,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 103517,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.454328,
+  "solid_centroid_x": 245.77,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_bow_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "102160efd7c3240f8ef54cdadae0faf4147df50b95a46af66237325c507bed38",
+  "output": "assets\\opera\\worlds\\actors\\rival_astronaut_bow.png",
+  "output_sha256": "d75a7dbff0690d508b11b738b6015e81f2784a0ef759ea2985e55cef59cc340d",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_astronaut.png",
+  "idle_sha256": "e0cb4e0cadb943b640c533e0d3c5f3bca10bd8311b3e787233087142e243176a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 390,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 244.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bow\\rival_astronaut_bow_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bow\\rival_astronaut_bow_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bow\\rival_astronaut_bow_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bow\\rival_astronaut_bow_idle_comparison.png"
+  }
+}

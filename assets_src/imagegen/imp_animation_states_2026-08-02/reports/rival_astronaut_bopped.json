@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bopped",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    31,
+    47,
+    476,
+    456
+  ],
+  "visible_bbox": [
+    31,
+    47,
+    476,
+    456
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 31,
+    "right": 35,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 13,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 93707,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.431949,
+  "solid_centroid_x": 255.872,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_bopped_sheet_d_attempt01_alpha_crop_native.png",
+  "input_sha256": "713a2d056fbe8dabf9f6995e7a2bc1b23a1d9801167325ba31d61e712dda29d5",
+  "output": "assets\\opera\\worlds\\actors\\rival_astronaut_bopped.png",
+  "output_sha256": "247c320b72c4afb5a7ac0cb724e07cfd9e316cfd8af60dec0acf5dd01cbe27ed",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_astronaut.png",
+  "idle_sha256": "e0cb4e0cadb943b640c533e0d3c5f3bca10bd8311b3e787233087142e243176a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bopped\\rival_astronaut_bopped_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bopped\\rival_astronaut_bopped_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bopped\\rival_astronaut_bopped_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_bopped\\rival_astronaut_bopped_idle_comparison.png"
+  }
+}

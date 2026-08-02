@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bopped",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    14,
+    67,
+    493,
+    456
+  ],
+  "visible_bbox": [
+    14,
+    67,
+    493,
+    456
+  ],
+  "solid_height": 390,
+  "gaps": {
+    "left": 14,
+    "right": 18,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 13,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 101148,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    606,
+    3,
+    2
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    136,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.393268,
+  "solid_centroid_x": 256.513,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_bopped_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "2631cb3b9e3438c5f51e4a9efd333bc724816061456dffce305aebba86eb4a02",
+  "output": "assets\\opera\\worlds\\actors\\rival_detective_bopped.png",
+  "output_sha256": "4c49aea866f8200879567ad74928a4bc72b124861bf0023fd6776b82575b601d",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_detective.png",
+  "idle_sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 390,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bopped\\rival_detective_bopped_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bopped\\rival_detective_bopped_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bopped\\rival_detective_bopped_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bopped\\rival_detective_bopped_idle_comparison.png"
+  }
+}

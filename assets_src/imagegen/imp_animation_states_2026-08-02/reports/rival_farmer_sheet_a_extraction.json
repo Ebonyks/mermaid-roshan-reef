@@ -1,0 +1,168 @@
+{
+  "pass": true,
+  "method": "8-connected alpha component isolation; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "914c97e19e3960f42be84d384e3764e884ca839d246a3858fe9b3ec4bb144e4a",
+  "sheet": "a",
+  "states": [
+    "idle",
+    "windup",
+    "charge",
+    "slash",
+    "recover",
+    "guard"
+  ],
+  "component_count": 6,
+  "outputs": [
+    {
+      "state": "idle",
+      "source_component": {
+        "label": 1,
+        "area": 90307,
+        "bbox": [
+          113,
+          23,
+          467,
+          484
+        ],
+        "centroid": [
+          296.19383879433485,
+          238.51208654921547
+        ]
+      },
+      "crop_bbox": [
+        105,
+        15,
+        475,
+        492
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "6ac12cc58d55bef24bcae8d8516a12d720f44d194496e4e6223593ec9a68f045"
+    },
+    {
+      "state": "windup",
+      "source_component": {
+        "label": 3,
+        "area": 69089,
+        "bbox": [
+          578,
+          103,
+          952,
+          445
+        ],
+        "centroid": [
+          767.0885813950123,
+          275.466456309977
+        ]
+      },
+      "crop_bbox": [
+        570,
+        95,
+        960,
+        453
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "888ca738fb05247d569aae37e2ce64b7c7124dbafa447a1c59b3ffc8ef6ccf5d"
+    },
+    {
+      "state": "charge",
+      "source_component": {
+        "label": 2,
+        "area": 75579,
+        "bbox": [
+          1004,
+          54,
+          1405,
+          445
+        ],
+        "centroid": [
+          1221.9426824911682,
+          234.28194339697535
+        ]
+      },
+      "crop_bbox": [
+        996,
+        46,
+        1413,
+        453
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "786d0c1fab6cd060347d48987aaf857f522701287713aacbfdfe36be8eac87c5"
+    },
+    {
+      "state": "slash",
+      "source_component": {
+        "label": 4,
+        "area": 69390,
+        "bbox": [
+          80,
+          516,
+          468,
+          936
+        ],
+        "centroid": [
+          302.05833693615796,
+          719.8605562761205
+        ]
+      },
+      "crop_bbox": [
+        72,
+        508,
+        476,
+        944
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "b29113086c791963b3b692f75069616825f8e9060f15a52b9d304ad1840dc890"
+    },
+    {
+      "state": "recover",
+      "source_component": {
+        "label": 6,
+        "area": 71511,
+        "bbox": [
+          594,
+          525,
+          936,
+          941
+        ],
+        "centroid": [
+          753.8586091650236,
+          744.4682915915034
+        ]
+      },
+      "crop_bbox": [
+        586,
+        517,
+        944,
+        949
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "ee2e600fbdb34d8fc996bc06e9a81672d1d2472d99b5fb5fc80e955b92c19149"
+    },
+    {
+      "state": "guard",
+      "source_component": {
+        "label": 5,
+        "area": 65891,
+        "bbox": [
+          1051,
+          520,
+          1368,
+          931
+        ],
+        "centroid": [
+          1208.558938246498,
+          722.948627278384
+        ]
+      },
+      "crop_bbox": [
+        1043,
+        512,
+        1376,
+        939
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "437d28e8c69e0a1809cf50995a4ab37e9a9b8ea37d7f051f6789df4ef84e9182"
+    }
+  ]
+}

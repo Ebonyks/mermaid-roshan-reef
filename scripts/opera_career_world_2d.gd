@@ -214,12 +214,27 @@ var station_nodes: Array[Control] = []
 var station_for_phase: Dictionary = {}
 ## Roaming stage combat (replaces the old panel scuffle).
 var combat_layer: Control = null
+var combat_fx: Control = null
 var combat_imps: Array[Dictionary] = []
+var combat_marks: Array[Dictionary] = []
 var imp_idle_texture: Texture2D = null
 var imp_bopped_texture: Texture2D = null
+var imp_bow_texture: Texture2D = null
 var captain_idle_texture: Texture2D = null
 var captain_bopped_texture: Texture2D = null
+var captain_bow_texture: Texture2D = null
+var fx_telegraph_ring_texture: Texture2D = null
+var fx_telegraph_bang_texture: Texture2D = null
+var fx_slash_arc_texture: Texture2D = null
+var fx_dust_puff_texture: Texture2D = null
+var fx_stolen_sparkle_texture: Texture2D = null
+var fx_dizzy_stars_texture: Texture2D = null
 var swipe_stroke := 0
+var imp_state_cache: Dictionary = {}
+## The shared mischief-imp brain (scripts/imp_ai.gd) drives the crew: who
+## closes in, who telegraphs, who hangs back. All state stays here.
+var imp_brain: ImpAI = null
+var combat_warned := false
 ## Magnifier lens phases (detective's masked reveal over the whole stage).
 var lens_layer: Control = null
 var lens_pos := Vector2(640, 400)
@@ -433,10 +448,26 @@ func _build_world() -> void:
 	combat_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	combat_layer.gui_input.connect(_combat_input)
 	root.add_child(combat_layer)
+	# telegraph rings, slash arcs and stolen-sparkle glints draw above the
+	# crew but never take input — the imps themselves stay tappable
+	combat_fx = Control.new()
+	combat_fx.name = "StageCombatFX"
+	_full_rect(combat_fx)
+	combat_fx.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	combat_fx.draw.connect(_draw_combat_fx)
+	root.add_child(combat_fx)
 	imp_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief.png")
 	imp_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief_bopped.png")
+	imp_bow_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief_bow.png")
 	captain_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain.png")
 	captain_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bopped.png")
+	captain_bow_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bow.png")
+	fx_telegraph_ring_texture = _load_if_exists("res://assets/opera/worlds/props/fx_telegraph_ring.png")
+	fx_telegraph_bang_texture = _load_if_exists("res://assets/opera/worlds/props/fx_telegraph_bang.png")
+	fx_slash_arc_texture = _load_if_exists("res://assets/opera/worlds/props/fx_slash_arc.png")
+	fx_dust_puff_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dust_puff.png")
+	fx_stolen_sparkle_texture = _load_if_exists("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
+	fx_dizzy_stars_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dizzy_stars.png")
 	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
 		# crews wear the career's special imp costume; the base-imp set keeps
 		# the bopped state until per-costume state sprites land (codex handoff)
@@ -689,17 +720,52 @@ func _card_position_near_station() -> Vector2:
 	return pos
 
 
+## Screen-space tuning for the shared imp brain. The brain thinks in the
+## caller's own units, so these are PIXELS on the 1280x720 stage: a crew
+## that closes from ~a third of the stage away, telegraphs for most of a
+## second, and lunges about two imp-widths.
+const IMP_BRAIN_TUNE := {
+	"strike_range": 300.0,
+	"stand_off": 186.0,
+	"contact": 104.0,
+	"speed": 132.0,
+	"charge_speed": 520.0,
+	"flee_speed": 250.0,
+	"windup": 0.95,
+	"charge_time": 0.4,
+	"slash_time": 0.28,
+	"recover": 1.15,
+	"stagger": 0.5,
+	"guard_time": 0.8,
+	"taunt_time": 0.85,
+	"flee_time": 1.1,
+	"cool_min": 2.4,
+	"cool_max": 5.0,
+	"max_attackers": 2,
+	"captain_scale": 1.2,
+}
+
+
 func _start_stage_combat(combat: Dictionary) -> void:
 	_clear_stage_combat()
 	bop_time = 0.0
 	swipe_stroke = 0
+	combat_warned = false
 	combat_layer.mouse_filter = Control.MOUSE_FILTER_STOP
 	var count := maxi(1, int(combat.get("count", 3)))
+	var captain_coming := bool(combat.get("captain", false))
+	# one brain per scuffle; the seed is the career + beat so the crew makes
+	# the SAME decisions on every run (probe-checkable, never luck)
+	imp_brain = ImpAI.new(IMP_BRAIN_TUNE, career_id.hash() + phase_index * 7919)
+	imp_brain.begin_crew(count + (1 if captain_coming else 0))
 	for index in range(count):
 		# deterministic spread along the painted route — no RNG
 		var t := fmod(0.14 + float(index) * 0.83 / float(count) + float(career_id.length()) * 0.031, 0.9)
 		_spawn_stage_imp(t, false, index)
-	captain_pending = bool(combat.get("captain", false))
+	captain_pending = captain_coming
+	# Roshan takes her mark so the crew has room to come at her from both
+	# sides: mid-route for the first scuffle, the stage door for the chase
+	_glide_roshan_to(StagePaths.point_along(stage_points, 0.78 if captain_coming else 0.42), 0.9)
 
 
 func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
@@ -709,13 +775,24 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
+	node.pivot_offset = node.size * Vector2(0.5, 1.0)   # pivot at the feet
 	combat_layer.add_child(node)
-	combat_imps.append({
+	var feet := StagePaths.point_along(stage_points, path_t)
+	var imp := {
 		"node": node, "t": path_t, "dir": 1.0 if seed_index % 2 == 0 else -1.0,
 		"speed": (46.0 if captain else 60.0) + float(seed_index % 3) * 14.0,
 		"hp": 2 if captain else 1, "captain": captain,
 		"popped": false, "seed": seed_index, "stroke": -1,
-	})
+		"feet": feet, "carrying": false, "pose": "prowl",
+	}
+	if imp_brain != null:
+		var mind: Dictionary = imp_brain.spawn_mind(seed_index, captain)
+		mind["pos"] = feet
+		imp["ai"] = mind
+	# place it once up front: a tap that arrives before the first tick must
+	# still find the imp where it looks like it is
+	_apply_imp_pose(imp, node, feet, "prowl", 1.0)
+	combat_imps.append(imp)
 
 
 func _clear_stage_combat() -> void:
@@ -724,9 +801,13 @@ func _clear_stage_combat() -> void:
 		if node != null and is_instance_valid(node):
 			node.queue_free()
 	combat_imps = []
+	combat_marks = []
+	imp_brain = null
 	captain_pending = false
 	if combat_layer != null:
 		combat_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if combat_fx != null:
+		combat_fx.queue_redraw()
 
 
 func _combat_remaining() -> int:
@@ -775,12 +856,18 @@ func _combat_strike(from: Vector2, to: Vector2) -> void:
 		var node := imp.get("node") as TextureRect
 		if node == null or not is_instance_valid(node):
 			continue
-		var center := node.position + node.size * 0.5
-		var reach := node.size.x * 0.62
+		var center: Vector2 = imp.get("center", node.position + node.size * 0.5)
+		var reach: float = float(imp.get("reach", node.size.x * 0.62))
+		# the counter window: an imp caught in its recovery is a bigger,
+		# friendlier target than one still on its feet
+		if String(imp.get("pose", "")) == "recover":
+			reach *= 1.45
 		if _segment_distance(from, to, center) <= reach:
 			imp["stroke"] = swipe_stroke
 			hit_any = true
 			_hit_stage_imp(imp, center)
+	if imp_brain != null:
+		imp_brain.on_player_swing(hit_any)
 	if not hit_any and from.distance_to(to) < 6.0:
 		# a stray tap fizzles kindly and still trickles a little progress
 		_bop_burst_at(to, true)
@@ -797,25 +884,48 @@ func _segment_distance(a: Vector2, b: Vector2, point: Vector2) -> float:
 
 
 func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
-	imp["hp"] = int(imp.get("hp", 1)) - 1
+	var mind: Dictionary = imp.get("ai", {})
 	var node := imp.get("node") as TextureRect
-	if int(imp["hp"]) <= 0:
+	if String(imp.get("pose", "")) == "guard" and not mind.is_empty() and imp_brain != null:
+		# the captain's guard: a bop bounces off, breaks the block early and
+		# leaves him open. It costs no health, but nothing is ever wasted —
+		# the guard drops NOW instead of running its own clock out.
+		mind["state"] = "recover"
+		mind["pose"] = "recover"
+		mind["t"] = 0.0
+		combat_marks.append({"kind": "bump", "pos": at, "t": 0.0, "life": 0.4})
+		_bop_burst_at(at, true)
+		_register_bop(0.2, 1.0)
+		return
+	imp["hp"] = int(imp.get("hp", 1)) - 1
+	var popped := int(imp["hp"]) <= 0
+	if imp_brain != null and not mind.is_empty():
+		imp_brain.on_hit(mind, popped)
+	if popped:
 		imp["popped"] = true
 		if node != null and is_instance_valid(node):
-			var bopped := captain_bopped_texture if bool(imp.get("captain", false)) else imp_bopped_texture
+			var bopped := _imp_texture(imp, "bopped")
+			combat_marks.append({"kind": "dizzy", "pos": at, "t": 0.0, "life": 0.62})
 			if bopped != null:
 				node.texture = bopped
 			var spin := node.create_tween()
 			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
 			spin.tween_callback(node.queue_free)
-	else:
-		if node != null and is_instance_valid(node):
-			var squash := node.create_tween()
-			squash.tween_property(node, "scale", Vector2(1.18, 0.84), 0.1)
-			squash.tween_property(node, "scale", Vector2.ONE, 0.16)
+	# (a survivor needs no squash tween: the brain puts it straight into the
+	# stagger pose, which the pose renderer plays every frame)
 	_bop_burst_at(at, false)
-	_register_bop(1.0, 1.0)
+	var bonus := 0.0
+	if popped and bool(imp.get("carrying", false)):
+		# it swiped a sparkle off her earlier — bopping it wins the sparkle
+		# back, so being bumped only ever ADDS something to chase
+		imp["carrying"] = false
+		bonus = 0.5
+		combat_marks.append({"kind": "taunt", "pos": at, "t": 0.0, "life": 0.6})
+		_bop_burst_at(at, false)
+	# one gesture, bonus folded in: a pop that finishes the beat must not
+	# spill its sparkle bonus into the next phase
+	_register_bop(1.0 + bonus, 1.0)
 
 
 func _register_bop(amount: float, quality: float) -> void:
@@ -1059,29 +1169,328 @@ func celebrate(result: Dictionary) -> void:
 
 
 func _tick_stage_combat(delta: float) -> void:
-	# imps wander the painted route, hopping as they go
-	var length := StagePaths.path_length(stage_points)
+	# The crew thinks as a crew (scripts/imp_ai.gd) — who closes in, who
+	# telegraphs, who hangs back — and each imp is then drawn back onto the
+	# painted walkway in whatever pose it decided on.
+	var hero := _hero_feet()
+	if imp_brain != null:
+		var minds: Array = []
+		for imp: Dictionary in combat_imps:
+			if bool(imp.get("popped", false)):
+				continue
+			var mind: Dictionary = imp.get("ai", {})
+			if mind.is_empty():
+				continue
+			# the mind keeps its own ring coordinate; the renderer only ever
+			# corrects its x (below), so the ring cannot collapse frame by
+			# frame into the flattened screen depth
+			mind["alive"] = true
+			minds.append(mind)
+		imp_brain.tick(delta, minds, hero)
+		_handle_brain_events()
 	for imp: Dictionary in combat_imps:
 		if bool(imp.get("popped", false)):
 			continue
 		var node := imp.get("node") as TextureRect
 		if node == null or not is_instance_valid(node):
 			continue
-		var t := float(imp.get("t", 0.5))
-		var direction := float(imp.get("dir", 1.0))
-		t += direction * float(imp.get("speed", 55.0)) * delta / length
-		if t >= 0.94 or t <= 0.06:
-			direction = -direction
-			t = clampf(t, 0.06, 0.94)
-		imp["t"] = t
-		imp["dir"] = direction
-		var seed := float(imp.get("seed", 0))
-		var feet := StagePaths.point_along(stage_points, t)
-		feet.y += sin(bop_time * 5.2 + seed * 1.7) * 9.0 - 9.0
-		var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
-		node.scale = Vector2(depth, depth)
-		node.flip_h = direction < 0.0
-		node.position = feet - Vector2(node.size.x * 0.5 * depth, node.size.y * depth - 8.0)
+		var mind: Dictionary = imp.get("ai", {})
+		var feet: Vector2 = imp.get("feet", hero)
+		var pose := "prowl"
+		var face := 1.0
+		if mind.is_empty():
+			# no mind (never in normal play): idle in place rather than
+			# freeze the fight — an imp must always stay tappable
+			feet = _stage_feet_at_x(feet.x)
+		else:
+			# the brain circles her on a ring; the stage is a promenade, so
+			# the ring's "sideways" becomes walkway travel and its "toward
+			# camera" becomes standing a little in front of or behind her
+			var want: Vector2 = mind.get("pos", feet)
+			var base := _stage_feet_at_x(want.x)
+			var depth_off := clampf(want.y - hero.y, -190.0, 190.0) * 0.42
+			feet = Vector2(base.x, base.y + depth_off)
+			mind["pos"] = Vector2(base.x, want.y)   # the walkway owns x
+			pose = String(mind.get("pose", "prowl"))
+			face = float(mind.get("face", 1.0))
+			imp["state_t"] = float(mind.get("t", 0.0))
+		imp["feet"] = feet
+		imp["pose"] = pose
+		_apply_imp_pose(imp, node, feet, pose, face)
+	_tick_combat_marks(delta)
+
+
+func _hero_feet() -> Vector2:
+	if player_actor == null:
+		return StagePaths.point_along(stage_points, 0.5)
+	var s: Vector2 = player_actor.scale
+	return player_actor.position + Vector2(
+		player_actor.size.x * 0.5 * s.x, player_actor.size.y * s.y - 12.0)
+
+
+func _stage_feet_at_x(x: float) -> Vector2:
+	# snap a brain-space position back onto the painted route: imps walk the
+	# walkway the world was painted with, they never float over the scenery
+	if stage_points.size() < 2:
+		return Vector2(clampf(x, 80.0, 1200.0), 470.0)
+	var first: Vector2 = stage_points[0]
+	var last: Vector2 = stage_points[stage_points.size() - 1]
+	var lo: float = minf(first.x, last.x) + 40.0
+	var hi: float = maxf(first.x, last.x) - 40.0
+	var cx: float = clampf(x, minf(lo, hi), maxf(lo, hi))
+	for index in range(stage_points.size() - 1):
+		var a: Vector2 = stage_points[index]
+		var b: Vector2 = stage_points[index + 1]
+		if absf(b.x - a.x) < 0.001:
+			continue
+		if cx >= minf(a.x, b.x) and cx <= maxf(a.x, b.x):
+			var f: float = clampf((cx - a.x) / (b.x - a.x), 0.0, 1.0)
+			return Vector2(cx, lerpf(a.y, b.y, f))
+	return Vector2(cx, first.y if cx <= first.x else last.y)
+
+
+## Pose -> what the imp actually looks like this frame. State art is used
+## when it exists (see CODEX_IMP_ANIMATION_HANDOFF_2026-08-02.md); until it
+## lands every pose is still readable through squash, tilt, lift and tint.
+func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
+		pose: String, face: float) -> void:
+	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
+	var seed := float(imp.get("seed", 0))
+	var t := float(imp.get("state_t", 0.0))
+	var lift := 0.0
+	var squash := Vector2.ONE
+	var tilt := 0.0
+	var tint := Color.WHITE
+	match pose:
+		"windup":
+			# the crouch: held, obvious, and never shorter than MIN_WINDUP
+			var hold: float = imp_brain.windup_time() if imp_brain != null else 0.9
+			var k := clampf(t / maxf(0.2, hold), 0.0, 1.0)
+			squash = Vector2(1.0 + 0.18 * k, 1.0 - 0.2 * k)
+			tilt = -0.14 * k * face
+			tint = Color(1.0, 0.9, 0.78).lerp(Color(1.0, 0.6, 0.52), k)
+		"charge":
+			squash = Vector2(1.14, 0.92)
+			tilt = 0.24 * face
+			lift = 12.0
+		"slash":
+			squash = Vector2(1.08, 1.02)
+			tilt = lerpf(-0.55, 0.55, clampf(t / 0.28, 0.0, 1.0)) * face
+			lift = 8.0
+		"recover":
+			# wide open: the counter window reads as an exhausted slump
+			squash = Vector2(1.08, 0.88)
+			tilt = -0.18 * face
+			tint = Color(0.84, 0.9, 1.0)
+		"guard":
+			squash = Vector2(0.9, 1.08)
+			tint = Color(0.78, 0.93, 1.0)
+		"taunt", "rally":
+			lift = absf(sin(t * 9.0)) * 18.0
+			tilt = sin(t * 12.0) * 0.13
+		"stagger":
+			tilt = sin(t * 26.0) * 0.3
+			lift = 5.0
+		"flee":
+			lift = absf(sin(bop_time * 9.5 + seed)) * 15.0
+			tilt = -0.2 * face
+		_:
+			lift = sin(bop_time * 5.2 + seed * 1.7) * 9.0
+	var texture := _imp_texture(imp, pose)
+	if texture != null:
+		node.texture = texture
+	node.pivot_offset = node.size * Vector2(0.5, 1.0)
+	node.scale = Vector2(depth * squash.x, depth * squash.y)
+	node.rotation = tilt
+	node.flip_h = face < 0.0
+	node.modulate = tint
+	node.position = feet - Vector2(node.size.x * 0.5, node.size.y) - Vector2(0.0, lift - 8.0)
+	imp["center"] = feet - Vector2(0.0, node.size.y * node.scale.y * 0.5 + lift - 8.0)
+	imp["reach"] = node.size.x * 0.62 * maxf(depth, 0.7)
+
+
+## Pose -> state sprite, ALWAYS inside the same character's own sheet: an
+## imp in a chef's hat must never borrow the bare imp's body for one frame.
+## The chain is "the pose's own art, then its nearest cousin, then idle" —
+## every missing file just falls through (see the codex handoff).
+const POSE_STATES := {
+	"windup": ["windup", "hop_a"],
+	"charge": ["charge", "hop_b"],
+	"slash": ["slash", "hop_b"],
+	"recover": ["recover"],
+	"guard": ["guard"],
+	"taunt": ["taunt", "bow"],
+	"rally": ["taunt", "bow"],
+	"flee": ["flee", "hop_b"],
+	"stagger": ["stagger"],
+	"bopped": ["bopped"],
+}
+
+
+func _imp_family(captain: bool) -> String:
+	# the crew wears the career costume in competitive acts, and the base
+	# mischief-imp sheets in the cooperative ones
+	if competition != null and not competition.is_cooperative() \
+			and rival_actor != null and rival_actor.texture != null:
+		return "rival_%s" % career_id
+	return "imp_captain" if captain else "imp_mischief"
+
+
+func _imp_texture(imp: Dictionary, pose: String) -> Texture2D:
+	var captain := bool(imp.get("captain", false))
+	var family := _imp_family(captain)
+	var states: Array = POSE_STATES.get(pose, [])
+	for state: String in states:
+		var art := _state_texture("%s_%s" % [family, state])
+		if art != null:
+			return art
+	if pose == "bopped":
+		return captain_bopped_texture if captain else imp_bopped_texture
+	if pose == "taunt" or pose == "rally":
+		var bow := captain_bow_texture if captain else imp_bow_texture
+		if bow != null and family.begins_with("imp_"):
+			return bow
+	return captain_idle_texture if captain else imp_idle_texture
+
+
+func _state_texture(slug: String) -> Texture2D:
+	if imp_state_cache.has(slug):
+		return imp_state_cache[slug] as Texture2D
+	var texture := _load_if_exists("res://assets/opera/worlds/actors/%s.png" % slug)
+	imp_state_cache[slug] = texture
+	return texture
+
+
+func _handle_brain_events() -> void:
+	for ev: Dictionary in imp_brain.drain_events():
+		var kind := String(ev.get("kind", ""))
+		var at: Vector2 = ev.get("pos", Vector2(640, 460))
+		match kind:
+			"telegraph":
+				combat_marks.append({"kind": "ring", "pos": at, "t": 0.0,
+					"life": maxf(0.3, imp_brain.windup_time())})
+				if not combat_warned and m != null:
+					# the first wind-up of the act gets its own voice line —
+					# a new thing to react to is never text-only
+					combat_warned = true
+					m.show_msg("Roshan", "Watch out! That imp is winding up — bop it before it swipes!", "hint")
+			"charge":
+				combat_marks.append({"kind": "dust", "pos": at, "t": 0.0, "life": 0.4})
+			"contact":
+				_imp_contact(int(ev.get("index", -1)), at)
+			"whiff":
+				combat_marks.append({"kind": "arc", "pos": at, "t": 0.0, "life": 0.3})
+			"taunt":
+				combat_marks.append({"kind": "taunt", "pos": at, "t": 0.0, "life": 0.7})
+			"rally":
+				if m != null:
+					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain")
+			"flee":
+				combat_marks.append({"kind": "dust", "pos": at, "t": 0.0, "life": 0.35})
+
+
+## A slash landed. NO fail state and NO lost progress (CLAUDE.md): the imp
+## bounces off Roshan's bubble shield and runs off with one of her sparkles
+## — which turns that imp into a bonus target instead of a punishment.
+func _imp_contact(index: int, at: Vector2) -> void:
+	for imp: Dictionary in combat_imps:
+		if int(imp.get("seed", -1)) != index or bool(imp.get("popped", false)):
+			continue
+		imp["carrying"] = true
+		break
+	combat_marks.append({"kind": "bump", "pos": at, "t": 0.0, "life": 0.5})
+	_bop_burst_at(at, true)
+	if player_actor != null:
+		var home := player_actor.position
+		var away := signf(home.x + player_actor.size.x * 0.5 - at.x)
+		var shove := player_actor.create_tween()
+		shove.tween_property(player_actor, "position",
+			home + Vector2(away * 26.0, -8.0), 0.09).set_trans(Tween.TRANS_QUAD)
+		shove.tween_property(player_actor, "position", home, 0.24).set_trans(Tween.TRANS_BOUNCE)
+
+
+func _tick_combat_marks(delta: float) -> void:
+	for index in range(combat_marks.size() - 1, -1, -1):
+		var mark: Dictionary = combat_marks[index]
+		mark["t"] = float(mark.get("t", 0.0)) + delta
+		if float(mark["t"]) >= float(mark.get("life", 0.3)):
+			combat_marks.remove_at(index)
+	if combat_fx != null:
+		combat_fx.queue_redraw()
+
+
+func _draw_combat_fx() -> void:
+	# the crew's intentions, drawn where a four-year-old is already looking:
+	# a gold ring + "!" while an imp winds up, a swipe arc when it misses,
+	# a stolen sparkle orbiting whoever bumped her
+	for mark: Dictionary in combat_marks:
+		var at: Vector2 = mark.get("pos", Vector2.ZERO)
+		var life: float = maxf(0.05, float(mark.get("life", 0.3)))
+		var k: float = clampf(float(mark.get("t", 0.0)) / life, 0.0, 1.0)
+		match String(mark.get("kind", "")):
+			"ring":
+				var pulse := 1.0 - k
+				var head := at - Vector2(0.0, 132.0)
+				if fx_telegraph_ring_texture != null and fx_telegraph_bang_texture != null:
+					var ring_size := Vector2.ONE * (92.0 + k * 68.0)
+					combat_fx.draw_texture_rect(fx_telegraph_ring_texture,
+						Rect2(at - ring_size * 0.5, ring_size), false,
+						Color(1.0, 1.0, 1.0, 0.25 + pulse * 0.6))
+					var bang_size := Vector2(32.0, 64.0)
+					combat_fx.draw_texture_rect(fx_telegraph_bang_texture,
+						Rect2(head - bang_size * 0.5, bang_size), false,
+						Color(1.0, 1.0, 1.0, 0.55 + pulse * 0.45))
+				else:
+					combat_fx.draw_arc(at, 46.0 + k * 34.0, 0.0, TAU, 28,
+						Color(1.0, 0.78, 0.28, 0.25 + pulse * 0.6), 6.0)
+					combat_fx.draw_rect(Rect2(head - Vector2(6.0, 30.0), Vector2(12.0, 34.0)),
+						Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
+					combat_fx.draw_circle(head + Vector2(0.0, 14.0), 7.0,
+						Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
+			"arc":
+				if fx_slash_arc_texture != null:
+					var arc_size := Vector2(210.0, 105.0)
+					combat_fx.draw_texture_rect(fx_slash_arc_texture,
+						Rect2(at - Vector2(arc_size.x * 0.5, arc_size.y * 0.5 + 60.0), arc_size),
+						false, Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)))
+				else:
+					combat_fx.draw_arc(at - Vector2(0.0, 60.0), 92.0, -0.9, 0.9, 20,
+						Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)), 9.0)
+			"dust":
+				if fx_dust_puff_texture != null:
+					var dust_size := Vector2.ONE * (96.0 + k * 44.0)
+					combat_fx.draw_texture_rect(fx_dust_puff_texture,
+						Rect2(at - dust_size * 0.5, dust_size), false,
+						Color(1.0, 1.0, 1.0, 0.5 * (1.0 - k)))
+				else:
+					combat_fx.draw_circle(at, 18.0 + k * 26.0,
+						Color(0.92, 0.88, 1.0, 0.32 * (1.0 - k)))
+			"bump":
+				combat_fx.draw_arc(at, 40.0 + k * 60.0, 0.0, TAU, 26,
+					Color(0.62, 0.93, 1.0, 0.7 * (1.0 - k)), 7.0)
+			"taunt":
+				combat_fx.draw_circle(at - Vector2(0.0, 150.0 + k * 20.0), 9.0,
+					Color(1.0, 0.72, 0.86, 0.75 * (1.0 - k)))
+			"dizzy":
+				if fx_dizzy_stars_texture != null:
+					combat_fx.draw_set_transform(at - Vector2(0.0, 90.0), k * TAU * 1.5,
+						Vector2.ONE * 0.46)
+					combat_fx.draw_texture(fx_dizzy_stars_texture, Vector2(-128.0, -128.0),
+						Color(1.0, 1.0, 1.0, 1.0 - k))
+					combat_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	for imp: Dictionary in combat_imps:
+		if bool(imp.get("popped", false)) or not bool(imp.get("carrying", false)):
+			continue
+		var centre: Vector2 = imp.get("center", Vector2.ZERO)
+		var spin: float = elapsed * 3.4 + float(imp.get("seed", 0))
+		var star: Vector2 = centre + Vector2(cos(spin), sin(spin) * 0.5) * 54.0
+		if fx_stolen_sparkle_texture != null:
+			var sparkle_size := Vector2.ONE * 32.0
+			combat_fx.draw_texture_rect(fx_stolen_sparkle_texture,
+				Rect2(star - sparkle_size * 0.5, sparkle_size), false)
+		else:
+			combat_fx.draw_circle(star, 11.0, Color(1.0, 0.94, 0.55, 0.95))
+			combat_fx.draw_circle(star, 5.0, Color.WHITE)
 
 
 func _start_lens_phase(phase: Dictionary) -> void:

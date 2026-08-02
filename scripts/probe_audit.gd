@@ -263,7 +263,8 @@ func _init() -> void:
 				and not main.g.has(retired_key)
 		print("AUDIT|retired 3D castle absent: ",
 			("OK" if legacy_hall_absent else "FAIL"))
-		var room_routes_ok: bool = main.castle_room_buttons.size() == 7 \
+		var room_routes_ok: bool = main.castle_room_buttons.size() == 8 \
+			and main.castle_room_buttons.has("family_gallery") \
 			and main.castle_room_buttons.has("opera_hall") \
 			and main.castle_room_buttons.has("bubble_bath") \
 			and main.castle_room_back_button != null \

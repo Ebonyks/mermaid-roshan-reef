@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bow",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    61,
+    104,
+    490,
+    503
+  ],
+  "visible_bbox": [
+    61,
+    104,
+    490,
+    503
+  ],
+  "solid_height": 400,
+  "gaps": {
+    "left": 61,
+    "right": 21,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 35,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 85722,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    6,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.472476,
+  "solid_centroid_x": 256.821,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_bow_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "ca7d69c89091e57aad7791625057873f11eec259a1036909b231d56b0d41b287",
+  "output": "assets\\opera\\worlds\\actors\\rival_detective_bow.png",
+  "output_sha256": "aeedae1b59e5f4f3c2dad4d48f4757d5b85723008d9c8510a3b97f05b68fc982",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_detective.png",
+  "idle_sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 400,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bow\\rival_detective_bow_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bow\\rival_detective_bow_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bow\\rival_detective_bow_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_bow\\rival_detective_bow_idle_comparison.png"
+  }
+}

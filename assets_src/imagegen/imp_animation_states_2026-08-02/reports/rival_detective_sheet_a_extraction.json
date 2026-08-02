@@ -1,0 +1,152 @@
+{
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "b9494ef8839276f2506f04071ea8ce4aefa5454f9dd5177e0e161cb43cc5cb83",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "alpha_threshold": 16,
+  "minimum_area": 5000,
+  "columns": 3,
+  "method": "8-connected visible-alpha components; row cluster then x-centroid order; lossless crop and component-isolation matte only",
+  "records": [
+    {
+      "name": "rival_detective",
+      "component_area": 87138,
+      "component_bbox_in_sheet": [
+        38,
+        45,
+        374,
+        514
+      ],
+      "component_centroid_in_sheet": [
+        214.0374348734192,
+        269.15886295301704
+      ],
+      "crop_bbox": [
+        30,
+        37,
+        382,
+        522
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "da1497aa12237d070931be9e81eda582b941954fcca8b03c53d52f8cac0fb2c5"
+    },
+    {
+      "name": "rival_detective_windup",
+      "component_area": 69097,
+      "component_bbox_in_sheet": [
+        396,
+        151,
+        782,
+        506
+      ],
+      "component_centroid_in_sheet": [
+        577.5778977379625,
+        329.58393273224596
+      ],
+      "crop_bbox": [
+        388,
+        143,
+        790,
+        514
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "808673ce56aaf801fc2ec6cd9f60844862300222081ad5e73270ae78db154d79"
+    },
+    {
+      "name": "rival_detective_charge",
+      "component_area": 74669,
+      "component_bbox_in_sheet": [
+        769,
+        98,
+        1211,
+        471
+      ],
+      "component_centroid_in_sheet": [
+        1001.915024976898,
+        260.2062167700117
+      ],
+      "crop_bbox": [
+        761,
+        90,
+        1219,
+        479
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "93ead62edd823cbeaffae3a2a4e9f32a676cd205f51b1d56765a4d09d11f2819"
+    },
+    {
+      "name": "rival_detective_slash",
+      "component_area": 77623,
+      "component_bbox_in_sheet": [
+        23,
+        605,
+        385,
+        1053
+      ],
+      "component_centroid_in_sheet": [
+        190.17644254924443,
+        833.424796774152
+      ],
+      "crop_bbox": [
+        15,
+        597,
+        393,
+        1061
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "7fb22b457684589239b5ba0c1ece7d01ab15086c7a76ca30caf8e0b1f496ec21"
+    },
+    {
+      "name": "rival_detective_recover",
+      "component_area": 76074,
+      "component_bbox_in_sheet": [
+        429,
+        678,
+        826,
+        1056
+      ],
+      "component_centroid_in_sheet": [
+        579.5584168046902,
+        878.3850067039988
+      ],
+      "crop_bbox": [
+        421,
+        670,
+        834,
+        1064
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "c18bc08e7a5970f50216dffaf7c0b7636587be7e27c5a9c9d7792f58a7f00cca"
+    },
+    {
+      "name": "rival_detective_guard",
+      "component_area": 73785,
+      "component_bbox_in_sheet": [
+        844,
+        626,
+        1174,
+        1060
+      ],
+      "component_centroid_in_sheet": [
+        1003.4458629802806,
+        835.3089923426171
+      ],
+      "crop_bbox": [
+        836,
+        618,
+        1182,
+        1068
+      ],
+      "isolation": "selected visible-alpha component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "d502950b709888140a881dcfe03a934e8e5b8ca8c59e68ba2a5bebf56b7997c9"
+    }
+  ]
+}

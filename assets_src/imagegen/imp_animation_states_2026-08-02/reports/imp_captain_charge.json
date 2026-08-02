@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "charge",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    14,
+    58,
+    496,
+    456
+  ],
+  "visible_bbox": [
+    14,
+    57,
+    497,
+    456
+  ],
+  "solid_height": 399,
+  "gaps": {
+    "left": 14,
+    "right": 15,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 3,
+  "semi_alpha_pixels": 3016,
+  "solid_pixels": 80486,
+  "semi_alpha_to_solid_ratio": 0.037472,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    9
+  ],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.446497,
+  "solid_centroid_x": 256.478,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_charge_attempt01_alpha_native.png",
+  "input_sha256": "0c40c3c882f406945636757cd302ac94471dd79ec5de95ee8dd97635d5e25a1e",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_charge.png",
+  "output_sha256": "b30bb281809c64815a99a8b182ffe0834f9648cb81fc32cc60712ead613297a4",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 400,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_charge\\imp_captain_charge_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_charge\\imp_captain_charge_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_charge\\imp_captain_charge_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_charge\\imp_captain_charge_idle_comparison.png"
+  }
+}

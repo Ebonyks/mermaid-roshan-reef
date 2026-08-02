@@ -48,11 +48,23 @@ func _visible_sprite_card_count(node: Node) -> int:
 		count += _visible_sprite_card_count(child)
 	return count
 
-func _all_children_are_unshaded_cards(node: Node3D) -> bool:
+func _all_children_follow_fixture_contract(node: Node3D) -> bool:
 	if node == null:
 		return false
 	for child: Node in node.get_children():
-		if not child is Sprite3D or (child as Sprite3D).shaded:
+		if child is Sprite3D:
+			if (child as Sprite3D).shaded:
+				return false
+			continue
+		if child is RigidBody3D:
+			var body := child as RigidBody3D
+			if not bool(body.get_meta("castle_fixture_jolt_garnish", false)) \
+					or bool(body.get_meta("logic_authority", true)) \
+					or body.collision_layer != 0 \
+					or body.collision_mask != 0:
+				return false
+			continue
+		else:
 			return false
 	return true
 
@@ -293,9 +305,9 @@ func _init() -> void:
 					and String(main.castle_room_background.texture.resource_path
 						).ends_with("_background.png")
 			room_cards_ok = room_cards_ok \
-				and _all_children_are_unshaded_cards(
+				and _all_children_follow_fixture_contract(
 					main.castle_room_item_visual_layer) \
-				and _all_children_are_unshaded_cards(
+				and _all_children_follow_fixture_contract(
 					main.castle_room_front_layer) \
 				and _world_cards_conform(main.castle_room_world_root)
 			overdraw_budget_ok = overdraw_budget_ok \
@@ -311,6 +323,13 @@ func _init() -> void:
 			"Touch_toilet") as Button
 		var toilet_record: Dictionary = main.castle_room_item_sprites.get("toilet", {})
 		var toilet_sprite: Sprite3D = toilet_record.get("sprite") as Sprite3D
+		var toilet_rig: Dictionary = toilet_record.get(
+			"fixture_rig", {}) as Dictionary
+		var toilet_visual: Dictionary = toilet_rig.get(
+			"visual", {}) as Dictionary
+		var toilet_water: Array = toilet_rig.get("water", []) as Array
+		var expected_toilet_sheet: String = "res://" + String(
+			toilet_visual.get("sheet", ""))
 		main.castle_room_camera.position = Vector3(
 			0.0, 0.0, CastleRooms25D.CAMERA_DISTANCE)
 		rooms._update_touch_hotspots()
@@ -363,20 +382,38 @@ func _init() -> void:
 			toilet_sprite != null
 			and bool(toilet_sprite.get_meta("busy", false))
 			and toilet_sprite.texture == toilet_texture
-			and toilet_texture.resource_path.ends_with(
-				"bubble_bath_toilet_atlas.png")
+			and expected_toilet_sheet != "res://"
+			and toilet_texture.resource_path == expected_toilet_sheet
 			and toilet_sprite.hframes * toilet_sprite.vframes >= 8
 			and int(toilet_sprite.get_meta(
 				"animation_frame_count", 0)) == 8
 			and String(toilet_sprite.get_meta(
 				"semantic_action", "")) == "flap_seat_and_flush"
+			and bool(toilet_sprite.get_meta(
+				"generated_full_object_states", false))
+			and not bool(toilet_sprite.get_meta(
+				"primary_animation_is_overlay", true))
 			and String(toilet_data.get("sound", ""))
 				== "castle/toilet_flush.ogg")
-		_ck("toilet_button_effects",
-			main.castle_room_item_effect_layer.get_child_count() > 0
-			and _all_children_are_unshaded_cards(
-				main.castle_room_item_effect_layer))
 		var effect_count: int = main.castle_room_item_effect_layer.get_child_count()
+		var toilet_water_layer: Dictionary = toilet_water[0] as Dictionary \
+			if toilet_water.size() == 1 else {}
+		var toilet_water_node: Sprite3D = toilet_water_layer.get(
+			"node") as Sprite3D
+		_ck("toilet_uses_bounded_fixture_water_not_generic_overlay",
+			effect_count == 0
+			and toilet_water.size() == 1
+			and String(toilet_water_layer.get("role", "")) == "vortex"
+			and toilet_water_node != null
+			and toilet_water_node.get_parent() \
+				== main.castle_room_item_visual_layer
+			and bool(toilet_water_node.get_meta(
+				"castle_fixture_water", false))
+			and bool(toilet_water_node.get_meta(
+				"bounded_to_fixture", false))
+			and not toilet_water_node.no_depth_test
+			and not bool(toilet_water_node.get_meta(
+				"logic_authority", true)))
 		if toilet_button != null:
 			toilet_button.emit_signal("pressed")
 		await process_frame
@@ -396,14 +433,23 @@ func _init() -> void:
 				and toilet_sprite.rotation.is_equal_approx(
 					toilet_start_rotation)
 		var toilet_expected_frames: Array[int] = []
-		for toilet_frame: int in range(8):
-			toilet_expected_frames.append(toilet_frame)
+		for toilet_frame_value: Variant in toilet_data.get(
+				"timeline_sequence", []) as Array:
+			toilet_expected_frames.append(int(toilet_frame_value))
+		var toilet_expected_steps: Array[int] = []
+		for toilet_step: int in range(toilet_expected_frames.size()):
+			toilet_expected_steps.append(toilet_step)
 		var toilet_visited: Array = toilet_sprite.get_meta(
 			"animation_frames_visited", []) as Array
+		var toilet_steps_visited: Array = toilet_sprite.get_meta(
+			"animation_timeline_steps_visited", []) as Array
 		_ck("toilet_seat_flap_flush_sequence_completes",
 			Time.get_ticks_msec() < toilet_deadline_ms
+			and toilet_expected_frames.size() >= 4
+			and toilet_expected_frames.size() <= 12
 			and toilet_visited == toilet_expected_frames
-			and toilet_sprite.frame == 0
+			and toilet_steps_visited == toilet_expected_steps
+			and toilet_sprite.frame == int(toilet_data.get("rest_frame", 0))
 			and not bool(toilet_sprite.get_meta("busy", true)))
 		_ck("toilet_animation_keeps_fixture_pivot_fixed",
 			toilet_fixed_transform)
