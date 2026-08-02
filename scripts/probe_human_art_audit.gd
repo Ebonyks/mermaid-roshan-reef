@@ -138,5 +138,19 @@ func _init() -> void:
 	main._fx_water_ref().card("bubble_burst", brawl_o + Vector3(2, 3.5, 2.0))
 	await _frames(6)
 	await _shot("22_water_fx_small_and_bubbles", brawl_o + Vector3(-2, 5, 14), brawl_o + Vector3(-2, 3, 0), true)
+	# the painted foam shoreline in the one shipped scene with a real land/
+	# water edge, plus a splash card on the lake it guards
+	await _fresh_main()
+	var fetch_fr: Dictionary = {}
+	for f in main.friends:
+		if String(f["game"]) == "fetch":
+			fetch_fr = f
+	if not fetch_fr.is_empty():
+		main._start_game(fetch_fr)
+	await _frames(30)
+	var lake_o: Vector3 = main.ARENA_POS
+	main.fx_splash(lake_o + Vector3(16.0, 0.9, 2.0), 10.0, "art_audit_lake")
+	await _frames(4)
+	await _shot("23_fetch_foam_shoreline", lake_o + Vector3(2.0, 9.0, 26.0), lake_o + Vector3(14.0, 0.6, 0.0), true)
 	print("ART_AUDIT|DONE")
 	quit()

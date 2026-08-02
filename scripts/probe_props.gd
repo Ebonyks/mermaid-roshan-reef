@@ -278,6 +278,31 @@ func _fx_case() -> void:
 		await process_frame
 		if main.fxw_cards.is_empty():
 			break
+	# ---- the foam waterline (the sixth sheet) -------------------------------
+	# The strip art carries no painted motion by contract, so if the engine
+	# drift ever stops the edge goes dead-still and nothing else would notice.
+	if ResourceLoader.exists(FxWater.FOAMLINE):
+		var line: MeshInstance3D = fx.waterline(ORIGIN + Vector3(0, 1, 0), 40.0, {"depth": 4.0})
+		var lm: StandardMaterial3D = null
+		if line != null:
+			lm = line.material_override as StandardMaterial3D
+		_ck("the foam waterline builds and tiles", lm != null and lm.uv1_scale.x > 1.0)
+		if lm != null:
+			var u0: float = lm.uv1_offset.x
+			var drifted := false
+			for i in range(30):
+				await process_frame
+				if lm.uv1_offset.x != u0:
+					drifted = true
+					break
+			_ck("the waterline drifts with the water clock", drifted)
+			line.queue_free()
+			await process_frame
+			var pruned := true
+			for l_v in main.fxw_lines:
+				if not is_instance_valid((l_v as Dictionary)["node"]):
+					pruned = false
+			_ck("freed waterlines are pruned", pruned)
 	# the waterline: a prop dropped through cfg water_y procs on the way down
 	var cfg: Dictionary = main.g.get("ss_cfg", {})
 	cfg["water_y"] = 3.0

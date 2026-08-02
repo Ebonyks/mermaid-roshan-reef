@@ -187,9 +187,13 @@ tabled size with 8 frames used and the trailing 3×3 cell transparent,
 1–2 px pivot drift across every splash frame. `fx_water.gd` picks them up
 with no code change; the procedural stand-in is now the fallback path
 only. A probe gate asserts each shipped sheet against the `KINDS` grid and
-that a card really flipbooks the art. The one deliverable with no consumer
-yet is `fx_water_foamline_strip.png` — reserved for the reef-pilot
-waterline (P3), not orphaned.
+that a card really flipbooks the art. **All six sheets are consumed**: the
+five flipbooks by `card()`, and the foam strip by `waterline()` — a tiled
+edge lying on the water surface whose drift the engine supplies at the
+swell's rate (the art carries no painted motion, by contract). Its first
+consumer is the fetch lake shore, where the strip sits flush with the
+gameplay wet/dry line at `ARENA_POS.x + 8.2`, so the boundary a non-reader
+has to judge is finally drawn rather than implied by the arrow colour.
 
 **STATUS 2026-08-02 (same day, follow-up commit): P1–P4 are INSTITUTED.**
 `scripts/fx_water.gd` is the vocabulary satellite (atlas-ready flipbook,

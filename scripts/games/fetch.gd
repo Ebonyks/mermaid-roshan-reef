@@ -51,6 +51,14 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.game_nodes.append(lake)
 	# snowdrift shoreline ridge along the waterline (the whole length)
 	m._course_box(origin + Vector3(8.2, 0.7, 0.0), Vector3(2.0, 1.4, 170.0), Color(0.80, 0.88, 0.96))
+	# Painted foam where the lake meets the snow, sitting on the water surface
+	# just lakeward of that ridge — x 8.2 is also the gameplay wet/dry line, so
+	# the boundary a non-reader must judge is now DRAWN instead of implied by
+	# the arrow colour alone. Drifts with the shared water clock (fx_water.gd).
+	var foam: MeshInstance3D = m._fx_water_ref().waterline(
+		origin + Vector3(11.4, 0.62, 0.0), 170.0, {"depth": 4.4, "yaw": 90.0})
+	if foam != null:
+		m.game_nodes.append(foam)
 	# drifting ice floes far out on the lake
 	for fl in range(8):
 		var floe := MeshInstance3D.new()

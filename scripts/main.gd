@@ -67,6 +67,7 @@ var _reef_districts: ReefDistricts = null
 var _living_world: LivingWorldDirector = null
 var _fx_water: FxWater = null
 var fxw_cards: Array = []       # live water-FX cards (fx_water.gd satellite)
+var fxw_lines: Array = []       # drifting foam waterlines (same satellite)
 var fxw_total := 0              # cards ever spawned — probe_passive's counter
 var fxw_cool: Dictionary = {}   # per-emitter proc cooldowns
 var living_specs: Dictionary = {}

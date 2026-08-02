@@ -41,6 +41,10 @@ const KINDS := {
 	"bubble_burst": [4, 2, 8, 0.10, 3.2],
 }
 
+const FOAMLINE := "res://assets/sprites/fx_water/fx_water_foamline_strip.png"
+const FOAM_TILE := 12.0         # world units per repeat of the strip
+const FOAM_DRIFT := 0.055       # uv/s — the swell's 0.55 rate at the tile scale
+
 var m: ReefMain
 var _tex_cache := {}            # procedural gradient textures, one per shape
 
@@ -116,9 +120,53 @@ func card(kind: String, pos: Vector3, cfg: Dictionary = {}) -> Node3D:
 		m._sparkle_burst(pos + Vector3(0, 1.2, 0), COL_LIGHT)
 	return holder
 
+func waterline(center: Vector3, length: float, cfg: Dictionary = {}) -> MeshInstance3D:
+	# The standing foam edge where water meets land — the sixth Codex
+	# deliverable. A tiled strip lying on the water surface with its painted
+	# top edge at the waterline; the art carries NO motion (workorder rule),
+	# so the drift below is what makes it breathe, at the swell's rate so it
+	# agrees with every other water channel. Caller owns the node (append it
+	# to game_nodes); returns null when the art is absent.
+	if not ResourceLoader.exists(FOAMLINE):
+		return null
+	var parent: Node3D = cfg.get("parent", m)
+	if parent == null or not is_instance_valid(parent):
+		return null
+	var depth: float = float(cfg.get("depth", 4.0))
+	var mi := MeshInstance3D.new()
+	var q := QuadMesh.new()
+	q.size = Vector2(length, depth)
+	mi.mesh = q
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.albedo_texture = load(FOAMLINE)
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat.uv1_scale = Vector3(maxf(1.0, length / FOAM_TILE), 1.0, 1.0)
+	if bool(cfg.get("flip", false)):
+		mat.uv1_scale.y = -1.0   # put the painted waterline edge on the far side
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.rotation_degrees = Vector3(-90.0, float(cfg.get("yaw", 0.0)), 0.0)
+	mi.position = center
+	parent.add_child(mi)
+	m.fxw_lines.append({"node": mi, "mat": mat, "t": 0.0})
+	return mi
+
 func tick(delta: float) -> void:
 	for k in m.fxw_cool.keys():
 		m.fxw_cool[k] = maxf(0.0, float(m.fxw_cool[k]) - delta)
+	if not m.fxw_lines.is_empty():
+		var live: Array = []
+		for l_v in m.fxw_lines:
+			var l: Dictionary = l_v
+			var ln: MeshInstance3D = l["node"]
+			if ln == null or not is_instance_valid(ln):
+				continue
+			live.append(l)
+			l["t"] = fposmod(float(l["t"]) + delta * FOAM_DRIFT, 1.0)
+			(l["mat"] as StandardMaterial3D).uv1_offset = Vector3(float(l["t"]), 0.0, 0.0)
+		m.fxw_lines = live
 	if m.fxw_cards.is_empty():
 		return
 	var alive: Array = []
