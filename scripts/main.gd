@@ -7078,6 +7078,8 @@ func _process(delta: float) -> void:
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		elif game == "combat" and combat_game != null:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
+		elif game == "dustboss":
+			act_lbl = String(_game_obj("dustboss", DustBossGame).action_label())
 		elif game == "stuffie" and stuffie_game != null:
 			act_lbl = stuffie_game.action_label()   # PECK / CLAW
 		elif (game == "dungeon" or game == "emberdun") and dungeon_game != null:

@@ -124,9 +124,16 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	_stage_open()
 	_build_boss()
 	_enter_state("showing")
+	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
+	# (audio_director.gd), so a paired _say() would speak twice the moment real
+	# clips exist. The event name IS the vo argument.
 	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The GREAT dust bunny wakes up! He is too puffy to bonk...")
-	m._say("roshan", "dustboss_show", 2.0)
+		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
+
+func action_label() -> String:
+	# the only verb in this fight is a bonk; the shared reef button otherwise
+	# reads "JUMP" with an up-arrow for the whole encounter
+	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" else "WAIT"
 
 func stage_close() -> void:
 	stage.close()
@@ -144,7 +151,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var st: float = float(m.g["db_st"])
 	match String(m.g.get("db_state", "showing")):
 		"showing":
-			_tick_showing(st, fr)
+			_tick_showing(st, fr, tapped)
 		"prowl":
 			_tick_prowl(delta, st, s, tapped)
 		"windup":
@@ -152,9 +159,9 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		"vuln":
 			_tick_vuln(delta, st, s, tapped, fr)
 		"struck":
-			_tick_struck(delta, st, fr)
+			_tick_struck(delta, st, fr, tapped)
 		"friends":
-			_tick_friends(st, fr)
+			_tick_friends(st, fr, tapped)
 	if m.g.is_empty():
 		return                      # the win banner fired and wiped the scratch
 	_place_boss(delta)
@@ -192,7 +199,9 @@ func hop_speed() -> float:
 # his dust nest, takes one big parade hop, and demonstrates the tell (the star
 # flashes) while the voice line and the pointer explain it. Taps do nothing
 # here on purpose; the child is being taught, not tested.
-func _tick_showing(st: float, fr: Dictionary) -> void:
+func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
 	var grow: float = clampf(st / 1.6, 0.0, 1.0)
 	m.g["db_show_grow"] = grow
 	m.g["db_y"] = sin(clampf((st - 1.8) / 1.4, 0.0, 1.0) * PI) * 5.4
@@ -202,8 +211,7 @@ func _tick_showing(st: float, fr: Dictionary) -> void:
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"When he JUMPS and his star FLASHES — TAP him!")
-		m._say("roshan", "dustboss_tell", 2.0)
+			"When he JUMPS and his star FLASHES — TAP him!", "dustboss_tell")
 	if st >= SHOW_T:
 		m.g["db_flash"] = 0.0
 		_enter_state("prowl")
@@ -259,7 +267,7 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		# in range of the tell but not of him: sparkle where she reached, and
 		# nudge her toward him rather than letting the tap read as broken
 		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
-		m.show_msg("Roshan", "Closer! Get under him and tap!", "hint")
+		m.show_msg("Roshan", "Closer! Get under him and tap!", "dustboss_closer")
 	elif tapped:
 		_bounce_off()
 	if st >= win:
@@ -271,11 +279,13 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		_pick_hop(true)
 		if int(m.g["db_miss"]) == 1 or int(m.g["db_miss"]) % 3 == 0:
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				"He landed! Wait for the next FLASH — you get as many tries as you like.")
-			m._say("roshan", "dustboss_again", 4.0)
+				"He landed! Wait for the next FLASH — you get as many tries as you like.",
+				"dustboss_again")
 
 # THE HIT REACTION — one per landed hit, and where he becomes someone new.
-func _tick_struck(delta: float, st: float, fr: Dictionary) -> void:
+func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
 	var hits: int = int(m.g.get("db_hits", 0))
 	m.g["db_spin"] = float(m.g.get("db_spin", 0.0)) + 9.0 * delta
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 22.0)
@@ -287,19 +297,22 @@ func _tick_struck(delta: float, st: float, fr: Dictionary) -> void:
 		m.g["db_spin"] = 0.0
 		if hits == 2:
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				"He is CROSS now — he is much faster! Keep watching the star!")
-			m._say("roshan", "dustboss_angry", 3.0)
+				"He is CROSS now — he is much faster! Keep watching the star!",
+				"dustboss_angry")
 		_enter_state("prowl")
 		_pick_hop(true)
 
 # THE ENDING — nobody loses: he deflates into a small cuddly puff, gives back
 # the castle's dust in a burst of stars, and the win banner fires.
-func _tick_friends(st: float, fr: Dictionary) -> void:
+func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - 0.3)
 	m.g["db_flash"] = 0.0
 	if st >= WIN_T and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
 		m.pearl_count += 3
+		m._fanfare()
 		m._end_game(true, fr,
 			"The Great Dust Bunny is your friend now! He gave the castle's shine back!")
 
@@ -312,9 +325,8 @@ func _land_hit(fr: Dictionary) -> void:
 	if boss != null and is_instance_valid(boss):
 		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
 			Color(0.86, 0.78, 1.0))
-	if m.voice != null:
-		m.voice.pitch_scale = 1.1 + randf() * 0.2
-		m.voice.play()
+	# (no bare m.voice.play() here — show_msg below already speaks this beat,
+	# and a third trigger on the same frame just restarts the same player)
 	# a real recoil: the bonk shoves him back across the ring
 	var knock: Vector2 = Vector2(float(m.g["db_x"]), float(m.g["db_z"])) \
 		- stage.player_local()
@@ -327,19 +339,16 @@ func _land_hit(fr: Dictionary) -> void:
 	if hits >= HP:
 		_enter_state("friends")
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"POOF! The great dust bunny bursts into stars!")
-		m._say("roshan", "dustboss_win", 0.0)
+			"POOF! The great dust bunny bursts into stars!", "dustboss_win")
 		if m.player != null:
 			m.player.play_verb("cheer")
 		return
 	_enter_state("struck")
 	if hits == 1:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK! He is all DIZZY — his ears are spinning!")
-		m._say("roshan", "dustboss_dizzy", 2.0)
+			"BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
 	else:
-		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!")
-		m._say("roshan", "dustboss_hit", 2.0)
+		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
 
 func on_world_tap(screen_pos: Vector2) -> void:
 	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
@@ -362,6 +371,10 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
 		m._say("roshan", "dustboss_closer", 3.0)
 		return
+	var st_now: String = String(m.g.get("db_state", ""))
+	if st_now == "showing" or st_now == "struck" or st_now == "friends":
+		_answer_only()   # same answer as the button — see D4
+		return
 	_bounce_off()
 
 func _screen_hit(screen_pos: Vector2) -> bool:
@@ -378,6 +391,16 @@ func _screen_hit(screen_pos: Vector2) -> bool:
 	var half: float = maxf(64.0, absf(centre.y - top.y) * 1.15)
 	return screen_pos.distance_to(centre) <= half
 
+func _answer_only() -> void:
+	# A tap during the showing, the bonk reaction or the befriending must not
+	# be silent AND must not scold. Before this, the button did nothing in
+	# these three states while a screen tap ran the full shield answer — so the
+	# same finger got two different answers depending on where it landed, and
+	# "Too puffy! Wait for him to JUMP and FLASH!" could print over the
+	# teaching line itself (2026-08-02 stress-test synthesis, D4).
+	m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
+		Color(0.92, 0.88, 1.0))
+
 func _bounce_off() -> void:
 	# a shielded tap: never a failure, never a penalty — a poof, a giggle, and
 	# after three of them he giggles the tell back at her
@@ -386,9 +409,15 @@ func _bounce_off() -> void:
 		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.35, 0),
 			Color(0.78, 0.74, 0.92))
 	m.g["db_shield_taps"] = int(m.g.get("db_shield_taps", 0)) + 1
+	# the medal axis: taps thrown while he was shielded and the fight was
+	# actually live. Never reset (db_shield_taps resets on every hit), and
+	# never incremented during showing/struck/friends — the teaching beat and
+	# the celebration must not cost her a tier.
+	var live: String = String(m.g.get("db_state", ""))
+	if live == "prowl" or live == "windup" or live == "vuln":
+		m.g["db_wasted"] = int(m.g.get("db_wasted", 0)) + 1
 	if int(m.g["db_shield_taps"]) % 3 == 0:
-		m.show_msg("Roshan", "Too puffy! Wait for him to JUMP and FLASH!", "hint")
-		m._say("roshan", "dustboss_tell", 3.0)
+		m.show_msg("Roshan", "Too puffy! Wait for him to JUMP and FLASH!", "dustboss_tell")
 
 # ---- prowl motion ----------------------------------------------------------
 func _pick_hop(reset: bool) -> void:

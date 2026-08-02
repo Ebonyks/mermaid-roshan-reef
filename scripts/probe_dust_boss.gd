@@ -219,6 +219,13 @@ func _showing_case() -> void:
 	for i in range(4):
 		await _tap()
 	_ck("taps during the showing land no damage", _hits() == 0)
+	# and they must not be counted against her medal, nor scold her over the
+	# teaching line — the showing is where the rule is taught
+	_ck("taps during the showing cost her no medal tier",
+		int(main.g.get("db_wasted", 0)) == 0)
+	# the button must say what it does, in a fight whose only verb is a bonk
+	var boss0 := _boss()
+	_ck("the button reads WAIT while he is shut", boss0.action_label() == "WAIT")
 	var reached: bool = await _await_state("prowl", 3000)
 	_ck("the showing hands over to the prowl", reached)
 
@@ -240,6 +247,8 @@ func _first_hit_case() -> void:
 	_ck("the wind-up becomes an airborne flashing window", open_now)
 	var up: bool = await _await_airborne(600)
 	_ck("he really is in the air while the star flashes", up)
+	_ck("the button reads BONK! exactly while he is open",
+		_boss().action_label() == "BONK!")
 	# an open window on the far side of the ring is not a free hit: stand
 	# diametrically opposite him, inside the octagon, and tap on the flash
 	var boss := _boss()
@@ -326,6 +335,9 @@ func _win_case() -> void:
 		await process_frame
 	_ck("the win banner closes the fight", main.game == "")
 	_ck("befriending him pays the portal pearls", main.pearl_count >= pearls_before + 3)
+	# MEDALS.md is binding: "Bronze = completion. Every finished game earns at
+	# least bronze." The first boss in the game had no medal row at all.
+	_ck("beating the boss earns a medal", int(main.medals.get("dustboss", 0)) >= 1)
 	main.touch_ui.action_down = false
 
 # ---- a second fight, walked beat by beat, to check the pose map ------------

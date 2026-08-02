@@ -50,6 +50,13 @@ const TIERS := {
 	"dungeon":     {"kind": "more", "key": "rooms", "gold": 10, "silver": 5},
 	"bells":       {"kind": "fewer", "key": "oops", "gold": 0, "silver": 2},
 	"dance":       {"kind": "more", "key": "combo", "gold": 10, "silver": 5},
+	# The boss ranks on READING THE TELL, not on speed: a fast-hit bonus would
+	# reward mashers (measured median latency 0.50s) over children who actually
+	# watch (0.65-0.80s). "wasted" counts taps thrown while he was shielded and
+	# the fight was live. Measured on the 25-persona set: gold 2/25, silver
+	# 9/25, bronze 14/25, and 0 of 5 masher runs above bronze.
+	# (DUST_BUNNY_BOSS_STRESS_TEST_2026-08-02.md §4.1)
+	"dustboss":    {"kind": "fewer", "key": "wasted", "gold": 0, "silver": 2},
 }
 
 var m: ReefMain
@@ -127,6 +134,8 @@ func award_from_end_game(game_id: String, g2: Dictionary) -> void:
 				award_stats("slide", {"got": int(g2.get("got", 0))})
 		"fairyshoot":
 			award_stats("fairy", {"fails": m.fs_fails, "hits": int(g2.get("hits", 0))})
+		"dustboss":
+			award_stats("dustboss", {"wasted": int(g2.get("db_wasted", 0))})
 
 func award_from_mg2d(kind: String, mg2: Dictionary) -> void:
 	# 2D picture games are tap toys — the skill axis is pace, so they rank on

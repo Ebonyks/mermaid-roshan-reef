@@ -341,6 +341,66 @@ read.
 
 ---
 
+## 6b. Second pass — five more defects, found by the review panel
+
+The adversarial review of the audit itself surfaced five defects the first
+pass missed. Four are fixed; all were verified in code before acting on them.
+
+### D1. Nine voice events fired **twice** — FIXED
+`show_msg()` already calls `_say(speaker, vo)` itself
+(`audio_director.gd:60-64`), so every `show_msg(...)` + `_say(...)` pair in the
+encounter was two triggers on the same beat, and `_land_hit` added a third
+(`m.voice.play()`). Today they all collapse into one fallback noise; the moment
+real clips land they would have spoken over each other on two players. Every
+beat now passes its event name as the `vo` argument — one trigger, one voice.
+
+### D2. Winning the game's first boss earned no medal — FIXED
+`MEDALS.md` is binding: *"Bronze = completion. Every finished game earns at
+least bronze."* `MedalSystem.TIERS` had no `dustboss` row, so the boss was the
+only content in the game that could not be ranked. It now ranks on **wasted
+taps** — taps thrown while he was shielded and the fight was live — which is
+the axis §4.1 argued for, and the measured set confirms it discriminates the
+right behaviour:
+
+| Tier | Rule | Measured |
+| --- | --- | --- |
+| gold | 0 wasted | 1/25 — **0 of 5 mashers** |
+| silver | ≤2 wasted | 9/25 — **0 of 5 mashers** |
+| bronze | won | 25/25 |
+
+The counter deliberately does **not** tick during the showing, the hit reaction
+or the befriending: the teaching beat and the celebration must never cost her a
+tier. (`dust_boss_fr["won"]` is left `true` on purpose — flipping it routes
+into `_add_won_star`, which dereferences a `"node"` key this fr does not have.)
+
+### D3. The button said "JUMP" in a fight whose only verb is a bonk — FIXED
+The shared reef action button defaults to `JUMP` with an up-arrow pictogram and
+had no `dustboss` arm. It now reads **BONK!** while he is open and **WAIT**
+while he is shut, through the same `action_label()` seam kart and the promenade
+already use. Asserted in the probe on both sides of the window.
+
+### D4. The same tap had two different answers — FIXED
+The action button was never passed into `showing`, `struck` or `friends`, so
+pressing it there did *nothing*; but a tap on the **screen** in those same
+states ran the full shield answer and could print *"Too puffy! Wait for him to
+JUMP and FLASH!"* over the teaching line itself, and over *"BONK! He is all
+DIZZY"*. Both paths now give the same sparkle-only answer in those three
+states — never silent, never scolding — and damage still exists only in
+`_tick_vuln`.
+
+### D5. Dead exit line — LEFT AS IS
+`_fail_line()` has no callers repo-wide, so the boss's entry there is
+unreachable. Harmless; noted because it means there is no in-fiction way *out*
+of the fight (§3.6).
+
+> **Note on the numbers after this pass.** Removing the stray
+> `m.voice.play()` also removed a `randf()` call, which re-aligns the shared
+> RNG stream — so the re-run reports median 26.1 s rather than 29.3 s. That is
+> seed drift, not an improvement: the floor (22.7 s), the mash-equals-read
+> result and the in-band count (3/25) are unchanged in substance.
+
+---
+
 ## 7. What changed in the code tonight
 
 | Change | Why |
@@ -349,7 +409,9 @@ read.
 | `scripts/games/dust_boss.gd` | Ported to the octagon (AI unchanged); ground shadow fixed; `on_world_tap` added |
 | `scripts/player.gd` | `dustboss` added to the camera-ownership list (§3.1) |
 | `scripts/main.gd` | World taps during the boss fight route to the boss (§3.3) |
-| `scripts/probe_dust_boss.gd` | +6 camera-contract checks, +1 world-tap check (now 40) |
+| `scripts/probe_dust_boss.gd` | +6 camera-contract checks, +world-tap, +pose map, +button label, +medal (now 48) |
+| `scripts/medal_system.gd`, `scripts/probe_rank.gd` | the boss's medal row and its tier-math cases |
+| `scripts/touch_ui.gd` | BONK!/WAIT pictograms |
 | `scripts/probe_dust_boss_balance.gd` (new) | The 25-encounter persona playtest and its control extremes |
 | `scripts/probe_dust_boss_shots.gd` (new) | The 10-frame visual capture pass |
 
