@@ -7,6 +7,7 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
+const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -709,6 +710,7 @@ func _living_world_ref() -> LivingWorldDirector:
 	return _living_world
 
 func _ready() -> void:
+	BootSplashOverlayLogic.show(self)
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
 	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
