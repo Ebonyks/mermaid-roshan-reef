@@ -260,7 +260,15 @@ func _init() -> void:
 			rooms.show_room(room_id, false)
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
-			var expected_items: int = 10 if hall_mode else (
+			# The Main Hall's dust-bunny colony is generated per castle visit, so
+			# its inventory is seven authored props plus the live bunnies.
+			var hall_bunnies: int = rooms.hall_dust_bunny_ids().size() \
+				if hall_mode else 0
+			if hall_mode:
+				room_items_ok = room_items_ok \
+					and hall_bunnies >= 3 \
+					and hall_bunnies <= CastleRooms25D.HALL_BUNNY_LIVE_CAP
+			var expected_items: int = (7 + hall_bunnies) if hall_mode else (
 				7 if room_id == "kitchen" else (
 					7 if room_id == "playroom"
 						and not rooms._playroom_rescue_done() else 4))
