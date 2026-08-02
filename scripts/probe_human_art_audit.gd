@@ -4,6 +4,12 @@ const OUT := "res://audit/runtime_shots_2026-07-16"
 
 var main: Node3D
 var camera: Camera3D
+# Where the frames actually land. The CI capture step runs this probe inside
+# the same block as probe_reef_shots and uploads $REEF_SHOT_OUT/*.png — a
+# hardcoded res:// path renders the shots into the workspace and throws them
+# away, so honour the same env var the sibling capture probes use (2026-08-02:
+# that is why the water-FX inspection frames never reached the artifact).
+var out_dir := ""
 
 func _frames(count: int) -> void:
 	for i in range(count):
@@ -17,8 +23,8 @@ func _shot(name: String, position: Vector3 = Vector3.ZERO, target: Vector3 = Vec
 	await _frames(3)
 	await RenderingServer.frame_post_draw
 	var image: Image = get_root().get_viewport().get_texture().get_image()
-	image.save_png(OUT + "/" + name + ".png")
-	print("ART_AUDIT|saved ", name)
+	var err: Error = image.save_png(out_dir.path_join(name + ".png"))
+	print("ART_AUDIT|saved ", name, " -> ", out_dir, (" ERR %d" % err) if err != OK else "")
 
 func _fresh_main() -> Node3D:
 	if main != null and is_instance_valid(main):
@@ -37,7 +43,9 @@ func _init() -> void:
 		print("ART_AUDIT|RESULT: HEADLESS SKIP (visual capture requires a display renderer)")
 		quit()
 		return
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
+	var requested: String = OS.get_environment("REEF_SHOT_OUT")
+	out_dir = requested if requested != "" else ProjectSettings.globalize_path(OUT)
+	DirAccess.make_dir_recursive_absolute(out_dir)
 	camera = Camera3D.new()
 	camera.fov = 66.0
 	get_root().add_child(camera)
