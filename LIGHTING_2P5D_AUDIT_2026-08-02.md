@@ -401,10 +401,40 @@ The division of labour that falls out of this:
 Ordered by payoff ÷ risk. Every item is probe-gated and reversible.
 Items E1–E3 need no new art and can land immediately.
 
-### E1 — Stop the grade clipping the art *(no new art; biggest single win)*
+### E1 — Stop the grade clipping the art — **LANDED 2026-08-02**
 
-Retune every profile in `_apply_scene_grade` toward the `sky_lagoon` shape,
-which already protects highlights, and stop pushing contrast in post:
+Retuned `_apply_scene_grade` (`sky_lagoon`, `bright_pastel`, `warm_pastel`,
+`galaxy`) and the castle destination-room grade. Measured over the real art
+with `tools/check_grade_headroom.py`:
+
+| zone | clipped channel, before → after | crushed, before → after |
+|---|--:|--:|
+| castle rooms | 21.50 % → **4.09 %** | 1.47 % → 1.39 % |
+| sky lagoon | 0.05 % → 0.08 % | 8.45 % → **2.33 %** |
+| bright_pastel (opera + art35) | 33.50 % → **13.82 %** | 3.80 % → 1.80 % |
+
+![castle room grade](docs/audits/LIGHTING_2026-08-02_grade_castle_room.jpg)
+
+The two levers that did the work: **`tonemap_white` 1.35 → 1.62** (ACES below
+~1.55 puts painted highlights over the knee) and **post `contrast` → ≤1.05**
+(contrast pivots on 0.5 and attacks both ends of the range at once).
+
+`bright_pastel` stays high at 13.82 % because **its art is hot, not its
+grade** — the art35 card set clips 3.8 % of pixels in the source PNGs. That is
+C2's job, and the gate's budget tightens to ~6 % once those are regenerated.
+
+Two things deliberately left alone:
+
+- **The Main Hall's dramatic grade.** `adjustment_saturation = 0.50`,
+  `contrast 1.20` and `glow_hdr_threshold 0.58` are a deliberate art decision
+  (`castle_glow_profile = "dramatic_storybook"`) locked by
+  `probe_castle_pearl_art.gd:962-965`. Its real fix is E4 + C1 — once the
+  sconces carry emissive masks the threshold can rise and the drama can come
+  from the lamps instead of from crushing the paint. Changing it now would be
+  overriding an owner art call to chase a metric.
+- **`ember`.** "Dark stone must STAY dark" is the same kind of decision.
+
+Original prescription, for the record:
 
 - Raise `tonemap_white` to ≥1.5 on every profile that shows the source art
   directly (`warm_pastel`, `bright_pastel`, `galaxy`). White 1.2–1.35 with
@@ -417,12 +447,19 @@ which already protects highlights, and stop pushing contrast in post:
 - Add a **shadow floor**: `adjustment_brightness` below 1.0 combined with
   contrast is what produced 9.57 % crush. Lift the black point instead.
 
-Gate: extend `sim_render_grade.py` into a probe assertion — for each zone
-profile, clipped-channel fraction on its own flats must stay under ~3 % and
-crushed under ~2 %. That turns this audit's numbers into a regression test.
+Gate — **landed**: `tools/check_grade_headroom.py`, wired into
+`scripts/ci.sh`. It parses the grade numbers straight out of `main.gd` and
+`castle_rooms_25d.gd` (so the gate cannot drift from the shipped values),
+replays the chain over each zone's real flats, and fails when a profile clips
+or crushes pixels the source did not.
 
-Then A/B **AgX vs ACES** on the phone in the existing Lighting Lab (W9). AgX
-should visibly help the lavender/teal castle palette; confirm on the real
+> **Needs an owner go-ahead:** the CI workflow runs its own static-gate list
+> rather than `scripts/ci.sh`, so this gate does not yet run on push. Adding
+> one line to `.github/workflows/probes.yml` would fix that, but changes under
+> `.github/workflows/` are explicit-task-only per CLAUDE.md, so I left it.
+
+Still open: A/B **AgX vs ACES** on the phone in the existing Lighting Lab (W9).
+AgX should visibly help the lavender/teal castle palette; confirm on the real
 panel before committing, per the 07-18 audit's warning.
 
 ### E2 — `scripts/light_rig.gd` — one tint rig for every zone *(no new art)*
@@ -575,7 +612,7 @@ flat set is the minority.
 
 | # | Item | Needs art? | Payoff |
 |---|---|---|---|
-| 1 | **E1** grade retune + AgX A/B | no | removes ~20 % channel clipping game-wide |
+| 1 | **E1** grade retune + headroom gate — **LANDED** | no | castle rooms 21.5 % → 4.1 % clipped; lagoon crush 8.5 % → 2.3 % |
 | 2 | **E2** light rig: depth ramp + zone tint + day/night | no | fixes flat depth, integrates cast, unlocks W3/W7 |
 | 3 | **E3** one contact-shadow convention | no | removes the double-shadow clash |
 | 4 | **C1** emissive masks | yes | lets E4 fix bloom properly |
@@ -590,6 +627,7 @@ W3, W5(part), W6 and W7. They are where I would start.
 
 ## Files added by this audit
 
-- `tools/audit_lighting_images.py`, `tools/sim_render_grade.py`
+- `tools/audit_lighting_images.py`, `tools/sim_render_grade.py`,
+  `tools/check_grade_headroom.py` (gate, wired into `scripts/ci.sh`)
 - `tools/out/lighting_image_audit.json`, `tools/out/lighting_image_audit.md`
 - `docs/audits/LIGHTING_2026-08-02_*.jpg`

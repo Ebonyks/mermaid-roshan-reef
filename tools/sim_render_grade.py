@@ -28,10 +28,14 @@ PROFILES = {
 	#       glow_threshold, glow_intensity, glow_bloom, glow_hdr_scale
 	"castle_hall_lit": (0.92, 1.35, 1.12, 1.20, 0.50, 0.58, 1.28, 0.30, 4.20),
 	"castle_hall_dark": (0.92, 1.35, 0.84, 1.12, 0.66, 0.98, 0.24, 0.02, 4.20),
-	"castle_room": (0.92, 1.35, 0.94, 1.10, 1.08, 0.90, 0.66, 0.09, 2.40),
-	"sky_lagoon": (0.72, 1.55, 0.94, 1.16, 1.10, 0.90, 0.95, 0.40, 2.40),
-	"bright_pastel": (0.88, 1.40, 0.95, 1.12, 1.04, 0.90, 0.95, 0.40, 2.40),
+	"castle_room": (0.92, 1.62, 0.98, 1.02, 1.02, 0.90, 0.66, 0.09, 2.40),
+	"sky_lagoon": (0.72, 1.55, 1.00, 1.04, 1.10, 0.90, 0.95, 0.40, 2.40),
+	"bright_pastel": (0.88, 1.62, 0.97, 1.03, 1.04, 0.90, 0.95, 0.40, 2.40),
 	"reef_default": (1.15, 1.20, 0.96, 1.03, 0.98, 0.90, 0.95, 0.40, 2.40),
+	# Pre-2026-08-02 values, kept so the retune stays demonstrable. Not shipped.
+	"legacy_castle_room": (0.92, 1.35, 0.94, 1.10, 1.08, 0.90, 0.66, 0.09, 2.40),
+	"legacy_sky_lagoon": (0.72, 1.55, 0.94, 1.16, 1.10, 0.90, 0.95, 0.40, 2.40),
+	"legacy_bright_pastel": (0.88, 1.40, 0.95, 1.12, 1.04, 0.90, 0.95, 0.40, 2.40),
 	# Reference: what a near-identity "show the painting as painted" pipeline
 	# would put on screen. Used to bracket how far the shipped grade travels.
 	"neutral": (1.0, 1.0, 1.0, 1.0, 1.0, 4.0, 0.0, 0.0, 4.0),

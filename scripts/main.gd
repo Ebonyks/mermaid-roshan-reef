@@ -1058,6 +1058,18 @@ func _apply_scene_grade(env: Environment, profile: String) -> void:
 	# Bright arenas used to stack the reef grade with near-white albedo and hot
 	# ambient light. Named profiles keep those independently-built worlds inside
 	# one contrast envelope while preserving the reef's established treatment.
+	#
+	# GRADE RULE for the 2.5D worlds (LIGHTING_2P5D_AUDIT_2026-08-02 §E1): every
+	# profile that shows painted flats directly is showing FINISHED art through
+	# an unshaded card. Its job is to be nearly transparent — match the panel,
+	# protect both ends of the value range, and leave the look to the painting.
+	# So: white_point >= ~1.55 (ACES below that puts painted highlights over the
+	# knee and clips single channels, which reads as a hue shift, not as
+	# overexposure), and post `contrast` <= ~1.05 (contrast pivots on 0.5 and
+	# attacks the top and bottom of the range at once). tools/check_grade_headroom.py
+	# gates this against the real art. The reef default and "ember" are exempt:
+	# the reef is 3D meshes rather than flats, and Ember's harder grade is a
+	# deliberate art decision (dark basalt must stay dark).
 	_grade(env)
 	var full_exposure: float = 1.15
 	var speedy_exposure: float = 1.05
@@ -1072,39 +1084,43 @@ func _apply_scene_grade(env: Environment, profile: String) -> void:
 			# The Lagoon has its own daylight and a largely pearl/snow palette.
 			# Keep enough headroom for those pale surfaces to retain their painted
 			# value steps instead of clipping into one white mass on Mobile.
+			# 2026-08-02: the high white point already protected the highlights
+			# (0.2% -> 0.05% clipped), but contrast 1.16 with brightness < 1.0
+			# crushed 8.5% of the panorama's shadows to solid black. The painted
+			# flats carry their own contrast; post-contrast only attacks the ends.
 			full_exposure = 0.72
 			speedy_exposure = 0.66
 			white_point = 1.55
 			saturation = 1.10
-			contrast = 1.16
-			brightness = 0.94
+			contrast = 1.04
+			brightness = 1.0
 			full_ambient_cap = 0.46
 			speedy_ambient_cap = 0.42
 		"bright_pastel":
 			full_exposure = 0.88
 			speedy_exposure = 0.78
-			white_point = 1.4
+			white_point = 1.62
 			saturation = 1.04
-			contrast = 1.12
-			brightness = 0.95
+			contrast = 1.03
+			brightness = 0.97
 			full_ambient_cap = 0.75
 			speedy_ambient_cap = 0.68
 		"warm_pastel":
 			full_exposure = 0.92
 			speedy_exposure = 0.82
-			white_point = 1.35
+			white_point = 1.62
 			saturation = 1.06
-			contrast = 1.10
-			brightness = 0.95
+			contrast = 1.03
+			brightness = 0.97
 			full_ambient_cap = 0.82
 			speedy_ambient_cap = 0.74
 		"galaxy":
 			full_exposure = 0.92
 			speedy_exposure = 0.82
-			white_point = 1.45
+			white_point = 1.58
 			saturation = 1.04
-			contrast = 1.10
-			brightness = 0.95
+			contrast = 1.04
+			brightness = 0.97
 			full_ambient_cap = 0.82
 			speedy_ambient_cap = 0.72
 		"ember":
