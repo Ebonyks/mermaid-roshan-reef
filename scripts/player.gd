@@ -3,6 +3,8 @@ extends Node3D
 
 const ROSHAN_SPRITE_ANCHORS := preload(
 	"res://scripts/roshan_sprite_anchors.gd")
+const ROSHAN_SPRITE_FRAMES := preload(
+	"res://scripts/roshan_sprite_frames.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
@@ -145,6 +147,7 @@ var classic_sprite: Sprite3D = null
 var classic_sprite_sheet := ""
 var classic_sprite_frame := -1
 var classic_sprite_flip := false
+var classic_sprite_region := false
 var classic_toy_pose_until_msec := 0
 var classic_carry_started_msec := 0
 var classic_was_carrying := false
@@ -314,17 +317,28 @@ func _set_classic_sprite_frame(sheet: String, frame_idx: int, flip: bool = false
 		classic_sprite.vframes = int(spec[2])
 		classic_sprite_sheet = sheet
 		classic_sprite_frame = -1
+		classic_sprite_region = false
 	if classic_sprite_frame != safe_frame:
 		classic_sprite.frame = safe_frame
 		classic_sprite_frame = safe_frame
+		classic_sprite_region = false
+	if not classic_sprite_region:
+		# The sheets pack their figures tighter than the nominal 256px grid, so
+		# a plain hframes slice clips her head in the lower rows. Sample the
+		# corrected window instead; offset_correction below keeps every pixel
+		# that already rendered exactly where it is.
+		ROSHAN_SPRITE_FRAMES.apply_region(
+			classic_sprite, sheet, safe_frame, int(spec[1]))
+		classic_sprite_region = true
 	if classic_sprite_flip != flip:
 		classic_sprite.flip_h = flip
 		classic_sprite_flip = flip
+	var sprite_offset := Vector2.ZERO
 	if ROSHAN_SPRITE_ANCHORS.has_sheet(sheet):
-		classic_sprite.offset = ROSHAN_SPRITE_ANCHORS.correction(
+		sprite_offset = ROSHAN_SPRITE_ANCHORS.correction(
 			sheet, safe_frame, Vector2(128.0, 116.0), flip)
-	else:
-		classic_sprite.offset = Vector2.ZERO
+	classic_sprite.offset = sprite_offset \
+		+ ROSHAN_SPRITE_FRAMES.offset_correction(sheet, safe_frame, flip)
 
 func _set_classic_sequence(sequence: Array, phase: int, flip: bool = false) -> void:
 	var sheet: String = String(sequence[0])
