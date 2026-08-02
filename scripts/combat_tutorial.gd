@@ -16,6 +16,8 @@ extends Node3D
 
 const CENTER := Vector3(0.0, -2600.0, 0.0)
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const TRAINING_BACKDROP_PATH := "res://assets/castle/training/training_grotto_backdrop.png"
+const GHOST_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
 const IDLE_REDEMO := 9.0            # the opera ghost-finger revival beat
 const LESSONS := ["tap", "combo", "charge", "partner", "wave"]
 const LESSON_MSG := {
@@ -58,6 +60,7 @@ class DemoFinger:
 	var mode := "press"
 	var t := 0.0
 	var anchor := Vector2.ZERO
+	var hand_texture: Texture2D = null
 	func _process(delta: float) -> void:
 		t += delta
 		queue_redraw()
@@ -77,7 +80,12 @@ class DemoFinger:
 		var pressing: bool = _pressing()
 		var halo: float = 30.0 if pressing else 20.0
 		draw_circle(anchor, halo, Color(1.0, 0.95, 0.7, 0.28))
-		draw_circle(anchor, 13.0, Color(1.0, 0.98, 0.88, 0.95))
+		if hand_texture != null:
+			var hand_size := Vector2(82.0, 82.0)
+			draw_texture_rect(hand_texture,
+				Rect2(anchor - hand_size * 0.5, hand_size), false)
+		else:
+			draw_circle(anchor, 13.0, Color(1.0, 0.98, 0.88, 0.95))
 		if pressing:
 			var ring: float = 18.0 + fmod(t * 46.0, 26.0)
 			draw_arc(anchor, ring, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.7), 3.0, true)
@@ -142,6 +150,7 @@ func _build_stage() -> void:
 	add_child(cam)
 	cam.look_at(CENTER + Vector3(0, 1.5, 0), Vector3.UP)
 	cam.make_current()
+	_add_training_backdrop()
 	pointer = Label3D.new()
 	pointer.text = "▼"
 	pointer.font_size = 150
@@ -154,9 +163,36 @@ func _build_stage() -> void:
 	demo_layer.layer = 15
 	m.add_child(demo_layer)
 	demo = DemoFinger.new()
+	if ResourceLoader.exists(GHOST_HAND_PATH):
+		demo.hand_texture = load(GHOST_HAND_PATH) as Texture2D
 	demo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	demo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	demo_layer.add_child(demo)
+
+func _add_training_backdrop() -> void:
+	if cam == null or not ResourceLoader.exists(TRAINING_BACKDROP_PATH):
+		return
+	var texture: Texture2D = load(TRAINING_BACKDROP_PATH) as Texture2D
+	if texture == null:
+		return
+	# Camera-local placement keeps the 2:1 painting perpendicular to the
+	# steep arena camera while its center still lands at world z ~= -30.
+	var distance := 77.0
+	var height := 2.0 * distance * tan(deg_to_rad(cam.fov * 0.5))
+	var aspect: float = float(texture.get_width()) / float(texture.get_height())
+	var quad := QuadMesh.new()
+	quad.size = Vector2(height * aspect, height)
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_texture = texture
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var backdrop := MeshInstance3D.new()
+	backdrop.name = "TrainingGrottoBackdrop"
+	backdrop.mesh = quad
+	backdrop.material_override = material
+	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	backdrop.position = Vector3(0.0, 0.0, -distance)
+	cam.add_child(backdrop)
 
 func _soft(col: Color, emission: float = 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()

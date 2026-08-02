@@ -825,6 +825,7 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
+<<<<<<< HEAD
 - `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
   combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
   by `tools/gen_combat_sfx.py` in this repository (deterministic
@@ -833,3 +834,18 @@ generator output is present in this directory or connected to runtime art.
   freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
   replacements can drop in at the same paths (all callers check
   ResourceLoader.exists). License: project code.
+=======
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.
