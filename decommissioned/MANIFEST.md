@@ -187,6 +187,36 @@ Audits and workorders against build generations that no longer exist.
 
 ---
 
+
+## Group 7 — `data/castle-3d-kit/` and `data/rig-workbench-glb/` (added 2026-08-02)
+
+From the `.glb`/`.blend` reachability sweep — full findings in `GLB_BLEND_AUDIT.md`.
+
+| Path | Was | Files | Size | Why |
+| --- | --- | ---: | ---: | --- |
+| `castle-3d-kit/` | `assets/castle/**/*.glb` (+ `.import`) | 66 | 9.6 MB | Sole consumer `scripts/arena/castle_hall.gd` was DELETED in `d0732324` when the castle moved to 2.5D. Its replacement `castle_rooms_25d.gd` has zero `.glb` references and loads 2D cutouts instead. Satisfies CLAUDE.md's "landed .glbs stay until their zone migrates" — the zone migrated. |
+| `rig-workbench-glb/` | `tools/out/*.glb` | 4 | 37 MB | Rig intermediates with zero references anywhere, not even from the scripts that built them. Never shipped (`tools/.gdignore` + `exclude_filter`). |
+
+**Blast radius — checked before moving, all clean:**
+
+- No non-probe reference to any `assets/castle/*.glb` in `scripts/`, `scenes/`,
+  `tools/`, or `project.godot`.
+- **No trusted CI probe loads a castle `.glb`.** `probe_castle_pearl_art`,
+  `probe_kitchen_props`, `probe_bathroom_props`, `probe_bathroom_integration`,
+  `probe_crown`, `probe_fable_kit` are all in `scripts/ci.sh` and all have zero
+  castle `.glb` references — they exercise the 2D rebuild.
+- `PEARL` matches in `probe_audit`/`probe_l2`/`probe_train` are `PEARL_TOTAL` /
+  `pearl_count` game state, not `pearl_kit` assets. `const PEARL_KIT` no longer
+  exists in any live script.
+- Unlike every earlier group, **`castle-3d-kit` was shipping in the APK.** It is
+  the first decommission tranche that actually reduces the phone download.
+
+**Explicitly NOT quarantined** (see `GLB_BLEND_AUDIT.md`): `assets/aquatic2/`
+(60.7 MB) is a documented strangler-fig fallback, not dead art — removing it is
+an owner decision. The remaining ~146 unreachable `.glb` across art35, opera,
+props and zones_misc are "shipped but never wired" rather than orphaned by a
+deleted loader, and need per-file judgement.
+
 ## Size accounting
 
 Measured 2026-08-02, against the published master APK (378 MB /
