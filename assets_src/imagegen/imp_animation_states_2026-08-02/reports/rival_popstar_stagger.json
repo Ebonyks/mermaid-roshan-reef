@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    19,
+    24,
+    499,
+    503
+  ],
+  "visible_bbox": [
+    19,
+    24,
+    499,
+    503
+  ],
+  "solid_height": 480,
+  "gaps": {
+    "left": 19,
+    "right": 12,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 34,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 119206,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.502524,
+  "solid_centroid_x": 253.465,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_stagger_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "92f978b531e3fc050e47179dc02515235ab824ce2ea572d8a6d0b4f340b9b715",
+  "output": "assets\\opera\\worlds\\actors\\rival_popstar_stagger.png",
+  "output_sha256": "bff3d33b4938b47a17322c05e54581e1b6c99b8eef49b52812d291dd56d637a6",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_popstar.png",
+  "idle_sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 480,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 254.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_stagger\\rival_popstar_stagger_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_stagger\\rival_popstar_stagger_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_stagger\\rival_popstar_stagger_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_stagger\\rival_popstar_stagger_idle_comparison.png"
+  }
+}

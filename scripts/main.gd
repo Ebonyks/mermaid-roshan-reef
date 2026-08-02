@@ -218,6 +218,9 @@ var castle_room_door_hotspot_layer: Control = null
 var castle_room_link_layer: Control = null
 var castle_room_door_hotspots: Array[Dictionary] = []
 var castle_room_item_sprites: Dictionary = {}
+var castle_room_fixture_manifest: Dictionary = {}
+var castle_room_fixture_rigs: Dictionary = {}
+var castle_room_fixture_physics: Array[RigidBody3D] = []
 var castle_room_light_nodes: Array[Light3D] = []
 var castle_room_light_states: Dictionary = {}
 var castle_room_environment: Environment = null
@@ -7176,6 +7179,8 @@ func _physlab_standees() -> void:
 			jolt_props.append(p)
 
 func _physics_process(delta: float) -> void:
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.physics_tick(delta)
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
 	# at the physics tick so it is frame-rate independent.
 	if player == null or jolt_props.is_empty():

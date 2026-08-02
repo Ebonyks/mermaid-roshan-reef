@@ -98,6 +98,15 @@ func _run() -> void:
 		var hotspot: Button = record.get("hotspot") as Button
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
 		var expected: Dictionary = PROP_EXPECTATIONS[prop_id] as Dictionary
+		var fixture_rig: Dictionary = record.get(
+			"fixture_rig", {}) as Dictionary
+		var fixture_visual: Dictionary = fixture_rig.get(
+			"visual", {}) as Dictionary
+		var physics_mode: String = String(fixture_rig.get(
+			"physics_mode", "none"))
+		var body: RigidBody3D = fixture_rig.get("body") as RigidBody3D
+		var expected_sheet_path: String = "res://" + String(
+			fixture_visual.get("sheet", ""))
 		var frame_count: int = int(sprite.get_meta(
 			"animation_frame_count", 0)) if sprite != null else 0
 		props_ok = props_ok and sprite != null and not sprite.shaded \
@@ -106,8 +115,12 @@ func _run() -> void:
 			and frame_count >= 4 and frame_count <= 12 \
 			and sprite.hframes * sprite.vframes >= frame_count \
 			and sprite.texture != null \
-			and sprite.texture.resource_path.ends_with(
-				"bubble_bath_" + prop_id + "_atlas.png") \
+			and expected_sheet_path != "res://" \
+			and sprite.texture.resource_path == expected_sheet_path \
+			and bool(sprite.get_meta(
+				"generated_full_object_states", false)) \
+			and not bool(sprite.get_meta(
+				"primary_animation_is_overlay", true)) \
 			and String(sprite.get_meta("semantic_action", "")) \
 				== String(expected["semantic_action"]) \
 			and String(item_data.get("sound", "")) \
@@ -136,28 +149,68 @@ func _run() -> void:
 					and Time.get_ticks_msec() < deadline_ms:
 				await process_frame
 				wait_frames += 1
-				fixed_pivots_ok = fixed_pivots_ok \
-					and sprite.position.is_equal_approx(start_position) \
-					and sprite.scale.is_equal_approx(start_scale) \
-					and sprite.rotation.is_equal_approx(start_rotation)
+				if physics_mode == "none":
+					fixed_pivots_ok = fixed_pivots_ok \
+						and sprite.position.is_equal_approx(start_position) \
+						and sprite.scale.is_equal_approx(start_scale) \
+						and sprite.rotation.is_equal_approx(start_rotation)
+				else:
+					var max_displacement: float = float(
+						fixture_rig.get("max_displacement", 0.0))
+					var max_angle: float = float(
+						fixture_rig.get("max_angle_radians", 0.0))
+					fixed_pivots_ok = fixed_pivots_ok \
+						and body != null \
+						and sprite.position.distance_to(start_position) \
+							<= max_displacement + 0.001 \
+						and absf(sprite.rotation.z - start_rotation.z) \
+							<= max_angle + 0.001 \
+						and sprite.scale.is_equal_approx(start_scale)
 			var expected_frames: Array[int] = []
-			for frame_index: int in range(frame_count):
-				expected_frames.append(frame_index)
+			for frame_value: Variant in item_data.get(
+					"timeline_sequence", []) as Array:
+				expected_frames.append(int(frame_value))
+			var expected_steps: Array[int] = []
+			for timeline_step: int in range(expected_frames.size()):
+				expected_steps.append(timeline_step)
 			var visited: Array = sprite.get_meta(
 				"animation_frames_visited", []) as Array
+			var visited_steps: Array = sprite.get_meta(
+				"animation_timeline_steps_visited", []) as Array
 			interaction_ok = interaction_ok and busy_started \
 				and Time.get_ticks_msec() < deadline_ms \
+				and expected_frames.size() >= 4 \
+				and expected_frames.size() <= 12 \
 				and visited == expected_frames \
-				and sprite.frame == 0 \
+				and visited_steps == expected_steps \
+				and sprite.frame == int(item_data.get("rest_frame", 0)) \
 				and not bool(sprite.get_meta("busy", true))
+			if physics_mode != "none":
+				var settle_deadline_ms: int = Time.get_ticks_msec() + 5000
+				while body != null and not body.freeze \
+						and Time.get_ticks_msec() < settle_deadline_ms:
+					await physics_frame
+				fixed_pivots_ok = fixed_pivots_ok \
+					and body != null \
+					and body.freeze and body.sleeping \
+					and Time.get_ticks_msec() < settle_deadline_ms \
+					and float(fixture_rig.get(
+						"peak_angle_radians", 0.0)) > 0.001 \
+					and float(fixture_rig.get(
+						"peak_displacement", 0.0)) > 0.001 \
+					and sprite.position.distance_to(start_position) <= 0.02 \
+					and sprite.scale.is_equal_approx(start_scale) \
+					and absf(sprite.rotation.z - start_rotation.z) <= 0.02
 			exact_audio_ok = exact_audio_ok \
 				and main.castle_room_prop_sfx.stream != null \
 				and main.castle_room_prop_sfx.stream.resource_path \
 					== String(expected["sound"])
 	_ck("unshaded Sprite3D fixtures", props_ok)
 	_ck("fixtures occupy real depth", depth_ok)
-	_ck("semantic atlas sequences visit every frame and reset", interaction_ok)
-	_ck("semantic fixture actions keep fixed root pivots", fixed_pivots_ok)
+	_ck("semantic atlas sequences follow audited timelines and reset",
+		interaction_ok)
+	_ck("semantic fixture actions stay bounded and restore roots",
+		fixed_pivots_ok)
 	_ck("fixture actions play exact castle audio", exact_audio_ok)
 	_ck("fixture animations reject repeat taps while busy", busy_guards_ok)
 	_ck("foreground occluders",

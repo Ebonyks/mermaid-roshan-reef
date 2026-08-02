@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bopped",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    141,
+    47,
+    386,
+    456
+  ],
+  "visible_bbox": [
+    141,
+    47,
+    386,
+    456
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 141,
+    "right": 125,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 13,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 48766,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    171,
+    2
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.447853,
+  "solid_centroid_x": 256.16,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_bopped_attempt02_alpha_native.png",
+  "input_sha256": "96eb9df596d77a7fae9757a1f27bd943d92ae8baa746290dd4ad7df3005a7ff8",
+  "output": "assets\\opera\\worlds\\actors\\rival_boxer_bopped.png",
+  "output_sha256": "a8650cbc88db6a39e9616e71eaa109f6362faba22758dacbbf3fd0f579567a0f",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_boxer.png",
+  "idle_sha256": "ce55fa14790fd4def1055e6623502a8502d7ea8695d70f31827871fb62c034db",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_bopped\\rival_boxer_bopped_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_bopped\\rival_boxer_bopped_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_bopped\\rival_boxer_bopped_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_bopped\\rival_boxer_bopped_idle_comparison.png"
+  }
+}

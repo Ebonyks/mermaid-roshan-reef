@@ -63,7 +63,9 @@ func _init() -> void:
 		if dungeon.puzzle != null:
 			_exercise_puzzle(dungeon.puzzle, config)
 		else:
-			if expected == 9:
+			if expected == 3:
+				await _exercise_dust_bunnies(dungeon.arena)
+			elif expected == 9:
 				_exercise_finale(dungeon.arena)
 			else:
 				_clear_combat(dungeon)
@@ -131,6 +133,56 @@ func _exercise_finale(arena: CombatArena) -> void:
 	_ck("dual-element finale resolves", arena.state == "won")
 	_ck("combat materials are reused", arena._mat(Color.WHITE) == arena._mat(Color.WHITE))
 	arena.win_t = 0.0
+
+
+func _exercise_dust_bunnies(arena: CombatArena) -> void:
+	_ck("second enemy room is the dust-bunny cleanup",
+		arena.kind == "dust" and arena.action_label() == "CLEAN")
+	_ck("cleanup room has five animated dust bunnies", arena.enemies.size() == 5)
+	var sprites_ok := true
+	for enemy: Dictionary in arena.enemies:
+		var bunny: DustBunnySprite = enemy.get("node") as DustBunnySprite
+		sprites_ok = sprites_ok and bunny != null \
+			and bunny.sprite != null \
+			and bunny.find_children("*", "MeshInstance3D", true, false).is_empty()
+	_ck("live dust-bunny enemies are 2D sprite cards", sprites_ok)
+	for _frame in range(30):
+		await process_frame
+	_ck("dust bunnies cannot clean themselves", arena.state == "play")
+	var target_pos: Vector3 = arena._nearest_target()
+	var target: Dictionary = {}
+	for enemy: Dictionary in arena.enemies:
+		if (enemy["pos"] as Vector3).is_equal_approx(target_pos):
+			target = enemy
+			break
+	if target.is_empty():
+		target = arena.enemies[0]
+		target_pos = target["pos"] as Vector3
+	arena._fire()
+	var clean_card: Sprite3D = null
+	if not arena.shots.is_empty():
+		var clean_shot: Dictionary = arena.shots[0]
+		clean_card = clean_shot["node"] as Sprite3D
+	_ck("CLEAN button launches the recovered 2D soap bubbles",
+		clean_card != null
+		and clean_card.name == "CleanBubbleProjectile"
+		and not clean_card.shaded
+		and clean_card.texture != null)
+	if clean_card != null:
+		clean_card.position = target_pos + Vector3(0, 2.2, 0)
+		arena._tick_shots(0.0)
+	var first_bunny: DustBunnySprite = target["node"] as DustBunnySprite
+	_ck("clean hit starts the accepted poof animation",
+		String(target["state"]) == "cleaning"
+		and first_bunny.sprite.animation == &"defeat"
+		and first_bunny.defeated)
+	target["timer"] = 0.0
+	arena._tick_dust_bunnies(0.0)
+	_ck("clean poof removes only after its final sparkle",
+		String(target["state"]) == "popped" and not first_bunny.visible)
+	arena._win()
+	arena.win_t = 0.0
+
 
 func _clear_combat(dungeon: DungeonLevel) -> void:
 	if dungeon.arena == null: return

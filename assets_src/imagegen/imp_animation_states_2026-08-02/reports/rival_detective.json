@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "idle",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    74,
+    19,
+    421,
+    503
+  ],
+  "visible_bbox": [
+    74,
+    19,
+    421,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 74,
+    "right": 90,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 8,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 94060,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    108,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.552261,
+  "solid_centroid_x": 255.865,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "da1497aa12237d070931be9e81eda582b941954fcca8b03c53d52f8cac0fb2c5",
+  "output": "assets\\opera\\worlds\\actors\\rival_detective.png",
+  "output_sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+  "idle_reference": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\references\\rival_detective_source_idle.png",
+  "idle_sha256": "5476505b3664f0daeeab65c67aa31639cde765a735aa5f90393370dc6b571486",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective\\rival_detective_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective\\rival_detective_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective\\rival_detective_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective\\rival_detective_idle_comparison.png"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_b",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    16,
+    27,
+    499,
+    456
+  ],
+  "visible_bbox": [
+    16,
+    27,
+    499,
+    456
+  ],
+  "solid_height": 430,
+  "gaps": {
+    "left": 16,
+    "right": 12,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 20,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 103444,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    18,
+    3,
+    2,
+    2,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.487273,
+  "solid_centroid_x": 246.985,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "265be65fa9f04ac982b86c13cb6120ff7b3739fe12ea7af4d2996bb2c5aa6244",
+  "output": "assets\\opera\\worlds\\actors\\rival_painter_hop_b.png",
+  "output_sha256": "968c9534771218b80dc6467dc40e643d135bedd30efef1a1d83951a4c64edad4",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_painter.png",
+  "idle_sha256": "3db2b23c3e1e2e0f4fcddd0864a11fd8cf41c9ab4d1d000d6f46796096f5277a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 430,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 247.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_hop_b\\rival_painter_hop_b_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_hop_b\\rival_painter_hop_b_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_hop_b\\rival_painter_hop_b_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_hop_b\\rival_painter_hop_b_idle_comparison.png"
+  }
+}

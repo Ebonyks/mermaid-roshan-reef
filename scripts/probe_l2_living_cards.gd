@@ -225,7 +225,7 @@ func _run() -> void:
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
 	var inventory: Dictionary = _inventory(stage_root)
 	_check("node_type_inventory",
-		int(inventory["sprites"]) == 33
+		int(inventory["sprites"]) == 34
 		and int(inventory["meshes"]) == 0
 		and int(inventory["canvas"]) == 0
 		and int(inventory["shaded"]) == 0

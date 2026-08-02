@@ -178,6 +178,24 @@ def _fridge_door() -> np.ndarray:
 	return track
 
 
+def _fridge_open() -> np.ndarray:
+	track = _new_track(0.72)
+	_add(track, 0.04, _knock(760.0, 0.075), 0.42)
+	_add(track, 0.10, _sweep(170.0, 66.0, 0.30, method="logarithmic", decay=5.0), 0.31)
+	_add(track, 0.20, _tone(92.0, 0.38, decay=7.0, harmonics=((1.0, 1.0), (2.0, 0.24))), 0.37)
+	for pitch in (880.0, 1110.0, 1320.0):
+		_add(track, 0.43, _tone(pitch, 0.27, decay=8.0), 0.10)
+	return track
+
+
+def _fridge_close() -> np.ndarray:
+	track = _new_track(0.52)
+	_add(track, 0.04, _sweep(88.0, 165.0, 0.25, method="logarithmic", decay=5.0), 0.24)
+	_add(track, 0.29, _knock(125.0, 0.19), 0.92)
+	_add(track, 0.34, _tone(410.0, 0.12, decay=28.0), 0.15)
+	return track
+
+
 def _oven_door() -> np.ndarray:
 	rng = _rng("oven_door")
 	track = _new_track(1.30)
@@ -317,6 +335,18 @@ EFFECTS: tuple[dict[str, object], ...] = (
 		"synth": _fridge_door,
 		"semantic_action": "latch releases, fridge door opens, chimes, then closes",
 		"events_ms": {"latch": 40, "door_open": 100, "chime": 490, "door_close": 940},
+	},
+	{
+		"slug": "fridge_open",
+		"synth": _fridge_open,
+		"semantic_action": "latch releases, fridge door opens, interior chimes",
+		"events_ms": {"latch": 40, "door_open": 100, "chime": 430},
+	},
+	{
+		"slug": "fridge_close",
+		"synth": _fridge_close,
+		"semantic_action": "fridge door swings shut and latch catches",
+		"events_ms": {"door_close": 40, "latch": 290},
 	},
 	{
 		"slug": "oven_door",
@@ -518,6 +548,11 @@ def _sha256(path: Path) -> str:
 	return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _text_sha256(path: Path) -> str:
+	"""Hash generator text consistently across LF and CRLF working trees."""
+	return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def _serial_for(slug: str) -> int:
 	# FFmpeg exposes the muxer offset as a signed 31-bit option even though the
 	# Ogg page field itself is unsigned.  Staying inside that range also makes
@@ -590,7 +625,7 @@ def _build(repo_root: Path, ffmpeg: Path) -> Path:
 		"generation_method": "deterministic offline NumPy/SciPy synthesis; no sampled or downloaded audio",
 		"generator": script_path.relative_to(repo_root).as_posix(),
 		"generator_version": GENERATOR_VERSION,
-		"generator_sha256": _sha256(script_path),
+		"generator_sha256": _text_sha256(script_path),
 		"ffmpeg": _ffmpeg_version(ffmpeg),
 		"target": {
 			"codec": "Ogg Vorbis",
@@ -611,7 +646,7 @@ def _check(repo_root: Path, ffmpeg: Path) -> Path:
 	manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 	if manifest.get("schema") != "reef.castle-interaction-sfx.v1":
 		raise ValueError("Unexpected castle interaction SFX manifest schema")
-	if manifest.get("generator_sha256") != _sha256(Path(__file__).resolve()):
+	if manifest.get("generator_sha256") != _text_sha256(Path(__file__).resolve()):
 		raise ValueError("Castle interaction SFX manifest was built by a different generator revision")
 	if len(manifest.get("files", [])) != len(EFFECTS):
 		raise ValueError("Castle interaction SFX manifest has the wrong number of files")

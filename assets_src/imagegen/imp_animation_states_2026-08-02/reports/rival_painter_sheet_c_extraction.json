@@ -1,0 +1,97 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_sheet_c_attempt01_alpha_native.png",
+  "input_sha256": "403730cd0c0188b23c88d2098d50b27661f91a98f855f10c2560a4611f25a18a",
+  "sheet": "c",
+  "states": [
+    "stagger",
+    "bopped",
+    "bow"
+  ],
+  "component_count": 3,
+  "occupied_grid_cells": 3,
+  "outputs": [
+    {
+      "state": "stagger",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 107500,
+          "bbox": [
+            194,
+            71,
+            625,
+            600
+          ],
+          "centroid": [
+            423.71823255813956,
+            319.47156279069765
+          ]
+        }
+      ],
+      "crop_bbox": [
+        186,
+        63,
+        633,
+        608
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_stagger_sheet_c_attempt01_alpha_crop_native.png",
+      "output_sha256": "46e1a0e1e7cf34d30e73180c356ae31155c519907e1ad9d83c5398df02718292"
+    },
+    {
+      "state": "bopped",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 104745,
+          "bbox": [
+            874,
+            94,
+            1319,
+            589
+          ],
+          "centroid": [
+            1107.5221060671154,
+            337.2173946250418
+          ]
+        }
+      ],
+      "crop_bbox": [
+        866,
+        86,
+        1327,
+        597
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_bopped_sheet_c_attempt01_alpha_crop_native.png",
+      "output_sha256": "5b5226570a369dff4b228517ec384c15c7dcb18caa3180f6e541c7d0b1c1ee6e"
+    },
+    {
+      "state": "bow",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 100898,
+          "bbox": [
+            1542,
+            175,
+            1967,
+            616
+          ],
+          "centroid": [
+            1764.2613233166169,
+            390.047166445321
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1534,
+        167,
+        1975,
+        624
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_bow_sheet_c_attempt01_alpha_crop_native.png",
+      "output_sha256": "1068bab5224392d3e4de4f6a8f319367ca5575a840d53ba1bedd85bdfe39a96f"
+    }
+  ]
+}

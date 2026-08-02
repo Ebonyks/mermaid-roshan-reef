@@ -1,0 +1,209 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_sheet_b_attempt01_alpha_native.png",
+  "input_sha256": "83fc18c80f9bfabd515adf0dc0394780bbdf85aaee3c170e801ad04982728c99",
+  "sheet": "b",
+  "states": [
+    "stagger",
+    "flee",
+    "bopped",
+    "bow",
+    "hop_a",
+    "hop_b",
+    "taunt"
+  ],
+  "component_count": 7,
+  "occupied_grid_cells": 7,
+  "outputs": [
+    {
+      "state": "stagger",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 51141,
+          "bbox": [
+            137,
+            23,
+            457,
+            349
+          ],
+          "centroid": [
+            294.92000547505916,
+            175.5635009092509
+          ]
+        }
+      ],
+      "crop_bbox": [
+        129,
+        15,
+        465,
+        357
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_stagger_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "2c1d4abd8ed2d7beee62fbfc7c701d9961b54a6bc41d6c560d656c3c0611a133"
+    },
+    {
+      "state": "flee",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 39311,
+          "bbox": [
+            578,
+            44,
+            889,
+            340
+          ],
+          "centroid": [
+            738.0055963979547,
+            195.84513240568796
+          ]
+        }
+      ],
+      "crop_bbox": [
+        570,
+        36,
+        897,
+        348
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_flee_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "eadba4ba88ed6f5749d882f75fdfe1ed69fb1d4027389fd44ae046279d901137"
+    },
+    {
+      "state": "bopped",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 49435,
+          "bbox": [
+            1066,
+            45,
+            1396,
+            347
+          ],
+          "centroid": [
+            1237.7596642055223,
+            183.01395772226155
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1058,
+        37,
+        1404,
+        355
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_bopped_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "748422cabce44a195c93136a0da7fb23116f5f96816a581c6ebb3cf9f5e198a8"
+    },
+    {
+      "state": "bow",
+      "source_components": [
+        {
+          "label": 5,
+          "area": 42631,
+          "bbox": [
+            112,
+            386,
+            440,
+            655
+          ],
+          "centroid": [
+            267.3077572658394,
+            514.2536182590134
+          ]
+        }
+      ],
+      "crop_bbox": [
+        103,
+        378,
+        448,
+        663
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_bow_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "06f69de846a8732103fb9b407abc7a132c21fd4b6813be7d4d18cd62ae3006c8"
+    },
+    {
+      "state": "hop_a",
+      "source_components": [
+        {
+          "label": 6,
+          "area": 38127,
+          "bbox": [
+            601,
+            395,
+            885,
+            647
+          ],
+          "centroid": [
+            732.0916410942377,
+            518.2748708264485
+          ]
+        }
+      ],
+      "crop_bbox": [
+        593,
+        387,
+        893,
+        655
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "3706a11f7215033032298c0455b3c7086cb9f347abdcce1bdf5294295cd3b063"
+    },
+    {
+      "state": "hop_b",
+      "source_components": [
+        {
+          "label": 4,
+          "area": 47019,
+          "bbox": [
+            1064,
+            346,
+            1378,
+            644
+          ],
+          "centroid": [
+            1212.859609944916,
+            498.2338841744827
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1056,
+        338,
+        1386,
+        652
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "99fa16dda682d7ebf370d4125f1c28ce206d75ce5804965c45604a855a6f6686"
+    },
+    {
+      "state": "taunt",
+      "source_components": [
+        {
+          "label": 7,
+          "area": 41475,
+          "bbox": [
+            158,
+            665,
+            418,
+            993
+          ],
+          "centroid": [
+            285.2826280892104,
+            814.3165521398432
+          ]
+        }
+      ],
+      "crop_bbox": [
+        150,
+        657,
+        426,
+        1001
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_taunt_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "2a0cd35acef4da2758dc4dc115096516c53a06b26991609de8e712f63585cf05"
+    }
+  ]
+}

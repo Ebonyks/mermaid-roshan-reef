@@ -1,0 +1,70 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "idle",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    67,
+    19,
+    437,
+    503
+  ],
+  "visible_bbox": [
+    67,
+    19,
+    437,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 67,
+    "right": 74,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 16,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 89323,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    217,
+    157,
+    93,
+    41,
+    2,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.647215,
+  "solid_centroid_x": 255.518,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_ballerina_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "805941821f6bf3046ec21e51f18d14ad4743d66a3fef974222bb0415d709058d",
+  "output": "assets\\opera\\worlds\\actors\\rival_ballerina.png",
+  "output_sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+  "idle_reference": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\references\\rival_ballerina_source_idle.png",
+  "idle_sha256": "40b63e01889dd72e8945931a341939c06146d5ca4a0f59d8717e3cc8d53df790",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina\\rival_ballerina_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina\\rival_ballerina_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina\\rival_ballerina_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina\\rival_ballerina_idle_comparison.png"
+  }
+}

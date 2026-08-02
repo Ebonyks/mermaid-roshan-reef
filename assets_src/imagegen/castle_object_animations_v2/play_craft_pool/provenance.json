@@ -1,0 +1,886 @@
+{
+  "schema_version": 1,
+  "batch_id": "castle_object_animations_v2/play_craft_pool",
+  "created_utc": "2026-08-02T06:10:37Z",
+  "generation_policy": {
+    "sheet_layout": "4 columns x 2 rows; 8 authored states",
+    "background_prompt": "flat #FF00FF; no grid, text, floor, or shadow",
+    "animation_policy": "actual object-part motion only; no generic overlays, whole-object bounce, or detached effects",
+    "runtime_limit": "runtime sheet <=1024 pixels longest side",
+    "source_preservation": "native outputs copied byte-for-byte to chroma-master paths"
+  },
+  "assets": [
+    {
+      "id": "playroom_stuffie_nook",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Playroom shell-shaped stuffie nook and is the sole identity, design, palette, material, outline, proportions, scale, and frontal-view authority.\nPrimary request: Create exactly eight sequential complete-object states of this same stuffie nook, arranged in strict reading order as four equal columns by two equal rows. Preserve the complete scalloped blush shell alcove, cream-gold rim, mint seat, mirror and star ornaments, and the exact count, colors, species, arrangement, overlap order, and scale of every plush toy. Animate the ACTUAL attached toy parts in a gentle wake-up wave: ears hinge, paws lift, one small head turns, and the elephant's real ear/trunk responds in sequence; then every part settles back into the approved resting arrangement.\nFrame order: 1 exact rest; 2 left-side ear begins lifting; 3 a front paw lifts while the ear holds; 4 center toy head/ear response; 5 right-side paw/ear response; 6 parts begin returning; 7 small physical follow-through; 8 settled rest matching frame 1.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents and softly painted shell, fabric, and plush texture.\nComposition/framing: identical fixed shell base, center, scale, viewpoint, and pivot in every cell; complete object fully visible with generous equal padding; landscape four-column by two-row layout.\nConstraints: redraw the coherent nook and every plush in every state. Animate real ears, paws, heads, and trunk, not detached marks or generic effects. Do not bounce, translate, rotate, squash, or resize the whole nook. No sparkles, bubbles, swooshes, motion lines, glow, extra toys, missing toys, merged toys, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "fe5927cf85841df995c28244f00c57a18129340828c398ddba2ae35d95d3197c",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+          "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+          "dimensions": [
+            266,
+            190
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-e89c95be-70e0-468e-a200-c0d8291824b7.png",
+        "sha256": "a2f0e3f9d3e8818ba7917f7a4b4e773f39eeabf7f8d105b2211ea4224d2a0742",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stuffie_nook_sheet_chroma.png",
+        "sha256": "a2f0e3f9d3e8818ba7917f7a4b4e773f39eeabf7f8d105b2211ea4224d2a0742",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f80ef4"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+        "pre_normalization_sha256": "9f626fc4704643ebfbf5c23b0cd51060182cee16012031700d1a69ced166eca0",
+        "pre_normalization_dimensions": [
+          1254,
+          1254
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1077155,
+          "partial": 45401,
+          "opaque": 449960
+        },
+        "sha256": "c61f4672c98f6f15afee15f4c40d53bc2c5c73d6cb7a7204fb8606d8b441e9ec",
+        "dimensions": [
+          1024,
+          586
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            293
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 249308,
+          "partial": 58826,
+          "opaque": 291930,
+          "visible_coverage": 0.584531,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Individual plush ears, paws, heads, and elephant ear/trunk wake in sequence and settle; shell nook stays fixed."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "playroom_stacking_toy",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Playroom shell-base stacking toy and is the sole identity, design, palette, outline, proportions, scale, ring count, ring order, and viewpoint authority.\nPrimary request: Create exactly eight sequential complete-object states of this same stacking toy, arranged in strict reading order as four equal columns by two equal rows. Preserve exactly seven real pastel rings, the gold center pole, pearl cap, and scalloped base. Animate the ACTUAL top ring lifting vertically off the pole, clearing the cap, while the next ring rises slightly in response; then the rings descend and physically reseat on the pole in their original stack.\nFrame order: 1 exact stacked rest; 2 top ring begins sliding up the pole; 3 top ring clears the pearl cap; 4 top ring hovers while the next ring lifts; 5 both rings begin descending; 6 lower moving ring reseats; 7 top ring slides back down; 8 exact seven-ring rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with navy-purple outlines, pearly highlights, and child-readable ring separation.\nComposition/framing: identical fixed base and pole pivot, center, scale, and viewpoint in every cell; complete object fully visible with generous equal padding; four columns by two rows.\nConstraints: redraw all seven physical rings in every state with correct occlusion around the pole. No detached ring decals, speed lines, sparkles, bubbles, glow, generic bounce, whole-object rotation, extra or missing rings, text, labels, numbers, grid lines, panel borders, floor, shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "bd2f1799901ed850ad685df8b59ba15e5e0c9c24ca7679157a7ba79fd9505d45",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+          "sha256": "afc488f0e44d9a33ac065e968ead7a8dfcae5ac594ba12f17063c6f467282b87",
+          "dimensions": [
+            132,
+            157
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-e740d88b-9a27-44f6-82e7-1ccb49168a0f.png",
+        "sha256": "23510b20460a3280914bf35db2feb63a61e9b06d8af86393d7305f87bdd7d9f5",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stacking_toy_sheet_chroma.png",
+        "sha256": "23510b20460a3280914bf35db2feb63a61e9b06d8af86393d7305f87bdd7d9f5",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f703f5"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+        "pre_normalization_sha256": "f27803fc9cc1fa53a8211650a381c7b23ad6d9028a7804ed05dec1fcda867a75",
+        "pre_normalization_dimensions": [
+          1254,
+          1254
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1230268,
+          "partial": 62857,
+          "opaque": 279391
+        },
+        "sha256": "71fc60f4326fe58c020377021892eb2e528f7ef4da53b96855f8bbbf62aca891",
+        "dimensions": [
+          976,
+          1004
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            244,
+            502
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 637656,
+          "partial": 62857,
+          "opaque": 279391,
+          "visible_coverage": 0.349267,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Real top rings lift clear of the pole and physically reseat; exactly seven rings remain."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "playroom_blocks",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Playroom three-block arrangement and is the sole identity, palette, material, outline, proportions, block count, shell-emblem placement, scale, and viewpoint authority.\nPrimary request: Create exactly eight sequential complete-object states of these same three physical blocks, arranged in strict reading order as four equal columns by two equal rows. Preserve exactly three blocks and their mint, lavender, and warm coral/cream painted identities. Animate the ACTUAL mint block tipping into the lavender block, the three blocks colliding and toppling with believable face perspective, settling briefly, and then physically restacking into the approved arrangement.\nFrame order: 1 exact rest; 2 mint block starts tipping; 3 mint contacts lavender; 4 all three blocks topple; 5 settled loose cluster; 6 first two blocks restack; 7 mint block returns to its place; 8 exact three-block rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents and softly painted wooden faces.\nComposition/framing: identical ground anchor, center, scale, and viewpoint in every cell; all three blocks fully visible with generous equal padding; four columns by two rows.\nConstraints: redraw the real block faces and changing occlusion in every state. No loose shell-floor prop, detached impact mark, dust, stars, motion lines, glow, generic whole-group bounce, extra or missing blocks, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the blocks.",
+      "accepted_prompt_sha256": "3a51034dbddb12bde817735b030ec11173bff7fce6b624b0470c667fcceacf1d",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+          "sha256": "fbe2910e2d2c8e7782371414534be9312db6f46ef1fce5c23c84ff57b08d0273",
+          "dimensions": [
+            125,
+            100
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-c35ce2ee-d818-4b32-9896-621f5f1d0c8f.png",
+        "sha256": "1e43a18e9e3714234abe695f8f7874544d6772b5d34d69ca2cdbbccff38c3fa3",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_blocks_sheet_chroma.png",
+        "sha256": "1e43a18e9e3714234abe695f8f7874544d6772b5d34d69ca2cdbbccff38c3fa3",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f508f2"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+        "pre_normalization_sha256": "7d3d5edfd61a44c862e8f957a24cc75eadf5d43188510b8fa21d612934087cc7",
+        "pre_normalization_dimensions": [
+          1254,
+          1254
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1267055,
+          "partial": 23926,
+          "opaque": 281535
+        },
+        "sha256": "804e3a5f00f6418d0f739e6a8300cf9bbecb299a43c5d6a8ff1d114952eedbf2",
+        "dimensions": [
+          1024,
+          778
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            389
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 606048,
+          "partial": 36547,
+          "opaque": 154077,
+          "visible_coverage": 0.239275,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Three real blocks tip, collide, topple, settle, and restack."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "playroom_play_tent",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Playroom navy-and-gold play tent and is the sole identity, design, palette, material, outline, proportions, scale, accessory count, and frontal-view authority.\nPrimary request: Create exactly eight sequential complete-object states of this same play tent, arranged in strict reading order as four equal columns by two equal rows. Preserve the complete navy fabric tent, gold star and trim, scalloped rug, and exactly the same three small toys at the entrance. Animate the ACTUAL paired front fabric flap panels: they swing and fold inward from the sewn side seams, progressively occlude the genuinely drawn interior cavity and toys, meet closed at center, then physically reopen and settle.\nFrame order: 1 fully open rest; 2 flap edges begin moving inward; 3 opening half occluded; 4 flaps nearly meet; 5 fully closed fabric front; 6 flaps reopen halfway; 7 opening nearly restored; 8 fully open settled rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with navy-purple outlines, deep navy fabric, warm gold trim, and soft painted folds.\nComposition/framing: identical fixed tent base, center, scale, viewpoint, and top pivot in every cell; complete tent and rug fully visible with generous equal padding; four columns by two rows.\nConstraints: redraw the real fabric panels, interior, and toys with correct changing occlusion. Do not place a dark triangle, black card, mask, or generic overlay over a static tent. Do not bounce, translate, rotate, squash, or resize the whole tent. No sparkles, bubbles, motion lines, extra or missing toys, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "75ea993d1b5821e70a6ac5ec6bae7a55b4a9a1c81ae8c573bad3d5bdf6b4bc5e",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png",
+          "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+          "dimensions": [
+            165,
+            131
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-13dd8d5c-c2f0-4c97-8ef3-c071864f0c6f.png",
+        "sha256": "512637d958e94b3135e86cf3f334f1b5bce06e10bfd493cf5b1659711ac4ee7f",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_play_tent_sheet_chroma.png",
+        "sha256": "512637d958e94b3135e86cf3f334f1b5bce06e10bfd493cf5b1659711ac4ee7f",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f803f7"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+        "pre_normalization_sha256": "034e14c0536ebeb0889a338b06c13ae4eb29b824a457396fddf0fd3198691f7a",
+        "pre_normalization_dimensions": [
+          1254,
+          1254
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1097395,
+          "partial": 20355,
+          "opaque": 454766
+        },
+        "sha256": "c13603feb1ddbfd9ee26f73ff9fb06c80d48efb3ac0c7a5d9926a63c1c587cf1",
+        "dimensions": [
+          1024,
+          698
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            349
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 394263,
+          "partial": 38775,
+          "opaque": 281714,
+          "visible_coverage": 0.448392,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Paired fabric flaps physically close over the authored interior and three toys, then reopen."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "craft_room_idea_board",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production landscape 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput images: Image 1 is the approved Craft Room shell idea board and is the sole identity, design, palette, material, outline, proportions, scale, and frontal-view authority. Image 2 is a rejected draft supplied only to communicate the intended physical note-flip concept; it has no authority over layout, missing parts, identity, palette, or final pixels.\nPrimary request: Create exactly eight sequential complete-object states of the Image 1 idea board, arranged in strict reading order as four equal columns across by two equal rows. Preserve the complete scalloped coral-and-cream board frame, top shell crest, all pinned pastel notes, and the entire lower rail with exactly eleven attached paint jars in every state. Animate the ACTUAL pinned paper notes flexing from their pins and flipping over one after another, showing their physical paper backs and edge foreshortening, then returning flat against the board.\nFrame order: 1 exact flat-note rest; 2 first note corner lifts; 3 first note turns while a second begins; 4 multiple real notes at different flip angles; 5 maximum physical flip with pins still attached; 6 notes reverse; 7 nearly flat; 8 settled board state.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents, warm shell trim, paper texture, and child-readable jar shapes.\nComposition/framing: mandatory landscape four-column by two-row layout; identical fixed board frame, center, scale, viewpoint, and mounting pivot in every cell; complete board and all eleven jars fully visible with generous equal padding.\nConstraints: redraw the complete board, notes, pins, rail, and exactly eleven jars in every cell. Animate real paper attached at real pins, not detached cards, flying notes, effect decals, sparkles, bubbles, glow, or whole-board movement. No two-column by four-row layout, missing jar rail, extra jars, text, readable writing, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, lighting variation, or shadow. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "fcb17610e2fb90d9db2aedd46c0452b87a1d77824c4046cb1dcc403ee66a470e",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_craft_room_item_idea_board.png",
+          "sha256": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+          "dimensions": [
+            270,
+            171
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-326db66c-9aed-4bb9-ab80-f6254296120b.png",
+        "sha256": "f69f83373609d093b91d2b6d2df9993949ceb62bc1f8d3b7b84fcffaf113489f",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_idea_board_sheet_chroma.png",
+        "sha256": "f69f83373609d093b91d2b6d2df9993949ceb62bc1f8d3b7b84fcffaf113489f",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f10aec"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+        "pre_normalization_sha256": "b1980fbe30032f676332a86f3d3db8e5d5dea31d537eccf03a1204bd3611148e",
+        "pre_normalization_dimensions": [
+          1774,
+          887
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 926239,
+          "partial": 87854,
+          "opaque": 559445
+        },
+        "sha256": "91cbe2a9720535de1102859cdce5264303f779fc5cae9678a155c068eb3f4be4",
+        "dimensions": [
+          1024,
+          376
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            188
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 171410,
+          "partial": 80336,
+          "opaque": 133278,
+          "visible_coverage": 0.554807,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 2,
+        "attempt": 2,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Pinned paper notes flex and flip at their pins while the complete eleven-jar rail stays attached."
+      },
+      "attempt_notes": [
+        "Attempt 1 rejected: 2-column by 4-row layout; complete eleven-jar rail disappeared after first two states.",
+        "Attempt 2 accepted: landscape 4-column by 2-row layout; complete rail remains in all eight frames."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states.",
+      "rejected_attempts": [
+        {
+          "attempt": 1,
+          "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-c552050e-f684-4453-a0a8-569e1dc22f8e.png",
+          "sha256": "e2cbe0459622be5667ab88018772297d8d4b45480ee817a5263d8b29c3ca2262",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "rejection_reason": "Wrong 2x4 layout and eleven-jar rail disappeared after first two states.",
+          "used_as_delivery_pixels": false
+        }
+      ]
+    },
+    {
+      "id": "craft_room_paint_table",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production landscape 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Craft Room paint table and is the sole identity, design, palette, material, outline, proportions, scale, accessory placement, and viewpoint authority.\nPrimary request: Create exactly eight sequential complete-object states of this same paint table, arranged in strict reading order as four equal columns across by two equal rows. Preserve the complete scalloped table, shell details, brush cup, paint jars, and supplies. Animate one ACTUAL detailed paintbrush physically lifting out of its cup, traveling to the aqua paint jar, passing behind the real jar rim with correct occlusion, stirring entirely inside the contained paint, emerging with aqua-loaded bristles, and returning to its original cup.\nFrame order: 1 brush seated in cup; 2 brush lifts; 3 brush moves above aqua jar; 4 bristles enter behind jar rim; 5 brush stirs inside paint; 6 loaded brush rises; 7 brush returns toward cup; 8 brush reseated at rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents, warm shell furniture, glassy paint jars, and detailed brush construction.\nComposition/framing: identical fixed table base, center, scale, and viewpoint in every cell; full table and moving brush fully visible with generous equal padding; landscape four columns by two rows.\nConstraints: redraw the physical brush, cup, jar rim, contained paint, and changing occlusion in every state. No line, dot, swirl decal, floating brush-shaped blob, splashes, droplets, sparkles, glow, generic whole-table bounce, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Paint remains inside the jar. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "ba2f724193d539b15b2d34e440194f39621e63992debe95eda73afc1c4fa31fb",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png",
+          "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+          "dimensions": [
+            224,
+            95
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-230f0c27-9f6f-4091-b61e-e61155022447.png",
+        "sha256": "d8835a437e1b7b8d0f11849e818cbffe2163309a8ea72a4f697a2bf959bfce0c",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_paint_table_sheet_chroma.png",
+        "sha256": "d8835a437e1b7b8d0f11849e818cbffe2163309a8ea72a4f697a2bf959bfce0c",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f103f4"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+        "pre_normalization_sha256": "2c048ae144bdc982fd33c53f87cbddb084b7dd8c275bf80e90897129edbe63fc",
+        "pre_normalization_dimensions": [
+          1774,
+          887
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1096067,
+          "partial": 173676,
+          "opaque": 303795
+        },
+        "sha256": "2cc178e833ee5a13546d9beb493ce7c66c93e560159f73e27c50de8c7738f2bc",
+        "dimensions": [
+          1024,
+          392
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            196
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 243230,
+          "partial": 88055,
+          "opaque": 70123,
+          "visible_coverage": 0.394058,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Detailed brush leaves cup, enters behind aqua jar rim, stirs contained paint, loads bristles, and returns."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "craft_room_palette",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production landscape 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Craft Room rolling palette cart and is the sole identity, design, palette, material, outline, proportions, scale, well arrangement, and viewpoint authority.\nPrimary request: Create exactly eight sequential complete-object states of this same rolling palette cart, arranged in strict reading order as four equal columns across by two equal rows. Preserve the complete shell-trimmed cart, wheels, painter's palette top, colored paint wells, shell brush caddy, and supplies. Animate one ACTUAL detailed brush lifting from the shell caddy, dipping behind the rim of the lavender well, moving into the aqua well, physically mixing the two paints entirely inside the palette well with correct occlusion and loaded bristles, then returning to the caddy.\nFrame order: 1 brush seated in caddy; 2 brush lifts; 3 bristles enter lavender well; 4 brush rises loaded; 5 bristles enter aqua well; 6 physical mixing inside the well; 7 brush returns; 8 brush reseated at rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents, pearly shell trim, warm gold hardware, and glossy contained paint.\nComposition/framing: identical fixed cart base, wheel contact, center, scale, and viewpoint in every cell; complete cart and moving brush fully visible with generous equal padding; landscape four columns by two rows.\nConstraints: redraw the real brush, caddy, paint wells, well rims, and changing occlusion in every state. Paint remains entirely inside the wells. No detached color swirls, lines, dots, splashes, droplets, sparkles, glow, generic whole-cart bounce, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "b8888e6bea6d58db6775a7be7ec8e01d9eaa995891255789694344b72da68ad9",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_craft_room_item_palette.png",
+          "sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374",
+          "dimensions": [
+            304,
+            256
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-33a1b842-c837-4dc4-ad23-d9936d203db6.png",
+        "sha256": "bcecbc0620f87357796f16cf673129e36926056c882b510c50736c009c919056",
+        "dimensions": [
+          1536,
+          1024
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_palette_sheet_chroma.png",
+        "sha256": "bcecbc0620f87357796f16cf673129e36926056c882b510c50736c009c919056",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f903f8"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+        "pre_normalization_sha256": "92ff2f1466b6b3974e846654beb32e1101a7a25537f2d93ff47c2f1eae6ff8a4",
+        "pre_normalization_dimensions": [
+          1536,
+          1024
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 856853,
+          "partial": 81343,
+          "opaque": 634668
+        },
+        "sha256": "e9b84bbff29c574619eb9a3e06b43d78e7f3697237de50b9776cb52bf51b0eb7",
+        "dimensions": [
+          1024,
+          594
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            297
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 266407,
+          "partial": 76488,
+          "opaque": 265361,
+          "visible_coverage": 0.562015,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Detailed brush leaves shell caddy, dips and mixes within lavender/aqua wells with rim occlusion, and returns."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "craft_room_ribbon_rack",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Craft Room gold ribbon rack and is the sole identity, design, palette, material, outline, proportions, scale, roll count, roll order, and frontal-view authority.\nPrimary request: Create exactly eight sequential complete-object states of this same ribbon rack, arranged in strict reading order as four equal columns by two equal rows. Preserve the complete warm-gold rack and exactly seven attached pastel ribbon rolls. Animate the ACTUAL coral ribbon roll rotating on its rod while a full-width woven coral fabric ribbon physically unwinds from the roll, hangs and curls under its own cloth weight, then reverses and winds cleanly back onto the same roll.\nFrame order: 1 all seven rolls at rest; 2 coral roll turns and ribbon edge releases; 3 short full-width ribbon hangs; 4 ribbon lengthens; 5 longest curled cloth span; 6 cloth retracts while roll reverses; 7 ribbon nearly rewound; 8 exact seven-roll rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded illustration matching Image 1 exactly, with crisp navy-purple edge accents, warm gold metal, and softly painted woven ribbon.\nComposition/framing: identical fixed rack, center, scale, viewpoint, and mounting pivot in every cell; rack and full ribbon motion completely visible with generous equal padding; four columns by two rows.\nConstraints: redraw all seven physical rolls, the rotating coral roll, and the changing full-width fabric silhouette in every state. Do not substitute a thin squiggle, motion line, streamer effect, detached decal, sparkles, bubbles, glow, or generic whole-rack movement. No extra or missing rolls, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "666957c8cc74771c0faea12f4dcb1f80e48ef59a8fd82bec6111db2987f8362c",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png",
+          "sha256": "4002123cfe400e35f8fe74a3f9b17607a7dce70410086afe5fa6be63970e8999",
+          "dimensions": [
+            126,
+            121
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-29aec95d-0fc0-471a-b130-31b99cab4163.png",
+        "sha256": "961d6f39d99d7bae90c768587ab7d65e96014d0354b00a7b50ac5f0fae2ed8e8",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_ribbon_rack_sheet_chroma.png",
+        "sha256": "961d6f39d99d7bae90c768587ab7d65e96014d0354b00a7b50ac5f0fae2ed8e8",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f904f6"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+        "pre_normalization_sha256": "0dbed29163b6aa2a3dd1ccc60dbfe9f4b3b7736bd67f09ba5b1b5d40722b933e",
+        "pre_normalization_dimensions": [
+          1254,
+          1254
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1003121,
+          "partial": 106667,
+          "opaque": 462728
+        },
+        "sha256": "7deb12ec3d6811b06a7b57d88e6a215cb17669d24e8238560f6db214fdc11a9a",
+        "dimensions": [
+          1024,
+          908
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            454
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 464821,
+          "partial": 132546,
+          "opaque": 332425,
+          "visible_coverage": 0.500081,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Coral roll turns while full-width cloth unrolls, curls, retracts, and rewinds; seven rolls remain."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "mermaid_pool_flower_float",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production landscape 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput images: Image 1 shows the approved Mermaid Pool room placement and scale of the flower float only. Image 2, the isolated high-resolution approved flower-float master, is the sole authority for flower identity, exact five-petal topology, palette, material, outline, proportions, and painted style.\nPrimary request: Create exactly eight sequential complete-object states of this same inflatable flower float, arranged in strict reading order as four equal columns across by two equal rows. Preserve exactly five rounded blush-pink petals and the warm pearl-gold center. Animate the ACTUAL five petals physically folding upward around their attached bases one after another into a coherent closed five-petal bud, then hinging back outward into the approved open float.\nFrame order: 1 fully open five-petal rest; 2 petal bases begin folding; 3 petals half raised; 4 petals nearly enclose center; 5 coherent closed bud with all five petals still readable; 6 petals reopen halfway; 7 nearly open; 8 fully open settled rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded inflatable illustration matching Image 2 exactly, with crisp rose/navy edge accents, pearly highlights, and child-readable five-petal silhouette.\nComposition/framing: identical flower center, scale, viewpoint, and center pivot in every cell; complete float fully visible with generous equal padding; mandatory landscape four columns by two rows.\nConstraints: redraw exactly five attached physical petals and their changing overlaps in every state. No water, waves, ripples, rings, splashes, droplets, bubbles, sparkles, glow, motion lines, generic whole-float bounce, extra or missing petals, text, labels, numbers, grid lines, panel borders, floor, cast/contact shadow, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF as background-colored holes inside the subject.",
+      "accepted_prompt_sha256": "b2f5dd4073fa7e65daa122b09da7b65867b99d3fc9c7db487b67f850a285055d",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+          "sha256": "12148cb00cd25cf63598c52bfdf2ec914699053a4265bad8056c3f8105bdd3ec",
+          "dimensions": [
+            141,
+            111
+          ]
+        },
+        {
+          "path": "assets_src/imagegen/castle_interactions_2026-08-01/flower_float_alpha.png",
+          "sha256": "ae0a274a486c2efa5324b895b99e7fe94a762effc8f6ed049eb2532ce7bd06b5",
+          "dimensions": [
+            1202,
+            1309
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-a5324bc0-c059-4486-851d-fa7011b76169.png",
+        "sha256": "808734f7bd7ee8dae9a840d8125567fbb8c16f880283324d3512aa4dc1b773da",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_flower_float_sheet_chroma.png",
+        "sha256": "808734f7bd7ee8dae9a840d8125567fbb8c16f880283324d3512aa4dc1b773da",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#f30cdd"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/mermaid_pool_flower_float_sheet.png",
+        "pre_normalization_sha256": "9542597c56400b65814361b6a5c2611d4fa19b61947ee347632a016668c0d428",
+        "pre_normalization_dimensions": [
+          1774,
+          887
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1246362,
+          "partial": 0,
+          "opaque": 327176
+        },
+        "sha256": "8e0fdc17ad9bfb66816d8bef28ee0cfc399d21f2cd152a086485f1adb084073e",
+        "dimensions": [
+          1024,
+          308
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            154
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 162235,
+          "partial": 13857,
+          "opaque": 139300,
+          "visible_coverage": 0.485608,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "hard_border_key; tolerance=24; despill=false; preserves legitimate pink petals",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 2,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Exactly five attached petals fold into a coherent bud and reopen; no water effect."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    },
+    {
+      "id": "mermaid_pool_star_float",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production landscape 4-by-2 sprite animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Mermaid Pool puffy star float and is the sole identity, five-point topology, palette, material, outline, proportions, scale, and viewpoint authority.\nPrimary request: Create exactly eight sequential complete-object states of this same inflatable five-point gold-and-orange star float, arranged in strict reading order as four equal columns across by two equal rows. Animate the ACTUAL inflated object changing perspective: it tips forward, rolls gently toward one side so its real orange side thickness and seams become visible, flexes through the buoyant response, then returns to the approved front-facing orientation.\nFrame order: 1 front-facing rest; 2 slight forward tip; 3 greater tip with side thickness visible; 4 sideward roll; 5 maximum coherent perspective tilt; 6 roll reverses; 7 nearly front-facing; 8 settled front-facing rest.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas.\nStyle/medium: polished pastel 2D storybook cel-shaded inflatable illustration matching Image 1 exactly, with crisp warm purple-brown edge accents, gold face, orange side wall, seams, and pearly highlights.\nComposition/framing: identical center pivot and approximate occupied scale in every cell; complete five-point star fully visible with generous equal padding; landscape four columns by two rows.\nConstraints: redraw the actual five-point volume and changing face/side occlusion in every state. Preserve exactly five points. No face, eyes, mouth, symbol, decal, water, ripples, rings, splashes, droplets, bubbles, sparkles, glow, motion lines, shadow ellipse, generic overlay, text, labels, numbers, grid lines, panel borders, floor, reflection, scenery, or watermark. Background has zero texture, gradient, or lighting variation. Never use #FF00FF inside the subject.",
+      "accepted_prompt_sha256": "feb7096fe33765107ef29a6f081c36de01f47943a781fbaa1d2217a1afac568d",
+      "reference_images": [
+        {
+          "path": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+          "sha256": "26187cd4b6afd7b03a5559127101c14cd05c95d95ee8d4ccfd8618046db71321",
+          "dimensions": [
+            66,
+            46
+          ]
+        }
+      ],
+      "native_output": {
+        "path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc018-dacc-7480-8dda-d0c0ede95b07\\exec-d33c0008-2ab1-4503-b817-685c0f719ecb.png",
+        "sha256": "55dc509ebc7d5df7a6153be2ea8a943aa0b13d08411e22a857f16891ee3c5818",
+        "dimensions": [
+          1536,
+          1024
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_star_float_sheet_chroma.png",
+        "sha256": "55dc509ebc7d5df7a6153be2ea8a943aa0b13d08411e22a857f16891ee3c5818",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "byte_identical_to_native": true,
+        "sampled_border_key": "#fb03f7"
+      },
+      "runtime_alpha": {
+        "path": "assets/flats/castle/interactions_v2/mermaid_pool_star_float_sheet.png",
+        "pre_normalization_sha256": "e3899089feef77ebb53bd4a0bb95d5f696a0b2b2149a0d21fb48347ff9af2404",
+        "pre_normalization_dimensions": [
+          1536,
+          1024
+        ],
+        "pre_normalization_alpha": {
+          "transparent": 1311172,
+          "partial": 6870,
+          "opaque": 254822
+        },
+        "sha256": "81af6fad0bec01048ee8330c9c8d74a7b9971817b96466937f2da6959af840a4",
+        "dimensions": [
+          1024,
+          440
+        ],
+        "grid": {
+          "columns": 4,
+          "rows": 2,
+          "frames": 8,
+          "cell_dimensions": [
+            256,
+            220
+          ]
+        },
+        "alpha_qa": {
+          "transparent": 294924,
+          "partial": 15566,
+          "opaque": 140070,
+          "visible_coverage": 0.345428,
+          "unique_frame_pixel_hashes": 8,
+          "cell_edge_nonzero_alpha": 0,
+          "nonzero_rgb_under_zero_alpha": 0,
+          "longest_side_at_most_1024": true
+        },
+        "alpha_conversion": "soft_matte_border_key; transparent_threshold=12; opaque_threshold=220; despill=true",
+        "normalization": "Split 4x2; union alpha bbox threshold 8; identical 8px crop padding for fixed pivot; premultiplied-alpha Lanczos resize to <=1024 longest side; dimensions kept as multiples of 4x2; RGB cleared under zero alpha."
+      },
+      "generation": {
+        "method": "image_gen.imagegen built-in",
+        "reference_transport": "conversation image via num_last_images_to_include",
+        "num_last_images_to_include": 1,
+        "attempt": 1,
+        "generation_time_local": "2026-08-01",
+        "animation_action": "Puffy five-point float tips/rolls in authored perspective, exposing real orange side thickness, then returns."
+      },
+      "attempt_notes": [
+        "Accepted first generated candidate after visual review."
+      ],
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Accepted after contact-sheet review for identity, topology, item-specific motion, no generic overlays, clean cutout, fixed pivot, and eight readable states."
+    }
+  ]
+}

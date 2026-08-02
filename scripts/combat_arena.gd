@@ -7,6 +7,7 @@ extends Node3D
 const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
+const CLEAN_BUBBLE_PATH := "res://assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
@@ -32,6 +33,7 @@ var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var he: HitEngine = null
+var imp_brain: ImpAI = null      # the shared crew brain (scripts/imp_ai.gd)
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
@@ -68,6 +70,9 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 			ice_msg += " Or shout FREEZE!"
 		_build_ice_swarm()
 		m.show_msg("Roshan", ice_msg, "talk")
+	elif kind == "dust":
+		_build_dust_bunny_swarm()
+		m.show_msg("Roshan", "Dust bunnies! Tap the big CLEAN button and give each one a sparkling bubble poof!", "talk")
 	else:
 		_build_pepper_boss()
 		if kind == "dual":
@@ -80,7 +85,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 			if mic_live:
 				fire_msg += " Or shout FIREBALL!"
 			m.show_msg("Roshan", fire_msg, "talk")
-	he.targets = enemies if kind == "ice" else [boss]
+	he.targets = enemies if kind in ["ice", "dust"] else [boss]
 	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	_update_hud()
 
@@ -88,10 +93,18 @@ func _build_environment() -> void:
 	prev_env = m.we_node.environment
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	var default_bg := Color(0.08, 0.05, 0.16) if kind == "ice" else Color(0.18, 0.055, 0.035)
+	var default_bg := Color(0.18, 0.055, 0.035)
+	if kind == "ice":
+		default_bg = Color(0.08, 0.05, 0.16)
+	elif kind == "dust":
+		default_bg = Color(0.14, 0.08, 0.22)
 	env.background_color = encounter.get("background", default_bg)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.65, 0.78, 1.0) if kind == "ice" else Color(1.0, 0.68, 0.42)
+	env.ambient_light_color = Color(1.0, 0.68, 0.42)
+	if kind == "ice":
+		env.ambient_light_color = Color(0.65, 0.78, 1.0)
+	elif kind == "dust":
+		env.ambient_light_color = Color(0.88, 0.78, 1.0)
 	env.ambient_light_energy = 0.9
 	env.glow_enabled = true
 	env.glow_intensity = 0.65
@@ -99,7 +112,11 @@ func _build_environment() -> void:
 	m._speedy_glow_clamp(env)
 	m.we_node.environment = env
 	var sun := DirectionalLight3D.new()
-	sun.light_color = Color(0.72, 0.86, 1.0) if kind == "ice" else Color(1.0, 0.72, 0.45)
+	sun.light_color = Color(1.0, 0.72, 0.45)
+	if kind == "ice":
+		sun.light_color = Color(0.72, 0.86, 1.0)
+	elif kind == "dust":
+		sun.light_color = Color(0.92, 0.84, 1.0)
 	sun.light_energy = 1.15
 	sun.shadow_enabled = m.quality != "speedy"
 	sun.rotation_degrees = Vector3(-48, -28, 0)
@@ -136,8 +153,14 @@ func _sphere(parent: Node3D, pos: Vector3, radius: float, col: Color, emission: 
 	return _mesh(parent, shape, pos, col, emission)
 
 func _build_octagon() -> void:
-	var default_floor := Color(0.46, 0.55, 0.78) if kind == "ice" else Color(0.48, 0.25, 0.20)
-	var default_trim := Color(0.55, 0.92, 1.0) if kind == "ice" else Color(1.0, 0.48, 0.20)
+	var default_floor := Color(0.48, 0.25, 0.20)
+	var default_trim := Color(1.0, 0.48, 0.20)
+	if kind == "ice":
+		default_floor = Color(0.46, 0.55, 0.78)
+		default_trim = Color(0.55, 0.92, 1.0)
+	elif kind == "dust":
+		default_floor = Color(0.52, 0.43, 0.68)
+		default_trim = Color(0.58, 0.96, 1.0)
 	var floor_col: Color = encounter.get("floor", default_floor)
 	var trim_col: Color = encounter.get("trim", default_trim)
 	var arena := DungeonArt.spawn("arena", self, CENTER, art_theme)
@@ -166,7 +189,11 @@ func _build_hud() -> void:
 	hud = CanvasLayer.new()
 	hud.layer = 14
 	add_child(hud)
-	var accent := StorybookUI.MINT if kind == "ice" else StorybookUI.CORAL
+	var accent := StorybookUI.CORAL
+	if kind == "ice":
+		accent = StorybookUI.MINT
+	elif kind == "dust":
+		accent = StorybookUI.LAVENDER
 	var banner := StorybookUI.add_hud_panel(hud, Rect2(220, 22, 840, 112), accent, Color(0.94, 0.98, 1.0, 0.96), 32)
 	banner.name = "CombatObjectiveCard"
 	objective = Label.new()
@@ -196,6 +223,25 @@ func _build_hud() -> void:
 func _build_ice_swarm() -> void:
 	var count: int = int(encounter.get("enemy_count", 8))
 	var layout: String = String(encounter.get("layout", "ring"))
+	# the shared crew brain (scripts/imp_ai.gd): arena metres, and the
+	# encounter's own imp_speed still sets the crew's walking pace
+	var pace: float = maxf(1.0, float(encounter.get("imp_speed", 1.5))) * 2.6
+	imp_brain = ImpAI.new({
+		"strike_range": 12.0,
+		"stand_off": 7.5,
+		"contact": 3.4,
+		"speed": pace,
+		"charge_speed": pace * 3.4,
+		"flee_speed": pace * 1.6,
+		"windup": 1.0,
+		"charge_time": 0.45,
+		"slash_time": 0.28,
+		"recover": 1.25,
+		"cool_min": float(encounter.get("attack_gap", 3.0)) * 0.8,
+		"cool_max": float(encounter.get("attack_gap", 3.0)) * 1.7,
+		"max_attackers": 2,
+	}, room_tag.hash() + count * 31)
+	imp_brain.begin_crew(count)
 	for i in range(count):
 		var a: float = float(i) * TAU / float(count)
 		var spawn_r := 18.0
@@ -208,7 +254,43 @@ func _build_ice_swarm() -> void:
 		root.position = pos
 		add_child(root)
 		DungeonArt.spawn("imp", root, Vector3.ZERO, art_theme)
-		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
+		var mind: Dictionary = imp_brain.spawn_mind(i, false)
+		mind["pos"] = Vector2(pos.x, pos.z)
+		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0,
+			"attack": 1.0 + float(i) * 0.18, "phase": a, "ai": mind, "pose": "prowl"})
+
+
+func _build_dust_bunny_swarm() -> void:
+	var count: int = int(encounter.get("enemy_count", 5))
+	var layout: String = String(encounter.get("layout", "spiral"))
+	var seed_base: int = int(encounter.get("dust_seed", 20260728))
+	for i in range(count):
+		var angle: float = float(i) * TAU / float(count)
+		var spawn_radius: float = 16.0
+		if layout == "double":
+			spawn_radius = 11.0 if i % 2 == 0 else 19.0
+		elif layout == "spiral":
+			spawn_radius = 9.0 + float(i) / maxf(float(count - 1), 1.0) * 10.0
+		var pos := CENTER + Vector3(
+			sin(angle) * spawn_radius,
+			1.0,
+			cos(angle) * spawn_radius
+		)
+		var bunny := DustBunnySprite.new()
+		bunny.position = pos
+		add_child(bunny)
+		var brain := DustBunnyAI.new()
+		brain.setup(pos, CENTER, RADIUS - 3.0, seed_base + i * 101, 0.25 + float(i) * 0.12)
+		enemies.append({
+			"node": bunny,
+			"brain": brain,
+			"pos": pos,
+			"state": "active",
+			"timer": 0.0,
+			"phase": angle,
+			"type": "dust_bunny",
+		})
+
 
 func _build_pepper_boss() -> void:
 	# A little basket makes the ability source readable even without text.
@@ -300,6 +382,8 @@ func _process(delta: float) -> void:
 	_tick_enemy_shots(delta)
 	if kind == "ice":
 		_tick_imps(delta)
+	elif kind == "dust":
+		_tick_dust_bunnies(delta)
 	else:
 		_tick_boss(delta)
 	_tick_pointer()
@@ -317,13 +401,18 @@ func on_world_tap(screen_pos: Vector2) -> void:
 # death; the boss keeps its phase rules whatever the source.
 func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
 	if kind == "ice":
+		if imp_brain != null:
+			imp_brain.on_player_swing(true)
 		_freeze_imp(enemy)
+		return
+	if kind == "dust":
+		_clean_dust_bunny(enemy)
 		return
 	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
 	_hit_boss(power)
 
 func _nearest_target() -> Vector3:
-	if kind != "ice" and not boss.is_empty():
+	if kind not in ["ice", "dust"] and not boss.is_empty():
 		return boss["pos"]
 	var best := CENTER
 	var best_d := INF
@@ -347,18 +436,39 @@ func _fire(power_override: String = "") -> void:
 		dir = Vector3(sin(player_yaw), 0, cos(player_yaw))
 	dir = dir.normalized()
 	var shot_pos: Vector3 = player_pos + Vector3(0, 2.2, 0) + dir * 1.5
-	var role := "ice_berry_projectile" if power == "ice" else "pepper_projectile"
-	var orb: Node3D = DungeonArt.spawn(role, self, shot_pos, art_theme)
-	if orb.name.begins_with("MissingDungeonArt"):
-		var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
-		orb.queue_free()
-		orb = _sphere(self, shot_pos, 0.65, orb_col, 1.8)
+	var orb: Node3D
+	if power == "clean":
+		orb = _clean_bubble_projectile(shot_pos)
 	else:
-		orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
-		orb.rotation.y = atan2(dir.x, dir.z)
+		var role := "ice_berry_projectile" if power == "ice" else "pepper_projectile"
+		orb = DungeonArt.spawn(role, self, shot_pos, art_theme)
+		if orb.name.begins_with("MissingDungeonArt"):
+			var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
+			orb.queue_free()
+			orb = _sphere(self, shot_pos, 0.65, orb_col, 1.8)
+		else:
+			orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
+			orb.rotation.y = atan2(dir.x, dir.z)
 	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)
+
+
+func _clean_bubble_projectile(pos: Vector3) -> Sprite3D:
+	var bubble := Sprite3D.new()
+	var texture: Texture2D = load(CLEAN_BUBBLE_PATH) as Texture2D
+	bubble.name = "CleanBubbleProjectile"
+	bubble.texture = texture
+	bubble.position = pos
+	bubble.pixel_size = 3.2 / maxf(float(texture.get_height()), 1.0) if texture != null else 0.006
+	bubble.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	bubble.shaded = false
+	bubble.double_sided = true
+	bubble.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	bubble.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(bubble)
+	return bubble
+
 
 func _tick_shots(delta: float) -> void:
 	for i in range(shots.size() - 1, -1, -1):
@@ -373,6 +483,12 @@ func _tick_shots(delta: float) -> void:
 					he.hit(enemy, 1, "shot_ice")
 					hit = true
 					break
+		elif kind == "dust":
+			for enemy in enemies:
+				if String(enemy["state"]) == "active" and node.position.distance_to((enemy["pos"] as Vector3) + Vector3(0, 2.2, 0)) < 2.8:
+					_clean_dust_bunny(enemy)
+					hit = true
+					break
 		elif not boss.is_empty() and node.position.distance_to((boss["pos"] as Vector3) + Vector3(0, 2.5, 0)) < 5.2:
 			he.hit(boss, 1, "shot_" + String(shot.get("power", "fire")))
 			hit = true
@@ -380,31 +496,126 @@ func _tick_shots(delta: float) -> void:
 			node.queue_free()
 			shots.remove_at(i)
 
+## One imp, one pose, played on the transform — the toy imps carry no
+## animation clips, so the crouch, the dash, the swipe and the slumped
+## recovery are all built here (art states: the codex handoff).
+func _pose_imp(node: Node3D, pos: Vector3, pose: String, t: float, phase: float) -> void:
+	var hop: float = sin(elapsed * 3.0 + phase) * 0.25
+	var squash := Vector3.ONE
+	var tilt := 0.0
+	match pose:
+		"windup":
+			hop = -0.1
+			squash = Vector3(1.22, 0.76, 1.22)
+			tilt = -0.24
+		"charge":
+			hop = 0.45
+			squash = Vector3(0.88, 1.2, 0.88)
+			tilt = 0.34
+		"slash":
+			hop = 0.3
+			squash = Vector3(1.14, 0.94, 1.14)
+			tilt = lerpf(-0.6, 0.6, clampf(t / 0.28, 0.0, 1.0))
+		"recover":
+			hop = -0.05
+			squash = Vector3(1.16, 0.82, 1.16)
+			tilt = -0.32
+		"stagger":
+			node.rotate_y(0.14)
+			squash = Vector3(1.1, 0.9, 1.1)
+		"taunt", "rally":
+			hop = absf(sin(t * 9.0)) * 0.7
+			squash = Vector3(0.94, 1.1, 0.94)
+		"flee":
+			hop = absf(sin(elapsed * 9.0 + phase)) * 0.6
+			tilt = -0.2
+	node.position = pos + Vector3(0.0, hop, 0.0)
+	node.scale = squash
+	node.rotation.z = tilt
+	if pose != "stagger":
+		var look: Vector3 = player_pos - pos
+		if pose == "flee":
+			look = -look
+		if Vector2(look.x, look.z).length() > 0.05:
+			node.rotation.y = atan2(look.x, look.z)
+
+
+func _arena_brain_events() -> void:
+	for ev: Dictionary in imp_brain.drain_events():
+		var at: Vector2 = ev.get("pos", Vector2.ZERO)
+		var world_at := CENTER + Vector3(at.x, 2.4, at.y)
+		match String(ev.get("kind", "")):
+			"telegraph":
+				m._sparkle_burst(world_at + Vector3(0, 1.2, 0), Color(1.0, 0.82, 0.3))
+			"charge":
+				m._sparkle_burst(world_at, Color(1.0, 0.7, 0.45))
+			"contact":
+				# still just the bubble-shield bump: a push and sparkles
+				_bump_player(world_at)
+			"whiff":
+				m._sparkle_burst(world_at, Color(0.9, 0.95, 1.0))
+			"taunt", "rally":
+				m._sparkle_burst(world_at + Vector3(0, 1.0, 0), Color(1.0, 0.72, 0.88))
+
+
 func _freeze_imp(enemy: Dictionary) -> void:
 	if String(enemy["state"]) != "active":
 		return
 	enemy["state"] = "frozen"
 	enemy["timer"] = 1.7
+	var mind: Dictionary = enemy.get("ai", {})
+	if imp_brain != null and not mind.is_empty():
+		# frozen imps stop deciding, and the crew feels the gap
+		imp_brain.on_hit(mind, true)
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
+	# the crew decides together: who closes in, who telegraphs a lunge, who
+	# hangs back and throws instead (scripts/imp_ai.gd)
+	var hero := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
+	if imp_brain != null:
+		var minds: Array = []
+		for enemy in enemies:
+			var mind: Dictionary = enemy.get("ai", {})
+			if mind.is_empty():
+				continue
+			var live: bool = String(enemy["state"]) == "active"
+			mind["alive"] = live
+			if live:
+				var at: Vector3 = enemy["pos"]
+				mind["pos"] = Vector2(at.x - CENTER.x, at.z - CENTER.z)
+				minds.append(mind)
+		imp_brain.tick(delta, minds, hero)
+		_arena_brain_events()
 	var remaining := 0
 	for enemy in enemies:
 		var node: Node3D = enemy["node"]
 		if String(enemy["state"]) == "active":
 			remaining += 1
 			var pos: Vector3 = enemy["pos"]
-			var toward: Vector3 = player_pos - pos
-			toward.y = 0.0
-			if toward.length() > 7.0:
-				pos += toward.normalized() * delta * float(encounter.get("imp_speed", 1.5))
+			var mind: Dictionary = enemy.get("ai", {})
+			var pose := "prowl"
+			var state_t := 0.0
+			if not mind.is_empty():
+				var want: Vector2 = mind.get("pos", Vector2(pos.x - CENTER.x, pos.z - CENTER.z))
+				# the floor is the truth: nobody walks through the trim
+				if want.length() > RADIUS - 2.5:
+					want = want.normalized() * (RADIUS - 2.5)
+				mind["pos"] = want
+				pos = Vector3(CENTER.x + want.x, pos.y, CENTER.z + want.y)
+				pose = String(mind.get("pose", "prowl"))
+				state_t = float(mind.get("t", 0.0))
 			enemy["pos"] = pos
-			node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25, 0)
+			enemy["pose"] = pose
+			_pose_imp(node, pos, pose, state_t, float(enemy["phase"]))
+			# an imp that cannot reach her throws instead of standing about
 			enemy["attack"] = float(enemy["attack"]) - delta
-			if float(enemy["attack"]) <= 0.0:
+			var far: bool = pos.distance_to(player_pos) > 13.0
+			var settled: bool = pose == "prowl" or pose == "stalk" or pose == "flank" or pose == "taunt"
+			if float(enemy["attack"]) <= 0.0 and far and settled:
 				enemy["attack"] = float(encounter.get("attack_gap", 3.0)) + randf() * 1.5
 				_spawn_enemy_shot(pos + Vector3(0, 2.4, 0), player_pos, Color(0.72, 0.34, 0.92))
 		elif String(enemy["state"]) == "frozen":
@@ -420,6 +631,49 @@ func _pop_imp(enemy: Dictionary) -> void:
 	# the dying animation now lives in the shared engine as the "pop" style
 	he.play_death(enemy, "pop", {"count": int(encounter.get("popcorn_count", 7)), "art_theme": art_theme})
 	_update_hud()
+
+
+func _clean_dust_bunny(enemy: Dictionary) -> void:
+	if String(enemy["state"]) != "active":
+		return
+	enemy["state"] = "cleaning"
+	var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+	var direction_x: float = (enemy["pos"] as Vector3).x - player_pos.x
+	var duration: float = bunny.play_defeat(direction_x)
+	enemy["timer"] = maxf(duration, 0.1)
+	_update_hud()
+
+
+func _tick_dust_bunnies(delta: float) -> void:
+	var remaining := 0
+	for enemy in enemies:
+		var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+		var enemy_state: String = String(enemy["state"])
+		if enemy_state == "active":
+			remaining += 1
+			var brain: DustBunnyAI = enemy["brain"] as DustBunnyAI
+			var events: Dictionary = brain.tick(delta, player_pos)
+			enemy["pos"] = brain.pos
+			bunny.position = brain.pos
+			if StringName(events["action"]) == &"hop":
+				bunny.play_hop(brain.facing_x)
+			if bool(events["bump"]):
+				_bump_player(brain.pos)
+		elif enemy_state == "cleaning":
+			remaining += 1
+			enemy["timer"] = float(enemy["timer"]) - delta
+			if float(enemy["timer"]) <= 0.0:
+				_finish_dust_bunny_clean(enemy)
+	if remaining == 0:
+		_win()
+
+
+func _finish_dust_bunny_clean(enemy: Dictionary) -> void:
+	enemy["state"] = "popped"
+	var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+	bunny.visible = false
+	_update_hud()
+
 
 func _hit_boss(power: String = "fire") -> void:
 	if state != "play":
@@ -550,6 +804,14 @@ func _update_hud() -> void:
 			if String(enemy["state"]) != "popped": left += 1
 		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
 		counter.text = "❄  %d" % left
+	elif kind == "dust":
+		var left := 0
+		for enemy in enemies:
+			if String(enemy["state"]) != "popped":
+				left += 1
+		objective.text = (room_tag + " - " if room_tag != "" else "") \
+			+ "CLEAN: tap CLEAN - follow the golden arrow"
+		counter.text = "CLEAN  %d" % left
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
 		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
@@ -563,13 +825,20 @@ func _win() -> void:
 	win_t = float(encounter.get("win_time", 3.5))
 	# standalone arena battles rank on time-to-victory; dungeon rooms
 	# (room_tag set) roll into the single "dungeon" medal instead
-	if room_tag == "":
+	if room_tag == "" and kind in ["ice", "fire"]:
 		m._medal_ref().award_stats("combat_ice" if kind == "ice" else "combat_fire", {"time": elapsed})
 	pointer.visible = false
-	objective.text = "✨  POPCORN PARTY!  ✨" if kind == "ice" else "✨  DRAGON-TURTLE TAMED!  ✨"
+	if kind == "ice":
+		objective.text = "✨  POPCORN PARTY!  ✨"
+	elif kind == "dust":
+		objective.text = "✨  ALL CLEAN!  ✨"
+	else:
+		objective.text = "✨  DRAGON-TURTLE TAMED!  ✨"
 	counter.text = "★"
 	if kind == "ice":
 		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!", "win")
+	elif kind == "dust":
+		m.show_msg("Roshan", "Poof! Every dust bunny is sparkling clean!", "win")
 	else:
 		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!", "win")
 
@@ -608,6 +877,8 @@ func _disarm_mic() -> void:
 func action_label() -> String:
 	if kind == "ice":
 		return "ICE"
+	if kind == "dust":
+		return "CLEAN"
 	if kind == "dual" and not boss.is_empty() and String(boss.get("phase", "shell")) == "shell":
 		return "ICE"
 	return "FIRE"

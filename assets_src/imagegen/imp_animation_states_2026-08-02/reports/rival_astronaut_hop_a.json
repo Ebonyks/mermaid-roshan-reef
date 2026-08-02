@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_a",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    27,
+    94,
+    484,
+    503
+  ],
+  "visible_bbox": [
+    27,
+    94,
+    484,
+    503
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 27,
+    "right": 27,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 17,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 102096,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    311,
+    44,
+    10,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.54682,
+  "solid_centroid_x": 255.644,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_astronaut_windup.png",
+  "input_sha256": "6aea7bb3866f16902fe6b5087711268cae5965c57c69e44d9943981efff1ccc9",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_astronaut_hop_a.png",
+  "output_sha256": "45257a286318ddae068942d17c03b6ceef0df00c70822ac1a0dc8287ebe934e6",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_astronaut.png",
+  "idle_sha256": "e0cb4e0cadb943b640c533e0d3c5f3bca10bd8311b3e787233087142e243176a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_hop_a\\rival_astronaut_hop_a_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_hop_a\\rival_astronaut_hop_a_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_hop_a\\rival_astronaut_hop_a_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_hop_a\\rival_astronaut_hop_a_idle_comparison.png"
+  }
+}
