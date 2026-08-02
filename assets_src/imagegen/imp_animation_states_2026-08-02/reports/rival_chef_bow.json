@@ -1,0 +1,74 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bow",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    71,
+    114,
+    499,
+    503
+  ],
+  "visible_bbox": [
+    71,
+    114,
+    499,
+    503
+  ],
+  "solid_height": 390,
+  "gaps": {
+    "left": 71,
+    "right": 12,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 14,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 81100,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    94,
+    8,
+    6,
+    4,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.465642,
+  "solid_centroid_x": 251.869,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_bow_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "50a159cf9f374d464c7e5d5e37568a507d841f284c95b99f70a3027c4fc0900e",
+  "output": "assets\\opera\\worlds\\actors\\rival_chef_bow.png",
+  "output_sha256": "dd19e74d2ff6f098881e6dada9fc194a5804c28068ac13a67e7d58a1a62c898a",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_chef.png",
+  "idle_sha256": "84b855248ce55a424d9781608ebc35e5b94317d5961354e8d0d2977ff47ecf76",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 390,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 249.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_bow\\rival_chef_bow_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_bow\\rival_chef_bow_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_bow\\rival_chef_bow_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_bow\\rival_chef_bow_idle_comparison.png"
+  }
+}

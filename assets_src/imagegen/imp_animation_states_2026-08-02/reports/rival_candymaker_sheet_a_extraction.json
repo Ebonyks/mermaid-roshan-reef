@@ -1,0 +1,168 @@
+{
+  "pass": true,
+  "method": "8-connected alpha component isolation; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "316b66800538ba82b60c7ddbcee064af8f2cf2a58d92e9ca98e36ca34c372ba7",
+  "sheet": "a",
+  "states": [
+    "idle",
+    "windup",
+    "charge",
+    "slash",
+    "recover",
+    "guard"
+  ],
+  "component_count": 6,
+  "outputs": [
+    {
+      "state": "idle",
+      "source_component": {
+        "label": 1,
+        "area": 91630,
+        "bbox": [
+          80,
+          30,
+          434,
+          502
+        ],
+        "centroid": [
+          262.75650987667797,
+          255.30232456619012
+        ]
+      },
+      "crop_bbox": [
+        72,
+        22,
+        442,
+        511
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "7ed07d9670b713484cbd60870aa7e07205fb342317f29a5f000c55e76ed6ee5f"
+    },
+    {
+      "state": "windup",
+      "source_component": {
+        "label": 3,
+        "area": 80633,
+        "bbox": [
+          564,
+          110,
+          959,
+          469
+        ],
+        "centroid": [
+          745.5366785311224,
+          297.3086081381072
+        ]
+      },
+      "crop_bbox": [
+        556,
+        102,
+        967,
+        477
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "d12243c9f14bdc62e44f6085107b381fce377431b9e915d61a7635afcd009f3c"
+    },
+    {
+      "state": "charge",
+      "source_component": {
+        "label": 2,
+        "area": 81951,
+        "bbox": [
+          1059,
+          49,
+          1430,
+          447
+        ],
+        "centroid": [
+          1236.816585520616,
+          246.42575441422312
+        ]
+      },
+      "crop_bbox": [
+        1051,
+        41,
+        1438,
+        455
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "eb2d8a747e55cc89913c50e32410b650238c6e56a7c876aa0767f5c25f6582f0"
+    },
+    {
+      "state": "slash",
+      "source_component": {
+        "label": 5,
+        "area": 67267,
+        "bbox": [
+          98,
+          539,
+          413,
+          950
+        ],
+        "centroid": [
+          262.4154340166798,
+          745.6350513624809
+        ]
+      },
+      "crop_bbox": [
+        90,
+        531,
+        421,
+        958
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "a106e4503c20c74210ca80b3c89ce51e7e1c0c867ce7dcded6ceddc5157341da"
+    },
+    {
+      "state": "recover",
+      "source_component": {
+        "label": 6,
+        "area": 70240,
+        "bbox": [
+          600,
+          549,
+          951,
+          945
+        ],
+        "centroid": [
+          761.6439066059226,
+          754.2820045558086
+        ]
+      },
+      "crop_bbox": [
+        592,
+        541,
+        959,
+        953
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "f853d2f2b6661570bed724e69c4bc8863d0e26b143eab1a58022ac9fa02f7c6a"
+    },
+    {
+      "state": "guard",
+      "source_component": {
+        "label": 4,
+        "area": 63225,
+        "bbox": [
+          1094,
+          526,
+          1403,
+          962
+        ],
+        "centroid": [
+          1236.9744088572559,
+          729.3014155792804
+        ]
+      },
+      "crop_bbox": [
+        1086,
+        518,
+        1411,
+        970
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_candymaker_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "2932ce826b57d3a6bdb2461f66442e2c1774885cfd6695f4ddeb43a68585fe23"
+    }
+  ]
+}

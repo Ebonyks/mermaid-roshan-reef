@@ -1,0 +1,72 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_a",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    49,
+    94,
+    474,
+    503
+  ],
+  "visible_bbox": [
+    49,
+    94,
+    474,
+    503
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 49,
+    "right": 37,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 20,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 89906,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    80,
+    46,
+    35,
+    30,
+    13,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.478129,
+  "solid_centroid_x": 256.129,
+  "input": "assets\\opera\\worlds\\actors\\rival_ballerina_windup.png",
+  "input_sha256": "9cddfc5ded15e6a30c3c059f74abe1f7bbe990b7ebaf82e7de4f8b984fbbe735",
+  "output": "assets\\opera\\worlds\\actors\\rival_ballerina_hop_a.png",
+  "output_sha256": "3944df45e8306a6d45c1ff377273e01b16ee6a160bded426bc5b06bc6344391a",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_ballerina.png",
+  "idle_sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_a\\rival_ballerina_hop_a_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_a\\rival_ballerina_hop_a_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_a\\rival_ballerina_hop_a_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_a\\rival_ballerina_hop_a_idle_comparison.png"
+  }
+}

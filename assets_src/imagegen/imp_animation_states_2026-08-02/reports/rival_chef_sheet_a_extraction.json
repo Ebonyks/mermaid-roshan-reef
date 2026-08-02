@@ -1,0 +1,152 @@
+{
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "58f3f64f03d4434cc91a4f7fc5ac4c77ff0f20133c20015c66c0aa2564ed0f01",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "alpha_threshold": 16,
+  "minimum_area": 5000,
+  "columns": 3,
+  "method": "8-connected visible-alpha components; row-cluster then x-centroid order; lossless crop and component-isolation matte only",
+  "records": [
+    {
+      "name": "rival_chef",
+      "component_area": 86579,
+      "component_bbox_in_sheet": [
+        32,
+        52,
+        359,
+        525
+      ],
+      "component_centroid_in_sheet": [
+        207.81508217928135,
+        276.0136984719158
+      ],
+      "crop_bbox": [
+        24,
+        44,
+        367,
+        533
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "1df85fb5346891a78d46aaded2263347aee5b7fa11512330bf52888a0fb2ef07"
+    },
+    {
+      "name": "rival_chef_windup",
+      "component_area": 73206,
+      "component_bbox_in_sheet": [
+        363,
+        141,
+        786,
+        508
+      ],
+      "component_centroid_in_sheet": [
+        574.8558861295522,
+        329.6997787066634
+      ],
+      "crop_bbox": [
+        355,
+        133,
+        794,
+        516
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "f734d7c5b08fe734d8d99b97e2094afc4daa59495ea5de4955936fcd6a855541"
+    },
+    {
+      "name": "rival_chef_charge",
+      "component_area": 81345,
+      "component_bbox_in_sheet": [
+        779,
+        105,
+        1215,
+        485
+      ],
+      "component_centroid_in_sheet": [
+        994.3083164300203,
+        289.0943266334747
+      ],
+      "crop_bbox": [
+        771,
+        97,
+        1223,
+        493
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "54df2518e97baa140d5e82bc42fddddf76133e551b743e4be8b09452abbc3c45"
+    },
+    {
+      "name": "rival_chef_slash",
+      "component_area": 75329,
+      "component_bbox_in_sheet": [
+        23,
+        629,
+        396,
+        1060
+      ],
+      "component_centroid_in_sheet": [
+        220.17524459371558,
+        848.2264201038113
+      ],
+      "crop_bbox": [
+        15,
+        621,
+        404,
+        1068
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "30122235168d9891ec4f6fe81cda5db3005aedcb7375189d2d061504ba675435"
+    },
+    {
+      "name": "rival_chef_recover",
+      "component_area": 71885,
+      "component_bbox_in_sheet": [
+        460,
+        665,
+        786,
+        1055
+      ],
+      "component_centroid_in_sheet": [
+        609.414731863393,
+        868.5702719621618
+      ],
+      "crop_bbox": [
+        452,
+        657,
+        794,
+        1063
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "6607a528d2c5daa34c1cb8b375bfbf7c193e766936abc8dc210d8c70d0e38653"
+    },
+    {
+      "name": "rival_chef_guard",
+      "component_area": 79873,
+      "component_bbox_in_sheet": [
+        818,
+        624,
+        1163,
+        1072
+      ],
+      "component_centroid_in_sheet": [
+        989.1472462534273,
+        835.9660460981809
+      ],
+      "crop_bbox": [
+        810,
+        616,
+        1171,
+        1080
+      ],
+      "isolation": "selected connected component plus 3px antialias support; all neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "9e8c7fce53d07f121fbcd1d3e24f0248f403eca806a683e1ba5bc68197f75505"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "slash",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    79,
+    19,
+    413,
+    503
+  ],
+  "visible_bbox": [
+    78,
+    19,
+    413,
+    504
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 79,
+    "right": 98,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 12,
+  "semi_alpha_pixels": 2942,
+  "solid_pixels": 79145,
+  "semi_alpha_to_solid_ratio": 0.037172,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.516374,
+  "solid_centroid_x": 256.079,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_slash_attempt01_alpha_native.png",
+  "input_sha256": "049b3736bad841e60203d90360b4f9a2aaeb9a0627fe608245f3336a3a9ede33",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_slash.png",
+  "output_sha256": "e0d2a8d768f85455fd2e11c25e5ca6eccd5337d757705344cb552296e7a97b48",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_slash\\imp_captain_slash_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_slash\\imp_captain_slash_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_slash\\imp_captain_slash_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_slash\\imp_captain_slash_idle_comparison.png"
+  }
+}

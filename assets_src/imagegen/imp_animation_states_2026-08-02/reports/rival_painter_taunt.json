@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "taunt",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    80,
+    19,
+    425,
+    503
+  ],
+  "visible_bbox": [
+    80,
+    19,
+    425,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 80,
+    "right": 86,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 23,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 86296,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.586278,
+  "solid_centroid_x": 255.475,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_taunt_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "c95ba9766976c5858dae31b4512d0cfdb90eb965c99a021a44d1687f39b6b832",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_painter_taunt.png",
+  "output_sha256": "e2c2567f64755661460b9af0f063193a7660da4c16c3fffaaa70d57776f8fd13",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_painter.png",
+  "idle_sha256": "3db2b23c3e1e2e0f4fcddd0864a11fd8cf41c9ab4d1d000d6f46796096f5277a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_taunt\\rival_painter_taunt_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_taunt\\rival_painter_taunt_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_taunt\\rival_painter_taunt_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_taunt\\rival_painter_taunt_idle_comparison.png"
+  }
+}

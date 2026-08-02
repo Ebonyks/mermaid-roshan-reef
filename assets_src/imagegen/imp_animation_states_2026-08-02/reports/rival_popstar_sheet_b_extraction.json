@@ -1,0 +1,209 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_sheet_b_attempt01_alpha_native.png",
+  "input_sha256": "0e2a54e52fc80b42dea827fa4597330cfd3636f61bec657923e1ea441b86b6fc",
+  "sheet": "b",
+  "states": [
+    "stagger",
+    "flee",
+    "bopped",
+    "bow",
+    "hop_a",
+    "hop_b",
+    "taunt"
+  ],
+  "component_count": 7,
+  "occupied_grid_cells": 7,
+  "outputs": [
+    {
+      "state": "stagger",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 62125,
+          "bbox": [
+            70,
+            49,
+            420,
+            398
+          ],
+          "centroid": [
+            240.56703420523138,
+            222.16103018108652
+          ]
+        }
+      ],
+      "crop_bbox": [
+        62,
+        41,
+        428,
+        407
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_stagger_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "92f978b531e3fc050e47179dc02515235ab824ce2ea572d8a6d0b4f340b9b715"
+    },
+    {
+      "state": "flee",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 59479,
+          "bbox": [
+            451,
+            43,
+            777,
+            391
+          ],
+          "centroid": [
+            629.5417878578994,
+            221.27648413725854
+          ]
+        }
+      ],
+      "crop_bbox": [
+        443,
+        35,
+        785,
+        399
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_flee_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "0af5766ebc67108d552da5da79054ef116735f4df79b7427fd74e6c0c0916add"
+    },
+    {
+      "state": "bopped",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 61190,
+          "bbox": [
+            852,
+            52,
+            1173,
+            399
+          ],
+          "centroid": [
+            1011.3734760581794,
+            232.69926458571663
+          ]
+        }
+      ],
+      "crop_bbox": [
+        844,
+        44,
+        1181,
+        407
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_bopped_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "b40402693cf301e41aa727e3a47353656570c9726f58b5755b30828c84abcfb9"
+    },
+    {
+      "state": "bow",
+      "source_components": [
+        {
+          "label": 10,
+          "area": 46852,
+          "bbox": [
+            70,
+            510,
+            368,
+            797
+          ],
+          "centroid": [
+            217.81497054554768,
+            638.8681806539743
+          ]
+        }
+      ],
+      "crop_bbox": [
+        62,
+        502,
+        376,
+        805
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_bow_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "0f165bef381407bfb01b1c4b69d13790521d106ede06a0e844e337d7e8d47daf"
+    },
+    {
+      "state": "hop_a",
+      "source_components": [
+        {
+          "label": 9,
+          "area": 51755,
+          "bbox": [
+            460,
+            505,
+            745,
+            792
+          ],
+          "centroid": [
+            608.1688725726983,
+            648.7684281711912
+          ]
+        }
+      ],
+      "crop_bbox": [
+        452,
+        497,
+        753,
+        800
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "b3fd5e8e99be303c7cd68f0cc7763223feca25702a852c54496a886aa031c457"
+    },
+    {
+      "state": "hop_b",
+      "source_components": [
+        {
+          "label": 8,
+          "area": 53608,
+          "bbox": [
+            841,
+            437,
+            1145,
+            769
+          ],
+          "centroid": [
+            993.5046634830622,
+            592.6805700641695
+          ]
+        }
+      ],
+      "crop_bbox": [
+        833,
+        429,
+        1153,
+        777
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "8e3463a8d0af83729c30c3260344ed519b8387a9d5d726cc0790b59889bb4524"
+    },
+    {
+      "state": "taunt",
+      "source_components": [
+        {
+          "label": 11,
+          "area": 56382,
+          "bbox": [
+            67,
+            835,
+            355,
+            1199
+          ],
+          "centroid": [
+            206.60636373310632,
+            1017.0220283069065
+          ]
+        }
+      ],
+      "crop_bbox": [
+        59,
+        827,
+        363,
+        1207
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_taunt_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "7d4c58885311be0b26fb1d34f9c89b18f3132bcc0fa1200a1b11013c6a97f61d"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "recover",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    85,
+    59,
+    456,
+    503
+  ],
+  "visible_bbox": [
+    85,
+    59,
+    456,
+    503
+  ],
+  "solid_height": 445,
+  "gaps": {
+    "left": 85,
+    "right": 55,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 17,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 94333,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    386,
+    32,
+    9,
+    7,
+    3,
+    3,
+    2,
+    2,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.509526,
+  "solid_centroid_x": 255.1,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_recover_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "6607a528d2c5daa34c1cb8b375bfbf7c193e766936abc8dc210d8c70d0e38653",
+  "output": "assets\\opera\\worlds\\actors\\rival_chef_recover.png",
+  "output_sha256": "8338e6396c5920ff95ee0d7a78f50919e22eb7bfe8c72e4508c7346c56b3172d",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_chef.png",
+  "idle_sha256": "84b855248ce55a424d9781608ebc35e5b94317d5961354e8d0d2977ff47ecf76",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 445,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_recover\\rival_chef_recover_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_recover\\rival_chef_recover_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_recover\\rival_chef_recover_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_recover\\rival_chef_recover_idle_comparison.png"
+  }
+}

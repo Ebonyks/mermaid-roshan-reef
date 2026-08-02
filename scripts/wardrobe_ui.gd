@@ -17,11 +17,16 @@ func _open_wardrobe() -> void:
 	m.wardrobe_layer = CanvasLayer.new(); m.wardrobe_layer.layer = 18; m.add_child(m.wardrobe_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.wardrobe_layer.add_child(root)
 	var vp: Vector2 = m.get_viewport().get_visible_rect().size
-	var bg := ColorRect.new(); bg.color = Color(0.10, 0.30, 0.44, 0.98); bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
+	var bg := ColorRect.new(); bg.color = StorybookUI.DIM; bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
 	var stage := StorybookUI.add_stage(root, vp)
 	m.wd["stage"] = stage
+	var wardrobe_rect := Rect2(28, 18, 1224, 684)
+	var wardrobe_panel := StorybookUI.add_panel(stage, wardrobe_rect,
+		StorybookUI.PURPLE, Color(0.91, 0.96, 1.0, 0.99), 52)
+	wardrobe_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.adorn_panel(stage, wardrobe_rect, "Wardrobe")
 	var title := Label.new(); title.text = "Pick your look!"
-	StorybookUI.style_label(title, 48, Color.WHITE, 8)
+	StorybookUI.style_label(title, 48, StorybookUI.INK, 4)
 	title.position = Vector2(60, 18); stage.add_child(title)
 	var back := Button.new()
 	back.name = "WardrobeBackButton"
@@ -44,18 +49,25 @@ func _open_wardrobe() -> void:
 	for si in range(m.SKINS.size()):
 		var entry: Dictionary = m.SKINS[si]
 		var id: String = String(entry["id"])
-		var b := Button.new(); b.add_theme_font_size_override("font_size", 40)
+		var b := Button.new()
 		b.name = "WardrobeLook_" + id
-		b.set_meta("touch_target", true)
-		b.add_theme_color_override("font_color", StorybookUI.INK)
-		b.add_theme_color_override("font_hover_color", StorybookUI.INK)
-		b.add_theme_color_override("font_pressed_color", StorybookUI.INK)
-		b.position = Vector2(640, 150.0 + float(si) * 124.0); b.custom_minimum_size = Vector2(450, 110)
-		var sb := StorybookUI.panel_style(StorybookUI.INK_SOFT, StorybookUI.PAPER, 30, 4)
-		b.add_theme_stylebox_override("normal", sb); b.add_theme_stylebox_override("hover", sb); b.add_theme_stylebox_override("pressed", sb)
+		b.position = Vector2(640, 150.0 + float(si) * 124.0)
+		b.custom_minimum_size = Vector2(450, 110)
+		b.size = Vector2(450, 110)
+		StorybookUI.style_picture_button(b)
+		b.add_theme_font_size_override("font_size", 32)
+		var portrait := TextureRect.new()
+		portrait.name = "WardrobeLookPreview_" + id
+		portrait.texture = load(String(entry["preview"]))
+		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		portrait.position = Vector2(10, 8)
+		portrait.size = Vector2(96, 94)
+		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		b.add_child(portrait)
 		b.pressed.connect(func(): _wardrobe_pick(id))
 		stage.add_child(b)
-		(m.wd["btns"] as Array).append({"btn": b, "box": sb, "id": id})
+		(m.wd["btns"] as Array).append({"btn": b, "id": id})
 	# ---- Done ----
 	var done := Button.new(); done.name = "WardrobeFinishButton"; done.text = "✦  WEAR IT!"
 	done.position = Vector2(700, 548); done.custom_minimum_size = Vector2(330, 132)
@@ -72,11 +84,13 @@ func _wardrobe_refresh() -> void:
 		var sel: bool = String(entry["id"]) == m.skin_id
 		var eid := String(entry["id"])
 		var locked: bool = eid.begins_with("fairy") and not m.fairy_skin_unlocked
-		var box: StyleBoxFlat = entry["box"]
-		box.bg_color = Color(0.64, 0.66, 0.76) if locked else (StorybookUI.MINT if sel else Color(0.82, 0.84, 0.98))
-		box.set_border_width_all(6 if sel else 0)
-		box.border_color = StorybookUI.GOLD
 		var bt: Button = entry["btn"]
+		StorybookUI.style_picture_button(bt,
+			Color(0.74, 0.76, 0.84, 0.96) if locked else (
+				StorybookUI.PAPER_COOL if sel else StorybookUI.PAPER),
+			StorybookUI.GOLD if sel else StorybookUI.PURPLE)
+		bt.set_meta("selected", sel)
+		bt.set_meta("locked", locked)
 		bt.text = "🔒 " + String(m._skin_def(eid)["label"]) if locked else ("✔ " if sel else "    ") + String(m._skin_def(eid)["label"])
 		bt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE
 
@@ -105,7 +119,7 @@ func _open_stickers() -> void:
 	m.stickers_layer = CanvasLayer.new(); m.stickers_layer.layer = 18; m.add_child(m.stickers_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.stickers_layer.add_child(root)
 	var vp: Vector2 = m.get_viewport().get_visible_rect().size
-	var bg := ColorRect.new(); bg.color = Color(0.08, 0.24, 0.40, 0.98); bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
+	var bg := ColorRect.new(); bg.color = StorybookUI.DIM; bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
 	var stage := StorybookUI.add_stage(root, vp)
 	var book_rect := Rect2(28, 18, 1224, 684)
 	var book_panel := StorybookUI.add_panel(stage, book_rect, StorybookUI.PURPLE, Color(0.91, 0.95, 1.0, 0.98), 52)
@@ -147,7 +161,7 @@ func _open_stickers() -> void:
 		nm.offset_right = -8.0
 		cell.add_child(nm)
 	var xb := Button.new(); xb.name = "StickerBookBackButton"
-	StorybookUI.style_back_button(xb, "Back to the reef")
+	StorybookUI.style_back_button(xb, "Back to the castle")
 	xb.position = Vector2(1128, 24)
 	xb.pressed.connect(_close_stickers)
 	stage.add_child(xb)

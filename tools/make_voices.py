@@ -177,6 +177,8 @@ LINES = {
     "roshan_op_popstar_mic_chase": ("roshan", "The imp captain unplugged the microphone! Bop the mischief band!"),
     "roshan_op_popstar_rhythm": ("roshan", "Tap each rainbow note in the green!"),
     "roshan_op_popstar_encore": ("roshan", "Draw a big encore spin for the crowd!"),
+    "roshan_op_detective_lens": ("roshan", "Drag the magic magnifying glass over the stage to find the glowing clues!"),
+    "roshan_op_detective_search": ("roshan", "Search the whole stage! Sweep your magnifying glass to find every hidden sparkle!"),
     "imp_op_captain": ("imp", "Hee hee! You will have to bop ME twice!"),
     "roshan_op_nursery_imps": ("roshan", "Mischief imps are tickling the babies awake! Tap each imp!"),
     "roshan_op_nursery_wash": ("roshan", "Nursery Nurse Roshan! Hold the bubbly basin to wash your hands first!"),

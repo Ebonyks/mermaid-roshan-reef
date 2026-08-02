@@ -548,6 +548,11 @@ def _sha256(path: Path) -> str:
 	return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _text_sha256(path: Path) -> str:
+	"""Hash generator text consistently across LF and CRLF working trees."""
+	return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def _serial_for(slug: str) -> int:
 	# FFmpeg exposes the muxer offset as a signed 31-bit option even though the
 	# Ogg page field itself is unsigned.  Staying inside that range also makes
@@ -620,7 +625,7 @@ def _build(repo_root: Path, ffmpeg: Path) -> Path:
 		"generation_method": "deterministic offline NumPy/SciPy synthesis; no sampled or downloaded audio",
 		"generator": script_path.relative_to(repo_root).as_posix(),
 		"generator_version": GENERATOR_VERSION,
-		"generator_sha256": _sha256(script_path),
+		"generator_sha256": _text_sha256(script_path),
 		"ffmpeg": _ffmpeg_version(ffmpeg),
 		"target": {
 			"codec": "Ogg Vorbis",
@@ -641,7 +646,7 @@ def _check(repo_root: Path, ffmpeg: Path) -> Path:
 	manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 	if manifest.get("schema") != "reef.castle-interaction-sfx.v1":
 		raise ValueError("Unexpected castle interaction SFX manifest schema")
-	if manifest.get("generator_sha256") != _sha256(Path(__file__).resolve()):
+	if manifest.get("generator_sha256") != _text_sha256(Path(__file__).resolve()):
 		raise ValueError("Castle interaction SFX manifest was built by a different generator revision")
 	if len(manifest.get("files", [])) != len(EFFECTS):
 		raise ValueError("Castle interaction SFX manifest has the wrong number of files")

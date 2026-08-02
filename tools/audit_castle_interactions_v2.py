@@ -69,6 +69,10 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def repository_text_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def text_sha256(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
@@ -1291,7 +1295,7 @@ def audit() -> int:
     room_source = ROOM_SCRIPT.read_text(encoding="utf-8")
     activation_block = room_source.split(
         "func _activate_room_item", 1
-    )[-1].split("func _activate_item_group", 1)[0]
+    )[-1].split("\nfunc ", 1)[0]
     if "_item_burst" in activation_block:
         errors.append("normal item activation still creates generic burst overlays")
     audio_loader_block = room_source.split(
@@ -1326,7 +1330,7 @@ def audit() -> int:
         for entry in audio_manifest.get("files", [])
         if isinstance(entry, dict)
     }
-    if audio_manifest.get("generator_sha256") != sha256(AUDIO_GENERATOR):
+    if audio_manifest.get("generator_sha256") != repository_text_sha256(AUDIO_GENERATOR):
         errors.append("castle SFX generator hash is stale")
     expected_fridge_audio = {
         "fridge_open": {

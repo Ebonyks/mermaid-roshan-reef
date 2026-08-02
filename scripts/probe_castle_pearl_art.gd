@@ -9,6 +9,10 @@ const ROOM_IDS: Array[String] = [
 	"main_hall", "opera_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
+const HALL_DESTINATION_IDS: Array[String] = [
+	"family_gallery", "opera_hall", "kitchen", "library", "playroom",
+	"craft_room", "mermaid_pool", "bubble_bath",
+]
 const INTERACTION_MANIFEST := \
 	"res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
 const EXPECTED_PHYSICAL_ITEM_COUNTS := {
@@ -75,12 +79,32 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 	var native_size: Vector2 = tile.get_meta(
 		"native_texture_size", Vector2.ZERO) as Vector2
+	if native_size.x <= 0.0 or native_size.y <= 0.0:
+		return false
+	var source_rect: Rect2 = tile.get_meta(
+		"source_art_rect", Rect2()) as Rect2
+	var render_rect: Rect2 = tile.get_meta(
+		"render_art_rect", Rect2()) as Rect2
+	var overlap_pixels: Vector2i = tile.get_meta(
+		"runtime_seam_overlap_pixels", Vector2i(-1, -1)) as Vector2i
+	var overlap_logical := Vector2(
+		float(overlap_pixels.x) * source_rect.size.x / native_size.x,
+		float(overlap_pixels.y) * source_rect.size.y / native_size.y)
+	var expected_render_size: Vector2 = source_rect.size + overlap_logical
 	return (
 		tile.visible
 		and tile.texture != null
 		and tile.texture.get_size() == native_size
 		and maxf(native_size.x, native_size.y) <= 1024.0
 		and tile.texture.resource_path.contains("rooms/background_tiles/")
+		and overlap_pixels.x >= 0 and overlap_pixels.x <= 1
+		and overlap_pixels.y >= 0 and overlap_pixels.y <= 1
+		and render_rect.position == source_rect.position
+		and render_rect.size.is_equal_approx(expected_render_size)
+		and is_equal_approx(
+			tile.scale.x, render_rect.size.x / source_rect.size.x)
+		and is_equal_approx(
+			tile.scale.y, render_rect.size.y / source_rect.size.y)
 	)
 
 func _interaction_manifest() -> Dictionary:
@@ -291,6 +315,9 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 	for water_value: Variant in runtime_water:
 		var water: Dictionary = water_value as Dictionary
 		var water_node: Sprite3D = water.get("node") as Sprite3D
+		if water_node == null:
+			water_contract_ok = false
+			continue
 		var water_material: ShaderMaterial = water.get(
 			"material") as ShaderMaterial
 		var water_role: String = String(water.get("role", ""))
@@ -304,10 +331,12 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 			"fixture_outlet_normalized", Vector2.INF) as Vector2
 		var stored_outlet: Vector2 = water.get(
 			"outlet_normalized", Vector2.INF) as Vector2
+		var water_shape: String = String(water_node.get_meta("water_shape", ""))
+		var stored_shape: String = String(water.get("shape", ""))
+		var valid_water_shapes: Array[String] = ["ellipse", "polygon"]
 		actual_water_roles.append(water_role)
 		water_contract_ok = water_contract_ok \
 			and water_role in valid_water_roles \
-			and water_node != null \
 			and water_material != null \
 			and water_material.shader != null \
 			and water_material.shader.resource_path \
@@ -327,7 +356,8 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 			and normalized_outlet.x >= 0.0 and normalized_outlet.x <= 1.0 \
 			and normalized_outlet.y >= 0.0 and normalized_outlet.y <= 1.0 \
 			and normalized_outlet.is_equal_approx(stored_outlet) \
-			and String(water_node.get_meta("water_shape", "")) != "" \
+			and water_shape in valid_water_shapes \
+			and water_shape == stored_shape \
 			and water_node.scale.x > 0.0 and water_node.scale.y > 0.0 \
 			and not water_node.visible \
 			and not water_node.no_depth_test \
@@ -519,15 +549,15 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 			and blocker.mouse_filter == Control.MOUSE_FILTER_STOP \
 			and bool(blocker.get_meta(
 				"castle_fridge_close_input_gate", false))
-		var menu_open_before: bool = main.castle_room_menu_open
+		var room_id_before: String = main.castle_room_id
 		var sink_record: Dictionary = main.castle_room_item_sprites.get(
 			"sink", {}) as Dictionary
 		var sink_sprite: Sprite3D = sink_record.get("sprite") as Sprite3D
 		var sink_frame_before: int = sink_sprite.frame if sink_sprite != null else -1
-		rooms._toggle_menu()
+		rooms._go_back()
 		rooms._activate_room_item("sink")
 		close_input_gate_ok = close_input_gate_ok \
-			and main.castle_room_menu_open == menu_open_before \
+			and main.castle_room_id == room_id_before \
 			and sink_sprite != null \
 			and not bool(sink_sprite.get_meta("busy", false)) \
 			and sink_sprite.frame == sink_frame_before
@@ -698,24 +728,79 @@ func _run() -> void:
 		and main.arena_zones.is_empty()
 		and not main.g.has("hall_exit")
 		and not main.g.has("opera_gate"))
-	_ck("storybook_elevator_inventory",
-		main.castle_room_buttons.size() == ROOM_IDS.size())
-	var preview_count: int = 0
-	for room_id: String in ROOM_IDS:
+	var unique_route_buttons: Dictionary = {}
+	var physical_routes_ok := (
+		main.castle_room_buttons.size() == HALL_DESTINATION_IDS.size()
+		and main.castle_room_door_hotspot_layer != null)
+	for room_id: String in HALL_DESTINATION_IDS:
 		var room_button: Button = main.castle_room_buttons.get(room_id) as Button
-		var preview: TextureRect = null
+		physical_routes_ok = physical_routes_ok \
+			and room_button != null \
+			and room_button.get_parent() == main.castle_room_door_hotspot_layer \
+			and room_button.name == "HallDoor_" + room_id
 		if room_button != null:
-			preview = room_button.get_node_or_null(
-				"RoomPreview") as TextureRect
-		if preview != null and preview.texture != null \
-				and preview.texture.get_size() == Vector2(400.0, 224.0) \
-				and preview.texture.resource_path == (
-					"res://assets/ui/castle_room_buttons/room_"
-					+ room_id + ".png"):
-			preview_count += 1
-	_ck("storybook_elevator_room_previews",
-		preview_count == ROOM_IDS.size(),
-		"ready=%d/%d" % [preview_count, ROOM_IDS.size()])
+			unique_route_buttons[room_button.get_instance_id()] = true
+	var redundant_route_ui_absent := (
+		main.castle_room_stage.get_node_or_null("ElevatorButton") == null
+		and main.castle_room_stage.get_node_or_null("ElevatorPointer") == null)
+	_ck("main_hall_has_one_physical_route_per_room",
+		physical_routes_ok
+		and unique_route_buttons.size() == HALL_DESTINATION_IDS.size(),
+		"routes=%d unique=%d" % [
+			main.castle_room_buttons.size(), unique_route_buttons.size()])
+	_ck("redundant_room_selector_removed",
+		redundant_route_ui_absent
+		and main.castle_room_back_button != null
+		and main.castle_room_back_button.name == "CastleBack"
+		and main.castle_room_back_button.tooltip_text == "Castle courtyard")
+	var family_entry: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallStructure_family_wing_entry") as Sprite3D
+	_ck("main_hall_constructed_dream_house_wing_entry",
+		family_entry != null
+		and family_entry.texture != null
+		and family_entry.texture.resource_path.ends_with(
+			"family_wing_hall_insert.png")
+		and String(family_entry.get_meta("source_asset_role", ""))
+			== "registered_family_gallery_door")
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	var gallery_destinations := {
+		"gallery_dining_door": "dining_room",
+		"gallery_royal_bedroom_door": "royal_bedroom",
+		"gallery_sleepover_door": "sleepover_bedroom",
+		"gallery_movie_door": "movie_lounge",
+	}
+	var gallery_doors_ok := true
+	for item_id: String in gallery_destinations:
+		var gallery_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var gallery_sprite: Sprite3D = gallery_record.get("sprite") as Sprite3D
+		var gallery_hotspot: Button = gallery_record.get("hotspot") as Button
+		var destination: String = String(gallery_destinations[item_id])
+		gallery_doors_ok = (
+			gallery_doors_ok
+			and gallery_sprite != null
+			and gallery_hotspot != null
+			and String(gallery_sprite.get_meta(
+				"source_asset_role", "")) == "physical_room_door"
+			and String(gallery_sprite.get_meta(
+				"room_destination", "")) == destination
+			and bool(gallery_hotspot.get_meta("physical_door", false))
+			and String(gallery_hotspot.get_meta(
+				"room_destination", "")) == destination
+		)
+	_ck("dream_house_gallery_physical_door_inventory",
+		gallery_doors_ok
+		and main.castle_room_detail_tiles.size() == 4
+		and main.castle_room_item_sprites.size() == 4
+		and main.castle_room_item_hotspot_layer.get_child_count() == 4
+		and not main.castle_room_action_button.visible)
+	_ck("dream_house_gallery_has_no_floating_route_buttons",
+		main.castle_room_link_layer != null
+		and main.castle_room_link_layer.get_child_count() == 0)
+	await _capture("family_gallery")
+	rooms.show_room("main_hall", false)
+	await _frames(2)
 	var castle_roshan: Sprite3D = main.castle_room_player_sprite
 	var castle_roshan_loop: RoshanSpriteLoop = castle_roshan.get_node_or_null(
 		"AlwaysAliveSpriteLoop") as RoshanSpriteLoop
@@ -922,7 +1007,7 @@ func _run() -> void:
 			and int(counts.get("bad_alpha_depth", 0)) == 0 \
 			and int(counts.get("portal_glow", 0)) == 0 \
 			and int(counts.get("shaded", 0)) \
-				== (9 if hall_mode else 8) \
+				== 8 \
 			and int(counts.get("missing_texture", 0)) == 0
 		var depths: Dictionary = {}
 		if hall_mode:
@@ -1348,23 +1433,25 @@ func _run() -> void:
 			"source_master_rect", Rect2()) as Rect2
 		var render_rect: Rect2 = tile.get_meta(
 			"render_art_rect", Rect2()) as Rect2
-		var bleed_pixels: int = int(tile.get_meta(
-			"runtime_seam_bleed_pixels", -1))
+		var bleed_pixels: Vector2i = tile.get_meta(
+			"runtime_seam_bleed_pixels", Vector2i(-1, -1)) as Vector2i
+		var source_size := Vector2(
+			836.0, 470.0 if tile_row == 0 else 471.0)
+		var expected_bleed := Vector2i(
+			1 if tile_column < 3 else 0,
+			1 if tile_row == 0 else 0)
+		var expected_render_size := source_size + Vector2(
+			float(expected_bleed.x), float(expected_bleed.y))
 		var source_path: String = tile.texture.resource_path
 		tile_paths_ok = tile_paths_ok \
 			and tile.texture != null \
 			and source_path.contains("main_hall_2screen/tiles/") \
-			and (
-				source_path.contains("/runtime_bleed/") \
-				and source_path.ends_with("_bleed.png")
-				if tile_row == 0 else
-				not source_path.contains("/runtime_bleed/")
-			) \
-			and tile.texture.get_size() == Vector2(836.0, 471.0) \
-			and source_rect.size == Vector2(
-				836.0, 470.0 if tile_row == 0 else 471.0) \
-			and render_rect.size == Vector2(836.0, 471.0) \
-			and bleed_pixels == (1 if tile_row == 0 else 0) \
+			and source_path.contains("/runtime_bleed/") \
+			and source_path.ends_with("_bleed.png") \
+			and tile.texture.get_size() == expected_render_size \
+			and source_rect.size == source_size \
+			and render_rect.size == expected_render_size \
+			and bleed_pixels == expected_bleed \
 			and tile.shaded and tile.transparent \
 			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD \
 			and is_equal_approx(tile.alpha_scissor_threshold, 0.5) \
@@ -1399,21 +1486,22 @@ func _run() -> void:
 		var portal_data: Dictionary = portal_record.get("data", {})
 		if String(portal_data.get("id", "")) == "playroom":
 			var portal_rect: Rect2 = portal_data.get("rect", Rect2())
-			playroom_portal_ok = portal_rect.size.x >= 224.0 \
-				and portal_rect.size.y >= 380.0
+			playroom_portal_ok = portal_rect.size.x >= 180.0 \
+				and portal_rect.size.y >= 280.0
 			break
 	var bridge_material: ShaderMaterial = bridge.material_override \
 		as ShaderMaterial if bridge != null else null
-	_ck("main_hall_screen_join_uses_transparent_portal_cutout",
+	_ck("main_hall_join_is_registered_playroom_door",
 		bridge != null and bridge.texture != null and not bridge.shaded
 		and bridge_material != null and bridge_material.shader != null
 		and bridge_material.shader.resource_path.ends_with(
 			"castle_portal_cutout.gdshader")
 		and bool(bridge.get_meta("castle_transparent_portal_cutout", false))
 		and join_column == null
-		and join_inlay != null and join_inlay.texture != null
-		and join_inlay.texture.resource_path.ends_with(
-			"castle_join_floor_inlay_reuse.png")
+		and join_inlay == null
+		and is_equal_approx(float(bridge.get_meta("depth_z", -1.0)), 0.01)
+		and String(bridge.get_meta("source_asset_role", "")) \
+			== "registered_playroom_door"
 		and playroom_marker != null and playroom_marker.texture != null
 		and not playroom_marker.shaded and playroom_portal_ok)
 	var light_inventory_ok: bool = main.castle_room_light_nodes.size() == 5
@@ -1604,7 +1692,7 @@ func _run() -> void:
 			fill_on_energy, fill_off_energy])
 	await _capture("main_hall_lights_off")
 	_ck("main_hall_physical_portal_inventory",
-		main.castle_room_door_hotspots.size() == 8
+		main.castle_room_door_hotspots.size() == 9
 		and main.castle_room_door_hotspot_layer != null
 		and main.castle_room_door_hotspot_layer.visible)
 	var bunny_ids: Array[String] = [
@@ -1670,18 +1758,6 @@ func _run() -> void:
 				item_id, ray_error, foot_error, mapped_foot])
 	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok,
 		";".join(camera_ray_details))
-	var elevator_clearance_ok := true
-	var elevator_art_rects: Array[Rect2] = [
-		Rect2(1450.0, 700.0, 200.0, 230.0),
-		Rect2(3122.0, 700.0, 200.0, 230.0),
-	]
-	for item_id: String in bunny_ids:
-		var record: Dictionary = main.castle_room_item_sprites.get(item_id, {})
-		var art_rect: Rect2 = record.get("art_rect", Rect2())
-		for elevator_rect: Rect2 in elevator_art_rects:
-			elevator_clearance_ok = elevator_clearance_ok \
-				and not art_rect.intersects(elevator_rect)
-	_ck("main_hall_dust_bunnies_clear_fixed_elevator", elevator_clearance_ok)
 	rooms.tick(0.5)
 	var sleepy_record: Dictionary = main.castle_room_item_sprites.get(
 		"sleepy_bunny", {}) as Dictionary
@@ -1748,17 +1824,20 @@ func _run() -> void:
 		main.castle_room_camera.position.x > 5.0,
 		"camera_x=%.2f" % main.castle_room_camera.position.x)
 	await _capture("main_hall_screen_b")
-	rooms._toggle_menu()
-	await _capture("elevator_menu")
-	rooms._toggle_menu()
-
-	# Opera has exactly one route: its room button/action in the elevator. The
-	# activity must return to the same Sprite3D room when it closes.
-	rooms.show_room("opera_hall", false)
+	# Opera has exactly one route: the painted physical door in the Main Hall.
+	# The activity returns to that Sprite3D room, then contextual Back returns
+	# to the Main Hall without a second room-selector route.
+	var opera_door: Button = main.castle_room_buttons.get(
+		"opera_hall") as Button
+	if opera_door != null:
+		opera_door.pressed.emit()
+	await create_timer(1.2).timeout
+	_ck("opera_opens_from_physical_hall_door",
+		main.castle_room_id == "opera_hall")
 	rooms.activate_current_room()
 	await _frames(40)
 	var opera_opened: bool = main.game == "opera" and main.opera_game != null
-	_ck("opera_opens_from_elevator", opera_opened)
+	_ck("opera_activity_opens_from_sprite_room", opera_opened)
 	if opera_opened:
 		main.opera_game._leave_early()
 		await _frames(6)
@@ -1767,6 +1846,12 @@ func _run() -> void:
 		and String(main.g.get("phase", "")) == "hall"
 		and rooms.is_open()
 		and main.castle_room_id == "opera_hall")
+	if main.castle_room_back_button != null:
+		main.castle_room_back_button.pressed.emit()
+	await _frames(4)
+	_ck("room_back_has_single_main_hall_destination",
+		main.castle_room_id == "main_hall"
+		and main.castle_room_back_button.tooltip_text == "Castle courtyard")
 	var environment_before_suspend: Environment = \
 		main.castle_room_previous_environment
 	rooms.suspend()

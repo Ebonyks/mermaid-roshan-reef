@@ -1,0 +1,77 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_a",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    20,
+    94,
+    491,
+    503
+  ],
+  "visible_bbox": [
+    20,
+    94,
+    491,
+    503
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 20,
+    "right": 20,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 23,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 92271,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    173,
+    20,
+    18,
+    10,
+    8,
+    6,
+    3,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.439675,
+  "solid_centroid_x": 255.699,
+  "input": "assets\\opera\\worlds\\actors\\rival_chef_windup.png",
+  "input_sha256": "7a45a85364b25a8be75b680a6b24c0e1b86809c8d5a74318dd5541432d572926",
+  "output": "assets\\opera\\worlds\\actors\\rival_chef_hop_a.png",
+  "output_sha256": "35ac2d81cc8bf7f3dd4edc410b118079a6c5429097e929b331da643e7d18f056",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_chef.png",
+  "idle_sha256": "84b855248ce55a424d9781608ebc35e5b94317d5961354e8d0d2977ff47ecf76",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_hop_a\\rival_chef_hop_a_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_hop_a\\rival_chef_hop_a_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_hop_a\\rival_chef_hop_a_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_hop_a\\rival_chef_hop_a_idle_comparison.png"
+  }
+}

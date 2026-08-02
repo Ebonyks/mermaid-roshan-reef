@@ -188,8 +188,11 @@ func _playthrough(run_index: int) -> void:
 			if not main.touch_interactables.is_empty():
 				issues.append("retired 3D hall targets were registered")
 			if main.castle_room_buttons.size() != 8 \
-					or not main.castle_room_buttons.has("opera_hall"):
-				issues.append("storybook elevator omitted castle rooms")
+					or not main.castle_room_buttons.has("family_gallery") \
+					or not main.castle_room_buttons.has("opera_hall") \
+					or main.castle_room_stage.get_node_or_null(
+						"ElevatorButton") != null:
+				issues.append("castle room routes were missing or redundant")
 			if main.castle_room_world_root == null \
 					or main.castle_room_camera == null \
 					or main.castle_room_camera.projection \

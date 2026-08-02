@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "taunt",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    94,
+    20,
+    390,
+    503
+  ],
+  "visible_bbox": [
+    93,
+    19,
+    391,
+    504
+  ],
+  "solid_height": 484,
+  "gaps": {
+    "left": 94,
+    "right": 121,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 9,
+  "semi_alpha_pixels": 2912,
+  "solid_pixels": 65743,
+  "semi_alpha_to_solid_ratio": 0.044294,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    483,
+    10
+  ],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.557799,
+  "solid_centroid_x": 255.939,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_taunt_attempt01_alpha_native.png",
+  "input_sha256": "5eb9dd027a13811ec3523ab9dcc262d1f701857087538a29554cda03218590d7",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_taunt.png",
+  "output_sha256": "6d7d4e69e1ad0186e61d9b6e95158e961d969c453a0ab8561958d922c8f6c326",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_taunt\\imp_captain_taunt_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_taunt\\imp_captain_taunt_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_taunt\\imp_captain_taunt_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_taunt\\imp_captain_taunt_idle_comparison.png"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "charge",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    13,
+    37,
+    494,
+    456
+  ],
+  "visible_bbox": [
+    12,
+    36,
+    495,
+    456
+  ],
+  "solid_height": 420,
+  "gaps": {
+    "left": 13,
+    "right": 17,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 1,
+  "semi_alpha_pixels": 3193,
+  "solid_pixels": 83513,
+  "semi_alpha_to_solid_ratio": 0.038234,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.366731,
+  "solid_centroid_x": 256.449,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_mischief_charge_attempt01_alpha_native.png",
+  "input_sha256": "12c2ad54a7118b0f84c9fa8443a023206724a7200a3901cf526f289447c0aa9c",
+  "output": "assets\\opera\\worlds\\actors\\imp_mischief_charge.png",
+  "output_sha256": "af795c66a84d3710bf4367a0800f807be855bd551ed76331f72bb0d007fc284f",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_mischief.png",
+  "idle_sha256": "fa68c88fb78817dcbfcdb7dc011ffa277529fb1d3c6bbc2a0bde8c532ac8744a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 420,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_charge_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_charge_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_charge_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_charge_idle_comparison.png"
+  }
+}

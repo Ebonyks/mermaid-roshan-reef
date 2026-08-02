@@ -130,10 +130,10 @@ func _init() -> void:
 		if main.g.has(retired_key):
 			_bad("retired 3D hall state rebuilt %s" % retired_key)
 	for room_id: String in [
-		"main_hall", "opera_hall", "kitchen", "library", "playroom",
+		"family_gallery", "opera_hall", "kitchen", "library", "playroom",
 		"craft_room", "mermaid_pool", "bubble_bath"]:
 		if not main.castle_room_buttons.has(room_id):
-			_bad("castle elevator missing %s" % room_id)
+			_bad("castle physical doorway missing %s" % room_id)
 	if main.castle_room_world_root == null \
 			or main.castle_room_camera == null \
 			or main.castle_room_camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
@@ -142,9 +142,158 @@ func _init() -> void:
 		_bad("free-roaming 3D controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
-	rooms._toggle_menu()
-	if not main.castle_room_menu_open or not main.castle_room_menu_panel.visible:
-		_bad("storybook elevator did not expand")
+	if main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			or main.castle_room_back_button == null:
+		_bad("redundant room selector remained or contextual Back was missing")
+	for dream_room_id: String in [
+		"family_gallery", "dining_room", "royal_bedroom",
+		"sleepover_bedroom", "movie_lounge"]:
+		if rooms._room(dream_room_id).is_empty():
+			_bad("dream-house room missing %s" % dream_room_id)
+	if main.castle_room_link_layer == null:
+		_bad("dream-house room-link layer was not built")
+	elif main.castle_room_link_layer.get_child_count() != 0:
+		_bad("floating dream-house route buttons remained")
+
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	if main.castle_room_detail_tiles.size() != 4 \
+			or main.castle_room_action_button.visible:
+		_bad("Dream House Wing did not build as a native physical gallery")
+	var dream_routes: Array[Dictionary] = [
+		{"item": "gallery_dining_door", "child": "dining_room"},
+		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},
+		{"item": "gallery_sleepover_door", "child": "sleepover_bedroom"},
+		{"item": "gallery_movie_door", "child": "movie_lounge"},
+	]
+	for route: Dictionary in dream_routes:
+		var item_id: String = String(route["item"])
+		var child_id: String = String(route["child"])
+		var route_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
+		var door_hotspot: Button = route_record.get("hotspot") as Button
+		if door_sprite == null \
+				or String(door_sprite.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_sprite.get_meta(
+					"castle_physical_door", false)) \
+				or door_hotspot == null \
+				or String(door_hotspot.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_hotspot.get_meta("physical_door", false)):
+			_bad("physical dream-house doorway missing %s -> %s" % [
+				item_id, child_id])
+			continue
+		door_hotspot.pressed.emit()
+		var entered_room: bool = await _wait_for_castle_room(child_id)
+		if not entered_room:
+			_bad("dream-house doorway did not enter %s" % child_id)
+			rooms.show_room("family_gallery", false)
+			await _frames(2)
+			continue
+		main.castle_room_back_button.pressed.emit()
+		await _frames(2)
+		if main.castle_room_id != "family_gallery":
+			_bad("dream-house Back did not return %s to gallery" % child_id)
+
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("Dream House Wing Back did not return to Main Hall")
+
+	rooms.show_room("dining_room", false)
+	await _frames(2)
+	if main.castle_room_detail_tiles.size() != 4 \
+			or not main.castle_room_item_sprites.has("dining_table") \
+			or not main.castle_room_item_sprites.has("provisions_hutch"):
+		_bad("family dining room did not build native tiles and meal furniture")
+	rooms._activate_room_item("provisions_hutch")
+	await process_frame
+	var all_six_plates_visible := int(
+		main.g.get("castle_dining_plates", 0)) == 6
+	for plate_index in range(6):
+		var plate_record: Dictionary = main.castle_room_item_sprites.get(
+			"meal_plate_%d" % plate_index, {}) as Dictionary
+		var plate_sprite: Sprite3D = plate_record.get("sprite") as Sprite3D
+		all_six_plates_visible = all_six_plates_visible \
+			and plate_sprite != null and plate_sprite.visible
+	if not all_six_plates_visible:
+		_bad("serving dinner did not set six visible places")
+	rooms._activate_room_item("dining_table")
+	await process_frame
+	if int(main.g.get("castle_dining_plates", 0)) != 5:
+		_bad("eating at the family table did not consume one place")
+
+	rooms.show_room("royal_bedroom", false)
+	await _frames(2)
+	for bedroom_item: String in [
+		"canopy_bed", "shell_wardrobe",
+		"bedside_table", "reading_cushion"]:
+		if not main.castle_room_item_sprites.has(bedroom_item):
+			_bad("royal bedroom missing role-play prop %s" % bedroom_item)
+	var was_night: bool = main.is_night
+	var bed_record: Dictionary = main.castle_room_item_sprites.get(
+		"canopy_bed", {}) as Dictionary
+	var bed_sprite: Sprite3D = bed_record.get("sprite") as Sprite3D
+	rooms._activate_room_item("canopy_bed")
+	await process_frame
+	var sleep_overlay: ColorRect = main.castle_room_stage.get_node_or_null(
+		"DreamHouseSleepFade") as ColorRect
+	var sleep_marks: Label = main.castle_room_stage.get_node_or_null(
+		"DreamHouseSleepMarks") as Label
+	if not bool(main.g.get("castle_roleplay_sleeping", false)) \
+			or sleep_overlay == null or sleep_marks == null:
+		_bad("touching a royal bed did not start the cosy sleep sequence")
+	else:
+		rooms._flip_roleplay_sleep_time()
+		rooms._finish_roleplay_sleep(
+			sleep_overlay, sleep_marks, bed_sprite)
+		await process_frame
+		if main.is_night == was_night \
+				or bool(main.g.get("castle_roleplay_sleeping", false)):
+			_bad("dream-house sleep did not wake and toggle time")
+
+	rooms.show_room("sleepover_bedroom", false)
+	await _frames(2)
+	for dream_bed_id: String in [
+		"dream_bed_0", "dream_bed_1", "dream_bed_2"]:
+		var dream_bed_record: Dictionary = main.castle_room_item_sprites.get(
+			dream_bed_id, {}) as Dictionary
+		var dream_bed_sprite: Sprite3D = dream_bed_record.get(
+			"sprite") as Sprite3D
+		if dream_bed_sprite == null \
+				or String(dream_bed_sprite.get_meta(
+					"roleplay_action", "")) != "sleep":
+			_bad("sleepover room missing working bed %s" % dream_bed_id)
+
+	rooms.show_room("movie_lounge", false)
+	await _frames(2)
+	var picture_record: Dictionary = main.castle_room_item_sprites.get(
+		"movie_picture", {}) as Dictionary
+	var picture_sprite: Sprite3D = picture_record.get("sprite") as Sprite3D
+	var movie_before: int = int(main.g.get("castle_movie_index", 0))
+	rooms._activate_room_item("movie_screen")
+	await process_frame
+	var expected_movie: int = posmod(
+		movie_before + 1, CastleRooms25D.MOVIE_IMAGES.size())
+	if picture_sprite == null \
+			or int(main.g.get("castle_movie_index", -1)) != expected_movie \
+			or picture_sprite.texture.resource_path \
+				!= CastleRooms25D.MOVIE_IMAGES[expected_movie] \
+			or not bool(picture_sprite.get_meta(
+				"protected_original_displayed_directly", false)):
+		_bad("movie screen did not cycle direct protected home-movie art")
+	for lounge_item: String in [
+		"cloud_settee_left", "cloud_settee_right", "cloud_pouf"]:
+		var lounge_record: Dictionary = main.castle_room_item_sprites.get(
+			lounge_item, {}) as Dictionary
+		var lounge_sprite: Sprite3D = lounge_record.get("sprite") as Sprite3D
+		if lounge_sprite == null \
+				or String(lounge_sprite.get_meta(
+					"roleplay_action", "")) != "relax":
+			_bad("movie lounge missing relaxing seat %s" % lounge_item)
+
 	rooms.show_room("bubble_bath", false)
 	await _frames(2)
 	for prop_id: String in ["bathtub", "sink", "toilet"]:
@@ -158,7 +307,10 @@ func _init() -> void:
 		_bad("touching the toilet did not animate its Sprite3D card")
 	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
 		_bad("touching a room prop did not attach relevant sound")
-	rooms.show_room("main_hall", false)
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("room Back did not return to the Main Hall")
 	rooms.activate_current_room()
 	await process_frame
 	if not bool(main.g.get("crown_won", false)):
@@ -248,6 +400,14 @@ func _has_id_prefix(prefix: String) -> bool:
 		if interactable_id.begins_with(prefix):
 			return true
 	return false
+
+func _wait_for_castle_room(expected_room: String,
+		timeout_ms: int = 1500) -> bool:
+	var deadline: int = Time.get_ticks_msec() + timeout_ms
+	while main.castle_room_id != expected_room \
+			and Time.get_ticks_msec() < deadline:
+		await process_frame
+	return main.castle_room_id == expected_room
 
 func _frames(count: int) -> void:
 	for frame_index in range(count):
