@@ -55,6 +55,10 @@ jobs:
           python3 tools/audit_fairy_art_v2.py
           python3 tools/audit_sky_lagoon_kit.py
           python3 tools/audit_scene_congruency.py
+          # Spoken-spell accept thresholds (MIC_SPELLS.md). probe_mic asserts the
+          # DECISION; this asserts the decision still has head-room, so a change
+          # to the feature front end that erodes the margin is caught here.
+          python3 tools/dtw_calib.py > /dev/null
 
       - name: Import (deadlock-guarded)
         run: |
@@ -91,7 +95,7 @@ jobs:
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1

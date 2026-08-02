@@ -434,6 +434,21 @@ var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
 var music_on := true
+# Spoken spells (prototype 2026-08-02, see MIC_SPELLS.md). DEFAULT-ON is an
+# owner decision: MIC_DEFAULT_ON is the ONE flip point — set it to false and
+# the toggle, the save default and a fresh install all ship the feature dark.
+# On-by-default is only safe because the microphone device is opened lazily on
+# the first battle (never at boot), a denied RECORD_AUDIO permission silently
+# disables the feature forever, and the ICE/FIRE buttons are always live.
+const MIC_DEFAULT_ON := true
+var mic_on := MIC_DEFAULT_ON
+var mic_state := "idle"        # idle | asking | listening | enroll | test | off
+var mic_last_word := ""        # debug/HUD readout of the last accepted spell
+var mic_last_dist := -1.0      # ...and its DTW distance, for calibration
+var mic_enroll_left := 0
+var mic_permission_denied := false
+var mic_teach_layer: CanvasLayer = null
+var mic_btn: Button
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
@@ -2308,7 +2323,7 @@ func _respawn_pearls() -> void:
 		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
 		# less than a second ago (the _end_game win message) — never fight it;
 		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the reef!")
+		show_msg("", "New rainbow pearls are shimmering in the ocean!")
 
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
@@ -3163,6 +3178,15 @@ func _flash_speaker_icon(who: String) -> void:
 # (state stays here; AudioDirector receives main by reference)
 var _audio_dir: AudioDirector = null
 
+# Phase 7 satellite: spoken-spell recognition (scripts/mic_input.gd). Built on
+# first use so a launch that never enters combat never touches the audio input.
+var mic_sys: MicInput = null
+
+func _mic_ref() -> MicInput:
+	if mic_sys == null:
+		mic_sys = MicInput.new(self)
+	return mic_sys
+
 func _audio_ref() -> AudioDirector:
 	if _audio_dir == null:
 		_audio_dir = AudioDirector.new(self)
@@ -3997,7 +4021,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
 		else:
 			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -5382,7 +5406,7 @@ func _end_sleep() -> void:
 	if is_night:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
@@ -5788,7 +5812,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
 		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5833,7 +5857,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")
@@ -6817,6 +6841,8 @@ func _process(delta: float) -> void:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if mic_sys != null:
+		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
 	if player != null:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
