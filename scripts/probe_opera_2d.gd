@@ -137,9 +137,9 @@ func _init() -> void:
 		var saw_finale_imp := world.rival_actor.visible and world.in_competition_finale()
 		var rival_hid_through_scuffles := true
 		var guard := 0
-		while act.state == "play" and guard < 60:
+		while act.state == "play" and guard < 80:
 			rival_hid_through_scuffles = rival_hid_through_scuffles \
-				and (world.in_competition_finale() or not world.rival_actor.visible)
+				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
 			if world.phase_index == world.steal_index and backdrop != null:
 				captain_stage_seen = captain_stage_seen or backdrop.stage_mode
 			world._on_gesture("probe", 100.0, 1.0)
@@ -147,9 +147,12 @@ func _init() -> void:
 			await process_frame
 			guard += 1
 			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
-		_check("%s brings in the dressed imp for the final level" % career, saw_finale_imp)
+		_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
 		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
 		_check("%s brawls the captain at the stage door" % career, captain_stage_seen)
+		if career == "nursery":
+			_check("nursery curtain call records cooperative care",
+				bool(act.performance_result.get("cooperative", false)))
 		_check("%s finishes on the proscenium stage" % career,
 			backdrop != null and backdrop.stage_mode)
 		_check("%s can complete through one-finger phases" % career,
