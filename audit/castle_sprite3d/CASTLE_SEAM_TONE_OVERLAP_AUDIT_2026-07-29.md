@@ -1,6 +1,28 @@
 # Pearl Castle seam, tone, placement, and resolution audit — 2026-07-29
 
-## Verdict
+## Corrected verdict - 2026-08-01
+
+Accepted after correcting the prior audit's registration and routing errors.
+
+- Screen A is evaluated at source Y=212 and Screen B at source Y=147. The
+  former builder incorrectly evaluated both at Y=212.
+- Corresponding wall, carpet, and floor bands are tone-matched independently;
+  their post-correction per-channel mean differences are at most 1.07 RGB.
+- The registered A/B edge is pixel-exact across all 941 runtime rows.
+- All eight Main Hall runtime cards carry source-exact right/lower-neighbor
+  bleed where an interior neighbor exists; all edge proofs pass.
+- The vertical floor inlay is no longer instantiated because it read as a
+  crack after the underlying seam was repaired.
+- Destination-room source tiles remain native, non-overlapping, and at most
+  1024 pixels per edge. Their runtime quads overlap one native pixel toward
+  interior neighbors.
+- Seven painted physical doors are the sole room-entry routes. The redundant
+  room-selector elevator is removed; contextual Back returns rooms to the
+  Main Hall.
+
+No new art or generation call was used for this correction.
+
+## Superseded 2026-07-29 verdict
 
 Accepted Codex implementation.
 

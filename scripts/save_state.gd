@@ -122,8 +122,8 @@ func load_save() -> void:
 	m.ember_found = bool(m.save_data.get("ember_found", false))
 	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
 	m.ember_done = bool(m.save_data.get("ember_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 15)
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 32767)
+	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 16)
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 65535)
 	if m.opera_stars < 0:
 		# pre-lobby saves stored a linear checkpoint: the first N doors were done
 		m.opera_stars = (1 << m.opera_progress) - 1
@@ -201,8 +201,8 @@ func write_save() -> bool:
 	next_data["ember_found"] = m.ember_found
 	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
 	next_data["ember_done"] = m.ember_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 15)
-	next_data["opera_stars"] = clampi(m.opera_stars, 0, 32767)
+	next_data["opera_progress"] = clampi(m.opera_progress, 0, 16)
+	next_data["opera_stars"] = clampi(m.opera_stars, 0, 65535)
 	next_data["opera_done"] = m.opera_done
 	next_data["opera_pantry"] = m.opera_pantry.duplicate()
 	next_data["stickers"] = m.stickers
@@ -457,10 +457,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["ember_found"] = _bool_or_default(raw, "ember_found", false)
 	data["ember_progress"] = clampi(_nonnegative_int_or_default(raw, "ember_progress", 0), 0, 6)
 	data["ember_done"] = _bool_or_default(raw, "ember_done", false)
-	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 15)
+	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)
 	data["opera_progress"] = opera_prog
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
-	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 32767)
+	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 65535)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	var pantry_in: Variant = raw.get("opera_pantry", {})
 	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}

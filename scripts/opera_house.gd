@@ -1,41 +1,46 @@
 class_name OperaHouse
 extends Node
+## Shipping builds use a direct touch-first Canvas lobby. The retired 3D
+## navigation lobby remains headless-only for its detailed regression probe.
+
+const Lobby2D := preload("res://scripts/opera_lobby_2d.gd")
 # The Pearl Opera House (Peach Showtime model): an explorable THREE-floor
-# theatre lobby. Twelve careers are twelve marquee doors, four per floor —
+# theatre lobby. Thirteen careers are marquee doors: four on each of the first
+# two floors and five on the Grand Gallery. Nursery Nurse is displayed as job
+# 12, before Pop Star, while its appended save bit keeps old stars compatible.
 # Roshan swims the hall, walks into a door, transforms, and plays that one
-# show. Bosses do NOT use doors (owner 2026-07-21): when a floor's four shows
-# are starred, the centre of that floor's stage lights up and swimming onto
-# the glowing medallion starts the boss. Floor 3's medallion is the fifteenth
-# and final act — the Midnight Maestro's grand finale. Bubble lifts cycle
+# show. Bosses do NOT use doors (owner 2026-07-21): when a floor's shows are
+# starred, the centre of that floor's stage lights up and swimming onto the
+# glowing medallion starts the boss. Bubble lifts cycle
 # ground → balcony → top gallery → ground. OperaAct owns every performance;
 # this class owns the lobby world, door/medallion flow, star checkpoints
 # (m.opera_stars bitmask) and safe exits.
 
 const ACTS := [
 	# ---------- FLOOR 1: the Lagoon Lights Stage ----------
-	{"name": "The Great Cake Show", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
+	{"name": "The Castle Bake-Off", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
 		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 4, "imps": 6, "shell": true,
 		"rescue": "farmers", "gift": "carrots", "uses": "carrots",
-		"voice": "Chef hat on! Sift the flour, pour the milk, stir the batter, bake it golden, pipe the frosting and pop the cherries on — a whole cake, step by step!",
-		"win_line": "The farmers' carrots made it a CARROT cake — the best one the reef has ever tasted!",
+		"voice": "Chef hat on! You and the pastry imp each have a kitchen. Sift, pour, stir, bake, pipe and decorate the brightest celebration cake for the crowd!",
+		"win_line": "Roshan's celebration cake wins the Castle Bake-Off!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
-	{"name": "The Missing Tiara", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
+	{"name": "The Two-Detective Mystery", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
 		"kind": "sleuth", "props_n": 12, "clues": 5, "imps": 6, "shell": true,
 		"rescue": "stagehands", "gift": "lanterns", "uses": "lanterns",
-		"voice": "Detective Roshan is on the case! Three clues hide inside the big boxes — PEEK in each one, and watch out for silly fish!",
-		"win_line": "Case closed! The tiara was in the treasure box all along!",
+		"voice": "Detective Roshan and the detective imp are solving the SAME case! Find five clues before the timer; if the imp gets there first, watch the answer and race the remembered mystery again!",
+		"win_line": "Case closed! Roshan solved the Two-Detective Mystery!",
 		"floor_col": Color(0.42, 0.46, 0.62), "trim": Color(0.72, 0.85, 1.0), "curtain": Color(0.3, 0.35, 0.6)},
-	{"name": "The Dance Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
+	{"name": "The Twin-Ribbon Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
 		"kind": "echo", "pads": 4, "rounds": [3, 4, 5], "pitch": 0.6,
 		"rescue": "dancers", "gift": "ribbons", "rescue_imps": 4,
-		"voice": "Ballerina twirl! Watch the glowing dance tiles twinkle, then dance the same steps!",
-		"win_line": "What a beautiful dance! The whole reef is clapping!",
+		"voice": "Ballerina twirl! Match the glowing dance steps while the ribbon imp dances the other side of the stage. Make the crowd clap louder!",
+		"win_line": "Roshan wins the Twin-Ribbon Recital with a beautiful final twirl!",
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
-	{"name": "The Candy Parade", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
+	{"name": "The Candy Workshop Cup", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
 		"kind": "press", "candies": 9,
 		"rescue": "sweet-shop mice", "gift": "sugar", "rescue_imps": 4,
-		"voice": "Candy Maker Roshan! Watch the golden star slide — tap PRESS when it's in the green middle to stamp a smiley candy!",
-		"win_line": "Nine smiley candies! The sweetest show the reef has ever tasted!",
+		"voice": "Candy Maker Roshan! Mix, sort, wrap and load your parade candies while the candy imp runs the rival workshop!",
+		"win_line": "Roshan's smiling sweets win the Candy Workshop Cup!",
 		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
 	{"name": "The Curtain Dragon", "career": "Curtain Dragon", "costume": "", "emoji": "🐉", "story": 1, "type": "boss",
 		"kind": "boss", "boss_hp": 15, "peek_time": 5.0, "hide_time": 5.0,
@@ -43,28 +48,28 @@ const ACTS := [
 		"win_line": "The dragon isn't grumbly anymore — he just wanted to be in the show!",
 		"floor_col": Color(0.45, 0.3, 0.4), "trim": Color(1.0, 0.65, 0.4), "curtain": Color(0.62, 0.2, 0.28)},
 	# ---------- FLOOR 2: the Starlight Balcony ----------
-	{"name": "The Plushy Checkup", "career": "Doctor", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
+	{"name": "The Stuffie Surgeon Relay", "career": "Stuffie Surgeon", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
 		"kind": "doctor", "imps": 6, "shell": true, "patients": 4,
-		"voice": "Doctor Roshan! Chase the mischief imps out of the ward, then find the poorly animal, carry them to the fluoroscope, see which bone is cracked and wrap the cast on!",
-		"win_line": "The cast is on and the wiggle is back — best vet in the whole sea!",
+		"voice": "Stuffie Surgeon Roshan and the surgeon imp each have a plushy-care station. Find each ouch, check the X-ray and wrap every soft cast with care!",
+		"win_line": "Every stuffie is wiggling again — Roshan wins the surgeon relay!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
-	{"name": "The Piggy Picnic", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
+	{"name": "The Piggy Picnic Challenge", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
 		"kind": "scroll", "piggies": 12,
 		"rescue": "farmers", "gift": "carrots", "rescue_imps": 5,
-		"voice": "Farmer Roshan! The meadow is sliding by and the piggies are SO hungry — tap TOSS when a piggy is close to throw it a yummy veggie!",
-		"win_line": "Twelve happy piggies with full tummies! Best picnic the farm has ever had!",
+		"voice": "Farmer Roshan! Plant, feed and guide your piggies while the farmer imp tends the next meadow lane. Make the happiest herd!",
+		"win_line": "Roshan's happy herd wins the Piggy Picnic Challenge!",
 		"floor_col": Color(0.55, 0.75, 0.5), "trim": Color(0.95, 0.9, 0.55), "curtain": Color(0.4, 0.6, 0.35)},
-	{"name": "The Championship Bout", "career": "Boxer", "costume": "boxer", "emoji": "🥊", "story": 2, "type": "show",
-		"kind": "box", "rounds": [3, 4, 5, 5, 6, 7], "warmup": 5,
+	{"name": "The Friendly Championship Bout", "career": "Boxer", "costume": "boxer", "emoji": "🥊", "story": 2, "type": "show",
+		"kind": "box", "rounds": [4, 5, 6], "warmup": 5,
 		"rescue": "the ring crew", "gift": "gloves", "rescue_imps": 4,
-		"voice": "Boxer Roshan, into the ring! Warm up on the big swinging bag first, then bop the mischief imps with PUNCH — win every round and the championship belt is yours!",
-		"win_line": "And the winner is... ROSHAN! The sparkly championship belt is hers!",
+		"voice": "Boxer Roshan, into the ring! Warm up, then fight one padded boxer imp for three friendly rounds. Punch on the beat and duck the counter-glove!",
+		"win_line": "And the winner of the friendly championship is... ROSHAN!",
 		"floor_col": Color(0.55, 0.32, 0.3), "trim": Color(1.0, 0.82, 0.45), "curtain": Color(0.72, 0.2, 0.24)},
-	{"name": "The Magic Hat Trick", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
+	{"name": "The Grand Illusion Duel", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
 		"kind": "shuffle", "rounds": 6, "imps": 5, "shell": true,
 		"rescue": "usher crabs", "gift": "silk scarves", "uses": "silk scarves",
-		"voice": "Abracadabra! Watch the bunny-fish hop under a hat, keep your eyes on it, then pick the right one!",
-		"win_line": "Magic! The bunny-fish says you have the sharpest eyes in the sea!",
+		"voice": "Abracadabra! Face the magician imp in a whole illusion duel: hide and track the bunny-fish, melt the rope, open the cabinet and charge the giant star portal!",
+		"win_line": "Roshan's star portal wins the Grand Illusion Duel!",
 		"floor_col": Color(0.36, 0.3, 0.55), "trim": Color(0.85, 0.7, 1.0), "curtain": Color(0.4, 0.22, 0.6)},
 	{"name": "The Shadow Phantom", "career": "Shadow Phantom", "costume": "", "emoji": "🌙", "story": 2, "type": "boss",
 		"kind": "boss", "dual": true, "boss_hp": 12, "lanterns": 5, "peek_time": 5.0, "hide_time": 4.0,
@@ -72,40 +77,45 @@ const ACTS := [
 		"win_line": "The shadow was a lonely little phantom — now he's the star of the curtain call!",
 		"floor_col": Color(0.24, 0.22, 0.42), "trim": Color(0.95, 0.9, 0.6), "curtain": Color(0.16, 0.14, 0.34)},
 	# ---------- FLOOR 3: the Grand Gallery ----------
-	{"name": "Paint the Sunrise", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
+	{"name": "The Sunrise Paint-Off", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
 		"kind": "paint", "props": "paint", "order": [2, 0, 1, 2, 0], "flow": "carry_paint", "decorate": 5, "decorate_theme": "splatter", "imps": 5, "shell": true,
 		"rescue": "painter", "gift": "paints", "uses": "paints",
-		"voice": "Painter Roshan! Free the poor painter from the imps — they will share their paints — then paint the big sunrise and we will hang it up for everyone!",
-		"win_line": "Your painting is hanging in the gallery for the whole opera to see!",
+		"voice": "Painter Roshan! You and the painter imp have matching easels. Trace, fill and paint your sunrise before the gallery reveal!",
+		"win_line": "Roshan's sunrise wins the paint-off and hangs in the gallery!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},
-	{"name": "The Bubble Rocket", "career": "Astronaut Engineer", "costume": "astronaut", "emoji": "🚀", "story": 3, "type": "show",
+	{"name": "The Rocket Repair Race", "career": "Astronaut Engineer", "costume": "astronaut", "emoji": "🚀", "story": 3, "type": "show",
 		"kind": "fix", "imps": 6, "shell": true,
 		"rescue": "bubble engineers", "gift": "spare pipes", "uses": "spare pipes",
-		"voice": "Astronaut Engineer Roshan! The bubble rocket's pipes are broken — carry each piece to the gap with the same picture, then spin the valve!",
-		"win_line": "The bubbles reached the rocket! Three, two, one — TWINKLE-OFF!",
+		"voice": "Astronaut Engineer Roshan! Route your bubble pipes while the astronaut imp repairs the rival launch lane, then spin the valve and launch first!",
+		"win_line": "Roshan routes the bubbles and wins the Rocket Repair Race!",
 		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
 	{"name": "The Opera Grand Prix", "career": "Racecar Driver", "costume": "racer", "emoji": "🏎", "story": 3, "type": "show",
 		"kind": "race", "laps": 2,
 		"rescue": "pit crew", "gift": "spare wheels", "rescue_imps": 4,
-		"voice": "Racecar Driver Roshan! TWO laps of the Opera Grand Prix — steer, grab the zoom strips, and tap TURBO to fly!",
-		"win_line": "What a race! The whole audience is waving checkered flags!",
+		"voice": "Racecar Driver Roshan! TWO laps against the helmeted rival imp — steer, grab the zoom strips and tap TURBO to fly!",
+		"win_line": "Roshan takes the Opera Grand Prix as the audience waves checkered flags!",
 		"floor_col": Color(0.4, 0.4, 0.48), "trim": Color(1.0, 0.95, 0.95), "curtain": Color(0.85, 0.25, 0.3)},
-	{"name": "The Starlight Concert", "career": "Pop Star", "costume": "popstar", "emoji": "🎤", "story": 3, "type": "show",
+	{"name": "The Starlight Sound-Off", "career": "Pop Star", "costume": "popstar", "emoji": "🎤", "story": 3, "type": "show",
 		"kind": "dance", "rescue": "the band", "gift": "instruments", "rescue_imps": 4,
-		"voice": "Pop Star Roshan! Tap the sparkling microphone, then dance the floating arrows to make rainbow magic!",
-		"win_line": "The crowd is singing along! Pop Star Roshan, the reef's biggest star!",
+		"voice": "Pop Star Roshan! The pop-star imp has the other microphone. Dance the floating arrows and lift the crowd higher with every rainbow phrase!",
+		"win_line": "Roshan wins the Starlight Sound-Off and the crowd sings along!",
 		"floor_col": Color(0.5, 0.3, 0.6), "trim": Color(1.0, 0.7, 0.95), "curtain": Color(0.45, 0.2, 0.55)},
 	{"name": "The Grand Finale", "career": "Midnight Maestro", "costume": "", "emoji": "🎼", "story": 3, "type": "boss",
 		"kind": "boss", "finale": true, "boss_hp": 15, "peek_time": 5.0, "hide_time": 3.2,
 		"voice": "The Midnight Maestro wants to steal the whole show! Use everything you've learned — SHINE the lanterns and SPARKLE when he peeks!",
 		"win_line": "The Maestro just wanted to conduct the grand finale — now the whole opera sings together!",
 		"floor_col": Color(0.16, 0.14, 0.3), "trim": Color(1.0, 0.88, 0.45), "curtain": Color(0.1, 0.09, 0.24)},
+	{"name": "The Moonbeam Nursery", "career": "Nursery Nurse", "costume": "nursery", "emoji": "🍼", "story": 3, "type": "show",
+		"kind": "nursery",
+		"voice": "Nursery Nurse Roshan! Work with Nurse Faron to catch the babies, feed them, burp them and tuck every little one into bed!",
+		"win_line": "Roshan and Faron tucked every cozy baby into the Moonbeam Nursery!",
+		"floor_col": Color(0.45, 0.68, 0.66), "trim": Color(1.0, 0.82, 0.70), "curtain": Color(0.48, 0.38, 0.68)},
 ]
 
 const L := Vector3(0.0, -2650.0, 0.0)   # lobby centre — 50 under the act stage, no overlap
 const MOVE_SPEED := 13.0
 const FLOOR_YS := [0.0, 13.0, 26.0]     # ground, Starlight Balcony, Grand Gallery
-const ALL_STARS := (1 << 15) - 1
+const ALL_STARS := (1 << 16) - 1
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
@@ -130,10 +140,20 @@ var prev_env: Environment = null
 var elapsed := 0.0
 var hint_t := 0.0
 var materials := {}
+var use_lobby_2d := false
+var lobby_2d: OperaLobby2D = null
+var touch_was_visible := true
 
-func start(main: ReefMain, _checkpoint: int, done_cb: Callable) -> void:
+func start(main: ReefMain, checkpoint: int, done_cb: Callable) -> void:
 	m = main
 	finish_cb = done_cb
+	use_lobby_2d = (
+		DisplayServer.get_name() != "headless"
+		or OS.get_environment("OPERA_FORCE_2D_LOBBY") == "1"
+	)
+	if use_lobby_2d:
+		_start_lobby_2d(checkpoint)
+		return
 	lobby_pos = L + Vector3(0, 1.1, 16.0)
 	lobby_y = 0.0
 	_build_environment()
@@ -147,6 +167,35 @@ func start(main: ReefMain, _checkpoint: int, done_cb: Callable) -> void:
 	_update_stars()
 	m._sparkle_burst(lobby_pos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 1.0))
 	m.show_msg("Roshan", "Welcome to the Pearl Opera House! Every door is a different show — walk right in when one twinkles at you!", "talk")
+
+func _start_lobby_2d(_checkpoint: int) -> void:
+	if m.touch_ui != null:
+		touch_was_visible = m.touch_ui.visible
+		m.touch_ui.visible = false
+	var start_floor := 0
+	if _floor_unlocked(3):
+		start_floor = 2
+	elif _floor_unlocked(2):
+		start_floor = 1
+	lobby_2d = Lobby2D.new() as OperaLobby2D
+	add_child(lobby_2d)
+	lobby_2d.setup(
+		m,
+		ACTS,
+		m.opera_stars,
+		start_floor,
+		Callable(self, "_start_act"),
+		Callable(self, "_lobby_locked_hint"),
+		Callable(self, "_leave_early")
+	)
+	m.show_msg("Roshan", "Welcome to the Pearl Opera! Tap a picture to choose our next show!", "talk")
+
+func _lobby_locked_hint(story: int) -> void:
+	if story <= 1 or _floor_shows_starred(story):
+		m.show_msg("Roshan", "The big floor finale is ready! Tap the glowing finale card!", "hint")
+	else:
+		var show_count := 5 if story == 3 else 4
+		m.show_msg("Roshan", "Win the %d picture shows on this floor, then the big finale lights up!" % show_count, "hint")
 
 # ---------------- primitive helpers (mirrors OperaAct's toy-set style) ----------------
 
@@ -335,7 +384,7 @@ func _build_lobby() -> void:
 				_box(L + Vector3(bx, 2.0, bz + 1.0), Vector3(10, 1.4, 0.6), Color(0.5, 0.13, 0.2))
 
 func _build_doors() -> void:
-	# four career doors per floor: ground shows line the side walls, the two
+	# Four career doors occupy each lower floor; the Grand Gallery has five.
 	# gallery floors line their upper back walls. Bosses have no doors — see
 	# _build_boss_spots for the centre-stage medallions.
 	var spots: Array = [
@@ -351,6 +400,7 @@ func _build_doors() -> void:
 		{"i": 11, "base": Vector3(-9, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # astronaut
 		{"i": 12, "base": Vector3(9, 26.0, -21.4), "face": Vector3(0, 0, 1)},   # racecar
 		{"i": 13, "base": Vector3(27, 26.0, -21.4), "face": Vector3(0, 0, 1)},  # pop star
+		{"i": 15, "base": Vector3(37.2, 26.0, -8), "face": Vector3(-1, 0, 0)},  # nursery nurse (job 12)
 	]
 	for spot: Dictionary in spots:
 		var i := int(spot["i"])
@@ -384,7 +434,7 @@ func _build_doors() -> void:
 			"armed": true, "cool": 0.0, "hint_cool": 0.0})
 
 func _build_boss_spots() -> void:
-	# one centre-stage medallion per floor: dim until the floor's four shows
+	# one centre-stage medallion per floor: dim until all that floor's shows
 	# are starred, then it glows gold and swimming onto it starts the boss
 	# the ground medallion sits ON the grand stage boards, framed by the
 	# proscenium — shows belong on the stage (owner 2026-07-21)
@@ -516,6 +566,10 @@ func _spot_lit(spot: Dictionary) -> bool:
 	return _floor_shows_starred(int(spot["story"]))
 
 func _update_stars() -> void:
+	if use_lobby_2d:
+		if lobby_2d != null and is_instance_valid(lobby_2d):
+			lobby_2d.refresh(m.opera_stars)
+		return
 	for door in doors:
 		(door["star"] as Label3D).visible = (m.opera_stars & (1 << int(door["i"]))) != 0
 		# portals on a locked floor keep their curtains closed and dim
@@ -570,7 +624,13 @@ func _start_act(i: int) -> void:
 	act_index = i
 	var cfg: Dictionary = (ACTS[i] as Dictionary).duplicate()
 	cfg["act_tag"] = String(cfg["name"]) + "  "
-	lobby_root.visible = false
+	if use_lobby_2d:
+		if lobby_2d != null and is_instance_valid(lobby_2d):
+			lobby_2d.hide_lobby()
+		if m.touch_ui != null:
+			m.touch_ui.visible = touch_was_visible
+	else:
+		lobby_root.visible = false
 	act = OperaAct.new()
 	add_child(act)
 	act.start(m, cfg, Callable(self, "_act_won"))
@@ -607,6 +667,22 @@ func _act_won() -> void:
 	_return_to_lobby(finished)
 
 func _return_to_lobby(finished: int) -> void:
+	if use_lobby_2d:
+		if m.touch_ui != null:
+			m.touch_ui.visible = false
+		var finished_story := int((ACTS[finished] as Dictionary).get("story", 1))
+		var return_floor := finished_story - 1
+		if finished == 4 or finished == 9:
+			return_floor = mini(2, finished_story)
+		if lobby_2d != null and is_instance_valid(lobby_2d):
+			lobby_2d.show_lobby(return_floor, m.opera_stars)
+		if (finished == 4 or finished == 9) and m.opera_stars != ALL_STARS:
+			m.show_msg("Roshan", "The next floor just lit up! Tap its bright number at the top!", "win")
+		elif m.opera_stars == ALL_STARS:
+			m.show_msg("Roshan", "Every show and every big finale! Take a bow, Opera Star Roshan!", "win")
+		else:
+			m.show_msg("Roshan", "A gold star for that show! Tap the next sparkling picture!", "win")
+		return
 	lobby_root.visible = true
 	var back := lobby_pos
 	var back_y := lobby_y
@@ -672,7 +748,7 @@ func _tick_doors(delta: float) -> void:
 				spot["cool"] = 4.0
 				if float(spot["hint_cool"]) <= 0.0:
 					spot["hint_cool"] = 8.0
-					m.show_msg("Roshan", "The centre stage lights up when this floor's four shows have stars! Follow the golden sparkle!", "hint")
+					m.show_msg("Roshan", "The centre stage lights up when every show on this floor has a star! Follow the golden sparkle!", "hint")
 				continue
 			spot["armed"] = false
 			spot["cool"] = 5.0
@@ -775,6 +851,8 @@ func _move_input() -> Vector2:
 func _process(delta: float) -> void:
 	if m == null or state != "lobby" or act != null:
 		return
+	if use_lobby_2d:
+		return
 	elapsed += delta
 	if not lift_busy:
 		var move := _move_input()
@@ -826,6 +904,12 @@ func _finish(completed: bool) -> void:
 	if state == "done":
 		return
 	state = "done"
+	if use_lobby_2d:
+		if lobby_2d != null and is_instance_valid(lobby_2d):
+			lobby_2d.close()
+			lobby_2d = null
+		if m.touch_ui != null:
+			m.touch_ui.visible = touch_was_visible
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -835,4 +919,4 @@ func _finish(completed: bool) -> void:
 func action_label() -> String:
 	if act != null:
 		return act.action_label()
-	return "SWIM"
+	return "PICK A SHOW" if use_lobby_2d else "SWIM"

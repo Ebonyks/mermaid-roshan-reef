@@ -151,7 +151,7 @@ def annotate(master: Image.Image, seams: list[dict[str, object]],
 		status = str(seam["status"])
 		color = (
 			(63, 224, 154)
-			if status in ("lossless_split", "feathered_reuse_transition")
+			if status in ("lossless_split", "registered_exact_edge")
 			else (255, 78, 104))
 		if axis == "x":
 			x = round(coordinate * scale)
@@ -198,7 +198,7 @@ def main() -> None:
 			"coordinate": x,
 			"bands": bands,
 			"status": (
-				"feathered_reuse_transition"
+				"registered_exact_edge"
 				if x == TILE_WIDTH * 2 and center_join_ok
 				else "art_direction_discontinuity"
 				if x == TILE_WIDTH * 2
@@ -249,7 +249,6 @@ def main() -> None:
 				float(value["lab_mean"][0]) - float(context["lab_mean"][0])), 3)
 	bridge_paths = [
 		args.tile_root.parent / "castle_playroom_portal_cutout_reuse.png",
-		args.tile_root.parent / "castle_join_floor_inlay_reuse.png",
 	]
 	bridge_capture = args.capture_root / "main_hall_seam_bridge.png"
 	runtime_bridge = {
@@ -266,9 +265,6 @@ def main() -> None:
 		"capture_sha256": sha256(bridge_capture)
 			if bridge_capture.exists() else "",
 	}
-	bridge_ready = bool(
-		all(bool(asset["exists"]) for asset in runtime_bridge["assets"])
-		and runtime_bridge["capture_exists"])
 
 	report = {
 		"master_size": list(master.size),
@@ -285,13 +281,14 @@ def main() -> None:
 		"verdict": {
 			"internal_tile_splits": "PASS",
 			"source_screen_join": (
-				"PASS_FEATHERED_REUSE_TRANSITION"
-				if str(seams[1]["status"]) == "feathered_reuse_transition"
-				else "PASS_RUNTIME_OCCLUDED_MATERIAL_TRANSITION"
-				if bridge_ready
+				"PASS_REGISTERED_EXACT_EDGE"
+				if str(seams[1]["status"]) == "registered_exact_edge"
+				else "PASS_REGISTERED_PLAYROOM_DOOR"
+				if bool(runtime_bridge["assets"][0]["exists"])
 				else "FAIL_ART_DIRECTION_DISCONTINUITY"),
-			"screen_a_to_b_join": "PASS_RUNTIME_ARCHITECTURAL_BRIDGE"
-				if bridge_ready else "FAIL_REQUIRES_ARCHITECTURAL_BRIDGE",
+			"screen_a_to_b_join": "PASS_REGISTERED_EDGE_WITH_PLAYROOM_DOOR"
+				if bool(runtime_bridge["assets"][0]["exists"])
+				else "FAIL_MISSING_PLAYROOM_DOOR",
 			"runtime_tone": "PASS" if hall_tones and max(
 				float(value["delta_e76_to_castle_room_mean"])
 				for value in hall_tones.values()) <= 12.0 else "FAIL",

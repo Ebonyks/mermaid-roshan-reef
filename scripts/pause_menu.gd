@@ -76,25 +76,20 @@ func _build_pause() -> void:
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		_sync_labels()
 		m._write_save())
-	m.pause_leave_btn = _pause_btn("↩   REEF", Rect2(650, 420, 280, 132), "secondary")
+	m.pause_leave_btn = _pause_btn("↩   CASTLE", Rect2(650, 420, 280, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
 	m.pause_leave_btn.pressed.connect(_leave_current_activity)
-	# Hybrid/Classic touch-mode toggle (dev hybrid navigation, 2026-07-26):
-	# same storybook tile grammar, third row; the mode is shown by the icon
-	# silhouette, never by colour alone.
-	m.touch_mode_btn = _pause_btn(m._touch_mode_label(), Rect2(350, 570, 280, 120), "secondary")
-	m.touch_mode_btn.name = "PauseTouchModeButton"
-	m.touch_mode_btn.pressed.connect(func():
-		m._set_touch_mode(
-			m.TOUCH_MODE_CLASSIC if m.touch_mode == m.TOUCH_MODE_HYBRID
-			else m.TOUCH_MODE_HYBRID))
+	# Point-to-interact is the one child-facing touch vocabulary. The former
+	# mode choice advertised an obsolete on-screen movement stick.
+	m.touch_mode_btn = null
 	# Spoken spells (MIC_SPELLS.md). Same silhouette grammar: a microphone when
 	# on, a struck microphone when off — never colour alone. Switching it on
 	# with no spells taught yet drops straight into the teach overlay, the same
-	# way the sticker tile hands off to its own sheet.
-	m.mic_btn = _pause_btn(mic_label(), Rect2(650, 570, 280, 120), "secondary")
+	# way the sticker tile hands off to its own sheet. It takes the third-row
+	# slot the retired touch-mode toggle left empty.
+	m.mic_btn = _pause_btn(mic_label(), Rect2(350, 570, 280, 120), "secondary")
 	m.mic_btn.name = "PauseMicButton"
 	m.mic_btn.pressed.connect(func():
 		m.mic_on = not m.mic_on
@@ -107,11 +102,12 @@ func _build_pause() -> void:
 			toggle_pause()
 			m._mic_ref().open_teach())
 
-	# Parent/debug affordances deliberately sit outside the child icon grid —
-	# now literally outside it, in the empty margin beside the shell, so the
-	# third row can hold two child tiles.
+	# Parent/debug affordances deliberately sit outside the child icon grid.
+	# Shifted to the right column (same row and height dev placed it at): the
+	# spoken-spells tile now owns the third row's left slot, and at x=500 the
+	# parent button would have overlapped it.
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(20, 636, 252, 60), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 582, 280, 66), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -153,8 +149,6 @@ func _sync_labels() -> void:
 	if m.mic_btn != null:
 		m.mic_btn.text = mic_label()
 		m.mic_btn.set_meta("toggle_on", m.mic_on and not m.mic_permission_denied)
-	if m.touch_mode_btn != null:
-		m.touch_mode_btn.text = m._touch_mode_label()
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused
@@ -261,4 +255,4 @@ func _leave_current_activity() -> void:
 	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
 		m.call_deferred("_enter_level2", m.l2_open)
 	else:
-		m.show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
+		m.show_msg("Roshan", "Back to the castle! Pick anything you want to play.")

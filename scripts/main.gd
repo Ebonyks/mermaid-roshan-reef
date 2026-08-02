@@ -7,6 +7,7 @@ const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
+const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -219,10 +220,9 @@ var castle_room_prop_sfx: AudioStreamPlayer = null
 var castle_room_player_sprite: Sprite3D = null
 var castle_room_player_shadow: Sprite3D = null
 var castle_room_action_button: Button = null
-var castle_room_menu_panel: Panel = null
+var castle_room_back_button: Button = null
 var castle_room_buttons: Dictionary = {}
 var castle_room_id := "main_hall"
-var castle_room_menu_open := false
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 # ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
@@ -271,8 +271,8 @@ var ember_portal_pos := Vector3.ZERO   # the dark gateway at the rainbow junctio
 var ember_gateway_armed := true        # same leave-before-refire latch as the galaxy gate
 var kart_float_dest := "galaxy"    # where the floating rainbow race lands ("galaxy" | "ember")
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts (star count), 0..15
-var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
+var opera_progress := 0            # cleared opera acts (star count), 0..16
+var opera_stars := 0               # bitmask of starred shows (lobby model, 16 bits)
 var opera_done := false
 # The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
 # have someone caged backstage — and the freed friends hand Roshan a GIFT that
@@ -725,6 +725,7 @@ func _living_world_ref() -> LivingWorldDirector:
 	return _living_world
 
 func _ready() -> void:
+	BootSplashOverlayLogic.show(self)
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
 	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
@@ -2321,7 +2322,7 @@ func _respawn_pearls() -> void:
 		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
 		# less than a second ago (the _end_game win message) — never fight it;
 		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the reef!")
+		show_msg("", "New rainbow pearls are shimmering in the ocean!")
 
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
@@ -4019,7 +4020,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
 		else:
 			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -5038,7 +5039,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.vel = Vector3.ZERO
 	_castle_rooms_ref().open("main_hall")
 	show_msg("Pearl Castle",
-		"Choose a room in the shell elevator!" if not from_back
+		"Touch a picture door to visit a room!" if not from_back
 		else "The secret shell door opens into the Main Hall!",
 		"home")
 	_say("roshan", "talk", 0.5)
@@ -5404,7 +5405,7 @@ func _end_sleep() -> void:
 	if is_night:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
@@ -5810,7 +5811,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
 		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5855,7 +5856,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")

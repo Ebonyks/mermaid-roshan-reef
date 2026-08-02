@@ -1026,7 +1026,7 @@ func _tick_room(_delta: float) -> void:
 				if best_id == "":
 					m.show_msg("Roshan", "An empty cubby! A new stuffie friend can live here someday.", "talk")
 				elif not unlocked(best_id):
-					m.show_msg("Roshan", "A mystery friend belongs here! We can befriend them at the toy tournament in the reef.", "talk")
+					m.show_msg("Roshan", "A mystery friend belongs here! We can befriend them at the castle toy tournament.", "talk")
 				else:
 					var shelf_def := def_by_id(best_id)
 					var shelf_line := "I'm waiting on my cozy shelf!"

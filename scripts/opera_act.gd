@@ -2,13 +2,15 @@ class_name OperaAct
 extends Node3D
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 # One act of the Pearl Opera House (Peach Showtime-inspired). Roshan puts on a
-# career costume and performs a little show on a toy theatre stage. Six
-# engines cover all ten acts: "order" (bring props in the pictured order),
+# career costume and competes with a job-dressed imp in a living toy-theatre
+# world. Career engines supply the tactile job verbs: "order",
 # "echo" (repeat the lit dance/bell sequence), "shuffle" (follow the bunny-fish
 # under the magic hats), "fix" (Pipe Dream: route the bubbles from tank to
 # rocket, spin the valve, hold the countdown), "press" (drag candies into their
-# colour chutes) and "boss" (sparkle showdown with a shy stage puppet). No fail states anywhere: mistakes wobble, giggle and re-show the
-# answer. Props come from the job GLB kits in assets/opera/jobs/ with primitive
+# colour chutes) and "boss" (sparkle showdown with a shy stage puppet). Stars
+# are never lost: mistakes wobble and re-show the answer. Detective has one
+# rare timed retry, but the rival reveals the answer before the same layout
+# restarts. Props come from the job GLB kits in assets/opera/jobs/ with primitive
 # fallbacks. Careers listed in STAGE_SETS perform on their OWN dressed stage;
 # the rest share the toy proscenium until their set is built.
 
@@ -16,6 +18,8 @@ const CENTER := Vector3(0.0, -2600.0, 0.0)
 const RADIUS := 22.0
 const MOVE_SPEED := 13.0
 const PAD_REACH := 4.5
+const CompetitionDirector := preload("res://scripts/opera_competition.gd")
+const CareerWorld2D := preload("res://scripts/opera_career_world_2d.gd")
 
 var m: ReefMain
 var config: Dictionary = {}
@@ -35,6 +39,34 @@ var fire_prev := false
 var act_tag := ""
 var materials := {}
 var audience: Array[Node3D] = []
+
+# ---- shared career competition ----
+# The tactile job engines below remain independent. This layer gives all of
+# them one production language: Roshan and a job-dressed rival imp perform in
+# front of the same live crowd, progress in parallel and earn a graded cheer.
+# The career star is never withheld. Detective alone has a guided timed
+# rematch, and its revealed clue layout makes that rematch easier.
+var competition: OperaCompetition = null
+var competition_root: Node3D = null
+var rival_root: Node3D = null
+var rival_home := Vector3.ZERO
+var rival_target := Vector3.ZERO
+var rival_station: Node3D = null
+var competition_started := false
+var competition_player_bar: ProgressBar = null
+var competition_rival_bar: ProgressBar = null
+var competition_timer: Label = null
+var competition_crowd: Label = null
+var competition_score: Label = null
+var competition_title: Label = null
+var rival_canvas: MeshInstance3D = null
+var rival_canvas_mat: StandardMaterial3D = null
+var detective_memory: Array[Node3D] = []
+var detective_retry_t := 0.0
+var performance_result: Dictionary = {}
+var use_career_world_2d := false
+var career_world_2d: OperaCareerWorld2D = null
+var touch_was_visible := true
 
 # ---- "order" engine ----
 # Three flavors share the pad core but play differently: "deliver" (chef)
@@ -178,6 +210,13 @@ var cab_doors: Array[Node3D] = []
 var cab_wand: Node3D = null
 var cab_taps := 0
 var cab_beat_t := 0.0
+# A real duel needs a closing illusion, not a cabinet that simply ends. Both
+# performers charge a portal in front of the crowd; Roshan's held wand turns
+# it into a school of giant bunny-fish and wins the final ovation.
+const MAGIC_FINALE_HOLD := 3.2
+var magic_portal: Node3D = null
+var magic_portal_fill: MeshInstance3D = null
+var magic_finale_t := 0.0
 # ---- Roshan performs the trick (owner 2026-07-25) ----
 # Perspective flip: she is the MAGICIAN, not the mark. Every round opens with
 # the child dragging a hat over the bunny-fish to hide it; only then do the
@@ -483,6 +522,22 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	stage_phase = "brawl" if bool(config.get("shell", false)) else "puzzle"
 	if stage_phase == "puzzle" and String(config.get("rescue", "")) != "":
 		stage_phase = "rescue"   # on-stage rescue: no backstage corridor needed
+	# Career doors enter the supplied Canvas worlds in real play. The legacy
+	# 3D engines remain available only to their detailed headless regression
+	# probes while the new 2D integration has a dedicated force flag/probe.
+	# Nursery has no legacy substitute: its falling-baby verb and Faron team
+	# care remain the same Canvas game under headless and shipping runs.
+	use_career_world_2d = kind == "nursery" or (
+		kind != "boss" and (
+			DisplayServer.get_name() != "headless"
+			or bool(config.get("force_2d", false))
+			or OS.get_environment("OPERA_FORCE_2D") == "1"
+		)
+	)
+	if use_career_world_2d:
+		_start_career_world_2d()
+		if use_career_world_2d:
+			return
 	player_pos = CENTER + Vector3(0, 1.1, 14.0)
 	if stage_phase == "brawl":
 		player_pos = CENTER + Vector3(-50.0, 1.1, 3.0)
@@ -522,6 +577,10 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 			_build_boss()
 	if stage_phase == "rescue":
 		_build_stage_rescue()
+	if kind != "boss":
+		_build_competition_world()
+		if stage_phase == "puzzle":
+			_begin_competition()
 	# the Showtime transformation moment: sparkles + the career announcement.
 	# Shelled acts open with the backstage story instead — the act's own
 	# instructions arrive when the curtain sweeps open in _open_gate().
@@ -532,6 +591,25 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	else:
 		m.show_msg("Roshan", String(config.get("voice", "It's showtime! Follow the golden sparkle!")), "talk")
 	_update_hud()
+
+
+func _start_career_world_2d() -> void:
+	stage_phase = "puzzle"
+	competition = CompetitionDirector.new() as OperaCompetition
+	competition.configure(String(config.get("costume", "")))
+	if not competition.is_valid():
+		use_career_world_2d = false
+		return
+	competition_started = true
+	competition.begin()
+	if m.touch_ui != null:
+		touch_was_visible = m.touch_ui.visible
+		m.touch_ui.visible = false
+	if m.player != null:
+		m.player.visible = false
+	career_world_2d = CareerWorld2D.new() as OperaCareerWorld2D
+	add_child(career_world_2d)
+	career_world_2d.setup(m, config, competition, Callable(self, "_win"))
 
 # ---------------- shared toy-theatre set ----------------
 
@@ -1420,6 +1498,7 @@ func _end_stage_rescue() -> void:
 	_set_drag(want_drag)             # give the act back whatever finger it wanted
 	m._sparkle_burst(CENTER + Vector3(0, 4.0, 0), Color(1.0, 0.9, 0.6))
 	m.show_msg("Roshan", String(config.get("voice", "On with the show!")), "talk")
+	_begin_competition()
 	# Barrier 6: the borrowed engines own the whole screen, so they were held
 	# back at build time. Now that the stage is clear, hand it to them — and
 	# with the gift in the larder, so the wheels and instruments count.
@@ -1608,19 +1687,27 @@ func _build_box() -> void:
 
 func _box_wave() -> void:
 	box_phase = "rounds"
-	var waves: Array = config.get("rounds", [3, 4, 5])
-	var count := int(waves[mini(box_round, waves.size() - 1)])
+	var waves: Array = config.get("rounds", [4, 5, 6])
+	var hit_goal := int(waves[mini(box_round, waves.size() - 1)])
 	imps.clear()
-	var last_round := box_round >= waves.size() - 1
-	for g in range(count):
-		var a := float(g) * TAU / float(count)
-		var pos := CENTER + Vector3(cos(a) * 7.5, 1.0, -2.0 + sin(a) * 6.5)
-		_spawn_imp(pos, last_round and g == count - 1)
-	imps_left = count
+	var pos := CENTER + Vector3(5.8, 0.9, -2.0)
+	if rival_root != null:
+		rival_home = pos
+		rival_target = pos
+		rival_root.visible = true
+		rival_root.position = pos
+		rival_root.scale = Vector3.ONE * 0.88
+		imps.append({"index": 0, "node": rival_root, "pos": pos, "popped": false,
+			"phase": 0.0, "hp": hit_goal, "hp_max": hit_goal})
+	else:
+		_spawn_imp(pos, true)
+		imps[0]["hp"] = hit_goal
+		imps[0]["hp_max"] = hit_goal
+	imps_left = 1
 	if m.chime != null:
 		m.chime.pitch_scale = 1.5
 		m.chime.play()
-	m.show_msg("Roshan", "DING DING! Round %d — bop the mischief imps with PUNCH!" % (box_round + 1), "talk")
+	m.show_msg("Roshan", "DING DING! Round %d — you versus the boxer imp! Punch on the beat, then watch for the counter-glove!" % (box_round + 1), "talk")
 	_update_hud()
 
 func _box_on_beat() -> bool:
@@ -1666,29 +1753,41 @@ func _punch_action() -> void:
 	imp["hp"] = int(imp.get("hp", 1)) - 1
 	var gpos: Vector3 = imp["pos"] as Vector3
 	if int(imp["hp"]) > 0:
-		# the captain bounces off the ropes and comes back for one more
+		# One friendly opponent, one readable match. Every clean punch sends
+		# the dressed imp onto the ropes; it guards, circles and comes back.
 		m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.85, 0.4))
 		var away := gpos - player_pos
 		away.y = 0.0
 		if away.length() < 0.1:
 			away = Vector3.FORWARD
-		var dash := gpos + away.normalized() * 9.0
+		var dash := gpos + away.normalized() * 3.2
 		dash.x = clampf(dash.x, CENTER.x - 9.5, CENTER.x + 9.5)
 		dash.z = clampf(dash.z, CENTER.z - 10.5, CENTER.z + 6.5)
 		imp["pos"] = dash
 		(imp["node"] as Node3D).position = dash
-		m.show_msg("Roshan", "The captain bounced off the ropes — one more PUNCH!", "talk")
+		var recoil := (imp["node"] as Node3D).create_tween()
+		recoil.tween_property(imp["node"] as Node3D, "rotation:z", 0.28, 0.12)
+		recoil.tween_property(imp["node"] as Node3D, "rotation:z", 0.0, 0.2)
+		m.show_msg("Roshan", "POW! The boxer imp guarded and circled back — %d clean punches to take the round!" % int(imp["hp"]), "talk")
 		_update_hud()
 		return
 	imp["popped"] = true
 	imps_left -= 1
-	(imp["node"] as Node3D).visible = false
+	if (imp["node"] as Node3D) != rival_root:
+		(imp["node"] as Node3D).visible = false
+	else:
+		rival_home = CENTER + Vector3(8.0, 0.9, -8.5)
+		rival_target = rival_home
+		var corner := (imp["node"] as Node3D).create_tween()
+		corner.tween_property(imp["node"] as Node3D, "position", rival_home, 0.35)
+		corner.tween_property(imp["node"] as Node3D, "rotation:x", 0.32, 0.2)
+		corner.tween_property(imp["node"] as Node3D, "rotation:x", 0.0, 0.2)
 	m._sparkle_burst(gpos + Vector3(0, 2.5, 0), Color(1.0, 0.7, 0.4))
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0 + 0.15 * float(box_round + 1)
 		m.chime.play()
 	if imps_left <= 0:
-		var waves: Array = config.get("rounds", [3, 4, 5])
+		var waves: Array = config.get("rounds", [4, 5, 6])
 		box_round += 1
 		_job_state(boxer_dressing_art, "StateLamp%d" % (box_round - 1), true)
 		if box_round >= waves.size():
@@ -1927,7 +2026,8 @@ func _build_sleuth() -> void:
 		var glint := _sphere(Vector3(0, 3.2, 0), 0.6, Color(1.0, 0.95, 0.6), 1.4, root)
 		glint.visible = false
 		sleuth_props.append({"index": i, "pos": pos, "node": root, "lid": lid, "glint": glint,
-			"opened": false, "clue": has_clue, "col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
+			"lid_home": lid.position, "opened": false, "clue": has_clue,
+			"col": clue_cols[clue_picks.find(i) % clue_cols.size()] if has_clue else Color.WHITE})
 
 func _light_the_library() -> void:
 	# The stagehands she frees hand over their lanterns, and a lit Prop Library
@@ -2351,6 +2451,7 @@ func _open_gate() -> void:
 	stage_phase = "puzzle"
 	progress_t = 0.0
 	_apply_curtain_gifts()
+	_begin_competition()
 	if gate_curtain != null:
 		var tw := gate_curtain.create_tween()
 		tw.tween_property(gate_curtain, "position:y", gate_curtain.position.y + 13.0, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
@@ -2472,6 +2573,422 @@ func _build_hud() -> void:
 	pointer.modulate = Color(1.0, 0.94, 0.25)
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(pointer)
+
+
+# ---------------- shared career competition ----------------
+
+func _competition_bar(col: Color) -> ProgressBar:
+	var bar := ProgressBar.new()
+	bar.min_value = 0.0
+	bar.max_value = 100.0
+	bar.value = 0.0
+	bar.show_percentage = false
+	var bg := StyleBoxFlat.new()
+	bg.bg_color = Color(0.14, 0.1, 0.22, 0.82)
+	bg.corner_radius_top_left = 12
+	bg.corner_radius_top_right = 12
+	bg.corner_radius_bottom_left = 12
+	bg.corner_radius_bottom_right = 12
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = col
+	fill.corner_radius_top_left = 12
+	fill.corner_radius_top_right = 12
+	fill.corner_radius_bottom_left = 12
+	fill.corner_radius_bottom_right = 12
+	bar.add_theme_stylebox_override("background", bg)
+	bar.add_theme_stylebox_override("fill", fill)
+	return bar
+
+
+func _build_competition_world() -> void:
+	var costume := String(config.get("costume", ""))
+	competition = CompetitionDirector.new() as OperaCompetition
+	competition.configure(costume)
+	if not competition.is_valid():
+		competition = null
+		return
+	competition_root = Node3D.new()
+	competition_root.name = "CareerCompetition"
+	competition_root.visible = false
+	add_child(competition_root)
+
+	# Eleven rivals are authored from the same project-owned imp as the dungeon
+	# cast, with a tiny job kit added in Blender. The boxer is deliberately more
+	# specific: a regenerated match-ready version of the accepted purple imp,
+	# with proper padded guard, gloves, trunks and stance.
+	var rival_path := "res://assets/opera/rivals/opera_rival_%s.glb" % costume
+	var boxer_path := "res://assets/opera/rivals/opera_rival_boxer_match.png"
+	if costume == "boxer" and ResourceLoader.exists(boxer_path):
+		rival_root = Node3D.new()
+		var boxer_sprite := Sprite3D.new()
+		boxer_sprite.name = "MatchReadyBoxerImp"
+		boxer_sprite.texture = load(boxer_path) as Texture2D
+		boxer_sprite.pixel_size = 0.0066
+		boxer_sprite.position.y = 3.35
+		boxer_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		boxer_sprite.shaded = false
+		boxer_sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+		rival_root.add_child(boxer_sprite)
+	else:
+		var packed: PackedScene = load(rival_path) as PackedScene if ResourceLoader.exists(rival_path) else null
+		if packed != null:
+			rival_root = packed.instantiate() as Node3D
+		else:
+			rival_root = Node3D.new()
+			DungeonArt.spawn("imp", rival_root)
+	rival_root.name = "CareerRivalImp"
+	rival_home = CENTER + Vector3(14.0, 0.9, -9.0)
+	if kind == "box":
+		rival_home = CENTER + Vector3(5.8, 0.9, -2.0)
+	elif kind == "sleuth":
+		rival_home = CENTER + Vector3(15.0, 0.9, -6.0)
+	elif kind == "paint":
+		rival_home = CENTER + Vector3(13.5, 0.9, -11.0)
+	rival_root.position = rival_home
+	rival_target = rival_home
+	rival_root.scale = Vector3.ONE * (0.76 if kind != "box" else 0.88)
+	competition_root.add_child(rival_root)
+
+	# A small second work station makes the contest spatially obvious even
+	# before a child can interpret a score. The job stage remains the world;
+	# these pieces only establish "my side / imp side".
+	rival_station = Node3D.new()
+	rival_station.name = "RivalStation"
+	competition_root.add_child(rival_station)
+	var accent := Color(competition.spec.get("accent", Color(0.8, 0.6, 1.0)))
+	if kind != "box":
+		_cyl(rival_home + Vector3(0, -0.25, 0), 3.6, 0.42, accent.darkened(0.28), 0.08, rival_station)
+		for i in range(3):
+			_sphere(rival_home + Vector3(-1.6 + float(i) * 1.6, 0.2, 2.3), 0.28,
+				accent.lightened(float(i) * 0.08), 0.8, rival_station)
+	if kind == "paint":
+		_build_rival_canvas(accent)
+
+	var panel := StorybookUI.add_hud_panel(hud, Rect2(190, 144, 900, 94), accent,
+		Color(0.98, 0.97, 1.0, 0.94), 24)
+	panel.name = "OperaCompetitionCard"
+	competition_title = Label.new()
+	competition_title.position = Vector2(18, 4)
+	competition_title.size = Vector2(864, 26)
+	StorybookUI.style_hud_label(competition_title, 19)
+	competition_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	competition_title.text = String(competition.spec.get("world", "CAREER CONTEST"))
+	panel.add_child(competition_title)
+
+	var crown := Label.new()
+	crown.position = Vector2(18, 32)
+	crown.size = Vector2(65, 28)
+	StorybookUI.style_hud_label(crown, 22)
+	crown.text = "🧜‍♀️"
+	crown.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(crown)
+	competition_player_bar = _competition_bar(Color(1.0, 0.56, 0.83))
+	competition_player_bar.position = Vector2(82, 37)
+	competition_player_bar.size = Vector2(290, 20)
+	panel.add_child(competition_player_bar)
+
+	var rival_icon := Label.new()
+	rival_icon.position = Vector2(515, 32)
+	rival_icon.size = Vector2(65, 28)
+	StorybookUI.style_hud_label(rival_icon, 22)
+	rival_icon.text = "😈"
+	rival_icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(rival_icon)
+	competition_rival_bar = _competition_bar(accent)
+	competition_rival_bar.position = Vector2(580, 37)
+	competition_rival_bar.size = Vector2(290, 20)
+	panel.add_child(competition_rival_bar)
+
+	competition_crowd = Label.new()
+	competition_crowd.position = Vector2(18, 62)
+	competition_crowd.size = Vector2(310, 25)
+	StorybookUI.style_hud_label(competition_crowd, 18)
+	competition_crowd.text = "👏"
+	panel.add_child(competition_crowd)
+	competition_score = Label.new()
+	competition_score.position = Vector2(330, 62)
+	competition_score.size = Vector2(260, 25)
+	StorybookUI.style_hud_label(competition_score, 18)
+	competition_score.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(competition_score)
+	competition_timer = Label.new()
+	competition_timer.position = Vector2(590, 62)
+	competition_timer.size = Vector2(280, 25)
+	StorybookUI.style_hud_label(competition_timer, 18)
+	competition_timer.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	panel.add_child(competition_timer)
+	panel.visible = false
+
+
+func _build_rival_canvas(accent: Color) -> void:
+	var quad := QuadMesh.new()
+	quad.size = Vector2(7.2, 5.4)
+	rival_canvas = MeshInstance3D.new()
+	rival_canvas.name = "RivalPaintCanvas"
+	rival_canvas.mesh = quad
+	rival_canvas.position = rival_home + Vector3(-1.2, 4.0, -0.8)
+	rival_canvas_mat = StandardMaterial3D.new()
+	rival_canvas_mat.albedo_color = Color(0.96, 0.93, 0.86)
+	rival_canvas_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	rival_canvas.material_override = rival_canvas_mat
+	rival_station.add_child(rival_canvas)
+	_box(rival_canvas.position + Vector3(0, 0, -0.2), Vector3(8.0, 6.2, 0.25),
+		accent.darkened(0.35), 0.08, rival_station)
+
+
+func _begin_competition() -> void:
+	if competition == null or competition_started:
+		return
+	competition_started = true
+	competition.begin()
+	if competition_root != null:
+		competition_root.visible = true
+	var panel := hud.get_node_or_null("OperaCompetitionCard") as Control
+	if panel != null:
+		panel.visible = true
+	m.show_msg("Roshan", "%s! You and the dressed imp are performing for the crowd. Make your side shine!" %
+		String(competition.spec.get("world", "It's competition time")), "talk")
+	_update_competition_hud()
+
+
+func _competition_progress() -> float:
+	if career_world_2d != null and is_instance_valid(career_world_2d):
+		return career_world_2d.competition_progress()
+	match kind:
+		"order":
+			match order_phase:
+				"sift":
+					return 0.12 * clampf(sift_done / SIFT_NEED, 0.0, 1.0)
+				"pour":
+					return 0.12 + 0.12 * clampf(pour_t / POUR_NEED, 0.0, 1.0)
+				"stir":
+					return 0.24 + 0.18 * clampf((float(stir_done) + stir_accum / TAU) / 3.0, 0.0, 1.0)
+				"bake":
+					return 0.42 + 0.14 * clampf(bake_t / 7.0, 0.0, 1.0)
+				"pipe":
+					return 0.56 + 0.20 * float(pipe_trace) / maxf(1.0, float(pipe_dots.size()))
+				"decorate":
+					return 0.76 + 0.24 * float(deco_done) / maxf(1.0, float(deco_spots.size()))
+		"paint":
+			match order_phase:
+				"sketch":
+					return 0.14 * float(sketch_trace) / float(SKETCH_DOTS)
+				"fill":
+					return 0.14 + 0.16 * (float(fill_done) + clampf(fill_t / FILL_HOLD, 0.0, 1.0)) / maxf(1.0, float(fill_panels.size()))
+				"steps":
+					return 0.30 + 0.58 * (float(step) + clampf(float(paint_band_done) / maxf(1.0, float(paint_band_need)), 0.0, 1.0)) / maxf(1.0, float(order_steps.size()))
+				"decorate":
+					return 0.88 + 0.12 * float(deco_done) / maxf(1.0, float(deco_spots.size()))
+		"sleuth":
+			if board_phase == "":
+				return 0.48 * float(clues_found) / maxf(1.0, float(config.get("clues", 3)))
+			if board_phase == "trail":
+				return 0.48 + 0.14 * float(trail_i) / maxf(1.0, float(trail_prints.size()))
+			if board_phase == "board":
+				return 0.62 + 0.28 * float(board_pinned) / maxf(1.0, float(clue_cards.size()))
+			if board_phase == "name":
+				return 0.94
+		"echo":
+			if echo_phase == "ribbon":
+				return 0.68 + 0.16 * float(ribbon_trace) / float(RIBBON_DOTS)
+			if echo_phase == "twirl":
+				return 0.84 + 0.16 * float(twirl_done) / float(TWIRL_TURNS)
+			return 0.68 * (float(echo_round) + float(echo_pos) / maxf(1.0, float(echo_seq.size()))) / maxf(1.0, float(echo_rounds.size()))
+		"press":
+			match press_phase:
+				"syrup":
+					return 0.20 * (float(syrup_want) + clampf(syrup_t / SYRUP_HOLD, 0.0, 1.0)) / maxf(1.0, float(syrup_bottles.size()))
+				"sort":
+					return 0.20 + 0.40 * float(candies_done) / maxf(1.0, float(candies_goal))
+				"wrap":
+					return 0.60 + 0.18 * float(wrap_done) / 3.0
+				"parade":
+					return 0.78 + 0.22 * float(parade_loaded) / 5.0
+		"doctor":
+			var phases := {"wash": 0.0, "find": 0.12, "carry": 0.28, "xray": 0.45, "cast": 0.62, "coban": 0.82, "done": 1.0}
+			var patient_part := float(phases.get(vet_phase, 0.0))
+			return (float(vet_done_n) + patient_part) / maxf(1.0, float(vet_goal_n))
+		"scroll":
+			match farm_phase:
+				"plant":
+					return 0.20 * float(seeds_planted) / maxf(1.0, float(furrows.size()))
+				"feed":
+					return 0.20 + 0.48 * float(farm_fed) / maxf(1.0, float(piggies.size()))
+				"mud":
+					return 0.68 + 0.16 * float(mud_leaps) / float(MUD_LEAPS)
+				"barn":
+					return 0.84 + 0.16 * clampf(barn_scrub / BARN_SCRUB, 0.0, 1.0)
+		"box":
+			if box_phase == "warmup":
+				return 0.12 * float(box_bag_hits) / maxf(1.0, float(box_bag_goal))
+			if box_phase == "belt":
+				return 0.98
+			var rounds: Array = config.get("rounds", [4, 5, 6])
+			var hit_part := 0.0
+			if not imps.is_empty():
+				var rival: Dictionary = imps[0]
+				var hp_max := maxf(1.0, float(rival.get("hp_max", 1)))
+				hit_part = 1.0 - float(rival.get("hp", 0)) / hp_max
+			return 0.12 + 0.82 * (float(box_round) + hit_part) / maxf(1.0, float(rounds.size()))
+		"shuffle":
+			if shuffle_phase == "rope":
+				return 0.56 + 0.16 * float(rope_undone) / float(ROPE_KNOTS)
+			if shuffle_phase == "cabinet":
+				return 0.72 + 0.14 * float(cab_taps) / float(CAB_TAPS)
+			if shuffle_phase == "finale":
+				return 0.86 + 0.14 * clampf(magic_finale_t / MAGIC_FINALE_HOLD, 0.0, 1.0)
+			return 0.56 * float(shuffle_round) / maxf(1.0, float(config.get("rounds", 2)))
+		"fix":
+			if fix_phase == "valve":
+				return 0.76 + 0.12 * float(valve_spins) / 5.0
+			if fix_phase == "launch":
+				return 0.88 + 0.12 * clampf(launch_hold / LAUNCH_HOLD, 0.0, 1.0)
+			return 0.76 * float(pipe_filled.size()) / maxf(1.0, float(PIPE_COLS))
+		"race", "dance":
+			return 0.06
+	return 0.0
+
+
+func _tick_competition(delta: float) -> void:
+	if competition == null or not competition_started or competition.completed:
+		return
+	for event: String in competition.tick(delta, _competition_progress()):
+		if event == "rival_step":
+			_rival_step()
+		elif event == "rival_solved":
+			_detective_rival_solved()
+	if rival_root != null and rival_root.visible:
+		var bob_target := rival_target + Vector3(0, sin(elapsed * 3.0 + float(competition.rival_step)) * 0.28, 0)
+		rival_root.position = rival_root.position.lerp(bob_target, clampf(delta * 3.4, 0.0, 1.0))
+		rival_root.rotation.y = PI + sin(elapsed * 1.6) * 0.18
+		if kind == "paint" and rival_canvas_mat != null:
+			var p := competition.rival_progress
+			rival_canvas_mat.albedo_color = Color(0.96, 0.93 - p * 0.25, 0.86 - p * 0.38)
+	_update_competition_hud()
+
+
+func _rival_step() -> void:
+	if career_world_2d != null and is_instance_valid(career_world_2d):
+		career_world_2d.rival_step()
+		return
+	if rival_root == null:
+		return
+	if kind == "sleuth":
+		var clue_boxes: Array[Dictionary] = []
+		for prop: Dictionary in sleuth_props:
+			if bool(prop["clue"]):
+				clue_boxes.append(prop)
+		if not clue_boxes.is_empty():
+			var target_box := clue_boxes[(competition.rival_step - 1) % clue_boxes.size()]
+			rival_target = (target_box["pos"] as Vector3) + Vector3(2.6, 0, 1.4)
+	elif kind == "paint":
+		rival_target = rival_home + Vector3(sin(float(competition.rival_step)) * 1.1, 0, 0)
+	var hop := rival_root.create_tween()
+	hop.tween_property(rival_root, "position:y", rival_home.y + 1.0, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	hop.tween_property(rival_root, "position:y", rival_home.y, 0.24).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	var accent := Color(competition.spec.get("accent", Color(0.8, 0.6, 1.0)))
+	m._sparkle_burst(rival_home + Vector3(0, 3.2, 0), accent)
+	if competition.rival_step == 3:
+		m.show_msg("Rival Imp", "The dressed imp %s — the crowd is watching both sides!" %
+			String(competition.spec.get("rival_verb", "performs")), "talk")
+
+
+func _detective_rival_solved() -> void:
+	if career_world_2d != null and is_instance_valid(career_world_2d):
+		career_world_2d.begin_guided_retry()
+		return
+	if kind != "sleuth" or board_phase != "" or detective_retry_t > 0.0:
+		return
+	competition.pause()
+	detective_retry_t = 3.6
+	_leave_lens()
+	for prop: Dictionary in sleuth_props:
+		if not bool(prop["clue"]):
+			continue
+		var halo := _sphere((prop["pos"] as Vector3) + Vector3(0, 4.6, 0), 1.0,
+			Color(1.0, 0.82, 0.28, 0.7), 1.0)
+		detective_memory.append(halo)
+		var pulse := halo.create_tween().set_loops(3)
+		pulse.tween_property(halo, "scale", Vector3.ONE * 1.35, 0.28)
+		pulse.tween_property(halo, "scale", Vector3.ONE, 0.28)
+	if rival_root != null:
+		rival_root.position = goal.position + Vector3(4.0, 0, 1.5)
+		rival_target = rival_root.position
+	m.show_msg("Rival Imp", "The imp solved it just in time! Watch the golden clue boxes — now race the same mystery again!", "talk")
+	_update_hud()
+
+
+func _reset_detective_for_guided_retry() -> void:
+	clues_found = 0
+	chest_ready = false
+	sleuth_pause = 0.0
+	lens_dwell_i = -1
+	lens_dwell_t = 0.0
+	for prop: Dictionary in sleuth_props:
+		prop["opened"] = false
+		var lid := prop["lid"] as Node3D
+		lid.position = prop["lid_home"] as Vector3
+		lid.rotation.z = 0.0
+		var glint := prop.get("glint") as Node3D
+		if glint != null:
+			glint.visible = bool(prop["clue"])
+	for halo: Node3D in detective_memory:
+		if is_instance_valid(halo):
+			var fade := halo.create_tween()
+			fade.tween_property(halo, "scale", Vector3.ONE * 0.42, 6.0)
+			fade.tween_callback(halo.queue_free)
+	detective_memory.clear()
+	competition.guided_retry()
+	if rival_root != null:
+		rival_root.position = rival_home
+		rival_target = rival_home
+	lens_drag = false
+	m.show_msg("Roshan", "You saw the imp's answer. Follow those remembered sparkles and solve it even faster!", "talk")
+
+
+func _update_competition_hud() -> void:
+	if competition == null:
+		return
+	if competition_player_bar != null:
+		competition_player_bar.value = competition.player_progress * 100.0
+	if competition_rival_bar != null:
+		competition_rival_bar.value = competition.rival_progress * 100.0
+	if competition_score != null:
+		competition_score.text = "⭐ %03d  •  %03d 😈" % [competition.player_score, competition.rival_score]
+	if competition_timer != null:
+		var left := competition.time_left()
+		competition_timer.text = "⏳ %02d" % int(ceilf(left)) if left >= 0.0 else ""
+	if competition_crowd != null:
+		var energy := competition.audience_energy()
+		competition_crowd.text = "👏" if energy < 0.36 else ("👏👏" if energy < 0.72 else "👏👏👏")
+
+
+func _competition_curtain_call() -> void:
+	if competition == null:
+		return
+	performance_result = competition.complete()
+	if career_world_2d != null and is_instance_valid(career_world_2d):
+		career_world_2d.celebrate(performance_result)
+		return
+	var tier := int(performance_result.get("tier", 1))
+	var hops := tier + 1
+	for spr: Node3D in audience:
+		var tw := spr.create_tween()
+		for i in range(hops):
+			tw.tween_property(spr, "position:y", spr.position.y + 0.65 + float(tier) * 0.22, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(spr, "position:y", spr.position.y, 0.18)
+	if competition_title != null:
+		competition_title.text = "%s — ROSHAN WINS!" % String(performance_result.get("cheer", "BIG CHEERS"))
+	if competition_crowd != null:
+		competition_crowd.text = "👏" + "👏".repeat(tier * 2)
+	if rival_root != null:
+		var bow := rival_root.create_tween()
+		bow.tween_property(rival_root, "rotation:x", 0.38, 0.3)
+		bow.tween_property(rival_root, "rotation:x", 0.0, 0.3)
+		bow.tween_property(rival_root, "position:x", player_pos.x + 4.0, 0.5)
+	var accent := Color(competition.spec.get("accent", Color(1.0, 0.75, 1.0)))
+	for i in range(tier * 3):
+		m._sparkle_burst(CENTER + Vector3(randf_range(-16.0, 16.0), 3.0 + randf_range(0.0, 8.0), randf_range(-7.0, 10.0)), accent)
 
 # ------- shared pad core: "order" (chef) and "paint" (painter) -------
 # Two distinct acts share this builder because both walk a pictured sequence,
@@ -3654,6 +4171,9 @@ func _shuffle_hide(target: int) -> void:
 	_update_hud()
 
 func _tick_shuffle(delta: float) -> void:
+	if shuffle_phase == "finale":
+		_tick_magic_finale(delta)
+		return
 	if shuffle_phase == "rope":
 		_tick_rope(delta)
 		if rope_root != null:
@@ -3853,18 +4373,95 @@ func _cab_tap() -> void:
 		if cab_taps < CAB_TAPS:
 			swing.tween_property(door, "rotation:y", open_y * 0.55, 0.3)
 	if cab_taps >= CAB_TAPS:
-		# the enormous bunny-fish: the same friend, ten times the size
+		# The cabinet reveal is now the penultimate trick. It earns a gasp,
+		# then both performers face the same grand-illusion finish.
 		if bunny != null:
 			bunny.visible = true
 			bunny.position = cab_root.position + Vector3(0, 4.2, 0.5)
 			var grow := bunny.create_tween()
 			grow.tween_property(bunny, "scale", Vector3.ONE * 3.4, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		m._sparkle_burst(cab_root.position + Vector3(0, 6.0, 0), Color(1.0, 0.8, 1.0))
-		m.show_msg("Roshan", "TA-DAA! The bunny-fish is ENORMOUS! What a show!", "win")
-		_win()
+		m.show_msg("Roshan", "TA-DAA! Now one last trick — open the STAR PORTAL before the magician imp!", "talk")
+		_begin_magic_finale()
 	else:
 		m.show_msg("Roshan", "The doors are swinging! %d more on the beat!" % (CAB_TAPS - cab_taps), "hint")
 	_update_hud()
+
+
+func _begin_magic_finale() -> void:
+	shuffle_phase = "finale"
+	magic_finale_t = 0.0
+	if cab_root != null:
+		var shrink := cab_root.create_tween()
+		shrink.tween_property(cab_root, "scale", Vector3.ONE * 0.72, 0.4)
+	if bunny != null:
+		var drift := bunny.create_tween()
+		drift.tween_property(bunny, "position", CENTER + Vector3(-12.0, 4.0, -10.0), 0.5)
+	magic_portal = Node3D.new()
+	magic_portal.name = "GrandIllusionPortal"
+	magic_portal.position = CENTER + Vector3(0, 6.0, -5.5)
+	add_child(magic_portal)
+	for i in range(3):
+		var ring := TorusMesh.new()
+		ring.inner_radius = 3.6 + float(i) * 0.62
+		ring.outer_radius = 4.0 + float(i) * 0.62
+		var halo := _mesh(ring, Vector3.ZERO,
+			[Color(0.72, 0.55, 1.0), Color(1.0, 0.62, 0.86), Color(0.55, 0.9, 1.0)][i],
+			0.75, magic_portal)
+		halo.name = "PortalRing%d" % i
+		halo.rotation_degrees.x = 90.0
+	var disc := CylinderMesh.new()
+	disc.top_radius = 3.4
+	disc.bottom_radius = 3.4
+	disc.height = 0.16
+	magic_portal_fill = _mesh(disc, Vector3(0, 0, 0.12), Color(1.0, 0.85, 0.45, 0.22), 0.9, magic_portal)
+	magic_portal_fill.rotation_degrees.x = 90.0
+	var fm := magic_portal_fill.material_override as StandardMaterial3D
+	fm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	fm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	magic_portal_fill.scale = Vector3(0.05, 0.05, 0.05)
+	if cab_wand != null:
+		cab_wand.position = CENTER + Vector3(0, 3.6, 2.0)
+		cab_wand.scale = Vector3.ONE
+	player_pos = CENTER + Vector3(0, 1.1, 5.0)
+	m.show_msg("Roshan", "HOLD the glowing wand steady! Fill the portal and make the whole theater disappear into stars!", "talk")
+	_update_hud()
+
+
+func _tick_magic_finale(delta: float) -> void:
+	if magic_portal == null:
+		return
+	magic_portal.rotation.z += delta * 0.46
+	for i in range(magic_portal.get_child_count()):
+		var child := magic_portal.get_child(i) as Node3D
+		if child != null and child != magic_portal_fill:
+			child.rotation.z = elapsed * (0.35 + float(i) * 0.18) * (-1.0 if i % 2 == 0 else 1.0)
+	var can_cast := cab_wand != null and Vector2(cab_wand.position.x - player_pos.x,
+		cab_wand.position.z - player_pos.z).length() < 9.0
+	if can_cast and _finger_down():
+		magic_finale_t = minf(MAGIC_FINALE_HOLD, magic_finale_t + delta)
+		progress_t = 0.0
+		if fmod(magic_finale_t, 0.42) < delta:
+			m._sparkle_burst(magic_portal.position + Vector3(randf_range(-3.0, 3.0), randf_range(-2.0, 2.0), 0),
+				Color.from_hsv(randf(), 0.45, 1.0))
+	else:
+		magic_finale_t = maxf(0.0, magic_finale_t - delta * 0.16)
+	if magic_portal_fill != null:
+		var frac := clampf(magic_finale_t / MAGIC_FINALE_HOLD, 0.0, 1.0)
+		magic_portal_fill.scale = Vector3.ONE * maxf(0.05, frac)
+	if magic_finale_t >= MAGIC_FINALE_HOLD:
+		for i in range(7):
+			var a := float(i) / 7.0 * TAU
+			var fish := Node3D.new()
+			fish.position = magic_portal.position + Vector3(cos(a) * 2.0, sin(a) * 2.0, 0)
+			add_child(fish)
+			_sphere(Vector3.ZERO, 0.7, Color.from_hsv(float(i) / 7.0, 0.45, 1.0), 0.5, fish)
+			_sphere(Vector3(-0.25, 0.85, 0), 0.22, Color(1.0, 0.8, 0.92), 0.4, fish)
+			_sphere(Vector3(0.25, 0.85, 0), 0.22, Color(1.0, 0.8, 0.92), 0.4, fish)
+			var fly := fish.create_tween()
+			fly.tween_property(fish, "position", fish.position + Vector3(cos(a) * 12.0, sin(a) * 7.0, randf_range(-2.0, 4.0)), 1.0).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		m.show_msg("Roshan", "The star portal opened! The magician imp bows — Roshan's grand illusion wins the crowd!", "win")
+		_win()
 
 func _shuffle_action(choice: int) -> void:
 	if state != "play" or kind != "shuffle":
@@ -4672,7 +5269,7 @@ func _build_doctor() -> void:
 	vet_screen.material_override = sm
 	vet_scope.add_child(vet_screen)
 	vet_screen.visible = false
-	m.show_msg("Roshan", "Doctor Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
+	m.show_msg("Roshan", "Stuffie Surgeon Roshan! Scrub up first — swim to the sparkly basin and HOLD to wash your hands!", "talk")
 	_update_hud()
 
 func _tick_wash(delta: float) -> void:
@@ -5349,6 +5946,12 @@ func _launch_race() -> void:
 			Color(spec.get("pillar", Color(0.85, 0.6, 0.65)))],
 		"shortcut": true,
 		"pearl_payout": false,   # a show, not a pearl farm — the star is the prize
+		"racers": [
+			{"name": "Roshan", "col": Color(1.0, 0.4, 0.8),
+				"sprite": "res://assets/characters/roshan_sprite.png", "player": true},
+			{"name": "Rival Imp", "col": Color(0.42, 0.78, 0.82),
+				"sprite": "res://assets/opera/rivals/opera_rival_racer_portrait.png"},
+		],
 	}
 	# the pit crew she freed hand over spare wheels, and those wheels are a KART
 	if int(m.opera_pantry.get("spare wheels", 0)) > 0:
@@ -5367,6 +5970,10 @@ func _race_finished(place: int) -> void:
 		cam.make_current()
 	m._play_music(race_prev_track if race_prev_track != "" else "level2")
 	if place > 0:
+		if competition != null:
+			for i in range(maxi(0, place - 1) * 2):
+				competition.note_miss()
+			competition.note_success(260 if place == 1 else 140)
 		_win()
 	else:
 		m.show_msg("Roshan", "The Grand Prix is waiting! Tap the checkered flag when you're ready to race!", "talk")
@@ -5408,6 +6015,11 @@ func _dance_closed() -> void:
 	if state != "play":
 		return
 	if dance != null and int(dance.get("happy_hits")) > 0:
+		if competition != null:
+			var hits := int(dance.get("happy_hits"))
+			competition.note_success(hits * 18)
+			if hits < 4:
+				competition.note_miss()
 		# The band she freed play behind her, so the concert earns an ENCORE:
 		# one more verse through the engine's own open_demo(), rather than a
 		# property the engine does not have.
@@ -5570,7 +6182,9 @@ func _hit_boss() -> void:
 	var bpos: Vector3 = (boss["node"] as Node3D).position
 	m._sparkle_burst(bpos + Vector3(0, 5.0, 1.5), Color(1.0, 0.85, 0.3))
 	if m.chime != null:
-		m.chime.pitch_scale = 1.1 + 0.15 * float(3 - int(boss["hp"]))
+		# rise with every star, clamped: 15-hp bosses used to drive this negative
+		var stars_done := maxi(0, int(config.get("boss_hp", 3)) - int(boss["hp"]))
+		m.chime.pitch_scale = minf(1.9, 1.05 + 0.06 * float(stars_done))
 		m.chime.play()
 	if int(boss["hp"]) <= 0:
 		_win()
@@ -5820,6 +6434,17 @@ func _act_action(choice: int) -> void:
 func _process(delta: float) -> void:
 	if m == null or state == "done":
 		return
+	if use_career_world_2d:
+		elapsed += delta
+		if state == "won":
+			win_t -= delta
+			if win_t <= 0.0:
+				_finish()
+			return
+		_tick_competition(delta)
+		if career_world_2d != null and is_instance_valid(career_world_2d):
+			career_world_2d.update_competition()
+		return
 	elapsed += delta
 	progress_t += delta
 	if doc_wait > 0.0:
@@ -5846,6 +6471,15 @@ func _process(delta: float) -> void:
 		if win_t <= 0.0:
 			_finish()
 		return
+	if detective_retry_t > 0.0:
+		detective_retry_t -= delta
+		if rival_root != null:
+			rival_root.rotation.y += delta * 2.2
+		if detective_retry_t <= 0.0:
+			_reset_detective_for_guided_retry()
+		_update_competition_hud()
+		return
+	_tick_competition(delta)
 	if kind == "race" and kart != null and stage_phase != "rescue":
 		# KartGame owns the camera, HUD and every input while the race runs —
 		# consuming taps here would steal the TURBO button
@@ -6156,6 +6790,8 @@ func _pointer_target() -> Vector3:
 				return (pads[echo_seq[echo_pos]]["pos"] as Vector3) + Vector3(0, 5.5, 0)
 			return CENTER + Vector3(0, 9.0, 3.0)
 		"shuffle":
+			if shuffle_phase == "finale" and magic_portal != null:
+				return magic_portal.position + Vector3(0, 2.0, 0)
 			if shuffle_phase == "rope" and rope_root != null:
 				return rope_root.position + Vector3(0, 2.4, 0)
 			if shuffle_phase == "cabinet" and cab_wand != null:
@@ -6280,8 +6916,11 @@ func _update_hud() -> void:
 			elif box_wait > 0.0:
 				objective.text = tag + "🥊  Round won! Get ready..."
 			else:
-				var waves: Array = config.get("rounds", [3, 4, 5])
-				objective.text = tag + "🥊  ROUND %d / %d — bop them when they POP UP!  %d left" % [box_round + 1, waves.size(), imps_left]
+				var waves: Array = config.get("rounds", [4, 5, 6])
+				var rival_hp := 0
+				if not imps.is_empty():
+					rival_hp = maxi(0, int((imps[0] as Dictionary).get("hp", 0)))
+				objective.text = tag + "🥊  ROUND %d / %d — punch the BOXER IMP on the beat!  %d hits" % [box_round + 1, waves.size(), rival_hp]
 		"sleuth":
 			if board_phase == "name":
 				objective.text = tag + "🕵️  Who has the MOST clues? Tap that friend!"
@@ -6303,7 +6942,9 @@ func _update_hud() -> void:
 			else:
 				objective.text = tag + "🩰  YOUR TURN!  %d / %d" % [echo_pos, echo_seq.size()]
 		"shuffle":
-			if shuffle_phase == "rope":
+			if shuffle_phase == "finale":
+				objective.text = tag + "🌟  HOLD the wand to open the STAR PORTAL!  %d%%" % int(clampf(magic_finale_t / MAGIC_FINALE_HOLD, 0.0, 1.0) * 100.0)
+			elif shuffle_phase == "rope":
 				objective.text = tag + "🪢  PULL your finger out wide!  %d / %d knots" % [rope_undone, ROPE_KNOTS]
 			elif shuffle_phase == "cabinet":
 				objective.text = tag + "🪄  Tap the wand ON the beat!  %d / %d" % [cab_taps, CAB_TAPS]
@@ -6394,6 +7035,18 @@ func _win() -> void:
 	if state != "play":
 		return
 	state = "won"
+	if use_career_world_2d:
+		win_t = 3.2
+		if competition != null:
+			_competition_curtain_call()
+		var world_win_line := String(config.get("win_line", "What a show! Everybody is cheering!"))
+		if not performance_result.is_empty():
+			if competition != null and competition.is_cooperative():
+				world_win_line += " %s for the nursery team!" % String(performance_result.get("cheer", "Big cheers"))
+			else:
+				world_win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))
+		m.show_msg("Roshan", world_win_line, "win")
+		return
 	if kind == "paint":
 		_hang_painting()
 	win_t = 2.6
@@ -6402,10 +7055,13 @@ func _win() -> void:
 	if farm_layer != null:
 		farm_layer.visible = false   # lift the 2D meadow so the stage bow shows
 	# curtain-call bow: the audience hops and the star of the show gets confetti
-	for spr: Node3D in audience:
-		var tw := spr.create_tween()
-		tw.tween_property(spr, "position:y", spr.position.y + 0.9, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(spr, "position:y", spr.position.y, 0.3)
+	if competition != null:
+		_competition_curtain_call()
+	else:
+		for spr: Node3D in audience:
+			var tw := spr.create_tween()
+			tw.tween_property(spr, "position:y", spr.position.y + 0.9, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(spr, "position:y", spr.position.y, 0.3)
 	m._sparkle_burst(player_pos + Vector3(0, 3.0, 0), Color(1.0, 0.85, 1.0))
 	if kind == "press":
 		# the three smiley candies do a little parade hop down the shelf
@@ -6424,12 +7080,25 @@ func _win() -> void:
 		tw2.tween_property(root, "position", (boss["home"] as Vector3) + Vector3(0, 0, 4.0), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 		tw2.tween_property(root, "rotation:x", 0.35, 0.4)
 		tw2.tween_property(root, "rotation:x", 0.0, 0.4)
-	m.show_msg("Roshan", String(config.get("win_line", "What a show! Everybody is cheering!")), "win")
+	var win_line := String(config.get("win_line", "What a show! Everybody is cheering!"))
+	if not performance_result.is_empty():
+		win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))
+	m.show_msg("Roshan", win_line, "win")
 
 func _finish() -> void:
 	if state == "done":
 		return
 	state = "done"
+	if use_career_world_2d:
+		if career_world_2d != null and is_instance_valid(career_world_2d):
+			career_world_2d.close()
+			career_world_2d = null
+		if m.touch_ui != null:
+			m.touch_ui.visible = touch_was_visible
+		if finish_cb.is_valid():
+			finish_cb.call()
+		queue_free()
+		return
 	_leave_easel()
 	_leave_stir()
 	_leave_lens()
@@ -6448,6 +7117,20 @@ func _finish() -> void:
 	queue_free()
 
 func cancel() -> void:
+	if use_career_world_2d:
+		if state == "done":
+			return
+		if state == "won":
+			_finish()
+			return
+		state = "done"
+		if career_world_2d != null and is_instance_valid(career_world_2d):
+			career_world_2d.close()
+			career_world_2d = null
+		if m.touch_ui != null:
+			m.touch_ui.visible = touch_was_visible
+		queue_free()
+		return
 	_leave_easel()
 	_leave_stir()
 	_leave_lens()
@@ -6492,6 +7175,8 @@ func action_label() -> String:
 			if board_phase == "name":
 				return "NAME"
 			return "FOLLOW" if board_phase == "trail" else "LOOK"
+		"shuffle":
+			return "MAGIC" if shuffle_phase == "finale" else "TRICK"
 		"scroll":
 			return "LOB" if farm_phase == "feed" else "SWIPE"
 		"race":

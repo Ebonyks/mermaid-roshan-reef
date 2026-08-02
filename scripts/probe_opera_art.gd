@@ -1,9 +1,9 @@
 extends SceneTree
 
 # Fixed Mobile-render audit set for the Pearl Opera House. This is dev-only
-# evidence: the explorable lobby from several heights and angles, the shared
-# theatre/backstage shell, and one readable wide shot of every act's current
-# prop dressing. Run windowed because screenshots require a real viewport.
+# evidence: the shipping 2D lobby, the three 3D boss stages, and one readable
+# full-frame shot of every career's actual Canvas world. Run windowed because
+# screenshots require a real viewport.
 
 var cam: Camera3D
 var main: ReefMain
@@ -27,6 +27,12 @@ func _shot(name: String, pos: Vector3, look: Vector3, fov: float = 62.0) -> void
 	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
 	print("OPERASHOT|", name, "|", "OK" if error == OK else "FAIL")
 
+func _canvas_shot(name: String) -> void:
+	await _settle(4)
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_viewport().get_texture().get_image()
+	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
+	print("OPERASHOT|", name, "|", "OK" if error == OK else "FAIL")
 
 func _hide_main_presentation() -> void:
 	if main.hud_layer != null:
@@ -43,34 +49,23 @@ func _hide_main_presentation() -> void:
 
 
 func _capture_lobby() -> void:
-	var center := OperaHouse.L
-	await _shot("opera_01_lobby_dollhouse_wide", center + Vector3(0, 28, 60),
-		center + Vector3(0, 21, -8), 72.0)
-	await _shot("opera_02_lobby_ground_three_quarter", center + Vector3(-52, 17, 39),
-		center + Vector3(0, 9, -4), 68.0)
-	await _shot("opera_03_ground_left_career_doors", center + Vector3(-18, 8, 22),
-		center + Vector3(-37, 5, 5), 56.0)
-	await _shot("opera_04_ground_right_career_doors", center + Vector3(18, 8, 22),
-		center + Vector3(37, 5, 5), 56.0)
-	await _shot("opera_05_ground_medallion_dark", center + Vector3(0, 8, 17),
-		center + Vector3(0, 0.4, 2), 50.0)
-	await _shot("opera_06_starlight_balcony_wide", center + Vector3(0, 25, 23),
-		center + Vector3(0, 18, -18), 64.0)
-	await _shot("opera_07_grand_gallery_wide", center + Vector3(0, 39, 23),
-		center + Vector3(0, 31, -18), 64.0)
-	await _shot("opera_08_career_door_near", center + Vector3(-27, 8, 2),
-		center + Vector3(-37.2, 5.5, -2), 48.0)
-	await _shot("opera_09_bubble_lift_near", center + Vector3(-22, 15, 7),
-		center + Vector3(-33, 14, -9), 54.0)
-	await _shot("opera_10_chandeliers_and_crest", center + Vector3(0, 32, 25),
-		center + Vector3(0, 38, -20), 58.0)
-	main.opera_stars = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3)
-	opera._update_stars()
-	await _shot("opera_11_ground_medallion_lit", center + Vector3(0, 8, 17),
-		center + Vector3(0, 0.4, 2), 50.0)
+	if opera.lobby_2d == null:
+		print("OPERASHOT|2D_LOBBY|FAIL")
+		return
 	main.opera_stars = 0
-	opera._update_stars()
-
+	opera.lobby_2d.show_lobby(0, main.opera_stars)
+	await _canvas_shot("opera_01_lobby_2d_floor1")
+	main.opera_stars = (1 << 4)
+	opera.lobby_2d.show_lobby(1, main.opera_stars)
+	await _canvas_shot("opera_02_lobby_2d_floor2")
+	main.opera_stars = (1 << 4) | (1 << 9)
+	opera.lobby_2d.show_lobby(2, main.opera_stars)
+	await _canvas_shot("opera_03_lobby_2d_floor3")
+	main.opera_stars = OperaHouse.ALL_STARS
+	opera.lobby_2d.show_lobby(2, main.opera_stars)
+	await _canvas_shot("opera_04_lobby_2d_complete")
+	main.opera_stars = 0
+	opera.lobby_2d.show_lobby(0, main.opera_stars)
 
 func _remove_current_act() -> void:
 	if opera.act == null:
@@ -93,10 +88,36 @@ func _build_act(index: int) -> OperaAct:
 	current.start(main, config, Callable())
 	await _settle(12)
 	current.set_process(false)
+	# Shipping career doors are pure Canvas worlds. They intentionally have no
+	# 3D actor/stage/camera to pose for this audit; the screenshot below records
+	# the exact 2D screen a child plays.
+	if current.career_world_2d != null:
+		cam.current = true
+		return current
+	# Art review should show the career as it is played, not the pre-show
+	# rescue state. Hide that completed beat, then bring the dressed rival and
+	# its work station onto the set.
+	for imp: Dictionary in current.imps:
+		var imp_node := imp.get("node") as Node3D
+		if imp_node != null:
+			imp_node.visible = false
+	for captive: Dictionary in current.captives:
+		var captive_node := captive.get("node") as Node3D
+		if captive_node != null:
+			captive_node.visible = false
+	if current.competition != null:
+		current.stage_phase = "puzzle"
+		current._begin_competition()
+	# Capture the two most materially changed games at their new signature
+	# moments: the actual championship bout and the grand illusion portal.
+	if current.kind == "box":
+		if current.box_bag != null:
+			current.box_bag.visible = false
+		current._box_wave()
+	elif current.kind == "shuffle":
+		current._begin_magic_finale()
 	if current.hud != null:
 		current.hud.visible = false
-	if current.avatar != null:
-		current.avatar.visible = false
 	if current.cam != null:
 		current.cam.current = false
 	cam.current = true
@@ -104,7 +125,9 @@ func _build_act(index: int) -> OperaAct:
 
 
 func _capture_shared_theatre() -> void:
-	var current: OperaAct = await _build_act(0)
+	# The shared 3D proscenium now belongs to bosses only. Career doors never
+	# enter it, which is the architecture this audit is meant to make visible.
+	var current: OperaAct = await _build_act(4)
 	var center := OperaAct.CENTER
 	await _shot("opera_12_shared_stage_audience_wide", center + Vector3(0, 10, 36),
 		center + Vector3(0, 7, -3), 66.0)
@@ -163,7 +186,8 @@ func _init() -> void:
 	get_root().add_child(cam)
 	cam.current = true
 	await _capture_lobby()
-	opera.lobby_root.visible = false
+	if opera.lobby_2d != null:
+		opera.lobby_2d.hide_lobby()
 	await _capture_shared_theatre()
 	await _capture_act_sets()
 	await _remove_current_act()
