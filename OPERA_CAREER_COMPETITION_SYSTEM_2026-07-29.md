@@ -1,13 +1,13 @@
 # Mermaid Roshan Pearl Opera career audit and runtime system
 
-Date: 2026-07-29
+Original audit: 2026-07-29; updated for Nursery Nurse: 2026-08-01
 
-Scope: all twelve Mermaid Roshan career jobs, their artwork packages,
+Scope: all thirteen Mermaid Roshan career jobs, their artwork packages,
 competition rules, nested minigames, and the three major Opera boss games.
 
 ## Executive finding and correction
 
-The accepted job art described twelve 2D/2.5D worlds, but career play still
+The original accepted job art described twelve 2D/2.5D worlds, but career play still
 entered a generic 3D theatre and treated much of that art as reference. That
 was an engine-integration error, not a missing-polish issue.
 
@@ -17,13 +17,15 @@ The shipping path is now corrected:
    lobby, avatar, camera, doors, lifts, lighting, or spatial navigation are
    created in normal desktop or Android play.
 2. Three large direct floor tabs expose four picture-first Mermaid Roshan job
-   cards per floor. The picker never presents imps as floor cards.
+   cards on the first two floors and five on the Grand Gallery. The picker
+   never presents imps as floor cards.
 3. Selecting a job instantiates `OperaCareerWorld2D`, backed by a scalable
    code-native 2D set for that profession rather than a stretched concept key.
-4. The early phases are Roshan's own short job minigames. Rival movement,
-   timer, score bars, and the dressed imp remain hidden and paused.
-5. Each job's configured final level then introduces its dressed imp and turns
-   the relevant last phase(s) into a competition in front of the family crowd.
+4. The early phases are Roshan's own short job minigames. Competitive rival
+   movement, timer, score bars, and dressed imp remain hidden and paused.
+5. Each competitive job's final level introduces its dressed imp. Nursery
+   Nurse instead keeps Nurse Faron beside Roshan for the whole cooperative care
+   story; team bars begin after handwashing and never frame Faron as an opponent.
 6. Detective includes magnifier practice before its 40-second shared-mystery
    finale and guided reveal/rematch; boxing introduces the boxer at round one.
 7. Completing the final performance produces Warm Cheers, Big Cheers, or a
@@ -41,11 +43,13 @@ The system is deliberately data-driven so it can be reused elsewhere.
 | Component | Responsibility |
 | --- | --- |
 | `scripts/opera_lobby_2d.gd` | 2D floor tabs, Roshan-only job cards, finale locks, star progress, spoken hints |
-| `scripts/opera_world_backdrop_2d.gd` | Twelve scalable code-native job sets and lightweight living motion |
+| `scripts/opera_world_backdrop_2d.gd` | Thirteen scalable code-native job sets and lightweight living motion |
 | `scripts/opera_career_world_2d.gd` | 2D actors, early minigames, final-level reveal, audience, score display, curtain call |
-| `scripts/opera_gesture_surface.gd` | One-finger tap, hold, swipe, circle, highlighted choice, and broad timing-window input |
+| `scripts/opera_gesture_surface.gd` | One-finger tap, hold, swipe, circle, highlighted choice, broad timing-window input, and nursery care tableaux |
+| `scripts/opera_nursery_catch.gd` | Expanded falling-baby catch: live-input gate, five catches, two fallers, safe pillows and mercy |
 | `scripts/opera_competition.gd` | Rival pace, player/rival scores, audience energy, cheer tier, Detective retry policy |
 | `scripts/opera_act.gd` | Picker-to-world lifecycle, save-safe completion, boss/legacy routing, touch-layer handoff |
+| `tools/prepare_opera_nursery_art.py` | Deterministic actor fitting, baby-lane splitting, alpha/key-residue audit |
 | `tools/prepare_opera_2d_worlds.py` | Deterministic non-destructive preparation of Roshan/finale-imp actor sprites |
 
 Each career supplies a Roshan actor, finale-rival actor, code-native palette, accent,
@@ -62,22 +66,25 @@ four-year-old. Every completed career still earns its star.
 
 ### A. Runtime 2D career-world package
 
-`scripts/opera_world_backdrop_2d.gd` draws twelve distinct scalable sets: a
+`scripts/opera_world_backdrop_2d.gd` draws thirteen distinct scalable sets: a
 pastry kitchen, clue archive, recital stage, candy workshop, plushy clinic,
 meadow/barn, boxing ring, illusion portal stage, sunrise gallery, bubble-rocket
-bay, grand-prix circuit, and pop concert. These are Godot-native vector worlds,
+bay, grand-prix circuit, moonbeam nursery, and pop concert. These are
+Godot-native vector worlds,
 not raster placeholders, so they remain crisp without violating the required
 2048px native raster coverage per playable screen.
 
-`assets/opera/worlds/actors/roshan_<career>.png` contains twelve 512x512
-transparent actor sprites derived from the accepted outfit hero cards. Only
-the edge-connected navy presentation field and card border are removed.
+`assets/opera/worlds/actors/roshan_<career>.png` contains thirteen 512x512
+transparent actor sprites. The first twelve derive from accepted outfit hero
+cards; Nursery Nurse Roshan is a new identity-locked full-character generation
+with an untouched chroma source, alpha master, runtime derivative and hashes.
 
-`assets/opera/worlds/actors/rival_<career>.png` contains twelve final-level
+`assets/opera/worlds/actors/rival_<career>.png` contains twelve competitive
+final-level
 competition actors. Eleven are deterministic 512x512 slices of one consolidated
 identity-locked costume sheet. Boxer uses the dedicated 1024x1024 two-glove
-match sprite. These actors are hidden during the earlier minigames and enter
-only for the configured finale segment.
+match sprite. Nursery uses the separate 512x512 `faron_nursery.png` partner and
+three 320x320 baby sprites; Faron is visible throughout the care story.
 
 ### B. Accepted flat job package
 
@@ -209,11 +216,11 @@ silently presented as implemented gameplay screens.
 
 ### Floor 2: Starlight Balcony
 
-#### 5. Doctor — The Plushy Care Relay
+#### 5. Stuffie Surgeon — The Stuffie Surgeon Relay
 
 - World art: friendly plushy clinic with large care stations, X-ray language,
   basins, bandage shapes, and calm teal lighting.
-- Roshan art: doctor coat and child-readable medical tools.
+- Roshan art: stuffie-surgeon coat and child-readable plush-repair tools.
 - Rival art: same imp in teal coat with head mirror, stethoscope, and bandage
   roll; the mirror is functional equipment, not a marine badge.
 - Nested minigames: hold to wash; find three highlighted patients; choose
@@ -301,7 +308,23 @@ silently presented as implemented gameplay screens.
 - Final competition level: the driver imp enters for lap two and the finish
   sprint on the same 2D circuit.
 
-#### 12. Pop Star — The Starlight Sound-Off
+#### 12. Nursery Nurse — The Moonbeam Nursery
+
+- World art: a moonlit infant-care room with five rounded cribs, bottle shelves,
+  soft pillows and a moving moon-and-stars mobile; explicitly no clinic, X-ray,
+  cast or Stuffie Surgeon props.
+- Roshan art: aqua/lavender nursery smock, baby bottle, peach burp cloth and
+  established rainbow-tail identity.
+- Partner art: adult Nurse Faron in cream/aqua apron, preserving her blonde hair
+  and burgundy tail, calmly cradling one mint-swaddled baby.
+- Nested minigames: hold to wash; catch five falling babies with safe pillow
+  returns and mercy; hold the bottle; make three broad timing-window burp pats;
+  swipe blankets down over three crib tableaux.
+- Final cooperative level: Catch, feed, burp and bedtime share one 104-second
+  team performance. Faron remains visible, both bars finish together, and the
+  curtain call says the babies are cozy rather than declaring a winner.
+
+#### 13. Pop Star — The Starlight Sound-Off
 
 - World art: concert district with stage lighting, audience space, rhythm
   color, and a large finale platform.
@@ -328,18 +351,22 @@ the dressed-imp final levels nested inside each career job:
 
 - Godot importer: completed under Godot 4.7.1, Forward Mobile.
 - `probe_opera_2d.gd`: forces the shipping path under headless Godot; verifies
-  the 2D lobby has zero 3D children, three floor tabs, four Roshan-only cards,
-  no imp cards, finale locks, scalable code-native career worlds, hidden/paused
-  rivals before the finale, final-level imp entry, all one-finger phase
+  the 2D lobby has zero 3D children, three floor tabs, four/five Roshan-only
+  cards, no imp cards, finale locks, scalable code-native career worlds,
+  hidden/paused competitive rivals before the finale, Faron's cooperative
+  presence, final-level partner entry, all one-finger phase
   completions, Detective's guided clock reset, cheer tiers, and touch restore.
 - Existing detailed Opera probe remains green for the preserved mechanical
-  engines.
+  engines and the appended save-compatible nursery slot.
+- `probe_opera_nursery.gd` blocks passive baby catches and verifies safe misses,
+  mercy convergence, feed/burp/bedtime semantics and cooperative completion.
 - Static GDScript parse and inference lint pass.
 - No undersized raster is used as a playable background. Actor sprites are
-  512x512 except the 1024x1024 boxer; all meet the mobile texture rule.
+  512x512 except the 1024x1024 boxer; nursery babies are 320x320; all meet the mobile texture rule.
 - Normal career play creates no physics bodies or lights.
 - No save key was removed. Completion still routes through the existing
-  Opera-star write path.
+  Opera-star write path; Nursery uses appended bit 15 so bits 0–14 retain their
+  exact historical meaning.
 - Nothing in `assets/book/`, `assets/audio/voices/`, or
   `assets/characters/friends/` was modified.
 

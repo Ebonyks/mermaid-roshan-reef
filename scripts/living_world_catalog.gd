@@ -5,7 +5,7 @@ extends RefCounted
 # quiet continuous accents and one passive-only surprise. The runtime renderer
 # consumes these rows and the trusted probe audits them independently.
 
-const EXPECTED_STAGE_COUNT := 111
+const EXPECTED_STAGE_COUNT := 112
 
 
 static func build() -> Dictionary:
@@ -466,10 +466,10 @@ static func _add_opera_acts(specs: Dictionary) -> void:
 			"Dragon-show curtains breathe very slowly.", "curtain",
 			"Warm scale glints pulse beyond the play area.", "ember",
 			"A tiny friendly ember peeks from the curtain once.", "ember"],
-		["opera.act.05", "The Plushy Checkup", "scripts/opera_house.gd:ACTS[5]; scripts/opera_act.gd",
-			"Clinic hearts breathe beside the plushy beds.", "heart",
-			"Soft paw marks drift at an independent pace.", "paw",
-			"A little comfort heart rises once from backstage.", "heart"],
+		["opera.act.05", "The Stuffie Surgeon Relay", "scripts/opera_house.gd:ACTS[5]; scripts/opera_act.gd",
+			"Sewing hearts breathe beside the stuffie stations.", "heart",
+			"Soft paw patches drift at an independent pace.", "paw",
+			"A little comfort patch rises once from backstage.", "heart"],
 		["opera.act.06", "The Piggy Picnic", "scripts/opera_house.gd:ACTS[6]; scripts/opera_act.gd",
 			"Picnic leaves sway beyond the blanket.", "leaf",
 			"Flower heads nod at another rhythm.", "flower",
@@ -506,6 +506,10 @@ static func _add_opera_acts(specs: Dictionary) -> void:
 			"Finale curtains breathe along the grand proscenium.", "curtain",
 			"Maestro notes drift at a stately second rhythm.", "note",
 			"A crown-shaped star rises once over the finale stage.", "crown"],
+		["opera.act.15", "The Moonbeam Nursery", "scripts/opera_house.gd:ACTS[15]; scripts/opera_career_world_2d.gd",
+			"Moon-and-star mobiles sway beside the baby cribs.", "moon",
+			"Tiny dream bubbles drift at an independent pace.", "bubble",
+			"A sleepy golden star settles once above the beds.", "sparkle"],
 	])
 
 

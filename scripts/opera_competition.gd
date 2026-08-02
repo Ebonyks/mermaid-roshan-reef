@@ -1,6 +1,6 @@
 class_name OperaCompetition
 extends RefCounted
-## Shared competition contract for the twelve Pearl Opera career worlds.
+## Shared competition contract for the thirteen Pearl Opera career worlds.
 ##
 ## The career engine still owns its tactile minigames. This director turns
 ## those verbs into one readable stage contest: Roshan versus a dressed rival,
@@ -14,7 +14,7 @@ const CAREERS := {
 		"world": "REEF BAKE-OFF",
 		"contest": "Finish the brightest celebration cake",
 		"rival_verb": "whisks",
-		"par_time": 92.0,
+		"par_time": 38.0,
 		"rival_cap": 0.82,
 		"accent": Color(1.0, 0.58, 0.52),
 	},
@@ -31,7 +31,7 @@ const CAREERS := {
 		"world": "TWIN-RIBBON RECITAL",
 		"contest": "Win the crowd with rhythm and grace",
 		"rival_verb": "turns",
-		"par_time": 74.0,
+		"par_time": 36.0,
 		"rival_cap": 0.84,
 		"accent": Color(1.0, 0.58, 0.82),
 	},
@@ -39,7 +39,7 @@ const CAREERS := {
 		"world": "CANDY WORKSHOP CUP",
 		"contest": "Make the happiest parade batch",
 		"rival_verb": "wraps a sweet",
-		"par_time": 82.0,
+		"par_time": 38.0,
 		"rival_cap": 0.83,
 		"accent": Color(1.0, 0.62, 0.72),
 	},
@@ -47,7 +47,7 @@ const CAREERS := {
 		"world": "PLUSHY CARE RELAY",
 		"contest": "Help every plushy feel better",
 		"rival_verb": "checks a patient",
-		"par_time": 104.0,
+		"par_time": 40.0,
 		"rival_cap": 0.80,
 		"accent": Color(0.48, 0.86, 0.92),
 	},
@@ -55,7 +55,7 @@ const CAREERS := {
 		"world": "PIGGY PICNIC CHALLENGE",
 		"contest": "Grow, feed and guide the happiest herd",
 		"rival_verb": "feeds a piggy",
-		"par_time": 86.0,
+		"par_time": 38.0,
 		"rival_cap": 0.82,
 		"accent": Color(0.58, 0.84, 0.46),
 	},
@@ -63,7 +63,7 @@ const CAREERS := {
 		"world": "FRIENDLY CHAMPIONSHIP",
 		"contest": "Three rounds against the padded imp",
 		"rival_verb": "guards",
-		"par_time": 76.0,
+		"par_time": 34.0,
 		"rival_cap": 0.86,
 		"accent": Color(1.0, 0.48, 0.42),
 	},
@@ -71,7 +71,7 @@ const CAREERS := {
 		"world": "GRAND ILLUSION DUEL",
 		"contest": "Top the rival's tricks, then open the star portal",
 		"rival_verb": "casts a trick",
-		"par_time": 88.0,
+		"par_time": 38.0,
 		"rival_cap": 0.85,
 		"accent": Color(0.82, 0.58, 1.0),
 	},
@@ -79,7 +79,7 @@ const CAREERS := {
 		"world": "SUNRISE PAINT-OFF",
 		"contest": "Race two canvases toward the gallery reveal",
 		"rival_verb": "paints a band",
-		"par_time": 94.0,
+		"par_time": 38.0,
 		"rival_cap": 0.84,
 		"accent": Color(1.0, 0.62, 0.34),
 	},
@@ -87,7 +87,7 @@ const CAREERS := {
 		"world": "ROCKET REPAIR RACE",
 		"contest": "Route the bubbles and launch first",
 		"rival_verb": "fits a pipe",
-		"par_time": 96.0,
+		"par_time": 40.0,
 		"rival_cap": 0.82,
 		"accent": Color(0.50, 0.82, 1.0),
 	},
@@ -95,15 +95,25 @@ const CAREERS := {
 		"world": "OPERA GRAND PRIX",
 		"contest": "Two laps against the helmeted imp",
 		"rival_verb": "takes a corner",
-		"par_time": 78.0,
+		"par_time": 34.0,
 		"rival_cap": 0.94,
 		"accent": Color(1.0, 0.42, 0.40),
+	},
+	"nursery": {
+		"world": "MOONBEAM NURSERY TEAM",
+		"contest": "Catch, feed, burp and tuck in every baby with Faron",
+		"rival_verb": "helps a sleepy baby",
+		"par_time": 44.0,
+		"rival_cap": 0.82,
+		"cooperative": true,
+		"partner": "Nurse Faron",
+		"accent": Color(0.64, 0.88, 0.82),
 	},
 	"popstar": {
 		"world": "STARLIGHT SOUND-OFF",
 		"contest": "Lift the crowd higher than the rival act",
 		"rival_verb": "sings a phrase",
-		"par_time": 72.0,
+		"par_time": 36.0,
 		"rival_cap": 0.84,
 		"accent": Color(1.0, 0.52, 0.90),
 	},
@@ -148,6 +158,10 @@ func configure(costume: String) -> void:
 
 func is_valid() -> bool:
 	return not spec.is_empty()
+
+
+func is_cooperative() -> bool:
+	return bool(spec.get("cooperative", false))
 
 
 func begin() -> void:
@@ -203,10 +217,10 @@ func guided_retry() -> void:
 	retries += 1
 	active = true
 	round_elapsed = 0.0
-	player_progress = 0.0
+	# only the RIVAL restarts — the child keeps her bar and score
+	# high-water marks (recognition rematch, never lost progress)
 	rival_progress = 0.0
 	rival_step = 0
-	_last_player_progress = 0.0
 	_rival_finish_sent = false
 	# The revealed layout makes the rematch intentionally slower for the rival.
 	spec["par_time"] = float(spec.get("par_time", 40.0)) + 12.0
@@ -218,7 +232,13 @@ func complete() -> Dictionary:
 	active = false
 	completed = true
 	player_progress = 1.0
-	player_score = maxi(player_score + 180, rival_score + 40)
+	if is_cooperative():
+		# a team finale: Faron finishes WITH Roshan, nobody is beaten
+		rival_progress = 1.0
+		player_score += 180
+		rival_score = maxi(rival_score, int(round(float(player_score) * 0.72)))
+	else:
+		player_score = maxi(player_score + 180, rival_score + 40)
 	var par_time := maxf(10.0, float(spec.get("par_time", 80.0)))
 	var speed_quality := clampf(1.0 - maxf(0.0, elapsed - par_time * 0.58) / (par_time * 0.9), 0.0, 1.0)
 	var care_quality := clampf(1.0 - float(mistakes) * 0.055 - float(retries) * 0.18, 0.0, 1.0)
@@ -245,6 +265,7 @@ func result() -> Dictionary:
 		"rival_score": rival_score,
 		"elapsed": elapsed,
 		"retries": retries,
+		"cooperative": is_cooperative(),
 	}
 
 
