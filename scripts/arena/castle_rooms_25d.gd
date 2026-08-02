@@ -1447,6 +1447,18 @@ func _activate_room_item(item_id: String) -> void:
 	if item_data.has("light_cluster"):
 		_toggle_hall_sconce(item_id, sprite, item_data)
 		return
+	if item_id == "throne" and m.castle_room_id == "main_hall":
+		# THE INTRODUCTION TO COMBAT (owner 2026-08-01): touching the Royal
+		# throne itself opens the sparring class — replayable forever. The
+		# alcove crown ceremony (activate_current_room) is untouched.
+		_play_item_sfx(String(item_data.get("sound", "chime.ogg")),
+			float(item_data.get("pitch", 1.25)))
+		_item_burst(sprite.position,
+			Color(item_data.get("color", StorybookUI.GOLD)), 8)
+		var launch := m.create_tween()
+		launch.tween_interval(0.45)
+		launch.tween_callback(_start_combat_tutorial)
+		return
 	sprite.set_meta("busy", true)
 	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 		float(item_data.get("pitch", 1.0)))
@@ -2418,6 +2430,20 @@ func _finish_kitchen_recipe() -> void:
 	m.game = "level2"
 	resume("kitchen")
 	m.show_msg("Roshan", "Something delicious is ready!", "win")
+
+# Suspend the castle, run the sparring class, and come home to the hall.
+# The same cutaway pattern the kitchen and opera hall already use.
+func _start_combat_tutorial() -> void:
+	if m.combat_tutorial_game != null:
+		return
+	suspend()
+	var tut := CombatTutorial.new()
+	m.combat_tutorial_game = tut
+	m.add_child(tut)
+	tut.start(m, func() -> void:
+		m.combat_tutorial_game = null
+		resume("main_hall")
+		m.show_msg("Roshan", "A royal wave from the throne!", "win"))
 
 func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)

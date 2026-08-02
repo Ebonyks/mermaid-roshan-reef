@@ -114,6 +114,7 @@ func load_save() -> void:
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
+	m.combat_tutorial_done = bool(m.save_data.get("combat_tutorial", false))
 	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
 	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
 	m.ember_found = bool(m.save_data.get("ember_found", false))
@@ -192,6 +193,7 @@ func write_save() -> bool:
 	next_data["fairyskin"] = m.fairy_skin_unlocked
 	next_data["combat_ice"] = m.combat_ice_done
 	next_data["combat_fire"] = m.combat_fire_done
+	next_data["combat_tutorial"] = m.combat_tutorial_done
 	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
 	next_data["dungeon_done"] = m.dungeon_done
 	next_data["ember_found"] = m.ember_found

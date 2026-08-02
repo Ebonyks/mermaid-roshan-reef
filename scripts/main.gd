@@ -182,7 +182,9 @@ var galaxy_return_pos := Vector3.ZERO
 var galaxy_level2_open := false
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
+var combat_tutorial_done := false  # the throne sparring class, finished once
 var combat_game: CombatArena = null
+var combat_tutorial_game: CombatTutorial = null
 var combat_from := ""
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
