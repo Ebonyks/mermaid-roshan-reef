@@ -116,9 +116,9 @@ func _init() -> void:
 	if "--controls" in OS.get_cmdline_user_args():
 		roster = CONTROLS
 		run_count = CONTROLS.size()
-	print("DUSTBAL|header runs=%d dt=%.2f band=%d-%ds hp=%d window_base=%.1f set=%s" % [
+	print("DUSTBAL|header runs=%d dt=%.2f band=%d-%ds rounds=%d taps_per_round=%d window_base=%.2f set=%s" % [
 		run_count, DT, int(BAND_LO), int(BAND_HI), DustBossGame.HP,
-		float(DustBossGame.PHASES[0]["window_t"]),
+		DustBossGame.TAPS_PER_ROUND, DustBunnyBossSprite.VULNERABILITY_WINDOW,
 		"controls" if roster == CONTROLS else "personas"])
 	print("DUSTBAL|schema run,persona,fight_s,total_s,windows,hit,missed,taps,shielded,openfar,mercy,lat_med,dry_max,inreach_open,bumps,verdict")
 	var fights: Array[float] = []
@@ -247,7 +247,10 @@ func _drive() -> void:
 		react_t -= DT
 		if react_t <= 0.0:
 			want_tap = true
-			react_t = 0.45   # she will try again inside the same window
+			# a damage round is THREE quick taps inside one 0.75s window, so a
+			# child who has noticed the flash drums as fast as her hand goes.
+			# 0.18s between taps is a brisk but real preschool double/triple tap.
+			react_t = 0.18
 	# the masher: a steady drum of taps whatever the boss is doing
 	if float(persona["mash"]) > 0.0:
 		mash_t -= DT

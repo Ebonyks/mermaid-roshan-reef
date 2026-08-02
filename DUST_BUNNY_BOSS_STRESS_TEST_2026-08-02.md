@@ -9,7 +9,12 @@ Everything below is measured, not estimated. Raw output:
 `scripts/probe_dust_boss_balance.gd` (advisory), reference frames from
 `scripts/probe_dust_boss_shots.gd`.
 
-> **Art note.** The boss cutout used throughout this test is a **placeholder**
+> **SUPERSEDED IN PART — see §8.** The encounter has since been composed with
+> `DustBunnyBossSprite` (the authored art and the owner's three-taps-per-window
+> contract). §1.1 and §1.3 are the *before* measurements; §8 is the after, and
+> the headline finding — mashing equals reading — is now closed.
+>
+> **Art note (historic).** The boss cutout used throughout this test was a **placeholder**
 > — `dust_bunny_curl_ears.png` is a regular cast member, and no boss-scale dust
 > bunny exists in this repository (see `DUST_BUNNY_BOSS_2026-08-02.md` §0). The
 > real art is on the owner's machine and has not landed yet. Every measurement
@@ -418,3 +423,69 @@ of the fight (§3.6).
 The AI itself — states, timings, phases, mercy — is **unchanged**, so every
 number in this document describes the boss as it stands today. All tuning
 proposals in §4 are deliberately left unapplied: they are the owner's call.
+
+
+---
+
+## 8. After the composition (2026-08-02, later)
+
+The two halves were composed on the owner's instruction:
+`DustBunnyBossSprite` now owns the damage core — **three rounds of three quick
+taps**, a 0.75 s window (0.65 s in the final round), 1.25× action speed once two
+rounds are down, the flinch chain and the implosion — while this file keeps the
+octagon arena, the travel, the showing, the mercy ramp, the medal, the framing
+and the ending. Same 25 personas, same harness, same seeds.
+
+### The headline finding is closed
+
+| Control | Before (1 tap / 2.6 s) | After (3 taps / 0.75 s) |
+| --- | ---: | ---: |
+| `robot` — perfect play | 22.5 s | 23.5 s |
+| `blind` — **never looks at the star** | 23.3 s (**+3.6 %**) | 31.5 s (**+34 %**) |
+| `masher` ×5 median | 23.3 s | 34.7 s |
+| `speedy` ×5 median | 24.7 s | 25.3 s |
+
+Ignoring the tell used to cost 0.8 s. It now costs **8 s and a third of the
+fight**, because three taps inside 0.75 s must be *aimed at the window* — a
+continuous drum no longer suffices. Watching is now the fast way to play.
+
+### The rest of the measured set
+
+| | Before | After |
+| --- | ---: | ---: |
+| Fight length, median | 29.3 s | **40.2 s** |
+| In the 45–120 s band | 2/25 | **12/25** |
+| Window conversion | 78.1 % | **56.0 %** |
+| Mercy steps used, mean | 0.84 | **2.36** |
+| Taps per fight, mean | 15.9 | **28.4** |
+| Agency density, median | ~19 % | **26 %** |
+
+Conversion falling is the point: a window is now something you can *miss*,
+which is what makes landing one mean anything. The mercy ramp went from
+decorative to load-bearing — the median child now uses it twice per fight, and
+it is what keeps a missed window costless.
+
+### One regression found and fixed in the same pass
+
+The `slowpoke` control (4 s reaction, 4 s gawk) went from 104 s to **229.6 s**:
+three taps inside even a mercy-stretched 2.25 s window is out of reach for that
+hand, so she simply collected windows. A longer window cannot fix a slow hand.
+
+So deep mercy now also **gives her taps**: after 4 missed windows the fight
+lands the first tap of each window for her, after 8 the second — capped so a
+round can never complete itself. The window she finally reads needs only one
+real tap. Slowpoke: **229.6 s → 132.3 s**, and every other control is
+unchanged (robot 23.5 s, blind 31.5 s, rooted 31.8 s) because the ramp does not
+engage until the fourth miss.
+
+### Still open after the composition
+
+- **The unattended fight still never ends** (`asleep`: 35 windows, 300 s cap).
+- **The nine voice clips still do not exist**, so the rule still reaches a
+  non-reader as text (the art now carries dizzy and angry unaided, which is a
+  real improvement, but "tap three times, fast" is not yet sayable in pictures).
+- **The arena is still primitives** and the message banner still sits where
+  Roshan stands.
+- Fight length is now *inside* the band for half the personas; the slowest tail
+  (132 s) sits above it. That is the price of the no-fail guarantee and looks
+  like the right trade.

@@ -64,11 +64,13 @@ func _await_state(want: String, cap: int) -> bool:
 	return false
 
 func _await_airborne(cap: int) -> bool:
+	# airborne AND the kit has opened its own vulnerability window
 	var n := 0
 	while n < cap:
 		if main.game != "dustboss" or _state() != "vuln":
 			return false
-		if float(main.g.get("db_y", 0.0)) > 2.0 and float(main.g.get("db_flash", 0.0)) >= 0.99:
+		var k: DustBunnyBossSprite = main.g.get("db_kit") as DustBunnyBossSprite
+		if float(main.g.get("db_y", 0.0)) > 2.0 and k != null and k.vulnerable:
 			return true
 		n += 1
 		await process_frame
@@ -103,9 +105,10 @@ func _tap() -> void:
 	await process_frame
 
 func _strike(max_windows: int) -> bool:
-	# wait for a flashing window, stand under him, tap. A tap that arrives
-	# after the window closed costs a retry, never the run — exactly what a
-	# small player's late tap costs.
+	# A round is THREE QUICK TAPS inside one window (the owner's 2026-07-29
+	# contract, owned by DustBunnyBossSprite). Wait for a flashing window,
+	# stand under him, and drum. A window that closes short costs a retry,
+	# never the run — exactly what a small player's slow hand costs.
 	var want: int = _hits() + 1
 	for w in range(max_windows):
 		if main.game != "dustboss":
@@ -118,7 +121,15 @@ func _strike(max_windows: int) -> bool:
 		if not up:
 			continue
 		_park_on_boss()
-		await _tap()
+		var guard := 0
+		while guard < 400 and main.game == "dustboss" and _hits() < want:
+			# a real drum on the virtual hand: press, release, press...
+			main.touch_ui.action_down = (guard % 2) == 0
+			guard += 1
+			await process_frame
+			if _state() != "vuln" and _hits() < want:
+				break
+		main.touch_ui.action_down = false
 		if _hits() >= want:
 			return true
 	return false
@@ -178,7 +189,8 @@ func _pose_case() -> void:
 	# frame, because the interesting poses (wind-up, open) last under a second.
 	var boss := _boss()
 	var seen: Dictionary = {}
-	for key: String in DustBossGame.BOSS_POSES.keys():
+	for key: String in ["idle", "jump", "laugh_vulnerable", "flinch_3",
+			"angry_jump_final", "implode"]:
 		seen[key] = false
 	_ck("every beat maps to a named pose", boss.pose_for_state() != "")
 	var guard := 0
@@ -187,9 +199,10 @@ func _pose_case() -> void:
 		if seen.has(pose):
 			seen[pose] = true
 		# land the three hits as they come, without skipping past any beat
-		if _state() == "vuln" and float(main.g.get("db_y", 0.0)) > 2.0:
+		var kk: DustBunnyBossSprite = main.g.get("db_kit") as DustBunnyBossSprite
+		if _state() == "vuln" and kk != null and kk.vulnerable:
 			_park_on_boss()
-			main.touch_ui.action_down = (guard % 6) < 3
+			main.touch_ui.action_down = (guard % 2) == 0
 		else:
 			main.touch_ui.action_down = false
 		guard += 1
@@ -202,11 +215,10 @@ func _pose_case() -> void:
 			used.append(key)
 		else:
 			unused.append(key)
-	_ck("the fight shows the idle, wind-up, open, dizzy and angry poses",
-		bool(seen.get("idle", false)) and bool(seen.get("windup", false))
-		and bool(seen.get("open", false)) and bool(seen.get("dizzy", false))
-		and bool(seen.get("angry", false)))
-	_ck("the befriending beat has its own pose", bool(seen.get("friends", false)))
+	_ck("the fight plays jump, the vulnerable laugh, the flinch and the final jump",
+		bool(seen.get("jump", false)) and bool(seen.get("laugh_vulnerable", false))
+		and bool(seen.get("flinch_3", false)) and bool(seen.get("angry_jump_final", false)))
+	_ck("the befriending beat is the authored implosion", bool(seen.get("implode", false)))
 	print("DUSTBOSS|poses used: ", ", ".join(used), " | not reached in this run: ",
 		", ".join(unused))
 
@@ -262,7 +274,8 @@ func _first_hit_case() -> void:
 	_ck("an open window still needs her to be near him",
 		gap > boss.reach() and _hits() == 0)
 	# HYBRID TOUCH: the finger goes ON him. Route a world tap through main's
-	# own router (the path the touch layer uses) and it must be the bonk.
+	# own router (the path the touch layer uses) and it must register one of
+	# the window's three taps — not a walk order, and not a whole round.
 	var opened_again: bool = await _await_state("vuln", 4000)
 	var up2: bool = await _await_airborne(600)
 	if opened_again and up2:
@@ -270,38 +283,46 @@ func _first_hit_case() -> void:
 		var b: Node3D = main.g.get("db_boss") as Node3D
 		var on_him: Vector2 = cam.unproject_position(b.global_position
 			+ Vector3(0, DustBossGame.BOSS_H * 0.5, 0))
-		var hits_before: int = _hits()
+		var kit0: DustBunnyBossSprite = main.g.get("db_kit") as DustBunnyBossSprite
+		var taps_before: int = kit0.accepted_taps if kit0 != null else -1
 		main._on_touch_world(on_him)
 		await process_frame
-		_ck("tapping the boss himself is the bonk, not a walk order",
-			_hits() == hits_before + 1)
+		_ck("tapping the boss himself is a bonk, not a walk order",
+			kit0 != null and kit0.accepted_taps == taps_before + 1)
 	var hit1: bool = _hits() >= 1
 	if not hit1:
 		hit1 = await _strike(4)
-	_ck("the first flash she reaches takes damage", hit1)
+	_ck("three quick taps on the flash take one damage round", hit1)
 	_ck("the landed hit closes the window", _state() == "struck")
 	await _tap()
 	await _tap()
-	_ck("more taps during the hit reaction add no damage", _hits() == 1)
+	_ck("more taps during the flinch reaction add no damage", _hits() == 1)
 
 # ---- dizzy, then window 2 → angry -----------------------------------------
 func _second_hit_case() -> void:
 	var boss := _boss()
-	_ck("hit 1 turns him dizzy", String(boss.phase_cfg()["name"]) == "dizzy")
+	_ck("round 1 turns him dizzy", String(boss.phase_cfg()["name"]) == "dizzy")
 	_ck("dizzy moves slower than his opening pace",
 		boss.hop_speed() < float(DustBossGame.PHASES[0]["hop_speed"]))
-	_ck("dizzy is given a longer window than his opening one",
-		float(DustBossGame.PHASES[1]["window_t"]) > float(DustBossGame.PHASES[0]["window_t"]))
+	_ck("a damage round is three taps, not one",
+		DustBossGame.TAPS_PER_ROUND == 3 and DustBossGame.HP == 3)
 	var hit2: bool = await _strike(4)
-	_ck("the second flash takes the second damage", hit2)
+	_ck("the second window takes the second round", hit2)
 	await _tap()
-	_ck("a tap after the landing hit adds nothing", _hits() == 2)
-	_ck("hit 2 turns him angry", String(boss.phase_cfg()["name"]) == "angry")
+	_ck("a tap after the round lands adds nothing", _hits() == 2)
+	_ck("round 2 turns him angry", String(boss.phase_cfg()["name"]) == "angry")
+	var kit2: DustBunnyBossSprite = main.g.get("db_kit") as DustBunnyBossSprite
+	_ck("round 2 starts the kit's final round at 1.25x",
+		kit2 != null and kit2.final_round_active
+		and kit2.combat_speed_scale == DustBunnyBossSprite.FINAL_ROUND_SPEED_SCALE)
+	_ck("the final round tightens the window to 0.65s",
+		kit2 != null and kit2.current_vulnerability_window()
+		== DustBunnyBossSprite.FINAL_ROUND_VULNERABILITY_WINDOW)
 	_ck("angry moves at a faster pace than either earlier phase",
 		float(DustBossGame.PHASES[2]["hop_speed"]) > float(DustBossGame.PHASES[0]["hop_speed"])
 		and float(DustBossGame.PHASES[2]["hop_speed"]) > float(DustBossGame.PHASES[1]["hop_speed"]))
-	_ck("angry windows are shorter than the opening ones",
-		float(DustBossGame.PHASES[2]["window_t"]) < float(DustBossGame.PHASES[0]["window_t"]))
+	_ck("the boss is the authored animation kit, not a static card",
+		(main.g.get("db_kit") as DustBunnyBossSprite) != null)
 
 # ---- a window let go: mercy, never failure --------------------------------
 func _mercy_case() -> void:
@@ -327,7 +348,7 @@ func _win_case() -> void:
 	var pearls_before: int = main.pearl_count
 	var hit3: bool = await _strike(5)
 	_ck("the fight keeps offering windows until she lands them", hit3)
-	_ck("the third flash finishes the fight", _hits() == 3)
+	_ck("the third round finishes the fight", _hits() == 3)
 	_ck("the ending is a befriending beat, not a defeat", _state() == "friends")
 	var wait := 0
 	while main.game == "dustboss" and wait < 4000:

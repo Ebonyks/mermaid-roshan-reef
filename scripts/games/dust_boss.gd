@@ -33,13 +33,20 @@ extends RefCounted
 # takes. Satellite rules per CLAUDE.md: logic only, `main` by reference, all
 # state on m.g ("db_*" keys, reclaimed with the rest of the game scratch).
 
-const HP := 3                  # three landed hits — the whole health bar
-const HITS_PER_WINDOW := 1     # one hit per airborne window; the rest sparkle
+# THE DAMAGE CORE IS DustBunnyBossSprite (scripts/dust_bunny_boss_sprite.gd),
+# the approved four-frame animation kit that arrived with Grand Puff's art.
+# It owns the owner's 2026-07-29 contract — three rounds of THREE QUICK TAPS,
+# a 0.75s window (0.65s in the final round), 1.25x action speed once two rounds
+# are down — plus the flinch chain and the implosion. This file owns everything
+# around it: the arena, the travel, the showing, the mercy ramp, the medal, the
+# framing and the ending. See BOSS_CONVERGENCE_DECISION_2026-08-02.md.
+const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS      # three damage rounds
+const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per window
 
-# Window pacing (owner direction): space the windows so three damage is the
-# amount a small player actually places over a fight. One window is a
-# comfortable tap (2.6s of flashing ≈ 150 frames), the prowl between windows
-# is longer than the window itself, and a landed hit closes the window early.
+# Window pacing: the WINDOW length now comes from the animation kit (0.75s,
+# 0.65s final). What this file still owns is the SPACING — how long he prowls
+# between windows, and the mercy ramp that lengthens the window itself when
+# she keeps missing, so the fight can get easier but never fail.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
 const WINDUP_T := 0.7          # squash-and-glimmer telegraph before the leap
 const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
@@ -48,20 +55,26 @@ const ANGRY_T := 1.5           # the puff-up after hit 2
 const WIN_T := 2.6             # befriending beat before the win banner
 
 const LEAP_UP := 0.34          # seconds of rise at the top of a leap
-const LEAP_H := 7.6            # hover height while the star flashes
+const LEAP_H := 7.6            # hover height while he laughs, exposed
 const REACH := 12.0            # base tap reach during a window (ring units)
 const HOP_H := 2.4             # prowl hop arc height
-const BOSS_H := 16.0           # placeholder scale: Roshan is ~7 units, and a
-                               # boss must not read as one of the hall bunnies
-                               # she already sweeps up. Drop to ~11.5 when the
-                               # real boss art lands (it will carry its own mass)
+const BOSS_H := 17.0           # on-screen height of the animated CARD. The
+                               # authored frames carry dust plumes and padding,
+                               # so the bunny inside reads at roughly 0.6 of
+                               # this — about 10 units against Roshan's ~7,
+                               # which is the size difference a boss needs.
+                               # The stage re-solves its framing from this.
 const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
 const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
-const MERCY_WINDOW := 0.45     # +seconds of window per missed window
-const MERCY_WINDOW_MAX := 2.2
+const MERCY_WINDOW := 0.30     # +seconds of window per missed window. Smaller
+const MERCY_WINDOW_MAX := 1.5  # than the old ramp because the base window is
+                               # now 0.75s, not 2.6s — but it still doubles the
+                               # window for a child who keeps missing
 const MERCY_REACH := 1.6       # +reach per missed window
 const MERCY_REACH_MAX := 6.0
+const MERCY_FREE_TAP_AT := 4   # missed windows before the fight starts landing
+                               # taps for her (see _free_taps)
 const MERCY_SLOW := 0.07       # he calms down when she keeps missing
 const MERCY_SLOW_MAX := 0.40
 
@@ -72,16 +85,6 @@ const MERCY_SLOW_MAX := 0.40
 # back to BOSS_FALLBACK_TEX, so the encounter runs identically whether none,
 # some or all of the art has landed.
 const BOSS_ART_DIR := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/"
-const BOSS_FALLBACK_TEX := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
-const BOSS_POSES := {
-	"idle": "boss_idle.png",          # prowling, shielded, pleased with himself
-	"windup": "boss_windup.png",      # squashed, ears back — he is about to spring
-	"open": "boss_open.png",          # airborne, crest lit — THE window
-	"struck": "boss_struck.png",      # the bonk: eyes wide, impact arrows
-	"dizzy": "boss_dizzy.png",        # spiral eyes, one ear drooping
-	"angry": "boss_angry.png",        # puffed, brows down, steam puffs
-	"friends": "boss_friends.png",    # eyes closed, laughing, crest halo
-}
 # The tell is its own art too: a closed badge and an open badge that read as
 # DIFFERENT OBJECTS, not one badge at two alphas.
 const TELL_OPEN_TEX := BOSS_ART_DIR + "boss_tell_open.png"
@@ -90,13 +93,16 @@ const STAR_TEX := "res://assets/mg/star.png"   # fallback tell (generic reward s
 
 # Who he is at 0, 1 and 2 landed hits. "hop_speed" is the pace the owner
 # note is about: dizzy is slower than puffy, angry is much faster than both.
+# Who he is after 0, 1 and 2 completed rounds. The animation kit escalates the
+# ACTION (1.25x and a shorter window in the final round); these rows escalate
+# the TRAVEL — dizzy is slower than his opening pace, angry is much faster.
 const PHASES: Array[Dictionary] = [
 	{"name": "puffy", "hop_speed": 10.0, "hop_gap": 0.78, "prowl_t": 3.4,
-		"window_t": 2.6, "chase": 0.30, "tint": Color(1.0, 1.0, 1.0), "puff": 1.0},
+		"chase": 0.30, "puff": 1.0},
 	{"name": "dizzy", "hop_speed": 6.4, "hop_gap": 1.15, "prowl_t": 4.0,
-		"window_t": 3.2, "chase": 0.15, "tint": Color(0.88, 0.93, 1.0), "puff": 0.96},
+		"chase": 0.15, "puff": 0.96},
 	{"name": "angry", "hop_speed": 16.5, "hop_gap": 0.46, "prowl_t": 2.4,
-		"window_t": 2.1, "chase": 0.65, "tint": Color(1.0, 0.82, 0.78), "puff": 1.12},
+		"chase": 0.65, "puff": 1.12},
 ]
 
 var m: ReefMain
@@ -183,9 +189,12 @@ func _mercy() -> int:
 	return int(m.g.get("db_miss", 0))
 
 func window_len() -> float:
-	# the vulnerability window, mercy included — the number the whole fight is
-	# tuned around, and the one a probe asserts grows after a missed window
-	var base: float = float(phase_cfg()["window_t"])
+	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
+	# round) plus the mercy ramp this file owns
+	var base: float = DustBunnyBossSprite.VULNERABILITY_WINDOW
+	var kit: DustBunnyBossSprite = m.g.get("db_kit") as DustBunnyBossSprite
+	if kit != null and is_instance_valid(kit):
+		base = kit.current_vulnerability_window()
 	return base + minf(MERCY_WINDOW * float(_mercy()), MERCY_WINDOW_MAX)
 
 func reach() -> float:
@@ -240,38 +249,70 @@ func _tick_windup(delta: float, st: float, tapped: bool) -> void:
 			here + Vector2(randf_range(-4.0, 4.0), randf_range(-4.0, 4.0)), BOSS_INSET)
 		m.g["db_window_hit"] = 0
 		m.g["db_win_len"] = window_len()
+		m.g["db_taps_this_round"] = 0
+		m.g["db_mercy_topped"] = false
+		# the laugh is the tell: the kit opens vulnerability itself on frame 2
+		# and starts its own 0.75s (0.65s final) clock
+		var k: DustBunnyBossSprite = kit()
+		if k != null and is_instance_valid(k):
+			k.play_vulnerable_laugh()
 		_enter_state("vuln")
 		m._say("roshan", "dustboss_leap", 3.0)
 
 # THE VULNERABILITY WINDOW — airborne, star flashing, open to exactly
 # HITS_PER_WINDOW damage. Nothing else in the fight can hurt him.
 func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictionary) -> void:
-	var win: float = float(m.g.get("db_win_len", 2.6))
-	# rise fast, hover while flashing, settle on the last beat
+	var k: DustBunnyBossSprite = kit()
+	var win: float = float(m.g.get("db_win_len", 0.75))
+	# rise fast, hover while he laughs, settle on the last beat
 	var up: float = clampf(st / LEAP_UP, 0.0, 1.0)
-	var down: float = clampf((st - (win - 0.3)) / 0.3, 0.0, 1.0)
+	var hang: float = maxf(0.6, win + 0.6)
+	var down: float = clampf((st - (hang - 0.3)) / 0.3, 0.0, 1.0)
 	m.g["db_y"] = LEAP_H * up * (1.0 - down) + sin(st * 3.4) * 0.5 * up * (1.0 - down)
-	var glide: float = clampf(st / maxf(0.4, win * 0.6), 0.0, 1.0)
+	var glide: float = clampf(st / maxf(0.4, hang * 0.6), 0.0, 1.0)
 	var from: Vector2 = m.g["db_from"]
 	var to: Vector2 = m.g["db_to"]
 	var here: Vector2 = from.lerp(to, glide)
 	m.g["db_x"] = here.x
 	m.g["db_z"] = here.y
-	m.g["db_flash"] = 1.0
-	if tapped and int(m.g.get("db_window_hit", 0)) < HITS_PER_WINDOW:
-		var d: float = Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length()
-		if d <= reach():
-			m.g["db_window_hit"] = int(m.g.get("db_window_hit", 0)) + 1
-			_land_hit(fr)
-			return
-		# in range of the tell but not of him: sparkle where she reached, and
-		# nudge her toward him rather than letting the tap read as broken
-		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
-		m.show_msg("Roshan", "Closer! Get under him and tap!", "dustboss_closer")
-	elif tapped:
-		_bounce_off()
-	if st >= win:
-		# the window closed unhit — that is not a failure, it is the mercy ramp
+	if k == null or not is_instance_valid(k):
+		return
+	var open_now: bool = k.vulnerable
+	m.g["db_flash"] = 1.0 if open_now else 0.0
+	# THE MERCY RAMP, applied to the kit's own clock exactly once per window:
+	# a child who keeps missing gets a longer window, never fewer taps.
+	if open_now and not bool(m.g.get("db_mercy_topped", false)):
+		m.g["db_mercy_topped"] = true
+		var bonus: float = minf(MERCY_WINDOW * float(_mercy()), MERCY_WINDOW_MAX)
+		if bonus > 0.0:
+			k.vulnerability_time_left += bonus
+		# A LONGER WINDOW IS NOT ENOUGH FOR THE SLOWEST HAND. Three taps inside
+		# even a mercy-stretched 2.25s window is out of reach for a child whose
+		# reaction is ~4s, and the measured slowpoke control needed 28 windows
+		# and 230s before the composition added this. So deep mercy also GIVES
+		# her taps: the fight lands the first one (and, later, the second) for
+		# her, so the window she finally reads only ever needs one real tap.
+		for _free in range(_free_taps()):
+			k.register_vulnerable_tap()
+
+	if tapped:
+		if open_now:
+			var d: float = Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length()
+			if d <= reach():
+				# THE VERB: one of the three quick taps this window wants
+				k.register_vulnerable_tap()
+			else:
+				m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
+					Color(1.0, 0.92, 0.62))
+				m.show_msg("Roshan", "Closer! Get under him and tap!", "dustboss_closer")
+		else:
+			_bounce_off()
+	# the window closed. Either three taps landed (the kit fired
+	# damage_cycle_completed and moved us on) or it expired — which is not a
+	# failure, it is the mercy ramp.
+	if String(m.g.get("db_state", "")) != "vuln":
+		return
+	if not open_now and st > LEAP_UP + 0.35:
 		m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
 		m.g["db_flash"] = 0.0
 		m.g["db_y"] = 0.0
@@ -279,26 +320,32 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		_pick_hop(true)
 		if int(m.g["db_miss"]) == 1 or int(m.g["db_miss"]) % 3 == 0:
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				"He landed! Wait for the next FLASH — you get as many tries as you like.",
+				"So close! Wait for the next FLASH and tap FAST — three times!",
 				"dustboss_again")
+
+func _free_taps() -> int:
+	# 0 normally; 1 after MERCY_FREE_TAP_AT missed windows; 2 after twice that.
+	# Capped at TAPS_PER_ROUND - 1 so a round can never complete itself.
+	var missed: int = _mercy()
+	if missed < MERCY_FREE_TAP_AT:
+		return 0
+	return mini(missed / MERCY_FREE_TAP_AT, TAPS_PER_ROUND - 1)
 
 # THE HIT REACTION — one per landed hit, and where he becomes someone new.
 func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
-	var hits: int = int(m.g.get("db_hits", 0))
+	var rounds: int = int(m.g.get("db_hits", 0))
 	m.g["db_spin"] = float(m.g.get("db_spin", 0.0)) + 9.0 * delta
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 22.0)
 	m.g["db_flash"] = 0.0
-	var hold: float = STRUCK_T + (DIZZY_T if hits == 1 else (ANGRY_T if hits == 2 else 0.0))
-	if hits >= HP:
+	# the kit is playing flinch_3 -> angry; this hold is the breather the child
+	# gets to see what she did before he is moving again
+	var hold: float = STRUCK_T + (DIZZY_T if rounds == 1 else (ANGRY_T if rounds == 2 else 0.0))
+	if rounds >= HP:
 		return                     # the friends beat owns the ending
 	if st >= hold:
 		m.g["db_spin"] = 0.0
-		if hits == 2:
-			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				"He is CROSS now — he is much faster! Keep watching the star!",
-				"dustboss_angry")
 		_enter_state("prowl")
 		_pick_hop(true)
 
@@ -309,7 +356,10 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 		_answer_only()
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - 0.3)
 	m.g["db_flash"] = 0.0
-	if st >= WIN_T and not bool(m.g.get("db_done", false)):
+	# the kit plays the implosion off flinch_3 and reports when the last wisp
+	# is gone; only then is the fight over
+	var done: bool = bool(m.g.get("db_imploded", false))
+	if (done or st >= WIN_T + 2.0) and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
 		m.pearl_count += 3
 		m._fanfare()
@@ -353,20 +403,17 @@ func _land_hit(fr: Dictionary) -> void:
 func on_world_tap(screen_pos: Vector2) -> void:
 	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
 	# button. Same verb, and MORE generous — a tap that visibly lands on his
-	# card counts as in-reach however far away she is standing, because "I
-	# touched the thing I wanted to bonk" is the truest intent a small player
-	# can express. It can never be less generous than the button.
+	# card counts as in-reach however far away she is standing.
 	if not m.g.has("db_state") or m.game != "dustboss":
 		return
-	var fr: Dictionary = m.g.get("fr", {})
+	var k: DustBunnyBossSprite = kit()
 	var on_him: bool = _screen_hit(screen_pos)
-	if String(m.g.get("db_state", "")) == "vuln" \
-			and int(m.g.get("db_window_hit", 0)) < HITS_PER_WINDOW:
+	if k != null and is_instance_valid(k) and k.vulnerable \
+			and String(m.g.get("db_state", "")) == "vuln":
 		var here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
 		var d: float = (here - stage.player_local()).length()
 		if on_him or d <= reach():
-			m.g["db_window_hit"] = int(m.g.get("db_window_hit", 0)) + 1
-			_land_hit(fr)
+			k.register_vulnerable_tap()
 			return
 		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
 		m._say("roshan", "dustboss_closer", 3.0)
@@ -448,6 +495,12 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 		m.g["db_x"] = to_v.x
 		m.g["db_z"] = to_v.y
 		_pick_hop(false)
+		# one authored jump per hop — anticipation, lift-off, peak, landing ring
+		var k: DustBunnyBossSprite = kit()
+		if k != null and is_instance_valid(k):
+			var from_v: Vector2 = m.g["db_from"]
+			var to_v2: Vector2 = m.g["db_to"]
+			k.play_jump(1.0 if to_v2.x >= from_v.x else -1.0)
 	m.g["db_hop_t"] = t
 	var u: float = clampf(t / gap, 0.0, 1.0)
 	var from: Vector2 = m.g["db_from"]
@@ -464,43 +517,23 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 		m._say("roshan", "bump", 2.5)
 	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
 
-# ---- the pose system -------------------------------------------------------
-func _pose_path(key: String) -> String:
-	var file: String = String(BOSS_POSES.get(key, ""))
-	if file != "":
-		var full: String = BOSS_ART_DIR + file
-		if ResourceLoader.exists(full):
-			return full
-	return BOSS_FALLBACK_TEX
-
+# ---- the beat map ----------------------------------------------------------
 func pose_for_state() -> String:
-	# which drawing belongs to this beat. Public so the probe can assert the
-	# map without reaching into the tick.
+	# which authored ANIMATION belongs to this beat. The kit plays them; this
+	# is the map, kept public so the probe can assert it without reaching into
+	# the tick. (Names are DustBunnyBossSprite animation names.)
 	var st: String = String(m.g.get("db_state", ""))
-	var hits: int = int(m.g.get("db_hits", 0))
+	var rounds: int = int(m.g.get("db_hits", 0))
 	match st:
-		"windup":
-			return "windup"
+		"prowl", "windup":
+			return "angry_jump_final" if rounds >= 2 else "jump"
 		"vuln":
-			return "open"
+			return "laugh_vulnerable"
 		"struck":
-			return "dizzy" if hits == 1 else "struck"
+			return "flinch_3"
 		"friends":
-			return "friends"
-	return "angry" if hits >= 2 else "idle"
-
-func _apply_pose(body: Sprite3D, key: String) -> void:
-	var path: String = _pose_path(key)
-	if not ResourceLoader.exists(path):
-		return
-	var tex: Texture2D = load(path)
-	if tex == null:
-		return
-	body.texture = tex
-	# every pose is authored at its own height; normalise so the boss keeps
-	# one physical size no matter which drawing is showing
-	body.pixel_size = BOSS_H / maxf(1.0, float(tex.get_height()))
-	m.g["db_pose"] = key
+			return "implode"
+	return "idle"
 
 func _apply_tell(star: Sprite3D, open_now: bool) -> void:
 	var want: String = TELL_OPEN_TEX if open_now else TELL_SHUT_TEX
@@ -528,22 +561,11 @@ func _place_boss(delta: float) -> void:
 	var cfg: Dictionary = phase_cfg()
 	var grow: float = float(m.g.get("db_show_grow", 1.0))
 	var puff: float = float(cfg["puff"]) * grow
-	# dizzy wobbles, angry throbs — the phase is legible without any words
-	var body: Sprite3D = m.g.get("db_body") as Sprite3D
-	if body != null and is_instance_valid(body):
-		var want_pose: String = pose_for_state()
-		if String(m.g.get("db_pose", "")) != want_pose:
-			_apply_pose(body, want_pose)
-		var wob: float = 0.0
-		if String(m.g.get("db_state", "")) == "struck" and int(m.g.get("db_hits", 0)) == 1:
-			wob = sin(float(m.g.get("db_st", 0.0)) * 11.0) * 0.22
-		elif phase() == 1:
-			wob = sin(float(m.g.get("db_st", 0.0)) * 3.0) * 0.06
-		elif phase() == 2:
-			puff *= 1.0 + sin(float(m.g.get("db_st", 0.0)) * 9.0) * 0.035
-		body.rotation.z = lerpf(body.rotation.z, wob, 1.0 - pow(0.002, delta))
-		body.scale = Vector3.ONE * maxf(0.02, puff)
-		body.modulate = cfg["tint"] as Color
+	# the card is animated by the kit now — this file only carries it, and
+	# still owns the ground shadow and the head badge
+	var k: DustBunnyBossSprite = kit()
+	if k != null and is_instance_valid(k):
+		k.position.y = 0.0
 	# THE TELL: the star over his head. Dim and small while he is shielded,
 	# huge and strobing gold the instant he is open.
 	var flash: float = float(m.g.get("db_flash", 0.0))
@@ -657,23 +679,25 @@ func _build_boss() -> void:
 	boss.position = Vector3(float(m.g["db_x"]), 0.0, float(m.g["db_z"]))
 	r.add_child(boss)
 	m.g["db_boss"] = boss
-	# the cutout: unshaded, billboarded, never re-lit or redesigned
-	var body := Sprite3D.new()
-	_apply_pose(body, "idle")
-	body.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	body.shaded = false
-	body.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	body.position = Vector3(0, BOSS_H * 0.5, 0)
-	boss.add_child(body)
-	m.g["db_body"] = body
-	# THE GROUND SHADOW STAYS ON THE DECK. Parented to the boss it would fly
-	# with him and an airborne leap would read exactly like a ground hop —
-	# the shadow shrinking away from his feet is what says "he is UP THERE"
-	# (2026-08-02 stress test, visual pass).
+	# THE ANIMATED BOSS. DustBunnyBossSprite owns the four-frame sheets, the
+	# three-tap window, the flinch chain and the implosion; this file positions
+	# it, tells it when to jump and when to open, and answers its signals.
+	var kit := DustBunnyBossSprite.new()
+	kit.name = "GrandPuff"
+	kit.scale = Vector3.ONE * (BOSS_H / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
+	boss.add_child(kit)
+	m.g["db_kit"] = kit
+	kit.damage_cycle_completed.connect(_on_round_done)
+	kit.implosion_finished.connect(_on_imploded)
+	kit.final_round_started.connect(_on_final_round)
+	kit.tap_progress_changed.connect(_on_tap_progress)
+	# the ground shadow stays on the deck so a leap reads as a leap
 	var shadow := stage.contact_shadow(BOSS_H * 0.62)
 	r.add_child(shadow)
 	m.g["db_shadow"] = shadow
-	# THE ICON ON HIS HEAD — the whole fight is reading this one sprite
+	# THE ICON ON HIS HEAD — the art carries a glowing crest on the exposed
+	# frame, and this badge repeats it above the card so the tell is readable
+	# from across the ring on a phone.
 	var star := Sprite3D.new()
 	_apply_tell(star, false)
 	star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -683,8 +707,11 @@ func _build_boss() -> void:
 	star.modulate = Color(0.66, 0.62, 0.78, 0.42)
 	boss.add_child(star)
 	m.g["db_star"] = star
-	var glow := stage.glow(Color(1.0, 0.92, 0.55), BOSS_H * 1.5)
-	glow.position = Vector3(0, BOSS_H * 0.5, 0)
+	# a small warm halo BEHIND him only. The authored open frame already
+	# carries a glowing crest, so the old BOSS_H*1.5 bloom was washing the
+	# character out instead of pointing at him.
+	var glow := stage.glow(Color(1.0, 0.90, 0.60), BOSS_H * 0.62)
+	glow.position = Vector3(0, BOSS_H * 0.42, -0.4)
 	glow.visible = false
 	boss.add_child(glow)
 	m.g["db_glow"] = glow
@@ -699,6 +726,46 @@ func _build_boss() -> void:
 	hand.visible = false
 	boss.add_child(hand)
 	m.g["db_hand"] = hand
+
+func kit() -> DustBunnyBossSprite:
+	return m.g.get("db_kit") as DustBunnyBossSprite
+
+# ---- what the animation kit tells us ---------------------------------------
+func _on_round_done() -> void:
+	# one of the three damage rounds is down: three taps landed inside a window
+	var rounds: int = int(m.g.get("db_hits", 0)) + 1
+	m.g["db_hits"] = rounds
+	m.g["db_shield_taps"] = 0
+	var boss: Node3D = m.g.get("db_boss") as Node3D
+	if boss != null and is_instance_valid(boss):
+		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
+			Color(0.86, 0.78, 1.0))
+	var fr: Dictionary = m.g.get("fr", {})
+	if rounds >= HP:
+		# the kit plays the implosion itself off flinch_3; wait for the signal
+		_enter_state("friends")
+		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+			"POOF! The great dust bunny bursts into stars!", "dustboss_win")
+		if m.player != null:
+			m.player.play_verb("cheer")
+		return
+	_enter_state("struck")
+	if rounds == 1:
+		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+			"BONK BONK BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
+	else:
+		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
+
+func _on_final_round(_speed: float) -> void:
+	var fr: Dictionary = m.g.get("fr", {})
+	m.show_msg(String(fr.get("fname", "Dusty Attic")),
+		"He is CROSS now — he is much faster! Keep watching the star!", "dustboss_angry")
+
+func _on_imploded() -> void:
+	m.g["db_imploded"] = true
+
+func _on_tap_progress(accepted: int, _required: int) -> void:
+	m.g["db_taps_this_round"] = accepted
 
 # ---- the reef doorway ------------------------------------------------------
 func build_portal() -> Vector3:
@@ -726,15 +793,12 @@ func build_portal() -> Vector3:
 	door.position = Vector3(0, 4.0, 0.9)
 	door.material_override = m._soft_mat(Color(0.60, 0.50, 0.72), 0.16)
 	frame.add_child(door)
-	var peek := Sprite3D.new()
-	var peek_tex: String = _pose_path("idle")
-	if ResourceLoader.exists(peek_tex):
-		peek.texture = load(peek_tex)
-		peek.pixel_size = 6.5 / maxf(1.0, float(peek.texture.get_height()))
-	peek.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	peek.shaded = false
-	peek.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	peek.position = pos + Vector3(2.6, 1.4, 2.4)
+	# he peeks out of the attic door in the reef, in his own art: the same
+	# animation kit, parked on its idle frame, so she MEETS him before the fight
+	var peek := DustBunnyBossSprite.new()
+	peek.name = "GrandPuffPeek"
+	peek.scale = Vector3.ONE * (6.5 / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
+	peek.position = pos + Vector3(2.6, -1.2, 2.4)
 	m.add_child(peek)
 	m._halo(pos + Vector3(0, 0.6, 0), Color(0.82, 0.76, 1.0), 10.0)
 	return pos
