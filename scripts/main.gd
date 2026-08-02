@@ -433,6 +433,21 @@ var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
 var music_on := true
+# Spoken spells (prototype 2026-08-02, see MIC_SPELLS.md). DEFAULT-ON is an
+# owner decision: MIC_DEFAULT_ON is the ONE flip point — set it to false and
+# the toggle, the save default and a fresh install all ship the feature dark.
+# On-by-default is only safe because the microphone device is opened lazily on
+# the first battle (never at boot), a denied RECORD_AUDIO permission silently
+# disables the feature forever, and the ICE/FIRE buttons are always live.
+const MIC_DEFAULT_ON := true
+var mic_on := MIC_DEFAULT_ON
+var mic_state := "idle"        # idle | asking | listening | enroll | test | off
+var mic_last_word := ""        # debug/HUD readout of the last accepted spell
+var mic_last_dist := -1.0      # ...and its DTW distance, for calibration
+var mic_enroll_left := 0
+var mic_permission_denied := false
+var mic_teach_layer: CanvasLayer = null
+var mic_btn: Button
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
@@ -3160,6 +3175,15 @@ func _flash_speaker_icon(who: String) -> void:
 # Phase 7.5: the audio pipeline lives in scripts/audio_director.gd
 # (state stays here; AudioDirector receives main by reference)
 var _audio_dir: AudioDirector = null
+
+# Phase 7 satellite: spoken-spell recognition (scripts/mic_input.gd). Built on
+# first use so a launch that never enters combat never touches the audio input.
+var mic_sys: MicInput = null
+
+func _mic_ref() -> MicInput:
+	if mic_sys == null:
+		mic_sys = MicInput.new(self)
+	return mic_sys
 
 func _audio_ref() -> AudioDirector:
 	if _audio_dir == null:
@@ -6815,6 +6839,8 @@ func _process(delta: float) -> void:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if mic_sys != null:
+		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
 	if player != null:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
