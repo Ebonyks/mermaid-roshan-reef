@@ -689,6 +689,17 @@ generator output is present in this directory or connected to runtime art.
   image generation under project storybook direction, with local alpha cleanup
   documented by the original Dirty Castle manifest. Reused unchanged as
   unshaded Sprite3D interaction cards; license remains project original.
+- `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png`
+  — project-original transparent 512x512 RGBA cutout
+  (sha256 `d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f`),
+  the large front-facing spiral-eared pose from the same codex dust-bunny cast
+  atlas as the four cards above (prompt and chroma/alpha process recorded in
+  `assets_src/concepts/dirty_castle_cleanup_2026-07-22/PROMPTS.md`, "Sprite
+  atlas 04 — dust-bunny cast"); source was OpenAI built-in image generation
+  under project storybook direction. Brought forward unchanged from
+  `codex/dirty-castle-2d` — no scaling, recolour, or repaint — and used as the
+  Dust Bunny Boss cutout (`scripts/games/dust_boss.gd`,
+  `DUST_BUNNY_BOSS_2026-08-02.md`). License: project original.
 
 ## Pearl Castle touch lighting and continuity cards (2026-07-29)
 

@@ -515,6 +515,11 @@ var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
 var brawl_fr := {"fname": "Toy Castle", "game": "brawl", "won": true, "cool": 0.0}
 var brawl_portal_pos := Vector3.ZERO
 var brawl_cool := 0.0
+# the great dust bunny's attic (scripts/games/dust_boss.gd) — a boss with one
+# rule: he is only open while airborne with his star flashing
+var dust_boss_fr := {"fname": "Dusty Attic", "game": "dustboss", "won": true, "cool": 0.0}
+var dust_boss_portal_pos := Vector3.ZERO
+var dust_boss_cool := 0.0
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
@@ -783,6 +788,7 @@ func _ready() -> void:
 	_build_guide()
 	_build_slide_portal()
 	_build_brawl_portal()
+	dust_boss_portal_pos = _game_obj("dustboss", DustBossGame).build_portal()
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
@@ -3535,6 +3541,8 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("reef:slide", "Penguin Slide", slide_portal_pos, slide_portal_penguin, 14.0, 38.0, "SLIDE")
 		if brawl_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
+		if dust_boss_portal_pos != Vector3.ZERO:
+			_touch_add_item("reef:dustboss", "Dusty Attic", dust_boss_portal_pos, null, 13.0, 36.0, "PLAY")
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
 		if companion_den != null and is_instance_valid(companion_den) \
@@ -3641,6 +3649,9 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 		"reef:brawl":
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
+		"reef:dustboss":
+			dust_boss_cool = 14.0
+			_start_game(dust_boss_fr)
 		"reef:kart":
 			_start_kart_game(false, "terrain")
 		"reef:den":
@@ -6025,6 +6036,7 @@ func _tick_hints(delta: float) -> void:
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
+	_game_obj("dustboss", DustBossGame).stage_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -6044,6 +6056,7 @@ func _fail_line() -> String:
 		"fetch":      return "Aww... now Chuck is all wet!"
 		"dolls":      return "Oh no, the babies!"
 		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
+		"dustboss":   return "The great dust bunny puffed away — he'll bounce back for another game!"
 		"seek":       return "Where did Lamb-a' go?"
 		"melody":     return "Oh no, the colors!"
 		"treasure":   return "Aww, the treasure slipped back into the dark!"
@@ -6228,6 +6241,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		slide_cool = 3.0
 	elif String(fr["fname"]) == "Toy Castle":
 		brawl_cool = 3.0
+	elif String(fr["fname"]) == "Dusty Attic":
+		dust_boss_cool = 3.0
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
@@ -6413,6 +6428,8 @@ func _start_game_now(fr: Dictionary) -> void:
 		_game_obj("dolls", DollsGame).build(fr, origin)
 	elif game == "brawl":
 		_game_obj("brawl", BrawlGame).build(fr, origin)
+	elif game == "dustboss":
+		_game_obj("dustboss", DustBossGame).build(fr, origin)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).build(fr, origin)
 	elif game == "race":
@@ -6530,6 +6547,8 @@ func _tick_game(delta: float) -> void:
 		_tick_dolls(delta, fr, ppos)
 	elif game == "brawl":
 		_tick_brawl(delta, fr, ppos)
+	elif game == "dustboss":
+		_game_obj("dustboss", DustBossGame).tick(delta, fr, ppos)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
 	elif game == "race" or game == "treasure":
@@ -6963,6 +6982,7 @@ func _process(delta: float) -> void:
 	treasure_cool = maxf(0.0, treasure_cool - delta)
 	slide_cool = maxf(0.0, slide_cool - delta)
 	brawl_cool = maxf(0.0, brawl_cool - delta)
+	dust_boss_cool = maxf(0.0, dust_boss_cool - delta)
 	kart_cool = maxf(0.0, kart_cool - delta)
 	if game == "" and finale_t < 0.0 and not touch_uses_explicit_interactions():
 		if manta != null and shop_cool <= 0.0:
@@ -6995,6 +7015,10 @@ func _process(delta: float) -> void:
 		if brawl_cool <= 0.0 and brawl_portal_pos != Vector3.ZERO and brawl_portal_pos.distance_to(ppos) < 13.0:
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
+		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
+				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
+			dust_boss_cool = 14.0
+			_start_game(dust_boss_fr)
 		if kart_portal_pos != Vector3.ZERO:
 			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
 			var ky: float = absf(kart_portal_pos.y - ppos.y)
@@ -7966,6 +7990,13 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.62
 		arena_env.glow_bloom = 0.06
 		_arena_floor(Color(0.84, 0.76, 0.68), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.07)
+	elif kind == "dustboss":     # the castle attic: lavender dusk through one round window
+		grade_profile = "warm_pastel"
+		arena_env.background_color = Color(0.30, 0.24, 0.42)
+		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
+		arena_env.ambient_light_energy = 0.60
+		arena_env.glow_bloom = 0.07
+		_arena_floor(Color(0.80, 0.72, 0.66), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
 		arena_env.background_color = Color(0.30, 0.58, 0.78)
