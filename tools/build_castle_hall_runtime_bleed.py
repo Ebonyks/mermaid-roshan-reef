@@ -2,14 +2,14 @@
 """Build the Main Hall's lossless one-pixel Sprite3D seam safety bleed.
 
 The accepted source tiles remain immutable and non-overlapping. Mobile raster
-precision can expose a one-pixel clear row where two exactly adjacent
-Sprite3D quads meet. For each top-row tile, this tool appends the first source
-row of the corresponding bottom tile. The two runtime cards therefore render
-the same approved master pixels at their one-pixel geometric overlap.
+precision can expose clear rows or columns where exactly adjacent Sprite3D
+quads meet. Each runtime tile appends the first approved row and/or column of
+its lower and right neighbors. Adjacent cards therefore render the same
+approved master pixels at their one-pixel geometric overlap.
 
 No pixel is generated, interpolated, scaled, cropped from the approved view,
 or substituted. The manifest records both source and derived hashes and
-verifies the appended row byte-for-byte.
+verifies every appended edge byte-for-byte.
 """
 
 from __future__ import annotations
@@ -22,9 +22,10 @@ from pathlib import Path
 from PIL import Image, ImageChops
 
 
-TOP_TEMPLATE = "main_hall_room_led_r0_c{column}.png"
-BOTTOM_TEMPLATE = "main_hall_room_led_r1_c{column}.png"
-OUTPUT_TEMPLATE = "main_hall_room_led_r0_c{column}_bleed.png"
+SOURCE_TEMPLATE = "main_hall_room_led_r{row}_c{column}.png"
+OUTPUT_TEMPLATE = "main_hall_room_led_r{row}_c{column}_bleed.png"
+ROW_HEIGHTS = (470, 471)
+COLUMNS = 4
 
 
 def _sha256(path: Path) -> str:
@@ -44,76 +45,124 @@ def main() -> None:
 
     arguments.out_dir.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, object]] = []
+    source_tiles: dict[tuple[int, int], Image.Image] = {}
+    source_paths: dict[tuple[int, int], Path] = {}
 
-    for column in range(4):
-        top_path = arguments.tile_dir / TOP_TEMPLATE.format(column=column)
-        bottom_path = arguments.tile_dir / BOTTOM_TEMPLATE.format(column=column)
-        output_path = arguments.out_dir / OUTPUT_TEMPLATE.format(column=column)
-        with Image.open(top_path) as opened_top:
-            top = opened_top.copy()
-        with Image.open(bottom_path) as opened_bottom:
-            bottom = opened_bottom.copy()
-        if top.mode != "RGB" or bottom.mode != "RGB":
-            raise ValueError(
-                f"Expected RGB source tiles, got {top.mode} and {bottom.mode}"
-            )
-        if top.width != bottom.width or top.height != 470 \
-                or bottom.height != 471:
-            raise ValueError(
-                f"Unexpected column {column} tile sizes: "
-                f"{top.size} and {bottom.size}"
-            )
+    for row, expected_height in enumerate(ROW_HEIGHTS):
+        for column in range(COLUMNS):
+            source_path = arguments.tile_dir / SOURCE_TEMPLATE.format(
+                row=row, column=column)
+            with Image.open(source_path) as opened_source:
+                source = opened_source.copy()
+            if source.mode != "RGB":
+                raise ValueError(
+                    f"Expected RGB source tile, got {source.mode}: "
+                    f"{source_path}")
+            if source.size != (836, expected_height):
+                raise ValueError(
+                    f"Unexpected tile size {source.size}: {source_path}")
+            source_tiles[(row, column)] = source
+            source_paths[(row, column)] = source_path
 
-        first_bottom_row = bottom.crop((0, 0, bottom.width, 1))
-        derived = Image.new("RGB", (top.width, top.height + 1))
-        derived.paste(top, (0, 0))
-        derived.paste(first_bottom_row, (0, top.height))
-        derived.save(output_path, format="PNG", optimize=True)
+    for row, _expected_height in enumerate(ROW_HEIGHTS):
+        logical_top = sum(ROW_HEIGHTS[:row])
+        for column in range(COLUMNS):
+            source = source_tiles[(row, column)]
+            source_path = source_paths[(row, column)]
+            bleed_right = column < COLUMNS - 1
+            bleed_down = row < len(ROW_HEIGHTS) - 1
+            output_path = arguments.out_dir / OUTPUT_TEMPLATE.format(
+                row=row, column=column)
+            render_width = source.width + int(bleed_right)
+            render_height = source.height + int(bleed_down)
+            derived = Image.new("RGB", (render_width, render_height))
+            derived.paste(source, (0, 0))
 
-        with Image.open(output_path) as opened_result:
-            result = opened_result.copy()
-        source_body_exact = _pixels_equal(
-            result.crop((0, 0, top.width, top.height)), top)
-        appended_row_exact = _pixels_equal(
-            result.crop((0, top.height, top.width, top.height + 1)),
-            first_bottom_row,
-        )
-        if not source_body_exact or not appended_row_exact:
-            raise RuntimeError(
-                f"Column {column} seam bleed changed an approved pixel")
+            right_edge_exact = True
+            lower_edge_exact = True
+            corner_exact = True
+            if bleed_right:
+                right_edge = source_tiles[(row, column + 1)].crop(
+                    (0, 0, 1, source.height))
+                derived.paste(right_edge, (source.width, 0))
+                right_edge_exact = _pixels_equal(
+                    derived.crop((
+                        source.width, 0,
+                        source.width + 1, source.height)),
+                    right_edge)
+            if bleed_down:
+                lower_edge = source_tiles[(row + 1, column)].crop(
+                    (0, 0, source.width, 1))
+                derived.paste(lower_edge, (0, source.height))
+                lower_edge_exact = _pixels_equal(
+                    derived.crop((
+                        0, source.height,
+                        source.width, source.height + 1)),
+                    lower_edge)
+            if bleed_right and bleed_down:
+                corner = source_tiles[(row + 1, column + 1)].crop(
+                    (0, 0, 1, 1))
+                derived.paste(corner, (source.width, source.height))
+                corner_exact = _pixels_equal(
+                    derived.crop((
+                        source.width, source.height,
+                        source.width + 1, source.height + 1)),
+                    corner)
+            derived.save(output_path, format="PNG", optimize=True)
 
-        records.append({
-            "column": column,
-            "top_source_path": top_path.as_posix(),
-            "top_source_dimensions": list(top.size),
-            "top_source_sha256": _sha256(top_path),
-            "bottom_source_path": bottom_path.as_posix(),
-            "bottom_source_dimensions": list(bottom.size),
-            "bottom_source_sha256": _sha256(bottom_path),
-            "runtime_path": output_path.as_posix(),
-            "runtime_dimensions": list(result.size),
-            "runtime_sha256": _sha256(output_path),
-            "approved_source_body_pixel_exact": source_body_exact,
-            "appended_row_matches_bottom_first_row": appended_row_exact,
-            "logical_source_rectangle": [
-                column * top.width, 0, (column + 1) * top.width, top.height
-            ],
-            "runtime_render_rectangle": [
-                column * top.width, 0,
-                (column + 1) * top.width, top.height + 1
-            ],
-            "seam_overlap_pixels": 1,
-        })
+            with Image.open(output_path) as opened_result:
+                result = opened_result.copy()
+            source_body_exact = _pixels_equal(
+                result.crop((0, 0, source.width, source.height)), source)
+            source_exact = (
+                source_body_exact and right_edge_exact
+                and lower_edge_exact and corner_exact)
+            if not source_exact:
+                raise RuntimeError(
+                    f"Tile r{row} c{column} bleed changed approved pixels")
+
+            records.append({
+                "row": row,
+                "column": column,
+                "source_path": source_path.as_posix(),
+                "source_dimensions": list(source.size),
+                "source_sha256": _sha256(source_path),
+                "runtime_path": output_path.as_posix(),
+                "runtime_dimensions": list(result.size),
+                "runtime_sha256": _sha256(output_path),
+                "approved_source_body_pixel_exact": source_body_exact,
+                "appended_right_edge_matches_approved_neighbor":
+                    right_edge_exact,
+                "appended_lower_edge_matches_approved_neighbor":
+                    lower_edge_exact,
+                "appended_corner_matches_approved_neighbor": corner_exact,
+                "logical_source_rectangle": [
+                    column * source.width,
+                    logical_top,
+                    (column + 1) * source.width,
+                    logical_top + source.height,
+                ],
+                "runtime_render_rectangle": [
+                    column * source.width,
+                    logical_top,
+                    column * source.width + result.width,
+                    logical_top + result.height,
+                ],
+                "seam_overlap_pixels": [
+                    int(bleed_right), int(bleed_down)],
+            })
 
     manifest = {
-        "schema": 1,
+        "schema": 2,
         "purpose": (
-            "Mobile-renderer raster safety for the Main Hall horizontal "
-            "Sprite3D tile boundary"
+            "Mobile-renderer raster safety for every Main Hall horizontal "
+            "and vertical Sprite3D tile boundary"
         ),
-        "art_change": "none; exact approved edge-row duplication only",
+        "art_change": (
+            "none; exact approved right/lower neighbor-edge duplication only"
+        ),
         "source_tile_rectangles_remain_non_overlapping": True,
-        "runtime_render_overlap_pixels": 1,
+        "runtime_render_overlap_pixels": [1, 1],
         "scaling": False,
         "interpolation": False,
         "crop_or_content_loss": False,
@@ -122,8 +171,13 @@ def main() -> None:
             bool(record["approved_source_body_pixel_exact"])
             for record in records
         ),
-        "all_bleed_rows_match_approved_lower_source": all(
-            bool(record["appended_row_matches_bottom_first_row"])
+        "all_bleed_edges_match_approved_neighbors": all(
+            bool(record[
+                "appended_right_edge_matches_approved_neighbor"])
+            and bool(record[
+                "appended_lower_edge_matches_approved_neighbor"])
+            and bool(record[
+                "appended_corner_matches_approved_neighbor"])
             for record in records
         ),
         "tiles": records,

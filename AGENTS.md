@@ -8,10 +8,17 @@ The book art and recorded family voices are irreplaceable — never modify,
 recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
-## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
+## GENERATIVE TOOL POLICY: DESIGN RESTRAINT, ANIMATION FREEDOM (owner decision 2026-08-01)
+
+### Creating characters and environments
+
 The project is in art finalization, not open-ended redesign. Conserve the
 generation budget by reusing approved art that already exists whenever it
 can meet the need efficiently.
+
+The design-generation restraint below applies to creating or redesigning
+characters and environments. It does not limit generative tools used to
+animate approved objects or characters.
 
 - Before generating or commissioning new art, inventory the relevant
   existing assets and source masters in this repository.
@@ -28,13 +35,32 @@ can meet the need efficiently.
   provenance violations, or bypassing the project's asset constraints.
   Store derived variants at new paths and preserve their source attribution.
 
+### Animating objects and characters
+
+- Use generative tools liberally to create the required acting, poses, motion,
+  and frame-to-frame development for approved objects and characters.
+  Generate and evaluate as many unique candidates or frames as the action and
+  quality bar require; the design-generation restraint is not an animation
+  quota.
+- Do not let design-generation conservation justify weak motion, unintended
+  holds, duplicated action frames, or omitted acting. A hold is appropriate
+  only when the direction calls for stillness.
+- Animation freedom does not authorize redesign. Preserve each approved
+  character's identity, anatomy, costume, proportions, style, and topology,
+  and preserve each approved object's design and material language.
+- For authored cinematic frames, the full-frame generation and audit rules
+  below remain blocking. All other animation must honor protected originals,
+  licensing, provenance, technical constraints, and the mobile performance
+  budget.
+
 ## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
 
 Authored cinematic delivery frames MUST be complete, flattened images produced
 in the current approved Codex image-generation style. The quality problem is
 the frame audit and regeneration process. It must never be worked around by
 substituting a different animation or production technique. This rule
-supersedes the art-reuse budget above for defective cinematic frames and
+supersedes the design-generation restraint above for defective cinematic
+frames and
 supersedes any cinematic document or tool that recommends temporal shortcuts.
 
 - Repair subject drift frame by frame. Keep an existing frame only when that

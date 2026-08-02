@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Normalize Main Hall fixtures and turn the screen join into architecture.
+"""Normalize Main Hall fixtures and register the two runtime screen crops.
 
 Two precise cleanup candidates remove only the baked fixtures. Candidate
 pixels are registered to the immutable masters and accepted only inside six
-compact masks. The reusable fixture, portal, pilaster, and floor inlay contain
-accepted master pixels only. Screen B receives a documented global tone
-correction, and a four-pixel exact-edge ramp prevents sampling cracks beneath
-the structural join cards.
+compact masks. Reusable derivatives contain accepted master pixels only.
+Screen B receives documented wall/carpet/floor tone correction at its actual
+runtime crop, and a four-pixel exact-edge ramp compares the corresponding
+runtime rows. The old floor-inlay seam mask remains reproducible for provenance
+but is explicitly retired from runtime use.
 
 The original 2048x1153 masters remain unchanged.
 """
@@ -40,10 +41,16 @@ OUTPUT_MANIFEST = AUDIT_ROOT / "castle_hall_alignment_manifest.json"
 OUTPUT_CONTACT = AUDIT_ROOT / "castle_hall_fixture_alignment_audit.png"
 
 MASTER_SIZE = (2048, 1153)
-VIEW_RECT = (376, 212, 2048, 1153)
+VIEW_RECT_A = (376, 212, 2048, 1153)
+VIEW_RECT_B = (376, 147, 2048, 1088)
 TARGET_RUNTIME_Y = 215
-TARGET_MASTER_Y = VIEW_RECT[1] + TARGET_RUNTIME_Y
 SEAM_BLEND_WIDTH = 4
+TONE_TRANSITION_PIXELS = 12
+TONE_BANDS = (
+	("wall", 0, 620),
+	("carpet", 620, 790),
+	("floor", 790, 941),
+)
 
 A_FIXTURE_CENTERS = ((636, 427), (1388, 427), (1852, 427))
 B_FIXTURE_CENTERS = ((752, 362), (1119, 362), (1592, 362))
@@ -259,28 +266,69 @@ def smoothstep(value: np.ndarray) -> np.ndarray:
 def harmonize_screen_tone(
 		left_master: Image.Image,
 		right_master: Image.Image,
-		strength: float = 0.65,
+		strength: float = 1.0,
 ) -> tuple[Image.Image, dict[str, object]]:
-	"""Move Screen B toward Screen A's shared-hall palette without scaling."""
+	"""Match the corresponding wall, carpet, and floor bands at runtime."""
 	left = np.asarray(left_master.convert("RGB"), dtype=np.float32)
 	right = np.asarray(right_master.convert("RGB"), dtype=np.float32)
 	left_view = left[
-		VIEW_RECT[1]:VIEW_RECT[3], VIEW_RECT[0]:VIEW_RECT[2], :]
+		VIEW_RECT_A[1]:VIEW_RECT_A[3], VIEW_RECT_A[0]:VIEW_RECT_A[2], :]
 	right_view = right[
-		VIEW_RECT[1]:VIEW_RECT[3], VIEW_RECT[0]:VIEW_RECT[2], :]
-	left_mean = left_view.mean(axis=(0, 1))
-	right_mean = right_view.mean(axis=(0, 1))
-	correction = (left_mean - right_mean) * strength
-	output = np.clip(right + correction[None, None, :], 0, 255)
+		VIEW_RECT_B[1]:VIEW_RECT_B[3], VIEW_RECT_B[0]:VIEW_RECT_B[2], :]
+	if left_view.shape != right_view.shape:
+		raise ValueError(
+			f"Runtime views differ: {left_view.shape} and {right_view.shape}")
+
+	band_offsets: list[np.ndarray] = []
+	band_records: list[dict[str, object]] = []
+	for band_name, start, end in TONE_BANDS:
+		left_mean = left_view[start:end].mean(axis=(0, 1))
+		right_mean = right_view[start:end].mean(axis=(0, 1))
+		correction = (left_mean - right_mean) * strength
+		band_offsets.append(correction)
+		band_records.append({
+			"id": band_name,
+			"runtime_rows": [start, end],
+			"screen_a_mean_rgb": [
+				round(float(value), 6) for value in left_mean],
+			"screen_b_before_mean_rgb": [
+				round(float(value), 6) for value in right_mean],
+			"applied_rgb_offset": [
+				round(float(value), 6) for value in correction],
+		})
+
+	row_offsets = np.zeros((left_view.shape[0], 3), dtype=np.float32)
+	for band_index, (_band_name, start, end) in enumerate(TONE_BANDS):
+		row_offsets[start:end, :] = band_offsets[band_index]
+	for band_index in range(len(TONE_BANDS) - 1):
+		boundary = TONE_BANDS[band_index][2]
+		start = boundary - TONE_TRANSITION_PIXELS
+		end = boundary + TONE_TRANSITION_PIXELS
+		amount = smoothstep(np.linspace(
+			0.0, 1.0, end - start, dtype=np.float32))[:, None]
+		row_offsets[start:end, :] = (
+			band_offsets[band_index][None, :] * (1.0 - amount)
+			+ band_offsets[band_index + 1][None, :] * amount)
+
+	output = right.copy()
+	corrected_view = np.clip(
+		right_view + row_offsets[:, None, :], 0, 255)
+	output[
+		VIEW_RECT_B[1]:VIEW_RECT_B[3],
+		VIEW_RECT_B[0]:VIEW_RECT_B[2], :] = corrected_view
+	for band_index, (_band_name, start, end) in enumerate(TONE_BANDS):
+		after_mean = corrected_view[start:end].mean(axis=(0, 1))
+		band_records[band_index]["screen_b_after_mean_rgb"] = [
+			round(float(value), 6) for value in after_mean]
 	return Image.fromarray(output.astype(np.uint8), "RGB"), {
-		"method": "global RGB mean correction; no scaling or geometry change",
+		"method": (
+			"runtime-registered RGB mean correction by wall/carpet/floor "
+			"band; smooth 24-row transitions; no scaling or geometry change"),
 		"strength": strength,
-		"screen_a_runtime_mean_rgb": [
-			round(float(value), 6) for value in left_mean],
-		"screen_b_before_runtime_mean_rgb": [
-			round(float(value), 6) for value in right_mean],
-		"applied_rgb_offset": [
-			round(float(value), 6) for value in correction],
+		"screen_a_runtime_rect": list(VIEW_RECT_A),
+		"screen_b_runtime_rect": list(VIEW_RECT_B),
+		"transition_pixels_each_side": TONE_TRANSITION_PIXELS,
+		"bands": band_records,
 	}
 
 
@@ -290,27 +338,37 @@ def feather_screen_join(
 ) -> Image.Image:
 	left = np.asarray(left_master.convert("RGB"), dtype=np.float32)
 	right = np.asarray(right_master.convert("RGB"), dtype=np.float32).copy()
-	start = VIEW_RECT[0]
+	left_view = left[
+		VIEW_RECT_A[1]:VIEW_RECT_A[3], VIEW_RECT_A[0]:VIEW_RECT_A[2], :]
+	right_view = right[
+		VIEW_RECT_B[1]:VIEW_RECT_B[3], VIEW_RECT_B[0]:VIEW_RECT_B[2], :].copy()
 	width = SEAM_BLEND_WIDTH
-	# A four-pixel exact-edge ramp removes sampling cracks. The visible join is
-	# owned by accepted architectural Sprite3D cards, so raster structures are
-	# never copied or blurred across the two authored screens.
-	left_edge = left[:, VIEW_RECT[2] - 1, :]
-	original = right[:, start:start + width, :].copy()
+	# Apply the exact-edge ramp to corresponding runtime rows. Screen B's
+	# approved crop starts 65 master pixels above Screen A's, so using one
+	# shared master Y range silently compared and copied the wrong pixels.
+	left_edge = left_view[:, -1, :]
+	original = right_view[:, :width, :].copy()
 	t = np.linspace(0.0, 1.0, width, dtype=np.float32)
 	weights = smoothstep(t)[None, :, None]
-	right[:, start:start + width, :] = (
+	right_view[:, :width, :] = (
 		left_edge[:, None, :] * (1.0 - weights) + original * weights)
+	right[
+		VIEW_RECT_B[1]:VIEW_RECT_B[3],
+		VIEW_RECT_B[0]:VIEW_RECT_B[0] + width, :] = right_view[:, :width, :]
 	output = np.clip(right, 0, 255).astype(np.uint8)
-	output[:, start, :] = left[:, VIEW_RECT[2] - 1, :].astype(np.uint8)
+	output[
+		VIEW_RECT_B[1]:VIEW_RECT_B[3], VIEW_RECT_B[0], :] = \
+		left_edge.astype(np.uint8)
 	return Image.fromarray(output, "RGB")
 
 
 def seam_metrics(left: Image.Image, right: Image.Image) -> dict[str, object]:
 	left_array = np.asarray(left.convert("RGB"), dtype=np.int16)
 	right_array = np.asarray(right.convert("RGB"), dtype=np.int16)
-	left_edge = left_array[VIEW_RECT[1]:VIEW_RECT[3], VIEW_RECT[2] - 1, :]
-	right_edge = right_array[VIEW_RECT[1]:VIEW_RECT[3], VIEW_RECT[0], :]
+	left_edge = left_array[
+		VIEW_RECT_A[1]:VIEW_RECT_A[3], VIEW_RECT_A[2] - 1, :]
+	right_edge = right_array[
+		VIEW_RECT_B[1]:VIEW_RECT_B[3], VIEW_RECT_B[0], :]
 	delta = np.abs(left_edge - right_edge)
 	return {
 		"mean_absolute_rgb": round(float(delta.mean()), 6),
@@ -339,12 +397,12 @@ def write_contact(
 			centers: tuple[tuple[int, int], ...],
 		) -> Image.Image:
 		composite = image.convert("RGBA")
-		for center_x, _center_y in centers:
+		for center_x, center_y in centers:
 			composite.alpha_composite(
 				fixture_preview_asset,
 				(
 					center_x - fixture_preview_asset.width // 2,
-					TARGET_MASTER_Y - fixture_preview_asset.height // 2,
+					center_y - fixture_preview_asset.height // 2,
 				))
 		return composite.convert("RGB")
 
@@ -363,17 +421,17 @@ def write_contact(
 		font=font(17),
 		fill="#49417f")
 	images = (
-		("A BEFORE", before_a),
-		("B BEFORE", before_b),
-		("A RUNTIME COMPOSITE", runtime_a),
-		("B RUNTIME COMPOSITE + FEATHER", runtime_b),
+		("A BEFORE", before_a, VIEW_RECT_A),
+		("B BEFORE", before_b, VIEW_RECT_B),
+		("A RUNTIME COMPOSITE", runtime_a, VIEW_RECT_A),
+		("B RUNTIME COMPOSITE + REGISTERED EDGE", runtime_b, VIEW_RECT_B),
 	)
-	for index, (label, image) in enumerate(images):
+	for index, (label, image, view_rect) in enumerate(images):
 		column = index % 2
 		row = index // 2
 		x = 18 + column * 750
 		y = 88 + row * 344
-		view = image.crop(VIEW_RECT)
+		view = image.crop(view_rect)
 		preview = view.resize((718, 404), Image.Resampling.LANCZOS)
 		preview = preview.crop((0, 0, 718, 286))
 		canvas.paste(preview, (x, y))
@@ -487,7 +545,7 @@ def main() -> None:
 			"sha256": sha256(PORTAL_OUTPUT),
 			"method": "alpha silhouette extraction; accepted pixels only",
 		},
-		"architectural_join_cards": {
+		"legacy_architectural_join_derivatives": {
 			"column": {
 				"path": JOIN_COLUMN_OUTPUT.relative_to(ROOT).as_posix(),
 				"dimensions": list(join_column.size),
@@ -499,8 +557,11 @@ def main() -> None:
 				"dimensions": list(join_inlay.size),
 				"sha256": sha256(JOIN_INLAY_OUTPUT),
 				"source_trim_rectangle": [1170, 920, 1360, 944],
+				"runtime_use": False,
+				"retired_reason": "read as a floor crack after the seam repair",
 			},
 			"method": "accepted Screen-A pixels only; alpha extraction",
+			"runtime_use": False,
 		},
 		"generated_cleanup": {
 			"generator": "built-in image_gen precise-object-edit",
@@ -521,8 +582,8 @@ def main() -> None:
 			"runtime_coordinate_x": 1672,
 			"blend_width": SEAM_BLEND_WIDTH,
 			"method": (
-				"four-pixel exact-edge ramp beneath accepted architectural "
-				"Sprite3D divider cards; no copied structures"),
+				"four-pixel exact-edge ramp across corresponding registered "
+				"runtime rows; no copied structures"),
 			**seam_metrics(aligned_a, aligned_b),
 		},
 		"tone_harmonization": tone_harmonization,
