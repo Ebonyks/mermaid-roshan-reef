@@ -407,11 +407,106 @@ def build_sheet(mural: Image.Image, path: str) -> None:
     sheet.save(path, quality=82, optimize=True)
 
 
+def verify_sheet(path: str, columns: int, rows: int, baseline_tol: float,
+                 height_tol_pct: float, airborne: set[int]) -> int:
+    """Delivery gate for a new or regenerated pose sheet.
+
+    The defect this exists to catch: `Sprite3D` centres each atlas cell, so a
+    subject that sits at a different height inside its cell teleports the animal
+    vertically on every frame change. The shipped 2x2 sheets drift up to 21% of
+    a cell (0.6 world units, 17x the authored bob). A replacement sheet must
+    draw every grounded pose with its feet on one shared canvas baseline.
+
+    Airborne poses are the intended exception: declare them with
+    --airborne-frames and they may sit ABOVE the shared baseline (that is the
+    hop arc, carried by the art instead of by a runtime sine) but never below.
+
+    Subject height is reported, not gated by default: a crouch really is shorter
+    than a stretched bound. Tighten --height-tol only when comparing poses that
+    should be the same size.
+
+    Returns a process exit code: 0 pass, 1 fail.
+    """
+    image = Image.open(path).convert("RGBA")
+    cell_w = image.size[0] // columns
+    cell_h = image.size[1] // rows
+    cells = []
+    for row in range(rows):
+        for column in range(columns):
+            cell = image.crop((column * cell_w, row * cell_h,
+                               (column + 1) * cell_w, (row + 1) * cell_h))
+            alpha = np.array(cell)[:, :, 3]
+            ys, xs = np.nonzero(alpha > 24)
+            index = row * columns + column
+            if len(ys) == 0:
+                cells.append({"frame": index, "empty": True})
+                continue
+            cells.append({
+                "frame": index,
+                "baseline": float(ys.max()) / cell_h,
+                "height": int(ys.max() - ys.min() + 1),
+                "coverage": float((alpha > 24).sum()) / alpha.size,
+            })
+    filled = [c for c in cells if not c.get("empty")]
+    failures = 0
+    if len(filled) != columns * rows:
+        print("SHEET|cells|FAIL|%d of %d populated" % (len(filled), columns * rows))
+        failures += 1
+    if not filled:
+        return 1
+    grounded = [c for c in filled if c["frame"] not in airborne]
+    baselines = sorted(c["baseline"] for c in (grounded or filled))
+    heights = sorted(c["height"] for c in filled)
+    median_baseline = baselines[len(baselines) // 2]
+    median_height = heights[len(heights) // 2]
+    print("%-6s %-9s %9s %9s %9s" % ("frame", "kind", "baseline", "dBase",
+                                     "dHeight%"))
+    for cell in cells:
+        if cell.get("empty"):
+            print("%-6d %-9s %9s" % (cell["frame"], "-", "EMPTY"))
+            continue
+        is_airborne = cell["frame"] in airborne
+        d_base = cell["baseline"] - median_baseline
+        d_height = (cell["height"] / median_height - 1.0) * 100.0
+        # airborne poses may float above the shared baseline, never below it
+        bad = d_base > baseline_tol if is_airborne \
+            else abs(d_base) > baseline_tol
+        bad = bad or abs(d_height) > height_tol_pct
+        failures += 1 if bad else 0
+        print("%-6d %-9s %9.4f %+9.4f %+9.1f%s" % (
+            cell["frame"], "airborne" if is_airborne else "grounded",
+            cell["baseline"], d_base, d_height,
+            "   <-- OUT OF TOLERANCE" if bad else ""))
+    print("SHEET|%s|%s|baseline_tol=%.4f height_tol=%.1f%% cell=%dx%d" % (
+        os.path.basename(path), "PASS" if failures == 0 else "FAIL",
+        baseline_tol, height_tol_pct, cell_w, cell_h))
+    return 0 if failures == 0 else 1
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json-out")
     parser.add_argument("--sheet-out")
+    parser.add_argument("--verify-sheet",
+                        help="delivery gate for one pose sheet PNG")
+    parser.add_argument("--grid", default="4x4",
+                        help="cell grid of the sheet being verified")
+    parser.add_argument("--baseline-tol", type=float, default=0.016,
+                        help="max foot-baseline deviation, fraction of cell")
+    parser.add_argument("--height-tol", type=float, default=40.0,
+                        help="max subject-height deviation, percent (coarse "
+                             "identity-drift catch; pose-driven change is legal)")
+    parser.add_argument("--airborne-frames", default="",
+                        help="comma-separated frame indices allowed to sit "
+                             "above the shared foot baseline")
     args = parser.parse_args()
+
+    if args.verify_sheet:
+        columns, rows = (int(v) for v in args.grid.lower().split("x"))
+        airborne = {int(v) for v in args.airborne_frames.split(",") if v.strip()}
+        raise SystemExit(verify_sheet(args.verify_sheet, columns, rows,
+                                      args.baseline_tol, args.height_tol,
+                                      airborne))
 
     mural = load_mural()
     atlases = measure_atlases()
