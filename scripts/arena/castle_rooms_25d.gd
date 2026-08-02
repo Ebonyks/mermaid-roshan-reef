@@ -234,6 +234,66 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
 		"color": Color(1.0, 0.75, 0.86)},
 ]
+# Dust-bunny AI (owner task 2026-08-02). Every bunny is a one-hit-point critter
+# that hops slowly, never chases Roshan and never hurts her. The three founders
+# above stay authored at their spawn-guide coordinates; every other bunny is
+# generated at runtime from the variant table below, and the Codex art already
+# painted into this hall decides how each variant behaves:
+#   * shell sconces (main_hall_sconce_atlas) — switching one ON wakes the
+#     sleepers near it, makes shell bunnies duck back under their shell, and
+#     makes hoppers drift toward the dark half of the hall;
+#   * the royal shell tapestry — unfurling it startles every bunny near it;
+#   * the painted doorways (HALL_PORTALS) — generated bunnies never spawn in a
+#     door approach or on Roshan's arrival mark;
+#   * dust_bunny_family.png — a family huddle is a nursery: while it is alive
+#     it passively puffs out new pups on a faster clock.
+const HALL_BUNNY_ART := "res://assets/castle/dirty_cleanup_2d/critters/" \
+	+ "dust_bunnies/"
+const HALL_BUNNY_HP := 1
+const HALL_BUNNY_LIVE_CAP := 5
+const HALL_BUNNY_SEED_BASE := 20260802
+const HALL_BUNNY_HOP_DISTANCE := 46.0
+const HALL_BUNNY_HOP_TIME := 0.46
+const HALL_BUNNY_REST_TIME := 0.62
+const HALL_BUNNY_HOP_HEIGHT := 16.0
+const HALL_BUNNY_WAKE_TIME := 0.42
+const HALL_BUNNY_LIGHT_REACH := 620.0
+const HALL_BUNNY_LIGHT_WAKE := 0.35
+const HALL_BUNNY_SHY_RADIUS := 340.0
+const HALL_BUNNY_STARTLE_RADIUS := 560.0
+const HALL_BUNNY_SETTLE_TIME := 5.0
+const HALL_BUNNY_FLEE_TIME := 2.4
+const HALL_BUNNY_HOLD_TIME := 3.2
+const HALL_BUNNY_NURSERY_INTERVAL := 9.0
+const HALL_BUNNY_DRIFT_INTERVAL := 13.0
+const HALL_BUNNY_SPAWN_CLEARANCE := 150.0
+const HALL_BUNNY_DOOR_CLEARANCE := 90.0
+const HALL_BUNNY_START_CLEARANCE := 260.0
+const HALL_BUNNY_START_FOOT := Vector2(380.0, 835.0)
+# Generated cards sit low enough that even at the top of a hop they stay clear
+# of every painted door approach band, whatever x the generator picks, and their
+# contact feet stay inside HALL_WALK.
+const HALL_BUNNY_FOOT_BAND := Vector2(834.0, 852.0)
+const HALL_BUNNY_SPAWN_X_RANGE := Vector2(240.0, 3120.0)
+const HALL_BUNNY_VARIANTS: Array[Dictionary] = [
+	{"role": "hopper", "weight": 3, "tex": "dust_bunny_hop.png",
+		"scale": 0.32, "z": 2.85, "pitch": 1.70, "range": 420.0,
+		"color": Color(1.0, 0.75, 0.86)},
+	{"role": "shy_hopper", "weight": 2, "tex": "dust_bunny_hop.png",
+		"scale": 0.28, "z": 3.15, "pitch": 1.82, "range": 300.0,
+		"color": Color(0.98, 0.86, 1.0)},
+	{"role": "sleeping_static", "weight": 2, "tex": "dust_bunny_sleepy.png",
+		"scale": 0.34, "z": 2.65, "pitch": 1.55, "range": 380.0,
+		"color": Color(0.86, 0.72, 1.0)},
+	{"role": "shell_static", "weight": 2, "tex": "dust_bunny_shell_hide.png",
+		"scale": 0.32, "z": 3.05, "pitch": 1.45, "range": 0.0,
+		"color": Color(0.60, 0.92, 1.0)},
+	{"role": "family_nursery", "weight": 1, "tex": "dust_bunny_family.png",
+		"scale": 0.30, "z": 2.45, "pitch": 1.35, "range": 0.0,
+		"color": Color(1.0, 0.90, 0.72)},
+]
+const HALL_BUNNY_TRAVEL_ROLES: Array[String] = [
+	"runner", "hopper", "shy_hopper"]
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
 		"pos": Vector2(367.0, 85.0), "z": 1.55,
@@ -890,6 +950,13 @@ func open(start_room: String = "main_hall") -> void:
 	if not m.g.has("castle_bedside_light_on"):
 		m.g["castle_bedside_light_on"] = false
 	m.g["castle_roleplay_sleeping"] = false
+	# One colony per castle visit: the founders plus a generated tail. The visit
+	# serial only seeds the generator, so a later visit brings a different mix of
+	# sleepers, shell hiders and hoppers without any save-file state.
+	m.g["castle_visit_serial"] = int(m.g.get("castle_visit_serial", 0)) + 1
+	m.g["castle_dust_bunny_colony"] = []
+	m.g["castle_dust_bunny_spawn_clock"] = 0.0
+	m.g["castle_dust_bunny_spawn_serial"] = 0
 	m.castle_room_layer = CanvasLayer.new()
 	m.castle_room_layer.layer = 14
 	m.add_child(m.castle_room_layer)
@@ -988,6 +1055,9 @@ func close() -> void:
 	m.g.erase("castle_movie_index")
 	m.g.erase("castle_bedside_light_on")
 	m.g.erase("castle_roleplay_sleeping")
+	m.g.erase("castle_dust_bunny_colony")
+	m.g.erase("castle_dust_bunny_spawn_clock")
+	m.g.erase("castle_dust_bunny_spawn_serial")
 	m._set_world_controls_enabled(true, "castle_rooms")
 	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 	if m.player != null:
@@ -1002,6 +1072,8 @@ func tick(delta: float) -> void:
 		m.player.vel = Vector3.ZERO
 	fixture_rigs.tick(delta)
 	_update_dust_bunny_runner(delta)
+	_update_dust_bunny_colony(delta)
+	_update_dust_bunny_spawner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
 	_update_touch_hotspots()
@@ -1691,7 +1763,7 @@ func _rebuild_touch_items(room_id: String) -> void:
 	var items: Array = []
 	if room_id == "main_hall":
 		items.append_array(HALL_ITEMS)
-		items.append_array(HALL_DUST_BUNNY_SPAWNS)
+		items.append_array(_hall_dust_bunny_colony())
 	else:
 		var room_items: Array = ROOM_ITEMS.get(room_id, []) as Array
 		items = room_items.duplicate()
@@ -1832,6 +1904,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if bunny_role != "":
 		piece.set_meta("dust_bunny_role", bunny_role)
 		piece.set_meta("spawn_guide_id", item_id)
+		# One hit point, always. A single contact with Roshan's foot clears the
+		# bunny; nothing a dust bunny does can ever damage her back.
+		piece.set_meta("dust_bunny_hp", HALL_BUNNY_HP)
+		piece.set_meta("dust_bunny_state",
+			"asleep" if bunny_role == "sleeping_static" else (
+				"hidden" if bunny_role == "shell_static" else "resting"))
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("room_destination"):
 		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -1956,6 +2034,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	stored_record["fixture_rig"] = fixture_rigs.build(
 		interaction_key, piece, item_data, source_position, reference_size,
 		item_z, Callable(self, "_art_to_world"))
+	if bunny_role != "":
+		_init_dust_bunny_behavior(
+			stored_record, room_id, item_data, source_position, visual_scale)
 	_update_touch_hotspot(stored_record)
 	if room_id == "playroom" and item_id == "baby_eagle_rescue":
 		_add_playroom_rescue_pointer()
@@ -1985,6 +2066,14 @@ func _activate_room_item(item_id: String) -> void:
 		return
 	var interaction_key := String(sprite.get_meta("source_object_id", ""))
 	fixture_rigs.activate(interaction_key)
+	_item_burst(sprite.position,
+		Color(item_data.get("color", StorybookUI.GOLD)), 6)
+	# A prop coming to life next to a dust bunny scares it off — the painted
+	# shell tapestry is the loud one in this hall.
+	if _is_wide_hall():
+		_startle_dust_bunnies(
+			(item_data.get("pos", Vector2.ZERO) as Vector2).x,
+			HALL_BUNNY_STARTLE_RADIUS)
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
@@ -2294,6 +2383,12 @@ func _toggle_hall_sconce(item_id: String, sprite: Sprite3D,
 	playback_data["pitch"] = 1.0
 	_play_sprite_atlas_sequence(sprite, playback_data, true, false)
 	_sync_hall_lighting()
+	# Light dictates dust-bunny behaviour: a shell sconce coming on wakes the
+	# sleepers under it. Switching one off never wakes anything.
+	if now_on:
+		_wake_dust_bunnies_near(
+			(item_data.get("pos", Vector2.ZERO) as Vector2).x,
+			HALL_BUNNY_LIGHT_REACH)
 
 func _sync_sconce_frame_uv(sprite: Sprite3D) -> void:
 	if sprite == null or not is_instance_valid(sprite):
@@ -2828,45 +2923,542 @@ func _finish_player_walk() -> void:
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 
-func _update_dust_bunny_runner(delta: float) -> void:
+func _init_dust_bunny_behavior(record: Dictionary, room_id: String,
+		item_data: Dictionary, source_position: Vector2,
+		visual_scale: float) -> void:
+	var role: String = String(item_data.get("dust_bunny_role", ""))
+	record["bunny_role"] = role
+	record["hp"] = int(item_data.get("hp", HALL_BUNNY_HP))
+	record["bunny_scale"] = visual_scale
+	record["bunny_center"] = source_position
+	record["bunny_base_y"] = source_position.y
+	record["bunny_depth"] = float(item_data.get("z", ITEM_Z))
+	record["bunny_clock"] = 0.0
+	record["bunny_flee"] = 0.0
+	record["bunny_flee_direction"] = 1.0
+	record["bunny_settle"] = 0.0
+	record["bunny_wake"] = 0.0
+	record["bunny_hop_time"] = 0.0
+	record["bunny_direction"] = 1.0
+	record["bunny_hop_from"] = source_position.x
+	record["bunny_hop_to"] = source_position.x
+	# Deterministic per-spawn rhythm: no two neighbours hop on the same beat,
+	# and a probe run reproduces the same colony beat for beat.
+	record["bunny_rest_scale"] = 0.80 + 0.60 * fposmod(
+		source_position.x * 0.017, 1.0)
+	# Rest starts full so the first ticked frame already carries a hop.
+	record["bunny_rest"] = HALL_BUNNY_REST_TIME * 2.0
+	if room_id != "main_hall":
+		# Playroom pinning bunnies are authored set dressing for the Baby Eagle
+		# rescue; they hold their painted pose.
+		record["bunny_travels"] = false
+		record["bunny_state"] = "pinned"
+		return
+	var hop_range: float = float(item_data.get("hop_range", 420.0))
+	var bounds := Vector2(
+		source_position.x - hop_range, source_position.x + hop_range)
+	if item_data.has("patrol_x"):
+		bounds = item_data["patrol_x"] as Vector2
+	record["bunny_bounds"] = Vector2(
+		maxf(bounds.x, HALL_BUNNY_SPAWN_X_RANGE.x),
+		minf(bounds.y, HALL_BUNNY_SPAWN_X_RANGE.y))
+	record["bunny_travels"] = role in HALL_BUNNY_TRAVEL_ROLES
+	record["bunny_state"] = "asleep" if role == "sleeping_static" else (
+		"hidden" if role == "shell_static" else (
+			"resting" if role in HALL_BUNNY_TRAVEL_ROLES else "huddled"))
+
+func _hall_player_foot() -> Vector2:
+	if m.castle_room_player_sprite == null \
+			or not is_instance_valid(m.castle_room_player_sprite):
+		return Vector2(-100000.0, -100000.0)
+	return m.castle_room_player_sprite.get_meta(
+		"current_stage_foot",
+		m.castle_room_player_sprite.get_meta(
+			"stage_foot", Vector2(-100000.0, -100000.0))) as Vector2
+
+func _hall_light_level_at(art_x: float) -> float:
+	# The painted shell sconces are the only light authority in this hall, so
+	# they are what the bunnies read when deciding to sleep, hide or hop away.
+	var level := 0.0
+	for item_data: Dictionary in HALL_ITEMS:
+		if not item_data.has("light_cluster"):
+			continue
+		if not bool(m.castle_room_light_states.get(
+				String(item_data["id"]), true)):
+			continue
+		var fixture_x: float = (item_data["pos"] as Vector2).x
+		level = maxf(level, clampf(
+			1.0 - absf(fixture_x - art_x) / HALL_BUNNY_LIGHT_REACH, 0.0, 1.0))
+	return level
+
+func _update_dust_bunny_colony(delta: float) -> void:
 	if not _is_wide_hall() or delta <= 0.0:
 		return
-	var runner_record: Dictionary = m.castle_room_item_sprites.get(
-		"runner_bunny", {}) as Dictionary
-	if runner_record.is_empty():
-		return
-	var runner_sprite: Sprite3D = runner_record.get("sprite") as Sprite3D
-	var runner_data: Dictionary = runner_record.get("data", {}) as Dictionary
-	if runner_sprite == null or not is_instance_valid(runner_sprite):
-		return
-	var elapsed: float = float(m.g.get(
+	m.g["castle_dust_bunny_runner_time"] = float(m.g.get(
 		"castle_dust_bunny_runner_time", 0.0)) + delta
-	m.g["castle_dust_bunny_runner_time"] = elapsed
-	var patrol_x: Vector2 = runner_data.get(
-		"patrol_x", Vector2(1850.0, 2550.0)) as Vector2
-	var run_speed: float = float(runner_data.get("run_speed", 220.0))
-	var segment_length: float = maxf(1.0, patrol_x.y - patrol_x.x)
-	var travel: float = fposmod(elapsed * run_speed, segment_length * 2.0)
-	var moving_right: bool = travel <= segment_length
-	var runner_x: float = patrol_x.x + travel if moving_right \
-		else patrol_x.y - (travel - segment_length)
-	var source_position: Vector2 = runner_data.get(
-		"pos", Vector2(1850.0, 830.0)) as Vector2
-	var runner_center := Vector2(
-		runner_x, source_position.y - absf(sin(elapsed * 8.0)) * 14.0)
-	var depth_z: float = float(runner_data.get("z", 2.85))
-	runner_sprite.position = _hall_art_to_world(runner_center, depth_z)
-	runner_sprite.pixel_size = _pixel_size_for_depth(depth_z)
-	runner_sprite.flip_h = not moving_right
-	var contact_offset: Vector2 = runner_data.get(
+	var player_foot: Vector2 = _hall_player_foot()
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) == "":
+			continue
+		_update_dust_bunny(record, delta, player_foot)
+
+func _update_dust_bunny(record: Dictionary, delta: float,
+		player_foot: Vector2) -> void:
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("exploding", false)):
+		return
+	record["bunny_clock"] = float(record.get("bunny_clock", 0.0)) + delta
+	record["bunny_flee"] = maxf(
+		0.0, float(record.get("bunny_flee", 0.0)) - delta)
+	var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+	var light: float = _hall_light_level_at(center.x)
+	if bool(record.get("bunny_travels", false)):
+		_update_dust_bunny_travel(record, delta, player_foot, light)
+	else:
+		_update_dust_bunny_idle(record, delta, player_foot, light)
+
+func _update_dust_bunny_idle(record: Dictionary, delta: float,
+		player_foot: Vector2, light: float) -> void:
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	var role: String = String(record.get("bunny_role", ""))
+	var state: String = String(record.get("bunny_state", ""))
+	var base_scale: float = float(record.get("bunny_scale", 1.0))
+	var clock: float = float(record.get("bunny_clock", 0.0))
+	if state == "waking":
+		var wake: float = float(record.get("bunny_wake", 0.0)) + delta
+		record["bunny_wake"] = wake
+		var wake_ratio: float = clampf(wake / HALL_BUNNY_WAKE_TIME, 0.0, 1.0)
+		var stretch: float = sin(wake_ratio * PI)
+		sprite.scale = Vector3(
+			base_scale * (1.0 - 0.10 * stretch),
+			base_scale * (1.0 + 0.22 * stretch), 1.0)
+		if wake_ratio >= 1.0:
+			sprite.scale = Vector3.ONE * base_scale
+			sprite.texture = load(HALL_BUNNY_ART + "dust_bunny_hop.png")
+			record["bunny_travels"] = true
+			record["bunny_state"] = "resting"
+			record["bunny_rest"] = HALL_BUNNY_REST_TIME * 2.0
+			sprite.set_meta("dust_bunny_state", "hopping")
+		return
+	var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+	if role == "shell_static":
+		# The shell is a hiding place: bright light or an approaching mermaid
+		# pulls the bunny back under it, darkness lets it peek out again.
+		var hiding: bool = light >= HALL_BUNNY_LIGHT_WAKE \
+			or absf(player_foot.x - center.x) <= HALL_BUNNY_SHY_RADIUS
+		record["bunny_state"] = "hidden" if hiding else "peeking"
+		sprite.set_meta("dust_bunny_state", String(record["bunny_state"]))
+		var shell_target: float = base_scale * (0.90 if hiding
+			else 1.06 + 0.02 * sin(clock * 2.2))
+		sprite.scale = sprite.scale.lerp(
+			Vector3.ONE * shell_target, clampf(delta * 6.0, 0.0, 1.0))
+		return
+	# Sleeping huddles and the family nursery only breathe. They never travel,
+	# so their card never leaves its authored spot.
+	var breath: float = 0.035 * sin(clock * 1.7)
+	sprite.scale = Vector3(
+		base_scale * (1.0 + breath), base_scale * (1.0 - breath), 1.0)
+	sprite.set_meta("dust_bunny_state", state)
+
+func _update_dust_bunny_travel(record: Dictionary, delta: float,
+		player_foot: Vector2, light: float) -> void:
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	var base_scale: float = float(record.get("bunny_scale", 1.0))
+	var base_y: float = float(record.get("bunny_base_y", 830.0))
+	var remaining: float = delta
+	var guard := 0
+	while remaining > 0.0 and guard < 8:
+		guard += 1
+		if String(record.get("bunny_state", "resting")) == "hopping":
+			var hop_time: float = float(record.get("bunny_hop_time", 0.0))
+			var step: float = minf(remaining, HALL_BUNNY_HOP_TIME - hop_time)
+			hop_time += step
+			remaining -= step
+			record["bunny_hop_time"] = hop_time
+			if hop_time >= HALL_BUNNY_HOP_TIME:
+				record["bunny_state"] = "resting"
+				record["bunny_rest"] = 0.0
+		else:
+			var rest_limit: float = HALL_BUNNY_REST_TIME \
+				* float(record.get("bunny_rest_scale", 1.0))
+			var rest: float = float(record.get("bunny_rest", 0.0))
+			var rest_step: float = minf(remaining, maxf(0.0, rest_limit - rest))
+			rest += rest_step
+			remaining -= rest_step
+			record["bunny_rest"] = rest
+			if _settle_dust_bunny_if_dark(record, rest_step, light):
+				return
+			if rest >= rest_limit:
+				_start_dust_bunny_hop(record, player_foot, light)
+			elif rest_step <= 0.0:
+				break
+	var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+	if String(record.get("bunny_state", "resting")) == "hopping":
+		var hop_ratio: float = clampf(
+			float(record.get("bunny_hop_time", 0.0)) / HALL_BUNNY_HOP_TIME,
+			0.0, 1.0)
+		center = Vector2(
+			lerpf(float(record.get("bunny_hop_from", center.x)),
+				float(record.get("bunny_hop_to", center.x)), hop_ratio),
+			base_y - sin(hop_ratio * PI) * HALL_BUNNY_HOP_HEIGHT)
+		sprite.scale = Vector3(
+			base_scale * (1.0 - 0.06 * sin(hop_ratio * PI)),
+			base_scale * (1.0 + 0.09 * sin(hop_ratio * PI)), 1.0)
+	else:
+		center = Vector2(float(record.get("bunny_hop_to", center.x)), base_y)
+		sprite.scale = Vector3.ONE * base_scale
+	record["bunny_center"] = center
+	_apply_dust_bunny_center(record, center)
+
+func _settle_dust_bunny_if_dark(record: Dictionary, delta: float,
+		light: float) -> bool:
+	# An awake sleeper that finds a dark, quiet corner curls back up. Turning a
+	# shell sconce on is what stirs the hall; turning them off calms it.
+	if String(record.get("bunny_role", "")) != "sleeping_static":
+		return false
+	var settle: float = float(record.get("bunny_settle", 0.0))
+	if light < HALL_BUNNY_LIGHT_WAKE \
+			and float(record.get("bunny_flee", 0.0)) <= 0.0:
+		settle += delta
+	else:
+		settle = 0.0
+	record["bunny_settle"] = settle
+	if settle < HALL_BUNNY_SETTLE_TIME:
+		return false
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	record["bunny_settle"] = 0.0
+	record["bunny_travels"] = false
+	record["bunny_state"] = "asleep"
+	if sprite != null and is_instance_valid(sprite):
+		sprite.texture = load(HALL_BUNNY_ART + "dust_bunny_sleepy.png")
+		sprite.scale = Vector3.ONE * float(record.get("bunny_scale", 1.0))
+		sprite.set_meta("dust_bunny_state", "asleep")
+	var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+	center.y = float(record.get("bunny_base_y", center.y))
+	record["bunny_center"] = center
+	_apply_dust_bunny_center(record, center)
+	return true
+
+func _start_dust_bunny_hop(record: Dictionary, player_foot: Vector2,
+		light: float) -> void:
+	var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+	var bounds: Vector2 = record.get(
+		"bunny_bounds", HALL_BUNNY_SPAWN_X_RANGE) as Vector2
+	var direction: float = float(record.get("bunny_direction", 1.0))
+	var role: String = String(record.get("bunny_role", ""))
+	var player_gap: float = player_foot.x - center.x
+	var hold: float = maxf(0.0, float(record.get("bunny_hold", 0.0))
+		- HALL_BUNNY_HOP_TIME - HALL_BUNNY_REST_TIME)
+	record["bunny_hold"] = hold
+	if float(record.get("bunny_flee", 0.0)) > 0.0:
+		direction = float(record.get("bunny_flee_direction", direction))
+	elif hold > 0.0:
+		# Just turned around at the end of its patch: keep going that way for a
+		# few hops instead of bouncing against the same edge every hop.
+		pass
+	elif absf(player_gap) <= HALL_BUNNY_SHY_RADIUS and absf(player_gap) > 1.0 \
+			and role != "runner":
+		# Shy, never dangerous: a bunny that notices Roshan hops away from her,
+		# always slower than she swims, so she can still catch every one.
+		direction = -signf(player_gap)
+	else:
+		var dark_step: float = HALL_BUNNY_HOP_DISTANCE * 2.0
+		var left_light: float = _hall_light_level_at(center.x - dark_step)
+		var right_light: float = _hall_light_level_at(center.x + dark_step)
+		if absf(left_light - right_light) > 0.05:
+			direction = -1.0 if left_light < right_light else 1.0
+		elif light >= HALL_BUNNY_LIGHT_WAKE and direction == 0.0:
+			direction = 1.0
+	if direction == 0.0:
+		direction = 1.0
+	var target: float = center.x + direction * HALL_BUNNY_HOP_DISTANCE
+	if target < bounds.x or target > bounds.y:
+		direction = -direction
+		target = center.x + direction * HALL_BUNNY_HOP_DISTANCE
+		record["bunny_hold"] = HALL_BUNNY_HOLD_TIME
+	record["bunny_direction"] = direction
+	record["bunny_hop_from"] = center.x
+	record["bunny_hop_to"] = clampf(target, bounds.x, bounds.y)
+	record["bunny_hop_time"] = 0.0
+	record["bunny_state"] = "hopping"
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("dust_bunny_state", "hopping")
+
+func _apply_dust_bunny_center(record: Dictionary, center: Vector2) -> void:
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	var depth_z: float = float(record.get(
+		"bunny_depth", float(item_data.get("z", ITEM_Z))))
+	sprite.position = _hall_art_to_world(center, depth_z)
+	sprite.pixel_size = _pixel_size_for_depth(depth_z)
+	sprite.flip_h = float(record.get("bunny_direction", 1.0)) < 0.0
+	var contact_offset: Vector2 = item_data.get(
 		"contact_offset", Vector2.ZERO) as Vector2
-	runner_record["contact_foot"] = runner_center + contact_offset
-	var card_size: Vector2 = runner_sprite.texture.get_size() \
-		* float(runner_data.get("scale", 1.0))
-	runner_record["art_rect"] = Rect2(
-		runner_center - card_size * 0.5, card_size)
-	runner_record["runner_direction"] = 1.0 if moving_right else -1.0
-	m.castle_room_item_sprites["runner_bunny"] = runner_record
+	record["contact_foot"] = center + contact_offset
+	if sprite.texture != null:
+		var card_size: Vector2 = sprite.texture.get_size() \
+			* float(record.get("bunny_scale", 1.0))
+		record["art_rect"] = Rect2(center - card_size * 0.5, card_size)
+	record["runner_direction"] = float(record.get("bunny_direction", 1.0))
+
+func _wake_dust_bunnies_near(art_x: float, reach: float) -> void:
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) != "sleeping_static":
+			continue
+		if String(record.get("bunny_state", "")) != "asleep":
+			continue
+		var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+		if absf(center.x - art_x) > reach:
+			continue
+		record["bunny_state"] = "waking"
+		record["bunny_wake"] = 0.0
+		record["bunny_settle"] = 0.0
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite != null and is_instance_valid(sprite):
+			sprite.set_meta("dust_bunny_state", "waking")
+
+func _startle_dust_bunnies(art_x: float, radius: float) -> void:
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) == "":
+			continue
+		var center: Vector2 = record.get("bunny_center", Vector2.ZERO) as Vector2
+		if absf(center.x - art_x) > radius:
+			continue
+		record["bunny_flee"] = HALL_BUNNY_FLEE_TIME
+		record["bunny_flee_direction"] = 1.0 if center.x >= art_x else -1.0
+		record["bunny_settle"] = 0.0
+		if String(record.get("bunny_state", "")) == "asleep":
+			record["bunny_state"] = "waking"
+			record["bunny_wake"] = 0.0
+
+func _hall_dust_bunny_colony() -> Array:
+	var colony: Array = m.g.get("castle_dust_bunny_colony", []) as Array
+	if not colony.is_empty():
+		return colony
+	var visit_serial: int = int(m.g.get("castle_visit_serial", 1))
+	var rng := RandomNumberGenerator.new()
+	rng.seed = HALL_BUNNY_SEED_BASE + visit_serial * 7919
+	for founder: Dictionary in HALL_DUST_BUNNY_SPAWNS:
+		colony.append(founder.duplicate(true))
+	var extra_count: int = 1 + visit_serial % 2
+	for index in range(extra_count):
+		var spawn: Dictionary = _make_generated_dust_bunny(
+			rng, "dust_bunny_gen_%d" % (index + 1), colony, -1.0)
+		if spawn.is_empty():
+			break
+		colony.append(spawn)
+	m.g["castle_dust_bunny_colony"] = colony
+	return colony
+
+func _pick_hall_bunny_variant(rng: RandomNumberGenerator) -> Dictionary:
+	var total := 0
+	for variant: Dictionary in HALL_BUNNY_VARIANTS:
+		total += int(variant.get("weight", 1))
+	var roll: int = rng.randi_range(0, maxi(0, total - 1))
+	for variant: Dictionary in HALL_BUNNY_VARIANTS:
+		roll -= int(variant.get("weight", 1))
+		if roll < 0:
+			return variant
+	return HALL_BUNNY_VARIANTS[0]
+
+func _hall_bunny_free_spans(colony: Array) -> Array:
+	# Doors, Roshan's arrival mark and the bunnies already placed carve the hall
+	# floor into the spans a new bunny may drift into.
+	var blocked: Array[Vector2] = [Vector2(
+		HALL_BUNNY_START_FOOT.x - HALL_BUNNY_START_CLEARANCE,
+		HALL_BUNNY_START_FOOT.x + HALL_BUNNY_START_CLEARANCE)]
+	for portal: Dictionary in HALL_PORTALS:
+		var foot: Vector2 = portal.get("foot", Vector2.ZERO) as Vector2
+		blocked.append(Vector2(
+			foot.x - HALL_BUNNY_DOOR_CLEARANCE,
+			foot.x + HALL_BUNNY_DOOR_CLEARANCE))
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	for entry_value: Variant in colony:
+		var entry: Dictionary = entry_value as Dictionary
+		# A cleared bunny gives its patch of floor back to the colony.
+		if bool(cleared.get(String(entry.get("id", "")), false)):
+			continue
+		var entry_position: Vector2 = entry.get("pos", Vector2.ZERO) as Vector2
+		blocked.append(Vector2(
+			entry_position.x - HALL_BUNNY_SPAWN_CLEARANCE,
+			entry_position.x + HALL_BUNNY_SPAWN_CLEARANCE))
+	blocked.sort_custom(func(a: Vector2, b: Vector2) -> bool: return a.x < b.x)
+	var spans: Array[Vector2] = []
+	var cursor: float = HALL_BUNNY_SPAWN_X_RANGE.x
+	for band: Vector2 in blocked:
+		if band.x > cursor:
+			spans.append(Vector2(
+				cursor, minf(band.x, HALL_BUNNY_SPAWN_X_RANGE.y)))
+		cursor = maxf(cursor, band.y)
+		if cursor >= HALL_BUNNY_SPAWN_X_RANGE.y:
+			break
+	if cursor < HALL_BUNNY_SPAWN_X_RANGE.y:
+		spans.append(Vector2(cursor, HALL_BUNNY_SPAWN_X_RANGE.y))
+	var usable: Array[Vector2] = []
+	for span: Vector2 in spans:
+		if span.y - span.x >= 70.0:
+			usable.append(span)
+	return usable
+
+func _hall_bunny_spawn_x(rng: RandomNumberGenerator, colony: Array,
+		preferred_x: float) -> float:
+	var spans: Array = _hall_bunny_free_spans(colony)
+	if spans.is_empty():
+		return -1.0
+	if preferred_x >= 0.0:
+		var best: Vector2 = spans[0] as Vector2
+		var best_gap := INF
+		for span: Vector2 in spans:
+			var gap: float = absf(
+				clampf(preferred_x, span.x, span.y) - preferred_x)
+			if gap < best_gap:
+				best_gap = gap
+				best = span
+		return clampf(preferred_x, best.x + 30.0, best.y - 30.0)
+	var total := 0.0
+	for span: Vector2 in spans:
+		total += span.y - span.x
+	var roll: float = rng.randf() * total
+	for span: Vector2 in spans:
+		var width: float = span.y - span.x
+		if roll <= width:
+			return span.x + clampf(
+				rng.randf() * width, 30.0, maxf(30.0, width - 30.0))
+		roll -= width
+	var last: Vector2 = spans[spans.size() - 1] as Vector2
+	return (last.x + last.y) * 0.5
+
+func _has_live_dust_bunny_role(role: String) -> bool:
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) == role:
+			return true
+	return false
+
+func _live_dust_bunny_count() -> int:
+	var count := 0
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) != "":
+			count += 1
+	return count
+
+func hall_dust_bunny_ids() -> Array[String]:
+	var ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) != "":
+			ids.append(String(item_id_value))
+	return ids
+
+func _make_generated_dust_bunny(rng: RandomNumberGenerator, item_id: String,
+		colony: Array, preferred_x: float) -> Dictionary:
+	var variant: Dictionary = _pick_hall_bunny_variant(rng)
+	if String(variant["role"]) == "family_nursery" \
+			and _has_live_dust_bunny_role("family_nursery"):
+		variant = HALL_BUNNY_VARIANTS[0]
+	var spawn_x: float = _hall_bunny_spawn_x(rng, colony, preferred_x)
+	if spawn_x < 0.0:
+		return {}
+	var spawn_y: float = rng.randf_range(
+		HALL_BUNNY_FOOT_BAND.x, HALL_BUNNY_FOOT_BAND.y)
+	var visual_scale: float = float(variant["scale"]) \
+		* rng.randf_range(0.92, 1.06)
+	var depth_z: float = clampf(
+		float(variant["z"]) + rng.randf_range(-0.14, 0.14), 2.35, 3.15)
+	var role: String = String(variant["role"])
+	return {
+		"id": item_id,
+		"name": "Dust bunny",
+		"pos": Vector2(spawn_x, spawn_y),
+		"z": depth_z,
+		"tex_path": HALL_BUNNY_ART + String(variant["tex"]),
+		"scale": visual_scale,
+		"dust_bunny_role": role,
+		"generated_dust_bunny": true,
+		"hp": HALL_BUNNY_HP,
+		"hop_range": float(variant["range"]),
+		"contact_offset": Vector2(0.0, 60.0),
+		"contact_radius": Vector2(132.0, 92.0),
+		"proximity_only": true,
+		"sound": "hop_boing.ogg",
+		"pitch": float(variant["pitch"]) * rng.randf_range(0.94, 1.06),
+		"color": variant["color"],
+	}
+
+func _update_dust_bunny_spawner(delta: float) -> void:
+	# Passive generation: the hall keeps making new dust bunnies on its own, so
+	# clearing one is never the end of the game and never a score to protect.
+	if not _is_wide_hall() or delta <= 0.0:
+		return
+	if _live_dust_bunny_count() >= HALL_BUNNY_LIVE_CAP:
+		m.g["castle_dust_bunny_spawn_clock"] = 0.0
+		return
+	var interval: float = HALL_BUNNY_NURSERY_INTERVAL \
+		if _has_live_dust_bunny_role("family_nursery") \
+		else HALL_BUNNY_DRIFT_INTERVAL
+	var clock: float = float(m.g.get(
+		"castle_dust_bunny_spawn_clock", 0.0)) + delta
+	if clock < interval:
+		m.g["castle_dust_bunny_spawn_clock"] = clock
+		return
+	m.g["castle_dust_bunny_spawn_clock"] = 0.0
+	_spawn_passive_dust_bunny()
+
+func _spawn_passive_dust_bunny() -> Dictionary:
+	var colony: Array = _hall_dust_bunny_colony()
+	var spawn_serial: int = int(m.g.get(
+		"castle_dust_bunny_spawn_serial", 0)) + 1
+	m.g["castle_dust_bunny_spawn_serial"] = spawn_serial
+	var rng := RandomNumberGenerator.new()
+	rng.seed = HALL_BUNNY_SEED_BASE \
+		+ int(m.g.get("castle_visit_serial", 1)) * 7919 \
+		+ spawn_serial * 104729
+	# A family huddle raises its own pups right beside it.
+	var preferred_x := -1.0
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		if String(record.get("bunny_role", "")) != "family_nursery":
+			continue
+		var nursery_center: Vector2 = record.get(
+			"bunny_center", Vector2.ZERO) as Vector2
+		preferred_x = nursery_center.x + rng.randf_range(-190.0, 190.0)
+		break
+	var spawn: Dictionary = _make_generated_dust_bunny(
+		rng, "dust_bunny_drift_%d" % spawn_serial, colony, preferred_x)
+	if spawn.is_empty():
+		return {}
+	colony.append(spawn)
+	m.g["castle_dust_bunny_colony"] = colony
+	_add_touch_item("main_hall", spawn)
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		String(spawn["id"]), {}) as Dictionary
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite != null and is_instance_valid(sprite):
+		var target_scale: Vector3 = sprite.scale
+		sprite.scale = target_scale * 0.2
+		var puff := sprite.create_tween()
+		puff.tween_property(sprite, "scale", target_scale,
+			0.32).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		_item_burst(sprite.position,
+			Color(spawn.get("color", StorybookUI.GOLD)), 6)
+		_play_item_sfx("hop_boing.ogg", float(spawn.get("pitch", 1.6)) * 0.85)
+	return spawn
 
 func _check_dust_bunny_contacts() -> void:
 	if m.castle_room_player_sprite == null:
@@ -2896,7 +3488,27 @@ func _check_dust_bunny_contacts() -> void:
 		if normalized_distance <= 1.0:
 			touched_ids.append(item_id)
 	for item_id: String in touched_ids:
-		_explode_dust_bunny(item_id)
+		_damage_dust_bunny(item_id, 1)
+
+func _damage_dust_bunny(item_id: String, amount: int) -> void:
+	# Dust bunnies have exactly one hit point and Roshan has none to lose: a
+	# single bump clears the bunny, and a bunny can never hurt her back.
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	if record.is_empty():
+		return
+	if String(record.get("bunny_role", "")) == "" \
+			and String((record.get("data", {}) as Dictionary).get(
+				"dust_bunny_role", "")) == "":
+		return
+	var hp: int = int(record.get("hp", HALL_BUNNY_HP)) - maxi(1, amount)
+	record["hp"] = hp
+	var sprite: Sprite3D = record.get("sprite") as Sprite3D
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("dust_bunny_hp", hp)
+	if hp > 0:
+		return
+	_explode_dust_bunny(item_id)
 
 func _explode_dust_bunny(item_id: String) -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(
