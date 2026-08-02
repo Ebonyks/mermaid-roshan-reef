@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-08-01",
+  "assets": [
+    {
+      "id": "kitchen_fridge",
+      "prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 full-object animation sheet for a Godot children's storybook game\nInput image: Image 1 is the approved Pearl Castle mint shell refrigerator cutout and is the sole authority for its identity, palette, proportions, materials, outline, scale, and three-quarter frontal viewpoint.\nPrimary request: Draw exactly eight sequential complete states of this same refrigerator in strict reading order, four equal conceptual cells across by two rows. Animate the actual left-hinged refrigerator door and its real gold shell latch. State 1 is fully closed; state 2 unlatches; state 3 opens one-third; state 4 opens two-thirds; state 5 is fully open and clearly reveals a genuinely authored warm pearly interior with coherent shelves, bottles, fruit, vegetables, jars, and a lower basket; states 6 and 7 close the same door through matching perspective; state 8 is exactly closed and latched again. The closed door must truly cover the cavity and the open frames must reveal continuous interior geometry, not a colored rectangle or overlay.\nStyle/medium: polished pastel 2D children's storybook cel shading that matches the approved Pearl Castle art, with crisp navy-purple edge accents, mint pearl enamel, blush shell trim, warm gold hardware, and gentle painted highlights.\nComposition/framing: identical fixed bottom-center floor pivot and cabinet position in every cell; identical scale and camera perspective; complete refrigerator and open door fully visible with generous padding. Exactly four columns by two rows.\nScene/backdrop: perfectly flat, uniform solid #FF00FF chroma-key field over the whole canvas and between conceptual cells.\nConstraints: redraw the entire coherent appliance in every state. The actual attached latch, hinged door, shelves, and contained food change; no teal or dark rectangle placed over a closed door, no generic glow, motion lines, sparkles, bubbles, arrows, hands, characters, labels, text, frame numbers, cell borders, grid lines, room background, floor, cast shadow, reflection, scenery, watermark, or extra furniture. The background has zero texture, gradient, lighting variation, or shadow. Never use #FF00FF in the refrigerator. Exactly eight states and no extra objects.",
+      "prompt_sha256": "82db1cf17ece2b63adbf0379f2f252ee324bcc72320ab9f5d6b8454d407bbeb0",
+      "native_output": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-21778bd3-8899-4015-916d-fee6b42f413c.png",
+      "native_sha256": "5e23d22e394f82495adc9b13c4aa3be84d7eb37d9a47a334d267cbf6a2938dcc",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "chroma_master": "assets_src/imagegen/castle_object_animations_v2/kitchen_fridge_sheet_chroma.png",
+      "chroma_sha256": "63f45e05deabf124227ec789f25cab7e560e79c5fe2723ba9a9ae8f07831c4e3",
+      "runtime_path": "assets/flats/castle/interactions_v2/kitchen_fridge_sheet.png",
+      "runtime_sha256": "766f90f9a267bc9f98ef192be386765cd3014e9108aa7c32c7f9c3e3e7eea807",
+      "generation_method": "OpenAI built-in image_gen.imagegen",
+      "attempt": 1,
+      "derivation": "whole-canvas resize to 1024x576, then imagegen skill chroma-key matte/despill helper; no subject repaint or composited delivery pixels",
+      "alpha_qa": {
+        "transparent_border": true,
+        "cell_count": 8,
+        "all_cells_occupied": true,
+        "visible_chroma_pixels": 0
+      },
+      "visual_review_status": "accepted",
+      "visual_review_notes": "Door hinge and foreshortening are coherent; frame 5 contains a real stocked shelf interior; frames 6-8 close the same appliance; no overlay rectangle or detached effect."
+    }
+  ]
+}
