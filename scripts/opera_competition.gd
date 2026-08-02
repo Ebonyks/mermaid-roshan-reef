@@ -11,7 +11,7 @@ extends RefCounted
 
 const CAREERS := {
 	"chef": {
-		"world": "REEF BAKE-OFF",
+		"world": "CASTLE BAKE-OFF",
 		"contest": "Finish the brightest celebration cake",
 		"rival_verb": "whisks",
 		"par_time": 38.0,
