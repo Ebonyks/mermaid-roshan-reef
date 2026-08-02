@@ -55,6 +55,13 @@ jobs:
           python3 tools/audit_fairy_art_v2.py
           python3 tools/audit_sky_lagoon_kit.py
           python3 tools/audit_scene_congruency.py
+          # Painted 2.5D flats are drawn unshaded, so the Environment grade is
+          # the only thing between an approved PNG and the child's screen. This
+          # replays the shipped grade over the real art and fails when a profile
+          # clips or crushes pixels the source did not
+          # (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1). Needs no Godot binary,
+          # so it belongs here with the other seconds-long static gates.
+          python3 tools/check_grade_headroom.py
 
       - name: Import (deadlock-guarded)
         run: |
@@ -270,7 +277,7 @@ jobs:
       - name: Upload Sky Lagoon visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: sky-lagoon-review
           path: /tmp/sky-lagoon-shots/*.png
@@ -328,7 +335,7 @@ jobs:
       - name: Upload pearl-castle visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: pearl-castle-review
           path: /tmp/castle-pearl-shots/*.png
