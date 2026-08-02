@@ -1,0 +1,72 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "recover",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    94,
+    60,
+    449,
+    504
+  ],
+  "visible_bbox": [
+    94,
+    60,
+    449,
+    504
+  ],
+  "solid_height": 445,
+  "gaps": {
+    "left": 94,
+    "right": 62,
+    "bottom": 7
+  },
+  "bottom_row_longest_solid_run": 2,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 76657,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    473,
+    187,
+    140,
+    97,
+    7,
+    2,
+    2,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.47923,
+  "solid_centroid_x": 256.21,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_ballerina_recover_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "54a2eaac83deff1e29534d2d1b1710ffa4a6e8d86a6a39a0171f34936ff8a112",
+  "output": "assets\\opera\\worlds\\actors\\rival_ballerina_recover.png",
+  "output_sha256": "4ec225ad1839853b1bbcdbcbef633b37aac11faf4c80023213d53987f5080ff9",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_ballerina.png",
+  "idle_sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 445,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_recover\\rival_ballerina_recover_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_recover\\rival_ballerina_recover_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_recover\\rival_ballerina_recover_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_recover\\rival_ballerina_recover_idle_comparison.png"
+  }
+}

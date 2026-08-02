@@ -1,0 +1,181 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "896e8d86f149dd8e6593b03c2a4a66a5cd345cf20005aa71419213fc4fc413bb",
+  "sheet": "a",
+  "states": [
+    "idle",
+    "windup",
+    "charge",
+    "slash",
+    "recover",
+    "guard"
+  ],
+  "component_count": 6,
+  "occupied_grid_cells": 6,
+  "outputs": [
+    {
+      "state": "idle",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 87568,
+          "bbox": [
+            121,
+            23,
+            473,
+            487
+          ],
+          "centroid": [
+            294.8487803763932,
+            241.93136762287594
+          ]
+        }
+      ],
+      "crop_bbox": [
+        113,
+        15,
+        481,
+        495
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "554ca932204dc5dd84b28e6f558a78432fe46dd2dcd79ab2cfeac4f39a571070"
+    },
+    {
+      "state": "windup",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 76799,
+          "bbox": [
+            539,
+            119,
+            939,
+            477
+          ],
+          "centroid": [
+            738.535059050248,
+            296.3836768707926
+          ]
+        }
+      ],
+      "crop_bbox": [
+        531,
+        111,
+        947,
+        485
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "317bb2611d8641e197d2ca7daada48991bd8f84931c0649dce12f9d2292bcf6c"
+    },
+    {
+      "state": "charge",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 80555,
+          "bbox": [
+            1009,
+            45,
+            1419,
+            423
+          ],
+          "centroid": [
+            1201.5064490099933,
+            240.37205635900938
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1001,
+        37,
+        1427,
+        431
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "a6f16ebce858d4378325d84284f835e13d5b38011106cad1b74af8ef7e185331"
+    },
+    {
+      "state": "slash",
+      "source_components": [
+        {
+          "label": 4,
+          "area": 75185,
+          "bbox": [
+            109,
+            522,
+            464,
+            959
+          ],
+          "centroid": [
+            277.5300924386513,
+            732.9517722950056
+          ]
+        }
+      ],
+      "crop_bbox": [
+        101,
+        514,
+        472,
+        967
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "09d647f0f13c3639c33a9a98beb4bd20b0bde3175f4f9ed64eb9b4f557bf9a88"
+    },
+    {
+      "state": "recover",
+      "source_components": [
+        {
+          "label": 6,
+          "area": 80135,
+          "bbox": [
+            597,
+            554,
+            939,
+            963
+          ],
+          "centroid": [
+            738.5637237162289,
+            756.319161415112
+          ]
+        }
+      ],
+      "crop_bbox": [
+        589,
+        546,
+        947,
+        971
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "0a143d9d01bf6bb92e3f3f2652ed3435d31e58d934688d4aa30677955bb5a780"
+    },
+    {
+      "state": "guard",
+      "source_components": [
+        {
+          "label": 5,
+          "area": 74433,
+          "bbox": [
+            1074,
+            540,
+            1395,
+            959
+          ],
+          "centroid": [
+            1212.0000940443083,
+            746.9257453011434
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1066,
+        532,
+        1403,
+        967
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "7b3bce105d32980cc9188988a1df060f081611a15d4ea38bf8e0545567902571"
+    }
+  ]
+}

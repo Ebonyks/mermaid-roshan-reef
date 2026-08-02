@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "guard",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    115,
+    17,
+    422,
+    503
+  ],
+  "visible_bbox": [
+    114,
+    16,
+    422,
+    504
+  ],
+  "solid_height": 487,
+  "gaps": {
+    "left": 115,
+    "right": 89,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 7,
+  "semi_alpha_pixels": 2569,
+  "solid_pixels": 67545,
+  "semi_alpha_to_solid_ratio": 0.038034,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.550134,
+  "solid_centroid_x": 255.532,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_guard_attempt01_alpha_native.png",
+  "input_sha256": "c49895bc1468d97f3755093d558f29bcbac4b7b89027f967b156c81d54b477f6",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_guard.png",
+  "output_sha256": "92240823f14b3570aa7e33aebef1a296a2ccc70eccc0e2dc6050f3473ec2626a",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 488,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_guard\\imp_captain_guard_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_guard\\imp_captain_guard_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_guard\\imp_captain_guard_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_guard\\imp_captain_guard_idle_comparison.png"
+  }
+}

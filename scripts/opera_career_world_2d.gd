@@ -223,6 +223,12 @@ var imp_bow_texture: Texture2D = null
 var captain_idle_texture: Texture2D = null
 var captain_bopped_texture: Texture2D = null
 var captain_bow_texture: Texture2D = null
+var fx_telegraph_ring_texture: Texture2D = null
+var fx_telegraph_bang_texture: Texture2D = null
+var fx_slash_arc_texture: Texture2D = null
+var fx_dust_puff_texture: Texture2D = null
+var fx_stolen_sparkle_texture: Texture2D = null
+var fx_dizzy_stars_texture: Texture2D = null
 var swipe_stroke := 0
 var imp_state_cache: Dictionary = {}
 ## The shared mischief-imp brain (scripts/imp_ai.gd) drives the crew: who
@@ -456,6 +462,12 @@ func _build_world() -> void:
 	captain_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain.png")
 	captain_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bopped.png")
 	captain_bow_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bow.png")
+	fx_telegraph_ring_texture = _load_if_exists("res://assets/opera/worlds/props/fx_telegraph_ring.png")
+	fx_telegraph_bang_texture = _load_if_exists("res://assets/opera/worlds/props/fx_telegraph_bang.png")
+	fx_slash_arc_texture = _load_if_exists("res://assets/opera/worlds/props/fx_slash_arc.png")
+	fx_dust_puff_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dust_puff.png")
+	fx_stolen_sparkle_texture = _load_if_exists("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
+	fx_dizzy_stars_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dizzy_stars.png")
 	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
 		# crews wear the career's special imp costume; the base-imp set keeps
 		# the bopped state until per-costume state sprites land (codex handoff)
@@ -893,6 +905,7 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 		imp["popped"] = true
 		if node != null and is_instance_valid(node):
 			var bopped := _imp_texture(imp, "bopped")
+			combat_marks.append({"kind": "dizzy", "pos": at, "t": 0.0, "life": 0.62})
 			if bopped != null:
 				node.texture = bopped
 			var spin := node.create_tween()
@@ -1418,32 +1431,66 @@ func _draw_combat_fx() -> void:
 			"ring":
 				var pulse := 1.0 - k
 				var head := at - Vector2(0.0, 132.0)
-				combat_fx.draw_arc(at, 46.0 + k * 34.0, 0.0, TAU, 28,
-					Color(1.0, 0.78, 0.28, 0.25 + pulse * 0.6), 6.0)
-				combat_fx.draw_rect(Rect2(head - Vector2(6.0, 30.0), Vector2(12.0, 34.0)),
-					Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
-				combat_fx.draw_circle(head + Vector2(0.0, 14.0), 7.0,
-					Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
+				if fx_telegraph_ring_texture != null and fx_telegraph_bang_texture != null:
+					var ring_size := Vector2.ONE * (92.0 + k * 68.0)
+					combat_fx.draw_texture_rect(fx_telegraph_ring_texture,
+						Rect2(at - ring_size * 0.5, ring_size), false,
+						Color(1.0, 1.0, 1.0, 0.25 + pulse * 0.6))
+					var bang_size := Vector2(32.0, 64.0)
+					combat_fx.draw_texture_rect(fx_telegraph_bang_texture,
+						Rect2(head - bang_size * 0.5, bang_size), false,
+						Color(1.0, 1.0, 1.0, 0.55 + pulse * 0.45))
+				else:
+					combat_fx.draw_arc(at, 46.0 + k * 34.0, 0.0, TAU, 28,
+						Color(1.0, 0.78, 0.28, 0.25 + pulse * 0.6), 6.0)
+					combat_fx.draw_rect(Rect2(head - Vector2(6.0, 30.0), Vector2(12.0, 34.0)),
+						Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
+					combat_fx.draw_circle(head + Vector2(0.0, 14.0), 7.0,
+						Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
 			"arc":
-				combat_fx.draw_arc(at - Vector2(0.0, 60.0), 92.0, -0.9, 0.9, 20,
-					Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)), 9.0)
+				if fx_slash_arc_texture != null:
+					var arc_size := Vector2(210.0, 105.0)
+					combat_fx.draw_texture_rect(fx_slash_arc_texture,
+						Rect2(at - Vector2(arc_size.x * 0.5, arc_size.y * 0.5 + 60.0), arc_size),
+						false, Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)))
+				else:
+					combat_fx.draw_arc(at - Vector2(0.0, 60.0), 92.0, -0.9, 0.9, 20,
+						Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)), 9.0)
 			"dust":
-				combat_fx.draw_circle(at, 18.0 + k * 26.0,
-					Color(0.92, 0.88, 1.0, 0.32 * (1.0 - k)))
+				if fx_dust_puff_texture != null:
+					var dust_size := Vector2.ONE * (96.0 + k * 44.0)
+					combat_fx.draw_texture_rect(fx_dust_puff_texture,
+						Rect2(at - dust_size * 0.5, dust_size), false,
+						Color(1.0, 1.0, 1.0, 0.5 * (1.0 - k)))
+				else:
+					combat_fx.draw_circle(at, 18.0 + k * 26.0,
+						Color(0.92, 0.88, 1.0, 0.32 * (1.0 - k)))
 			"bump":
 				combat_fx.draw_arc(at, 40.0 + k * 60.0, 0.0, TAU, 26,
 					Color(0.62, 0.93, 1.0, 0.7 * (1.0 - k)), 7.0)
 			"taunt":
 				combat_fx.draw_circle(at - Vector2(0.0, 150.0 + k * 20.0), 9.0,
 					Color(1.0, 0.72, 0.86, 0.75 * (1.0 - k)))
+			"dizzy":
+				if fx_dizzy_stars_texture != null:
+					combat_fx.draw_set_transform(at - Vector2(0.0, 90.0), k * TAU * 1.5,
+						Vector2.ONE * 0.46)
+					combat_fx.draw_texture(fx_dizzy_stars_texture, Vector2(-128.0, -128.0),
+						Color(1.0, 1.0, 1.0, 1.0 - k))
+					combat_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	for imp: Dictionary in combat_imps:
 		if bool(imp.get("popped", false)) or not bool(imp.get("carrying", false)):
 			continue
 		var centre: Vector2 = imp.get("center", Vector2.ZERO)
 		var spin: float = elapsed * 3.4 + float(imp.get("seed", 0))
 		var star: Vector2 = centre + Vector2(cos(spin), sin(spin) * 0.5) * 54.0
-		combat_fx.draw_circle(star, 11.0, Color(1.0, 0.94, 0.55, 0.95))
-		combat_fx.draw_circle(star, 5.0, Color.WHITE)
+		if fx_stolen_sparkle_texture != null:
+			var sparkle_size := Vector2.ONE * 32.0
+			combat_fx.draw_texture_rect(fx_stolen_sparkle_texture,
+				Rect2(star - sparkle_size * 0.5, sparkle_size), false)
+		else:
+			combat_fx.draw_circle(star, 11.0, Color(1.0, 0.94, 0.55, 0.95))
+			combat_fx.draw_circle(star, 5.0, Color.WHITE)
 
 
 func _start_lens_phase(phase: Dictionary) -> void:

@@ -1,6 +1,6 @@
 # Object Generation Audit Log
 
-Last consolidated: 2026-07-22
+Last consolidated: 2026-08-02
 
 Audience: any agent creating, regenerating, reviewing, or promoting world
 objects, textures, sprites, environment kits, and interactive props.
@@ -448,6 +448,46 @@ Most frequent failures:
   parsed per-export metrics, Speedy 28-visible-instance cap, no new lights,
   and arrival/traversal/interaction runtime captures.
 
+### A19 - Imp combat state sprites and reusable FX
+
+- Source and commit: `CODEX_IMP_ANIMATION_HANDOFF_2026-08-02.md` and the
+  generation, prompt, delivery, per-file QA, and runtime-capture records under
+  `assets_src/imagegen/imp_animation_states_2026-08-02/`; commit pending.
+- Scope: 179 runtime PNG deliveries: 16 base-imp combat poses, 157 repaired or
+  expanded costume-family sprites across twelve rivals, and six reusable
+  combat FX. All actor sprites are 512x512 or smaller and all FX are 512x512
+  or smaller.
+- Evidence class: E2 for independent PNG geometry/alpha/silhouette checks and
+  E3 for fourteen representative Forward Mobile capture groups using the
+  live Opera combat-state loader and FX fields.
+- Findings independently verified: all 179 expected delivery paths exist and
+  pass their declared canvas, margin, alpha, component, silhouette, centroid,
+  and family-continuity gates. Phone-scale contact review confirmed distinct
+  action reads, intact costumes, and same-hand prop continuity. The manifest
+  binds accepted runtime files to source/reference hashes, prompt hashes,
+  native generation hashes, attempts, and QA reports.
+- Findings accepted: individually accepted cells from multi-pose sheets may
+  be retained while failed cells are repaired in later attempts. Uniform
+  whole-subject scale/centroid normalization is acceptable when it does not
+  alter pose, anatomy, costume, prop, or silhouette. Approved windup poses may
+  be reused for hop-A when the runtime transform supplies the hop motion, and
+  the existing approved star may be non-destructively derived for the stolen
+  sparkle role.
+- Findings accepted as proposals only: none.
+- Findings rejected or superseded: a slash-arc candidate whose visible
+  checkerboard was baked into RGB pixels was rejected despite its apparent
+  transparency. Failed or missing sheet cells were never hidden by duplicating
+  unrelated states; they were regenerated or explicitly filled by an approved
+  reuse recorded in the manifest.
+- New or changed rule IDs: added R-SPRITE1 through R-SPRITE5.
+- Roles/families affected: Mischief Imp, Captain Imp, ballerina, boxer,
+  candymaker, chef, detective, doctor, farmer, magician, painter, astronaut,
+  racer, Popstar, and shared Opera combat cues.
+- Required negative-control or runtime test: the acceptance tool must reject
+  an identical-silhouette state control; then the full delivery probe must
+  pass and each family plus the shared FX must be reviewed in Forward Mobile
+  at gameplay and phone-contact scale.
+
 ## Consolidated generation rules
 
 These rule IDs are stable. Reference them in manifests and review notes.
@@ -562,6 +602,28 @@ These rule IDs are stable. Reference them in manifests and review notes.
 - **R-FUNC5 - Persist success feedback.** A solved statue, lit lantern, opened
   lock, collected item, or completed assembly keeps an unmistakable visual
   state after the transient fanfare ends.
+
+### Sprite-family generation and acceptance
+
+- **R-SPRITE1 - Bind every state to its identity source.** Record the approved
+  source-idle hash and preserve anatomy, costume landmarks, palette, outline,
+  facing, and same-hand prop continuity across every generated pose.
+- **R-SPRITE2 - Prove the action in silhouette at phone scale.** Each action
+  must remain distinct from idle and neighboring states in black silhouette
+  and at the 25-percent contact-sheet review size. Color or a baked effect may
+  not be the only state cue.
+- **R-SPRITE3 - Keep actor art and effects separable.** Actor sprites use a
+  clean hard alpha edge and contain no telegraph, impact, dust, slash, dizzy,
+  or reward effect unless the role explicitly requires a held prop. Reusable
+  FX may retain intentional soft alpha and must be delivered separately.
+- **R-SPRITE4 - Accept or reject every sheet cell explicitly.** A clean cell
+  may survive a partial-sheet failure, but a failed or absent action may not be
+  concealed by renaming, duplicating, or substituting another pose. Record the
+  attempt and the accepted cell's source hash in the delivery manifest.
+- **R-SPRITE5 - Limit normalization to the complete subject.** Canvas fitting,
+  hard-alpha cleanup, and uniform whole-subject scale/centroid correction are
+  allowed when recorded and audited. Do not locally warp, redraw, crop, move,
+  or resize anatomy, costume pieces, or props to repair a failed generation.
 
 ### QA and promotion
 
@@ -741,6 +803,9 @@ add a dated correction identifying the stronger evidence or owner decision.
 
 ## Log history
 
+- **2026-08-02-v11:** Added A19 and R-SPRITE1 through R-SPRITE5 after the
+  179-file Imp combat state/FX delivery passed static acceptance, a known-bad
+  silhouette control, and fourteen Forward Mobile review groups.
 - **2026-07-22-v10:** Added A18 and forty original enrichment concepts; expanded
   the Claude Blender target to 79 exports with explicit Speedy placement,
   transparency, lighting, collision, and triangle budgets.

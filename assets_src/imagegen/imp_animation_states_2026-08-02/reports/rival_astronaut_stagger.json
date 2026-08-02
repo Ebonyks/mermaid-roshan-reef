@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    145,
+    19,
+    379,
+    503
+  ],
+  "visible_bbox": [
+    145,
+    19,
+    379,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 145,
+    "right": 132,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 21,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 63376,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    220,
+    2,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.511605,
+  "solid_centroid_x": 255.927,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_stagger_attempt02_alpha_native.png",
+  "input_sha256": "013a2ac1e0aa2a1a374e978f7d91335fcb7259bf8b4166dff0f358648ca42495",
+  "output": "assets\\opera\\worlds\\actors\\rival_astronaut_stagger.png",
+  "output_sha256": "2e2b9096e55ed379dbde64feff3aab7807e1a6be12d23f4040502333fd738dc3",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_astronaut.png",
+  "idle_sha256": "e0cb4e0cadb943b640c533e0d3c5f3bca10bd8311b3e787233087142e243176a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_stagger\\rival_astronaut_stagger_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_stagger\\rival_astronaut_stagger_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_stagger\\rival_astronaut_stagger_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_astronaut_stagger\\rival_astronaut_stagger_idle_comparison.png"
+  }
+}

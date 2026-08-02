@@ -1,0 +1,68 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bow",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    24,
+    114,
+    499,
+    503
+  ],
+  "visible_bbox": [
+    24,
+    114,
+    499,
+    503
+  ],
+  "solid_height": 390,
+  "gaps": {
+    "left": 24,
+    "right": 12,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 24,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 91493,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    65,
+    57,
+    9,
+    5,
+    5,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.41614,
+  "solid_centroid_x": 249.957,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_bow_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "06f69de846a8732103fb9b407abc7a132c21fd4b6813be7d4d18cd62ae3006c8",
+  "output": "assets\\opera\\worlds\\actors\\rival_magician_bow.png",
+  "output_sha256": "aac119964a9b6c49c99726ac2df6c5dc9c008a95ad57f7e6eddf8b139e6d4f75",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_magician.png",
+  "idle_sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 390,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 249.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_bow\\rival_magician_bow_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_bow\\rival_magician_bow_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_bow\\rival_magician_bow_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_bow\\rival_magician_bow_idle_comparison.png"
+  }
+}

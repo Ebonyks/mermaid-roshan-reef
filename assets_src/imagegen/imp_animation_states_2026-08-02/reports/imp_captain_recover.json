@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "recover",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    105,
+    60,
+    443,
+    503
+  ],
+  "visible_bbox": [
+    104,
+    59,
+    444,
+    504
+  ],
+  "solid_height": 444,
+  "gaps": {
+    "left": 105,
+    "right": 68,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 7,
+  "semi_alpha_pixels": 2694,
+  "solid_pixels": 74481,
+  "semi_alpha_to_solid_ratio": 0.03617,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.478015,
+  "solid_centroid_x": 256.152,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_recover_attempt01_alpha_native.png",
+  "input_sha256": "663795c5ebf9ed9fd55f2fa99b6a87620713baed8ae2d97f5b8619af933e9577",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_recover.png",
+  "output_sha256": "33320b0b14e32240370c6e4a96ed5a812cb8cd9057085f97e22a01b4f8d0ffa4",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 445,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_recover\\imp_captain_recover_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_recover\\imp_captain_recover_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_recover\\imp_captain_recover_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_recover\\imp_captain_recover_idle_comparison.png"
+  }
+}
