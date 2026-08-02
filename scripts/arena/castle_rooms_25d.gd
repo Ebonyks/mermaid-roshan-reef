@@ -4,12 +4,11 @@ extends RefCounted
 # card at real scene depth. Main Hall background tiles are the sole shaded
 # receiver exception for its touch-controlled light pool; characters, props,
 # and effects remain unshaded. Controls are reserved for touch routing, the
-# Storybook elevator, and other interface chrome. No model or mesh art is
+# single contextual Back control, and other interface chrome. No model or mesh art is
 # created or loaded by this satellite.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
 const INTERACTION_ART := "res://assets/flats/castle/interactions/"
-const ROOM_BUTTON_ART := "res://assets/ui/castle_room_buttons/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
 const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
@@ -76,10 +75,10 @@ const HALL_TILE_FILES: Array[String] = [
 	"runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
 	"runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
 	"runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
-	"main_hall_room_led_r1_c0.png",
-	"main_hall_room_led_r1_c1.png",
-	"main_hall_room_led_r1_c2.png",
-	"main_hall_room_led_r1_c3.png",
+	"runtime_bleed/main_hall_room_led_r1_c0_bleed.png",
+	"runtime_bleed/main_hall_room_led_r1_c1_bleed.png",
+	"runtime_bleed/main_hall_room_led_r1_c2_bleed.png",
+	"runtime_bleed/main_hall_room_led_r1_c3_bleed.png",
 ]
 const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 	{"id": "a_left", "half": "a", "pos": Vector2(330.0, 335.0),
@@ -92,15 +91,11 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 		"max_energy": 4.6},
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
-	{"id": "screen_join_floor_inlay", "pos": Vector2(1672.0, 780.5),
-		"z": 0.21, "scale": 1.0, "shaded": true,
-		"tex_path": HALL_ART_ROOT + "castle_join_floor_inlay_reuse.png",
-		"role": "architectural_join_inlay"},
 	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 490.0),
-		"z": 0.28, "scale": 0.96, "shaded": false,
+		"z": 0.01, "scale": 0.96, "shaded": false,
 		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
 		"shader": "portal_cutout",
-		"role": "transparent_architectural_bridge"},
+		"role": "registered_playroom_door"},
 	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 376.0),
 		"z": 0.68, "scale": 0.15, "shaded": false,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
@@ -108,26 +103,29 @@ const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
 		"role": "playroom_door_marker"},
 ]
 const HALL_PORTALS: Array[Dictionary] = [
+	# Rects trace the painted doorway frames (arch band + posts) in hall art
+	# pixels, measured from the composited main_hall_2screen tiles. Floating
+	# room plaques above each arch are deliberately excluded.
 	{"id": "opera_hall", "name": "Opera Hall",
-		"rect": Rect2(420.0, 105.0, 420.0, 535.0),
+		"rect": Rect2(455.0, 105.0, 375.0, 510.0),
 		"foot": Vector2(630.0, 650.0)},
 	{"id": "library", "name": "Royal Library",
-		"rect": Rect2(1010.0, 315.0, 250.0, 330.0),
+		"rect": Rect2(1030.0, 318.0, 215.0, 290.0),
 		"foot": Vector2(1135.0, 660.0)},
 	{"id": "kitchen", "name": "Royal Kitchen",
-		"rect": Rect2(1270.0, 315.0, 250.0, 330.0),
+		"rect": Rect2(1288.0, 320.0, 180.0, 290.0),
 		"foot": Vector2(1395.0, 660.0)},
 	{"id": "playroom", "name": "Stuffie Playroom",
-		"rect": Rect2(1550.0, 236.0, 244.0, 414.0),
+		"rect": Rect2(1577.0, 319.0, 187.0, 325.0),
 		"foot": Vector2(1672.0, 670.0)},
 	{"id": "craft_room", "name": "Craft Room",
-		"rect": Rect2(1955.0, 265.0, 280.0, 385.0),
+		"rect": Rect2(1985.0, 325.0, 225.0, 280.0),
 		"foot": Vector2(2095.0, 670.0)},
 	{"id": "mermaid_pool", "name": "Mermaid Pool",
-		"rect": Rect2(2360.0, 265.0, 280.0, 385.0),
+		"rect": Rect2(2395.0, 340.0, 195.0, 265.0),
 		"foot": Vector2(2500.0, 670.0)},
 	{"id": "bubble_bath", "name": "Bubble Bath",
-		"rect": Rect2(2665.0, 265.0, 280.0, 385.0),
+		"rect": Rect2(2685.0, 300.0, 185.0, 300.0),
 		"foot": Vector2(2805.0, 670.0)},
 	{"id": "__throne", "name": "Huluu's throne",
 		"rect": Rect2(3000.0, 90.0, 330.0, 570.0),
@@ -604,7 +602,6 @@ func open(start_room: String = "main_hall") -> void:
 		resume(start_room)
 		return
 	m.castle_room_id = start_room
-	m.castle_room_menu_open = false
 	m.castle_room_buttons.clear()
 	m.g["castle_dust_bunnies_cleared"] = {}
 	m.g["castle_dust_bunny_runner_time"] = 0.0
@@ -691,9 +688,8 @@ func close() -> void:
 	m.castle_room_player_sprite = null
 	m.castle_room_player_shadow = null
 	m.castle_room_action_button = null
-	m.castle_room_menu_panel = null
+	m.castle_room_back_button = null
 	m.castle_room_buttons.clear()
-	m.castle_room_menu_open = false
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
 	m._set_world_controls_enabled(true, "castle_rooms")
@@ -810,40 +806,14 @@ func _build_stage() -> void:
 	m.castle_room_action_button.z_index = 30
 	stage.add_child(m.castle_room_action_button)
 
-	var exit_button := Button.new()
-	exit_button.name = "CourtyardExit"
-	exit_button.position = Vector2(28.0, 28.0)
-	StorybookUI.style_back_button(exit_button, "Castle courtyard")
-	exit_button.pressed.connect(_exit_to_courtyard)
-	exit_button.z_index = 30
-	stage.add_child(exit_button)
-
-	var elevator := Button.new()
-	elevator.name = "ElevatorButton"
-	elevator.position = Vector2(1116.0, 544.0)
-	StorybookUI.style_icon_button(elevator, "↕", "primary",
-		Vector2(136.0, 136.0), "Castle elevator")
-	elevator.pressed.connect(_toggle_menu)
-	elevator.z_index = 30
-	stage.add_child(elevator)
-	var elevator_pointer := Label.new()
-	elevator_pointer.name = "ElevatorPointer"
-	elevator_pointer.text = "▼"
-	elevator_pointer.position = Vector2(1155.0, 490.0)
-	StorybookUI.style_label(elevator_pointer, 48, StorybookUI.GOLD, 5)
-	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	elevator_pointer.z_index = 30
-	stage.add_child(elevator_pointer)
-	var point := elevator_pointer.create_tween().set_loops()
-	point.tween_property(elevator_pointer, "position:y", 502.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	point.tween_property(elevator_pointer, "position:y", 490.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-	m.castle_room_menu_panel = StorybookUI.add_panel(stage,
-		Rect2(250.0, 92.0, 780.0, 536.0), StorybookUI.INK_SOFT,
-		Color(0.94, 0.98, 1.0, 0.98), 42)
-	m.castle_room_menu_panel.z_index = 40
-	m.castle_room_menu_panel.visible = false
-	_build_room_buttons(m.castle_room_menu_panel)
+	m.castle_room_back_button = Button.new()
+	m.castle_room_back_button.name = "CastleBack"
+	m.castle_room_back_button.position = Vector2(28.0, 28.0)
+	StorybookUI.style_back_button(
+		m.castle_room_back_button, "Castle courtyard")
+	m.castle_room_back_button.pressed.connect(_go_back)
+	m.castle_room_back_button.z_index = 30
+	stage.add_child(m.castle_room_back_button)
 
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
@@ -867,10 +837,11 @@ func _build_hall_background_tiles() -> void:
 		tile.set_meta("source_asset_role", "clean_background_tile")
 		tile.set_meta("source_master_grid", "2x4")
 		# The approved source rectangles remain exact and non-overlapping.
-		# Top cards append the first approved pixel row from the card beneath
-		# them, producing a one-pixel render overlap that closes a Mobile raster
-		# crack without scaling, interpolation, crop, or generated art.
+		# Runtime cards append the approved neighbor edge to the right and/or
+		# beneath them. The one-pixel two-axis overlap closes Mobile raster
+		# cracks without scaling, interpolation, crop, or generated art.
 		var source_size := Vector2(836.0, 470.0 if row == 0 else 471.0)
+		var bleed_pixels := Vector2i(1 if column < 3 else 0, 1 if row == 0 else 0)
 		tile.set_meta("source_art_rect", Rect2(top_left, source_size))
 		var screen_index: int = column / 2
 		var local_column: int = column % 2
@@ -884,7 +855,7 @@ func _build_hall_background_tiles() -> void:
 			source_size))
 		tile.set_meta("render_art_rect",
 			Rect2(top_left, texture.get_size()))
-		tile.set_meta("runtime_seam_bleed_pixels", 1 if row == 0 else 0)
+		tile.set_meta("runtime_seam_bleed_pixels", bleed_pixels)
 		tile.set_meta("depth_z", BACKGROUND_Z)
 		m.castle_room_world_root.add_child(tile)
 		m.castle_room_background_tiles.append(tile)
@@ -1002,12 +973,25 @@ func _build_room_background_tiles(room_id: String) -> void:
 			var logical_top_left := Vector2(
 				float(column) * logical_size.x,
 				float(row) * logical_size.y)
-			var logical_center := logical_top_left \
-				+ logical_size * 0.5
+			# Source tiles stay at their native <=1024 dimensions. Expand the
+			# rendered quad by one native pixel toward each interior neighbor,
+			# anchored at its top-left, to close clear raster gaps without
+			# duplicating or resampling any source asset.
+			var overlap_pixels := Vector2(
+				1.0 if column < columns - 1 else 0.0,
+				1.0 if row < rows - 1 else 0.0)
+			var native_to_logical: Vector2 = logical_size / native_size
+			var render_logical_size: Vector2 = logical_size \
+				+ overlap_pixels * native_to_logical
+			var render_center: Vector2 = logical_top_left \
+				+ render_logical_size * 0.5
 			var tile := _new_card(
 				"RoomTile_%s_r%d_c%d" % [room_id, row, column],
 				texture)
-			tile.position = _art_to_world(logical_center, BACKGROUND_Z)
+			tile.position = _art_to_world(render_center, BACKGROUND_Z)
+			tile.scale = Vector3(
+				render_logical_size.x / logical_size.x,
+				render_logical_size.y / logical_size.y, 1.0)
 			tile.pixel_size = tile_pixel_size
 			# Mip edge sampling causes a one-pixel dark hairline where opaque
 			# cards meet. Linear sampling without mipmaps keeps adjacent source
@@ -1015,6 +999,10 @@ func _build_room_background_tiles(room_id: String) -> void:
 			tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 			tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			tile.set_meta("source_asset_role", "clean_background_tile")
+			tile.set_meta("render_art_rect",
+				Rect2(logical_top_left, render_logical_size))
+			tile.set_meta("runtime_seam_overlap_pixels", Vector2i(
+				int(overlap_pixels.x), int(overlap_pixels.y)))
 			tile.set_meta("source_master_grid", source_grid)
 			tile.set_meta("source_art_rect",
 				Rect2(logical_top_left, logical_size))
@@ -1028,66 +1016,24 @@ func _build_hall_portals() -> void:
 		return
 	m.castle_room_door_hotspots.clear()
 	for portal_data: Dictionary in HALL_PORTALS:
+		var portal_id: String = String(portal_data["id"])
 		var button := Button.new()
-		button.name = "HallDoor_" + String(portal_data["id"])
+		button.name = "HallDoor_" + portal_id
 		button.flat = true
 		button.focus_mode = Control.FOCUS_NONE
 		button.tooltip_text = String(portal_data["name"])
 		button.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
 		button.set_meta("uses_own_sfx", true)
 		button.pressed.connect(_enter_hall_portal.bind(
-			String(portal_data["id"]), portal_data["foot"] as Vector2))
+			portal_id, portal_data["foot"] as Vector2))
 		m.castle_room_door_hotspot_layer.add_child(button)
+		if portal_id != "__throne":
+			m.castle_room_buttons[portal_id] = button
 		m.castle_room_door_hotspots.append({
 			"button": button,
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
-
-func _build_room_buttons(panel: Panel) -> void:
-	var index := 0
-	for room: Dictionary in ROOMS:
-		var button := Button.new()
-		button.name = "Room_" + String(room["id"])
-		button.position = Vector2(40.0 + float(index % 3) * 240.0,
-			32.0 + float(index / 3) * 166.0)
-		_style_room_preview_button(button, room)
-		button.pressed.connect(show_room.bind(String(room["id"]), true))
-		panel.add_child(button)
-		m.castle_room_buttons[String(room["id"])] = button
-		index += 1
-	var bedrooms := Button.new()
-	bedrooms.name = "Room_BedroomsFuture"
-	bedrooms.position = Vector2(40.0 + float(index % 3) * 240.0,
-		32.0 + float(index / 3) * 166.0)
-	StorybookUI.style_icon_button(bedrooms, "☾", "locked",
-		Vector2(220.0, 132.0), "Bedrooms are dreaming")
-	bedrooms.disabled = true
-	bedrooms.focus_mode = Control.FOCUS_NONE
-	panel.add_child(bedrooms)
-
-func _style_room_preview_button(button: Button, room: Dictionary) -> void:
-	var room_id: String = String(room["id"])
-	var texture_path := ROOM_BUTTON_ART + "room_" + room_id + ".png"
-	button.text = ""
-	button.custom_minimum_size = Vector2(220.0, 132.0)
-	button.size = Vector2(220.0, 132.0)
-	button.tooltip_text = String(room["name"])
-	button.clip_contents = true
-	StorybookUI.style_button(button, "secondary", 18, 42)
-	button.set_meta("picture_first", true)
-	button.set_meta("parent_hint", String(room["name"]))
-	button.set_meta("room_preview_source", texture_path)
-	var preview := TextureRect.new()
-	preview.name = "RoomPreview"
-	preview.position = Vector2(10.0, 10.0)
-	preview.size = Vector2(200.0, 112.0)
-	preview.texture = load(texture_path) as Texture2D
-	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	button.add_child(preview)
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
@@ -1097,6 +1043,10 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
 	var hall_mode: bool = room_id == "main_hall"
+	if m.castle_room_back_button != null:
+		var back_hint := "Castle courtyard" if hall_mode else "Main Hall"
+		m.castle_room_back_button.tooltip_text = back_hint
+		m.castle_room_back_button.set_meta("parent_hint", back_hint)
 	if not hall_mode:
 		m.castle_room_background.texture = load(ROOM_ART + String(room["tex"]))
 		m.castle_room_camera.position = Vector3(0.0, 0.0, CAMERA_DISTANCE)
@@ -1112,9 +1062,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
 			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
 			String(room["name"]))
-	_update_selected_buttons()
-	if m.castle_room_menu_open:
-		_toggle_menu()
 	if hall_mode:
 		for tile: Sprite3D in m.castle_room_background_tiles:
 			tile.modulate.a = 0.25
@@ -1144,30 +1091,7 @@ func _room(room_id: String) -> Dictionary:
 			return room
 	return {}
 
-func _update_selected_buttons() -> void:
-	for room_id_value: Variant in m.castle_room_buttons:
-		var room_id := String(room_id_value)
-		var button: Button = m.castle_room_buttons[room_id] as Button
-		if button != null:
-			StorybookUI.set_selected(button, room_id == m.castle_room_id)
-
-func _toggle_menu() -> void:
-	m._ui_tap()
-	m.castle_room_menu_open = not m.castle_room_menu_open
-	var elevator_pointer: Label = m.castle_room_stage.get_node_or_null("ElevatorPointer") as Label
-	if elevator_pointer != null:
-		elevator_pointer.visible = false
-	if m.castle_room_menu_panel != null:
-		m.castle_room_menu_panel.visible = m.castle_room_menu_open
-		if m.castle_room_menu_open:
-			m.castle_room_menu_panel.scale = Vector2(0.82, 0.82)
-			m.castle_room_menu_panel.pivot_offset = m.castle_room_menu_panel.size * 0.5
-			var pop := m.create_tween()
-			pop.tween_property(m.castle_room_menu_panel, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
 func _on_room_input(event: InputEvent) -> void:
-	if m.castle_room_menu_open:
-		return
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
 		_walk_cutout_to((event as InputEventMouseButton).position)
 	elif event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
@@ -2395,13 +2319,19 @@ func _update_hall_portals() -> void:
 		button.visible = projected.intersects(canvas_rect)
 		if button.visible:
 			var clipped: Rect2 = projected.intersection(canvas_rect)
-			button.position = clipped.position
-			button.size = Vector2(
+			var hit_size := Vector2(
 				maxf(112.0, clipped.size.x),
 				maxf(112.0, clipped.size.y))
+			var hit_position: Vector2 = clipped.get_center() - hit_size * 0.5
+			hit_position.x = clampf(hit_position.x, 0.0,
+				StorybookUI.CANVAS_SIZE.x - hit_size.x)
+			hit_position.y = clampf(hit_position.y, 0.0,
+				StorybookUI.CANVAS_SIZE.y - hit_size.y)
+			button.position = hit_position
+			button.size = hit_size
 
 func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
-	if not _is_wide_hall() or m.castle_room_menu_open:
+	if not _is_wide_hall():
 		return
 	m._ui_tap()
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
@@ -2626,6 +2556,12 @@ func _burst(_symbol: String, color: Color) -> void:
 		return
 	_item_burst(_stage_to_world(Vector2(640.0, 500.0), EFFECT_Z),
 		color, 9)
+
+func _go_back() -> void:
+	if m.castle_room_id == "main_hall":
+		_exit_to_courtyard()
+	else:
+		show_room("main_hall", true)
 
 func _exit_to_courtyard() -> void:
 	m._ui_tap()

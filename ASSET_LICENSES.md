@@ -782,22 +782,25 @@ generator output is present in this directory or connected to runtime art.
   removed while the accepted arch, corridor, and badge pixels remain.
 - `assets/flats/castle/main_hall_2screen/castle_join_column_cutout_reuse.png`
   — tight-alpha 190 x 941 extraction of an accepted Screen A shell pilaster;
-  used as the real-depth A/B architectural divider.
+  retained as a provenance derivative but not used by the repaired runtime
+  join.
 - `assets/flats/castle/main_hall_2screen/castle_join_floor_inlay_reuse.png`
   — 48 x 321 tapered inlay assembled deterministically by rotating and tiling
-  the accepted Screen A carpet trim; no new painting or external source.
+  the accepted Screen A carpet trim; no new painting or external source. It is
+  retained for provenance but retired from runtime because it read as a crack.
 - `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_*.png`
   — updated lossless runtime crops of the documented derived Main Hall
   masters. Source rectangles and hashes are in
   `audit/castle_sprite3d/castle_main_hall_2x4_runtime_manifest.json`.
-- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c*_bleed.png`
-  — deterministic render-only derivatives of the four accepted top-row
-  tiles, made by `tools/build_castle_hall_runtime_bleed.py`. Each 836 x 471
-  file preserves its 836 x 470 source body pixel-exactly and appends the first
-  approved pixel row of the corresponding lower tile. This creates a
-  one-pixel Mobile-raster safety overlap without scaling, interpolation,
-  content loss, generated art, or any modification to the accepted source
-  tiles. Exact source/derived hashes and row-equality proofs are recorded in
+- `assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r{0,1}_c*_bleed.png`
+  — deterministic render-only derivatives of all eight accepted source tiles,
+  made by `tools/build_castle_hall_runtime_bleed.py`. Each file preserves its
+  836 x 470/471 source body pixel-exactly and, where an interior neighbor
+  exists, appends that approved neighbor's first column and/or row. Derived
+  textures are at most 837 x 471. This creates a one-pixel two-axis
+  Mobile-raster safety overlap without scaling, interpolation, content loss,
+  generated art, or modification to the accepted source tiles. Exact
+  source/derived hashes and edge-equality proofs are recorded in
   `audit/castle_sprite3d/castle_main_hall_runtime_seam_bleed.json`. License
   remains project original.
 ## Sky Lagoon ambient animals - 2026-07-29
@@ -817,7 +820,7 @@ generator output is present in this directory or connected to runtime art.
 ## Pearl Castle registered Sprite3D bloom correction (2026-07-29)
 
 - `assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r{0,1}_c{2,3}.png`
-  and `tiles/runtime_bleed/main_hall_room_led_r0_c{2,3}_bleed.png` ?
+  and `tiles/runtime_bleed/main_hall_room_led_r{0,1}_c{2,3}_bleed.png` —
   lossless recrops of the already licensed
   `assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png`.
   Screen B now uses source rectangle `(376, 147, 1672, 941)` so its fixture

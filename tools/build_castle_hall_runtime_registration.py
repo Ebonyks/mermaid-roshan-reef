@@ -13,9 +13,9 @@ playable view from each:
 * Screen B: x=376, y=147
 
 Each view is sliced losslessly into two 836-pixel columns and 470/471-pixel
-rows. The existing one-pixel Mobile render bleed is then rebuilt from those
-new non-overlapping source tiles. No pixels are generated, scaled, blended,
-or interpolated.
+rows. A one-pixel Mobile render bleed is rebuilt toward every interior right
+and lower neighbor from those non-overlapping source tiles. No pixels are
+generated, scaled, blended, or interpolated.
 """
 
 from __future__ import annotations
@@ -149,38 +149,75 @@ def main() -> None:
 					"master_source_rect": list(master_rect),
 				})
 
-	for column in range(4):
-		top_path = TILE_ROOT / (
-			f"main_hall_room_led_r0_c{column}.png")
-		bottom_path = TILE_ROOT / (
-			f"main_hall_room_led_r1_c{column}.png")
-		top = Image.open(top_path).convert("RGB")
-		bottom = Image.open(bottom_path).convert("RGB")
-		derived = Image.new("RGB", (TILE_WIDTH, TOP_HEIGHT + 1))
-		derived.paste(top, (0, 0))
-		derived.paste(
-			bottom.crop((0, 0, TILE_WIDTH, 1)), (0, TOP_HEIGHT))
-		bleed_path = BLEED_ROOT / (
-			f"main_hall_room_led_r0_c{column}_bleed.png")
-		derived.save(bleed_path, format="PNG", optimize=True)
+	source_tiles: dict[tuple[int, int], Image.Image] = {}
+	for row in range(2):
+		for column in range(4):
+			source_path = TILE_ROOT / (
+				f"main_hall_room_led_r{row}_c{column}.png")
+			source_tiles[(row, column)] = Image.open(
+				source_path).convert("RGB")
 
-		if not _pixel_equal(
-				derived.crop((0, 0, TILE_WIDTH, TOP_HEIGHT)), top):
-			raise RuntimeError(f"Column {column} changed approved pixels")
-		if not _pixel_equal(
-				derived.crop((0, TOP_HEIGHT, TILE_WIDTH, TOP_HEIGHT + 1)),
-				bottom.crop((0, 0, TILE_WIDTH, 1))):
-			raise RuntimeError(
-				f"Column {column} bleed row is not source-exact")
+	for row in range(2):
+		for column in range(4):
+			source = source_tiles[(row, column)]
+			bleed_right = column < 3
+			bleed_down = row < 1
+			render_width = source.width + int(bleed_right)
+			render_height = source.height + int(bleed_down)
+			derived = Image.new("RGB", (render_width, render_height))
+			derived.paste(source, (0, 0))
+			right_edge_exact = True
+			lower_edge_exact = True
+			corner_exact = True
+			if bleed_right:
+				right_neighbor = source_tiles[(row, column + 1)]
+				right_edge = right_neighbor.crop(
+					(0, 0, 1, source.height))
+				derived.paste(right_edge, (source.width, 0))
+				right_edge_exact = _pixel_equal(
+					derived.crop((
+						source.width, 0, source.width + 1, source.height)),
+					right_edge)
+			if bleed_down:
+				lower_neighbor = source_tiles[(row + 1, column)]
+				lower_edge = lower_neighbor.crop(
+					(0, 0, source.width, 1))
+				derived.paste(lower_edge, (0, source.height))
+				lower_edge_exact = _pixel_equal(
+					derived.crop((
+						0, source.height, source.width, source.height + 1)),
+					lower_edge)
+			if bleed_right and bleed_down:
+				corner = source_tiles[(row + 1, column + 1)].crop(
+					(0, 0, 1, 1))
+				derived.paste(corner, (source.width, source.height))
+				corner_exact = _pixel_equal(
+					derived.crop((
+						source.width, source.height,
+						source.width + 1, source.height + 1)),
+					corner)
+			body_exact = _pixel_equal(
+				derived.crop((0, 0, source.width, source.height)), source)
+			source_exact = (
+				body_exact and right_edge_exact
+				and lower_edge_exact and corner_exact)
+			if not source_exact:
+				raise RuntimeError(
+					f"Tile r{row} c{column} bleed changed approved pixels")
 
-		for record in records:
-			if record["column"] == column and record["row"] == 0:
-				record["runtime_bleed_path"] = (
-					bleed_path.relative_to(ROOT).as_posix())
-				record["runtime_bleed_dimensions"] = list(derived.size)
-				record["runtime_bleed_sha256"] = _sha256(bleed_path)
-				record["runtime_bleed_source_exact"] = True
-				break
+			bleed_path = BLEED_ROOT / (
+				f"main_hall_room_led_r{row}_c{column}_bleed.png")
+			derived.save(bleed_path, format="PNG", optimize=True)
+			for record in records:
+				if record["column"] == column and record["row"] == row:
+					record["runtime_bleed_path"] = (
+						bleed_path.relative_to(ROOT).as_posix())
+					record["runtime_bleed_dimensions"] = list(derived.size)
+					record["runtime_bleed_sha256"] = _sha256(bleed_path)
+					record["runtime_bleed_pixels"] = [
+						int(bleed_right), int(bleed_down)]
+					record["runtime_bleed_source_exact"] = source_exact
+					break
 
 	reconstructions: dict[str, bool] = {}
 	for screen_index, view in enumerate(views):

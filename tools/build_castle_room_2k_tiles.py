@@ -96,12 +96,16 @@ def main_hall_tile_records() -> list[dict[str, object]]:
 		HALL_ALIGNED_ROOT / "main_hall_screen_b_fixture_aligned_master.png",
 	)
 	view = Image.new("RGB", (3344, 941))
+	view_rects = (
+		(376, 212, 2048, 1153),
+		(376, 147, 2048, 1088),
+	)
 	for index, master_path in enumerate(master_paths):
 		master = Image.open(master_path).convert("RGB")
 		if master.size != (2048, 1153):
 			raise ValueError(
 				f"{master_path} is {master.size}, expected (2048, 1153)")
-		view.paste(master.crop((376, 212, 2048, 1153)), (index * 1672, 0))
+		view.paste(master.crop(view_rects[index]), (index * 1672, 0))
 
 	reconstruction = Image.new("RGB", view.size)
 	records: list[dict[str, object]] = []
@@ -121,7 +125,8 @@ def main_hall_tile_records() -> list[dict[str, object]]:
 			screen = "A" if screen_index == 0 else "B"
 			screen_local_column = column % 2
 			source_left = 376 + (screen_local_column * 836)
-			source_top = 212 if row == 0 else 682
+			source_view_y = view_rects[screen_index][1]
+			source_top = source_view_y + top
 			tile_path = source_tile_path
 			record: dict[str, object] = {
 				"row": row,
@@ -145,23 +150,35 @@ def main_hall_tile_records() -> list[dict[str, object]]:
 					source_top + source_tile.height,
 				],
 			}
-			if row == 0:
-				tile_path = HALL_RUNTIME_ROOT / "tiles" / "runtime_bleed" / (
-					f"main_hall_room_led_r0_c{column}_bleed.png")
-				runtime_tile = Image.open(tile_path).convert("RGB")
-				if runtime_tile.size != (836, 471):
-					raise ValueError(
-						f"{tile_path} is {runtime_tile.size}, "
-						"expected (836, 471)")
-				record.update({
-					"dimensions": list(runtime_tile.size),
-					"path": str(tile_path.relative_to(ROOT)),
-					"runtime_seam_bleed_pixels": 1,
-					"sha256": sha256(tile_path),
-					"source_tile_dimensions": list(source_tile.size),
-					"source_tile_path": str(source_tile_path.relative_to(ROOT)),
-					"source_tile_sha256": sha256(source_tile_path),
-				})
+			tile_path = HALL_RUNTIME_ROOT / "tiles" / "runtime_bleed" / (
+				f"main_hall_room_led_r{row}_c{column}_bleed.png")
+			runtime_tile = Image.open(tile_path).convert("RGB")
+			bleed_pixels = (
+				1 if column < 3 else 0,
+				1 if row == 0 else 0,
+			)
+			expected_runtime_size = (
+				source_tile.width + bleed_pixels[0],
+				source_tile.height + bleed_pixels[1],
+			)
+			if runtime_tile.size != expected_runtime_size:
+				raise ValueError(
+					f"{tile_path} is {runtime_tile.size}, "
+					f"expected {expected_runtime_size}")
+			if not exact_equal(
+					runtime_tile.crop(
+						(0, 0, source_tile.width, source_tile.height)),
+					source_tile):
+				raise RuntimeError(f"{tile_path} changed approved source pixels")
+			record.update({
+				"dimensions": list(runtime_tile.size),
+				"path": str(tile_path.relative_to(ROOT)),
+				"runtime_seam_bleed_pixels": list(bleed_pixels),
+				"sha256": sha256(tile_path),
+				"source_tile_dimensions": list(source_tile.size),
+				"source_tile_path": str(source_tile_path.relative_to(ROOT)),
+				"source_tile_sha256": sha256(source_tile_path),
+			})
 			records.append(record)
 	if not exact_equal(view, reconstruction):
 		raise RuntimeError(
@@ -295,10 +312,17 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 	]
 	manifest["runtime_node_contract"]["shaded_role_allowlist"] = [
 		"clean_background_tile",
-		"architectural_join_divider",
-		"architectural_join_inlay",
-		"architectural_bridge",
 	]
+	manifest["runtime_node_contract"]["background_tile_seam_policy"] = {
+		"source_rectangles_non_overlapping": True,
+		"main_hall_runtime_neighbor_bleed_pixels": [1, 1],
+		"main_hall_bleed_method": (
+			"source-exact right/lower neighbor edges; no scaling"),
+		"destination_room_runtime_quad_overlap_native_pixels": [1, 1],
+		"destination_room_overlap_method": (
+			"top-left-anchored geometry overscan; source textures unchanged"),
+		"maximum_runtime_texture_long_edge": 1024,
+	}
 	contract = manifest["owner_native_environment_contract"]
 	contract.update({
 		"status": "compliant",
@@ -328,6 +352,8 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 			"master_sha256": record["master_sha256"],
 			"runtime_tiles": record["tiles"],
 			"tile_reconstruction_pixel_exact": True,
+			"runtime_quad_overlap_native_pixels": [1, 1],
+			"source_tile_rectangles_non_overlapping": True,
 		})
 
 	main_hall = manifest["rooms"]["main_hall"]
@@ -347,6 +373,8 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		"upscaled_from_preserved_source": False,
 		"runtime_tiles": hall_tiles,
 		"tile_reconstruction_pixel_exact": True,
+		"runtime_neighbor_bleed_pixels": [1, 1],
+		"source_tile_rectangles_non_overlapping": True,
 	})
 	DEPTH_MANIFEST.write_text(
 		json.dumps(manifest, indent=2, sort_keys=True) + "\n",
